@@ -213,3 +213,21 @@ Start merging your PowerPoint files with **Aspose free online tool** today!
 Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and so on. 
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Are speaker notes preserved during merge?**
+
+Yes. When cloning slides, Aspose.Slides carries over all slide elements, including notes, formatting, and animations.
+
+**Are comments and their authors transferred?**
+
+Comments, as part of slide content, are copied with the slide. Comment author labels are preserved as comment objects in the resulting presentation.
+
+**What if the source presentation is password-protected?**
+
+It must be [opened with the password](/slides/python-net/password-protected-presentation/) via [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/); after loading, those slides can be safely cloned into an unprotected target file (or a protected one as well).
+
+**How thread-safe is the merge operation?**
+
+Do not use the same [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) instance from [multiple threads](/slides/python-net/multithreading/). The recommended rule is "one document — one thread"; different files can be processed in parallel in separate threads.

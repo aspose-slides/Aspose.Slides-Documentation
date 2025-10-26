@@ -207,3 +207,17 @@ with slides.Presentation() as presentation:
 Here is the result:
 
 ![todo:image_alt_text](img_02_05.png)
+
+## **FAQ**
+
+**Will 3D effects be preserved when exporting a presentation to images/PDF/HTML?**
+
+Yes. The Slides 3D engine renders 3D effects when exporting to supported formats ([images](/slides/python-net/convert-powerpoint-to-png/), [PDF](/slides/python-net/convert-powerpoint-to-pdf/), [HTML](/slides/python-net/convert-powerpoint-to-html/), etc.).
+
+**Can I retrieve the "effective" (final) 3D parameter values that account for themes, inheritance, etc.?**
+
+Yes. Slides provides APIs to [read effective values](/slides/python-net/shape-effective-properties/) (including for 3D—lighting, bevels, etc.) so you can see the final applied settings.
+
+**Do 3D effects work when converting a presentation to video?**
+
+Yes. When [generating frames for the video](/slides/python-net/convert-powerpoint-to-video/), 3D effects are rendered just as they are for [exported images](/slides/python-net/convert-powerpoint-to-png/).

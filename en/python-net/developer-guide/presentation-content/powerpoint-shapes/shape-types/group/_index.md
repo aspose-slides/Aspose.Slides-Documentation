@@ -80,3 +80,17 @@ with slides.Presentation("group_shape.pptx") as presentation:
                 # Access the Alt Text property.
                 print(child_shape.alternative_text)
 ```
+
+## **FAQ**
+
+**Is nested grouping (a group inside a group) supported?**
+
+Yes. [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) has a [parent_group](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/parent_group/) property, which directly indicates hierarchy support (a group can be a child of another group).
+
+**How do I control the group’s z-order relative to other objects on the slide?**
+
+Use the [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/)’s [z_order_position](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/z_order_position/) property to inspect or change its position in the display stack.
+
+**Can I prevent moving/editing/ungrouping?**
+
+Yes. The group’s lock section is exposed via [group_shape_lock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/group_shape_lock/), which lets you restrict operations on the object.

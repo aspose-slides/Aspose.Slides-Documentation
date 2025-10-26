@@ -67,7 +67,7 @@ pres.save("PPTtoPPTX_out.pptx", slides.export.SaveFormat.PPTX)
 
 Read more about [**PPT vs PPTX**](/slides/python-net/ppt-vs-pptx/) presentation formats and how [**Aspose.Slides supports PPT to PPTX conversion**](/slides/python-net/convert-ppt-to-pptx/).
 
-## Frequently Asked Questions (F.A.Q.)
+## Frequently Asked Questions
 
 ### **What is the difference between PPT and PPTX formats?**
 
