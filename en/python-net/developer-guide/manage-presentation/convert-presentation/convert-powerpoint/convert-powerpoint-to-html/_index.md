@@ -222,7 +222,7 @@ htmlOptions.slide_image_format = slides.export.SlideImageFormat.svg(svgOptions)
 presentation.save(path + "ExportMediaFiles_out.html", slides.export.SaveFormat.HTML, htmlOptions)
 ```
 
-## Frequently Asked Questions (F.A.Q.)
+## Frequently Asked Questions
 
 ### **How can I convert a PowerPoint presentation to HTML using Python?**
 

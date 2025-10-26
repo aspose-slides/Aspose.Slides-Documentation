@@ -251,7 +251,7 @@ with slides.Presentation() as presentation:
 | :- | :- |
 |add(path, image: aspose.pydrawing.Image)|[add(path, image)](https://reference.aspose.com/slides/python-net/aspose.slides.export.web/output/add/#str-iimage)|
 
-## **API Support for `aspose.pydrawing.Graphics` Will Be Discontinued**
+## **API Support for aspose.pydrawing.Graphics Will Be Discontinued**
 
 Methods that use `aspose.pydrawing.Graphics` are deprecated; support for them will be removed from the public API.
 
@@ -259,3 +259,17 @@ The API members that rely on `aspose.pydrawing.Graphics` and will be removed inc
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics)`
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics, scale_x, scale_y)`
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics, rendering_size)`
+
+# **FAQ**
+
+**Why was aspose.pydrawing.Graphics dropped?**
+
+Support for Graphics is being removed from the public API to unify work with rendering and images, eliminate ties to platform-specific dependencies, and switch to a cross-platform approach with [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/). All rendering methods to Graphics will be removed.
+
+**What is the practical benefit of IImage compared to Image/Bitmap?**
+
+[IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) unifies working with both raster and vector images, simplifies saving to various formats via [ImageFormat](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/), reduces dependence on pydrawing, and makes code more portable across environments.
+
+**Will the Modern API affect the performance of generating thumbnails?**
+
+Switching from `get_thumbnail` to `get_image` does not worsen scenarios: the new methods provide the same capabilities for producing images with options and sizes, while retaining support for rendering options. The specific gain or drop depends on the scenario, but functionally the replacements are equivalent.

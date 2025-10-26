@@ -82,3 +82,17 @@ setup(...
 ```bash
 $ python setup.py build_exe
 ```
+
+## **FAQ**
+
+**Do I need Microsoft PowerPoint or .NET installed on the user’s machine?**
+
+No, PowerPoint is not required. Aspose.Slides is a self-contained engine; the Python package ships everything needed as an extension for CPython. The user does not need to install .NET separately.
+
+**How should I properly attach the license to a frozen application?**
+
+You can store the license XML next to the executable or embed it as a resource and load it from an accessible path before the first API call. Important: do not modify the XML content (not even line breaks).
+
+**What should I do if fonts render differently after the build compared to development?**
+
+Make sure the fonts you use are available in the target environment (bundled or system-installed) and that their paths are correctly resolved at runtime; font behavior is especially sensitive on Linux.

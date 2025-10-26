@@ -76,6 +76,12 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **FAQ**
+
+**Are tables preserved when importing a PDF, and can their detection be improved?**
+
+Tables can be detected during import; [PdfImportOptions](https://reference.aspose.com/slides/python-net/aspose.slides.importing/pdfimportoptions/) includes a [detect_tables](https://reference.aspose.com/slides/python-net/aspose.slides.importing/pdfimportoptions/detect_tables/) parameter that enables table recognition. The effectiveness depends on the PDF’s structure.
+
 {{% alert title="Note" color="info" %}}
 
 You can also use Aspose.Slides to convert HTML into other popular file formats:
