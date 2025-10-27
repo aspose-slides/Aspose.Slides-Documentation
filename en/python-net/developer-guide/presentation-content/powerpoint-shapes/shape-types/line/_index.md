@@ -96,3 +96,17 @@ with slides.Presentation() as presentation:
     # Save the presentation as a PPTX file.
     presentation.save("line_shape_2.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQ**
+
+**Can I convert a regular line into a connector so it "snaps" to shapes?**
+
+No. A regular line (an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) of type [LINE](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/)) does not automatically become a connector. To make it snap to shapes, use the dedicated [Connector](https://reference.aspose.com/slides/python-net/aspose.slides/connector/) type and the [corresponding APIs](/slides/python-net/connector/) for connections.
+
+**What should I do if a line’s properties are inherited from the theme and it’s hard to determine the final values?**
+
+[Read the effective properties](/slides/python-net/shape-effective-properties/) through the [ILineFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ilinefillformateffectivedata/) classes—these already account for inheritance and theme styles.
+
+**Can I lock a line against editing (moving, resizing)?**
+
+Yes. Shapes provide [lock objects](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/auto_shape_lock/) that let you [disallow editing operations](/slides/python-net/applying-protection-to-presentation/).
