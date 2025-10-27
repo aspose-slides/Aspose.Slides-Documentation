@@ -2,7 +2,7 @@
 title: システム要件
 type: docs
 weight: 60
-url: /ja/python-net/system-requirements/
+url: /ja/python-net/getting-started/system-requirements/
 keywords:
 - システム要件
 - オペレーティングシステム
@@ -16,14 +16,15 @@ keywords:
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET のシステム要件をご確認ください。Windows、Linux、macOS で PowerPoint と OpenDocument をシームレスにサポートできます。"
+description: "Aspose.Slides for Python via .NET のシステム要件を確認してください。Windows、Linux、macOS で PowerPoint と OpenDocument のシームレスなサポートを実現します。"
 ---
+## **イントロダクション**
 
-Aspose.Slides for Python via .NETは、Microsoft PowerPointなどのサードパーティ製品をインストールする必要はありません。Aspose.Slides自体は、Microsoft PowerPointプレゼンテーション形式を含むさまざまな形式のドキュメントを作成、変更、変換、レンダリングするためのエンジンです。
+Aspose.Slides for Python via .NET では、Microsoft PowerPoint などのサードパーティ製品をインストールする必要はありません。Aspose.Slides は、Microsoft PowerPoint プレゼンテーション形式を含むさまざまな形式のドキュメントを作成、変更、変換、レンダリングするエンジンです。
 
-## 対応オペレーティングシステム
+## **対応オペレーティングシステム**
 
-Aspose.Slides for Python via .NETは、Python 3.5以降がインストールされているWindows 64ビットおよび32ビット、macOS、Linux 64ビットオペレーティングシステムをサポートしています。
+Aspose.Slides for Python は、Python 3.5 以降がインストールされた環境で、Windows（32 ビットおよび 64 ビット）、macOS、64 ビット Linux をサポートします。
 
 <table>  
     <tr>
@@ -64,16 +65,30 @@ Aspose.Slides for Python via .NETは、Python 3.5以降がインストールさ�
         <td>macOS</td>
         <td>
             <ul>
-                <li>12 "Monterey"</li>
+                <li>12「Monterey」</li>
             </ul>
         </td>
     </tr>
 </table>
 
-## ターゲットLinuxおよびmacOSプラットフォームのシステム要件
+## **対象 Linux および macOS プラットフォームのシステム要件**
 
-- GCC-6ランタイムライブラリ（またはそれ以降）。
-- [`libgdiplus`](https://github.com/mono/libgdiplus): GDI+ APIのオープンソース実装。
-- .NET Core Runtimeの依存関係。 .NET Core Runtime自体をインストールする必要はありません。
-- Python 3.5-3.7の場合: `pymalloc`ビルドのPythonが必要です。 `--with-pymalloc` Pythonビルドオプションはデフォルトで有効になっています。通常、`pymalloc`ビルドのPythonは、ファイル名に`m`サフィックスが付けられています。
-- `libpython`共有Pythonライブラリ。 `--enable-shared` Pythonビルドオプションはデフォルトで無効になっています。一部のPythonディストリビューションには`libpython`共有ライブラリが含まれていません。一部のLinuxプラットフォームでは、パッケージマネージャを使用して`libpython`共有ライブラリをインストールできます。例えば: `sudo apt-get install libpython3.7`。一般的な問題は、`libpython`ライブラリが共有ライブラリの標準システムロケーションとは異なる場所にインストールされることです。この問題は、Pythonをコンパイルする際に代替ライブラリパスを設定するためのPythonビルドオプションを使用することで解決できます。または、システムの共有ライブラリの標準ロケーションに`libpython`ライブラリファイルへのシンボリックリンクを作成することで解決できます。通常、`libpython`共有ライブラリファイル名は、Python 3.5-3.7の場合は`libpythonX.Ym.so.1.0`、Python 3.8以降の場合は`libpythonX.Y.so.1.0`です（例えば: libpython3.7m.so.1.0、libpython3.9.so.1.0）。
+- GCC 6 ランタイム ライブラリ（またはそれ以降）。
+- [libgdiplus](https://github.com/mono/libgdiplus)、GDI+ API のオープンソース実装。
+- .NET Core Runtime の依存関係。.NET Core Runtime 自体のインストールは不要です。
+- Python 3.5–3.7 用: `pymalloc` ビルドが必要です。`--with-pymalloc` ビルドオプションはデフォルトで有効になっています。通常、`pymalloc` ビルドの Python はファイル名に `m` サフィックスが付いています。
+- `libpython` 共有ライブラリ。`--enable-shared` Python ビルドオプションはデフォルトで無効になっており、一部の Python ディストリビューションには `libpython` 共有ライブラリが含まれていません。一部の Linux プラットフォームでは、パッケージマネージャー（例: `sudo apt-get install libpython3.7`）を使用して `libpython` 共有ライブラリをインストールできます。一般的な問題は、`libpython` ライブラリが標準以外の場所にインストールされていることです。Python をコンパイルするときにビルドオプションで代替ライブラリパスを設定するか、システムの標準共有ライブラリディレクトリにシンボリックリンクを作成することで対処できます。`libpython` 共有ライブラリのファイル名は、Python 3.5–3.7 の場合は `libpythonX.Ym.so.1.0`、Python 3.8 以降の場合は `libpythonX.Y.so.1.0`（例: `libpython3.7m.so.1.0`、`libpython3.9.so.1.0`）です。
+
+## **FAQ**
+
+**変換やレンダリングのために Microsoft PowerPoint のインストールは必要ですか？**
+
+いいえ、PowerPoint は不要です。Aspose.Slides は、[作成](/slides/ja/python-net/create-presentation/)、変更、[変換](/slides/ja/python-net/convert-presentation/)、および[レンダリング](/slides/ja/python-net/convert-powerpoint-to-png/) 用のスタンドアロンエンジンです。
+
+**マシンに特定の .NET バージョン（Core/5+/6+）が必要ですか？**
+
+.NET Runtime 自体のインストールは不要ですが、Linux/macOS ではその依存関係が存在する必要があります。つまり、ランタイム全体をインストールせずに、通常 .NET の依存パッケージが含まれる環境を用意すればよいということです。
+
+**正しいレンダリングのために必要なフォントは何ですか？**
+
+プレゼンテーションで使用されているフォント、または適切な[代替フォント](/slides/ja/python-net/font-substitution/)が利用可能である必要があります。Linux/macOS で一貫したレンダリングを実現するために、一般的なフォントパッケージをインストールすることをお勧めします。

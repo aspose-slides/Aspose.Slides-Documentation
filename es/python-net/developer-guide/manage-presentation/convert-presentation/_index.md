@@ -1,9 +1,9 @@
 ---
-title: Convertir presentaciones a múltiples formatos en Python
+title: Convertir presentaciones a varios formatos en Python
 linktitle: Convertir presentaciones
 type: docs
 weight: 70
-url: /es/python-net/convert-presentation/
+url: /es/python-net/developer-guide/manage-presentation/convert-presentation/
 keywords:
 - convertir presentación
 - exportar presentación
@@ -18,42 +18,95 @@ keywords:
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Convierte presentaciones de PowerPoint y OpenDocument a PPTX, PDF, XPS, TIFF y más con Aspose.Slides for Python via .NET. Conversión sencilla y de alta calidad."
+description: "Convierta presentaciones de PowerPoint y OpenDocument a PPTX, PDF, XPS, TIFF y más con Aspose.Slides para Python mediante .NET. Conversión simple y de alta calidad."
 ---
 
+## **Introducción**
+
+Esta página ofrece una visión general de la conversión de presentaciones con Aspose.Slides para Python mediante .NET. Resume los escenarios compatibles y señala guías específicas que muestran el código exacto para exportar presentaciones y diapositivas a formatos como PDF, XPS, TIFF, así como para convertir entre PPT y PPTX. Cuando corresponde, los artículos enlazados resaltan opciones específicas del formato —por ejemplo, renderizar notas o ajustar la calidad de la imagen— y limitaciones conocidas como el soporte parcial en rutas PPT→PPTX. Utilice esta página para elegir un formato de destino y luego siga la receta enlazada.
+
 ## **Conversión de PPT a PPTX**
-### **Acerca de la Conversión de PPT a PPTX**
-Aspose.Slides ahora admite la conversión de PPT a PPTX.
-### **Convertir PPT a PPTX con Aspose.Slides**
-Aspose.Slides para Python a través de .NET proporciona soporte parcial para convertir presentaciones en formato de archivo PPT a presentaciones en formato de archivo PPTX. Dado que el soporte para la mencionada función de conversión de presentaciones se ha introducido recientemente en Aspose.Slides para Python a través de .NET, en este momento tiene una capacidad limitada y solo funciona para la forma simple de presentaciones. La principal ventaja que ofrece la biblioteca API Aspose.Slides para Python a través de .NET para convertir presentaciones PPT a formato PPTX es la facilidad de uso de la API para lograr el objetivo deseado. Por favor, proceda a este [enlace](/slides/es/python-net/convert-presentation/) para la sección de fragmentos de código para más detalles. La siguiente sección ilustra claramente qué características son compatibles y cuáles no al convertir presentaciones en formato PPT a presentaciones en formato PPTX.
-{{% alert color="primary" %}} 
-Leer más [**Cómo Convertir PPT a PPTX**](/slides/es/python-net/convert-ppt-to-pptx/).
+
+### **Acerca de PPT/PPTX**
+
+PPT es el formato binario antiguo de PowerPoint (97–2003), mientras que PPTX es el formato Open XML empaquetado en ZIP introducido en PowerPoint 2007. En comparación con PPT, PPTX suele generar archivos más pequeños, admite funciones modernas, funciona bien con automatización de documentos y se recomienda para almacenamiento a largo plazo y flujos de trabajo multiplataforma.
+
+### **Convertir PPT a PPTX**
+
+Aspose.Slides admite la conversión de presentaciones PPT al formato PPTX. La ventaja principal de usar la API de Aspose.Slides para esta tarea es la simplicidad del flujo de trabajo necesario para lograr el resultado deseado. En la práctica, puede realizar la conversión con un código mínimo mientras mantiene alta fidelidad de diapositivas, diseños y medios.
+
+{{% alert color="primary" %}}
+Read more: [Convert PPT to PPTX in Python](/slides/es/python-net/convert-ppt-to-pptx/).
 {{% /alert %}}
-## **Conversión de Presentación a PDF**
+
+## **Conversión de presentaciones a PDF**
+
 ### **Acerca de PDF**
-El [Formato de Documento Portátil](https://en.wikipedia.org/wiki/PDF) es un formato de archivo que fue creado por Adobe System para el intercambio de documentos entre diferentes organizaciones. El propósito de este formato era permitir que el contenido de los documentos se representara de tal manera que su apariencia visual no dependiera de la plataforma en la que se estuviera visualizando.
-### **PDF en Aspose.Slides para Python a través de .NET**
-[PDF](https://docs.fileformat.com/pdf/) es un formato de archivo que fue creado por Adobe System para el intercambio de documentos entre diferentes organizaciones. El propósito de este formato era permitir que la apariencia visual del contenido del documento no dependiera de la plataforma en la que se estuviera visualizando.
 
-Cualquier documento de presentación que se pueda cargar en Aspose.Slides para Python a través de .NET se puede convertir en un documento PDF. Puede exportar los documentos de presentación a PDF directamente utilizando solo el componente Aspose.Slides para Python a través de .NET. No necesita ninguna otra biblioteca de terceros o componente Aspose.PDF para este propósito.
+El [Portable Document Format](https://en.wikipedia.org/wiki/PDF) (PDF) es un formato de archivo creado por Adobe Systems para intercambiar documentos entre organizaciones. Su propósito es garantizar que el contenido de un documento se muestre con la misma apariencia visual independientemente de la plataforma en la que se visualice.
 
-{{% alert color="primary" %}} 
-Leer más [**Cómo Convertir Presentación a PDF**](/slides/es/python-net/convert-powerpoint-ppt-and-pptx-to-pdf/).
+### **Convertir presentaciones a PDF**
+
+Cualquier presentación que pueda cargarse en Aspose.Slides puede convertirse en un documento PDF. Puede exportar presentaciones a PDF directamente con el componente Aspose.Slides; no se requieren bibliotecas de terceros ni el componente Aspose.PDF.
+
+{{% alert color="primary" %}}
+Read more: [Convert PPT & PPTX to PDF in Python](/slides/es/python-net/convert-powerpoint-to-pdf/).
 {{% /alert %}}
 
-## **Conversión de Presentación a XPS**
+## **Conversión de presentaciones a XPS**
+
 ### **Acerca de XPS**
-La [Especificación de Analizador XML](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) es un lenguaje de descripción de página y un formato de documento fijo que fue desarrollado originalmente por Microsoft. Al igual que PDF, XPS es un formato de documento de diseño fijo diseñado para preservar la fidelidad del documento y proporcionar una apariencia de documento independiente del dispositivo.
-### **Convertir Presentación a XPS con Aspose.Slides**
-Cualquier documento de presentación que se pueda cargar mediante Aspose.Slides para Python a través de .NET se puede convertir en formato XPS. Aspose.Slides para Python a través de .NET utiliza el motor de diseño y renderizado de alta fidelidad para producir salida en formato de documento XPS de diseño fijo. Vale la pena mencionar que Aspose.Slides para Python a través de .NET genera XPS directamente sin depender de las clases de Windows Presentation Foundation (WPF) que están empaquetadas con .NET Framework 3.5, lo que permite a Aspose.Slides para Python a través de .NET producir documentos XPS en máquinas que ejecutan versiones del .NET Framework anteriores a la versión 3.5. Puede aprender sobre cómo exportar los documentos de presentación a documentos XPS a través de Aspose.Slides para Python a través de .NET en [este tema](/slides/es/python-net/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/).
-{{% alert color="primary" %}} 
-Leer más [**Cómo Convertir Presentación a XPS**](/slides/es/python-net/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
+
+La [XML Paper Specification](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) (XPS) es un lenguaje de descripción de páginas y formato de documento fijo desarrollado originalmente por Microsoft. Al igual que PDF, XPS es un formato de documento de diseño fijo diseñado para preservar la fidelidad del documento y proporcionar una apariencia independiente del dispositivo.
+
+### **Convertir presentaciones a XPS**
+
+Cualquier presentación que pueda cargarse con Aspose.Slides puede convertirse al formato XPS. Aspose.Slides utiliza un motor de diseño de página y renderizado de alta fidelidad para producir salida en el formato XPS de diseño fijo. Cabe destacar que Aspose.Slides genera XPS directamente sin depender de Windows Presentation Foundation (WPF).
+
+{{% alert color="primary" %}}
+Read more: [Convert PowerPoint Presentations to XPS in Python](/slides/es/python-net/convert-powerpoint-to-xps/).
 {{% /alert %}}
-## **Conversión de Presentación a TIFF**
+
+## **Conversión de presentaciones a TIFF**
+
 ### **Acerca de TIFF**
-El [Formato de Archivo de Imagen Etiquetado](https://en.wikipedia.org/wiki/TIFF) que es conocido por almacenar múltiples imágenes en un documento fue creado originalmente por Aldus. Este formato es ampliamente compatible con aplicaciones de escaneo, fax y manipulación de imágenes.
-### **Convertir Presentación a TIFF con Aspose.Slides**
-Cualquier documento que se pueda cargar en Aspose.Slide para .NET también se puede convertir en un documento TIFF directamente por Aspose.Slides para Python a través de .NET, eliminando la necesidad de cualquier componente de terceros. Además, puede definir opcionalmente el tamaño de las imágenes en el documento TIFF resultante. Puede encontrar información sobre cómo exportar los documentos de presentación a documentos TIFF a través de Aspose.Slides para Python a través de .NET en [este tema](/slides/es/python-net/convert-powerpoint-ppt-and-pptx-to-tiff/).
-{{% alert color="primary" %}} 
-Leer más [**Cómo Convertir Presentación a TIFF**](/slides/es/python-net/convert-powerpoint-to-tiff/)
+
+El [Tagged Image File Format](https://en.wikipedia.org/wiki/TIFF) (TIFF) es un formato de imagen raster conocida por almacenar múltiples imágenes (páginas) en un solo archivo. Desarrollado originalmente por Aldus, es ampliamente compatible con aplicaciones de escaneo, fax y otras de procesamiento de imágenes.
+
+### **Convertir presentaciones a TIFF**
+
+Cualquier documento que pueda cargarse en Aspose.Slides también puede convertirse directamente a un archivo TIFF sin componentes de terceros. Opcionalmente, puede especificar el tamaño de imagen para las páginas del TIFF resultante.
+
+{{% alert color="primary" %}}
+Read more: [Convert PowerPoint Presentations to TIFF in Python](/slides/es/python-net/convert-powerpoint-to-tiff/).
 {{% /alert %}}
+
+## **FAQ**
+
+**¿Puedo incluir diapositivas ocultas al exportar a PDF/XPS?**
+
+Sí. La exportación admite incluir diapositivas ocultas mediante la opción correspondiente en la configuración de [PDF](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/show_hidden_slides/)/[XPS](https://reference.aspose.com/slides/python-net/aspose.slides.export/xpsoptions/show_hidden_slides/).
+
+**¿Se admite guardar en el formato PDF/A (para archivo de archivo)?**
+
+Sí, los niveles de cumplimiento PDF/A [están disponibles](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfcompliance/) (incluyendo A-2a/A-2b/A-2u y A-3a/A-3b) durante la exportación.
+
+**¿Qué ocurre con las fuentes durante la conversión: se incrustan o se sustituyen?**
+
+Existen opciones flexibles: puede [incrustar todos los glifos o solo los subconjuntos usados](/slides/es/python-net/embedded-font/), especificar una [fuente de respaldo](/slides/es/python-net/fallback-font/), y [controlar el comportamiento](/slides/es/python-net/font-substitution/) cuando una fuente carece de ciertos estilos.
+
+**¿Cómo puedo controlar la calidad y el tamaño del PDF resultante?**
+
+Hay opciones disponibles para la [calidad JPEG](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/jpeg_quality/), la [compresión de texto](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/text_compression/), y un umbral de [resolución suficiente](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/sufficient_resolution/) para imágenes, además de un modo que selecciona la [mejor compresión para imágenes](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/best_images_compression_ratio/).
+
+**¿Puedo exportar solo un rango de diapositivas (por ejemplo, 5–12)?**
+
+Sí, la exportación admite seleccionar un subconjunto de diapositivas.
+
+**¿Se admite el procesamiento multinúcleo de varios archivos al mismo tiempo?**
+
+Es aceptable procesar diferentes presentaciones en paralelo en procesos separados. Importante: el mismo objeto de [presentación](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) no debe cargarse ni guardarse desde [múltiples subprocesos](/slides/es/python-net/multithreading/).
+
+**¿Existen riesgos al aplicar la licencia desde diferentes subprocesos?**
+
+Sí, las llamadas a [configuración de licencia](/slides/es/python-net/licensing/) no son seguras para subprocesos y requieren sincronización.

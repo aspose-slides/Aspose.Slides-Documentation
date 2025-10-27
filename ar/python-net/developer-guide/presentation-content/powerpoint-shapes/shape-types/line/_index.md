@@ -1,78 +1,112 @@
 ---
-title: خط
+title: إنشاء أشكال الخط في العروض التقديمية باستخدام بايثون
+linktitle: خط
 type: docs
 weight: 50
-url: /ar/python-net/line/
-keywords: "خط, شكل باوربوينت, عرض باوربوينت, بايثون, Aspose.Slides لـ بايثون عبر .NET"
-description: "إضافة خط في عرض باوربوينت في بايثون"
+url: /ar/python-net/developer-guide/presentation-content/powerpoint-shapes/shape-types/line/
+keywords:
+- خط
+- إنشاء خط
+- إضافة خط
+- خط عادي
+- تهيئة الخط
+- تخصيص الخط
+- نمط الشرط
+- رأس السهم
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: تعلم كيفية معالجة تنسيق الخط في عروض PowerPoint وOpenDocument التقديمية باستخدام Aspose.Slides للبايثون عبر .NET. اكتشف الخصائص والأساليب والأمثلة.
 ---
 
-يدعم Aspose.Slides لـ بايثون عبر .NET إضافة أنواع مختلفة من الأشكال إلى الشرائح. في هذا الموضوع، سنبدأ العمل مع الأشكال من خلال إضافة الخطوط إلى الشرائح. باستخدام Aspose.Slides لـ بايثون عبر .NET، يمكن للمطورين ليس فقط إنشاء خطوط بسيطة، ولكن يمكن أيضًا رسم بعض الخطوط الزخرفية على الشرائح.
-## **إنشاء خط بسيط**
-لإضافة خط بسيط إلى شريحة مختارة من العرض، يرجى اتباع الخطوات أدناه:
+## **نظرة عامة**
 
-- أنشئ مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-- احصل على مرجع لشريحة باستخدام الفهرس الخاص بها.
-- أضف شكل تلقائي من نوع خط باستخدام طريقة [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) المعروضة بواسطة كائن الأشكال.
-- قم بكتابة العرض المعدل كملف PPTX.
+يدعم Aspose.Slides للبايثون عبر .NET إضافة أنواع مختلفة من الأشكال إلى الشرائح. في هذا الموضوع، سنبدأ العمل مع الأشكال بإضافة خطوط إلى الشرائح. باستخدام Aspose.Slides، يمكن للمطورين ليس فقط إنشاء خطوط بسيطة، بل يمكن أيضًا رسم خطوط مزخرفة على الشرائح.
 
-في المثال أدناه، أضفنا خطًا إلى الشريحة الأولى من العرض.
+## **إنشاء خطوط عادية**
+
+استخدم Aspose.Slides لإضافة خط عادي إلى شريحة كفاصل أو موصل بسيط. لإضافة خط عادي إلى شريحة مختارة في عرض تقديمي، اتبع الخطوات التالية:
+
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. الحصول على مرجع لل شريحة حسب الفهرس.
+3. إضافة [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) من النوع `LINE` باستخدام طريقة `add_auto_shape` على كائن [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) .
+4. حفظ العرض التقديمي كملف PPTX.
+
+في المثال أدناه، يتم إضافة خط إلى الشريحة الأولى من العرض التقديمي.
 
 ```py
 import aspose.slides as slides
 
-# إنشاء مثيل لفئة PresentationEx التي تمثل ملف PPTX
-with slides.Presentation() as pres:
-    # الحصول على الشريحة الأولى
-    sld = pres.slides[0]
+# Instantiate the Presentation class.
+with slides.Presentation() as presentation:
 
-    # إضافة شكل تلقائي من نوع خط
-    sld.shapes.add_auto_shape(slides.ShapeType.LINE, 50, 150, 300, 0)
+    # Get the first slide.
+    slide = presentation.slides[0]
 
-    # كتابة ملف PPTX على القرص
-    pres.save("LineShape1_out.pptx", slides.export.SaveFormat.PPTX)
+    # Add an auto shape of type LINE.
+    slide.shapes.add_auto_shape(slides.ShapeType.LINE, 50, 150, 300, 0)
+
+    # Save the presentation as a PPTX file.
+    presentation.save("line_shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **إنشاء خط على شكل سهم**
-يتيح Aspose.Slides لـ بايثون عبر .NET أيضًا للمطورين تكوين بعض خصائص الخط لجعله يبدو أكثر جاذبية. دعنا نحاول تكوين بعض الخصائص لجعل الخط يبدو كالسهم. يرجى اتباع الخطوات أدناه للقيام بذلك:
+## **إنشاء خطوط على شكل سهم**
 
-- أنشئ مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-- احصل على مرجع لشريحة باستخدام الفهرس الخاص بها.
-- أضف شكل تلقائي من نوع خط باستخدام طريقة AddAutoShape المعروضة بواسطة كائن الأشكال.
-- قم بتعيين نمط الخط إلى أحد الأنماط المعروضة بواسطة Aspose.Slides لـ بايثون عبر .NET.
-- قم بتعيين عرض الخط.
-- قم بتعيين [نمط الخط المنقّط](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) للخط إلى أحد الأنماط المعروضة بواسطة Aspose.Slides لـ بايثون عبر .NET.
-- قم بتعيين [نمط رأس السهم](https://reference.aspose.com/slides/python-net/aspose.slides/linearrowheadstyle/) وطول نقطة البداية للخط.
-- قم بتعيين نمط رأس السهم وطول نقطة النهاية للخط.
-- قم بكتابة العرض المعدل كملف PPTX.
+يتيح لك Aspose.Slides تكوين خصائص الخط لجعله أكثر جاذبية بصريًا. أدناه، نقوم بتكوين بعض خصائص الخط لجعله يبدو كسهم. اتبع الخطوات التالية:
+
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. الحصول على مرجع لل شريحة حسب الفهرس.
+3. إضافة [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) من النوع `LINE` باستخدام طريقة `add_auto_shape` على كائن [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) .
+4. تعيين [line style](https://reference.aspose.com/slides/python-net/aspose.slides/linestyle/) .
+5. تعيين عرض الخط.
+6. تعيين [dash style](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) للخط.
+7. تعيين [arrowhead style](https://reference.aspose.com/slides/python-net/aspose.slides/linearrowheadstyle/) والطول لنقطة البداية للخط.
+8. تعيين نمط رأس السهم والطول لنقطة النهاية للخط.
+9. حفظ العرض التقديمي كملف PPTX.
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# إنشاء مثيل لفئة PresentationEx التي تمثل ملف PPTX
-with slides.Presentation() as pres:
-    # الحصول على الشريحة الأولى
-    sld = pres.slides[0]
+# Instantiate the Presentation class that represents the PPTX file.
+with slides.Presentation() as presentation:
+    # Get the first slide.
+    slide = presentation.slides[0]
 
-    # إضافة شكل تلقائي من نوع خط
-    shp = sld.shapes.add_auto_shape(slides.ShapeType.LINE, 50, 150, 300, 0)
+    # Add an auto shape of type LINE.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.LINE, 50, 150, 300, 0)
 
-    # تطبيق بعض التنسيقات على الخط
-    shp.line_format.style = slides.LineStyle.THICK_BETWEEN_THIN
-    shp.line_format.width = 10
+    # Apply formatting to the line.
+    shape.line_format.style = slides.LineStyle.THICK_BETWEEN_THIN
+    shape.line_format.width = 10
 
-    shp.line_format.dash_style = slides.LineDashStyle.DASH_DOT
+    shape.line_format.dash_style = slides.LineDashStyle.DASH_DOT
 
-    shp.line_format.begin_arrowhead_length = slides.LineArrowheadLength.SHORT
-    shp.line_format.begin_arrowhead_style = slides.LineArrowheadStyle.OVAL
+    shape.line_format.begin_arrowhead_length = slides.LineArrowheadLength.SHORT
+    shape.line_format.begin_arrowhead_style = slides.LineArrowheadStyle.OVAL
 
-    shp.line_format.end_arrowhead_length = slides.LineArrowheadLength.LONG
-    shp.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
+    shape.line_format.end_arrowhead_length = slides.LineArrowheadLength.LONG
+    shape.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
 
-    shp.line_format.fill_format.fill_type = slides.FillType.SOLID
-    shp.line_format.fill_format.solid_fill_color.color = draw.Color.maroon
+    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shape.line_format.fill_format.solid_fill_color.color = draw.Color.maroon
 
-    # كتابة ملف PPTX على القرص
-    pres.save("LineShape2_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation as a PPTX file.
+    presentation.save("line_shape_2.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني تحويل خط عادي إلى موصل بحيث "يلتصق" بالأشكال؟**
+
+لا. الخط العادي (وهو [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) من النوع [LINE](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/)) لا يتحول تلقائيًا إلى موصل. لجعله يلصق بالأشكال، استخدم النوع المخصص [Connector](https://reference.aspose.com/slides/python-net/aspose.slides/connector/) والـ [APIs المقابلة](/slides/ar/python-net/connector/) للاتصالات.
+
+**ماذا أفعل إذا كانت خصائص الخط موروثة من السمة ومن الصعب تحديد القيم النهائية؟**
+
+اقرأ [الخصائص الفعالة](/slides/ar/python-net/shape-effective-properties/) عبر فئات [ILineFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ilinefillformateffectivedata/) — هذه الفئات تأخذ بالفعل في الاعتبار الوراثة وأنماط السمة.
+
+**هل يمكنني قفل خط ضد التعديل (النقل، تغيير الحجم)؟**
+
+نعم. توفر الأشكال [كائنات القفل](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/auto_shape_lock/) التي تسمح لك بـ [منع عمليات التحرير](/slides/ar/python-net/applying-protection-to-presentation/).
