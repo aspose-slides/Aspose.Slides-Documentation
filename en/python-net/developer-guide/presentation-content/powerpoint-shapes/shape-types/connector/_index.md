@@ -378,3 +378,17 @@ with slides.Presentation("connector_line_angle.pptx") as presentation:
             direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
         print(direction)
 ```
+
+## **FAQ**
+
+**How can I tell whether a connector can be "glued" to a specific shape?**
+
+Check that the shape exposes [connection sites](https://reference.aspose.com/slides/python-net/aspose.slides/shape/connection_site_count/). If there are none or the count is zero, gluing isn’t available; in that case, use free endpoints and position them manually. It’s sensible to check the site count before attaching.
+
+**What happens to a connector if I delete one of the connected shapes?**
+
+Its ends will be detached; the connector remains on the slide as an ordinary line with free start/end. You can either delete it or reassign the connections and, if needed, [reroute](https://reference.aspose.com/slides/python-net/aspose.slides/connector/reroute/).
+
+**Are connector bindings preserved when copying a slide to another presentation?**
+
+Generally yes, provided the target shapes are copied as well. If the slide is inserted into another file without the connected shapes, the ends become free and you’ll need to reattach them.

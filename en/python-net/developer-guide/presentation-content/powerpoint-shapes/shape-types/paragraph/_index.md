@@ -75,3 +75,21 @@ with slides.Presentation(path + "source.pptx") as pres:
 
                 shape.fill_format.fill_type = slides.FillType.NO_FILL
 ```
+
+## **FAQ**
+
+**In what units are the coordinates returned for a paragraph and text portions measured?**
+
+In points, where 1 inch = 72 points. This applies to all coordinates and dimensions on the slide.
+
+**Does word wrapping affect a paragraph’s bounds?**
+
+Yes. If [wrapping](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) is enabled in the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/), the text breaks to fit the area width, which changes the paragraph’s actual bounds.
+
+**Can paragraph coordinates be reliably mapped to pixels in the exported image?**
+
+Yes. Convert points to pixels using: pixels = points × (DPI / 72). The result depends on the DPI chosen for rendering/export.
+
+**How do I get the "effective" paragraph formatting parameters, taking style inheritance into account?**
+
+Use the [effective paragraph formatting data structure](/slides/python-net/shape-effective-properties/); it returns the final consolidated values for indents, spacing, wrapping, RTL, and more.
