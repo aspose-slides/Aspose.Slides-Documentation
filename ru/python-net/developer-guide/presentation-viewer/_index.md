@@ -1,13 +1,13 @@
 ---
-title: Создайте средство просмотра презентаций на Python
-linktitle: Средство просмотра презентаций
+title: Создать просмотрщик презентаций на Python
+linktitle: Просмотрщик презентаций
 type: docs
 weight: 50
 url: /ru/python-net/presentation-viewer/
-keywords:
-- просмотр презентаций
-- средство просмотра презентаций
-- создать средство просмотра презентаций
+keywords: 
+- просмотр презентации
+- просмотрщик презентаций
+- создание просмотрщика презентаций
 - просмотр PPT
 - просмотр PPTX
 - просмотр ODP
@@ -15,135 +15,123 @@ keywords:
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Узнайте, как создать собственный просмотрщик презентаций на Python с помощью Aspose.Slides. Легко отображайте файлы PowerPoint (PPTX, PPT) и OpenDocument (ODP) без Microsoft PowerPoint или другого офисного программного обеспечения."
+description: "Узнайте, как создать пользовательский просмотрщик презентаций на Python с использованием Aspose.Slides. Легко отображайте файлы PowerPoint (PPTX, PPT) и OpenDocument (ODP) без Microsoft PowerPoint или другого офисного ПО."
 ---
 
+## **Обзор**
 
+Aspose.Slides for Python используется для создания файлов презентаций со слайдами. Эти слайды можно просматривать, открывая презентации в Microsoft PowerPoint, например. Однако разработчикам иногда необходимо просматривать слайды как изображения в предпочитаемом просмотрщике изображений или использовать их в пользовательском просмотрщике презентаций. В таких случаях Aspose.Slides позволяет экспортировать отдельные слайды как изображения. В этой статье объясняется, как это сделать.
 
-Aspose.Slides для Python через .NET используется для создания файлов презентаций, включая слайды. Эти слайды можно просматривать, открывая презентации с помощью Microsoft PowerPoint. Но иногда разработчикам также может понадобиться просмотреть слайды в виде изображений в любимом просмотрщике изображений или создать свой собственный просмотрщик презентаций. В таких случаях Aspose.Slides для Python через .NET позволяет экспортировать отдельный слайд в изображение. Эта статья описывает, как это сделать. 
-## **Живой пример**
-Вы можете попробовать бесплатное приложение [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/), чтобы увидеть, что вы можете реализовать с помощью API Aspose.Slides:
+## **Создание SVG‑изображения со слайда**
 
-![powerpoint-in-aspose-viewer](powerpoint-in-aspose-viewer.png)
+Чтобы создать SVG‑изображение из слайда презентации с помощью Aspose.Slides, выполните следующие шаги:
 
-## **Создание SVG-изображения из слайда**
-Чтобы создать SVG-изображение из любого необходимого слайда с помощью Aspose.Slides для Python, выполните следующие шаги:
-
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-- Получите ссылку на необходимый слайд, используя его ID или индекс.
-- Получите изображение SVG в потоке памяти.
-- Сохраните поток памяти в файл.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу.
+3. Откройте файловый поток.
+4. Сохраните слайд как SVG‑изображение в файловый поток.
 
 ```py
 import aspose.slides as slides
 
-# Создание экземпляра класса Presentation, представляющего файл презентации
-with slides.Presentation(path + "CreateSlidesSVGImage.pptx") as pres:
-    # Доступ к первому слайду
-    sld = pres.slides[0]
+slide_index = 0
 
-    # Создание объекта потока памяти
-    with open("Aspose_out-1.svg", "wb") as svg_stream:
-        # Генерация SVG-изображения слайда и сохранение в потоке памяти
-        sld.write_as_svg(svg_stream)
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[slide_index]
+
+    with open("output.svg", "wb") as svg_stream:
+        slide.write_as_svg(svg_stream)
 ```
-
-
-## **Генерация SVG с пользовательскими идентификаторами форм**
-Aspose.Slides для Python через .NET можно использовать для генерации [SVG ](https://docs.fileformat.com/page-description-language/svg/)из слайда с пользовательским идентификатором формы. Для этого используйте свойство ID из [ISvgShape](https://reference.aspose.com/slides/python-net/aspose.slides.export/isvgshape/), которое представляет собой пользовательский идентификатор форм в сгенерированном SVG. CustomSvgShapeFormattingController можно использовать для установки идентификатора формы.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation(path + "CreateSlidesSVGImage.pptx") as pres:
-    with open("Aspose_out-2.svg", "wb") as svg_stream:
-        svgOptions = slides.export.SVGOptions()
-        pres.slides[0].write_as_svg(svg_stream, svgOptions)
-```
-
 
 ## **Создание миниатюры слайда**
-Aspose.Slides для Python через .NET помогает вам создавать миниатюры изображений слайдов. Чтобы создать миниатюру любого необходимого слайда с помощью Aspose.Slides для Python через .NET:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Получите ссылку на любой необходимый слайд, используя его ID или индекс.
-1. Получите изображение миниатюры ссылочного слайда в заданном масштабе.
-1. Сохраните изображение миниатюры в любом желаемом формате изображения.
+Aspose.Slides помогает создавать миниатюрные изображения слайдов. Чтобы создать миниатюру слайда с помощью Aspose.Slides, выполните следующие шаги:
 
-```py
-import aspose.slides as slides
-
-# Создание экземпляра класса Presentation, представляющего файл презентации
-with slides.Presentation("pres.pptx") as pres:
-    # Доступ к первому слайду
-    sld = pres.slides[0]
-
-    # Создание полноразмерного изображения
-    with sld.get_image(1, 1) as bmp:
-        # Сохранение изображения на диск в формате JPEG
-        bmp.save("Thumbnail_out.jpg", slides.ImageFormat.JPEG)
-```
-
-
-## **Создание миниатюры с пользовательскими размерами**
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Получите ссылку на любой необходимый слайд, используя его ID или индекс.
-1. Получите изображение миниатюры ссылочного слайда в заданном масштабе.
-1. Сохраните изображение миниатюры в любом желаемом формате изображения.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу.
+3. Создайте миниатюру указанного слайда в нужном масштабе.
+4. Сохраните миниатюру в предпочитаемом формате изображения.
 
 ```py
 import aspose.slides as slides
 
-# Создание экземпляра класса Presentation, представляющего файл презентации
-with slides.Presentation("pres.pptx") as pres:
-    # Доступ к первому слайду
-    sld = pres.slides[0]
+slide_index = 0
+scale_x = 1
+scale_y = scale_x
 
-    # Пользовательские размеры
-    desiredX = 1200
-    desiredY = 800
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[slide_index]
 
-    # Получение масштабируемых значений X и Y
-    ScaleX = (1.0 / pres.slide_size.size.width) * desiredX
-    ScaleY = (1.0 / pres.slide_size.size.height) * desiredY
-
-
-    # Создание полноразмерного изображения
-    with sld.get_image(ScaleX, ScaleY) as bmp:
-        # Сохранение изображения на диск в формате JPEG
-        bmp.save("Thumbnail2_out.jpg", slides.ImageFormat.JPEG)
+    with slide.get_image(scale_x, scale_y) as image:
+        image.save("output.jpg", slides.ImageFormat.JPEG)
 ```
 
+## **Создание миниатюры слайда с пользовательскими размерами**
 
-## **Создание миниатюры слайда в режиме заметок**
-Чтобы создать миниатюру любого необходимого слайда в режиме заметок, используя Aspose.Slides для Python через .NET:
+Чтобы создать миниатюру слайда с пользовательскими размерами, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Получите ссылку на любой необходимый слайд, используя его ID или индекс.
-1. Получите изображение миниатюры ссылочного слайда в заданном масштабе в режиме заметок.
-1. Сохраните изображение миниатюры в любом желаемом формате изображения.
-
-Приведенный ниже фрагмент кода создает миниатюру первого слайда презентации в режиме заметок.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу.
+3. Сгенерируйте миниатюрное изображение указанного слайда с заданными размерами.
+4. Сохраните миниатюру в предпочитаемом формате изображения.
 
 ```py
 import aspose.slides as slides
+import aspose.pydrawing as pydrawing
 
-# Создание экземпляра класса Presentation, представляющего файл презентации
-with slides.Presentation("pres.pptx") as pres:
-    # Доступ к первому слайду
-    sld = pres.slides[0]
+slide_index = 0
+slide_size = pydrawing.Size(1200, 800)
 
-    # Пользовательские размеры
-    desiredX = 1200
-    desiredY = 800
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[slide_index]
 
-    # Получение масштабируемых значений X и Y
-    ScaleX = (1.0 / pres.slide_size.size.width) * desiredX
-    ScaleY = (1.0 / pres.slide_size.size.height) * desiredY
-
-   
-    # Создание полноразмерного изображения                
-    with sld.get_image(ScaleX, ScaleY) as bmp:
-        # Сохранение изображения на диск в формате JPEG
-        bmp.save("Notes_tnail_out.jpg", slides.ImageFormat.JPEG)
+    with slide.get_image(slide_size) as image:
+        image.save("output.jpg", slides.ImageFormat.JPEG)
 ```
+
+## **Создание миниатюры слайда с заметками докладчика**
+
+Чтобы создать миниатюру слайда с заметками докладчика с помощью Aspose.Slides, выполните следующие шаги:
+
+1. Создайте экземпляр класса [RenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/renderingoptions/) .
+2. Используйте свойство `RenderingOptions.slides_layout_options`, чтобы задать положение заметок докладчика.
+3. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+4. Получите ссылку на слайд по его индексу.
+5. Сгенерируйте миниатюру указанного слайда, используя параметры рендеринга.
+6. Сохраните миниатюру в предпочитаемом формате изображения.
+
+```py
+slide_index = 0
+
+layout_options = slides.export.NotesCommentsLayoutingOptions()
+layout_options.notes_position = slides.export.NotesPositions.BOTTOM_TRUNCATED
+
+rendering_options = slides.export.RenderingOptions()
+rendering_options.slides_layout_options = layout_options
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[slide_index]
+
+    with slide.get_image(rendering_options) as image:
+        image.save("output.png", slides.ImageFormat.PNG)
+```
+
+## **Онлайн‑пример**
+
+Попробуйте бесплатное приложение [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/), чтобы увидеть, что можно реализовать с помощью Aspose.Slides API:
+
+[![Online PowerPoint Viewer](online-PowerPoint-viewer.png)](https://products.aspose.app/slides/viewer/)
+
+## **FAQ**
+
+**Можно ли встроить просмотрщик презентаций в веб‑приложение ASP.NET?**
+
+Да. Вы можете использовать Aspose.Slides на стороне сервера для рендеринга слайдов как [изображения](/slides/ru/python-net/convert-powerpoint-to-png/) или [HTML](/slides/ru/python-net/convert-powerpoint-to-html/) и отображать их в браузере. Навигацию и масштабирование можно реализовать с помощью JavaScript для интерактивного опыта.
+
+**Как лучше всего отображать слайды в пользовательском .NET‑просмотрщике?**
+
+Рекомендуемый подход — рендерить каждый слайд как [изображение](/slides/ru/python-net/convert-powerpoint-to-png/) (например, PNG или SVG) или преобразовать его в [HTML](/slides/ru/python-net/convert-powerpoint-to-html/) с помощью Aspose.Slides, затем показывать результат в элементе picture box (для настольных приложений) или в HTML‑контейнере (для веба).
+
+**Как обрабатывать большие презентации с множеством слайдов?**
+
+Для больших наборов следует рассмотреть ленивую загрузку или рендеринг слайдов по требованию. Это значит генерировать содержимое слайда только при переходе пользователя к нему, что уменьшает потребление памяти и время загрузки.

@@ -1,46 +1,43 @@
 ---
-title: 在 Python 中创建 3D 演示文稿
+title: 用 Python 创建 3D 演示文稿
 linktitle: 3D 演示文稿
 type: docs
 weight: 232
 url: /zh/python-net/3d-presentation/
 keywords:
 - 3D PowerPoint
-- 3D 演示文稿
-- 3D 旋转
-- 3D 深度
-- 3D 挤出
-- 3D 渐变
-- 3D 文本
+- 3D presentation
+- 3D rotation
+- 3D depth
+- 3D extrusion
+- 3D gradient
+- 3D text
 - PowerPoint
 - OpenDocument
-- 演示文稿
+- presentation
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides 在 Python 中轻松生成交互式 3D 演示文稿。快速导出为 PowerPoint 和 OpenDocument 格式，满足多用途需求。"
+description: "使用 Aspose.Slides 在 Python 中轻松生成交互式 3D 演示文稿。快速导出为 PowerPoint 和 OpenDocument 格式，以实现多用途使用。"
 ---
 
-## 概述
-您通常如何创建 3D PowerPoint 演示文稿？
-Microsoft PowerPoint 允许我们添加 3D 模型、对形状应用 3D 效果、创建 3D 文本、上传 3D 图形到演示文稿、创建 PowerPoint 3D 动画，从而创建 3D 演示文稿。
+## **概览**
 
-创建 3D 效果对提升演示文稿的呈现效果有很大影响，同时也是实现 3D 演示文稿最简单的实现方式。自 Aspose.Slides 20.9 版本以来，添加了一个新的 **跨平台 3D 引擎**。新的 3D 引擎能够导出和栅格化带 3D 效果的形状和文本。在先前的版本中，具备 3D 效果的幻灯片形状被渲染为平面。但现在可以实现 **完整的 3D 渲染**。
-此外，现在可以通过Slides公共API创建带有3D效果的形状。
+您通常如何创建 3D PowerPoint 演示文稿？Microsoft PowerPoint 允许您添加 3D 模型、对形状应用 3D 效果、创建 3D 文本、插入 3D 图形以及构建 3D 动画。
 
-在 Aspose.Slides API 中，要使形状变成 PowerPoint 3D 形状，请使用 [IShape.ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) 属性，该属性继承了 [IThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat) 接口的特性：
-- [BevelBottom](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) 
-和 [BevelTop](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): 为形状设置斜面，定义斜面类型（例如，角度、圆形、软圆），定义斜面的高度和宽度。
-- [camera](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): 用于模拟对象周围的相机运动。换句话说，通过设置相机的旋转、缩放和其他属性，您可以像在 PowerPoint 中与 3D 模型互动一样与您的形状互动。
-- [ContourColor](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) 
-和 [ContourWidth](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): 设置轮廓属性，使形状看起来像 3D PowerPoint 形状。
-- [depth](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/)， 
-[extrusion_color](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) 
-和 [extrusion_height](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): 用于使形状具有三维效果，这意味着通过设置其深度或拉伸它将 2D 形状转换为 3D 形状。
-- [light_rig](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): 可以在 3D 形状上创建光效。此属性的逻辑与相机相近，您可以设置光线相对于 3D 形状的旋转并选择光源类型。
-- [material](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): 设置 3D 形状材料的类型可以为其带来更生动的效果。该属性提供了一组预定义材料，例如：金属、塑料、粉末、哑光等。
+创建 3D 效果具有很大冲击力，往往是将普通幻灯片转变为 3D 演示的最简便方式。自 Aspose.Slides 20.9 起，新增了 **跨平台 3D 引擎**。该引擎支持导出并光栅化具有 3D 效果的形状和文本。早期版本中，具有 3D 效果的形状会被扁平化渲染；现在可以实现 **完整的 3D** 渲染。您也可以通过 Aspose.Slides API 创建带有 3D 效果的形状。
 
-所有 3D 特性均可应用于形状和文本。让我们看看如何访问上述提到的属性，然后逐步详细了解它们：
-```py 
+在 Aspose.Slides API 中，要将形状设为 PowerPoint 3D 形状，请使用 [Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/) 属性，它公开了 [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat) 类的成员：
+
+- [bevel_bottom](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_bottom/) 和 [bevel_top](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_top/)：设置倒角，选择倒角类型（例如 Angle、Circle、SoftRound），并定义倒角的高度和宽度。
+- [camera](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/camera/)：模拟围绕对象的摄像机移动；通过调整摄像机旋转、缩放等属性，您可以像在 PowerPoint 中操作 3D 模型一样操作形状。
+- [contour_color](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/contour_color/) 和 [contour_width](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/contour_width/)：设置轮廓属性，使形状看起来像 3D PowerPoint 对象。
+- [depth](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/depth/)、[extrusion_color](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_color/)、[extrusion_height](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_height/)：通过设置深度或拉伸来使形状具备三维效果。
+- [light_rig](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/light_rig/)：为 3D 形状创建光照效果；类似摄像机，您可以设置光源相对于 3D 形状的旋转并选择光源类型。
+- [material](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/material/)：选择材质，使 3D 形状更逼真。预定义材质包括 Metal、Plastic、Powder、Matte 等。
+
+所有 3D 功能均可应用于形状和文本。以下章节展示如何访问这些属性并逐步检查它们。
+
+```py
 import aspose.pydrawing as drawing
 import aspose.slides as slides
 
@@ -67,48 +64,49 @@ with slides.Presentation() as presentation:
     presentation.save("sandbox_3d.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-渲染的缩略图如下所示：
+渲染后的缩略图如下所示：
 
 ![todo:image_alt_text](img_01_01.png)
 
-## 3D 旋转
-可以在 3D 平面中旋转 PowerPoint 3D 形状，从而增强互动性。要在 PowerPoint 中旋转 3D 形状，您通常使用以下菜单：
+## **3D 旋转**
+
+您可以在三维空间中旋转 PowerPoint 3D 形状，以增加交互性。要在 PowerPoint 中旋转 3D 形状，请使用如下菜单：
 
 ![todo:image_alt_text](img_02_01.png)
 
-在 Aspose.Slides API 中，3D 形状旋转可以使用 [camera](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) 属性进行管理：
+在 Aspose.Slides API 中，您通过 [camera](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/camera/) 属性控制形状的 3D 旋转。
 
 ```py
 shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 200, 200)
 shape.three_d_format.camera.set_rotation(20, 30, 40)
-# ... 设置其他 3D 场景参数
+# ... set other 3D scene parameters
 
 with slide.get_image(image_scale, image_scale) as thumbnail:
     thumbnail.save("sample_3d.png")
 ```
 
-## 3D 深度和拉伸
-要为您的形状带来第三维度并使其成为 3D 形状，请使用 [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) 
-和 [extrusion_color.color](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) 属性：
+## **3D 深度和拉伸**
+
+要为形状添加第三维度并实现真正的 3D，请使用 [ThreeDFormat.extrusion_height](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_height/) 和 [ThreeDFormat.extrusion_color](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_color/) 属性：
 
 ```py
 shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 200, 200)
 shape.three_d_format.camera.set_rotation(20, 30, 40)
 shape.three_d_format.extrusion_height = 100
 shape.three_d_format.extrusion_color.color = drawing.Color.purple
-# ... 设置其他 3D 场景参数
+# ... set other 3D scene parameters
 
 with slide.get_image(image_scale, image_scale) as thumbnail:
     thumbnail.save("sample_3d.png")
 ```
 
-通常，您会在 PowerPoint 中使用深度菜单来设置 PowerPoint 3D 形状的深度：
+在 PowerPoint 中，您通常使用 **Depth** 菜单来设置 3D 形状的深度：
 
 ![todo:image_alt_text](img_02_02.png)
 
+## **3D 渐变**
 
-## 3D 渐变
-渐变可用于填充 PowerPoint 3D 形状的颜色。让我们创建一个具有渐变填充颜色的形状并在其上应用 3D 效果：
+渐变可用于填充 PowerPoint 3D 形状。让我们创建一个带有渐变填充并应用 3D 效果的形状：
 
 ```py
 import aspose.pydrawing as drawing
@@ -120,7 +118,7 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 250, 250)
-    shape.text_frame.text = "3D 渐变"
+    shape.text_frame.text = "3D Gradient"
     shape.text_frame.paragraphs[0].paragraph_format.default_portion_format.font_height = 64
 
     shape.fill_format.fill_type = slides.FillType.GRADIENT
@@ -138,31 +136,32 @@ with slides.Presentation() as presentation:
         thumbnail.save("sample_3d.png")
 ```
 
-结果如下所示：
+结果如下：
 
 ![todo:image_alt_text](img_02_03.png)
 
-除了渐变填充颜色外，还可以用图像填充形状：
+除了渐变填充，您还可以使用图片填充形状：
+
 ```py
-with open("image.png", "rb") as image_file: 
+with open("image.png", "rb") as image_file:
     image_data = image_file.read()
 
     shape.fill_format.fill_type = slides.FillType.PICTURE
     shape.fill_format.picture_fill_format.picture.image = presentation.images.add_image(image_data)
     shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-    # ... 设置 3D：shape.three_d_format.camera，shape.three_d_format.light_rig，shape.three_d_format.Extrusion* 属性
+    # ... setup 3D: shape.three_d_format.camera, shape.three_d_format.light_rig, shape.three_d_format.Extrusion* properties
 
     with slide.get_image(image_scale, image_scale) as thumbnail:
         thumbnail.save("sample_3d.png")
 ```
 
-
-效果如下所示：
+效果如下：
 
 ![todo:image_alt_text](img_02_04.png)
 
-## 3D 文本 (艺术字)
-Aspose.Slides 也允许在文本上应用 3D 效果。要创建 3D 文本，可以使用艺术字变换效果：
+## **3D 文本（WordArt）**
+
+Aspose.Slides 也允许您对文本应用 3D 效果。要创建 3D 文本，可以使用 WordArt 变形效果：
 
 ```py
 import aspose.pydrawing as drawing
@@ -177,7 +176,7 @@ with slides.Presentation() as presentation:
     shape.fill_format.fill_type = slides.FillType.NO_FILL
     shape.fill_format.fill_type = slides.FillType.NO_FILL
     shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
-    shape.text_frame.text = "3D 文本"
+    shape.text_frame.text = "3D text"
    
     portion = shape.text_frame.paragraphs[0].portions[0]
     portion.portion_format.fill_format.fill_type = slides.FillType.PATTERN
@@ -188,7 +187,7 @@ with slides.Presentation() as presentation:
     shape.text_frame.paragraphs[0].paragraph_format.default_portion_format.font_height = 128
    
     text_frame_format = shape.text_frame.text_frame_format
-    # 设置 "Arch Up" 艺术字变换效果
+    # setup "Arch Up" WordArt transform effect
     text_frame_format.transform = slides.TextShapeType.ARCH_UP
 
     text_frame_format.three_d_format.extrusion_height = 3.5
@@ -205,16 +204,20 @@ with slides.Presentation() as presentation:
     presentation.save("text3d.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-结果如下：
+效果如下：
 
 ![todo:image_alt_text](img_02_05.png)
 
+## **常见问题**
 
-## 不支持 - 即将推出
-以下 PowerPoint 3D 特性尚不支持：
-- 斜面
-- 材料
-- 轮廓
-- 照明
+**将演示文稿导出为图像/PDF/HTML 时，3D 效果会被保留吗？**
 
-我们将继续改进我们的 3D 引擎，这些功能将是后续实现的目标。
+是的。Slides 3D 引擎在导出为受支持的格式时会渲染 3D 效果（[图像](/slides/zh/python-net/convert-powerpoint-to-png/)、[PDF](/slides/zh/python-net/convert-powerpoint-to-pdf/)、[HTML](/slides/zh/python-net/convert-powerpoint-to-html/) 等）。
+
+**我能获取考虑主题、继承等因素后的“有效”3D 参数值吗？**
+
+可以。Slides 提供了 API 来 [读取有效值](/slides/zh/python-net/shape-effective-properties/)（包括 3D——光照、倒角等），以便查看最终应用的设置。
+
+**将演示文稿转换为视频时，3D 效果会生效吗？**
+
+会的。在 [生成视频帧](/slides/zh/python-net/convert-powerpoint-to-video/) 时，3D 效果的渲染方式与 [导出的图像](/slides/zh/python-net/convert-powerpoint-to-png/) 相同。

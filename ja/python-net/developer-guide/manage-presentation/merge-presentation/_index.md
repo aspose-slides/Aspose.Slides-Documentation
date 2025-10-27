@@ -1,187 +1,228 @@
 ---
-title: Python でプレゼンテーションを効率的にマージする
-linktitle: プレゼンテーションをマージ
+title: Python でプレゼンテーションを効率的に結合する
+linktitle: プレゼンテーションの結合
 type: docs
 weight: 40
 url: /ja/python-net/merge-presentation/
 keywords:
-- PowerPoint をマージ
-- プレゼンテーションをマージ
-- スライドをマージ
-- PPT をマージ
-- PPTX をマージ
-- ODP をマージ
-- PowerPoint を結合
-- プレゼンテーションを結合
-- スライドを結合
-- PPT を結合
-- PPTX を結合
-- ODP を結合
+- merge PowerPoint
+- merge presentations
+- merge slides
+- merge PPT
+- merge PPTX
+- merge ODP
+- combine PowerPoint
+- combine presentations
+- combine slides
+- combine PPT
+- combine PPTX
+- combine ODP
 - Python
 - Aspose.Slides
-- description: "Aspose.Slides for Python via .NET を使用して、PowerPoint (PPT、PPTX) および OpenDocument (ODP) プレゼンテーションを手間なくマージし、ワークフローを効率化します。"
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint（PPT、PPTX）および OpenDocument（ODP）プレゼンテーションを手軽に結合し、ワークフローを簡素化します。"
 ---
 
-{{% alert  title="ヒント" color="primary" %}} 
+## **プレゼンテーション結合の最適化**
 
-**Aspose無料オンライン** [マージアプリ](https://products.aspose.app/slides/merger)をチェックしてみるといいでしょう。同じ形式のPowerPointプレゼンテーションを結合（PPTからPPT、PPTXからPPTXなど）したり、異なる形式のプレゼンテーション（PPTからPPTX、PPTXからODPなど）を結合したりすることができます。
+[**Aspose.Slides for Python**](https://products.aspose.com/slides/python-net/) を使用すれば、スタイル、レイアウト、すべての要素を保持したまま PowerPoint プレゼンテーションをシームレスに結合できます。他のツールとは異なり、Aspose.Slides は品質やデータを損なうことなくプレゼンテーションをマージします。デッキ全体、特定のスライド、または異なるファイル形式（例: PPT から PPTX）を結合できます。
 
-[![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
+### **マージ機能**
 
-{{% /alert %}} 
-
+- **フル プレゼンテーション マージ:** すべてのスライドを単一ファイルにまとめます。
+- **特定スライド マージ:** 選択したスライドだけを結合します。
+- **クロスフォーマット マージ:** 形式が異なるプレゼンテーションを統合し、整合性を保ちます。
 
 ## **プレゼンテーションの結合**
 
-あるプレゼンテーションを別のプレゼンテーションに結合すると、そのスライドを単一のプレゼンテーションに統合して1つのファイルを取得することになります。 
+1 つのプレゼンテーションを別のプレゼンテーションに結合すると、スライドが 1 つのファイルにまとめられます。PowerPoint や OpenOffice などの多くのプレゼンテーションプログラムは、このような結合機能を提供していません。
 
-{{% alert title="情報" color="info" %}}
+しかし、[**Aspose.Slides for Python**](https://products.aspose.com/slides/python-net/) では、形状、スタイル、テキスト、書式設定、コメント、アニメーションなどをすべて保持したままプレゼンテーションを結合できます。品質やデータの損失はありません。
 
-ほとんどのプレゼンテーションプログラム（PowerPointやOpenOffice）には、そのようにプレゼンテーションを結合する機能が欠けています。 
+**関連項目**  
+[Python で PowerPoint スライドをクローンする](/slides/ja/python-net/clone-slides/)
 
-[**Aspose.Slides for Python via .NET**](https://products.aspose.com/slides/python-net/) は、プレゼンテーションを異なる方法で結合することを可能にします。全ての形状、スタイル、テキスト、フォーマット、コメント、アニメーションなどを失うことなくプレゼンテーションを結合することができます。 
+### **マージ可能なもの**
 
-**関連情報**
+Aspose.Slides を使用すると、以下を結合できます。
 
-[スライドのクローン](https://docs.aspose.com/slides/python-net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
+- **全体プレゼンテーション:** ソースデッキのすべてのスライドを単一のプレゼンテーションに統合します。
+- **特定スライド:** 選択したスライドだけを単一のプレゼンテーションに統合します。
+- **同一形式または異なる形式:** 例: PPT→PPT、PPTX→PPTX、または PPT→PPTX、PPTX→ODP など。
 
-{{% /alert %}}
+{{% alert title="注意" color="info" %}}
 
-### **結合できるもの**
+プレゼンテーションに加えて、Aspose.Slides は他のファイルの結合もサポートしています。
 
-Aspose.Slidesを使用すると、次のことができます。
-
-* 全体のプレゼンテーション。プレゼンテーションのすべてのスライドが1つのプレゼンテーションに収まります。
-* 特定のスライド。選択したスライドが1つのプレゼンテーションに収まります。
-* 1つの形式（PPTからPPT、PPTXからPPTXなど）または異なる形式（PPTからPPTX、PPTXからODPなど）のプレゼンテーションを互いに結合します。
-
-{{% alert title="注意" color="warning" %}} 
-
-プレゼンテーションの他に、Aspose.Slidesは他のファイルも結合できます：
-
-* [画像](https://products.aspose.com/slides/python-net/merger/image-to-image/)、例えば [JPGからJPG](https://products.aspose.com/slides/python-net/merger/jpg-to-jpg/) や [PNGからPNG](https://products.aspose.com/slides/python-net/merger/png-to-png/)
-* 文書、例えば [PDFからPDF](https://products.aspose.com/slides/python-net/merger/pdf-to-pdf/) や [HTMLからHTML](https://products.aspose.com/slides/python-net/merger/html-to-html/)
-* そして、[画像からPDF](https://products.aspose.com/slides/python-net/merger/image-to-pdf/) や [JPGからPDF](https://products.aspose.com/slides/python-net/merger/jpg-to-pdf/) または [TIFFからPDF](https://products.aspose.com/slides/python-net/merger/tiff-to-pdf/)のような2つの異なるファイル。
+- **画像**（例: [JPG から JPG]、[PNG から PNG]）
+- **文書**（例: [PDF から PDF]、[HTML から HTML]）
+- **異種ファイル**（例: 画像から PDF、JPG から PDF、TIFF から PDF）
 
 {{% /alert %}}
 
-### **結合オプション**
+### **マージオプション**
 
-出力プレゼンテーションの各スライドがユニークなスタイルを保持するかどうか、または特定のスタイルが出力プレゼンテーションのすべてのスライドに使用されるかどうかを決定するオプションを適用できます。 
+次のいずれかを制御できます。  
+- 出力プレゼンテーションの各スライドが元のスタイルを保持するか、  
+- すべてのスライドに単一のスタイルを適用するか。
 
-プレゼンテーションを結合するために、Aspose.Slidesは [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) メソッド（[ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) インターフェースから）を提供します。 `add_clone` メソッドには、プレゼンテーションの結合プロセスパラメータを定義するためのいくつかの実装があります。各Presentationオブジェクトには、[slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) コレクションがあるため、スライドを結合したいプレゼンテーションから `add_clone` メソッドを呼び出すことができます。 
+プレゼンテーションを結合するには、Aspose.Slides の [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) クラスの `add_clone` メソッドを使用します。このメソッドのオーバーロードにより、結合方法を指定できます。すべての [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) オブジェクトは `slides` コレクションを公開しているので、宛先プレゼンテーションのスライドコレクションで `add_clone` を呼び出します。
 
-`add_clone` メソッドは、ソーススライドのクローンである `ISlide` オブジェクトを返します。出力プレゼンテーションのスライドは、単にソースのスライドのコピーです。したがって、ソースプレゼンテーションに影響を与えないように、結果のスライド（例えば、スタイルやフォーマットオプションやレイアウトを適用するなど）を変更できます。 
+`add_clone` メソッドは `Slide`（ソーススライドのクローン）を返します。出力プレゼンテーションのスライドは元のコピーなので、レイアウトや書式を変更してもソースには影響しません。
 
 ## **プレゼンテーションの結合** 
 
-Aspose.Slidesは、スライドのレイアウトとスタイルを保持しながらスライドを結合することができる [**AddClone (ISlide)**](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) メソッドを提供します（デフォルトパラメータ）。 
+Aspose.Slides は `add_clone(ISlide)` メソッドを提供し、レイアウトとスタイルを保持しながらスライドを結合できます（デフォルトパラメータ使用）。
 
-このPythonコードは、プレゼンテーションを結合する方法を示しています：
+以下の Python サンプルはプレゼンテーションの結合方法を示しています。
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres1:
-    with slides.Presentation("Presentation1.pptx") as pres2:
-        for slide in pres2.slides:
-            pres1.slides.add_clone(slide)
-        pres1.save("combined.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("presentation1.pptx") as presentation1:
+    with slides.Presentation("presentation2.pptx") as presentation2:
+        for slide in presentation2.slides:
+            presentation1.slides.add_clone(slide)
+        presentation1.save("combined.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **スライドマスターを使用したプレゼンテーションの結合**
 
-Aspose.Slidesは、スライドマスター プレゼンテーション テンプレートを適用しながらスライドを結合できる [**add_clone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) メソッドを提供します。この方法を使用すると、必要に応じて出力プレゼンテーションのスライドのスタイルを変更できます。 
+`add_clone(ISlide, IMasterSlide, Boolean)` メソッドを使用すると、テンプレートのスライドマスターを適用してスライドを結合できます。これにより、必要に応じて出力プレゼンテーションのスライドのスタイルを変更できます。
 
-このPythonコードは、説明した操作を示しています：
+以下の Python サンプルはこの操作を示しています。
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres1:
-    with slides.Presentation("Presentation1.pptx") as pres2:
-        for slide in pres2.slides:
-            pres1.slides.add_clone(slide, pres1.masters[0], allow_clone_missing_layout = True)
-        pres1.save("combined_with_master.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("presentation1.pptx") as presentation1:
+    with slides.Presentation("presentation2.pptx") as presentation2:
+        for slide in presentation2.slides:
+            presentation1.slides.add_clone(slide, presentation1.masters[0], True)
+        presentation1.save("combined_with_master.pptx", slides.export.SaveFormat.PPTX) 
 ```
 
-{{% alert title="注意" color="warning" %}} 
+{{% alert title="注意" color="warning" %}}
 
-スライドマスターのスライドレイアウトは自動的に決定されます。適切なレイアウトを判断できない場合、`add_clone` メソッドの `allowCloneMissingLayout`ブールパラメータがtrueに設定されていると、ソーススライドのレイアウトが使用されます。それ以外の場合は、[PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/) がスローされます。 
+指定したスライドマスターに適したレイアウトが自動的に決定されます。適切なレイアウトが見つからず、`add_clone` の `allow_clone_missing_layout` ブールパラメータを `True` に設定した場合は、ソーススライドのレイアウトが使用されます。そうでない場合は [PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/) がスローされます。
 
 {{% /alert %}}
 
-出力プレゼンテーションに異なるスライドレイアウトを持たせたい場合は、代わりに [add_clone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) メソッドを使用して結合してください。 
+別のレイアウトを適用したい場合は、`add_clone(ISlide, ILayoutSlide)` メソッドを使用してください。
 
-## **プレゼンテーションから特定のスライドを結合する**
+## **プレゼンテーションから特定のスライドを結合**
 
-このPythonコードは、異なるプレゼンテーションから特定のスライドを選択して結合し、1つの出力プレゼンテーションを得る方法を示しています：
+複数のプレゼンテーションから特定のスライドだけを結合すると、カスタムデッキの作成に便利です。Aspose.Slides は必要なスライドだけをインポートし、元の書式、レイアウト、デザインを保持します。
+
+以下の Python 例は、新しいプレゼンテーションに 2 つの別プレゼンテーションからタイトルスライドを追加し、ファイルに保存します。
+
+```py
+def get_title_slide(pres):
+    for slide in pres.slides:
+        if slide.layout_slide.layout_type == slides.SlideLayoutType.TITLE:
+            return slide
+    return None
+
+
+with slides.Presentation() as presentation, \
+        slides.Presentation("presentation1.pptx") as presentation1, \
+        slides.Presentation("presentation2.pptx") as presentation2:
+    presentation.slides.remove_at(0)
+
+    slide1 = get_title_slide(presentation1)
+    if slide1 is not None:
+        presentation.slides.add_clone(slide1)
+
+    slide2 = get_title_slide(presentation2)
+    if slide2 is not None:
+        presentation.slides.add_clone(slide2)
+
+    presentation.save("combined.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **スライドレイアウトを使用したプレゼンテーションの結合**
+
+以下の Python 例は、複数のプレゼンテーションからスライドを結合し、特定のスライドレイアウトを適用して単一の出力プレゼンテーションを作成する方法を示します。
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres1:
-    with slides.Presentation("Presentation1.pptx") as pres2:
-        for slide in pres2.slides:
-            pres1.slides.add_clone(slide, pres1.layout_slides[0])
-        pres1.save("combined_with_layout.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("presentation1.pptx") as presentation1:
+    with slides.Presentation("presentation2.pptx") as presentation2:
+        for slide in presentation2.slides:
+            presentation1.slides.add_clone(slide, presentation1.layout_slides[0])
+        presentation1.save("combined_with_layout.pptx", slides.export.SaveFormat.PPTX) 
 ```
 
-## **スライドレイアウトでプレゼンテーションを結合する**
+## **異なるスライドサイズのプレゼンテーションの結合**
 
-このPythonコードは、プレゼンテーションからスライドを結合し、お好みのスライドレイアウトを適用して1つの出力プレゼンテーションを得る方法を示しています：
+{{% alert title="注意" color="warning" %}}
 
-```py
-import aspose.slides as slides
-
-with slides.Presentation("pres.pptx") as pres1:
-    with slides.Presentation("Presentation1.pptx") as pres2:
-        for slide in pres2.slides:
-            pres1.slides.add_clone(slide, pres1.layout_slides[0])
-        pres1.save("combined_with_layout.pptx", slides.export.SaveFormat.PPTX) 
-```
-
-## **異なるスライドサイズのプレゼンテーションを結合する**
-
-{{% alert title="注意" color="warning" %}} 
-
-異なるスライドサイズのプレゼンテーションを結合することはできません。 
+スライドサイズが異なるプレゼンテーションは直接結合できません。
 
 {{% /alert %}}
 
-異なるスライドサイズの2つのプレゼンテーションを結合するには、1つのプレゼンテーションのサイズを変更して、もう一方のプレゼンテーションのサイズに合わせる必要があります。 
+サイズが異なる 2 つのプレゼンテーションを結合するには、最初に片方のスライドサイズをもう一方に合わせてリサイズします。
 
-このサンプルコードは、説明した操作を示します：
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("pres.pptx") as pres1:
-    with slides.Presentation("Presentation1.pptx") as pres2:
-        pres2.slide_size.set_size(pres1.slide_size.size.width, pres1.slide_size.size.height, slides.SlideSizeScaleType.ENSURE_FIT)
-        for slide in pres2.slides:
-            pres1.slides.add_clone(slide)
-        pres1.save("combined_size.pptx", slides.export.SaveFormat.PPTX) 
-```
-
-## **セクションにスライドを結合する**
-
-このPythonコードは、プレゼンテーションのセクションに特定のスライドを結合する方法を示しています：
+以下のサンプルコードはその手順を示しています。
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres1:
-    with slides.Presentation("Presentation1.pptx") as pres2:
-        for slide in pres2.slides:
-            pres1.slides.add_clone(slide, pres1.sections[0])
-        pres1.save("combined_sections.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("presentation1.pptx") as presentation1:
+    slide_size = presentation1.slide_size.size
+    with slides.Presentation("presentation2.pptx") as presentation2:
+        presentation2.slide_size.set_size(slide_size.width, slide_size.height, slides.SlideSizeScaleType.ENSURE_FIT)
+        for slide in presentation2.slides:
+            presentation1.slides.add_clone(slide)
+        presentation1.save("combined_size.pptx", slides.export.SaveFormat.PPTX) 
 ```
 
-スライドはセクションの最後に追加されます。 
+## **スライドをプレゼンテーションのセクションに結合**
+
+以下の Python 例は、特定のスライドをプレゼンテーションのセクションに結合する方法を示しています。
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("presentation1.pptx") as presentation1:
+    with slides.Presentation("presentation2.pptx") as presentation2:
+        for slide in presentation2.slides:
+            presentation1.slides.add_clone(slide, presentation1.sections[0])
+        presentation1.save("combined_sections.pptx", slides.export.SaveFormat.PPTX) 
+```
+
+スライドはセクションの末尾に追加されます。
 
 {{% alert title="ヒント" color="primary" %}}
 
-Asposeは、[無料のコラージュWebアプリ](https://products.aspose.app/slides/collage)を提供しています。このオンラインサービスを使用すると、[JPGからJPG](https://products.aspose.app/slides/collage/jpg) やPNGからPNGの画像を結合したり、[フォトグリッド](https://products.aspose.app/slides/collage/photo-grid)を作成したりできます。 
+無料で **オンライン** に PowerPoint プレゼンテーションを結合したいですか？ **Aspose PowerPoint Merger** を試してみてください。
+
+- **PowerPoint ファイルを簡単に結合**: 複数の **PPT、PPTX、ODP** プレゼンテーションを単一ファイルに統合します。  
+- **異なる形式に対応**: **PPT → PPTX**、**PPTX → ODP** などを結合。  
+- **インストール不要**: ブラウザ上で直接動作、迅速かつ安全です。
+
+[![オンラインで PowerPoint ファイルを結合] (slides-merger.png)](https://products.aspose.app/slides/merger)  
+
+今すぐ **Aspose の無料オンラインツール** で PowerPoint ファイルの結合を始めましょう！  
 
 {{% /alert %}}
+
+{{% alert title="ヒント" color="primary" %}}
+
+Aspose は **無料の Collage ウェブアプリ** を提供しています。オンラインサービスを使って、[JPG から JPG] や PNG から PNG 画像の結合、[フォトグリッド] の作成などが可能です。  
+
+{{% /alert %}}
+
+## **FAQ**
+
+**結合時にスピーカーノートは保持されますか？**  
+はい。スライドをクローンすると、ノート、書式設定、アニメーションを含むすべてのスライド要素が引き継がれます。
+
+**コメントとコメント作者は転送されますか？**  
+コメントはスライドコンテンツの一部としてコピーされ、コメント作者ラベルも結果のプレゼンテーションに保持されます。
+
+**ソースプレゼンテーションがパスワードで保護されている場合は？**  
+[LoadOptions.password](/slides/ja/python-net/password-protected-presentation/) を使用してパスワードで開く必要があります。読み込んだ後、そのスライドは保護されていない（または保護された）ターゲットファイルに安全にクローンできます。
+
+**結合操作はスレッドセーフですか？**  
+同じ [Presentation] インスタンスを複数スレッドから使用しないでください。推奨ルールは「1 ドキュメント — 1 スレッド」です。別ファイルは別スレッドで並行処理可能です。  

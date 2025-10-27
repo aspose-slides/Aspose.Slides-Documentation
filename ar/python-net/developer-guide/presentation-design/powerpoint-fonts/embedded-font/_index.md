@@ -1,86 +1,110 @@
 ---
-title: الخطوط المدمجة
+title: إدراج الخطوط في العروض التقديمية باستخدام Python
+linktitle: إدراج الخط
 type: docs
 weight: 40
 url: /ar/python-net/embedded-font/
-keywords: "الخطوط، الخطوط المدمجة، إضافة خطوط، عرض PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
-description: "استخدم الخطوط المدمجة في عرض PowerPoint باستخدام بايثون"
+keywords:
+- إضافة خط
+- إدراج خط
+- إدراج الخط
+- الحصول على الخط المُدرج
+- إضافة خط مُدرج
+- إزالة خط مُدرج
+- ضغط الخط المُدرج
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "إدراج خطوط TrueType في عروض PowerPoint و OpenDocument التقديمية باستخدام Aspose.Slides للغة Python عبر .NET، لضمان عرض دقيق عبر جميع الأنظمة."
 ---
 
-**الخطوط المدمجة في PowerPoint** مفيدة عندما تريد أن يظهر عرضك التقديمي بشكل صحيح عند فتحه على أي نظام أو جهاز. إذا كنت قد استخدمت خطًا طرف ثالث أو غير قياسي لأنك كنت مبدعًا في عملك، فأنت لديك المزيد من الأسباب لإدماج خطك. خلاف ذلك (دون خطوط مدمجة)، قد تتغير النصوص أو الأرقام في الشرائح الخاصة بك، والتخطيط، والتصميم، إلخ، أو تتحول إلى مستطيلات مربكة.
+## **نظرة عامة**
 
-تحتوي فئة [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) وفئة [FontData](https://reference.aspose.com/slides/python-net/aspose.slides/fontdata/) وفئة [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) وواجهاتهم على معظم الخصائص والأساليب التي تحتاجها للعمل مع الخطوط المدمجة في عروض PowerPoint.
+**إدراج الخطوط في PowerPoint** يضمن أن يبقى عرضك التقديمي بالمظهر المقصود عبر الأنظمة المختلفة. سواء كنت تستخدم خطوطًا فريدة للإبداع أو خطوطًا قياسية، فإن إدراج الخطوط يمنع تشويه النص والتخطيط.
 
-## **الحصول على الخطوط المدمجة أو إزالتها من العرض التقديمي**
+إذا استخدمت خطًا من طرف ثالث أو غير قياسي لأنك أبدعت في عملك، فستكون لديك أسباب إضافية لإدراج الخط الخاص بك. وإلا (بدون خطوط مدرجة)، قد يتغير النص أو الأرقام على الشرائح، أو التخطيط، أو الأنماط، إلخ، وقد يتحول إلى مستطيلات مربكة.
 
-يوفر Aspose.Slides طريقة `get_embedded_fonts()` (التي تتيحها فئة [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)) للسماح لك بالحصول على (أو معرفة) الخطوط المدمجة في عرض تقديمي. لإزالة الخطوط، تُستخدم الطريقة `remove_embedded_font(font_data)` (التي توفرها نفس الفئة).
+استخدم الفئات [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)، [FontData](https://reference.aspose.com/slides/python-net/aspose.slides/fontdata/)، و[Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) لإدارة الخطوط المدرجة.
 
-يعرض هذا الكود في بايثون كيفية الحصول على الخطوط المدمجة وإزالتها من عرض تقديمي:
+## **الحصول على الخطوط المدرجة وإزالتها**
+
+احصل على الخطوط المدرجة أو أزلها من عرض تقديمي بسهولة باستخدام طريقتي [get_embedded_fonts](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) و[remove_embedded_font](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/remove_embedded_font/).
+
+هذا الكود في Python يوضح لك كيفية الحصول على الخطوط المدرجة وإزالتها من عرض تقديمي:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# إنشاء كائن Presentation يمثل ملف عرض تقديمي
-with slides.Presentation(path + "EmbeddedFonts.pptx") as presentation:
-    # رسم شريحة تحتوي على إطار نص يستخدم خط "FunSized" المدمج
-    with presentation.slides[0].get_image(draw.Size(960, 720)) as img:
-        img.save("picture1_out.png", slides.ImageFormat.PNG)
+# Instantiate the Presentation class that represents a presentation file.
+with slides.Presentation("EmbeddedFonts.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    fontsManager = presentation.fonts_manager
+    # Render the slide containing a text frame that uses the embedded 'FunSized' font.
+    with slide.get_image(draw.Size(960, 720)) as image:
+        image.save("picture1_out.png", slides.ImageFormat.PNG)
 
-    # الحصول على جميع الخطوط المدمجة
-    embeddedFonts = fontsManager.get_embedded_fonts()
+    fonts_manager = presentation.fonts_manager
 
-    # العثور على خط "Calibri"
-    
-    funSizedEmbeddedFont = list(filter(lambda data : data.font_name == "Calibri", embeddedFonts))[0]
+    # Get all embedded fonts.
+    embedded_fonts = fonts_manager.get_embedded_fonts()
 
-    # إزالة خط "Calibri"
-    fontsManager.remove_embedded_font(funSizedEmbeddedFont)
+    # Find the 'Calibri' font.
+    font_data = list(filter(lambda data : data.font_name == "Calibri", embedded_fonts))[0]
 
-    # رسم العرض التقديمي؛ يتم استبدال خط "Calibri" بخط موجود
-    with presentation.slides[0].get_image(draw.Size(960, 720)) as img:
-        img.save("picture2_out.png", slides.ImageFormat.PNG)
+    # Remove the 'Calibri' font.
+    fonts_manager.remove_embedded_font(font_data)
 
-    # حفظ العرض التقديمي بدون خط "Calibri" المدمج على القرص
-    presentation.save("WithoutManageEmbeddedFonts_out.ppt", slides.export.SaveFormat.PPT)
+    # Render the slide; the 'Calibri' font will be replaced with an existing one.
+    with slide.get_image(draw.Size(960, 720)) as image:
+        image.save("picture2_out.png", slides.ImageFormat.PNG)
+
+    # Save the presentation without the embedded 'Calibri' font to disk.
+    presentation.save("WithoutEmbeddedFonts.ppt", slides.export.SaveFormat.PPT)
 ```
 
-## **إضافة خطوط مدمجة إلى العرض التقديمي**
+## **إضافة خطوط مدرجة**
 
-باستخدام العد المسمى [EmbedFontCharacters](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedfontcharacters/) واثنين من الأشكال الزائدة من الطريقة `add_embedded_font(font_data, embed_font_rule)`، يمكنك اختيار القاعدة المفضلة لديك (لإدماج) لإدماج الخطوط في عرض تقديمي. يعرض هذا الكود في بايثون كيفية إدماج وإضافة الخطوط إلى عرض تقديمي:
+باستخدام التعداد [EmbedFontCharacters](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedfontcharacters/) وطيّتين من طريقة [add_embedded_font](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/add_embedded_font/)، يمكنك اختيار قاعدة الإدراج (الدمج) المفضلة لتضمين الخطوط في عرض تقديمي. هذا الكود في Python يوضح لك كيفية إدراج وإضافة الخطوط إلى عرض تقديمي:
 
 ```python
 import aspose.slides as slides
 
-# تحميل العرض التقديمي
-with slides.Presentation(path + "Fonts.pptx") as presentation:
-    # تحميل الخط المصدر ليتم استبداله
-    sourceFont = slides.FontData("Arial")
+# Load a presentation.
+with slides.Presentation("Fonts.pptx") as presentation:
+    all_fonts = presentation.fonts_manager.get_fonts()
+    embedded_fonts = presentation.fonts_manager.get_embedded_fonts()
 
-
-    allFonts = presentation.fonts_manager.get_fonts()
-    embeddedFonts = presentation.fonts_manager.get_embedded_fonts()
-    for font in allFonts:
-        if font not in embeddedFonts:
+    for font in all_fonts:
+        if font not in embedded_fonts:
             presentation.fonts_manager.add_embedded_font(font, slides.export.EmbedFontCharacters.ALL)
 
-    # حفظ العرض التقديمي على القرص
-    presentation.save("AddEmbeddedFont_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("AddEmbeddedFont.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ضغط الخطوط المدمجة**
+## **ضغط الخطوط المدرجة**
 
-للسماح لك بضغط الخطوط المدمجة في عرض تقديمي وتقليل حجم الملف، يوفر Aspose.Slides الطريقة `compress_embedded_fonts` (التي توفرها فئة [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/)).
+حسّن حجم الملف بضغط الخطوط المدرجة باستخدام [compress_embedded_fonts](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/compress_embedded_fonts/).
 
-يعرض هذا الكود في بايثون كيفية ضغط الخطوط المدمجة في PowerPoint:
+مثال على الكود للضغط:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-
-    slides.lowcode.Compress.compress_embedded_fonts(pres)
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("sample.pptx") as presentation:
+    slides.lowcode.Compress.compress_embedded_fonts(presentation)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQ**
+
+**كيف يمكنني معرفة أن خطًا معينًا في العرض سيستبدل أثناء العرض بالرغم من إدراجه؟**
+
+تحقق من [معلومات الاستبدال](/slides/ar/python-net/font-substitution/) في مدير الخطوط و[قواعد السقوط/الاستبدال](/slides/ar/python-net/fallback-font/): إذا كان الخط غير متاح أو مقيد، سيتم استخدام خط بديل.
+
+**هل من المفيد إدراج خطوط النظام مثل Arial/Calibri؟**
+
+عادة لا—فهي متاحة تقريبًا دائمًا. لكن من أجل قابلية النقل الكاملة في بيئات "رقيقة" (Docker، خادم Linux بدون خطوط مثبتة مسبقًا)، يمكن أن يزيل إدراج خطوط النظام خطر الاستبدالات غير المتوقعة.

@@ -5,22 +5,23 @@ type: docs
 weight: 122
 url: /de/python-net/compatibility-with-pyinstaller/
 keywords:
-- Kompatibilität
+- compatibility
 - PyInstaller
 - cx_Freeze
 - Python
 - Aspose.Slides
-description: "Packen Sie Aspose.Slides for Python via .NET mit PyInstaller. Befolgen Sie diese Anleitung, um Ihre Anwendung als eigenständige ausführbare Datei zu bündeln, zu konfigurieren und Fehler zu beheben."
+description: "Packen Sie Aspose.Slides für Python via .NET mit PyInstaller. Befolgen Sie diese Anleitung, um Ihre Anwendung zu bündeln, zu konfigurieren und zu troubleshootieren und in eine eigenständige ausführbare Datei zu verwandeln."
 ---
 
-## Kompatibilität mit PyInstaller und cx_Freeze ##
+## **Kompatibilität mit PyInstaller und cx_Freeze**
 
-'Aspose.Slides für Python über .NET'-Erweiterungen sind einfach Python C-Erweiterungen, die mit Hilfe von PyInstaller und cx_Freeze (oder ähnlichen Tools) als Programmbibliotheken eingefroren werden können. Das bedeutet, dass Sie Tools wie PyInstaller und cx_Freeze verwenden können, um ausführbare Dateien aus Ihren Python-Skripten zu erstellen. Diese Tools werden "Freezer" genannt, weil sie Ihren Code und die Abhängigkeiten in eine einzige Datei einfrieren, die auf anderen Maschinen ohne Python oder andere Bibliotheken ausgeführt werden kann. Dies erleichtert die Verbreitung Ihrer Python-Anwendungen an andere.
+Aspose.Slides für Python via .NET-Erweiterungen sind reguläre Python‑C‑Erweiterungen, sodass sie mit Tools wie PyInstaller und cx_Freeze (oder ähnlichen) als Programmabhängigkeiten „gefroren“ werden können. Das ermöglicht Ihnen, ausführbare Dateien aus Ihren Python‑Skripten zu erstellen. Solche Werkzeuge werden „Freezer“ genannt, weil sie Ihren Code und dessen Abhängigkeiten in einer einzigen verteilbaren Datei bündeln, die auf anderen Rechnern läuft, ohne dass eine Python‑Installation oder zusätzliche Bibliotheken erforderlich sind. Dieser Ansatz vereinfacht die Verteilung Ihrer Python‑Anwendungen.
 
-Das Einfrieren einer 'Aspose.Slides für Python über .NET'-Erweiterung als Programmbibliothek wird anhand eines Beispiels eines einfachen Programms veranschaulicht, das Aspose.Slides verwendet.
+Das Einfrieren einer Aspose.Slides‑Erweiterung für Python via .NET als Abhängigkeit wird unten anhand eines einfachen Programms demonstriert, das Aspose.Slides verwendet.
 
-### PyInstaller
-Im Allgemeinen muss beim Verpacken eines Programms, das von einer 'Aspose.Slides für Python über .NET'-Erweiterung abhängt, nichts Besonderes getan werden. Wenn ein Programm eine Erweiterung auf eine Weise importiert, die für PyInstaller sichtbar ist, wird die Erweiterung zusammen mit dem Programm gebündelt. Da 'Aspose.Slides für Python über .NET'-Erweiterungen mit PyInstaller-Hooks geliefert werden, werden ihre eigenen Abhängigkeiten gefunden und in das Bundle kopiert.
+### **PyInstaller**
+
+Im Allgemeinen ist nichts Besonderes erforderlich, wenn Sie ein Programm paketieren, das von einer Aspose.Slides‑Erweiterung für Python via .NET abhängt. Wenn ein Programm die Erweiterung in einer für PyInstaller sichtbaren Weise importiert, wird die Erweiterung zusammen mit dem Programm gebündelt. Da Aspose.Slides für Python via .NET PyInstaller‑Hooks enthält, werden seine Abhängigkeiten automatisch erkannt und in das Bundle kopiert.
 
 slide_app.py:
 ```python
@@ -29,14 +30,14 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     slide.shapes.add_auto_shape(slides.ShapeType.LINE, 50.0, 150.0, 300.0, 0.0)
-    presentation.save("NewPresentation_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("NewPresentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-```
+```bash
 $ pyinstaller slide_app.py
 ```
 
-Manchmal kann PyInstaller jedoch einige versteckte Importe nicht erkennen, das sind Module, die durch Ihren Code dynamisch oder indirekt importiert werden. Um mit einem versteckten Import in PyInstaller umzugehen, verwenden Sie die Optionen von PyInstaller. Die Abhängigkeiten einer Erweiterung sind in den PyInstaller-Hooks angegeben, die mit der 'Aspose.Slides für Python über .NET'-Erweiterung geliefert werden.
+Allerdings kann PyInstaller gelegentlich verborgene Importe übersehen – Module, die dynamisch oder indirekt von Ihrem Code importiert werden. Um einen verborgenen Import einzubeziehen, verwenden Sie die entsprechenden Optionen von PyInstaller. Die Abhängigkeiten der Erweiterung sind in den PyInstaller‑Hooks angegeben, die mit Aspose.Slides für Python via .NET ausgeliefert werden.
 
 slide_app.spec:
 ```
@@ -47,19 +48,22 @@ a = Analysis(
 )
 ```
 
-```
+```bash
 $ pyinstaller slide_app.spec
 ```
 
-### cx_Freeze ###
-Um ein Programm mit cx_Freeze einzufrieren, verwenden Sie dessen Optionen, um das Stamm-Paket der 'Aspose.Slides für Python über .NET'-Erweiterung einzufrieren, die Sie verwenden. Dies stellt sicher, dass die Erweiterung und die Module, von denen sie abhängt, zusammen mit dem Programm kopiert werden.
+### **cx_Freeze**
 
-#### Verwendung des cxfreeze-Skripts ####
-```
+Um ein Programm mit cx_Freeze einzufrieren, konfigurieren Sie es so, dass das Root‑Package der Aspose.Slides‑Erweiterung für Python via .NET, das Sie verwenden, einbezogen wird. Das stellt sicher, dass die Erweiterung und alle abhängigen Module zusammen mit Ihrer Anwendung in den Build kopiert werden.
+
+#### **Verwendung des cxfreeze‑Scripts**
+
+```bash
 $ cxfreeze slide_app.py --packages=aspose
 ```
 
-#### Verwendung des Setup-Skripts ####
+#### **Verwendung des Setup‑Scripts**
+
 setup.py:
 ```
 executables = [Executable('slide_app.py')]
@@ -73,9 +77,22 @@ options = {
 setup(...
     options=options,
     executables=executables)
-
 ```
 
-```
+```bash
 $ python setup.py build_exe
 ```
+
+## **FAQ**
+
+**Muss Microsoft PowerPoint oder .NET auf dem Rechner des Benutzers installiert sein?**
+
+Nein, PowerPoint ist nicht erforderlich. Aspose.Slides ist eine eigenständige Engine; das Python‑Paket liefert alles Notwendige als Erweiterung für CPython. Der Benutzer muss .NET nicht separat installieren.
+
+**Wie sollte ich die Lizenz korrekt an eine eingefrorene Anwendung anhängen?**
+
+Sie können die Lizenz‑XML neben der ausführbaren Datei speichern oder sie als Ressource einbetten und vor dem ersten API‑Aufruf von einem zugänglichen Pfad aus laden. Wichtig: Ändern Sie den XML‑Inhalt nicht (auch nicht die Zeilenumbrüche).
+
+**Was soll ich tun, wenn nach dem Build die Schriftarten anders gerendert werden als in der Entwicklungsumgebung?**
+
+Stellen Sie sicher, dass die von Ihnen verwendeten Schriftarten in der Zielumgebung verfügbar sind (entweder gebündelt oder systemweit installiert) und dass ihre Pfade zur Laufzeit korrekt aufgelöst werden; das Schriftverhalten ist insbesondere unter Linux sehr empfindlich.

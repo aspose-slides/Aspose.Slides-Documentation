@@ -1,108 +1,136 @@
 ---
-title: Заголовок и нижний колонтитул презентации
+title: Управление заголовками и нижними колонтитулами презентаций с помощью Python
+linktitle: Заголовок и нижний колонтитул
 type: docs
 weight: 140
 url: /ru/python-net/presentation-header-and-footer/
-keywords: "Заголовок, нижний колонтитул, установить заголовок, установить нижний колонтитул, установить заголовок и нижний колонтитул, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Заголовок и нижний колонтитул PowerPoint на Python"
+keywords:
+- заголовок
+- текст заголовка
+- нижний колонтитул
+- текст нижнего колонтитула
+- установить заголовок
+- установить нижний колонтитул
+- раздаточный материал
+- заметки
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Используйте Aspose.Slides для Python через .NET, чтобы добавлять и настраивать заголовки и нижние колонтитулы в презентациях PowerPoint и OpenDocument для профессионального вида."
 ---
 
-{{% alert color="primary" %}} 
+## **Обзор**
 
-[Aspose.Slides](/slides/ru/python-net/) предоставляет поддержку работы с текстом заголовков и нижних колонтитулов слайдов, которые фактически поддерживаются на уровне мастера слайдов.
+Aspose.Slides для Python позволяет управлять заполняющими полями заголовков и нижних колонтитулов во всей презентации с точным охватом. Текст нижнего колонтитула, дата/время и номера слайдов управляются на уровне шаблона и могут применяться глобально или корректироваться для отдельного слайда. Заголовки поддерживаются в заметках и раздаточных материалах, где можно переключать их видимость и задавать текст заголовка, нижнего колонтитула, дата/время и номера страниц через специализированный менеджер заголовков и нижних колонтитулов на мастер‑слайде заметок или отдельных слайдах заметок. В этой статье описаны основные схемы обновления этих заполняющих полей и последовательного применения изменений по всей презентации.
 
-{{% /alert %}} 
+## **Управление текстом заголовков и нижних колонтитулов**
 
-[Aspose.Slides для Python через .NET](/slides/ru/python-net/) предоставляет функцию управления заголовками и нижними колонтитулами внутри слайдов презентации. На самом деле они управляются на уровне мастера презентации.
-## **Управление текстом заголовка и нижнего колонтитула**
-Заметки некоторых конкретных слайдов могут быть обновлены, как показано в примере ниже:
+В этом разделе вы узнаете, как управлять содержимым заголовков и нижних колонтитулов в презентации — включать или изменять нижний колонтитул, дату и время, а также номера слайдов. Мы кратко опишем области применения этих настроек (вся презентация, отдельные слайды и представления заметок/раздаточных материалов) и покажем, как с помощью API Aspose.Slides быстро и последовательно их обновлять.
+
+Ниже приведён пример кода, который открывает презентацию, включает и задаёт текст нижнего колонтитула, обновляет текст заголовка на мастер‑слайде заметок и сохраняет файл.
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Метод для установки текста заголовка/нижнего колонтитула
+# Function to set the header text.
 def update_header_footer_text(master):
     for shape in master.shapes:
         if shape.placeholder is not None:
             if shape.placeholder.type == slides.PlaceholderType.HEADER:
-                shape.text_frame.text = "Привет, новый заголовок"
+                shape.text_frame.text = "Hi, there is a header"
 
-# Загрузка презентации
-with slides.Presentation("combined_with_master.pptx") as pres:
-    # Установка нижнего колонтитула
-    pres.header_footer_manager.set_all_footers_text("Мой текст нижнего колонтитула")
-    pres.header_footer_manager.set_all_footers_visibility(True)
 
-    # Доступ и обновление заголовка
-    masterNotesSlide = pres.master_notes_slide_manager.master_notes_slide
-    if masterNotesSlide is not None:
-        update_header_footer_text(masterNotesSlide)
+# Load the presentation.
+with slides.Presentation("sample.pptx") as presentation:
+    # Set the footer.
+    presentation.header_footer_manager.set_all_footers_text("My Footer text")
+    presentation.header_footer_manager.set_all_footers_visibility(True)
 
-    # Сохранение презентации
-    pres.save("HeaderFooter-out.pptx", slides.export.SaveFormat.PPTX)
+    # Access and update the header.
+    master_notes_slide = presentation.master_notes_slide_manager.master_notes_slide
+    if master_notes_slide is not None:
+        update_header_footer_text(master_notes_slide)
+
+    # Save the presentation.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Управление заголовками и нижними колонтитулами на слайдах заметок**
 
+В этом разделе вы узнаете, как управлять заголовками и нижними колонтитулами специально для слайдов заметок в Aspose.Slides. Мы рассмотрим включение соответствующих заполняющих полей, задавание текста нижних колонтитулов, даты/времени и номеров страниц, а также последовательное применение этих изменений в мастере заметок и отдельных страницах заметок.
 
+Выполните следующие шаги:
 
-## **Управление заголовком и нижним колонтитулом в раздаточных материалах и слайдах заметок**
-Aspose.Slides для Python через .NET поддерживает заголовок и нижний колонтитул в раздаточных материалах и слайдах заметок. Пожалуйста, выполните следующие шаги:
-
-- Загрузите [Презентацию](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), содержащую видео.
-- Измените настройки заголовка и нижнего колонтитула для мастера заметок и всех слайдов заметок.
-- Установите видимость мастера заметок и всех дочерних заполнитель нижнего колонтитула.
-- Установите видимость мастера заметок и всех дочерних заполнителей даты и времени.
-- Измените настройки заголовка и нижнего колонтитула только для первого слайда заметок.
-- Установите видимость заполнителя заголовка слайда заметок.
-- Установите текст для заполнителя заголовка слайда заметок.
-- Установите текст для заполнителя даты и времени слайда заметок.
-- Запишите модифицированный файл презентации.
-
-Фрагмент кода предоставлен в следующем примере.
+1. Загрузите файл презентации.
+1. Получите мастер‑слайд заметок и его [менеджер заголовков и нижних колонтитулов](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/).
+1. На мастер‑слайде заметок включите видимость заголовка, нижнего колонтитула, номера слайда и даты/времени для мастера и всех дочерних слайдов заметок.
+1. На мастер‑слайде заметок задайте текст заголовка, нижнего колонтитула и даты/времени для мастера и всех дочерних слайдов заметок.
+1. Получите слайд заметок для первого слайда презентации и его [менеджер заголовков и нижних колонтитулов](https://reference.aspose.com/slides/python-net/aspose.slides/notesslideheaderfootermanager/).
+1. Только для этого первого слайда заметок убедитесь, что заголовок, нижний колонтитул, номер слайда и дата/время видимы (включите те, которые отключены).
+1. Только для этого первого слайда заметок задайте текст заголовка, нижнего колонтитула и даты/времени.
+1. Сохраните презентацию в формате PPTX.
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-with slides.Presentation("combined_with_master.pptx") as presentation:
-	masterNotesSlide = presentation.master_notes_slide_manager.master_notes_slide
-	if masterNotesSlide != None:
-		headerFooterManager = masterNotesSlide.header_footer_manager
+with slides.Presentation("sample.pptx") as presentation:
+    master_notes_slide = presentation.master_notes_slide_manager.master_notes_slide
+    if master_notes_slide is not None:
+        header_footer_manager = master_notes_slide.header_footer_manager
 
-		# Сделайте видимыми мастер-слайд заметок и все дочерние заполнители нижнего колонтитула
-		headerFooterManager.set_header_and_child_headers_visibility(True) 
-		headerFooterManager.set_footer_and_child_footers_visibility(True) 
-		headerFooterManager.set_slide_number_and_child_slide_numbers_visibility(True) 
-		headerFooterManager.set_date_time_and_child_date_times_visibility(True)
+        # Make the master notes slide and all child header, footer, slide number, and date/time placeholders visible.
+        header_footer_manager.set_header_and_child_headers_visibility(True)
+        header_footer_manager.set_footer_and_child_footers_visibility(True)
+        header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
+        header_footer_manager.set_date_time_and_child_date_times_visibility(True)
 
-		# Установите текст для мастер-слайда заметок и всех дочерних заполнителей заголовка
-		headerFooterManager.set_header_and_child_headers_text("Текст заголовка") 
-		headerFooterManager.set_footer_and_child_footers_text("Текст нижнего колонтитула") 
-		headerFooterManager.set_date_time_and_child_date_times_text("Текст даты и времени") 
+        # Set text on the master notes slide and all child header, footer, and date/time placeholders.
+        header_footer_manager.set_header_and_child_headers_text("Header text")
+        header_footer_manager.set_footer_and_child_footers_text("Footer text")
+        header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
 
-	# Измените настройки заголовка и нижнего колонтитула только для первого слайда заметок
-	notesSlide = presentation.slides[0].notes_slide_manager.notes_slide
-	if notesSlide != None:
-		headerFooterManager = notesSlide.header_footer_manager
+    # Change header, footer, slide number, and date/time settings for the first notes slide only.
+    notesSlide = presentation.slides[0].notes_slide_manager.notes_slide
+    if notesSlide is not None:
+        header_footer_manager = notesSlide.header_footer_manager
 
-		# Сделайте заполнитель заголовка слайда заметок видимым
+        # Ensure the header, footer, slide number, and date/time placeholders are visible.
+        if not header_footer_manager.is_header_visible:
+            header_footer_manager.set_header_visibility(True)
 
-		if not headerFooterManager.is_header_visible:
-			headerFooterManager.set_header_visibility(True) 
+        if not header_footer_manager.is_footer_visible:
+            header_footer_manager.set_footer_visibility(True)
 
-		if not headerFooterManager.is_footer_visible:
-			headerFooterManager.set_footer_visibility(True) 
+        if not header_footer_manager.is_slide_number_visible:
+            header_footer_manager.set_slide_number_visibility(True)
 
-		if not headerFooterManager.is_slide_number_visible:
-			headerFooterManager.set_slide_number_visibility(True) 
+        if not header_footer_manager.is_date_time_visible:
+            header_footer_manager.set_date_time_visibility(True)
 
-		if not headerFooterManager.is_date_time_visible:
-			headerFooterManager.set_date_time_visibility(True) 
+        # Set text on the notes slide header, footer, and date/time placeholders.
+        header_footer_manager.set_header_text("New header text")
+        header_footer_manager.set_footer_text("New footer text")
+        header_footer_manager.set_date_time_text("New date and time text")
 
-		# Установите текст для заполнителя заголовка слайда заметок
-		headerFooterManager.set_header_text("Новый текст заголовка") 
-		headerFooterManager.set_footer_text("Новый текст нижнего колонтитула") 
-		headerFooterManager.set_date_time_text("Новый текст даты и времени") 
-	presentation.save("testresult.pptx",slides.export.SaveFormat.PPTX)
+    # Save the presentation.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Вопросы и ответы**
+
+**Могу ли я добавить «заголовок» на обычные слайды?**
+
+В PowerPoint «заголовок» существует только для заметок и раздаточных материалов; на обычных слайдах поддерживаются только нижний колонтитул, дата/время и номер слайда. В Aspose.Slides это такие же ограничения: заголовок только для заметок/раздаточных материалов, а на слайдах — нижний колонтитул/дата‑время/номер слайда.
+
+**Что если в макете отсутствует область нижнего колонтитула — можно ли «включить» её видимость?**
+
+Да. Проверьте видимость через менеджер заголовков и нижних колонтитулов и включите её при необходимости. Эти индикаторы и методы API предназначены для случаев, когда заполняющее поле отсутствует или скрыто.
+
+**Как задать начальное значение номера слайда, отличное от 1?**
+
+Установите [номер первого слайда](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/first_slide_number/) презентации; после этого все нумерации пересчитываются. Например, можно начать с 0 или 10 и скрыть номер на титульном слайде.
+
+**Что происходит с заголовками/нижними колонтитулами при экспорте в PDF/изображения/HTML?**
+
+Они отображаются как обычные текстовые элементы презентации. То есть, если элементы видимы на слайдах/страницах заметок, они также появятся в выходном формате вместе с остальным содержимым.

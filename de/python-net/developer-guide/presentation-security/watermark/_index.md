@@ -5,52 +5,52 @@ type: docs
 weight: 40
 url: /de/python-net/watermark/
 keywords:
-- Wasserzeichen
-- Textwasserzeichen
-- Bildwasserzeichen
-- Wasserzeichen hinzufügen
-- Wasserzeichen ändern
-- Wasserzeichen entfernen
-- Wasserzeichen löschen
-- Wasserzeichen zu PPT hinzufügen
-- Wasserzeichen zu PPTX hinzufügen
-- Wasserzeichen zu ODP hinzufügen
-- Wasserzeichen aus PPT entfernen
-- Wasserzeichen aus PPTX entfernen
-- Wasserzeichen aus ODP entfernen
-- Wasserzeichen aus PPT löschen
-- Wasserzeichen aus PPTX löschen
-- Wasserzeichen aus ODP löschen
+- wasserzeichen
+- text wasserzeichen
+- bild wasserzeichen
+- wasserzeichen hinzufügen
+- wasserzeichen ändern
+- wasserzeichen entfernen
+- wasserzeichen löschen
+- wasserzeichen zu PPT hinzufügen
+- wasserzeichen zu PPTX hinzufügen
+- wasserzeichen zu ODP hinzufügen
+- wasserzeichen von PPT entfernen
+- wasserzeichen von PPTX entfernen
+- wasserzeichen von ODP entfernen
+- wasserzeichen von PPT löschen
+- wasserzeichen von PPTX löschen
+- wasserzeichen von ODP löschen
 - PowerPoint
 - OpenDocument
-- Präsentation
+- präsentation
 - Python
 - Aspose.Slides
-description: "Lernen Sie, wie Sie Text- und Bildwasserzeichen in PowerPoint- und OpenDocument-Präsentationen in Python verwalten, um einen Entwurf, vertrauliche Informationen, Urheberrechte und mehr zu kennzeichnen."
+description: "Erfahren Sie, wie Sie Text- und Bildwasserzeichen in PowerPoint- und OpenDocument-Präsentationen mit Python verwalten, um Entwürfe, vertrauliche Informationen, Urheberrechte und mehr zu kennzeichnen."
 ---
 
 ## **Über Wasserzeichen**
 
-**Ein Wasserzeichen** in einer Präsentation ist ein Text- oder Bildstempel, der auf einer Folie oder auf allen Präsentationsfolien verwendet wird. Üblicherweise wird ein Wasserzeichen verwendet, um anzuzeigen, dass die Präsentation ein Entwurf ist (z.B. ein „Entwurf“-Wasserzeichen), dass sie vertrauliche Informationen enthält (z.B. ein „Vertraulich“-Wasserzeichen), um anzugeben, welchem Unternehmen sie gehört (z.B. ein „Unternehmensname“-Wasserzeichen), um den Autor der Präsentation zu identifizieren usw. Ein Wasserzeichen hilft, Urheberrechtsverletzungen zu verhindern, indem es anzeigt, dass die Präsentation nicht kopiert werden sollte. Wasserzeichen werden sowohl in PowerPoint- als auch in OpenOffice-Präsentationsformaten verwendet. In Aspose.Slides können Sie ein Wasserzeichen zu PowerPoint PPT, PPTX und OpenOffice ODP-Dateiformaten hinzufügen.
+**Ein Wasserzeichen** in einer Präsentation ist ein Text‑ oder Bildstempel, der auf einer Folie oder über alle Folien hinweg verwendet wird. Üblicherweise wird ein Wasserzeichen verwendet, um anzuzeigen, dass die Präsentation ein Entwurf ist (z. B. ein „Entwurf“-Wasserzeichen), vertrauliche Informationen enthält (z. B. ein „Vertraulich“-Wasserzeichen), zu welchem Unternehmen sie gehört (z. B. ein „Firmenname“-Wasserzeichen) oder den Autor der Präsentation zu identifizieren usw. Ein Wasserzeichen hilft, Urheberrechtsverletzungen zu verhindern, indem es anzeigt, dass die Präsentation nicht kopiert werden darf. Wasserzeichen werden sowohl in PowerPoint‑ als auch in OpenOffice‑Präsentationsformaten verwendet. In Aspose.Slides können Sie ein Wasserzeichen zu PowerPoint‑PPT, PPTX und OpenOffice‑ODP‑Dateiformaten hinzufügen.
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) gibt es verschiedene Möglichkeiten, Wasserzeichen in PowerPoint- oder OpenOffice-Dokumenten zu erstellen und deren Design und Verhalten zu ändern. Der gemeinsame Aspekt ist, dass Sie zur Hinzufügung von Textwasserzeichen die [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) Klasse verwenden sollten, und um Bildwasserzeichen hinzuzufügen, verwenden Sie die [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) Klasse oder füllen eine Wasserzeichenform mit einem Bild. `PictureFrame` implementiert die [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) Klasse, die es Ihnen ermöglicht, alle flexiblen Einstellungen des Formobjekts zu verwenden. Da `TextFrame` keine Form ist und seine Einstellungen eingeschränkt sind, wird es in ein [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) Objekt eingekapselt.
+In [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) gibt es verschiedene Möglichkeiten, Wasserzeichen in PowerPoint‑ oder OpenOffice‑Dokumenten zu erstellen und ihr Design sowie Verhalten zu ändern. Der gemeinsame Aspekt ist, dass Sie zum Hinzufügen von Textwasserzeichen die Klasse [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) verwenden und zum Hinzufügen von Bildwasserzeichen die Klasse [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) oder das Füllen einer Wasserzeichnungsform mit einem Bild. `PictureFrame` implementiert die Klasse [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/), sodass Sie alle flexiblen Einstellungen des Shape‑Objekts nutzen können. Da `TextFrame` kein Shape ist und seine Einstellungen begrenzt sind, wird es in ein [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/)-Objekt eingewickelt.
 
-Ein Wasserzeichen kann auf zwei Arten angewendet werden: auf einer einzelnen Folie oder auf allen Präsentationsfolien. Der Folienmaster wird verwendet, um ein Wasserzeichen auf allen Präsentationsfolien anzuwenden – das Wasserzeichen wird dem Folienmaster hinzugefügt, dort vollständig gestaltet und auf alle Folien angewendet, ohne die Berechtigung zum Ändern des Wasserzeichens auf einzelnen Folien zu beeinträchtigen.
+Ein Wasserzeichen kann auf zwei Arten angewendet werden: auf einer einzelnen Folie oder auf allen Folien einer Präsentation. Der Folienmaster wird verwendet, um ein Wasserzeichen auf alle Folien anzuwenden – das Wasserzeichen wird dem Folienmaster hinzugefügt, dort vollständig gestaltet und anschließend auf alle Folien angewendet, ohne die Möglichkeit zu beeinträchtigen, das Wasserzeichen auf einzelnen Folien zu ändern.
 
-Ein Wasserzeichen wird normalerweise als nicht bearbeitbar für andere Benutzer betrachtet. Um zu verhindern, dass das Wasserzeichen (oder besser gesagt, die übergeordnete Form des Wasserzeichens) bearbeitet wird, bietet Aspose.Slides eine Funktion zum Sperren von Formen. Eine bestimmte Form kann auf einer normalen Folie oder auf einem Folienmaster gesperrt werden. Wenn die Wasserzeichenform auf dem Folienmaster gesperrt ist, ist sie auf allen Präsentationsfolien gesperrt.
+Ein Wasserzeichen wird in der Regel als nicht editierbar für andere Benutzer betrachtet. Um zu verhindern, dass das Wasserzeichen (bzw. das übergeordnete Shape des Wasserzeichens) bearbeitet wird, bietet Aspose.Slides eine Shape‑Sperrfunktionalität. Ein bestimmtes Shape kann auf einer normalen Folie oder auf einem Folienmaster gesperrt werden. Wird das Wasserzeichen‑Shape auf dem Folienmaster gesperrt, ist es auf allen Folien gesperrt.
 
-Sie können dem Wasserzeichen einen Namen zuweisen, damit Sie es in Zukunft, wenn Sie es löschen möchten, in den Formen der Folie nach Namen finden können.
+Sie können dem Wasserzeichen einen Namen zuweisen, sodass Sie es später anhand des Namens in den Folien‑Shapes finden und ggf. löschen können.
 
-Sie können das Wasserzeichen auf jede Weise gestalten; jedoch gibt es normalerweise häufige Merkmale in Wasserzeichen, wie z.B. zentrierte Ausrichtung, Drehung, Vordergrundposition usw. Wir werden im Folgenden betrachten, wie man diese in den Beispielen verwendet.
+Sie können das Wasserzeichen beliebig gestalten; typischerweise weisen Wasserzeichen jedoch gemeinsame Merkmale wie zentrierte Ausrichtung, Drehung, Vordergrundposition usw. auf. Im Folgenden sehen Sie, wie Sie diese in den Beispielen nutzen können.
 
-## **Textwasserzeichen**
+## **Text‑Wasserzeichen**
 
-### **Fügen Sie ein Textwasserzeichen zu einer Folie hinzu**
+### **Ein Text‑Wasserzeichen zu einer Folie hinzufügen**
 
-Um ein Textwasserzeichen in PPT, PPTX oder ODP hinzuzufügen, können Sie zunächst eine Form zur Folie hinzufügen und dann einen Textbereich zu dieser Form hinzufügen. Der Textbereich wird durch die [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) Klasse dargestellt. Dieser Typ erbt nicht von [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/), die über eine breite Palette von Eigenschaften verfügt, um das Wasserzeichen flexibel zu positionieren. Daher wird das [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) Objekt in ein [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) Objekt eingekapselt. Um dem Form Wasserzeichentext hinzuzufügen, verwenden Sie die [add_text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/add_text_frame/#str) Methode, wie unten gezeigt.
+Um ein Text‑Wasserzeichen in PPT, PPTX oder ODP hinzuzufügen, fügen Sie zunächst ein Shape zur Folie hinzu und dann einen TextFrame zu diesem Shape. Der TextFrame wird durch die Klasse [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) repräsentiert. Dieser Typ erbt nicht von [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/), das über zahlreiche Eigenschaften zur flexiblen Positionierung des Wasserzeichens verfügt. Daher wird das [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/)-Objekt in ein [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/)-Objekt eingebettet. Um Text zum Shape hinzuzufügen, verwenden Sie die Methode [add_text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/add_text_frame/#str) wie unten gezeigt.
 
 ```py
-watermark_text = "VERTRAULICH"
+watermark_text = "CONFIDENTIAL"
 
 with Presentation() as presentation:
     slide = presentation.slides[0]
@@ -63,12 +63,12 @@ with Presentation() as presentation:
 - [Wie man die TextFrame-Klasse verwendet](/slides/de/python-net/text-formatting/)
 {{% /alert %}}
 
-### **Fügen Sie ein Textwasserzeichen zur Präsentation hinzu**
+### **Ein Text‑Wasserzeichen zu einer gesamten Präsentation hinzufügen**
 
-Wenn Sie ein Textwasserzeichen zur gesamten Präsentation (d.h. zu allen Folien auf einmal) hinzufügen möchten, fügen Sie es zum [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/) hinzu. Der Rest der Logik ist dieselbe wie beim Hinzufügen eines Wasserzeichens zu einer einzelnen Folie – erstellen Sie ein [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) Objekt und fügen Sie dann das Wasserzeichen mit der [add_text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/add_text_frame/#str) Methode hinzu.
+Wenn Sie ein Text‑Wasserzeichen der gesamten Präsentation hinzufügen möchten (also allen Folien gleichzeitig), fügen Sie es dem [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/) hinzu. Der übrige Ablauf ist identisch zum Hinzufügen eines Wasserzeichens zu einer einzelnen Folie – erstellen Sie ein [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/)-Objekt und fügen Sie das Wasserzeichen mit der Methode [add_text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/add_text_frame/#str) hinzu.
 
 ```py
-watermark_text = "VERTRAULICH"
+watermark_text = "CONFIDENTIAL"
 
 with Presentation() as presentation:
     master_slide = presentation.masters[0]
@@ -81,18 +81,18 @@ with Presentation() as presentation:
 - [Wie man den Folienmaster verwendet](/slides/de/python-net/slide-master/)
 {{% /alert %}}
 
-### **Setzen Sie die Transparenz der Wasserzeichenform**
+### **Transparenz des Wasserzeichen‑Shapes festlegen**
 
-Standardmäßig wird die rechteckige Form mit Füll- und Linienfarben gestylt. Die folgenden Zeilen von Code machen die Form transparent.
+Standardmäßig ist das Rechteck‑Shape mit Füll‑ und Linienfarbe formatiert. Die folgenden Zeilen machen das Shape transparent.
 
 ```py
 watermark_shape.fill_format.fill_type = FillType.NO_FILL
 watermark_shape.line_format.fill_format.fill_type = FillType.NO_FILL
 ```
 
-### **Legen Sie die Schriftart für ein Textwasserzeichen fest**
+### **Schriftart für ein Text‑Wasserzeichen festlegen**
 
-Sie können die Schriftart des Textwasserzeichens wie unten gezeigt ändern.
+Sie können die Schriftart des Text‑Wasserzeichens wie unten gezeigt ändern.
 
 ```py
 text_format = watermark_frame.paragraphs[0].paragraph_format.default_portion_format
@@ -100,9 +100,9 @@ text_format.latin_font = FontData("Arial")
 text_format.font_height = 50
 ```
 
-### **Setzen Sie die Textfarbe des Wasserzeichens**
+### **Farbe des Wasserzeichen‑Texts festlegen**
 
-Um die Farbe des Wasserzeichentextes einzustellen, verwenden Sie diesen Code:
+Um die Farbe des Wasserzeichen‑Texts zu setzen, verwenden Sie diesen Code:
 
 ```py
 alpha = 150
@@ -115,9 +115,9 @@ fill_format.fill_type = FillType.SOLID
 fill_format.solid_fill_color.color = drawing.Color.from_argb(alpha, red, green, blue)
 ```
 
-### **Zentrieren Sie ein Textwasserzeichen**
+### **Ein Text‑Wasserzeichen zentrieren**
 
-Es ist möglich, das Wasserzeichen auf einer Folie zu zentrieren, und dafür können Sie Folgendes tun:
+Es ist möglich, das Wasserzeichen auf einer Folie zu zentrieren. Dafür können Sie folgendes tun:
 
 ```py
 slide_size = presentation.slide_size.size
@@ -135,13 +135,13 @@ watermark_frame = watermark_shape.add_text_frame(watermark_text)
 
 Das Bild unten zeigt das Endergebnis.
 
-![Das Textwasserzeichen](text_watermark.png)
+![Das Text‑Wasserzeichen](text_watermark.png)
 
-## **Bildwasserzeichen**
+## **Bild‑Wasserzeichen**
 
-### **Fügen Sie ein Bildwasserzeichen zu einer Präsentation hinzu**
+### **Ein Bild‑Wasserzeichen zu einer Präsentation hinzufügen**
 
-Um ein Bildwasserzeichen zu einer Präsentationsfolie hinzuzufügen, können Sie Folgendes tun:
+Um ein Bild‑Wasserzeichen zu einer Präsentationsfolie hinzuzufügen, können Sie folgendes tun:
 
 ```py
 with open("watermark.png", "rb") as image_stream:
@@ -152,12 +152,12 @@ with open("watermark.png", "rb") as image_stream:
     watermark_shape.fill_format.picture_fill_format.picture_fill_mode = PictureFillMode.STRETCH
 ```
 
-## **Sperren Sie ein Wasserzeichen vor der Bearbeitung**
+## **Ein Wasserzeichen vor Bearbeitung sperren**
 
-Wenn es notwendig ist, zu verhindern, dass ein Wasserzeichen bearbeitet wird, verwenden Sie die [AutoShape.auto_shape_lock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/auto_shape_lock/) Eigenschaft auf der Form. Mit dieser Eigenschaft können Sie die Form davor schützen, ausgewählt, verschoben, neu positioniert, mit anderen Elementen gruppiert, ihre Texte vor der Bearbeitung gesperrt und vieles mehr zu werden:
+Falls ein Wasserzeichen nicht bearbeitet werden soll, verwenden Sie die Eigenschaft [AutoShape.auto_shape_lock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/auto_shape_lock/) des Shapes. Mit dieser Eigenschaft können Sie das Shape davor schützen, ausgewählt, in der Größe verändert, neu positioniert, mit anderen Elementen gruppiert, sein Text bearbeitet usw. zu werden:
 
 ```py
-# Sperren Sie die Wasserzeichenform vor Änderungen
+# Das Wasserzeichen‑Shape vor Änderungen sperren
 watermark_shape.auto_shape_lock.select_locked = True
 watermark_shape.auto_shape_lock.size_locked = True
 watermark_shape.auto_shape_lock.text_locked = True
@@ -165,18 +165,18 @@ watermark_shape.auto_shape_lock.position_locked = True
 watermark_shape.auto_shape_lock.grouping_locked = True
 ```
 
-## **Bringen Sie ein Wasserzeichen nach vorne**
+## **Ein Wasserzeichen in den Vordergrund holen**
 
-In Aspose.Slides kann die Z-Reihenfolge von Formen über die [ShapeCollection.reorder](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/reorder/#int-ishape) Methode festgelegt werden. Dazu müssen Sie diese Methode von der Liste der Präsentationsfolien aufrufen und die Formreferenz sowie ihre Reihenfolgenummer in die Methode übergeben. Auf diese Weise ist es möglich, eine Form nach vorne zu bringen oder sie nach hinten auf der Folie zu senden. Diese Funktion ist besonders nützlich, wenn Sie ein Wasserzeichen vor der Präsentation platzieren müssen:
+In Aspose.Slides kann die Z‑Reihenfolge von Shapes über die Methode [ShapeCollection.reorder](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/reorder/#int-ishape) festgelegt werden. Rufen Sie diese Methode von der Präsentations‑Slide‑Liste auf und übergeben Sie die Shape‑Referenz sowie deren neue Reihenfolgen‑Nummer. So lässt sich ein Shape nach vorne oder nach hinten verschieben – nützlich, wenn das Wasserzeichen vor dem Rest der Folie angezeigt werden soll:
 
 ```py
 shape_count = len(slide.shapes)
 slide.shapes.reorder(shape_count - 1, watermark_shape)
 ```
 
-## **Setzen Sie die Wasserzeichen-Drehung**
+## **Drehung des Wasserzeichens festlegen**
 
-Hier ist ein Codebeispiel, wie Sie die Drehung des Wasserzeichens anpassen können, damit es diagonal über die Folie positioniert wird:
+Im folgenden Beispiel wird gezeigt, wie Sie die Drehung des Wasserzeichens anpassen, sodass es diagonal über die Folie verläuft:
 
 ```py
 diagonal_angle = math.atan(slide_size.height / slide_size.width) * 180 / math.pi
@@ -184,17 +184,17 @@ diagonal_angle = math.atan(slide_size.height / slide_size.width) * 180 / math.pi
 watermark_shape.rotation = float(diagonal_angle)
 ```
 
-## **Setzen Sie einen Namen für ein Wasserzeichen**
+## **Einen Namen für ein Wasserzeichen festlegen**
 
-Aspose.Slides ermöglicht es Ihnen, den Namen einer Form festzulegen. Durch die Verwendung des Formnamens können Sie in Zukunft darauf zugreifen, um sie zu ändern oder zu löschen. Um den Namen der Wasserzeichenform festzulegen, weisen Sie ihn der [AutoShape.name](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/name/) Eigenschaft zu:
+Aspose.Slides ermöglicht das Setzen eines Shape‑Namens. Mit dem Shape‑Namen können Sie das Wasserzeichen später wiederfinden, um es zu ändern oder zu löschen. Setzen Sie den Namen des Wasserzeichen‑Shapes über die Eigenschaft [AutoShape.name](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/name/):
 
 ```py
 watermark_shape.name = "watermark"
 ```
 
-## **Entfernen Sie ein Wasserzeichen**
+## **Ein Wasserzeichen entfernen**
 
-Um die Wasserzeichenform zu entfernen, verwenden Sie die [AutoShape.name](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/name/) Methode, um sie in den Folienformen zu finden. Übergeben Sie dann die Wasserzeichenform an die [ShapeCollection.remove](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/remove/#ishape) Methode:
+Um das Wasserzeichen‑Shape zu entfernen, verwenden Sie die Methode [AutoShape.name](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/name/) zum Suchen in den Folien‑Shapes. Anschließend übergeben Sie das gefundene Shape an die Methode [ShapeCollection.remove](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/remove/#ishape):
 
 ```py
 slide_shapes = list(slide.shapes)
@@ -203,8 +203,34 @@ for shape in slide_shapes:
         slide.shapes.remove(watermark_shape)
 ```
 
-## **Ein Live-Beispiel**
+## **Ein Live‑Beispiel**
 
-Sie möchten möglicherweise die **Aspose.Slides kostenlose** [Wasserzeichen hinzufügen](https://products.aspose.app/slides/watermark) und [Wasserzeichen entfernen](https://products.aspose.app/slides/watermark/remove-watermark) Online-Tools ausprobieren.
+Probieren Sie die **Aspose.Slides‑kostenlosen** Online‑Tools **[Watermark hinzufügen]**(https://products.aspose.app/slides/watermark) und **[Watermark entfernen]**(https://products.aspose.app/slides/watermark/remove-watermark) aus.
 
-![Online-Tools zum Hinzufügen und Entfernen von Wasserzeichen](online_tools.png)
+![Online‑Tools zum Hinzufügen und Entfernen von Wasserzeichen](online_tools.png)
+
+## **FAQ**
+
+**Was ist ein Wasserzeichen und warum sollte ich es verwenden?**
+
+Ein Wasserzeichen ist ein Text‑ oder Bild‑Overlay, das Folien überlagert und dabei hilft, geistiges Eigentum zu schützen, die Markenbekanntheit zu steigern oder unbefugte Nutzung von Präsentationen zu verhindern.
+
+**Kann ich ein Wasserzeichen zu allen Folien einer Präsentation hinzufügen?**
+
+Ja, Aspose.Slides ermöglicht das Hinzufügen eines Wasserzeichens zu jeder Folie einer Präsentation. Sie können über alle Folien iterieren und die Wasserzeichen‑Einstellungen einzeln anwenden.
+
+**Wie kann ich die Transparenz des Wasserzeichens anpassen?**
+
+Sie können die Transparenz des Wasserzeichens ändern, indem Sie die Füll‑Einstellungen ([FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/)) des Shapes anpassen. Dadurch bleibt das Wasserzeichen dezent und lenkt nicht vom Folieninhalt ab.
+
+**Welche Bildformate werden für Wasserzeichen unterstützt?**
+
+Aspose.Slides unterstützt verschiedene Bildformate wie PNG, JPEG, GIF, BMP, SVG und weitere.
+
+**Kann ich die Schriftart und den Stil eines Text‑Wasserzeichens anpassen?**
+
+Ja, Sie können jede Schriftart, Größe und jeden Stil wählen, um das Design Ihrer Präsentation zu ergänzen und Marken­konsistenz zu wahren.
+
+**Wie ändere ich die Position oder Orientierung eines Wasserzeichens?**
+
+Sie können die Position und Orientierung des Wasserzeichens ändern, indem Sie die Koordinaten, Größe und Drehungs‑Eigenschaften des [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/)-Elements anpassen.

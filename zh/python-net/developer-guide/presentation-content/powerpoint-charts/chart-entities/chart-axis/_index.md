@@ -1,5 +1,5 @@
 ---
-title: 使用 Python 自定义演示文稿中的图表坐标轴
+title: 在演示文稿中使用 Python 自定义图表坐标轴
 linktitle: 图表坐标轴
 type: docs
 url: /zh/python-net/chart-axis/
@@ -25,20 +25,21 @@ keywords:
 description: "了解如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 演示文稿中自定义图表坐标轴，以用于报告和可视化。"
 ---
 
-## **获取图表垂直坐标轴的最大值**
+## **获取图表中垂直坐标轴的最大值**
+
 Aspose.Slides for Python via .NET 允许您获取垂直坐标轴的最小值和最大值。请按照以下步骤操作：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-1. 访问第一张幻灯片。
-1. 添加一个带有默认数据的图表。
-1. 获取坐标轴上的实际最大值。
-1. 获取坐标轴上的实际最小值。
-1. 获取坐标轴上的实际主要单位。
-1. 获取坐标轴上的实际次要单位。
-1. 获取坐标轴上的实际主要单位刻度。
-1. 获取坐标轴上的实际次要单位刻度。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。  
+2. 访问第一张幻灯片。  
+3. 添加一个带有默认数据的图表。  
+4. 获取坐标轴的实际最大值。  
+5. 获取坐标轴的实际最小值。  
+6. 获取坐标轴的实际主单位。  
+7. 获取坐标轴的实际次单位。  
+8. 获取坐标轴的实际主单位比例。  
+9. 获取坐标轴的实际次单位比例。  
 
-以下示例代码—上述步骤的实现—向您展示如何在 Python 中获取所需值：
+下面的示例代码实现了上述步骤，展示了如何在 Python 中获取所需的值：
 
 ```py
 import aspose.slides.charts as charts
@@ -54,33 +55,34 @@ with slides.Presentation() as pres:
 	majorUnit = chart.axes.horizontal_axis.actual_major_unit
 	minorUnit = chart.axes.horizontal_axis.actual_minor_unit
 	
-	# 保存演示文稿
+	# Saves the presentation
 	pres.save("ErrorBars_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **在坐标轴之间交换数据**
-Aspose.Slides 允许您快速交换坐标轴之间的数据—垂直坐标轴（y 轴）上的数据移动到水平坐标轴（x 轴），反之亦然。
 
-以下 Python 代码向您展示如何在图表的坐标轴之间执行数据交换任务：
+Aspose.Slides 允许您快速交换坐标轴之间的数据——垂直坐标轴（y 轴）上的数据会移动到水平坐标轴（x 轴），反之亦然。
+
+下面的 Python 代码展示了如何在图表上执行坐标轴之间的数据交换任务：
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-# 创建空演示文稿
+# Creates empty presentation
 with slides.Presentation() as pres:
     chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 400, 300)
 
-    # 切换行和列
+    #Switches rows and columns
     chart.chart_data.switch_row_column()
             
-    # 保存演示文稿
+    # Saves presentation
     pres.save("SwitchChartRowColumns_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **禁用线图的垂直坐标轴**
+## **在折线图中禁用垂直坐标轴**
 
-以下 Python 代码向您展示如何隐藏线图的垂直坐标轴：
+下面的 Python 代码展示了如何隐藏折线图的垂直坐标轴：
 
 ```py
 import aspose.slides.charts as charts
@@ -93,9 +95,9 @@ with slides.Presentation() as pres:
     pres.save("chart-is_visible.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **禁用线图的水平坐标轴**
+## **在折线图中禁用水平坐标轴**
 
-以下代码向您展示如何隐藏线图的水平坐标轴：
+下面的代码展示了如何隐藏折线图的水平坐标轴：
 
 ```py
 import aspose.slides.charts as charts
@@ -108,9 +110,9 @@ with slides.Presentation() as pres:
     pres.save("chart-2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **更改类别坐标轴**
+## **更改分类坐标轴**
 
-使用 **CategoryAxisType** 属性，您可以指定所需的类别坐标轴类型（**日期**或**文本**）。以下 Python 代码演示了该操作：
+使用 **CategoryAxisType** 属性，您可以指定首选的分类坐标轴类型（**date** 或 **text**）。下面的 Python 代码演示了该操作：
 
 ```py
 import aspose.slides.charts as charts
@@ -125,8 +127,9 @@ with slides.Presentation(path + "ExistingChart.pptx") as presentation:
     presentation.save("ChangeChartCategoryAxis_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **设置类别坐标轴值的日期格式**
-Aspose.Slides for Python via .NET 允许您为类别坐标轴值设置日期格式。该操作在以下 Python 代码中演示：
+## **为分类坐标轴值设置日期格式**
+
+Aspose.Slides for Python via .NET 允许您为分类坐标轴值设置日期格式。下面的 Python 代码演示了该操作：
 
 ```py
 import aspose.slides.charts as charts
@@ -164,7 +167,8 @@ with slides.Presentation() as pres:
 ```
 
 ## **设置图表坐标轴标题的旋转角度**
-Aspose.Slides for Python via .NET 允许您设置图表坐标轴标题的旋转角度。该 Python 代码演示该操作：
+
+Aspose.Slides for Python via .NET 允许您设置图表坐标轴标题的旋转角度。下面的 Python 代码演示了该操作：
 
 ```py
 import aspose.slides.charts as charts
@@ -178,8 +182,9 @@ with slides.Presentation() as pres:
     pres.save("test.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **在类别或数值坐标轴中设置位置坐标轴**
-Aspose.Slides for Python via .NET 允许您在类别或数值坐标轴中设置位置坐标轴。以下 Python 代码展示了如何执行该任务：
+## **在分类轴或数值轴中设置位置轴**
+
+Aspose.Slides for Python via .NET 允许您在分类轴或数值轴中设置位置轴。下面的 Python 代码展示了如何执行此任务：
 
 ```py
 import aspose.slides.charts as charts
@@ -192,8 +197,9 @@ with slides.Presentation() as pres:
 	pres.save("AsposeScatterChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **启用图表数值坐标轴的显示单位标签**
-Aspose.Slides for Python via .NET 允许您配置图表以在其图表数值坐标轴上显示单位标签。该 Python 代码演示了该操作：
+## **在图表数值轴上启用显示单位标签**
+
+Aspose.Slides for Python via .NET 允许您配置图表，在其数值轴上显示单位标签。下面的 Python 代码演示了该操作：
 
 ```py
 import aspose.slides.charts as charts
@@ -204,3 +210,13 @@ with slides.Presentation() as pres:
 	chart.axes.vertical_axis.display_unit = charts.DisplayUnitType.MILLIONS
 	pres.save("Result.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **常见问题**
+
+**如何设置坐标轴交叉的数值（坐标轴交叉点）？**
+
+坐标轴提供了一个[交叉设置](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/)，您可以选择在零、最大分类/数值或特定数值处交叉。这对于上下移动 X 轴或强调基准线很有用。
+
+**如何相对于坐标轴定位刻度标签（旁边、外侧、内侧）？**
+
+将[label position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) 设置为 “cross”、“outside” 或 “inside”。这会影响可读性，并有助于节省空间，尤其是在小型图表上。

@@ -1,89 +1,108 @@
 ---
-title: تنسيق المخططات
+title: تنسيق المخططات في العروض التقديمية باستخدام بايثون
+linktitle: تنسيق المخطط
 type: docs
 weight: 60
 url: /ar/python-net/chart-formatting/
-keywords: "كيانات المخططات، خصائص المخططات، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
-description: "تنسيق كيانات المخططات في عروض PowerPoint باستخدام بايثون"
+keywords:
+- تنسيق المخطط
+- تنسيق المخططات
+- كيان المخطط
+- خصائص المخطط
+- إعدادات المخطط
+- خيارات المخطط
+- خصائص الخط
+- حدود مدورة
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "تعلم تنسيق المخططات في Aspose.Slides للبايثون عبر .NET وارتقِ بعرض PowerPoint أو OpenDocument الخاص بك باستخدام تنسيق احترافي وجذاب."
 ---
 
-## **تنسيق كيانات المخططات**
-Aspose.Slides لبايثون عبر .NET يتيح للمطورين إضافة مخططات مخصصة إلى شرائحهم من الصفر. تشرح هذه المقالة كيفية تنسيق كيانات المخططات المختلفة بما في ذلك محور الفئة ومحور القيم.
+## **نظرة عامة**
 
-يوفر Aspose.Slides لبايثون عبر .NET واجهة برمجة تطبيقات بسيطة لإدارة كيانات المخططات المختلفة وتنسيقها باستخدام قيم مخصصة:
+دليل هذا المستند يوضح كيفية تنسيق مخططات PowerPoint باستخدام Aspose.Slides للبايثون. يشرح تخصيص كيانات المخطط الأساسية—مثل محاور الفئة والقيمة، خطوط الشبكة، التسميات، العناوين، الأساطير، والمحاور الثانوية—ويظهر كيفية التحكم في الخطوط، تنسيقات الأرقام، التعبئات، الخطوط الخارجية، ألوان منطقة الرسم وجدار الخلفية، والزوايا المدورة للمخطط باستخدام عينات شفرة واضحة وقابلة للتنفيذ. باتباع الأمثلة خطوة بخطوة، ستقوم بإنشاء [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)، إضافة وتكوين مخطط، وحفظ النتيجة بصيغة PPTX مع تطبيق إعدادات بصرية وطبعية دقيقة.
 
-1. إنشاء مثيل من الفئة **Presentation**.
-1. الحصول على مرجع الشريحة باستخدام فهرسها.
-1. إضافة مخطط باستخدام بيانات افتراضية مع أي نوع مرغوب (في هذا المثال سنستخدم ChartType.LineWithMarkers).
-1. الوصول إلى محور القيمة في المخطط وتعيين الخصائص التالية:
-   1. تعيين **تنسيق الخط** لخطوط الشبكة الكبرى لمحور القيمة
-   1. تعيين **تنسيق الخط** لخطوط الشبكة الصغرى لمحور القيمة
-   1. تعيين **تنسيق الأرقام** لمحور القيمة
-   1. تعيين **الوحدات العليا والصغرى والكبرى والصغرى** لمحور القيمة
-   1. تعيين **خصائص النص** لبيانات محور القيمة
-   1. تعيين **العنوان** لمحور القيمة
-   1. تعيين **تنسيق الخط** لمحور القيمة
-1. الوصول إلى محور الفئة في المخطط وتعيين الخصائص التالية:
-   1. تعيين **تنسيق الخط** لخطوط الشبكة الكبرى لمحور الفئة
-   1. تعيين **تنسيق الخط** لخطوط الشبكة الصغرى لمحور الفئة
-   1. تعيين **خصائص النص** لبيانات محور الفئة
-   1. تعيين **العنوان** لمحور الفئة
-   1. تعيين **تحديد التسمية** لمحور الفئة
-   1. تعيين **زاوية الدوران** لتسميات محور الفئة
-1. الوصول إلى وسيلة إيضاح المخطط وتعيين **خصائص النص** لها
-1. تعيين عرض وسيلة إيضاح المخطط دون تداخل مع المخطط
-1. الوصول إلى **محور القيمة الثانوي** في المخطط وتعيين الخصائص التالية:
-   1. تفعيل **محور القيمة الثانوي**
-   1. تعيين **تنسيق الخط** لمحور القيمة الثانوي
-   1. تعيين **تنسيق الأرقام** لمحور القيمة الثانوي
-   1. تعيين **الوحدات العليا والصغرى والكبرى والصغرى** لمحور القيمة الثانوي
-1. الآن رسم سلسلة المخطط الأولى على محور القيمة الثانوي
-1. تعيين لون تعبئة الجدار الخلفي للمخطط
-1. تعيين لون تعبئة منطقة الرسم للمخطط
-1. كتابة العرض المعدل إلى ملف PPTX
+## **تنسيق عناصر المخطط**
+
+يسمح Aspose.Slides للبايثون للمطورين بإضافة مخططات مخصصة إلى الشرائح من الصفر. يشرح هذا القسم كيفية تنسيق عناصر المخطط المتنوعة، بما في ذلك محوري الفئة والقيمة.
+
+يوفر Aspose.Slides واجهة برمجة تطبيقات بسيطة لإدارة عناصر المخطط وتطبيق تنسيقات مخصصة:
+
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. الحصول على مرجع للشريحة عبر فهرسها.
+1. إضافة مخطط ببيانات افتراضية من النوع المطلوب (في هذا المثال، `ChartType.LINE_WITH_MARKERS`).
+1. الوصول إلى محور القيمة في المخطط وتعيين ما يلي:
+   1. تعيين **تنسيق الخط** لخطوط الشبكة الرئيسية لمحور القيمة.
+   1. تعيين **تنسيق الخط** لخطوط الشبكة الثانوية لمحور القيمة.
+   1. تعيين **تنسيق الأعداد** لمحور القيمة.
+   1. تعيين **الوحدات الدنيا، العُليا، الرئيسية والثانوية** لمحور القيمة.
+   1. تعيين **خصائص النص** لتسميات محور القيمة.
+   1. تعيين **العنوان** لمحور القيمة.
+   1. تعيين **تنسيق الخط** لمحور القيمة.
+1. الوصول إلى محور الفئة في المخطط وتعيين ما يلي:
+   1. تعيين **تنسيق الخط** لخطوط الشبكة الرئيسية لمحور الفئة.
+   1. تعيين **تنسيق الخط** لخطوط الشبكة الثانوية لمحور الفئة.
+   1. تعيين **خصائص النص** لتسميات محور الفئة.
+   1. تعيين **العنوان** لمحور الفئة.
+   1. تعيين **موضع التسميات** لمحور الفئة.
+   1. تعيين **زاوية الدوران** لتسميات محور الفئة.
+1. الوصول إلى أسطورة المخطط وتعيين **خصائص النص** الخاصة بها.
+1. إظهار أسطورة المخطط دون تداخل مع المخطط.
+1. الوصول إلى **محور القيمة الثانوي** في المخطط وتعيين ما يلي:
+   1. تفعيل **محور القيمة** الثانوي.
+   1. تعيين **تنسيق الخط** لمحور القيمة الثانوي.
+   1. تعيين **تنسيق الأعداد** لمحور القيمة الثانوي.
+   1. تعيين **الوحدات الدنيا، العُليا، الرئيسية والثانوية** لمحور القيمة الثانوي.
+1. رسم السلسلة الأولى من المخطط على محور القيمة الثانوي.
+1. تعيين لون تعبئة جدار الخلفية للمخطط.
+1. تعيين لون تعبئة مساحة الرسم للمخطط.
+1. كتابة العرض التقديمي المعدل إلى ملف PPTX.
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# إنشاء العرض التقديمي
-with slides.Presentation() as pres:
+# Instantiate the Presentation class.
+with slides.Presentation() as presentation:
 
-    # الوصول إلى الشريحة الأولى
-    slide = pres.slides[0]
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # إضافة المخطط المثال
+    # Add a sample chart.
     chart = slide.shapes.add_chart(charts.ChartType.LINE_WITH_MARKERS, 50, 50, 500, 400)
 
-    # تعيين عنوان المخطط
+    # Set the chart title.
     chart.has_title = True
     chart.chart_title.add_text_frame_for_overriding("")
-    chartTitle = chart.chart_title.text_frame_for_overriding.paragraphs[0].portions[0]
-    chartTitle.text = "مخطط عينة"
-    chartTitle.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    chartTitle.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
-    chartTitle.portion_format.font_height = 20
-    chartTitle.portion_format.font_bold = 1
-    chartTitle.portion_format.font_italic = 1
+    chart_title = chart.chart_title.text_frame_for_overriding.paragraphs[0].portions[0]
+    chart_title.text = "Sample Chart"
+    chart_title.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    chart_title.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
+    chart_title.portion_format.font_height = 20
+    chart_title.portion_format.font_bold = 1
+    chart_title.portion_format.font_italic = 1
 
-    # تعيين تنسيق خطوط الشبكة الكبرى لمحور القيم
+    # Set major gridline format for the value axis.
     chart.axes.vertical_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
     chart.axes.vertical_axis.major_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.blue
     chart.axes.vertical_axis.major_grid_lines_format.line.width = 5
     chart.axes.vertical_axis.major_grid_lines_format.line.dash_style = slides.LineDashStyle.DASH_DOT
 
-    # تعيين تنسيق خطوط الشبكة الصغرى لمحور القيم
+    # Set minor gridline format for the value axis.
     chart.axes.vertical_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
     chart.axes.vertical_axis.minor_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.red
     chart.axes.vertical_axis.minor_grid_lines_format.line.width = 3
 
-    # تعيين تنسيق أرقام محور القيم
+    # Set the value axis number format.
     chart.axes.vertical_axis.is_number_format_linked_to_source = False
     chart.axes.vertical_axis.display_unit = charts.DisplayUnitType.THOUSANDS
     chart.axes.vertical_axis.number_format = "0.0%"
 
-    # تعيين القيم القصوى والدنيا للمخطط
+    # Set value-axis maximum, minimum, major unit, and minor unit.
     chart.axes.vertical_axis.is_automatic_major_unit = False
     chart.axes.vertical_axis.is_automatic_max_value = False
     chart.axes.vertical_axis.is_automatic_minor_unit = False
@@ -94,168 +113,165 @@ with slides.Presentation() as pres:
     chart.axes.vertical_axis.minor_unit = 0.5
     chart.axes.vertical_axis.major_unit = 2.0
 
-    # تعيين خصائص نص محور القيمة
-    txtVal = chart.axes.vertical_axis.text_format.portion_format
-    txtVal.font_bold = 1
-    txtVal.font_height = 16
-    txtVal.font_italic = 1
-    txtVal.fill_format.fill_type = slides.FillType.SOLID 
-    txtVal.fill_format.solid_fill_color.color = draw.Color.dark_green
-    txtVal.latin_font = slides.FontData("Times New Roman")
+    # Set value-axis text properties.
+    vertical_axis_portion_format = chart.axes.vertical_axis.text_format.portion_format
+    vertical_axis_portion_format.font_bold = 1
+    vertical_axis_portion_format.font_height = 16
+    vertical_axis_portion_format.font_italic = 1
+    vertical_axis_portion_format.fill_format.fill_type = slides.FillType.SOLID 
+    vertical_axis_portion_format.fill_format.solid_fill_color.color = draw.Color.dark_green
+    vertical_axis_portion_format.latin_font = slides.FontData("Times New Roman")
 
-    # تعيين عنوان محور القيمة
+    # Set the value axis title.
     chart.axes.vertical_axis.has_title = True
     chart.axes.vertical_axis.title.add_text_frame_for_overriding("")
-    valtitle = chart.axes.vertical_axis.title.text_frame_for_overriding.paragraphs[0].portions[0]
-    valtitle.text = "المحور الأساسي"
-    valtitle.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    valtitle.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
-    valtitle.portion_format.font_height = 20
-    valtitle.portion_format.font_bold = 1
-    valtitle.portion_format.font_italic = 1
+    vertical_axis_title = chart.axes.vertical_axis.title.text_frame_for_overriding.paragraphs[0].portions[0]
+    vertical_axis_title.text = "Primary Axis"
+    vertical_axis_title.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    vertical_axis_title.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
+    vertical_axis_title.portion_format.font_height = 20
+    vertical_axis_title.portion_format.font_bold = 1
+    vertical_axis_title.portion_format.font_italic = 1
 
-    # تعيين تنسيق خطوط الشبكة الكبرى لمحور الفئة
+    # Set major gridline format for the category axis.
     chart.axes.horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
     chart.axes.horizontal_axis.major_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.green
     chart.axes.horizontal_axis.major_grid_lines_format.line.width = 5
 
-    # تعيين تنسيق خطوط الشبكة الصغرى لمحور الفئة
+    # Set minor gridline format for the category axis.
     chart.axes.horizontal_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
     chart.axes.horizontal_axis.minor_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.yellow
     chart.axes.horizontal_axis.minor_grid_lines_format.line.width = 3
 
-    # تعيين خصائص نص محور الفئة
-    txtCat = chart.axes.horizontal_axis.text_format.portion_format
-    txtCat.font_bold = 1
-    txtCat.font_height = 16
-    txtCat.font_italic = 1
-    txtCat.fill_format.fill_type = slides.FillType.SOLID 
-    txtCat.fill_format.solid_fill_color.color = draw.Color.blue
-    txtCat.latin_font = slides.FontData("Arial")
+    # Set category-axis text properties.
+    horizontal_axis_portion_format = chart.axes.horizontal_axis.text_format.portion_format
+    horizontal_axis_portion_format.font_bold = 1
+    horizontal_axis_portion_format.font_height = 16
+    horizontal_axis_portion_format.font_italic = 1
+    horizontal_axis_portion_format.fill_format.fill_type = slides.FillType.SOLID 
+    horizontal_axis_portion_format.fill_format.solid_fill_color.color = draw.Color.blue
+    horizontal_axis_portion_format.latin_font = slides.FontData("Arial")
 
-    # تعيين عنوان محور الفئة
+    # Set the category axis title.
     chart.axes.horizontal_axis.has_title = True
     chart.axes.horizontal_axis.title.add_text_frame_for_overriding("")
 
-    catTitle = chart.axes.horizontal_axis.title.text_frame_for_overriding.paragraphs[0].portions[0]
-    catTitle.text = "فئة عينة"
-    catTitle.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    catTitle.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
-    catTitle.portion_format.font_height = 20
-    catTitle.portion_format.font_bold = 1
-    catTitle.portion_format.font_italic = 1
+    horizontal_axis_title = chart.axes.horizontal_axis.title.text_frame_for_overriding.paragraphs[0].portions[0]
+    horizontal_axis_title.text = "Sample Category"
+    horizontal_axis_title.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    horizontal_axis_title.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
+    horizontal_axis_title.portion_format.font_height = 20
+    horizontal_axis_title.portion_format.font_bold = 1
+    horizontal_axis_title.portion_format.font_italic = 1
 
-    # تعيين موضع تسميات محور الفئة
+    # Set the category-axis label position.
     chart.axes.horizontal_axis.tick_label_position = charts.TickLabelPositionType.LOW
 
-    # تعيين زاوية دوران تسميات محور الفئة
+    # Set the category-axis label rotation angle.
     chart.axes.horizontal_axis.tick_label_rotation_angle = 45
 
-    # تعيين خصائص نص وسائل الإيضاح
-    txtleg = chart.legend.text_format.portion_format
-    txtleg.font_bold = 1
-    txtleg.font_height = 16
-    txtleg.font_italic = 1
-    txtleg.fill_format.fill_type = slides.FillType.SOLID 
-    txtleg.fill_format.solid_fill_color.color = draw.Color.dark_red
+    # Set legend text properties.
+    legend_portion_format = chart.legend.text_format.portion_format
+    legend_portion_format.font_bold = 1
+    legend_portion_format.font_height = 16
+    legend_portion_format.font_italic = 1
+    legend_portion_format.fill_format.fill_type = slides.FillType.SOLID 
+    legend_portion_format.fill_format.solid_fill_color.color = draw.Color.dark_red
 
-    # تعيين عرض وسائل الإيضاح دون تداخل مع المخطط
-
+    # Show the chart legend overlapping the chart.
     chart.legend.overlay = True
                 
-    # تعيين لون جدار المخطط الخلفي
+    # Set chart back wall color.
     chart.back_wall.thickness = 1
     chart.back_wall.format.fill.fill_type = slides.FillType.SOLID
     chart.back_wall.format.fill.solid_fill_color.color = draw.Color.orange
 
     chart.floor.format.fill.fill_type = slides.FillType.SOLID
     chart.floor.format.fill.solid_fill_color.color = draw.Color.red
-    # تعيين لون منطقة الرسم
+
+    # Set the plot area color.
     chart.plot_area.format.fill.fill_type = slides.FillType.SOLID
     chart.plot_area.format.fill.solid_fill_color.color = draw.Color.light_cyan
 
-    # حفظ العرض التقديمي
-    pres.save("FormattedChart_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation.
+    presentation.save("FormattedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **تعيين خصائص خط المخطط**
 
+يدعم Aspose.Slides للبايثون إعداد خصائص الخط للمخططات. اتبع الخطوات أدناه لتكوين خصائص خط المخطط:
 
-## **تعيين خصائص الخط للمخطط**
-Aspose.Slides لبايثون عبر .NET يوفر دعمًا لتعيين الخصائص المتعلقة بالخط للمخطط. يرجى اتباع الخطوات أدناه لتعيين خصائص الخط للمخطط.
+1. إنشاء كائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. إضافة مخطط إلى الشريحة.
+1. تعيين ارتفاع الخط.
+1. حفظ العرض التقديمي المعدل.
 
-- إنشاء كائن من الفئة Presentation.
-- إضافة مخطط على الشريحة.
-- تعيين ارتفاع الخط.
-- حفظ العرض التقديمي المعدل.
-
-مثال توضيحي أدناه.
+مثال شفرة موضح أدناه.
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 500, 400)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 500, 400)
     chart.text_format.portion_format.font_height = 20
     chart.chart_data.series[0].labels.default_data_label_format.show_value = True
-    pres.save("FontPropertiesForChart.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("ChartFontProperties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **تعيين تنسيق الأعداد**
 
+يوفر Aspose.Slides للبايثون واجهة برمجة تطبيقات بسيطة لإدارة تنسيقات بيانات المخطط:
 
-
-## **تعيين تنسيق الأرقام**
-Aspose.Slides لبايثون عبر .NET يوفر واجهة برمجة تطبيقات بسيطة لإدارة تنسيق بيانات المخطط:
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-1. الحصول على مرجع الشريحة باستخدام فهرسها.
-1. إضافة مخطط باستخدام بيانات افتراضية مع أي نوع مرغوب (هذا المثال يستخدم **ChartType.ClusteredColumn**).
-1. تعيين تنسيق الرقم المحدد مسبقًا من القيم المحددة مسبقًا المحتملة.
-1. التجول عبر خلايا بيانات المخطط في كل سلسلة مخططة وتعيين تنسيق رقم البيانات للمخطط.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. الحصول على مرجع إلى الشريحة بواسطة الفهرس.
+1. إضافة مخطط ببيانات افتراضية من أي نوع مرغوب.
+1. تعيين تنسيق عدد مسبق من القيم المتوفرة.
+1. استعراض خلايا بيانات المخطط في كل سلسلة وتعيين تنسيق العدد.
 1. حفظ العرض التقديمي.
-1. تعيين التنسيق الرقمي المخصص.
-1. التجول عبر خلايا بيانات المخطط داخل كل سلسلة مخططة وتعيين تنسيق رقم بيانات مختلف للمخطط.
+1. تعيين تنسيق عدد مخصص.
+1. استعراض خلايا بيانات المخطط في كل سلسلة وتعيين تنسيق عدد مختلف.
 1. حفظ العرض التقديمي.
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-# إنشاء العرض التقديمي
-with slides.Presentation() as pres:
-    # الوصول إلى الشريحة الأولى في العرض التقديمي
-    slide = pres.slides[0]
+# Instantiate the Presentation class.
+with slides.Presentation() as presentation:
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # إضافة مخطط عمود متجمع افتراضي
+    # Add a default clustered column chart.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 400)
 
-    # الوصول إلى مجموعة سلاسل المخطط
-    series = chart.chart_data.series
+    # Set the preset number format.
+    # Traverse each chart series.
+    for series in chart.chart_data.series:
+        # Traverse each data point in the series.
+        for cell in series.data_points:
+            # Set the number format.
+            cell.value.as_cell.preset_number_format = 10  # 0.00%
 
-    # تعيين تنسيق الرقم المحدد مسبقًا
-    # التجول عبر كل سلسلة مخططة
-    for ser in series:
-        # التجول عبر كل خلية بيانات في السلسلة
-        for cell in ser.data_points:
-            # تعيين تنسيق الرقم
-            cell.value.as_cell.preset_number_format = 10 #0.00%
-
-    # حفظ العرض التقديمي
-    pres.save("PresetNumberFormat_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation.
+    presentation.save("PresetNumberFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-قيم تنسيق الأرقام المحددة مسبقًا الممكنة مع الفهارس المحددة مسبقًا التي يمكن استخدامها هي كما يلي:
+القيم المسبقة المتوفرة لتنسيق الأعداد ومؤشراتها موضحة أدناه.
 
-|**0**|عام|
+|**0**|General|
 | :- | :- |
 |**1**|0|
 |**2**|0.00|
 |**3**|#,##0|
 |**4**|#,##0.00|
 |**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;اللون الأحمر$-#,##0|
+|**6**|$#,##0;Red$-#,##0|
 |**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;اللون الأحمر$-#,##0.00|
+|**8**|$#,##0.00;Red$-#,##0.00|
 |**9**|0%|
 |**10**|0.00%|
 |**11**|0.00E+00|
@@ -271,9 +287,9 @@ with slides.Presentation() as pres:
 |**21**|h:mm:ss|
 |**22**|m/d/yy h:mm|
 |**37**|#,##0;-#,##0|
-|**38**|#,##0;الأحمر-#,##0|
+|**38**|#,##0;Red-#,##0|
 |**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;الأحمر-#,##0.00|
+|**40**|#,##0.00;Red-#,##0.00|
 |**41**|_ * #,##0_ ;_ * "_ ;_ @_|
 |**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
 |**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
@@ -284,16 +300,17 @@ with slides.Presentation() as pres:
 |**48**|##0.0E+00|
 |**49**|@|
 
-## **تعيين زوايا حواف المخطط المحدبة**
-Aspose.Slides لبايثون عبر .NET توفر دعمًا لتعيين منطقة المخطط. تم إضافة خصائص **IChart.HasRoundedCorners** و **Chart.HasRoundedCorners** في Aspose.Slides.
+## **تعيين حدود مدورة لمنطقة المخطط**
 
-1. إنشاء كائن من الفئة `Presentation`.
-1. إضافة مخطط على الشريحة.
-1. تعيين نوع التعبئة ولون تعبئة المخطط
-1. تعيين خاصية الزوايا المدورة على صحيح.
-1. حفظ العرض التقديمي المعدل.
+يدعم Aspose.Slides للبايثون تكوين منطقة المخطط باستخدام الخاصية `Chart.has_rounded_corners`.
 
-مثال توضيحي أدناه. 
+1. إنشاء كائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. إضافة مخطط إلى الشريحة.
+3. تعيين نوع التعبئة ولونها للمخطط.
+4. تعيين خاصية الزوايا المدورة إلى `True`.
+5. حفظ العرض التقديمي المعدل.
+
+مثال موضح أدناه.
 
 ```py
 import aspose.slides.charts as charts
@@ -301,10 +318,25 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
 	slide = presentation.slides[0]
+
 	chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 100, 600, 400)
 	chart.line_format.fill_format.fill_type = slides.FillType.SOLID
 	chart.line_format.style = slides.LineStyle.SINGLE
 	chart.has_rounded_corners = True
 
-	presentation.save("out.pptx", slides.export.SaveFormat.PPTX)
+	presentation.save("RoundedBorders.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني تعيين تعبئة شبه شفافة للأعمدة/المناطق مع الحفاظ على حد غير شفاف؟**
+
+نعم. يتم تكوين شفافية التعبئة والحد الخارجي بشكل منفصل. هذا مفيد لتحسين قابلية قراءة الشبكة والبيانات في التصورات الكثيفة.
+
+**كيف يمكنني التعامل مع تسميات البيانات عندما تتداخل؟**
+
+قلل من حجم الخط، عطّل مكونات التسميات غير الضرورية (مثل الفئات)، اضبط إزاحة/موضع التسميات، اعرض التسميات فقط للنقاط المحددة إذا لزم الأمر، أو غيّر التنسيق إلى "القيمة + الأسطورة".
+
+**هل يمكنني تطبيق تعبئة تدرجية أو نمطية على السلاسل؟**
+
+نعم. تتوفر عادةً كل من التعبئة الصلبة والتدرجية/النمطية. في الممارسة، استخدم التدرجات بحذر وتجنب الجمع بينها إذا قلل ذلك من التباين مع الشبكة والنص.

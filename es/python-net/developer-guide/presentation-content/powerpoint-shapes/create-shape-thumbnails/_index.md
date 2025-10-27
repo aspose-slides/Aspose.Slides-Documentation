@@ -1,80 +1,132 @@
 ---
-title: Crear miniaturas de formas
+title: Crear miniaturas de formas de presentación en Python
+linktitle: Miniaturas de forma
 type: docs
 weight: 70
 url: /es/python-net/create-shape-thumbnails/
-keywords: "Miniatura de forma. Presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Miniatura de forma en presentación de PowerPoint en Python"
+keywords:
+- miniatura de forma
+- imagen de forma
+- renderizar forma
+- renderizado de forma
+- PowerPoint
+- presentación
+- Python
+- Aspose.Slides
+description: "Genere miniaturas de alta calidad de formas a partir de diapositivas de PowerPoint y OpenDocument con Aspose.Slides para Python vía .NET: cree y exporte fácilmente miniaturas de presentaciones."
 ---
 
-Aspose.Slides para Python a través de .NET se utiliza para crear archivos de presentación donde cada página es una diapositiva. Estas diapositivas se pueden visualizar abriendo los archivos de presentación con Microsoft PowerPoint. Pero a veces, los desarrolladores pueden necesitar ver las imágenes de las formas por separado en un visor de imágenes. En tales casos, Aspose.Slides para Python a través de .NET le ayuda a generar imágenes en miniatura de las formas de la diapositiva. Cómo utilizar esta función se describe en este artículo.  
-Este artículo explica cómo generar miniaturas de diapositivas de diferentes maneras:
+## **Introducción**
 
-- Generando una miniatura de forma dentro de una diapositiva.
-- Generando una miniatura de forma para una forma de diapositiva con dimensiones definidas por el usuario.
-- Generando una miniatura de forma dentro de los límites de la apariencia de una forma.
-- Generando una miniatura de un nodo hijo de SmartArt.  
-## **Generar miniatura de forma desde una diapositiva**  
-Para generar una miniatura de forma desde cualquier diapositiva usando Aspose.Slides para Python a través de .NET:
+Aspose.Slides para Python vía .NET se utiliza para crear archivos de presentación en los que cada página es una diapositiva. Puede ver estas diapositivas en Microsoft PowerPoint abriendo el archivo de presentación. Sin embargo, a veces los desarrolladores necesitan ver imágenes de shapes por separado en un visor de imágenes. En esos casos, Aspose.Slides puede generar imágenes en miniatura de los shapes de una diapositiva. Este artículo explica cómo usar esta función.
+
+## **Generar miniaturas de shape a partir de diapositivas**
+
+Cuando necesita una vista previa de un objeto específico en lugar de toda la diapositiva, puede renderizar una miniatura para un shape individual. Aspose.Slides le permite exportar cualquier shape a una imagen, facilitando la creación de vistas previas ligeras, íconos o recursos para procesamiento posterior.
+
+Para generar una miniatura a partir de cualquier shape:
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Obtenga la referencia de cualquier diapositiva usando su ID o índice.
-1. Obtenga la imagen en miniatura de la forma referenciada de la diapositiva en la escala predeterminada.
-1. Guarde la imagen en miniatura en cualquier formato de imagen deseado.
+1. Obtenga una referencia a una diapositiva por su ID o índice.
+1. Obtenga una referencia a un shape en esa diapositiva.
+1. Renderice la imagen en miniatura del shape.
+1. Guarde la imagen en miniatura en el formato deseado.
 
-El siguiente ejemplo genera una miniatura de forma.
-
-```py
-import aspose.slides as slides
-
-# Instanciar una clase Presentation que representa el archivo de presentación
-with slides.Presentation(path + "HelloWorld.pptx") as presentation:
-    # Crear una imagen a escala completa
-    with presentation.slides[0].shapes[0].get_image() as bitmap:
-        # Guardar la imagen en el disco en formato PNG
-        bitmap.save("Shape_thumbnail_out.png", slides.ImageFormat.PNG)
-```
-
-
-## **Generar miniatura de factor de escala definido por el usuario**  
-Para generar la miniatura de forma de cualquier forma de diapositiva usando Aspose.Slides para Python a través de .NET:
-
-1. Cree una instancia de la clase `Presentation`.
-1. Obtenga la referencia de cualquier diapositiva usando su ID o índice.
-1. Obtenga la imagen en miniatura de la diapositiva referenciada con los límites de la forma.
-1. Guarde la imagen en miniatura en cualquier formato de imagen deseado.
-
-El siguiente ejemplo genera una miniatura con un factor de escala definido por el usuario.
+El ejemplo a continuación genera una miniatura de shape.
 
 ```py
 import aspose.slides as slides
 
-# Instanciar una clase Presentation que representa el archivo de presentación
-with slides.Presentation(path + "HelloWorld.pptx") as p:
-    # Crear una imagen a escala completa
-    with p.slides[0].shapes[0].get_image(slides.ShapeThumbnailBounds.SHAPE, 1, 1) as bitmap:
-        # Guardar la imagen en el disco en formato PNG
-        bitmap.save("Scaling Factor Thumbnail_out.png", slides.ImageFormat.PNG)
+# Instantiate the Presentation class to open the presentation file.
+with slides.Presentation("hello_world.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+    
+    # Create a image with the default scale.
+    with shape.get_image() as thumbnail:
+        # Save the image to disk in PNG format.
+        thumbnail.save("shape_thumbnail.png", slides.ImageFormat.PNG)
 ```
 
+## **Generar miniaturas con un factor de escala personalizado**
 
-## **Crear miniatura de límites de la apariencia de la forma**  
-Este método para crear miniaturas de formas permite a los desarrolladores generar una miniatura dentro de los límites de la apariencia de la forma. Tiene en cuenta todos los efectos de la forma. La miniatura de forma generada está restringida por los límites de la diapositiva. Para generar una miniatura de cualquier forma de diapositiva dentro de los límites de su apariencia, use el siguiente código de muestra:
+Esta sección muestra cómo generar miniaturas de shape con un factor de escala definido por el usuario en Aspose.Slides. Al controlar la escala, puede ajustar finamente el tamaño de la miniatura para vistas previas, exportaciones o pantallas de alta densidad de píxeles.
 
-1. Cree una instancia de la clase `Presentation`.
-1. Obtenga la referencia de cualquier diapositiva usando su ID o índice.
-1. Obtenga la imagen en miniatura de la diapositiva referenciada con los límites de la forma como apariencia.
-1. Guarde la imagen en miniatura en cualquier formato de imagen deseado.
+Para generar una miniatura para cualquier shape en una diapositiva:
 
-El siguiente ejemplo crea una miniatura con un factor de escala definido por el usuario.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Obtenga una diapositiva por su ID o índice.
+1. Obtenga el shape objetivo en esa diapositiva.
+1. Renderice la imagen en miniatura del shape con la escala especificada.
+1. Guarde la imagen en miniatura en el formato deseado.
+
+El ejemplo a continuación genera una miniatura con un factor de escala definido por el usuario.
 
 ```py
 import aspose.slides as slides
 
-# Instanciar una clase Presentation que representa el archivo de presentación
-with slides.Presentation(path + "HelloWorld.pptx") as presentation:
-    # Crear una imagen de forma con límites de apariencia
-    with presentation.slides[0].shapes[0].get_image(slides.ShapeThumbnailBounds.APPEARANCE, 1, 1) as bitmap:
-        # Guardar la imagen en el disco en formato PNG
-        bitmap.save("Shape_thumbnail_Bound_Shape_out.png", slides.ImageFormat.PNG)
+scale_x = 2.0
+scale_y = scale_x
+
+# Instantiate the Presentation class to open the presentation file.
+with slides.Presentation("hello_world.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+    
+    # Create an image with the defined scale.
+    with shape.get_image(slides.ShapeThumbnailBounds.SHAPE, scale_x, scale_y) as thumbnail:
+        # Save the image to disk in PNG format.
+        thumbnail.save("scaling_factor.png", slides.ImageFormat.PNG)
 ```
+
+## **Generar miniaturas usando los límites de apariencia de un shape**
+
+Esta sección muestra cómo generar una miniatura dentro de los límites de apariencia de un shape. Tiene en cuenta todos los efectos del shape. La miniatura generada está restringida por los límites de la diapositiva.
+
+Para generar una miniatura de cualquier shape de diapositiva dentro de los límites de su apariencia:
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Obtenga una diapositiva por su ID o índice.
+1. Obtenga el shape objetivo en esa diapositiva.
+1. Renderice la imagen en miniatura del shape con los límites especificados.
+1. Guarde la imagen en miniatura en el formato de imagen deseado.
+
+El ejemplo a continuación crea una miniatura con límites definidos por el usuario.
+
+```py
+import aspose.slides as slides
+
+image_bounds = slides.ShapeThumbnailBounds.APPEARANCE
+
+# Instantiate the Presentation class to open the presentation file.
+with slides.Presentation("hello_world.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+
+    # Create an appearance-bounds shape image.
+    with shape.get_image(image_bounds, 1.0, 1.0) as thumbnail:
+        # Save the image to disk in PNG format.
+        thumbnail.save("apperance_bounds.png", slides.ImageFormat.PNG)
+```
+
+## **Preguntas frecuentes**
+
+**¿Qué formatos de imagen se pueden usar al guardar miniaturas de shapes?**
+
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/), y otros. Los shapes también pueden ser [exportados como SVG vectorial](https://reference.aspose.com/slides/python-net/aspose.slides/shape/write_as_svg/) guardando el contenido del shape como SVG.
+
+**¿Cuál es la diferencia entre los límites SHAPE y APPEARANCE al renderizar una miniatura?**
+
+`SHAPE` utiliza la geometría del shape; `APPEARANCE` tiene en cuenta los [efectos visuales](/slides/es/python-net/shape-effect/) (sombras, resplandores, etc.).
+
+**¿Qué ocurre si un shape está marcado como oculto? ¿Se seguirá renderizando como miniatura?**
+
+Un shape oculto sigue formando parte del modelo y puede renderizarse; la bandera de oculto afecta la visualización en la presentación, pero no impide generar la imagen del shape.
+
+**¿Se admiten shapes de grupo, gráficos, SmartArt y otros objetos complejos?**
+
+Sí. Cualquier objeto representado como [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) (incluyendo [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/), y [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/)) puede guardarse como miniatura o como SVG.
+
+**¿Las fuentes instaladas en el sistema afectan la calidad de las miniaturas de shapes de texto?**
+
+Sí. Debe [proporcionar las fuentes requeridas](/slides/es/python-net/custom-font/) (o [configurar sustituciones de fuentes](/slides/es/python-net/font-substitution/)) para evitar sustituciones no deseadas y el reflujo del texto.

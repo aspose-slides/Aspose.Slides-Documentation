@@ -1,5 +1,5 @@
 ---
-title: Python でプレゼンテーションのチャート凡例をカスタマイズする
+title: Python でプレゼンテーションのチャート凡例をカスタマイズ
 linktitle: チャート凡例
 type: docs
 url: /ja/python-net/chart-legend/
@@ -12,98 +12,110 @@ keywords:
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python を使用してチャートの凡例をカスタマイズし、PowerPoint および OpenDocument プレゼンテーションを最適化する方法をご紹介します。"
+description: "Aspose.Slides for Python via .NET を使用してチャート凡例をカスタマイズし、PowerPoint および OpenDocument のプレゼンテーションで凡例の書式設定を最適化します。"
 ---
 
-## **凡例の位置設定**
-凡例のプロパティを設定するためには、次の手順に従ってください。
+## **概要**
 
-- [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスのインスタンスを作成します。
-- スライドの参照を取得します。
-- スライドにチャートを追加します。
-- 凡例のプロパティを設定します。
-- プレゼンテーションをPPTXファイルとして保存します。
+Aspose.Slides for Python は、チャート凡例を完全に制御できる機能を提供し、データラベルを明確かつプレゼンテーションに適した形にします。凡例の表示/非表示を切り替え、スライド上の位置を選択し、プロット領域との重なりを防ぐようレイアウトを調整できます。API を使ってテキストやマーカーのスタイル設定、余白や背景の微調整、境界線や塗りつぶしの書式設定をテーマに合わせて行えます。開発者は個々の凡例項目にアクセスして名前の変更やフィルタリングも可能で、最も関連性の高いシリーズだけを表示できます。これらの機能により、チャートは読みやすく、一貫性が保たれ、プレゼンテーションのデザイン基準に合わせて整合します。
 
-以下の例では、チャートの凡例の位置とサイズを設定しています。
+## **凡例の位置指定**
+
+Aspose.Slides を使用すると、チャート凡例の表示場所とスライドレイアウトへの適合を素早く制御できます。凡例を正確に配置する方法をご紹介します。
+
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+1. スライドへの参照を取得します。  
+1. スライドにチャートを追加します。  
+1. 凡例のプロパティを設定します。  
+1. プレゼンテーションを PPTX ファイルとして保存します。  
+
+以下の例では、チャート凡例の位置とサイズを設定しています。
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-# Presentationクラスのインスタンスを作成します
+# Create an instance of the Presentation class.
 with slides.Presentation() as presentation:
 
-    # スライドの参照を取得します
+    # Get a reference to the slide.
     slide = presentation.slides[0]
 
-    # スライドにクラスタ化されたカラムチャートを追加します
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 500)
+    # Add a clustered column chart to the slide.
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 300)
 
-    # 凡例のプロパティを設定します
-    chart.legend.x = 50 / chart.width
-    chart.legend.y = 50 / chart.height
+    # Set the legend properties.
+    chart.legend.x = 80 / chart.width
+    chart.legend.y = 20 / chart.height
     chart.legend.width = 100 / chart.width
     chart.legend.height = 100 / chart.height
 
-    # プレゼンテーションをディスクに保存します
-    presentation.save("Legend_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("legend_positioning.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-
 ## **凡例のフォントサイズを設定する**
-Aspose.Slides for Python via .NETは、開発者が凡例のフォントサイズを設定できるようにします。次の手順に従ってください：
 
-- `Presentation`クラスをインスタンス化します。
-- デフォルトのチャートを作成します。
-- フォントサイズを設定します。
-- 最小軸値を設定します。
-- 最大軸値を設定します。
-- プレゼンテーションをディスクに保存します。
+凡例は、説明するデータと同等に読みやすい必要があります。このセクションでは、プレゼンテーションのタイポグラフィに合わせて凡例のフォントサイズを調整し、アクセシビリティを向上させる方法を示します。
+
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+1. チャートを作成します。  
+1. フォントサイズを設定します。  
+1. プレゼンテーションをディスクに保存します。  
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-	chart.legend.text_format.portion_format.font_height = 20
-	chart.axes.vertical_axis.is_automatic_min_value = False
-	chart.axes.vertical_axis.min_value = -5
-	chart.axes.vertical_axis.is_automatic_max_value = False
-	chart.axes.vertical_axis.max_value = 10
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+    chart.legend.text_format.portion_format.font_height = 20
 
-	pres.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("font_size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **凡例項目ごとのフォントサイズを設定する**
 
-## **個別の凡例のフォントサイズを設定する**
-Aspose.Slides for Python via .NETは、開発者が個別の凡例エントリのフォントサイズを設定できるようにします。次の手順に従ってください：
+Aspose.Slides では、個々の凡例項目をフォーマットしてチャート凡例の外観を細かく調整できます。以下の例は、特定の凡例項目だけを対象にプロパティを設定し、他の項目には影響を与えない方法を示します。
 
-- `Presentation`クラスをインスタンス化します。
-- デフォルトのチャートを作成します。
-- 凡例エントリにアクセスします。
-- フォントサイズを設定します。
-- 最小軸値を設定します。
-- 最大軸値を設定します。
-- プレゼンテーションをディスクに保存します。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+1. チャートを作成します。  
+1. 凡例項目にアクセスします。  
+1. 項目のプロパティを設定します。  
+1. プレゼンテーションをディスクに保存します。  
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
- 
- 
-with slides.Presentation() as pres:
-	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-	tf = chart.legend.entries[1].text_format
 
-	tf.portion_format.font_bold = 1
-	tf.portion_format.font_height = 20
-	tf.portion_format.font_italic = 1
-	tf.portion_format.fill_format.fill_type = slides.FillType.SOLID 
-	tf.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-	pres.save("output.pptx", slides.export.SaveFormat.PPTX)
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+    text_format = chart.legend.entries[1].text_format
+
+    text_format.portion_format.font_bold = slides.NullableBool.TRUE
+    text_format.portion_format.font_height = 20
+    text_format.portion_format.font_italic = slides.NullableBool.TRUE
+    text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
+
+    presentation.save("legend_entry.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQ**
+
+**凡例を有効にして、チャートが自動的に凡例用のスペースを確保し、重なるのを防ぐことはできますか？**
+
+はい。非オーバーレイモード（[overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) = `false`）を使用します。この場合、プロット領域が縮小して凡例を収容します。
+
+**複数行の凡例ラベルを作ることはできますか？**
+
+はい。ラベルが長い場合、スペースが足りないと自動的に折り返されます。シリーズ名に改行文字を入れることで強制改行も可能です。
+
+**凡例をプレゼンテーションのテーマカラーに合わせるにはどうすればよいですか？**
+
+凡例やそのテキストに明示的な色・塗りつぶし・フォントを設定しないでください。設定しなければテーマから継承され、デザインが変更されたときに自動的に更新されます。

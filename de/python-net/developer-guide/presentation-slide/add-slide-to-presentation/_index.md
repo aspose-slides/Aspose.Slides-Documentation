@@ -5,40 +5,63 @@ type: docs
 weight: 10
 url: /de/python-net/add-slide-to-presentation/
 keywords:
-- Folie hinzufügen
-- Folie erstellen
-- leere Folie
+- add slide
+- create slide
+- empty slide
 - PowerPoint
 - OpenDocument
-- Präsentation
+- presentation
 - Python
 - Aspose.Slides
-description: "Fügen Sie mühelos Folien zu Ihren PowerPoint- und OpenDocument-Präsentationen hinzu, indem Sie Aspose.Slides for Python via .NET verwenden – nahtloses, effizientes Einfügen von Folien in Sekunden."
+description: "Fügen Sie Ihrer PowerPoint‑ und OpenDocument‑Präsentation mithilfe von Aspose.Slides für Python via .NET ganz einfach Folien hinzu – nahtloses, effizientes Einfügen von Folien in Sekunden."
 ---
 
-## **Fügen Sie eine Folie zur Präsentation hinzu**
-Bevor wir über das Hinzufügen von Folien zu den Präsentationsdateien sprechen, lassen Sie uns einige Fakten über die Folien besprechen. Jede PowerPoint-Präsentationsdatei enthält Master-/Layoutfolie und andere normale Folien. Das bedeutet, dass eine Präsentationsdatei mindestens eine oder mehrere Folien enthält. Es ist wichtig zu wissen, dass Präsentationsdateien ohne Folien von Aspose.Slides für Python über .NET nicht unterstützt werden. Jede Folie hat eine eindeutige ID und alle normalen Folien sind in einer Reihenfolge angeordnet, die durch den nullbasierten Index festgelegt ist. Aspose.Slides für Python über .NET ermöglicht Entwicklern das Hinzufügen von leeren Folien zu ihrer Präsentation. Um eine leere Folie in die Präsentation hinzuzufügen, folgen Sie bitte den folgenden Schritten:
+## **Übersicht**
 
-- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-- Instanziieren Sie die [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Klasse, indem Sie eine Referenz auf die Slides (Sammlung von Inhalt-Folienobjekten) Eigenschaft verwenden, die vom Präsentationsobjekt bereitgestellt wird.
-- Fügen Sie eine leere Folie am Ende der Sammlung der Inhaltsfolien hinzu, indem Sie die AddEmptySlide-Methoden aufrufen, die vom ISlideCollection-Objekt bereitgestellt werden.
-- Machen Sie einige Arbeiten mit der neu hinzugefügten leeren Folie.
-- Speichern Sie schließlich die Präsentationsdatei mit dem [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Objekt.
+Bevor Sie Folien zu einer Präsentation hinzufügen, ist es hilfreich zu verstehen, wie PowerPoint sie organisiert. Jede Präsentation enthält eine Master‑Folie, optionale Layout‑Folien und eine oder mehrere Normal‑Folien. Jede Folie hat eine eindeutige ID, und Normal‑Folien werden über einen nullbasierten Index sortiert. Dieser Artikel zeigt, wie Sie Aspose.Slides für Python verwenden, um Folien zu erstellen und geeignete Layouts auszuwählen.
+
+## **Folien zu Präsentationen hinzufügen**
+
+Aspose.Slides ermöglicht es Ihnen, neue Folien basierend auf vorhandenen Layout‑Folien anzuhängen. Das nachfolgende Beispiel iteriert über jedes Layout in der Präsentation, fügt eine Folie hinzu, die dieses Layout verwendet, und speichert anschließend die Datei.
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.  
+1. Greifen Sie auf die [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) zu.  
+1. Rufen Sie für jedes Element in `presentation.layout_slides` `add_empty_slide` auf, um eine Folie hinzuzufügen, die dieses Layout verwendet.  
+1. Ändern Sie optional die neu hinzugefügten Folien.  
+1. Speichern Sie die Präsentation als PPTX‑Datei.
 
 ```py
 import aspose.slides as slides
 
-# Instanziieren Sie die Presentation-Klasse, die die Präsentationsdatei darstellt
-with slides.Presentation() as pres:
-    # Instanziieren Sie die SlideCollection-Klasse
-    slds = pres.slides
+# Instantiate the Presentation class.
+with slides.Presentation() as presentation:
+    # Access the slide collection.
+    slides = presentation.slides
 
-    for i in range(len(pres.layout_slides)):
-        # Fügen Sie eine leere Folie zur Folienkollektion hinzu
-        slds.add_empty_slide(pres.layout_slides[i])
-        
-    # Machen Sie einige Arbeiten an der neu hinzugefügten Folie
+    for layout_slide in presentation.layout_slides:
+        # Add an empty slide to the slide collection.
+        slides.add_empty_slide(layout_slide)
 
-    # Speichern Sie die PPTX-Datei auf der Festplatte
-    pres.save("EmptySlide.pptx", slides.export.SaveFormat.PPTX)
+    # Do some work on the newly added slides.
+
+    # Save the presentation to disk.
+    presentation.save("empty_slides.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQ**
+
+**Kann ich eine neue Folie an einer bestimmten Position einfügen und nicht nur am Ende?**
+
+Ja. Die Bibliothek unterstützt Folien‑Sammlungen und [insert](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/insert_empty_slide/)/[clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/insert_clone/)-Operationen, sodass Sie eine Folie an dem gewünschten Index hinzufügen können, nicht nur am Ende.
+
+**Werden Themen/Styles beibehalten, wenn ich eine Folie basierend auf einem Layout einfüge?**
+
+Ja. Ein Layout übernimmt die Formatierung von seinem Master, und die neue Folie übernimmt die Formatierung des ausgewählten Layouts sowie des zugehörigen Masters.
+
+**Welche Folie ist in einer neuen „leeren“ Präsentation vorhanden, bevor Folien hinzugefügt werden?**
+
+Eine neu erstellte Präsentation enthält bereits eine leere Folie mit Index 0. Das ist wichtig zu berücksichtigen, wenn Einfüge‑Indizes berechnet werden.
+
+**Wie wähle ich das „richtige“ Layout für eine neue Folie aus, wenn der Master viele Optionen hat?**
+
+Wählen Sie im Allgemeinen das [LayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/), das der gewünschten Struktur entspricht ([Titel und Inhalt, Zwei Inhalte usw.](https://reference.aspose.com/slides/python-net/aspose.slides/slidelayouttype/)). Wenn ein solches Layout fehlt, können Sie es dem Master [hinzufügen](/slides/de/python-net/slide-layout/) und anschließend verwenden.

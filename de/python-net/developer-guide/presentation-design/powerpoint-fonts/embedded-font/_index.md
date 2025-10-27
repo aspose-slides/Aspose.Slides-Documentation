@@ -1,98 +1,110 @@
 ---
 title: Schriftarten in Präsentationen mit Python einbetten
-linktitle: Schriftarten einbetten
+linktitle: Schrift einbetten
 type: docs
 weight: 40
 url: /de/python-net/embedded-font/
 keywords:
-- schriftart hinzufügen
-- schriftart einbetten
-- einbettung von schriftarten
-- eingebettete schriftart abrufen
-- eingebettete schriftart hinzufügen
-- eingebettete schriftart entfernen
-- eingebettete schriftart komprimieren
+- add font
+- embed font
+- font embedding
+- get embedded font
+- add embedded font
+- remove embedded font
+- compress embedded font
 - PowerPoint
 - OpenDocument
-- präsentation
+- presentation
 - Python
 - Aspose.Slides
-description: "Betten Sie TrueType-Schriftarten in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides for Python via .NET ein, um eine genaue Wiedergabe auf allen Plattformen zu gewährleisten."
+description: "TrueType-Schriftarten in PowerPoint‑ und OpenDocument‑Präsentationen mit Aspose.Slides für Python via .NET einbetten, um eine korrekte Darstellung auf allen Plattformen sicherzustellen."
 ---
 
-**Eingebettete Schriftarten in PowerPoint** sind nützlich, wenn Sie möchten, dass Ihre Präsentation korrekt angezeigt wird, wenn sie auf einem beliebigen System oder Gerät geöffnet wird. Wenn Sie eine Schriftart eines Drittanbieters oder eine nicht standardmäßige Schriftart verwendet haben, weil Sie kreativ mit Ihrer Arbeit waren, haben Sie noch mehr Gründe, Ihre Schriftart einzubetten. Andernfalls (ohne eingebettete Schriftarten) können sich die Texte oder Zahlen auf Ihren Folien, das Layout, die Gestaltung usw. ändern oder in verwirrende Rechtecke umwandeln.
+## **Übersicht**
 
-Die Klasse [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/), die Klasse [FontData](https://reference.aspose.com/slides/python-net/aspose.slides/fontdata/), die Klasse [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) und deren Schnittstellen enthalten die meisten Eigenschaften und Methoden, die Sie benötigen, um mit eingebetteten Schriftarten in PowerPoint-Präsentationen zu arbeiten.
+**Das Einbetten von Schriftarten in PowerPoint** sorgt dafür, dass Ihre Präsentation ihr geplantes Aussehen auf verschiedenen Systemen beibehält. Egal, ob Sie kreative, einzigartige Schriftarten oder Standardschriftarten verwenden, das Einbetten von Schriftarten verhindert Text‑ und Layout‑Störungen.
 
-## **Eingebettete Schriftarten aus der Präsentation abrufen oder entfernen**
+Wenn Sie aufgrund kreativer Arbeit eine Drittanbieter‑ oder Nicht‑Standard‑Schriftart verwendet haben, haben Sie umso mehr Gründe, diese Schriftart einzubetten. Ohne eingebettete Schriftarten können Texte oder Zahlen auf Ihren Folien, das Layout, das Styling usw. sich ändern oder in verwirrende Rechtecke verwandeln.
 
-Aspose.Slides bietet die Methode `get_embedded_fonts()` (bereitgestellt von der Klasse [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)), um Ihnen zu ermöglichen, die in einer Präsentation eingebetteten Schriftarten abzurufen (oder herauszufinden). Um Schriftarten zu entfernen, wird die Methode `remove_embedded_font(font_data)` (bereitgestellt von derselben Klasse) verwendet.
+Verwenden Sie die Klassen [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/), [FontData](https://reference.aspose.com/slides/python-net/aspose.slides/fontdata/) und [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) zur Verwaltung eingebetteter Schriftarten.
 
-Dieser Python-Code zeigt Ihnen, wie Sie eingebettete Schriftarten aus einer Präsentation abrufen und entfernen:
+## **Eingebettete Schriftarten abrufen und entfernen**
+
+Rufen Sie eingebettete Schriftarten aus einer Präsentation ab oder entfernen Sie sie mühelos mit den Methoden [get_embedded_fonts](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) und [remove_embedded_font](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/remove_embedded_font/).
+
+Dieses Python‑Beispiel zeigt, wie Sie eingebettete Schriftarten aus einer Präsentation abrufen und entfernen:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Erstellt ein Presentation-Objekt, das eine Präsentationsdatei repräsentiert
-with slides.Presentation(path + "EmbeddedFonts.pptx") as presentation:
-    # Rendert eine Folie mit einem Textfeld, das die eingebettete Schriftart "FunSized" verwendet
-    with presentation.slides[0].get_image(draw.Size(960, 720)) as img:
-        img.save("picture1_out.png", slides.ImageFormat.PNG)
+# Instantiate the Presentation class that represents a presentation file.
+with slides.Presentation("EmbeddedFonts.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    fontsManager = presentation.fonts_manager
+    # Render the slide containing a text frame that uses the embedded 'FunSized' font.
+    with slide.get_image(draw.Size(960, 720)) as image:
+        image.save("picture1_out.png", slides.ImageFormat.PNG)
 
-    # Ruft alle eingebetteten Schriftarten ab
-    embeddedFonts = fontsManager.get_embedded_fonts()
+    fonts_manager = presentation.fonts_manager
 
-    # Findet die Schriftart "Calibri"
-    
-    funSizedEmbeddedFont = list(filter(lambda data : data.font_name == "Calibri", embeddedFonts))[0]
+    # Get all embedded fonts.
+    embedded_fonts = fonts_manager.get_embedded_fonts()
 
-    # Entfernt die Schriftart "Calibri"
-    fontsManager.remove_embedded_font(funSizedEmbeddedFont)
+    # Find the 'Calibri' font.
+    font_data = list(filter(lambda data : data.font_name == "Calibri", embedded_fonts))[0]
 
-    # Rendert die Präsentation; die Schriftart "Calibri" wird durch eine vorhandene ersetzt
-    with presentation.slides[0].get_image(draw.Size(960, 720)) as img:
-        img.save("picture2_out.png", slides.ImageFormat.PNG)
+    # Remove the 'Calibri' font.
+    fonts_manager.remove_embedded_font(font_data)
 
-    # Speichert die Präsentation ohne die eingebettete Schriftart "Calibri" auf der Festplatte
-    presentation.save("WithoutManageEmbeddedFonts_out.ppt", slides.export.SaveFormat.PPT)
+    # Render the slide; the 'Calibri' font will be replaced with an existing one.
+    with slide.get_image(draw.Size(960, 720)) as image:
+        image.save("picture2_out.png", slides.ImageFormat.PNG)
+
+    # Save the presentation without the embedded 'Calibri' font to disk.
+    presentation.save("WithoutEmbeddedFonts.ppt", slides.export.SaveFormat.PPT)
 ```
 
-## **Eingebettete Schriftarten zur Präsentation hinzufügen**
+## **Eingebettete Schriftarten hinzufügen**
 
-Mit dem Enum [EmbedFontCharacters](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedfontcharacters/) und zwei Überladungen der Methode `add_embedded_font(font_data, embed_font_rule)` können Sie Ihre bevorzugte (Einbettungs-) Regel auswählen, um die Schriftarten in einer Präsentation einzubetten. Dieser Python-Code zeigt Ihnen, wie Sie Schriftarten in einer Präsentation einbetten und hinzufügen:
+Durch die Verwendung des Enums [EmbedFontCharacters](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedfontcharacters/) und zweier Überladungen der Methode [add_embedded_font](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/add_embedded_font/) können Sie die gewünschte Einbettungsregel auswählen, um Schriftarten in einer Präsentation zu embedden. Dieses Python‑Beispiel zeigt, wie Schriftarten eingebettet und zu einer Präsentation hinzugefügt werden:
 
 ```python
 import aspose.slides as slides
 
-# Lädt die Präsentation
-with slides.Presentation(path + "Fonts.pptx") as presentation:
-    # Lädt die zu ersetzende Quellschriftart
-    sourceFont = slides.FontData("Arial")
+# Load a presentation.
+with slides.Presentation("Fonts.pptx") as presentation:
+    all_fonts = presentation.fonts_manager.get_fonts()
+    embedded_fonts = presentation.fonts_manager.get_embedded_fonts()
 
-    allFonts = presentation.fonts_manager.get_fonts()
-    embeddedFonts = presentation.fonts_manager.get_embedded_fonts()
-    for font in allFonts:
-        if font not in embeddedFonts:
+    for font in all_fonts:
+        if font not in embedded_fonts:
             presentation.fonts_manager.add_embedded_font(font, slides.export.EmbedFontCharacters.ALL)
 
-    # Speichert die Präsentation auf der Festplatte
-    presentation.save("AddEmbeddedFont_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("AddEmbeddedFont.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Eingebettete Schriftarten komprimieren**
 
-Um Ihnen zu ermöglichen, die in einer Präsentation eingebetteten Schriftarten zu komprimieren und die Dateigröße zu reduzieren, bietet Aspose.Slides die Methode `compress_embedded_fonts` (bereitgestellt von der Klasse [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/)).
+Optimieren Sie die Dateigröße, indem Sie eingebettete Schriftarten mit [compress_embedded_fonts](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/compress_embedded_fonts/) komprimieren.
 
-Dieser Python-Code zeigt Ihnen, wie Sie eingebettete PowerPoint-Schriftarten komprimieren:
+Beispielcode zur Kompression:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-
-    slides.lowcode.Compress.compress_embedded_fonts(pres)
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("sample.pptx") as presentation:
+    slides.lowcode.Compress.compress_embedded_fonts(presentation)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQ**
+
+**Wie kann ich feststellen, dass eine bestimmte Schriftart in der Präsentation trotz Einbettung beim Rendern ersetzt wird?**
+
+Prüfen Sie die [substitution information](/slides/de/python-net/font-substitution/) im Font‑Manager und die [fallback/substitution rules](/slides/de/python-net/fallback-font/): Wenn die Schriftart nicht verfügbar oder eingeschränkt ist, wird ein Fallback verwendet.
+
+**Lohnt es sich, Systemschriftarten wie Arial/Calibri einzubetten?**
+
+In der Regel nicht – sie sind fast immer verfügbar. In besonders schlanken Umgebungen (Docker, ein Linux‑Server ohne vorinstallierte Schriftarten) kann das Einbetten von Systemschriftarten jedoch das Risiko unerwarteter Ersetzungen ausschließen.

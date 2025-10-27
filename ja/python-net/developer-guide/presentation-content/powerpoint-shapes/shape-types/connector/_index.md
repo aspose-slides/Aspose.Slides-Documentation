@@ -1,372 +1,384 @@
 ---
-title: Python でプレゼンテーションのコネクタを管理する
+title: Pythonでプレゼンテーションのコネクタを管理する
 linktitle: コネクタ
 type: docs
 weight: 10
 url: /ja/python-net/connector/
 keywords:
-- コネクタ
-- コネクタ タイプ
-- コネクタ ポイント
-- コネクタ ライン
-- コネクタ アングル
-- 図形を接続
+- connector
+- connector type
+- connector point
+- connector line
+- connector angle
+- connect shapes
 - PowerPoint
-- プレゼンテーション
+- presentation
 - Python
 - Aspose.Slides
-description: "Python アプリで PowerPoint および OpenDocument スライドに線を描画、接続、自動ルーティングできるようにすることで、直線、エルボ、曲線のコネクタを完全に制御できます。"
+description: "Python アプリで PowerPoint および OpenDocument のスライドに線を描画、接続、自動経路設定できるようにし、直線、エルボー、曲線コネクタをフルコントロールします。"
 ---
 
-PowerPointのコネクタは、2つの形状を接続またはリンクする特別な線であり、与えられたスライド上で移動または再配置されても形状に固定されます。 
+## **はじめに**
 
-コネクタは通常、すべての形状にデフォルトで存在する*接続点*（緑の点）に接続されます。接続点はカーソルが近づくと表示されます。
-
-*調整ポイント*（オレンジの点）は、特定のコネクタにのみ存在し、コネクタの位置や形状を変更するために使用されます。
+PowerPoint のコネクタは、2 つの図形を結びつけ、スライド上で図形を移動または再配置しても接続されたままになる特殊な線です。コネクタは図形上の **接続点**（緑の点）に取り付けられます。ポインタが接続点に近づくと表示されます。特定のコネクタには **調整ハンドル**（黄色の点）があり、コネクタの位置や形状を変更できます。
 
 ## **コネクタの種類**
 
-PowerPointでは、直線、肘（角度付き）、および曲線コネクタを使用できます。 
+PowerPoint では、直線、エルボー（角度付き）、曲線の 3 種類のコネクタが使用できます。
 
-Aspose.Slidesはこれらのコネクタを提供します：
+Aspose.Slides がサポートするコネクタの種類は次のとおりです。
 
-| コネクタ                       | 画像                                                        | 調整ポイントの数       |
-| ---------------------------- | ------------------------------------------------------------ | --------------------- |
-| `ShapeType.LINE`              | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                     |
-| `ShapeType.STRAIGHT_CONNECTOR1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                     |
-| `ShapeType.BENT_CONNECTOR2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                     |
-| `ShapeType.BENT_CONNECTOR3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                     |
-| `ShapeType.BENT_CONNECTOR4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                     |
-| `ShapeType.BENT_CONNECTOR5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                     |
-| `ShapeType.CURVED_CONNECTOR2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                     |
-| `ShapeType.CURVED_CONNECTOR3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                     |
-| `ShapeType.CURVED_CONNECTOR4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                     |
-| `ShapeType.CURVED_CONNECTOR5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                     |
+| コネクタの種類                | 画像                                                       | 調整点の数 |
+| ----------------------------- | ---------------------------------------------------------- | ---------- |
+| `ShapeType.LINE`              | ![Line connector](shapetype-lineconnector.png)            | 0          |
+| `ShapeType.STRAIGHT_CONNECTOR1` | ![Straight connector 1](shapetype-straightconnector1.png) | 0          |
+| `ShapeType.BENT_CONNECTOR2`   | ![Bent connector 2](shapetype-bent-connector2.png)        | 0          |
+| `ShapeType.BENT_CONNECTOR3`   | ![Bent connector 3](shapetype-bentconnector3.png)         | 1          |
+| `ShapeType.BENT_CONNECTOR4`   | ![Bent connector 4](shapetype-bentconnector4.png)         | 2          |
+| `ShapeType.BENT_CONNECTOR5`   | ![Bent connector 5](shapetype-bentconnector5.png)         | 3          |
+| `ShapeType.CURVED_CONNECTOR2` | ![Curved connector 2](shapetype-curvedconnector2.png)     | 0          |
+| `ShapeType.CURVED_CONNECTOR3` | ![Curved connector 3](shapetype-curvedconnector3.png)     | 1          |
+| `ShapeType.CURVED_CONNECTOR4` | ![Curved connector 4](shapetype-curvedconnector4.png)     | 2          |
+| `ShapeType.CURVED_CONNECTOR5` | ![Curved connector 5](shapetype.curvedconnector5.png)     | 3          |
 
-## **コネクタを使って形状を接続する**
+## **コネクタで図形を接続する**
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスのインスタンスを作成します。
-1. インデックスを通じてスライドの参照を取得します。
-1. `Shapes`オブジェクトによって公開された`add_auto_shape`メソッドを使用して、スライドに2つの[AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/)を追加します。
-1. コネクタタイプを定義して`Shapes`オブジェクトによって公開された`add_auto_shape`メソッドを使用して、コネクタを追加します。
-1. コネクタを使用して形状を接続します。
-1. `reroute`メソッドを呼び出して、最短接続パスを適用します。
-1. プレゼンテーションを保存します。 
+このセクションでは、Aspose.Slides でコネクタを使用して図形同士を接続する方法を示します。スライドにコネクタを追加し、開始点と終了点を対象の図形に接続します。接続ポイントを使用すると、図形が移動またはサイズ変更してもコネクタが「くっついた」ままになります。
 
-以下のPythonコードは、2つの形状（楕円と長方形）の間にコネクタ（曲がったコネクタ）を追加する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスでスライドへの参照を取得します。  
+3. [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) が提供する `add_auto_shape` メソッドで、スライドに 2 つの [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) オブジェクトを追加します。  
+4. 同じく [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) の `add_connector` メソッドを使い、コネクタの種類を指定して追加します。  
+5. コネクタで図形を接続します。  
+6. `reroute` メソッドを呼び出して、最短接続パスを適用します。  
+7. プレゼンテーションを保存します。
 
-```python
-import aspose.slides as slides
-
-# PPTXファイルを表すプレゼンテーションクラスをインスタンス化
-with slides.Presentation() as input:
-    # 特定のスライドの形状コレクションにアクセス
-    shapes = input.slides[0].shapes
-
-    # 楕円自動形状を追加
-    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 0, 100, 100, 100)
-
-    # 長方形自動形状を追加
-    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 300, 100, 100)
-
-    # スライド形状コレクションにコネクタ形状を追加
-    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
-
-    # コネクタを使用して形状を接続
-    connector.start_shape_connected_to = ellipse
-    connector.end_shape_connected_to = rectangle
-
-    # 形状間の自動最短パスを設定する再ルートを呼び出す
-    connector.reroute()
-
-    # プレゼンテーションを保存
-    input.save("Connecting shapes using connectors_out.pptx", slides.export.SaveFormat.PPTX)
-
-```
-
-{{%  alert title="注意"  color="warning"   %}} 
-
-`connector.reroute`メソッドはコネクタを再ルートさせ、形状間で可能な限り最短のパスを取るよう強制します。この目的を達成するために、メソッドは`start_shape_connection_site_index`および`end_shape_connection_site_index`ポイントを変更する場合があります。 
-
-{{% /alert %}} 
-
-## **接続点を指定する**
-
-コネクタが形状の特定の点を使用して2つの形状をリンクするようにしたい場合は、好みの接続点をこのように指定する必要があります：
-
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスのインスタンスを作成します。
-1. インデックスを通じてスライドの参照を取得します。
-1. `Shapes`オブジェクトによって公開された`add_auto_shape`メソッドを使用して、スライドに2つの[AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/)を追加します。
-1. コネクタタイプを定義して`Shapes`オブジェクトによって公開された`add_connector`メソッドを使ってコネクタを追加します。
-1. コネクタを使用して形状を接続します。
-1. 形状上の好みの接続点を設定します。 
-1. プレゼンテーションを保存します。
-
-以下のPythonコードは、好ましい接続点が指定される操作を示しています：
+以下の Python コードは、楕円と矩形の間にベンドコネクタを追加する例です。
 
 ```python
 import aspose.slides as slides
 
-# PPTXファイルを表すプレゼンテーションクラスをインスタンス化
+# Presentation クラスのインスタンスを作成して PPTX ファイルを生成します。
 with slides.Presentation() as presentation:
-    # 特定のスライドの形状コレクションにアクセス
+
+    # 1 枚目のスライドの Shapes コレクションにアクセスします。
     shapes = presentation.slides[0].shapes
 
-    # スライドの形状コレクションにコネクタ形状を追加
-    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
+    # 楕円の AutoShape を追加します。
+    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
 
-    # 楕円自動形状を追加
-    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 0, 100, 100, 100)
+    # 矩形の AutoShape を追加します。
+    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 200, 100, 100)
 
-    # 長方形自動形状を追加
-    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 100, 100)
+    # スライドにコネクタを追加します。
+    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
 
-    # コネクタを使用して形状を接続
+    # 図形をコネクタで接続します。
     connector.start_shape_connected_to = ellipse
     connector.end_shape_connected_to = rectangle
 
-    # 楕円形状上の好ましい接続点インデックスを設定
-    wantedIndex = 6
+    # 最短経路に再ルーティングします。
+    connector.reroute()
 
-    # 指定されたインデックスが最大サイトインデックス数未満であるか確認
-    if ellipse.connection_site_count > wantedIndex:
-        # 楕円自動形状の好ましい接続点を設定
-        connector.start_shape_connection_site_index = wantedIndex
-
-    # プレゼンテーションを保存
-    presentation.save("Connecting_Shape_on_desired_connection_site_out.pptx", slides.export.SaveFormat.PPTX)
-
+    # プレゼンテーションを保存します。
+    presentation.save("connected_shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **コネクタポイントを調整する**
+{{% alert title="NOTE" color="warning" %}}
+`connector.reroute` メソッドはコネクタを再ルーティングし、図形間の最短パスを取らせます。これにより、`start_shape_connection_site_index` と `end_shape_connection_site_index` の値が変更されることがあります。
+{{% /alert %}}
 
-既存のコネクタは、その調整ポイントを通じて調整できます。調整ポイントを持つコネクタのみがこの方法で変更できます。 **[コネクタの種類](/slides/ja/python-net/connector/#types-of-connectors)**の下の表を参照してください。
+## **接続ポイントを指定する**
 
-#### **簡単なケース**
+このセクションでは、Aspose.Slides でコネクタを特定の接続ポイントに取り付ける方法を説明します。正確な接続サイトを指定することで、コネクタの経路とレイアウトを制御し、プレゼンテーション内に整った図を作成できます。
 
-2つの形状（AとB）の間のコネクタが、3つ目の形状（C）を通る場合を考えてみましょう：
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスでスライドへの参照を取得します。  
+3. `add_auto_shape` を使用して 2 つの AutoShape をスライドに追加します。  
+4. `add_connector` でコネクタを追加し、種類を指定します。  
+5. コネクタで図形を接続します。  
+6. 図形上の好みの接続ポイントを設定します。  
+7. プレゼンテーションを保存します。
 
-![connector-obstruction](connector-obstruction.png)
+以下のコードは、好みの接続ポイントを指定する例です。
 
-コード：
+```python
+import aspose.slides as slides
+
+# Presentation クラスのインスタンスを作成して PPTX ファイルを生成します。
+with slides.Presentation() as presentation:
+
+    # 1 枚目のスライドの Shapes コレクションにアクセスします。
+    shapes = presentation.slides[0].shapes
+
+    # 楕円の AutoShape を追加します。
+    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
+
+    # 矩形の AutoShape を追加します。
+    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 200, 100, 100)
+
+    # スライドの ShapeCollection にコネクタを追加します。
+    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
+
+    # 図形をコネクタで接続します。
+    connector.start_shape_connected_to = ellipse
+    connector.end_shape_connected_to = rectangle
+
+    # 楕円側の好みの接続サイトインデックスを設定します。
+    site_index = 6
+
+    # インデックスが利用可能なサイト数以内か確認します。
+    if ellipse.connection_site_count > site_index:
+        # 楕円 AutoShape の好みの接続サイトを割り当てます。
+        connector.start_shape_connection_site_index = site_index
+
+    # プレゼンテーションを保存します。
+    presentation.save("connection_points.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **コネクタの調整点を変更する**
+
+調整点が公開されているコネクタは、調整点を使って形状を変更できます。どのコネクタが調整をサポートしているかは、[コネクタの種類](/slides/ja/python-net/connector/#connector-types) の表をご参照ください。
+
+### **シンプルなケース**
+
+2 つの図形 (A と B) を結ぶコネクタが、別の図形 (C) と交差している場合を考えます。
+
+![Connector obstruction](connector-obstruction.png)
+
+コード例:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    sld = pres.slides[0]
-    shape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
-    shapeFrom = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
-    shapeTo = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
+    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
+    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
     
-    connector = sld.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
     
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.black
     
-    connector.start_shape_connected_to = shapeFrom
-    connector.end_shape_connected_to = shapeTo
+    connector.start_shape_connected_to = shape_from
+    connector.end_shape_connected_to = shape_to
     connector.start_shape_connection_site_index = 2
 ```
 
-3つ目の形状を回避または迂回するために、コネクタの垂直線を左に移動させることで調整できます：
+3 番目の図形を回避するため、垂直セグメントを左に移動してコネクタを調整します。
 
-![connector-obstruction-fixed](connector-obstruction-fixed.png)
+![Fixed connector obstruction](connector-obstruction-fixed.png)
 
 ```python
-    adj2 = connector.adjustments[1]
-    adj2.raw_value += 10000
+    adjustment2 = connector.adjustments[1]
+    adjustment2.raw_value += 10000
 ```
 
-### **複雑なケース** 
+### **複雑なケース**
 
-より複雑な調整を行うには、以下の点を考慮する必要があります：
+高度な調整を行う場合のポイント:
 
-* コネクタの調整ポイントは、その位置を計算し決定する数式に強く関連しています。したがって、ポイントの位置を変更すると、コネクタの形状が変わる可能性があります。
-* コネクタの調整ポイントは、コネクタの開始点から終了点までの厳密な順序で定義されています。調整ポイントは、コネクタの起点から終点まで番号付けされています。
-* 調整ポイントの値は、コネクタ形状の幅/高さのパーセンテージを反映します。 
-  * 形状は、コネクタの開始点と終了点で1000倍されたものに制約されます。 
-  * 最初のポイント、2番目のポイント、3番目のポイントは、それぞれ幅からのパーセンテージ、高さからのパーセンテージ、幅からのパーセンテージ（再び）を定義します。
-* コネクタの調整ポイントの座標を決定する計算では、コネクタの回転と反射を考慮する必要があります。**注意**： **[コネクタの種類](/slides/ja/python-net/connector/#types-of-connectors)**の下に示されているすべてのコネクタの回転角度は0です。
+- 調整点は位置を決める数式に従います。数式を変更するとコネクタ全体の形が変わります。  
+- 調整点は開始点から終了点へ向かう厳密な順序で配列に格納されます。  
+- 調整点の値はコネクタ形状の幅/高さに対するパーセンテージです。  
+  - 幅と高さは開始点と終了点で決まり、1000 でスケーリングされます。  
+  - 1 番目、2 番目、3 番目の調整点はそれぞれ幅、 高さ、 再び幅 のパーセンテージを表します。  
+- 調整点座標を計算する際は、コネクタの回転と反転を考慮します。**注:** [コネクタの種類](/slides/ja/python-net/connector/#connector-types) に列挙されたすべてのコネクタは回転角が 0 です。
 
 #### **ケース 1**
 
-2つのテキストフレームオブジェクトがコネクタを介して接続されている場合を考えてみましょう：
+テキストフレーム 2 つをコネクタで接続する例です。
 
-![connector-shape-complex](connector-shape-complex.png)
+![Linked shapes](connector-shape-complex.png)
 
-コード：
+コード例:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# PPTXファイルを表すプレゼンテーションクラスをインスタンス化
-with slides.Presentation() as pres:
-    # プレゼンテーションの最初のスライドを取得
-    sld = pres.slides[0]
-    # コネクタを介して結合される形状を追加
-    shapeFrom = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
-    shapeFrom.text_frame.text = "From"
-    shapeTo = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
-    shapeTo.text_frame.text = "To"
-    # コネクタを追加
-    connector = sld.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
-    # コネクタの方向を指定
+# Presentation クラスのインスタンスを作成して PPTX ファイルを生成します。
+with slides.Presentation() as presentation:
+
+    # 1 枚目のスライドを取得します。
+    slide = presentation.slides[0]
+
+    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    shape_from.text_frame.text = "From"
+    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    shape_to.text_frame.text = "To"
+
+    # コネクタを追加します。
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    # 矢印の形状を設定します。
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
-    # コネクタの色を指定
+    # 色を設定します。
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.crimson
-    # コネクタの線の太さを指定
+    # 線幅を設定します。
     connector.line_format.width = 3
 
-    # コネクタで形状を結びつける
-    connector.start_shape_connected_to = shapeFrom
+    # 図形をコネクタで接続します。
+    connector.start_shape_connected_to = shape_from
     connector.start_shape_connection_site_index = 3
-    connector.end_shape_connected_to = shapeTo
+    connector.end_shape_connected_to = shape_to
     connector.end_shape_connection_site_index = 2
 
-    # コネクタの調整ポイントを取得
-    adjValue_0 = connector.adjustments[0]
-    adjValue_1 = connector.adjustments[1]
+    # 調整点を取得します。
+    adjustment_0 = connector.adjustments[0]
+    adjustment_1 = connector.adjustments[1]
 ```
 
 **調整**
 
-コネクタの調整ポイント値を、幅と高さのパーセンテージをそれぞれ20％と200％増加させることで変更できます：
+幅のパーセンテージを 20% 増加し、 高さのパーセンテージを 200% 増加させます。
 
 ```python
-    # 調整ポイントの値を変更
-    adjValue_0.raw_value += 20000
-    adjValue_1.raw_value += 200000
+    adjustment_0.raw_value += 20000
+    adjustment_1.raw_value += 200000
 ```
 
-結果：
+結果:
 
-![connector-adjusted-1](connector-adjusted-1.png)
+![Connector adjustment 1](connector-adjusted-1.png)
 
-コネクタの接続部分に対応する形状を描画するモデルを定義するために、コネクタの.adjustments[0]ポイントでのコネクタの横成分に対応する形状を作成します：
+次に、`connector.adjustments[0]` の位置に対応する垂直コンポーネントの形状を作成し、セグメント座標と形状をモデル化します。
 
 ```python
-    # コネクタの垂直成分を描画
-
-    x = connector.x + connector.width * adjValue_0.raw_value / 100000
+    # コネクタの垂直コンポーネントを描画します。
+    x = connector.x + connector.width * adjustment_0.raw_value / 100000
     y = connector.y
-    height = connector.height * adjValue_1.raw_value / 100000
-    sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 0, height)
+    height = connector.height * adjustment_1.raw_value / 100000
+
+    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 0, height)
 ```
 
-結果：
+結果:
 
-![connector-adjusted-2](connector-adjusted-2.png)
+![Connector adjustment 2](connector-adjusted-2.png)
 
 #### **ケース 2**
 
-**ケース 1**では、基本的な原則を使用してコネクタの調整操作を簡単に示しました。通常の状況では、コネクタの回転と表示（これらは`connector.rotation`、`connector.frame.flip_h`、`connector.frame.flip_v`で設定されています）を考慮する必要があります。プロセスを示します。
+ケース 1 で示した単純な調整に加え、回転や表示設定 (`connector.rotation`, `connector.frame.flip_h`, `connector.frame.flip_v`) を考慮した例です。
 
-最初に、スライドに新しいテキストフレームオブジェクト（**To 1**）を追加し、すでに作成したオブジェクトに接続するための新しい（緑色の）コネクタを作成します。
+まず、スライドに新しいテキストフレーム (**To 1**) を追加し、既存オブジェクトへ接続する緑のコネクタを作成します。
 
 ```python
-    # 新しいバインディングオブジェクトを作成
-    shapeTo_1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
-    shapeTo_1.text_frame.text = "To 1"
-    # 新しいコネクタを作成
+    # 新しいターゲットオブジェクトを作成します。
+    shape_to_1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    shape_to_1.text_frame.text = "To 1"
+
+    # 新しいコネクタを作成します。
     connector = sld.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.medium_aquamarine
     connector.line_format.width = 3
-    # 新しく作成されたコネクタを使用してオブジェクトを接続
+
+    # コネクタでオブジェクトを接続します。
     connector.start_shape_connected_to = shapeFrom
     connector.start_shape_connection_site_index = 2
-    connector.end_shape_connected_to = shapeTo_1
-    connector.end_shape_connected_to = 3
-    # コネクタの調整ポイントを取得
-    adjValue_0 = connector.adjustments[0]
-    adjValue_1 = connector.adjustments[1]
-    # 調整ポイントの値を変更 
-    adjValue_0.raw_value += 20000
-    adjValue_1.raw_value += 200000
+    connector.end_shape_connected_to = shape_to_1
+    connector.end_shape_connection_site_index = 3
+
+    # 調整点を取得します。
+    adjustment_0 = connector.adjustments[0]
+    adjustment_1 = connector.adjustments[1]
+    
+    # 調整点の値を変更します。
+    adjustment_0.raw_value += 20000
+    adjustment_1.raw_value += 200000
 ```
 
-結果：
+結果:
 
-![connector-adjusted-3](connector-adjusted-3.png)
+![Connector adjustment 3](connector-adjusted-3.png)
 
-次に、新しいコネクタの調整ポイント`connector.adjustments[0]`を通過するコネクタの横成分に対応する形状を作成します。コネクタデータから`connector.rotation`、`connector.frame.flip_h`、および`connector.frame.flip_v`の値を使用し、与えられた点の周りの回転の一般的な座標変換公式を適用します：
-
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
-
-この場合、オブジェクトの回転角度は90度で、コネクタは垂直に表示されるため、次のようにコードを記述します：
+次に、`connector.adjustments[0]` を通過する **水平** セグメントに対応する形状を作成し、回転と反転を考慮した座標変換式を適用します。
 
 ```python
-    # コネクタ座標を保存
+    # コネクタの座標を保存します。
     x = connector.x
     y = connector.y
-    # コネクタが表示された場合の座標を修正
+    
+    # 反転がある場合は座標を補正します。
     if connector.frame.flip_h == 1:
         x += connector.width
     if connector.frame.flip_v == 1:
         y += connector.height
 
-    # 調整ポイントの値を座標として取り込む
+    # 調整点の値を座標として使用します。
     x += connector.width * adjValue_0.raw_value / 100000
     
-    # 角度を考慮して座標を変換（Sin(90) = 1 および Cos(90) = 0）
+    # sin(90°)=1, cos(90°)=0 のため座標を変換します。
     xx = connector.frame.center_x - y + connector.frame.center_y
     yy = x - connector.frame.center_x + connector.frame.center_y
 
-    # 新しい接点の幅を定義
+    # 第二の調整点の値で水平セグメントの幅を決定します。
     width = connector.height * adjValue_1.raw_value / 100000
     shape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, xx, yy, width, 0)
     shape.line_format.fill_format.fill_type = slides.FillType.SOLID
     shape.line_format.fill_format.solid_fill_color.color = draw.Color.red
 ```
 
-結果：
+結果:
 
-![connector-adjusted-4](connector-adjusted-4.png)
+![Connector adjustment 4](connector-adjusted-4.png)
 
-簡単な調整や複雑な調整ポイント（回転角度を持つ調整ポイント）に関与する計算を示しました。得た知識を基に、自分のモデル（またはコードを書いて）`GraphicsPath`オブジェクトを取得したり、特定のスライド座標に基づいてコネクタの調整ポイント値を設定することができます。
+これらの例で、シンプルな調整から回転を考慮した高度な調整までを示しました。この知識を活用して、スライド座標から `GraphicsPath` を取得したり、特定の座標に基づいてコネクタの調整点を設定したりするモデルやコードを作成できます。
 
-## **コネクタ線の角度を見つける**
+## **コネクタラインの角度を求める**
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスのインスタンスを作成します。
-1. インデックスを通じてスライドの参照を取得します。
-1. コネクタ線の形状にアクセスします。
-1. 線の幅、高さ、形状フレームの高さ、および形状フレームの幅を使用して角度を計算します。
+以下のサンプルを使って、Aspose.Slides でスライド上のコネクタラインの角度を算出します。コネクタの端点を取得し、向きを計算することで、矢印やラベル、他の図形を正確に配置できます。
 
-以下のPythonコードは、コネクタ線の形状の角度を計算する操作を示しています：
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスでスライドへの参照を取得します。  
+3. コネクタラインのシェイプにアクセスします。  
+4. ラインの幅・高さとシェイプフレームの幅・高さを用いて角度を計算します。
+
+角度を計算する Python コード例:
 
 ```python
 import aspose.slides as slides
 import math
 
-def get_direction(w, h, flipH, flipV):
-    endLineX = w * (-1 if flipH else 1)
-    endLineY = h * (-1 if flipV else 1)
-    endYAxisX = 0
-    endYAxisY = h
-    angle = math.atan2(endYAxisY, endYAxisX) - math.atan2(endLineY, endLineX)
+def get_direction(w, h, flip_h, flip_v):
+    end_line_x = w * (-1 if flip_h else 1)
+    end_line_y = h * (-1 if flip_v else 1)
+    end_y_axis_x = 0
+    end_y_axis_y = h
+    angle = math.atan2(end_y_axis_y, end_y_axis_x) - math.atan2(end_line_y, end_line_x)
     if (angle < 0):
          angle += 2 * math.pi
     return angle * 180.0 / math.pi
 
-with slides.Presentation(path + "ConnectorLineAngle.pptx") as pres:
-    slide = pres.slides[0]
-    for i in range(len(slide.shapes)):
-        dir = 0.0
-        shape = slide.shapes[i]
-        if (type(shape) is slides.AutoShape):
-            if shape.shape_type == slides.ShapeType.LINE:
-                dir = get_direction(shape.width, shape.Height, shape.frame.flip_h, shape.frame.flip_v)
+with slides.Presentation("connector_line_angle.pptx") as presentation:
+    slide = presentation.slides[0]
+    for shape_index in range(len(slide.shapes)):
+        direction = 0.0
+        shape = slide.shapes[shape_index]
+        if type(shape) is slides.AutoShape and shape.shape_type == slides.ShapeType.LINE:
+            direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
         elif type(shape) is slides.Connector:
-            dir = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
-
-        print(dir)
-
+            direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
+        print(direction)
 ```
+
+## **FAQ**
+
+**コネクタが特定の図形に「くっつく」かどうかはどうやって確認しますか？**
+
+図形が [connection sites](https://reference.aspose.com/slides/python-net/aspose.slides/shape/connection_site_count/) を提供しているか確認します。接続サイトが存在しない、または数が 0 の場合は「くっつき」機能は利用できません。その場合はフリーエンドポイントを使用して手動で位置を設定するとよいでしょう。接続前にサイト数をチェックするのが賢明です。
+
+**接続されている図形の一方を削除したらコネクタはどうなりますか？**
+
+コネクタの端は切り離され、スライド上には自由端の普通の線として残ります。不要であれば削除するか、再度接続先を割り当て、必要に応じて [reroute](https://reference.aspose.com/slides/python-net/aspose.slides/connector/reroute/) してください。
+
+**スライドを別のプレゼンテーションにコピーした場合、コネクタのバインディングは保持されますか？**
+
+通常は保持されますが、コピー先に接続対象の図形も同時にコピーされていることが前提です。接続先の図形が存在しない状態でスライドだけを挿入した場合、端はフリーになり、再度接続し直す必要があります。

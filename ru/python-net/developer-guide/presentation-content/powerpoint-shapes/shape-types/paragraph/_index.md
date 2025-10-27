@@ -1,46 +1,46 @@
 ---
-title: Получите границы абзаца в презентациях на Python
-linktitle: Абзац
+title: Get Paragraph Bounds from Presentations in Python
+linktitle: Paragraph
 type: docs
 weight: 60
 url: /ru/python-net/paragraph/
 keywords:
-- границы абзаца
-- границы фрагмента текста
-- координаты абзаца
-- координаты фрагмента текста
-- размер абзаца
-- размер фрагмента текста
-- текстовый фрейм
+- paragraph bounds
+- text portion bounds
+- paragraph coordinate
+- portion coordinate
+- paragraph size
+- text portion size
+- text frame
 - PowerPoint
 - OpenDocument
-- презентация
+- presentation
 - Python
 - Aspose.Slides
-description: "Узнайте, как получать границы абзацев и фрагментов текста в Aspose.Slides for Python via .NET, чтобы оптимизировать позиционирование текста в презентациях PowerPoint и OpenDocument."
+description: "Узнайте, как получить границы абзаца и текстовой части в Aspose.Slides для Python через .NET, чтобы оптимизировать позиционирование текста в презентациях PowerPoint и OpenDocument."
 ---
 
-## **Получение координат параграфа и доли в TextFrame**
-Используя Aspose.Slides для Python via .NET, разработчики теперь могут получать прямоугольные координаты для параграфа внутри коллекции параграфов TextFrame. Это также позволяет получать координаты доли внутри коллекции долей параграфа. В этой теме мы собираемся продемонстрировать на примере, как получить прямоугольные координаты для параграфа вместе с положением доли внутри параграфа.
+## **Получить координаты абзаца и части в TextFrame**
+Используя Aspose.Slides для Python через .NET, разработчики теперь могут получить прямоугольные координаты абзаца внутри коллекции абзацев TextFrame. Также доступно получение координат части внутри коллекции частей абзаца. В этой теме мы продемонстрируем на примере, как получить прямоугольные координаты абзаца вместе с позицией части внутри него.
 
-## **Получение прямоугольных координат параграфа**
-В метод была добавлена новая функция **GetRect()**. Она позволяет получить прямоугольные границы параграфа.
+## **Получить прямоугольные координаты абзаца**
+Добавлен новый метод **GetRect()**. Он позволяет получить прямоугольник границ абзаца.
 
 ```py
 import aspose.slides as slides
 
-# Создаем объект Presentation, который представляет файл презентации
+# Instantiate a Presentation object that represents a presentation file
 with slides.Presentation(path + "Shapes.pptx") as presentation:
     shape = presentation.slides[0].shapes[0]
     textFrame = shape.text_frame
     rect = textFrame.paragraphs[0].get_rect()
 ```
 
-## **Получение размера параграфа и доли внутри текстового фрейма ячейки таблицы** ##
+## **Получить размер абзаца и части внутри текстового фрейма ячейки таблицы** ##
 
-Чтобы получить размер и координаты [Доли](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) или [Параграфа](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) в текстовом фрейме ячейки таблицы, вы можете использовать методы [IPortion.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iportion/) и [IParagraph.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/).
+Чтобы получить размер и координаты [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) или [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) в текстовом фрейме ячейки таблицы, можно использовать методы [IPortion.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iportion/) и [IParagraph.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/).
 
-Этот образец кода демонстрирует описанную операцию:
+Этот пример кода демонстрирует описанную операцию:
 
 ```py
 import aspose.slides as slides
@@ -50,6 +50,7 @@ with slides.Presentation(path + "source.pptx") as pres:
     tbl = pres.slides[0].shapes[0]
 
     cell = tbl.rows[1][1]
+
 
     x = tbl.X + tbl.rows[1][1].offset_x
     y = tbl.Y + tbl.rows[1][1].offset_y
@@ -74,3 +75,17 @@ with slides.Presentation(path + "source.pptx") as pres:
 
                 shape.fill_format.fill_type = slides.FillType.NO_FILL
 ```
+
+## **Часто задаваемые вопросы**
+
+**В каких единицах измеряются координаты, возвращаемые для абзаца и текстовых частей?**  
+В пунктах, где 1 дюйм = 72 пункта. Это относится ко всем координатам и размерам на слайде.
+
+**Влияет ли перенос слов на границы абзаца?**  
+Да. Если [перенос](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) включён в [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/), текст разбивается по ширине области, что изменяет фактические границы абзаца.
+
+**Можно ли надежно сопоставить координаты абзаца с пикселями в экспортированном изображении?**  
+Да. Переведите пункты в пиксели по формуле: пиксели = пункты × (DPI / 72). Результат зависит от выбранного DPI при рендеринге/экспорте.
+
+**Как получить «эффективные» параметры форматирования абзаца, учитывая наследование стилей?**  
+Используйте структуру данных [effective paragraph formatting](/slides/ru/python-net/shape-effective-properties/); она возвращает окончательные консолидированные значения отступов, интервалов, переноса, RTL и др.

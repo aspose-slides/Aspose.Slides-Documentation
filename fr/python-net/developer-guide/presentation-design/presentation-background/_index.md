@@ -8,7 +8,7 @@ keywords:
 - arrière-plan de présentation
 - arrière-plan de diapositive
 - couleur unie
-- couleur dégradée
+- couleur en dégradé
 - arrière-plan d'image
 - transparence de l'arrière-plan
 - propriétés de l'arrière-plan
@@ -17,173 +17,231 @@ keywords:
 - présentation
 - Python
 - Aspose.Slides
-description: "Apprenez à définir des arrière-plans dynamiques dans les fichiers PowerPoint et OpenDocument en utilisant Aspose.Slides for Python via .NET, avec des conseils de code pour améliorer vos présentations."
+description: "Apprenez à définir des arrière-plans dynamiques dans PowerPoint et les fichiers OpenDocument à l'aide d'Aspose.Slides pour Python via .NET, avec des astuces de code pour améliorer vos présentations."
 ---
 
-Les couleurs unies, les couleurs dégradées et les images sont souvent utilisées comme images d'arrière-plan pour les diapositives. Vous pouvez définir l'arrière-plan soit pour une **diapositive normale** (diapositive unique) ou pour une **diapositive maîtresse** (plusieurs diapositives à la fois).
+## **Vue d'ensemble**
 
-<img src="powerpoint-background.png" alt="powerpoint-background" />
+Les couleurs unies, les dégradés et les images sont couramment utilisés comme arrière-plans de diapositive. Vous pouvez définir l'arrière‑plan d'une **diapositive normale** (une seule diapositive) ou d'une **diapositive maître** (s'applique à plusieurs diapositives à la fois).
 
-## **Définir une couleur unie comme arrière-plan pour une diapositive normale**
+![Arrière‑plan PowerPoint](powerpoint-background.png)
 
-Aspose.Slides vous permet de définir une couleur unie comme arrière-plan pour une diapositive spécifique dans une présentation (même si cette présentation contient une diapositive maîtresse). Le changement d'arrière-plan n'affecte que la diapositive sélectionnée.
+## **Définir un arrière‑plan de couleur unie pour une diapositive normale**
+
+Aspose.Slides vous permet de définir une couleur unie comme arrière‑plan d'une diapositive spécifique d'une présentation — même si la présentation utilise une diapositive maître. La modification s’applique uniquement à la diapositive sélectionnée.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Définissez l'énumération [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) pour la diapositive sur `OwnBackground`.
-3. Définissez l'énumération [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) pour l'arrière-plan de la diapositive sur `Solid`.
-4. Utilisez la propriété [SolidFillColor](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties) exposée par [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) pour spécifier une couleur unie pour l'arrière-plan.
+2. Définissez la [BackgroundType] de la diapositive sur `OWN_BACKGROUND`.
+3. Définissez le [FillType] de l'arrière‑plan de la diapositive sur `SOLID`.
+4. Utilisez la propriété `solid_fill_color` de [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) pour spécifier la couleur unie de l'arrière‑plan.
 5. Enregistrez la présentation modifiée.
 
-Ce code Python vous montre comment définir une couleur unie (bleu) comme arrière-plan pour une diapositive normale :
+Le code Python suivant montre comment définir une couleur bleue unie comme arrière‑plan d'une diapositive normale :
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Crée une instance de la classe Presentation
-with slides.Presentation() as pres:
-    # Définit la couleur d'arrière-plan de la première ISlide sur Bleu
-    pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
-    pres.slides[0].background.fill_format.fill_type = slides.FillType.SOLID
-    pres.slides[0].background.fill_format.solid_fill_color.color = draw.Color.blue
-    # Écrit la présentation sur le disque
-    pres.save("ContentBG_out.pptx", slides.export.SaveFormat.PPTX)
+# Create an instance of the Presentation class.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    # Set the background color of the slide to blue.
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.blue
+
+    # Save the presentation to disk.
+    presentation.save("SolidColorBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Définir une couleur unie comme arrière-plan pour une diapositive maîtresse**
+## **Définir un arrière‑plan de couleur unie pour la diapositive maître**
 
-Aspose.Slides vous permet de définir une couleur unie comme arrière-plan pour la diapositive maîtresse dans une présentation. La diapositive maîtresse agit comme un modèle qui contient et contrôle les paramètres de formatage pour toutes les diapositives. Par conséquent, lorsque vous sélectionnez une couleur unie comme arrière-plan pour la diapositive maîtresse, ce nouvel arrière-plan sera utilisé pour toutes les diapositives.
+Aspose.Slides vous permet de définir une couleur unie comme arrière‑plan de la diapositive maître d’une présentation. La diapositive maître agit comme un modèle qui contrôle le formatage de toutes les diapositives, de sorte que choisir une couleur unie pour l’arrière‑plan de la diapositive maître l’applique à chaque diapositive.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Définissez l'énumération [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) pour la diapositive maîtresse (`Masters`) sur `OwnBackground`.
-3. Définissez l'énumération [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) pour l'arrière-plan de la diapositive maîtresse sur `Solid`.
-4. Utilisez la propriété [SolidFillColor](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties) exposée par [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) pour spécifier une couleur unie pour l'arrière-plan.
+2. Définissez la [BackgroundType] de la diapositive maître (via `masters`) sur `OWN_BACKGROUND`.
+3. Définissez le [FillType] de l'arrière‑plan de la diapositive maître sur `SOLID`.
+4. Utilisez la propriété `solid_fill_color` de [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) pour spécifier la couleur unie de l'arrière‑plan.
 5. Enregistrez la présentation modifiée.
 
-Ce code Python vous montre comment définir une couleur unie (vert forêt) comme arrière-plan pour une diapositive maîtresse dans une présentation :
+Le code Python suivant montre comment définir une couleur unie (vert forêt) comme arrière‑plan de la diapositive maître :
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Crée une instance de la classe Presentation
-with slides.Presentation() as pres:
-    # Définit la couleur d'arrière-plan de la Master ISlide sur Vert Forêt
-    pres.masters[0].background.type = slides.BackgroundType.OWN_BACKGROUND
-    pres.masters[0].background.fill_format.fill_type = slides.FillType.SOLID
-    pres.masters[0].background.fill_format.solid_fill_color.color = draw.Color.forest_green
+# Create an instance of the Presentation class.
+with slides.Presentation() as presentation:
+    master_slide = presentation.masters[0]
 
-    # Écrit la présentation sur le disque
-    pres.save("SetSlideBackgroundMaster_out.pptx", slides.export.SaveFormat.PPTX)
+    # Set the background color for the Master slide to Forest Green.
+    master_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    master_slide.background.fill_format.fill_type = slides.FillType.SOLID
+    master_slide.background.fill_format.solid_fill_color.color = draw.Color.forest_green
+
+    # Save the presentation to disk.
+    presentation.save("MasterSlideBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Définir une couleur dégradée comme arrière-plan pour une diapositive**
+## **Définir un arrière‑plan en dégradé pour une diapositive**
 
-Un dégradé est un effet graphique basé sur un changement progressif de couleur. Les couleurs dégradées, lorsqu'elles sont utilisées comme arrière-plans pour les diapositives, donnent aux présentations un aspect artistique et professionnel. Aspose.Slides vous permet de définir une couleur dégradée comme arrière-plan pour les diapositives dans les présentations.
+Un dégradé est un effet graphique créé par une variation progressive des couleurs. Lorsqu’il est utilisé comme arrière‑plan de diapositive, le dégradé peut rendre les présentations plus artistiques et professionnelles. Aspose.Slides vous permet de définir une couleur en dégradé comme arrière‑plan des diapositives.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Définissez l'énumération [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) pour la diapositive sur `OwnBackground`.
-3. Définissez l'énumération [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) pour l'arrière-plan de la diapositive maîtresse sur `Gradient`.
-4. Utilisez la propriété [GradientFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties) exposée par [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) pour spécifier vos paramètres de dégradé préférés.
+2. Définissez la [BackgroundType] de la diapositive sur `OWN_BACKGROUND`.
+3. Définissez le [FillType] de l'arrière‑plan de la diapositive sur `GRADIENT`.
+4. Utilisez la propriété `gradient_format` de [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) pour configurer les paramètres de dégradé souhaités.
 5. Enregistrez la présentation modifiée.
 
-Ce code Python vous montre comment définir une couleur dégradée comme arrière-plan pour une diapositive :
+Le code Python suivant montre comment définir une couleur en dégradé comme arrière‑plan d’une diapositive :
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Crée une instance de la classe Presentation
-with slides.Presentation(path + "SetBackgroundToGradient.pptx") as pres:
-    # Applique l'effet de dégradé à l'arrière-plan
-    pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
-    pres.slides[0].background.fill_format.fill_type = slides.FillType.GRADIENT
-    pres.slides[0].background.fill_format.gradient_format.tile_flip = slides.TileFlip.FLIP_BOTH
+# Create an instance of the Presentation class.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Écrit la présentation sur le disque
-    pres.save("ContentBG_Grad_out.pptx", slides.export.SaveFormat.PPTX)
+    # Apply a gradient effect to the background.
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.GRADIENT
+    slide.background.fill_format.gradient_format.tile_flip = slides.TileFlip.FLIP_BOTH
+
+    # Save the presentation to disk.
+    presentation.save("GradientBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Définir une image comme arrière-plan pour une diapositive**
+## **Utiliser une image comme arrière‑plan de diapositive**
 
-Outre les couleurs unies et les couleurs dégradées, Aspose.Slides permet également de définir des images comme arrière-plan pour les diapositives dans les présentations.
+En plus des remplissages unis et en dégradé, Aspose.Slides vous permet d’utiliser des images comme arrière‑plan de diapositive.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Définissez l'énumération [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) pour la diapositive sur `OwnBackground`.
-3. Définissez l'énumération [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) pour l'arrière-plan de la diapositive maîtresse sur `Picture`.
-4. Chargez l'image que vous souhaitez utiliser comme arrière-plan de la diapositive.
-5. Ajoutez l'image à la collection d'images de la présentation.
-6. Utilisez la propriété [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties) exposée par [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) pour définir l'image comme arrière-plan.
+2. Définissez la [BackgroundType] de la diapositive sur `OWN_BACKGROUND`.
+3. Définissez le [FillType] de l'arrière‑plan de la diapositive sur `PICTURE`.
+4. Chargez l'image que vous souhaitez utiliser comme arrière‑plan de la diapositive.
+5. Ajoutez l'image à la collection d’images de la présentation.
+6. Utilisez la propriété `picture_fill_format` de [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) pour affecter l'image à l'arrière‑plan.
 7. Enregistrez la présentation modifiée.
 
-Ce code Python vous montre comment définir une image comme arrière-plan pour une diapositive :
+Le code Python suivant montre comment définir une image comme arrière‑plan d’une diapositive :
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Crée une instance de la classe Presentation
-with slides.Presentation(path + "SetImageAsBackground.pptx") as pres:
-    # Définit les conditions pour l'image d'arrière-plan
-    pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
-    pres.slides[0].background.fill_format.fill_type = slides.FillType.PICTURE
-    pres.slides[0].background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+# Create an instance of the Presentation class.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Charge l'image
-    img = draw.Bitmap(path + "Tulips.jpg")
+    # Set background image properties.
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.PICTURE
+    slide.background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
 
-    # Ajoute l'image à la collection d'images de la présentation
-    imgx = pres.images.add_image(img)
+    # Load the image.
+    with slides.Images.from_file("Tulips.jpg") as image:
+        # Add the image to the presentation's image collection.
+        pp_image = presentation.images.add_image(image)
 
-    pres.slides[0].background.fill_format.picture_fill_format.picture.image = imgx
+    slide.background.fill_format.picture_fill_format.picture.image = pp_image
 
-    # Écrit la présentation sur le disque
-    pres.save("ContentBG_Img_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("ImageAsBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Modifier la transparence de l'image d'arrière-plan**
+Le code suivant montre comment définir le type de remplissage d'arrière‑plan sur une image en mosaïque et modifier les propriétés de mosaïquage :
 
-Vous souhaiterez peut-être ajuster la transparence de l'image d'arrière-plan d'une diapositive pour faire ressortir le contenu de la diapositive. Ce code Python vous montre comment changer la transparence pour une image d'arrière-plan de diapositive :
+```py
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+
+    first_slide = presentation.slides[0]
+
+    background = first_slide.background
+
+    background.type = slides.BackgroundType.OWN_BACKGROUND
+    background.fill_format.fill_type = slides.FillType.PICTURE
+
+    with slides.Images.from_file("image.png") as new_image:
+        pp_image = presentation.images.add_image(new_image)
+
+    # Set the image used for the background fill.
+    back_picture_fill_format = background.fill_format.picture_fill_format
+    back_picture_fill_format.picture.image = pp_image
+
+    # Set the picture fill mode to Tile and adjust the tile properties.
+    back_picture_fill_format.picture_fill_mode = slides.PictureFillMode.TILE
+    back_picture_fill_format.tile_offset_x = 15.0
+    back_picture_fill_format.tile_offset_y = 15.0
+    back_picture_fill_format.tile_scale_x = 46.0
+    back_picture_fill_format.tile_scale_y = 87.0
+    back_picture_fill_format.tile_alignment = slides.RectangleAlignment.CENTER
+    back_picture_fill_format.tile_flip = slides.TileFlip.FLIP_Y
+
+    presentation.save("TileBackground.pptx", slides.export.SaveFormat.PPTX)
+```
+
+{{% alert color="primary" %}}
+Read more: [**Image mosaïquée comme texture**](/slides/fr/python-net/shape-formatting/#tile-picture-as-texture).
+{{% /alert %}}
+
+### **Modifier la transparence de l'image d'arrière‑plan**
+
+Vous pouvez souhaiter ajuster la transparence de l’image d’arrière‑plan d’une diapositive afin que le contenu de la diapositive ressorte davantage. Le code Python suivant montre comment changer la transparence d’une image d’arrière‑plan de diapositive :
 
 ```python
-transparencyValue = 30 # par exemple
+transparency_value = 30  # For example.
 
-# Obtient une collection d'opérations de transformation d'image
-imageTransform = pres.slides[0].background.fill_format.picture_fill_format.picture.image_transform
+# Get the collection of picture transform operations.
+image_transform = slide.background.fill_format.picture_fill_format.picture.image_transform
 
-transparencyOperation = None
-# Trouve un effet de transparence avec un pourcentage fixe.
-for operation in imageTransform:
+transparency_operation = None
+
+# Find an existing fixed-percentage transparency effect.
+for operation in image_transform:
     if type(operation) is slides.AlphaModulateFixed:
-        transparencyOperation = operation
+        transparency_operation = operation
         break
 
-# Définit la nouvelle valeur de transparence.
-if transparencyOperation is None:
-    imageTransform.add_alpha_modulate_fixed_effect(100 - transparencyValue)
+# Set the new transparency value.
+if transparency_operation is None:
+    image_transform.add_alpha_modulate_fixed_effect(100 - transparency_value)
 else:
-    transparencyOperation.amount = (100 - transparencyValue)
+    transparency_operation.amount = 100 - transparency_value
 ```
 
-## **Obtenir la valeur de l'arrière-plan de la diapositive**
+## **Obtention de la valeur d'arrière‑plan de la diapositive**
 
-Aspose.Slides fournit l'interface [IBackgroundEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/) pour vous permettre d'obtenir les valeurs effectives des arrière-plans de diapositives. Cette interface contient des informations sur le [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/#properties) effectif et l'[EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/#properties) effectif.
+Aspose.Slides fournit la classe [IBackgroundEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/) pour récupérer les valeurs effectives d’arrière‑plan d’une diapositive. Cette classe expose le [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) et le [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) effectifs.
 
-En utilisant la propriété [Background](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/#properties) de la classe [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/), vous pouvez obtenir la valeur effective pour un arrière-plan de diapositive.
+En utilisant la propriété `background` de la classe [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/), vous pouvez obtenir l’arrière‑plan effectif d’une diapositive.
 
-Ce code Python vous montre comment obtenir la valeur d'arrière-plan effective d'une diapositive :
+Le code Python suivant montre comment obtenir la valeur d’arrière‑plan effectif d’une diapositive :
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Crée une instance de la classe Presentation
-with slides.Presentation(path + "SamplePresentation.pptx") as pres:
+# Create an instance of the Presentation class.
+with slides.Presentation("Sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    effBackground = pres.slides[0].background.get_effective()
+    # Retrieve the effective background, taking into account master, layout, and theme.
+    effective_background = slide.background.get_effective()
 
-    if effBackground.fill_format.fill_type == slides.FillType.SOLID:
-        print("Couleur de remplissage : " + str(effBackground.fill_format.solid_fill_color))
+    if effective_background.fill_format.fill_type == slides.FillType.SOLID:
+        color = effective_background.fill_format.solid_fill_color
+        print(f"Fill color: Color [A={color.a}, R={color.r}, G={color.g}, B={color.b}]")
     else:
-        print("Type de remplissage : " + str(effBackground.fill_format.fill_type))
+        print("Fill type:", str(effective_background.fill_format.fill_type))
 ```
+
+## **FAQ**
+
+**Puis-je réinitialiser un arrière‑plan personnalisé et restaurer l'arrière‑plan du thème/mise en page ?**
+
+Oui. Supprimez le remplissage personnalisé de la diapositive, et l’arrière‑plan sera de nouveau hérité de la diapositive [mise en page](/slides/fr/python-net/slide-layout/)/[maître](/slides/fr/python-net/slide-master/) correspondante (c’est‑à‑dire du [arrière‑plan du thème](/slides/fr/python-net/presentation-theme/)).
+
+**Que se passe-t-il à l'arrière‑plan si je change le thème de la présentation ultérieurement ?**
+
+Si une diapositive possède son propre remplissage, il restera inchangé. Si l’arrière‑plan est hérité de la [mise en page](/slides/fr/python-net/slide-layout/)/[maître](/slides/fr/python-net/slide-master/), il sera mis à jour pour correspondre au [nouveau thème](/slides/fr/python-net/presentation-theme/).
