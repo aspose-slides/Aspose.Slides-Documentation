@@ -83,3 +83,32 @@ with slides.Presentation() as pres:
     pres.save("RectShp2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **FAQ**
+
+**How do I add a rectangle with rounded corners?**
+
+Use the rounded-corner [shape type](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/) and adjust the corner radius in the shape’s properties; rounding can also be applied per corner via geometry adjustments.
+
+**How do I fill a rectangle with an image (texture)?**
+
+Select the picture [fill type](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/), provide the image source, and configure [stretching/tiling modes](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillmode/).
+
+**Can a rectangle have shadow and glow?**
+
+Yes. [Outer/inner shadow, glow, and soft edges](/slides/python-net/shape-effect/) are available with adjustable parameters.
+
+**Can I turn a rectangle into a button with a hyperlink?**
+
+Yes. [Assign a hyperlink](/slides/python-net/manage-hyperlinks/) to the shape click (jump to a slide, file, web address, or e-mail).
+
+**How can I protect a rectangle from moving and changes?**
+
+[Use shape locks](/slides/python-net/applying-protection-to-presentation/): you can forbid moving, resizing, selection, or text editing to preserve the layout.
+
+**Can I convert a rectangle to a raster image or SVG?**
+
+Yes. You can [render the shape](http://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/) to an image with a specified size/scale or [export it as SVG](https://reference.aspose.com/slides/python-net/aspose.slides/shape/write_as_svg/) for vector use.
+
+**How do I quickly get the actual (effective) properties of a rectangle considering theme and inheritance?**
+
+[Use the shape’s effective properties](/slides/python-net/shape-effective-properties/): the API returns computed values that account for theme styles, layout, and local settings, simplifying formatting analysis.

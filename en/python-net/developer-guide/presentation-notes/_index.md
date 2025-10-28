@@ -78,3 +78,12 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
     presentation.save("AddNotesSlideWithNotesStyle_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **FAQ**
+
+**Which API entity provides access to the notes of a specific slide?**
+
+Notes are accessed through the slide’s notes manager: the slide has a [NotesSlideManager](https://reference.aspose.com/slides/python-net/aspose.slides/notesslidemanager/) and a [property](https://reference.aspose.com/slides/python-net/aspose.slides/notesslidemanager/notes_slide/) that returns the notes object, or `None` if there are no notes.
+
+**Are there differences in notes support across the PowerPoint versions the library works with?**
+
+The library targets a broad range of Microsoft PowerPoint formats (97–newer) and ODP; notes are supported within these formats without depending on an installed copy of PowerPoint.
