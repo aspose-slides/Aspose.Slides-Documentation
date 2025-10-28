@@ -1,56 +1,43 @@
 ---
-title: Pythonで3Dプレゼンテーションを作成
-linktitle: 3Dプレゼンテーション
+title: Python で 3D プレゼンテーションを作成する
+linktitle: 3D プレゼンテーション
 type: docs
 weight: 232
 url: /ja/python-net/3d-presentation/
 keywords:
 - 3D PowerPoint
-- 3Dプレゼンテーション
-- 3D回転
-- 3D奥行き
-- 3D押し出し
-- 3Dグラデーション
-- 3Dテキスト
+- 3D プレゼンテーション
+- 3D 回転
+- 3D 奥行き
+- 3D 押し出し
+- 3D グラデーション
+- 3D テキスト
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides を使用して、Python でインタラクティブな 3D プレゼンテーションを手軽に生成できます。PowerPoint および OpenDocument 形式へ迅速にエクスポートし、幅広い用途に活用できます。"
+description: "Aspose.Slides を使用して Python でインタラクティブな 3D プレゼンテーションを手軽に生成できます。PowerPoint および OpenDocument 形式への高速エクスポートで多用途に活用できます。"
 ---
 
-## 概要
-通常、どのようにして 3D PowerPoint プレゼンテーションを作成しますか？
-Microsoft PowerPoint は、3D モデルを追加したり、図形に 3D 効果を適用したり、3D テキストを作成したり、プレゼンテーションに 3D グラフィックスをアップロードしたり、PowerPoint 3D アニメーションを作成したりすることができる3D プレゼンテーションの作成を可能にします。
+## **概要**
 
-3D 効果を作成することで、プレゼンテーションを 3D プレゼンテーションに改善する大きな影響があり、最も簡単に 3D プレゼンテーションを実装できる方法かもしれません。
-Aspose.Slides 20.9 バージョン以降、***クロスプラットフォーム 3D エンジン***が追加されました。この新しい 3D エンジンは、
-3D 効果を持つ図形やテキストをエクスポートしてラスタライズすることができます。以前のバージョンでは、
-3D 効果が適用されたスライドの図形は平面としてレンダリングされていました。しかし、今では***本格的な 3D***として
-図形をレンダリングすることが可能です。
-さらに、今では Slides の公開 API を介して 3D 効果を持つ図形を作成することができます。
+通常、3D PowerPoint プレゼンテーションはどのように作成しますか？Microsoft PowerPoint では、3D モデルの追加、図形への 3D 効果の適用、3D テキストの作成、3D グラフィックの挿入、そして 3D アニメーションの構築が可能です。
 
-Aspose.Slides API では、
-図形を PowerPoint の 3D 図形にするには、[IShape.ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) プロパティを使用し、
-その機能は [IThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat) インターフェイスから継承されます：
-- [BevelBottom](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) 
-および [BevelTop](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): 図形にベベルを設定し、ベベルのタイプを定義します（例: Angle, Circle, SoftRound）、ベベルの高さと幅を定義します。
-- [camera](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): オブジェクトの周りでカメラの動きを模倣するために使用されます。つまり、カメラの回転、ズーム、およびその他のプロパティを設定することで、 
-あなたの図形を PowerPoint の 3D モデルのように操作できます。
-- [ContourColor](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) 
-および [ContourWidth](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): 3D PowerPoint 図形のように見えるようにするための輪郭プロパティを設定します。
-- [depth](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/), 
-[extrusion_color](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) 
-および [extrusion_height](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): 図形を三次元にするために使用します。これは、2D 図形を 3D 図形に変換することを意味し、
-その深さを設定したり押し出したりします。
-- [light_rig](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): 3D 図形に光の効果を作成することができます。このプロパティの論理は Camera に近く、3D 図形に対する照明の回転を設定し、
-光のタイプを選択します。
-- [material](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): 3D 図形の素材のタイプを設定することで、よりリアルな効果を与えることができます。このプロパティは、以下のような一連のプレデファインされた素材を提供します： 
-金属、プラスチック、粉末、マットなど。
+3D 効果の作成は大きなインパクトを与え、標準のスライドを 3D プレゼンテーションに変える最も簡単な方法のひとつです。Aspose.Slides 20.9 以降、**クロスプラットフォーム 3D エンジン**が追加されました。このエンジンにより、3D 効果を持つ図形やテキストのエクスポートおよびラスター化が可能になります。従来のバージョンでは 3D 効果を持つ図形は平面で描画されていましたが、現在は **本格的な 3D** で描画できます。Aspose.Slides API を使用して、3D 効果を持つ図形も作成できます。
 
-すべての 3D 機能は、図形とテキストの両方に適用できます。上に述べたプロパティにアクセスする方法を見てから、一歩ずつ詳細に見ていきましょう：
-```py 
+Aspose.Slides API で PowerPoint の 3D 図形にするには、[Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/) プロパティを使用し、[ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat) クラスのメンバーにアクセスします。
+
+- [bevel_bottom](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_bottom/) と [bevel_top](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_top/)：ベベルを設定し、ベベルタイプ（例：Angle、Circle、SoftRound）とベベルの高さ・幅を指定します。
+- [camera](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/camera/)：オブジェクトの周囲をカメラが移動するようにシミュレートします。カメラの回転、ズーム、その他のプロパティを調整して、PowerPoint の 3D モデルのように図形を操作できます。
+- [contour_color](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/contour_color/) と [contour_width](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/contour_width/)：輪郭の色や幅を設定し、図形を 3D PowerPoint オブジェクトのように見せます。
+- [depth](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/depth/)、[extrusion_color](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_color/)、[extrusion_height](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_height/)：深さを設定したり押し出すことで、図形を立体化します。
+- [light_rig](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/light_rig/)：3D 図形にライティング効果を付与します。カメラと同様に、光の回転やタイプを設定できます。
+- [material](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/material/)：素材を選択して、3D 図形をよりリアルにします。用意された素材には Metal、Plastic、Powder、Matte などがあります。
+
+すべての 3D 機能は図形だけでなくテキストにも適用できます。以下のセクションでは、これらのプロパティへのアクセス方法と、ステップバイステップでの使用例を示します。
+
+```py
 import aspose.pydrawing as drawing
 import aspose.slides as slides
 
@@ -77,16 +64,17 @@ with slides.Presentation() as presentation:
     presentation.save("sandbox_3d.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-レンダリングされたサムネイルは次のようになります：
+レンダリングされたサムネイルは次のようになります。
 
 ![todo:image_alt_text](img_01_01.png)
 
-## 3D 回転
-PowerPoint の 3D 図形を 3D 平面で回転させることが可能で、これによりよりインタラクティブになります。PowerPoint で 3D 図形を回転させるには、通常は次のメニューを使用します：
+## **3D 回転**
+
+PowerPoint の 3D 図形を 3 次元空間で回転させ、インタラクティブ性を付加できます。PowerPoint で 3D 図形を回転させるには、次のメニューを使用します。
 
 ![todo:image_alt_text](img_02_01.png)
 
-Aspose.Slides API では、3D 図形の回転を [camera](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) プロパティを使用して管理できます：
+Aspose.Slides API では、[camera](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/camera/) プロパティを介して図形の 3D 回転を制御します。
 
 ```py
 shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 200, 200)
@@ -97,9 +85,9 @@ with slide.get_image(image_scale, image_scale) as thumbnail:
     thumbnail.save("sample_3d.png")
 ```
 
-## 3D 深度と押し出し
-形状に第3の次元を追加し、3D 図形にするには、[IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) 
-および [extrusion_color.color](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) プロパティを使用します：
+## **3D 奥行きと押し出し**
+
+図形に第 3 の次元を加えて本格的な 3D にするには、[ThreeDFormat.extrusion_height](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_height/) と [ThreeDFormat.extrusion_color](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_color/) プロパティを使用します。
 
 ```py
 shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 200, 200)
@@ -112,13 +100,13 @@ with slide.get_image(image_scale, image_scale) as thumbnail:
     thumbnail.save("sample_3d.png")
 ```
 
-通常、PowerPoint で 3D 図形の深度を設定するためには、深度メニューを使用します：
+PowerPoint では通常、**Depth** メニューを使用して 3D 図形の奥行きを設定します。
 
 ![todo:image_alt_text](img_02_02.png)
 
+## **3D グラデーション**
 
-## 3D グラデーション
-グラデーションは、PowerPoint の 3D 図形の色を塗りつぶすために使用できます。グラデーション塗りの色を持つ図形を作成し、3D 効果を適用してみましょう：
+グラデーションは PowerPoint の 3D 図形の塗りつぶしに使用できます。ここでは、グラデーション塗りつぶしを持つ図形を作成し、3D 効果を適用します。
 
 ```py
 import aspose.pydrawing as drawing
@@ -130,7 +118,7 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 250, 250)
-    shape.text_frame.text = "3D グラデーション"
+    shape.text_frame.text = "3D Gradient"
     shape.text_frame.paragraphs[0].paragraph_format.default_portion_format.font_height = 64
 
     shape.fill_format.fill_type = slides.FillType.GRADIENT
@@ -148,31 +136,32 @@ with slides.Presentation() as presentation:
         thumbnail.save("sample_3d.png")
 ```
 
-そして、こちらが結果です：
+結果は次のとおりです。
 
 ![todo:image_alt_text](img_02_03.png)
 
-グラデーション塗りの色のほか、画像で図形を塗りつぶすことも可能です：
+グラデーション以外にも、画像で図形を塗りつぶすことができます。
+
 ```py
-with open("image.png", "rb") as image_file: 
+with open("image.png", "rb") as image_file:
     image_data = image_file.read()
 
     shape.fill_format.fill_type = slides.FillType.PICTURE
     shape.fill_format.picture_fill_format.picture.image = presentation.images.add_image(image_data)
     shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-    # ... 3D を設定: shape.three_d_format.camera, shape.three_d_format.light_rig, shape.three_d_format.Extrusion* プロパティ
+    # ... 3D 設定: shape.three_d_format.camera, shape.three_d_format.light_rig, shape.three_d_format.Extrusion* プロパティ
 
     with slide.get_image(image_scale, image_scale) as thumbnail:
         thumbnail.save("sample_3d.png")
 ```
 
-
-それがこちらです：
+このように表示されます。
 
 ![todo:image_alt_text](img_02_04.png)
 
-## 3D テキスト (WordArt)
-Aspose.Slides は、テキストにも 3D を適用することを許可します。3D テキストを作成するには、WordArt 変換効果を使用できます：
+## **3D テキスト (WordArt)**
+
+Aspose.Slides ではテキストにも 3D 効果を適用できます。3D テキストを作成するには、WordArt の変形効果を使用します。
 
 ```py
 import aspose.pydrawing as drawing
@@ -187,7 +176,7 @@ with slides.Presentation() as presentation:
     shape.fill_format.fill_type = slides.FillType.NO_FILL
     shape.fill_format.fill_type = slides.FillType.NO_FILL
     shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
-    shape.text_frame.text = "3D テキスト"
+    shape.text_frame.text = "3D text"
    
     portion = shape.text_frame.paragraphs[0].portions[0]
     portion.portion_format.fill_format.fill_type = slides.FillType.PATTERN
@@ -198,7 +187,7 @@ with slides.Presentation() as presentation:
     shape.text_frame.paragraphs[0].paragraph_format.default_portion_format.font_height = 128
    
     text_frame_format = shape.text_frame.text_frame_format
-    # "アーチアップ" WordArt 変換効果を設定
+    # 「Arch Up」WordArt 変形効果を設定
     text_frame_format.transform = slides.TextShapeType.ARCH_UP
 
     text_frame_format.three_d_format.extrusion_height = 3.5
@@ -215,16 +204,20 @@ with slides.Presentation() as presentation:
     presentation.save("text3d.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-こちらが結果です：
+結果は次のとおりです。
 
 ![todo:image_alt_text](img_02_05.png)
 
+## **FAQ**
 
-## サポートされていない - 近日公開
-次の PowerPoint 3D 機能はまだサポートされていません：
-- ベベル
-- 材料
-- 輪郭
-- 照明
+**3D 効果はプレゼンテーションを画像・PDF・HTML にエクスポートするときに保持されますか？**
 
-私たちは 3D エンジンを改善し続けており、これらの機能はさらに実装される予定です。
+はい。Slides の 3D エンジンは、対応フォーマットへのエクスポート時に 3D 効果をレンダリングします（[画像](/slides/ja/python-net/convert-powerpoint-to-png/)、[PDF](/slides/ja/python-net/convert-powerpoint-to-pdf/)、[HTML](/slides/ja/python-net/convert-powerpoint-to-html/) など）。
+
+**テーマや継承などを考慮した「実効」(最終) の 3D パラメータ値を取得できますか？**
+
+はい。Slides は [実効値の取得](/slides/ja/python-net/shape-effective-properties/) 用 API を提供しており、3D の照明やベベルなども含めて最終的に適用された設定を確認できます。
+
+**プレゼンテーションを動画に変換するとき、3D 効果は機能しますか？**
+
+はい。[動画用フレーム生成](/slides/ja/python-net/convert-powerpoint-to-video/) 時に、3D 効果はエクスポート画像と同様にレンダリングされます。

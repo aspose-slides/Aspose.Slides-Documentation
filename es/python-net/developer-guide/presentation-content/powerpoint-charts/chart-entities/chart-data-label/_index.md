@@ -1,5 +1,5 @@
 ---
-title: Gestionar etiquetas de datos de gráficas en presentaciones con Python
+title: Gestión de etiquetas de datos del gráfico en presentaciones con Python
 linktitle: Etiqueta de datos
 type: docs
 url: /es/python-net/chart-data-label/
@@ -15,111 +15,123 @@ keywords:
 - presentación
 - Python
 - Aspose.Slides
-description: Aprende a agregar y formatear etiquetas de datos de gráficos en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides for Python via .NET para lograr diapositivas más atractivas.
+description: "Aprenda a agregar y dar formato a las etiquetas de datos de los gráficos en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para Python vía .NET para diapositivas más atractivas."
 ---
 
-Las etiquetas de datos en un gráfico muestran detalles sobre la serie de datos del gráfico o puntos de datos individuales. Permiten a los lectores identificar rápidamente las series de datos y también facilitan la comprensión de los gráficos.
+## **Descripción general**
 
-## **Establecer Precisión de Datos en Etiquetas de Datos de Gráfico**
+Las etiquetas de datos en un gráfico muestran detalles sobre la serie de datos del gráfico o puntos de datos individuales. Permiten a los lectores identificar rápidamente la serie de datos y también hacen que los gráficos sean más fáciles de entender. En Aspose.Slides para Python, puede habilitar, personalizar y dar formato a las etiquetas de datos para cualquier gráfico—eligiendo qué mostrar (valores, porcentajes, nombres de serie o categoría), dónde posicionar las etiquetas y cómo se ven (fuente, formato numérico, separadores, líneas guías y más). Este artículo describe las API esenciales y ejemplos que necesita para agregar etiquetas claras e informativas a sus gráficos.
 
-Este código Python te muestra cómo establecer la precisión de los datos en una etiqueta de datos de gráfico:
+## **Establecer la precisión de las etiquetas de datos**
 
-```py
-import aspose.slides.charts as charts
-import aspose.slides as slides
+Las etiquetas de datos del gráfico a menudo muestran valores numéricos que requieren una precisión constante. Esta sección muestra cómo controlar el número de decimales para las etiquetas de datos en Aspose.Slides aplicando un formato numérico apropiado.
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.LINE, 50, 50, 450, 300)
-    chart.has_data_table = True
-    chart.chart_data.series[0].number_format_of_values = "#,##0.00"
-
-    pres.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Mostrar Porcentaje como Etiquetas**
-Aspose.Slides para Python a través de .NET te permite establecer etiquetas de porcentaje en gráficos mostrados. Este código Python demuestra la operación:
+El siguiente ejemplo en Python muestra cómo establecer la precisión numérica para las etiquetas de datos del gráfico:
 
 ```py
-import aspose.slides.charts as charts
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# Crea una instancia de la clase Presentation
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 400, 400)
+
+    chart = slide.shapes.add_chart(charts.ChartType.LINE, 50, 50, 500, 300)
+
     series = chart.chart_data.series[0]
-    total_for_Cat = [0]*len(chart.chart_data.categories)
-    for k in range(len(chart.chart_data.categories)):
-        cat = chart.chart_data.categories[k]
-        for i in range(len(chart.chart_data.series)):
-            total_for_Cat[k] += chart.chart_data.series[i].data_points[k].value.data
+    series.labels.default_data_label_format.show_value = True
+    series.number_format_of_values = "#,##0.00"
 
-dataPontPercent = 0
-
-for x in range(len(chart.chart_data.series)):
-    series = chart.chart_data.series[x]
-    series.labels.default_data_label_format.show_legend_key = False
-
-    for j in range(len(series.data_points)):
-        lbl = series.data_points[j].label
-        dataPontPercent = series.data_points[j].value.data / total_for_Cat[j] * 100
-
-        port = slides.Portion()
-        port.text = "{0:.2f} %".format(dataPontPercent)
-        port.portion_format.font_height = 8
-        lbl.text_frame_for_overriding.text = ""
-        para = lbl.text_frame_for_overriding.paragraphs[0]
-        para.portions.add(port)
-
-        lbl.data_label_format.show_series_name = False
-        lbl.data_label_format.show_percentage = False
-        lbl.data_label_format.show_legend_key = False
-        lbl.data_label_format.show_category_name = False
-        lbl.data_label_format.show_bubble_size = False
-
-# Guarda la presentación que contiene el gráfico
-presentation.save("DisplayPercentageAsLabels_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("data_label_precision.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Establecer Signo de Porcentaje con Etiquetas de Datos de Gráfico**
-Este código Python te muestra cómo establecer el signo de porcentaje para una etiqueta de datos de gráfico:
+## **Mostrar porcentajes como etiquetas**
+
+Con Aspose.Slides, puede mostrar porcentajes como etiquetas de datos en los gráficos. El ejemplo a continuación calcula la participación de cada punto dentro de su categoría y formatea la etiqueta para mostrar el porcentaje.
 
 ```py
-import aspose.slides.charts as charts
 import aspose.slides as slides
+import aspose.slides.charts as charts
+
+# Crear una instancia de la clase Presentation.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 600, 400)
+    series = chart.chart_data.series[0]
+
+    total_for_categories = [0]*len(chart.chart_data.categories)
+    for k in range(len(chart.chart_data.categories)):
+        for i in range(len(chart.chart_data.series)):
+            total_for_categories[k] += chart.chart_data.series[i].data_points[k].value.data
+
+    for i in range(len(chart.chart_data.series)):
+        series = chart.chart_data.series[i]
+        series.labels.default_data_label_format.show_legend_key = False
+
+        for j in range(len(series.data_points)):
+            data_point_percent = series.data_points[j].value.data / total_for_categories[j] * 100
+
+            text_portion = slides.Portion()
+            text_portion.text = "{0:.2f} %".format(data_point_percent)
+            text_portion.portion_format.font_height = 8
+
+            label = series.data_points[j].label
+            label.text_frame_for_overriding.text = ""
+
+            paragraph = label.text_frame_for_overriding.paragraphs[0]
+            paragraph.portions.add(text_portion)
+
+            label.data_label_format.show_series_name = False
+            label.data_label_format.show_percentage = False
+            label.data_label_format.show_legend_key = False
+            label.data_label_format.show_category_name = False
+            label.data_label_format.show_bubble_size = False
+
+    # Guardar la presentación que contiene el gráfico.
+    presentation.save("percentage_as_label.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Mostrar el símbolo de porcentaje en las etiquetas de datos del gráfico**
+
+Esta sección muestra cómo mostrar porcentajes en las etiquetas de datos del gráfico e incluir el símbolo de porcentaje usando Aspose.Slides. Aprenderá a habilitar los valores de porcentaje para series completas o puntos específicos (ideal para gráficos circulares, de rosquilla y apilados al 100 %) y a controlar el formato mediante opciones de etiqueta o un formato numérico personalizado.
+
+El siguiente ejemplo en Python muestra cómo agregar un símbolo de porcentaje a la etiqueta de datos de un gráfico:
+
+```py
+import aspose.slides as slides
+import aspose.slides.charts as charts
 import aspose.pydrawing as draw
 
-# Crea una instancia de la clase Presentation
+# Crear una instancia de la clase Presentation.
 with slides.Presentation() as presentation:
 
-    # Obtiene la referencia de una diapositiva a través de su índice
+    # Obtener una referencia a la diapositiva por índice.
     slide = presentation.slides[0]
 
-    # Crea el gráfico de Columna Apilada de Porcentajes en una diapositiva
-    chart = slide.shapes.add_chart(charts.ChartType.PERCENTS_STACKED_COLUMN, 20, 20, 500, 400)
+    # Crear un gráfico de columnas apiladas con porcentajes en la diapositiva.
+    chart = slide.shapes.add_chart(charts.ChartType.PERCENTS_STACKED_COLUMN, 20, 20, 600, 400)
 
-    # Establece el NumberFormatLinkedToSource en falso
     chart.axes.vertical_axis.is_number_format_linked_to_source = False
     chart.axes.vertical_axis.number_format = "0.00%"
 
     chart.chart_data.series.clear()
-    defaultWorksheetIndex = 0
 
-    # Obtiene la hoja de trabajo de datos del gráfico
+    # Obtener el libro de datos del gráfico.
     workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
 
-    # Agrega nuevas series
-    series = chart.chart_data.series.add(workbook.get_cell(defaultWorksheetIndex, 0, 1, "Reds"), chart.type)
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 1, 1, 0.30))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 2, 1, 0.50))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 3, 1, 0.80))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 4, 1, 0.65))
+    # Añadir una nueva serie.
+    series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Reds"), chart.type)
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 0.30))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 0.50))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 0.80))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 4, 1, 0.65))
 
-    # Establece el color de relleno de la serie
+    # Establecer el color de relleno de la serie.
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.red
 
-    # Establece las propiedades de LabelFormat
+    # Establecer propiedades del formato de etiqueta.
     series.labels.default_data_label_format.show_value = True
     series.labels.default_data_label_format.is_number_format_linked_to_source = False
     series.labels.default_data_label_format.number_format = "0.0%"
@@ -128,14 +140,14 @@ with slides.Presentation() as presentation:
     series.labels.default_data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.white
     series.labels.default_data_label_format.show_value = True
 
-    # Agrega nuevas series
-    series2 = chart.chart_data.series.add(workbook.get_cell(defaultWorksheetIndex, 0, 2, "Blues"), chart.type)
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 1, 2, 0.70))
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 2, 2, 0.50))
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 3, 2, 0.20))
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(defaultWorksheetIndex, 4, 2, 0.35))
+    # Añadir una segunda serie.
+    series2 = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Blues"), chart.type)
+    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 0.70))
+    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 0.50))
+    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 0.20))
+    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 4, 2, 0.35))
 
-    # Establece el tipo de relleno y color
+    # Establecer el tipo de relleno y color.
     series2.format.fill.fill_type = slides.FillType.SOLID
     series2.format.fill.solid_fill_color.color = draw.Color.blue
     series2.labels.default_data_label_format.show_value = True
@@ -145,54 +157,75 @@ with slides.Presentation() as presentation:
     series2.labels.default_data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
     series2.labels.default_data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.white
 
-    # Escribe la presentación en disco
-    presentation.save("SetDatalabelsPercentageSign_out.pptx", slides.export.SaveFormat.PPTX)
+    # Guardar la presentación.
+    presentation.save("percentage_sign.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Establecer Distancia de Etiqueta Desde el Eje**
-Este código Python te muestra cómo establecer la distancia de la etiqueta desde un eje de categoría cuando estás trabajando con un gráfico trazado desde ejes:
+## **Establecer la distancia de la etiqueta respecto al eje**
+
+Esta sección muestra cómo controlar la distancia entre las etiquetas de datos y el eje del gráfico en Aspose.Slides. Ajustar este desplazamiento ayuda a evitar superposiciones y mejora la legibilidad en visualizaciones densas.
+
+El siguiente código en Python muestra cómo establecer la distancia de la etiqueta respecto al eje de categorías al trabajar con un gráfico basado en ejes:
 
 ```py
-import aspose.slides.charts as charts
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-    # Crea una instancia de la clase Presentation
+# Crear una instancia de la clase Presentation.
 with slides.Presentation() as presentation:
-    # Obtiene la referencia de una diapositiva
-    sld = presentation.slides[0]
-    
-    # Crea un gráfico en la diapositiva
-    ch = sld.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
+    # Obtener una referencia a la diapositiva.
+    slide = presentation.slides[0]
 
-    # Establece la distancia de etiqueta desde un eje
-    ch.axes.horizontal_axis.label_offset = 500
+    # Crear un gráfico de columnas agrupadas en la diapositiva.
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
-    # Escribe la presentación en disco
-    presentation.save("SetCategoryAxisLabelDistance_out.pptx", slides.export.SaveFormat.PPTX)
+    # Establecer la distancia de la etiqueta respecto al eje horizontal (categorías).
+    chart.axes.horizontal_axis.label_offset = 500
+
+    # Guardar la presentación.
+    presentation.save("axis_label_distance.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ajustar Ubicación de Etiquetas**
+## **Ajustar la posición de la etiqueta**
 
-Cuando creas un gráfico que no depende de ningún eje, como un gráfico de pastel, las etiquetas de datos del gráfico pueden terminar demasiado cerca de su borde. En tal caso, debes ajustar la ubicación de la etiqueta de datos para que las líneas de liderazgo se muestren claramente.
+Cuando crea un gráfico que no usa ejes, como un gráfico circular, las etiquetas de datos pueden estar demasiado cerca del borde. En ese caso, ajuste la posición de la etiqueta para que las líneas guías se muestren claramente.
 
-Este código Python te muestra cómo ajustar la ubicación de la etiqueta en un gráfico de pastel:
+El siguiente código en Python muestra cómo ajustar la posición de la etiqueta en un gráfico circular:
 
 ```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.PIE, 50, 50, 200, 200)
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 600, 300)
 
-    series = chart.chart_data.series
-    label = series[0].labels[0]
+    series = chart.chart_data.series[0]
+    series.labels.default_data_label_format.show_value = True
+    series.labels.default_data_label_format.show_leader_lines = True
 
-    label.data_label_format.show_value = True
-    label.data_label_format.position = slides.charts.LegendDataLabelPosition.OUTSIDE_END
-    label.x = 0.71
-    label.y = 0.04
+    label = series.labels[0]
+    label.data_label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
 
-    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
+    label.x = 0.05
+    label.y = 0.1
+
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![Posición de etiqueta cambiada](changed_label_position.png)
+
+## **Preguntas frecuentes**
+
+**¿Cómo puedo evitar que las etiquetas de datos se superpongan en gráficos densos?**
+
+Combine la colocación automática de etiquetas, líneas guías y reducción del tamaño de fuente; si es necesario, oculte algunos campos (por ejemplo, la categoría) o muestre etiquetas solo para los puntos extremos/clave.
+
+**¿Cómo puedo desactivar las etiquetas solo para valores cero, negativos o vacíos?**
+
+Filtre los puntos de datos antes de habilitar las etiquetas y desactive la visualización para valores de 0, valores negativos o valores ausentes según una regla definida.
+
+**¿Cómo puedo asegurar un estilo de etiqueta consistente al exportar a PDF/imágenes?**
+
+Establezca explícitamente las fuentes (familia, tamaño) y verifique que la fuente esté disponible en el entorno de renderizado para evitar sustituciones.

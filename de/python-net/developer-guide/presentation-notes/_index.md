@@ -1,69 +1,88 @@
 ---
-title: Präsentationsnotizen
+title: Verwalten von Präsentationsnotizen in Python
+linktitle: Präsentationsnotizen
 type: docs
 weight: 110
 url: /de/python-net/presentation-notes/
-keywords: "Notizen, PowerPoint-Notizen, Notizen hinzufügen, Notizen entfernen, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Notizen in PowerPoint-Präsentationen in Python hinzufügen und entfernen"
+keywords:
+- Notizen
+- Notizfolie
+- Notizen hinzufügen
+- Notizen entfernen
+- Notizstil
+- Masternotizen
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Passen Sie Präsentationsnotizen mit Aspose.Slides für Python via .NET an. Arbeiten Sie nahtlos mit PowerPoint- und OpenDocument-Notizen, um Ihre Produktivität zu steigern."
 ---
 
-
-
-Aspose.Slides unterstützt das Entfernen von Notizenfolien aus einer Präsentation. In diesem Thema werden wir diese neue Funktion zum Entfernen von Notizen sowie das Hinzufügen von Notizenstilfolien aus jeder Präsentation vorstellen. Aspose.Slides für Python über .NET bietet die Funktion, Notizen von jeder Folie zu entfernen sowie Stil zu bestehenden Notizen hinzuzufügen. Entwickler können Notizen auf folgende Weise entfernen:
+Aspose.Slides unterstützt das Entfernen von Notizfolien aus einer Präsentation. In diesem Thema stellen wir diese neue Funktion zum Entfernen von Notizen sowie zum Hinzufügen von Notizstil-Folien zu einer beliebigen Präsentation vor. Aspose.Slides für Python via .NET bietet die Möglichkeit, Notizen einer beliebigen Folie zu entfernen und bestehenden Notizen einen Stil hinzuzufügen. Entwickler können Notizen auf folgende Weise entfernen:
 
 - Notizen einer bestimmten Folie einer Präsentation entfernen.
 - Notizen aller Folien einer Präsentation entfernen.
-## **Notizen von einer Folie entfernen**
-Notizen einer bestimmten Folie können wie im folgenden Beispiel gezeigt entfernt werden:
+
+## **Notizen von Folie entfernen**
+Notizen einer bestimmten Folie können wie im Beispiel unten gezeigt entfernt werden:
 
 ```py
 import aspose.slides as slides
 
-# Instanziieren Sie ein Präsentationsobjekt, das eine Präsentationsdatei darstellt 
+# Instantiate a Presentation object that represents a presentation file 
 with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Entfernen der Notizen der ersten Folie
+    # Removing notes of first slide
     mgr = presentation.slides[0].notes_slide_manager
     mgr.remove_notes_slide()
 
-    # Präsentation auf der Festplatte speichern
+    # save presentation to disk
     presentation.save("RemoveNotesAtSpecificSlide_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **Notizen von allen Folien entfernen**
-Notizen aller Folien einer Präsentation können wie im folgenden Beispiel gezeigt entfernt werden:
+Notizen aller Folien einer Präsentation können wie im Beispiel unten gezeigt entfernt werden:
 
 ```py
 import aspose.slides as slides
 
-# Instanziieren Sie ein Präsentationsobjekt, das eine Präsentationsdatei darstellt 
+# Instantiate a Presentation object that represents a presentation file 
 with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Entfernen der Notizen aller Folien
+    # Removing notes of all slides
     for i in range(len(presentation.slides)):
         mgr = presentation.slides[i].notes_slide_manager
         mgr.remove_notes_slide()
-    # Präsentation auf der Festplatte speichern
+    # save presentation to disk
     presentation.save("RemoveNotesFromAllSlides_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-## **Notizenstil hinzufügen**
-Die Notizenstil-Eigenschaft wurde zur [IMasterNotesSlide](https://reference.aspose.com/slides/python-net/aspose.slides/imasternotesslide/) Schnittstelle und zur [MasterNotesSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslide/) Klasse hinzugefügt. Diese Eigenschaft gibt den Stil eines Notiztexts an. Die Implementierung wird im folgenden Beispiel demonstriert.
+## **Notizstil hinzufügen**
+Die NotesStyle‑Eigenschaft wurde dem [IMasterNotesSlide](https://reference.aspose.com/slides/python-net/aspose.slides/imasternotesslide/)‑Interface und der [MasterNotesSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslide/)‑Klasse hinzugefügt. Diese Eigenschaft legt den Stil eines Notiztexts fest. Die Implementierung wird im folgenden Beispiel demonstriert.
 
 ```py
 import aspose.slides as slides
 
-# Instanziieren Sie die Präsentationsklasse, die die Präsentationsdatei darstellt
+# Instantiate Presentation class that represents the presentation file
 with slides.Presentation(path + "AccessSlides.pptx") as presentation:
     notesMaster = presentation.master_notes_slide_manager.master_notes_slide
     if notesMaster != None:
-        # Holen Sie den Textstil der MasterNotesSlide
+        # Get MasterNotesSlide text style
         notesStyle = notesMaster.notes_style
 
-        #Setzen Sie das Symbol für die Aufzählungszeichen für die ersten Absatzebenen
+        #Set symbol bullet for the first level paragraphs
         paragraphFormat = notesStyle.get_level(0)
         paragraphFormat.bullet.type = slides.BulletType.SYMBOL
 
-    # Speichern Sie die PPTX-Datei auf der Festplatte
+    # save the PPTX file to the Disk
     presentation.save("AddNotesSlideWithNotesStyle_out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQ**
+
+**Welche API‑Entität stellt den Zugriff auf die Notizen einer bestimmten Folie bereit?**
+
+Notizen werden über den Notizen‑Manager der Folie abgerufen: Die Folie verfügt über einen [NotesSlideManager](https://reference.aspose.com/slides/python-net/aspose.slides/notesslidemanager/) und eine [property](https://reference.aspose.com/slides/python-net/aspose.slides/notesslidemanager/notes_slide/) die das Notizobjekt zurückgibt oder `None`, wenn keine Notizen vorhanden sind.
+
+**Gibt es Unterschiede in der Notizunterstützung zwischen den PowerPoint‑Versionen, mit denen die Bibliothek arbeitet?**
+
+Die Bibliothek unterstützt ein breites Spektrum von Microsoft‑PowerPoint‑Formaten (97‑neuere) sowie ODP; Notizen werden in diesen Formaten unterstützt, ohne dass eine installierte PowerPoint‑Kopie erforderlich ist.

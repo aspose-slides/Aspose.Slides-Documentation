@@ -1,131 +1,137 @@
 ---
-title: Präsentationsbetrachter
+title: Erstellen eines Präsentations-Viewers in Python
+linktitle: Präsentations-Viewer
 type: docs
 weight: 50
 url: /de/python-net/presentation-viewer/
-keywords: "PowerPoint-Präsentation ansehen, ppt ansehen, PPTX ansehen, Python, Aspose.Slides für Python über .NET"
-description: "PowerPoint-Präsentation in Python ansehen"
+keywords: 
+- Präsentation anzeigen
+- Präsentations-Viewer
+- Präsentations-Viewer erstellen
+- PPT anzeigen
+- PPTX anzeigen
+- ODP anzeigen
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie mit Aspose.Slides einen benutzerdefinierten Präsentations-Viewer in Python erstellen. Zeigen Sie PowerPoint‑Dateien (PPTX, PPT) und OpenDocument‑Dateien (ODP) ohne Microsoft PowerPoint oder andere Office‑Software an."
 ---
 
-Aspose.Slides für Python über .NET wird verwendet, um Präsentationsdateien zu erstellen, die Folien enthalten. Diese Folien können angezeigt werden, indem Präsentationen mit Microsoft PowerPoint geöffnet werden. Manchmal müssen Entwickler jedoch Folien auch als Bilder in ihrem bevorzugten Bildbetrachter anzeigen oder ihren eigenen Präsentationsbetrachter erstellen. In solchen Fällen ermöglicht es Aspose.Slides für Python über .NET, eine einzelne Folie als Bild zu exportieren. Dieser Artikel beschreibt, wie das geht. 
+## **Überblick**
 
-## **Live-Beispiel**
-Sie können die kostenlose App [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) ausprobieren, um zu sehen, was Sie mit der Aspose.Slides API implementieren können:
+Aspose.Slides für Python wird verwendet, um Präsentationsdateien mit Folien zu erstellen. Diese Folien können beispielsweise durch Öffnen der Präsentationen in Microsoft PowerPoint angezeigt werden. Entwickler müssen jedoch manchmal Folien als Bilder in ihrem bevorzugten Bildbetrachter anzeigen oder sie in einem benutzerdefinierten Präsentations-Viewer verwenden. In solchen Fällen ermöglicht Aspose.Slides den Export einzelner Folien als Bilder. Dieser Artikel erklärt, wie das geht.
 
-![powerpoint-in-aspose-viewer](powerpoint-in-aspose-viewer.png)
+## **SVG‑Bild aus einer Folie erstellen**
 
-## **SVG-Bild aus Folie generieren**
-Um ein SVG-Bild aus einer gewünschten Folie mit Aspose.Slides für Python zu generieren, befolgen Sie bitte die folgenden Schritte:
+Um ein SVG‑Bild aus einer Präsentationsfolie mit Aspose.Slides zu erzeugen, führen Sie die folgenden Schritte aus:
 
-- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-- Erhalten Sie die Referenz der gewünschten Folie, indem Sie ihre ID oder ihren Index verwenden.
-- Holen Sie sich das SVG-Bild in einem Datenstrom.
-- Speichern Sie den Datenstrom in einer Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.  
+2. Holen Sie sich eine Referenz zur Folie über ihren Index.  
+3. Öffnen Sie einen Dateistream.  
+4. Speichern Sie die Folie als SVG‑Bild in den Dateistream.
 
 ```py
 import aspose.slides as slides
 
-# Instanziieren Sie eine Präsentation-Klasse, die die Präsentationsdatei darstellt
-with slides.Presentation(path + "CreateSlidesSVGImage.pptx") as pres:
-    # Greifen Sie auf die erste Folie zu
-    sld = pres.slides[0]
+slide_index = 0
 
-    # Erstellen Sie ein Datenstromobjekt
-    with open("Aspose_out-1.svg", "wb") as svg_stream:
-        # Generieren Sie das SVG-Bild der Folie und speichern Sie es im Datenstrom
-        sld.write_as_svg(svg_stream)
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[slide_index]
+
+    with open("output.svg", "wb") as svg_stream:
+        slide.write_as_svg(svg_stream)
 ```
 
-## **SVG mit benutzerdefinierten Form-IDs generieren**
-Aspose.Slides für Python über .NET kann verwendet werden, um [SVG ](https://docs.fileformat.com/page-description-language/svg/)aus Folien mit benutzerdefinierten Form-IDs zu generieren. Dazu verwenden Sie die ID-Eigenschaft von [ISvgShape](https://reference.aspose.com/slides/python-net/aspose.slides.export/isvgshape/), die die benutzerdefinierte ID von Formen im generierten SVG darstellt. Der CustomSvgShapeFormattingController kann verwendet werden, um die Form-ID festzulegen.
+## **Thumbnail‑Bild einer Folie erstellen**
+
+Aspose.Slides hilft Ihnen, Thumbnail‑Bilder von Folien zu erzeugen. So erstellen Sie ein Thumbnail einer Folie mit Aspose.Slides:
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.  
+2. Holen Sie sich eine Referenz zur Folie über ihren Index.  
+3. Erstellen Sie ein Thumbnail‑Bild der referenzierten Folie im gewünschten Maßstab.  
+4. Speichern Sie das Thumbnail‑Bild in Ihrem bevorzugten Bildformat.
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "CreateSlidesSVGImage.pptx") as pres:
-    with open("Aspose_out-2.svg", "wb") as svg_stream:
-        svgOptions = slides.export.SVGOptions()
-        pres.slides[0].write_as_svg(svg_stream, svgOptions)
+slide_index = 0
+scale_x = 1
+scale_y = scale_x
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[slide_index]
+
+    with slide.get_image(scale_x, scale_y) as image:
+        image.save("output.jpg", slides.ImageFormat.JPEG)
 ```
 
-## **Thumbnail-Bild von Folien erstellen**
-Aspose.Slides für Python über .NET hilft Ihnen, Thumbnail-Bilder der Folien zu generieren. Um das Thumbnail einer gewünschten Folie mit Aspose.Slides für Python über .NET zu generieren:
+## **Thumbnail‑Bild einer Folie mit benutzerdefinierten Abmessungen erstellen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-1. Erhalten Sie die Referenz einer gewünschten Folie, indem Sie ihre ID oder ihren Index verwenden.
-1. Holen Sie sich das Thumbnail-Bild der referenzierten Folie in einem bestimmten Maßstab.
-1. Speichern Sie das Thumbnail-Bild in einem gewünschten Bildformat.
+Um ein Thumbnail‑Bild einer Folie mit benutzerdefinierten Abmessungen zu erstellen, gehen Sie wie folgt vor:
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.  
+2. Holen Sie sich eine Referenz zur Folie über ihren Index.  
+3. Erzeugen Sie ein Thumbnail‑Bild der referenzierten Folie mit den angegebenen Abmessungen.  
+4. Speichern Sie das Thumbnail‑Bild in Ihrem bevorzugten Bildformat.
 
 ```py
 import aspose.slides as slides
+import aspose.pydrawing as pydrawing
 
-# Instanziieren Sie eine Präsentation-Klasse, die die Präsentationsdatei darstellt
-with slides.Presentation("pres.pptx") as pres:
-    # Greifen Sie auf die erste Folie zu
-    sld = pres.slides[0]
+slide_index = 0
+slide_size = pydrawing.Size(1200, 800)
 
-    # Erstellen Sie ein vollformatiges Bild
-    with sld.get_image(1, 1) as bmp:
-        # Speichern Sie das Bild auf der Festplatte im JPEG-Format
-        bmp.save("Thumbnail_out.jpg", slides.ImageFormat.JPEG)
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[slide_index]
+
+    with slide.get_image(slide_size) as image:
+        image.save("output.jpg", slides.ImageFormat.JPEG)
 ```
 
-## **Thumbnail mit benutzerdefinierten Abmessungen erstellen**
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-1. Erhalten Sie die Referenz einer gewünschten Folie, indem Sie ihre ID oder ihren Index verwenden.
-1. Holen Sie sich das Thumbnail-Bild der referenzierten Folie in einem bestimmten Maßstab.
-1. Speichern Sie das Thumbnail-Bild in einem gewünschten Bildformat.
+## **Thumbnail‑Bild einer Folie mit Sprecher­notizen erstellen**
+
+Um ein Thumbnail einer Folie mit Sprecher‑Notizen mithilfe von Aspose.Slides zu erzeugen, führen Sie die folgenden Schritte aus:
+
+1. Erstellen Sie eine Instanz der [RenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/renderingoptions/) Klasse.  
+2. Verwenden Sie die Eigenschaft `RenderingOptions.slides_layout_options`, um die Position der Sprecher‑Notizen festzulegen.  
+3. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.  
+4. Holen Sie sich eine Referenz zur Folie über ihren Index.  
+5. Erzeugen Sie ein Thumbnail‑Bild der referenzierten Folie unter Verwendung der Rendering‑Optionen.  
+6. Speichern Sie das Thumbnail‑Bild in Ihrem bevorzugten Bildformat.
 
 ```py
-import aspose.slides as slides
+slide_index = 0
 
-# Instanziieren Sie eine Präsentation-Klasse, die die Präsentationsdatei darstellt
-with slides.Presentation("pres.pptx") as pres:
-    # Greifen Sie auf die erste Folie zu
-    sld = pres.slides[0]
+layout_options = slides.export.NotesCommentsLayoutingOptions()
+layout_options.notes_position = slides.export.NotesPositions.BOTTOM_TRUNCATED
 
-    # Benutzerdefinierte Dimension
-    desiredX = 1200
-    desiredY = 800
+rendering_options = slides.export.RenderingOptions()
+rendering_options.slides_layout_options = layout_options
 
-    # Ermitteln des skalierten Wertes von X und Y
-    ScaleX = (1.0 / pres.slide_size.size.width) * desiredX
-    ScaleY = (1.0 / pres.slide_size.size.height) * desiredY
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[slide_index]
 
-    # Erstellen Sie ein vollformatiges Bild
-    with sld.get_image(ScaleX, ScaleY) as bmp:
-        # Speichern Sie das Bild auf der Festplatte im JPEG-Format
-        bmp.save("Thumbnail2_out.jpg", slides.ImageFormat.JPEG)
+    with slide.get_image(rendering_options) as image:
+        image.save("output.png", slides.ImageFormat.PNG)
 ```
 
-## **Thumbnail aus Folie in der Notizenansicht erstellen**
-Um das Thumbnail einer gewünschten Folie in der Notizenansicht mit Aspose.Slides für Python über .NET zu generieren:
+## **Live‑Beispiel**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-1. Erhalten Sie die Referenz einer gewünschten Folie, indem Sie ihre ID oder ihren Index verwenden.
-1. Holen Sie sich das Thumbnail-Bild der referenzierten Folie in einem bestimmten Maßstab in der Notizenansicht.
-1. Speichern Sie das Thumbnail-Bild in einem gewünschten Bildformat.
+Probieren Sie die kostenlose App **[Aspose.Slides Viewer](https://products.aspose.app/slides/viewer/)**, um zu sehen, was Sie mit der Aspose.Slides‑API umsetzen können:
 
-Der folgende Code generiert ein Thumbnail der ersten Folie einer Präsentation in der Notizenansicht.
+[![Online PowerPoint Viewer](online-PowerPoint-viewer.png)](https://products.aspose.app/slides/viewer/)
 
-```py
-import aspose.slides as slides
+## **FAQ**
 
-# Instanziieren Sie eine Präsentation-Klasse, die die Präsentationsdatei darstellt
-with slides.Presentation("pres.pptx") as pres:
-    # Greifen Sie auf die erste Folie zu
-    sld = pres.slides[0]
+**Kann ich einen Präsentations‑Viewer in eine ASP.NET‑Webanwendung einbetten?**
 
-    # Benutzerdefinierte Dimension
-    desiredX = 1200
-    desiredY = 800
+Ja. Sie können Aspose.Slides serverseitig verwenden, um Folien als [images](/slides/de/python-net/convert-powerpoint-to-png/) oder [HTML](/slides/de/python-net/convert-powerpoint-to-html/) zu rendern und im Browser anzuzeigen. Navigation und Zoom‑Funktionen können mit JavaScript für ein interaktives Erlebnis umgesetzt werden.
 
-    # Ermitteln des skalierten Wertes von X und Y
-    ScaleX = (1.0 / pres.slide_size.size.width) * desiredX
-    ScaleY = (1.0 / pres.slide_size.size.height) * desiredY
+**Was ist der beste Weg, Folien in einem benutzerdefinierten .NET‑Viewer anzuzeigen?**
 
-    # Erstellen Sie ein vollformatiges Bild                
-    with sld.get_image(ScaleX, ScaleY) as bmp:
-        # Speichern Sie das Bild auf der Festplatte im JPEG-Format
-        bmp.save("Notes_tnail_out.jpg", slides.ImageFormat.JPEG)
-```
+Der empfohlene Ansatz besteht darin, jede Folie als [image](/slides/de/python-net/convert-powerpoint-to-png/) (z. B. PNG oder SVG) zu rendern oder sie mit Aspose.Slides in [HTML](/slides/de/python-net/convert-powerpoint-to-html/) zu konvertieren und die Ausgabe dann in einer Bildbox (für Desktop) oder einem HTML‑Container (für Web) anzuzeigen.
+
+**Wie gehe ich mit großen Präsentationen und vielen Folien um?**
+
+Bei großen Decks sollten Sie Lazy‑Loading oder On‑Demand‑Rendering von Folien in Betracht ziehen. Das bedeutet, den Inhalt einer Folie nur dann zu erzeugen, wenn der Benutzer zu ihr navigiert, wodurch Speicherverbrauch und Ladezeit reduziert werden.

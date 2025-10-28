@@ -1,22 +1,33 @@
 ---
-title: Diagrammplotbereich
+title: "Diagramm‑Plotbereiche in Präsentationen mit Python anpassen"
+linktitle: "Plotbereich"
 type: docs
 url: /de/python-net/chart-plot-area/
-keywords: "Diagrammplotbereich PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Breite, Höhe des Diagrammplotbereichs abrufen. Layoutmodus festlegen. PowerPoint-Präsentation in Python"
+keywords:
+- diagramm
+- plotbereich
+- plotbereich breite
+- plotbereich höhe
+- plotbereich größe
+- layout‑modus
+- PowerPoint
+- präsentation
+- Python
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Plotbereiche von Diagrammen in PowerPoint‑ und OpenDocument‑Präsentationen mit Aspose.Slides für Python via .NET anpassen. Verbessern Sie Ihre Folienvisualisierung mühelos."
 ---
 
-## **Breite, Höhe des Diagrammplotbereichs abrufen**
-Aspose.Slides für Python über .NET bietet eine einfache API für. 
+## **Breite und Höhe des Diagramm‑Plotbereichs abrufen**
+Aspose.Slides für Python via .NET bietet eine einfache API für .
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-1. Greifen Sie auf die erste Folie zu.
-1. Fügen Sie ein Diagramm mit Standarddaten hinzu.
-1. Rufen Sie die Methode IChart.ValidateChartLayout() auf, um die aktuellen Werte abzurufen.
-1. Erhält die tatsächliche X-Position (links) des Diagrammelements relativ zur oberen linken Ecke des Diagramms.
-1. Erhält die tatsächliche obere Position des Diagrammelements relativ zur oberen linken Ecke des Diagramms.
-1. Erhält die tatsächliche Breite des Diagrammelements.
-1. Erhält die tatsächliche Höhe des Diagrammelements.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.  
+2. Greifen Sie auf die erste Folie zu.  
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu.  
+4. Rufen Sie die Methode IChart.ValidateChartLayout() auf, um die tatsächlichen Werte zu erhalten.  
+5. Ermittelt den tatsächlichen X‑Standort (links) des Diagrammelements relativ zur linken oberen Ecke des Diagramms.  
+6. Ermittelt die tatsächliche obere Position des Diagrammelements relativ zur linken oberen Ecke des Diagramms.  
+7. Ermittelt die tatsächliche Breite des Diagrammelements.  
+8. Ermittelt die tatsächliche Höhe des Diagrammelements.  
 
 ```py
 import aspose.slides.charts as charts
@@ -37,13 +48,13 @@ with slides.Presentation() as pres:
 
 
 
-## **Layoutmodus des Diagrammplotbereichs festlegen**
-Aspose.Slides für Python über .NET bietet eine einfache API, um den Layoutmodus des Diagrammplotbereichs festzulegen. Die Eigenschaft **LayoutTargetType** wurde zu den Klassen **ChartPlotArea** und **IChartPlotArea** hinzugefügt. Wenn das Layout des Plotbereichs manuell definiert ist, gibt diese Eigenschaft an, ob der Plotbereich innerhalb (ohne Achsen und Achsenbeschriftungen) oder außerhalb (einschließlich Achsen und Achsenbeschriftungen) layoutiert werden soll. Es gibt zwei mögliche Werte, die im **LayoutTargetType**-Enum definiert sind.
+## **Layout‑Modus des Diagramm‑Plotbereichs festlegen**
+Aspose.Slides für Python via .NET bietet eine einfache API zum Festlegen des Layout‑Modus des Diagramm‑Plotbereichs. Die Eigenschaft **LayoutTargetType** wurde zu den Klassen **ChartPlotArea** und **IChartPlotArea** hinzugefügt. Wenn das Layout des Plotbereichs manuell definiert wird, gibt diese Eigenschaft an, ob der Plotbereich nach seiner Innenseite (ohne Achsen und Achsenbeschriftungen) oder Außenseite (inklusive Achsen und Achsenbeschriftungen) ausgerichtet werden soll. Es gibt zwei mögliche Werte, die im **LayoutTargetType**‑Enum definiert sind.
 
-- **LayoutTargetType.Inner** - gibt an, dass die Größe des Plotbereichs die Größe des Plotbereichs bestimmt, ohne die Tickmarken und Achsenbeschriftungen.
-- **LayoutTargetType.Outer** - gibt an, dass die Größe des Plotbereichs die Größe des Plotbereichs sowie die Tickmarken und die Achsenbeschriftungen bestimmt.
+- **LayoutTargetType.Inner** – gibt an, dass die Größe des Plotbereichs die Größe des Plotbereichs bestimmt, ohne die Achsenmarkierungen und Achsenbeschriftungen zu berücksichtigen.  
+- **LayoutTargetType.Outer** – gibt an, dass die Größe des Plotbereichs die Größe des Plotbereichs, die Achsenmarkierungen und die Achsenbeschriftungen bestimmt.
 
-Beispielcode ist unten angegeben.
+Beispielcode:
 
 ```py
 import aspose.slides.charts as charts
@@ -60,3 +71,17 @@ with slides.Presentation() as presentation:
 
     presentation.save("SetLayoutMode_outer.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQ**
+
+**In welchen Einheiten werden actual_x, actual_y, actual_width und actual_height zurückgegeben?**  
+In Punkten; 1 Zoll = 72 Punkte. Das sind die Koordinateneinheiten von Aspose.Slides.
+
+**Worin unterscheidet sich der Plotbereich vom Diagrammbereich hinsichtlich des Inhalts?**  
+Der Plotbereich ist der Datenzeichnungsbereich (Serien, Gitternetzlinien, Trendlinien usw.); der Diagrammbereich umfasst die umgebenden Elemente (Titel, Legende usw.). Bei 3D‑Diagrammen enthält der Plotbereich außerdem die Wände/Boden und die Achsen.
+
+**Wie werden X, Y, Breite und Höhe des Plotbereichs interpretiert, wenn das Layout manuell erfolgt?**  
+Sie sind Bruchteile (0–1) der Gesamtabmessungen des Diagramms; in diesem Modus ist die automatische Positionierung deaktiviert und die von Ihnen festgelegten Bruchteile werden verwendet.
+
+**Warum ändert sich die Position des Plotbereichs nach dem Hinzufügen/Bewegen der Legende?**  
+Die Legende befindet sich im Diagrammbereich außerhalb des Plotbereichs, beeinflusst jedoch das Layout und den verfügbaren Raum, sodass sich der Plotbereich verschieben kann, wenn die automatische Positionierung aktiv ist. (Dies ist das Standardverhalten von PowerPoint‑Diagrammen.)

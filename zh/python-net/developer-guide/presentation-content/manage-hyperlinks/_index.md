@@ -21,130 +21,136 @@ keywords:
 - OpenDocument
 - 演示文稿
 - Python
-description: "使用 Aspose.Slides for Python via .NET 轻松管理 PowerPoint 和 OpenDocument 演示文稿中的超链接——在几分钟内提升交互性与工作流程效率。"
+description: "使用 Aspose.Slides for Python via .NET，轻松管理 PowerPoint 和 OpenDocument 演示文稿中的超链接——在几分钟内提升交互性和工作流。"
 ---
 
-超链接是对某个对象、数据或某个位置的引用。这些是PowerPoint演示文稿中常见的超链接：
+## **概述**
 
-* 文本、图形或媒体中的网站链接
+超链接是指向外部资源、对象或数据项，或文件内特定位置的引用。PowerPoint 演示文稿中常见的超链接类型包括：
+
+* 嵌入在文本、形状或媒体中的网站链接
 * 幻灯片链接
 
-Aspose.Slides for Python via .NET允许您执行涉及演示文稿中超链接的多项任务。
+Aspose.Slides for Python via .NET 在演示文稿中提供了广泛的超链接相关操作。
 
-{{% alert color="primary" %}} 
+## **添加 URL 超链接**
 
-您可能想查看Aspose简单的[免费在线PowerPoint编辑器。](https://products.aspose.app/slides/editor)
+本节说明在使用 Aspose.Slides 时如何向幻灯片元素添加 URL 超链接。涵盖为文本、形状和图片分配链接地址，以确保演示期间的流畅导航。
 
-{{% /alert %}} 
+### **向文本添加 URL 超链接**
 
-## **添加URL超链接**
-
-### **向文本添加URL超链接**
-
-下面的Python代码演示了如何向文本添加网站超链接：
+以下代码示例展示了如何向文本添加网站超链接：
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    shape1 = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
-    shape1.add_text_frame("Aspose: 文件格式API")
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click.tooltip = "超过70%的财富100强公司信任Aspose API"
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.font_height = 32
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
+    shape.add_text_frame("Aspose: File Format APIs")
     
-    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
+    text_portion = shape.text_frame.paragraphs[0].portions[0]
+
+    text_portion.portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    text_portion.portion_format.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **向图形或框架添加URL超链接**
+### **向形状或框架添加 URL 超链接**
 
-下面的Python示例代码演示了如何向图形添加网站超链接：
+以下代码示例展示了如何向形状添加网站超链接：
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50)
-    
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50)
+
     shape.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    shape.hyperlink_click.tooltip = "超过70%的财富100强公司信任Aspose API"
+    shape.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
 
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **向媒体添加URL超链接**
+### **向媒体添加 URL 超链接**
 
-Aspose.Slides允许您向图片、音频和视频文件添加超链接。
+Aspose.Slides 允许您为图像、音频和视频文件添加超链接。
 
-下面的示例代码演示了如何向**图片**添加超链接：
+以下代码示例展示了如何为 **图像** 添加超链接：
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    # 向演示文稿添加图像
-    with open("img.jpeg", "rb") as fs:
-        data = fs.read()
-        image = pres.images.add_image(data)
-        
-        # 基于之前添加的图像在幻灯片1上创建图片框架
-        pictureFrame = pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-        pictureFrame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-        pictureFrame.hyperlink_click.tooltip = "超过70%的财富100强公司信任Aspose API"
+    # Add an image to the presentation.
+    with open("image.jpeg", "rb") as image_stream:
+        image_data = image_stream.read()
+        image = presentation.images.add_image(image_data)
 
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+    # Create a picture frame on slide 1 using the image added earlier.
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
+
+    picture_frame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    picture_frame.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-下面的代码示例演示了如何向**音频文件**添加超链接：
+以下代码示例展示了如何为 **音频文件** 添加超链接：
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    with open("audio.mp3", "rb") as fs:
-        data = fs.read()
-        audio = pres.audios.add_audio(data)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with open("audio.mp3", "rb") as audio_stream:
+        audio_data = audio_stream.read()
+        audio = presentation.audios.add_audio(audio_data)
         
-        audioFrame = pres.slides[0].shapes.add_audio_frame_embedded(10, 10, 100, 100, audio)
+    audio_frame = slide.shapes.add_audio_frame_embedded(10, 10, 100, 100, audio)
 
-        audioFrame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-        audioFrame.hyperlink_click.tooltip = "超过70%的财富100强公司信任Aspose API"
+    audio_frame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    audio_frame.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
 
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-下面的代码示例演示了如何向**视频**添加超链接：
+以下代码示例展示了如何为 **视频** 添加超链接：
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    with open("video.avi", "rb") as fs:
-        data = fs.read()
-        video = pres.videos.add_video(data)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with open("video.avi", "rb") as video_stream:
+        video_data = video_stream.read()
+        video = presentation.videos.add_video(video_data)
         
-        videoFrame = pres.slides[0].shapes.add_video_frame(10, 10, 100, 100, video)
+    video_frame = slide.shapes.add_video_frame(10, 10, 100, 100, video)
 
-        videoFrame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-        videoFrame.hyperlink_click.tooltip = "超过70%的财富100强公司信任Aspose API"
+    video_frame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    video_frame.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
 
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{%  alert  title="提示"  color="primary"  %}} 
-
-您可能想查看 *[管理OLE](https://docs.aspose.com/slides/python-net/manage-ole/)*。
-
+{{% alert title="提示" color="primary" %}}
+您可能想查看[使用 Python 管理演示文稿中的 OLE](/slides/zh/python-net/manage-ole/)。
 {{% /alert %}}
-
-
 
 ## **使用超链接创建目录**
 
-由于超链接允许您添加对对象或位置的引用，因此您可以使用它们创建目录。
+由于超链接可以引用对象或位置，您可以利用它们构建目录。
 
-下面的示例代码展示了如何创建带有超链接的目录：
+下面的示例代码展示了如何使用超链接创建目录：
 
 ```py
 import aspose.slides as slides
@@ -161,122 +167,148 @@ with slides.Presentation() as presentation:
     paragraph = slides.Paragraph()
     paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    paragraph.text = "幻灯片2的标题 .......... "
+    paragraph.text = "第 2 幻灯片标题 .......... "
 
-    linkPortion = slides.Portion()
-    linkPortion.text = "第2页"
-    linkPortion.portion_format.hyperlink_manager.set_internal_hyperlink_click(second_slide)
+    link_text_portion = slides.Portion()
+    link_text_portion.text = "第 2 页"
+    link_text_portion.portion_format.hyperlink_manager.set_internal_hyperlink_click(second_slide)
 
-    paragraph.portions.add(linkPortion)
+    paragraph.portions.add(link_text_portion)
     content_table.text_frame.paragraphs.add(paragraph)
 
     presentation.save("link_to_slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-
 ## **格式化超链接**
 
-### **颜色**
+本节展示了如何在 Aspose.Slides 中格式化超链接的外观。您将学习如何控制颜色和其他样式选项，以保持文本、形状和图片中的超链接格式一致。
 
-通过[IHyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)接口中的[color_source](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)属性，您可以设置超链接的颜色，并从超链接中获取颜色信息。此功能首次在PowerPoint 2019中引入，因此涉及该属性的更改不适用于旧版本的PowerPoint。
+### **超链接颜色**
 
-下面的示例代码演示了在同一幻灯片中添加不同颜色的超链接的操作：
+使用 [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) 类的 [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) 属性，您可以设置超链接的颜色并读取颜色信息。此功能在 PowerPoint 2019 中引入，因而通过此属性进行的更改不适用于早期版本的 PowerPoint。
+
+以下示例演示了如何在同一幻灯片上添加不同颜色的超链接：
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    shape1 = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
+    slide = presentation.slides[0]
+
+    shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
     shape1.add_text_frame("这是一个彩色超链接的示例。")
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click.color_source = slides.HyperlinkColorSource.PORTION_FORMAT
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.fill_format.fill_type = slides.FillType.SOLID
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.fill_format.solid_fill_color.color = draw.Color.red
 
-    shape2 = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 450, 50, False)
+    text_portion1 = shape1.text_frame.paragraphs[0].portions[0]
+    text_portion1.portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    text_portion1.portion_format.hyperlink_click.color_source = slides.HyperlinkColorSource.PORTION_FORMAT
+    text_portion1.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    text_portion1.portion_format.fill_format.solid_fill_color.color = draw.Color.red
+
+    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 450, 50, False)
     shape2.add_text_frame("这是一个普通超链接的示例。")
-    shape2.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
 
-    presentation.save("presentation-out-hyperlink.pptx", slides.export.SaveFormat.PPTX)
+    text_portion2 = shape2.text_frame.paragraphs[0].portions[0]
+    text_portion2.portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+
+    presentation.save("hyperlinks.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **从演示文稿中删除超链接**
 
-
-## **删除演示文稿中的超链接**
+本节说明在使用 Aspose.Slides 时如何从演示文稿中删除超链接。您将学习如何在保留原始内容和格式的前提下，清除文本、形状和图片中的链接目标。
 
 ### **从文本中删除超链接**
 
-下面的Python代码演示了如何从演示文稿幻灯片中的文本中删除超链接：
+以下示例代码展示了如何删除演示文稿幻灯片中文本的超链接：
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    slide = pres.slides[0]
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
     for shape in slide.shapes:
         if type(shape) is slides.AutoShape:
             for paragraph in shape.text_frame.paragraphs:
-                for portion in paragraph.portions:
-                    portion.portion_format.hyperlink_manager.remove_hyperlink_click()
-    pres.save("pres-removed-hyperlinks.pptx", slides.export.SaveFormat.PPTX)
+                for text_portion in paragraph.portions:
+                    text_portion.portion_format.hyperlink_manager.remove_hyperlink_click()
+
+    presentation.save("removed_hyperlinks.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **从图形或框架中删除超链接**
+### **从形状或框架中删除超链接**
 
-下面的Python代码演示了如何从演示文稿幻灯片中的图形中删除超链接：
+以下示例代码展示了如何删除演示文稿幻灯片中形状的超链接：
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("demo.pptx") as pres:
-   slide = pres.slides[0]
+with slides.Presentation("sample.pptx") as presentation:
+   slide = presentation.slides[0]
+
    for shape in slide.shapes:
        shape.hyperlink_manager.remove_hyperlink_click()
-   pres.save("pres-removed-hyperlinks.pptx", slides.export.SaveFormat.PPTX)
+
+   presentation.save("removed_hyperlinks.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-
 
 ## **可变超链接**
 
-[Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink)类是可变的。使用此类，您可以更改以下属性的值：
+[Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) 类是可变的。使用此类，您可以更改以下属性的值：
 
-- [IHyperlink.TargetFrame](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
-- [IHyperlink.Tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
-- [IHyperlink.History](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
-- [IHyperlink.HighlightClick](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
-- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
+- [target_frame](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_frame/)
+- [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/)
+- [history](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/history/)
+- [highlight_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/highlight_click/)
+- [stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/)
 
-下面的代码片段展示了如何向幻灯片添加超链接并稍后编辑其工具提示：
+以下代码片段展示了如何向幻灯片添加超链接，然后编辑其提示文本：
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    shape1 = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
-    shape1.add_text_frame("Aspose: 文件格式API")
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click.tooltip = "超过70%的财富100强公司信任Aspose API"
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.font_height = 32
+    slide = presentation.slides[0]
 
-    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
+    shape.add_text_frame("Aspose: File Format APIs")
+
+    text_portion = shape.text_frame.paragraphs[0].portions[0]
+    text_portion.portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    text_portion.portion_format.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **IHyperlinkQueries 支持的属性**
 
+您可以从演示文稿、幻灯片或包含超链接的文本访问 [HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/)。
 
+- [Presentation.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/hyperlink_queries/)
+- [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/hyperlink_queries/)
+- [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/)
 
-## **IHyperlinkQueries中的受支持属性**
+[HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) 类支持以下方法：
 
-您可以从定义超链接的演示文稿、幻灯片或文本中访问IHyperlinkQueries。
+- [get_hyperlink_clicks()](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/)
+- [get_hyperlink_mouse_overs()](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/)
+- [get_any_hyperlinks()](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/)
+- [remove_all_hyperlinks()](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/)
 
-- [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentation/)
-- [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseslide/)
-- [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/)
+{{% alert color="primary" %}}
+您可能想尝试 Aspose 提供的免费在线 [PowerPoint 编辑器](https://products.aspose.app/slides/editor)。
+{{% /alert %}}
 
-IHyperlinkQueries类支持以下方法和属性：
+## **常见问题**
 
-- [IHyperlinkQueries.GetHyperlinkClicks();](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/)
-- [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/)
-- [IHyperlinkQueries.GetAnyHyperlinks();](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/)
-- [IHyperlinkQueries.RemoveAllHyperlinks();](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/)
+**如何创建不仅指向幻灯片，还指向“章节”或该章节第一张幻灯片的内部导航？**
+
+PowerPoint 中的章节是幻灯片的分组；导航本质上定位到具体的幻灯片。要“跳转到章节”，通常链接到其第一张幻灯片。
+
+**我能否将超链接附加到母版幻灯片元素，使其在所有幻灯片上生效？**
+
+可以。母版幻灯片和布局元素支持超链接。这些链接会出现在子幻灯片上，并在放映期间可点击。
+
+**在导出为 PDF、HTML、图片或视频时，超链接会被保留吗？**
+
+在 [PDF](/slides/zh/python-net/convert-powerpoint-to-pdf/) 和 [HTML](/slides/zh/python-net/convert-powerpoint-to-html/) 中会保留——链接通常会被保留。导出为 [图片](/slides/zh/python-net/convert-powerpoint-to-png/) 和 [视频](/slides/zh/python-net/convert-powerpoint-to-video/) 时，由于这些格式的本质（光栅帧/视频不支持超链接），点击功能不会保留。

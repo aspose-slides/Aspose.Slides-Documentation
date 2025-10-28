@@ -1,6 +1,6 @@
 ---
 title: Gérer les sections de diapositives dans les présentations avec Python
-titlelink: Section de diapositive
+linktitle: Section de diapositive
 type: docs
 weight: 100
 url: /fr/python-net/slide-section/
@@ -9,66 +9,80 @@ keywords:
 - ajouter une section
 - modifier une section
 - changer une section
-- nom de section
+- nom de la section
 - PowerPoint
 - présentation
 - Python
 - Aspose.Slides
-description: "Rationalisez les sections de diapositives dans PowerPoint et OpenDocument avec Aspose.Slides for Python via .NET — divisez, renommez et réorganisez pour optimiser les flux de travail PPTX et ODP."
+description: "Simplifiez les sections de diapositives dans PowerPoint et OpenDocument avec Aspose.Slides pour Python — divisez, renommez et réorganisez pour optimiser les flux de travail PPTX et ODP."
 ---
 
-Avec Aspose.Slides pour Python via .NET, vous pouvez organiser une présentation PowerPoint en sections. Vous pouvez créer des sections qui contiennent des diapositives spécifiques.
+## **Vue d’ensemble**
 
-Vous voudrez peut-être créer des sections et les utiliser pour organiser ou diviser les diapositives d'une présentation en parties logiques dans ces situations :
+Avec Aspose.Slides pour Python, vous pouvez organiser une présentation PowerPoint en sections qui regroupent des diapositives spécifiques.
 
-- Lorsque vous travaillez sur une grande présentation avec d'autres personnes ou une équipe—et que vous devez attribuer certaines diapositives à un collègue ou à des membres de l'équipe.
-- Lorsque vous avez affaire à une présentation qui contient de nombreuses diapositives—et que vous avez du mal à gérer ou à éditer son contenu en une seule fois.
+Vous pouvez souhaiter créer des sections pour organiser ou diviser une présentation en parties logiques dans les situations suivantes :
 
-Idéalement, vous devriez créer une section qui regroupe des diapositives similaires—les diapositives ont quelque chose en commun ou peuvent exister dans un groupe basé sur une règle—et donner à la section un nom qui décrit les diapositives qu'elle contient.
+- Lorsque vous travaillez sur une grande présentation avec une équipe et devez attribuer certaines diapositives à des collègues spécifiques.
+- Lorsque vous avez une présentation contenant de nombreuses diapositives et que vous trouvez difficile de tout gérer ou modifier en une seule fois.
 
-## Création de Sections dans les Présentations
+Idéalement, créez des sections qui regroupent des diapositives liées — celles qui partagent un thème, un sujet ou un objectif — et donnez à chaque section un nom qui reflète clairement son contenu. 
 
-Pour ajouter une section qui contiendra des diapositives dans une présentation, Aspose.Slides pour Python via .NET fournit la méthode AddSection qui vous permet de spécifier le nom de la section que vous souhaitez créer et la diapositive à partir de laquelle la section commence.
+## **Créer des sections dans les présentations**
 
-Ce code d'exemple vous montre comment créer une section dans une présentation en Python :
+Pour ajouter une [Section](https://reference.aspose.com/slides/python-net/aspose.slides/section/) qui regroupe des diapositives dans une présentation, Aspose.Slides propose la méthode [add_section](https://reference.aspose.com/slides/python-net/aspose.slides/sectioncollection/add_section/). Elle vous permet de spécifier le nom de la section et la diapositive où la section commence.
+
+L'exemple Python suivant montre comment créer une section dans une présentation :
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    defaultSlide = pres.slides[0]
-    newSlide1 = pres.slides.add_empty_slide(pres.layout_slides[0])
-    newSlide2 = pres.slides.add_empty_slide(pres.layout_slides[0])
-    newSlide3 = pres.slides.add_empty_slide(pres.layout_slides[0])
-    newSlide4 = pres.slides.add_empty_slide(pres.layout_slides[0])
+with slides.Presentation() as presentation:
+    layout_slide = presentation.layout_slides[0]
 
-    section1 = pres.sections.add_section("Section 1", newSlide1)
-    # section1 se terminera à newSlide2 et après cela section2 commencera 
-    section2 = pres.sections.add_section("Section 2", newSlide3) 
+    slide1 = presentation.slides.add_empty_slide(layout_slide)
+    slide2 = presentation.slides.add_empty_slide(layout_slide)
+    slide3 = presentation.slides.add_empty_slide(layout_slide)
+    slide4 = presentation.slides.add_empty_slide(layout_slide)
+
+    section1 = presentation.sections.add_section("Section 1", slide1)
+    # Section 1 ends at slide2; Section 2 starts at slide3.
+    section2 = presentation.sections.add_section("Section 2", slide3) 
       
+    presentation.save("presentation_sections.pptx", slides.export.SaveFormat.PPTX)
     
-    pres.save("pres-sections.pptx", slides.export.SaveFormat.PPTX)
+    presentation.sections.reorder_section_with_slides(section2, 0)
+    presentation.save("reordered_sections.pptx", slides.export.SaveFormat.PPTX)
     
-    pres.sections.reorder_section_with_slides(section2, 0)
-    pres.save("pres-sections-moved.pptx", slides.export.SaveFormat.PPTX)
-    
-    pres.sections.remove_section_with_slides(section2)
-    
-    pres.sections.append_empty_section("Dernière section vide")
-    
-    pres.save("pres-section-with-empty.pptx",slides.export.SaveFormat.PPTX)
+    presentation.sections.remove_section_with_slides(section2)
+    presentation.sections.append_empty_section("Last empty section")
+    presentation.save("presentation_with_empty_section.pptx",slides.export.SaveFormat.PPTX)
 ```
 
-## Changement des Noms des Sections
+## **Modifier le nom des sections**
 
-Après avoir créé une section dans une présentation PowerPoint, vous pouvez décider de changer son nom.
+Après avoir créé une [Section](https://reference.aspose.com/slides/python-net/aspose.slides/section/) dans une présentation PowerPoint, vous pouvez décider de changer son nom.
 
-Ce code d'exemple vous montre comment changer le nom d'une section dans une présentation en Python en utilisant Aspose.Slides :
+L'exemple Python suivant montre comment renommer une section dans une présentation :
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("pres-sections.pptx") as pres:
-   section = pres.sections[0]
-   section.name = "Ma section"
+with slides.Presentation("sample.pptx") as presentation:
+   section = presentation.sections[0]
+   section.name = "My section"
 ```
+
+## **FAQ**
+
+**Les sections sont‑elles conservées lors de l’enregistrement au format PPT (PowerPoint 97–2003) ?**
+
+Non. Le format PPT ne prend pas en charge les métadonnées de section, ainsi le regroupement des sections est perdu lors de l’enregistrement au format .ppt.
+
+**Une section entière peut‑elle être « masquée » ?**
+
+Non. Seules les diapositives individuelles peuvent être masquées. Une section en tant qu’entité n’a pas d’état « masqué ». 
+
+**Puis‑je rapidement trouver une section à partir d’une diapositive et, inversement, la première diapositive d’une section ?**
+
+Oui. Une section est définie de manière unique par sa diapositive de départ ; à partir d’une diapositive, vous pouvez déterminer à quelle section elle appartient, et pour une section, vous pouvez accéder à sa première diapositive.

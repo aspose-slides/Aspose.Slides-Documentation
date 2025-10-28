@@ -1,192 +1,208 @@
 ---
-title: Python でプレゼンテーションの図形をカスタマイズする
-linktitle: カスタム 図形
+title: Python を使用したプレゼンテーションの形状カスタマイズ
+linktitle: カスタム形状
 type: docs
 weight: 20
 url: /ja/python-net/custom-shape/
-keywords:
-- カスタム 図形
-- 図形を追加
-- 図形を作成
-- 図形を変更
-- 図形のジオメトリ
-- ジオメトリ パス
-- パス ポイント
-- ポイントを編集
-- ポイントを追加
-- ポイントを削除
+keywords: 
+- カスタム形状
+- 形状の追加
+- 形状の作成
+- 形状の変更
+- 形状ジオメトリ
+- ジオメトリパス
+- パスポイント
+- ポイントの編集
+- ポイントの追加
+- ポイントの削除
 - 編集操作
-- 曲線の角
+- 曲線コーナー
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションで図形を作成およびカスタマイズします：ジオメトリ パス、曲線の角、複合図形。"
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument のプレゼンテーションで形状を作成およびカスタマイズします：ジオメトリパス、曲線コーナー、複合形状。"
 ---
 
-# エディットポイントを使用したシェイプの変更
+## **概要**
 
-四角形を考えてみましょう。PowerPoint では、**エディットポイント**を使用して、
+正方形を考えてみましょう。PowerPoint で **Edit Points** を使うと、次のことができます：
 
-* 四角形の角を内側または外側に移動する
-* 角またはポイントの曲率を指定する
-* 四角形に新しいポイントを追加する
-* 四角形上のポイントを操作するなど
+* 正方形の角を内側または外側に移動する
+* 角やポイントの曲率を調整する
+* 正方形に新しいポイントを追加する
+* ポイントを操作する
 
-本質的に、説明されたタスクを任意のシェイプに対して実行できます。エディットポイントを使用すると、シェイプを変更したり、既存のシェイプから新しいシェイプを作成したりすることができます。
+これらの操作は任意の形状に適用できます。**Edit Points** を使用すれば、既存の形状を変更したり、既存の形状から新しい形状を作成したりできます。
 
-## シェイプ編集のヒント
+## **形状編集のヒント**
 
-![overview_image](custom_shape_0.png)
+!["Edit Points" command](custom_shape_0.png)
 
-エディットポイントを通じて PowerPoint シェイプを編集し始める前に、シェイプに関する以下のポイントを考慮することをお勧めします。
+PowerPoint の形状を **Edit Points** で編集する前に、形状に関する以下の点に留意してください：
 
-* シェイプ（またはそのパス）は、閉じた形または開いた形のいずれかです。
-* シェイプが閉じているときは、開始点や終了点がありません。シェイプが開いているときは、始まりと終わりがあります。
-* すべてのシェイプは、互いに線でつながれた少なくとも 2 つのアンカーポイントで構成されています。
-* 線は、直線または曲線のいずれかです。アンカーポイントが線の性質を決定します。
-* アンカーポイントは、コーナーポイント、直ポイント、またはスムーズポイントとして存在します：
-  * コーナーポイントは、2 つの直線が角度で接合されるポイントです。
-  * スムーズポイントは、2 つのハンドルが直線上に存在し、その線のセグメントが滑らかな曲線で接合されるポイントです。この場合、すべてのハンドルはアンカーポイントから等しい距離だけ離れています。
-  * 直ポイントは、2 つのハンドルが直線上に存在し、その線のセグメントが滑らかな曲線で接合されるポイントです。この場合、ハンドルはアンカーポイントから等しい距離だけ離れる必要はありません。
-* アンカーポイントを移動または編集することで（これにより線の角度が変わります）、シェイプの見た目を変更できます。
+* 形状（またはそのパス）は **閉じている** か **開いている** かのいずれかです。
+* 閉じた形状には開始点や終了点がありません。開いた形状には始点と終点があります。
+* すべての形状は、線分で接続された少なくとも 2 つのアンカーポイントを持ちます。
+* 線分は直線または曲線のいずれかで、アンカーポイントがその性質を決定します。
+* アンカーポイントは **コーナー**、**スムーズ**、または **ストレート** に分類されます：
+  * **コーナー** ポイントは、2 本の直線セグメントが角度を持って交わる地点です。
+  * **スムーズ** ポイントは 2 本のハンドルが共線で、隣接するセグメントが滑らかな曲線を形成します。この場合、両ハンドルはアンカーポイントから同じ距離にあります。
+  * **ストレート** ポイントも 2 本の共線ハンドルを持ちますが、ハンドルの距離は同じである必要はありません。
+* アンカーポイントを移動または編集して（セグメントの角度を変更して）形状の外観を変えることができます。
 
-エディットポイントを通じて PowerPoint シェイプを編集するには、**Aspose.Slides** は [**GeometryPath**](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) クラスと [**IGeometryPath**](https://reference.aspose.com/slides/python-net/aspose.slides/igeometrypath/) インターフェイスを提供します。
+PowerPoint の形状を編集するには、Aspose.Slides が提供する [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) クラスを使用します。
 
-* [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) インスタンスは、[IGeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/igeometryshape/) オブジェクトのジオメトリパスを表します。
-* `IGeometryShape` インスタンスから `GeometryPath` を取得するには、[IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/python-net/aspose.slides/igeometryshape/) メソッドを使用できます。
-* シェイプに `GeometryPath` を設定するには、次のメソッドを使用できます：*固体シェイプ* のための [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/igeometryshape/) と *コンポジットシェイプ* のための [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/python-net/aspose.slides/igeometryshape/)。
-* セグメントを追加するには、[IGeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/igeometrypath/) の下のメソッドを使用できます。
-* [IGeometryPath.Stroke](https://reference.aspose.com/slides/python-net/aspose.slides/igeometrypath/) と [IGeometryPath.FillMode](https://reference.aspose.com/slides/python-net/aspose.slides/igeometrypath/) プロパティを使用して、ジオメトリパスの外観を設定できます。
-* [IGeometryPath.PathData](https://reference.aspose.com/slides/python-net/aspose.slides/igeometrypath/properties/pathdata) プロパティを使用して、`GeometryShape` のジオメトリパスをパスセグメントの配列として取得できます。
-* 追加のシェイプジオメトリカスタマイズオプションにアクセスするには、[GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) を [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) に変換できます。
-* `GeometryPath` と `GraphicsPath` を相互に変換するには、[ShapeUtil](https://reference.aspose.com/slides/python-net/aspose.slides.util/shapeutil/) クラスから `GeometryPathToGraphicsPath` と `GraphicsPathToGeometryPath` メソッドを使用します。
+* [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) インスタンスは、[GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) オブジェクトのジオメトリパスを表します。
+* [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) インスタンスから [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) を取得するには、[GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) メソッドを使用します。
+* 形状に [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) を設定するには、*単一形状* 用に [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) を、*複合形状* 用に [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) を使用します。
+* セグメントを追加するには、[GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) のメソッドを使用します。
+* ジオメトリパスの外観は、[GeometryPath.stroke](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/stroke/) と [GeometryPath.fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/fill_mode/) プロパティで制御します。
+* 形状のジオメトリパスを配列として取得するには、[GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) プロパティを使用します。
 
-## **簡単な編集操作**
+## **単純な編集操作**
 
-この Python コードは、次の操作を示します。
+以下のメソッドは単純な編集操作に使用します。
 
-**パスの終わりに**線を追加する：
+**パスの末端に直線を追加**：
 
 ```py
 line_to(point)
 line_to(x, y)
 ```
 
-**指定した位置に**線を追加する：
+**パス内の指定位置に直線を追加**：
 
 ```py    
 line_to(point, index)
 line_to(x, y, index)
 ```
 
-**パスの終わりに**3次ベジェ曲線を追加する：
+**パスの末端に3次ベジェ曲線を追加**：
 
 ```py
 cubic_bezier_to(point1, point2, point3)
 cubic_bezier_to(x1, y1, x2, y2, x3, y3)
 ```
 
-**指定した位置に**3次ベジェ曲線を追加する：
+**パス内の指定位置に3次ベジェ曲線を追加**：
 
 ```py
 cubic_bezier_to(point1, point2, point3, index)
 cubic_bezier_to(x1, y1, x2, y2, x3, y3, index)
 ```
 
-**パスの終わりに**2次ベジェ曲線を追加する：
+**パスの末端に2次ベジェ曲線を追加**：
 
 ```py
 quadratic_bezier_to(point1, point2)
 quadratic_bezier_to(x1, y1, x2, y2)
 ```
 
-**指定した位置に**2次ベジェ曲線を追加する：
+**パス内の指定位置に2次ベジェ曲線を追加**：
 
 ```py
 quadratic_bezier_to(point1, point2, index)
 quadratic_bezier_to(x1, y1, x2, y2, index)
 ```
 
-**指定されたアークを**パスに追加する：
+**パスに円弧を付加**：
 
 ```py
-arc_to(width, height, startAngle, sweepAngle)
+arc_to(width, heigth, startAngle, sweepAngle)
 ```
 
-**パスの現在のフィギュアを**閉じる：
+**パス内の現在の図形を閉じる**：
 
 ```py
 close_figure()
 ```
 
-**次のポイントの位置を設定する**：
+**次のポイントの位置を設定**：
 
 ```py
 move_to(point)
 move_to(x, y)
 ```
 
-**指定されたインデックスの**パスセグメントを削除する：
+**指定インデックスのパスセグメントを削除**：
 
 ```py
 remove_at(index)
 ```
 
-## シェイプにカスタムポイントを追加する
-1. [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) クラスのインスタンスを作成し、[ShapeType.Rectangle](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/) を設定します。
-2. シェイプから [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) クラスのインスタンスを取得します。
-3. パス上の 2 つの上のポイントの間に新しいポイントを追加します。
-4. パス上の 2 つの下のポイントの間に新しいポイントを追加します。
-5. パスをシェイプに適用します。
+## **形状にカスタムポイントを追加**
 
-この Python コードは、シェイプにカスタムポイントを追加する方法を示しています：
+ここでは、ポイントの順序とセグメントタイプ（直線または曲線）を指定し、必要に応じてパスを閉じることで、正確なカスタムグラフィック（多角形、アイコン、吹き出し、ロゴなど）をスライド上に描画する方法を学びます。
+
+1. [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) クラスのインスタンスを作成し、[ShapeType.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/) を設定します。
+2. 形状から [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) インスタンスを取得します。
+3. パス上部の 2 つのポイント間に新しいポイントを挿入します。
+4. パス下部の 2 つのポイント間に新しいポイントを挿入します。
+5. 更新したパスを形状に適用します。
+
+以下の Python コードは、形状にカスタムポイントを追加する例です：
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
-    geometryPath = shape.get_geometry_paths()[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    geometryPath.line_to(100, 50, 1)
-    geometryPath.line_to(100, 50, 4)
-    shape.set_geometry_path(geometryPath)
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
+
+    geometry_path = shape.get_geometry_paths()[0]
+    geometry_path.line_to(100, 50, 1)
+    geometry_path.line_to(100, 50, 4)
+
+    shape.set_geometry_path(geometry_path)
+
+    presentation.save("custom_points.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![example1_image](custom_shape_1.png)
+![Custom points](custom_shape_1.png)
 
-## シェイプからポイントを削除する
+##  **形状からポイントを削除**
 
-1. [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) クラスのインスタンスを作成し、[ShapeType.Heart](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/) タイプを設定します。
-2. シェイプから [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) クラスのインスタンスを取得します。
-3. パスのセグメントを削除します。
-4. パスをシェイプに適用します。
+カスタム形状に不要なポイントが含まれていると、ジオメトリが複雑になったり描画結果に影響したりします。このセクションでは、形状のパスから特定のポイントを削除してアウトラインを簡素化し、よりクリーンで正確な結果を得る方法を示します。
 
-この Python コードは、シェイプからポイントを削除する方法を示しています：
+1. [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) クラスのインスタンスを作成し、[ShapeType.HEART](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/) を設定します。
+2. 形状から [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) インスタンスを取得します。
+3. パスからセグメントを削除します。
+4. 更新したパスを形状に適用します。
+
+以下の Python コードは、形状からポイントを削除する例です：
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.HEART, 100, 100, 300, 300)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.HEART, 100, 100, 300, 300)
 
     path = shape.get_geometry_paths()[0]
     path.remove_at(2)
+
     shape.set_geometry_path(path)
+
+    presentation.save("removed_points.pptx", slides.export.SaveFormat.PPTX)
 ```
-![example2_image](custom_shape_2.png)
 
-## カスタムシェイプを作成する
+![Removed points](custom_shape_2.png)
 
-1. シェイプのポイントを計算します。
+##  **カスタム形状の作成**
+
+[GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) を定義し、直線・円弧・ベジエ曲線から構成してベクトル形状を作成します。このセクションでは、ゼロからジオメトリを組み立て、スライドに形状として追加する手順を示します。
+
+1. 形状の座標点を計算します。
 2. [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) クラスのインスタンスを作成します。
-3. ポイントでパスを埋めます。
+3. パスにポイントを順に配置します。
 4. [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) クラスのインスタンスを作成します。
-5. パスをシェイプに適用します。
+5. パスを形状に適用します。
 
-この Python コードは、カスタムシェイプを作成する方法を示しています：
+以下の Python コードは、カスタム形状を作成する例です：
 
 ```py
 import aspose.slides as slides
@@ -210,127 +226,148 @@ for angle in range(-90, 270, step):
     y = r * math.sin(radians)
     points.append(draw.PointF(x + R, y + R))
 
-starPath = slides.GeometryPath()
-starPath.move_to(points[0])
+star_path = slides.GeometryPath()
+star_path.move_to(points[0])
 
 for i in range(len(points)):
-    starPath.line_to(points[i])
+    star_path.line_to(points[i])
 
-starPath.close_figure()
-
-with slides.Presentation() as pres:
-    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, R * 2, R * 2)
-    shape.set_geometry_path(starPath)
-```
-![example3_image](custom_shape_3.png)
-
-## コンポジットカスタムシェイプを作成する
-
-1. [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) クラスのインスタンスを作成します。
-2. [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) クラスの最初のインスタンスを作成します。
-3. [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) クラスの 2 番目のインスタンスを作成します。
-4. パスをシェイプに適用します。
-
-この Python コードは、コンポジットカスタムシェイプを作成する方法を示しています：
-
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-with slides.Presentation() as pres:
-    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
-
-    geometryPath0 = slides.GeometryPath()
-    geometryPath0.move_to(0, 0)
-    geometryPath0.line_to(shape.width, 0)
-    geometryPath0.line_to(shape.width, shape.height/3)
-    geometryPath0.line_to(0, shape.height / 3)
-    geometryPath0.close_figure()
-
-    geometryPath1 = slides.GeometryPath()
-    geometryPath1.move_to(0, shape.height/3 * 2)
-    geometryPath1.line_to(shape.width, shape.height / 3 * 2)
-    geometryPath1.line_to(shape.width, shape.height)
-    geometryPath1.line_to(0, shape.height)
-    geometryPath1.close_figure()
-
-    shape.set_geometry_paths([ geometryPath0, geometryPath1])
-```
-![example4_image](custom_shape_4.png)
-
-## **カスタムシェイプを作成する（曲がったコーナー付き）**
-
-この Python コードは、内側に曲がったコーナーを持つカスタムシェイプを作成する方法を示しています：
-
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-shapeX = 20
-shapeY = 20
-shapeWidth = 300
-shapeHeight = 200
-
-leftTopSize = 50
-rightTopSize = 20
-rightBottomSize = 40
-leftBottomSize = 10
+star_path.close_figure()
 
 with slides.Presentation() as presentation:
-    childShape = presentation.slides[0].shapes.add_auto_shape(
-        slides.ShapeType.CUSTOM, shapeX, shapeY, shapeWidth, shapeHeight)
+    slide = presentation.slides[0]
 
-    geometryPath = slides.GeometryPath()
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, R * 2, R * 2)
+    shape.set_geometry_path(star_path)
 
-    point1 = draw.PointF(leftTopSize, 0)
-    point2 = draw.PointF(shapeWidth - rightTopSize, 0)
-    point3 = draw.PointF(shapeWidth, shapeHeight - rightBottomSize)
-    point4 = draw.PointF(leftBottomSize, shapeHeight)
-    point5 = draw.PointF(0, leftTopSize)
-
-    geometryPath.move_to(point1)
-    geometryPath.line_to(point2)
-    geometryPath.arc_to(rightTopSize, rightTopSize, 180, -90)
-    geometryPath.line_to(point3)
-    geometryPath.arc_to(rightBottomSize, rightBottomSize, -90, -90)
-    geometryPath.line_to(point4)
-    geometryPath.arc_to(leftBottomSize, leftBottomSize, 0, -90)
-    geometryPath.line_to(point5)
-    geometryPath.arc_to(leftTopSize, leftTopSize, 90, -90)
-
-    geometryPath.close_figure()
-
-    childShape.set_geometry_path(geometryPath)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("custom_shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## GeometryPathをGraphicsPath（System.Drawing.Drawing2D）に変換する
+![Custom shape](custom_shape_3.png)
+
+## **複合カスタム形状の作成**
+
+複合カスタム形状を作成すると、複数のジオメトリパスを 1 つの再利用可能な形状にまとめることができます。パスを定義・統合して、標準の形状セットを超える複雑なビジュアルを構築します。
 
 1. [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) クラスのインスタンスを作成します。
-2. [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) 名前空間の [GrpahicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) クラスのインスタンスを作成します。
-3. [ShapeUtil](https://reference.aspose.com/slides/python-net/aspose.slides.util/shapeutil/) を使用して [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) インスタンスを [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) インスタンスに変換します。
-4. パスをシェイプに適用します。
+2. 最初の [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) インスタンスを作成します。
+3. 2 番目の [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) インスタンスを作成します。
+4. 両方のパスを形状に適用します。
 
-この Python コードは、上記のステップの実装を示し、**GeometryPath** から **GraphicsPath** への変換プロセスを実演しています：
+以下の Python コードは、複合カスタム形状を作成する例です：
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
+
+    geometry_path_0 = slides.GeometryPath()
+    geometry_path_0.move_to(0, 0)
+    geometry_path_0.line_to(shape.width, 0)
+    geometry_path_0.line_to(shape.width, shape.height/3)
+    geometry_path_0.line_to(0, shape.height / 3)
+    geometry_path_0.close_figure()
+
+    geometry_path_1 = slides.GeometryPath()
+    geometry_path_1.move_to(0, shape.height/3 * 2)
+    geometry_path_1.line_to(shape.width, shape.height / 3 * 2)
+    geometry_path_1.line_to(shape.width, shape.height)
+    geometry_path_1.line_to(0, shape.height)
+    geometry_path_1.close_figure()
+
+    shape.set_geometry_paths([ geometry_path_0, geometry_path_1])
+
+    presentation.save("composite_shape.pptx", slides.export.SaveFormat.PPTX)
+```
+
+![Composite shape](custom_shape_4.png)
+
+## **曲線コーナー付きカスタム形状の作成**
+
+このセクションでは、ジオメトリパスを使用して滑らかな曲線コーナーを持つカスタム形状を描画する方法を示します。直線セグメントと円弧を組み合わせて輪郭を形成し、完成した形状をスライドに追加します。
+
+以下の Python コードは、曲線コーナー付きカスタム形状を作成する例です：
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 100)
+shape_x = 20
+shape_y = 20
+shape_width = 300
+shape_height = 200
 
-    originalPath = shape.get_geometry_paths()[0]
-    originalPath.fill_mode = slides.PathFillModeType.NONE
+left_top_size = 50
+right_top_size = 20
+right_bottom_size = 40
+left_bottom_size = 10
 
-    gPath = draw.drawing2d.GraphicsPath()
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    gPath.add_string("Text in shape", draw.FontFamily("Arial"), 1, 40, draw.PointF(10, 10), draw.StringFormat.generic_default)
+    shape = slide.shapes.add_auto_shape(
+        slides.ShapeType.CUSTOM, shape_x, shape_y, shape_width, shape_height)
 
-    textPath = slides.util.ShapeUtil.graphics_path_to_geometry_path(gPath)
-    textPath.fill_mode = slides.PathFillModeType.NORMAL
+    point1 = draw.PointF(left_top_size, 0)
+    point2 = draw.PointF(shape_width - right_top_size, 0)
+    point3 = draw.PointF(shape_width, shape_height - right_bottom_size)
+    point4 = draw.PointF(left_bottom_size, shape_height)
+    point5 = draw.PointF(0, left_top_size)
 
-    shape.set_geometry_paths([originalPath, textPath])
+    geometry_path = slides.GeometryPath()
+    geometry_path.move_to(point1)
+    geometry_path.line_to(point2)
+    geometry_path.arc_to(right_top_size, right_top_size, 180, -90)
+    geometry_path.line_to(point3)
+    geometry_path.arc_to(right_bottom_size, right_bottom_size, -90, -90)
+    geometry_path.line_to(point4)
+    geometry_path.arc_to(left_bottom_size, left_bottom_size, 0, -90)
+    geometry_path.line_to(point5)
+    geometry_path.arc_to(left_top_size, left_top_size, 90, -90)
+    geometry_path.close_figure()
+
+    shape.set_geometry_path(geometry_path)
+
+    presentation.save("curved_corners.pptx", slides.export.SaveFormat.PPTX)
 ```
-![example5_image](custom_shape_5.png)
+
+![Curved corners](custom_shape_6.png)
+
+## **形状ジオメトリが閉じているかどうかの判定**
+
+閉じた形状とは、すべての辺が連結して隙間のない単一の境界を形成している形状です。シンプルな幾何形状でも、複雑なカスタムアウトラインでも当てはまります。以下のコード例は、形状ジオメトリが閉じているかどうかをチェックする方法を示します：
+
+```py
+def is_geometry_closed(geometry_shape):
+    is_closed = None
+
+    for geometry_path in geometry_shape.get_geometry_paths():
+        data_length = len(geometry_path.path_data)
+        if data_length == 0:
+            continue
+
+        last_segment = geometry_path.path_data[data_length - 1]
+        is_closed = last_segment.path_command == PathCommandType.CLOSE
+
+        if not is_closed:
+            return False
+
+    return is_closed
+```
+
+## **FAQ**
+
+**ジオメトリを置き換えた後、塗りつぶしや輪郭はどうなりますか？**
+
+スタイルは形状に残り、輪郭だけが変更されます。塗りつぶしと輪郭は新しいジオメトリに自動的に適用されます。
+
+**ジオメトリとともにカスタム形状を正しく回転させる方法は？**
+
+形状の [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/rotation/) プロパティを使用します。ジオメトリは形状の座標系にバインドされているため、形状と共に回転します。
+
+**カスタム形状を画像に変換して「ロック」できますか？**
+
+はい。必要な [スライド](/slides/ja/python-net/convert-powerpoint-to-png/) 領域または [形状](/slides/ja/python-net/create-shape-thumbnails/) 自体をラスタ形式でエクスポートすれば、重いジオメトリの後続作業が簡素化されます。

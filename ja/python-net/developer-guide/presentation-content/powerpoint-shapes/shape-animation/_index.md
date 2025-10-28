@@ -1,178 +1,171 @@
 ---
-title: Pythonでプレゼンテーションに図形アニメーションを適用する
-linktitle: 図形アニメーション
+title: Python を使用したプレゼンテーションでのシェイプ アニメーションの適用
+linktitle: シェイプ アニメーション
 type: docs
 weight: 60
 url: /ja/python-net/shape-animation/
 keywords:
-- 図形
+- シェイプ
 - アニメーション
 - エフェクト
-- アニメーション化された図形
+- アニメーション化されたシェイプ
 - アニメーション化されたテキスト
-- アニメーションを追加
-- アニメーションを取得
-- アニメーションを抽出
-- エフェクトを追加
-- エフェクトを取得
-- エフェクトを抽出
-- 効果音
-- アニメーションを適用
+- アニメーションの追加
+- アニメーションの取得
+- アニメーションの抽出
+- エフェクトの追加
+- エフェクトの取得
+- エフェクトの抽出
+- エフェクト サウンド
+- アニメーションの適用
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python を使用して、PowerPoint および OpenDocument プレゼンテーションで図形アニメーションを作成およびカスタマイズする方法をご紹介します。他と差をつけましょう！"
+description: Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションでシェイプ アニメーションを作成およびカスタマイズする方法をご紹介します。際立ちましょう！
 ---
+  
+アニメーションは、テキスト、画像、シェイプ、または[チャート](/slides/ja/python-net/animated-charts/)に適用できる視覚エフェクトです。プレゼンテーションやその構成要素に命を吹き込みます。  
 
-アニメーションは、テキスト、画像、シェイプ、または [チャート](/slides/ja/python-net/animated-charts/) に適用できる視覚効果です。プレゼンテーションやその構成要素に生命を与えます。
+## **プレゼンテーションでアニメーションを使用する理由**
 
-### **プレゼンテーションでアニメーションを使用する理由**
+- 情報の流れを制御する  
+- 重要なポイントを強調する  
+- 聴衆の関心や参加意欲を高める  
+- コンテンツを読みやすく、理解しやすく、処理しやすくする  
+- 聴衆の注意をプレゼンテーションの重要部分に向ける  
 
-アニメーションを使用することで、
+PowerPoint は、**開始**、**終了**、**強調**、**モーション パス** カテゴリにわたるアニメーションやアニメーション エフェクトの多くのオプションとツールを提供します。  
 
-* 情報の流れを制御する
-* 重要なポイントを強調する
-* 聴衆の関心や参加を高める
-* コンテンツを読みやすく、または理解しやすくする
-* プレゼンテーション内の重要な部分に読者や視聴者の注意を引く
+## **Aspose.Slides のアニメーション**
 
-PowerPointは、**入口**、**出口**、**強調**、**動きのパス**カテゴリのアニメーションおよびアニメーション効果のための多くのオプションとツールを提供しています。
+- Aspose.Slides は、[Aspose.Slides.Animation](https://reference.aspose.com/slides/python-net/aspose.slides.animation/) 名前空間でアニメーションを操作するために必要なクラスと型を提供します。  
+- Aspose.Slides は、[EffectType](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttype/) 列挙体で **150 以上のアニメーション エフェクト** を提供します。これらのエフェクトは、実質的に PowerPoint で使用される同等のエフェクトです。  
 
-### **Aspose.Slidesにおけるアニメーション**
+## **テキストボックスへのアニメーションの適用**
 
-* Aspose.Slidesは、[Aspose.Slides.Animation](https://reference.aspose.com/slides/python-net/aspose.slides.animation/) 名前空間の下でアニメーションを操作するために必要なクラスと型を提供します。
-* Aspose.Slidesは、[EffectType](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttype/) 列挙型の下で**150以上のアニメーション効果**を提供しています。これらの効果は基本的にPowerPointで使用されるものと同じです。
+Aspose.Slides for Python via .NET を使用すると、シェイプ内のテキストにアニメーションを適用できます。  
 
-## **テキストボックスにアニメーションを適用する**
-
-Aspose.Slides for Python via .NETを使用すると、シェイプのテキストにアニメーションを適用できます。
-
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを通じてスライドの参照を取得します。
-3. `rectangle` [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) を追加します。
-4. `IAutoShape.TextFrame` にテキストを追加します。
-5. 効果のメインシーケンスを取得します。
-6. [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) にアニメーション効果を追加します。
-7. `TextAnimation.BuildType` プロパティを `BuildType` 列挙型の値に設定します。
-8. プレゼンテーションをPPTXファイルとしてディスクに書き込みます。
-
-このPythonコードは、`Fade` 効果をAutoShapeに適用し、テキストアニメーションを *By 1st Level Paragraphs* 値に設定する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. `rectangle` の [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) を追加します。  
+4. `IAutoShape.TextFrame` にテキストを追加します。  
+5. メイン シーケンス (effects) を取得します。  
+6. [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) にアニメーション エフェクトを追加します。  
+7. `TextAnimation.BuildType` プロパティを `BuildType` 列挙体の値に設定します。  
+8. プレゼンテーションを PPTX ファイルとしてディスクに保存します。  
 
 ```python
 import aspose.slides as slides
 
-# プレゼンテーションファイルを表すプレゼンテーションクラスをインスタンス化します。
+# Instantiates a presentation class that represents a presentation file.
 with slides.Presentation() as pres:
     sld = pres.slides[0]
     
-    # テキスト付きの新しいAutoShapeを追加します
+    # Adds new AutoShape with text
     autoShape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 100)
 
     textFrame = autoShape.text_frame
-    textFrame.text = "最初の段落 \n二番目の段落 \n三番目の段落"
+    textFrame.text = "First paragraph \nSecond paragraph \n Third paragraph"
 
-    # スライドのメインシーケンスを取得します。
+    # Gets the main sequence of the slide.
     sequence = sld.timeline.main_sequence
 
-    # シェイプにFadeアニメーション効果を追加します
+    # Adds Fade animation effect to shape
     effect = sequence.add_effect(autoShape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
 
-    # シェイプのテキストを1段落ずつアニメーション化します
+    # Animates shape text by 1st level paragraphs
     effect.text_animation.build_type = slides.animation.BuildType.BY_LEVEL_PARAGRAPHS1
 
-    # PPTXファイルをディスクに保存します
+    # Save the PPTX file to disk
     pres.save("AnimText_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" %}} 
+{{%  alert color="primary"  %}} 
 
-テキストにアニメーションを適用することに加えて、単一の [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/) にもアニメーションを適用できます。詳細は [**アニメーションテキスト**](/slides/ja/python-net/animated-text/) をご覧ください。
+テキストへのアニメーション適用に加えて、単一の[段落](/slides/ja/python-net/aspose.slides/iparagraph/) にもアニメーションを適用できます。**アニメーション テキスト**をご覧ください。  
 
 {{% /alert %}} 
 
-## **PictureFrameにアニメーションを適用する**
+## **PictureFrame へのアニメーションの適用**
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを通じてスライドの参照を取得します。
-3. スライド上に [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) を追加または取得します。 
-4. 効果のメインシーケンスを取得します。
-5. [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) にアニメーション効果を追加します。
-6. プレゼンテーションをPPTXファイルとしてディスクに書き込みます。
-
-このPythonコードは、`Fly` 効果をピクチャーフレームに適用する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. スライドに [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) を追加するか取得します。  
+4. メイン シーケンスを取得します。  
+5. [PictureFrame] にアニメーション エフェクトを追加します。  
+6. PPTX ファイルとしてディスクに保存します。  
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# プレゼンテーションファイルを表すプレゼンテーションクラスをインスタンス化します。
+
+# Instantiates a presentation class that represents a presentation file.
 with slides.Presentation() as pres:
-    # プレゼンテーションの画像コレクションに追加する画像を読み込みます
+    # Load Image to be added in presentaiton image collection
     img = draw.Bitmap("aspose-logo.jpg")
     image = pres.images.add_image(img)
 
-    # スライドにピクチャーフレームを追加します
+    # Adds picture frame to slide
     picFrame = pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
 
-    # スライドのメインシーケンスを取得します。
+    # Gets the main sequence of the slide.
     sequence = pres.slides[0].timeline.main_sequence
 
-    # ピクチャーフレームに左からのFlyアニメーション効果を追加します
+    # Adds Fly from Left animation effect to picture frame
     effect = sequence.add_effect(picFrame, slides.animation.EffectType.FLY,  
         slides.animation.EffectSubtype.LEFT, 
         slides.animation.EffectTriggerType.ON_CLICK)
 
-    # PPTXファイルをディスクに保存します
+    # Save the PPTX file to disk
     pres.save("AnimImage_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **シェイプにアニメーションを適用する**
+## **シェイプへのアニメーションの適用**
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを通じてスライドの参照を取得します。
-3. `rectangle` [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) を追加します。 
-4. `Bevel` [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) を追加します（このオブジェクトがクリックされると、アニメーションが再生されます）。
-5. ベベルシェイプの効果のシーケンスを作成します。
-6. カスタム `UserPath` を作成します。
-7. `UserPath` への移動コマンドを追加します。
-8. プレゼンテーションをPPTXファイルとしてディスクに書き込みます。
-
-このPythonコードは、シェイプに `PathFootball` （パスフットボール）効果を適用する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. `rectangle` の [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) を追加します。  
+4. `Bevel` の [IAutoShape] を追加します（このオブジェクトがクリックされるとアニメーションが再生されます）。  
+5. Bevel シェイプに対してエフェクトのシーケンスを作成します。  
+6. カスタム `UserPath` を作成します。  
+7. `UserPath` への移動コマンドを追加します。  
+8. PPTX ファイルとしてディスクに保存します。  
 
 ```python
 import aspose.slides.animation as anim
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# PPTXファイルを表すプレゼンテーションクラスをインスタンス化します
+# Instantiates a Prseetation class that represents a PPTX file
 with slides.Presentation() as pres:
     sld = pres.slides[0]
 
-    # 既存のシェイプのためにPathFootball効果を最初から作成します。
+    # Creates PathFootball effect for existing shape from scratch.
     ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 250, 25)
 
-    ashp.add_text_frame("アニメーションテキストボックス")
+    ashp.add_text_frame("Animated TextBox")
 
-    # PathFootballアニメーション効果を追加します。
+    # Adds the PathFootBall animation effect.
     pres.slides[0].timeline.main_sequence.add_effect(ashp, 
         anim.EffectType.PATH_FOOTBALL,
         anim.EffectSubtype.NONE, 
         anim.EffectTriggerType.AFTER_PREVIOUS)
 
-    # ある種の「ボタン」を作成します。
+    # Creates some kind of "button".
     shapeTrigger = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.BEVEL, 10, 10, 20, 20)
 
-    # ボタンのための効果のシーケンスを作成します。
+    # Creates a sequence of effects for the button.
     seqInter = pres.slides[0].timeline.interactive_sequences.add(shapeTrigger)
 
-    # カスタムユーザーパスを作成します。私たちのオブジェクトはボタンがクリックされて初めて移動します。
+    # Creates a custom user path. Our object will be moved only after the button is clicked.
     fxUserPath = seqInter.add_effect(ashp, 
         anim.EffectType.PATH_USER, 
         anim.EffectSubtype.NONE, 
         anim.EffectTriggerType.ON_CLICK)
 
-    # 作成したパスが空であるため、移動コマンドを追加します。
+    # Adds commands for moving since created path is empty.
     motionBhv = fxUserPath.behaviors[0]
 
     pts = [draw.PointF(0.076, 0.59)]
@@ -181,207 +174,255 @@ with slides.Presentation() as pres:
     motionBhv.path.add(anim.MotionCommandPathType.LINE_TO, pts, anim.MotionPathPointsType.AUTO, False)
     motionBhv.path.add(anim.MotionCommandPathType.END, None, anim.MotionPathPointsType.AUTO, False)
 
-    # PPTXファイルをディスクに保存します
+    # Writes the PPTX file to disk
     pres.save("AnimExample_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **シェイプに適用されたアニメーション効果を取得する**
+## **シェイプに適用されたアニメーション エフェクトの取得**
 
-単一のシェイプに適用されたすべてのアニメーション効果を調べることができます。
+以下の例は、[Sequence](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/) クラスの `get_effects_by_shape` メソッドを使用して、シェイプに適用されたすべてのアニメーション エフェクトを取得する方法を示します。  
 
-このPythonコードは、特定のシェイプに適用されたすべての効果を取得する方法を示しています：
+**例 1: 通常スライド上のシェイプに適用されたアニメーション エフェクトの取得**
+
+以前、PowerPoint プレゼンテーションのシェイプにアニメーション エフェクトを追加する方法を学びました。次のサンプルコードは、`AnimExample_out.pptx` の最初の通常スライドの最初のシェイプに適用されたエフェクトを取得する方法を示します。
 
 ```python
 import aspose.slides as slides
 
-# プレゼンテーションファイルを表すプレゼンテーションクラスをインスタンス化します。
-with slides.Presentation("AnimExample_out.pptx") as pres:
-    firstSlide = pres.slides[0]
+with slides.Presentation("AnimExample_out.pptx") as presentation:
+    first_slide = presentation.slides[0]
 
-    # スライドのメインシーケンスを取得します。
-    sequence = firstSlide.timeline.main_sequence
+    # Gets the main animation sequence of the slide.
+    sequence = first_slide.timeline.main_sequence
 
-    # スライドの最初のシェイプを取得します。
-    shape = firstSlide.shapes[0]
+    # Gets the first shape on the first slide.
+    shape = first_slide.shapes[0]
 
-    # シェイプに適用されたすべてのアニメーション効果を取得します。
-    shapeEffects = sequence.get_effects_by_shape(shape)
+    # Gets animation effects applied to the shape.
+    shape_effects = sequence.get_effects_by_shape(shape)
 
-    if len(shapeEffects) > 0:
-        print("シェイプ " + shape.name + " には " + str(len(shapeEffects)) + " のアニメーション効果があります。")
+    if len(shape_effects) > 0:
+        print("The shape", shape.name, "has", len(shape_effects), "animation effects.")
 ```
 
-## **アニメーション効果のタイミングプロパティを変更する**
+**例 2: プレースホルダーから継承されたものを含むすべてのアニメーション エフェクトの取得**
 
-Aspose.Slides for Python via .NETでは、アニメーション効果のタイミングプロパティを変更できます。
+通常スライド上のシェイプがレイアウト スライドやマスタースライド上のプレースホルダーを持ち、これらのプレースホルダーにエフェクトが追加されている場合、スライドショー中にそれらすべてのエフェクトが再生されます（継承されたものも含む）。
 
-これがMicrosoft PowerPointのアニメーションタイミングペインです：
+PowerPoint プレゼンテーション ファイル `sample.pptx` があり、1 枚のスライドにフッター シェイプのみが含まれ、テキストは「Made with Aspose.Slides」で、**Random Bars** エフェクトがシェイプに適用されているとします。
+
+![Slide shape animation effect](slide-shape-animation.png)
+
+レイアウト スライドのフッター プレースホルダーには **Split** エフェクトが適用されているとします。
+
+![Layout shape animation effect](layout-shape-animation.png)
+
+マスタースライドのフッター プレースホルダーには **Fly In** エフェクトが適用されているとします。
+
+![Master shape animation effect](master-shape-animation.png)
+
+以下のサンプルコードは、[Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) クラスの `get_base_placeholder` メソッドを使用してプレースホルダーにアクセスし、レイアウトおよびマスタースライド上のプレースホルダーから継承されたエフェクトを含むフッター シェイプのエフェクトを取得する方法を示します。
+
+```py
+import aspose.slides as slides
+
+def print_effects(effects):
+    for effect in effects:
+        print(effect.type.name, effect.subtype.name)
+```
+```py
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    # Get animation effects of the shape on the normal slide.
+    shape = slide.shapes[0]
+    shape_effects = slide.timeline.main_sequence.get_effects_by_shape(shape)
+
+    # Get animation effects of the placeholder on the layout slide.
+    layout_shape = shape.get_base_placeholder()
+    layout_shape_effects = slide.layout_slide.timeline.main_sequence.get_effects_by_shape(layout_shape)
+
+    # Get animation effects of the placeholder on the master slide.
+    master_shape = layout_shape.get_base_placeholder()
+    master_shape_effects = slide.layout_slide.master_slide.timeline.main_sequence.get_effects_by_shape(master_shape)
+
+    print("Main sequence of shape effects:")
+    print_effects(master_shape_effects)
+    print_effects(layout_shape_effects)
+    print_effects(shape_effects)
+```
+
+出力:
+```text
+Main sequence of shape effects:
+FLY BOTTOM
+SPLIT VERTICAL_IN
+RANDOM_BARS HORIZONTAL
+```
+
+## **アニメーション エフェクトのタイミング プロパティの変更**
+
+Aspose.Slides for Python via .NET を使用すると、アニメーション エフェクトのタイミング プロパティを変更できます。
+
+これは Microsoft PowerPoint のアニメーション タイミング ペインです：
 
 ![example1_image](shape-animation.png)
 
-これらはPowerPointのタイミングと `Effect.Timing` プロパティとの対応です：
+PowerPoint タイミングと `Effect.Timing` プロパティの対応表：
 
-- PowerPointのタイミング **開始** ドロップダウンリストは、[Effect.Timing.TriggerType](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttriggertype/) プロパティに対応します。 
-- PowerPointのタイミング **期間** は、`Effect.Timing.Duration` プロパティに対応します。アニメーションの持続時間（秒単位）は、アニメーションが1サイクルを完了するのにかかる合計時間です。 
-- PowerPointのタイミング **遅延** は、`Effect.Timing.TriggerDelayTime` プロパティに対応します。 
+- PowerPoint タイミング **Start** ドロップダウンは [Effect.Timing.TriggerType](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttriggertype/) プロパティに対応します。  
+- PowerPoint タイミング **Duration** は `Effect.Timing.Duration` プロパティに対応します。アニメーションの長さ（秒）は、1 サイクルが完了するまでの総時間です。  
+- PowerPoint タイミング **Delay** は `Effect.Timing.TriggerDelayTime` プロパティに対応します。  
 
-これが効果のタイミングプロパティを変更する方法です：
+Effect Timing プロパティを変更する手順：
 
-1. [アニメーション効果を適用](#apply-animation-to-shape)または取得します。
-2. 必要な `Effect.Timing` プロパティに新しい値を設定します。 
-3. 修正されたPPTXファイルを保存します。
-
-このPythonコードは操作を示しています：
+1. [シェイプへのアニメーションの適用](#apply-animation-to-shape) でエフェクトを取得または適用します。  
+2. 必要な `Effect.Timing` プロパティに新しい値を設定します。  
+3. 変更した PPTX ファイルを保存します。  
 
 ```python
 import aspose.slides as slides
 
-# プレゼンテーションファイルを表すプレゼンテーションクラスをインスタンス化します。
+# Instantiates a presentation class that represents a presentation file.
 with slides.Presentation("AnimExample_out.pptx") as pres:
-    # スライドのメインシーケンスを取得します。
+    # Gets the main sequence of the slide.
     sequence = pres.slides[0].timeline.main_sequence
 
-    # メインシーケンスの最初の効果を取得します。
+    # Gets the first effect of main sequence.
     effect = sequence[0]
 
-    # 効果のTriggerTypeをクリックで開始するように変更します
+    # Changes effect TriggerType to start on click
     effect.timing.trigger_type = slides.animation.EffectTriggerType.ON_CLICK
 
-    # 効果の持続時間を変更します
+    # Changes effect Duration
     effect.timing.duration = 3
 
-    # 効果の遅延時間を変更します
+    # Changes effect TriggerDelayTime
     effect.timing.trigger_delay_time = 0.5
 
-    # PPTXファイルをディスクに保存します
+    # Saves the PPTX file to disk
     pres.save("AnimExample_changed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **アニメーション効果の音**
+## **アニメーション エフェクト サウンド**
 
-Aspose.Slidesは、アニメーション効果のサウンドを操作するための以下のプロパティを提供します：
+Aspose.Slides は、アニメーション エフェクトのサウンドを操作するために次のプロパティを提供します：
 
-- `sound`
-- `stop_previous_sound`
+- `sound`  
+- `stop_previous_sound`  
 
-### **アニメーション効果の音を追加する**
+### **アニメーション エフェクト サウンドの追加**
 
-このPythonコードは、アニメーション効果の音を追加し、次の効果が開始されるとそれを停止する方法を示しています：
+次の Python コードは、アニメーション エフェクトにサウンドを追加し、次のエフェクトが開始したときにサウンドを停止する方法を示します。
 
 ```python
 import aspose.slides as slides
 
 with Presentation("AnimExample_out.pptx") as pres:
-    # プレゼンテーションオーディオコレクションに音声を追加します
+    # Adds audio to presentation audio collection
     effect_sound = pres.audios.add_audio(open("sampleaudio.wav", "rb").read())
 
     first_slide = pres.slides[0]
 
-    # スライドのメインシーケンスを取得します。
+    # Gets the main sequence of the slide.
     sequence = first_slide.timeline.main_sequence
 
-    # メインシーケンスの最初の効果を取得します
+    # Gets the first effect of the main sequence
     first_effect = sequence[0]
 
-    # 効果に「サウンドなし」が設定されているか確認します
+    # Сhecks the effect for "No Sound"
     if not first_effect.stop_previous_sound and first_effect.sound is None:
-        # 最初の効果に音を追加します
+        # Adds sound for the first effect
         first_effect.sound = effect_sound
 
-    # スライドの最初のインタラクティブシーケンスを取得します。
+    # Gets the first interactive sequence of the slide.
     interactive_sequence = first_slide.timeline.interactive_sequences[0]
 
-    # 効果の「前の音を停止」フラグを設定します
+    # Sets the effect "Stop previous sound" flag
     interactive_sequence[0].stop_previous_sound = True
 
-    # PPTXファイルをディスクに保存します
+    # Writes the PPTX file to disk
     pres.save("AnimExample_Sound_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **アニメーション効果の音を抽出する**
+### **アニメーション エフェクト サウンドの抽出**
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを通じてスライドの参照を取得します。 
-3. 効果のメインシーケンスを取得します。 
-4. 各アニメーション効果に埋め込まれた `sound` を抽出します。 
-
-このPythonコードは、アニメーション効果に埋め込まれた音を抽出する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. メイン シーケンスを取得します。  
+4. 各アニメーション エフェクトに埋め込まれた `sound` を抽出します。  
 
 ```python
 import aspose.slides as slides
 
-# プレゼンテーションファイルを表すプレゼンテーションクラスをインスタンス化します。
+# Instantiates a presentation class that represents a presentation file.
 with slides.Presentation("EffectSound.pptx") as presentation:
     slide = presentation.slides[0]
 
-    # スライドのメインシーケンスを取得します。
+    # Gets the main sequence of the slide.
     sequence = slide.timeline.main_sequence
 
     for effect in sequence:
         if effect.sound is None:
             continue
 
-        # 効果の音をバイト配列に抽出します
+        # Extracts the effect sound in byte array
         audio = effect.sound.binary_data
 ```
 
-## **アニメーション後**
+## **アフター アニメーション**
 
-Aspose.Slides for .NETでは、アニメーション効果のアニメーション後プロパティを変更することができます。
+Aspose.Slides for .NET を使用すると、アニメーション エフェクトの After animation プロパティを変更できます。
 
-これがMicrosoft PowerPointのアニメーション効果ペインと拡張メニューです：
+これは Microsoft PowerPoint のアニメーション エフェクト パネルと拡張メニューです：
 
 ![example1_image](shape-after-animation.png)
 
-PowerPoint Effect **アニメーション後** ドロップダウンリストは、これらのプロパティに対応しています：
+PowerPoint の **After animation** ドロップダウンは以下のプロパティに対応します：
 
-- `after_animation_type` プロパティは、アニメーション後のタイプを説明します：
-  * PowerPoint **その他の色** は、[COLOR](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) タイプに対応します；
-  * PowerPoint **暗くしない** リスト項目は、[DO_NOT_DIM](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) タイプ（デフォルトのアニメーション後のタイプ）に対応します；
-  * PowerPoint **アニメーション後に隠す** 項目は、[HIDE_AFTER_ANIMATION](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) タイプに対応します；
-  * PowerPoint **次のマウスクリックで隠す** 項目は、[HIDE_ON_NEXT_MOUSE_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) タイプに対応します；
-- `after_animation_color` プロパティは、アニメーション後の色フォーマットを定義します。このプロパティは [COLOR](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) タイプと連動して機能します。別のタイプに変更すると、アニメーション後の色はクリアされます。
-
-このPythonコードは、アニメーション後の効果を変更する方法を示しています：
+- `after_animation_type` プロパティは After animation の種類を示します：  
+  * PowerPoint **More Colors** は [COLOR](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) 型に対応します。  
+  * PowerPoint **Don't Dim** は [DO_NOT_DIM](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) 型に対応します（デフォルト）。  
+  * PowerPoint **Hide After Animation** は [HIDE_AFTER_ANIMATION](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) 型に対応します。  
+  * PowerPoint **Hide on Next Mouse Click** は [HIDE_ON_NEXT_MOUSE_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) 型に対応します。  
+- `after_animation_color` プロパティは After animation の色形式を定義します。このプロパティは `COLOR` 型と併用されます。タイプを別のものに変更すると、色はクリアされます。  
 
 ```python
 import aspose.slides as slides
 
-# プレゼンテーションファイルを表すプレゼンテーションクラスをインスタンス化します
+# Instantiates a presentation class that represents a presentation file
 with slides.Presentation("AnimImage_out.pptx") as pres:
     first_slide = pres.slides[0]
 
-    # メインシーケンスの最初の効果を取得します
+    # Gets the first effect of the main sequence
     first_effect = first_slide.timeline.main_sequence[0]
 
-    # アニメーション後のタイプを色に変更します
+    # Changes the after animation type to Color
     first_effect.after_animation_type = AfterAnimationType.COLOR
 
-    # アニメーション後の暗くする色を設定します
+    # Sets the after animation dim color
     first_effect.after_animation_color.color = Color.alice_blue
 
-    # PPTXファイルをディスクに保存します
+    # Writes the PPTX file to disk
     pres.save("AnimImage_AfterAnimation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **テキストをアニメーション化する**
+## **テキストのアニメーション**
 
-Aspose.Slidesは、アニメーション効果の*テキストをアニメーション化*ブロックを操作するための以下のプロパティを提供します：
+Aspose.Slides は、アニメーション エフェクトの *Animate text* ブロックを操作するために次のプロパティを提供します：
 
-- `animate_text_type` は、効果のアニメートテキストタイプを説明します。シェイプのテキストは以下のようにアニメーション化できます：
-  - 一度にすべて ([ALL_AT_ONCE](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/) タイプ)
-  - 単語ごとに ([BY_WORD](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/) タイプ)
-  - 文字ごとに ([BY_LETTER](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/) タイプ)
-- `delay_between_text_parts` は、アニメーション化されたテキスト部分（単語や文字）の間に遅延を設定します。正の値は効果の持続時間の割合を指定します。負の値は秒単位の遅延を指定します。
+- `animate_text_type` はエフェクトのテキストアニメーションの種類を示します。シェイプのテキストは次のいずれかでアニメーションできます：  
+  - 全体同時 ([ALL_AT_ONCE](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/) 型)  
+  - 単語単位 ([BY_WORD](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/) 型)  
+  - 文字単位 ([BY_LETTER](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/) 型)  
+- `delay_between_text_parts` はテキストパーツ（単語または文字）間の遅延を設定します。正の値はエフェクトの期間に対するパーセンテージ、負の値は秒数で指定します。  
 
-これが効果のテキストアニメーションプロパティを変更する方法です：
+Effect Animate text プロパティを変更する手順：
 
-1. [アニメーション効果を適用](#apply-animation-to-shape)または取得します。
-2. `build_type` プロパティを [AS_ONE_OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides.animation/buildtype/) 値に設定して、*段落ごと* のアニメーションモードをオフにします。
-3. `animate_text_type` と `delay_between_text_parts` プロパティに新しい値を設定します。
-4. 修正されたPPTXファイルを保存します。
-
-このPythonコードは操作を示しています：
+1. [シェイプへのアニメーションの適用](#apply-animation-to-shape) でエフェクトを取得または適用します。  
+2. `build_type` プロパティを [AS_ONE_OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides.animation/buildtype/) に設定し、*By Paragraphs* モードをオフにします。  
+3. `animate_text_type` と `delay_between_text_parts` に新しい値を設定します。  
+4. 変更した PPTX ファイルを保存します。  
 
 ```python
 import aspose.slides as slides
@@ -389,19 +430,30 @@ import aspose.slides as slides
 with slides.Presentation("AnimTextBox_out.pptx") as pres:
     first_slide = pres.slides[0]
 
-    # メインシーケンスの最初の効果を取得します
+    # Gets the first effect of the main sequence
     first_effect = first_slide.timeline.main_sequence[0]
 
-    # 効果のテキストアニメーションタイプを「オブジェクトとしてすべて」に変更します
+    # Changes the effect Text animation type to "As One Object"
     first_effect.text_animation.build_type = slides.animation.BuildType.AS_ONE_OBJECT
 
-    # 効果のアニメートテキストタイプを「単語ごと」に変更します
+    # Changes the effect Animate text type to "By word"
     first_effect.animate_text_type = slides.animation.AnimateTextType.BY_WORD
 
-    # 単語の間の遅延を効果の持続時間の20％に設定します
+    # Sets the delay between words to 20% of effect duration
     first_effect.delay_between_text_parts = 20
 
-    # PPTXファイルをディスクに保存します
+    # Writes the PPTX file to disk
     pres.save("AnimTextBox_AnimateText.pptx", slides.export.SaveFormat.PPTX)
 
 ```
+
+## **FAQ**
+
+**プレゼンテーションを Web に公開する際にアニメーションを保持するにはどうすればよいですか？**  
+[HTML5 へのエクスポート](/slides/ja/python-net/export-to-html5/) を使用し、[shape](/slides/ja/python-net/aspose.slides.export/html5options/animate_shapes/) と [transition](/slides/ja/python-net/aspose.slides.export/html5options/animate_transitions/) アニメーションを有効にするオプションを設定します。プレーン HTML ではスライド アニメーションは再生されませんが、HTML5 では再生されます。  
+
+**シェイプの Z オーダー（レイヤー順）を変更するとアニメーションにどのような影響がありますか？**  
+アニメーションと描画順は独立しています。エフェクトは表示/非表示のタイミングとタイプを制御し、[z-order](https://reference.aspose.com/slides/python-net/aspose.slides/shape/z_order_position/) は何が何を覆うかを決定します。最終的な見た目は両者の組み合わせで決まります。（これは PowerPoint の一般的な動作であり、Aspose.Slides のモデルも同様です。）  
+
+**特定のエフェクトをビデオに変換する際に制限はありますか？**  
+一般に、[アニメーションはサポートされています](/slides/ja/python-net/convert-powerpoint-to-video/)、ただし稀なケースや特定のエフェクトは異なる形でレンダリングされる場合があります。使用するエフェクトとライブラリのバージョンでテストすることを推奨します。

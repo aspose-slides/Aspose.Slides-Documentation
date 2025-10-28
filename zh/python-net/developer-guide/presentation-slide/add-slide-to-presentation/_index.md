@@ -13,32 +13,55 @@ keywords:
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via .NET 轻松将幻灯片添加到 PowerPoint 和 OpenDocument 演示文稿中——几秒即可实现无缝且高效的插入。"
+description: "使用 Aspose.Slides for Python via .NET 轻松向 PowerPoint 和 OpenDocument 演示文稿添加幻灯片——在几秒钟内实现无缝、高效的幻灯片插入。"
 ---
 
-## **添加幻灯片到演示文稿**
-在讨论如何将幻灯片添加到演示文稿文件之前，让我们先讨论一些关于幻灯片的事实。每个 PowerPoint 演示文稿文件都包含母版/版式幻灯片和其他普通幻灯片。这意味着演示文稿文件至少包含一个或多个幻灯片。重要的是要知道，没有幻灯片的演示文稿文件不被 Aspose.Slides for Python via .NET 支持。每个幻灯片都有一个唯一的 Id，所有普通幻灯片按零基索引指定的顺序排列。Aspose.Slides for Python via .NET 允许开发者向他们的演示文稿中添加空幻灯片。要在演示文稿中添加空幻灯片，请按照以下步骤操作：
+## **概述**
 
-- 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-- 通过设置对演示文稿对象公开的 Slides（内容幻灯片对象的集合）属性的引用来实例化 [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) 类。
-- 通过调用 ISlideCollection 对象公开的 AddEmptySlide 方法，在内容幻灯片集合的末尾添加一个空幻灯片。
-- 对新添加的空幻灯片进行一些操作。
-- 最后，使用 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 对象写入演示文稿文件。
+在向演示文稿添加幻灯片之前，了解 PowerPoint 如何组织它们会很有帮助。每个演示文稿包含一个母版幻灯片，可选的布局幻灯片，以及一个或多个普通幻灯片。每个幻灯片都有唯一的 ID，普通幻灯片按从零开始的索引排序。本文展示如何使用 Aspose.Slides for Python 创建幻灯片并选择合适的布局。
+
+## **向演示文稿添加幻灯片**
+
+Aspose.Slides 允许您基于现有布局幻灯片追加新幻灯片。下面的示例遍历演示文稿中的每个布局，添加使用该布局的幻灯片，然后保存文件。
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
+2. 访问 [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/)。
+3. 对 `presentation.layout_slides` 中的每个项，调用 `add_empty_slide` 以追加使用该布局的幻灯片。
+4. 可选地修改新添加的幻灯片。
+5. 将演示文稿保存为 PPTX 文件。
 
 ```py
 import aspose.slides as slides
 
-# 实例化表示演示文稿文件的 Presentation 类
-with slides.Presentation() as pres:
-    # 实例化 SlideCollection 类
-    slds = pres.slides
+# Instantiate the Presentation class.
+with slides.Presentation() as presentation:
+    # Access the slide collection.
+    slides = presentation.slides
 
-    for i in range(len(pres.layout_slides)):
-        # 向幻灯片集合添加空幻灯片
-        slds.add_empty_slide(pres.layout_slides[i])
-        
-    # 对新添加的幻灯片进行一些操作
+    for layout_slide in presentation.layout_slides:
+        # Add an empty slide to the slide collection.
+        slides.add_empty_slide(layout_slide)
 
-    # 将 PPTX 文件保存到磁盘
-    pres.save("EmptySlide.pptx", slides.export.SaveFormat.PPTX)
+    # Do some work on the newly added slides.
+
+    # Save the presentation to disk.
+    presentation.save("empty_slides.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **常见问题**
+
+**我可以在特定位置插入新幻灯片，而不是仅在末尾吗？**
+
+是的。库支持幻灯片集合以及 [insert](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/insert_empty_slide/)/[clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/insert_clone/) 操作，您可以在所需的索引处添加幻灯片，而不仅仅是末尾。
+
+**基于布局添加幻灯片时，主题/样式会被保留吗？**
+
+会的。布局继承自其母版，新的幻灯片则继承所选布局及其关联的母版的格式。
+
+**在添加幻灯片之前，新“空白”演示文稿中会有什么幻灯片？**
+
+新创建的演示文稿已经包含一个索引为零的空白幻灯片。在计算插入索引时需要考虑到这一点。
+
+**如果母版有很多选项，我该如何为新幻灯片选择“正确”的布局？**
+
+通常选择符合所需结构的 [LayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/)（例如 [Title and Content、Two Content 等](https://reference.aspose.com/slides/python-net/aspose.slides/slidelayouttype/)）。如果缺少合适的布局，您可以 [add it to the master](/slides/zh/python-net/slide-layout/) 然后使用它。

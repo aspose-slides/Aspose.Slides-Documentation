@@ -4,7 +4,7 @@ linktitle: Visor de presentaciones
 type: docs
 weight: 50
 url: /es/python-net/presentation-viewer/
-keywords:
+keywords: 
 - ver presentación
 - visor de presentaciones
 - crear visor de presentaciones
@@ -15,133 +15,123 @@ keywords:
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Aprenda a crear un visor de presentaciones personalizado en Python usando Aspose.Slides. Visualice fácilmente archivos de PowerPoint (PPTX, PPT) y OpenDocument (ODP) sin Microsoft PowerPoint ni otro software de oficina."
+description: "Aprenda a crear un visor de presentaciones personalizado en Python usando Aspose.Slides. Visualice fácilmente archivos PowerPoint (PPTX, PPT) y OpenDocument (ODP) sin Microsoft PowerPoint ni otro software de oficina."
 ---
 
-Aspose.Slides para Python a través de .NET se utiliza para crear archivos de presentación, completos con diapositivas. Estas diapositivas se pueden ver abriendo presentaciones con Microsoft PowerPoint. Pero a veces, los desarrolladores también pueden necesitar ver diapositivas como imágenes en su visor de imágenes favorito o crear su propio visor de presentaciones. En tales casos, Aspose.Slides para Python a través de .NET le permite exportar una diapositiva individual a una imagen. Este artículo describe cómo hacerlo.
-## **Ejemplo en Vivo**
-Puede probar la aplicación gratuita [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) para ver lo que puede implementar con la API de Aspose.Slides:
+## **Visión general**
 
-![powerpoint-en-aspose-viewer](powerpoint-in-aspose-viewer.png)
+Aspose.Slides para Python se utiliza para crear archivos de presentación con diapositivas. Estas diapositivas pueden verse abriendo las presentaciones en Microsoft PowerPoint, por ejemplo. Sin embargo, los desarrolladores a veces necesitan ver las diapositivas como imágenes en su visor de imágenes preferido o utilizarlas en un visor de presentaciones personalizado. En esos casos, Aspose.Slides permite exportar diapositivas individuales como imágenes. Este artículo explica cómo hacerlo.
 
-## **Generar Imagen SVG desde Diapositiva**
-Para generar una imagen SVG desde cualquier diapositiva deseada con Aspose.Slides para Python, siga los pasos a continuación:
+## **Generar una imagen SVG a partir de una diapositiva**
 
-- Cree una instancia de la [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) clase.
-- Obtenga la referencia de la diapositiva deseada utilizando su ID o índice.
-- Obtenga la imagen SVG en un flujo de memoria.
-- Guarde el flujo de memoria en un archivo.
+Para generar una imagen SVG a partir de una diapositiva de presentación con Aspose.Slides, siga los pasos a continuación:
 
-```py
-import aspose.slides as slides
-
-# Instanciar una clase Presentation que representa el archivo de presentación
-with slides.Presentation(path + "CreateSlidesSVGImage.pptx") as pres:
-    # Acceder a la primera diapositiva
-    sld = pres.slides[0]
-
-    # Crear un objeto de flujo de memoria
-    with open("Aspose_out-1.svg", "wb") as svg_stream:
-        # Generar imagen SVG de la diapositiva y guardar en el flujo de memoria
-        sld.write_as_svg(svg_stream)
-```
-
-
-## **Generar SVG con IDs de Forma Personalizados**
-Aspose.Slides para Python a través de .NET se puede utilizar para generar [SVG ](https://docs.fileformat.com/page-description-language/svg/)de una diapositiva con ID de forma personalizada. Para ello, use la propiedad ID de [ISvgShape](https://reference.aspose.com/slides/python-net/aspose.slides.export/isvgshape/), que representa el ID personalizado de las formas en el SVG generado. CustomSvgShapeFormattingController se puede utilizar para establecer el ID de la forma.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. Obtenga una referencia a la diapositiva por su índice.
+3. Abra un flujo de archivo.
+4. Guarde la diapositiva como una imagen SVG en el flujo de archivo.
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "CreateSlidesSVGImage.pptx") as pres:
-    with open("Aspose_out-2.svg", "wb") as svg_stream:
-        svgOptions = slides.export.SVGOptions()
-        pres.slides[0].write_as_svg(svg_stream, svgOptions)
+slide_index = 0
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[slide_index]
+
+    with open("output.svg", "wb") as svg_stream:
+        slide.write_as_svg(svg_stream)
 ```
 
+## **Crear una miniatura de diapositiva**
 
-## **Crear Imagen en Miniatura de Diapositivas**
-Aspose.Slides para Python a través de .NET le ayuda a generar imágenes en miniatura de las diapositivas. Para generar la miniatura de cualquier diapositiva deseada utilizando Aspose.Slides para Python a través de .NET:
+Aspose.Slides le ayuda a generar imágenes miniatura de diapositivas. Para generar una miniatura de una diapositiva usando Aspose.Slides, siga los pasos a continuación:
 
-1. Cree una instancia de la [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) clase.
-1. Obtenga la referencia de cualquier diapositiva deseada utilizando su ID o índice.
-1. Obtenga la imagen en miniatura de la diapositiva referenciada en una escala especificada.
-1. Guarde la imagen en miniatura en cualquier formato de imagen deseado.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. Obtenga una referencia a la diapositiva por su índice.
+3. Cree una imagen miniatura de la diapositiva referenciada con la escala deseada.
+4. Guarde la imagen miniatura en el formato de imagen que prefiera.
 
 ```py
 import aspose.slides as slides
 
-# Instanciar una clase Presentation que representa el archivo de presentación
-with slides.Presentation("pres.pptx") as pres:
-    # Acceder a la primera diapositiva
-    sld = pres.slides[0]
+slide_index = 0
+scale_x = 1
+scale_y = scale_x
 
-    # Crear una imagen a escala completa
-    with sld.get_image(1, 1) as bmp:
-        # guardar la imagen en disco en formato JPEG
-        bmp.save("Thumbnail_out.jpg", slides.ImageFormat.JPEG)
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[slide_index]
+
+    with slide.get_image(scale_x, scale_y) as image:
+        image.save("output.jpg", slides.ImageFormat.JPEG)
 ```
 
+## **Crear una miniatura de diapositiva con dimensiones definidas por el usuario**
 
-## **Crear Miniatura con Dimensiones Definidas por el Usuario**
-1. Cree una instancia de la [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) clase.
-1. Obtenga la referencia de cualquier diapositiva deseada utilizando su ID o índice.
-1. Obtenga la imagen en miniatura de la diapositiva referenciada en una escala especificada.
-1. Guarde la imagen en miniatura en cualquier formato de imagen deseado.
+Para crear una imagen miniatura de diapositiva con dimensiones definidas por el usuario, siga los pasos a continuación:
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. Obtenga una referencia a la diapositiva por su índice.
+3. Genere una imagen miniatura de la diapositiva referenciada con las dimensiones especificadas.
+4. Guarde la imagen miniatura en el formato de imagen que prefiera.
 
 ```py
 import aspose.slides as slides
+import aspose.pydrawing as pydrawing
 
-# Instanciar una clase Presentation que representa el archivo de presentación
-with slides.Presentation("pres.pptx") as pres:
-    # Acceder a la primera diapositiva
-    sld = pres.slides[0]
+slide_index = 0
+slide_size = pydrawing.Size(1200, 800)
 
-    # Dimensiones definidas por el usuario
-    desiredX = 1200
-    desiredY = 800
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[slide_index]
 
-    # Obtener valor escalado de X e Y
-    ScaleX = (1.0 / pres.slide_size.size.width) * desiredX
-    ScaleY = (1.0 / pres.slide_size.size.height) * desiredY
-
-
-    # Crear una imagen a escala completa
-    with sld.get_image(ScaleX, ScaleY) as bmp:
-        # guardar la imagen en disco en formato JPEG
-        bmp.save("Thumbnail2_out.jpg", slides.ImageFormat.JPEG)
+    with slide.get_image(slide_size) as image:
+        image.save("output.jpg", slides.ImageFormat.JPEG)
 ```
 
+## **Crear una miniatura de diapositiva con notas del presentador**
 
-## **Crear Miniatura de Diapositiva en Vista de Notas**
-Para generar la miniatura de cualquier diapositiva deseada en Vista de Notas usando Aspose.Slides para Python a través de .NET:
+Para generar una miniatura de una diapositiva con notas del presentador usando Aspose.Slides, siga los pasos a continuación:
 
-1. Cree una instancia de la [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) clase.
-1. Obtenga la referencia de cualquier diapositiva deseada utilizando su ID o índice.
-1. Obtenga la imagen en miniatura de la diapositiva referenciada en una escala especificada en la vista de Notas.
-1. Guarde la imagen en miniatura en cualquier formato de imagen deseado.
-
-El fragmento de código a continuación produce una miniatura de la primera diapositiva de una presentación en Vista de Notas.
+1. Cree una instancia de la clase [RenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/renderingoptions/) .
+2. Utilice la propiedad `RenderingOptions.slides_layout_options` para establecer la posición de las notas del presentador.
+3. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+4. Obtenga una referencia a la diapositiva por su índice.
+5. Genere una imagen miniatura de la diapositiva referenciada usando las opciones de renderizado.
+6. Guarde la imagen miniatura en el formato de imagen que prefiera.
 
 ```py
-import aspose.slides as slides
+slide_index = 0
 
-# Instanciar una clase Presentation que representa el archivo de presentación
-with slides.Presentation("pres.pptx") as pres:
-    # Acceder a la primera diapositiva
-    sld = pres.slides[0]
+layout_options = slides.export.NotesCommentsLayoutingOptions()
+layout_options.notes_position = slides.export.NotesPositions.BOTTOM_TRUNCATED
 
-    # Dimensiones definidas por el usuario
-    desiredX = 1200
-    desiredY = 800
+rendering_options = slides.export.RenderingOptions()
+rendering_options.slides_layout_options = layout_options
 
-    # Obtener valor escalado de X e Y
-    ScaleX = (1.0 / pres.slide_size.size.width) * desiredX
-    ScaleY = (1.0 / pres.slide_size.size.height) * desiredY
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[slide_index]
 
-   
-    # Crear una imagen a escala completa                
-    with sld.get_image(ScaleX, ScaleY) as bmp:
-        # guardar la imagen en disco en formato JPEG
-        bmp.save("Notes_tnail_out.jpg", slides.ImageFormat.JPEG)
+    with slide.get_image(rendering_options) as image:
+        image.save("output.png", slides.ImageFormat.PNG)
 ```
+
+## **Ejemplo en vivo**
+
+Pruebe la aplicación gratuita [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) para ver lo que puede implementar con la API de Aspose.Slides:
+
+[![Online PowerPoint Viewer](online-PowerPoint-viewer.png)](https://products.aspose.app/slides/viewer/)
+
+## **Preguntas frecuentes**
+
+**¿Puedo incrustar un visor de presentaciones en una aplicación web ASP.NET?**
+
+Sí. Puede usar Aspose.Slides del lado del servidor para renderizar diapositivas como [images](/slides/es/python-net/convert-powerpoint-to-png/) o [HTML](/slides/es/python-net/convert-powerpoint-to-html/) y mostrarlas en el navegador. Las funciones de navegación y zoom pueden implementarse con JavaScript para una experiencia interactiva.
+
+**¿Cuál es la mejor manera de mostrar diapositivas dentro de un visor .NET personalizado?**
+
+El enfoque recomendado es renderizar cada diapositiva como una [image](/slides/es/python-net/convert-powerpoint-to-png/) (por ejemplo, PNG o SVG) o convertirla a [HTML](/slides/es/python-net/convert-powerpoint-to-html/) usando Aspose.Slides, y luego mostrar el resultado dentro de un control de imagen (para escritorio) o un contenedor HTML (para web).
+
+**¿Cómo manejo presentaciones grandes con muchas diapositivas?**
+
+Para presentaciones extensas, considere la carga diferida (lazy‑loading) o el renderizado bajo demanda de las diapositivas. Esto implica generar el contenido de una diapositiva solo cuando el usuario navega a ella, reduciendo el uso de memoria y el tiempo de carga.

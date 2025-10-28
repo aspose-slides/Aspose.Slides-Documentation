@@ -1,5 +1,5 @@
 ---
-title: Administra los fondos de presentación en Python
+title: Administrar fondos de presentación en Python
 linktitle: Fondo de diapositiva
 type: docs
 weight: 20
@@ -17,173 +17,223 @@ keywords:
 - presentación
 - Python
 - Aspose.Slides
-description: "Aprende a configurar fondos dinámicos en archivos de PowerPoint y OpenDocument usando Aspose.Slides for Python via .NET, con consejos de código para mejorar tus presentaciones."
+description: "Aprenda a establecer fondos dinámicos en archivos PowerPoint y OpenDocument usando Aspose.Slides para Python a través de .NET, con consejos de código para mejorar sus presentaciones."
 ---
 
-Los colores sólidos, colores degradados e imágenes se utilizan a menudo como imágenes de fondo para las diapositivas. Puedes establecer el fondo tanto para una **diapositiva normal** (diapositiva única) como para una **diapositiva maestra** (varias diapositivas a la vez).
+## **Visión general**
 
-<img src="powerpoint-background.png" alt="powerpoint-background"  />
+Los colores sólidos, los degradados y las imágenes se usan comúnmente como fondos de diapositivas. Puede establecer el fondo para una **diapositiva normal** (una sola diapositiva) o una **diapositiva maestra** (se aplica a varias diapositivas a la vez).
 
-## **Establecer Color Sólido como Fondo para Diapositiva Normal**
+![Fondo de PowerPoint](powerpoint-background.png)
 
-Aspose.Slides te permite establecer un color sólido como fondo para una diapositiva específica en una presentación (incluso si esa presentación contiene una diapositiva maestra). El cambio de fondo afecta solo a la diapositiva seleccionada.
+## **Establecer un fondo de color sólido para una diapositiva normal**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Establece el enum [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) para la diapositiva en `OwnBackground`.
-3. Establece el enum [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) para el fondo de la diapositiva en `Solid`.
-4. Utiliza la propiedad [SolidFillColor](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties) expuesta por [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) para especificar un color sólido para el fondo.
-5. Guarda la presentación modificada.
+Aspose.Slides le permite establecer un color sólido como fondo para una diapositiva específica en una presentación, incluso si la presentación utiliza una diapositiva maestra. El cambio se aplica solo a la diapositiva seleccionada.
 
-Este código en Python te muestra cómo establecer un color sólido (azul) como fondo para una diapositiva normal:
-
-```python
-import aspose.pydrawing as draw
-import aspose.slides as slides
-
-# Crea una instancia de la clase Presentation
-with slides.Presentation() as pres:
-    # Establece el color de fondo para la primera ISlide en azul
-    pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
-    pres.slides[0].background.fill_format.fill_type = slides.FillType.SOLID
-    pres.slides[0].background.fill_format.solid_fill_color.color = draw.Color.blue
-    # Escribe la presentación en disco
-    pres.save("ContentBG_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Establecer Color Sólido como Fondo para Diapositiva Maestra**
-
-Aspose.Slides te permite establecer un color sólido como fondo para la diapositiva maestra en una presentación. La diapositiva maestra actúa como una plantilla que contiene y controla las configuraciones de formato para todas las diapositivas. Por lo tanto, cuando seleccionas un color sólido como el fondo para la diapositiva maestra, ese nuevo fondo se utilizará para todas las diapositivas.
-
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Establece el enum [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) para la diapositiva maestra (`Masters`) en `OwnBackground`.
-3. Establece el enum [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) para el fondo de la diapositiva maestra en `Solid`.
-4. Utiliza la propiedad [SolidFillColor](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties) expuesta por [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) para especificar un color sólido para el fondo.
-5. Guarda la presentación modificada.
-
-Este código en Python te muestra cómo establecer un color sólido (verde bosque) como fondo para una diapositiva maestra en una presentación:
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Establezca el [BackgroundType] de la diapositiva a `OWN_BACKGROUND`.
+3. Establezca el [FillType] del fondo de la diapositiva a `SOLID`.
+4. Utilice la propiedad `solid_fill_color` en [FillFormat] para especificar el color sólido de fondo.
+5. Guarde la presentación modificada.
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Crea una instancia de la clase Presentation
-with slides.Presentation() as pres:
-    # Establece el color de fondo para la Master ISlide en Verde Bosque
-    pres.masters[0].background.type = slides.BackgroundType.OWN_BACKGROUND
-    pres.masters[0].background.fill_format.fill_type = slides.FillType.SOLID
-    pres.masters[0].background.fill_format.solid_fill_color.color = draw.Color.forest_green
+# Create an instance of the Presentation class.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Escribe la presentación en disco
-    pres.save("SetSlideBackgroundMaster_out.pptx", slides.export.SaveFormat.PPTX)
+    # Set the background color of the slide to blue.
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.blue
+
+    # Save the presentation to disk.
+    presentation.save("SolidColorBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Establecer Color Degradado como Fondo para Diapositiva**
+## **Establecer un fondo de color sólido para la diapositiva maestra**
 
-Un degradado es un efecto gráfico basado en un cambio gradual de color. Los colores degradados, cuando se utilizan como fondos para diapositivas, hacen que las presentaciones se vean artísticas y profesionales. Aspose.Slides te permite establecer un color degradado como fondo para las diapositivas en presentaciones.
+Aspose.Slides le permite establecer un color sólido como fondo para la diapositiva maestra en una presentación. La diapositiva maestra actúa como plantilla que controla el formato de todas las diapositivas, por lo que al elegir un color sólido para el fondo de la diapositiva maestra, se aplica a cada diapositiva.
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Establece el enum [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) para la diapositiva en `OwnBackground`.
-3. Establece el enum [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) para el fondo de la diapositiva maestra en `Gradient`.
-4. Utiliza la propiedad [GradientFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties) expuesta por [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) para especificar tu configuración de degradado preferida.
-5. Guarda la presentación modificada.
-
-Este código en Python te muestra cómo establecer un color degradado como fondo para una diapositiva:
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Establezca el [BackgroundType] de la diapositiva maestra (a través de `masters`) a `OWN_BACKGROUND`.
+3. Establezca el [FillType] del fondo de la diapositiva maestra a `SOLID`.
+4. Utilice la propiedad `solid_fill_color` en [FillFormat] para especificar el color sólido de fondo.
+5. Guarde la presentación modificada.
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Crea una instancia de la clase Presentation
-with slides.Presentation(path + "SetBackgroundToGradient.pptx") as pres:
-    # Aplica el efecto de degradado al fondo
-    pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
-    pres.slides[0].background.fill_format.fill_type = slides.FillType.GRADIENT
-    pres.slides[0].background.fill_format.gradient_format.tile_flip = slides.TileFlip.FLIP_BOTH
+# Create an instance of the Presentation class.
+with slides.Presentation() as presentation:
+    master_slide = presentation.masters[0]
 
-    # Escribe la presentación en disco
-    pres.save("ContentBG_Grad_out.pptx", slides.export.SaveFormat.PPTX)
+    # Set the background color for the Master slide to Forest Green.
+    master_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    master_slide.background.fill_format.fill_type = slides.FillType.SOLID
+    master_slide.background.fill_format.solid_fill_color.color = draw.Color.forest_green
+
+    # Save the presentation to disk.
+    presentation.save("MasterSlideBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Establecer Imagen como Fondo para Diapositiva**
+## **Establecer un fondo degradado para una diapositiva**
 
-Además de colores sólidos y colores degradados, Aspose.Slides también te permite establecer imágenes como fondo para las diapositivas en presentaciones.
+Un degradado es un efecto gráfico creado por un cambio gradual de color. Cuando se usa como fondo de diapositiva, los degradados pueden hacer que las presentaciones parezcan más artísticas y profesionales. Aspose.Slides le permite establecer un color degradado como fondo para las diapositivas.
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Establece el enum [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) para la diapositiva en `OwnBackground`.
-3. Establece el enum [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) para el fondo de la diapositiva maestra en `Picture`.
-4. Carga la imagen que deseas usar como fondo de la diapositiva.
-5. Agrega la imagen a la colección de imágenes de la presentación.
-6. Utiliza la propiedad [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties) expuesta por [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) para establecer la imagen como fondo.
-7. Guarda la presentación modificada.
-
-Este código en Python te muestra cómo establecer una imagen como fondo para una diapositiva:
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Establezca el [BackgroundType] de la diapositiva a `OWN_BACKGROUND`.
+3. Establezca el [FillType] del fondo de la diapositiva a `GRADIENT`.
+4. Utilice la propiedad `gradient_format` en [FillFormat] para configurar los ajustes de degradado deseados.
+5. Guarde la presentación modificada.
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Crea una instancia de la clase Presentation
-with slides.Presentation(path + "SetImageAsBackground.pptx") as pres:
-    # Establece condiciones para la imagen de fondo
-    pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
-    pres.slides[0].background.fill_format.fill_type = slides.FillType.PICTURE
-    pres.slides[0].background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+# Create an instance of the Presentation class.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Carga la imagen
-    img = draw.Bitmap(path + "Tulips.jpg")
+    # Apply a gradient effect to the background.
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.GRADIENT
+    slide.background.fill_format.gradient_format.tile_flip = slides.TileFlip.FLIP_BOTH
 
-    # Agrega la imagen a la colección de imágenes de la presentación
-    imgx = pres.images.add_image(img)
-
-    pres.slides[0].background.fill_format.picture_fill_format.picture.image = imgx
-
-    # Escribe la presentación en disco
-    pres.save("ContentBG_Img_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("GradientBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Cambiar Transparencia de la Imagen de Fondo**
+## **Establecer una imagen como fondo de diapositiva**
 
-Puede que quieras ajustar la transparencia de la imagen de fondo de una diapositiva para que los contenidos de la diapositiva se destaquen. Este código en Python te muestra cómo cambiar la transparencia para una imagen de fondo de diapositiva:
+Además de los rellenos sólidos y degradados, Aspose.Slides le permite usar imágenes como fondos de diapositivas.
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Establezca el [BackgroundType] de la diapositiva a `OWN_BACKGROUND`.
+3. Establezca el [FillType] del fondo de la diapositiva a `PICTURE`.
+4. Cargue la imagen que desea usar como fondo de la diapositiva.
+5. Añada la imagen a la colección de imágenes de la presentación.
+6. Utilice la propiedad `picture_fill_format` en [FillFormat] para asignar la imagen como fondo.
+7. Guarde la presentación modificada.
 
 ```python
-transparencyValue = 30 # por ejemplo
+import aspose.slides as slides
 
-# Obtiene una colección de operaciones de transformación de imagen
-imageTransform = pres.slides[0].background.fill_format.picture_fill_format.picture.image_transform
+# Create an instance of the Presentation class.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-transparencyOperation = None
-# Busca un efecto de transparencia con porcentaje fijo.
-for operation in imageTransform:
+    # Set background image properties.
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.PICTURE
+    slide.background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+
+    # Load the image.
+    with slides.Images.from_file("Tulips.jpg") as image:
+        # Add the image to the presentation's image collection.
+        pp_image = presentation.images.add_image(image)
+
+    slide.background.fill_format.picture_fill_format.picture.image = pp_image
+
+    # Save the presentation to disk.
+    presentation.save("ImageAsBackground.pptx", slides.export.SaveFormat.PPTX)
+```
+
+El siguiente fragmento de código muestra cómo establecer el tipo de relleno de fondo a una imagen en mosaico y modificar las propiedades de teselado:
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+
+    first_slide = presentation.slides[0]
+
+    background = first_slide.background
+
+    background.type = slides.BackgroundType.OWN_BACKGROUND
+    background.fill_format.fill_type = slides.FillType.PICTURE
+
+    with slides.Images.from_file("image.png") as new_image:
+        pp_image = presentation.images.add_image(new_image)
+
+    # Set the image used for the background fill.
+    back_picture_fill_format = background.fill_format.picture_fill_format
+    back_picture_fill_format.picture.image = pp_image
+
+    # Set the picture fill mode to Tile and adjust the tile properties.
+    back_picture_fill_format.picture_fill_mode = slides.PictureFillMode.TILE
+    back_picture_fill_format.tile_offset_x = 15.0
+    back_picture_fill_format.tile_offset_y = 15.0
+    back_picture_fill_format.tile_scale_x = 46.0
+    back_picture_fill_format.tile_scale_y = 87.0
+    back_picture_fill_format.tile_alignment = slides.RectangleAlignment.CENTER
+    back_picture_fill_format.tile_flip = slides.TileFlip.FLIP_Y
+
+    presentation.save("TileBackground.pptx", slides.export.SaveFormat.PPTX)
+```
+
+{{% alert color="primary" %}}
+Leer más: [**Imagen en mosaico como textura**](/slides/es/python-net/shape-formatting/#tile-picture-as-texture).
+{{% /alert %}}
+
+### **Cambiar la transparencia de la imagen de fondo**
+
+Puede que desee ajustar la transparencia de la imagen de fondo de una diapositiva para que el contenido de la diapositiva destaque. El siguiente código Python muestra cómo cambiar la transparencia de la imagen de fondo de una diapositiva:
+
+```python
+transparency_value = 30  # For example.
+
+# Get the collection of picture transform operations.
+image_transform = slide.background.fill_format.picture_fill_format.picture.image_transform
+
+transparency_operation = None
+
+# Find an existing fixed-percentage transparency effect.
+for operation in image_transform:
     if type(operation) is slides.AlphaModulateFixed:
-        transparencyOperation = operation
+        transparency_operation = operation
         break
 
-# Establece el nuevo valor de transparencia.
-if transparencyOperation is None:
-    imageTransform.add_alpha_modulate_fixed_effect(100 - transparencyValue)
+# Set the new transparency value.
+if transparency_operation is None:
+    image_transform.add_alpha_modulate_fixed_effect(100 - transparency_value)
 else:
-    transparencyOperation.amount = (100 - transparencyValue)
+    transparency_operation.amount = 100 - transparency_value
 ```
 
-## **Obtener Valor del Fondo de Diapositiva**
+## **Obtener el valor del fondo de la diapositiva**
 
-Aspose.Slides proporciona la interfaz [IBackgroundEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/) para permitirte obtener los valores efectivos de los fondos de las diapositivas. Esta interfaz contiene información sobre el [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/#properties) efectivo y el [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/#properties) efectivo.
+Aspose.Slides proporciona la clase [IBackgroundEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/) para obtener los valores efectivos del fondo de una diapositiva. Esta clase expone el [FillFormat] y [EffectFormat] efectivos.
 
-Utilizando la propiedad [Background](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/#properties) de la clase [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/), puedes obtener el valor efectivo para el fondo de una diapositiva.
+Usando la propiedad `background` de la clase [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/), puede obtener el fondo efectivo de una diapositiva.
 
-Este código en Python te muestra cómo obtener el valor efectivo del fondo de una diapositiva:
+El siguiente ejemplo en Python muestra cómo obtener el valor efectivo del fondo de una diapositiva:
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Crea una instancia de la clase Presentation
-with slides.Presentation(path + "SamplePresentation.pptx") as pres:
+# Create an instance of the Presentation class.
+with slides.Presentation("Sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    effBackground = pres.slides[0].background.get_effective()
+    # Retrieve the effective background, taking into account master, layout, and theme.
+    effective_background = slide.background.get_effective()
 
-    if effBackground.fill_format.fill_type == slides.FillType.SOLID:
-        print("Color de relleno: " + str(effBackground.fill_format.solid_fill_color))
+    if effective_background.fill_format.fill_type == slides.FillType.SOLID:
+        color = effective_background.fill_format.solid_fill_color
+        print(f"Fill color: Color [A={color.a}, R={color.r}, G={color.g}, B={color.b}]")
     else:
-        print("Tipo de relleno: " + str(effBackground.fill_format.fill_type))
+        print("Fill type:", str(effective_background.fill_format.fill_type))
 ```
+
+## **Preguntas frecuentes**
+
+**¿Puedo restablecer un fondo personalizado y restaurar el fondo del tema/disposición?**
+
+Sí. Elimine el relleno personalizado de la diapositiva y el fondo volverá a heredarse del [layout](/slides/es/python-net/slide-layout/)/[master](/slides/es/python-net/slide-master/) correspondiente (es decir, del [theme background](/slides/es/python-net/presentation-theme/)).
+
+**¿Qué ocurre con el fondo si cambio el tema de la presentación más tarde?**
+
+Si una diapositiva tiene su propio relleno, permanecerá sin cambios. Si el fondo se hereda del [layout](/slides/es/python-net/slide-layout/)/[master](/slides/es/python-net/slide-master/), se actualizará para coincidir con el [new theme](/slides/es/python-net/presentation-theme/).

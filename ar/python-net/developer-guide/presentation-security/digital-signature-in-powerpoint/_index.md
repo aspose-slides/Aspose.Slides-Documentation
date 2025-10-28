@@ -1,31 +1,37 @@
 ---
-title: التوقيع الرقمي في PowerPoint
+title: إضافة توقيعات رقمية إلى العروض التقديمية باستخدام بايثون
+linktitle: التوقيع الرقمي
 type: docs
 weight: 10
 url: /ar/python-net/digital-signature-in-powerpoint/
-keywords: "شهادة التوقيع الرقمي، هيئة الشهادات، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
-description: "إضافة توقيع رقمي أو شهادة في PowerPoint. هيئة الشهادات في بايثون"
+keywords:
+- التوقيع الرقمي
+- الشهادة الرقمية
+- سلطة الشهادة
+- شهادة PFX
+- PowerPoint
+- OpenDocument
+- العرض التقديمي
+- Python
+- Aspose.Slides
+description: تعلم كيفية توقيع ملفات PowerPoint و OpenDocument رقميًا باستخدام Aspose.Slides للبايثون عبر .NET. احمِ شرائحك في ثوانٍ مع أمثلة شفرة واضحة.
 ---
 
-
-**الشهادة الرقمية** تُستخدم لإنشاء عرض PowerPoint محمي بكلمة مرور، مُعلّم كأنه تم إنشاؤه بواسطة منظمة أو شخص معين. يمكن الحصول على الشهادة الرقمية عن طريق الاتصال بمنظمة مرخصة - هيئة الشهادات. بعد تثبيت الشهادة الرقمية في النظام، يمكن استخدامها لإضافة توقيع رقمي إلى العرض عبر ملف -> معلومات -> حماية العرض:
+**الشهادة الرقمية** تُستخدم لإنشاء عرض PowerPoint محمي بكلمة مرور، مع وضع علامة بأنه تم إنشاؤه بواسطة منظمة أو شخص معين. يمكن الحصول على الشهادة الرقمية عن طريق التواصل مع منظمة معتمدة – سلطة الشهادة. بعد تثبيت الشهادة الرقمية في النظام، يمكن استخدامها لإضافة توقيع رقمي إلى العرض عبر ملف -> معلومات -> حماية العرض:
 
 ![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
 
-
-
-يمكن أن يحتوي العرض على أكثر من توقيع رقمي واحد. بعد إضافة التوقيع الرقمي إلى العرض، ستظهر رسالة خاصة في PowerPoint:
+قد يحتوي العرض على أكثر من توقيع رقمي. بعد إضافة التوقيع الرقمي إلى العرض، ستظهر رسالة خاصة في PowerPoint:
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
 
+لتوقيع العرض أو التحقق من صحة توقيعات العرض، توفر Aspose.Slides API واجهة **IDigitalSignature**، وواجهة **IDigitalSignatureCollection**، وخاصية **IPresentation.DigitalSignatures**. حاليًا، تُدعم التوقيعات الرقمية لتنسيق PPTX فقط.
 
-
-لتوقيع العرض أو التحقق من صحة توقيعات العرض، توفر **واجهة برمجة تطبيقات Aspose.Slides** [**IDigitalSignature** ](https://reference.aspose.com/slides/python-net/aspose.slides/idigitalsignature/)و [**IDigitalSignatureCollection** ](https://reference.aspose.com/slides/python-net/aspose.slides/IDigitalSignatureCollection/)و[ **IPresentation.DigitalSignatures**](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentation/) خاصية. حاليًا، يتم دعم التوقيعات الرقمية لصيغة PPTX فقط.
 ## **إضافة توقيع رقمي من شهادة PFX**
-يظهر نموذج الكود أدناه كيفية إضافة توقيع رقمي من شهادة PFX:
+يبين المثال البرمجي أدناه كيفية إضافة توقيع رقمي من شهادة PFX:
 
-1. افتح ملف PFX وأدخل كلمة مرور PFX إلى [**DigitalSignature** ](https://reference.aspose.com/slides/python-net/aspose.slides/digitalsignature/)الكائن.
-1. أضف التوقيع الذي تم إنشاؤه إلى كائن العرض.
+1. افتح ملف PFX ومرّر كلمة مرور PFX إلى كائن **DigitalSignature**.
+2. أضف التوقيع المُنشأ إلى كائن العرض.
 
 ```py
 
@@ -34,33 +40,31 @@ description: "إضافة توقيع رقمي أو شهادة في PowerPoint. ه
 import aspose.slides as slides
 
 with slides.Presentation() as pres:
-    # إنشاء كائن DigitalSignature مع ملف PFX وكلمة مرور PFX 
+    # Create DigitalSignature object with PFX file and PFX password 
     signature = slides.DigitalSignature(path + "testsignature1.pfx", "testpass1")
 
-    # تعليق على التوقيع الرقمي الجديد
-    signature.comments = "اختبار التوقيع الرقمي لـ Aspose.Slides."
+    # Comment new digital signature
+    signature.comments = "Aspose.Slides digital signing test."
 
-    # إضافة التوقيع الرقمي إلى العرض
+    # Add digital signature to presentation
     pres.digital_signatures.add(signature)
 
-    # حفظ العرض
+    # save presentation
     pres.save("SomePresentationSigned.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
 
-الآن يمكن التحقق مما إذا كان العرض قد تم توقيعه رقمياً ولم يتم تعديله:
-
-
+الآن يمكن التحقق مما إذا كان العرض موقّعًا رقميًا ولم يتم تعديله:
 
 ```py
-# فتح العرض
+# Open presentation
 with slides.Presentation("SomePresentationSigned.pptx") as pres:
     if len(pres.digital_signatures) > 0:
         allSignaturesAreValid = True
 
-        print("التوقيعات التي تمت استخدامها لتوقيع العرض: ")
-        # تحقق مما إذا كانت جميع التوقيعات الرقمية صالحة
+        print("Signatures used to sign the presentation: ")
+        # Check if all digital signatures are valid
         for signature in pres.digital_signatures :
             print(signature.certificate.subject_name.name + ", "
                     + signature.sign_time.strftime("yyyy-MM-dd HH:mm") + " -- " + "VALID" if signature.is_valid else "INVALID")
@@ -68,7 +72,21 @@ with slides.Presentation("SomePresentationSigned.pptx") as pres:
         
 
         if allSignaturesAreValid:
-            print("العرض أصلي، جميع التوقيعات صالحة.")
+            print("Presentation is genuine, all signatures are valid.")
         else:
-            print("تم تعديل العرض منذ التوقيع.")
+            print("Presentation has been modified since signing.")
 ```
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني إزالة التوقيعات الموجودة من ملف؟**
+
+نعم. تدعم مجموعة التوقيعات الرقمية [إزالة العناصر الفردية](https://reference.aspose.com/slides/python-net/aspose.slides/digitalsignaturecollection/remove_at/) و[مسحها بالكامل](https://reference.aspose.com/slides/python-net/aspose.slides/digitalsignaturecollection/clear/)؛ بعد حفظ الملف، لن يحتوي العرض على أي توقيعات.
+
+**هل يصبح الملف "للقراءة فقط" بعد التوقيع؟**
+
+لا. يحافظ التوقيع على النزاهة والملكية لكنه لا يمنع التعديلات. لتقييد التحرير، اجمعه مع ["للقراءة فقط" أو كلمة مرور](/slides/ar/python-net/password-protected-presentation/).
+
+**هل سيظهر التوقيع بشكل صحيح في إصدارات مختلفة من PowerPoint؟**
+
+تم إنشاء التوقيع لحاوية OOXML (PPTX). تعرض إصدارات PowerPoint الحديثة التي تدعم توقيعات OOXML حالة هذه التوقيعات بشكل صحيح.

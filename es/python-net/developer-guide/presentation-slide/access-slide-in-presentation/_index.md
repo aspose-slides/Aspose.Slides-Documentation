@@ -1,96 +1,111 @@
 ---
-title: Acceder a la Diapositiva en la Presentación
+title: Acceder a diapositivas en presentaciones con Python
+linktitle: Acceder a diapositiva
 type: docs
 weight: 20
 url: /es/python-net/access-slide-in-presentation/
-keywords: "Acceder a la Presentación de PowerPoint, Acceder a diapositiva, Editar propiedades de la diapositiva, Cambiar posición de la diapositiva, Establecer número de diapositiva, índice, ID, posición Python, Aspose.Slides"
-description: "Acceder a la diapositiva de PowerPoint por índice, ID o posición en Python. Editar propiedades de la diapositiva"
+keywords:
+- acceder a diapositiva
+- índice de diapositiva
+- id de diapositiva
+- posición de diapositiva
+- cambiar posición
+- propiedades de la diapositiva
+- número de diapositiva
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Aprenda cómo acceder y administrar diapositivas en presentaciones de PowerPoint y OpenDocument con Aspose.Slides para Python a través de .NET. Mejore la productividad con ejemplos de código."
 ---
 
-Aspose.Slides te permite acceder a las diapositivas de dos maneras: por índice y por ID.
+## **Descripción general**
 
-## **Acceder a la Diapositiva por Índice**
+Este artículo explica cómo acceder a diapositivas específicas en una presentación de PowerPoint usando Aspose.Slides para Python. Muestra cómo abrir una presentación, referenciar diapositivas por índice o por ID único, y leer información básica de la diapositiva necesaria para la navegación dentro del archivo. Con estas técnicas, podrá localizar de manera fiable la diapositiva exacta que desea inspeccionar o procesar.
 
-Todas las diapositivas en una presentación están organizadas numéricamente según la posición de la diapositiva comenzando desde 0. La primera diapositiva se puede acceder a través del índice 0; la segunda diapositiva se accede a través del índice 1; etc.
+## **Acceder a una diapositiva por índice**
 
-La clase Presentation, que representa un archivo de presentación, expone todas las diapositivas como una colección [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) (colección de objetos [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/)). Este código Python te muestra cómo acceder a una diapositiva a través de su índice:
+Las diapositivas en una presentación se indexan por posición comenzando en 0. La primera diapositiva tiene índice 0, la segunda tiene índice 1, y así sucesivamente.
+
+La clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) (que representa un archivo de presentación) expone diapositivas a través de una [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) de objetos [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/).
+
+El siguiente código Python muestra cómo acceder a una diapositiva por su índice:
 
 ```python
 import aspose.slides as slides
 
-# Instancia un objeto Presentation que representa un archivo de presentación
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Obtiene la referencia de una diapositiva a través de su índice
+# Create a Presentation that represents a presentation file.
+with slides.Presentation("sample.pptx") as presentation:
+    # Get a slide by its index.
     slide = presentation.slides[0]
 ```
 
-## **Acceder a la Diapositiva por ID**
+## **Acceder a una diapositiva por ID**
 
-Cada diapositiva en una presentación tiene un ID único asociado a ella. Puedes usar el método `get_slide_by_id(id)` (expuesto por la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)) para apuntar a ese ID. Este código Python te muestra cómo proporcionar un ID de diapositiva válido y acceder a esa diapositiva a través del método `get_slide_by_id(id)`:
+Cada diapositiva en una presentación tiene un ID único asociado. Puede usar el método [get_slide_by_id](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_slide_by_id/) (expuesto por la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)) para dirigirse a ese ID. 
+
+El siguiente código Python muestra cómo proporcionar un ID de diapositiva válido y acceder a esa diapositiva mediante el método [get_slide_by_id](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_slide_by_id/):
 
 ```python
 import aspose.slides as slides
 
-# Instancia un objeto Presentation que representa un archivo de presentación
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Obtiene un ID de Diapositiva
+# Create a Presentation that represents a presentation file.
+with slides.Presentation("sample.pptx") as presentation:
+    # Get a slide ID.
     id = presentation.slides[0].slide_id
-    # Accede a la diapositiva a través de su ID
+    # Access the slide by its ID.
     slide = presentation.get_slide_by_id(id)
 ```
 
-## **Cambiar la Posición de la Diapositiva**
+## **Cambiar la posición de una diapositiva**
 
-Aspose.Slides te permite cambiar la posición de una diapositiva. Por ejemplo, puedes especificar que la primera diapositiva debe convertirse en la segunda diapositiva.
+Aspose.Slides le permite cambiar la posición de una diapositiva. Por ejemplo, puede hacer que la primera diapositiva se convierta en la segunda.
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Obtén la referencia de la diapositiva (cuyo posición deseas cambiar) a través de su índice.
-1. Establece una nueva posición para la diapositiva a través de la propiedad `slide_number`. 
-1. Guarda la presentación modificada.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Obtener una referencia a la diapositiva cuya posición desea cambiar por su índice.
+1. Establecer una nueva posición para la diapositiva mediante la propiedad [slide_number](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_number/).
+1. Guardar la presentación modificada.
 
-Este código Python demuestra una operación en la que la diapositiva en la posición 1 se mueve a la posición 2:
+El siguiente código Python mueve la diapositiva en la posición 1 a la posición 2:
 
 ```python
 import aspose.slides as slides
 
-# Instancia un objeto Presentation que representa un archivo de presentación
-with slides.Presentation(path + "ChangePosition.pptx") as pres:
-    # Obtiene la diapositiva cuya posición será cambiada
-    sld = pres.slides[0]
-    # Establece la nueva posición para la diapositiva
-    sld.slide_number = 2
-    # Guarda la presentación modificada
-    pres.save("Aspose_out.pptx", slides.export.SaveFormat.PPTX)
+# Instantiate a Presentation object that represents a presentation file.
+with slides.Presentation("sample.pptx") as presentation:
+    # Get the slide whose position will be changed.
+    slide = presentation.slides[0]
+    # Set the new position for the slide.
+    slide.slide_number = 2
+    # Save the modified presentation.
+    presentation.save("slide_number.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-La primera diapositiva se convirtió en la segunda; la segunda diapositiva se convirtió en la primera. Cuando cambias la posición de una diapositiva, otras diapositivas se ajustan automáticamente.
+La primera diapositiva se convierte en la segunda; la segunda diapositiva se convierte en la primera. Cuando cambia la posición de una diapositiva, las demás diapositivas se ajustan automáticamente.
 
+## **Establecer el número de diapositiva**
 
-## **Establecer Número de Diapositiva**
+Usando la propiedad [first_slide_number](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/first_slide_number/) (expuesta por la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)), puede especificar un nuevo número para la primera diapositiva de una presentación. Esta operación hace que los demás números de diapositiva se recalculen.
 
-Usando la propiedad `first_slide_number` (expuesta por la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)), puedes especificar un nuevo número para la primera diapositiva en una presentación. Esta operación hace que los números de las otras diapositivas se recalculen.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Establecer el número de diapositiva.
+1. Guardar la presentación modificada.
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Obtén el número de la diapositiva.
-1. Establece el número de la diapositiva.
-1. Guarda la presentación modificada.
-
-Este código Python demuestra una operación donde se establece el número de la primera diapositiva en 10:
+El siguiente código Python demuestra una operación donde el número de la primera diapositiva se establece en 10:
 
 ```python
 import aspose.slides as slides
 
-# Instancia un objeto Presentation que representa un archivo de presentación
-with slides.Presentation(path + "HelloWorld.pptx") as presentation:
-    # Obtiene el número de la diapositiva
-    firstSlideNumber = presentation.first_slide_number
-    # Establece el número de la diapositiva
+# Instantiate a Presentation object that represents a presentation file.
+with slides.Presentation("sample.pptx") as presentation:
+    # Set the slide number.
     presentation.first_slide_number = 10
-    # Guarda la presentación modificada
-    presentation.save("Set_Slide_Number_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the modified presentation.
+    presentation.save("first_slide_number.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Si prefieres omitir la primera diapositiva, puedes comenzar la numeración desde la segunda diapositiva (y ocultar la numeración de la primera diapositiva) de esta manera:
+Si prefiere omitir la primera diapositiva, puede comenzar la numeración a partir de la segunda diapositiva (y ocultar el número en la primera diapositiva) de la siguiente manera:
 
 ```python
 import aspose.slides as slides
@@ -101,15 +116,29 @@ with slides.Presentation() as presentation:
     presentation.slides.add_empty_slide(layout_slide)
     presentation.slides.add_empty_slide(layout_slide)
 
-    # Establece el número para la primera diapositiva de la presentación
+    # Set the number for the first slide in the presentation.
     presentation.first_slide_number = 0
 
-    # Muestra los números de diaposa para todas las diapositivas
+    # Show slide numbers for all slides.
     presentation.header_footer_manager.set_all_slide_numbers_visibility(True)
 
-    # Oculta el número de la diapositiva para la primera diapositiva
+    # Hide the slide number on the first slide.
     presentation.slides[0].header_footer_manager.set_slide_number_visibility(False)
 
-    # Guarda la presentación modificada
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    # Save the modified presentation.
+    presentation.save("first_slide_number.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Preguntas frecuentes**
+
+**¿El número de diapositiva que ve el usuario coincide con el índice basado en cero de la colección?**
+
+La numeración mostrada en una diapositiva puede comenzar desde un valor arbitrario (p. ej., 10) y no tiene que coincidir con el índice; la relación está controlada por la configuración del primer número de diapositiva de la presentación.
+
+**¿Las diapositivas ocultas afectan la indexación?**
+
+Sí. Una diapositiva oculta permanece en la colección y se cuenta en la indexación; "oculto" se refiere a la visualización, no a su posición en la colección.
+
+**¿Cambia el índice de una diapositiva cuando se añaden o eliminan otras diapositivas?**
+
+Sí. Los índices siempre reflejan el orden actual de las diapositivas y se recalculan al insertar, eliminar o mover diapositivas.

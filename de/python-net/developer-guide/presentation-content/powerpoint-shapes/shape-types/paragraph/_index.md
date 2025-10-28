@@ -1,33 +1,46 @@
 ---
-title: Absatz
+title: Absätzebegrenzungen aus Präsentationen in Python abrufen
+linktitle: Absatz
 type: docs
 weight: 60
 url: /de/python-net/paragraph/
-keywords: "Absatz, Portion, Absatzkoordinate, Portionskoordinate, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Absatz und Portion in PowerPoint-Präsentation in Python"
+keywords:
+- Absatzbegrenzungen
+- Textabschnittsbegrenzungen
+- Absatzkoordinaten
+- Abschnittskoordinaten
+- Absatzgröße
+- Textabschnittsgröße
+- Textfeld
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Absatz‑ und Textabschnittsbegrenzungen in Aspose.Slides für Python via .NET ermitteln, um die Textpositionierung in PowerPoint‑ und OpenDocument‑Präsentationen zu optimieren."
 ---
 
-## **Abrufen von Absatz- und Portionskoordinaten im TextFrame**
-Mit Aspose.Slides für Python über .NET können Entwickler jetzt die rechteckigen Koordinaten für Absätze innerhalb der Absatzsammlung eines TextFrames abrufen. Es ermöglicht auch, die Koordinaten der Portion innerhalb der Portionssammlung eines Absatzes zu erhalten. In diesem Thema werden wir mithilfe eines Beispiels demonstrieren, wie die rechteckigen Koordinaten für einen Absatz zusammen mit der Position der Portion innerhalb eines Absatzes abgerufen werden können.
+## **Absatz‑ und Abschnittskoordinaten im Textfeld ermitteln**
+Mit Aspose.Slides für Python via .NET können Entwickler nun die rechteckigen Koordinaten für einen Absatz innerhalb der Absatzsammlung eines Textfeldes erhalten. Außerdem können Sie die Koordinaten eines Abschnitts innerhalb der Abschnittssammlung eines Absatzes ermitteln. In diesem Thema demonstrieren wir anhand eines Beispiels, wie man die rechteckigen Koordinaten für einen Absatz zusammen mit der Position eines Abschnitts innerhalb dieses Absatzes erhält.
 
-## **Abrufen der rechteckigen Koordinaten des Absatzes**
-Die neue Methode **GetRect()** wurde hinzugefügt. Sie ermöglicht es, das Rechteck der Absatzgrenzen zu erhalten.
+## **Rechteckige Koordinaten eines Absatzes erhalten**
+Die neue Methode **GetRect()** wurde hinzugefügt. Sie ermöglicht das Abrufen des Begrenzungsrechtecks eines Absatzes.
 
 ```py
 import aspose.slides as slides
 
-# Erstellen Sie ein Präsentationsobjekt, das eine Präsentationsdatei darstellt
+# Instanziieren eines Presentation‑Objekts, das eine Präsentationsdatei darstellt
 with slides.Presentation(path + "Shapes.pptx") as presentation:
     shape = presentation.slides[0].shapes[0]
     textFrame = shape.text_frame
     rect = textFrame.paragraphs[0].get_rect()
 ```
 
-## **Abrufen der Größe des Absatzes und der Portion innerhalb des Tabellenzellen-TextFrames** ##
+## **Größe von Absatz und Abschnitt in einem Textfeld einer Tabellenzelle ermitteln** ##
 
-Um die [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) oder die [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) Größe und Koordinaten in einem Tabellenzellen-TextFrame zu erhalten, können Sie die [IPortion.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iportion/) und [IParagraph.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/) Methoden verwenden.
+Um die Größe und Koordinaten eines [Abschnitts](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) oder eines [Absatzes](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) in einem Textfeld einer Tabellenzelle zu erhalten, können Sie die Methoden [IPortion.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iportion/) und [IParagraph.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/) verwenden.
 
-Dieser Beispielcode demonstriert die beschriebene Operation:
+Dieser Beispielcode demonstriert die beschriebene Vorgehensweise:
 
 ```py
 import aspose.slides as slides
@@ -62,3 +75,21 @@ with slides.Presentation(path + "source.pptx") as pres:
 
                 shape.fill_format.fill_type = slides.FillType.NO_FILL
 ```
+
+## **FAQ**
+
+**In welchen Einheiten werden die Koordinaten für einen Absatz und Textabschnitte zurückgegeben?**
+
+In Punkten, wobei 1 Zoll = 72 Punkte entspricht. Dies gilt für alle Koordinaten und Maße auf der Folie.
+
+**Beeinflusst das Zeilenumbruch‑Verhalten die Begrenzungen eines Absatzes?**
+
+Ja. Wenn das [Umbruch‑Verhalten](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) im [Textfeld](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) aktiviert ist, wird der Text umbrochen, um die Breite des Bereichs zu füllen, wodurch sich die tatsächlichen Begrenzungen des Absatzes ändern.
+
+**Können Absatzkoordinaten zuverlässig in Pixel des exportierten Bildes umgerechnet werden?**
+
+Ja. Punkte in Pixel umrechnen mit: pixels = points × (DPI / 72). Das Ergebnis hängt vom für die Darstellung/den Export gewählten DPI ab.
+
+**Wie erhalte ich die „effektiven“ Absatzformatierungsparameter unter Berücksichtigung von Stilvererbung?**
+
+Verwenden Sie die [effektive Absatzformatierungs‑Datenstruktur](/slides/de/python-net/shape-effective-properties/); sie gibt die letztendlichen konsolidierten Werte für Einzüge, Abstand, Umbruch, Rechts‑nach‑Links‑Richtung und mehr zurück.

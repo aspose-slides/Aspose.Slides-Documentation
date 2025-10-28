@@ -1,154 +1,185 @@
 ---
-title: Administrar transiciones de diapositivas en presentaciones usando Python
-linktitle: Transición de diapositivas
+title: Gestionar transiciones de diapositivas en presentaciones usando Python
+linktitle: Transición de diapositiva
 type: docs
 weight: 90
 url: /es/python-net/slide-transition/
 keywords:
-- transición de diapositivas
-- agregar transición de diapositivas
-- aplicar transición de diapositivas
-- transición de diapositivas avanzada
-- transición Morph
+- transición de diapositiva
+- añadir transición de diapositiva
+- aplicar transición de diapositiva
+- transición de diapositiva avanzada
+- transición morph
 - tipo de transición
 - efecto de transición
 - Python
 - Aspose.Slides
-description: "Descubre cómo personalizar las transiciones de diapositivas en Aspose.Slides for Python via .NET, con una guía paso a paso para presentaciones de PowerPoint y OpenDocument."
+description: "Descubra cómo personalizar las transiciones de diapositivas en Aspose.Slides para Python a través de .NET, con una guía paso a paso para presentaciones PowerPoint y OpenDocument."
 ---
 
-## **Agregar Transición de Diapositivas**
-Para facilitar la comprensión, hemos demostrado el uso de Aspose.Slides para Python a través de .NET para gestionar transiciones de diapositivas simples. Los desarrolladores no solo pueden aplicar diferentes efectos de transición de diapositivas en las diapositivas, sino también personalizar el comportamiento de estos efectos de transición. Para crear un efecto de transición de diapositivas simple, siga los pasos a continuación:
+## **Resumen**
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Aplique un Tipo de Transición de Diapositiva en la diapositiva desde uno de los efectos de transición ofrecidos por Aspose.Slides para Python a través de .NET mediante el enum TransitionType
-1. Escriba el archivo de presentación modificado.
+Aspose.Slides para Python brinda control total sobre las transiciones de diapositivas, desde la selección del tipo de transición hasta la configuración del tiempo y los disparadores como parte de flujos de trabajo automatizados de presentaciones. Puede configurar las diapositivas para que avancen al hacer clic y/o después de un retraso especificado y refinar el comportamiento visual con efectos como cortes desde negro o entradas direccionales. La biblioteca también admite la transición Morph introducida en PowerPoint 2019, incluidos los modos que morph por objeto, palabra o carácter para crear un movimiento suave y coherente entre diapositivas.
+
+## **Añadir transiciones de diapositiva**
+
+Para facilitar la comprensión, este ejemplo muestra cómo usar Aspose.Slides para Python para gestionar transiciones de diapositiva simples. Los desarrolladores pueden aplicar diferentes efectos de transición a las diapositivas y personalizar su comportamiento. Para crear una transición de diapositiva simple, siga estos pasos:
+
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Aplicar una transición de diapositiva usando uno de los efectos del enumerado [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/).
+3. Guardar el archivo de presentación modificado.
 
 ```py
 import aspose.slides as slides
 
-# Instanciar la clase Presentation para cargar el archivo de presentación fuente
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Aplicar transición de tipo círculo en la diapositiva 1
+# Instantiate the Presentation class to load a presentation file.
+with slides.Presentation("sample.pptx") as presentation:
+    # Apply a circle transition to slide 1.
     presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
 
-    # Aplicar transición de tipo combinación en la diapositiva 2
+    # Apply a comb transition to slide 2.
     presentation.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.COMB
 
-    # Escribir la presentación en disco
-    presentation.save("SampleTransition_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Añadir transiciones de diapositiva avanzadas**
 
-## **Agregar Transición de Diapositivas Avanzada**
-En la sección anterior, solo aplicamos un efecto de transición simple en la diapositiva. Ahora, para mejorar y controlar aún más ese efecto de transición simple, siga los pasos a continuación:
+En esta sección aplicamos un efecto de transición simple a una diapositiva. Para que ese efecto sea más controlado y pulido, siga estos pasos:
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Aplique un Tipo de Transición de Diapositiva en la diapositiva desde uno de los efectos de transición ofrecidos por Aspose.Slides para Python a través de .NET
-1. También puede establecer la transición para Avanzar al Hacer clic, después de un período de tiempo específico o ambos.
-1. Si la transición de diapositivas está habilitada para Avanzar al Hacer clic, la transición solo avanzará cuando alguien haga clic con el mouse. Además, si se establece la propiedad Avanzar Después de Tiempo, la transición avanzará automáticamente después de que haya pasado el tiempo de avance especificado.
-1. Escriba la presentación modificada como un archivo de presentación.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Aplicar una transición de diapositiva usando uno de los efectos del enumerado [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/).
+3. Configurar la transición para avanzar al hacer clic, después de un tiempo específico, o ambos.
+4. Guardar el archivo de presentación modificado.
+
+Si **Advance On Click** está habilitado, la diapositiva avanza solo cuando el usuario hace clic. Si la propiedad **Advance After Time** está establecida, la diapositiva avanza automáticamente después del intervalo especificado.
 
 ```py
 import aspose.slides as slides
 
-# Instanciar la clase Presentation que representa un archivo de presentación
-with slides.Presentation(path + "BetterSlideTransitions.pptx") as pres:
-    # Aplicar transición de tipo círculo en la diapositiva 1
-    pres.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
+# Instantiate the Presentation class to open a presentation file.
+with slides.Presentation("sample.pptx") as presentation:
+    slide0 = presentation.slides[0]
 
+    # Apply a circle transition to slide 1.
+    slide0.slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
 
-    # Establecer el tiempo de transición de 3 segundos
-    pres.slides[0].slide_show_transition.advance_on_click = True
-    pres.slides[0].slide_show_transition.advance_after_time = 3000
+    # Enable advance on click and set a 3-second auto-advance.
+    slide0.slide_show_transition.advance_on_click = True
+    slide0.slide_show_transition.advance_after_time = 3000
 
-    # Aplicar transición de tipo combinación en la diapositiva 2
-    pres.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.COMB
+    slide1 = presentation.slides[1]
 
+    # Apply a comb transition to slide 2.
+    slide1.slide_show_transition.type = slides.slideshow.TransitionType.COMB
 
-    # Establecer el tiempo de transición de 5 segundos
-    pres.slides[1].slide_show_transition.advance_on_click = True
-    pres.slides[1].slide_show_transition.advance_after_time = 5000
+    # Enable advance on click and set a 5-second auto-advance.
+    slide1.slide_show_transition.advance_on_click = True
+    slide1.slide_show_transition.advance_after_time = 5000
 
-    # Aplicar transición de tipo zoom en la diapositiva 3
-    pres.slides[2].slide_show_transition.type = slides.slideshow.TransitionType.ZOOM
+    slide2 = presentation.slides[2]
 
+    # Apply a zoom transition to slide 3.
+    slide2.slide_show_transition.type = slides.slideshow.TransitionType.ZOOM
 
-    # Establecer el tiempo de transición de 7 segundos
-    pres.slides[2].slide_show_transition.advance_on_click = True
-    pres.slides[2].slide_show_transition.advance_after_time = 7000
+    # Enable advance on click and set a 7-second auto-advance.
+    slide2.slide_show_transition.advance_on_click = True
+    slide2.slide_show_transition.advance_after_time = 7000
 
-    # Escribir la presentación en disco
-    pres.save("SampleTransition_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Transición Morph**
 
-## **Transición Morf**
-Aspose.Slides para Python a través de .NET ahora soporta la [Morph Transition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/imorphtransition/). Representan una nueva transición morf introducida en PowerPoint 2019. La transición morf permite animar un movimiento suave de una diapositiva a la siguiente. Este artículo describe el concepto y cómo usar la transición morf. Para usar la transición morf de manera efectiva, necesitará tener dos diapositivas con al menos un objeto en común. La forma más fácil es duplicar la diapositiva y luego mover el objeto en la segunda diapositiva a un lugar diferente.
+Aspose.Slides para Python admite la [Morph transition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/morphtransition/), que anima el movimiento fluido de una diapositiva a la siguiente. Esta sección explica cómo usar la transición Morph. Para utilizarla eficazmente, necesita dos diapositivas con al menos un objeto en común. El enfoque más sencillo es duplicar una diapositiva y luego mover el objeto a una posición diferente en la segunda diapositiva.
 
-El siguiente fragmento de código le muestra cómo agregar una copia de la diapositiva con algún texto a la presentación y establecer una transición de [morf](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/imorphtransition/) en la segunda diapositiva.
+El siguiente fragmento de código muestra cómo clonar una diapositiva que contiene texto y aplicar una transición Morph a la segunda diapositiva.
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    autoshape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 100)
-    autoshape.text_frame.text = "Transición Morf en Presentaciones de PowerPoint"
+    slide0 = presentation.slides[0]
 
-    presentation.slides.add_clone(presentation.slides[0])
+    auto_shape = slide0.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 100)
+    auto_shape.text_frame.text = "Morph Transition in PowerPoint Presentations"
 
-    presentation.slides[1].shapes[0].x += 100
-    presentation.slides[1].shapes[0].y += 50
-    presentation.slides[1].shapes[0].width -= 200
-    presentation.slides[1].shapes[0].height -= 10
+    # Clone the first slide to create a second slide with the same shapes for Morph continuity.
+    slide1 = presentation.slides.add_clone(slide0)
 
-    presentation.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.MORPH
+    # Select the same rectangle on the second slide and change its position and size.
+    shape = slide1.shapes[0]
+    shape.x += 100
+    shape.y += 50
+    shape.width -= 200
+    shape.height -= 10
 
-    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
+    # Enable the Morph transition on the second slide to animate the shape changes smoothly.
+    slide1.slide_show_transition.type = slides.slideshow.TransitionType.MORPH
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Tipos de transición Morph**
 
-## **Tipos de Transición Morf**
-Se ha añadido un nuevo enum [Aspose.Slides.SlideShow.TransitionMorphType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) que representa diferentes tipos de transición de diaposa morf.
+El enumerado [TransitionMorphType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) representa los diferentes tipos de transiciones Morph de diapositivas.
 
-El enum TransitionMorphType tiene tres miembros:
-
-- ByObject: La transición morf se realizará considerando las formas como objetos indivisibles.
-- ByWord: La transición morf se realizará transfiriendo texto por palabras donde sea posible.
-- ByChar: La transición morf se realizará transfiriendo texto por caracteres donde sea posible.
-
-El siguiente fragmento de código le muestra cómo establecer la transición morf en la diapositiva y cambiar el tipo de morf:
+El siguiente fragmento de código muestra cómo aplicar una transición Morph a una diapositiva y cambiar el tipo de morph:
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.MORPH
-    presentation.slides[0].slide_show_transition.value.morph_type = slides.slideshow.TransitionMorphType.BY_WORD
-    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    slide.slide_show_transition.type = slides.slideshow.TransitionType.MORPH
+    slide.slide_show_transition.value.morph_type = slides.slideshow.TransitionMorphType.BY_WORD
+    
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Establecer efectos de transición**
 
-## **Establecer Efectos de Transición**
-Aspose.Slides para Python a través de .NET soporta establecer efectos de transición como, de negro, de izquierda, de derecha, etc. Para establecer el Efecto de Transición. Siga los pasos a continuación:
+Aspose.Slides para Python le permite establecer efectos de transición como **From Black**, **From Left**, **From Right**, etc. Para configurar un efecto de transición, siga estos pasos:
 
-- Cree una instancia de [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)class.
-- Obtenga la referencia de la diapositiva.
-- Establezca el efecto de transición.
-- Escriba la presentación como un [PPTX ](https://docs.fileformat.com/presentation/pptx/)archivo.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Obtener una referencia a la diapositiva.
+3. Establecer el efecto de transición deseado.
+4. Guardar la presentación como archivo PPTX.
 
-En el ejemplo dado a continuación, hemos establecido los efectos de transición.
+En el ejemplo a continuación, establecemos varios efectos de transición.
 
 ```py
 import aspose.slides as slides
 
-# Crear una instancia de la clase Presentation
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+# Instantiate the Presentation class to open a presentation file.
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    # Establecer efecto
-    presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CUT
-    presentation.slides[0].slide_show_transition.value.from_black = True
+    # Apply a Cut transition and enable From Black.
+    slide.slide_show_transition.type = slides.slideshow.TransitionType.CUT
+    slide.slide_show_transition.value.from_black = True
 
-    # Escribir la presentación en disco
-    presentation.save("SetTransitionEffects_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Preguntas frecuentes**
+
+**¿Puedo controlar la velocidad de reproducción de una transición de diapositiva?**
+
+Sí. Establezca la [velocidad](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) de la transición usando la configuración [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/) (p. ej., lenta/media/rápida).
+
+**¿Puedo adjuntar audio a una transición y hacer que se repita?**
+
+Sí. Puede incrustar un sonido para la transición y controlar su comportamiento mediante configuraciones como modo de sonido y bucle (p. ej., [sound](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound/), [sound_mode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_mode/), [sound_loop](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_loop/), además de metadatos como [sound_is_built_in](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_is_built_in/) y [sound_name](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_name/)).
+
+**¿Cuál es la forma más rápida de aplicar la misma transición a todas las diapositivas?**
+
+Configure el tipo de transición deseado en la configuración de transición de cada diapositiva; las transiciones se almacenan por diapositiva, por lo que aplicar el mismo tipo a todas las diapositivas brinda un resultado consistente.
+
+**¿Cómo puedo verificar qué transición está establecida actualmente en una diapositiva?**
+
+Inspeccione la [configuración de transición](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) de la diapositiva y lea su [tipo de transición](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/); ese valor le indica exactamente qué efecto se ha aplicado.

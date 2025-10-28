@@ -1,30 +1,32 @@
 ---
-title: Extraire des images à partir de formes de présentation en Python
-linktitle: Image d’une forme
+title: Extraire des images des formes de présentation en Python
+linktitle: Image depuis une forme
 type: docs
 weight: 90
 url: /fr/python-net/extracting-images-from-presentation-shapes/
 keywords:
 - extraire image
 - récupérer image
-- arrière‑plan de diapositive
-- arrière‑plan de forme
+- arrière-plan de diapositive
+- arrière-plan de forme
 - PowerPoint
 - présentation
 - Python
 - Aspose.Slides
-description: "Extrayez des images à partir de formes dans des présentations PowerPoint et OpenDocument avec Aspose.Slides for Python via .NET — une solution rapide et adaptée au code."
+description: "Extraire des images des formes dans les présentations PowerPoint et OpenDocument avec Aspose.Slides pour Python via .NET — solution rapide et conviviale."
 ---
+
+## **Extraire des images des formes**
 
 {{% alert color="primary" %}} 
 
-Les images sont souvent ajoutées aux formes et sont également fréquemment utilisées comme arrière-plans de diapositives. Les objets image sont ajoutés via [IImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/iimagecollection/), qui est une collection d'objets [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/). 
+Les images sont souvent ajoutées aux formes et sont également fréquemment utilisées comme arrière-plans de diapositives. Les objets image sont ajoutés via [IImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/iimagecollection/), qui est une collection d’objets [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/). 
 
-Cet article explique comment vous pouvez extraire les images ajoutées aux présentations. 
+Cet article explique comment extraire les images ajoutées aux présentations. 
 
 {{% /alert %}} 
 
-Pour extraire une image d'une présentation, vous devez d'abord localiser l'image en parcourant chaque diapositive, puis en parcourant chaque forme. Une fois l'image trouvée ou identifiée, vous pouvez l'extraire et la sauvegarder sous un nouveau fichier. XXX 
+Pour extraire une image d’une présentation, vous devez d’abord localiser l’image en parcourant chaque diapositive, puis chaque forme. Une fois l’image trouvée ou identifiée, vous pouvez l’extraire et l’enregistrer en tant que nouveau fichier. XXX 
 
 ```py
 import aspose.slides as slides
@@ -40,14 +42,14 @@ def get_image_format(image_type):
     }.get(image_type, slides.ImageFormat.JPEG)
 
 with slides.Presentation("pres.pptx") as pres:
-    #Accéder à la présentation
+    #Accessing the presentation
     
     slideIndex = 0
     image_type = ""
     ifImageFound = False
     for slide in pres.slides:
         slideIndex += 1
-        #Accéder à la première diapositive
+        #Accessing the first slide
         image_format = slides.ImageFormat.JPEG
 
         back_image = None
@@ -55,15 +57,15 @@ with slides.Presentation("pres.pptx") as pres:
         is_layout = False
 
         if slide.background.fill_format.fill_type == slides.FillType.PICTURE:
-            #Obtenir l'image de fond  
+            #Getting the back picture  
             back_image = slide.background.fill_format.picture_fill_format.picture.image
         elif slide.layout_slide.background.fill_format.fill_type == slides.FillType.PICTURE:
-            #Obtenir l'image de fond  
+            #Getting the back picture  
             back_image = slide.layout_slide.background.fill_format.picture_fill_format.picture.image
             is_layout = True
 
         if back_image is not None:
-            #Définir le format d'image souhaité 
+            #Setting the desired picture format 
             image_type = back_image.content_type.split("/")[1]
             image_format = get_image_format(image_type)
 
@@ -88,3 +90,21 @@ with slides.Presentation("pres.pptx") as pres:
                                 file_name.format("shape_"+str(i)+"_", slideIndex, image_type), 
                                 image_format)
 ```
+
+## **FAQ**
+
+**Puis-je extraire l’image originale sans aucun recadrage, effet ou transformation de forme ?**
+
+Oui. Lorsque vous accédez à l’image d’une forme, vous obtenez l’objet image provenant de la [collection d'images](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/) de la présentation, c’est‑à‑dire les pixels d’origine sans recadrage ni effets de style. Le flux de travail parcourt la collection d’images de la présentation et les objets [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/), qui stockent les données brutes.
+
+**Existe‑t‑il un risque de dupliquer des fichiers identiques lors de l’enregistrement de nombreuses images en même temps ?**
+
+Oui, si vous enregistrez tout sans discernement. La [collection d'images](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/) d’une présentation peut contenir des données binaires identiques référencées par différentes formes ou différentes diapositives. Pour éviter les doublons, comparez les hachages, les tailles ou le contenu des données extraites avant d’écrire.
+
+**Comment déterminer quelles formes sont liées à une image spécifique de la collection de la présentation ?**
+
+Aspose.Slides ne conserve pas de liens inversés des [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) vers les formes. Créez un mappage manuellement pendant le parcours : chaque fois que vous trouvez une référence à un [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/), enregistrez quelles formes l’utilisent.
+
+**Puis‑je extraire les images intégrées dans des objets OLE, comme des documents joints ?**
+
+Pas directement, car un objet OLE est un conteneur. Vous devez d’abord extraire le package OLE lui‑même, puis analyser son contenu à l’aide d’outils séparés. Les formes d’image de présentation fonctionnent via [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) ; OLE est un type d’objet différent.

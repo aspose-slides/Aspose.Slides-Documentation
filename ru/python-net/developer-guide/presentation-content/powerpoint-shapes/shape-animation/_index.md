@@ -1,161 +1,179 @@
 ---
-title: Анимация форм
+title: Применение анимаций фигур в презентациях на Python
+linktitle: Анимация фигур
 type: docs
 weight: 60
 url: /ru/python-net/shape-animation/
-keywords: "анимация PowerPoint, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Создайте анимацию PowerPoint на Python"
+keywords:
+- фигура
+- анимация
+- эффект
+- анимированная фигура
+- анимированный текст
+- добавить анимацию
+- получить анимацию
+- извлечь анимацию
+- добавить эффект
+- получить эффект
+- извлечь эффект
+- звук эффекта
+- применить анимацию
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Узнайте, как создавать и настраивать анимацию фигур в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для Python через .NET. Выделяйтесь!"
 ---
 
-Анимации — это визуальные эффекты, которые можно применить к текстам, изображениям, формам или [диаграммам](/slides/ru/python-net/animated-charts/). Они оживляют презентации или их элементы.
+Анимации — это визуальные эффекты, которые можно применять к тексту, изображениям, фигурам или [диаграммам](/slides/ru/python-net/animated-charts/). Они оживляют презентации и их элементы. 
 
-### **Зачем использовать анимации в презентациях?**
+## **Зачем использовать анимации в презентациях?**
 
-Используя анимации, вы можете
+Используя анимации, вы можете  
 
-* контролировать поток информации
-* подчеркивать важные моменты
-* увеличить интерес или участие вашей аудитории
-* облегчить восприятие или усвоение контента
-* привлечь внимание ваших читателей или зрителей к важным частям презентации
+* управлять потоком информации  
+* подчёркивать важные моменты  
+* повышать интерес или вовлечённость аудитории  
+* делать контент проще для чтения, усвоения или обработки  
+* привлекать внимание читателей или зрителей к важным частям презентации  
 
-PowerPoint предоставляет множество вариантов и инструментов для анимаций и анимационных эффектов в категориях **вход**, **выход**, **акцент** и **движущиеся пути**.
+PowerPoint предоставляет множество параметров и инструментов для анимаций и эффектов анимации в категориях **вход**, **выход**, **акцент** и **траектории движения**. 
 
-### **Анимации в Aspose.Slides**
+## **Анимации в Aspose.Slides**
 
-* Aspose.Slides предоставляет классы и типы, необходимые для работы с анимациями в пространстве имен [Aspose.Slides.Animation](https://reference.aspose.com/slides/python-net/aspose.slides.animation/),
-* Aspose.Slides предоставляет более **150 анимационных эффектов** в перечислении [EffectType](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttype/). Эти эффекты в основном аналогичны эффектам, используемым в PowerPoint.
+* Aspose.Slides предоставляет классы и типы, необходимые для работы с анимациями, в пространстве имён [Aspose.Slides.Animation](https://reference.aspose.com/slides/python-net/aspose.slides.animation/).  
+* Aspose.Slides предоставляет более **150 эффектов анимации** в перечислении [EffectType](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttype/). Эти эффекты по сути те же (или эквивалентные) эффекты, которые используются в PowerPoint.
 
-## **Применить анимацию к текстовому полю**
+## **Применить анимацию к TextBox**
 
-Aspose.Slides для Python через .NET позволяет вам применять анимацию к тексту в форме.
+Aspose.Slides for Python via .NET позволяет применять анимацию к тексту в фигуре. 
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Получите ссылку на слайд через его индекс.
-3. Добавьте `прямоугольник` [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/). 
-4. Добавьте текст в `IAutoShape.TextFrame`.
-5. Получите основную последовательность эффектов.
-6. Добавьте анимационный эффект к [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/). 
-7. Установите свойство`TextAnimation.BuildType` в значение из перечисления `BuildType`.
-8. Запишите презентацию на диск в виде файла PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).  
+2. Получите ссылку на слайд по его индексу.  
+3. Добавьте `rectangle` [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/).  
+4. Добавьте текст в `IAutoShape.TextFrame`.  
+5. Получите основную последовательность эффектов.  
+6. Добавьте анимационный эффект к [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/).  
+7. Установите свойство `TextAnimation.BuildType` в значение из перечисления `BuildType`.  
+8. Запишите презентацию на диск в формате PPTX.  
 
-Этот код на Python показывает, как применить эффект `Fade` к AutoShape и установить анимацию текста на значение *По 1-му уровню абзацев*:
+Этот пример кода на Python показывает, как применить эффект `Fade` к AutoShape и установить анимацию текста со значением *By 1st Level Paragraphs*:
 
 ```python
 import aspose.slides as slides
 
-# Создает экземпляр класса презентации, представляющего файл презентации.
+# Instantiates a presentation class that represents a presentation file.
 with slides.Presentation() as pres:
     sld = pres.slides[0]
     
-    # Добавляет новую AutoShape с текстом
+    # Adds new AutoShape with text
     autoShape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 100)
 
     textFrame = autoShape.text_frame
-    textFrame.text = "Первый абзац \nВторой абзац \n Третий абзац"
+    textFrame.text = "First paragraph \nSecond paragraph \n Third paragraph"
 
-    # Получает основную последовательность слайда.
+    # Gets the main sequence of the slide.
     sequence = sld.timeline.main_sequence
 
-    # Добавляет эффект анимации Fade к форме
+    # Adds Fade animation effect to shape
     effect = sequence.add_effect(autoShape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
 
-    # Анимирует текст формы по 1-му уровню абзацев
+    # Animates shape text by 1st level paragraphs
     effect.text_animation.build_type = slides.animation.BuildType.BY_LEVEL_PARAGRAPHS1
 
-    # Сохраняет файл PPTX на диск
+    # Save the PPTX file to disk
     pres.save("AnimText_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{%  alert color="primary"  %}} 
 
-Кроме применения анимаций к тексту, вы также можете применять анимации к одному [абзацу](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/). Смотрите [**Анимированный текст**](/slides/ru/python-net/animated-text/).
+Кроме применения анимаций к тексту, вы также можете применять анимации к отдельному [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/). См. [**Animated Text**](/slides/ru/python-net/animated-text/).
 
 {{% /alert %}} 
 
 ## **Применить анимацию к PictureFrame**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Получите ссылку на слайд через его индекс.
-3. Добавьте или получите [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) на слайде. 
-4. Получите основную последовательность эффектов.
-5. Добавьте анимационный эффект к [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/).
-6. Запишите презентацию на диск в виде файла PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).  
+2. Получите ссылку на слайд по его индексу.  
+3. Добавьте или получите [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) на слайде.  
+4. Получите основную последовательность эффектов.  
+5. Добавьте анимационный эффект к [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/).  
+6. Запишите презентацию на диск в формате PPTX.  
 
-Этот код на Python показывает, как применить эффект `Fly` к рамке изображения:
+Этот пример кода на Python показывает, как применить эффект `Fly` к рамке изображения:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 
-# Создает экземпляр класса презентации, представляющего файл презентации.
+# Instantiates a presentation class that represents a presentation file.
 with slides.Presentation() as pres:
-    # Загружает изображение для добавления в коллекцию изображений презентации
+    # Load Image to be added in presentaiton image collection
     img = draw.Bitmap("aspose-logo.jpg")
     image = pres.images.add_image(img)
 
-    # Добавляет рамку изображения на слайд
+    # Adds picture frame to slide
     picFrame = pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
 
-    # Получает основную последовательность слайда.
+    # Gets the main sequence of the slide.
     sequence = pres.slides[0].timeline.main_sequence
 
-    # Добавляет эффект анимации Fly слева к рамке изображения
+    # Adds Fly from Left animation effect to picture frame
     effect = sequence.add_effect(picFrame, slides.animation.EffectType.FLY,  
         slides.animation.EffectSubtype.LEFT, 
         slides.animation.EffectTriggerType.ON_CLICK)
 
-    # Сохраняет файл PPTX на диск
+    # Save the PPTX file to disk
     pres.save("AnimImage_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Применить анимацию к форме**
+## **Применить анимацию к Shape**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Получите ссылку на слайд через его индекс.
-3. Добавьте `прямоугольник` [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/). 
-4. Добавьте [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) с `Bevel` (когда на этот объект нажимают, воспроизводится анимация).
-5. Создайте последовательность эффектов на форме с закругленными углами.
-6. Создайте пользовательский `UserPath`.
-7. Добавьте команды для перемещения к `UserPath`.
-8. Запишите презентацию на диск в виде файла PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .  
+2. Получите ссылку на слайд по его индексу.  
+3. Добавьте `rectangle` [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/).  
+4. Добавьте `Bevel` [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) (при клике на этом объекте будет проигрываться анимация).  
+5. Создайте последовательность эффектов для bevel‑фигуры.  
+6. Создайте пользовательский `UserPath`.  
+7. Добавьте команды перемещения к `UserPath`.  
+8. Запишите презентацию на диск в формате PPTX.  
 
-Этот код на Python показывает, как применить эффект `PathFootball` (футбольная траектория) к форме:
+Этот пример кода на Python показывает, как применить эффект `PathFootball` (путь «футбол») к фигуре:
 
 ```python
 import aspose.slides.animation as anim
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Создает экземпляр класса Презентации, представляющего файл PPTX
+# Instantiates a Prseetation class that represents a PPTX file
 with slides.Presentation() as pres:
     sld = pres.slides[0]
 
-    # Создает эффект PathFootball для существующей формы с нуля.
+    # Creates PathFootball effect for existing shape from scratch.
     ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 250, 25)
 
-    ashp.add_text_frame("Анимированное текстовое поле")
+    ashp.add_text_frame("Animated TextBox")
 
-    # Добавляет эффект анимации PathFootball.
+    # Adds the PathFootBall animation effect.
     pres.slides[0].timeline.main_sequence.add_effect(ashp, 
         anim.EffectType.PATH_FOOTBALL,
         anim.EffectSubtype.NONE, 
         anim.EffectTriggerType.AFTER_PREVIOUS)
 
-    # Создает нечто вроде "кнопки".
+    # Creates some kind of "button".
     shapeTrigger = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.BEVEL, 10, 10, 20, 20)
 
-    # Создает последовательность эффектов для кнопки.
+    # Creates a sequence of effects for the button.
     seqInter = pres.slides[0].timeline.interactive_sequences.add(shapeTrigger)
 
-    # Создает пользовательский путь. Наш объект будет перемещен только после нажатия кнопки.
+    # Creates a custom user path. Our object will be moved only after the button is clicked.
     fxUserPath = seqInter.add_effect(ashp, 
         anim.EffectType.PATH_USER, 
         anim.EffectSubtype.NONE, 
         anim.EffectTriggerType.ON_CLICK)
 
-    # Добавляет команды для перемещения, так как созданный путь пуст.
+    # Adds commands for moving since created path is empty.
     motionBhv = fxUserPath.behaviors[0]
 
     pts = [draw.PointF(0.076, 0.59)]
@@ -164,207 +182,258 @@ with slides.Presentation() as pres:
     motionBhv.path.add(anim.MotionCommandPathType.LINE_TO, pts, anim.MotionPathPointsType.AUTO, False)
     motionBhv.path.add(anim.MotionCommandPathType.END, None, anim.MotionPathPointsType.AUTO, False)
 
-    # Записывает файл PPTX на диск
+    # Writes the PPTX file to disk
     pres.save("AnimExample_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Получить примененные эффекты анимации к форме**
+## **Получить эффекты анимации, применённые к фигуре**
 
-Вы можете решить узнать все анимационные эффекты, примененные к одной форме.
+В следующих примерах показано, как использовать метод `get_effects_by_shape` класса [Sequence](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/) для получения всех эффектов анимации, применённых к фигуре.
 
-Этот код на Python показывает, как получить все эффекты, примененные к конкретной форме:
+**Пример 1: Получить эффекты анимации, применённые к фигуре на обычном слайде**
+
+Ранее вы узнали, как добавлять эффекты анимации к фигурам в презентациях PowerPoint. Следующий пример кода показывает, как получить эффекты, применённые к первой фигуре на первом обычном слайде презентации `AnimExample_out.pptx`.
 
 ```python
 import aspose.slides as slides
 
-# Создает экземпляр класса презентации, представляющего файл презентации.
-with slides.Presentation("AnimExample_out.pptx") as pres:
-    firstSlide = pres.slides[0]
+with slides.Presentation("AnimExample_out.pptx") as presentation:
+    first_slide = presentation.slides[0]
 
-    # Получает основную последовательность слайда.
-    sequence = firstSlide.timeline.main_sequence
+    # Gets the main animation sequence of the slide.
+    sequence = first_slide.timeline.main_sequence
 
-    # Получает первую форму на слайде.
-    shape = firstSlide.shapes[0]
+    # Gets the first shape on the first slide.
+    shape = first_slide.shapes[0]
 
-    # Получает все анимационные эффекты, примененные к форме.
-    shapeEffects = sequence.get_effects_by_shape(shape)
+    # Gets animation effects applied to the shape.
+    shape_effects = sequence.get_effects_by_shape(shape)
 
-    if len(shapeEffects) > 0:
-        print("Форма " + shape.name + " имеет " + str(len(shapeEffects)) + " анимационных эффектов.")
+    if len(shape_effects) > 0:
+        print("The shape", shape.name, "has", len(shape_effects), "animation effects.")
 ```
 
-## **Изменить свойства времени анимационного эффекта**
+**Пример 2: Получить все эффекты анимации, включая унаследованные от заполнителей**
 
-Aspose.Slides для Python через .NET позволяет вам изменять свойства времени анимационного эффекта.
+Если на обычном слайде фигура имеет заполнители, которые находятся на шаблоне слайда и/или на главном слайде, и к этим заполнителям добавлены эффекты анимации, то все эффекты фигуры будут воспроизводиться во время показа, включая унаследованные от заполнителей.
 
-Это панель времени анимации в Microsoft PowerPoint:
+Предположим, что у нас есть файл презентации PowerPoint `sample.pptx` с одним слайдом, содержащим только форму нижнего колонтитула с текстом "Made with Aspose.Slides" и применён эффект **Random Bars**.
 
-![example1_image](shape-animation.png)
+![Эффект анимации фигуры на слайде](slide-shape-animation.png)
 
-Вот соответствия между временем PowerPoint и свойствами `Effect.Timing`:
+Также предположим, что эффект **Split** применён к заполнителю нижнего колонтитула на слайде **layout**.
 
-- Выпадающий список времени PowerPoint **Начало** соответствует свойству [Effect.Timing.TriggerType](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttriggertype/). 
-- **Продолжительность** времени PowerPoint соответствует свойству `Effect.Timing.Duration`. Продолжительность анимации (в секундах) — это общее время, необходимое для завершения анимации в одном цикле. 
-- **Задержка** времени PowerPoint соответствует свойству `Effect.Timing.TriggerDelayTime`. 
+![Эффект анимации фигуры на макете](layout-shape-animation.png)
 
-Вот как изменить свойства времени эффекта:
+И, наконец, эффект **Fly In** применён к заполнителю нижнего колонтитула на слайде **master**.
 
-1. [Примените](#apply-animation-to-shape) или получите анимационный эффект.
-2. Установите новые значения для необходимых вам свойств `Effect.Timing`. 
-3. Сохраните измененный файл PPTX.
+![Эффект анимации фигуры на мастере](master-shape-animation.png)
 
-Этот код на Python иллюстрирует операцию:
+```py
+import aspose.slides as slides
+
+def print_effects(effects):
+    for effect in effects:
+        print(effect.type.name, effect.subtype.name)
+```
+
+```py
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    # Get animation effects of the shape on the normal slide.
+    shape = slide.shapes[0]
+    shape_effects = slide.timeline.main_sequence.get_effects_by_shape(shape)
+
+    # Get animation effects of the placeholder on the layout slide.
+    layout_shape = shape.get_base_placeholder()
+    layout_shape_effects = slide.layout_slide.timeline.main_sequence.get_effects_by_shape(layout_shape)
+
+    # Get animation effects of the placeholder on the master slide.
+    master_shape = layout_shape.get_base_placeholder()
+    master_shape_effects = slide.layout_slide.master_slide.timeline.main_sequence.get_effects_by_shape(master_shape)
+
+    print("Main sequence of shape effects:")
+    print_effects(master_shape_effects)
+    print_effects(layout_shape_effects)
+    print_effects(shape_effects)
+```
+
+Вывод:
+```text
+Main sequence of shape effects:
+FLY BOTTOM
+SPLIT VERTICAL_IN
+RANDOM_BARS HORIZONTAL
+```
+
+## **Изменить свойства времени эффекта анимации**
+
+Aspose.Slides for Python via .NET позволяет изменять свойства Timing (время) анимационного эффекта.
+
+Это панель Animation Timing в Microsoft PowerPoint:
+
+![Панель Timing анимации](shape-animation.png)
+
+Эти соответствия между PowerPoint Timing и свойствами `Effect.Timing`:
+
+- Выпадающий список **Start** в PowerPoint Timing соответствует свойству [Effect.Timing.TriggerType](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttriggertype/).  
+- PowerPoint Timing **Duration** соответствует свойству `Effect.Timing.Duration`. Длительность анимации (в секундах) — это общее время, необходимое для завершения одного цикла анимации.  
+- PowerPoint Timing **Delay** соответствует свойству `Effect.Timing.TriggerDelayTime`.  
+
+Вот как изменить свойства Timing эффекта:
+
+1. [Применить](#apply-animation-to-shape) или получить эффект анимации.  
+2. Установите новые значения для нужных свойств `Effect.Timing`.  
+3. Сохраните изменённый файл PPTX.  
 
 ```python
 import aspose.slides as slides
 
-# Создает экземпляр класса презентации, представляющего файл презентации.
+# Instantiates a presentation class that represents a presentation file.
 with slides.Presentation("AnimExample_out.pptx") as pres:
-    # Получает основную последовательность слайда.
+    # Gets the main sequence of the slide.
     sequence = pres.slides[0].timeline.main_sequence
 
-    # Получает первый эффект основной последовательности.
+    # Gets the first effect of main sequence.
     effect = sequence[0]
 
-    # Изменяет тип триггера эффекта на начало по клику
+    # Changes effect TriggerType to start on click
     effect.timing.trigger_type = slides.animation.EffectTriggerType.ON_CLICK
 
-    # Изменяет продолжительность эффекта
+    # Changes effect Duration
     effect.timing.duration = 3
 
-    # Изменяет задержку триггера эффекта
+    # Changes effect TriggerDelayTime
     effect.timing.trigger_delay_time = 0.5
 
-    # Сохраняет файл PPTX на диск
+    # Saves the PPTX file to disk
     pres.save("AnimExample_changed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Звук анимационного эффекта**
+## **Звук эффекта анимации**
 
-Aspose.Slides предоставляет эти свойства для работы со звуками в анимационных эффектах: 
+Aspose.Slides предоставляет следующие свойства для работы со звуком в эффектах анимации:  
 
-- `sound`
-- `stop_previous_sound`
+- `sound`  
+- `stop_previous_sound`  
 
-### **Добавить звук анимационного эффекта**
+### **Добавить звук к эффекту анимации**
 
-Этот код на Python показывает, как добавить звук анимационного эффекта и остановить его, когда начинается следующий эффект:
+Этот пример кода на Python показывает, как добавить звук к эффекту анимации и остановить его при запуске следующего эффекта:
 
 ```python
 import aspose.slides as slides
 
 with Presentation("AnimExample_out.pptx") as pres:
-    # Добавляет аудио в коллекцию аудио презентации
+    # Adds audio to presentation audio collection
     effect_sound = pres.audios.add_audio(open("sampleaudio.wav", "rb").read())
 
     first_slide = pres.slides[0]
 
-    # Получает основную последовательность слайда.
+    # Gets the main sequence of the slide.
     sequence = first_slide.timeline.main_sequence
 
-    # Получает первый эффект основной последовательности
+    # Gets the first effect of the main sequence
     first_effect = sequence[0]
 
-    # Проверяет эффект на "Без звука"
+    # Сhecks the effect for "No Sound"
     if not first_effect.stop_previous_sound and first_effect.sound is None:
-        # Добавляет звук для первого эффекта
+        # Adds sound for the first effect
         first_effect.sound = effect_sound
 
-    # Получает первую интерактивную последовательность слайда.
+    # Gets the first interactive sequence of the slide.
     interactive_sequence = first_slide.timeline.interactive_sequences[0]
 
-    # Устанавливает флаг "Остановить предыдущий звук" для эффекта
+    # Sets the effect "Stop previous sound" flag
     interactive_sequence[0].stop_previous_sound = True
 
-    # Записывает файл PPTX на диск
+    # Writes the PPTX file to disk
     pres.save("AnimExample_Sound_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Извлечь звук анимационного эффекта**
+### **Извлечь звук эффекта анимации**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Получите ссылку на слайд через его индекс. 
-3. Получите основную последовательность эффектов. 
-4. Извлеките `sound`, встроенный в каждый анимационный эффект. 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).  
+2. Получите ссылку на слайд по его индексу.  
+3. Получите основную последовательность эффектов.  
+4. Извлеките `sound`, встроенный в каждый эффект анимации.  
 
-Этот код на Python показывает, как извлечь звук, встроенный в анимационный эффект:
+Этот пример кода на Python показывает, как извлечь звук, встроенный в эффект анимации:
 
 ```python
 import aspose.slides as slides
 
-# Создает экземпляр класса презентации, представляющего файл презентации.
+# Instantiates a presentation class that represents a presentation file.
 with slides.Presentation("EffectSound.pptx") as presentation:
     slide = presentation.slides[0]
 
-    # Получает основную последовательность слайда.
+    # Gets the main sequence of the slide.
     sequence = slide.timeline.main_sequence
 
     for effect in sequence:
         if effect.sound is None:
             continue
 
-        # Извлекает звук эффекта в байтовый массив
+        # Extracts the effect sound in byte array
         audio = effect.sound.binary_data
 ```
 
 ## **После анимации**
 
-Aspose.Slides для .NET позволяет вам изменять свойства после анимации анимационного эффекта.
+Aspose.Slides for .NET позволяет изменять свойство After animation эффекта анимации.
 
-Это панель эффектов анимации и расширенное меню в Microsoft PowerPoint:
+Это панель Animation Effect и расширенное меню в Microsoft PowerPoint:
 
-![example1_image](shape-after-animation.png)
+![Панель After Animation](shape-after-animation.png)
 
-Выпадающий список **После анимации** эффекта PowerPoint соответствует следующим свойствам: 
+Выпадающий список **After animation** в PowerPoint Effect соответствует следующим свойствам:  
 
-- свойство `after_animation_type`, которое описывает тип после анимации :
-  * **Дополнительные цвета** PowerPoint соответствует типу [COLOR](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/);
-  * элемент списка **Не затемнять** PowerPoint соответствует типу [DO_NOT_DIM](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) (тип после анимации по умолчанию);
-  * элемент **Скрыть после анимации** PowerPoint соответствует типу [HIDE_AFTER_ANIMATION](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/);
-  * элемент **Скрыть при следующем щелчке мыши** PowerPoint соответствует типу [HIDE_ON_NEXT_MOUSE_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/);
-- свойство `after_animation_color`, которое определяет формат цвета после анимации. Это свойство работает в совокупности с типом [COLOR](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/). Если вы измените тип на другой, цвет после анимации будет очищен.
+- `after_animation_type` — свойство, описывающее тип After animation:  
+  * PowerPoint **More Colors** соответствует типу [COLOR](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/);  
+  * PowerPoint **Don't Dim** соответствует типу [DO_NOT_DIM](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) (тип анимации по умолчанию);  
+  * PowerPoint **Hide After Animation** соответствует типу [HIDE_AFTER_ANIMATION](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/);  
+  * PowerPoint **Hide on Next Mouse Click** соответствует типу [HIDE_ON_NEXT_MOUSE_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/);  
+- `after_animation_color` — свойство, определяющее цвет после анимации. Это свойство работает совместно с типом [COLOR]. При смене типа цвет после анимации будет очищен.  
 
-Этот код на Python показывает, как изменить эффект после анимации:
+Этот пример кода на Python показывает, как изменить эффект After animation:
 
 ```python
 import aspose.slides as slides
 
-# Создает экземпляр класса презентации, представляющего файл презентации
+# Instantiates a presentation class that represents a presentation file
 with slides.Presentation("AnimImage_out.pptx") as pres:
     first_slide = pres.slides[0]
 
-    # Получает первый эффект основной последовательности
+    # Gets the first effect of the main sequence
     first_effect = first_slide.timeline.main_sequence[0]
 
-    # Изменяет тип после анимации на Цвет
+    # Changes the after animation type to Color
     first_effect.after_animation_type = AfterAnimationType.COLOR
 
-    # Устанавливает цвет затемнения после анимации
+    # Sets the after animation dim color
     first_effect.after_animation_color.color = Color.alice_blue
 
-    # Записывает файл PPTX на диск
+    # Writes the PPTX file to disk
     pres.save("AnimImage_AfterAnimation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Анимировать текст**
 
-Aspose.Slides предоставляет эти свойства для работы с блоком *Анимировать текст* анимационного эффекта:
+Aspose.Slides предоставляет следующие свойства для работы с блоком *Animate text* эффекта анимации:  
 
-- `animate_text_type`, который описывает тип анимации текста эффекта. Текст формы может быть анимирован:
-  - Все сразу ([ALL_AT_ONCE](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/) тип)
-  - По словам ([BY_WORD](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/) тип)
-  - По буквам ([BY_LETTER](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/) тип)
-- `delay_between_text_parts` устанавливает задержку между анимированными частями текста (словами или буквами). Положительное значение указывает процент от продолжительности эффекта. Отрицательное значение указывает задержку в секундах.
+- `animate_text_type` — описывает тип анимации текста эффекта. Текст фигуры может анимироваться:  
+  - Все одновременно ([ALL_AT_ONCE](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/))  
+  - По словам ([BY_WORD](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/))  
+  - По символам ([BY_LETTER](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/))  
+- `delay_between_text_parts` задаёт задержку между анимированными частями текста (словами или буквами). Положительное значение указывает процент от длительности эффекта, отрицательное — задержку в секундах.  
 
-Вот как вы можете изменить свойства анимации текста эффекта:
+Вот как можно изменить свойства *Animate text* эффекта:
 
-1. [Примените](#apply-animation-to-shape) или получите анимационный эффект.
-2. Установите свойство `build_type` в значение [AS_ONE_OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides.animation/buildtype/), чтобы отключить режим анимации *По абзацам*.
-3. Установите новые значения для свойств `animate_text_type` и `delay_between_text_parts`.
-4. Сохраните измененный файл PPTX.
-
-Этот код на Python демонстрирует операцию:
+1. [Применить](#apply-animation-to-shape) или получить эффект анимации.  
+2. Установите свойство `build_type` в значение [AS_ONE_OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides.animation/buildtype/) для отключения режима *By Paragraphs*.  
+3. Установите новые значения для `animate_text_type` и `delay_between_text_parts`.  
+4. Сохраните изменённый файл PPTX.  
 
 ```python
 import aspose.slides as slides
@@ -372,19 +441,33 @@ import aspose.slides as slides
 with slides.Presentation("AnimTextBox_out.pptx") as pres:
     first_slide = pres.slides[0]
 
-    # Получает первый эффект основной последовательности
+    # Gets the first effect of the main sequence
     first_effect = first_slide.timeline.main_sequence[0]
 
-    # Изменяет тип анимации текста эффекта на "Как один объект"
+    # Changes the effect Text animation type to "As One Object"
     first_effect.text_animation.build_type = slides.animation.BuildType.AS_ONE_OBJECT
 
-    # Изменяет тип анимации текста эффекта на "По словам"
+    # Changes the effect Animate text type to "By word"
     first_effect.animate_text_type = slides.animation.AnimateTextType.BY_WORD
 
-    # Устанавливает задержку между словами в 20% от продолжительности эффекта
+    # Sets the delay between words to 20% of effect duration
     first_effect.delay_between_text_parts = 20
 
-    # Записывает файл PPTX на диск
+    # Writes the PPTX file to disk
     pres.save("AnimTextBox_AnimateText.pptx", slides.export.SaveFormat.PPTX)
 
 ```
+
+## **FAQ**
+
+**Как гарантировать сохранение анимаций при публикации презентации в веб?**  
+
+Экспортируйте в [HTML5](/slides/ru/python-net/export-to-html5/) и включите параметры, отвечающие за анимацию [фигур](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_shapes/) и [переходов](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_transitions/). Обычный HTML не воспроизводит анимацию слайдов, тогда как HTML5 — да.
+
+**Как изменение порядка слоёв (z‑order) фигур влияет на анимацию?**  
+
+Анимация и порядок отрисовки независимы: эффект управляет временем и типом появления/исчезновения, а [z‑order](https://reference.aspose.com/slides/python-net/aspose.slides/shape/z_order_position/) определяет, что покрывает что. Видимый результат определяется их комбинацией. (Это общее поведение PowerPoint; модель Aspose.Slides «эффекты‑и‑фигуры» работает по тем же правилам.)
+
+**Есть ли ограничения при конвертации анимаций в видео для некоторых эффектов?**  
+
+В общем, [анимации поддерживаются](/slides/ru/python-net/convert-powerpoint-to-video/), но редкие случаи или специфические эффекты могут отрисовываться иначе. Рекомендуется тестировать используемые эффекты и версию библиотеки.

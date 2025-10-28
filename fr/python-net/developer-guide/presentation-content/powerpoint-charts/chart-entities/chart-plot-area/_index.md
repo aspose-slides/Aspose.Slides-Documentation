@@ -1,22 +1,33 @@
 ---
-title: Zone de Traçage du Graphique
+title: Personnaliser les zones de tracé des graphiques de présentation en Python
+linktitle: Zone de tracé
 type: docs
 url: /fr/python-net/chart-plot-area/
-keywords: "Zone de Traçage du Graphique présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Obtenez la largeur, la hauteur de la zone de traçage du graphique. Définissez le mode de disposition. Présentation PowerPoint en Python"
+keywords:
+- graphique
+- zone de tracé
+- largeur de la zone de tracé
+- hauteur de la zone de tracé
+- taille de la zone de tracé
+- mode de disposition
+- PowerPoint
+- présentation
+- Python
+- Aspose.Slides
+description: "Découvrez comment personnaliser les zones de tracé des graphiques dans les présentations PowerPoint et OpenDocument avec Aspose.Slides pour Python via .NET. Améliorez facilement l’apparence de vos diapositives."
 ---
 
-## **Obtenez la Largeur, la Hauteur de la Zone de Traçage du Graphique**
-Aspose.Slides pour Python via .NET fournit une API simple pour.
+## **Obtenir la largeur et la hauteur de la zone de tracé du graphique**
+Aspose.Slides pour Python via .NET fournit une API simple.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-1. Accédez à la première diapositive.
-1. Ajoutez un graphique avec des données par défaut.
-1. Appelez la méthode IChart.ValidateChartLayout() avant d'obtenir les valeurs réelles.
-1. Obtient la position X réelle (gauche) de l'élément graphique par rapport au coin supérieur gauche du graphique.
-1. Obtient le haut réel de l'élément graphique par rapport au coin supérieur gauche du graphique.
-1. Obtient la largeur réelle de l'élément graphique.
-1. Obtient la hauteur réelle de l'élément graphique.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+1. Accéder à la première diapositive.
+1. Ajouter un graphique avec des données par défaut.
+1. Appeler la méthode IChart.ValidateChartLayout() au préalable pour obtenir les valeurs réelles.
+1. Obtient la position X réelle (gauche) de l'élément du graphique par rapport au coin supérieur gauche du graphique.
+1. Obtient le haut réel de l'élément du graphique par rapport au coin supérieur gauche du graphique.
+1. Obtient la largeur réelle de l'élément du graphique.
+1. Obtient la hauteur réelle de l'élément du graphique.
 
 ```py
 import aspose.slides.charts as charts
@@ -31,20 +42,20 @@ with slides.Presentation() as pres:
     w = chart.plot_area.actual_width
     h = chart.plot_area.actual_height
 	
-	# Enregistrez la présentation avec le graphique
+	# Enregistrer la présentation avec le graphique
     pres.save("Chart_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
 
 
-## **Définir le Mode de Disposition de la Zone de Traçage du Graphique**
-Aspose.Slides pour Python via .NET fournit une API simple pour définir le mode de disposition de la zone de traçage du graphique. La propriété **LayoutTargetType** a été ajoutée aux classes **ChartPlotArea** et **IChartPlotArea**. Si la disposition de la zone de traçage est définie manuellement, cette propriété spécifie si la zone de traçage doit être disposée par son intérieur (sans inclure les axes et les étiquettes des axes) ou par son extérieur (en incluant les axes et les étiquettes des axes). Il existe deux valeurs possibles qui sont définies dans l'énumération **LayoutTargetType**.
+## **Définir le mode de disposition de la zone de tracé du graphique**
+Aspose.Slides pour Python via .NET fournit une API simple pour définir le mode de disposition de la zone de tracé du graphique. La propriété **LayoutTargetType** a été ajoutée aux classes **ChartPlotArea** et **IChartPlotArea**. Si la disposition de la zone de tracé est définie manuellement, cette propriété indique s'il faut disposer la zone de tracé par son intérieur (sans inclure les axes et les libellés d'axe) ou par son extérieur (en incluant les axes et les libellés d'axe). Deux valeurs possibles sont définies dans l'énumération **LayoutTargetType**.
 
-- **LayoutTargetType.Inner** - précise que la taille de la zone de traçage doit déterminer la taille de la zone de traçage, sans inclure les marques de graduation et les étiquettes des axes.
-- **LayoutTargetType.Outer** - précise que la taille de la zone de traçage doit déterminer la taille de la zone de traçage, les marques de graduation et les étiquettes des axes.
+- **LayoutTargetType.Inner** - spécifie que la taille de la zone de tracé doit déterminer la taille de la zone de tracé, sans inclure les marques de graduation et les libellés d'axe.
+- **LayoutTargetType.Outer** - spécifie que la taille de la zone de tracé doit déterminer la taille de la zone de tracé, les marques de graduation et les libellés d'axe.
 
-Le code d'exemple est donné ci-dessous.
+Exemple de code ci-dessous.
 
 ```py
 import aspose.slides.charts as charts
@@ -61,3 +72,21 @@ with slides.Presentation() as presentation:
 
     presentation.save("SetLayoutMode_outer.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQ**
+
+**Dans quelles unités sont retournés actual_x, actual_y, actual_width et actual_height ?**
+
+En points ; 1 pouce = 72 points. Ce sont les unités de coordonnées d'Aspose.Slides.
+
+**En quoi la zone de tracé diffère-t-elle de la zone du graphique en termes de contenu ?**
+
+La zone de tracé est la région de dessin des données (séries, quadrillages, courbes de tendance, etc.) ; la zone du graphique comprend les éléments environnants (titre, légende, etc.). Dans les graphiques 3D, la zone de tracé inclut également les murs/plancher et les axes.
+
+**Comment les X, Y, largeur et hauteur de la zone de tracé sont-ils interprétés lorsque la disposition est manuelle ?**
+
+Ils sont exprimés en fractions (0–1) de la taille globale du graphique ; dans ce mode, le positionnement automatique est désactivé et les fractions que vous définissez sont utilisées.
+
+**Pourquoi la position de la zone de tracé a-t-elle changé après l'ajout ou le déplacement de la légende ?**
+
+La légende se trouve dans la zone du graphique à l'extérieur de la zone de tracé mais influence la disposition et l'espace disponible, de sorte que la zone de tracé peut se déplacer lorsqu'un positionnement automatique est appliqué. (C’est le comportement standard des graphiques PowerPoint.)

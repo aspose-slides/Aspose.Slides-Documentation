@@ -1,30 +1,28 @@
 ---
-title: Настройте кольцевые графики в презентациях с помощью Python
-linktitle: Кольцевой график
+title: Настройка диаграмм пончик в презентациях с помощью Python
+linktitle: Диаграмма пончик
 type: docs
 weight: 30
 url: /ru/python-net/doughnut-chart/
 keywords:
-  - кольцевой график
-  - центральный зазор
-  - размер отверстия
-  - PowerPoint
-  - OpenDocument
-  - презентация
-  - Python
-  - Aspose.Slides
-description: "Узнайте, как создавать и настраивать кольцевые графики в Aspose.Slides for Python via .NET, поддерживая форматы PowerPoint и OpenDocument для динамических презентаций."
+- диаграмма пончик
+- центральный зазор
+- размер отверстия
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Узнайте, как создавать и настраивать диаграммы пончик в Aspose.Slides для Python через .NET, поддерживая форматы PowerPoint и OpenDocument для динамических презентаций."
 ---
 
-## **Укажите размер отверстия в кольцевой диаграмме**
-Для того чтобы указать размер отверстия в кольцевой диаграмме, выполните следующие шаги:
+## **Указание центрального зазора в диаграмме пончик**
+Чтобы задать размер отверстия в диаграмме пончик, выполните следующие шаги:
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-- Добавьте кольцевую диаграмму на слайд.
-- Укажите размер отверстия в кольцевой диаграмме.
+- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+- Добавьте диаграмму пончик на слайд.
+- Укажите размер отверстия в диаграмме пончик.
 - Сохраните презентацию на диск.
-
-В приведенном ниже примере мы задали размер отверстия в кольцевой диаграмме.
 
 ```py
 import aspose.slides.charts as charts
@@ -39,3 +37,17 @@ with slides.Presentation() as presentation:
     # Сохраните презентацию на диск
     presentation.save("DoughnutHoleSize_out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Часто задаваемые вопросы**
+
+**Можно ли создать многоуровневую диаграмму пончик с несколькими кольцами?**
+
+Да. Добавьте несколько рядов к одной диаграмме пончик — каждый ряд становится отдельным кольцом. Порядок колец определяется порядком рядов в коллекции.
+
+**Поддерживается ли «взрывная» диаграмма пончик (отдельные сектора)?**
+
+Да. Существует тип диаграммы Exploded Doughnut ([тип диаграммы](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/)) и свойство взрыва у точек данных; вы можете отделять отдельные сектора.
+
+**Как получить изображение диаграммы пончик (PNG/SVG) для отчёта?**
+
+Диаграмма — это shape; её можно отрисовать в [растровое изображение](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/) или экспортировать диаграмму в [SVG‑изображение](https://reference.aspose.com/slides/python-net/aspose.slides/shape/write_as_svg/).

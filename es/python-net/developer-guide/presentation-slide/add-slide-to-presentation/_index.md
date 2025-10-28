@@ -1,35 +1,67 @@
 ---
-title: Agregar Diapositiva a la Presentación
+title: Agregar diapositivas a presentaciones con Python
+linktitle: Agregar diapositiva
 type: docs
 weight: 10
 url: /es/python-net/add-slide-to-presentation/
-keywords: "Agregar diapositiva a la presentación, Python, Aspose.Slides"
-description: "Agregar diapositiva a la presentación en Python"
+keywords:
+- agregar diapositiva
+- crear diapositiva
+- diapositiva vacía
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Agregue diapositivas fácilmente a sus presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para Python vía .NET: inserción de diapositivas sin problemas y eficiente en segundos."
 ---
 
-## **Agregar Diapositiva a la Presentación**
-Antes de hablar sobre cómo agregar diapositivas a los archivos de presentación, discutamos algunos hechos sobre las diapositivas. Cada archivo de presentación de PowerPoint contiene una diapositiva Maestra / Diseño y otras diapositivas Normales. Esto significa que un archivo de presentación contiene al menos una o más diapositivas. Es importante saber que los archivos de presentación sin diapositivas no son compatibles con Aspose.Slides para Python a través de .NET. Cada diapositiva tiene un Id único y todas las Diapositivas Normales están dispuestas en un orden especificado por el índice basado en cero. Aspose.Slides para Python a través de .NET permite a los desarrolladores agregar diapositivas vacías a su presentación. Para agregar una diapositiva vacía en la presentación, siga los pasos a continuación:
+## **Resumen**
 
-- Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-- Instancie la clase [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) configurando una referencia a la propiedad Slides (colección de objetos Slide de contenido) expuesta por el objeto Presentation.
-- Agregue una diapositiva vacía a la presentación al final de la colección de diapositivas de contenido llamando al método AddEmptySlide expuesto por el objeto ISlideCollection.
-- Haga algún trabajo con la nueva diapositiva vacía agregada.
-- Finalmente, guarde el archivo de presentación usando el objeto [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+Antes de agregar diapositivas a una presentación, es útil comprender cómo PowerPoint las organiza. Cada presentación contiene una diapositiva maestra, diapositivas de diseño opcionales y una o más diapositivas normales. Cada diapositiva tiene una ID única, y las diapositivas normales se ordenan mediante un índice basado en cero. Este artículo muestra cómo usar Aspose.Slides para Python para crear diapositivas y elegir diseños apropiados.
+
+## **Agregar diapositivas a presentaciones**
+
+Aspose.Slides le permite añadir nuevas diapositivas basadas en diapositivas de diseño existentes. El siguiente ejemplo recorre cada diseño en la presentación, agrega una diapositiva que usa ese diseño y luego guarda el archivo.
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Acceda a la [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/).
+3. Para cada elemento en `presentation.layout_slides`, llame a `add_empty_slide` para agregar una diapositiva que utilice ese diseño.
+4. Opcionalmente, modifique las diapositivas recién añadidas.
+5. Guarde la presentación como un archivo PPTX.
 
 ```py
 import aspose.slides as slides
 
-# Instanciar la clase Presentation que representa el archivo de presentación
-with slides.Presentation() as pres:
-    # Instanciar la clase SlideCollection
-    slds = pres.slides
+# Instantiate the Presentation class.
+with slides.Presentation() as presentation:
+    # Access the slide collection.
+    slides = presentation.slides
 
-    for i in range(len(pres.layout_slides)):
-        # Agregar una diapositiva vacía a la colección de Diapositivas
-        slds.add_empty_slide(pres.layout_slides[i])
-        
-    # Hacer algún trabajo en la diapositiva recién añadida
+    for layout_slide in presentation.layout_slides:
+        # Add an empty slide to the slide collection.
+        slides.add_empty_slide(layout_slide)
 
-    # Guardar el archivo PPTX en el disco
-    pres.save("EmptySlide.pptx", slides.export.SaveFormat.PPTX)
+    # Do some work on the newly added slides.
+
+    # Save the presentation to disk.
+    presentation.save("empty_slides.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQ**
+
+**¿Puedo insertar una nueva diapositiva en una posición específica, no solo al final?**
+
+Sí. La biblioteca admite colecciones de diapositivas y operaciones de [insert](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/insert_empty_slide/)/[clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/insert_clone/), por lo que puede agregar una diapositiva en el índice requerido en lugar de solo al final.
+
+**¿Se conservan los temas/estilos al agregar una diapositiva basada en un diseño?**
+
+Sí. Un diseño hereda el formato de su maestro, y la nueva diapositiva hereda del diseño seleccionado y su maestro asociado.
+
+**¿Qué diapositiva está presente en una nueva presentación "vacía" antes de agregar diapositivas?**
+
+Una presentación recién creada ya contiene una diapositiva en blanco con índice cero. Esto es importante a tener en cuenta al calcular los índices de inserción.
+
+**¿Cómo elegir el diseño "correcto" para una nueva diapositiva si el maestro tiene muchas opciones?**
+
+Generalmente, elija la [LayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/) que coincida con la estructura requerida ([Título y contenido, Dos contenidos, etc.](https://reference.aspose.com/slides/python-net/aspose.slides/slidelayouttype/)). Si falta dicho diseño, puede [agregarlo al maestro](/slides/es/python-net/slide-layout/) y luego usarlo.

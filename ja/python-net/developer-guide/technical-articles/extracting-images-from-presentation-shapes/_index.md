@@ -1,30 +1,32 @@
 ---
-title: Python でプレゼンテーションの図形から画像を抽出する
-linktitle: 図形から画像
+title: Python でプレゼンテーションシェイプから画像を抽出
+linktitle: シェイプから画像
 type: docs
 weight: 90
 url: /ja/python-net/extracting-images-from-presentation-shapes/
 keywords:
-- 画像を抽出
-- 画像を取得
-- スライドの背景
-- 図形の背景
+- 画像抽出
+- 画像取得
+- スライド背景
+- シェイプ背景
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python を使用して PowerPoint および OpenDocument プレゼンテーションの図形から画像を抽出する、迅速でコーディングに適したソリューション。"
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint と OpenDocument プレゼンテーションのシェイプから画像を抽出します — 迅速でコードにやさしいソリューション。"
 ---
+
+## **シェイプから画像を抽出**
 
 {{% alert color="primary" %}} 
 
-画像はしばしば図形に追加され、またスライドの背景としても頻繁に使用されます。画像オブジェクトは[IImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/iimagecollection/)を介して追加され、これは[IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/)オブジェクトのコレクションです。
+画像はシェイプに追加されることが多く、またスライドの背景としても頻繁に使用されます。画像オブジェクトは [IImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/iimagecollection/) を介して追加され、これは [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) オブジェクトのコレクションです。 
 
-この記事では、プレゼンテーションに追加された画像を抽出する方法について説明します。
+本記事では、プレゼンテーションに追加された画像を抽出する方法を説明します。 
 
 {{% /alert %}} 
 
-プレゼンテーションから画像を抽出するには、まずすべてのスライドを通過して画像を見つける必要があります。その後、すべての図形を通過します。画像が見つかるか識別されると、画像を抽出し、新しいファイルとして保存できます。XXX 
+プレゼンテーションから画像を抽出するには、まずすべてのスライドを走査し、次に各スライドのすべてのシェイプを走査して画像を特定する必要があります。画像が見つかり、または識別されたら、抽出して新しいファイルとして保存できます。 XXX 
 
 ```py
 import aspose.slides as slides
@@ -40,14 +42,14 @@ def get_image_format(image_type):
     }.get(image_type, slides.ImageFormat.JPEG)
 
 with slides.Presentation("pres.pptx") as pres:
-    #プレゼンテーションにアクセス
-
+    #Accessing the presentation
+    
     slideIndex = 0
     image_type = ""
     ifImageFound = False
     for slide in pres.slides:
         slideIndex += 1
-        #最初のスライドにアクセス
+        #Accessing the first slide
         image_format = slides.ImageFormat.JPEG
 
         back_image = None
@@ -55,15 +57,15 @@ with slides.Presentation("pres.pptx") as pres:
         is_layout = False
 
         if slide.background.fill_format.fill_type == slides.FillType.PICTURE:
-            #背景画像を取得  
+            #Getting the back picture  
             back_image = slide.background.fill_format.picture_fill_format.picture.image
         elif slide.layout_slide.background.fill_format.fill_type == slides.FillType.PICTURE:
-            #背景画像を取得  
+            #Getting the back picture  
             back_image = slide.layout_slide.background.fill_format.picture_fill_format.picture.image
             is_layout = True
 
         if back_image is not None:
-            #希望の画像形式を設定 
+            #Setting the desired picture format 
             image_type = back_image.content_type.split("/")[1]
             image_format = get_image_format(image_type)
 
@@ -88,3 +90,21 @@ with slides.Presentation("pres.pptx") as pres:
                                 file_name.format("shape_"+str(i)+"_", slideIndex, image_type), 
                                 image_format)
 ```
+
+## **FAQ**
+
+**元の画像を切り抜きやエフェクト、シェイプ変形なしで抽出できますか？**
+
+はい。シェイプの画像にアクセスすると、プレゼンテーションの [image collection](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/) から画像オブジェクトを取得します。つまり、切り抜きやスタイリング効果を加えていない元のピクセルです。ワークフローはプレゼンテーションの画像コレクションと [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) オブジェクトを通過し、生データを保持しています。
+
+**多数の画像を一度に保存すると、同一ファイルが重複して保存されるリスクはありますか？**
+
+あります。プレゼンテーションの [image collection](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/) には、異なるシェイプやスライドから参照されている同一のバイナリデータが含まれることがあります。重複を防ぐには、書き込み前にハッシュ、サイズ、または抽出データの内容を比較してください。
+
+**プレゼンテーションのコレクション内の特定の画像にリンクしているシェイプをどのように特定できますか？**
+
+Aspose.Slides では [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) からシェイプへの逆リンクは保持されていません。走査中に手動でマッピングを構築してください。 [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) への参照が見つかったら、どのシェイプがそれを使用しているかを記録します。
+
+**OLE オブジェクト（添付ドキュメントなど）に埋め込まれた画像を抽出できますか？**
+
+直接はできません。OLE オブジェクトはコンテナであるため、まず OLE パッケージ自体を抽出し、別途ツールで内容を解析する必要があります。プレゼンテーションの画像シェイプは [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) を介して機能しますが、OLE は別のオブジェクトタイプです。

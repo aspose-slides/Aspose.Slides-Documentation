@@ -6,7 +6,7 @@ weight: 40
 url: /de/python-net/manage-ole/
 keywords:
 - OLE-Objekt
-- Objektverknüpfung & Einbettung
+- Objektverknüpfung & -Einbettung
 - OLE hinzufügen
 - OLE einbetten
 - Objekt hinzufügen
@@ -25,231 +25,297 @@ keywords:
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Optimieren Sie die Verwaltung von OLE-Objekten in PowerPoint- und OpenDocument-Dateien mit Aspose.Slides for Python via .NET. Betten Sie OLE-Inhalte nahtlos ein, aktualisieren und exportieren Sie sie."
+description: "Optimieren Sie die Verwaltung von OLE-Objekten in PowerPoint- und OpenDocument-Dateien mit Aspose.Slides für Python via .NET. Betten Sie OLE-Inhalte nahtlos ein, aktualisieren und exportieren Sie sie."
 ---
+
+## **Übersicht**
 
 {{% alert title="Info" color="info" %}}
 
-OLE (Object Linking & Embedding) ist eine Microsoft-Technologie, die es ermöglicht, Daten und Objekte, die in einer Anwendung erstellt wurden, durch Verlinkung oder Einbettung in eine andere Anwendung zu platzieren. 
+**OLE (Object Linking & Embedding)** ist eine Microsoft‑Technologie, die es ermöglicht, Daten und Objekte, die in einer Anwendung erstellt wurden, in einer anderen zu verknüpfen oder einzubetten.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-Betrachten Sie ein in MS Excel erstelltes Diagramm. Das Diagramm wird dann in eine PowerPoint-Folie eingefügt. Dieses Excel-Diagramm wird als OLE-Objekt betrachtet. 
+Beispielsweise ist ein Diagramm, das in Microsoft Excel erstellt und auf einer PowerPoint‑Folie platziert wird, ein OLE‑Objekt.
 
-- Ein OLE-Objekt kann als Symbol erscheinen. In diesem Fall wird das Diagramm geöffnet, wenn Sie auf das Symbol doppelklicken, sofern das zugehörige Programm (Excel) geöffnet werden kann, oder Sie werden aufgefordert, ein Programm zum Öffnen oder Bearbeiten des Objekts auszuwählen. 
-- Ein OLE-Objekt kann tatsächliche Inhalte anzeigen – zum Beispiel die Inhalte eines Diagramms. In diesem Fall wird das Diagramm in PowerPoint aktiviert, die Diagrammoberfläche wird geladen, und Sie können die Daten des Diagramms innerhalb der PowerPoint-Anwendung ändern.
+- Ein OLE‑Objekt kann als Symbol angezeigt werden. Ein Doppelklick auf das Symbol öffnet das Objekt in der zugehörigen Anwendung (z. B. Excel) oder fordert Sie auf, eine Anwendung zum Öffnen oder Bearbeiten auszuwählen.
+- Ein OLE‑Objekt kann seinen Inhalt anzeigen (z. B. ein Diagramm). In diesem Fall aktiviert PowerPoint das eingebettete Objekt, lädt die Diagrammschnittstelle und ermöglicht es Ihnen, die Diagrammdaten direkt in PowerPoint zu bearbeiten.
 
-[Aspose.Slides für Python über .NET](https://products.aspose.com/slides/python-net) ermöglicht es Ihnen, OLE-Objekte in Folien als OLE-Objekt-Frames ([OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)) einzufügen.
+Aspose.Slides for Python lets you insert OLE objects into slides as OLE object frames ([OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)).
 
-## **Hinzufügen von OLE-Objekt-Frames zu Folien**
-Angenommen, Sie haben bereits ein Diagramm in Microsoft Excel erstellt und möchten dieses Diagramm in einer Folie als OLE-Objekt-Frame mit Aspose.Slides für Python über .NET einbetten, können Sie das wie folgt tun:
+## **OLE‑Objekte zu Folien hinzufügen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-1. Holen Sie sich eine Referenz der Folie über ihren Index.
-1. Öffnen Sie die Excel-Datei, die das Excel-Diagrammobjekt enthält, und speichern Sie sie in `MemoryStream`.
-1. Fügen Sie das OLE-Objekt-Frame zur Folie hinzu, das das Byte-Array und andere Informationen über das OLE-Objekt enthält.
-1. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+Wenn Sie bereits ein Diagramm in Microsoft Excel erstellt haben und es mit Aspose.Slides for Python als OLE‑Objekt‑Frame in eine Folie einbetten möchten, gehen Sie wie folgt vor:
 
-Im folgenden Beispiel haben wir ein Diagramm aus einer Excel-Datei in eine Folie als [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) mit Aspose.Slides für Python über .NET eingefügt.  
-**Hinweis**, dass der [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/python-net/aspose.slides/ioleembeddeddatainfo/) Konstruktor eine einbettbare Objekt-Erweiterung als zweiten Parameter verwendet. Diese Erweiterung ermöglicht es PowerPoint, den Dateityp korrekt zu interpretieren und die richtige Anwendung zum Öffnen dieses OLE-Objekts auszuwählen.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Holen Sie sich einen Verweis auf die Folie anhand ihres Index.
+1. Lesen Sie die Excel‑Datei in ein Byte‑Array ein.
+1. Fügen Sie der Folie ein [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) hinzu und übergeben dabei das Byte‑Array sowie weitere OLE‑Objektdetails.
+1. Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
 
-```py 
-import aspose.slides as slides
+Im folgenden Beispiel wird ein Diagramm aus einer Excel‑Datei als [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) in eine Folie eingebettet.
 
-# Instanziiert die Presentation-Klasse, die das PPTX repräsentiert
-with slides.Presentation() as pres:
-    # Greift auf die erste Folie zu
-    sld = pres.slides[0]
+**Hinweis:** Der Konstruktor von [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-net/aspose.slides.dom.ole/oleembeddeddatainfo/) nimmt die Dateierweiterung des einbettbaren Objekts als zweiten Parameter entgegen. PowerPoint verwendet diese Erweiterung, um den Dateityp zu erkennen und die geeignete Anwendung zum Öffnen des OLE‑Objekts auszuwählen.
 
-    # Lädt eine Excel-Datei in den Stream
-    with open(path + "book1.xlsx", "rb") as fs:
-        bytes = fs.read()
-    
-        # Erstellt ein Datenobjekt zum Einbetten
-        dataInfo = slides.dom.ole.OleEmbeddedDataInfo(bytes, "xlsx")
+```py
+with slides.Presentation() as presentation:
+    slide_size = presentation.slide_size.size
+    slide = presentation.slides[0]
 
-        # Fügt eine Ole-Objekt-Frame-Form hinzu
-        oleObjectFrame = sld.shapes.add_ole_object_frame(0, 0, pres.slide_size.size.width, pres.slide_size.size.height, dataInfo)
+    # Prepare the data for the OLE object.
+    with open("book.xlsx", "rb") as file_stream:
+        file_data = file_stream.read()
+        data_info = slides.dom.ole.OleEmbeddedDataInfo(file_data, "xlsx")
 
-        # Schreibt die PPTX-Datei auf die Festplatte
-        pres.save("OleEmbed_out.pptx", slides.export.SaveFormat.PPTX)
+    # Add an OLE object frame to the slide.
+    ole_frame = slide.shapes.add_ole_object_frame(0, 0, slide_size.width, slide_size.height, data_info)
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
-## **Zugreifen auf OLE-Objekt-Frames**
-Wenn ein OLE-Objekt bereits in einer Folie eingebettet ist, können Sie dieses Objekt ganz einfach so finden oder darauf zugreifen:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
+### **Verknüpfte OLE‑Objekte hinzufügen**
 
-1. Erhalten Sie die Referenz der Folie, indem Sie ihren Index verwenden.
+Aspose.Slides for Python lets you add an [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) that links to a file instead of embedding its data.
 
+Der folgende Python‑Code zeigt, wie man ein [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) hinzufügt, das zu einer Excel‑Datei auf einer Folie verlinkt:
+
+```py
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    # Add an OLE object frame with a linked Excel file.
+    slide.shapes.add_ole_object_frame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx")
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **OLE‑Objekte zugreifen**
+
+Wenn ein OLE‑Objekt bereits in einer Folie eingebettet ist, können Sie wie folgt darauf zugreifen:
+
+1. Laden Sie die Präsentation, die das eingebettete OLE‑Objekt enthält, indem Sie eine Instanz der Klasse Presentation erstellen.
+1. Holen Sie sich einen Verweis auf die Folie anhand ihres Index.
+1. Greifen Sie auf die OleObjectFrame‑Form zu.
+1. Sobald Sie den OLE‑Objekt‑Frame haben, führen Sie die gewünschten Vorgänge aus.
+
+Das folgende Beispiel greift auf den OLE‑Objekt‑Frame – ein eingebettetes Excel‑Diagramm – zu und ruft dessen Dateidaten ab. In diesem Beispiel verwenden wir ein PPTX mit einer einzigen Form auf der ersten Folie.
+
+```py
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+
+    if isinstance(shape, slides.OleObjectFrame):
+        ole_frame = shape
+
+        # Get the embedded file data.
+        file_data = ole_frame.embedded_data.embedded_file_data
+
+        # Get the extension of the embedded file.
+        file_extension = ole_frame.embedded_data.embedded_file_extension
+
+        # ...
+```
+
+### **Eigenschaften verknüpfter OLE‑Objekte zugreifen**
+
+Aspose.Slides lets you access the properties of a linked OLE object frame.
+
+Das untenstehende Python‑Beispiel prüft, ob ein OLE‑Objekt verlinkt ist, und gibt, falls ja, den Pfad zur verlinkten Datei zurück:
+
+```py
+with slides.Presentation("sample.ppt") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+
+    if isinstance(shape, slides.OleObjectFrame):
+        ole_frame = shape
+
+        # Check whether the OLE object is linked.
+        if ole_frame.is_object_link:
+            # Print the full path to the linked file.
+            print("OLE object frame is linked to:", ole_frame.link_path_long)
+
+            # Print the relative path to the linked file, if present.
+            # Only .ppt presentations can contain a relative path.
+            if ole_frame.link_path_relative:
+                print("OLE object frame relative path:", ole_frame.link_path_relative)
+```
+
+## **OLE‑Objektdaten ändern**
+
+{{% alert color="primary" %}}
+
+In diesem Abschnitt verwendet das untenstehende Code‑Beispiel Aspose.Cells für Python via .NET.
+
+{{% /alert %}}
+
+Wenn ein OLE‑Objekt bereits in einer Folie eingebettet ist, können Sie es wie folgt zugreifen und seine Daten ändern:
+
+1. Laden Sie die Präsentation, indem Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse erstellen.
+1. Holen Sie das Ziel‑Slide anhand seines Index.
 1. Greifen Sie auf die [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) Form zu.
+1. Sobald Sie den OLE‑Objekt‑Frame haben, führen Sie die gewünschten Vorgänge aus.
+1. Erstellen Sie ein `Workbook`‑Objekt und lesen Sie die OLE‑Daten.
+1. Öffnen Sie das gewünschte `Worksheet` und bearbeiten Sie die Daten.
+1. Speichern Sie das aktualisierte `Workbook` in einen Stream.
+1. Ersetzen Sie die OLE‑Objektdaten mithilfe dieses Streams.
 
-   In unserem Beispiel haben wir die zuvor erstellte PPTX verwendet, die nur eine Form auf der ersten Folie hat. Wir haben dann *casten* dieses Objekt als [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/). Dies war das gewünschte OLE-Objekt-Frame, auf das zugegriffen werden sollte.
-
-1. Sobald das OLE-Objekt-Frame zugänglich ist, können Sie jede Operation daran ausführen.
-
-Im folgenden Beispiel wird ein OLE-Objekt-Frame (ein in eine Folie eingebettetes Excel-Diagrammobjekt) zugegriffen – und dann werden die Dateidaten in eine Excel-Datei geschrieben:
-
-```py 
-import aspose.slides as slides
-
-# Lädt das PPTX in ein Präsentationsobjekt
-with slides.Presentation(path + "AccessingOLEObjectFrame.pptx") as pres:
-    # Greift auf die erste Folie zu
-    sld = pres.slides[0]
-
-    # Castet die Form zu OleObjectFrame
-    oleObjectFrame = sld.shapes[0]
-
-    # Liest das OLE-Objekt und schreibt es auf die Festplatte
-    if type(oleObjectFrame) is slides.OleObjectFrame:
-        # Erhält die eingebetteten Dateidaten
-        data = oleObjectFrame.embedded_data.embedded_file_data
-
-        # Erhält die eingebettete Dateierweiterung
-        fileExtention = oleObjectFrame.embedded_data.embedded_file_extension
-
-        # Erstellt einen Pfad zum Speichern der extrahierten Datei
-        extractedPath = "excelFromOLE_out" + fileExtention
-
-        # Speichert die extrahierten Daten
-        with open("out.xlsx", "wb") as fs:
-            fs.write(data)
-```
-
-## **Ändern von OLE-Objektdaten**
-
-Wenn ein OLE-Objekt bereits in einer Folie eingebettet ist, können Sie dieses Objekt ganz einfach mit Aspose.Slides für Python über .NET zugreifen und seine Daten wie folgt ändern:
-
-1. Öffnen Sie die gewünschte Präsentation mit dem eingebetteten OLE-Objekt, indem Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse erstellen.
-
-1. Erhalten Sie die Referenz der Folie über ihren Index.
-
-1. Greifen Sie auf die [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) Form zu.
-
-   In unserem Beispiel haben wir die zuvor erstellte PPTX verwendet, die nur eine Form auf der ersten Folie hat. Wir haben dann *casten* dieses Objekt als [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/). Dies war das gewünschte OLE-Objekt-Frame, auf das zugegriffen werden sollte.
-
-1. Sobald das OLE-Objekt-Frame zugänglich ist, können Sie jede Operation daran ausführen.
-
-1. Erstellen Sie das Arbeitsbuchobjekt und greifen Sie auf die OLE-Daten zu.
-
-1. Greifen Sie auf das gewünschte Arbeitsblatt zu und ändern Sie die Daten.
-
-1. Speichern Sie das aktualisierte Arbeitsbuch in Streams.
-
-1. Ändern Sie die OLE-Objektdaten auf Daten aus dem Stream.
-
-Im folgenden Beispiel wird ein OLE-Objekt-Frame (ein in eine Folie eingebettetes Excel-Diagrammobjekt) zugegriffen – und dann werden seine Dateidaten geändert, um die Diagrammdaten zu ändern.
-
-```py 
-# [TODO:require Aspose.Cells für Python über .NET]
-```
-
-## Andere Dateitypen in Folien einbetten
-
-Neben Excel-Diagrammen ermöglicht Aspose.Slides für Python über .NET das Einbetten anderer Dateitypen in Folien. Beispielsweise können Sie HTML-, PDF- und ZIP-Dateien als Objekte in eine Folie einfügen. Wenn ein Benutzer auf das eingefügte Objekt doppelklickt, wird das Objekt automatisch im entsprechenden Programm gestartet, oder der Benutzer wird aufgefordert, ein passendes Programm zum Öffnen des Objekts auszuwählen. 
-
-Dieser Python-Code zeigt Ihnen, wie Sie HTML und ZIP in eine Folie einbetten:
+Im folgenden Beispiel wird ein OLE‑Objekt‑Frame (ein eingebettetes Excel‑Diagramm) geöffnet und dessen Dateidaten geändert, um das Diagramm zu aktualisieren. Das Beispiel verwendet ein zuvor erstelltes PPTX mit einer einzigen Form auf der ersten Folie.
 
 ```py
+import io
 import aspose.slides as slides
+import aspose.cells as cells
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    with open(path + "index.html", "rb") as fs1:
-        htmlBytes = fs1.read()
-        dataInfoHtml = slides.dom.ole.OleEmbeddedDataInfo(htmlBytes, "html")
-        oleFrameHtml = slide.shapes.add_ole_object_frame(150, 120, 50, 50, dataInfoHtml)
-        oleFrameHtml.is_object_icon = True
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
 
-    with open(path + "archive.zip", "rb") as fs2:
-        zipBytes = fs2.read()
-        dataInfoZip = slides.dom.ole.OleEmbeddedDataInfo(zipBytes, "zip")
-        oleFrameZip = slide.shapes.add_ole_object_frame(150, 220, 50, 50, dataInfoZip)
-        oleFrameZip.is_object_icon = True
+    if isinstance(shape, slides.OleObjectFrame):
+        ole_frame = shape
 
-    pres.save("embeddedOle.pptx", slides.export.SaveFormat.PPTX)
+        with io.BytesIO(ole_frame.embedded_data.embedded_file_data) as ole_stream:
+            # Read the OLE object data as a Workbook object.
+            workbook = cells.Workbook(ole_stream)
+
+        with io.BytesIO() as new_ole_stream:
+            # Modify the workbook data.
+            workbook.worksheets.get(0).cells.get(0, 4).put_value("E")
+            workbook.worksheets.get(0).cells.get(1, 4).put_value(12)
+            workbook.worksheets.get(0).cells.get(2, 4).put_value(14)
+            workbook.worksheets.get(0).cells.get(3, 4).put_value(15)
+
+            file_options = cells.OoxmlSaveOptions(cells.SaveFormat.XLSX)
+            workbook.save(new_ole_stream, file_options)
+
+            # Change the OLE frame object data.
+            new_data = slides.dom.ole.OleEmbeddedDataInfo(new_ole_stream.getvalue(), ole_frame.embedded_data.embedded_file_extension)
+            ole_frame.set_embedded_data(new_data)
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## Dateitypen für eingebettete Objekte festlegen
+## **Dateien in Folien einbetten**
 
-Wenn Sie an Präsentationen arbeiten, müssen Sie möglicherweise alte OLE-Objekte durch neue ersetzen. Oder Sie müssen ein nicht unterstütztes OLE-Objekt durch ein unterstütztes ersetzen. 
+Zusätzlich zu Excel‑Diagrammen ermöglicht Aspose.Slides für Python das Einbetten weiterer Dateitypen in Folien. Sie können beispielsweise HTML-, PDF- und ZIP-Dateien als Objekte einfügen. Wenn ein Benutzer ein eingefügtes Objekt doppelklickt, wird es automatisch in der zugehörigen Anwendung geöffnet, bzw. der Benutzer wird aufgefordert, ein geeignetes Programm auszuwählen.
 
-Aspose.Slides für Python über .NET ermöglicht es Ihnen, den Dateityp für ein eingebettetes Objekt festzulegen. Auf diese Weise können Sie die OLE-Frame-Daten oder deren Erweiterung ändern. 
-
-Dieser Python-Code zeigt Ihnen, wie Sie den Dateityp für ein eingebettetes OLE-Objekt festlegen:
+Der folgende Python‑Code zeigt, wie HTML‑ und ZIP‑Dateien in einer Folie eingebettet werden:
 
 ```py
-import aspose.slides as slides
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-with slides.Presentation("embeddedOle.pptx") as pres:
-    slide = pres.slides[0]
-    oleObjectFrame = slide.shapes[0]
-    print("Aktuelle eingebettete Datenerweiterung ist:" + oleObjectFrame.embedded_data.embedded_file_extension)
-   
-    with open(path + "1.zip", "rb") as fs2:
-        zipBytes = fs2.read()
+    with open("sample.html", "rb") as html_stream:
+        html_data = html_stream.read()
 
-    oleObjectFrame.set_embedded_data(slides.dom.ole.OleEmbeddedDataInfo(zipBytes, "zip"))
-   
-    pres.save("embeddedChanged.pptx", slides.export.SaveFormat.PPTX)
+    html_data_info = slides.dom.ole.OleEmbeddedDataInfo(html_data, "html")
+    html_ole_frame = slide.shapes.add_ole_object_frame(150, 120, 50, 50, html_data_info)
+    html_ole_frame.is_object_icon = True
+
+    with open("sample.zip", "rb") as zip_stream:
+        zip_data = zip_stream.read()
+
+    zip_data_info = slides.dom.ole.OleEmbeddedDataInfo(zip_data, "zip")
+    zip_ole_frame = slide.shapes.add_ole_object_frame(150, 220, 50, 50, zip_data_info)
+    zip_ole_frame.is_object_icon = True
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## Icon-Bilder und Titel für eingebettete Objekte festlegen
+## **Dateitypen für eingebettete Objekte festlegen**
 
-Nachdem Sie ein OLE-Objekt eingebettet haben, wird automatisch eine Vorschau mit einem Symbolbild und Titel hinzugefügt. Die Vorschau ist das, was Benutzer sehen, bevor sie auf das OLE-Objekt zugreifen oder es öffnen. 
+Bei der Arbeit mit Präsentationen kann es nötig sein, alte OLE‑Objekte durch neue zu ersetzen oder ein nicht unterstütztes OLE‑Objekt durch ein unterstütztes auszutauschen. Aspose.Slides für Python ermöglicht es, den Dateityp eines eingebetteten Objekts festzulegen, sodass Sie die OLE‑Frame‑Daten oder die Dateierweiterung aktualisieren können.
 
-Wenn Sie ein bestimmtes Bild und einen bestimmten Text als Elemente in der Vorschau verwenden möchten, können Sie das Symbolbild und den Titel mit Aspose.Slides für Python über .NET festlegen. 
-
-Dieser Python-Code zeigt Ihnen, wie Sie das Symbolbild und den Titel für ein eingebettetes Objekt festlegen: 
+Der folgende Python‑Code zeigt, wie man den Dateityp des eingebetteten OLE‑Objekts auf `zip` setzt:
 
 ```py
-import aspose.slides as slides
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    ole_frame = slide.shapes[0]
 
-with slides.Presentation("embeddedOle.pptx") as pres:
-    slide = pres.slides[0]
-    oleObjectFrame = slide.shapes[0]
-    
-    with open("img.jpeg", "rb") as in_file:
-        oleImage = pres.images.add_image(in_file)
+    file_extension = ole_frame.embedded_data.embedded_file_extension
+    file_data = ole_frame.embedded_data.embedded_file_data
 
-    oleObjectFrame.substitute_picture_title = "Mein Titel"
-    oleObjectFrame.substitute_picture_format.picture.image = oleImage
-    oleObjectFrame.is_object_icon = False
+    print(f"Current embedded file extension is: {file_extension}")
 
-    pres.save("embeddedOle-newImage.pptx", slides.export.SaveFormat.PPTX)
+    # Change the file type to ZIP.
+    ole_frame.set_embedded_data(slides.dom.ole.OleEmbeddedDataInfo(file_data, "zip"))
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Verhindern, dass ein OLE-Objekt-Frame von PowerPoint neu dimensioniert und umpositioniert wird**
+## **Symboldbilder und Titel für eingebettete Objekte festlegen**
 
-Nachdem Sie ein verknüpftes OLE-Objekt zu einer Präsentationsfolie hinzugefügt haben, sehen Sie möglicherweise eine Nachricht, wenn Sie die Präsentation in PowerPoint öffnen, die Sie auffordert, die Links zu aktualisieren. Durch Klicken auf die Schaltfläche "Links aktualisieren" kann sich die Größe und Position des OLE-Objekt-Frames ändern, da PowerPoint die Daten des verknüpften OLE-Objekts aktualisiert und die Objektvorschau aktualisiert. Um zu verhindern, dass PowerPoint dazu aufgefordert wird, setzen Sie die `update_automatic`-Eigenschaft der [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) Klasse auf `False`:
+Nachdem Sie ein OLE‑Objekt eingebettet haben, wird automatisch eine symbolbasierte Vorschau hinzugefügt. Diese Vorschau sehen die Benutzer, bevor sie auf das OLE‑Objekt zugreifen oder es öffnen. Wenn Sie ein bestimmtes Bild und einen Text in der Vorschau verwenden möchten, können Sie das Symbolbild und den Titel mit Aspose.Slides für Python festlegen.
+
+Der folgende Python‑Code zeigt, wie das Symbolbild und der Titel für ein eingebettetes Objekt festgelegt werden:
 
 ```py
-oleObjectFrame.update_automatic = False
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    ole_frame = slide.shapes[0]
+
+    # Add an image to the presentation resources.
+    with slides.Images.from_file("image.png") as image:
+        ole_image = presentation.images.add_image(image)
+
+    # Set a title and the image for the OLE preview.
+    ole_frame.substitute_picture_title = "My title"
+    ole_frame.substitute_picture_format.picture.image = ole_image
+    ole_frame.is_object_icon = True
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## Extrahieren von eingebetteten Dateien
+## **Verhindern, dass OLE‑Objekt‑Frames skaliert und neu positioniert werden**
 
-Aspose.Slides für Python über .NET ermöglicht es Ihnen, die in Folien als OLE-Objekte eingebetteten Dateien wie folgt zu extrahieren:
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), die das OLE-Objekt enthält, das Sie extrahieren möchten.
-2. Durchlaufen Sie alle Formen in der Präsentation und greifen Sie auf die [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) Form zu.
-3. Greifen Sie auf die Daten der eingebetteten Datei vom OLE-Objekt-Frame zu und schreiben Sie sie auf die Festplatte. 
-
-Dieser Python-Code zeigt Ihnen, wie Sie eine in einer Folie als OLE-Objekt eingebettete Datei extrahieren:
+Nachdem Sie ein verknüpftes OLE‑Objekt zu einer Folie hinzugefügt haben, kann PowerPoint beim Öffnen der Präsentation auffordern, die Verknüpfungen zu aktualisieren. Die Auswahl von „Verknüpfungen aktualisieren“ kann die Größe und Position des OLE‑Objekt‑Frames ändern, da PowerPoint die Vorschau mit Daten aus dem verknüpften Objekt aktualisiert. Um zu verhindern, dass PowerPoint Sie zur Aktualisierung der Objektdaten auffordert, setzen Sie die Eigenschaft `update_automatic` der Klasse [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) auf `False`:
 
 ```py
-import aspose.slides as slides
-
-with slides.Presentation("embeddedOle.pptx") as pres:
-    slide = pres.slides[0]
-    index = 0
-    for shape in slide.shapes:
-
-        if type(shape) is slides.OleObjectFrame:
-            data = shape.embedded_data.embedded_file_data
-            extension = shape.embedded_data.embedded_file_extension
-            
-            with open("oleFrame{idx}{ex}".format(idx = str(index), ex = extension), "wb") as fs:
-                fs.write(data)
-        index += 1
+ole_frame.update_automatic = False
 ```
+
+## **Eingebettete Dateien extrahieren**
+
+Aspose.Slides für Python ermöglicht das Extrahieren von in Folien als OLE‑Objekte eingebetteten Dateien wie folgt:
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse, die die zu extrahierenden OLE‑Objekte enthält.
+1. Durchlaufen Sie alle Formen in der Präsentation und lokalisieren Sie die OleObjectFrame‑Formen.
+1. Rufen Sie die eingebetteten Dateidaten jeder [OLEObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) ab und schreiben Sie sie auf die Festplatte.
+
+Der folgende Python‑Code zeigt, wie Dateien, die als OLE‑Objekte in einer Folie eingebettet sind, extrahiert werden:
+
+```py
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for index, shape in enumerate(slide.shapes):
+        if isinstance(shape, slides.OleObjectFrame):
+            ole_frame = shape
+
+            file_data = ole_frame.embedded_data.embedded_file_data
+            file_extension = ole_frame.embedded_data.embedded_file_extension
+
+            file_path = f"OLE_object_{index}{file_extension}"
+            with open(file_path, 'wb') as file_stream:
+                file_stream.write(file_data)
+```
+
+## **FAQ**
+
+**Wird der OLE‑Inhalt beim Exportieren von Folien zu PDF/Bildern gerendert?**
+
+Was auf der Folie sichtbar ist, wird gerendert – das Symbol bzw. das Ersatzbild (Vorschau). Der „Live“-OLE‑Inhalt wird beim Rendern nicht ausgeführt. Falls nötig, setzen Sie ein eigenes Vorschaubild, um das erwartete Erscheinungsbild im exportierten PDF sicherzustellen.
+
+**Wie kann ich ein OLE‑Objekt auf einer Folie sperren, sodass Benutzer es in PowerPoint nicht verschieben/bearbeiten können?**
+
+Form sperren: Aspose.Slides bietet [Formularebene‑Sperren](/slides/de/python-net/applying-protection-to-presentation/). Das ist keine Verschlüsselung, verhindert aber effektiv versehentliche Änderungen und Verschiebungen.
+
+**Warum „springt“ ein verknüpftes Excel‑Objekt oder ändert die Größe, wenn ich die Präsentation öffne?**
+
+PowerPoint kann die Vorschau des verknüpften OLE aktualisieren. Für ein stabiles Erscheinungsbild folgen Sie den Praktiken der [Lösung für Arbeitsblatt‑Skalierung](/slides/de/python-net/working-solution-for-worksheet-resizing/) – entweder den Frame an den Bereich anpassen oder den Bereich an einen festen Frame skalieren und ein geeignetes Ersatzbild festlegen.
+
+**Werden relative Pfade für verknüpfte OLE‑Objekte im PPTX‑Format beibehalten?**
+
+Im PPTX‑Format sind keine Informationen zu „relativen Pfaden“ vorhanden – nur der vollständige Pfad. Relative Pfade gibt es im alten PPT‑Format. Für Portabilität sollten Sie zuverlässige absolute Pfade/erreichbare URIs oder das Einbetten bevorzugen.

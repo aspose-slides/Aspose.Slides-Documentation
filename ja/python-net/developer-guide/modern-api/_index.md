@@ -1,166 +1,182 @@
 ---
-title: Python Modern API で画像処理を強化する
-linktitle: モダン API
+title: モダンAPIで画像処理を強化
+linktitle: モダンAPI
 type: docs
 weight: 280
 url: /ja/python-net/modern-api/
 keywords:
-- モダン API
+- モダンAPI
 - 描画
 - スライド サムネイル
-- スライドを画像に
-- 図形サムネイル
-- 図形を画像に
+- スライド から 画像
+- シェイプ サムネイル
+- シェイプ から 画像
 - プレゼンテーション サムネイル
-- プレゼンテーションを画像に
-- 画像を追加
-- ピクチャを追加
-- PowerPoint
-- OpenDocument
+- プレゼンテーション から 画像
+- 画像 の 追加
+- ピクチャ の 追加
 - Python
 - Aspose.Slides
-description: "廃止されたイメージング API を Python の Modern API に置き換えてスライドの画像処理をモダン化し、PowerPoint および OpenDocument の自動化をシームレスに行う方法をご紹介します。"
+description: "非推奨の画像処理 API を Python モダン API に置き換えて、PowerPoint と OpenDocument の自動化をシームレスに行えるようにし、スライド画像処理を最新化します。"
 ---
 
-## はじめに
+## **はじめに**
 
-現在、Aspose.Slides for Python via .NETライブラリは、`aspose.pydrawing`の以下のクラスに依存しています：
+Aspose.Slides for Python の公開 API は現在、次の `aspose.pydrawing` 型に依存しています。
 - `aspose.pydrawing.Graphics`
 - `aspose.pydrawing.Image`
 - `aspose.pydrawing.Bitmap`
 - `aspose.pydrawing.printing.PrinterSettings`
 
-バージョン24.4以降、この公開APIは、Aspose.Slides for .NETの公開APIにおける[変更](https://releases.aspose.com/slides/net/release-notes/2024/aspose-slides-for-net-24-4-release-notes/#introducing-a-new-modern-api)により非推奨とされています。
+バージョン 24.4 から、この公開 API は [変更](https://releases.aspose.com/slides/python-net/release-notes/2024/aspose-slides-for-python-net-24-4-release-notes/#introducing-a-new-modern-api) により **非推奨** となります。
 
-公開APIの`aspose.pydrawing`への依存を取り除くために、いわゆる「モダンAPI」を追加しました。`aspose.pydrawing.Image`および`aspose.pydrawing.Bitmap`を使用するメソッドは非推奨とされ、モダンAPIの対応するメソッドに置き換えられます。`aspose.pydrawing.Graphics`を使用するメソッドは非推奨となり、公開APIからそのサポートが削除されます。
+`aspose.pydrawing` を公開 API から除去するために、**モダン API** を導入しました。`aspose.pydrawing.Image` と `aspose.pydrawing.Bitmap` を使用するメソッドは非推奨となり、モダン API の対応メソッドに置き換えられます。`aspose.pydrawing.Graphics` を使用するメソッドも非推奨で、公開 API からのサポートが削除されます。
 
-`aspose.pydrawing`への依存を持つ非推奨の公開APIは、リリース24.8で削除される予定です。
+`aspose.pydrawing` に依存する非推奨 API の削除はリリース **24.8** を予定しています。
 
-## モダンAPI
+## **モダン API**
 
-以下のクラスと列挙型が公開APIに追加されました：
+次のクラスと列挙体が公開 API に追加されました。
 
-- [`aspose.slides.IImage`](https://reference.aspose.com/slides/python-net/aspose.slides/iimage) - ラスタまたはベクター画像を表します。
-- [`aspose.slides.ImageFormat`](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat) - 画像のファイル形式を表します。
-- [`aspose.slides.Images`](https://reference.aspose.com/slides/python-net/aspose.slides/images) - `IImage`インターフェースをインスタンス化して操作するためのメソッド。
+- [`aspose.slides.IImage`](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) — ラスターまたはベクター画像を表します。
+- [`aspose.slides.ImageFormat`](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) — 画像ファイル形式を表します。
+- [`aspose.slides.Images`](https://reference.aspose.com/slides/python-net/aspose.slides/images/) — `IImage` の作成と操作のメソッドを提供します。
 
-新しいAPIを使用する典型的なシナリオは次のようになります：
+新しい API の典型的な使用シナリオは次の通りです。
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
 
-with slides.Presentation() as pres:
-    image = slides.Images.from_file("image.png")
-    pp_image = pres.images.add_image(image)
-    pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10.0, 10.0, 100.0, 100.0, pp_image)
-    with pres.slides[0].get_image(drawing.Size(1920, 1080)) as slide_image:
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with slides.Images.from_file("image.png") as image:
+        pp_image = presentation.images.add_image(image)
+
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, pp_image)
+
+    with slide.get_image(drawing.Size(1920, 1080)) as slide_image:
         slide_image.save("slide1.jpeg", slides.ImageFormat.JPEG)
 ```
 
-## 古いコードをモダンAPIに置き換える
+## **古いコードをモダン API に置き換える**
 
-移行を容易にするために、新しい`IImage`インターフェースは`Image`および`Bitmap`クラスの個別のシグネチャを繰り返すようになっています。一般には、`aspose.pydrawing`を使用した古いメソッドの呼び出しを新しいものに置き換える必要があります。
+新しい `IImage` インターフェイスは `Image` と `Bitmap` クラスの個別 API を統合しています。ほとんどの場合、`aspose.pydrawing` を使用するメソッド呼び出しをモダン API の対応メソッドに置き換えるだけで済みます。
 
-### スライドのサムネイルを取得する
+### **スライド サムネイルを取得する**
 
-非推奨APIを使用したコード：
+**非推奨 API:**
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    pres.slides[0].get_thumbnail().save("slide1.png")
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    slide.get_thumbnail().save("slide1.png")
 ```
 
-モダンAPI：
+**モダン API:**
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    with pres.slides[0].get_image() as image:
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    with slide.get_image() as image:
         image.save("slide1.png")
 ```
 
-### 形状のサムネイルを取得する
+### **シェイプ サムネイルを取得する**
 
-非推奨APIを使用したコード：
+**非推奨 API:**
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    pres.slides[0].shapes[0].get_thumbnail().save("shape.png")
+with slides.Presentation("sample.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    
+    shape.get_thumbnail().save("shape.png")
 ```
 
-モダンAPI：
+**モダン API:**
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    with pres.slides[0].shapes[0].get_image() as image:
+with slides.Presentation("sample.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+
+    with shape.get_image() as image:
         image.save("shape.png")
 ```
 
-### プレゼンテーションのサムネイルを取得する
+### **プレゼンテーション サムネイルを取得する**
 
-非推奨APIを使用したコード：
+**非推奨 API:**
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
 
-with slides.Presentation("pres.pptx") as pres:
-    thumbnails = pres.get_thumbnails(slides.export.RenderingOptions(), drawing.Size(1980, 1028))
+with slides.Presentation("sample.pptx") as presentation:
+    thumbnails = presentation.get_thumbnails(slides.export.RenderingOptions(), drawing.Size(1980, 1028))
 
-    for idx, thumbnail in enumerate(thumbnails):
-        thumbnail.save(f"slide_{idx}.png", drawing.imaging.ImageFormat.png)
+    for index, thumbnail in enumerate(thumbnails):
+        thumbnail.save(f"slide_{index}.png", drawing.imaging.ImageFormat.png)
 ```
 
-モダンAPI：
+**モダン API:**
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
 
-with slides.Presentation("pres.pptx") as pres:
-    thumbnails = pres.get_images(slides.export.RenderingOptions(), drawing.Size(1980, 1028))
+with slides.Presentation("sample.pptx") as presentation:
+    thumbnails = presentation.get_images(slides.export.RenderingOptions(), drawing.Size(1980, 1028))
 
-    for idx, thumbnail in enumerate(thumbnails):
-        thumbnail.save(f"slide_{idx}.png", slides.ImageFormat.PNG)
+    for index, thumbnail in enumerate(thumbnails):
+        thumbnail.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-### プレゼンテーションに画像を追加する
+### **プレゼンテーションに画像を追加する**
 
-非推奨APIを使用したコード：
+**非推奨 API:**
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
 
-with slides.Presentation() as pres:
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
     image = drawing.Image.from_file("image.png")
-    pp_image = pres.images.add_image(image)
-    pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10.0, 10.0, 100.0, 100.0, pp_image)
+    pp_image = presentation.images.add_image(image)
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, pp_image)
 ```
 
-モダンAPI：
+**モダン API:**
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    image = slides.Images.from_file("image.png")
-    pp_image = pres.images.add_image(image)
-    pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10.0, 10.0, 100.0, 100.0, pp_image)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with slides.Images.from_file("image.png") as image:
+        pp_image = presentation.images.add_image(image)
+
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, pp_image)
 ```
 
-## 削除されるメソッド/プロパティとモダンAPIでの置き換え
+## **削除されるメソッドとプロパティ及びそのモダン置換**
 
-### プレゼンテーションクラス
-|メソッドシグネチャ|置き換えメソッドシグネチャ|
+### **Presentation クラス**
+
+|メソッド シグネチャ|置換 メソッド シグネチャ|
 | :- | :- |
 |get_thumbnails(options)|[get_images(options)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions)|
 |get_thumbnails(options, slides)|[get_images(options, slides)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-listint)|
@@ -175,8 +191,9 @@ with slides.Presentation() as pres:
 |print(printer_name)|完全に削除されます|
 |print(printer_settings, pres_name)|完全に削除されます|
 
-### スライドクラス
-|メソッドシグネチャ|置き換えメソッドシグネチャ|
+### **Slide クラス**
+
+|メソッド シグネチャ|置換 メソッド シグネチャ|
 | :- | :- |
 |get_thumbnail()|[get_image()](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#)|
 |get_thumbnail(scale_x, scale_y)|[get_image(scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#float-float)|
@@ -184,54 +201,75 @@ with slides.Presentation() as pres:
 |get_thumbnail(options)|[get_image(options: ITiffOotions)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportitiffoptions)|
 |get_thumbnail(options)|[get_image(options: IRenderingOptions)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions)|
 |get_thumbnail(options, scale_x, scale_y)|[get_image(options, scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions-float-float)|
-|get_thumbnail(options, image_size)|[get_image(options, image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions-asposepydrawingsize)|
+|get_thumbnail(options, image_size)|[get_image(options, image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposeslidesexportirenderingoptions-asposepydrawingssize)|
 |render_to_graphics(options, graphics)|完全に削除されます|
 |render_to_graphics(options, graphics, scale_x, scale_y)|完全に削除されます|
 |render_to_graphics(options, graphics, rendering_size)|完全に削除されます|
 
-### 形状クラス
-|メソッドシグネチャ|置き換えメソッドシグネチャ|
+### **Shape クラス**
+
+|メソッド シグネチャ|置換 メソッド シグネチャ|
 | :- | :- |
 |get_thumbnail()|[get_image()](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/#)|
 |get_thumbnail(bounds, scale_x, scale_y)|[get_image(bounds, scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/#shapethumbnailbounds-float-float)|
 
-### ImageCollectionクラス
-|メソッドシグネチャ|置き換えメソッドシグネチャ|
+### **ImageCollection クラス**
+
+|メソッド シグネチャ|置換 メソッド シグネチャ|
 | :- | :- |
 |add_image(image: aspose.pydrawing.Image)|[add_image(image)](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/add_image/#iimage)|
 
-### PPImageクラス
-|メソッド/プロパティシグネチャ|置き換えメソッド/プロパティシグネチャ|
+### **PPImage クラス**
+
+|メソッド/プロパティ シグネチャ|置換 メソッド/プロパティ シグネチャ|
 | :- | :- |
 |replace_image(new_image: aspose.pydrawing.Image)|[replace_image(new_image)](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/replace_image/#iimage)|
 |system_image|[image](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/image/)|
 
-### ImageWrapperFactoryクラス
-|メソッドシグネチャ|置き換えメソッドシグネチャ|
+### **ImageWrapperFactory クラス**
+
+|メソッド シグネチャ|置換 メソッド シグネチャ|
 | :- | :- |
 |create_image_wrapper(image: aspose.pydrawing.Image)|[create_image_wrapper(image)](https://reference.aspose.com/slides/python-net/aspose.slides/iimagewrapperfactory/create_image_wrapper/#iimage)|
 
-### PatternFormatクラス
-|メソッドシグネチャ|置き換えメソッドシグネチャ|
+### **PatternFormat クラス**
+
+|メソッド シグネチャ|置換 メソッド シグネチャ|
 | :- | :- |
 |get_tile_image(background, foreground)|[get_tile(background, foreground)](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/get_tile/#asposepydrawingcolor-asposepydrawingcolor)|
 |get_tile_image(style_color)|[get_tile(style_color)](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/get_tile/#asposepydrawingcolor)|
 
-### IPatternFormatEffectiveDataクラス
-|メソッドシグネチャ|置き換えメソッドシグネチャ|
+### **IPatternFormatEffectiveData クラス**
+
+|メソッド シグネチャ|置換 メソッド シグネチャ|
 | :- | :- |
 |get_tile_image(background, foreground)|[get_tile_i_image(background, foreground)](https://reference.aspose.com/slides/python-net/aspose.slides/ipatternformateffectivedata/get_tile_i_image/#asposepydrawingcolor-asposepydrawingcolor)|
 
-### Outputクラス
-|メソッドシグネチャ|置き換えメソッドシグネチャ|
+### **Output クラス**
+
+|メソッド シグネチャ|置換 メソッド シグネチャ|
 | :- | :- |
 |add(path, image: aspose.pydrawing.Image)|[add(path, image)](https://reference.aspose.com/slides/python-net/aspose.slides.export.web/output/add/#str-iimage)|
 
-## `aspose.pydrawing.Graphics`に対するAPIサポートは終了します
+## **aspose.pydrawing.Graphics の API サポートは終了します**
 
-`aspose.pydrawing.Graphics`を使用するメソッドは非推奨とされ、公開APIからそのサポートが削除されます。
+`aspose.pydrawing.Graphics` を使用するメソッドは非推奨で、公開 API からのサポートが削除されます。
 
-それを使用するAPIの部分は削除されます：
+`aspose.pydrawing.Graphics` に依存し、削除対象となるメンバーは次のとおりです。
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics)`
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics, scale_x, scale_y)`
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics, rendering_size)`
+
+# **FAQ**
+
+**なぜ aspose.pydrawing.Graphics が廃止されたのですか？**
+
+Graphics のサポートは、レンダリングと画像処理を統一し、プラットフォーム依存の要素を排除し、[IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) によるクロスプラットフォームアプローチに切り替えるために削除されます。Graphics 向けのすべてのレンダリングメソッドが削除されます。
+
+**IImage は Image/Bitmap と比べて実用的な利点は何ですか？**
+
+[IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) はラスタ画像とベクター画像の両方を統一的に扱い、[ImageFormat](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) による多様な形式への保存を簡素化し、pydrawing への依存を減らし、環境間でのコード移植性を向上させます。
+
+**モダン API はサムネイル生成のパフォーマンスに影響しますか？**
+
+`get_thumbnail` から `get_image` への切り替えはシナリオを悪化させません。新しいメソッドはオプションやサイズ指定で画像を生成でき、レンダリングオプションのサポートも保持しています。具体的な性能向上または低下はシナリオ次第ですが、機能的には同等です。

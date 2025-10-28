@@ -1,89 +1,108 @@
 ---
-title: Diagrammformatierung
+title: Diagramme in Präsentationen mit Python formatieren
+linktitle: Diagrammformatierung
 type: docs
 weight: 60
 url: /de/python-net/chart-formatting/
-keywords: "Diagrammobjekte, Diagrammeigenschaften, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Formatieren Sie Diagrammobjekte in PowerPoint-Präsentationen in Python"
+keywords:
+- Diagramm formatieren
+- Diagrammformatierung
+- Diagramm-Entität
+- Diagramm-Eigenschaften
+- Diagramm-Einstellungen
+- Diagramm-Optionen
+- Schriftart-Eigenschaften
+- Abgerundete Rand
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Diagrammformatierung in Aspose.Slides für Python via .NET durchführen und Ihre PowerPoint‑ oder OpenDocument‑Präsentation mit professionellem, ansprechendem Styling aufwerten."
 ---
 
-## **Diagrammobjekte formatieren**
-Aspose.Slides für Python über .NET ermöglicht Entwicklern, benutzerdefinierte Diagramme von Grund auf zu ihren Folien hinzuzufügen. In diesem Artikel wird erklärt, wie man verschiedene Diagrammobjekte einschließlich der Kategorie- und Werteachsen formatiert.
+## **Übersicht**
 
-Aspose.Slides für Python über .NET bietet eine einfache API zur Verwaltung verschiedener Diagrammobjekte und deren Formatierung mit benutzerdefinierten Werten:
+Dieser Leitfaden zeigt, wie Sie PowerPoint‑Diagramme mithilfe von Aspose.Slides für Python formatieren. Er führt Sie durch die Anpassung zentraler Diagramm‑Entitäten – wie Kategorie‑ und Werte‑Achsen, Gitternetzlinien, Beschriftungen, Titel, Legenden und sekundäre Achsen – und demonstriert, wie Sie Schriftarten, Zahlenformate, Füllungen, Konturen, Plot‑Bereich‑ und Hintergrundwand‑Farben sowie abgerundete Diagramm‑Ecken mit kompakten, ausführbaren Code‑Beispielen steuern. Durch die schritt‑für‑schritt‑Beispiele erstellen Sie eine [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), fügen ein Diagramm hinzu, konfigurieren es und speichern das Ergebnis als PPTX, wobei präzise visuelle und typografische Einstellungen angewendet werden.
 
-1. Erstellen Sie eine Instanz der **Presentation**-Klasse.
-1. Erhalten Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie ein Diagramm mit Standarddaten und jedem gewünschten Typ hinzu (in diesem Beispiel verwenden wir ChartType.LineWithMarkers).
-1. Greifen Sie auf die Werteachse des Diagramms zu und setzen Sie die folgenden Eigenschaften:
-   1. Einstellung des **Linienformats** für die Hauptgitternetzlinien der Werteachse
-   1. Einstellung des **Linienformats** für die Nebengitternetzlinien der Werteachse
-   1. Einstellung des **Zahlenformats** für die Werteachse
-   1. Einstellung der **Min-, Max-, Haupt- und Nebeneinheiten** für die Werteachse
-   1. Einstellung der **Textattribute** für die Werteachsendaten
-   1. Einstellung des **Titels** für die Werteachse
-   1. Einstellung des **Linienformats** für die Werteachse
-1. Greifen Sie auf die Kategoriesachse des Diagramms zu und setzen Sie die folgenden Eigenschaften:
-   1. Einstellung des **Linienformats** für die Hauptgitternetzlinien der Kategoriesachse
-   1. Einstellung des **Linienformats** für die Nebengitternetzlinien der Kategoriesachse
-   1. Einstellung der **Textattribute** für die Kategoriesachdaten
-   1. Einstellung des **Titels** für die Kategoriesachse
-   1. Einstellung der **Etikettensetzung** für die Kategoriesachse
-   1. Einstellung des **Drehwinkels** für die Etiketten der Kategoriesachse
-1. Greifen Sie auf die Legende des Diagramms zu und setzen Sie die **Textattribute** für sie
-1. Stellen Sie die Anzeige der Diagrammlegenden ohne Überlappungen mit dem Diagramm ein
-1. Greifen Sie auf die **Sekundäre Werteachse** des Diagramms zu und setzen Sie die folgenden Eigenschaften:
-   1. Aktivieren Sie die sekundäre **Werteachse**
-   1. Einstellung des **Linienformats** für die sekundäre Werteachse
-   1. Einstellung des **Zahlenformats** für die sekundäre Werteachse
-   1. Einstellung der **Min-, Max-, Haupt- und Nebeneinheiten** für die sekundäre Werteachse
-1. Plottieren Sie nun die erste Diagrammreihe auf der sekundären Werteachse
-1. Stellen Sie die Füllfarbe der hinteren Wand des Diagramms ein
-1. Stellen Sie die Füllfarbe des Diagrammbereichs ein
-1. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei
+## **Diagrammelemente formatieren**
+
+Aspose.Slides für Python ermöglicht Entwicklern, benutzerdefinierte Diagramme von Grund auf zu den Folien hinzuzufügen. Dieser Abschnitt erklärt, wie verschiedene Diagramm‑Elemente, einschließlich der Kategorie‑ und Werte‑Achsen, formatiert werden.
+
+Aspose.Slides bietet eine einfache API zur Verwaltung von Diagramm‑Elementen und zur Anwendung benutzerdefinierter Formatierungen:
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.  
+1. Holen Sie sich eine Referenz zur Folie über ihren Index.  
+1. Fügen Sie ein Diagramm mit Standard‑Daten des gewünschten Typs hinzu (in diesem Beispiel `ChartType.LINE_WITH_MARKERS`).  
+1. Greifen Sie auf die Werte‑Achse des Diagramms zu und setzen Sie Folgendes:  
+   1. **Linienformat** für Haupt‑Gitternetzlinien der Werte‑Achse festlegen.  
+   1. **Linienformat** für Hilfs‑Gitternetzlinien der Werte‑Achse festlegen.  
+   1. **Zahlenformat** für die Werte‑Achse festlegen.  
+   1. **Min‑, Max‑, Haupt‑ und Hilfs‑Einheiten** für die Werte‑Achse festlegen.  
+   1. **Text‑Eigenschaften** für Werte‑Achsen‑Beschriftungen festlegen.  
+   1. **Titel** für die Werte‑Achse festlegen.  
+   1. **Linienformat** für die Werte‑Achse festlegen.  
+1. Greifen Sie auf die Kategorie‑Achse des Diagramms zu und setzen Sie Folgendes:  
+   1. **Linienformat** für Haupt‑Gitternetzlinien der Kategorie‑Achse festlegen.  
+   1. **Linienformat** für Hilfs‑Gitternetzlinien der Kategorie‑Achse festlegen.  
+   1. **Text‑Eigenschaften** für Kategorie‑Achsen‑Beschriftungen festlegen.  
+   1. **Titel** für die Kategorie‑Achse festlegen.  
+   1. **Beschriftungsposition** für die Kategorie‑Achse festlegen.  
+   1. **Rotationswinkel** für Kategorie‑Achsen‑Beschriftungen festlegen.  
+1. Greifen Sie auf die Diagramm‑Legende zu und setzen deren **Text‑Eigenschaften**.  
+1. Anzeigen der Diagramm‑Legende ohne Überlappung des Diagramms.  
+1. Greifen Sie auf die **sekundäre Werte‑Achse** des Diagramms zu und setzen Sie Folgendes:  
+   1. Sekundäre **Werte‑Achse** aktivieren.  
+   1. **Linienformat** für die sekundäre Werte‑Achse festlegen.  
+   1. **Zahlenformat** für die sekundäre Werte‑Achse festlegen.  
+   1. **Min‑, Max‑, Haupt‑ und Hilfs‑Einheiten** für die sekundäre Werte‑Achse festlegen.  
+1. Plotten Sie die erste Diagramm‑Serie auf der sekundären Werte‑Achse.  
+1. Setzen Sie die Füllfarbe der Hintergrundwand des Diagramms.  
+1. Setzen Sie die Füllfarbe des Plot‑Bereichs des Diagramms.  
+1. Schreiben Sie die modifizierte Präsentation in eine PPTX‑Datei.
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Instanziieren der Präsentation
-with slides.Presentation() as pres:
+# Instantiate the Presentation class.
+with slides.Presentation() as presentation:
 
-    # Zugriff auf die erste Folie
-    slide = pres.slides[0]
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # Hinzufügen des Beispieldiagramms
+    # Add a sample chart.
     chart = slide.shapes.add_chart(charts.ChartType.LINE_WITH_MARKERS, 50, 50, 500, 400)
 
-    # Einstellung des Diagrammtitels
+    # Set the chart title.
     chart.has_title = True
     chart.chart_title.add_text_frame_for_overriding("")
-    chartTitle = chart.chart_title.text_frame_for_overriding.paragraphs[0].portions[0]
-    chartTitle.text = "Beispiel-Diagramm"
-    chartTitle.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    chartTitle.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
-    chartTitle.portion_format.font_height = 20
-    chartTitle.portion_format.font_bold = 1
-    chartTitle.portion_format.font_italic = 1
+    chart_title = chart.chart_title.text_frame_for_overriding.paragraphs[0].portions[0]
+    chart_title.text = "Sample Chart"
+    chart_title.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    chart_title.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
+    chart_title.portion_format.font_height = 20
+    chart_title.portion_format.font_bold = 1
+    chart_title.portion_format.font_italic = 1
 
-    # Einstellung des Formats für Hauptgitternetzlinien der Werteachse
+    # Set major gridline format for the value axis.
     chart.axes.vertical_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
     chart.axes.vertical_axis.major_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.blue
     chart.axes.vertical_axis.major_grid_lines_format.line.width = 5
     chart.axes.vertical_axis.major_grid_lines_format.line.dash_style = slides.LineDashStyle.DASH_DOT
 
-    # Einstellung des Formats für Nebengitternetzlinien der Werteachse
+    # Set minor gridline format for the value axis.
     chart.axes.vertical_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
     chart.axes.vertical_axis.minor_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.red
     chart.axes.vertical_axis.minor_grid_lines_format.line.width = 3
 
-    # Einstellung des Zahlenformats der Werteachse
+    # Set the value axis number format.
     chart.axes.vertical_axis.is_number_format_linked_to_source = False
     chart.axes.vertical_axis.display_unit = charts.DisplayUnitType.THOUSANDS
     chart.axes.vertical_axis.number_format = "0.0%"
 
-    # Einstellung der maximalen und minimalen Werte des Diagramms
+    # Set value-axis maximum, minimum, major unit, and minor unit.
     chart.axes.vertical_axis.is_automatic_major_unit = False
     chart.axes.vertical_axis.is_automatic_max_value = False
     chart.axes.vertical_axis.is_automatic_minor_unit = False
@@ -94,206 +113,204 @@ with slides.Presentation() as pres:
     chart.axes.vertical_axis.minor_unit = 0.5
     chart.axes.vertical_axis.major_unit = 2.0
 
-    # Einstellung der Textattribute der Werteachse
-    txtVal = chart.axes.vertical_axis.text_format.portion_format
-    txtVal.font_bold = 1
-    txtVal.font_height = 16
-    txtVal.font_italic = 1
-    txtVal.fill_format.fill_type = slides.FillType.SOLID 
-    txtVal.fill_format.solid_fill_color.color = draw.Color.dark_green
-    txtVal.latin_font = slides.FontData("Times New Roman")
+    # Set value-axis text properties.
+    vertical_axis_portion_format = chart.axes.vertical_axis.text_format.portion_format
+    vertical_axis_portion_format.font_bold = 1
+    vertical_axis_portion_format.font_height = 16
+    vertical_axis_portion_format.font_italic = 1
+    vertical_axis_portion_format.fill_format.fill_type = slides.FillType.SOLID 
+    vertical_axis_portion_format.fill_format.solid_fill_color.color = draw.Color.dark_green
+    vertical_axis_portion_format.latin_font = slides.FontData("Times New Roman")
 
-    # Einstellung des Titels der Werteachse
+    # Set the value axis title.
     chart.axes.vertical_axis.has_title = True
     chart.axes.vertical_axis.title.add_text_frame_for_overriding("")
-    valtitle = chart.axes.vertical_axis.title.text_frame_for_overriding.paragraphs[0].portions[0]
-    valtitle.text = "Primäre Achse"
-    valtitle.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    valtitle.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
-    valtitle.portion_format.font_height = 20
-    valtitle.portion_format.font_bold = 1
-    valtitle.portion_format.font_italic = 1
+    vertical_axis_title = chart.axes.vertical_axis.title.text_frame_for_overriding.paragraphs[0].portions[0]
+    vertical_axis_title.text = "Primary Axis"
+    vertical_axis_title.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    vertical_axis_title.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
+    vertical_axis_title.portion_format.font_height = 20
+    vertical_axis_title.portion_format.font_bold = 1
+    vertical_axis_title.portion_format.font_italic = 1
 
-    # Einstellung des Formats für Hauptgitternetzlinien der Kategoriesachse
+    # Set major gridline format for the category axis.
     chart.axes.horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
     chart.axes.horizontal_axis.major_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.green
     chart.axes.horizontal_axis.major_grid_lines_format.line.width = 5
 
-    # Einstellung des Formats für Nebengitternetzlinien der Kategoriesachse
+    # Set minor gridline format for the category axis.
     chart.axes.horizontal_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
     chart.axes.horizontal_axis.minor_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.yellow
     chart.axes.horizontal_axis.minor_grid_lines_format.line.width = 3
 
-    # Einstellung der Textattribute der Kategoriesachse
-    txtCat = chart.axes.horizontal_axis.text_format.portion_format
-    txtCat.font_bold = 1
-    txtCat.font_height = 16
-    txtCat.font_italic = 1
-    txtCat.fill_format.fill_type = slides.FillType.SOLID 
-    txtCat.fill_format.solid_fill_color.color = draw.Color.blue
-    txtCat.latin_font = slides.FontData("Arial")
+    # Set category-axis text properties.
+    horizontal_axis_portion_format = chart.axes.horizontal_axis.text_format.portion_format
+    horizontal_axis_portion_format.font_bold = 1
+    horizontal_axis_portion_format.font_height = 16
+    horizontal_axis_portion_format.font_italic = 1
+    horizontal_axis_portion_format.fill_format.fill_type = slides.FillType.SOLID 
+    horizontal_axis_portion_format.fill_format.solid_fill_color.color = draw.Color.blue
+    horizontal_axis_portion_format.latin_font = slides.FontData("Arial")
 
-    # Einstellung des Titels der Kategoriesachse
+    # Set the category axis title.
     chart.axes.horizontal_axis.has_title = True
     chart.axes.horizontal_axis.title.add_text_frame_for_overriding("")
 
-    catTitle = chart.axes.horizontal_axis.title.text_frame_for_overriding.paragraphs[0].portions[0]
-    catTitle.text = "Beispiel-Kategorie"
-    catTitle.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    catTitle.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
-    catTitle.portion_format.font_height = 20
-    catTitle.portion_format.font_bold = 1
-    catTitle.portion_format.font_italic = 1
+    horizontal_axis_title = chart.axes.horizontal_axis.title.text_frame_for_overriding.paragraphs[0].portions[0]
+    horizontal_axis_title.text = "Sample Category"
+    horizontal_axis_title.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    horizontal_axis_title.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
+    horizontal_axis_title.portion_format.font_height = 20
+    horizontal_axis_title.portion_format.font_bold = 1
+    horizontal_axis_title.portion_format.font_italic = 1
 
-    # Einstellung der Positionierung der Kategoriesachsenbeschriftungen
+    # Set the category-axis label position.
     chart.axes.horizontal_axis.tick_label_position = charts.TickLabelPositionType.LOW
 
-    # Einstellung des Drehwinkels der Kategoriesachsenbeschriftungen
+    # Set the category-axis label rotation angle.
     chart.axes.horizontal_axis.tick_label_rotation_angle = 45
 
-    # Einstellung der Textattribute der Legenden
-    txtleg = chart.legend.text_format.portion_format
-    txtleg.font_bold = 1
-    txtleg.font_height = 16
-    txtleg.font_italic = 1
-    txtleg.fill_format.fill_type = slides.FillType.SOLID 
-    txtleg.fill_format.solid_fill_color.color = draw.Color.dark_red
+    # Set legend text properties.
+    legend_portion_format = chart.legend.text_format.portion_format
+    legend_portion_format.font_bold = 1
+    legend_portion_format.font_height = 16
+    legend_portion_format.font_italic = 1
+    legend_portion_format.fill_format.fill_type = slides.FillType.SOLID 
+    legend_portion_format.fill_format.solid_fill_color.color = draw.Color.dark_red
 
-    # Diagrammlegenden ohne Überlappung mit dem Diagramm anzeigen
-
+    # Show the chart legend overlapping the chart.
     chart.legend.overlay = True
                 
-    # Einstellung der Füllfarbe der hinteren Wand des Diagramms
+    # Set chart back wall color.
     chart.back_wall.thickness = 1
     chart.back_wall.format.fill.fill_type = slides.FillType.SOLID
     chart.back_wall.format.fill.solid_fill_color.color = draw.Color.orange
 
     chart.floor.format.fill.fill_type = slides.FillType.SOLID
     chart.floor.format.fill.solid_fill_color.color = draw.Color.red
-    # Einstellung der Füllfarbe des Plotsbereichs
+
+    # Set the plot area color.
     chart.plot_area.format.fill.fill_type = slides.FillType.SOLID
     chart.plot_area.format.fill.solid_fill_color.color = draw.Color.light_cyan
 
-    # Präsentation speichern
-    pres.save("FormattedChart_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation.
+    presentation.save("FormattedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Diagramm‑Schrifteigenschaften festlegen**
 
+Aspose.Slides für Python unterstützt das Festlegen von schriftrelevanten Eigenschaften für Diagramme. Befolgen Sie die nachstehenden Schritte, um Diagramm‑Schrifteigenschaften zu konfigurieren:
 
-## **Schriftart-Eigenschaften für Diagramm einstellen**
-Aspose.Slides für Python über .NET unterstützt die Einstellung der schriftenbezogenen Eigenschaften für das Diagramm. Bitte folgen Sie den folgenden Schritten, um die Schriftart-Eigenschaften für das Diagramm festzulegen.
+1. Instanziieren Sie ein [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Objekt.  
+1. Fügen Sie ein Diagramm der Folie hinzu.  
+1. Setzen Sie die Schriftgröße.  
+1. Speichern Sie die modifizierte Präsentation.
 
-- Instanziieren Sie ein Presentation-Objekt.
-- Fügen Sie ein Diagramm auf der Folie hinzu.
-- Stellen Sie die Schriftart-Höhe ein.
-- Speichern Sie die modifizierte Präsentation.
-
-Ein Beispiel wird unten gegeben.
+Ein Beispielcode wird unten bereitgestellt.
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 500, 400)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 500, 400)
     chart.text_format.portion_format.font_height = 20
     chart.chart_data.series[0].labels.default_data_label_format.show_value = True
-    pres.save("FontPropertiesForChart.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("ChartFontProperties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Numerisches Format festlegen**
 
+Aspose.Slides für Python stellt eine einfache API zur Verwaltung von Diagrammdaten‑Formaten bereit:
 
-
-## **Zahlenformat einstellen**
-Aspose.Slides für Python über .NET bietet eine einfache API zur Verwaltung des Diagrammdatenformats:
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-1. Erhalten Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie ein Diagramm mit Standarddaten und jedem gewünschten Typ hinzu (dieses Beispiel verwendet **ChartType.ClusteredColumn**).
-1. Stellen Sie das vordefinierte Zahlenformat aus den möglichen vordefinierten Werten ein.
-1. Durchlaufen Sie jede Datenzelle in jeder Diagrammreihe und setzen Sie das Zahlenformat der Diagrammdaten.
-1. Speichern Sie die Präsentation.
-1. Stellen Sie das benutzerdefinierte Zahlenformat ein.
-1. Durchlaufen Sie jede Datenzelle in jeder Diagrammreihe und setzen Sie ein anderes Zahlenformat für die Diagrammdaten.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.  
+1. Holen Sie sich eine Referenz zur Folie über ihren Index.  
+1. Fügen Sie ein Diagramm mit Standard‑Daten eines beliebigen Typs hinzu.  
+1. Setzen Sie ein vordefiniertes Zahlenformat aus den verfügbaren Vorgaben.  
+1. Durchlaufen Sie die Diagrammdaten‑Zellen jeder Serie und setzen Sie das Zahlenformat.  
+1. Speichern Sie die Präsentation.  
+1. Setzen Sie ein benutzerdefiniertes Zahlenformat.  
+1. Durchlaufen Sie erneut die Diagrammdaten‑Zellen und setzen ein alternatives Zahlenformat.  
 1. Speichern Sie die Präsentation.
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-# Instanziieren der Präsentation
-with slides.Presentation() as pres:
-    # Zugriff auf die erste Präsentationsfolie
-    slide = pres.slides[0]
+# Instantiate the Presentation class.
+with slides.Presentation() as presentation:
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # Hinzufügen eines standardmäßigen gruppierten Säulendiagramms
+    # Add a default clustered column chart.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 400)
 
-    # Zugriff auf die Diagrammreihe-Sammlung
-    series = chart.chart_data.series
+    # Set the preset number format.
+    # Traverse each chart series.
+    for series in chart.chart_data.series:
+        # Traverse each data point in the series.
+        for cell in series.data_points:
+            # Set the number format.
+            cell.value.as_cell.preset_number_format = 10  # 0.00%
 
-    # Einstellung des vordefinierten Zahlenformats
-    # Durchlaufen Sie jede Diagrammreihe
-    for ser in series:
-        # Durchlaufen Sie jede Datenzelle in der Reihe
-        for cell in ser.data_points:
-            # Einstellung des Zahlenformats
-            cell.value.as_cell.preset_number_format = 10 #0.00%
-
-    # Speichern der Präsentation
-    pres.save("PresetNumberFormat_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation.
+    presentation.save("PresetNumberFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Die möglichen vordefinierten Zahlenformatwerte sowie deren vordefinierte Indizes, die verwendet werden können, sind unten angegeben:
+Die verfügbaren vordefinierten Zahlenformate und ihre entsprechenden Indizes sind unten aufgeführt.
 
 |**0**|Allgemein|
 | :- | :- |
 |**1**|0|
-|**2**|0.00|
+|**2**|0,00|
 |**3**|#,##0|
-|**4**|#,##0.00|
+|**4**|#,##0,00|
 |**5**|$#,##0;$-#,##0|
 |**6**|$#,##0;Rot$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Rot$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
+|**7**|$#,##0,00;$-#,##0,00|
+|**8**|$#,##0,00;Rot$-#,##0,00|
+|**9**|0 %|
+|**10**|0,00 %|
+|**11**|0,00E+00|
+|**12**|# ?/ ?|
 |**13**|# /|
-|**14**|m/d/jj|
-|**15**|d-mmm-jj|
-|**16**|d-mmm|
-|**17**|mmm-jj|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
+|**14**|m/t/jj|
+|**15**|t‑mmm‑jj|
+|**16**|t‑mmm|
+|**17**|mmm‑jj|
+|**18**|h:mm AM/PM|
+|**19**|h:mm:ss AM/PM|
 |**20**|h:mm|
 |**21**|h:mm:ss|
-|**22**|m/d/jj h:mm|
+|**22**|m/t/jj h:mm|
 |**37**|#,##0;-#,##0|
 |**38**|#,##0;Rot-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Rot-#,##0.00|
+|**39**|#,##0,00;-#,##0,00|
+|**40**|#,##0,00;Rot-#,##0,00|
 |**41**|_ * #,##0_ ;_ * "_ ;_ @_|
 |**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
+|**43**|_ * #,##0,00_ ;_ * "??_ ;_ @_|
+|**44**|_ $* #,##0,00_ ;_ $* "??_ ;_ @_|
 |**45**|mm:ss|
-|**46**|h :mm:ss|
+|**46**|h :mm:ss|
 |**47**|[mm:ss.0](http://mmss.0)|
-|**48**|##0.0E+00|
+|**48**|##0,0E+00|
 |**49**|@|
 
-## **Ecken des Diagrammbereichs abrunden**
-Aspose.Slides für Python über .NET bietet Unterstützung für die Einstellung des Diagrammbereichs. **IChart.HasRoundedCorners** und **Chart.HasRoundedCorners**-Eigenschaften wurden in Aspose.Slides hinzugefügt. 
+## **Abgerundete Ränder für den Diagrammbereich festlegen**
 
-1. Instanziieren Sie ein `Presentation`-Objekt.
-1. Fügen Sie ein Diagramm auf der Folie hinzu.
-1. Stellen Sie den Fülltyp und die Füllfarbe des Diagramms ein.
-1. Stellen Sie die Eigenschaft für abgerundete Ecken auf True ein.
-1. Speichern Sie die modifizierte Präsentation.
+Aspose.Slides für Python unterstützt die Konfiguration des Diagrammbereichs über die Eigenschaft `Chart.has_rounded_corners`.
 
-Ein Beispiel wird unten gegeben. 
+1. Instanziieren Sie ein [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Objekt.  
+2. Fügen Sie ein Diagramm zur Folie hinzu.  
+3. Setzen Sie den Fülltyp und die Füllfarbe des Diagramms.  
+4. Setzen Sie die Eigenschaft für abgerundete Ecken auf `True`.  
+5. Speichern Sie die modifizierte Präsentation.
+
+Ein Beispiel wird unten bereitgestellt.
 
 ```py
 import aspose.slides.charts as charts
@@ -301,10 +318,25 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
 	slide = presentation.slides[0]
+
 	chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 100, 600, 400)
 	chart.line_format.fill_format.fill_type = slides.FillType.SOLID
 	chart.line_format.style = slides.LineStyle.SINGLE
 	chart.has_rounded_corners = True
 
-	presentation.save("out.pptx", slides.export.SaveFormat.PPTX)
+	presentation.save("RoundedBorders.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQ**
+
+**Kann ich halbtransparenten Füllungen für Spalten/Bereiche setzen, während die Kontur undurchsichtig bleibt?**
+
+Ja. Transparenz der Füllung und die Kontur werden separat konfiguriert. Das ist nützlich, um die Lesbarkeit des Gitternetzes und der Daten in dichten Visualisierungen zu verbessern.
+
+**Wie gehe ich mit Datenbeschriftungen um, wenn sie sich überlappen?**
+
+Reduzieren Sie die Schriftgröße, deaktivieren Sie nicht‑essentielle Beschriftungskomponenten (z. B. Kategorien), setzen Sie den Beschriftungs‑Offset/‑Position, zeigen Sie Beschriftungen nur für ausgewählte Punkte an oder wechseln Sie das Format zu „Wert + Legende“.
+
+**Kann ich Farbverläufe oder Musterfüllungen auf Serien anwenden?**
+
+Ja. Sowohl Voll‑ als auch Verlauf‑/Muster‑Füllungen sind in der Regel verfügbar. In der Praxis sollten Verläufe sparsam eingesetzt und Kombinationen vermieden werden, die den Kontrast zum Gitternetz und zum Text verringern.

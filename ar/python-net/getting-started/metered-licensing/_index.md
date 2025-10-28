@@ -1,56 +1,88 @@
 ---
-title: الترخيص المقنن
+title: ترخيص بالعداد
 type: docs
 weight: 90
 url: /ar/python-net/metered-licensing/
+keywords:
+- ترخيص
+- ترخيص بالعداد
+- مفاتيح الترخيص
+- المفتاح العام
+- المفتاح الخاص
+- كمية الاستهلاك
+- Python
+- Aspose.Slides
+description: "تعرف على كيفية تمكين ترخيص بالعداد لـ Aspose.Slides للـ Python عبر .NET من معالجة ملفات PowerPoint و OpenDocument بمرونة، مع الدفع فقط مقابل ما تستخدمه."
 ---
+
+## **تطبيق المفاتيح بالعداد**
 
 {{% alert color="primary" %}} 
 
-الترخيص المقنن هو آلية ترخيص جديدة يمكن استخدامها جنبًا إلى جنب مع أساليب الترخيص الحالية. إذا كنت ترغب في أن يتم فاتورتك بناءً على استخدامك لميزات واجهة برمجة التطبيقات Aspose.Slides، يمكنك اختيار الترخيص المقنن.
+ترخيص بالعداد هو آلية ترخيص جديدة يمكن استخدامها إلى جانب طرق الترخيص الحالية. إذا كنت ترغب في الفوترة بناءً على استخدامك لميزات Aspose.Slides API، فإنك تختار ترخيص بالعداد.
 
-عند شراء ترخيص مقنن، ستحصل على مفاتيح (وليس ملف ترخيص). يمكن تطبيق هذا المفتاح المقنن باستخدام فئة [Metered](https://reference.aspose.com/slides/python-net/aspose.slides/metered/) التي وفرتها Aspose لعمليات القياس. لمزيد من التفاصيل، انظر [أسئلة شائعة حول الترخيص المقنن](https://purchase.aspose.com/faqs/licensing/metered).
+عند شراء ترخيص بالعداد، ستحصل على مفاتيح (وليس ملف ترخيص). يمكن تطبيق مفتاح العدّ باستخدام الفئة [Metered](https://reference.aspose.com/slides/python-net/aspose.slides/metered/) التي وفرتها Aspose لعمليات العدّ. لمزيد من التفاصيل، راجع [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered).
 
 {{% /alert %}} 
 
-1. قم بإنشاء مثيل من فئة [Metered](https://reference.aspose.com/slides/python-net/aspose.slides/metered/).
-1. مرر مفاتيحك العامة والخاصة إلى طريقة `set_metered_key`.
-1. قم ببعض المعالجة (قم بأداء المهام).
-1. استدعاء طريقة `get_consumption_quantity()` من فئة Metered.
+1. أنشئ مثالًا من الفئة [Metered](https://reference.aspose.com/slides/python-net/aspose.slides/metered/).
+2. مرّر المفاتيح العامة والخاصة إلى طريقة [set_metered_key](https://reference.aspose.com/slides/python-net/aspose.slides/metered/set_metered_key/#str-str).
+3. قم ببعض المعالجة (نفّذ المهام).
+4. استدعِ طريقة [get_consumption_quantity](https://reference.aspose.com/slides/python-net/aspose.slides/metered/get_consumption_quantity/#) من فئة `Metered`.
 
-   ينبغي أن ترى كمية/عدد طلبات API التي استهلكتها حتى الآن.
+يجب أن ترى مقدار/كمية طلبات API التي استهلكتها حتى الآن.
 
-هذا الكود بلغة بايثون يوضح لك كيفية تعيين المفاتيح العامة والخاصة المقننة:
+هذا المثال يوضح كيفية استخدام ترخيص بالعداد:
 
 ```python
 import aspose.slides as slides
 
-# ينشئ مثيل من فئة CAD Metered
+# إنشاء مثال من فئة Metered
 metered = slides.Metered()
 
-# الوصول إلى خاصية set_metered_key وتمرير المفاتيح العامة والخاصة كمعلمات
-metered.set_metered_key("*****", "*****")
+# تمرير المفتاحين العام والخاص إلى كائن Metered
+metered.set_metered_key("<valid public key>", "<valid private key>")
 
-# الحصول على كمية البيانات المقننة قبل استدعاء واجهة برمجة التطبيقات
-amountbefore = slides.metered.get_consumption_quantity()
-# عرض المعلومات
-print("المبلغ المستهلك قبل: " + str(amountbefore))
+# الحصول على قيمة الكمية المستهلكة قبل استدعاءات API
+amount_before = slides.Metered.get_consumption_quantity()
+print("Amount consumed before:", amount_before)
 
-# تحميل المستند من القرص.
-with slides.Presentation("Presentation.pptx") as pres:
-   # يحصل على عدد صفحات المستند
-   print(len(pres.slides))
-   # حفظ كملف PDF
-   pres.save("out_pdf.pdf", slides.export.SaveFormat.PDF)
+# تنفيذ بعض العمليات باستخدام Aspose.Slides API هنا
+# ...
 
-# يحصل على كمية البيانات المقننة بعد استدعاء واجهة برمجة التطبيقات
-amountafter = slides.metered.get_consumption_quantity()
-# عرض المعلومات
-print("المبلغ المستهلك بعد: " + str(amountafter))
+# الحصول على قيمة الكمية المستهلكة بعد استدعاءات API
+amount_after = slides.Metered.get_consumption_quantity()
+print("Amount consumed after:", amount_after)
 ```
 
-{{% alert color="warning" title="ملحوظة"  %}} 
+{{% alert color="warning" title="ملاحظة" %}} 
 
-للاستخدام الترخيص المقنن، تحتاج إلى اتصال إنترنت مستقر لأن آلية الترخيص تستخدم الإنترنت للتفاعل المستمر مع خدماتنا وإجراء الحسابات.
+لاستخدام ترخيص بالعداد، تحتاج إلى اتصال إنترنت ثابت لأن آلية الترخيص تستخدم الإنترنت للتفاعل المستمر مع خدماتنا وإجراء الحسابات.
 
 {{% /alert %}} 
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني استخدام ترخيص بالعداد مع ترخيص عادي (دائم أو مؤقت) في نفس التطبيق؟**
+
+نعم. يعتبر ترخيص بالعداد آلية ترخيص إضافية يمكن استخدامها إلى جانب [طرق الترخيص](/slides/ar/python-net/licensing/) الحالية. تختار أي آلية تطبق عند بدء تشغيل التطبيق.
+
+**ما الذي يُحتسب بالضبط كاستهلاك تحت ترخيص بالعداد: عمليات أم ملفات؟**
+
+يُحتسب استهلاك API، أي عدد الطلبات أو العمليات. يمكنك الحصول على الاستهلاك الحالي عبر [طرق تتبع الاستهلاك](https://reference.aspose.com/slides/python-net/aspose.slides/metered/).
+
+**هل ترخيص بالعداد مناسب للمايكرو سيرفيسز والبيئات الخالية من الخوادم حيث يتم إعادة تشغيل الحالات بشكل متكرر؟**
+
+نعم. بما أن المحاسبة تُجرى على مستوى طلبات API، فإن السيناريوهات التي تشهد عمليات بدء باردة متكررة متوافقة، بشرط وجود اتصال شبكة ثابت لحسابات الترخيص بالعداد.
+
+**هل تختلف وظائف المكتبة عند استخدام ترخيص بالعداد مقارنةً بترخيص دائم؟**
+
+لا. الأمر يتعلق فقط بآلية الترخيص والفوترة؛ قدرات المنتج تظل نفسها.
+
+**كيف يرتبط ترخيص بالعداد بالإصدار التجريبي والترخيص المؤقت؟**
+
+الإصدار التجريبي يحتوي على قيود وعلامات مائية، بينما [الترخيص المؤقت](https://purchase.aspose.com/temporary-license/) يزيل القيود لمدة 30 يومًا، وترخيص بالعداد يزيل القيود ويتقاضى رسومًا بناءً على الاستخدام الفعلي.
+
+**هل يمكنني التحكم في الميزانية عبر رد فعل تلقائي عندما يتجاوز استهلاك العتبة المحددة؟**
+
+نعم. ممارسة شائعة هي قراءة الاستهلاك الحالي دوريًا عبر [طرق التتبع](https://reference.aspose.com/slides/python-net/aspose.slides/metered/) وتنفيذ حدود أو تنبيهات خاصة بك على مستوى التطبيق أو المراقبة.

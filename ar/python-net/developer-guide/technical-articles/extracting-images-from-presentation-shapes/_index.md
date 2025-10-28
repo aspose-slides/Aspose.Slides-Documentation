@@ -1,21 +1,32 @@
 ---
-title: استخراج الصور من أشكال العرض التقديمي
+title: استخراج الصور من أشكال العرض التقديمي في بايثون
+linktitle: صورة من الشكل
 type: docs
 weight: 90
 url: /ar/python-net/extracting-images-from-presentation-shapes/
-keywords: "استخراج الصورة، PowerPoint، PPT، PPTX، عرض PowerPoint، بايثون، Aspose.Slides for Python"
-description: "استخراج الصور من عرض PowerPoint في بايثون"
+keywords:
+- استخراج الصورة
+- استرجاع الصورة
+- خلفية الشريحة
+- خلفية الشكل
+- PowerPoint
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "استخراج الصور من الأشكال في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للبايثون عبر .NET — حل سريع ومناسب للمطورين."
 ---
+
+## **استخراج الصور من الأشكال**
 
 {{% alert color="primary" %}} 
 
-غالبًا ما تتم إضافة الصور إلى الأشكال وتستخدم أيضًا كخلفيات للشرائح. يتم إضافة كائنات الصورة من خلال [IImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/iimagecollection/)، وهي مجموعة من كائنات [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/). 
+غالبًا ما تُضاف الصور إلى الأشكال وتُستخدم كذلك كخلفيات للشرائح. تُضاف كائنات الصورة عبر [IImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/iimagecollection/)، وهي مجموعة من كائنات [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/). 
 
-توضح هذه المقالة كيفية استخراج الصور المضافة إلى العروض التقديمية. 
+تشرح هذه المقالة كيفية استخراج الصور المضافة إلى العروض التقديمية. 
 
 {{% /alert %}} 
 
-لاستخراج صورة من عرض تقديمي، يجب عليك تحديد موقع الصورة أولاً عن طريق المرور عبر كل شريحة ثم المرور عبر كل شكل. بمجرد العثور على الصورة أو تحديدها، يمكنك استخراجها وحفظها كملف جديد. XXX 
+لاستخراج صورة من عرض تقديمي، يجب أولاً تحديد موقع الصورة عبر المرور على كل شريحة ثم المرور على كل شكل. بمجرد العثور على الصورة أو تحديدها، يمكنك استخراجها وحفظها كملف جديد. XXX 
 
 ```py
 import aspose.slides as slides
@@ -31,14 +42,14 @@ def get_image_format(image_type):
     }.get(image_type, slides.ImageFormat.JPEG)
 
 with slides.Presentation("pres.pptx") as pres:
-    #الوصول إلى العرض التقديمي
+    #Accessing the presentation
     
     slideIndex = 0
     image_type = ""
     ifImageFound = False
     for slide in pres.slides:
         slideIndex += 1
-        #الوصول إلى الشريحة الأولى
+        #Accessing the first slide
         image_format = slides.ImageFormat.JPEG
 
         back_image = None
@@ -46,15 +57,15 @@ with slides.Presentation("pres.pptx") as pres:
         is_layout = False
 
         if slide.background.fill_format.fill_type == slides.FillType.PICTURE:
-            #الحصول على الصورة الخلفية  
+            #Getting the back picture  
             back_image = slide.background.fill_format.picture_fill_format.picture.image
         elif slide.layout_slide.background.fill_format.fill_type == slides.FillType.PICTURE:
-            #الحصول على الصورة الخلفية  
+            #Getting the back picture  
             back_image = slide.layout_slide.background.fill_format.picture_fill_format.picture.image
             is_layout = True
 
         if back_image is not None:
-            #تعيين تنسيق الصورة المطلوب 
+            #Setting the desired picture format 
             image_type = back_image.content_type.split("/")[1]
             image_format = get_image_format(image_type)
 
@@ -79,3 +90,21 @@ with slides.Presentation("pres.pptx") as pres:
                                 file_name.format("shape_"+str(i)+"_", slideIndex, image_type), 
                                 image_format)
 ```
+
+## **الأسئلة المتداولة**
+
+**هل يمكنني استخراج الصورة الأصلية دون أي قص أو تأثيرات أو تحويلات للشكل؟**
+
+نعم. عند الوصول إلى صورة الشكل، تحصل على كائن الصورة من [مجموعة الصور في العرض التقديمي](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/)، أي البكسلات الأصلية بدون قص أو تأثيرات تنسيق. يمر سير العمل عبر مجموعة الصور في العرض التقديمي وكائنات [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) التي تخزن البيانات الخام.
+
+**هل هناك خطر من تكرار الملفات المتطابقة عند حفظ many images في نفس الوقت؟**
+
+نعم، إذا قمت بحفظ كل شيء دون تمييز. قد تحتوي [مجموعة الصور في العرض التقديمي](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/) على بيانات ثنائية متطابقة تُشار إليها من قبل أشكال أو شرائح مختلفة. لتجنب التكرار، قارن التجزئات (hashes) أو الأحجام أو المحتوى قبل الكتابة.
+
+**كيف يمكنني تحديد الأشكال المرتبطة بصورة معينة من مجموعة صور العرض التقديمي؟**
+
+Aspose.Slides لا يخزن روابط عكسية من [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) إلى الأشكال. يمكنك بناء خريطة يدويًا أثناء التجوال: كلما وجدت مرجعًا إلى [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/)، سجِّل أي أشكال تستخدمه.
+
+**هل يمكنني استخراج الصور المضمنة داخل كائنات OLE، مثل المستندات المرفقة؟**
+
+ليس مباشرةً، لأن كائن OLE هو حاوية. تحتاج إلى استخراج حزمة OLE نفسها ثم تحليل محتوياتها باستخدام أدوات منفصلة. تعمل أشكال الصور في العرض التقديمي عبر [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/)؛ OLE هو نوع كائن مختلف.

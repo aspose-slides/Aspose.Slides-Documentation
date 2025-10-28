@@ -1,13 +1,23 @@
 ---
-title: رسم بياني فقاعة
+title: تخصيص الرسوم البيانية الفقاعية في العروض التقديمية باستخدام بايثون
+linktitle: مخطط الفقاعات
 type: docs
 url: /ar/python-net/bubble-chart/
-keywords: "رسم بياني فقاعة، حجم الرسم البياني، عرض تقديمي لـ PowerPoint، Python، Aspose.Slides لـ Python عبر .NET"
-description: "حجم الرسم البياني الفقاعة في عروض PowerPoint التقديمية باستخدام Python"
+keywords:
+- مخطط فقاعي
+- حجم الفقاعة
+- تحجيم الحجم
+- تمثيل الحجم
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "إنشاء وتخصيص مخططات فقاعية قوية في PowerPoint وOpenDocument باستخدام Aspose.Slides للبايثون عبر .NET لتحسين تصور البيانات بسهولة."
 ---
 
-## **تغيير حجم رسم بياني فقاعة**
-توفر Aspose.Slides لـ Python عبر .NET دعمًا لتغيير حجم رسم بياني الفقاعة. تم إضافة خصائص **ChartSeries.bubble_size_scale** و **ChartSeriesGroup.bubble_size_scale**. أدناه مثال توضيحي.
+## **تحجيم حجم المخطط الفقاعي**
+توفر Aspose.Slides للبايثون عبر .NET دعمًا لتحجيم حجم المخطط الفقاعي. تم إضافة الخصائص **ChartSeries.bubble_size_scale** و **ChartSeriesGroup.bubble_size_scale** في Aspose.Slides للبايثون عبر .NET. يُعطى المثال النموذجي أدناه.  
 
 ```py
 import aspose.slides.charts as charts
@@ -22,8 +32,8 @@ with slides.Presentation() as pres:
 
 
 
-## **تمثيل البيانات كأحجام لرسم بياني فقاعة**
-تمت إضافة خاصية **bubble_size_representation** إلى فئات ChartSeries و ChartSeriesGroup. تحدد **bubble_size_representation** كيفية تمثيل قيم حجم الفقاعة في الرسم البياني الفقاعة. القيم الممكنة هي: **BubbleSizeRepresentationType.AREA** و **BubbleSizeRepresentationType.WIDTH**. بناءً عليه، تم إضافة تعداد **BubbleSizeRepresentationType** لتحديد الطرق الممكنة لتمثيل البيانات كأحجام لرسم بياني فقاعة. الكود التوضيحي موضح أدناه.
+## **تمثيل البيانات كأحجام مخطط فقاعي**
+تمت إضافة الخاصية **bubble_size_representation** إلى الفئات ChartSeries و ChartSeriesGroup. تُحدد **bubble_size_representation** كيفية تمثيل قيم حجم الفقاعة في المخطط الفقاعي. القيم الممكنة هي: **BubbleSizeRepresentationType.AREA** و **BubbleSizeRepresentationType.WIDTH**. بناءً على ذلك، تمت إضافة تعداد **BubbleSizeRepresentationType** لتحديد الطرق الممكنة لتمثيل البيانات كأحجام مخطط فقاعي. يُعطى شفرة العينة أدناه.
 
 ```py
 import aspose.slides.charts as charts
@@ -34,3 +44,17 @@ with slides.Presentation() as pres:
     chart.chart_data.series_groups[0].bubble_size_representation = charts.BubbleSizeRepresentationType.WIDTH
     pres.save("Presentation_BubbleSizeRepresentation.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **الأسئلة الشائعة**
+
+**هل يتم دعم "مخطط فقاعي مع تأثير ثلاثي الأبعاد"، وكيف يختلف عن المخطط العادي؟**
+
+نعم. هناك نوع مخطط منفصل يُسمى "Bubble with 3-D". يطبّق نمطًا ثلاثي الأبعاد على الفقاعات لكنه لا يضيف محورًا إضافيًا؛ تبقى البيانات X-Y-S (الحجم). يتوفر هذا النوع في تعداد [chart type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/).
+
+**هل هناك حد لعدد السلاسل والنقاط في المخطط الفقاعي؟**
+
+لا يوجد حد صارم على مستوى API؛ يتم تحديد القيود وفقًا للأداء وإصدار PowerPoint المستهدف. يُنصح بالحفاظ على عدد النقاط معقولًا لضمان القابلية للقراءة وسرعة العرض.
+
+**كيف سيؤثر التصدير على مظهر المخطط الفقاعي (PDF، صور)؟**
+
+يحافظ التصدير إلى الصيغ المدعومة على مظهر المخطط؛ يتم التعامل مع الرسم بواسطة محرك Aspose.Slides. بالنسبة للصيغ النقطية/المتجهة، تُطبق قواعد عرض الرسوم البيانية العامة (الدقة، مضاد التعرجات)، لذا اختر DPI كافي للطباعة.
