@@ -250,3 +250,17 @@ It returns `True` if the presentation has been encrypted with the specified pass
 {{% alert color="primary" title="See also" %}} 
 - [Digital Signature in PowerPoint](/slides/python-net/digital-signature-in-powerpoint/)
 {{% /alert %}}
+
+## **FAQ**
+
+**What encryption methods are supported by Aspose.Slides?**
+
+Aspose.Slides supports modern encryption methods, including AES-based algorithms, ensuring a high level of data security for your presentations.
+
+**What happens if an incorrect password is entered when attempting to open a presentation?**
+
+An exception is thrown if an incorrect password is used, alerting you that access to the presentation is denied. This helps prevent unauthorized access and protects the presentation content.
+
+**Are there any performance implications when working with password-protected presentations?**
+
+The encryption and decryption process may introduce a slight overhead during opening and saving operations. In most cases, this performance impact is minimal and does not significantly affect the overall processing time of your presentation tasks.
