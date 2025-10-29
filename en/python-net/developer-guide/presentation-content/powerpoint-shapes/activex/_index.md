@@ -207,3 +207,16 @@ with slides.Presentation(path + "template.pptx") as presentation:
         newPresentation.save("LinkingVideoActiveXControl_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **FAQ**
+
+**Does Aspose.Slides preserve ActiveX controls when reading and re-saving if they cannot be executed in the Python runtime?**
+
+Yes. Aspose.Slides treats them as part of the presentation and can read/modify their properties and frames; executing the controls themselves is not required to preserve them.
+
+**How do ActiveX controls differ from OLE objects in a presentation?**
+
+ActiveX controls are interactive managed controls (buttons, text boxes, media player), whereas [OLE](/slides/python-net/manage-ole/) refers to embedded application objects (for example, an Excel worksheet). They are stored and handled differently and have different property models.
+
+**Do ActiveX events and VBA macros work if the file has been modified by Aspose.Slides?**
+
+Aspose.Slides preserves the existing markup and metadata; however, events and macros run only inside PowerPoint on Windows when security allows it. The library does not execute VBA.

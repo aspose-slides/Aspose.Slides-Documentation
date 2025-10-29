@@ -195,3 +195,17 @@ with slides.Presentation(load_options) as pres:
 Try [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) online app to see how to work with document properties via Aspose.Slides API:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+
+## **FAQ**
+
+**How can I remove a built-in property from a presentation?**
+
+Built-in properties are an integral part of the presentation and cannot be removed entirely. However, you can either change their values or set them to empty if allowed by the specific property.
+
+**What happens if I add a custom property that already exists?**
+
+If you add a custom property that already exists, its existing value will be overwritten with the new one. You do not need to remove or check the property beforehand, as Aspose.Slides automatically updates the property's value.
+
+**Can I access presentation properties without fully loading the presentation?**
+
+Yes, you can access presentation properties without fully loading the presentation by using the [get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) method from the [PresentationFactory](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/) class. Then, utilize the [read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) method provided by the [PresentationInfo](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/) class to read the properties efficiently, saving memory and improving performance.
