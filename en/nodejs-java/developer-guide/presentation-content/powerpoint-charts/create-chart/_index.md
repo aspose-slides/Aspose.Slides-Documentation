@@ -810,9 +810,9 @@ A map chart is a visualization of an area containing data. Map charts are best u
 This JavaScript code shows you how to create a map chart:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+let pres = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
+    let chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
     pres.save("mapChart.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -823,13 +823,155 @@ try {
 
 ### **Creating Combination Charts**
 
-A combination chart (or combo chart) is a chart that combines two or more charts on a single graph. Such a chart allows you to highlight, compare, or review differences between two (or more) sets of data. This way, you see the relationship (if any) between the sets of data. 
+A combination chart (or combo chart) combines two or more chart types in a single graph. This chart lets you highlight, compare, or examine differences between two or more data sets, helping you identify relationships between them.
 
-![combination-chart-ppt](combination-chart-ppt.png)
+![The combination chart](combination_chart.png)
 
-This JavaScript code shows you how to create a combination chart in PowerPoint:
+The following JavaScript code shows how to create the combination chart shown above in a PowerPoint presentation:
 
-```javascript
+```js
+function createComboChart() {
+    let presentation = new aspose.slides.Presentation();
+    let slide = presentation.getSlides().get_Item(0);
+    try {
+        let chart = createChartWithFirstSeries(slide);
+
+        addSecondSeriesToChart(chart);
+        addThirdSeriesToChart(chart);
+
+        setPrimaryAxesFormat(chart);
+        setSecondaryAxesFormat(chart);
+
+        presentation.save("combo-chart.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+}
+
+function createChartWithFirstSeries(slide) {
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+
+    // Set the chart title.
+    chart.setTitle(true);
+    chart.getChartTitle().addTextFrameForOverriding("Chart Title");
+    chart.getChartTitle().setOverlay(false);
+    let titleParagraph = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0);
+    let titleFormat = titleParagraph.getParagraphFormat().getDefaultPortionFormat();
+    titleFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
+    titleFormat.setFontHeight(18);
+
+    // Set the chart legend.
+    chart.getLegend().setPosition(aspose.slides.LegendPositionType.Bottom);
+    chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12);
+
+    // Delete the default generated series and categories.
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const worksheetIndex = 0;
+    let workbook = chart.getChartData().getChartDataWorkbook();
+
+    // Add new categories.
+    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
+    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
+    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
+    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
+
+    // Add the first series.
+    let seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    let series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
+
+    series.getParentSeriesGroup().setOverlap(java.newByte(-25));
+    series.getParentSeriesGroup().setGapWidth(220);
+
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 1, 4.3));
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 1, 2.5));
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 1, 3.5));
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 4, 1, 4.5));
+
+    return chart;
+}
+
+function addSecondSeriesToChart(chart) {
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+
+    let seriesNameCell = workbook.getCell(worksheetIndex, 0, 2, "Series 2");
+    let series = chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.ClusteredColumn);
+
+    series.getParentSeriesGroup().setOverlap(java.newByte(-25));
+    series.getParentSeriesGroup().setGapWidth(220);
+
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 2, 2.4));
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 2, 4.4));
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 2, 1.8));
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 4, 2, 2.8));
+}
+
+function addThirdSeriesToChart(chart) {
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+
+    let seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Series 3");
+    let series = chart.getChartData().getSeries().add(seriesNameCell, aspose.slides.ChartType.Line);
+
+    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 1, 3, 2.0));
+    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 2, 3, 2.0));
+    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 3, 3, 3.0));
+    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 4, 3, 5.0));
+
+    series.setPlotOnSecondAxis(true);
+}
+
+function setPrimaryAxesFormat(chart) {
+    // Set the horizontal axis.
+    let horizontalAxis = chart.getAxes().getHorizontalAxis();
+    horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
+    horizontalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    setAxisTitle(horizontalAxis, "X Axis");
+
+    // Set the vertical axis.
+    let verticalAxis = chart.getAxes().getVerticalAxis();
+    verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
+    verticalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    setAxisTitle(verticalAxis, "Y Axis 1");
+
+    // Set the vertical major gridlines color.
+    let majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
+    majorGridLinesFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
+    majorGridLinesFormat.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 217, 217, 217));
+}
+
+function setSecondaryAxesFormat(chart) {
+    // Set the secondary horizontal axis.
+    let secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
+    secondaryHorizontalAxis.setPosition(aspose.slides.AxisPositionType.Bottom);
+    secondaryHorizontalAxis.setCrossType(aspose.slides.CrossesType.Maximum);
+    secondaryHorizontalAxis.setVisible(false);
+    secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    // Set the secondary vertical axis.
+    let secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
+    secondaryVerticalAxis.setPosition(aspose.slides.AxisPositionType.Right);
+    secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
+    secondaryVerticalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    secondaryVerticalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    secondaryVerticalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    setAxisTitle(secondaryVerticalAxis, "Y Axis 2");
+}
+
+function setAxisTitle(axis, axisTitle) {
+    axis.setTitle(true);
+    axis.getTitle().setOverlay(false);
+    let titleParagraph = axis.getTitle().addTextFrameForOverriding(axisTitle).getParagraphs().get_Item(0);
+    let titleFormat = titleParagraph.getParagraphFormat().getDefaultPortionFormat();
+    titleFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
+    titleFormat.setFontHeight(12);
+}
 ```
 
 ## **Updating Charts**
