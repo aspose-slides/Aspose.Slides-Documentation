@@ -90,3 +90,12 @@ with slides.Presentation() as presentation:
     presentation.save("MarkOptions_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **FAQ**
+
+**Which marker shapes are available out of the box?**
+
+Standard shapes are available (circle, square, diamond, triangle, etc.); the list is defined by the [MarkerStyleType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/markerstyletype/) enumeration. If you need a non-standard shape, use a marker with a picture fill to emulate custom visuals.
+
+**Are markers preserved when exporting a chart to an image or SVG?**
+
+Yes. When rendering charts to [raster formats](/slides/python-net/convert-powerpoint-to-png/) or saving [shapes as SVG](/slides/python-net/render-a-slide-as-an-svg-image/), markers retain their appearance and settings, including size, fill, and outline.

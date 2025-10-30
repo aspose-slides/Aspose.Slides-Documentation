@@ -116,3 +116,12 @@ with slides.Presentation() as presentation:
 	presentation.save("Pie.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **FAQ**
+
+**Are the 'Pie of Pie' and 'Bar of Pie' variations supported?**
+
+Yes, the library [supports](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) a secondary plot for pie charts, including the 'Pie of Pie' and 'Bar of Pie' types.
+
+**Can I export just the chart as an image (for example, PNG)?**
+
+Yes, you can [export the chart itself as an image](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/get_image/) (such as PNG) without the entire presentation.

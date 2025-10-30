@@ -23,13 +23,13 @@ keywords:
 description: "Manage BLOB data in Aspose.Slides for Python via .NET to streamline PowerPoint and OpenDocument file operations for efficient presentation handling."
 ---
 
-### **About BLOB**
+## **About BLOB**
 
 **BLOB** (**Binary Large Object**) is usually a large item (photo, presentation, document, or media) saved in binary formats. 
 
 Aspose.Slides for Python via .NET allows you to use BLOBs for objects in a way that reduces memory consumption when large files are involved. 
 
-# **Use BLOB to Reduce Memory Consumption**
+## **Use BLOB to Reduce Memory Consumption**
 
 ### **Add Large File through BLOB to a Presentation**
 
@@ -142,7 +142,7 @@ with slides.Presentation("large.pptx", loadOptions) as pres:
 	pres.save("large.pdf", slides.export.SaveFormat.PDF)
 ```
 
-#### **Change the Folder for Temporary Files**
+### **Change the Folder for Temporary Files**
 
 When the BLOB process is used, your computer creates temporary files in the default folder for temporary files. If you want the temporary files to be kept in a different folder, you can change the settings for storage using `temp_files_root_path`:
 
@@ -161,3 +161,25 @@ loadOptions.blob_management_options.temp_files_root_path = "temp"
 When you use `temp_files_root_path`, Aspose.Slides does not automatically create a folder to store temporary files. You have to create the folder manually. 
 
 {{% /alert %}}
+
+## **FAQ**
+
+**What data in an Aspose.Slides presentation is treated as BLOB and controlled by BLOB options?**
+
+Large binary objects such as images, audio, and video are treated as BLOB. The whole presentation file also involves BLOB handling when it’s loaded or saved. These objects are governed by BLOB policies that let you manage memory usage and spill to temporary files when needed.
+
+**Where do I configure BLOB handling rules during presentation loading?**
+
+Use [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) with [BlobManagementOptions](https://reference.aspose.com/slides/python-net/aspose.slides/blobmanagementoptions/). There you set the in-memory limit for BLOB, allow or disallow temporary files, choose the root path for temp files, and select source locking behavior.
+
+**Do BLOB settings affect performance, and how do I balance speed vs memory?**
+
+Yes. Keeping BLOB in memory maximizes speed but increases RAM consumption; lowering the memory limit shifts more work to temporary files, reducing RAM at the cost of additional I/O. Tune the [max_blobs_bytes_in_memory](https://reference.aspose.com/slides/python-net/aspose.slides/blobmanagementoptions/max_blobs_bytes_in_memory/) threshold to reach the right balance for your workload and environment.
+
+**Do BLOB options help when opening extremely large presentations (e.g., gigabytes)?**
+
+Yes. [BlobManagementOptions](https://reference.aspose.com/slides/python-net/aspose.slides/blobmanagementoptions/) are designed for such scenarios: enabling temporary files and using source locking can significantly reduce peak RAM use and stabilize processing for very large decks.
+
+**Can I use BLOB policies when loading from streams instead of disk files?**
+
+Yes. The same rules apply to streams: the presentation instance can own and lock the input stream (depending on the chosen locking mode), and temporary files are used when allowed, keeping memory usage predictable during processing.

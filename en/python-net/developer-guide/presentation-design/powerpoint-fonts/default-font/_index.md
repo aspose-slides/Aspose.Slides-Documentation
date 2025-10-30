@@ -53,3 +53,24 @@ with slides.Presentation(path + "DefaultFonts.pptx", loadOptions) as pptx:
     pptx.save("output_out.xps", slides.export.SaveFormat.XPS)
 ```
 
+## **FAQ**
+
+**What exactly do default_regular_font and default_asian_font affect—only export, or also thumbnails, PDF, XPS, HTML, and SVG?**
+
+They participate in the rendering pipeline for all supported outputs. This includes slide thumbnails, [PDF](/slides/python-net/convert-powerpoint-to-pdf/), [XPS](/slides/python-net/convert-powerpoint-to-xps/), [raster images](/slides/python-net/convert-powerpoint-to-png/), [HTML](/slides/python-net/convert-powerpoint-to-html/), and [SVG](/slides/python-net/render-a-slide-as-an-svg-image/), because Aspose.Slides uses the same layout and glyph resolution logic across these targets.
+
+**Are default fonts applied when simply reading and saving a PPTX without any rendering?**
+
+No. Default fonts matter when text must be measured and drawn. A straight open–save of a presentation does not change stored font runs or the file’s structure. Default fonts come into play during operations that render or reflow text.
+
+**If I add my own font folders or supply fonts from memory, will they be considered when choosing default fonts?**
+
+Yes. [Custom font sources](/slides/python-net/custom-font/) expand the catalog of available families and glyphs that the engine can use. Default fonts and any [fallback rules](/slides/python-net/fallback-font/) will resolve against those sources first, yielding more reliable coverage on servers and in containers.
+
+**Will default fonts affect text metrics (kerning, advances) and therefore line breaks and wrapping?**
+
+Yes. Changing the font changes glyph metrics and can alter line breaks, wrapping, and pagination during rendering. For layout stability, [embed the original fonts](/slides/python-net/embedded-font/) or select metrically compatible default and fallback families.
+
+**Is there any point in setting default fonts if all fonts used in the presentation are embedded?**
+
+Often it’s not necessary, because [embedded fonts](/slides/python-net/embedded-font/) already ensure consistent appearance. Default fonts still help as a safety net for characters not covered by the embedded subset or when a file mixes embedded and non-embedded text.
