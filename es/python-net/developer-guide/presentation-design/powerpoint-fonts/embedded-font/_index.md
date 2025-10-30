@@ -1,6 +1,6 @@
 ---
-title: Incrusta fuentes en presentaciones con Python
-linktitle: Incrustación de fuentes
+title: Incrustar fuentes en presentaciones con Python
+linktitle: Incrustar fuente
 type: docs
 weight: 40
 url: /es/python-net/embedded-font/
@@ -17,82 +17,94 @@ keywords:
 - presentación
 - Python
 - Aspose.Slides
-description: "Incrusta fuentes TrueType en presentaciones de PowerPoint y OpenDocument con Aspose.Slides for Python via .NET, garantizando una representación precisa en todas las plataformas."
+description: "Incruste fuentes TrueType en presentaciones de PowerPoint y OpenDocument con Aspose.Slides para Python mediante .NET, garantizando una representación precisa en todas las plataformas."
 ---
 
-**Las fuentes embebidas en PowerPoint** son útiles cuando deseas que tu presentación aparezca correctamente al abrirse en cualquier sistema o dispositivo. Si utilizaste una fuente de un tercero o no estándar porque te inspiraste en tu trabajo, entonces tienes aún más razones para embebeder tu fuente. De lo contrario (sin fuentes embebidas), los textos o números en tus diapositivas, el diseño, el estilo, etc., pueden cambiar o convertirse en rectángulos confusos.
+## **Resumen**
 
-La clase [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/), la clase [FontData](https://reference.aspose.com/slides/python-net/aspose.slides/fontdata/), la clase [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) y sus interfaces contienen la mayoría de las propiedades y métodos que necesitas para trabajar con fuentes embebidas en presentaciones de PowerPoint.
+**Incrustar fuentes en PowerPoint** asegura que su presentación mantenga su apariencia prevista en diferentes sistemas. Ya sea usando fuentes únicas por creatividad o fuentes estándar, incrustar fuentes evita la alteración del texto y del diseño.
 
-## **Obtener o Eliminar Fuentes Embebidas de la Presentación**
+Si utilizó una fuente de terceros o no estándar porque se volvió creativo con su trabajo, entonces tiene aún más razones para incrustar su fuente. De lo contrario (sin fuentes incrustadas), los textos o números en sus diapositivas, el diseño, el estilo, etc., pueden cambiar o convertirse en rectángulos confusos.  
 
-Aspose.Slides proporciona el método `get_embedded_fonts()` (expuesto por la clase [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)) para permitirte obtener (o averiguar) las fuentes embebidas en una presentación. Para eliminar fuentes, se utiliza el método `remove_embedded_font(font_data)` (expuesto por la misma clase).
+Utilice las clases [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/), [FontData](https://reference.aspose.com/slides/python-net/aspose.slides/fontdata/) y [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) para administrar fuentes incrustadas.
 
-Este código en Python te muestra cómo obtener y eliminar fuentes embebidas de una presentación:
+## **Obtener y eliminar fuentes incrustadas**
+
+Recupere o elimine fuentes incrustadas de una presentación sin esfuerzo con los métodos [get_embedded_fonts](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) y [remove_embedded_font](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/remove_embedded_font/).
+
+Este código Python le muestra cómo obtener y eliminar fuentes incrustadas de una presentación:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Crea un objeto Presentation que representa un archivo de presentación
-with slides.Presentation(path + "EmbeddedFonts.pptx") as presentation:
-    # Renderiza una diapositiva que contiene un marco de texto que usa "FunSized" embebido
-    with presentation.slides[0].get_image(draw.Size(960, 720)) as img:
-        img.save("picture1_out.png", slides.ImageFormat.PNG)
+# Instanciar la clase Presentation que representa un archivo de presentación.
+with slides.Presentation("EmbeddedFonts.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    fontsManager = presentation.fonts_manager
+    # Renderizar la diapositiva que contiene un marco de texto que usa la fuente incrustada 'FunSized'.
+    with slide.get_image(draw.Size(960, 720)) as image:
+        image.save("picture1_out.png", slides.ImageFormat.PNG)
 
-    # Obtiene todas las fuentes embebidas
-    embeddedFonts = fontsManager.get_embedded_fonts()
+    fonts_manager = presentation.fonts_manager
 
-    # Encuentra la fuente "Calibri"
-    
-    funSizedEmbeddedFont = list(filter(lambda data : data.font_name == "Calibri", embeddedFonts))[0]
+    # Obtener todas las fuentes incrustadas.
+    embedded_fonts = fonts_manager.get_embedded_fonts()
 
-    # Elimina la fuente "Calibri"
-    fontsManager.remove_embedded_font(funSizedEmbeddedFont)
+    # Encontrar la fuente 'Calibri'.
+    font_data = list(filter(lambda data : data.font_name == "Calibri", embedded_fonts))[0]
 
-    # Renderiza la presentación; la fuente "Calibri" es reemplazada por una existente
-    with presentation.slides[0].get_image(draw.Size(960, 720)) as img:
-        img.save("picture2_out.png", slides.ImageFormat.PNG)
+    # Eliminar la fuente 'Calibri'.
+    fonts_manager.remove_embedded_font(font_data)
 
-    # Guarda la presentación sin la fuente "Calibri" embebida en disco
-    presentation.save("WithoutManageEmbeddedFonts_out.ppt", slides.export.SaveFormat.PPT)
+    # Renderizar la diapositiva; la fuente 'Calibri' será reemplazada por una existente.
+    with slide.get_image(draw.Size(960, 720)) as image:
+        image.save("picture2_out.png", slides.ImageFormat.PNG)
+
+    # Guardar la presentación sin la fuente incrustada 'Calibri' en disco.
+    presentation.save("WithoutEmbeddedFonts.ppt", slides.export.SaveFormat.PPT)
 ```
 
-## **Agregar Fuentes Embebidas a la Presentación**
+## **Agregar fuentes incrustadas**
 
-Utilizando el enum [EmbedFontCharacters](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedfontcharacters/) y dos sobrecargas del método `add_embedded_font(font_data, embed_font_rule)`, puedes seleccionar tu regla preferida (de embebido) para embebeder las fuentes en una presentación. Este código en Python te muestra cómo embebeder y agregar fuentes a una presentación:
+Usando el enumerado [EmbedFontCharacters](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedfontcharacters/) y dos sobrecargas del método [add_embedded_font](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/add_embedded_font/), puede seleccionar la regla de incrustación preferida para incrustar las fuentes en una presentación. Este código Python le muestra cómo incrustar y agregar fuentes a una presentación:
 
 ```python
 import aspose.slides as slides
 
-# Carga la presentación
-with slides.Presentation(path + "Fonts.pptx") as presentation:
-    # Carga la fuente de origen que se va a reemplazar
-    sourceFont = slides.FontData("Arial")
+# Cargar una presentación.
+with slides.Presentation("Fonts.pptx") as presentation:
+    all_fonts = presentation.fonts_manager.get_fonts()
+    embedded_fonts = presentation.fonts_manager.get_embedded_fonts()
 
-    allFonts = presentation.fonts_manager.get_fonts()
-    embeddedFonts = presentation.fonts_manager.get_embedded_fonts()
-    for font in allFonts:
-        if font not in embeddedFonts:
+    for font in all_fonts:
+        if font not in embedded_fonts:
             presentation.fonts_manager.add_embedded_font(font, slides.export.EmbedFontCharacters.ALL)
 
-    # Guarda la presentación en disco
-    presentation.save("AddEmbeddedFont_out.pptx", slides.export.SaveFormat.PPTX)
+    # Guardar la presentación en disco.
+    presentation.save("AddEmbeddedFont.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Comprimir Fuentes Embebidas**
+## **Comprimir fuentes incrustadas**
 
-Para permitirte comprimir las fuentes embebidas en una presentación y reducir su tamaño de archivo, Aspose.Slides proporciona el método `compress_embedded_fonts` (expuesto por la clase [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/)).
+Optimice el tamaño del archivo comprimiendo fuentes incrustadas mediante [compress_embedded_fonts](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/compress_embedded_fonts/).
 
-Este código en Python te muestra cómo comprimir fuentes embebidas de PowerPoint:
+Código de ejemplo para compresión:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-
-    slides.lowcode.Compress.compress_embedded_fonts(pres)
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("sample.pptx") as presentation:
+    slides.lowcode.Compress.compress_embedded_fonts(presentation)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQ**
+
+**¿Cómo puedo saber que una fuente específica en la presentación seguirá siendo sustituida durante el renderizado a pesar de estar incrustada?**
+
+Verifique la [información de sustitución](/slides/es/python-net/font-substitution/) en el administrador de fuentes y las [reglas de sustitución/reemplazo](/slides/es/python-net/fallback-font/): si la fuente no está disponible o está restringida, se utilizará una fuente de respaldo.
+
+**¿Vale la pena incrustar fuentes del "sistema" como Arial/Calibri?**
+
+Normalmente no, ya que casi siempre están disponibles. Pero para una portabilidad total en entornos "delgados" (Docker, un servidor Linux sin fuentes preinstaladas), incrustar fuentes del sistema puede eliminar el riesgo de sustituciones inesperadas.

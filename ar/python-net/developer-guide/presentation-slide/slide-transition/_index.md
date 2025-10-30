@@ -1,141 +1,185 @@
 ---
-title: انتقال الشريحة
+title: إدارة انتقالات الشرائح في العروض التقديمية باستخدام بايثون
+linktitle: انتقال الشريحة
 type: docs
 weight: 90
 url: /ar/python-net/slide-transition/
-keywords: "إضافة انتقال الشريحة، انتقال شريحة PowerPoint، انتقال التحول، انتقال الشريحة المتقدم، تأثيرات الانتقال، بايثون، Aspose.Slides"
-description: " إضافة انتقال شريحة PowerPoint وتأثيرات الانتقال في بايثون "
+keywords:
+- انتقال الشريحة
+- إضافة انتقال الشريحة
+- تطبيق انتقال الشريحة
+- انتقال شريحة متقدم
+- انتقال مورف
+- نوع الانتقال
+- تأثير الانتقال
+- بايثون
+- Aspose.Slides
+description: اكتشف كيفية تخصيص انتقالات الشرائح في Aspose.Slides للغة بايثون عبر .NET، مع إرشادات خطوة بخطوة لعروض PowerPoint وOpenDocument.
 ---
 
-## **إضافة انتقال الشريحة**
-لتسهيل الفهم، قمنا بتوضيح استخدام Aspose.Slides لبايثون عبر .NET لإدارة انتقالات الشرائح البسيطة. يمكن للمطورين ليس فقط تطبيق تأثيرات انتقال شريحة مختلفة على الشرائح ولكن أيضًا تخصيص سلوك هذه التأثيرات. لإنشاء تأثير انتقال شريحة بسيط، اتبع الخطوات أدناه:
+## **نظرة عامة**
 
-1. أنشئ مثيلاً لـ [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. طبق نوع انتقال الشريحة على الشريحة من أحد تأثيرات الانتقال التي تتوفر عبر Aspose.Slides لبايثون عبر .NET من خلال TransitionType enum.
-1. اكتب ملف العرض المعدل.
+توفر Aspose.Slides للغة بايثون تحكمًا كاملاً في انتقالات الشرائح، من اختيار نوع الانتقال إلى تكوين التوقيت والمحفزات كجزء من سير عمل العروض التقديمية المؤتمتة. يمكنك ضبط الشرائح لتتقدم عند النقر و/أو بعد تأخير محدد وتحسين السلوك البصري باستخدام تأثيرات مثل القطع من السواد أو الدخول من اتجاهات معينة. كما تدعم المكتبة انتقال Morph الذي تم تقديمه في PowerPoint 2019، بما في ذلك الأنماط التي تتحول حسب الكائن أو الكلمة أو الحرف لإنشاء حركة سلسة ومترابطة بين الشرائح.
+
+## **إضافة انتقالات الشرائح**
+
+لتسهيل الفهم، يوضح هذا المثال كيفية استخدام Aspose.Slides للغة بايثون لإدارة انتقالات شرائح بسيطة. يمكن للمطورين تطبيق تأثيرات انتقال مختلفة على الشرائح وتخصيص سلوكها. لإنشاء انتقال شريحة بسيط، اتبع الخطوات التالية:
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. تطبيق انتقال شريحة باستخدام أحد التأثيرات من تعداد [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/).
+1. حفظ ملف العرض المعدل.
 
 ```py
 import aspose.slides as slides
 
-# قم بإنشاء مثيل لفئة Presentation لتحميل ملف العرض المصدر
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # طبق انتقال من نوع دائرة على الشريحة 1
+# إنشاء كائن من فئة Presentation لتحميل ملف عرض تقديمي.
+with slides.Presentation("sample.pptx") as presentation:
+    # تطبيق انتقال دائرة على الشريحة 1.
     presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
 
-    # طبق انتقال من نوع مشط على الشريحة 2
+    # تطبيق انتقال مشط على الشريحة 2.
     presentation.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.COMB
 
-    # اكتب العرض إلى القرص
-    presentation.save("SampleTransition_out.pptx", slides.export.SaveFormat.PPTX)
+    # حفظ العرض التقديمي إلى القرص.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **إضافة انتقالات شرائح متقدمة**
 
-## **إضافة انتقال الشريحة المتقدم**
-في القسم أعلاه، قمنا فقط بتطبيق تأثير انتقال بسيط على الشريحة. الآن، لجعل ذلك التأثير البسيط أفضل وأكثر تحكمًا، يرجى اتباع الخطوات أدناه:
+في هذا القسم، طبقنا تأثير انتقال بسيط على شريحة. لجعل هذا التأثير أكثر تحكمًا وصقلًا، اتبع الخطوات التالية:
 
-1. أنشئ مثيلاً لـ [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. طبق نوع انتقال الشريحة على الشريحة من أحد تأثيرات الانتقال التي تتوفر عبر Aspose.Slides لبايثون عبر .NET.
-1. يمكنك أيضًا تعيين الانتقال ليتم متقدمًا عند النقر، بعد فترة زمنية محددة أو كلاهما.
-1. إذا تم تمكين الانتقال ليتقدم عند النقر، فإن الانتقال سيتقدم فقط عندما ينقر شخص ما على الفأرة. علاوة على ذلك، إذا تم تعيين خاصية التقدم بعد الوقت، سيتقدم الانتقال تلقائيًا بعد انتهاء الوقت المحدد.
-1. اكتب العرض المعدل كملف عرض.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. تطبيق انتقال شريحة باستخدام أحد التأثيرات من تعداد [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/).
+1. تكوين الانتقال للتقدم عند النقر، بعد فترة زمنية محددة، أو كليهما.
+1. حفظ ملف العرض المعدل.
+
+إذا تم تمكين **التقدم عند النقر**، تتقدم الشريحة فقط عندما ينقر المستخدم. إذا تم ضبط خاصية **التقدم بعد الوقت**، تتقدم الشريحة تلقائيًا بعد الفاصل المحدد.
 
 ```py
 import aspose.slides as slides
 
-# قم بإنشاء مثيل لفئة Presentation التي تمثل ملف عرض
-with slides.Presentation(path + "BetterSlideTransitions.pptx") as pres:
-    # طبق انتقال من نوع دائرة على الشريحة 1
-    pres.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
+# إنشاء كائن من فئة Presentation لفتح ملف عرض تقديمي.
+with slides.Presentation("sample.pptx") as presentation:
+    slide0 = presentation.slides[0]
 
-    # تعيين وقت الانتقال 3 ثوانٍ
-    pres.slides[0].slide_show_transition.advance_on_click = True
-    pres.slides[0].slide_show_transition.advance_after_time = 3000
+    # تطبيق انتقال دائرة على الشريحة 1.
+    slide0.slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
 
-    # طبق انتقال من نوع مشط على الشريحة 2
-    pres.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.COMB
+    # تمكين التقدم عند النقر وتعيين تقدم تلقائي لمدة 3 ثوانٍ.
+    slide0.slide_show_transition.advance_on_click = True
+    slide0.slide_show_transition.advance_after_time = 3000
 
-    # تعيين وقت الانتقال 5 ثوانٍ
-    pres.slides[1].slide_show_transition.advance_on_click = True
-    pres.slides[1].slide_show_transition.advance_after_time = 5000
+    slide1 = presentation.slides[1]
 
-    # طبق انتقال من نوع زوم على الشريحة 3
-    pres.slides[2].slide_show_transition.type = slides.slideshow.TransitionType.ZOOM
+    # تطبيق انتقال مشط على الشريحة 2.
+    slide1.slide_show_transition.type = slides.slideshow.TransitionType.COMB
 
-    # تعيين وقت الانتقال 7 ثوانٍ
-    pres.slides[2].slide_show_transition.advance_on_click = True
-    pres.slides[2].slide_show_transition.advance_after_time = 7000
+    # تمكين التقدم عند النقر وتعيين تقدم تلقائي لمدة 5 ثوانٍ.
+    slide1.slide_show_transition.advance_on_click = True
+    slide1.slide_show_transition.advance_after_time = 5000
 
-    # اكتب العرض إلى القرص
-    pres.save("SampleTransition_out.pptx", slides.export.SaveFormat.PPTX)
+    slide2 = presentation.slides[2]
+
+    # تطبيق انتقال تكبير على الشريحة 3.
+    slide2.slide_show_transition.type = slides.slideshow.TransitionType.ZOOM
+
+    # تمكين التقدم عند النقر وتعيين تقدم تلقائي لمدة 7 ثوانٍ.
+    slide2.slide_show_transition.advance_on_click = True
+    slide2.slide_show_transition.advance_after_time = 7000
+
+    # حفظ العرض التقديمي إلى القرص.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **انتقال مورف**
 
-## **انتقال التحول**
-Aspose.Slides لبايثون عبر .NET تدعم الآن [انتقال التحول](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/imorphtransition/). يمثلون انتقال تحول جديد تم تقديمه في PowerPoint 2019. يسمح انتقال التحول لك بتحريك سلس من شريحة إلى أخرى. تصف هذه المقالة مفهوم وكيفية استخدام انتقال التحول. لاستخدام انتقال التحول بشكل فعال، ستحتاج إلى وجود شريحتين تحتويان على كائن واحد على الأقل مشترك. أسهل طريقة هي تكرار الشريحة ثم نقل الكائن في الشريحة الثانية إلى مكان مختلف.
+تدعم Aspose.Slides للغة بايثون [انتقال Morph](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/morphtransition/)، والذي يحرك الانتقال السلس من شريحة إلى أخرى. يشرح هذا القسم كيفية استخدام انتقال Morph. لاستخدامه بفعالية، تحتاج إلى شريحتين مع كائن واحد على الأقل مشترك. أسهل طريقة هي استنساخ شريحة ثم نقل الكائن إلى موقع مختلف في الشريحة الثانية.
 
-يوضح مقتطف الشيفرة التالية كيفية إضافة استنساخ للشريحة مع بعض النص إلى العرض وتعيين انتقال من [نوع التحول](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/imorphtransition/) إلى الشريحة الثانية.
+يظهر المقتطف التالي كيفية استنساخ شريحة تحتوي على نص وتطبيق انتقال Morph على الشريحة الثانية.
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    autoshape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 100)
-    autoshape.text_frame.text = "انتقال التحول في عروض PowerPoint"
+    slide0 = presentation.slides[0]
 
-    presentation.slides.add_clone(presentation.slides[0])
+    auto_shape = slide0.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 100)
+    auto_shape.text_frame.text = "Morph Transition in PowerPoint Presentations"
 
-    presentation.slides[1].shapes[0].x += 100
-    presentation.slides[1].shapes[0].y += 50
-    presentation.slides[1].shapes[0].width -= 200
-    presentation.slides[1].shapes[0].height -= 10
+    # استنساخ الشريحة الأولى لإنشاء شريحة ثانية بنفس الأشكال لاستمرارية Morph.
+    slide1 = presentation.slides.add_clone(slide0)
 
-    presentation.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.MORPH
+    # اختيار نفس المستطيل على الشريحة الثانية وتغيير موقعه وحجمه.
+    shape = slide1.shapes[0]
+    shape.x += 100
+    shape.y += 50
+    shape.width -= 200
+    shape.height -= 10
 
-    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
+    # تمكين انتقال Morph على الشريحة الثانية لت animate تغييرات الشكل بسلاسة.
+    slide1.slide_show_transition.type = slides.slideshow.TransitionType.MORPH
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **أنواع انتقال مورف**
 
-## **أنواع انتقال التحول**
-تم إضافة [Aspose.Slides.SlideShow.TransitionMorphType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) enum. يمثل أنواع مختلفة من انتقال التحول للشرائح.
+يمثل تعداد [TransitionMorphType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) الأنماط المختلفة لانتقالات شرائح Morph.
 
-يتكون TransitionMorphType enum من ثلاثة أعضاء:
-
-- حسب الكائن: سيتم تنفيذ انتقال التحول مع مراعاة الأشكال ككائنات غير قابلة للتجزئة.
-- حسب الكلمة: سيتم تنفيذ انتقال التحول مع نقل النص حسب الكلمات عند الإمكان.
-- حسب الحرف: سيتم تنفيذ انتقال التحول مع نقل النص حسب الأحرف عند الإمكان.
-
-يوضح مقتطف الشيفرة التالي كيفية تعيين انتقال التحول إلى الشريحة وتغيير نوع التحول:
+يظهر المقتطف التالي كيفية تطبيق انتقال Morph على شريحة وتغيير نوع morph:
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.MORPH
-    presentation.slides[0].slide_show_transition.value.morph_type = slides.slideshow.TransitionMorphType.BY_WORD
-    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
-```
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
+    slide.slide_show_transition.type = slides.slideshow.TransitionType.MORPH
+    slide.slide_show_transition.value.morph_type = slides.slideshow.TransitionMorphType.BY_WORD
+    
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
 
 ## **تعيين تأثيرات الانتقال**
-Aspose.Slides لبايثون عبر .NET تدعم تعيين تأثيرات الانتقال مثل، من الأسود، من اليسار، من اليمين، وما إلى ذلك. من أجل تعيين تأثير الانتقال، يرجى اتباع الخطوات أدناه:
 
-- أنشئ مثيلاً لـ [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)class.
-- احصل على مرجع الشريحة.
-- تعيين تأثير الانتقال.
-- اكتب العرض كملف [PPTX ](https://docs.fileformat.com/presentation/pptx/)file.
+تتيح لك Aspose.Slides للغة بايثون تعيين تأثيرات انتقال مثل **From Black**، **From Left**، **From Right**، إلخ. لتكوين تأثير الانتقال، اتبع الخطوات التالية:
 
-في المثال المعطى أدناه، قمنا بتعيين تأثيرات الانتقال.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. الحصول على مرجع إلى الشريحة.
+1. تعيين تأثير الانتقال المطلوب.
+1. حفظ العرض كملف PPTX.
+
+في المثال أدناه، قمنا بتعيين عدة تأثيرات انتقال.
 
 ```py
 import aspose.slides as slides
 
-# قم بإنشاء مثيل لفئة Presentation
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+# إنشاء كائن من فئة Presentation لفتح ملف عرض تقديمي.
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    # تعيين التأثير
-    presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CUT
-    presentation.slides[0].slide_show_transition.value.from_black = True
+    # تطبيق انتقال قطع وتمكين From Black.
+    slide.slide_show_transition.type = slides.slideshow.TransitionType.CUT
+    slide.slide_show_transition.value.from_black = True
 
-    # اكتب العرض إلى القرص
-    presentation.save("SetTransitionEffects_out.pptx", slides.export.SaveFormat.PPTX)
+    # حفظ العرض التقديمي إلى القرص.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني التحكم في سرعة تشغيل انتقال الشريحة؟**
+
+نعم. قم بتعيين [السرعة] لانتقال الشريحة باستخدام إعداد [TransitionSpeed] (مثلاً بطيء/متوسط/سريع).
+
+**هل يمكنني إرفاق صوت بالانتقال وجعله يتكرر؟**
+
+نعم. يمكنك تضمين صوت للانتقال والتحكم في سلوكه عبر إعدادات مثل وضع الصوت وإعادة التكرار (مثلاً [sound]، [sound_mode]، [sound_loop]، بالإضافة إلى بيانات وصفية مثل [sound_is_built_in] و[sound_name]).
+
+**ما هي أسرع طريقة لتطبيق نفس الانتقال على كل شريحة؟**
+
+قم بتهيئة نوع الانتقال المطلوب في إعدادات انتقال كل شريحة؛ حيث يتم تخزين الانتقالات لكل شريحة، لذا تطبيق نفس النوع على جميع الشرائح يؤدي إلى نتيجة متسقة.
+
+**كيف يمكنني التحقق من نوع الانتقال الحالي المحدد على شريحة؟**
+
+افحص [إعدادات الانتقال] الخاصة بالشريحة واقرأ [نوع الانتقال]؛ هذه القيمة تخبرك بالضبط أي تأثير تم تطبيقه.

@@ -1,78 +1,132 @@
 ---
-title: إنشاء مصغرات الأشكال
+title: إنشاء صور مصغرة لأشكال العرض التقديمي في بايثون
+linktitle: مصغرات الأشكال
 type: docs
 weight: 70
 url: /ar/python-net/create-shape-thumbnails/
-keywords: "مصغرات الأشكال. عرض تقديمي PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
-description: "مصغرات الأشكال في عرض PowerPoint باستخدام بايثون"
+keywords:
+- مصغرة الشكل
+- صورة الشكل
+- تصيير الشكل
+- تصيير الأشكال
+- PowerPoint
+- العرض التقديمي
+- Python
+- Aspose.Slides
+description: "إنشاء صور مصغرة عالية الجودة للأشكال من شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides لبايثون عبر .NET – بسهولة إنشاء وتصدير مصغرات العروض التقديمية."
 ---
 
-تُستخدم Aspose.Slides لـ بايثون عبر .NET لإنشاء ملفات العرض التقديمي حيث تكون كل صفحة عبارة عن شريحة. يمكن عرض هذه الشرائح من خلال فتح ملفات العرض التقديمي باستخدام Microsoft PowerPoint. ولكن في بعض الأحيان، قد يحتاج المطورون إلى عرض صور الأشكال بشكل منفصل في عارض الصور. في مثل هذه الحالات، تساعدك Aspose.Slides لـ بايثون عبر .NET في توليد صور مصغرة لأشكال الشرائح. كيفية استخدام هذه الميزة موصوفة في هذه المقالة.
-تشرح هذه المقالة كيفية توليد مصغرات الشرائح بطرق مختلفة:
+## **مقدمة**
 
-- توليد مصغر شكل داخل شريحة.
-- توليد مصغر شكل لشكل الشريحة بأبعاد محددة بواسطة المستخدم.
-- توليد مصغر شكل في حدود مظهر الشكل.
-- توليد مصغر للعقدة الفرعية في SmartArt.
-## **توليد مصغر شكل من الشريحة**
-لتوليد مصغر شكل من أي شريحة باستخدام Aspose.Slides لـ بايثون عبر .NET:
+يُستخدم Aspose.Slides لبايثون عبر .NET لإنشاء ملفات عرض تقديمي تكون كل صفحة فيها شريحة. يمكنك عرض هذه الشرائح في Microsoft PowerPoint بفتح ملف العرض التقديمي. في بعض الأحيان قد يحتاج المطورون إلى عرض صور الأشكال بشكل منفصل في عارض صور. في مثل هذه الحالات يمكن لـ Aspose.Slides إنشاء صور مصغرة لأشكال الشرائح. يشرح هذا المقال كيفية استخدام هذه الميزة.
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. الحصول على مرجع لأي شريحة باستخدام معرفها أو فهرسها.
-1. الحصول على صورة مصغر شكل الشريحة المرجعية على المقياس الافتراضي.
-1. حفظ صورة المصغر في أي تنسيق صورة مرغوب فيه.
+## **إنشاء مصغرات أشكال من الشرائح**
 
-المثال أدناه يُولد مصغر شكل.
+عند الحاجة إلى معاينة لكائن معين بدلاً من الشريحة كاملة، يمكنك تصيير مصغرة لشكل فردي. يتيح لك Aspose.Slides تصدير أي شكل إلى صورة، مما يجعل من السهل إنشاء معاينات خفيفة الوزن أو أيقونات أو موارد للمعالجة اللاحقة.
 
-```py
-import aspose.slides as slides
+لإنشاء مصغرة من أي شكل:
 
-# إنشاء فئة Presentation تمثل ملف العرض التقديمي
-with slides.Presentation(path + "HelloWorld.pptx") as presentation:
-    # إنشاء صورة بمقياس كامل
-    with presentation.slides[0].shapes[0].get_image() as bitmap:
-        # حفظ الصورة على القرص بتنسيق PNG
-        bitmap.save("Shape_thumbnail_out.png", slides.ImageFormat.PNG)
-```
+1. إنشاء كائن من فئة [العرض التقديمي](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. الحصول على مرجع إلى شريحة عبر معرفها أو فهرسها.
+3. الحصول على مرجع إلى شكل على تلك الشريحة.
+4. تصيير صورة المصغرة للشكل.
+5. حفظ صورة المصغرة بالتنسيق المطلوب.
 
-## **توليد مصغر بمعامل تغيير الحجم محدد بواسطة المستخدم**
-لتوليد مصغر الشكل لأي شكل شريحة باستخدام Aspose.Slides لـ بايثون عبر .NET:
-
-1. إنشاء مثيل من فئة `Presentation`.
-1. الحصول على مرجع لأي شريحة باستخدام معرفها أو فهرسها.
-1. الحصول على صورة المصغر للشريحة المرجعية مع حدود الشكل.
-1. حفظ صورة المصغر في أي تنسيق صورة مرغوب فيه.
-
-المثال أدناه يُولد مصغرًا مع توليد مصغر بمعامل تغيير الحجم محدد بواسطة المستخدم.
+المثال أدناه ينشئ مصغرة شكل.
 
 ```py
 import aspose.slides as slides
 
-# إنشاء فئة Presentation تمثل ملف العرض التقديمي
-with slides.Presentation(path + "HelloWorld.pptx") as p:
-    # إنشاء صورة بمقياس كامل
-    with p.slides[0].shapes[0].get_image(slides.ShapeThumbnailBounds.SHAPE, 1, 1) as bitmap:
-        # حفظ الصورة على القرص بتنسيق PNG
-        bitmap.save("Scaling Factor Thumbnail_out.png", slides.ImageFormat.PNG)
+# إنشاء كائن من الفئة Presentation لفتح ملف العرض التقديمي.
+with slides.Presentation("hello_world.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+    
+    # إنشاء صورة بمقياس افتراضي.
+    with shape.get_image() as thumbnail:
+        # حفظ الصورة إلى القرص بتنسيق PNG.
+        thumbnail.save("shape_thumbnail.png", slides.ImageFormat.PNG)
 ```
 
-## **إنشاء مصغر لمظهر الشكل**
-تسمح هذه الطريقة بإنشاء مصغرات للأشكال للمطورين بتوليد مصغر في حدود مظهر الشكل. تأخذ هذه الطريقة بعين الاعتبار جميع تأثيرات الشكل. يُقيد المصغر المُولد من حيث حدود الشريحة. لتوليد مصغر لأي شكل شريحة في حدود مظهره، استخدم كود المثال أدناه:
+## **إنشاء مصغرات بمعامل تكبير مخصص**
 
-1. إنشاء مثيل من فئة `Presentation`.
-1. الحصول على مرجع لأي شريحة باستخدام معرفها أو فهرسها.
-1. الحصول على صورة المصغر للشريحة المرجعية مع حدود الشكل كمظهر.
-1. حفظ صورة المصغر في أي تنسيق صورة مرغوب فيه.
+يظهر هذا القسم كيفية إنشاء مصغرات أشكال بمعامل تكبير يُحدده المستخدم في Aspose.Slides. من خلال التحكم في المقياس، يمكنك ضبط حجم المصغرة لتناسب المعاينات أو الصادرات أو الشاشات ذات الدقة العالية.
 
-المثال أدناه يُنشئ مصغرًا عند توليد مصغر بمعامل تغيير الحجم محدد بواسطة المستخدم.
+لإنشاء مصغرة لأي شكل على شريحة:
+
+1. إنشاء كائن من فئة [العرض التقديمي](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. الحصول على شريحة عبر معرفها أو فهرسها.
+3. الحصول على الشكل المستهدف على تلك الشريحة.
+4. تصيير صورة المصغرة للشكل بالمقياس المحدد.
+5. حفظ صورة المصغرة بالتنسيق المطلوب.
+
+المثال أدناه ينشئ مصغرة بمعامل تكبير مُحدّد من قبل المستخدم.
 
 ```py
 import aspose.slides as slides
 
-# إنشاء فئة Presentation تمثل ملف العرض التقديمي
-with slides.Presentation(path + "HelloWorld.pptx") as presentation:
-    # إنشاء صورة بمظهر محدد
-    with presentation.slides[0].shapes[0].get_image(slides.ShapeThumbnailBounds.APPEARANCE, 1, 1) as bitmap:
-        # حفظ الصورة على القرص بتنسيق PNG
-        bitmap.save("Shape_thumbnail_Bound_Shape_out.png", slides.ImageFormat.PNG)
+scale_x = 2.0
+scale_y = scale_x
+
+# إنشاء كائن من الفئة Presentation لفتح ملف العرض التقديمي.
+with slides.Presentation("hello_world.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+    
+    # إنشاء صورة بالمقياس المُحدد.
+    with shape.get_image(slides.ShapeThumbnailBounds.SHAPE, scale_x, scale_y) as thumbnail:
+        # حفظ الصورة إلى القرص بتنسيق PNG.
+        thumbnail.save("scaling_factor.png", slides.ImageFormat.PNG)
 ```
+
+## **إنشاء مصغرات باستخدام حدود ظهور الشكل**
+
+يُظهر هذا القسم كيفية إنشاء مصغرة داخل حدود ظهور الشكل. يأخذ ذلك جميع تأثيرات الشكل في الاعتبار. تكون المصغرة الناتجة مقيدة بحدود الشريحة.
+
+لإنشاء مصغرة لأي شكل شريحة داخل حدود ظهوره:
+
+1. إنشاء كائن من فئة [العرض التقديمي](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. الحصول على شريحة عبر معرفها أو فهرسها.
+3. الحصول على الشكل المستهدف على تلك الشريحة.
+4. تصيير صورة المصغرة للشكل بالحدود المحددة.
+5. حفظ صورة المصغرة بالتنسيق المطلوب.
+
+المثال أدناه ينشئ مصغرة بحدود يتم تعريفها من قبل المستخدم.
+
+```py
+import aspose.slides as slides
+
+image_bounds = slides.ShapeThumbnailBounds.APPEARANCE
+
+# إنشاء كائن من الفئة Presentation لفتح ملف العرض التقديمي.
+with slides.Presentation("hello_world.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+
+    # إنشاء صورة شكل بحدود الظهور.
+    with shape.get_image(image_bounds, 1.0, 1.0) as thumbnail:
+        # حفظ الصورة إلى القرص بتنسيق PNG.
+        thumbnail.save("apperance_bounds.png", slides.ImageFormat.PNG)
+```
+
+## **الأسئلة المتكررة**
+
+**ما صيغ الصورة التي يمكن استخدامها عند حفظ مصغرات الأشكال؟**
+
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/)، وغيرها. يمكن أيضًا [تصدير الأشكال كـ SVG](https://reference.aspose.com/slides/python-net/aspose.slides/shape/write_as_svg/) بحفظ محتوى الشكل كملف SVG.
+
+**ما الفرق بين حدود SHAPE و APPEARANCE عند تصيير المصغرة؟**
+
+`SHAPE` يستخدم هندسة الشكل؛ `APPEARANCE` يأخذ [التأثيرات المرئية](/slides/ar/python-net/shape-effect/) (الظلال، التوهجات، إلخ) في الاعتبار.
+
+**ماذا يحدث إذا تم تعليم الشكل كـ مخفي؟ هل سيظل يُصَيَّر كمصغرة؟**
+
+يبقى الشكل المخفي جزءًا من النموذج ويمكن تصييره؛ علم الإخفاء يؤثر على عرض الشريحة في العرض التقديمي لكنه لا يمنع إنشاء صورة الشكل.
+
+**هل تدعم الأشكال الجماعية، المخططات، SmartArt، وغيرها من الكائنات المعقدة؟**
+
+نعم. أي كائن يُمثَّل كـ [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) (بما في ذلك [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/)، [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/)، و[SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/)) يمكن حفظه كمصغرة أو كـ SVG.
+
+**هل تؤثر الخطوط المثبتة على النظام على جودة المصغرات للأشكال النصية؟**
+
+نعم. يجب عليك [توفير الخطوط المطلوبة](/slides/ar/python-net/custom-font/) (أو [تكوين بدائل الخطوط](/slides/ar/python-net/font-substitution/)) لتجنب الاستبدالات غير المرغوبة وإعادة تدفق النص.

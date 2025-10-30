@@ -1,23 +1,23 @@
 ---
-title: Bilderrahmen zu Präsentationen mit Python hinzufügen
-linktitle: Bilderrahmen
+title: Add Picture Frames to Presentations with Python
+linktitle: Picture Frame
 type: docs
 weight: 10
 url: /de/python-net/picture-frame/
 keywords:
-- bilderrahmen
-- bilderrahmen hinzufügen
-- bilderrahmen erstellen
-- bild hinzufügen
-- bild erstellen
-- bild extrahieren
-- rasterbild
-- vektorbild
-- bild zuschneiden
-- zugeschnittener Bereich
+- Bilderrahmen
+- Bilderrahmen hinzufügen
+- Bilderrahmen erstellen
+- Bild hinzufügen
+- Bild erstellen
+- Bild extrahieren
+- Rasterbild
+- Vektorbilder
+- Bild zuschneiden
+- Zugeschnittener Bereich
 - StretchOff-Eigenschaft
-- Bilderrahmenformatierung
-- Bilderrahmeneigenschaften
+- Bilderrahmen-Formatierung
+- Bilderrahmen-Eigenschaften
 - relative Skalierung
 - Bildeffekt
 - Seitenverhältnis
@@ -27,99 +27,90 @@ keywords:
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Fügen Sie mit Aspose.Slides for Python via .NET Bilderrahmen zu PowerPoint- und OpenDocument-Präsentationen hinzu. Optimieren Sie Ihren Arbeitsablauf und veredeln Sie das Folienlayout."
+description: "Fügen Sie PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Python via .NET Bilderrahmen hinzu. Optimieren Sie Ihren Arbeitsablauf und verbessern Sie das Design der Folien."
 ---
 
-Ein Bilderrahmen ist eine Form, die ein Bild enthält – es ist wie ein Bild in einem Rahmen.
+## **Übersicht**
 
-Sie können ein Bild auf eine Folie über einen Bilderrahmen hinzufügen. Auf diese Weise können Sie das Bild durch die Formatierung des Bilderrahmens formatieren.
-
-{{% alert  title="Tipp" color="primary" %}} 
-
-Aspose bietet kostenlose Konverter – [JPEG zu PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) und [PNG zu PowerPoint](https://products.aspose.app/slides/import/png-to-ppt) – die es den Benutzern ermöglichen, schnell Präsentationen aus Bildern zu erstellen.
-
-{{% /alert %}} 
+Bilderrahmen in Aspose.Slides für Python ermöglichen das Platzieren und Verwalten von Raster‑ und Vektorbildern als native Folienformen. Sie können Bilder aus Dateien oder Streams einfügen, sie mit präzisen Koordinaten positionieren und skalieren, Rotation anwenden, Transparenz einstellen und die Z‑Reihenfolge zusammen mit anderen Formen steuern. Die API unterstützt zudem das Zuschneiden, das Beibehalten von Seitenverhältnissen, das Setzen von Rahmen und Effekten sowie das Ersetzen des zugrunde liegenden Bildes, ohne das Layout neu aufzubauen. Da Bilderrahmen sich wie reguläre Formen verhalten, können Sie Animationen, Hyperlinks und Alternativtexte hinzufügen, was den Aufbau visuell ansprechender und barrierefreier Präsentationen vereinfacht.
 
 ## **Bilderrahmen erstellen**
 
-1. Erstellen Sie eine Instanz der [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-2. Holen Sie sich die Referenz einer Folie über ihren Index.
-3. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) Objekt, indem Sie ein Bild zur [IImageskollektion](https://reference.aspose.com/slides/python-net/aspose.slides/iimagecollection/) hinzufügen, die mit dem Präsentationsobjekt verbunden ist, das verwendet werden soll, um die Form auszufüllen.
-4. Geben Sie die Breite und Höhe des Bildes an.
-5. Erstellen Sie einen [Bilderrahmen](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) basierend auf der Breite und Höhe des Bildes über die `AddPictureFrame` Methode, die vom Formobjekt bereitgestellt wird, das mit der verwiesenen Folie verbunden ist.
-6. Fügen Sie der Folie einen Bilderrahmen (der das Bild enthält) hinzu.
-7. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+Dieser Abschnitt zeigt, wie Sie ein Bild in eine Folie einfügen, indem Sie mit Aspose.Slides für Python ein [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) erstellen. Sie lernen, wie das Bild geladen, genau positioniert und in Größe und Formatierung gesteuert wird.
 
-Dieser Python-Code zeigt Ihnen, wie Sie einen Bilderrahmen erstellen:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.
+2. Rufen Sie eine Folie über ihren Index ab.
+3. Erzeugen Sie ein [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/), indem Sie das Bild zur [ImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/) der Präsentation hinzufügen. Dieses Bild wird zum Füllen der Form verwendet.
+4. Legen Sie die Breite und Höhe des Rahmens fest.
+5. Erstellen Sie mit der Methode [add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) ein [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) dieser Größe.
+6. Speichern Sie die Präsentation als PPTX‑Datei.
+
+Der folgende Python‑Code zeigt, wie ein Bilderrahmen erstellt wird:
 
 ```py
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
-# Instanziiert die Presentation-Klasse, die eine PPTX-Datei repräsentiert
-with slides.Presentation() as pres:
-    # Holt die erste Folie
-    sld = pres.slides[0]
+# Instanziieren der Presentation-Klasse zum Darstellen einer PPTX-Datei.
+with slides.Presentation() as presentation:
+    # Erste Folie abrufen.
+    slide = presentation.slides[0]
 
-    # Instanziiert die ImageEx-Klasse
-    with open("img.jpeg", "rb") as in_file:
-        image = pres.images.add_image(in_file)
+    # Bild zur Präsentation hinzufügen.
+    with open("image.jpeg", "rb") as image_stream:
+        image = presentation.images.add_image(image_stream)
 
-        # Fügt einen Rahmen mit der entsprechenden Höhe und Breite des Bildes hinzu
-        pf = sld.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 150, image.width, image.height, image)
+        # Einen Bildrahmen in Bildgröße hinzufügen.
+        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
 
-        # Wendet einige Formatierungen auf die PictureFrameEx an
-        pf.line_format.fill_format.fill_type = slides.FillType.SOLID
-        pf.line_format.fill_format.solid_fill_color.color = draw.Color.blue
-        pf.line_format.width = 20
-        pf.rotation = 45
-
-        # Schreibt die PPTX-Datei auf die Festplatte
-        pres.save("RectPicFrameFormat_out.pptx", slides.export.SaveFormat.PPTX)
+        # Präsentation als PPTX speichern.
+        presentation.save("picture_frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="warning" %}} 
+{{% alert color="warning" %}}
 
-Bilderrahmen ermöglichen es Ihnen, schnell Präsentationsfolien basierend auf Bildern zu erstellen. Wenn Sie den Bilderrahmen mit den Speichermöglichkeiten von Aspose.Slides kombinieren, können Sie Eingabe-/Ausgabeoperationen manipulieren, um Bilder von einem Format in ein anderes zu konvertieren. Möglicherweise möchten Sie sich diese Seiten ansehen: konvertieren [Bild zu JPG](https://products.aspose.com/slides/python-net/conversion/image-to-jpg/); konvertieren [JPG zu Bild](https://products.aspose.com/slides/python-net/conversion/jpg-to-image/); konvertieren [JPG zu PNG](https://products.aspose.com/slides/python-net/conversion/jpg-to-png/), konvertieren [PNG zu JPG](https://products.aspose.com/slides/python-net/conversion/png-to-jpg/); konvertieren [PNG zu SVG](https://products.aspose.com/slides/python-net/conversion/png-to-svg/), konvertieren [SVG zu PNG](https://products.aspose.com/slides/python-net/conversion/svg-to-png/).
+Bilderrahmen ermöglichen es Ihnen, schnell Präsentationsfolien aus Bildern zu erstellen. Wenn Sie Bilderrahmen mit den Speichereinstellungen von Aspose.Slides kombinieren, können Sie I/O‑Vorgänge steuern, um Bilder von einem Format in ein anderes zu konvertieren. Sie möchten vielleicht diese Seiten sehen: konvertieren [Bild zu JPG](https://products.aspose.com/slides/python-net/conversion/image-to-jpg/); konvertieren [JPG zu Bild](https://products.aspose.com/slides/python-net/conversion/jpg-to-image/); konvertieren [JPG zu PNG](https://products.aspose.com/slides/python-net/conversion/jpg-to-png/); konvertieren [PNG zu JPG](https://products.aspose.com/slides/python-net/conversion/png-to-jpg/); konvertieren [PNG zu SVG](https://products.aspose.com/slides/python-net/conversion/png-to-svg/); konvertieren [SVG zu PNG](https://products.aspose.com/slides/python-net/conversion/svg-to-png/).
 
 {{% /alert %}}
 
-## **Bilderrahmen mit relativem Maßstab erstellen**
+## **Bilderrahmen mit relativer Skalierung erstellen**
 
-Durch Ändern des relativen Maßstabs eines Bildes können Sie einen komplizierteren Bilderrahmen erstellen.
+In diesem Abschnitt wird ein Bild mit fester Größe platziert und anschließend prozentual unabhängig von Breite und Höhe skaliert. Da die Prozentsätze unterschiedlich sein können, kann sich das Seitenverhältnis ändern. Die Skalierung erfolgt relativ zu den Originalabmessungen des Bildes.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-2. Holen Sie sich die Referenz einer Folie über ihren Index.
-3. Fügen Sie ein Bild zur Präsentationsbildkollektion hinzu.
-4. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) Objekt, indem Sie ein Bild zur [IImageskollektion](https://reference.aspose.com/slides/python-net/aspose.slides/iimagecollection/) hinzufügen, die mit dem Präsentationsobjekt verbunden ist, das verwendet werden soll, um die Form auszufüllen.
-5. Geben Sie die relative Breite und Höhe des Bildes im Bilderrahmen an.
-6. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.
+2. Rufen Sie eine Folie über ihren Index ab.
+3. Erzeugen Sie ein [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/), indem Sie das Bild zur [ImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/) der Präsentation hinzufügen.
+4. Fügen Sie der Folie ein [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) hinzu.
+5. Setzen Sie die relative Breite und Höhe des Bilderrahmens.
+6. Speichern Sie die Präsentation als PPTX‑Datei.
 
-Dieser Python-Code zeigt Ihnen, wie Sie einen Bilderrahmen mit relativem Maßstab erstellen:
+Der folgende Python‑Code demonstriert das Erstellen eines Bilderrahmens mit relativer Skalierung:
 
 ```py
 import aspose.slides as slides
 
-# Instanziiert die Presentation-Klasse, die eine PPTX-Datei repräsentiert
+# Instanziieren der Presentation-Klasse zum Darstellen einer PPTX-Datei.
 with slides.Presentation() as presentation:
-    # Lädt das Bild, das zur Präsentationsbildkollektion hinzugefügt werden soll
-    with open("img.jpeg", "rb") as in_file:
-        image = presentation.images.add_image(in_file)
+    # Erste Folie abrufen.
+    slide = presentation.slides[0]
 
-        # Fügt einen Bilderrahmen zur Folie hinzu
-        pf = presentation.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
+    # Bild zur Bildsammlung der Präsentation hinzufügen.
+    with open("image.jpeg", "rb") as image_stream:
+        image = presentation.images.add_image(image_stream)
 
-        # Setzt die relative Maßstabshöhe und -breite
-        pf.relative_scale_height = 0.8
-        pf.relative_scale_width = 1.35
+        # Bildrahmen zur Folie hinzufügen.
+        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
 
-        # Speichert die Präsentation
-        presentation.save("Adding Picture Frame with Relative Scale_out.pptx", slides.export.SaveFormat.PPTX)
+        # Relative Skalierung von Breite und Höhe festlegen.
+        picture_frame.relative_scale_height = 0.8
+        picture_frame.relative_scale_width = 1.35
+
+        # Präsentation speichern.
+        presentation.save("relative_scaling.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Bild aus dem Bilderrahmen extrahieren**
+## **Rasterbilder aus Bilderrahmen extrahieren**
 
-Sie können Bilder aus [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) Objekten extrahieren und sie in PNG, JPG und anderen Formaten speichern. Das folgende Codebeispiel demonstriert, wie Sie ein Bild aus dem Dokument "sample.pptx" extrahieren und im PNG-Format speichern.
+Sie können Rasterbilder aus [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/)-Objekten extrahieren und in PNG, JPG und anderen Formaten speichern. Das folgende Beispiel demonstriert das Extrahieren eines Bildes aus der Datei „sample.pptx“ und das Speichern im PNG‑Format.
 
 ```python
 import aspose.slides as slides
@@ -133,247 +124,296 @@ with slides.Presentation("sample.pptx") as presentation:
         image.save("slide_1_shape_1.png", slides.ImageFormat.PNG)
 ```
 
-## **Transparenz eines Bildes abrufen**
+## **SVG‑Bilder aus Bilderrahmen extrahieren**
 
-Aspose.Slides ermöglicht es Ihnen, die Transparenz eines Bildes abzurufen. Dieser Python-Code demonstriert die Operation:
+Enthält eine Präsentation SVG‑Grafiken, die in [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/)- Formen eingebettet sind, ermöglicht Aspose.Slides für Python via .NET das Abrufen der ursprünglichen Vektorbilder in voller Treue. Durch Durchlaufen der Formsammlung einer Folie können Sie jeden [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) identifizieren, prüfen, ob das zugrunde liegende [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) SVG‑Inhalt enthält, und das Bild dann im nativen SVG‑Format speichern.
+
+Der folgende Code demonstriert das Extrahieren eines SVG‑Bildes aus einem Bilderrahmen:
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+
+    if isinstance(shape, slides.PictureFrame):
+        svg_image = shape.picture_format.picture.image.svg_image
+
+        if svg_image is not None:
+            with open("output.svg", "w", encoding="utf-8") as svg_stream:
+                svg_stream.write(svg_image.svg_content)
+```
+
+## **Bildtransparenz abrufen**
+
+Aspose.Slides ermöglicht das Abrufen des Transparenzeffekts, der einem Bild zugeordnet ist. Der folgende Python‑Code demonstriert die Vorgehensweise:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as presentation:
-    pictureFrame = presentation.slides[0].shapes[0]
-    imageTransform = pictureFrame.picture_format.picture.image_transform
-    for effect in imageTransform:
-        if type(effect) is slides.AlphaModulateFixed:
-            transparencyValue = 100 - effect.amount
-            print("Bildtransparenz: " + str(transparencyValue))
+with slides.Presentation("sample.pptx") as presentation:
+    picture_frame = presentation.slides[0].shapes[0]
+    image_transform = picture_frame.picture_format.picture.image_transform
+    for effect in image_transform:
+        if isinstance(effect, slides.effects.AlphaModulateFixed):
+            transparency_value = 100 - effect.amount
+            print("Picture transparency: " + str(transparency_value))
 ```
 
-## **Formatierung des Bilderrahmens**
+{{% alert color="primary" %}}
+Alle auf Bilder angewendeten Effekte finden Sie unter [aspose.slides.effects](https://reference.aspose.com/slides/python-net/aspose.slides.effects/).
+{{% /alert %}}
 
-Aspose.Slides bietet viele Formatierungsoptionen, die auf einen Bilderrahmen angewendet werden können. Mit diesen Optionen können Sie einen Bilderrahmen ändern, damit er bestimmten Anforderungen entspricht.
+## **Bilderrahmen formatieren**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/) Klasse.
-2. Holen Sie sich die Referenz einer Folie über ihren Index. 
-3. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage) Objekt, indem Sie ein Bild zur [IImageskollektion](https://reference.aspose.com/slides/python-net/aspose.slides/iimagecollection/) hinzufügen, die mit dem Präsentationsobjekt verbunden ist, das verwendet werden soll, um die Form auszufüllen.
-4. Geben Sie die Breite und Höhe des Bildes an.
-5. Erstellen Sie einen `PictureFrame` basierend auf der Breite und Höhe des Bildes über die [AddPictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) Methode, die vom [IShapes](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection) Objekt bereitgestellt wird, das mit der verwiesenen Folie verbunden ist.
-6. Fügen Sie den Bilderrahmen (der das Bild enthält) zur Folie hinzu.
-7. Setzen Sie die Linienfarbe des Bilderrahmens.
-8. Setzen Sie die Linienbreite des Bilderrahmens.
-9. Drehen Sie den Bilderrahmen, indem Sie ihm entweder einen positiven oder negativen Wert geben.
-   * Ein positiver Wert dreht das Bild im Uhrzeigersinn. 
-   * Ein negativer Wert dreht das Bild gegen den Uhrzeigersinn.
-10. Fügen Sie den Bilderrahmen (der das Bild enthält) zur Folie hinzu.
-11. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+Aspose.Slides bietet zahlreiche Formatierungsoptionen für Bilderrahmen. Mit diesen Optionen können Sie einen Bilderrahmen an spezifische Anforderungen anpassen.
 
-Dieser Python-Code demonstriert den Prozess der Bilderrahmenformatierung:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.
+2. Rufen Sie eine Folie über ihren Index ab.
+3. Erzeugen Sie ein [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/), indem Sie das Bild zur [ImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/) der Präsentation hinzufügen. Dieses Bild wird zum Füllen der Form verwendet.
+4. Legen Sie die Breite und Höhe des Rahmens fest.
+5. Erstellen Sie ein [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) dieser Größe mittels der Methode [add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/).
+6. Setzen Sie die Linienfarbe des Bilderrahmens.
+7. Setzen Sie die Linienstärke des Bilderrahmens.
+8. Rotieren Sie den Bilderrahmen, indem Sie einen positiven (im Uhrzeigersinn) oder negativen (gegen den Uhrzeigersinn) Wert angeben.
+9. Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+
+Der folgende Python‑Code demonstriert den Formatierungsprozess:
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Instanziiert die Presentation-Klasse, die eine PPTX-Datei repräsentiert
-with slides.Presentation() as pres:
-    # Holt die erste Folie
-    sld = pres.slides[0]
+# Instanziieren der Presentation-Klasse zum Darstellen einer PPTX-Datei.
+with slides.Presentation() as presentation:
+    # Erste Folie abrufen.
+    slide = presentation.slides[0]
 
-    with open("img.jpeg", "rb") as in_file:
-        imgx = pres.images.add_image(in_file)
+    # Bild zur Bildsammlung der Präsentation hinzufügen.
+    with open("image.jpeg", "rb") as image_stream:
+        image = presentation.images.add_image(image_stream)
 
-         # Fügt einen Bilderrahmen mit der entsprechenden Höhe und Breite des Bildes hinzu
-        pf = sld.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 150, imgx.width, imgx.height, imgx)
+        # Bildrahmen in Bildgröße hinzufügen.
+        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
 
-        # Wendet einige Formatierungen auf PictureFrameEx an
-        pf.line_format.fill_format.fill_type = slides.FillType.SOLID
-        pf.line_format.fill_format.solid_fill_color.color = draw.Color.blue
-        pf.line_format.width = 20
-        pf.rotation = 45
+        # Formatierung auf den Bildrahmen anwenden.
+        picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
+        picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+        picture_frame.line_format.width = 20
+        picture_frame.rotation = 45
 
-    # Schreibt die PPTX-Datei auf die Festplatte
-    pres.save("RectPicFrameFormat_out.pptx", slides.export.SaveFormat.PPTX)
+    # Präsentation als PPTX speichern.
+    presentation.save("picture_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Tipp" color="primary" %}}
+{{% alert title="Tip" color="primary" %}}
 
-Aspose hat kürzlich einen [kostenlosen Collage Maker](https://products.aspose.app/slides/collage) entwickelt. Wenn Sie jemals [JPG/JPEG](https://products.aspose.app/slides/collage/jpg) oder PNG-Bilder zusammenführen oder [Raster aus Fotos erstellen](https://products.aspose.app/slides/collage/photo-grid) müssen, können Sie diesen Service nutzen. 
+Aspose hat einen kostenlosen [Collage Maker](https://products.aspose.app/slides/collage) entwickelt. Wenn Sie JPG/JPEG‑ oder PNG‑Bilder zusammenführen oder Fotogitter erstellen möchten, können Sie diesen Service nutzen.
 
 {{% /alert %}}
 
-## **Bild als Link hinzufügen**
+## **Bilder als Links hinzufügen**
 
-Um große Präsentationsgrößen zu vermeiden, können Sie Bilder (oder Videos) über Links hinzufügen, anstatt die Dateien direkt in die Präsentationen einzubetten. Dieser Python-Code zeigt Ihnen, wie Sie ein Bild und ein Video in einen Platzhalter einfügen:
+Um Präsentationsdateien klein zu halten, können Sie Bilder oder Videos per Link einbinden, anstatt die Dateien direkt in die Präsentation zu integrieren. Der nachfolgende Python‑Code zeigt, wie ein Bild und ein Video in einen Platzhalter eingefügt werden:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation("input.pptx") as presentation:
-    shapesToRemove = []
+    slide = presentation.slides[0]
 
-    for autoShape in presentation.slides[0].shapes:
-        if autoShape.placeholder is None:
+    shapes_to_remove = []
+
+    for shape in slide.shapes:
+        if shape.placeholder is None:
             continue
-        
-        if autoShape.placeholder.type == slides.PlaceholderType.PICTURE:
-            pictureFrame = presentation.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE,
-                    autoShape.x, autoShape.y, autoShape.width, autoShape.height, None)
 
-            pictureFrame.picture_format.picture.link_path_long = \
+        if shape.placeholder.type == slides.PlaceholderType.PICTURE:
+            picture_frame = slide.shapes.add_picture_frame(
+                slides.ShapeType.RECTANGLE, shape.x, shape.y, shape.width, shape.height, None)
+
+            picture_frame.picture_format.picture.link_path_long = \
                 "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
 
-            shapesToRemove.append(autoShape)
+            shapes_to_remove.append(shape)
 
-        elif autoShape.placeholder.type == slides.PlaceholderType.MEDIA:
-            videoFrame = presentation.slides[0].shapes.add_video_frame(
-                autoShape.X, autoShape.Y, autoShape.width, autoShape.height, "")
+        elif shape.placeholder.type == slides.PlaceholderType.MEDIA:
+            video_frame = slide.shapes.add_video_frame(shape.X, shape.Y, shape.width, shape.height, "")
 
-            videoFrame.picture_format.picture.link_path_long = \
+            video_frame.picture_format.picture.link_path_long = \
                 "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
 
-            videoFrame.link_path_long = "https://youtu.be/t_1LYZ102RA"
-            shapesToRemove.append(autoShape)
-        
-    
+            video_frame.link_path_long = "https://youtu.be/t_1LYZ102RA"
+            shapes_to_remove.append(shape)
 
-    for shape in shapesToRemove:
-        presentation.slides[0].shapes.remove(shape)
+    for shape in shapes_to_remove:
+        slide.shapes.remove(shape)
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Bild zuschneiden**
+## **Bilder zuschneiden**
 
-Dieser Python-Code zeigt Ihnen, wie Sie ein vorhandenes Bild auf einer Folie zuschneiden:
+In diesem Abschnitt lernen Sie, wie Sie den sichtbaren Bildbereich innerhalb eines Bilderrahmens zuschneiden, ohne die Quelldatei zu verändern. Außerdem wird die Grundmethode zum Anwenden von Zuschnittsrandwerten gezeigt, um eine klare, fokussierte Komposition direkt auf der Folie zu erzeugen.
 
-``` py
+Der folgende Python‑Code demonstriert das Zuschneiden eines Bildes auf einer Folie:
+
+```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # Erstellt ein neues Bildobjekt
-    newImage = presentation.images.add_image(slides.Images.from_file(imagePath))
+    slide = presentation.slides[0]
 
-    # Fügt einen Bilderrahmen zu einer Folie hinzu
-    picFrame = presentation.slides[0].shapes.add_picture_frame(
-        slides.ShapeType.RECTANGLE, 100, 100, 420, 250, newImage)
+    # Bild zur Bildsammlung der Präsentation hinzufügen.
+    with slides.Images.from_file("image.png") as source_image:
+        image = presentation.images.add_image(source_image)
 
-    # Schneidet das Bild zu (Prozentsatzwerte)
-    picFrame.picture_format.crop_left = 23.6
-    picFrame.picture_format.crop_right = 21.5
-    picFrame.picture_format.crop_top = 3
-    picFrame.picture_format.crop_bottom = 31
+    # Bildrahmen zur Folie hinzufügen.
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 100, 100, 420, 250, image)
 
-    # Speichert das Ergebnis
-    presentation.save(outPptxFile, slides.export.SaveFormat.PPTX)
+    # Bild zuschneiden (Prozentwerte).
+    picture_frame.picture_format.crop_left = 23.6
+    picture_frame.picture_format.crop_right = 21.5
+    picture_frame.picture_format.crop_top = 3
+    picture_frame.picture_format.crop_bottom = 31
 
+    # Ergebnis speichern.
+    presentation.save("cropped_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## Zuschnitte der Bilder im Rahmen löschen
+## **Zugeschnittene Bildbereiche löschen**
 
-Wenn Sie die zugeschnittenen Bereiche eines Bildes, das sich in einem Rahmen befindet, löschen möchten, können Sie die Methode [delete_picture_cropped_areas](https://reference.aspose.com/slides/python-net/aspose.slides/ipicturefillformat/) verwenden. Diese Methode gibt das zugeschnittene Bild oder das ursprüngliche Bild zurück, wenn das Zuschneiden nicht erforderlich ist.
+Wenn Sie die zugeschnittenen Bereiche eines Bildes in einem Rahmen entfernen möchten, verwenden Sie die Methode [delete_picture_cropped_areas](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/). Diese Methode gibt das zugeschnittene Bild zurück oder das Originalbild, falls kein Zuschnitt nötig ist.
 
-Dieser Python-Code demonstriert die Operation:
+Der folgende Python‑Code demonstriert die Vorgehensweise:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation(path + "PictureFrameCrop.pptx") as pres:
-    slide = pres.slides[0]
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    # Holt den Bilderrahmen von der ersten Folie
+    # Bildrahmen von der ersten Folie abrufen.
     picture_frame = slides.shape[0]
 
-    # Löscht die zugeschnittenen Bereiche des Bildes im Bilderrahmen und gibt das zugeschnittene Bild zurück
+    # Bildrahmen von der ersten Folie abrufen.
     cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
 
-    # Speichert das Ergebnis
-    pres.save(path + "PictureFrameDeleteCroppedAreas.pptx", slides.export.SaveFormat.PPTX)
+    # Ergebnis speichern.
+    presentation.save("deleted_cropped_areas.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="HINWEIS" color="warning" %}} 
+{{% alert title="NOTE" color="warning" %}}
 
-Die Methode delete_picture_cropped_areas fügt das zugeschnittene Bild zur Präsentationsbildkollektion hinzu. Wenn das Bild nur im verarbeiteten [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) verwendet wird, kann diese Einrichtung die Präsentationsgröße reduzieren. Andernfalls wird die Anzahl der Bilder in der resultierenden Präsentation erhöht.
+Die Methode [delete_picture_cropped_areas](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) fügt das zugeschnittene Bild zur Bildsammlung der Präsentation hinzu. Wird das Bild nur im verarbeiteten [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) verwendet, kann dies die Dateigröße reduzieren; andernfalls kann die Bildanzahl in der resultierenden Präsentation steigen.
 
-Diese Methode konvertiert WMF/EMF-Metadateien in ein Raster-PNG-Bild im Zuschneidevorgang. 
+Während des Zuschnitts konvertiert diese Methode WMF/EMF‑Metadateien in ein Raster‑PNG‑Bild.
 
 {{% /alert %}}
 
 ## **Seitenverhältnis sperren**
 
-Wenn Sie möchten, dass eine Form, die ein Bild enthält, ihr Seitenverhältnis auch nach Änderung der Bildabmessungen beibehält, können Sie die Eigenschaft *aspect_ratio_locked* verwenden, um die Einstellung *Seitenverhältnis sperren* festzulegen. 
+Wenn Sie möchten, dass ein Formobjekt mit Bild sein Seitenverhältnis nach einer Größenänderung beibehält, setzen Sie die Eigenschaft [aspect_ratio_locked](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) auf `True`.
 
-Dieser Python-Code zeigt Ihnen, wie Sie das Seitenverhältnis einer Form sperren: 
+Der folgende Python‑Code zeigt, wie das Seitenverhältnis einer Form gesperrt wird:
 
 ```python
-from aspose.slides import SlideLayoutType, Presentation, ShapeType
-from aspose.pydrawing import Image
+import aspose.slides as slides
 
-with Presentation("pres.pptx") as pres:
-    layout = pres.layout_slides.get_by_type(SlideLayoutType.CUSTOM)
-    emptySlide = pres.slides.add_empty_slide(layout)
-    image = Image.from_file("image.png")
-    presImage = pres.images.add_image(image)
+with slides.Presentation("sample.pptx") as presentation:
+    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.CUSTOM)
+    empty_slide = presentation.slides.add_empty_slide(layout)
 
-    pictureFrame = emptySlide.shapes.add_picture_frame(ShapeType.RECTANGLE, 50, 150, presImage.width, presImage.height, presImage)
+    with slides.Images.from_file("image.png") as source_image:
+        image = presentation.images.add_image(source_image)
 
-    # Setzt die Form, um das Seitenverhältnis beim Ändern der Größe beizubehalten
-    pictureFrame.picture_frame_lock.aspect_ratio_locked = True
+    picture_frame = empty_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
+
+    # Seitenverhältnis beim Skalieren sperren.
+    picture_frame.picture_frame_lock.aspect_ratio_locked = True
+
+    presentation.save("aspect_ratio_locked.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="HINWEIS" color="warning" %}} 
+{{% alert title="NOTE" color="warning" %}}
 
-Diese Einstellung *Seitenverhältnis sperren* bewahrt nur das Seitenverhältnis der Form und nicht das Bild, das sie enthält.
+Diese Einstellung *Seitenverhältnis sperren* bewahrt nur das Seitenverhältnis der Form, nicht das des darin enthaltenen Bildes.
 
 {{% /alert %}}
 
-## **Stretchen der Offsets verwenden**
+## **Verwendung von Stretch‑Offset‑Eigenschaften**
 
-Mithilfe der Eigenschaften `StretchOffsetLeft`, `StretchOffsetTop`, `StretchOffsetRight` und `StretchOffsetBottom` aus dem [IPictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ipicturefillformat/) Interface und der [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) Klasse können Sie ein Füllrechteck spezifizieren. 
+Durch die Eigenschaften `stretch_offset_left`, `stretch_offset_top`, `stretch_offset_right` und `stretch_offset_bottom` der Klasse [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) können Sie ein Füllrechteck definieren.
 
-Wenn das Stretchen für ein Bild angegeben wird, wird ein Quellrechteck skaliert, um in das angegebene Füllrechteck zu passen. Jede Kante des Füllrechtecks wird durch einen prozentualen Versatz von der entsprechenden Kante des Begrenzungsrahmens der Form definiert. Ein positiver Prozentsatz spezifiziert ein Einrücken, während ein negativer Prozentsatz ein Herausziehen angibt.
+Wird ein Bild gestreckt, wird das Quellrechteck so skaliert, dass es in das Füllrechteck passt. Jeder Rand des Füllrechtecks wird durch einen prozentualen Versatz vom entsprechenden Rand der begrenzenden Box der Form definiert. Ein positiver Prozentsatz bedeutet Einziehen, ein negativer Prozentsatz Ausdehnen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/) Klasse.
-2. Holen Sie sich die Referenz einer Folie über ihren Index.
-3. Fügen Sie eine Rechteck-`AutoShape` hinzu. 
-4. Erstellen Sie ein Bild.
-5. Setzen Sie den Fülltyp der Form.
-6. Setzen Sie den Bildfüllmodus der Form.
-7. Fügen Sie ein Bild hinzu, um die Form zu füllen.
-8. Geben Sie die Bildversätze von der entsprechenden Kante des Begrenzungsrahmens der Form an.
-9. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.
+2. Holen Sie sich eine Referenz zu einer Folie über deren Index.
+3. Fügen Sie eine rechteckige [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) hinzu.
+4. Setzen Sie den Fülltyp der Form.
+5. Setzen Sie den Bildfüllmodus der Form.
+6. Laden Sie ein Bild.
+7. Weisen Sie das Bild der Form zu, um sie zu füllen.
+8. Geben Sie Bildversätze von den jeweiligen Rändern der begrenzenden Box der Form an.
+9. Speichern Sie die Präsentation als PPTX‑Datei.
 
-Dieser Python-Code demonstriert einen Prozess, in dem die StretchOff-Eigenschaft verwendet wird:
+Der folgende Python‑Code demonstriert die Verwendung der Stretch‑Offset‑Eigenschaften:
 
 ```py
 import aspose.slides as slides
 
-# Instanziiert die Presentation-Klasse, die eine PPTX-Datei repräsentiert
-with slides.Presentation() as pres:
+# Instanziieren der Presentation-Klasse, die eine PPTX-Datei repräsentiert.
+with slides.Presentation() as presentation:
+    # Erste Folie abrufen.
+    slide = presentation.slides[0]
 
-    # Holt die erste Folie
-    slide = pres.slides[0]
+    # Rechteckige AutoShape hinzufügen.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 300, 300)
 
-    # Instanziiert die ImageEx-Klasse
-    with open("img.jpeg", "rb") as in_file:
-        imgx = pres.images.add_image(in_file)
+    # Fülltyp der Form festlegen.
+    shape.fill_format.fill_type = slides.FillType.PICTURE
 
-        # Fügt einen Bilderrahmen mit der entsprechenden Höhe und Breite des Bildes hinzu
-        shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
+    # Bildfüllmodus der Form festlegen.
+    shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
 
-        # Setzt den Fülltyp der Form
-        shape.fill_format.fill_type = slides.FillType.PICTURE
+    # Bild laden und zur Präsentation hinzufügen.
+    with open("image.jpeg", "rb") as image_stream:
+        image = presentation.images.add_image(image_stream)
 
-        # Setzt den Bildfüllmodus der Form
-        shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    # Bild der Form zuweisen, um sie zu füllen.
+    shape.fill_format.picture_fill_format.picture.image = image
 
-        # Setzt das Bild zur Füllung der Form
-        shape.fill_format.picture_fill_format.picture.image = imgx
+    # Bildversätze von den jeweiligen Rändern der Formbox angeben.
+    shape.fill_format.picture_fill_format.stretch_offset_left = 25
+    shape.fill_format.picture_fill_format.stretch_offset_right = 25
+    shape.fill_format.picture_fill_format.stretch_offset_top = -20
+    shape.fill_format.picture_fill_format.stretch_offset_bottom = -10
 
-        # Gibt die Bildversätze von der entsprechenden Kante des Begrenzungsrahmens der Form an
-        shape.fill_format.picture_fill_format.stretch_offset_left = 25
-        shape.fill_format.picture_fill_format.stretch_offset_right = 25
-        shape.fill_format.picture_fill_format.stretch_offset_top = -20
-        shape.fill_format.picture_fill_format.stretch_offset_bottom = -10
-    
-    # Schreibt die PPTX-Datei auf die Festplatte
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", slides.export.SaveFormat.PPTX)
+    # PPTX-Datei auf Festplatte speichern.
+    presentation.save("stretch_offset.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+{{% alert title="Tip" color="primary" %}}
+
+Aspose stellt kostenlose Konverter bereit – [JPEG zu PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) und [PNG zu PowerPoint](https://products.aspose.app/slides/import/png-to-ppt) – mit denen Sie schnell Präsentationen aus Bildern erstellen können.
+
+{{% /alert %}}
+
+## **FAQ**
+
+**Wie finde ich heraus, welche Bildformate für PictureFrame unterstützt werden?**
+
+Aspose.Slides unterstützt sowohl Rasterbilder (PNG, JPEG, BMP, GIF usw.) als auch Vektorbilder (z. B. SVG) über das Bildobjekt, das einem [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) zugewiesen wird. Die unterstützten Formate überschneiden sich im Allgemeinen mit den Fähigkeiten der Folien‑ und Bildkonvertierungs‑Engine.
+
+**Wie wirkt sich das Hinzufügen von Dutzenden großer Bilder auf die PPTX‑Größe und Performance aus?**
+
+Das Einbetten großer Bilder erhöht Dateigröße und Speicherverbrauch; das Verlinken von Bildern hält die Präsentationsgröße klein, erfordert jedoch, dass die externen Dateien weiterhin zugänglich sind. Aspose.Slides bietet die Möglichkeit, Bilder per Link hinzuzufügen, um die Dateigröße zu reduzieren.
+
+**Wie kann ich ein Bildobjekt vor versehentlichem Verschieben/Größenändern schützen?**
+
+Verwenden Sie [Form‑Sperren](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/picture_frame_lock/) für einen [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) (z. B. Sperren von Verschieben oder Skalieren). Der Sperrmechanismus wird für Formen in einem separaten [Schutz‑Artikel](/slides/de/python-net/applying-protection-to-presentation/) beschrieben und wird für verschiedene Formtypen, einschließlich [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/), unterstützt.
+
+**Wird die Vektortreue von SVG beim Export einer Präsentation zu PDF/Bildern beibehalten?**
+
+Aspose.Slides ermöglicht das Extrahieren eines SVG aus einem [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) als ursprünglichen Vektor. Beim [Export zu PDF](/slides/de/python-net/convert-powerpoint-to-pdf/) oder zu Rasterformaten [/slides/python-net/convert-powerpoint-to-png/] kann das Ergebnis je nach Exporteinstellungen gerastert werden; die Tatsache, dass das ursprüngliche SVG als Vektor gespeichert ist, wird durch das Extraktionsverhalten bestätigt.

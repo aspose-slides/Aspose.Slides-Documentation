@@ -1,5 +1,5 @@
 ---
-title: Управляйте проектами VBA в презентациях с помощью Python
+title: Управление VBA проектами в презентациях с помощью Python
 linktitle: Презентация через VBA
 type: docs
 weight: 250
@@ -7,7 +7,7 @@ url: /ru/python-net/presentation-via-vba/
 keywords:
 - макрос
 - VBA
-- макрос VBA
+- VBA макрос
 - добавить макрос
 - удалить макрос
 - извлечь макрос
@@ -19,146 +19,159 @@ keywords:
 - презентация
 - Python
 - Aspose.Slides
-description: "Узнайте, как создавать и управлять презентациями PowerPoint и OpenDocument через VBA с помощью Aspose.Slides for Python via .NET, чтобы оптимизировать рабочий процесс."
+description: "Узнайте, как создавать и управлять презентациями PowerPoint и OpenDocument через VBA с помощью Aspose.Slides для Python через .NET, чтобы оптимизировать ваш рабочий процесс."
 ---
 
-Пространство имен [Aspose.Slides.Vba](https://reference.aspose.com/slides/python-net/aspose.slides.vba/) содержит классы и интерфейсы для работы с макросами и кодом VBA.
+## **Обзор**
 
-{{% alert title="Примечание" color="warning" %}} 
+Эта статья рассматривает основные возможности Aspose.Slides для Python через .NET по работе с макросами в презентациях PowerPoint. Библиотека предоставляет удобные инструменты для добавления, удаления и извлечения макросов, что позволяет автоматизировать создание и изменение презентаций.
 
-Когда вы конвертируете презентацию, содержащую макросы, в другой формат файла (PDF, HTML и т. д.), Aspose.Slides игнорирует все макросы (макросы не переносятся в результирующий файл).
+- Ускорьте разработку презентаций — автоматизация рутинных задач сокращает время, необходимое для подготовки материалов.
+- Обеспечьте гибкость — возможность управлять макросами позволяет адаптировать презентации под конкретные задачи и сценарии.
+- Интегрируйте данные — простая интеграция с внешними источниками данных помогает поддерживать актуальность содержимого слайдов.
+- Упростите обслуживание — централизованное управление макросами облегчает внесение изменений и обновление презентаций.
 
-Когда вы добавляете макросы в презентацию или повторно сохраняете презентацию, содержащую макросы, Aspose.Slides просто записывает байты макросов.
+В статье также представлены практические примеры того, как использовать Aspose.Slides для эффективной работы с макросами в PowerPoint.
+
+Пространство имён aspose.slides.vba предоставляет классы для работы с макросами и кодом VBA.
+
+{{% alert title="Note" color="warning" %}}
+При конвертации презентации, содержащей макросы, в другой формат (PDF, HTML и т.д.), Aspose.Slides игнорирует макросы — они не передаются в файл вывода.
+
+Когда вы добавляете макросы в презентацию или сохраняете заново презентацию, содержащую макросы, Aspose.Slides записывает байты макросов без изменений.
 
 Aspose.Slides **никогда** не выполняет макросы в презентации.
-
 {{% /alert %}}
 
 ## **Добавление VBA макросов**
 
-Aspose.Slides предоставляет класс [VbaProject](https://reference.aspose.com/slides/python-net/aspose.slides.vba/vbaproject/), который позволяет создавать проекты VBA (и ссылки на проекты) и редактировать существующие модули. Вы можете использовать интерфейс [IVbaProject](https://reference.aspose.com/slides/net/aspose.slides.vba/ivbaproject/) для управления VBA, встроенной в презентацию.
+Aspose.Slides предоставляет класс VbaProject для создания VBA проектов (и ссылок на проекты) и редактирования существующих модулей.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Используйте конструктор [VbaProject](https://reference.aspose.com/slides/python-net/aspose.slides.vba/vbaproject/#constructors) для добавления нового проекта VBA.
-1. Добавьте модуль в VbaProject.
-1. Установите исходный код модуля.
-1. Добавьте ссылки на `<stdole>`.
-1. Добавьте ссылки на **Microsoft Office**.
-1. Свяжите ссылки с проектом VBA.
-1. Сохраните презентацию.
+1. Создайте экземпляр класса Presentation.  
+2. Используйте конструктор VbaProject для добавления нового VBA проекта.  
+3. Добавьте модуль в VBA проект.  
+4. Установите исходный код модуля.  
+5. Добавьте ссылку на `<stdole>`.  
+6. Добавьте ссылку на **Microsoft Office**.  
+7. Свяжите ссылки с VBA проектом.  
+8. Сохраните презентацию.
 
-Этот код на Python показывает, как добавить макрос VBA с нуля в презентацию:
+Следующий пример на Python показывает, как добавить VBA макрос с нуля в презентацию:
 
 ```python
 import aspose.slides as slides
 
-# Создает экземпляр класса презентации
+# Создайте экземпляр класса Presentation.
 with slides.Presentation() as presentation:
-    # Создает новый VBA проект
+
+    # Создайте новый VBA проект.
     presentation.vba_project = slides.vba.VbaProject()
 
-    # Добавляет пустой модуль в проект VBA
+    # Добавьте пустой модуль в VBA проект.
     module = presentation.vba_project.modules.add_empty_module("Module")
-  
-    # Устанавливает исходный код модуля
-    module.source_code = "Sub Test(oShape As Shape) MsgBox ""Test"" End Sub"
 
-    # Создает ссылку на <stdole>
-    stdoleReference = slides.vba.VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation")
+    # Установите исходный код модуля.
+    module.source_code = """
+        Sub Test(oShape As Shape)
+            MsgBox "Hello, world!"
+        End Sub
+    """
 
-    # Создает ссылку на Office
-    officeReference =slides.vba.VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Библиотека объектов Microsoft Office 14.0")
+    # Создайте ссылку на <stdole>.
+    stdole_reference = slides.vba.VbaReferenceOleTypeLib("stdole",
+        "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation")
 
-    # Добавляет ссылки в проект VBA
-    presentation.vba_project.references.add(stdoleReference)
-    presentation.vba_project.references.add(officeReference)
+    # Создайте ссылку на Microsoft Office.
+    office_reference = slides.vba.VbaReferenceOleTypeLib("Office",
+        "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library")
 
-            
-    # Сохраняет презентацию
-    presentation.save("AddVBAMacros_out.pptm", slides.export.SaveFormat.PPTM)
+    # Добавьте ссылки в VBA проект.
+    presentation.vba_project.references.add(stdole_reference)
+    presentation.vba_project.references.add(office_reference)
+
+    # Сохраните презентацию.
+    presentation.save("macros.pptm", slides.export.SaveFormat.PPTM)
 ```
 
-{{% alert color="primary" %}} 
-
-Возможно, вы захотите ознакомиться с **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros) — бесплатным веб-приложением, используемым для удаления макросов из документов PowerPoint, Excel и Word.
-
-{{% /alert %}} 
+{{% alert color="primary" %}}
+Возможно, вы захотите попробовать **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros), бесплатное веб‑приложение для удаления макросов из документов PowerPoint, Excel и Word.
+{{% /alert %}}
 
 ## **Удаление VBA макросов**
 
-Используя свойство [VbaProject](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/#properties) класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), вы можете удалить VBA макрос.
+Используя свойство vba_project класса Presentation, вы можете удалить VBA макрос.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и загрузите презентацию, содержащую макрос.
-1. Получите доступ к модулю Макрос и удалите его.
-1. Сохраните измененную презентацию.
+1. Создайте экземпляр класса Presentation и загрузите презентацию, содержащую макрос.  
+2. Получите доступ к модулю макроса и удалите его.  
+3. Сохраните изменённую презентацию.
 
-Этот код на Python показывает, как удалить VBA макрос:
+Следующий пример на Python показывает, как удалить VBA макрос:
 
 ```python
 import aspose.slides as slides
 
-# Загружает презентацию, содержащую макрос
-with slides.Presentation(path + "VBA.pptm") as presentation:
-    # Получает доступ к Vba модулю и удаляет его  
-    presentation.vba_project.modules.remove(presentation.vba_project.modules[0])
+# Загрузите презентацию, содержащую макрос.
+with slides.Presentation("VBA.pptm") as presentation:
+    
+    # Получите доступ к VBA модулю.
+    vba_module = presentation.vba_project.modules[0]
 
-    # Сохраняет презентацию
-    presentation.save("RemovedVBAMacros_out.pptm", slides.export.SaveFormat.PPTM)
+    # Удалите VBA модуль.
+    presentation.vba_project.modules.remove(vba_module)
+
+    # Сохраните презентацию.
+    presentation.save("removed_macro.pptm", slides.export.SaveFormat.PPTM)
 ```
 
 ## **Извлечение VBA макросов**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и загрузите презентацию, содержащую VBA макросы.
-2. Проверьте, содержит ли презентация встроенный проект VBA.
-3. Переберите все модули, входящие в проект VBA, чтобы извлечь и просмотреть исходный код макросов.
+Используя свойство `modules` в классе VbaProject, вы можете получить доступ ко всем модулям VBA проекта. Класс VbaModule можно использовать для извлечения свойств модуля, таких как имя и код.
 
-Ниже приведён пример Python-кода, демонстрирующий, как программно извлечь VBA макросы из презентации PowerPoint:
+1. Создайте экземпляр класса Presentation и загрузите презентацию, содержащую макрос.  
+2. Проверьте, содержит ли презентация VBA проект.  
+3. Пройдите по всем модулям VBA проекта, чтобы просмотреть макросы.
+
+Следующий пример на Python показывает, как извлечь VBA макросы из презентации:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation(path + "VBA.pptm") as pres:
-    if pres.vba_project is not None: # Проверяет содержит ли презентация проект VBA
-        for module in pres.vba_project.modules:
+with slides.Presentation("VBA.pptm") as presentation:
+    # Проверьте, содержит ли презентация VBA проект.
+    if presentation.vba_project is not None:
+        for module in presentation.vba_project.modules:
             print(module.name)
             print(module.source_code)
 ```
 
-## Часто задаваемые вопросы (FAQ)
+## **Проверка, защищён ли VBA проект паролем**
 
-### Что такое макросы VBA в PowerPoint?
+Используя свойство VbaProject.is_password_protected, вы можете определить, защищены ли свойства проекта паролем.
 
-Макросы VBA — это сценарии, написанные на языке Visual Basic for Applications, встроенные в презентации PowerPoint. Они позволяют автоматизировать задачи, такие как генерация слайдов, обработка данных и взаимодействие с пользователем.
+1. Создайте экземпляр класса Presentation и загрузите презентацию, содержащую макрос.  
+2. Проверьте, содержит ли презентация VBA проект.  
+3. Проверьте, защищён ли VBA проект паролем, чтобы просмотреть его свойства.
 
-### Можно ли извлечь VBA макросы из PowerPoint-презентации с помощью Python?
+```py
+import aspose.slides as slides
 
-Да. Библиотека **Aspose.Slides для Python via .NET** позволяет программно извлекать, просматривать и сохранять VBA макросы без необходимости использовать Microsoft PowerPoint.
+with slides.Presentation("VBA.pptm") as presentation:
+    # Проверьте, содержит ли презентация VBA проект.
+    if presentation.vba_project is not None:
+        if presentation.vba_project.is_password_protected:
+            print(f"The VBA Project '{presentation.vba_project.name}' is protected by password to view project properties.")
+```
 
-### Поддерживает ли Aspose.Slides добавление и удаление VBA макросов?
+## **Часто задаваемые вопросы**
 
-Да. Вы можете:
+**Что происходит с макросами, если я сохраняю презентацию как PPTX?**
 
-* Добавлять новые макросы в презентацию
-* Удалять существующие макросы
-* Редактировать модули VBA
-* Управлять ссылками на библиотеки, такие как Microsoft Office и stdole
+Макросы будут удалены, так как PPTX не поддерживает VBA. Чтобы сохранить макросы, выберите PPTM, PPSM или POTM.
 
-### Сохраняются ли макросы при конвертации в PDF или другие форматы?
+**Может ли Aspose.Slides запускать макросы внутри презентации, например, для обновления данных?**
 
-Нет. При конвертации презентации в другие форматы (например, PDF, HTML и т. д.) Aspose.Slides игнорирует макросы. Макросы не переносятся в итоговый файл.
+Нет. Библиотека никогда не выполняет VBA‑код; выполнение возможно только внутри PowerPoint при соответствующих настройках безопасности.
 
-### Выполняет ли Aspose.Slides макросы при открытии или сохранении презентации?
+**Поддерживается ли работа с элементами управления ActiveX, связанными с кодом VBA?**
 
-Нет. Aspose.Slides никогда не выполняет макросы. При открытии или сохранении презентации библиотека просто считывает или записывает их как данные, без выполнения кода.
-
-### Какие форматы презентаций с макросами поддерживаются?
-
-Поддерживаются файлы формата **PPTM** — это расширение формата PPTX, содержащее макросы VBA. Aspose.Slides позволяет читать и сохранять такие файлы с макросами.
-
-### Нужно ли устанавливать Microsoft PowerPoint для работы с макросами?
-
-Нет. Aspose.Slides работает автономно и не требует установки Microsoft PowerPoint или других сторонних приложений.
-
----
-
-Для удаления макросов из презентации можно использовать бесплатное онлайн-приложение [Aspose Macro Remover](https://products.aspose.app/slides/remove-macros).
+Да, вы можете обращаться к существующим [ActiveX controls](/slides/ru/python-net/activex/), изменять их свойства и удалять их. Это полезно, когда макросы взаимодействуют с ActiveX.
