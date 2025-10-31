@@ -1,59 +1,68 @@
 ---
-title: الرسم البياني ثلاثي الأبعاد
+title: تخصيص المخططات ثلاثية الأبعاد في العروض التقديمية باستخدام بايثون
+linktitle: مخطط ثلاثي الأبعاد
 type: docs
 url: /ar/python-net/3d-chart/
-keywords: "رسم بياني ثلاثي الأبعاد, rotationX, rotationY, depthpercent, عرض PowerPoint, Python, Aspose.Slides لـ Python عبر .NET"
-description: "تعيين rotationX و rotationY و depthpercents للرسم البياني ثلاثي الأبعاد في عرض PowerPoint في Python"
+keywords:
+- مخطط ثلاثي الأبعاد
+- دوران
+- عمق
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "تعرف على كيفية إنشاء وتخصيص المخططات ثلاثية الأبعاد في Aspose.Slides for Python عبر .NET، مع دعم ملفات PPT و PPTX و ODP — عزّز عروضك التقديمية اليوم."
 ---
 
-## **تعيين الخصائص RotationX و RotationY و DepthPercents للرسم البياني ثلاثي الأبعاد**
-توفر Aspose.Slides لـ Python عبر .NET واجهة برمجة تطبيقات بسيطة لتعيين هذه الخصائص. ستساعدك المقالة التالية على كيفية تعيين خصائص مختلفة مثل دوران X و Y و **DepthPercents** وما إلى ذلك. يقوم الكود النموذجي بتطبيق الإعدادات المذكورة أعلاه.
+## **ضبط خصائص RotationX، RotationY و DepthPercents للمخطط ثلاثي الأبعاد**
+يوفر Aspose.Slides for Python عبر .NET واجهة برمجة تطبيقات بسيطة لضبط هذه الخصائص. سيساعدك هذا المقال التالي على ضبط خصائص مختلفة مثل دوران X, Y، **DepthPercents** وغيرها. يطبق الكود النموذجي ضبط الخصائص المذكورة أعلاه.
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. الوصول إلى الشريحة الأولى.
-1. إضافة رسم بياني مع بيانات افتراضية.
-1. تعيين خصائص Rotation3D.
-1. كتابة العرض المعدل إلى ملف PPTX.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. الوصول إلى الشريحة الأولى.
+3. إضافة مخطط ببيانات افتراضية.
+4. ضبط خصائص Rotation3D.
+5. كتابة العرض التقديمي المعدل إلى ملف PPTX.
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Create an instance of Presentation class
+# إنشاء مثيل من فئة Presentation
 with slides.Presentation() as presentation:
             
-    # Access first slide
+    # الوصول إلى الشريحة الأولى
     slide = presentation.slides[0]
 
-    # Add chart with default data
+    # إضافة مخطط ببيانات افتراضية
     chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN_3D, 0, 0, 500, 500)
 
-    # Setting the index of chart data sheet
+    # ضبط فهرس ورقة بيانات المخطط
     defaultWorksheetIndex = 0
 
-    # Getting the chart data worksheet
+    # الحصول على ورقة عمل بيانات المخطط
     fact = chart.chart_data.chart_data_workbook
 
-    # Add series
+    # إضافة سلسلة
     chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.type)
     chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.type)
 
-    # Add Catrgories
+    # إضافة الفئات
     chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"))
     chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"))
     chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"))
 
-    # Set Rotation3D properties
+    # ضبط خصائص Rotation3D
     chart.rotation_3d.right_angle_axes = True
     chart.rotation_3d.rotation_x = 40
     chart.rotation_3d.rotation_y = 270
     chart.rotation_3d.depth_percents = 150
 
-    # Take second chart series
+    # أخذ السلسلة الثانية للمخطط
     series = chart.chart_data.series[1]
 
-    # Now populating series data
+    # الآن تعبئة بيانات السلسلة
     series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 20))
     series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 50))
     series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 30))
@@ -61,9 +70,23 @@ with slides.Presentation() as presentation:
     series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 2, 2, 10))
     series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 3, 2, 60))
 
-    # Set OverLap value
+    # ضبط قيمة OverLap
     series.parent_series_group.overlap = 100         
 
-    # Write presentation to disk
+    # كتابة العرض التقديمي إلى القرص
     presentation.save("Rotation3D_out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **الأسئلة المتكررة**
+
+**ما هي أنواع المخططات التي تدعم وضع 3D في Aspose.Slides؟**
+
+يدعم Aspose.Slides إصدارات ثلاثية الأبعاد من المخططات العمودية، بما في ذلك Column 3D و Clustered Column 3D و Stacked Column 3D و 100% Stacked Column 3D، بالإضافة إلى الأنواع ثلاثية الأبعاد ذات الصلة التي تُعرض من خلال تعداد [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/). للحصول على قائمة دقيقة ومحدثة، راجع أعضاء [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) في مرجع API للإصدار المثبت لديك.
+
+**هل يمكنني الحصول على صورة نقطية لمخطط ثلاثي الأبعاد لتقرير أو للويب؟**
+
+نعم. يمكنك تصدير المخطط إلى صورة عبر [chart API](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/get_image/) أو [تصدير الشريحة بالكامل](/slides/ar/python-net/convert-powerpoint-to-png/) إلى صيغ مثل PNG أو JPEG. هذا مفيد عندما تحتاج إلى معاينة دقيقة بيكسلية أو ترغب في تضمين المخطط في مستندات أو لوحات معلومات أو صفحات ويب دون الحاجة إلى PowerPoint.
+
+**ما مدى كفاءة بناء وعرض مخططات 3D الكبيرة؟**
+
+تعتمد الأداء على حجم البيانات وتعقيد الشكل البصري. للحصول على أفضل النتائج، احتفظ بتأثيرات 3D إلى الحد الأدنى، تجنب القوام الثقيلة على الجدران ومناطق الرسم، قلل عدد نقاط البيانات لكل سلسلة قدر الإمكان، وقم بالعرض إلى مخرجات بالحجم المناسب (الدقة والأبعاد) لتتناسب مع شاشة العرض أو احتياجات الطباعة المستهدفة.
