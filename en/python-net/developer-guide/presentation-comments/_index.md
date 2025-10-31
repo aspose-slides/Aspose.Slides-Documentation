@@ -25,7 +25,7 @@ description: "Master presentation comments with Aspose.Slides for Python via .NE
 
 In PowerPoint, a comment appears as a note or annotation on a slide. When a comment is clicked, its contents or messages are revealed. 
 
-### **Why Add Comments to Presentations?**
+## **Why Add Comments to Presentations?**
 
 You may want to use comments to provide feedback or communicate with your colleagues when you review presentations.
 
@@ -228,3 +228,16 @@ with slides.Presentation() as presentation:
     presentation.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **FAQ**
+
+**Does Aspose.Slides support a status like 'resolved' for modern comments?**
+
+Yes. [Modern comments](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/) expose a [status](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/status/) property; you can read and set a [comment’s state](https://reference.aspose.com/slides/python-net/aspose.slides/moderncommentstatus/) (for example, mark it as resolved), and this state is saved in the file and recognized by PowerPoint.
+
+**Are threaded discussions (reply chains) supported, and is there a nesting limit?**
+
+Yes. Each comment can reference its [parent comment](https://reference.aspose.com/slides/python-net/aspose.slides/moderncomment/parent_comment/), enabling arbitrary reply chains. The API does not declare a specific nesting depth limit.
+
+**In what coordinate system is a comment marker’s position defined on a slide?**
+
+The position is stored as a floating-point point in the slide’s coordinate system. This lets you place the comment marker precisely where you need it.
