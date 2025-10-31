@@ -1,5 +1,5 @@
 ---
-title: 在 Python 中管理演示文稿中的 ActiveX 控件
+title: 使用 Python 管理演示文稿中的 ActiveX 控件
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -15,24 +15,25 @@ keywords:
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "了解 Aspose.Slides for Python 如何利用 ActiveX 自动化并增强 PowerPoint 演示文稿，为开发者提供强大的幻灯片控制能力。"
+description: "了解 Aspose.Slides for Python via .NET 如何利用 ActiveX 自动化和增强 PowerPoint 演示文稿，为开发者提供对幻灯片的强大控制。"
 ---
 
-ActiveX 控件用于演示文稿中。Aspose.Slides for Python via .NET 允许您管理 ActiveX 控件，但管理起来比普通演示形状要复杂且不同。从 Aspose.Slides for Python via .NET 6.9.0 开始，该组件支持管理 ActiveX 控件。此时，您可以访问已添加到演示文稿中的 ActiveX 控件，并通过其各种属性进行修改或删除。请记住，ActiveX 控件不是形状，并且不属于演示文稿的 IShapeCollection，而是单独的 IControlCollection。本文展示了如何与它们一起工作。
+ActiveX 控件用于演示文稿。Aspose.Slides for Python via .NET 允许您管理 ActiveX 控件，但其管理方式比普通形状更为复杂且不同。从 Aspose.Slides for Python via .NET 6.9.0 起，组件支持管理 ActiveX 控件。目前，您可以访问演示文稿中已添加的 ActiveX 控件，并通过其各种属性对其进行修改或删除。请记住，ActiveX 控件不是形状，亦不属于演示文稿的 IShapeCollection，而是独立的 IControlCollection。本文展示了如何使用它们。
+
 ## **修改 ActiveX 控件**
-要管理幻灯片上的简单 ActiveX 控件，例如文本框和简单命令按钮：
+要在幻灯片上管理像文本框和简单命令按钮这样的 ActiveX 控件：
 
-1. 创建 Presentation 类的实例并加载包含 ActiveX 控件的演示文稿。
-1. 通过索引获取幻灯片引用。
-1. 通过访问 IControlCollection 来访问幻灯片中的 ActiveX 控件。
-1. 使用 ControlEx 对象访问 TextBox1 ActiveX 控件。
-1. 更改 TextBox1 ActiveX 控件的不同属性，包括文本、字体、字体高度和框架位置。
-1. 访问第二个访问控件 CommandButton1。
-1. 更改按钮标题、字体和位置。
-1. 移动 ActiveX 控件框架的位置。
-1. 将修改后的演示文稿写入 PPTX 文件。
+1. 创建 Presentation 类的实例并加载包含 ActiveX 控件的演示文稿。  
+2. 通过索引获取幻灯片的引用。  
+3. 通过访问 IControlCollection 来获取幻灯片中的 ActiveX 控件。  
+4. 使用 ControlEx 对象访问 TextBox1 ActiveX 控件。  
+5. 更改 TextBox1 ActiveX 控件的各种属性，包括文本、字体、字体高度和框架位置。  
+6. 访问名为 CommandButton1 的第二个控件。  
+7. 更改按钮的标题、字体和位置。  
+8. 移动 ActiveX 控件框架的位置。  
+9. 将修改后的演示文稿写入 PPTX 文件。
 
-下面的代码片段更新演示文稿幻灯片上的 ActiveX 控件，如下所示。
+下面的代码片段演示了如何更新演示文稿幻灯片上的 ActiveX 控件，如下所示。
 
 ```py
 import aspose.slides as slides
@@ -48,11 +49,11 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
     control = slide.controls[0]
 
     if control.name == "TextBox1" and control.properties != None:
-        newText = "修改后的文本"
+        newText = "Changed text"
         control.properties.remove("Value")
         control.properties.add("Value", newText)
 
-        # 更换替代图像。Powerpoint将在 ActiveX 激活期间替换此图像，因此有时可以保持图像不变。
+        # 更改替代图片。PowerPoint 在激活 ActiveX 时会替换此图片，所以有时可以保持图片不变。
 
         bmp = draw.Bitmap(control.frame.width, control.frame.height)
         with draw.Graphics.from_image(bmp) as graphics:
@@ -98,11 +99,11 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
     control = slide.controls[1]
 
     if control.name == "CommandButton1" and control.properties != None:
-        newCaption = "消息框"
+        newCaption = "MessageBox"
         control.properties.remove("Caption")
         control.properties.add("Caption", newCaption)
 
-        # 更换替代
+        # 更改替代图片
         bmp = draw.Bitmap(control.frame.width, control.frame.height)
         with draw.Graphics.from_image(bmp) as graphics:
             with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.CONTROL)) as brush:
@@ -147,7 +148,7 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
         bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
         control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
     
-    # 将 ActiveX 框架向下移动 100 个点
+    # 将 ActiveX 框架向下移动 100 点
     for ctl in slide.controls:
         frame = control.frame
         control.frame = slides.ShapeFrame(
@@ -159,39 +160,38 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
             frame.flip_v, 
             frame.rotation)
 
-    # 保存带有编辑过的 ActiveX 控件的演示文稿
+    # 保存包含已编辑 ActiveX 控件的演示文稿
     presentation.save("withActiveX-edited_out.pptm", slides.export.SaveFormat.PPTM)
 
 
-    # 现在移除控件
+    # 现在删除控件
     slide.controls.clear()
 
-    # 保存清除 ActiveX 控件的演示文稿
+    # 保存已清除 ActiveX 控件的演示文稿
     presentation.save("withActiveX.cleared_out.pptm", slides.export.SaveFormat.PPTM)
 ```
-
 
 ## **添加 ActiveX 媒体播放器控件**
 要添加 ActiveX 媒体播放器控件，请执行以下步骤：
 
-1. 创建 Presentation 类的实例，并加载包含媒体播放器 ActiveX 控件的示例演示文稿。
-1. 创建目标 Presentation 类的实例，并生成空演示文稿实例。
-1. 将模板演示文稿中带有媒体播放器 ActiveX 控件的幻灯片克隆到目标 Presentation。
-1. 访问目标 Presentation 中的克隆幻灯片。
-1. 通过访问 IControlCollection 获取幻灯片上的 ActiveX 控件。
-1. 访问媒体播放器 ActiveX 控件并使用其属性设置视频路径。
-1. 将演示文稿保存为 PPTX 文件。
+1. 创建 Presentation 类的实例并加载包含媒体播放器 ActiveX 控件的示例演示文稿。  
+2. 创建目标 Presentation 类的实例并生成空演示文稿实例。  
+3. 将模板演示文稿中带有媒体播放器 ActiveX 控件的幻灯片克隆到目标演示文稿。  
+4. 在目标演示文稿中访问克隆的幻灯片。  
+5. 通过访问 IControlCollection 来获取幻灯片中的 ActiveX 控件。  
+6. 访问媒体播放器 ActiveX 控件并使用其属性设置视频路径。  
+7. 将演示文稿保存为 PPTX 文件。
 
 ```py
 import aspose.slides as slides
 
-# 实例化表示 PPTX 文件的 Presentation 类
+# 实例化代表 PPTX 文件的 Presentation 类
 with slides.Presentation(path + "template.pptx") as presentation:
 
     # 创建空演示文稿实例
     with slides.Presentation() as newPresentation:
 
-        # 移除默认幻灯片
+        # 删除默认幻灯片
         newPresentation.slides.remove_at(0)
 
         # 克隆带有媒体播放器 ActiveX 控件的幻灯片
@@ -206,3 +206,17 @@ with slides.Presentation(path + "template.pptx") as presentation:
         # 保存演示文稿
         newPresentation.save("LinkingVideoActiveXControl_out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **常见问题**
+
+**Aspose.Slides 在读取并重新保存时是否会保留无法在 Python 运行时执行的 ActiveX 控件？**
+
+是的。Aspose.Slides 将它们视为演示文稿的一部分，可以读取/修改其属性和框架；不需要执行控件本身即可保留它们。
+
+**ActiveX 控件与演示文稿中的 OLE 对象有何区别？**
+
+ActiveX 控件是交互式受管理的控件（按钮、文本框、媒体播放器），而 [OLE](/slides/zh/python-net/manage-ole/) 指的是嵌入的应用程序对象（例如 Excel 工作表）。它们的存储和处理方式不同，属性模型也不同。
+
+**如果文件已被 Aspose.Slides 修改，ActiveX 事件和 VBA 宏是否仍然有效？**
+
+Aspose.Slides 会保留现有的标记和元数据；但事件和宏仅在 Windows 上的 PowerPoint 中且安全设置允许时才会运行。该库本身不执行 VBA。

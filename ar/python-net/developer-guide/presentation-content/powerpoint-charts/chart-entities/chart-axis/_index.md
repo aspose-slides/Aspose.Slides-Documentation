@@ -1,26 +1,44 @@
 ---
-title: محور الرسم البياني
+title: تخصيص محاور المخطط في العروض التقديمية باستخدام بايثون
+linktitle: محور المخطط
 type: docs
 url: /ar/python-net/chart-axis/
-keywords: "محور الرسم البياني في PowerPoint، الرسوم البيانية التقديمية، بايثون، manipulate محور الرسم البياني، بيانات الرسم البياني"
-description: "تعديل محور الرسم البياني في PowerPoint باستخدام بايثون"
+keywords:
+- محور المخطط
+- المحور الرأسي
+- المحور الأفقي
+- تخصيص المحور
+- تعديل المحور
+- إدارة المحور
+- خصائص المحور
+- القيمة القصوى
+- القيمة الدنيا
+- خط المحور
+- تنسيق التاريخ
+- عنوان المحور
+- موضع المحور
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "اكتشف كيفية استخدام Aspose.Slides للبايثون عبر .NET لتخصيص محاور المخطط في عروض PowerPoint وOpenDocument للتقارير والمرئيات."
 ---
 
+## **الحصول على القيم القصوى على المحور الرأسي في المخططات**
+Aspose.Slides للبايثون عبر .NET يتيح لك الحصول على القيم الدنيا والقصوى على المحور الرأسي. اتبع هذه الخطوات:
 
-## **الحصول على القيم القصوى على المحور العمودي في الرسوم البيانية**
-Aspose.Slides لبايثون عبر .NET يتيح لك الحصول على القيم الدنيا والقصوى على محور عمودي. اتبع هذه الخطوات:
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. الوصول إلى الشريحة الأولى.
+3. إضافة مخطط ببيانات افتراضية.
+4. الحصول على القيمة القصوى الفعلية على المحور.
+5. الحصول على القيمة الدنيا الفعلية على المحور.
+6. الحصول على الوحدة الرئيسية الفعلية للمحور.
+7. الحصول على الوحدة الفرعية الفعلية للمحور.
+8. الحصول على مقياس الوحدة الرئيسية الفعلي للمحور.
+9. الحصول على مقياس الوحدة الفرعية الفعلي للمحور.
 
-1. أنشئ مثيل من [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. الوصول إلى الشريحة الأولى.
-1. إضافة رسم بياني مع بيانات افتراضية.
-1. الحصول على القيمة القصوى الفعلية على المحور.
-1. الحصول على القيمة الدنيا الفعلية على المحور.
-1. الحصول على الوحدة الرئيسية الفعلية للمحور.
-1. الحصول على الوحدة الفرعية الفعلية للمحور.
-1. الحصول على مقياس الوحدة الرئيسية الفعلية للمحور.
-1. الحصول على مقياس الوحدة الفرعية الفعلية للمحور.
-
-هذا الرمز النموذجي - تنفيذ للخطوات أعلاه - يوضح لك كيفية الحصول على القيم المطلوبة في بايثون:
+يظهر هذا الكود التجريبي—تنفيذ للخطوات أعلاه—كيفية الحصول على القيم المطلوبة في بايثون:
 
 ```py
 import aspose.slides.charts as charts
@@ -36,34 +54,33 @@ with slides.Presentation() as pres:
 	majorUnit = chart.axes.horizontal_axis.actual_major_unit
 	minorUnit = chart.axes.horizontal_axis.actual_minor_unit
 	
-	# Saves the presentation
+	# يحفظ العرض التقديمي
 	pres.save("ErrorBars_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **تبادل البيانات بين المحاور**
+Aspose.Slides يتيح لك تبادل البيانات بسرعة بين المحاور—البيانات الممثلة على المحور الرأسي (محور y) تنتقل إلى المحور الأفقي (محور x) والعكس.
 
-## **تبديل البيانات بين المحاور**
-Aspose.Slides يتيح لك بسرعة تبديل البيانات بين المحاور - البيانات الممثلة على المحور العمودي (محور y) تنتقل إلى المحور الأفقي (محور x) والعكس صحيح.
-
-يظهر لك هذا الرمز في بايثون كيفية إجراء مهمة تبديل البيانات بين المحاور على رسم بياني:
+يعرض هذا الكود بايثون كيفية تنفيذ مهمة تبادل البيانات بين المحاور في مخطط:
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-# Creates empty presentation
+# ينشئ عرضًا تقديميًا فارغًا
 with slides.Presentation() as pres:
     chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 400, 300)
 
-    #Switches rows and columns
+    # يبدل الصفوف والأعمدة
     chart.chart_data.switch_row_column()
             
-    # Saves presentation
+    # يحفظ العرض التقديمي
     pres.save("SwitchChartRowColumns_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تعطيل المحور العمودي لرسوم بيانية الخطوط**
+## **تعطيل المحور الرأسي لرسوم الخط**
 
-يوضح لك هذا الرمز في بايثون كيفية إخفاء المحور العمودي لرسم بياني للخط:
+يعرض هذا الكود بايثون كيفية إخفاء المحور الرأسي لرسوم الخط:
 
 ```py
 import aspose.slides.charts as charts
@@ -76,9 +93,9 @@ with slides.Presentation() as pres:
     pres.save("chart-is_visible.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تعطيل المحور الأفقي لرسوم بيانية الخطوط**
+## **تعطيل المحور الأفقي لرسوم الخط**
 
-يظهر لك هذا الرمز كيفية إخفاء المحور الأفقي لرسم بياني للخط:
+يعرض هذا الكود كيفية إخفاء المحور الأفقي لرسوم الخط:
 
 ```py
 import aspose.slides.charts as charts
@@ -91,9 +108,9 @@ with slides.Presentation() as pres:
     pres.save("chart-2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تغيير محور الفئات**
+## **تغيير محور الفئة**
 
-باستخدام خاصية **CategoryAxisType**، يمكنك تحديد نوع محور الفئات المفضل لديك (**تاريخ** أو **نص**). يظهر هذا الرمز في بايثون العملية:
+باستخدام الخاصية **CategoryAxisType**، يمكنك تحديد نوع محور الفئة المفضل لديك (**date** أو **text**). يوضح هذا الكود بايثون العملية:
 
 ```py
 import aspose.slides.charts as charts
@@ -108,8 +125,8 @@ with slides.Presentation(path + "ExistingChart.pptx") as presentation:
     presentation.save("ChangeChartCategoryAxis_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تعيين تنسيق التاريخ لقيمة محور الفئات**
-Aspose.Slides لبايثون عبر .NET يتيح لك تعيين تنسيق التاريخ لقيمة محور الفئات. يتم توضيح العملية في هذا الرمز في بايثون:
+## **تحديد تنسيق التاريخ لقيمة محور الفئة**
+Aspose.Slides للبايثون عبر .NET يتيح لك تحديد تنسيق التاريخ لقيمة محور الفئة. يتم توضيح العملية في هذا الكود بايثون:
 
 ```py
 import aspose.slides.charts as charts
@@ -146,8 +163,8 @@ with slides.Presentation() as pres:
     pres.save("test.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تعيين زاوية الدوران لعنوان محور الرسم البياني**
-Aspose.Slides لبايثون عبر .NET يتيح لك تعيين زاوية الدوران لعنوان محور الرسم البياني. يوضح هذا الرمز في بايثون العملية:
+## **تحديد زاوية الدوران لعنوان محور المخطط**
+Aspose.Slides للبايثون عبر .NET يتيح لك تحديد زاوية الدوران لعنوان محور المخطط. يوضح هذا الكود بايثون العملية:
 
 ```py
 import aspose.slides.charts as charts
@@ -161,8 +178,8 @@ with slides.Presentation() as pres:
     pres.save("test.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تعيين محور الوضع في محور الفئات أو القيم**
-Aspose.Slides لبايثون عبر .NET يتيح لك تعيين محور الوضع في محور الفئات أو القيم. يظهر هذا الرمز في بايثون كيفية إجراء المهمة:
+## **تحديد موضع المحور في محور الفئة أو القيمة**
+Aspose.Slides للبايثون عبر .NET يتيح لك تحديد موضع المحور في محور الفئة أو القيمة. يوضح هذا الكود بايثون كيفية تنفيذ المهمة:
 
 ```py
 import aspose.slides.charts as charts
@@ -175,8 +192,8 @@ with slides.Presentation() as pres:
 	pres.save("AsposeScatterChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تمكين عرض وحدة التسمية على محور قيمة الرسم البياني**
-Aspose.Slides لبايثون عبر .NET يتيح لك تكوين رسم بياني لعرض وحدة تسمية على محور قيمة الرسم البياني. يتم توضيح العملية في هذا الرمز في بايثون:
+## **تمكين ملصق وحدة العرض على محور قيمة المخطط**
+Aspose.Slides للبايثون عبر .NET يتيح لك تكوين مخطط لإظهار ملصق وحدة على محور قيمة المخطط. يوضح هذا الكود بايثون العملية:
 
 ```py
 import aspose.slides.charts as charts
@@ -187,3 +204,13 @@ with slides.Presentation() as pres:
 	chart.axes.vertical_axis.display_unit = charts.DisplayUnitType.MILLIONS
 	pres.save("Result.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQ**
+
+**كيف يمكنني تحديد القيمة التي يتقاطع عندها محور مع الآخر (تقاطع المحاور)؟**
+
+المحاور توفر [إعداد التقاطع](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/): يمكنك اختيار التقاطع عند الصفر، أو عند الفئة/القيمة القصوى، أو عند قيمة رقمية محددة. هذا مفيد لتحريك محور X لأعلى أو لأسفل أو لتسليط الضوء على خط أساسي.
+
+**كيف يمكنني وضع تسميات العلامات نسبة إلى المحور (بجانب، خارج، داخل)؟**
+
+حدد [موضع التسمية](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) إلى "cross"، أو "outside"، أو "inside". يؤثر ذلك على قابلية القراءة ويساعد على توفير مساحة، خاصةً في المخططات الصغيرة.

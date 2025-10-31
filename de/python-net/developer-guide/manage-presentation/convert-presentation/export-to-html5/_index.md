@@ -1,32 +1,41 @@
 ---
-title: Exportieren nach HTML5
+title: Präsentationen in HTML5 konvertieren mit Python
+linktitle: Export nach HTML5
 type: docs
 weight: 40
 url: /de/python-net/export-to-html5/
 keywords:
-- PowerPoint zu HTML
-- Folien zu HTML
-- HTML5
-- HTML-Export
-- Präsentation exportieren
+- PowerPoint zu HTML5
+- OpenDocument zu HTML5
+- Präsentation zu HTML5
+- Folie zu HTML5
+- PPT zu HTML5
+- PPTX zu HTML5
+- ODP zu HTML5
+- PowerPoint konvertieren
+- OpenDocument konvertieren
 - Präsentation konvertieren
-- Folien konvertieren
-- Java
-- Aspose.Slides für Python über .NET
-description: "Exportieren Sie PowerPoint nach HTML5 in Python"
+- Folie konvertieren
+- HTML5 Export
+- Präsentation exportieren
+- Folie exportieren
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Exportieren Sie PowerPoint- & OpenDocument‑Präsentationen in responsives HTML5 mit Aspose.Slides für Python via .NET. Formatierung, Animationen und Interaktivität beibehalten."
 ---
 
 {{% alert title="Info" color="info" %}}
-
-In **Aspose.Slides 21.9** haben wir die Unterstützung für den HTML5-Export implementiert. Wenn Sie jedoch Ihre PowerPoint-Präsentation mithilfe von WebExtensions nach HTML exportieren möchten, lesen Sie stattdessen [diesen Artikel](/slides/de/net/web-extensions/).
-
+In **Aspose.Slides 21.9** haben wir die Unterstützung für den HTML5‑Export implementiert. Wenn Sie jedoch lieber Ihre PowerPoint‑Datei mit WebExtensions nach HTML exportieren möchten, siehe [diesen Artikel](/slides/de/net/web-extensions/) statt. 
 {{% /alert %}} 
 
-Der Export nach HTML5-Prozess hier ermöglicht es Ihnen, PowerPoint ohne WebExtensions oder Abhängigkeiten nach HTML zu konvertieren. Auf diese Weise können Sie mit Ihren eigenen Vorlagen sehr flexible Optionen anwenden, die den Exportprozess und die resultierenden HTML-, CSS-, JavaScript- und Animationsattribute definieren.
+Der Export‑zu‑HTML5‑Prozess hier ermöglicht Ihnen, PowerPoint ohne WebExtensions oder Abhängigkeiten nach HTML zu konvertieren. Auf diese Weise können Sie mit eigenen Vorlagen sehr flexible Optionen anwenden, die den Exportvorgang und das resultierende HTML, CSS, JavaScript sowie die Animationsattribute definieren. 
 
 ## **PowerPoint nach HTML5 exportieren**
 
-Dieser Python-Code zeigt, wie Sie eine Präsentation ohne WebExtensions und Abhängigkeiten nach HTML5 exportieren:
+Dieser Python‑Code zeigt, wie Sie eine Präsentation nach HTML5 exportieren können, ohne WebExtensions und Abhängigkeiten:
 
 ```py
 import aspose.slides as slides
@@ -36,12 +45,10 @@ with slides.Presentation("pres.pptx") as presentation:
 ```
 
 {{% alert color="primary" %}} 
-
 In diesem Fall erhalten Sie sauberes HTML. 
-
 {{% /alert %}}
 
-Sie möchten möglicherweise die Einstellungen für Formanimations und Folienübergänge folgendermaßen angeben:
+Sie können die Einstellungen für Form‑Animationen und Folienübergänge auf diese Weise festlegen:
 
 ```py
 import aspose.slides as slides
@@ -54,9 +61,9 @@ with slides.Presentation("pres.pptx") as presentation:
     presentation.save("index.html", slides.export.SaveFormat.HTML5, options)
 ```
 
-#### **PowerPoint nach HTML exportieren**
+## **PowerPoint nach HTML exportieren**
 
-Dieser Python-Code demonstriert den Standardprozess zum Exportieren von PowerPoint nach HTML:
+Dieser Python‑Code demonstriert den Standard‑PowerPoint‑zu‑HTML‑Prozess:
 
 ```py
 import aspose.slides as slides
@@ -65,35 +72,33 @@ with slides.Presentation("pres.pptx") as presentation:
     presentation.save("index.html", slides.export.SaveFormat.HTML)
 ```
 
-In diesem Fall wird der Inhalt der Präsentation durch SVG in einer Form wie dieser gerendert:
+In diesem Fall wird der Präsentationsinhalt über SVG in einer Form wie folgt gerendert:
 
 ```html
 <body>
 <div class="slide" name="slide" id="slideslideIface1">
      <svg version="1.1">
-         <g> DER INHALT DER FOLIE WIRD HIER ANGEZEIGT </g>
+         <g> THE SLIDE CONTENT GOES HERE </g>
      </svg>
 </div>
 </body>
 ```
 
-{{% alert title="Hinweis" color="warning" %}} 
-
-Wenn Sie diese Methode verwenden, um PowerPoint nach HTML zu exportieren, können Sie aufgrund der SVG-Rendering nicht Stile anwenden oder spezifische Elemente animieren. 
-
+{{% alert title="Note" color="warning" %}} 
+Wenn Sie diese Methode zum Export von PowerPoint nach HTML verwenden, können Sie aufgrund der SVG‑Renderung keine Styles anwenden oder bestimmte Elemente animieren. 
 {{% /alert %}}
 
-## **PowerPoint nach HTML5-Folienansicht exportieren**
+## **PowerPoint nach HTML5‑Folienansicht exportieren**
 
-**Aspose.Slides** ermöglicht es Ihnen, eine PowerPoint-Präsentation in ein HTML5-Dokument zu konvertieren, in dem die Folien im Modus der Folienansicht präsentiert werden. In diesem Fall sehen Sie, wenn Sie die resultierende HTML5-Datei in einem Browser öffnen, die Präsentation im Modus der Folienansicht auf einer Webseite.
+**Aspose.Slides** ermöglicht es Ihnen, eine PowerPoint‑Präsentation in ein HTML5‑Dokument zu konvertieren, in dem die Folien im Folienansichts‑Modus dargestellt werden. In diesem Fall sehen Sie beim Öffnen der resultierenden HTML5‑Datei im Browser die Präsentation im Folienansichts‑Modus auf einer Webseite. 
 
-Dieser Python-Code demonstriert den Exportprozess von PowerPoint zur HTML5-Folienansicht:
+Dieser Python‑Code demonstriert den PowerPoint‑zu‑HTML5‑Folienansicht‑Exportprozess:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation("pres.pptx") as pres:
-    # Exportieren Sie eine Präsentation mit Folienübergängen, Animationen und Formanimationen nach HTML5
+    # Exportieren einer Präsentation mit Folienübergängen, Animationen und Form‑Animationen nach HTML5
     options = slides.export.Html5Options()
     options.animate_shapes = True
     options.animate_transitions = True
@@ -102,17 +107,17 @@ with slides.Presentation("pres.pptx") as pres:
     pres.save("HTML5-slide-view.html", slides.export.SaveFormat.HTML5, options)
 ```
 
-## Konvertieren Sie eine Präsentation in ein HTML5-Dokument mit Kommentaren
+## **Eine Präsentation in ein HTML5‑Dokument mit Kommentaren konvertieren**
 
-Kommentare in PowerPoint sind ein Werkzeug, das es Benutzern ermöglicht, Notizen oder Feedback zu Präsentationsfolien zu hinterlassen. Sie sind besonders nützlich in kollaborativen Projekten, in denen mehrere Personen ihre Vorschläge oder Anmerkungen zu bestimmten Folienelementen hinzufügen können, ohne den Hauptinhalt zu verändern. Jeder Kommentar zeigt den Namen des Autors an, was das Nachverfolgen erleichtert, wer die Anmerkung hinterlassen hat.
+Kommentare in PowerPoint sind ein Werkzeug, das es Benutzern ermöglicht, Notizen oder Feedback zu Folien der Präsentation zu hinterlassen. Sie sind besonders nützlich in kollaborativen Projekten, bei denen mehrere Personen ihre Vorschläge oder Anmerkungen zu bestimmten Folienelementen hinzufügen können, ohne den Hauptinhalt zu verändern. Jeder Kommentar zeigt den Namen des Autors an, sodass leicht nachverfolgbar ist, wer die Anmerkung hinterlassen hat.
 
-Angenommen, wir haben die folgende PowerPoint-Präsentation, die in der Datei "sample.pptx" gespeichert ist.
+Angenommen, wir haben die folgende PowerPoint‑Präsentation in der Datei "sample.pptx" gespeichert.
 
-![Zwei Kommentare zur Präsentationsfolie](two_comments_pptx.png)
+![Zwei Kommentare auf der Präsentationsfolie](two_comments_pptx.png)
 
-Wenn Sie eine PowerPoint-Präsentation in ein HTML5-Dokument konvertieren, können Sie leicht angeben, ob Sie Kommentare aus der Präsentation im Ausgabedokument einfügen möchten. Dazu müssen Sie die Anzeigeparameter für Kommentare in der `notes_comments_layouting`-Eigenschaft der [Html5Options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/) Klasse angeben.
+Wenn Sie eine PowerPoint‑Präsentation in ein HTML5‑Dokument konvertieren, können Sie einfach festlegen, ob Kommentare der Präsentation im Ausgabedokument enthalten sein sollen. Dazu müssen Sie die Anzeigeparameter für Kommentare in der Eigenschaft `notes_comments_layouting` der Klasse [Html5Options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/) festlegen.
 
-Das folgende Codebeispiel konvertiert eine Präsentation in ein HTML5-Dokument, wobei die Kommentare rechts von den Folien angezeigt werden.
+Das folgende Codebeispiel konvertiert eine Präsentation in ein HTML5‑Dokument, wobei Kommentare rechts von den Folien angezeigt werden.
 ```py
 html5_options = Html5Options()
 html5_options.notes_comments_layouting.comments_position = CommentsPositions.RIGHT
@@ -121,6 +126,20 @@ with Presentation("sample.pptx") as presentation:
     presentation.save("output.html", SaveFormat.HTML5, html5_options)
 ```
 
-Das Dokument "output.html" wird in der folgenden Abbildung dargestellt.
+Das Dokument "output.html" wird im Bild unten gezeigt.
 
-![Die Kommentare im Ausgabedokument HTML5](two_comments_html5.png)
+![Die Kommentare im ausgegebenen HTML5‑Dokument](two_comments_html5.png)
+
+## **FAQ**
+
+**Kann ich steuern, ob Objektanimationen und Folienübergänge in HTML5 abgespielt werden?**
+
+Ja, HTML5 bietet separate Optionen, um [Form‑Animationen](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_shapes/) und [Folienübergänge](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_transitions/) zu aktivieren oder zu deaktivieren.
+
+**Wird die Ausgabe von Kommentaren unterstützt und wo können sie relativ zur Folie platziert werden?**
+
+Ja, Kommentare können in HTML5 hinzugefügt und über [Layout‑Einstellungen](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/notes_comments_layouting/) für Notizen und Kommentare positioniert werden (z. B. rechts von der Folie).
+
+**Kann ich Links, die JavaScript ausführen, aus Sicherheits- oder CSP‑Gründen überspringen?**
+
+Ja, es gibt eine [Einstellung](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/skip_java_script_links/), die es ermöglicht, beim Speichern Hyperlinks mit JavaScript‑Aufrufen zu überspringen. Dies hilft, strenge Sicherheitsrichtlinien einzuhalten.

@@ -1,5 +1,5 @@
 ---
-title: 使用 Python 管理演示文稿中的文本框
+title: 使用 Python 管理演示文稿中的文本框
 linktitle: 管理文本框
 type: docs
 weight: 20
@@ -17,170 +17,145 @@ keywords:
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET 使在 PowerPoint 和 OpenDocument 文件中创建、编辑和克隆文本框变得轻而易举，从而提升演示文稿自动化。"
+description: "Aspose.Slides for Python via .NET 可轻松在 PowerPoint 和 OpenDocument 文件中创建、编辑和克隆文本框，提升演示文稿自动化。"
 ---
 
-幻灯片上的文本通常存在于文本框或形状中。因此，要向幻灯片添加文本，您必须添加一个文本框，然后将一些文本放入文本框中。Aspose.Slides for Python via .NET提供了[IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/)接口，允许您添加包含一些文本的形状。
+## **概述**
+
+幻灯片上的文字通常存在于文本框或形状中。因此，要在幻灯片上添加文字，您必须先添加文本框，然后在文本框中放入文字。Aspose.Slides for Python 提供了 AutoShape 类，可让您添加包含文字的形状。
 
 {{% alert title="信息" color="info" %}}
-
-Aspose.Slides还提供了[IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/)接口，允许您向幻灯片添加形状。然而，通过`IShape`接口添加的所有形状都不能包含文本。但是通过[IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/)接口添加的形状可能包含文本。
-
+Aspose.Slides 还提供了 Shape 类。但是，并非所有形状都可以容纳文字。
 {{% /alert %}}
 
-{{% alert title="注意" color="warning" %}} 
-
-因此，在处理您希望添加文本的形状时，您可能希望检查并确认它是通过`IAutoShape`接口转换的。只有这样，您才能使用[TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/)属性，该属性属于`IAutoShape`。请参见此页面上的[更新文本](https://docs.aspose.com/slides/python-net/manage-textbox/#update-text)部分。
-
+{{% alert title="注意" color="warning" %}}
+因此，在处理想要添加文字的形状时，您可能需要检查并确认它是通过 AutoShape 类转换的。只有这样，您才能使用 TextFrame（AutoShape 下的属性）。请参阅本页面上的“更新文字”部分。
 {{% /alert %}}
 
 ## **在幻灯片上创建文本框**
 
-要在幻灯片上创建文本框，请按照以下步骤操作：
+要在幻灯片上创建文本框：
 
-1. 创建[Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)类的实例。
-2. 获取新创建的演示文稿中第一张幻灯片的引用。
-3. 在幻灯片的指定位置添加一个[IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/)对象，并将[ShapeType](https://reference.aspose.com/slides/python-net/aspose.slides/igeometryshape/)设置为`RECTANGLE`，并获取新添加的`IAutoShape`对象的引用。
-4. 向`IAutoShape`对象添加一个`text_frame`属性，该属性将包含文本。在下面的示例中，我们添加了以下文本：*Aspose TextBox*
-5. 最后，通过`Presentation`对象写入PPTX文件。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
+2. 获取第一张幻灯片的引用。
+3. 在幻灯片上所需位置添加 ShapeType.RECTANGLE 类型的 AutoShape。
+4. 设置形状的 [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) 中的文字。
+5. 将演示文稿保存为 PPTX 文件。
 
-以下Python代码展示了如何向幻灯片添加文本：
+以下 Python 示例实现了这些步骤：
 
 ```py
 import aspose.slides as slides
 
-# 实例化PresentationEx
-with slides.Presentation() as pres:
+# 实例化 Presentation 类。
+with slides.Presentation() as presentation:
 
-    # 获取演示文稿中的第一张幻灯片
-    sld = pres.slides[0]
+    # 获取演示文稿中的第一张幻灯片。
+    slide = presentation.slides[0]
 
-    # 添加类型设置为矩形的AutoShape
-    ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
+    # 添加类型为 RECTANGLE 的 AutoShape。
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
 
-    # 向矩形添加TextFrame
-    ashp.add_text_frame(" ")
+    shape.text_frame.text = "Aspose TextBox"
 
-    # 访问文本框
-    txtFrame = ashp.text_frame
-
-    # 为文本框创建Paragraph对象
-    para = txtFrame.paragraphs[0]
-
-    # 为段落创建一个Portion对象
-    portion = para.portions[0]
-
-    # 设置文本
-    portion.text = "Aspose TextBox"
-
-    # 将演示文稿保存到磁盘
-    pres.save("TextBox_out.pptx", slides.export.SaveFormat.PPTX)
+    # 将演示文稿保存到磁盘。
+    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **检查文本框形状**
+## **检查形状是否为文本框**
 
-Aspose.Slides提供了`is_text_box`属性（来自[AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/)类），允许您检查形状并查找文本框。
+Aspose.Slides 在 [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) 类上提供了 `is_text_box` 属性，可用于确定形状是否为文本框。
 
 ![文本框和形状](istextbox.png)
 
-以下Python代码演示了如何检查一个形状是否被创建为文本框：xxx
+以下 Python 示例展示了如何检查形状是否被创建为文本框：
 
 ```python
-from aspose.slides import Presentation, AutoShape
+import aspose.slides as slides
 
-with Presentation("pres.pptx") as pres:
-    for slide in pres.slides:
+with slides.Presentation("Sample.pptx") as presentation:
+    for slide in presentation.slides:
         for shape in slide.shapes:
-            if (type(shape) is AutoShape):
-                print("形状是文本框" if shape.is_text_box else "形状不是文本框")
+            if isinstance(shape, slides.AutoShape):
+                print("shape is a text box" if shape.is_text_box else "shape is not a text box")
 ```
 
-## **在文本框中添加列**
-
-Aspose.Slides提供了[column_count](https://reference.aspose.com/slides/python-net/aspose.slides/itextframeformat/)和[column_spacing](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)属性（来自[ITextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/itextframeformat/)接口和[text_frame_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)类），允许您向文本框添加列。您可以指定文本框中的列数，并设置列之间的间距（以磅为单位）。
-
-以下Python代码演示了所描述的操作：
+请注意，如果使用 [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) 类添加 AutoShape，则形状的 `is_text_box` 属性返回 `False`。但是，在添加文字后——无论是使用 `add_text_frame` 方法还是设置 `text` 属性——`is_text_box` 将返回 `True`。
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-	# 获取演示文稿中的第一张幻灯片
+    slide = presentation.slides[0]
+
+    shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 40)
+    # shape1.is_text_box 为 false
+    shape1.add_text_frame("shape 1")
+    # shape1.is_text_box 为 true
+
+    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 110, 100, 40)
+    # shape2.is_text_box 为 false
+    shape2.text_frame.text = "shape 2"
+    # shape2.is_text_box 为 true
+
+    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 210, 100, 40)
+    # shape3.is_text_box 为 false
+    shape3.add_text_frame("")
+    # shape3.is_text_box 为 false
+
+    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 310, 100, 40)
+    # shape4.is_text_box 为 false
+    shape4.text_frame.text = ""
+    # shape4.is_text_box 为 false
+```
+
+## **向文本框添加列**
+
+Aspose.Slides 在 [TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) 类上提供了 `column_count` 和 `column_spacing` 属性，以在文本框中添加列。您可以指定列数并设置列之间的间距（单位：磅）。
+
+以下 Python 代码演示了此操作：
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+
+	# 获取演示文稿中的第一张幻灯片。
 	slide = presentation.slides[0]
 
-	# 添加类型设置为矩形的AutoShape
-	aShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
+	# 添加类型为 RECTANGLE 的 AutoShape。
+	shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
 
-	# 向矩形添加TextFrame
-	aShape.add_text_frame("所有这些列都被限制在一个文本容器内 -- " +
-	"您可以添加或删除文本，新的或剩余的文本会自动调整 " +
-	"以流动在容器内。然而，您不能让文本从一个容器流到另一个容器 -- 我们告诉过您，PowerPoint的文本列选项是有限的！")
+	# 向矩形添加 TextFrame。
+	shape.add_text_frame("All of these columns are confined to a single text container—" +
+	"you can add or delete text, and any new or remaining text automatically reflows " +
+	"within the container. You cannot have text flow from one container to another, " +
+	"though—PowerPoint’s column options for text are limited!")
 
-	# 获取TextFrame的文本格式
-	format = aShape.text_frame.text_frame_format
+	# 获取 TextFrame 的文本格式。
+	format = shape.text_frame.text_frame_format
 
-	# 指定TextFrame中的列数
+	# 指定 TextFrame 中的列数。
 	format.column_count = 3
 
-	# 指定列之间的间距
+	# 指定列之间的间距。
 	format.column_spacing = 10
 
-	# 保存演示文稿
+	# 保存演示文稿。
 	presentation.save("ColumnCount.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **在文本框架中添加列**
-Aspose.Slides for Python via .NET提供了[ColumnCount](https://reference.aspose.com/slides/python-net/aspose.slides/itextframeformat/)属性（来自[ITextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/itextframeformat/)接口），允许您在文本框架中添加列。通过该属性，您可以指定文本框架中您所需的列数。
+## **更新文字**
 
-以下Python代码展示了如何在文本框架中添加列：
+Aspose.Slides 允许您更新单个文本框中的文字或整个演示文稿中的文字。
 
-```py
-import aspose.slides as slides
-
-outPptxFileName = "ColumnsTest.pptx"
-with slides.Presentation() as pres:
-    shape1 = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
-    format = shape1.text_frame.text_frame_format
-
-    format.column_count = 2
-    shape1.text_frame.text = """所有这些列被迫保持在一个文本容器内 -- 
-        您可以添加或删除文本 - 并且新的或剩余的文本会自动调整 
-        自身以保持在容器内。然而，您不能让文本溢出一个容器 
-        到另一个容器，因为PowerPoint的文本列选项是有限的！"""
-    
-    pres.save(outPptxFileName, slides.export.SaveFormat.PPTX)
-
-    with slides.Presentation(outPptxFileName) as test:
-        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_count)
-        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_spacing)
-
-    format.column_spacing = 20
-    pres.save(outPptxFileName, slides.export.SaveFormat.PPTX)
-
-    with slides.Presentation(outPptxFileName) as test:
-        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_count)
-        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_spacing)
-
-    format.column_count = 3
-    format.column_spacing = 15
-    pres.save(outPptxFileName, slides.export.SaveFormat.PPTX)
-
-    with slides.Presentation(outPptxFileName) as test:
-        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_count)
-        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_spacing)
-```
-
-## **更新文本**
-
-Aspose.Slides允许您更改或更新文本框中包含的文本或演示文稿中包含的所有文本。
-
-以下Python代码演示了一种操作，其中演示文稿中的所有文本被更新或更改：
+以下 Python 示例演示了如何更新演示文稿中的所有文字：
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    for slide in pres.slides:
+with slides.Presentation("Sample.pptx") as presentation:
+    for slide in presentation.slides:
         for shape in slide.shapes:
             if type(shape) is slides.AutoShape:
                 for paragraph in shape.text_frame.paragraphs:
@@ -188,48 +163,57 @@ with slides.Presentation("pres.pptx") as pres:
                         portion.text = portion.text.replace("years", "months")
                         portion.portion_format.font_bold = 1
   
-    # 保存修改后的演示文稿
-    pres.save("text-changed.pptx", slides.export.SaveFormat.PPTX)
+    # 保存修改后的演示文稿。
+    presentation.save("TextChanged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **添加带超链接的文本框** 
+## **向文本框添加超链接** 
 
-您可以在文本框中插入链接。当点击文本框时，用户将被引导打开该链接。
+您可以在文本框中插入链接。单击文本框时，链接会打开。
 
-要添加一个包含链接的文本框，请按照以下步骤操作：
+要添加包含超链接的文本框，请遵循以下步骤：
 
-1. 创建`Presentation`类的实例。
-2. 获取新创建的演示文稿中第一张幻灯片的引用。
-3. 在幻灯片的指定位置添加一个`AutoShape`对象，`ShapeType`设置为`RECTANGLE`，并获取新添加的AutoShape对象的引用。
-4. 向`AutoShape`对象添加一个包含*Aspose TextBox*作为其默认文本的`text_frame`。
-5. 实例化`hyperlink_manager`类。
-6. 将`hyperlink_manager`对象分配给您的`TextFrame`中首选部分的[HyperlinkClick](https://reference.aspose.com/slides/python-net/aspose.slides/shape/)属性。
-7. 最后，通过`Presentation`对象写入PPTX文件。
+1. 创建 Presentation 类的实例。
+2. 获取第一张幻灯片的引用。
+3. 在幻灯片上所需位置添加 ShapeType.RECTANGLE 类型的 AutoShape。
+4. 设置形状的 TextFrame 中的文字。
+5. 获取 HyperlinkManager 的引用。
+6. 使用 hyperlink_manager 属性设置外部点击超链接。
+7. 将演示文稿保存为 PPTX 文件。
 
-以下Python代码展示了如何向幻灯片添加带超链接的文本框：
+以下 Python 示例展示了如何向幻灯片添加带超链接的文本框：
 
 ```py
 import aspose.slides as slides
 
-# 实例化表示PPTX的Presentation类
-with slides.Presentation() as pptxPresentation:
-    # 获取演示文稿中的第一张幻灯片
-    slide = pptxPresentation.slides[0]
+# 实例化 Presentation 类。
+with slides.Presentation() as presentation:
 
-    # 添加类型设置为矩形的AutoShape对象
-    pptxShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 150, 50)
+    # 获取演示文稿中的第一张幻灯片。
+    slide = presentation.slides[0]
 
-    # 访问与AutoShape相关的ITextFrame属性
-    pptxShape.add_text_frame("")
+    # 添加类型为 RECTANGLE 的 AutoShape。
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 150, 50)
 
-    textFrame = pptxShape.text_frame
+    text_portion = shape.text_frame.paragraphs[0].portions[0]
 
-    # 为框架添加一些文本
-    textFrame.paragraphs[0].portions[0].text = "Aspose.Slides"
+    # 向框架添加文字。
+    text_portion.text = "Aspose.Slides"
 
-    # 设置部分文本的超链接
-    hm = textFrame.paragraphs[0].portions[0].portion_format.hyperlink_manager
-    hm.set_external_hyperlink_click("http://www.aspose.com")
-    # 保存PPTX演示文稿
-    pptxPresentation.save("hLinkPPTX_out.pptx", slides.export.SaveFormat.PPTX)
+    # 为该文字段设置超链接。
+    hyperlink_manager = text_portion.portion_format.hyperlink_manager
+    hyperlink_manager.set_external_hyperlink_click("http://www.aspose.com")
+
+    # 将演示文稿保存为 PPTX 文件。
+    presentation.save("Hyperlink.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQ**
+
+**在使用母版幻灯片时，文本框和文本占位符有何区别？**
+
+占位符会从母版继承样式/位置，并且可以在布局上进行覆盖，而普通文本框是特定幻灯片上的独立对象，在切换布局时不会改变。
+
+**如何在不影响图表、表格和 SmartArt 中的文字的情况下，对整个演示文稿进行批量文字替换？**
+
+将遍历限制在具有 TextFrame 的 AutoShape 上，并通过单独遍历或跳过这些对象类型，排除嵌入对象（图表、表格、SmartArt）。
