@@ -281,30 +281,38 @@ Aspose.Slides support for PDF conversion operations extends to allowing you allo
 
 {{% /alert %}}
 
-## **Frequently Asked Questions**
+## **FAQ**
 
-**1. Can Aspose.Slides for Python remove the application information from the PDF?**
+**Can Aspose.Slides for Python remove the application information from the PDF?**
+
 No, Aspose.Slides for Python automatically includes API information and the version number in the output PDF. This information cannot be modified or removed.
 
-**2. How do I include only specific slides in the PDF conversion?**
+**How do I include only specific slides in the PDF conversion?**
+
 You can specify the slide indices you want to convert by passing an array of slide positions to the `save` method.
 
-**3. Is it possible to password-protect the PDF during conversion?**
+**Is it possible to password-protect the PDF during conversion?**
+
 Yes, you can set a password and define access permissions using the `PdfOptions` class before saving the presentation as a PDF.
 
-**4. Does Aspose.Slides support converting PDF to other formats?**
+**Does Aspose.Slides support converting PDF to other formats?**
+
 Yes, Aspose.Slides supports converting PDFs to formats like HTML, image formats (JPG, PNG), SVG, TIFF, and XML.
 
-**5. How can I ensure my PDF complies with accessibility standards?**
+**How can I ensure my PDF complies with accessibility standards?**
+
 Set the `compliance` property in `PdfOptions` to standards like `PDF_A1A`, `PDF_A1B`, or `PDF_UA` to ensure compliance with accessibility guidelines.
 
-**6. Can I include hidden slides in the PDF output?**
+**Can I include hidden slides in the PDF output?**
+
 Yes, by setting the `show_hidden_slides` property in `PdfOptions` to `True`, hidden slides will be included in the PDF.
 
-**7. How do I adjust image quality and resolution during conversion?**
+**How do I adjust image quality and resolution during conversion?**
+
 Use the `jpeg_quality` and `sufficient_resolution` properties in `PdfOptions` to control image quality and resolution in the resulting PDF.
 
-**8. Does Aspose.Slides handle font substitutions automatically?**
+**Does Aspose.Slides handle font substitutions automatically?**
+
 Aspose.Slides detects font substitutions during conversion, and you can handle them using the `warning_callback` property in `SaveOptions` (currently limited).
 
 ## **Additional Resources**

@@ -80,3 +80,12 @@ series.Marker.Size = 15;
 presentation.Save("MarkOptions_out.pptx", SaveFormat.Pptx);
 ```
 
+## **FAQ**
+
+**Which marker shapes are available out of the box?**
+
+Standard shapes are available (circle, square, diamond, triangle, etc.); the list is defined by the [MarkerStyleType](https://reference.aspose.com/slides/net/aspose.slides.charts/markerstyletype/) enumeration. If you need a non-standard shape, use a marker with a picture fill to emulate custom visuals.
+
+**Are markers preserved when exporting a chart to an image or SVG?**
+
+Yes. When rendering charts to [raster formats](/slides/net/convert-powerpoint-to-png/) or saving [shapes as SVG](/slides/net/render-a-slide-as-an-svg-image/), markers retain their appearance and settings, including size, fill, and outline.

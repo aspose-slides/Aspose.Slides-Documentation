@@ -7,7 +7,7 @@ keywords: "Convert PowerPoint, PPT, PPTX, animated GIF, PPT to animated GIF, PPT
 description: "Convert PowerPoint Presentation to animated GIF: PPT to GIF, PPTX to GIF in C# or .NET"
 ---
 
-## Converting Presentations to Animated GIF Using Default Settings ##
+## **Convert Presentations to Animated GIF Using Default Settings**
 
 This sample code in C# shows you how to convert a presentation to animated GIF using standard settings:
 
@@ -26,7 +26,8 @@ If you prefer to customize the parameters for the GIF, you can use the [GifOptio
 
 {{% /alert %}} 
 
-## Converting Presentations to Animated GIF Using Custom Settings ##
+## **Convert Presentations to Animated GIF Using Custom Settings**
+
 This sample code shows you how to convert a presentation to animated GIF using custom settings in C#:
 
 ``` csharp
@@ -46,3 +47,13 @@ using (Presentation pres = new Presentation("pres.pptx"))
 You may want to check out a FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) converter developed by Aspose. 
 
 {{% /alert %}}
+
+## **FAQ**
+
+**What if the fonts used in the presentation aren’t installed on the system?**
+
+Install the missing fonts or [configure fallback fonts](/slides/net/powerpoint-fonts/). Aspose.Slides will substitute, but the appearance may differ. For branding, always ensure the required typefaces are explicitly available.
+
+**Can I overlay a watermark on the GIF frames?**
+
+Yes. [Add a semi-transparent object/logo](/slides/net/watermark/) to the master slide or to individual slides before export — the watermark will appear on every frame.

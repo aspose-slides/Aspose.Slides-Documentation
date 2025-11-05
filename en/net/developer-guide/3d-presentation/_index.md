@@ -20,7 +20,7 @@ description: "3D PowerPoint presentation in C# or .NET"
 ---
 
 
-## Overview
+## **Overview**
 How do you usually create a 3D PowerPoint presentation?
 Microsoft PowerPoint enables to create 3D presentations in terms that we may add 3D models there, apply 3D effects on shapes, 
 create 3D text, upload 3D graphics into presentation, create PowerPoint 3D animations. 
@@ -83,7 +83,7 @@ The rendered thumbnail looks like that:
 
 ![todo:image_alt_text](img_01_01.png)
 
-## 3D Rotation
+## **3D Rotation**
 It's possible to rotate PowerPoint 3D shapes in 3D plane, which brings more interactivity. To rotate 3D shape in PowerPoint, you usually use the following menu:
 
 ![todo:image_alt_text](img_02_01.png)
@@ -101,7 +101,7 @@ using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
 }
 ```
 
-## 3D Depth and Extrusion
+## **3D Depth and Extrusion**
 To bring the third dimension to your shape and make it a 3D shape, use [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) 
 and [IThreeDFormat.ExtrusionColor.Color](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) properties:
 
@@ -123,7 +123,7 @@ Usually, you use Depth menu in PowerPoint to set Depth for PowerPoint 3D shape:
 ![todo:image_alt_text](img_02_02.png)
 
 
-## 3D Gradient
+## **3D Gradient**
 Gradient can be used to fill the color of PowerPoint 3D shape. Let us create a shape with gradient fill color and apply a 3D effect on it:
 
 ``` csharp
@@ -179,7 +179,7 @@ That's how it looks like:
 
 ![todo:image_alt_text](img_02_04.png)
 
-## 3D Text (WordArt)
+## **3D Text (WordArt)**
 Aspose.Slides allows to apply 3D on text too. For creating a 3D text its possible to use WordArt transform effect:
 
 ``` csharp
@@ -228,15 +228,16 @@ Here is the result:
 
 ![todo:image_alt_text](img_02_05.png)
 
+## **FAQ**
 
-## Not Supported - Coming Soon
-The following PowerPoint 3D features are not supported yet: 
-- Bevel
-- Material
-- Contour
-- Lighting
+**Will 3D effects be preserved when exporting a presentation to images/PDF/HTML?**
 
-We continue to improve our 3D Engine, and these features are the subject of further implementation.
+Yes. The Slides 3D engine renders 3D effects when exporting to supported formats ([images](/slides/net/convert-powerpoint-to-png/), [PDF](/slides/net/convert-powerpoint-to-pdf/), [HTML](/slides/net/convert-powerpoint-to-html/), etc.).
 
- 
+**Can I retrieve the "effective" (final) 3D parameter values that account for themes, inheritance, etc.?**
 
+Yes. Slides provides APIs to [read effective values](/slides/net/shape-effective-properties/) (including for 3D—lighting, bevels, etc.) so you can see the final applied settings.
+
+**Do 3D effects work when converting a presentation to video?**
+
+Yes. When [generating frames for the video](/slides/net/convert-powerpoint-to-video/), 3D effects are rendered just as they are for [exported images](/slides/net/convert-powerpoint-to-png/).

@@ -430,7 +430,7 @@ Besides the conversion processes described here, Aspose.Slides also supports the
 
 {{% /alert %}}
 
-## **FAQs**
+## **FAQ**
 
 **What is the performance of Aspose.Slides when converting multiple presentations to HTML?**
 

@@ -60,3 +60,20 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+## **FAQ**
+
+**In what units are ActualX, ActualY, ActualWidth, and ActualHeight returned?**
+
+In points; 1 inch = 72 points. These are Aspose.Slides coordinate units.
+
+**How does the Plot Area differ from the Chart Area in terms of content?**
+
+The Plot Area is the data drawing region (series, gridlines, trendlines, etc.); the Chart Area includes the surrounding elements (title, legend, etc.). In 3D charts, the Plot Area also includes the walls/floor and the axes.
+
+**How are the Plot Area’s X, Y, Width, and Height interpreted when layout is manual?**
+
+They are fractions (0–1) of the chart’s overall size; in this mode, auto-positioning is disabled and the fractions you set are used.
+
+**Why did the Plot Area position change after adding/moving the legend?**
+
+The legend sits in the chart area outside the Plot Area but affects layout and available space, so the Plot Area may shift when auto-positioning is in effect. (This is standard behavior for PowerPoint charts.)

@@ -137,16 +137,16 @@ Console.WriteLine(text.SlidesText[0].NotesText);
 Console.WriteLine(text.SlidesText[0].CommentsText);
 ```
 
-## **FAQs**
+## **FAQ**
 
-**1. How fast does Aspose.Slides process large presentations during text extraction?**
+**How fast does Aspose.Slides process large presentations during text extraction?**
 
 Aspose.Slides is optimized for high performance and efficiently processes even large presentations, making it suitable for real-time or bulk processing scenarios.
 
-**2. Can Aspose.Slides extract text from tables and charts within presentations?**
+**Can Aspose.Slides extract text from tables and charts within presentations?**
 
 Yes, Aspose.Slides fully supports extracting text from tables, charts, and other complex slide elements, allowing you to access and analyze all textual content easily.
 
-**3. Do I need a special Aspose.Slides license to extract text from presentations?**
+**Do I need a special Aspose.Slides license to extract text from presentations?**
 
 You can extract text using the free trial version of Aspose.Slides, although it will have certain limitations, such as processing only a limited number of slides. For unrestricted use and to handle larger presentations, purchasing a full license is recommended.

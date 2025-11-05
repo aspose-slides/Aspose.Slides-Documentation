@@ -66,7 +66,7 @@ Aspose.Slides saves ODP lists in a way that ensures they are displayed correctly
 
 [Learn more about the OpenDocument format and PowerPoint](https://support.microsoft.com/en-us/office/use-powerpoint-to-save-or-open-a-presentation-in-the-opendocument-presentation-odp-format-94805e84-1b09-4c98-a8b5-0da2a52242a0).
 
-## **FAQs**
+## **FAQ**
 
 **What if the formatting of my ODP file changes after conversion?**
 
