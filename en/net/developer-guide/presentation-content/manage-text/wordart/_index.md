@@ -244,7 +244,7 @@ These behaviors relate to the [ThreeDFormat.LightRig](https://reference.aspose.c
 
 {{% /alert %}} 
 
-## **FAQs**
+## **FAQ**
 
 **Can I use WordArt effects with different fonts or scripts (e.g., Arabic, Chinese)?**
 

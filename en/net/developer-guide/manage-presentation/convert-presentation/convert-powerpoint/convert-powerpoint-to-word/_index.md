@@ -112,7 +112,7 @@ Try our [**Online PPT to Word Converter**](https://products.aspose.app/slides/co
 
 {{% /alert %}}
 
-## **FAQs**
+## **FAQ**
 
 **What components need to be installed to convert PowerPoint and OpenDocument presentations to Word documents?**
 

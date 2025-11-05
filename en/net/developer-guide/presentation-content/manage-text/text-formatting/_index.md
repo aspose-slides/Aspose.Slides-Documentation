@@ -562,7 +562,7 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **FAQs**
+## **FAQ**
 
 **How to modify text in a table on a slide?**
 

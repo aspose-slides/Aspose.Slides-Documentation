@@ -408,7 +408,7 @@ Slide transition effects play an important role in creating smooth and visually 
 | **Orbit** | ![not supported](x.png) | ![supported](v.png) |
 | **Fly Through** | ![supported](v.png) | ![supported](v.png) |
 
-## **FAQs**
+## **FAQ**
 
 **Is it possible to convert presentations that are password protected?**
 

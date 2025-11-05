@@ -58,6 +58,12 @@ using (var presentation = new Presentation())
 }
 ```
 
+## **FAQ**
+
+**Are tables preserved when importing a PDF, and can their detection be improved?**
+
+Tables can be detected during import; [PdfImportOptions](https://reference.aspose.com/slides/net/aspose.slides.import/pdfimportoptions/) includes a [DetectTables](https://reference.aspose.com/slides/net/aspose.slides.import/pdfimportoptions/detecttables/) parameter that enables table recognition. The effectiveness depends on the PDF’s structure.
+
 {{% alert title="Note" color="warning" %}} 
 
 You may also use Aspose.Slides to convert HTML to other popular file formats: 

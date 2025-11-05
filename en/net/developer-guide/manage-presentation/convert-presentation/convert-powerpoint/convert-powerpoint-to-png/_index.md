@@ -117,3 +117,16 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
+## **FAQ**
+
+**How can I export only a specific shape (e.g., chart or picture) rather than the whole slide?**
+
+Aspose.Slides supports [generating thumbnails for individual shapes](/slides/net/create-shape-thumbnails/); you can render a shape to a PNG image.
+
+**Is parallel conversion supported on a server?**
+
+Yes, but [don’t share](/slides/net/multithreading/) a single presentation instance across threads. Use a separate instance per thread or process.
+
+**What are the trial-version limitations when exporting to PNG?**
+
+The evaluation mode adds a watermark to output images and enforces [other restrictions](/slides/net/licensing/) until a license is applied.

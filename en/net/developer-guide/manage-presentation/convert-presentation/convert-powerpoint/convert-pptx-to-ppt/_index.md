@@ -33,3 +33,18 @@ Presentation pres = new Presentation("presentation.pptx");
 
 // Saving the PPTX presentation to PPT format
 pres.Save("presentation.ppt", SaveFormat.Ppt);
+```
+
+## **FAQ**
+
+**Do all PPTX effects and features survive when saving to the legacy PPT (97–2003) format?**
+
+Not always. The PPT format lacks some newer capabilities (e.g., certain effects, objects, and behaviors), so features may be simplified or rasterized during conversion.
+
+**Can I convert only selected slides to PPT instead of the entire presentation?**
+
+Direct saving targets the whole presentation. To convert specific slides, create a new presentation with just those slides and save it as PPT; alternatively, use a service/API that supports per-slide conversion parameters.
+
+**Are password-protected presentations supported?**
+
+Yes. You can detect whether a file is protected, open it with a password, and also [configure protection/encryption settings](/slides/net/password-protected-presentation/) for the saved PPT.
