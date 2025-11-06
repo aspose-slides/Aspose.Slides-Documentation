@@ -82,3 +82,25 @@ using (Presentation pres = new Presentation("pres.pptx"))
     pres.Save("pres-out.pptx", SaveFormat.Pptx);
 }
 ```
+
+## **FAQ**
+
+**What happens to slide indexes after I delete a slide?**
+
+After deletion, the [collection](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/) reindexes: every subsequent slide shifts left by one position, so previous index numbers become outdated. If you need a stable reference, use each slide’s persistent ID rather than its index.
+
+**Is a slide’s ID different from its index, and does it change when neighboring slides are deleted?**
+
+Yes. The index is the slide’s position and will change when slides are added or removed. The slide ID is a persistent identifier and does not change when other slides are deleted.
+
+**How does deleting a slide affect slide sections?**
+
+If the slide belonged to a section, that section will simply contain one fewer slide. The section structure remains; if a section becomes empty, you can [remove or reorganize sections](/slides/net/slide-section/) as needed.
+
+**What happens to notes and comments attached to a slide when it’s deleted?**
+
+[Notes](/slides/net/presentation-notes/) and [comments](/slides/net/presentation-comments/) are tied to that specific slide and are removed along with it. Content on other slides is unaffected.
+
+**How is deleting slides different from cleaning up unused layouts/masters?**
+
+Deleting removes specific normal slides from the deck. Cleaning up unused layouts/masters removes layout or master slides that nothing references, reducing file size without changing remaining slide content. These actions are complementary: typically delete first, then clean up.

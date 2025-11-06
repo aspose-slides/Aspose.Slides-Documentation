@@ -299,15 +299,18 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## Frequently Asked Questions (FAQ)
+## **FAQ**
 
-### What is a Slide Master in PowerPoint?
+**What is a Slide Master in PowerPoint?**
+
 A Slide Master is a slide template that defines the layout, styles, themes, fonts, background, and other properties for slides in a presentation. It allows you to set and change the look of all presentation slides at once.  
 
-### How is a Slide Master applied in a presentation?
+**How is a Slide Master applied in a presentation?**
+
 Every presentation has at least one Slide Master by default. When a new slide is added, a Slide Master is applied to it automatically, typically inheriting the master of the previous slide. A presentation can contain multiple Slide Masters to style different parts uniquely.  
 
-### What elements can be customized in a Slide Master?
+**What elements can be customized in a Slide Master?**
+
 A Slide Master comprises several core properties that can be customized:
 
 - **Background**: Set the slide background.
@@ -317,18 +320,22 @@ A Slide Master comprises several core properties that can be customized:
 - **ThemeManager**: Access the theme manager.
 - **HeaderFooterManager**: Manage headers and footers.  
 
-### How can I add an image to a Slide Master?
+**How can I add an image to a Slide Master?**
+
 Adding an image to a Slide Master ensures it appears on all slides that depend on that master. For example, placing a company logo on the Slide Master will display it on every slide in the presentation.  
 
-### How do Slide Masters relate to Slide Layouts?
+**How do Slide Masters relate to Slide Layouts?**
+
 Slide Layouts work in conjunction with Slide Masters to provide flexibility in slide design. While a Slide Master defines overarching styles and themes, Slide Layouts allow for variations in content arrangement. The hierarchy is as follows:
 
 - **Slide Master** → Defines global styles.
 - **Slide Layout** → Provides different content arrangements.
 - **Slide** → Inherits design from its Slide Layout.
 
-### Can I have multiple Slide Masters in a single presentation?
+**Can I have multiple Slide Masters in a single presentation?**
+
 Yes, a presentation can contain several Slide Masters. This allows you to style different sections of a presentation in various ways, providing flexibility in design.  
 
-### How do I access and modify a Slide Master using Aspose.Slides?
-In Aspose.Slides, a Slide Master is represented by the `IMasterSlide` interface. You can access a Slide Master using the `Masters` property of the `Presentation` object.  
+**How do I access and modify a Slide Master using Aspose.Slides?**
+
+In Aspose.Slides, a Slide Master is represented by the `IMasterSlide` interface. You can access a Slide Master using the `Masters` property of the `Presentation` object.

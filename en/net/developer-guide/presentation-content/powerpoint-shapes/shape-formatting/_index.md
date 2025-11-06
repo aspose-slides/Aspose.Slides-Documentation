@@ -561,7 +561,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **FAQs**
+## **FAQ**
 
 **Does shape formatting affect the final presentation file size?**
 

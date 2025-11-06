@@ -473,3 +473,17 @@ using (Presentation pres = new Presentation("AnimTextBox_out.pptx"))
     pres.Save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
 }
 ```
+
+## **FAQ**
+
+**How can I ensure animations are preserved when publishing the presentation to the web?**
+
+[Export to HTML5](/slides/net/export-to-html5/) and enable the [options](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/) responsible for [shape](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animateshapes/) and [transition](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animatetransitions/) animations. Plain HTML does not play slide animations, whereas HTML5 does.
+
+**How does changing the z-order (layer order) of shapes affect animation?**
+
+Animation and drawing order are independent: an effect controls the timing and type of appearing/disappearing, while [z-order](https://reference.aspose.com/slides/net/aspose.slides/shape/zorderposition/) determines what covers what. The visible result is defined by their combination. (This is the general PowerPoint behavior; the Aspose.Slides effects-and-shapes model follows the same logic.)
+
+**Are there limitations when converting animations to video for certain effects?**
+
+In general, [animations are supported](/slides/net/convert-powerpoint-to-video/), but rare cases or specific effects may be rendered differently. It is recommended to test with the effects you use and with the library version.

@@ -239,7 +239,7 @@ It returns `true` if the presentation has been encrypted with the specified pass
 
 ![Password protect PowerPoint presentations](slides-lock.png)
 
-## **FAQs**
+## **FAQ**
 
 **What encryption methods are supported by Aspose.Slides?**
 

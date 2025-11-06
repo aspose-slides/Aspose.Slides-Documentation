@@ -174,3 +174,20 @@ presentation.Slides[0].SlideShowTransition.Type = TransitionType.Cut;
 presentation.Save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
 ```
 
+## **FAQ**
+
+**Can I control the playback speed of a slide transition?**
+
+Yes. Set the transition’s [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) using the [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/) setting (e.g., slow/medium/fast).
+
+**Can I attach audio to a transition and make it loop?**
+
+Yes. You can embed a sound for the transition and control behavior via settings like sound mode and looping (e.g., [Sound](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/sound/), [SoundMode](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/soundmode/), [SoundLoop](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/soundloop/), plus metadata such as [SoundIsBuiltIn](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/soundisbuiltin/) and [SoundName](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/soundname/)).
+
+**What’s the fastest way to apply the same transition to every slide?**
+
+Configure the desired transition type on each slide’s transition settings; transitions are stored per slide, so applying the same type across all slides gives a consistent result.
+
+**How can I check which transition is currently set on a slide?**
+
+Inspect the slide’s [transition settings](https://reference.aspose.com/slides/net/aspose.slides/baseslide/slideshowtransition/) and read its [transition type](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/type/); that value tells you exactly which effect is applied.

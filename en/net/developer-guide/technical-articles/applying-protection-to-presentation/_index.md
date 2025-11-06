@@ -144,3 +144,17 @@ presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ### **Conclusion**
 
 Aspose.Slides offers several options for protecting shapes in a presentation. You can lock an individual shape or iterate through all the shapes in a presentation and lock each one to effectively secure the entire file. You can remove the protection by setting the lock value to `false`.
+
+## **FAQ**
+
+**Can I combine shape locks and password protection in the same presentation?**
+
+Yes. Locks limit editing of objects inside the file, while [password protection](/slides/net/password-protected-presentation/) controls access to opening and/or saving changes. These mechanisms complement each other and work together.
+
+**Can I restrict editing on specific slides without affecting others?**
+
+Yes. Apply locks to the shapes on the selected slides; the remaining slides will stay editable.
+
+**Do shape locks apply to grouped objects and connectors?**
+
+Yes. Dedicated lock types are supported for groups, connectors, graphic objects, and other shape kinds.

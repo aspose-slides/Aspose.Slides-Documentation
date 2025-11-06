@@ -223,3 +223,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+## **FAQ**
+
+**Can I apply PowerPoint themes/styles to a table that’s already created?**
+
+Yes. The table inherits the slide/layout/master theme, and you can still override fills, borders, and text colors on top of that theme.
+
+**Can I sort table rows like in Excel?**
+
+No, Aspose.Slides tables don’t have built-in sorting or filters. Sort your data in memory first, then repopulate the table rows in that order.
+
+**Can I have banded (striped) columns while keeping custom colors on specific cells?**
+
+Yes. Turn on banded columns, then override specific cells with local formatting; cell-level formatting takes precedence over the table style.

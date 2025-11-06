@@ -1155,7 +1155,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **FAQs**
+## **FAQ**
 
 **What chart types are supported by Aspose.Slides for .NET?**
 

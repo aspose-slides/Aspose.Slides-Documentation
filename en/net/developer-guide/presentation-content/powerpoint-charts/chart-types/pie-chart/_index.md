@@ -102,3 +102,12 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+## **FAQ**
+
+**Are the 'Pie of Pie' and 'Bar of Pie' variations supported?**
+
+Yes, the library [supports](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) a secondary plot for pie charts, including the 'Pie of Pie' and 'Bar of Pie' types.
+
+**Can I export just the chart as an image (for example, PNG)?**
+
+Yes, you can [export the chart itself as an image](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (such as PNG) without the entire presentation.

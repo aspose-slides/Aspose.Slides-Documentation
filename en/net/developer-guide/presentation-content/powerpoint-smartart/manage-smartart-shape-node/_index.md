@@ -463,5 +463,20 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+## **FAQ**
 
+**Is SmartArt animation supported?**
 
+Yes. SmartArt is treated as a regular shape, so you can [apply standard animations](/slides/net/shape-animation/) (entrance, exit, emphasis, motion paths) and adjust timing. You can also animate shapes inside SmartArt nodes when needed.
+
+**How can I reliably locate a specific SmartArt on a slide if its internal ID is unknown?**
+
+Assign and search by [alternative text](https://reference.aspose.com/slides/net/aspose.slides/shape/alternativetext/). Setting a distinctive AltText on the SmartArt lets you find it programmatically without relying on internal identifiers.
+
+**Will the SmartArt appearance be preserved when converting the presentation to PDF?**
+
+Yes. Aspose.Slides renders SmartArt with high visual fidelity during [PDF export](/slides/net/convert-powerpoint-to-pdf/), preserving layout, colors, and effects.
+
+**Can I extract an image of the entire SmartArt (for previews or reports)?**
+
+Yes. You can render a SmartArt shape to [raster formats](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) or to [SVG](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/) for scalable vector output, making it suitable for thumbnails, reports, or web use.

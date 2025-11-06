@@ -315,3 +315,21 @@ using (Presentation presentation = new Presentation())
     presentation.Save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
 }
 ```
+
+## **FAQ**
+
+**Can I set different line thicknesses and styles for different sides of a single cell?**
+
+Yes. The [top](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[bottom](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[left](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[right](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) borders have separate properties, so the thickness and style of each side can differ. This logically follows from the per-side border control for a cell demonstrated in the article.
+
+**What happens to the image if I change the column/row size after setting a picture as the cell’s background?**
+
+The behavior depends on the [fill mode](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) (stretch/tile). With stretching, the image adjusts to the new cell; with tiling, the tiles are recalculated. The article mentions the image display modes in a cell.
+
+**Can I assign a hyperlink to all the content of a cell?**
+
+[Hyperlinks](/slides/net/manage-hyperlinks/) are set at the text (portion) level inside the cell’s text frame or at the level of the entire table/shape. In practice, you assign the link to a portion or to all the text in the cell.
+
+**Can I set different fonts within a single cell?**
+
+Yes. A cell’s text frame supports [portions](https://reference.aspose.com/slides/net/aspose.slides/portion/) (runs) with independent formatting—font family, style, size, and color.
