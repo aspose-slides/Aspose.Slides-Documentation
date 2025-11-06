@@ -84,3 +84,16 @@ for (int i = 0; i < sld.Shapes.Count; i++)
 }
 ```
 
+## **FAQ**
+
+**Is nested grouping (a group inside a group) supported?**
+
+Yes. [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/) has a [ParentGroup](https://reference.aspose.com/slides/net/aspose.slides/shape/parentgroup/) property, which directly indicates hierarchy support (a group can be a child of another group).
+
+**How do I control the group’s z-order relative to other objects on the slide?**
+
+Use the [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/)’s [ZOrderPosition](https://reference.aspose.com/slides/net/aspose.slides/shape/zorderposition/) property to inspect or change its position in the display stack.
+
+**Can I prevent moving/editing/ungrouping?**
+
+Yes. The group’s lock section is exposed via [GroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/groupshape/groupshapelock/), which lets you restrict operations on the object.

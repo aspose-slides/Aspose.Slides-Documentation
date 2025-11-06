@@ -174,7 +174,7 @@ Try [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) free 
 
 [![Online PowerPoint Viewer](online-PowerPoint-viewer.png)](https://products.aspose.app/slides/viewer/)
 
-## **FAQs**
+## **FAQ**
 
 **Can I embed a presentation viewer in an ASP.NET web application?**
 

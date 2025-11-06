@@ -417,7 +417,7 @@ var borderBox = new MathematicalText("x+y+z").ToBorderBox();
 var boxedOperator = new MathematicalText(":=").ToBox();
 ```
 
-## **FAQs**
+## **FAQ**
 
 **How can I add a mathematical equation to a PowerPoint slide?**
 

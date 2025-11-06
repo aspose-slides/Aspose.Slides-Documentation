@@ -175,7 +175,7 @@ using (Presentation presentation = new Presentation("Presentation.pptx"))
 }
 ```
 
-## **FAQs**
+## **FAQ**
 
 **1. Does Aspose.Slides support rendering slides with animations?**
 

@@ -160,7 +160,7 @@ Try the [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## ***FAQs**
+## ***FAQ**
 
 **How can I remove a built-in property from a presentation?**
 

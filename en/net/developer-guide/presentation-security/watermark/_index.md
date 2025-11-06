@@ -224,7 +224,7 @@ You may want to check out the **Aspose.Slides free** [Add Watermark](https://pro
 
 ![Online tools to add and remove watermarks](online_tools.png)
 
-## **FAQs**
+## **FAQ**
 
 **What is a watermark and why should I use it?**
 

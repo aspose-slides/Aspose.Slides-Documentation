@@ -302,7 +302,7 @@ The result:
 
 ![The gap width](gap_width.png)
 
-## **FAQs**
+## **FAQ**
 
 **Is there a limit to how many series a single chart can contain?**
 

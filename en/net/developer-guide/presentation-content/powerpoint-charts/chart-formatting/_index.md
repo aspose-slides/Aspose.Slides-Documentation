@@ -313,3 +313,16 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+## **FAQ**
+
+**Can I set semi-transparent fills for columns/areas while keeping the border opaque?**
+
+Yes. Fill transparency and the outline are configured separately. This is useful for improving the readability of the grid and data in dense visualizations.
+
+**How can I deal with data labels when they overlap?**
+
+Reduce the font size, disable nonessential label components (for example, categories), set the label offset/position, show labels only for selected points if necessary, or switch the format to "value + legend".
+
+**Can I apply gradient or pattern fills to series?**
+
+Yes. Both solid and gradient/pattern fills are typically available. In practice, use gradients sparingly and avoid combinations that reduce contrast with the grid and text.
