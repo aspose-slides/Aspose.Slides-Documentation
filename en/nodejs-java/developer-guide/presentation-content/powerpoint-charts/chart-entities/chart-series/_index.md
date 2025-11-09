@@ -44,6 +44,7 @@ try {
 ```
 
 ## **Change Series Color**
+
 Aspose.Slides for Node.js via Java allows you to change a series' color this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
@@ -71,6 +72,7 @@ try {
 ```
 
 ## **Change Series Category's Color**
+
 Aspose.Slides for Node.js via Java allows you to change a series category's color this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
@@ -170,6 +172,7 @@ try {
 ```
 
 ## **Set Chart Series Invert Fill Colors**
+
 Aspose.Slides allows you to set the invert fill color for chart series inside a plot area this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
@@ -213,6 +216,7 @@ try {
 
 
 ## **Set Series to Invert When Value is Negative**
+
 Aspose.Slides allows you to set inverts through the`ChartDataPoint.setInvertIfNegative` method. When an invert is set using the properties, the data point inverts its colors when it gets a negative value. 
 
 This JavaScript code demonstrates the operation:
@@ -239,6 +243,7 @@ try {
 ```
 
 ## **Clear Specific Data Points' Data**
+
 Aspose.Slides for Node.js via Java allows you to clear the `DataPoints` data for a specific chart series this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
@@ -270,6 +275,7 @@ try {
 ```
 
 ## **Set Series Gap Width**
+
 Aspose.Slides for Node.js via Java allows you to set a series' Gap Width through the **`GapWidth`** property this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
@@ -319,3 +325,13 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**Is there a limit to how many series a single chart can contain?**
+
+Aspose.Slides imposes no fixed cap on the number of series you add. The practical ceiling is set by chart readability and by the memory available to your application.
+
+**What if the columns within a cluster are too close together or too far apart?**
+
+Adjust the Gap Width setting for that series (or its parent series group). Increasing the value widens the space between columns, while decreasing it brings them closer together.
