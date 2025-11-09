@@ -29,11 +29,11 @@ using (Presentation pres = new Presentation("test0.pptx"))
 
 ## **FAQ**
 
-**Does language_id trigger automatic text translation?**
+**Does language ID trigger automatic text translation?**
 
-No. [language_id](https://reference.aspose.com/slides/net/aspose.slides/portionformat/languageid/) in Aspose.Slides stores the language for spell-checking and grammar proofing, but it does not translate or change the text content. It is metadata that PowerPoint understands for proofing.
+No. [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) in Aspose.Slides stores the language for spell-checking and grammar proofing, but it does not translate or change the text content. It is metadata that PowerPoint understands for proofing.
 
-**Does language_id affect hyphenation and line breaks during rendering?**
+**Does language ID affect hyphenation and line breaks during rendering?**
 
 In Aspose.Slides, [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) is for proofing. Hyphenation quality and line wrapping primarily depend on the availability of [proper fonts](/slides/net/powerpoint-fonts/) and layout/line-break settings for the writing system. To ensure correct rendering, make the required fonts available, configure [font substitution rules](/slides/net/font-substitution/), and/or [embed fonts](/slides/net/embedded-font/) into the presentation.
 

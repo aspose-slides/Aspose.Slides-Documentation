@@ -396,3 +396,17 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**What is the performance of Aspose.Slides when converting multiple presentations to HTML?**
+
+Performance depends on the size and complexity of presentations. Aspose.Slides is highly efficient and scalable for batch operations. To achieve optimal performance when converting many presentations, it’s recommended to use multithreading or parallel processing whenever possible.
+
+**Does Aspose.Slides support exporting hyperlinks to HTML?**
+
+Yes, Aspose.Slides fully supports exporting embedded hyperlinks to HTML. When you convert presentations to HTML format, hyperlinks are preserved automatically and remain clickable.
+
+**Is there any limit on the number of slides when converting presentations to HTML?**
+
+There is no limit on the number of slides when using Aspose.Slides. You can convert presentations of any size. However, for presentations containing a very large number of slides, performance may depend on the available resources of your server or system.

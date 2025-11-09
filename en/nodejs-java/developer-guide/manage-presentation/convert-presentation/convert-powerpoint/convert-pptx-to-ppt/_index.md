@@ -25,6 +25,7 @@ For JavaScript sample code to convert PPTX to PPT, please see the section below 
 - [Java Convert PPTX to Image](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-png/)
 
 ## **Convert PPTX to PPT**
+
 To convert a PPTX to PPT simply pass the file name and save format to the **Save** method of [**Presentation**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class. The JavaScript code sample below converts a Presentation from PPTX to PPT using default options.
 
 ```javascript
@@ -33,3 +34,17 @@ var presentation = new aspose.slides.Presentation("template.pptx");
 // save the presentation as PPT
 presentation.save("output.ppt", aspose.slides.SaveFormat.Ppt);
 ```
+
+## **FAQ**
+
+**Do all PPTX effects and features survive when saving to the legacy PPT (97–2003) format?**
+
+Not always. The PPT format lacks some newer capabilities (e.g., certain effects, objects, and behaviors), so features may be simplified or rasterized during conversion.
+
+**Can I convert only selected slides to PPT instead of the entire presentation?**
+
+Direct saving targets the whole presentation. To convert specific slides, create a new presentation with just those slides and save it as PPT; alternatively, use a service/API that supports per-slide conversion parameters.
+
+**Are password-protected presentations supported?**
+
+Yes. You can detect whether a file is protected, open it with a password, and also [configure protection/encryption settings](/slides/nodejs-java/password-protected-presentation/) for the saved PPT.
