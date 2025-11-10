@@ -92,7 +92,7 @@ Yes. [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupsha
 
 **How do I control the group’s z-order relative to other objects on the slide?**
 
-Use the [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/)’s [ZOrderPosition](https://reference.aspose.com/slides/net/aspose.slides/shape/zorderposition/) property to inspect or change its position in the display stack.
+Use the [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/)’s [ZOrderPosition](https://reference.aspose.com/slides/net/aspose.slides/shape/zorderposition/) property to inspect its position in the display stack.
 
 **Can I prevent moving/editing/ungrouping?**
 

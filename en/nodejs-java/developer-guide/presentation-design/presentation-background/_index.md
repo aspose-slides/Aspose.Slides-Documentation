@@ -251,3 +251,13 @@ try {
     presentation.dispose();
 }
 ```
+
+## **FAQ**
+
+**Can I reset a custom background and restore the theme/layout background?**
+
+Yes. Remove the slide’s custom fill, and the background will be inherited again from the corresponding [layout](/slides/nodejs-java/slide-layout/)/[master](/slides/nodejs-java/slide-master/) slide (i.e., the [theme background](/slides/nodejs-java/presentation-theme/)).
+
+**What happens to the background if I change the presentation’s theme later?**
+
+If a slide has its own fill, it will remain unchanged. If the background is inherited from the [layout](/slides/nodejs-java/slide-layout/)/[master](/slides/nodejs-java/slide-master/), it will update to match the [new theme](/slides/nodejs-java/presentation-theme/).

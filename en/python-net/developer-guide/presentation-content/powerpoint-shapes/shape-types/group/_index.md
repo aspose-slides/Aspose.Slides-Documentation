@@ -89,7 +89,7 @@ Yes. [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/g
 
 **How do I control the group’s z-order relative to other objects on the slide?**
 
-Use the [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/)’s [z_order_position](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/z_order_position/) property to inspect or change its position in the display stack.
+Use the [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/)’s [z_order_position](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/z_order_position/) property to inspect its position in the display stack.
 
 **Can I prevent moving/editing/ungrouping?**
 
