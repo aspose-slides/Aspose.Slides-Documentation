@@ -86,7 +86,7 @@ No. A regular line (an [AutoShape](https://reference.aspose.com/slides/net/aspos
 
 **What should I do if a line’s properties are inherited from the theme and it’s hard to determine the final values?**
 
-[Read the effective properties](/slides/net/shape-effective-properties/) through the [ILineFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilinefillformateffectivedata/) classes—these already account for inheritance and theme styles.
+[Read the effective properties](/slides/net/shape-effective-properties/) through the [ILineFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilinefillformateffectivedata/) interfaces—these already account for inheritance and theme styles.
 
 **Can I lock a line against editing (moving, resizing)?**
 

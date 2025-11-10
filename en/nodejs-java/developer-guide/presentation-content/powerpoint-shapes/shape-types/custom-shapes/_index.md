@@ -19,7 +19,8 @@ keywords:
 description: "Add a custom shape to a PowerPoint presentation in JavaScript"
 ---
 
-# Change a Shape Using Edit Points
+## **Change a Shape Using Edit Points**
+
 Consider a square. In PowerPoint, using **edit points**, you can 
 
 * move the square's corner in or out
@@ -143,7 +144,7 @@ try {
 ```
 ![example1_image](custom_shape_1.png)
 
-##  Remove Points From Shape
+## **Remove Points From Shape**
 
 1. Create an instance of [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape) class and set the [ShapeType.Heart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeType) type.
 2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) class from the shape.
@@ -167,7 +168,7 @@ try {
 ```
 ![example2_image](custom_shape_2.png)
 
-##  **Create Custom Shape**
+## **Create Custom Shape**
 
 1. Calculate the points for the shape.
 2. Create an instance of the [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) class.
@@ -352,3 +353,17 @@ try {
 }
 ```
 ![example5_image](custom_shape_5.png)
+
+## **FAQ**
+
+**What will happen to the fill and outline after replacing the geometry?**
+
+The style remains with the shape; only the contour changes. The fill and outline are automatically applied to the new geometry.
+
+**How do I correctly rotate a custom shape along with its geometry?**
+
+Use the shape’s [setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/setrotation/) method; the geometry rotates with the shape because it’s bound to the shape’s own coordinate system.
+
+**Can I convert a custom shape to an image to "lock in" the result?**
+
+Yes. Export the required [slide](/slides/nodejs-java/convert-powerpoint-to-png/) area or the [shape](/slides/nodejs-java/create-shape-thumbnails/) itself to a raster format; this simplifies further work with heavy geometries.
