@@ -71,3 +71,28 @@ With Aspose.Slides for Node.js via Java, you can format texts and shapes on slid
 |Text Formatting|<p>In Aspose.Slides for Node.js via Java, you can manage texts through the text frames associated with the shapes. Hence, you get to format texts using the paragraphs and portions associated with the text frames. These text elements can be formatted through Aspose.Slides for Node.js via Java.</p><p>- Font Type</p><p>- Font Size</p><p>- Font Color</p><p>- Font Shades</p><p>- Paragraph Alignment</p><p>- Paragraph Bulleting</p><p>- Paragraph Orientation</p>|
 |Shape Formatting|<p>In Aspose.Slides for Node.js via Java, the basic element of a slide is a shape. You can format these shape elements with Aspose.Slides for Node.js via Java:</p><p>- Position</p><p>- Size</p><p>- Line</p><p>- Fill (including Pattern, Gradient, Solid)</p><p>- Text</p><p>- Image</p>|
 
+## **FAQ**
+
+**Do I need to install Microsoft PowerPoint on the server/PC for the library to work?**
+
+No. PowerPoint is not required; Aspose.Slides is a standalone engine for creating, editing, converting, and rendering presentations.
+
+**How does multithreading work? Can processing be parallelized?**
+
+It is safe to process different documents in different threads; the same [presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) object must not be used by [multiple threads](/slides/nodejs-java/multithreading/) at the same time.
+
+**Are file passwords and encryption supported?**
+
+Yes. [You can](/slides/nodejs-java/password-protected-presentation/) open encrypted presentations, set or remove an open and write password, and check the protection status.
+
+**Do I need to care about font packages in Linux containers?**
+
+Yes. It is recommended to install common font packages and/or explicitly [specify font directories](/slides/nodejs-java/custom-font/) in your application to avoid unexpected substitutions.
+
+**Are there limitations in the evaluation version?**
+
+In [evaluation mode](/slides/nodejs-java/licensing/), a watermark is added to the output and certain limitations apply; a [30-day temporary license](https://purchase.aspose.com/temporary-license/) is available for full-feature testing.
+
+**Is importing external formats into a presentation (PDF/HTML → PPTX) supported?**
+
+Yes. You can add [PDF pages and HTML content](/slides/nodejs-java/import-presentation/) to a presentation, turning them into slides.
