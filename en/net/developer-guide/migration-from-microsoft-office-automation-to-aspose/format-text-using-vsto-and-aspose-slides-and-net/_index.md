@@ -1,8 +1,20 @@
 ---
-title: Format Text using VSTO and Aspose.Slides and .NET
+title: Format Text Using VSTO and Aspose.Slides for .NET
+linktitle: Format Text
 type: docs
 weight: 30
 url: /net/format-text-using-vsto-and-aspose-slides-and-net/
+keywords:
+- format text
+- migration
+- VSTO
+- Office automation
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Migrate from Microsoft Office automation to Aspose.Slides for .NET and format text in PowerPoint (PPT, PPTX) presentations with precise control."
 ---
 
 {{% alert color="primary" %}} 

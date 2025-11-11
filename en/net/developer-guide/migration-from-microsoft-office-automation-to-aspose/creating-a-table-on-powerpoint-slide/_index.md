@@ -1,8 +1,20 @@
 ---
-title: Creating a Table on PowerPoint Slide
+title: Creating Tables Using VSTO and Aspose.Slides for .NET
+linktitle: Creating Tables
 type: docs
 weight: 50
 url: /net/creating-a-table-on-powerpoint-slide/
+keywords:
+- create table
+- migration
+- VSTO
+- Office automation
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Migrate from Microsoft Office automation to Aspose.Slides for .NET and create tables in PowerPoint (PPT, PPTX) slides in C# with flexible formatting."
 ---
 
 {{% alert color="primary" %}} 
