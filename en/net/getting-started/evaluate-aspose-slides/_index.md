@@ -5,6 +5,7 @@ weight: 120
 url: /net/evaluate-aspose-slides/
 ---
 
+## **Aspose.Slides Evaluation**
 
 You can easily download Aspose.Slides for evaluation. The evaluation package is the same as the purchased package. The evaluation version simply becomes licensed after you add a few lines of code to apply the license. 
 
