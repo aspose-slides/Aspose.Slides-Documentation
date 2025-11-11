@@ -5,11 +5,11 @@ weight: 60
 url: /ja/nodejs-java/system-requirements/
 ---
 
-Aspose.Slides for Node.js via Java は、Microsoft PowerPointなどのサードパーティ製品をインストールする必要はありません。Aspose.Slides自体は、Microsoft PowerPointプレゼンテーション形式を含む様々な形式の文書を作成、編集、変換、レンダリングするためのエンジンです。
+Aspose.Slides for Node.js via Java は、Microsoft PowerPoint などのサードパーティ製品をインストールする必要がありません。Aspose.Slides 自体は、Microsoft PowerPoint プレゼンテーション形式を含むさまざまな形式のドキュメントを作成、変更、変換、レンダリングするエンジンです。
 
-## 対応オペレーティングシステム
+## **サポート対象 OS**
 
-Aspose.Slides for Javaは、Javaランタイムが実行される32ビットまたは64ビットのオペレーティングシステムをサポートしており、以下に限定されません：
+Aspose.Slides for Node.js via Java は、Java ランタイム上で動作する 32 ビットまたは 64 ビットの OS であれば、次のものを含むがこれに限定されません。
 
 ### **Windows**
 - Microsoft Windows 2003 Server ( x64, x86)
@@ -25,7 +25,17 @@ Aspose.Slides for Javaは、Javaランタイムが実行される32ビットま�
 - Microsoft Windows 10 ( x64, x86)
 
 ### **Linux**
-- Linux (Ubuntu, CentOS など)
+- Linux (Ubuntu、CentOS など)
 
 ### **Mac**
 - Mac OS X
+
+## **FAQ**
+
+**変換やレンダリングの際に Microsoft PowerPoint をインストールする必要がありますか？**
+
+いいえ、PowerPoint は必要ありません。Aspose.Slides は、[作成](/slides/ja/nodejs-java/create-presentation/)、変更、[変換](/slides/ja/nodejs-java/convert-presentation/)、および[レンダリング](/slides/ja/nodejs-java/convert-powerpoint-to-png/) を行う単独エンジンです。
+
+**正しいレンダリングのために必要なフォントは何ですか？**
+
+実際には、プレゼンテーションで使用されているフォントまたは適切な[代替フォント](/slides/ja/nodejs-java/font-substitution/) が利用可能である必要があります。Linux/macOS で一貫したレンダリングを確保するために、一般的なフォントパッケージのインストールを推奨します。
