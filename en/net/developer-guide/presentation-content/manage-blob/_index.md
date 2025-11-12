@@ -1,10 +1,27 @@
 ---
-title: Manage Blob
+title: Manage Presentation BLOBs in .NET for Efficient Memory Use
+linktitle: Manage BLOB
 type: docs
 weight: 10
 url: /net/manage-blob/
-keywords: "Add blob, Export blob, Add image as blob, PowerPoint Presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Add blob to PowerPoint presentation in C# or .NET. Export blob. Add Image as blob"
+keywords:
+- large object
+- large item
+- large file
+- add BLOB
+- export BLOB
+- add image as BLOB
+- reduce memory
+- memory consumption
+- large presentation
+- temporary file
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Manage BLOB data in Aspose.Slides for .NET to streamline PowerPoint and OpenDocument file operations for efficient presentation handling."
 ---
 
 ## **About BLOB**

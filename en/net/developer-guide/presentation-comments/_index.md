@@ -1,10 +1,27 @@
 ---
-title: Presentation Comments
+title: Manage Presentation Comments in .NET
+linktitle: Presentation Comments
 type: docs
 weight: 100
 url: /net/presentation-comments/
-keywords: "Comments, PowerPoint comments, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Add comments and replies in PowerPoint presentation in C# or .NET"
+keywords:
+- comment
+- modern comment
+- PowerPoint comments
+- presentation comments
+- slide comments
+- add comment
+- access comment
+- edit comment
+- reply comment
+- remove comment
+- delete comment
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Master presentation comments with Aspose.Slides for .NET: add, read, edit, and delete comments in PowerPoint files fast and easily."
 ---
 
 In PowerPoint, a comment appears as a note or annotation on a slide. When a comment is clicked, its contents or messages are revealed. 

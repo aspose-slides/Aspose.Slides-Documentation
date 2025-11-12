@@ -1,5 +1,5 @@
 ---
-title: Manage Audio in Presentations Using C#
+title: Manage Audio Frames in Presentations in .NET
 linktitle: Audio Frame
 type: docs
 weight: 10

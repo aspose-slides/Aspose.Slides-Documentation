@@ -1,10 +1,25 @@
 ---
-title: Chart Formatting
+title: Format Presentation Charts in .NET
+linktitle: Chart Formatting
 type: docs
 weight: 60
 url: /net/chart-formatting/
-keywords: "Chart entities, chart properties, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Format chart entities in PowerPoint presentations in C# or .NET"
+keywords:
+- format chart
+- chart formatting
+- chart entity
+- chart properties
+- chart settings
+- chart options
+- font properties
+- rounded border
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn chart formatting in Aspose.Slides for .NET and elevate your PowerPoint or OpenDocument presentation with professional, eye-catching styling."
 ---
 
 ## **Format Chart Entities**

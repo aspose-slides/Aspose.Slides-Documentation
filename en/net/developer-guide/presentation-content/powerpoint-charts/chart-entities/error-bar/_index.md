@@ -1,9 +1,18 @@
 ---
-title: Error Bar
+title: Customize Error Bars in Presentation Charts in .NET
+linktitle: Error Bar
 type: docs
 url: /net/error-bar/
-keywords: "Error bar, error bar values PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Add error bar to PowerPoint presentations in C# or .NET"
+keywords:
+- error bar
+- custom value
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how to add and customize error bars in charts with Aspose.Slides for .NET—optimize data visuals in PowerPoint and OpenDocument presentations."
 ---
 
 ## **Add Error Bar**

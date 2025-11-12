@@ -20,6 +20,10 @@ keywords:
 - slide to Flash
 - PPT to Flash
 - PPTX to Flash
+- save PPT as SWF
+- save PPTX as SWF
+- export PPT to SWF
+- export PPTX to SWF
 - PowerPoint
 - presentation
 - .NET
