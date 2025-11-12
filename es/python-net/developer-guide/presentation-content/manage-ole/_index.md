@@ -1,246 +1,317 @@
 ---
-title: Administrar OLE
+title: Administrar OLE en presentaciones usando Python
+linktitle: Administrar OLE
 type: docs
 weight: 40
 url: /es/python-net/manage-ole/
 keywords:
+- Objeto OLE
+- Enlace e incrustación de objetos
 - agregar OLE
-- insertar OLE
-- agregar un objeto
-- insertar un objeto
-- insertar un archivo
+- incrustar OLE
+- agregar objeto
+- incrustar objeto
+- agregar archivo
+- incrustar archivo
 - objeto vinculado
-- Vinculación e Inserción de Objetos
-- objeto OLE
-- PowerPoint 
+- archivo vinculado
+- cambiar OLE
+- ícono OLE
+- título OLE
+- extraer OLE
+- extraer objeto
+- extraer archivo
+- PowerPoint
 - presentación
 - Python
-- Aspose.Slides para Python a través de .NET
-description: Agregar objetos OLE a presentaciones de PowerPoint en Python
+- Aspose.Slides
+description: "Optimice la gestión de objetos OLE en archivos PowerPoint y OpenDocument con Aspose.Slides para Python mediante .NET. Incruste, actualice y exporte contenido OLE sin problemas."
 ---
 
-{{% alert title="Info" color="info" %}}
+## **Descripción general**
 
-OLE (Vinculación e Inserción de Objetos) es una tecnología de Microsoft que permite que datos y objetos creados en una aplicación se coloquen en otra aplicación a través de vínculos o incrustaciones.
+{{% alert title="Información" color="info" %}}
+
+**OLE (Object Linking & Embedding)** es una tecnología de Microsoft que permite que datos y objetos creados en una aplicación se enlacen o incrusten en otra.
 
 {{% /alert %}}
 
-Considera un gráfico creado en MS Excel. El gráfico se coloca dentro de una diapositiva de PowerPoint. Ese gráfico de Excel se considera un objeto OLE.
+Por ejemplo, un gráfico creado en Microsoft Excel y colocado en una diapositiva de PowerPoint es un objeto OLE.
 
-- Un objeto OLE puede aparecer como un ícono. En este caso, cuando haces doble clic en el ícono, el gráfico se abre en su aplicación asociada (Excel), o se te pide que selecciones una aplicación para abrir o editar el objeto.
-- Un objeto OLE puede mostrar contenidos reales, por ejemplo, el contenido de un gráfico. En este caso, el gráfico se activa en PowerPoint, la interfaz del gráfico se carga y puedes modificar los datos del gráfico dentro de la aplicación de PowerPoint.
+- Un objeto OLE puede aparecer como un ícono. Al hacer doble clic en el ícono se abre el objeto en su aplicación asociada (p. ej., Excel) o se le solicita que elija una aplicación para abrirlo o editarlo.  
+- Un objeto OLE puede mostrar su contenido (por ejemplo, un gráfico). En este caso, PowerPoint activa el objeto incrustado, carga la interfaz del gráfico y permite editar los datos del gráfico dentro de PowerPoint.
 
-[Aspose.Slides para Python a través de .NET](https://products.aspose.com/slides/python-net) te permite insertar objetos OLE en las diapositivas como Marcos de Objetos OLE ([OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)).
+Aspose.Slides para Python le permite insertar objetos OLE en diapositivas como marcos de objeto OLE ([OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)).
 
-## **Agregando Marcos de Objetos OLE a Diapositivas**
-Suponiendo que ya has creado un gráfico en Microsoft Excel y deseas incrustar ese gráfico en una diapositiva como un Marco de Objeto OLE utilizando Aspose.Slides para Python a través de .NET, puedes hacerlo de la siguiente manera:
+## **Agregar objetos OLE a diapositivas**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Obtén una referencia de la diapositiva a través de su índice.
-1. Abre el archivo de Excel que contiene el objeto gráfico de Excel y guárdalo en `MemoryStream`.
-1. Agrega el Marco de Objeto OLE a la diapositiva que contiene el arreglo de bytes y otra información sobre el objeto OLE.
-1. Escribe la presentación modificada como un archivo PPTX.
+Si ya ha creado un gráfico en Microsoft Excel y desea incrustarlo en una diapositiva como un marco de objeto OLE usando Aspose.Slides para Python, siga estos pasos:
 
-En el ejemplo a continuación, hemos agregado un gráfico de un archivo de Excel a una diapositiva como un [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) utilizando Aspose.Slides para Python a través de .NET.  
-**Nota** que el constructor de [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/python-net/aspose.slides/ioleembeddeddatainfo/) toma una extensión de objeto incrustable como segundo parámetro. Esta extensión permite a PowerPoint interpretar correctamente el tipo de archivo y elegir la aplicación adecuada para abrir este objeto OLE.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).  
+1. Obtenga una referencia a la diapositiva por su índice.  
+1. Lea el archivo Excel en una matriz de bytes.  
+1. Agregue un [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) a la diapositiva, proporcionando la matriz de bytes y los demás detalles del objeto OLE.  
+1. Guarde la presentación modificada como un archivo PPTX.
 
-```py 
-import aspose.slides as slides
+En el ejemplo a continuación, un gráfico de un archivo Excel se incrusta en una diapositiva como un [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/).
 
-# Instancia la clase Presentation que representa el PPTX
-with slides.Presentation() as pres:
-    # Accede a la primera diapositiva
-    sld = pres.slides[0]
-
-    # Carga un archivo de excel al flujo
-    with open(path + "book1.xlsx", "rb") as fs:
-        bytes = fs.read()
-    
-        # Crea un objeto de datos para incrustar
-        dataInfo = slides.dom.ole.OleEmbeddedDataInfo(bytes, "xlsx")
-
-        # Agrega un marco de objeto Ole
-        oleObjectFrame = sld.shapes.add_ole_object_frame(0, 0, pres.slide_size.size.width, pres.slide_size.size.height, dataInfo)
-
-        # Escribe el archivo PPTX en disco
-        pres.save("OleEmbed_out.pptx", slides.export.SaveFormat.PPTX)
-```
-## **Accediendo a Marcos de Objetos OLE**
-Si un objeto OLE ya está incrustado en una diapositiva, puedes encontrar o acceder a ese objeto fácilmente de esta manera:
-
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-
-1. Obtén la referencia de la diapositiva utilizando su índice.
-
-1. Accede a la forma [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/).
-
-   En nuestro ejemplo, utilizamos el PPTX previamente creado que tiene solo una forma en la primera diapositiva. Luego *convertimos* ese objeto a un [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/). Este era el Marco de Objeto OLE deseado al que acceder.
-
-1. Una vez que se accede al Marco de Objeto OLE, puedes realizar cualquier operación sobre él.
-
-En el ejemplo a continuación, se accede a un Marco de Objeto OLE (un objeto gráfico de Excel incrustado en una diapositiva) y luego sus datos de archivo se escriben en un archivo de Excel:
-
-```py 
-import aspose.slides as slides
-
-# Carga el PPTX a un objeto de presentación
-with slides.Presentation(path + "AccessingOLEObjectFrame.pptx") as pres:
-    # Accede a la primera diapositiva
-    sld = pres.slides[0]
-
-    # Convierte la forma a OleObjectFrame
-    oleObjectFrame = sld.shapes[0]
-
-    # Lee el objeto OLE y lo escribe en disco
-    if type(oleObjectFrame) is slides.OleObjectFrame:
-        # Obtiene los datos del archivo incrustado
-        data = oleObjectFrame.embedded_data.embedded_file_data
-
-        # Obtiene la extensión del archivo incrustado
-        fileExtention = oleObjectFrame.embedded_data.embedded_file_extension
-
-        # Crea una ruta para guardar el archivo extraído
-        extractedPath = "excelFromOLE_out" + fileExtention
-
-        # Guarda los datos extraídos
-        with open("out.xlsx", "wb") as fs:
-            fs.write(data)
-```
-
-## **Cambiando los Datos del Objeto OLE**
-
-Si un objeto OLE ya está incrustado en una diapositiva, puedes acceder fácilmente a ese objeto con Aspose.Slides para Python a través de .NET y modificar sus datos de esta manera:
-
-1. Abre la presentación deseada con el objeto OLE incrustado creando una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-
-1. Obtén la referencia de la diapositiva a través de su índice.
-
-1. Accede a la forma [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/).
-
-   En nuestro ejemplo, utilizamos el PPTX previamente creado, que tiene solo una forma en la primera diapositiva. Luego *convertimos* ese objeto a un [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/). Este era el Marco de Objeto OLE deseado al que acceder.
-
-1. Una vez que se accede al Marco de Objeto OLE, puedes realizar cualquier operación sobre él.
-
-1. Crea el objeto Workbook y accede a los Datos OLE.
-
-1. Accede a la Hoja de Cálculo deseada y modifica los datos.
-
-1. Guarda el Workbook actualizado en flujos.
-
-1. Cambia los datos del objeto OLE desde los datos de flujo.
-
-En el ejemplo a continuación, se accede a un Marco de Objeto OLE (un objeto gráfico de Excel incrustado en una diapositiva) y luego sus datos de archivo se modifican para cambiar los datos del gráfico.
-
-```py 
-# [TODO:require Aspose.Cells for Python via .NET]
-```
-
-## Incrustando Otros Tipos de Archivos en Diapositivas
-
-Además de gráficos de Excel, Aspose.Slides para Python a través de .NET permite incrustar otros tipos de archivos en diapositivas. Por ejemplo, puedes insertar archivos HTML, PDF y ZIP como objetos en una diapositiva. Cuando un usuario hace doble clic en el objeto insertado, el objeto se lanza automáticamente en el programa relevante, o se dirige al usuario a seleccionar un programa apropiado para abrir el objeto.
-
-Este código python te muestra cómo incrustar HTML y ZIP en una diapositiva:
+**Nota:** El constructor de [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-net/aspose.slides.dom.ole/oleembeddeddatainfo/) recibe la extensión del archivo del objeto incrustable como su segundo parámetro. PowerPoint usa esta extensión para identificar el tipo de archivo y seleccionar la aplicación adecuada para abrir el objeto OLE.
 
 ```py
-import aspose.slides as slides
+with slides.Presentation() as presentation:
+    slide_size = presentation.slide_size.size
+    slide = presentation.slides[0]
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    with open(path + "index.html", "rb") as fs1:
-        htmlBytes = fs1.read()
-        dataInfoHtml = slides.dom.ole.OleEmbeddedDataInfo(htmlBytes, "html")
-        oleFrameHtml = slide.shapes.add_ole_object_frame(150, 120, 50, 50, dataInfoHtml)
-        oleFrameHtml.is_object_icon = True
+    # Preparar los datos para el objeto OLE.
+    with open("book.xlsx", "rb") as file_stream:
+        file_data = file_stream.read()
+        data_info = slides.dom.ole.OleEmbeddedDataInfo(file_data, "xlsx")
 
-    with open(path + "archive.zip", "rb") as fs2:
-        zipBytes = fs2.read()
-        dataInfoZip = slides.dom.ole.OleEmbeddedDataInfo(zipBytes, "zip")
-        oleFrameZip = slide.shapes.add_ole_object_frame(150, 220, 50, 50, dataInfoZip)
-        oleFrameZip.is_object_icon = True
+    # Añadir un marco de objeto OLE a la diapositiva.
+    ole_frame = slide.shapes.add_ole_object_frame(0, 0, slide_size.width, slide_size.height, data_info)
 
-    pres.save("embeddedOle.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## Estableciendo Tipos de Archivo para Objetos Incrustados
+### **Agregar objetos OLE vinculados**
 
-Al trabajar en presentaciones, es posible que necesites reemplazar objetos OLE antiguos por nuevos. O puede que necesites reemplazar un objeto OLE no soportado por uno soportado.
+Aspose.Slides para Python le permite agregar un [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) que enlaza a un archivo en lugar de incrustar sus datos.
 
-Aspose.Slides para Python a través de .NET te permite establecer el tipo de archivo para un objeto incrustado. De esta manera, puedes cambiar los datos del marco OLE o su extensión.
-
-Este código python te muestra cómo establecer el tipo de archivo para un objeto OLE incrustado:
+El siguiente ejemplo en Python muestra cómo agregar un [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) vinculado a un archivo Excel en una diapositiva:
 
 ```py
-import aspose.slides as slides
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-with slides.Presentation("embeddedOle.pptx") as pres:
-    slide = pres.slides[0]
-    oleObjectFrame = slide.shapes[0]
-    print("La extensión de datos incrustados actual es:" + oleObjectFrame.embedded_data.embedded_file_extension)
-   
-    with open(path + "1.zip", "rb") as fs2:
-        zipBytes = fs2.read()
+    # Añadir un marco de objeto OLE con un archivo Excel vinculado.
+    slide.shapes.add_ole_object_frame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx")
 
-    oleObjectFrame.set_embedded_data(slides.dom.ole.OleEmbeddedDataInfo(zipBytes, "zip"))
-   
-    pres.save("embeddedChanged.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## Estableciendo Imágenes y Títulos de Íconos para Objetos Incrustados
+## **Acceder a objetos OLE**
 
-Después de incrustar un objeto OLE, se agrega automáticamente una vista previa que consiste en una imagen de ícono y un título. La vista previa es lo que los usuarios ven antes de acceder o abrir el objeto OLE.
+Si un objeto OLE ya está incrustado en una diapositiva, puede acceder a él de la siguiente manera:
 
-Si deseas utilizar una imagen y un texto específicos como elementos en la vista previa, puedes establecer la imagen de ícono y el título utilizando Aspose.Slides para Python a través de .NET.
+1. Cargue la presentación que contiene el objeto OLE incrustado creando una instancia de la clase Presentation.  
+1. Obtenga una referencia a la diapositiva por su índice.  
+1. Acceda a la forma OleObjectFrame.  
+1. Una vez que tenga el marco del objeto OLE, realice las operaciones necesarias sobre él.
 
-Este código de Python te muestra cómo establecer la imagen de ícono y el título para un objeto incrustado:
+El ejemplo a continuación accede al marco del objeto OLE—un gráfico de Excel incrustado—y recupera sus datos de archivo. En este ejemplo, usamos un PPTX que tiene una sola forma en la primera diapositiva.
 
 ```py
-import aspose.slides as slides
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
 
-with slides.Presentation("embeddedOle.pptx") as pres:
-    slide = pres.slides[0]
-    oleObjectFrame = slide.shapes[0]
-    
-    with open("img.jpeg", "rb") as in_file:
-        oleImage = pres.images.add_image(in_file)
+    if isinstance(shape, slides.OleObjectFrame):
+        ole_frame = shape
 
-    oleObjectFrame.substitute_picture_title = "Mi título"
-    oleObjectFrame.substitute_picture_format.picture.image = oleImage
-    oleObjectFrame.is_object_icon = False
+        # Obtener los datos del archivo incrustado.
+        file_data = ole_frame.embedded_data.embedded_file_data
 
-    pres.save("embeddedOle-newImage.pptx", slides.export.SaveFormat.PPTX)
+        # Obtener la extensión del archivo incrustado.
+        file_extension = ole_frame.embedded_data.embedded_file_extension
+
+        # ...
 ```
 
-## **Prevenir que un Marco de Objeto OLE sea Redimensionado y Reposicionado**
+### **Acceder a propiedades de objetos OLE vinculados**
 
-Después de agregar un objeto OLE vinculado a una diapositiva de presentación, cuando abres la presentación en PowerPoint, es posible que veas un mensaje pidiéndote que actualices los enlaces. Hacer clic en el botón "Actualizar Enlaces" puede cambiar el tamaño y la posición del marco de objeto OLE porque PowerPoint actualiza los datos del objeto OLE vinculado y refresca la vista previa del objeto. Para evitar que PowerPoint solicite actualizar los datos del objeto, establece la propiedad `update_automatic` de la clase [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) a `False`:
+Aspose.Slides le permite acceder a las propiedades de un marco de objeto OLE vinculado.
+
+El siguiente ejemplo en Python verifica si un objeto OLE está vinculado y, de ser así, recupera la ruta al archivo vinculado:
 
 ```py
-oleObjectFrame.update_automatic = False
+with slides.Presentation("sample.ppt") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+
+    if isinstance(shape, slides.OleObjectFrame):
+        ole_frame = shape
+
+        # Verificar si el objeto OLE está vinculado.
+        if ole_frame.is_object_link:
+            # Imprimir la ruta completa del archivo vinculado.
+            print("OLE object frame is linked to:", ole_frame.link_path_long)
+
+            # Imprimir la ruta relativa del archivo vinculado, si está presente.
+            # Sólo las presentaciones .ppt pueden contener una ruta relativa.
+            if ole_frame.link_path_relative:
+                print("OLE object frame relative path:", ole_frame.link_path_relative)
 ```
 
-## Extrayendo Archivos Incrustados
+## **Cambiar datos de un objeto OLE**
 
-Aspose.Slides para Python a través de .NET te permite extraer los archivos incrustados en las diapositivas como objetos OLE de esta manera:
+{{% alert color="primary" %}}
 
-1. Crea una instancia de la [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) que contenga el objeto OLE que deseas extraer.
-2. Recorre todas las formas en la presentación y accede a la forma [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/).
-3. Accede a los datos del archivo incrustado desde el Marco de Objeto OLE y escríbelo en disco.
+En esta sección, el ejemplo de código a continuación usa [Aspose.Cells for Python via .NET](/cells/python-net/).
 
-Este código python te muestra cómo extraer un archivo incrustado en una diapositiva como un objeto OLE:
+{{% /alert %}}
+
+Si un objeto OLE ya está incrustado en una diapositiva, puede acceder a él y modificar sus datos de la siguiente forma:
+
+1. Cargue la presentación creando una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).  
+1. Obtenga la diapositiva objetivo por su índice.  
+1. Acceda a la forma [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/).  
+1. Una vez que tenga el marco del objeto OLE, realice las operaciones requeridas.  
+1. Cree un objeto `Workbook` y lea los datos OLE.  
+1. Abra la `Worksheet` deseada y edite los datos.  
+1. Guarde el `Workbook` actualizado en un flujo.  
+1. Reemplace los datos del objeto OLE usando ese flujo.
+
+En el ejemplo a continuación, se accede a un marco de objeto OLE (un gráfico de Excel incrustado) y se modifica su archivo de datos para actualizar el gráfico. El ejemplo usa un PPTX previamente creado que contiene una sola forma en la primera diapositiva.
 
 ```py
+import io
 import aspose.slides as slides
+import aspose.cells as cells
 
-with slides.Presentation("embeddedOle.pptx") as pres:
-    slide = pres.slides[0]
-    index = 0
-    for shape in slide.shapes:
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
 
-        if type(shape) is slides.OleObjectFrame:
-            data = shape.embedded_data.embedded_file_data
-            extension = shape.embedded_data.embedded_file_extension
-            
-            with open("oleFrame{idx}{ex}".format(idx = str(index), ex = extension), "wb") as fs:
-                fs.write(data)
-        index += 1
+    if isinstance(shape, slides.OleObjectFrame):
+        ole_frame = shape
+
+        with io.BytesIO(ole_frame.embedded_data.embedded_file_data) as ole_stream:
+            # Leer los datos del objeto OLE como un objeto Workbook.
+            workbook = cells.Workbook(ole_stream)
+
+        with io.BytesIO() as new_ole_stream:
+            # Modificar los datos del workbook.
+            workbook.worksheets.get(0).cells.get(0, 4).put_value("E")
+            workbook.worksheets.get(0).cells.get(1, 4).put_value(12)
+            workbook.worksheets.get(0).cells.get(2, 4).put_value(14)
+            workbook.worksheets.get(0).cells.get(3, 4).put_value(15)
+
+            file_options = cells.OoxmlSaveOptions(cells.SaveFormat.XLSX)
+            workbook.save(new_ole_stream, file_options)
+
+            # Cambiar los datos del objeto del marco OLE.
+            new_data = slides.dom.ole.OleEmbeddedDataInfo(new_ole_stream.getvalue(), ole_frame.embedded_data.embedded_file_extension)
+            ole_frame.set_embedded_data(new_data)
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Incrustar archivos en diapositivas**
+
+Además de gráficos de Excel, Aspose.Slides para Python le permite incrustar otros tipos de archivo en diapositivas. Por ejemplo, puede insertar archivos HTML, PDF y ZIP como objetos. Cuando un usuario hace doble clic en un objeto insertado, se abre automáticamente en la aplicación asociada, o se le solicita que elija un programa apropiado.
+
+Este código Python muestra cómo incrustar archivos HTML y ZIP en una diapositiva:
+
+```py
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with open("sample.html", "rb") as html_stream:
+        html_data = html_stream.read()
+
+    html_data_info = slides.dom.ole.OleEmbeddedDataInfo(html_data, "html")
+    html_ole_frame = slide.shapes.add_ole_object_frame(150, 120, 50, 50, html_data_info)
+    html_ole_frame.is_object_icon = True
+
+    with open("sample.zip", "rb") as zip_stream:
+        zip_data = zip_stream.read()
+
+    zip_data_info = slides.dom.ole.OleEmbeddedDataInfo(zip_data, "zip")
+    zip_ole_frame = slide.shapes.add_ole_object_frame(150, 220, 50, 50, zip_data_info)
+    zip_ole_frame.is_object_icon = True
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Establecer tipos de archivo para objetos incrustados**
+
+Al trabajar con presentaciones, puede necesitar reemplazar objetos OLE antiguos por nuevos o intercambiar un objeto OLE no compatible por uno compatible. Aspose.Slides para Python le permite establecer el tipo de archivo de un objeto incrustado, lo que le permite actualizar los datos del marco OLE o su extensión de archivo.
+
+Este código Python muestra cómo establecer el tipo de archivo del objeto OLE incrustado a `zip`:
+
+```py
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    ole_frame = slide.shapes[0]
+
+    file_extension = ole_frame.embedded_data.embedded_file_extension
+    file_data = ole_frame.embedded_data.embedded_file_data
+
+    print(f"Current embedded file extension is: {file_extension}")
+
+    # Cambiar el tipo de archivo a ZIP.
+    ole_frame.set_embedded_data(slides.dom.ole.OleEmbeddedDataInfo(file_data, "zip"))
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Establecer imágenes de ícono y títulos para objetos incrustados**
+
+Después de incrustar un objeto OLE, se agrega automáticamente una vista previa basada en un ícono. Esta vista previa es lo que los usuarios ven antes de acceder o abrir el objeto OLE. Si desea usar una imagen y un texto específicos en la vista previa, puede establecer la imagen del ícono y el título mediante Aspose.Slides para Python.
+
+Este código Python muestra cómo establecer la imagen del ícono y el título para un objeto incrustado:
+
+```py
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    ole_frame = slide.shapes[0]
+
+    # Añadir una imagen a los recursos de la presentación.
+    with slides.Images.from_file("image.png") as image:
+        ole_image = presentation.images.add_image(image)
+
+    # Establecer un título y la imagen para la vista previa OLE.
+    ole_frame.substitute_picture_title = "My title"
+    ole_frame.substitute_picture_format.picture.image = ole_image
+    ole_frame.is_object_icon = True
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Evitar que los marcos de objetos OLE se redimensionen y reposicionen**
+
+Después de agregar un objeto OLE vinculado a una diapositiva, PowerPoint puede solicitarle que actualice los enlaces al abrir la presentación. Seleccionar **Actualizar enlaces** puede cambiar el tamaño y la posición del marco del objeto OLE porque PowerPoint actualiza la vista previa con los datos del objeto vinculado. Para evitar que PowerPoint le solicite actualizar los datos del objeto, establezca la propiedad `update_automatic` de la clase [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) en `False`:
+
+```py
+ole_frame.update_automatic = False
+```
+
+## **Extraer archivos incrustados**
+
+Aspose.Slides para Python le permite extraer archivos incrustados en diapositivas como objetos OLE de la siguiente forma:
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) que contenga los objetos OLE que desea extraer.  
+1. Recorra todas las formas de la presentación y ubique las formas OleObjectFrame.  
+1. Recupere los datos del archivo incrustado de cada [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) y escríbalos en disco.
+
+El siguiente código Python muestra cómo extraer archivos incrustados en una diapositiva como objetos OLE:
+
+```py
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for index, shape in enumerate(slide.shapes):
+        if isinstance(shape, slides.OleObjectFrame):
+            ole_frame = shape
+
+            file_data = ole_frame.embedded_data.embedded_file_data
+            file_extension = ole_frame.embedded_data.embedded_file_extension
+
+            file_path = f"OLE_object_{index}{file_extension}"
+            with open(file_path, 'wb') as file_stream:
+                file_stream.write(file_data)
+```
+
+## **FAQ**
+
+**¿Se renderizará el contenido OLE al exportar diapositivas a PDF/imágenes?**  
+Lo que es visible en la diapositiva se renderiza: el ícono/imagen de sustitución (vista previa). El contenido OLE “en vivo” no se ejecuta durante el renderizado. Si es necesario, establezca su propia imagen de vista previa para garantizar la apariencia esperada en el PDF exportado.
+
+**¿Cómo puedo bloquear un objeto OLE en una diapositiva para que los usuarios no puedan moverlo/editarlo en PowerPoint?**  
+Bloquee la forma: Aspose.Slides proporciona [bloqueos a nivel de forma](/slides/es/python-net/applying-protection-to-presentation/). No es encriptación, pero evita eficazmente ediciones y movimientos accidentales.
+
+**¿Por qué un objeto Excel vinculado “salta” o cambia de tamaño al abrir la presentación?**  
+PowerPoint puede refrescar la vista previa del OLE vinculado. Para una apariencia estable, siga las prácticas de la [solución de redimensionamiento de hoja de cálculo](/slides/es/python-net/working-solution-for-worksheet-resizing/): ajuste el marco al rango, o escale el rango a un marco fijo y establezca una imagen de sustitución adecuada.
+
+**¿Se conservarán las rutas relativas de los objetos OLE vinculados en el formato PPTX?**  
+En PPTX, la información de “ruta relativa” no está disponible—solo la ruta completa. Las rutas relativas aparecen en el formato PPT antiguo. Para portabilidad, prefiera rutas absolutas fiables/URIs accesibles o incruste los objetos.

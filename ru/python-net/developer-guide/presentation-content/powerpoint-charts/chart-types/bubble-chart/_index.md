@@ -1,13 +1,23 @@
 ---
-title: График пузырьков
+title: Настройка пузырьковых диаграмм в презентациях с помощью Python
+linktitle: Пузырьковая диаграмма
 type: docs
 url: /ru/python-net/bubble-chart/
-keywords: "График пузырьков, размер графика, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Размер графика пузырьков в презентациях PowerPoint на Python"
+keywords:
+- пузырьковая диаграмма
+- размер пузыря
+- масштабирование размера
+- представление размера
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Создавайте и настраивайте мощные пузырьковые диаграммы в PowerPoint и OpenDocument с помощью Aspose.Slides для Python через .NET, чтобы легко улучшить визуализацию данных."
 ---
 
-## **Масштабирование размера графика пузырьков**
-Aspose.Slides для Python через .NET поддерживает масштабирование размера графика пузырьков. В Aspose.Slides для Python через .NET были добавлены свойства **ChartSeries.bubble_size_scale** и **ChartSeriesGroup.bubble_size_scale**. Приведен пример ниже.
+## **Масштабирование размеров пузырьковой диаграммы**
+Aspose.Slides для Python через .NET предоставляет поддержку масштабирования размеров пузырьковой диаграммы. В Aspose.Slides для Python через .NET **ChartSeries.bubble_size_scale** и **ChartSeriesGroup.bubble_size_scale** были добавлены свойства. Ниже приведён пример.
 
 ```py
 import aspose.slides.charts as charts
@@ -19,8 +29,10 @@ with slides.Presentation() as pres:
 	pres.save("Result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Представление данных в виде размеров графиков пузырьков**
-Свойство **bubble_size_representation** было добавлено в классы ChartSeries, ChartSeriesGroup. **bubble_size_representation** определяет, как значения размера пузырьков представлены в графике пузырьков. Возможные значения: **BubbleSizeRepresentationType.AREA** и **BubbleSizeRepresentationType.WIDTH**. Соответственно, был добавлен перечисляемый тип **BubbleSizeRepresentationType** для указания возможных способов представления данных в виде размеров графиков пузырьков. Пример кода приведен ниже.
+
+
+## **Представление данных как размеры пузырей**
+Свойство **bubble_size_representation** было добавлено к классам ChartSeries, ChartSeriesGroup. **bubble_size_representation** определяет, как значения размеров пузырей отображаются в пузырьковой диаграмме. Возможные значения: **BubbleSizeRepresentationType.AREA** и **BubbleSizeRepresentationType.WIDTH**. Соответственно, в перечисление **BubbleSizeRepresentationType** добавлены возможные способы представления данных как размеров пузырей. Пример кода ниже.
 
 ```py
 import aspose.slides.charts as charts
@@ -31,3 +43,17 @@ with slides.Presentation() as pres:
     chart.chart_data.series_groups[0].bubble_size_representation = charts.BubbleSizeRepresentationType.WIDTH
     pres.save("Presentation_BubbleSizeRepresentation.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQ**
+
+**Поддерживается ли «пузырьковая диаграмма с 3‑D эффектом», и чем она отличается от обычной?**
+
+Да. Существует отдельный тип диаграммы «Bubble with 3-D». Он применяет 3‑D стилизацию к пузырькам, но не добавляет дополнительную ось; данные остаются X‑Y‑S (размер). Тип доступен в перечислении [chart type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/).
+
+**Существует ли ограничение на количество рядов и точек в пузырьковой диаграмме?**
+
+На уровне API жёсткого ограничения нет; ограничения определяются производительностью и целевой версией PowerPoint. Рекомендуется держать число точек разумным для читаемости и скорости отрисовки.
+
+**Как экспорт влияет на внешний вид пузырьковой диаграммы (PDF, изображения)?**
+
+Экспорт в поддерживаемые форматы сохраняет внешний вид диаграммы; рендеринг выполняется движком Aspose.Slides. Для растровых/векторных форматов применяются общие правила рендеринга графики диаграмм (разрешение, сглаживание), поэтому выбирайте достаточное DPI для печати.

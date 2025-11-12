@@ -1,55 +1,43 @@
 ---
-title: عرض ثلاثي الأبعاد
+title: إنشاء عروض تقديمية ثلاثية الأبعاد في بايثون
+linktitle: عرض ثلاثي الأبعاد
 type: docs
 weight: 232
 url: /ar/python-net/3d-presentation/
 keywords:
-- 3D
 - PowerPoint ثلاثي الأبعاد
 - عرض ثلاثي الأبعاد
-- تدوير ثلاثي الأبعاد
+- دوران ثلاثي الأبعاد
 - عمق ثلاثي الأبعاد
 - بروز ثلاثي الأبعاد
-- تدرج ثلاثي الأبعاد
+- تدرج لوني ثلاثي الأبعاد
 - نص ثلاثي الأبعاد
-- عرض PowerPoint
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
 - بايثون
-- Aspose.Slides لبايثون عبر .NET
-description: "عرض PowerPoint ثلاثي الأبعاد في بايثون"
+- Aspose.Slides
+description: "إنشاء عروض تقديمية ثلاثية الأبعاد تفاعلية في بايثون باستخدام Aspose.Slides بسهولة. تصدير سريع إلى صيغ PowerPoint وOpenDocument للاستخدام المتعدد."
 ---
 
-## نظرة عامة
-كيف تقوم عادةً بإنشاء عرض PowerPoint ثلاثي الأبعاد؟
-يمكن Microsoft PowerPoint من إنشاء عروض ثلاثية الأبعاد حيث يمكننا إضافة نماذج ثلاثية الأبعاد، وتطبيق تأثيرات ثلاثية الأبعاد على الأشكال، 
-إنشاء نص ثلاثي الأبعاد، تحميل رسومات ثلاثية الأبعاد في العرض، وإنشاء تكوينات ثلاثية الأبعاد في PowerPoint.
+## **نظرة عامة**
 
-إن إنشاء تأثيرات ثلاثية الأبعاد يحدث تأثيرًا كبيرًا في تحسين العرض ليصبح عرضًا ثلاثي الأبعاد، وقد يكون أسهل تنفيذ لعرض ثلاثي الأبعاد. 
-منذ إصدار Aspose.Slides 20.9، تمت إضافة **محرك ثلاثي الأبعاد عبر المنصات** جديد. يتيح المحرك الثلاثي الأبعاد الجديد 
-تصدير ورستر الأشكال والنصوص مع تأثيرات ثلاثية الأبعاد. في الإصدارات السابقة، 
-كانت الأشكال مع تطبيق تأثيرات ثلاثية الأبعاد تُعرض بشكل مسطح. لكن، الآن من الممكن 
-عرض الأشكال بشكل **ثلاثي الأبعاد كامل**.
-علاوة على ذلك، أصبح من الممكن الآن إنشاء أشكال مع تأثيرات ثلاثية الأبعاد عبر واجهة برمجة التطبيقات العامة لSlides.
+كيف تنشئ عادةً عرض PowerPoint ثلاثي الأبعاد؟ يتيح لك Microsoft PowerPoint إضافة نماذج ثلاثية الأبعاد، تطبيق تأثيرات ثلاثية الأبعاد على الأشكال، إنشاء نص ثلاثي الأبعاد، إدراج رسومات ثلاثية الأبعاد، وبناء رسومات متحركة ثلاثية الأبعاد.
 
-في واجهة برمجة تطبيقات Aspose.Slides، لجعل 
-شكل ما يصبح شكل PowerPoint ثلاثي الأبعاد، استخدم خاصية [IShape.ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) 
-التي ترث ميزات واجهة [IThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat):
-- [BevelBottom](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) 
-و [BevelTop](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): set bevel to the shape, define bevel type (e.g. Angle, Circle, SoftRound), define height and width of bevel.
-- [الكاميرا](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): تُستخدم لتقليد حركات الكاميرا حول الكائن. بعبارة أخرى، من خلال ضبط دوران الكاميرا، والتكبير، وخصائص أخرى - يمكنك التفاعل مع 
-أشكالك كما لو كانت النموذج ثلاثي الأبعاد في PowerPoint.
-- [ContourColor](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) 
-و [ContourWidth](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): اضبط خصائص الحواف لجعل الشكل يبدو كشكل PowerPoint ثلاثي الأبعاد.
-- [عمق](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/)، 
-[لون البروز](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) 
-و [ارتفاع البروز](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): تُستخدم لجعل الشكل ثلاثي الأبعاد، مما يعني تحويل شكل ثنائي الأبعاد إلى شكل ثلاثي الأبعاد، 
-من خلال ضبط عمقه أو بروزته.
-- [إضاءة](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): يمكن أن تخلق تأثير إضاءة على شكل ثلاثي الأبعاد. منطق هذه الخاصية مشابه للكاميرا، يمكنك ضبط دوران الضوء 
-بالنسبة للشكل الثلاثي الأبعاد واختيار نوع الضوء.
-- [المادة](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/): يمكن أن يجلب ضبط نوع مادة الشكل الثلاثي الأبعاد تأثيرًا أكثر حيوية. توفر الخاصية مجموعة من المواد المحددة مسبقًا، مثل: 
-المعدن، البلاستيك، المسحوق، غير اللامع، إلخ.  
+إنشاء تأثيرات ثلاثية الأبعاد له تأثير كبير وغالبًا ما يكون أسهل طريقة لتحويل مجموعة شرائح قياسية إلى عرض ثلاثي الأبعاد. منذ Aspose.Slides 20.9، تمت إضافة **محرك ثلاثي الأبعاد متعدد المنصات**. يتيح هذا المحرك تصدير ورسم الأشكال والنصوص ذات التأثيرات ثلاثية الأبعاد. في الإصدارات السابقة، كانت الأشكال ذات التأثيرات ثلاثية الأبعاد تُرسم مسطحة؛ الآن يمكن رسمها بـ **ثلاثية أبعاد كاملة**. يمكنك أيضًا إنشاء أشكال ذات تأثيرات ثلاثية الأبعاد عبر API الخاص بـ Aspose.Slides.
 
-يمكن تطبيق جميع ميزات 3D على الأشكال والنصوص. دعنا نرى كيفية الوصول إلى الخصائص المذكورة أعلاه ثم نتناولها بالتفصيل خطوة بخطوة:
-```py 
+في API الخاص بـ Aspose.Slides، لجعل شكل ما شكل ثلاثي الأبعاد في PowerPoint، استخدم خاصية [Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/) التي تكشف عن أعضاء فئة [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat):
+
+- [bevel_bottom](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_bottom/) و [bevel_top](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_top/): ضبط المسافات، اختيار نوع الحافة (مثل Angle، Circle، SoftRound)، وتحديد ارتفاع وعرض الحافة.
+- [camera](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/camera/): محاكاة حركة الكاميرا حول الكائن؛ من خلال تعديل دوران الكاميرا، التكبير، وخصائص أخرى، يمكنك التحكم بالأشكال كما لو كانت نماذج ثلاثية الأبعاد في PowerPoint.
+- [contour_color](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/contour_color/) و [contour_width](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/contour_width/): ضبط خصائص الخط لتجعل الشكل يبدو ككائن ثلاثي الأبعاد في PowerPoint.
+- [depth](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/depth/)، [extrusion_color](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_color/)، و [extrusion_height](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_height/): جعل الشكل ثلاثي الأبعاد بتحديد العمق أو بروز الشكل.
+- [light_rig](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/light_rig/): إنشاء تأثيرات إضاءة على الشكل الثالثي الأبعاد؛ مشابهًا للكاميرا، يمكنك ضبط دوران الإضاءة بالنسبة للشكل واختيار نوع الإضاءة.
+- [material](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/material/): اختيار مادة لجعل الشكل الثلاثي الأبعاد يبدو أكثر واقعية. تشمل المواد المعرفة مسبقًا المعدن، البلاستيك، البودرة، المخمل، والمزيد.
+
+يمكن تطبيق جميع ميزات الثلاثي الأبعاد على كلٍ من الأشكال والنصوص. توضح الأقسام أدناه كيفية الوصول إلى هذه الخصائص ثم فحصها خطوة بخطوة.
+
+```py
 import aspose.pydrawing as drawing
 import aspose.slides as slides
 
@@ -76,47 +64,49 @@ with slides.Presentation() as presentation:
     presentation.save("sandbox_3d.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-تبدو الصورة المُعالجة على هذا النحو:
+الصورة المصغرة المصدرة تبدو هكذا:
 
 ![todo:image_alt_text](img_01_01.png)
 
-## دوران ثلاثي الأبعاد
-من الممكن تدوير أشكال PowerPoint ثلاثية الأبعاد في الفضاء ثلاثي الأبعاد، مما يجلب المزيد من التفاعل. لتدوير شكل ثلاثي الأبعاد في PowerPoint، عادة ما تستخدم القائمة التالية:
+## **دوران ثلاثي الأبعاد**
+
+يمكنك تدوير الأشكال ثلاثية الأبعاد في PowerPoint في الفضاء الثلاثي الأبعاد لإضفاء التفاعل. لتدوير شكل ثلاثي الأبعاد في PowerPoint، استخدم القائمة التالية:
 
 ![todo:image_alt_text](img_02_01.png)
 
-في واجهة برمجة تطبيقات Aspose.Slides، يمكن إدارة دوران الشكل ثلاثي الأبعاد باستخدام خاصية [الكاميرا](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/):
+في API الخاص بـ Aspose.Slides، تتحكم في دوران الشكل الثلاثي الأبعاد عبر خاصية [camera](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/camera/).
 
 ```py
 shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 200, 200)
 shape.three_d_format.camera.set_rotation(20, 30, 40)
-# ... set other 3D scene parameters
+# ... ضبط معلمات المشهد ثلاثية الأبعاد الأخرى
 
 with slide.get_image(image_scale, image_scale) as thumbnail:
     thumbnail.save("sample_3d.png")
 ```
 
-## عمق وثقب ثلاثي الأبعاد
-لإضفاء البعد الثالث على الشكل وجعله شكلًا ثلاثي الأبعاد، استخدم خصائص [ ارتفاع البروز](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/) 
-و [لون البروز](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformat/):
+## **عمق ثلاثي الأبعاد والبروز**
+
+لإضافة بُعد ثالث إلى الشكل وجعله ثلاثي الأبعاد فعليًا، استخدم خاصيتي [ThreeDFormat.extrusion_height](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_height/) و [ThreeDFormat.extrusion_color](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_color/):
 
 ```py
 shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 200, 200)
 shape.three_d_format.camera.set_rotation(20, 30, 40)
 shape.three_d_format.extrusion_height = 100
 shape.three_d_format.extrusion_color.color = drawing.Color.purple
-# ... set other 3D scene parameters
+# ... ضبط معلمات المشهد ثلاثية الأبعاد الأخرى
 
 with slide.get_image(image_scale, image_scale) as thumbnail:
     thumbnail.save("sample_3d.png")
 ```
 
-عادةً، تستخدم قائمة العمق في PowerPoint لضبط العمق لشكل PowerPoint ثلاثي الأبعاد:
+في PowerPoint، عادةً ما تستخدم قائمة **Depth** لتحديد عمق الشكل الثلاثي الأبعاد:
 
 ![todo:image_alt_text](img_02_02.png)
 
-## تدرج ثلاثي الأبعاد
-يمكن استخدام التدرج لملء لون شكل PowerPoint ثلاثي الأبعاد. دعنا نخلق شكلًا بلون ملء متدرج ونطبق عليه تأثير ثلاثي الأبعاد:
+## **تدرج ثلاثي الأبعاد**
+
+يمكن استخدام التدرج لتعبئة شكل ثلاثي الأبعاد في PowerPoint. دعنا ننشئ شكلًا بتعبئة تدرج ونطبق عليه تأثير ثلاثي الأبعاد:
 
 ```py
 import aspose.pydrawing as drawing
@@ -146,30 +136,32 @@ with slides.Presentation() as presentation:
         thumbnail.save("sample_3d.png")
 ```
 
-وهذا هو الناتج:
+وهنا النتيجة:
 
 ![todo:image_alt_text](img_02_03.png)
 
-بجانب لون الملء المتدرج، يمكن أيضًا ملء الأشكال بصورة:
+بالإضافة إلى التدرجات، يمكنك تعبئة الأشكال بصورة:
+
 ```py
-with open("image.png", "rb") as image_file: 
+with open("image.png", "rb") as image_file:
     image_data = image_file.read()
 
     shape.fill_format.fill_type = slides.FillType.PICTURE
     shape.fill_format.picture_fill_format.picture.image = presentation.images.add_image(image_data)
     shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-    # ... setup 3D: shape.three_d_format.camera, shape.three_d_format.light_rig, shape.three_d_format.Extrusion* properties
+    # ... إعداد ثلاثي الأبعاد: shape.three_d_format.camera، shape.three_d_format.light_rig، shape.three_d_format.Extrusion* properties
 
     with slide.get_image(image_scale, image_scale) as thumbnail:
         thumbnail.save("sample_3d.png")
 ```
 
-إليك كيف يبدو الشكل:
+وهذا ما يبدو عليه:
 
 ![todo:image_alt_text](img_02_04.png)
 
-## نص ثلاثي الأبعاد (WordArt)
-يتيح Aspose.Slides تطبيق التأثيرات الثلاثية الأبعاد على النص أيضًا. لإنشاء نص ثلاثي الأبعاد، من الممكن استخدام تأثير تحويل WordArt:
+## **نص ثلاثي الأبعاد (WordArt)**
+
+يتيح لك Aspose.Slides تطبيق تأثيرات ثلاثية الأبعاد على النص أيضًا. لإنشاء نص ثلاثي الأبعاد، يمكنك استخدام تأثير تحويل WordArt:
 
 ```py
 import aspose.pydrawing as drawing
@@ -184,7 +176,7 @@ with slides.Presentation() as presentation:
     shape.fill_format.fill_type = slides.FillType.NO_FILL
     shape.fill_format.fill_type = slides.FillType.NO_FILL
     shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
-    shape.text_frame.text = "نص ثلاثي الأبعاد"
+    shape.text_frame.text = "3D text"
    
     portion = shape.text_frame.paragraphs[0].portions[0]
     portion.portion_format.fill_format.fill_type = slides.FillType.PATTERN
@@ -195,7 +187,7 @@ with slides.Presentation() as presentation:
     shape.text_frame.paragraphs[0].paragraph_format.default_portion_format.font_height = 128
    
     text_frame_format = shape.text_frame.text_frame_format
-    # setup "Arch Up" تأثير تحويل WordArt
+    # إعداد تأثير تحويل WordArt "Arch Up"
     text_frame_format.transform = slides.TextShapeType.ARCH_UP
 
     text_frame_format.three_d_format.extrusion_height = 3.5
@@ -212,15 +204,20 @@ with slides.Presentation() as presentation:
     presentation.save("text3d.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-وإليك الناتج:
+وهنا النتيجة:
 
 ![todo:image_alt_text](img_02_05.png)
 
-## غير مدعوم - قادم قريبًا
-الميزات التالية في PowerPoint 3D غير مدعومة بعد:
-- الحواف
-- المادة
-- الحواف
-- الإضاءة
+## **الأسئلة المتداولة**
 
-نواصل تحسين محرك 3D الخاص بنا وهذه الميزات هي موضوع تنفيذ إضافي.
+**هل ستُحافظ تأثيرات الثلاثي الأبعاد عند تصدير العرض إلى صور/PDF/HTML؟**
+
+نعم. يقوم محرك Slides ثلاثي الأبعاد برندر تأثيرات الثلاثي الأبعاد عند التصدير إلى الصيغ المدعومة ([images](/slides/ar/python-net/convert-powerpoint-to-png/)، [PDF](/slides/ar/python-net/convert-powerpoint-to-pdf/)، [HTML](/slides/ar/python-net/convert-powerpoint-to-html/)، إلخ).
+
+**هل يمكنني استرجاع القيم "الفعّالة" (النهائية) لمعلمات الثلاثي الأبعاد التي تأخذ في الاعتبار القوالب، الوراثة، إلخ؟**
+
+نعم. توفر Slides واجهات برمجة تطبيقات لقراءة القيم الفعّالة ([read effective values](/slides/ar/python-net/shape-effective-properties/)) (بما في ذلك الإضاءة، الحواف، إلخ) بحيث يمكنك رؤية الإعدادات النهائية المطبقة.
+
+**هل تعمل تأثيرات الثلاثي الأبعاد عند تحويل العرض إلى فيديو؟**
+
+نعم. عند [generating frames for the video](/slides/ar/python-net/convert-powerpoint-to-video/)، تُرسم تأثيرات الثلاثي الأبعاد كما هي عند [exported images](/slides/ar/python-net/convert-powerpoint-to-png/).
