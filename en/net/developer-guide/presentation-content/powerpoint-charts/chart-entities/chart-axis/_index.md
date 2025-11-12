@@ -1,9 +1,29 @@
 ---
-title: Chart Axis
+title: Customize Chart Axes in Presentations in .NET
+linktitle: Chart Axis
 type: docs
 url: /net/chart-axis/
-keywords: "PowerPoint Chart Axis, Presentation Charts, C#, .NET, Manipulate Chart Axis, Chart data"
-description: "Edit PowerPoint chart axis in C# or .NET"
+keywords:
+- chart axis
+- vertical axis
+- horizontal axis
+- customize axis
+- manipulate axis
+- manage axis
+- axis properties
+- max value
+- min value
+- axis line
+- date format
+- axis title
+- axis position
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Discover how to use Aspose.Slides for .NET to customize chart axes in PowerPoint and OpenDocument presentations for reports and visualizations."
 ---
 
 

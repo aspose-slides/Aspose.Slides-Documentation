@@ -1,9 +1,17 @@
 ---
-title: Callout
+title: Manage Callouts in Presentation Charts in .NET
+linktitle: Callout
 type: docs
 url: /net/callout/
-keywords: "Chart callout, chart data label, C#, Csharp, Aspose.Slides for .NET"
-description: "PowerPoint chart callouts and data labels in C# or .NET"
+keywords:
+- chart callout
+- use callout
+- data label
+- label format
+- .NET
+- C#
+- Aspose.Slides
+description: "Create and style callouts in Aspose.Slides for .NET with concise C# code examples, compatible with PPT, PPTX and ODP to automate presentation workflows."
 ---
 
 ## **Using Callouts**

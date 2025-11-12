@@ -1,19 +1,22 @@
 ---
-title: Manage Zoom
+title: Manage Presentation Zoom in .NET
+linktitle: Manage Zoom
 type: docs
 weight: 60
 url: /net/manage-zoom/
-keywords: 
+keywords:
 - zoom
 - zoom frame
-- add zoom
-- format zoom frame
+- slide zoom
+- section zoom
 - summary zoom
-- PowerPoint presentation
+- add zoom
+- PowerPoint
+- presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Add zoom or zoom frames to PowerPoint presentations in C# or .NET"
+- Aspose.Slides
+description: "Create and customize Zoom with Aspose.Slides for .NET — jump between sections, add thumbnails and transitions across PPT, PPTX and ODP presentations."
 ---
 
 ## **Overview**

@@ -1,15 +1,22 @@
 ---
-title: Chart Data Marker
+title: Manage Chart Data Markers in Presentations in .NET
+linktitle: Data Marker
 type: docs
 url: /net/chart-data-marker/
 keywords:
-- chart marker options
+- chart
+- data point
+- marker
+- marker options
+- marker size
+- fill type
 - PowerPoint
+- OpenDocument
 - presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Set chart marker options in PowerPoint presentations in C# or .NET"
+- Aspose.Slides
+description: "Learn how to customize chart data markers in Aspose.Slides for .NET, boosting presentation impact across PPT, PPTX and ODP formats with clear C# code examples."
 ---
 
 ## **Set Chart Marker Options**

@@ -6,9 +6,13 @@ weight: 10
 url: /net/convert-odp-to-pptx/
 keywords:
 - convert OpenDocument
+- convert presentation
+- convert slide
 - convert ODP
 - OpenDocument to PPTX
 - ODP to PPTX
+- save ODP as PPTX
+- export ODP to PPTX
 - PowerPoint
 - OpenDocument
 - presentation

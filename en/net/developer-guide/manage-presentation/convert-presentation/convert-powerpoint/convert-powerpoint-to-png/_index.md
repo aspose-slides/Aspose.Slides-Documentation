@@ -15,6 +15,10 @@ keywords:
 - slide to PNG
 - PPT to PNG
 - PPTX to PNG
+- save PPT as PNG
+- save PPTX as PNG
+- export PPT to PNG
+- export PPTX to PNG
 - .NET
 - C#
 - Aspose.Slides
