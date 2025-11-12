@@ -1,53 +1,68 @@
 ---
-title: Diagramm Arbeitsblattformeln
+title: Diagramm-Arbeitsblatt-Formeln in Präsentationen mit Python
+linktitle: Arbeitsblatt-Formeln
 type: docs
 weight: 70
 url: /de/python-net/chart-worksheet-formulas/
-keywords: "Diagramm Tabellenkalkulation, Diagramm Formel, PowerPoint Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Diagramm Tabellenkalkulation und Formel in PowerPoint Präsentation in Python"
+keywords:
+- Diagramm-Tabellenblatt
+- Diagramm-Arbeitsblatt
+- Diagramm-Formel
+- Arbeitsblatt-Formel
+- Tabellenblatt-Formel
+- Datenquelle
+- logische Konstante
+- numerische Konstante
+- Zeichenkettenkonstante
+- Fehlerkonstante
+- arithmetische Konstante
+- Vergleichsoperator
+- A1-Stil
+- R1C1-Stil
+- vordefinierte Funktion
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Wenden Sie Excel‑ähnliche Formeln in Aspose.Slides für Python via .NET‑Diagramm‑Tabellenblätter an und automatisieren Sie Berichte in PPT, PPTX und ODP‑Dateien."
 ---
 
-
-## **Über die Diagramm Tabellenkalkulationsformel in Präsentationen**
-**Diagramm Tabellenkalkulation** (oder Diagramm Arbeitsblatt) in Präsentationen ist die Datenquelle des Diagramms. Die Diagramm Tabellenkalkulation enthält Daten, die auf grafische Weise im Diagramm dargestellt werden. Wenn Sie ein Diagramm in PowerPoint erstellen, wird das Arbeitsblatt, das mit diesem Diagramm verknüpft ist, automatisch erstellt. Das Diagramm Arbeitsblatt wird für alle Arten von Diagrammen erstellt: Liniendiagramm, Säulendiagramm, Sonnenblumen-Diagramm, Kreisdiagramm usw. Um die Diagramm Tabellenkalkulation in PowerPoint zu sehen, sollten Sie doppelt auf das Diagramm klicken:
+## **Über Diagramm‑Tabellenblatt‑Formeln in Präsentationen**
+**Diagramm‑Tabellenblatt** (oder Diagramm‑Arbeitsblatt) in einer Präsentation ist die Datenquelle des Diagramms. Diagramm‑Tabellenblatt enthält Daten, die im Diagramm grafisch dargestellt werden. Wenn Sie ein Diagramm in PowerPoint erstellen, wird das dem Diagramm zugehörige Arbeitsblatt automatisch ebenfalls erstellt. Das Arbeitsblatt wird für alle Diagramm‑Typen erstellt: Liniendiagramm, Balkendiagramm, Sunburst‑Diagramm, Kreisdiagramm usw. Um das Diagramm‑Tabellenblatt in PowerPoint zu sehen, doppelklicken Sie das Diagramm:
 
 ![todo:image_alt_text](chart-worksheet-formulas_1.png)
 
+Diagramm‑Tabellenblatt enthält die Namen der Diagrammelemente (Kategorie‑Name: *Category1*, Serien‑Name) und eine Tabelle mit numerischen Daten, die zu diesen Kategorien und Serien passen. Standardmäßig wird beim Erstellen eines neuen Diagramms das Diagramm‑Tabellenblatt‑Daten‑Set mit Beispieldaten befüllt. Anschließend können Sie die Tabellendaten im Arbeitsblatt manuell ändern.
 
+In der Regel stellt das Diagramm komplexe Daten dar (z. B. Finanz‑ oder Wissenschaftsanalyse), bei denen Zellen aus den Werten anderer Zellen oder aus dynamischen Daten berechnet werden. Den Wert einer Zelle manuell zu berechnen und hart zu kodieren, erschwert spätere Änderungen. Wenn Sie den Wert einer bestimmten Zelle ändern, müssen alle davon abhängigen Zellen ebenfalls aktualisiert werden. Darüber hinaus können Tabellendaten von Daten anderer Tabellen abhängen, wodurch ein komplexes Präsentations‑Datenschema entsteht, das einfach und flexibel aktualisiert werden muss.
 
-Die Diagramm Tabellenkalkulation enthält die Namen der Diagrammelemente (Kategorie Name: *Kategorie1*, Serienname) und eine Tabelle mit numerischen Daten, die den Kategorien und Serien entsprechen. Standardmäßig, wenn Sie ein neues Diagramm erstellen - sind die Daten der Diagramm Tabellenkalkulation mit den Standarddaten festgelegt. Anschließend können Sie die Tabellenkalkulationsdaten im Arbeitsblatt manuell ändern.
+**Diagramm‑Tabellenblatt‑Formel** in einer Präsentation ist ein Ausdruck, der die Daten des Diagramm‑Tabellenblatts automatisch berechnet und aktualisiert. Eine Tabellenblatt‑Formel definiert die Berechnungslogik für eine bestimmte Zelle oder einen Zellenbereich. Eine Tabellenblatt‑Formel ist eine mathematische oder logische Formel, die verwendet: Zellreferenzen, mathematische Funktionen, logische Operatoren, arithmetische Operatoren, Konvertierungsfunktionen, Zeichenkettenkonstanten usw. Die Definition der Formel wird in eine Zelle geschrieben, die keinen einfachen Wert enthält. Die Formel berechnet den Wert, gibt ihn zurück und der Wert wird der Zelle zugewiesen. Diagramm‑Tabellenblatt‑Formeln in Präsentationen sind im Wesentlichen dieselben wie Excel‑Formeln, und dieselben Standard‑Funktionen, Operatoren und Konstanten werden unterstützt.
 
-In der Regel repräsentiert das Diagramm komplizierte Daten (z.B. Finanzanalysten, wissenschaftliche Analysten), die Zellen haben, die aus den Werten in anderen Zellen oder aus anderen dynamischen Daten berechnet werden. Den Wert einer Zelle manuell zu berechnen und ihn fest in die Zelle einzugeben, erschwert eine zukünftige Änderung. Wenn Sie den Wert einer bestimmten Zelle ändern, müssen auch alle abhängigen Zellen aktualisiert werden. Darüber hinaus können Tabellendaten von Daten aus anderen Tabellen abhängen, was eine komplexe Datenpräsentationsstruktur schafft, die einfach und flexibel aktualisiert werden muss.
-
-**Diagramm Tabellenkalkulationsformel** in Präsentationen ist ein Ausdruck zur automatischen Berechnung und Aktualisierung der Daten der Diagramm Tabellenkalkulation. Die Tabellenkalkulationsformel definiert die Datenberechnungslogik für eine bestimmte Zelle oder eine Gruppe von Zellen. Eine Tabellenkalkulationsformel ist eine mathematische Formel oder eine logische Formel, die verwendet: Zellreferenzen, mathematische Funktionen, logische Operatoren, arithmetische Operatoren, Konvertierungsfunktionen, Stringkonstanten usw. Die Definition der Formel wird in eine Zelle geschrieben, und diese Zelle enthält keinen einfachen Wert. Die Tabellenkalkulationsformel berechnet den Wert und gibt ihn zurück, dann wird dieser Wert der Zelle zugewiesen. Die Diagramm Tabellenkalkulationsformeln in Präsentationen sind tatsächlich dieselben wie Excel-Formeln, und es werden dieselben Standardfunktionen, Operatoren und Konstanten zur Implementierung unterstützt.
-
-In [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) wird die Diagramm Tabellenkalkulation durch die 
-[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdata/) Eigenschaft des 
+In [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) wird das Diagramm‑Tabellenblatt über die Eigenschaft 
+[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdata/) des 
 [**IChartDataWorkbook**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdataworkbook/) Typs dargestellt. 
-Die Tabellenkalkulationsformel kann mit der 
-[**formula**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/) Eigenschaft zugewiesen und geändert werden. 
+Formeln können über die Eigenschaft 
+[**formula**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/) zugewiesen und geändert werden. 
 Die folgende Funktionalität wird für Formeln in Aspose.Slides unterstützt:
 
 - Logische Konstanten
 - Numerische Konstanten
-- Stringkonstanten
-- Fehlerkonstanten
+- Zeichenketten‑Konstanten
+- Fehler‑Konstanten
 - Arithmetische Operatoren
 - Vergleichsoperatoren
-- A1-Style Zellreferenzen
-- R1C1-Style Zellreferenzen
-- Vorgegebene Funktionen
+- A1‑Stil‑Zellreferenzen
+- R1C1‑Stil‑Zellreferenzen
+- Vordefinierte Funktionen
 
+Typischerweise speichern Tabellenblätter die zuletzt berechneten Formelwerte. Wenn nach dem Laden der Präsentation die Diagrammdaten nicht geändert wurden, gibt die Eigenschaft **IChartDataCell.Value** diese Werte beim Lesen zurück. Wenn jedoch die Tabellendaten geändert wurden, wirft das Lesen von **ChartDataCell.Value** die **CellUnsupportedDataException** für nicht unterstützte Formeln. Das liegt daran, dass beim erfolgreichen Parsen einer Formel die Zellabhängigkeiten ermittelt und die Korrektheit der letzten Werte bestimmt werden. Kann eine Formel nicht geparst werden, lässt sich die Korrektheit des Zellenwertes nicht garantieren.
 
-
-In der Regel speichern Tabellenkalkulationen die zuletzt berechneten Formelwerte. Wenn nach dem Laden der Präsentation die Diagrammdaten nicht geändert wurden - gibt die **IChartDataCell.Value** Eigenschaft diese Werte beim Lesen zurück. Wenn jedoch die Tabellenkalkulationsdaten geändert wurden, löst die **ChartDataCell.Value** Eigenschaft eine **CellUnsupportedDataException** für die nicht unterstützten Formeln aus. Dies liegt daran, dass beim erfolgreichen Parsen der Formeln die Zellabhängigkeiten bestimmt und die Korrektheit der letzten Werte festgestellt wird. Wenn die Formel jedoch nicht geparst werden kann, kann die Korrektheit des Zellwerts nicht garantiert werden.
-## **Diagramm Tabellenkalkulationsformel zur Präsentation hinzufügen**
-Zuerst fügen Sie ein Diagramm mit einigen Beispieldaten zur ersten Folie einer neuen Präsentation hinzu mit 
-[add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/). 
-Das Arbeitsblatt des Diagramms wird automatisch erstellt und kann mit der 
-[**chart_data_workbook**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdata/) Eigenschaft aufgerufen werden:
-
-
+## **Diagramm‑Tabellenblatt‑Formel zur Präsentation hinzufügen**
+Fügen Sie zuerst einem neuen Präsentations‑Slide ein Diagramm mit Beispieldaten hinzu, indem Sie 
+[add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) verwenden. 
+Das Arbeitsblatt des Diagramms wird automatisch erstellt und kann über die Eigenschaft 
+[**chart_data_workbook**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdata/) angesprochen werden:
 
 ```py
 import aspose.slides.charts as charts
@@ -59,13 +74,8 @@ with slides.Presentation() as presentation:
     # ...
 ```
 
-
-
-Lassen Sie uns einige Werte in Zellen mit der 
-[**value**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/) Eigenschaft 
-des **Object** Typs schreiben, was bedeutet, dass Sie beliebige Werte für die Eigenschaft festlegen können:
-
-
+Schreiben Sie einige Werte in Zellen über die 
+[**value**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/)‑Eigenschaft des **Object**‑Typs, die es Ihnen ermöglicht, jedem Datentyp zuzuweisen:
 
 ```py
     workbook.get_cell(0, "F2").value = -2.5
@@ -73,28 +83,25 @@ des **Object** Typs schreiben, was bedeutet, dass Sie beliebige Werte für die E
     workbook.get_cell(0, "H4").value = 3
 ```
 
-
-
-Nun, um eine Formel in die Zelle zu schreiben, können Sie die 
-[**formula**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/) Eigenschaft verwenden:
+Um eine Formel in die Zelle zu schreiben, können Sie die 
+[**formula**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/)‑Eigenschaft verwenden:
 
 ```py
     workbook.get_cell(0, "B2").formula = "F2+G3+H4+1"
 ```
 
-*Hinweis*: [**IChartDataCell.Formula**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/) Eigenschaft wird verwendet, um A1-Style Zellreferenzen festzulegen. 
+*Hinweis*: Die Eigenschaft [**IChartDataCell.Formula**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/) wird verwendet, um A1‑Stil‑Zellreferenzen zu setzen.  
 
-
-
-Um die [r1c1_formula](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/) Zellreferenz festzulegen, können Sie die [**r1c1_formula**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/) Eigenschaft verwenden:
+Um die 
+[r1c1_formula](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/)‑Zellreferenz zu setzen, können Sie die 
+[**r1c1_formula**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/)‑Eigenschaft verwenden:
 
 ```py
     workbook.get_cell(0, "C2").r1c1_formula = "R[1]C[4]/R[2]C[5]"
 ```
 
-Verwenden Sie dann die [**calculate_formulas**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/) Methode, um alle Formeln innerhalb des Arbeitsbuchs zu berechnen und die entsprechenden Zellwerte zu aktualisieren:
-
-
+Anschließend verwenden Sie die Methode 
+[**calculate_formulas**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/), um alle Formeln im Arbeitsbuch zu berechnen und die entsprechenden Zellwerte zu aktualisieren:
 
 ```py
     workbook.calculate_formulas()
@@ -102,112 +109,81 @@ Verwenden Sie dann die [**calculate_formulas**](https://reference.aspose.com/sli
     print(workbook.get_cell(0, "C2").value) # 2.1
 ```
 
-
 ## **Logische Konstanten**
 Sie können logische Konstanten wie *FALSE* und *TRUE* in Zellformeln verwenden:
 
-
-
-
 ## **Numerische Konstanten**
-Zahlen können in gängiger oder wissenschaftlicher Notation verwendet werden, um Diagramm Tabellenkalkulationsformeln zu erstellen:
+Zahlen können in dezimaler oder wissenschaftlicher Notation verwendet werden, um Diagramm‑Tabellenblatt‑Formeln zu erstellen:
 
+## **Zeichenketten‑Konstanten**
+Eine Zeichenketten‑ (oder Literal‑)Konstante ist ein fester Wert, der unverändert verwendet wird. Zeichenketten‑Konstanten können sein: Datumswerte, Texte, Zahlen usw.:
 
+## **Fehler‑Konstanten**
+Manchmal lässt sich das Ergebnis einer Formel nicht berechnen. In diesem Fall wird im Feld stattdessen ein Fehlercode angezeigt. Jeder Fehlertyp hat einen spezifischen Code:
 
-
-## **String Konstanten**
-Eine String (oder literale) Konstante ist ein spezifischer Wert, der so verwendet wird, wie er ist und sich nicht ändert. Stringkonstanten können sein: Daten, Texte, Zahlen usw.:
-
-
-
-
-## **Fehler Konstanten**
-Manchmal ist es nicht möglich, das Ergebnis anhand der Formel zu berechnen. In diesem Fall wird der Fehlercode anstelle seines Wertes in der Zelle angezeigt. Jeder Fehlerart hat einen spezifischen Code:
-
-- #DIV/0! - die Formel versucht, durch Null zu teilen.
-- #GETTING_DATA - kann in einer Zelle angezeigt werden, während ihr Wert noch berechnet wird.
-- #N/A - Informationen fehlen oder sind nicht verfügbar. Einige Gründe können sein: die in der Formel verwendeten Zellen sind leer, ein zusätzlicher Leerraum, Schreibfehler usw.
-- #NAME? - eine bestimmte Zelle oder andere Formelobjekte können nicht unter ihrem Namen gefunden werden. 
-- #NULL! - kann erscheinen, wenn ein Fehler in der Formel vorliegt, wie:  (,) oder ein Leerzeichen anstelle eines Doppelpunktes (:).
-- #NUM! - die Zahl in der Formel kann ungültig, zu lang oder zu klein sein usw.
-- #REF! - ungültige Zellreferenz.
-- #VALUE! - unerwarteter Werttyp. Zum Beispiel: Stringwert, der in einer numerischen Zelle gesetzt wurde.
-
-
-
+- #DIV/0! – Formel versucht, durch Null zu dividieren.
+- #GETTING_DATA – kann in einer Zelle erscheinen, während ihr Wert noch berechnet wird.
+- #N/A – Information fehlt oder ist nicht verfügbar. Gründe können sein: Die in der Formel verwendeten Zellen sind leer, ein zusätzliches Leerzeichen, ein Rechtschreibfehler usw.
+- #NAME? – eine bestimmte Zelle oder ein anderes Formelelement kann nicht über ihren Namen gefunden werden.
+- #NULL! – tritt auf, wenn ein Fehler in der Formel vorliegt, z. B. (,) oder ein Leerzeichen anstelle eines Doppelpunkts (:).
+- #NUM! – die numerische Angabe in der Formel ist ungültig, zu groß oder zu klein usw.
+- #REF! – ungültige Zellreferenz.
+- #VALUE! – unerwarteter Werttyp. Zum Beispiel ein Zeichenkettenwert in einer numerischen Zelle.
 
 ## **Arithmetische Operatoren**
-Sie können alle arithmetischen Operatoren in Diagramm Arbeitsblattformeln verwenden:
+Sie können alle arithmetischen Operatoren in Diagramm‑Arbeitsblatt‑Formeln verwenden:
 
-
-
-|**Operator** |**Bedeutung** |**Beispiel**|
+|**Operator**|**Bedeutung**|**Beispiel**|
 | :- | :- | :- |
-|+ (Pluszeichen) |Addition oder unärer Plus|2 + 3|
-|- (Minuszeichen) |Subtraktion oder Negation |2 - 3<br>-3|
-|* (Stern)|Multiplikation |2 * 3|
-|/ (Schrägstrich)|Division |2 / 3|
-|% (Prozentzeichen) |Prozent |30%|
-|^ (Zirkumflex) |Exponentiation |2 ^ 3|
+|+ (Pluszeichen)|Addition oder unäres Plus|2 + 3|
+|- (Minuszeichen)|Subtraktion oder Negation|2 - 3<br>-3|
+|* (Sternchen)|Multiplikation|2 * 3|
+|/ (Schrägstrich)|Division|2 / 3|
+|% (Prozentzeichen)|Prozent|30%|
+|^ (Caret)|Exponentiation|2 ^ 3|
 
-
-*Hinweis*: Um die Reihenfolge der Auswertung zu ändern, schließen Sie den Teil der Formel, der zuerst berechnet werden soll, in Klammern ein.
-
+*Hinweis*: Um die Auswertungsreihenfolge zu ändern, setzen Sie den zu berechnenden Teil in Klammern.
 
 ## **Vergleichsoperatoren**
-Sie können die Werte der Zellen mit den Vergleichsoperatoren vergleichen. Wenn zwei Werte mit diesen Operatoren verglichen werden, ist das Ergebnis ein logischer Wert, entweder *TRUE* oder FALSE:
+Sie können Zellwerte mit Vergleichsoperatoren vergleichen. Das Ergebnis ist ein logischer Wert, entweder *TRUE* oder *FALSE*:
 
-
-
-|**Operator** |**Bedeutung** |**Bedeutung** |
+|**Operator**|**Bedeutung**|**Beispiel**|
 | :- | :- | :- |
-|= (gleiches Zeichen) |Gleich |A2 = 3|
-|<> (ungleich Zeichen) |Ungleich|A2 <> 3|
-|> (größer als Zeichen) |Größer als|A2 > 3|
-|>= (größer als oder gleich Zeichen)|Größer als oder gleich zu|A2 >= 3|
-|< (weniger als Zeichen)|Weniger als|A2 < 3|
-|<= (weniger als oder gleich Zeichen)|Weniger als oder gleich zu|A2 <= 3|
+|= (Gleichheitszeichen)|Gleich|A2 = 3|
+|<> (Ungleichheitszeichen)|Ungleich|A2 <> 3|
+|> (Größer‑als‑Zeichen)|Größer als|A2 > 3|
+|>= (Größer‑oder‑gleich‑Zeichen)|Größer oder gleich|A2 >= 3|
+|< (Kleiner‑als‑Zeichen)|Kleiner als|A2 < 3|
+|<= (Kleiner‑oder‑gleich‑Zeichen)|Kleiner oder gleich|A2 <= 3|
 
-## **A1-Style Zellreferenzen**
-**A1-Style Zellreferenzen** werden für die Arbeitsblätter verwendet, bei denen die Spalte einen Buchstaben als Identifikator hat (z.B. "*A*") und die Zeile eine numerische Kennung hat (z.B. "*1*"). A1-Style Zellreferenzen können wie folgt verwendet werden:
-
-
+## **A1‑Stil‑Zellreferenzen**
+**A1‑Stil‑Zellreferenzen** werden in Arbeitsblättern verwendet, bei denen die Spalte einen Buchstaben (z. B. "*A*") und die Zeile eine Zahl (z. B. "*1*") hat. A1‑Stil‑Zellreferenzen können wie folgt verwendet werden:
 
 |**Zellreferenz**|**Beispiel**|||
 | :- | :- | :- | :- |
-||Absolut |Relativ |Gemischt|
-|Zelle |$A$2 |A2|<p>A$2</p><p>$A2</p>|
-|Zeile |$2:$2 |2:2 |-|
-|Spalte |$A:$A |A:A |-|
-|Bereich |$A$2:$C$4 |A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+||Absolut|Relativ|Gemischt|
+|Zelle|$A$2|A2|<p>A$2</p><p>$A2</p>|
+|Zeile|$2:$2|2:2|-|
+|Spalte|$A:$A|A:A|-|
+|Bereich|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
 
+Hier ein Beispiel, wie man eine A1‑Stil‑Zellreferenz in einer Formel verwendet:
 
-Hier ist ein Beispiel, wie eine A1-Style Zellreferenz in einer Formel verwendet wird:
-
-
-
-
-## **R1C1-Style Zellreferenzen**
-**R1C1-Style Zellreferenzen** werden für die Arbeitsblätter verwendet, bei denen sowohl die Zeile als auch die Spalte einen numerischen Identifikator haben. R1C1-Style Zellreferenzen können wie folgt verwendet werden:
-
-
+## **R1C1‑Stil‑Zellreferenzen**
+**R1C1‑Stil‑Zellreferenzen** werden in Arbeitsblättern verwendet, bei denen sowohl Zeile als auch Spalte numerisch identifiziert werden. R1C1‑Stil‑Zellreferenzen können wie folgt verwendet werden:
 
 |**Zellreferenz**|**Beispiel**|||
 | :- | :- | :- | :- |
-||Absolut |Relativ |Gemischt|
-|Zelle |R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Zeile |R2|R[2]|-|
-|Spalte |C3|C[3]|-|
-|Bereich |R2C3:R5C7|R[2]C[3]:R[5]C[7] |R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+||Absolut|Relativ|Gemischt|
+|Zelle|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
+|Zeile|R2|R[2]|-|
+|Spalte|C3|C[3]|-|
+|Bereich|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
 
+Hier ein Beispiel, wie man eine R1C1‑Stil‑Zellreferenz in einer Formel verwendet:
 
-Hier ist ein Beispiel, wie eine A1-Style Zellreferenz in einer Formel verwendet wird:
-
-
-
-
-## **Vorgegebene Funktionen**
-Es gibt vorgegebene Funktionen, die in den Formeln verwendet werden können, um deren Implementierung zu vereinfachen. Diese Funktionen kapseln die am häufigsten verwendeten Operationen ein, wie: 
+## **Vordefinierte Funktionen**
+Es gibt vordefinierte Funktionen, die in Formeln verwendet werden können, um deren Implementierung zu vereinfachen. Diese Funktionen kapseln die am häufigsten genutzten Vorgänge, wie zum Beispiel:
 
 - ABS
 - AVERAGE
@@ -215,7 +191,7 @@ Es gibt vorgegebene Funktionen, die in den Formeln verwendet werden können, um 
 - CHOOSE
 - CONCAT
 - CONCATENATE
-- DATE (1900 Datensystem)
+- DATE (1900‑Datumsystem)
 - DAYS
 - FIND
 - FINDB
@@ -226,3 +202,13 @@ Es gibt vorgegebene Funktionen, die in den Formeln verwendet werden können, um 
 - MAX
 - SUM
 - VLOOKUP
+
+## **FAQ**
+
+**Werden externe Excel‑Dateien als Datenquelle für ein Diagramm mit Formeln unterstützt?**
+
+Ja. Aspose.Slides unterstützt externe Arbeitsmappen als [Diagramm‑Datenquelle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatasourcetype/), wodurch Sie Formeln aus einer XLSX‑Datei außerhalb der Präsentation verwenden können.
+
+**Können Diagramm‑Formeln Tabellenblätter im selben Arbeitsbuch per Blattname referenzieren?**
+
+Ja. Formeln folgen dem üblichen Excel‑Referenzmodell, sodass Sie andere Blätter im selben Arbeitsbuch oder in einer externen Arbeitsmappe referenzieren können. Für externe Referenzen geben Sie Pfad und Dateinamen nach Excel‑Syntax an.
