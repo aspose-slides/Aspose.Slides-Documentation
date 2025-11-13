@@ -1,10 +1,19 @@
 ---
-title: Compare Slides
+title: Compare Presentation Slides in .NET
+linktitle: Compare Slides
 type: docs
 weight: 50
 url: /net/compare-slides/
-keywords: "Compare PowerPoint slides, Compare two slides, Presentation, C#, Csharp, .NET, Aspose.Slides"
-description: "Compare PowerPoint presentation slides in C# or .NET"
+keywords:
+- compare slides
+- slide comparison
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Compare PowerPoint and OpenDocument presentations programmatically with Aspose.Slides for .NET. Identify slide differences in code quickly."
 ---
 
 ## **Compare Two Slides**

@@ -1,10 +1,22 @@
 ---
-title: Slide Section
+title: Manage Slide Sections in Presentations in .NET
+linktitle: Slide Section
 type: docs
 weight: 100
 url: /net/slide-section/
-keywords: "Create section, Add section, Edit section name, PowerPoint Presentation, C#, Csharp, .NET, Aspose.Slides"
-description: "Add and edit section in PowerPoint presentation in C# or .NET"
+keywords:
+- create section
+- add section
+- edit section
+- change section
+- section name
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Streamline slide sections in PowerPoint and OpenDocument with Aspose.Slides for .NET — split, rename, and reorder to optimize PPTX and ODP workflows."
 ---
 
 With Aspose.Slides for .NET, you can organize a PowerPoint Presentation into sections. You get to create sections that contain specific slides. 

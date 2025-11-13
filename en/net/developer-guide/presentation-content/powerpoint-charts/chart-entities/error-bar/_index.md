@@ -7,12 +7,11 @@ keywords:
 - error bar
 - custom value
 - PowerPoint
-- OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Learn how to add and customize error bars in charts with Aspose.Slides for .NET—optimize data visuals in PowerPoint and OpenDocument presentations."
+description: "Learn how to add and customize error bars in charts with Aspose.Slides for .NET—optimize data visuals in PowerPoint presentations."
 ---
 
 ## **Add Error Bar**

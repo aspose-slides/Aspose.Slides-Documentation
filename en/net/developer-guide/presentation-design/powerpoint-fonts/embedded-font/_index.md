@@ -1,16 +1,24 @@
 ---
-title: Embedding Fonts in PowerPoint with C#
-linktitle: Embedding Fonts
+title: Embed Fonts in Presentations in .NET
+linktitle: Embedding Font
 type: docs
 weight: 40
 url: /net/embedded-font/
 keywords:
-- embed fonts
-- PowerPoint C#
-- add fonts
+- add font
+- embed font
+- font embedding
+- get embedded font
+- add embedded font
+- remove embedded font
+- compress embedded font
+- PowerPoint
+- OpenDocument
 - presentation
-- Aspose.Slides for .NET
-description: "Learn to embed, add, and manage fonts in PowerPoint presentations using C# and .NET"
+- .NET
+- C#
+- Aspose.Slides
+description: "Embed TrueType fonts in PowerPoint and OpenDocument presentations with Aspose.Slides for .NET, ensuring accurate rendering across all platforms."
 ---
 
 **Embedding fonts in PowerPoint** ensures your presentation maintains its intended appearance across different systems. Whether using unique fonts for creativity or standard ones, embedding fonts prevents text and layout disruption.

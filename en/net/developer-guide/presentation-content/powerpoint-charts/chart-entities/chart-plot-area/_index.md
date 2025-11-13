@@ -15,7 +15,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Discover how to customize chart plot areas in PowerPoint and OpenDocument presentations with Aspose.Slides for .NET. Improve your slide visuals effortlessly."
+description: "Discover how to customize chart plot areas in PowerPoint presentations with Aspose.Slides for .NET. Improve your slide visuals effortlessly."
 ---
 
 ## **Get Width, Height of Chart Plot Area**

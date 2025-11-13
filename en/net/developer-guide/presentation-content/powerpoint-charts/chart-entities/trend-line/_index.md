@@ -14,12 +14,11 @@ keywords:
 - power trend line
 - custom trend line
 - PowerPoint
-- OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Quickly add and customize trend lines in PowerPoint and OpenDocument charts with Aspose.Slides for .NET — a practical guide to engage your audience."
+description: "Quickly add and customize trend lines in PowerPoint charts with Aspose.Slides for .NET — a practical guide to engage your audience."
 ---
 
 ## **Add Trend Line**

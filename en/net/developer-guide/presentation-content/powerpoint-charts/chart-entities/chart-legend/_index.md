@@ -8,12 +8,11 @@ keywords:
 - legend position
 - font size
 - PowerPoint
-- OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Customize chart legends with Aspose.Slides for .NET to optimize PowerPoint and OpenDocument presentations with tailored legend formatting."
+description: "Customize chart legends with Aspose.Slides for .NET to optimize PowerPoint presentations with tailored legend formatting."
 ---
 
 ## **Legend Positioning**

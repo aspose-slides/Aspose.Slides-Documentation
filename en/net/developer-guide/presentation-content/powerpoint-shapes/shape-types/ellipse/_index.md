@@ -1,10 +1,22 @@
 ---
-title: Ellipse
+title: Add Ellipses to Presentations in .NET
+linktitle: Ellipse
 type: docs
 weight: 30
 url: /net/ellipse/
-keywords: "Ellipse, PowerPoint shape, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Create ellipse in PowerPoint presentation in C# or .NET"
+keywords:
+- ellipse
+- shape
+- add ellipse
+- create ellipse
+- draw ellipse
+- formatted ellipse
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how to create, format, and manipulate ellipse shapes in Aspose.Slides for .NET across PPT and PPTX presentations—C# code examples included."
 ---
 
 

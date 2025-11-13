@@ -1,12 +1,22 @@
 ---
-title: Digital Signature in PowerPoint
+title: Add Digital Signatures to Presentations in .NET
+linktitle: Digital Signature
 type: docs
 weight: 10
 url: /net/digital-signature-in-powerpoint/
-keywords: "Digital signature certificate, certificate authority, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Add digital signature or certificate in PowerPoint. Certificate authority in C# or .NET"
+keywords:
+- digital signature
+- digital certificate
+- certificate authority
+- PFX certificate
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how to digitally sign PowerPoint & OpenDocument files with Aspose.Slides for .NET. Secure your slides in seconds with clear code examples."
 ---
-
 
 **Digital certificate** is used to create a password protected powerpoint presentation, marked as created by a particular organization or person. Digital certificate can be obtained by contacting an authorized organization - a certificate authority. After installing digital certificate into the system, it can be used to add a digital signature to the presentation via File -> Info -> Protect Presentation:
 

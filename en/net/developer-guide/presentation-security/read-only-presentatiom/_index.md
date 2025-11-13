@@ -1,10 +1,20 @@
 ---
-title: Read Only Presentation
+title: Save Presentations in Read-Only Mode in .NET
+linktitle: Read-Only Presentation
 type: docs
 weight: 30
 url: /net/read-only-presentation/
-keywords: "Read-only setting, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Read-only PowerPoint presentation in C# or .NET"
+keywords:
+- read only
+- protect presentation
+- prevent editing
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Load and save PowerPoint files (PPT, PPTX) in read-only mode with Aspose.Slides for .NET, offering precise slide previews without altering your presentations."
 ---
 
 ## **Apply Read-Only Mode**

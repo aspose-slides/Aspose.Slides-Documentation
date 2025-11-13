@@ -1,10 +1,20 @@
 ---
-title: Clone Slides
+title: Clone Presentation Slides in .NET
+linktitle: Clone Slides
 type: docs
 weight: 40
 url: /net/clone-slides/
-keywords: "Clone slide, Copy slide, Save slide copy, PowerPoint, Presentation, C#, Csharp, .NET, Aspose.Slides"
-description: "Clone PowerPoint slide in C# or .NET"
+keywords:
+- clone slide
+- copy slide
+- save slide
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Quickly duplicate PowerPoint slides with Aspose.Slides for .NET. Follow our clear code examples to automate PPT creation in seconds and eliminate manual work."
 ---
 
 ## **Clone Slides in Presentation**

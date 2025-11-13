@@ -1,10 +1,24 @@
 ---
-title: Chart Workbook
+title: Manage Chart Workbooks in Presentations in .NET
+linktitle: Chart Workbook
 type: docs
 weight: 70
 url: /net/chart-workbook/
-keywords: "Chart workbook, chart data, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Chart workbook in PowerPoint presentation in C# or .NET"
+keywords:
+- chart workbook
+- chart data
+- workbook cell
+- data label
+- worksheet
+- data source
+- external workbook
+- external data
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Discover Aspose.Slides for .NET: effortlessly manage chart workbooks in PowerPoint and OpenDocument formats to streamline your presentation data."
 ---
 
 ## **Set Chart Data from Workbook**

@@ -1,5 +1,6 @@
 ---
-title: Shape Animation
+title: Apply Shape Animations in Presentations in .NET
+linktitle: Shape Animation
 type: docs
 weight: 60
 url: /net/shape-animation/
@@ -7,16 +8,22 @@ keywords:
 - shape
 - animation
 - effect
-- add effects
-- get effects
-- extract effects
+- animated shape
+- animated text
+- add animation
+- get animation
+- extract animation
+- add effect
+- get effect
+- extract effect
+- effect sound
 - apply animation
 - PowerPoint
 - presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Apply PowerPoint animation in C# or .NET"
+- Aspose.Slides
+description: "Discover how to create and customize shape animations in PowerPoint presentations with Aspose.Slides for .NET. Stand out!"
 ---
 
 Animations are visual effects that can be applied to texts, images, shapes, or [charts](/slides/net/animated-charts/). They give life to presentations or its constituents. 

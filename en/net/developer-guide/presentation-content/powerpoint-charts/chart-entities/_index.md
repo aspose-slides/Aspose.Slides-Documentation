@@ -16,10 +16,9 @@ keywords:
 - error bar
 - trend line
 - PowerPoint
-- OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Understand chart entities in Aspose.Slides for .NET and learn to manage series, categories, data points and axes in PowerPoint PPT, PPTX and ODP using C#."
+description: "Understand chart entities in Aspose.Slides for .NET and learn to manage series, categories, data points and axes in PowerPoint PPT and PPTX using C#."
 ---

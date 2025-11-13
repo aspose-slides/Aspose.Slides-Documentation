@@ -1,22 +1,28 @@
 ---
-title: Custom Shape
+title: Customize Presentation Shapes in .NET
+linktitle: Custom Shape
 type: docs
 weight: 20
 url: /net/custom-shape/
 keywords: 
-- shape
 - custom shape
+- add shape
 - create shape
-- geometry
+- change shape
 - shape geometry
 - geometry path
 - path points
 - edit points
+- add point
+- remove point
+- editing operation
+- curved corner
 - PowerPoint
 - presentation
+- .NET
 - C#
-- Aspose.Slides for .NET
-description: "Add a custom shape to a PowerPoint presentation in .NET"
+- Aspose.Slides
+description: "Create and customize shapes in PowerPoint presentations with Aspose.Slides for .NET: geometry paths, curved corners, composite shapes."
 ---
 
 ## **Change a Shape Using Edit Points**

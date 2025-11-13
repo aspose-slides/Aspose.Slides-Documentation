@@ -1,5 +1,6 @@
 ---
-title: Presentation View Properties
+title: Retrieve and Update Presentation View Properties in .NET
+linktitle: View Properties
 type: docs
 weight: 80
 url: /net/presentation-view-properties/
@@ -15,11 +16,12 @@ keywords:
 - auto adjust
 - default zoom
 - PowerPoint
+- OpenDocument
 - presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Manage PowerPoint presentation view properties in C# or .NET"
+- Aspose.Slides
+description: "Discover Aspose.Slides for .NET view properties to customize formats PPT, PPTX, and ODP slides—adjust layouts, zoom levels, and display settings."
 ---
 
 {{% alert color="primary" %}} 

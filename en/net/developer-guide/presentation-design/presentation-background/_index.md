@@ -1,5 +1,5 @@
 ---
-title: Manage Presentation Backgrounds in C#
+title: Manage Presentation Backgrounds in .NET
 linktitle: Slide Background
 type: docs
 weight: 20

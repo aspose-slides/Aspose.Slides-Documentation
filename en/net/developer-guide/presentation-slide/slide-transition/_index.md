@@ -1,10 +1,24 @@
 ---
-title: Slide Transition
+title: Manage Slide Transitions in Presentations in .NET
+linktitle: Slide Transition
 type: docs
 weight: 90
 url: /net/slide-transition/
-keywords: "Add slide transition, PowerPoint slide transition, morph transition, advanced slide transition, transition effects, C#, Csharp, .NET, Aspose.Slides"
-description: " Add PowerPoint slide transition and transition effects in C# or .NET "
+keywords:
+- slide transition
+- add slide transition
+- apply slide transition
+- advanced slide transition
+- morph transition
+- transition type
+- transition effect
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Discover how to customize slide transitions in Aspose.Slides for .NET, with step-by-step guidance for PowerPoint and OpenDocument presentations."
 ---
 
 ## **Add Slide Transition**

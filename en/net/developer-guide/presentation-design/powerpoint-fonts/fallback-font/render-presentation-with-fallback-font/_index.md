@@ -1,17 +1,21 @@
 ---
-title: Render Presentation with Fallback Font
+title: Render Presentations with Fallback Fonts in .NET
+linktitle: Render Presentations
 type: docs
 weight: 30
 url: /net/render-presentation-with-fallback-font/
-keywords: 
+keywords:
 - fallback font
 - render PowerPoint
+- render presentation
+- render slide
 - PowerPoint
+- OpenDocument
 - presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Render PowerPoint with fallback font in C# or .NET"
+- Aspose.Slides
+description: "Render presentations with fallback fonts in Aspose.Slides for .NET – keep text consistent across PPT, PPTX and ODP with step-by-step C# code samples."
 ---
 
 The following example includes these steps:

@@ -8,10 +8,12 @@ keywords:
 - use callout
 - data label
 - label format
+- PowerPoint
+- presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Create and style callouts in Aspose.Slides for .NET with concise C# code examples, compatible with PPT, PPTX and ODP to automate presentation workflows."
+description: "Create and style callouts in Aspose.Slides for .NET with concise C# code examples, compatible with PPT and PPTX to automate presentation workflows."
 ---
 
 ## **Using Callouts**

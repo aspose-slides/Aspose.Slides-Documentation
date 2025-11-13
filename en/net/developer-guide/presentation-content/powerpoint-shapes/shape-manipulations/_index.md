@@ -1,10 +1,30 @@
 ---
-title: Shape Manipulations
+title: Manage Presentation Shapes in .NET
+linktitle: Shape Manipulation
 type: docs
 weight: 40
 url: /net/shape-manipulations/
-keywords: "PowerPoint shape, shape on slide, find shape, clone shape, remove shape, hide shape, change shape order, get interlop shape ID, shape alternative text, shape layout formats, shape as SVG, align shape, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Manipulate PowerPoint shapes in C# or .NET"
+keywords:
+- PowerPoint shape
+- presentation shape
+- shape on slide
+- find shape
+- clone shape
+- remove shape
+- hide shape
+- change shape order
+- get interop shape ID
+- shape alternative text
+- shape layout formats
+- shape as SVG
+- shape to SVG
+- align shape
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn to create, edit and optimize shapes in Aspose.Slides for .NET and deliver high-performance PowerPoint presentations."
 ---
 
 ## **Find Shape in Slide**
