@@ -14,12 +14,11 @@ keywords:
 - chart values
 - actual value
 - PowerPoint
-- OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Understand chart calculations, data updates, and precision control in Aspose.Slides for .NET for PPT, PPTX and ODP, with practical C# code examples."
+description: "Understand chart calculations, data updates, and precision control in Aspose.Slides for .NET for PPT and PPTX, with practical C# code examples."
 ---
 
 ## **Calculate Actual Values of Chart Elements**

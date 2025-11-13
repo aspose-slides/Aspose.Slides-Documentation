@@ -18,12 +18,11 @@ keywords:
 - axis title
 - axis position
 - PowerPoint
-- OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Discover how to use Aspose.Slides for .NET to customize chart axes in PowerPoint and OpenDocument presentations for reports and visualizations."
+description: "Discover how to use Aspose.Slides for .NET to customize chart axes in PowerPoint presentations for reports and visualizations."
 ---
 
 

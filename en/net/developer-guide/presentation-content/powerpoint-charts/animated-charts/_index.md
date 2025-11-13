@@ -19,7 +19,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Create stunning animated charts in .NET with Aspose.Slides. Boost presentations with dynamic visuals in PPT, PPTX and ODP files—get started now."
+description: "Create stunning animated charts in .NET with Aspose.Slides. Boost presentations with dynamic visuals in PPT and PPTX files—get started now."
 ---
 
 Aspose.Slides for .NET supports animating the chart elements. **Series**, **Categories**, **Series Elements**, **Categories Elements** can be animated with [**ISequence**.**AddEffect** ](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence/methods/addeffect)method and two enums [**EffectChartMajorGroupingType** ](https://reference.aspose.com/slides/net/aspose.slides.animation/effectchartmajorgroupingtype)and [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/net/aspose.slides.animation/effectchartminorgroupingtype).

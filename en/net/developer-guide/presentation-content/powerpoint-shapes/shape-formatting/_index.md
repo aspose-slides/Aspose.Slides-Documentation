@@ -1,5 +1,5 @@
 ---
-title: Format PowerPoint Shapes in C#
+title: Format PowerPoint Shapes in .NET
 linktitle: Shape Formatting
 type: docs
 weight: 20
@@ -20,11 +20,10 @@ keywords:
 - reset formatting
 - PowerPoint
 - presentation
-- C#
-- Csharp
 - .NET
+- C#
 - Aspose.Slides
-description: "Learn how to format PowerPoint shapes in C# using Aspose.Slides—set fill, line, and effect styles for PPT, PPTX, and ODP files with precision and full control."
+description: "Learn how to format PowerPoint shapes in C# using Aspose.Slides—set fill, line, and effect styles for PPT and PPTX files with precision and full control."
 ---
 
 ## **Overview**

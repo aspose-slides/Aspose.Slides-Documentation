@@ -1,18 +1,24 @@
 ---
-title: Font Substitution - PowerPoint C# API
+title: Configure Font Substitution in Presentations in .NET
 linktitle: Font Substitution
 type: docs
 weight: 70
 url: /net/font-substitution/
-keywords: 
+keywords:
 - font
 - substitute font
+- font substitution
+- replace font
+- font replacement
+- substitution rule
+- replacement rule
 - PowerPoint
+- OpenDocument
 - presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: C# PowerPoint API lets you substitute fonts inside presentations
+- Aspose.Slides
+description: "Enable optimal font substitution in Aspose.Slides for .NET when converting PowerPoint & OpenDocument presentations to other file formats."
 ---
 
 ## **Getting Font Substitution**

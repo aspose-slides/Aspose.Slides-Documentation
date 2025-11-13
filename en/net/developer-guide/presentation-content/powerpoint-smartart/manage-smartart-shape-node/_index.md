@@ -1,18 +1,26 @@
 ---
-title: Manage SmartArt Shape Node
+title: Manage SmartArt Shape Nodes in Presentations in .NET
+linktitle: SmartArt Shape Node
 type: docs
 weight: 30
 url: /net/manage-smartart-shape-node/
 keywords:
-- SmartArt
 - SmartArt node
-- SmartArt child node
+- child node
+- add node
+- node position
+- access node
+- remove node
+- custom position
+- assistant node
+- fill format
+- render node
 - PowerPoint
 - presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Manage SmartArt nodes and child nodes in PowerPoint presentations in C# or .NET"
+- Aspose.Slides
+description: "Manage SmartArt shape nodes in PPT and PPTX with Aspose.Slides for .NET. Get clear code samples and tips to streamline your presentations."
 ---
 
 

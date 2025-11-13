@@ -11,12 +11,11 @@ keywords:
 - label distance
 - label location
 - PowerPoint
-- OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Learn to add and format chart data labels in PowerPoint and OpenDocument presentations using Aspose.Slides for .NET for more engaging slides."
+description: "Learn to add and format chart data labels in PowerPoint presentations using Aspose.Slides for .NET for more engaging slides."
 ---
 
 Data labels on a chart show details about the chart data series or individual data points. They allow readers to quickly identify data series and they also make charts easier to understand.

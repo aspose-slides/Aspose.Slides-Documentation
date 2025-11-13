@@ -8,12 +8,11 @@ keywords:
 - rotation
 - depth
 - PowerPoint
-- OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Learn how to create and customize 3-D charts in Aspose.Slides for .NET, with support for PPT, PPTX and ODP files—boost your presentations today."
+description: "Learn how to create and customize 3-D charts in Aspose.Slides for .NET, with support for PPT and PPTX files—boost your presentations today."
 ---
 
 ## **Set RotationX, RotationY and DepthPercents properties of 3D Chart**

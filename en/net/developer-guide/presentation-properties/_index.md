@@ -1,5 +1,5 @@
 ---
-title: Manage PowerPoint Presentation Properties in C#
+title: Manage Presentation Properties in .NET
 linktitle: Presentation Properties
 type: docs
 weight: 70
@@ -11,18 +11,19 @@ keywords:
 - built-in properties
 - custom properties
 - advanced properties
-- access properties
-- modify properties
 - manage properties
+- modify properties
 - document metadata
 - edit metadata
 - proofing language
+- default language
 - PowerPoint
+- OpenDocument
 - presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Learn how to easily manage, read, and edit PowerPoint document properties using Aspose.Slides for .NET in C#. Enhance productivity and automate your workflow!"
+- Aspose.Slides
+description: "Master presentation properties in Aspose.Slides for .NET and streamline search, branding and workflow in your PowerPoint and OpenDocument files."
 ---
 
 ## **Overview**

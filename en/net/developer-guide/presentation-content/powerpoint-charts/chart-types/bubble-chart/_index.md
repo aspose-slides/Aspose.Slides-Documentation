@@ -9,12 +9,11 @@ keywords:
 - size scaling
 - size representation
 - PowerPoint
-- OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Create and customize powerful bubble charts in PowerPoint and OpenDocument with Aspose.Slides for .NET to enhance your data visualization easily."
+description: "Create and customize powerful bubble charts in PowerPoint with Aspose.Slides for .NET to enhance your data visualization easily."
 ---
 
 ## **Bubble Chart Size Scaling**

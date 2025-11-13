@@ -1,17 +1,22 @@
 ---
-title: Manage Cells
+title: Manage Table Cells in Presentations in .NET
+linktitle: Manage Cells
 type: docs
 weight: 30
 url: /net/manage-cells/
 keywords:
-- table
-- merged cells
-- split cells
-- image in table cell
+- table cell
+- merge cells
+- remove border
+- split cell
+- image in cell
+- background color
+- PowerPoint
+- presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Table cells in PowerPoint presentations in C# or .NET"
+- Aspose.Slides
+description: "Effortlessly manage table cells in PowerPoint with Aspose.Slides for .NET. Master accessing, modifying, and styling cells quickly for seamless slide automation."
 ---
 
 ## **Identify Merged Table Cell**

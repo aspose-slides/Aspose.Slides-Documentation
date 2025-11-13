@@ -9,12 +9,11 @@ keywords:
 - center gap
 - hole size
 - PowerPoint
-- OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Discover how to create and customize doughnut charts in Aspose.Slides for .NET, supporting PowerPoint and OpenDocument formats for dynamic presentations."
+description: "Discover how to create and customize doughnut charts in Aspose.Slides for .NET, supporting PowerPoint formats for dynamic presentations."
 ---
 
 ## **Specify Center Gap in Doughnut Chart**

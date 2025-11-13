@@ -12,12 +12,11 @@ keywords:
 - plot options
 - slice color
 - PowerPoint
-- OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Learn how to create and customize pie charts in .NET with Aspose.Slides, exportable to PowerPoint and OpenDocument, boosting your data storytelling in seconds."
+description: "Learn how to create and customize pie charts in .NET with Aspose.Slides, exportable to PowerPoint, boosting your data storytelling in seconds."
 ---
 
 ## **Second Plot Options for Pie of Pie and Bar of Pie Chart**

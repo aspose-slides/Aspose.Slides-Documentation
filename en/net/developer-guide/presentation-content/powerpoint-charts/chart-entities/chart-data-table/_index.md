@@ -8,12 +8,11 @@ keywords:
 - data table
 - font properties
 - PowerPoint
-- OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Customize chart data tables in .NET for PPT, PPTX and ODP with Aspose.Slides to boost efficiency and appeal in presentations."
+description: "Customize chart data tables in .NET for PPT and PPTX with Aspose.Slides to boost efficiency and appeal in presentations."
 ---
 
 ## **Set Font Properties for Chart Data Table**

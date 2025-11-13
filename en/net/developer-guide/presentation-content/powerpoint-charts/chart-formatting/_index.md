@@ -14,12 +14,11 @@ keywords:
 - font properties
 - rounded border
 - PowerPoint
-- OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Learn chart formatting in Aspose.Slides for .NET and elevate your PowerPoint or OpenDocument presentation with professional, eye-catching styling."
+description: "Learn chart formatting in Aspose.Slides for .NET and elevate your PowerPoint presentation with professional, eye-catching styling."
 ---
 
 ## **Format Chart Entities**

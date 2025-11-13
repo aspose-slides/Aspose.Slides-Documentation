@@ -11,12 +11,11 @@ keywords:
 - marker size
 - fill type
 - PowerPoint
-- OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Learn how to customize chart data markers in Aspose.Slides for .NET, boosting presentation impact across PPT, PPTX and ODP formats with clear C# code examples."
+description: "Learn how to customize chart data markers in Aspose.Slides for .NET, boosting presentation impact across PPT and PPTX formats with clear C# code examples."
 ---
 
 ## **Set Chart Marker Options**
