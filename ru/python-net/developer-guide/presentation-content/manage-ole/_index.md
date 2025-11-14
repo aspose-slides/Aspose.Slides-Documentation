@@ -1,12 +1,12 @@
 ---
-title: Управление OLE в презентациях с помощью Python
+title: Управляйте OLE в презентациях на Python
 linktitle: Управление OLE
 type: docs
 weight: 40
 url: /ru/python-net/manage-ole/
 keywords:
-- OLE объект
-- Связывание и внедрение объектов
+- объект OLE
+- связывание и внедрение объектов
 - добавить OLE
 - внедрить OLE
 - добавить объект
@@ -16,306 +16,234 @@ keywords:
 - связанный объект
 - связанный файл
 - изменить OLE
-- иконка OLE
-- название OLE
+- значок OLE
+- заголовок OLE
 - извлечь OLE
 - извлечь объект
 - извлечь файл
-- PowerPoint 
+- PowerPoint
 - презентация
 - Python
 - Aspose.Slides
-description: "Оптимизируйте управление OLE объектами в PowerPoint и OpenDocument файлах с помощью Aspose.Slides for Python через .NET. Внедряйте, обновляйте и экспортируйте OLE содержимое без усилий."
+description: "Оптимизируйте управление объектами OLE в файлах PowerPoint и OpenDocument с помощью Aspose.Slides for Python via .NET. Встраивайте, обновляйте и экспортируйте содержимое OLE без усилий."
 ---
-
-## **Обзор**
 
 {{% alert title="Информация" color="info" %}}
 
-**OLE (Object Linking & Embedding)** — это технология Microsoft, позволяющая связывать или внедрять данные и объекты, созданные в одном приложении, в другое.
+OLE (Связывание и встраивание объектов) — это технология Microsoft, которая позволяет размещать данные и объекты, созданные в одном приложении, в другом приложении через связывание или встраивание.
 
-{{% /alert %}}
+{{% /alert %}} 
 
-Например, диаграмма, созданная в Microsoft Excel и размещённая на слайде PowerPoint, является OLE объектом.
+Рассмотрим диаграмму, созданную в MS Excel. Эта диаграмма затем помещается на слайд PowerPoint. Эта диаграмма Excel считается OLE объектом.
 
-- OLE объект может отображаться в виде иконки. Двойной щелчок по иконке открывает объект в связанном приложении (например, Excel) или предлагает выбрать приложение для открытия или редактирования.
-- OLE объект может отображать своё содержимое (например, диаграмму). В этом случае PowerPoint активирует внедрённый объект, загружает интерфейс диаграммы и позволяет редактировать данные диаграммы непосредственно в PowerPoint.
+- OLE объект может отображаться в виде значка. В этом случае, когда вы дважды щелкаете на значке, диаграмма открывается в своем соответствующем приложении (Excel), или вас просят выбрать приложение для открытия или редактирования объекта.
+- OLE объект может отображать реальные содержимое — например, содержимое диаграммы. В этом случае диаграмма активируется в PowerPoint, интерфейс диаграммы загружается, и вы можете изменять данные диаграммы в приложении PowerPoint.
 
-Aspose.Slides for Python позволяет вставлять OLE объекты на слайды в виде OLE объектных кадров ([OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)).
+[Aspose.Slides для Python через .NET](https://products.aspose.com/slides/python-net) позволяет вставлять OLE объекты в слайды в виде OLE объектных фреймов ([OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)).
 
-## **Добавление OLE объектов на слайды**
+## **Добавление OLE Объектных Фреймов в Слайды**
+Предположим, вы уже создали диаграмму в Microsoft Excel и хотите встроить эту диаграмму в слайд в виде OLE объектного фрейма с использованием Aspose.Slides для Python через .NET, вы можете сделать это следующим образом:
 
-Если вы уже создали диаграмму в Microsoft Excel и хотите внедрить её в слайд как OLE объектный кадр с помощью Aspose.Slides for Python, выполните следующие шаги:
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Получите ссылку на слайд через его индекс.
+1. Откройте файл Excel, содержащий объект диаграммы Excel, и сохраните его в `MemoryStream`.
+1. Добавьте OLE объектный фрейм на слайд, содержащий массив байтов и другую информацию об OLE объекте.
+1. Запишите измененную презентацию в файл PPTX.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Получите ссылку на слайд по его индексу.
-1. Прочитайте файл Excel в массив байтов.
-1. Добавьте OleObjectFrame на слайд, передав массив байтов и другие детали OLE объекта.
-1. Сохраните изменённую презентацию в файл PPTX.
+В приведенном ниже примере мы добавили диаграмму из файла Excel на слайд в виде [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) с использованием Aspose.Slides для Python через .NET.  
+**Обратите внимание** на то, что конструктор [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/python-net/aspose.slides/ioleembeddeddatainfo/) принимает расширение объекта для встраивания в качестве второго параметра. Это расширение позволяет PowerPoint правильно интерпретировать тип файла и выбрать подходящее приложение для открытия этого OLE объекта.
 
-В приведённом ниже примере диаграмма из файла Excel внедряется в слайд как [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/).
-
-**Примечание:** Конструктор [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-net/aspose.slides.dom.ole/oleembeddeddatainfo/) принимает расширение файла внедряемого объекта как второй параметр. PowerPoint использует это расширение для определения типа файла и выбора соответствующего приложения для открытия OLE объекта.
-
-```py
-with slides.Presentation() as presentation:
-    slide_size = presentation.slide_size.size
-    slide = presentation.slides[0]
-
-    # Подготовьте данные для OLE объекта.
-    with open("book.xlsx", "rb") as file_stream:
-        file_data = file_stream.read()
-        data_info = slides.dom.ole.OleEmbeddedDataInfo(file_data, "xlsx")
-
-    # Добавьте OLE объектный кадр на слайд.
-    ole_frame = slide.shapes.add_ole_object_frame(0, 0, slide_size.width, slide_size.height, data_info)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-### **Добавление связанных OLE объектов**
-
-Aspose.Slides for Python позволяет добавить [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/), который ссылается на файл вместо внедрения его данных.
-
-Следующий пример на Python показывает, как добавить [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) со связанным файлом Excel на слайде:
-
-```py
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    # Добавьте OLE объектный кадр со связанным файлом Excel.
-    slide.shapes.add_ole_object_frame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx")
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Доступ к OLE объектам**
-
-Если OLE объект уже внедрён в слайд, вы можете получить к нему доступ следующим образом:
-
-1. Загрузите презентацию, содержащую внедрённый OLE объект, создав экземпляр класса Presentation.
-1. Получите ссылку на слайд по его индексу.
-1. Получите доступ к фигуре OleObjectFrame.
-1. После получения OLE объектного кадра выполните необходимые операции.
-
-Пример ниже получает доступ к OLE объектному кадру — внедрённой диаграмме Excel — и извлекает данные файла. В этом примере используется PPTX, содержащий одну фигуру на первом слайде.
-
-```py
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-
-    if isinstance(shape, slides.OleObjectFrame):
-        ole_frame = shape
-
-        # Получите данные внедрённого файла.
-        file_data = ole_frame.embedded_data.embedded_file_data
-
-        # Получите расширение внедрённого файла.
-        file_extension = ole_frame.embedded_data.embedded_file_extension
-
-        # ...
-```
-
-### **Доступ к свойствам связанных OLE объектов**
-
-Aspose.Slides позволяет получать свойства связанного OLE объектного кадра.
-
-Пример на Python ниже проверяет, связан ли OLE объект, и при наличии выводит путь к связанному файлу:
-
-```py
-with slides.Presentation("sample.ppt") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-
-    if isinstance(shape, slides.OleObjectFrame):
-        ole_frame = shape
-
-        # Проверьте, связан ли OLE объект.
-        if ole_frame.is_object_link:
-            # Выведите полный путь к связанному файлу.
-            print("OLE object frame is linked to:", ole_frame.link_path_long)
-
-            # Выведите относительный путь к связанному файлу, если он присутствует.
-            # Только презентации .ppt могут содержать относительный путь.
-            if ole_frame.link_path_relative:
-                print("OLE object frame relative path:", ole_frame.link_path_relative)
-```
-
-## **Изменение данных OLE объекта**
-
-{{% alert color="primary" %}}
-
-В этом разделе пример кода использует [Aspose.Cells for Python via .NET](/cells/python-net/).
-
-{{% /alert %}}
-
-Если OLE объект уже внедрён в слайд, вы можете получить к нему доступ и изменить его данные следующим образом:
-
-1. Загрузите презентацию, создав экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Получите целевой слайд по его индексу.
-1. Получите доступ к фигуре OleObjectFrame.
-1. После получения OLE объектного кадра выполните необходимые операции.
-1. Создайте объект `Workbook` и прочитайте данные OLE.
-1. Откройте нужный `Worksheet` и отредактируйте данные.
-1. Сохраните обновлённый `Workbook` в поток.
-1. Замените данные OLE объекта, используя этот поток.
-
-В примере ниже OLE объектный кадр (внедрённая диаграмма Excel) получает доступ, и его данные файла изменяются для обновления диаграммы. Пример использует ранее созданный PPTX, содержащий одну фигуру на первом слайде.
-
-```py
-import io
+```py 
 import aspose.slides as slides
-import aspose.cells as cells
 
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
+# Создает экземпляр класса Presentation, представляющего PPTX
+with slides.Presentation() as pres:
+    # Получает доступ к первому слайду
+    sld = pres.slides[0]
 
-    if isinstance(shape, slides.OleObjectFrame):
-        ole_frame = shape
+    # Загружает файл excel в поток
+    with open(path + "book1.xlsx", "rb") as fs:
+        bytes = fs.read()
+    
+        # Создает объект данных для встраивания
+        dataInfo = slides.dom.ole.OleEmbeddedDataInfo(bytes, "xlsx")
 
-        with io.BytesIO(ole_frame.embedded_data.embedded_file_data) as ole_stream:
-            # Прочитайте данные OLE объекта как объект Workbook.
-            workbook = cells.Workbook(ole_stream)
+        # Добавляет форму Ole Object Frame
+        oleObjectFrame = sld.shapes.add_ole_object_frame(0, 0, pres.slide_size.size.width, pres.slide_size.size.height, dataInfo)
 
-        with io.BytesIO() as new_ole_stream:
-            # Измените данные workbook.
-            workbook.worksheets.get(0).cells.get(0, 4).put_value("E")
-            workbook.worksheets.get(0).cells.get(1, 4).put_value(12)
-            workbook.worksheets.get(0).cells.get(2, 4).put_value(14)
-            workbook.worksheets.get(0).cells.get(3, 4).put_value(15)
+        # Записывает файл PPTX на диск
+        pres.save("OleEmbed_out.pptx", slides.export.SaveFormat.PPTX)
+```
+## **Доступ к OLE Объектным Фреймам**
+Если OLE объект уже встроен в слайд, вы можете легко найти или получить доступ к этому объекту следующим образом:
 
-            file_options = cells.OoxmlSaveOptions(cells.SaveFormat.XLSX)
-            workbook.save(new_ole_stream, file_options)
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
 
-            # Измените данные объекта OLE кадра.
-            new_data = slides.dom.ole.OleEmbeddedDataInfo(new_ole_stream.getvalue(), ole_frame.embedded_data.embedded_file_extension)
-            ole_frame.set_embedded_data(new_data)
+1. Получите ссылку на слайд, используя его индекс.
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+1. Получите доступ к форме [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/).
+
+   В нашем примере мы использовали ранее созданный PPTX, который содержит только одну форму на первом слайде. Затем мы *привели* этот объект к [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/). Это был желаемый OLE объектный фрейм, к которому нужно получить доступ.
+
+1. Как только OLE объектный фрейм был доступен, вы можете выполнять любые операции с ним.
+
+В приведенном ниже примере к OLE объектному фрейму (объекту диаграммы Excel, встроенному в слайд) производится доступ — а затем его данные файла записываются в файл Excel:
+
+```py 
+import aspose.slides as slides
+
+# Загружает PPTX в объект презентации
+with slides.Presentation(path + "AccessingOLEObjectFrame.pptx") as pres:
+    # Получает доступ к первому слайду
+    sld = pres.slides[0]
+
+    # Приводит форму к OleObjectFrame
+    oleObjectFrame = sld.shapes[0]
+
+    # Читает OLE объект и записывает его на диск
+    if type(oleObjectFrame) is slides.OleObjectFrame:
+        # Получает данные встроенного файла
+        data = oleObjectFrame.embedded_data.embedded_file_data
+
+        # Получает расширение встроенного файла
+        fileExtention = oleObjectFrame.embedded_data.embedded_file_extension
+
+        # Создает путь для сохранения извлеченного файла
+        extractedPath = "excelFromOLE_out" + fileExtention
+
+        # Сохраняет извлеченные данные
+        with open("out.xlsx", "wb") as fs:
+            fs.write(data)
 ```
 
-## **Встраивание файлов в слайды**
+## **Изменение Данных OLE Объекта**
 
-Помимо диаграмм Excel, Aspose.Slides for Python позволяет встраивать в слайды другие типы файлов. Например, вы можете вставлять HTML, PDF и ZIP файлы как объекты. При двойном щелчке по вставленному объекту он автоматически открывается в соответствующем приложении, либо пользователю предлагается выбрать подходящую программу.
+Если OLE объект уже встроен в слайд, вы можете легко получить доступ к этому объекту с помощью Aspose.Slides для Python через .NET и изменить его данные следующим образом:
 
-Этот код на Python демонстрирует, как встраивать HTML и ZIP файлы в слайд:
+1. Откройте желаемую презентацию, содержащую встроенный OLE объект, создавая экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+
+1. Получите ссылку на слайд через его индекс.
+
+1. Получите доступ к форме [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/).
+
+   В нашем примере мы использовали ранее созданный PPTX, который содержит только одну форму на первом слайде. Мы затем *привели* этот объект к [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/). Это был желаемый OLE объектный фрейм, к которому нужно было получить доступ.
+
+1. Как только OLE объектный фрейм был доступен, вы можете выполнять любые операции с ним.
+
+1. Создайте объект Workbook и получите доступ к OLE данным.
+
+1. Получите доступ к желаемому Worksheet и измените данные.
+
+1. Сохраните обновленный Workbook в потоках.
+
+1. Измените данные OLE объекта из данных потока.
+
+В приведенном ниже примере к OLE объектному фрейму (объекту диаграммы Excel, встроенному в слайд) осуществляется доступ — а затем его данные файла изменяются для изменения данных диаграммы.
+
+```py 
+# [TODO: требуется Aspose.Cells для Python через .NET]
+```
+
+## Встраивание Других Типов Файлов в Слайды
+
+Кроме диаграмм Excel, Aspose.Slides для Python через .NET позволяет вам встраивать другие типы файлов в слайды. Например, вы можете вставлять HTML, PDF и ZIP файлы в качестве объектов в слайд. Когда пользователь дважды щелкает на вставленном объекте, объект автоматически запускается в соответствующей программе, или пользователь перенаправляется для выбора подходящей программы для открытия объекта.
+
+Этот код на Python показывает, как встроить HTML и ZIP в слайд:
 
 ```py
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+import aspose.slides as slides
 
-    with open("sample.html", "rb") as html_stream:
-        html_data = html_stream.read()
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    with open(path + "index.html", "rb") as fs1:
+        htmlBytes = fs1.read()
+        dataInfoHtml = slides.dom.ole.OleEmbeddedDataInfo(htmlBytes, "html")
+        oleFrameHtml = slide.shapes.add_ole_object_frame(150, 120, 50, 50, dataInfoHtml)
+        oleFrameHtml.is_object_icon = True
 
-    html_data_info = slides.dom.ole.OleEmbeddedDataInfo(html_data, "html")
-    html_ole_frame = slide.shapes.add_ole_object_frame(150, 120, 50, 50, html_data_info)
-    html_ole_frame.is_object_icon = True
+    with open(path + "archive.zip", "rb") as fs2:
+        zipBytes = fs2.read()
+        dataInfoZip = slides.dom.ole.OleEmbeddedDataInfo(zipBytes, "zip")
+        oleFrameZip = slide.shapes.add_ole_object_frame(150, 220, 50, 50, dataInfoZip)
+        oleFrameZip.is_object_icon = True
 
-    with open("sample.zip", "rb") as zip_stream:
-        zip_data = zip_stream.read()
-
-    zip_data_info = slides.dom.ole.OleEmbeddedDataInfo(zip_data, "zip")
-    zip_ole_frame = slide.shapes.add_ole_object_frame(150, 220, 50, 50, zip_data_info)
-    zip_ole_frame.is_object_icon = True
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    pres.save("embeddedOle.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Установка типов файлов для внедрённых объектов**
+## Установка Типов Файлов для Встроенных Объектов
 
-При работе с презентациями вам может потребоваться заменить старые OLE объекты новыми или заменить не поддерживаемый OLE объект поддерживаемым. Aspose.Slides for Python позволяет задать тип файла внедрённого объекта, что даёт возможность обновлять данные OLE кадра или его расширение.
+При работе с презентациями вам может потребоваться заменить старые OLE объекты на новые. Или вам может потребоваться заменить неподдерживаемый OLE объект на поддерживаемый.
 
-Этот код на Python показывает, как задать тип внедрённого OLE объекта как `zip`:
+Aspose.Slides для Python через .NET позволяет установить тип файла для встроенного объекта. Таким образом, вы можете изменить данные OLE фрейма или его расширение.
+
+Этот код на Python показывает, как установить тип файла для встроенного OLE объекта:
 
 ```py
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    ole_frame = slide.shapes[0]
+import aspose.slides as slides
 
-    file_extension = ole_frame.embedded_data.embedded_file_extension
-    file_data = ole_frame.embedded_data.embedded_file_data
+with slides.Presentation("embeddedOle.pptx") as pres:
+    slide = pres.slides[0]
+    oleObjectFrame = slide.shapes[0]
+    print("Текущее расширение встроенных данных: " + oleObjectFrame.embedded_data.embedded_file_extension)
+   
+    with open(path + "1.zip", "rb") as fs2:
+        zipBytes = fs2.read()
 
-    print(f"Current embedded file extension is: {file_extension}")
-
-    # Change the file type to ZIP.
-    ole_frame.set_embedded_data(slides.dom.ole.OleEmbeddedDataInfo(file_data, "zip"))
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    oleObjectFrame.set_embedded_data(slides.dom.ole.OleEmbeddedDataInfo(zipBytes, "zip"))
+   
+    pres.save("embeddedChanged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Установка изображений и заголовков иконок для внедрённых объектов**
+## Установка Изображений Иконок и Заголовков для Встроенных Объектов
 
-После внедрения OLE объекта автоматически добавляется превью в виде иконки. Это превью видят пользователи, пока они не откроют OLE объект. Если вы хотите использовать конкретное изображение и текст в превью, можно задать изображение и название иконки с помощью Aspose.Slides for Python.
+После того как вы встроите OLE объект, автоматически добавляется предварительный просмотр, состоящий из изображения иконки и заголовка. Предварительный просмотр — это то, что пользователи видят до того, как получат доступ или откроют OLE объект.
 
-Этот код на Python демонстрирует, как задать изображение и название иконки для внедрённого объекта:
+Если вы хотите использовать конкретное изображение и текст в качестве элементов в предварительном просмотре, вы можете установить изображение иконки и заголовок с помощью Aspose.Slides для Python через .NET.
+
+Этот код на Python показывает, как установить изображение иконки и заголовок для встроенного объекта: 
 
 ```py
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    ole_frame = slide.shapes[0]
+import aspose.slides as slides
 
-    # Add an image to the presentation resources.
-    with slides.Images.from_file("image.png") as image:
-        ole_image = presentation.images.add_image(image)
+with slides.Presentation("embeddedOle.pptx") as pres:
+    slide = pres.slides[0]
+    oleObjectFrame = slide.shapes[0]
+    
+    with open("img.jpeg", "rb") as in_file:
+        oleImage = pres.images.add_image(in_file)
 
-    # Set a title and the image for the OLE preview.
-    ole_frame.substitute_picture_title = "My title"
-    ole_frame.substitute_picture_format.picture.image = ole_image
-    ole_frame.is_object_icon = True
+    oleObjectFrame.substitute_picture_title = "Мой заголовок"
+    oleObjectFrame.substitute_picture_format.picture.image = oleImage
+    oleObjectFrame.is_object_icon = False
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    pres.save("embeddedOle-newImage.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Предотвращение изменения размера и положения OLE объектных кадров**
 
-После добавления связанного OLE объекта на слайд PowerPoint может предлагать обновить ссылки при открытии презентации. Выбор «Обновить ссылки» может изменить размер и положение OLE объектного кадра, поскольку PowerPoint обновляет превью данными из связанного объекта. Чтобы отключить запрос PowerPoint об обновлении данных объекта, установите свойство `update_automatic` класса [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) в `False`:
+
+## Извлечение Встроенных Файлов
+
+Aspose.Slides для Python через .NET позволяет вам извлекать файлы, встроенные в слайды в качестве OLE объектов, следующим образом:
+
+1. Создайте экземпляр [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), содержащий OLE объект, который вы собираетесь извлечь.
+2. Пройдитесь через все формы в презентации и получите доступ к форме [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/).
+3. Получите данные встроенного файла из OLE объектного фрейма и запишите их на диск. 
+
+Этот код на Python показывает, как извлечь файл, встроенный в слайд в качестве OLE объекта:
 
 ```py
-ole_frame.update_automatic = False
+import aspose.slides as slides
+
+with slides.Presentation("embeddedOle.pptx") as pres:
+    slide = pres.slides[0]
+    index = 0
+    for shape in slide.shapes:
+
+        if type(shape) is slides.OleObjectFrame:
+            data = shape.embedded_data.embedded_file_data
+            extension = shape.embedded_data.embedded_file_extension
+            
+            with open("oleFrame{idx}{ex}".format(idx = str(index), ex = extension), "wb") as fs:
+                fs.write(data)
+        index += 1
 ```
-
-## **Извлечение встроенных файлов**
-
-Aspose.Slides for Python позволяет извлекать файлы, встроенные в слайды как OLE объекты, следующим образом:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) содержащий OLE объекты, которые нужно извлечь.
-1. Переберите все фигуры в презентации и найдите фигуры типа OLEObjectFrame.
-1. Получите данные встроенного файла из каждого [OLEObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) и запишите их на диск.
-
-Пример кода на Python, показывающий, как извлечь файлы, встроенные в слайд как OLE объекты:
-
-```py
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-
-    for index, shape in enumerate(slide.shapes):
-        if isinstance(shape, slides.OleObjectFrame):
-            ole_frame = shape
-
-            file_data = ole_frame.embedded_data.embedded_file_data
-            file_extension = ole_frame.embedded_data.embedded_file_extension
-
-            file_path = f"OLE_object_{index}{file_extension}"
-            with open(file_path, 'wb') as file_stream:
-                file_stream.write(file_data)
-```
-
-## **FAQ**
-
-**Будет ли OLE содержимое отрисовано при экспорте слайдов в PDF/изображения?**
-
-То, что видно на слайде, будет отрисовано — иконка/замещающее изображение (превью). «Живое» OLE содержимое не исполняется во время рендеринга. При необходимости задайте собственное превью‑изображение, чтобы обеспечить ожидаемый внешний вид в экспортированном PDF.
-
-**Как заблокировать OLE объект на слайде, чтобы пользователи не могли перемещать/редактировать его в PowerPoint?**
-
-Заблокируйте фигуру: Aspose.Slides предоставляет [блокировки на уровне фигуры](/slides/ru/python-net/applying-protection-to-presentation/). Это не шифрование, но эффективно препятствует случайным изменениям и перемещениям.
-
-**Почему связанный объект Excel «перепрыгивает» или меняет размер при открытии презентации?**
-
-PowerPoint может обновлять превью связанного OLE. Для стабильного внешнего вида следуйте рекомендациям из [Рабочего решения для изменения размеров листа](/slides/ru/python-net/working-solution-for-worksheet-resizing/) — либо подгоните кадр под диапазон, либо масштабируйте диапазон к фиксированному кадру и задайте подходящее замещающее изображение.
-
-**Сохранятся ли относительные пути для связанных OLE объектов в формате PPTX?**
-
-В PPTX информация о «относительном пути» недоступна — только полный путь. Относительные пути присутствуют только в старом формате PPT. Для переносимости предпочтительно использовать надёжные абсолютные пути/доступные URI или внедрение.

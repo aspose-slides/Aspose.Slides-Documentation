@@ -1,30 +1,17 @@
 ---
-title: Obtener límites de párrafo de presentaciones en Python
-linktitle: Párrafo
+title: Párrafo
 type: docs
 weight: 60
 url: /es/python-net/paragraph/
-keywords:
-- límites del párrafo
-- límites de la porción de texto
-- coordenada del párrafo
-- coordenada de la porción
-- tamaño del párrafo
-- tamaño de la porción de texto
-- marco de texto
-- PowerPoint
-- OpenDocument
-- presentación
-- Python
-- Aspose.Slides
-description: "Aprenda cómo recuperar los límites de párrafo y de porción de texto en Aspose.Slides para Python mediante .NET para optimizar la posición del texto en presentaciones de PowerPoint y OpenDocument."
+keywords: "Párrafo, porción, coordenadas de párrafo, coordenadas de porción, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
+description: "Párrafo y porción en la presentación de PowerPoint en Python"
 ---
 
-## **Obtener coordenadas de párrafo y porción en TextFrame**
-Usando Aspose.Slides para Python mediante .NET, los desarrolladores ahora pueden obtener las coordenadas rectangulares de **Paragraph** dentro de la colección de párrafos de **TextFrame**. También permite obtener las coordenadas de la porción dentro de la colección de porciones de un párrafo. En este tema, demostraremos, con la ayuda de un ejemplo, cómo obtener las coordenadas rectangulares del párrafo junto con la posición de la porción dentro de un párrafo.
+## **Obtener Coordenadas de Párrafo y Porción en TextFrame**
+Usando Aspose.Slides para Python a través de .NET, los desarrolladores ahora pueden obtener las coordenadas rectangulares para Párrafos dentro de la colección de párrafos de TextFrame. También permite obtener las coordenadas de la porción dentro de la colección de porciones de un párrafo. En este tema, vamos a demostrar con la ayuda de un ejemplo cómo obtener las coordenadas rectangulares para un párrafo junto con la posición de la porción dentro de un párrafo.
 
-## **Obtener coordenadas rectangulares del párrafo**
-El nuevo método **GetRect()** ha sido añadido. Permite obtener el rectángulo de límites del párrafo.
+## **Obtener Coordenadas Rectangulares de Párrafo**
+Se ha añadido el nuevo método **GetRect()**. Permite obtener el rectángulo de límites del párrafo.
 
 ```py
 import aspose.slides as slides
@@ -36,11 +23,11 @@ with slides.Presentation(path + "Shapes.pptx") as presentation:
     rect = textFrame.paragraphs[0].get_rect()
 ```
 
-## **Obtener tamaño de párrafo y porción dentro del marco de texto de una celda de tabla** ##
+## **Obtener tamaño de párrafo y porción dentro del marco de texto de la celda de tabla** ##
 
-Para obtener el tamaño y las coordenadas de la [Porción](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) o del [Párrafo](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) en el marco de texto de una celda de tabla, puede usar los métodos [IPortion.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iportion/) y [IParagraph.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/).
+Para obtener el tamaño y las coordenadas de [Porción](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) o [Párrafo](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) en el marco de texto de una celda de tabla, puedes usar los métodos [IPortion.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iportion/) y [IParagraph.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/).
 
-Este fragmento de código muestra la operación descrita:
+Este código de muestra demuestra la operación descrita:
 
 ```py
 import aspose.slides as slides
@@ -50,7 +37,6 @@ with slides.Presentation(path + "source.pptx") as pres:
     tbl = pres.slides[0].shapes[0]
 
     cell = tbl.rows[1][1]
-
 
     x = tbl.X + tbl.rows[1][1].offset_x
     y = tbl.Y + tbl.rows[1][1].offset_y
@@ -75,21 +61,3 @@ with slides.Presentation(path + "source.pptx") as pres:
 
                 shape.fill_format.fill_type = slides.FillType.NO_FILL
 ```
-
-## **FAQ**
-
-**¿En qué unidades se devuelven las coordenadas de un párrafo y sus porciones de texto?**
-
-En puntos, donde 1 pulgada = 72 puntos. Esto se aplica a todas las coordenadas y dimensiones en la diapositiva.
-
-**¿El ajuste de línea afecta los límites de un párrafo?**
-
-Sí. Si el [ajuste de línea](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) está habilitado en el [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/), el texto se ajusta para caber en el ancho del área, lo que cambia los límites reales del párrafo.
-
-**¿Se pueden mapear de forma confiable las coordenadas del párrafo a píxeles en la imagen exportada?**
-
-Sí. Convierta puntos a píxeles usando: píxeles = puntos × (DPI / 72). El resultado depende del DPI elegido para el renderizado/exportación.
-
-**¿Cómo obtener los parámetros de formato “efectivo” del párrafo, teniendo en cuenta la herencia de estilos?**
-
-Utilice la [estructura de datos de formato de párrafo efectivo](/slides/es/python-net/shape-effective-properties/); devuelve los valores consolidados finales para sangrías, espaciado, ajuste, RTL y más.

@@ -1,36 +1,25 @@
 ---
-title: Aplicar efectos de forma en presentaciones con Python
-linktitle: Efecto de forma
+title: Efecto de Forma
 type: docs
 weight: 30
 url: /es/python-net/shape-effect
-keywords:
-- efecto de forma
-- efecto de sombra
-- efecto de reflexión
-- efecto de brillo
-- efecto de bordes suaves
-- formato de efecto
-- PowerPoint
-- OpenDocument
-- presentación
-- Python
-- Aspose.Slides
-description: "Transforme sus archivos PPT, PPTX y ODP con efectos de forma avanzados usando Aspose.Slides para Python—crea diapositivas impactantes y profesionales en segundos."
+keywords: "Efecto de forma, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
+description: "Aplicar efecto a la forma de PowerPoint en Python"
 ---
 
-Mientras que los efectos en PowerPoint pueden usarse para resaltar una forma, difieren de los [rellenos](/slides/es/python-net/shape-formatting/#gradient-fill) o de los contornos. Con los efectos de PowerPoint, puede crear reflejos convincentes en una forma, difundir el brillo de una forma, etc.
+Mientras que los efectos en PowerPoint pueden ser utilizados para hacer que una forma resalte, se diferencian de [rellenos](/slides/es/python-net/shape-formatting/#gradient-fill) o contornos. Utilizando efectos de PowerPoint, puedes crear reflexiones convincentes en una forma, difundir el resplandor de una forma, etc.
 
-<img src="shape-effect.png" alt="efecto-de-forma" style="zoom:50%;" />
+<img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 
-* PowerPoint ofrece seis efectos que pueden aplicarse a las formas. Puede aplicar uno o más efectos a una forma.  
-* Algunas combinaciones de efectos lucen mejor que otras. Por esta razón, PowerPoint incluye opciones bajo **Preajuste**. Las opciones de Preajuste son esencialmente combinaciones probadas y de buen aspecto de dos o más efectos. De este modo, al seleccionar un preajuste, no tendrá que perder tiempo probando o combinando diferentes efectos para encontrar una buena combinación.
+* PowerPoint proporciona seis efectos que se pueden aplicar a las formas. Puedes aplicar uno o más efectos a una forma. 
 
-Aspose.Slides proporciona propiedades y métodos en la clase [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) que le permiten aplicar los mismos efectos a las formas en presentaciones de PowerPoint.
+* Algunas combinaciones de efectos se ven mejor que otras. Por esta razón, las opciones de PowerPoint bajo **Preestablecido**. Las opciones de Preestablecido son esencialmente una combinación conocida y atractiva de dos o más efectos. De esta manera, al seleccionar un preestablecido, no tendrás que perder tiempo probando o combinando diferentes efectos para encontrar una buena combinación.
 
-## **Aplicar efecto de sombra**
+Aspose.Slides proporciona propiedades y métodos bajo la clase [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) que te permiten aplicar los mismos efectos a las formas en presentaciones de PowerPoint.
 
-Este código Python muestra cómo aplicar el efecto de sombra externa (`outer_shadow_effect`) a un rectángulo:
+## **Aplicar Efecto de Sombra**
+
+Este código en Python te muestra cómo aplicar el efecto de sombra exterior (`outer_shadow_effect`) a un rectángulo:
 
 ```python
 import aspose.slides as slides
@@ -47,9 +36,9 @@ with slides.Presentation() as pres:
     pres.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Aplicar efecto de reflexión**
+## **Aplicar Efecto de Reflexión**
 
-Este código Python muestra cómo aplicar el efecto de reflexión a una forma:
+Este código en Python te muestra cómo aplicar el efecto de reflexión a una forma:
 
 ```python
 import aspose.slides as slides
@@ -67,9 +56,9 @@ with slides.Presentation() as pres:
     pres.save("reflection.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Aplicar efecto de brillo**
+## **Aplicar Efecto de Resplandor**
 
-Este código Python muestra cómo aplicar el efecto de brillo a una forma:
+Este código en Python te muestra cómo aplicar el efecto de resplandor a una forma:
 
 ```python
 import aspose.slides as slides
@@ -85,9 +74,9 @@ with slides.Presentation() as pres:
     pres.save("glow.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Aplicar efecto de bordes suaves**
+## **Aplicar Efecto de Bordes Suaves**
 
-Este código Python muestra cómo aplicar bordes suaves a una forma:
+Este código en Python te muestra cómo aplicar bordes suaves a una forma:
 
 ```python
 import aspose.slides as slides
@@ -101,17 +90,3 @@ with slides.Presentation() as pres:
 
     pres.save("softEdges.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-## **Preguntas frecuentes**
-
-**¿Puedo aplicar varios efectos a la misma forma?**
-
-Sí, puede combinar diferentes efectos, como sombra, reflexión y brillo, en una sola forma para crear una apariencia más dinámica.
-
-**¿A qué tipos de formas puedo aplicar efectos?**
-
-Puede aplicar efectos a diversas formas, incluidas autoshapes, gráficos, tablas, imágenes, objetos SmartArt, objetos OLE y más.
-
-**¿Puedo aplicar efectos a formas agrupadas?**
-
-Sí, puede aplicar efectos a formas agrupadas. El efecto se aplicará a todo el grupo.

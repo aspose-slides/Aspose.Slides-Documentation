@@ -1,115 +1,124 @@
 ---
-title: "Управление свойствами презентации с помощью Python"
-linktitle: "Свойства презентации"
+title: Управляйте свойствами презентации в Python
+linktitle: Свойства презентации
 type: docs
 weight: 70
 url: /ru/python-net/presentation-properties/
 keywords:
-  - "Свойства PowerPoint"
-  - "Свойства презентации"
-  - "Свойства документа"
-  - "Встроенные свойства"
-  - "Пользовательские свойства"
-  - "Расширенные свойства"
-  - "Управление свойствами"
-  - "Изменение свойств"
-  - "Метаданные документа"
-  - "Редактирование метаданных"
-  - "Язык проверки орфографии"
-  - "Язык по умолчанию"
-  - "PowerPoint"
-  - "OpenDocument"
-  - "презентация"
-  - "Python"
-  - "Aspose.Slides"
-description: "Освойте свойства презентаций в Aspose.Slides for Python via .NET и оптимизируйте поиск, брендинг и рабочий процесс в ваших файлах PowerPoint."
+- свойства PowerPoint
+- свойства презентации
+- свойства документа
+- встроенные свойства
+- пользовательские свойства
+- расширенные свойства
+- управление свойствами
+- изменение свойств
+- метаданные документа
+- редактирование метаданных
+- язык проверки орфографии
+- язык по умолчанию
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Освойте работу со свойствами презентаций в Aspose.Slides for Python via .NET и упростите поиск, брендинг и рабочие процессы в ваших файлах PowerPoint."
 ---
 
+
+## **Пример в реальном времени**
+Попробуйте [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) онлайн-приложение, чтобы увидеть, как работать со свойствами документа через API Aspose.Slides:
+
+[](https://products.aspose.app/slides/metadata)
+
+[![todo:image_alt_text](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+
+
 ## **О свойствах презентации**
+Как мы уже описали ранее, Aspose.Slides для Python через .NET поддерживает два типа свойств документа: **Встроенные** и **Пользовательские** свойства. Таким образом, разработчики могут получать доступ к обоим типам свойств с использованием API Aspose.Slides для Python через .NET. Aspose.Slides для Python через .NET предоставляет класс [IDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/idocumentproperties/), который представляет свойства документа, связанные с файлом презентации через свойство [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/). Разработчики могут использовать свойство [IDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/idocumentproperties/), предоставляемое объектом **Presentation**, для доступа к свойствам документа файлов презентации, как описано ниже:
 
-Как мы уже описали ранее, Aspose.Slides for Python via .NET поддерживает два типа свойств документа: **Встроенные** и **Пользовательские**. Поэтому разработчики могут получать доступ к обоим типам свойств с помощью API Aspose.Slides for Python via .NET. Aspose.Slides for Python via .NET предоставляет класс [IDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/idocumentproperties/), который представляет свойства документа, связанные с файлом презентации через свойство [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/). Разработчики могут использовать свойство [IDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/idocumentproperties/), предоставляемое объектом **Presentation**, чтобы получить доступ к свойствам документа презентаций, как описано ниже:
 
-{{% alert color="primary" %}}Обратите внимание, что вы не можете задать значения для полей **Application** и **Producer**, так как вместо них будут отображаться Aspose Ltd. и Aspose.Slides for Python via .NET x.x.x.{{% /alert %}}
+
+{{% alert color="primary" %}} 
+
+Обратите внимание, что вы не можете устанавливать значения для полей **Application** и **Producer**, потому что Aspose Ltd. и Aspose.Slides для Python через .NET x.x.x будут отображаться в этих полях.
+
+{{% /alert %}} 
+
 
 ## **Управление свойствами презентации**
+Microsoft PowerPoint предоставляет функцию добавления некоторых свойств к файлам презентации. Эти свойства документа позволяют хранить полезную информацию вместе с документами (файлами презентации). Существует два типа свойств документа:
 
-Microsoft PowerPoint предоставляет возможность добавлять свойства к файлам презентаций. Эти свойства документа позволяют хранить полезную информацию вместе с документами (файлами презентаций). Существует два типа свойств документа:
+- Определенные системой (Встроенные) свойства
+- Определенные пользователем (Пользовательские) свойства
 
-- Системные (встроенные) свойства
-- Пользовательские (кастомные) свойства
-
-**Встроенные** свойства содержат общую информацию о документе, такую как название, имя автора, статистика и т.д. **Пользовательские** свойства — это пары **Имя/Значение**, определяемые пользователем. С помощью Aspose.Slides for Python via .NET разработчики могут получать и изменять как встроенные, так и пользовательские свойства. Microsoft PowerPoint 2007 позволяет управлять свойствами документа презентаций. Достаточно нажать значок Office и далее пункт меню **Prepare | Properties | Advanced Properties** в Microsoft PowerPoint 2007. После выбора пункта **Advanced Properties** появится диалоговое окно, позволяющее управлять свойствами документа PowerPoint. В **Properties Dialog** отображаются вкладки **General, Summary, Statistics, Contents и Custom**. Все эти вкладки позволяют настраивать различную информацию, связанную с файлами PowerPoint. Вкладка **Custom** используется для управления пользовательскими свойствами файлов PowerPoint.
+**Встроенные** свойства содержат общую информацию о документе, такую как заголовок документа, имя автора, статистика документа и так далее. **Пользовательские** свойства — это те, которые определены пользователями в виде пар **Имя/Значение**, где и имя, и значение определяются пользователем. С помощью Aspose.Slides для Python через .NET разработчики могут получать доступ и изменять значения встроенных свойств, а также пользовательских свойств. Microsoft PowerPoint 2007 позволяет управлять свойствами документов файлов презентации. Все, что вам нужно сделать, это щелкнуть значок Office и далее выбрать пункт меню **Подготовка | Свойства | Расширенные свойства** в Microsoft PowerPoint 2007. После того как вы выберете пункт меню **Расширенные свойства**, появится диалоговое окно, позволяющее управлять свойствами документа PowerPoint. В диалоговом окне **Свойства** вы можете видеть, что есть множество вкладок, таких как **Общие, Сводка, Статистика, Содержимое и Пользовательские**. Все эти вкладки позволяют настраивать различные виды информации, связанные с файлами PowerPoint. Вкладка **Пользовательские** используется для управления пользовательскими свойствами файлов PowerPoint.
 
 ## **Доступ к встроенным свойствам**
-
-Эти свойства, предоставляемые объектом **IDocumentProperties**, включают: **Creator(Author)**, **Description**, **Keywords**, **Created** (Дата создания), **Modified** (Дата изменения), **Printed** (Дата последней печати), **LastModifiedBy**, **SharedDoc** (Общий документ?), **PresentationFormat**, **Subject** и **Title**.
-
+Эти свойства, предоставленные объектом **IDocumentProperties**, включают: **Автор**, **Описание**, **Ключевые слова**, **Дата создания**, **Дата изменения**, **Дата последнего печати**, **Последний сохранитель**, **Ключевые слова**, **Общий документ** (Общий между разными производителями?), **Формат презентации**, **Тема** и **Заголовок**
 ```py
 import aspose.slides as slides
 
-# Создать экземпляр класса Presentation, представляющего презентацию
+# Создаем экземпляр класса Presentation, представляющего презентацию
 with slides.Presentation(path + "AccessBuiltin Properties.pptx") as pres:
-    # Создать ссылку на объект, связанный с презентацией
+    # Создаем ссылку на объект, связанный с презентацией
     documentProperties = pres.document_properties
 
-    # Вывести встроенные свойства
-    print("category : " + documentProperties.category)
-    print("Current Status : " + documentProperties.content_status)
-    print("Creation Date : " + str(documentProperties.created_time))
-    print("Author : " + documentProperties.author)
-    print("Description : " + documentProperties.comments)
-    print("KeyWords : " + documentProperties.keywords)
-    print("Last Modified By : " + documentProperties.last_saved_by)
-    print("Supervisor : " + documentProperties.manager)
-    print("Modified Date : " + str(documentProperties.last_saved_time))
-    print("Presentation Format : " + documentProperties.presentation_format)
-    print("Last Print Date : " + str(documentProperties.last_printed))
-    print("Is Shared between producers : " + str(documentProperties.shared_doc))
-    print("Subject : " + documentProperties.subject)
-    print("Title : " + documentProperties.title)
+    # Отображаем встроенные свойства
+    print("категория : " + documentProperties.category)
+    print("Текущий статус : " + documentProperties.content_status)
+    print("Дата создания : " + str(documentProperties.created_time))
+    print("Автор : " + documentProperties.author)
+    print("Описание : " + documentProperties.comments)
+    print("Ключевые слова : " + documentProperties.keywords)
+    print("Последний изменитель : " + documentProperties.last_saved_by)
+    print("Руководитель : " + documentProperties.manager)
+    print("Дата изменения : " + str(documentProperties.last_saved_time))
+    print("Формат презентации : " + documentProperties.presentation_format)
+    print("Дата последней печати : " + str(documentProperties.last_printed))
+    print("Общий между производителями : " + str(documentProperties.shared_doc))
+    print("Тема : " + documentProperties.subject)
+    print("Заголовок : " + documentProperties.title)
 ```
-
 ## **Изменение встроенных свойств**
-
-Изменять встроенные свойства файлов презентаций так же просто, как получать их. Достаточно присвоить строковое значение нужному свойству, и значение будет изменено. В примере ниже демонстрируется, как изменить встроенные свойства документа презентации.
+Изменять встроенные свойства файлов презентации так же просто, как и получать к ним доступ. Вы можете просто присвоить строковое значение любому желаемому свойству, и значение свойства будет изменено. В приведенном ниже примере мы продемонстрировали, как мы можем изменить встроенные свойства документа файла презентации.
 
 ```py
 import aspose.slides as slides
 
-# Создать экземпляр класса Presentation, представляющего презентацию
+# Создаем экземпляр класса Presentation, представляющего презентацию
 with slides.Presentation(path + "ModifyBuiltinProperties.pptx") as presentation:
-    # Создать ссылку на объект, связанный с презентацией
+    # Создаем ссылку на объект, связанный с презентацией
     documentProperties = presentation.document_properties
 
-    # Установить встроенные свойства
-    documentProperties.author = "Aspose.Slides for .NET"
-    documentProperties.title = "Modifying Presentation Properties"
-    documentProperties.subject = "Aspose Subject"
-    documentProperties.comments = "Aspose Description"
-    documentProperties.manager = "Aspose Manager"
+    # Устанавливаем встроенные свойства
+    documentProperties.author = "Aspose.Slides для .NET"
+    documentProperties.title = "Изменение свойств презентации"
+    documentProperties.subject = "Тема Aspose"
+    documentProperties.comments = "Описание Aspose"
+    documentProperties.manager = "Менеджер Aspose"
 
-    # Сохранить презентацию в файл
+    # сохраняем вашу презентацию в файл
     presentation.save("DocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Добавление пользовательских свойств презентации**
-
-Aspose.Slides for Python via .NET также позволяет разработчикам добавлять пользовательские значения для свойств документа презентации. Ниже приведён пример, показывающий, как задать пользовательские свойства для презентации.
+Aspose.Slides для Python через .NET также позволяет разработчикам добавлять пользовательские значения для свойств документа презентации. Пример приведен ниже и показывает, как установить пользовательские свойства для презентации.
 
 ```py
 import aspose.slides as slides
 
-# Создать экземпляр класса Presentation
+# Создаем экземпляр класса Presentation
 with slides.Presentation() as presentation:
     # Получение свойств документа
     documentProperties = presentation.document_properties
 
     # Добавление пользовательских свойств
-    documentProperties.set_custom_property_value("New Custom", 12)
-    documentProperties.set_custom_property_value("My Nam", "Mudassir")
-    documentProperties.set_custom_property_value("Custom", 124)
+    documentProperties.set_custom_property_value("Новое пользовательское", 12)
+    documentProperties.set_custom_property_value("Мое имя", "Мудассир")
+    documentProperties.set_custom_property_value("Пользовательское", 124)
 
-    # Получение имени свойства по заданному индексу
+    # Получение имени свойства по определенному индексу
     getPropertyName = documentProperties.get_custom_property_name(2)
 
     # Удаление выбранного свойства
@@ -120,34 +129,46 @@ with slides.Presentation() as presentation:
 ```
 
 ## **Доступ и изменение пользовательских свойств**
-
-Aspose.Slides for Python via .NET также позволяет разработчикам получать значения пользовательских свойств и изменять их. Ниже пример, показывающий, как получить и изменить все пользовательские свойства презентации.
+Aspose.Slides для Python через .NET также позволяет разработчикам получать доступ к значениям пользовательских свойств. Пример приведен ниже и показывает, как вы можете получить доступ и изменить все эти пользовательские свойства для презентации.
 
 ```py
 import aspose.slides as slides
 
-# Создать экземпляр класса Presentation, представляющего PPTX
+# Создаем экземпляр класса Presentation, представляющего PPTX
 with slides.Presentation(path + "AccessModifyingProperties.pptx") as presentation:
-    # Создать ссылку на объект document_properties, связанный с презентацией
+    # Создаем ссылку на объект document_properties, связанный с презентацией
     documentProperties = presentation.document_properties
 
     # Доступ и изменение пользовательских свойств
     for i in range(documentProperties.count_of_custom_properties):
-        # Вывести имена и значения пользовательских свойств
-        print("Custom Property Name : " + documentProperties.get_custom_property_name(i))
-        print("Custom Property Value : " + documentProperties.get_custom_property_value[documentProperties.get_custom_property_name(i)])
+        # Отображаем имена и значения пользовательских свойств
+        print("Имя пользовательского свойства : " + documentProperties.get_custom_property_name(i))
+        print("Значение пользовательского свойства : " + documentProperties.get_custom_property_value[documentProperties.get_custom_property_name(i)])
 
-        # Изменить значения пользовательских свойств
-        documentProperties.set_custom_property_value(documentProperties.get_custom_property_name(i), "New Value " + str(i + 1))
-    # Сохранить презентацию в файл
+        # Изменяем значения пользовательских свойств
+        documentProperties.set_custom_property_value(documentProperties.get_custom_property_name(i), "Новое значение " + str(i + 1))
+    # сохраняем вашу презентацию в файл
     presentation.save("CustomDemoModified_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Установка языка проверки орфографии**
+## **Проверка, была ли изменена или создана презентация**
+Aspose.Slides для Python через .NET предоставляет возможность проверить, была ли изменена или создана презентация. Пример приведен ниже и показывает, как проверить, создана ли или изменена презентация.
 
-Aspose.Slides предоставляет свойство `Language_Id` (предоставляемое классом [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/)) для установки языка проверки орфографии в документе PowerPoint. Язык проверки орфографии — это язык, для которого проверяются орфография и грамматика в PowerPoint.
+```py
+import aspose.slides as slides
 
-Этот пример на Python показывает, как установить язык проверки орфографии для PowerPoint:
+info =slides.PresentationFactory.instance.get_presentation_info(path + "AccessModifyingProperties.pptx")
+props = info.read_document_properties()
+
+print(props.name_of_application)
+print(props.app_version)
+```
+
+## **Установка языка проверки**
+
+Aspose.Slides предоставляет свойство `Language_Id` (представленное классом [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/)), чтобы позволить вам установить язык проверки для документа PowerPoint. Язык проверки - это язык, для которого проверяются правописание и грамматика в PowerPoint.
+
+Этот код Python показывает, как установить язык проверки для PowerPoint:
 
 ```python
 import aspose.slides as slides
@@ -164,7 +185,7 @@ with slides.Presentation(path + "SetProofingLanguage.pptx") as pres:
     portion_format.east_asian_font = font
     portion_format.latin_font = font
 
-    # установить Id языка проверки орфографии
+    # Устанавливаем идентификатор языка проверки
     portion_format.language_id = "zh-CN"
     new_portion.text = "1。"
 
@@ -173,7 +194,7 @@ with slides.Presentation(path + "SetProofingLanguage.pptx") as pres:
 
 ## **Установка языка по умолчанию**
 
-Этот пример на Python показывает, как установить язык по умолчанию для всей презентации PowerPoint:
+Этот код Python показывает, как установить язык по умолчанию для целой презентации PowerPoint:
 
 ```python
 import aspose.slides as slides
@@ -184,27 +205,7 @@ load_options.default_text_language = "en_US"
 with slides.Presentation(load_options) as pres:
     shp = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 150)
     text_frame = shp.text_frame
-    text_frame.text = "New Text"
+    text_frame.text = "Новый текст"
 
     print(text_frame.paragraphs[0].portions[0].portion_format.language_id)
 ```
-
-## **Онлайн‑пример**
-
-Попробуйте онлайн‑приложение [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata), чтобы увидеть, как работать со свойствами документа через API Aspose.Slides:
-
-[![Просмотр и редактирование метаданных PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
-
-## **FAQ**
-
-**Как удалить встроенное свойство из презентации?**
-
-Встроенные свойства являются неотъемлемой частью презентации и полностью удалить их нельзя. Однако вы можете изменить их значения или установить пустую строку, если это допускается конкретным свойством.
-
-**Что произойдет, если я добавлю пользовательское свойство, которое уже существует?**
-
-Если добавить пользовательское свойство, которое уже существует, его текущее значение будет перезаписано новым. Удалять или проверять существование свойства заранее не требуется — Aspose.Slides автоматически обновит значение свойства.
-
-**Можно ли получить свойства презентации без полного её загрузки?**
-
-Да, свойства презентации можно получить без полной загрузки, используя метод [get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) класса [PresentationFactory](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/). Затем примените метод [read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) класса [PresentationInfo](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/), чтобы эффективно считывать свойства, экономя память и повышая производительность.

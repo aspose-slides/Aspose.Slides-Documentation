@@ -1,42 +1,29 @@
 ---
-title: تصدير العروض التقديمية إلى XAML باستخدام Python
-linktitle: تصدير إلى XAML
+title: تصدير إلى XAML
 type: docs
 weight: 30
 url: /ar/python-net/export-to-xaml/
-keywords:
-- تصدير PowerPoint
-- تصدير OpenDocument
-- تصدير عرض تقديمي
-- تحويل PowerPoint
-- تحويل OpenDocument
-- تحويل عرض تقديمي
-- PowerPoint إلى XAML
-- OpenDocument إلى XAML
-- عرض تقديمي إلى XAML
-- PPT إلى XAML
-- PPTX إلى XAML
-- ODP إلى XAML
-- Python
-- Aspose.Slides
-description: "تحويل شرائح PowerPoint وOpenDocument إلى XAML في Python باستخدام Aspose.Slides—حل سريع وخالٍ من Office يافظ على تخطيطك كما هو."
+keywords: "تصدير عرض PowerPoint، تحويل PowerPoint، XAML، PowerPoint إلى XAML، PPT إلى XAML، PPTX إلى XAML، بايثون"
+description: "تصدير أو تحويل عرض PowerPoint إلى XAML"
 ---
 
-## **نظرة عامة**
+# تصدير العروض إلى XAML
 
 {{% alert title="معلومات" color="info" %}} 
 
-في [Aspose.Slides 21.6](https://docs.aspose.com/slides/python-net/aspose-slides-for-net-21-6-release-notes/)، قمنا بتنفيذ دعم تصدير XAML. يمكنك الآن تصدير عروضك التقديمية إلى XAML. 
+في [Aspose.Slides 21.6](https://docs.aspose.com/slides/python-net/aspose-slides-for-net-21-6-release-notes/)، قمنا بتنفيذ دعم لتصدير XAML. يمكنك الآن تصدير عروضك إلى XAML. 
 
 {{% /alert %}} 
 
-XAML هي لغة برمجة وصفية تتيح لك بناء أو كتابة واجهات المستخدم للتطبيقات، خاصة تلك التي تستخدم WPF (Windows Presentation Foundation) وUWP (Universal Windows Platform) وXamarin Forms.  
+# حول XAML
 
-XAML، التي هي لغة تعتمد على XML، هي نسخة مايكروسوفت لوصف واجهة المستخدم. من المحتمل أن تستخدم أداة التصميم للعمل على ملفات XAML معظم الوقت، ولكن يمكنك أيضاً كتابة وتحرير واجهتك. 
+XAML هي لغة برمجة وصفية تسمح لك بإنشاء أو كتابة واجهات مستخدم للتطبيقات، خاصة تلك التي تستخدم WPF (Windows Presentation Foundation) وUWP (Universal Windows Platform) وXamarin forms.  
 
-## **تصدير العروض التقديمية إلى XAML باستخدام الخيارات الافتراضية**
+XAML، التي هي لغة قائمة على XML، هي النسخة الخاصة بشركة مايكروسوفت لوصف واجهة المستخدم الرسومية. من المحتمل أن تستخدم مصممًا للعمل على ملفات XAML معظم الوقت، ولكن يمكنك أيضًا كتابة وتحرير واجهة المستخدم الخاصة بك. 
 
-هذا الكود Python يوضح لك كيفية تصدير عرض تقديمي إلى XAML باستخدام الإعدادات الافتراضية:
+## تصدير العروض إلى XAML باستخدام الخيارات الافتراضية
+
+هذا الرمز بلغة بايثون يوضح لك كيفية تصدير عرض إلى XAML باستخدام الإعدادات الافتراضية:
 
 ```py
 import aspose.slides as slides
@@ -45,11 +32,11 @@ pres = slides.Presentation("pres.pptx")
 pres.save(slides.export.xaml.XamlOptions())
 ```
 
-## **تصدير العروض التقديمية إلى XAML باستخدام خيارات مخصصة**
+## تصدير العروض إلى XAML باستخدام خيارات مخصصة
 
-يمكنك اختيار الخيارات من واجهة [IXamlOptions] التي تتحكم في عملية التصدير وتحدد كيفية تصدير Aspose.Slides لعرضك إلى XAML. 
+يمكنك اختيار الخيارات من واجهة [IXamlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/ixamloptions/) التي تتحكم في عملية التصدير وتحدد كيفية تصدير Aspose.Slides لعروضك إلى XAML. 
 
-على سبيل المثال، إذا كنت ترغب في أن تقوم Aspose.Slides بإضافة الشرائح المخفية من عرضك عند تصديره إلى XAML، يمكنك ضبط خاصية [ExportHiddenSlides] على true. انظر هذا المثال من كود Python: 
+على سبيل المثال، إذا كنت تريد من Aspose.Slides إضافة الشرائح المخفية من عرضك عند تصديره إلى XAML، يمكنك تعيين خاصية [ExportHiddenSlides](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/ixamloptions/) إلى true. انظر هذا الرمز كمثال بلغة بايثون: 
 
 ```py
 import aspose.slides as slides
@@ -61,17 +48,3 @@ opt.export_hidden_slides = True
 
 pres.save(opt)
 ```
-
-## **الأسئلة المتكررة**
-
-**كيف يمكنني ضمان خطوط متوقعة إذا لم يكن الخط الأصلي متاحًا على الجهاز؟**
-
-قم بتعيين [default_regular_font] في [XamlOptions] — يتم استخدامه كخط احتياطي عندما يكون الخط الأصلي غير موجود. هذا يساعد على تجنب الاستبدالات غير المتوقعة.
-
-**هل XAML المُصدَّر مخصص فقط لـ WPF، أم يمكن استخدامه في تقنيات XAML أخرى أيضًا؟**
-
-XAML هي لغة توصيف واجهة مستخدم عامة تُستخدم في WPF وUWP وXamarin.Forms. يستهدف التصدير التوافق مع مجموعات XAML التابعة لمايكروسوفت؛ السلوك الدقيق ودعم البُنى المحددة يعتمد على منصة الهدف. اختبر العلامات في بيئتك.
-
-**هل تدعم الشرائح المخفية، وكيف يمكنني منع تصديرها افتراضيًا؟**
-
-افتراضيًا، لا تُضمّن الشرائح المخفية. يمكنك التحكم في هذا السلوك عبر [export_hidden_slides] في [XamlOptions] — أبقِها مُعطّلة إذا لم تكن بحاجة لتصديرها.

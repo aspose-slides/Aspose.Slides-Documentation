@@ -1,66 +1,110 @@
 ---
-title: Verwalten von Präsentationstabellen mit Python
-linktitle: Tabelle verwalten
+title: Tabelle verwalten
 type: docs
 weight: 10
 url: /de/python-net/manage-table/
-keywords:
-- Tabelle hinzufügen
-- Tabelle erstellen
-- Tabelle zugreifen
-- Seitenverhältnis
-- Text ausrichten
-- Textformatierung
-- Tabellenstil
-- PowerPoint
-- OpenDocument
-- Präsentation
-- Python
-- Aspose.Slides
-description: "Erstellen & bearbeiten Sie Tabellen in PowerPoint- und OpenDocument-Folien mit Aspose.Slides für Python via .NET. Entdecken Sie einfache Codebeispiele, um Ihre Tabellen-Workflows zu optimieren."
+keywords: "Tabelle, Tabelle erstellen, auf Tabelle zugreifen, Seitenverhältnis der Tabelle, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
+description: "Tabelle in PowerPoint-Präsentationen in Python erstellen und verwalten"
+
 ---
 
-## **Übersicht**
+Eine Tabelle in PowerPoint ist eine effiziente Methode, um Informationen darzustellen und zu veranschaulichen. Die Informationen in einem Gitter von Zellen (angeordnet in Zeilen und Spalten) sind einfach und leicht verständlich.
 
-Eine Tabelle in PowerPoint ist ein effizienter Weg, um Informationen darzustellen. Informationen, die in einem Raster aus Zellen (Zeilen und Spalten) angeordnet sind, sind leicht verständlich.
+Aspose.Slides bietet die [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) Klasse, das [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) Interface, die [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) Klasse, das [ICell](https://reference.aspose.com/slides/python-net/aspose.slides/icell/) Interface und andere Typen, die es Ihnen ermöglichen, Tabellen in allen Arten von Präsentationen zu erstellen, zu aktualisieren und zu verwalten. 
 
-Aspose.Slides bietet die [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/)‑Klasse, die [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/)‑Klasse und weitere zugehörige Typen, um Ihnen beim Erstellen, Aktualisieren und Verwalten von Tabellen in jeder Präsentation zu helfen.
+## **Tabelle von Grund auf erstellen**
 
-## **Tabellen von Grund auf erstellen**
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
+2. Holen Sie sich eine Referenz zur Folie über ihren Index. 
+3. Definieren Sie ein Array von `columnWidth`.
+4. Definieren Sie ein Array von `rowHeight`.
+5. Fügen Sie ein [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) Objekt zur Folie über die Methode `add_table(x, y, column_widths, row_heights)` hinzu.
+6. Durchlaufen Sie jede [ICell](https://reference.aspose.com/slides/python-net/aspose.slides/icell/), um das Format für die oberen, unteren, rechten und linken Ränder anzuwenden.
+7. Fügen Sie die ersten beiden Zellen der ersten Zeile der Tabelle zusammen. 
+8. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) einer [ICell](https://reference.aspose.com/slides/python-net/aspose.slides/icell/) zu. 
+9. Fügen Sie etwas Text zum [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) hinzu.
+10. Speichern Sie die modifizierte Präsentation.
 
-Dieser Abschnitt zeigt, wie Sie in Aspose.Slides eine Tabelle von Grund auf neu erstellen, indem Sie einer Folie ein Tabellenelement hinzufügen, deren Zeilen und Spalten definieren und genaue Größen festlegen. Außerdem erfahren Sie, wie Sie Zellen mit Text füllen, Ausrichtung und Rahmen anpassen und das Erscheinungsbild der Tabelle individuell gestalten.
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.  
-2. Holen Sie sich einen Verweis auf eine Folie anhand ihres Index.  
-3. Definieren Sie ein Array mit Spaltenbreiten.  
-4. Definieren Sie ein Array mit Zeilenhöhen.  
-5. Fügen Sie der Folie ein [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/)‑Element hinzu.  
-6. Durchlaufen Sie jede [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) und formatieren Sie deren obere, untere, rechte und linke Rahmen.  
-7. Verbinden Sie die ersten beiden Zellen in der ersten Zeile der Tabelle.  
-8. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) einer [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) zu.  
-9. Fügen Sie dem [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) Text hinzu.  
-10. Speichern Sie die geänderte Präsentation.
-
-Das folgende Python‑Beispiel zeigt, wie Sie eine Tabelle in einer Präsentation erstellen:
+Dieser Python-Code zeigt Ihnen, wie Sie eine Tabelle in einer Präsentation erstellen:
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instanziiert die Presentation‑Klasse, die eine Präsentationsdatei darstellt.
-with slides.Presentation() as presentation:
-    # Greift auf die erste Folie zu.
-    slide = presentation.slides[0]
+# Erstellt eine Präsentation, die eine PPTX-Datei darstellt
+with slides.Presentation() as pres:
+    # Greift auf die erste Folie zu
+    sld = pres.slides[0]
 
-    # Definiert Spaltenbreiten und Zeilenhöhen.
-    column_widths = [50, 50, 50]
-    row_heights = [50, 30, 30, 30, 30]
+    # Definiert Spalten mit Breiten und Zeilen mit Höhen
+    dblCols =  [50, 50, 50] 
+    dblRows =  [50, 30, 30, 30, 30] 
 
-    # Fügt der Folie ein Tabellenelement hinzu.
-    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
+    # Fügt der Folie eine Tabellengestalt hinzu
+    tbl = sld.shapes.add_table(100, 50, dblCols, dblRows)
 
-    # Legt das Rahmenformat für jede Zelle fest.
-    for row in table.rows:
+    # Setzt das Randformat für jede Zelle
+    for row in range(len(tbl.rows)):
+        for cell in range(len(tbl.rows[row])):
+            tbl.rows[row][cell].cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
+            tbl.rows[row][cell].cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
+            tbl.rows[row][cell].cell_format.border_top.width = 5
+
+            tbl.rows[row][cell].cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
+            tbl.rows[row][cell].cell_format.border_bottom.fill_format.solid_fill_color.color= draw.Color.red
+            tbl.rows[row][cell].cell_format.border_bottom.width =5
+
+            tbl.rows[row][cell].cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
+            tbl.rows[row][cell].cell_format.border_left.fill_format.solid_fill_color.color =draw.Color.red
+            tbl.rows[row][cell].cell_format.border_left.width = 5
+
+            tbl.rows[row][cell].cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
+            tbl.rows[row][cell].cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
+            tbl.rows[row][cell].cell_format.border_right.width = 5
+        
+
+    # Fügt die Zellen 1 & 2 von Zeile 1 zusammen
+    tbl.merge_cells(tbl.rows[0][0], tbl.rows[1][1], False)
+
+    # Fügt dem zusammengefügten Feld Text hinzu
+    tbl.rows[0][0].text_frame.text = "Zusammengeführte Zellen"
+
+    # Speichert die Präsentation auf der Festplatte
+    pres.save("table.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Nummerierung in Standardtabelle**
+
+In einer Standardtabelle ist die Nummerierung der Zellen unkompliziert und nullbasiert. Die erste Zelle in einer Tabelle ist mit 0,0 (Spalte 0, Zeile 0) indiziert. 
+
+Zum Beispiel sind die Zellen in einer Tabelle mit 4 Spalten und 4 Zeilen folgendermaßen nummeriert:
+
+| (0, 0) | (1, 0) | (2, 0) | (3, 0) |
+| :----- | :----- | :----- | :----- |
+| (0, 1) | (1, 1) | (2, 1) | (3, 1) |
+| (0, 2) | (1, 2) | (2, 2) | (3, 2) |
+| (0, 3) | (1, 3) | (2, 3) | (3, 3) |
+
+Dieser Python-Code zeigt Ihnen, wie Sie die Nummerierung für Zellen in einer Tabelle angeben:
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+# Erstellt eine Präsentation, die eine PPTX-Datei darstellt
+with slides.Presentation() as pres:
+    # Greift auf die erste Folie zu
+    sld = pres.slides[0]
+
+    # Definiert Spalten mit Breiten und Zeilen mit Höhen
+    dblCols =  [70, 70, 70, 70] 
+    dblRows =  [70, 70, 70, 70] 
+
+    # Fügt der Folie eine Tabellengestalt hinzu
+    tbl = sld.shapes.add_table(100, 50, dblCols, dblRows)
+
+    # Setzt das Randformat für jede Zelle
+    for row in tbl.rows:
         for cell in row:
             cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
             cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
@@ -78,210 +122,175 @@ with slides.Presentation() as presentation:
             cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
             cell.cell_format.border_right.width = 5
 
-    # Verbindet Zellen von (Zeile 0, Spalte 0) bis (Zeile 1, Spalte 1).
-    table.merge_cells(table.rows[0][0], table.rows[1][1], False)
-
-    # Fügt dem verbundenen Feld Text hinzu.
-    table.rows[0][0].text_frame.text = "Merged Cells"
-
-    # Speichert die Präsentation auf dem Datenträger.
-    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Nummerierung in Standardtabellen**
-
-In einer Standardtabelle ist die Zellnummerierung einfach und nullbasiert. Die erste Zelle in einer Tabelle hat den Index (0, 0) (Spalte 0, Zeile 0).
-
-Beispiel: In einer Tabelle mit 4 Spalten und 4 Zeilen sind die Zellen wie folgt nummeriert:
-
-| (0, 0) | (1, 0) | (2, 0) | (3, 0) |
-| :----- | :----- | :----- | :----- |
-| (0, 1) | (1, 1) | (2, 1) | (3, 1) |
-| (0, 2) | (1, 2) | (2, 2) | (3, 2) |
-| (0, 3) | (1, 3) | (2, 3) | (3, 3) |
-
-Das folgende Python‑Beispiel zeigt, wie Sie Zellen mit dieser nullbasierten Nummerierung referenzieren:
-
-```python
-for row_index in range(len(table.rows)):
-    for column_index in range(len(table.rows[row_index])):
-        cell = table.rows[row_index][column_index]
-        cell.text_frame.text = f"({column_index}, {row_index})"
+    # Speichert die Präsentation auf der Festplatte
+    pres.save("StandardTables_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Auf vorhandene Tabelle zugreifen**
 
-Dieser Abschnitt erklärt, wie Sie eine vorhandene Tabelle in einer Präsentation mit Aspose.Slides finden und bearbeiten. Sie lernen, wie Sie die Tabelle auf einer Folie lokalisieren, auf deren Zeilen, Spalten und Zellen zugreifen und Inhalte bzw. Formatierungen aktualisieren.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.  
-2. Holen Sie sich einen Verweis auf die Folie, die die Tabelle enthält, anhand ihres Index.  
-3. Durchlaufen Sie alle [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/)-Objekte, bis Sie die Tabelle finden.  
-4. Verwenden Sie das [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/)-Objekt, um mit der Tabelle zu arbeiten.  
-5. Speichern Sie die modifizierte Präsentation.
+2. Holen Sie sich eine Referenz zur Folie, die die Tabelle enthält, über ihren Index. 
 
-{{% alert color="info" %}}
-Falls die Folie mehrere Tabellen enthält, ist es besser, nach der Tabelle zu suchen, die Sie benötigen, über deren `alternative_text`‑Eigenschaft.
-{{% /alert %}}
+3. Erstellen Sie ein [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) Objekt und setzen Sie es auf null.
 
-Das folgende Python‑Beispiel zeigt, wie Sie auf eine vorhandene Tabelle zugreifen und mit ihr arbeiten:
+4. Durchlaufen Sie alle [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) Objekte, bis die Tabelle gefunden ist.
+
+   Wenn Sie vermuten, dass die Folie, mit der Sie es zu tun haben, eine einzelne Tabelle enthält, können Sie einfach alle Formen überprüfen, die sie enthält. Wenn eine Form als Tabelle identifiziert wird, können Sie sie als [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) Objekt typcasten. Wenn die Folie, mit der Sie es zu tun haben, mehrere Tabellen enthält, suchen Sie am besten die benötigte Tabelle über das `alternative_text`. 
+
+5. Verwenden Sie das [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) Objekt, um mit der Tabelle zu arbeiten. Im folgenden Beispiel haben wir eine neue Zeile zur Tabelle hinzugefügt.
+
+6. Speichern Sie die modifizierte Präsentation.
+
+Dieser Python-Code zeigt Ihnen, wie Sie auf eine vorhandene Tabelle zugreifen und mit ihr arbeiten:
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instanziiert die Presentation‑Klasse, um eine PPTX‑Datei zu laden.
-with slides.Presentation("sample.pptx") as presentation:
-    # Greift auf die erste Folie zu.
-    slide = presentation.slides[0]
+# Erstellt eine Präsentation, die eine PPTX-Datei darstellt
+with slides.Presentation(path + "UpdateExistingTable.pptx") as pres:
+    # Greift auf die erste Folie zu
+    sld = pres.slides[0]
 
-    table = None
+    # Initialisiert null TableEx
+    tbl = None
 
-    # Durchläuft die Formen und referenziert die erste gefundene Tabelle.
-    for shape in slide.shapes:
-        if isinstance(shape, slides.Table):
-            table = shape
-            break
+    # Durchläuft die Formen und setzt eine Referenz auf die gefundene Tabelle
+    for shp in sld.shapes:
+        if type(shp) is slides.Table:
+            tbl = shp
 
-    # Setzt den Text der ersten Zelle in der ersten Zeile.
-    if table is not None:
-        table.rows[0][0].text_frame.text = "Found"
+    # Setzt den Text für die erste Spalte der zweiten Zeile
+    tbl.rows[0][1].text_frame.text = "Neu"
 
-    # Speichert die geänderte Präsentation auf dem Datenträger.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    # Speichert die modifizierte Präsentation auf der Festplatte
+    pres.save("table1_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Text in Tabellen ausrichten**
 
-Dieser Abschnitt zeigt, wie Sie die Textausrichtung innerhalb von Tabellenzellen mit Aspose.Slides steuern. Sie lernen, horizontale und vertikale Ausrichtung für Zellen festzulegen, um Inhalte klar und konsistent zu halten.
+## **Text in Tabelle ausrichten**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.  
-2. Holen Sie sich einen Verweis auf die Folie anhand ihres Index.  
-3. Fügen Sie der Folie ein [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/)-Objekt hinzu.  
-4. Greifen Sie auf ein [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/)-Objekt aus der Tabelle zu.  
-5. Richten Sie den Text vertikal aus.  
-6. Speichern Sie die geänderte Präsentation.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
+2. Holen Sie sich eine Referenz zur Folie über ihren Index. 
+3. Fügen Sie ein [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) Objekt zur Folie hinzu. 
+4. Greifen Sie auf ein [ITextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/) Objekt aus der Tabelle zu. 
+5. Greifen Sie auf das [ITextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/) [IParagraph](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/) zu.
+6. Richten Sie den Text vertikal aus.
+7. Speichern Sie die modifizierte Präsentation.
 
-Das folgende Python‑Beispiel zeigt, wie Sie den Text in einer Tabelle ausrichten:
+Dieser Python-Code zeigt Ihnen, wie Sie den Text in einer Tabelle ausrichten:
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Erstellt eine Instanz der Presentation‑Klasse.
+# Erstellt eine Instanz der Presentation-Klasse
 with slides.Presentation() as presentation:
-    # Greift auf die erste Folie zu.
+    # Greift auf die erste Folie zu 
     slide = presentation.slides[0]
 
-    # Definiert Spaltenbreiten und Zeilenhöhen.
-    column_widths = [40, 120, 120, 120]
-    row_heights = [100, 100, 100, 100]
+    # Definiert Spalten mit Breiten und Zeilen mit Höhen
+    dblCols =  [120, 120, 120, 120] 
+    dblRows =  [100, 100, 100, 100] 
 
-    # Fügt der Folie ein Tabellenelement hinzu.
-    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
-    table.rows[0][0].text_frame.text = "Numbers"
-    table.rows[1][0].text_frame.text = "10"
-    table.rows[2][0].text_frame.text = "20"
-    table.rows[3][0].text_frame.text = "30"
+    # Fügt der Folie die Tabellengestalt hinzu
+    tbl = slide.shapes.add_table(100, 50, dblCols, dblRows)
+    tbl.rows[1][0].text_frame.text = "10"
+    tbl.rows[2][0].text_frame.text = "20"
+    tbl.rows[3][0].text_frame.text = "30"
 
-    # Zentriert den Text und setzt die vertikale Ausrichtung.
-    cell = table.rows[0][0]
+    # Greift auf das Textfeld zu
+    txtFrame = tbl.rows[0][0].text_frame
+
+    # Erstellt das Paragraph-Objekt für das Textfeld
+    paragraph = txtFrame.paragraphs[0]
+
+    # Erstellt das Portion-Objekt für den Absatz
+    portion = paragraph.portions[0]
+    portion.text = "Text hier"
+    portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
+
+    # Richtet den Text vertikal aus
+    cell = tbl.rows[0][0]
     cell.text_anchor_type = slides.TextAnchorType.CENTER
     cell.text_vertical_type = slides.TextVerticalType.VERTICAL270
 
-    # Speichert die Präsentation auf dem Datenträger.
-    presentation.save("aligned_cell.pptx", slides.export.SaveFormat.PPTX)
+    # Speichert die Präsentation auf der Festplatte
+    presentation.save("Vertical_Align_Text_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Textformatierung auf Tabellenebene festlegen**
 
-Dieser Abschnitt zeigt, wie Sie Textformatierungen auf Tabellenebene in Aspose.Slides anwenden, sodass jede Zelle einen einheitlichen Stil erbt. Sie lernen, Schriftgrößen, Ausrichtungen und Ränder global zu setzen sowie die vertikale Textausrichtung zu bestimmen.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
+2. Holen Sie sich eine Referenz zur Folie über ihren Index. 
+3. Greifen Sie auf ein [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) Objekt von der Folie zu.
+4. Setzen Sie die `font_height` für den Text. 
+5. Setzen Sie die `alignment` und `margin_right`. 
+6. Setzen Sie den `text_vertical_type`.
+7. Speichern Sie die modifizierte Präsentation. 
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.  
-2. Holen Sie sich einen Verweis auf die Folie anhand ihres Index.  
-3. Fügen Sie der Folie ein [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/)-Objekt hinzu.  
-4. Setzen Sie die Schriftgröße (Schrift‑Höhe) für den Text.  
-5. Legen Sie die Absatz‑Ausrichtung und Ränder fest.  
-6. Setzen Sie die vertikale Textausrichtung.  
-7. Speichern Sie die geänderte Präsentation.
-
-Das folgende Python‑Beispiel zeigt, wie Sie Ihre bevorzugten Formatierungsoptionen auf Text in einer Tabelle anwenden:
+Dieser Python-Code zeigt Ihnen, wie Sie Ihre bevorzugten Formatierungsoptionen für den Text in einer Tabelle anwenden:
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Erstellt eine Instanz der Presentation‑Klasse
+# Erstellt eine Instanz der Presentation-Klasse
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    someTable = presentation.slides[0].shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
 
-    table = slide.shapes.add_table(20, 20, [100, 50, 30], [30, 50, 30])
+    # Setzt die Schriftgröße der Tabellenspalten
+    portionFormat = slides.PortionFormat()
+    portionFormat.font_height = 25
+    someTable.set_text_format(portionFormat)
 
-    # Legt die Schriftgröße für alle Tabellenzellen fest.
-    portion_format = slides.PortionFormat()
-    portion_format.font_height = 25
-    table.set_text_format(portion_format)
+    # Setzt die Textausrichtung und den rechten Rand in einem Aufruf
+    paragraphFormat = slides.ParagraphFormat()
+    paragraphFormat.alignment = slides.TextAlignment.RIGHT
+    paragraphFormat.margin_right = 20
+    someTable.set_text_format(paragraphFormat)
 
-    # Legt rechtsbündigen Text und einen rechten Rand für alle Tabellenzellen fest.
-    paragraph_format = slides.ParagraphFormat()
-    paragraph_format.alignment = slides.TextAlignment.RIGHT
-    paragraph_format.margin_right = 20
-    table.set_text_format(paragraph_format)
+    # Setzt den vertikalen Typ des Textes in der Tabelle
+    textFrameFormat = slides.TextFrameFormat()
+    textFrameFormat.text_vertical_type = slides.TextVerticalType.VERTICAL
+    someTable.set_text_format(textFrameFormat)
 
-    # Legt die vertikale Textausrichtung für alle Tabellenzellen fest.
-    text_frame_format = slides.TextFrameFormat()
-    text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
-    table.set_text_format(text_frame_format)
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Vordefinierte Tabellenstile anwenden**
+## **Tischstil Eigenschaften abrufen**
 
-Aspose.Slides ermöglicht es Ihnen, Tabellen mithilfe vordefinierter Stile direkt im Code zu formatieren. Das Beispiel demonstriert das Erzeugen einer Tabelle, das Anwenden eines integrierten Stils und das Speichern des Ergebnisses – ein effizienter Weg, um konsistente, professionelle Formatierungen sicherzustellen.
+Aspose.Slides ermöglicht es Ihnen, die Stil Eigenschaften für eine Tabelle abzurufen, damit Sie diese Details für eine andere Tabelle oder an anderer Stelle verwenden können. Dieser Python-Code zeigt Ihnen, wie Sie die Stil Eigenschaften aus einem vordefinierten Tabellenstil abrufen:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    table = slide.shapes.add_table(10, 10, [100, 150], [5, 5, 5])
-
+with slides.Presentation() as pres:
+    table = pres.slides[0].shapes.add_table(10, 10, [100, 150], [5, 5, 5])
     table.style_preset = slides.TableStylePreset.DARK_STYLE1
-
-    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
+    pres.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Seitenverhältnis von Tabellen sperren**
+## **Seitenverhältnis der Tabelle sperren**
 
-Das Seitenverhältnis einer Form ist das Verhältnis ihrer Abmessungen. Aspose.Slides stellt die Eigenschaft `aspect_ratio_locked` bereit, mit der Sie das Seitenverhältnis für Tabellen und andere Formen sperren können.
+Das Seitenverhältnis einer geometrischen Form ist das Verhältnis ihrer Größen in verschiedenen Dimensionen. Aspose.Slides stellt die `aspect_ratio_locked` Eigenschaft bereit, um Ihnen zu ermöglichen, die Einstellung des Seitenverhältnisses für Tabellen und andere Formen zu sperren. 
 
-Das folgende Python‑Beispiel zeigt, wie Sie das Seitenverhältnis für eine Tabelle sperren:
+Dieser Python-Code zeigt Ihnen, wie Sie das Seitenverhältnis für eine Tabelle sperren:
 
-```py
+```c#
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    table = slide.shapes.add_table(20, 20, [100, 50, 30], [30, 50, 30])
+with slides.Presentation() as pres:
+    table = pres.slides[0].shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    print("Seitenverhältnis gesperrt: {0}".format(table.shape_lock.aspect_ratio_locked))
 
-    print(f"Lock aspect ratio set: {table.shape_lock.aspect_ratio_locked}")
     table.shape_lock.aspect_ratio_locked = not table.shape_lock.aspect_ratio_locked
-    print(f"Lock aspect ratio set: {table.shape_lock.aspect_ratio_locked}")
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    print("Seitenverhältnis gesperrt: {0}".format(table.shape_lock.aspect_ratio_locked))
+
+    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-## **FAQ**
-
-**Kann ich die Rechts‑zu‑Links‑Leserichtung (RTL) für eine gesamte Tabelle und den Text in deren Zellen aktivieren?**
-
-Ja. Die Tabelle stellt die Eigenschaft [right_to_left](https://reference.aspose.com/slides/python-net/aspose.slides/table/right_to_left/) bereit, und Absätze besitzen [ParagraphFormat.right_to_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/right_to_left/). Die Kombination sorgt für die korrekte RTL‑Reihenfolge und -Darstellung in den Zellen.
-
-**Wie kann ich verhindern, dass Benutzer eine Tabelle in der finalen Datei verschieben oder die Größe ändern?**
-
-Verwenden Sie [Shape‑Locks](/slides/de/python-net/applying-protection-to-presentation/), um das Verschieben, Ändern der Größe, Auswählen usw. zu deaktivieren. Diese Sperren gelten auch für Tabellen.
-
-**Wird das Einfügen eines Bildes als Hintergrund in einer Zelle unterstützt?**
-
-Ja. Sie können für eine Zelle eine [PictureFill](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) festlegen; das Bild deckt die Zellenfläche je nach gewähltem Modus (Strecken oder Kacheln) ab.

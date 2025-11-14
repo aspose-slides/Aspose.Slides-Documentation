@@ -1,6 +1,6 @@
 ---
-title: 使用 Python 在演示文稿中创建线形状
-linktitle: 线
+title: 使用 Python 创建演示文稿中的线条形状
+linktitle: 线条
 type: docs
 weight: 50
 url: /zh/python-net/line/
@@ -21,92 +21,73 @@ keywords:
 description: "了解如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 演示文稿中操作线条格式。探索属性、方法和示例。"
 ---
 
-## **概述**
+Aspose.Slides for Python via .NET 支持向幻灯片添加不同种类的形状。在本主题中，我们将通过向幻灯片添加线条开始处理形状。使用 Aspose.Slides for Python via .NET，开发者不仅可以创建简单的线条，还可以在幻灯片上绘制一些花哨的线条。
+## **创建普通线条**
+要向演示文稿的选定幻灯片添加简单的普通线条，请按照以下步骤操作：
 
-Aspose.Slides for Python via .NET 支持向幻灯片添加各种形状。在本章节中，我们将通过向幻灯片添加直线来开始使用形状。使用 Aspose.Slides，开发人员不仅可以创建简单的直线，还可以在幻灯片上绘制一些精美的线条。
+- 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
+- 通过使用索引获取幻灯片的引用。
+- 使用 Shapes 对象提供的 [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) 方法添加一种线条类型的自动形状。
+- 将修改后的演示文稿写入 PPTX 文件。
 
-## **创建普通直线**
-
-使用 Aspose.Slides 向幻灯片添加普通直线作为简单的分隔符或连接器。要向演示文稿中选定的幻灯片添加普通直线，请按照以下步骤操作：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-2. 按索引获取幻灯片的引用。
-3. 使用 [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) 对象的 `add_auto_shape` 方法，添加类型为 `LINE` 的 [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/)。
-4. 将演示文稿保存为 PPTX 文件。
-
-以下示例将在演示文稿的第一张幻灯片上添加一条直线。
+在下面给出的示例中，我们在演示文稿的第一张幻灯片上添加了一条线。
 
 ```py
 import aspose.slides as slides
 
-# 实例化 Presentation 类。
-with slides.Presentation() as presentation:
+# 实例化表示 PPTX 文件的 PresentationEx 类
+with slides.Presentation() as pres:
+    # 获取第一张幻灯片
+    sld = pres.slides[0]
 
-    # 获取第一张幻灯片。
-    slide = presentation.slides[0]
+    # 添加一种类型为线的自动形状
+    sld.shapes.add_auto_shape(slides.ShapeType.LINE, 50, 150, 300, 0)
 
-    # 添加类型为 LINE 的自动形状。
-    slide.shapes.add_auto_shape(slides.ShapeType.LINE, 50, 150, 300, 0)
-
-    # 将演示文稿保存为 PPTX 文件。
-    presentation.save("line_shape.pptx", slides.export.SaveFormat.PPTX)
+    # 将 PPTX 写入磁盘
+    pres.save("LineShape1_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **创建箭头形状的直线**
 
-Aspose.Slides 允许您配置直线属性，使其在视觉上更具吸引力。下面，我们配置直线的几个属性，使其呈现箭头形状。请按以下步骤操作：
+## **创建箭头形状线条**
+Aspose.Slides for Python via .NET 还允许开发者配置线条的一些属性，以使其看起来更具吸引力。让我们尝试配置线条的几个属性，使其看起来像箭头。请按照以下步骤操作：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-2. 按索引获取幻灯片的引用。
-3. 使用 [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) 对象的 `add_auto_shape` 方法，添加类型为 `LINE` 的 [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/)。
-4. 设置 [线条样式](https://reference.aspose.com/slides/python-net/aspose.slides/linestyle/)。
-5. 设置线条宽度。
-6. 设置线条的 [虚线样式](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/)。
-7. 设置线条起点的 [箭头样式](https://reference.aspose.com/slides/python-net/aspose.slides/linearrowheadstyle/) 和长度。
-8. 设置线条终点的箭头样式和长度。
-9. 将演示文稿保存为 PPTX 文件。
+- 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
+- 通过使用索引获取幻灯片的引用。
+- 使用 Shapes 对象提供的 AddAutoShape 方法添加一种线条类型的自动形状。
+- 将线条样式设置为 Aspose.Slides for Python via .NET 提供的样式之一。
+- 设置线条的宽度。
+- 将线条的 [虚线样式](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) 设置为 Aspose.Slides for Python via .NET 提供的样式之一。
+- 设置线条起始点的 [箭头头样式](https://reference.aspose.com/slides/python-net/aspose.slides/linearrowheadstyle/) 和长度。
+- 设置线条的终点的箭头头样式和长度。
+- 将修改后的演示文稿写入 PPTX 文件。
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# 实例化表示 PPTX 文件的 Presentation 类。
-with slides.Presentation() as presentation:
-    # 获取第一张幻灯片。
-    slide = presentation.slides[0]
+# 实例化表示 PPTX 文件的 PresentationEx 类
+with slides.Presentation() as pres:
+    # 获取第一张幻灯片
+    sld = pres.slides[0]
 
-    # 添加类型为 LINE 的自动形状。
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.LINE, 50, 150, 300, 0)
+    # 添加一种类型为线的自动形状
+    shp = sld.shapes.add_auto_shape(slides.ShapeType.LINE, 50, 150, 300, 0)
 
-    # 对线条应用格式设置。
-    shape.line_format.style = slides.LineStyle.THICK_BETWEEN_THIN
-    shape.line_format.width = 10
+    # 对线条应用一些格式
+    shp.line_format.style = slides.LineStyle.THICK_BETWEEN_THIN
+    shp.line_format.width = 10
 
-    shape.line_format.dash_style = slides.LineDashStyle.DASH_DOT
+    shp.line_format.dash_style = slides.LineDashStyle.DASH_DOT
 
-    shape.line_format.begin_arrowhead_length = slides.LineArrowheadLength.SHORT
-    shape.line_format.begin_arrowhead_style = slides.LineArrowheadStyle.OVAL
+    shp.line_format.begin_arrowhead_length = slides.LineArrowheadLength.SHORT
+    shp.line_format.begin_arrowhead_style = slides.LineArrowheadStyle.OVAL
 
-    shape.line_format.end_arrowhead_length = slides.LineArrowheadLength.LONG
-    shape.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
+    shp.line_format.end_arrowhead_length = slides.LineArrowheadLength.LONG
+    shp.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
 
-    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
-    shape.line_format.fill_format.solid_fill_color.color = draw.Color.maroon
+    shp.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shp.line_format.fill_format.solid_fill_color.color = draw.Color.maroon
 
-    # 将演示文稿保存为 PPTX 文件。
-    presentation.save("line_shape_2.pptx", slides.export.SaveFormat.PPTX)
+    # 将 PPTX 写入磁盘
+    pres.save("LineShape2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-## **常见问题**
-
-**我可以将普通直线转换为连接器，以便它“自动捕捉”到形状吗？**
-
-不可以。普通直线（类型为 [LINE] 的 [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/)）不会自动变为连接器。要实现捕捉到形状，请使用专用的 [Connector](https://reference.aspose.com/slides/python-net/aspose.slides/connector/) 类型以及用于连接的 [相应 API](/slides/zh/python-net/connector/)。
-
-**如果直线的属性继承自主题且难以确定最终值，我该怎么办？**
-
-通过 [ILineFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ilinefillformateffectivedata/) 类读取 **有效属性**（[阅读有效属性](/slides/zh/python-net/shape-effective-properties/)），这些类已经考虑了继承和主题样式。
-
-**我可以锁定直线以防止编辑（移动、调整大小）吗？**
-
-可以。形状提供了 [锁定对象](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/auto_shape_lock/)，可用于 [禁止编辑操作](/slides/zh/python-net/applying-protection-to-presentation/)。

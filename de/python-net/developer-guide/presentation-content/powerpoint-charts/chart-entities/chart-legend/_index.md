@@ -1,121 +1,97 @@
 ---
-title: "Diagrammlegenden in Präsentationen mit Python anpassen"
-linktitle: "Diagrammlegende"
+title: Diagrammlegende
 type: docs
 url: /de/python-net/chart-legend/
-keywords:
-- "Diagrammlegende"
-- "Legendenposition"
-- "Schriftgröße"
-- "PowerPoint"
-- "OpenDocument"
-- "Präsentation"
-- "Python"
-- "Aspose.Slides"
-description: "Passen Sie Diagrammlegenden mit Aspose.Slides für Python über .NET an, um PowerPoint- und OpenDocument-Präsentationen mit individuell formatierter Legende zu optimieren."
+keywords: "Diagrammlegende, Schriftgröße der Legende, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
+description: "Positionierung und Schriftgröße für die Diagrammlegende in PowerPoint-Präsentationen in Python festlegen"
 ---
 
-## **Übersicht**
+## **Positionierung der Legende**
+Um die Eigenschaften der Legende festzulegen, befolgen Sie bitte die folgenden Schritte:
 
-Aspose.Slides für Python bietet vollständige Kontrolle über Diagrammlegenden, sodass Sie Datenbeschriftungen klar und präsentationsfertig gestalten können. Sie können die Legende ein- oder ausblenden, ihre Position auf der Folie wählen und das Layout anpassen, um eine Überlappung mit dem Diagrammbereich zu verhindern. Die API ermöglicht es, Text und Markierungen zu stylen, Abstand und Hintergrund fein abzustimmen sowie Rahmen und Füllungen zu formatieren, um Ihrem Design zu entsprechen. Entwickler können zudem einzelne Legendeneinträge bearbeiten, umbenennen oder filtern, sodass nur die relevantesten Reihen angezeigt werden. Mit diesen Möglichkeiten bleiben Ihre Diagramme lesbar, konsistent und entsprechen den Designstandards Ihrer Präsentation.
+- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
+- Holen Sie sich die Referenz zur Folie.
+- Fügen Sie ein Diagramm auf der Folie hinzu.
+- Setzen Sie die Eigenschaften der Legende.
+- Schreiben Sie die Präsentation als PPTX-Datei.
 
-## **Legendenpositionierung**
-
-Mit Aspose.Slides können Sie schnell steuern, wo die Diagrammlegende angezeigt wird und wie sie in Ihr Folienlayout passt. Erfahren Sie, wie Sie die Legende präzise platzieren.
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.
-1. Holen Sie eine Referenz zur Folie.
-1. Fügen Sie der Folie ein gruppiertes Säulendiagramm hinzu.
-1. Setzen Sie die Legenden‑Eigenschaften.
-1. Speichern Sie die Präsentation als PPTX‑Datei.
-
-Im nachstehenden Beispiel setzen wir die Position und Größe der Diagrammlegende:
+Im folgenden Beispiel haben wir die Position und Größe für die Diagrammlegende festgelegt.
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-# Erstelle eine Instanz der Presentation-Klasse.
+# Erstellen Sie eine Instanz der Präsentationsklasse
 with slides.Presentation() as presentation:
 
-    # Hole eine Referenz zur Folie.
+    # Holen Sie sich die Referenz zur Folie
     slide = presentation.slides[0]
 
-    # Füge der Folie ein gruppiertes Säulendiagramm hinzu.
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 300)
+    # Fügen Sie ein gruppiertes Säulendiagramm auf der Folie hinzu
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 500)
 
-    # Setze die Legenden-Eigenschaften.
-    chart.legend.x = 80 / chart.width
-    chart.legend.y = 20 / chart.height
+    # Legende Eigenschaften festlegen
+    chart.legend.x = 50 / chart.width
+    chart.legend.y = 50 / chart.height
     chart.legend.width = 100 / chart.width
     chart.legend.height = 100 / chart.height
 
-    # Speichere die Präsentation auf dem Datenträger.
-    presentation.save("legend_positioning.pptx", slides.export.SaveFormat.PPTX)
+    # Präsentation auf die Festplatte speichern
+    presentation.save("Legend_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Schriftgröße der Legende festlegen**
+Aspose.Slides für Python über .NET ermöglicht Entwicklern, die Schriftgröße der Legende festzulegen. Bitte befolgen Sie die folgenden Schritte:
 
-Die Legende eines Diagramms sollte genauso gut lesbar sein wie die Daten, die sie erklärt. Dieser Abschnitt zeigt, wie Sie die Schriftgröße der Legende anpassen, um die Typografie Ihrer Präsentation abzustimmen und die Barrierefreiheit zu verbessern.
-
-1. Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.
-1. Erstellen Sie ein Diagramm.
-1. Setzen Sie die Schriftgröße.
-1. Speichern Sie die Präsentation auf dem Datenträger.
+- Instanziieren Sie die `Presentation` Klasse.
+- Erstellen Sie das Standarddiagramm.
+- Setzen Sie die Schriftgröße.
+- Setzen Sie den minimalen Achsenwert.
+- Setzen Sie den maximalen Achsenwert.
+- Schreiben Sie die Präsentation auf die Festplatte.
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+with slides.Presentation() as pres:
+	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
 
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-    chart.legend.text_format.portion_format.font_height = 20
+	chart.legend.text_format.portion_format.font_height = 20
+	chart.axes.vertical_axis.is_automatic_min_value = False
+	chart.axes.vertical_axis.min_value = -5
+	chart.axes.vertical_axis.is_automatic_max_value = False
+	chart.axes.vertical_axis.max_value = 10
 
-    presentation.save("font_size.pptx", slides.export.SaveFormat.PPTX)
+	pres.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Schriftgröße für einen Legenden‑Eintrag festlegen**
+## **Schriftgröße der einzelnen Legende festlegen**
+Aspose.Slides für Python über .NET ermöglicht Entwicklern, die Schriftgröße der einzelnen Legendeeinträge festzulegen. Bitte befolgen Sie die folgenden Schritte:
 
-Aspose.Slides ermöglicht es Ihnen, das Aussehen von Diagrammlegenden durch Formatierung einzelner Einträge fein abzustimmen. Das nachstehende Beispiel zeigt, wie Sie ein bestimmtes Legenden‑Element ansprechen und dessen Eigenschaften festlegen können, ohne die übrige Legende zu verändern.
-
-1. Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.
-1. Erstellen Sie ein Diagramm.
-1. Greifen Sie auf einen Legenden‑Eintrag zu.
-1. Setzen Sie die Eigenschaften des Eintrags.
-1. Speichern Sie die Präsentation auf dem Datenträger.
+- Instanziieren Sie die `Presentation` Klasse.
+- Erstellen Sie das Standarddiagramm.
+- Greifen Sie auf den Legendeeintrag zu.
+- Setzen Sie die Schriftgröße.
+- Setzen Sie den minimalen Achsenwert.
+- Setzen Sie den maximalen Achsenwert.
+- Schreiben Sie die Präsentation auf die Festplatte.
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
+ 
+ 
+with slides.Presentation() as pres:
+	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+	tf = chart.legend.entries[1].text_format
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+	tf.portion_format.font_bold = 1
+	tf.portion_format.font_height = 20
+	tf.portion_format.font_italic = 1
+	tf.portion_format.fill_format.fill_type = slides.FillType.SOLID 
+	tf.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-    text_format = chart.legend.entries[1].text_format
-
-    text_format.portion_format.font_bold = slides.NullableBool.TRUE
-    text_format.portion_format.font_height = 20
-    text_format.portion_format.font_italic = slides.NullableBool.TRUE
-    text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
-
-    presentation.save("legend_entry.pptx", slides.export.SaveFormat.PPTX)
+	pres.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-## **FAQ**
-
-**Kann ich die Legende aktivieren, sodass das Diagramm automatisch Platz dafür reserviert, anstatt sie zu überlagern?**
-
-Ja. Verwenden Sie den Nicht-Overlay‑Modus ([overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) = `false`); in diesem Fall verkleinert sich der Diagrammbereich, um die Legende aufzunehmen.
-
-**Kann ich mehrzeilige Legendenbeschriftungen erstellen?**
-
-Ja. Lange Beschriftungen werden automatisch umgebrochen, wenn nicht genug Platz vorhanden ist; erzwungene Zeilenumbrüche werden über Zeilenumbruch‑Zeichen im Seriennamen unterstützt.
-
-**Wie lasse ich die Legende dem Farbschema des Präsentationsthemas folgen?**
-
-Setzen Sie keine expliziten Farben/Füllungen/Schriften für die Legende oder deren Text. Sie erben dann vom Thema und werden bei einer Designänderung korrekt aktualisiert.

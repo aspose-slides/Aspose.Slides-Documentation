@@ -1,34 +1,30 @@
 ---
-title: Multithreading in Aspose.Slides für Python
-linktitle: Multithreading
+title: Multithreading in Aspose.Slides
 type: docs
 weight: 200
 url: /de/python-net/multithreading/
 keywords:
+- PowerPoint
+- Präsentation
 - Multithreading
-- mehrere Threads
-- parallele Verarbeitung
+- paralleles Arbeiten
 - Folien konvertieren
 - Folien zu Bildern
-- PowerPoint
-- OpenDocument
-- Präsentation
 - Python
-- Aspose.Slides
-description: "Aspose.Slides für Python über .NET-Multithreading verbessert die Verarbeitung von PowerPoint- und OpenDocument-Dateien. Entdecken Sie bewährte Verfahren für effiziente Präsentationsabläufe."
+- Aspose.Slides für Python
 ---
 
-## **Einleitung**
+## **Einführung**
 
-Während parallele Arbeit mit Präsentationen möglich ist (abgesehen vom Parsen/Laden/Klonen) und die meisten Male alles gut läuft, besteht eine kleine Wahrscheinlichkeit, dass Sie falsche Ergebnisse erhalten, wenn Sie die Bibliothek in mehreren Threads verwenden.
+Während paralleles Arbeiten mit Präsentationen möglich ist (neben dem Parsen/Laden/Klonen) und alles gut läuft (meistens), besteht eine geringe Chance, dass Sie falsche Ergebnisse erhalten, wenn Sie die Bibliothek in mehreren Threads verwenden.
 
-Wir empfehlen dringend, **nicht** eine einzelne [Präsentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Instanz in einer Multithreading‑Umgebung zu verwenden, da dies zu unvorhersehbaren Fehlern oder Ausfällen führen kann, die nicht leicht zu erkennen sind. 
+Wir empfehlen dringend, dass Sie **nicht** eine einzelne [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Instanz in einer Multithreading-Umgebung verwenden, da dies zu unvorhersehbaren Fehlern oder Problemen führen kann, die nicht leicht erkannt werden. 
 
-Es ist **nicht** sicher, eine Instanz einer [Präsentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse in mehreren Threads zu laden, zu speichern und/oder zu klonen. Derartige Vorgänge werden **nicht** unterstützt. Wenn Sie solche Aufgaben ausführen müssen, sollten Sie die Vorgänge mit mehreren single‑threaded Prozessen parallelisieren – und jeder dieser Prozesse sollte seine eigene Präsentationsinstanz verwenden. 
+Es ist **nicht** sicher, eine Instanz einer [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse in mehreren Threads zu laden, zu speichern und/oder zu klonen. Solche Operationen werden **nicht** unterstützt. Wenn Sie solche Aufgaben ausführen müssen, müssen Sie die Operationen unter Verwendung mehrerer einzelner Prozesse mit einem Thread parallelisieren – und jeder dieser Prozesse sollte seine eigene Präsentationsinstanz verwenden. 
 
 ## **Präsentationsfolien parallel in Bilder konvertieren**
 
-Angenommen, wir möchten alle Folien einer PowerPoint‑Präsentation parallel in PNG‑Bilder konvertieren. Da es unsicher ist, eine einzelne `Presentation`‑Instanz in mehreren Threads zu nutzen, teilen wir die Präsentationsfolien in separate Präsentationen auf und konvertieren die Folien parallel, wobei jede Präsentation in einem eigenen Thread verwendet wird. Das folgende Codebeispiel zeigt, wie das geht.
+Angenommen, wir möchten alle Folien aus einer PowerPoint-Präsentation parallel in PNG-Bilder konvertieren. Da es unsicher ist, eine einzelne `Presentation` Instanz in mehreren Threads zu verwenden, teilen wir die Präsentationsfolien in separate Präsentationen auf und konvertieren die Folien parallel in Bilder, wobei jede Präsentation in einem separaten Thread verwendet wird. Das folgende Codebeispiel zeigt, wie man dies macht.
 
 ```py
 input_file_path = "sample.pptx"
@@ -44,7 +40,7 @@ conversion_tasks = []
 
 
 def convert_slide(slide_index):
-    # Extrahiere Folie i in eine separate Präsentation.
+    # Folie i in eine separate Präsentation extrahieren.
     with Presentation() as slide_presentation:
         slide_presentation.slide_size.set_size(slide_size.width, slide_size.height, SlideSizeScaleType.DO_NOT_SCALE)
         slide_presentation.slides.remove_at(0)
@@ -69,21 +65,3 @@ for task in conversion_tasks:
 
 del presentation
 ```
-
-## **FAQ**
-
-**Muss ich die Lizenz in jedem Thread setzen?**
-
-Nein. Es reicht, sie einmal pro Prozess/App‑Domain vor dem Start der Threads zu setzen. Wenn die [Lizenzsetup](/slides/de/python-net/licensing/)-Methode gleichzeitig (z. B. bei Lazy‑Initialisierung) aufgerufen werden könnte, synchronisieren Sie diesen Aufruf, da die Methode selbst nicht thread‑sicher ist.
-
-**Kann ich `Presentation`‑ oder `Slide`‑Objekte zwischen Threads übergeben?**
-
-Das Übergeben von „lebenden“ Präsentationsobjekten zwischen Threads wird nicht empfohlen: Verwenden Sie unabhängige Instanzen pro Thread oder erstellen Sie separate Präsentationen/Folienbehälter für jeden Thread im Voraus. Dieser Ansatz folgt der generellen Empfehlung, keine einzelne Präsentationsinstanz über Threads hinweg zu teilen.
-
-**Ist es sicher, den Export in verschiedene Formate (PDF, HTML, Bilder) zu parallelisieren, vorausgesetzt, jeder Thread hat seine eigene `Presentation`‑Instanz?**
-
-Ja. Bei unabhängigen Instanzen und getrennten Ausgabepfaden lassen sich solche Aufgaben in der Regel korrekt parallelisieren; vermeiden Sie gemeinsam genutzte Präsentationsobjekte und geteilte I/O‑Streams.
-
-**Was soll ich mit globalen Schriftarteinstellungen (Ordner, Ersetzungen) im Multithreading tun?**
-
-Initialisieren Sie alle globalen Schriftarteinstellungen, bevor Sie die Threads starten, und ändern Sie sie während der parallelen Arbeit nicht. Dadurch werden Rennen beim Zugriff auf gemeinsam genutzte Schriftressourcen vermieden.

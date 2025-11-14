@@ -1,37 +1,25 @@
 ---
-title: Appliquer des effets de forme dans les présentations avec Python
-linktitle: Effet de forme
+title: Effet de forme
 type: docs
 weight: 30
 url: /fr/python-net/shape-effect
-keywords:
-- effet de forme
-- effet d'ombre
-- effet de réflexion
-- effet de lueur
-- effet bords doux
-- format d'effet
-- PowerPoint
-- OpenDocument
-- présentation
-- Python
-- Aspose.Slides
-description: "Transformez vos fichiers PPT, PPTX et ODP avec des effets de forme avancés en utilisant Aspose.Slides pour Python — créez des diapositives percutantes et professionnelles en quelques secondes."
+keywords: "Effet de forme, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
+description: "Appliquer un effet à une forme PowerPoint en Python"
 ---
 
-While effects in PowerPoint can be used to make a shape stand out, they differ from [fills](/slides/fr/python-net/shape-formatting/#gradient-fill) or outlines. Using PowerPoint effects, you can create convincing reflections on a shape, spread a shape's glow, etc.
+Bien que les effets dans PowerPoint puissent être utilisés pour faire ressortir une forme, ils diffèrent des [remplissages](/slides/fr/python-net/shape-formatting/#gradient-fill) ou des contours. En utilisant les effets PowerPoint, vous pouvez créer des réflexions convaincantes sur une forme, étendre la lueur d'une forme, etc.
 
-<img src="shape-effect.png" alt="effet-forme" style="zoom:50%;" />
+<img src="shape-effect.png" alt="effet-de-forme" style="zoom:50%;" />
 
 * PowerPoint propose six effets qui peuvent être appliqués aux formes. Vous pouvez appliquer un ou plusieurs effets à une forme. 
 
-* Certaines combinaisons d'effets sont plus esthétiques que d'autres. Pour cette raison, les options PowerPoint sous **Preset**. Les options **Preset** sont essentiellement une combinaison reconnue comme harmonieuse de deux effets ou plus. Ainsi, en sélectionnant un preset, vous ne perdrez pas de temps à tester ou à combiner différents effets pour trouver une bonne combinaison.
+* Certaines combinaisons d'effets ont meilleure allure que d'autres. Pour cette raison, PowerPoint propose des options sous **Préréglage**. Les options de préréglage sont essentiellement une combinaison connue et esthétique de deux effets ou plus. De cette manière, en sélectionnant un préréglage, vous n'aurez pas à perdre du temps à tester ou à combiner différents effets pour trouver une belle combinaison.
 
-Aspose.Slides provides properties and methods under the [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) class that allow you to apply the same effects to shapes in PowerPoint presentations.
+Aspose.Slides fournit des propriétés et des méthodes sous la classe [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) qui vous permettent d'appliquer les mêmes effets aux formes dans les présentations PowerPoint.
 
 ## **Appliquer l'effet d'ombre**
 
-This Python code shows you how to apply the outer shadow effect (`outer_shadow_effect`) to a rectangle:
+Ce code Python vous montre comment appliquer l'effet d'ombre externe (`outer_shadow_effect`) à un rectangle :
 
 ```python
 import aspose.slides as slides
@@ -50,7 +38,7 @@ with slides.Presentation() as pres:
 
 ## **Appliquer l'effet de réflexion**
 
-This Python code shows you how to apply the reflection effect to a shape:
+Ce code Python vous montre comment appliquer l'effet de réflexion à une forme :
 
 ```python
 import aspose.slides as slides
@@ -70,7 +58,7 @@ with slides.Presentation() as pres:
 
 ## **Appliquer l'effet de lueur**
 
-This Python code shows you how to apply the glow effect to a shape:
+Ce code Python vous montre comment appliquer l'effet de lueur à une forme :
 
 ```python
 import aspose.slides as slides
@@ -86,9 +74,9 @@ with slides.Presentation() as pres:
     pres.save("glow.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Appliquer l'effet de bords doux**
+## **Appliquer l'effet de bords adoucis**
 
-This Python code shows you how to apply the soft edges to a shape:
+Ce code Python vous montre comment appliquer les bords adoucis à une forme :
 
 ```python
 import aspose.slides as slides
@@ -102,17 +90,3 @@ with slides.Presentation() as pres:
 
     pres.save("softEdges.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-## **FAQ**
-
-**Puis-je appliquer plusieurs effets à la même forme ?**
-
-Oui, vous pouvez combiner différents effets, tels que l'ombre, la réflexion et la lueur, sur une même forme pour obtenir un aspect plus dynamique.
-
-**À quelles formes puis-je appliquer des effets ?**
-
-Vous pouvez appliquer des effets à diverses formes, notamment les formes automatiques, les graphiques, les tableaux, les images, les objets SmartArt, les objets OLE, etc.
-
-**Puis-je appliquer des effets à des formes groupées ?**
-
-Oui, vous pouvez appliquer des effets à des formes groupées. L'effet sera appliqué à l'ensemble du groupe.

@@ -1,88 +1,64 @@
----  
-title: إدارة أقسام الشرائح في العروض التقديمية باستخدام Python  
-linktitle: قسم الشرائح  
-type: docs  
-weight: 100  
-url: /ar/python-net/slide-section/  
-keywords:  
-- إنشاء قسم  
-- إضافة قسم  
-- تحرير قسم  
-- تغيير قسم  
-- اسم القسم  
-- PowerPoint  
-- عرض تقديمي  
-- Python  
-- Aspose.Slides  
-description: تبسيط أقسام الشرائح في PowerPoint وOpenDocument باستخدام Aspose.Slides for Python — قسّم، أعد تسمية، وأعد ترتيب لتحسين سير عمل PPTX وODP.  
----  
+---
+title: قسم الشريحة
+type: docs
+weight: 100
+url: /ar/python-net/slide-section/
+keywords: "إنشاء قسم، إضافة قسم، تعديل اسم القسم، عرض بوربوينت، بايثون، Aspose.Slides"
+description: "إضافة وتعديل قسم في عرض بوربوينت باستخدام بايثون"
+---
 
-## **نظرة عامة**  
+مع Aspose.Slides لبايثون عبر .NET، يمكنك تنظيم عرض بوربوينت إلى أقسام. يمكنك إنشاء أقسام تحتوي على شرائح محددة.
 
-مع Aspose.Slides for Python، يمكنك تنظيم عرض PowerPoint إلى أقسام تُجمع فيها الشرائح المحددة.  
+قد ترغب في إنشاء أقسام واستخدامها لتنظيم أو تقسيم الشرائح في عرض ما إلى أجزاء منطقية في هذه الحالات:
 
-قد ترغب في إنشاء أقسام لتنظيم أو تقسيم عرض تقديمي إلى أجزاء منطقية في هذه الحالات:  
+- عندما تعمل على عرض كبير مع أشخاص آخرين أو فريق—و تحتاج إلى تخصيص بعض الشرائح لزميل أو بعض أعضاء الفريق.
+- عندما تتعامل مع عرض يحتوي على العديد من الشرائح—و تجد صعوبة في إدارة أو تعديل محتوياته دفعة واحدة.
 
-- عند العمل على عرض تقديمي كبير مع فريق وتحتاج إلى تخصيص شرائح معينة لزملاء محددين.  
-- عند التعامل مع عرض تقديمي يحتوي على العديد من الشرائح وتجد صعوبة في إدارة أو تحرير كل شيء مرة واحدة.  
+من المثالي أن تقوم بإنشاء قسم يحتفظ بشرائح متشابهة—حيث أن الشرائح لها شيء مشترك أو يمكن أن توجد في مجموعة بناءً على قاعدة—وإعطاء القسم اسمًا يصف الشرائح بداخله.
 
-من الناحية المثالية، أنشئ أقسامًا تُجمع فيها الشرائح ذات الصلة — تلك التي تشترك في موضوع أو فكرة أو هدف — وأعط كل قسم اسمًا يعكس محتواه بوضوح.   
+## إنشاء أقسام في العروض
 
-## **إنشاء أقسام في العروض التقديمية**  
+لإضافة قسم يحتوي على شرائح في عرض ما، توفر Aspose.Slides لبايثون عبر .NET طريقة AddSection التي تسمح لك بتحديد اسم القسم الذي تعتزم إنشاؤه والشفافه التي يبدأ منها القسم.
 
-لإضافة [Section](https://reference.aspose.com/slides/python-net/aspose.slides/section/) الذي يجمع الشرائح في عرض تقديمي، توفر Aspose.Slides طريقة [add_section](https://reference.aspose.com/slides/python-net/aspose.slides/sectioncollection/add_section/). تتيح لك تحديد اسم القسم والشرائح التي يبدأ عندها القسم.  
-
-المثال التالي بلغة Python يوضح كيفية إنشاء قسم في عرض تقديمي:  
+يعرض هذا الكود العينة كيفية إنشاء قسم في عرض بايثون:
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    layout_slide = presentation.layout_slides[0]
+with slides.Presentation() as pres:
+    defaultSlide = pres.slides[0]
+    newSlide1 = pres.slides.add_empty_slide(pres.layout_slides[0])
+    newSlide2 = pres.slides.add_empty_slide(pres.layout_slides[0])
+    newSlide3 = pres.slides.add_empty_slide(pres.layout_slides[0])
+    newSlide4 = pres.slides.add_empty_slide(pres.layout_slides[0])
 
-    slide1 = presentation.slides.add_empty_slide(layout_slide)
-    slide2 = presentation.slides.add_empty_slide(layout_slide)
-    slide3 = presentation.slides.add_empty_slide(layout_slide)
-    slide4 = presentation.slides.add_empty_slide(layout_slide)
-
-    section1 = presentation.sections.add_section("Section 1", slide1)
-    # ينتهي القسم 1 عند الشريحة2؛ يبدأ القسم 2 عند الشريحة3.
-    section2 = presentation.sections.add_section("Section 2", slide3) 
+    section1 = pres.sections.add_section("قسم 1", newSlide1)
+    # سيتم إنهاء section1 عند newSlide2 وبعده سيبدأ section2 
+    section2 = pres.sections.add_section("قسم 2", newSlide3) 
       
-    presentation.save("presentation_sections.pptx", slides.export.SaveFormat.PPTX)
     
-    presentation.sections.reorder_section_with_slides(section2, 0)
-    presentation.save("reordered_sections.pptx", slides.export.SaveFormat.PPTX)
+    pres.save("pres-sections.pptx", slides.export.SaveFormat.PPTX)
     
-    presentation.sections.remove_section_with_slides(section2)
-    presentation.sections.append_empty_section("Last empty section")
-    presentation.save("presentation_with_empty_section.pptx",slides.export.SaveFormat.PPTX)
+    pres.sections.reorder_section_with_slides(section2, 0)
+    pres.save("pres-sections-moved.pptx", slides.export.SaveFormat.PPTX)
+    
+    pres.sections.remove_section_with_slides(section2)
+    
+    pres.sections.append_empty_section("آخر قسم فارغ")
+    
+    pres.save("pres-section-with-empty.pptx",slides.export.SaveFormat.PPTX)
 ```
 
-## **تغيير أسماء الأقسام**  
+## تغيير أسماء الأقسام
 
-بعد إنشاء [Section](https://reference.aspose.com/slides/python-net/aspose.slides/section/) في عرض PowerPoint، قد تقرر تغيير اسمه.  
+بعد إنشاء قسم في عرض بوربوينت، قد تقرر تغيير اسمه.
 
-المثال التالي بلغة Python يوضح كيفية إعادة تسمية قسم في عرض تقديمي:  
+يعرض هذا الكود العينة كيفية تغيير اسم قسم في عرض باستخدام بايثون عبر Aspose.Slides:
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-   section = presentation.sections[0]
-   section.name = "My section"
+with slides.Presentation("pres-sections.pptx") as pres:
+   section = pres.sections[0]
+   section.name = "قسمي"
 ```
-
-## **الأسئلة المتكررة**  
-
-**هل يتم حفظ الأقسام عند الحفظ إلى تنسيق PPT (PowerPoint 97–2003)؟**  
-
-لا. تنسيق PPT لا يدعم بيانات تعريف الأقسام، لذا يتم فقدان تجميع الأقسام عند الحفظ إلى .ppt.  
-
-**هل يمكن إخفاء قسم كامل؟**  
-
-لا. يمكن إخفاء الشرائح الفردية فقط. لا يمتلك القسم ككيان حالة "مخفي".  
-
-**هل يمكنني العثور سريعًا على قسم عبر شريحة، والعكس، الشريحة الأولى للقسم؟**  
-
-نعم. يُحدد القسم بصورة فريدة بالشرائح التي يبدأ منها؛ عند إعطائك شريحة يمكنك تحديد القسم الذي تنتمي إليه، ويمكنك أيضًا الوصول إلى الشريحة الأولى للقسم.

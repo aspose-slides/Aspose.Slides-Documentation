@@ -1,24 +1,21 @@
 ---
-title: تصدير مخططات العروض التقديمية باستخدام Python
-linktitle: تصدير المخطط
+title: تصدير الرسم البياني
 type: docs
 weight: 90
 url: /ar/python-net/export-chart/
 keywords:
-- مخطط
-- مخطط إلى صورة
-- مخطط كصورة
-- استخراج صورة المخطط
+- رسم بياني
+- صورة الرسم البياني
+- استخراج صورة الرسم البياني
 - PowerPoint
-- OpenDocument
 - عرض تقديمي
-- Python
-- Aspose.Slides
-description: "تعلم كيفية تصدير مخططات العروض التقديمية باستخدام Aspose.Slides للغة Python عبر .NET، مع دعم صيغ PPT و PPTX و ODP، وتبسيط إعداد التقارير في أي سير عمل."
+- بايثون
+- Aspose.Slides لـ بايثون
+description: "الحصول على صور الرسوم البيانية من عروض PowerPoint في بايثون"
 ---
 
-## **احصل على صورة المخطط**
-توفر Aspose.Slides للغة Python عبر .NET دعمًا لاستخراج صورة مخطط محدد. أدناه مثال توضيحي.
+## **الحصول على صورة الرسم البياني**
+تقدم Aspose.Slides لـ بايثون عبر .NET الدعم لاستخراج صورة لرسم بياني محدد. مثال على ذلك موضح أدناه. 
 
 ```py
 import aspose.slides.charts as charts
@@ -31,20 +28,3 @@ with slides.Presentation("test.pptx") as presentation:
 	with chart.get_image() as image:
 		image.save("image.png", slides.ImageFormat.PNG)
 ```
-
-## **الأسئلة الشائعة**
-
-**هل يمكنني تصدير مخطط كمتجه (SVG) بدلاً من صورة نقطية؟**
-نعم. المخطط هو شكل، ويمكن حفظ محتوياته كملف SVG باستخدام [طريقة حفظ الشكل إلى SVG](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/write_as_svg/).
-
-**كيف يمكنني تحديد الحجم الدقيق للمخطط المصدر بوحدات البكسل؟**
-استخدم المتجاوزات الخاصة برسم الصورة التي تسمح لك بتحديد الحجم أو المقياس—المكتبة تدعم تصيير الكائنات بالأبعاد/المقياس المحدد.
-
-**ماذا أفعل إذا ظهرت الخطوط في التسميات والوسيلة الإيضاحية غير صحيحة بعد التصدير؟**
-[حمّل الخطوط المطلوبة](/slides/ar/python-net/custom-font/) عبر [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) حتى يحافظ تصيير المخطط على المقاييس ومظهر النص.
-
-**هل يحترم التصدير سمة PowerPoint والأنماط والتأثيرات؟**
-نعم. يُطبق مُصَيِّر Aspose.Slides تنسيق العرض التقديمي (السمات، الأنماط، التعبئات، التأثيرات)، وبالتالي يتم الحفاظ على مظهر المخطط.
-
-**أين يمكنني العثور على إمكانيات التصيير/التصدير المتاحة بخلاف صور المخططات؟**
-اطلع على قسم التصدير في [API](https://reference.aspose.com/slides/python-net/aspose.slides.export/)/[التوثيق](/slides/ar/python-net/convert-powerpoint/) للحصول على أهداف الإخراج ([PDF](/slides/ar/python-net/convert-powerpoint-to-pdf/), [SVG](/slides/ar/python-net/render-a-slide-as-an-svg-image/), [XPS](/slides/ar/python-net/convert-powerpoint-to-xps/), [HTML](/slides/ar/python-net/convert-powerpoint-to-html/), إلخ) والخيارات المتعلقة بالتصيير.

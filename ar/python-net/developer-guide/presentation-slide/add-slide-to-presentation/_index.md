@@ -1,67 +1,35 @@
 ---
-title: إضافة شرائح إلى العروض التقديمية باستخدام بايثون
-linktitle: إضافة شريحة
+title: إضافة شريحة إلى العرض التقديمي
 type: docs
 weight: 10
 url: /ar/python-net/add-slide-to-presentation/
-keywords:
-- إضافة شريحة
-- إنشاء شريحة
-- شريحة فارغة
-- باوربوينت
-- OpenDocument
-- عرض تقديمي
-- بايثون
-- Aspose.Slides
-description: "أضف الشرائح بسهولة إلى عروض PowerPoint وOpenDocument الخاصة بك باستخدام Aspose.Slides للبايثون عبر .NET — إدراج شرائح سلس وفعّال في ثوانٍ."
+keywords: "إضافة شريحة إلى العرض التقديمي، بايثون، Aspose.Slides"
+description: "إضافة شريحة إلى العرض التقديمي باستخدام بايثون"
 ---
 
-## **نظرة عامة**
+## **إضافة شريحة إلى العرض التقديمي**
+قبل الحديث عن إضافة الشرائح إلى ملفات العرض التقديمي، دعنا نناقش بعض الحقائق حول الشرائح. يحتوي كل ملف عرض تقديمي PowerPoint على شريحة رئيسية / تخطيط وبعض الشرائح العادية الأخرى. وهذا يعني أن ملف العرض التقديمي يحتوي على شريحة واحدة أو أكثر على الأقل. من المهم معرفة أن ملفات العرض التقديمي بدون شرائح غير مدعومة من قبل Aspose.Slides لبايثون عبر .NET. تحتوي كل شريحة على معرف فريد وجميع الشرائح العادية مرتبة وفقًا لترتيب محدد بواسطة الفهرس المعتمد على الصفر. يسمح Aspose.Slides لبايثون عبر .NET للمطورين بإضافة شرائح فارغة إلى عرضهم التقديمي. لإضافة شريحة فارغة في العرض التقديمي، يرجى اتباع الخطوات أدناه:
 
-قبل إضافة شرائح إلى عرض تقديمي، من المفيد أن تفهم كيف ينظم PowerPoint الشرائح. يحتوي كل عرض تقديمي على شريحة رئيسية، شرائح تخطيط اختيارية، وشريحة أو أكثر عادية. لكل شريحة معرف فريد، وتُرتب الشرائح العادية بحسب فهرس يبدأ من الصفر. يُظهر هذا المقال كيفية استخدام Aspose.Slides للبايثون لإنشاء الشرائح واختيار التخطيطات المناسبة.
-
-## **إضافة شرائح إلى العروض التقديمية**
-
-Aspose.Slides يتيح لك إلحاق شرائح جديدة بناءً على شرائح تخطيط موجودة. المثال أدناه يتنقل عبر كل تخطيط في العرض التقديمي، يضيف شريحة تستخدم ذلك التخطيط، ثم يحفظ الملف.
-
-1. إنشاء مثيل لفئة [العرض التقديمي](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. الوصول إلى [مجموعة الشرائح](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/).
-3. لكل عنصر في `presentation.layout_slides`، استدعِ `add_empty_slide` لإلحاق شريحة تستخدم ذلك التخطيط.
-4. اختيارياً، عدّل الشرائح التي تمت إضافتها حديثاً.
-5. احفظ العرض التقديمي كملف PPTX.
+- إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+- إنشاء نسخة من فئة [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) عن طريق ضبط مرجع إلى خاصية Slides (مجموعة من كائنات شريحة المحتوى) المعروضة بواسطة كائن Presentation.
+- إضافة شريحة فارغة إلى العرض التقديمي في نهاية مجموعة شرائح المحتوى عن طريق استدعاء طريقة AddEmptySlide المعروضة بواسطة كائن ISlideCollection.
+- القيام ببعض العمل مع الشريحة الفارغة المضافة حديثًا.
+- أخيرًا، كتابة ملف العرض التقديمي باستخدام كائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
 
 ```py
 import aspose.slides as slides
 
-# إنشاء كائن من فئة Presentation.
-with slides.Presentation() as presentation:
-    # الحصول على مجموعة الشرائح.
-    slides = presentation.slides
+# إنشاء نسخة من فئة Presentation التي تمثل ملف العرض التقديمي
+with slides.Presentation() as pres:
+    # إنشاء نسخة من فئة SlideCollection
+    slds = pres.slides
 
-    for layout_slide in presentation.layout_slides:
-        # إضافة شريحة فارغة إلى مجموعة الشرائح.
-        slides.add_empty_slide(layout_slide)
+    for i in range(len(pres.layout_slides)):
+        # إضافة شريحة فارغة إلى مجموعة الشرائح
+        slds.add_empty_slide(pres.layout_slides[i])
+        
+    # القيام ببعض العمل على الشريحة المضافة حديثًا
 
-    # تنفيذ بعض العمليات على الشرائح التي تم إضافتها حديثاً.
-
-    # حفظ العرض التقديمي إلى القرص.
-    presentation.save("empty_slides.pptx", slides.export.SaveFormat.PPTX)
+    # حفظ ملف PPTX على القرص
+    pres.save("EmptySlide.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-## **الأسئلة الشائعة**
-
-**هل يمكنني إدراج شريحة جديدة في موضع محدد، وليس فقط في النهاية؟**
-
-نعم. المكتبة تدعم عمليات مجموعة الشرائح و[إدراج](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/insert_empty_slide/)/[استنساخ](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/insert_clone/)، لذا يمكنك إضافة شريحة عند الفهرس المطلوب بدلاً من النهاية فقط.
-
-**هل تُحفظ الأنماط/التصاميم عند إضافة شريحة بناءً على تخطيط؟**
-
-نعم. التخطيط يرث التنسيق من الرئيس الرئيسي، والشريحة الجديدة ترث من التخطيط المختار والرئيس المرتبط به.
-
-**ما الشريحة الموجودة في عرض “فارغ” جديد قبل إضافة شرائح؟**
-
-العرض التقديمي الذي يتم إنشاؤه حديثاً يحتوي بالفعل على شريحة فارغة واحدة بفهرس الصفر. هذا مهم عند حساب مؤشرات الإدراج.
-
-**كيف أختار التخطيط “الصحيح” لشريحة جديدة إذا كان الرئيس يحتوي على خيارات كثيرة؟**
-
-عادةً اختر [تخطيط الشريحة](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/) الذي يطابق البنية المطلوبة ([عنوان ومحتوى، محتوى مزدوج، إلخ](https://reference.aspose.com/slides/python-net/aspose.slides/slidelayouttype/)). إذا كان هذا التخطيط غير موجود، يمكنك [إضافته إلى الرئيس](/slides/ar/python-net/slide-layout/) ثم استخدامه.

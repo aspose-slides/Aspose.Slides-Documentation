@@ -1,5 +1,5 @@
 ---
-title: Добавление водяных знаков в презентации на Python
+title: Добавляйте водяные знаки в презентации на Python
 linktitle: Водяной знак
 type: docs
 weight: 40
@@ -7,7 +7,7 @@ url: /ru/python-net/watermark/
 keywords:
 - водяной знак
 - текстовый водяной знак
-- изображение водяного знака
+- графический водяной знак
 - добавить водяной знак
 - изменить водяной знак
 - удалить водяной знак
@@ -18,219 +18,192 @@ keywords:
 - удалить водяной знак из PPT
 - удалить водяной знак из PPTX
 - удалить водяной знак из ODP
-- удалить водяной знак из PPT
-- удалить водяной знак из PPTX
-- удалить водяной знак из ODP
+- удаление водяного знака из PPT
+- удаление водяного знака из PPTX
+- удаление водяного знака из ODP
 - PowerPoint
 - OpenDocument
 - презентация
 - Python
 - Aspose.Slides
-description: "Узнайте, как управлять текстовыми и графическими водяными знаками в презентациях PowerPoint и OpenDocument с помощью Python, чтобы обозначить черновик, конфиденциальную информацию, авторские права и многое другое."
+description: "Узнайте, как управлять текстовыми и графическими водяными знаками в презентациях PowerPoint и OpenDocument на Python, чтобы помечать черновики, конфиденциальную информацию, авторские права и многое другое."
 ---
 
-## **О водяных знаках**
+## **О водяном знаке**
+**Водяной знак** в презентации — это текстовая или изображенческая метка, используемая на слайде или на всех слайдах презентации. Обычно водяной знак используется, чтобы указать, что презентация является черновиком (например, водяной знак "Черновик"); что она содержит конфиденциальную информацию (например, водяной знак "Конфиденциально"); для указания, к какой компании она принадлежит (например, водяной знак "Название компании"); идентифицировать автора презентации и т. д. Водяной знак помогает предотвратить нарушение авторских прав на презентацию, указывая, что презентацию нельзя копировать. Водяные знаки используются как в формате PowerPoint, так и в формате OpenOffice. В Aspose.Slides вы можете добавить водяной знак в форматы файлов PowerPoint PPT, PPTX и OpenOffice ODP.
 
-**Водяной знак** в презентации — это текстовая или графическая метка, используемая на отдельном слайде или на всех слайдах презентации. Обычно водяной знак указывает, что презентация является черновиком (например, «Черновик»), содержит конфиденциальную информацию (например, «Конфиденциально»), принадлежит определённой компании (например, «Название компании»), идентифицирует автора презентации и т.д. Водяной знак помогает предотвратить нарушения авторских прав, указывая, что презентацию не следует копировать. Водяные знаки используются как в форматах PowerPoint, так и в форматах OpenOffice. В Aspose.Slides вы можете добавить водяной знак в файлы форматов PowerPoint PPT, PPTX и OpenOffice ODP.
+В [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) существует несколько способов создать водяной знак в PowerPoint или OpenOffice, обернуть его в различные формы, изменить дизайн и поведение и т. д. Общим является то, что для добавления текстовых водяных знаков вы должны использовать класс [**TextFrame**](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/), а для добавления изображений водяного знака - [**PictureFrame**](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/). PictureFrame реализует интерфейс [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) и может использовать всю мощь гибких настроек объекта формы. TextFrame не является формой, и его настройки ограничены. Поэтому рекомендуется обернуть TextFrame в объект [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/).
 
-В [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) существует несколько способов создания водяных знаков в документах PowerPoint или OpenOffice и изменения их дизайна и поведения. Общий момент: для добавления текстовых водяных знаков следует использовать класс [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/), а для добавления графических водяных знаков — класс [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) или заполнить форму водяного знака изображением. `PictureFrame` реализует класс [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/), что позволяет использовать все гибкие параметры объекта формы. Поскольку `TextFrame` не является формой и его настройки ограничены, он обернут в объект [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/).
+Существует два способа применения водяного знака: к одному слайду и ко всем слайдам презентации. Главный слайд используется для применения водяного знака ко всем слайдам презентации - водяной знак добавляется в главный слайд, полностью оформляется там и применяется ко всем слайдам без изменения разрешения на модификацию водяного знака на слайдах.
 
-Водяной знак может применяться двумя способами: к отдельному слайду или ко всем слайдам презентации. Для применения водяного знака ко всем слайдам используется шаблон слайда (Slide Master) — водяной знак добавляется в шаблон слайда, полностью там оформляется и применяется ко всем слайдам без ограничения возможности редактировать его на отдельных слайдах.
+Водяной знак обычно считается недоступным для редактирования другими пользователями. Чтобы предотвратить редактирование водяного знака (или, точнее, родительской формы водяного знака), Aspose.Slides предоставляет функциональность блокировки формы. Определенная форма может быть заблокирована на обычном слайде или на главном слайде. При блокировке формы водяного знака на главном слайде - она будет заблокирована на всех слайдах презентации.
 
-Водяной знак обычно считается недоступным для редактирования другими пользователями. Чтобы предотвратить редактирование водяного знака (точнее, его родительской формы), Aspose.Slides предоставляет возможность блокировки формы. Конкретную форму можно заблокировать на обычном слайде или на шаблоне слайда. Когда форма водяного знака заблокирована на шаблоне слайда, она будет заблокирована на всех слайдах презентации.
+Вы можете установить имя водяного знака, чтобы в будущем, если вы захотите удалить водяной знак, вы могли найти его на форме слайда по имени.
 
-Вы можете задать имя водяного знака, чтобы в дальнейшем, при необходимости удаления, находить его среди форм слайда по имени.
-
-Водяной знак можно оформить любым способом; однако обычно водяные знаки имеют общие характеристики, такие как центрирование, вращение, расположение спереди и т.д. Ниже мы рассмотрим, как использовать эти возможности в примерах.
-
+Вы можете оформить водяной знак любым образом, однако обычно существуют общие характеристики водяных знаков, такие как: центрирование, вращение, положение спереди и т. д. Мы рассмотрим, как использовать их в примерах ниже.
 ## **Текстовый водяной знак**
-
-### **Добавление текстового водяного знака на слайд**
-
-Чтобы добавить текстовый водяной знак в PPT, PPTX или ODP, сначала добавьте форму на слайд, а затем добавьте в эту форму текстовый фрейм. Текстовый фрейм представлен классом [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/). Этот тип не наследуется от [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/), который имеет широкий набор свойств для гибкого позиционирования водяного знака. Поэтому объект [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) оборачивается в объект [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/). Чтобы добавить текст водяного знака в форму, используйте метод [add_text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/add_text_frame/#str), как показано ниже.
+### **Добавить текстовый водяной знак на слайд**
+Чтобы добавить текстовый водяной знак в PPT, PPTX или ODP, вы можете сначала добавить форму на слайд, затем добавить текстовую рамку в эту форму. Текстовая рамка представлена типом [**TextFrame**](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/). Этот тип не наследуется от [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/), который имеет широкий набор свойств для установки водяного знака гибким образом. Поэтому рекомендуется обернуть объект [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) в объект [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/). Чтобы добавить водяной знак в форму, используйте метод [**add_text_frame**](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) с переданным текстом водяного знака:
 
 ```py
-watermark_text = "CONFIDENTIAL"
+import aspose.slides as slides
 
-with Presentation() as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    watermarkShape = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 0, 0, 0, 0)
+    watermarkTextFrame = watermarkShape.add_text_frame("Водяной знак")
+    presentation.save("watermark-1.pptx", slides.export.SaveFormat.PPTX)
 
-    watermark_shape = slide.shapes.add_auto_shape(ShapeType.RECTANGLE, 100, 100, 400, 40)
-    watermark_frame = watermark_shape.add_text_frame(watermark_text)
 ```
 
-{{% alert color="primary" title="Смотрите также" %}} 
-- [Как использовать класс TextFrame](/slides/ru/python-net/text-formatting/)
+
+
+{{% alert color="primary" title="См. также" %}} 
+- [Как использовать ](/slides/ru/python-net/slide-master/)[TextFrame](/slides/ru/python-net/adding-and-formatting-text/)
 {{% /alert %}}
 
-### **Добавление текстового водяного знака в презентацию**
-
-Если требуется добавить текстовый водяной знак во всю презентацию (т.е. на все слайды сразу), добавьте его в [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/). Остальная логика такая же, как при добавлении водяного знака на отдельный слайд — создайте объект [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) и затем добавьте в него водяной знак с помощью метода [add_text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/add_text_frame/#str).
+### **Добавить текстовый водяной знак в презентацию**
+Если вы хотите добавить водяной знак в презентацию (то есть, все слайды сразу), добавьте его в [**MasterSlide**](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/). Вся другая логика такая же, как и при добавлении водяного знака на один слайд - создайте объект [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) и затем добавьте водяной знак в него с помощью метода [**add_text_frame**](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/):
 
 ```py
-watermark_text = "CONFIDENTIAL"
+import aspose.slides as slides
 
-with Presentation() as presentation:
-    master_slide = presentation.masters[0]
-
-    watermark_shape = master_slide.shapes.add_auto_shape(ShapeType.RECTANGLE, 100, 100, 400, 40)
-    watermark_frame = watermark_shape.add_text_frame(watermark_text)
+with slides.Presentation() as pres:
+    master = pres.masters[0]
+    watermarkShape = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 0, 0, 0, 0)
+    watermarkTextFrame = watermarkShape.add_text_frame("Водяной знак")
+    presentation.save("watermark-2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" title="Смотрите также" %}} 
-- [Как использовать шаблон слайда](/slides/ru/python-net/slide-master/)
+
+{{% alert color="primary" title="См. также" %}} 
+- [Как использовать ](/slides/ru/python-net/slide-master/)[Главный слайд](/slides/ru/python-net/slide-master/)
 {{% /alert %}}
 
-### **Установка прозрачности формы водяного знака**
-
-По умолчанию прямоугольная форма имеет заливку и цвет контура. Следующие строки кода делают форму прозрачной.
-
-```py
-watermark_shape.fill_format.fill_type = FillType.NO_FILL
-watermark_shape.line_format.fill_format.fill_type = FillType.NO_FILL
-```
-
-### **Установка шрифта для текстового водяного знака**
-
-Вы можете изменить шрифт текстового водяного знака, как показано ниже.
+### **Установить шрифт текстового водяного знака**
+Вы можете изменить шрифт текстового водяного знака:
 
 ```py
-text_format = watermark_frame.paragraphs[0].paragraph_format.default_portion_format
-text_format.latin_font = FontData("Arial")
-text_format.font_height = 50
+watermarkPortion = watermarkTextFrame.paragraphs[0].portions[0]
+watermarkPortion.portion_format.font_height = 52
 ```
 
-### **Установка цвета текста водяного знака**
 
-Чтобы задать цвет текста водяного знака, используйте следующий код:
+### **Установить прозрачность текстового водяного знака**
+Чтобы установить прозрачность текстового водяного знака, используйте этот код:
 
 ```py
-alpha = 150
-red = 200
-green = 200
-blue = 200
-
-fill_format = watermark_frame.paragraphs[0].paragraph_format.default_portion_format.fill_format
-fill_format.fill_type = FillType.SOLID
-fill_format.solid_fill_color.color = drawing.Color.from_argb(alpha, red, green, blue)
+watermarkPortion = watermarkTextFrame.paragraphs[0].portions[0]
+watermarkPortion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+watermarkPortion.portion_format.fill_format.solid_fill_color.color = draw.Color.from_argb(150, 200, 200, 200)
 ```
 
-### **Центрирование текстового водяного знака**
 
-Водяной знак можно центрировать на слайде, для этого выполните следующее:
+### **Центрировать текстовый водяной знак**
+Можно центрировать водяной знак на слайде, и для этого вы можете сделать следующее:
+
+
 
 ```py
-slide_size = presentation.slide_size.size
+center = draw.PointF(presentation.slide_size.size.width / 2, presentation.slide_size.size.height / 2)
 
-watermark_width = 400
-watermark_height = 40
-watermark_x = (slide_size.width - watermark_width) / 2
-watermark_y = (slide_size.height - watermark_height) / 2
+width = 300
+height = 300
 
-watermark_shape = slide.shapes.add_auto_shape(
-    ShapeType.RECTANGLE, watermark_x, watermark_y, watermark_width, watermark_height)
+x = center.x - width / 2
+y = center.y - height / 2
 
-watermark_frame = watermark_shape.add_text_frame(watermark_text)
+# ... код ...
+watermarkShape = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, x, y, width, height)
 ```
 
-Ниже показан окончательный результат.
 
-![Текстовый водяной знак](text_watermark.png)
-
-## **Графический водяной знак**
-
-### **Добавление графического водяного знака в презентацию**
-
-Чтобы добавить графический водяной знак на слайд презентации, выполните следующее:
+## **Изображенческий водяной знак**
+### **Добавить изображенческий водяной знак в презентацию**
+Чтобы добавить изображенческий водяной знак во все слайды презентации, вы можете сделать следующее:
 
 ```py
-with open("watermark.png", "rb") as image_stream:
-    image = presentation.images.add_image(image_stream.read())
+with slides.Presentation() as presentation:
+    with open("image.png", "rb") as fs:
+        data = fs.read()
+        image = presentation.images.add_image(data)
 
-    watermark_shape.fill_format.fill_type = FillType.PICTURE
-    watermark_shape.fill_format.picture_fill_format.picture.image = image
-    watermark_shape.fill_format.picture_fill_format.picture_fill_mode = PictureFillMode.STRETCH
+# ...
+
+watermarkShape.fill_format.fill_type = slides.FillType.PICTURE
+watermarkShape.fill_format.picture_fill_format.picture.image = image
+watermarkShape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
 ```
 
-## **Блокировка водяного знака от редактирования**
 
-Если необходимо предотвратить редактирование водяного знака, используйте свойство [AutoShape.auto_shape_lock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/auto_shape_lock/) формы. С его помощью можно защитить форму от выбора, изменения размера, перемещения, группировки с другими элементами, блокировать её текст от редактирования и многое другое:
+
+
+## **Заблокировать водяной знак от редактирования**
+Если необходимо предотвратить редактирование водяного знака, используйте свойство [**AutoShape.shape_lock**](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) на форме, которая его оборачивает. С помощью этого свойства вы можете защитить форму от выбора, изменения размера, изменения положения, группировки с другими элементами, заблокировать его текст от редактирования и многое другое:
 
 ```py
-# Заблокировать форму водяного знака от изменения
-watermark_shape.auto_shape_lock.select_locked = True
-watermark_shape.auto_shape_lock.size_locked = True
-watermark_shape.auto_shape_lock.text_locked = True
-watermark_shape.auto_shape_lock.position_locked = True
-watermark_shape.auto_shape_lock.grouping_locked = True
+# Заблокировать формы от изменения
+watermarkShape.shape_lock.select_locked = True
+watermarkShape.shape_lock.size_locked = True
+watermarkShape.shape_lock.text_locked = True
+watermarkShape.shape_lock.position_locked = True
+watermarkShape.shape_lock.grouping_locked = True
 ```
 
-## **Перемещение водяного знака на передний план**
 
-В Aspose.Slides порядок Z-слоёв форм можно задать с помощью метода [ShapeCollection.reorder](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/reorder/#int-ishape). Для этого вызовите метод из списка слайдов презентации, передав в него ссылку на форму и её номер порядка. Так можно перенести форму на передний план или отправить её на задний план. Эта функция особенно полезна, если нужно разместить водяной знак спереди презентации:
+
+{{% alert color="primary" title="См. также" %}} 
+- [Как заблокировать формы от редактирования](/slides/ru/python-net/presentation-locking/)
+{{% /alert %}}
+
+## **Перенести водяной знак на передний план**
+В Aspose.Slides порядок Z форм можно установить с помощью метода [**reorder**](https://reference.aspose.com/slides/python-net/aspose.slides.slidecollection/). Для этого вам нужно вызвать этот метод из списка слайдов презентации и передать ссылку на форму и ее номер порядка в метод. Таким образом, возможно разместить форму на переднем плане или на заднем плане слайда. Эта функция особенно полезна, если вам нужно поместить водяной знак на передний план презентации:
 
 ```py
-shape_count = len(slide.shapes)
-slide.shapes.reorder(shape_count - 1, watermark_shape)
+slide.shapes.reorder(len(slide.shapes) - 1, watermarkShape)
 ```
 
-## **Установка вращения водяного знака**
 
-Ниже пример кода, показывающий, как скорректировать вращение водяного знака, чтобы он находился по диагонали слайда:
+## **Установить вращение водяного знака**
+Вот пример того, как установить вращение водяного знака (и его родительской формы):
 
 ```py
-diagonal_angle = math.atan(slide_size.height / slide_size.width) * 180 / math.pi
+def calculate_rotation(height, width):
+	rotation = math.atan(height / width) * 180 / math.pi
+	return rotation
 
-watermark_shape.rotation = float(diagonal_angle)
+h = presentation.slide_size.size.height
+w = presentation.slide_size.size.width
+
+watermarkShape.x = (w - watermarkShape.width) / 2
+watermarkShape.y = (h - watermarkShape.height) / 2
+watermarkShape.rotation = calculate_rotation(h, w)
 ```
 
-## **Задание имени водяного знака**
 
-Aspose.Slides позволяет задать имя формы. По имени формы в дальнейшем её можно найти для изменения или удаления. Чтобы задать имя формы водяного знака, присвойте его свойству [AutoShape.name](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/name/):
+## **Установить имя для водяного знака**
+Aspose.Slides позволяет установить имя формы. По имени формы вы можете получить к ней доступ в будущем для модификации или удаления. Чтобы установить имя родительской формы водяного знака - установите его в свойство [**name**](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/):
+
+
 
 ```py
-watermark_shape.name = "watermark"
+watermarkShape.name = "водяной знак"
 ```
 
-## **Удаление водяного знака**
 
-Чтобы удалить форму водяного знака, используйте метод [AutoShape.name](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/name/) для поиска её среди форм слайда. Затем передайте найденную форму в метод [ShapeCollection.remove](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/remove/#ishape):
+## **Удалить водяной знак**
+Чтобы удалить форму водяного знака и ее дочерние элементы с слайда, используйте свойство [name](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) для поиска его на формах слайда. Затем передайте форму водяного знака в метод [**remove**](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/):
 
 ```py
-slide_shapes = list(slide.shapes)
-for shape in slide_shapes:
-    if shape.name == "watermark":
-        slide.shapes.remove(watermark_shape)
+for i in range(len(slide.shapes)):
+    shape = slide.shapes[i]
+
+    if shape.name == "водяной знак":
+        slide.shapes.remove(shape)
 ```
 
-## **Рабочий пример**
 
-Вы можете опробовать бесплатные онлайн‑инструменты Aspose.Slides **Add Watermark** и **Remove Watermark**:
+## **Пример в реальном времени**
+Вы можете ознакомиться с **Aspose.Slides** **бесплатными** [**Добавить водяной знак**](https://products.aspose.app/slides/watermark) и [**Удалить водяной знак**](https://products.aspose.app/slides/watermark/remove-watermark) онлайн инструментами. 
 
-![Онлайн‑инструменты для добавления и удаления водяных знаков](online_tools.png)
-
-## **FAQ**
-
-**Что такое водяной знак и зачем он нужен?**
-
-Водяной знак — это текстовое или графическое наложение на слайды, которое помогает защищать интеллектуальную собственность, усиливать узнаваемость бренда или предотвращать несанкционированное использование презентаций.
-
-**Можно ли добавить водяной знак ко всем слайдам презентации?**
-
-Да, Aspose.Slides позволяет добавить водяной знак на каждый слайд презентации. Вы можете пройтись по всем слайдам и применить настройки водяного знака индивидуально.
-
-**Как отрегулировать прозрачность водяного знака?**
-
-Прозрачность водяного знака регулируется изменением параметров заливки ([FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/)) формы. Это обеспечивает лёгкое и ненавязчивое отображение водяного знака.
-
-**Какие форматы изображений поддерживаются для водяных знаков?**
-
-Aspose.Slides поддерживает различные форматы изображений, такие как PNG, JPEG, GIF, BMP, SVG и др.
-
-**Можно ли настроить шрифт и стиль текстового водяного знака?**
-
-Да, вы можете выбрать любой шрифт, размер и стиль, чтобы он соответствовал дизайну вашей презентации и сохранял фирменный стиль.
-
-**Как изменить позицию или ориентацию водяного знака?**
-
-Позицию и ориентацию водяного знака можно скорректировать, изменяя координаты, размер и свойства вращения [shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/).
+![todo:image_alt_text](slides-watermark.png)

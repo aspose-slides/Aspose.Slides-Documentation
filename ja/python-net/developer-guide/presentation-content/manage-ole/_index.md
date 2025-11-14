@@ -1,6 +1,6 @@
 ---
-title: Python を使用したプレゼンテーションでの OLE の管理
-linktitle: OLE の管理
+title: Python でプレゼンテーションの OLE を管理する
+linktitle: OLE を管理
 type: docs
 weight: 40
 url: /ja/python-net/manage-ole/
@@ -25,297 +25,231 @@ keywords:
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して、PowerPoint と OpenDocument ファイルの OLE オブジェクト管理を最適化します。OLE コンテンツをシームレスに埋め込み、更新、エクスポートできます。"
+description: "Aspose.Slides for Python を使用して、PowerPoint および OpenDocument ファイルで OLE オブジェクトの管理を最適化します。OLE コンテンツの埋め込み、更新、エクスポートをシームレスに行います。"
 ---
-
-## **概要**
 
 {{% alert title="情報" color="info" %}}
 
-**OLE (Object Linking & Embedding)** は、あるアプリケーションで作成されたデータやオブジェクトを別のアプリケーションにリンクまたは埋め込むことができる Microsoft の技術です。
+OLE (オブジェクトリンク＆埋め込み)は、Microsoftの技術で、一つのアプリケーションで作成されたデータやオブジェクトを、リンクまたは埋め込みを通じて別のアプリケーションに配置することを可能にします。 
 
-{{% /alert %}}
+{{% /alert %}} 
 
-たとえば、Microsoft Excel で作成されたグラフを PowerPoint のスライドに配置した場合、それは OLE オブジェクトになります。
+MS Excelで作成されたチャートを考えてみてください。そのチャートはPowerPointスライド内に配置されます。ExcelチャートはOLEオブジェクトと見なされます。 
 
-- OLE オブジェクトはアイコンとして表示されることがあります。アイコンをダブルクリックすると、関連付けられたアプリケーション（例: Excel）でオブジェクトが開かれるか、開く／編集するアプリの選択が求められます。
-- OLE オブジェクトが内容を表示している場合（例: グラフ）、PowerPoint は埋め込まれたオブジェクトを有効化し、チャート インターフェイスを読み込んで PowerPoint 内でデータの編集を可能にします。
+- OLEオブジェクトはアイコンとして表示される場合があります。この場合、アイコンをダブルクリックすると、そのチャートが関連付けられたアプリケーション（Excel）で開かれるか、オブジェクトを開いたり編集したりするアプリケーションを選択するよう求められます。 
+- OLEオブジェクトは実際のコンテンツを表示する場合があります。たとえば、チャートの内容です。この場合、チャートはPowerPoint内でアクティブになり、チャートインターフェースがロードされ、PowerPointアプリ内でチャートのデータを変更できます。
 
-Aspose.Slides for Python を使用すると、スライドに OLE オブジェクト フレーム（[OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)）として OLE オブジェクトを挿入できます。
+[Aspose.Slides for Python via .NET](https://products.aspose.com/slides/python-net)を使用すると、OLEオブジェクトをOLEオブジェクトフレーム（[OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)）としてスライドに挿入することができます。
 
-## **スライドへの OLE オブジェクトの追加**
+## **スライドにOLEオブジェクトフレームを追加する**
+Microsoft Excelでチャートをすでに作成し、そのチャートをOLEオブジェクトフレームとしてスライドに埋め込みたい場合は、次のようにします：
 
-Microsoft Excel で作成したグラフを Aspose.Slides for Python を使って OLE オブジェクト フレームとしてスライドに埋め込みたい場合、次の手順に従ってください。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスのインスタンスを作成します。
+1. インデックスを使用してスライドの参照を取得します。
+1. Excelチャートオブジェクトを含むExcelファイルを開き、`MemoryStream`に保存します。
+1. OLEオブジェクトに関するバイト配列とその他の情報を含むスライドにOLEオブジェクトフレームを追加します。
+1. 修正されたプレゼンテーションをPPTXファイルとして書き出します。
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2. インデックスでスライドへの参照を取得します。  
-3. Excel ファイルをバイト配列として読み取ります。  
-4. バイト配列とその他の OLE オブジェクト情報を指定して、スライドに [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) を追加します。  
-5. 変更したプレゼンテーションを PPTX ファイルとして保存します。
+以下の例では、Excelファイルからチャートをスライドに[Aspose.Slides for Python via .NET](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)を使用して追加しました。  
+**注意**： [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/python-net/aspose.slides/ioleembeddeddatainfo/)コンストラクタは、埋め込み可能なオブジェクト拡張子を第二のパラメータとして受け取ります。この拡張子により、PowerPointはファイルタイプを正しく解釈し、このOLEオブジェクトを開くための適切なアプリケーションを選択できます。
 
-以下の例では、Excel ファイルから取得したチャートを [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) としてスライドに埋め込みます。
-
-**注：** [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-net/aspose.slides.dom.ole/oleembeddeddatainfo/) のコンストラクタは、埋め込むオブジェクトのファイル拡張子を第2引数に受け取ります。PowerPoint はこの拡張子を使用してファイル種別を判別し、適切なアプリケーションで OLE オブジェクトを開きます。
-
-```py
-with slides.Presentation() as presentation:
-    slide_size = presentation.slide_size.size
-    slide = presentation.slides[0]
-
-    # OLE オブジェクトのデータを準備します。
-    with open("book.xlsx", "rb") as file_stream:
-        file_data = file_stream.read()
-        data_info = slides.dom.ole.OleEmbeddedDataInfo(file_data, "xlsx")
-
-    # スライドに OLE オブジェクト フレームを追加します。
-    ole_frame = slide.shapes.add_ole_object_frame(0, 0, slide_size.width, slide_size.height, data_info)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-### **リンクされた OLE オブジェクトの追加**
-
-Aspose.Slides for Python では、データを埋め込むのではなくファイルへのリンクを持つ [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) を追加できます。
-
-次の Python の例は、スライドに Excel ファイルへのリンクを持つ [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) を追加する方法を示しています。
-
-```py
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    # リンクされた Excel ファイルで OLE オブジェクト フレームを追加します。
-    slide.shapes.add_ole_object_frame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx")
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **OLE オブジェクトへのアクセス**
-
-スライドに既に埋め込まれた OLE オブジェクトがある場合、次の手順でアクセスできます。
-
-1. Presentation クラスのインスタンスを作成して、埋め込まれた OLE オブジェクトを含むプレゼンテーションをロードします。  
-2. インデックスでスライドへの参照を取得します。  
-3. OleObjectFrame シェイプにアクセスします。  
-4. OLE オブジェクト フレームが取得できたら、必要な操作を実行します。
-
-以下の例は、埋め込まれた Excel チャートの OLE オブジェクト フレームにアクセスし、ファイル データを取得する方法を示します。この例では、最初のスライドに 1 つだけシェイプがある PPTX を使用します。
-
-```py
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-
-    if isinstance(shape, slides.OleObjectFrame):
-        ole_frame = shape
-
-        # 埋め込まれたファイル データを取得します。
-        file_data = ole_frame.embedded_data.embedded_file_data
-
-        # 埋め込まれたファイルの拡張子を取得します。
-        file_extension = ole_frame.embedded_data.embedded_file_extension
-
-        # ...
-```
-
-### **リンクされた OLE オブジェクト プロパティへのアクセス**
-
-Aspose.Slides を使用すると、リンクされた OLE オブジェクト フレームのプロパティにアクセスできます。
-
-以下の Python の例は、OLE オブジェクトがリンクされているかどうかを確認し、リンクされている場合はリンク先ファイルへのパスを取得します。
-
-```py
-with slides.Presentation("sample.ppt") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-
-    if isinstance(shape, slides.OleObjectFrame):
-        ole_frame = shape
-
-        # OLE オブジェクトがリンクされているか確認します。
-        if ole_frame.is_object_link:
-            # リンクされたファイルへのフル パスを出力します。
-            print("OLE object frame is linked to:", ole_frame.link_path_long)
-
-            # 存在する場合は相対パスも出力します。
-            # .ppt プレゼンテーションのみが相対パスを保持できます。
-            if ole_frame.link_path_relative:
-                print("OLE object frame relative path:", ole_frame.link_path_relative)
-```
-
-## **OLE オブジェクト データの変更**
-
-{{% alert color="primary" %}}
-
-このセクションでは、以下のコード例で [Aspose.Cells for Python via .NET](/cells/python-net/) を使用しています。
-
-{{% /alert %}}
-
-スライドに既に埋め込まれた OLE オブジェクトがある場合、次の手順でデータを取得し、変更できます。
-
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成してプレゼンテーションをロードします。  
-2. インデックスで対象スライドを取得します。  
-3. [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) シェイプにアクセスします。  
-4. OLE オブジェクト フレームが取得できたら、必要な操作を実行します。  
-5. `Workbook` オブジェクトを作成し、OLE データを読み取ります。  
-6. 対象 `Worksheet` を開き、データを編集します。  
-7. 更新した `Workbook` をストリームに保存します。  
-8. そのストリームを使用して OLE オブジェクトのデータを置き換えます。
-
-以下の例では、埋め込まれた Excel チャート（OLE オブジェクト フレーム）にアクセスし、ファイル データを変更してチャートを更新します。サンプルは、最初のスライドに 1 つだけシェイプがある PPTX を使用します。
-
-```py
-import io
+```py 
 import aspose.slides as slides
-import aspose.cells as cells
 
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
+# PPTXを表すPresentationクラスのインスタンスを生成
+with slides.Presentation() as pres:
+    # 最初のスライドにアクセス
+    sld = pres.slides[0]
 
-    if isinstance(shape, slides.OleObjectFrame):
-        ole_frame = shape
+    # ストリームにエクセルファイルを読み込む
+    with open(path + "book1.xlsx", "rb") as fs:
+        bytes = fs.read()
+    
+        # 埋め込むためのデータオブジェクトを作成
+        dataInfo = slides.dom.ole.OleEmbeddedDataInfo(bytes, "xlsx")
 
-        with io.BytesIO(ole_frame.embedded_data.embedded_file_data) as ole_stream:
-            # OLE オブジェクト データを Workbook オブジェクトとして読み取ります。
-            workbook = cells.Workbook(ole_stream)
+        # Oleオブジェクトフレームを追加
+        oleObjectFrame = sld.shapes.add_ole_object_frame(0, 0, pres.slide_size.size.width, pres.slide_size.size.height, dataInfo)
 
-        with io.BytesIO() as new_ole_stream:
-            # ワークブック データを変更します。
-            workbook.worksheets.get(0).cells.get(0, 4).put_value("E")
-            workbook.worksheets.get(0).cells.get(1, 4).put_value(12)
-            workbook.worksheets.get(0).cells.get(2, 4).put_value(14)
-            workbook.worksheets.get(0).cells.get(3, 4).put_value(15)
+        # PPTXファイルをディスクに書き出す
+        pres.save("OleEmbed_out.pptx", slides.export.SaveFormat.PPTX)
+```
+## **OLEオブジェクトフレームにアクセスする**
+OLEオブジェクトがすでにスライドに埋め込まれている場合は、次のようにして簡単にそのオブジェクトを見つけたりアクセスしたりできます：
 
-            file_options = cells.OoxmlSaveOptions(cells.SaveFormat.XLSX)
-            workbook.save(new_ole_stream, file_options)
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスのインスタンスを作成します。
 
-            # OLE フレーム オブジェクト データを変更します。
-            new_data = slides.dom.ole.OleEmbeddedDataInfo(new_ole_stream.getvalue(), ole_frame.embedded_data.embedded_file_extension)
-            ole_frame.set_embedded_data(new_data)
+1. インデックスを使用してスライドの参照を取得します。
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+1. [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)シェイプにアクセスします。
+
+   私たちの例では、最初のスライドに1つのシェイプしかない以前に作成されたPPTXを使用しました。そのオブジェクトを[OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)として*キャスト*しました。これがアクセスしたいOLEオブジェクトフレームです。
+
+1. OLEオブジェクトフレームにアクセスすると、その上で任意の操作を行うことができます。
+
+以下の例では、OLEオブジェクトフレーム（スライドに埋め込まれたExcelチャートオブジェクト）にアクセスし、そのファイルデータを書き出します：
+
+```py 
+import aspose.slides as slides
+
+# PPTXをプレゼンテーションオブジェクトに読み込む
+with slides.Presentation(path + "AccessingOLEObjectFrame.pptx") as pres:
+    # 最初のスライドにアクセス
+    sld = pres.slides[0]
+
+    # シェイプをOleObjectFrameとしてキャスト
+    oleObjectFrame = sld.shapes[0]
+
+    # OLEオブジェクトを読み込み、ディスクに書き出す
+    if type(oleObjectFrame) is slides.OleObjectFrame:
+        # 埋め込まれたファイルデータを取得
+        data = oleObjectFrame.embedded_data.embedded_file_data
+
+        # 埋め込まれたファイル拡張子を取得
+        fileExtention = oleObjectFrame.embedded_data.embedded_file_extension
+
+        # 抽出したファイルを保存するパスを作成
+        extractedPath = "excelFromOLE_out" + fileExtention
+
+        # 抽出データを保存
+        with open("out.xlsx", "wb") as fs:
+            fs.write(data)
 ```
 
-## **スライドへのファイル埋め込み**
+## **OLEオブジェクトデータの変更**
 
-Excel チャートに加えて、Aspose.Slides for Python はスライドに他のファイル形式も埋め込むことができます。たとえば、HTML、PDF、ZIP ファイルをオブジェクトとして挿入できます。ユーザーが挿入されたオブジェクトをダブルクリックすると、関連付けられたアプリケーションで自動的に開くか、適切なプログラムの選択が求められます。
+OLEオブジェクトがすでにスライドに埋め込まれている場合、Aspose.Slides for Python via .NETを使用してそのオブジェクトに簡単にアクセスし、データを変更することができます：
 
-以下の Python コードは、スライドに HTML および ZIP ファイルを埋め込む方法を示します。
+1. 埋め込まれたOLEオブジェクトを持つプレゼンテーションを、[Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスのインスタンスを作成して開きます。
+
+1. インデックスを使用してスライドの参照を取得します。
+
+1. [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)シェイプにアクセスします。
+
+   私たちの例では、最初のスライドに1つのシェイプしかない以前に作成されたPPTXを使用しました。そのオブジェクトを[OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)として*キャスト*しました。これがアクセスしたいOLEオブジェクトフレームです。
+
+1. OLEオブジェクトフレームにアクセスすると、その上で任意の操作を行うことができます。
+
+1. ワークブックオブジェクトを作成し、OLEデータにアクセスします。
+
+1. 希望するワークシートにアクセスし、データを修正します。
+
+1. 更新されたワークブックをストリームに保存します。
+
+1. ストリームデータからOLEオブジェクトデータを変更します。
+
+以下の例では、OLEオブジェクトフレーム（スライドに埋め込まれたExcelチャートオブジェクト）にアクセスし、そのファイルデータを変更してチャートデータを変更します。
+
+```py 
+# [TODO:require Aspose.Cells for Python via .NET]
+```
+
+## スライドへのその他のファイルタイプの埋め込み
+
+Excelチャートに加えて、Aspose.Slides for Python via .NETは、スライドに他のタイプのファイルを埋め込むことを許可します。たとえば、HTML、PDF、ZIPファイルをオブジェクトとしてスライドに挿入できます。ユーザーが挿入されたオブジェクトをダブルクリックすると、そのオブジェクトは自動的に関連プログラムで起動されるか、ユーザーはオブジェクトを開くための適切なプログラムを選択するよう指示されます。
+
+このPythonコードは、スライドにHTMLとZIPを埋め込む方法を示しています：
 
 ```py
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+import aspose.slides as slides
 
-    with open("sample.html", "rb") as html_stream:
-        html_data = html_stream.read()
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    with open(path + "index.html", "rb") as fs1:
+        htmlBytes = fs1.read()
+        dataInfoHtml = slides.dom.ole.OleEmbeddedDataInfo(htmlBytes, "html")
+        oleFrameHtml = slide.shapes.add_ole_object_frame(150, 120, 50, 50, dataInfoHtml)
+        oleFrameHtml.is_object_icon = True
 
-    html_data_info = slides.dom.ole.OleEmbeddedDataInfo(html_data, "html")
-    html_ole_frame = slide.shapes.add_ole_object_frame(150, 120, 50, 50, html_data_info)
-    html_ole_frame.is_object_icon = True
+    with open(path + "archive.zip", "rb") as fs2:
+        zipBytes = fs2.read()
+        dataInfoZip = slides.dom.ole.OleEmbeddedDataInfo(zipBytes, "zip")
+        oleFrameZip = slide.shapes.add_ole_object_frame(150, 220, 50, 50, dataInfoZip)
+        oleFrameZip.is_object_icon = True
 
-    with open("sample.zip", "rb") as zip_stream:
-        zip_data = zip_stream.read()
-
-    zip_data_info = slides.dom.ole.OleEmbeddedDataInfo(zip_data, "zip")
-    zip_ole_frame = slide.shapes.add_ole_object_frame(150, 220, 50, 50, zip_data_info)
-    zip_ole_frame.is_object_icon = True
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    pres.save("embeddedOle.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **埋め込みオブジェクトのファイル種別設定**
+## 埋め込まれたオブジェクトのファイルタイプの設定
 
-プレゼンテーションを扱う際、古い OLE オブジェクトを新しいものに差し替えたり、未サポートの OLE オブジェクトをサポートされているものに置き換えたりする必要があることがあります。Aspose.Slides for Python では、埋め込みオブジェクトのファイル種別を設定できるため、OLE フレーム データまたはファイル拡張子を更新できます。
+プレゼンテーションで作業しているとき、古いOLEオブジェクトを新しいものと置き換える必要がある場合があります。または、サポートされていないOLEオブジェクトをサポートされているものと置き換える必要があるかもしれません。 
 
-以下の Python コードは、埋め込み OLE オブジェクトのファイル種別を `zip` に設定する方法を示します。
+Aspose.Slides for Python via .NETを使用すると、埋め込まれたオブジェクトのファイルタイプを設定できます。これによりOLEフレームデータやその拡張子を変更できます。 
+
+このPythonコードは、埋め込まれたOLEオブジェクトのファイルタイプを設定する方法を示しています：
 
 ```py
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    ole_frame = slide.shapes[0]
+import aspose.slides as slides
 
-    file_extension = ole_frame.embedded_data.embedded_file_extension
-    file_data = ole_frame.embedded_data.embedded_file_data
+with slides.Presentation("embeddedOle.pptx") as pres:
+    slide = pres.slides[0]
+    oleObjectFrame = slide.shapes[0]
+    print("現在の埋め込まれたデータ拡張子は: " + oleObjectFrame.embedded_data.embedded_file_extension)
+   
+    with open(path + "1.zip", "rb") as fs2:
+        zipBytes = fs2.read()
 
-    print(f"Current embedded file extension is: {file_extension}")
-
-    # ファイル種別を ZIP に変更します。
-    ole_frame.set_embedded_data(slides.dom.ole.OleEmbeddedDataInfo(file_data, "zip"))
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    oleObjectFrame.set_embedded_data(slides.dom.ole.OleEmbeddedDataInfo(zipBytes, "zip"))
+   
+    pres.save("embeddedChanged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **埋め込みオブジェクトのアイコン画像とタイトル設定**
+## 埋め込まれたオブジェクトのアイコン画像とタイトルの設定
 
-OLE オブジェクトを埋め込むと、アイコンベースのプレビューが自動的に追加されます。このプレビューは、ユーザーが OLE オブジェクトにアクセスまたは開く前に目にするものです。特定の画像とテキストをプレビューに使用したい場合は、Aspose.Slides for Python でアイコン画像とタイトルを設定できます。
+OLEオブジェクトを埋め込むと、アイコン画像とタイトルからなるプレビューが自動的に追加されます。プレビューは、ユーザーがOLEオブジェクトにアクセスまたは開く前に見るものです。 
 
-以下の Python コードは、埋め込みオブジェクトのアイコン画像とタイトルを設定する方法を示します。
+特定の画像やテキストをプレビューの要素として使用したい場合は、Aspose.Slides for Python via .NETを使用してアイコン画像とタイトルを設定できます。 
+
+このPythonコードは、埋め込まれたオブジェクトのアイコン画像とタイトルを設定する方法を示しています：
 
 ```py
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    ole_frame = slide.shapes[0]
+import aspose.slides as slides
 
-    # プレゼンテーションのリソースに画像を追加します。
-    with slides.Images.from_file("image.png") as image:
-        ole_image = presentation.images.add_image(image)
+with slides.Presentation("embeddedOle.pptx") as pres:
+    slide = pres.slides[0]
+    oleObjectFrame = slide.shapes[0]
+    
+    with open("img.jpeg", "rb") as in_file:
+        oleImage = pres.images.add_image(in_file)
 
-    # OLE プレビュー用のタイトルと画像を設定します。
-    ole_frame.substitute_picture_title = "My title"
-    ole_frame.substitute_picture_format.picture.image = ole_image
-    ole_frame.is_object_icon = True
+    oleObjectFrame.substitute_picture_title = "私のタイトル"
+    oleObjectFrame.substitute_picture_format.picture.image = oleImage
+    oleObjectFrame.is_object_icon = False
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    pres.save("embeddedOle-newImage.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **OLE オブジェクト フレームのサイズ・位置変更を防止する**
+## **OLEオブジェクトフレームのサイズ変更と位置変更を防ぐ**
 
-リンクされた OLE オブジェクトをスライドに追加すると、プレゼンテーションを開いたときに PowerPoint がリンクの更新を促すことがあります。**リンクの更新** を選択すると、PowerPoint がリンク先オブジェクトのデータでプレビューを再生成するため、OLE オブジェクト フレームのサイズや位置が変わることがあります。PowerPoint がオブジェクト データの更新を促さないようにするには、[OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) クラスの `update_automatic` プロパティを `False` に設定します。
+リンクされたOLEオブジェクトをプレゼンテーションスライドに追加した後、PowerPointでプレゼンテーションを開くと、リンクを更新するかどうかを尋ねるメッセージが表示される場合があります。「リンクを更新」ボタンをクリックすると、OLEオブジェクトフレームのサイズと位置が変更される可能性があります。これは、PowerPointがリンクされたOLEオブジェクトからデータを更新し、オブジェクトのプレビューをリフレッシュするためです。PowerPointがオブジェクトのデータを更新するプロンプトを表示しないようにするには、[OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)クラスの`update_automatic`プロパティを`False`に設定します：
 
 ```py
-ole_frame.update_automatic = False
+oleObjectFrame.update_automatic = False
 ```
 
-## **埋め込みファイルの抽出**
+## 埋め込まれたファイルの抽出
 
-Aspose.Slides for Python を使用すると、スライドに OLE オブジェクトとして埋め込まれたファイルを次の手順で抽出できます。
+Aspose.Slides for Python via .NETは、次のようにしてスライドに埋め込まれたOLEオブジェクトのファイルを抽出できます：
 
-1. 抽出したい OLE オブジェクトを含む [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2. プレゼンテーション内のすべてのシェイプを走査し、OleObjectFrame シェイプを見つけます。  
-3. 各 [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) から埋め込みファイル データを取得し、ディスクに書き込みます。
+1. 抽出するOLEオブジェクトを含む[Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)のインスタンスを作成します。
+2. プレゼンテーションのすべてのシェイプをループし、[OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/)シェイプにアクセスします。
+3. OLEオブジェクトフレームから埋め込まれたファイルのデータにアクセスし、ディスクに書き出します。 
 
-以下の Python コードは、スライドに埋め込まれた OLE オブジェクトとしてのファイルを抽出する方法を示します。
+このPythonコードは、スライドに埋め込まれたファイルをOLEオブジェクトとして抽出する方法を示しています：
 
 ```py
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
+import aspose.slides as slides
 
-    for index, shape in enumerate(slide.shapes):
-        if isinstance(shape, slides.OleObjectFrame):
-            ole_frame = shape
+with slides.Presentation("embeddedOle.pptx") as pres:
+    slide = pres.slides[0]
+    index = 0
+    for shape in slide.shapes:
 
-            file_data = ole_frame.embedded_data.embedded_file_data
-            file_extension = ole_frame.embedded_data.embedded_file_extension
-
-            file_path = f"OLE_object_{index}{file_extension}"
-            with open(file_path, 'wb') as file_stream:
-                file_stream.write(file_data)
+        if type(shape) is slides.OleObjectFrame:
+            data = shape.embedded_data.embedded_file_data
+            extension = shape.embedded_data.embedded_file_extension
+            
+            with open("oleFrame{idx}{ex}".format(idx = str(index), ex = extension), "wb") as fs:
+                fs.write(data)
+        index += 1
 ```
-
-## **FAQ**
-
-**スライドを PDF や画像にエクスポートしたとき、OLE コンテンツはレンダーされますか？**
-
-スライド上に表示されるのはアイコン／代替画像（プレビュー）のみです。**「ライブ」** の OLE コンテンツはレンダー時に実行されません。必要に応じて、エクスポートされた PDF で期待通りの外観になるよう、プレビュー画像を独自に設定してください。
-
-**PowerPoint でユーザーが OLE オブジェクトを移動・編集できないようにロックするには？**
-
-シェイプをロックします。Aspose.Slides は [シェイプレベルのロック](/slides/ja/python-net/applying-protection-to-presentation/) を提供しています。暗号化ではありませんが、誤操作や移動を実質的に防止できます。
-
-**リンクされた Excel オブジェクトをプレゼンテーションを開くたびに「ジャンプ」したりサイズが変わったりするのはなぜですか？**
-
-PowerPoint はリンクされた OLE のプレビューを更新することがあります。安定した外観を保つには、[ワークシートサイズ変更の作業ソリューション](/slides/ja/python-net/working-solution-for-worksheet-resizing/) に従い、フレームを範囲に合わせるか、範囲を固定フレームにスケーリングし、適切な代替画像を設定してください。
-
-**リンクされた OLE オブジェクトの相対パスは PPTX 形式で保持されますか？**
-
-PPTX 形式では「相対パス」情報は保持されず、フル パスのみが保存されます。相対パスは旧形式の PPT のみで利用可能です。可搬性を重視する場合は、信頼できる絶対パス／アクセス可能な URI を使用するか、埋め込みを検討してください。

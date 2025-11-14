@@ -1,5 +1,5 @@
 ---
-title: Управление элементами ActiveX в презентациях с помощью Python
+title: Управляйте элементами ActiveX в презентациях с помощью Python
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -10,37 +10,36 @@ keywords:
 - управление ActiveX
 - добавление ActiveX
 - изменение ActiveX
-- медиаплеер
+- медиа-плеер
 - PowerPoint
 - презентация
 - Python
 - Aspose.Slides
-description: "Узнайте, как Aspose.Slides для Python через .NET использует ActiveX для автоматизации и улучшения презентаций PowerPoint, предоставляя разработчикам мощный контроль над слайдами."
+description: "Узнайте, как Aspose.Slides for Python via .NET использует ActiveX для автоматизации и улучшения презентаций PowerPoint, предоставляя разработчикам мощный контроль над слайдами."
 ---
 
-Элементы ActiveX используются в презентациях. Aspose.Slides для Python через .NET позволяет управлять элементами ActiveX, но их управление несколько сложнее и отличается от обычных фигур презентации. Начиная с Aspose.Slides для Python через .NET 6.9.0 компонент поддерживает управление элементами ActiveX. В данный момент вы можете получить доступ к уже добавленному элементу ActiveX в презентации и изменять или удалять его, используя различные свойства. Помните, что элементы ActiveX не являются фигурами и не входят в IShapeCollection презентации, а находятся в отдельном IControlCollection. В этой статье показано, как работать с ними.
+Контролы ActiveX используются в презентациях. Aspose.Slides для Python через .NET позволяет управлять контролами ActiveX, но управление ими несколько сложнее и отличается от обычных фигур презентации. Начиная с версии 6.9.0 Aspose.Slides для Python через .NET, компонент поддерживает управление контролами ActiveX. В данный момент вы можете получить доступ к уже добавленному контролу ActiveX в вашей презентации и изменить или удалить его, используя различные свойства. Помните, что контролы ActiveX не являются фигурами и не входят в IShapeCollection презентации, а представляют собой отдельную IControlCollection. Эта статья показывает, как работать с ними.
+## **Изменение контролей ActiveX**
+Чтобы управлять простым контролем ActiveX, таким как текстовое поле и простая кнопка команд на слайде:
 
-## **Изменение элементов ActiveX**
-Для управления простым элементом ActiveX, таким как текстовое поле и простая кнопка командного управления на слайде:
+1. Создайте экземпляр класса Presentation и загрузите презентацию с контролами ActiveX.
+1. Получите ссылку на слайд по его индексу.
+1. Получите доступ к контролам ActiveX на слайде, обратившись к IControlCollection.
+1. Получите доступ к контролю ActiveX TextBox1 с помощью объекта ControlEx.
+1. Измените различные свойства контроля ActiveX TextBox1, включая текст, шрифт, высоту шрифта и позицию рамки.
+1. Получите доступ ко второму контролю, называемому CommandButton1.
+1. Измените заголовок кнопки, шрифт и позицию.
+1. Сдвиньте позицию рамок контролей ActiveX.
+1. Запишите измененную презентацию в файл PPTX.
 
-1. Создайте экземпляр класса Presentation и загрузите презентацию с элементами ActiveX.
-2. Получите ссылку на слайд по его индексу.
-3. Доступ к элементам ActiveX на слайде осуществляется через IControlCollection.
-4. Получите элемент TextBox1 через объект ControlEx.
-5. Измените различные свойства элемента TextBox1, включая текст, шрифт, высоту шрифта и положение рамки.
-6. Доступ к второму управлению под названием CommandButton1.
-7. Измените подпись кнопки, шрифт и позицию.
-8. Сдвиньте позицию рамок элементов ActiveX.
-9. Запишите изменённую презентацию в файл PPTX.
-
-Ниже приведён фрагмент кода, который обновляет элементы ActiveX на слайдах презентации, как показано ниже.
+Ниже приведен фрагмент кода, который обновляет контролы ActiveX на слайдах презентации, как показано ниже.
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 import io
 
-# Доступ к презентации с элементами ActiveX
+# Доступ к презентации с контролами ActiveX
 with slides.Presentation(path + "ActiveX.pptm") as presentation:
     # Доступ к первому слайду в презентации
     slide = presentation.slides[0]
@@ -49,11 +48,11 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
     control = slide.controls[0]
 
     if control.name == "TextBox1" and control.properties != None:
-        newText = "Changed text"
+        newText = "Измененный текст"
         control.properties.remove("Value")
         control.properties.add("Value", newText)
 
-        # замена изображения‑подстановки. PowerPoint заменит это изображение при активации ActiveX, поэтому иногда можно оставить изображение без изменений.
+        # изменение заменяемого изображения. PowerPoint заменит это изображение при активации ActiveX, поэтому иногда его можно оставить неизменным.
 
         bmp = draw.Bitmap(control.frame.width, control.frame.height)
         with draw.Graphics.from_image(bmp) as graphics:
@@ -95,7 +94,7 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
         bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
         control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
 
-    # изменение подписи кнопки
+    # изменение заголовка кнопки
     control = slide.controls[1]
 
     if control.name == "CommandButton1" and control.properties != None:
@@ -103,7 +102,7 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
         control.properties.remove("Caption")
         control.properties.add("Caption", newCaption)
 
-        # замена подстановочного изображения
+        # изменение заменяемого изображения
         bmp = draw.Bitmap(control.frame.width, control.frame.height)
         with draw.Graphics.from_image(bmp) as graphics:
             with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.CONTROL)) as brush:
@@ -148,7 +147,7 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
         bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
         control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
     
-    # Сдвиг рамок элементов ActiveX на 100 пунктов вниз
+    # Перемещение рамок ActiveX на 100 точек вниз
     for ctl in slide.controls:
         frame = control.frame
         control.frame = slides.ShapeFrame(
@@ -160,27 +159,28 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
             frame.flip_v, 
             frame.rotation)
 
-    # Сохранение презентации с отредактированными элементами ActiveX
+    # Сохранение презентации с измененными контролами ActiveX
     presentation.save("withActiveX-edited_out.pptm", slides.export.SaveFormat.PPTM)
 
 
-    # Теперь удаляем элементы
+    # Теперь удаление контролей
     slide.controls.clear()
 
-    # Сохранение презентации с очищенными элементами ActiveX
+    # Сохранение презентации с очищенными контролями ActiveX
     presentation.save("withActiveX.cleared_out.pptm", slides.export.SaveFormat.PPTM)
 ```
 
-## **Добавление элемента ActiveX Media Player**
-Чтобы добавить элемент Media Player ActiveX, выполните следующие шаги:
 
-1. Создайте экземпляр класса Presentation и загрузите пример презентации с элементом Media Player ActiveX.
-2. Создайте экземпляр целевого класса Presentation и создайте пустой объект презентации.
-3. Клонируйте слайд с элементом Media Player ActiveX из шаблонной презентации в целевую презентацию.
-4. Получите клонированный слайд в целевой презентации.
-5. Доступ к элементам ActiveX на слайде осуществляется через IControlCollection.
-6. Доступ к элементу Media Player ActiveX и задание пути к видео с помощью его свойств.
-7. Сохраните презентацию в файл PPTX.
+## **Добавить контроль активного медиаплеера ActiveX**
+Чтобы добавить контроль активного медиаплеера ActiveX, выполните следующие шаги:
+
+1. Создайте экземпляр класса Presentation и загрузите образец презентации с контролями медиаплеера ActiveX.
+1. Создайте экземпляр целевого класса Presentation и создайте пустой экземпляр презентации.
+1. Клонируйте слайд с контролем медиаплеера ActiveX из шаблонной презентации в целевую презентацию.
+1. Получите доступ к клонированному слайду в целевой презентации.
+1. Получите доступ к контролям ActiveX на слайде, обратившись к IControlCollection.
+1. Получите доступ к контролю медиаплеера ActiveX и задайте путь к видео, используя его свойства.
+1. Сохраните презентацию в файл PPTX.
 
 ```py
 import aspose.slides as slides
@@ -188,16 +188,16 @@ import aspose.slides as slides
 # Создание экземпляра класса Presentation, представляющего файл PPTX
 with slides.Presentation(path + "template.pptx") as presentation:
 
-    # Создание пустой презентации
+    # Создание пустого экземпляра презентации
     with slides.Presentation() as newPresentation:
 
-        # Удаление слайда по умолчанию
+        # Удаление стандартного слайда
         newPresentation.slides.remove_at(0)
 
-        # Клонирование слайда с элементом Media Player ActiveX
+        # Клонирование слайда с контролем медиаплеера ActiveX
         newPresentation.slides.insert_clone(0, presentation.slides[0])
 
-        # Доступ к элементу Media Player ActiveX и задание пути к видео
+        # Получение доступа к контролю медиаплеера ActiveX и задайте путь к видео
         prop = newPresentation.slides[0].controls[0].properties
 
         prop.remove("URL")
@@ -206,17 +206,3 @@ with slides.Presentation(path + "template.pptx") as presentation:
         # Сохранение презентации
         newPresentation.save("LinkingVideoActiveXControl_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-## **FAQ**
-
-**Сохраняет ли Aspose.Slides элементы ActiveX при чтении и повторном сохранении, если они не могут быть выполнены в среде Python?**
-
-Да. Aspose.Slides рассматривает их как часть презентации и может читать/изменять их свойства и рамки; выполнение самих элементов не требуется для их сохранения.
-
-**Чем элементы ActiveX отличаются от OLE‑объектов в презентации?**
-
-Элементы ActiveX — это интерактивные управляемые элементы (кнопки, текстовые поля, медиаплеер), тогда как [OLE](/slides/ru/python-net/manage-ole/) относится к встроенным объектам приложений (например, лист Excel). Они хранятся и обрабатываются по‑разному и имеют разные модели свойств.
-
-**Работают ли события ActiveX и макросы VBA, если файл был изменён Aspose.Slides?**
-
-Aspose.Slides сохраняет существующую разметку и метаданные; однако события и макросы выполняются только внутри PowerPoint на Windows, если политика безопасности это разрешает. Библиотека не выполняет VBA.

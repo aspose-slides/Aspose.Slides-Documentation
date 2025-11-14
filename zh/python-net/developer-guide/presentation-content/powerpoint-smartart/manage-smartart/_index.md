@@ -1,12 +1,12 @@
 ---
-title: 使用 Python 在 PowerPoint 演示文稿中管理 SmartArt
+title: 在 Python 中管理 PowerPoint 演示文稿中的 SmartArt
 linktitle: 管理 SmartArt
 type: docs
 weight: 10
 url: /zh/python-net/manage-smartart/
 keywords:
 - SmartArt
-- SmartArt 文本
+- 从 SmartArt 获取文本
 - 布局类型
 - 隐藏属性
 - 组织结构图
@@ -15,145 +15,122 @@ keywords:
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "通过 .NET 使用 Aspose.Slides for Python 学习构建和编辑 PowerPoint SmartArt，提供清晰的代码示例，加速幻灯片设计和自动化。"
+description: "学习如何使用适用于 .NET 的 Aspose.Slides for Python 构建和编辑 PowerPoint SmartArt，通过清晰的代码示例加速幻灯片设计与自动化。"
 ---
 
-## **概述**
-
-本指南展示了如何在 Aspose.Slides for Python 中创建和操作 SmartArt。您将学习如何从 SmartArt 中提取文本（包括节点形状内的 [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) 内容），向幻灯片添加 SmartArt 并切换其布局，检测和处理隐藏节点，配置组织结构图布局，以及构建图片组织结构图——所有示例均为简洁、可直接复制粘贴的 Python 代码，能够打开一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)，操作幻灯片和 SmartArt 节点，并将结果保存为 PPTX。
-
-## **获取 SmartArt 文本**
-
-[SmartArtShape](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartshape/) 的 `text_frame` 属性允许您检索 SmartArt 形状中的所有文本—not 仅限于其节点中的文本。以下示例代码展示了如何从 SmartArt 节点获取文本。
+## **获取SmartArt中的文本**
+现在，ISmartArtShape接口和SmartArtShape类分别添加了TextFrame属性。此属性允许您获取SmartArt中的所有文本，即使它并不仅仅是节点文本。以下示例代码将帮助您从SmartArt节点获取文本。
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("SmartArt.pptx") as presentation:
-    slide = presentation.slides[0]
-    smart_art = slide.shapes[0]
+with slides.Presentation(path + "SmartArt.pptx") as pres:
+    slide = pres.slides[0]
+    smartArt = slide.shapes[0]
 
-    for smart_art_node in smart_art.all_nodes:
-        for node_shape in smart_art_node.shapes:
-            if node_shape.text_frame is not None:
-                print(node_shape.text_frame.text)
+    for smartArtNode in smartArt.all_nodes:
+        for nodeShape in smartArtNode.shapes:
+            if nodeShape.text_frame != None:
+                print(nodeShape.text_frame.text)
 ```
 
-## **更改 SmartArt 布局类型**
 
-要更改 SmartArt 布局类型，请按以下步骤操作：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-1. 按索引获取幻灯片的引用。
-1. 使用 `BASIC_BLOCK_LIST` 布局添加 SmartArt 形状。
-1. 将其布局更改为 `BASIC_PROCESS`。
-1. 将演示文稿保存为 PPTX 文件。
+## **更改SmartArt的布局类型**
+要更改SmartArt的布局类型，请按照以下步骤操作：
+
+- 创建`Presentation`类的实例。
+- 使用其索引获取幻灯片的引用。
+- 添加SmartArt基础块列表。
+- 将LayoutType更改为基础流程。
+- 将演示文稿写入PPTX文件。
+  在下面给出的示例中，我们在两个形状之间添加了连接器。
 
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as smartart
+import aspose.slides.smartart as art
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    # 添加一个使用 BASIC_BLOCK_LIST 布局的 SmartArt 形状。
-    smart = slide.shapes.add_smart_art(10, 10, 400, 300, smartart.SmartArtLayoutType.BASIC_BLOCK_LIST)
-
-    # 将布局类型更改为 BASIC_PROCESS。
-    smart.layout = smartart.SmartArtLayoutType.BASIC_PROCESS
-
-    # 保存演示文稿。
-    presentation.save("ChangedSmartArtLayout.pptx", slides.export.SaveFormat.PPTX)
+    # 添加SmartArt基础流程 
+    smart = presentation.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.BASIC_BLOCK_LIST)
+    # 将LayoutType更改为基础流程
+    smart.layout = art.SmartArtLayoutType.BASIC_PROCESS
+    # 保存演示文稿
+    presentation.save("ChangeSmartArtLayout_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **检查 SmartArt 的隐藏属性**
 
-`SmartArtNode.is_hidden` 属性在节点在数据模型中被隐藏时返回 `True`。要检查 SmartArt 节点是否隐藏，请按以下步骤操作：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-1. 使用 `RADIAL_CYCLE` 布局添加 SmartArt 形状。
-1. 向 SmartArt 添加一个节点。
-1. 检查 `is_hidden` 属性。
+## **检查SmartArt的隐藏属性**
+请注意，方法com.aspose.slides.ISmartArtNode.isHidden()如果该节点在数据模型中是隐藏节点，则返回true。要检查SmartArt任何节点的隐藏属性，请按照以下步骤操作：
+
+- 创建`Presentation`类的实例。
+- 添加SmartArt径向循环。
+- 在SmartArt上添加节点。
+- 检查isHidden属性。
+- 将演示文稿写入PPTX文件。
+
+在下面给出的示例中，我们在两个形状之间添加了连接器。
 
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as smartart
+import aspose.slides.smartart as art
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    # 添加一个使用 RADIAL_CYCLE 布局的 SmartArt 形状。
-    smart = slide.shapes.add_smart_art(10, 10, 400, 300, smartart.SmartArtLayoutType.RADIAL_CYCLE)
-
-    # 向 SmartArt 添加一个节点。
+    # 添加SmartArt基础流程 
+    smart = presentation.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.RADIAL_CYCLE)
+    # 在SmartArt上添加节点 
     node = smart.all_nodes.add_node()
-
-    # 检查 is_hidden 属性。
+    # 检查isHidden属性
     if node.is_hidden:
-        print("The node is hidden.")
+        print("隐藏")
+        # 执行一些操作或通知
+    # 保存演示文稿
+    presentation.save("CheckSmartArtHiddenProperty_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **获取或设置组织结构图类型**
 
-`SmartArtNode.organization_chart_layout` 属性获取或设置当前节点关联的组织结构图类型。要获取或设置组织结构图类型，请按以下步骤操作：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-1. 向幻灯片添加 SmartArt 形状。
-1. 获取或设置组织结构图类型。
-1. 将演示文稿保存为 PPTX 文件。
+## **获取或设置组织图表类型**
+方法com.aspose.slides.ISmartArtNode.getOrganizationChartLayout()和setOrganizationChartLayout(int)允许获取或设置与当前节点关联的组织图表类型。要获取或设置组织图表类型，请按照以下步骤操作：
+
+- 创建`Presentation`类的实例。
+- 在幻灯片上添加SmartArt。
+- 获取或设置组织图表类型。
+- 将演示文稿写入PPTX文件。
+  在下面给出的示例中，我们在两个形状之间添加了连接器。
 
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as smartart
+import aspose.slides.smartart as art
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    # 添加一个使用 ORGANIZATION_CHART 布局的 SmartArt 形状。
-    smart = slide.shapes.add_smart_art(10, 10, 400, 300, smartart.SmartArtLayoutType.ORGANIZATION_CHART)
-
-    # 设置组织结构图类型。
-    smart.nodes[0].organization_chart_layout = smartart.OrganizationChartLayoutType.LEFT_HANGING
-
-    # 保存演示文稿。
-    presentation.save("OrganizationChartLayout.pptx", slides.export.SaveFormat.PPTX)
+    # 添加SmartArt基础流程 
+    smart = presentation.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.ORGANIZATION_CHART)
+    # 获取或设置组织图表类型 
+    smart.nodes[0].organization_chart_layout = art.OrganizationChartLayoutType.LEFT_HANGING
+    # 保存演示文稿
+    presentation.save("OrganizeChartLayoutType_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **创建图片组织结构图**
 
-Aspose.Slides for Python 提供了简单的 API，可轻松创建图片组织结构图。要在幻灯片上创建图表：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-1. 按索引获取幻灯片的引用。
-1. 使用所需类型的默认数据添加图表。
-1. 将修改后的演示文稿保存为 PPTX 文件。
+
+## **创建图片组织图表**
+Aspose.Slides for Python via .NET提供了一种简单的API，用于轻松创建PictureOrganization图表。要在幻灯片上创建图表：
+
+1. 创建`Presentation`类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加带有默认数据的图表，以及所需的类型（ChartType.PictureOrganizationChart）。
+1. 将修改后的演示文稿写入PPTX文件。
+
+以下代码用于创建图表。
 
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as smartart
+import aspose.slides.smartart as art
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    smart_art = slide.shapes.add_smart_art(0, 0, 400, 400, smartart.SmartArtLayoutType.PICTURE_ORGANIZATION_CHART)
-    
-    presentation.save("OrganizationChart.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation() as pres:
+    smartArt = pres.slides[0].shapes.add_smart_art(0, 0, 400, 400, art.SmartArtLayoutType.PICTURE_ORGANIZATION_CHART)
+    pres.save("OrganizationChart.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-## **常见问题**
-
-**SmartArt 是否支持 RTL 语言的镜像/翻转？**
-
-是的。`[is_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/is_reversed/)` 属性在所选 SmartArt 类型支持翻转时切换图表方向（LTR/RTL）。
-
-**如何在同一幻灯片或另一个演示文稿中复制 SmartArt 并保留格式？**
-
-您可以通过形状集合的 `[clone the SmartArt shape](/slides/zh/python-net/shape-manipulations/)`（`ShapeCollection.add_clone`）或通过 `[clone the entire slide](/slides/zh/python-net/clone-slides/)`（克隆包含该形状的幻灯片）来实现。两种方法都会保留大小、位置和样式。
-
-**如何将 SmartArt 渲染为光栅图像以进行预览或网页导出？**
-
-通过 API 将幻灯片（或整个演示文稿）转换为 PNG/JPEG（`[Render the slide](/slides/zh/python-net/convert-powerpoint-to-png/)`），SmartArt 将作为幻灯片的一部分被绘制。
-
-**如果幻灯片上有多个 SmartArt，如何以编程方式选择特定的 SmartArt 并保持格式？**
-
-常用做法是使用 `[alternative text](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/alternative_text/)`（Alt Text）或 `[name](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/name/)`，在 `[Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/)` 中按该属性搜索形状，然后检查类型以确认是 `[SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/)`。文档中描述了查找和操作形状的典型技巧。

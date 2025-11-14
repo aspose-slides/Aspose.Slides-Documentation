@@ -1,121 +1,100 @@
 ---
-title: Personnaliser les légendes de graphiques dans les présentations avec Python
-linktitle: Légende du graphique
+title: Légende de Graphique
 type: docs
 url: /fr/python-net/chart-legend/
-keywords:
-- légende de graphique
-- position de la légende
-- taille de la police
-- PowerPoint
-- OpenDocument
-- présentation
-- Python
-- Aspose.Slides
-description: "Personnalisez les légendes de graphiques avec Aspose.Slides pour Python via .NET afin d'optimiser les présentations PowerPoint et OpenDocument avec un formatage de légende sur mesure."
+keywords: "Légende de graphique, taille de police de légende, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
+description: "Définir le positionnement et la taille de police pour la légende de graphique dans des présentations PowerPoint en Python"
 ---
 
-## **Vue d’ensemble**
+## **Positionnement de la Légende**
+Afin de définir les propriétés de la légende. Veuillez suivre les étapes ci-dessous :
 
-Aspose.Slides pour Python offre un contrôle complet sur les légendes de graphiques afin que vous puissiez rendre les libellés de données clairs et prêts pour la présentation. Vous pouvez afficher ou masquer la légende, choisir sa position sur la diapositive, et ajuster la mise en page pour éviter le chevauchement avec la zone du tracé. L’API vous permet de styliser le texte et les marques, d’ajuster finement les marges et l’arrière‑plan, ainsi que de formater les bordures et les remplissages pour correspondre à votre thème. Les développeurs peuvent également accéder aux entrées individuelles de la légende pour les renommer ou les filtrer, garantissant que seules les séries les plus pertinentes sont affichées. Avec ces capacités, vos graphiques restent lisibles, cohérents et alignés avec les normes de conception de votre présentation.
+- Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+- Obtenir la référence de la diapositive.
+- Ajouter un graphique sur la diapositive.
+- Définir les propriétés de la légende.
+- Enregistrer la présentation en tant que fichier PPTX.
 
-## **Positionnement de la légende**
-
-Avec Aspose.Slides, vous pouvez rapidement contrôler où la légende du graphique apparaît et comment elle s’intègre à la mise en page de votre diapositive. Apprenez à placer la légende avec précision.
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Obtenez une référence à la diapositive.
-1. Ajoutez un graphique à la diapositive.
-1. Définissez les propriétés de la légende.
-1. Enregistrez la présentation au format PPTX.
-
-Dans l’exemple ci‑dessous, nous définissons la position et la taille de la légende du graphique :
+Dans l'exemple donné ci-dessous, nous avons défini la position et la taille de la légende de graphique.
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-# Créez une instance de la classe Presentation.
+# Créer une instance de la classe Presentation
 with slides.Presentation() as presentation:
 
-    # Obtenez une référence à la diapositive.
+    # Obtenir la référence de la diapositive
     slide = presentation.slides[0]
 
-    # Ajoutez un graphique à colonnes groupées à la diapositive.
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 300)
+    # Ajouter un graphique à colonnes groupées sur la diapositive
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 500)
 
-    # Définissez les propriétés de la légende.
-    chart.legend.x = 80 / chart.width
-    chart.legend.y = 20 / chart.height
+    # Définir les Propriétés de la Légende
+    chart.legend.x = 50 / chart.width
+    chart.legend.y = 50 / chart.height
     chart.legend.width = 100 / chart.width
     chart.legend.height = 100 / chart.height
 
-    # Enregistrez la présentation sur le disque.
-    presentation.save("legend_positioning.pptx", slides.export.SaveFormat.PPTX)
+    # Enregistrer la présentation sur le disque
+    presentation.save("Legend_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Définir la taille de police de la légende**
 
-La légende d’un graphique doit être aussi lisible que les données qu’elle explique. Cette section montre comment ajuster la taille de police de la légende afin que vous puissiez harmoniser la typographie de votre présentation et améliorer l’accessibilité.
 
-1. Instanciez la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Créez un graphique.
-1. Définissez la taille de la police.
-1. Enregistrez la présentation sur le disque.
+## **Définir la Taille de Police de la Légende**
+Aspose.Slides pour Python via .NET permet aux développeurs de définir la taille de police de la légende. Veuillez suivre les étapes ci-dessous :
+
+- Instancier la classe `Presentation`.
+- Créer le graphique par défaut.
+- Définir la Taille de la Police.
+- Définir la valeur minimale de l'axe.
+- Définir la valeur maximale de l'axe.
+- Enregistrer la présentation sur le disque.
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+with slides.Presentation() as pres:
+	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
 
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-    chart.legend.text_format.portion_format.font_height = 20
+	chart.legend.text_format.portion_format.font_height = 20
+	chart.axes.vertical_axis.is_automatic_min_value = False
+	chart.axes.vertical_axis.min_value = -5
+	chart.axes.vertical_axis.is_automatic_max_value = False
+	chart.axes.vertical_axis.max_value = 10
 
-    presentation.save("font_size.pptx", slides.export.SaveFormat.PPTX)
+	pres.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Définir la taille de police pour une entrée de légende**
 
-Aspose.Slides vous permet d’affiner l’apparence des légendes de graphiques en formatant les entrées individuelles. L’exemple ci‑dessous montre comment cibler un élément de légende spécifique et définir ses propriétés sans modifier le reste de la légende.
+## **Définir la Taille de Police de Légende Individuelle**
+Aspose.Slides pour Python via .NET permet aux développeurs de définir la taille de police des entrées individuelles de la légende. Veuillez suivre les étapes ci-dessous :
 
-1. Instanciez la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Créez un graphique.
-1. Accédez à une entrée de légende.
-1. Définissez les propriétés de l’entrée.
-1. Enregistrez la présentation sur le disque.
+- Instancier la classe `Presentation`.
+- Créer le graphique par défaut.
+- Accéder à l'entrée de la légende.
+- Définir la Taille de la Police.
+- Définir la valeur minimale de l'axe.
+- Définir la valeur maximale de l'axe.
+- Enregistrer la présentation sur le disque.
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
+ 
+ 
+with slides.Presentation() as pres:
+	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+	tf = chart.legend.entries[1].text_format
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+	tf.portion_format.font_bold = 1
+	tf.portion_format.font_height = 20
+	tf.portion_format.font_italic = 1
+	tf.portion_format.fill_format.fill_type = slides.FillType.SOLID 
+	tf.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-    text_format = chart.legend.entries[1].text_format
-
-    text_format.portion_format.font_bold = slides.NullableBool.TRUE
-    text_format.portion_format.font_height = 20
-    text_format.portion_format.font_italic = slides.NullableBool.TRUE
-    text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
-
-    presentation.save("legend_entry.pptx", slides.export.SaveFormat.PPTX)
+	pres.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-## **FAQ**
-
-**Puis‑je activer la légende de façon à ce que le graphique réserve automatiquement de l’espace pour elle au lieu de la superposer ?**
-
-Oui. Utilisez le mode sans superposition ([overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) = `false`) ; dans ce cas, la zone du tracé rétrécira pour accueillir la légende.
-
-**Puis‑je créer des libellés de légende sur plusieurs lignes ?**
-
-Oui. Les libellés longs sont automatiquement renvoyés à la ligne lorsque l’espace est insuffisant ; les sauts de ligne forcés sont pris en charge via les caractères de nouvelle ligne dans le nom de la série.
-
-**Comment faire en sorte que la légende suive le jeu de couleurs du thème de la présentation ?**
-
-N’ajoutez pas de couleurs/remplissages/polices explicites à la légende ou à son texte. Ils hériteront alors du thème et seront mis à jour correctement lorsque le design changera.

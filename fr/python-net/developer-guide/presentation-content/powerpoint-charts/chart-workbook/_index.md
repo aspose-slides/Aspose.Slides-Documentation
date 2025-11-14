@@ -1,240 +1,199 @@
 ---
-title: Gérer les classeurs de graphiques dans les présentations avec Python
-linktitle: Classeur de graphique
+title: Album de graphiques
 type: docs
 weight: 70
 url: /fr/python-net/chart-workbook/
-keywords:
-- classeur de graphique
-- données de graphique
-- cellule de classeur
-- étiquette de données
-- feuille de calcul
-- source de données
-- classeur externe
-- données externes
-- PowerPoint
-- présentation
-- Python
-- Aspose.Slides
-description: "Découvrez Aspose.Slides pour Python via .NET : gérez facilement les classeurs de graphiques dans les formats PowerPoint et OpenDocument pour rationaliser les données de votre présentation."
+keywords: "Album de graphiques, données de graphique, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
+description: "Album de graphiques dans une présentation PowerPoint en Python"
 ---
 
-## **Définir les données du graphique à partir d'un classeur**
+## **Définir les données de graphique depuis le classeur**
 
-Aspose.Slides propose des méthodes pour lire et écrire les classeurs de données de graphiques (qui contiennent des données de graphique modifiées avec Aspose.Cells). **Remarque :** Les données du graphique doivent être organisées de la même manière ou avoir une structure similaire à celle de la source.
+Aspose.Slides fournit certaines méthodes qui vous permettent de lire et d'écrire des classeurs de données de graphique (contenant des données de graphique éditées avec Aspose.Cells). **Remarque** : les données de graphique doivent être organisées de la même manière ou doivent avoir une structure similaire à celle de la source.
 
-Le code Python suivant montre une opération d'exemple :
+Ce code Python démontre une opération exemple :
 
 ```py
+import aspose.slides.charts as charts
 import aspose.slides as slides
 
-with slides.Presentation("chart.pptx") as presentation:
-    chart = presentation.slides[0].shapes[0]
+# Instancie une classe Presentation qui représente un fichier de présentation 
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.BUBBLE, 50, 50, 600, 400, True)
 
-    data_stream = chart.chart_data.read_workbook_stream()
+    series = chart.chart_data.series
 
-    chart.chart_data.series.clear()
-    chart.chart_data.categories.clear()
+    series[0].labels.default_data_label_format.show_label_value_from_cell = True
 
-    data_stream.seek(0)
-    chart.chart_data.write_workbook_stream(data_stream)
+    wb = chart.chart_data.chart_data_workbook
+
+    series[0].labels[0].value_from_cell = wb.get_cell(0, "A10", "Valeur de la cellule d'étiquette 0")
+    series[0].labels[1].value_from_cell = wb.get_cell(0, "A11", "Valeur de la cellule d'étiquette 1")
+    series[0].labels[2].value_from_cell = wb.get_cell(0, "A12", "Valeur de la cellule d'étiquette 2")
+
+    pres.save("resultchart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Définir une cellule de classeur comme étiquette de données du graphique**
+## **Définir la cellule du classeur comme étiquette de données de graphique**
 
-Parfois, vous avez besoin d'étiquettes de graphique provenant directement des cellules du classeur de données sous-jacent. Aspose.Slides vous permet de lier les étiquettes de données à des cellules de classeur spécifiques afin que le texte de l'étiquette reflète toujours la valeur de la cellule. L'exemple ci‑dessous montre comment activer les étiquettes basées sur la valeur d'une cellule et associer des étiquettes sélectionnées à des cellules personnalisées dans le classeur du graphique.
+1. Créez une instance de la classe [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/).
+1. Obtenez une référence de diapositive par son index.
+1. Ajoutez un graphique en bulle avec quelques données.
+1. Accédez aux séries de graphiques.
+1. Définissez la cellule du classeur comme une étiquette de données.
+1. Enregistrez la présentation.
 
-1. Créer une instance de la classe [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/).
-2. Obtenir une référence à la diapositive par son index.
-3. Ajouter un graphique à bulles avec des données d'exemple.
-4. Accéder aux séries du graphique.
-5. Utiliser une cellule de classeur comme étiquette de données.
-6. Enregistrer la présentation.
+Ce code Python vous montre comment définir une cellule de classeur comme étiquette de données de graphique : xxx
 
-Le code Python suivant montre comment définir une cellule de classeur comme étiquette de données du graphique :
+```python
 
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-
-# Instancier la classe Presentation qui représente un fichier de présentation.
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    chart = slide.shapes.add_chart(charts.ChartType.BUBBLE, 50, 50, 600, 400, True)
-
-    series = chart.chart_data.series[0]
-
-    series.labels.default_data_label_format.show_label_value_from_cell = True
-
-    workbook = chart.chart_data.chart_data_workbook
-
-    series.labels[0].value_from_cell = workbook.get_cell(0, "A10", "Label 0")
-    series.labels[1].value_from_cell = workbook.get_cell(0, "A11", "Label 1")
-    series.labels[2].value_from_cell = workbook.get_cell(0, "A12", "Label 2")
-
-    presentation.save("chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Gérer les feuilles de calcul**
 
-Le code Python suivant montre comment utiliser la propriété `worksheets` pour accéder à la collection de feuilles de calcul :
+Ce code Python démontre une opération où la propriété `worksheets` est utilisée pour accéder à une collection de feuilles de calcul :
 
 ```python
-import aspose.slides as slides
 import aspose.slides.charts as charts
+import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 500)
-
-    workbook = chart.chart_data.chart_data_workbook
-    for i in range(len(workbook.worksheets)):
-        print(workbook.worksheets[i].name)
+with slides.Presentation() as pres:
+   chart = pres.slides[0].shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 500)
+   wb =  chart.chart_data.chart_data_workbook
+   for i in range(len(wb.worksheets)):
+      print(wb.worksheets[i].name)
 ```
 
 ## **Spécifier le type de source de données**
 
-Le code Python suivant montre comment spécifier un type de source de données :
+Ce code Python vous montre comment spécifier un type pour une source de données : 
 
 ```python
 import aspose.slides as slides
-import aspose.slides.charts as charts
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.COLUMN_3D, 50, 50, 600, 400, True)
+    val = chart.chart_data.series[0].name
 
-    chart = slide.shapes.add_chart(charts.ChartType.COLUMN_3D, 50, 50, 600, 400, True)
+    val.data_source_type = slides.charts.DataSourceType.STRING_LITERALS
+    val.data = "LiteralString"
 
-    series_name = chart.chart_data.series[0].name
-    series_name.data_source_type = slides.charts.DataSourceType.STRING_LITERALS
-    series_name.data = "LiteralString"
+    val = chart.chart_data.series[0].name
+    val.data = chart.chart_data.chart_data_workbook.get_cell(0, "B1", "NouvelleCellule")
 
-    series_name = chart.chart_data.series[1].name
-    series_name.data = chart.chart_data.chart_data_workbook.get_cell(0, "B1", "NewCell")
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Classeurs externes**
+## **Classeur externe**
 
-Aspose.Slides prend en charge l'utilisation de classeurs externes comme source de données pour les graphiques.
+{{% alert color="primary" %}} 
+Dans [Aspose.Slides pour .NET 19.4](https://docs.aspose.com/slides/net/aspose-slides-for-net-19-4-release-notes/), nous avons implémenté le support des classeurs externes comme source de données pour les graphiques.
+{{% /alert %}} 
 
-### **Définir des classeurs externes**
+### **Créer un classeur externe**
 
-En utilisant la méthode [ChartData.set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) , vous pouvez attribuer un classeur externe à un graphique comme source de données. Cette méthode peut également mettre à jour le chemin d'accès à un classeur externe s'il a été déplacé.
+En utilisant certaines méthodes de **`IChartData`**, vous pouvez créer un classeur externe à partir de zéro ou rendre un classeur interne externe.
 
-Bien que vous ne puissiez pas modifier les données des classeurs stockés sur des emplacements ou des ressources distants, vous pouvez toujours les utiliser comme sources de données externes. Si vous fournissez un chemin relatif pour un classeur externe, il est automatiquement converti en chemin complet.
-
-Le code Python suivant montre comment définir un classeur externe :
+Ce code Python démontre le processus de création de classeur externe :
 
 ```python
-import aspose.slides as slides
 import aspose.slides.charts as charts
+import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+with slides.Presentation() as pres:
 
-    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, False)
-    chart.chart_data.set_external_workbook("external_workbook.xlsx")
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.PIE, 50, 50, 500, 400)
+    chart.chart_data.chart_data_workbook.clear(0)
 
-    presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
+    chart.chart_data.set_external_workbook(path + "externalWorkbook.xlsx")
+
+    chart.chart_data.set_range("Sheet1!$A$2:$B$5")
+    series = chart.chart_data.series[0]
+    series.parent_series_group.is_color_varied = True
+    pres.save("response2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Le paramètre `update_chart_data` de la méthode [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) indique si le classeur Excel sera chargé.
+### **Définir un classeur externe**
 
-- Lorsque `update_chart_data` est défini sur `False`, seul le chemin du classeur est mis à jour ; les données du graphique ne sont pas chargées ou rafraîchies à partir du classeur cible. Utilisez ce paramètre lorsque le classeur cible n'existe pas ou n'est pas disponible.
-- Lorsque `update_chart_data` est défini sur `True`, les données du graphique sont chargées et mises à jour à partir du classeur cible.
+En utilisant la méthode **`chartData.set_external_workbook`**, vous pouvez assigner un classeur externe à un graphique comme source de données. Cette méthode peut également être utilisée pour mettre à jour un chemin vers le classeur externe (si ce dernier a été déplacé).
 
-### **Créer des classeurs externes**
+Bien que vous ne puissiez pas éditer les données dans des classeurs stockés à distance ou des ressources, vous pouvez toujours utiliser de tels classeurs comme source de données externe. Si le chemin relatif d'un classeur externe est fourni, il est automatiquement converti en chemin complet.
 
-En utilisant les méthodes [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) et [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) , vous pouvez soit créer un classeur externe à partir de zéro, soit convertir un classeur interne en classeur externe.
-
-Ce code Python montre le processus de création d'un classeur externe :
+Ce code Python vous montre comment définir un classeur externe :
 
 ```python
-import pathlib
-import aspose.slides as slides
 import aspose.slides.charts as charts
+import aspose.slides as slides
 
-workbook_path = "external_workbook.xlsx"
+# Le chemin vers le répertoire des documents.
+with slides.Presentation() as pres:
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, False)
+    chartData = chart.chart_data
+                    
+    chartData.set_external_workbook(path + "externalWorkbook.xlsx")
+                  
+    chartData.series.add(chartData.chart_data_workbook.get_cell(0, "B1"), charts.ChartType.PIE)
+    chartData.series[0].data_points.add_data_point_for_pie_series(chartData.chart_data_workbook.get_cell(0, "B2"))
+    chartData.series[0].data_points.add_data_point_for_pie_series(chartData.chart_data_workbook.get_cell(0, "B3"))
+    chartData.series[0].data_points.add_data_point_for_pie_series(chartData.chart_data_workbook.get_cell(0, "B4"))
 
-    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600)
-
-    workbook_data = chart.chart_data.read_workbook_stream().read()
-
-    with open(workbook_path, "wb") as file_stream:
-        file_stream.write(workbook_data)
-
-    full_path = str(pathlib.Path(workbook_path).resolve())
-    chart.chart_data.set_external_workbook(full_path)
-
-    presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
+    chartData.categories.add(chartData.chart_data_workbook.get_cell(0, "A2"))
+    chartData.categories.add(chartData.chart_data_workbook.get_cell(0, "A3"))
+    chartData.categories.add(chartData.chart_data_workbook.get_cell(0, "A4"))
+    pres.save("Presentation_with_externalWorkbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Obtenir le chemin du classeur source de données externe pour un graphique**
+Le paramètre `chart_data` (sous la méthode `set_external_workbook`) est utilisé pour spécifier si un classeur Excel sera chargé ou non. 
 
-Parfois, les données d'un graphique sont liées à un classeur Excel externe plutôt qu'aux données intégrées de la présentation. Avec Aspose.Slides, vous pouvez inspecter la source de données du graphique et, si c'est un classeur externe, lire le chemin complet du classeur.
-
-1. Créer une instance de la classe [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/).
-2. Obtenir une référence à la diapositive par son index.
-3. Obtenir une référence à la forme du graphique.
-4. Obtenir la source ([ChartDataSourceType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatasourcetype/)) qui représente la source de données du graphique.
-5. Vérifier si le type de source correspond au type de source de données d'un classeur externe.
-
-Le code Python suivant montre l'opération :
+* Lorsque la valeur de `chart_data` est définie sur `false`, seul le chemin du classeur est mis à jour - les données du graphique ne seront pas chargées ni mises à jour à partir du classeur cible. Vous pouvez vouloir utiliser ce réglage lorsque vous êtes dans une situation où le classeur cible est inexistant ou indisponible. 
+* Lorsque la valeur de `chart_data` est définie sur `true`, les données du graphique sont mises à jour à partir du classeur cible.
 
 ```python
-import aspose.slides as slides
 import aspose.slides.charts as charts
+import aspose.slides as slides
 
-with slides.Presentation("chart_with_external_workbook.pptx") as presentation:
-    chart = presentation.slides[0].shapes[0]
-    source_type = chart.chart_data.data_source_type
-    if source_type == charts.ChartDataSourceType.EXTERNAL_WORKBOOK:
+with slides.Presentation() as pres:
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, False)
+    chartData = chart.chart_data
+
+    chartData.set_external_workbook("http://path/doesnt/exists", False)
+
+    pres.save("SetExternalWorkbookWithUpdateChartData.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **Obtenir le chemin du classeur source de données externe du graphique**
+
+1. Créez une instance de la classe [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/).
+1. Obtenez une référence de diapositive par son index.
+1. Créez un objet pour la forme du graphique.
+1. Créez un objet pour le type source (`ChartDataSourceType`) qui représente la source de données du graphique.
+1. Spécifiez la condition pertinente en fonction du type source étant le même que celui de la source de données de classeur externe.
+
+Ce code Python démontre l'opération :
+
+```python
+import aspose.slides.charts as charts
+import aspose.slides as slides
+
+with slides.Presentation("response2.pptx") as pres:
+    chart = pres.slides[0].shapes[0]
+    sourceType = chart.chart_data.data_source_type
+    if sourceType == charts.ChartDataSourceType.EXTERNAL_WORKBOOK:
         print(chart.chart_data.external_workbook_path)
 ```
 
 ### **Modifier les données du graphique**
 
-Vous pouvez modifier les données des classeurs externes de la même manière que vous modifiez les données des classeurs internes. Si un classeur externe ne peut pas être chargé, une exception est levée.
+Vous pouvez modifier les données dans les classeurs externes de la même manière que vous apportez des modifications aux contenus des classeurs internes. Lorsqu'un classeur externe ne peut pas être chargé, une exception est levée.
+
+Ce code Python est une implémentation du processus décrit :
 
 ```python
+import aspose.slides.charts as charts
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    chart = presentation.slides[0].shapes[0]
-    chart.chart_data.series[0].data_points[0].value.as_cell.value = 100
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation(path + "presentation.pptx") as pres:
+    pres.slides[0].shapes[0].chart_data.series[0].data_points[0].value.as_cell.value = 100
+    pres.save("presentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-## **FAQ**
-
-**Puis-je déterminer si un graphique spécifique est lié à un classeur externe ou intégré ?**
-
-Oui. Un graphique possède un [type de source de données](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) et un [chemin vers un classeur externe](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) ; si la source est un classeur externe, vous pouvez lire le chemin complet pour vous assurer qu'un fichier externe est utilisé.
-
-**Les chemins relatifs vers les classeurs externes sont‑ils pris en charge, et comment sont‑ils stockés ?**
-
-Oui. Si vous spécifiez un chemin relatif, il est automatiquement converti en chemin absolu. Cela est pratique pour la portabilité du projet ; cependant, notez que la présentation stockera le chemin absolu dans le fichier PPTX.
-
-**Puis‑je utiliser des classeurs situés sur des ressources ou partages réseau ?**
-
-Oui, ces classeurs peuvent être utilisés comme source de données externe. Cependant, la modification directe de classeurs distants depuis Aspose.Slides n'est pas prise en charge ; ils ne peuvent être utilisés que comme source.
-
-**Aspose.Slides écrase‑t‑il le fichier XLSX externe lors de l’enregistrement de la présentation ?**
-
-Non. La présentation stocke un [lien vers le fichier externe](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) et l’utilise pour lire les données. Le fichier externe lui‑même n’est pas modifié lors de l’enregistrement de la présentation.
-
-**Que faire si le fichier externe est protégé par mot de passe ?**
-
-Aspose.Slides n’accepte pas de mot de passe lors de la liaison. Une approche courante consiste à supprimer la protection au préalable ou à préparer une copie déchiffrée (par exemple, en utilisant [Aspose.Cells](/cells/python-net/)) et à créer un lien vers cette copie.
-
-**Plusieurs graphiques peuvent‑ils référencer le même classeur externe ?**
-
-Oui. Chaque graphique stocke son propre lien. S’ils pointent tous vers le même fichier, la mise à jour de ce fichier se reflétera dans chaque graphique lors du prochain chargement des données.

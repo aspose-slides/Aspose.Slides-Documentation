@@ -1,51 +1,39 @@
 ---
-title: إدارة عناصر ActiveX في العروض التقديمية باستخدام Python
-linktitle: ActiveX
+title: ActiveX
 type: docs
 weight: 80
 url: /ar/python-net/activex/
-keywords:
-- ActiveX
-- تحكم ActiveX
-- إدارة ActiveX
-- إضافة ActiveX
-- تعديل ActiveX
-- مشغل وسائط
-- PowerPoint
-- عرض تقديمي
-- Python
-- Aspose.Slides
-description: "تعرف على كيفية استفادة Aspose.Slides لـ Python عبر .NET من ActiveX لأتمتة وتعزيز عروض PowerPoint، مما يمنح المطورين تحكمًا قويًا في الشرائح."
+keywords: "ActiveX, عناصر التحكم في ActiveX, عرض PowerPoint, بايثون, Aspose.Slides لـ بايثون عبر .NET"
+description: "إدارة عناصر التحكم في ActiveX في عرض PowerPoint باستخدام بايثون"
 ---
 
-يتم استخدام عناصر ActiveX في العروض التقديمية. يتيح لك Aspose.Slides لـ Python عبر .NET إدارة عناصر ActiveX، لكن إدارتها أصعب قليلًا ومختلفة عن الأشكال العادية في العرض. بدءًا من Aspose.Slides لـ Python عبر .NET 6.9.0، يدعم المكوّن إدارة عناصر ActiveX. في الوقت الحالي، يمكنك الوصول إلى عنصر ActiveX مضاف مسبقًا في عرضك وتعديله أو حذفه باستخدام خصائصه المتنوعة. تذكر أن عناصر ActiveX ليست أشكالًا وليست جزءًا من IShapeCollection في العرض بل هي جزء من IControlCollection المستقلة. يوضح هذا المقال كيفية العمل معها.  
+تستخدم عناصر التحكم في ActiveX في العروض التقديمية. يسمح لك Aspose.Slides لـ بايثون عبر .NET بإدارة عناصر التحكم في ActiveX، ولكن إدارتها أكثر تعقيدًا وتختلف عن الأشكال العادية في العرض التقديمي. اعتبارًا من Aspose.Slides لـ بايثون عبر .NET 6.9.0، يدعم المكون إدارة عناصر التحكم في ActiveX. في الوقت الحالي، يمكنك الوصول إلى عنصر التحكم في ActiveX المضاف بالفعل في عرضك التقديمي وتعديله أو حذفه باستخدام خصائصه المختلفة. تذكر، عناصر التحكم في ActiveX ليست أشكالًا وليست جزءًا من IShapeCollection في العرض التقديمي ولكنها جزء من IControlCollection المنفصلة. يوضح هذا المقال كيفية العمل معهم.
+## **تعديل عناصر التحكم في ActiveX**
+لإدارة عنصر تحكم ActiveX بسيط مثل مربع نص وزر أمر بسيط على شريحة:
 
-## **تعديل عناصر ActiveX**
-لإدارة عنصر ActiveX بسيط مثل مربع نص وزر أمر بسيط على شريحة:
+1. إنشاء مثيل من فئة Presentation وتحميل العرض التقديمي مع عناصر التحكم في ActiveX بداخله.
+1. الحصول على مرجع الشريحة من خلال فهرسها.
+1. الوصول إلى عناصر التحكم في ActiveX في الشريحة عن طريق الوصول إلى IControlCollection.
+1. الوصول إلى عنصر تحكم ActiveX المسمى TextBox1 باستخدام كائن ControlEx.
+1. تغيير الخصائص المختلفة لعنصر التحكم في ActiveX المسمى TextBox1 بما في ذلك النص، الخط، ارتفاع الخط وموقع الإطار.
+1. الوصول إلى عنصر التحكم الثاني المسمى CommandButton1.
+1. تغيير عنوان الزر، الخط والموقع.
+1. نقل موقع إطارات عناصر التحكم في ActiveX.
+1. كتابة العرض التقديمي المعدل إلى ملف PPTX.
 
-1. أنشئ كائنًا من فئة Presentation وحمّل العرض الذي يحتوي على عناصر ActiveX.  
-2. احصل على مرجع الشريحة عبر فهرستها.  
-3. ادخل إلى عناصر ActiveX في الشريحة عبر IControlCollection.  
-4. ادخل إلى عنصر TextBox1 ActiveX باستخدام كائن ControlEx.  
-5. غير الخصائص المختلفة لعنصر TextBox1 ActiveX بما في ذلك النص، الخط، ارتفاع الخط وموقع الإطار.  
-6. ادخل إلى عنصر التحكم الثاني المسمى CommandButton1.  
-7. غير تسمية الزر، الخط والموقع.  
-8. حرّك موقع إطارات عناصر ActiveX.  
-9. احفظ العرض المعدل إلى ملف PPTX.  
-
-المقتطف البرمجي أدناه يحدّث عناصر ActiveX في شرائح العرض كما هو موضح أدناه.
+تقوم الشيفرة البرمجية أدناه بتحديث عناصر التحكم في ActiveX على الشرائح في العرض التقديمي كما هو موضح أدناه.
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 import io
 
-# الوصول إلى العرض الذي يحتوي على عناصر ActiveX
+# Accessing the presentation with  ActiveX controls
 with slides.Presentation(path + "ActiveX.pptm") as presentation:
-    # الوصول إلى الشريحة الأولى في العرض
+    # Accessing the first slide in presentation
     slide = presentation.slides[0]
 
-    # تغيير نص TextBox
+    # changing TextBox text
     control = slide.controls[0]
 
     if control.name == "TextBox1" and control.properties != None:
@@ -53,49 +41,49 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
         control.properties.remove("Value")
         control.properties.add("Value", newText)
 
-        # تغيير الصورة البديلة. سيستبدل PowerPoint هذه الصورة أثناء تنشيط ActiveX، لذا قد يكون ترك الصورة دون تغيير مقبولًا في بعض الأحيان.
+        # changing substitute image. Powerpoint will replace this image during activeX activation, so sometime it's OK to leave image unchanged.
 
         bmp = draw.Bitmap(control.frame.width, control.frame.height)
         with draw.Graphics.from_image(bmp) as graphics:
             with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW)) as brush:
                 graphics.fill_rectangle(brush, 0, 0, bmp.width, bmp.height)
 
-            # الخط = draw.Font(control.properties["FontName"], 14)
+            # font = draw.Font(control.properties["FontName"], 14)
             font = draw.Font("Arial", 14)
             with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW_TEXT)) as brush:
                 graphics.draw_string(newText, font, brush, 10, 4)
 
             with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK), 1) as pen:
-                graphics.draw_lines(pen, [ 
-                        draw.PointF(0, bmp.height - 1), 
-                        draw.PointF(0, 0), 
+                graphics.draw_lines(pen, [
+                        draw.PointF(0, bmp.height - 1),
+                        draw.PointF(0, 0),
                         draw.PointF(bmp.width - 1, 0) ])
 
             with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK_DARK), 1) as pen:
                 graphics.draw_lines(pen, [
-                        draw.PointF(1, bmp.height - 2), 
-                        draw.PointF(1, 1), 
+                        draw.PointF(1, bmp.height - 2),
+                        draw.PointF(1, 1),
                         draw.PointF(bmp.width - 2, 1) ])
 
             with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
+                graphics.draw_lines(pen,
                     [
-                        draw.PointF(1, bmp.height - 1), 
+                        draw.PointF(1, bmp.height - 1),
                         draw.PointF(bmp.width - 1, bmp.height - 1),
                         draw.PointF(bmp.width - 1, 1)])
 
             with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT_LIGHT), 1) as pen:
                 graphics.draw_lines(pen,
-                    [ 
-                        draw.PointF(0, bmp.height), 
-                        draw.PointF(bmp.width, bmp.height), 
+                    [
+                        draw.PointF(0, bmp.height),
+                        draw.PointF(bmp.width, bmp.height),
                         draw.PointF(bmp.width, 0) ])
 
         bmp_bytes = io.BytesIO()
         bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
         control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
 
-    # تغيير تسمية الزر
+    # changing Button caption
     control = slide.controls[1]
 
     if control.name == "CommandButton1" and control.properties != None:
@@ -103,120 +91,107 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
         control.properties.remove("Caption")
         control.properties.add("Caption", newCaption)
 
-        # تغيير البديل
+        # changing substitute
         bmp = draw.Bitmap(control.frame.width, control.frame.height)
         with draw.Graphics.from_image(bmp) as graphics:
             with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.CONTROL)) as brush:
                 graphics.fill_rectangle(brush, 0, 0, bmp.width, bmp.height)
 
-            # الخط = draw.Font(control.properties["FontName"], 14)
+            #font = draw.Font(control.properties["FontName"], 14)
             font = draw.Font("Arial", 14)
             with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW_TEXT)) as brush:
                 textSize = graphics.measure_string(newCaption, font, 65535)
-                graphics.draw_string(newCaption, font, brush, 
-                    (bmp.width - textSize.width) / 2, 
+                graphics.draw_string(newCaption, font, brush,
+                    (bmp.width - textSize.width) / 2,
                     (bmp.height - textSize.height) / 2)
 
             with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(0, bmp.height - 1), 
-                        draw.PointF(0, 0), 
+                graphics.draw_lines(pen,
+                    [
+                        draw.PointF(0, bmp.height - 1),
+                        draw.PointF(0, 0),
                         draw.PointF(bmp.width - 1, 0) ])
             with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(1, bmp.height - 2), 
-                        draw.PointF(1, 1), 
+                graphics.draw_lines(pen,
+                    [
+                        draw.PointF(1, bmp.height - 2),
+                        draw.PointF(1, 1),
                         draw.PointF(bmp.width - 2, 1) ])
 
             with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
+                graphics.draw_lines(pen,
+                    [
                         draw.PointF(1, bmp.height - 1),
                         draw.PointF(bmp.width - 1, bmp.height - 1),
                         draw.PointF(bmp.width - 1, 1) ])
 
             with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK_DARK), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(0, bmp.height), 
-                        draw.PointF(bmp.width, bmp.height), 
+                graphics.draw_lines(pen,
+                    [
+                        draw.PointF(0, bmp.height),
+                        draw.PointF(bmp.width, bmp.height),
                         draw.PointF(bmp.width, 0) ])
 
         bmp_bytes = io.BytesIO()
         bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
         control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
     
-    # تحريك إطارات ActiveX إلى أسفل 100 نقطة
+    # Moving ActiveX frames 100 points down
     for ctl in slide.controls:
         frame = control.frame
         control.frame = slides.ShapeFrame(
-            frame.x, 
-            frame.y + 100, 
-            frame.width, 
-            frame.height, 
-            frame.flip_h, 
-            frame.flip_v, 
+            frame.x,
+            frame.y + 100,
+            frame.width,
+            frame.height,
+            frame.flip_h,
+            frame.flip_v,
             frame.rotation)
 
-    # حفظ العرض مع عناصر ActiveX المعدلة
+    # Save the presentation with Edited ActiveX Controls
     presentation.save("withActiveX-edited_out.pptm", slides.export.SaveFormat.PPTM)
 
 
-    # الآن إزالة العناصر
+    # Now removing controls
     slide.controls.clear()
 
-    # حفظ العرض مع عناصر ActiveX الممسوحة
+    # Saving the presentation with cleared ActiveX controls
     presentation.save("withActiveX.cleared_out.pptm", slides.export.SaveFormat.PPTM)
 ```
 
-## **إضافة عنصر تحكم مشغل وسائط ActiveX**
-لإضافة عنصر تحكم مشغل وسائط ActiveX، يرجى اتباع الخطوات التالية:
 
-1. أنشئ كائنًا من فئة Presentation وحمّل العرض التجريبي الذي يحتوي على عنصر تحكم مشغل وسائط ActiveX.  
-2. أنشئ كائنًا من فئة Presentation المستهدفة وابدأ عرضًا فارغًا.  
-3. استنسخ الشريحة التي تحتوي على عنصر تحكم مشغل وسائط ActiveX من العرض القالب إلى العرض المستهدف.  
-4. ادخل إلى الشريحة المستنسخة في العرض المستهدف.  
-5. ادخل إلى عناصر ActiveX في الشريحة عبر IControlCollection.  
-6. ادخل إلى عنصر تحكم مشغل وسائط ActiveX واضبط مسار الفيديو باستخدام خصائصه.  
-7. احفظ العرض إلى ملف PPTX.  
+## **إضافة عنصر التحكم في مشغل وسائط ActiveX**
+لإضافة عنصر التحكم في مشغل وسائط ActiveX، يرجى تنفيذ الخطوات التالية:
+
+1. إنشاء مثيل من فئة Presentation وتحميل العرض التقديمي النموذجي مع عناصر التحكم في مشغل الوسائط ActiveX بداخله.
+1. إنشاء مثيل من فئة Presentation الهدف وإنشاء مثيل فارغ للعرض التقديمي.
+1. استنساخ الشريحة مع عنصر التحكم في مشغل الوسائط ActiveX في العرض التقديمي النموذجي إلى Presentation الهدف.
+1. الوصول إلى الشريحة المستنسخة في Presentation الهدف.
+1. الوصول إلى عناصر التحكم في ActiveX في الشريحة عن طريق الوصول إلى IControlCollection.
+1. الوصول إلى عنصر التحكم في مشغل الوسائط ActiveX وتعيين مسار الفيديو باستخدام خصائصه.
+1. حفظ العرض التقديمي إلى ملف PPTX.
 
 ```py
 import aspose.slides as slides
 
-# إنشاء كائن Presentation يمثل ملف PPTX
+# Instantiate Presentation class that represents PPTX file
 with slides.Presentation(path + "template.pptx") as presentation:
 
-    # إنشاء عرض فارغ
+    # Create empty presentation instance
     with slides.Presentation() as newPresentation:
 
-        # إزالة الشريحة الافتراضية
+        # Remove default slide
         newPresentation.slides.remove_at(0)
 
-        # استنساخ الشريحة التي تحتوي على عنصر تحكم مشغل وسائط ActiveX
+        # Clone slide with Media Player ActiveX Control
         newPresentation.slides.insert_clone(0, presentation.slides[0])
 
-        # الوصول إلى عنصر تحكم مشغل وسائط ActiveX وتعيين مسار الفيديو
+        # Access the Media Player ActiveX control and set the video path
         prop = newPresentation.slides[0].controls[0].properties
 
         prop.remove("URL")
         prop.add("URL", "Wildlife.mp4")
 
-        # حفظ العرض
+        # Save the Presentation
         newPresentation.save("LinkingVideoActiveXControl_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-## **الأسئلة المتكررة**
-
-**هل يحتفظ Aspose.Slides بعناصر ActiveX عند القراءة وإعادة الحفظ إذا لم يتم تنفيذها في بيئة Python؟**
-
-نعم. يعامل Aspose.Slides هذه العناصر كجزء من العرض ويمكنه قراءة/تعديل خصائصها وإطاراتها؛ لا يلزم تنفيذ العناصر نفسها للحفاظ عليها.
-
-**كيف تختلف عناصر ActiveX عن كائنات OLE في العرض؟**
-
-عناصر ActiveX هي عناصر تحكم تفاعلية مُدارة (أزرار، مربعات نص، مشغل وسائط)، بينما تشير [OLE](/slides/ar/python-net/manage-ole/) إلى كائنات تطبيق مدمجة (مثل ورقة Excel). يتم تخزينها ومعالجتها بطرق مختلفة ولها نماذج خصائص مميزة.
-
-**هل تعمل أحداث ActiveX وماكرو VBA إذا تم تعديل الملف بواسطة Aspose.Slides؟**
-
-يحافظ Aspose.Slides على العلامات الوصفية والبيانات الحالية؛ ومع ذلك، تُنفّذ الأحداث والماكروات فقط داخل PowerPoint على نظام Windows عندما تسمح الأمان بذلك. المكتبة لا تقوم بتنفيذ VBA.

@@ -22,44 +22,45 @@ keywords:
 - guardar PPTX como HTML
 - Python
 - Aspose.Slides
-description: "Convierta presentaciones de PowerPoint a HTML responsivo en Python. Preserve el diseño, los enlaces y las imágenes con la guía de conversión de Aspose.Slides para obtener resultados rápidos e impecables."
+description: "Convierte presentaciones de PowerPoint a HTML adaptable en Python. Conserva el diseño, los enlaces y las imágenes con la guía de conversión de Aspose.Slides para obtener resultados rápidos e impecables."
 ---
 
-## **Descripción general**
+## **Resumen**
 
-Este artículo explica cómo convertir una presentación de PowerPoint a formato HTML usando Python. Cubre los siguientes temas.
+Este artículo explica cómo convertir una Presentación de PowerPoint en formato HTML utilizando Python. Cubre los siguientes temas.
 
 - Convertir PowerPoint a HTML en Python
 - Convertir PPT a HTML en Python
 - Convertir PPTX a HTML en Python
 - Convertir ODP a HTML en Python
-- Convertir diapositiva de PowerPoint a HTML en Python
+- Convertir Diapositiva de PowerPoint a HTML en Python
 
 ## **Python PowerPoint a HTML**
 
-Para obtener el código de ejemplo en Python que convierte PowerPoint a HTML, consulte la sección a continuación, es decir, [Convertir PowerPoint a HTML](#convert-powerpoint-to-html). El código puede cargar varios formatos como PPT, PPTX y ODP en el objeto Presentation y guardarlo en formato HTML.
+Para ver un código de ejemplo en Python para convertir PowerPoint a HTML, consulte la sección a continuación, es decir, [Convertir PowerPoint a HTML](#convert-powerpoint-to-html). El código puede cargar varios formatos como PPT, PPTX y ODP en un objeto Presentación y guardarlo en formato HTML.
 
-## **Acerca de la conversión de PowerPoint a HTML**
-Usando [**Aspose.Slides for Python via .NET**](https://products.aspose.com/slides/python-net/), las aplicaciones y los desarrolladores pueden convertir una presentación de PowerPoint a HTML: **PPTX a HTML** o **PPT a HTML**. 
 
-**Aspose.Slides** ofrece muchas opciones (principalmente de la clase [**HtmlOptions**](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/)) que definen el proceso de conversión de PowerPoint a HTML:
+## **Acerca de la Conversión de PowerPoint a HTML**
+Usando [**Aspose.Slides para Python a través de .NET**](https://products.aspose.com/slides/python-net/), las aplicaciones y desarrolladores pueden convertir una presentación de PowerPoint a HTML: **PPTX a HTML** o **PPT a HTML**. 
 
-* Convertir una presentación completa de PowerPoint a HTML.
+**Aspose.Slides** proporciona muchas opciones (principalmente de la clase [**HtmlOptions**](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/)) que definen el proceso de conversión de PowerPoint a HTML:
+
+* Convertir toda una presentación de PowerPoint a HTML.
 * Convertir una diapositiva específica de una presentación de PowerPoint a HTML.
-* Convertir los medios de la presentación (imágenes, videos, etc.) a HTML.
+* Convertir medios de presentación (imágenes, videos, etc.) a HTML.
 * Convertir una presentación de PowerPoint a HTML responsivo. 
-* Convertir una presentación de PowerPoint a HTML con notas del presentador incluidas o excluidas. 
+* Convertir una presentación de PowerPoint a HTML con notas del hablante incluidas o excluidas. 
 * Convertir una presentación de PowerPoint a HTML con comentarios incluidos o excluidos. 
-* Convertir una presentación de PowerPoint a HTML con fuentes originales o incrustadas. 
+* Convertir una presentación de PowerPoint a HTML con fuentes originales o integradas. 
 * Convertir una presentación de PowerPoint a HTML utilizando el nuevo estilo CSS. 
 
 {{% alert color="primary" %}} 
 
-Usando su propia API, Aspose desarrolló conversores gratuitos [de presentación a HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html): [PPT a HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX a HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP a HTML](https://products.aspose.app/slides/conversion/odp-to-html), etc. 
+Usando su propia API, Aspose desarrolló convertidores gratuitos [de presentación a HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html): [PPT a HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX a HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP a HTML](https://products.aspose.app/slides/conversion/odp-to-html), etc. 
 
 [![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
 
-Puede que desee explorar otros [conversores gratuitos de Aspose](https://products.aspose.app/slides/conversion).
+Es posible que desee consultar otros [convertidores gratuitos de Aspose](https://products.aspose.app/slides/conversion).
 
 {{% /alert %}} 
 
@@ -76,12 +77,12 @@ Además de los procesos de conversión descritos aquí, Aspose.Slides también a
 
 
 ## **Convertir PowerPoint a HTML**
-Usando Aspose.Slides, puede convertir una presentación completa de PowerPoint a HTML de esta manera:
+Usando Aspose.Slides, puedes convertir toda una presentación de PowerPoint a HTML de esta manera:
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
-2. Utilizar el método [Save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) para guardar el objeto como un archivo HTML.
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Usa el método [Save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) para guardar el objeto como un archivo HTML.
 
-Este código muestra cómo convertir un PowerPoint a HTML en Python:
+Este código te muestra cómo convertir un PowerPoint a HTML en python:
 
 ```python
 import aspose.slides as slides
@@ -98,9 +99,9 @@ options.html_formatter = slides.export.HtmlFormatter.create_document_formatter("
 pres.save("ConvertWholePresentationToHTML_out.html", slides.export.SaveFormat.HTML, options)
 ```
 
-## **Convertir PowerPoint a HTML responsivo**
+## **Convertir PowerPoint a HTML Responsivo**
 
-Aspose.Slides proporciona la clase [ResponsiveHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/responsivehtmlcontroller/) que permite generar archivos HTML responsivos. Este código muestra cómo convertir una presentación de PowerPoint a HTML responsivo en Python:
+Aspose.Slides proporciona la clase [ResponsiveHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/responsivehtmlcontroller/) que te permite generar archivos HTML responsivos. Este código te muestra cómo convertir una presentación de PowerPoint a HTML responsivo en python:
 
 ```py
 # Instanciar un objeto Presentation que representa un archivo de presentación
@@ -116,8 +117,8 @@ htmlOptions.html_formatter = slides.export.HtmlFormatter.create_custom_formatter
 pres.save("ConvertPresentationToResponsiveHTML_out.html", slides.export.SaveFormat.HTML, htmlOptions)
 ```
 
-## **Convertir PowerPoint a HTML con notas**
-Este código muestra cómo convertir un PowerPoint a HTML con notas en Python:
+## **Convertir PowerPoint a HTML con Notas**
+Este código te muestra cómo convertir un PowerPoint a HTML con notas en python:
 
 ```py
 import aspose.slides as slides
@@ -130,12 +131,12 @@ opt.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTO
 pres.save("Output.html", slides.export.SaveFormat.HTML, opt)
 ```
 
-## **Convertir PowerPoint a HTML con fuentes originales**
+## **Convertir PowerPoint a HTML con Fuentes Originales**
 Aspose.Slides proporciona la clase [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedallfontshtmlcontroller/) que permite incrustar todas las fuentes en una presentación al convertirla a HTML.
 
-Para evitar que ciertas fuentes se incrusten, puede pasar una matriz de nombres de fuentes a un constructor parametrizado de la clase [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedallfontshtmlcontroller/). Las fuentes populares, como Calibri o Arial, cuando se usan en una presentación, no necesitan incrustarse porque la mayoría de los sistemas ya las contienen. Cuando esas fuentes se incrustan, el documento HTML resultante se vuelve innecesariamente grande.
+Para evitar que ciertas fuentes se incrusten, puedes pasar un arreglo de nombres de fuentes a un constructor parametrizado de la clase [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedallfontshtmlcontroller/). Las fuentes populares, como Calibri o Arial, cuando se utilizan en una presentación, no necesitan ser incrustadas porque la mayoría de los sistemas ya contienen esas fuentes. Cuando esas fuentes se incrustan, el documento HTML resultante se vuelve innecesariamente grande.
 
-La clase [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedallfontshtmlcontroller/) admite herencia y proporciona el método `WriteFont`, que debe sobrescribirse. 
+La clase [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedallfontshtmlcontroller/) soporta herencia y proporciona el método `WriteFont`, que está destinado a ser sobreescrito. 
 
 ```py
 import aspose.slides as slides
@@ -151,33 +152,34 @@ htmlOptionsEmbed.html_formatter = slides.export.HtmlFormatter.create_custom_form
 pres.save("input-PFDinDisplayPro-Regular-installed.html", slides.export.SaveFormat.HTML, htmlOptionsEmbed)
 ```
 
-## **Convertir diapositiva a HTML**
-Convertir una diapositiva de presentación independiente a HTML. Para ello use el mismo método [**Save**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) expuesto por la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) que se utiliza para convertir toda la presentación PPT(X) en un documento HTML. La clase [**HtmlOptions**](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/) también puede usarse para establecer opciones de conversión adicionales:
+## **Convertir Diapositiva a HTML**
+Convierte una diapositiva de presentación separada a HTML. Para eso, usa el mismo método [**Save**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) expuesto por la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) que se utiliza para convertir toda la presentación PPT(X) en un documento HTML. La clase [**HtmlOptions**](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/) también puede usarse para establecer opciones de conversión adicionales:
 
 ```py
-# [TODO[not_supported_yet]: implementación python de la interfaz .net]
+# [TODO[not_supported_yet]: implementación en python de la interfaz .net]
 ```
 
-## **Guardar CSS e imágenes al exportar a HTML**
-Usando los nuevos archivos de estilo CSS, puede cambiar fácilmente el estilo del archivo HTML resultante del proceso de conversión de PowerPoint a HTML. 
 
-El código Python en este ejemplo muestra cómo usar métodos sobrescribibles para crear un documento HTML personalizado con un vínculo a un archivo CSS:
+## **Guardar CSS e Imágenes al Exportar a HTML**
+Usando nuevos archivos de estilo CSS, puedes cambiar fácilmente el estilo del archivo HTML resultante del proceso de conversión de PowerPoint a HTML. 
+
+El código en python en este ejemplo te muestra cómo usar métodos sobreescribibles para crear un documento HTML personalizado con un enlace a un archivo CSS:
 
 ```py
-# [TODO[not_supported_yet]: implementación python de la interfaz .net]
+# [TODO[not_supported_yet]: implementación en python de las interfaces .net]
 ```
 
-## **Vincular todas las fuentes al convertir una presentación a HTML**
-Si no desea incrustar fuentes (para evitar aumentar el tamaño del HTML resultante), puede vincular todas las fuentes implementando su propia versión de `LinkAllFontsHtmlController`. 
+## **Vincular Todas las Fuentes al Convertir Presentación a HTML**
+Si no deseas incrustar fuentes (para evitar aumentar el tamaño del HTML resultante), puedes vincular todas las fuentes implementando tu propia versión de `LinkAllFontsHtmlController`. 
 
-Este código Python muestra cómo convertir un PowerPoint a HTML mientras vincula todas las fuentes y excluye "Calibri" y "Arial" (ya que existen en el sistema):
+Este código en python te muestra cómo convertir un PowerPoint a HTML mientras vinculas todas las fuentes y excluyes "Calibri" y "Arial" (ya que ya existen en el sistema): 
 
 ```py
-# [TODO[not_supported_yet]: implementación python de las interfaces .net]
+# [TODO[not_supported_yet]: implementación en python de las interfaces .net]
 ```
 
-## **Compatibilidad con la propiedad SVG responsiva**
-El siguiente ejemplo muestra cómo exportar una presentación PPT(X) a HTML con diseño responsivo:
+## **Soporte de Propiedad SVG Responsiva**
+El siguiente ejemplo de código muestra cómo exportar una presentación PPT(X) a HTML con el diseño responsivo:
 
 ```py
 presentation = slides.Presentation("SomePresentation.pptx")
@@ -188,15 +190,16 @@ saveOptions.svg_responsive_layout = True
 presentation.save("SomePresentation-out.html", slides.export.SaveFormat.HTML, saveOptions)
 ```
 
-## **Exportar archivos multimedia a un archivo HTML**
-Usando Aspose.Slides para Python, puede exportar archivos multimedia de esta manera:
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Obtener una referencia a la diapositiva.
-3. Añadir un video a la diapositiva.
-4. Guardar la presentación como un archivo HTML.
+## **Exportar Archivos de Medios a Archivo HTML**
+Usando Aspose.Slides para python, puedes exportar archivos de medios de esta manera:
 
-Este código Python muestra cómo añadir un video a la presentación y luego guardarla como HTML:
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Obtén una referencia a la diapositiva.
+1. Agrega un video a la diapositiva.
+1. Escribe la presentación como un archivo HTML.
+
+Este código en python te muestra cómo agregar un video a la presentación y luego guardarlo como HTML:
 
 ```py
 import aspose.slides as slides
@@ -218,45 +221,3 @@ htmlOptions.slide_image_format = slides.export.SlideImageFormat.svg(svgOptions)
 
 presentation.save(path + "ExportMediaFiles_out.html", slides.export.SaveFormat.HTML, htmlOptions)
 ```
-
-## Preguntas frecuentes
-
-### **¿Cómo puedo convertir una presentación de PowerPoint a HTML usando Python?**
-
-Puede utilizar la biblioteca Aspose.Slides for Python via .NET para cargar archivos PPT, PPTX o ODP y convertirlos a HTML mediante el método `save()` con `SaveFormat.HTML`.
-
-### **¿Aspose.Slides admite la conversión de diapositivas individuales de PowerPoint a HTML?**
-
-Sí, Aspose.Slides permite convertir tanto la presentación completa como diapositivas específicas a HTML configurando `HtmlOptions` según corresponda.
-
-### **¿Puedo generar HTML responsivo a partir de presentaciones de PowerPoint?**
-
-Sí, con la clase `ResponsiveHtmlController` puede exportar su presentación a un diseño HTML responsivo que se adapta a diferentes tamaños de pantalla.
-
-### **¿Es posible incluir notas del presentador o comentarios en el HTML exportado?**
-
-Sí, puede configurar `HtmlOptions` para incluir o excluir notas del presentador y comentarios al exportar presentaciones de PowerPoint a HTML.
-
-### **¿Puedo incrustar fuentes al convertir una presentación a HTML?**
-
-Sí, Aspose.Slides proporciona la clase `EmbedAllFontsHtmlController`, que permite incrustar fuentes o excluir ciertas fuentes para reducir el tamaño del archivo de salida.
-
-### **¿La conversión de PowerPoint a HTML admite archivos multimedia como videos y audio?**
-
-Sí, Aspose.Slides permite exportar contenido multimedia incrustado en diapositivas a HTML usando `VideoPlayerHtmlController` y clases relacionadas.
-
-### **¿Qué formatos de archivo son compatibles para la conversión a HTML?**
-
-Aspose.Slides admite la conversión de formatos de presentación PPT, PPTX y ODP a HTML. También permite guardar contenido de diapositivas como SVG y exportar activos multimedia.
-
-### **¿Puedo evitar incrustar fuentes para reducir el tamaño del HTML resultante?**
-
-Sí, puede vincular fuentes del sistema comúnmente disponibles como Arial o Calibri en lugar de incrustarlas, utilizando una implementación personalizada del `HtmlController`.
-
-### **¿Existe una herramienta en línea para convertir PowerPoint a HTML?**
-
-Sí, puede probar las herramientas web gratuitas de Aspose, como [PPT a HTML](https://products.aspose.app/slides/conversion/ppt-to-html) o [PPTX a HTML](https://products.aspose.app/slides/conversion/pptx-to-html) para convertir presentaciones directamente en el navegador sin escribir código.
-
-### **¿Puedo usar estilos CSS personalizados en el archivo HTML exportado?**
-
-Sí, Aspose.Slides permite vincular archivos CSS externos durante la conversión, lo que le permite personalizar completamente la apariencia del contenido HTML resultante.

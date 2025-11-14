@@ -1,158 +1,132 @@
 ---
-title: إدارة الارتباطات التشعبية في العروض التقديمية باستخدام بايثون
-linktitle: إدارة الارتباط التشعبي
+title: إدارة الارتباطات التشعبية
 type: docs
 weight: 20
 url: /ar/python-net/manage-hyperlinks/
-keywords:
-- إضافة URL
-- إضافة ارتباط تشعبي
-- إنشاء ارتباط تشعبي
-- تنسيق ارتباط تشعبي
-- إزالة ارتباط تشعبي
-- تحديث ارتباط تشعبي
-- ارتباط تشعبي نصي
-- ارتباط تشعبي شريحة
-- ارتباط تشعبي شكل
-- ارتباط تشعبي صورة
-- ارتباط تشعبي فيديو
-- ارتباط تشعبي قابل للتعديل
-- PowerPoint
-- OpenDocument
-- عرض تقديمي
-- Python
-description: "إدارة الارتباطات التشعبية بسهولة في عروض PowerPoint وOpenDocument التقديمية باستخدام Aspose.Slides لبايثون عبر .NET—عزز التفاعل وسير العمل في دقائق."
+keywords: "إضافة ارتباط تشعبي، عرض PowerPoint، الارتباط التشعبي PowerPoint، ارتباط نصي، ارتباط شريحة، ارتباط شكل، ارتباط صورة، ارتباط فيديو، Python"
+description: "إضافة ارتباط تشعبي إلى عرض PowerPoint في Python"
 ---
 
-## **نظرة عامة**
+الارتباط التشعبي هو إشارة إلى كائن أو بيانات أو مكان في شيء ما. هذه هي الارتباطات التشعبية الشائعة في عروض PowerPoint:
 
-الارتباط التشعبي هو إشارة إلى مورد خارجي أو كائن أو عنصر بيانات، أو موقع محدد داخل ملف. تشمل أنواع الارتباطات التشعبية الشائعة في عروض PowerPoint:
-
-* روابط إلى مواقع ويب مدمجة في النص أو الأشكال أو الوسائط
+* روابط لمواقع الويب داخل النصوص أو الأشكال أو الوسائط
 * روابط إلى الشرائح
 
-تمكنك Aspose.Slides لبايثون عبر .NET من تنفيذ مجموعة واسعة من العمليات المتعلقة بالارتباطات التشعبية في العروض التقديمية.
+تسمح لك Aspose.Slides for Python عبر .NET بتنفيذ العديد من المهام المتعلقة بالارتباطات التشعبية في العروض التقديمية.
+
+{{% alert color="primary" %}} 
+
+قد ترغب في الاطلاع على محرر PowerPoint المجاني عبر الإنترنت من Aspose، [محرر PowerPoint](https://products.aspose.app/slides/editor)
+
+{{% /alert %}} 
 
 ## **إضافة ارتباطات URL**
 
-يوضح هذا القسم كيفية إضافة ارتباطات URL إلى عناصر الشريحة عند العمل مع Aspose.Slides. يغطي تعيين عناوين الروابط إلى النصوص والأشكال والصور لضمان تنقل سلس أثناء العروض التقديمية.
+### **إضافة ارتباطات URL إلى النصوص**
 
-### **إضافة ارتباطات URL إلى النص**
-
-يوضح المثال التالي كيفية إضافة ارتباط موقع ويب إلى نص:
+يوضح هذا الرمز بلغة Python كيفية إضافة ارتباط تشعبي لموقع ويب إلى نص:
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
-    shape.add_text_frame("Aspose: File Format APIs")
+    shape1 = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
+    shape1.add_text_frame("Aspose: واجهات برمجة التطبيقات لتنسيقات الملفات")
+    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click.tooltip = "أكثر من 70% من شركات Fortune 100 تثق في واجهات برمجة التطبيقات من Aspose"
+    shape1.text_frame.paragraphs[0].portions[0].portion_format.font_height = 32
     
-    text_portion = shape.text_frame.paragraphs[0].portions[0]
-
-    text_portion.portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    text_portion.portion_format.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **إضافة ارتباطات URL إلى الأشكال أو الإطارات**
 
-يوضح المثال التالي كيفية إضافة ارتباط موقع ويب إلى شكل:
+يوضح هذا الرمز النموذجي بلغة Python كيفية إضافة ارتباط تشعبي لموقع ويب إلى شكل:
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50)
-
+with slides.Presentation() as pres:
+    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50)
+    
     shape.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    shape.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
+    shape.hyperlink_click.tooltip = "أكثر من 70% من شركات Fortune 100 تثق في واجهات برمجة التطبيقات من Aspose"
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **إضافة ارتباطات URL إلى الوسائط**
 
-تمكنك Aspose.Slides من إضافة ارتباطات تشعبية إلى الصور، الصوت، وملفات الفيديو.
+تسمح لك Aspose.Slides بإضافة ارتباطات تشعبية إلى الصور وملفات الصوت والفيديو.
 
-يوضح المثال التالي كيفية إضافة ارتباط تشعبي إلى **صورة**:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    # إضافة صورة إلى العرض التقديمي.
-    with open("image.jpeg", "rb") as image_stream:
-        image_data = image_stream.read()
-        image = presentation.images.add_image(image_data)
-
-    # إنشاء إطار صورة على الشريحة 1 باستخدام الصورة التي تم إضافتها مسبقًا.
-    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    picture_frame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    picture_frame.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-يوضح المثال التالي كيفية إضافة ارتباط تشعبي إلى **ملف صوتي**:
+يوضح هذا الرمز النموذجي كيفية إضافة ارتباط تشعبي إلى **صورة**:
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    # إضافة صورة إلى العرض التقديمي.
-    with open("audio.mp3", "rb") as audio_stream:
-        audio_data = audio_stream.read()
-        audio = presentation.audios.add_audio(audio_data)
+with slides.Presentation() as pres:
+    # إضافة صورة إلى العرض التقديمي
+    with open("img.jpeg", "rb") as fs:
+        data = fs.read()
+        image = pres.images.add_image(data)
         
-    audio_frame = slide.shapes.add_audio_frame_embedded(10, 10, 100, 100, audio)
+        # إنشاء إطار صورة في الشريحة 1 بناءً على الصورة المضاف إليها سابقًا
+        pictureFrame = pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
 
-    audio_frame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    audio_frame.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
+        pictureFrame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+        pictureFrame.hyperlink_click.tooltip = "أكثر من 70% من شركات Fortune 100 تثق في واجهات برمجة التطبيقات من Aspose"
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-يوضح المثال التالي كيفية إضافة ارتباط تشعبي إلى **فيديو**:
+يوضح هذا الرمز النموذجي كيفية إضافة ارتباط تشعبي إلى **ملف صوتي**:
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    # إضافة صورة إلى العرض التقديمي.
-    with open("video.avi", "rb") as video_stream:
-        video_data = video_stream.read()
-        video = presentation.videos.add_video(video_data)
+with slides.Presentation() as pres:
+    with open("audio.mp3", "rb") as fs:
+        data = fs.read()
+        audio = pres.audios.add_audio(data)
         
-    video_frame = slide.shapes.add_video_frame(10, 10, 100, 100, video)
+        audioFrame = pres.slides[0].shapes.add_audio_frame_embedded(10, 10, 100, 100, audio)
 
-    video_frame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    video_frame.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
+        audioFrame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+        audioFrame.hyperlink_click.tooltip = "أكثر من 70% من شركات Fortune 100 تثق في واجهات برمجة التطبيقات من Aspose"
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="نصيحة" color="primary" %}}
-قد ترغب في الاطلاع على [إدارة OLE في العروض التقديمية باستخدام بايثون](/slides/ar/python-net/manage-ole/).
+يوضح هذا الرمز النموذجي كيفية إضافة ارتباط تشعبي إلى **فيديو**:
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    with open("video.avi", "rb") as fs:
+        data = fs.read()
+        video = pres.videos.add_video(data)
+        
+        videoFrame = pres.slides[0].shapes.add_video_frame(10, 10, 100, 100, video)
+
+        videoFrame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+        videoFrame.hyperlink_click.tooltip = "أكثر من 70% من شركات Fortune 100 تثق في واجهات برمجة التطبيقات من Aspose"
+
+    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+{{%  alert  title="نصيحة"  color="primary"  %}} 
+
+قد ترغب في رؤية *[إدارة OLE](https://docs.aspose.com/slides/python-net/manage-ole/)*.
+
 {{% /alert %}}
+
 
 ## **استخدام الارتباطات التشعبية لإنشاء جدول محتويات**
 
-نظرًا لأن الارتباطات التشعبية تتيح لك الإشارة إلى كائنات أو مواقع، يمكنك استخدامها لإنشاء جدول محتويات.
+نظرًا لأن الارتباطات التشعبية تتيح لك إضافة مراجع إلى كائنات أو أماكن، يمكنك استخدامها لإنشاء جدول محتويات.
 
-يعرض الكود التالي كيفية إنشاء جدول محتويات مع ارتباطات تشعبية:
+يوضح هذا الرمز النموذجي كيفية إنشاء جدول محتويات مع روابط:
 
 ```py
 import aspose.slides as slides
@@ -169,148 +143,117 @@ with slides.Presentation() as presentation:
     paragraph = slides.Paragraph()
     paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    paragraph.text = "Title of slide 2 .......... "
+    paragraph.text = "عنوان الشريحة 2 .......... "
 
-    link_text_portion = slides.Portion()
-    link_text_portion.text = "Page 2"
-    link_text_portion.portion_format.hyperlink_manager.set_internal_hyperlink_click(second_slide)
+    linkPortion = slides.Portion()
+    linkPortion.text = "الصفحة 2"
+    linkPortion.portion_format.hyperlink_manager.set_internal_hyperlink_click(second_slide)
 
-    paragraph.portions.add(link_text_portion)
+    paragraph.portions.add(linkPortion)
     content_table.text_frame.paragraphs.add(paragraph)
 
     presentation.save("link_to_slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+
 ## **تنسيق الارتباطات التشعبية**
 
-يعرض هذا القسم كيفية تنسيق مظهر الارتباطات التشعبية في Aspose.Slides. ستتعلّم التحكم في اللون وخيارات النمط الأخرى للحفاظ على تنسيق موحد للارتباطات عبر النصوص والأشكال والصور.
+### **اللون**
 
-### **لون الارتباط التشعبي**
+مع خاصية [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/) في واجهة [IHyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)، يمكنك تعيين اللون للارتباطات التشعبية وأيضًا الحصول على معلومات اللون من الارتباطات التشعبية. تم تقديم هذه الميزة لأول مرة في PowerPoint 2019، لذا فإن التغييرات التي تتعلق بالخاصة لا تنطبق على إصدارات PowerPoint الأقدم.
 
-باستخدام خاصية [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) لفئة [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/)، يمكنك تعيين لون الارتباط التشعبي وقراءة معلومات اللون الخاصة به. تم تقديم هذه الميزة في PowerPoint 2019، لذلك لا تُطبق التغييرات التي تُجرى عبر هذه الخاصية على الإصدارات الأقدم من PowerPoint.
-
-يوضح المثال التالي كيفية إضافة ارتباطات تشعبية بألوان مختلفة إلى الشريحة نفسها:
+يوضح هذا الرمز النموذجي عملية حيث تمت إضافة ارتباطات تشعبية بألوان مختلفة إلى نفس الشريحة:
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    shape1 = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
+    shape1.add_text_frame("هذا نموذج لارتباط تشعبي ملون.")
+    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click.color_source = slides.HyperlinkColorSource.PORTION_FORMAT
+    shape1.text_frame.paragraphs[0].portions[0].portion_format.fill_format.fill_type = slides.FillType.SOLID
+    shape1.text_frame.paragraphs[0].portions[0].portion_format.fill_format.solid_fill_color.color = draw.Color.red
 
-    shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
-    shape1.add_text_frame("This is a sample of a colored hyperlink.")
+    shape2 = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 450, 50, False)
+    shape2.add_text_frame("هذا نموذج لارتباط تشعبي عادي.")
+    shape2.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
 
-    text_portion1 = shape1.text_frame.paragraphs[0].portions[0]
-    text_portion1.portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    text_portion1.portion_format.hyperlink_click.color_source = slides.HyperlinkColorSource.PORTION_FORMAT
-    text_portion1.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    text_portion1.portion_format.fill_format.solid_fill_color.color = draw.Color.red
-
-    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 450, 50, False)
-    shape2.add_text_frame("This is a sample of a regular hyperlink.")
-
-    text_portion2 = shape2.text_frame.paragraphs[0].portions[0]
-    text_portion2.portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-
-    presentation.save("hyperlinks.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation-out-hyperlink.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **إزالة الارتباطات التشعبية من العروض التقديمية**
 
-يشرح هذا القسم كيفية إزالة الارتباطات التشعبية من العروض التقديمية عند العمل مع Aspose.Slides. ستتعلّم كيفية مسح أهداف الروابط من النصوص والأشكال والصور مع الحفاظ على المحتوى والتنسيق الأصلي.
+## **إزالة الارتباطات التشعبية في العروض التقديمية**
 
-### **إزالة الارتباطات التشعبية من النص**
+### **إزالة الارتباطات التشعبية من النصوص**
 
-يوضح الكود التالي كيفية إزالة الارتباطات التشعبية من نص على شريحة عرض تقديمي:
+يوضح هذا الرمز بلغة Python كيفية إزالة الارتباط التشعبي من نص في شريحة عرض تقديمي:
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-
+with slides.Presentation("pres.pptx") as pres:
+    slide = pres.slides[0]
     for shape in slide.shapes:
         if type(shape) is slides.AutoShape:
             for paragraph in shape.text_frame.paragraphs:
-                for text_portion in paragraph.portions:
-                    text_portion.portion_format.hyperlink_manager.remove_hyperlink_click()
-
-    presentation.save("removed_hyperlinks.pptx", slides.export.SaveFormat.PPTX)
+                for portion in paragraph.portions:
+                    portion.portion_format.hyperlink_manager.remove_hyperlink_click()
+    pres.save("pres-removed-hyperlinks.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **إزالة الارتباطات التشعبية من الأشكال أو الإطارات**
 
-يوضح الكود التالي كيفية إزالة الارتباطات التشعبية من الأشكال على شريحة عرض تقديمي:
+يوضح هذا الرمز بلغة Python كيفية إزالة الارتباط التشعبي من شكل في شريحة عرض تقديمي:
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-   slide = presentation.slides[0]
-
+with slides.Presentation("demo.pptx") as pres:
+   slide = pres.slides[0]
    for shape in slide.shapes:
        shape.hyperlink_manager.remove_hyperlink_click()
-
-   presentation.save("removed_hyperlinks.pptx", slides.export.SaveFormat.PPTX)
+   pres.save("pres-removed-hyperlinks.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **الارتباطات التشعبية القابلة للتعديل**
 
-فئة [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) قابلة للتعديل. باستخدام هذه الفئة، يمكنك تغيير قيم الخصائص التالية:
+## **الارتباط التشعبي القابل للتعديل**
 
-- [target_frame](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_frame/)
-- [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/)
-- [history](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/history/)
-- [highlight_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/highlight_click/)
-- [stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/)
+فئة [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink) قابلة للتعديل. مع هذه الفئة، يمكنك تغيير القيم لهذه الخصائص:
 
-يوضح مقطع الشيفرة التالي كيفية إضافة ارتباط تشعبي إلى شريحة ثم تعديل نص التلميح الخاص به:
+- [IHyperlink.TargetFrame](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
+- [IHyperlink.Tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
+- [IHyperlink.History](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
+- [IHyperlink.HighlightClick](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
+- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
+
+يوضح مقتطف الرمز كيفية إضافة ارتباط تشعبي إلى شريحة وتحرير نص التلميح الخاص به لاحقًا:
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    shape1 = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
+    shape1.add_text_frame("Aspose: واجهات برمجة التطبيقات لتنسيقات الملفات")
+    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click.tooltip = "أكثر من 70% من شركات Fortune 100 تثق في واجهات برمجة التطبيقات من Aspose"
+    shape1.text_frame.paragraphs[0].portions[0].portion_format.font_height = 32
 
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
-    shape.add_text_frame("Aspose: File Format APIs")
-
-    text_portion = shape.text_frame.paragraphs[0].portions[0]
-    text_portion.portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    text_portion.portion_format.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
 
 ## **الخصائص المدعومة في IHyperlinkQueries**
 
-يمكنك الوصول إلى [HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) من العرض التقديمي أو الشريحة أو النص الذي يحتوي على الارتباط التشعبي.
+يمكنك الوصول إلى IHyperlinkQueries من عرض تقديمي أو شريحة أو نص تم تعريف الارتباط التشعبي لها.
 
-- [Presentation.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/hyperlink_queries/)
-- [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/hyperlink_queries/)
-- [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/)
+- [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentation/)
+- [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseslide/)
+- [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/)
 
-تدعم فئة [HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) الطرق التالية:
+تدعم فئة IHyperlinkQueries هذه الطرق والخصائص:
 
-- [get_hyperlink_clicks()](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/)
-- [get_hyperlink_mouse_overs()](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/)
-- [get_any_hyperlinks()](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/)
-- [remove_all_hyperlinks()](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/)
-
-{{% alert color="primary" %}}
-قد ترغب في تجربة محرر PowerPoint البسيط المجاني عبر الإنترنت من Aspose: [محرر PowerPoint]https://products.aspose.app/slides/editor.
-{{% /alert %}}
-
-## **الأسئلة الشائعة**
-
-**كيف يمكنني إنشاء تنقل داخلي ليس فقط إلى شريحة، بل إلى "قسم" أو أول شريحة في القسم؟**
-
-المقاطع في PowerPoint هي مجموعات من الشرائح؛ التنقل يستهدف تقنيًا شريحة محددة. للتنقل إلى قسم، عادةً ما تقوم بالربط إلى الشريحة الأولى من ذلك القسم.
-
-**هل يمكنني إرفاق ارتباط تشعبي بعناصر الشريحة الرئيسة بحيث يعمل على جميع الشرائح؟**
-
-نعم. تدعم عناصر الشريحة الرئيسة وتخطيطها الارتباطات التشعبية. تظهر هذه الروابط على الشرائح الفرعية وتكون قابلة للنقر أثناء عرض الشرائح.
-
-**هل سيتم الحفاظ على الارتباطات التشعبية عند تصدير إلى PDF أو HTML أو صور أو فيديو؟**
-
-في [PDF](/slides/ar/python-net/convert-powerpoint-to-pdf/) و[HTML](/slides/ar/python-net/convert-powerpoint-to-html/)، نعم—عادةً ما تُحافظ الروابط. عند التصدير إلى [الصور](/slides/ar/python-net/convert-powerpoint-to-png/) و[الفيديو](/slides/ar/python-net/convert-powerpoint-to-video/)، لن تُحفظ قابلية النقر بسبب طبيعة هذه الصيغ (إطارات رستر/فيديو لا تدعم الارتباطات).
+- [IHyperlinkQueries.GetHyperlinkClicks();](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/)
+- [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/)
+- [IHyperlinkQueries.GetAnyHyperlinks();](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/)
+- [IHyperlinkQueries.RemoveAllHyperlinks();](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/)
