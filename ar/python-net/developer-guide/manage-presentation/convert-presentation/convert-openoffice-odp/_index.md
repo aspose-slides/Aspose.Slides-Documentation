@@ -18,7 +18,7 @@ keywords:
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: تحويل ملفات OpenDocument ODP إلى PDF أو PPT أو PPTX أو XPS أو HTML أو TIFF أو SWF باستخدام Python و Aspose.Slides: أمثلة على الشفرة، جودة عالية، تحويل دفعي، وتخصيص.
+description: "تحويل ملفات OpenDocument ODP إلى PDF أو PPT أو PPTX أو XPS أو HTML أو TIFF أو SWF باستخدام Python و Aspose.Slides: أمثلة على الشفرة، جودة عالية، تحويل دفعي، وتخصيص."
 ---
 
 ## **تحويل ملفات ODP**
