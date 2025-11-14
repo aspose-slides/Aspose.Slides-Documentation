@@ -4,8 +4,24 @@ linktitle: Google Slides
 type: docs
 weight: 50
 url: /net/integrating-aspose-slides-with-google-slides/
-keywords: "Aspose.Slides, Google Slides, Google Drive, SaaS integration, PPT to PDF, PowerPoint automation, .NET, presentation processing, cloud integration, Google API, OAuth 2.0, Google Service Account"
-description: "Learn how to integrate Aspose.Slides with Google Slides and Google Drive for seamless presentation processing. Use Google API via OAuth 2.0 or Service Accounts to convert, edit, upload, and download presentations programmatically in .NET."
+keywords:
+- cloud platforms
+- cloud integration
+- Google Slides
+- Google Drive
+- Google API
+- Google Service Account
+- SaaS integration
+- OAuth 2.0
+- PPT to PDF
+- PowerPoint automation
+- presentation processing
+- PowerPoint
+- OpenDocument
+- .NET
+- C#
+- Aspose.Slides
+description: "Connect Aspose.Slides with Google Slides to import, sync, and convert presentations, automate workflows, and keep PowerPoint and OpenDocument in one pipeline."
 ---
 
 # Integrating Aspose.Slides with Google Slides

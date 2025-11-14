@@ -2,7 +2,20 @@
 title: GroupShape
 type: docs
 weight: 170
-url: /net/examples/elements/groupshape
+url: /net/examples/elements/group-shape/
+keywords:
+- group example
+- add group shape
+- access group shape
+- remove group shape
+- ungroup shapes
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Work with group shapes in C# using Aspose.Slides: create and ungroup, reorder child shapes, set transforms and bounds across PowerPoint and OpenDocument."
 ---
 
 Examples for creating groups of shapes, accessing them, ungrouping, and removal using **Aspose.Slides for .NET**.

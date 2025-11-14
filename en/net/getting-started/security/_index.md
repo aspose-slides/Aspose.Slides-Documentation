@@ -3,6 +3,15 @@ title: Security
 type: docs
 weight: 160
 url: /net/security/
+keywords:
+- security
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "See how Aspose.Slides handles code security, static analysis, and OWASP Top 10 compliance so your apps can safely process PPT, PPTX and ODP on any server."
 ---
 
 ## **Security in Aspose.Slides**

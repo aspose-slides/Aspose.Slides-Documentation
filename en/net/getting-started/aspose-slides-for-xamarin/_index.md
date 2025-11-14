@@ -3,6 +3,17 @@ title: Aspose.Slides for Xamarin
 type: docs
 weight: 150
 url: /net/aspose-slides-for-xamarin/
+keywords:
+- Xamarin
+- mobile development
+- Android
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Build Xamarin mobile apps in C# to view, edit, and convert presentations with Aspose.Slides, supporting rich features for PPT, PPTX and ODP on Android."
 ---
 
 ## **Overview**

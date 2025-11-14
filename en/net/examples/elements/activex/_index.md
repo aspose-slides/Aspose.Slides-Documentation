@@ -2,7 +2,20 @@
 title: ActiveX
 type: docs
 weight: 200
-url: /net/examples/elements/activex
+url: /net/examples/elements/activex/
+keywords:
+- ActiveX example
+- ActiveX control
+- add ActiveX
+- access ActiveX
+- remove ActiveX
+- ActiveX properties
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how to find, edit, and remove ActiveX controls in C# with Aspose.Slides, including property updates for PowerPoint presentations."
 ---
 
 Demonstrates how to add, access, remove, and configure ActiveX controls in a presentation using **Aspose.Slides for .NET**.

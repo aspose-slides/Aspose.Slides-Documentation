@@ -4,8 +4,23 @@ linktitle: Slides
 type: docs
 weight: 30
 url: /net/extracting-text-on-cloud-platforms-using-aspose-slides/
-keywords: "Aspose.Slides, text extraction, PPT, PPTX, ODP, presentation files, cross-platform, Office-independent, .NET, Java, C++, Python, notes and comments, corporate indexing, data enrichment"
-description: "Learn how to efficiently extract text from PPT, PPTX, and ODP presentation files using Aspose.Slides. Explore powerful features for slides, master slides, notes, and comments, and discover how to integrate extracted content into your workflows across Windows, Linux, and macOS."
+keywords:
+- cloud platforms
+- cloud integration
+- text extraction
+- extract text
+- PPT
+- PPTX
+- ODP
+- presentation files
+- cross-platform
+- Office-independent
+- notes and comments
+- corporate indexing
+- data enrichment
+- .NET
+- Aspose.Slides
+description: "Extract text from presentations on popular cloud platforms using Aspose.Slides APIs, automating search, analysis, and export for PPT, PPTX and ODP."
 ---
 
 # Extracting Text from PPT, PPTX, and ODP – Slides

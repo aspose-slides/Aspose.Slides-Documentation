@@ -2,7 +2,19 @@
 title: Picture
 type: docs
 weight: 50
-url: /net/examples/elements/picture
+url: /net/examples/elements/picture/
+keywords:
+- picture example
+- picture frame
+- add picture
+- access picture
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Work with pictures in C# using Aspose.Slides: insert, replace, crop, compress, adjust transparency and effects, fill shapes, and export for PPT, PPTX and ODP."
 ---
 
 Shows how to insert and access pictures from in-memory images using **Aspose.Slides for .NET**. The examples below create an image in memory, place it on a slide, and then retrieve it.
