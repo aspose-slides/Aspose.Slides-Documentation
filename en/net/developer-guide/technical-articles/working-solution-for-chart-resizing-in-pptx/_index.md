@@ -9,7 +9,6 @@ keywords:
 - OLE object
 - embed chart
 - PowerPoint
-- OpenDocument
 - presentation
 - .NET
 - C#

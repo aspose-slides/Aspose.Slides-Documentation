@@ -3,6 +3,21 @@ title: Features Overview
 type: docs
 weight: 20
 url: /net/features-overview/
+keywords:
+- features
+- supported platforms
+- file format
+- conversion
+- rendering
+- printing
+- formatting
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Discover Aspose.Slides for .NET: a powerful API to create, edit, automate, and convert PowerPoint and OpenDocument presentations efficiently."
 ---
 
 ## **Supported Platforms**

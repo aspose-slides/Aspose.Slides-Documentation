@@ -176,7 +176,7 @@ newPresentation.Save("LinkingVideoActiveXControl_out.pptx", Aspose.Slides.Export
 
 ## **FAQ**
 
-**Does Aspose.Slides preserve ActiveX controls when reading and re-saving if they cannot be executed in the Python runtime?**
+**Does Aspose.Slides preserve ActiveX controls when reading and re-saving if they cannot be executed in the .NET runtime?**
 
 Yes. Aspose.Slides treats them as part of the presentation and can read/modify their properties and frames; executing the controls themselves is not required to preserve them.
 

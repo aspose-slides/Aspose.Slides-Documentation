@@ -2,7 +2,19 @@
 title: VbaMacro
 type: docs
 weight: 150
-url: /net/examples/elements/vbamacro
+url: /net/examples/elements/vba-macro/
+keywords:
+- vba macro example
+- add vba macro
+- access vba macro
+- remove vba macro
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Work with VBA macros in C# using Aspose.Slides: add or edit projects and modules, sign or remove macros, and save presentations in PPT, PPTX and ODP."
 ---
 
 Illustrates how to add, access, and remove VBA macros using **Aspose.Slides for .NET**.

@@ -1,10 +1,27 @@
 ---
 title: How to Run Aspose.Slides in Docker
+linktitle: Aspose.Slides in Docker
 type: docs
 weight: 140
 url: /net/how-to-run-aspose-slides-in-docker/
-keywords: "Running Aspose.Slides in Docker container, Aspose Docker, Aspose.Slides in a Docker"
-description: "Run Aspose.Slides in a Docker container for Linux, Windows Server and any OS. "
+keywords:
+- supported OS
+- Aspose.Slides in Docker
+- Docker container
+- Aspose Docker
+- GDI
+- libgdiplus
+- System.Drawing.Common
+- Linux
+- image repository
+- Windows Server Core
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Run Aspose.Slides in Docker containers: configure images, dependencies, fonts, and licensing to build scalable services that process PowerPoint and OpenDocument."
 ---
 
 ## **Supported OS**
