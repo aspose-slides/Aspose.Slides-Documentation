@@ -5,34 +5,16 @@ weight: 120
 url: /es/net/evaluate-aspose-slides/
 ---
 
-## **Evaluación de Aspose.Slides**
 
-Puede descargar Aspose.Slides fácilmente para evaluación. El paquete de evaluación es idéntico al paquete adquirido. La versión de evaluación simplemente se licencia después de agregar unas pocas líneas de código para aplicar la licencia.
+Puedes descargar fácilmente Aspose.Slides para evaluación. El paquete de evaluación es el mismo que el paquete adquirido. La versión de evaluación simplemente se convierte en licenciada después de agregar algunas líneas de código para aplicar la licencia.
 
-La versión de evaluación de Aspose.Slides (sin una licencia especificada) brinda la funcionalidad completa del producto, pero inserta una marca de agua de evaluación en la parte superior del documento al abrirlo y guardarlo. Además, está limitado a una diapositiva al extraer textos de las diapositivas de la presentación.
+La versión de evaluación de Aspose.Slides (sin una licencia especificada) proporciona la funcionalidad completa del producto, pero inserta una marca de agua de evaluación en la parte superior del documento al abrir y guardar. También estás limitado a una sola diapositiva al extraer textos de las diapositivas de la presentación.
+
 
 ![todo:image_alt_text](evaluate-aspose-slides_1.png)
 
 {{% alert color="primary" %}} 
 
-Si desea probar Aspose.Slides sin las limitaciones de la versión de evaluación, puede solicitar una **Licencia Temporal de 30 Días**. Consulte [Cómo obtener una licencia temporal?](https://purchase.aspose.com/temporary-license) para más información.
+Si deseas probar Aspose.Slides sin las limitaciones de la versión de evaluación, puedes solicitar una **Licencia Temporal de 30 Días**. Consulta [¿Cómo obtener una Licencia Temporal?](https://purchase.aspose.com/temporary-license) para más información.
 
 {{% /alert %}}
-
-## **FAQ**
-
-**¿Puedo probar múltiples presentaciones en paralelo en diferentes hilos en modo de evaluación?**
-
-Sí. Puede procesar diferentes documentos en paralelo; no debe compartir el mismo objeto de presentación [a través de hilos](/slides/es/net/multithreading/). El modo de evaluación no afecta esto.
-
-**¿Necesito instalar Microsoft PowerPoint para evaluar la biblioteca en un servidor o en CI?**
-
-No. Aspose.Slides es un motor independiente y no requiere PowerPoint instalado ni para evaluación ni para producción.
-
-**¿Puedo probar completamente la conversión de PPT/PPTX a PDF e imágenes en modo de evaluación?**
-
-Sí. Los [convertidores](/slides/es/net/convert-presentation/) funcionan; la salida incluirá una marca de agua.
-
-**¿Puedo usar una licencia temporal para pruebas de carga sin marca de agua?**
-
-Sí. Una licencia temporal de 30 días elimina las limitaciones del modo de evaluación y permite probar sin una marca de agua.

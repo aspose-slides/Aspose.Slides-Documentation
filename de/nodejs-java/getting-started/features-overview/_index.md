@@ -1,99 +1,72 @@
 ---
-title: Übersicht der Funktionen
+title: Funktionen Überblick
 type: docs
 weight: 20
 url: /de/nodejs-java/features-overview/
 ---
 
 ## **Unterstützte Plattformen**
-Aspose.Slides for Node.js via Java ist eine plattformunabhängige API. Sie kann auf jeder Plattform (Windows, Linux, macOS usw.) verwendet werden, auf der Node.js 7 oder höher installiert ist. Oracle JDK 8 oder höher ist eine weitere Voraussetzung.
+Aspose.Slides für Node.js über Java ist eine plattformunabhängige API. Es kann auf jeder Plattform (Windows, Linux, MacOS usw.) verwendet werden, auf der Node.js 7 oder höher installiert ist. Oracle JDK 8 oder höher ist eine weitere Voraussetzung.
 
-## **Dateiformate und Konvertierungen**
-Aspose.Slides for Node.js via Java unterstützt die meisten PowerPoint‑Dokumentformate. Es ermöglicht außerdem den Export in die gängigen Dateiformate, die von Unternehmen verwendet und untereinander ausgetauscht werden. Details siehe unten:
+## **Dateiformate und Konversionen**
+Aspose.Slides für Node.js über Java unterstützt die meisten PowerPoint-Dokumentformate. Es ermöglicht auch den Export in die beliebten Dateiformate, die von Organisationen verwendet und untereinander geteilt werden. Gehen Sie diese Details durch:
 
-|**Funktion**|**Beschreibung**|
+|**Merkmal**|**Beschreibung**|
 | :- | :- |
-|Microsoft PowerPoint (PPT)|Aspose.Slides for Node.js via Java bietet die schnellste Verarbeitung für dieses Präsentationsdokumentformat.|
-|PPT‑zu‑PPTX‑Konvertierung|Aspose.Slides for Node.js via Java unterstützt die Konvertierung von PPT zu PPTX.|
-|Portable Document Format (PDF)|Sie können alle unterstützten Dateiformate mit einer einzigen Methode in Adobe Portable Document Format (PDF)-Dokumente exportieren.|
-|XML Parser Specification (XPS)|Sie können alle unterstützten Dateiformate mit einer einzigen Methode in XML Parser Specification (XPS)-Dokumente exportieren.|
+|Microsoft PowerPoint (PPT)|Aspose.Slides für Node.js über Java bietet die schnellste Verarbeitung für dieses Präsentationsdokumentformat.|
+|PPT zu PPTX Konversion|Aspose.Slides für Node.js über Java unterstützt die Konversion von PPT zu PPTX|
+|Portable Document Format (PDF)|Sie können alle unterstützten Dateiformate mit einer einzigen Methode in Adobe Portable Document Format (PDF) Dokumente exportieren.|
+|XML Parser Specification (XPS)|Sie können alle unterstützten Dateiformate mit einer einzigen Methode in XML Parser Specification (XPS) Dokumente exportieren.|
 |Tagged Image File Format (TIFF)|Sie können alle unterstützten Präsentationsdateiformate in Tagged Image File Format (TIFF) exportieren.|
-|PPTX‑zu‑HTML‑Konvertierung|Aspose.Slides for Node.js via Java unterstützt die Konvertierung von PresentationEx in das HTML-Format.|
+|PPTX zu HTML Konversion|Aspose.Slides für Node.js über Java unterstützt die Konversion von PresentationEx in HTML-Format.|
 
 ## **Rendering und Drucken**
-Aspose.Slides for Node.js via Java unterstützt das Rendering von Folien in Präsentationen mit hoher Genauigkeit in verschiedene Grafikformate. Details siehe unten:
+Aspose.Slides für Node.js über Java unterstützt die hochpräzise Wiedergabe von Folien in Präsentationen in verschiedene Grafikformate. Gehen Sie diese Details durch:
 
-|**Funktion**|**Beschreibung**|
+|**Merkmal**|**Beschreibung**|
 | :- | :- |
-|Java‑unterstützte Bildformate|Mit Aspose.Slides for Node.js via Java können Sie Präsentationsfolien und Bilder auf Folien in alle von Java unterstützten Grafikformate wie TIFF, PNG, BMP, JPEG, GIF rendern.|
-|SVG‑Format|Aspose.Slides for Node.js via Java bietet außerdem integrierte Methoden, mit denen Sie Präsentationsfolien in Scalable Vector Graphics (SVG)-Formate exportieren können.|
-|Präsentations‑Drucken|Die neuesten Versionen von Aspose.Slides for Node.js via Java bieten integrierte Druckmethoden mit verschiedenen Optionen.|
+|Java unterstützte Bildformate|Mit Aspose.Slides für Node.js über Java können Sie Präsentationsfolien und Bilder auf Folien in alle von Java unterstützten Grafikformate wie TIFF, PNG, BMP, JPEG, GIF rendern.|
+|SVG-Format|Aspose.Slides für Node.js über Java bietet auch integrierte Methoden, die es Ihnen ermöglichen, Präsentationsfolien in skalierbare Vektor-Grafiken (SVG) zu exportieren.|
+|Präsentationsdruck|Die neuesten Versionen von Aspose.Slides für Node.js über Java bieten integrierte Druckmethoden mit verschiedenen Optionen.|
+## **Inhaltsmerkmale**
+Aspose.Slides für Node.js über Java ermöglicht Ihnen den Zugriff auf, die Modifikation oder das Erstellen von fast allen Elementen oder Inhalten von Präsentationsdokumenten. Gehen Sie diese Details durch:
 
-## **Inhaltsfunktionen**
-Aspose.Slides for Node.js via Java ermöglicht den Zugriff, die Änderung oder das Erstellen nahezu aller Elemente oder Inhalte von Präsentationsdokumenten. Details siehe unten:
-
-|**Funktion**|**Beschreibung**|
+|**Merkmal**|**Beschreibung**|
 | :- | :- |
-|Master‑Folien|Die Masterfolien definieren das Layout der normalen Folien. Aspose.Slides for Node.js via Java ermöglicht den Zugriff auf und das Ändern von Masterfolien von Präsentationsdokumenten.|
-|Normale Folien|Mit Aspose.Slides for Node.js via Java können Sie neue Folien verschiedener Typen erstellen; Sie können außerdem auf vorhandene Folien in Präsentationen zugreifen und diese ändern.|
-|Klonen / Kopieren von Folien|Es gibt integrierte Methoden von Aspose.Slides for Node.js via Java, mit denen Sie vorhandene Folien innerhalb einer Präsentation klonen oder kopieren können. Sie können geklonte und kopierte Folien von einer Präsentation zur anderen verwenden. Da eine Folie ihr Layout vom Master übernimmt, kopieren die integrierten Klonmethoden den Master beim Klonen automatisch.|
-|Verwalten von Folien‑Abschnitten|Methoden zur Organisation von Folien in verschiedene Abschnitte innerhalb einer Präsentation.|
-|Platz‑ und Text‑Platzhalter|Sie können die Platzhalter und Textplatzhalter in einer Folie zugreifen. Außerdem können Sie eine Folie von Grund auf mit Textplatzhaltern erstellen, indem Sie die entsprechende Methode verwenden.|
-|Kopf‑ und Fußzeilen|Aspose.Slides for Node.js via Java erleichtert die Handhabung von Kopf‑/Fußzeilen in Folien.|
-|Notizen in Folien|Mit Aspose.Slides for Node.js via Java können Sie Notizen, die einer Folie zugeordnet sind, zugreifen und diese ändern sowie neue Notizen hinzufügen.|
-|Form finden|Sie können auch eine bestimmte Form auf einer Folie anhand des alternativen Textes der Form finden.|
-|Hintergründe|Aspose.Slides for Node.js via Java ermöglicht die Arbeit mit Hintergründen, die einem Master oder einer normalen Folie zugeordnet sind.|
-|Textfelder|Textfelder können von Grund auf erstellt werden. Sie können vorhandene Textfelder zugreifen. Sie können deren Texte ändern, ohne das ursprüngliche Textformat zu verlieren.|
-|Rechteckformen|Sie können Rechteckformen mit Aspose.Slides for Node.js via Java erstellen oder ändern.|
-|Polylinienformen|Sie können Polylinienformen mit Aspose.Slides for Node.js via Java erstellen oder ändern.|
-|Ellipse‑Formen|Sie können Ellipsenformen mit Aspose.Slides for Node.js via Java erstellen oder ändern.|
-|Gruppierte Formen|Aspose.Slides for Node.js via Java unterstützt Gruppierungen von Formen.|
-|Autoformen|Aspose.Slides for Node.js via Java unterstützt Autoformen.|
-|SmartArt|Aspose.Slides for Node.js via Java bietet Unterstützung für SmartArt‑Formen in MS PowerPoint.|
-|Diagramme|Aspose.Slides for Node.js via Java bietet Unterstützung für MSO‑Diagramme in PowerPoint.|
-|Serialisierung von Formen|Aspose.Slides for Node.js via Java unterstützt eine große Anzahl von Formen. Wenn Aspose.Slides for Node.js via Java keine Unterstützung für eine Form bietet, können Sie eine Serialisierungsmethode verwenden, mit der Sie diese Form von einer bestehenden Folie serialisieren können. So können Sie die Form weiter nach Ihren Anforderungen verwenden.|
-|Bildrahmen|Sie können Bilder in Bildrahmen mit Aspose.Slides for Node.js via Java verwalten.|
-|Audio‑Frames|Sie können Audiodateien in Audio‑Frames auf Folien mit Aspose.Slides for Node.js via Java verlinken oder einbetten.|
-|Video‑Frames|Sie können Videodateien in Video‑Frames handhaben. Aspose.Slides for Node.js via Java bietet außerdem Unterstützung für verlinkte und eingebettete Videos.|
-|OLE‑Frame|Sie können OLE‑Objekte in OLE‑Frames mit Aspose.Slides for Node.js via Java verwalten.|
-|Tabellen|Aspose.Slides for Node.js via Java unterstützt Tabellen in Folien.|
-|ActiveX‑Steuerelemente|Unterstützung für ActiveX‑Steuerelemente.|
-|VBA‑Makros|Unterstützung für die Verwaltung von VBA‑Makros in Präsentationen.|
-|Text‑Frame|Sie können über den Textframe, der einer Form zugeordnet ist, auf den Text jeder Form zugreifen.|
-|Text‑Scannen|Sie können Text in einer Präsentation auf Präsentations‑ oder Folienebene mittels integrierter Scan‑Methoden durchsuchen.|
-|Animationen|Sie können Animationen auf Formen anwenden.|
-|Diashows|Aspose.Slides for Node.js via Java unterstützt Diashows und Folienübergänge.|
+|Masterfolien|Die Masterfolien definieren das Layout der normalen Folien. Aspose.Slides für Node.js über Java ermöglicht Ihnen den Zugriff auf und die Modifikation der Masterfolien von Präsentationsdokumenten|
+|Normale Folien|Mit Aspose.Slides für Node.js über Java können Sie neue Folien unterschiedlicher Art erstellen. Sie können auch auf bestehende Folien in den Präsentationen zugreifen und diese ändern|
+|Klone / Kopieren von Folien|Es gibt integrierte Methoden von Aspose.Slides für Node.js über Java, die es Ihnen ermöglichen, bestehende Folien innerhalb einer Präsentation zu klonen oder zu kopieren. Sie können auch kopierte und geklonte Folien von einer Präsentation zur anderen verwenden. Da eine Folie ihr Layout von der Masterfolie erbt, kopieren die integrierten Klonmethoden automatisch die Masterfolie beim Klonen|
+|Verwalten von Folienabschnitten|Methoden zur Organisation von Folien in verschiedenen Abschnitten innerhalb einer Präsentation|
+|Platzhalter und Textfelder|Sie können auf die Platzhalter und Textfelder in einer Folie zugreifen. Darüber hinaus können Sie eine Folie mit Textfeldern von Grund auf neu erstellen, indem Sie die entsprechende Methode verwenden|
+|Kopf- und Fußzeilen|Aspose.Slides für Node.js über Java erleichtert die Handhabung von Kopf- und Fußzeilen in Folien|
+|Notizen in Folien|Mit Aspose.Slides für Node.js über Java können Sie auf Notizen zugreifen und diese ändern, die mit einer Folie verbunden sind, und auch neue Notizen hinzufügen|
+|Finden einer Form|Sie können auch eine bestimmte Form aus einer Folie mithilfe des alternativen Textes finden, der mit der Form verbunden ist|
+|Hintergründe|Aspose.Slides für Node.js über Java ermöglicht es Ihnen, mit Hintergründen zu arbeiten, die mit einer Master- oder Normalfolie in einer Präsentation verbunden sind|
+|Textfelder|Textfelder können von Grund auf neu erstellt werden. Sie können vorhandene Textfelder abrufen. Sie können auch deren Texte ohne Verlust des ursprünglichen Textformats ändern|
+|Rechteckformen|Sie können Rechteckformen mit Aspose.Slides für Node.js über Java erstellen oder modifizieren|
+|Polygonformen|Sie können Polygonformen mit Aspose.Slides für Node.js über Java erstellen oder modifizieren|
+|Ellipseformen|Sie können Ellipsenformen mit Aspose.Slides für Node.js über Java erstellen oder modifizieren|
+|Gruppenformen|Aspose.Slides für Node.js über Java unterstützt Gruppenformen|
+|Autoformen|Aspose.Slides für Node.js über Java unterstützt Autoformen|
+|SmartArt|Aspose.Slides für Node.js über Java bietet Unterstützung für SmartArt-Formen in MS PowerPoint|
+|Diagramme|Aspose.Slides für Node.js über Java bietet Unterstützung für MSO-Diagramme in PowerPoint|
+|Formenserialisierung|Aspose.Slides für Node.js über Java unterstützt eine große Anzahl von Formen. Wenn Aspose.Slides für Node.js über Java nicht zur einer Form unterstützt, können Sie eine Serialisierungsmethode verwenden, wodurch Sie diese Form von einer vorhandenen Folie serialisieren können. So können Sie die Form weiter gemäß Ihren Anforderungen verwenden|
+|Bilderrahmen|Sie können Bilder in Bilderrahmen mit Aspose.Slides für Node.js über Java verwalten|
+|Audio-Rahmen|Sie können Audiodateien in Audio-Rahmen auf Folien mit Aspose.Slides für Node.js über Java verknüpfen oder einbetten|
+|Video-Rahmen| Sie können Videodateien in Videorahmen bearbeiten. Aspose.Slides für Node.js über Java bietet auch Unterstützung für verlinkte und eingebettete Videos|
+|OLE-Rahmen|Sie können OLE-Objekte in OLE-Rahmen mit Aspose.Slides für Node.js über Java verwalten|
+|Tabellen|Aspose.Slides für Node.js über Java unterstützt Tabellen in Folien|
+|ActiveX-Steuerelemente|Unterstützung für ActiveX-Steuerelemente|
+|VBA-Makros|Unterstützung für die Verwaltung von VBA-Makros in Präsentationen.|
+|Textrahmen|Sie können auf den Text mit einer beliebigen Form über den mit dieser Form verbundenen Textrahmen zugreifen|
+|Textscannen|Sie können Text in einer Präsentation auf Präsentations- oder Folienebene mithilfe integrierter Scannmethoden scannen.|
+|Animationen|Sie können Animationen auf Formen anwenden|
+|Präsentationen|Aspose.Slides für Node.js über Java unterstützt Präsentationen und Folienübergänge|
 
-## **Formatierungsfunktionen**
-Mit Aspose.Slides for Node.js via Java können Sie Texte und Formen auf Folien in Präsentationen formatieren. Details siehe unten:
+## **Formatierungsmerkmale**
+Mit Aspose.Slides für Node.js über Java können Sie Texte und Formen auf Folien in Präsentationen formatieren. Gehen Sie diese Details durch:
 
-|**Funktion**|**Beschreibung**|
+|**Merkmal**|**Beschreibung**|
 | :- | :- |
-|Textformatierung|<p>In Aspose.Slides for Node.js via Java können Sie Texte über die Textframes verwalten, die den Formen zugeordnet sind. Damit können Sie Texte mithilfe der Absätze und Textteile formatieren, die den Textframes zugeordnet sind. Diese Textelemente können über Aspose.Slides for Node.js via Java formatiert werden.</p><p>- Schrifttyp</p><p>- Schriftgröße</p><p>- Schriftfarbe</p><p>- Schriftstufen</p><p>- Absatzausrichtung</p><p>- Aufzählungszeichen im Absatz</p><p>- Absatzorientierung</p>|
-|Formformatierung|<p>In Aspose.Slides for Node.js via Java ist das grundlegende Element einer Folie eine Form. Sie können diese Formelemente mit Aspose.Slides for Node.js via Java formatieren:</p><p>- Position</p><p>- Größe</p><p>- Linie</p><p>- Füllung (einschließlich Muster, Verlauf, einfarbig)</p><p>- Text</p><p>- Bild</p>|
-
-## **FAQ**
-
-**Muss ich Microsoft PowerPoint auf dem Server/PC installieren, damit die Bibliothek funktioniert?**
-
-Nein. PowerPoint ist nicht erforderlich; Aspose.Slides ist eine eigenständige Engine zum Erstellen, Bearbeiten, Konvertieren und Rendern von Präsentationen.
-
-**Wie funktioniert Multithreading? Kann die Verarbeitung parallelisiert werden?**
-
-Es ist sicher, verschiedene Dokumente in unterschiedlichen Threads zu verarbeiten; das gleiche [presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑Objekt darf nicht gleichzeitig von [multiple threads](/slides/de/nodejs-java/multithreading/) verwendet werden.
-
-**Werden Dateipasswörter und Verschlüsselung unterstützt?**
-
-Ja. [Sie können](/slides/de/nodejs-java/password-protected-presentation/) verschlüsselte Präsentationen öffnen, ein Öffnungs‑ und Schreibpasswort setzen oder entfernen und den Schutzstatus prüfen.
-
-**Muss ich mich um Schriftpakete in Linux‑Containern kümmern?**
-
-Ja. Es wird empfohlen, gängige Schriftpakete zu installieren und/oder ausdrücklich [Schriftverzeichnisse angeben](/slides/de/nodejs-java/custom-font/) in Ihrer Anwendung, um unerwartete Ersetzungen zu vermeiden.
-
-**Gibt es Einschränkungen in der Evaluierungs‑Version?**
-
-Im [evaluation mode](/slides/de/nodejs-java/licensing/) wird dem Ausgang ein Wasserzeichen hinzugefügt und es gelten bestimmte Einschränkungen; ein [30‑tägige temporäre Lizenz](https://purchase.aspose.com/temporary-license/) ist für umfassende Tests verfügbar.
-
-**Wird das Importieren externer Formate in eine Präsentation (PDF/HTML → PPTX) unterstützt?**
-
-Ja. Sie können [PDF‑Seiten und HTML‑Inhalte](/slides/de/nodejs-java/import-presentation/) zu einer Präsentation hinzufügen und daraus Folien machen.
+|Textformatierung|<p>In Aspose.Slides für Node.js über Java können Sie Texte über die mit den Formen verbundenen Textrahmen verwalten. Daher können Sie Texte mithilfe der Absätze und Teile, die mit den Textrahmen verbunden sind, formatieren. Diese Textelemente können über Aspose.Slides für Node.js über Java formatiert werden.</p><p>- Schriftart</p><p>- Schriftgröße</p><p>- Schriftfarbe</p><p>- Schriftarten</p><p>- Absatzausrichtung</p><p>- Absatznummerierung</p><p>- Absatzorientierung</p>|
+|Formformatierung|<p>In Aspose.Slides für Node.js über Java ist das grundlegende Element einer Folie eine Form. Sie können diese Formelemente mit Aspose.Slides für Node.js über Java formatieren:</p><p>- Position</p><p>- Größe</p><p>- Linie</p><p>- Füllung (einschließlich Muster, Verlauf, einheitlich)</p><p>- Text</p><p>- Bild</p>|

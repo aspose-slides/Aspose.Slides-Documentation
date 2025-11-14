@@ -15,11 +15,11 @@ url: /ru/nodejs-java/supported-file-formats/
 - Microsoft PowerPoint 2013
 - Microsoft PowerPoint 2016
 - Microsoft PowerPoint 2019
-- Microsoft PowerPoint for MAC
+- Microsoft PowerPoint для MAC
 - Office 365
 
 ## **Поддерживаемые форматы файлов**
-Эта таблица содержит форматы файлов, которые Aspose.Slides for Node.js via Java может загружать и сохранять:
+В этой таблице перечислены форматы файлов, которые Aspose.Slides для Node.js через Java может загружать и сохранять:
 
 |**Формат**|**Описание**|**Загрузка**|**Сохранение**|**Примечания**|
 | :- | :- | :- | :- | :- |
@@ -34,39 +34,17 @@ url: /ru/nodejs-java/supported-file-formats/
 |[POTM](https://docs.fileformat.com/presentation/potm/)|Шаблон PowerPoint с поддержкой макросов|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[ODP/FODP](https://docs.fileformat.com/presentation/odp/)|Презентация OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[OTP](https://docs.fileformat.com/presentation/otp/)|Шаблон презентации OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[TIFF](https://docs.fileformat.com/image/tiff/)|Формат Tag Image File| |{{< emoticons/tick >}}| |
-|[EMF](https://docs.fileformat.com/image/emf/)|Формат Enhanced Metafile| |{{< emoticons/tick >}}| |
-|[PDF](https://docs.fileformat.com/pdf/)|Портативный формат документа|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[XPS](https://docs.fileformat.com/page-description-language/xps/)|XML Paper Specification| |{{< emoticons/tick >}}| |
-|[JPEG](https://docs.fileformat.com/image/jpeg/)|Joint Photographic Experts Group| |{{< emoticons/tick >}}| |
-|[PNG](https://docs.fileformat.com/image/png/)|Portable Network Graphics| |{{< emoticons/tick >}}| |
-|[GIF](https://docs.fileformat.com/image/gif/)|Graphics Interchange Format| |{{< emoticons/tick >}}| |
-|[BMP](https://docs.fileformat.com/image/bmp/)|Device Independent Bitmap| |{{< emoticons/tick >}}| |
-|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Scalable Vector Graphics| |{{< emoticons/tick >}}| |
-|[SWF](https://docs.fileformat.com/page-description-language/swf/)|Small Web Format| |{{< emoticons/tick >}}| |
-|[HTML](https://docs.fileformat.com/web/html/)|Hypertext Markup Language|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[XAML](https://docs.fileformat.com/web/xaml/)|Extensible Application Markup Language| |{{< emoticons/tick >}}| |
+|[TIFF](https://docs.fileformat.com/image/tiff/)|Формат файла изображений TIF| |{{< emoticons/tick >}}| |
+|[EMF](https://docs.fileformat.com/image/emf/)|Формат расширенного метафайла| |{{< emoticons/tick >}}| |
+|[PDF](https://docs.fileformat.com/pdf/)|Формат переносимого документа|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[XPS](https://docs.fileformat.com/page-description-language/xps/)|Спецификация бумаги XML| |{{< emoticons/tick >}}| |
+|[JPEG](https://docs.fileformat.com/image/jpeg/)|Совместная фотографическая экспертная группа| |{{< emoticons/tick >}}| |
+|[PNG](https://docs.fileformat.com/image/png/)|Переносимая сетевя графика| |{{< emoticons/tick >}}| |
+|[GIF](https://docs.fileformat.com/image/gif/)|Формат обмена графикой| |{{< emoticons/tick >}}| |
+|[BMP](https://docs.fileformat.com/image/bmp/)|Независимый от устройства растровый графический формат| |{{< emoticons/tick >}}| |
+|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Масштабируемая векторная графика| |{{< emoticons/tick >}}| |
+|[SWF](https://docs.fileformat.com/page-description-language/swf/)|Малый веб-формат| |{{< emoticons/tick >}}| |
+|[HTML](https://docs.fileformat.com/web/html/)|Язык гипертекстовой разметки|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[XAML](https://docs.fileformat.com/web/xaml/)|Язык разметки расширяемого приложения| |{{< emoticons/tick >}}| |
 |[MD](https://docs.fileformat.com/word-processing/md/)|Markdown| |{{< emoticons/tick >}}| |
 |[XML](https://docs.fileformat.com/web/xml/)|Презентация PowerPoint в формате XML| |{{< emoticons/tick >}}| |
-
-## **Часто задаваемые вопросы**
-
-**Могу ли я сохранять презентации в PDF, соответствующие стандартам архивирования и доступности (PDF/A и PDF/UA)?**
-
-Да. Aspose.Slides поддерживает экспорт в PDF с уровнями соответствия, такими как PDF/A-2a, PDF/A-2b, PDF/A-2u, PDF/A-3a, PDF/A-3b, а также PDF/UA с помощью настройки [compliance] в [PDF export options].
-
-**Поддерживает ли библиотека встраивание шрифтов при экспорте в PDF с детальным контролем того, какие шрифты встраиваются?**
-
-Да. Вы можете контролировать, будут ли шрифты полностью встроены или подсубсетированы (только используемые глифы), указать, как обрабатывать распространённые системные шрифты, и настроить поведение для ASCII‑текста через [PDF export options].
-
-**Могу ли я обнаружить, защищён ли файл паролем, прежде чем действительно загружать его?**
-
-Да. С помощью [factory-based inspection API] вы можете запросить файл презентации, чтобы определить, защищён ли он паролем, без полного его открытия.
-
-**Есть ли механизмы резервного шрифта и поддержка пользовательских шрифтов?**
-
-Да. Библиотека поддерживает [loading] пользовательские шрифты и [embedding] пользовательские шрифты, а также предоставляет [fallback rules] для шрифтов, чтобы избежать отсутствия глифов при рендеринге и конвертации.
-
-**Могу ли я экспортировать слайды в XPS и есть ли параметры настройки вывода XPS?**
-
-Да. Поддерживается [Export to XPS], и вы можете настроить соответствующие [save options], чтобы управлять качеством вывода и содержимым XPS‑документа.

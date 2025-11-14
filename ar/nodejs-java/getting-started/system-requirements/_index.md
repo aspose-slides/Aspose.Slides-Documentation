@@ -5,11 +5,11 @@ weight: 60
 url: /ar/nodejs-java/system-requirements/
 ---
 
-Aspose.Slides for Node.js via Java لا يتطلب أي منتج طرف ثالث مثل Microsoft PowerPoint لتثبيته. Aspose.Slides نفسه هو محرك لإنشاء وتعديل وتحويل وعرض المستندات بصيغ مختلفة، بما في ذلك صيغ عروض مايكروسوفت باوربوينت.
+Aspose.Slides لـ Node.js عبر Java لا تتطلب أي منتج من طرف ثالث مثل Microsoft PowerPoint ليتم تثبيته. Aspose.Slides نفسها هي محرك لإنشاء وتعديل وتحويل وعرض المستندات في صيغ مختلفة، بما في ذلك صيغ عرض PowerPoint من Microsoft.
 
-## **أنظمة التشغيل المدعومة**
+## أنظمة التشغيل المدعومة
 
-Aspose.Slides for Node.js via Java يدعم أي نظام تشغيل 32‑bit أو 64‑bit يمكنه تشغيل بيئة تشغيل Java بما في ذلك على سبيل المثال لا الحصر:
+Aspose.Slides لـ Java تدعم أي نظام تشغيل 32 بت أو 64 بت يعمل على تشغيل بيئة Java، بما في ذلك، ولكن لا تقتصر على:
 
 ### **ويندوز**
 - Microsoft Windows 2003 Server ( x64, x86)
@@ -24,18 +24,8 @@ Aspose.Slides for Node.js via Java يدعم أي نظام تشغيل 32‑bit أ
 - Microsoft Windows 8, 8.1 ( x64, x86)
 - Microsoft Windows 10 ( x64, x86)
 
-### **لينكس**
-- لينكس (Ubuntu, CentOS وغيرها)
+### **لينوكس**
+- لينوكس (Ubuntu، CentOS وغيرها)
 
 ### **ماك**
-- ماك OS X
-
-## **الأسئلة المتكررة**
-
-**هل أحتاج إلى تثبيت مايكروسوفت باوربوينت للتحويلات والعرض؟**
-
-لا، لا يلزم وجود باوربوينت؛ Aspose.Slides هو محرك مستقل لـ[إنشاء](/slides/ar/nodejs-java/create-presentation/)، تعديل، [تحويل](/slides/ar/nodejs-java/convert-presentation/)، و[عرض](/slides/ar/nodejs-java/convert-powerpoint-to-png/) العروض.
-
-**ما الخطوط المطلوبة للعرض الصحيح؟**
-
-في الواقع، يجب أن تكون الخطوط المستخدمة في العرض أو [بدائل](/slides/ar/nodejs-java/font-substitution/) المناسبة متوفرة. لضمان عرض متسق على لينكس/ماك، يُنصح بتثبيت حزم الخطوط الشائعة.
+- Mac OS X
