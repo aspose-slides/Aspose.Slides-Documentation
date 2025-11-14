@@ -17,7 +17,7 @@ keywords:
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: اكتشف Aspose.Slides لـ Python عبر .NET: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint وOpenDocument لتبسيط بيانات العرض التقديمي الخاص بك.
+description: "اكتشف Aspose.Slides لـ Python عبر .NET: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint وOpenDocument لتبسيط بيانات العرض التقديمي الخاص بك."
 ---
 
 ## **تحديد بيانات المخطط من دفتر عمل**
