@@ -1,98 +1,75 @@
 ---
-title: إضافة إهليلجات إلى العروض التقديمية في بايثون
-linktitle: إهليلج
+title: بيضاوي
 type: docs
 weight: 30
 url: /ar/python-net/ellipse/
-keywords:
-- إهليلج
-- شكل
-- إضافة إهليلج
-- إنشاء إهليلج
-- رسم إهليلج
-- إهليلج مُنسق
-- PowerPoint
-- OpenDocument
-- عرض تقديمي
-- Python
-- Aspose.Slides
-description: "تعلم كيفية إنشاء وتنسيق ومعالجة أشكال الإهليلج في Aspose.Slides for Python via .NET عبر عروض PPT وPPTX وODP — مع أمثلة على الشيفرة."
+keywords: "بيضاوي، شكل PowerPoint، عرض PowerPoint، بايثون، Aspose.Slides لـ Python عبر .NET"
+description: "إنشاء بيضاوي في عرض PowerPoint باستخدام بايثون"
 ---
 
-## **إنشاء إهليلج**
-في هذا الموضوع، سنعرّف المطورين على إضافة أشكال إهليلج إلى شرائحهم باستخدام Aspose.Slides for Python via .NET. توفر Aspose.Slides for Python via .NET مجموعة أسهل من الـ APIs لرسم أنواع مختلفة من الأشكال ببضع سطور من الشيفرة فقط. لإضافة إهليلج بسيط إلى شريحة مختارة من العرض التقديمي، يرجى اتباع الخطوات التالية:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 
-2. الحصول على مرجع لشريحة باستخدام فهرستها
-3. إضافة AutoShape من نوع إهليلج باستخدام طريقة AddAutoShape التي يوفرها كائن IShapes
-4. كتابة العرض التقديمي المعدل كملف PPTX
+## **إنشاء بيضاوي**
+في هذا الموضوع، سوف نقدم للمطورين كيفية إضافة أشكال بيضاوية إلى شرائحهم باستخدام Aspose.Slides لـ Python عبر .NET. تقدم Aspose.Slides لـ Python عبر .NET مجموعة أسهل من واجهات برمجة التطبيقات لرسم أنواع مختلفة من الأشكال في بضع أسطر من التعليمات البرمجية فقط. لإضافة بيضاوي بسيط إلى شريحة محددة من العرض، يرجى اتباع الخطوات أدناه:
 
-في المثال أدناه، قمنا بإضافة إهليلج إلى الشريحة الأولى.
+1. إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)class
+1. الحصول على مرجع لشريحة باستخدام الفهرس الخاص بها
+1. إضافة AutoShape من نوع بيضاوي باستخدام طريقة AddAutoShape المعروضة بواسطة كائن IShapes
+1. كتابة العرض المعدل كملف PPTX
+
+في المثال المعطى أدناه، قمنا بإضافة بيضاوي إلى الشريحة الأولى.
 
 ```py
 import aspose.slides as slides
 
-# إنشاء كائن Presentation الذي يمثل ملف PPTX
+# Instantiate Prseetation class that represents the PPTX
 with slides.Presentation() as pres:
-    # الحصول على الشريحة الأولى
+    # Get the first slide
     sld = pres.slides[0]
 
-    # إضافة AutoShape من نوع إهليلج
+    # Add autoshape of ellipse type
     sld.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 150, 150, 50)
 
-    # كتابة ملف PPTX إلى القرص
+    #Write the PPTX file to disk
     pres.save("EllipseShp1_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **إنشاء إهليلج مُنسق**
-لإضافة إهليلج مُنسق بشكل أفضل إلى شريحة، يرجى اتباع الخطوات التالية:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 
-2. الحصول على مرجع لشريحة باستخدام فهرستها
-3. إضافة AutoShape من نوع إهليلج باستخدام طريقة AddAutoShape التي يوفرها كائن IShapes
-4. ضبط نوع التعبئة للإهليلج إلى صلب
-5. ضبط لون الإهليلج باستخدام الخاصية SolidFillColor.Color التي يوفرها كائن FillFormat المرتبط بكائن IShape
-6. ضبط لون خطوط الإهليلج
-7. ضبط عرض خطوط الإهليلج
-8. كتابة العرض التقديمي المعدل كملف PPTX
 
-في المثال أدناه، قمنا بإضافة إهليلج مُنسق إلى الشريحة الأولى من العرض التقديمي.
+## **إنشاء بيضاوي منسق**
+لإضافة بيضاوي منسق بشكل أفضل إلى شريحة، يرجى اتباع الخطوات أدناه:
+
+1. إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)class.
+1. الحصول على مرجع لشريحة باستخدام الفهرس الخاص بها.
+1. إضافة AutoShape من نوع بيضاوي باستخدام طريقة AddAutoShape المعروضة بواسطة كائن IShapes.
+1. تعيين نوع التعبئة للبيضاوي إلى صلب.
+1. تعيين لون البيضاوي باستخدام خاصية SolidFillColor.Color المعروضة بواسطة كائن FillFormat المرتبط بكائن IShape.
+1. تعيين لون خطوط البيضاوي.
+1. تعيين عرض خطوط البيضاوي.
+1. كتابة العرض المعدل كملف PPTX.
+
+في المثال المعطى أدناه، قمنا بإضافة بيضاوي منسق إلى الشريحة الأولى من العرض.
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# إنشاء كائن Presentation الذي يمثل ملف PPTX
+# Instantiate Prseetation class that represents the PPTX
 with slides.Presentation() as pres:
-    # الحصول على الشريحة الأولى
+    # Get the first slide
     sld = pres.slides[0]
 
-    # إضافة AutoShape من نوع إهليلج
+    # Add autoshape of ellipse type
     shp = sld.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 150, 150, 50)
 
-    # تطبيق بعض التنسيقات على شكل الإهليلج
+    # Apply some formatting to ellipse shape
     shp.fill_format.fill_type = slides.FillType.SOLID
     shp.fill_format.solid_fill_color.color = draw.Color.chocolate
 
-    # تطبيق بعض التنسيقات على خط الإهليلج
+    # Apply some formatting to the line of Ellipse
     shp.line_format.fill_format.fill_type = slides.FillType.SOLID
     shp.line_format.fill_format.solid_fill_color.color = draw.Color.black
     shp.line_format.width = 5
 
-    # كتابة ملف PPTX إلى القرص
+    #Write the PPTX file to disk
     pres.save("EllipseShp2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-## **الأسئلة الشائعة**
-
-**كيف يمكنني تحديد الموضع الدقيق وحجم الإهليلج بالنسبة لوحدات الشريحة؟**
-
-عادةً ما تُحدد الإحداثيات والأحجام **بالنقاط**. للحصول على نتائج متوقعة، احسب القيم بناءً على حجم الشريحة وحول المليمترات أو الإنشات المطلوبة إلى نقاط قبل تعيين القيم.
-
-**كيف يمكنني وضع إهليلج فوق أو تحت كائنات أخرى (التحكم في ترتيب الطبقات)؟**
-
-قم بتعديل ترتيب الرسم للكائن عن طريق إرساله إلى المقدمة أو إرساله إلى الخلف. هذا يسمح للإهليلج بأن يتراكب مع كائنات أخرى أو يكشف الكائنات التي تحته.
-
-**كيف يمكنني تحريك ظهور أو إبراز إهليلج؟**
-
-[تطبيق](/slides/ar/python-net/shape-animation/) تأثيرات الدخول أو التأكيد أو الخروج على الشكل، وتكوين المشغلات والتوقيت لتنسيق متى وكيف يُعرض التحريك.

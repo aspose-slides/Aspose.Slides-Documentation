@@ -1,21 +1,9 @@
 ---
-title: 在演示文稿中使用 Python 管理图表数据标记
-linktitle: 数据标记
+title: 图表数据标记
 type: docs
 url: /zh/python-net/chart-data-marker/
-keywords:
-- 图表
-- 数据点
-- 标记
-- 标记选项
-- 标记大小
-- 填充类型
-- PowerPoint
-- OpenDocument
-- 演示文稿
-- Python
-- Aspose.Slides
-description: "了解如何在 Aspose.Slides 中自定义图表数据标记，通过清晰的代码示例提升 PPT、PPTX 和 ODP 格式演示文稿的效果。"
+keywords: "图表标记选项, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
+description: "在Python中设置PowerPoint演示文稿中的图表标记选项"
 ---
 
 ## **设置图表标记选项**
@@ -24,8 +12,8 @@ description: "了解如何在 Aspose.Slides 中自定义图表数据标记，通
 - 实例化 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类。
 - 创建默认图表。
 - 设置图片。
-- 获取第一个图表系列。
-- 添加新数据点。
+- 选择第一个图表系列。
+- 添加新的数据点。
 - 将演示文稿写入磁盘。
 
 在下面的示例中，我们在数据点级别设置了图表标记选项。
@@ -35,7 +23,7 @@ import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# 创建 Presentation 类的实例
+# 创建Presentation类的实例
 with slides.Presentation() as presentation:
 
     slide = presentation.slides[0]
@@ -49,11 +37,11 @@ with slides.Presentation() as presentation:
     # 获取图表数据工作表
     fact = chart.chart_data.chart_data_workbook
 
-    # 删除示例系列
+    # 删除演示系列
     chart.chart_data.series.clear()
 
     # 添加新系列
-    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.type)
+    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 1, 1, "系列 1"), chart.type)
             
     # 设置图片
     image1 = draw.Bitmap(path + "aspose-logo.jpg")
@@ -63,10 +51,10 @@ with slides.Presentation() as presentation:
     image2 = draw.Bitmap(path + "Tulips.jpg")
     imgx2 = presentation.images.add_image(image2)
 
-    # 获取第一个图表系列
+    # 选择第一个图表系列
     series = chart.chart_data.series[0]
 
-    # 在此处添加新点 (1:3)。
+    # 在那里添加新点 (1:3)。
     point = series.data_points.add_data_point_for_line_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 4.5))
     point.marker.format.fill.fill_type = slides.FillType.PICTURE
     point.marker.format.fill.picture_fill_format.picture.image = imgx1
@@ -89,13 +77,3 @@ with slides.Presentation() as presentation:
     # 将演示文稿写入磁盘
     presentation.save("MarkOptions_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-## **常见问题**
-
-**默认提供哪些标记形状？**
-
-标准形状可用（圆形、方形、菱形、三角形等）；列表由 [MarkerStyleType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/markerstyletype/) 枚举定义。如果需要非标准形状，请使用带图片填充的标记来模拟自定义视觉效果。
-
-**将图表导出为图像或 SVG 时，标记会被保留吗？**
-
-是的。将图表渲染为 [raster formats](/slides/zh/python-net/convert-powerpoint-to-png/) 或保存为 [shapes as SVG](/slides/zh/python-net/render-a-slide-as-an-svg-image/) 时，标记会保留其外观和设置，包括大小、填充和轮廓。

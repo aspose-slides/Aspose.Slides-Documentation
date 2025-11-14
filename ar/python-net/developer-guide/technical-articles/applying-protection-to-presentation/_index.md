@@ -1,135 +1,145 @@
 ---
-title: منع تعديل العروض التقديمية باستخدام أقفال الأشكال في بايثون
-linktitle: منع تعديل العرض التقديمي
+title: تطبيق الحماية على العروض التقديمية
 type: docs
 weight: 70
 url: /ar/python-net/applying-protection-to-presentation/
-keywords:
-- منع التعديلات
-- حماية من التحرير
-- قفل الشكل
-- قفل الموضع
-- قفل الاختيار
-- قفل الحجم
-- قفل التجميع
-- باوربوينت
-- أوپن دوكومنت
-- عرض تقديمي
-- بايثون
-- Aspose.Slides
-description: "اكتشف كيف تقوم Aspose.Slides لبايثون عبر .NET بقفل أو إلغاء قفل الأشكال في ملفات PPT و PPTX و ODP، مما يؤمن العروض التقديمية مع السماح بتعديلات متحكم بها وتسليم أسرع."
 ---
 
-## **الخلفية**
+{{% alert color="primary" %}} 
 
-استخدام شائع لـ Aspose.Slides هو إنشاء وتحديث وحفظ عروض Microsoft PowerPoint (PPTX) كجزء من سير عمل آلي. يحصل مستخدمو التطبيقات التي تستخدم Aspose.Slides بهذه الطريقة على العروض التي تم توليدها، لذا فإن حمايتها من التعديل يُعد مصدر قلق شائع. من المهم أن تحتفظ العروض التي تُنشئ آليًا بتنسيقها ومحتواها الأصلي.
+الاستخدام الشائع لـ Aspose.Slides هو إنشاء وتحديث وحفظ عروض Microsoft PowerPoint 2007 (PPTX) كجزء من سير عمل تلقائي. يحصل مستخدمو التطبيق الذي يستخدم Aspose.Slides بهذه الطريقة على الوصول إلى العروض الناتجة. تعتبر حمايتها من التعديل قضية شائعة. من المهم أن تحتفظ العروض التلقائية بالتنسيق والمحتوى الأصلي.
 
-تشرح هذه المقالة كيف يتم تنظيم العروض والشرائح وكيف يمكن لـ Aspose.Slides لبايثون تطبيق الحماية على عرض تقديمي وإزالتها لاحقًا. تُوفر للمطورين طريقة للتحكم في كيفية استخدام العروض التي تُنشئها تطبيقاتهم.
+تشرح هذه المقالة كيفية [إنشاء العروض والشرائح](/slides/ar/python-net/applying-protection-to-presentation/) وكيف يمكن لـ Aspose.Slides للغة بايثون عبر .NET [تطبيق الحماية على](/slides/ar/python-net/applying-protection-to-presentation/)، ثم [إزالتها من](/slides/ar/python-net/applying-protection-to-presentation/) العرض التقديمي. هذه الميزة فريدة من نوعها بالنسبة لـ Aspose.Slides، وفي وقت كتابة هذه المقالة، ليست متاحة في Microsoft PowerPoint. إنها تمنح المطورين وسيلة للتحكم في كيفية استخدام العروض التي تقوم تطبيقاتهم بإنشائها.
 
-## **تركيب الشريحة**
+{{% /alert %}} 
+## **تكوين الشريحة**
+تتكون شريحة PPTX من عدد من المكونات مثل الأشكال التلقائية، والجداول، وكائنات OLE، والأشكال المجمعة، وإطارات الصور، وإطارات الفيديو، والموصلات والعناصر المختلفة الأخرى المتاحة لبناء عرض تقديمي.
 
-تتكون شريحة العرض من مكوّنات مثل الأشكال التلقائية، الجداول، كائنات OLE، الأشكال المجمّعة، إطارات الصور، إطارات الفيديو، الموصلات، وعناصر أخرى تُستخدم لبناء العرض. في Aspose.Slides لبايثون، يُمثَّل كل عنصر على الشريحة ككائن يرث من فئة [الشكل](https://reference.aspose.com/slides/python-net/aspose.slides/shape/).
+في Aspose.Slides للغة بايثون عبر .NET، يتم تحويل كل عنصر على الشريحة إلى كائن Shape. بعبارة أخرى، كل عنصر على الشريحة هو إما كائن Shape أو كائن مشتق من كائن Shape.
 
-بنية PPTX معقّدة، لذا على عكس PPT حيث يمكن استخدام قفل عام لجميع أنواع الأشكال، تحتاج أنواع الأشكال المختلفة إلى أقفال مختلفة. فئة [BaseShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/baseshapelock/) هي الفئة العامة للأقفال في PPTX. الأنواع التالية من الأقفال مدعومة في Aspose.Slides لبايثون لـ PPTX:
+بنية PPTX معقدة، لذا على عكس PPT، حيث يمكن استخدام قفل عام لجميع أنواع الأشكال، هناك أنواع مختلفة من الأقفال لكل نوع شكل. فئة BaseShapeLock هي فئة القفل العامة لـ PPTX. الأنواع التالية من الأقفال مدعومة في Aspose.Slides للغة بايثون عبر .NET لـ PPTX.
 
-- [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/) يقفل الأشكال التلقائية.  
-- [ConnectorLock](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/) يقفل أشكال الموصلات.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/python-net/aspose.slides/graphicalobjectlock/) يقفل الكائنات الرسومية.  
-- [GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/) يقفل الأشكال المجمّعة.  
-- [PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/) يقفل إطارات الصور.  
+- AutoShapeLock تقفل الأشكال التلقائية.
+- ConnectorLock تقفل الأشكال الموصل.
+- GraphicalObjectLock تقفل الكائنات الرسومية.
+- GroupshapeLock تقفل الأشكال المجمعة.
+- PictureFrameLock تقفل إطارات الصور.
 
-أي إجراء يُجرى على جميع كائنات الشكل في كائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) يُطبق على العرض بالكامل.
-
+أي إجراء يتم تنفيذه على جميع كائنات Shape في كائن العرض التقديمي يتم تطبيقه على العرض التقديمي بالكامل.
 ## **تطبيق وإزالة الحماية**
-
-تطبيق الحماية يضمن عدم إمكانية تعديل العرض. إنها تقنية مفيدة لحماية محتوى العرض.
-
+تطبيق الحماية يضمن عدم إمكانية تعديل العرض التقديمي. إنها تقنية مفيدة لحماية محتوى العرض التقديمي.
 ### **تطبيق الحماية على أشكال PPTX**
+توفر Aspose.Slides للغة بايثون عبر .NET فئة Shape للتعامل مع شكل على الشريحة.
 
-توفر Aspose.Slides لبايثون فئة [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) للعمل مع الأشكال على الشريحة.
+كما تم الإشارة إليها سابقًا، تحتوي كل فئة شكل على فئة قفل شكل مرتبطة للحماية. تركز هذه المقالة على أقفال NoSelect و NoMove و NoResize. تضمن هذه الأقفال عدم إمكانية اختيار الأشكال (من خلال نقرات الماوس أو طرق الاختيار الأخرى)، ولا يمكن تحريكها أو تغيير حجمها.
 
-كما ذُكر سابقًا، كل فئة شكل لها فئة قفل شكل مرتبطة بها للحماية. تركز هذه المقالة على أقفال NoSelect و NoMove و NoResize. تضمن هذه الأقفال عدم إمكانية اختيار الأشكال (من خلال النقر بالفأرة أو طرق اختيار أخرى) وعدم إمكانية تحريكها أو تغيير حجمها.
-
-العينة البرمجية التالية تطبق الحماية على جميع أنواع الأشكال في عرض تقديمي.
+تطبق نماذج الشيفرة التي تلي ذلك الحماية على جميع أنواع الأشكال في عرض تقديمي.
 
 ```py
 import aspose.slides as slides
 
-# إنشاء كائن من فئة Presentation الذي يمثل ملف PPTX.
-with slides.Presentation("Sample.pptx") as presentation:
-    # التجوال عبر جميع الشرائح في العرض التقديمي.
-    for slide in presentation.slides:
-        # التجوال عبر جميع الأشكال في الشريحة.
+#Instantiate Presentation class that represents a PPTX file
+with slides.Presentation(path + "RectPicFrame.pptx") as pres:
+    #ISlide object for accessing the slides in the presentation
+    slide = pres.slides[0]
+
+    #Traversing through all the slides in the presentation
+    for slide in pres.slides:
         for shape in slide.shapes:
+            #if shape is autoshape
             if type(shape) is slides.AutoShape:
-                shape.shape_lock.position_locked = True
-                shape.shape_lock.select_locked = True
-                shape.shape_lock.size_locked = True
+                auto_shape_lock = shape.shape_lock
+
+                #Applying shapes locks
+                auto_shape_lock.position_locked = True
+                auto_shape_lock.select_locked = True
+                auto_shape_lock.size_locked = True
+
+            #if shape is group shape
             elif type(shape) is slides.GroupShape:
-                shape.shape_lock.grouping_locked = True
-                shape.shape_lock.position_locked = True
-                shape.shape_lock.select_locked = True
-                shape.shape_lock.size_locked = True
+                group_shape_lock = shape.shape_lock
+
+                #Applying shapes locks
+                group_shape_lock.grouping_locked = True
+                group_shape_lock.position_locked = True
+                group_shape_lock.select_locked = True
+                group_shape_lock.size_locked = True
+
+            #if shape is a connector
             elif type(shape) is slides.Connector:
-                shape.shape_lock.position_move = True
-                shape.shape_lock.select_locked = True
-                shape.shape_lock.size_locked = True
+                connector_lock = shape.shape_lock
+
+                #Applying shapes locks
+                connector_lock.position_move = True
+                connector_lock.select_locked = True
+                connector_lock.size_locked = True
+            #if shape is picture frame
             elif type(shape) is slides.PictureFrame:
-                shape.shape_lock.position_locked = True
-                shape.shape_lock.select_locked = True
-                shape.shape_lock.size_locked = True
-    # حفظ ملف العرض التقديمي.
-    presentation.save("ProtectedSample.pptx", slides.export.SaveFormat.PPTX)
+                #Type casting to pitcture frame shape and  getting picture frame shape lock
+                picture_lock = shape.shape_lock
+
+                #Applying shapes locks
+                picture_lock.position_locked = True
+                picture_lock.select_locked = True
+                picture_lock.size_locked = True
+
+    #Saving the presentation file
+    pres.save("ProtectedSample.pptx", slides.export.SaveFormat.PPTX)
 ```
+
 
 ### **إزالة الحماية**
-
-لإلغاء قفل شكل، اضبط قيمة القفل المُطبّق إلى `False`. تُظهر العينة البرمجية التالية كيفية إلغاء قفل الأشكال في عرض مؤمّن.
+يمكن إزالة الحماية المطبقة باستخدام Aspose.Slides للغة بايثون عبر .NET فقط مع Aspose.Slides للغة بايثون عبر .NET. لإلغاء قفل شكل، قم بتعيين قيمة القفل المطبق إلى false. تظهر نموذج الشيفرة التي تلي ذلك كيفية إلغاء قفل الأشكال في عرض تقديمي مقفل.
 
 ```py
 import aspose.slides as slides
 
-# إنشاء كائن من فئة Presentation الذي يمثل ملف PPTX.
-with slides.Presentation("ProtectedSample.pptx") as presentation:
-    # التجوال عبر جميع الشرائح في العرض التقديمي.
-    for slide in presentation.slides:
-        # التجوال عبر جميع الأشكال في الشريحة.
+#Open the desired presentation
+with slides.Presentation("ProtectedSample.pptx") as pres:
+    for slide in pres.slides:
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
-                shape.shape_lock.position_locked = False
-                shape.shape_lock.select_locked = False
-                shape.shape_lock.size_locked = False
-            elif type(shape) is slides.GroupShape:
-                shape.shape_lock.grouping_locked = False
-                shape.shape_lock.position_locked = False
-                shape.shape_lock.select_locked = False
-                shape.shape_lock.size_locked = False
+            
+            if type(shape) is slides.AutoShape: 
+                auto_shape_lock = shape.shape_lock
+
+                #Applying shapes locks
+                auto_shape_lock.position_locked = False
+                auto_shape_lock.select_locked = False
+                auto_shape_lock.size_locked = False
+            
+            elif type(shape) is slides.GroupShape:  
+                group_shape_lock = shape.shape_lock
+
+                #Applying shapes locks
+                group_shape_lock.grouping_locked = False
+                group_shape_lock.position_locked = False
+                group_shape_lock.select_locked = False
+                group_shape_lock.size_locked = False
             elif type(shape) is slides.Connector:
-                shape.shape_lock.position_move = False
-                shape.shape_lock.select_locked = False
-                shape.shape_lock.size_locked = False
+                connector_lock = shape.shape_lock
+
+                #Applying shapes locks
+                connector_lock.position_move = False
+                connector_lock.select_locked = False
+                connector_lock.size_locked = False
             elif type(shape) is slides.PictureFrame:
-                shape.shape_lock.position_locked = False
-                shape.shape_lock.select_locked = False
-                shape.shape_lock.size_locked = False
-    # حفظ ملف العرض التقديمي.
-    presentation.save("RemovedProtectionSample.pptx", slides.export.SaveFormat.PPTX)
+                picture_lock = shape.shape_lock
+
+                #Applying shapes locks
+                picture_lock.position_locked = False
+                picture_lock.select_locked = False
+                picture_lock.size_locked = False
+    #Saving the presentation file
+    pres.save("RemoveProtectionSample.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **الخلاصة**
 
-توفر Aspose.Slides عدة خيارات لحماية الأشكال في العرض. يمكنك قفل شكل فردي أو التكرار عبر جميع الأشكال في العرض وقفل كل منها لتأمين الملف بالكامل بفعالية. يمكنك إزالة الحماية بضبط قيمة القفل إلى `False`.
 
-## **الأسئلة المتكررة**
+### **الملخص**
+{{% alert color="primary" %}} 
 
-**هل يمكنني دمج أقفال الأشكال وحماية كلمة المرور في نفس العرض؟**
+يوفر Aspose.Slides عددًا من الخيارات لتطبيق الحماية على الأشكال في عرض تقديمي. من الممكن قفل شكل معين، أو الدوران عبر جميع الأشكال في عرض تقديمي وإغلاق جميعها لقفل العرض التقديمي بشكل فعال.
 
-نعم. تقيد الأقفال تعديل الكائنات داخل الملف، بينما تتحكم [حماية كلمة المرور](/slides/ar/python-net/password-protected-presentation/) في إمكانية فتح الملف و/أو حفظ التغييرات. تكمل هذه الآليات بعضها البعض وتعمل معًا.
+يمكن فقط لـ Aspose.Slides للغة بايثون عبر .NET إزالة الحماية من عرض تقديمي كان قد تم حمايته سابقًا. قم بإزالة الحماية من خلال تعيين قيمة القفل إلى false.
 
-**هل يمكنني تقييد التعديل على شرائح معينة دون التأثير على غيرها؟**
-
-نعم. طبّق الأقفال على الأشكال في الشرائح المختارة؛ ستظل الشرائح المتبقية قابلة للتحرير.
-
-**هل تنطبق أقفال الأشكال على الكائنات المجمّعة والموصلات؟**
-
-نعم. تُدعم أنواع الأقفال المخصصة للمجموعات، والموصلات، والكائنات الرسومية، وأنواع الأشكال الأخرى.
+{{% /alert %}} 

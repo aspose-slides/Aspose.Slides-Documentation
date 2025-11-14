@@ -1,72 +1,60 @@
 ---
-title: Diagrammdatenmarker in Präsentationen mit Python verwalten
-linktitle: Datenmarker
+title: Diagrammdatenmarkierung
 type: docs
 url: /de/python-net/chart-data-marker/
-keywords:
-- Diagramm
-- Datenpunkt
-- Marker
-- Markeroptionen
-- Markergröße
-- Fülltyp
-- PowerPoint
-- OpenDocument
-- Präsentation
-- Python
-- Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagrammdatenmarker in Aspose.Slides anpassen und die Wirkung von Präsentationen in den Formaten PPT, PPTX und ODP mit anschaulichen Codebeispielen steigern."
+keywords: "Diagramm-Markierungsoptionen, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
+description: "Diagramm-Markierungsoptionen in PowerPoint-Präsentationen in Python festlegen"
 ---
 
-## **Diagramm‑Markeroptionen festlegen**
-Die Marker können für Diagrammdatenpunkte innerhalb bestimmter Reihen festgelegt werden. Um Diagramm‑Markeroptionen zu setzen, folgen Sie bitte den untenstehenden Schritten:
+## **Diagramm-Markierungsoptionen festlegen**
+Die Marker können an Diagrammdatenpunkten innerhalb bestimmter Serien festgelegt werden. Um die Diagramm-Markierungsoptionen festzulegen, folgen Sie bitte den folgenden Schritten:
 
-- Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-- Erstellen des Standarddiagramms.
-- Bild festlegen.
-- Erste Diagrammreihe übernehmen.
-- Neuen Datenpunkt hinzufügen.
-- Präsentation auf dem Datenträger speichern.
+- Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
+- Erstellen Sie das Standarddiagramm.
+- Setzen Sie das Bild.
+- Nehmen Sie die erste Diagrammserie.
+- Fügen Sie einen neuen Datenpunkt hinzu.
+- Schreiben Sie die Präsentation auf die Festplatte.
 
-Im nachfolgenden Beispiel haben wir die Diagramm‑Markeroptionen auf Ebene der Datenpunkte festgelegt.
+Im folgenden Beispiel haben wir die Diagramm-Markierungsoptionen auf Datenpunktebene festgelegt.
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Erstelle eine Instanz der Klasse Presentation
+# Erstellen Sie eine Instanz der Presentation-Klasse
 with slides.Presentation() as presentation:
 
     slide = presentation.slides[0]
 
-    # Erstelle das Standarddiagramm
+    # Erstellen des Standarddiagramms
     chart = slide.shapes.add_chart(charts.ChartType.LINE_WITH_MARKERS, 0, 0, 400, 400)
 
-    # Abrufen des Indexes des Standarddatenarbeitsblatts des Diagramms
+    # Abrufen des Standarddiagramm-Datenarbeitsblattindex
     defaultWorksheetIndex = 0
 
-    # Abrufen des Diagrammdaten-Arbeitsblatts
+    # Abrufen des Diagramm-Datenarbeitsblatts
     fact = chart.chart_data.chart_data_workbook
 
-    # Demo‑Reihen löschen
+    # Demo-Serie löschen
     chart.chart_data.series.clear()
 
-    # Neue Reihe hinzufügen
-    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.type)
+    # Neue Serie hinzufügen
+    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 1, 1, "Serie 1"), chart.type)
             
-    # Bild festlegen
+    # Setzen Sie das Bild
     image1 = draw.Bitmap(path + "aspose-logo.jpg")
     imgx1 = presentation.images.add_image(image1)
 
-    # Bild festlegen
+    # Setzen Sie das Bild
     image2 = draw.Bitmap(path + "Tulips.jpg")
     imgx2 = presentation.images.add_image(image2)
 
-    # Erste Diagrammreihe übernehmen
+    # Nehmen Sie die erste Diagrammserie
     series = chart.chart_data.series[0]
 
-    # Neuen Punkt (1:3) dort hinzufügen.
+    # Fügen Sie dort einen neuen Punkt (1:3) hinzu.
     point = series.data_points.add_data_point_for_line_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 4.5))
     point.marker.format.fill.fill_type = slides.FillType.PICTURE
     point.marker.format.fill.picture_fill_format.picture.image = imgx1
@@ -83,19 +71,9 @@ with slides.Presentation() as presentation:
     point.marker.format.fill.fill_type = slides.FillType.PICTURE
     point.marker.format.fill.picture_fill_format.picture.image = imgx2
 
-    # Diagrammreihen‑Marker ändern
+    # Ändern des Markers der Diagrammserie
     series.marker.size = 15
 
-    # Präsentation auf dem Datenträger speichern
+    # Schreiben Sie die Präsentation auf die Festplatte
     presentation.save("MarkOptions_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-## **FAQ**
-
-**Welche Markerformen sind standardmäßig verfügbar?**
-
-Standardformen sind verfügbar (Kreis, Quadrat, Raute, Dreieck usw.); die Liste wird durch die Aufzählung [MarkerStyleType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/markerstyletype/) definiert. Wenn Sie eine nicht standardmäßige Form benötigen, verwenden Sie einen Marker mit Bildfüllung, um benutzerdefinierte Visualisierungen zu emulieren.
-
-**Werden Marker beim Exportieren eines Diagramms in ein Bild oder SVG beibehalten?**
-
-Ja. Beim Rendern von Diagrammen zu [Rasterformaten](/slides/de/python-net/convert-powerpoint-to-png/) oder beim Speichern von [Formen als SVG](/slides/de/python-net/render-a-slide-as-an-svg-image/) behalten Marker ihr Aussehen und ihre Einstellungen bei, einschließlich Größe, Füllung und Kontur.

@@ -1,34 +1,22 @@
 ---
-title: Administrar marcadores de datos de gráficos en presentaciones con Python
-linktitle: Marcador de datos
+title: Marcador de Datos de Gráfico
 type: docs
 url: /es/python-net/chart-data-marker/
-keywords:
-- gráfico
-- punto de datos
-- marcador
-- opciones de marcador
-- tamaño del marcador
-- tipo de relleno
-- PowerPoint
-- OpenDocument
-- presentación
-- Python
-- Aspose.Slides
-description: "Aprenda a personalizar los marcadores de datos de gráficos en Aspose.Slides, mejorando el impacto de la presentación en formatos PPT, PPTX y ODP con ejemplos de código claros."
+keywords: "Opciones de marcador de gráfico, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
+description: "Configurar opciones de marcador de gráfico en presentaciones de PowerPoint en Python"
 ---
 
-## **Establecer opciones de marcador de gráfico**
-Los marcadores pueden establecerse en los puntos de datos del gráfico dentro de una serie específica. Para establecer las opciones de marcador de gráfico, siga los pasos a continuación:
+## **Configurar Opciones de Marcador de Gráfico**
+Los marcadores se pueden establecer en puntos de datos de gráfico dentro de series particulares. Para establecer opciones de marcador de gráfico, siga los pasos a continuación:
 
 - Instanciar la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
 - Crear el gráfico predeterminado.
 - Establecer la imagen.
-- Tomar la primera serie del gráfico.
+- Tomar la primera serie de gráfico.
 - Agregar un nuevo punto de datos.
-- Guardar la presentación en disco.
+- Escribir la presentación en el disco.
 
-En el ejemplo que se muestra a continuación, hemos configurado las opciones de marcador de gráfico a nivel de puntos de datos.
+En el ejemplo dado a continuación, hemos configurado las opciones de marcador de gráfico a nivel de puntos de datos.
 
 ```py
 import aspose.slides.charts as charts
@@ -43,17 +31,17 @@ with slides.Presentation() as presentation:
     # Crear el gráfico predeterminado
     chart = slide.shapes.add_chart(charts.ChartType.LINE_WITH_MARKERS, 0, 0, 400, 400)
 
-    # Obtener el índice de la hoja de datos del gráfico predeterminada
+    # Obtener el índice de la hoja de trabajo de datos del gráfico predeterminado
     defaultWorksheetIndex = 0
 
-    # Obtener la hoja de datos del gráfico
+    # Obtener la hoja de trabajo de datos del gráfico
     fact = chart.chart_data.chart_data_workbook
 
     # Eliminar la serie de demostración
     chart.chart_data.series.clear()
 
-    # Agregar nueva serie
-    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.type)
+    # Agregar nuevas series
+    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 1, 1, "Serie 1"), chart.type)
             
     # Establecer la imagen
     image1 = draw.Bitmap(path + "aspose-logo.jpg")
@@ -63,10 +51,10 @@ with slides.Presentation() as presentation:
     image2 = draw.Bitmap(path + "Tulips.jpg")
     imgx2 = presentation.images.add_image(image2)
 
-    # Tomar la primera serie del gráfico
+    # Tomar la primera serie de gráfico
     series = chart.chart_data.series[0]
 
-    # Agregar nuevo punto (1:3) allí.
+    # Agregar un nuevo punto (1:3) allí.
     point = series.data_points.add_data_point_for_line_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 4.5))
     point.marker.format.fill.fill_type = slides.FillType.PICTURE
     point.marker.format.fill.picture_fill_format.picture.image = imgx1
@@ -86,16 +74,6 @@ with slides.Presentation() as presentation:
     # Cambiar el marcador de la serie del gráfico
     series.marker.size = 15
 
-    # Guardar la presentación en disco
+    # Escribir la presentación en el disco
     presentation.save("MarkOptions_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-## **Preguntas frecuentes**
-
-**¿Qué formas de marcador están disponibles de fábrica?**
-
-Las formas estándar están disponibles (círculo, cuadrado, rombo, triángulo, etc.); la lista está definida por la enumeración [MarkerStyleType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/markerstyletype/). Si necesita una forma no estándar, use un marcador con relleno de imagen para emular visuales personalizados.
-
-**¿Se conservan los marcadores al exportar un gráfico a una imagen o SVG?**
-
-Sí. Al renderizar gráficos a [formatos raster](/slides/es/python-net/convert-powerpoint-to-png/) o al guardar [formas como SVG](/slides/es/python-net/render-a-slide-as-an-svg-image/), los marcadores mantienen su apariencia y configuración, incluido el tamaño, el relleno y el contorno.

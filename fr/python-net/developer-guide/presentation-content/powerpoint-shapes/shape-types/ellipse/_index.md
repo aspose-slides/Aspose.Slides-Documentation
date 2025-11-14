@@ -16,85 +16,72 @@ keywords:
 - présentation
 - Python
 - Aspose.Slides
-description: "Découvrez comment créer, formater et manipuler des formes d'ellipse dans Aspose.Slides pour Python via .NET pour les présentations PPT, PPTX et ODP — exemples de code inclus."
+description: "Découvrez comment créer, formater et manipuler des formes d'ellipse dans Aspose.Slides for Python via .NET pour les présentations PPT, PPTX et ODP — exemples de code inclus."
 ---
 
-## **Créer une ellipse**
 
-Dans ce sujet, nous présenterons aux développeurs comment ajouter des formes d'ellipse à leurs diapositives en utilisant Aspose.Slides for Python via .NET. Aspose.Slides for Python via .NET fournit un ensemble d'API plus simples pour dessiner différents types de formes avec seulement quelques lignes de code. Pour ajouter une ellipse simple à une diapositive sélectionnée de la présentation, suivez les étapes ci-dessous :
+## **Créer une Ellipse**
+Dans ce sujet, nous allons introduire les développeurs à l'ajout de formes ellipse à leurs diapositives en utilisant Aspose.Slides pour Python via .NET. Aspose.Slides pour Python via .NET fournit un ensemble d'APIs plus facile à utiliser pour dessiner différents types de formes en quelques lignes de code. Pour ajouter une simple ellipse à une diapositive sélectionnée de la présentation, veuillez suivre les étapes ci-dessous :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)  
-2. Obtenez la référence d'une diapositive en utilisant son index  
-3. Ajoutez une AutoShape de type Ellipse à l'aide de la méthode AddAutoShape exposée par l'objet IShapes  
-4. Enregistrez la présentation modifiée en fichier PPTX  
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
+1. Obtenez la référence d'une diapositive en utilisant son index
+1. Ajoutez une AutoShape de type Ellipse en utilisant la méthode AddAutoShape exposée par l'objet IShapes
+1. Écrivez la présentation modifiée sous forme de fichier PPTX
 
-Dans l'exemple ci-dessous, nous avons ajouté une ellipse à la première diapositive.
+Dans l'exemple donné ci-dessous, nous avons ajouté une ellipse à la première diapositive.
 
 ```py
 import aspose.slides as slides
 
-# Instancie la classe Presentation qui représente le PPTX
+# Instanciez la classe Presentation qui représente le PPTX
 with slides.Presentation() as pres:
-    # Récupère la première diapositive
+    # Obtenez la première diapositive
     sld = pres.slides[0]
 
-    # Ajoute une autoshape de type ellipse
+    # Ajoutez une autoshape de type ellipse
     sld.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 150, 150, 50)
 
-    #Enregistre le fichier PPTX sur le disque
+    # Écrivez le fichier PPTX sur le disque
     pres.save("EllipseShp1_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Créer une ellipse formatée**
 
-Pour ajouter une ellipse mieux formatée à une diapositive, suivez les étapes ci-dessous :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)  
-2. Obtenez la référence d'une diapositive en utilisant son index  
-3. Ajoutez une AutoShape de type Ellipse à l'aide de la méthode AddAutoShape exposée par l'objet IShapes  
-4. Définissez le type de remplissage de l'ellipse sur Solid  
-5. Définissez la couleur de l'ellipse à l'aide de la propriété SolidFillColor.Color exposée par l'objet FillFormat associé à l'objet IShape  
-6. Définissez la couleur des lignes de l'ellipse  
-7. Définissez la largeur des lignes de l'ellipse  
-8. Enregistrez la présentation modifiée en fichier PPTX  
+## **Créer une Ellipse Formatée**
+Pour ajouter une ellipse mieux formatée à une diapositive, veuillez suivre les étapes ci-dessous :
 
-Dans l'exemple ci-dessous, nous avons ajouté une ellipse formatée à la première diapositive de la présentation.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Obtenez la référence d'une diapositive en utilisant son index.
+1. Ajoutez une AutoShape de type Ellipse en utilisant la méthode AddAutoShape exposée par l'objet IShapes.
+1. Définissez le type de remplissage de l'ellipse sur Solide.
+1. Définissez la couleur de l'ellipse en utilisant la propriété SolidFillColor.Color exposée par l'objet FillFormat associé à l'objet IShape.
+1. Définissez la couleur des lignes de l'ellipse.
+1. Définissez la largeur des lignes de l'ellipse.
+1. Écrivez la présentation modifiée sous forme de fichier PPTX.
+
+Dans l'exemple donné ci-dessous, nous avons ajouté une ellipse formatée à la première diapositive de la présentation.
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Instancie la classe Presentation qui représente le PPTX
+# Instanciez la classe Presentation qui représente le PPTX
 with slides.Presentation() as pres:
-    # Récupère la première diapositive
+    # Obtenez la première diapositive
     sld = pres.slides[0]
 
-    # Ajoute une autoshape de type ellipse
+    # Ajoutez une autoshape de type ellipse
     shp = sld.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 150, 150, 50)
 
-    # Applique un formatage à la forme ellipse
+    # Appliquez quelques formats à la forme ellipse
     shp.fill_format.fill_type = slides.FillType.SOLID
     shp.fill_format.solid_fill_color.color = draw.Color.chocolate
 
-    # Applique un formatage à la ligne de l'ellipse
+    # Appliquez quelques formats à la ligne de l'ellipse
     shp.line_format.fill_format.fill_type = slides.FillType.SOLID
     shp.line_format.fill_format.solid_fill_color.color = draw.Color.black
     shp.line_format.width = 5
 
-    #Enregistre le fichier PPTX sur le disque
+    # Écrivez le fichier PPTX sur le disque
     pres.save("EllipseShp2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-## **FAQ**
-
-**Comment définir la position exacte et la taille d'une ellipse par rapport aux unités de la diapositive ?**
-
-Les coordonnées et tailles sont généralement spécifiées en points. Pour des résultats prévisibles, basez vos calculs sur la taille de la diapositive et convertissez les millimètres ou pouces requis en points avant d'assigner les valeurs.
-
-**Comment placer une ellipse au-dessus ou en dessous d'autres objets (contrôler l'ordre d'empilement) ?**
-
-Ajustez l'ordre de dessin de l'objet en le faisant passer à l'avant ou à l'arrière. Cela permet à l'ellipse de chevaucher d'autres objets ou de révéler ceux qui se trouvent en dessous.
-
-**Comment animer l'apparition ou l'emphase d'une ellipse ?**
-
-[Apply](/slides/fr/python-net/shape-animation/) des effets d'entrée, d'emphase ou de sortie à la forme, et configurez les déclencheurs et le timing pour orchestrer quand et comment l'animation se joue.

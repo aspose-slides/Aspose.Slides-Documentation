@@ -1,57 +1,48 @@
 ---
-title: Personnaliser les graphiques 3D dans les présentations avec Python
-linktitle: Graphique 3D
+title: Graphique 3D
 type: docs
 url: /fr/python-net/3d-chart/
-keywords:
-- graphique 3d
-- rotation
-- profondeur
-- PowerPoint
-- OpenDocument
-- présentation
-- Python
-- Aspose.Slides
-description: "Apprenez à créer et personnaliser des graphiques 3D dans Aspose.Slides for Python via .NET, avec prise en charge des fichiers PPT, PPTX et ODP — améliorez vos présentations dès aujourd'hui."
+keywords: "graphique 3d, rotationX, rotationY, profondeurpourcentage, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
+description: "Définir rotationX, rotationY et profondeurpourcentages pour un graphique 3D dans une présentation PowerPoint en Python"
 ---
 
-## **Définir les propriétés RotationX, RotationY et DepthPercents d’un graphique 3D**
-Aspose.Slides for Python via .NET fournit une API simple pour définir ces propriétés. Cet article vous aidera à définir différentes propriétés telles que la rotation X, Y, **DepthPercents**, etc. Le code d’exemple applique la configuration des propriétés susmentionnées.
+## **Définir les propriétés RotationX, RotationY et DepthPercents du graphique 3D**
+Aspose.Slides pour Python via .NET fournit une API simple pour définir ces propriétés. Cet article suivant vous aidera à définir différentes propriétés comme la rotation X, Y, **DepthPercents**, etc. Le code d'exemple applique la définition des propriétés susmentionnées.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Accédez à la première diapositive.
-3. Ajoutez un graphique avec des données par défaut.
-4. Définissez les propriétés Rotation3D.
-5. Enregistrez la présentation modifiée dans un fichier PPTX.
+1. Accédez à la première diapositive.
+1. Ajoutez un graphique avec des données par défaut.
+1. Définissez les propriétés Rotation3D.
+1. Écrivez la présentation modifiée dans un fichier PPTX.
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Créez une instance de la classe Presentation
+# Créer une instance de la classe Presentation
 with slides.Presentation() as presentation:
             
-    # Accédez à la première diapositive
+    # Accéder à la première diapositive
     slide = presentation.slides[0]
 
-    # Ajoutez un graphique avec des données par défaut
+    # Ajouter un graphique avec des données par défaut
     chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN_3D, 0, 0, 500, 500)
 
-    # Définition de l’indice de la feuille de données du graphique
+    # Définir l'index de la feuille de données du graphique
     defaultWorksheetIndex = 0
 
-    # Obtention de la feuille de données du graphique
+    # Obtenir la feuille de calcul des données du graphique
     fact = chart.chart_data.chart_data_workbook
 
-    # Ajouter une série
-    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.type)
-    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.type)
+    # Ajouter des séries
+    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 1, "Série 1"), chart.type)
+    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 2, "Série 2"), chart.type)
 
     # Ajouter des catégories
-    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"))
-    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"))
-    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"))
+    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 1, 0, "Catégorie 1"))
+    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 2, 0, "Catégorie 2"))
+    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 3, 0, "Catégorie 3"))
 
     # Définir les propriétés Rotation3D
     chart.rotation_3d.right_angle_axes = True
@@ -59,10 +50,10 @@ with slides.Presentation() as presentation:
     chart.rotation_3d.rotation_y = 270
     chart.rotation_3d.depth_percents = 150
 
-    # Prendre la deuxième série du graphique
+    # Prendre la deuxième série de graphique
     series = chart.chart_data.series[1]
 
-    # Maintenant, remplissage des données de la série
+    # Maintenant, peupler les données de la série
     series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 20))
     series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 50))
     series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 30))
@@ -73,20 +64,6 @@ with slides.Presentation() as presentation:
     # Définir la valeur OverLap
     series.parent_series_group.overlap = 100         
 
-    # Enregistrez la présentation sur le disque
+    # Écrire la présentation sur le disque
     presentation.save("Rotation3D_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-## **FAQ**
-
-**Quels types de graphiques prennent en charge le mode 3D dans Aspose.Slides ?**
-
-Aspose.Slides prend en charge les variantes 3D des graphiques en colonnes, notamment Column 3D, Clustered Column 3D, Stacked Column 3D et 100 % Stacked Column 3D, ainsi que les types 3D associés exposés via l’énumération [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/). Pour obtenir une liste exacte et à jour, consultez les membres de [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) dans la référence API de votre version installée.
-
-**Puis-je obtenir une image raster d’un graphique 3D pour un rapport ou le web ?**
-
-Oui. Vous pouvez exporter un graphique vers une image via l’[API du graphique](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/get_image/) ou [rendre toute la diapositive](/slides/fr/python-net/convert-powerpoint-to-png/) dans des formats tels que PNG ou JPEG. Cette approche est utile lorsque vous avez besoin d’un aperçu pixel‑perfect ou que vous souhaitez intégrer le graphique dans des documents, tableaux de bord ou pages web sans nécessiter PowerPoint.
-
-**Quelle est la performance de la création et du rendu de graphiques 3D volumineux ?**
-
-Les performances dépendent du volume de données et de la complexité visuelle. Pour de meilleurs résultats, limitez les effets 3D, évitez les textures lourdes sur les murs et les zones de tracé, réduisez le nombre de points de données par série lorsque possible, et rendez le résultat à une résolution et des dimensions adaptées à l’affichage ou à l’impression ciblés.
