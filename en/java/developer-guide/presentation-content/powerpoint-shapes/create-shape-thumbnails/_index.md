@@ -1,8 +1,19 @@
 ---
-title: Create Shape Thumbnails
+title: Create Thumbnails of Presentation Shapes in Java
+linktitle: Shape Thumbnails
 type: docs
 weight: 70
 url: /java/create-shape-thumbnails/
+keywords:
+- shape thumbnail
+- shape image
+- render shape
+- shape rendering
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Generate high-quality shape thumbnails from PowerPoint slides with Aspose.Slides for Java – easily create and export presentation thumbnails."
 ---
 
 

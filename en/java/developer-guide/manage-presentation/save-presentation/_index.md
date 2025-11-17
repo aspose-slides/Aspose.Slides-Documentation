@@ -1,6 +1,6 @@
 ---
 title: Save Presentations in Java
-linktitle: Save Presentations
+linktitle: Save Presentation
 type: docs
 weight: 80
 url: /java/save-presentation/

@@ -1,10 +1,33 @@
 ---
-title: PowerPoint Animation
+title: Enhance PowerPoint Presentations with Animations in Java
+linktitle: PowerPoint Animation
 type: docs
 weight: 150
 url: /java/powerpoint-animation/
-keywords: "PowerPoint animation"
-description: "PowerPoint animation, PowerPoint slide animation with Aspose.Slides."
+keywords:
+- add animation
+- update animation
+- change animation
+- remove animation
+- manage animation
+- control animation
+- animation effect
+- PowerPoint animation
+- animation timeline
+- interactive animation
+- custom animation
+- shape animation
+- animated chart
+- animated text
+- animated shape
+- animated OLE object
+- animated image
+- animated table
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Explore the capabilities of Aspose.Slides for Java in handling PowerPoint animations. This general overview highlights key features and offers insights to enhance your presentations."
 ---
 
 Since presentations are meant to present something, their visual appearance and interactive behavior is always considered while creating them.

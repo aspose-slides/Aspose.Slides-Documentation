@@ -27,7 +27,7 @@ keywords:
 - presentation
 - Java
 - Aspose.Slides
-description: "Learn how to format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for Java. Customize fonts, colors, alignment, and more with powerful Java code examples."
+description: "Format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for Java. Customize fonts, colors, alignment, and more."
 ---
 
 ## **Highlight Text**

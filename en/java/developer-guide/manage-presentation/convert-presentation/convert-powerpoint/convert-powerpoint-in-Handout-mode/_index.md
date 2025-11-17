@@ -1,5 +1,5 @@
 ---
-title: Convert PowerPoint Presentations in Handout Mode in Java
+title: Convert PowerPoint Presentations in Handout Mode Using Java
 linktitle: Handout Mode
 type: docs
 weight: 150

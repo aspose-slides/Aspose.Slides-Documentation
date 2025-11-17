@@ -1,11 +1,12 @@
 ---
-title: Open a Presentation in Java
-linktitle: Open Presentations
+title: Open Presentations in Java
+linktitle: Open Presentation
 type: docs
 weight: 20
 url: /java/open-presentation/
 keywords:
 - open PowerPoint
+- open OpenDocument
 - open presentation
 - open PPTX
 - open PPT

@@ -1,8 +1,19 @@
 ---
-title: Group
+title: Group Presentation Shapes in Java
+linktitle: Shape Group
 type: docs
 weight: 40
 url: /java/group/
+keywords:
+- group shape
+- shape group
+- add group
+- alternative text
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn to group and ungroup shapes in PowerPoint decks using Aspose.Slides for Java—fast, step-by-step guide with free Java code."
 ---
 
 ## **Add Group Shape**
