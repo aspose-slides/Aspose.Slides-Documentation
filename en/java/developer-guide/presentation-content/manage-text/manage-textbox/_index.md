@@ -1,5 +1,6 @@
 ---
-title: Manage TextBox
+title: Manage Text Boxes in Presentations Using Java
+linktitle: Manage Text Box
 type: docs
 weight: 20
 url: /java/manage-textbox/
@@ -8,12 +9,15 @@ keywords:
 - text frame
 - add text
 - update text
-- text box with a hyperlink
+- create text box
+- check text box
+- add text column
+- add hyperlink
 - PowerPoint
 - presentation
 - Java
-- Aspose.Slides for Java
-description: "Manage a text box or text frame in PowerPoint presentations using Java"
+- Aspose.Slides
+description: "Aspose.Slides for Java makes it easy to create, edit, and clone text boxes in PowerPoint and OpenDocument files, enhancing your presentation automation."
 ---
 
 

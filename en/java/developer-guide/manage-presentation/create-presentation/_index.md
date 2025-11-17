@@ -1,19 +1,24 @@
 ---
-title: Create a Presentation in Java
+title: Create Presentations in Java
 linktitle: Create Presentation
 type: docs
 weight: 10
 url: /java/create-presentation/
 keywords:
 - create presentation
-- create ppt
-- create pptx
-- create odp
+- new presentation
+- create PPT
+- new PPT
+- create PPTX
+- new PPTX
+- create ODP
+- new ODP
 - PowerPoint
 - OpenDocument
+- presentation
 - Java
 - Aspose.Slides
-description: "Create PowerPoint presentations in Java with Aspose.Slides—produce PPT, PPTX, and ODP files, benefit from OpenDocument support, and save them programmatically for reliable results."
+description: "Create presentations in Java with Aspose.Slides—produce PPT, PPTX, and ODP files, benefit from OpenDocument support, and save them programmatically for reliable results."
 ---
 
 ## **Overview**

@@ -1,9 +1,20 @@
 ---
-title: Chart Data Label
+title: Manage Chart Data Labels in Presentations Using Java
+linktitle: Data Label
 type: docs
 url: /java/chart-data-label/
-keywords: "Chart data label,label distance, Java, Aspose.Slides for Java"
-description: "Set PowerPoint chart data label and distance in Java"
+keywords:
+- chart
+- data label
+- data precision
+- percentage
+- label distance
+- label location
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn to add and format chart data labels in PowerPoint presentations using Aspose.Slides for Java for more engaging slides."
 ---
 
 Data labels on a chart show details about the chart data series or individual data points. They allow readers to quickly identify data series and they also make charts easier to understand.

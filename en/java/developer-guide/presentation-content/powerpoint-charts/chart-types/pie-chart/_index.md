@@ -1,7 +1,21 @@
 ---
-title: Pie Chart
+title: Customize Pie Charts in Presentations Using Java
+linktitle: Pie Chart
 type: docs
 url: /java/pie-chart/
+keywords:
+- pie chart
+- manage chart
+- customize chart
+- chart options
+- chart settings
+- plot options
+- slice color
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn how to create and customize pie charts in Java with Aspose.Slides, exportable to PowerPoint, boosting your data storytelling in seconds."
 ---
 
 ## **Second Plot Options for Pie of Pie and Bar of Pie Chart**

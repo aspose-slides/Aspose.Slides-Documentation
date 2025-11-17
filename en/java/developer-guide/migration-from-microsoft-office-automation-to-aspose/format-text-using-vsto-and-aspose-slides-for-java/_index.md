@@ -1,8 +1,19 @@
 ---
-title: Format Text using VSTO and Aspose.Slides for Java
+title: Format Text Using VSTO and Aspose.Slides for Java
+linktitle: Format Text
 type: docs
 weight: 30
 url: /java/format-text-using-vsto-and-aspose-slides-for-java/
+keywords:
+- format text
+- migration
+- VSTO
+- Office automation
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Migrate from Microsoft Office automation to Aspose.Slides for Java and format text in PowerPoint (PPT, PPTX) presentations with precise control."
 ---
 
 {{% alert color="primary" %}} 

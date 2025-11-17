@@ -1,8 +1,29 @@
 ---
-title: Shape Manipulations
+title: Manage Presentation Shapes in Java
+linktitle: Shape Manipulation
 type: docs
 weight: 40
 url: /java/shape-manipulations/
+keywords:
+- PowerPoint shape
+- presentation shape
+- shape on slide
+- find shape
+- clone shape
+- remove shape
+- hide shape
+- change shape order
+- get interop shape ID
+- shape alternative text
+- shape layout formats
+- shape as SVG
+- shape to SVG
+- align shape
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn to create, edit and optimize shapes in Aspose.Slides for Java and deliver high-performance PowerPoint presentations."
 ---
 
 ## **Find Shape in Slide**
