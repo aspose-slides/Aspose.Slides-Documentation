@@ -1,10 +1,18 @@
 ---
 title: Aspose.Slides for Java
 second_title: Aspose.Slides Documentation
-description: Aspose.Slides for Java is the first and only component that provides the functionality to manage PowerPoint® documents. Aspose.Slides for Java provides a lot of key features such as managing text, shapes, exporting slides to SVG, PDF and other formats.
 type: docs
 weight: 20
 url: /java/
+keywords:
+- documentation
+- presentation processing
+- presentation conversion
+- PowerPoint
+- OpenDocument
+- Java
+- Aspose.Slides
+description: Aspose.Slides for Java is a Microsoft PowerPoint® management API that enables Java applications to read and write PowerPoint® documents without using Microsoft PowerPoint®.
 is_root: true
 ---
 

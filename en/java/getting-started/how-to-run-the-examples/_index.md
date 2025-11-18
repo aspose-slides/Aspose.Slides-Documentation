@@ -1,8 +1,18 @@
 ---
-title: How to Run the Examples
+title: How to Run Examples
 type: docs
 weight: 140
 url: /java/how-to-run-the-examples/
+keywords:
+- examples
+- software requirements
+- GitHub
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Run Aspose.Slides for Java examples fast: clone the repo, restore packages, then build and test features for PPT, PPTX and ODP."
 ---
 
 ## **Download from GitHub**

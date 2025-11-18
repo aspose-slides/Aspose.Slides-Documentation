@@ -1,10 +1,37 @@
 ---
-title: Password Protected Presentation
+title: Secure Presentations with Passwords in Java
+linktitle: Password Protection
 type: docs
 weight: 20
 url: /java/password-protected-presentation/
-keywords: "Lock PowerPoint presentation in Java"
-description: "Lock PowerPoint presentation. Password protected PowerPoint in Java"
+keywords:
+- lock PowerPoint
+- lock presentation
+- unlock PowerPoint
+- unlock presentation
+- protect PowerPoint
+- protect presentation
+- set password
+- add password
+- encrypt PowerPoint
+- encrypt presentation
+- decrypt PowerPoint
+- decrypt presentation
+- write protection
+- PowerPoint security
+- presentation security
+- remove password
+- remove protection
+- remove encryption
+- disable password
+- disable protection
+- remove write protection
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn how to effortlessly lock and unlock password-protected PowerPoint and OpenDocument presentations with Aspose.Slides for Java. Secure your presentations."
 ---
 
 ## **About Password Protection**

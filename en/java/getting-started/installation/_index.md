@@ -4,15 +4,19 @@ type: docs
 weight: 70
 url: /java/installation/
 keywords:
-- install Aspose.Slides Java
-- configure Aspose.Slides Java
-- set up Aspose.Slides Java
-- Aspose.Slides Java Maven
+- install Aspose.Slides
+- download Aspose.Slides
+- use Aspose.Slides
+- Aspose.Slides installation
+- Windows
+- Linux
+- macOS
 - PowerPoint
+- OpenDocument
 - presentation
 - Java
 - Aspose.Slides
-description: "Install Aspose.Slides for Java in seconds—learn Maven setup and manual JAR options to add reliable PPT, PPTX, and ODP processing to your application."
+description: "Learn how to quickly install Aspose.Slides for Java. Step-by-step guide, system requirements, and code samples — start working with PowerPoint presentations today!"
 ---
 
 ## **Overview**

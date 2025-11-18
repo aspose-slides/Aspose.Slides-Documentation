@@ -1,10 +1,20 @@
 ---
-title: Digital Signature in PowerPoint
+title: Add Digital Signatures to Presentations in Java
+linktitle: Digital Signature
 type: docs
 weight: 10
 url: /java/digital-signature-in-powerpoint/
-keywords: "Digital signature certificate, certificate authority"
-description: "Add digital signature certificate, certificate authority into PowerPoint presentation with Aspose.Slides."
+keywords:
+- digital signature
+- digital certificate
+- certificate authority
+- PFX certificate
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn how to digitally sign PowerPoint & OpenDocument files with Aspose.Slides for Java. Secure your slides in seconds with clear code examples."
 ---
 
 
