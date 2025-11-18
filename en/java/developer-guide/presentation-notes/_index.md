@@ -1,10 +1,22 @@
 ---
-title: Presentation Notes
+title: Manage Presentation Notes in Java
+linktitle: Presentation Notes
 type: docs
 weight: 110
 url: /java/presentation-notes/
-keywords: "PowerPoint speaker notes in Java"
-description: "Presentation notes, speaker notes in Java"
+keywords:
+- notes
+- notes slide
+- add notes
+- remove notes
+- notes style
+- master notes
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Customize presentation notes with Aspose.Slides for Java. Seamlessly work with PowerPoint and OpenDocument notes to boost your productivity."
 ---
 
 
