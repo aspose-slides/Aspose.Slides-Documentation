@@ -1,8 +1,21 @@
 ---
-title: Ellipse
+title: Add Ellipses to Presentations in C++
+linktitle: Ellipse
 type: docs
 weight: 30
 url: /cpp/ellipse/
+keywords:
+- ellipse
+- shape
+- add ellipse
+- create ellipse
+- draw ellipse
+- formatted ellipse
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Learn how to create, format, and manipulate ellipse shapes in Aspose.Slides for C++ across PPT and PPTX presentations — C++ code examples included."
 ---
 
 

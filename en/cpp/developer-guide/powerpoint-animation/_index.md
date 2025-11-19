@@ -1,10 +1,33 @@
 ---
-title: PowerPoint Animation
+title: Enhance PowerPoint Presentations with Animations in C++
+linktitle: PowerPoint Animation
 type: docs
 weight: 150
 url: /cpp/powerpoint-animation/
-keywords: "PowerPoint animation"
-description: "PowerPoint animation, PowerPoint slide animation with Aspose.Slides."
+keywords:
+- add animation
+- update animation
+- change animation
+- remove animation
+- manage animation
+- control animation
+- animation effect
+- PowerPoint animation
+- animation timeline
+- interactive animation
+- custom animation
+- shape animation
+- animated chart
+- animated text
+- animated shape
+- animated OLE object
+- animated image
+- animated table
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Learn how to add and control advanced animation effects in Aspose.Slides for C++ to build dynamic PowerPoint and OpenDocument presentations."
 ---
 
 Since presentations are meant to present something, their visual appearance and interactive behavior is always considered while creating them.

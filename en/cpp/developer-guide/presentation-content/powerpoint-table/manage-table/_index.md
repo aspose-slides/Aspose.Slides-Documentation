@@ -1,10 +1,22 @@
 ---
-title: Manage Table
+title: Manage Presentation Tables in C++
+linktitle: Manage Table
 type: docs
 weight: 10
 url: /cpp/manage-table/
-keywords: "Table, create table, access table, table aspect ratio, PowerPoint presentation, C++, Aspose.Slides for C++"
-description: "Create and manage table in PowerPoint presentations in C++"
+keywords:
+- add table
+- create table
+- access table
+- aspect ratio
+- align text
+- text formatting
+- table style
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Create & edit tables in PowerPoint slides with Aspose.Slides for C++. Discover simple code examples to streamline your table workflows."
 ---
 
 A table in PowerPoint is an efficient way of displaying and portraying information. The information in a grid of cells (arranged in rows and columns) is straightforward and easy to understand.

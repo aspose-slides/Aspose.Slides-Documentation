@@ -1,11 +1,28 @@
 ---
-title: Manage Rows and Columns
+title: Manage Rows and Columns in PowerPoint Tables Using C++
+linktitle: Rows and Columns
 type: docs
 weight: 20
 url: /cpp/manage-rows-and-columns/
-keywords: "Table, table rows and columns, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
-description: "Manage table rows and columns in PowerPoint presentations in C++"
-
+keywords:
+- table row
+- table column
+- first row
+- table header
+- clone row
+- clone column
+- copy row
+- copy column
+- remove row
+- remove column
+- row text formatting
+- column text formatting
+- table style
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Manage table rows and columns in PowerPoint with Aspose.Slides for C++ and speed up presentation editing and data updates."
 ---
 
 To allow you to manage a table's rows and columns in a PowerPoint presentation, Aspose.Slides provides the [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) class, [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) interface, and many other types. 

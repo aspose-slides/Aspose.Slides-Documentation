@@ -1,11 +1,31 @@
 ---
-title: Create or Update PowerPoint Presentation Charts in C++
-linktitle: Create Chart
+title: Create or Update PowerPoint Presentation Charts in С++
+linktitle: Create or Update Charts
 type: docs
 weight: 10
 url: /cpp/create-chart/
-keywords: "Create chart, scattered chart, pie chart, tree map chart, stock chart, box and whisker chart, histogram chart, funnel chart, sunburst chart, multicategory chart, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
-description: "Create chart in PowerPoint presentation in C++"
+keywords:
+- add chart
+- create chart
+- edit chart
+- change chart
+- update chart
+- scattered chart
+- pie chart
+- line chart
+- tree map chart
+- stock chart
+- box and whisker chart
+- funnel chart
+- sunburst chart
+- histogram chart
+- radar chart
+- multicategory chart
+- PowerPoint
+- presentation
+- С++
+- Aspose.Slides
+description: "Create and customize charts in PowerPoint presentations using Aspose.Slides for С++. Add, format, and edit charts with practical code examples in С++."
 ---
 
 ## **Create Chart**

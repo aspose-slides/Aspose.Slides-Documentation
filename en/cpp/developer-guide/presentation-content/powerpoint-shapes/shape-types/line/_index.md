@@ -1,8 +1,23 @@
 ---
-title: Line
+title: Add Line Shapes to Presentations in C++
+linktitle: Line
 type: docs
 weight: 50
-url: /cpp/Line/
+url: /cpp/line/
+keywords:
+- line
+- create line
+- add line
+- plain line
+- configure line
+- customize line
+- dash style
+- arrow head
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Learn to manipulate line formatting in PowerPoint presentations with Aspose.Slides for C++. Discover properties, methods, and examples."
 ---
 
 ## **Create Plain Line**

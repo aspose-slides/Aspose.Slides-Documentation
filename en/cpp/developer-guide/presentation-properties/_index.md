@@ -1,5 +1,6 @@
 ---
-title: Presentation Properties
+title: Manage Presentation Properties in C++
+linktitle: Presentation Properties
 type: docs
 weight: 70
 url: /cpp/presentation-properties/
@@ -10,14 +11,18 @@ keywords:
 - built-in properties
 - custom properties
 - advanced properties
+- manage properties
 - modify properties
 - document metadata
 - edit metadata
+- proofing language
+- default language
 - PowerPoint
+- OpenDocument
 - presentation
 - C++
-- Aspose.Slides for C++
-description: "Manage PowerPoint presentation properties in C++"
+- Aspose.Slides
+description: "Master presentation properties in Aspose.Slides for C++ and streamline search, branding and workflow in your PowerPoint and OpenDocument files."
 ---
 
 ## **Access Presentation Properties**
