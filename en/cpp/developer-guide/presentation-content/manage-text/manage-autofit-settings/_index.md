@@ -1,10 +1,23 @@
 ---
-title: Manage Autofit Settings
+title: Enhance Your Presentations with AutoFit in C++
+linktitle: Autofit Settings
 type: docs
 weight: 30
 url: /cpp/manage-autofit-settings/
-keywords: "Textbox, Autofit, PowerPoint presentation, C++, Aspose.Slides for C++"
-description: "Set the autofit settings for textbox in PowerPoint in C++"
+keywords:
+- textbox
+- autofit
+- do not autofit
+- fit text
+- shrink text
+- wrap text
+- resize shape
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Learn how to manage AutoFit settings in Aspose.Slides for C++ to optimize text display in your PowerPoint and OpenDocument presentations and improve content readability."
 ---
 
 By default, when you add a textbox, Microsoft PowerPoint uses the **Resize shape to fix text** setting for the textbox—it automatically resizes the textbox to ensure its text always fits into it. 

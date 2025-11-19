@@ -3,8 +3,24 @@ title: How to Run Aspose.Slides for C++ in Docker
 type: docs
 weight: 140
 url: /cpp/how-to-run-aspose-slides-cpp-in-docker/
-keywords: "Running Aspose.Slides for C++ in Docker container, Aspose Docker, Aspose.Slides for C++ in a Docker"
-description: "Run Aspose.Slides for C++ in a Docker container for Linux. "
+keywords:
+- download Aspose.Slides
+- install Aspose.Slides
+- Aspose.Slides installation
+- Docker
+- Windows
+- macOS
+- Linux
+- cross-platform compatibility
+- dependency isolation
+- simplified deployment
+- project setup
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Run Aspose.Slides in Docker containers: configure images, dependencies, fonts, and licensing to build scalable services that process PowerPoint and OpenDocument."
 ---
 
 Aspose.Slides for C++ can run inside docker containers. To run Aspose.Slides for C++ in a Linux environment, you can use a docker file. 

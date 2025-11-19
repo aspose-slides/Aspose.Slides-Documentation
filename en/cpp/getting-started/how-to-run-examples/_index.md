@@ -3,6 +3,16 @@ title: How to Run Examples
 type: docs
 weight: 130
 url: /cpp/how-to-run-examples/
+keywords:
+- examples
+- software requirements
+- GitHub
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Run Aspose.Slides for C++ examples fast: clone the repo, restore packages, then build and test features for PPT, PPTX and ODP."
 ---
 
 ## **Software Requirements**

@@ -1,17 +1,21 @@
 ---
-title: Multithreading in Aspose.Slides
+title: Multithreading in Aspose.Slides for C++
+linktitle: Multithreading
 type: docs
 weight: 200
 url: /cpp/multithreading/
 keywords:
-- PowerPoint
-- presentation
 - multithreading
+- multiple threads
 - parallel work
 - convert slides
 - slides to images
+- PowerPoint
+- OpenDocument
+- presentation
 - C++
-- Aspose.Slides for C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ multithreading boosts PowerPoint and OpenDocument processing. Discover best practices for efficient presentation workflows."
 ---
 
 ## **Introduction**

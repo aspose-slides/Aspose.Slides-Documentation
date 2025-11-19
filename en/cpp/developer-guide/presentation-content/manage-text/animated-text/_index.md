@@ -1,10 +1,21 @@
 ---
-title: Animated Text
+title: Animate PowerPoint Text in C++
+linktitle: Animated Text
 type: docs
 weight: 60
 url: /cpp/animated-text/
-keywords: "Animated text in PowerPoint"
-description: "Animated text in PowerPoint presentation with Aspose.Slides"
+keywords:
+- animated text
+- text animation
+- animated paragraph
+- paragraph animation
+- animation effect
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Create dynamic animated text in PowerPoint and OpenDocument presentations using Aspose.Slides for C++, with easy-to-follow, optimized C++ code examples."
 ---
 
 ## Adding Animation Effects to Paragraphs

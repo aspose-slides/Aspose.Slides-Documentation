@@ -3,6 +3,20 @@ title: Evaluate Aspose.Slides
 type: docs
 weight: 110
 url: /cpp/evaluate-aspose-slides/
+keywords:
+- evaluate Aspose.Slides
+- Aspose.Slides evaluation
+- evaluation version
+- full functionality
+- evaluation watermark
+- purchase Aspose.Slides
+- limitation
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Evaluate Aspose.Slides for C++ and explore API features for PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations—start your free trial."
 ---
 
 {{% alert color="primary" %}} 

@@ -3,8 +3,24 @@ title: Product Overview
 type: docs
 weight: 10
 url: /cpp/product-overview/
-keywords: C++ PowerPoint API
-description: C++ PowerPoint API enables C++ applications to read and write PowerPoint documents without using Microsoft PowerPoint and provides key features such as managing text, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF format and more.
+keywords:
+- product overview
+- document processing
+- key features
+- presentation features
+- slide features
+- graphic features
+- multimedia features
+- table features
+- text features
+- advanced features
+- technical support
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ lets you create, edit and convert PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations without Microsoft Office."
 ---
 
 ## **Product Overview**
