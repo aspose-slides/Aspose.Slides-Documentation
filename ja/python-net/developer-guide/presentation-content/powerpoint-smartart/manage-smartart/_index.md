@@ -1,5 +1,5 @@
 ---
-title: Python を使用して PowerPoint プレゼンテーションの SmartArt を管理する
+title: Python を使用した PowerPoint プレゼンテーションでの SmartArt の管理
 linktitle: SmartArt の管理
 type: docs
 weight: 10
@@ -7,130 +7,153 @@ url: /ja/python-net/manage-smartart/
 keywords:
 - SmartArt
 - SmartArt のテキスト
-- レイアウトの種類
+- レイアウト タイプ
 - 非表示プロパティ
 - 組織図
-- 画像入り組織図
+- 画像組織図
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "明確なコードサンプルを使用して、Aspose.Slides for Python via .NET で PowerPoint SmartArt を構築および編集する方法を学び、スライドの設計と自動化を高速化します。"
+description: "明確なコードサンプルを使用して、Python 用 Aspose.Slides for .NET で PowerPoint の SmartArt を作成および編集し、スライドのデザインと自動化を高速化する方法を学びます。"
 ---
 
-## **SmartArtからテキストを取得する**
-ISmartArtShapeインターフェイスおよびSmartArtShapeクラスにTextFrameプロパティが追加されました。このプロパティを使用すると、ノードテキストだけでなくSmartArtからすべてのテキストを取得できます。以下のサンプルコードは、SmartArtノードからテキストを取得するのに役立ちます。
+## **概要**
 
+このガイドでは、Aspose.Slides for Python で SmartArt を作成および操作する方法をご紹介します。SmartArt からテキストを抽出する方法（ノード シェイプ内の [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) コンテンツを含む）、スライドに SmartArt を追加してレイアウトを切り替える方法、非表示ノードの検出と処理、組織図レイアウトの設定、画像組織図の作成方法を学べます。すべて、[Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) を開き、スライドと SmartArt ノードを操作し、結果を PPTX に保存する簡潔なコピー＆ペースト可能な Python のサンプルで示しています。
+
+## **SmartArt からテキストを取得**
+
+`text_frame` プロパティは [SmartArtShape](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartshape/) にあり、SmartArt シェイプ全体のテキストを取得できます（ノードに含まれるテキストだけではありません）。以下のサンプルコードは SmartArt ノードからテキストを取得する方法を示しています。
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "SmartArt.pptx") as pres:
-    slide = pres.slides[0]
-    smartArt = slide.shapes[0]
+with slides.Presentation("SmartArt.pptx") as presentation:
+    slide = presentation.slides[0]
+    smart_art = slide.shapes[0]
 
-    for smartArtNode in smartArt.all_nodes:
-        for nodeShape in smartArtNode.shapes:
-            if nodeShape.text_frame != None:
-                print(nodeShape.text_frame.text)
+    for smart_art_node in smart_art.all_nodes:
+        for node_shape in smart_art_node.shapes:
+            if node_shape.text_frame is not None:
+                print(node_shape.text_frame.text)
 ```
 
 
+## **SmartArt のレイアウト タイプを変更**
 
-## **SmartArtのレイアウトタイプを変更する**
-SmartArtのレイアウトタイプを変更するために、以下の手順に従ってください。
+SmartArt のレイアウト タイプを変更するには、次の手順に従います：
 
-- `Presentation`クラスのインスタンスを作成します。
-- インデックスを使用してスライドの参照を取得します。
-- SmartArt BasicBlockListを追加します。
-- LayoutTypeをBasicProcessに変更します。
-- プレゼンテーションをPPTXファイルとして保存します。
-  以下の例では、2つのシェイプの間にコネクタを追加しています。
-
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでスライドへの参照を取得します。
+1. `BASIC_BLOCK_LIST` レイアウトで SmartArt シェイプを追加します。
+1. レイアウトを `BASIC_PROCESS` に変更します。
+1. プレゼンテーションを PPTX ファイルとして保存します。
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
 with slides.Presentation() as presentation:
-    # SmartArt BasicProcessを追加する 
-    smart = presentation.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.BASIC_BLOCK_LIST)
-    # LayoutTypeをBasicProcessに変更する
-    smart.layout = art.SmartArtLayoutType.BASIC_PROCESS
-    # プレゼンテーションを保存
-    presentation.save("ChangeSmartArtLayout_out.pptx", slides.export.SaveFormat.PPTX)
+    slide = presentation.slides[0]
+
+    # BASIC_BLOCK_LIST レイアウトで SmartArt シェイプを追加します。
+    smart = slide.shapes.add_smart_art(10, 10, 400, 300, smartart.SmartArtLayoutType.BASIC_BLOCK_LIST)
+
+    # レイアウトタイプを BASIC_PROCESS に変更します。
+    smart.layout = smartart.SmartArtLayoutType.BASIC_PROCESS
+
+    # プレゼンテーションを保存します。
+    presentation.save("ChangedSmartArtLayout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **SmartArt の非表示プロパティを確認**
 
-## **SmartArtの隠しプロパティを確認する**
-メソッドcom.aspose.slides.ISmartArtNode.isHidden()は、このノードがデータモデル内の隠しノードである場合にtrueを返すことに注意してください。SmartArtの任意のノードの隠しプロパティを確認する手順は、以下の通りです。
+`SmartArtNode.is_hidden` プロパティは、データモデルでノードが非表示の場合に `True` を返します。SmartArt ノードが非表示かどうかを確認するには、次の手順に従います：
 
-- `Presentation`クラスのインスタンスを作成します。
-- SmartArt RadialCycleを追加します。
-- SmartArtにノードを追加します。
-- isHiddenプロパティを確認します。
-- プレゼンテーションをPPTXファイルとして保存します。
-
-以下の例では、2つのシェイプの間にコネクタを追加しています。
-
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. `RADIAL_CYCLE` レイアウトで SmartArt シェイプを追加します。
+1. SmartArt にノードを追加します。
+1. `is_hidden` プロパティを確認します。
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
 with slides.Presentation() as presentation:
-    # SmartArt BasicProcessを追加する 
-    smart = presentation.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.RADIAL_CYCLE)
-    # SmartArtにノードを追加する 
+    slide = presentation.slides[0]
+
+    # RADIAL_CYCLE レイアウトで SmartArt シェイプを追加します。
+    smart = slide.shapes.add_smart_art(10, 10, 400, 300, smartart.SmartArtLayoutType.RADIAL_CYCLE)
+
+    # SmartArt にノードを追加します。
     node = smart.all_nodes.add_node()
-    # isHiddenプロパティを確認する
+
+    # is_hidden プロパティを確認します。
     if node.is_hidden:
-        print("hidden")
-        # 処理や通知を行う
-    # プレゼンテーションを保存
-    presentation.save("CheckSmartArtHiddenProperty_out.pptx", slides.export.SaveFormat.PPTX)
+        print("The node is hidden.")
 ```
 
 
+## **組織図タイプの取得または設定**
 
-## **組織図タイプを取得または設定する**
-メソッドcom.aspose.slides.ISmartArtNode.getOrganizationChartLayout()およびsetOrganizationChartLayout(int)は、現在のノードに関連付けられた組織図タイプの取得または設定を行います。組織図タイプを取得または設定するための手順は、以下の通りです。
+`SmartArtNode.organization_chart_layout` プロパティは、現在のノードに関連付けられた組織図タイプを取得または設定します。組織図タイプを取得または設定するには、次の手順に従います：
 
-- `Presentation`クラスのインスタンスを作成します。
-- スライドにSmartArtを追加します。
-- 組織図タイプを取得または設定します。
-- プレゼンテーションをPPTXファイルとして保存します。
-  以下の例では、2つのシェイプの間にコネクタを追加しています。
-
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. スライドに SmartArt シェイプを追加します。
+1. 組織図タイプを取得または設定します。
+1. プレゼンテーションを PPTX ファイルとして保存します。
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
 with slides.Presentation() as presentation:
-    # SmartArt BasicProcessを追加する 
-    smart = presentation.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.ORGANIZATION_CHART)
-    # 組織図タイプを取得または設定する 
-    smart.nodes[0].organization_chart_layout = art.OrganizationChartLayoutType.LEFT_HANGING
-    # プレゼンテーションを保存
-    presentation.save("OrganizeChartLayoutType_out.pptx", slides.export.SaveFormat.PPTX)
+    slide = presentation.slides[0]
+
+    # ORGANIZATION_CHART レイアウトで SmartArt シェイプを追加します。
+    smart = slide.shapes.add_smart_art(10, 10, 400, 300, smartart.SmartArtLayoutType.ORGANIZATION_CHART)
+
+    # 組織図のタイプを設定します。
+    smart.nodes[0].organization_chart_layout = smartart.OrganizationChartLayoutType.LEFT_HANGING
+
+    # プレゼンテーションを保存します。
+    presentation.save("OrganizationChartLayout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **画像組織図の作成**
 
+Aspose.Slides for Python は、画像組織図を簡単に作成できるシンプルな API を提供します。スライドにチャートを作成するには：
 
-## **画像組織図を作成する**
-Aspose.Slides for Python via .NETは、簡単に画像組織図を作成できるシンプルなAPIを提供します。スライドにチャートを作成するには：
-
-1. `Presentation`クラスのインスタンスを作成します。
-1. インデックスでスライドの参照を取得します。
-1. 希望するタイプ（ChartType.PictureOrganizationChart）でデフォルトデータを持つチャートを追加します。
-1. 変更されたプレゼンテーションをPPTXファイルとして保存します。
-
-以下のコードは、チャートを作成するために使用されます。
-
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでスライドへの参照を取得します。
+1. 必要なタイプのデフォルト データでチャートを追加します。
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
-with slides.Presentation() as pres:
-    smartArt = pres.slides[0].shapes.add_smart_art(0, 0, 400, 400, art.SmartArtLayoutType.PICTURE_ORGANIZATION_CHART)
-    pres.save("OrganizationChart.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    smart_art = slide.shapes.add_smart_art(0, 0, 400, 400, smartart.SmartArtLayoutType.PICTURE_ORGANIZATION_CHART)
+    
+    presentation.save("OrganizationChart.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**SmartArt は RTL 言語向けのミラーリング/反転をサポートしていますか？**
+
+はい。選択した SmartArt タイプが反転に対応している場合、[is_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/is_reversed/) プロパティで図の方向（LTR/RTL）を切り替えることができます。
+
+**SmartArt を同じスライドまたは別のプレゼンテーションにコピーし、書式を保持するにはどうすればよいですか？**
+
+[clone the SmartArt shape](/slides/ja/python-net/shape-manipulations/) をシェイプ コレクション（[ShapeCollection.add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_clone/)）経由で、またはこのシェイプを含むスライド全体を[clone the entire slide](/slides/ja/python-net/clone-slides/) でクローンできます。どちらの方法もサイズ、位置、スタイリングを保持します。
+
+**SmartArt をプレビューやウェブエクスポート用のラスター画像としてレンダリングするには？**
+
+[Render the slide](/slides/ja/python-net/convert-powerpoint-to-png/)（またはプレゼンテーション全体）を PNG/JPEG に変換する API を使用してスライドやプレゼンテーションを画像に変換します。SmartArt はスライドの一部として描画されます。
+
+**スライドに複数の SmartArt がある場合、特定の SmartArt をプログラムで選択するにはどうすればよいですか？**
+
+一般的な方法は、[alternative text](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/alternative_text/)（Alt Text）または[name](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/name/) を使用し、[Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) 内でその属性でシェイプを検索し、タイプが [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/) であることを確認します。ドキュメントにはシェイプの検索と操作に関する典型的な手法が記載されています。

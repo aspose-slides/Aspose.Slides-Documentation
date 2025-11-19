@@ -10,18 +10,18 @@ keywords:
 - cx_Freeze
 - Python
 - Aspose.Slides
-description: "Emballez Aspose.Slides for Python via .NET avec PyInstaller. Suivez ce guide pour regrouper, configurer et dépanner votre application dans un exécutable autonome."
+description: "Emballez Aspose.Slides for Python via .NET avec PyInstaller. Suivez ce guide pour regrouper, configurer et dépanner votre application en un exécutable autonome."
 ---
 
+## **Compatibilité avec PyInstaller et cx_Freeze**
 
-## Compatibilité avec PyInstaller et cx_Freeze ##
+Aspose.Slides for Python via .NET extensions sont des extensions C Python standard, elles peuvent donc être gelées comme dependances de programme avec des outils comme PyInstaller et cx_Freeze (ou similaires). Cela vous permet de creer des fichiers executables a partir de vos scripts Python. Ces outils sont appeles "freezers" parce qu ils regroupent votre code et ses dependances dans un seul fichier distribuable qui s execute sur d autres machines sans requerir d installation de Python ou de bibliotheques supplementaires. Cette approche simplifie la distribution de vos applications Python.
 
-Les extensions 'Aspose.Slides pour Python via .NET' sont simplement des extensions C pour Python, qui peuvent être gelées avec l'aide de PyInstaller et cx_Freeze (ou d'outils similaires) en tant que dépendances de programme. Cela signifie que vous pouvez utiliser des outils comme PyInstaller et cx_Freeze pour créer des fichiers exécutables à partir de vos scripts Python. Ces outils sont appelés "freezers" car ils gèlent votre code et vos dépendances dans un seul fichier qui peut être exécuté sur d'autres machines sans nécessiter Python ou d'autres bibliothèques. Cela facilite la distribution de vos applications Python à d'autres.
+Le gel d une extension Aspose.Slides for Python via .NET en tant que dependance est illustre ci-dessous avec un programme simple qui utilise Aspose.Slides.
 
-Geler une extension 'Aspose.Slides pour Python via .NET' en tant que dépendance de programme est illustré par un exemple d'un programme simple qui utilise Aspose.Slides.
+### **PyInstaller**
 
-### PyInstaller
-En général, rien de spécial n'a besoin d'être fait lors de l'emballage d'un programme qui dépend d'une extension 'Aspose.Slides pour Python via .NET'. Lorsque qu'un programme importe une extension d'une manière visible par PyInstaller, l'extension sera emballée avec le programme. Étant donné que les extensions 'Aspose.Slides pour Python via .NET' viennent avec des hooks PyInstaller, leurs propres dépendances seront trouvées et copiées dans le bundle.
+En general, rien de special n est requis lors de l empaquetage d un programme qui depend d une extension Aspose.Slides for Python via .NET. Lorsqu un programme importe l extension de maniere visible pour PyInstaller, l extension sera integree au programme. Comme Aspose.Slides for Python via .NET inclut des hooks PyInstaller, ses dependances sont detectees automatiquement et copiees dans le paquet.
 
 slide_app.py:
 ```python
@@ -30,14 +30,15 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     slide.shapes.add_auto_shape(slides.ShapeType.LINE, 50.0, 150.0, 300.0, 0.0)
-    presentation.save("NewPresentation_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("NewPresentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-```
+```bash
 $ pyinstaller slide_app.py
 ```
 
-Cependant, parfois PyInstaller ne peut pas détecter certaines importations cachées, qui sont des modules importés dynamiquement ou indirectement par votre code. Pour gérer une importation cachée dans PyInstaller, utilisez les options de PyInstaller. Les dépendances d'une extension sont spécifiées dans les hooks PyInstaller qui viennent avec l'extension 'Aspose.Slides pour Python via .NET'.
+
+Cependant, PyInstaller peut parfois manquer des importations cachees - des modules importes dynamiquement ou indirectement par votre code. Pour inclure une importation cachee, utilisez les options de PyInstaller. Les dependances de l extension sont specifiees dans les hooks PyInstaller fournis avec Aspose.Slides for Python via .NET.
 
 slide_app.spec:
 ```
@@ -48,19 +49,23 @@ a = Analysis(
 )
 ```
 
-```
+```bash
 $ pyinstaller slide_app.spec
 ```
 
-### cx_Freeze ###
-Pour geler un programme en utilisant cx_Freeze, utilisez ses options pour geler le package racine de l'extension 'Aspose.Slides pour Python via .NET' que vous utilisez. Cela garantira que l'extension et les modules dont elle dépend sont copiés avec le programme.
 
-#### Utilisation du script cxfreeze ####
-```
+### **cx_Freeze**
+
+Pour geler un programme avec cx_Freeze, configurez-le afin d inclure le package racine de l extension Aspose.Slides for Python via .NET que vous utilisez. Cela garantit que l extension et tous les modules dependants sont copies dans la construction avec votre application.
+
+#### **Using the cxfreeze Script**
+```bash
 $ cxfreeze slide_app.py --packages=aspose
 ```
 
-#### Utilisation du script Setup ####
+
+#### **Using the Setup Script**
+
 setup.py:
 ```
 executables = [Executable('slide_app.py')]
@@ -74,10 +79,23 @@ options = {
 setup(...
     options=options,
     executables=executables)
-
 ```
 
-
-```
+```bash
 $ python setup.py build_exe
 ```
+
+
+## **FAQ**
+
+**Ai-je besoin de Microsoft PowerPoint ou de .NET installe sur la machine de l'utilisateur ?**
+
+Non, PowerPoint n est pas requis. Aspose.Slides est un moteur autonome ; le package Python fournit tout le necessaire sous forme d une extension pour CPython. L utilisateur n a pas besoin d installer .NET separement.
+
+**Comment dois-je correctement attacher la licence a une application gelee ?**
+
+Vous pouvez placer le fichier XML de licence a cote de l executable ou l integrer en tant que ressource et le charger a partir d un chemin accessible avant le premier appel API. Important: ne modifiez pas le contenu du XML (pas meme les sauts de ligne).
+
+**Que faire si les polices s affichent différemment apres la construction par rapport au developpement ?**
+
+Assurez-vous que les polices que vous utilisez sont disponibles dans l environnement cible (integrees ou installees system) et que leurs chemins sont correctement resolus a l execution; le comportement des polices est particulierement sensible sous Linux.

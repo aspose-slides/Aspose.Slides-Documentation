@@ -1,386 +1,504 @@
 ---
-title: تنسيق الأشكال
+title: تنسيق أشكال PowerPoint في Python
+linktitle: تنسيق الشكل
 type: docs
 weight: 20
 url: /ar/python-net/shape-formatting/
-keywords: "تنسيق الشكل، تنسيق الخطوط، تنسيق أنماط الانضمام، تعبئة متدرج، تعبئة نمطية، تعبئة صورة، تعبئة بلون صلب، تدوير الأشكال، تأثيرات حواف ثلاثية الأبعاد، تأثير دوران ثلاثي الأبعاد، عرض تقديمي PowerPoint، بايثون، Aspose.Slides لـ Python عبر .NET"
-description: "تنسيق شكل في عرض تقديمي PowerPoint باستخدام بايثون"
+keywords:
+- تنسيق الشكل
+- تنسيق الخط
+- تنسيق نمط الانضمام
+- تعبئة تدرجية
+- تعبئة بنمط
+- تعبئة صورة
+- تعبئة نسيجية
+- تعبئة بلون صلب
+- شفافية الشكل
+- دوران الشكل
+- تأثير حافة ثلاثية الأبعاد
+- تأثير دوران ثلاثي الأبعاد
+- إعادة ضبط التنسيق
+- PowerPoint
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "تعرف على كيفية تنسيق أشكال PowerPoint في Python باستخدام Aspose.Slides—اضبط أنماط الملء والخط والتأثير لملفات PPT و PPTX و ODP بدقة وتحكم كامل."
 ---
 
-في PowerPoint، يمكنك إضافة أشكال إلى الشرائح. نظرًا لأن الأشكال تتكون من خطوط، يمكنك تنسيق الأشكال عن طريق تعديل أو تطبيق تأثيرات معينة على خطوطها المكونة. بالإضافة إلى ذلك، يمكنك تنسيق الأشكال من خلال تحديد الإعدادات التي تحدد كيفية تعبئة المنطقة داخلها.
+## **نظرة عامة**
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+في PowerPoint، يمكنك إضافة أشكال إلى الشرائح. بما أن الأشكال مكوّنة من خطوط، يمكنك تنسيقها عن طريق تعديل أو تطبيق تأثيرات على حدودها. بالإضافة إلى ذلك، يمكنك تنسيق الأشكال بتحديد إعدادات تتحكم في كيفية ملء داخلياتها.
 
-**Aspose.Slides لـ Python عبر .NET** يوفر واجهات وخصائص تسمح لك بتنسيق الأشكال استنادًا إلى الخيارات المعروفة في PowerPoint.
+![تنسيق الشكل في PowerPoint](format-shape-powerpoint.png)
+
+توفر Aspose.Slides for Python فئات وخصائص تسمح لك بتنسيق الأشكال باستخدام نفس الخيارات المتاحة في PowerPoint.
 
 ## **تنسيق الخطوط**
 
-باستخدام Aspose.Slides، يمكنك تحديد نمط الخط المفضل لديك لشكل. توضح هذه الخطوات إجراءً من هذا القبيل:
+باستخدام Aspose.Slides، يمكنك تحديد نمط خط مخصص لشكل. توضح الخطوات التالية الإجراء:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) إلى الشريحة.
-4. تعيين لون لخطوط الشكل.
-5. تعيين العرض لخطوط الشكل.
-6. تعيين [نمط الخط](https://reference.aspose.com/slides/python-net/aspose.slides/linestyle/) لخط الشكل.
-7. تعيين [نمط الخط المتقطع](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) لخط الشكل.
-8. كتابة العرض التقديمي المعدل كملف PPTX.
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة حسب فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) إلى الشريحة.
+1. ضبط [line style](https://reference.aspose.com/slides/python-net/aspose.slides/linestyle/) للشكل.
+1. ضبط عرض الخط.
+1. ضبط [dash style](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) للشكل.
+1. ضبط لون الخط للشكل.
+1. حفظ العرض المعدل كملف PPTX.
 
-توضح هذه الشيفرة البرمجية باستخدام بايثون عملية قمنا فيها بتنسيق مستطيل `AutoShape`:
-
+يوضح كود Python التالي كيفية تنسيق `AutoShape` مستطيل:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# ينشئ مثيلًا من فئة Prseetation تمثل ملف PPTX
-with slides.Presentation() as pres:
-    # يحصل على الشريحة الأولى
-    sld = pres.slides[0]
+# إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+with slides.Presentation() as presentation:
 
-    # يضيف شكل مستطيل تلقائي
-    shp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 150, 75)
+    # الحصول على الشريحة الأولى.
+    slide = presentation.slides[0]
 
-    # يحدد لون تعبئة شكل المستطيل
-    shp.fill_format.fill_type = slides.FillType.SOLID
-    shp.fill_format.solid_fill_color.color = draw.Color.white
+    # إضافة شكل تلقائي من نوع Rectangle.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 150, 75)
 
-    # يطبق بعض التنسيقات على خطوط المستطيل
-    shp.line_format.style = slides.LineStyle.THICK_THIN
-    shp.line_format.width = 7
-    shp.line_format.dash_style = slides.LineDashStyle.DASH
+    # ضبط لون التعبئة لشكل المستطيل.
+    shape.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # يحدد اللون لخط المستطيل
-    shp.line_format.fill_format.fill_type = slides.FillType.SOLID
-    shp.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+    # تطبيق التنسيق على خطوط المستطيل.
+    shape.line_format.style = slides.LineStyle.THICK_THIN
+    shape.line_format.width = 7
+    shape.line_format.dash_style = slides.LineDashStyle.DASH
 
-    # يكتب ملف PPTX إلى القرص
-    pres.save("RectShpLn_out-1.pptx", slides.export.SaveFormat.PPTX)
+    # ضبط لون خط المستطيل.
+    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shape.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+
+    # حفظ ملف PPTX على القرص.
+    presentation.save("formatted_lines.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+النتيجة:
+
+![الخطوط المنسقة في العرض](formatted-lines.png)
 
 ## **تنسيق أنماط الانضمام**
 
-هذه هي 3 خيارات لأنماط الانضمام:
+إليك خيارات ثلاثة لأنواع الانضمام:
 
-* دائري
-* مائل
-* حافة
+* Round
+* Miter
+* Bevel
 
-بشكل افتراضي، عندما ينضم PowerPoint إلى خطين بزاوية (أو زاوية شكل)، فإنه يستخدم إعداد **دائري**. ومع ذلك، إذا كنت ترغب في رسم شكل بزوايا حادة جدًا، فقد ترغب في اختيار **مائل**.
+افتراضيًا، عندما يقوم PowerPoint بضم خطين بزاوية (مثل زاوية الشكل)، يستخدم إعداد **Round**. ومع ذلك، إذا كنت ترسم شكلًا بزوايا حادة، قد تفضّل خيار **Miter**.
 
-![join-style-powerpoint](join-style-powerpoint.png)
+![نمط الانضمام في العرض](join-style-powerpoint.png)
 
-توضح هذه الشيفرة البرمجية باستخدام بايثون عملية تم فيها إنشاء 3 مستطيلات (الصورة أعلاه) باستخدام إعدادات أنماط الانضمام مائل، حافة، ودائري:
-
+يوضح كود Python التالي كيفية إنشاء ثلاثة مستطيلات (كما هو موضح في الصورة أعلاه) باستخدام إعدادات الانضمام Miter وBevel وRound:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# ينشئ مثيلًا من فئة Prseetation تمثل ملف PPTX
-with slides.Presentation() as pres:
-	# يحصل على الشريحة الأولى
-	sld = pres.slides[0]
+# إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+with slides.Presentation() as presentation:
 
-	# يضيف 3 أشكال مستطيلة تلقائية
-	shp1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 100, 150, 75)
-	shp2 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 100, 150, 75)
-	shp3 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 250, 150, 75)
+	# الحصول على الشريحة الأولى.
+	slide = presentation.slides[0]
 
-	# يحدد لون تعبئة شكل المستطيل
-	shp1.fill_format.fill_type = slides.FillType.SOLID
-	shp1.fill_format.solid_fill_color.color = draw.Color.black
-	shp2.fill_format.fill_type = slides.FillType.SOLID
-	shp2.fill_format.solid_fill_color.color = draw.Color.black
-	shp3.fill_format.fill_type = slides.FillType.SOLID
-	shp3.fill_format.solid_fill_color.color = draw.Color.black
+	# إضافة ثلاثة أشكال تلقائية من نوع Rectangle.
+	shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 75)
+	shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 210, 20, 150, 75)
+	shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 135, 150, 75)
 
-	# يحدد عرض الخط
-	shp1.line_format.width = 15
-	shp2.line_format.width = 15
-	shp3.line_format.width = 15
+	# ضبط لون التعبئة لكل شكل مستطيل.
+	shape1.fill_format.fill_type = slides.FillType.SOLID
+	shape1.fill_format.solid_fill_color.color = draw.Color.black
+	shape2.fill_format.fill_type = slides.FillType.SOLID
+	shape2.fill_format.solid_fill_color.color = draw.Color.black
+	shape3.fill_format.fill_type = slides.FillType.SOLID
+	shape3.fill_format.solid_fill_color.color = draw.Color.black
 
-	# يحدد اللون لخط المستطيل
-	shp1.line_format.fill_format.fill_type = slides.FillType.SOLID
-	shp1.line_format.fill_format.solid_fill_color.color = draw.Color.blue
-	shp2.line_format.fill_format.fill_type = slides.FillType.SOLID
-	shp2.line_format.fill_format.solid_fill_color.color = draw.Color.blue
-	shp3.line_format.fill_format.fill_type = slides.FillType.SOLID
-	shp3.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+	# ضبط عرض الخط.
+	shape1.line_format.width = 15
+	shape2.line_format.width = 15
+	shape3.line_format.width = 15
 
-	# يحدد نمط الانضمام
-	shp1.line_format.join_style = slides.LineJoinStyle.MITER
-	shp2.line_format.join_style = slides.LineJoinStyle.BEVEL
-	shp3.line_format.join_style = slides.LineJoinStyle.ROUND
+	# ضبط لون خط كل مستطيل.
+	shape1.line_format.fill_format.fill_type = slides.FillType.SOLID
+	shape1.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+	shape2.line_format.fill_format.fill_type = slides.FillType.SOLID
+	shape2.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+	shape3.line_format.fill_format.fill_type = slides.FillType.SOLID
+	shape3.line_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-	# يضيف نصًا إلى كل مستطيل
-	shp1.text_frame.text = "هذا هو نمط الانضمام مائل"
-	shp2.text_frame.text = "هذا هو نمط الانضمام حافة"
-	shp3.text_frame.text = "هذا هو نمط الانضمام دائري"
+	# ضبط نمط الانضمام.
+	shape1.line_format.join_style = slides.LineJoinStyle.MITER
+	shape2.line_format.join_style = slides.LineJoinStyle.BEVEL
+	shape3.line_format.join_style = slides.LineJoinStyle.ROUND
 
-	# يكتب ملف PPTX إلى القرص
-	pres.save("RectShpLnJoin_out-2.pptx", slides.export.SaveFormat.PPTX)
+	# إضافة نص إلى كل مستطيل.
+	shape1.text_frame.text = "Miter Join style"
+	shape2.text_frame.text = "Bevel Join style"
+	shape3.text_frame.text = "Round Join style"
+
+	# حفظ ملف PPTX على القرص.
+	presentation.save("join_styles.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **تعبئة متدرجة**
-في PowerPoint، تعبئة متدرجة هي خيار تنسيق يسمح لك بتطبيق مزيج مستمر من الألوان على شكل. على سبيل المثال، يمكنك تطبيق لونين أو أكثر في إعداد حيث يتلاشى لون واحد ببطء ويتحول إلى لون آخر.
+## **تعبئة تدرجية**
 
-هذه هي الطريقة التي تستخدم بها Aspose.Slides لتطبيق تعبئة متدرجة على شكل:
+في PowerPoint، تعبئة تدرجية هي خيار تنسيق يسمح لك بتطبيق تدرج مستمر من الألوان على شكل. على سبيل المثال، يمكنك تطبيق لونين أو أكثر بطريقة يتلاشى فيها أحدهما تدريجيًا إلى الآخر.
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) إلى الشريحة.
-4. تعيين [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) للشكل إلى `متدرج`.
-5. إضافة لونين مفضلين لديك مع المواقع المحددة باستخدام طرق `Add` المعروفة من مجموعة `GradientStops` المرتبطة بفئة `GradientFormat`.
-6. كتابة العرض التقديمي المعدل كملف PPTX.
+إليك كيفية تطبيق تعبئة تدرجية على شكل باستخدام Aspose.Slides:
 
-توضح هذه الشيفرة البرمجية باستخدام بايثون عملية تم فيها استخدام تأثير التعبئة المتدرجة على شكل بيضاوي:
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة حسب فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) إلى الشريحة.
+1. ضبط [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) الخاص بالشكل إلى `GRADIENT`.
+1. إضافة لونين مفضلين مع مواقع محددة باستخدام أساليب `add` لمجموعة `gradient_stops` التي يوفرها فئة [GradientFormat](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/) .
+1. حفظ العرض المعدل كملف PPTX.
 
+يوضح كود Python التالي كيفية تطبيق تأثير تعبئة تدرجية على شكل بيضاوي:
+```python
+import aspose.slides as slides
+
+# إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+with slides.Presentation() as presentation:
+
+    # الحصول على الشريحة الأولى.
+    slide = presentation.slides[0]
+
+    # إضافة شكل تلقائي من نوع Ellipse.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 150, 75)
+
+    # تطبيق تنسيق التدرج على الشكل البيضاوي.
+    shape.fill_format.fill_type = slides.FillType.GRADIENT
+    shape.fill_format.gradient_format.gradient_shape = slides.GradientShape.LINEAR
+
+    # ضبط اتجاه التدرج.
+    shape.fill_format.gradient_format.gradient_direction = slides.GradientDirection.FROM_CORNER2
+
+    # إضافة نقطتي توقف للتدرج.
+    shape.fill_format.gradient_format.gradient_stops.add(1.0, slides.PresetColor.PURPLE)
+    shape.fill_format.gradient_format.gradient_stops.add(0, slides.PresetColor.RED)
+
+    # حفظ ملف PPTX على القرص.
+    presentation.save("gradient_fill.pptx", slides.export.SaveFormat.PPTX)
+```
+
+
+النتيجة:
+
+![البيضاوي مع تعبئة تدرجية](gradient-fill.png)
+
+## **تعبئة بنمط**
+
+في PowerPoint، تعبئة بنمط هي خيار تنسيق يتيح لك تطبيق تصميم ثنائي اللون—مثل النقاط أو الخطوط أو الخطوط المتقاطعة أو المربعات—على شكل. يمكنك اختيار ألوان مخصصة لخلفية النمط ومقدمه.
+
+توفر Aspose.Slides أكثر من 45 نمطًا مسبقًا يمكنك تطبيقه على الأشكال لتحسين الجاذبية البصرية لعروضك التقديمية. حتى بعد اختيار نمط مسبق، يمكنكstill تحديد الألوان الدقيقة التي يجب عليه استخدامها.
+
+إليك كيفية تطبيق تعبئة بنمط على شكل باستخدام Aspose.Slides:
+
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة حسب فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) إلى الشريحة.
+1. ضبط [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) الخاص بالشكل إلى `PATTERN`.
+1. اختيار نمط نمط من الخيارات المسبقة.
+1. ضبط [back_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/back_color/) للنمط.
+1. ضبط [fore_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/fore_color/) للنمط.
+1. حفظ العرض المعدل كملف PPTX.
+
+يوضح كود Python التالي كيفية تطبيق تعبئة بنمط على مستطيل:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# ينشئ مثيلًا من فئة Presentation تمثل ملف عرض تقديمي
-with slides.Presentation() as pres:
-    # يحصل على الشريحة الأولى
-    sld = pres.slides[0]
+# إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+with slides.Presentation() as presentation:
 
-    # يضيف شكل بيضاوي تلقائي
-    shp = sld.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 150, 75, 150)
+    # الحصول على الشريحة الأولى.
+    slide = presentation.slides[0]
 
-    # يطبق تنسيق متدرج على الشكل البيضاوي
-    shp.fill_format.fill_type = slides.FillType.GRADIENT
-    shp.fill_format.gradient_format.gradient_shape = slides.GradientShape.LINEAR
+    # إضافة شكل تلقائي من نوع Rectangle.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 75)
 
-    # يحدد اتجاه التدرج
-    shp.fill_format.gradient_format.gradient_direction = slides.GradientDirection.FROM_CORNER2
+    # ضبط نوع التعبئة إلى Pattern.
+    shape.fill_format.fill_type = slides.FillType.PATTERN
 
-    # يضيف 2 من توقفات التدرج
-    shp.fill_format.gradient_format.gradient_stops.add(1.0, slides.PresetColor.PURPLE)
-    shp.fill_format.gradient_format.gradient_stops.add(0, slides.PresetColor.RED)
+    # ضبط نمط النمط.
+    shape.fill_format.pattern_format.pattern_style = slides.PatternStyle.TRELLIS
 
-    # يكتب ملف PPTX إلى القرص
-    pres.save("EllipseShpGrad_out-3.pptx", slides.export.SaveFormat.PPTX)
+    # ضبط ألوان الخلفية ومقدمة النمط.
+    shape.fill_format.pattern_format.back_color.color = draw.Color.light_gray
+    shape.fill_format.pattern_format.fore_color.color = draw.Color.yellow
+
+    # حفظ ملف PPTX على القرص.
+    presentation.save("pattern_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **تعبئة نمطية**
-في PowerPoint، تعبئة نمطية هي خيار تنسيق يسمح لك بتطبيق تصميم ثنائي اللون يتكون من نقاط، خطوط، أو مربعات على شكل. بالإضافة إلى ذلك، يمكنك اختيار الألوان المفضلة لديك للخلفية والألوان الأمامية للنمط.
+النتيجة:
 
-تقدم Aspose.Slides أكثر من 45 نمطًا محددًا مسبقًا يمكن استخدامها لتنسيق الأشكال وتزيين العروض التقديمية. حتى بعد اختيار نمط نمطي محدد مسبقًا، يمكنكstill تحديد الألوان التي يجب أن يحتويها النمط.
-
-هذه هي الطريقة التي تستخدم بها Aspose.Slides لتطبيق تعبئة نمطية على شكل:
-
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) إلى الشريحة.
-4. تعيين [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) للشكل إلى `نمط`.
-5. تعيين نمط التعبئة المفضل لديك للشكل.
-6. تعيين لون الخلفية لـ [PatternFormat](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/).
-7. تعيين لون المقدمة لـ [PatternFormat](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/).
-8. كتابة العرض التقديمي المعدل كملف PPTX.
-
-توضح هذه الشيفرة البرمجية باستخدام بايثون عملية تم فيها استخدام تعبئة نمطية لتزين مستطيل:
-
-```python
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# ينشئ مثيلًا من فئة Presentation تمثل ملف عرض تقديمي
-with slides.Presentation() as pres:
-    # يحصل على الشريحة الأولى
-    sld = pres.slides[0]
-
-    # يضيف شكل مستطيل تلقائي
-    shp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 75, 150)
-
-    # يحدد نوع التعبئة إلى نمط
-    shp.fill_format.fill_type = slides.FillType.PATTERN
-
-    # يحدد نمط التعبئة
-    shp.fill_format.pattern_format.pattern_style = slides.PatternStyle.TRELLIS
-
-    # يحدد لون الخلفية والألوان الأمامية للنمط
-    shp.fill_format.pattern_format.back_color.color = draw.Color.light_gray
-    shp.fill_format.pattern_format.fore_color.color = draw.Color.yellow
-
-    # يكتب ملف PPTX إلى القرص
-    pres.save("RectShpPatt_out-4.pptx", slides.export.SaveFormat.PPTX)
-```
-
+![المستطيل مع تعبئة بنمط](pattern-fill.png)
 
 ## **تعبئة صورة**
-في PowerPoint، تعبئة الصورة هي خيار تنسيق يسمح لك بوضع صورة داخل شكل. بشكل أساسي، يمكنك استخدام صورة كخلفية للشكل.
 
-هذه هي الطريقة التي تستخدم بها Aspose.Slides لتعبئة شكل بصورة:
+في PowerPoint، تعبئة صورة هي خيار تنسيق يسمح لك بإدراج صورة داخل شكل—بفعالية استخدام الصورة كخلفية للشكل.
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) إلى الشريحة.
-4. تعيين [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) للشكل إلى `صورة`.
-5. تعيين وضع تعبئة الصورة إلى البلاط.
-6. إنشاء كائن `IPPImage` باستخدام الصورة التي ستستخدم لتعبئة الشكل.
-7. تعيين خاصية `Picture.Image` لكائن `PictureFillFormat` إلى `IPPImage` الذي تم إنشاؤه مؤخرًا.
-8. كتابة العرض التقديمي المعدل كملف PPTX.
+إليك كيفية استخدام Aspose.Slides لتطبيق تعبئة صورة على شكل:
 
-توضح هذه الشيفرة البرمجية كيفية تعبئة شكل بصورة:
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة حسب فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) إلى الشريحة.
+1. ضبط [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) الخاص بالشكل إلى `PICTURE`.
+1. ضبط وضعية تعبئة الصورة إلى `TILE` (أو وضعية مفضلة أخرى).
+1. إنشاء كائن [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) من الصورة التي تريد استخدامها.
+1. تعيين هذه الصورة إلى الخاصية `picture.image` لتنسيق `picture_fill_format` الخاص بالشكل.
+1. حفظ العرض المعدل كملف PPTX.
 
+لنفترض أن لدينا ملف "lotus.png" بالصورة التالية:
+
+![صورة اللوتس](lotus.png)
+
+يوضح كود Python التالي كيفية تعبئة شكل بالصورة:
 ```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
-# ينشئ مثيلًا من فئة Prseetation تمثل ملف PPTX
-with slides.Presentation() as pres:
-    # يحصل على الشريحة الأولى
-    sld = pres.slides[0]
+# إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+with slides.Presentation() as presentation:
 
-    # يضيف شكل مستطيل تلقائي
-    shp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 75, 150)
+    # الحصول على الشريحة الأولى.
+    slide = presentation.slides[0]
 
+    # إضافة شكل تلقائي من نوع Rectangle.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 192, 95)
 
-    # يحدد نوع التعبئة إلى صورة
-    shp.fill_format.fill_type = slides.FillType.PICTURE
+    # ضبط نوع التعبئة إلى Picture.
+    shape.fill_format.fill_type = slides.FillType.PICTURE
 
-    # يحدد وضع تعبئة الصورة
-    shp.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.TILE
+    # ضبط وضع تعبئة الصورة.
+    shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.TILE
 
-    # يحدد الصورة
-    img = draw.Bitmap(path + "Tulips.jpg")
-    imgx = pres.images.add_image(img)
-    shp.fill_format.picture_fill_format.picture.image = imgx
+    # تحميل صورة وإضافتها إلى موارد العرض التقديمي.
+    with slides.Images.from_file("lotus.png") as image:
+        presentation_image = presentation.images.add_image(image)
 
-    # يكتب ملف PPTX إلى القرص
-    pres.save("RectShpPic_out-5.pptx", slides.export.SaveFormat.PPTX)
+    # ضبط الصورة.
+    shape.fill_format.picture_fill_format.picture.image = presentation_image
+
+    # حفظ ملف PPTX على القرص.
+    presentation.save("picture_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+
+النتيجة:
+
+![الشكل مع تعبئة صورة](picture-fill.png)
+
+### **تبطين الصورة كقوام**
+
+إذا كنت تريد تعيين صورة مكررة كقوام وتخصيص سلوك التبليط، يمكنك استخدام الخصائص التالية لفئة [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) :
+
+- [picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/) : يحدد وضعية تعبئة الصورة—إما `TILE` أو `STRETCH`.
+- [tile_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_alignment/) : يحدد محاذاة البلاط داخل الشكل.
+- [tile_flip](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_flip/) : يتحكم في ما إذا كان البلاط يُقلب أفقياً أو رأسياً أو كلاهما.
+- [tile_offset_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_x/) : يحدد إزاحة البلاط أفقياً (بنقاط) من أصل الشكل.
+- [tile_offset_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_y/) : يحدد إزاحة البلاط رأسياً (بنقاط) من أصل الشكل.
+- [tile_scale_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_x/) : يعرّف مقياس البلاط الأفقي كنسبة مئوية.
+- [tile_scale_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_y/) : يعرّف مقياس البلاط الرأسي كنسبة مئوية.
+
+يوضح مثال الكود التالي كيفية إضافة شكل مستطيل بتعبئة صورة مكررة وتكوين خيارات البلاط:
+```py
+import aspose.slides as slides
+
+# إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+with slides.Presentation() as presentation:
+
+    # الحصول على الشريحة الأولى.
+    first_slide = presentation.slides[0]
+
+    # إضافة شكل تلقائي من نوع Rectangle.
+    shape = first_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 190, 95)
+
+    # ضبط نوع التعبئة للشكل إلى Picture.
+    shape.fill_format.fill_type = slides.FillType.PICTURE
+
+    # تحميل الصورة وإضافتها إلى موارد العرض التقديمي.
+    with slides.Images.from_file("lotus.png") as source_image:
+        presentation_image = presentation.images.add_image(source_image)
+
+    # تعيين الصورة إلى الشكل.
+    picture_fill_format = shape.fill_format.picture_fill_format
+    picture_fill_format.picture.image = presentation_image
+
+    # تكوين وضع تعبئة الصورة وخصائص البلاط.
+    picture_fill_format.picture_fill_mode = slides.PictureFillMode.TILE
+    picture_fill_format.tile_offset_x = -32
+    picture_fill_format.tile_offset_y = -32
+    picture_fill_format.tile_scale_x = 50
+    picture_fill_format.tile_scale_y = 50
+    picture_fill_format.tile_alignment = slides.RectangleAlignment.BOTTOM_RIGHT
+    picture_fill_format.tile_flip = slides.TileFlip.FLIP_BOTH
+
+    # حفظ ملف PPTX على القرص.
+    presentation.save("tile.pptx", slides.export.SaveFormat.PPTX)
+```
+
+
+النتيجة:
+
+![خيارات البلاط](tile-options.png)
 
 ## **تعبئة بلون صلب**
-في PowerPoint، تعبئة بلون صلب هي خيار تنسيق يسمح لك بملء شكل بلون واحد. اللون المختار يكون عادةً لونًا عاديًا. يتم تطبيق اللون على خلفية الشكل مع أي تأثيرات خاصة أو تعديلات.
 
-هذه هي الطريقة التي تستخدم بها Aspose.Slides لتطبيق تعبئة بلون صلب على شكل:
+في PowerPoint، تعبئة بلون صلب هي خيار تنسيق يملأ الشكل بلون موحد واحد. يُطبق هذا اللون الخلفي البسيط دون أي تدرجات أو قوام أو أنماط.
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) إلى الشريحة.
-4. تعيين [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) للشكل إلى `صلب`.
-5. تعيين اللون المفضل لديك للشكل.
-6. كتابة العرض التقديمي المعدل كملف PPTX.
+لتطبيق تعبئة بلون صلب على شكل باستخدام Aspose.Slides، اتبع الخطوات التالية:
 
-توضح هذه الشيفرة البرمجية كيفية تطبيق تعبئة بلون صلب على مربع في PowerPoint:
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة حسب فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) إلى الشريحة.
+1. ضبط [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) الخاص بالشكل إلى `SOLID`.
+1. تعيين اللون المفضل للتعبئة إلى الشكل.
+1. حفظ العرض المعدل كملف PPTX.
 
+يوضح كود Python التالي كيفية تطبيق تعبئة بلون صلب على مستطيل في شريحة PowerPoint:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
+# إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
 with slides.Presentation() as presentation:
 
-    # يحصل على الشريحة الأولى
+    # الحصول على الشريحة الأولى.
     slide = presentation.slides[0]
 
-    # يضيف شكل مستطيل تلقائي
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 75, 150)
+    # إضافة شكل تلقائي من نوع Rectangle.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 75)
 
-    # يحدد نوع التعبئة إلى صلب
+    # ضبط نوع التعبئة إلى Solid.
     shape.fill_format.fill_type = slides.FillType.SOLID
 
-    # يحدد اللون للمستطيل
+    # ضبط لون التعبئة.
     shape.fill_format.solid_fill_color.color = draw.Color.yellow
 
-    # يكتب ملف PPTX إلى القرص
-    presentation.save("RectShpSolid_out-6.pptx", slides.export.SaveFormat.PPTX)
+    # حفظ ملف PPTX على القرص.
+    presentation.save("solid_color_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تحديد الشفافية**
 
-في PowerPoint، عندما تقوم بملء الأشكال بألوان صلبة، أو متدرجة، أو صور، أو نسيج، يمكنك تحديد مستوى الشفافية الذي يحدد شفافية التعبئة. بهذه الطريقة، على سبيل المثال، إذا قمت بتعيين مستوى شفافية منخفض، سيظهر عنصر الشريحة أو الخلفية خلف الشكل.
+النتيجة:
 
-يسمح لك Aspose.Slides بتعيين مستوى الشفافية لشكل بهذه الطريقة:
+![الشكل مع تعبئة بلون صلب](solid-color-fill.png)
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) إلى الشريحة.
-4. استخدام `Color.FromArgb` مع قيمة المكون ألفا محددة.
-5. حفظ الكائن كملف PowerPoint.
+## **تعيين الشفافية**
 
-توضح هذه الشيفرة البرمجية عملية:
+في PowerPoint، عندما تطبق لونًا صلبًا أو تدرجًا أو صورة أو تعبئة قوام على الأشكال، يمكنك أيضًا تعيين مستوى شفافية للتحكم في عتامة التعبئة. قيمة شفافية أعلى تجعل الشكل أكثر شفافية، مما يسمح للخلفية أو الكائنات الأساسية بأن تكون مرئية جزئيًا.
 
+تتيح لك Aspose.Slides تعيين مستوى الشفافية عن طريق ضبط قيمة ألفا في اللون المستخدم للتعبئة. إليك كيفية القيام بذلك:
+
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة حسب فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) إلى الشريحة.
+1. ضبط نوع التعبئة إلى `SOLID`.
+1. استخدام `Color.from_argb` لتعريف لون مع شفافية (مكون `alpha` يتحكم في الشفافية).
+1. حفظ العرض.
+
+يوضح كود Python التالي كيفية تطبيق لون تعبئة شفاف على مستطيل:
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
+# إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
 with slides.Presentation() as presentation:
+
+    # الحصول على الشريحة الأولى.
     slide = presentation.slides[0]
     
-    # يضيف شكل صلب
-    solidShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 75, 175, 75, 150)
+    # إضافة شكل تلقائي مستطيل صلب.
+    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 75)
 
-    # يضيف شكل شفاف فوق الشكل الصلب
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 75, 150)
+    # إضافة شكل تلقائي مستطيل شفاف فوق الشكل الصلب.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 80, 80, 150, 75)
     shape.fill_format.fill_type = slides.FillType.SOLID
     shape.fill_format.solid_fill_color.color = draw.Color.from_argb(128, 204, 102, 0)
     
-    presentation.save("ShapeTransparentOverSolid_out.pptx", slides.export.SaveFormat.PPTX)
-
+    presentation.save("shape_transparency.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تدوير الأشكال**
-يسمح لك Aspose.Slides بتدوير شكل مضاف إلى شريحة بهذه الطريقة:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) إلى الشريحة.
-4. تدوير الشكل بدرجات الحاجة.
-5. كتابة العرض التقديمي المعدل كملف PPTX.
+النتيجة:
 
-توضح هذه الشيفرة البرمجية كيفية تدوير شكل بزاوية 90 درجة:
+![الشكل الشفاف](shape-transparency.png)
 
+## **دوران الأشكال**
+
+تتيح لك Aspose.Slides دوران الأشكال في عروض PowerPoint. يمكن أن يكون ذلك مفيدًا عند وضع العناصر البصرية بمواضع تتطلب محاذاة أو تصميمًا معينًا.
+
+لدوّر شكلًا على شريحة، اتبع الخطوات التالية:
+
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة حسب فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) إلى الشريحة.
+1. ضبط خاصية `rotation` للشكل إلى الزاوية المطلوبة.
+1. حفظ العرض.
+
+يوضح كود Python التالي كيفية دوران شكل بزاوية 5 درجات:
 ```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    # يحصل على الشريحة الأولى
-    sld = pres.slides[0]
+# إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+with slides.Presentation() as presentation:
 
-    # يضيف شكل مستطيل تلقائي
-    shp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 75, 150)
+    # الحصول على الشريحة الأولى.
+    slide = presentation.slides[0]
 
-    # يدور الشكل بزاوية 90 درجة
-    shp.rotation = 90
+    # إضافة شكل تلقائي من نوع Rectangle.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 75)
 
-    # يكتب ملف PPTX إلى القرص
-    pres.save("RectShpRot_out-7.pptx", slides.export.SaveFormat.PPTX)
+    # تدوير الشكل بزاوية 5 درجات.
+    shape.rotation = 5
+
+    # حفظ ملف PPTX على القرص.
+    presentation.save("shape_rotation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+
+النتيجة:
+
+![دوران الشكل](shape-rotation.png)
 
 ## **إضافة تأثيرات حواف ثلاثية الأبعاد**
-يسمح لك Aspose.Slides لـ Python عبر .NET بإضافة تأثيرات حواف ثلاثية الأبعاد إلى شكل عن طريق تعديل خصائص [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) بهذه الطريقة:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) إلى الشريحة.
-4. تعيين معلماتك المفضلة لخصائص [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) للشكل.
-5. كتابة العرض التقديمي إلى القرص.
+تسمح لك Aspose.Slides بتطبيق تأثيرات حواف ثلاثية الأبعاد على الأشكال عن طريق تكوين خصائص [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) الخاصة بها.
 
-توضح هذه الشيفرة البرمجية كيفية إضافة تأثيرات حواف ثلاثية الأبعاد إلى شكل:
+لإضافة تأثيرات حواف ثلاثية الأبعاد إلى شكل، اتبع الخطوات التالية:
 
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة حسب فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) إلى الشريحة.
+1. تكوين [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) الخاص بالشكل لتحديد إعدادات الحافة.
+1. حفظ العرض.
+
+يوضح كود Python التالي كيفية تطبيق تأثيرات حواف ثلاثية الأبعاد على شكل:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# ينشئ مثيلًا من فئة Presentation
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
+# إنشاء مثيل من فئة Presentation.
+with slides.Presentation() as presentation:
 
-    # يضيف شكلًا إلى الشريحة
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 30, 30, 100, 100)
+    slide = presentation.slides[0]
+
+    # إضافة شكل إلى الشريحة.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
     shape.fill_format.fill_type = slides.FillType.SOLID
     shape.fill_format.solid_fill_color.color = draw.Color.green
-    format = shape.line_format.fill_format
-    format.fill_type = slides.FillType.SOLID
-    format.solid_fill_color.color = draw.Color.orange
+    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shape.line_format.fill_format.solid_fill_color.color = draw.Color.orange
     shape.line_format.width = 2.0
 
-    # يحدد خصائص ThreeDFormat للشكل
+    # تعيين خصائص ThreeDFormat للشكل.
     shape.three_d_format.depth = 4
     shape.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
     shape.three_d_format.bevel_top.height = 6
@@ -389,54 +507,79 @@ with slides.Presentation() as pres:
     shape.three_d_format.light_rig.light_type = slides.LightRigPresetType.THREE_PT
     shape.three_d_format.light_rig.direction = slides.LightingDirection.TOP
 
-    # يكتب العرض التقديمي كملف PPTX
-    pres.save("Bavel_out-8.pptx", slides.export.SaveFormat.PPTX)
+    # حفظ العرض التقديمي كملف PPTX.
+    presentation.save("3D_bevel_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **إضافة تأثير دوران ثلاثي الأبعاد**
-يسمح لك Aspose.Slides بتطبيق تأثيرات دوران ثلاثية الأبعاد على شكل عن طريق تعديل خصائص [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) بهذه الطريقة:
+النتيجة:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) إلى الشريحة.
-4. تحديد الأشكال المفضلة لديك لـ CameraType و LightType.
-5. كتابة العرض التقديمي إلى القرص.
+![تأثير الحافة ثلاثية الأبعاد](3D-bevel-effect.png)
 
-توضح هذه الشيفرة البرمجية كيفية تطبيق تأثيرات دوران ثلاثي الأبعاد على شكل:
+## **إضافة تأثيرات دوران ثلاثية الأبعاد**
 
+تسمح لك Aspose.Slides بتطبيق تأثيرات دوران ثلاثية الأبعاد على الأشكال عن طريق تكوين خصائص [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) الخاصة بها.
+
+لتطبيق دوران ثلاثي الأبعاد على شكل:
+
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة حسب فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) إلى الشريحة.
+1. ضبط [camera_type](https://reference.aspose.com/slides/python-net/aspose.slides/camera/camera_type/) و [light_type](https://reference.aspose.com/slides/python-net/aspose.slides/lightrig/light_type/) لتحديد دوران ثلاثي الأبعاد.
+1. حفظ العرض.
+
+يوضح كود Python التالي كيفية تطبيق تأثيرات دوران ثلاثية الأبعاد على شكل:
 ```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
-# ينشئ مثيلًا من فئة Presentation
-with slides.Presentation() as pres:
-    autoShape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 200, 200)
+# إنشاء مثيل من فئة Presentation.
+with slides.Presentation() as presentation:
 
-    autoShape.three_d_format.depth = 6
-    autoShape.three_d_format.camera.set_rotation(40, 35, 20)
-    autoShape.three_d_format.camera.camera_type = slides.CameraPresetType.ISOMETRIC_LEFT_UP
-    autoShape.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
+    slide = presentation.slides[0]
 
-    autoShape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.LINE, 30, 300, 200, 200)
-    autoShape.three_d_format.depth = 6
-    autoShape.three_d_format.camera.set_rotation(0, 35, 20)
-    autoShape.three_d_format.camera.camera_type = slides.CameraPresetType.ISOMETRIC_LEFT_UP
-    autoShape.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 75)
+    auto_shape.text_frame.text = "Hello, Aspose!"
 
-            
-    pres.save("Rotation_out-9.pptx", slides.export.SaveFormat.PPTX)
+    auto_shape.three_d_format.depth = 6
+    auto_shape.three_d_format.camera.set_rotation(40, 35, 20)
+    auto_shape.three_d_format.camera.camera_type = slides.CameraPresetType.ISOMETRIC_LEFT_UP
+    auto_shape.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
+
+    # حفظ العرض التقديمي كملف PPTX.      
+    presentation.save("3D_rotation_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **إعادة تعيين التنسيق**
 
-توضح هذه الشيفرة البرمجية باستخدام بايثون كيفية إعادة تعيين التنسيق في شريحة وإرجاع الموقع والحجم والتنسيق لكل شكل يحتوي على عنصر نائب على [LayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/) إلى قيمها الافتراضية:
+النتيجة:
 
+![تأثير الدوران ثلاثي الأبعاد](3D-rotation-effect.png)
+
+## **إعادة ضبط التنسيق**
+
+يظهر كود Python التالي كيفية إعادة ضبط تنسيق شريحة وإرجاع الموضع والحجم وتنسيق جميع الأشكال ذات العناصر النائبة على [LayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/) إلى إعداداتها الافتراضية:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    for slide in pres.slides:
-        # سيتم إرجاع كل شكل على الشريحة الذي يحتوي على عنصر نائب على التخطيط إلى قيمته الافتراضية
+with slides.Presentation("sample.pptx") as presentation:
+
+    for slide in presentation.slides:
+        # إعادة تعيين كل شكل على الشريحة الذي يحتوي على عنصر نائب في التخطيط.
         slide.reset()
+
+    presentation.save("reset_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل يؤثر تنسيق الشكل على حجم ملف العرض النهائي؟**
+
+بشكل طفيف فقط. الصور والوسائط المضمّنة هي التي تشغل معظم مساحة الملف، بينما تُخزن معلمات الشكل مثل الألوان والتأثيرات والتدرجات كبيانات وصفية ولا تضيف حجمًا إضافيًا ملحوظًا.
+
+**كيف يمكنني اكتشاف الأشكال في شريحة التي تشترك في نفس التنسيق لأتمكن من تجميعها؟**
+
+قارن خصائص التنسيق الرئيسية لكل شكل—الإعدادات المتعلقة بالملء، الخط، والتأثير. إذا تطابقت جميع القيم المقابلة، اعتبر أن أنماطها متماثلة وقم بتجميع هذه الأشكال منطقيًا، مما يبسط إدارة الأنماط لاحقًا.
+
+**هل يمكنني حفظ مجموعة من أنماط الشكل المخصصة في ملف منفصل لإعادة استخدامها في عروض أخرى؟**
+
+نعم. احفظ الأشكال النموذجية ذات الأنماط المطلوبة في مجموعة شرائح قالب أو ملف قالب .POTX. عند إنشاء عرض جديد، افتح القالب، استنسخ الأشكال المصممة التي تحتاجها، وأعد تطبيق تنسيقها حسب الحاجة.

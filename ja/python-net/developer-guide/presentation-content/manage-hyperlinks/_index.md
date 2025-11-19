@@ -1,151 +1,156 @@
 ---
-title: Python でプレゼンテーションのハイパーリンクを管理
+title: Pythonでプレゼンテーションのハイパーリンクを管理する
 linktitle: ハイパーリンクの管理
 type: docs
 weight: 20
 url: /ja/python-net/manage-hyperlinks/
 keywords:
-- URL を追加
+- URLを追加
 - ハイパーリンクを追加
 - ハイパーリンクを作成
-- ハイパーリンクをフォーマット
-- ハイパーリンクを削除
-- ハイパーリンクを更新
-- テキスト ハイパーリンク
-- スライド ハイパーリンク
-- シェイプ ハイパーリンク
-- 画像 ハイパーリンク
-- ビデオ ハイパーリンク
-- 変更可能なハイパーリンク
+- ハイパーリンクの書式設定
+- ハイパーリンクの削除
+- ハイパーリンクの更新
+- テキストハイパーリンク
+- スライドハイパーリンク
+- 図形ハイパーリンク
+- 画像ハイパーリンク
+- 動画ハイパーリンク
+- 可変ハイパーリンク
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Python
-description: "Aspose.Slides for Python via .NET を使用して PowerPoint と OpenDocument のプレゼンテーションのハイパーリンクを簡単に管理し、数分でインタラクティブ性とワークフローを向上させます。"
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument のプレゼンテーションでハイパーリンクを簡単に管理し、数分でインタラクティブ性とワークフローを向上させます。"
 ---
 
-ハイパーリンクは、オブジェクト、データ、または何かの場所への参照です。これらはPowerPointプレゼンテーションにおける一般的なハイパーリンクです：
+## **概要**
 
-* テキスト、形状、またはメディア内のウェブサイトへのリンク
+ハイパーリンクは外部リソース、オブジェクトまたはデータ項目、あるいはファイル内の特定の場所への参照です。PowerPoint プレゼンテーションで一般的なハイパーリンクの種類は次のとおりです。
+
+* テキスト、図形、またはメディアに埋め込まれた Web サイトへのリンク
 * スライドへのリンク
 
-Aspose.Slides for Python via .NETを使用すると、プレゼンテーション内のハイパーリンクに関連する多くのタスクを実行できます。
+Aspose.Slides for Python via .NET は、プレゼンテーション内でハイパーリンクに関するさまざまな操作を可能にします。
 
-{{% alert color="primary" %}} 
+## **URL ハイパーリンクの追加**
 
-Asposeのシンプルな[無料のオンラインPowerPointエディター](https://products.aspose.app/slides/editor)をチェックすることをお勧めします。
+このセクションでは、Aspose.Slides を使用してスライド要素に URL ハイパーリンクを追加する方法を説明します。テキスト、図形、画像にリンク先アドレスを割り当て、プレゼンテーション中のスムーズなナビゲーションを実現します。
 
-{{% /alert %}} 
+### **テキストへの URL ハイパーリンクの追加**
 
-## **URLハイパーリンクの追加**
-
-### **テキストにURLハイパーリンクを追加**
-
-このPythonコードは、テキストにウェブサイトのハイパーリンクを追加する方法を示しています：
-
+次のコード例は、テキストに Web サイトへのハイパーリンクを追加する方法を示しています:
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    shape1 = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
-    shape1.add_text_frame("Aspose: File Format APIs")
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click.tooltip = "70%以上のフォーチュン100企業がAspose APIを信頼しています"
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.font_height = 32
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
+    shape.add_text_frame("Aspose: File Format APIs")
     
-    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
+    text_portion = shape.text_frame.paragraphs[0].portions[0]
+
+    text_portion.portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    text_portion.portion_format.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **形状またはフレームにURLハイパーリンクを追加**
 
-このPythonのサンプルコードは、形状にウェブサイトのハイパーリンクを追加する方法を示しています：
+### **図形またはフレームへの URL ハイパーリンクの追加**
 
+次のコード例は、図形に Web サイトへのハイパーリンクを追加する方法を示しています:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50)
-    
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50)
+
     shape.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    shape.hyperlink_click.tooltip = "70%以上のフォーチュン100企業がAspose APIを信頼しています"
+    shape.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
 
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **メディアにURLハイパーリンクを追加**
 
-Aspose.Slidesを使用すると、画像、音声、動画ファイルにハイパーリンクを追加できます。
+### **メディアへの URL ハイパーリンクの追加**
 
-このサンプルコードは、**画像**にハイパーリンクを追加する方法を示しています：
+Aspose.Slides では、画像、音声、動画ファイルにハイパーリンクを追加できます。
 
+次のコード例は、**画像** にハイパーリンクを追加する方法を示しています:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    # プレゼンテーションに画像を追加
-    with open("img.jpeg", "rb") as fs:
-        data = fs.read()
-        image = pres.images.add_image(data)
-        
-        # 以前に追加された画像に基づいてスライド1にピクチャーフレームを作成
-        pictureFrame = pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-        pictureFrame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-        pictureFrame.hyperlink_click.tooltip = "70%以上のフォーチュン100企業がAspose APIを信頼しています"
+    # プレゼンテーションに画像を追加します。
+    with open("image.jpeg", "rb") as image_stream:
+        image_data = image_stream.read()
+        image = presentation.images.add_image(image_data)
 
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+    # 先ほど追加した画像を使用してスライド1に画像フレームを作成します。
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
+
+    picture_frame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    picture_frame.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-このサンプルコードは、**音声ファイル**にハイパーリンクを追加する方法を示しています：
 
+次のコード例は、**音声ファイル** にハイパーリンクを追加する方法を示しています:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    with open("audio.mp3", "rb") as fs:
-        data = fs.read()
-        audio = pres.audios.add_audio(data)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with open("audio.mp3", "rb") as audio_stream:
+        audio_data = audio_stream.read()
+        audio = presentation.audios.add_audio(audio_data)
         
-        audioFrame = pres.slides[0].shapes.add_audio_frame_embedded(10, 10, 100, 100, audio)
+    audio_frame = slide.shapes.add_audio_frame_embedded(10, 10, 100, 100, audio)
 
-        audioFrame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-        audioFrame.hyperlink_click.tooltip = "70%以上のフォーチュン100企業がAspose APIを信頼しています"
+    audio_frame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    audio_frame.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
 
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-このサンプルコードは、**動画**にハイパーリンクを追加する方法を示しています：
 
+次のコード例は、**動画** にハイパーリンクを追加する方法を示しています:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    with open("video.avi", "rb") as fs:
-        data = fs.read()
-        video = pres.videos.add_video(data)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with open("video.avi", "rb") as video_stream:
+        video_data = video_stream.read()
+        video = presentation.videos.add_video(video_data)
         
-        videoFrame = pres.slides[0].shapes.add_video_frame(10, 10, 100, 100, video)
+    video_frame = slide.shapes.add_video_frame(10, 10, 100, 100, video)
 
-        videoFrame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-        videoFrame.hyperlink_click.tooltip = "70%以上のフォーチュン100企業がAspose APIを信頼しています"
+    video_frame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    video_frame.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
 
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{%  alert  title="ヒント"  color="primary"  %}} 
 
-* [OLEの管理](https://docs.aspose.com/slides/python-net/manage-ole/)を参照することをお勧めします。
-
+{{% alert title="Tip" color="primary" %}}
+Python を使用したプレゼンテーションでの OLE の管理については、[Python を使用したプレゼンテーションでの OLE の管理](/slides/ja/python-net/manage-ole/)をご覧ください。
 {{% /alert %}}
 
+## **目次の作成にハイパーリンクを使用する**
 
+ハイパーリンクはオブジェクトや場所を参照できるため、目次を作成する際にも利用できます。
 
-## **ハイパーリンクを使用した目次の作成**
-
-ハイパーリンクを使用すると、オブジェクトや場所への参照を追加できるため、目次を作成するために使用できます。
-
-このサンプルコードは、ハイパーリンクを使用して目次を作成する方法を示しています：
-
+以下のサンプルコードは、ハイパーリンク付きの目次を作成する方法を示しています:
 ```py
 import aspose.slides as slides
 
@@ -161,122 +166,149 @@ with slides.Presentation() as presentation:
     paragraph = slides.Paragraph()
     paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    paragraph.text = "スライド2のタイトル .......... "
+    paragraph.text = "Title of slide 2 .......... "
 
-    linkPortion = slides.Portion()
-    linkPortion.text = "ページ 2"
-    linkPortion.portion_format.hyperlink_manager.set_internal_hyperlink_click(second_slide)
+    link_text_portion = slides.Portion()
+    link_text_portion.text = "Page 2"
+    link_text_portion.portion_format.hyperlink_manager.set_internal_hyperlink_click(second_slide)
 
-    paragraph.portions.add(linkPortion)
+    paragraph.portions.add(link_text_portion)
     content_table.text_frame.paragraphs.add(paragraph)
 
     presentation.save("link_to_slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-
 ## **ハイパーリンクの書式設定**
 
-### **色**
+このセクションでは、Aspose.Slides でハイパーリンクの外観を設定する方法を示します。テキスト、図形、画像に対して色やその他のスタイルオプションを制御し、ハイパーリンクの書式を一貫させる方法を学びます。
 
-[color_source](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)プロパティを使用すると、ハイパーリンクの色を設定し、ハイパーリンクから色の情報を取得できます。この機能はPowerPoint 2019で初めて導入されたため、このプロパティに関する変更は古いPowerPointバージョンには適用されません。
+### **ハイパーリンクの色**
 
-このサンプルコードは、異なる色を持つハイパーリンクが同じスライドに追加された操作を示しています：
+[Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) クラスの [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) プロパティを使用すると、ハイパーリンクの色を設定したり、色情報を取得したりできます。この機能は PowerPoint 2019 で導入されたため、以前のバージョンの PowerPoint には適用されません。
 
+次のサンプルは、同じスライド上に異なる色のハイパーリンクを追加する方法を示しています:
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    shape1 = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
-    shape1.add_text_frame("これは色付きハイパーリンクのサンプルです。")
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click.color_source = slides.HyperlinkColorSource.PORTION_FORMAT
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.fill_format.fill_type = slides.FillType.SOLID
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.fill_format.solid_fill_color.color = draw.Color.red
+    slide = presentation.slides[0]
 
-    shape2 = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 450, 50, False)
-    shape2.add_text_frame("これは通常のハイパーリンクのサンプルです。")
-    shape2.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
+    shape1.add_text_frame("This is a sample of a colored hyperlink.")
 
-    presentation.save("presentation-out-hyperlink.pptx", slides.export.SaveFormat.PPTX)
+    text_portion1 = shape1.text_frame.paragraphs[0].portions[0]
+    text_portion1.portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    text_portion1.portion_format.hyperlink_click.color_source = slides.HyperlinkColorSource.PORTION_FORMAT
+    text_portion1.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    text_portion1.portion_format.fill_format.solid_fill_color.color = draw.Color.red
+
+    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 450, 50, False)
+    shape2.add_text_frame("This is a sample of a regular hyperlink.")
+
+    text_portion2 = shape2.text_frame.paragraphs[0].portions[0]
+    text_portion2.portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+
+    presentation.save("hyperlinks.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **プレゼンテーションからハイパーリンクを削除する**
 
-## **プレゼンテーションからのハイパーリンクの削除**
+このセクションでは、Aspose.Slides を使用してプレゼンテーションからハイパーリンクを削除する方法を説明します。テキスト、図形、画像からリンク先をクリアし、元のコンテンツと書式を保持したままハイパーリンクを除去します。
 
-### **テキストからハイパーリンクを削除**
+### **テキストからハイパーリンクを削除する**
 
-このPythonコードは、プレゼンテーションスライドのテキストからハイパーリンクを削除する方法を示しています：
-
+次のサンプルコードは、スライド上のテキストからハイパーリンクを削除する方法を示しています:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    slide = pres.slides[0]
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
     for shape in slide.shapes:
         if type(shape) is slides.AutoShape:
             for paragraph in shape.text_frame.paragraphs:
-                for portion in paragraph.portions:
-                    portion.portion_format.hyperlink_manager.remove_hyperlink_click()
-    pres.save("pres-removed-hyperlinks.pptx", slides.export.SaveFormat.PPTX)
+                for text_portion in paragraph.portions:
+                    text_portion.portion_format.hyperlink_manager.remove_hyperlink_click()
+
+    presentation.save("removed_hyperlinks.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **形状またはフレームからハイパーリンクを削除**
 
-このPythonコードは、プレゼンテーションスライドの形状からハイパーリンクを削除する方法を示しています： 
+### **図形またはフレームからハイパーリンクを削除する**
 
+次のサンプルコードは、スライド上の図形からハイパーリンクを削除する方法を示しています:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("demo.pptx") as pres:
-   slide = pres.slides[0]
+with slides.Presentation("sample.pptx") as presentation:
+   slide = presentation.slides[0]
+
    for shape in slide.shapes:
        shape.hyperlink_manager.remove_hyperlink_click()
-   pres.save("pres-removed-hyperlinks.pptx", slides.export.SaveFormat.PPTX)
+
+   presentation.save("removed_hyperlinks.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **可変ハイパーリンク**
 
-## **ミュータブルハイパーリンク**
+[Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) クラスは可変です。このクラスを使用すると、次のプロパティの値を変更できます。
 
-[Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink)クラスはミュータブルです。このクラスを使用すると、以下のプロパティの値を変更できます：
+- [target_frame](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_frame/)
+- [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/)
+- [history](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/history/)
+- [highlight_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/highlight_click/)
+- [stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/)
 
-- [IHyperlink.TargetFrame](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
-- [IHyperlink.Tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
-- [IHyperlink.History](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
-- [IHyperlink.HighlightClick](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
-- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
-
-コードスニペットは、スライドにハイパーリンクを追加し、そのツールチップを後で編集する方法を示しています：
-
+次のコードスニペットは、スライドにハイパーリンクを追加し、そのツールチップを編集する方法を示しています:
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    shape1 = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
-    shape1.add_text_frame("Aspose: File Format APIs")
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click.tooltip = "70%以上のフォーチュン100企業がAspose APIを信頼しています"
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.font_height = 32
+    slide = presentation.slides[0]
 
-    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
+    shape.add_text_frame("Aspose: File Format APIs")
+
+    text_portion = shape.text_frame.paragraphs[0].portions[0]
+    text_portion.portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    text_portion.portion_format.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **IHyperlinkQueries でサポートされているプロパティ**
 
+プレゼンテーション、スライド、またはハイパーリンクを含むテキストから [HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) にアクセスできます。
 
-## **IHyperlinkQueriesのサポートされているプロパティ**
+- [Presentation.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/hyperlink_queries/)
+- [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/hyperlink_queries/)
+- [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/)
 
-ハイパーリンクが定義されているプレゼンテーション、スライド、またはテキストからIHyperlinkQueriesにアクセスできます。
+[HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) クラスは次のメソッドをサポートします:
 
-- [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentation/)
-- [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseslide/)
-- [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/)
+- [get_hyperlink_clicks()](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/)
+- [get_hyperlink_mouse_overs()](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/)
+- [get_any_hyperlinks()](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/)
+- [remove_all_hyperlinks()](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/)
 
-IHyperlinkQueriesクラスは以下のメソッドとプロパティをサポートしています：
+{{% alert color="primary" %}}
+Aspose のシンプルで無料のオンライン [PowerPoint エディター](https://products.aspose.app/slides/editor) をぜひお試しください。
+{{% /alert %}}
 
-- [IHyperlinkQueries.GetHyperlinkClicks();](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/)
-- [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/)
-- [IHyperlinkQueries.GetAnyHyperlinks();](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/)
-- [IHyperlinkQueries.RemoveAllHyperlinks();](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/)
+## **FAQ**
+
+**スライドだけでなく「セクション」やセクションの最初のスライドへ内部ナビゲーションを作成するにはどうすればよいですか？**
+
+PowerPoint のセクションはスライドのグループです。ナビゲーションは技術的に特定のスライドを対象とするため、セクションに「移動」する場合は通常、そのセクションの最初のスライドへリンクします。
+
+**マスタースライドの要素にハイパーリンクを付けて、すべてのスライドで機能させることはできますか？**
+
+はい。マスタースライドおよびレイアウト要素はハイパーリンクをサポートしています。このリンクは子スライドに引き継がれ、スライドショー中にクリック可能です。
+
+**PDF、HTML、画像、またはビデオにエクスポートした場合、ハイパーリンクは保持されますか？**
+
+[PDF](/slides/ja/python-net/convert-powerpoint-to-pdf/) と [HTML](/slides/ja/python-net/convert-powerpoint-to-html/) では、リンクは概ね保持されます。[画像](/slides/ja/python-net/convert-powerpoint-to-png/) と [ビデオ](/slides/ja/python-net/convert-powerpoint-to-video/) にエクスポートした場合は、ラスタフレームやビデオがハイパーリンクをサポートしないため、クリック可能性は引き継がれません。
