@@ -357,3 +357,17 @@ def is_geometry_closed(geometry_shape):
 
     return is_closed
 ```
+
+## **FAQ**
+
+**What will happen to the fill and outline after replacing the geometry?**
+
+The style remains with the shape; only the contour changes. The fill and outline are automatically applied to the new geometry.
+
+**How do I correctly rotate a custom shape along with its geometry?**
+
+Use the shape’s [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/rotation/) property; the geometry rotates with the shape because it’s bound to the shape’s own coordinate system.
+
+**Can I convert a custom shape to an image to "lock in" the result?**
+
+Yes. Export the required [slide](/slides/python-net/convert-powerpoint-to-png/) area or the [shape](/slides/python-net/create-shape-thumbnails/) itself to a raster format; this simplifies further work with heavy geometries.

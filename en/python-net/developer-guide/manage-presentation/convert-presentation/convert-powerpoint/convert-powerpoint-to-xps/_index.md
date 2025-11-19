@@ -91,3 +91,12 @@ options.save_metafiles_as_png = True
 pres.save("XPS_With_Options_out.xps", slides.export.SaveFormat.XPS, options)
 ```
 
+## **FAQ**
+
+**Can I save to XPS into a stream instead of a file?**
+
+Yes—Aspose.Slides lets you export directly to a stream, which is ideal for web APIs, server-side pipelines, or any scenario where you want to send the XPS without touching the file system.
+
+**Are hidden slides carried over to XPS, and can I exclude them?**
+
+By default, only regular (visible) slides are rendered. You can [include or exclude hidden slides](https://reference.aspose.com/slides/python-net/aspose.slides.export/xpsoptions/show_hidden_slides/) through [export settings](https://reference.aspose.com/slides/python-net/aspose.slides.export/xpsoptions/) before saving to XPS, ensuring the output contains exactly the pages you intend.

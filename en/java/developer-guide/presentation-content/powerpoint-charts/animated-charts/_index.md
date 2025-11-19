@@ -1,8 +1,24 @@
 ---
-title: Animated Charts
+title: Animate PowerPoint Charts in Java
+linktitle: Animated Charts
 type: docs
 weight: 80
 url: /java/animated-charts/
+keywords:
+- chart
+- animated chart
+- chart animation
+- chart series
+- chart category
+- series element
+- category element
+- add effect
+- effect type
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Create stunning animated charts in Java with Aspose.Slides. Boost presentations with dynamic visuals in PPT and PPTX files—get started now."
 ---
 
 

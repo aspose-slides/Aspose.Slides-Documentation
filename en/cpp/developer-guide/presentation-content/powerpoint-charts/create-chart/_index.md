@@ -1,5 +1,5 @@
 ---
-title: Create PowerPoint Presentation Charts in C++
+title: Create or Update PowerPoint Presentation Charts in C++
 linktitle: Create Chart
 type: docs
 weight: 10
@@ -924,93 +924,159 @@ pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 
 ### **Creating Combination Charts**
 
-A combination chart (or combo chart) is a chart that combines two or more charts on a single graph. Such a chart allows you to highlight, compare, or review differences between two (or more) sets of data. This way, you see the relationship (if any) between the sets of data. 
+A combination chart (or combo chart) combines two or more chart types in a single graph. This chart lets you highlight, compare, or examine differences between two or more data sets, helping you identify relationships between them.
 
-![combination-chart-ppt](combination-chart-ppt.png)
+![The combination chart](combination_chart.png)
 
-This C++ code shows you how to create a combination chart in PowerPoint:
+The following C++ code shows how to create the combination chart shown above in a PowerPoint presentation:
 
-```c++
-void CreateComboChart()
+```cpp
+static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
 {
-    System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-    System::SharedPtr<IChart> chart = CreateChart(pres->get_Slide(0));
-    AddFirstSeriesToChart(chart);
-    AddSecondSeriesToChart(chart);
-    pres->Save(u"combo-chart.pptx", SaveFormat::Pptx);
-}
+    auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
 
-System::SharedPtr<IChart> CreateChart(System::SharedPtr<ISlide> slide)
-{
-    System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 400.0f);
-    System::SharedPtr<IChartData> chartData = chart->get_ChartData();
-    System::SharedPtr<IChartSeriesCollection> seriesCollection = chartData->get_Series();
-    System::SharedPtr<IChartCategoryCollection> categories = chartData->get_Categories();
+    // Set the chart title.
+    chart->set_HasTitle(true);
+    chart->get_ChartTitle()->AddTextFrameForOverriding(u"Chart Title");
+    chart->get_ChartTitle()->set_Overlay(false);
+    auto titleParagraph = chart->get_ChartTitle()->get_TextFrameForOverriding()->get_Paragraph(0);
+    auto titleFormat = titleParagraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+    titleFormat->set_FontBold(NullableBool::False);
+    titleFormat->set_FontHeight(18.0);
 
-    seriesCollection->Clear();
-    categories->Clear();
+    // Set the chart legend.
+    chart->get_Legend()->set_Position(LegendPositionType::Bottom);
+    chart->get_Legend()->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
 
-    System::SharedPtr<IChartDataWorkbook> workbook = chartData->get_ChartDataWorkbook();
-    const int32_t worksheetIndex = 0;
+    // Delete the default generated series and categories.
+    chart->get_ChartData()->get_Series()->Clear();
+    chart->get_ChartData()->get_Categories()->Clear();
 
-    seriesCollection->Add(workbook->GetCell(worksheetIndex, 0, 1, System::ExplicitCast<System::Object>(u"Series 1")), chart->get_Type());
-    seriesCollection->Add(workbook->GetCell(worksheetIndex, 0, 2, System::ExplicitCast<System::Object>(u"Series 2")), chart->get_Type());
+    const int worksheetIndex = 0;
+    auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-    categories->Add(workbook->GetCell(worksheetIndex, 1, 0, System::ExplicitCast<System::Object>(u"Caetegoty 1")));
-    categories->Add(workbook->GetCell(worksheetIndex, 2, 0, System::ExplicitCast<System::Object>(u"Caetegoty 2")));
-    categories->Add(workbook->GetCell(worksheetIndex, 3, 0, System::ExplicitCast<System::Object>(u"Caetegoty 3")));
+    // Add new categories.
+    chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 1, 0, ObjectExt::Box<String>(u"Category 1")));
+    chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"Category 2")));
+    chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
+    chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 4, 0, ObjectExt::Box<String>(u"Category 4")));
 
-    System::SharedPtr<IChartDataPointCollection> dataPoints = chartData->get_ChartSeries(0)->get_DataPoints();
+    // Add the first series.
+    auto seriesNameCell = workbook->GetCell(worksheetIndex, 0, 1, ObjectExt::Box<String>(u"Series 1"));
+    auto series = chart->get_ChartData()->get_Series()->Add(seriesNameCell, chart->get_Type());
 
-    dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 1, System::ExplicitCast<System::Object>(20)));
-    dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 1, System::ExplicitCast<System::Object>(50)));
-    dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 1, System::ExplicitCast<System::Object>(30)));
+    series->get_ParentSeriesGroup()->set_Overlap(-25);
+    series->get_ParentSeriesGroup()->set_GapWidth(220);
 
-    dataPoints = chartData->get_ChartSeries(1)->get_DataPoints();
-
-    dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 2, System::ExplicitCast<System::Object>(30)));
-    dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 2, System::ExplicitCast<System::Object>(10)));
-    dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 2, System::ExplicitCast<System::Object>(60)));
+    series->get_DataPoints()->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 1, ObjectExt::Box<double>(4.3)));
+    series->get_DataPoints()->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 1, ObjectExt::Box<double>(2.5)));
+    series->get_DataPoints()->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 1, ObjectExt::Box<double>(3.5)));
+    series->get_DataPoints()->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 4, 1, ObjectExt::Box<double>(4.5)));
 
     return chart;
 }
 
-void AddFirstSeriesToChart(System::SharedPtr<IChart> chart)
+static void AddSecondSeriesToChart(SharedPtr<IChart> chart)
 {
-    System::SharedPtr<IChartData> chartData = chart->get_ChartData();
-    System::SharedPtr<IChartDataWorkbook> workbook = chartData->get_ChartDataWorkbook();
-    const int32_t worksheetIndex = 0;
+    auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+    const int worksheetIndex = 0;
 
-    System::SharedPtr<IChartSeries> series = chartData->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 3, System::ExplicitCast<System::Object>(u"Series 3")), ChartType::ScatterWithSmoothLines);
-    System::SharedPtr<IChartDataPointCollection> dataPoints = series->get_DataPoints();
+    auto seriesNameCell = workbook->GetCell(worksheetIndex, 0, 2, ObjectExt::Box<String>(u"Series 2"));
+    auto series = chart->get_ChartData()->get_Series()->Add(seriesNameCell, ChartType::ClusteredColumn);
 
-    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 0, 1, System::ExplicitCast<System::Object>(3)), workbook->GetCell(worksheetIndex, 0, 2, System::ExplicitCast<System::Object>(5)));
+    series->get_ParentSeriesGroup()->set_Overlap(-25);
+    series->get_ParentSeriesGroup()->set_GapWidth(220);
 
-    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 1, 3, System::ExplicitCast<System::Object>(10)), workbook->GetCell(worksheetIndex, 1, 4, System::ExplicitCast<System::Object>(13)));
+    series->get_DataPoints()->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 2, ObjectExt::Box<double>(2.4)));
+    series->get_DataPoints()->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 2, ObjectExt::Box<double>(4.4)));
+    series->get_DataPoints()->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 2, ObjectExt::Box<double>(1.8)));
+    series->get_DataPoints()->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 4, 2, ObjectExt::Box<double>(2.8)));
+}
 
-    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 2, 3, System::ExplicitCast<System::Object>(20)), workbook->GetCell(worksheetIndex, 2, 4, System::ExplicitCast<System::Object>(15)));
+static void AddThirdSeriesToChart(SharedPtr<IChart> chart)
+{
+    auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+    const int worksheetIndex = 0;
+
+    auto seriesNameCell = workbook->GetCell(worksheetIndex, 0, 3, ObjectExt::Box<String>(u"Series 3"));
+    auto series = chart->get_ChartData()->get_Series()->Add(seriesNameCell, ChartType::Line);
+
+    series->get_DataPoints()->AddDataPointForLineSeries(workbook->GetCell(worksheetIndex, 1, 3, ObjectExt::Box<double>(2.0)));
+    series->get_DataPoints()->AddDataPointForLineSeries(workbook->GetCell(worksheetIndex, 2, 3, ObjectExt::Box<double>(2.0)));
+    series->get_DataPoints()->AddDataPointForLineSeries(workbook->GetCell(worksheetIndex, 3, 3, ObjectExt::Box<double>(3.0)));
+    series->get_DataPoints()->AddDataPointForLineSeries(workbook->GetCell(worksheetIndex, 4, 3, ObjectExt::Box<double>(5.0)));
 
     series->set_PlotOnSecondAxis(true);
 }
 
-void AddSecondSeriesToChart(System::SharedPtr<IChart> chart)
+static void SetAxisTitle(SharedPtr<IAxis> axis, String axisTitle)
 {
-    System::SharedPtr<IChartData> chartData = chart->get_ChartData();
-    System::SharedPtr<IChartDataWorkbook> workbook = chartData->get_ChartDataWorkbook();
-    const int32_t worksheetIndex = 0;
+    axis->set_HasTitle(true);
+    axis->get_Title()->set_Overlay(false);
+    auto titleParagraph = axis->get_Title()->AddTextFrameForOverriding(axisTitle)->get_Paragraph(0);
+    auto titleFormat = titleParagraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+    titleFormat->set_FontBold(NullableBool::False);
+    titleFormat->set_FontHeight(12.0);
+}
 
-    System::SharedPtr<IChartSeries> series = chartData->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 5, System::ExplicitCast<System::Object>(u"Series 4")), ChartType::ScatterWithStraightLinesAndMarkers);
-    System::SharedPtr<IChartDataPointCollection> dataPoints = series->get_DataPoints();
+static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
+{
+    // Set the horizontal axis.
+    auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
+    horizontalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
+    horizontalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
-    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 1, 3, System::ExplicitCast<System::Object>(5)), workbook->GetCell(worksheetIndex, 1, 4, System::ExplicitCast<System::Object>(2)));
+    SetAxisTitle(horizontalAxis, u"X Axis");
 
-    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 1, 5, System::ExplicitCast<System::Object>(10)), workbook->GetCell(worksheetIndex, 1, 6, System::ExplicitCast<System::Object>(7)));
+    // Set the vertical axis.
+    auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
+    verticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
+    verticalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
-    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 2, 5, System::ExplicitCast<System::Object>(15)), workbook->GetCell(worksheetIndex, 2, 6, System::ExplicitCast<System::Object>(12)));
+    SetAxisTitle(verticalAxis, u"Y Axis 1");
 
-    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 3, 5, System::ExplicitCast<System::Object>(12)), workbook->GetCell(worksheetIndex, 3, 6, System::ExplicitCast<System::Object>(9)));
+    // Set the vertical major gridlines color.
+    auto majorGridLinesFormat = verticalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat();
+    majorGridLinesFormat->set_FillType(FillType::Solid);
+    majorGridLinesFormat->get_SolidFillColor()->set_Color(Color::FromArgb(217, 217, 217));
+}
 
-    series->set_PlotOnSecondAxis(true);
+static void SetSecondaryAxesFormat(SharedPtr<IChart> chart)
+{
+    // Set the secondary horizontal axis.
+    auto secondaryHorizontalAxis = chart->get_Axes()->get_SecondaryHorizontalAxis();
+    secondaryHorizontalAxis->set_Position(AxisPositionType::Bottom);
+    secondaryHorizontalAxis->set_CrossType(CrossesType::Maximum);
+    secondaryHorizontalAxis->set_IsVisible(false);
+    secondaryHorizontalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
+    secondaryHorizontalAxis->get_MinorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+    // Set the secondary vertical axis.
+    auto secondaryVerticalAxis = chart->get_Axes()->get_SecondaryVerticalAxis();
+    secondaryVerticalAxis->set_Position(AxisPositionType::Right);
+    secondaryVerticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
+    secondaryVerticalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
+    secondaryVerticalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
+    secondaryVerticalAxis->get_MinorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+    SetAxisTitle(secondaryVerticalAxis, u"Y Axis 2");
+}
+
+static void CreateComboChart()
+{
+    auto presentation = MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+
+    auto chart = CreateChartWithFirstSeries(slide);
+
+    AddSecondSeriesToChart(chart);
+    AddThirdSeriesToChart(chart);
+
+    SetPrimaryAxesFormat(chart);
+    SetSecondaryAxesFormat(chart);
+
+    presentation->Save(u"combo-chart.pptx", SaveFormat::Pptx);
+    presentation->Dispose();
 }
 ```
 

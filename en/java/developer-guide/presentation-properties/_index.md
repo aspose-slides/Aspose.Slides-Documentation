@@ -1,5 +1,6 @@
 ---
-title: Presentation Properties
+title: Manage Presentation Properties in Java
+linktitle: Presentation Properties
 type: docs
 weight: 70
 url: /java/presentation-properties/
@@ -10,14 +11,18 @@ keywords:
 - built-in properties
 - custom properties
 - advanced properties
+- manage properties
 - modify properties
 - document metadata
 - edit metadata
+- proofing language
+- default language
 - PowerPoint
+- OpenDocument
 - presentation
 - Java
-- Aspose.Slides for Java
-description: "Manage PowerPoint presentation properties in Java"
+- Aspose.Slides
+description: "Master presentation properties in Aspose.Slides for Java and streamline search, branding and workflow in your PowerPoint and OpenDocument files."
 ---
 
 {{% alert color="primary" %}} 

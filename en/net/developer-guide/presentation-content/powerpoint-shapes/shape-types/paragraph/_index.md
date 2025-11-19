@@ -1,10 +1,23 @@
 ---
-title: Paragraph
+title: Get Paragraph Bounds from Presentations in .NET
+linktitle: Paragraph
 type: docs
 weight: 60
 url: /net/paragraph/
-keywords: "Paragraph, portion, paragraph coordinate, portion coordinate, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Paragraph and portion in PowerPoint presentation in C# or .NET"
+keywords:
+- paragraph bounds
+- text portion bounds
+- paragraph coordinate
+- portion coordinate
+- paragraph size
+- text portion size
+- text frame
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how to retrieve paragraph and text-portion bounds in Aspose.Slides for .NET to optimize text positioning in PowerPoint presentations."
 ---
 
 ## **Get Paragraph and Portion Coordinates in TextFrame**
@@ -23,7 +36,7 @@ using (Presentation presentation = new Presentation("Shapes.pptx"))
 }
 ```
 
-## **Get size of paragraph and portion inside table cell text frame** ##
+## **Get size of paragraph and portion inside table cell text frame**
 
 To get the [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion) or [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph) size and coordinates in a table cell text frame, you can use the [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/methods/getrect) and [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/methods/getrect) methods.
 
@@ -70,3 +83,21 @@ using (Presentation pres = new Presentation("source.pptx"))
     }
 }
 ```
+
+## **FAQ**
+
+**In what units are the coordinates returned for a paragraph and text portions measured?**
+
+In points, where 1 inch = 72 points. This applies to all coordinates and dimensions on the slide.
+
+**Does word wrapping affect a paragraph’s bounds?**
+
+Yes. If [wrapping](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/wraptext/) is enabled in the [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/), the text breaks to fit the area width, which changes the paragraph’s actual bounds.
+
+**Can paragraph coordinates be reliably mapped to pixels in the exported image?**
+
+Yes. Convert points to pixels using: pixels = points × (DPI / 72). The result depends on the DPI chosen for rendering/export.
+
+**How do I get the "effective" paragraph formatting parameters, taking style inheritance into account?**
+
+Use the [effective paragraph formatting data structure](/slides/net/shape-effective-properties/); it returns the final consolidated values for indents, spacing, wrapping, RTL, and more.

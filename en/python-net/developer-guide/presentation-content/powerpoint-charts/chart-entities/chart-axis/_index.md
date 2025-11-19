@@ -206,3 +206,13 @@ with slides.Presentation() as pres:
 	chart.axes.vertical_axis.display_unit = charts.DisplayUnitType.MILLIONS
 	pres.save("Result.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQ**
+
+**How do I set the value at which one axis crosses the other (axis crossing)?**
+
+Axes provide a [crossing setting](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/): you can choose to cross at zero, at the maximum category/value, or at a specific numeric value. This is useful for shifting the X-axis up or down or for emphasizing a baseline.
+
+**How can I position tick labels relative to the axis (alongside, outside, inside)?**
+
+Set the [label position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) to "cross", "outside", or "inside". This affects readability and helps conserve space, especially on small charts.

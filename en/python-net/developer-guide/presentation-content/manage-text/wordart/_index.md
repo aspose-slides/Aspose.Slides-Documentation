@@ -389,3 +389,20 @@ with slides.Presentation() as presentation:
     presentation.save("WordArt_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **FAQ**
+
+**Can I use WordArt effects with different fonts or scripts (e.g., Arabic, Chinese)?**
+
+Yes, Aspose.Slides supports Unicode and works with all major fonts and scripts. WordArt effects such as shadow, fill, and outline can be applied regardless of the language, although font availability and rendering may depend on the system fonts.
+
+**Can I apply WordArt effects to slide master elements?**
+
+Yes, you can apply WordArt effects to shapes on master slides, including title placeholders, footers, or background text. Changes made to the master layout will be reflected across all associated slides.
+
+**Do WordArt effects affect presentation file size?**
+
+Slightly. WordArt effects like shadows, glows, and gradient fills may slightly increase the file size due to added formatting metadata, but the difference is usually negligible.
+
+**Can I preview the result of WordArt effects without saving the presentation?**
+
+Yes, you can render slides containing WordArt to images (e.g., PNG, JPEG) using the `get_image` method from the [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) or [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) classes. This lets you preview the result in-memory or on-screen before saving or exporting the full presentation.

@@ -1,8 +1,20 @@
 ---
-title: Rectangle
+title: Add Rectangles to Presentations in Java
+linktitle: Rectangle
 type: docs
 weight: 80
 url: /java/rectangle/
+keywords:
+- add rectangle
+- create rectangle
+- rectangle shape
+- simple rectangle
+- formatted rectangle
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Boost your PowerPoint presentations by adding rectangles with Aspose.Slides for Java—easily design and modify shapes programmatically."
 ---
 
 {{% alert color="primary" %}} 

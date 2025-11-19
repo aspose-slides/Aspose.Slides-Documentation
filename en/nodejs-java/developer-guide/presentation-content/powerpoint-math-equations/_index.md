@@ -387,3 +387,17 @@ var groupChr = new aspose.slides.MathematicalText("x").join("y").join("z").group
 var borderBox = new aspose.slides.MathematicalText("x+y+z").toBorderBox();
 var boxedOperator = new aspose.slides.MathematicalText(":=").toBox();
 ``` 
+
+## **FAQ**
+
+**How can I add a mathematical equation to a PowerPoint slide?**
+
+To add a mathematical equation, you need to create a `MathShape` object, which automatically contains a mathematical portion. Then, you retrieve the `MathParagraph` from the `MathPortion` and add `MathBlock` objects to it.
+
+**Is it possible to create complex nested mathematical expressions?**
+
+Yes, Aspose.Slides allows you to create complex mathematical expressions by nesting MathBlocks. Each mathematical element implements the `IMathElement` class, which allows you to apply operations (Join, Divide, Enclose, etc.) to combine elements into more complex structures.
+
+**How can I update or modify an existing mathematical equation?**
+
+To update an equation, you need to access the existing MathBlocks through the `MathParagraph`. Then, by using methods such as Join, Divide, Enclose, and others, you can modify individual elements of the equation. After editing, save the presentation to apply the changes.

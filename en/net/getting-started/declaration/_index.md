@@ -3,6 +3,19 @@ title: Declaration
 type: docs
 weight: 110
 url: /net/declaration/
+keywords:
+- declaration
+- components
+- Full Trust permission
+- registry settings
+- system files
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn about Aspose.Slides for .NET trust requirements, permissions, and hosting limitations so you can safely deploy apps that process PPT, PPTX and ODP on servers."
 ---
 
 {{% alert color="primary" %}} 

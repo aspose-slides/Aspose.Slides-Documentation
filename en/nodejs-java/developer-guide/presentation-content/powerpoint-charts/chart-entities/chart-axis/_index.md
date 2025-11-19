@@ -8,6 +8,7 @@ description: "How to edit PowerPoint chart axis in JavaScript"
 
 
 ## **Getting the Max Values on the Vertical Axis on Charts**
+
 Aspose.Slides for Node.js via Java allows you to obtain the minimum and maximum values on a vertical axis. Go through these steps:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
@@ -41,6 +42,7 @@ try {
 ```
 
 ## **Swapping the Data between Axes**
+
 Aspose.Slides allows you to quickly swap the data between axes—the data represented on the vertical axis (y-axis) moves to the horizontal axis (x-axis) and vice versa. 
 
 This JavaScript code shows you how to perform the data swap task between axes on a chart:
@@ -115,6 +117,7 @@ try {
 ```
 
 ## **Setting the Date Format for Category Axis Value**
+
 Aspose.Slides for Node.js via Java allows you to set the date format for a category axis value. The operation is demonstrated in this JavaScript code:
 
 ```javascript
@@ -163,6 +166,7 @@ function convertToOADate(date) {
 ```
 
 ## **Setting the Rotation Angle for Chart Axis Title**
+
 Aspose.Slides for Node.js via Java allows you to set the rotation angle for a chart axis title. This JavaScript code demonstrates the operation:
 
 ```javascript
@@ -180,6 +184,7 @@ try {
 ```
 
 ## **Setting the Position Axis in a Category or Value Axis**
+
 Aspose.Slides for Node.js via Java allows you to set the position axis in a category or value axis. This JavaScript code shows how to perform the task:
 
 ```javascript
@@ -196,6 +201,7 @@ try {
 ```
 
 ## **Enabling the Display Unit label on Chart Value Axis**
+
 Aspose.Slides for Node.js via Java allows you to configure a chart to show a unit label on its chart value axis. This JavaScript code demonstrates the operation:
 
 ```javascript
@@ -210,3 +216,13 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**How do I set the value at which one axis crosses the other (axis crossing)?**
+
+Axes provide a [crossing setting](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/): you can choose to cross at zero, at the maximum category/value, or at a specific numeric value. This is useful for shifting the X-axis up or down or for emphasizing a baseline.
+
+**How can I position tick labels relative to the axis (alongside, outside, inside)?**
+
+Set the [label position](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) to "cross", "outside", or "inside". This affects readability and helps conserve space, especially on small charts.

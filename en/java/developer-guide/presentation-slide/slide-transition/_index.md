@@ -1,10 +1,23 @@
 ---
-title: Slide Transition
+title: Manage Slide Transitions in Presentations Using Java
+linktitle: Slide Transition
 type: docs
 weight: 80
 url: /java/slide-transition/
-keywords: "PowerPoint slide transition, morph transition in Java"
-description: "PowerPoint slide transition, PowerPoint morph transition in Java"
+keywords:
+- slide transition
+- add slide transition
+- apply slide transition
+- advanced slide transition
+- morph transition
+- transition type
+- transition effect
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Discover how to customize slide transitions in Aspose.Slides for Java, with step-by-step guidance for PowerPoint and OpenDocument presentations."
 ---
 
 

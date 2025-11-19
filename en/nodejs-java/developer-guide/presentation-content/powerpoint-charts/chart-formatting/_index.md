@@ -6,11 +6,12 @@ url: /nodejs-java/chart-formatting/
 ---
 
 ## **Format Chart Entities**
+
 Aspose.Slides for Node.js via Java lets developers add custom charts to their slides from scratch. This article explains how to format different chart entities including chart category and value axis.
 
 Aspose.Slides for Node.js via Java provides a simple API for managing different chart entities and formatting them using custom values:
 
-1. Create an instance of the [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of the [**Presentation**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the any of desired type (in this example we will use ChartType.LineWithMarkers).
 1. Access the chart Value Axis and set the following properties:
@@ -175,9 +176,10 @@ try {
 ```
 
 ## **Set Font Properties for Chart**
+
 Aspose.Slides for Node.js via Java provides support for setting the font related properties for the chart. Please follow the steps below for setting the font properties for chart.
 
-- Instantiate [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class object.
+- Instantiate [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class object.
 - Add chart on the slide.
 - Set font height.
 - Save modified presentation.
@@ -200,6 +202,7 @@ try {
 ```
 
 ## **Set Format of Numerics**
+
 Aspose.Slides for Node.js via Java provides a simple API for managing chart data format:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
@@ -282,6 +285,7 @@ The possible preset number format values along with their preset index and that 
 |**49**|@|
 
 ## **Set Chart Area Rounded Borders**
+
 Aspose.Slides for Node.js via Java provides support for setting chart area. Methods [**hasRoundedCorners**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#hasRoundedCorners--) and [**setRoundedCorners**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#setRoundedCorners-boolean-) have been added to [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart) class and [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart) class. 
 
 1. Instantiate [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class object.
@@ -309,3 +313,16 @@ try {
 }
 ```
 
+## **FAQ**
+
+**Can I set semi-transparent fills for columns/areas while keeping the border opaque?**
+
+Yes. Fill transparency and the outline are configured separately. This is useful for improving the readability of the grid and data in dense visualizations.
+
+**How can I deal with data labels when they overlap?**
+
+Reduce the font size, disable nonessential label components (for example, categories), set the label offset/position, show labels only for selected points if necessary, or switch the format to "value + legend".
+
+**Can I apply gradient or pattern fills to series?**
+
+Yes. Both solid and gradient/pattern fills are typically available. In practice, use gradients sparingly and avoid combinations that reduce contrast with the grid and text.

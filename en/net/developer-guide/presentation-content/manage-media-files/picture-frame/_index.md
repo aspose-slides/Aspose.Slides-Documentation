@@ -1,27 +1,34 @@
 ---
-title: Picture Frame
+title: Manage Picture Frames in Presentations in .NET
+linktitle: Picture Frame
 type: docs
 weight: 10
 url: /net/picture-frame/
 keywords:
 - picture frame
-- add a picture frame
-- create a picture frame
-- add an image
-- create an image
-- extract an image
-- crop an image
+- add picture frame
+- create picture frame
+- add image
+- create image
+- extract image
+- raster image
+- vector image
+- crop image
+- cropped area
 - StretchOff property
 - picture frame formatting
 - picture frame properties
+- ralative scale
 - image effect
 - aspect ratio
+- image transparency
 - PowerPoint
+- OpenDocument
 - presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Add a picture frame to a PowerPoint presentation in C# or .NET"
+- Aspose.Slides
+description: "Add picture frames to PowerPoint and OpenDocument presentations with Aspose.Slides for .NET. Streamline your workflow and enhance slide designs."
 ---
 
 A picture frame is a shape that contains an image—it is like a picture in a frame. 
@@ -309,7 +316,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## Delete Cropped Areas of Picture
+## **Delete Cropped Areas of Picture**
 
 If you want to delete the cropped areas of an image contained in a frame, you can use the [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) method. This method returns the cropped image or the origin image if cropping is unnecessary.
 
@@ -339,7 +346,7 @@ This method converts WMF/EMF metafiles to raster PNG image in the cropping opera
 
 {{% /alert %}}
 
-## Compress Image
+## **Compress Image**
 
 You can compress a picture in a presentation using the [`IPictureFillFormat.CompressImage`](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/compressimage/) method. 
 This method compresses an image by reducing its size based on the shape size and specified resolution, with the option to delete cropped areas. 
@@ -459,3 +466,20 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+## **FAQ**
+
+**How can I find out which image formats are supported for PictureFrame?**
+
+Aspose.Slides supports both raster images (PNG, JPEG, BMP, GIF, etc.) and vector images (for example, SVG) via the image object that is assigned to a [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/). The list of supported formats generally overlaps with the capabilities of the slide and image conversion engine.
+
+**How will adding dozens of large images affect PPTX size and performance?**
+
+Embedding large images increases file size and memory usage; linking images helps keep the presentation size down but requires the external files to remain accessible. Aspose.Slides provides the ability to add images by link to reduce file size.
+
+**How can I lock an image object from accidental moving/resizing?**
+
+Use [shape locks](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/pictureframelock/) for a [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/) (for example, disable moving or resizing). The locking mechanism is described for shapes in a separate [protection article](/slides/net/applying-protection-to-presentation/) and is supported for various shape types, including [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/).
+
+**Is SVG vector fidelity preserved when exporting a presentation to PDF/images?**
+
+Aspose.Slides allows extracting an SVG from a [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/) as the original vector. When [exporting to PDF](/slides/net/convert-powerpoint-to-pdf/) or [raster formats](/slides/net/convert-powerpoint-to-png/), the result may be rasterized depending on the export settings; the fact that the original SVG is stored as a vector is confirmed by the extraction behavior.

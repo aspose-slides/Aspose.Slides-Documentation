@@ -1,5 +1,5 @@
 ---
-title: Manage OLE in Presentations Using C#
+title: Manage OLE Objects in Presentations in .NET
 linktitle: Manage OLE
 type: docs
 weight: 40
@@ -324,3 +324,21 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     }
 }
 ```
+
+## **FAQ**
+
+**Will the OLE content be rendered when exporting slides to PDF/images?**
+
+What is visible on the slide is rendered—the icon/substitute image (preview). The "live" OLE content is not executed during rendering. If needed, set your own preview image to ensure the expected appearance in the exported PDF.
+
+**How can I lock an OLE object on a slide so users cannot move/edit it in PowerPoint?**
+
+Lock the shape: Aspose.Slides provides [shape-level locks](/slides/net/applying-protection-to-presentation/). This is not encryption, but it effectively prevents accidental edits and movement.
+
+**Why does a linked Excel object "jump" or change size when I open the presentation?**
+
+PowerPoint may refresh the preview of the linked OLE. For a stable appearance, follow the [Working Solution for Worksheet Resizing](/slides/net/working-solution-for-worksheet-resizing/) practices—either fit the frame to the range, or scale the range to a fixed frame and set an appropriate substitute image.
+
+**Will relative paths for linked OLE objects be preserved in the PPTX format?**
+
+In PPTX, "relative path" information is not available—only the full path. Relative paths are found in the older PPT format. For portability, prefer reliable absolute paths/accessible URIs or embedding.

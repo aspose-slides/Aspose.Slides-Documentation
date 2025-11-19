@@ -1,8 +1,23 @@
 ---
-title: How to create Hello World Presentation document
+title: How to Create Hello World Presentations in .NET
+linktitle: Hello World Presentation
 type: docs
 weight: 10
 url: /net/how-to-create-hello-world-presentation-document/
+keywords:
+- migration
+- hello world
+- legacy code
+- modern code
+- legacy approach
+- modern approach
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+- description: "Create a Hello World PowerPoint PPT, PPTX and ODP presentation in .NET with Aspose.Slides using both legacy and modern APIs in one simple guide."
 ---
 
 {{% alert color="primary" %}} 

@@ -1,10 +1,24 @@
 ---
-title: Video Frame
+title: Manage Video Frames in Presentations in .NET
+linktitle: Video Frame
 type: docs
 weight: 10
 url: /net/video-frame/
-keywords: "Add video, create video frame, extract video, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Add Video frame to PowerPoint presentation in C# or .NET"
+keywords:
+- add video
+- create video
+- embed video
+- extract video
+- retrive video
+- video frame
+- web source
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn to programmatically add and extract video frames in PowerPoint and OpenDocument slides using Aspose.Slides for .NET. Fast how-to guide."
 ---
 
 A well-placed video in a presentation can make your message more compelling and increase engagement levels with your audience. 
@@ -129,3 +143,21 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 ```
+
+## **FAQ**
+
+**Which video playback parameters can be changed for a VideoFrame?**
+
+You can control the [playback mode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (auto or on click) and [looping](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/). These options are available via the [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/) object's properties.
+
+**Does adding a video affect the PPTX file size?**
+
+Yes. When you embed a local video, the binary data is included in the document, so the presentation size grows in proportion to the file size. When you add an online video, a link and a thumbnail are embedded, so the size increase is smaller.
+
+**Can I replace the video in an existing VideoFrame without changing its position and size?**
+
+Yes. You can swap the [video content](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) within the frame while preserving the shape's geometry; this is a common scenario for updating media in an existing layout.
+
+**Can the content type (MIME) of an embedded video be determined?**
+
+Yes. An embedded video has a [content type](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) that you can read and use, for example when saving it to disk.

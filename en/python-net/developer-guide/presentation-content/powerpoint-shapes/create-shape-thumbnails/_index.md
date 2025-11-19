@@ -108,3 +108,25 @@ with slides.Presentation("hello_world.pptx") as presentation:
         # Save the image to disk in PNG format.
         thumbnail.save("apperance_bounds.png", slides.ImageFormat.PNG)
 ```
+
+## **FAQ**
+
+**What image formats can be used when saving shape thumbnails?**
+
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/), and others. Shapes can also be [exported as vector SVG](https://reference.aspose.com/slides/python-net/aspose.slides/shape/write_as_svg/) by saving the shape’s content as SVG.
+
+**What is the difference between SHAPE and APPEARANCE bounds when rendering a thumbnail?**
+
+`SHAPE` uses the shape’s geometry; `APPEARANCE` takes [visual effects](/slides/python-net/shape-effect/) (shadows, glows, etc.) into account.
+
+**What happens if a shape is marked as hidden? Will it still render as a thumbnail?**
+
+A hidden shape remains part of the model and can be rendered; the hidden flag affects slideshow display but does not prevent generating the shape’s image.
+
+**Are group shapes, charts, SmartArt, and other complex objects supported?**
+
+Yes. Any object represented as [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) (including [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/), and [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/)) can be saved as a thumbnail or as SVG.
+
+**Do system-installed fonts affect the quality of thumbnails for text shapes?**
+
+Yes. You should [provide the required fonts](/slides/python-net/custom-font/) (or [configure font substitutions](/slides/python-net/font-substitution/)) to avoid unwanted fallbacks and text reflow.

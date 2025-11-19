@@ -24,3 +24,21 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**Can I include hidden slides in the SWF?**
+
+Yes. Use the [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/swfoptions/setshowhiddenslides/) method in [SwfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/swfoptions/). By default, hidden slides are not exported.
+
+**How can I control compression and the final SWF size?**
+
+Use the [setCompressed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/swfoptions/setcompressed/) method and [setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/swfoptions/setjpegquality/) to balance file size and image fidelity.
+
+**What is 'setViewerIncluded' for, and when should I use it?**
+
+[setViewerIncluded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/swfoptions/setviewerincluded/) adds an embedded player UI (navigation controls, panels, search). Use it if you plan to use your own player or need a bare SWF frame without UI.
+
+**What happens if a source font is missing on the export machine?**
+
+Aspose.Slides will substitute the font you specify via [setDefaultRegularFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setDefaultRegularFont) in [SwfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/swfoptions/) to avoid an unintended fallback.

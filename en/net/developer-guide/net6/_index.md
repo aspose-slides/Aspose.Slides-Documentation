@@ -1,14 +1,21 @@
 ---
-title: .NET6 Support
+title: .NET 6 Support
 type: docs
 weight: 235
 url: /net/net6/
 keywords: 
-- .NET 6
-- Cloud
-- AWS
-- Azure
-description: ".NET6 Support"
+- .NET 6 support
+- Cloud solution
+- AWS Lambda
+- Azure Functions
+- System.Drawing.Common
+- GDI
+- libgdiplus
+- CS0433
+- .NET
+- C#
+- Aspose.Slides
+description: "Configure Aspose.Slides for .NET 6 to create, edit and convert PowerPoint PPT, PPTX and ODP presentations in modern, cross-platform C# applications."
 ---
 
 ## Introduction

@@ -167,3 +167,17 @@ with slides.Presentation("VBA.pptm") as presentation:
         if presentation.vba_project.is_password_protected:
             print(f"The VBA Project '{presentation.vba_project.name}' is protected by password to view project properties.")
 ```
+
+## **FAQ**
+
+**What happens to macros if I save the presentation as PPTX?**
+
+Macros will be removed because PPTX does not support VBA. To keep macros, choose PPTM, PPSM, or POTM.
+
+**Can Aspose.Slides run macros inside a presentation to, for example, refresh data?**
+
+No. The library never executes VBA code; execution is only possible inside PowerPoint with the appropriate security settings.
+
+**Is working with ActiveX controls linked to VBA code supported?**
+
+Yes, you can access existing [ActiveX controls](/slides/python-net/activex/), modify their properties, and remove them. This is useful when macros interact with ActiveX.

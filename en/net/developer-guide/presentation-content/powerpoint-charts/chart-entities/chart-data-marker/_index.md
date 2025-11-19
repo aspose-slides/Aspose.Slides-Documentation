@@ -1,15 +1,21 @@
 ---
-title: Chart Data Marker
+title: Manage Chart Data Markers in Presentations in .NET
+linktitle: Data Marker
 type: docs
 url: /net/chart-data-marker/
 keywords:
-- chart marker options
+- chart
+- data point
+- marker
+- marker options
+- marker size
+- fill type
 - PowerPoint
 - presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Set chart marker options in PowerPoint presentations in C# or .NET"
+- Aspose.Slides
+description: "Learn how to customize chart data markers in Aspose.Slides for .NET, boosting presentation impact across PPT and PPTX formats with clear C# code examples."
 ---
 
 ## **Set Chart Marker Options**
@@ -80,3 +86,12 @@ series.Marker.Size = 15;
 presentation.Save("MarkOptions_out.pptx", SaveFormat.Pptx);
 ```
 
+## **FAQ**
+
+**Which marker shapes are available out of the box?**
+
+Standard shapes are available (circle, square, diamond, triangle, etc.); the list is defined by the [MarkerStyleType](https://reference.aspose.com/slides/net/aspose.slides.charts/markerstyletype/) enumeration. If you need a non-standard shape, use a marker with a picture fill to emulate custom visuals.
+
+**Are markers preserved when exporting a chart to an image or SVG?**
+
+Yes. When rendering charts to [raster formats](/slides/net/convert-powerpoint-to-png/) or saving [shapes as SVG](/slides/net/render-a-slide-as-an-svg-image/), markers retain their appearance and settings, including size, fill, and outline.

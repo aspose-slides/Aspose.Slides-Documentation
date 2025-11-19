@@ -1,11 +1,30 @@
 ---
-title: Convert PowerPoint (PPT, PPTX) to JPG - Java Code Examples
-linktitle: Convert Powerpoint to JPG
+title: Convert PPT and PPTX to JPG in Java
+linktitle: PowerPoint to JPG
 type: docs
 weight: 60
 url: /java/convert-powerpoint-to-jpg/
-keywords: "Convert PowerPoint to JPG, PPTX to JPEG, PPT to JPEG"
-description: "Learn how to convert PowerPoint (PPT, PPTX) to JPG using Java. Step-by-step guide with code examples for high-quality slide image extraction."
+keywords: 
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- PowerPoint to JPG
+- presentation to JPG
+- slide to JPG
+- PPT to JPG
+- PPTX to JPG
+- save PowerPoint as JPG
+- save presentation as JPG
+- save slide as JPG
+- save PPT as JPG
+- save PPTX as JPG
+- export PPT to JPG
+- export PPTX to JPG
+- Java
+- Aspose.Slides
+description: "Convert PowerPoint (PPT, PPTX) slides to high-quality JPG images in Java with Aspose.Slides for Java using fast, reliable code examples."
 ---
 
 ## Looking for an Online PPT to JPG Converter?

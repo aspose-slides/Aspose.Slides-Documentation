@@ -8,6 +8,7 @@ description: "Add zoom or zoom frames to PowerPoint presentations in JavaScript"
 ---
 
 ## **Overview**
+
 Zooms in PowerPoint allow you to jump to and from specific slides, sections, and portions of a presentation. When you are presenting, this ability to navigate quickly across content might prove very useful. 
 
 ![overview_image](overview.png)
@@ -17,6 +18,7 @@ Zooms in PowerPoint allow you to jump to and from specific slides, sections, and
 * To show a single section only, use a [Section Zoom](#Section-Zoom).
 
 ## **Slide Zoom**
+
 A slide zoom can make your presentation more dynamic, allowing you to navigate freely between slides in any order you choose without interrupting the flow of your presentation. Slide zooms are great for short presentations without many sections, but you can still use them in different presentation scenarios.
 
 Slide zooms help you drill into multiple pieces of information while you feel like you are on a single canvas. 
@@ -68,7 +70,9 @@ try {
     }
 }
 ```
+
 ### **Creating Zoom Frames with Custom Images**
+
 With Aspose.Slides for Node.js via Java, you can create a zoom frame with a different slide preview image this way:
 1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2.	Create a new slide to which you intend to link the zoom frame. 
@@ -112,7 +116,9 @@ try {
     }
 }
 ```
+
 ### **Formatting Zoom Frames**
+
 In the previous sections, we showed you how to create simple zoom frames. To create more complicated zoom frames, you have to alter a simple frame's formatting. There are several formatting options you can apply to a zoom frame. 
 
 You can control a zoom frame's formatting on a slide this way:
@@ -222,6 +228,7 @@ try {
     }
 }
 ```
+
 ### **Creating Section Zoom Frames with Custom Images**
 
 Using Aspose.Slides for Node.js via Java, you can create a section zoom frame with a different slide preview image this way:
@@ -267,6 +274,7 @@ try {
     }
 }
 ```
+
 ### **Formatting Section Zoom Frames**
 
 To create more complicated section zoom frames, you have to alter a simple frame's formatting. There are several formatting options you can apply to a section zoom frame. 
@@ -332,7 +340,6 @@ try {
     }
 }
 ```
-
 
 ## **Summary Zoom**
 
@@ -515,4 +522,16 @@ try {
 }
 ```
 
-  
+## **FAQ**
+
+**Can I control returning to the 'parent' slide after showing the target?**
+
+Yes. The [Zoom frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomframe/) or [section](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/) has a `setReturnToParent` method that, when enabled, sends viewers back to the originating slide after they visit the target content.
+
+**Can I adjust the 'speed' or duration of the Zoom transition?**
+
+Yes. Zoom exposes a `setTransitionDuration` method so you can control how long the jump animation takes.
+
+**Are there limits on how many Zoom objects a presentation can contain?**
+
+There is no hard API limit documented. Practical limits depend on overall presentation complexity and the viewer's performance. You can add many Zoom frames, but consider file size and rendering time.

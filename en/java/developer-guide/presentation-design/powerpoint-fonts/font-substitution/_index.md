@@ -1,11 +1,23 @@
 ---
-title: Font Substitution - PowerPoint Java API
+title: Configure Font Substitution in Presentations Using Java
 linktitle: Font Substitution
 type: docs
 weight: 70
 url: /java/font-substitution/
-keywords: "Font, substitute font, PowerPoint presentation, Java, Aspose.Slides for Java"
-description: "Substitute font in PowerPoint in Java"
+keywords:
+- font
+- substitute font
+- font substitution
+- replace font
+- font replacement
+- substitution rule
+- replacement rule
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Enable optimal font substitution in Aspose.Slides for Java when converting PowerPoint & OpenDocument presentations to other file formats."
 ---
 
 Aspose.Slides allows you to set rules for fonts that determines what must be done in certain conditions (for example, when a font cannot be accessed) this way:

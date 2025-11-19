@@ -1,5 +1,5 @@
 ---
-title: Convert PowerPoint Presentations to TIFF in C#
+title: Convert PowerPoint Presentations to TIFF in .NET
 titlelink: PowerPoint to TIFF
 type: docs
 weight: 90
@@ -9,17 +9,21 @@ keywords:
 - convert OpenDocument
 - convert presentation
 - convert slide
+- convert PPT
+- convert PPTX
 - PowerPoint to TIFF
-- OpenDocument to TIFF
 - presentation to TIFF
 - slide to TIFF
 - PPT to TIFF
 - PPTX to TIFF
-- ODP to TIFF
-- C#
+- save PPT as TIFF
+- save PPTX as TIFF
+- export PPT to TIFF
+- export PPTX to TIFF
 - .NET
+- C#
 - Aspose.Slides
-description: "Learn how to easily convert PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations to high-quality TIFF images using Aspose.Slides for .NET. Step-by-step guide with code examples included."
+description: "Learn how to easily convert PowerPoint (PPT, PPTX) presentations to high-quality TIFF images using Aspose.Slides for .NET. C# code examples."
 ---
 
 ## **Overview**
@@ -146,16 +150,16 @@ Check out Aspose's [FREE PowerPoint to Poster converter](https://products.aspose
 
 {{% /alert %}}
 
-## **FAQs**
+## **FAQ**
 
-**1. Can I convert an individual slide instead of entire PowerPoint presentation to TIFF?**
+**Can I convert an individual slide instead of entire PowerPoint presentation to TIFF?**
 
 Yes. Aspose.Slides allows you to convert individual slides from PowerPoint and OpenDocument presentations into TIFF images separately.
 
-**2. Is there any limit to the number of slides when converting a presentation to TIFF?**
+**Is there any limit to the number of slides when converting a presentation to TIFF?**
 
 No, Aspose.Slides does not impose any restrictions on the number of slides. You can convert presentations of any size into TIFF format.
 
-**3. Are PowerPoint animations and transition effects preserved when converting slides to TIFF?**
+**Are PowerPoint animations and transition effects preserved when converting slides to TIFF?**
 
 No, TIFF is a static image format. Therefore, animations and transition effects are not preserved; only static snapshots of slides are exported.

@@ -13,11 +13,11 @@ keywords:
 - مصدر البيانات
 - دفتر عمل خارجي
 - بيانات خارجية
-- باوربوينت
+- PowerPoint
 - عرض تقديمي
-- بايثون
+- Python
 - Aspose.Slides
-description: "اكتشف Aspose.Slides لبايثون عبر .NET: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint و OpenDocument لتبسيط بيانات العرض التقديمي الخاص بك."
+description: "اكتشف Aspose.Slides لـ Python عبر .NET: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint وOpenDocument لتبسيط بيانات العرض التقديمي الخاص بك."
 ---
 
 ## **تعيين بيانات المخطط من دفتر عمل**

@@ -1,5 +1,5 @@
 ---
-title: Advanced Text Extraction from Presentations in C#
+title: Advanced Text Extraction from Presentations in .NET
 linktitle: Extract Text
 type: docs
 weight: 90
@@ -9,13 +9,25 @@ keywords:
 - extract text from slide
 - extract text from presentation
 - extract text from PowerPoint
+- extract text from OpenDocument
 - extract text from PPT
 - extract text from PPTX
 - extract text from ODP
-- C#
+- retrieve text
+- retrieve text from slide
+- retrieve text from presentation
+- retrieve text from PowerPoint
+- retrieve text from OpenDocument
+- retrieve text from PPT
+- retrieve text from PPTX
+- retrieve text from ODP
+- PowerPoint
+- OpenDocument
+- presentation
 - .NET
+- C#
 - Aspose.Slides
-description: "Learn how to quickly and easily extract text from PowerPoint presentations using Aspose.Slides for .NET. Follow our simple, step-by-step guide to save time and efficiently access slide content in your applications."
+description: "Quickly extract text from PowerPoint and OpenDocument presentations using Aspose.Slides for .NET. Follow our simple, step-by-step guide to save time."
 ---
 
 ## **Overview**
@@ -137,16 +149,16 @@ Console.WriteLine(text.SlidesText[0].NotesText);
 Console.WriteLine(text.SlidesText[0].CommentsText);
 ```
 
-## **FAQs**
+## **FAQ**
 
-**1. How fast does Aspose.Slides process large presentations during text extraction?**
+**How fast does Aspose.Slides process large presentations during text extraction?**
 
 Aspose.Slides is optimized for high performance and efficiently processes even large presentations, making it suitable for real-time or bulk processing scenarios.
 
-**2. Can Aspose.Slides extract text from tables and charts within presentations?**
+**Can Aspose.Slides extract text from tables and charts within presentations?**
 
 Yes, Aspose.Slides fully supports extracting text from tables, charts, and other complex slide elements, allowing you to access and analyze all textual content easily.
 
-**3. Do I need a special Aspose.Slides license to extract text from presentations?**
+**Do I need a special Aspose.Slides license to extract text from presentations?**
 
 You can extract text using the free trial version of Aspose.Slides, although it will have certain limitations, such as processing only a limited number of slides. For unrestricted use and to handle larger presentations, purchasing a full license is recommended.

@@ -1,5 +1,6 @@
 ---
-title: Image
+title: Optimize Image Management in Presentations Using Java
+linktitle: Manage Images
 type: docs
 weight: 10
 url: /java/image/

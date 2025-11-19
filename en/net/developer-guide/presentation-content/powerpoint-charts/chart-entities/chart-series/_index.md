@@ -1,6 +1,6 @@
 ---
-title: Manage Chart Series in C#
-linktitle: Chart Series
+title: Manage Chart Data Series in Presentations in .NET
+linktitle: Data Series
 type: docs
 url: /net/chart-series/
 keywords:
@@ -13,8 +13,8 @@ keywords:
 - series gap
 - PowerPoint
 - presentation
-- C#
 - .NET
+- C#
 - Aspose.Slides
 description: "Learn how to manage chart series in C# for PowerPoint (PPT/PPTX) with practical code examples and best practices to enhance your data presentations."
 ---
@@ -302,7 +302,7 @@ The result:
 
 ![The gap width](gap_width.png)
 
-## **FAQs**
+## **FAQ**
 
 **Is there a limit to how many series a single chart can contain?**
 

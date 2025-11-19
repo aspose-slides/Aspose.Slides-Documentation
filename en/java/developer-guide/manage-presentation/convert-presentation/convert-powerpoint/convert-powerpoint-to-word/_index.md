@@ -1,10 +1,37 @@
 ---
-title: Convert PowerPoint to Word
+title: Convert PowerPoint Presentations to Word Documents in Java
+linktitle: PowerPoint to Word
 type: docs
 weight: 110
 url: /java/convert-powerpoint-to-word/
-keywords: "Convert PowerPoint, PPT, PPTX, Presentation, Word, DOCX, DOC, PPTX to DOCX, PPT to DOC, PPTX to DOC, PPT to DOCX, Java, java, Aspose.Slides"
-description: "Convert PowerPoint Presentation to Word in Java"
+keywords:
+- сonvert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- PowerPoint to Word
+- presentation to Word
+- slide to Word
+- PPT to Word
+- PPTX to Word
+- PowerPoint to DOCX
+- presentation to DOCX
+- slide to DOCX
+- PPT to DOCX
+- PPTX to DOCX
+- PowerPoint to DOC
+- presentation to DOC
+- slide to DOC
+- PPT to DOC
+- PPTX to DOC
+- save PPT as DOCX
+- save PPTX as DOCX
+- export PPT to DOCX
+- export PPTX to DOCX
+- Java
+- Aspose.Slides
+description: "Convert PowerPoint PPT and PPTX slides to editable Word documents in Java using Aspose.Slides with precise layout, images and formatting preserved."
 ---
 
 If you plan to use textual content or information from a presentation (PPT or PPTX) in new ways, you may benefit from converting the presentation to Word (DOC or DOCX). 

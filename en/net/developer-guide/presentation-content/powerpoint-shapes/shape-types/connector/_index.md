@@ -1,10 +1,22 @@
 ---
-title: Connector
+title: Manage Connectors in Presentations in .NET
+linktitle: Connector
 type: docs
 weight: 10
 url: /net/connector/
-keywords: "Connect shapes, connectors, PowerPoint shapes, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Connect PowerPoint shapes in C# or .NET"
+keywords:
+- connector
+- connector type
+- connector point
+- connector line
+- connector angle
+- connect shapes
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Empower .NET apps to draw, connect and auto-route lines in PowerPoint slides—gain full control over straight, elbow and curved connectors."
 ---
 
 A PowerPoint connector is a special line that connects or links two shapes together and stays attached to shapes even when they are moved or repositioned on a given slide. 
@@ -364,3 +376,17 @@ public static double getDirection(float w, float h, bool flipH, bool flipV)
     return angle * 180.0 / Math.PI;
 }
 ```
+
+## **FAQ**
+
+**How can I tell whether a connector can be "glued" to a specific shape?**
+
+Check that the shape exposes [connection sites](https://reference.aspose.com/slides/net/aspose.slides/shape/connectionsitecount/). If there are none or the count is zero, gluing isn’t available; in that case, use free endpoints and position them manually. It’s sensible to check the site count before attaching.
+
+**What happens to a connector if I delete one of the connected shapes?**
+
+Its ends will be detached; the connector remains on the slide as an ordinary line with free start/end. You can either delete it or reassign the connections and, if needed, [reroute](https://reference.aspose.com/slides/net/aspose.slides/connector/reroute/).
+
+**Are connector bindings preserved when copying a slide to another presentation?**
+
+Generally yes, provided the target shapes are copied as well. If the slide is inserted into another file without the connected shapes, the ends become free and you’ll need to reattach them.

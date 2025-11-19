@@ -3,6 +3,14 @@ title: Known Issues in Aspose.Slides for Java 14.4.0
 type: docs
 weight: 30
 url: /java/known-issues-in-aspose-slides-for-java-14-4-0/
+keywords:
+- known issue
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Review known issues in Aspose.Slides for Java 14.4.0 to ensure accurate work with PowerPoint and OpenDocument files and avoid surprises in your presentations."
 ---
 
 {{% alert color="primary" %}} 

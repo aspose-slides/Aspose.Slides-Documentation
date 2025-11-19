@@ -1,9 +1,18 @@
 ---
-title: Exporting Math Equations
+title: Export Math Equations from Presentations in Java
+linktitle: Export Equations
 type: docs
 weight: 30
 url: /java/exporting-math-equations/
-
+keywords:
+- export math equations
+- MathML
+- LaTeX
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Unlock seamless export of math equations from PowerPoint to MathML using Aspose.Slides for Java—preserve formatting and boost compatibility."
 ---
 
 ## Exporting Math Equations from Presentations

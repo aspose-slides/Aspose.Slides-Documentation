@@ -80,3 +80,33 @@ Any document that can be loaded in Aspose.Slides can also be converted directly 
 {{% alert color="primary" %}}
 Read more: [Convert PowerPoint Presentations to TIFF in Python](/slides/python-net/convert-powerpoint-to-tiff/).
 {{% /alert %}}
+
+## **FAQ**
+
+**Can I include hidden slides when exporting to PDF/XPS?**
+
+Yes. Export supports including hidden slides via the corresponding option in the [PDF](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/show_hidden_slides/)/[XPS](https://reference.aspose.com/slides/python-net/aspose.slides.export/xpsoptions/show_hidden_slides/) settings.
+
+**Is saving to the PDF/A format (for archival storage) supported?**
+
+Yes, PDF/A compliance levels [are available](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfcompliance/) (including A-2a/A-2b/A-2u and A-3a/A-3b) during export.
+
+**What happens to fonts during conversion: are they embedded or substituted?**
+
+There are flexible options: you can [embed all glyphs or only used subsets](/slides/python-net/embedded-font/), specify a [fallback font](/slides/python-net/fallback-font/), and [control behavior](/slides/python-net/font-substitution/) when a font lacks certain styles.
+
+**How can I control the quality and size of the resulting PDF?**
+
+Options are available for [JPEG quality](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/jpeg_quality/), [text compression](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/text_compression/), and a [sufficient resolution](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/sufficient_resolution/) threshold for images, plus a mode that selects the [best compression for pictures](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/best_images_compression_ratio/).
+
+**Can I export only a range of slides (for example, 5–12)?**
+
+Yes, export supports selecting a subset of slides.
+
+**Is multi-core processing of several files at the same time supported?**
+
+It is acceptable to process different presentations in parallel in separate processes. Important: the same [presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object must not be loaded or saved from [multiple threads](/slides/python-net/multithreading/).
+
+**Are there risks when applying the license from different threads?**
+
+Yes, [license-setting](/slides/python-net/licensing/) calls are not thread-safe and require synchronization.

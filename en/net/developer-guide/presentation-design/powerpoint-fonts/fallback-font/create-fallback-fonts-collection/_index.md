@@ -1,11 +1,25 @@
 ---
-title: Create Fallback Fonts Collection
+title: Configure Fallback Font Collections in .NET
+linktitle: Fallback Font Collection
 type: docs
 weight: 20
 url: /net/create-fallback-fonts-collection/
-keywords: "Fallback fonts collection, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Fallback fonts collection in PowerPoint in C# or .NET"
+keywords:
+- fallback font
+- fallback rule
+- font collection
+- configure font
+- set up font
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Set up a fallback fonts collection in Aspose.Slides for .NET to keep text consistent and crisp in PowerPoint and OpenDocument presentations."
 ---
+
+## **Apply Fallback Rules**
 
 Instances of [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule) class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection), that implements [IFontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontfallbackrulescollection) interface. It is possible to add or remove rules from the collection.
 
@@ -33,3 +47,20 @@ After FontsManager is initialised with fallback fonts collection, the fallback f
 Read more how to [Render Presentation with Fallback Font](/slides/net/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
+## **FAQ**
+
+**Will my fallback rules be embedded into the PPTX file and visible in PowerPoint after saving?**
+
+No. Fallback rules are runtime rendering settings; they are not serialized into PPTX and will not appear in PowerPoint's UI.
+
+**Does fallback apply to text inside SmartArt, WordArt, charts, and tables?**
+
+Yes. The same glyph-substitution mechanism is used for any text in these objects.
+
+**Does Aspose distribute any fonts with the library?**
+
+No. You add and use fonts on your side and under your own responsibility.
+
+**Can replacement/substitution for missing fonts and fallback for missing glyphs be used together?**
+
+Yes. They are independent stages of the same font-resolution pipeline: first the engine resolves font availability ([replacement](/slides/net/font-replacement/)/[substitution](/slides/net/font-substitution/)), then fallback fills gaps for missing glyphs in available fonts.

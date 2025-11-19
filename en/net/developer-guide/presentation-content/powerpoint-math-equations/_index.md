@@ -1,28 +1,24 @@
 ---
-title: Add Math Equations to PowerPoint Presentations in C#
+title: Add Math Equations to PowerPoint Presentations in .NET
 linktitle: PowerPoint Math Equations
 type: docs
 weight: 80
 url: /net/powerpoint-math-equations/
 keywords:
 - math equation
-- PowerPoint math equation
 - math symbol
-- PowerPoint math symbol
 - math formula
-- PowerPoint math formula
 - math text
-- PowerPoint math text
-- add math equation to PowerPoint
-- add math symbol to PowerPoint
-- add math formula to PowerPoint
-- add math text to PowerPoint
+- add math equation
+- add math symbol
+- add math formula
+- add math text
 - PowerPoint
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Learn how to work with mathematical equations in PowerPoint using Aspose.Slides for .NET. Get detailed instructions, code examples, and tips to automate the creation and editing of presentations."
+description: "Insert and edit math equations in PowerPoint PPT and PPTX with Aspose.Slides for .NET, supporting OMML, formatting controls, and clear C# code samples."
 ---
 
 ## **Overview**
@@ -417,7 +413,7 @@ var borderBox = new MathematicalText("x+y+z").ToBorderBox();
 var boxedOperator = new MathematicalText(":=").ToBox();
 ```
 
-## **FAQs**
+## **FAQ**
 
 **How can I add a mathematical equation to a PowerPoint slide?**
 
