@@ -1,26 +1,33 @@
 ---
-title: Picture Frame
+title: Manage Picture Frames in Presentations Using Java
+linktitle: Picture Frame
 type: docs
 weight: 10
 url: /java/picture-frame/
 keywords:
 - picture frame
-- add a picture frame
-- create a picture frame
-- add an image
-- create an image
-- extract an image
-- crop an image
+- add picture frame
+- create picture frame
+- add image
+- create image
+- extract image
+- raster image
+- vector image
+- crop image
+- cropped area
 - StretchOff property
 - picture frame formatting
 - picture frame properties
+- ralative scale
 - image effect
 - aspect ratio
+- image transparency
 - PowerPoint
+- OpenDocument
 - presentation
 - Java
-- Aspose.Slides for Java
-description: "Add a picture frame to a PowerPoint presentation in Java"
+- Aspose.Slides
+description: "Add picture frames to PowerPoint and OpenDocument presentations with Aspose.Slides for Java. Streamline your workflow and enhance slide designs."
 ---
 
 A picture frame is a shape that contains an image—it is like a picture in a frame. 

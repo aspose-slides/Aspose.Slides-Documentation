@@ -1,13 +1,14 @@
 ---
-title: Manage Slide Show
+title: Manage Slide Show in .NET
+linktitle: Slide Show
 type: docs
 weight: 90
 url: /net/manage-slide-show/
 keywords:
 - show type
-- presented by a speaker
-- browsed by an individual
-- browsed at a kiosk
+- presented by speaker
+- browsed by individual
+- browsed at kiosk
 - show options
 - loop continuously
 - show without narration
@@ -19,11 +20,12 @@ keywords:
 - manually
 - using timings
 - PowerPoint
+- OpenDocument
 - presentation
-- C#
 - .NET
-- Aspose.Slides for .NET
-description: "Manage slide show settings in PowerPoint presentations using C#"
+- C#
+- Aspose.Slides
+description: "Learn how to manage slide shows in Aspose.Slides for .NET. Control slide transitions, timings and more across PPT, PPTX and ODP formats with ease."
 ---
 
 In Microsoft PowerPoint, the **Slide Show** settings are a key tool for preparing and delivering professional presentations. One of the most important features in this section is **Set Up Show**, which allows you to tailor your presentation to specific conditions and audiences, ensuring flexibility and convenience. With this feature, you can select the show type (e.g., presented by a speaker, browsed by an individual, or browsed at a kiosk), enable or disable looping, choose specific slides to display, and use timings. This step in preparation is crucial for making your presentation more effective and professional.
@@ -106,3 +108,17 @@ presentation.SlideShowSettings.ShowMediaControls = true;
 
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
+
+## **FAQ**
+
+**Can I save a presentation so it opens directly in slide show mode?**
+
+Yes. Save the file as PPSX or PPSM; these formats launch directly in slide show when opened in PowerPoint. In Aspose.Slides, choose the corresponding save format [during export](/slides/net/save-presentation/).
+
+**Can I exclude individual slides from the show without deleting them from the file?**
+
+Yes. Mark a slide as [Hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/). Hidden slides remain in the presentation but are not displayed during the slide show.
+
+**Can Aspose.Slides play a slide show or control a live presentation on screen?**
+
+No. Aspose.Slides edits, analyzes, and converts presentation files; the actual playback is handled by a viewer application such as PowerPoint.

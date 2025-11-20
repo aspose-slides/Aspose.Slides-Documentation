@@ -1,8 +1,19 @@
 ---
-title: Clone Slides
+title: Clone Presentation Slides in C++
+linktitle: Clone Slides
 type: docs
 weight: 40
 url: /cpp/clone-slides/
+keywords:
+- clone slide
+- copy slide
+- save slide
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Quickly duplicate PowerPoint slides with Aspose.Slides for C++. Follow our clear code examples to automate PPT creation in seconds and eliminate manual work."
 ---
 
 

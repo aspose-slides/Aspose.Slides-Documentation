@@ -1,5 +1,5 @@
 ---
-title: Create or Update PowerPoint Presentation Charts
+title: Create or Update PowerPoint Presentation Charts in PHP
 linktitle: Create Chart
 type: docs
 weight: 10
@@ -823,14 +823,155 @@ This PHP code shows you how to create a map chart:
 
 ### **Creating Combination Charts**
 
-A combination chart (or combo chart) is a chart that combines two or more charts on a single graph. Such a chart allows you to highlight, compare, or review differences between two (or more) sets of data. This way, you see the relationship (if any) between the sets of data. 
+A combination chart (or combo chart) combines two or more chart types in a single graph. This chart lets you highlight, compare, or examine differences between two or more data sets, helping you identify relationships between them.
 
-![combination-chart-ppt](combination-chart-ppt.png)
+![The combination chart](combination_chart.png)
 
-This PHP code shows you how to create a combination chart in PowerPoint:
+The following PHP code shows how to create the combination chart shown above in a PowerPoint presentation:
 
 ```php
+function createComboChart() {
+    $presentation = new Presentation();
+    $slide = $presentation->getSlides()->get_Item(0);
+    try {
+        $chart = createChartWithFirstSeries($slide);
 
+        addSecondSeriesToChart($chart);
+        addThirdSeriesToChart($chart);
+
+        setPrimaryAxesFormat($chart);
+        setSecondaryAxesFormat($chart);
+
+        $presentation->save("combo-chart.pptx", SaveFormat::Pptx);
+    } finally {
+        $presentation->dispose();
+    }
+}
+
+function createChartWithFirstSeries($slide) {
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+
+    // Set the chart title.
+    $chart->setTitle(true);
+    $chart->getChartTitle()->addTextFrameForOverriding("Chart Title");
+    $chart->getChartTitle()->setOverlay(false);
+    $titleParagraph = $chart->getChartTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0);
+    $titleFormat = $titleParagraph->getParagraphFormat()->getDefaultPortionFormat();
+    $titleFormat->setFontBold(NullableBool::False);
+    $titleFormat->setFontHeight(18);
+    
+    // Set the chart legend.
+    $chart->getLegend()->setPosition(LegendPositionType::Bottom);
+    $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(12);
+
+    // Delete the default generated series and categories.
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $worksheetIndex = 0;
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    // Add new categories.
+    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 1, 0, "Category 1"));
+    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 2, 0, "Category 2"));
+    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 3, 0, "Category 3"));
+    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 4, 0, "Category 4"));
+
+    // Add the first series.
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 1, "Series 1");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    $series->getParentSeriesGroup()->setOverlap(-25);
+    $series->getParentSeriesGroup()->setGapWidth(220);
+
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 1, 1, 4.3));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 2, 1, 2.5));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 3, 1, 3.5));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 4, 1, 4.5));
+
+    return $chart;
+}
+
+function addSecondSeriesToChart($chart) {
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
+
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 2, "Series 2");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::ClusteredColumn);
+
+    $series->getParentSeriesGroup()->setOverlap(-25);
+    $series->getParentSeriesGroup()->setGapWidth(220);
+
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 1, 2, 2.4));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 2, 2, 4.4));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 3, 2, 1.8));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 4, 2, 2.8));
+}
+
+function addThirdSeriesToChart($chart) {
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
+
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 3, "Series 3");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::Line);
+
+    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 1, 3, 2.0));
+    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 2, 3, 2.0));
+    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 3, 3, 3.0));
+    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 4, 3, 5.0));
+
+    $series->setPlotOnSecondAxis(true);
+}
+
+function setPrimaryAxesFormat($chart) {
+    // Set the horizontal axis.
+    $horizontalAxis = $chart->getAxes()->getHorizontalAxis();
+    $horizontalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
+    $horizontalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+
+    setAxisTitle($horizontalAxis, "X Axis");
+
+    // Set the vertical axis.
+    $verticalAxis = $chart->getAxes()->getVerticalAxis();
+    $verticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
+    $verticalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+
+    setAxisTitle($verticalAxis, "Y Axis 1");
+
+    // Set the vertical major gridlines color.
+    $majorGridLinesFormat = $verticalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat();
+    $majorGridLinesFormat->setFillType(FillType::Solid);
+    $majorGridLinesFormat->getSolidFillColor()->setColor(new java("java.awt.Color", 217, 217, 217));
+}
+
+function setSecondaryAxesFormat($chart) {
+    // Set the secondary horizontal axis.
+    $secondaryHorizontalAxis = $chart->getAxes()->getSecondaryHorizontalAxis();
+    $secondaryHorizontalAxis->setPosition(AxisPositionType::Bottom);
+    $secondaryHorizontalAxis->setCrossType(CrossesType::Maximum);
+    $secondaryHorizontalAxis->setVisible(false);
+    $secondaryHorizontalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+    $secondaryHorizontalAxis->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+
+    // Set the secondary vertical axis.
+    $secondaryVerticalAxis = $chart->getAxes()->getSecondaryVerticalAxis();
+    $secondaryVerticalAxis->setPosition(AxisPositionType::Right);
+    $secondaryVerticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
+    $secondaryVerticalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+    $secondaryVerticalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+    $secondaryVerticalAxis->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+
+    setAxisTitle($secondaryVerticalAxis, "Y Axis 2");
+}
+
+function setAxisTitle($axis, $axisTitle) {
+    $axis->setTitle(true);
+    $axis->getTitle()->setOverlay(false);
+    $titleParagraph = $axis->getTitle()->addTextFrameForOverriding($axisTitle)->getParagraphs()->get_Item(0);
+    $titleFormat = $titleParagraph->getParagraphFormat()->getDefaultPortionFormat();
+    $titleFormat->setFontBold(NullableBool::False);
+    $titleFormat->setFontHeight(12);
+}
 ```
 
 ## **Updating Charts**

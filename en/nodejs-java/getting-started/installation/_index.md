@@ -182,3 +182,9 @@ To install and use Aspose.Slides for Node.js via Java from a ZIP archive, follow
 Please use the following [article](https://docs.aspose.com/slides/nodejs-java/troubleshooting-installation/) if you encounter compilation errors during installation of Aspose.Slides for Node.js via Java.
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Is there a free version or trial limitation?**
+
+Yes, by default, Aspose.Slides runs in evaluation mode, which places watermarks and may have other limitations. To remove restrictions, you need to apply a valid [license](/slides/nodejs-java/licensing/).

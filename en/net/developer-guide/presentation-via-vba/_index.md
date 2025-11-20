@@ -1,10 +1,26 @@
 ---
-title: Presentation via VBA
+title: Manage VBA Projects in Presentations in .NET
+linktitle: Presentation via VBA
 type: docs
 weight: 250
 url: /net/presentation-via-vba/
-keywords: "Macro, macros, VBA, VBA macro, add macro, remove macro, add VBA, remove VBA, extract macro, extract VBA, PowerPoint macro, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Add, remove, and extract VBA macros in PowerPoint presentations in C# or .NET"
+keywords:
+- macro
+- VBA
+- VBA macro
+- add macro
+- remove macro
+- extract macro
+- add VBA
+- remove VBA
+- extract VBA
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Discover how to generate and manipulate PowerPoint and OpenDocument presentations via VBA with Aspose.Slides for .NET to streamline your workflow."
 ---
 
 The [Aspose.Slides.Vba](https://reference.aspose.com/slides/net/aspose.slides.vba/) namespace contains classes and interfaces for working with macros and VBA code.
@@ -135,3 +151,17 @@ using (Presentation presentation = new Presentation("VBA.pptm"))
     }
 }
 ```
+
+## **FAQ**
+
+**What happens to macros if I save the presentation as PPTX?**
+
+Macros will be removed because PPTX does not support VBA. To keep macros, choose PPTM, PPSM, or POTM.
+
+**Can Aspose.Slides run macros inside a presentation to, for example, refresh data?**
+
+No. The library never executes VBA code; execution is only possible inside PowerPoint with the appropriate security settings.
+
+**Is working with ActiveX controls linked to VBA code supported?**
+
+Yes, you can access existing [ActiveX controls](/slides/net/activex/), modify their properties, and remove them. This is useful when macros interact with ActiveX.

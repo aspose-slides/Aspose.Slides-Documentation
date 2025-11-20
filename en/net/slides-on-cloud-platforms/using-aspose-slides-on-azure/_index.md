@@ -4,8 +4,22 @@ linktitle: Azure
 type: docs
 weight: 10
 url: /net/using-aspose-slides-on-azure/
-keywords: "Aspose.Slides, Microsoft Azure, PPT to PDF, PowerPoint, Azure Functions, Blob Storage, .NET, serverless, document processing, cloud integration"
-description: "Learn how to deploy Aspose.Slides on Microsoft Azure for scalable, serverless presentation processing. Convert PPT to PDF and integrate with Azure Blob Storage, Functions, and App Services for robust, automated solutions."
+keywords:
+- cloud platforms
+- cloud integration
+- Microsoft Azure
+- Azure Functions
+- PPT to PDF
+- Blob Storage
+- serverless
+- document processing
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Use Aspose.Slides on Azure App Service, Functions, and containers to generate, edit, and convert PPT, PPTX and ODP in scalable cloud .NET apps."
 ---
 
 ## Using Aspose.Slides on Azure

@@ -1,10 +1,29 @@
 ---
-title: Convert OpenOffice ODP
+title: Convert OpenDocument Presentations in C++
+linktitle: Convert OpenDocument
 type: docs
 weight: 10
 url: /cpp/convert-openoffice-odp/
-keywords: "Convert ODP to PDF, ODP to HTML, ODP to TIFF"
-description: "Convert ODP to PDF, ODP to PPT, ODP to PPTX, ODP to HTML and other formats with Aspose.Slides."
+keywords:
+- convert ODP
+- ODP to image
+- ODP to GIF
+- ODP to HTML
+- ODP to JPG
+- ODP to MD
+- ODP to PDF
+- ODP to PNG
+- ODP to PPT
+- ODP to PPTX
+- ODP to TIFF
+- ODP to video
+- ODP to Word
+- ODP to XPS
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ lets you convert ODP to PDF, HTML, and image formats with ease. Boost your C++ apps with fast and accurate presentation conversion."
 ---
 
 [**Aspose.Slides API**](https://products.aspose.com/slides/cpp/) allows you to convert OpenOffice ODP presentations to many formats. The API used to convert ODP files to other document formats is the same one used for PowerPoint (PPT and PPTX) conversion operations. 

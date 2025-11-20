@@ -871,82 +871,149 @@ The result:
 
 ### **Create Combination Charts**
 
-A combination chart (or combo chart) is a chart that combines two or more chart types into a single graph. This type of chart allows you to highlight, compare, or review differences between two or more sets of data, enabling you to identify any relationships between them.
+A combination chart (or combo chart) combines two or more chart types in a single graph. This chart lets you highlight, compare, or examine differences between two or more data sets, helping you identify relationships between them.
 
 ![The combination chart](combination_chart.png)
 
-This Python code shows you how to create a combination chart in a PowerPoint presentation:
+The following Python code shows how to create the combination chart shown above in a PowerPoint presentation:
 
 ```python
-import aspose.slides as slides
-import aspose.slides.charts as charts
-
-
 def create_combo_chart():
-    presentation = slides.Presentation()
+    with slides.Presentation() as presentation:
+        chart = create_chart_with_first_series(presentation.slides[0])
 
-    chart = create_chart(presentation.slides[0])
-    add_first_series_to_chart(chart)
-    add_second_series_to_chart(chart)
+        add_second_series_to_chart(chart)
+        add_third_series_to_chart(chart)
 
-    presentation.save("ComboChart.pptx", slides.export.SaveFormat.PPTX)
+        set_primary_axes_format(chart)
+        set_secondary_axes_format(chart)
+
+        presentation.save("combo-chart.pptx", slides.export.SaveFormat.PPTX)
 
 
-def create_chart(slide):
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 400)
+def create_chart_with_first_series(slide):
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+
+    # Set the chart title.
+    chart.has_title = True
+    chart.chart_title.add_text_frame_for_overriding("Chart Title")
+    chart.chart_title.overlay = False
+    title_paragraph = chart.chart_title.text_frame_for_overriding.paragraphs[0]
+    title_format = title_paragraph.paragraph_format.default_portion_format
+
+    title_format.font_bold = slides.NullableBool.FALSE
+    title_format.font_height = 18
+
+    # Set the chart legend.
+    chart.legend.position = charts.LegendPositionType.BOTTOM
+    chart.legend.text_format.portion_format.font_height = 12
+
+    # Delete the default generated series and categories.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
-    workbook = chart.chart_data.chart_data_workbook
     worksheet_index = 0
+    workbook = chart.chart_data.chart_data_workbook
 
-    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Series 1"), chart.type)
-    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Series 2"), chart.type)
-
+    # Add new categories.
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
+    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 4, 0, "Category 4"))
 
-    series = chart.chart_data.series[0]
+    # Add the first series.
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Series 1")
+    series = chart.chart_data.series.add(series_name_cell, chart.type)
 
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 20))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 50))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 30))
+    series.parent_series_group.overlap = -25
+    series.parent_series_group.gap_width = 220
 
-    series = chart.chart_data.series[1]
-
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 30))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 10))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 60))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 4.3))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 2.5))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 3.5))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 4, 1, 4.5))
 
     return chart
-
-
-def add_first_series_to_chart(chart):
-    workbook = chart.chart_data.chart_data_workbook
-    worksheet_index = 0
-
-    series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 3, "Series 3"), charts.ChartType.SCATTER_WITH_SMOOTH_LINES)
-
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 0, 1, 3), workbook.get_cell(worksheet_index, 0, 2, 5))
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 1, 3, 10), workbook.get_cell(worksheet_index, 1, 4, 13))
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 3, 20), workbook.get_cell(worksheet_index, 2, 4, 15))
-
-    series.plot_on_second_axis = True
 
 
 def add_second_series_to_chart(chart):
     workbook = chart.chart_data.chart_data_workbook
     worksheet_index = 0
 
-    series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 5, "Series 4"), charts.ChartType.SCATTER_WITH_STRAIGHT_LINES_AND_MARKERS)
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 2, "Series 2")
+    series = chart.chart_data.series.add(series_name_cell, charts.ChartType.CLUSTERED_COLUMN)
 
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 1, 3, 5), workbook.get_cell(worksheet_index, 1, 4, 2))
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 1, 5, 10), workbook.get_cell(worksheet_index, 1, 6, 7))
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 5, 15), workbook.get_cell(worksheet_index, 2, 6, 12))
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 5, 12), workbook.get_cell(worksheet_index, 3, 6, 9))
+    series.parent_series_group.overlap = -25
+    series.parent_series_group.gap_width = 220
+
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 2.4))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 4.4))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 1.8))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 4, 2, 2.8))
+
+
+def add_third_series_to_chart(chart):
+    workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
+
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 3, "Series 3")
+    series = chart.chart_data.series.add(series_name_cell, charts.ChartType.LINE)
+
+    series.data_points.add_data_point_for_line_series(workbook.get_cell(worksheet_index, 1, 3, 2.0))
+    series.data_points.add_data_point_for_line_series(workbook.get_cell(worksheet_index, 2, 3, 2.0))
+    series.data_points.add_data_point_for_line_series(workbook.get_cell(worksheet_index, 3, 3, 3.0))
+    series.data_points.add_data_point_for_line_series(workbook.get_cell(worksheet_index, 4, 3, 5.0))
 
     series.plot_on_second_axis = True
+
+
+def set_primary_axes_format(chart):
+    # Set the horizontal axis.
+    horizontal_axis = chart.axes.horizontal_axis
+    horizontal_axis.text_format.portion_format.font_height = 12.0
+    horizontal_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
+
+    set_axis_title(horizontal_axis, "X Axis")
+
+    # Set the vertical axis.
+    vertical_axis = chart.axes.vertical_axis
+    vertical_axis.text_format.portion_format.font_height = 12.0
+    vertical_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
+
+    set_axis_title(vertical_axis, "Y Axis 1")
+
+    # Set the vertical major gridlines color.
+    major_grid_lines_format = vertical_axis.major_grid_lines_format.line.fill_format
+    major_grid_lines_format.fill_type = slides.FillType.SOLID
+    major_grid_lines_format.solid_fill_color.color = draw.Color.from_argb(217, 217, 217)
+
+
+def set_secondary_axes_format(chart):
+    # Set the secondary horizontal axis.
+    secondary_horizontal_axis = chart.axes.secondary_horizontal_axis
+    secondary_horizontal_axis.position = charts.AxisPositionType.BOTTOM
+    secondary_horizontal_axis.cross_type = charts.CrossesType.MAXIMUM
+    secondary_horizontal_axis.is_visible = False
+    secondary_horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
+    secondary_horizontal_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
+
+    # Set the secondary vertical axis.
+    secondary_vertical_axis = chart.axes.secondary_vertical_axis
+    secondary_vertical_axis.position = charts.AxisPositionType.RIGHT
+    secondary_vertical_axis.text_format.portion_format.font_height = 12.0
+    secondary_vertical_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
+    secondary_vertical_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
+    secondary_vertical_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
+
+    set_axis_title(secondary_vertical_axis, "Y Axis 2")
+
+
+def set_axis_title(axis, axis_title):
+    axis.has_title = True
+    axis.title.overlay = False
+    title_portion_format = axis.title.add_text_frame_for_overriding(axis_title).paragraphs[0].paragraph_format.default_portion_format
+    title_portion_format.font_bold = slides.NullableBool.FALSE
+    title_portion_format.font_height = 12.0
 ```
 
 ## **Update Charts**

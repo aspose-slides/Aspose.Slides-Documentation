@@ -1,11 +1,29 @@
 ---
-title: Manage Rows and Columns
+title: Manage Rows and Columns in PowerPoint Tables in .NET
+linktitle: Rows and Columns
 type: docs
 weight: 20
 url: /net/manage-rows-and-columns/
-keywords: "Table, table rows and columns, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Manage table rows and columns in PowerPoint presentations in C# or .NET"
-
+keywords:
+- table row
+- table column
+- first row
+- table header
+- clone row
+- clone column
+- copy row
+- copy column
+- remove row
+- remove column
+- row text formatting
+- column text formatting
+- table style
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Manage table rows and columns in PowerPoint with Aspose.Slides for .NET and speed up presentation editing and data updates."
 ---
 
 To allow you to manage a table's rows and columns in a PowerPoint presentation, Aspose.Slides provides the [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) class, [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) interface, and many other types. 
@@ -223,3 +241,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+## **FAQ**
+
+**Can I apply PowerPoint themes/styles to a table that’s already created?**
+
+Yes. The table inherits the slide/layout/master theme, and you can still override fills, borders, and text colors on top of that theme.
+
+**Can I sort table rows like in Excel?**
+
+No, Aspose.Slides tables don’t have built-in sorting or filters. Sort your data in memory first, then repopulate the table rows in that order.
+
+**Can I have banded (striped) columns while keeping custom colors on specific cells?**
+
+Yes. Turn on banded columns, then override specific cells with local formatting; cell-level formatting takes precedence over the table style.

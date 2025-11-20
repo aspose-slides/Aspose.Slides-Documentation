@@ -1,9 +1,18 @@
 ---
-title: Chart Legend
+title: Customize Chart Legends in Presentations in .NET
+linktitle: Chart Legend
 type: docs
 url: /net/chart-legend/
-keywords: "Chart legend, legend font size, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Set positioning and font size for chart legend in PowerPoint presentations in C# or .NET"
+keywords:
+- chart legend
+- legend position
+- font size
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Customize chart legends with Aspose.Slides for .NET to optimize PowerPoint presentations with tailored legend formatting."
 ---
 
 ## **Legend Positioning**
@@ -92,3 +101,16 @@ using (Presentation pres = new Presentation("test.pptx"))
 }
 ```
 
+## **FAQ**
+
+**Can I enable the legend so that the chart automatically allocates space for it instead of overlaying it?**
+
+Yes. Use the non-overlay mode ([Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/overlay/) = `false`); in this case, the plot area will shrink to accommodate the legend.
+
+**Can I make multi-line legend labels?**
+
+Yes. Long labels wrap automatically when space is insufficient; forced line breaks are supported via newline characters in the series name.
+
+**How do I make the legend follow the presentation theme’s color scheme?**
+
+Do not set explicit colors/fills/fonts for the legend or its text. They will then inherit from the theme and update correctly when the design changes.

@@ -1,9 +1,27 @@
 ---
-title: Chart Axis
+title: Customize Chart Axes in Presentations Using Java
+linktitle: Chart Axis
 type: docs
 url: /java/chart-axis/
-keywords: "PowerPoint Chart Axis, Presentation Charts, Java, Manipulate Chart Axis, Chart data"
-description: "How to edit PowerPoint chart axis in Java"
+keywords:
+- chart axis
+- vertical axis
+- horizontal axis
+- customize axis
+- manipulate axis
+- manage axis
+- axis properties
+- max value
+- min value
+- axis line
+- date format
+- axis title
+- axis position
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Discover how to use Aspose.Slides for Java to customize chart axes in PowerPoint presentations for reports and visualizations."
 ---
 
 

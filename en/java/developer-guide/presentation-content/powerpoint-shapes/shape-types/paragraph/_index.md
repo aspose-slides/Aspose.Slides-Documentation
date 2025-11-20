@@ -1,8 +1,22 @@
 ---
-title: Paragraph
+title: Get Paragraph Bounds from Presentations in Java
+linktitle: Paragraph
 type: docs
 weight: 60
 url: /java/paragraph/
+keywords:
+- paragraph bounds
+- text portion bounds
+- paragraph coordinate
+- portion coordinate
+- paragraph size
+- text portion size
+- text frame
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn how to retrieve paragraph and text-portion bounds in Aspose.Slides for Java to optimize text positioning in PowerPoint presentations."
 ---
 
 

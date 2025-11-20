@@ -1,8 +1,32 @@
 ---
-title: Convert Presentation
+title: Convert Presentations to Multiple Formats in .NET
+linktitle: Convert Presentation
 type: docs
 weight: 70
 url: /net/convert-presentation/
+keywords:
+- convert presentation
+- export presentation
+- PPT to PPTX
+- ODP to PPTX
+- PPT to PDF
+- PPTX to PDF
+- ODP to PDF
+- PPT to XPS
+- PPTX to XPS
+- ODP to XPS
+- PPT to TIFF
+- PPTX to TIFF
+- ODP to TIFF
+- PPT to HTML
+- PPTX to HTML
+- ODP to HTML
+- PowerPoint
+- OpenDocument
+- .NET
+- C#
+- Aspose.Slides
+description: "Convert PowerPoint and OpenDocument presentations to PPTX, PDF, XPS, TIFF and more with Aspose.Slides for .NET. Simple, high-quality conversion."
 ---
 
 ## **PPT to PPTX Conversion**
@@ -41,3 +65,33 @@ Any document that can be loaded in Aspose.Slide for .NET can also be converted t
 {{% alert color="primary" %}} 
 Read more [**How to Convert Presentation to TIFF**.](/slides/net/convert-powerpoint-to-tiff/)
 {{% /alert %}}
+
+## **FAQ**
+
+**Can I include hidden slides when exporting to PDF/XPS?**
+
+Yes. Export supports including hidden slides via the corresponding option in the [PDF](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/)/[XPS](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/showhiddenslides/) settings.
+
+**Is saving to the PDF/A format (for archival storage) supported?**
+
+Yes, PDF/A compliance levels [are available](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/) (including A-2a/A-2b/A-2u and A-3a/A-3b) during export.
+
+**What happens to fonts during conversion: are they embedded or substituted?**
+
+There are flexible options: you can [embed all glyphs or only used subsets](/slides/net/embedded-font/), specify a [fallback font](/slides/net/fallback-font/), and [control behavior](/slides/net/font-substitution/) when a font lacks certain styles.
+
+**How can I control the quality and size of the resulting PDF?**
+
+Options are available for [JPEG quality](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/jpegquality/), [text compression](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/textcompression/), and a [sufficient resolution](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/sufficientresolution/) threshold for images, plus a mode that selects the [best compression for pictures](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/bestimagescompressionratio/).
+
+**Can I export only a range of slides (for example, 5–12)?**
+
+Yes, export supports selecting a subset of slides.
+
+**Is multi-core processing of several files at the same time supported?**
+
+It is acceptable to process different presentations in parallel in separate processes. Important: the same [presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) object must not be loaded or saved from [multiple threads](/slides/net/multithreading/).
+
+**Are there risks when applying the license from different threads?**
+
+Yes, [license-setting](/slides/net/licensing/) calls are not thread-safe and require synchronization.

@@ -182,4 +182,4 @@ Configure the desired transition type on each slide’s transition settings; tra
 
 **How can I check which transition is currently set on a slide?**
 
-Inspect the slide’s [transition settings](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) and read its [transition type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/); that value tells you exactly which effect is applied.
+Inspect the slide’s [transition settings](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/) and read its [transition type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/); that value tells you exactly which effect is applied.

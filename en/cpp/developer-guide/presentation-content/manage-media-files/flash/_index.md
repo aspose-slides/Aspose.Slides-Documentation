@@ -1,8 +1,18 @@
 ---
-title: Flash
+title: Extract Flash Objects from Presentations in C++
+linktitle: Flash
 type: docs
 weight: 10
 url: /cpp/flash/
+keywords:
+- extract flash
+- flash object
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Learn how to extract Flash objects from PowerPoint and OpenDocument slides in C++ with Aspose.Slides, complete code samples and best practices."
 ---
 
 ## **Extract Flash Objects from Presentation**

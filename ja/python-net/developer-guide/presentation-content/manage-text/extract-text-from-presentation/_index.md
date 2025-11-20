@@ -1,130 +1,146 @@
 ---
-title: Python で PowerPoint プレゼンテーションから高度なテキスト抽出を行う
-linktitle: テキストを抽出
+title: Python で PowerPoint プレゼンテーションから高度なテキスト抽出
+linktitle: テキスト抽出
 type: docs
 weight: 90
 url: /ja/python-net/extract-text-from-presentation/
 keywords:
-- テキストを抽出
-- スライドからテキストを抽出
-- プレゼンテーションからテキストを抽出
-- PowerPoint からテキストを抽出
-- PPT からテキストを抽出
-- PPTX からテキストを抽出
-- ODP からテキストを抽出
+- テキスト抽出
+- スライドからテキスト抽出
+- プレゼンテーションからテキスト抽出
+- PowerPoint からテキスト抽出
+- OpenDocument からテキスト抽出
+- PPT からテキスト抽出
+- PPTX からテキスト抽出
+- ODP からテキスト抽出
+- テキスト取得
+- スライドからテキスト取得
+- プレゼンテーションからテキスト取得
+- PowerPoint からテキスト取得
+- OpenDocument からテキスト取得
+- PPT からテキスト取得
+- PPTX からテキスト取得
+- ODP からテキスト取得
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して、PowerPoint プレゼンテーションからテキストを迅速かつ簡単に抽出する方法を学びましょう。シンプルなステップバイステップ ガイドに従って時間を節約し、アプリケーションでスライドの内容に効率的にアクセスできるようにします。"
+description: "Aspose.Slides for Python (via .NET) を使用して PowerPoint プレゼンテーションからテキストを迅速かつ簡単に抽出する方法を学びます。シンプルな段階的ガイドに従い、時間を節約し、アプリケーションでスライドコンテンツへ効率的にアクセスしましょう。"
 ---
 
-{{% alert color="primary" %}} 
+## **概要**
 
-開発者がプレゼンテーションからテキストを抽出する必要があるのは珍しくありません。そのためには、プレゼンテーション内のすべてのスライドにあるすべての図形からテキストを抽出する必要があります。この記事では、Aspose.Slidesを使用してMicrosoft PowerPoint PPTXプレゼンテーションからテキストを抽出する方法を説明します。テキストは以下の方法で抽出できます：
+プレゼンテーションからテキストを抽出することは、スライドコンテンツを扱う開発者にとって一般的でありながら重要な作業です。Microsoft PowerPoint の PPT または PPTX 形式、あるいは OpenDocument プレゼンテーション（ODP）を扱う場合でも、テキストデータへのアクセスと取得は、分析、 automation、インデックス作成、コンテンツ移行などの目的で重要となります。
 
-- [1つのスライドからテキストを抽出する](/slides/ja/python-net/extracting-text-from-the-presentation/)
-- [GetAllTextBoxesメソッドを使用してテキストを抽出する](/slides/ja/python-net/extracting-text-from-the-presentation/)
-- [分類された迅速なテキスト抽出](/slides/ja/python-net/extracting-text-from-the-presentation/)
+本記事では、Aspose.Slides for Python を使用して、PPT、PPTX、ODP などさまざまなプレゼンテーション形式からテキストを効率的に抽出する方法を包括的に解説します。プレゼンテーション要素を体系的に走査し、必要なテキストコンテンツを正確に取得する方法を学びます。
 
-{{% /alert %}} 
 ## **スライドからテキストを抽出する**
-Aspose.Slides for Python via .NETは、SlideUtilクラスを含むAspose.Slides.Util名前空間を提供しています。このクラスは、プレゼンテーションまたはスライドからテキスト全体を抽出するためのオーバーロードされた静的メソッドをいくつか公開しています。PPTXプレゼンテーションのスライドからテキストを抽出するには、 
-SlideUtilクラスによって公開されている[GetAllTextBoxes](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/)オーバーロードされた静的メソッドを使用します。このメソッドは、Slideオブジェクトをパラメーターとして受け取ります。
-実行時に、Slideメソッドは、パラメーターとして渡されたスライドから全テキストをスキャンし、TextFrameオブジェクトの配列を返します。これは、テキストに関連付けられたテキストフォーマットも利用可能であることを意味します。以下のコードは、プレゼンテーションの最初のスライド上のすべてのテキストを抽出します：
 
+Aspose.Slides for Python は [aspose.slides.util](https://reference.aspose.com/slides/python-net/aspose.slides.util/) 名前空間を提供し、その中に [SlideUtil](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/) クラスがあります。このクラスは、プレゼンテーションまたはスライド全体のテキストを抽出するための複数のオーバーロードされた静的メソッドを公開しています。プレゼンテーション内のスライドからテキストを抽出するには、[get_all_text_boxes](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/get_all_text_boxes/) メソッドを使用します。このメソッドは [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) 型のオブジェクトをパラメーターとして受け取ります。実行すると、スライド全体を走査してテキストを検出し、[TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) 型オブジェクトの配列としてテキスト書式情報を保持したまま返します。
+
+以下のコードスニペットは、プレゼンテーションの最初のスライドからすべてのテキストを抽出します。
 ```py
 import aspose.slides as slides
 
-#PPTXファイルを表すPresentationクラスをインスタンス化
-with slides.Presentation("pres.pptx") as pptxPresentation:
-    # PPTX内のすべてのスライドからITextFrameオブジェクトの配列を取得
-    textFramesPPTX = slides.util.SlideUtil.get_all_text_boxes(pptxPresentation.slides[0])
-    
-    # TextFramesの配列をループする
-    for i in range(len(textFramesPPTX)):
-	    # 現在のITextFrame内の段落をループする
-        for para in textFramesPPTX[i].paragraphs:
-            # 現在のIParagraph内の部分をループする
-            for port in para.portions:
-			    # 現在の部分内のテキストを表示する
-                print(port.text)
-
-    			# テキストのフォント高さを表示する
-                print(port.portion_format.font_height)
-
-			    # テキストのフォント名を表示する
-                if port.portion_format.latin_font != None:
-                    print(port.portion_format.latin_font.font_name)
+# PPTX ファイルを表す Presentation クラスのインスタンスを作成します。
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    # PPTX ファイル内のすべてのスライドから TextFrame オブジェクトの配列を取得します。
+    text_frames = slides.util.SlideUtil.get_all_text_boxes(slide)
+    # テキストフレームの配列をループ処理します。
+    for text_frame in text_frames:
+        # 現在のテキストフレーム内の段落をループ処理します。
+        for paragraph in text_frame.paragraphs:
+            # 現在の段落内のテキスト部分をループ処理します。
+            for portion in paragraph.portions:
+                # 現在の部分のテキストを表示します。
+                print(portion.text)
+                # テキストのフォントサイズ（高さ）を表示します。
+                print(portion.portion_format.font_height)
+                # テキストのフォント名を表示します。
+                if portion.portion_format.latin_font is not None:
+                    print(portion.portion_format.latin_font.font_name)
 ```
 
 
+## **プレゼンテーション全体からテキストを抽出する**
 
+プレゼンテーション全体のテキストを走査するには、[SlideUtil](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/) クラスが提供する [get_all_text_frames](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/get_all_text_frames/) 静的メソッドを使用します。このメソッドは 2 つのパラメーターを受け取ります。
 
-## **プレゼンテーションからテキストを抽出する**
-プレゼンテーション全体からテキストをスキャンするには、 
-SlideUtilクラスによって公開されている[GetAllTextFrames](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/)静的メソッドを使用します。このメソッドは、2つのパラメーターを受け取ります：
+1. テキストを抽出する対象となる PowerPoint または OpenDocument プレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) オブジェクト。
+2. プレゼンテーションのテキスト走査時にマスタースライドを含めるかどうかを示す `Boolean` 値。
 
-1. 最初に、テキストを抽出するPPTXプレゼンテーションを表すPresentationオブジェクト。
-2. 次に、プレゼンテーションからテキストをスキャンする際にマスタースライドを含めるかどうかを決定するBoolean値。
-   このメソッドは、テキストフォーマット情報を含むTextFrameオブジェクトの配列を返します。以下のコードは、マスタースライドを含むプレゼンテーションからテキストとフォーマット情報をスキャンします。
-
+メソッドは [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) 型オブジェクトの配列を返し、テキスト書式情報も含まれます。以下のコードは、マスタースライドを含めてプレゼンテーションからテキストと書式情報を走査します。
 ```py
 import aspose.slides as slides
 
-#PPTXファイルを表すPresentationクラスをインスタンス化
-with slides.Presentation("pres.pptx") as pptxPresentation:
-    # PPTX内のすべてのスライドからITextFrameオブジェクトの配列を取得
-    textFramesPPTX = slides.util.SlideUtil.get_all_text_frames(pptxPresentation, True)
-    
-    # TextFramesの配列をループする
-    for i in range(len(textFramesPPTX)):
-	    # 現在のITextFrame内の段落をループする
-        for para in textFramesPPTX[i].paragraphs:
-            # 現在のIParagraph内の部分をループする
-            for port in para.portions:
-			    # 現在の部分内のテキストを表示する
-                print(port.text)
-
-    			# テキストのフォント高さを表示する
-                print(port.portion_format.font_height)
-
-			    # テキストのフォント名を表示する
-                if port.portion_format.latin_font != None:
-                    print(port.portion_format.latin_font.font_name)
+# PPTX ファイルを表す Presentation クラスのインスタンスを作成します。
+with slides.Presentation("pres.pptx") as presentation:
+    # PPTX ファイル内のすべてのスライドから TextFrame オブジェクトの配列を取得します。
+    text_frames = slides.util.SlideUtil.get_all_text_frames(presentation, True)
+    # テキストフレームの配列をループ処理します。
+    for text_frame in text_frames:
+        # 現在のテキストフレーム内の段落をループ処理します。
+        for paragraph in text_frame.paragraphs:
+            # 現在の段落内のテキスト部分をループ処理します。
+            for portion in paragraph.portions:
+                # 現在の部分のテキストを表示します。
+                print(portion.text)
+                # テキストのフォント高さを表示します。
+                print(portion.portion_format.font_height)
+                # テキストのフォント名を表示します。
+                if portion.portion_format.latin_font is not None:
+                    print(portion.portion_format.latin_font.font_name)
 ```
 
 
+## **カテゴリ別かつ高速なテキスト抽出**
 
-
-## **分類された迅速なテキスト抽出**
-新しい静的メソッドGetPresentationTextがPresentationクラスに追加されました。このメソッドには2つのオーバーロードがあります：
-
+[PresentationFactory](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentationfactory/) クラスも、プレゼンテーションからすべてのテキストを抽出する静的メソッドを提供しています。
 ```py
-slides.Presentation.get_presentation_text(stream)
-slides.Presentation.get_presentation_text(stream, mode)      
+PresentationFactory.get_presentation_text(stream, mode)
+PresentationFactory.get_presentation_text(file, mode)
+PresentationFactory.get_presentation_text(stream, mode, options)
 ```
 
-ExtractionMode列挙型引数は、テキスト結果の出力を整理するモードを示し、次の値に設定できます：
-Unarranged - スライド上の位置に関係なく生テキスト
-Arranged - テキストはスライド上での順序と同じように配置されます
 
-Unarrangedモードは、速度が重要な場合に使用でき、Arrangedモードよりも速くなります。
+[TextExtractionArrangingMode](https://reference.aspose.com/slides/python-net/aspose.slides/textextractionarrangingmode/) 列挙体の引数はテキスト抽出結果の整理方法を示し、次の値に設定できます。
+- `UNARRANGED` – スライド上の位置を考慮しない生テキスト。
+- `ARRANGED` – スライド上の順序と同じ順序でテキストが整理されます。
 
-PresentationTextは、プレゼンテーションから抽出された生テキストを表します。それは、Aspose.Slides.Util名前空間のslides_textプロパティを含み、このプロパティはSlideTextオブジェクトの配列を返します。各オブジェクトは、対応するスライドのテキストを表します。SlideTextオブジェクトには次のプロパティがあります：
+速度が重要な場合は `UNARRANGED` モードを使用できます。`ARRANGED` モードよりも高速です。
 
-SlideText.text - スライドの図形内のテキスト
-SlideText.master_text - このスライドのマスターページ内の図形のテキスト
-SlideText.layout_text - このスライドのレイアウトページ内の図形のテキスト
-SlideText.notes_text - このスライドのノートページ内の図形のテキスト
+[PresentationText](https://reference.aspose.com/slides/python-net/aspose.slides/presentationtext/) はプレゼンテーションから抽出された生テキストを表します。`slides_text` プロパティは [ISlideText](https://reference.aspose.com/slides/python-net/aspose.slides/islidetext/) 型オブジェクトの配列を返します。各オブジェクトは対応するスライドのテキストを表します。[ISlideText](https://reference.aspose.com/slides/python-net/aspose.slides/islidetext/) 型オブジェクトは以下のプロパティを持ちます。
 
-
-新しいAPIは次のように使用できます：
-
+- `text` – スライドのシェイプ内のテキスト。
+- `master_text` – 当該スライドに関連付けられたマスタースライドのシェイプ内のテキスト。
+- `layout_text` – 当該スライドに関連付けられたレイアウトスライドのシェイプ内のテキスト。
+- `notes_text` – 当該スライドのノートスライドのシェイプ内のテキスト。
+- `comments_text` – 当該スライドに付随するコメント内のテキスト。
 ```py
 import aspose.slides as slides
 
-text1 = slides.PresentationFactory().get_presentation_text("pres.pptx", slides.TextExtractionArrangingMode.UNARRANGED)
-print(text1.slides_text[0].text)
-print(text1.slides_text[0].layout_text)
-print(text1.slides_text[0].master_text)
-print(text1.slides_text[0].notes_text)
+arranging_mode = slides.TextExtractionArrangingMode.UNARRANGED
+presentation_text = slides.PresentationFactory().get_presentation_text("sample.pptx", arranging_mode)
+slide_text = presentation_text.slides_text[0]
+print(slide_text.text)
+print(slide_text.layout_text)
+print(slide_text.master_text)
+print(slide_text.notes_text)
 ```
+
+
+## **FAQ**
+
+**Aspose.Slides は大規模なプレゼンテーションのテキスト抽出時にどれくらい高速ですか？**
+
+Aspose.Slides は高性能に最適化されており、[大規模なプレゼンテーション](/slides/ja/python-net/open-presentation/) でも効率的に処理できるため、リアルタイムまたはバルク処理シナリオに適しています。
+
+**Aspose.Slides はプレゼンテーション内の表やグラフからテキストを抽出できますか？**
+
+はい、Aspose.Slides は表、グラフ、その他の複雑なスライド要素からのテキスト抽出を完全にサポートしており、すべてのテキストコンテンツに簡単にアクセスして分析できます。
+
+**プレゼンテーションからテキストを抽出するために特別な Aspose.Slides ライセンスは必要ですか？**
+
+無料体験版でもテキストを抽出できますが、[特定の制限](/slides/ja/python-net/licensing/)（例：スライド数の上限）が適用されます。制限なく大規模なプレゼンテーションを扱う場合は、フルライセンスの購入を推奨します。

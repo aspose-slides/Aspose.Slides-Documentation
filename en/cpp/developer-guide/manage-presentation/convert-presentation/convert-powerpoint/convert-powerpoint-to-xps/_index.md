@@ -1,10 +1,29 @@
 ---
-title: Convert PowerPoint to XPS 
+title: Convert PowerPoint Presentations to XPS in C++
+linktitle: PowerPoint to XPS
 type: docs
 weight: 70
 url: /cpp/convert-powerpoint-to-xps
-keywords: "Convert, PowerPoint to XPS, Conversion, PPT to XPS, PPTX to XPS"
-description: "Convert PowerPoint PPT, PPTX to XPS document with Aspose.Slides API."
+keywords:
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- PowerPoint to XPS
+- presentation to XPS
+- slide to XPS
+- PPT to XPS
+- PPTX to XPS
+- save PPT as XPS
+- save PPTX as XPS
+- export PPT to XPS
+- export PPTX to XPS
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Convert PowerPoint PPT/PPTX to high-quality, platform-independent XPS in C++ using Aspose.Slides. Get step-by-step guide and sample code."
 ---
 
 ## **About XPS**

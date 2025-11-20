@@ -27,7 +27,7 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides
-description: "Learn how to format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for C++. Customize fonts, colors, alignment, and more with powerful C++ code examples."
+description: "Format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for C++. Customize fonts, colors, alignment, and more."
 ---
 
 ## **Highlight Text**

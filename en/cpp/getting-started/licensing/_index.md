@@ -6,11 +6,17 @@ url: /cpp/licensing/
 keywords:
 - license
 - temporary license
+- set license
+- use license
 - validate license
 - license file
 - evaluation version
-- Aspose.Slides for C++
-description: "Learn how to apply, manage, and troubleshoot licenses in Aspose.Slides for C++. Ensure uninterrupted access to full features with our step-by-step licensing guide."
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Apply, manage, and troubleshoot licenses in Aspose.Slides for C++. Ensure uninterrupted access to full features with our step-by-step licensing guide."
 ---
 
 ## **Evaluate Aspose.Slides**

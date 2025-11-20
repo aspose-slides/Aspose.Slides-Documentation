@@ -1,200 +1,240 @@
 ---
-title: チャートワークブック
+title: Pythonでプレゼンテーションのチャートワークブックを管理
+linktitle: チャートワークブック
 type: docs
 weight: 70
 url: /ja/python-net/chart-workbook/
-keywords: "チャートワークブック, チャートデータ, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでのPowerPointプレゼンテーションにおけるチャートワークブック"
+keywords:
+- チャートワークブック
+- チャートデータ
+- ワークブックセル
+- データラベル
+- ワークシート
+- データソース
+- 外部ワークブック
+- 外部データ
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を活用し、PowerPoint および OpenDocument 形式でチャートワークブックを簡単に管理し、プレゼンテーションデータを効率化します。"
 ---
 
-## **ワークブックからチャートデータを設定する**
+## **ワークブックからチャートデータを設定**
 
-Aspose.Slidesは、チャートデータワークブック（Aspose.Cellsで編集されたチャートデータを含む）を読み書きするためのいくつかのメソッドを提供します。**注意**: チャートデータは同じ方法で整理される必要があり、ソースと同様の構造を持っている必要があります。
+Aspose.Slides は、チャートデータワークブック（Aspose.Cells で編集されたチャートデータを含む）を読み書きするメソッドを提供します。**注:** チャートデータは、元のデータと同じ形式で構成するか、類似した構造である必要があります。
 
-このPythonコードはサンプル操作を示しています。
-
+以下の Python コードはサンプル操作を示しています:
 ```py
-import aspose.slides.charts as charts
 import aspose.slides as slides
 
-# プレゼンテーションファイルを表すPresentationクラスをインスタンス化
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.BUBBLE, 50, 50, 600, 400, True)
+with slides.Presentation("chart.pptx") as presentation:
+    chart = presentation.slides[0].shapes[0]
 
-    series = chart.chart_data.series
+    data_stream = chart.chart_data.read_workbook_stream()
 
-    series[0].labels.default_data_label_format.show_label_value_from_cell = True
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
 
-    wb = chart.chart_data.chart_data_workbook
-
-    series[0].labels[0].value_from_cell = wb.get_cell(0, "A10", "ラベル0のセル値")
-    series[0].labels[1].value_from_cell = wb.get_cell(0, "A11", "ラベル1のセル値")
-    series[0].labels[2].value_from_cell = wb.get_cell(0, "A12", "ラベル2のセル値")
-
-    pres.save("resultchart.pptx", slides.export.SaveFormat.PPTX)
+    data_stream.seek(0)
+    chart.chart_data.write_workbook_stream(data_stream)
 ```
 
-## **ワークブックのセルをチャートデータラベルとして設定する**
 
-1. [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. インデックスを通じてスライドの参照を取得します。
-1. データと共にバブルチャートを追加します。
+## **ワークブックのセルをチャートデータラベルとして設定**
+
+場合によっては、基になるデータワークブックのセルから直接取得したラベルが必要になることがあります。Aspose.Slides は、データラベルを特定のワークブックセルにバインドできるため、ラベルテキストは常にセルの値を反映します。以下の例は、セルから値を取得するラベルを有効にし、選択したラベルをチャートのワークブック内のカスタムセルにポイントする方法を示しています。
+
+1. [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでスライドへの参照を取得します。
+1. サンプルデータでバブルチャートを追加します。
 1. チャートシリーズにアクセスします。
-1. ワークブックセルをデータラベルとして設定します。
+1. ワークブックセルをデータラベルとして使用します。
 1. プレゼンテーションを保存します。
 
-このPythonコードは、ワークブックセルをチャートデータラベルとして設定する方法を示しています: xxx
-
-```python
-
-```
-
-## **ワークシートを管理する**
-
-このPythonコードは、`worksheets`プロパティを使用してワークシートコレクションにアクセスする操作を示しています。
-
-```python
+以下の Python コードは、ワークブックセルをチャートデータラベルとして設定する方法を示しています:
+```py
+import aspose.slides as slides
 import aspose.slides.charts as charts
-import aspose.slides as slides
 
-with slides.Presentation() as pres:
-   chart = pres.slides[0].shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 500)
-   wb =  chart.chart_data.chart_data_workbook
-   for i in range(len(wb.worksheets)):
-      print(wb.worksheets[i].name)
+# プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.BUBBLE, 50, 50, 600, 400, True)
+
+    series = chart.chart_data.series[0]
+
+    series.labels.default_data_label_format.show_label_value_from_cell = True
+
+    workbook = chart.chart_data.chart_data_workbook
+
+    series.labels[0].value_from_cell = workbook.get_cell(0, "A10", "Label 0")
+    series.labels[1].value_from_cell = workbook.get_cell(0, "A11", "Label 1")
+    series.labels[2].value_from_cell = workbook.get_cell(0, "A12", "Label 2")
+
+    presentation.save("chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **データソースタイプを指定する**
 
-このPythonコードは、データソースのタイプを指定する方法を示しています: 
+## **ワークシートの管理**
 
+以下の Python コードは、`worksheets` プロパティを使用してワークシートコレクションにアクセスする方法をデモンストレーションします:
 ```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.COLUMN_3D, 50, 50, 600, 400, True)
-    val = chart.chart_data.series[0].name
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    val.data_source_type = slides.charts.DataSourceType.STRING_LITERALS
-    val.data = "リテラル文字列"
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 500)
 
-    val = chart.chart_data.series[0].name
-    val.data = chart.chart_data.chart_data_workbook.get_cell(0, "B1", "新しいセル")
-
-    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
+    workbook = chart.chart_data.chart_data_workbook
+    for i in range(len(workbook.worksheets)):
+        print(workbook.worksheets[i].name)
 ```
+
+
+## **データソースの種類を指定**
+
+以下の Python コードは、データソースの種類を指定する方法を示しています:
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.COLUMN_3D, 50, 50, 600, 400, True)
+
+    series_name = chart.chart_data.series[0].name
+    series_name.data_source_type = slides.charts.DataSourceType.STRING_LITERALS
+    series_name.data = "LiteralString"
+
+    series_name = chart.chart_data.series[1].name
+    series_name.data = chart.chart_data.chart_data_workbook.get_cell(0, "B1", "NewCell")
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
 
 ## **外部ワークブック**
 
-{{% alert color="primary" %}} 
-[Aspose.Slides for .NET 19.4](https://docs.aspose.com/slides/net/aspose-slides-for-net-19-4-release-notes/) では、チャートのデータソースとして外部ワークブックのサポートを実装しました。
-{{% /alert %}} 
+Aspose.Slides は、チャートのデータソースとして外部ワークブックの使用をサポートします。
 
-### **外部ワークブックを作成する**
+### **外部ワークブックの設定**
 
-**`IChartData`** のいくつかのメソッドを使用して、ゼロから外部ワークブックを作成するか、内部ワークブックを外部にすることができます。
+[ChartData.set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) メソッドを使用すると、外部ワークブックをチャートのデータソースとして割り当てることができます。このメソッドは、外部ワークブックのパスが移動された場合にパスを更新することも可能です。
 
-このPythonコードは、外部ワークブック作成プロセスを示しています。
+リモートロケーションやリソースに保存されたワークブックのデータを編集することはできませんが、外部データソースとして使用することは可能です。外部ワークブックに相対パスを指定すると、自動的にフルパスに変換されます。
 
+以下の Python コードは、外部ワークブックを設定する方法を示しています:
 ```python
-import aspose.slides.charts as charts
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-with slides.Presentation() as pres:
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.PIE, 50, 50, 500, 400)
-    chart.chart_data.chart_data_workbook.clear(0)
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, False)
+    chart.chart_data.set_external_workbook("external_workbook.xlsx")
 
-    chart.chart_data.set_external_workbook(path + "externalWorkbook.xlsx")
-
-    chart.chart_data.set_range("Sheet1!$A$2:$B$5")
-    series = chart.chart_data.series[0]
-    series.parent_series_group.is_color_varied = True
-    pres.save("response2.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **外部ワークブックを設定する**
 
-**`chartData.set_external_workbook`** メソッドを使用すると、チャートに外部ワークブックをデータソースとして割り当てることができます。このメソッドは、外部ワークブックのパスが移動された場合にパスを更新するためにも使用できます。
+`set_external_workbook` メソッドの `update_chart_data` パラメーターは、Excel ワークブックを読み込むかどうかを指定します。
 
-リモートの場所やリソースに保存されたワークブック内のデータを編集することはできませんが、そのようなワークブックを外部データソースとして使用することはできます。外部ワークブックの相対パスが提供されると、それは自動的に完全なパスに変換されます。
+- `update_chart_data` が `False` に設定されている場合、ワークブックのパスのみが更新され、チャートデータは対象ワークブックから読み込まれず、更新もされません。対象ワークブックが存在しない、または利用できない場合に使用します。
+- `update_chart_data` が `True` に設定されている場合、対象ワークブックからチャートデータが読み込まれ、更新されます。
 
-このPythonコードは、外部ワークブックを設定する方法を示しています。
+### **外部ワークブックの作成**
 
+[read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) と [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) メソッドを使用すると、ゼロから外部ワークブックを作成するか、内部ワークブックを外部ワークブックに変換できます。
+
+この Python コードは、外部ワークブック作成プロセスを示しています:
 ```python
-import aspose.slides.charts as charts
+import pathlib
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# ドキュメントディレクトリへのパス
-with slides.Presentation() as pres:
+workbook_path = "external_workbook.xlsx"
 
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, False)
-    chartData = chart.chart_data
-                    
-    chartData.set_external_workbook(path + "externalWorkbook.xlsx")
-                  
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    chartData.series.add(chartData.chart_data_workbook.get_cell(0, "B1"), charts.ChartType.PIE)
-    chartData.series[0].data_points.add_data_point_for_pie_series(chartData.chart_data_workbook.get_cell(0, "B2"))
-    chartData.series[0].data_points.add_data_point_for_pie_series(chartData.chart_data_workbook.get_cell(0, "B3"))
-    chartData.series[0].data_points.add_data_point_for_pie_series(chartData.chart_data_workbook.get_cell(0, "B4"))
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600)
 
-    chartData.categories.add(chartData.chart_data_workbook.get_cell(0, "A2"))
-    chartData.categories.add(chartData.chart_data_workbook.get_cell(0, "A3"))
-    chartData.categories.add(chartData.chart_data_workbook.get_cell(0, "A4"))
-    pres.save("Presentation_with_externalWorkbook.pptx", slides.export.SaveFormat.PPTX)
+    workbook_data = chart.chart_data.read_workbook_stream().read()
+
+    with open(workbook_path, "wb") as file_stream:
+        file_stream.write(workbook_data)
+
+    full_path = str(pathlib.Path(workbook_path).resolve())
+    chart.chart_data.set_external_workbook(full_path)
+
+    presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-`chart_data`パラメータ（`set_external_workbook`メソッドの下）は、Excelワークブックを読み込むかどうかを指定するために使用されます。
 
-* `chart_data`の値が`false`に設定されると、ワークブックのパスのみが更新されます—チャートデータはターゲットワークブックから読み込まれたり、更新されたりしません。この設定は、ターゲットワークブックが存在しないか、利用できない状況のときに使用することをお勧めします。 
-* `chart_data`の値が`true`に設定されると、チャートデータはターゲットワークブックから更新されます。
+### **チャートの外部データソースワークブック パスを取得**
 
+場合によっては、チャートのデータがプレゼンテーションに埋め込まれたデータではなく外部 Excel ワークブックにリンクされていることがあります。Aspose.Slides を使用すると、チャートのデータソースを調べ、外部ワークブックである場合はフルパスを取得できます。
+
+1. [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでスライドへの参照を取得します。
+1. チャート シェイプへの参照を取得します。
+1. チャートのデータソースを表すソース（[ChartDataSourceType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatasourcetype/)）を取得します。
+1. ソースの種類が外部ワークブック データソースの種類と一致するか確認します。
+
+以下の Python コードはこの操作をデモンストレーションします:
 ```python
-import aspose.slides.charts as charts
 import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, False)
-    chartData = chart.chart_data
-
-    chartData.set_external_workbook("http://path/doesnt/exists", False)
-
-    pres.save("SetExternalWorkbookWithUpdateChartData.pptx", slides.export.SaveFormat.PPTX)
-```
-
-### **チャート外部データソースワークブックパスを取得する**
-
-1. [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. インデックスを通じてスライドの参照を取得します。
-1. チャートシェイプのオブジェクトを作成します。
-1. チャートのデータソースを表すソース（`ChartDataSourceType`）タイプのオブジェクトを作成します。
-1. ソースタイプが外部ワークブックデータソースタイプと同じである条件を指定します。
-
-このPythonコードは操作を示しています。
-
-```python
 import aspose.slides.charts as charts
-import aspose.slides as slides
 
-with slides.Presentation("response2.pptx") as pres:
-    chart = pres.slides[0].shapes[0]
-    sourceType = chart.chart_data.data_source_type
-    if sourceType == charts.ChartDataSourceType.EXTERNAL_WORKBOOK:
+with slides.Presentation("chart_with_external_workbook.pptx") as presentation:
+    chart = presentation.slides[0].shapes[0]
+    source_type = chart.chart_data.data_source_type
+    if source_type == charts.ChartDataSourceType.EXTERNAL_WORKBOOK:
         print(chart.chart_data.external_workbook_path)
 ```
 
-### **チャートデータを編集する**
 
-外部ワークブックのデータは、内部ワークブックの内容を修正するのと同じ方法で編集できます。外部ワークブックを読み込むことができない場合、例外がスローされます。
+### **チャートデータの編集**
 
-このPythonコードは、説明されたプロセスの実装です。
-
+外部ワークブックのデータは、内部ワークブックと同様に編集できます。外部ワークブックを読み込めない場合は例外がスローされます。
 ```python
-import aspose.slides.charts as charts
 import aspose.slides as slides
 
-with slides.Presentation(path + "presentation.pptx") as pres:
-    pres.slides[0].shapes[0].chart_data.series[0].data_points[0].value.as_cell.value = 100
-    pres.save("presentation_out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("sample.pptx") as presentation:
+    chart = presentation.slides[0].shapes[0]
+    chart.chart_data.series[0].data_points[0].value.as_cell.value = 100
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**特定のチャートが外部ワークブックにリンクされているか、埋め込みワークブックにリンクされているかを判別できますか？**
+
+はい。チャートには [data source type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) と [外部ワークブックへのパス](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) があり、ソースが外部ワークブックの場合はフルパスを読み取って外部ファイルが使用されていることを確認できます。
+
+**外部ワークブックへの相対パスはサポートされますか？また、どのように保存されますか？**
+
+はい。相対パスを指定すると自動的に絶対パスに変換されます。これはプロジェクトの移植性に便利ですが、プレゼンテーションは PPTX ファイル内に絶対パスを保存する点に注意してください。
+
+**ネットワークリソースや共有フォルダー上のワークブックを使用できますか？**
+
+はい、そのようなワークブックは外部データソースとして使用できます。ただし、Aspose.Slides からリモートワークブックを直接編集することはサポートされていません。ソースとしてのみ使用可能です。
+
+**プレゼンテーションを保存するときに外部 XLSX が上書きされますか？**
+
+いいえ。プレゼンテーションは [外部ファイルへのリンク](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) を保存し、データの読み取りに使用します。保存時に外部ファイル自体は変更されません。
+
+**外部ファイルがパスワードで保護されている場合はどうすればよいですか？**
+
+Aspose.Slides はリンク時にパスワードを受け付けません。一般的な対策として、事前に保護を解除するか、[Aspose.Cells](/cells/python-net/) などで復号化したコピーを作成し、そのコピーにリンクします。
+
+**複数のチャートが同じ外部ワークブックを参照できますか？**
+
+はい。各チャートは独自のリンクを保持します。すべてが同じファイルを指していれば、そのファイルを更新することで次回データを読み込む際に各チャートに反映されます。

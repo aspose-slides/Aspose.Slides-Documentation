@@ -13,7 +13,9 @@ keywords:
 - macOS
 - PowerPoint
 - OpenDocument
-- preentation
+- presentation
+- .NET
+- C#
 - Aspose.Slides
 description: "Discover Aspose.Slides for .NET system requirements. Ensure seamless PowerPoint and OpenDocument support on Windows, Linux, and macOS."
 ---
@@ -119,3 +121,13 @@ On non-Windows platforms, the `fontconfig` library may be required.
 
 **Not Planned**
 - *Windows 11 ARM* (ARM64) — *Not currently under consideration*
+
+## **FAQ**
+
+**Do I need Microsoft PowerPoint installed for conversions and rendering?**
+
+No, PowerPoint is not required; Aspose.Slides is a standalone engine for [creating](/slides/net/create-presentation/), modifying, [converting](/slides/net/convert-presentation/), and [rendering](/slides/net/convert-powerpoint-to-png/) presentations.
+
+**Which fonts are needed for correct rendering?**
+
+In practice, the fonts used in the presentation or proper [substitutes](/slides/net/font-substitution/) must be available. To ensure consistent rendering on Linux/macOS, it is advisable to install common font packages.

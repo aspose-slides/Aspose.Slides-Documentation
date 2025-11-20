@@ -1,5 +1,5 @@
 ---
-title: Управляйте графикой SmartArt в презентациях с помощью Python
+title: Управление графикой SmartArt в презентациях с помощью Python
 linktitle: Графика SmartArt
 type: docs
 weight: 20
@@ -19,136 +19,149 @@ keywords:
 - презентация
 - Python
 - Aspose.Slides
-description: "Автоматизируйте создание, редактирование и стилизацию графики SmartArt в PowerPoint на Python с Aspose.Slides при помощи лаконичных примеров кода и рекомендаций по производительности."
+description: "Автоматизируйте создание, редактирование и стильизацию SmartArt в PowerPoint на Python через .NET с использованием Aspose.Slides, предоставляя лаконичные примеры кода и ориентированные на производительность рекомендации."
 ---
 
-## **Создание формы SmartArt**
-Aspose.Slides для Python через .NET теперь позволяет добавлять собственные формы SmartArt в их слайды с нуля. Aspose.Slides для Python через .NET предоставляет самый простой API для создания форм SmartArt самым легким способом. Чтобы создать форму SmartArt на слайде, выполните следующие шаги:
+## **Создание фигур SmartArt**
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-- Получите ссылку на слайд, используя его индекс.
-- Добавьте форму SmartArt, задав ее LayoutType.
-- Запишите измененную презентацию как файл PPTX.
+Aspose.Slides for Python via .NET позволяет добавлять пользовательские фигуры SmartArt на слайды с нуля. API упрощает это. Чтобы добавить фигуру SmartArt на слайд:
 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
+1. Получите целевой слайд по его индексу.
+1. Добавьте фигуру SmartArt, указав тип её макета.
+1. Сохраните изменённую презентацию в файл PPTX.
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
-# Инициализация презентации
-with slides.Presentation() as pres:
-    # Доступ к слайду презентации
-    slide = pres.slides[0]
-
-    # Добавить форму Smart Art
-    smart = slide.shapes.add_smart_art(0, 0, 400, 400, art.SmartArtLayoutType.BASIC_BLOCK_LIST)
-
-    # Сохранение презентации
-    pres.save("SimpleSmartArt_out.pptx", slides.export.SaveFormat.PPTX)
+# Создать экземпляр класса Presentation.
+with slides.Presentation() as presentation:
+    # Получить слайд презентации.
+    slide = presentation.slides[0]
+    # Добавить фигуру SmartArt.
+    smart_art = slide.shapes.add_smart_art(0, 0, 400, 400, smartart.SmartArtLayoutType.BASIC_BLOCK_LIST)
+    # Сохранить презентацию на диск.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **Доступ к фигурам SmartArt на слайдах**
 
-## **Доступ к форме SmartArt на слайде**
-Следующий код будет использоваться для доступа к формам SmartArt, добавленным на слайд презентации. В образце кода мы пройдемся по каждой форме на слайде и проверим, является ли она формой SmartArt. Если форма является типом SmartArt, то мы приведем ее к экземпляру SmartArt.
-
+Следующий код демонстрирует, как получить доступ к фигурам SmartArt на слайде. Пример перебирает каждую фигуру на слайде и проверяет, является ли она объектом [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/).
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
-# Загрузите желаемую презентацию
-with slides.Presentation(path + "SmartArt.pptx") as pres:
-
-    # Пройдите по каждой форме внутри первого слайда
-    for shape in pres.slides[0].shapes:
-        # Проверьте, является ли форма типом SmartArt
-        if type(shape) is art.SmartArt:
-            # Приведение формы к SmartArtEx
-            print("Имя формы:" + shape.name)
-```
-
-
-
-## **Доступ к форме SmartArt с определенным типом макета**
-Следующий образец кода поможет получить доступ к форме SmartArt с определенным LayoutType. Обратите внимание, что вы не можете изменить LayoutType формы SmartArt, так как он является доступом только для чтения и устанавливается только при добавлении формы SmartArt.
-
-- Создайте экземпляр класса `Presentation` и загрузите презентацию с формой SmartArt.
-- Получите ссылку на первый слайд, используя его индекс.
-- Пройдите по каждой форме на первом слайде.
-- Проверьте, является ли форма типом SmartArt и приведите выбранную форму к SmartArt, если это SmartArt.
-- Проверьте форму SmartArt с определенным LayoutType и выполните требуемые действия впоследствии.
-
-```py
-import aspose.slides as slides
-import aspose.slides.smartart as art
-
-with slides.Presentation(path + "SmartArt.pptx") as presentation:
-    # Пройдите по каждой форме внутри первого слайда
+# Загрузить файл презентации.
+with slides.Presentation("SmartArt.pptx") as presentation:
+    # Перебрать каждую фигуру на первом слайде.
     for shape in presentation.slides[0].shapes:
-        # Проверьте, является ли форма типом SmartArt
-        if type(shape) is art.SmartArt:
-            # Проверка макета SmartArt
-            if shape.layout == art.SmartArtLayoutType.BASIC_BLOCK_LIST:
-                print("Здесь что-то сделайте....")
+        # Проверить, является ли фигура SmartArt.
+        if isinstance(shape, smartart.SmartArt):
+            # Вывести имя фигуры.
+            print("Shape name:", shape.name)
 ```
 
 
+## **Доступ к фигурам SmartArt с указанным типом макета**
 
-## **Изменение стиля формы SmartArt**
-Следующий образец кода поможет получить доступ к форме SmartArt с определенным LayoutType.
+Следующий пример показывает, как получить доступ к фигуре SmartArt с указанным типом макета. Обратите внимание, что тип макета SmartArt изменить нельзя — он доступен только для чтения и задаётся при создании фигуры.
 
-- Создайте экземпляр класса `Presentation` и загрузите презентацию с формой SmartArt.
-- Получите ссылку на первый слайд, используя его индекс.
-- Пройдите по каждой форме на первом слайде.
-- Проверьте, является ли форма типом SmartArt и приведите выбранную форму к SmartArt, если это SmartArt.
-- Найдите форму SmartArt с определенным стилем.
-- Установите новый стиль для формы SmartArt.
-- Сохраните презентацию.
-
+1. Создайте экземпляр [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и загрузите презентацию, содержащую фигуру SmartArt.
+1. Получите ссылку на первый слайд по индексу.
+1. Переберите все фигуры на первом слайде.
+1. Проверьте, является ли фигура объектом [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/).
+1. Если тип макета фигуры SmartArt соответствует нужному, выполните требуемые действия.
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
-with slides.Presentation(path + "SmartArt.pptx") as presentation:
-    # Пройдите по каждой форме внутри первого слайда
+with slides.Presentation("SmartArt.pptx") as presentation:
+    # Перебрать каждую фигуру на первом слайде.
     for shape in presentation.slides[0].shapes:
-        # Проверьте, является ли форма типом SmartArt
-        if type(shape) is art.SmartArt:
-            # Проверка стиля SmartArt
-            if shape.quick_style == art.SmartArtQuickStyleType.SIMPLE_FILL:
-                # Изменение стиля SmartArt
-                smart.quick_style = art.SmartArtQuickStyleType.CARTOON
-
-    # Сохранение презентации
-    presentation.save("ChangeSmartArtStyle_out.pptx", slides.export.SaveFormat.PPTX)
+        # Проверить, является ли фигура SmartArt.
+        if isinstance(shape, smartart.SmartArt):
+            # Проверить тип макета SmartArt.
+            if shape.layout == smartart.SmartArtLayoutType.BASIC_BLOCK_LIST:
+                print("Do something here...")
 ```
 
 
+## **Изменение стиля фигуры SmartArt**
 
-## **Изменение цветового стиля формы SmartArt**
-В этом примере мы научимся изменять цветовой стиль для любой формы SmartArt. В следующем образце кода доступ к форме SmartArt с определенным цветовым стилем и изменение его стиля.
+Следующий пример показывает, как найти фигуры SmartArt и изменить их стиль:
 
-- Создайте экземпляр класса `Presentation` и загрузите презентацию с формой SmartArt.
-- Получите ссылку на первый слайд, используя его индекс.
-- Пройдите по каждой форме на первом слайде.
-- Проверьте, является ли форма типом SmartArt и приведите выбранную форму к SmartArt, если это SmartArt.
-- Найдите форму SmartArt с определенным цветовым стилем.
-- Установите новый цветовой стиль для формы SmartArt.
-- Сохраните презентацию.
-
+1. Создайте [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и загрузите файл, содержащий фигуру(и) SmartArt.
+1. Получите ссылку на первый слайд по индексу.
+1. Переберите каждую фигуру на первом слайде.
+1. Найдите фигуру SmartArt с указанным стилем.
+1. Назначьте новый стиль фигуре SmartArt.
+1. Сохраните презентацию.
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
-with slides.Presentation(path + "SmartArt.pptx") as presentation:
-    # Пройдите по каждой форме внутри первого слайда
+with slides.Presentation("SmartArt.pptx") as presentation:
+    # Перебрать каждую фигуру на первом слайде.
     for shape in presentation.slides[0].shapes:
-        # Проверьте, является ли форма типом SmartArt
-        if type(shape) is art.SmartArt:
-            # Проверка цветового типа SmartArt
-            if shape.color_style == art.SmartArtColorType.COLORED_FILL_ACCENT1:
-                # Изменение цветового типа SmartArt
-                shape.color_style = art.SmartArtColorType.COLORFUL_ACCENT_COLORS
-
-    # Сохранение презентации
-    presentation.save("ChangeSmartArtColorStyle_out.pptx", slides.export.SaveFormat.PPTX)
+        # Проверить, является ли фигура SmartArt.
+        if isinstance(shape, smartart.SmartArt):
+            # Проверить стиль SmartArt.
+            if shape.quick_style == smartart.SmartArtQuickStyleType.SIMPLE_FILL:
+                # Изменить стиль SmartArt.
+                smart.quick_style = smartart.SmartArtQuickStyleType.CARTOON
+    # Сохранить презентацию.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **Изменение цветового стиля фигур SmartArt**
+
+Этот пример показывает, как изменить цветовой стиль фигуры SmartArt. Пример кода находит фигуру SmartArt с указанным цветовым стилем и обновляет её.
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и загрузите презентацию, содержащую фигуру(и) SmartArt.
+1. Получите ссылку на первый слайд по индексу.
+1. Переберите каждую фигуру на первом слайде.
+1. Проверьте, является ли фигура объектом [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/).
+1. Найдите фигуру SmartArt с указанным цветовым стилем.
+1. Установите новый цветовой стиль для этой фигуры SmartArt.
+1. Сохраните презентацию.
+```py
+import aspose.slides as slides
+import aspose.slides.smartart as smartart
+
+with slides.Presentation("SmartArt.pptx") as presentation:
+    # Перебрать каждую фигуру на первом слайде.
+    for shape in presentation.slides[0].shapes:
+        # Проверить, является ли фигура SmartArt.
+        if isinstance(shape, smartart.SmartArt):
+            # Проверить тип цвета.
+            if shape.color_style == smartart.SmartArtColorType.COLORED_FILL_ACCENT1:
+                # Изменить тип цвета.
+                shape.color_style = smartart.SmartArtColorType.COLORFUL_ACCENT_COLORS
+    # Сохранить презентацию.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+
+## **Часто задаваемые вопросы**
+
+**Могу ли я анимировать SmartArt как единый объект?**
+
+Да. SmartArt является фигурой, поэтому вы можете применять [стандартные анимации](/slides/ru/python-net/powerpoint-animation/) через API анимаций (вход, выход, акцент, траектории движения) так же, как и к другим фигурам.
+
+**Как найти конкретный SmartArt на слайде, если я не знаю его внутренний ID?**
+
+Установите и используйте альтернативный текст (AltText) и ищите фигуру по этому значению — это рекомендованный способ найти нужную фигуру.
+
+**Могу ли я группировать SmartArt с другими фигурами?**
+
+Да. Вы можете группировать SmartArt с другими фигурами (изображения, таблицы и т.д.) и затем [управлять группой](/slides/ru/python-net/group/).
+
+**Как получить изображение конкретного SmartArt (например, для превью или отчёта)?**
+
+Экспортируйте миниатюру/изображение фигуры; библиотека может [рисовать отдельные фигуры](/slides/ru/python-net/create-shape-thumbnails/) в растровые файлы (PNG/JPG/TIFF).
+
+**Сохранится ли внешний вид SmartArt при конвертации всей презентации в PDF?**
+
+Да. Рендеринг‑движок обеспечивает высокую точность при [экспорте в PDF](/slides/ru/python-net/convert-powerpoint-to-pdf/), с набором опций качества и совместимости.

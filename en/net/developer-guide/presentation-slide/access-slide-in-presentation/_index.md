@@ -1,10 +1,24 @@
 ---
-title: Access Slide in Presentation
+title: Access Presentation Slides in .NET
+linktitle: Access Slide
 type: docs
 weight: 20
 url: /net/access-slide-in-presentation/
-keywords: "Access PowerPoint Presentation, Access slide, Edit slide properties, Change slide position, Set slide number, index, ID, position  C#, Csharp, .NET, Aspose.Slides"
-description: "Access PowerPoint slide by index, ID, or position in C# or .NET. Edit slide properties"
+keywords:
+- access slide
+- slide index
+- slide id
+- slide position
+- change position
+- slide properties
+- slide number
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how to access and manage slides in PowerPoint and OpenDocument presentations with Aspose.Slides for .NET. Boost productivity with code examples."
 ---
 
 Aspose.Slides allows you to access slides in two ways: by index and by ID.
@@ -114,3 +128,17 @@ using (var presentation = new Presentation())
     presentation.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
+
+## **FAQ**
+
+**Does the slide number a user sees match the collection’s zero-based index?**
+
+The number shown on a slide can start from an arbitrary value (e.g., 10) and does not have to match the index; the relationship is controlled by the presentation’s [first slide number](https://reference.aspose.com/slides/net/aspose.slides/presentation/firstslidenumber/) setting.
+
+**Do hidden slides affect indexing?**
+
+Yes. A hidden slide remains in the collection and is counted in indexing; "hidden" refers to display, not its position in the collection.
+
+**Does a slide’s index change when other slides are added or removed?**
+
+Yes. Indexes always reflect the current order in slides and are recalculated upon insert, delete, and move operations.

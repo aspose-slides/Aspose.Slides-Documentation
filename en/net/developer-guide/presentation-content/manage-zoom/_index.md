@@ -1,19 +1,22 @@
 ---
-title: Manage Zoom
+title: Manage Presentation Zoom in .NET
+linktitle: Manage Zoom
 type: docs
 weight: 60
 url: /net/manage-zoom/
-keywords: 
+keywords:
 - zoom
 - zoom frame
-- add zoom
-- format zoom frame
+- slide zoom
+- section zoom
 - summary zoom
-- PowerPoint presentation
+- add zoom
+- PowerPoint
+- presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Add zoom or zoom frames to PowerPoint presentations in C# or .NET"
+- Aspose.Slides
+description: "Create and customize Zoom with Aspose.Slides for .NET — jump between sections, add thumbnails and transitions across PPT, PPTX and ODP presentations."
 ---
 
 ## **Overview**
@@ -517,3 +520,17 @@ using (Presentation pres = new Presentation())
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
+
+## **FAQ**
+
+**Can I control returning to the 'parent' slide after showing the target?**
+
+Yes. The [Zoom frame](https://reference.aspose.com/slides/net/aspose.slides/zoomframe/) or [section](https://reference.aspose.com/slides/net/aspose.slides/sectionzoomframe/) has a `ReturnToParent` behavior that, when enabled, sends viewers back to the originating slide after they visit the target content.
+
+**Can I adjust the 'speed' or duration of the Zoom transition?**
+
+Yes. Zoom supports setting a `TransitionDuration` so you can control how long the jump animation takes.
+
+**Are there limits on how many Zoom objects a presentation can contain?**
+
+There is no hard API limit documented. Practical limits depend on overall presentation complexity and the viewer's performance. You can add many Zoom frames, but consider file size and rendering time.

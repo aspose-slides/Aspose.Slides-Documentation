@@ -1,8 +1,19 @@
 ---
-title: Portion
+title: Manage Text Portions in Presentations Using C++
+linktitle: Text Portion
 type: docs
 weight: 70
 url: /cpp/portion/
+keywords:
+- text portion
+- text part
+- text coordinates
+- text position
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Learn how to manage text portions in PowerPoint presentations using Aspose.Slides for C++, boosting performance and customization."
 ---
 
 ## **Get Position Coordinates of Portion**

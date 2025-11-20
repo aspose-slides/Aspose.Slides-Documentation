@@ -1,13 +1,24 @@
 ---
-title: Animated Text
+title: Animate PowerPoint Text in .NET
+linktitle: Animated Text
 type: docs
 weight: 60
 url: /net/animated-text/
-keywords: "Animated text, Animation effects, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Add animated text and effects to PowerPoint presentation in C# or .NET"
+keywords:
+- animated text
+- text animation
+- animated paragraph
+- paragraph animation
+- animation effect
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Create dynamic animated text in PowerPoint and OpenDocument presentations using Aspose.Slides for .NET, with easy-to-follow, optimized C# code examples."
 ---
 
-## Adding Animation Effects to Paragraphs
+## **Adding Animation Effects to Paragraphs**
 
 We added the [**AddEffect()**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence/methods/addeffect/index) method to the [**Sequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence) and [**ISequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
 
@@ -26,9 +37,7 @@ using (Presentation presentation = new Presentation(dataDir + "Presentation1.ppt
 }
 ```
 
-
-
-## Getting the Animation Effects in Paragraphs
+## **Getting the Animation Effects in Paragraphs**
 
 You may decide to find out the animation effects added to a paragraph—for example, in one scenario, you want to get the animation effects in a paragraph because you plan to apply those effects to another paragraph or shape.
 
@@ -50,3 +59,16 @@ using (Presentation pres = new Presentation("Test.pptx"))
 }
 ```
 
+## **FAQ**
+
+**How do text animations differ from slide transitions, and can they be combined?**
+
+Text animations control object behavior over time on a slide, while [transitions](/slides/net/slide-transition/) control how slides change. They’re independent and can be used together; playback order is governed by the animation timeline and the transition settings.
+
+**Are text animations preserved when exporting to PDF or images?**
+
+No. PDF and raster images are static, so you’ll see a single state of the slide without motion. To keep movement, use [video](/slides/net/convert-powerpoint-to-video/) or [HTML](/slides/net/export-to-html5/) export.
+
+**Do text animations work in layouts and the slide master?**
+
+Effects applied to layout/master objects are inherited by slides, but their timing and interaction with slide-level animations depend on the final sequence on the slide.

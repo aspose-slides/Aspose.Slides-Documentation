@@ -1,5 +1,5 @@
 ---
-title: Apply Shape Effects in PowerPoint Using C#
+title: Apply Shape Effects in Presentations in .NET
 linktitle: Shape Effect
 type: docs
 weight: 30
@@ -10,15 +10,13 @@ keywords:
 - reflection effect
 - glow effect
 - soft edges effect
-- bevel effect
-- 3-D format
-- 3-D rotation
+- effect format
 - PowerPoint
 - presentation
-- C#
 - .NET
+- C#
 - Aspose.Slides
-description: "Enhance your PowerPoint presentations with stunning shape effects like shadows, reflections, and glows using Aspose.Slides for .NET. Automate visual enhancements with easy-to-use code and create professional-quality slides effortlessly."
+description: "Transform your PPT and PPTX files with advanced shape effects using Aspose.Slides for .NET—create striking, professional slides in seconds."
 ---
 
 ## **Overview**
@@ -119,16 +117,16 @@ presentation.Save("soft_edges_effect.pptx", SaveFormat.Pptx);
 
 ![Soft edges effect](soft_edges_effect.png)
 
-## **FAQs**
+## **FAQ**
 
-**1. Can I apply multiple effects to the same shape?**
+**Can I apply multiple effects to the same shape?**
 
 Yes, you can combine different effects, such as shadow, reflection, and glow, on a single shape to create a more dynamic appearance.
 
-**2. What shapes can I apply effects to?**
+**What shapes can I apply effects to?**
 
 You can apply effects to various shapes, including autoshapes, charts, tables, pictures, SmartArt objects, OLE objects, and more.
 
-**3. Can I apply effects to grouped shapes?**
+**Can I apply effects to grouped shapes?**
 
 Yes, you can apply effects to grouped shapes. The effect will apply to the entire group.

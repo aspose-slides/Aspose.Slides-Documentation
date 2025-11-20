@@ -1,10 +1,21 @@
 ---
-title: Connector
+title: Manage Connectors in Presentations Using C++
+linktitle: Connector
 type: docs
 weight: 10
 url: /cpp/connector/
-keywords: "Connect shapes, connectors, PowerPoint shapes, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
-description: "Connect PowerPoint shapes in C++"
+keywords:
+- connector
+- connector type
+- connector point
+- connector line
+- connector angle
+- connect shapes
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Empower C++ apps to draw, connect and auto-route lines in PowerPoint slides—gain full control over straight, elbow and curved connectors."
 ---
 
 A PowerPoint connector is a special line that connects or links two shapes together and stays attached to shapes even when they are moved or repositioned on a given slide. 

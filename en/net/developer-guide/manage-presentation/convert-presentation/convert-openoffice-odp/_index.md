@@ -1,5 +1,5 @@
 ---
-title: Convert OpenDocument Presentations (ODP) in C#
+title: Convert OpenDocument Presentations in .NET
 linktitle: Convert OpenDocument
 type: docs
 weight: 10
@@ -19,6 +19,10 @@ keywords:
 - ODP to video
 - ODP to Word
 - ODP to XPS
+- OpenDocument
+- .NET
+- C#
+- Aspose.Slides
 description: "Aspose.Slides for .NET lets you convert ODP to PDF, HTML, and image formats with ease. Boost your .NET apps with fast and accurate presentation conversion."
 ---
 
@@ -66,7 +70,7 @@ Aspose.Slides saves ODP lists in a way that ensures they are displayed correctly
 
 [Learn more about the OpenDocument format and PowerPoint](https://support.microsoft.com/en-us/office/use-powerpoint-to-save-or-open-a-presentation-in-the-opendocument-presentation-odp-format-94805e84-1b09-4c98-a8b5-0da2a52242a0).
 
-## **FAQs**
+## **FAQ**
 
 **What if the formatting of my ODP file changes after conversion?**
 

@@ -1,5 +1,5 @@
 ---
-title: Create and Apply WordArt Effects in C#
+title: Create and Apply WordArt Effects in .NET
 linktitle: WordArt
 type: docs
 weight: 110
@@ -16,11 +16,10 @@ keywords:
 - 3D effect
 - outer shadow effect
 - inner Shadow effect
-- C#
-- Csharp
 - .NET
+- C#
 - Aspose.Slides
-description: "Learn how to create and customize WordArt effects in Aspose.Slides for .NET. This step-by-step guide helps developers enhance presentations with stylish, professional text in C#."
+description: "Create and customize WordArt effects in Aspose.Slides for .NET. This step-by-step guide helps developers enhance presentations with professional text in C#."
 ---
 
 ## **Overview**
@@ -244,7 +243,7 @@ These behaviors relate to the [ThreeDFormat.LightRig](https://reference.aspose.c
 
 {{% /alert %}} 
 
-## **FAQs**
+## **FAQ**
 
 **Can I use WordArt effects with different fonts or scripts (e.g., Arabic, Chinese)?**
 

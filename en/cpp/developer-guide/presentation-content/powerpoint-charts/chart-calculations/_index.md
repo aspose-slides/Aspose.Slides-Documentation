@@ -1,8 +1,23 @@
 ---
-title: Chart Calculations
+title: Optimize Chart Calculations for Presentations in C++
+linktitle: Chart Calculations
 type: docs
 weight: 50
 url: /cpp/chart-calculations/
+keywords:
+- chart calculations
+- chart elements
+- element position
+- actual position
+- child element
+- parent element
+- chart values
+- actual value
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Understand chart calculations, data updates, and precision control in Aspose.Slides for C++ for PPT and PPTX, with practical C++ code examples."
 ---
 
 ## **Calculate Actual Values of Chart Elements**

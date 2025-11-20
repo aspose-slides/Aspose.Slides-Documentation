@@ -2,7 +2,20 @@
 title: Note
 type: docs
 weight: 240
-url: /net/examples/elements/elements/note
+url: /net/examples/elements/elements/note/
+keywords:
+- note example
+- add notes slide
+- access notes slide
+- remove notes slide
+- update notes text
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Add, read, edit, and export speaker notes in C# with Aspose.Slides: format text, manage notes per slide, and control visibility in PowerPoint and OpenDocument."
 ---
 
 Shows how to add, read, remove, and update notes slides using **Aspose.Slides for .NET**.

@@ -1,8 +1,23 @@
 ---
-title: Line
+title: Add Line Shapes to Presentations in Java
+linktitle: Line
 type: docs
 weight: 50
 url: /java/Line/
+keywords:
+- line
+- create line
+- add line
+- plain line
+- configure line
+- customize line
+- dash style
+- arrow head
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn to manipulate line formatting in PowerPoint presentations with Aspose.Slides for Java. Discover properties, methods, and examples."
 ---
 
 

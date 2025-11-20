@@ -1,5 +1,5 @@
 ---
-title: تخصيص خطوط PowerPoint في Python
+title: تخصيص خطوط PowerPoint في بايثون
 linktitle: خط مخصص
 type: docs
 weight: 20
@@ -8,114 +8,128 @@ keywords:
 - خط
 - خط مخصص
 - خط خارجي
-- تحميل خط
+- تحميل الخط
 - إدارة الخطوط
 - مجلد الخطوط
 - PowerPoint
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "قم بتضمين الخطوط المخصصة في شرائح PowerPoint باستخدام Aspose.Slides for Python via .NET للحفاظ على عروضك التقديمية واضحة ومتسقة على أي جهاز."
+description: "تضمين الخطوط المخصصة في شرائح PowerPoint باستخدام Aspose.Slides للبايثون عبر .NET للحفاظ على عروضك التقديمية حادة ومتسقة عبر أي جهاز."
 ---
 
-{{% alert color="primary" %}} 
+## **نظرة عامة**
 
-تسمح لك Aspose Slides بتحميل هذه الخطوط باستخدام طريقة `load_external_fonts` من فئة [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) :
+تمكنك Aspose.Slides for Python من توفير خطوط مخصصة في وقت التشغيل، بحيث يتم عرض العروض التقديمية بشكل صحيح حتى عندما لا تكون الخطوط المطلوبة مثبتة على نظام المضيف. أثناء التصدير إلى PDF أو صور، يمكنك توفير مجلدات الخطوط أو بيانات الخط في الذاكرة للحفاظ على تخطيط النص، مقاييس الحروف، والطباعة. يجعل هذا عملية العرض على الخادم قابلة للتنبؤ عبر بيئات مختلفة، يزيل الاعتماد على خطوط نظام التشغيل، ويمنع التحويلات غير المرغوبة أو إعادة التدفق. تُظهر هذه المقالة كيفية تسجيل مصادر الخطوط.
 
-* خطوط TrueType (.ttf) ومجموعات TrueType (.ttc). انظر [TrueType](https://en.wikipedia.org/wiki/TrueType).
+تمكنك Aspose.Slides من تحميل الخطوط التالية باستخدام طريقتي `load_external_font` و `load_external_fonts` من فئة [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/):
+- خطوط TrueType (.ttf) ومجموعة TrueType (.ttc). راجع [TrueType](https://en.wikipedia.org/wiki/TrueType).
+- خطوط OpenType (.otf). راجع [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
-* خطوط OpenType (.otf). انظر [OpenType](https://en.wikipedia.org/wiki/OpenType).
+## **تحميل الخطوط المخصصة**
 
-{{% /alert %}}
+تمكنك Aspose.Slides من تحميل الخطوط لعرض العروض التقديمية دون تثبيتها. يتم تحميل الخطوط من دليل مخصص.
 
-## **تحميل خطوط مخصصة**
-
-تسمح لك Aspose.Slides بتحميل الخطوط التي يتم عرضها في العروض التقديمية دون الحاجة إلى تثبيت هذه الخطوط. يتم تحميل الخطوط من دليل مخصص. 
-
-1. قم بإنشاء نسخة من فئة [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) واستدعاء طريقة `load_external_fonts`.
-2. قم بتحميل العرض التقديمي الذي سيتم عرضه.
-3. امسح الذاكرة المؤقتة في فئة [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) .
-
-يوضح هذا الرمز في بايثون عملية تحميل الخط:
+1. استدعِ طريقة `load_external_fonts` من فئة [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/).
+2. حمّل العرض التقديمي المراد عرضه.
+3. امسح الذاكرة المخبأة في فئة [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/).
 
 ```python
 import aspose.slides as slides
 
-# مسار دليل المستندات.
-dataDir = "C:\\"
+# المجلدات للبحث عن الخطوط.
+font_folders = [ "C:\\MyFonts", "D:\\MyAdditionalFonts" ]
 
-# المجلدات للبحث عن الخطوط
-folders = [ dataDir ]
+# تحميل الخطوط من المجلدات المخصصة.
+slides.FontsLoader.load_external_fonts(font_folders)
 
-# تحميل خطوط الدليل المخصص
-slides.FontsLoader.load_external_fonts(folders)
+# إنشاء العرض التقديمي.
+with slides.Presentation("Fonts.pptx") as presentation:
+    presentation.save("Fonts_out.pdf", slides.export.SaveFormat.PDF)
 
-# القيام ببعض الأعمال وأداء عرض الشرائح
-with slides.Presentation(path + "DefaultFonts.pptx") as presentation:
-    presentation.save("NewFonts_out.pptx", slides.export.SaveFormat.PPTX)
-
-# مسح ذاكرة الخط
+# مسح ذاكرة التخزين المؤقت للخطوط.
 slides.FontsLoader.clear_cache()
 ```
 
-## **الحصول على مجلدات الخطوط المخصصة**
-يوفر Aspose.Slides طريقة `get_font_folders()` للسماح لك بإيجاد مجلدات الخطوط. تعيد هذه الطريقة المجلدات التي تمت إضافتها من خلال طريقة `LoadExternalFonts` ومجلدات الخطوط النظامية.
 
-يوضح هذا الرمز في بايثون كيفية استخدام `get_font_folders()`:
+## **الحصول على مجلد الخطوط المخصصة**
 
-```python
-#  هذه السطر يخرج المجلدات التي يتم التحقق منها لملفات الخط.
-# تلك هي المجلدات التي تمت إضافتها من خلال طريقة load_external_fonts ومجلدات الخطوط النظامية.
-fontFolders = slides.FontsLoader.get_font_folders()
-
-```
-
-
-## **تحديد الخطوط المخصصة المستخدمة مع العرض التقديمي**
-يوفر Aspose.Slides خاصية `document_level_font_sources` للسماح لك بتحديد الخطوط الخارجية التي ستستخدم مع العرض التقديمي.
-
-يوضح هذا الرمز في بايثون كيفية استخدام خاصية `document_level_font_sources`:
+توفر Aspose.Slides طريقة `get_font_folders` لاسترداد مجلدات الخطوط. تُعيد كل من المجلدات التي أضيفت عبر `load_external_fonts` ومجلدات خطوط النظام.
 
 ```python
 import aspose.slides as slides
 
-with open(path + "CustomFont1.ttf", "br") as font1:
-    memoryFont1 = font1.read()
-    with open(path + "CustomFont2.ttf", "br") as font2:
-        memoryFont2 = font2.read()
-
-        loadOptions = slides.LoadOptions()
-        loadOptions.document_level_font_sources.font_folders =  ["assets\\fonts", "global\\fonts"] 
-        loadOptions.document_level_font_sources.memory_fonts = [ memoryFont1, memoryFont2 ]
-        with slides.Presentation(path + "DefaultFonts.pptx", loadOptions) as presentation:
-            # العمل مع العرض التقديمي
-            # خط CustomFont1 وCustomFont2 وخطوط من مجلدات assets\fonts وglobal\fonts ومجلداتها الفرعية متاحة للعرض التقديمي
-            print(len(presentation.slides))
+# هذه الدالة تُرجع المجلدات التي تم فحصها لملفات الخطوط.
+# وتشمل هذه المجلدات المضافة عبر طريقة load_external_fonts ومجلدات خطوط النظام.
+font_folders = slides.FontsLoader.get_font_folders()
 ```
 
-## **إدارة الخطوط خارجيًا**
 
-يوفر Aspose.Slides طريقة `load_external_font`(data) للسماح لك بتحميل الخطوط الخارجية من بيانات ثنائية.
+## **تحديد الخطوط المخصصة لعرض تقديمي**
 
-يوضح هذا الرمز في بايثون عملية تحميل خط مصفوفة البايت:
+توفر Aspose.Slides الخاصية `document_level_font_sources`، والتي تتيح لك تحديد الخطوط الخارجية لاستخدامها مع عرض تقديمي.
 
 ```python
-from aspose.slides import FontsLoader, Presentation
+import aspose.slides as slides
 
-def read_all_bytes(path):
-    with open(path, "rb") as in_file:
-        bytes = in_file.read()
-    return bytes
+with open("CustomFont1.ttf", "br") as font1_stream:
+    font1_data = font1_stream.read()
+    
+with open("CustomFont2.ttf", "br") as font2_stream:
+    font2_data = font2_stream.read()
 
-FontsLoader.load_external_font(read_all_bytes("ARIALN.TTF"))
-FontsLoader.load_external_font(read_all_bytes("ARIALNBI.TTF"))
-FontsLoader.load_external_font(read_all_bytes("ARIALNI.TTF"))
+load_options = slides.LoadOptions()
+load_options.document_level_font_sources.font_folders = ["assets\\fonts", "global\\fonts"] 
+load_options.document_level_font_sources.memory_fonts = [font1_data, font2_data]
+
+with slides.Presentation("Fonts.pptx", load_options) as presentation:
+    # ...
+    # العمل مع العرض التقديمي.
+    # الخطوط CustomFont1 و CustomFont2 والخطوط من مجلّدي assets\\fonts و global\\fonts (ومجلداتهما الفرعية) متاحة للعرض التقديمي.
+    # ...
+    print(len(presentation.slides))
+```
+
+
+## **تحميل الخطوط الخارجية من بيانات ثنائية**
+
+توفر Aspose.Slides طريقة `load_external_font` لتحميل الخطوط الخارجية من بيانات ثنائية.
+
+```python
+import aspose.slides as slides
+
+def read_all_bytes(file_path):
+    with open(file_path, "rb") as file_stream:
+        file_data = file_stream.read()
+    return file_data
+
+# تحميل الخطوط الخارجية من مصفوفات البايت.
+slides.FontsLoader.load_external_font(read_all_bytes("ARIALN.TTF"))
+slides.FontsLoader.load_external_font(read_all_bytes("ARIALNBI.TTF"))
+slides.FontsLoader.load_external_font(read_all_bytes("ARIALNI.TTF"))
 
 try:
-    with Presentation() as pres:
-        # تم تحميل الخط الخارجي خلال فترة العرض التقديمي
+    with slides.Presentation() as presentation:
+        # الخطوط الخارجية متاحة طوال عمر مثيل العرض التقديمي هذا.
         print("processing")
 finally:
-    FontsLoader.clear_cache()
-
+    slides.FontsLoader.clear_cache()
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل تؤثر الخطوط المخصصة على التصدير إلى جميع صيغ (PDF, PNG, SVG, HTML)؟**
+نعم. يتم استخدام الخطوط المتصلة من قبل المُعالج عبر جميع صيغ التصدير.
+
+**هل يتم تضمين الخطوط المخصصة تلقائيًا في ملف PPTX الناتج؟**
+لا. تسجيل الخط للعرض ليس هو نفسه تضمينه في PPTX. إذا كنت بحاجة إلى أن يُحمل الخط داخل ملف العرض التقديمي، يجب عليك استخدام [ميزات التضمين](/slides/ar/python-net/embedded-font/).
+
+**هل يمكنني التحكم في سلوك الاستبدال عندما يفتقر الخط المخصص إلى بعض الحروف؟**
+نعم. اضبط [استبدال الخطوط](/slides/ar/python-net/font-substitution/)، [قواعد الاستبدال](/slides/ar/python-net/font-replacement/)، و[مجموعات الاحتياط](/slides/ar/python-net/fallback-font/) لتحديد الخط الذي يُستخدم بالضبط عندما تكون الحرف المطلوب مفقودًا.
+
+**هل يمكنني استخدام الخطوط في حاويات Linux/Docker دون تثبيتها على مستوى النظام؟**
+نعم. قم بالإشارة إلى مجلدات الخطوط الخاصة بك أو تحميل الخطوط من مصفوفات البايت. هذا يزيل أي اعتماد على أدلة خطوط النظام في صورة الحاوية.
+
+**ماذا عن الترخيص—هل يمكنني تضمين أي خط مخصص دون قيود؟**
+أنت مسؤول عن الامتثال لترخيص الخطوط. تختلف الشروط؛ بعض التراخيص تحظر التضمين أو الاستخدام التجاري. تأكد دائمًا من مراجعة اتفاقية ترخيص المستخدم النهائي للخط قبل توزيع المخرجات.

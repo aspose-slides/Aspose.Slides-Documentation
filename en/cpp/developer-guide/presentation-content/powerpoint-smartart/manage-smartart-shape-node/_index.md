@@ -1,20 +1,26 @@
 ---
-title: Manage SmartArt Shape Node
+title: Manage SmartArt Shape Nodes in Presentations Using C++
+linktitle: SmartArt Shape Node
 type: docs
 weight: 30
 url: /cpp/manage-smartart-shape-node/
 keywords:
-- SmartArt
 - SmartArt node
-- SmartArt child node
+- child node
+- add node
+- node position
+- access node
+- remove node
+- custom position
+- assistant node
+- fill format
+- render node
 - PowerPoint
 - presentation
 - C++
-- Aspose.Slides for C++
-description: "Manage SmartArt nodes and child nodes in PowerPoint presentations in C++"
+- Aspose.Slides
+description: "Manage SmartArt shape nodes in PPT and PPTX with Aspose.Slides for C++. Get clear code samples and tips to streamline your presentations."
 ---
-
-
 
 ## **Add SmartArt Node**
 Aspose.Slides for C++ has provided the simplest API to manage the SmartArt shapes in an easiest way. The following sample code will help to add node and child node inside SmartArt shape.

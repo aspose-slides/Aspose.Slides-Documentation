@@ -2,7 +2,20 @@
 title: Master Slide
 type: docs
 weight: 30
-url: /net/examples/elements/master-slide
+url: /net/examples/elements/master-slide/
+keywords:
+- master slide example
+- add master slide
+- access master slide
+- remove master slide
+- unused master slide
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Manage master slides in C# with Aspose.Slides: create, edit, clone, and format themes, backgrounds, placeholders to unify slides in PowerPoint and OpenDocument."
 ---
 
 Master slides form the top level of the slide inheritance hierarchy in PowerPoint. A **master slide** defines common design elements such as backgrounds, logos, and text formatting. **Layout slides** inherit from master slides, and **normal slides** inherit from layout slides.

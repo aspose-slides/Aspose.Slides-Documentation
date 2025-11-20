@@ -1,21 +1,28 @@
 ---
-title: Shape Animation
+title: Apply Shape Animations in Presentations Using Java
+linktitle: Shape Animation
 type: docs
 weight: 60
 url: /java/shape-animation/
-keywords: 
+keywords:
 - shape
 - animation
 - effect
-- add effects
-- get effects
-- extract effects
+- animated shape
+- animated text
+- add animation
+- get animation
+- extract animation
+- add effect
+- get effect
+- extract effect
+- effect sound
 - apply animation
 - PowerPoint
 - presentation
 - Java
-- Aspose.Slides for Java
-description: "Apply PowerPoint animation in Java"
+- Aspose.Slides
+description: "Discover how to create and customize shape animations in PowerPoint presentations with Aspose.Slides for Java. Stand out!"
 ---
 
 Animations are visual effects that can be applied to texts, images, shapes, or [charts](https://docs.aspose.com/slides/java/animated-charts/). They give life to presentations or its constituents. 

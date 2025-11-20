@@ -1,151 +1,182 @@
 ---
-title: Moderne API
+title: "Optimieren Sie die Bildverarbeitung mit der Modernen API"
+linktitle: "Moderne API"
 type: docs
 weight: 280
 url: /de/python-net/modern-api/
-keywords: "Moderne API, Zeichnen"
-description: "Moderne API"
+keywords:
+  - "moderne API"
+  - "Zeichnung"
+  - "Folie Miniaturbild"
+  - "Folie zu Bild"
+  - "Form Miniaturbild"
+  - "Form zu Bild"
+  - "Präsentation Miniaturbild"
+  - "Präsentation zu Bildern"
+  - "Bild hinzufügen"
+  - "Bild einfügen"
+  - "Python"
+  - "Aspose.Slides"
+description: "Modernisieren Sie die Folienbildverarbeitung, indem Sie die veralteten Bild‑APIs durch die Python Moderne API ersetzen, um eine nahtlose PowerPoint‑ und OpenDocument‑Automatisierung zu ermöglichen."
 ---
 
-## Einführung
+## **Einleitung**
 
-Derzeit hat die Aspose.Slides für Python über .NET-Bibliothek Abhängigkeiten in ihrer öffentlichen API von den folgenden Klassen aus `aspose.pydrawing`:
+Die öffentliche API von Aspose.Slides für Python hängt derzeit von den folgenden `aspose.pydrawing`‑Typen ab:
 - `aspose.pydrawing.Graphics`
 - `aspose.pydrawing.Image`
 - `aspose.pydrawing.Bitmap`
 - `aspose.pydrawing.printing.PrinterSettings`
 
-Seit Version 24.4 wird diese öffentliche API aufgrund von [Änderungen](https://releases.aspose.com/slides/net/release-notes/2024/aspose-slides-for-net-24-4-release-notes/#introducing-a-new-modern-api) in der Aspose.Slides für .NET öffentlichen API als veraltet erklärt.
+Ab Version 24.4 ist diese öffentliche API **veraltet** wegen [Änderungen](https://releases.aspose.com/slides/python-net/release-notes/2024/aspose-slides-for-python-net-24-4-release-notes/#introducing-a-new-modern-api) in der Aspose.Slides für Python‑Public‑API.
 
-Um die Abhängigkeiten von `aspose.pydrawing` in der öffentlichen API zu beseitigen, haben wir die sogenannte "Moderne API" hinzugefügt. Methoden mit `aspose.pydrawing.Image` und `aspose.pydrawing.Bitmap` werden als veraltet erklärt und durch die entsprechenden Methoden aus der Modernen API ersetzt. Methoden mit `aspose.pydrawing.Graphics` werden als veraltet erklärt und ihre Unterstützung wird aus der öffentlichen API entfernt.
+Um `aspose.pydrawing` aus der öffentlichen API zu entfernen, haben wir die **Moderne API** eingeführt. Methoden, die `aspose.pydrawing.Image` und `aspose.pydrawing.Bitmap` verwenden, sind veraltet und werden durch ihre Gegenstücke der Modernen API ersetzt. Methoden, die `aspose.pydrawing.Graphics` verwenden, sind veraltet und die Unterstützung dafür wird aus der öffentlichen API entfernt.
 
-Die Entfernung der veralteten öffentlichen API mit Abhängigkeiten von `aspose.pydrawing` wird in der Veröffentlichung 24.8 erfolgen.
+Das Entfernen der veralteten API, die von `aspose.pydrawing` abhängt, ist für die Veröffentlichung **24.8** geplant.
 
-## Moderne API
+## **Moderne API**
 
-Folgende Klassen und Enums wurden zur öffentlichen API hinzugefügt:
+Die folgenden Klassen und Aufzählungen wurden zur öffentlichen API hinzugefügt:
 
-- [`aspose.slides.IImage`](https://reference.aspose.com/slides/python-net/aspose.slides/iimage) - repräsentiert das Raster- oder Vektorbild.
-- [`aspose.slides.ImageFormat`](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat) - repräsentiert das Dateiformat des Bildes.
-- [`aspose.slides.Images`](https://reference.aspose.com/slides/python-net/aspose.slides/images) - Methoden zur Instanziierung und Arbeit mit dem `IImage`-Interface.
+- [`aspose.slides.IImage`](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) — stellt ein Raster‑ oder Vektorbild dar.
+- [`aspose.slides.ImageFormat`](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) — stellt ein Bilddateiformat dar.
+- [`aspose.slides.Images`](https://reference.aspose.com/slides/python-net/aspose.slides/images/) — bietet Methoden zum Erstellen und Arbeiten mit `IImage`.
 
-Ein typisches Szenario zur Verwendung der neuen API könnte wie folgt aussehen:
-
+Ein typisches Anwendungsszenario für die neue API sieht so aus:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
 
-with slides.Presentation() as pres:
-    image = slides.Images.from_file("image.png")
-    pp_image = pres.images.add_image(image)
-    pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10.0, 10.0, 100.0, 100.0, pp_image)
-    with pres.slides[0].get_image(drawing.Size(1920, 1080)) as slide_image:
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with slides.Images.from_file("image.png") as image:
+        pp_image = presentation.images.add_image(image)
+
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, pp_image)
+
+    with slide.get_image(drawing.Size(1920, 1080)) as slide_image:
         slide_image.save("slide1.jpeg", slides.ImageFormat.JPEG)
 ```
 
-## Ersetzen alter Codes durch die Moderne API
 
-Zur Erleichterung des Übergangs wiederholt die Schnittstelle des neuen `IImage` die separaten Signaturen der Klassen `Image` und `Bitmap`. Im Allgemeinen müssen Sie einfach den Aufruf der alten Methode mit `aspose.pydrawing` durch die neue ersetzen.
+## **Alten Code durch die Moderne API ersetzen**
 
-### Thumbnail eines Slides erhalten
+Für einen einfacheren Umstieg spiegelt das neue `IImage`‑Interface die getrennten APIs der Klassen `Image` und `Bitmap` wider. In den meisten Fällen müssen Sie lediglich Aufrufe von Methoden, die `aspose.pydrawing` verwenden, durch deren Gegenstücke der Modernen API ersetzen.
 
-Code, der eine veraltete API verwendet:
+### **Ein Folien‑Thumbnail abrufen**
 
+**Veraltete API:**
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    pres.slides[0].get_thumbnail().save("slide1.png")
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    slide.get_thumbnail().save("slide1.png")
 ```
 
-Moderne API:
 
+**Moderne API:**
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    with pres.slides[0].get_image() as image:
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    with slide.get_image() as image:
         image.save("slide1.png")
 ```
 
-### Thumbnail einer Form erhalten
 
-Code, der eine veraltete API verwendet:
+### **Ein Shape‑Thumbnail abrufen**
 
+**Veraltete API:**
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    pres.slides[0].shapes[0].get_thumbnail().save("shape.png")
+with slides.Presentation("sample.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    
+    shape.get_thumbnail().save("shape.png")
 ```
 
-Moderne API:
 
+**Moderne API:**
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    with pres.slides[0].shapes[0].get_image() as image:
+with slides.Presentation("sample.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+
+    with shape.get_image() as image:
         image.save("shape.png")
 ```
 
-### Thumbnail einer Präsentation erhalten
 
-Code, der eine veraltete API verwendet:
+### **Ein Präsentations‑Thumbnail abrufen**
 
+**Veraltete API:**
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
 
-with slides.Presentation("pres.pptx") as pres:
-    thumbnails = pres.get_thumbnails(slides.export.RenderingOptions(), drawing.Size(1980, 1028))
+with slides.Presentation("sample.pptx") as presentation:
+    thumbnails = presentation.get_thumbnails(slides.export.RenderingOptions(), drawing.Size(1980, 1028))
 
-    for idx, thumbnail in enumerate(thumbnails):
-        thumbnail.save(f"slide_{idx}.png", drawing.imaging.ImageFormat.png)
+    for index, thumbnail in enumerate(thumbnails):
+        thumbnail.save(f"slide_{index}.png", drawing.imaging.ImageFormat.png)
 ```
 
-Moderne API:
 
+**Moderne API:**
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
 
-with slides.Presentation("pres.pptx") as pres:
-    thumbnails = pres.get_images(slides.export.RenderingOptions(), drawing.Size(1980, 1028))
+with slides.Presentation("sample.pptx") as presentation:
+    thumbnails = presentation.get_images(slides.export.RenderingOptions(), drawing.Size(1980, 1028))
 
-    for idx, thumbnail in enumerate(thumbnails):
-        thumbnail.save(f"slide_{idx}.png", slides.ImageFormat.PNG)
+    for index, thumbnail in enumerate(thumbnails):
+        thumbnail.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-### Ein Bild in eine Präsentation einfügen
 
-Code, der eine veraltete API verwendet:
+### **Ein Bild zu einer Präsentation hinzufügen**
 
+**Veraltete API:**
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as drawing
 
-with slides.Presentation() as pres:
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
     image = drawing.Image.from_file("image.png")
-    pp_image = pres.images.add_image(image)
-    pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10.0, 10.0, 100.0, 100.0, pp_image)
+    pp_image = presentation.images.add_image(image)
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, pp_image)
 ```
 
-Moderne API:
 
+**Moderne API:**
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    image = slides.Images.from_file("image.png")
-    pp_image = pres.images.add_image(image)
-    pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10.0, 10.0, 100.0, 100.0, pp_image)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with slides.Images.from_file("image.png") as image:
+        pp_image = presentation.images.add_image(image)
+
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, pp_image)
 ```
 
-## Methoden/Eigenschaften, die entfernt werden sollen und ihre Ersetzung in der Modernen API
 
-### Präsentationsklasse
-|Methoden-Signatur|Ersatzmethoden-Signatur|
+## **Methoden und Eigenschaften, die entfernt werden, und deren Moderne Ersatzmethoden**
+
+### **Presentation‑Klasse**
+
+|Methodensignatur|Ersatz-Methodensignatur|
 | :- | :- |
 |get_thumbnails(options)|[get_images(options)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions)|
 |get_thumbnails(options, slides)|[get_images(options, slides)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_images/#asposeslidesexportirenderingoptions-listint)|
@@ -160,8 +191,9 @@ with slides.Presentation() as pres:
 |print(printer_name)|Wird vollständig gelöscht|
 |print(printer_settings, pres_name)|Wird vollständig gelöscht|
 
-### Folienklasse
-|Methoden-Signatur|Ersatzmethoden-Signatur|
+### **Slide‑Klasse**
+
+|Methodensignatur|Ersatz-Methodensignatur|
 | :- | :- |
 |get_thumbnail()|[get_image()](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#)|
 |get_thumbnail(scale_x, scale_y)|[get_image(scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#float-float)|
@@ -174,49 +206,70 @@ with slides.Presentation() as pres:
 |render_to_graphics(options, graphics, scale_x, scale_y)|Wird vollständig gelöscht|
 |render_to_graphics(options, graphics, rendering_size)|Wird vollständig gelöscht|
 
-### Formenklasse
-|Methoden-Signatur|Ersatzmethoden-Signatur|
+### **Shape‑Klasse**
+
+|Methodensignatur|Ersatz-Methodensignatur|
 | :- | :- |
 |get_thumbnail()|[get_image()](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/#)|
 |get_thumbnail(bounds, scale_x, scale_y)|[get_image(bounds, scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/#shapethumbnailbounds-float-float)|
 
-### ImageCollection-Klasse
-|Methoden-Signatur|Ersatzmethoden-Signatur|
+### **ImageCollection‑Klasse**
+
+|Methodensignatur|Ersatz-Methodensignatur|
 | :- | :- |
 |add_image(image: aspose.pydrawing.Image)|[add_image(image)](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/add_image/#iimage)|
 
-### PPImage-Klasse
-|Methoden-/Eigenschaftensignatur|Ersatzmethoden-/Eigenschaftensignatur|
+### **PPImage‑Klasse**
+
+|Methoden-/Eigenschaftssignatur|Ersatz-Methoden-/Eigenschaftssignatur|
 | :- | :- |
 |replace_image(new_image: aspose.pydrawing.Image)|[replace_image(new_image)](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/replace_image/#iimage)|
 |system_image|[image](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/image/)|
 
-### ImageWrapperFactory-Klasse
-|Methoden-Signatur|Ersatzmethoden-Signatur|
+### **ImageWrapperFactory‑Klasse**
+
+|Methodensignatur|Ersatz-Methodensignatur|
 | :- | :- |
 |create_image_wrapper(image: aspose.pydrawing.Image)|[create_image_wrapper(image)](https://reference.aspose.com/slides/python-net/aspose.slides/iimagewrapperfactory/create_image_wrapper/#iimage)|
 
-### PatternFormat-Klasse
-|Methoden-Signatur|Ersatzmethoden-Signatur|
+### **PatternFormat‑Klasse**
+
+|Methodensignatur|Ersatz-Methodensignatur|
 | :- | :- |
 |get_tile_image(background, foreground)|[get_tile(background, foreground)](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/get_tile/#asposepydrawingcolor-asposepydrawingcolor)|
 |get_tile_image(style_color)|[get_tile(style_color)](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/get_tile/#asposepydrawingcolor)|
 
-### IPatternFormatEffectiveData-Klasse
-|Methoden-Signatur|Ersatzmethoden-Signatur|
+### **IPatternFormatEffectiveData‑Klasse**
+
+|Methodensignatur|Ersatz-Methodensignatur|
 | :- | :- |
 |get_tile_image(background, foreground)|[get_tile_i_image(background, foreground)](https://reference.aspose.com/slides/python-net/aspose.slides/ipatternformateffectivedata/get_tile_i_image/#asposepydrawingcolor-asposepydrawingcolor)|
 
-### Ausgabe-Klasse
-|Methoden-Signatur|Ersatzmethoden-Signatur|
+### **Output‑Klasse**
+
+|Methodensignatur|Ersatz-Methodensignatur|
 | :- | :- |
 |add(path, image: aspose.pydrawing.Image)|[add(path, image)](https://reference.aspose.com/slides/python-net/aspose.slides.export.web/output/add/#str-iimage)|
 
-## Die Unterstützung der API für `aspose.pydrawing.Graphics` wird eingestellt
+## **Unterstützung für aspose.pydrawing.Graphics wird eingestellt**
 
-Methoden mit `aspose.pydrawing.Graphics` werden als veraltet erklärt und ihre Unterstützung wird aus der öffentlichen API entfernt.
+Methoden, die `aspose.pydrawing.Graphics` verwenden, sind veraltet; die Unterstützung dafür wird aus der öffentlichen API entfernt.
 
-Der Teil der API, der dies verwendet, wird entfernt:
+Die API‑Elemente, die von `aspose.pydrawing.Graphics` abhängen und entfernt werden, umfassen:
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics)`
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics, scale_x, scale_y)`
 - `aspose.pydrawing.Slide.render_to_graphics(options, graphics, rendering_size)`
+
+# **FAQ**
+
+**Warum wurde aspose.pydrawing.Graphics entfernt?**
+
+Die Unterstützung für Graphics wird aus der öffentlichen API entfernt, um die Arbeit mit Rendering und Bildern zu vereinheitlichen, Abhängigkeiten von plattformspezifischen Bibliotheken zu eliminieren und zu einem plattformübergreifenden Ansatz mit [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) zu wechseln. Alle Rendering‑Methoden zu Graphics werden entfernt.
+
+**Welchen praktischen Nutzen bietet IImage im Vergleich zu Image/Bitmap?**
+
+[IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) vereinheitlicht die Arbeit mit Raster‑ und Vektorbildern, vereinfacht das Speichern in verschiedene Formate über [ImageFormat](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/), reduziert die Abhängigkeit von pydrawing und macht den Code portabler über verschiedene Umgebungen hinweg.
+
+**Beeinflusst die Moderne API die Performance bei der Erstellung von Thumbnails?**
+
+Der Wechsel von `get_thumbnail` zu `get_image` verschlechtert die Szenarien nicht: Die neuen Methoden bieten die gleichen Möglichkeiten zur Bildgenerierung mit Optionen und Größen, während weiterhin Rendering‑Optionen unterstützt werden. Der konkrete Gewinn oder Verlust hängt vom Einzelfall ab, funktional sind die Ersatzmethoden jedoch äquivalent.

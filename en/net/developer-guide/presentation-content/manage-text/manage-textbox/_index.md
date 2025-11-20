@@ -1,5 +1,6 @@
 ---
-title: Manage TextBox
+title: Manage Text Boxes in Presentations in .NET
+linktitle: Manage Text Box
 type: docs
 weight: 20
 url: /net/manage-textbox/
@@ -8,13 +9,16 @@ keywords:
 - text frame
 - add text
 - update text
-- text box with a hyperlink
+- create text box
+- check text box
+- add text column
+- add hyperlink
 - PowerPoint
 - presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Manage a text box or text frame in PowerPoint presentations using C# or .NET"
+- Aspose.Slides
+description: "Aspose.Slides for .NET makes it easy to create, edit, and clone text boxes in PowerPoint and OpenDocument files, enhancing your presentation automation."
 ---
 
 Texts on slides typically exist in text boxes or shapes. Therefore, to add text to a slide, you have to add a textbox first and then put some text inside the textbox. 
@@ -276,3 +280,13 @@ HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
 // Saves the PPTX Presentation
 pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
+
+## **FAQ**
+
+**What’s the difference between a text box and a text placeholder when working with master slides?**
+
+A [placeholder](/slides/net/manage-placeholder/) inherits style/position from the [master](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) and can be overridden on [layouts](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/), whereas a regular text box is an independent object on a specific slide and doesn’t change when you switch layouts.
+
+**How can I perform a bulk text replacement across the presentation without touching text inside charts, tables, and SmartArt?**
+
+Limit your iteration to auto-shapes that have text frames and exclude embedded objects ([charts](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/)) by traversing their collections separately or skipping those object types.

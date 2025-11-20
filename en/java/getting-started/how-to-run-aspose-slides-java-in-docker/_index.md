@@ -11,8 +11,16 @@ keywords:
 - Windows
 - macOS
 - Linux
+- cross-platform compatibility
+- dependency isolation
+- simplified deployment
+- project setup
+- PowerPoint
+- OpenDocument
+- presentation
 - Java
-description: "Learn how to easily run Aspose.Slides for Java in Docker. Step-by-step guide for fast setup, reduced compatibility issues, and smooth presentation processing in containers."
+- Aspose.Slides
+description: "Run Aspose.Slides in Docker containers: configure images, dependencies, fonts, and licensing to build scalable services that process PowerPoint and OpenDocument."
 ---
 
 

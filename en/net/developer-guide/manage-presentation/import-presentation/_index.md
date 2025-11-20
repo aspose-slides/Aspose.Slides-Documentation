@@ -1,11 +1,28 @@
 ---
-title: Import PowerPoint from PDF or HTML
+title: Import Presentations from PDF or HTML in .NET
 linktitle: Import Presentation
 type: docs
 weight: 60
 url: /net/import-presentation/
-keywords: "Import PowerPoint, PDF to PowerPoint, HTML to PowerPoint, PDF to PPT, HTML to PPT, C#, Csharp, Aspose.Slides for .NET"
-description: "Import PowerPoint from PDF or HTML. Convert PDF to PowerPoint. Convert HTML to PowerPoint"
+keywords:
+- import presentation
+- import slide
+- import PDF
+- import HTML
+- PDF to presentation
+- PDF to PPT
+- PDF to PPTX
+- PDF to ODP
+- HTML to presentation
+- HTML to PPT
+- HTML to PPTX
+- HTML to ODP
+- PowerPoint
+- OpenDocument
+- .NET
+- C#
+- Aspose.Slides
+description: "Effortlessly import PDF and HTML documents into PowerPoint and OpenDocument presentations in .NET with Aspose.Slides for seamless, high-performance slide processing."
 ---
 
 Using [**Aspose.Slides for .NET**](https://products.aspose.com/slides/net/), you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/) class to allow you to import presentations from PDF documents.
@@ -57,6 +74,12 @@ using (var presentation = new Presentation())
     presentation.Save("MyPresentation.pptx", SaveFormat.Pptx);
 }
 ```
+
+## **FAQ**
+
+**Are tables preserved when importing a PDF, and can their detection be improved?**
+
+Tables can be detected during import; [PdfImportOptions](https://reference.aspose.com/slides/net/aspose.slides.import/pdfimportoptions/) includes a [DetectTables](https://reference.aspose.com/slides/net/aspose.slides.import/pdfimportoptions/detecttables/) parameter that enables table recognition. The effectiveness depends on the PDF’s structure.
 
 {{% alert title="Note" color="warning" %}} 
 

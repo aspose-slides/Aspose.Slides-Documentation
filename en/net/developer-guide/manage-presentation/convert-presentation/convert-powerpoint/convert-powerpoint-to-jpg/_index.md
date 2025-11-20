@@ -1,39 +1,31 @@
 ---
-title: Convert PPT, PPTX, and ODP to JPG in C#
-linktitle: Convert Slides to JPG Images
+title: Convert PPT and PPTX to JPG in .NET
+linktitle: PowerPoint to JPG
 type: docs
 weight: 60
 url: /net/convert-powerpoint-to-jpg/
 keywords: 
-- convert PowerPoint to JPG
-- convert presentation to JPG
-- convert slide to JPG
-- convert PPT to JPG
-- convert PPTX to JPG
-- convert ODP to JPG
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
 - PowerPoint to JPG
 - presentation to JPG
 - slide to JPG
 - PPT to JPG
 - PPTX to JPG
-- ODP to JPG
-- convert PowerPoint to JPEG
-- convert presentation to JPEG
-- convert slide to JPEG
-- convert PPT to JPEG
-- convert PPTX to JPEG
-- convert ODP to JPEG
-- PowerPoint to JPEG
-- presentation to JPEG
-- slide to JPEG
-- PPT to JPEG
-- PPTX to JPEG
-- ODP to JPEG
-- C#
-- Csharp
+- save PowerPoint as JPG
+- save presentation as JPG
+- save slide as JPG
+- save PPT as JPG
+- save PPTX as JPG
+- export PPT to JPG
+- export PPTX to JPG
 - .NET
+- C#
 - Aspose.Slides
-description: "Learn how to transform your slides from PowerPoint and OpenDocument presentations into high-quality JPEG images with just a few lines of code. Optimize presentations for web use, sharing, and archiving. Read the full guide now!"
+description: "Convert PowerPoint (PPT, PPTX) slides to high-quality JPG images in C# with Aspose.Slides for .NET using fast, reliable code examples."
 ---
 
 ## **Overview**
@@ -162,7 +154,7 @@ Using the same principles described in this article, you can convert images from
 
 {{% /alert %}}
 
-## **FAQs**
+## **FAQ**
 
 **Does this method support batch conversion?**
 

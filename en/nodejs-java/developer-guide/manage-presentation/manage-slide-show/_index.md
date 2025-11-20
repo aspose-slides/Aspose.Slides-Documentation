@@ -107,3 +107,17 @@ presentation.getSlideShowSettings().setShowMediaControls(true);
 presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
 presentation.dispose();
 ```
+
+## **FAQ**
+
+**Can I save a presentation so it opens directly in slide show mode?**
+
+Yes. Save the file as PPSX or PPSM; these formats launch directly in slide show when opened in PowerPoint. In Aspose.Slides, choose the corresponding save format [during export](/slides/nodejs-java/save-presentation/).
+
+**Can I exclude individual slides from the show without deleting them from the file?**
+
+Yes. Mark a slide as [hidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/sethidden/). Hidden slides remain in the presentation but are not displayed during the slide show.
+
+**Can Aspose.Slides play a slide show or control a live presentation on screen?**
+
+No. Aspose.Slides edits, analyzes, and converts presentation files; the actual playback is handled by a viewer application such as PowerPoint.

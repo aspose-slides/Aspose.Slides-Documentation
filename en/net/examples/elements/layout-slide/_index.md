@@ -2,7 +2,21 @@
 title: Layout Slide
 type: docs
 weight: 20
-url: /net/examples/elements/layout-slide
+url: /net/examples/elements/layout-slide/
+keywords:
+- layout slide example
+- add layout slide
+- access layout slide
+- remove layout slide
+- unused layout slide
+- clone layout slide
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Use C# to manage layout slides with Aspose.Slides: create, apply, clone, rename, and customize placeholders and themes in presentations for PPT, PPTX and ODP."
 ---
 
 This article demonstrates how to work with **Layout Slides** in Aspose.Slides for .NET. A layout slide defines the design and formatting inherited by normal slides. You can add, access, clone, and remove layout slides, as well as clean up unused ones to reduce presentation size.
