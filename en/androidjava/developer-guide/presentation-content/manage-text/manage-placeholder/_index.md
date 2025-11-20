@@ -1,9 +1,22 @@
 ---
-title: Manage Placeholder
+title: Manage Presentation Placeholders on Android
+linktitle: Manage Placeholders
 type: docs
 weight: 10
 url: /androidjava/manage-placeholder/
-description: Change Text in a Placeholder in PowerPoint Slides using Java. Set Prompt Text in a Placeholder in PowerPoint Slides using Java.
+keywords:
+- placeholder
+- text placeholder 
+- image placeholder
+- chart placeholder
+- prompt text
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Effortlessly manage placeholders in Aspose.Slides for Android via Java: replace text, customize prompts & set image transparency in PowerPoint and OpenDocument."
 ---
 
 ## **Change Text in Placeholder**

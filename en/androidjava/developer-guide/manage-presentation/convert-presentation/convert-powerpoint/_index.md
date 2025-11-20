@@ -1,9 +1,22 @@
 ---
-title: Convert PowerPoint in Java | HTML, PNG, PDF, Word, TIFF
+title: Convert PowerPoint Presentations on Android | HTML, PNG, PDF, Word, TIFF
 linktitle: Convert PowerPoint
 type: docs
 weight: 20
 url: /androidjava/convert-powerpoint/
-description: This articles list topics and sample codes in Java that can be used to convert PowerPoint (PPT, PPTX, ODP) to different formats like HTML, PNG, PDF, Word, TIFF etc. 
+keywords:
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- export PowerPoint
+- export presentation
+- export slide
+- export PPT
+- export PPTX
+- Android
+- Java
+- Aspose.Slides
+description: "Convert PowerPoint presentations to other formats using Aspose.Slides for Android via Java. Fast, accurate, and seamless PPT and PPTX conversion."
 ---
-
