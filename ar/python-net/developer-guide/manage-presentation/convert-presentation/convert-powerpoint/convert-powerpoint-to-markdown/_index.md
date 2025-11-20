@@ -1,98 +1,121 @@
 ---
-title: تحويل PowerPoint إلى Markdown في بايثون
+title: تحويل عروض PowerPoint التقديمية إلى ماركداون باستخدام بايثون
+linktitle: PowerPoint إلى ماركداون
 type: docs
 weight: 140
 url: /ar/python-net/convert-powerpoint-to-markdown/
-keywords: "تحويل PowerPoint إلى Markdown, تحويل ppt إلى md, PowerPoint, PPT, PPTX, عرض, Markdown, بايثون, Aspose.Slides لـ بايثون عبر .NET"
-description: "تحويل PowerPoint إلى Markdown في بايثون"
+keywords:
+- تحويل PowerPoint إلى ماركداون
+- تحويل OpenDocument إلى ماركداون
+- تحويل العرض التقديمي إلى ماركداون
+- تحويل الشريحة إلى ماركداون
+- تحويل PPT إلى ماركداون
+- تحويل PPTX إلى ماركداون
+- تحويل ODP إلى ماركداون
+- تحويل PowerPoint إلى MD
+- تحويل OpenDocument إلى MD
+- تحويل العرض التقديمي إلى MD
+- تحويل الشريحة إلى MD
+- تحويل PPT إلى MD
+- تحويل PPTX إلى MD
+- تحويل ODP إلى MD
+- PowerPoint
+- OpenDocument
+- العرض التقديمي
+- ماركداون
+- بايثون
+- Aspose.Slides
+description: "تحويل شرائح PowerPoint وOpenDocument—PPT، PPTX، ODP—إلى ماركداون نظيف باستخدام Aspose.Slides لبايثون عبر .NET، أتمتة التوثيق والحفاظ على التنسيق."
 ---
 
-{{% alert color="info" %}} 
+## **تحويل العروض التقديمية إلى ماركداون**
 
-تمت إضافة دعم تحويل PowerPoint إلى Markdown في [Aspose.Slides 23.7](https://docs.aspose.com/slides/python-net/aspose-slides-for-python-net-23-7-release-notes/).
+يوضح المثال أدناه أبسط طريقة لتحويل عرض PowerPoint إلى ماركداون باستخدام Aspose.Slides for Python عبر .NET بالإعدادات الافتراضية.
 
-{{% /alert %}} 
+1. قم بإنشاء كائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) لتحميل العرض التقديمي.
+1. استدعِ الدالة `save` لتصديره كملف ماركداون.
 
-{{% alert color="warning" %}} 
-
-تصدير PowerPoint إلى Markdown هو **بدون صور** بشكل افتراضي. إذا كنت ترغب في تصدير مستند PowerPoint يحتوي على صور، ستحتاج إلى تعيين `saveOptions.export_type = MarkdownExportType.VISUAL` كما يجب تعيين `base_path` حيث سيتم حفظ الصور المشار إليها في مستند Markdown.
-
-{{% /alert %}} 
-
-## **تحويل PowerPoint إلى Markdown**
-
-1. قم بإنشاء مثيل من [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) لتمثيل كائن العرض.
-2. استخدم [Save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/#methods) لحفظ الكائن كملف Markdown.
-
-يوضح لك هذا الكود بلغة بايثون كيفية تحويل PowerPoint إلى Markdown: 
-
+استخدم مقتطف Python أدناه لإجراء التحويل:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:  
-    pres.save("pres.md", slides.export.SaveFormat.MD)
+with slides.Presentation("presentation.pptx") as presentation:  
+    presentation.save("presentation.md", slides.export.SaveFormat.MD)
 ```
 
-## تحويل PowerPoint إلى نكهة Markdown
 
-تتيح لك Aspose.Slides تحويل PowerPoint إلى Markdown (الذي يحتوي على بناء جملة أساسي)، CommonMark، Markdown المعتمد على GitHub، Trello، XWiki، GitLab، و 17 نكهة Markdown أخرى.
+## **تحويل العروض التقديمية إلى نكهة ماركداون**
 
-يوضح لك هذا الكود بلغة بايثون كيفية تحويل PowerPoint إلى CommonMark: 
+تتيح لك Aspose.Slides تحويل العروض التقديمية إلى صيغ ماركداون، بما في ذلك ماركداون الأساسي، CommonMark، ماركداون بنكهة GitHub، Trello، XWiki، GitLab، و17 نكهة أخرى من ماركداون.
 
-```python
-from aspose.slides import Presentation
-from aspose.slides.dom.export.markdown.saveoptions import MarkdownSaveOptions, Flavor
-from aspose.slides.export import SaveFormat
-
-with Presentation("pres.pptx") as pres:  
-    saveOptions = MarkdownSaveOptions()
-    saveOptions.flavor = Flavor.COMMONMARK
-
-    pres.save("pres.md", SaveFormat.MD, saveOptions)
-```
-
-توجد 23 نكهة Markdown مدعومة [مُدرجة تحت تعداد Flavor](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/flavor/) من فئة [MarkdownSaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/).
-
-## **تحويل العرض الذي يحتوي على صور إلى Markdown**
-
-توفر فئة [MarkdownSaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) خصائص وتعدادات تتيح لك استخدام خيارات أو إعدادات معينة للملف Markdown الناتج. يمكن تعيين تعداد [MarkdownExportType](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/)، على سبيل المثال، إلى قيم تحدد كيفية عرض الصور أو التعامل معها: `Sequential`, `TextOnly`, `Visual`.
-
-### **تحويل الصور بالتسلسل**
-
-إذا كنت ترغب في ظهور الصور بشكل فردي واحدة تلو الأخرى في Markdown الناتج، يجب عليك اختيار الخيار التسلسلي. يوضح لك هذا الكود بلغة بايثون كيفية تحويل عرض يحتوي على صور إلى Markdown: 
-
+يوضح المثال التالي بلغة Python كيفية تحويل عرض PowerPoint إلى CommonMark:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    markdownSaveOptions = slides.export.MarkdownSaveOptions()
-    markdownSaveOptions.show_hidden_slides = True
-    markdownSaveOptions.show_slide_number = True
-    markdownSaveOptions.flavor = slides.export.Flavor.GITHUB
-    markdownSaveOptions.export_type = slides.export.MarkdownExportType.SEQUENTIAL
-    markdownSaveOptions.new_line_type = slides.export.NewLineType.WINDOWS
-    
-    pres.save("doc.md", [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ], slides.export.SaveFormat.MD, markdownSaveOptions)
+save_options = slides.export.MarkdownSaveOptions()
+save_options.flavor = slides.export.Flavor.COMMON_MARK
+
+with slides.Presentation("presentation.pptx") as presentation:
+    presentation.save("presentation.md", slides.export.SaveFormat.MD, save_options)
 ```
+
+
+يتم سرد الـ23 نكهة ماركداون المدعومة في تعداد [Flavor](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/flavor/) لفئة [MarkdownSaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/).
+
+## **تحويل العروض التقديمية التي تحتوي على صور إلى ماركداون**
+
+توفر فئة [MarkdownSaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) خصائص وتعدادات تتيح لك تكوين ملف الماركداون الناتج. على سبيل المثال، يتحكم تعداد [MarkdownExportType](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) في كيفية التعامل مع الصور: `SEQUENTIAL`، `TEXT_ONLY`، أو `VISUAL`.
+
+### **تحويل الصور تسلسليًا**
+
+إذا كنت تريد ظهور الصور بشكل فردي—واحدة تلو الأخرى—في الماركداون المُنشأ، اختر الخيار `SEQUENTIAL`. يوضح مثال Python أدناه كيفية تحويل عرض يحتوي على صور إلى ماركداون.
+```python
+import aspose.slides as slides
+
+save_options = slides.export.MarkdownSaveOptions()
+save_options.show_hidden_slides = True
+save_options.show_slide_number = True
+save_options.flavor = slides.export.Flavor.GITHUB
+save_options.export_type = slides.export.MarkdownExportType.SEQUENTIAL
+save_options.new_line_type = slides.export.NewLineType.WINDOWS
+
+slide_indices = [1, 3, 5]
+
+with slides.Presentation("presentation.pptx") as presentation:
+    presentation.save("presentation.md", slide_indices, slides.export.SaveFormat.MD, save_options)
+```
+
 
 ### **تحويل الصور بصريًا**
 
-إذا كنت ترغب في ظهور الصور معًا في Markdown الناتج، يجب عليك اختيار الخيار البصري. في هذه الحالة، سيتم حفظ الصور في الدليل الحالي للتطبيق (وسيتم بناء مسار نسبي لها في مستند Markdown)، أو يمكنك تحديد المسار المفضل واسم المجلد.
+إذا كنت تريد ظهور الصور معًا في الماركداون الناتج، اختر الخيار `VISUAL`. في هذا الوضع، تُحفظ الصور في الدليل الحالي للتطبيق (ويستخدم مستند الماركداون مسارات نسبية)، أو يمكنك تحديد مسار إخراج مخصص واسم مجلد.
 
-يوضح لك هذا الكود بلغة بايثون العملية: 
-
+يوضح مثال Python أدناه هذه العملية:
 ```python
-from aspose.slides import Presentation
-from aspose.slides.dom.export.markdown.saveoptions import MarkdownSaveOptions, MarkdownExportType
-from aspose.slides.export import SaveFormat
+import os
+import aspose.slides as slides
 
-with Presentation("pres.pptx") as pres:  
-    outPath = "c:\\documents"
+save_options = slides.export.MarkdownSaveOptions()
+save_options.export_type = slides.export.MarkdownExportType.VISUAL
+save_options.images_save_folder_name = "md-images"
+save_options.base_path = "c:\\documents"
 
-    saveOptions = MarkdownSaveOptions()
-    saveOptions.export_type = MarkdownExportType.VISUAL
-    saveOptions.images_save_folder_name = "md-images"
-    saveOptions.base_path = outPath
-
-    pres.save(outPath + "\\pres.md", SaveFormat.MD, saveOptions)
+with slides.Presentation("presentation.pptx") as presentation:
+    file_path = os.path.join(save_options.base_path, "presentation.md")
+    presentation.save(file_path, slides.export.SaveFormat.MD, save_options)
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل تبقى الروابط الفائقة محفوظة بعد التصدير إلى ماركداون؟**
+
+نعم. النصوص [الروابط الفائقة](/slides/ar/python-net/manage-hyperlinks/) تُحافظ عليها كروابط ماركداون قياسية. الـ[transitions](/slides/ar/python-net/slide-transition/) و[animations](/slides/ar/python-net/powerpoint-animation/) للشرائح لا يتم تحويلها.
+
+**هل يمكنني تسريع التحويل بتشغيله عبر عدة خيوط (threads)؟**
+
+يمكنك تنفيذ المعالجة بالتوازي عبر الملفات، لكن لا يجب [لا تشارك](/slides/ar/python-net/multithreading/) لنفس كائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) عبر الخيوط. استخدم كائنات/عمليات منفصلة لكل ملف لتجنب التعارض.
+
+**ماذا يحدث للصور—أين يتم حفظها، وهل المسارات نسبية؟**
+
+يتم تصدير [الصور](/slides/ar/python-net/image/) إلى مجلد مخصص، ويشير ملف الماركداون إليها باستخدام مسارات نسبية بشكل افتراضي. يمكنك ضبط مسار الإخراج الأساسي واسم مجلد الأصول للحفاظ على بنية مستودع متوقعة.

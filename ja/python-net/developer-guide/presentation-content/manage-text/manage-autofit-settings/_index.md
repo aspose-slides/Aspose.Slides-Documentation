@@ -1,162 +1,171 @@
 ---
-title: Python で AutoFit を活用してプレゼンテーションを強化する
+title: Python で AutoFit を使用してプレゼンテーションを強化する
 linktitle: AutoFit 設定
 type: docs
 weight: 30
 url: /ja/python-net/manage-autofit-settings/
 keywords:
-- テキスト ボックス
-- AutoFit
-- AutoFit を無効にする
-- テキストをフィット
+- テキストボックス
+- オートフィット
+- オートフィットしない
+- テキストに合わせる
 - テキストを縮小
-- テキストを折り返す
-- 図形のサイズ変更
+- テキストの折り返し
+- シェイプのリサイズ
 - PowerPoint
-- OpenDocument
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python を使用して AutoFit 設定を管理し、PowerPoint および OpenDocument プレゼンテーションのテキスト表示を最適化し、コンテンツの読みやすさを向上させる方法を学びましょう。"
+description: "Aspose.Slides for Python via .NET で AutoFit 設定を管理し、PowerPoint および OpenDocument プレゼンテーションのテキスト表示を最適化して、コンテンツの可読性を向上させる方法を学びます。"
 ---
 
-デフォルトでは、テキストボックスを追加すると、Microsoft PowerPointはテキストボックスに対して**テキストに合わせて図形をサイズ変更**設定を使用します。これにより、テキストボックスは常にその中にテキストが収まるように自動的にサイズが変更されます。
+デフォルトでは、テキストボックスを追加すると Microsoft PowerPoint はテキストボックスに対して **Resize shape to fix text** 設定を使用します。テキストが常に収まるように、テキストボックスのサイズが自動的に調整されます。
 
 ![textbox-in-powerpoint](textbox-in-powerpoint.png)
 
-* テキストボックスのテキストが長くなったり大きくなったりすると、PowerPointは自動的にテキストボックスを拡大し、高さを増やしてより多くのテキストを収めることができます。
-* テキストボックスのテキストが短くなったり小さくなったりすると、PowerPointは自動的にテキストボックスを縮小し、高さを減少させて冗長なスペースを排除します。
+* テキストボックス内のテキストが長く大きくなると、PowerPoint はテキストボックスの高さを増やして自動的に拡大し、より多くのテキストを保持できるようにします。  
+* テキストボックス内のテキストが短く小さくなると、PowerPoint はテキストボックスの高さを減らして自動的に縮小し、余分なスペースを除去します。
 
-PowerPointでは、テキストボックスの自動調整動作を制御する4つの重要なパラメータまたはオプションがあります：
+PowerPoint では、テキストボックスの自動調整動作を制御する重要なパラメータまたはオプションが 4 つあります。
 
-* **自動調整しない**
-* **オーバーフロー時にテキストを縮小**
-* **テキストに合わせて図形をサイズ変更**
-* **図形内のテキストを折り返す。**
+* **Do not Autofit**
+* **Shrink text on overflow**
+* **Resize shape to fit text**
+* **Wrap text in shape.**
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-Aspose.Slides for Python via .NETでは、プレゼンテーションのテキストボックスの自動調整動作を制御できる、[text_frame_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)クラスのいくつかのプロパティに似たオプションを提供しています。
+Aspose.Slides for Python via .NET は、[TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) クラスのいくつかのプロパティとして、プレゼンテーション内のテキストボックスの自動調整動作を制御する同様のオプションを提供します。
 
-## **テキストに合わせて図形をサイズ変更**
+## **Resize Shapes to Fit Text**
 
-テキストが変更された後に、ボックス内に常に収まるようにしたい場合は、**テキストに合わせて図形をサイズ変更**オプションを使用する必要があります。この設定を指定するには、[autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)プロパティ（[text_frame_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)クラスから）を`SHAPE`に設定します。
+テキストが変更された後も常に箱に収まるようにしたい場合は、**Resize shape to fix text** オプションを使用する必要があります。この設定を指定するには、[TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) クラスの `autofit_type` プロパティを `SHAPE` に設定します。
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
-このPythonコードは、PowerPointプレゼンテーション内でテキストが常にボックスに収まるように指定する方法を示しています：
-
+この Python コードは、PowerPoint プレゼンテーションでテキストが常に箱に収まるように指定する方法を示しています:
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
 
     portion = slides.Portion("lorem ipsum...")
     portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
     portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    autoShape.text_frame.paragraphs[0].portions.add(portion)
+    auto_shape.text_frame.paragraphs[0].portions.add(portion)
 
-    textFrameFormat = autoShape.text_frame.text_frame_format
-    textFrameFormat.autofit_type = slides.TextAutofitType.SHAPE
+    text_frame_format = auto_shape.text_frame.text_frame_format
+    text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
 
-    pres.save("Output-presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-テキストが長くなったり大きくなると、テキストボックスは自動的にリサイズされ（高さが増加）、すべてのテキストが収まるようになります。テキストが短くなると、逆の動作が行われます。
 
-## **自動調整しない**
+テキストが長く大きくなると、テキストボックスは自動的に高さが増えてサイズが変更され、すべてのテキストが収まります。テキストが短くなると、逆の処理が行われます。
 
-テキストボックスまたは図形がその内容にかかわらず寸法を保持するようにしたい場合は、**自動調整しない**オプションを使用する必要があります。この設定を指定するには、[autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)プロパティ（[text_frame_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)クラスから）を`NONE`に設定します。
+## **Do Not Autofit**
+
+テキストの変更に関係なくテキストボックスまたはシェイプのサイズを保持したい場合は、**Do not Autofit** オプションを使用します。この設定を指定するには、[TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) クラスの `autofit_type` プロパティを `NONE` に設定します。
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
-このPythonコードは、PowerPointプレゼンテーション内でテキストボックスが常にその寸法を保持するように指定する方法を示しています：
-
+この Python コードは、PowerPoint プレゼンテーションでテキストボックスが常にサイズを保持するように指定する方法を示しています:
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
 
     portion = slides.Portion("lorem ipsum...")
     portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
     portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    autoShape.text_frame.paragraphs[0].portions.add(portion)
+    auto_shape.text_frame.paragraphs[0].portions.add(portion)
 
-    textFrameFormat = autoShape.text_frame.text_frame_format
-    textFrameFormat.autofit_type = slides.TextAutofitType.NONE
+    text_frame_format = auto_shape.text_frame.text_frame_format
+    text_frame_format.autofit_type = slides.TextAutofitType.NONE
 
-    pres.save("Output-presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-テキストがボックスに対して長すぎると、テキストがこぼれ出ます。
 
-## **オーバーフロー時にテキストを縮小**
+テキストが箱に対して長すぎる場合、テキストははみ出します。
 
-テキストがボックスに対して長すぎる場合、**オーバーフロー時にテキストを縮小**オプションを使用することで、テキストのサイズと間隔を減少させてボックス内に収めることができます。この設定を指定するには、[autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)プロパティ（[text_frame_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)クラスから）を`NORMAL`に設定します。
+## **Shrink Text on Overflow**
+
+テキストが箱に対して長すぎる場合、**Shrink text on overflow** オプションを使用して、テキストのサイズと間隔を縮小し、箱に収めることができます。この設定を指定するには、[TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) クラスの `autofit_type` プロパティを `NORMAL` に設定します。
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
-このPythonコードは、PowerPointプレゼンテーション内でオーバーフロー時にテキストを縮小する方法を示しています：
-
+この Python コードは、PowerPoint プレゼンテーションでテキストがオーバーフローしたときに縮小されるように指定する方法を示しています:
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
 
     portion = slides.Portion("lorem ipsum...")
     portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
     portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    autoShape.text_frame.paragraphs[0].portions.add(portion)
+    auto_shape.text_frame.paragraphs[0].portions.add(portion)
 
-    textFrameFormat = autoShape.text_frame.text_frame_format
-    textFrameFormat.autofit_type = slides.TextAutofitType.NORMAL
+    text_frame_format = auto_shape.text_frame.text_frame_format
+    text_frame_format.autofit_type = slides.TextAutofitType.NORMAL
 
-    pres.save("Output-presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="情報" color="info" %}}
 
-**オーバーフロー時にテキストを縮小**オプションが使用されると、その設定はテキストがボックスに対して長すぎる場合にのみ適用されます。
-
+{{% alert title="Info" color="info" %}}
+**Shrink text on overflow** オプションが使用された場合、テキストが箱に対して長くなったときだけ設定が適用されます。
 {{% /alert %}}
 
-## **テキストを折り返す**
+## **Wrap Text**
 
-テキストが図形の境界を超えるときに、その図形内でテキストを折り返したい場合は、**図形内のテキストを折り返す**パラメータを使用する必要があります。この設定を指定するには、[wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)クラスから）を`1`に設定します。
+テキストがシェイプの幅を超えたときに、シェイプ内でテキストが折り返されるようにしたい場合は、**Wrap text in shape** パラメータを使用します。この設定を指定するには、[TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) クラスの `wrap_text` プロパティを `NullableBool.TRUE` に設定します。
 
-このPythonコードは、PowerPointプレゼンテーション内でテキストを折り返す設定を使用する方法を示しています：
-
+この Python コードは、PowerPoint プレゼンテーションで Wrap Text 設定を使用する方法を示しています:
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
 
     portion = slides.Portion("lorem ipsum...")
     portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
     portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    autoShape.text_frame.paragraphs[0].portions.add(portion)
+    auto_shape.text_frame.paragraphs[0].portions.add(portion)
 
-    textFrameFormat = autoShape.text_frame.text_frame_format
-    textFrameFormat.autofit_type = slides.TextAutofitType.NONE
-    textFrameFormat.wrap_text = 1
+    text_frame_format = auto_shape.text_frame.text_frame_format
+    text_frame_format.autofit_type = slides.TextAutofitType.NONE
+    text_frame_format.wrap_text = slides.NullableBool.TRUE
 
-    pres.save("Output-presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="注意" color="warning" %}} 
 
-図形に対して`wrap_text`プロパティを`0`に設定すると、図形内のテキストがその幅よりも長くなると、テキストは単一行として図形の境界を超えて延長されます。
-
+{{% alert title="Note" color="warning" %}}
+シェイプの `wrap_text` プロパティを `NullableBool.FALSE` に設定すると、シェイプ内のテキストがシェイプの幅を超えたときに、テキストは 1 行のままシェイプの外側に延びます。
 {{% /alert %}}
+
+## **FAQ**
+
+**Do the text frame’s internal margins affect AutoFit?**
+
+はい。パディング（内部余白）はテキストの使用可能領域を減少させるため、AutoFit が早めに作動し、フォントが縮小されたりシェイプがリサイズされたりします。AutoFit を調整する前に余白を確認し、必要に応じて調整してください。
+
+**How does AutoFit interact with manual and soft line breaks?**
+
+強制改行はそのまま残り、AutoFit はそれらの周囲でフォントサイズや間隔を調整します。不要な改行を削除すると、AutoFit がテキストを縮小する度合いが緩和されることが多いです。
+
+**Does changing the theme font or triggering font substitution affect AutoFit results?**
+
+はい。異なる字形メトリクスを持つフォントに置き換えると、テキストの幅や高さが変わり、最終的なフォントサイズや行折り返しに影響します。フォント変更や置換を行った後は、スライドを再確認してください。

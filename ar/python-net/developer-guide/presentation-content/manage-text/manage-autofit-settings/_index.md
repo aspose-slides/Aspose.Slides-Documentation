@@ -1,149 +1,167 @@
 ---
-title: إدارة إعدادات التكيف التلقائي
+title: حسّن عروضك التقديمية باستخدام الضبط التلقائي AutoFit في بايثون
+linktitle: إعدادات Autofit
 type: docs
 weight: 30
 url: /ar/python-net/manage-autofit-settings/
-keywords: "صندوق نص, تكيف تلقائي, عرض PowerPoint, بايثون, Aspose.Slides لبايثون عبر .NET"
-description: "قم بتعيين إعدادات التكيف التلقائي لصندوق النص في PowerPoint باستخدام بايثون"
+keywords:
+- مربع نص
+- الضبط التلقائي
+- عدم الضبط التلقائي
+- ملاءمة النص
+- تقليل حجم النص
+- تغليف النص
+- تغيير حجم الشكل
+- PowerPoint
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "تعلم كيفية إدارة إعدادات AutoFit في Aspose.Slides لبايثون عبر .NET لتحسين عرض النص في عروض PowerPoint وOpenDocument وتحسين قابلية قراءة المحتوى."
 ---
 
-افتراضيًا، عند إضافة صندوق نص، تستخدم Microsoft PowerPoint إعداد **تغيير حجم الشكل ليتناسب مع النص** لصندوق النص—حيث يقوم بتغيير حجم صندوق النص تلقائيًا لضمان تناسب النص دائمًا داخله.
+بشكل افتراضي، عند إضافة مربع نص، يستخدم Microsoft PowerPoint إعداد **Resize shape to fix text** للمربع النصي—يقوم تلقائيًا بتغيير حجم المربع النصي لضمان أن النص دائمًا يتناسب معه. 
 
 ![textbox-in-powerpoint](textbox-in-powerpoint.png)
 
-* عندما يصبح النص في صندوق النص أطول أو أكبر، يقوم PowerPoint بتكبير صندوق النص تلقائيًا—زيادة ارتفاعه—ليسع المزيد من النص.
-* عندما يصبح النص في صندوق النص أقصر أو أصغر، يقوم PowerPoint بتقليل حجم صندوق النص تلقائيًا—خفض ارتفاعه—لإزالة المساحة الزائدة.
+* عندما يصبح النص داخل مربع النص أطول أو أكبر، يقوم PowerPoint تلقائيًا بتوسيع مربع النص—يزيد ارتفاعه—للسماح له بحمل نص أكبر. 
+* عندما يصبح النص داخل مربع النص أقصر أو أصغر، يقوم PowerPoint تلقائيًا بتقليل مربع النص—يقلل ارتفاعه—لإزالة المساحة الزائدة. 
 
-في PowerPoint، هذه هي المعلمات أو الخيارات الأربعة المهمة التي تتحكم في سلوك التكيف التلقائي لصندوق النص:
+في PowerPoint، هذه هي المعلمات أو الخيارات الأربعة المهمة التي تتحكم في سلوك الضبط التلقائي لمربع النص:
 
-* **لا تقوم بالتكيف التلقائي**
-* **قم بتقليص النص عند التجاوز**
-* **تغيير حجم الشكل ليتناسب مع النص**
-* **لف النص داخل الشكل.**
+* **Do not Autofit**
+* **Shrink text on overflow**
+* **Resize shape to fit text**
+* **Wrap text in shape.**
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-يوفر Aspose.Slides لبايثون عبر .NET خيارات مشابهة—بعض الخصائص ضمن فئة [text_frame_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)—التي تتيح لك التحكم في سلوك التكيف التلقائي لصناديق النص في العروض التقديمية.
+Aspose.Slides for Python via .NET يوفر خيارات مشابهة—بعض الخصائص تحت الفئة [TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)—التي تتيح لك التحكم في سلوك الضبط التلقائي لمربعات النص في العروض التقديمية. 
 
-## **تغيير حجم الشكل ليتناسب مع النص**
+## **تغيير حجم الأشكال لتتناسب مع النص**
 
-إذا كنت تريد أن يناسب النص في صندوقه دائمًا بعد إجراء تغييرات على النص، عليك استخدام خيار **تغيير حجم الشكل ليتناسب مع النص**. لتحديد هذا الإعداد، قم بتعيين خاصية [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) (من فئة [text_frame_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)) إلى `SHAPE`.
+إذا كنت تريد أن يتناسب النص داخل المربع دائمًا مع ذلك المربع بعد إجراء تغييرات على النص، عليك استخدام خيار **Resize shape to fix text**. لتحديد هذا الإعداد، اضبط الخاصية [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) من الفئة [TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) إلى `SHAPE`.
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
-يوضح لك هذا الكود في بايثون كيفية تحديد أنه يجب أن يتناسب النص دائمًا مع صندوقه في عرض PowerPoint:
-
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
 
     portion = slides.Portion("lorem ipsum...")
     portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
     portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    autoShape.text_frame.paragraphs[0].portions.add(portion)
+    auto_shape.text_frame.paragraphs[0].portions.add(portion)
 
-    textFrameFormat = autoShape.text_frame.text_frame_format
-    textFrameFormat.autofit_type = slides.TextAutofitType.SHAPE
+    text_frame_format = auto_shape.text_frame.text_frame_format
+    text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
 
-    pres.save("Output-presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-إذا أصبح النص أطول أو أكبر، فسيتم تغيير حجم صندوق النص تلقائيًا (زيادة في الارتفاع) لضمان تناسب كل النص داخله. إذا أصبح النص أقصر، يحدث العكس.
 
-## **لا تقوم بالتكيف التلقائي**
+إذا أصبح النص أطول أو أكبر، سيتم تغيير حجم مربع النص تلقائيًا (زيادة الارتفاع) لضمان أن كل النص يتناسب معه. إذا أصبح النص أقصر، يحدث العكس. 
 
-إذا كنت تريد لصندوق النص أو الشكل الاحتفاظ بأبعاده بغض النظر عن التغييرات التي تم إجراؤها على النص المحتوي، عليك استخدام خيار **لا تقوم بالتكيف التلقائي**. لتحديد هذا الإعداد، قم بتعيين خاصية [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) (من فئة [text_frame_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)) إلى `NONE`.
+## **عدم الضبط التلقائي**
+
+إذا كنت تريد أن يحتفظ مربع النص أو الشكل بأبعاده بغض النظر عن التغييرات التي تطرأ على النص الذي يحتويه، عليك استخدام خيار **Do not Autofit**. لتحديد هذا الإعداد، اضبط الخاصية [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) من الفئة [TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) إلى `NONE`. 
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
-يوضح لك هذا الكود في بايثون كيفية تحديد أنه يجب على صندوق النص الاحتفاظ بأبعاده دائمًا في عرض PowerPoint:
-
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
 
     portion = slides.Portion("lorem ipsum...")
     portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
     portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    autoShape.text_frame.paragraphs[0].portions.add(portion)
+    auto_shape.text_frame.paragraphs[0].portions.add(portion)
 
-    textFrameFormat = autoShape.text_frame.text_frame_format
-    textFrameFormat.autofit_type = slides.TextAutofitType.NONE
+    text_frame_format = auto_shape.text_frame.text_frame_format
+    text_frame_format.autofit_type = slides.TextAutofitType.NONE
 
-    pres.save("Output-presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-عندما يصبح النص طويلًا جدًا بالنسبة لصندوقه، سيتجاوز.
 
-## **تقليص النص عند التجاوز**
+عندما يصبح النص طويلًا جدًا بالنسبة لمربعه، سيظهر خارج المربع. 
 
-إذا أصبح النص طويلًا جدًا بالنسبة لصندوقه، من خلال خيار **تقليص النص عند التجاوز**، يمكنك تحديد أن حجم النص وتباعده يجب أن يتم تقليلهما ليتناسبا مع صندوقه. لتحديد هذا الإعداد، قم بتعيين خاصية [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) (من فئة [text_frame_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)) إلى `NORMAL`.
+## **تقليل النص عند الفائض**
+
+إذا أصبح النص طويلًا جدًا بالنسبة لمربعه، يمكنك من خلال خيار **Shrink text on overflow** تحديد أنه يجب تقليل حجم النص والمسافات لجعله يتناسب مع المربع. لتحديد هذا الإعداد، اضبط الخاصية [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) من الفئة [TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) إلى `NORMAL`.
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
-يوضح لك هذا الكود في بايثون كيفية تحديد أنه يجب تقليص النص عند التجاوز في عرض PowerPoint:
+```py
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
+
+    portion = slides.Portion("lorem ipsum...")
+    portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    auto_shape.text_frame.paragraphs[0].portions.add(portion)
+
+    text_frame_format = auto_shape.text_frame.text_frame_format
+    text_frame_format.autofit_type = slides.TextAutofitType.NORMAL
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+
+{{% alert title="Info" color="info" %}}
+عند استخدام خيار **Shrink text on overflow**، يتم تطبيق الإعداد فقط عندما يصبح النص طويلًا جدًا بالنسبة لمربعه. 
+{{% /alert %}}
+
+## **تغليف النص**
+
+إذا كنت تريد أن يُلف النص داخل الشكل عندما يتجاوز النص حدود الشكل (العرض فقط)، عليك استخدام معلمة **Wrap text in shape**. لتحديد هذا الإعداد، عليك ضبط الخاصية [wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) من الفئة [TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) إلى `NullableBool.TRUE`. 
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
 
     portion = slides.Portion("lorem ipsum...")
     portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
     portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    autoShape.text_frame.paragraphs[0].portions.add(portion)
+    auto_shape.text_frame.paragraphs[0].portions.add(portion)
 
-    textFrameFormat = autoShape.text_frame.text_frame_format
-    textFrameFormat.autofit_type = slides.TextAutofitType.NORMAL
+    text_frame_format = auto_shape.text_frame.text_frame_format
+    text_frame_format.autofit_type = slides.TextAutofitType.NONE
+    text_frame_format.wrap_text = slides.NullableBool.TRUE
 
-    pres.save("Output-presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="معلومات" color="info" %}}
 
-عند استخدام خيار **تقليص النص عند التجاوز**، يتم تطبيق الإعداد فقط عندما يصبح النص طويلًا جدًا بالنسبة لصندوقه.
-
+{{% alert title="Note" color="warning" %}} 
+إذا ضبطت الخاصية `wrap_text` إلى `NullableBool.FALSE` لشكل ما، عندما يصبح النص داخل الشكل أطول من عرض الشكل، يتم تمديد النص خارج حدود الشكل على سطر واحد. 
 {{% /alert %}}
 
-## **لف النص**
+## **الأسئلة الشائعة**
 
-إذا كنت تريد أن يتم لف النص داخل شكل ما عندما يتجاوز النص حدود الشكل (فقط العرض)، عليك استخدام معلمة **لف النص داخل الشكل**. لتحديد هذا الإعداد، يجب عليك تعيين خاصية [wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) (من فئة [TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)) إلى `1`.
+**هل تؤثر الهوامش الداخلية لإطار النص على AutoFit؟**
 
-يوضح لك هذا الكود في بايثون كيفية استخدام إعداد لف النص في عرض PowerPoint:
+نعم. الهوامش الداخلية (Padding) تقلل من المنطقة القابلة للاستخدام للنص، لذا سيبدأ AutoFit في العمل مبكرًا—إما بتقليص الخط أو تغيير حجم الشكل بشكل أسرع. تحقق من الهوامش واضبطها قبل تعديل AutoFit.
 
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
+**كيف يتفاعل AutoFit مع فواصل الأسطر اليدوية والمرنة؟**
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
+الفواصل القسرية تبقى في مكانها، ويتكيف AutoFit بحجم الخط والمسافات حولها. إزالة الفواصل غير الضرورية غالبًا ما يقلل من شدة تقليل النص بواسطة AutoFit.
 
-    portion = slides.Portion("lorem ipsum...")
-    portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    autoShape.text_frame.paragraphs[0].portions.add(portion)
+**هل يؤثر تغيير خط السمة أو تفعيل استبدال الخط على نتائج AutoFit؟**
 
-    textFrameFormat = autoShape.text_frame.text_frame_format
-    textFrameFormat.autofit_type = slides.TextAutofitType.NONE
-    textFrameFormat.wrap_text = 1
-
-    pres.save("Output-presentation.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="ملحوظة" color="warning" %}} 
-
-إذا قمت بتعيين خاصية `wrap_text` إلى `0` لشكل ما، فعندما يصبح النص داخل الشكل أطول من عرض الشكل، يتم تمديد النص خارج حدود الشكل على سطر واحد.
-
-{{% /alert %}}
+نعم. استبدال الخط بخط له مقاييس مختلفة يغير عرض/ارتفاع النص، مما قد يغيّر الحجم النهائي للخط وتغليف الأسطر. بعد أي تعديل أو استبدال للخط، أعد فحص الشرائح.

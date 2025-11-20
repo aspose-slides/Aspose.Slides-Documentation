@@ -1,83 +1,98 @@
 ---
-title: Управление таблицей
+title: Управление таблицами презентаций с Python
+linktitle: Управление таблицей
 type: docs
 weight: 10
 url: /ru/python-net/manage-table/
-keywords: "Таблица, создание таблицы, доступ к таблице, соотношение сторон таблицы, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Создайте и управляйте таблицами в презентациях PowerPoint на Python"
-
+keywords:
+- добавить таблицу
+- создать таблицу
+- доступ к таблице
+- соотношение сторон
+- выравнивание текста
+- форматирование текста
+- стиль таблицы
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Создавайте и редактируйте таблицы в слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для Python через .NET. Откройте простые примеры кода, упрощающие работу с таблицами."
 ---
 
-Таблица в PowerPoint — это эффективный способ отображения и представления информации. Информация в сетке ячеек (расположенных в строках и столбцах) проста и понятна.
+## **Обзор**
 
-Aspose.Slides предоставляет класс [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/), интерфейс [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/), класс [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/), интерфейс [ICell](https://reference.aspose.com/slides/python-net/aspose.slides/icell/) и другие типы, позволяющие создавать, обновлять и управлять таблицами во всех видах презентаций.
+Таблица в PowerPoint — эффективный способ представления информации. Информация, размещённая в сетке ячеек (строк и столбцов), проста и легко воспринимается.
 
-## **Создание таблицы с нуля**
+Aspose.Slides предоставляет класс [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) , класс [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) , а также другие связанные типы, которые помогают создавать, обновлять и управлять таблицами в любой презентации.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Получите ссылку на слайд через его индекс.
-3. Определите массив `columnWidth`.
-4. Определите массив `rowHeight`.
-5. Добавьте объект [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) на слайд с помощью метода `add_table(x, y, column_widths, row_heights)`.
-6. Пройдите по каждой [ICell](https://reference.aspose.com/slides/python-net/aspose.slides/icell/), чтобы применить форматирование к верхней, нижней, правой и левой границам.
-7. Объедините первые две ячейки первой строки таблицы.
-8. Получите доступ к [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) [ICell](https://reference.aspose.com/slides/python-net/aspose.slides/icell/).
-9. Добавьте текст в [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-10. Сохраните измененную презентацию.
+## **Создание таблиц с нуля**
 
-Этот код на Python показывает, как создать таблицу в презентации:
+В этом разделе показано, как создать таблицу с нуля в Aspose.Slides, добавив форму таблицы на слайд, определив её строки и столбцы и установив точные размеры. Вы также увидите, как заполнять ячейки текстом, настраивать выравнивание и границы, а также персонализировать внешний вид таблицы.
 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу.
+3. Определите массив ширин столбцов.
+4. Определите массив высот строк.
+5. Добавьте [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) на слайд.
+6. Итерируйтесь по каждому [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) и форматируйте его верхнюю, нижнюю, правую и левую границы.
+7. Объедините первые две ячейки в первой строке таблицы.
+8. Получите доступ к [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) ячейки [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) .
+9. Добавьте текст в [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) .
+10. Сохраните изменённую презентацию.
+
+Следующий пример на Python показывает, как создать таблицу в презентации:
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Создает экземпляр класса Presentation, представляющий файл PPTX
-with slides.Presentation() as pres:
-    # Получает доступ к первому слайду
-    sld = pres.slides[0]
+    # Создать экземпляр класса Presentation, представляющего файл презентации.
+    with slides.Presentation() as presentation:
+        # Получить первый слайд.
+        slide = presentation.slides[0]
 
-    # Определяет столбцы с ширинами и строки с высотами
-    dblCols =  [50, 50, 50] 
-    dblRows =  [50, 30, 30, 30, 30] 
+        # Определить ширины столбцов и высоты строк.
+        column_widths = [50, 50, 50]
+        row_heights = [50, 30, 30, 30, 30]
 
-    # Добавляет форму таблицы на слайд
-    tbl = sld.shapes.add_table(100, 50, dblCols, dblRows)
+        # Добавить форму таблицы на слайд.
+        table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Устанавливает формат границ для каждой ячейки
-    for row in range(len(tbl.rows)):
-        for cell in range(len(tbl.rows[row])):
-            tbl.rows[row][cell].cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-            tbl.rows[row][cell].cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-            tbl.rows[row][cell].cell_format.border_top.width = 5
+        # Установить формат границы для каждой ячейки.
+        for row in table.rows:
+            for cell in row:
+                cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
+                cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
+                cell.cell_format.border_top.width = 5
 
-            tbl.rows[row][cell].cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-            tbl.rows[row][cell].cell_format.border_bottom.fill_format.solid_fill_color.color= draw.Color.red
-            tbl.rows[row][cell].cell_format.border_bottom.width =5
+                cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
+                cell.cell_format.border_bottom.fill_format.solid_fill_color.color= draw.Color.red
+                cell.cell_format.border_bottom.width = 5
 
-            tbl.rows[row][cell].cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-            tbl.rows[row][cell].cell_format.border_left.fill_format.solid_fill_color.color =draw.Color.red
-            tbl.rows[row][cell].cell_format.border_left.width = 5
+                cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
+                cell.cell_format.border_left.fill_format.solid_fill_color.color =draw.Color.red
+                cell.cell_format.border_left.width = 5
 
-            tbl.rows[row][cell].cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-            tbl.rows[row][cell].cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-            tbl.rows[row][cell].cell_format.border_right.width = 5
+                cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
+                cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
+                cell.cell_format.border_right.width = 5
         
+        # Объединить ячейки от (строка 0, столбец 0) до (строка 1, столбец 1).
+        table.merge_cells(table.rows[0][0], table.rows[1][1], False)
 
-    # Объединяет ячейки 1 и 2 первой строки
-    tbl.merge_cells(tbl.rows[0][0], tbl.rows[1][1], False)
+        # Добавить текст в объединённую ячейку.
+        table.rows[0][0].text_frame.text = "Merged Cells"
 
-    # Добавляет текст в объединенную ячейку
-    tbl.rows[0][0].text_frame.text = "Объединенные ячейки"
-
-    # Сохраняет презентацию на диске
-    pres.save("table.pptx", slides.export.SaveFormat.PPTX)
+        # Сохранить презентацию на диск.
+        presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Нумерация в стандартной таблице**
 
-В стандартной таблице нумерация ячеек простая и начинается с нуля. Первая ячейка в таблице индексируется как 0,0 (столбец 0, строка 0).
+## **Нумерация в стандартных таблицах**
 
-Например, ячейки в таблице с 4 колонками и 4 строками нумеруются следующим образом:
+В стандартной таблице нумерация ячеек проста и начинается с нуля. Первая ячейка в таблице имеет индекс (0, 0) (столбец 0, строка 0).
+
+Например, в таблице с 4 столбцами и 4 строками ячейки нумеруются следующим образом:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -85,212 +100,188 @@ with slides.Presentation() as pres:
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Этот код на Python показывает, как указать нумерацию для ячеек в таблице:
-
+Следующий пример на Python показывает, как обращаться к ячейкам, используя эту нумерацию, начинающуюся с нуля:
 ```python
-import aspose.pydrawing as draw
-import aspose.slides as slides
-
-# Создает экземпляр класса Presentation, представляющий файл PPTX
-with slides.Presentation() as pres:
-    # Получает доступ к первому слайду
-    sld = pres.slides[0]
-
-    # Определяет столбцы с ширинами и строки с высотами
-    dblCols =  [70, 70, 70, 70] 
-    dblRows =  [70, 70, 70, 70] 
-
-    # Добавляет форму таблицы на слайд
-    tbl = sld.shapes.add_table(100, 50, dblCols, dblRows)
-
-    # Устанавливает формат границ для каждой ячейки
-    for row in tbl.rows:
-        for cell in row:
-            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_top.width = 5
-
-            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_bottom.width = 5
-
-            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_left.width = 5
-
-            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_right.width = 5
-
-    # Сохраняет презентацию на диск
-    pres.save("StandardTables_out.pptx", slides.export.SaveFormat.PPTX)
+for row_index in range(len(table.rows)):
+    for column_index in range(len(table.rows[row_index])):
+        cell = table.rows[row_index][column_index]
+        cell.text_frame.text = f"({column_index}, {row_index})"
 ```
+
 
 ## **Доступ к существующей таблице**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+В этом разделе объясняется, как найти и работать с существующей таблицей в презентации с помощью Aspose.Slides. Вы узнаете, как найти таблицу на слайде, получить доступ к её строкам, столбцам и ячейкам, а также обновить содержимое или форматирование.
 
-2. Получите ссылку на слайд, содержащий таблицу, через его индекс. 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. Получите ссылку на слайд, содержащий таблицу, по его индексу.
+3. Итерируйтесь по всем объектам [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) , пока не найдете таблицу.
+4. Используйте объект [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) , чтобы работать с таблицей.
+5. Сохраните изменённую презентацию.
 
-3. Создайте объект [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) и установите его в null.
+{{% alert color="info" %}}
+Если слайд содержит несколько таблиц, лучше искать нужную таблицу по её свойству `alternative_text`.
+{{% /alert %}}
 
-4. Пройдите по всем объектам [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/), пока не найдете таблицу.
-
-   Если вы подозреваете, что слайд, с которым вы работаете, содержит только одну таблицу, вы можете просто проверить все фигуры, которые он содержит. Когда фигура определяется как таблица, вы можете привести ее к объекту [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/). Но если слайд, с которым вы работаете, содержит несколько таблиц, вы лучше поискать нужную таблицу по ее `alternative_text`. 
-
-5. Используйте объект [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) для работы с таблицей. В примере ниже мы добавили новую строку в таблицу.
-
-6. Сохраните измененную презентацию.
-
-Этот код на Python показывает, как получить доступ и работать с существующей таблицей:
-
+Следующий пример на Python показывает, как получить доступ к существующей таблице и работать с ней:
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Создает экземпляр класса Presentation, представляющий файл PPTX
-with slides.Presentation(path + "UpdateExistingTable.pptx") as pres:
-    # Получает доступ к первому слайду
-    sld = pres.slides[0]
+# Создать экземпляр класса Presentation для загрузки файла PPTX.
+with slides.Presentation("sample.pptx") as presentation:
+    # Получить первый слайд.
+    slide = presentation.slides[0]
 
-    # Инициализирует null TableEx
-    tbl = None
+    table = None
 
-    # Проходит по фигурам и устанавливает ссылку на найденную таблицу
-    for shp in sld.shapes:
-        if type(shp) is slides.Table:
-            tbl = shp
+    # Перебрать фигуры и сослаться на первую найденную таблицу.
+    for shape in slide.shapes:
+        if isinstance(shape, slides.Table):
+            table = shape
+            break
 
-    # Устанавливает текст для первой колонки второй строки
-    tbl.rows[0][1].text_frame.text = "Новый"
+    # Установить текст первой ячейки первой строки.
+    if table is not None:
+        table.rows[0][0].text_frame.text = "Found"
 
-    # Сохраняет измененную презентацию на диск
-    pres.save("table1_out.pptx", slides.export.SaveFormat.PPTX)
+    # Сохранить изменённую презентацию на диск.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **Выравнивание текста в таблице**
+## **Выравнивание текста в таблицах**
+
+В этом разделе показано, как управлять выравниванием текста внутри ячеек таблицы с помощью Aspose.Slides. Вы узнаете, как установить горизонтальное и вертикальное выравнивание для ячеек, чтобы ваш контент оставался ясным и согласованным.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-2. Получите ссылку на слайд через его индекс. 
-3. Добавьте объект [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) на слайд. 
-4. Получите доступ к объекту [ITextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/) из таблицы. 
-5. Получите доступ к [IParagraph](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/) [ITextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/).
-6. Выравните текст по вертикали.
-7. Сохраните измененную презентацию.
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте объект [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) на слайд.
+4. Получите объект [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) из таблицы.
+5. Выравняйте текст вертикально.
+6. Сохраните изменённую презентацию.
 
-Этот код на Python показывает, как выровнять текст в таблице:
-
+Следующий пример на Python показывает, как выровнять текст в таблице:
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Создает экземпляр класса Presentation
+# Создать экземпляр класса Presentation.
 with slides.Presentation() as presentation:
-    # Получает первый слайд 
+    # Получить первый слайд.
     slide = presentation.slides[0]
 
-    # Определяет столбцы с ширинами и строки с высотами
-    dblCols =  [120, 120, 120, 120] 
-    dblRows =  [100, 100, 100, 100] 
+    # Определить ширины столбцов и высоты строк.
+    column_widths = [40, 120, 120, 120]
+    row_heights = [100, 100, 100, 100]
 
-    # Добавляет форму таблицы на слайд
-    tbl = slide.shapes.add_table(100, 50, dblCols, dblRows)
-    tbl.rows[1][0].text_frame.text = "10"
-    tbl.rows[2][0].text_frame.text = "20"
-    tbl.rows[3][0].text_frame.text = "30"
+    # Добавить форму таблицы на слайд.
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
+    table.rows[0][0].text_frame.text = "Numbers"
+    table.rows[1][0].text_frame.text = "10"
+    table.rows[2][0].text_frame.text = "20"
+    table.rows[3][0].text_frame.text = "30"
 
-    # Получает доступ к текстовому кадру
-    txtFrame = tbl.rows[0][0].text_frame
-
-    # Создает объект Paragraph для текстового кадра
-    paragraph = txtFrame.paragraphs[0]
-
-    # Создает объект Portion для абзаца
-    portion = paragraph.portions[0]
-    portion.text = "текст здесь"
-    portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
-
-    # Выравнивает текст по вертикали
-    cell = tbl.rows[0][0]
+    # Выравнять текст по центру и установить вертикальную ориентацию.
+    cell = table.rows[0][0]
     cell.text_anchor_type = slides.TextAnchorType.CENTER
     cell.text_vertical_type = slides.TextVerticalType.VERTICAL270
 
-    # Сохраняет презентацию на диск
-    presentation.save("Vertical_Align_Text_out.pptx", slides.export.SaveFormat.PPTX)
+    # Сохранить презентацию на диск.
+    presentation.save("aligned_cell.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Настройка форматирования текста на уровне таблицы**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Получите ссылку на слайд через его индекс. 
-3. Получите доступ к объекту [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) со слайда.
-4. Установите `font_height` для текста. 
-5. Установите `alignment` и `margin_right`. 
-6. Установите `text_vertical_type`.
-7. Сохраните измененную презентацию. 
+## **Установка форматирования текста на уровне таблицы**
 
-Этот код на Python показывает, как применить предпочтительные параметры форматирования к тексту в таблице:
+В этом разделе показано, как применить форматирование текста на уровне всей таблицы в Aspose.Slides, чтобы каждая ячейка наследовала единый стиль. Вы научитесь задавать размер шрифта, выравнивание и отступы глобально.
 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) на слайд.
+4. Задайте размер шрифта (высоту шрифта) для текста.
+5. Установите выравнивание абзаца и отступы.
+6. Задайте вертикальную ориентацию текста.
+7. Сохраните изменённую презентацию.
+
+Следующий пример на Python показывает, как применить желаемые параметры форматирования к тексту в таблице:
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
 # Создает экземпляр класса Presentation
 with slides.Presentation() as presentation:
-    someTable = presentation.slides[0].shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    slide = presentation.slides[0]
 
-    # Устанавливает высоту шрифта ячеек таблицы
-    portionFormat = slides.PortionFormat()
-    portionFormat.font_height = 25
-    someTable.set_text_format(portionFormat)
+    table = slide.shapes.add_table(20, 20, [100, 50, 30], [30, 50, 30])
 
-    # Устанавливает выравнивание текста ячеек таблицы и правый отступ одним вызовом
-    paragraphFormat = slides.ParagraphFormat()
-    paragraphFormat.alignment = slides.TextAlignment.RIGHT
-    paragraphFormat.margin_right = 20
-    someTable.set_text_format(paragraphFormat)
+    # Установить размер шрифта для всех ячеек таблицы.
+    portion_format = slides.PortionFormat()
+    portion_format.font_height = 25
+    table.set_text_format(portion_format)
 
-    # Устанавливает вертикальный тип текста для ячеек таблицы
-    textFrameFormat = slides.TextFrameFormat()
-    textFrameFormat.text_vertical_type = slides.TextVerticalType.VERTICAL
-    someTable.set_text_format(textFrameFormat)
+    # Установить выравнивание по правому краю и правый отступ для всех ячеек таблицы.
+    paragraph_format = slides.ParagraphFormat()
+    paragraph_format.alignment = slides.TextAlignment.RIGHT
+    paragraph_format.margin_right = 20
+    table.set_text_format(paragraph_format)
 
+    # Установить вертикальную ориентацию текста для всех ячеек таблицы.
+    text_frame_format = slides.TextFrameFormat()
+    text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
+    table.set_text_format(text_frame_format)
 
-    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Получение свойств стиля таблицы**
 
-Aspose.Slides позволяет вам извлекать стильовые свойства для таблицы, чтобы вы могли использовать эти данные для другой таблицы или где-то еще. Этот код на Python показывает, как получить стильовые свойства из предустановленного стиля таблицы:
+## **Применение встроенных стилей таблиц**
 
+Aspose.Slides позволяет форматировать таблицы с использованием предопределённых стилей непосредственно в коде. Пример демонстрирует создание таблицы, применение встроенного стиля и сохранение результата — эффективный способ обеспечить согласованное, профессиональное форматирование.
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    table = pres.slides[0].shapes.add_table(10, 10, [100, 150], [5, 5, 5])
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    table = slide.shapes.add_table(10, 10, [100, 150], [5, 5, 5])
+
     table.style_preset = slides.TableStylePreset.DARK_STYLE1
-    pres.save("table.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Блокировка соотношения сторон таблицы**
 
-Соотношение сторон геометрической фигуры — это соотношение ее размеров в разных измерениях. Aspose.Slides предоставляет свойство `aspect_ratio_locked`, чтобы вы могли заблокировать настройку соотношения сторон для таблиц и других фигур. 
+## **Блокировка соотношения сторон таблиц**
 
-Этот код на Python показывает, как заблокировать соотношение сторон для таблицы:
+Соотношение сторон фигуры — это отношение её размеров. Aspose.Slides предоставляет свойство `aspect_ratio_locked`, которое позволяет блокировать соотношение сторон для таблиц и других фигур.
 
-```c#
+Следующий пример на Python показывает, как заблокировать соотношение сторон для таблицы:
+```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    table = pres.slides[0].shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
-    print("Блокировка соотношения сторон установлена: {0}".format(table.shape_lock.aspect_ratio_locked))
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    table = slide.shapes.add_table(20, 20, [100, 50, 30], [30, 50, 30])
 
+    print(f"Lock aspect ratio set: {table.shape_lock.aspect_ratio_locked}")
     table.shape_lock.aspect_ratio_locked = not table.shape_lock.aspect_ratio_locked
+    print(f"Lock aspect ratio set: {table.shape_lock.aspect_ratio_locked}")
 
-    print("Блокировка соотношения сторон установлена: {0}".format(table.shape_lock.aspect_ratio_locked))
-
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Можно ли включить направление чтения справа налево (RTL) для всей таблицы и текста в её ячейках?**
+
+Да. Таблица имеет свойство [right_to_left](https://reference.aspose.com/slides/python-net/aspose.slides/table/right_to_left/) , а абзацы — [ParagraphFormat.right_to_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/right_to_left/) . Использование обеих опций обеспечивает правильный порядок RTL и корректный рендеринг внутри ячеек.
+
+**Как предотвратить перемещение или изменение размеров таблицы пользователями в конечном файле?**
+
+Используйте [shape locks](/slides/ru/python-net/applying-protection-to-presentation/) , чтобы отключить перемещение, изменение размеров, выделение и т.д. Эти блокировки применимы и к таблицам.
+
+**Поддерживается ли вставка изображения в ячейку в качестве фона?**
+
+Да. Вы можете задать [picture fill](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) для ячейки; изображение будет заполнять область ячейки в соответствии с выбранным режимом (растягивание или мозаика).

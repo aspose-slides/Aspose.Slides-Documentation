@@ -1,6 +1,6 @@
 ---
 title: Abrir una presentación en Python
-linktitle: Abrir presentación
+linktitle: Abrir presentaciones
 type: docs
 weight: 20
 url: /es/python-net/open-presentation/
@@ -15,105 +15,128 @@ keywords:
 - cargar PPT
 - cargar ODP
 - presentación protegida
-- presentación de gran tamaño
+- presentación grande
+- recurso externo
+- objeto binario
 - Python
 - Aspose.Slides
-description: "Abra presentaciones de PowerPoint (.pptx, .ppt) y OpenDocument (.odp) sin esfuerzo con Aspose.Slides for Python via .NET—rápido, fiable y con todas las funciones."
+description: "Abra presentaciones PowerPoint (.pptx, .ppt) y OpenDocument (.odp) sin esfuerzo con Aspose.Slides para Python a través de .NET—rápido, fiable, con todas las funciones."
 ---
 
-Además de crear presentaciones de PowerPoint desde cero, Aspose.Slides te permite abrir presentaciones existentes. Después de cargar una presentación, puedes obtener información sobre la presentación, editar la presentación (contenido en sus diapositivas), agregar nuevas diapositivas o eliminar las existentes, etc. 
+## **Visión general**
 
-## Abrir Presentación
+Más allá de crear presentaciones de PowerPoint desde cero, Aspose.Slides también le permite abrir presentaciones existentes. Después de cargar una presentación, puede obtener información sobre ella, editar el contenido de las diapositivas, agregar nuevas diapositivas, eliminar las existentes y más.
 
-Para abrir una presentación existente, simplemente tienes que instanciar la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) y pasar la ruta del archivo (de la presentación que deseas abrir) a su constructor. 
+## **Abrir presentaciones**
 
-Este código Python te muestra cómo abrir una presentación y también averiguar el número de diapositivas que contiene: 
+Para abrir una presentación existente, cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) y pase la ruta del archivo a su constructor.
 
+El siguiente ejemplo en Python muestra cómo abrir una presentación y obtener el recuento de diapositivas:
 ```python
 import aspose.slides as slides
 
-# Instanciar la clase Presentation y pasar la ruta del archivo a su constructor
-with slides.Presentation("pres.pptx") as pres:
-    # Imprime el número total de diapositivas presentes en la presentación
-    print(pres.slides.length)
+# Instancie la clase Presentation y pase una ruta de archivo a su constructor.
+with slides.Presentation("sample.pptx") as presentation:
+    # Imprima el número total de diapositivas en la presentación.
+    print(presentation.slides.length)
 ```
 
-## **Abrir Presentación Protegida por Contraseña**
 
-Cuando tienes que abrir una presentación protegida por contraseña, puedes pasar la contraseña a través de la propiedad `password` (de la clase [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/)) para desencriptar la presentación y cargar la presentación. Este código Python demuestra la operación:
+## **Abrir presentaciones protegidas con contraseña**
 
+Cuando necesite abrir una presentación protegida con contraseña, pase la contraseña a través de la propiedad [password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/) de la clase [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) para descifrarla y cargarla. El siguiente código en Python demuestra esta operación:
 ```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
-load_options.password = "CONTRASEÑA"
-with slides.Presentation("pres.pptx", load_options) as pres:
-    ...
+load_options.password = "YOUR_PASSWORD"
+
+with slides.Presentation("sample.pptx", load_options) as presentation:
+    # Realice operaciones en la presentación descifrada.
 ```
 
-## Abrir Presentación Grande
 
-Aspose.Slides proporciona opciones (la propiedad `blob_management_options` en particular) bajo la clase [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) para permitirte cargar presentaciones grandes. 
+## **Abrir presentaciones grandes**
 
-Este Python demuestra una operación en la que se carga una presentación grande (digamos de 2GB de tamaño):
+Aspose.Slides proporciona opciones—en particular la propiedad [blob_management_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/blob_management_options/) en la clase [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/)—para ayudarle a cargar presentaciones grandes.
 
+Este código en Python demuestra cómo cargar una presentación grande (por ejemplo, 2 GB):
 ```python
 import aspose.slides as slides
 import os
 
-loadOptions = slides.LoadOptions()
-loadOptions.blob_management_options = slides.BlobManagementOptions()
-loadOptions.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
+file_path = "LargePresentation.pptx"
 
-with slides.Presentation("pres.pptx", loadOptions) as pres:
-    # Se ha cargado la presentación grande y se puede usar, pero el consumo de memoria sigue siendo bajo.
+load_options = slides.LoadOptions()
+# Elija el comportamiento KeepLocked—el archivo de la presentación permanecerá bloqueado durante la vida útil de 
+# la instancia Presentation, pero no necesita cargarse en memoria ni copiarse a un archivo temporal.
+load_options.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
+load_options.blob_management_options.is_temporary_files_allowed = True
+load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024  # 10 MB
 
-    # Realiza cambios en la presentación.
-    pres.slides[0].name = "Presentación muy grande"
+with slides.Presentation(file_path, load_options) as presentation:
+    # La gran presentación se ha cargado y puede usarse, mientras el consumo de memoria sigue bajo.
 
-    # La presentación se guardará en otro archivo. El consumo de memoria se mantiene bajo durante la operación
-    pres.save("veryLargePresentation-copy.pptx", slides.export.SaveFormat.PPTX)
+    # Realice cambios en la presentación.
+    presentation.slides[0].name = "Large presentation"
 
-    # ¡No se puede hacer eso! Se lanzará una excepción de IO porque el archivo está bloqueado mientras los objetos pres
-    # no se eliminarán
-    os.remove("pres.pptx")
+    # Guarde la presentación en otro archivo. El consumo de memoria sigue bajo durante esta operación.
+    presentation.save("LargePresentation-copy.pptx", slides.export.SaveFormat.PPTX)
 
-# Está bien hacerlo aquí. El archivo fuente no está bloqueado por el objeto pres.
-os.remove("pres.pptx")
+    # ¡No haga esto! Se lanzará una excepción de E/S porque el archivo está bloqueado hasta que se libere el objeto Presentation.
+    os.remove(file_path)
+
+# Está bien hacerlo aquí. El archivo origen ya no está bloqueado por el objeto Presentation.
+os.remove(file_path)
 ```
 
-{{% alert color="info" title="Información" %}}
 
-Para sortear ciertas limitaciones al interactuar con flujos, Aspose.Slides puede copiar el contenido del flujo. Cargar una presentación grande a través de su flujo resultará en la copia del contenido de la presentación y causará una carga lenta. Por lo tanto, cuando pretendas cargar una presentación grande, te recomendamos encarecidamente que utilices la ruta del archivo de la presentación y no su flujo.
+{{% alert color="info" title="Info" %}}
+Para sortear ciertas limitaciones al trabajar con streams, Aspose.Slides puede copiar el contenido de un stream. Cargar una presentación grande desde un stream hace que la presentación se copie y puede ralentizar la carga. Por lo tanto, cuando necesite cargar una presentación grande, recomendamos encarecidamente usar la ruta del archivo de la presentación en lugar de un stream.
 
-Cuando desees crear una presentación que contenga objetos grandes (video, audio, imágenes grandes, etc.), puedes utilizar la [facilidad Blob](https://docs.aspose.com/slides/python-net/manage-blob/) para reducir el consumo de memoria.
+Al crear una presentación que contiene objetos grandes (video, audio, imágenes de alta resolución, etc.), puede usar [BLOB management](/slides/es/python-net/manage-blob/) para reducir el consumo de memoria.
+{{%/alert %}}
 
-{{%/alert %}} 
+## **Controlar recursos externos**
 
-
-## Cargar Presentación
-
-Aspose.Slides proporciona [IResourceLoadingCallback](https://reference.aspose.com/slides/python-net/aspose.slides/iresourceloadingcallback/) con un único método para permitirte gestionar recursos externos. Este código Python te muestra cómo usar la interfaz `IResourceLoadingCallback`:
-
+Aspose.Slides proporciona la interfaz [IResourceLoadingCallback](https://reference.aspose.com/slides/python-net/aspose.slides/iresourceloadingcallback/) que le permite gestionar recursos externos. El siguiente código en Python muestra cómo usar la interfaz `IResourceLoadingCallback`:
 ```python
-# [TODO[no_soportado_aún]: implementación de python de interfaces .net]
+# [TODO[not_supported_yet]: implementación de interfaces .NET en Python]
 ```
 
-<h2>Abrir y Guardar Presentación</h2>
 
-<a name="python-net-open-save-presentation"><strong>Pasos: Abrir y Guardar Presentación en Python</strong></a>
+## **Cargar presentaciones sin objetos binarios incrustados**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) y pasa el archivo que deseas abrir. 
-2. Guarda la presentación. 
+Una presentación de PowerPoint puede contener los siguientes tipos de objetos binarios incrustados:
 
-```python
+- proyecto VBA (accesible a través de [Presentation.vba_project](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/vba_project/));
+- datos incrustados de objeto OLE (accesible a través de [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/));
+- datos binarios de control ActiveX (accesible a través de [Control.active_x_control_binary](https://reference.aspose.com/slides/python-net/aspose.slides/control/active_x_control_binary/)).
+
+Usando la propiedad [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/), puede cargar una presentación sin ningún objeto binario incrustado.
+
+Esta propiedad es útil para eliminar contenido binario potencialmente malicioso. El siguiente código en Python demuestra cómo cargar una presentación sin contenido binario incrustado:
+```py
 import aspose.slides as slides
 
-# Instanciar un objeto Presentation que represente un archivo PPT
-with slides.Presentation() as presentation:
-    
-    #...hacer algún trabajo aquí...
+load_options = slides.LoadOptions()
+load_options.delete_embedded_binary_objects = True
 
-    # Guarda tu presentación en un archivo
-    presentation.save("Saved_out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("malware.ppt", load_options) as presentation:
+    # Realice operaciones en la presentación.
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Cómo puedo saber que un archivo está corrupto y no se puede abrir?**
+
+Obtendrá una excepción de validación de análisis/formato durante la carga. dichos errores a menudo mencionan una estructura ZIP no válida o registros de PowerPoint rotos.
+
+**¿Qué ocurre si faltan fuentes requeridas al abrir?**
+
+El archivo se abrirá, pero más adelante la [renderización/exportación](/slides/es/python-net/convert-presentation/) puede sustituir fuentes. [Configure sustituciones de fuentes](/slides/es/python-net/font-substitution/) o [agregue las fuentes requeridas](/slides/es/python-net/custom-font/) al entorno de ejecución.
+
+**¿Qué pasa con los medios incrustados (video/audio) al abrir?**
+
+Se convierten en recursos de la presentación. Si los medios se referencian a través de rutas externas, asegúrese de que esas rutas sean accesibles en su entorno; de lo contrario la [renderización/exportación](/slides/es/python-net/convert-presentation/) puede omitir los medios.

@@ -8,10 +8,10 @@ keywords:
 - puce
 - liste à puces
 - liste numérotée
-- puce symbolique
+- puce symbole
 - puce image
 - puce personnalisée
-- liste multiniveau
+- liste à plusieurs niveaux
 - créer une puce
 - ajouter une puce
 - ajouter une liste
@@ -20,215 +20,255 @@ keywords:
 - présentation
 - Python
 - Aspose.Slides
-description: "Apprenez à gérer les listes à puces et numérotées dans les présentations PowerPoint et OpenDocument en utilisant Aspose.Slides for Python via .NET. Guide étape par étape avec exemples de code pour vous aider à démarrer rapidement."
+description: "Apprenez comment gérer les listes à puces et numérotées dans les présentations PowerPoint et OpenDocument à l’aide d’Aspose.Slides pour Python via .NET. Guide étape par étape avec des exemples de code pour vous aider à démarrer rapidement."
 ---
 
-Dans **Microsoft PowerPoint**, vous pouvez créer des listes à puces et numérotées de la même manière que dans Word et d'autres éditeurs de texte. **Aspose.Slides pour Python via .NET** vous permet également d'utiliser des puces et des chiffres dans les diapositives de vos présentations.
+## **Aperçu**
 
-### Pourquoi utiliser des listes à puces ?
+Gérer efficacement les listes à puces et les listes numérotées est important lors de la création de présentations percutantes. Avec Aspose.Slides for Python, vous pouvez automatiser facilement le formatage des listes dans vos diapositives de manière programmatique. Cet article vous guide à travers des exemples clairs sur la façon de créer, modifier et personnaliser les listes à puces et numérotées à l’aide de Python. Découvrez des méthodes simples mais puissantes pour contrôler l’indentation, le style, les schémas de numérotation et les puces, permettant à vos présentations d’avoir un aspect professionnel et cohérent à chaque fois.
 
-Les listes à puces vous aident à organiser et à présenter les informations rapidement et efficacement.
+**Pourquoi utiliser les listes à puces ?**
 
-**Exemple de liste à puces**
+Les listes à puces vous aident à organiser et à présenter clairement l’information, améliorant la lisibilité et l’engagement. Typiquement, une liste à puces remplit trois fonctions clés :
 
-Dans la plupart des cas, une liste à puces remplit ces trois fonctions principales :
+- Met en évidence les informations importantes, captant immédiatement l’attention.
+- Permet aux lecteurs de parcourir rapidement et d’identifier les points principaux.
+- Communique efficacement les détails essentiels dans un format concis.
 
-- attire l'attention de vos lecteurs ou spectateurs sur des informations importantes
-- permet à vos lecteurs ou spectateurs de rechercher facilement les points clés
-- communique et délivre des détails importants de manière efficace.
+**Pourquoi utiliser les listes numérotées ?**
 
-### Pourquoi utiliser des listes numérotées ?
+Les listes numérotées sont un autre outil précieux pour organiser et présenter clairement votre contenu. Elles sont particulièrement utiles lorsque la séquence ou la hiérarchie des éléments compte. Utilisez des listes numérotées au lieu de puces lorsque les étapes ou les éléments doivent suivre un ordre spécifique (par exemple, *Étape 1, Étape 2, Étape 3*, etc.), ou lorsque vous devez faire référence à des étapes particulières plus tard dans votre texte (comme, *se référer à l’Étape 3*). Cela rend vos instructions ou explications plus claires, plus faciles à suivre, et permet aux lecteurs de naviguer et de référencer votre contenu facilement.
 
-Les listes numérotées aident également à organiser et à présenter des informations. Idéalement, vous devez utiliser des chiffres (à la place des puces) lorsque l'ordre des éléments (par exemple, *étape 1, étape 2*, etc.) est important ou lorsqu'un élément doit être référencé (par exemple, *voir étape 3*).
+## **Créer des puces de symbole**
 
-**Exemple de liste numérotée**
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Accéder à la diapositive (dans laquelle vous souhaitez ajouter la liste à puces) depuis la collection de diapositives en utilisant l’objet [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/).
+1. Ajouter une [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) à la diapositive sélectionnée.
+1. Accéder au [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) de la forme ajoutée.
+1. Supprimer le paragraphe par défaut dans le cadre de texte.
+1. Créer le premier paragraphe en utilisant la classe [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/).
+1. Définir le type de puce sur `SYMBOL` et définir le caractère de puce.
+1. Définir le texte du paragraphe.
+1. Définir l’indentation du paragraphe pour contrôler le placement de la puce.
+1. Définir la couleur de la puce.
+1. Définir la hauteur de la puce.
+1. Ajouter le paragraphe créé à la collection de paragraphes du cadre de texte.
+1. Ajouter un second paragraphe et répéter les étapes 7 à 12.
+1. Enregistrer la présentation.
 
-Voici un résumé des étapes (étape 1 à étape 15) de la procédure **Création de puces** ci-dessous :
-
-1. Créez une instance de la classe de présentation.
-2. Effectuez plusieurs tâches (étapes 3 à 14).
-3. Sauvegardez la présentation.
-
-## Création de puces
-
-Pour créer une liste à puces, suivez ces étapes :
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Accédez à la diapositive (dans laquelle vous souhaitez ajouter une liste à puces) dans la collection de diapositives via l'objet [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/).
-3. Ajoutez une [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) dans la diapositive sélectionnée.
-4. Accédez au [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) de la forme ajoutée.
-5. Supprimez le paragraphe par défaut dans le [text_frame]().
-6. Créez la première instance de paragraphe en utilisant la classe [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/).
-8. Réglez le type de puce sur Symbole, puis définissez le caractère de puce.
-9. Configurez le texte du paragraphe.
-10. Réglez l'indentation du paragraphe pour définir la puce.
-11. Définissez la couleur de la puce.
-12. Définissez la hauteur de la puce.
-13. Ajoutez le paragraphe créé dans la collection de paragraphes du [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-14. Ajoutez le deuxième paragraphe et répétez les étapes 7-12.
-15. Sauvegardez la présentation.
-
-Cet exemple de code en Python—une implémentation des étapes ci-dessus—vous montre comment créer une liste à puces dans une diapositive :
-
+Le code Python suivant montre comment créer une liste à puces dans une diapositive :
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
-    textFrame = autoShape.text_frame
-    textFrame.paragraphs.clear()
-    
+def create_paragraph(text):
     paragraph = slides.Paragraph()
     paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
     paragraph.paragraph_format.bullet.char = '*'
     paragraph.paragraph_format.indent = 15
-    paragraph.paragraph_format.bullet.is_bullet_hard_color = 1
-    paragraph.paragraph_format.bullet.color.color = draw.Color.red
+    paragraph.paragraph_format.bullet.is_bullet_hard_color = slides.NullableBool.TRUE
+    paragraph.paragraph_format.bullet.color.color = draw.Color.indian_red
     paragraph.paragraph_format.bullet.height = 100
-    paragraph.text = "Mon texte"
+    paragraph.text = text
+    return paragraph
 
-    textFrame.paragraphs.add(paragraph)
-    
-    
-    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 200, 50)
+
+    text_frame = auto_shape.text_frame
+    text_frame.paragraphs.clear()
+
+    paragraph1 = create_paragraph("The first paragraph")
+    text_frame.paragraphs.add(paragraph1)
+
+    paragraph2 = create_paragraph("The second paragraph")
+    text_frame.paragraphs.add(paragraph2)
+
+    presentation.save("symbol_bullets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
- 
 
-## Création de puces d'image
+Le résultat :
 
-Aspose.Slides pour Python via .NET vous permet de modifier les puces sur les listes à puces. Vous pouvez remplacer les puces par des symboles ou des images personnalisées. Si vous souhaitez ajouter un intérêt visuel à une liste ou attirer encore plus l’attention sur les éléments d'une liste, vous pouvez utiliser votre propre image comme puce.
+![Les puces de symbole](symbol_bullets.png)
 
- {{% alert color="primary" %}} 
+## **Créer des puces d’image**
 
-Idéalement, si vous avez l'intention de remplacer le symbole de puce régulier par une image, vous voudrez sélectionner une image graphique simple avec un arrière-plan transparent. De telles images fonctionnent mieux comme symboles personnalisés de puce.
+Aspose.Slides for Python via .NET vous permet de personnaliser les puces dans les listes à puces. Vous pouvez remplacer les puces standards par des symboles ou des images personnalisés. Si vous souhaitez ajouter un intérêt visuel à une liste ou attirer davantage l’attention sur des entrées spécifiques, vous pouvez utiliser votre propre image comme puce.
 
-Dans tous les cas, l'image que vous choisissez sera réduite à une très petite taille, donc nous vous recommandons vivement de choisir une image qui rend bien (comme remplacement du symbole de puce) dans une liste.
+{{% alert color="primary" %}}
+Idéalement, si vous prévoyez de remplacer le symbole de puce standard par une image, il est préférable de choisir un graphique simple avec un arrière‑plan transparent. De telles images fonctionnent bien comme symboles de puce personnalisés.
 
-{{% /alert %}} 
+Gardez à l’esprit que l’image sera réduite à une taille très petite. Pour cette raison, nous recommandons fortement de choisir une image qui reste claire et visuellement efficace lorsqu’elle est utilisée comme puce dans une liste.
+{{% /alert %}}
 
-Pour créer une puce d'image, suivez ces étapes :
+Pour créer une puce d’image, suivez ces étapes :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Accédez à la diapositive souhaitée dans la collection de diapositives en utilisant l'objet [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/).
-3. Ajoutez une [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) dans la diapositive sélectionnée.
-4. Accédez au [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) de la forme ajoutée.
-5. Supprimez le paragraphe par défaut dans le [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-6. Créez la première instance de paragraphe en utilisant la classe [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/).
-7. Chargez l'image depuis le disque et ajoutez-la à [Presentation.images](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) puis utilisez l'instance [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) qui a été renvoyée par la méthode [add_image](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/).
-8. Réglez le type de puce sur Image, puis définissez l'image.
-9. Configurez le texte du paragraphe.
-10. Réglez l'indentation du paragraphe pour définir la puce.
-11. Définissez la couleur de la puce.
-12. Définissez la hauteur des puces.
-13. Ajoutez le paragraphe créé dans la collection de paragraphes du [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-14. Ajoutez le deuxième paragraphe et répétez les étapes 7-13.
-15. Sauvegardez la présentation.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Accéder à la diapositive souhaitée depuis la collection de diapositives en utilisant l’objet [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/).
+1. Ajouter une [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) à la diapositive sélectionnée en utilisant la méthode `add_auto_shape`.
+1. Accéder au [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) de la forme ajoutée.
+1. Supprimer le paragraphe par défaut du cadre de texte.
+1. Charger une image depuis le disque, l’ajouter à [Presentation.images](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/images/) et obtenir l’instance [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) retournée par la méthode [add_image](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/#methods).
+1. Créer la première instance de [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/).
+1. Définir le type de puce sur `PICTURE`, puis affecter l’image.
+1. Définir le texte du paragraphe.
+1. Définir l’indentation du paragraphe pour positionner la puce.
+1. Définir la couleur de la puce.
+1. Définir la hauteur de la puce.
+1. Ajouter le paragraphe à la collection de paragraphes du cadre de texte.
+1. Ajouter un second paragraphe et répéter les étapes 8 à 13.
+1. Enregistrer la présentation.
 
-Ce code Python vous montre comment créer une puce d'image dans une diapositive :
+Supposons que nous ayons un "image.png" :
 
+![Une image pour les puces](picture_for_bullets.png)
+
+Le code Python suivant montre comment créer des puces d’image dans une diapositive :
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
-    textFrame = autoShape.text_frame
-    textFrame.paragraphs.clear()
-    
-    
+def create_paragraph(text, image):
     paragraph = slides.Paragraph()
     paragraph.paragraph_format.bullet.type = slides.BulletType.PICTURE
-    with open("img.jpeg", "rb") as in_file:
-        image = pres.images.add_image(in_file)
     paragraph.paragraph_format.bullet.picture.image = image
     paragraph.paragraph_format.indent = 15
     paragraph.paragraph_format.bullet.height = 100
-    paragraph.text = "Mon texte"
+    paragraph.text = text
+    return paragraph
 
-    textFrame.paragraphs.add(paragraph)
-    
-    pres.save("pres-bullets.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 200, 50)
+
+    text_frame = auto_shape.text_frame
+    text_frame.paragraphs.clear()
+
+    with open("image.png", "rb") as image_stream:
+        bullet_image = presentation.images.add_image(image_stream)
+
+    paragraph1 = create_paragraph("The first paragraph", bullet_image)
+    text_frame.paragraphs.add(paragraph1)
+
+    paragraph2 = create_paragraph("The second paragraph", bullet_image)
+    text_frame.paragraphs.add(paragraph2)
+
+    presentation.save("picture_bullets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
- 
 
-## Création de puces multilevel
+Le résultat :
 
-Pour créer une liste à puces contenant des éléments à différents niveaux—des listes supplémentaires sous la liste principale—suivez ces étapes :
+![Les puces d’image](picture_bullets.png)
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Accédez à la diapositive souhaitée dans la collection de diapositives en utilisant l'objet [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/).
-3. Ajoutez une [auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) dans la diapositive sélectionnée.
-4. Accédez au [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) de la forme ajoutée.
-5. Supprimez le paragraphe par défaut dans le [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-6. Créez la première instance de paragraphe en utilisant la classe [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) avec la profondeur fixée à 0.
-7. Créez la deuxième instance de paragraphe en utilisant la classe Paragraph et la profondeur fixée à 1.
-8. Créez la troisième instance de paragraphe en utilisant la classe Paragraph et la profondeur fixée à 2.
-9. Créez la quatrième instance de paragraphe en utilisant la classe Paragraph et la profondeur fixée à 3.
-10. Ajoutez les paragraphes créés dans la collection de paragraphes du [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-11. Sauvegardez la présentation.
+## **Créer des listes à plusieurs niveaux**
 
-Ce code, qui est une implémentation des étapes ci-dessus, vous montre comment créer une liste à puces multilevel en Python :
+Pour créer une liste à puces contenant des éléments à plusieurs niveaux (sous‑listes sous les puces principales), suivez ces étapes :
 
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Accéder à la diapositive souhaitée depuis la collection de diapositives en utilisant l’objet [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/).
+1. Ajouter une [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) à la diapositive sélectionnée en utilisant la méthode `add_auto_shape`.
+1. Accéder au [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) de la forme ajoutée.
+1. Supprimer le paragraphe par défaut du cadre de texte.
+1. Créer la première instance de [Paragraph] et définir sa profondeur à 0 (niveau principal).
+1. Créer le second paragraphe et définir sa profondeur à 1 (premier sous‑niveau).
+1. Créer le troisième paragraphe et définir sa profondeur à 2 (deuxième sous‑niveau).
+1. Créer le quatrième paragraphe et définir sa profondeur à 3 (troisième sous‑niveau).
+1. Ajouter tous les paragraphes créés à la collection de paragraphes du cadre de texte.
+1. Enregistrer la présentation.
+
+Le code Python suivant montre comment créer une liste à puces à plusieurs niveaux :
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 300, 300)
-    textFrame = autoShape.text_frame
-    textFrame.paragraphs.clear()
-    
-    paragraph = slides.Paragraph()
-    paragraph.paragraph_format.depth = 0
-    paragraph.text = "Mon texte Profondeur 0"
-    textFrame.paragraphs.add(paragraph)
-    
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 260, 110)
+
+    text_frame = auto_shape.text_frame
+    text_frame.paragraphs.clear()
+
+    paragraph1 = slides.Paragraph()
+    paragraph1.paragraph_format.depth = 0
+    paragraph1.text = "My text - Depth 0"
+    text_frame.paragraphs.add(paragraph1)
+
     paragraph2 = slides.Paragraph()
-    paragraph2.paragraph_format.depth = 0
-    paragraph2.text = "Mon texte Profondeur 1"
-    textFrame.paragraphs.add(paragraph2)
-    
+    paragraph2.paragraph_format.depth = 1
+    paragraph2.text = "My text - Depth 1"
+    text_frame.paragraphs.add(paragraph2)
+
     paragraph3 = slides.Paragraph()
     paragraph3.paragraph_format.depth = 2
-    paragraph3.text = "Mon texte Profondeur 2"
-    textFrame.paragraphs.add(paragraph3)
-    
+    paragraph3.text = "My text - Depth 2"
+    text_frame.paragraphs.add(paragraph3)
+
     paragraph4 = slides.Paragraph()
     paragraph4.paragraph_format.depth = 3
-    paragraph4.text = "Mon texte Profondeur 3"
-    textFrame.paragraphs.add(paragraph4)
-    
-    pres.save("pres-bullets2.pptx", slides.export.SaveFormat.PPTX)
+    paragraph4.text = "My text - Depth 3"
+    text_frame.paragraphs.add(paragraph4)
+
+    presentation.save("multilevel_bullets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
- 
 
-## Création de numéros
+Le résultat :
 
-Ce code Python vous montre comment créer une liste numérotée dans une diapositive :
+![La liste à plusieurs niveaux](multilevel_list.png)
 
+## **Créer des puces numérotées**
+
+Créer des listes numérotées claires et organisées est simple avec Aspose.Slides for Python. Les listes numérotées améliorent considérablement la lisibilité et aident à guider votre audience à travers des étapes ou des informations ordonnées de manière claire. Que vous prépariez des diapositives pédagogiques, documentiez des processus ou structuriez une présentation, les listes numérotées garantissent que votre message reste structuré et facile à suivre.
+
+Aspose.Slides vous permet d’ajouter, de personnaliser et de mettre en forme des listes numérotées de façon programmatique. Vous pouvez spécifier différents styles de numérotation — par exemple numérique (1, 2, 3), alphabétique (A, B, C) ou chiffres romains (I, II, III) — pour correspondre au contexte ou au style souhaité de vos présentations.
+
+Le code Python suivant montre comment créer une liste numérotée dans une diapositive :
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
-    textFrame = autoShape.text_frame
-    textFrame.paragraphs.clear()
-    
-    paragraph = slides.Paragraph()
-    paragraph.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    paragraph.text = "Mon texte 1"
-    textFrame.paragraphs.add(paragraph)
-    
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 90, 80)
+
+    text_frame = auto_shape.text_frame
+    text_frame.paragraphs.clear()
+
+    paragraph1 = slides.Paragraph()
+    paragraph1.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    paragraph1.text = "Apple"
+    text_frame.paragraphs.add(paragraph1)
+
     paragraph2 = slides.Paragraph()
     paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    paragraph2.text = "Mon texte 2"
-    textFrame.paragraphs.add(paragraph2)
-    
-    pres.save("pres-bullets3.pptx", slides.export.SaveFormat.PPTX)
+    paragraph2.text = "Orange"
+    text_frame.paragraphs.add(paragraph2)
+
+    paragraph3 = slides.Paragraph()
+    paragraph3.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    paragraph3.text = "Banana"
+    text_frame.paragraphs.add(paragraph3)
+
+    presentation.save("numbered_bullets.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+Le résultat :
+
+![Les puces numérotées](numbered_bullets.png)
+
+## **FAQ**
+
+**Les listes à puces et numérotées créées avec Aspose.Slides peuvent‑elles être exportées vers d’autres formats tels que PDF ou images ?**
+
+Oui, Aspose.Slides conserve pleinement le formatage et la structure des listes à puces et numérotées lors de l’exportation des présentations vers des formats tels que PDF, images, et autres, garantissant des résultats cohérents.
+
+**Est‑il possible d’importer des listes à puces ou numérotées à partir de présentations existantes ?**
+
+Oui, Aspose.Slides permet d’importer et de modifier des listes à puces ou numérotées provenant de présentations existantes tout en préservant leur formatage et apparence d’origine.
+
+**Aspose.Slides prend‑il en charge les listes à puces et numérotées dans des présentations créées en plusieurs langues ?**
+
+Oui, Aspose.Slides prend pleinement en charge les présentations multilingues, vous permettant de créer des listes à puces et numérotées dans n’importe quelle langue, y compris l’utilisation de caractères spéciaux ou non latins.

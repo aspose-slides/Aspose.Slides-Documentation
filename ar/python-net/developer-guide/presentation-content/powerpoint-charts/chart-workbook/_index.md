@@ -1,5 +1,6 @@
 ---
-title: دفتر عمل الرسم البياني
+title: "إدارة دفاتر عمل المخططات في العروض التقديمية باستخدام بايثون"
+linktitle: "دفتر عمل المخطط"
 type: docs
 weight: 70
 url: /ar/python-net/chart-workbook/
@@ -19,194 +20,221 @@ keywords:
 description: "اكتشف Aspose.Slides لـ Python عبر .NET: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint وOpenDocument لتبسيط بيانات العرض التقديمي الخاص بك."
 ---
 
-## **تعيين بيانات الرسم البياني من دفتر العمل**
+## **تعيين بيانات المخطط من دفتر عمل**
 
-يوفر Aspose.Slides بعض الطرق التي تتيح لك قراءة وكتابة دفاتر عمل بيانات الرسم البياني (التي تحتوي على بيانات الرسم البياني المعدلة باستخدام Aspose.Cells). **ملاحظة** أن بيانات الرسم البياني يجب أن تكون منظمة بنفس الطريقة أو يجب أن تحتوي على بنية مشابهة للمصدر.
+تقدم Aspose.Slides طرقًا لقراءة وكتابة دفاتر عمل بيانات المخطط (التي تحتوي على بيانات المخطط التي تم تحريرها باستخدام Aspose.Cells). **ملاحظة:** يجب تنظيم بيانات المخطط بنفس الطريقة أو أن تكون ذات بنية مشابهة للمصدر.
 
-يوضح هذا الكود بلغة بايثون عملية نموذجية:
-
+الكود التالي بلغة Python يوضح عملية نموذجية:
 ```py
-import aspose.slides.charts as charts
 import aspose.slides as slides
 
-# يقوم بإنشاء فئة عرض تقديمي تمثل ملف عرض تقديمي
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.BUBBLE, 50, 50, 600, 400, True)
+with slides.Presentation("chart.pptx") as presentation:
+    chart = presentation.slides[0].shapes[0]
 
-    series = chart.chart_data.series
+    data_stream = chart.chart_data.read_workbook_stream()
 
-    series[0].labels.default_data_label_format.show_label_value_from_cell = True
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
 
-    wb = chart.chart_data.chart_data_workbook
-
-    series[0].labels[0].value_from_cell = wb.get_cell(0, "A10", "قيمة خلية التصنيف 0")
-    series[0].labels[1].value_from_cell = wb.get_cell(0, "A11", "قيمة خلية التصنيف 1")
-    series[0].labels[2].value_from_cell = wb.get_cell(0, "A12", "قيمة خلية التصنيف 2")
-
-    pres.save("resultchart.pptx", slides.export.SaveFormat.PPTX)
+    data_stream.seek(0)
+    chart.chart_data.write_workbook_stream(data_stream)
 ```
 
-## **تعيين خلية دفتر العمل كعلامة بيانات الرسم البياني**
 
-1. إنشاء مثيل من فئة [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) .
-1. الحصول على مرجع الشريحة من خلال فهرسها.
-1. إضافة رسم بياني من نوع الفقاعة ببعض البيانات.
-1. الوصول إلى سلسلة الرسم البياني.
-1. تعيين خلية دفتر العمل كعلامة بيانات.
+## **تعيين خلية دفتر العمل كملصق بيانات المخطط**
+
+في بعض الأحيان تحتاج إلى ملصقات مخطط تُستمد مباشرةً من خلايا دفتر البيانات الأساسي. يتيح لك Aspose.Slides ربط ملصقات البيانات بخلايا دفتر عمل محددة بحيث يعكس نص الملصق دائمًا قيمة الخلية. يوضح المثال أدناه كيفية تمكين الملصقات المستمدة من القيم في الخلايا وتوجيه الملصقات المحددة إلى خلايا مخصصة في دفتر عمل المخطط.
+
+1. إنشاء مثيل لفئة [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/).
+1. الحصول على مرجع إلى الشريحة بواسطة الفهرس.
+1. إضافة مخطط فقاعي مع بيانات مثال.
+1. الوصول إلى سلسلة المخطط.
+1. استخدام خلية دفتر العمل كملصق بيانات.
 1. حفظ العرض التقديمي.
 
-يوضح هذا الكود بلغة بايثون كيفية تعيين خلية دفتر العمل كعلامة بيانات لرسم بياني: xxx
-
-```python
-
-```
-
-## **إدارة أوراق العمل**
-
-يوضح هذا الكود بلغة بايثون عملية حيث يتم استخدام خاصية `worksheets` للوصول إلى مجموعة أوراق العمل:
-
-```python
-import aspose.slides.charts as charts
+الكود التالي بلغة Python يوضح كيفية تعيين خلية دفتر عمل كملصق بيانات المخطط:
+```py
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-with slides.Presentation() as pres:
-   chart = pres.slides[0].shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 500)
-   wb =  chart.chart_data.chart_data_workbook
-   for i in range(len(wb.worksheets)):
-      print(wb.worksheets[i].name)
+# إنشاء كائن فئة Presentation الذي يمثل ملف عرض تقديمي.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.BUBBLE, 50, 50, 600, 400, True)
+
+    series = chart.chart_data.series[0]
+
+    series.labels.default_data_label_format.show_label_value_from_cell = True
+
+    workbook = chart.chart_data.chart_data_workbook
+
+    series.labels[0].value_from_cell = workbook.get_cell(0, "A10", "Label 0")
+    series.labels[1].value_from_cell = workbook.get_cell(0, "A11", "Label 1")
+    series.labels[2].value_from_cell = workbook.get_cell(0, "A12", "Label 2")
+
+    presentation.save("chart.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **إدارة ورقات العمل**
+
+الكود التالي بلغة Python يوضح كيفية استخدام الخاصية `worksheets` للوصول إلى مجموعة ورقات العمل:
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 500)
+
+    workbook = chart.chart_data.chart_data_workbook
+    for i in range(len(workbook.worksheets)):
+        print(workbook.worksheets[i].name)
+```
+
 
 ## **تحديد نوع مصدر البيانات**
 
-يوضح هذا الكود بلغة بايثون كيفية تحديد نوع لمصدر البيانات: 
-
+الكود التالي بلغة Python يوضح كيفية تحديد نوع مصدر البيانات:
 ```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.COLUMN_3D, 50, 50, 600, 400, True)
-    val = chart.chart_data.series[0].name
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    val.data_source_type = slides.charts.DataSourceType.STRING_LITERALS
-    val.data = "سلسلة حرفية"
+    chart = slide.shapes.add_chart(charts.ChartType.COLUMN_3D, 50, 50, 600, 400, True)
 
-    val = chart.chart_data.series[0].name
-    val.data = chart.chart_data.chart_data_workbook.get_cell(0, "B1", "خلية جديدة")
+    series_name = chart.chart_data.series[0].name
+    series_name.data_source_type = slides.charts.DataSourceType.STRING_LITERALS
+    series_name.data = "LiteralString"
 
-    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
+    series_name = chart.chart_data.series[1].name
+    series_name.data = chart.chart_data.chart_data_workbook.get_cell(0, "B1", "NewCell")
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **دفتر العمل الخارجي**
 
-{{% alert color="primary" %}} 
-في [Aspose.Slides لـ .NET 19.4](https://docs.aspose.com/slides/net/aspose-slides-for-net-19-4-release-notes/)، قمنا بتنفيذ دعم دفاتر العمل الخارجية كمصدر بيانات للرسم البياني.
-{{% /alert %}} 
+## **دفاتر عمل خارجية**
 
-### **إنشاء دفتر عمل خارجي**
+تدعم Aspose.Slides استخدام دفاتر عمل خارجية كمصدر بيانات للمخططات.
 
-باستخدام بعض الطرق من **`IChartData`**، يمكنك إما إنشاء دفتر عمل خارجي من الصفر أو جعل دفتر العمل الداخلي خارجي.
+### **تعيين دفاتر عمل خارجية**
 
-يوضح هذا الكود بلغة بايثون عملية إنشاء دفتر العمل الخارجي:
+باستخدام طريقة [ChartData.set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) يمكنك إسناد دفتر عمل خارجي إلى مخطط كمصدر بيانات له. يمكن لهذه الطريقة أيضًا تحديث المسار إلى دفتر العمل الخارجي إذا تم نقل الملف.
 
+على الرغم من أنك لا تستطيع تحرير البيانات في دفاتر العمل المخزنة في مواقع أو موارد عن بُعد، يمكنك لا يزال استخدام هذه الدفاتر كمصادر بيانات خارجية. إذا قمت بتوفير مسار نسبي لدفتر عمل خارجي، يتم تحويله تلقائيًا إلى مسار كامل.
+
+الكود التالي بلغة Python يوضح كيفية تعيين دفتر عمل خارجي:
 ```python
-import aspose.slides.charts as charts
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-with slides.Presentation() as pres:
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.PIE, 50, 50, 500, 400)
-    chart.chart_data.chart_data_workbook.clear(0)
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, False)
+    chart.chart_data.set_external_workbook("external_workbook.xlsx")
 
-    chart.chart_data.set_external_workbook(path + "externalWorkbook.xlsx")
-
-    chart.chart_data.set_range("Sheet1!$A$2:$B$5")
-    series = chart.chart_data.series[0]
-    series.parent_series_group.is_color_varied = True
-    pres.save("response2.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **تعيين دفتر عمل خارجي**
 
-باستخدام طريقة **`chartData.set_external_workbook`**، يمكنك تعيين دفتر عمل خارجي كرسم بياني كمصدر بيانات له. يمكن أيضًا استخدام هذه الطريقة لتحديث المسار إلى دفتر العمل الخارجي (إذا تم نقل الأخير).
+معامل `update_chart_data` في طريقة [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) يحدد ما إذا كان سيتم تحميل دفتر Excel.
 
-بينما لا يمكنك تعديل البيانات في دفاتر العمل المخزنة في مواقع أو موارد بعيدة، لا يزال بإمكانك استخدام مثل هذه الدفاتر كمصدر بيانات خارجي. إذا تم توفير المسار النسبي لدفتر العمل الخارجي، فسيتم تحويله تلقائيًا إلى مسار كامل.
+- عند ضبط `update_chart_data` على `False`، يتم تحديث مسار دفتر العمل فقط؛ لا يتم تحميل أو تحديث بيانات المخطط من دفتر العمل المستهدف. استخدم هذا الإعداد عندما لا يكون دفتر العمل المستهدف موجودًا أو غير متاح.
+- عند ضبط `update_chart_data` على `True`، يتم تحميل بيانات المخطط وتحديثها من دفتر العمل المستهدف.
 
-يوضح هذا الكود بلغة بايثون كيفية تعيين دفتر عمل خارجي:
+### **إنشاء دفاتر عمل خارجية**
 
+باستخدام طريقتي [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) و[set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) يمكنك إما إنشاء دفتر عمل خارجي من الصفر أو تحويل دفتر عمل داخلي إلى خارجي.
+
+الكود التالي بلغة Python يوضح عملية إنشاء دفتر عمل خارجي:
 ```python
-import aspose.slides.charts as charts
+import pathlib
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# المسار إلى دليل الوثائق.
-with slides.Presentation() as pres:
+workbook_path = "external_workbook.xlsx"
 
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, False)
-    chartData = chart.chart_data
-                    
-    chartData.set_external_workbook(path + "externalWorkbook.xlsx")
-                  
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    chartData.series.add(chartData.chart_data_workbook.get_cell(0, "B1"), charts.ChartType.PIE)
-    chartData.series[0].data_points.add_data_point_for_pie_series(chartData.chart_data_workbook.get_cell(0, "B2"))
-    chartData.series[0].data_points.add_data_point_for_pie_series(chartData.chart_data_workbook.get_cell(0, "B3"))
-    chartData.series[0].data_points.add_data_point_for_pie_series(chartData.chart_data_workbook.get_cell(0, "B4"))
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600)
 
-    chartData.categories.add(chartData.chart_data_workbook.get_cell(0, "A2"))
-    chartData.categories.add(chartData.chart_data_workbook.get_cell(0, "A3"))
-    chartData.categories.add(chartData.chart_data_workbook.get_cell(0, "A4"))
-    pres.save("Presentation_with_externalWorkbook.pptx", slides.export.SaveFormat.PPTX)
+    workbook_data = chart.chart_data.read_workbook_stream().read()
+
+    with open(workbook_path, "wb") as file_stream:
+        file_stream.write(workbook_data)
+
+    full_path = str(pathlib.Path(workbook_path).resolve())
+    chart.chart_data.set_external_workbook(full_path)
+
+    presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-المعلمة `chart_data` (تحت طريقة `set_external_workbook`) تُستخدم لتحديد ما إذا كان سيتم تحميل دفتر العمل excel أم لا. 
 
-* عندما يتم تعيين قيمة `chart_data` إلى `false`، يتم تحديث مسار دفتر العمل فقط—لن يتم تحميل بيانات الرسم البياني أو تحديثها من دفتر العمل المستهدف. قد ترغب في استخدام هذا الإعداد في حالة عدم وجود دفتر العمل المستهدف أو عدم توفره. 
-* عندما يتم تعيين قيمة `chart_data` إلى `true`، يتم تحديث بيانات الرسم البياني من دفتر العمل المستهدف.
+### **الحصول على مسار دفتر العمل لمصدر البيانات الخارجي لمخطط**
 
+في بعض الأحيان تكون بيانات المخطط مرتبطة بدفتر Excel خارجي بدلاً من البيانات المدمجة في العرض التقديمي. باستخدام Aspose.Slides يمكنك فحص مصدر بيانات المخطط، وإذا كان مصدرًا خارجيًا، قراءة المسار الكامل للدفتر.
+
+1. إنشاء مثيل لفئة [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/).
+1. الحصول على مرجع إلى الشريحة بواسطة الفهرس.
+1. الحصول على مرجع إلى شكل المخطط.
+1. الحصول على المصدر ([ChartDataSourceType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatasourcetype/)) الذي يمثل مصدر بيانات المخطط.
+1. التحقق مما إذا كان نوع المصدر يطابق نوع مصدر دفتر العمل الخارجي.
+
+الكود التالي بلغة Python يوضح العملية:
 ```python
-import aspose.slides.charts as charts
 import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, False)
-    chartData = chart.chart_data
-
-    chartData.set_external_workbook("http://path/doesnt/exists", False)
-
-    pres.save("SetExternalWorkbookWithUpdateChartData.pptx", slides.export.SaveFormat.PPTX)
-```
-
-### **الحصول على مسار مصدر بيانات الرسم البياني الخارجي**
-
-1. إنشاء مثيل من فئة [Presentation](https://docs.aspose.com/slides/python-net/api-reference/aspose.slides/presentation/) .
-1. الحصول على مرجع الشريحة من خلال فهرسها.
-1. إنشاء كائن لشكل الرسم البياني.
-1. إنشاء كائن لنوع المصدر (`ChartDataSourceType`) الذي يمثل مصدر بيانات الرسم البياني.
-1. تحديد الشرط المناسب بناءً على كون نوع المصدر هو نفسه نوع مصدر بيانات دفتر العمل الخارجي.
-
-يوضح هذا الكود بلغة بايثون العملية:
-
-```python
 import aspose.slides.charts as charts
-import aspose.slides as slides
 
-with slides.Presentation("response2.pptx") as pres:
-    chart = pres.slides[0].shapes[0]
-    sourceType = chart.chart_data.data_source_type
-    if sourceType == charts.ChartDataSourceType.EXTERNAL_WORKBOOK:
+with slides.Presentation("chart_with_external_workbook.pptx") as presentation:
+    chart = presentation.slides[0].shapes[0]
+    source_type = chart.chart_data.data_source_type
+    if source_type == charts.ChartDataSourceType.EXTERNAL_WORKBOOK:
         print(chart.chart_data.external_workbook_path)
 ```
 
-### **تعديل بيانات الرسم البياني**
 
-يمكنك تعديل البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تجري بها تغييرات على محتويات دفاتر العمل الداخلية. عند عدم إمكانية تحميل دفتر العمل الخارجي، يتم طرح استثناء.
+### **تحرير بيانات المخطط**
 
-هذا الكود بلغة بايثون هو تنفيذ للعملية الموصوفة:
-
+يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تحرر بها البيانات في دفاتر العمل الداخلية. إذا تعذر تحميل دفتر عمل خارجي، يتم إثارة استثناء.
 ```python
-import aspose.slides.charts as charts
 import aspose.slides as slides
 
-with slides.Presentation(path + "presentation.pptx") as pres:
-    pres.slides[0].shapes[0].chart_data.series[0].data_points[0].value.as_cell.value = 100
-    pres.save("presentation_out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("sample.pptx") as presentation:
+    chart = presentation.slides[0].shapes[0]
+    chart.chart_data.series[0].data_points[0].value.as_cell.value = 100
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني تحديد ما إذا كان مخطط معين مرتبطًا بدفتر عمل خارجي أو مدمج؟**
+
+نعم. يحتوي المخطط على [نوع مصدر البيانات](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) و[مسار دفتر العمل الخارجي](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/); إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
+
+**هل تدعم المسارات النسبية لدفاتر العمل الخارجية، وكيف تُخزن؟**
+
+نعم. إذا حددت مسارًا نسبيًا، يتم تحويله تلقائيًا إلى مسار مطلق. هذا مفيد لنقلية المشروع؛ ومع ذلك، يجب أن تكون على علم بأن العرض التقديمي سيخزن المسار المطلق في ملف PPTX.
+
+**هل يمكنني استخدام دفاتر عمل موجودة على موارد شبكية/مشاركة؟**
+
+نعم، يمكن استخدام هذه الدفاتر كمصدر بيانات خارجي. ومع ذلك، لا يدعم تعديل دفاتر العمل البعيدة مباشرةً من Aspose.Slides؛ يمكن استخدامها فقط كمصدر.
+
+**هل تقوم Aspose.Slides بالكتابة فوق ملف XLSX الخارجي عند حفظ العرض التقديمي؟**
+
+لا. يخزن العرض التقديمي [رابطًا إلى الملف الخارجي](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) ويستخدمه لقراءة البيانات. لا يتم تعديل الملف الخارجي عند حفظ العرض التقديمي.
+
+**ماذا أفعل إذا كان الملف الخارجي محميًا بكلمة مرور؟**
+
+لا تقبل Aspose.Slides كلمة مرور عند الربط. النهج الشائع هو إزالة الحماية مسبقًا أو إعداد نسخة غير مشفرة (على سبيل المثال باستخدام [Aspose.Cells](/cells/python-net/)) والربط بتلك النسخة.
+
+**هل يمكن لعدة مخططات الإشارة إلى نفس دفتر العمل الخارجي؟**
+
+نعم. كل مخطط يخزن ارتباطه الخاص. إذا أشارت جميعها إلى نفس الملف، ستنعكس أي تحديثات لهذا الملف في كل مخطط في المرة التالية التي يتم فيها تحميل البيانات.

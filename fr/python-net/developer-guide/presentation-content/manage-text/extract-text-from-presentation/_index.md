@@ -5,137 +5,142 @@ type: docs
 weight: 90
 url: /fr/python-net/extract-text-from-presentation/
 keywords:
-- extraire du texte
-- extraire le texte d'une diapositive
-- extraire le texte d'une présentation
-- extraire le texte de PowerPoint
-- extraire le texte d'OpenDocument
-- extraire le texte de PPT
-- extraire le texte de PPTX
-- extraire le texte d'ODP
+- extraction de texte
+- extraction de texte de diapositive
+- extraction de texte de présentation
+- extraction de texte de PowerPoint
+- extraction de texte d'OpenDocument
+- extraction de texte de PPT
+- extraction de texte de PPTX
+- extraction de texte de ODP
 - récupérer le texte
-- récupérer le texte d'une diapositive
-- récupérer le texte d'une présentation
+- récupérer le texte de diapositive
+- récupérer le texte de présentation
 - récupérer le texte de PowerPoint
 - récupérer le texte d'OpenDocument
 - récupérer le texte de PPT
 - récupérer le texte de PPTX
-- récupérer le texte d'ODP
+- récupérer le texte de ODP
 - PowerPoint
 - OpenDocument
 - présentation
 - Python
 - Aspose.Slides
-description: "Apprenez à extraire rapidement et facilement du texte des présentations PowerPoint avec Aspose.Slides for Python via .NET. Suivez notre guide simple, étape par étape, pour gagner du temps et accéder efficacement au contenu des diapositives dans vos applications."
+description: "Apprenez à extraire rapidement et facilement du texte des présentations PowerPoint en utilisant Aspose.Slides pour Python via .NET. Suivez notre guide simple, étape par étape, pour gagner du temps et accéder efficacement au contenu des diapositives dans vos applications."
 ---
 
-{{% alert color="primary" %}} 
+## **Vue d'ensemble**
 
-Il n'est pas rare que les développeurs aient besoin d'extraire le texte d'une présentation. Pour ce faire, vous devez extraire le texte de toutes les formes sur toutes les diapositives d'une présentation. Cet article explique comment extraire du texte à partir de présentations Microsoft PowerPoint PPTX en utilisant Aspose.Slides. Le texte peut être extrait de plusieurs manières :
+L'extraction de texte à partir de présentations est une tâche courante mais essentielle pour les développeurs qui travaillent avec le contenu des diapositives. Que vous manipuliez des fichiers Microsoft PowerPoint au format PPT ou PPTX, ou des présentations OpenDocument (ODP), accéder et récupérer les données textuelles peut être crucial pour l'analyse, l'automatisation, l'indexation ou la migration de contenu.
 
-- [Extraire le texte d'une diapositive](/slides/fr/python-net/extracting-text-from-the-presentation/)
-- [Extraire du texte en utilisant la méthode GetAllTextBoxes](/slides/fr/python-net/extracting-text-from-the-presentation/)
-- [Extraction de texte catégorisée et rapide](/slides/fr/python-net/extracting-text-from-the-presentation/)
+Cet article fournit un guide complet sur la façon d'extraire efficacement du texte à partir de différents formats de présentation, y compris PPT, PPTX et ODP, en utilisant Aspose.Slides for Python. Vous apprendrez à itérer systématiquement sur les éléments d'une présentation afin de récupérer avec précision le texte dont vous avez besoin.
 
-{{% /alert %}} 
-## **Extraire du texte d'une diapositive**
-Aspose.Slides pour Python via .NET fournit l'espace de noms Aspose.Slides.Util qui inclut la classe SlideUtil. Cette classe expose un certain nombre de méthodes statiques surchargées pour extraire l'intégralité du texte d'une présentation ou d'une diapositive. Pour extraire le texte d'une diapositive dans une présentation PPTX, 
-utilisez la méthode statique surchargée [GetAllTextBoxes](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/) exposée par la classe SlideUtil. Cette méthode accepte l'objet Slide comme paramètre.
-Lors de l'exécution, la méthode Slide scanne tout le texte de la diapositive passée comme paramètre et renvoie un tableau d'objets TextFrame. Cela signifie que tout formatage de texte associé au texte est disponible. Le code suivant extrait tout le texte de la première diapositive de la présentation :
+## **Extraire le texte d'une diapositive**
 
+Aspose.Slides for Python fournit l'espace de noms [aspose.slides.util](https://reference.aspose.com/slides/python-net/aspose.slides.util/) qui comprend la classe [SlideUtil](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/). Cette classe expose plusieurs méthodes statiques surchargées pour extraire tout le texte d'une présentation ou d'une diapositive. Pour extraire le texte d'une diapositive dans une présentation, utilisez la méthode [get_all_text_boxes](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/get_all_text_boxes/). Cette méthode accepte un objet de type [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) en paramètre. Lorsqu'elle est exécutée, la méthode parcourt l'intégralité de la diapositive à la recherche de texte et renvoie un tableau d'objets de type [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/), en conservant le formatage du texte.
+
+Le fragment de code suivant extrait tout le texte de la première diapositive de la présentation :
 ```py
 import aspose.slides as slides
 
-#Instancier la classe Presentation qui représente un fichier PPTX
-with slides.Presentation("pres.pptx") as pptxPresentation:
-    # Obtenez un tableau d'objets ITextFrame de toutes les diapositives dans le PPTX
-    textFramesPPTX = slides.util.SlideUtil.get_all_text_boxes(pptxPresentation.slides[0])
-    
-    # Boucle à travers le tableau de TextFrames
-    for i in range(len(textFramesPPTX)):
-	    # Boucle à travers les paragraphes dans l'ITextFrame actuel
-        for para in textFramesPPTX[i].paragraphs:
-            # Boucle à travers les portions dans l'IParagraph actuel
-            for port in para.portions:
-			    # Afficher le texte dans la portion actuelle
-                print(port.text)
-
-    			# Afficher la hauteur de police du texte
-                print(port.portion_format.font_height)
-
-			    # Afficher le nom de la police du texte
-                if port.portion_format.latin_font != None:
-                    print(port.portion_format.latin_font.font_name)
+# Instancier la classe Presentation qui représente un fichier PPTX.
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    # Obtenir un tableau d'objets TextFrame à partir de toutes les diapositives du fichier PPTX.
+    text_frames = slides.util.SlideUtil.get_all_text_boxes(slide)
+    # Parcourir le tableau des frames de texte.
+    for text_frame in text_frames:
+        # Parcourir les paragraphes du cadre de texte actuel.
+        for paragraph in text_frame.paragraphs:
+            # Parcourir les portions de texte du paragraphe actuel.
+            for portion in paragraph.portions:
+                # Afficher le texte de la portion actuelle.
+                print(portion.text)
+                # Afficher la hauteur de la police du texte.
+                print(portion.portion_format.font_height)
+                # Afficher le nom de la police du texte.
+                if portion.portion_format.latin_font is not None:
+                    print(portion.portion_format.latin_font.font_name)
 ```
 
 
+## **Extraire le texte d'une présentation**
 
+Pour balayer le texte de l'ensemble de la présentation, utilisez la méthode statique [get_all_text_frames](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/get_all_text_frames/) exposée par la classe [SlideUtil](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/). Elle accepte deux paramètres :
 
-## **Extraire du texte d'une présentation**
-Pour scanner le texte de l'ensemble de la présentation, utilisez la méthode statique [GetAllTextFrames](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/) exposée par la classe SlideUtil. Elle prend deux paramètres :
+1. Un objet [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) représentant une présentation PowerPoint ou OpenDocument dont le texte sera extrait.
+2. Une valeur `Boolean` indiquant si les diapositives maîtres doivent être incluses lors du balayage du texte de la présentation.
 
-1. Tout d'abord, un objet Presentation qui représente la présentation PPTX dont le texte est extrait.
-1. Deuxièmement, une valeur booléenne déterminant si la diapositive maître doit être incluse lors du scan du texte à partir de la présentation.
-   La méthode renvoie un tableau d'objets TextFrame, complet avec des informations sur le formatage du texte. Le code ci-dessous scanne le texte et les informations de formatage d'une présentation, y compris les diapositives maîtresses.
-
+La méthode renvoie un tableau d'objets de type [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/), incluant les informations de formatage du texte. Le code ci‑dessous parcourt le texte et les détails de formatage d'une présentation, y compris les diapositives maîtres.
 ```py
 import aspose.slides as slides
 
-#Instancier la classe Presentation qui représente un fichier PPTX
-with slides.Presentation("pres.pptx") as pptxPresentation:
-    # Obtenez un tableau d'objets ITextFrame de toutes les diapositives dans le PPTX
-    textFramesPPTX = slides.util.SlideUtil.get_all_text_frames(pptxPresentation, True)
-    
-    # Boucle à travers le tableau de TextFrames
-    for i in range(len(textFramesPPTX)):
-	    # Boucle à travers les paragraphes dans l'ITextFrame actuel
-        for para in textFramesPPTX[i].paragraphs:
-            # Boucle à travers les portions dans l'IParagraph actuel
-            for port in para.portions:
-			    # Afficher le texte dans la portion actuelle
-                print(port.text)
-
-    			# Afficher la hauteur de police du texte
-                print(port.portion_format.font_height)
-
-			    # Afficher le nom de la police du texte
-                if port.portion_format.latin_font != None:
-                    print(port.portion_format.latin_font.font_name)
+# Instancier la classe Presentation qui représente un fichier PPTX.
+with slides.Presentation("pres.pptx") as presentation:
+    # Obtenir un tableau d'objets TextFrame à partir de toutes les diapositives du fichier PPTX.
+    text_frames = slides.util.SlideUtil.get_all_text_frames(presentation, True)
+    # Parcourir le tableau des cadres de texte.
+    for text_frame in text_frames:
+        # Parcourir les paragraphes du cadre de texte actuel.
+        for paragraph in text_frame.paragraphs:
+            # Parcourir les portions de texte du paragraphe actuel.
+            for portion in paragraph.portions:
+                # Afficher le texte de la portion actuelle.
+                print(portion.text)
+                # Afficher la hauteur de police du texte.
+                print(portion.portion_format.font_height)
+                # Afficher le nom de la police du texte.
+                if portion.portion_format.latin_font is not None:
+                    print(portion.portion_format.latin_font.font_name)
 ```
-
-
 
 
 ## **Extraction de texte catégorisée et rapide**
-La nouvelle méthode statique GetPresentationText a été ajoutée à la classe Presentation. Il existe deux surcharges pour cette méthode :
 
+La classe [PresentationFactory](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentationfactory/) propose également des méthodes statiques pour extraire tout le texte des présentations :
 ```py
-slides.Presentation.get_presentation_text(stream)
-slides.Presentation.get_presentation_text(stream, mode)      
+PresentationFactory.get_presentation_text(stream, mode)
+PresentationFactory.get_presentation_text(file, mode)
+PresentationFactory.get_presentation_text(stream, mode, options)
 ```
 
-L'argument ExtractionMode enum indique le mode pour organiser la sortie du résultat textuel et peut être défini sur les valeurs suivantes :
-Non arrangé - Le texte brut sans tenir compte de la position sur la diapositive
-Arrangé - Le texte est positionné dans le même ordre que sur la diapositive
 
-Le mode non arrangé peut être utilisé lorsque la vitesse est critique, il est plus rapide que le mode arrangé.
+L'argument d'énumération [TextExtractionArrangingMode](https://reference.aspose.com/slides/python-net/aspose.slides/textextractionarrangingmode/) indique le mode d'organisation du résultat d'extraction du texte et peut être défini sur les valeurs suivantes :
+- `UNARRANGED` – Le texte brut sans tenir compte de sa position sur la diapositive.
+- `ARRANGED` – Le texte est organisé dans le même ordre que sur la diapositive.
 
-PresentationText représente le texte brut extrait de la présentation. Il contient une propriété `slides_text` de l'espace de noms Aspose.Slides.Util qui renvoie un tableau d'objets SlideText. Chaque objet représente le texte sur la diapositive correspondante. L'objet SlideText a les propriétés suivantes :
+Le mode `UNARRANGED` peut être utilisé lorsque la vitesse est cruciale ; il est plus rapide que le mode `ARRANGED`.
 
-SlideText.text - Le texte sur les formes de la diapositive
-SlideText.master_text - Le texte sur les formes de la page maître pour cette diapositive
-SlideText.layout_text - Le texte sur les formes de la page de mise en page pour cette diapositive
-SlideText.notes_text - Le texte sur les formes de la page de notes pour cette diapositive
+[PresentationText](https://reference.aspose.com/slides/python-net/aspose.slides/presentationtext/) représente le texte brut extrait de la présentation. Il contient la propriété `slides_text`, qui renvoie un tableau d'objets de type [ISlideText](https://reference.aspose.com/slides/python-net/aspose.slides/islidetext/). Chaque objet représente le texte de la diapositive correspondante. L'objet de type [ISlideText](https://reference.aspose.com/slides/python-net/aspose.slides/islidetext/) possède les propriétés suivantes :
 
-
-La nouvelle API peut être utilisée de cette manière :
-
+- `text` – Le texte présent dans les formes de la diapositive.
+- `master_text` – Le texte présent dans les formes de la diapositive maîtresse associée à cette diapositive.
+- `layout_text` – Le texte présent dans les formes de la diapositive modèle associée à cette diapositive.
+- `notes_text` – Le texte présent dans les formes de la diapositive de notes associée à cette diapositive.
+- `comments_text` – Le texte présent dans les commentaires associés à cette diapositive.
 ```py
 import aspose.slides as slides
 
-text1 = slides.PresentationFactory().get_presentation_text("pres.pptx", slides.TextExtractionArrangingMode.UNARRANGED)
-print(text1.slides_text[0].text)
-print(text1.slides_text[0].layout_text)
-print(text1.slides_text[0].master_text)
-print(text1.slides_text[0].notes_text)
+arranging_mode = slides.TextExtractionArrangingMode.UNARRANGED
+presentation_text = slides.PresentationFactory().get_presentation_text("sample.pptx", arranging_mode)
+slide_text = presentation_text.slides_text[0]
+print(slide_text.text)
+print(slide_text.layout_text)
+print(slide_text.master_text)
+print(slide_text.notes_text)
 ```
+
+
+## **FAQ**
+
+**Quelle rapidité Aspose.Slides offre‑t‑il pour le traitement de présentations volumineuses lors de l'extraction de texte ?**
+
+Aspose.Slides est optimisé pour des performances élevées et traite efficacement même les [grandes présentations](/slides/fr/python-net/open-presentation/), ce qui le rend adapté aux scénarios de traitement en temps réel ou en masse.
+
+**Aspose.Slides peut‑il extraire le texte des tableaux et des graphiques au sein des présentations ?**
+
+Oui, Aspose.Slides prend pleinement en charge l'extraction de texte à partir de tableaux, de graphiques et d'autres éléments de diapositive complexes, vous permettant d'accéder et d'analyser facilement tout le contenu textuel.
+
+**Ai‑je besoin d'une licence spéciale Aspose.Slides pour extraire le texte des présentations ?**
+
+Vous pouvez extraire le texte en utilisant la version d'essai gratuite d'Aspose.Slides, bien qu'elle comporte [certaines limitations](/slides/fr/python-net/licensing/), comme le traitement d'un nombre limité de diapositives. Pour une utilisation illimitée et afin de gérer des présentations plus volumineuses, l'achat d'une licence complète est recommandé.

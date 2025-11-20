@@ -1,87 +1,125 @@
 ---
-title: Python で PowerPoint プレゼンテーションを Word ドキュメントに変換する
-linktitle: PowerPoint から Word へ
+title: PythonでPowerPointプレゼンテーションをWord文書に変換
+linktitle: PowerPointからWordへ
 type: docs
 weight: 110
 url: /ja/python-net/convert-powerpoint-to-word/
 keywords:
-- PowerPoint から DOCX へ
-- OpenDocument から DOCX へ
-- プレゼンテーションを DOCX へ
-- スライドを DOCX へ
-- PPT を DOCX へ
-- PPTX を DOCX へ
-- ODP を DOCX へ
-- PowerPoint から DOC へ
-- OpenDocument から DOC へ
-- プレゼンテーションを DOC へ
-- スライドを DOC へ
-- PPT を DOC へ
-- PPTX を DOC へ
-- ODP を DOC へ
-- PowerPoint から Word へ
-- OpenDocument から Word へ
-- プレゼンテーションを Word へ
-- スライドを Word へ
-- PPT を Word へ
-- PPTX を Word へ
-- ODP を Word へ
+- PowerPointからDOCXへ
+- OpenDocumentからDOCXへ
+- プレゼンテーションからDOCXへ
+- スライドからDOCXへ
+- PPTからDOCXへ
+- PPTXからDOCXへ
+- ODPからDOCXへ
+- PowerPointからDOCへ
+- OpenDocumentからDOCへ
+- プレゼンテーションからDOCへ
+- スライドからDOCへ
+- PPTからDOCへ
+- PPTXからDOCへ
+- ODPからDOCへ
+- PowerPointからWordへ
+- OpenDocumentからWordへ
+- プレゼンテーションからWordへ
+- スライドからWordへ
+- PPTからWordへ
+- PPTXからWordへ
+- ODPからWordへ
+- PowerPointを変換
+- OpenDocumentを変換
+- プレゼンテーションを変換
+- スライドを変換
+- PPTを変換
+- PPTXを変換
+- ODPを変換
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションを Word ドキュメントに手間なく変換する方法を学びましょう。ドキュメントワークフローを効率化したい開発者向けに、サンプル Python コード付きのステップバイステップガイドを提供します。"
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションを Word 文書に簡単に変換する方法を学びます。サンプル Python コード付きのステップバイステップガイドは、ドキュメントワークフローを効率化したい開発者向けのソリューションを提供します。"
 ---
 
-プレゼンテーション（PPTまたはPPTX）のテキストコンテンツや情報を新たな方法で使用する予定がある場合、プレゼンテーションをWord（DOCまたはDOCX）に変換することで利益を得ることができます。
+## **概要**
 
-* Microsoft PowerPointと比較して、Microsoft Wordアプリはコンテンツ用のツールや機能が充実しています。
-* Wordの編集機能に加え、コラボレーション、印刷、共有機能の強化もお楽しみいただけます。
+本記事では、開発者向けに Aspose.Slides for Python via .NET と Aspose.Words for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションを Word 文書に変換するソリューションを提供します。ステップバイステップのガイドで、変換プロセスのすべての段階を案内します。
 
-{{% alert color="primary" %}} 
+## **プレゼンテーションを Word 文書に変換する**
 
-スライドからのテキストコンテンツを扱うことで得られる利点を確認するために、ぜひ[**プレゼンテーションからWordへのオンライン変換ツール**](https://products.aspose.app/slides/conversion/ppt-to-word)をお試しください。
+以下の手順に従って、PowerPoint または OpenDocument プレゼンテーションを Word 文書に変換します。
 
-{{% /alert %}} 
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーション ファイルを読み込みます。
+2. [Document](https://reference.aspose.com/words/python-net/aspose.words/document/) と [DocumentBuilder](https://reference.aspose.com/words/python-net/aspose.words/documentbuilder/) クラスのインスタンスを作成して、Word 文書を生成します。
+3. [DocumentBuilder.page_setup](https://reference.aspose.com/words/python-net/aspose.words/documentbuilder/page_setup/) プロパティを使用して、Word 文書のページサイズをプレゼンテーションのサイズに合わせます。
+4. [DocumentBuilder.page_setup](https://reference.aspose.com/words/python-net/aspose.words/documentbuilder/page_setup/) プロパティを使用して、Word 文書の余白を設定します。
+5. [Presentation.slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) プロパティを使用して、すべてのプレゼンテーション スライドを処理します。
+   - [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) クラスの `get_image` メソッドを使用してスライド画像を生成し、メモリ ストリームに保存します。
+   - [DocumentBuilder](https://reference.aspose.com/words/python-net/aspose.words/documentbuilder/) クラスの `insert_image` メソッドを使用して、スライド画像を Word 文書に追加します。
+6. Word 文書をファイルに保存します。
 
-## **Aspose.SlidesとAspose.Words**
+たとえば、次のようなプレゼンテーション "sample.pptx" があるとします。
 
-PowerPointファイル（PPTXまたはPPT）をWord（DOCXまたはDOCX）に変換するには、[Aspose.Slides for Python via .NET](https://products.aspose.com/slides/python-net/)と[Aspose.Words for Python via .NET](https://products.aspose.com/words/python-net/)の両方が必要です。
+![PowerPoint プレゼンテーション](PowerPoint.png)
 
-スタンドアロンAPIとして、[Aspose.Slides](https://products.aspose.com/slides/python-net/) for Python via .NETは、プレゼンテーションからテキストを抽出するための機能を提供します。
-
-[Aspose.Words](https://products.aspose.com/words/python-net/)は、アプリケーションがMicrosoft Wordを利用せずに文書を生成、修正、変換、レンダリング、印刷し、その他のタスクを実行できる高度な文書処理APIです。
-
-## **PythonでPowerPointをWordに変換する**
-
-1. program.pyファイルにこれらの名前空間を追加します：
-
+以下の Python コード例は、PowerPoint プレゼンテーションを Word 文書に変換する方法を示しています。
 ```py
 import aspose.slides as slides
 import aspose.words as words
-```
 
-2. このコードスニペットを使用してPowerPointをWordに変換します：
-
-```py
+# プレゼンテーション ファイルを読み込みます。
 with slides.Presentation("sample.pptx") as presentation:
-    doc = words.Document()
-    builder = words.DocumentBuilder(doc)
 
-    for index in range(presentation.slides.length):
-        slide = presentation.slides[index]
+    # Document と DocumentBuilder オブジェクトを作成します。
+    document = words.Document()
+    builder = words.DocumentBuilder(document)
 
-        file_name = "slide_{i}.png".format(i=index)
+    # Word 文書のページサイズを設定します。
+    slide_size = presentation.slide_size.size
+    builder.page_setup.page_width = slide_size.width
+    builder.page_setup.page_height = slide_size.height
 
-        # スライド画像を生成
-        with slide.get_image(1, 1) as image:
-            image.save(file_name, slides.ImageFormat.PNG)
+    # Word 文書の余白を設定します。
+    builder.page_setup.left_margin = 0
+    builder.page_setup.right_margin = 0
+    builder.page_setup.top_margin = 0
+    builder.page_setup.bottom_margin = 0
 
-        builder.insert_image(file_name)
+    scale_x = 2
+    scale_y = 2
 
-        for shape in slide.shapes:
-            # スライドのテキストを挿入
-            if type(shape) is slides.AutoShape:
-                builder.writeln(shape.text_frame.text)
+    # すべてのプレゼンテーション スライドを処理します。
+    for slide in presentation.slides:
+
+        # スライド画像を生成し、メモリ ストリームに保存します。
+        with slide.get_image(scale_x, scale_y) as image:
+            image_stream = BytesIO()
+            image.save(image_stream, slides.ImageFormat.PNG)
+
+        # スライド画像を Word 文書に追加します。
+        image_stream.seek(0)
+        image_width = builder.page_setup.page_width
+        image_height = builder.page_setup.page_height
+        builder.insert_image(image_stream.read(), image_width, image_height)
 
         builder.insert_break(words.BreakType.PAGE_BREAK)
-    doc.save("output.docx")
+
+    # Word 文書をファイルに保存します。
+    document.save("output.docx")
 ```
+
+
+結果：
+
+![Word 文書](Word.png)
+
+{{% alert color="primary" %}} 
+PowerPoint および OpenDocument プレゼンテーションを Word 文書に変換することで得られるメリットをご確認いただくには、当社の [**オンライン PPT から Word へのコンバータ**](https://products.aspose.app/slides/conversion/ppt-to-word) をお試しください。 
+{{% /alert %}}
+
+## **よくある質問**
+
+**PowerPoint および OpenDocument プレゼンテーションを Word 文書に変換するために必要なコンポーネントは何ですか？**
+
+Python プロジェクトに [Aspose.Slides for Python via .NET](https://pypi.org/project/Aspose.Slides/) と [Aspose.Words for Python .NET](https://pypi.org/project/aspose-words/) の各パッケージを追加するだけで済みます。両パッケージはスタンドアロン API として動作し、Microsoft Office をインストールする必要はありません。
+
+**すべての PowerPoint および OpenDocument プレゼンテーション形式がサポートされていますか？**
+
+Aspose.Slides for Python .NET は、PPT、PPTX、ODP などの一般的なファイル形式を含む、すべてのプレゼンテーション形式を[サポートしています](/slides/ja/python-net/supported-file-formats/)。これにより、さまざまなバージョンの Microsoft PowerPointで作成されたプレゼンテーションを扱うことができます。

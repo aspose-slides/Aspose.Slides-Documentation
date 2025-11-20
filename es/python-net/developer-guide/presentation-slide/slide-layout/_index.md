@@ -1,246 +1,243 @@
 ---
-title: Aplicar o cambiar un diseño de diapositiva en Python
+title: Aplicar o cambiar diseños de diapositiva en Python
 linktitle: Diseño de diapositiva
 type: docs
 weight: 60
 url: /es/python-net/slide-layout/
 keywords:
-  - diseño de diapositiva
-  - diseño de contenido
-  - marcador de posición
-  - diseño de presentación
-  - diseño de diapositiva
-  - diseño no utilizado
-  - visibilidad de pie de página
-  - diapositiva de título
-  - título y contenido
-  - encabezado de sección
-  - dos contenidos
-  - comparación
-  - solo título
-  - diseño en blanco
-  - contenido con leyenda
-  - imagen con leyenda
-  - título y texto vertical
-  - título vertical y texto
-  - Python
-  - Aspose.Slides
-description: "Aprenda cómo gestionar y personalizar diseños de diapositivas en Aspose.Slides para Python a través de .NET. Explore los tipos de diseño, el control de marcadores de posición, la visibilidad del pie de página y la manipulación de diseños mediante ejemplos de código en Python."
+- diseño de diapositiva
+- diseño de contenido
+- marcador de posición
+- diseño de presentación
+- diseño de diapositiva
+- diseño no utilizado
+- visibilidad del pie de página
+- diapositiva de título
+- título y contenido
+- encabezado de sección
+- dos contenidos
+- comparación
+- solo título
+- diseño en blanco
+- contenido con leyenda
+- imagen con leyenda
+- título y texto vertical
+- título vertical y texto
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "Aprenda cómo gestionar y personalizar los diseños de diapositiva en Aspose.Slides para Python a través de .NET. Explore los tipos de diseños, el control de marcadores de posición, la visibilidad del pie de página y la manipulación de diseños mediante ejemplos de código en Python."
 ---
 
-Un diseño de diapositiva contiene los cuadros de marcador de posición y la información de formato para todo el contenido que aparece en una diapositiva. El diseño determina los marcadores de posición de contenido disponibles y dónde se colocan.
+## **Resumen**
 
-Los diseños de diapositivas te permiten crear y diseñar presentaciones rápidamente (ya sean simples o complejas). Estos son algunos de los diseños de diapositivas más populares que se utilizan en las presentaciones de PowerPoint:
+Un diseño de diapositiva define la disposición de los cuadros de marcador de posición y el formato del contenido en una diapositiva. Controla qué marcadores de posición están disponibles y dónde aparecen. Los diseños de diapositiva le ayudan a crear presentaciones rápida y consistentemente, ya sea que esté creando algo sencillo o más complejo. Algunos de los diseños de diapositiva más comunes en PowerPoint incluyen:
 
-* **Diseño de Diapositiva de Título**. Este diseño consiste en dos marcadores de posición de texto. Un marcador de posición es para el título y el otro es para el subtítulo.
-* **Diseño de Título y Contenido**. Este diseño contiene un marcador de posición relativamente pequeño en la parte superior para el título y un marcador de posición más grande para el contenido principal (gráfico, párrafos, lista con viñetas, lista numerada, imágenes, etc.).
-* **Diseño en Blanco**. Este diseño carece de marcadores de posición, por lo que te permite crear elementos desde cero.
+**Diseño de diapositiva de título** – Incluye dos marcadores de posición de texto: uno para el título y otro para el subtítulo.
 
-Dado que un maestro de diapositivas es la diapositiva jerárquica superior que almacena información sobre los diseños de diapositivas, puedes usar la diapositiva maestra para acceder a los diseños de diapositivas y hacer cambios en ellos. Se puede acceder a una diapositiva de diseño por tipo o nombre. De manera similar, cada diapositiva tiene un id único, que se puede usar para acceder a ella.
+**Diseño de título y contenido** – Presenta un marcador de posición de título más pequeño en la parte superior y uno más grande debajo para el contenido principal (texto, viñetas, gráficos, imágenes y más).
 
-Alternativamente, puedes hacer cambios directamente en un diseño de diapositiva específico en una presentación.
+**Diseño en blanco** – No contiene marcadores de posición, dándole control total para diseñar la diapositiva desde cero.
 
-* Para permitirte trabajar con diseños de diapositivas (incluyendo aquellos en diapositivas maestras), Aspose.Slides proporciona propiedades como `layout_slides` y `masters` bajo la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-* Para realizar tareas relacionadas, Aspose.Slides proporciona [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/), y muchos otros tipos.
+Los diseños de diapositiva forman parte de una diapositiva maestra, que es la diapositiva de nivel superior que define los estilos de diseño para la presentación. Puede acceder y modificar las diapositivas de diseño a través de la diapositiva maestra, ya sea por su tipo, nombre o ID único. Alternativamente, puede editar una diapositiva de diseño específica directamente dentro de la presentación.
+
+Para trabajar con diseños de diapositiva en Aspose.Slides for Python, puede usar:
+
+- Propiedades como [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) y [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) bajo la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
+- Tipos como [LayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutplaceholdermanager/) y [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslideheaderfootermanager/)
 
 {{% alert title="Info" color="info" %}}
-
-Para más información sobre cómo trabajar con Diapositivas Maestras en particular, consulta el artículo [Slide Master](https://docs.aspose.com/slides/python-net/slide-master/).
-
+Para obtener más información sobre el uso de diapositivas maestras, consulte el artículo [Administrar diapositivas maestras de PowerPoint en Python](/slides/es/python-net/slide-master/).
 {{% /alert %}}
 
-## **Agregar Diseño de Diapositiva a Presentación**
+## **Agregar diseños de diapositiva a presentaciones**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Accede a la [colección MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/imasterlayoutslidecollection/).
-1. Revisa los diseños de diapositivas existentes para confirmar que el diseño de diapositiva requerido ya existe en la colección de Diseños de Diapositivas. De lo contrario, añade el diseño de diapositiva que deseas.
-1. Agrega una diapositiva vacía basada en el nuevo diseño de diapositiva.
-1. Guarda la presentación.
+Para personalizar la apariencia y la estructura de sus diapositivas, puede que necesite agregar nuevos diseños a una presentación. Aspose.Slides for Python le permite comprobar si un diseño específico ya existe, agregar uno nuevo si es necesario y usarlo para insertar diapositivas basadas en ese diseño.
 
-Este código Python te muestra cómo agregar un diseño de diapositiva a una presentación de PowerPoint:
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Acceda a la [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/).
+1. Verifique si el diseño de diapositiva deseado ya existe en la colección. Si no, añada el diseño que necesita.
+1. Agregue una diapositiva en blanco basada en el nuevo diseño.
+1. Guarde la presentación.
 
+El siguiente código Python muestra cómo agregar un diseño de diapositiva a una presentación de PowerPoint:
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instancia una clase Presentation que representa el archivo de presentación
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Revisa los tipos de diapositivas de diseño
-    layoutSlides = presentation.masters[0].layout_slides
-    layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)  
-    if layoutSlide is None:
-         layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.TITLE)
+# Instanciar la clase Presentation para abrir el archivo de presentación.
+with slides.Presentation("sample.pptx") as presentation:
+    # Recorrer los tipos de diapositivas de diseño para seleccionar una diapositiva de diseño.
+    layout_slides = presentation.masters[0].layout_slides
+    layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
+    if layout_slide is None:
+         layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE)
 
-    if layoutSlide is None:
-        # La situación donde una presentación no contiene algunos tipos de diseño.
-        # El archivo de presentación solo contiene diseños en Blanco y Personalizados.
-        # Pero las diapositivas de diseño con tipos personalizables tienen nombres de diapositiva diferentes,
-        # como "Título", "Título y Contenido", etc. Y es posible usar estos
-        # nombres para la selección de las diapositivas de diseño.
-        # También puedes usar un conjunto de tipos de forma de marcador de posición. Por ejemplo,
-        # el diseño de título debe tener solo el tipo de marcador de posición de Título, etc.
-        for titleAndObjectLayoutSlide in layoutSlides:
-            if titleAndObjectLayoutSlide.name == "Title and Object":
-                layoutSlide = titleAndObjectLayoutSlide
+    if layout_slide is None:
+        # Una situación en la que la presentación no contiene todos los tipos de diseño.
+        # El archivo de presentación contiene solo los tipos de diseño Blank y Custom.
+        # Sin embargo, las diapositivas de diseño con tipos personalizados pueden tener nombres reconocibles,
+        # como "Title", "Title and Content", etc., que pueden usarse para la selección de la diapositiva de diseño.
+        # También puede basarse en un conjunto de tipos de formas de marcador de posición.
+        # Por ejemplo, una diapositiva Title debería tener solo el tipo de marcador de posición Title, y así sucesivamente.
+        for title_and_object_layout_slide in layout_slides:
+            if title_and_object_layout_slide.name == "Title and Object":
+                layout_slide = title_and_object_layout_slide
                 break
 
-        if layoutSlide is None:
-            for titleLayoutSlide in layoutSlides:
-                if titleLayoutSlide.name == "Title":
-                    layoutSlide = titleLayoutSlide
+        if layout_slide is None:
+            for title_layout_slide in layout_slides:
+                if title_layout_slide.name == "Title":
+                    layout_slide = title_layout_slide
                     break
 
-            if layoutSlide is None:
-                layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.BLANK)
-                if layoutSlide is None:
-                    layoutSlide = layoutSlides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
+            if layout_slide is None:
+                layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+                if layout_slide is None:
+                    layout_slide = layout_slides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
 
-    # Agrega una diapositiva vacía con el diseño de diapositiva agregado
-    presentation.slides.insert_empty_slide(0, layoutSlide)
+    # Add an empty slide using the added layout slide.
+    presentation.slides.insert_empty_slide(0, layout_slide)
 
-    # Guarda la presentación en el disco
-    presentation.save("AddLayoutSlides_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Eliminar Diapositiva de Diseño No Utilizada**
 
-Aspose.Slides proporciona el método `remove_unused_layout_slides` de la clase [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) para permitirte eliminar diapositivas de diseño no deseadas y no utilizadas. Este código Python te muestra cómo eliminar un diseño de diapositiva de una presentación de PowerPoint:
+## **Eliminar diseños de diapositiva no utilizados**
 
+Aspose.Slides proporciona el método [remove_unused_layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) de la clase [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) para permitirle eliminar diseños de diapositiva no deseados y no utilizados.
+
+El siguiente código Python muestra cómo eliminar un diseño de diapositiva de una presentación de PowerPoint:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    slides.lowcode.Compress.remove_unused_layout_slides(pres)
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("sample.pptx") as presentation:
+    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Establecer Tamaño y Tipo para Diseño de Diapositiva**
 
-Para permitirte establecer el tamaño y tipo para una diapositiva de diseño específica, Aspose.Slides proporciona las propiedades `type` y `size` (de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)). Este Python demuestra la operación:
+## **Agregar marcadores de posición a diseños de diapositiva**
 
-```python
+Aspose.Slides proporciona la propiedad [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/placeholder_manager/), que le permite agregar nuevos marcadores de posición a un diseño de diapositiva.
+
+Este administrador contiene métodos para los siguientes tipos de marcadores de posición:
+
+| Marcador de posición de PowerPoint | Método de [LayoutPlaceholderManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutplaceholdermanager/) |
+| ----------------------------------- | ------------------------------------------------------------ |
+| ![Contenido](content.png) | add_content_placeholder(x: float, y: float, width: float, height: float) |
+| ![Contenido (Vertical)](contentV.png) | add_vertical_content_placeholder(x: float, y: float, width: float, height: float) |
+| ![Texto](text.png) | add_text_placeholder(x: float, y: float, width: float, height: float) |
+| ![Texto (Vertical)](textV.png) | add_vertical_text_placeholder(x: float, y: float, width: float, height: float) |
+| ![Imagen](picture.png) | add_picture_placeholder(x: float, y: float, width: float, height: float) |
+| ![Gráfico](chart.png) | add_chart_placeholder(x: float, y: float, width: float, height: float) |
+| ![Tabla](table.png) | add_table_placeholder(x: float, y: float, width: float, height: float) |
+| ![SmartArt](smartart.png) | add_smart_art_placeholder(x: float, y: float, width: float, height: float) |
+| ![Medios](media.png) | add_media_placeholder(x: float, y: float, width: float, height: float) |
+| ![Imagen en línea](onlineimage.png) | add_online_image_placeholder(x: float, y: float, width: float, height: float) |
+
+El siguiente código Python muestra cómo agregar nuevas formas de marcador de posición al diseño en blanco:
+```py
 import aspose.slides as slides
 
-# Instancia un objeto Presentation que representa un archivo de presentación 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    with slides.Presentation() as auxPresentation:
-        slide = presentation.slides[0]
-
-        # Establece el tamaño de la diapositiva para la presentación generada igual al de la fuente
-        auxPresentation.slide_size.set_size(presentation.slide_size.type, slides.SlideSizeScaleType.ENSURE_FIT)
-
-        auxPresentation.slides.insert_clone(0, slide)
-        auxPresentation.slides.remove_at(0)
-        # Guarda la presentación en el disco
-        auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Establecer Visibilidad del Pie de Página Dentro de la Diapositiva**
-
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Obtén una referencia de la diapositiva a través de su índice.
-1. Establece el marcador de posición del pie de página de la diapositiva como visible.
-1. Establece el marcador de posición de fecha y hora como visible.
-1. Guarda la presentación.
-
-Este código Python te muestra cómo establecer la visibilidad para un pie de página de diapositiva (y realizar tareas relacionadas):
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    headerFooterManager = presentation.slides[0].header_footer_manager
-    # La propiedad is_footer_visible se usa para especificar que falta un marcador de posición para el pie de página
-    if not headerFooterManager.is_footer_visible: 
-        # El método set_footer_visibility se usa para establecer un marcador de posición del pie de página de la diapositiva como visible
-        headerFooterManager.set_footer_visibility(True) 
-        # La propiedad is_slide_number_visible se usa para especificar que falta un marcador de posición del número de diapositiva
-    if not headerFooterManager.is_slide_number_visible:  
-        # El método set_slide_number_visibility se usa para establecer un marcador de posición del número de diapositiva como visible
-        headerFooterManager.set_slide_number_visibility(True) 
-        # La propiedad is_date_time_visible se usa para especificar que falta un marcador de posición de fecha y hora de la diapositiva
-    if not headerFooterManager.is_date_time_visible: 
-        # El método set_date_time_visibility se usa para establecer un marcador de posición de fecha y hora de la diapositiva como visible 
-        headerFooterManager.set_date_time_visibility(True)
-
-    # El método set_footer_text se usa para establecer un texto para un marcador de posición del pie de página de la diapositiva 
-    headerFooterManager.set_footer_text("Texto del pie de página") 
-    # El método set_date_time_text se usa para establecer un texto para un marcador de posición de fecha y hora de la diapositiva.
-    headerFooterManager.set_date_time_text("Texto de fecha y hora") 
-
-    # Guarda la presentación en el disco
-    presentation.save("Presentation.ppt", slides.export.SaveFormat.PPT)
-```
-
-## **Establecer Visibilidad del Pie de Página Secundario Dentro de la Diapositiva**
-
-1. Crea una instancia de la [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Obtén una referencia para la diapositiva maestra a través de su índice.
-1. Establece la visibilidad del pie de página maestro y todos los marcadores de posición de pie de página secundarios como visible.
-1. Establece un texto para la diapositiva maestra y todos los marcadores de posición de pie de página secundarios.
-1. Establece un texto para la diapositiva maestra y todos los marcadores de posición de fecha y hora secundarios.
-1. Guarda la presentación.
-
-Este código Python demuestra la operación:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    manager = presentation.masters[0].header_footer_manager
-    manager.set_footer_and_child_footers_visibility(True) # El método set_footer_and_child_footers_visibility se usa para establecer la visibilidad del pie de página maestro y todos los pie de página secundarios
-    manager.set_slide_number_and_child_slide_numbers_visibility(True) # El método set_slide_number_and_child_slide_numbers_visibility se usa para establecer la visibilidad del número de página maestro y todos los números de página secundarios
-    manager.set_date_time_and_child_date_times_visibility(True) # El método set_date_time_and_child_date_times_visibility se usa para establecer la visibilidad de la fecha y hora de la diapositiva maestra y todos los marcadores de posición secundarios
-
-    manager.set_footer_and_child_footers_text("Texto del pie de página") # El método set_footer_and_child_footers_text se usa para establecer los textos para el pie de página maestro y todos los pies de página secundarios
-    manager.set_date_time_and_child_date_times_text("Texto de fecha y hora") # El método set_date_time_and_child_date_times_text se usa para establecer un texto para la diapositiva maestra y todos los marcadores de posición secundarios de fecha y hora
-```
-
-## **Establecer Tamaño de Diapositiva con Respecto a la Escala de Contenido**
-
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) y carga la presentación que contiene la diapositiva cuyo tamaño deseas establecer.
-1. Crea otra instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) para generar una nueva presentación.
-1. Obtén la referencia de la diapositiva (de la primera presentación) a través de su índice.
-1. Establece el marcador de posición del pie de página de la diapositiva como visible.
-1. Establece el marcador de posición de fecha y hora como visible.
-1. Guarda la presentación.
-
-Este Python demuestra la operación:
-
-```python
-import aspose.slides as slides
-
-# Instancia un objeto Presentation que representa un archivo de presentación 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    with slides.Presentation() as auxPresentation:
-        slide = presentation.slides[0]
-
-        # Establece el tamaño de la diapositiva para las presentaciones generadas igual al de la fuente
-        presentation.slide_size.set_size(540, 720, slides.SlideSizeScaleType.ENSURE_FIT) # El método set_size se usa para establecer el tamaño de la diapositiva con escala de contenido para asegurar un ajuste
-        presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.MAXIMIZE) # El método set_size se usa para establecer el tamaño de la diapositiva con el tamaño máximo del contenido
-                
-        # Guarda la presentación en el disco
-        auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Establecer Tamaño de Página al Generar PDF**
-
-Ciertas presentaciones (como carteles) a menudo se convierten en documentos PDF. Si deseas convertir tu PowerPoint a PDF para acceder a las mejores opciones de impresión y accesibilidad, deseas establecer tus diapositivas en tamaños que se adapten a documentos PDF (A4, por ejemplo).
-
-Aspose.Slides proporciona la clase [SlideSize](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/) para permitirte especificar tus configuraciones preferidas para las diapositivas. Este código Python te muestra cómo usar la propiedad `type` (de la clase `SlideSize`) para establecer un tamaño de papel específico para las diapositivas en una presentación:
-
-```python
-import aspose.slides as slides
-
-# Instancia un objeto Presentation que representa un archivo de presentación  
 with slides.Presentation() as presentation:
-    # Establece la propiedad SlideSize.Type 
-    presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.ENSURE_FIT)
+    # Obtener la diapositiva de diseño en blanco.
+    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-    # Establece diferentes propiedades para las Opciones de PDF
-    opts = slides.export.PdfOptions()
-    opts.sufficient_resolution = 600
+    # Obtener el administrador de marcadores de posición de la diapositiva de diseño.
+    placeholder_manager = layout.placeholder_manager
 
-    # Guarda la presentación en el disco
-    presentation.save("SetPDFPageSize_out.pdf", slides.export.SaveFormat.PDF, opts)
+    # Añadir diferentes marcadores de posición a la diapositiva de diseño en blanco.
+    placeholder_manager.add_content_placeholder(20, 20, 310, 270)
+    placeholder_manager.add_vertical_text_placeholder(350, 20, 350, 270)
+    placeholder_manager.add_chart_placeholder(20, 310, 310, 180)
+    placeholder_manager.add_table_placeholder(350, 310, 350, 180)
+
+    # Añadir una nueva diapositiva con el diseño en blanco.
+    new_slide = presentation.slides.add_empty_slide(layout)
+
+    presentation.save("placeholders.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+El resultado:
+
+![Los marcadores de posición en el diseño de diapositiva](add_placeholders.png)
+
+## **Establecer visibilidad del pie de página para un diseño de diapositiva**
+
+En presentaciones de PowerPoint, los elementos de pie de página como la fecha, el número de diapositiva y el texto personalizado pueden mostrarse u ocultarse según el diseño de la diapositiva. Aspose.Slides for Python le permite controlar la visibilidad de estos marcadores de posición de pie de página. Esto es útil cuando desea que ciertos diseños muestren información de pie de página mientras que otros se mantengan limpios y minimalistas.
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Obtenga una referencia al diseño de diapositiva por su índice.
+1. Establezca el marcador de posición del pie de página como visible.
+1. Establezca el marcador de posición del número de diapositiva como visible.
+1. Establezca el marcador de posición de fecha y hora como visible.
+1. Guarde la presentación.
+
+El siguiente código Python muestra cómo establecer la visibilidad del pie de página de una diapositiva y realizar tareas relacionadas:
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    header_footer_manager = presentation.layout_slides[0].header_footer_manager
+
+    if not header_footer_manager.is_footer_visible: 
+        header_footer_manager.set_footer_visibility(True) 
+
+    if not header_footer_manager.is_slide_number_visible:  
+        header_footer_manager.set_slide_number_visibility(True) 
+
+    if not header_footer_manager.is_date_time_visible: 
+        header_footer_manager.set_date_time_visibility(True)
+
+    header_footer_manager.set_footer_text("Footer text") 
+    header_footer_manager.set_date_time_text("Date and time text") 
+
+    presentation.save("output.ppt", slides.export.SaveFormat.PPT)
+```
+
+
+## **Establecer visibilidad del pie de página hijo para una diapositiva**
+
+​En presentaciones de PowerPoint, los elementos de pie de página como la fecha, el número de diapositiva y el texto personalizado pueden controlarse a nivel de diapositiva maestra para garantizar consistencia en todas las diapositivas de diseño. Aspose.Slides for Python le permite establecer la visibilidad y el contenido de estos marcadores de posición de pie de página en la diapositiva maestra y propagar estos ajustes a todas las diapositivas de diseño hijas. Esta abordagem garantiza información de pie de página uniforme en toda la presentación.​
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Obtenga una referencia a la diapositiva maestra por su índice.
+1. Establezca los marcadores de posición de pie de página de la maestra y de todas sus hijas como visibles.
+1. Establezca los marcadores de posición de número de diapositiva de la maestra y de todas sus hijas como visibles.
+1. Establezca los marcadores de posición de fecha y hora de la maestra y de todas sus hijas como visibles.
+1. Guarde la presentación.
+
+El siguiente código Python demuestra esta operación:
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    header_footer_manager = presentation.masters[0].header_footer_manager
+
+    header_footer_manager.set_footer_and_child_footers_visibility(True)
+    header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
+    header_footer_manager.set_date_time_and_child_date_times_visibility(True)
+
+    header_footer_manager.set_footer_and_child_footers_text("Footer text")
+    header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+
+## **Preguntas frecuentes**
+
+**¿Cuál es la diferencia entre una diapositiva maestra y una diapositiva de diseño?**
+
+Una diapositiva maestra define el tema general y el formato predeterminado, mientras que las diapositivas de diseño definen disposiciones específicas de marcadores de posición para diferentes tipos de contenido.
+
+**¿Puedo copiar una diapositiva de diseño de una presentación a otra?**
+
+Sí, puede clonar una diapositiva de diseño de la colección [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) de una presentación e insertarla en otra usando el método `add_clone`.
+
+**¿Qué ocurre si elimino una diapositiva de diseño que aún está siendo usada por una diapositiva?**
+
+Si intenta eliminar una diapositiva de diseño que aún es referenciada por al menos una diapositiva en la presentación, Aspose.Slides lanzará una [PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/). Para evitarlo, use [remove_unused_layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/), que elimina de forma segura solo los diseños que no están en uso.
