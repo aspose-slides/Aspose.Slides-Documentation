@@ -1,86 +1,109 @@
 ---
-title: Présentation protégée par mot de passe
+title: Sécuriser les présentations avec des mots de passe en Python
+linktitle: Protection par mot de passe
 type: docs
 weight: 20
-url: /fr/python-net/presentation-protegee-par-mot-de-passe/
-keywords: "Verrouiller PowerPoint, déverrouiller PowerPoint, protéger PowerPoint, définir un mot de passe, ajouter un mot de passe, chiffrer PowerPoint, déchiffrer PowerPoint, Protection en écriture, sécurité PowerPoint, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Protection par mot de passe de PowerPoint, cryptage et sécurité en Python"
-
+url: /fr/python-net/password-protected-presentation/
+keywords:
+- verrouiller PowerPoint
+- verrouiller la présentation
+- déverrouiller PowerPoint
+- déverrouiller la présentation
+- protéger PowerPoint
+- protéger la présentation
+- définir un mot de passe
+- ajouter un mot de passe
+- chiffrer PowerPoint
+- chiffrer la présentation
+- déchiffrer PowerPoint
+- déchiffrer la présentation
+- protection en écriture
+- sécurité PowerPoint
+- sécurité de la présentation
+- supprimer le mot de passe
+- supprimer la protection
+- supprimer le chiffrement
+- désactiver le mot de passe
+- désactiver la protection
+- supprimer la protection en écriture
+- présentation PowerPoint
+- Python
+- Aspose.Slides
+description: "Apprenez à verrouiller et déverrouiller facilement les présentations PowerPoint et OpenDocument protégées par mot de passe avec Aspose.Slides pour Python via .NET. Augmentez votre productivité et sécurisez vos présentations grâce à notre guide étape par étape."
 ---
 
-## **À propos de la Protection par Mot de Passe**
-### **Comment fonctionne la protection par mot de passe pour une présentation?**
-Lorsque vous protégez par mot de passe une présentation, cela signifie que vous définissez un mot de passe qui impose certaines restrictions sur la présentation. Pour supprimer les restrictions, le mot de passe doit être saisi. Une présentation protégée par mot de passe est considérée comme une présentation verrouillée.
+## **À propos de la protection par mot de passe**
+### **Comment fonctionne la protection par mot de passe pour une présentation ?**
+Lorsque vous protégez une présentation par mot de passe, cela signifie que vous définissez un mot de passe qui applique certaines restrictions sur la présentation. Pour lever ces restrictions, il faut saisir le mot de passe. Une présentation protégée par mot de passe est considérée comme une présentation verrouillée.
 
-Typiquement, vous pouvez définir un mot de passe pour imposer ces restrictions sur une présentation :
+Typiquement, vous pouvez définir un mot de passe pour appliquer ces restrictions sur une présentation :
 
 - **Modification**
 
-  Si vous souhaitez que seuls certains utilisateurs puissent modifier votre présentation, vous pouvez définir une restriction de modification. La restriction ici empêche les personnes de modifier, changer ou copier des éléments dans votre présentation (à moins qu'elles fournissent le mot de passe). 
+  Si vous souhaitez que seuls certains utilisateurs puissent modifier votre présentation, vous pouvez définir une restriction de modification. Cette restriction empêche les personnes de modifier, changer ou copier des éléments de votre présentation (sauf si elles fournissent le mot de passe).
 
-  Cependant, dans ce cas, même sans le mot de passe, un utilisateur pourra accéder à votre document et l'ouvrir. En mode lecture seule, l'utilisateur peut voir le contenu ou d'autres éléments—hyperliens, animations, effets, etc.—à l'intérieur de votre présentation, mais il ne peut pas copier d'éléments ou enregistrer la présentation. 
+  Cependant, dans ce cas, même sans le mot de passe, un utilisateur pourra accéder à votre document et l’ouvrir. En mode lecture seule, l’utilisateur peut visualiser le contenu ou les éléments — hyperliens, animations, effets, etc. — dans votre présentation, mais il ne peut pas copier d’éléments ni enregistrer la présentation.
 
 - **Ouverture**
 
-  Si vous souhaitez que seuls certains utilisateurs puissent ouvrir votre présentation, vous pouvez définir une restriction d'ouverture. La restriction ici empêche les personnes de même voir le contenu de votre présentation (à moins qu'elles fournissent le mot de passe).
+  Si vous voulez que seuls certains utilisateurs puissent ouvrir votre présentation, vous pouvez définir une restriction d’ouverture. Cette restriction empêche les personnes de même voir le contenu de votre présentation (sauf si elles fournissent le mot de passe).
 
-  Techniquement, la restriction d'ouverture empêche également les utilisateurs de modifier vos présentations : Lorsque les personnes ne peuvent pas ouvrir une présentation, elles ne peuvent pas la modifier ni y apporter des changements. 
-  
-  **Remarque** que lorsque vous protégez par mot de passe une présentation pour empêcher son ouverture, le fichier de présentation devient chiffré.
+  Techniquement, la restriction d’ouverture empêche également les utilisateurs de modifier vos présentations : lorsqu’ils ne peuvent pas ouvrir une présentation, ils ne peuvent pas la modifier ni y apporter des changements.  
 
-## Comment Protéger une Présentation par Mot de Passe en Ligne
+  **Note** que lorsque vous protégez une présentation par mot de passe pour empêcher son ouverture, le fichier de présentation devient chiffré.
 
-1. Allez sur notre page [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock).
+## Comment protéger une présentation par mot de passe en ligne
+
+1. Rendez‑vous sur notre page [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock).
 
    ![todo:image_alt_text](slides-lock.png)
 
-2. Cliquez sur **Glisser ou télécharger vos fichiers**.
+2. Cliquez sur **Drop or upload your files**.
 
-3. Sélectionnez le fichier que vous souhaitez protéger par mot de passe sur votre ordinateur. 
+3. Sélectionnez le fichier que vous souhaitez protéger par mot de passe sur votre ordinateur.
 
-4. Entrez votre mot de passe préféré pour la protection de l'édition ; entrez votre mot de passe préféré pour la protection de la vue. 
+4. Saisissez le mot de passe de protection en écriture ; saisissez le mot de passe de protection en lecture.
 
-5. Si vous souhaitez que les utilisateurs voient votre présentation comme la copie finale, cochez la case **Marquer comme final**.
+5. Si vous voulez que les utilisateurs voient votre présentation comme copie finale, cochez la case **Mark as final**.
 
-6. Cliquez sur **PROTÉGER MAINTENANT.**
+6. Cliquez sur **PROTECT NOW.**
 
-7. Cliquez sur **TÉLÉCHARGER MAINTENANT.**
+7. Cliquez sur **DOWNLOAD NOW.**
 
-## **Protection par Mot de Passe pour les Présentations dans Aspose.Slides**
+## **Protection par mot de passe pour les présentations dans Aspose.Slides**
 **Formats pris en charge**
 
-Aspose.Slides prend en charge la protection par mot de passe, le cryptage et des opérations similaires pour les présentations dans ces formats : 
+Aspose.Slides prend en charge la protection par mot de passe, le chiffrement et des opérations similaires pour les présentations dans les formats suivants :
 
-- PPTX et PPT - Présentation Microsoft PowerPoint 
-- ODP - Présentation OpenDocument 
-- OTP - Modèle de Présentation OpenDocument 
+- PPTX et PPT – Microsoft PowerPoint Presentation
+- ODP – OpenDocument Presentation
+- OTP – OpenDocument Presentation Template
 
 **Opérations prises en charge**
 
-Aspose.Slides vous permet d'utiliser la protection par mot de passe sur les présentations pour empêcher les modifications de ces manières :
+Aspose.Slides vous permet d’utiliser la protection par mot de passe sur les présentations afin d’empêcher les modifications de ces manières :
 
-- Chiffrer une présentation
-- Définir une protection en écriture pour une présentation
+- Chiffrement d’une présentation
+- Définition d’une protection en écriture sur une présentation
 
 **Autres opérations**
 
-Aspose.Slides vous permet d'effectuer d'autres tâches impliquant la protection par mot de passe et le cryptage de ces manières :
+Aspose.Slides vous permet d’effectuer d’autres tâches liées à la protection par mot de passe et au chiffrement de ces manières :
 
-- Déchiffrer une présentation ; ouvrir une présentation chiffrée
-- Supprimer le cryptage ; désactiver la protection par mot de passe
-- Supprimer la protection en écriture d'une présentation
-- Obtenir les propriétés d'une présentation chiffrée
-- Vérifier si une présentation est chiffrée
-- Vérifier si une présentation est protégée par mot de passe.
+- Déchiffrement d’une présentation ; ouverture d’une présentation chiffrée
+- Suppression du chiffrement ; désactivation de la protection par mot de passe
+- Suppression de la protection en écriture d’une présentation
+- Obtention des propriétés d’une présentation chiffrée
+- Vérification si une présentation est chiffrée
+- Vérification si une présentation est protégée par mot de passe.
 
-## **Chiffrer une Présentation**
+## **Chiffrement d’une présentation**
 
-Vous pouvez chiffrer une présentation en définissant un mot de passe. Ensuite, pour modifier la présentation verrouillée, un utilisateur doit fournir le mot de passe. 
+Vous pouvez chiffrer une présentation en définissant un mot de passe. Ensuite, pour modifier la présentation verrouillée, l’utilisateur doit fournir le mot de passe.
 
-Pour chiffrer ou protéger par mot de passe une présentation, vous devez utiliser la méthode encrypt (de [ProtectionManager](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/)) pour définir un mot de passe pour la présentation. Vous passez le mot de passe à la méthode encrypt et utilisez la méthode save pour enregistrer la présentation désormais chiffrée. 
+Pour chiffrer ou protéger par mot de passe une présentation, vous devez utiliser la méthode encrypt (de [ProtectionManager](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/)) pour définir un mot de passe pour la présentation. Vous passez le mot de passe à la méthode encrypt et utilisez la méthode save pour enregistrer la présentation désormais chiffrée.
 
-Cet exemple de code vous montre comment chiffrer une présentation :
-
+Ce code d’exemple montre comment chiffrer une présentation :
 ```py
 import aspose.slides as slides
 
@@ -89,14 +112,14 @@ with slides.Presentation() as pres:
     pres.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Définir une Protection en Écriture pour une Présentation** 
 
-Vous pouvez ajouter une mention indiquant "Ne pas modifier" à une présentation. De cette manière, vous indiquez aux utilisateurs que vous ne souhaitez pas qu'ils apportent des modifications à la présentation.  
+## **Définition d’une protection en écriture sur une présentation** 
 
-**Remarque** que le processus de protection en écriture ne chiffre pas la présentation. Par conséquent, les utilisateurs—s'ils le souhaitent vraiment—peuvent modifier la présentation, mais pour enregistrer les changements, ils devront créer une présentation avec un nom différent. 
+Vous pouvez ajouter une marque indiquant « Ne pas modifier » à une présentation. Ainsi, vous indiquez aux utilisateurs que vous ne souhaitez pas qu’ils apportent des modifications à la présentation.
 
-Pour définir une protection en écriture, vous devez utiliser la méthode setWriteProtection. Cet exemple de code vous montre comment définir une protection en écriture pour une présentation :
+**Note** que le processus de protection en écriture ne chiffre pas la présentation. Par conséquent, les utilisateurs — s’ils le souhaitent vraiment — peuvent modifier la présentation, mais pour enregistrer les changements, ils devront créer une présentation sous un autre nom.
 
+Pour définir une protection en écriture, vous devez utiliser la méthode setWriteProtection. Ce code d’exemple montre comment définir une protection en écriture sur une présentation :
 ```py
 import aspose.slides as slides
 
@@ -105,12 +128,12 @@ with slides.Presentation() as pres:
     pres.save("write-protected-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Déchiffrer une Présentation ; Ouvrir une Présentation Chiffrée**
 
-Aspose.Slides vous permet de charger un fichier chiffré en passant son mot de passe. Pour déchiffrer une présentation, vous devez appeler la méthode [remove_encryption](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) sans paramètres. Vous devrez ensuite entrer le mot de passe correct pour charger la présentation. 
+## **Déchiffrement d’une présentation ; ouverture d’une présentation chiffrée**
 
-Cet exemple de code vous montre comment déchiffrer une présentation : 
+Aspose.Slides vous permet de charger un fichier chiffré en transmettant son mot de passe. Pour déchiffrer une présentation, vous devez appeler la méthode [remove_encryption](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) sans paramètres. Vous devrez ensuite saisir le mot de passe correct pour charger la présentation.
 
+Ce code d’exemple montre comment déchiffrer une présentation : 
 ```py
 import aspose.slides as slides
 
@@ -120,12 +143,12 @@ with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
     print(pres.document_properties.author)
 ```
 
-## **Supprimer le Cryptage ; Désactiver la Protection par Mot de Passe**
 
-Vous pouvez supprimer le cryptage ou la protection par mot de passe d'une présentation. De cette manière, les utilisateurs peuvent accéder ou modifier la présentation sans restrictions. 
+## **Suppression du chiffrement ; désactivation de la protection par mot de passe**
 
-Pour supprimer le cryptage ou la protection par mot de passe, vous devez appeler la méthode [remove_encryption](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/). Cet exemple de code vous montre comment supprimer le cryptage d'une présentation :
+Vous pouvez supprimer le chiffrement ou la protection par mot de passe d’une présentation. Ainsi, les utilisateurs peuvent accéder ou modifier la présentation sans restrictions.
 
+Pour supprimer le chiffrement ou la protection par mot de passe, vous devez appeler la méthode [remove_encryption](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/). Ce code d’exemple montre comment supprimer le chiffrement d’une présentation :
 ```py
 import aspose.slides as slides
 
@@ -136,12 +159,12 @@ with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
     pres.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Supprimer la Protection en Écriture d'une Présentation**
 
-Vous pouvez utiliser Aspose.Slides pour supprimer la protection en écriture utilisée sur un fichier de présentation. De cette manière, les utilisateurs peuvent modifier à leur guise—et ils ne reçoivent aucun avertissement lorsqu'ils effectuent de telles tâches.
+## **Suppression de la protection en écriture d’une présentation**
 
-Vous pouvez supprimer la protection en écriture d'une présentation en utilisant la méthode [remove_write_protection](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/). Cet exemple de code vous montre comment supprimer la protection en écriture d'une présentation :
+Vous pouvez utiliser Aspose.Slides pour supprimer la protection en écriture appliquée à un fichier de présentation. Ainsi, les utilisateurs peuvent modifier à leur guise et ne reçoivent aucun avertissement lors de ces actions.
 
+Vous pouvez supprimer la protection en écriture d’une présentation en utilisant la méthode [remove_write_protection](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/). Ce code d’exemple montre comment supprimer la protection en écriture d’une présentation :
 ```py
 import aspose.slides as slides
 
@@ -150,14 +173,14 @@ with slides.Presentation("write-protected-pres.pptx") as pres:
     pres.save("write-protection-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Obtenir les Propriétés d'une Présentation Chiffrée**
 
-En général, les utilisateurs ont des difficultés à obtenir les propriétés du document d'une présentation chiffrée ou protégée par mot de passe. Cependant, Aspose.Slides propose un mécanisme qui vous permet de protéger par mot de passe une présentation tout en permettant aux utilisateurs d'accéder aux propriétés de cette présentation.
+## **Obtention des propriétés d’une présentation chiffrée**
 
-**Remarque** que lorsque Aspose.Slides chiffre une présentation, les propriétés du document de la présentation sont également protégées par mot de passe par défaut. Mais si vous avez besoin de rendre les propriétés de la présentation accessibles (même après que la présentation ait été chiffrée), Aspose.Slides vous permet de le faire précisément. 
+Typiquement, les utilisateurs ont du mal à obtenir les propriétés du document d’une présentation chiffrée ou protégée par mot de passe. Aspose.Slides propose toutefois un mécanisme qui vous permet de protéger une présentation par mot de passe tout en conservant la possibilité pour les utilisateurs d’accéder aux propriétés de cette présentation.
 
-Si vous souhaitez que les utilisateurs conservent la possibilité d'accéder aux propriétés d'une présentation que vous avez chiffrée, vous pouvez définir la propriété [EncryptDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) sur `True`. Cet exemple de code vous montre comment chiffrer une présentation tout en fournissant aux utilisateurs la possibilité d'accéder à ses propriétés de document :
+**Note** que lorsque Aspose.Slides chiffre une présentation, les propriétés du document de la présentation sont également protégées par mot de passe par défaut. Mais si vous devez rendre les propriétés de la présentation accessibles (même après le chiffrement), Aspose.Slides vous permet de le faire précisément.
 
+Si vous souhaitez que les utilisateurs conservent la capacité d’accéder aux propriétés d’une présentation que vous avez chiffrée, vous pouvez définir la propriété [EncryptDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) sur `True`. Ce code d’exemple montre comment chiffrer une présentation tout en permettant aux utilisateurs d’accéder à ses propriétés de document :
 ```py
 import aspose.slides as slides
 
@@ -166,25 +189,25 @@ with slides.Presentation() as pres:
     pres.protection_manager.encrypt("123123")
 ```
 
-## **Vérifier si une Présentation est Protégée par Mot de Passe Avant de la Charger**
 
-Avant de charger une présentation, vous souhaiterez peut-être vérifier et confirmer que la présentation n'a pas été protégée par mot de passe. De cette manière, vous évitez les erreurs et les problèmes similaires qui surviennent lorsque une présentation protégée par mot de passe est chargée sans son mot de passe.
+## **Vérification si une présentation est protégée par mot de passe avant de la charger**
 
-Ce code Python vous montre comment examiner une présentation pour voir si elle est protégée par mot de passe (sans charger la présentation elle-même) :
+Avant de charger une présentation, vous pouvez vouloir vérifier et confirmer que la présentation n’est pas protégée par un mot de passe. Ainsi, vous évitez les erreurs et problèmes similaires qui surviennent lorsqu’une présentation protégée est chargée sans son mot de passe.
 
+Ce code Python montre comment examiner une présentation pour savoir si elle est protégée par mot de passe (sans charger la présentation elle‑même) :
 ```python
 import aspose.slides as slides
 
 presentationInfo = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-print("La présentation est protégée par mot de passe : " + str(presentationInfo.is_password_protected))
+print("The presentation is password protected: " + str(presentationInfo.is_password_protected))
 ```
 
-## **Vérifier si une Présentation est Chiffrée**
 
-Aspose.Slides vous permet de vérifier si une présentation est chiffrée. Pour effectuer cette tâche, vous pouvez utiliser la propriété [is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/), qui renvoie `True` si la présentation est chiffrée ou `False` si la présentation n'est pas chiffrée. 
+## **Vérification si une présentation est chiffrée**
 
-Cet exemple de code vous montre comment vérifier si une présentation est chiffrée :
+Aspose.Slides vous permet de vérifier si une présentation est chiffrée. Pour réaliser cette tâche, vous pouvez utiliser la propriété [is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/), qui renvoie `True` si la présentation est chiffrée ou `False` sinon.
 
+Ce code d’exemple montre comment vérifier si une présentation est chiffrée :
 ```py
 import aspose.slides as slides
 
@@ -192,12 +215,12 @@ with slides.Presentation() as pres:
     print(str(pres.protection_manager.is_encrypted))
 ```
 
-## **Vérifier si une Présentation est Protégé en Écriture**
 
-Aspose.Slides vous permet de vérifier si une présentation est protégée en écriture. Pour effectuer cette tâche, vous pouvez utiliser la propriété [is_write_protected](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/), qui renvoie `True` si la présentation est protégée en écriture ou `False` si la présentation ne l'est pas. 
+## **Vérification si une présentation est protégée en écriture**
 
-Cet exemple de code vous montre comment vérifier si une présentation est protégée en écriture :
+Aspose.Slides vous permet de vérifier si une présentation est protégée en écriture. Pour réaliser cette tâche, vous pouvez utiliser la propriété [is_write_protected](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/), qui renvoie `True` si la présentation est protégée en écriture ou `False` sinon.
 
+Ce code d’exemple montre comment vérifier si une présentation est protégée en écriture :
 ```py
 import aspose.slides as slides
 
@@ -205,12 +228,12 @@ with slides.Presentation("write-protected-pres.pptx") as pres:
     print(str(pres.protection_manager.is_write_protected))
 ```
 
-## **Valider ou Confirmer qu'un Mot de Passe Spécifique a été Utilisé pour Protéger une Présentation**
 
-Vous souhaiterez peut-être vérifier et confirmer qu'un mot de passe spécifique a été utilisé pour protéger un document de présentation. Aspose.Slides vous fournit les moyens de valider un mot de passe. 
+## **Validation ou confirmation qu’un mot de passe spécifique a été utilisé pour protéger une présentation**
 
-Cet exemple de code vous montre comment valider un mot de passe :
+Vous pouvez vouloir vérifier et confirmer qu’un mot de passe spécifique a été utilisé pour protéger un document de présentation. Aspose.Slides fournit les moyens de valider un mot de passe.
 
+Ce code d’exemple montre comment valider un mot de passe :
 ```py
 import aspose.slides as slides
 
@@ -220,8 +243,23 @@ with slides.Presentation("write-protected-pres.pptx") as pres:
     print(str(matched))
 ```
 
-Cela renvoie `True` si la présentation a été chiffrée avec le mot de passe spécifié. Sinon, cela renvoie `False`. 
 
-{{% alert color="primary" title="Voir aussi" %}} 
-- [Signature Numérique dans PowerPoint](/slides/fr/python-net/digital-signature-in-powerpoint/)
+Il renvoie `True` si la présentation a été chiffrée avec le mot de passe indiqué. Sinon, il renvoie `False`.
+
+{{% alert color="primary" title="See also" %}} 
+- [Digital Signature in PowerPoint](/slides/fr/python-net/digital-signature-in-powerpoint/)
 {{% /alert %}}
+
+## **FAQ**
+
+**Quelles méthodes de chiffrement sont prises en charge par Aspose.Slides ?**
+
+Aspose.Slides prend en charge les méthodes de chiffrement modernes, notamment les algorithmes basés sur AES, garantissant un haut niveau de sécurité des données pour vos présentations.
+
+**Que se passe‑t‑il si un mot de passe incorrect est saisi lors de la tentative d’ouverture d’une présentation ?**
+
+Une exception est levée si un mot de passe incorrect est utilisé, indiquant que l’accès à la présentation est refusé. Cela aide à prévenir les accès non autorisés et protège le contenu de la présentation.
+
+**Y a‑t‑il des répercussions sur les performances lorsqu’on travaille avec des présentations protégées par mot de passe ?**
+
+Le processus de chiffrement et de déchiffrement peut introduire un léger surcoût lors des opérations d’ouverture et d’enregistrement. Dans la plupart des cas, cet impact sur les performances est minime et n’affecte pas de façon significative le temps de traitement global de vos tâches de présentation.
