@@ -1,14 +1,20 @@
 ---
-title: Callout
+title: Verwalten von Callouts in Präsentationsdiagrammen mit Python
+linktitle: Callout
 type: docs
 url: /de/python-net/callout/
-keywords: "Diagramm-Callout, Diagrammdatenbeschriftung, Python, Aspose.Slides für Python über .NET"
-description: "PowerPoint-Diagramm-Callouts und Datenbeschriftungen in Python"
+keywords:
+- Diagramm-Callout
+- Callout verwenden
+- Datenbeschriftung
+- Beschriftungsformat
+- Python
+- Aspose.Slides
+description: "Erstellen und formatieren Sie Callouts in Aspose.Slides für Python .NET mit kurzen Codebeispielen, kompatibel mit PPT, PPTX und ODP, um Präsentations‑Workflows zu automatisieren."
 ---
 
 ## **Verwendung von Callouts**
-Neue Eigenschaft **ShowLabelAsDataCallout** wurde zur **DataLabelFormat**-Klasse und zur **IDataLabelFormat**-Schnittstelle hinzugefügt, die bestimmt, ob die angegebene Diagrammdatenbeschriftung als Daten-Callout oder als Datenbeschriftung angezeigt wird. Im folgenden Beispiel haben wir die Callouts festgelegt.
-
+Die neue Eigenschaft **ShowLabelAsDataCallout** wurde zur Klasse **DataLabelFormat** und zum Interface **IDataLabelFormat** hinzugefügt. Sie bestimmt, ob das Datenbeschriftungselement eines angegebenen Diagramms als Daten‑Callout oder als Datenbeschriftung angezeigt wird. Im nachfolgenden Beispiel haben wir die Callouts festgelegt.
 ```py
 import aspose.slides as slides
 
@@ -22,9 +28,9 @@ with slides.Presentation() as presentation:
 
 
 
-## **Callout für Donut-Diagramm festlegen**
-Aspose.Slides für Python über .NET bietet Unterstützung für die Einstellung des Callout-Formats für die Datenbeschriftungen einer Donut-Diagramm. Nachfolgend ein Beispiel.
 
+## **Callout für Donut‑Diagramm festlegen**
+Aspose.Slides for Python via .NET bietet Unterstützung zum Festlegen der Callout‑Form für Datenbeschriftungen von Serien in einem Donut‑Diagramm. Unten wird ein Beispiel gezeigt.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -39,14 +45,14 @@ with slides.Presentation() as pres:
     chart.has_legend = False
     seriesIndex = 0
     while seriesIndex < 15:
-        series = chart.chart_data.series.add(workBook.get_cell(0, 0, seriesIndex + 1, "SERIE " + str(seriesIndex)), chart.type)
+        series = chart.chart_data.series.add(workBook.get_cell(0, 0, seriesIndex + 1, "SERIES " + str(seriesIndex)), chart.type)
         series.explosion = 0
         series.parent_series_group.doughnut_hole_size = 20
         series.parent_series_group.first_slice_angle = 351
         seriesIndex += 1
     categoryIndex = 0
     while categoryIndex < 15:
-        chart.chart_data.categories.add(workBook.get_cell(0, categoryIndex + 1, 0, "KATEGORIE " + str(categoryIndex)))
+        chart.chart_data.categories.add(workBook.get_cell(0, categoryIndex + 1, 0, "CATEGORY " + str(categoryIndex)))
         i = 0
         while i < len(chart.chart_data.series):
             iCS = chart.chart_data.series[i]
@@ -78,3 +84,14 @@ with slides.Presentation() as pres:
         categoryIndex +=1 
     pres.save("chart.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Werden Callouts beim Konvertieren einer Präsentation in PDF, HTML5, SVG oder Bilder beibehalten?**
+
+Ja. Callouts sind Bestandteil der Diagrammdarstellung, sodass sie beim Export nach [PDF](/slides/de/python-net/convert-powerpoint-to-pdf/), [HTML5](/slides/de/python-net/export-to-html5/), [SVG](/slides/de/python-net/render-a-slide-as-an-svg-image/) oder [Rasterbildern](/slides/de/python-net/convert-powerpoint-to-png/) zusammen mit der Formatierung der Folie erhalten bleiben.
+
+**Funktionieren benutzerdefinierte Schriften in Callouts und kann ihr Aussehen beim Export beibehalten werden?**
+
+Ja. Aspose.Slides unterstützt das [Einbetten von Schriften](/slides/de/python-net/embedded-font/) in die Präsentation und steuert das Schriftart‑Embedding bei Exporten wie [PDF](/slides/de/python-net/convert-powerpoint-to-pdf/), sodass die Callouts auf verschiedenen Systemen gleich aussehen.

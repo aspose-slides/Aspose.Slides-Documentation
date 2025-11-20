@@ -1,14 +1,20 @@
 ---
-title: دعوة
+title: إدارة التعليقات التوضيحية في مخططات العرض التقديمي باستخدام Python
+linktitle: ملاحظة توضيحية
 type: docs
 url: /ar/python-net/callout/
-keywords: "دعوة الرسم البياني, تسمية بيانات الرسم البياني, بايثون, Aspose.Slides لبايثون عبر .NET"
-description: "دعوات ورسوم بيانية PowerPoint في بايثون"
+keywords:
+- ملاحظة توضيحية للمخطط
+- استخدام الملاحظة التوضيحية
+- تسمية البيانات
+- تنسيق التسمية
+- Python
+- Aspose.Slides
+description: "إنشاء وتنسيق الملاحظات التوضيحية في Aspose.Slides for Python .NET مع أمثلة شفرة مختصرة، ومتوافق مع PPT و PPTX و ODP لأتمتة سير عمل العروض التقديمية."
 ---
 
-## **استخدام الدعوات**
-تمت إضافة خاصية جديدة **ShowLabelAsDataCallout** إلى فئة **DataLabelFormat** وواجهة **IDataLabelFormat**، التي تحدد ما إذا كانت تسمية البيانات المخطط المحددة ستظهر كدعوة بيانات أو كتسمية بيانات. في المثال أدناه، قمنا بتعيين الدعوات.
-
+## **استخدام التعليقات التوضيحية**
+تم إضافة الخاصية الجديدة **ShowLabelAsDataCallout** إلى الفئة **DataLabelFormat** والواجهة **IDataLabelFormat**، التي تحدد ما إذا كان سيتم عرض تسمية بيانات المخطط المحدد كتعليق توضيحي للبيانات أو كتسمية بيانات. في المثال المعطى أدناه، قمنا بتعيين التعليقات التوضيحية.
 ```py
 import aspose.slides as slides
 
@@ -22,9 +28,9 @@ with slides.Presentation() as presentation:
 
 
 
-## **تعيين دعوة للرسم البياني الحلزوني**
-توفر Aspose.Slides لبايثون عبر .NET دعمًا لتعيين شكل دعوة تسمية بيانات السلسلة لرسم بياني حلزوني. المثال التالي موضح أدناه.
 
+## **تعيين تعليق توضيحي لمخطط الدونات**
+توفر Aspose.Slides for Python عبر .NET دعمًا لتعيين شكل التعليق التوضيحي لتسمية بيانات السلسلة لمخطط الدونات. أدناه مثال عينة. 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -78,3 +84,14 @@ with slides.Presentation() as pres:
         categoryIndex +=1 
     pres.save("chart.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **أسئلة شائعة**
+
+**هل يتم الحفاظ على التعليقات التوضيحية عند تحويل العرض التقديمي إلى PDF أو HTML5 أو SVG أو صور؟**
+
+نعم. التعليقات التوضيحية هي جزء من عملية عرض المخطط، لذا عند تصديره إلى [PDF](/slides/ar/python-net/convert-powerpoint-to-pdf/)، [HTML5](/slides/ar/python-net/export-to-html5/)، [SVG](/slides/ar/python-net/render-a-slide-as-an-svg-image/)، أو [الصور النقطية](/slides/ar/python-net/convert-powerpoint-to-png/)، يتم الحفاظ عليها مع تنسيق الشريحة.
+
+**هل تعمل الخطوط المخصصة في التعليقات التوضيحية، وهل يمكن الحفاظ على مظهرها عند التصدير؟**
+
+نعم. تدعم Aspose.Slides [embedding fonts](/slides/ar/python-net/embedded-font/) في العرض التقديمي وتتحكم في تضمين الخطوط أثناء عمليات التصدير مثل [PDF](/slides/ar/python-net/convert-powerpoint-to-pdf/)، مما يضمن أن تبدو التعليقات التوضيحية نفسها عبر الأنظمة المختلفة.
