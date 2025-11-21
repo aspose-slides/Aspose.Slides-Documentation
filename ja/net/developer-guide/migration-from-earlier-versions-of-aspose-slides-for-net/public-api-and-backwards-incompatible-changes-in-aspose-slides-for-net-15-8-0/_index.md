@@ -1,18 +1,34 @@
 ---
-title: Aspose.Slides for .NET 15.8.0における公開APIと後方互換性のない変更
+title: Aspose.Slides for .NET 15.8.0 のパブリック API と後方互換性のない変更
+linktitle: Aspose.Slides for .NET 15.8.0
 type: docs
 weight: 190
 url: /ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/
+keywords:
+- 移行
+- レガシーコード
+- モダンコード
+- レガシーアプローチ
+- モダンアプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: Aspose.Slides for .NET のパブリック API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。
 ---
 
 {{% alert color="primary" %}} 
 
-このページでは、Aspose.Slides for .NET 15.8.0 APIで追加されたすべての[class](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/)または[削除された](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/)クラス、メソッド、プロパティなど、およびその他の変更を一覧表示します。
+このページは、Aspose.Slides for .NET 15.8.0 APIで導入された、[追加された](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/)または[削除された](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/)クラス、メソッド、プロパティなど、その他の変更を一覧します。
 
 {{% /alert %}} 
-## **公開APIの変更**
-#### **プロパティDoughnutHoleSizeがIChartSeriesおよびChartSeriesに追加されました**
-ドーナツチャートの穴のサイズを指定します。
+## **Public API Changes**
+#### **Property DoughnutHoleSize has been added to IChartSeries and ChartSeries**
+IChartSeries と ChartSeries にプロパティ DoughnutHoleSize が追加されました。
+
+ドーナツ グラフの穴のサイズを指定します。
 
 ``` csharp
 
@@ -28,4 +44,4 @@ url: /ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 
 }
 
-``` 
+```

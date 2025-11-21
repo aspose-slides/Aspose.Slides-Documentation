@@ -1,17 +1,29 @@
 ---
-title: 使用 VSTO 和 Aspose.Slides 以及 .NET 格式化文本
+title: 使用 VSTO 和 Aspose.Slides for .NET 格式化文本
+linktitle: 格式化文本
 type: docs
 weight: 30
 url: /zh/net/format-text-using-vsto-and-aspose-slides-and-net/
+keywords:
+- 格式化文本
+- 迁移
+- VSTO
+- Office 自动化
+- PowerPoint
+- 演示文稿
+- .NET
+- C#
+- Aspose.Slides
+description: "将 Microsoft Office 自动化迁移到 Aspose.Slides for .NET，并在 PowerPoint (PPT, PPTX) 演示文稿中实现精确的文本格式化控制。"
 ---
 
 {{% alert color="primary" %}} 
 
-有时，您需要以编程方式格式化幻灯片上的文本。本文展示如何使用 [VSTO](/slides/zh/net/format-text-using-vsto-and-aspose-slides-and-net/) 和 [Aspose.Slides for .NET](/slides/zh/net/format-text-using-vsto-and-aspose-slides-and-net/) 读取第一张幻灯片上的示例演示文稿。代码将第三个文本框中的文本格式化为最后一个文本框中的文本样式。
+有时，您需要以编程方式格式化幻灯片上的文本。本文演示如何使用 [VSTO](/slides/zh/net/format-text-using-vsto-and-aspose-slides-and-net/) 或 [Aspose.Slides for .NET](/slides/zh/net/format-text-using-vsto-and-aspose-slides-and-net/) 读取第一张幻灯片上包含文本的示例演示文稿。代码将幻灯片中第三个文本框的文本格式化，使其看起来与最后一个文本框的文本相同。
 
 {{% /alert %}} 
 ## **格式化文本**
-VSTO 和 Aspose.Slides 方法都采取以下步骤：
+VSTO 和 Aspose.Slides 方法均遵循以下步骤：
 
 1. 打开源演示文稿。
 1. 访问第一张幻灯片。
@@ -19,58 +31,55 @@ VSTO 和 Aspose.Slides 方法都采取以下步骤：
 1. 更改第三个文本框中文本的格式。
 1. 将演示文稿保存到磁盘。
 
-下面的截图显示了在执行 VSTO 和 Aspose.Slides for .NET 代码之前和之后的示例幻灯片。
+以下屏幕截图显示了在执行 VSTO 和 Aspose.Slides for .NET 代码前后的示例幻灯片。
 
 **输入演示文稿** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_1.png)
 ### **VSTO 代码示例**
-下面的代码展示如何使用 VSTO 重新格式化幻灯片上的文本。
+下面的代码示例展示了如何使用 VSTO 重新格式化幻灯片上的文本。
 
 **使用 VSTO 重新格式化的文本** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_2.png)
-
-
-
 ```c#
-//注意：PowerPoint 是一个在上面定义的命名空间
+//注意：PowerPoint 是一个在上面这样定义的命名空间
 //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 PowerPoint.Presentation pres = null;
 
-//打开演示文稿
+//Open the presentation
 pres = Globals.ThisAddIn.Application.Presentations.Open("c:\\source.ppt",
 	Microsoft.Office.Core.MsoTriState.msoFalse,
 	Microsoft.Office.Core.MsoTriState.msoFalse,
 	Microsoft.Office.Core.MsoTriState.msoTrue);
 
-//访问第一张幻灯片
+//Access the first slide
 PowerPoint.Slide slide = pres.Slides[1];
 
-//访问第三个形状
+//Access the third shape
 PowerPoint.Shape shp = slide.Shapes[3];
 
-//将其文本字体更改为 Verdana，字体大小改为 32
+//Change its text's font to Verdana and height to 32
 PowerPoint.TextRange txtRange = shp.TextFrame.TextRange;
 txtRange.Font.Name = "Verdana";
 txtRange.Font.Size = 32;
 
-//加粗
+//Bolden it
 txtRange.Font.Bold = Microsoft.Office.Core.MsoTriState.msoCTrue;
 
-//斜体
+//Italicize it
 txtRange.Font.Italic = Microsoft.Office.Core.MsoTriState.msoCTrue;
 
-//更改文本颜色
+//Change text color
 txtRange.Font.Color.RGB = 0x00CC3333;
 
-//更改形状背景颜色
+//Change shape background color
 shp.Fill.ForeColor.RGB = 0x00FFCCCC;
 
-//横向重新定位
+//Reposition it horizontally
 shp.Left -= 70;
 
-//将输出写入磁盘
+//Write the output to disk
 pres.SaveAs("c:\\outVSTO.ppt",
 	PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
 	Microsoft.Office.Core.MsoTriState.msoFalse);
@@ -79,15 +88,13 @@ pres.SaveAs("c:\\outVSTO.ppt",
 
 
 
+
 ### **Aspose.Slides for .NET 示例**
 要使用 Aspose.Slides 格式化文本，请在格式化文本之前添加字体。
 
-**用 Aspose.Slides 创建的输出演示文稿** 
+**使用 Aspose.Slides 创建的输出演示文稿** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_3.png)
-
-
-
 ```c#
  //打开演示文稿
 Presentation pres = new Presentation("c:\\source.ppt");
@@ -98,7 +105,7 @@ ISlide slide = pres.Slides[0];
 //访问第三个形状
 IShape shp = slide.Shapes[2];
 
-//将其文本字体更改为 Verdana，字体大小改为 32
+//将其文本的字体更改为 Verdana，字号为 32
 ITextFrame tf = ((IAutoShape)shp).TextFrame;
 IParagraph para = tf.Paragraphs[0];
 IPortion port = para.Portions[0];

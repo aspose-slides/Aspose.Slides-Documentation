@@ -1,49 +1,89 @@
 ---
-title: تحويل ODP من OpenOffice
+title: تحويل عروض OpenDocument في .NET
+linktitle: تحويل OpenDocument
 type: docs
 weight: 10
 url: /ar/net/convert-openoffice-odp/
-keywords: "تحويل ODP إلى PDF، ODP إلى PPT، ODP إلى PPTX، ODP إلى XPS، ODP إلى HTML، ODP إلى TIFF"
-description: "تحويل ODP إلى PDF، ODP إلى PPT، ODP إلى PPTX، ODP إلى HTML وأشكال أخرى باستخدام Aspose.Slides."
+keywords:
+- تحويل ODP
+- ODP إلى صورة
+- ODP إلى GIF
+- ODP إلى HTML
+- ODP إلى JPG
+- ODP إلى MD
+- ODP إلى PDF
+- ODP إلى PNG
+- ODP إلى PPT
+- ODP إلى PPTX
+- ODP إلى TIFF
+- ODP إلى فيديو
+- ODP إلى Word
+- ODP إلى XPS
+- OpenDocument
+- .NET
+- C#
+- Aspose.Slides
+description: "يتيح لك Aspose.Slides لـ .NET تحويل ODP إلى PDF وHTML وتنسيقات الصور بسهولة. عزّز تطبيقات .NET الخاصة بك بتحويل عروض تقديمية سريع ودقيق."
 ---
 
-[**واجهة برمجة تطبيقات Aspose.Slides**](https://products.aspose.com/slides/net/) تتيح لك تحويل عروض OpenOffice ODP إلى العديد من التنسيقات. واجهة برمجة التطبيقات المستخدمة لتحويل ملفات ODP إلى تنسيقات مستندات أخرى هي نفسها المستخدمة لعمليات تحويل PowerPoint (PPT و PPTX).
+## **نظرة عامة**
 
-تظهر هذه الأمثلة كيفية تحويل مستندات ODP إلى تنسيقات أخرى (فقط غير الملف المصدر ODP):
+Aspose.Slides for .NET توفر واجهة برمجة تطبيقات قوية لتحويل عروض OpenDocument (ODP) إلى صيغ أخرى متعددة. باتباع نهج مماثل للملفات PowerPoint (PPT وPPTX)، يمكن للمطورين بسهولة تصدير مستندات ODP إلى صيغ مثل HTML وPDF وTIFF وJPG وXPS وأكثر.
 
-- [تحويل ODP إلى HTML](/slides/ar/net/convert-powerpoint-ppt-and-pptx-to-html/)
-- [تحويل ODP إلى PDF](/slides/ar/net/convert-powerpoint-ppt-and-pptx-to-pdf/)
-- [تحويل ODP إلى TIFF](/slides/ar/net/convert-powerpoint-to-tiff/)
-- [تحويل ODP إلى SWF Flash](/slides/ar/net/convert-powerpoint-ppt-and-pptx-to-swf-flash/)
-- [تحويل ODP إلى XPS](/slides/ar/net/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
-- [تحويل ODP إلى PDF مع الملاحظات](/slides/ar/net/convert-powerpoint-ppt-and-pptx-to-pdf-with-notes/)
-- [تحويل ODP إلى TIFF مع الملاحظات](/slides/ar/net/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)
+تظهر هذه الأمثلة كيفية تحويل مستندات ODP إلى صيغ أخرى (ما عليك سوى تغيير المصدر إلى ملف ODP):
 
-على سبيل المثال، إذا كنت بحاجة إلى تحويل عرض ODP إلى PDF، يمكنك القيام بذلك بهذه الطريقة:
+- [Convert ODP to HTML](/slides/ar/net/convert-powerpoint-ppt-and-pptx-to-html/)
+- [Convert ODP to PDF](/slides/ar/net/convert-powerpoint-ppt-and-pptx-to-pdf/)
+- [Convert ODP to TIFF](/slides/ar/net/convert-powerpoint-to-tiff/)
+- [Convert ODP to SWF](/slides/ar/net/convert-powerpoint-to-swf-flash/)
+- [Convert ODP to XPS](/slides/ar/net/convert-powerpoint-to-xps/)
+- [Convert ODP to PDF with Notes](/slides/ar/net/convert-powerpoint-to-pdf-with-notes/)
+- [Convert ODP to TIFF with Notes](/slides/ar/net/convert-powerpoint-to-tiff-with-notes/)
 
-```csharp
-using (Presentation pres = new Presentation("pres.odp"))
+على سبيل المثال، تحويل عرض ODP إلى PDF يتطلب بضع أسطر من الشيفرة في C#:
+```cs
+using (Presentation presentation = new Presentation("presentation.odp"))
 {
-    pres.Save("pres.pdf", SaveFormat.Pdf);
+    presentation.Save("presentation.pdf", SaveFormat.Pdf);
 }
 ```
 
-## عرض تقديمي OpenDocument في تطبيقات مختلفة
 
-عند فتح ملف عرض تقديمي OpenDocument في PowerPoint، قد يفتقر إلى التنسيق كما كان في التطبيق الأصلي الذي أنشئ فيه بسبب أن تطبيق عرض OpenDocument وتطبيق PowerPoint يوفران ميزات وخيارات مختلفة.
+## **العرض التقديمي OpenDocument في تطبيقات مختلفة**
 
-هذه بعض من الفروقات:
-- في PowerPoint، عادةً ما يتم تحميل جميع الجداول أخيرًا وتداخلها مع الأشكال الأخرى (بغض النظر عن ترتيب الأشكال على شريحة ODP).
-- ملء الصورة للجداول ODP غير مدعوم في PowerPoint.
-- تدوير النص العمودي (270، متراكب) ومحاذاة التوزيع غير مدعومة في LibreOffice/OpenOffice Impress.
-- ملء الصورة، وملء التدرج، وملء الأنماط للنصوص غير مدعومة في LibreOffice/OpenOffice Impress.
+عند فتح ملف عرض OpenDocument (ODP) في PowerPoint، قد لا يحتفظ بالتنسيق الأصلي من التطبيق الذي تم إنشاؤه فيه. يحدث ذلك لأن تطبيق عرض OpenDocument وتطبيق PowerPoint يقدمان ميزات وسلوكيات عرض مختلفة.
 
-تتعامل MS PowerPoint و LibreOffice/OpenOffice Impress مع القوائم بشكل مختلف أيضًا. ملف ODP الذي تم إنشاؤه في PowerPoint لن يفتح بشكل صحيح في LibreOffice/OpenOffice والعكس صحيح.
+فيما يلي بعض الاختلافات:
 
-توضح هذه الصورة عرض القائمة المكونة في LibreOffice Impress:
+- في PowerPoint، يتم عادةً عرض الجداول في النهاية وقد تتراكب فوق أشكال أخرى، بغض النظر عن ترتيبها على شريحة ODP.
+- تعبئة الصور للجداول في ODP غير مدعومة في PowerPoint.
+- دوران النص عموديًا (270°، مكدس) والمحاذاة الموزعة غير مدعومة في LibreOffice/OpenOffice Impress.
+- تعبئة الصور، تعبئة التدرج، وتعبئة النمط للنص غير مدعومة في LibreOffice/OpenOffice Impress.
 
-![odp-list-example](odp-list-example.png)
+كما أن MS PowerPoint وLibreOffice/OpenOffice Impress يتعاملان مع القوائم بشكل مختلف. قد لا يتم عرض ملف ODP تم إنشاؤه في PowerPoint بشكل صحيح في LibreOffice/OpenOffice Impress، والعكس صحيح.
 
-**Aspose.Slides** يحفظ قوائم ODP لضمان عرضها بشكل صحيح في LibreOffice/OpenOffice Impress.
+توضح الصورة أدناه كيفية ظهور قائمة تم إنشاؤها في LibreOffice Impress:
 
-[تعلم المزيد حول تنسيق OpenDocument و PowerPoint](https://support.microsoft.com/en-gb/office/use-powerpoint-to-save-or-open-a-presentation-in-the-opendocument-presentation-odp-format-94805e84-1b09-4c98-a8b5-0da2a52242a0/).
+![مثال قائمة ODP](odp-list-example.png)
+
+Aspose.Slides يحفظ قوائم ODP بطريقة تضمن عرضها بشكل صحيح في LibreOffice/OpenOffice Impress.
+
+[Learn more about the OpenDocument format and PowerPoint](https://support.microsoft.com/en-us/office/use-powerpoint-to-save-or-open-a-presentation-in-the-opendocument-presentation-odp-format-94805e84-1b09-4c98-a8b5-0da2a52242a0).
+
+## **الأسئلة المتكررة**
+
+**ماذا إذا تغير تنسيق ملف ODP الخاص بي بعد التحويل؟**
+
+تستخدم ODP وPowerPoint نماذج عرض مختلفة، وقد لا يتم عرض بعض العناصر—مثل الجداول أو الخطوط المخصصة أو أنماط التعبئة—نفسه تمامًا. يوصى بمراجعة المخرج وتعديل التخطيط أو التنسيق في الشيفرة إذا لزم الأمر.
+
+**هل أحتاج إلى تثبيت OpenOffice أو LibreOffice لاستخدام تحويل ODP؟**
+
+لا، Aspose.Slides for .NET مكتبة مستقلة ولا تتطلب وجود OpenOffice أو LibreOffice مثبتًا على نظامك.
+
+**هل يمكنني تخصيص صيغة المخرج أثناء تحويل ODP (مثل ضبط خيارات PDF)؟**
+
+نعم، Aspose.Slides توفر خيارات غنية لتخصيص المخرج. على سبيل المثال، عند الحفظ إلى PDF، يمكنك التحكم في الضغط، جودة الصورة، عرض النص، وأكثر عبر فئة [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
+
+**هل Aspose.Slides مناسبة لمعالجة ODP على الخادم أو في السحابة؟**
+
+بالطبع. Aspose.Slides for .NET مصممة للعمل في بيئات سطح المكتب والخوادم، بما في ذلك المنصات السحابية مثل Azure وAWS وحاويات Docker، دون أي تبعيات واجهة مستخدم.

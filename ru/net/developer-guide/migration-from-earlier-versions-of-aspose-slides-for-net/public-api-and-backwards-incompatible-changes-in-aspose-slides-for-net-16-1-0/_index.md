@@ -1,21 +1,35 @@
 ---
-title: Публичный API и изменения, несовместимые с предыдущими версиями в Aspose.Slides для .NET 16.1.0
+title: Публичный API и несовместимые изменения в Aspose.Slides для .NET 16.1.0
+linktitle: Aspose.Slides для .NET 16.1.0
 type: docs
 weight: 220
 url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/
+keywords:
+- миграция
+- устаревший код
+- современный код
+- устаревший подход
+- современный подход
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Обзор обновлений публичного API и разрывных изменений в Aspose.Slides для .NET, позволяющий плавно мигрировать ваши решения для презентаций PowerPoint PPT, PPTX и ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Эта страница содержит список всех [добавленных](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) или [удаленных](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) классов, методов, свойств и так далее, а также других изменений, введенных в API Aspose.Slides для .NET 16.1.0.
+Эта страница перечисляет все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) или [удалённые](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) классы, методы, свойства и т. д., а также другие изменения, внесённые в API Aspose.Slides for .NET 16.1.0.
 
 {{% /alert %}} 
 ## **Изменения публичного API**
 
 
 #### **Свойство RotationAngle добавлено в интерфейсы IChartTextBlockFormat и ITextFrameFormat**
-Свойство RotationAngle было добавлено в интерфейсы Aspose.Slides.Charts.IChartTextBlockFormat и Aspose.Slides.ITextFrameFormat. 
-Оно задает пользовательский угол поворота, который применяется к тексту в ограничивающем прямоугольнике.
+Свойство RotationAngle добавлено в интерфейсы Aspose.Slides.Charts.IChartTextBlockFormat и Aspose.Slides.ITextFrameFormat.  
+Оно задаёт пользовательский угол вращения, применяемый к тексту внутри ограничивающего прямоугольника.
 
 ``` csharp
 
@@ -33,7 +47,7 @@ series.Labels.DefaultDataLabelFormat.TextFormat.TextBlockFormat.RotationAngle = 
 
 chart.HasTitle = true;
 
-chart.ChartTitle.AddTextFrameForOverriding("Пользовательский заголовок").TextFrameFormat.RotationAngle = -30;
+chart.ChartTitle.AddTextFrameForOverriding("Custom title").TextFrameFormat.RotationAngle = -30;
 
 pres.Save("out.pptx", SaveFormat.Pptx);
 
@@ -41,4 +55,4 @@ pres.Save("out.pptx", SaveFormat.Pptx);
 
 
 ``` 
-#### **OdpException перемещен из Aspose.Slides.Odp в пространство имен Aspose.Slides**
+#### **OdpException перемещён из пространства имён Aspose.Slides.Odp в пространство имён Aspose.Slides**

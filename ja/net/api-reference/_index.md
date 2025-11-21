@@ -1,14 +1,21 @@
 ---
-title: APIリファレンス
+title: API リファレンス
 type: docs
 weight: 50
 url: /ja/net/api-reference/
+keywords:
+- API リファレンス
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: ".NET でプレゼンテーションを作成、編集、変換できます—PowerPoint は不要です。Aspose.Slides は PPT、PPTX、ODP をサポートし、SVG/PDF への高速エクスポートが可能です。"
 ---
 
 {{% alert color="primary" %}} 
+Aspose.Slides for .NET は、Microsoft PowerPoint® などを使用せずに .NET アプリケーションがプレゼンテーション ドキュメントを読み書きできるクラス ライブラリです。Aspose.Slides for .NET は、テキスト、図形、テーブルとアニメーションの管理、スライドへの音声および動画の追加、スライドのプレビュー、SVG、PDF 形式へのエクスポートなどを可能にします。
 
-Aspose.Slides for .NETは、.NETアプリケーションがMicrosoft PowerPoint®やその他のアプリケーションを使用せずにプレゼンテーションドキュメントを読み書きするためのクラスライブラリです。Aspose.Slides for .NETでは、テキスト、図形、表、アニメーションを管理し、スライドに音声や動画を追加し、スライドをプレビューし、SVGやPDF形式にスライドをエクスポートすることができます。 
-
-最新のAPIリファレンスは[Aspose.Slides for .NET API Reference.](https://reference.aspose.com/slides/net)で見つけることができます。
-
+最新の API リファレンスは、[Aspose.Slides for .NET API リファレンス.](https://reference.aspose.com/slides/net) にあります。
 {{% /alert %}}

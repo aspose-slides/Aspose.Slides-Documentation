@@ -1,100 +1,117 @@
 ---
-title: So fügen Sie Kopf- und Fußzeilen in einer Präsentation hinzu
+title: So fügen Sie Kopf‑ und Fußzeilen zu Präsentationen in .NET hinzu
+linktitle: Kopf‑ und Fußzeile hinzufügen
 type: docs
 weight: 20
 url: /de/net/how-to-add-header-footer-in-a-presentation/
+keywords:
+- Migration
+- Kopfzeile hinzufügen
+- Fußzeile hinzufügen
+- Legacy‑Code
+- Moderner Code
+- Legacy‑Ansatz
+- Moderner Ansatz
+- PowerPoint
+- OpenDocument
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie in .NET Kopf‑ und Fußzeilen in PowerPoint‑PPT, PPTX‑ und ODP‑Präsentationen mithilfe sowohl der Legacy‑ als auch der modernen Aspose.Slides‑APIs hinzufügen."
 ---
 
 {{% alert color="primary" %}} 
 
-Eine neue [Aspose.Slides für .NET API](/slides/de/net/) wurde veröffentlicht und nun unterstützt dieses einzelne Produkt die Möglichkeit, PowerPoint-Dokumente von Grund auf neu zu erstellen und vorhandene zu bearbeiten.
+Eine neue [Aspose.Slides für .NET API](/slides/de/net/) wurde veröffentlicht und jetzt unterstützt dieses einzelne Produkt die Möglichkeit, PowerPoint‑Dokumente von Grund auf zu erstellen und vorhandene zu bearbeiten.
 
 {{% /alert %}} 
 ## **Unterstützung für Legacy-Code**
-Um den Legacy-Code zu verwenden, der mit Aspose.Slides für .NET-Versionen vor 13.x entwickelt wurde, müssen Sie einige kleine Änderungen an Ihrem Code vornehmen, und der Code wird wie früher funktionieren. Alle Klassen, die in der alten Aspose.Slides für .NET unter den Namespaces Aspose.Slide und Aspose.Slides.Pptx vorhanden waren, sind jetzt in den einzelnen Aspose.Slides-Namespace zusammengeführt. Bitte werfen Sie einen Blick auf das folgende einfache Code-Snippet zum Hinzufügen von Kopf- und Fußzeilen in Präsentationen in der Legacy Aspose.Slides API und folgen Sie den Schritten, die beschreiben, wie man zur neuen zusammengeführten API migriert.
+Um den Legacy‑Code zu verwenden, der mit Aspose.Slides für .NET Versionen vor 13.x entwickelt wurde, müssen Sie einige geringfügige Änderungen an Ihrem Code vornehmen, und der Code wird wie zuvor funktionieren. Alle Klassen, die in der alten Aspose.Slides für .NET unter den Namespaces Aspose.Slide und Aspose.Slides.Pptx vorhanden waren, sind jetzt in einem einzigen Aspose.Slides‑Namespace zusammengeführt. Bitte sehen Sie sich das folgende einfache Code‑Snippet zum Hinzufügen von Kopf‑ und Fußzeilen in einer Präsentation im Legacy Aspose.Slides‑API an und befolgen Sie die Schritte, die beschreiben, wie Sie zur neuen zusammengeführten API migrieren.
 ## **Legacy Aspose.Slides für .NET Ansatz**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
 
-//Eigenschaften zur Sichtbarkeit von Kopf- und Fußzeilen einstellen
+//Festlegen der Sichtbarkeit von Kopf- und Fußzeilen
 sourcePres.UpdateSlideNumberFields = true;
 
-//Aktualisieren der Datums- und Uhrzeitfelder
+//Aktualisieren der Datums- und Zeitfelder
 sourcePres.UpdateDateTimeFields = true;
 
-//Datums- und Uhrzeitplatzhalter anzeigen
+//Datum- und Zeit-Platzhalter anzeigen
 sourcePres.HeaderFooterManager.IsDateTimeVisible = true;
 
-//Fußzeilenplatzhalter anzeigen
+//Fußzeilen-Platzhalter anzeigen
 sourcePres.HeaderFooterManager.IsFooterVisible = true;
 
 //Foliennummer anzeigen
 sourcePres.HeaderFooterManager.IsSlideNumberVisible = true;
 
-//Sichtbarkeit der Kopf- und Fußzeilen auf der Titelfolie einstellen
+//Festlegen der Sichtbarkeit von Kopf- und Fußzeilen auf der Titelfolie
 sourcePres.HeaderFooterManager.SetVisibilityOnTitleSlide(true);
 
-//Die Präsentation auf die Festplatte schreiben
+//Präsentation auf die Festplatte schreiben
 sourcePres.Write("NewSource.pptx");
 ```
 
 ```c#
-//Die Präsentation erstellen
+//Präsentation erstellen
 Presentation pres = new Presentation();
 
-//Erste Folie abrufen
+//Erste Folie holen
 Slide sld = pres.GetSlideByPosition(1);
 
-//Auf die Kopf-/Fußzeile der Folie zugreifen
+//Zugriff auf Header / Footer der Folie
 HeaderFooter hf = sld.HeaderFooter;
 
-//Sichtbarkeit der Seitennummer einstellen
+//Seitenzahl Sichtbarkeit festlegen
 hf.PageNumberVisible = true;
 
-//Sichtbarkeit der Fußzeile einstellen
+//Footer Sichtbarkeit festlegen
 hf.FooterVisible = true;
 
-//Sichtbarkeit der Kopfzeile einstellen
+//Header Sichtbarkeit festlegen
 hf.HeaderVisible = true;
 
-//Sichtbarkeit von Datum und Uhrzeit einstellen
+//Datum Zeit Sichtbarkeit festlegen
 hf.DateTimeVisible = true;
 
-//Datums- und Uhrzeitformat einstellen
+//Datum Zeit Format festlegen
 hf.DateTimeFormat = DateTimeFormat.DateTime_dMMMMyyyy;
 
-//Kopfzeilentext einstellen
-hf.HeaderText = "Kopfzeilentext";
+//Header-Text festlegen
+hf.HeaderText = "Header Text";
 
-//Fußzeilentext einstellen
-hf.FooterText = "Fußzeilentext";
+//Footer-Text festlegen
+hf.FooterText = "Footer Text";
 
-//Die Präsentation auf die Festplatte schreiben
+//Präsentation auf die Festplatte schreiben
 pres.Write("HeadFoot.ppt");
 ```
 
 
 
-## **Neuer Ansatz von Aspose.Slides für .NET 13.x**
+
+## **Neuer Aspose.Slides für .NET 13.x Ansatz**
 ``` csharp
 using (Presentation sourcePres = new Presentation())
 {
-    //Eigenschaften zur Sichtbarkeit von Kopf- und Fußzeilen einstellen
+    //Festlegen der Sichtbarkeit von Kopf- und Fußzeilen
     sourcePres.HeaderFooterManager.SetAllSlideNumbersVisibility(true);
 
-    //Aktualisieren der Datums- und Uhrzeitfelder
+    //Datums- und Zeitfelder aktualisieren
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //Datums- und Uhrzeitplatzhalter anzeigen
+    //Datums- und Zeit-Platzhalter anzeigen
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //Fußzeilenplatzhalter anzeigen
+    //Fußzeilen-Platzhalter anzeigen
     sourcePres.HeaderFooterManager.SetAllFootersVisibility(true);
     
-    //Sichtbarkeit der Kopf- und Fußzeilen auf der Titelfolie einstellen
+    //Kopf- und Fußzeilen-Sichtbarkeit auf Titelfolien festlegen
     sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
-    //Die Präsentation auf die Festplatte schreiben
+    //Präsentation auf die Festplatte schreiben
     sourcePres.Save("NewSource.pptx", SaveFormat.Pptx);
 }
 ```

@@ -3,12 +3,19 @@ title: Referencia de API
 type: docs
 weight: 50
 url: /es/net/api-reference/
+keywords:
+- Referencia de API
+- PowerPoint
+- OpenDocument
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Cree, edite y convierta presentaciones en .NET - no necesita PowerPoint. Aspose.Slides admite PPT, PPTX y ODP con exportación rápida a SVG/PDF."
 ---
 
 {{% alert color="primary" %}} 
+Aspose.Slides for .NET es una biblioteca de clases que permite a las aplicaciones .NET leer y escribir documentos de presentación sin usar Microsoft PowerPoint® u otros. Aspose.Slides for .NET permite gestionar texto, formas, tablas y animaciones, agregar audio y video a las diapositivas, previsualizar diapositivas, exportar diapositivas a formato SVG, PDF y más.
 
-Aspose.Slides para .NET es una biblioteca de clases que permite a las aplicaciones .NET leer y escribir documentos de presentación sin utilizar Microsoft PowerPoint® u otros. Aspose.Slides para .NET permite gestionar texto, formas, tablas y animaciones, añadir audio y video a las diapositivas, previsualizar diapositivas, exportar diapositivas a SVG, formato PDF y más.
-
-La última referencia de API se puede encontrar en [Referencia de API de Aspose.Slides para .NET.](https://reference.aspose.com/slides/net)
-
+La referencia de API más reciente se puede encontrar en [Referencia de API de Aspose.Slides para .NET.](https://reference.aspose.com/slides/net)
 {{% /alert %}}

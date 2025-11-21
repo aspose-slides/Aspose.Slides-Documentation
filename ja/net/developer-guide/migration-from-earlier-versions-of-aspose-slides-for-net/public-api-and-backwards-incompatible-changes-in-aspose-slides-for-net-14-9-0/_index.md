@@ -1,26 +1,40 @@
 ---
-title: Aspose.Slides for .NET 14.9.0における公開APIと後方互換性のない変更
+title: Aspose.Slides for .NET 14.9.0 のパブリック API と後方互換性のない変更
+linktitle: Aspose.Slides for .NET 14.9.0
 type: docs
 weight: 110
 url: /ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/
+keywords:
+- 移行
+- レガシーコード
+- モダンコード
+- レガシーアプローチ
+- モダンアプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET のパブリック API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
 ---
 
 {{% alert color="primary" %}} 
 
-このページでは、Aspose.Slides for .NET 14.9.0 API に伴って追加された ([added](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/)) または削除された ([removed](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/)) クラス、メソッド、プロパティなど、その他の変更をリストします。
+このページは、Aspose.Slides for .NET 14.9.0 APIで導入された、[追加された](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/)または[削除された](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/)クラス、メソッド、プロパティなど、その他の変更をすべて一覧表示します。
 
 {{% /alert %}} 
-## **公開APIの変更**
-#### **ISmartArtNodeCollectionへのICollectionおよびジェネリックIEnumerableインターフェースの継承が追加**
-クラスAspose.Slides.SmartArt.SmartArtNodeCollection（および関連するインターフェースAspose.Slides.SmartArt.ISmartArtNodeCollection）は、ジェネリックインターフェースIEnumerable<ISmartArtNode>およびインターフェースICollectionを継承します。
-#### **SmartArtLayoutType.Custom列挙値が追加**
-カスタムSmartArtレイアウトタイプは、カスタムテンプレートを持つ図を表します。カスタム図はプレゼンテーションファイルからのみロードでき、ShapeCollection.AddSmartArt(x, y, width, height, SmartArtLayoutType.Custom)メソッドを使用して作成することはできません。
-#### **SmartArtShapeクラスおよびISmartArtShapeインターフェースが追加**
-Aspose.Slides.SmartArt.SmartArtShapeクラス（およびそのインターフェースAspose.Slides.SmartArt.ISmartArtShape）は、SmartArt図の個々の形状へのアクセスを提供します。SmartArtShapeはFillFormat、LineFormatを変更したり、ハイパーリンクを追加したりするために使用できます。
+## **パブリック API の変更**
+#### **ISmartArtNodeCollection に ICollection およびジェネリック IEnumerable インターフェイスが追加**
+The class Aspose.Slides.SmartArt.SmartArtNodeCollection (and the related interface Aspose.Slides.SmartArt.ISmartArtNodeCollection) inherit the generic interface IEnumerable<ISmartArtNode> and interface ICollection.
+#### **SmartArtLayoutType.Custom 列挙値が追加**
+The Custom SmartArt layout type represents a diagram with a custom template. Custom diagrams can only be loaded from a presentation file and can't be created via the ShapeCollection.AddSmartArt(x, y, width, height, SmartArtLayoutType.Custom) method.
+#### **SmartArtShape クラス と ISmartArtShape インターフェイスが追加**
+The Aspose.Slides.SmartArt.SmartArtShape class (and its interface Aspose.Slides.SmartArt.ISmartArtShape) give access to individual shapes in a SmartArt diagram. SmartArtShape can be used to change FillFormat, LineFormat, adding Hyperlinks and other tasks.
 
 {{% alert color="primary" %}} 
 
-**注**: SmartArtShapeはIShapeプロパティRawFrame、Frame、Rotation、X、Y、Width、Heightをサポートしておらず、アクセスしようとするとSystem.NotSupportedExceptionがスローされます。
+**注**: SmartArtShape は IShape プロパティ RawFrame、Frame、Rotation、X、Y、Width、Height をサポートしておらず、これらにアクセスしようとすると System.NotSupportedException がスローされます。
 
 使用例:
 
@@ -51,12 +65,12 @@ Aspose.Slides.SmartArt.SmartArtShapeクラス（およびそのインターフ�
 ``` 
 
 {{% /alert %}} 
-#### **SmartArtShapeCollectionクラス、ISmartArtShapeCollectionインターフェース、ISmartArtNode.Shapesプロパティが追加**
-Aspose.Slides.SmartArt.SmartArtShapeCollectionクラス（およびそのインターフェースAspose.Slides.SmartArt.ISmartArtShapeCollection）は、SmartArt図の個々の形状へのアクセスを追加します。このコレクションにはSmartArtNodeに関連付けられた形状が含まれています。SmartArtNode.Shapesプロパティは、ノードに関連付けられたすべての形状のコレクションを返します。
+#### **SmartArtShapeCollection クラス、ISmartArtShapeCollection インターフェイス および ISmartArtNode.Shapes プロパティが追加**
+The Aspose.Slides.SmartArt.SmartArtShapeCollection class (and its interface Aspose.Slides.SmartArt.ISmartArtShapeCollection) add access to individual shapes in a SmartArt diagram. The collection contains shapes associated with SmartArtNode. The SmartArtNode.Shapes property returns collections of all shapes associated with the node.
 
 {{% alert color="primary" %}} 
 
-**注**: SmartArtLayoutTypeに応じて、1つのSmartArtShapeは複数のノード間で共有される場合があります。
+**注**: SmartArtLayoutType によっては、1 つの SmartArtShape が複数のノード間で共有される場合があります。
 
 ``` csharp
 
@@ -85,28 +99,28 @@ Aspose.Slides.SmartArt.SmartArtShapeCollectionクラス（およびそのイン�
 ``` 
 
 {{% /alert %}} 
-#### **ページ番号を保持してスライドを保存するためのメソッドが追加**
-次のメソッドが追加されました：
+#### **ページ番号を保持したスライド保存メソッドが追加**
+The following methods have been added:
 
 - void IPresentation.Save(string fname, int[] slides, SaveFormat format);
 - void IPresentation.Save(string fname, int[] slides, SaveFormat format, ISaveOption options);
 - void IPresentation.Save(Stream stream, int[] slides, SaveFormat format);
 - void IPresentation.Save(Stream stream, int[] slides, SaveFormat format, ISaveOption options);
 
-これらのメソッドにより、開発者は指定されたプレゼンテーションスライドをPDF、XPS、TIFF、HTML形式で保存できます。'slides'配列はページ番号を指定するために使用され、1から始まります。
+These methods allow developers to save specified presentation slides to PDF, XPS, TIFF, HTML formats. The 'slides' array is used to specify page numbers, starting from 1.
 Save(string fname, int[] slides, SaveFormat format);
 
 ``` csharp
 
  Presentation presentation = new Presentation(presentationFileName);
 
-int[] slides = new int[] { 2, 3, 5 }; //スライド位置の配列
+int[] slides = new int[] { 2, 3, 5 }; //Array of slides positions
 
 presentation.Save(outFileName, slides, SaveFormat.Pdf);
 
 ``` 
-#### **PPImageおよびIPPImageに画像を置き換えるためのメソッドが追加**
-新しいメソッドが追加されました：
+#### **PPImage、IPPImage に画像置換メソッドが追加**
+New methods added:
 
 - IPPImage.ReplaceImage(byte[] newImageData)
 - IPPImage.ReplaceImage(Image newImage)
@@ -116,7 +130,7 @@ presentation.Save(outFileName, slides, SaveFormat.Pdf);
 
  Presentation presentation = new Presentation(presentation.pptx);
 
-//最初のメソッド
+//First method
 
 byte[] data = File.ReadAllBytes(image0.jpeg);
 
@@ -124,7 +138,7 @@ IPPImage oldImage = presentation.Images[0];
 
 oldImage.ReplaceImage(data);
 
-//2番目のメソッド
+//Second method
 
 Image newImage = Image.FromFile(image1.png);
 
@@ -132,7 +146,7 @@ oldImage = presentation.Images[1];
 
 oldImage.ReplaceImage(newImage);
 
-//3番目のメソッド
+//Third method
 
 oldImage = presentation.Images[2];
 
@@ -140,4 +154,4 @@ oldImage.ReplaceImage(presentation.Images[3]);
 
 presentation.Save(presentation_out.pptx, SaveFormat.Pptx);
 
-``` 
+```

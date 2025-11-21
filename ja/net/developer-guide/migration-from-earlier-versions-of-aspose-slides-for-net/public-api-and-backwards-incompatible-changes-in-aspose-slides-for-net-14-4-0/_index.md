@@ -1,14 +1,28 @@
 ---
-title: Aspose.Slides for .NET 14.4.0におけるパブリックAPIおよび後方互換性のない変更
+title: Aspose.Slides for .NET 14.4.0 の公開 API と後方互換性のない変更
+linktitle: Aspose.Slides for .NET 14.4.0
 type: docs
 weight: 60
 url: /ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-4-0/
+keywords:
+- 移行
+- レガシーコード
+- モダンコード
+- レガシーアプローチ
+- モダンアプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET の公開 API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
 ---
 
-## **パブリックAPIおよび後方互換性のない変更**
+## **パブリック API と下位互換性のない変更**
 ### **追加されたインターフェイス、クラス、メソッド、およびプロパティ**
-#### **Aspose.Slides.ILayoutSlide.HasDependingSlidesプロパティが追加されました**
-Aspose.Slides.ILayoutSlide.HasDependingSlidesプロパティは、このレイアウトスライドに依存するスライドが少なくとも1つ存在する場合にtrueを返します。例えば：
+#### **Aspose.Slides.ILayoutSlide.HasDependingSlides プロパティが追加されました**
+このプロパティ Aspose.Slides.ILayoutSlide.HasDependingSlides は、このレイアウト スライドに依存しているスライドが少なくとも 1 つ存在する場合に true を返します。例:
 
 ``` csharp
 
@@ -19,8 +33,8 @@ if (!layout.HasDependingSlides)
     layout.Remove();
 
 ``` 
-#### **Aspose.Slides.ILayoutSlide.Remove()メソッド**
-Aspose.Slides.ILayoutSlide.Remove()メソッドは、最小限のコードでプレゼンテーションからレイアウトを削除することを可能にします。例えば：
+#### **Aspose.Slides.ILayoutSlide.Remove() メソッド**
+Aspose.Slides.ILayoutSlide.Remove() メソッドを使用すると、最小限のコードでプレゼンテーションからレイアウトを削除できます。例:
 
 ``` csharp
 
@@ -31,8 +45,8 @@ if (!layout.HasDependingSlides)
     layout.Remove();
 
 ``` 
-#### **Aspose.Slides.ILayoutSlideCollection.Remove(ILayoutSlide)メソッド**
-Aspose.Slides.ILayoutSlideCollection.Remove(ILayoutSlide)メソッドを使用すると、コレクションからレイアウトを削除できます。コード例：
+#### **Aspose.Slides.ILayoutSlideCollection.Remove(ILayoutSlide) メソッド**
+このメソッドは、コレクションからレイアウトを削除できます。コード例:
 
 ``` csharp
 
@@ -58,7 +72,7 @@ if (!layout.HasDependingSlides)
 
 ``` 
 #### **Aspose.Slides.ILayoutSlideCollection.RemoveUnused()**
-Aspose.Slides.ILayoutSlideCollection.RemoveUnused()メソッドを使用すると、未使用のレイアウトスライド（HasDependingSlidesがfalseのレイアウトスライド）を削除できます。コード例：
+Aspose.Slides.ILayoutSlideCollection.RemoveUnused() メソッドを使用すると、未使用のレイアウト スライド（HasDependingSlides が false のレイアウト スライド）を削除できます。コード例:
 
 ``` csharp
 
@@ -75,8 +89,8 @@ Aspose.Slides.ILayoutSlideCollection.RemoveUnused()メソッドを使用する�
 masterSlide.LayoutSlides.RemoveUnused();
 
 ``` 
-#### **Aspose.Slides.IMasterSlide.HasDependingSlidesプロパティ**
-Aspose.Slides.IMasterSlide.HasDependingSlidesプロパティは、このマスタースライドに依存するスライドが少なくとも1つ存在する場合にtrueを返します。例えば：
+#### **Aspose.Slides.IMasterSlide.HasDependingSlides プロパティ**
+このプロパティ Aspose.Slides.IMasterSlide.HasDependingSlides は、このマスター スライドに依存しているスライドが少なくとも 1 つ存在する場合に true を返します。例:
 
 ``` csharp
 
@@ -87,8 +101,8 @@ if (!masterSlide.HasDependingSlides)
     presentation.Masters.Remove(masterSlide);
 
 ``` 
-#### **Aspose.Slides.ISlide.Remove()メソッド**
-Aspose.Slides.ISlide.Remove()メソッドは、最小限のコードでプレゼンテーションからスライドを削除することを可能にします。例えば：
+#### **Aspose.Slides.ISlide.Remove() メソッド**
+Aspose.Slides.ISlide.Remove() メソッドを使用すると、最小限のコードでプレゼンテーションからスライドを削除できます。例:
 
 ``` csharp
 
@@ -98,11 +112,11 @@ slide.Remove();
 
 ``` 
 #### **Aspose.Slides.SmartArt.ISmartArtNode.BulletFillFormat**
-Aspose.Slides.SmartArt.ISmartArtNode.BulletFillFormatプロパティは、レイアウトが弾丸を提供する場合、SmartArtノードの弾丸用のIFillFormatを返します。弾丸画像を設定するために使用できます。
+このプロパティ Aspose.Slides.SmartArt.ISmartArtNode.BulletFillFormat は、レイアウトが箇条書きを提供している場合に SmartArt ノードの箇条書きの IFillFormat を返します。箇条書き画像の設定に使用できます。
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-SmartArts-BulletFillFormat-BulletFillFormat.cs" >}}
-#### **Aspose.Slides.SmartArt.ISmartArtNode.Levelプロパティ**
-Aspose.Slides.SmartArt.ISmartArtNode.Levelプロパティは、SmartArtノードのネストレベルを返します。
+#### **Aspose.Slides.SmartArt.ISmartArtNode.Level プロパティ**
+このプロパティ Aspose.Slides.SmartArt.ISmartArtNode.Level は、SmartArt ノードの入れ子レベルを返します。
 
 ``` csharp
 
@@ -110,11 +124,11 @@ Aspose.Slides.SmartArt.ISmartArtNode.Levelプロパティは、SmartArtノード
 
 if(node.Level == 1)
 
-    node.TextFrame.Text = "最初のレベル";
+    node.TextFrame.Text = "First level";
 
 ``` 
-#### **Aspose.Slides.SmartArt.ISmartArtNode.Positionプロパティ**
-Aspose.Slides.SmartArt.ISmartArtNode.Positionプロパティは、ノードの兄弟の中での位置を返します。
+#### **Aspose.Slides.SmartArt.ISmartArtNode.Position プロパティ**
+このプロパティ Aspose.Slides.SmartArt.ISmartArtNode.Position は、同じ階層内でのノードの位置を返します。
 
 ``` csharp
 
@@ -125,8 +139,8 @@ if (node.ChildNodes.Count > 3)
     node.ChildNodes[0].Position++;
 
 ``` 
-#### **Aspose.Slides.SmartArt.ISmartArtNode.Remove()メソッドが追加されました**
-Aspose.Slides.SmartArt.ISmartArtNode.Remove()メソッドを使用すると、図からノードを削除できます。
+#### **Aspose.Slides.SmartArt.ISmartArtNode.Remove() メソッドが追加されました**
+Aspose.Slides.SmartArt.ISmartArtNode.Remove() メソッドを使用すると、ダイアグラムからノードを削除できます。
 
 ``` csharp
 
@@ -135,28 +149,28 @@ Aspose.Slides.SmartArt.ISmartArtNode.Remove()メソッドを使用すると、�
 node.Remove();
 
 ``` 
-#### **IGlobalLayoutSlideCollectionインターフェイスとGlobalLayoutSlideCollectionクラス**
-IGlobalLayoutSlideCollectionインターフェイスとGlobalLayoutSlideCollectionクラスがAspose.Slides名前空間に追加されました。
+#### **IGlobalLayoutSlideCollection インターフェイスと GlobalLayoutSlideCollection クラス**
+IGlobalLayoutSlideCollection インターフェイスと GlobalLayoutSlideCollection クラスが Aspose.Slides 名前空間に追加されました。
 
-GlobalLayoutSlideCollectionクラスは、IGlobalLayoutSlideCollectionインターフェイスを実装しています。
+GlobalLayoutSlideCollection クラスは IGlobalLayoutSlideCollection インターフェイスを実装します。
 
-IGlobalLayoutSlideCollectionインターフェイスは、プレゼンテーション内のすべてのレイアウトスライドのコレクションを表します。IPresentation.LayoutSlidesプロパティは、IGlobalLayoutSlideCollection型です。IGlobalLayoutSlideCollectionは、マスターのレイアウトスライドの個別コレクションを統合する文脈でレイアウトスライドを追加および複製するためのメソッドを持つILayoutSlideCollectionインターフェイスを拡張します：
+IGlobalLayoutSlideCollection インターフェイスは、プレゼンテーション内のすべてのレイアウト スライドのコレクションを表します。IPresentation.LayoutSlides プロパティの型は IGlobalLayoutSlideCollection です。IGlobalLayoutSlideCollection は ILayoutSlideCollection インターフェイスを拡張し、マスターの個別レイアウト スライド コレクションを統合するコンテキストでレイアウト スライドを追加およびクローンするためのメソッドを提供します:
 
-- ILayoutSlide AddClone(ILayoutSlide sourceLayout); – 指定したレイアウトスライドのコピーをプレゼンテーションに追加するために使用できます。このメソッドは、元の書式を保持します（異なるプレゼンテーション間でレイアウトを複製する場合、レイアウトのマスターも複製される可能性があります。内部レジストリは、自動的に複製されたマスターを追跡して、同じマスタースライドの複数の複製を作成するのを防ぎます）。
-- ILayoutSlide AddClone(ILayoutSlide sourceLayout, IMasterSlide destMaster); – 指定したレイアウトスライドのコピーをプレゼンテーションに追加するために使用されます。新しいレイアウトは、宛先プレゼンテーションの定義されたマスターにリンクされます。このオプションは、Microsoft PowerPointの「宛先テーマの使用」オプションでコピーまたは貼り付けするのと類似しています。
-- ILayoutSlide Add(IMasterSlide master, SlideLayoutType layoutType, string layoutName); – プレゼンテーションに新しいレイアウトスライドを追加するために使用されます。サポートされるレイアウトタイプ：タイトル、タイトルのみ、空白、タイトルとオブジェクト、縦書きテキスト、縦書きタイトルとテキスト、2つのオブジェクト、セクションヘッダー、2つのテキストと2つのオブジェクト、タイトルオブジェクトとキャプション、画像とキャプション、カスタム。レイアウト名は自動的に生成される場合があります。タイプがSlideLayoutType.Customの追加されたレイアウトは、プレースホルダーや形状が含まれていません。このメソッドの類似品は、IMasterSlide.LayoutSlidesプロパティを使用してアクセスされるIMasterLayoutSlideCollection.Add(SlideLayoutType, string)メソッドです。
-#### **インターフェイスIMasterLayoutSlideCollectionとクラスMasterLayoutSlideCollection**
-IMasterLayoutSlideCollectionインターフェイスとMasterLayoutSlideCollectionクラスがAspose.Slides名前空間に追加されました。MasterLayoutSlideCollectionクラスは、IMasterLayoutSlideCollectionインターフェイスを実装しています。
+- ILayoutSlide AddClone(ILayoutSlide sourceLayout); – 指定したレイアウト スライドのコピーをプレゼンテーションに追加する際に使用できます。このメソッドは元の書式設定を保持します（異なるプレゼンテーション間でレイアウトをクローンする場合、レイアウトのマスターもクローンされます。内部レジストリは自動的にクローンされたマスターを追跡し、同一マスター スライドの複数クローン作成を防止します）。
+- ILayoutSlide AddClone(ILayoutSlide sourceLayout, IMasterSlide destMaster); – 指定したレイアウト スライドのコピーをプレゼンテーションに追加する際に使用します。新しいレイアウトは対象プレゼンテーションの指定マスターにリンクされます。このオプションは Microsoft PowerPoint の **Use Destination Theme** オプションを使用したコピー/貼り付けと同等です。
+- ILayoutSlide Add(IMasterSlide master, SlideLayoutType layoutType, string layoutName); – プレゼンテーションに新しいレイアウト スライドを追加します。サポートされるレイアウト タイプ: Title, TitleOnly, Blank, TitleAndObject, VerticalText, VerticalTitleAndText, TwoObjects, SectionHeader, TwoTextAndTwoObjects, TitleObjectAndCaption, PictureAndCaption, Custom。レイアウト名は自動的に生成できます。SlideLayoutType.Custom のレイアウトはプレースホルダーもシェイプも含みません。このメソッドの類似は IMasterSlide.LayoutSlides プロパティでアクセスできる IMasterLayoutSlideCollection.Add(SlideLayoutType, string) メソッドです。
+#### **Interface IMasterLayoutSlideCollection と class MasterLayoutSlideCollection**
+IMasterLayoutSlideCollection インターフェイスと MasterLayoutSlideCollection クラスが Aspose.Slides 名前空間に追加されました。MasterLayoutSlideCollection クラスは IMasterLayoutSlideCollection インターフェイスを実装します。
 
-IMasterLayoutSlideCollectionインターフェイスは、定義されたマスタースライドのすべてのレイアウトスライドのコレクションを表します。個々のマスターレイアウトスライドのコレクションの文脈内でレイアウトスライドを追加、挿入、削除、または複製するためのメソッドを使用して、ILayoutSlideCollectionインターフェイスを拡張しています：
+IMasterLayoutSlideCollection インターフェイスは、特定のマスター スライドのすべてのレイアウト スライドのコレクションを表します。ILayoutSlideCollection インターフェイスを拡張し、マスターのレイアウト スライドの個別コレクション内でレイアウト スライドを追加、挿入、削除、またはクローンするためのメソッドを提供します:
 
 ``` csharp
 
- // メソッドシグネチャ：
+ // Method signature:
 
 ILayoutSlide AddClone(ILayoutSlide sourceLayout);
 
-// sourceLayoutのコピーをdestMasterSlideに追加するコード例：
+// Code example that attaches copy of the sourceLayout to the destMasterSlide:
 
 IMasterSlide destMasterSlide = ...;
 
@@ -164,41 +178,55 @@ destMasterSlide.LayoutSlides.AddClone(sourceLayout);
 
 ``` 
 
-このメソッドを使用して、指定されたレイアウトスライドのコピーをコレクションの末尾に追加できます。新しいレイアウトは、このレイアウトスライドコレクションの親マスタースライドにリンクされます。したがって、これはPowerPointの「宛先テーマの使用」オプションでコピーまたは貼り付けするのと類似しています。このメソッドの類似品は、IPresentation.LayoutSlidesプロパティを介してアクセスされるIGlobalLayoutSlideCollection.AddClone(ILayoutSlide, IMasterSlide)メソッドです。
+このメソッドは、指定したレイアウト スライドのコピーをコレクションの末尾に追加するために使用できます。新しいレイアウトはこのレイアウト スライド コレクションの親マスター スライドにリンクされます。したがって、PowerPoint の **Use Destination Theme** を使用したコピー/貼り付けと同等です。このメソッドの類似は IPresentation.LayoutSlides プロパティでアクセスできる IGlobalLayoutSlideCollection.AddClone(ILayoutSlide, IMasterSlide) メソッドです。
 
-- ILayoutSlide InsertClone(int index, ILayoutSlide sourceLayout); – 指定された位置に指定されたレイアウトスライドのコピーを挿入するために使用されます。新しいレイアウトは、このレイアウトスライドコレクションの親マスタースライドにリンクされます。したがって、これはPowerPointの「宛先テーマの使用」オプションでコピーおよび貼り付けするのと類似しています。
+- ILayoutSlide InsertClone(int index, ILayoutSlide sourceLayout); – 指定した位置にレイアウト スライドのコピーを挿入します。新しいレイアウトは親マスター スライドにリンクされます。PowerPoint の **Use Destination Theme** を使用したコピー/貼り付けと同等です。
 - ILayoutSlide Add(SlideLayoutType layoutType, string layoutName);
-- ILayoutSlide Insert(int index, SlideLayoutType layoutType, string layoutName); – 新しいレイアウトスライドを追加または挿入するために使用されます。サポートされるレイアウトタイプ：タイトル、タイトルのみ、空白、タイトルとオブジェクト、縦書きテキスト、縦書きタイトルとテキスト、2つのオブジェクト、セクションヘッダー、2つのテキストと2つのオブジェクト、タイトルオブジェクトとキャプション、画像とキャプション、カスタム。レイアウト名は自動的に生成される場合があります。追加されたSlideLayoutType.Custom型のレイアウトには、プレースホルダーや形状が含まれていません。このメソッドの類似品は、IPresentation.LayoutSlidesプロパティを使用してアクセスされるIGlobalLayoutSlideCollection.Add(IMasterSlide, SlideLayoutType, string)メソッドです。
-- void RemoveAt(int index); – 指定されたインデックスのレイアウトをコレクションから削除するために使用されます。
-- void Reorder(int index, ILayoutSlide layoutSlide); – コレクションから指定された位置にレイアウトスライドを移動するために使用されます。
-### **変更されたメソッドおよびプロパティ**
-#### **Aspose.Slides.ISlideCollection.AddClone(ISlide, IMasterSlide)メソッドのシグネチャ**
-ISlideCollectionメソッドのシグネチャは次のように古くなりました：
+- ILayoutSlide Insert(int index, SlideLayoutType layoutType, string layoutName); – 新しいレイアウト スライドを追加または挿入します。サポートされるレイアウト タイプは上記と同じです。レイアウト名は自動的に生成できます。SlideLayoutType.Custom のレイアウトはプレースホルダーもシェイプも含みません。このメソッドの類似は IPresentation.LayoutSlides プロパティでアクセスできる IGlobalLayoutSlideCollection.Add(IMasterSlide, SlideLayoutType, string) メソッドです。
+- void RemoveAt(int index); – 指定したインデックスのレイアウトを削除します。
+- void Reorder(int index, ILayoutSlide layoutSlide); – コレクション内のレイアウト スライドを指定位置へ移動します。
+### **変更されたメソッドとプロパティ**
+#### **Aspose.Slides.ISlideCollection.AddClone(ISlide, IMasterSlide) メソッドのシグネチャ**
+ISlideCollection メソッドのシグネチャ:
+
+``` csharp
 ISlide AddClone(ISlide sourceSlide, IMasterSlide destMaster);
+```
 
-現在は次のシグネチャに置き換えられました：
+は廃止され、以下のシグネチャに置き換えられました:
 
-ISlide AddClone(ISlide sourceSlide, IMasterSlide destMaster, bool allowCloneMissingLayout)
+``` csharp
+ISSlide AddClone(ISlide sourceSlide, IMasterSlide destMaster, bool allowCloneMissingLayout)
+```
 
-allowCloneMissingLayoutパラメーターは、新しい（複製された）スライドのためにdestMasterに適切なレイアウトがない場合の対処方法を指定します。適切なレイアウトとは、ソーススライドのレイアウトと同じタイプまたは名前を持つレイアウトです。指定されたマスターに適切なレイアウトがない場合、ソーススライドのレイアウトが複製され（allowCloneMissingLayoutがtrueの場合）、PptxEditExceptionがスローされます（allowCloneMissingLayoutがfalseの場合）。
+allowCloneMissingLayout パラメーターは、destMaster に新しい（クローンされた）スライド用の適切なレイアウトが存在しない場合の動作を指定します。適切なレイアウトとは、ソース スライドと同じタイプまたは名前のレイアウトです。指定されたマスターに適切なレイアウトがない場合、allowCloneMissingLayout が true のときはレイアウトがクローンされ（true）、false のときは PptxEditException がスローされます。
 
-古いメソッドの呼び出しは次のようになります：
+廃止された呼び出し:
 
+``` csharp
 AddClone(sourceSlide, destMaster);
+```
 
-これはallowCloneMissingLayoutがfalseになることを想定しています（すなわち、適切なレイアウトがない場合、PptxEditExceptionがスローされます）。機能的に同等の新しいシグネチャを使用した呼び出しは次のようになります：
+は allowCloneMissingLayout が false と同等とみなされます（適切なレイアウトがない場合は PptxEditException がスローされます）。新しいシグネチャを使用した同等の呼び出しは次のとおりです:
+
+``` csharp
 AddClone(sourceSlide, destMaster, false);
+```
 
-欠落しているレイアウトをPptxEditExceptionをスローする代わりに自動的に複製するようにしたい場合は、allowCloneMissingLayoutパラメーターをtrueとして渡してください。
+レイアウトが自動的にクローンされ、例外がスローされないようにしたい場合は、allowCloneMissingLayout パラメーターを true に設定してください。
 
-同様に、ISlideCollectionメソッド：
+同様に、ISlideCollection メソッド:
 
+``` csharp
 ISlide InsertClone(int index, ISlide sourceSlide, IMasterSlide destMaster);
+```
 
-も古くなっており、次のシグネチャに置き換えられました：
+も廃止され、以下のシグネチャに置き換えられました:
 
+``` csharp
 ISlide InsertClone(int index, ISlide sourceSlide, IMasterSlide destMaster, bool allowCloneMissingLayout);
-#### **Aspose.Slides.IMasterSlide.LayoutSlidesプロパティの型**
-Aspose.Slides.IMasterSlide.LayoutSlidesプロパティの型は、ILayoutSlideCollectionから新しいIMasterLayoutSlideCollectionインターフェイスに変更されました。IMasterLayoutSlideCollectionインターフェイスはILayoutSlideCollectionの子孫ですので、既存のコードに適応は必要ありません。
-#### **Aspose.Slides.IPresentation.LayoutSlidesプロパティの型が変更されました**
-Aspose.Slides.IPresentation.LayoutSlidesプロパティの型は、ILayoutSlideCollectionから新しいIGlobalLayoutSlideCollectionインターフェイスに変更されました。IGlobalLayoutSlideCollectionインターフェイスはILayoutSlideCollectionの子孫ですので、既存のコードに適応は必要ありません。
+```
+#### **Aspose.Slides.IMasterSlide.LayoutSlides プロパティの型**
+Aspose.Slides.IMasterSlide.LayoutSlides プロパティの型は ILayoutSlideCollection から新しい IMasterLayoutSlideCollection インターフェイスに変更されました。IMasterLayoutSlideCollection インターフェイスは ILayoutSlideCollection の子孫であるため、既存のコードは変更不要です。
+#### **Aspose.Slides.IPresentation.LayoutSlides プロパティの型が変更されました**
+Aspose.Slides.IPresentation.LayoutSlides プロパティの型は ILayoutSlideCollection から新しい IGlobalLayoutSlideCollection インターフェイスに変更されました。IGlobalLayoutSlideCollection インターフェイスは ILayoutSlideCollection の子孫であるため、既存のコードは変更不要です。

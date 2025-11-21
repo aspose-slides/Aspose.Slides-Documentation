@@ -1,31 +1,54 @@
 ---
-title: PowerPointをC#でMarkdownに変換
+title: .NET で PowerPoint プレゼンテーションを Markdown に変換
+linktitle: PowerPoint を Markdown に変換
 type: docs
 weight: 140
 url: /ja/net/convert-powerpoint-to-markdown/
-keywords: "PowerPointをMarkdownに変換, pptをmdに変換, PowerPoint, PPT, PPTX, プレゼンテーション, Markdown, C#, Csharp, .NET, Aspose.Slides"
-description: "C#でPowerPointをMarkdownに変換"
+keywords:
+- PowerPoint を変換
+- プレゼンテーションを変換
+- スライドを変換
+- PPT を変換
+- PPTX を変換
+- PowerPoint を MD に変換
+- プレゼンテーションを MD に変換
+- スライドを MD に変換
+- PPT を MD に変換
+- PPTX を MD に変換
+- PowerPoint を Markdown として保存
+- プレゼンテーションを Markdown として保存
+- スライドを Markdown として保存
+- PPT を MD として保存
+- PPTX を MD として保存
+- PPT を MD にエクスポート
+- PPTX を MD にエクスポート
+- PowerPoint
+- プレゼンテーション
+- Markdown
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET を使用して、PowerPoint スライド（PPT、PPTX）をクリーンな Markdown に変換し、ドキュメントを自動化し、書式を保持します。"
 ---
 
 {{% alert color="info" %}} 
 
-PowerPointからMarkdownへの変換サポートは、[Aspose.Slides 23.7](https://docs.aspose.com/slides/net/aspose-slides-for-net-23-7-release-notes/)で実装されました。
+PowerPoint から markdown への変換のサポートは、[Aspose.Slides 23.7](https://docs.aspose.com/slides/net/aspose-slides-for-net-23-7-release-notes/)で実装されました。
 
 {{% /alert %}} 
 
 {{% alert color="warning" %}} 
 
-デフォルトでは、PowerPointからMarkdownへのエクスポートは**画像なし**です。画像を含むPowerPoint文書をエクスポートしたい場合は、`ExportType = MarkdownExportType.Visual`を設定し、Markdown文書内で参照される画像が保存されるBasePathを設定する必要があります。
+PowerPoint から markdown へのエクスポートはデフォルトで**画像なし**です。画像を含む PowerPoint ドキュメントをエクスポートする場合は、`ExportType = MarkdownExportType.Visual` を設定し、markdown ドキュメントで参照される画像が保存される BasePath を指定する必要があります。
 
 {{% /alert %}} 
 
-## **PowerPointをMarkdownに変換**
+## **PowerPoint を Markdown に変換**
 
-1. プレゼンテーションオブジェクトを表すために[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
-2. [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save)メソッドを使用して、オブジェクトをMarkdownファイルとして保存します。
+1. プレゼンテーションオブジェクトを表すために、[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
+2. オブジェクトを markdown ファイルとして保存するには、[Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save) メソッドを使用します。
 
-以下のC#コードは、PowerPointをMarkdownに変換する方法を示します：
-
+この C# コードは PowerPoint を markdown に変換する方法を示しています。
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -33,12 +56,12 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## PowerPointをMarkdownフレーバーに変換
 
-Aspose.Slidesを使用すると、PowerPointをMarkdown（基本構文を含む）、CommonMark、GitHubフレーバーのMarkdown、Trello、XWiki、GitLab、その他17種類のMarkdownフレーバーに変換できます。
+## **PowerPoint を Markdown フレーバーに変換**
 
-以下のC#コードは、PowerPointをCommonMarkに変換する方法を示します：
+Aspose.Slides を使用すると、PowerPoint を markdown（基本構文を含む）、CommonMark、GitHub Flavored Markdown、Trello、XWiki、GitLab、その他 17 種類の markdown フレーバーに変換できます。
 
+この C# コードは PowerPoint を CommonMark に変換する方法を示しています。
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -49,16 +72,16 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-サポートされている23種類のMarkdownフレーバーは、[Flavor列挙体の下に一覧されています](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/flavor/)。[MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/)クラスからです。
 
-## **画像を含むプレゼンテーションをMarkdownに変換**
+サポートされている 23 の markdown フレーバーは、[MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) クラスの [Flavor 列挙体](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/flavor/) に一覧表示されています。
 
-[MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/)クラスは、生成されるMarkdownファイルのために特定のオプションまたは設定を使用できるプロパティと列挙体を提供します。たとえば、[MarkdownExportType](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/)列挙体は、画像がどのようにレンダリングまたは処理されるかを決定する値に設定できます：`Sequential`、`TextOnly`、`Visual`。
+## **画像を含むプレゼンテーションを Markdown に変換**
+
+[MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) クラスは、結果の markdown ファイルに対して特定のオプションや設定を使用できるプロパティと列挙体を提供します。たとえば、[MarkdownExportType](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) 列挙型は、画像のレンダリングや処理方法を決定する値、`Sequential`、`TextOnly`、`Visual` に設定できます。
 
 ### **画像を順次変換**
 
-生成されるMarkdownに画像を個別に順番に表示させたい場合は、順次オプションを選択する必要があります。以下のC#コードは、画像を含むプレゼンテーションをMarkdownに変換する方法を示します：
-
+結果の markdown で画像を個別に順番に表示したい場合は、Sequential オプションを選択する必要があります。この C#コードは、画像を含むプレゼンテーションを markdown に変換する方法を示しています。
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -75,12 +98,12 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
+
 ### **画像を視覚的に変換**
 
-生成されるMarkdownに画像を一緒に表示させたい場合は、視覚的オプションを選択する必要があります。この場合、画像はアプリケーションの現在のディレクトリに保存され（Markdown文書内に相対パスが構築されます）、または指定したいパスとフォルダ名を指定できます。
+結果の markdown で画像をまとめて表示したい場合は、Visual オプションを選択する必要があります。この場合、画像はアプリケーションの現在のディレクトリに保存され（markdown ドキュメントで相対パスが構築されます）、または任意のパスとフォルダー名を指定することもできます。
 
-以下のC#コードは、その操作を示しています：
-
+この C#コードはその操作を示しています。
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -93,3 +116,18 @@ using (Presentation pres = new Presentation("pres.pptx"))
     });
 }
 ```
+
+
+## **FAQ**
+
+**ハイパーリンクは Markdown へのエクスポート後も保持されますか？**
+
+はい。テキストの[ハイパーリンク](/slides/ja/net/manage-hyperlinks/)は標準的な Markdown リンクとして保持されます。スライドの[トランジション](/slides/ja/net/slide-transition/)および[アニメーション](/slides/ja/net/powerpoint-animation/)は変換されません。
+
+**複数スレッドで実行して変換を高速化できますか？**
+
+ファイル単位で並列化は可能ですが、スレッド間で同じ[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) インスタンスを[共有しない](/slides/ja/net/multithreading/)ようにしてください。ファイルごとに別々のインスタンスまたはプロセスを使用して競合を回避します。
+
+**画像はどうなりますか—どこに保存され、パスは相対ですか？**
+
+[画像](/slides/ja/net/image/) は専用フォルダーにエクスポートされ、Markdown ファイルはデフォルトで相対パスで参照します。ベース出力パスとアセットフォルダー名を設定することで、予測可能なリポジトリ構造を保つことができます。

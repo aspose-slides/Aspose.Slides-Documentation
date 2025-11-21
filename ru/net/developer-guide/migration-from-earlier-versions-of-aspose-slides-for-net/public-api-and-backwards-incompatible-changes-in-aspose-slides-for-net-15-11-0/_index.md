@@ -1,19 +1,33 @@
 ---
-title: Публичный API и изменения, несовместимые с прошлой версией в Aspose.Slides для .NET 15.11.0
+title: Публичный API и несовместимые изменения в Aspose.Slides for .NET 15.11.0
+linktitle: Aspose.Slides for .NET 15.11.0
 type: docs
 weight: 210
 url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/
+keywords:
+- миграция
+- унаследованный код
+- современный код
+- унаследованный подход
+- современный подход
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Обзор обновлений публичного API и разрушительных изменений в Aspose.Slides for .NET для плавной миграции ваших решений презентаций PowerPoint PPT, PPTX и ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-На этой странице перечислены все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) или [удаленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) классы, методы, свойства и другие изменения, введенные в API Aspose.Slides для .NET 15.11.0.
+Эта страница перечисляет все [added](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) или [removed](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) классы, методы, свойства и т.д., а также другие изменения, внесённые в API Aspose.Slides for .NET 15.11.0.
 
 {{% /alert %}} 
 ## **Изменения публичного API**
 
-#### **Устаревшие свойства в классе DataLabelCollection были удалены**
-Устаревшие свойства в классе DataLabelCollection были удалены:
+#### **Устаревшие свойства в классе DataLabelCollection удалены**
+Устаревшие свойства в классе DataLabelCollection удалены:
 Aspose.Slides.Charts.DataLabelCollection.Delete
 Aspose.Slides.Charts.DataLabelCollection.Format
 Aspose.Slides.Charts.DataLabelCollection.LinkedSource
@@ -28,10 +42,10 @@ Aspose.Slides.Charts.DataLabelCollection.ShowPercentage
 Aspose.Slides.Charts.DataLabelCollection.ShowSeriesName
 Aspose.Slides.Charts.DataLabelCollection.ShowValue
 
-#### **Новое свойство FirstSlideNumber было добавлено в класс Presentation**
-Новое свойство FirstSlideNumber, добавленное в класс Presentation, позволяет получать или устанавливать номер первого слайда в презентации.
+#### **В класс Presentation добавлено новое свойство FirstSlideNumber**
+Новое свойство FirstSlideNumber, добавленное в Presentation, позволяет получить или задать номер первого слайда в презентации.
 
-Когда указывается новое значение FirstSlideNumber, все номера слайдов пересчитываются.
+Когда задаётся новое значение FirstSlideNumber, номера всех слайдов пересчитываются.
 
 ``` csharp
 
@@ -47,4 +61,4 @@ Aspose.Slides.Charts.DataLabelCollection.ShowValue
 
 }
 
-``` 
+```

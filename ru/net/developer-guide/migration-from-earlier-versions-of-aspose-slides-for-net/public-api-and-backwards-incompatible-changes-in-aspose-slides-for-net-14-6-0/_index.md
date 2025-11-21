@@ -1,21 +1,35 @@
 ---
-title: Публичное API и несовместимые изменения в Aspose.Slides для .NET 14.6.0
+title: Публичный API и несовместимые изменения в Aspose.Slides для .NET 14.6.0
+linktitle: Aspose.Slides для .NET 14.6.0
 type: docs
 weight: 80
 url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/
+keywords:
+- миграция
+- наследуемый код
+- современный код
+- наследуемый подход
+- современный подход
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Обзор обновлений публичного API и разрывных изменений в Aspose.Slides для .NET, позволяющих плавно перенести решения для презентаций PowerPoint PPT, PPTX и ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Эта страница перечисляет все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) классы, методы, свойства и так далее, любые новые [ограничения](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) и другие [изменения](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/), введенные с API Aspose.Slides для .NET 14.6.0.
+Эта страница перечисляет все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) классы, методы, свойства и т.д., любые новые [ограничения](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) и другие [изменения](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) , введённые в API Aspose.Slides for .NET 14.6.0.
 
 {{% /alert %}} 
 ## **Изменения публичного API**
 ### **Добавленные интерфейсы, методы и свойства**
 #### **Добавлен интерфейс Aspose.Slides.Charts.IErrorBarsFormat**
-Он представляет собой погрешности серии диаграмм.
+Это представляет полосы ошибок серии диаграммы.
 
-В случае пользовательского типа значения, для указания значения используйте свойство ErrorBarCustomValues конкретной точки данных в коллекции DataPoints серии.
+В случае пользовательского типа значения, чтобы задать значение, используйте свойство ErrorBarCustomValues конкретной точки данных в коллекции DataPoints серии.
 
 ``` csharp
 
@@ -53,7 +67,7 @@ url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 
 ``` 
 #### **Добавлен интерфейс Aspose.Slides.Charts.IErrorBarsCustomValues**
-Когда свойство IErrorBarsFormat.ValueType равно Custom, для указания значения используйте свойство ErrorBarCustomValues конкретной точки данных в коллекции DataPoints.
+Когда свойство IErrorBarsFormat.ValueType равно Custom, чтобы задать значение, используйте свойство ErrorBarCustomValues конкретной точки данных в коллекции DataPoints.
 
 ``` csharp
 
@@ -160,8 +174,8 @@ url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 }
 
 ``` 
-#### **Добавлены методы Aspose.Slides.IShapeCollection.AddClone(...) и .InsertClone(...)**
-Следующие методы добавляют/вставляют копию указанной фигуры в коллекцию. 
+#### **Добавлены методы Aspose.Slides.IShapeCollection.AddClone(...), и .InsertClone(...)**
+Следующие методы добавляют/вставляют копию указанной формы в коллекцию. 
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape, float x, float y)
@@ -199,8 +213,8 @@ url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 }
 
 ``` 
-#### **Добавлена перечисление ViewType, интерфейс IViewProperties, класс ViewProperties и свойства IPresentation.ViewProperties**
-IPresentation.ViewProperty позволяет разработчикам изменять тип просмотра презентации и видимость заметок при открытии презентации в PowerPoint.
+#### **Добавлены перечисление ViewType, интерфейс IViewProperties, класс ViewProperties и свойство IPresentation.ViewProperties**
+IPresentation.ViewProperties позволяет разработчикам изменить тип представления презентации и видимость заметок при открытии презентации в PowerPoint.
 
 ``` csharp
 
@@ -212,4 +226,4 @@ IPresentation.ViewProperty позволяет разработчикам изм�
 
 }
 
-``` 
+```

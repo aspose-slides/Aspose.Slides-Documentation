@@ -1,89 +1,106 @@
 ---
-title: C#でスライドをSVG画像としてレンダリングする
-linktitle: C#でスライドをSVG画像としてレンダリングする
+title: .NET でプレゼンテーションスライドを SVG 画像としてレンダリング
+linktitle: スライドを SVG に変換
 type: docs
 weight: 50
 url: /ja/net/render-a-slide-as-an-svg-image/
-description: この記事では、C#を使用してPowerPointプレゼンテーションをSVG形式に変換する方法について説明します。PPT、PPTX、ODP形式をSVG画像に変換できます。
-keywords: C# PowerPointをSVGに変換, C# PPTをSVGに, C# PPTXをSVGに
+keywords:
+- PowerPoint を SVG に変換
+- プレゼンテーションを SVG に変換
+- スライドを SVG に変換
+- PPT を SVG に変換
+- PPTX を SVG に変換
+- PPT を SVG として保存
+- PPTX を SVG として保存
+- PPT を SVG にエクスポート
+- PPTX を SVG にエクスポート
+- スライドをレンダリング
+- スライドを変換
+- スライドをエクスポート
+- ベクター画像
+- PowerPoint
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET を使用して PowerPoint スライドを SVG 画像としてレンダリングする方法を学びます。シンプルな C# コード例で高品質なビジュアルを実現します。"
 ---
 
-## 概要
+## **概要**
 
-この記事では、**C#を使用してPowerPointプレゼンテーションをSVG形式に変換する方法**について説明します。以下のトピックを扱っています。
+このドキュメントでは、**C# を使用して PowerPoint プレゼンテーションを SVG 形式に変換する**方法について説明します。以下のトピックを取り上げます。
 
-_形式_: **PowerPoint**
-- [C# PowerPointをSVGに](#csharp-powerpoint-to-svg)
-- [C# PowerPointをSVGに変換](#csharp-powerpoint-to-svg)
-- [C# PowerPointファイルをSVGに変換する方法](#csharp-powerpoint-to-svg)
+_Format_: **PowerPoint**
+- [C# PowerPoint を SVG に変換](#csharp-powerpoint-to-svg)
+- [C# PowerPoint を SVG に変換](#csharp-powerpoint-to-svg)
+- [C# PowerPoint を SVG に変換](#csharp-powerpoint-to-svg)
 
-_形式_: **PPT**
-- [C# PPTをSVGに](#csharp-ppt-to-svg)
-- [C# PPTをSVGに変換](#csharp-ppt-to-svg)
-- [C# PPTファイルをSVGに変換する方法](#csharp-ppt-to-svg)
+_Format_: **PPT**
+- [C# PPT を SVG に変換](#csharp-ppt-to-svg)
+- [C# PPT を SVG に変換](#csharp-ppt-to-svg)
+- [C# PPT を SVG に変換](#csharp-ppt-to-svg)
 
-_形式_: **PPTX**
-- [C# PPTXをSVGに](#csharp-pptx-to-svg)
-- [C# PPTXをSVGに変換](#csharp-pptx-to-svg)
-- [C# PPTXファイルをSVGに変換する方法](#csharp-pptx-to-svg)
+_Format_: **PPTX**
+- [C# PPTX を SVG に変換](#csharp-pptx-to-svg)
+- [C# PPTX を SVG に変換](#csharp-pptx-to-svg)
+- [C# PPTX を SVG に変換](#csharp-pptx-to-svg)
 
-_形式_: **ODP**
-- [C# ODPをSVGに](#csharp-odp-to-svg)
-- [C# ODPをSVGに変換](#csharp-odp-to-svg)
-- [C# ODPファイルをSVGに変換する方法](#csharp-odp-to-svg)
+_Format_: **ODP**
+- [C# ODP を SVG に変換](#csharp-odp-to-svg)
+- [C# ODP を SVG に変換](#csharp-odp-to-svg)
+- [C# ODP を SVG に変換](#csharp-odp-to-svg)
 
-_形式_: **スライド**
-- [C# PowerPointスライドをSVGに変換](#render-a-slide-as-an-svg-image)
-- [C# PPTスライドをSVGに変換](#render-a-slide-as-an-svg-image)
-- [C# PPTXスライドをSVGに変換](#render-a-slide-as-an-svg-image)
-- [C# ODPスライドをSVGに変換](#render-a-slide-as-an-svg-image)
+_Format_: **Slide**
+- [C# スライドを SVG 画像として変換](#render-a-slide-as-an-svg-image)
+- [C# スライドを SVG 画像として変換](#render-a-slide-as-an-svg-image)
+- [C# スライドを SVG 画像として変換](#render-a-slide-as-an-svg-image)
+- [C# スライドを SVG 画像として変換](#render-a-slide-as-an-svg-image)
 
-この記事で扱うその他のトピック。
+この記事で取り上げるその他のトピックです。
 - [参照](#see-also)
 
-## SVG形式
-SVGは、Scalable Vector Graphicsの略で、二次元画像をレンダリングするために使用される標準のグラフィックタイプまたは形式です。SVGは、動作や外観を定義する詳細を持ったXMLのベクターとして画像を保存します。
+## **SVG 形式**
+SVG（Scalable Vector Graphics の略称）は、二次元画像を描画するために使用される標準的なグラフィックタイプまたはフォーマットです。SVG は画像を XML のベクターとして保存し、動作や外観を定義する詳細情報を含みます。
 
-SVGは、拡張性、相互作用性、パフォーマンス、アクセシビリティ、プログラマビリティなどの点で非常に高い基準を満たす数少ない画像形式の1つです。これらの理由から、Web開発で一般的に使用されます。
+SVG は、スケーラビリティ、インタラクティブ性、パフォーマンス、アクセシビリティ、プログラマビリティなど、非常に高い基準を満たす数少ない画像フォーマットのひとつです。このため、ウェブ開発で広く利用されています。
 
-次の場合にSVGファイルを使用することを検討するかもしれません。
+以下のような場合に SVG ファイルを使用したいかもしれません。
 
-- **プレゼンテーションを*非常に大きなフォーマット*で印刷する必要がある場合。** SVG画像は、任意の解像度やレベルに拡張できます。SVG画像は、品質を損なうことなく必要に応じて何度でもサイズ変更できます。
-- **異なる媒体やプラットフォームでスライドのチャートやグラフを使用する場合。** 多くのリーダーはSVGファイルを解釈できます。
-- ***可能な限り最小の画像サイズ*を使用する場合。** SVGファイルは一般的に、他の形式の高解像度の同等物よりも小さいです、特にビットマップ（JPEGやPNG）に基づく形式のものは特にそうです。
+- **プレゼンテーションを *非常に大きな形式* で印刷**します。
+- **スライドのチャートやグラフを *異なる媒体やプラットフォーム* で使用**します。
+- **画像を *可能な限り最小サイズ* で使用**します。
 
-## スライドをSVG画像としてレンダリングする
+## **スライドを SVG 画像としてレンダリング**
 
-Aspose.Slides for .NETを使用すると、プレゼンテーション内のスライドをSVG画像としてエクスポートできます。SVG画像を生成するための手順は以下のとおりです。
+Aspose.Slides for .NET を使用すると、プレゼンテーション内のスライドを SVG 画像としてエクスポートできます。以下の手順で SVG 画像を生成してください。
 
-_手順: C#でのPowerPointからSVGへの変換_
+_Steps: PowerPoint to SVG Conversions in C#_
 
-以下のサンプルコードは、.NETを使用したこれらの変換を説明します。
-- <a name="csharp-powerpoint-to-svg" id="csharp-powerpoint-to-svg"><strong>手順: C#でPowerPointをSVGに変換する</strong></a>
-- <a name="csharp-ppt-to-svg" id="csharp-ppt-to-svg"><strong>手順: C#でPPTをSVGに変換する</strong></a>
-- <a name="csharp-pptx-to-svg" id="csharp-pptx-to-svg"><strong>手順: C#でPPTXをSVGに変換する</strong></a>
-- <a name="csharp-odp-to-svg" id="csharp-odp-to-svg"><strong>手順: C#でODPをSVGに変換する</strong></a>
+以下のサンプルコードは、.NET を使用したこれらの変換を説明しています。
+- <a name="csharp-powerpoint-to-svg" id="csharp-powerpoint-to-svg"><strong>手順: C# で PowerPoint を SVG に変換</strong></a>
+- <a name="csharp-ppt-to-svg" id="csharp-ppt-to-svg"><strong>手順: C# で PPT を SVG に変換</strong></a>
+- <a name="csharp-pptx-to-svg" id="csharp-pptx-to-svg"><strong>手順: C# で PPTX を SVG に変換</strong></a>
+- <a name="csharp-odp-to-svg" id="csharp-odp-to-svg"><strong>手順: C# で ODP を SVG に変換</strong></a>
 
-_コード手順:_
+_Code Steps:_
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)クラスのインスタンスを作成します。
-   * _.ppt_拡張子を使用して、_Presentation_クラス内に**PPT**ファイルをロードします。
-   * _.pptx_拡張子を使用して、_Presentation_クラス内に**PPTX**ファイルをロードします。
-   * _.odp_拡張子を使用して、_Presentation_クラス内に**ODP**ファイルをロードします。
-   * _.pps_拡張子を使用して、_Presentation_クラス内に**PPS**ファイルをロードします。
-2. プレゼンテーション内のすべてのスライドを繰り返します。
-3. 各スライドをFileStreamを介して自身のSVGファイルに書き込みます。
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+   * _.ppt_ 拡張子で _Presentation_ クラス内に **PPT** ファイルを読み込みます。
+   * _.pptx_ 拡張子で _Presentation_ クラス内に **PPTX** ファイルを読み込みます。
+   * _.odp_ 拡張子で _Presentation_ クラス内に **ODP** ファイルを読み込みます。
+   * _.pps_ 拡張子で _Presentation_ クラス内に **PPS** ファイルを読み込みます。
+2. プレゼンテーション内のすべてのスライドを反復処理します。
+3. 各スライドを FileStream を使用して個別の SVG ファイルに書き込みます。
 
 {{% alert color="primary" %}} 
 
-私たちの[無料Webアプリケーション](https://products.aspose.app/slides/conversion/ppt-to-svg)を試してみることを検討するかもしれません。ここでは、Aspose.Slides for .NETからPPTをSVGに変換する機能を実装しています。
+Aspose.Slides for .NET の PPT から SVG への変換機能を実装した、[無料のウェブアプリケーション](https://products.aspose.app/slides/conversion/ppt-to-svg) を試してみてください。
 
 {{% /alert %}} 
 
-このC#のサンプルコードは、Aspose.Slidesを使用してPowerPointをSVGに変換する方法を示しています： 
-
+この C# のサンプルコードは、Aspose.Slides を使用して PowerPoint を SVG に変換する方法を示します。 
 ``` csharp
-// Presentationオブジェクトは、PPT、PPTX、ODPなどのPowerPoint形式をロードできます。
+// Presentation オブジェクトは PPT、PPTX、ODP などの PowerPoint 形式をロードできます。
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     for (var index = 0; index < pres.Slides.Count; index++)
@@ -98,46 +115,61 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## 参照 
 
-この記事では、次のトピックも扱っています。コードは上記と同じです。
+## **よくある質問**
 
-_形式_: **PowerPoint**
-- [C# PowerPointをSVGにコード](#csharp-powerpoint-to-svg)
-- [C# PowerPointをSVGにAPI](#csharp-powerpoint-to-svg)
-- [C# PowerPointをプログラムでSVGに変換](#csharp-powerpoint-to-svg)
-- [C# PowerPointをSVGライブラリ](#csharp-powerpoint-to-svg)
-- [C# PowerPointをSVGとして保存](#csharp-powerpoint-to-svg)
-- [C# PowerPointからSVGを生成](#csharp-powerpoint-to-svg)
-- [C# PowerPointからSVGを作成](#csharp-powerpoint-to-svg)
-- [C# PowerPointをSVGコンバータ](#csharp-powerpoint-to-svg)
+**なぜ生成された SVG がブラウザ間で見た目が異なることがあるのでしょうか？**
 
-_形式_: **PPT**
-- [C# PPTをSVGにコード](#csharp-ppt-to-svg)
-- [C# PPTをSVGにAPI](#csharp-ppt-to-svg)
-- [C# PPTをプログラムでSVGに変換](#csharp-ppt-to-svg)
-- [C# PPTをSVGライブラリ](#csharp-ppt-to-svg)
-- [C# PPTをSVGとして保存](#csharp-ppt-to-svg)
-- [C# PPTからSVGを生成](#csharp-ppt-to-svg)
-- [C# PPTからSVGを作成](#csharp-ppt-to-svg)
-- [C# PPTをSVGコンバータ](#csharp-ppt-to-svg)
+特定の SVG 機能のサポートは、ブラウザエンジンによって異なる方法で実装されています。[SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) のパラメータを使用すると、互換性の問題を緩和できます。
 
-_形式_: **PPTX**
-- [C# PPTXをSVGにコード](#csharp-pptx-to-svg)
-- [C# PPTXをSVGにAPI](#csharp-pptx-to-svg)
-- [C# PPTXをプログラムでSVGに変換](#csharp-pptx-to-svg)
-- [C# PPTXをSVGライブラリ](#csharp-pptx-to-svg)
-- [C# PPTXをSVGとして保存](#csharp-pptx-to-svg)
-- [C# PPTXからSVGを生成](#csharp-pptx-to-svg)
-- [C# PPTXからSVGを作成](#csharp-pptx-to-svg)
-- [C# PPTXをSVGコンバータ](#csharp-pptx-to-svg)
+**スライドだけでなく個々のシェイプも SVG にエクスポートできますか？**
 
-_形式_: **ODP**
-- [C# ODPをSVGにコード](#csharp-odp-to-svg)
-- [C# ODPをSVGにAPI](#csharp-odp-to-svg)
-- [C# ODPをプログラムでSVGに変換](#csharp-odp-to-svg)
-- [C# ODPをSVGライブラリ](#csharp-odp-to-svg)
-- [C# ODPをSVGとして保存](#csharp-odp-to-svg)
-- [C# ODPからSVGを生成](#csharp-odp-to-svg)
-- [C# ODPからSVGを作成](#csharp-odp-to-svg)
-- [C# ODPをSVGコンバータ](#csharp-odp-to-svg)
+はい。任意の [シェイプは個別の SVG として保存できます](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/) は、アイコン、ピクトグラム、グラフィックの再利用に便利です。
+
+**複数のスライドを 1つの SVG（ストリップ/ドキュメント）に結合できますか？**
+
+標準的なシナリオは、1 スライド → 1 SVG です。複数のスライドを 1 つの SVG キャンバスに結合することは、アプリケーションレベルで実行されるポストプロセスです。
+
+## **参照** 
+
+この記事ではこれらのトピックも取り上げています。コードは上記と同じです。
+
+_Format_: **PowerPoint**
+- [C# PowerPoint を SVG に変換するコード](#csharp-powerpoint-to-svg)
+- [C# PowerPoint を SVG に変換する API](#csharp-powerpoint-to-svg)
+- [C# PowerPoint を SVG に変換するプログラム的手法](#csharp-powerpoint-to-svg)
+- [C# PowerPoint を SVG に変換するライブラリ](#csharp-powerpoint-to-svg)
+- [C# PowerPoint を SVG として保存](#csharp-powerpoint-to-svg)
+- [C# PowerPoint から SVG を生成](#csharp-powerpoint-to-svg)
+- [C# PowerPoint から SVG を作成](#csharp-powerpoint-to-svg)
+- [C# PowerPoint SVG コンバータ](#csharp-powerpoint-to-svg)
+
+_Format_: **PPT**
+- [C# PPT を SVG に変換するコード](#csharp-ppt-to-svg)
+- [C# PPT を SVG に変換する API](#csharp-ppt-to-svg)
+- [C# PPT を SVG に変換するプログラム的手法](#csharp-ppt-to-svg)
+- [C# PPT を SVG に変換するライブラリ](#csharp-ppt-to-svg)
+- [C# PPT を SVG として保存](#csharp-ppt-to-svg)
+- [C# PPT から SVG を生成](#csharp-ppt-to-svg)
+- [C# PPT から SVG を作成](#csharp-ppt-to-svg)
+- [C# PPT SVG コンバータ](#csharp-ppt-to-svg)
+
+_Format_: **PPTX**
+- [C# PPTX を SVG に変換するコード](#csharp-pptx-to-svg)
+- [C# PPTX を SVG に変換する API](#csharp-pptx-to-svg)
+- [C# PPTX を SVG に変換するプログラム的手法](#csharp-pptx-to-svg)
+- [C# PPTX を SVG に変換するライブラリ](#csharp-pptx-to-svg)
+- [C# PPTX を SVG として保存](#csharp-pptx-to-svg)
+- [C# PPTX から SVG を生成](#csharp-pptx-to-svg)
+- [C# PPTX から SVG を作成](#csharp-pptx-to-svg)
+- [C# PPTX SVG コンバータ](#csharp-pptx-to-svg)
+
+_Format_: **ODP**
+- [C# ODP を SVG に変換するコード](#csharp-odp-to-svg)
+- [C# ODP を SVG に変換する API](#csharp-odp-to-svg)
+- [C# ODP を SVG に変換するプログラム的手法](#csharp-odp-to-svg)
+- [C# ODP を SVG に変換するライブラリ](#csharp-odp-to-svg)
+- [C# ODP を SVG として保存](#csharp-odp-to-svg)
+- [C# ODP から SVG を生成](#csharp-odp-to-svg)
+- [C# ODP から SVG を作成](#csharp-odp-to-svg)
+- [C# ODP SVG コンバータ](#csharp-odp-to-svg)
