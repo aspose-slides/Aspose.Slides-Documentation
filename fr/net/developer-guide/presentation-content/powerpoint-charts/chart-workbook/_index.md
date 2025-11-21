@@ -1,17 +1,30 @@
 ---
-title: Classeur de graphiques
+title: Gérer les classeurs de graphiques dans les présentations en .NET
+linktitle: Classeur de graphique
 type: docs
 weight: 70
 url: /fr/net/chart-workbook/
-keywords: "Classeur de graphiques, données de graphique, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
-description: "Classeur de graphiques dans la présentation PowerPoint en C# ou .NET"
+keywords:
+- classeur de graphique
+- données de graphique
+- cellule de classeur
+- étiquette de données
+- feuille de calcul
+- source de données
+- classeur externe
+- données externes
+- PowerPoint
+- présentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Découvrez Aspose.Slides pour .NET : gérez facilement les classeurs de graphiques dans les formats PowerPoint et OpenDocument pour rationaliser les données de votre présentation."
 ---
 
 ## **Définir les données du graphique à partir du classeur**
-Aspose.Slides fournit les méthodes [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) et [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) qui vous permettent de lire et d'écrire des classeurs de données de graphique (contenant des données de graphique éditées avec Aspose.Cells). **Remarque** que les données de graphique doivent être organisées de la même manière ou doivent avoir une structure similaire à celle de la source.
+Aspose.Slides fournit les méthodes [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) et [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) qui permettent de lire et d’écrire les classeurs de données de graphique (contenant des données de graphique modifiées avec Aspose.Cells). **Remarque** le jeu de données du graphique doit être organisé de la même manière ou avoir une structure similaire à la source.
 
-Ce code C# démontre une opération d'exemple :
-
+Ce code C# montre une opération d’exemple :
 ```c#
 using (Presentation pres = new Presentation("chart.pptx"))
 {
@@ -29,20 +42,19 @@ using (Presentation pres = new Presentation("chart.pptx"))
 ```
 
 
-## **Définir une cellule de classeur comme étiquette de donnée du graphique**
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Obtenez une référence de diapositive par son index.
-1. Ajoutez un graphique en bulle avec des données.
-1. Accédez aux séries de graphiques.
-1. Définissez la cellule du classeur comme une étiquette de donnée.
+## **Définir une cellule du classeur comme étiquette de données du graphique**
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Obtenez une référence à une diapositive via son indice.
+1. Ajoutez un graphique à bulles avec quelques données.
+1. Accédez aux séries du graphique.
+1. Définissez la cellule du classeur comme étiquette de données.
 1. Enregistrez la présentation.
 
-Ce code C# vous montre comment définir une cellule de classeur comme une étiquette de donnée du graphique :
-
+Ce code C# vous montre comment définir une cellule du classeur comme étiquette de données du graphique :
 ```c#
-string lbl0 = "Valeur de la cellule d'étiquette 0";
-string lbl1 = "Valeur de la cellule d'étiquette 1";
-string lbl2 = "Valeur de la cellule d'étiquette 2";
+string lbl0 = "Label 0 cell value";
+string lbl1 = "Label 1 cell value";
+string lbl2 = "Label 2 cell value";
 
 // Instancie une classe de présentation qui représente un fichier de présentation 
 
@@ -67,10 +79,10 @@ using (Presentation pres = new Presentation("chart2.pptx"))
 }
 ```
 
-## **Gérer les feuilles de calcul**
 
-Ce code C# démontre une opération où la propriété [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) est utilisée pour accéder à une collection de feuilles de calcul :
+## **Gestion des feuilles de calcul**
 
+Ce code C# démontre une opération où la propriété [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) est utilisée pour accéder à une collection de feuilles :
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -81,10 +93,10 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+
 ## **Spécifier le type de source de données**
 
 Ce code C# vous montre comment spécifier un type pour une source de données :
-
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -95,23 +107,23 @@ using (Presentation pres = new Presentation())
     val.Data = "LiteralString";
 
     val = chart.ChartData.Series[1].Name;
-    val.Data = chart.ChartData.ChartDataWorkbook.GetCell(0, "B1", "NouvelleCellule");
+    val.Data = chart.ChartData.ChartDataWorkbook.GetCell(0, "B1", "NewCell");
 
     pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
 
+
 ## **Classeur externe**
 
 {{% alert color="primary" %}} 
-Dans [Aspose.Slides 19.4](https://docs.aspose.com/slides/net/aspose-slides-for-net-19-4-release-notes/), nous avons implémenté le support des classeurs externes comme source de données pour les graphiques.
+Dans [Aspose.Slides 19.4](https://docs.aspose.com/slides/net/aspose-slides-for-net-19-4-release-notes/), nous avons implémenté la prise en charge des classeurs externes comme source de données pour les graphiques.
 {{% /alert %}} 
 
 ### **Créer un classeur externe**
-En utilisant les méthodes **`ReadWorkbookStream`** et **`SetExternalWorkbook`**, vous pouvez soit créer un classeur externe à partir de zéro, soit rendre un classeur interne externe.
+En utilisant les méthodes **`ReadWorkbookStream`** et **`SetExternalWorkbook`**, vous pouvez créer un classeur externe à partir de zéro ou rendre un classeur interne externe.
 
-Ce code C# démontre le processus de création de classeur externe :
-
+Ce code C# montre le processus de création d’un classeur externe :
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -132,14 +144,13 @@ using (Presentation pres = new Presentation())
 
 
 ### **Définir un classeur externe**
-En utilisant la méthode **`SetExternalWorkbook`**, vous pouvez attribuer un classeur externe à un graphique comme source de données. Cette méthode peut également être utilisée pour mettre à jour un chemin vers le classeur externe (si ce dernier a été déplacé).
+En utilisant la méthode **`SetExternalWorkbook`**, vous pouvez assigner un classeur externe à un graphique comme source de données. Cette méthode peut également être utilisée pour mettre à jour le chemin du classeur externe (si ce dernier a été déplacé).
 
-Bien que vous ne puissiez pas modifier les données dans les classeurs stockés dans des emplacements ou des ressources distants, vous pouvez toujours utiliser de tels classeurs comme source de données externe. Si le chemin relatif pour un classeur externe est fourni, il est automatiquement converti en un chemin complet.
+Bien que vous ne puissiez pas modifier les données des classeurs stockés à distance ou dans des ressources, vous pouvez tout de même les utiliser comme source de données externe. Si le chemin relatif d’un classeur externe est fourni, il est automatiquement converti en chemin complet.
 
-Ce code C# vous montre comment définir un classeur externe :
-
+Ce code C# montre comment définir un classeur externe :
 ```c#
-// Le chemin vers le répertoire des documents.
+// Le chemin du répertoire des documents.
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, false);
@@ -160,11 +171,11 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Le paramètre `ChartData` (sous la méthode `SetExternalWorkbook`) est utilisé pour spécifier si un classeur Excel sera chargé ou non. 
 
-* Lorsque la valeur de `ChartData` est définie sur `false`, seul le chemin du classeur est mis à jour—les données du graphique ne seront pas chargées ni mises à jour à partir du classeur cible. Vous pourriez vouloir utiliser ce paramètre dans une situation où le classeur cible est inexistant ou indisponible. 
-* Lorsque la valeur de `ChartData` est définie sur `true`, les données du graphique sont mises à jour à partir du classeur cible.
+Le paramètre `ChartData` (dans la méthode `SetExternalWorkbook`) sert à indiquer si le classeur Excel doit être chargé ou non. 
 
+* Lorsque la valeur de `ChartData` est définie sur `false`, seul le chemin du classeur est mis à jour — les données du graphique ne sont pas chargées ou mises à jour depuis le classeur cible. Vous pouvez utiliser ce réglage lorsque le classeur cible n’existe pas ou est indisponible. 
+* Lorsque la valeur de `ChartData` est définie sur `true`, les données du graphique sont mises à jour depuis le classeur cible.
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -177,16 +188,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+
 ### **Obtenir le chemin du classeur source de données externe du graphique**
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Obtenez une référence de diapositive par son index.
-1. Créez un objet pour la forme de graphique.
-1. Créez un objet pour le type de source (`ChartDataSourceType`) qui représente la source de données du graphique.
-1. Spécifiez la condition pertinente en fonction du type de source étant le même que le type de source de données du classeur externe.
+1. Obtenez une référence à une diapositive via son indice.
+1. Créez un objet pour la forme du graphique.
+1. Créez un objet pour le type source (`ChartDataSourceType`) qui représente la source de données du graphique.
+1. Spécifiez la condition pertinente en fonction du type source identique au type de source du classeur externe.
 
-Ce code C# démontre l'opération :
-
+Ce code C# montre l’opération :
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -198,17 +209,17 @@ using (Presentation pres = new Presentation("pres.pptx"))
         string path = chart.ChartData.ExternalWorkbookPath;
     }
     
-    // Sauvegarde la présentation
+    // Enregistre la présentation
     pres.Save("Result.pptx", SaveFormat.Pptx);
 }
 ```
 
+
 ### **Modifier les données du graphique**
 
-Vous pouvez modifier les données dans des classeurs externes de la même manière que vous faites des modifications aux contenus de classeurs internes. Lorsqu'un classeur externe ne peut pas être chargé, une exception est levée.
+Vous pouvez modifier les données des classeurs externes de la même manière que vous modifiez le contenu des classeurs internes. Lorsqu’un classeur externe ne peut pas être chargé, une exception est levée.
 
-Ce code C# est une implémentation du processus décrit :
-
+Ce code C# implémente le processus décrit :
 ```c#
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
@@ -220,3 +231,30 @@ using (Presentation pres = new Presentation("presentation.pptx"))
     pres.Save("presentation_out.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**Puis-je déterminer si un graphique spécifique est lié à un classeur externe ou intégré ?**
+
+Oui. Un graphique possède un [type de source de données](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) et un [chemin vers un classeur externe](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) ; si la source est un classeur externe, vous pouvez lire le chemin complet pour vérifier qu’un fichier externe est utilisé.
+
+**Les chemins relatifs vers des classeurs externes sont‑ils pris en charge, et comment sont‑ils stockés ?**
+
+Oui. Si vous spécifiez un chemin relatif, il est automatiquement converti en chemin absolu. Cela facilite la portabilité du projet ; toutefois, la présentation stockera le chemin absolu dans le fichier PPTX.
+
+**Puis‑je utiliser des classeurs situés sur des ressources ou partages réseau ?**
+
+Oui, ces classeurs peuvent être utilisés comme source de données externe. En revanche, la modification directe de classeurs distants depuis Aspose.Slides n’est pas prise en charge — ils ne peuvent être qu’une source.
+
+**Aspose.Slides écrase‑t‑il le fichier XLSX externe lors de l’enregistrement de la présentation ?**
+
+Non. La présentation stocke un [lien vers le fichier externe](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) et l’utilise uniquement pour la lecture des données. Le fichier externe lui‑même n’est pas modifié lors de l’enregistrement.
+
+**Que faire si le fichier externe est protégé par un mot de passe ?**
+
+Aspose.Slides n’accepte pas de mot de passe lors de la liaison. Une approche courante consiste à supprimer la protection au préalable ou à préparer une copie déchiffrée (par exemple avec [Aspose.Cells](/cells/net/)) et à la lier.
+
+**Plusieurs graphiques peuvent‑ils faire référence au même classeur externe ?**
+
+Oui. Chaque graphique stocke son propre lien. S’ils pointent tous vers le même fichier, la mise à jour de ce fichier sera reflétée dans chaque graphique lors du prochain chargement des données.

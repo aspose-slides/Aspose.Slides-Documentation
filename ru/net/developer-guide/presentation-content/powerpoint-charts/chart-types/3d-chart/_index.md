@@ -1,55 +1,63 @@
 ---
-title: 3D График
+title: Настройка 3D диаграмм в презентациях на .NET
+linktitle: 3D диаграмма
 type: docs
 url: /ru/net/3d-chart/
-keywords: "3d график, rotationX, rotationY, depthpercent, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
-description: "Установите rotationX, rotationY и depthpercents для 3D графика в презентации PowerPoint на C# или .NET"
+keywords:
+- 3D диаграмма
+- вращение
+- глубина
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Узнайте, как создавать и настраивать 3-D диаграммы в Aspose.Slides для .NET с поддержкой файлов PPT и PPTX — улучшите свои презентации уже сегодня."
 ---
 
-## **Установка свойств RotationX, RotationY и DepthPercents для 3D Графика**
-Aspose.Slides для .NET предоставляет простой API для установки этих свойств. Следующая статья поможет вам установить различные свойства, такие как X,Y Ротация, **DepthPercents** и др. Пример кода применяет установки вышеперечисленных свойств.
+## **Установить свойства RotationX, RotationY и DepthPercents 3D‑диаграммы**
+Aspose.Slides for .NET предоставляет простой API для установки этих свойств. В этой статье показано, как установить различные свойства, такие как вращение по X и Y, **DepthPercents** и т.д. Пример кода демонстрирует установку указанных выше свойств.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите первый слайд.
-1. Добавьте график с умолчательными данными.
-1. Установите свойства Rotation3D.
-1. Запишите измененную презентацию в файл PPTX.
-
+2. Получите доступ к первому слайду.
+3. Добавьте диаграмму с данными по умолчанию.
+4. Установите свойства Rotation3D.
+5. Запишите изменённую презентацию в файл PPTX.
 ```c#
-// Создание экземпляра класса Presentation
+// Создать экземпляр класса Presentation
 Presentation presentation = new Presentation();
            
-// Получение первого слайда
+// Получить доступ к первому слайду
 ISlide slide = presentation.Slides[0];
 
-// Добавление графика с умолчательными данными
+// Добавить диаграмму с данными по умолчанию
 IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn3D, 0, 0, 500, 500);
 
-// Установка индекса листа данных графика
+// Установка индекса листа данных диаграммы
 int defaultWorksheetIndex = 0;
 
-// Получение рабочего листа данных графика
+// Получение листа данных диаграммы
 IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
-// Добавление серий
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Серия 1"), chart.Type);
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Серия 2"), chart.Type);
+// Добавить серии
+chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
+chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
 
-// Добавление категорий
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Категория 1"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Категория 2"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Категория 3"));
+// Добавить категории
+chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
+chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
+chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
 
-// Установка свойств Rotation3D
+// Установить свойства Rotation3D
 chart.Rotation3D.RightAngleAxes = true;
 chart.Rotation3D.RotationX = 40;
 chart.Rotation3D.RotationY = 270;
 chart.Rotation3D.DepthPercents = 150;
 
-// Получение второй серии графика
+// Получить вторую серию диаграммы
 IChartSeries series = chart.ChartData.Series[1];
 
-// Теперь заполняем данные серии
+// Сейчас заполняем данные серии
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
@@ -57,9 +65,24 @@ series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
 
-// Установка значения OverLap
+// Установить значение OverLap
 series.ParentSeriesGroup.Overlap = 100;         
 
-// Запись презентации на диск
+// Сохранить презентацию на диск
 presentation.Save("Rotation3D_out.pptx", SaveFormat.Pptx);
 ```
+
+
+## **FAQ**
+
+**Какие типы диаграмм поддерживают 3D‑режим в Aspose.Slides?**
+
+Aspose.Slides поддерживает 3D‑варианты столбчатых диаграмм, включая Column 3D, Clustered Column 3D, Stacked Column 3D и 100% Stacked Column 3D, а также связанные 3D‑типы, доступные через перечисление [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/). Для точного и актуального списка проверьте члены [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) в справочнике API установленной версии.
+
+**Можно ли получить растровое изображение 3D‑диаграммы для отчёта или веба?**
+
+Да. Вы можете экспортировать диаграмму в изображение с помощью [chart API](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) или [render the entire slide](/slides/ru/net/convert-powerpoint-to-png/) в форматы PNG или JPEG. Это удобно, когда требуется пиксельно‑точный предварительный просмотр или необходимо встроить диаграмму в документы, панели мониторинга или веб‑страницы без необходимости использовать PowerPoint.
+
+**Насколько эффективно создаются и визуализируются большие 3D‑диаграммы?**
+
+Производительность зависит от объёма данных и визуальной сложности. Для получения наилучших результатов сохраняйте 3D‑эффекты минимальными, избегайте тяжёлых текстур на стенах и областях графика, по возможности ограничивайте количество точек данных в серии и рендерите в выходной файл подходящего размера (разрешение и размеры), соответствующего целевому отображению или печати.

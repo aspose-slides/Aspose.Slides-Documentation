@@ -1,76 +1,100 @@
 ---
-title: إهليلج
+title: إضافة إهليلجات إلى العروض التقديمية في .NET
+linktitle: إهليلج
 type: docs
 weight: 30
 url: /ar/net/ellipse/
-keywords: "إهليلج، شكل باوربوينت، عرض باوربوينت، C#، Csharp، Aspose.Slides لـ .NET"
-description: "إنشاء إهليلج في عرض باوربوينت باستخدام C# أو .NET"
+keywords:
+- إهليلج
+- شكل
+- إضافة إهليلج
+- إنشاء إهليلج
+- رسم إهليلج
+- إهليلج منسق
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "تعلم كيفية إنشاء وتنسيق وتعديل أشكال الإهليلج في Aspose.Slides للـ .NET عبر عروض PPT و PPTX — يتضمن أمثلة كود C#."
 ---
 
-
 ## **إنشاء إهليلج**
-في هذا الموضوع، سنقدم للمطورين معلومات حول إضافة أشكال الإهليلج إلى الشرائح باستخدام Aspose.Slides لـ .NET. توفر Aspose.Slides لـ .NET مجموعة أسهل من واجهات برمجة التطبيقات لرسم أنواع مختلفة من الأشكال باستخدام عدد قليل فقط من أسطر التعليمات البرمجية. لإضافة إهليلج بسيط إلى شريحة محددة من العرض، يرجى اتباع الخطوات أدناه:
+في هذا القسم، سنعرّف المطورين على كيفية إضافة أشكال إهليلج إلى الشرائح باستخدام Aspose.Slides for .NET. توفر Aspose.Slides for .NET مجموعة أسهل من واجهات برمجة التطبيقات لرسم أنواع مختلفة من الأشكال ببضع أسطر من الشفرة فقط. لإضافة إهليلج بسيط إلى شريحة مختارة من العرض التقديمي، يرجى اتباع الخطوات التالية:
 
-1. إنشاء مثيل من [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class
-1. الحصول على مرجع شريحة باستخدام الفهرس الخاص بها
-1. إضافة AutoShape من نوع إهليلج باستخدام طريقة AddAutoShape المعروضة بواسطة كائن IShapes
-1. كتابة العرض المعدل كملف PPTX
+1. إنشاء مثيل من فئة [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class
+1. الحصول على مرجع شريحة باستخدام فهرسها Index
+1. إضافة AutoShape من نوع Ellipse باستخدام طريقة AddAutoShape التي يُقدِّمها كائن IShapes
+1. كتابة العرض التقديمي المعدَّل كملف PPTX
 
-في المثال المقدم أدناه، أضفنا إهليلج إلى الشريحة الأولى.
-
+في المثال أدناه، أضفنا إهليلجًا إلى الشريحة الأولى.
 ```c#
-// Instantiate Prseetation class that represents the PPTX
+// إنشاء فئة Prseetation التي تمثل ملف PPTX
 using (Presentation pres = new Presentation())
 {
-
-    // Get the first slide
+    // الحصول على الشريحة الأولى
     ISlide sld = pres.Slides[0];
 
-    // Add autoshape of ellipse type
+    // إضافة AutoShape من نوع إهليلج
     sld.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 150, 150, 50);
 
-    //Write the PPTX file to disk
+    //اكتب ملف PPTX إلى القرص
     pres.Save("EllipseShp1_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
 
+
 ## **إنشاء إهليلج منسق**
-لإضافة إهليلج منسق بشكل أفضل إلى شريحة، يرجى اتباع الخطوات أدناه:
+لإضافة إهليلج منسق بصورة أفضل إلى شريحة، يرجى اتباع الخطوات التالية:
 
-1. إنشاء مثيل من [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
-1. الحصول على مرجع شريحة باستخدام الفهرس الخاص بها.
-1. إضافة AutoShape من نوع إهليلج باستخدام طريقة AddAutoShape المعروضة بواسطة كائن IShapes.
-1. تعيين نوع التعبئة للإهليلج إلى صلب.
-1. تعيين لون الإهليلج باستخدام خاصية SolidFillColor.Color المعروضة بواسطة كائن FillFormat المرتبط بكائن IShape.
+1. إنشاء مثيل من فئة [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
+1. الحصول على مرجع شريحة باستخدام فهرسها Index.
+1. إضافة AutoShape من نوع Ellipse باستخدام طريقة AddAutoShape التي يُقدِّمها كائن IShapes.
+1. ضبط Fill Type للإهليلج إلى Solid.
+1. تعيين لون الإهليلج باستخدام الخاصية SolidFillColor.Color التي يُقدِّمها كائن FillFormat المرتبط بكائن IShape.
 1. تعيين لون خطوط الإهليلج.
-1. تعيين عرض خطوط الإهليلج.
-1. كتابة العرض المعدل كملف PPTX.
+1. ضبط عرض خطوط الإهليلج.
+1. كتابة العرض التقديمي المعدَّل كملف PPTX.
 
-في المثال المقدم أدناه، أضفنا إهليلج منسق إلى الشريحة الأولى من العرض.
-
+في المثال أدناه، أضفنا إهليلجًا منسقًا إلى الشريحة الأولى من العرض التقديمي.
 ```c#
-// Instantiate Prseetation class that represents the PPTX
+// إنشاء فئة Prseetation التي تمثل ملف PPTX
 using (Presentation pres = new Presentation())
 {
 
-    // Get the first slide
+    // احصل على الشريحة الأولى
     ISlide sld = pres.Slides[0];
 
-    // Add autoshape of ellipse type
+    // أضف autoshape من نوع إهليلج
     IShape shp = sld.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 150, 150, 50);
 
-    // Apply some formatting to ellipse shape
+    // تطبيق بعض التنسيق على شكل الإهليلج
     shp.FillFormat.FillType = FillType.Solid;
     shp.FillFormat.SolidFillColor.Color = Color.Chocolate;
 
-    // Apply some formatting to the line of Ellipse
+    // تطبيق بعض التنسيق على خط الإهليلج
     shp.LineFormat.FillFormat.FillType = FillType.Solid;
     shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
     shp.LineFormat.Width = 5;
 
-    //Write the PPTX file to disk
+    // كتابة ملف PPTX إلى القرص
     pres.Save("EllipseShp2_out.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**كيف يمكنني تحديد الموضع الدقيق وحجم الإهليلج بالنسبة لوحدات الشريحة؟**
+
+عادةً ما تُحدَّد الإحداثيات والأحجام **بالنقاط**. للحصول على نتائج متوقعة، احسب بناءً على حجم الشريحة وحوِّل المليمترات أو البوصات المطلوبة إلى نقاط قبل تعيين القيم.
+
+**كيف يمكنني وضع الإهليلج فوق أو أسفل كائنات أخرى (التحكم في ترتيب الطبقات)؟**
+
+عدِّل ترتيب الرسم للكائن عن طريق إحضاره إلى الأمام أو إرساله إلى الخلف. يتيح ذلك للإهليلج أن يغطِّي كائنات أخرى أو يُظهر ما تحته.
+
+**كيف يمكنني تحريك ظهور أو إبراز الإهليلج؟**
+
+[Apply](/slides/ar/net/shape-animation/) تأثيرات دخول أو إبراز أو خروج على الشكل، واضبط المشغلات والتوقيت لتحديد متى وكيف يُنفَّذ التحريك.

@@ -1,35 +1,47 @@
 ---
-title: ビデオフレーム
+title: .NET のプレゼンテーションでビデオフレームを管理する
+linktitle: ビデオフレーム
 type: docs
 weight: 10
 url: /ja/net/video-frame/
-keywords: "ビデオを追加, ビデオフレームを作成, ビデオを抽出, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
-description: "C# または .NET で PowerPoint プレゼンテーションにビデオフレームを追加する"
+keywords:
+- ビデオを追加
+- ビデオを作成
+- ビデオを埋め込む
+- ビデオを抽出
+- ビデオを取得
+- ビデオフレーム
+- ウェブソース
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET を使用して、PowerPoint および OpenDocument スライドでビデオフレームの追加や抽出をプログラムで行う方法を学びます。高速ハウツーガイド。"
 ---
 
-プレゼンテーションにおいて適切に配置されたビデオは、メッセージをより説得力のあるものにし、聴衆とのエンゲージメントレベルを高めることができます。
+プレゼンテーションに適切に配置されたビデオは、メッセージをより説得力のあるものにし、視聴者とのエンゲージメントレベルを向上させます。
 
-PowerPointでは、プレゼンテーションのスライドにビデオを追加する方法が2つあります：
+PowerPoint では、プレゼンテーションのスライドにビデオを追加する方法が2つあります：
+* ローカルビデオを追加または埋め込む（マシンに保存されている）
+* オンラインビデオを追加する（YouTube などのウェブソースから）。
 
-* ローカルビデオを追加または埋め込む（自分のマシンに保存されているビデオ）
-* オンラインビデオを追加する（YouTubeなどのウェブソースから）。
+プレゼンテーションにビデオ（ビデオオブジェクト）を追加できるように、Aspose.Slides は[IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) インターフェイス、[IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) インターフェイス、およびその他の関連タイプを提供します。
 
-プレゼンテーションにビデオ（ビデオオブジェクト）を追加できるように、Aspose.Slidesは[IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/)インターフェース、[IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/)インターフェース、およびその他の関連タイプを提供しています。
+## **埋め込みビデオフレームの作成**
 
-## **埋め込まれたビデオフレームを作成する**
+スライドに追加したいビデオファイルがローカルに保存されている場合、ビデオフレームを作成してプレゼンテーションにビデオを埋め込むことができます。
 
-スライドに追加したいビデオファイルがローカルに保存されている場合、プレゼンテーションにビデオを埋め込むためのビデオフレームを作成できます。
+1. [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
+2. インデックスを使用してスライドの参照を取得します。
+3. [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) オブジェクトを追加し、ビデオファイルのパスを渡してプレゼンテーションにビデオを埋め込みます。
+4. ビデオ用のフレームを作成するために[IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) オブジェクトを追加します。
+5. 変更したプレゼンテーションを保存します。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
-1. インデックスを通じてスライドの参照を取得します。
-1. [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/)オブジェクトを追加し、プレゼンテーションにビデオを埋め込むためのビデオファイルパスを渡します。
-1. ビデオのフレームを作成するために[IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/)オブジェクトを追加します。
-1. 修正されたプレゼンテーションを保存します。
-
-このC#コードは、ローカルに保存されたビデオをプレゼンテーションに追加する方法を示しています：
-
+この C# コードは、ローカルに保存されたビデオをプレゼンテーションに追加する方法を示しています：
 ```c#
-// プレゼンテーションクラスのインスタンスを作成
+// Presentation クラスのインスタンス化
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     // ビデオをロード
@@ -45,9 +57,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
     }
 }
 ```
-また、[AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/)メソッドにビデオのファイルパスを直接渡すことで、ビデオを追加することもできます：
 
-```csharp
+あるいは、ファイルパスを直接[AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/) メソッドに渡すことでビデオを追加することもできます：
+``` csharp
 using (Presentation pres = new Presentation())
 {
     ISlide sld = pres.Slides[0];
@@ -55,21 +67,22 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **ウェブソースからのビデオでビデオフレームを作成する**
-Microsoft [PowerPoint 2013以降](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us)では、プレゼンテーションでYouTubeビデオをサポートしています。使用したいビデオがオンラインで利用可能な場合（例えばYouTube上）、そのウェブリンクを通じてプレゼンテーションに追加できます。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
-1. インデックスを通じてスライドの参照を取得します。
-1. [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/)オブジェクトを追加し、ビデオへのリンクを渡します。
-1. ビデオフレームのサムネイルを設定します。
-1. プレゼンテーションを保存します。
+## **Web ソースからのビデオでビデオフレームを作成**
 
-このC#コードは、PowerPointプレゼンテーション内のスライドにウェブからビデオを追加する方法を示しています：
+Microsoft の[PowerPoint 2013 以降](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) は、プレゼンテーションで YouTube ビデオをサポートしています。使用したいビデオがオンライン（例：YouTube）で利用可能な場合、そのウェブリンクを介してプレゼンテーションに追加できます。
 
+1. [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
+2. インデックスを使用してスライドの参照を取得します。
+3. [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) オブジェクトを追加し、ビデオへのリンクを渡します。
+4. ビデオフレームのサムネイルを設定します。
+5. プレゼンテーションを保存します。
+
+この C# コードは、ウェブからビデオを取得して PowerPoint プレゼンテーションのスライドに追加する方法を示しています：
 ```c#
 public static void Run()
 {
-    // プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化
+    // プレゼンテーションファイルを表す Presentation オブジェクトをインスタンス化します 
     using (Presentation pres = new Presentation())
     {
         AddVideoFromYouTube(pres, "Tj75Arhq5ho");
@@ -79,11 +92,11 @@ public static void Run()
 
 private static void AddVideoFromYouTube(Presentation pres, string videoId)
 {
-    // ビデオフレームを追加
+    // VideoFrame を追加します
     IVideoFrame videoFrame = pres.Slides[0].Shapes.AddVideoFrame(10, 10, 427, 240, "https://www.youtube.com/embed/" + videoId);
     videoFrame.PlayMode = VideoPlayModePreset.Auto;
 
-    // サムネイルをロード
+    // サムネイルを読み込みます
     using (WebClient client = new WebClient())
     {
         string thumbnailUri = "http://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
@@ -92,27 +105,28 @@ private static void AddVideoFromYouTube(Presentation pres, string videoId)
 }
 ```
 
-## **スライドからビデオを抽出する**
-スライドにビデオを追加することに加えて、Aspose.Slidesはプレゼンテーションに埋め込まれたビデオを抽出することも可能です。
 
-1. ビデオを含むプレゼンテーションをロードするために[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
-2. すべての[ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide)オブジェクトを反復処理します。
-3. すべての[IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape)オブジェクトを反復処理し、[VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe)を見つけます。
+## **スライドからビデオを抽出**
+
+スライドにビデオを追加するだけでなく、Aspose.Slides ではプレゼンテーションに埋め込まれたビデオを抽出することも可能です。
+
+1. ビデオを含むプレゼンテーションを読み込むために、[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
+2. すべての[ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) オブジェクトを反復処理します。
+3. すべての[IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) オブジェクトを反復処理し、[VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe) を探します。
 4. ビデオをディスクに保存します。
 
-このC#コードは、プレゼンテーションスライドからビデオを抽出する方法を示しています：
-
+この C# コードは、プレゼンテーションのスライドからビデオを抽出する方法を示しています：
 ```c#
-// プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化
+ // プレゼンテーションファイルを表す Presentation オブジェクトをインスタンス化します 
 Presentation presentation = new Presentation("Video.pptx");
 
-// スライドを反復
+// スライドを走査します
 foreach (ISlide slide in presentation.Slides)
 {
-    // シェイプを反復
+    // シェイプを走査します
     foreach (IShape shape in presentation.Slides[0].Shapes)
     {
-        // ビデオを含むVideoFrameが見つかった場合、ディスクにビデオを保存
+        // ビデオを含む VideoFrame が見つかったらビデオをディスクに保存します
         if (shape is VideoFrame)
         {
             IVideoFrame vf = shape as IVideoFrame;
@@ -128,3 +142,22 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 ```
+
+
+## **よくある質問**
+
+**VideoFrame の再生パラメータで変更できるものは何ですか？**
+
+再生モード（自動またはクリック時）として[playback mode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) を制御し、[looping](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) を設定できます。これらのオプションは[VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/) オブジェクトのプロパティで利用できます。
+
+**ビデオを追加すると PPTX ファイルサイズに影響がありますか？**
+
+はい。ローカルビデオを埋め込むと、バイナリ データが文書に含まれ、ファイルサイズに比例してプレゼンテーションのサイズが増加します。オンラインビデオを追加する場合は、リンクとサムネイルが埋め込まれるだけなので、サイズ増加は小さく抑えられます。
+
+**既存の VideoFrame のビデオを、位置やサイズを変更せずに置き換えることはできますか？**
+
+はい。フレーム内の[video content](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) を入れ替えることで、シェイプのジオメトリを保持したまま置き換えることができます。これは既存のレイアウトでメディアを更新する一般的なシナリオです。
+
+**埋め込まれたビデオのコンテンツタイプ（MIME）を取得できますか？**
+
+はい。埋め込まれたビデオには[content type](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) があり、これを読み取って使用できます。たとえばディスクに保存する際などに利用できます。

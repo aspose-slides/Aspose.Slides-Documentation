@@ -1,42 +1,55 @@
 ---
-title: Gérer les paramètres d'Autoajustement
+title: Améliorez vos présentations avec AutoFit dans .NET
+linktitle: Paramètres d'AutoFit
 type: docs
 weight: 30
 url: /fr/net/manage-autofit-settings/
-keywords: "Zone de texte, Autoajustement, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
-description: "Définir les paramètres d'autoajustement pour la zone de texte dans PowerPoint en C# ou .NET"
+keywords:
+- zone de texte
+- ajuste automatique
+- ne pas ajuster automatiquement
+- ajuster le texte
+- réduire le texte
+- envelopper le texte
+- redimensionner la forme
+- PowerPoint
+- présentation
+- C#
+- .NET
+- Aspose.Slides
+description: "Apprenez à gérer les paramètres d'AutoFit dans Aspose.Slides pour .NET afin d'optimiser l'affichage du texte dans vos présentations PowerPoint et OpenDocument et d'améliorer la lisibilité du contenu."
 ---
 
-Par défaut, lorsque vous ajoutez une zone de texte, Microsoft PowerPoint utilise le réglage **Redimensionner la forme pour ajuster le texte** pour la zone de texte : elle redimensionne automatiquement la zone de texte pour s'assurer que son texte y tient toujours.
+## **Aperçu**
 
-![textbox-in-powerpoint](textbox-in-powerpoint.png)
+Par défaut, lorsque vous ajoutez une zone de texte, Microsoft PowerPoint utilise le paramètre **Resize shape to fit text** pour la zone de texte — il redimensionne automatiquement la zone de texte afin de garantir que son texte y rentre toujours.
 
-* Lorsque le texte dans la zone de texte devient plus long ou plus grand, PowerPoint agrandit automatiquement la zone de texte - augmente sa hauteur - pour lui permettre de contenir plus de texte.
-* Lorsque le texte dans la zone de texte devient plus court ou plus petit, PowerPoint réduit automatiquement la zone de texte - diminue sa hauteur - pour supprimer l'espace inutile.
+![Une zone de texte dans PowerPoint](textbox-in-powerpoint.png)
 
-Dans PowerPoint, il y a 4 paramètres ou options importants qui contrôlent le comportement d'autoajustement pour une zone de texte :
+* Lorsque le texte de la zone de texte devient plus long ou plus gros, PowerPoint agrandit automatiquement la zone de texte—en augmentant sa hauteur—pour lui permettre de contenir davantage de texte.
+* Lorsque le texte de la zone de texte devient plus court ou plus petit, PowerPoint réduit automatiquement la zone de texte—en diminuant sa hauteur—pour éliminer l'espace superflu.
 
-* **Ne pas autoajuster**
-* **Réduire le texte en cas de débordement**
+Dans PowerPoint, voici les quatre paramètres ou options importants qui contrôlent le comportement d’ajustement automatique (autofit) d’une zone de texte :
+
+* **Ne pas ajuster automatiquement**
+* **Réduire le texte en cas de dépassement**
 * **Redimensionner la forme pour ajuster le texte**
-* **Envelopper le texte dans la forme.**
+* **Envelopper le texte dans la forme**
 
-![autofit-options-powerpoint](autofit-options-powerpoint.png)
+![Options d’ajustement automatique dans PowerPoint](autofit-options-powerpoint.png)
 
-Aspose.Slides pour .NET offre des options similaires - certaines propriétés sous la classe [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) - qui vous permettent de contrôler le comportement d'autoajustement pour les zones de texte dans les présentations.
+Aspose.Slides for .NET propose des options similaires—des propriétés de la classe [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat)—qui vous permettent de contrôler le comportement d’ajustement automatique des zones de texte dans les présentations.
 
-## **Redimensionner la Forme pour Ajuster le Texte**
+## **Redimensionner la forme pour ajuster le texte**
 
-Si vous souhaitez que le texte dans une boîte s'ajuste toujours dans cette boîte après des modifications apportées au texte, vous devez utiliser l'option **Redimensionner la forme pour ajuster le texte**. Pour spécifier ce réglage, définissez la propriété [AutofitType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/autofittype) (de la classe [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat)) sur `Shape`.
+Si vous souhaitez que le texte d’une boîte s’ajuste toujours à cette boîte après des modifications du texte, vous devez utiliser l’option **Resize shape to fit text**. Pour spécifier ce paramètre, définissez la propriété `AutofitType` de la classe [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) sur `Shape`.
 
-![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
-
-Ce code C# vous montre comment spécifier qu'un texte doit toujours s'ajuster dans sa boîte dans une présentation PowerPoint :
+![Redimensionner la forme pour ajuster le texte](alwaysfit-setting-powerpoint.png)
 
 ```c#
- using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
     Portion portion = new Portion("lorem ipsum...");
@@ -47,24 +60,23 @@ Ce code C# vous montre comment spécifier qu'un texte doit toujours s'ajuster da
     ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
     textFrameFormat.AutofitType = TextAutofitType.Shape;
 
-    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+    presentation.Save("output_presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
-Si le texte devient plus long ou plus grand, la zone de texte sera automatiquement redimensionnée (augmentation de la hauteur) pour garantir que tout le texte y tienne. Si le texte devient plus court, l'inverse se produit.
 
-## **Ne Pas Autoajuster**
+Si le texte devient plus long ou plus gros, la zone de texte sera automatiquement redimensionnée (hauteur augmentée) afin de garantir que tout le texte y rentre. Si le texte devient plus court, l’inverse se produit.
 
-Si vous souhaitez qu'une zone de texte ou une forme conserve ses dimensions, peu importe les modifications apportées au texte qu'elle contient, vous devez utiliser l'option **Ne pas autoajuster**. Pour spécifier ce réglage, définissez la propriété [AutofitType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/autofittype) (de la classe [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat)) sur `None`.
+## **Ne pas ajuster automatiquement**
 
-![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
+Si vous souhaitez qu’une zone de texte ou une forme conserve ses dimensions quel que soit le texte qu’elle contient, vous devez utiliser l’option **Do not Autofit**. Pour spécifier ce paramètre, définissez la propriété `AutofitType` de la classe [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) sur `None`.
 
-Ce code C# vous montre comment spécifier qu'une zone de texte doit toujours conserver ses dimensions dans une présentation PowerPoint :
+![\"Do not Autofit\" paramètre dans PowerPoint](donotautofit-setting-powerpoint.png)
 
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
     Portion portion = new Portion("lorem ipsum...");
@@ -75,24 +87,23 @@ using (Presentation pres = new Presentation())
     ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
     textFrameFormat.AutofitType = TextAutofitType.None;
 
-    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+    presentation.Save("output_presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
+
 Lorsque le texte devient trop long pour sa boîte, il déborde.
 
-## **Réduire le Texte en Cas de Débordement**
+## **Réduire le texte en cas de dépassement**
 
-Si un texte devient trop long pour sa boîte, grâce à l'option **Réduire le texte en cas de débordement**, vous pouvez spécifier que la taille et l'espacement du texte doivent être réduits pour s'adapter dans sa boîte. Pour spécifier ce réglage, définissez la propriété [AutofitType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/autofittype) (de la classe [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat)) sur `Normal`.
+Si le texte devient trop long pour sa boîte, grâce à l’option **Shrink text on overflow**, vous pouvez préciser que la taille et l’espacement du texte doivent être réduits pour le faire tenir dans la boîte. Pour spécifier ce paramètre, définissez la propriété `AutofitType` de la classe [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) sur `Normal`.
 
-![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
-
-Ce code C# vous montre comment spécifier qu'un texte doit être réduit en cas de débordement dans une présentation PowerPoint :
+![\"Shrink text on overflow\" paramètre dans PowerPoint](shrinktextonoverflow-setting-powerpoint.png)
 
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
     Portion portion = new Portion("lorem ipsum...");
@@ -103,26 +114,23 @@ using (Presentation pres = new Presentation())
     ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
     textFrameFormat.AutofitType = TextAutofitType.Normal;
 
-    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+    presentation.Save("output_presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
+
 {{% alert title="Info" color="info" %}}
-
-Lorsque l'option **Réduire le texte en cas de débordement** est utilisée, le réglage ne s'applique que lorsque le texte devient trop long pour sa boîte.
-
+Lorsque l’option **Shrink text on overflow** est utilisée, le réglage n’est appliqué que lorsque le texte devient trop long pour sa boîte.
 {{% /alert %}}
 
-## **Envelopper le Texte**
+## **Envelopper le texte**
 
-Si vous souhaitez que le texte dans une forme soit enveloppé à l'intérieur de cette forme lorsque le texte dépasse la bordure de la forme (uniquement en largeur), vous devez utiliser le paramètre **Envelopper le texte dans la forme**. Pour spécifier ce réglage, vous devez définir la propriété [WrapText](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/wraptext) (de la classe [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat)) sur `true`.
-
-Ce code C# vous montre comment utiliser le réglage d'enveloppement de texte dans une présentation PowerPoint :
+Si vous souhaitez que le texte d’une forme soit renvoyé à l’intérieur de cette forme lorsque le texte dépasse le bord de la forme (largeur uniquement), vous devez utiliser le paramètre **Wrap text in shape**. Pour spécifier ce paramètre, vous devez définir la propriété `WrapText` de la classe [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) sur `NullableBool.True`.
 
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
     Portion portion = new Portion("lorem ipsum...");
@@ -133,12 +141,25 @@ using (Presentation pres = new Presentation())
     ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
     textFrameFormat.WrapText = NullableBool.True;
 
-    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+    presentation.Save("output_presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
+
 {{% alert title="Note" color="warning" %}}
-
-Si vous définissez la propriété `WrapText` sur `False` pour une forme, lorsque le texte à l'intérieur de la forme devient plus long que la largeur de la forme, le texte s'étend au-delà des bordures de la forme sur une seule ligne.
-
+Si vous définissez la propriété `WrapText` sur `NullableBool.False` pour une forme, lorsque le texte à l’intérieur de la forme devient plus long que la largeur de la forme, le texte s’étend au-delà des bordures de la forme sur une seule ligne.
 {{% /alert %}}
+
+## **FAQ**
+
+**Les marges internes du cadre de texte affectent-elles l’AutoFit ?**
+
+Oui. Le remplissage (marges internes) réduit la zone utilisable pour le texte, de sorte que l’AutoFit intervient plus tôt—en réduisant la police ou en redimensionnant la forme plus rapidement. Vérifiez et ajustez les marges avant d’affiner l’AutoFit.
+
+**Comment l’AutoFit interagit‑il avec les sauts de ligne manuels et souples ?**
+
+Les sauts imposés restent en place, et l’AutoFit ajuste la taille de la police et l’espacement autour d’eux. Supprimer les sauts inutiles réduit souvent l’agressivité avec laquelle l’AutoFit doit réduire le texte.
+
+**Le changement de la police du thème ou le déclenchement d’une substitution de police affecte‑t‑il les résultats de l’AutoFit ?**
+
+Oui. Substituer par une police aux métriques de glyphe différentes modifie la largeur/hauteur du texte, ce qui peut modifier la taille finale de la police et le renvoi des lignes. Après tout changement ou substitution de police, revérifiez les diapositives.
