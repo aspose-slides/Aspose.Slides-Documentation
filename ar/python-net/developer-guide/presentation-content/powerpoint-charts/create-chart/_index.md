@@ -1,287 +1,315 @@
 ---
-title: إنشاء الرسوم البيانية في عرض PowerPoint باستخدام Python
-linktitle: إنشاء الرسم البياني
+title: إنشاء أو تعديل مخططات عروض PowerPoint باستخدام Python
+linktitle: إنشاء أو تعديل مخطط
 type: docs
 weight: 10
 url: /ar/python-net/create-chart/
-keywords: "إنشاء رسم بياني، رسم بياني متناثر، رسم بياني دائري، رسم بياني للخرائط الشجرية، رسم بياني للأسهم، رسم بياني للصندوق والشعيرات، رسم بياني مدرج، رسم بياني القمع، رسم بياني أشعة الشمس، رسم بياني متعدد الفئات، عرض PowerPoint، Python، Aspose.Slides لـ Python عبر .NET"
-description: "إنشاء رسم بياني في عرض PowerPoint باستخدام Python"
+keywords:
+- إضافة مخطط
+- إنشاء مخطط
+- تحرير مخطط
+- تغيير مخطط
+- تحديث مخطط
+- مخطط مبعثر
+- مخطط دائري
+- مخطط خطي
+- مخطط شجرة خريطة
+- مخطط أسهم
+- مخطط صندوق وشارب
+- مخطط قمع
+- مخطط شمسي
+- مخطط توزيع تكراري
+- مخطط راداري
+- مخطط متعدد الفئات
+- عرض PowerPoint
+- بايثون
+- Aspose.Slides
+description: "تعلم كيفية إنشاء وتخصيص المخططات في عروض PowerPoint وعروض OpenDocument باستخدام Aspose.Slides للغة Python عبر .NET. يغطي إضافة وتنسيق وتحرير المخططات في العروض مع أمثلة عملية للشفرة بلغة Python."
 ---
 
-## **إنشاء رسم بياني**
+## **نظرة عامة**
 
-تساعد الرسوم البيانية الناس على تصور البيانات بسرعة والحصول على رؤى قد لا تكون واضحة على الإطلاق من جدول أو ورقة عمل.
+توفر هذه المقالة دليلًا شاملًا حول كيفية إنشاء المخططات وتخصيصها باستخدام Aspose.Slides للغة Python عبر .NET. ستتعلم كيفية إضافة مخطط إلى شريحة برمجيًا، وتعبئته بالبيانات، وتطبيق خيارات تنسيق مختلفة لتتناسب مع متطلبات التصميم الخاصة بك. طوال المقالة، توضح أمثلة الكود التفصيلية كل خطوة، بدءًا من تهيئة العرض وكائن المخطط إلى تكوين السلاسل والمحاور والوسائل الإيضاحية. باتباع هذا الدليل، ستحصل على فهم قوي لكيفية دمج إنشاء المخططات الديناميكية في تطبيقاتك، مما يبسط عملية إنشاء عروض تقديمية مدفوعة بالبيانات.
 
-**لماذا إنشاء رسوم بيانية؟**
+## **إنشاء مخطط**
 
-باستخدام الرسوم البيانية، يمكنك
+تساعد المخططات الأشخاص على تصور البيانات بسرعة واستخلاص رؤى قد لا تكون واضحة فورًا من جدول أو جدول بيانات.
 
-* تجميع أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في عرض تقديمي
-* كشف الأنماط والاتجاهات في البيانات
-* استنتاج الاتجاه والزخم للبيانات بمرور الوقت أو بالنسبة لوحدة قياس معينة
-* كشف النقاط الشاذة والانحرافات والأخطاء والبيانات غير المنطقية، إلخ.
-* التواصل أو تقديم بيانات معقدة
+**لماذا إنشاء مخططات؟**
 
-في PowerPoint، يمكنك إنشاء الرسوم البيانية من خلال وظيفة الإدراج، التي توفر قوالب تُستخدم لتصميم أنواع متعددة من الرسوم البيانية. باستخدام Aspose.Slides، يمكنك إنشاء رسوم بيانية عادية (استنادًا إلى أنواع الرسوم البيانية الشائعة) ورسوم بيانية مخصصة.
+باستخدام المخططات، يمكنك:
 
-{{% alert color="primary" %}}
+* تجميع أو تكثيف أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في العرض التقديمي؛
+* كشف الأنماط والاتجاهات في البيانات؛
+* استنتاج اتجاه وزخم البيانات مع مرور الوقت أو بالنسبة لوحدة قياس محددة؛
+* اكتشاف القيم المتطرفة، والانحرافات، والأخطاء، والبيانات غير المنطقية؛
+* التواصل أو عرض البيانات المعقدة.
 
-لتمكينك من إنشاء الرسوم البيانية، يوفر Aspose.Slides تعيين [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) ضمن مساحة اسم [Aspose.Slides.Charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/). تتوافق الأعضاء تحت هذا العد مع أنواع الرسوم البيانية المختلفة.
+في PowerPoint، يمكنك إنشاء المخططات عبر وظيفة *Insert* التي توفر قوالب لتصميم أنواع متعددة من المخططات. باستخدام Aspose.Slides، يمكنك إنشاء مخططات عادية (المستندة إلى أنواع المخططات الشائعة) ومخططات مخصصة.
 
-{{% /alert %}}
+{{% alert color="primary" %}} 
+استخدم تعداد [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) ضمن مساحة الاسم [Aspose.Slides.Charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/). القيم في هذا التعداد تت对应 لأنواع المخططات المختلفة.
+{{% /alert %}} 
 
-### **إنشاء رسوم بيانية عادية**
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. أضف رسمًا بيانيًا مع بعض البيانات وحدد نوع الرسم البياني المفضل لديك.
-1. أضف عنوانًا للرسم البياني.
-1. الوصول إلى ورقة بيانات الرسم البياني.
-1. امسح جميع السلاسل والفئات الافتراضية.
-1. أضف سلاسل وفئات جديدة.
-1. أضف بعض البيانات الجديدة للرسم البياني لسلاسل الرسم البياني.
-1. أضف لون تعبئة لسلسلة الرسم البياني.
-1. أضف تسميات لسلاسل الرسم البياني.
-1. اكتب العرض المعدل كملف PPTX.
+### **إنشاء مخططات عمودية مجمعة**
 
-هذا الرمز بلغة Python يوضح لك كيفية إنشاء رسم بياني عادي:
+يوضح هذا القسم كيفية إنشاء مخططات عمودية مجمعة باستخدام Aspose.Slides for Python via .NET. ستتعلم كيفية تهيئة عرض تقديمي، إضافة مخطط، وتخصيص عناصره مثل العنوان والبيانات والسلاسل والفئات والتنسيق. اتبع الخطوات أدناه لرؤية كيفية توليد مخطط عمودي مجمع قياسي:
 
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إضافة مخطط ببيانات معينة وتحديد النوع `ChartType.CLUSTERED_COLUMN`.
+1. إضافة عنوان إلى المخطط.
+1. الوصول إلى ورقة بيانات المخطط.
+1. مسح جميع السلاسل والفئات الافتراضية.
+1. إضافة سلاسل وفئات جديدة.
+1. إضافة بيانات مخطط جديدة للسلسلة.
+1. تطبيق لون تعبئة على سلسلة المخطط.
+1. إضافة تسميات إلى سلسلة المخطط.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+هذا الكود بلغة Python يوضح كيفية إنشاء مخطط عمودي مجمع:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# أنشئ مثيلًا من فئة Presentation التي تمثل ملف PPTX
-with slides.Presentation() as pres:
+# إنشاء فئة Presentation التي تمثل ملف PPTX.
+with slides.Presentation() as presentation:
 
-    # الوصول إلى الشريحة الأولى
-    sld = pres.slides[0]
+    # الوصول إلى الشريحة الأولى.
+    slide = presentation.slides[0]
 
-    # إضافة الرسم البياني مع البيانات الافتراضية
-    chart = sld.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 0, 0, 500, 500)
+    # إضافة مخطط عمودي مجمع بالبيانات الافتراضية.
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
-    # تعيين عنوان الرسم البياني
-    chart.chart_title.add_text_frame_for_overriding("عنوان عشوائي")
-    chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = 1
+    # تعيين عنوان المخطط.
+    chart.chart_title.add_text_frame_for_overriding("Sample Title")
+    chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # تعيين السلسلة الأولى لإظهار القيم
+    # تعيين السلسلة الأولى لإظهار القيم.
     chart.chart_data.series[0].labels.default_data_label_format.show_value = True
 
-    # تعيين فهرس ورقة البيانات للرسم البياني
-    defaultWorksheetIndex = 0
+    # تعيين فهرس ورقة بيانات المخطط.
+    worksheet_index = 0
 
-    # الحصول على ورقة بيانات الرسم البياني
-    fact = chart.chart_data.chart_data_workbook
+    # الحصول على دفتر بيانات المخطط.
+    workbook = chart.chart_data.chart_data_workbook
 
-    # حذف السلاسل والفئات الافتراضية المولدة
+    # حذف السلاسل والفئات المولدة افتراضيًا.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
-    s = len(chart.chart_data.series)
-    s = len(chart.chart_data.categories)
 
-    # إضافة سلاسل جديدة
-    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 1, "السلسلة 1"), chart.type)
-    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 2, "السلسلة 2"), chart.type)
+    # إضافة سلاسل جديدة.
+    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Series 1"), chart.type)
+    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Series 2"), chart.type)
 
-    # إضافة فئات جديدة
-    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 1, 0, "الفئة 1"))
-    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 2, 0, "الفئة 2"))
-    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 3, 0, "الفئة 3"))
+    # إضافة فئات جديدة.
+    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
+    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
+    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
 
-    # أخذ السلسلة الأولى للرسم البياني
+    # الحصول على السلسلة الأولى للمخطط.
     series = chart.chart_data.series[0]
 
-    # الآن يتم ملء بيانات السلسلة
+    # ملء بيانات السلسلة.
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 20))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 50))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 30))
 
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 20))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 50))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 30))
-
-    # تعيين لون التعبئة للسلسلة
+    # تعيين لون التعبئة للسلسلة.
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.red
 
-
-    # أخذ السلسلة الثانية للرسم البياني
+    # الحصول على السلسلة الثانية للمخطط.
     series = chart.chart_data.series[1]
 
-    # الآن يتم ملء بيانات السلسلة
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 1, 2, 30))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 2, 2, 10))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 3, 2, 60))
+    # ملء بيانات السلسلة.
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 30))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 10))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 60))
 
-    # تعيين لون التعبئة للسلسلة
+    # تعيين لون التعبئة للسلسلة.
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.green
 
-    # ستظهر التسمية الأولى اسم الفئة
-    lbl = series.data_points[0].label
-    lbl.data_label_format.show_category_name = True
+    # تعيين التسمية الأولى لإظهار اسم الفئة.
+    label = series.data_points[0].label
+    label.data_label_format.show_category_name = True
 
-    lbl = series.data_points[1].label
-    lbl.data_label_format.show_series_name = True
+    label = series.data_points[1].label
+    label.data_label_format.show_series_name = True
 
-    # إظهار القيمة للتسمية الثالثة
-    lbl = series.data_points[2].label
-    lbl.data_label_format.show_value = True
-    lbl.data_label_format.show_series_name = True
-    lbl.data_label_format.separator = "/"
+    # تعيين السلسلة لإظهار القيمة للتسمية الثالثة.
+    label = series.data_points[2].label
+    label.data_label_format.show_value = True
+    label.data_label_format.show_series_name = True
+    label.data_label_format.separator = "/"
                 
-    # حفظ العرض مع الرسم البياني
-    pres.save("AsposeChart_out-1.pptx", slides.export.SaveFormat.PPTX)
+    # حفظ العرض التقديمي إلى القرص كملف PPTX.
+    presentation.save("ClusteredColumnChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-### **إنشاء الرسوم البيانية المتناثرة**
-تستخدم الرسوم البيانية المتناثرة (المعروفة أيضًا باسم المخططات المتناثرة أو المخططات x-y) غالبًا للتحقق من الأنماط أو لإظهار العلاقات بين متغيرين.
+النتيجة:
 
-قد ترغب في استخدام الرسم البياني المتناثر عندما 
+![مخطط عمودي مجمع](clustered_column_chart.png)
 
-* يكون لديك بيانات رقمية متزاوجة
-* لديك متغيران يتناسبان بشكل جيد معًا
-* تريد تحديد ما إذا كان هناك ارتباط بين متغيرين
-* لديك متغير مستقل له قيم متعددة لمتغير تابع
+### **إنشاء مخططات تبعثرة**
 
-هذا الرمز بلغة Python يوضح لك كيفية إنشاء الرسوم البيانية المتناثرة مع مجموعة مختلفة من العلامات:
+تُستخدم مخططات التبعثر (المعروفة أيضًا بمخططات التبعثر أو الرسوم البيانية x-y) عادةً للتحقق من الأنماط أو إظهار الارتباطات بين متغيرين.
 
+استخدم مخطط تبعثرة عندما:
+
+* لديك بيانات عددية مرتبطة.
+* لديك متغيران يتوافقان جيدًا معًا.
+* تريد تحديد ما إذا كان المتغيران مرتبطين.
+* لديك متغير مستقل له قيم متعددة بالنسبة للمتغير التابع.
+
+هذا الكود بلغة Python يوضح كيفية إنشاء مخطط تبعثرة بسلسلة مختلفة من العلامات:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
+# إنشاء كائن فئة Presentation.
+with slides.Presentation() as presentation:
 
-    slide = pres.slides[0]
+    # الوصول إلى الشريحة الأولى.
+    slide = presentation.slides[0]
 
-    # إنشاء الرسم البياني الافتراضي
-    chart = slide.shapes.add_chart(charts.ChartType.SCATTER_WITH_SMOOTH_LINES, 0, 0, 400, 400)
+    # إنشاء مخطط التبعثر الافتراضي.
+    chart = slide.shapes.add_chart(charts.ChartType.SCATTER_WITH_SMOOTH_LINES, 20, 20, 500, 300)
 
-    # الحصول على فهرس ورقة بيانات الرسم البياني الافتراضية
-    defaultWorksheetIndex = 0
+    # تعيين فهرس ورقة بيانات المخطط.
+    worksheet_index = 0
 
-    # الحصول على ورقة بيانات الرسم البياني
-    fact = chart.chart_data.chart_data_workbook
+    # الحصول على دفتر بيانات المخطط.
+    workbook = chart.chart_data.chart_data_workbook
 
-    # حذف السلاسل التجريبية
+    # حذف السلسلة الافتراضية.
     chart.chart_data.series.clear()
 
-    # إضافة سلاسل جديدة
-    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 1, 1, "السلسلة 1"), chart.type)
-    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 1, 3, "السلسلة 2"), chart.type)
+    # إضافة سلاسل جديدة.
+    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 1, 1, "Series 1"), chart.type)
+    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 1, 3, "Series 2"), chart.type)
 
-    # أخذ السلسلة الأولى للرسم البياني
+    # الحصول على السلسلة الأولى للمخطط.
     series = chart.chart_data.series[0]
 
-    # إضافة نقطة جديدة (1:3) هناك.
-    series.data_points.add_data_point_for_scatter_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 1), fact.get_cell(defaultWorksheetIndex, 2, 2, 3))
+    # إضافة نقطة جديدة (1:3) إلى السلسلة.
+    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 1, 1), workbook.get_cell(worksheet_index, 2, 2, 3))
 
-    # إضافة نقطة جديدة (2:10)
-    series.data_points.add_data_point_for_scatter_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 2), fact.get_cell(defaultWorksheetIndex, 3, 2, 10))
+    # إضافة نقطة جديدة (2:10).
+    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 1, 2), workbook.get_cell(worksheet_index, 3, 2, 10))
 
-    # تعديل نوع السلسلة
+    # تغيير نوع السلسلة.
     series.type = charts.ChartType.SCATTER_WITH_STRAIGHT_LINES_AND_MARKERS
 
-    # تغيير علامة سلسلة الرسم البياني
+    # تغيير علامة سلسلة المخطط.
     series.marker.size = 10
     series.marker.symbol = charts.MarkerStyleType.STAR
 
-    # أخذ السلسلة الثانية للرسم البياني
+    # الحصول على السلسلة الثانية للمخطط.
     series = chart.chart_data.series[1]
 
-    # إضافة نقطة جديدة (5:2) هناك.
-    series.data_points.add_data_point_for_scatter_series(fact.get_cell(defaultWorksheetIndex, 2, 3, 5), fact.get_cell(defaultWorksheetIndex, 2, 4, 2))
+    # إضافة نقطة جديدة (5:2) إلى سلسلة المخطط.
+    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 3, 5), workbook.get_cell(worksheet_index, 2, 4, 2))
 
-    # إضافة نقطة جديدة (3:1)
-    series.data_points.add_data_point_for_scatter_series(fact.get_cell(defaultWorksheetIndex, 3, 3, 3), fact.get_cell(defaultWorksheetIndex, 3, 4, 1))
+    # إضافة نقطة جديدة (3:1).
+    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 3, 3), workbook.get_cell(worksheet_index, 3, 4, 1))
 
-    # إضافة نقطة جديدة (2:2)
-    series.data_points.add_data_point_for_scatter_series(fact.get_cell(defaultWorksheetIndex, 4, 3, 2), fact.get_cell(defaultWorksheetIndex, 4, 4, 2))
+    # إضافة نقطة جديدة (2:2).
+    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 4, 3, 2), workbook.get_cell(worksheet_index, 4, 4, 2))
 
-    # إضافة نقطة جديدة (5:1)
-    series.data_points.add_data_point_for_scatter_series(fact.get_cell(defaultWorksheetIndex, 5, 3, 5), fact.get_cell(defaultWorksheetIndex, 5, 4, 1))
+    # إضافة نقطة جديدة (5:1).
+    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 5, 3, 5), workbook.get_cell(worksheet_index, 5, 4, 1))
 
-    # تغيير علامة سلسلة الرسم البياني
+    # تغيير علامة سلسلة المخطط.
     series.marker.size = 10
     series.marker.symbol = charts.MarkerStyleType.CIRCLE
 
-    pres.save("AsposeChart_out-2.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("ScatterChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **إنشاء الرسوم البيانية الدائرية**
 
-تستخدم الرسوم البيانية الدائرية بشكل أفضل لإظهار العلاقة بين الجزء والكل في البيانات، خاصة عندما تحتوي البيانات على تسميات فئوية مع قيم عددية. ومع ذلك، إذا كانت بياناتك تحتوي على العديد من الأجزاء أو التسميات، فقد ترغب في اعتبار استخدام رسم بياني شريطي بدلاً من ذلك.
+النتيجة:
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. أضف رسمًا بيانيًا مع البيانات الافتراضية جنبًا إلى جنب مع النوع المطلوب (في هذه الحالة، `ChartType.PIE`).
-1. الوصول إلى بيانات الرسم البياني IChartDataWorkbook.
-1. امسح السلاسل والفئات الافتراضية.
-1. أضف سلاسل وفئات جديدة.
-1. أضف بيانات جديدة للرسم البياني منذ السلسلة.
-1. أضف نقاط جديدة للرسوم البيانية وأضف ألوان مخصصة لقطاعات الرسم البياني الدائري.
-1. تعيين تسميات للسلاسل.
-1. تعيين خطوط الاتصال لتسميات السلاسل.
-1. تعيين زاوية الدوران لشرائح الرسم البياني الدائري.
-1. اكتب العرض المعدل إلى ملف PPTX.
+![مخطط تبعثرة](scatter_chart.png)
 
-هذا الرمز بلغة Python يوضح لك كيفية إنشاء رسم بياني دائري:
+### **إنشاء مخططات دائريه**
 
+تُستخدم المخططات الدائرية لإظهار علاقة الجزء إلى الككل في البيانات، خاصة عندما تحتوي البيانات على تسميات فئوية مع قيم عددية. إذا احتوت بياناتك على أجزاء أو تسميات كثيرة، قد تفضل استخدام مخطط شريطي بدلاً منها.
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.PIE`.
+1. الوصول إلى دفتر بيانات المخطط ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. مسح السلاسل والفئات الافتراضية.
+1. إضافة سلاسل وفئات جديدة.
+1. إضافة بيانات مخطط جديدة للسلسلة.
+1. إضافة نقاط جديدة للمخطط وتطبيق ألوان مخصصة على قطاعات المخطط الدائري.
+1. تعيين تسميات للسلسلة.
+1. تمكين خطوط القادة لتسميات السلسلة.
+1. تعيين زاوية الدوران للمخطط الدائري.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+هذا الكود بلغة Python يوضح كيفية إنشاء مخطط دائري:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# أنشئ مثيلًا من فئة Presentation التي تمثل ملف PPTX
+# إنشاء كائن فئة Presentation الذي يمثل ملف PPTX.
 with slides.Presentation() as presentation:
 
-    # الوصول إلى الشريحة الأولى
+    # الوصول إلى الشريحة الأولى.
     slide = presentation.slides[0]
 
-    # إضافة رسم بياني مع البيانات الافتراضية
-    chart = slide.shapes.add_chart(charts.ChartType.PIE, 100, 100, 400, 400)
+    # إضافة مخطط بالبيانات الافتراضية.
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 20, 20, 500, 300)
 
-    # تعيين عنوان الرسم البياني
-    chart.chart_title.add_text_frame_for_overriding("عنوان عشوائي")
-    chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = 1
+    # تعيين عنوان المخطط.
+    chart.chart_title.add_text_frame_for_overriding("Sample Title")
+    chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # تعيين السلسلة الأولى لإظهار القيم
+    # تعيين السلسلة الأولى لإظهار القيم.
     chart.chart_data.series[0].labels.default_data_label_format.show_value = True
 
-    # تعيين فهرس ورقة البيانات للرسم البياني
-    defaultWorksheetIndex = 0
+    # تعيين فهرس ورقة بيانات المخطط.
+    worksheet_index = 0
 
-    # الحصول على ورقة بيانات الرسم البياني
-    fact = chart.chart_data.chart_data_workbook
+    # الحصول على دفتر بيانات المخطط.
+    workbook = chart.chart_data.chart_data_workbook
 
-    # حذف السلاسل والفئات الافتراضية المولدة
+    # حذف السلاسل والفئات المولدة افتراضيًا.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
-    # إضافة فئات جديدة
-    chart.chart_data.categories.add(fact.get_cell(0, 1, 0, "الربع الأول"))
-    chart.chart_data.categories.add(fact.get_cell(0, 2, 0, "الربع الثاني"))
-    chart.chart_data.categories.add(fact.get_cell(0, 3, 0, "الربع الثالث"))
+    # إضافة فئات جديدة.
+    chart.chart_data.categories.add(workbook.get_cell(0, 1, 0, "First Qtr"))
+    chart.chart_data.categories.add(workbook.get_cell(0, 2, 0, "2nd Qtr"))
+    chart.chart_data.categories.add(workbook.get_cell(0, 3, 0, "3rd Qtr"))
 
-    # إضافة سلاسل جديدة
-    series = chart.chart_data.series.add(fact.get_cell(0, 0, 1, "السلسلة 1"), chart.type)
+    # إضافة سلاسل جديدة.
+    series = chart.chart_data.series.add(workbook.get_cell(0, 0, 1, "Series 1"), chart.type)
 
-    # الآن يتم ملء بيانات السلسلة
-    series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 20))
-    series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 50))
-    series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 30))
+    # تعبئة بيانات السلسلة.
+    series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 1, 1, 20))
+    series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 2, 1, 50))
+    series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 3, 1, 30))
 
-    # لا تعمل في النسخة الجديدة
-    # إضافة نقاط جديدة وتعيين لون القطاع
-    # series.IsColorVaried = True
+    # تعيين لون القطاع.
     chart.chart_data.series_groups[0].is_color_varied = True
 
     point = series.data_points[0]
     point.format.fill.fill_type = slides.FillType.SOLID
     point.format.fill.solid_fill_color.color = draw.Color.cyan
-    # تعيين حدود القطاع
+
+    # تعيين حدود القطاع.
     point.format.line.fill_format.fill_type = slides.FillType.SOLID
     point.format.line.fill_format.solid_fill_color.color = draw.Color.gray
     point.format.line.width = 3.0
@@ -292,7 +320,7 @@ with slides.Presentation() as presentation:
     point1.format.fill.fill_type = slides.FillType.SOLID
     point1.format.fill.solid_fill_color.color = draw.Color.brown
 
-    # تعيين حدود القطاع
+    # تعيين حدود القطاع.
     point1.format.line.fill_format.fill_type = slides.FillType.SOLID
     point1.format.line.fill_format.solid_fill_color.color = draw.Color.blue
     point1.format.line.width = 3.0
@@ -303,196 +331,208 @@ with slides.Presentation() as presentation:
     point2.format.fill.fill_type = slides.FillType.SOLID
     point2.format.fill.solid_fill_color.color = draw.Color.coral
 
-    # تعيين حدود القطاع
+    # تعيين حدود القطاع.
     point2.format.line.fill_format.fill_type = slides.FillType.SOLID
     point2.format.line.fill_format.solid_fill_color.color = draw.Color.red
     point2.format.line.width = 2.0
     point2.format.line.style = slides.LineStyle.THIN_THIN
     point2.format.line.dash_style = slides.LineDashStyle.LARGE_DASH_DOT_DOT
 
-    # إنشاء تسميات مخصصة لكل من الفئات للسلسلة الجديدة
-    lbl1 = series.data_points[0].label
+    # إنشاء تسميات مخصصة لكل فئة في السلسلة الجديدة.
+    label1 = series.data_points[0].label
 
-    # lbl.show_category_name = True
-    lbl1.data_label_format.show_value = True
+    label1.data_label_format.show_value = True
 
-    lbl2 = series.data_points[1].label
-    lbl2.data_label_format.show_value = True
-    lbl2.data_label_format.show_legend_key = True
-    lbl2.data_label_format.show_percentage = True
+    label2 = series.data_points[1].label
+    label2.data_label_format.show_value = True
+    label2.data_label_format.show_legend_key = True
+    label2.data_label_format.show_percentage = True
 
-    lbl3 = series.data_points[2].label
-    lbl3.data_label_format.show_series_name = True
-    lbl3.data_label_format.show_percentage = True
+    label3 = series.data_points[2].label
+    label3.data_label_format.show_series_name = True
+    label3.data_label_format.show_percentage = True
 
-    # عرض خطوط القيادة للرسم البياني
+    # تعيين السلسلة لإظهار خطوط الربط للمخطط.
     series.labels.default_data_label_format.show_leader_lines = True
 
-    # تعيين زاوية الدوران لقطاعات الرسم البياني الدائري
+    # تعيين زاوية الدوران لقطاعات مخطط الفطيرة.
     chart.chart_data.series_groups[0].first_slice_angle = 180
 
-    # حفظ العرض مع الرسم البياني
-    presentation.save("PieChart_out-3.pptx", slides.export.SaveFormat.PPTX)
+    # حفظ العرض التقديمي إلى القرص كملف PPTX.
+    presentation.save("PieChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **إنشاء الرسوم البيانية الخطية**
 
-تستخدم الرسوم البيانية الخطية (المعروفة أيضًا باسم المخططات الخطية) بشكل أفضل في المواقف التي تريد فيها إظهار التغيرات في القيم بمرور الوقت. باستخدام الرسم البياني الخطي، يمكنك مقارنة الكثير من البيانات في وقت واحد، وتتبع التغيرات والاتجاهات على مدار الوقت، وإبراز الشذوذ في سلسلة البيانات، إلخ.
+النتيجة:
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. أضف رسمًا بيانيًا مع البيانات الافتراضية جنبًا إلى جنب مع النوع المطلوب (في هذه الحالة، `ChartType.Line`).
-1. الوصول إلى بيانات الرسم البياني [IChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdataworkbook/).
-1. امسح السلاسل والفئات الافتراضية.
-1. أضف سلاسل وفئات جديدة.
-1. أضف بيانات جديدة للرسم البياني لسلسلة الرسم البياني.
-1. اكتب العرض المعدل إلى ملف PPTX.
+![مخطط دائري](pie_chart.png)
 
-هذا الرمز بلغة Python يوضح لك كيفية إنشاء رسم بياني خطي:
+### **إنشاء مخططات خطية**
 
+تُستخدم المخططات الخطية (المعروفة أيضًا بالرسوم البيانية الخطية) عندما ترغب في توضيح تغير القيم مع مرور الوقت. باستخدام مخطط خطي، يمكنك مقارنة كمية كبيرة من البيانات في آنٍ واحد، تتبع التغييرات والاتجاهات بمرور الوقت، إبراز الشذوذ في سلاسل البيانات، وأكثر.
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.LINE`.
+1. الوصول إلى دفتر بيانات المخطط ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. مسح السلاسل والفئات الافتراضية.
+1. إضافة سلاسل وفئات جديدة.
+1. إضافة بيانات مخطط جديدة للسلسلة.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+هذا الكود بلغة Python يوضح كيفية إنشاء مخطط خطي:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    lineChart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+with slides.Presentation() as presentation:
+    line_chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 20, 20, 500, 300)
     
-    pres.save("lineChart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-بشكل افتراضي، يتم ربط النقاط على الرسم البياني الخطي بواسطة خطوط مستقيمة مستمرة. إذا كنت تريد ربط النقاط بواسطة خطوط منقطة بدلاً من ذلك، يمكنك تحديد نوع النقاط المفضل لديك بهذه الطريقة:
 
+بشكل افتراضي، تُربط النقاط في المخطط الخطي بخطوط مستمرة مستقيمة. إذا رغبت في ربط النقاط بخطوط متقطعة، يمكنك تحديد نوع الخط المتقطع كما يلي:
 ```python
-lineChart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+line_chart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
 
-for series in lineChart.chart_data.series:
+for series in line_chart.chart_data.series:
     series.format.line.dash_style = slides.charts.LineDashStyle.DASH
 ```
 
-### **إنشاء الرسوم البيانية للخرائط الشجرية**
 
-تُستخدم الرسوم البيانية للخرائط الشجرية بشكل أفضل لبيانات المبيعات عندما ترغب في إظهار الحجم النسبي لفئات البيانات و(في نفس الوقت) جذب الانتباه بسرعة إلى العناصر التي تسهم بشكل كبير في كل فئة.
+النتيجة:
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. أضف رسمًا بيانيًا مع البيانات الافتراضية جنبًا إلى جنب مع النوع المطلوب (في هذه الحالة، `ChartType.TREEMAP`).
-1. الوصول إلى بيانات الرسم البياني IChartDataWorkbook.
-1. امسح السلاسل والفئات الافتراضية.
-1. أضف سلاسل وفئات جديدة.
-1. أضف بيانات جديدة للرسم البياني لسلسلة الرسم البياني.
-1. اكتب العرض المعدل إلى ملف PPTX.
+![مخطط خطي](line_chart.png)
 
-هذا الرمز بلغة Python يوضح لك كيفية إنشاء رسم بياني للخرائط الشجرية:
+### **إنشاء مخططات شجرة خريطة**
 
+تُستخدم مخططات شجرة الخريطة لعرض بيانات المبيعات عندما ترغب في إظهار الحجم النسبي لفئات البيانات وجذب الانتباه بسرعة إلى العناصر التي تُساهم بشكل كبير داخل كل فئة.
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.TREEMAP`.
+1. الوصول إلى دفتر بيانات المخطط ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. مسح السلاسل والفئات الافتراضية.
+1. إضافة سلاسل وفئات جديدة.
+1. إضافة بيانات مخطط جديدة للسلسلة.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+هذا الكود بلغة Python يوضح كيفية إنشاء مخطط شجرة خريطة:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.TREEMAP, 50, 50, 500, 400)
+with slides.Presentation() as presentation:
+    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.TREEMAP, 20, 20, 500, 300)
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
 
-    wb = chart.chart_data.chart_data_workbook
-
-    wb.clear(0)
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
 
     # الفرع 1
-    leaf = chart.chart_data.categories.add(wb.get_cell(0, "C1", "ورقة 1"))
-    leaf.grouping_levels.set_grouping_item(1, "جذع 1")
-    leaf.grouping_levels.set_grouping_item(2, "فرع 1")
+    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C1", "Leaf1"))
+    leaf.grouping_levels.set_grouping_item(1, "Stem1")
+    leaf.grouping_levels.set_grouping_item(2, "Branch1")
 
-    chart.chart_data.categories.add(wb.get_cell(0, "C2", "ورقة 2"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "C2", "Leaf2"))
 
-    leaf = chart.chart_data.categories.add(wb.get_cell(0, "C3", "ورقة 3"))
-    leaf.grouping_levels.set_grouping_item(1, "جذع 2")
+    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C3", "Leaf3"))
+    leaf.grouping_levels.set_grouping_item(1, "Stem2")
 
-    chart.chart_data.categories.add(wb.get_cell(0, "C4", "ورقة 4"))
-
+    chart.chart_data.categories.add(workbook.get_cell(0, "C4", "Leaf4"))
 
     # الفرع 2
-    leaf = chart.chart_data.categories.add(wb.get_cell(0, "C5", "ورقة 5"))
-    leaf.grouping_levels.set_grouping_item(1, "جذع 3")
-    leaf.grouping_levels.set_grouping_item(2, "فرع 2")
+    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C5", "Leaf5"))
+    leaf.grouping_levels.set_grouping_item(1, "Stem3")
+    leaf.grouping_levels.set_grouping_item(2, "Branch2")
 
-    chart.chart_data.categories.add(wb.get_cell(0, "C6", "ورقة 6"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "C6", "Leaf6"))
 
-    leaf = chart.chart_data.categories.add(wb.get_cell(0, "C7", "ورقة 7"))
-    leaf.grouping_levels.set_grouping_item(1, "جذع 4")
+    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C7", "Leaf7"))
+    leaf.grouping_levels.set_grouping_item(1, "Stem4")
 
-    chart.chart_data.categories.add(wb.get_cell(0, "C8", "ورقة 8"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "C8", "Leaf8"))
 
     series = chart.chart_data.series.add(charts.ChartType.TREEMAP)
     series.labels.default_data_label_format.show_category_name = True
-    series.data_points.add_data_point_for_treemap_series(wb.get_cell(0, "D1", 4))
-    series.data_points.add_data_point_for_treemap_series(wb.get_cell(0, "D2", 5))
-    series.data_points.add_data_point_for_treemap_series(wb.get_cell(0, "D3", 3))
-    series.data_points.add_data_point_for_treemap_series(wb.get_cell(0, "D4", 6))
-    series.data_points.add_data_point_for_treemap_series(wb.get_cell(0, "D5", 9))
-    series.data_points.add_data_point_for_treemap_series(wb.get_cell(0, "D6", 9))
-    series.data_points.add_data_point_for_treemap_series(wb.get_cell(0, "D7", 4))
-    series.data_points.add_data_point_for_treemap_series(wb.get_cell(0, "D8", 3))
+    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D1", 4))
+    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D2", 5))
+    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D3", 3))
+    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D4", 6))
+    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D5", 9))
+    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D6", 9))
+    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D7", 4))
+    series.data_points.add_data_point_for_treemap_series(workbook.get_cell(0, "D8", 3))
 
     series.parent_label_layout = charts.ParentLabelLayoutType.OVERLAPPING
 
-    pres.save("Treemap-4.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("TreeMap.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **إنشاء الرسوم البيانية للأسهم**
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. أضف رسمًا بيانيًا مع البيانات الافتراضية جنبًا إلى جنب مع النوع المطلوب (ChartType.OPEN_HIGH_LOW_CLOSE).
-1. الوصول إلى بيانات الرسم البياني IChartDataWorkbook.
-1. امسح السلاسل والفئات الافتراضية.
-1. أضف سلاسل وفئات جديدة.
-1. أضف بيانات جديدة للرسم البياني لسلسلة الرسم البياني.
-1. حدد تنسيق HiLowLines.
-1. اكتب العرض المعدل إلى ملف PPTX.
 
-مثال للرمز بلغة Python المستخدم لإنشاء رسم بياني للأسهم:
+النتيجة:
 
+![مخطط شجرة خريطة](treemap_chart.png)
+
+### **إنشاء مخططات الأسهم**
+
+تُستخدم مخططات الأسهم لعرض البيانات المالية مثل أسعار الفتح، والارتفاع، والانخفاض، والإغلاق، ما يساعد في تحليل اتجاهات السوق وتقلباته. إنها توفر رؤى أساسية حول أداء الأسهم، مما يساعد المستثمرين والمحللين على اتخاذ قرارات مستنيرة.
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.OPEN_HIGH_LOW_CLOSE`.
+1. الوصول إلى دفتر بيانات المخطط ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. مسح السلاسل والفئات الافتراضية.
+1. إضافة سلاسل وفئات جديدة.
+1. إضافة بيانات مخطط جديدة للسلسلة.
+1. تحديد تنسيق HiLowLines.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+هذا الكود بلغة Python يوضح كيفية إنشاء مخطط أسهم:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.OPEN_HIGH_LOW_CLOSE, 50, 50, 600, 400, False)
+with slides.Presentation() as presentation:
+    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.OPEN_HIGH_LOW_CLOSE, 20, 20, 500, 300, False)
 
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
-    wb = chart.chart_data.chart_data_workbook
+    workbook = chart.chart_data.chart_data_workbook
 
-    chart.chart_data.categories.add(wb.get_cell(0, 1, 0, "A"))
-    chart.chart_data.categories.add(wb.get_cell(0, 2, 0, "B"))
-    chart.chart_data.categories.add(wb.get_cell(0, 3, 0, "C"))
+    chart.chart_data.categories.add(workbook.get_cell(0, 1, 0, "A"))
+    chart.chart_data.categories.add(workbook.get_cell(0, 2, 0, "B"))
+    chart.chart_data.categories.add(workbook.get_cell(0, 3, 0, "C"))
 
-    chart.chart_data.series.add(wb.get_cell(0, 0, 1, "افتتاح"), chart.type)
-    chart.chart_data.series.add(wb.get_cell(0, 0, 2, "أعلى"), chart.type)
-    chart.chart_data.series.add(wb.get_cell(0, 0, 3, "أدنى"), chart.type)
-    chart.chart_data.series.add(wb.get_cell(0, 0, 4, "إغلاق"), chart.type)
+    chart.chart_data.series.add(workbook.get_cell(0, 0, 1, "Open"), chart.type)
+    chart.chart_data.series.add(workbook.get_cell(0, 0, 2, "High"), chart.type)
+    chart.chart_data.series.add(workbook.get_cell(0, 0, 3, "Low"), chart.type)
+    chart.chart_data.series.add(workbook.get_cell(0, 0, 4, "Close"), chart.type)
 
     series = chart.chart_data.series[0]
 
-    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 1, 1, 72))
-    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 2, 1, 25))
-    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 3, 1, 38))
+    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 1, 1, 72))
+    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 2, 1, 25))
+    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 3, 1, 38))
 
     series = chart.chart_data.series[1]
-    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 1, 2, 172))
-    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 2, 2, 57))
-    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 3, 2, 57))
+    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 1, 2, 172))
+    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 2, 2, 57))
+    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 3, 2, 57))
 
     series = chart.chart_data.series[2]
-    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 1, 3, 12))
-    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 2, 3, 12))
-    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 3, 3, 13))
+    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 1, 3, 12))
+    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 2, 3, 12))
+    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 3, 3, 13))
 
     series = chart.chart_data.series[3]
-    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 1, 4, 25))
-    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 2, 4, 38))
-    series.data_points.add_data_point_for_stock_series(wb.get_cell(0, 3, 4, 50))
+    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 1, 4, 25))
+    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 2, 4, 38))
+    series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 3, 4, 50))
 
     chart.chart_data.series_groups[0].up_down_bars.has_up_down_bars = True
     chart.chart_data.series_groups[0].hi_low_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
@@ -500,42 +540,47 @@ with slides.Presentation() as pres:
     for ser in chart.chart_data.series:
         ser.format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
-    pres.save("output-5.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("StockChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-### **إنشاء الرسوم البيانية للصندوق والشعيرات**
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. أضف رسمًا بيانيًا مع البيانات الافتراضية جنبًا إلى جنب مع النوع المطلوب (ChartType.BOX_AND_WHISKER).
-1. الوصول إلى بيانات الرسم البياني IChartDataWorkbook.
-1. امسح السلاسل والفئات الافتراضية.
-1. أضف سلاسل وفئات جديدة.
-1. أضف بيانات جديدة للرسم البياني لسلسلة الرسم البياني.
-1. اكتب العرض المعدل إلى ملف PPTX.
+النتيجة:
 
-هذا الرمز بلغة Python يوضح لك كيفية إنشاء رسم بياني للصندوق والشعيرات:
+![مخطط أسهم](stock_chart.png)
 
+### **إنشاء مخططات الصندوق والشارب**
+
+تُستخدم مخططات الصندوق والشارب لعرض توزيع البيانات من خلال تلخيص مقاييس إحصائية رئيسية مثل الوسيط والرباعيات والقيم المتطرفة المحتملة. إنها مفيدة بشكل خاص في التحليل الاستكشافي للبيانات والدراسات الإحصائية لفهم تباين البيانات بسرعة وتحديد أي شذوذ.
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.BOX_AND_WHISKER`.
+1. الوصول إلى دفتر بيانات المخطط ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. مسح السلاسل والفئات الافتراضية.
+1. إضافة سلاسل وفئات جديدة.
+1. إضافة بيانات مخطط جديدة للسلسلة.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+هذا الكود بلغة Python يوضح كيفية إنشاء مخطط صندوق وشارب:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.BOX_AND_WHISKER, 50, 50, 500, 400)
+with slides.Presentation() as presentation:
+    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.BOX_AND_WHISKER, 20, 20, 500, 300)
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
 
-    wb = chart.chart_data.chart_data_workbook
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
 
-    wb.clear(0)
-
-    chart.chart_data.categories.add(wb.get_cell(0, "A1", "الفئة 1"))
-    chart.chart_data.categories.add(wb.get_cell(0, "A2", "الفئة 1"))
-    chart.chart_data.categories.add(wb.get_cell(0, "A3", "الفئة 1"))
-    chart.chart_data.categories.add(wb.get_cell(0, "A4", "الفئة 1"))
-    chart.chart_data.categories.add(wb.get_cell(0, "A5", "الفئة 1"))
-    chart.chart_data.categories.add(wb.get_cell(0, "A6", "الفئة 1"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "A1", "Category 1"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "A2", "Category 1"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "A3", "Category 1"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "A4", "Category 1"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "A5", "Category 1"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "A6", "Category 1"))
 
     series = chart.chart_data.series.add(charts.ChartType.BOX_AND_WHISKER)
 
@@ -545,469 +590,598 @@ with slides.Presentation() as pres:
     series.show_inner_points = True
     series.show_outlier_points = True
 
-    series.data_points.add_data_point_for_box_and_whisker_series(wb.get_cell(0, "B1", 15))
-    series.data_points.add_data_point_for_box_and_whisker_series(wb.get_cell(0, "B2", 41))
-    series.data_points.add_data_point_for_box_and_whisker_series(wb.get_cell(0, "B3", 16))
-    series.data_points.add_data_point_for_box_and_whisker_series(wb.get_cell(0, "B4", 10))
-    series.data_points.add_data_point_for_box_and_whisker_series(wb.get_cell(0, "B5", 23))
-    series.data_points.add_data_point_for_box_and_whisker_series(wb.get_cell(0, "B6", 16))
+    series.data_points.add_data_point_for_box_and_whisker_series(workbook.get_cell(0, "B1", 15))
+    series.data_points.add_data_point_for_box_and_whisker_series(workbook.get_cell(0, "B2", 41))
+    series.data_points.add_data_point_for_box_and_whisker_series(workbook.get_cell(0, "B3", 16))
+    series.data_points.add_data_point_for_box_and_whisker_series(workbook.get_cell(0, "B4", 10))
+    series.data_points.add_data_point_for_box_and_whisker_series(workbook.get_cell(0, "B5", 23))
+    series.data_points.add_data_point_for_box_and_whisker_series(workbook.get_cell(0, "B6", 16))
 
-
-    pres.save("BoxAndWhisker-6.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("BoxAndWhiskerChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-### **إنشاء رسوم بيانية القمع**
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. أضف رسمًا بيانيًا مع البيانات الافتراضية جنبًا إلى جنب مع النوع المطلوب (ChartType.Funnel).
-1. اكتب العرض المعدل إلى ملف PPTX.
+### **إنشاء مخططات القمع**
 
-هذا الرمز بلغة Python يوضح لك كيفية إنشاء رسم بياني القمع:
+تُستخدم مخططات القمع لتصور العمليات التي تتضمن مراحل متسلسلة، حيث يقل حجم البيانات كلما انتقل إلى الخطوة التالية. إنها مفيدة بشكل خاص لتحليل معدلات التحويل، وتحديد عنق الزجاجة، وتتبع كفاءة عمليات المبيعات أو التسويق.
 
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.FUNNEL`.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+هذا الكود بلغة Python يوضح كيفية إنشاء مخطط قمع:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.FUNNEL, 50, 50, 500, 400)
+with slides.Presentation() as presentation:
+    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.FUNNEL, 50, 50, 500, 400)
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
 
-    wb = chart.chart_data.chart_data_workbook
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
 
-    wb.clear(0)
-
-    chart.chart_data.categories.add(wb.get_cell(0, "A1", "الفئة 1"))
-    chart.chart_data.categories.add(wb.get_cell(0, "A2", "الفئة 2"))
-    chart.chart_data.categories.add(wb.get_cell(0, "A3", "الفئة 3"))
-    chart.chart_data.categories.add(wb.get_cell(0, "A4", "الفئة 4"))
-    chart.chart_data.categories.add(wb.get_cell(0, "A5", "الفئة 5"))
-    chart.chart_data.categories.add(wb.get_cell(0, "A6", "الفئة 6"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "A1", "Category 1"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "A2", "Category 2"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "A3", "Category 3"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "A4", "Category 4"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "A5", "Category 5"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "A6", "Category 6"))
 
     series = chart.chart_data.series.add(charts.ChartType.FUNNEL)
 
-    series.data_points.add_data_point_for_funnel_series(wb.get_cell(0, "B1", 50))
-    series.data_points.add_data_point_for_funnel_series(wb.get_cell(0, "B2", 100))
-    series.data_points.add_data_point_for_funnel_series(wb.get_cell(0, "B3", 200))
-    series.data_points.add_data_point_for_funnel_series(wb.get_cell(0, "B4", 300))
-    series.data_points.add_data_point_for_funnel_series(wb.get_cell(0, "B5", 400))
-    series.data_points.add_data_point_for_funnel_series(wb.get_cell(0, "B6", 500))
+    series.data_points.add_data_point_for_funnel_series(workbook.get_cell(0, "B1", 50))
+    series.data_points.add_data_point_for_funnel_series(workbook.get_cell(0, "B2", 100))
+    series.data_points.add_data_point_for_funnel_series(workbook.get_cell(0, "B3", 200))
+    series.data_points.add_data_point_for_funnel_series(workbook.get_cell(0, "B4", 300))
+    series.data_points.add_data_point_for_funnel_series(workbook.get_cell(0, "B5", 400))
+    series.data_points.add_data_point_for_funnel_series(workbook.get_cell(0, "B6", 500))
 
-    pres.save("Funnel-7.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("FunnelChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **إنشاء الرسوم البيانية للأشعة الشمسية**
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. أضف رسمًا بيانيًا مع البيانات الافتراضية جنبًا إلى جنب مع النوع المطلوب (في هذه الحالة، `ChartType.SUNBURST`).
-1. اكتب العرض المعدل إلى ملف PPTX.
 
-هذا الرمز بلغة Python يوضح لك كيفية إنشاء رسم بياني لشمسية:
+النتيجة:
 
+![مخطط قمع](funnel_chart.png)
+
+### **إنشاء مخططات الشمسية**
+
+تُستخدم المخططات الشمسية لتصور البيانات الهرمية، حيث تُعرض المستويات كحلقات متحدة المركز. تساعد في توضيح علاقات الجزء إلى الكل وتعد مثالية لتمثيل الفئات المتداخلة والفروع بصورة واضحة ومضغوطة.
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.SUNBURST`.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+هذا الكود بلغة Python يوضح كيفية إنشاء مخطط شمسي:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.SUNBURST, 50, 50, 500, 400)
+with slides.Presentation() as presentation:
+    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.SUNBURST, 20, 20, 500, 300)
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
 
-    wb = chart.chart_data.chart_data_workbook
-
-    wb.clear(0)
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
 
     # الفرع 1
-    leaf = chart.chart_data.categories.add(wb.get_cell(0, "C1", "ورقة 1"))
-    leaf.grouping_levels.set_grouping_item(1, "جذع 1")
-    leaf.grouping_levels.set_grouping_item(2, "فرع 1")
+    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C1", "Leaf1"))
+    leaf.grouping_levels.set_grouping_item(1, "Stem1")
+    leaf.grouping_levels.set_grouping_item(2, "Branch1")
 
-    chart.chart_data.categories.add(wb.get_cell(0, "C2", "ورقة 2"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "C2", "Leaf2"))
 
-    leaf = chart.chart_data.categories.add(wb.get_cell(0, "C3", "ورقة 3"))
-    leaf.grouping_levels.set_grouping_item(1, "جذع 2")
+    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C3", "Leaf3"))
+    leaf.grouping_levels.set_grouping_item(1, "Stem2")
 
-    chart.chart_data.categories.add(wb.get_cell(0, "C4", "ورقة 4"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "C4", "Leaf4"))
 
     # الفرع 2
-    leaf = chart.chart_data.categories.add(wb.get_cell(0, "C5", "ورقة 5"))
-    leaf.grouping_levels.set_grouping_item(1, "جذع 3")
-    leaf.grouping_levels.set_grouping_item(2, "فرع 2")
+    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C5", "Leaf5"))
+    leaf.grouping_levels.set_grouping_item(1, "Stem3")
+    leaf.grouping_levels.set_grouping_item(2, "Branch2")
 
-    chart.chart_data.categories.add(wb.get_cell(0, "C6", "ورقة 6"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "C6", "Leaf6"))
 
-    leaf = chart.chart_data.categories.add(wb.get_cell(0, "C7", "ورقة 7"))
-    leaf.grouping_levels.set_grouping_item(1, "جذع 4")
+    leaf = chart.chart_data.categories.add(workbook.get_cell(0, "C7", "Leaf7"))
+    leaf.grouping_levels.set_grouping_item(1, "Stem4")
 
-    chart.chart_data.categories.add(wb.get_cell(0, "C8", "ورقة 8"))
+    chart.chart_data.categories.add(workbook.get_cell(0, "C8", "Leaf8"))
 
     series = chart.chart_data.series.add(charts.ChartType.SUNBURST)
     series.labels.default_data_label_format.show_category_name = True
-    series.data_points.add_data_point_for_sunburst_series(wb.get_cell(0, "D1", 4))
-    series.data_points.add_data_point_for_sunburst_series(wb.get_cell(0, "D2", 5))
-    series.data_points.add_data_point_for_sunburst_series(wb.get_cell(0, "D3", 3))
-    series.data_points.add_data_point_for_sunburst_series(wb.get_cell(0, "D4", 6))
-    series.data_points.add_data_point_for_sunburst_series(wb.get_cell(0, "D5", 9))
-    series.data_points.add_data_point_for_sunburst_series(wb.get_cell(0, "D6", 9))
-    series.data_points.add_data_point_for_sunburst_series(wb.get_cell(0, "D7", 4))
-    series.data_points.add_data_point_for_sunburst_series(wb.get_cell(0, "D8", 3))
+    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D1", 4))
+    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D2", 5))
+    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D3", 3))
+    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D4", 6))
+    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D5", 9))
+    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D6", 9))
+    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D7", 4))
+    series.data_points.add_data_point_for_sunburst_series(workbook.get_cell(0, "D8", 3))
 
-    pres.save("Sunburst-8.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("SunburstChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-### **إنشاء الرسوم البيانية المدروجة**
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. أضف بعض الرسوم البيانية مع بعض البيانات وحدد نوع الرسم البياني المفضل لديك (`ChartType.HISTOGRAM` في هذه الحالة).
-1. الوصول إلى بيانات الرسم البياني `IChartDataWorkbook`.
-1. امسح السلاسل والفئات الافتراضية.
-1. أضف سلاسل وفئات جديدة.
-1. اكتب العرض المعدل إلى ملف PPTX.
+النتيجة:
 
-هذا الرمز بلغة Python يوضح لك كيفية إنشاء رسم بياني مدرج:
+![مخطط شمسي](sunburst_chart.png)
 
+### **إنشاء مخططات التوزيع التكراري (Histogram)**
+
+تُستخدم مخططات التوزيع التكراري لتمثيل توزيع البيانات العددية عن طريق تجميع القيم في فواصل أو صنف. إنها مفيدة لتحديد أنماط البيانات مثل التكرار، والتماثل، والانتشار، واكتشاف القيم المتطرفة في مجموعة البيانات.
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إضافة مخطط ببيانات معينة وتحديد النوع `ChartType.HISTOGRAM`.
+1. الوصول إلى دفتر بيانات المخطط ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. مسح السلاسل والفئات الافتراضية.
+1. إضافة سلاسل وفئات جديدة.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+هذا الكود بلغة Python يوضح كيفية إنشاء مخطط التوزيع التكراري:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.HISTOGRAM, 50, 50, 500, 400)
+with slides.Presentation() as presentation:
+    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.HISTOGRAM, 20, 20, 500, 300)
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
 
-    wb = chart.chart_data.chart_data_workbook
-
-    wb.clear(0)
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
 
     series = chart.chart_data.series.add(charts.ChartType.HISTOGRAM)
-    series.data_points.add_data_point_for_histogram_series(wb.get_cell(0, "A1", 15))
-    series.data_points.add_data_point_for_histogram_series(wb.get_cell(0, "A2", -41))
-    series.data_points.add_data_point_for_histogram_series(wb.get_cell(0, "A3", 16))
-    series.data_points.add_data_point_for_histogram_series(wb.get_cell(0, "A4", 10))
-    series.data_points.add_data_point_for_histogram_series(wb.get_cell(0, "A5", -23))
-    series.data_points.add_data_point_for_histogram_series(wb.get_cell(0, "A6", 16))
+    series.data_points.add_data_point_for_histogram_series(workbook.get_cell(0, "A1", 15))
+    series.data_points.add_data_point_for_histogram_series(workbook.get_cell(0, "A2", -41))
+    series.data_points.add_data_point_for_histogram_series(workbook.get_cell(0, "A3", 16))
+    series.data_points.add_data_point_for_histogram_series(workbook.get_cell(0, "A4", 10))
+    series.data_points.add_data_point_for_histogram_series(workbook.get_cell(0, "A5", -23))
+    series.data_points.add_data_point_for_histogram_series(workbook.get_cell(0, "A6", 16))
 
     chart.axes.horizontal_axis.aggregation_type = charts.AxisAggregationType.AUTOMATIC
 
-    pres.save("Histogram-9.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("HistogramChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **إنشاء الرسوم البيانية الخطية**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) التي تمثل عرض PowerPoint.
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. أضف رسمًا بيانيًا مع بعض البيانات وحدد نوع الرسم البياني المفضل لديك (`ChartType.RADAR` في هذه الحالة).
-1. اكتب العرض المعدل إلى ملف PPTX.
+النتيجة:
 
-هذا الرمز بلغة Python يوضح لك كيفية إنشاء رسم بياني خطي:
+![مخطط توزيع تكراري](histogram_chart.png)
 
+### **إنشاء مخططات رادارية**
+
+تُستخدم المخططات الرادارية لعرض بيانات متعددة المتغيرات في تنسيق ثنائي الأبعاد، مما يتيح المقارنة السهلة لعدة متغيرات في آنٍ واحد. إنها مفيدة لتحديد الأنماط، والقوة، والضعف عبر مقاييس أداء متعددة أو سمات مختلفة.
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إضافة مخطط ببيانات معينة وتحديد النوع `ChartType.RADAR`.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+هذا الكود بلغة Python يوضح كيفية إنشاء مخطط راداري:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    pres.slides[0].shapes.add_chart(slides.charts.ChartType.RADAR, 20, 20, 400, 300)
-    pres.save("Radar-chart.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation() as presentation:
+    presentation.slides[0].shapes.add_chart(slides.charts.ChartType.RADAR, 20, 20, 500, 300)
+    presentation.save("RadarСhart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **إنشاء الرسوم البيانية متعددة الفئات**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. أضف رسمًا بيانيًا مع البيانات الافتراضية جنبًا إلى جنب مع النوع المطلوب (ChartType.ClusteredColumn).
-1. الوصول إلى بيانات الرسم البياني IChartDataWorkbook.
-1. امسح السلاسل والفئات الافتراضية.
-1. أضف سلاسل وفئات جديدة.
-1. أضف بيانات جديدة للرسم البياني لسلسلة الرسم البياني.
-1. اكتب العرض المعدل إلى ملف PPTX.
+النتيجة:
 
-هذا الرمز بلغة Python يوضح لك كيفية إنشاء رسم بياني متعدد الفئات:
+![مخطط راداري](radar_chart.png)
 
+### **إنشاء مخططات متعددة الفئات**
+
+تُستخدم مخططات متعددة الفئات لعرض بيانات تتضمن أكثر من مجموعة فئوية واحدة، مما يتيح مقارنة القيم عبر أبعاد متعددة في آنٍ واحد. إنها مفيدة عندما تحتاج إلى تحليل الاتجاهات والعلاقات داخل مجموعات بيانات معقدة ومتعددة الطبقات.
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.CLUSTERED_COLUMN`.
+1. الوصول إلى دفتر بيانات المخطط ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. مسح السلاسل والفئات الافتراضية.
+1. إضافة سلاسل وفئات جديدة.
+1. إضافة بيانات مخطط جديدة للسلسلة.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+هذا الكود بلغة Python يوضح كيفية إنشاء مخطط متعدد الفئات:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    ch = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 600, 450)
-    ch.chart_data.series.clear()
-    ch.chart_data.categories.clear()
-
-
-    fact = ch.chart_data.chart_data_workbook
-    fact.clear(0)
-    defaultWorksheetIndex = 0
-
-    category = ch.chart_data.categories.add(fact.get_cell(0, "c2", "A"))
-    category.grouping_levels.set_grouping_item(1, "مجموعة 1")
-    category = ch.chart_data.categories.add(fact.get_cell(0, "c3", "B"))
-
-    category = ch.chart_data.categories.add(fact.get_cell(0, "c4", "C"))
-    category.grouping_levels.set_grouping_item(1, "مجموعة 2")
-    category = ch.chart_data.categories.add(fact.get_cell(0, "c5", "D"))
-
-    category = ch.chart_data.categories.add(fact.get_cell(0, "c6", "E"))
-    category.grouping_levels.set_grouping_item(1, "مجموعة 3")
-    category = ch.chart_data.categories.add(fact.get_cell(0, "c7", "F"))
-
-    category = ch.chart_data.categories.add(fact.get_cell(0, "c8", "G"))
-    category.grouping_levels.set_grouping_item(1, "مجموعة 4")
-    category = ch.chart_data.categories.add(fact.get_cell(0, "c9", "H"))
-
-    # إضافة السلاسل
-    series = ch.chart_data.series.add(fact.get_cell(0, "D1", "السلسلة 1"), charts.ChartType.CLUSTERED_COLUMN)
-
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, "D2", 10))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, "D3", 20))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, "D4", 30))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, "D5", 40))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, "D6", 50))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, "D7", 60))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, "D8", 70))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, "D9", 80))
-    
-    # حفظ العرض مع الرسم البياني
-    pres.save("AsposeChart_out-10.pptx", slides.export.SaveFormat.PPTX)
-```
-
-### **إنشاء رسوم بيانية الخريطة**
-
-إن رسم بياني الخريطة هو تمثيل بصري لمنطقة تحتوي على بيانات. تستخدم رسوم بيانية الخريطة بشكل أفضل لمقارنة البيانات أو القيم عبر المناطق الجغرافية.
-
-هذا الرمز بلغة Python يوضح لك كيفية إنشاء رسم بياني للخريطة:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.MAP, 50, 50, 500, 400, False)
-    pres.save("mapChart.pptx", slides.export.SaveFormat.PPTX)
-```
-
-### **إنشاء الرسوم البيانية المركبة**
-
-الرسم البياني المركب (أو الرسم البياني المشترك) هو رسم بياني يجمع بين رسمين أو أكثر على رسم بياني واحد. تتيح لك مثل هذه الرسوم البيانية تسليط الضوء على الفروق أو مراجعة الاختلافات بين مجموعتين أو أكثر من البيانات. بهذه الطريقة، ترى العلاقة (إن وجدت) بين مجموعات البيانات.
-
-![combination-chart-ppt](combination-chart-ppt.png)
-
-هذا الرمز بلغة Python يوضح لك كيفية إنشاء رسم بياني مركب في PowerPoint:
-
-```python
-import aspose.slides as slides
-import aspose.slides.charts as charts
-
-
-def create_combo_chart():
-    pres = slides.Presentation()
-    chart = create_chart(pres.slides[0])
-    add_first_series_to_chart(chart)
-    add_second_series_to_chart(chart)
-    pres.save("combo-chart.pptx", slides.export.SaveFormat.PPTX)
-
-
-def create_chart(slide):
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 400)
+    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
     workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
     worksheet_index = 0
 
-    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "السلسلة 1"), chart.type)
-    chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "السلسلة 2"), chart.type)
+    category = chart.chart_data.categories.add(workbook.get_cell(0, "c2", "A"))
+    category.grouping_levels.set_grouping_item(1, "Group1")
+    category = chart.chart_data.categories.add(workbook.get_cell(0, "c3", "B"))
 
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "الفئة 1"))
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "الفئة 2"))
-    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "الفئة 3"))
+    category = chart.chart_data.categories.add(workbook.get_cell(0, "c4", "C"))
+    category.grouping_levels.set_grouping_item(1, "Group2")
+    category = chart.chart_data.categories.add(workbook.get_cell(0, "c5", "D"))
 
-    series = chart.chart_data.series[0]
+    category = chart.chart_data.categories.add(workbook.get_cell(0, "c6", "E"))
+    category.grouping_levels.set_grouping_item(1, "Group3")
+    category = chart.chart_data.categories.add(workbook.get_cell(0, "c7", "F"))
 
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 20))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 50))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 30))
+    category = chart.chart_data.categories.add(workbook.get_cell(0, "c8", "G"))
+    category.grouping_levels.set_grouping_item(1, "Group4")
+    category = chart.chart_data.categories.add(workbook.get_cell(0, "c9", "H"))
 
-    series = chart.chart_data.series[1]
+    # إضافة سلسلة.
+    series = chart.chart_data.series.add(workbook.get_cell(0, "D1", "Series 1"), charts.ChartType.CLUSTERED_COLUMN)
 
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 30))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 10))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 60))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D2", 10))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D3", 20))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D4", 30))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D5", 40))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D6", 50))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D7", 60))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D8", 70))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D9", 80))
+
+    # حفظ العرض التقديمي مع المخطط.
+    presentation.save("MultiCategoryChart.pptx", slides.export.SaveFormat.PPTX)
+```
+
+
+النتيجة:
+
+![مخطط متعدد الفئات](multi_category_chart.png)
+
+### **إنشاء مخططات الخريطة**
+
+تُستخدم مخططات الخريطة لتصوير البيانات الجغرافية عن طريق ربط المعلومات بمواقع محددة مثل دول أو ولايات أو مدن. إنها مفيدة لتحليل الاتجاهات الإقليمية، والبيانات الديموغرافية، وتوزيعات الفضاء بطريقة بصرية واضحة وجذابة.
+
+هذا الكود بلغة Python يوضح كيفية إنشاء مخطط خريطة:
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.MAP, 20, 20, 500, 300)
+    presentation.save("mapChart.pptx", slides.export.SaveFormat.PPTX)
+```
+
+
+النتيجة:
+
+![مخطط خريطة](map_chart.png)
+
+### **إنشاء مخططات مركبة**
+
+تجمع المخططات المركبة (أو مخططات الكمبو) نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح هذا المخطط تسليط الضوء على، أو مقارنة، أو فحص الفروق بين مجموعتين أو أكثر من البيانات، مما يساعدك على تحديد العلاقات بينها.
+
+![مخطط مركب](combination_chart.png)
+
+الكود التالي بلغة Python يوضح كيفية إنشاء المخطط المركب المعروض أعلاه في عرض PowerPoint:
+```python
+def create_combo_chart():
+    with slides.Presentation() as presentation:
+        chart = create_chart_with_first_series(presentation.slides[0])
+
+        add_second_series_to_chart(chart)
+        add_third_series_to_chart(chart)
+
+        set_primary_axes_format(chart)
+        set_secondary_axes_format(chart)
+
+        presentation.save("combo-chart.pptx", slides.export.SaveFormat.PPTX)
+
+
+def create_chart_with_first_series(slide):
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+
+    # تعيين عنوان المخطط.
+    chart.has_title = True
+    chart.chart_title.add_text_frame_for_overriding("Chart Title")
+    chart.chart_title.overlay = False
+    title_paragraph = chart.chart_title.text_frame_for_overriding.paragraphs[0]
+    title_format = title_paragraph.paragraph_format.default_portion_format
+
+    title_format.font_bold = slides.NullableBool.FALSE
+    title_format.font_height = 18
+
+    # تعيين وسيلة إيضاح المخطط.
+    chart.legend.position = charts.LegendPositionType.BOTTOM
+    chart.legend.text_format.portion_format.font_height = 12
+
+    # حذف السلاسل والفئات المولدة افتراضيًا.
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    worksheet_index = 0
+    workbook = chart.chart_data.chart_data_workbook
+
+    # إضافة فئات جديدة.
+    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
+    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
+    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
+    chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 4, 0, "Category 4"))
+
+    # إضافة السلسلة الأولى.
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Series 1")
+    series = chart.chart_data.series.add(series_name_cell, chart.type)
+
+    series.parent_series_group.overlap = -25
+    series.parent_series_group.gap_width = 220
+
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 4.3))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 2.5))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 3.5))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 4, 1, 4.5))
 
     return chart
 
-
-def add_first_series_to_chart(chart):
-    workbook = chart.chart_data.chart_data_workbook
-    worksheet_index = 0
-
-    series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 3, "السلسلة 3"), charts.ChartType.SCATTER_WITH_SMOOTH_LINES)
-
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 0, 1, 3), workbook.get_cell(worksheet_index, 0, 2, 5))
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 1, 3, 10), workbook.get_cell(worksheet_index, 1, 4, 13))
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 3, 20), workbook.get_cell(worksheet_index, 2, 4, 15))
-
-    series.plot_on_second_axis = True
 
 def add_second_series_to_chart(chart):
     workbook = chart.chart_data.chart_data_workbook
     worksheet_index = 0
 
-    series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 5, "السلسلة 4"), charts.ChartType.SCATTER_WITH_STRAIGHT_LINES_AND_MARKERS)
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 2, "Series 2")
+    series = chart.chart_data.series.add(series_name_cell, charts.ChartType.CLUSTERED_COLUMN)
 
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 1, 3, 5), workbook.get_cell(worksheet_index, 1, 4, 2))
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 1, 5, 10), workbook.get_cell(worksheet_index, 1, 6, 7))
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 5, 15), workbook.get_cell(worksheet_index, 2, 6, 12))
-    series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 5, 12), workbook.get_cell(worksheet_index, 3, 6, 9))
+    series.parent_series_group.overlap = -25
+    series.parent_series_group.gap_width = 220
+
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 2.4))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 4.4))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 1.8))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 4, 2, 2.8))
+
+
+def add_third_series_to_chart(chart):
+    workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
+
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 3, "Series 3")
+    series = chart.chart_data.series.add(series_name_cell, charts.ChartType.LINE)
+
+    series.data_points.add_data_point_for_line_series(workbook.get_cell(worksheet_index, 1, 3, 2.0))
+    series.data_points.add_data_point_for_line_series(workbook.get_cell(worksheet_index, 2, 3, 2.0))
+    series.data_points.add_data_point_for_line_series(workbook.get_cell(worksheet_index, 3, 3, 3.0))
+    series.data_points.add_data_point_for_line_series(workbook.get_cell(worksheet_index, 4, 3, 5.0))
 
     series.plot_on_second_axis = True
+
+
+def set_primary_axes_format(chart):
+    # تعيين المحور الأفقي.
+    horizontal_axis = chart.axes.horizontal_axis
+    horizontal_axis.text_format.portion_format.font_height = 12.0
+    horizontal_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
+
+    set_axis_title(horizontal_axis, "X Axis")
+
+    # تعيين المحور الرأسي.
+    vertical_axis = chart.axes.vertical_axis
+    vertical_axis.text_format.portion_format.font_height = 12.0
+    vertical_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
+
+    set_axis_title(vertical_axis, "Y Axis 1")
+
+    # تعيين لون خطوط الشبكة العمودية الرئيسية.
+    major_grid_lines_format = vertical_axis.major_grid_lines_format.line.fill_format
+    major_grid_lines_format.fill_type = slides.FillType.SOLID
+    major_grid_lines_format.solid_fill_color.color = draw.Color.from_argb(217, 217, 217)
+
+
+def set_secondary_axes_format(chart):
+    # تعيين المحور الأفقي الثانوي.
+    secondary_horizontal_axis = chart.axes.secondary_horizontal_axis
+    secondary_horizontal_axis.position = charts.AxisPositionType.BOTTOM
+    secondary_horizontal_axis.cross_type = charts.CrossesType.MAXIMUM
+    secondary_horizontal_axis.is_visible = False
+    secondary_horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
+    secondary_horizontal_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
+
+    # تعيين المحور الرأسي الثانوي.
+    secondary_vertical_axis = chart.axes.secondary_vertical_axis
+    secondary_vertical_axis.position = charts.AxisPositionType.RIGHT
+    secondary_vertical_axis.text_format.portion_format.font_height = 12.0
+    secondary_vertical_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
+    secondary_vertical_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
+    secondary_vertical_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
+
+    set_axis_title(secondary_vertical_axis, "Y Axis 2")
+
+
+def set_axis_title(axis, axis_title):
+    axis.has_title = True
+    axis.title.overlay = False
+    title_portion_format = axis.title.add_text_frame_for_overriding(axis_title).paragraphs[0].paragraph_format.default_portion_format
+    title_portion_format.font_bold = slides.NullableBool.FALSE
+    title_portion_format.font_height = 12.0
 ```
 
-## **تحديث الرسوم البيانية**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) التي تمثل العرض الذي يحتوي على الرسم البياني.
-2. احصل على مرجع الشريحة من خلال فهرسها.
-3. استعرض كل الأشكال للبحث عن الرسم البياني المطلوب.
-4. الوصول إلى ورقة بيانات الرسم البياني.
-5. قم بتعديل بيانات سلسلة الرسم البياني عن طريق تغيير قيم السلسلة.
-6. أضف سلسلة جديدة واملأ البيانات بها.
-7. اكتب العرض المعدل كملف PPTX.
+## **تحديث المخططات**
 
-هذا الرمز بلغة Python يوضح لك كيفية تحديث رسم بياني:
+تمكنك Aspose.Slides for Python via .NET من تحديث مخططات PowerPoint عبر تعديل بيانات المخطط وتنسيقه وتنسيقه البصري. تُبسّط هذه الوظيفة عملية الحفاظ على عروض تقديمية محدثة بمحتوى ديناميكي وتضمن أن المخططات تعكس بدقة البيانات الحالية والمعايير البصرية.
 
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) التي تمثل العرض التقديمي الذي يحتوي على مخطط.
+1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. اجتياز جميع الأشكال للعثور على المخطط.
+1. الوصول إلى ورقة بيانات المخطط.
+1. تعديل سلسلة بيانات المخطط بتغيير قيم السلسلة.
+1. إضافة سلسلة جديدة وتعبئة بياناتها.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+هذا الكود بلغة Python يوضح كيفية تحديث مخطط:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# أنشئ مثيلًا من فئة Presentation التي تمثل ملف PPTX
-with slides.Presentation(path + "ExistingChart.pptx") as pres:
+chart_name = "My chart"
 
-    # الوصول إلى الشريحة الأولى
-    sld = pres.slides[0]
+# إنشاء كائن فئة Presentation التي تمثل ملف PPTX.
+with slides.Presentation("ExistingChart.pptx") as presentation:
 
-    # إضافة الرسم البياني مع البيانات الافتراضية
-    chart = sld.shapes[0]
-
-    # تعيين فهرس ورقة البيانات للرسم البياني
-    defaultWorksheetIndex = 0
-
-    # الحصول على ورقة بيانات الرسم البياني
-    fact = chart.chart_data.chart_data_workbook
-
-
-    # تغيير اسم الفئة للرسم البياني
-    fact.get_cell(defaultWorksheetIndex, 1, 0, "الفئة المعدلة 1")
-    fact.get_cell(defaultWorksheetIndex, 2, 0, "الفئة المعدلة 2")
-
-
-    # أخذ السلسلة الأول للرسم البياني
-    series = chart.chart_data.series[0]
-
-    # الآن تحديث بيانات السلسلة
-    fact.get_cell(defaultWorksheetIndex, 0, 1, "السلسلة الجديدة") # تعديل اسم السلسلة
-    series.data_points[0].value.data = 90
-    series.data_points[1].value.data = 123
-    series.data_points[2].value.data = 44
-
-    # أخذ السلسلة الثانية للرسم البياني
-    series = chart.chart_data.series[1]
-
-    # الآن تحديث بيانات السلسلة
-    fact.get_cell(defaultWorksheetIndex, 0, 2, "السلسلة الجديدة") # تعديل اسم السلسلة
-    series.data_points[0].value.data = 23
-    series.data_points[1].value.data = 67
-    series.data_points[2].value.data = 99
-
-
-    # الآن، إضافة سلسلة جديدة
-    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 3, "السلسلة 3"), chart.type)
-
-    # أخذ السلسلة الثالثة للرسم البياني
-    series = chart.chart_data.series[2]
-
-    # الآن ملء بيانات السلسلة
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 1, 3, 20))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 2, 3, 50))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 3, 3, 30))
-
-    chart.type = charts.ChartType.CLUSTERED_CYLINDER
-
-    # حفظ العرض مع الرسم البياني
-    pres.save("AsposeChartModified_out-11.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **تعيين نطاق البيانات للرسوم البيانية**
-
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) التي تمثل العرض الذي يحتوي على الرسم البياني.
-2. احصل على مرجع الشريحة من خلال فهرسها.
-3. استعرض كل الأشكال للبحث عن الرسم البياني المطلوب.
-4. الوصول إلى بيانات الرسم البياني وتعيين النطاق.
-5. احفظ العرض المعدل كملف PPTX.
-
-هذا الرمز بلغة Python يوضح لك كيفية تعيين نطاق البيانات لرسم بياني:
-
-```py
-import aspose.slides.charts as charts
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# أنشئ مثيلًا من فئة Presentation التي تمثل ملف PPTX
-with slides.Presentation(path + "ExistingChart.pptx") as presentation:
-    # الوصول إلى الشريحة الأولى وإضافة الرسم البياني مع البيانات الافتراضية
+    # الوصول إلى الشريحة الأولى.
     slide = presentation.slides[0]
-    chart = slide.shapes[0]
-    chart.chart_data.set_range("Sheet1!A1:B4")
-    presentation.save("SetDataRange_out-12.pptx", slides.export.SaveFormat.PPTX)
+
+    for shape in slide.shapes:
+        if isinstance(shape, charts.Chart) and shape.name == chart_name:
+            chart = shape
+
+            # تعيين فهرس ورقة بيانات المخطط.
+            worksheet_index = 0
+
+            # الحصول على دفتر بيانات المخطط.
+            workbook = chart.chart_data.chart_data_workbook
+
+            # تعديل أسماء فئات المخطط.
+            workbook.get_cell(worksheet_index, 1, 0, "Modified Category 1")
+            workbook.get_cell(worksheet_index, 2, 0, "Modified Category 2")
+
+            # الحصول على السلسلة الأولى للمخطط.
+            series = chart.chart_data.series[0]
+
+            # تحديث بيانات السلسلة.
+            workbook.get_cell(worksheet_index, 0, 1, "New_Series1")  # تعديل اسم السلسلة.
+            series.data_points[0].value.data = 90
+            series.data_points[1].value.data = 123
+            series.data_points[2].value.data = 44
+
+            # الحصول على السلسلة الثانية للمخطط.
+            series = chart.chart_data.series[1]
+
+            # تحديث بيانات السلسلة.
+            workbook.get_cell(worksheet_index, 0, 2, "New_Series2")  # تعديل اسم السلسلة.
+            series.data_points[0].value.data = 23
+            series.data_points[1].value.data = 67
+            series.data_points[2].value.data = 99
+
+            # إضافة سلسلة جديدة.
+            series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 3, "Series 3"), chart.type)
+
+            # تعبئة بيانات السلسلة.
+            series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 3, 20))
+            series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 3, 50))
+            series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 3, 30))
+
+            chart.type = charts.ChartType.CLUSTERED_CYLINDER
+
+            # حفظ العرض التقديمي مع المخطط.
+            presentation.save("ModifiedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **استخدام العلامات الافتراضية في الرسوم البيانية**
-عندما تستخدم علامة افتراضية في الرسوم البيانية، تحصل كل سلسلة رسم بياني على رموز علامة افتراضية مختلفة تلقائيًا.
+## **تحديد نطاق البيانات للمخططات**
 
-هذا الرمز بلغة Python يوضح لك كيفية تعيين علامة سلسلة الرسم البياني تلقائيًا:
+توفر Aspose.Slides for Python via .NET المرونة لتحديد نطاق بيانات معين من ورقة العمل كمصدر لبيانات مخططك. يعني ذلك أنه يمكنك ربط جزء من ورقة العمل مباشرةً بالمخطط، مما يتيح لك التحكم في الخلايا التي تسهم في سلاسل وفئات المخطط. ونتيجة لذلك، يمكنك بسهولة تحديث ومزامنة مخططاتك مع أحدث تغييرات البيانات في ورقة العمل، وضمان أن عروض PowerPoint تعكس معلومات حديثة ودقيقة.
 
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) التي تمثل العرض التقديمي الذي يحتوي على مخطط.
+1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. اجتياز جميع الأشكال للعثور على المخطط.
+1. الوصول إلى بيانات المخطط وتحديد النطاق.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+هذا الكود بلغة Python يوضح كيفية تحديد نطاق البيانات لمخطط:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
+chart_name = "My chart"
+
+# إنشاء كائن فئة Presentation الذي يمثل ملف PPTX.
+with slides.Presentation("ExistingChart.pptx") as presentation:
+
+    # الوصول إلى الشريحة الأولى.
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if isinstance(shape, charts.Chart) and shape.name == chart_name:
+            chart = shape
+            chart.chart_data.set_range("Sheet1!A1:B4")
+
+    presentation.save("DataRange.pptx", slides.export.SaveFormat.PPTX)
+```
+
+
+## **استخدام العلامات الافتراضية في المخططات**
+
+عند استخدام العلامات الافتراضية في المخططات، يحصل كل سلسلة مخطط على رمز علامة افتراضي مختلف تلقائيًا.
+
+هذا الكود بلغة Python يوضح كيفية تعيين علامة سلسلة مخطط تلقائيًا:
+```py
+import aspose.slides.charts as charts
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
     chart = slide.shapes.add_chart(charts.ChartType.LINE_WITH_MARKERS, 10, 10, 400, 400)
 
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
-    fact = chart.chart_data.chart_data_workbook
-    chart.chart_data.series.add(fact.get_cell(0, 0, 1, "السلسلة 1"), chart.type)
-    series = chart.chart_data.series[0]
+    workbook = chart.chart_data.chart_data_workbook
 
-    chart.chart_data.categories.add(fact.get_cell(0, 1, 0, "C1"))
-    series.data_points.add_data_point_for_line_series(fact.get_cell(0, 1, 1, 24))
-    chart.chart_data.categories.add(fact.get_cell(0, 2, 0, "C2"))
-    series.data_points.add_data_point_for_line_series(fact.get_cell(0, 2, 1, 23))
-    chart.chart_data.categories.add(fact.get_cell(0, 3, 0, "C3"))
-    series.data_points.add_data_point_for_line_series(fact.get_cell(0, 3, 1, -10))
-    chart.chart_data.categories.add(fact.get_cell(0, 4, 0, "C4"))
-    series.data_points.add_data_point_for_line_series(fact.get_cell(0, 4, 1, None))
+    series = chart.chart_data.series.add(workbook.get_cell(0, 0, 1, "Series 1"), chart.type)
 
-    chart.chart_data.series.add(fact.get_cell(0, 0, 2, "السلسلة 2"), chart.type)
-    # أخذ السلسلة الثانية للرسم البياني
-    series2 = chart.chart_data.series[1]
+    chart.chart_data.categories.add(workbook.get_cell(0, 1, 0, "C1"))
+    series.data_points.add_data_point_for_line_series(workbook.get_cell(0, 1, 1, 24))
 
-    # الآن يتم ملء بيانات السلسلة
-    series2.data_points.add_data_point_for_line_series(fact.get_cell(0, 1, 2, 30))
-    series2.data_points.add_data_point_for_line_series(fact.get_cell(0, 2, 2, 10))
-    series2.data_points.add_data_point_for_line_series(fact.get_cell(0, 3, 2, 60))
-    series2.data_points.add_data_point_for_line_series(fact.get_cell(0, 4, 2, 40))
+    chart.chart_data.categories.add(workbook.get_cell(0, 2, 0, "C2"))
+    series.data_points.add_data_point_for_line_series(workbook.get_cell(0, 2, 1, 23))
+
+    chart.chart_data.categories.add(workbook.get_cell(0, 3, 0, "C3"))
+    series.data_points.add_data_point_for_line_series(workbook.get_cell(0, 3, 1, -10))
+
+    chart.chart_data.categories.add(workbook.get_cell(0, 4, 0, "C4"))
+    series.data_points.add_data_point_for_line_series(workbook.get_cell(0, 4, 1, None))
+
+    series2 = chart.chart_data.series.add(workbook.get_cell(0, 0, 2, "Series 2"), chart.type)
+
+    # ملء بيانات السلسلة.
+    series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 1, 2, 30))
+    series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 2, 2, 10))
+    series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 3, 2, 60))
+    series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 4, 2, 40))
 
     chart.has_legend = True
     chart.legend.overlay = False
 
-    pres.save("DefaultMarkersInChart-13.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("DefaultMarkersInChart.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **الأسئلة الشائعة**
+
+**ما أنواع المخططات التي تدعمها Aspose.Slides for Python via .NET؟**
+
+تدعم Aspose.Slides for Python via .NET مجموعة واسعة من أنواع المخططات، بما في ذلك المخططات الشريطية، الخطية، الدائرية، المساحية، التبعثر، التوزيع التكراري، الرادارية، والعديد غيرها. تتيح لك هذه المرونة اختيار النوع الأنسب لتصور بياناتك.
+
+**كيف يمكنني إضافة مخطط جديد إلى شريحة؟**
+
+لإضافة مخطط، تقوم أولاً بإنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)، استرجاع الشريحة المطلوبة باستخدام فهرستها، ثم استدعاء الطريقة لإضافة مخطط مع تحديد نوع المخطط والبيانات الأولية. يدمج هذا العملية المخطط مباشرةً في العرض التقديمي.
+
+**كيف يمكنني تحديث البيانات المعروضة في مخطط؟**
+
+يمكنك تحديث بيانات المخطط عبر الوصول إلى دفتر بياناته ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة بياناتك المخصصة. يتيح لك ذلك تجديد المخطط برمجيًا لمطابقة أحدث البيانات.
+
+**هل يمكن تخصيص مظهر المخطط؟**
+
+نعم، توفر Aspose.Slides for Python via .NET خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، الوسائل الإيضاحية، وغيرها من عناصر التنسيق لتتناسب مع متطلبات التصميم الخاصة بك.
