@@ -1,45 +1,61 @@
 ---
-title: 如何在Docker中运行Aspose.Slides
+title: 如何在 Docker 中运行 Aspose.Slides
+linktitle: Aspose.Slides 在 Docker 中
 type: docs
 weight: 140
 url: /zh/net/how-to-run-aspose-slides-in-docker/
-keywords: "在Docker容器中运行Aspose.Slides, Aspose Docker, 在Docker中使用Aspose.Slides"
-description: "在Linux、Windows Server及任何操作系统的Docker容器中运行Aspose.Slides。"
+keywords:
+- 支持的操作系统
+- Docker 中的 Aspose.Slides
+- Docker 容器
+- Aspose Docker
+- GDI
+- libgdiplus
+- System.Drawing.Common
+- Linux
+- 镜像仓库
+- Windows Server Core
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- .NET
+- C#
+- Aspose.Slides
+description: "在 Docker 容器中运行 Aspose.Slides：配置镜像、依赖项、字体和许可，以构建可扩展的服务，处理 PowerPoint 和 OpenDocument。"
 ---
 
-## **支持的操作系统**
-Aspose.Slides可以在使用.NET Core平台的docker容器中运行。一般而言，Aspose.Slides支持所有.NET Core平台支持的容器类型（操作系统）。但是，GDI或[libgdiplus](https://github.com/mono/libgdiplus)必须在相关容器中可用并正确设置。
+## **Supported OS**
+Aspose.Slides 可以在 Docker 容器中基于 .NET Core 平台运行。一般来说，Aspose.Slides 支持 .NET Core 平台支持的所有容器（操作系统）类型。不过，容器中必须可用并正确配置 GDI 或 [libgdiplus](https://github.com/mono/libgdiplus)。
 
-要使用Docker，您必须先在系统上安装它。要了解如何在Windows或Mac上安装Docker，请使用以下链接：
+要使用 Docker，首先需要在系统上安装它。了解在 Windows 或 Mac 上安装 Docker 的方法，请使用以下链接：
 
-- [在Windows上安装Docker](https://docs.docker.com/docker-for-windows/install/)
-- [在Mac上安装Docker](https://docs.docker.com/docker-for-mac/install/)
+- [在 Windows 上安装 Docker](https://docs.docker.com/docker-for-windows/install/)
+- [在 Mac 上安装 Docker](https://docs.docker.com/docker-for-mac/install/)
 
-您还可以按照以下页面上的说明在Linux和Windows Server上运行Docker：
+您也可以按照以下页面的说明在 Linux 和 Windows Server 上运行 Docker：
 
-- [在Linux上安装和配置Docker（apt-get libgdiplus）](#install-and-configure-docker-on-linux-apt-get-libgdiplus)
+- [在 Linux 上安装和配置 Docker（apt-get libgdiplus）](#install-and-configure-docker-on-linux-apt-get-libgdiplus)
 
-- [在Linux上安装和配置Docker（make install libgdiplus）](#install-and-configure-docker-on-linux-make-install-libgdiplus)
+- [在 Linux 上安装和配置 Docker（make install libgdiplus）](#install-and-configure-docker-on-linux-make-install-libgdiplus)
 
-- [在Windows Server Core上安装和配置Docker](#install-and-configure-docker-on-windows-server-core)
+- [在 Windows Server Core 上安装和配置 Docker](#install-and-configure-docker-on-windows-server-core)
 
-不支持在Windows Server Nano上安装和配置Docker。不幸的是，Windows Server Nano不包含图形子系统。它不包含System.Drawing.Common库所需的gdiplus.dll，因此无法与Aspose.Slides库一起使用。
+  不支持在 Windows Server Nano 上安装和配置 Docker。遗憾的是，Windows Server Nano 不包含图形子系统，也没有 System.Drawing.Common 所需的 gdiplus.dll，无法与 Aspose.Slides 库一起使用。
 
-虽然可以在Windows中运行Linux容器，但我们建议您在Linux上原生运行它们（即使是在使用VirtualBox手动安装的虚拟机上）。
+虽然可以在 Windows 中运行 Linux 容器，但我们建议在 Linux 上本地运行（即使是在使用 VirtualBox 的虚拟机中手动安装的 Linux）。
 
-## **在Linux上安装和配置Docker（apt-get libgdiplus）**
-- 操作系统：Ubuntu 18.04。
+## **Installing and Configuring Docker on Linux (apt-get libgdiplus)**
+- OS：Ubuntu 18.04。
 - Dockerfile：Dockerfile-Ubuntu18_04_apt_get_libgdiplus
 
-此docker文件包含从Ubuntu的官方软件包库安装libgdiplus包的生成容器映像的说明。
+此 Dockerfile 包含从 Ubuntu 官方软件仓库安装 libgdiplus 包的指令，用于构建容器镜像。
 
-以下是docker文件内容：
-
+以下是 Dockerfile 内容：
 ``` csharp
 
  FROM microsoft/dotnet:2.1-sdk-bionic AS build
 
-\# 安装libgdiplus
+\# 安装 libgdiplus
 
 RUN apt-get update -y && apt-get install -y apt-utils
 
@@ -49,7 +65,7 @@ RUN apt-get install -y libgdiplus && apt-get install -y libc6-dev
 
 VOLUME /slides-src
 
-\# 启动时构建和测试Aspose.Slides
+\# 启动时构建并测试 Aspose.Slides
 
 WORKDIR /slides-src
 
@@ -57,84 +73,81 @@ CMD ./build/netcore.linux.tests.sh
 
 ```
 
-让我们审查docker文件中每行代码的含义：
 
-1. 容器的映像基于microsoft/dotnet:2.1-sdk-bionic映像（这是由Microsoft预先构建并发布在docker的[公共中心](https://hub.docker.com/r/microsoft/dotnet/)的映像）。此映像已安装dotnet 2.1 SDK。Bionic后缀意味着使用Ubuntu 18.04（代号bionic）作为容器的操作系统。通过更改后缀，可以更改基础操作系统（例如：stretch -- Debian 9，alpine -- Alpine Linux）。在这种情况下，将需要修改docker文件内容（例如，将'apt-get'更改为'yum'）。
+让我们逐行解释 Dockerfile 中的代码含义：
 
+1. 容器镜像基于 microsoft/dotnet:2.1-sdk-bionic 镜像（该镜像已由 Microsoft 构建并发布在 Docker 的[公共仓库](https://hub.docker.com/r/microsoft/dotnet/)）。此镜像已预装 dotnet 2.1 SDK。Bionic 后缀表示使用 Ubuntu 18.04（代号 bionic）作为容器的操作系统。通过更改后缀，可以切换底层 OS（例如：stretch → Debian 9，alpine → Alpine Linux）。此时需相应修改 Dockerfile 内容（例如，将 `apt-get` 改为 `yum`）。
 ``` csharp
 
  FROM microsoft/dotnet:2.1-sdk-bionic AS build:
-
 ```
 
-1. 更新可用软件包数据库并安装apt-utils软件包。
 
+1. 更新可用软件包数据库并安装 apt-utils 包。
 ``` csharp
 
  RUN apt-get update -y && apt-get install -y apt-utils
 
 ```
 
-1. 安装System.Drawing.Common库所需的'libgdiplus'和'libc6-dev'软件包。
 
+1. 安装 System.Drawing.Common 所需的 `libgdiplus` 和 `libc6-dev` 包。
 ``` csharp
 
  RUN apt-get install -y libgdiplus && apt-get install -y libc6-dev
 
 ```
 
-1. 声明/slides-src文件夹作为挂载点，我们将用它来提供对主机上slide-net源文件夹的访问。
 
+1. 声明 `/slides-src` 文件夹为挂载点，以便提供对主机上 slides‑net 源代码文件夹的访问。
 ``` csharp
 
  VOLUME /slides-src
 
 ```
 
-1. 将slides-src设置为容器内部的工作目录。
 
+1. 将 `/slides-src` 设置为容器内的工作目录。
 ``` csharp
 
  WORKDIR /slides-src
 
 ```
 
-1. 声明一个默认命令，在容器启动时运行，除非指定了显式命令。
 
+1. 声明默认命令，在未指定显式命令时容器启动时将执行该命令。
 ``` csharp
 
  CMD ./build/netcore.linux.tests.sh
 
 ```
 
-根据docker文件中的说明，生成的容器映像将具有已安装的Ubuntu 18.04操作系统、dotnet-sdk、libgdiplus和libc6-dev软件包。此外，此映像将具有预定义挂载点和预定义的运行命令。
 
-要使用此docker文件构建映像，您必须进入slides-netuil docker文件夹并执行：
+按照 Dockerfile 中的指令，生成的容器镜像将包含 Ubuntu 18.04、dotnet‑sdk、libgdiplus 和 libc6‑dev 包，还预定义了挂载点和运行时默认命令。
 
+要使用此 Dockerfile 构建镜像，请进入 `slides-netuil` Docker 文件夹并执行：
 ``` csharp
 
  $ docker build -f Dockerfile-Ubuntu18_04_apt_get_libgdiplus -t ubuntu18_04_apt_get_libgdiplus .
 
 ```
 
-*-f Dockerfile-Ubuntu18_04_apt_get_libgdiplus* -- 选项指定要使用哪个docker文件。
 
-*-t ubuntu18_04_apt_get_libgdiplus* -- 为生成的映像指定标签（名称）。
+*`-f Dockerfile-Ubuntu18_04_apt_get_libgdiplus`* — 指定使用的 Dockerfile。  
+*`-t ubuntu18_04_apt_get_libgdiplus`* — 为生成的镜像指定标签（名称）。  
+*`.`* — 指定 Docker 的构建上下文，此处为当前文件夹（空目录），因为我们将 slides‑net 源代码作为挂载点提供，从而在每次修改源代码时无需重新构建镜像。
 
-*'.'* -- 指定docker的上下文。在我们的例子中，上下文是当前文件夹并且是空的——因为我们选择将slides-net源提供为挂载点（这使我们无需在每次源更改时重新构建docker映像）。
-
-执行的结果应如下所示：
-
+执行结果应如下所示：
 ``` csharp
 
- 成功构建 62dd34ddc142
+ Successfully built 62dd34ddc142
 
-成功标记 ubuntu18_04_apt_get_libgdiplus:latest
+Successfully tagged ubuntu18_04_apt_get_libgdiplus:latest
 
 ```
 
-为了确保新映像已添加到本地映像库：
 
+验证新镜像已添加到本地镜像仓库：
 ``` csharp
 
  $ docker images
@@ -147,74 +160,71 @@ ubuntu18_04_apt_get_libgdiplus   latest              62dd34ddc142        2 minut
 
 ```
 
-一旦映像准备好，我们可以使用以下命令运行它：
 
+镜像构建完成后，可使用以下命令运行它：
 ``` csharp
 
  $ docker run -it -v pwd/../../:/slides-src --add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_apt_get_libgdiplus:latest
 
 ```
 
-*-it* -- 指定命令应以交互方式运行，使我们可以看到输出并捕获输入。
 
-*-v `pwd`/../../:/slides-src* -- 指定了预定义挂载点的文件夹——由于当前工作目录是slides-netuildocker，因此容器中的slides-src文件夹将指向主机上的slides-net文件夹。`pwd`用于指定相对路径。
+*`-it`* — 交互式运行容器，以便看到输出并接受输入。  
+*`-v \`pwd\`/../../:/slides-src`* — 指定预定义挂载点的宿主机文件夹——当前工作目录是 `slides-netuildocker`，因此容器内的 `/slides-src` 将指向宿主机上的 `slides-net` 文件夹。`\`pwd\`` 用于获取相对路径。  
+*`--add-host dev.slides.external.tool.server:192.168.1.48`* — 修改容器的 hosts 文件，以解析 `dev.slides.external.tool.server`。  
+*`ubuntu1804aptgetlibgdiplus:latest`* — 指定要运行的镜像。
 
-*--add-host dev.slides.external.tool.server:192.168.1.48* -- 修改容器的hosts文件以解析dev.slides.external.tool.server网址。
-
-*ubuntu1804aptgetlibgdiplus:latest* -- 指定要运行的容器的映像。
-
-执行上述命令的结果将是netcore.linux.tests.sh的输出（由于它已定义为容器的默认命令）：
-
+上述命令执行后，将看到 `netcore.linux.tests.sh` 的输出（因为它被设为容器的默认命令）：
 ``` csharp
 
- 正在还原/slides-src/targets/.NETCore/tests/Aspose.Slides.FuncTests.NetCore/Aspose.Slides.FuncTests.NetCore.csproj的包...
+ Restoring packages for /slides-src/targets/.NETCore/tests/Aspose.Slides.FuncTests.NetCore/Aspose.Slides.FuncTests.NetCore.csproj...
 
-正在还原/slides-src/targets/.NETStandard/main/Aspose.Slides.DOM.NetStandard/Aspose.Slides.DOM.NetStandard.csproj的包...
+Restoring packages for /slides-src/targets/.NETStandard/main/Aspose.Slides.DOM.NetStandard/Aspose.Slides.DOM.NetStandard.csproj...
 
-正在还原/slides-src/targets/.NETStandard/main/Aspose.Slides.CompoundFile.NetStandard/Aspose.Slides.CompoundFile.NetStandard.csproj的包...
+Restoring packages for /slides-src/targets/.NETStandard/main/Aspose.Slides.CompoundFile.NetStandard/Aspose.Slides.CompoundFile.NetStandard.csproj...
 
-正在安装System.Text.Encoding.CodePages 4.4.0。
+Installing System.Text.Encoding.CodePages 4.4.0.
 
-正在安装System.Drawing.Common 4.5.0。
-
-...
-
-结果文件：/slides-src/build-out/netstandard20/test-results/main/Aspose.Slides.FuncTests.NetCore.trx
-
-总测试：未知。通过：2110。失败：108。跳过：210。
+Installing System.Drawing.Common 4.5.0.
 
 ...
 
-结果文件：/slides-src/build-out/netstandard20/test-results/main/Aspose.Slides.RegrTests.NetCore.trx
+Results File: /slides-src/build-out/netstandard20/test-results/main/Aspose.Slides.FuncTests.NetCore.trx
 
-总测试：2124。通过：1550。失败：103。跳过：471。
+Total tests: Unknown. Passed: 2110. Failed: 108. Skipped: 210.
+
+...
+
+Results File: /slides-src/build-out/netstandard20/test-results/main/Aspose.Slides.RegrTests.NetCore.trx
+
+Total tests: 2124. Passed: 1550. Failed: 103. Skipped: 471.
 
 ```
 
-从结果来看，Func和Regr测试的日志文件已放置到/build-out/netstandard20/test-results/main/目录中。此外，约200个测试总失败——这些都是与所需字体在容器中缺失有关的渲染问题。
 
-要覆盖容器的默认命令并运行，我们可以使用此命令：
+从结果可知，Func 和 Regr 测试的日志已输出至 `/build-out/netstandard20/test-results/main/` 目录。此外，共约 200 条测试失败，均为由于容器缺少必需字体导致的渲染问题。
 
+如果想在运行时覆盖容器的默认命令，可使用以下方式：
 ``` csharp
 
  $ docker run -it -v pwd/../../:/slides-src --add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_apt_get_libgdiplus:latest /bin/bash
 
 ```
 
-因此，/bin/bash将被执行，而不是netcore.linux.tests.sh，并将提供一个活动的容器终端会话，从中可以运行（./build/netcore.linux.tests.sh）。这种方法在故障排除场景中可能很有用。
-## **在Linux上安装和配置Docker（make install libgdiplus）**
-- 操作系统：Ubuntu 18.04。
+
+这样，将执行 `/bin/bash`，并提供容器的交互终端，您可以手动运行 `./build/netcore.linux.tests.sh` 等命令，便于排查问题。
+
+## **Installing and Configuring Docker on Linux (make install libgdiplus)**
+- OS：Ubuntu 18.04。
 - Dockerfile：Dockerfile-Ubuntu18_04_make_libgdiplus
 
-目前，Ubuntu仅包含libgdiplus的版本4.2，而产品的[官方网站](https://github.com/mono/libgdiplus/releases)上已经提供了5.6版。要测试最新版本的libgdiplus，我们需要准备一个从源代码构建的libgdiplus映像。
+目前 Ubuntu 官方仅提供 4.2 版 libgdiplus，而 5.6 版已在产品的[官方站点](https://github.com/mono/libgdiplus/releases)上发布。要测试最新版 libgdiplus，需要构建一个从源码编译的镜像。
 
-让我们审查docker文件内容：
-
+以下是 Dockerfile 内容：
 ``` csharp
-
  FROM microsoft/dotnet:2.1-sdk-bionic AS build
 
-\# 构建最新稳定版的libgdiplus
+\# 构建最新稳定版 libgdiplus
 
 RUN apt-get update -y
 
@@ -236,18 +246,17 @@ RUN ln -s /usr/local/lib/libgdiplus.so /usr/lib/libgdiplus.so
 
 VOLUME /slides-src
 
-\# 启动时构建和测试Aspose.Slides
+\# 启动时构建并测试 Aspose.Slides
 
 WORKDIR /slides-src
 
 CMD ./build/netcore.linux.tests.sh
-
 ```
 
-唯一的区别是*构建最新稳定版的libgdiplus*部分。此部分安装了构建libgdiplus所需的所有工具，克隆源代码，然后构建并安装到正确的位置。其他内容与[在Linux上安装和配置Docker（apt-get libgdiplus）](/slides/zh/net/how-to-run-aspose-slides-in-docker/#install-and-configure-docker-on-linux-apt-get-libgdiplus/)相同。
 
-**注意**：请记得在docker build和docker run命令中为生成的映像使用不同的映像标签（名称）：
+唯一的区别在于 *build latest stable libgdiplus* 部分。该部分会安装构建 libgdiplus 所需的全部工具，克隆源码并编译安装。其余内容与[在 Linux 上安装和配置 Docker（apt-get libgdiplus）](/slides/zh/net/how-to-run-aspose-slides-in-docker/#install-and-configure-docker-on-linux-apt-get-libgdiplus/)完全相同。
 
+**注意**：在 `docker build` 和 `docker run` 命令中，请使用不同的镜像标签（名称）：
 ``` csharp
 
  $ docker build \-f Dockerfile-Ubuntu18_04_apt_get_libgdiplus \-t ubuntu18_04_make_libgdiplus .
@@ -256,21 +265,21 @@ $ docker run \-it \-v pwd/../../:/slides-src \--add-host dev.slides.external.too
 
 ```
 
-## **在Windows Server Core上安装和配置Docker**
-- 操作系统：Ubuntu 18.04。
+
+## **Install and configure Docker on Windows Server Core**
+- OS：Ubuntu 18.04。
 - Dockerfile：Dockerfile*WinServerCore*
 
-**注意**：运行Windows容器需要Windows 10 Pro或Windows Server 2016。
+**注意**：需要 Windows 10 Pro 或 Windows Server 2016 才能运行 Windows 容器。
 
-不幸的是，Microsoft没有提供带有已安装dotnet SDK的Windows Server Core映像，因此我们必须手动安装：
-
+遗憾的是，Microsoft 未提供已预装 dotnet SDK 的 Windows Server Core 镜像，需要手动安装：
 ``` csharp
-
  # escape=
 
 FROM microsoft/windowsservercore:1803 AS installer-env
 
-#set powershell默认执行器
+#set powershell default executor
+#set powershell default executor
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
@@ -278,11 +287,13 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 
 FROM microsoft/windowsservercore:1803 AS installer-env
 
-#set powershell默认执行器
+#set powershell default executor
+#set powershell default executor
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-\# 获取 .NET Core SDK
+\# Retrieve .NET Core SDK
+# 检索 .NET Core SDK
 
 ENV DOTNET_SDK_VERSION 2.1.301
 
@@ -294,7 +305,7 @@ RUN Invoke-WebRequest -OutFile dotnet.zip https://dotnetcli.blob.core.windows.ne
 
     if ((Get-FileHash dotnet.zip -Algorithm sha512).Hash -ne $dotnet_sha512) { 
 
-        Write-Host '校验和验证失败！'; 
+        Write-Host 'CHECKSUM VERIFICATION FAILED!'; 
 
         exit 1; 
 
@@ -304,11 +315,13 @@ RUN Invoke-WebRequest -OutFile dotnet.zip https://dotnetcli.blob.core.windows.ne
 
     Expand-Archive dotnet.zip -DestinationPath $Env:DOTNET_PATH;
 
-#返回cmd作为默认执行器
+#return cmd as default executor
+# 将 cmd 设为默认执行器
 
 SHELL ["cmd", "/S", "/C"]
 
-\# 为了设置系统PATH，必须使用ContainerAdministrator
+\# In order to set system PATH, ContainerAdministrator must be used
+# 为了设置系统 PATH，必须使用 ContainerAdministrator
 
 USER ContainerAdministrator
 
@@ -316,52 +329,48 @@ RUN setx /M PATH "%PATH%;c:/Program Files/dotnet"
 
 USER ContainerUser
 
-\# 创建挂载点
+\# create mount points
+# 创建挂载点
 
 VOLUME c:/slides-src
 
-#在启动时构建和测试Aspose.Slides
+#build and test Aspose.Slides on start
+# 启动时构建并测试 Aspose.Slides
 
 WORKDIR c:/slides-src
 
 CMD .\external\buildtools\nant\nant.exe -buildfile:.\build\netcore.tests.build -D:obfuscate_eaz_use_mock=true -D:slidesnet.run.func.tests=true -D:slidesnet.run.regr.tests=true
-
 ```
 
-生成的映像将建立在Microsoft提供的microsoft/windowsservercore:1803映像之上，位于[docker hub](https://hub.docker.com/r/microsoft/windowsservercore/)上。指定版本的dotnet-sdk将被下载并解压；系统的PATH变量将更新以包含dotnet可执行文件的路径。最后一行定义了在容器运行时使用nant.exe执行func和regr测试的命令。
 
-构建映像的命令：
+生成的镜像基于 Microsoft 在[docker hub](https://hub.docker.com/r/microsoft/windowsservercore/)上提供的 `microsoft/windowsservercore:1803` 镜像。指定版本的 dotnet‑sdk 将被下载并解压，系统的 PATH 变量会更新以包含 dotnet 可执行文件的路径。最后一行定义了容器启动时默认执行的命令，即使用 `nant.exe` 运行 func 和 regr 测试。
 
+构建镜像的命令：
 ``` csharp
-
- docker build -f Dockerfile_WinServerCore -t winservercore_slides .
-
+docker build -f Dockerfile_WinServerCore -t winservercore_slides .
 ```
 
-运行映像的命令：
 
+运行镜像的命令：
 ``` csharp
-
  docker run -it --cpu-count 3 --memory 8589934592 -v e:\Project\Aspose\slides-net:c:\slides-src winservercore_slides:latest
-
 ```
 
-**注意**：Windows容器的命令使用了2个额外参数：
 
-*-cpu-count 3*
+**注意**：Windows 容器的运行命令额外使用了 2 个参数：
 
-*-memory 8589934592*
+*`-cpu-count 3`*  
+*`-memory 8589934592`*
 
-它们设置容器可用的核心数和内存量。默认情况下，Windows容器仅提供1个核心和1GB的RAM（Linux容器默认没有任何限制）。
+它们分别设置容器可使用的 CPU 核心数和内存大小。默认情况下，Windows 容器仅提供 1 核心和 1 GB 内存（而 Linux 容器默认没有此类限制）。
 
-此外，相比于我们用来运行Linux容器的相同命令，少了1个参数：
+与运行 Linux 容器的命令相比，缺少了以下参数：
 
-*-add-host dev.slides.external.tool.server:192.168.1.48*
+*`-add-host dev.slides.external.tool.server:192.168.1.48`*
 
-因为运行在Windows上的容器不需要外部工具服务器。
+因为 Windows 容器不需要 `external.tool.server`。
 
-上述命令的结果应如下所示：
-
+上述命令的执行结果应类似于：
 ``` csharp
 
  NAnt 0.92 (Build 0.92.4543.0; release; 6/9/2012)
@@ -372,20 +381,20 @@ http://nant.sourceforge.net
 
 netcore20_runtests:
 
-   [delete] 正在删除目录'c:\slides-src\build-out\netcore20\test-results\'。
+   [delete] Deleting directory 'c:\slides-src\build-out\netcore20\test-results\'.
 
-   [mkdir] 正在创建目录'c:\slides-src\build-out\netcore20\test-results\'。
-
-...
-
-[exec] 结果文件：C:\slides-src\/build-out/netcore20/test-results//main\Aspose.Slides.FuncTests.NetCore.trx
-
-[exec] 总测试：2338。通过：2115。失败：19。跳过：204。
+   [mkdir] Creating directory 'c:\slides-src\build-out\netcore20\test-results\'.
 
 ...
 
-[exec] 结果文件：C:\slides-src\/build-out/netcore20/test-results//main\Aspose.Slides.RegrTests.NetCore.trx
+[exec] Results File: C:\slides-src\/build-out/netcore20/test-results//main\Aspose.Slides.FuncTests.NetCore.trx
 
-[exec] 总测试：2728。通过：2147。失败：110。跳过：471。
+[exec] Total tests: 2338. Passed: 2115. Failed: 19. Skipped: 204.
+
+...
+
+[exec] Results File: C:\slides-src\/build-out/netcore20/test-results//main\Aspose.Slides.RegrTests.NetCore.trx
+
+[exec] Total tests: 2728. Passed: 2147. Failed: 110. Skipped: 471.
 
 ```

@@ -1,27 +1,39 @@
 ---
-title: Извлечение изображений из фигур презентации
+title: Извлечение изображений из фигур презентации в .NET
+linktitle: Изображение из фигуры
 type: docs
 weight: 90
 url: /ru/net/extracting-images-from-presentation-shapes/
-keywords: "Извлечение изображения, PowerPoint, PPT, PPTX, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
-description: "Извлечение изображений из презентации PowerPoint на C# или .NET"
+keywords:
+- извлечь изображение
+- получить изображение
+- фон слайда
+- фон фигуры
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Извлекайте изображения из фигур в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для .NET — быстрое, удобное для кода решение."
 ---
+
+## **Извлечение изображений из фигур**
 
 {{% alert color="primary" %}} 
 
-Изображения часто добавляются в фигуры и также часто используются в качестве фонов слайдов. Объекты изображений добавляются через [IImageCollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/), которая является коллекцией объектов [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/). 
+Изображения часто добавляются в фигуры и также часто используются в качестве фонов слайдов. Объекты изображений добавляются через [IImageCollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/), который представляет собой коллекцию объектов [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/). 
 
-В этой статье объясняется, как вы можете извлечь изображения, добавленные в презентации. 
+В этой статье объясняется, как извлечь изображения, добавленные в презентации. 
 
 {{% /alert %}} 
 
-Чтобы извлечь изображение из презентации, вам сначала нужно найти изображение, пройдя по каждому слайду и затем по каждой фигуре. Как только изображение найдено или идентифицировано, вы можете извлечь его и сохранить в виде нового файла. XXX 
-
+Чтобы извлечь изображение из презентации, необходимо сначала найти изображение, просматривая каждый слайд, а затем каждую фигуру. Как только изображение найдено или идентифицировано, его можно извлечь и сохранить как новый файл. XXX 
 ```c#
 public static void Run() {
 
     String path = @"D:\Aspose Data\";
-    // Доступ к презентации
+    // Получает доступ к презентации
     Presentation pres = new Presentation(path + "ExtractImages.pptx");
     Aspose.Slides.IPPImage img = null;
     Aspose.Slides.IPPImage Backimg = null;
@@ -33,14 +45,14 @@ public static void Run() {
     {
 
         slideIndex++;
-        // Доступ к первому слайду
+        // Получает доступ к первому слайду
         ISlide sl = pres.Slides[i];
         System.Drawing.Imaging.ImageFormat Format = System.Drawing.Imaging.ImageFormat.Jpeg;
 
-        // Доступ к первому слайду Slide sl = pres.getSlideByPosition(i);
+        // Получает доступ к первому слайду Slide sl = pres.getSlideByPosition(i);
         if (sl.Background.FillFormat.FillType == FillType.Picture)
         {
-            // Получение фонового изображения  
+            // Получает фоновое изображение  
             Backimg = sl.Background.FillFormat.PictureFillFormat.Picture.Image;
 
             // Устанавливает предпочтительный формат изображения 
@@ -57,7 +69,7 @@ public static void Run() {
         {
             if (sl.LayoutSlide.Background.FillFormat.FillType == FillType.Picture)
             {
-                // Получение фонового изображения  
+                // Получает фоновое изображение  
                 Backimg = sl.LayoutSlide.Background.FillFormat.PictureFillFormat.Picture.Image;
 
                 // Устанавливает предпочтительный формат изображения 
@@ -74,7 +86,7 @@ public static void Run() {
 
         for (int j = 0; j < sl.Shapes.Count; j++)
         {
-            // Доступ к фигуре, содержащей изображение
+            // Получает доступ к фигуре, содержащей изображение
             IShape sh = sl.Shapes[j];
 
             if (sh is AutoShape)
@@ -102,7 +114,7 @@ public static void Run() {
                 }
             }
 
-            // Устанавливает предпочтительный формат для извлеченного изображения
+            // Устанавливает предпочтительный формат для извлечённого изображения
             if (ifImageFound)
             {
                 Format = GetImageFormat(ImageType);
@@ -147,3 +159,22 @@ public static System.Drawing.Imaging.ImageFormat GetImageFormat(String ImageType
     return Format;
 }
 ```
+
+
+## **FAQ**
+
+**Могу ли я извлечь исходное изображение без обрезки, эффектов или трансформаций фигуры?**
+
+Да. Когда вы получаете изображение фигуры, вы получаете объект изображения из [коллекции изображений](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/) презентации, что означает оригинальные пиксели без обрезки или стилистических эффектов. Процесс проходит через коллекцию изображений презентации и объекты [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/), которые хранят необработанные данные.
+
+**Существует ли риск дублирования одинаковых файлов при одновременном сохранении большого количества изображений?**
+
+Да, если сохранять всё без разбора. [Коллекция изображений](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/) презентации может содержать одинаковые бинарные данные, на которые ссылаются разные фигуры или слайды. Чтобы избежать дубликатов, сравните хеши, размеры или содержимое извлечённых данных перед записью.
+
+**Как определить, какие фигуры связаны с конкретным изображением из коллекции презентации?**
+
+Aspose.Slides не хранит обратные ссылки от [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/) к фигурам. Создайте сопоставление вручную во время обхода: каждый раз, когда находите ссылку на [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/), фиксируйте, какие фигуры её используют.
+
+**Могу ли я извлечь изображения, встроенные в OLE‑объекты, такие как вложенные документы?**
+
+Не напрямую, потому что OLE‑объект является контейнером. Нужно сначала извлечь сам пакет OLE, а затем проанализировать его содержимое с помощью отдельных инструментов. Фигурные изображения презентации работают через [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/); OLE — это другой тип объекта.

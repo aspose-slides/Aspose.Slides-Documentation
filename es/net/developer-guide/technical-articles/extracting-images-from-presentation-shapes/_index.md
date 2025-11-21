@@ -1,22 +1,34 @@
 ---
-title: Extracción de imágenes de formas de presentación
+title: Extraer imágenes de formas de presentación en .NET
+linktitle: Imagen desde forma
 type: docs
 weight: 90
 url: /es/net/extracting-images-from-presentation-shapes/
-keywords: "Extraer imagen, PowerPoint, PPT, PPTX, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
-description: "Extraer imágenes de la presentación de PowerPoint en C# o .NET"
+keywords:
+- extraer imagen
+- recuperar imagen
+- fondo de diapositiva
+- fondo de forma
+- PowerPoint
+- OpenDocument
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Extraiga imágenes de formas en presentaciones PowerPoint y OpenDocument con Aspose.Slides para .NET — solución rápida y amigable para código."
 ---
+
+## **Extraer imágenes de formas**
 
 {{% alert color="primary" %}} 
 
-Las imágenes a menudo se añaden a las formas y también se utilizan frecuentemente como fondos de diapositivas. Los objetos de imagen se añaden a través de [IImageCollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/), que es una colección de objetos [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/). 
+Las imágenes se añaden a menudo a las formas y también se utilizan con frecuencia como fondos de diapositivas. Los objetos de imagen se añaden a través de [IImageCollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/), que es una colección de objetos [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/). 
 
-Este artículo explica cómo puedes extraer las imágenes añadidas a las presentaciones. 
+Este artículo explica cómo puede extraer las imágenes añadidas a las presentaciones. 
 
 {{% /alert %}} 
 
-Para extraer una imagen de una presentación, primero debes localizar la imagen revisando cada diapositiva y luego cada forma. Una vez que se encuentra o identifica la imagen, puedes extraerla y guardarla como un nuevo archivo. XXX 
-
+Para extraer una imagen de una presentación, debe localizarla primero recorriendo cada diapositiva y luego cada forma. Una vez que la imagen se encuentre o identifique, puede extraerla y guardarla como un nuevo archivo. XXX 
 ```c#
 public static void Run() {
 
@@ -37,7 +49,7 @@ public static void Run() {
         ISlide sl = pres.Slides[i];
         System.Drawing.Imaging.ImageFormat Format = System.Drawing.Imaging.ImageFormat.Jpeg;
 
-        // Accede a la primera diapositiva
+        // Accede a la primera diapositiva Slide sl = pres.getSlideByPosition(i);
         if (sl.Background.FillFormat.FillType == FillType.Picture)
         {
             // Obtiene la imagen de fondo  
@@ -147,3 +159,22 @@ public static System.Drawing.Imaging.ImageFormat GetImageFormat(String ImageType
     return Format;
 }
 ```
+
+
+## **FAQ**
+
+**¿Puedo extraer la imagen original sin recortes, efectos o transformaciones de forma?**
+
+Sí. Cuando accede a la imagen de una forma, obtiene el objeto de imagen de la [image collection](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/) de la presentación, lo que significa los píxeles originales sin recortes ni efectos de estilo. El flujo de trabajo recorre la colección de imágenes de la presentación y los objetos [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/), que almacenan los datos sin procesar.
+
+**¿Existe el riesgo de duplicar archivos idénticos al guardar muchas imágenes a la vez?**
+
+Sí, si guarda todo indiscriminadamente. La [image collection](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/) de una presentación puede contener datos binarios idénticos referenciados por diferentes formas o diapositivas. Para evitar duplicados, compare hashes, tamaños o contenidos de los datos extraídos antes de escribirlos.
+
+**¿Cómo puedo determinar qué formas están vinculadas a una imagen específica de la colección de la presentación?**
+
+Aspose.Slides no almacena enlaces inversos de [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/) a las formas. Construya un mapeo manualmente durante la navegación: cada vez que encuentre una referencia a un [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/), registre qué formas lo utilizan.
+
+**¿Puedo extraer imágenes incrustadas dentro de objetos OLE, como documentos adjuntos?**
+
+No directamente, porque un objeto OLE es un contenedor. Necesita extraer el paquete OLE mismo y luego analizar su contenido con herramientas separadas. Las formas de imagen de la presentación funcionan a través de [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/); OLE es un tipo de objeto diferente.

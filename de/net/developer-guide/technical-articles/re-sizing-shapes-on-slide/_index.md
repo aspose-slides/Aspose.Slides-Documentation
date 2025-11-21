@@ -1,137 +1,176 @@
 ---
-title: Größenanpassung von Formen auf Folien
+title: Formen auf Präsentationsfolien in .NET skalieren
 type: docs
 weight: 130
 url: /de/net/re-sizing-shapes-on-slide/
+keywords:
+- Form skalieren
+- Formgröße ändern
+- PowerPoint
+- OpenDocument
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Formen auf PowerPoint- und OpenDocument-Folien ganz einfach mit Aspose.Slides für .NET skalieren - Layout-Anpassungen automatisieren und die Produktivität steigern."
 ---
 
-## **Größenanpassung von Formen auf Folien**
-Eine der häufigsten Fragen, die von den Kunden von Aspose.Slides für .NET gestellt wird, ist, wie man Formen so anpasst, dass die Daten beim Ändern der Foliengröße nicht abgeschnitten werden. Dieser kurze technische Tipp zeigt, wie man das erreicht.
+## **Übersicht**
 
-Um eine Desorientierung der Formen zu vermeiden, muss jede Form auf der Folie gemäß der neuen Foliengröße aktualisiert werden.
+Eine der häufigsten Fragen von Aspose.Slides für .NET‑Kunden ist, wie man Formen so skaliert, dass bei einer Änderung der Foliengröße keine Daten abgeschnitten werden. Dieser kurze technische Artikel zeigt, wie das geht.
 
+## **Formen skalieren**
+
+Um zu verhindern, dass Formen bei einer Änderung der Foliengröße fehlpositioniert werden, aktualisieren Sie die Position und Größe jeder Form, sodass sie dem neuen Folienlayout entsprechen.
 ```c#
- //Lade eine Präsentation
-Presentation presentation = new Presentation(@"D:\TestResize.ppt");
-
-//Alte Foliengröße
-float currentHeight = presentation.SlideSize.Size.Height;
-float currentWidth = presentation.SlideSize.Size.Width;
-
-//Ändern der Foliengröße
-presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-
-//Neue Foliengröße
-float newHeight = presentation.SlideSize.Size.Height;
-float newWidth = presentation.SlideSize.Size.Width;
-
-float ratioHeight = newHeight / currentHeight;
-float ratioWidth = newWidth / currentWidth;
-
-foreach (ISlide slide in presentation.Slides)
+// Lade die Präsentationsdatei.
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
-	foreach (IShape shape in slide.Shapes)
-	{
-		//Größenanpassung der Position
-		shape.Height = shape.Height * ratioHeight;
-		shape.Width = shape.Width * ratioWidth;
+    // Hole die ursprüngliche Foliengröße.
+    float currentHeight = presentation.SlideSize.Size.Height;
+    float currentWidth = presentation.SlideSize.Size.Width;
 
-		//Größenanpassung der Form falls erforderlich
-		shape.Y = shape.Y * ratioHeight;
-		shape.X = shape.X * ratioWidth;
+    // Ändere die Foliengröße, ohne vorhandene Formen zu skalieren.
+    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
 
-	}
+    // Hole die neue Foliengröße.
+    float newHeight = presentation.SlideSize.Size.Height;
+    float newWidth = presentation.SlideSize.Size.Width;
+
+    float heightRatio = newHeight / currentHeight;
+    float widthRatio = newWidth / currentWidth;
+
+    // Formen auf jeder Folie skalieren und neu positionieren.
+    foreach (ISlide slide in presentation.Slides)
+    {
+        foreach (IShape shape in slide.Shapes)
+        {
+            // Skaliere die Formgröße.
+            shape.Height *= heightRatio;
+            shape.Width *= widthRatio;
+
+            // Skaliere die Formposition.
+            shape.Y *= heightRatio;
+            shape.X *= widthRatio;
+        }
+    }
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
-
-presentation.Save("Resize.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}} 
 
-Wenn sich eine Tabelle auf der Folie befindet, funktioniert der obige Code nicht einwandfrei. In diesem Fall muss jede Zelle der Tabelle angepasst werden.
+{{% alert color="primary" %}}
 
-{{% /alert %}} 
+Enthält eine Folie eine Tabelle, funktioniert der obige Code nicht korrekt. In diesem Fall muss jede Zelle der Tabelle skaliert werden.
 
-Sie müssen den folgenden Code verwenden, wenn Sie die Folien mit Tabellen anpassen möchten. Das Festlegen der Breite oder Höhe einer Tabelle ist ein Sonderfall bei Formen, bei dem Sie die individuelle Höhe der Zeilen und die Breite der Spalten ändern müssen, um die Höhe und Breite der Tabelle zu beeinflussen.
+{{% /alert %}}
 
+Verwenden Sie den folgenden Code, um Folien mit Tabellen zu skalieren. Für Tabellen ist das Setzen von Breite oder Höhe ein Sonderfall: Sie müssen die einzelnen Zeilenhöhen und Spaltenbreiten anpassen, um die Gesamtabmessungen der Tabelle zu ändern.
 ```c#
-Presentation presentation = new Presentation("D:\\Test.pptx");
-
-//Alte Foliengröße
-float currentHeight = presentation.SlideSize.Size.Height;
-float currentWidth = presentation.SlideSize.Size.Width;
-
-//Ändern der Foliengröße
-presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-//presentation.SlideSize.Orientation = SlideOrienation.Portrait;
-
-//Neue Foliengröße
-float newHeight = presentation.SlideSize.Size.Height;
-float newWidth = presentation.SlideSize.Size.Width;
-
-
-float ratioHeight = newHeight / currentHeight;
-float ratioWidth = newWidth / currentWidth;
-
-foreach (IMasterSlide master in presentation.Masters)
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    foreach (IShape shape in master.Shapes)
+    // Ursprüngliche Foliengröße ermitteln.
+    float currentHeight = presentation.SlideSize.Size.Height;
+    float currentWidth = presentation.SlideSize.Size.Width;
+
+    // Foliengröße ändern, ohne vorhandene Formen zu skalieren.
+    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+    // presentation.SlideSize.Orientation = SlideOrienation.Portrait;
+
+    // Neue Foliengröße ermitteln.
+    float newHeight = presentation.SlideSize.Size.Height;
+    float newWidth = presentation.SlideSize.Size.Width;
+
+    float heightRatio = newHeight / currentHeight;
+    float widthRatio = newWidth / currentWidth;
+
+    foreach (IMasterSlide master in presentation.Masters)
     {
-        //Größenanpassung der Position
-        shape.Height = shape.Height * ratioHeight;
-        shape.Width = shape.Width * ratioWidth;
-
-        //Größenanpassung der Form falls erforderlich
-        shape.Y = shape.Y * ratioHeight;
-        shape.X = shape.X * ratioWidth;
-
-    }
-
-    foreach (ILayoutSlide layoutslide in master.LayoutSlides)
-    {
-        foreach (IShape shape in layoutslide.Shapes)
+        foreach (IShape shape in master.Shapes)
         {
-            //Größenanpassung der Position
-            shape.Height = shape.Height * ratioHeight;
-            shape.Width = shape.Width * ratioWidth;
+            // Formgröße skalieren.
+            shape.Height *= heightRatio;
+            shape.Width *= widthRatio;
 
-            //Größenanpassung der Form falls erforderlich
-            shape.Y = shape.Y * ratioHeight;
-            shape.X = shape.X * ratioWidth;
-
+            // Formposition skalieren.
+            shape.Y *= heightRatio;
+            shape.X *= widthRatio;
         }
 
-    }
-}
-
-foreach (ISlide slide in presentation.Slides)
-{
-    foreach (IShape shape in slide.Shapes)
-    {
-        //Größenanpassung der Position
-        shape.Height = shape.Height * ratioHeight;
-        shape.Width = shape.Width * ratioWidth;
-
-        //Größenanpassung der Form falls erforderlich
-        shape.Y = shape.Y * ratioHeight;
-        shape.X = shape.X * ratioWidth;
-        if (shape is ITable)
+        foreach (ILayoutSlide layoutSlide in master.LayoutSlides)
         {
-            ITable table = (ITable)shape;
-            foreach (IRow row in table.Rows)
+            foreach (IShape shape in layoutSlide.Shapes)
             {
-                row.MinimalHeight = row.MinimalHeight * ratioHeight;
-                //   row.Height = row.Height * ratioHeight;
-            }
-            foreach (IColumn col in table.Columns)
-            {
-                col.Width = col.Width * ratioWidth;
+                // Formgröße skalieren.
+                shape.Height *= heightRatio;
+                shape.Width *= widthRatio;
 
+                // Formposition skalieren.
+                shape.Y *= heightRatio;
+                shape.X *= widthRatio;
             }
         }
-
     }
-}
 
-presentation.Save("D:\\Resize.pptx", SaveFormat.Pptx);
+    foreach (ISlide slide in presentation.Slides)
+    {
+        foreach (IShape shape in slide.Shapes)
+        {
+            // Formgröße skalieren.
+            shape.Height *= heightRatio;
+            shape.Width *= widthRatio;
+
+            // Formposition skalieren.
+            shape.Y *= heightRatio;
+            shape.X *= widthRatio;
+
+            if (shape is ITable)
+            {
+                ITable table = (ITable)shape;
+                foreach (IRow row in table.Rows)
+                {
+                    row.MinimalHeight *= heightRatio;
+                }
+                foreach (IColumn column in table.Columns)
+                {
+                    column.Width *= widthRatio;
+                }
+            }
+        }
+    }
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
 ```
+
+
+## **FAQ**
+
+**Warum werden Formen nach dem Skalieren einer Folie verzerrt oder abgeschnitten?**
+
+Beim Skalieren einer Folie behalten Formen ihre ursprüngliche Position und Größe bei, sofern die Skalierung nicht explizit geändert wird. Das kann dazu führen, dass Inhalte beschnitten oder Formen fehlpositioniert werden.
+
+**Funktioniert der bereitgestellte Code für alle Formtypen?**
+
+Das Basisbeispiel funktioniert für die meisten Formtypen (Textfelder, Bilder, Diagramme usw.). Für Tabellen müssen Sie jedoch Zeilen und Spalten separat behandeln, da die Höhe und Breite einer Tabelle durch die Abmessungen der einzelnen Zellen bestimmt wird.
+
+**Wie skaliere ich Tabellen, wenn ich eine Folie skalieren möchte?**
+
+Sie müssen alle Zeilen und Spalten der Tabelle durchlaufen und deren Höhe und Breite proportional anpassen, wie im zweiten Code‑Beispiel gezeigt.
+
+**Funktioniert diese Skalierung für Master‑Folien und Layout‑Folien?**
+
+Ja, Sie sollten zusätzlich durch [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) und [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) iterieren und dieselbe Skalierungslogik auf deren Formen anwenden, um Konsistenz in der gesamten Präsentation zu gewährleisten.
+
+**Kann ich die Ausrichtung einer Folie (Hochformat/Landscape) zusammen mit der Skalierung ändern?**
+
+Ja. Sie können [presentation.SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/islidesize/orientation/) setzen, um die Ausrichtung zu ändern. Stellen Sie sicher, dass Sie die Skalierungslogik entsprechend anpassen, um das Layout beizubehalten.
+
+**Gibt es ein Limit für die Foliengröße, die ich festlegen kann?**
+
+Aspose.Slides unterstützt benutzerdefinierte Größen, aber sehr große Abmessungen können die Leistung beeinträchtigen oder die Kompatibilität mit manchen PowerPoint‑Versionen einschränken.
+
+**Wie kann ich verhindern, dass Formen mit festem Seitenverhältnis verzerrt werden?**
+
+Sie können die `AspectRatioLocked`‑Eigenschaft der Form vor dem Skalieren prüfen. Ist sie gesperrt, passen Sie Breite oder Höhe proportional an, anstatt sie einzeln zu skalieren.

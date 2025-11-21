@@ -1,44 +1,57 @@
 ---
-title: ActiveX
+title: .NET でプレゼンテーションの ActiveX コントロールを管理
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /ja/net/activex/
-keywords: "ActiveX, ActiveXコントロール, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
-description: "C#または.NETでPowerPointプレゼンテーションのActiveXコントロールを管理する"
+keywords:
+- ActiveX
+- ActiveX コントロール
+- ActiveX を管理
+- ActiveX を追加
+- ActiveX を変更
+- メディアプレーヤー
+- PowerPoint
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET が ActiveX を活用して PowerPoint プレゼンテーションを自動化・強化し、開発者にスライドの強力な制御を提供する方法を学びます。"
 ---
 
-ActiveXコントロールはプレゼンテーションで使用されます。Aspose.Slides for .NETを使用すると、ActiveXコントロールを管理できますが、通常のプレゼンテーションシェイプとは異なり、少しトリッキーです。Aspose.Slides for .NET 6.9.0以降、このコンポーネントはActiveXコントロールの管理をサポートしています。現在、プレゼンテーションに既に追加されたActiveXコントロールにアクセスし、そのさまざまなプロパティを使用して変更または削除できます。ActiveXコントロールはシェイプではなく、プレゼンテーションのIShapeCollectionの一部ではなく、別のIControlCollectionです。この記事では、それらの操作方法を示します。
-## **ActiveXコントロールの変更**
-スライド上のテキストボックスやシンプルなコマンドボタンのようなシンプルなActiveXコントロールを管理するには：
+プレゼンテーションで ActiveX コントロールが使用されます。Aspose.Slides for .NET を使用すると ActiveX コントロールを管理できますが、管理はやや複雑で通常のプレゼンテーション シェイプとは異なります。Aspose.Slides for .NET 6.9.0 以降、このコンポーネントは ActiveX コントロールの管理をサポートしています。現在、プレゼンテーションに追加済みの ActiveX コントロールにアクセスし、さまざまなプロパティを使用して変更または削除できます。ActiveX コントロールはシェイプではなく、プレゼンテーションの IShapeCollection の一部ではなく、別個の IControlCollection に属していることに注意してください。この記事ではそれらの操作方法を示します。
 
-1. Presentationクラスのインスタンスを作成し、ActiveXコントロールを含むプレゼンテーションをロードします。
-1. インデックスによってスライドの参照を取得します。
-1. IControlCollectionにアクセスしてスライド内のActiveXコントロールにアクセスします。
-1. ControlExオブジェクトを使用してTextBox1 ActiveXコントロールにアクセスします。
-1. テキスト、フォント、フォントの高さ、およびフレームの位置を含むTextBox1 ActiveXコントロールのさまざまなプロパティを変更します。
-1. CommandButton1という2番目のアクセスコントロールにアクセスします。
-1. ボタンのキャプション、フォント、位置を変更します。
-1. ActiveXコントロールフレームの位置を移動します。
-1. 修正されたプレゼンテーションをPPTXファイルに書き込みます。
+## **ActiveX コントロールの変更**
+スライド上のテキストボックスやシンプルなコマンドボタンなど、シンプルな ActiveX コントロールを管理する手順:
 
-以下のコードスニペットは、プレゼンテーションスライド上のActiveXコントロールを更新します。
+1. Presentation クラスのインスタンスを作成し、ActiveX コントロールが含まれるプレゼンテーションをロードします。  
+2. インデックスでスライド参照を取得します。  
+3. IControlCollection にアクセスしてスライド内の ActiveX コントロールにアクセスします。  
+4. ControlEx オブジェクトを使用して TextBox1 ActiveX コントロールにアクセスします。  
+5. テキスト、フォント、フォント高さ、フレーム位置など、TextBox1 ActiveX コントロールのさまざまなプロパティを変更します。  
+6. CommandButton1 と呼ばれる 2 番目のコントロールにアクセスします。  
+7. ボタンのキャプション、フォント、位置を変更します。  
+8. ActiveX コントロールのフレーム位置をシフトします。  
+9. 変更されたプレゼンテーションを PPTX ファイルに書き出します。
 
+以下のコード スニペットは、プレゼンテーション スライドの ActiveX コントロールを下記のように更新します。
 ```c#
-// ActiveXコントロールを含むプレゼンテーションにアクセス
+// Accessing the presentation with ActiveX controls
 Presentation presentation = new Presentation("ActiveX.pptm");
 
-// プレゼンテーション内の最初のスライドにアクセス
+// Accessing the first slide in presentation
 ISlide slide = presentation.Slides[0];
 
-// TextBoxテキストの変更
+// changing TextBox text
 IControl control = slide.Controls[0];
 
 if (control.Name == "TextBox1" && control.Properties != null)
 {
-    string newText = "変更されたテキスト";
+    string newText = "Changed text";
     control.Properties["Value"] = newText;
 
-    // 代替画像を変更します。PowerPointはActiveXのアクティブ化中にこの画像を置き換えるため、時には画像を変更しないでおくことが適切です。
+    // changing substitute image. Powerpoint will replace this image during activeX activation, so sometime it's OK to leave image unchanged.
+    // 代替画像を変更します。PowerPoint は ActiveX の有効化時にこの画像を置き換えるため、画像を変更しないままにしても問題ないことがあります。
 
     Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
     Graphics graphics = Graphics.FromImage(image);
@@ -71,15 +84,16 @@ if (control.Name == "TextBox1" && control.Properties != null)
     control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
 }
 
-// ボタンのキャプションを変更
+// changing Button caption
 control = slide.Controls[1];
 
 if (control.Name == "CommandButton1" && control.Properties != null)
 {
-    String newCaption = "メッセージボックス";
+    String newCaption = "MessageBox";
     control.Properties["Caption"] = newCaption;
 
-    // 代替を変更
+    // changing substitute
+    // 代替画像を変更
     Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
     Graphics graphics = Graphics.FromImage(image);
     Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Control));
@@ -111,7 +125,8 @@ if (control.Name == "CommandButton1" && control.Properties != null)
     control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
 }
 
-// ActiveXフレームを100ポイント下に移動
+// Moving ActiveX frames 100 points down
+// ActiveX フレームを 100 ポイント下に移動
 foreach (Control ctl in slide.Controls)
 {
     IShapeFrame frame = control.Frame;
@@ -119,45 +134,59 @@ foreach (Control ctl in slide.Controls)
         frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
 }
 
-// 編集されたActiveXコントロールを含むプレゼンテーションを保存
+// Save the presentation with Edited ActiveX Controls
+// 編集した ActiveX コントロール付きのプレゼンテーションを保存
 presentation.Save("withActiveX-edited_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
 
 
-// 現在コントロールを削除します
+// Now removing controls
+// コントロールを削除しています
 slide.Controls.Clear();
 
-// ActiveXコントロールをクリアしたプレゼンテーションを保存
+// Saving the presentation with cleared ActiveX controls
+// ActiveX コントロールをクリアしたプレゼンテーションを保存
 presentation.Save("withActiveX.cleared_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
 ```
 
 
-## **ActiveXメディアプレーヤーコントロールの追加**
-ActiveXメディアプレーヤーコントロールを追加するには、次の手順を実行します。
+## **ActiveX メディア プレーヤー コントロールの追加**
+ActiveX Media Player コントロールを追加するには、次の手順を実行してください。
 
-1. Presentationクラスのインスタンスを作成し、Media Player ActiveXコントロールを含むサンプルプレゼンテーションをロードします。
-1. 対象のPresentationクラスのインスタンスを作成し、空のプレゼンテーションインスタンスを生成します。
-1. テンプレートプレゼンテーション内のMedia Player ActiveXコントロールを含むスライドを対象のPresentationにクローンします。
-1. 対象のPresentation内のクローンしたスライドにアクセスします。
-1. IControlCollectionにアクセスして、スライド内のActiveXコントロールにアクセスします。
-1. Media Player ActiveXコントロールにアクセスし、そのプロパティを使用してビデオパスを設定します。
-1. プレゼンテーションをPPTXファイルに保存します。
-
+1. Presentation クラスのインスタンスを作成し、Media Player ActiveX コントロールが含まれるサンプル プレゼンテーションをロードします。  
+2. 対象となる Presentation クラスのインスタンスを作成し、空のプレゼンテーション インスタンスを生成します。  
+3. テンプレート プレゼンテーションの Media Player ActiveX コントロールを含むスライドを対象の Presentation にクローンします。  
+4. 対象の Presentation でクローンされたスライドにアクセスします。  
+5. IControlCollection にアクセスしてスライド内の ActiveX コントロールにアクセスします。  
+6. Media Player ActiveX コントロールにアクセスし、そのプロパティを使用してビデオ パスを設定します。  
+7. プレゼンテーションを PPTX ファイルに保存します。
 ```c#
-// PPTXファイルを表すPresentationクラスのインスタンスを作成
+// PPTX ファイルを表す Presentation クラスのインスタンスを作成
 Presentation presentation = new Presentation("template.pptx");
 
-// 空のプレゼンテーションインスタンスを作成
+// 空のプレゼンテーション インスタンスを作成
 Presentation newPresentation = new Presentation();
 
-// デフォルトスライドを削除
+// デフォルトのスライドを削除
 newPresentation.Slides.RemoveAt(0);
 
-// Media Player ActiveXコントロールを含むスライドをクローン
+// Media Player ActiveX コントロールを含むスライドをクローン
 newPresentation.Slides.InsertClone(0, presentation.Slides[0]);
 
-// Media Player ActiveXコントロールにアクセスし、ビデオパスを設定
+// Media Player ActiveX コントロールにアクセスし、ビデオパスを設定
 newPresentation.Slides[0].Controls[0].Properties["URL"] = "Wildlife.mp4";
 
 // プレゼンテーションを保存
 newPresentation.Save("LinkingVideoActiveXControl_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
+
+
+## **FAQ**
+
+**Aspose.Slides は .NET ランタイムで実行できなくても、読み取りおよび再保存時に ActiveX コントロールを保持しますか？**  
+はい。Aspose.Slides はそれらをプレゼンテーションの一部として扱い、プロパティやフレームを読み取り/変更できます。コントロール自体を実行する必要はなく、保持されます。
+
+**ActiveX コントロールはプレゼンテーションの OLE オブジェクトとどう異なりますか？**  
+ActiveX コントロールはインタラクティブな管理対象コントロール（ボタン、テキスト ボックス、メディア プレーヤー）です。一方、[OLE](/slides/ja/net/manage-ole/) は埋め込みアプリケーション オブジェクト（例: Excel ワークシート）を指します。これらは保存方法や取り扱いが異なり、プロパティ モデルも異なります。
+
+**ファイルが Aspose.Slides によって変更された場合、ActiveX イベントや VBA マクロは機能しますか？**  
+Aspose.Slides は既存のマークアップとメタデータを保持しますが、イベントやマクロは Windows の PowerPoint 内でセキュリティが許可された場合にのみ実行されます。このライブラリは VBA を実行しません。
