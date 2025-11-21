@@ -1,75 +1,85 @@
 ---
-title: إدارة عنصر نائب
+title: إدارة عناصر النائب في العرض التقديمي باستخدام .NET
+linktitle: إدارة العناصر النائبة
 type: docs
 weight: 10
 url: /ar/net/manage-placeholder/
-keywords: "عنصر نائب, نص العنصر النائب, نص الترويسة, عرض تقديمي في PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "تغيير نص العنصر النائب ونص الترويسة في عروض PowerPoint باستخدام C# أو .NET"
+keywords:
+- عنصر نائب
+- عنصر نائب نصي
+- عنصر نائب صورة
+- عنصر نائب مخطط
+- نص المطالبة
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "إدارة العناصر النائبة بسهولة في Aspose.Slides للـ .NET: استبدال النص، تخصيص نصوص المطالبة وضبط شفافية الصورة في PowerPoint وOpenDocument."
 ---
 
 ## **تغيير النص في العنصر النائب**
-باستخدام [Aspose.Slides for .NET](/slides/ar/net/)، يمكنك العثور على العناصر النائبة وتعديلها في الشرائح داخل العروض التقديمية. يتيح لك Aspose.Slides إجراء تغييرات على النص في العنصر النائب.
+باستخدام [Aspose.Slides for .NET](/slides/ar/net/)، يمكنك العثور على العناصر النائبة وتعديلها في الشرائح داخل العروض التقديمية. يتيح Aspose.Slides لك إجراء تغييرات على النص داخل العنصر النائب.
 
-**المتطلبات الأساسية**: تحتاج إلى عرض تقديمي يحتوي على عنصر نائب. يمكنك إنشاء مثل هذا العرض في تطبيق Microsoft PowerPoint العادي.
+**المتطلبات المسبقة**: تحتاج إلى عرض تقديمي يحتوي على عنصر نائب. يمكنك إنشاء مثل هذا العرض التقديمي في تطبيق Microsoft PowerPoint القياسي.
 
-إليك كيفية استخدام Aspose.Slides لاستبدال النص في العنصر النائب في ذلك العرض:
+هذه هي الطريقة التي تستخدم بها Aspose.Slides لاستبدال النص في العنصر النائب داخل ذلك العرض التقديمي:
 
-1. قم بإنشاء كائن من فئة [`Presentation`](https://reference.aspose.com/slides/net/aspose.slides/presentation) ومرر العرض كوسيط.
-2. احصل على مرجع الشريحة من خلال فهرسها.
-3. قم بالتكرار خلال الأشكال للعثور على العنصر النائب.
-4. قم بتحويل شكل العنصر النائب إلى [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) وتغيير النص باستخدام [`TextFrame`](https://reference.aspose.com/slides/net/aspose.slides/textframe/) المرتبط بـ [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/). 
-5. احفظ العرض المعدل.
+1. إنشاء كائن من الفئة [`Presentation`](https://reference.aspose.com/slides/net/aspose.slides/presentation) وتمرير العرض التقديمي كمعامل.
+2. الحصول على مرجع الشريحة من خلال فهرسها.
+3. تكرار عبر الأشكال للعثور على العنصر النائب.
+4. تحويل شكل العنصر النائب إلى [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) وتغيير النص باستخدام [`TextFrame`](https://reference.aspose.com/slides/net/aspose.slides/textframe/) المرتبط بـ[`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/). 
+5. حفظ العرض التقديمي المعدل.
 
-يوضح هذا الكود C# كيفية تغيير النص في عنصر نائب:
-
+This C# code shows how to change the text in a placeholder:
 ```c#
-// إنشاء كائن من فئة Presentation
+// ينشئ كائن من فئة Presentation
 using (Presentation pres = new Presentation("ReplacingText.pptx"))
 {
 
-    // الوصول إلى الشريحة الأولى
+    // يصل إلى الشريحة الأولى
     ISlide sld = pres.Slides[0];
 
-    // التكرار عبر الأشكال للعثور على العنصر النائب
+    // يتنقل عبر الأشكال للعثور على العنصر النائب
     foreach (IShape shp in sld.Shapes)
         if (shp.Placeholder != null)
         {
-            // تغيير النص في كل عنصر نائب
-            ((IAutoShape)shp).TextFrame.Text = "هذا عنصر نائب";
+            // يغيّر النص في كل عنصر نائب
+            ((IAutoShape)shp).TextFrame.Text = "This is a Placeholder";
         }
 
-    // حفظ العرض على القرص
+    // يحفظ العرض التقديمي إلى القرص
     pres.Save("output_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
 
-## **تعيين نص الترويسة في العنصر النائب**
-تحتوي التخطيطات القياسية والمعدة مسبقًا على نصوص ترويسة العناصر النائبة مثل ***اضغط لإضافة عنوان*** أو ***اضغط لإضافة عنوان فرعي***. باستخدام Aspose.Slides، يمكنك إدراج نصوص ترويسة مفضلة لديك في تخطيطات العناصر النائبة.
 
-يوضح هذا الكود C# كيفية تعيين نص الترويسة في عنصر نائب:
+## **تعيين نص المطالبة في العنصر النائب**
+تحتوي التخطيطات القياسية والمُعدة مسبقًا على نصوص مطالبة للعنصر النائب مثل ***انقر لإضافة عنوان*** أو ***انقر لإضافة عنوان فرعي***. باستخدام Aspose.Slides، يمكنك إدراج نصوص المطالبة المفضلة لديك في تخطيطات العناصر النائبة.
 
+This C# code shows you how to set the prompt text in a placeholder:
 ```c#
 using (Presentation pres = new Presentation("Presentation2.pptx"))
 {
     ISlide slide = pres.Slides[0];
-    foreach (IShape shape in slide.Slide.Shapes) // التكرار عبر الشريحة
+    foreach (IShape shape in slide.Slide.Shapes) // يتنقل عبر الشريحة
     {
         if (shape.Placeholder != null && shape is AutoShape)
         {
             string text = "";
-            if (shape.Placeholder.Type == PlaceholderType.CenteredTitle) // يعرض PowerPoint "اضغط لإضافة عنوان"
+            if (shape.Placeholder.Type == PlaceholderType.CenteredTitle) // PowerPoint يعرض "Click to add title"
             {
-                text = "أضف عنوانًا";
+                text = "Add Title";
             }
-            else if (shape.Placeholder.Type == PlaceholderType.Subtitle) // إضافة عنوان فرعي
+            else if (shape.Placeholder.Type == PlaceholderType.Subtitle) // يضيف عنوانًا فرعيًا
             {
-                text = "أضف عنوانًا فرعيًا";
+                text = "Add Subtitle";
             }
 
             ((IAutoShape)shape).TextFrame.Text = text;
 
-            Console.WriteLine($"عنصر نائب بالنص: {text}");
+            Console.WriteLine($"Placeholder with text: {text}");
         }
     }
 
@@ -77,12 +87,12 @@ using (Presentation pres = new Presentation("Presentation2.pptx"))
 }
 ```
 
+
 ## **تعيين شفافية صورة العنصر النائب**
 
-يتيح لك Aspose.Slides تعيين شفافية الصورة الخلفية في عنصر نائب نص. من خلال ضبط شفافية الصورة في مثل هذا الإطار، يمكنك جعل النص أو الصورة بارزًا (اعتمادًا على ألوان النص والصورة).
+يتيح Aspose.Slides لك ضبط شفافية صورة الخلفية في عنصر نائب نصي. من خلال تعديل شفافية الصورة داخل هذا الإطار، يمكنك إبراز النص أو الصورة (اعتمادًا على ألوان النص والصورة).
 
-يوضح هذا الكود C# كيفية تعيين الشفافية لخلفية صورة (داخل شكل):
-
+This C# code shows you how to set the transparency for a picture background (inside a shape):
 ```c#
 using (var presentation = new Presentation())
 {
@@ -94,3 +104,18 @@ using (var presentation = new Presentation())
     autoShape.FillFormat.PictureFillFormat.Picture.ImageTransform.AddAlphaModulateFixedEffect(75);
 }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**ما هو العنصر النائب الأساسي، وكيف يختلف عن الشكل المحلي في الشريحة؟**
+
+العنصر النائب الأساسي هو الشكل الأصلي في تخطيط أو القالب الذي يرث منه شكل الشريحة—النوع، الموضع، وبعض التنسيقات تأتي منه. الشكل المحلي مستقل؛ إذا لم يكن هناك عنصر نائب أساسي، فإن الوراثة لا تنطبق.
+
+**كيف يمكنني تحديث جميع العناوين أو التسميات التوضيحية عبر العرض التقديمي دون التكرار على كل شريحة؟**
+
+قم بتحرير العنصر النائب المقابل في التخطيط أو القالب. ستورث الشرائح التي تعتمد على تلك التخطيطات/القالب التغيير تلقائيًا.
+
+**كيف يمكنني التحكم في عناصر النائب القياسية للترويسة/التذييل—التاريخ والوقت، رقم الشريحة، ونص التذييل؟**
+
+استخدم مديري HeaderFooter في النطاق المناسب (الشرائح العادية، التخطيطات، القالب، ملاحظات/نشرات) لتفعيل أو إلغاء تفعيل تلك العناصر النائبة ولتحديد محتواها.

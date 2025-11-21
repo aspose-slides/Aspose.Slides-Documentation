@@ -1,15 +1,26 @@
 ---
-title: SmartArt verwalten
+title: SmartArt in PowerPoint-Präsentationen in .NET verwalten
+linktitle: SmartArt verwalten
 type: docs
 weight: 10
 url: /de/net/manage-smartart/
-keywords: "SmartArt, Text von SmartArt, Organisationstyp-Diagramm, Bild-Organisationsdiagramm, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "SmartArt und Organisationstyp-Diagramm in PowerPoint-Präsentationen in C# oder .NET"
+keywords:
+- SmartArt
+- SmartArt-Text
+- Layouttyp
+- Versteckte Eigenschaft
+- Organisationsdiagramm
+- Bild-Organisationsdiagramm
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Lernen Sie, PowerPoint SmartArt mit Aspose.Slides für .NET zu erstellen und zu bearbeiten, anhand klarer C#-Codebeispiele, die das Folien-Design und die Automatisierung beschleunigen."
 ---
 
-## **Text von SmartArt abrufen**
-Jetzt wurde die TextFrame-Eigenschaft zum ISmartArtShape-Interface und zur SmartArtShape-Klasse hinzugefügt. Diese Eigenschaft ermöglicht es Ihnen, gesamten Text von SmartArt abzurufen, sofern nicht nur Knotentext vorhanden ist. Der folgende Beispielcode hilft Ihnen, Text aus einem SmartArt-Knoten zu erhalten.
-
+## **Text aus SmartArt abrufen**
+Die TextFrame‑Eigenschaft wurde nun zur ISmartArtShape‑Schnittstelle bzw. zur SmartArtShape‑Klasse hinzugefügt. Diese Eigenschaft ermöglicht es, den gesamten Text aus SmartArt abzurufen, falls nicht nur der Text der Knoten vorhanden ist. Der folgende Beispielcode hilft Ihnen, Text aus einem SmartArt‑Knoten zu erhalten.
 ```c#
 using (Presentation pres = new Presentation("Presentation.pptx"))
 {
@@ -30,23 +41,23 @@ using (Presentation pres = new Presentation("Presentation.pptx"))
 
 
 
+
 ## **Layouttyp von SmartArt ändern**
-Um den Layouttyp von SmartArt zu ändern, folgen Sie bitte den folgenden Schritten:
+Um den Layouttyp von SmartArt zu ändern, führen Sie die untenstehenden Schritte aus:
 
-- Erstellen Sie eine Instanz der `Presentation`-Klasse.
-- Erhalten Sie die Referenz einer Folie, indem Sie ihren Index verwenden.
+- Erstellen Sie eine Instanz der Klasse `Presentation`.
+- Holen Sie die Referenz einer Folie über deren Index.
 - Fügen Sie SmartArt BasicBlockList hinzu.
-- Ändern Sie den Layouttyp in BasicProcess.
-- Schreiben Sie die Präsentation als PPTX-Datei.
-  Im folgenden Beispiel haben wir einen Connector zwischen zwei Formen hinzugefügt.
-
+- Ändern Sie LayoutType zu BasicProcess.
+- Speichern Sie die Präsentation als PPTX-Datei.  
+Im untenstehenden Beispiel haben wir einen Verbinder zwischen zwei Formen hinzugefügt.
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // Fügen Sie SmartArt BasicProcess hinzu 
+    // SmartArt BasicProcess hinzufügen
     ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
 
-    // Ändern Sie den Layouttyp in BasicProcess
+    // LayoutType zu BasicProcess ändern
     smart.Layout = SmartArtLayoutType.BasicProcess;
 
     // Präsentation speichern
@@ -56,32 +67,32 @@ using (Presentation presentation = new Presentation())
 
 
 
-## **Versteckte Eigenschaft von SmartArt überprüfen**
-Bitte beachten Sie, dass die Methode com.aspose.slides.ISmartArtNode.isHidden() true zurückgibt, wenn dieser Knoten ein versteckter Knoten im Datenmodell ist. Um die versteckte Eigenschaft eines beliebigen Knotens von SmartArt zu überprüfen, folgen Sie bitte den folgenden Schritten:
 
-- Erstellen Sie eine Instanz der `Presentation`-Klasse.
+## **Versteckte Eigenschaft von SmartArt prüfen**
+Bitte beachten Sie, dass die Methode com.aspose.slides.ISmartArtNode.isHidden() true zurückgibt, wenn dieser Knoten im Datenmodell ausgeblendet ist. Um die versteckte Eigenschaft eines beliebigen SmartArt‑Knotens zu prüfen, führen Sie die folgenden Schritte aus:
+
+- Erstellen Sie eine Instanz der Klasse `Presentation`.
 - Fügen Sie SmartArt RadialCycle hinzu.
-- Fügen Sie einen Knoten zu SmartArt hinzu.
-- Überprüfen Sie die isHidden-Eigenschaft.
-- Schreiben Sie die Präsentation als PPTX-Datei.
+- Fügen Sie dem SmartArt einen Knoten hinzu.
+- Prüfen Sie die isHidden‑Eigenschaft.
+- Speichern Sie die Präsentation als PPTX-Datei.
 
-Im folgenden Beispiel haben wir einen Connector zwischen zwei Formen hinzugefügt.
-
+Im untenstehenden Beispiel haben wir einen Verbinder zwischen zwei Formen hinzugefügt.
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // Fügen Sie SmartArt BasicProcess hinzu 
+    // SmartArt BasicProcess hinzufügen 
     ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
 
-    // Fügen Sie einen Knoten zu SmartArt hinzu 
+    // Knoten zum SmartArt hinzufügen 
     ISmartArtNode node = smart.AllNodes.AddNode();
 
-    // Überprüfen Sie die isHidden-Eigenschaft
+    // isHidden‑Eigenschaft prüfen
     bool hidden = node.IsHidden; // Gibt true zurück
 
     if (hidden)
     {
-        // Führen Sie einige Aktionen oder Benachrichtigungen durch
+        // Einige Aktionen oder Benachrichtigungen ausführen
     }
     // Präsentation speichern
     presentation.Save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
@@ -90,22 +101,22 @@ using (Presentation presentation = new Presentation())
 
 
 
-## **Organisationstyp-Diagramm abrufen oder festlegen**
-Die Methoden com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) ermöglichen das Abrufen oder Festlegen des Organisationstyp-Diagramms, das mit dem aktuellen Knoten verbunden ist. Um den Organisationstyp-Diagramm abzurufen oder festzulegen, folgen Sie bitte den folgenden Schritten:
 
-- Erstellen Sie eine Instanz der `Presentation`-Klasse.
-- Fügen Sie SmartArt auf die Folie hinzu.
-- Abrufen oder Festlegen des Organisationstyp-Diagramms.
-- Schreiben Sie die Präsentation als PPTX-Datei.
-  Im folgenden Beispiel haben wir einen Connector zwischen zwei Formen hinzugefügt.
+## **Organisation‑Diagrammtyp abrufen oder festlegen**
+Die Methoden com.aspose.slides.ISmartArtNode.getOrganizationChartLayout() und setOrganizationChartLayout(int) ermöglichen das Abrufen bzw. Festlegen des Organisation‑Diagrammtyps, der dem aktuellen Knoten zugeordnet ist. Um den Organisation‑Diagrammtyp abzurufen oder festzulegen, führen Sie die folgenden Schritte aus:
 
+- Erstellen Sie eine Instanz der Klasse `Presentation`.
+- Fügen Sie SmartArt auf einer Folie hinzu.
+- Rufen Sie den Organisation‑Diagrammtyp ab oder legen Sie ihn fest.
+- Speichern Sie die Präsentation als PPTX-Datei.  
+Im untenstehenden Beispiel haben wir einen Verbinder zwischen zwei Formen hinzugefügt.
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // Fügen Sie SmartArt BasicProcess hinzu 
+    // SmartArt BasicProcess hinzufügen 
     ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
 
-    // Abrufen oder Festlegen des Organisationstyp-Diagramms 
+    // OrganisationDiagrammtyp abrufen oder festlegen 
     smart.Nodes[0].OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
 
     // Präsentation speichern
@@ -116,16 +127,16 @@ using (Presentation presentation = new Presentation())
 
 
 
-## **Bild-Organisationsdiagramm erstellen**
-Aspose.Slides für .NET bietet eine einfache API zum Erstellen von Bild-Organisationsdiagrammen auf einfache Weise. Um ein Diagramm auf einer Folie zu erstellen:
 
-1. Erstellen Sie eine Instanz der `Presentation`-Klasse.
-1. Erhalten Sie die Referenz einer Folie durch ihren Index.
-1. Fügen Sie ein Diagramm mit Standarddaten zusammen mit dem gewünschten Typ (ChartType.PictureOrganizationChart) hinzu.
-1. Schreiben Sie die bearbeitete Präsentation in eine PPTX-Datei.
+## **Picture‑Organisations‑Diagramm erstellen**
+Aspose.Slides für .NET bietet eine einfache API zum Erstellen von PictureOrganization‑Diagrammen. So erstellen Sie ein Diagramm auf einer Folie:
+
+1. Erstellen Sie eine Instanz der `Presentation`‑Klasse.
+2. Holen Sie die Referenz einer Folie über deren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten und dem gewünschten Typ (ChartType.PictureOrganizationChart) hinzu.
+4. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei
 
 Der folgende Code wird verwendet, um ein Diagramm zu erstellen.
-
 ```c#
 public static void Run()
 {
@@ -136,3 +147,22 @@ public static void Run()
 	}			
 }
 ```
+
+
+## **FAQ**
+
+**Unterstützt SmartArt Spiegeln/Umkehren für RTL-Sprachen?**
+
+Ja. Die [IsReversed](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/isreversed/)‑Eigenschaft ändert die Diagrammrichtung (LTR/RTL), wenn der ausgewählte SmartArt‑Typ die Umkehrung unterstützt.
+
+**Wie kann ich SmartArt auf derselben Folie oder in einer anderen Präsentation kopieren und dabei die Formatierung beibehalten?**
+
+Sie können die [SmartArt‑Form klonen](/slides/de/net/shape-manipulations/) über die Formen‑Sammlung ([ShapeCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addclone/)) oder die gesamte Folie, die diese Form enthält, [klonen](/slides/de/net/clone-slides/). Beide Vorgehensweisen erhalten Größe, Position und Stil.
+
+**Wie rendere ich SmartArt zu einem Rasterbild für die Vorschau oder den Web‑Export?**
+
+[Rendern Sie die Folie](/slides/de/net/convert-powerpoint-to-png/) (oder die gesamte Präsentation) zu PNG/JPEG über die API, die Folien/Präsentationen in Bilder konvertiert – SmartArt wird dabei als Teil der Folie dargestellt.
+
+**Wie kann ich programmgesteuert ein bestimmtes SmartArt auf einer Folie auswählen, wenn mehrere vorhanden sind?**
+
+Eine gängige Praxis besteht darin, [alternativen Text](https://reference.aspose.com/slides/net/aspose.slides/shape/alternativetext/) (Alt‑Text) oder einen [Namen](https://reference.aspose.com/slides/net/aspose.slides/shape/name/) zu verwenden und die Form anhand dieses Attributs in [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) zu suchen, dann den Typ zu überprüfen, um sicherzustellen, dass es sich um [SmartArt](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/) handelt. Die Dokumentation beschreibt typische Techniken zum Finden und Arbeiten mit Formen.

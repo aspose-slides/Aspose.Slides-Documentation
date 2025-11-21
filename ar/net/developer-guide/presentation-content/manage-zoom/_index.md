@@ -1,111 +1,110 @@
 ---
-title: إدارة الزوم
+title: إدارة تكبير العرض التقديمي في .NET
+linktitle: إدارة التكبير
 type: docs
 weight: 60
 url: /ar/net/manage-zoom/
-keywords: 
-- زوم
-- إطار زوم
-- إضافة زوم
-- تنسيق إطار الزوم
-- زوم ملخص
-- عرض PowerPoint
+keywords:
+- تكبير
+- إطار التكبير
+- تكبير الشريحة
+- تكبير القسم
+- تكبير الملخص
+- إضافة تكبير
+- PowerPoint
+- عرض تقديمي
+- .NET
 - C#
-- Csharp
-- Aspose.Slides لـ .NET
-description: "إضافة زوم أو إطارات زوم إلى عروض PowerPoint في C# أو .NET"
+- Aspose.Slides
+description: "إنشاء وتخصيص التكبير باستخدام Aspose.Slides لـ .NET — الانتقال بين الأقسام، إضافة مصغرات وانتقالات عبر عروض PPT و PPTX و ODP."
 ---
 
 ## **نظرة عامة**
-تتيح لك الزوم في PowerPoint الانتقال إلى ومن الشرائح المحددة، الأقسام، وأجزاء من العرض التقديمي. عندما تقدم، قد تكون هذه القدرة على التنقل بسرعة عبر المحتوى مفيدة جدًا.
+Zooms في PowerPoint تسمح لك بالقفز إلى ومن الشرائح المحددة، والأقسام، وأجزاء العرض التقديمي. عند تقديم العرض قد تكون هذه القدرة على التنقل السريع عبر المحتوى مفيدة جدًا. 
 
 ![overview_image](overview.png)
 
-* لتلخيص عرض تقديمي كامل على شريحة واحدة، استخدم [زوم ملخص](#Summary-Zoom).
-* لإظهار الشرائح المحددة فقط، استخدم [زوم شريحة](#Slide-Zoom).
-* لإظهار قسم واحد فقط، استخدم [زوم قسم](#Section-Zoom).
+* لتلخيص عرض تقديمي كامل على شريحة واحدة، استخدم [ملخص الزوم](#Summary-Zoom).
+* لعرض الشرائح المختارة فقط، استخدم [Zoom الشريحة](#Slide-Zoom).
+* لعرض قسم واحد فقط، استخدم [Zoom القسم](#Section-Zoom).
 
 ## **زوم الشريحة**
-يمكن أن تجعل زوم الشريحة عرضك التقديمي أكثر ديناميكية، مما يسمح لك بالتنقل بحرية بين الشرائح بأي ترتيب تختاره دون مقاطعة سير عرضك. يعتبر زوم الشرائح رائعًا للعروض القصيرة التي لا تحتوي على العديد من الأقسام، ولكن يمكنك استخدامها في سيناريوهات تقديم مختلفة.
+يمكن أن يجعل Zoom الشريحة عرضك أكثر حيوية، مما يسمح لك بالتنقل بحرية بين الشرائح بأي ترتيب تختاره دون مقاطعة تدفق العرض التقديمي. Zoom الشريحة رائعة للعروض القصيرة دون أقسام كثيرة، لكن لا يزال يمكنك استخدامها في سيناريوهات عرض مختلفة.
 
-تساعدك زوم الشرائح على التعمق في عدة قطع من المعلومات بينما تشعر أنك على قماش واحد.
+Zoom الشريحة تساعدك على الغوص في قطع متعددة من المعلومات بينما تشعر وكأنك على قماش واحد. 
 
 ![overview_image](slidezoomsel.png)
 
-بالنسبة لكائنات زوم الشريحة، يوفر Aspose.Slides التعداد [ZoomImageType](https://reference.aspose.com/slides/net/aspose.slides/zoomimagetype)، الواجهة [IZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/izoomframe)، وبعض الطرق ضمن الواجهة [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection).
+بالنسبة لكائنات Zoom الشريحة، توفر Aspose.Slides تعداد ZoomImageType، وواجهة IZoomFrame، وبعض الطرق ضمن واجهة IShapeCollection.
 
-### **إنشاء إطارات الزوم**
+### **إنشاء إطارات Zoom**
+يمكنك إضافة إطار Zoom إلى شريحة بهذه الطريقة:
 
-يمكنك إضافة إطار زوم على شريحة بهذه الطريقة:
-
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. أنشئ شرائح جديدة تنوي ربط إطارات الزوم بها.
+1. أنشئ مثيلاً من فئة Presentation.
+2. أنشئ شرائح جديدة تريد ربط إطارات الزوم بها.
 3. أضف نص تعريف وخلفية إلى الشرائح التي تم إنشاؤها.
-4. أضف إطارات زوم (تحتوي على المراجع إلى الشرائح التي تم إنشاؤها) إلى الشريحة الأولى.
-5. اكتب العرض المعدل كملف PPTX.
-
-هذا الكود في C# يوضح لك كيفية إنشاء إطار زوم على شريحة:
+4. أضف إطارات الزوم (التي تحتوي على مراجع للشرائح التي تم إنشاؤها) إلى الشريحة الأولى.
+5. احفظ العرض التقديمي المعدل كملف PPTX.
 
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
-    //يضيف شرائح جديدة إلى العرض
+    // يضيف شرائح جديدة إلى العرض التقديمي
     ISlide slide2 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     ISlide slide3 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
 
-    // ينشئ خلفية للشفيفة الثانية
+    // ينشئ خلفية للشريحة الثانية
     slide2.Background.Type = BackgroundType.OwnBackground;
     slide2.Background.FillFormat.FillType = FillType.Solid;
     slide2.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
 
-    // ينشئ صندوق نص للشفيفة الثانية
+    // ينشئ مربع نص للشريحة الثانية
     IAutoShape autoshape = slide2.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "الشفيفة الثانية";
+    autoshape.TextFrame.Text = "Second Slide";
 
-    // ينشئ خلفية للشفيفة الثالثة
+    // ينشئ خلفية للشريحة الثالثة
     slide3.Background.Type = BackgroundType.OwnBackground;
     slide3.Background.FillFormat.FillType = FillType.Solid;
     slide3.Background.FillFormat.SolidFillColor.Color = Color.DarkKhaki;
 
-    // ينشئ صندوق نص للشفيفة الثالثة
+    // ينشئ مربع نص للشريحة الثالثة
     autoshape = slide3.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "الشفيفة الثالثة";
+    autoshape.TextFrame.Text = "Trird Slide";
 
-    //يضيف كائنات زوم
+    // يضيف كائنات ZoomFrame
     pres.Slides[0].Shapes.AddZoomFrame(20, 20, 250, 200, slide2);
     pres.Slides[0].Shapes.AddZoomFrame(200, 250, 250, 200, slide3);
 
-    // يحفظ العرض
+    // يحفظ العرض التقديمي
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
-### **إنشاء إطارات زوم بصور مخصصة**
-باستخدام Aspose.Slides لـ .NET، يمكنك إنشاء إطار زوم بصورة معاينة شريحة مختلفة بهذه الطريقة: 
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. أنشئ شريحة جديدة تنوي ربط إطار الزوم بها. 
-3. أضف نص تعريف وخلفية إلى الشريحة.
-4. أنشئ كائن [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) عن طريق إضافة صورة إلى مجموعة الصور المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) الذي سيتم استخدامه لملء الإطار.
-5. أضف إطارات زوم (تحتوي على مرجع إلى الشريحة التي تم إنشاؤها) إلى الشريحة الأولى.
-6. اكتب العرض المعدل كملف PPTX.
 
-هذا الكود في C# يوضح لك كيفية إنشاء إطار زوم بصورة مختلفة:
+### **إنشاء إطارات Zoom بصور مخصصة**
+مع Aspose.Slides لـ .NET، يمكنك إنشاء إطار Zoom بصورة معاينة شريحة مختلفة بهذه الطريقة: 
+1. أنشئ مثيلاً من فئة Presentation.
+2. أنشئ شريحة جديدة تريد ربط إطار الزوم بها. 
+3. أضف نص تعريف وخلفية إلى الشريحة.
+4. أنشئ كائن IPPImage بإضافة صورة إلى مجموعة Images المرتبطة بكائن Presentation الذي سيُستخدم لتعبئة الإطار.
+5. أضف إطارات الزوم (التي تحتوي على مرجع الشريحة التي تم إنشاؤها) إلى الشريحة الأولى.
+6. احفظ العرض التقديمي المعدل كملف PPTX.
 
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
-    //يضيف شريحة جديدة إلى العرض
+    //يضيف شريحة جديدة إلى العرض التقديمي
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
 
-    // ينشئ خلفية للشفيفة الثانية
+    //ينشئ خلفية للشريحة الثانية
     slide.Background.Type = BackgroundType.OwnBackground;
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
 
-    // ينشئ صندوق نص للشفيفة الثالثة
+    //ينشئ مربع نص للشريحة الثالثة
     IAutoShape autoshape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "الشفيفة الثانية";
+    autoshape.TextFrame.Text = "Second Slide";
 
-    // ينشئ صورة جديدة لكائن الزوم
+    //ينشئ صورة جديدة لكائن الزوم
     IImage image = Images.FromFile("image.png");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
@@ -113,145 +112,139 @@ using (Presentation pres = new Presentation())
     //يضيف كائن ZoomFrame
     pres.Slides[0].Shapes.AddZoomFrame(20, 20, 300, 200, slide, ppImage);
 
-    // يحفظ العرض
+    //يحفظ العرض التقديمي
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
-### **تنسيق إطارات الزوم**
-في الأقسام السابقة، عرضنا لك كيفية إنشاء إطارات زوم بسيطة. لإنشاء إطارات زوم أكثر تعقيدًا، يجب عليك تعديل تنسيق إطار بسيط. هناك العديد من خيارات التنسيق التي يمكنك تطبيقها على إطار الزوم.
+
+### **تنسيق إطارات Zoom**
+في الأقسام السابقة، أظهرنا لك كيفية إنشاء إطارات Zoom بسيطة. لإنشاء إطارات Zoom أكثر تعقيدًا، عليك تعديل تنسيق إطار بسيط. هناك عدة خيارات تنسيق يمكنك تطبيقها على إطار Zoom. 
 
 يمكنك التحكم في تنسيق إطار الزوم على شريحة بهذه الطريقة:
 
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. أنشئ شرائح جديدة تنوي ربط إطار الزوم بها.
-3. أضف بعض نص التعريف والخلفية إلى الشرائح التي تم إنشاؤها.
-4. أضف إطارات زوم (تحتوي على المراجع إلى الشرائح التي تم إنشاؤها) إلى الشريحة الأولى.
-5. أنشئ كائن [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) عن طريق إضافة صورة إلى مجموعة الصور المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) الذي سيتم استخدامه لملء الإطار.
-6. عيّن صورة مخصصة لكائن إطار الزوم الأول.
-7. غيّر تنسيق الخط لكائن إطار الزوم الثاني.
-8. أزل الخلفية من صورة كائن إطار الزوم الثاني.
-5. اكتب العرض المعدل كملف PPTX.
+1. أنشئ مثيلاً من فئة Presentation.
+2. أنشئ شرائح جديدة للربط التي تنوي ربط إطار الزوم بها.
+3. أضف بعض نص التعريف وخلفية إلى الشرائح التي تم إنشاؤها.
+4. أضف إطارات الزوم (التي تحتوي على مراجع للشرائح التي تم إنشاؤها) إلى الشريحة الأولى.
+5. إنشاء كائن IPPImage بإضافة صورة إلى مجموعة Images المرتبطة بكائن Presentation الذي سيُستخدم لتعبئة الإطار.
+6. تعيين صورة مخصصة لكائن إطار الزوم الأول.
+7. تغيير تنسيق الخط لكائن إطار الزوم الثاني.
+8. إزالة الخلفية من صورة كائن إطار الزوم الثاني.
+5. احفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود في C# يوضح لك كيفية تغيير تنسيق إطار الزوم على شريحة:
-
-``` csharp 
+``` csharp
 using (Presentation pres = new Presentation())
 {
-    //يضيف شرائح جديدة إلى العرض
+    //يضيف شرائح جديدة إلى العرض التقديمي
     ISlide slide2 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     ISlide slide3 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
 
-    // ينشئ خلفية للشفيفة الثانية
+    //ينشئ خلفية للشريحة الثانية
     slide2.Background.Type = BackgroundType.OwnBackground;
     slide2.Background.FillFormat.FillType = FillType.Solid;
     slide2.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
 
-    // ينشئ صندوق نص للشفيفة الثانية
+    //ينشئ مربع نص للشريحة الثانية
     IAutoShape autoshape = slide2.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "الشفيفة الثانية";
+    autoshape.TextFrame.Text = "Second Slide";
 
-    // ينشئ خلفية للشفيفة الثالثة
+    //ينشئ خلفية للشريحة الثالثة
     slide3.Background.Type = BackgroundType.OwnBackground;
     slide3.Background.FillFormat.FillType = FillType.Solid;
     slide3.Background.FillFormat.SolidFillColor.Color = Color.DarkKhaki;
 
-    // ينشئ صندوق نص للشفيفة الثالثة
+    //ينشئ مربع نص للشريحة الثالثة
     autoshape = slide3.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "الشفيفة الثالثة";
+    autoshape.TextFrame.Text = "Trird Slide";
 
-    //يضيف كائنات زوم
+    //يضيف كائنات ZoomFrame
     IZoomFrame zoomFrame1 = pres.Slides[0].Shapes.AddZoomFrame(20, 20, 250, 200, slide2);
     IZoomFrame zoomFrame2 = pres.Slides[0].Shapes.AddZoomFrame(200, 250, 250, 200, slide3);
 
-    // ينشئ صورة جديدة لكائن الزوم
+    //ينشئ صورة جديدة لكائن الزوم
     IImage image = Images.FromFile("image.png");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
 
-    // يحدد صورة مخصصة لكائن zoomFrame1
+    //يضبط صورة مخصصة لكائن zoomFrame1
     zoomFrame1.ZoomImage = ppImage;
 
-    // يحدد تنسيق إطار زوم لكائن zoomFrame2
+    //يضبط تنسيق إطار الزوم لكائن zoomFrame2
     zoomFrame2.LineFormat.Width = 5;
     zoomFrame2.LineFormat.FillFormat.FillType = FillType.Solid;
     zoomFrame2.LineFormat.FillFormat.SolidFillColor.Color = Color.HotPink;
     zoomFrame2.LineFormat.DashStyle = LineDashStyle.DashDot;
 
-    // إعداد لعدم عرض الخلفية لكائن zoomFrame2
+    //إعداد عدم إظهار الخلفية لكائن zoomFrame2
     zoomFrame2.ShowBackground = false;
 
-    // يحفظ العرض
+    //يحفظ العرض التقديمي
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **زوم القسم**
 
-زوم القسم هو ارتباط لقسم في عرضك التقديمي. يمكنك استخدام زوم الأقسام للعودة إلى الأقسام التي تريد التأكيد عليها حقًا. أو يمكنك استخدامها لتسليط الضوء على كيفية ارتباط أجزاء معينة من عرضك التقديمي.
+## **زوم القسم**
+زوم القسم هو رابط إلى قسم في عرضك التقديمي. يمكنك استخدام زوم الأقسام للعودة إلى الأقسام التي تريد التأكيد عليها. أو يمكنك استخدامها لتسليط الضوء على كيفية ارتباط أجزاء معينة من عرضك. 
 
 ![overview_image](seczoomsel.png)
 
-بالنسبة لكائنات زوم القسم، يوفر Aspose.Slides الواجهة [ISectionZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isectionzoomframe) وبعض الطرق ضمن الواجهة [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection).
+بالنسبة لكائنات زوم القسم، توفر Aspose.Slides واجهة ISectionZoomFrame وبعض الطرق ضمن واجهة IShapeCollection.
 
 ### **إنشاء إطارات زوم القسم**
-
 يمكنك إضافة إطار زوم القسم إلى شريحة بهذه الطريقة:
 
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. أنشئ مثيلاً من فئة Presentation.
 2. أنشئ شريحة جديدة.
 3. أضف خلفية تعريف إلى الشريحة التي تم إنشاؤها.
-4. أنشئ قسمًا جديدًا تنوي ربط إطار الزوم به. 
-5. أضف إطار زوم القسم (يحتوي على مراجع إلى القسم الذي تم إنشاؤه) إلى الشريحة الأولى.
-6. اكتب العرض المعدل كملف PPTX.
+4. أنشئ قسماً جديدًا تريد ربط إطار الزوم به. 
+5. أضف إطار زوم القسم (الذي يحتوي على مراجع للقسم الذي تم إنشاؤه) إلى الشريحة الأولى.
+6. احفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود في C# يوضح لك كيفية إنشاء إطار زوم على شريحة:
-
-``` csharp 
+``` csharp
 using (Presentation pres = new Presentation())
 {
-    //يضيف شريحة جديدة إلى العرض
+    // يضيف شريحة جديدة إلى العرض التقديمي
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.YellowGreen;
     slide.Background.Type = BackgroundType.OwnBackground;
 
-    // يضيف قسمًا جديدًا إلى العرض
-    pres.Sections.AddSection("القسم 1", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.Sections.AddSection("Section 1", slide);
 
     // يضيف كائن SectionZoomFrame
     ISectionZoomFrame sectionZoomFrame = pres.Slides[0].Shapes.AddSectionZoomFrame(20, 20, 300, 200, pres.Sections[1]);
 
-    // يحفظ العرض
+    // يحفظ العرض التقديمي
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
+
 ### **إنشاء إطارات زوم القسم بصور مخصصة**
+باستخدام Aspose.Slides لـ .NET، يمكنك إنشاء إطار زوم قسم بصورة معاينة شريحة مختلفة بهذه الطريقة: 
 
-باستخدام Aspose.Slides لـ .NET، يمكنك إنشاء إطار زوم القسم بصورة معاينة شريحة مختلفة بهذه الطريقة: 
-
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. أنشئ مثيلاً من فئة Presentation.
 2. أنشئ شريحة جديدة.
 3. أضف خلفية تعريف إلى الشريحة التي تم إنشاؤها.
-4. أنشئ قسمًا جديدًا تنوي ربط إطار الزوم به. 
-5. أنشئ كائن [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) عن طريق إضافة صورة إلى مجموعة الصور المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) الذي سيتم استخدامه لملء الإطار.
-5. أضف إطار زوم القسم (يحتوي على مرجع إلى القسم الذي تم إنشاؤه) إلى الشريحة الأولى.
-6. اكتب العرض المعدل كملف PPTX.
-
-هذا الكود في C# يوضح لك كيفية إنشاء إطار زوم بصورة مختلفة:
+4. أنشئ قسماً جديدًا تريد ربط إطار الزوم به. 
+5. إنشاء كائن IPPImage بإضافة صورة إلى مجموعة Images المرتبطة بكائن Presentation الذي سيُستخدم لتعبئة الإطار.
+5. أضف إطار زوم القسم (الذي يحتوي على مرجع للقسم الذي تم إنشاؤه) إلى الشريحة الأولى.
+6. احفظ العرض التقديمي المعدل كملف PPTX.
 
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
-    //يضيف شريحة جديدة إلى العرض
+    //يضيف شريحة جديدة إلى العرض التقديمي
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.YellowGreen;
     slide.Background.Type = BackgroundType.OwnBackground;
 
-    // يضيف قسمًا جديدًا إلى العرض
-    pres.Sections.AddSection("القسم 1", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.Sections.AddSection("Section 1", slide);
 
-    // ينشئ صورة جديدة لكائن الزوم
+    //ينشئ صورة جديدة لكائن الزوم
     IImage image = Images.FromFile("image.png");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
@@ -259,48 +252,46 @@ using (Presentation pres = new Presentation())
     // يضيف كائن SectionZoomFrame
     ISectionZoomFrame sectionZoomFrame = pres.Slides[0].Shapes.AddSectionZoomFrame(20, 20, 300, 200, pres.Sections[1], ppImage);
 
-    // يحفظ العرض
+    // يحفظ العرض التقديمي
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
-### **تنسيق إطارات زوم القسم**
 
-لإنشاء إطارات زوم القسم أكثر تعقيدًا، يجب عليك تعديل تنسيق إطار بسيط. هناك العديد من خيارات التنسيق التي يمكنك تطبيقها على إطار زوم القسم. 
+### **تنسيق إطارات زوم القسم**
+لإنشاء إطارات زوم قسم أكثر تعقيدًا، عليك تعديل تنسيق إطار بسيط. هناك عدة خيارات تنسيق يمكنك تطبيقها على إطار زوم القسم. 
 
 يمكنك التحكم في تنسيق إطار زوم القسم على شريحة بهذه الطريقة:
 
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. أنشئ مثيلاً من فئة Presentation.
 2. أنشئ شريحة جديدة.
 3. أضف خلفية تعريف إلى الشريحة التي تم إنشاؤها.
-4. أنشئ قسمًا جديدًا تنوي ربط إطار الزوم به. 
-5. أضف إطار زوم القسم (يحتوي على مراجع إلى القسم الذي تم إنشاؤه) إلى الشريحة الأولى.
-6. غيّر الحجم والموقع لكائن زوم القسم الذي تم إنشاؤه.
-7. أنشئ كائن [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) عن طريق إضافة صورة إلى مجموعة الصور المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) الذي سيتم استخدامه لملء الإطار.
-8. عيّن صورة مخصصة لكائن إطار زوم القسم الذي تم إنشاؤه.
-9. عيّن القدرة على *العودة إلى الشريحة الأصلية من القسم المرتبط*.
-10. أزل الخلفية من صورة كائن إطار زوم القسم.
-11. غيّر تنسيق الخط لكائن إطار الزوم الثاني.
-12. غيّر مدة الانتقال.
-13. اكتب العرض المعدل كملف PPTX.
-
-هذا الكود في C# يوضح لك كيفية تغيير تنسيق إطار زوم القسم:
+4. أنشئ قسماً جديدًا تريد ربط إطار الزوم به. 
+5. أضف إطار زوم القسم (الذي يحتوي على مراجع للقسم الذي تم إنشاؤه) إلى الشريحة الأولى.
+6. غير حجم وموقع كائن زوم القسم المُنشأ.
+7. إنشاء كائن IPPImage بإضافة صورة إلى مجموعة Images المرتبطة بكائن Presentation الذي سيُستخدم لتعبئة الإطار.
+8. تعيين صورة مخصصة لكائن إطار زوم القسم المُنشأ.
+9. تعيين خاصية *العودة إلى الشريحة الأصلية من القسم المرتبط*. 
+10. إزالة الخلفية من صورة كائن إطار زوم القسم.
+11. تغيير تنسيق الخط لكائن إطار الزوم الثاني.
+12. تغيير مدة الانتقال.
+13. احفظ العرض التقديمي المعدل كملف PPTX.
 
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
-    //يضيف شريحة جديدة إلى العرض
+    //يضيف شريحة جديدة إلى العرض التقديمي
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.YellowGreen;
     slide.Background.Type = BackgroundType.OwnBackground;
 
-    // يضيف قسمًا جديدًا إلى العرض
-    pres.Sections.AddSection("القسم 1", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.Sections.AddSection("Section 1", slide);
 
-    // إضافة كائن SectionZoomFrame
+    // يضيف كائن SectionZoomFrame
     ISectionZoomFrame sectionZoomFrame = pres.Slides[0].Shapes.AddSectionZoomFrame(20, 20, 300, 200, pres.Sections[1]);
 
-    // التنسيق لإطار SectionZoomFrame
+    // تنسيق SectionZoomFrame
     sectionZoomFrame.X = 100;
     sectionZoomFrame.Y = 300;
     sectionZoomFrame.Width = 100;
@@ -322,180 +313,172 @@ using (Presentation pres = new Presentation())
 
     sectionZoomFrame.TransitionDuration = 1.5f;
 
-    // يحفظ العرض
+    // يحفظ العرض التقديمي
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
 
 ## **زوم الملخص**
-
-زوم الملخص هو مثل صفحة الهبوط التي يتم عرض جميع أجزاء عرضك التقديمي مرة واحدة. عندما تقدم، يمكنك استخدام الزوم للانتقال من مكان إلى آخر في عرضك التقديمي بأي ترتيب تريده. يمكنك أن تكون مبدعًا، تتخطى إلى الأمام، أو تعيد زيارة أجزاء من عرض الشريحة الخاص بك دون مقاطعة سير عرضك.
+زوم الملخص يشبه صفحة هبوط تُظهر جميع أجزاء عرضك مرة واحدة. عند تقديم العرض يمكنك استخدام الزوم للانتقال من مكان إلى آخر في أي ترتيب تختاره. يمكنك الإبداع، القفز إلى الأمام، أو العودة إلى أجزاء من عرض الشرائح دون مقاطعة تدفق العرض.
 
 ![overview_image](sumzoomsel.png)
 
-بالنسبة لكائنات زوم الملخص، يوفر Aspose.Slides الواجهة [ISummaryZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomframe)، [ISummaryZoomFrameSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection)، و [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection) والعديد من الطرق ضمن الواجهة [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection).
+بالنسبة لكائنات زوم الملخص، توفر Aspose.Slides الواجهات ISummaryZoomFrame، ISummaryZoomFrameSection، وISummaryZoomSectionCollection وبعض الطرق ضمن واجهة IShapeCollection.
 
 ### **إنشاء زوم الملخص**
-
 يمكنك إضافة إطار زوم الملخص إلى شريحة بهذه الطريقة:
 
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. أنشئ شرائح جديدة مع خلفية تعريف وأقسام جديدة للشريحة التي تم إنشاؤها.
-3. أضف إطار الزوم الملخص إلى الشريحة الأولى.
-4. اكتب العرض المعدل كملف PPTX.
-
-هذا الكود في C# يوضح لك كيفية إنشاء إطار زوم ملخص على شريحة:
+1. أنشئ مثيلاً من فئة Presentation.
+2. أنشئ شرائح جديدة بخلفية تعريف وأقسام جديدة للشرائح التي تم إنشاؤها.
+3. أضف إطار زوم الملخص إلى الشريحة الأولى.
+4. احفظ العرض التقديمي المعدل كملف PPTX.
 
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
-    //يضيف شريحة جديدة إلى العرض
+    //يضيف شريحة جديدة إلى العرض التقديمي
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Brown;
     slide.Background.Type = BackgroundType.OwnBackground;
 
-    // يضيف قسمًا جديدًا إلى العرض
-    pres.Sections.AddSection("القسم 1", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.Sections.AddSection("Section 1", slide);
 
-    //يضيف شريحة جديدة إلى العرض
+    //يضيف شريحة جديدة إلى العرض التقديمي
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Aqua;
     slide.Background.Type = BackgroundType.OwnBackground;
 
-    // يضيف قسمًا جديدًا إلى العرض
-    pres.Sections.AddSection("القسم 2", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.Sections.AddSection("Section 2", slide);
 
-    //يضيف شريحة جديدة إلى العرض
+    //يضيف شريحة جديدة إلى العرض التقديمي
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Chartreuse;
     slide.Background.Type = BackgroundType.OwnBackground;
 
-    // يضيف قسمًا جديدًا إلى العرض
-    pres.Sections.AddSection("القسم 3", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.Sections.AddSection("Section 3", slide);
 
-    //يضيف شريحة جديدة إلى العرض
+    //يضيف شريحة جديدة إلى العرض التقديمي
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.DarkGreen;
     slide.Background.Type = BackgroundType.OwnBackground;
 
-    // يضيف قسمًا جديدًا إلى العرض
-    pres.Sections.AddSection("القسم 4", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.Sections.AddSection("Section 4", slide);
 
     // يضيف كائن SummaryZoomFrame
     ISummaryZoomFrame summaryZoomFrame = pres.Slides[0].Shapes.AddSummaryZoomFrame(150, 50, 300, 200);
 
-    // يحفظ العرض
+    // يحفظ العرض التقديمي
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
+
 ### **إضافة وإزالة قسم زوم الملخص**
+جميع الأقسام في إطار زوم الملخص ممثلة بكائنات ISummaryZoomFrameSection، المخزنة في كائن ISummaryZoomSectionCollection. يمكنك إضافة أو إزالة كائن قسم زوم الملخص عبر واجهة ISummaryZoomSectionCollection بهذه الطريقة:
 
-تمثل جميع الأقسام في إطار زوم الملخص كائنات [ISummaryZoomFrameSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection)، التي يتم تخزينها في الكائن [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection). يمكنك إضافة أو إزالة كائن قسم زوم الملخص من خلال واجهة [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection) بهذه الطريقة:
-
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. أنشئ شرائح جديدة مع خلفية تعريف وأقسام جديدة للشريحة التي تم إنشاؤها.
-3. أضف إطار الزوم الملخص إلى الشريحة الأولى.
-4. أضف شريحة جديدة وقسمًا إلى العرض.
-5. أضف القسم الذي تم إنشاؤه إلى إطار الزوم الملخص.
-6. أزل القسم الأول من إطار الزوم الملخص.
-7. اكتب العرض المعدل كملف PPTX.
-
-هذا الكود في C# يوضح لك كيفية إضافة وإزالة الأقسام في إطار زوم الملخص:
+1. أنشئ مثيلاً من فئة Presentation.
+2. أنشئ شرائح جديدة بخلفية تعريف وأقسام جديدة للشرائح التي تم إنشاؤها.
+3. أضف إطار زوم الملخص إلى الشريحة الأولى.
+4. أضف شريحة وقسم جديدين إلى العرض التقديمي.
+5. أضف القسم الذي تم إنشاؤه إلى إطار زوم الملخص.
+6. أزل القسم الأول من إطار زوم الملخص.
+7. احفظ العرض التقديمي المعدل كملف PPTX.
 
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
-    //يضيف شريحة جديدة إلى العرض
+    //يضيف شريحة جديدة إلى العرض التقديمي
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Brown;
     slide.Background.Type = BackgroundType.OwnBackground;
 
-    // يضيف قسمًا جديدًا إلى العرض
-    pres.Sections.AddSection("القسم 1", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.Sections.AddSection("Section 1", slide);
 
-    //يضيف شريحة جديدة إلى العرض
+    //يضيف شريحة جديدة إلى العرض التقديمي
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Aqua;
     slide.Background.Type = BackgroundType.OwnBackground;
 
-    // يضيف قسمًا جديدًا إلى العرض
-    pres.Sections.AddSection("القسم 2", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.Sections.AddSection("Section 2", slide);
 
     // يضيف كائن SummaryZoomFrame
     ISummaryZoomFrame summaryZoomFrame = pres.Slides[0].Shapes.AddSummaryZoomFrame(150, 50, 300, 200);
 
-    //يضيف شريحة جديدة إلى العرض
+    //يضيف شريحة جديدة إلى العرض التقديمي
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Chartreuse;
     slide.Background.Type = BackgroundType.OwnBackground;
 
-    // يضيف قسمًا جديدًا إلى العرض
-    ISection section3 = pres.Sections.AddSection("القسم 3", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    ISection section3 = pres.Sections.AddSection("Section 3", slide);
 
-    // يضيف قسمًا إلى زوم الملخص
+    // يضيف قسمًا إلى ملخص الزوم
     summaryZoomFrame.SummaryZoomCollection.AddSummaryZoomSection(section3);
 
-    // يزيل القسم من زوم الملخص
+    // يزيل القسم من ملخص الزوم
     summaryZoomFrame.SummaryZoomCollection.RemoveSummaryZoomSection(pres.Sections[1]);
 
-    // يحفظ العرض
+    // يحفظ العرض التقديمي
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
+
 ### **تنسيق أقسام زوم الملخص**
+لإنشاء كائنات قسم زوم الملخص أكثر تعقيدًا، عليك تعديل تنسيق إطار بسيط. هناك عدة خيارات تنسيق يمكنك تطبيقها على كائن قسم زوم الملخص. 
 
-لإنشاء كائنات قسم زوم الملخص أكثر تعقيدًا، يجب عليك تعديل تنسيق إطار بسيط. هناك العديد من خيارات التنسيق التي يمكنك تطبيقها على كائن قسم زوم الملخص.
+يمكنك التحكم في تنسيق كائن قسم زوم الملخص داخل إطار زوم الملخص بهذه الطريقة:
 
-يمكنك التحكم في تنسيق كائن قسم زوم الملخص في إطار زوم الملخص بهذه الطريقة:
-
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. أنشئ شرائح جديدة مع خلفية تعريف وأقسام جديدة للشريحة التي تم إنشاؤها.
-3. أضف إطار الزوم الملخص إلى الشريحة الأولى.
+1. أنشئ مثيلاً من فئة Presentation.
+2. أنشئ شرائح جديدة بخلفية تعريف وأقسام جديدة للشرائح التي تم إنشاؤها.
+3. أضف إطار زوم الملخص إلى الشريحة الأولى.
 4. احصل على كائن قسم زوم الملخص الأول من `ISummaryZoomSectionCollection`.
-5. أنشئ كائن [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) عن طريق إضافة صورة إلى مجموعة الصور المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) الذي سيتم استخدامه لملء الإطار.
-6. عيّن صورة مخصصة لكائن قسم زوم الملخص الذي تم إنشاؤه.
-7. عيّن القدرة على *العودة إلى الشريحة الأصلية من القسم المرتبط*.
-8. غيّر تنسيق الخط لكائن زوم الملخص الثاني.
-9. غيّر مدة الانتقال.
-10. اكتب العرض المعدل كملف PPTX.
-
-هذا الكود في C# يوضح لك كيفية تغيير تنسيق قسم زوم الملخص:
+7. إنشاء كائن IPPImage بإضافة صورة إلى مجموعة الصور المرتبطة بكائن Presentation الذي سيُستخدم لتعبئة الإطار.
+8. تعيين صورة مخصصة لكائن إطار زوم القسم المُنشأ.
+9. تعيين خاصية *العودة إلى الشريحة الأصلية من القسم المرتبط*. 
+11. تغيير تنسيق الخط لكائن إطار الزوم الثاني.
+12. تغيير مدة الانتقال.
+13. احفظ العرض التقديمي المعدل كملف PPTX.
 
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
-    //يضيف شريحة جديدة إلى العرض
+    //يضيف شريحة جديدة إلى العرض التقديمي
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Brown;
     slide.Background.Type = BackgroundType.OwnBackground;
 
-    // يضيف قسمًا جديدًا إلى العرض
-    pres.Sections.AddSection("القسم 1", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.Sections.AddSection("Section 1", slide);
 
-    //يضيف شريحة جديدة إلى العرض
+    //يضيف شريحة جديدة إلى العرض التقديمي
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Aqua;
     slide.Background.Type = BackgroundType.OwnBackground;
 
-    // يضيف قسمًا جديدًا إلى العرض
-    pres.Sections.AddSection("القسم 2", slide);
+    // يضيف قسمًا جديدًا إلى العرض التقديمي
+    pres.Sections.AddSection("Section 2", slide);
 
     // يضيف كائن SummaryZoomFrame
     ISummaryZoomFrame summaryZoomFrame = pres.Slides[0].Shapes.AddSummaryZoomFrame(150, 50, 300, 200);
 
-    // يحصل على كائن SummaryZoomSection الأول
+    // يحصل على أول كائن SummaryZoomSection
     ISummaryZoomSection summarySection = summaryZoomFrame.SummaryZoomCollection[0];
 
     IImage image = Images.FromFile("image.png");
@@ -513,7 +496,22 @@ using (Presentation pres = new Presentation())
 
     summarySection.TransitionDuration = 1.5f;
 
-    // يحفظ العرض
+    // يحفظ العرض التقديمي
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**هل يمكنني التحكم في العودة إلى الشريحة "الأم" بعد عرض الهدف؟**
+
+نعم. يحتوي إطار Zoom أو القسم على سلوك `ReturnToParent` الذي، عند تمكينه، يعيد المشاهدين إلى الشريحة الأصلية بعد زيارة المحتوى المستهدف.
+
+**هل يمكنني تعديل "السرعة" أو مدة انتقال Zoom؟**
+
+نعم. يدعم Zoom ضبط `TransitionDuration` لتتمكن من التحكم في مدة حركة القفزة.
+
+**هل هناك حدود لعدد كائنات Zoom التي يمكن أن يحتويها عرض تقديمي؟**
+
+لا يوجد حد ثابت موثق في واجهة البرمجة. تعتمد الحدود العملية على تعقيد العرض التقديمي وأداء المشاهد. يمكنك إضافة العديد من إطارات Zoom، ولكن يجب مراعاة حجم الملف ووقت التصيير.

@@ -1,14 +1,23 @@
 ---
-title: Диаграмма пузырьков
+title: Настройка пузырчатых диаграмм в презентациях в .NET
+linktitle: Пузырчатая диаграмма
 type: docs
 url: /ru/net/bubble-chart/
-keywords: "Диаграмма пузырьков, размер диаграммы, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
-description: "Размер диаграммы пузырьков в презентациях PowerPoint на C# или .NET"
+keywords:
+- пузырчатая диаграмма
+- размер пузыря
+- масштабирование размера
+- представление размера
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Создавайте и настраивайте мощные пузырчатые диаграммы в PowerPoint с помощью Aspose.Slides for .NET, чтобы легко улучшать визуализацию данных."
 ---
 
-## **Масштабирование размера диаграммы пузырьков**
-Aspose.Slides для .NET предоставляет поддержку масштабирования размера диаграммы пузырьков. В Aspose.Slides для .NET были добавлены свойства **IChartSeries.BubbleSizeScale** и **IChartSeriesGroup.BubbleSizeScale**. Пример кода приведен ниже.
-
+## **Масштабирование размеров пузырчатой диаграммы**
+Aspose.Slides for .NET предоставляет поддержку масштабирования размеров пузырчатой диаграммы. В Aspose.Slides for .NET **IChartSeries.BubbleSizeScale** и **IChartSeriesGroup.BubbleSizeScale** свойства были добавлены. Ниже приведён пример.
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -18,9 +27,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Представление данных в виде размеров диаграммы пузырьков**
-Свойство **BubbleSizeRepresentation** было добавлено к интерфейсам IChartSeries, IChartSeriesGroup и связанным классам. **BubbleSizeRepresentation** определяет, как значения размеров пузырьков представлены в диаграмме пузырьков. Возможные значения: **BubbleSizeRepresentationType.Area** и **BubbleSizeRepresentationType.Width**. Соответственно, был добавлен перечисление **BubbleSizeRepresentationType** для указания возможных способов представления данных в виде размеров диаграммы пузырьков. Пример кода приведен ниже.
 
+
+
+
+## **Представление данных как размеров пузырчатой диаграммы**
+Свойство **BubbleSizeRepresentation** было добавлено в интерфейсы IChartSeries, IChartSeriesGroup и связанные классы. **BubbleSizeRepresentation** определяет, как значения размеров пузырей представляются в пузырчатой диаграмме. Возможные значения: **BubbleSizeRepresentationType.Area** и **BubbleSizeRepresentationType.Width**. Соответственно, перечисление **BubbleSizeRepresentationType** было добавлено для указания возможных способов представления данных как размеров пузырчатой диаграммы. Пример кода приведён ниже.
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -29,3 +41,18 @@ using (Presentation pres = new Presentation())
     pres.Save("Presentation_BubbleSizeRepresentation.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **ЧаВо**
+
+**Поддерживается ли «пузырчатая диаграмма с 3‑D эффектом», и чем она отличается от обычной?**
+
+Да. Существует отдельный тип диаграммы «Bubble with 3-D». Он применяет 3‑D оформление к пузырям, но не добавляет дополнительную ось; данные остаются X‑Y‑S (размер). Тип доступен в перечислении [chart type](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/).
+
+**Есть ли ограничение на количество рядов и точек в пузырчатой диаграмме?**
+
+На уровне API жёсткого ограничения нет; ограничения определяются производительностью и версией целевого PowerPoint. Рекомендуется поддерживать разумное количество точек для читаемости и скорости рендеринга.
+
+**Как экспорт влияет на отображение пузырчатой диаграммы (PDF, изображения)?**
+
+Экспорт в поддерживаемые форматы сохраняет внешний вид диаграммы; рендеринг выполняется движком Aspose.Slides. Для растровых/векторных форматов применяются общие правила рендеринга графики диаграмм (разрешение, сглаживание), поэтому выбирайте достаточное DPI для печати.

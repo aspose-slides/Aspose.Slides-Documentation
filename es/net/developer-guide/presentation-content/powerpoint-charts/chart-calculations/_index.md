@@ -1,15 +1,28 @@
 ---
-title: Cálculos de Gráficos
+title: Optimizar Cálculos de Gráficos para Presentaciones en .NET
+linktitle: Cálculos de Gráficos
 type: docs
 weight: 50
 url: /es/net/chart-calculations/
-keywords: "Cálculos de gráficos, elementos de gráfico, posición de elemento, valores de gráfico C#, Csharp, Aspose.Slides para .NET"
-description: "Cálculos y valores de gráficos de PowerPoint en C# o .NET"
+keywords:
+- cálculos de gráficos
+- elementos del gráfico
+- posición del elemento
+- posición real
+- elemento hijo
+- elemento padre
+- valores del gráfico
+- valor real
+- PowerPoint
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Comprenda los cálculos de gráficos, la actualización de datos y el control de precisión en Aspose.Slides para .NET en PPT y PPTX, con ejemplos prácticos de código en C#."
 ---
 
-## **Calcular Valores Reales de los Elementos del Gráfico**
-Aspose.Slides para .NET proporciona una API simple para obtener estas propiedades. Esto te ayudará a calcular los valores reales de los elementos del gráfico. Los valores reales incluyen la posición de los elementos que implementan la interfaz IActualLayout (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight) y los valores reales de los ejes (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale).
-
+## **Calcular valores reales de los elementos del gráfico**
+Aspose.Slides for .NET proporciona una API sencilla para obtener estas propiedades. Esto le ayudará a calcular los valores reales de los elementos del gráfico. Los valores reales incluyen la posición de los elementos que implementan la interfaz IActualLayout (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight) y los valores reales de los ejes (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale).
 ```c#
 using (Presentation pres = new Presentation("test.pptx"))
 {
@@ -26,10 +39,8 @@ using (Presentation pres = new Presentation("test.pptx"))
 ```
 
 
-
-## **Calcular la Posición Actual de los Elementos Parent del Gráfico**
-Aspose.Slides para .NET proporciona una API simple para obtener estas propiedades. Las propiedades de IActualLayout proporcionan información sobre la posición actual del elemento parent del gráfico. Es necesario llamar al método IChart.ValidateChartLayout() previamente para llenar las propiedades con valores reales.
-
+## **Calcular la posición real de los elementos principales del gráfico**
+Aspose.Slides for .NET proporciona una API sencilla para obtener estas propiedades. Las propiedades de IActualLayout proporcionan información sobre la posición real del elemento principal del gráfico. Es necesario llamar previamente al método IChart.ValidateChartLayout() para rellenar las propiedades con los valores reales.
 ```c#
 // Creando una presentación vacía
 using (Presentation pres = new Presentation())
@@ -45,29 +56,27 @@ using (Presentation pres = new Presentation())
 ```
 
 
-
-## **Ocultar Información del Gráfico**
-Este tema te ayuda a entender cómo ocultar información del gráfico. Usando Aspose.Slides para .NET puedes ocultar **Título, Eje Vertical, Eje Horizontal** y **Líneas de Cuadrícula** del gráfico. El siguiente ejemplo de código muestra cómo usar estas propiedades.
-
+## **Ocultar información del gráfico**
+Este tema le ayuda a comprender cómo ocultar información del gráfico. Con Aspose.Slides for .NET puede ocultar **Título, Eje vertical, Eje horizontal** y **Líneas de cuadrícula** del gráfico. El siguiente ejemplo de código muestra cómo utilizar estas propiedades.
 ```c#
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];
     IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 140, 118, 320, 370);
 
-    // Ocultando el Título del gráfico
+    //Ocultando título del gráfico
     chart.HasTitle = false;
 
-    // Ocultando el eje de Valores
+    ///Ocultando eje de valores
     chart.Axes.VerticalAxis.IsVisible = false;
 
-    // Visibilidad del Eje de Categoría
+    //Visibilidad del eje de categorías
     chart.Axes.HorizontalAxis.IsVisible = false;
 
-    // Ocultando la Leyenda
+    //Ocultando leyenda
     chart.HasLegend = false;
 
-    // Ocultando Líneas de Cuadrícula Mayores
+    //Ocultando líneas de cuadrícula principales
     chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
 
     for (int i = 0; i < chart.ChartData.Series.Count; i++)
@@ -82,7 +91,7 @@ using (Presentation pres = new Presentation())
     series.Labels.DefaultDataLabelFormat.Position = LegendDataLabelPosition.Top;
     series.Marker.Size = 15;
 
-    // Estableciendo el color de la línea de la serie
+    //Setting series line color
     series.Format.Line.FillFormat.FillType = FillType.Solid;
     series.Format.Line.FillFormat.SolidFillColor.Color = Color.Purple;
     series.Format.Line.DashStyle = LineDashStyle.Solid;
@@ -90,3 +99,18 @@ using (Presentation pres = new Presentation())
     pres.Save("HideInformationFromChart.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**¿Los libros de Excel externos funcionan como fuente de datos y cómo afecta eso al recálculo?**
+
+Sí. Un gráfico puede hacer referencia a un libro de trabajo externo: cuando se conecta o actualiza la fuente externa, las fórmulas y los valores se toman de ese libro, y el gráfico refleja las actualizaciones durante las operaciones de apertura/edición. La API le permite [especificar el libro de trabajo externo](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/setexternalworkbook/) y administrar los datos vinculados.
+
+**¿Puedo calcular y mostrar líneas de tendencia sin implementar la regresión yo mismo?**
+
+Sí. Las [líneas de tendencia](/slides/es/net/trend-line/) (lineales, exponenciales y otras) son añadidas y actualizadas por Aspose.Slides; sus parámetros se recalculan automáticamente a partir de los datos de la serie, por lo que no necesita implementar sus propios cálculos.
+
+**Si una presentación tiene varios gráficos con enlaces externos, ¿puedo controlar qué libro de trabajo usa cada gráfico para los valores calculados?**
+
+Sí. Cada gráfico puede apuntar a su propio [libro de trabajo externo](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/setexternalworkbook/), o puede crear/reemplazar un libro de trabajo externo por gráfico de forma independiente de los demás.

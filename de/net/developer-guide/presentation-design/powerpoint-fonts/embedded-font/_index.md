@@ -1,37 +1,43 @@
 ---
-title: Eingebettete Schriftart - PowerPoint C# API
-linktitle: Eingebettete Schriftart
+title: Einbetten von Schriften in Präsentationen in .NET
+linktitle: Schrift einbetten
 type: docs
 weight: 40
 url: /de/net/embedded-font/
 keywords:
-- schriften
-- eingebettete schriften
-- schriften hinzufügen
+- Schrift hinzufügen
+- Schrift einbetten
+- Schrift-Einbettung
+- eingebettete Schrift abrufen
+- eingebettete Schrift hinzufügen
+- eingebettete Schrift entfernen
+- eingebettete Schrift komprimieren
 - PowerPoint
-- präsentation
+- OpenDocument
+- Präsentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides für .NET
-description: "Verwenden Sie eingebettete Schriften in PowerPoint-Präsentationen in C# oder .NET"
+- Aspose.Slides
+description: "TrueType-Schriften in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für .NET einbetten, um eine genaue Darstellung auf allen Plattformen zu gewährleisten."
 ---
 
-**Eingebettete Schriften in PowerPoint** sind nützlich, wenn Sie möchten, dass Ihre Präsentation auf jedem System oder Gerät korrekt angezeigt wird. Wenn Sie eine Drittanbieter- oder nicht standardmäßige Schriftart verwendet haben, weil Sie kreativ gearbeitet haben, haben Sie umso mehr Gründe, Ihre Schriftart einzubetten. Andernfalls (ohne eingebettete Schriften) können sich die Texte oder Zahlen auf Ihren Folien, das Layout, die Gestaltung usw. ändern oder in verwirrende Rechtecke verwandeln.
+**Embedding fonts in PowerPoint** stellt sicher, dass Ihre Präsentation ihr beabsichtigtes Erscheinungsbild auf verschiedenen Systemen beibehält. Egal, ob Sie einzigartige Schriften für Kreativität oder Standardschriften verwenden, das Einbetten von Schriften verhindert Text- und Layoutstörungen.
 
-Die [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/) Klasse, die [FontData](https://reference.aspose.com/slides/net/aspose.slides/fontdata/) Klasse, die [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) Klasse und ihre Schnittstellen enthalten die meisten Eigenschaften und Methoden, die Sie benötigen, um mit eingebetteten Schriften in PowerPoint-Präsentationen zu arbeiten.
+Wenn Sie eine Drittanbieter- oder nicht-standardmäßige Schrift verwendet haben, weil Sie Ihrer Arbeit einen kreativen Touch verliehen haben, haben Sie noch mehr Gründe, die Schrift einzubetten. Andernfalls (ohne eingebettete Schriften) können die Texte oder Zahlen auf Ihren Folien, das Layout, die Formatierung usw. sich ändern oder in verwirrende Rechtecke umwandeln. 
 
-## **Eingebettete Schriften aus der Präsentation abrufen oder entfernen**
+Verwenden Sie die Klassen [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/), [FontData](https://reference.aspose.com/slides/net/aspose.slides/fontdata/) und [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/), um eingebettete Schriften zu verwalten.
 
-Aspose.Slides bietet die [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts) Methode (bereitgestellt durch die [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/) Klasse), um Ihnen zu ermöglichen, die in einer Präsentation eingebetteten Schriften abzurufen (oder herauszufinden). Um Schriften zu entfernen, wird die [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont) Methode (die von derselben Klasse bereitgestellt wird) verwendet.
+## **Abrufen und Entfernen eingebetteter Schriften**
 
-Dieser C#-Code zeigt Ihnen, wie Sie eingebettete Schriften aus einer Präsentation abrufen und entfernen:
+Rufen Sie eingebettete Schriften aus einer Präsentation ab oder entfernen Sie sie mühelos mit den Methoden [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts) und [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont).
 
+Dieser C#‑Code zeigt, wie Sie eingebettete Schriften aus einer Präsentation abrufen und entfernen:
 ```c#
 using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // Rendert eine Folie mit einem Textfeld, das die eingebettete Schriftart "FunSized" verwendet
+    // Rendert eine Folie, die einen Textrahmen mit der eingebetteten "FunSized"-Schrift enthält
     using (IImage image = slide.GetImage(new Size(960, 720)))
     {
         image.Save("picture1_out.png", ImageFormat.Png);
@@ -41,36 +47,33 @@ using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
 
     IFontData[] embeddedFonts = fontsManager.GetEmbeddedFonts();
 
-    // Findet die Schriftart "Calibri"
+    // Findet die Schrift "Calibri"
     IFontData funSizedEmbeddedFont = Array.Find(embeddedFonts, delegate (IFontData data)
     {
         return data.FontName == "Calibri";
     });
 
-    // Entfernt die Schriftart "Calibri"
+    // Entfernt die Schrift "Calibri"
     fontsManager.RemoveEmbeddedFont(funSizedEmbeddedFont);
 
-    // Rendert die Präsentation; die Schriftart "Calibri" wird durch eine vorhandene ersetzt
+    // Rendert die Präsentation; die Schrift "Calibri" wird durch eine vorhandene ersetzt
     using (IImage image = slide.GetImage(new Size(960, 720)))
     {
         image.Save("picture2_out.png", ImageFormat.Png);
     }
 
-    // Speichert die Präsentation ohne die eingebettete Schriftart "Calibri" auf der Festplatte
+    // Speichert die Präsentation ohne die eingebettete Schrift "Calibri" auf die Festplatte
     presentation.Save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
 }
 ```
 
-## **Eingebettete Schriften in die Präsentation einfügen**
-Mit dem [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) Enum und zwei Überladungen der [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/) Methode können Sie Ihre bevorzugte (Einbettungs-) Regel auswählen, um die Schriften in einer Präsentation einzubetten. Dieser C#-Code zeigt Ihnen, wie Sie Schriften in eine Präsentation einbetten und hinzufügen:
 
+## **Hinzufügen eingebetteter Schriften**
+
+Mit dem Aufzählungstyp [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) und zwei Überladungen der Methode [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/) können Sie die gewünschte Einbettungsregel auswählen, um Schriften in einer Präsentation einzubetten. Dieser C#‑Code zeigt, wie Sie Schriften einbetten und zur Präsentation hinzufügen:
 ```c#
-// Lädt die Präsentation
+ // Lädt die Präsentation
 Presentation presentation = new Presentation("Fonts.pptx");
-
-// Lädt die zu ersetzende Quellenschriftart
-IFontData sourceFont = new FontData("Arial");
-
 
 IFontData[] allFonts = presentation.FontsManager.GetFonts();
 IFontData[] embeddedFonts = presentation.FontsManager.GetEmbeddedFonts();
@@ -86,12 +89,12 @@ foreach (IFontData font in allFonts)
 presentation.Save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Eingebettete Schriften komprimieren**
 
-Um Ihnen zu ermöglichen, die in einer Präsentation eingebetteten Schriften zu komprimieren und die Dateigröße zu reduzieren, bietet Aspose.Slides die [CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) Methode (bereitgestellt durch die [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) Klasse).
+## **Komprimieren eingebetteter Schriften**
 
-Dieser C#-Code zeigt Ihnen, wie Sie eingebettete PowerPoint-Schriften komprimieren:
+Optimieren Sie die Dateigröße, indem Sie eingebettete Schriften mit [CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) komprimieren.
 
+Beispielcode für die Komprimierung:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -99,3 +102,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
     pres.Save("pres-out.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**Wie kann ich erkennen, dass eine bestimmte Schrift in der Präsentation trotz Einbettung beim Rendern noch ersetzt wird?**
+
+Prüfen Sie die [Substitutionsinformationen](/slides/de/net/font-substitution/) im Font‑Manager und die [Fallback‑/Substitutionsregeln](/slides/de/net/fallback-font/): Ist die Schrift nicht verfügbar oder eingeschränkt, wird eine Ersatzschrift verwendet.
+
+**Lohnt es sich, Systemschriften wie Arial/Calibri einzubetten?**
+
+In der Regel nicht – sie sind fast immer verfügbar. Für volle Portabilität in „dünnen“ Umgebungen (Docker, ein Linux‑Server ohne vorinstallierte Schriften) kann das Einbetten von Systemschriften jedoch das Risiko unerwarteter Ersetzungen ausschließen.

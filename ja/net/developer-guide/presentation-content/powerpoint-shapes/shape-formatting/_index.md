@@ -1,391 +1,493 @@
 ---
-title: 形の書式設定
+title: PowerPoint の図形を .NET で書式設定
+linktitle: 図形の書式設定
 type: docs
 weight: 20
 url: /ja/net/shape-formatting/
 keywords:
-- 形の書式
-- 線の書式
-- ジョインスタイルの書式
-- グラデーション塗り
-- パターン塗り
-- 画像塗り
-- 単色塗り
-- 形を回転
+- 図形の書式設定
+- 線の書式設定
+- 結合スタイルの書式設定
+- グラデーション塗りつぶし
+- パターン塗りつぶし
+- 画像塗りつぶし
+- テクスチャ塗りつぶし
+- 単色塗りつぶし
+- 図形の透明度
+- 図形の回転
 - 3D ベベル効果
 - 3D 回転効果
-- PowerPoint プレゼンテーション
+- 書式設定のリセット
+- PowerPoint
+- プレゼンテーション
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "C# または .NET では PowerPoint プレゼンテーションの形をフォーマットします"
+- Aspose.Slides
+description: "Aspose.Slides を使用して C# で PowerPoint の図形をフォーマットする方法を学びます—PPT および PPTX ファイルの塗りつぶし、線、エフェクト スタイルを正確かつ完全に制御できます。"
 ---
 
-PowerPoint では、スライドに形を追加できます。形は線から構成されているため、その構成する線を変更したり特定の効果を適用することで形をフォーマットできます。また、形がどのように（その内部のエリアが）塗りつぶされるかを決定する設定を指定することで形をフォーマットすることもできます。
+## **概要**
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+PowerPoint では、スライドに図形を追加できます。図形は線で構成されているため、輪郭を変更したりエフェクトを適用することで書式設定できます。また、図形の内部をどのように塗りつぶすかを指定することでも書式設定できます。
 
-**Aspose.Slides for .NET** は、PowerPoint の既知のオプションに基づいて形をフォーマットできるインターフェイスとプロパティを提供します。
+![PowerPoint での図形の書式設定](format-shape-powerpoint.png)
 
-## **ラインのフォーマット**
+Aspose.Slides for .NET は、PowerPoint で利用できるのと同じオプションを使用して図形をフォーマットするためのインターフェイスとプロパティを提供します。
 
-Aspose.Slides を使用すると、形の好みのラインスタイルを指定できます。これらのステップは、その手順を概説しています。
+## **線の書式設定**
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. インデックスを通じてスライドの参照を取得します。 
-3. スライドに [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) を追加します。
-4. 形のラインの色を設定します。
-5. 形のラインの幅を設定します。
-6. 形ラインの [ラインスタイル](https://reference.aspose.com/slides/net/aspose.slides/linestyle) を設定します。
-7. 形ラインの [ダッシュスタイル](http://aspose.com/api/net/slides/aspose.slides/linedashstyle) を設定します。 
-8. 修正されたプレゼンテーションを書き出します（PPTX ファイルとして）。
-
-この C# コードは、長方形の `AutoShape` をフォーマットする操作を示しています：
-
-```c#
-// プレゼンテーションファイルを表すプレゼンテーションクラスをインスタンス化します
-using (Presentation pres = new Presentation())
-{
-    // 最初のスライドを取得します
-    ISlide sld = pres.Slides[0];
-
-    // 四角形のタイプの自動形を追加します
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
-
-    // 四角形形の塗りつぶし色を設定します
-    shp.FillFormat.FillType = FillType.Solid;
-    shp.FillFormat.SolidFillColor.Color = Color.White;
-
-    // 四角形のラインにいくつかの書式を適用します
-    shp.LineFormat.Style = LineStyle.ThickThin;
-    shp.LineFormat.Width = 7;
-    shp.LineFormat.DashStyle = LineDashStyle.Dash;
-
-    // 四角形のラインの色を設定します
-    shp.LineFormat.FillFormat.FillType = FillType.Solid;
-    shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-
-    // PPTX ファイルをディスクに保存します
-    pres.Save("RectShpLn_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **ジョインスタイルのフォーマット**
-これらは 3 つのジョインタイプオプションです：
-
-* ラウンド
-* ミター
-* ベベル
-
-デフォルトでは、PowerPoint は 2 つの線を角度で接続する際に（または形のコーナーで）、**ラウンド**設定を使用します。しかし、非常に鋭角の形を描く場合は、**ミター**を選択することをお勧めします。
-
-![join-style-powerpoint](join-style-powerpoint.png)
-
-この C# コードは、ミター、ベベル、ラウンドジョインタイプ設定で作成された 3 つの長方形（上の画像）の操作を示しています：
-
-```c#
-// プレゼンテーションファイルを表すプレゼンテーションクラスをインスタンス化します
-using (Presentation pres = new Presentation())
-{
-
-	// 最初のスライドを取得します
-	ISlide sld = pres.Slides[0];
-
-	// 3 つの長方形の自動形を追加します
-	IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 100, 150, 75);
-	IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 100, 150, 75);
-	IShape shp3 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 250, 150, 75);
-
-	// 四角形形の塗りつぶし色を設定します
-	shp1.FillFormat.FillType = FillType.Solid;
-	shp1.FillFormat.SolidFillColor.Color = Color.Black;
-	shp2.FillFormat.FillType = FillType.Solid;
-	shp2.FillFormat.SolidFillColor.Color = Color.Black;
-	shp3.FillFormat.FillType = FillType.Solid;
-	shp3.FillFormat.SolidFillColor.Color = Color.Black;
-
-	// ラインの幅を設定します
-	shp1.LineFormat.Width = 15;
-	shp2.LineFormat.Width = 15;
-	shp3.LineFormat.Width = 15;
-
-	// 四角形のラインの色を設定します
-	shp1.LineFormat.FillFormat.FillType = FillType.Solid;
-	shp1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-	shp2.LineFormat.FillFormat.FillType = FillType.Solid;
-	shp2.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-	shp3.LineFormat.FillFormat.FillType = FillType.Solid;
-	shp3.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-
-	// ジョインスタイルを設定します
-	shp1.LineFormat.JoinStyle = LineJoinStyle.Miter;
-	shp2.LineFormat.JoinStyle = LineJoinStyle.Bevel;
-	shp3.LineFormat.JoinStyle = LineJoinStyle.Round;
-
-	// 各長方形にテキストを追加します
-	((IAutoShape)shp1).TextFrame.Text = "ミタージョインスタイル";
-	((IAutoShape)shp2).TextFrame.Text = "ベベルジョインスタイル";
-	((IAutoShape)shp3).TextFrame.Text = "ラウンドジョインスタイル";
-
-	// PPTX ファイルをディスクに保存します
-	pres.Save("RectShpLnJoin_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **グラデーション塗り**
-PowerPoint では、グラデーション塗りは形に連続的な色のブレンドを適用できる書式オプションです。例えば、1 つの色が徐々に別の色に変わるように 2 色以上を設定に適用できます。
-
-これが、Aspose.Slides を使用して形にグラデーション塗りを適用する方法です：
-
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. インデックスを通じてスライドの参照を取得します。 
-3. スライドに [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) を追加します。
-4. 形の [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) を `グラデーション` に設定します。
-5. `GradientFormat` クラスに関連付けられた `GradientStops` コレクションによって公開された `Add` メソッドを使用して、定義された位置に 2 つの好みの色を追加します。
-6. 修正されたプレゼンテーションを書き出します（PPTX ファイルとして）。
-
-この C# コードは、楕円形にグラデーション塗り効果を使用した操作を示しています：
-
-```c#
-// プレゼンテーションファイルを表すプレゼンテーションクラスをインスタンス化します
-using (Presentation pres = new Presentation())
-{
-    // 最初のスライドを取得します
-    ISlide sld = pres.Slides[0];
-
-    // 楕円形の自動形を追加します
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 150, 75, 150);
-
-    // 楕円にグラデーション書式を適用します
-    shp.FillFormat.FillType = FillType.Gradient;
-    shp.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
-
-    // グラデーションの方向を設定します
-    shp.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
-
-    // 2 つのグラデーションストップを追加します
-    shp.FillFormat.GradientFormat.GradientStops.Add((float)1.0, PresetColor.Purple);
-    shp.FillFormat.GradientFormat.GradientStops.Add((float)0, PresetColor.Red);
-
-    // PPTX ファイルをディスクに保存します
-    pres.Save("EllipseShpGrad_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **パターン塗り**
-PowerPoint では、パターン塗りは、形に点、ストライプ、クロスハッチ、チェックの 2 色デザインを適用できる書式オプションです。さらに、パターンの前景と背景の好みの色を選択できます。
-
-Aspose.Slides は、形の書式を設定しプレゼンテーションを豊かにするために使用できる 45 を超える事前定義されたスタイルを提供しています。事前に定義されたパターンを選択した後でも、パターンに含める色を指定することができます。
-
-これが、Aspose.Slides を使用して形にパターン塗りを適用する方法です：
-
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. インデックスを通じてスライドの参照を取得します。 
-3. スライドに [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) を追加します。
-4. 形の [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) を `パターン` に設定します。
-5. 形の好みのパターンスタイルを設定します。 
-6. [PatternFormat](http://www.aspose.com/api/net/slides/aspose.slides/patternformat) の [背景色](http://www.aspose.com/api/net/slides/aspose.slides/patternformat/properties/backcolor) を設定します。
-7. [前景色](http://www.aspose.com/api/net/slides/aspose.slides/patternformat/properties/forecolor) を設定します。
-8. 修正されたプレゼンテーションを書き出します（PPTX ファイルとして）。
-
-この C# コードは、長方形の美化にパターン塗りが使用された操作を示しています：
-
-```c#
-// プレゼンテーションファイルを表すプレゼンテーションクラスをインスタンス化します
-using (Presentation pres = new Presentation())
-{
-
-    // 最初のスライドを取得します
-    ISlide sld = pres.Slides[0];
-
-    // 長方形の自動形を追加します
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
-
-    // 塗りつぶしタイプをパターンに設定します
-    shp.FillFormat.FillType = FillType.Pattern;
-
-    // パターンスタイルを設定します
-    shp.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
-
-    // パターンの背景色と前景色を設定します
-    shp.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
-    shp.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
-
-    // PPTX ファイルをディスクに保存します
-    pres.Save("RectShpPatt_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **画像塗り**
-PowerPoint では、画像塗りは、形の内部に画像を配置できる書式オプションです。基本的には、画像を形の背景として使用できます。
-
-これが、Aspose.Slides を使用して形を画像で塗りつぶす方法です：
+Aspose.Slides を使用すると、図形にカスタムの線スタイルを指定できます。手順は以下の通りです。
 
 1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを通じてスライドの参照を取得します。 
-3. スライドに [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) を追加します。
-4. 形の [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) を `画像` に設定します。
-5. 画像塗りモードをタイルに設定します。
-6. 形を塗りつぶすために使用する画像を使用して `IPPImage` オブジェクトを作成します。
-7. `PictureFillFormat` オブジェクトの `Picture.Image` プロパティを最近作成された `IPPImage` に設定します。
-8. 修正されたプレゼンテーションを書き出します（PPTX ファイルとして）。
+1. インデックスでスライドへの参照を取得します。
+1. スライドに [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) を追加します。
+1. 図形の [line style](https://reference.aspose.com/slides/net/aspose.slides/linestyle/) を設定します。
+1. 線の幅を設定します。
+1. 線の [dash style](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) を設定します。
+1. 図形の線色を設定します。
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C# コードは、形を画像で塗りつぶす方法を示しています：
-
+以下の C# コードは、矩形の `AutoShape` の線を書式設定する方法を示しています。
 ```c#
-// プレゼンテーションファイルを表すプレゼンテーションクラスをインスタンス化します
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
 using (Presentation presentation = new Presentation())
 {
-    // 最初のスライドを取得します
+    // 最初のスライドを取得します。
     ISlide slide = presentation.Slides[0];
 
-    // 長方形の自動形を追加します
-    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // Rectangle タイプのオートシェイプを追加します。
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // 塗りつぶしタイプを画像に設定します
+    // 矩形シェイプの塗りつぶしカラーを設定します。
+    shape.FillFormat.FillType = FillType.NoFill;
+
+    // 矩形の線に書式設定を適用します。
+    shape.LineFormat.Style = LineStyle.ThickThin;
+    shape.LineFormat.Width = 7;
+    shape.LineFormat.DashStyle = LineDashStyle.Dash;
+
+    // 矩形の線の色を設定します。
+    shape.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+
+    // PPTX ファイルをディスクに保存します。
+    presentation.Save("formatted_lines.pptx", SaveFormat.Pptx);
+}
+```
+
+
+結果:
+
+![プレゼンテーション内の書式設定された線](formatted-lines.png)
+
+## **結合スタイルの書式設定**
+
+結合タイプのオプションは次の 3 つです。
+
+* Round
+* Miter
+* Bevel
+
+既定では、PowerPoint は角度がある 2 本の線（図形のコーナーなど）を結合するときに **Round** 設定を使用します。ただし、鋭角の図形を描く場合は **Miter** オプションを選択した方が適しています。
+
+![プレゼンテーション内の結合スタイル](join-style-powerpoint.png)
+
+以下の C# コードは、上図のように Miter、Bevel、Round の結合タイプ設定を使用して 3 つの矩形を作成した例です。
+```c#
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+using (Presentation presentation = new Presentation())
+{
+    // 最初のスライドを取得します。
+    ISlide slide = presentation.Slides[0];
+
+    // Rectangle タイプのオートシェイプを 3 つ追加します。
+    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
+    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
+    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
+
+    // 各矩形シェイプの塗りつぶしカラーを設定します。
+    shape1.FillFormat.FillType = FillType.Solid;
+    shape1.FillFormat.SolidFillColor.Color = Color.Black;
+    shape2.FillFormat.FillType = FillType.Solid;
+    shape2.FillFormat.SolidFillColor.Color = Color.Black;
+    shape3.FillFormat.FillType = FillType.Solid;
+    shape3.FillFormat.SolidFillColor.Color = Color.Black;
+
+    // 線幅を設定します。
+    shape1.LineFormat.Width = 15;
+    shape2.LineFormat.Width = 15;
+    shape3.LineFormat.Width = 15;
+
+    // 各矩形の線の色を設定します。
+    shape1.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    shape2.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape2.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    shape3.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape3.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+
+    // 結合スタイルを設定します。
+    shape1.LineFormat.JoinStyle = LineJoinStyle.Miter;
+    shape2.LineFormat.JoinStyle = LineJoinStyle.Bevel;
+    shape3.LineFormat.JoinStyle = LineJoinStyle.Round;
+
+    // 各矩形にテキストを追加します。
+    shape1.TextFrame.Text = "Miter Join Style";
+    shape2.TextFrame.Text = "Bevel Join Style";
+    shape3.TextFrame.Text = "Round Join Style";
+
+    // PPTX ファイルをディスクに保存します。
+    presentation.Save("join_styles.pptx", SaveFormat.Pptx);
+}
+```
+
+
+## **グラデーション塗りつぶし**
+
+PowerPoint のグラデーション塗りつぶしは、図形に連続した色のブレンドを適用できる書式設定オプションです。たとえば、2 色以上を徐々にフェードさせながら適用できます。
+
+Aspose.Slides で図形にグラデーション塗りつぶしを適用する手順は次の通りです。
+
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでスライドへの参照を取得します。
+1. スライドに [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) を追加します。
+1. 図形の [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) を `Gradient` に設定します。
+1. [IGradientFormat](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/) インターフェイスが提供するグラデーション ストップ コレクションの `Add` メソッドを使用して、希望する 2 色と位置を追加します。
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
+
+以下の C# コードは、楕円にグラデーション塗りつぶし効果を適用する方法を示しています。
+```c#
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+using (Presentation presentation = new Presentation())
+{
+    // 最初のスライドを取得します。
+    ISlide slide = presentation.Slides[0];
+
+    // Ellipse タイプのオートシェイプを追加します。
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
+
+    // 楕円にグラデーション書式設定を適用します。
+    shape.FillFormat.FillType = FillType.Gradient;
+    shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
+
+    // グラデーションの方向を設定します。
+    shape.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
+
+    // 2 つのグラデーションストップを追加します。
+    shape.FillFormat.GradientFormat.GradientStops.Add(1.0f, PresetColor.Purple);
+    shape.FillFormat.GradientFormat.GradientStops.Add(0.0f, PresetColor.Red);
+
+    // PPTX ファイルをディスクに保存します。
+    presentation.Save("gradient_fill.pptx", SaveFormat.Pptx);
+}
+```
+
+
+結果:
+
+![グラデーション塗りつぶしの楕円](gradient-fill.png)
+
+## **パターン塗りつぶし**
+
+PowerPoint のパターン塗りつぶしは、2 色のデザイン（ドット、ストライプ、クロスハッチ、チェックなど）を図形に適用できる書式設定オプションです。パターンの前景色と背景色はカスタムで指定できます。
+
+Aspose.Slides は、プレゼンテーションの視覚効果を高めるために、45 種類以上の事前定義パターン スタイルを提供します。事前定義パターンを選択した後でも、使用する正確な色を指定できます。
+
+Aspose.Slides で図形にパターン塗りつぶしを適用する手順は次の通りです。
+
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでスライドへの参照を取得します。
+1. スライドに [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) を追加します。
+1. 図形の [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) を `Pattern` に設定します。
+1. 事前定義オプションからパターンスタイルを選択します。
+1. パターンの [Background Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) を設定します。
+1. パターンの [Foreground Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) を設定します。
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
+
+以下の C# コードは、矩形にパターン塗りつぶしを適用する方法を示しています。
+```c#
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+using (Presentation presentation = new Presentation())
+{
+    // 最初のスライドを取得します。
+    ISlide slide = presentation.Slides[0];
+
+    // Rectangle タイプのオートシェイプを追加します。
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+
+    // 塗りつぶしタイプを Pattern に設定します。
+    shape.FillFormat.FillType = FillType.Pattern;
+
+    // パターンスタイルを設定します。
+    shape.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
+
+    // パターンの背景色と前景色を設定します。
+    shape.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
+    shape.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
+
+    // PPTX ファイルをディスクに保存します。
+    presentation.Save("pattern_fill.pptx", SaveFormat.Pptx);
+}
+```
+
+
+結果:
+
+![パターン塗りつぶしの矩形](pattern-fill.png)
+
+## **画像塗りつぶし**
+
+PowerPoint の画像塗りつぶしは、画像を図形の内部に挿入し、実質的に画像を図形の背景として使用できる書式設定オプションです。
+
+Aspose.Slides を使用して図形に画像塗りつぶしを適用する手順は次の通りです。
+
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでスライドへの参照を取得します。
+1. スライドに [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) を追加します。
+1. 図形の [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) を `Picture` に設定します。
+1. 画像の貼り付けモードを `Tile`（または他の希望モード）に設定します。
+1. 使用する画像から [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) オブジェクトを作成します。
+1. この画像を図形の `PictureFillFormat` の `Picture.Image` プロパティに割り当てます。
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
+
+次の画像は「lotus.png」というファイルです。
+
+![ロータスの画像](lotus.png)
+
+以下の C# コードは、画像で図形を塗りつぶす方法を示しています。
+```c#
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+using (Presentation presentation = new Presentation())
+{
+    // 最初のスライドを取得します。
+    ISlide slide = presentation.Slides[0];
+
+    // Rectangle タイプのオートシェイプを追加します。
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
+
+    // 塗りつぶしタイプを Picture に設定します。
     shape.FillFormat.FillType = FillType.Picture;
 
-    // 画像塗りモードを設定します
+    // ピクチャー塗りつぶしモードを設定します。
     shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
 
-    // 画像を読み込み、プレゼンテーションリソースに追加します
-    IImage image = Images.FromFile("Tulips.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
+    // 画像を読み込み、プレゼンテーションのリソースに追加します。
+    IImage image = Images.FromFile("lotus.png");
+    IPPImage presentationImage = presentation.Images.AddImage(image);
     image.Dispose();
 
-    // 画像を設定します
-    shape.FillFormat.PictureFillFormat.Picture.Image = ppImage;
+    // ピクチャーを設定します。
+    shape.FillFormat.PictureFillFormat.Picture.Image = presentationImage;
 
-    // PPTX ファイルをディスクに保存します
-    presentation.Save("RectShpPic_out.pptx", SaveFormat.Pptx);
+    // PPTX ファイルをディスクに保存します。
+    presentation.Save("picture_fill.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **単色塗り**
-PowerPoint では、単色塗りは、形を単一の色で塗りつぶすことを許可する書式オプションです。選択された色は通常、単色になります。色は形の背景に適用され、特別な効果や修正はありません。
 
-これが、Aspose.Slides を使用して形に単色塗りを適用する方法です：
+結果:
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. インデックスを通じてスライドの参照を取得します。 
-3. スライドに [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) を追加します。
-4. 形の [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) を `単色` に設定します。
-5. 形に対して好みの色を設定します。
-6. 修正されたプレゼンテーションを書き出します（PPTX ファイルとして）。
+![画像塗りつぶしの図形](picture-fill.png)
 
-この C# コードは、PowerPoint のボックスに単色塗りを適用する方法を示しています：
+### **テクスチャとしてタイル配置画像**
 
+タイル配置画像をテクスチャとして設定し、タイルの動作をカスタマイズしたい場合は、[IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) インターフェイスと [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) クラスの次のプロパティを使用できます。
+
+- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): `Tile` または `Stretch` のいずれかで画像塗りつぶしモードを設定します。
+- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): 図形内のタイル配置の配置を指定します。
+- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): タイルを水平、垂直、または両方に反転するかを制御します。
+- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): 図形の基点からタイルの水平オフセット（ポイント）を設定します。
+- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): 図形の基点からタイルの垂直オフセット（ポイント）を設定します。
+- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): タイルの水平スケールをパーセンテージで定義します。
+- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): タイルの垂直スケールをパーセンテージで定義します。
+
+以下のコードサンプルは、タイル画像塗りつぶし付きの矩形を追加し、タイルオプションを構成する方法を示しています。
 ```c#
-// プレゼンテーションファイルを表すプレゼンテーションクラスをインスタンス化します
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
 using (Presentation presentation = new Presentation())
 {
+    // 最初のスライドを取得します。
+    ISlide firstSlide = presentation.Slides[0];
 
-// 最初のスライドを取得します
-    ISlide slide = presentation.Slides[0];
+    // 矩形のオートシェイプを追加します。
+    IAutoShape shape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-// 長方形の自動形を追加します
-    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // 図形の塗りつぶしタイプを Picture に設定します。
+    shape.FillFormat.FillType = FillType.Picture;
 
-// 塗りつぶしタイプを単色に設定します
-    shape.FillFormat.FillType = FillType.Solid;
+    // 画像を読み込み、プレゼンテーションのリソースに追加します。
+    IPPImage presentationImage;
+    using (IImage sourceImage = Images.FromFile("lotus.png"))
+        presentationImage = presentation.Images.AddImage(sourceImage);
 
-// 長方形の色を設定します
-    shape.FillFormat.SolidFillColor.Color = Color.Yellow;
+    // 画像を図形に割り当てます。
+    IPictureFillFormat pictureFillFormat = shape.FillFormat.PictureFillFormat;
+    pictureFillFormat.Picture.Image = presentationImage;
 
-// PPTX ファイルをディスクに保存します
-    presentation.Save("RectShpSolid_out.pptx", SaveFormat.Pptx);
+    // ピクチャー塗りつぶしモードとタイルプロパティを設定します。
+    pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
+    pictureFillFormat.TileOffsetX = -32;
+    pictureFillFormat.TileOffsetY = -32;
+    pictureFillFormat.TileScaleX = 50;
+    pictureFillFormat.TileScaleY = 50;
+    pictureFillFormat.TileAlignment = RectangleAlignment.BottomRight;
+    pictureFillFormat.TileFlip = TileFlip.FlipBoth;
+
+    // PPTX ファイルをディスクに保存します。
+    presentation.Save("tile.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+結果:
+
+![タイルオプション](tile-options.png)
+
+## **単色塗りつぶし**
+
+PowerPoint の単色塗りつぶしは、図形を単一の均一な色で塗りつぶす書式設定オプションです。このシンプルな背景色は、グラデーション、テクスチャ、パターンなどを使用せずに適用されます。
+
+Aspose.Slides で図形に単色塗りつぶしを適用する手順は次の通りです。
+
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでスライドへの参照を取得します。
+1. スライドに [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) を追加します。
+1. 図形の [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) を `Solid` に設定します。
+1. 好みの塗りつぶし色を図形に割り当てます。
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
+
+以下の C# コードは、PowerPoint スライドの矩形に単色塗りつぶしを適用する方法を示しています。
+```c#
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+using (Presentation presentation = new Presentation())
+{
+    // 最初のスライドを取得します。
+    ISlide slide = presentation.Slides[0];
+
+    // Rectangle タイプのオートシェイプを追加します。
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+
+    // 塗りつぶしタイプを Solid に設定します。
+    shape.FillFormat.FillType = FillType.Solid;
+
+    // 塗りつぶしカラーを設定します。
+    shape.FillFormat.SolidFillColor.Color = Color.Yellow;
+
+    // PPTX ファイルをディスクに保存します。
+    presentation.Save("solid_color_fill.pptx", SaveFormat.Pptx);
+}
+```
+
+
+結果:
+
+![単色塗りつぶしの図形](solid-color-fill.png)
 
 ## **透明度の設定**
 
-PowerPoint では、形を単色、グラデーション、画像、またはテクスチャで塗りつぶすときに、塗りの不透明度を決定する透明度レベルを指定できます。これにより、例えば低い透明度レベルを設定すると、スライドオブジェクトまたは（形によって）背景が透けて見えます。
+PowerPoint では、図形に単色、グラデーション、画像、テクスチャのいずれかの塗りつぶしを適用する際に、透明度レベルを設定して塗りつぶしの不透明度を制御できます。透明度が高いほど図形が透けて見え、背景や下のオブジェクトが部分的に表示されます。
 
-Aspose.Slides では、次のようにして形の透明度レベルを設定できます：
+Aspose.Slides では、塗りつぶしに使用する色のアルファ値を調整することで透明度を設定できます。手順は次の通りです。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. インデックスを通じてスライドの参照を取得します。 
-3. スライドに [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) を追加します。
-4. アルファコンポーネントが設定された `Color.FromArgb` を使用します。
-5. オブジェクトを PowerPoint ファイルとして保存します。 
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでスライドへの参照を取得します。
+1. スライドに [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) を追加します。
+1. [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) を `Solid` に設定します。
+1. `Color.FromArgb(alpha, baseColor)` を使用して透明度付きの色を定義します（`alpha` が透明度を制御）。
+1. プレゼンテーションを保存します。
 
-この C# コードは、そのプロセスを示しています：
-
+以下の C# コードは、矩形に透明な塗りつぶし色を適用する方法を示しています。
 ```c#
-// プレゼンテーションファイルを表すプレゼンテーションクラスをインスタンス化します
+const int alpha = 128;
+
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+using (Presentation presentation = new Presentation())
+{
+    // 最初のスライドを取得します。
+    ISlide slide = presentation.Slides[0];
+
+    // ソリッド矩形のオートシェイプを追加します。
+    IAutoShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+
+    // ソリッド形状の上に透明な矩形オートシェイプを追加します。
+    IAutoShape transparentShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
+    transparentShape.FillFormat.FillType = FillType.Solid;
+    transparentShape.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Yellow);
+
+    // PPTX ファイルをディスクに保存します。
+    presentation.Save("shape_transparency.pptx", SaveFormat.Pptx);
+}
+```
+
+
+結果:
+
+![透明な図形](shape-transparency.png)
+
+## **図形の回転**
+
+Aspose.Slides は、PowerPoint プレゼンテーション内の図形を回転させる機能を提供します。特定の配置やデザイン要件に合わせてビジュアル要素を回転させる際に便利です。
+
+スライド上の図形を回転させる手順は次の通りです。
+
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでスライドへの参照を取得します。
+1. スライドに [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) を追加します。
+1. 図形の `Rotation` プロパティに目的の角度を設定します。
+1. プレゼンテーションを保存します。
+
+以下の C# コードは、図形を 5 度回転させる例です。
+```c#
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+using (Presentation presentation = new Presentation())
+{
+    // 最初のスライドを取得します。
+    ISlide slide = presentation.Slides[0];
+
+    // Rectangle タイプのオートシェイプを追加します。
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+
+    // 図形を 5 度回転させます。
+    shape.Rotation = 5;
+
+    // PPTX ファイルをディスクに保存します。
+    presentation.Save("shape_rotation.pptx", SaveFormat.Pptx);
+}
+```
+
+
+結果:
+
+![図形の回転](shape-rotation.png)
+
+## **3D ベベル効果の追加**
+
+Aspose.Slides は、図形の [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) プロパティを設定することで、3D ベベル効果を適用できます。
+
+図形に 3D ベベル効果を追加する手順は次の通りです。
+
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスをインスタンス化します。
+1. インデックスでスライドへの参照を取得します。
+1. スライドに [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) を追加します。
+1. 図形の [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) を構成してベベル設定を定義します。
+1. プレゼンテーションを保存します。
+
+以下の C# コードは、図形に 3D ベベル効果を適用する例です。
+```c#
+// Presentation クラスのインスタンスを作成します。
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
-    
-    // ソリッド形を追加します
-    IShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 75, 175, 75, 150);
 
-    // ソリッド形の上に透明な形を追加します
-    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
-    shape.FillFormat.FillType = FillType.Solid;
-    shape.FillFormat.SolidFillColor.Color = Color.FromArgb(128, 204, 102, 0);
-    
-    // PPTX ファイルをディスクに保存します
-    presentation.Save("ShapeTransparentOverSolid_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **形の回転**
-Aspose.Slides では、スライドに追加された形を次の方法で回転させることができます：
-
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. インデックスを通じてスライドの参照を取得します。 
-3. スライドに [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) を追加します。
-4. 必要な度数で形を回転させます。 
-5. 修正されたプレゼンテーションを書き出します（PPTX ファイルとして）。
-
-この C# コードは、形を 90 度回転させる方法を示しています：
-
-```c#
-// プレゼンテーションファイルを表すプレゼンテーションクラスをインスタンス化します
-using (Presentation pres = new Presentation())
-{
-    // 最初のスライドを取得します
-    ISlide sld = pres.Slides[0];
-
-    // 長方形の自動形を追加します
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
-
-    // 形を 90 度回転させます
-    shp.Rotation = 90;
-
-    // PPTX ファイルをディスクに保存します
-    pres.Save("RectShpRot_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **3D ベベル効果の追加**
-Aspose.Slides では、次の方法で形に 3D ベベル効果を追加できます。[ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ThreeDFormat) プロパティを修正します：
-
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. インデックスを通じてスライドの参照を取得します。 
-3. スライドに [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) を追加します。
-3. 形の [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ThreeDFormat) プロパティの好みのパラメータを設定します。 
-4. プレゼンテーションをディスクに保存します。
-
-この C# コードは、形に 3D ベベル効果を追加する方法を示しています：
-
-```c#
-// プレゼンテーションクラスのインスタンスを作成します
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    
-    // スライドに形を追加します
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 30, 30, 100, 100);
+    // スライドに図形を追加します。
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.FillFormat.FillType = FillType.Solid;
     shape.FillFormat.SolidFillColor.Color = Color.Green;
-    ILineFillFormat format = shape.LineFormat.FillFormat;
-    format.FillType = FillType.Solid;
-    format.SolidFillColor.Color = Color.Orange;
+    shape.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Orange;
     shape.LineFormat.Width = 2.0;
-    
-    // 形の ThreeDFormat プロパティを設定します
+
+    // 図形の ThreeDFormat プロパティを設定します。
     shape.ThreeDFormat.Depth = 4;
     shape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
     shape.ThreeDFormat.BevelTop.Height = 6;
@@ -393,56 +495,81 @@ using (Presentation pres = new Presentation())
     shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
     shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
     shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    
-    // プレゼンテーションを PPTX ファイルとして保存します
-    pres.Save("Bavel_out.pptx", SaveFormat.Pptx);
+
+    // プレゼンテーションを PPTX ファイルとして保存します。
+    presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 }
 ```
 
+
+結果:
+
+![3D ベベル効果](3D-bevel-effect.png)
+
 ## **3D 回転効果の追加**
-Aspose.Slides では、次の方法で形に 3D 回転効果を適用できます。[ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ThreeDFormat) プロパティを修正します：
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. インデックスを通じてスライドの参照を取得します。 
-3. スライドに [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) を追加します。
-3. [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/properties/cameratype) と [LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/properties/lighttype) の好みの図形を指定します。
-4. プレゼンテーションをディスクに保存します。 
+Aspose.Slides は、図形の [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) プロパティを設定することで、3D 回転効果を適用できます。
 
-この C# コードは、形に 3D 回転効果を適用する方法を示しています：
+図形に 3D 回転を適用する手順は次の通りです。
 
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでスライドへの参照を取得します。
+1. スライドに [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) を追加します。
+1. 図形の [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) と [LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/) を設定して 3D 回転を定義します。
+1. プレゼンテーションを保存します。
+
+以下の C# コードは、図形に 3D 回転効果を適用する例です。
 ```c#
-// プレゼンテーションクラスのインスタンスを作成します
-using (Presentation pres = new Presentation())
+// Presentation クラスのインスタンスを作成します。
+using (Presentation presentation = new Presentation())
 {
-    IShape autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 200, 200);
-    
+    ISlide slide = presentation.Slides[0];
+
+    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+    autoShape.TextFrame.Text = "Hello, Aspose!";
+
     autoShape.ThreeDFormat.Depth = 6;
     autoShape.ThreeDFormat.Camera.SetRotation(40, 35, 20);
     autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
     autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    
-    autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Line, 30, 300, 200, 200);
-    autoShape.ThreeDFormat.Depth = 6;
-    autoShape.ThreeDFormat.Camera.SetRotation(0, 35, 20);
-    autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
-    autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    
-    // プレゼンテーションを PPTX ファイルとして保存します
-    pres.Save("Rotation_out.pptx", SaveFormat.Pptx);
+
+    // プレゼンテーションを PPTX ファイルとして保存します。
+    presentation.Save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **書式のリセット**
 
-この C# コードは、スライド内のプレースホルダーを持つすべての形状の位置、サイズ、および書式をデフォルトに戻す方法を示しています：
+結果:
 
+![3D 回転効果](3D-rotation-effect.png)
+
+## **書式設定のリセット**
+
+以下の C# コードは、スライドの書式設定をリセットし、[LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) 上のプレースホルダーを含むすべての図形の位置、サイズ、書式設定をデフォルトに戻す方法を示しています。
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    foreach (ISlide slide in pres.Slides)
+    foreach (ISlide slide in presentation.Slides)
     {
-        // レイアウト上のプレースホルダーを持つスライド上の各形状が元に戻されます
+        // レイアウト上のプレースホルダーを持つスライド上のすべてのシェイプをリセットします。
         slide.Reset();
     }
+
+    presentation.Save("reset_formatting.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**形状の書式設定は最終的なプレゼンテーション ファイルのサイズに影響しますか？**
+
+ほぼ影響はありません。埋め込み画像やメディアがファイル容量の大部分を占め、形状のパラメータ（色、エフェクト、グラデーションなど）はメタデータとして保存され、実質的にサイズは増えません。
+
+**同様の書式設定を持つスライド上の形状を検出してグループ化するにはどうすればよいですか？**
+
+各形状の主要な書式設定プロパティ（塗りつぶし、線、エフェクト）を比較し、すべての対応する値が一致すれば同一スタイルとして扱い、論理的にグループ化できます。これにより後のスタイル管理が容易になります。
+
+**カスタム形状スタイルのセットを別ファイルに保存して、他のプレゼンテーションで再利用できますか？**
+
+はい。希望するスタイルを備えたサンプル形状をテンプレート スライド デッキまたは .POTX テンプレート ファイルに保存しておく。

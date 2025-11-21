@@ -1,27 +1,44 @@
 ---
-title: Diagrammachse
+title: Diagrammachsen in Präsentationen in .NET anpassen
+linktitle: Diagrammachse
 type: docs
 url: /de/net/chart-axis/
-keywords: "PowerPoint Diagrammachse, Präsentationsdiagramme, C#, .NET, Diagrammachse manipulieren, Diagrammdaten"
-description: "Bearbeiten der PowerPoint-Diagrammachse in C# oder .NET"
+keywords:
+- Diagrammachse
+- vertikale Achse
+- horizontale Achse
+- Achse anpassen
+- Achse manipulieren
+- Achse verwalten
+- Achseneigenschaften
+- Maximalwert
+- Minimalwert
+- Achsenlinie
+- Datumsformat
+- Achsentitel
+- Achsenposition
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Aspose.Slides für .NET verwenden, um Diagrammachsen in PowerPoint-Präsentationen für Berichte und Visualisierungen anzupassen."
 ---
 
+## **Ermitteln der Maximalwerte auf der vertikalen Achse in Diagrammen**
+Aspose.Slides für .NET ermöglicht das Abrufen der Minimal‑ und Maximalwerte einer vertikalen Achse. Befolgen Sie diese Schritte:
 
-## **Maximale Werte auf der vertikalen Achse von Diagrammen erhalten**
-Aspose.Slides für .NET ermöglicht es Ihnen, die minimalen und maximalen Werte auf einer vertikalen Achse zu erhalten. Gehen Sie die folgenden Schritte durch:
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
 1. Greifen Sie auf die erste Folie zu.
 1. Fügen Sie ein Diagramm mit Standarddaten hinzu.
-1. Holen Sie sich den tatsächlichen Maximalwert auf der Achse.
-1. Holen Sie sich den tatsächlichen Minimalwert auf der Achse.
-1. Holen Sie sich die tatsächliche Hauptgröße der Achse.
-1. Holen Sie sich die tatsächliche Nebenheit der Achse.
-1. Holen Sie sich den tatsächlichen Hauptmaßstab der Achse.
-1. Holen Sie sich den tatsächlichen Nebenmaßstab der Achse.
+1. Ermitteln Sie den tatsächlichen Maximalwert der Achse.
+1. Ermitteln Sie den tatsächlichen Minimalwert der Achse.
+1. Ermitteln Sie die tatsächliche Hauptintervallsgröße der Achse.
+1. Ermitteln Sie die tatsächliche Nebenintervallsgröße der Achse.
+1. Ermitteln Sie die tatsächliche Skalierung der Hauptintervallsgröße der Achse.
+1. Ermitteln Sie die tatsächliche Skalierung der Nebenintervallsgröße der Achse.
 
-Dieser Beispielcode—eine Implementierung der obigen Schritte—zeigt, wie Sie die erforderlichen Werte in C# erhalten:
-
+Dieser Beispielcode — eine Umsetzung der oben genannten Schritte — zeigt, wie Sie die erforderlichen Werte in C# erhalten:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -40,18 +57,17 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Daten zwischen Achsen austauschen**
-Aspose.Slides ermöglicht es Ihnen, die Daten zwischen Achsen schnell auszutauschen—die auf der vertikalen Achse (y-Achse) dargestellten Daten wechseln zur horizontalen Achse (x-Achse) und umgekehrt.
+## **Austauschen der Daten zwischen Achsen**
+Aspose.Slides ermöglicht das schnelle Vertauschen der Daten zwischen Achsen — die auf der vertikalen Achse (y‑Achse) dargestellten Daten werden zur horizontalen Achse (x‑Achse) verschoben und umgekehrt. 
 
-Dieser C#-Code zeigt Ihnen, wie Sie die Daten austauschen können:
-
+Dieser C#‑Code zeigt, wie Sie den Datentausch zwischen Achsen in einem Diagramm durchführen:
 ```c#
-// Erzeugt eine leere Präsentation
+// Erstellt leere Präsentation
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
 
-	// Wechselt zwischen Zeilen und Spalten
+	// Vertauscht Zeilen und Spalten
 	chart.ChartData.SwitchRowColumn();
 		   
 	// Speichert die Präsentation
@@ -59,10 +75,10 @@ using (Presentation pres = new Presentation())
  }
 ```
 
-## **Vertikale Achse für Liniendiagramme deaktivieren**
 
-Dieser C#-Code zeigt, wie Sie die vertikale Achse für ein Liniendiagramm ausblenden:
+## **Deaktivieren der vertikalen Achse für Liniendiagramme**
 
+Dieser C#‑Code zeigt, wie Sie die vertikale Achse eines Liniendiagramms ausblenden:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -73,10 +89,10 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Horizontale Achse für Liniendiagramme deaktivieren**
 
-Dieser Code zeigt, wie Sie die horizontale Achse für ein Liniendiagramm ausblenden:
+## **Deaktivieren der horizontalen Achse für Liniendiagramme**
 
+Dieser Code zeigt, wie Sie die horizontale Achse eines Liniendiagramms ausblenden:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -87,9 +103,10 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Ändern der Kategoriewerte**
-Mit der **CategoryAxisType**-Eigenschaft können Sie Ihren bevorzugten Kategorieachsentyp (**Datum** oder **Text**) angeben. Dieser C#-Code demonstriert die Operation:
 
+## **Ändern der Kategorienachse**
+
+Mit der Eigenschaft **CategoryAxisType** können Sie den gewünschten Typ der Kategorienachse (**date** oder **text**) festlegen. Dieser C#‑Code demonstriert den Vorgang: 
 ```c#
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
@@ -102,9 +119,9 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 }
 ```
 
-## **Festlegen des Datumsformats für Kategoriewerte**
-Aspose.Slides für .NET ermöglicht Ihnen, das Datumsformat für einen Kategoriewert festzulegen. Die Operation wird in diesem C#-Code demonstriert:
 
+## **Festlegen des Datumsformats für den Wert der Kategorienachse**
+Aspose.Slides für .NET ermöglicht das Festlegen des Datumsformats für einen Wert der Kategorienachse. Der Vorgang wird in diesem C#‑Code gezeigt:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -133,23 +150,23 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Festlegen des Drehwinkels für die Achsentitel von Diagrammen**
-Aspose.Slides für .NET ermöglicht Ihnen das Festlegen des Drehwinkels für einen Diagrammachsentitel. Dieser C#-Code demonstriert die Operation:
 
+## **Festlegen des Rotationswinkels für den Diagrammachsentitel**
+Aspose.Slides für .NET ermöglicht das Festlegen des Rotationswinkels für einen Diagrammachsentitel. Dieser C#‑Code demonstriert den Vorgang:
 ```c#
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
 	chart.Axes.VerticalAxis.HasTitle = true;
-             chart.Axes.VerticalAxis.Title.TextFormat.TextBlockFormat.RotationAngle = 90;
+	         chart.Axes.VerticalAxis.Title.TextFormat.TextBlockFormat.RotationAngle = 90;
 
 	pres.Save("test.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Festlegen der Positionsachse in einer Kategorie- oder Wertachse**
-Aspose.Slides für .NET ermöglicht Ihnen das Festlegen der Positionsachse in einer Kategorie- oder Wertachse. Dieser C#-Code zeigt, wie Sie die Aufgabe ausführen:
 
+## **Festlegen der Positionsachse in einer Kategorien‑ oder Wertachse**
+Aspose.Slides für .NET ermöglicht das Festlegen der Positionsachse in einer Kategorien‑ oder Wertachse. Dieser C#‑Code zeigt, wie Sie die Aufgabe ausführen:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -160,9 +177,9 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Aktivieren der Anzeigeeinheit für die Werteachse des Diagramms**
-Aspose.Slides für .NET ermöglicht es Ihnen, ein Diagramm so zu konfigurieren, dass es ein Einheitsetikett auf seiner Werteachse anzeigt. Dieser C#-Code demonstriert die Operation:
 
+## **Aktivieren der Anzeigeeinheitsbeschriftung auf der Wertachse des Diagramms**
+Aspose.Slides für .NET ermöglicht die Konfiguration eines Diagramms, damit auf seiner Wertachse eine Einheitendeschriftung angezeigt wird. Dieser C#‑Code demonstriert den Vorgang:
 ```c#
 using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
 {
@@ -171,3 +188,14 @@ using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
 	pres.Save("Result.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**Wie lege ich den Wert fest, an dem eine Achse die andere schneidet (Achsenkreuzung)?**
+
+Achsen bieten eine [Kreuzungseinstellung](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/): Sie können wählen, bei Null, beim maximalen Kategorie‑/Wert oder bei einem bestimmten numerischen Wert zu kreuzen. Dies ist nützlich, um die X‑Achse nach oben oder unten zu verschieben oder um eine Grundlinie hervorzuheben.
+
+**Wie kann ich die Tick‑Beschriftungen relativ zur Achse positionieren (nebeneinander, außen, innen)?**
+
+Setzen Sie die [Beschriftungsposition](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majortickmark/) auf "cross", "outside" oder "inside". Dies beeinflusst die Lesbarkeit und hilft, Platz zu sparen, insbesondere bei kleinen Diagrammen.

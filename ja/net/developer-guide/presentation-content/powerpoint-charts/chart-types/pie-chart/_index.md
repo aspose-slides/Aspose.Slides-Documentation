@@ -1,98 +1,109 @@
 ---
-title: パイチャート
+title: .NET のプレゼンテーションで円グラフをカスタマイズ
+linktitle: 円グラフ
 type: docs
 url: /ja/net/pie-chart/
-keywords: "パイチャート, プロットオプション, スライスの色, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
-description: "C#または.NETにおけるPowerPointプレゼンテーションのパイチャートプロットオプションとスライスの色"
+keywords:
+- 円グラフ
+- グラフの管理
+- グラフのカスタマイズ
+- グラフ オプション
+- グラフ設定
+- プロット オプション
+- スライスカラー
+- PowerPoint
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides を使用して .NET で円グラフを作成・カスタマイズする方法を学び、PowerPoint へエクスポートし、数秒でデータストーリーテリングを強化します。"
 ---
 
-## **パイオブパイおよびバーオブパイチャートのための第2プロットオプション**
-Aspose.Slides for .NETは、パイオブパイまたはバーオブパイチャートのための第2プロットオプションをサポートしています。このトピックでは、Aspose.Slidesを使用してこれらのオプションを指定する方法を例を挙げて説明します。プロパティを指定するためには、以下の手順に従ってください。
+## **パイ オブ パイおよびバー オブ パイ チャートの第二プロットオプション**
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのオブジェクトをインスタンス化します。
+Aspose.Slides for .NET は、パイ オブ パイまたはバー オブ パイ チャートの第二プロットオプションをサポートするようになりました。このトピックでは、Aspose.Slides を使用してこれらのオプションを指定する方法をサンプルで示します。プロパティを指定するには、以下の手順に従ってください。
+
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスオブジェクトのインスタンスを作成します。
 1. スライドにチャートを追加します。
-1. チャートの第2プロットオプションを指定します。
-1. プレゼンテーションをディスクに保存します。
+1. チャートの第二プロットオプションを指定します。
+1. プレゼンテーションをディスクに書き込みます。
 
-以下の例では、パイオブパイチャートの異なるプロパティを設定しています。
-
+以下の例では、パイ オブ パイ チャートのさまざまなプロパティを設定しています。
 ```c#
-// プレゼンテーションクラスのインスタンスを作成
+// Presentation クラスのインスタンスを作成します
 Presentation presentation = new Presentation();
 
-// スライドにチャートを追加
+// スライドにチャートを追加します
 IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
      
-// 異なるプロパティを設定
+// さまざまなプロパティを設定します
 chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 chart.ChartData.Series[0].ParentSeriesGroup.SecondPieSize = 149;
 chart.ChartData.Series[0].ParentSeriesGroup.PieSplitBy = Aspose.Slides.Charts.PieSplitType.ByPercentage;
 chart.ChartData.Series[0].ParentSeriesGroup.PieSplitPosition = 53;
 
-// プレゼンテーションをディスクに保存
+// プレゼンテーションをディスクに保存します
 presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
 ```
 
 
+## **自動パイチャート スライスカラーの設定**
 
+Aspose.Slides for .NET は、自動パイチャートのスライスカラーを設定するためのシンプルな API を提供します。サンプルコードは、上記のプロパティ設定を適用しています。
 
-## **自動的なパイチャートスライスの色を設定**
-Aspose.Slides for .NETは、自動的なパイチャートスライスの色を設定するためのシンプルなAPIを提供しています。サンプルコードは、上記のプロパティを設定します。
-
-1. プレゼンテーションクラスのインスタンスを作成します。
+1. Presentation クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
 1. デフォルトデータでチャートを追加します。
-1. チャートタイトルを設定します。
-1. 最初のシリーズを値を表示するように設定します。
+1. チャートのタイトルを設定します。
+1. 最初の系列の「値の表示」を設定します。
 1. チャートデータシートのインデックスを設定します。
-1. チャートデータワークシートを取得します。
+1. チャートデータのワークシートを取得します。
 1. デフォルトで生成された系列とカテゴリを削除します。
 1. 新しいカテゴリを追加します。
-1. 新しいシリーズを追加します。
+1. 新しい系列を追加します。
 
-修正されたプレゼンテーションをPPTXファイルに書き込みます。
-
+変更したプレゼンテーションを PPTX ファイルに書き込みます。
 ```c#
-// PPTXファイルを表すプレゼンテーションクラスをインスタンス化
+// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
 using (Presentation presentation = new Presentation())
 {
-	// PPTXファイルを表すプレゼンテーションクラスをインスタンス化
+	// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
 	Presentation presentation = new Presentation();
 
-	// 最初のスライドにアクセス
+	// 最初のスライドにアクセスします
 	ISlide slides = presentation.Slides[0];
 
-	// デフォルトデータでチャートを追加
+	// デフォルト データでチャートを追加します
 	IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
 
-	// チャートタイトルを設定
-	chart.ChartTitle.AddTextFrameForOverriding("サンプルタイトル");
+	// チャートのタイトルを設定します
+	chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
 	chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
 	chart.ChartTitle.Height = 20;
 	chart.HasTitle = true;
 
-	// 最初のシリーズを値を表示するように設定
+	// 最初の系列で値を表示するように設定します
 	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-	// チャートデータシートのインデックスを設定
+	// チャート データ シートのインデックスを設定します
 	int defaultWorksheetIndex = 0;
 
-	// チャートデータワークシートを取得
+	// チャート データのワークシートを取得します
 	IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
-	// デフォルトで生成された系列とカテゴリを削除
+	// デフォルトで生成された系列とカテゴリを削除します
 	chart.ChartData.Series.Clear();
 	chart.ChartData.Categories.Clear();
 
-	// 新しいカテゴリを追加
-	chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "第1四半期"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "第2四半期"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "第3四半期"));
+	// 新しいカテゴリを追加します
+	chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "First Qtr"));
+	chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "2nd Qtr"));
+	chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "3rd Qtr"));
 
-	// 新しいシリーズを追加
-	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "シリーズ1"), chart.Type);
+	// 新しい系列を追加します
+	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-	// 現在、シリーズデータを入力
+	// 系列データを入力します
 	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
 	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
 	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
@@ -101,3 +112,14 @@ using (Presentation presentation = new Presentation())
 	presentation.Save("C:\\Aspose Data\\Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**「パイ オブ パイ」および「バー オブ パイ」バリエーションはサポートされていますか？**
+
+はい、ライブラリは[サポート](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/)しています。パイチャートの二次プロットとして「パイ オブ パイ」および「バー オブ パイ」タイプを含みます。
+
+**チャートだけを画像（例：PNG）としてエクスポートできますか？**
+
+はい、プレゼンテーション全体を含めずに、[チャート自体を画像としてエクスポート](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/)できます（PNG など）。

@@ -1,133 +1,138 @@
 ---
-title: カスタムシェイプ
+title: PowerPoint プレゼンテーションのシェイプを .NET でカスタマイズ
+linktitle: カスタムシェイプ
 type: docs
 weight: 20
 url: /ja/net/custom-shape/
-keywords: 
-- シェイプ
+keywords:
 - カスタムシェイプ
+- シェイプの追加
 - シェイプの作成
-- 幾何学
-- シェイプの幾何学
-- 幾何学パス
-- パスポイント
+- シェイプの変更
+- シェイプジオメトリ
+- ジオメトリパス
+- パスのポイント
 - 編集ポイント
+- ポイントの追加
+- ポイントの削除
+- 編集操作
+- 曲線コーナー
 - PowerPoint
 - プレゼンテーション
+- .NET
 - C#
-- Aspose.Slides for .NET
-description: "C# で PowerPoint プレゼンテーションにカスタムシェイプを追加します"
+- Aspose.Slides
+description: "Aspose.Slides for .NET を使用して PowerPoint プレゼンテーション内のシェイプを作成およびカスタマイズします：ジオメトリパス、曲線コーナー、複合シェイプ。"
 ---
 
-## 編集ポイントを使用してシェイプを変更する
+## **編集ポイントを使用してシェイプを変更する**
 
-正方形を考えてみましょう。PowerPoint では、**編集ポイント**を使用して
+正方形を考えてみてください。PowerPoint では、**編集ポイント**を使用して、以下が可能です
 
-* 正方形のコーナーを内側または外側に移動できます
-* コーナーまたはポイントの曲率を指定できます
-* 正方形に新しいポイントを追加できます
-* 正方形のポイントを操作できます など。
+* 正方形の角を内側または外側に移動する
+* 角や点の曲率を指定する
+* 正方形に新しい点を追加する
+* 正方形上の点を操作するなど
 
-基本的に、記述されたタスクは任意のシェイプに対して実行できます。編集ポイントを使用すると、既存のシェイプからシェイプを変更したり、新しいシェイプを作成したりできます。
+本質的に、これらの操作は任意のシェイプで実行できます。編集ポイントを使うことで、シェイプを変更したり、既存のシェイプから新しいシェイプを作成したりできます。
 
 ## **シェイプ編集のヒント**
 
 ![overview_image](custom_shape_0.png)
 
-PowerPoint のシェイプを編集ポイントを通じて編集する前に、シェイプについて考慮すべき点は次のとおりです。
+編集ポイントで PowerPoint のシェイプを編集する前に、シェイプに関して以下の点を考慮するとよいでしょう：
 
-* シェイプ（またはそのパス）は、閉じたものと開いたものがあります。
-* すべてのシェイプは、互いに線でつながれた少なくとも 2 つのアンカーポイントで構成されます。
-* 線は直線または曲線のいずれかです。アンカーポイントは線の性質を決定します。
-* アンカーポイントはコーナーポイント、直線ポイント、または滑らかなポイントとして存在します：
-  * コーナーポイントは、2 本の直線が角度で交わるポイントです。
-  * 滑らかなポイントは、2 つのハンドルが直線上にあり、線のセグメントが滑らかな曲線でつながるポイントです。この場合、すべてのハンドルはアンカーポイントから等距離に離れています。
-  * 直線ポイントは、2 つのハンドルが直線上にあり、その線のセグメントが滑らかな曲線でつながるポイントです。この場合、ハンドルはアンカーポイントから等距離に離れている必要はありません。
-* アンカーポイントを移動または編集することで（線の角度が変更され）、シェイプの見た目を変更できます。
+* シェイプ（またはそのパス）は閉じている場合と開いている場合があります。
+* すべてのシェイプは、少なくとも 2 つのアンカーポイントが線でつながれた構成です。
+* 線は直線または曲線のいずれかです。アンカーポイントが線の性質を決定します。
+* アンカーポイントはコーナーポイント、ストレートポイント、スムーズポイントとして存在します：
+  * コーナーポイントは、2 本の直線が角度を持って結合する点です。
+  * スムーズポイントは、2 本のハンドルが一直線上にあり、線分が滑らかな曲線で接続する点です。この場合、すべてのハンドルはアンカーポイントから等距離に配置されます。
+  * ストレートポイントは、2 本のハンドルが一直線上にあり、線分が滑らかな曲線で接続する点です。この場合、ハンドルはアンカーポイントから等距離である必要はありません。
+* アンカーポイントを移動または編集（線の角度を変える）することで、シェイプの外観を変更できます。
 
-PowerPoint のシェイプを編集ポイントを通じて編集するために、**Aspose.Slides** は [**GeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) クラスと [**IGeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath) インターフェースを提供します。
+編集ポイントで PowerPoint のシェイプを編集するには、**Aspose.Slides** が [**GeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) クラスと [**IGeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath) インターフェイスを提供します。
 
-* [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) インスタンスは [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape) オブジェクトの幾何学パスを表します。
+* [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) インスタンスは、[IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape) オブジェクトのジオメトリパスを表します。
 * `IGeometryShape` インスタンスから `GeometryPath` を取得するには、[IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/getgeometrypaths) メソッドを使用できます。
-* シェイプの `GeometryPath` を設定するには、*実体シェイプ* 用の [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypath) メソッドと、*複合シェイプ* 用の [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypaths) メソッドを使用できます。
-* セグメントを追加するには、[IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath) の下のメソッドを使用できます。
-* [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/stroke) および [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/fillmode) プロパティを使用して、幾何学パスの外観を設定できます。
-* [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/pathdata) プロパティを使用して、`GeometryShape` の幾何学パスをパスセグメントの配列として取得できます。
-* 追加のシェイプ幾何学カスタマイズオプションにアクセスするには、[GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) を [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) に変換できます。
-* [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/geometrypathtographicspath) および [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/graphicspathtogeometrypath) メソッド（[ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil) クラスから）を使用して、[GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) と [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) を相互に変換します。
+* シェイプに `GeometryPath` を設定するには、以下のメソッドを使用します：ソリッドシェイプの場合は [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypath)、コンポジットシェイプの場合は [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypaths)。
+* セグメントを追加するには、[IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath) の下にあるメソッドを使用できます。
+* [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/stroke) と [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/fillmode) プロパティを使用して、ジオメトリパスの外観を設定できます。
+* [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/pathdata) プロパティを使用して、`GeometryShape` のジオメトリパスをパスセグメントの配列として取得できます。
+* 追加のシェイプジオメトリカスタマイズオプションにアクセスするには、[GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) を [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) に変換できます。
+* [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/geometrypathtographicspath) と [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/graphicspathtogeometrypath) メソッド（[ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil) クラスから）を使用して、[GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) と [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) を相互に変換できます。
 
 ## **シンプルな編集操作**
 
-この C# コードは、以下の操作を示しています。
+この C# コードは、以下の方法を示しています
 
-**パスの終わりに**ラインを追加する：
-
+**ラインを追加**してパスの末尾に配置する  
 ``` csharp
 void LineTo(PointF point);
 void LineTo(float x, float y);
 ```
-**指定した位置に**ラインを追加する：
 
+**ラインを追加**してパスの指定位置に配置する：  
 ``` csharp    
 void LineTo(PointF point, uint index);
 void LineTo(float x, float y, uint index);
 ```
-**パスの終わりに**キュービックベジェ曲線を追加する：
 
+**3 次ベジェ曲線を追加**してパスの末尾に配置する：  
 ``` csharp
 void CubicBezierTo(PointF point1, PointF point2, PointF point3);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
 ```
-**指定した位置に**キュービックベジェ曲線を追加する：
 
+**3 次ベジェ曲線を追加**してパスの指定位置に配置する：  
 ``` csharp
 void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint index);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint index);
 ```
-**パスの終わりに**二次ベジェ曲線を追加する：
 
+**2 次ベジェ曲線を追加**してパスの末尾に配置する：  
 ``` csharp
 void QuadraticBezierTo(PointF point1, PointF point2);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2);
 ```
-**指定した位置に**二次ベジェ曲線を追加する：
 
+**2 次ベジェ曲線を追加**してパスの指定位置に配置する：  
 ``` csharp
 void QuadraticBezierTo(PointF point1, PointF point2, uint index);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint index);
 ```
-**指定された弧を**パスに追加する：
 
+**指定した円弧を追加**してパスに付加する：  
 ``` csharp
 void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
 ```
-**パスの現在のフィギュアを**閉じる：
 
+**現在の図形を閉じる**パスの図形を閉じる：  
 ``` csharp
 void CloseFigure();
 ```
-**次のポイントの位置を**設定する：
 
+**次のポイントの位置を設定**する：  
 ``` csharp
 void MoveTo(PointF point);
 void MoveTo(float x, float y);
 ```
-**指定したインデックスの**パスセグメントを削除する：
 
+**指定インデックスのパスセグメントを削除**する：  
 ``` csharp
 void RemoveAt(int index);
 ```
 
-## **シェイプにカスタムポイントを追加する**
+
+## **シェイプにカスタムポイントを追加**
 
 1. [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) クラスのインスタンスを作成し、[ShapeType.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/shapetype) タイプを設定します。
 2. シェイプから [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) クラスのインスタンスを取得します。
-3. パス上の2つの上ポイントの間に新しいポイントを追加します。
-4. パス上の2つの下ポイントの間に新しいポイントを追加します。
+3. パス上の上部2点間に新しいポイントを追加します。
+4. パス上の下部2点間に新しいポイントを追加します。
 5. パスをシェイプに適用します。
 
-この C# コードは、シェイプにカスタムポイントを追加する方法を示しています：
-
+この C# コードは、シェイプにカスタムポイントを追加する方法を示しています：  
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -140,17 +145,17 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+
 ![example1_image](custom_shape_1.png)
 
-##  **シェイプからポイントを削除する**
+## **シェイプからポイントを削除**
 
 1. [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) クラスのインスタンスを作成し、[ShapeType.Heart](https://reference.aspose.com/slides/net/aspose.slides/shapetype) タイプを設定します。
 2. シェイプから [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) クラスのインスタンスを取得します。
 3. パスのセグメントを削除します。
 4. パスをシェイプに適用します。
 
-この C# コードは、シェイプからポイントを削除する方法を示しています：
-
+この C# コードは、シェイプからポイントを削除する方法を示しています：  
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -161,9 +166,11 @@ using (Presentation pres = new Presentation())
 	shape.SetGeometryPath(path);
 }
 ```
+
+
 ![example2_image](custom_shape_2.png)
 
-##  **カスタムシェイプを作成する**
+## **カスタムシェイプを作成**
 
 1. シェイプのポイントを計算します。
 2. [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) クラスのインスタンスを作成します。
@@ -171,8 +178,7 @@ using (Presentation pres = new Presentation())
 4. [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) クラスのインスタンスを作成します。
 5. パスをシェイプに適用します。
 
-この C# コードは、カスタムシェイプを作成する方法を示しています：
-
+この C# コードは、カスタムシェイプを作成する方法を示しています：  
 ``` csharp
 List<PointF> points = new List<PointF>();
 
@@ -209,17 +215,18 @@ using (Presentation pres = new Presentation())
     shape.SetGeometryPath(starPath);
 }
 ```
+
+
 ![example3_image](custom_shape_3.png)
 
-## **複合カスタムシェイプを作成する**
+## **複合カスタムシェイプを作成**
 
 1. [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) クラスのインスタンスを作成します。
 2. [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) クラスの最初のインスタンスを作成します。
 3. [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) クラスの2番目のインスタンスを作成します。
 4. パスをシェイプに適用します。
 
-この C# コードは、複合カスタムシェイプを作成する方法を示しています：
-
+この C# コードは、複合カスタムシェイプを作成する方法を示しています：  
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -242,13 +249,14 @@ using (Presentation pres = new Presentation())
     shape.SetGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
 }
 ```
+
+
 ![example4_image](custom_shape_4.png)
 
-## **角が曲がったカスタムシェイプを作成する**
+## **曲線コーナー付きカスタムシェイプを作成**
 
-この C# コードは、角が内向きに曲がったカスタムシェイプを作成する方法を示しています：
-
-```csharp
+この C# コードは、内向きの曲線コーナーを持つカスタムシェイプを作成する方法を示しています；  
+```c#
 var shapeX = 20f;
 var shapeY = 20f;
 var shapeWidth = 300f;
@@ -290,46 +298,41 @@ using (var presentation = new Presentation())
 }
 ```
 
-## **シェイプの幾何学が閉じているかどうかを確認する**
 
-PowerPoint プレゼンテーション内のシェイプが閉じているかどうかを確認することは、スライド上のオブジェクトの正しい表示と編集にとって重要です。閉じたシェイプは、すべての辺が接続されて、隙間のない単一の境界を形成するものとして定義されます。このようなシェイプは、単純な幾何学的形状または複雑なカスタムアウトラインである可能性があります。
+## **シェイプジオメトリが閉じているか確認する**
 
-シェイプの閉じ具合は、色やグラデーションでの塗りつぶし、エフェクトや変換の適用、他のスライド要素との適切な相互作用を保証するためにさまざまな操作を実行する上で重要です。
-
-シェイプの幾何学が閉じているかどうかを確認するには、次の手順を実行します。
-1. シェイプの幾何学にアクセスします。
-2. シェイプ内の幾何学パスを列挙します。
-    2.1. 次のパスの最終セグメントを取得します。
-    2.2. 最終セグメントが `CLOSE` コマンドであるかどうかを確認します。
-
-以下のコード例は、この手順を示しています：
-
+閉じたシェイプは、すべての辺が接続され、隙間なく単一の境界を形成している形状として定義されます。シェイプは単純な幾何形状でも、複雑なカスタムアウトラインでもかまいません。以下のコード例は、シェイプジオメトリが閉じているかどうかを確認する方法を示しています：  
 ```cs
-if (shape is GeometryShape geometryShape)
+bool IsGeometryClosed(IGeometryShape geometryShape)
 {
-    for (int i = 0; i < geometryShape.GetGeometryPaths().Length; i++)
+    bool? isClosed = null;
+
+    foreach (var geometryPath in geometryShape.GetGeometryPaths())
     {
-        IGeometryPath path = geometryShape.GetGeometryPaths()[i];
+        var dataLength = geometryPath.PathData.Length;
+        if (dataLength == 0)
+            continue;
 
-        if (path.PathData.Length == 0) continue;
+        var lastSegment = geometryPath.PathData[dataLength - 1];
+        isClosed = lastSegment.PathCommand == PathCommandType.Close;
 
-        IPathSegment lastSegment = path.PathData[path.PathData.Length - 1];
-        bool isClosed = lastSegment.PathCommand == PathCommandType.Close;
-        
-        Console.WriteLine($"Path {i} is closed: {isClosed}");
+        if (isClosed == false)
+            return false;
     }
+    
+    return isClosed == true;
 }
 ```
 
-## **GeometryPath を GraphicsPath (System.Drawing.Drawing2D) に変換する**
+
+## **GeometryPath を GraphicsPath に変換 (System.Drawing.Drawing2D)**
 
 1. [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) クラスのインスタンスを作成します。
 2. [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) 名前空間の [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) クラスのインスタンスを作成します。
 3. [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil) を使用して、[GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) インスタンスを [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) インスタンスに変換します。
 4. パスをシェイプに適用します。
 
-この C# コードは、上記の手順の実装を示し、**GeometryPath** から **GraphicsPath** への変換プロセスを示します：
-
+この C# コードは、上記手順の実装で、**GeometryPath** から **GraphicsPath** への変換プロセスを示しています：  
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -340,7 +343,7 @@ using (Presentation pres = new Presentation())
 
     GraphicsPath gPath = new GraphicsPath();
 
-    gPath.AddString("シェイプ内のテキスト", new FontFamily("Arial"), 1, 40, new PointF(10, 10), StringFormat.GenericDefault);
+    gPath.AddString("Text in shape", new FontFamily("Arial"), 1, 40, new PointF(10, 10), StringFormat.GenericDefault);
 
     IGeometryPath textPath = ShapeUtil.GraphicsPathToGeometryPath(gPath);
     textPath.FillMode = PathFillModeType.Normal;
@@ -348,4 +351,17 @@ using (Presentation pres = new Presentation())
     shape.SetGeometryPaths(new[] {originalPath, textPath}) ;
 }
 ```
+
+
 ![example5_image](custom_shape_5.png)
+
+## **FAQ**
+
+**ジオメトリを置き換えた後、塗りつぶしとアウトラインはどうなりますか？**  
+スタイルはシェイプに残り、輪郭だけが変わります。塗りつぶしとアウトラインは新しいジオメトリに自動的に適用されます。
+
+**ジオメトリを含むカスタムシェイプを正しく回転させるには？**  
+シェイプの[rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/)プロパティを使用します。ジオメトリはシェイプに結び付いているため、シェイプとともに回転します。
+
+**結果を「固定」するためにカスタムシェイプを画像に変換できますか？**  
+はい。必要な[slide](/slides/ja/net/convert-powerpoint-to-png/)エリアまたは[shape](/slides/ja/net/create-shape-thumbnails/)自体をラスタ形式でエクスポートしてください。これにより、重いジオメトリの後続作業が容易になります。

@@ -1,30 +1,36 @@
 ---
-title: Управление тегами и пользовательскими данными
+title: Управление тегами и пользовательскими данными в презентациях на .NET
+linktitle: Теги и пользовательские данные
 type: docs
 weight: 300
-url: /ru/net/managing-tags-and-custom-data
-keywords: "Теги, Пользовательские данные, Значение тегов, Добавить теги, Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
-description: "Добавьте теги и пользовательские данные в презентации PowerPoint на C# или .NET"
+url: /ru/net/managing-tags-and-custom-data/
+keywords:
+- свойства документа
+- тег
+- пользовательские данные
+- добавить тег
+- парные значения
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Узнайте, как добавлять, читать, обновлять и удалять теги и пользовательские данные в Aspose.Slides для .NET, с примерами для презентаций PowerPoint и OpenDocument."
 ---
 
-## Хранение данных в файлах презентации
+## **Хранение данных в файлах презентаций**
 
-Файлы PPTX — элементы с расширением .pptx — хранятся в формате PresentationML, который является частью спецификации Office Open XML. Формат Office Open XML определяет структуру данных, содержащихся в презентациях.
+Файлы PPTX — элементы с расширением .pptx — хранятся в формате PresentationML, который является частью спецификации Office Open XML. Формат Office Open XML определяет структуру данных, содержащихся в презентациях. 
 
-Слайд является одним из элементов презентаций, часть слайда содержит содержимое одного слайда. Части слайда могут иметь явные отношения ко многим частям, таким как Пользовательские Определенные Теги, определенные ISO/IEC 29500.
+Слайд (*slide*) является одним из элементов презентаций, а *часть слайда* (*slide part*) содержит содержимое одного слайда. Части слайда могут иметь явные связи со многими частями — например, с пользовательскими тегами (User Defined Tags) — определёнными в ISO/IEC 29500. 
 
-Пользовательские данные (специфические для презентации) или пользователя могут существовать в виде тегов ([ITagCollection](https://reference.aspose.com/slides/net/aspose.slides/itagcollection)) и CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/net/aspose.slides/icustomxmlpartcollection)).
+Пользовательские данные (конкретные для презентации) могут существовать в виде тегов ([ITagCollection](https://reference.aspose.com/slides/net/aspose.slides/itagcollection)) и CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/net/aspose.slides/icustomxmlpartcollection)). 
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}Теги по существу представляют собой пары строка‑ключ.{{% /alert %}} 
 
-Теги по сути являются парами значений с ключом-строкой.
+## **Получение значений тегов**
 
-{{% /alert %}} 
-
-## Получение значений тегов
-
-В слайдах тег соответствует свойству IDocumentProperties.Keywords. Этот пример кода показывает, как получить значение тега с помощью Aspose.Slides для .NET для [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation):
-
+В слайдах тег соответствует свойству IDocumentProperties.Keywords. Этот пример кода показывает, как получить значение тега с помощью Aspose.Slides for .NET для [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation):
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -32,17 +38,17 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## Добавление тегов в презентации
 
-Aspose.Slides позволяет добавлять теги в презентации. Тег обычно состоит из двух элементов:
+## **Добавление тегов в презентации**
 
-- название пользовательского свойства - `MyTag`
-- значение пользовательского свойства - `My Tag Value`
+Aspose.Slides позволяет добавлять теги в презентации. Тег обычно состоит из двух элементов: 
 
-Если вам нужно классифицировать некоторые презентации на основе конкретного правила или свойства, то вы можете извлечь выгоду от добавления тегов в эти презентации. Например, если вы хотите категоризировать или собрать все презентации из Североамериканских стран вместе, вы можете создать тег Северной Америки и затем назначить соответствующие страны (США, Мексика и Канада) в качестве значений.
+- имя пользовательского свойства — `MyTag` 
+- значение пользовательского свойства — `My Tag Value`
 
-Этот пример кода показывает, как добавить тег в [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) с использованием Aspose.Slides для .NET:
+Если вам нужно классифицировать некоторые презентации по определённому правилу или свойству, вы можете воспользоваться добавлением тегов в эти презентации. Например, если вы хотите сгруппировать все презентации из стран Северной Америки, вы можете создать тег «North American» и назначить соответствующие страны (США, Мексика и Канада) в качестве значений. 
 
+Этот пример кода показывает, как добавить тег к [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) с помощью Aspose.Slides for .NET:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -51,8 +57,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-Теги также могут быть установлены для [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide):
 
+Теги также можно установить для [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide):
 ```csharp
 using(Presentation pres = new Presentation())
 {
@@ -61,8 +67,8 @@ using(Presentation pres = new Presentation())
 }
 ```
 
-Или для любого отдельного [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape):
 
+Или для отдельного [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape):
 ```csharp
 using(Presentation pres = new Presentation())
 {
@@ -72,3 +78,18 @@ using(Presentation pres = new Presentation())
     shape.CustomData.Tags["tag"] = "value";
 }
 ```
+
+
+## **FAQ**
+
+**Могу ли я удалить все теги из презентации, слайда или фигуры одним действием?**
+
+Да. [Сборка тегов](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/) поддерживает операцию [clear](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/clear/), которая удаляет все пары ключ‑значение сразу.
+
+**Как удалить один тег по его имени без перебора всей коллекции?**
+
+Используйте операцию [Remove(name)](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/remove/) на [TagCollection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/) для удаления тега по его ключу.
+
+**Как получить полный список имён тегов для аналитики или фильтрации?**
+
+Вызовите [GetNamesOfTags](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/getnamesoftags/) у [сборки тегов](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/); он вернёт массив всех имён тегов.

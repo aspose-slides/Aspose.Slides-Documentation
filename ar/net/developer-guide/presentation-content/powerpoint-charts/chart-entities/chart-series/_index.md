@@ -1,311 +1,309 @@
 ---
-title: سلسلة الرسم البياني
+title: إدارة سلاسل بيانات المخطط في العروض التقديمية باستخدام .NET
+linktitle: سلسلة البيانات
 type: docs
 url: /ar/net/chart-series/
-keywords: "سلسلة الرسم البياني, لون السلسلة, عرض تقديمي في PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "سلاسل الرسم البياني في عروض PowerPoint بلغة C# أو .NET"
+keywords:
+- سلاسل المخطط
+- تداخل السلسلة
+- لون السلسلة
+- لون الفئة
+- اسم السلسلة
+- نقطة البيانات
+- فجوة السلسلة
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "تعلم كيفية إدارة سلاسل المخطط في C# لـ PowerPoint (PPT/PPTX) باستخدام أمثلة عملية وأفضل الممارسات لتعزيز عروض البيانات الخاصة بك."
 ---
 
-السلسلة هي صف أو عمود من الأرقام يتم رسمه في الرسم البياني.
+## **نظرة عامة**
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+تصف هذه المقالة دور [ChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/) في Aspose.Slides for .NET، مع التركيز على كيفية تنظيم البيانات وتصورها داخل العروض التقديمية. توفر هذه الكائنات العناصر الأساسية التي تحدد مجموعات فردية من نقاط البيانات والفئات ومعلمات المظهر في المخطط. من خلال العمل مع [ChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/)، يمكن للمطورين دمج مصادر البيانات الأساسية بسلاسة والحفاظ على التحكم الكامل في كيفية عرض المعلومات، مما ينتج عروضاً تقديمية ديناميكية مدفوعة بالبيانات توضح الرؤى والتحليل بوضوح.
 
-## **تعيين تداخل سلسلة الرسم البياني**
+السلسلة هي صف أو عمود من الأرقام يتم رسمه في مخطط.
 
-باستخدام خاصية [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) ، يمكنك تحديد مقدار تداخل الأشرطة والأعمدة في الرسم البياني ثنائي الأبعاد (النطاق: -100 إلى 100). تنطبق هذه الخاصية على جميع السلاسل في مجموعة السلاسل الأم: هذه هي إسقاط لخاصية المجموعة المناسبة. لذلك، هذه الخاصية للقراءة فقط.
+![سلسلة-المخطط-بوربوينت](chart-series-powerpoint.png)
 
-استخدم خاصية `ParentSeriesGroup.Overlap` القابلة للقراءة/الكتابة لتعيين القيمة المفضلة لديك لـ `Overlap`.
+## **تحديد تداخل سلسلة المخطط**
 
-1. أنشئ مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. أضف رسمًا بيانيًا عموديًا متراصًا على شريحة.
-3. الوصول إلى أول سلسلة رسم بياني.
-4. الوصول إلى `ParentSeriesGroup` لسلسلة الرسم البياني وتعيين قيمة التداخل المفضلة لديك للسلسلة.
-5. قم بكتابة العرض التقديمي المعدل إلى ملف PPTX.
+تتحكم الخاصية [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) في كيفية تداخل الأشرطة والأعمدة في مخطط ثنائي الأبعاد عن طريق تحديد نطاق من -100 إلى 100. نظرًا لارتباط هذه الخاصية بمجموعة السلسلة بدلاً من سلسلة المخطط الفردية، فهي للقراءة فقط على مستوى السلسلة. لتكوين قيم التداخل، استخدم خاصية `ParentSeriesGroup.Overlap` القابلة للقراءة والكتابة، التي تطبق التداخل المحدد على جميع السلاسل في تلك المجموعة.
 
-هذا الكود بلغة C# يوضح لك كيفية تعيين التداخل لسلسلة الرسم البياني:
+فيما يلي مثال بلغة C# يوضح كيفية إنشاء عرض تقديمي، إضافة مخطط عمودي متجمع، الوصول إلى أول سلسلة مخطط، تكوين إعداد التداخل، ثم حفظ النتيجة كملف PPTX:
+```cs
+sbyte overlap = 30;
 
-```c#
 using (Presentation presentation = new Presentation())
 {
-    // إضافة الرسم البياني
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.ChartData.Series;
-    if (series[0].Overlap == 0)
+    ISlide slide = presentation.Slides[0];
+
+    // إضافة مخطط عمودي متجمع بالبيانات الافتراضية.
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.ChartData.Series[0];
+    if (series.Overlap == 0)
     {
-        // تعيين تداخل السلسلة
-        series[0].ParentSeriesGroup.Overlap = -30;
+        // تحديد تداخل السلسلة.
+        series.ParentSeriesGroup.Overlap = overlap;
     }
 
-    // كتابة ملف العرض التقديمي إلى القرص
-    presentation.Save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
+    // حفظ ملف العرض التقديمي إلى القرص.
+    presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **تغيير لون السلسلة**
-Aspose.Slides for .NET يسمح لك بتغيير لون سلسلة بهذه الطريقة:
 
-1. أنشئ مثيل من فئة `Presentation`.
-2. أضف رسمًا بيانيًا على الشريحة.
-3. الوصول إلى السلسلة التي تريد تغيير لونها.
-4. تعيين نوع التعبئة المفضل لديك ولون التعبئة.
-5. حفظ العرض التقديمي المعدل.
+النتيجة:
+![تداخل السلسلة](series_overlap.png)
 
-هذا الكود بلغة C# يوضح لك كيفية تغيير لون سلسلة:
+## **تغيير لون تعبئة السلسلة**
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
+يجعل Aspose.Slides من السهل تخصيص ألوان تعبئة سلاسل المخطط، مما يسمح لك بتمييز نقاط بيانات معينة وإنشاء مخططات جذابة بصريًا. يتم ذلك عبر كائن [IFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformat/) الذي يدعم أنواعًا متعددة من التعبئة، وتكوينات الألوان، وخيارات تنسيق متقدمة أخرى. بعد إضافة مخطط إلى شريحة والوصول إلى السلسلة المطلوبة، ببساطة احصل على السلسلة وطبق لون التعبئة المناسب. بخلاف التعبئات الصلبة، يمكنك أيضًا الاستفادة من التعبئات المتدرجة أو النمطية لمزيد من مرونة التصميم. بمجرد ضبط الألوان وفقًا لمتطلباتك، احفظ العرض التقديمي لإتمام المظهر المحدث.
+
+يوضح المثال التالي بلغة C# كيفية تغيير لون السلسلة الأولى:
+```cs
+Color seriesColor = Color.Blue;
+
+using (Presentation presentation = new Presentation())
 {
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 600, 400);
-	IChartDataPoint point = chart.ChartData.Series[0].DataPoints[1];
-	
-	point.Explosion = 30;
-	point.Format.Fill.FillType = FillType.Solid;
-	point.Format.Fill.SolidFillColor.Color = Color.Blue;
+    ISlide slide = presentation.Slides[0];
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
+    // إضافة مخطط عمودي متجمع بالبيانات الافتراضية.
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    // تعيين لون السلسلة الأولى.
+    IChartSeries series = chart.ChartData.Series[0];
+    series.Format.Fill.FillType = FillType.Solid;
+    series.Format.Fill.SolidFillColor.Color = seriesColor;
+
+    // حفظ ملف العرض التقديمي إلى القرص.
+    presentation.Save("series_color.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **تغيير لون فئة السلسلة**
-Aspose.Slides for .NET يسمح لك بتغيير لون فئة سلسلة بهذه الطريقة:
 
-1. أنشئ مثيل من فئة `Presentation`.
-2. أضف رسمًا بيانيًا على الشريحة.
-3. الوصول إلى فئة السلسلة التي تريد تغيير لونها.
-4. تعيين نوع التعبئة المفضل لديك ولون التعبئة.
-5. حفظ العرض التقديمي المعدل.
-
-هذا الكود بلغة C# يوضح لك كيفية تغيير لون فئة سلسلة:
-
-```c#
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-	IChartDataPoint point = chart.ChartData.Series[0].DataPoints[0];
-	
-	point.Format.Fill.FillType = FillType.Solid;
-	point.Format.Fill.SolidFillColor.Color = Color.Blue;
-
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
-```
+النتيجة:
+![لون السلسلة](series_color.png)
 
 ## **تغيير اسم السلسلة** 
 
-بشكل افتراضي، أسماء الأسطورة لرسم بياني هي محتويات الخلايا الموجودة فوق كل عمود أو صف من البيانات. 
+يوفر Aspose.Slides طريقة بسيطة لتعديل أسماء سلاسل المخطط، مما يسهل تسمية البيانات بطريقة واضحة ذات معنى. من خلال الوصول إلى الخلية المناسبة في ورقة العمل داخل بيانات المخطط، يمكن للمطورين تخصيص طريقة عرض البيانات. يكون هذا التعديل مفيدًا بشكل خاص عندما تحتاج أسماء السلاسل إلى تحديث أو توضيح بناءً على سياق البيانات. بعد إعادة تسمية السلسلة، يمكن حفظ العرض التقديمي لتثبيت التغييرات. 
 
-في مثالنا (صورة عينة)، 
+فيما يلي مقتطف كود C# يوضح هذه العملية عمليًا.
+```cs
+string seriesName = "New name";
 
-* الأعمدة هي *السلسلة 1، السلسلة 2،* و *السلسلة 3*؛
-* الصفوف هي *الفئة 1، الفئة 2، الفئة 3،* و *الفئة 4.* 
-
-Aspose.Slides for .NET يسمح لك بتحديث أو تغيير اسم سلسلة في بيانات رسمه البياني وأسطورته.
-
-هذا الكود بلغة C# يوضح لك كيفية تغيير اسم سلسلة في بيانات رسمه البياني `ChartDataWorkbook`:
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    
-    IChartDataCell seriesCell = chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1);
-    seriesCell.Value = "اسم جديد";
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-هذا الكود بلغة C# يوضح لك كيفية تغيير اسم سلسلة في أسطورته من خلال `Series`:
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IChartSeries series = chart.ChartData.Series[0];
-    
-    IStringChartValue name = series.Name;
-    name.AsCells[0].Value = "اسم جديد";   
-}
-```
-
-## **تعيين لون التعبئة لسلسلة الرسم البياني**
-
-Aspose.Slides for .NET يسمح لك بتعيين لون التعبئة التلقائي لسلسلة الرسم البياني داخل منطقة الرسم بهذه الطريقة:
-
-1. أنشئ مثيل من فئة `Presentation`.
-2. احصل على مرجع لشريحة بواسطة فهرسها.
-3. أضف رسمًا بيانيًا مع بيانات افتراضية بناءً على نوعك المفضل (في المثال أدناه، استخدمنا `ChartType.ClusteredColumn`).
-4. الوصول إلى سلسلة الرسم البياني وتعيين لون التعبئة ليكون تلقائيًا.
-5. حفظ العرض التقديمي إلى ملف PPTX.
-
-هذا الكود بلغة C# يوضح لك كيفية تعيين لون التعبئة التلقائي لسلسلة الرسم البياني:
-
-```c#
 using (Presentation presentation = new Presentation())
 {
-    // إنشاء رسم بياني عمودي متراص
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
+    ISlide slide = presentation.Slides[0];
 
-    // تعيين تنسيق تعبئة السلسلة ليكون تلقائيًا
-    for (int i = 0; i < chart.ChartData.Series.Count; i++)
-    {
-        chart.ChartData.Series[i].GetAutomaticSeriesColor();
-    }
+    // إضافة مخطط عمودي متجمع بالبيانات الافتراضية.
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // كتابة ملف العرض التقديمي إلى القرص
-    presentation.Save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
+    // تعيين اسم السلسلة الأولى.
+    IChartDataCell seriesCell = chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1);
+    seriesCell.Value = seriesName;
+
+    // حفظ ملف العرض التقديمي إلى القرص.
+    presentation.Save("series_name.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **تعيين عكس ألوان التعبئة لسلسلة الرسم البياني**
-Aspose.Slides يسمح لك بتعيين عكس لون التعبئة لسلسلة الرسم البياني داخل منطقة الرسم بهذه الطريقة:
 
-1. أنشئ مثيل من فئة `Presentation`.
-2. احصل على مرجع لشريحة بواسطة فهرسها.
-3. أضف رسمًا بيانيًا ببيانات افتراضية بناءً على نوعك المفضل (في المثال أدناه، استخدمنا `ChartType.ClusteredColumn`).
-4. الوصول إلى سلسلة الرسم البياني وتعيين لون التعبئة ليصبح معكوسًا.
-5. حفظ العرض التقديمي إلى ملف PPTX.
+المثال التالي بلغة C# يوضح طريقة بديلة لتغيير اسم السلسلة:
+```cs
+string seriesName = "New name";
 
-هذا الكود بلغة C# يوضح العملية:
-
-```c#
-Color inverColor = Color.Red;
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+    ISlide slide = presentation.Slides[0];
+
+    // إضافة مخطط عمودي متجمع بالبيانات الافتراضية.
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    // تعيين اسم السلسلة الأولى.
+    IChartSeries series = chart.ChartData.Series[0];
+    series.Name.AsCells[0].Value = seriesName;
+
+    // حفظ ملف العرض التقديمي إلى القرص.
+    presentation.Save("series_name.pptx", SaveFormat.Pptx);
+}
+```
+
+
+النتيجة:
+![اسم السلسلة](series_name.png)
+
+## **الحصول على لون تعبئة السلسلة التلقائي**
+
+يسمح Aspose.Slides for .NET لك بالحصول على لون التعبئة التلقائي لسلسلة مخطط داخل منطقة الرسم. بعد إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)، يمكنك الحصول على إشارة إلى الشريحة المطلوبة عبر الفهرس، ثم إضافة مخطط باستخدام النوع المفضل لديك (مثل `ChartType.ClusteredColumn`). من خلال الوصول إلى السلسلة في المخطط، يمكنك الحصول على لون التعبئة التلقائي.
+
+الكود C# أدناه يوضح هذه العملية بالتفصيل.
+```cs
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
+
+    // إضافة مخطط عمودي متجمع بالبيانات الافتراضية.
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    for (int i = 0; i < chart.ChartData.Series.Count; i++)
+    {
+        // الحصول على لون تعبئة السلسلة.
+        Color color = chart.ChartData.Series[i].GetAutomaticSeriesColor();
+        Console.WriteLine($"Series {i} color: {color.Name}");
+    }
+}
+```
+
+
+الإخراج:
+```text
+Series 0 color: ff4f81bd
+Series 1 color: ffc0504d
+Series 2 color: ff9bbb59
+```
+
+
+## **تعيين لون تعبئة عكسي لسلسلة المخطط**
+
+عندما تحتوي سلسلة البيانات الخاصة بك على قيم موجبة وسالبة، فإن تلوين كل عمود أو شريط بنفس اللون قد يجعل المخطط صعب القراءة. يتيح Aspose.Slides for .NET لك تعيين لون تعبئة عكسي — تعبئة منفصلة تُطبق تلقائيًا على نقاط البيانات التي تقع تحت الصفر — بحيث تبرز القيم السلبية بشكل واضح. في هذا القسم ستتعلم كيفية تمكين هذا الخيار، اختيار اللون المناسب، وحفظ العرض التقديمي المحدث.
+
+الكود التالي يوضح العملية:
+```cs
+Color inverColor = Color.Red;
+
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
+
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
     IChartDataWorkbook workBook = chart.ChartData.ChartDataWorkbook;
 
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    // إضافة سلاسل وفئات جديدة
-    chart.ChartData.Series.Add(workBook.GetCell(0, 0, 1, "السلسلة 1"), chart.Type);
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 1, 0, "الفئة 1"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 2, 0, "الفئة 2"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 3, 0, "الفئة 3"));
+    // إضافة فئات جديدة.
+    chart.ChartData.Categories.Add(workBook.GetCell(0, 1, 0, "Category 1"));
+    chart.ChartData.Categories.Add(workBook.GetCell(0, 2, 0, "Category 2"));
+    chart.ChartData.Categories.Add(workBook.GetCell(0, 3, 0, "Category 3"));
 
-    // أخذ السلسلة الأولى وملء بياناتها.
-    IChartSeries series = chart.ChartData.Series[0];
+    // إضافة سلسلة جديدة.
+    IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, 1, "Series 1"), chart.Type);
+
+    // ملء بيانات السلسلة.
     series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 1, 1, -20));
     series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 2, 1, 50));
     series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 3, 1, -30));
+
+    // تعيين إعدادات اللون للسلسلة.
     var seriesColor = series.GetAutomaticSeriesColor();
     series.InvertIfNegative = true;
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = seriesColor;
     series.InvertedSolidFillColor.Color = inverColor;
-    pres.Save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);               
+
+    presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **تعيين السلسلة لتكون معكوسة عندما تكون القيمة سالبة**
-Aspose.Slides يسمح لك بتعيين العكس من خلال خصائص `IChartDataPoint.InvertIfNegative` و `ChartDataPoint.InvertIfNegative`. عندما يتم تعيين عكس باستخدام الخصائص، تعكس نقطة البيانات ألوانها عندما تحصل على قيمة سالبة.
 
-هذا الكود بلغة C# يوضح لك العملية:
+النتيجة:
+![لون التعبئة الصلبة العكسي](inverted_solid_fill_color.png)
 
-```c#
-using (Presentation pres = new Presentation())
+يمكنك عكس لون التعبئة لنقطة بيانات واحدة بدلاً من السلسلة بأكملها. ببساطة الوصول إلى `IChartDataPoint` المطلوبة وتعيين خاصية `InvertIfNegative` إلى true.
+
+الكود التالي يوضح كيفية القيام بذلك:
+```cs
+using (Presentation presentation = new Presentation())
 {
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-	IChartSeriesCollection series = chart.ChartData.Series;
-	chart.ChartData.Series.Clear();
+    ISlide slide = presentation.Slides[0];
 
-	series.Add(chart.ChartData.ChartDataWorkbook.GetCell(0, "B1"), chart.Type);
-	series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B2", -5));
-	series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B3", 3));
-	series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B4", -2));
-	series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B5", 1));
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200, true);
 
-	series[0].InvertIfNegative = false;
+    chart.ChartData.Series.Clear();
+    IChartSeries series = chart.ChartData.Series.Add(chart.ChartData.ChartDataWorkbook.GetCell(0, "B1"), chart.Type);
 
-	series[0].DataPoints[2].InvertIfNegative = true;
+    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B2", -5));
+    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B3", 3));
+    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B4", -3));
+    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B5", 1));
 
-	pres.Save("out.pptx", SaveFormat.Pptx);
+    // عكس اللون إذا كانت نقطة البيانات ذات الفهرس 2 سلبية.
+    series.InvertIfNegative = false;
+    series.DataPoints[2].InvertIfNegative = true;
+                
+    presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **مسح بيانات نقاط البيانات المحددة**
-Aspose.Slides for .NET يسمح لك بمسح بيانات `DataPoints` لسلسلة رسم بياني محددة بهذه الطريقة:
 
-1. أنشئ مثيل من فئة `Presentation`.
-2. احصل على مرجع لشريحة من خلال فهرسها.
-3. احصل على مرجع لرسم بياني من خلال فهرسه.
-4. ت iter عبر جميع `DataPoints` للرسم البياني وتعيين `XValue` و `YValue` إلى null.
-5. امسح جميع `DataPoints` لسلسلة رسم بياني معينة.
-6. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+## **مسح قيم نقاط بيانات محددة**
 
-هذا الكود بلغة C# يوضح العملية:
+أحيانًا يحتوي المخطط على قيم اختبارية أو قيم متطرفة أو إدخالات قديمة تحتاج إلى إزالتها دون إعادة بناء السلسلة بالكامل. يتيح Aspose.Slides for .NET لك استهداف أي نقطة بيانات عبر الفهرس، مسح محتواها، وتحديث الرسم فورًا بحيث تتحرك النقاط المتبقية وتُعاد قياس المحاور تلقائيًا.
 
-```c#
-using (Presentation pres = new Presentation("TestChart.pptx"))
+يوضح المثال التالي الكود العملية:
+```cs
+using (Presentation presentation = new Presentation("test_chart.pptx"))
 {
-	ISlide sl = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
+    IChart chart = (IChart)slide.Shapes[0];
+    IChartSeries series = chart.ChartData.Series[0];
 
-	IChart chart = (IChart)sl.Shapes[0];
+    foreach (IChartDataPoint dataPoint in series.DataPoints)
+    {
+        dataPoint.XValue.AsCell.Value = null;
+        dataPoint.YValue.AsCell.Value = null;
+    }
 
-	foreach (IChartDataPoint dataPoint in chart.ChartData.Series[0].DataPoints)
-	{
-		dataPoint.XValue.AsCell.Value = null;
-		dataPoint.YValue.AsCell.Value = null;
-	}
+    series.DataPoints.Clear();
 
-	chart.ChartData.Series[0].DataPoints.Clear();
-
-	pres.Save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+    presentation.Save("clear_data_points.pptx", SaveFormat.Pptx);
 }
 ```
+
 
 ## **تعيين عرض الفجوة للسلسلة**
-Aspose.Slides for .NET يسمح لك بتعيين عرض الفجوة لسلسلة من خلال خاصية **`GapWidth`** بهذه الطريقة:
 
-1. أنشئ مثيل من فئة `Presentation`.
-2. الوصول إلى الشريحة الأولى.
-3. أضف رسمًا بيانيًا ببيانات افتراضية.
-4. الوصول إلى أي سلسلة رسم بياني.
-5. تعيين خاصية `GapWidth`.
-6. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+يتحكم عرض الفجوة في مقدار المساحة الفارغة بين الأعمدة أو الأشرطة المتجاورة — الفجوات الواسعة تبرز الفئات الفردية، بينما الفجوات الضيقة تُنشئ مظهرًا أكثر كثافة وتجمعًا. عبر Aspose.Slides for .NET يمكنك ضبط هذه المعلمة بدقة لسلسلة كاملة، لتحقيق التوازن البصري المطلوب في عرضك التقديمي دون تعديل البيانات الأساسية.
 
-هذا الكود بلغة C# يوضح لك كيفية تعيين عرض فجوة لسلسلة:
+الكود التالي يوضح كيفية تعيين عرض الفجوة لسلسلة:
+```cs
+ushort gapWidth = 30;
 
-```c#
-// يقوم بإنشاء عرض تقديمي فارغ 
-Presentation presentation = new Presentation();
+// إنشاء عرض تقديمي فارغ.
+using (Presentation presentation = new Presentation())
+{
+    // الوصول إلى الشريحة الأولى.
+    ISlide slide = presentation.Slides[0];
 
-// الوصول إلى الشريحة الأولى من العرض التقديمي
-ISlide slide = presentation.Slides[0];
+    // إضافة مخطط بالبيانات الافتراضية.
+    IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
 
-// إضافة رسم بياني ببيانات افتراضية
-IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 0, 0, 500, 500);
+    // حفظ العرض التقديمي على القرص.
+    presentation.Save("default_gap_width.pptx", SaveFormat.Pptx);
 
-// تعيين فهرس ورقة البيانات للرسم البياني
-int defaultWorksheetIndex = 0;
+    // تعيين قيمة GapWidth.
+    IChartSeries series = chart.ChartData.Series[0];
+    series.ParentSeriesGroup.GapWidth = gapWidth;
 
-// الحصول على ورقة بيانات الرسم البياني
-IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
-
-// إضافة السلاسل
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "السلسلة 1"), chart.Type);
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "السلسلة 2"), chart.Type);
-
-// إضافة الفئات
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "الفئة 1"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "الفئة 2"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "الفئة 3"));
-
-// أخذ السلسلة الثانية
-IChartSeries series = chart.ChartData.Series[1];
-
-// ملء بيانات السلسلة
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
-
-// تعيين قيمة GapWidth
-series.ParentSeriesGroup.GapWidth = 50;
-
-// حفظ العرض التقديمي إلى القرص
-presentation.Save("GapWidth_out.pptx", SaveFormat.Pptx);
+    // حفظ العرض التقديمي على القرص.
+    presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
+}
 ```
+
+
+النتيجة:
+![عرض الفجوة](gap_width.png)
+
+## **الأسئلة الشائعة**
+
+**هل هناك حد لعدد السلاسل التي يمكن أن يحتويها مخطط واحد؟**
+
+لا يفرض Aspose.Slides أي حد ثابت لعدد السلاسل التي يمكنك إضافتها. الحد العملي يحدده قابلية قراءة المخطط والذاكرة المتاحة لتطبيقك.
+
+**ماذا لو كانت الأعمدة داخل مجموعة متقاربة جدًا أو متباعدة جدًا؟**
+
+قم بضبط إعداد `GapWidth` لتلك السلسلة (أو مجموعة السلسلة الأم). زيادة القيمة توسّع الفجوة بين الأعمدة، بينما تقليلها تقربها من بعضها.

@@ -1,665 +1,500 @@
 ---
-title: تنسيق النص
+title: تنسيق نص العرض التقديمي في .NET
 linktitle: تنسيق النص
 type: docs
 weight: 50
 url: /ar/net/text-formatting/
 keywords:
-- تمييز النص
-- تعبير منتظم
-- محاذاة فقرات النص
+- تسليط الضوء على النص
+- تعبير نمطي
+- محاذاة الفقرة
+- نمط النص
+- خلفية النص
 - شفافية النص
-- خصائص خط الفقرة
+- تباعد الأحرف
+- خصائص الخط
 - عائلة الخط
 - دوران النص
-- دوران الزاوية المخصصة
+- زاوية الدوران
 - إطار النص
 - تباعد الأسطر
 - خاصية الملاءمة التلقائية
-- مرساة إطار النص
+- تثبيت إطار النص
 - تبويب النص
-- النمط الافتراضي للنص
+- اللغة الافتراضية
+- PowerPoint
+- OpenDocument
+- العرض التقديمي
+- .NET
 - C#
-- Aspose.Slides لـ .NET
-description: "إدارة وتعديل النص وخصائص إطار النص في C#"
+- Aspose.Slides
+description: "تنسيق وتنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ .NET. تخصيص الخطوط، الألوان، المحاذاة، وأكثر."
 ---
 
-## نظرة عامة
+## **نظرة عامة**
 
-تصف هذه المقالة كيفية **العمل مع تنسيق نص عرض PowerPoint باستخدام C#** مثل تمييز النص، تطبيق تعبير منتظم، محاذاة فقرات النص، ضبط شفافية النص، تغيير خصائص خط الفقرة، استخدام عائلات الخطوط، ضبط دوران النص، تخصيص دوران الزاوية، إدارة إطار النص، ضبط تباعد الأسطر، استخدام خاصية الملاءمة التلقائية، ضبط مرساة إطار النص، تغيير تبويب النص. تغطي المقالة هذه المواضيع.
+تُقدم هذه المقالة كيفية إدارة وتنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for .NET. ستتعلم كيفية تطبيق ميزات تنسيق النص مثل اختيار الخط، الحجم، اللون، التظليل، لون الخلفية، التباعد، والمحاذاة. بالإضافة إلى ذلك، تغطي العمل مع إطارات النص، الفقرات، التنسيق، وخيارات التخطيط المتقدمة مثل الدوران المخصص وسلوكيات الملاءمة التلقائية.
 
-## **تمييز النص**
-تم إضافة طريقة HighlightText جديدة إلى واجهة ITextFrame وclass TextFrame.
+سواءً كنت تُنشئ العروض تقديميًا برمجيًا أو تُخصّص المحتوى الموجود، ستساعدك هذه الأمثلة على إنشاء تخطيطات نصية واضحة ومظهرها احترافي تعزز شرائحك وتحسّن قابلية القراءة.
 
-يسمح بتمييز جزء من النص بلون الخلفية باستخدام عينة نص، مشابهًا لأداة لون تمييز النص في PowerPoint 2019.
+في الأمثلة أدناه، سنستخدم ملفًا اسمه "sample.pptx"، والذي يحتوي على مربع نص واحد في الشريحة الأولى بالنص التالي:
+![نص العينة](sample_text.png)
 
-1. قم بإنشاء كائن من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) مع ملف الإدخال.
-   - يمكن أن يكون ملف الإدخال PPT، PPTX، ODP، إلخ.
-3. الوصول إلى الشريحة باستخدام مجموعة [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/)
-4. الوصول إلى الشكل باستخدام مجموعة [Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) كـ [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/).
-5. تمييز النص باستخدام طريقة [TextFrame.Highlight()](https://reference.aspose.com/slides/net/aspose.slides/textframe/highlighttext/#highlighttext).
-6. احفظ العرض بالتنسيق المطلوب، أي PPT، PPTX أو ODP، إلخ.
+## **تسليط الضوء على النص**
 
-```c#
-Presentation presentation = new Presentation("SomePresentation.pptx");
-((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightText("title", Color.LightBlue); // تمييز جميع كلمات 'مهم'
-((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightText("to", Color.Violet, new TextHighlightingOptions()
+تتيح لك طريقة [ITextFrame.HighlightText](https://reference.aspose.com/slides/net/aspose.slides/itextframe/highlighttext/) تظليل جزء من النص بلون خلفية بناءً على عينة نص مطابقة.
+
+لاستخدام هذه الطريقة، اتبع الخطوات التالية:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) باستخدام ملف إدخال (PPT، PPTX، ODP، إلخ).
+2. الوصول إلى الشريحة المطلوبة باستخدام مجموعة [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/).
+3. الوصول إلى الشكل المستهدف من مجموعة [Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) وتحويله إلى [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
+4. تظليل النص المطلوب باستخدام طريقة [ITextFrame.HighlightText](https://reference.aspose.com/slides/net/aspose.slides/itextframe/highlighttext/) عبر تزويده بنص العينة واللون.
+5. حفظ العرض التقديمي بالصيغة المطلوبة (مثل PPT، PPTX، ODP).
+
+مثال الشيفرة أدناه يسلط الضوء على جميع occurrences الأحرف **"try"** والكلمة الكاملة **"to"**.
+```cs
+using (var presentation = new Presentation("sample.pptx"))
 {
-    WholeWordsOnly = true
-}); // تمييز جميع وقوعات 'the' المنفصلة
-presentation.Save("SomePresentation-out2.pptx", SaveFormat.Pptx);
+    // احصل على الشكل الأول من الشريحة الأولى.
+    var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
+
+    // ظلل كلمة "try" في الشكل.
+    shape.TextFrame.HighlightText("try", Color.LightBlue);
+
+    var searchOptions = new TextSearchOptions()
+    {
+        WholeWordsOnly = true
+    };
+
+    // ظلل كلمة "to" في الشكل.
+    shape.TextFrame.HighlightText("to", Color.Violet, searchOptions, null);
+
+    presentation.Save("highlighted_text.pptx", SaveFormat.Pptx);
+}
 ```
+
+
+النتيجة:
+![النص المبرز](highlighted_text.png)
 
 {{% alert color="primary" %}} 
-
-تقدم Aspose خدمة [تحرير PowerPoint مجانية على الإنترنت](https://products.aspose.app/slides/editor)
-
+توفر Aspose محرر PowerPoint عبر الإنترنت بسيط ومجاني.
 {{% /alert %}} 
 
+## **تسليط الضوء على النص باستخدام التعبيرات النمطية**
 
-## **تمييز النص باستخدام تعبير منتظم**
-تمت إضافة طريقة HighlightRegex جديدة إلى واجهة ITextFrame وclass TextFrame.
+يتيح لك Aspose.Slides for .NET البحث وتظليل أجزاء محددة من النص في شرائح PowerPoint باستخدام التعبيرات النمطية. هذه الميزة مفيدة خاصة عندما تحتاج إلى إبراز الكلمات المفتاحية أو الأنماط أو المحتوى القائم على البيانات بشكل ديناميكي. تتيح طريقة [ITextFrame.HighlightRegex](https://docs.aspose.com/slides/net/text-formatting/) تظليل أجزاء من النص بلون خلفية باستخدام تعبير نمطي.
 
-يسمح بتمييز جزء من النص بلون الخلفية باستخدام regex، مشابهًا لأداة لون تمييز النص في PowerPoint 2019.
+مثال الشيفرة أدناه يسلط الضوء على جميع الكلمات التي تحتوي على **سبعة أحرف أو أكثر**:
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
+    // تمييز جميع الكلمات التي تتكون من سبعة أحرف أو أكثر.
+    shape.TextFrame.HighlightRegex(@"\b[^\s]{7,}\b", Color.Yellow, null);
 
-توضح المقتطفات البرمجية أدناه كيفية استخدام هذه الميزة:
-
-```c#
-Presentation presentation = new Presentation("SomePresentation.pptx");
-TextHighlightingOptions options = new TextHighlightingOptions();
-((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightRegex(@"\b[^\s]{5,}\b", Color.Blue, options); // تمييز جميع الكلمات التي تحتوي على 10 رموز أو أكثر
-presentation.Save("SomePresentation-out.pptx", SaveFormat.Pptx);
+    presentation.Save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
+}
 ```
+
+
+النتيجة:
+![النص المبرز باستخدام التعبير النمطي](highlighted_text_using_regex.png)
 
 ## **تعيين لون خلفية النص**
 
-تتيح Aspose.Slides لك تحديد اللون المفضل لديك لخلفية النص.
+يوفر Aspose.Slides for .NET القدرة على تطبيق ألوان الخلفية على فقرات كاملة أو أجزاء نصية فردية في شرائح PowerPoint. هذه الوظيفة مفيدة عندما تريد تظليل كلمات أو عبارات محددة، جذب الانتباه إلى الرسائل الأساسية، أو تحسين الجاذبية البصرية لعروضك.
 
-يوضح هذا الكود C# كيفية تعيين لون الخلفية لنص كامل: 
-
-```c#
-using (Presentation pres = new Presentation())
+مثال الشيفرة التالي يوضح كيفية تعيين لون الخلفية لل**فقرة كاملة**:
+```cs
+using (var presentation = new Presentation("sample.pptx"))
 {
-    IAutoShape autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
-    autoShape.TextFrame.Paragraphs.Clear();
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    Paragraph para = new Paragraph();
+    // تعيين لون التظليل للفقرة بأكملها.
+    paragraph.ParagraphFormat.DefaultPortionFormat.HighlightColor.Color = Color.LightGray;
 
-    var portion1 = new Portion("أسود");
-    portion1.PortionFormat.FontBold = NullableBool.True;
-    
-    var portion2 = new Portion(" أحمر ");
-    
-    var portion3 = new Portion("أسود");
-    portion3.PortionFormat.FontBold = NullableBool.True;
-    
-    para.Portions.Add(portion1);
-    para.Portions.Add(portion2);
-    para.Portions.Add(portion3);
-    autoShape.TextFrame.Paragraphs.Add(para);
-    
-    pres.Save("text.pptx", SaveFormat.Pptx);
+    presentation.Save("gray_paragraph.pptx", SaveFormat.Pptx);
 }
+```
 
-using (Presentation pres = new Presentation("text.pptx"))
+
+النتيجة:
+![الفقرة الرمادية](gray_paragraph.png)
+
+مثال الشيفرة أدناه يوضح كيفية تعيين لون الخلفية لـ**أجزاء النص ذات الخط الغامق**:
+```cs
+using (var presentation = new Presentation("sample.pptx"))
 {
-    var autoShape = (IAutoShape)pres.Slides[0].Shapes[0];
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    foreach (IPortion portion in autoShape.TextFrame.Paragraphs[0].Portions)
+    foreach (var portion in paragraph.Portions)
     {
-        portion.PortionFormat.HighlightColor.Color = Color.Blue;
+        if (portion.PortionFormat.GetEffective().FontBold)
+        {
+            // تعيين لون التظليل للجزء النصي.
+            portion.PortionFormat.HighlightColor.Color = Color.LightGray;
+        }
     }
 
-    pres.Save("text-red.pptx", SaveFormat.Pptx);
+    presentation.Save("gray_text_portions.pptx", SaveFormat.Pptx);
 }
 ```
 
-هذا الكود C# يوضح لك كيفية تعيين لون الخلفية لجزء فقط من النص:
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IAutoShape autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
-    autoShape.TextFrame.Paragraphs.Clear();
-
-    Paragraph para = new Paragraph();
-
-    var portion1 = new Portion("أسود");
-    portion1.PortionFormat.FontBold = NullableBool.True;
-    
-    var portion2 = new Portion(" أحمر ");
-    
-    var portion3 = new Portion("أسود");
-    portion3.PortionFormat.FontBold = NullableBool.True;
-    
-    para.Portions.Add(portion1);
-    para.Portions.Add(portion2);
-    para.Portions.Add(portion3);
-    autoShape.TextFrame.Paragraphs.Add(para);
-    
-    pres.Save("text.pptx", SaveFormat.Pptx);
-}
-
-using (Presentation pres = new Presentation("text.pptx"))
-{
-    var autoShape = (IAutoShape)pres.Slides[0].Shapes[0];
-
-    IPortion redPortion = autoShape.TextFrame.Paragraphs[0].Portions
-        .First(p => p.Text.Contains("أحمر"));
-
-    redPortion.PortionFormat.HighlightColor.Color = Color.Red;
-    
-    pres.Save("text-red.pptx", SaveFormat.Pptx);
-}
-```
+النتيجة:
+![الأجزاء النصية الرمادية](gray_text_portions.png)
 
 ## **محاذاة فقرات النص**
 
-يعتبر تنسيق النص أحد العناصر الرئيسية أثناء إنشاء أي نوع من الوثائق أو العروض التقديمية. نعلم أن Aspose.Slides لـ .NET تدعم إضافة نص إلى الشرائح ولكن في هذا الموضوع، سنرى كيف يمكننا التحكم في محاذاة فقرات النص في شريحة. يرجى اتباع الخطوات أدناه لمحاذاة فقرات النص باستخدام Aspose.Slides لـ .NET :
+محاذاة النص هي جانب أساسي من تنسيق الشرائح يؤثر على كل من قابلية القراءة والجاذبية البصرية. في Aspose.Slides for .NET، يمكنك التحكم بدقة في محاذاة الفقرات داخل إطارات النص، مما يضمن تقديم محتواك بشكل متسق—سواء كان متمركزًا، محاذيًا لليسار، لليمين، أو مبررًا. يوضح هذا القسم كيفية تطبيق وتخصيص محاذاة النص في عروض PowerPoint الخاصة بك.
 
-1. إنشاء كائن من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. الحصول على مرجع لشريحة باستخدام الفهرس الخاص بها.
-3. الوصول إلى أشكال العناصر النائبة الموجودة في الشريحة وتحويلها إلى AutoShape.
-4. الحصول على الفقرة (التي تحتاج إلى محاذاة) من TextFrame المعرض بواسطة AutoShape.
-5. محاذاة الفقرة. يمكن محاذاة الفقرة إلى اليمين أو اليسار أو المنتصف أو تبريرها.
-6. كتابة العرض المعدل كملف PPTX.
-
-تم تنفيذ الخطوات أعلاه أدناه.
-
-```c#
-// إنشاء كائن Presentation يمثل ملف PPTX
-using (Presentation pres = new Presentation("ParagraphsAlignment.pptx"))
+مثال الشيفرة التالي يوضح كيفية محاذاة الفقرة إلى **الوسط**:
+```cs
+using (var presentation = new Presentation("sample.pptx"))
 {
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // الوصول إلى الشريحة الأولى
-    ISlide slide = pres.Slides[0];
+    // تعيين محاذاة الفقرة إلى الوسط.
+    paragraph.ParagraphFormat.Alignment = TextAlignment.Center;
 
-    // الوصول إلى العنصر النائب الأول والثاني في الشريحة وتحويله إلى AutoShape
-    ITextFrame tf1 = ((IAutoShape)slide.Shapes[0]).TextFrame;
-    ITextFrame tf2 = ((IAutoShape)slide.Shapes[1]).TextFrame;
-
-    // تغيير النص في كلا العنصرين 
-    tf1.Text = "محاذاة مركزية بواسطة Aspose";
-    tf2.Text = "محاذاة مركزية بواسطة Aspose";
-
-    // الحصول على الفقرة الأولى من العنصرين النائبين
-    IParagraph para1 = tf1.Paragraphs[0];
-    IParagraph para2 = tf2.Paragraphs[0];
-
-    // محاذاة فقرة النص إلى المنتصف
-    para1.ParagraphFormat.Alignment = TextAlignment.Center;
-    para2.ParagraphFormat.Alignment = TextAlignment.Center;
-
-    // كتابة العرض كملف PPTX
-    pres.Save("Centeralign_out.pptx", SaveFormat.Pptx);
+    presentation.Save("aligned_paragraph.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-## **تعيين الشفافية للنص**
-توضح هذه المقالة كيفية تعيين خاصية الشفافية لأي شكل نص باستخدام Aspose.Slides لـ .NET. من أجل تعيين الشفافية على النص. يرجى اتباع الخطوات أدناه:
+النتيجة:
+![الفقرة المحاذاة](aligned_paragraph.png)
 
-1. إنشاء كائن من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. الحصول على مرجع لشريحة.
-3. تعيين لون الظل
-4. كتابة العرض كملف PPTX.
+## **تعيين شفافية النص**
 
-تم تنفيذ الخطوات أعلاه أدناه.
+ضبط شفافية النص يتيح لك إنشاء تأثيرات بصرية خفيفة وتحسين جمالية الشرائح. يوفر Aspose.Slides for .NET القدرة على تعيين مستوى شفافية الفقرات وأجزاء النص، مما يسهل دمج النص مع الخلفيات أو إبراز عناصر معينة. يوضح هذا القسم كيفية تطبيق إعدادات الشفافية على النص في عروضك.
 
-```c#
-using (Presentation pres = new Presentation("transparency.pptx"))
+مثال الشيفرة أدناه يوضح كيفية تطبيق الشفافية على **الفقرة كاملة**:
+```cs
+int alpha = 50;
+
+using (var presentation = new Presentation("sample.pptx"))
 {
-    IAutoShape shape = (IAutoShape)pres.Slides[0].Shapes[0];
-    IEffectFormat effects = shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.EffectFormat;
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    IOuterShadow outerShadowEffect = effects.OuterShadowEffect;
+    // تعيين لون تعبئة النص إلى لون شفاف.
+    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
 
-    Color shadowColor = outerShadowEffect.ShadowColor.Color;
-    Console.WriteLine($"{shadowColor} - الشفافية هي: {((float)shadowColor.A / byte.MaxValue) * 100}");
-
-    // تعيين الشفافية إلى صفر بالمئة
-    outerShadowEffect.ShadowColor.Color = Color.FromArgb(255, shadowColor);
-
-    pres.Save("transparency-2.pptx", SaveFormat.Pptx);
+    presentation.Save("transparent_paragraph.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+النتيجة:
+![الفقرة الشفافة](transparent_paragraph.png)
+
+مثال الشيفرة التالي يوضح كيفية تطبيق الشفافية على **أجزاء النص ذات الخط الغامق**:
+```cs
+int alpha = 50;
+
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+    foreach (var portion in paragraph.Portions)
+    {
+        if (portion.PortionFormat.GetEffective().FontBold)
+        {
+            // تعيين شفافية الجزء النصي.
+            portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+            portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
+        }
+    }
+
+    presentation.Save("transparent_text_portions.pptx", SaveFormat.Pptx);
+}
+```
+
+
+النتيجة:
+![الأجزاء النصية الشفافة](transparent_text_portions.png)
 
 ## **تعيين تباعد الأحرف للنص**
 
-تتيح Aspose.Slides لك تعيين المسافة بين الحروف في مربع نص. بهذه الطريقة، يمكنك ضبط الكثافة البصرية لخط أو كتلة نصية عن طريق توسيع أو تقليل المسافة بين الأحرف.
+يتيح لك Aspose.Slides تعيين التباعد بين الحروف في مربع نص. هذا يسمح لك بضبط الكثافة البصرية لسطر أو كتلة نصية عن طريق توسيع أو تقليل المسافة بين الأحرف.
 
-يوضح هذا الكود C# كيف يمكنك توسيع المسافة لخط واحد من النص وتقليل المسافة لخط آخر:
-
-```c#
-var presentation = new Presentation("in.pptx");
-
-var textBox1 = (IAutoShape) presentation.Slides[0].Shapes[0];
-var textBox2 = (IAutoShape) presentation.Slides[0].Shapes[1];
-
-textBox1.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.Spacing = 20; // توسيع
-textBox2.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.Spacing = -2; // تقليل
-
-presentation.Save("out.pptx", SaveFormat.Pptx);
-```
-
-## **إدارة خصائص خط الفقرة**
-
-تحتوي العروض التقديمية عادةً على كل من النصوص والصور. يمكن تنسيق النص بطرق متنوعة، إما لتسليط الضوء على أقسام وكلمات محددة، أو للامتثال للأساليب المؤسسية. يساعد تنسيق النص المستخدمين على تغيير الشكل والمظهر لمحتوى العرض التقديمي. توضح هذه المقالة كيفية استخدام Aspose.Slides لـ .NET لتكوين خصائص خط الفقرات النص على الشرائح. لإدارة خصائص خط فقرة باستخدام Aspose.Slides لـ .NET :
-
-1. إنشاء كائن من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. الحصول على مرجع لشريحة باستخدام فهرسها.
-3. الوصول إلى أشكال العنصر النائب في الشريحة وتحويلها إلى AutoShape.
-4. الحصول على الفقرة من TextFrame المعرض بواسطة AutoShape.
-5. تبرير الفقرة.
-6. الوصول إلى جزء نص فقرة.
-7. تعريف الخط باستخدام FontData وتعيين الخط لجزء النص وفقًا لذلك.
-   1. تعيين الخط كعريض.
-   1. تعيين الخط كإيطالي.
-8. تعيين لون الخط باستخدام FillFormat المعروض بواسطة كائن Portion.
-9. كتابة العرض المعدل كملف [PPTX](https://docs.fileformat.com/presentation/pptx/) .
-
-تم تنفيذ الخطوات أعلاه أدناه. يأخذ عرضًا غير مزخرف ويدرج تنسيقات الخطوط على واحدة من الشرائح.
-
-```c#
-// إنشاء كائن Presentation يمثل ملف PPTX
-using (Presentation pres = new Presentation("FontProperties.pptx"))
+الكود C# التالي يوضح كيفية توسيع تباعد الأحرف في **الفقرة بأكملها**:
+```cs
+using (var presentation = new Presentation("sample.pptx"))
 {
-
-    // الوصول إلى الشريحة باستخدام موضعها
-    ISlide slide = pres.Slides[0];
-
-    // الوصول إلى العنصر النائب الأول والثاني في الشريحة وتحويلها إلى AutoShape
-    ITextFrame tf1 = ((IAutoShape)slide.Shapes[0]).TextFrame;
-    ITextFrame tf2 = ((IAutoShape)slide.Shapes[1]).TextFrame;
-
-    // الوصول إلى الفقرة الأولى
-    IParagraph para1 = tf1.Paragraphs[0];
-    IParagraph para2 = tf2.Paragraphs[0];
-
-    // الوصول إلى الجزء الأول
-    IPortion port1 = para1.Portions[0];
-    IPortion port2 = para2.Portions[0];
-
-    // تعريف خطوط جديدة
-    FontData fd1 = new FontData("Elephant");
-    FontData fd2 = new FontData("Castellar");
-
-    // تعيين الخطوط الجديدة للجزء
-    port1.PortionFormat.LatinFont = fd1;
-    port2.PortionFormat.LatinFont = fd2;
-
-    // تعيين الخط كعريض
-    port1.PortionFormat.FontBold = NullableBool.True;
-    port2.PortionFormat.FontBold = NullableBool.True;
-
-    // تعيين الخط كإيطالي
-    port1.PortionFormat.FontItalic = NullableBool.True;
-    port2.PortionFormat.FontItalic = NullableBool.True;
-
-    // تعيين لون الخط
-    port1.PortionFormat.FillFormat.FillType = FillType.Solid;
-    port1.PortionFormat.FillFormat.SolidFillColor.Color = Color.Purple;
-    port2.PortionFormat.FillFormat.FillType = FillType.Solid;
-    port2.PortionFormat.FillFormat.SolidFillColor.Color = Color.Peru;
-
-    // كتابة PPTX إلى القرص
-    pres.Save("WelcomeFont_out.pptx", SaveFormat.Pptx);
-}
-```
-
-
-## **إدارة عائلة الخط للنص**
-يستخدم الجزء للاحتفاظ بالنص الذي له نمط تنسيق مشابه في فقرة. توضح هذه المقالة كيفية استخدام Aspose.Slides لـ .NET لإنشاء مربع نص ببعض النص ثم تعريف خط معين، وخصائص أخرى مختلفة من فئة عائلة الخط. لإنشاء مربع نص وتعيين خصائص الخط للنص بداخله:
-
-1. إنشاء كائن من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. الحصول على مرجع لشريحة باستخدام فهرسها.
-3. إضافة AutoShape من نوع مستطيل إلى الشريحة.
-4. إزالة نمط التعبئة المرتبط بـ AutoShape.
-5. الوصول إلى TextFrame الخاص بـ AutoShape.
-6. إضافة بعض النص إلى TextFrame.
-7. الوصول إلى كائن Portion المرتبط بـ TextFrame.
-8. تحديد الخط الذي سيتم استخدامه للجزء.
-9. تحديد خصائص خط أخرى مثل العريض، الإيطالي، والتسطير، اللون والارتفاع باستخدام الخصائص المناسبة كما هو معروض بواسطة كائن Portion.
-10. كتابة العرض المعدل كملف PPTX.
-
-تم تنفيذ الخطوات أعلاه أدناه.
-
-```c#
-// إنشاء Presentation
-using (Presentation presentation = new Presentation())
-{
-   
-    // الحصول على الشريحة الأولى
-    ISlide sld = presentation.Slides[0];
-
-    // إضافة AutoShape من نوع مستطيل
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
-
-    // إزالة أي نمط تعبئة مرتبط بـ AutoShape
-    ashp.FillFormat.FillType = FillType.NoFill;
-
-    // الوصول إلى TextFrame المرتبط بـ AutoShape
-    ITextFrame tf = ashp.TextFrame;
-    tf.Text = "مربع نص Aspose";
-
-    // الوصول إلى الجزء المرتبط بـ TextFrame
-    IPortion port = tf.Paragraphs[0].Portions[0];
-
-    // تعيين الخط للجزء
-    port.PortionFormat.LatinFont = new FontData("Times New Roman");
-
-    // تعيين خاصية العريض للخط
-    port.PortionFormat.FontBold = NullableBool.True;
-
-    // تعيين خاصية الإيطالي للخط
-    port.PortionFormat.FontItalic = NullableBool.True;
-
-    // تعيين خاصية التسطير للخط
-    port.PortionFormat.FontUnderline = TextUnderlineType.Single;
-
-    // تعيين ارتفاع الخط
-    port.PortionFormat.FontHeight = 25;
-
-    // تعيين لون الخط
-    port.PortionFormat.FillFormat.FillType = FillType.Solid;
-    port.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-
-    // كتابة العرض إلى القرص 
-    presentation.Save("SetTextFontProperties_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **تعيين حجم الخط للنص**
-
-تتيح Aspose.Slides لك اختيار حجم الخط المفضل لديك للنص الموجود في فقرة والنصوص الأخرى التي قد تضاف إلى الفقرة لاحقًا.
-
-يوضح هذا C# كيفية تعيين حجم الخط للنص الموجود في فقرة:
-
-```c#
-var presentation = new Presentation("example.pptx");
-
-// يحصل على الشكل الأول، على سبيل المثال.
-var shape = presentation.Slides[0].Shapes[0];
-
-if (shape is IAutoShape autoShape)
-{
-    // يحصل على الفقرة الأولى، على سبيل المثال.
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // تعيين الحجم الافتراضي للخط إلى 20 pt لجميع أجزاء النص في الفقرة. 
-    paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 20;
+    // ملاحظة: استخدم القيم السالبة لضغط تباعد الأحرف.
+    paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // توسيع تباعد الأحرف.
 
-    // تعيين حجم الخط إلى 20 pt للجزء الحالي من النص في الفقرة. 
+    presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
+}
+```
+
+
+النتيجة:
+![تباعد الأحرف في الفقرة](character_spacing_in_paragraph.png)
+
+مثال الشيفرة أدناه يوضح كيفية توسيع تباعد الأحرف في **أجزاء النص ذات الخط الغامق**:
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
+
     foreach (var portion in paragraph.Portions)
     {
-        portion.PortionFormat.FontHeight = 20;
+        if (portion.PortionFormat.GetEffective().FontBold)
+        {
+            // ملاحظة: استخدم القيم السالبة لضغط تباعد الأحرف.
+            portion.PortionFormat.Spacing = 3;  // توسيع تباعد الأحرف.
+        }
     }
-}
 
-presentation.Save("output.pptx", SaveFormat.Pptx);
+    presentation.Save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx);
+}
 ```
+
+
+النتيجة:
+![تباعد الأحرف في الأجزاء النصية](character_spacing_in_text_portions.png)
+
+## **إدارة خصائص خط النص**
+
+يوفر Aspose.Slides for .NET القدرة على ضبط إعدادات الخط بدقة على مستوى الفقرة أو لأجزاء النص الفردية، مما يضمن الاتساق البصري وتلبية متطلبات تصميم العرض التقديمي. يمكنك تعريف أنماط الخط، الأحجام، وغيرها من خيارات التنسيق لجميع الفقرات، مما يمنحك تحكمًا أكبر في مظهر النص. يوضح هذا القسم كيفية إدارة خصائص الخط لفقرات النص في شريحة.
+
+الكود التالي يحدد الخط ونمط النص للفقرة بأكملها: يطبق حجم الخط، الغامق، المائل، التسطير النقطي، وخط Times New Roman على جميع الأجزاء في الفقرة.
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+    // تعيين خصائص الخط للفقرة.
+    paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 12;
+    paragraph.ParagraphFormat.DefaultPortionFormat.FontBold = NullableBool.True;
+    paragraph.ParagraphFormat.DefaultPortionFormat.FontItalic = NullableBool.True;
+    paragraph.ParagraphFormat.DefaultPortionFormat.FontUnderline = TextUnderlineType.Dotted;
+    paragraph.ParagraphFormat.DefaultPortionFormat.LatinFont = new FontData("Times New Roman");
+
+    presentation.Save("font_properties_for_paragraph.pptx", SaveFormat.Pptx);
+}
+```
+
+
+النتيجة:
+![خصائص الخط للفقرة](font_properties_for_paragraph.png)
+
+مثال الشيفرة أدناه يطبق خصائص مماثلة على **أجزاء النص ذات الخط الغامق**:
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+    foreach (var portion in paragraph.Portions)
+    {
+        if (portion.PortionFormat.GetEffective().FontBold)
+        {
+            // تعيين خصائص الخط للجزء النصي.
+            portion.PortionFormat.FontHeight = 13;
+            portion.PortionFormat.FontItalic = NullableBool.True;
+            portion.PortionFormat.FontUnderline = TextUnderlineType.Dotted;
+            portion.PortionFormat.LatinFont = new FontData("Times New Roman");
+        }
+    }
+
+    presentation.Save("font_properties_for_text_portions.pptx", SaveFormat.Pptx);
+}
+```
+
+
+النتيجة:
+![خصائص الخط للأجزاء النصية](font_properties_for_text_portions.png)
 
 ## **تعيين دوران النص**
 
-تتيح Aspose.Slides لـ .NET للمطورين تدوير النص. يمكن تعيين النص ليظهر كأفقي، عمودي، عمودي 270، عمودي WordArt، عمودي EastAsian، عمودي Mongolian أو عمودي WordArt من اليمين إلى اليسار. لتدوير نص أي TextFrame، يرجى اتباع الخطوات أدناه:
+يمكن أن يعزز تدوير النص تخطيط الشرائح ويساعد على إبراز محتوى معين. باستخدام Aspose.Slides for .NET، يمكنك بسهولة تطبيق دوران على النص داخل الأشكال، وضبط الزاوية لتتناسب مع التصميم. يوضح هذا القسم كيفية تعيين والتحكم في دوران النص لتحقيق التأثير البصري المطلوب.
 
-1. إنشاء كائن من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. الوصول إلى الشريحة الأولى.
-3. إضافة أي شكل إلى الشريحة.
-4. الوصول إلى TextFrame.
-5. تدوير النص.
-6. حفظ الملف على القرص.
+الكود التالي يعيّن اتجاه النص في الشكل إلى `Vertical270`، مما يدور النص **90 درجة عكس اتجاه عقارب الساعة**:
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-```c#
-// إنشاء كائن من Presentation class
-Presentation presentation = new Presentation();
+    autoShape.TextFrame.TextFrameFormat.TextVerticalType = TextVerticalType.Vertical270;
 
-// الحصول على الشريحة الأولى 
-ISlide slide = presentation.Slides[0];
-
-// إضافة AutoShape من نوع مستطيل
-IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
-
-// إضافة TextFrame إلى المستطيل
-ashp.AddTextFrame(" ");
-ashp.FillFormat.FillType = FillType.NoFill;
-
-// الوصول إلى إطار النص
-ITextFrame txtFrame = ashp.TextFrame;
-txtFrame.TextFrameFormat.TextVerticalType = TextVerticalType.Vertical270;
-
-// إنشاء كائن Paragraph لإطار النص
-IParagraph para = txtFrame.Paragraphs[0];
-
-// إنشاء كائن Portion للفقرة
-IPortion portion = para.Portions[0];
-portion.Text = "ثور بني سريع يقفز فوق الكلب الكسول. ثور بني سريع يقفز فوق الكلب الكسول.";
-portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-
-// حفظ العرض
-presentation.Save("RotateText_out.pptx", SaveFormat.Pptx);
+    presentation.Save("text_rotation.pptx", SaveFormat.Pptx);
+}
 ```
 
 
-## **تعيين زاوية دوران مخصصة لـ TextFrame**
-تدعم Aspose.Slides لـ .NET الآن، تعيين زاوية دوران مخصصة لـ textframe. في هذا الموضوع، سنرى مع المثال كيفية تعيين خاصية RotationAngle في Aspose.Slides. تم إضافة خاصية RotationAngle جديدة إلى الواجهات IChartTextBlockFormat وITextFrameFormat، مما يسمح بتعيين زاوية الدوران المخصصة لـ textframe. من أجل تعيين خاصية RotationAngle، يرجى اتباع الخطوات أدناه:
+النتيجة:
+![دوران النص](text_rotation.png)
 
-1. إنشاء كائن من [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. إضافة مخطط على الشريحة.
-3. تعيين خاصية RotationAngle.
-4. كتابة العرض كملف PPTX.
+## **تعيين دوران مخصص لإطارات النص**
 
-في المثال أدناه، نقوم بتعيين خاصية RotationAngle.
+تعيين زاوية دوران مخصصة لـ`TextFrame` يتيح لك وضع النص بزوايا دقيقة، مما يمكّن من تصاميم شرائح أكثر إبداعًا ومرونة. يوفر Aspose.Slides for .NET تحكمًا كاملاً في دوران إطارات النص، مما يسهل محاذاة النص مع عناصر الشريحة الأخرى. يوجهك هذا القسم خلال تطبيق زاوية دوران محددة على `TextFrame`.
 
-```c#
-// إنشاء كائن من Presentation class
-Presentation presentation = new Presentation();
+مثال الشيفرة أدناه يدور إطار النص بمقدار 3 درجات باتجاه عقارب الساعة داخل الشكل:
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    autoShape.TextFrame.TextFrameFormat.RotationAngle = 3;
 
-IChartSeries series = chart.ChartData.Series[0];
-
-series.Labels.DefaultDataLabelFormat.ShowValue = true;
-series.Labels.DefaultDataLabelFormat.TextFormat.TextBlockFormat.RotationAngle = 65;
-
-chart.HasTitle = true;
-chart.ChartTitle.AddTextFrameForOverriding("عنوان مخصص").TextFrameFormat.RotationAngle = -30;
-
-// حفظ العرض
-presentation.Save("textframe-rotation_out.pptx", SaveFormat.Pptx);
+    presentation.Save("custom_text_rotation.pptx", SaveFormat.Pptx);
+}
 ```
 
 
-## **تباعد الأسطر للفقرات**
-توفر Aspose.Slides خصائص ([SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/spaceafter)، [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/spacebefore)، و[SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/spacewithin)) تحت فئة [ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/) التي تسمح لك بإدارة تباعد الأسطر لفقرات محددة. يتم استخدام الخصائص الثلاث بهذه الطريقة:
+النتيجة:
+![دوران النص المخصص](custom_text_rotation.png)
 
-* لتحديد تباعد الأسطر لفقرة معينة كنسبة مئوية، استخدم قيمة إيجابية. 
-* لتحديد تباعد الأسطر لفقرة معينة بالنقاط، استخدم قيمة سالبة.
+## **تعيين تباعد الأسطر للفقرات**
 
-على سبيل المثال، يمكنك تطبيق تباعد خط بحجم 16 نقطة على فقرة من خلال تعيين خاصية `SpaceBefore` إلى -16.
+يوفر Aspose.Slides الخصائص `SpaceAfter` و`SpaceBefore` و`SpaceWithin` ضمن فئة [ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/)، مما يتيح لك إدارة تباعد الأسطر للفقرة. تُستخدم هذه الخصائص كما يلي:
+* استخدام قيمة موجبة لتحديد تباعد السطر كنسبة مئوية من ارتفاع السطر.
+* استخدام قيمة سالبة لتحديد تباعد السطر بالنقاط.
 
-هذا هو كيف تحدد تباعد الأسطر لفقرة محددة:
+مثال الكود التالي يوضح كيفية تحديد تباعد الأسطر داخل الفقرة:
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-1. تحميل عرض يحتوي على AutoShape وبعض النص فيه.
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. الوصول إلى TextFrame.
-4. الوصول إلى الفقرة.
-5. تعيين خصائص الفقرة.
-6. حفظ العرض.
+    paragraph.ParagraphFormat.SpaceWithin = 200;
 
-يوضح هذا الكود C# كيفية تحديد تباعد الأسطر لفقرة:
-
-```c#
-// إنشاء كائن من Presentation class
-Presentation presentation = new Presentation("Fonts.pptx");
-
-// الحصول على مرجع الشريحة من خلال فهرسها
-ISlide sld = presentation.Slides[0];
-
-// الوصول إلى TextFrame
-ITextFrame tf1 = ((IAutoShape)sld.Shapes[0]).TextFrame;
-
-// الوصول إلى الفقرة
-IParagraph para1 = tf1.Paragraphs[0];
-
-// تعيين خصائص الفقرة
-para1.ParagraphFormat.SpaceWithin = 80;
-para1.ParagraphFormat.SpaceBefore = 40;
-para1.ParagraphFormat.SpaceAfter = 40;
-// حفظ العرض
-presentation.Save("LineSpacing_out.pptx", SaveFormat.Pptx);
+    presentation.Save("line_spacing.pptx", SaveFormat.Pptx);
+}
 ```
 
 
-## **تعيين خاصية AutofitType لإطار النص**
-في هذا الموضوع، سوف نستكشف الخصائص المختلفة لتنسيق إطار النص. تغطي هذه المقالة كيفية تعيين خاصية AutofitType لإطار النص، ومرساة النص، وتدوير النص في العرض التقديمي. تتيح Aspose.Slides لـ .NET للمطورين تعيين خاصية AutofitType لأي إطار نص. يمكن تعيين AutofitType إلى عادي أو شكل. إذا تم تعيينه إلى عادي، فسيبقى الشكل كما هو بينما سيتم ضبط النص دون تسبب الشكل في تغيير نفسه بينما إذا تم تعيين AutofitType إلى الشكل، فستتم تعديل الشكل بحيث يحتوى فقط على النص المطلوب فيه. لتعيين خاصية AutofitType لإطار نص، يرجى اتباع الخطوات أدناه:
+النتيجة:
+![تباعد الأسطر داخل الفقرة](line_spacing.png)
 
-1. إنشاء كائن من [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. الوصول إلى الشريحة الأولى.
-3. إضافة أي شكل إلى الشريحة.
-4. الوصول إلى TextFrame.
-5. تعيين AutofitType لـ TextFrame.
-6. حفظ الملف على القرص.
+## **تعيين نوع الملاءمة التلقائية لإطارات النص**
 
-```c#
-// إنشاء كائن من Presentation class
-Presentation presentation = new Presentation();
+خاصية AutoFitType تحدد سلوك النص عندما يتجاوز حدود الحاوية. يتيح لك Aspose.Slides for .NET التحكم فيما إذا كان النص يجب أن يتقلص ليناسب، يتجاوز، أو يغير حجم الشكل تلقائيًا. يوضح هذا القسم كيفية تعيين `AutofitType` لـ`TextFrame` لإدارة تخطيط النص بفعالية داخل الأشكال.
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-// الوصول إلى الشريحة الأولى 
-ISlide slide = presentation.Slides[0];
+    autoShape.TextFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
 
-// إضافة AutoShape من نوع مستطيل
-IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
-
-// إضافة TextFrame إلى المستطيل
-ashp.AddTextFrame(" ");
-ashp.FillFormat.FillType = FillType.NoFill;
-
-// الوصول إلى إطار النص
-ITextFrame txtFrame = ashp.TextFrame;
-txtFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
-
-// إنشاء كائن Paragraph لإطار النص
-IParagraph para = txtFrame.Paragraphs[0];
-
-// إنشاء كائن Portion للفقرة
-IPortion portion = para.Portions[0];
-portion.Text = "ثور بني سريع يقفز فوق الكلب الكسول. ثور بني سريع يقفز فوق الكلب الكسول.";
-portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-
-// حفظ العرض
-presentation.Save("formatText_out.pptx", SaveFormat.Pptx); 
+    presentation.Save("autofit_type.pptx", SaveFormat.Pptx);
+}
 ```
 
 
-## **تعيين مرساة إطار النص**
-تتيح Aspose.Slides لـ .NET للمطورين تعيين مرساة لأي TextFrame. يحدد TextAnchorType مكان وضع هذا النص في الشكل. يمكن تعيين TextAnchorType إلى أعلى أو وسط أو أسفل أو مبرر أو موزع. لتعيين مرساة لأي TextFrame، يرجى اتباع الخطوات أدناه:
+## **تعيين المرفق لإطارات النص**
 
-1. إنشاء كائن من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. الوصول إلى الشريحة الأولى.
-3. إضافة أي شكل إلى الشريحة.
-4. الوصول إلى TextFrame.
-5. تعيين TextAnchorType لإطار النص.
-6. حفظ الملف على القرص.
+يُحدد التثبيت كيف يتم وضع النص داخل الشكل رأسيًا. باستخدام Aspose.Slides for .NET، يمكنك تعيين نوع التثبيت لـ`TextFrame` لمحاذاة النص إلى أعلى، وسط، أو أسفل الشكل. يوضح هذا القسم كيفية تعديل إعدادات التثبيت لتحقيق المحاذاة الرأسية المطلوبة لمحتوى النص.
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-```c#
-// إنشاء كائن من Presentation class
-Presentation presentation = new Presentation();
+    autoShape.TextFrame.TextFrameFormat.AnchoringType = TextAnchorType.Bottom;
 
-// الحصول على الشريحة الأولى 
-ISlide slide = presentation.Slides[0];
-
-// إضافة AutoShape من نوع مستطيل
-IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
-
-// إضافة TextFrame إلى المستطيل
-ashp.AddTextFrame(" ");
-ashp.FillFormat.FillType = FillType.NoFill;
-
-// الوصول إلى إطار النص
-ITextFrame txtFrame = ashp.TextFrame;
-txtFrame.TextFrameFormat.AnchoringType = TextAnchorType.Bottom;
-
-// إنشاء كائن Paragraph لإطار النص
-IParagraph para = txtFrame.Paragraphs[0];
-
-// إنشاء كائن Portion للفقرة
-IPortion portion = para.Portions[0];
-portion.Text = "ثور بني سريع يقفز فوق الكلب الكسول. ثور بني سريع يقفز فوق الكلب الكسول.";
-portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-
-// حفظ العرض
-presentation.Save("AnchorText_out.pptx", SaveFormat.Pptx);
+    presentation.Save("text_anchor.pptx", SaveFormat.Pptx);
+}
 ```
+
 
 ## **تعيين تبويب النص**
-- EffectiveTabs.ExplicitTabCount (2 في حالتنا هذه) تعادل Tabs.Count.
-- تتضمن مجموعة EffectiveTabs جميع علامات التبويب (من مجموعة Tabs وعلامات التبويب الافتراضية)
-- EffectiveTabs.ExplicitTabCount (2 في حالتنا هذه) تعادل Tabs.Count.
-- تظهر خاصية EffectiveTabs.DefaultTabSize (294) المسافة بين علامات التبويب الافتراضية (3 و 4 في مثالنا).
-- ستعيد EffectiveTabs.GetTabByIndex(index) برقم الفهرس = 0 علامة التبويب الصريحة الأولى (الموقع = 731)، الفهرس = 1 - العلامة الثانية (الموقع = 1241). إذا حاولت الحصول على علامة التبويب التالية برقم الفهرس = 2، فسيعيد الانتقال إلى علامة التبويب الافتراضية الأولى (الموقع = 1470) وهكذا.
-- مستخدمًا EffectiveTabs.GetTabAfterPosition(pos) للحصول على التبويب التالي بعد نص معين. على سبيل المثال، لديك نص: "Helloworld!". لرسم هذا النص، يجب أن تعرف أين تبدأ "world!". في البداية، يجب عليك حساب طول "Hello" بالبكسل واستدعاء GetTabAfterPosition مع هذه القيمة. ستحصل على الموقع التالي لعرض "world!".
+
+يساعد التبويب على تنظيم النص في تخطيطات منظمة بإضافة مسافات متسقة بين عناصر المحتوى. يدعم Aspose.Slides for .NET تعيين نقاط تبويب مخصصة داخل فقرات النص، مما يتيح تحكمًا دقيقًا في موضع النص. يوضح هذا القسم كيفية تكوين تبويب النص لتحسين المحاذاة والتنسيق.
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+    paragraph.ParagraphFormat.DefaultTabSize = 100;
+    paragraph.ParagraphFormat.Tabs.Add(30, TabAlignment.Left);
+
+    presentation.Save("paragraph_tabs.pptx", SaveFormat.Pptx);
+}
+```
+
+
+النتيجة:
+![تبويبات الفقرة](paragraph_tabs.png)
 
 ## **تعيين لغة التدقيق**
 
-تتيح Aspose.Slides خاصية [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) (المعرضة من فئة [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) لتعيين لغة التدقيق لملف PowerPoint. لغة التدقيق هي اللغة التي يتم من خلالها التحقق من الإملاء والقواعد في PowerPoint.
+يوفر Aspose.Slides الخاصية `LanguageId` لفئة [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/)، والتي تتيح لك تعيين لغة التدقيق لمستند PowerPoint. تحدد لغة التدقيق اللغة المستخدمة لتدقيق الإملاء والقواعد النحوية في PowerPoint.
 
-يوضح هذا الكود C# كيفية تعيين لغة التدقيق لـ PowerPoint:
-
-```c#
-using (Presentation pres = new Presentation(pptxFileName))
+مثال الكود التالي يوضح كيفية تعيين لغة التدقيق لجزء نصي:
+```cs
+using (var presentation = new Presentation("presentation.pptx"))
 {
-    AutoShape autoShape = (AutoShape)pres.Slides[0].Shapes[0];
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-    IParagraph paragraph = autoShape.TextFrame.Paragraphs[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
     paragraph.Portions.Clear();
 
-    Portion newPortion = new Portion();
+    var font = new FontData("SimSun");
 
-    IFontData font = new FontData("SimSun");
-    IPortionFormat portionFormat = newPortion.PortionFormat;
-    portionFormat.ComplexScriptFont = font;
-    portionFormat.EastAsianFont = font;
-    portionFormat.LatinFont = font;
+    var textPortion = new Portion();
+    textPortion.PortionFormat.ComplexScriptFont = font;
+    textPortion.PortionFormat.EastAsianFont = font;
+    textPortion.PortionFormat.LatinFont = font;
 
-    portionFormat.LanguageId = "zh-CN"; // تعيين معرف لغة التدقيق
-    
-    newPortion.Text = "1。";
-    paragraph.Portions.Add(newPortion);
+    // تعيين معرف لغة التدقيق.
+    textPortion.PortionFormat.LanguageId = "zh-CN";
+
+    textPortion.Text = "1。";
+    paragraph.Portions.Add(textPortion);
+
+    presentation.Save("proofing_language.pptx", SaveFormat.Pptx);
 }
 ```
+
 
 ## **تعيين اللغة الافتراضية**
 
-يوضح هذا الكود C# كيفية تعيين اللغة الافتراضية لعرض PowerPoint بالكامل:
-
-```c#
-LoadOptions loadOptions = new LoadOptions();
+تحديد اللغة الافتراضية للنص يضمن صحة تدقيق الإملاء، وتقطيع الكلمات، وسلوك التحويل النص إلى كلام في PowerPoint. يتيح لك Aspose.Slides for .NET تعيين اللغة على مستوى الجزء النصي أو الفقرة. يوضح هذا القسم كيفية تعريف اللغة الافتراضية لنص العرض التقديمي الخاص بك.
+```cs
+var loadOptions = new LoadOptions();
 loadOptions.DefaultTextLanguage = "en-US";
-using (Presentation pres = new Presentation(loadOptions))
+
+using (var presentation = new Presentation(loadOptions))
 {
-    // إضافة شكل مستطيل جديد مع نص
-    IAutoShape shp = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
-    shp.TextFrame.Text = "نص جديد";
-    
-    // يتحقق من لغة العنصر الأول
-    Console.WriteLine(shp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LanguageId);
+    var slide = presentation.Slides[0];
+
+    // إضافة شكل مستطيل جديد مع نص.
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
+    shape.TextFrame.Text = "Sample text";
+
+    // فحص لغة الجزء الأول.
+    var portion = shape.TextFrame.Paragraphs[0].Portions[0];
+    Console.WriteLine(portion.PortionFormat.LanguageId);
 }
 ```
 
+
 ## **تعيين نمط النص الافتراضي**
 
-إذا كنت بحاجة إلى تطبيق نفس تنسيق النص الافتراضي على جميع عناصر نص العرض التقديمي مرة واحدة، فيمكنك استخدام خاصية `DefaultTextStyle` من واجهة [IPresentation](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/) وتعيين التنسيق المفضل لديك. يوضح مثال الكود أدناه كيفية تعيين الخط العريض الافتراضي (14 نقطة) للنص على جميع الشرائح في عرض تقديمي جديد.
-
-```c#
-using (Presentation presentation = new Presentation())
+إذا كنت بحاجة إلى تطبيق نفس تنسيق النص الافتراضي على جميع عناصر النص في عرض تقديمي مرة واحدة، يمكنك استخدام خاصية `DefaultTextStyle` لواجهة [IPresentation](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/) وتحديد التنسيق المفضل لديك.
+```cs
+using (var presentation = new Presentation())
 {
-    // الحصول على تنسيق الفقرة الرئيسي.
-    IParagraphFormat paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
+    // احصل على تنسيق الفقرة في المستوى الأعلى.
+    var paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
 
     if (paragraphFormat != null)
     {
@@ -667,6 +502,50 @@ using (Presentation presentation = new Presentation())
         paragraphFormat.DefaultPortionFormat.FontBold = NullableBool.True;
     }
 
-    presentation.Save("DefaultTextStyle.pptx", SaveFormat.Pptx);
+    presentation.Save("default_text_style.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **استخراج النص مع تأثير الأحرف الكبيرة**
+
+في PowerPoint، يؤدي تطبيق تأثير الخط **All Caps** إلى ظهور النص بأحرف كبيرة على الشريحة حتى لو تم كتابته أصلاً بأحرف صغيرة. عند استرداد مثل هذا الجزء النصي باستخدام Aspose.Slides، تُعيد المكتبة النص كما تم إدخاله بالضبط. للتعامل مع ذلك، تحقق من [TextCapType](https://reference.aspose.com/slides/net/aspose.slides/textcaptype/)—إذا أظهر `All`، قم ببساطة بتحويل السلسلة المرجعة إلى أحرف كبيرة حتى يتطابق الناتج مع ما يراه المستخدمون على الشريحة.
+
+لنفترض أن لدينا مربع النص التالي على الشريحة الأولى من ملف sample2.pptx.
+![تأثير الأحرف الكبيرة](all_caps_effect.png)
+
+مثال الشيفرة أدناه يوضح كيفية استخراج النص مع تطبيق تأثير **All Caps**:
+```cs
+using (var presentation = new Presentation("sample2.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var textPortion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+
+    Console.WriteLine($"Original text: {textPortion.Text}");
+
+    var textFormat = textPortion.PortionFormat.GetEffective();
+    if (textFormat.TextCapType == TextCapType.All)
+    {
+        var text = textPortion.Text.ToUpper();
+        Console.WriteLine($"All-Caps effect: {text}");
+    }
+}
+```
+
+
+المخرجات:
+```text
+Original text: Hello, Aspose!
+All-Caps effect: HELLO, ASPOSE!
+```
+
+
+## **الأسئلة المتكررة**
+
+**كيف يمكن تعديل النص في جدول داخل شريحة؟**
+
+لتعديل النص في جدول داخل شريحة، يجب عليك استخدام كائن [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/). يمكنك التكرار عبر جميع خلايا الجدول وتغيير النص في كل خلية عن طريق الوصول إلى خصائص `TextFrame` و`ParagraphFormat` الخاصة بها داخل كل خلية.
+
+**كيف يمكن تطبيق لون متدرج على النص في شريحة PowerPoint؟**
+
+لتطبيق لون متدرج على النص، استخدم الخاصية `FillFormat` في [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/). قم بتعيين `FillFormat` إلى `Gradient`، حيث يمكنك تحديد ألوان البداية والنهاية للمتدرج، إلى جانب خصائص أخرى مثل الاتجاه والشفافية لإنشاء تأثير المتدرج على النص.

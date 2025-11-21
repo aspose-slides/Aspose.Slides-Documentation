@@ -1,76 +1,100 @@
 ---
-title: Эллипс
+title: Добавление эллипсов в презентации на .NET
+linktitle: Эллипс
 type: docs
 weight: 30
 url: /ru/net/ellipse/
-keywords: "Эллипс, фигура PowerPoint, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
-description: "Создание эллипса в презентации PowerPoint на C# или .NET"
+keywords:
+- эллипс
+- форма
+- добавить эллипс
+- создать эллипс
+- нарисовать эллипс
+- форматированный эллипс
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Узнайте, как создавать, форматировать и управлять формами эллипсов в Aspose.Slides для .NET в презентациях PPT и PPTX — включены примеры кода на C#."
 ---
 
+## **Создать эллипс**
+В этой теме мы расскажем разработчикам, как добавить формы эллипса на свои слайды, используя Aspose.Slides for .NET. Aspose.Slides for .NET предоставляет простой набор API для рисования различных форм всего в несколькими строками кода. Чтобы добавить простой эллипс на выбранный слайд презентации, выполните следующие шаги:
 
-## **Создание Эллипса**
-В этой теме мы познакомим разработчиков с добавлением фигур эллипса на их слайды с помощью Aspose.Slides для .NET. Aspose.Slides для .NET предоставляет более простой набор API для рисования различных типов фигур всего с несколькими строками кода. Чтобы добавить простой эллипс на выбранный слайд презентации, выполните следующие шаги:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)
+1. Создайте экземпляр [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class
 1. Получите ссылку на слайд, используя его индекс
-1. Добавьте автофигуру типа Эллипс с помощью метода AddAutoShape, предоставляемого объектом IShapes
-1. Запишите измененную презентацию в файл PPTX
+1. Добавьте AutoShape типа Ellipse с помощью метода AddAutoShape, доступного через объект IShapes
+1. Сохраните изменённую презентацию в файл PPTX
 
-В приведенном ниже примере мы добавили эллипс на первый слайд.
-
+В примере ниже мы добавили эллипс на первый слайд.
 ```c#
-// Создание экземпляра класса Presentation, который представляет PPTX
+// Создайте экземпляр класса Presentation, представляющего PPTX
 using (Presentation pres = new Presentation())
 {
-
     // Получите первый слайд
     ISlide sld = pres.Slides[0];
 
-    // Добавьте автофигуру типа эллипс
+    // Добавьте AutoShape типа Ellipse
     sld.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 150, 150, 50);
 
-    // Запишите файл PPTX на диск
+    //Запишите файл PPTX на диск
     pres.Save("EllipseShp1_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
 
-## **Создание Форматированного Эллипса**
-Чтобы добавить лучше отформатированный эллипс на слайд, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+## **Создать отформатированный эллипс**
+Чтобы добавить более отформатированный эллипс на слайд, выполните следующие шаги:
+
+1. Создайте экземпляр [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
 1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте автофигуру типа Эллипс с помощью метода AddAutoShape, предоставляемого объектом IShapes.
-1. Установите тип заливки эллипса на Сплошной.
-1. Установите цвет эллипса, используя свойство SolidFillColor.Color, предоставляемое объектом FillFormat, связанным с объектом IShape.
+1. Добавьте AutoShape типа Ellipse с помощью метода AddAutoShape, доступного через объект IShapes.
+1. Установите тип заливки эллипса в Solid.
+1. Установите цвет эллипса, используя свойство SolidFillColor.Color, доступное через объект FillFormat, связанный с объектом IShape.
 1. Установите цвет линий эллипса.
 1. Установите ширину линий эллипса.
-1. Запишите измененную презентацию в файл PPTX.
+1. Сохраните изменённую презентацию в файл PPTX.
 
-В приведенном ниже примере мы добавили отформатированный эллипс на первый слайд презентации.
-
+В примере ниже мы добавили отформатированный эллипс на первый слайд презентации.
 ```c#
-// Создание экземпляра класса Presentation, который представляет PPTX
-using (Presentation pres = new Presentation())
-{
+    // Создать экземпляр класса Presentation, представляющего PPTX
+    using (Presentation pres = new Presentation())
+    {
 
-    // Получите первый слайд
-    ISlide sld = pres.Slides[0];
+        // Получить первый слайд
+        ISlide sld = pres.Slides[0];
 
-    // Добавьте автофигуру типа эллипс
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 150, 150, 50);
+        // Добавить AutoShape типа Ellipse
+        IShape shp = sld.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 150, 150, 50);
 
-    // Примените некоторые стили к фигуре эллипса
-    shp.FillFormat.FillType = FillType.Solid;
-    shp.FillFormat.SolidFillColor.Color = Color.Chocolate;
+        // Применить некоторое форматирование к форме эллипса
+        shp.FillFormat.FillType = FillType.Solid;
+        shp.FillFormat.SolidFillColor.Color = Color.Chocolate;
 
-    // Примените некоторые стили к линии эллипса
-    shp.LineFormat.FillFormat.FillType = FillType.Solid;
-    shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    shp.LineFormat.Width = 5;
+        // Применить некоторое форматирование к линии эллипса
+        shp.LineFormat.FillFormat.FillType = FillType.Solid;
+        shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+        shp.LineFormat.Width = 5;
 
-    // Запишите файл PPTX на диск
-    pres.Save("EllipseShp2_out.pptx", SaveFormat.Pptx);
-}
+        //Записать файл PPTX на диск
+        pres.Save("EllipseShp2_out.pptx", SaveFormat.Pptx);
+    }
 ```
+
+
+## **FAQ**
+
+**Как задать точное положение и размер эллипса относительно единиц измерения слайда?**
+
+Координаты и размеры обычно указываются **в пунктах**. Для предсказуемых результатов основывайте вычисления на размере слайда и преобразуйте требуемые миллиметры или дюймы в пункты перед присвоением значений.
+
+**Как разместить эллипс выше или ниже других объектов (управление порядком наложения)?**
+
+Отрегулируйте порядок рисования объекта, переместив его на передний план или отправив назад. Это позволяет эллипсу перекрывать другие объекты или раскрывать находящиеся под ним.
+
+**Как анимировать появление или акцентирование эллипса?**
+
+[Apply](/slides/ru/net/shape-animation/) входные, акцентные или выходные эффекты к фигуре, а также настройте триггеры и тайминг, чтобы контролировать, когда и как анимация воспроизводится.

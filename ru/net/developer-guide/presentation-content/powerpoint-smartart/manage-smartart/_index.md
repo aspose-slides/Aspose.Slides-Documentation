@@ -1,15 +1,26 @@
 ---
-title: Управление SmartArt
+title: Управление SmartArt в презентациях PowerPoint на .NET
+linktitle: Управление SmartArt
 type: docs
 weight: 10
 url: /ru/net/manage-smartart/
-keywords: "SmartArt, текст из SmartArt, организационная диаграмма, диаграмма организации с изображениями, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
-description: "SmartArt и организационная диаграмма в презентациях PowerPoint на C# или .NET"
+keywords:
+- SmartArt
+- Текст SmartArt
+- тип макета
+- скрытое свойство
+- организационная диаграмма
+- диаграмма организации с изображениями
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Изучите создание и редактирование SmartArt в PowerPoint с помощью Aspose.Slides для .NET, используя понятные примеры кода C#, ускоряющие разработку слайдов и автоматизацию."
 ---
 
 ## **Получить текст из SmartArt**
-Теперь к интерфейсу ISmartArtShape и классу SmartArtShape было добавлено свойство TextFrame. Это свойство позволяет получить весь текст из SmartArt, если он содержит не только текст узлов. Пример кода ниже поможет вам получить текст из узла SmartArt.
-
+Сейчас свойство TextFrame добавлено в интерфейс ISmartArtShape и класс SmartArtShape соответственно. Это свойство позволяет получить весь текст из SmartArt, если он содержит не только текст узлов. Следующий пример кода поможет вам получить текст из узла SmartArt.
 ```c#
 using (Presentation pres = new Presentation("Presentation.pptx"))
 {
@@ -29,17 +40,15 @@ using (Presentation pres = new Presentation("Presentation.pptx"))
 ```
 
 
-
 ## **Изменить тип макета SmartArt**
-Чтобы изменить тип макета SmartArt, выполните следующие шаги:
+Чтобы изменить тип макета SmartArt, выполните следующие действия:
 
 - Создайте экземпляр класса `Presentation`.
-- Получите ссылку на слайд, используя его индекс.
+- Получите ссылку на слайд, используя его Index.
 - Добавьте SmartArt BasicBlockList.
 - Измените LayoutType на BasicProcess.
-- Сохраните презентацию в виде файла PPTX.
-  В приведенном ниже примере мы добавили соединитель между двумя фигурами.
-
+- Запишите презентацию в файл PPTX.
+В приведённом ниже примере мы добавили соединитель между двумя фигурами.
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -49,34 +58,31 @@ using (Presentation presentation = new Presentation())
     // Изменить LayoutType на BasicProcess
     smart.Layout = SmartArtLayoutType.BasicProcess;
 
-    // Сохранение презентации
+    // Сохранить презентацию
     presentation.Save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-
-## **Проверить скрытое свойство SmartArt**
-Обратите внимание, что метод com.aspose.slides.ISmartArtNode.isHidden() возвращает true, если этот узел является скрытым в модели данных. Чтобы проверить скрытое свойство любого узла SmartArt, выполните следующие шаги:
+## **Проверить свойство Hidden у SmartArt**
+Обратите внимание, что метод com.aspose.slides.ISmartArtNode.isHidden() возвращает true, если этот узел является скрытым в модели данных. Чтобы проверить свойство hidden любого узла SmartArt, выполните следующие действия:
 
 - Создайте экземпляр класса `Presentation`.
 - Добавьте SmartArt RadialCycle.
-- Добавьте узел на SmartArt.
+- Добавьте узел в SmartArt.
 - Проверьте свойство isHidden.
-- Сохраните презентацию в виде файла PPTX.
-
-В приведенном ниже примере мы добавили соединитель между двумя фигурами.
-
+- Запишите презентацию в файл PPTX.
+В приведённом ниже примере мы добавили соединитель между двумя фигурами.
 ```c#
 using (Presentation presentation = new Presentation())
 {
     // Добавить SmartArt BasicProcess 
     ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
 
-    // Добавить узел на SmartArt 
+    // Добавить узел в SmartArt 
     ISmartArtNode node = smart.AllNodes.AddNode();
 
-    // Проверка свойства isHidden
+    // Проверить свойство IsHidden
     bool hidden = node.IsHidden; // Возвращает true
 
     if (hidden)
@@ -89,16 +95,14 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-
 ## **Получить или установить тип организационной диаграммы**
-Методы com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) позволяют получить или установить тип организационной диаграммы, связанный с текущим узлом. Чтобы получить или установить тип организационной диаграммы, выполните следующие шаги:
+Методы com.aspose.slides.ISmartArtNode.getOrganizationChartLayout() и setOrganizationChartLayout(int) позволяют получить или установить тип организационной диаграммы, связанной с текущим узлом. Чтобы получить или установить тип организационной диаграммы, выполните следующие действия:
 
 - Создайте экземпляр класса `Presentation`.
 - Добавьте SmartArt на слайд.
 - Получите или установите тип организационной диаграммы.
-- Сохраните презентацию в виде файла PPTX.
-  В приведенном ниже примере мы добавили соединитель между двумя фигурами.
-
+- Запишите презентацию в файл PPTX.
+В приведённом ниже примере мы добавили соединитель между двумя фигурами.
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -114,18 +118,14 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-
-
-## **Создать организационную диаграмму с изображениями**
-Aspose.Slides для .NET предоставляет простой API для создания организационных диаграмм с изображениями. Чтобы создать диаграмму на слайде:
+## **Создать диаграмму Picture Organization**
+Aspose.Slides for .NET предоставляет простой API для создания диаграмм PictureOrganization простым способом. Чтобы создать диаграмму на слайде:
 
 1. Создайте экземпляр класса `Presentation`.
-1. Получите ссылку на слайд по его индексу.
-1. Добавьте диаграмму с данными по умолчанию с желаемым типом (ChartType.PictureOrganizationChart).
-1. Запишите измененную презентацию в файл PPTX.
-
-Ниже приведен код для создания диаграммы.
-
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте диаграмму с данными по умолчанию и нужным типом (ChartType.PictureOrganizationChart).
+4. Запишите изменённую презентацию в файл PPTX.
+Следующий код используется для создания диаграммы.
 ```c#
 public static void Run()
 {
@@ -136,3 +136,18 @@ public static void Run()
 	}			
 }
 ```
+
+
+## **FAQ**
+
+**Поддерживает ли SmartArt зеркальное отображение/реверсирование для RTL-языков?**  
+Да. Свойство [IsReversed](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/isreversed/) переключает направление диаграммы (LTR/RTL), если выбранный тип SmartArt поддерживает реверс.
+
+**Как скопировать SmartArt на тот же слайд или в другую презентацию, сохраняя форматирование?**  
+Вы можете [клонировать форму SmartArt](/slides/ru/net/shape-manipulations/) через коллекцию форм ([ShapeCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addclone/)) или [клонировать весь слайд](/slides/ru/net/clone-slides/) содержащий эту форму. Оба подхода сохраняют размер, позицию и стиль.
+
+**Как отобразить SmartArt в растровом изображении для предпросмотра или веб-экспорта?**  
+[Отрендерить слайд](/slides/ru/net/convert-powerpoint-to-png/) (или всю презентацию) в PNG/JPEG с помощью API, который конвертирует слайды/презентации в изображения — SmartArt будет отрисован как часть слайда.
+
+**Как программно выбрать конкретный SmartArt на слайде, если их несколько?**  
+Обычно используют [альтернативный текст](https://reference.aspose.com/slides/net/aspose.slides/shape/alternativetext/) (Alt Text) или [Name](https://reference.aspose.com/slides/net/aspose.slides/shape/name/) и ищут форму по этому атрибуту в [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/), затем проверяют тип, чтобы убедиться, что это [SmartArt](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/). Документация описывает типичные техники поиска и работы с формами.

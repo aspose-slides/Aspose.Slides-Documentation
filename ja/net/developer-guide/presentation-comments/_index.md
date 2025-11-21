@@ -1,74 +1,90 @@
 ---
-title: プレゼンテーションコメント
+title: .NET でプレゼンテーション コメントを管理
+linktitle: プレゼンテーション コメント
 type: docs
 weight: 100
 url: /ja/net/presentation-comments/
-keywords: "コメント, PowerPoint コメント, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
-description: "C# または .NET で PowerPoint プレゼンテーションにコメントと返信を追加します"
+keywords:
+- コメント
+- モダンコメント
+- PowerPoint コメント
+- プレゼンテーションコメント
+- スライドコメント
+- コメントを追加
+- コメントにアクセス
+- コメントを編集
+- コメントに返信
+- コメントを削除
+- コメントを削除
+- PowerPoint
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET でプレゼンテーションのコメントをマスターし、PowerPoint ファイルのコメントを高速かつ簡単に追加、読み取り、編集、削除できます。"
 ---
 
-PowerPoint では、コメントはスライド上のノートまたは注釈として表示されます。コメントをクリックすると、その内容やメッセージが表示されます。
+PowerPoint では、コメントはスライド上のノートや注釈として表示されます。コメントをクリックすると、その内容やメッセージが表示されます。
 
-## **プレゼンテーションにコメントを追加する理由は何ですか？**
+## **プレゼンテーションにコメントを追加する理由**
 
-プレゼンテーションをレビューする際に、フィードバックを提供したり、同僚とコミュニケーションを取るためにコメントを使用したい場合があります。
+プレゼンテーションをレビューする際に、フィードバックを提供したり同僚とやり取りしたりするためにコメントを使用したい場合があります。
 
-PowerPoint プレゼンテーションでコメントを使用できるように、Aspose.Slides for .NET は以下を提供します。
+PowerPoint プレゼンテーションでコメントを使用できるように、Aspose.Slides for .NET は次の機能を提供します。
 
-* [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラス。このクラスには、スライドにコメントを追加する著者のコレクション（[CommentAuthorCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/properties/index) プロパティから）があります。
-* [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) インターフェース。このインターフェースには、個々の著者に対するコメントのコレクションがあります。
-* [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) クラス。このクラスには、著者およびそのコメントに関する情報が含まれています：コメントを追加した人、コメントが追加された時間、コメントの位置など。
-* [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) クラス。このクラスには、個々の著者に関する情報が含まれています：著者の名前、イニシャル、著者の名前に関連付けられたコメントなど。
+* スライドの著者コレクション（[CommentAuthorCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/properties/index) プロパティ）を保持する [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラス。著者はスライドにコメントを追加します。  
+* 個々の著者向けのコメントコレクションを保持する [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) インターフェイス。  
+* コメントの作成者やコメント情報（誰が追加したか、追加時間、コメントの位置など）を保持する [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) クラス。  
+* 個々の著者情報（著者名、イニシャル、著者名に関連付けられたコメントなど）を保持する [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) クラス。
 
-## **スライドコメントを追加する**
-この C# コードは、PowerPoint プレゼンテーションのスライドにコメントを追加する方法を示しています。
-
+## **スライドコメントの追加**
+この C# コードは、PowerPoint プレゼンテーションのスライドにコメントを追加する方法を示しています:
 ```c#
-// Presentation クラスをインスタンス化
+ // Presentation クラスのインスタンスを作成します
 using (Presentation presentation = new Presentation())
 {
-    // 空のスライドを追加
+    // 空のスライドを追加します
     presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
 
-    // 著者を追加
+    // 著者を追加します
     ICommentAuthor author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
 
-    // コメントの位置を設定
+    // コメントの位置を設定します
     PointF point = new PointF();
     point.X = 0.2f;
     point.Y = 0.2f;
 
-    // スライド 1 の著者用のスライドコメントを追加
-    author.Comments.AddComment("こんにちは Jawad、これはスライドコメントです", presentation.Slides[0], point, DateTime.Now);
+    // 著者のスライド1へのスライドコメントを追加します
+    author.Comments.AddComment("Hello Jawad, this is slide comment", presentation.Slides[0], point, DateTime.Now);
 
-    // スライド 2 の著者用のスライドコメントを追加
-    author.Comments.AddComment("こんにちは Jawad、これは2つ目のスライドコメントです", presentation.Slides[1], point, DateTime.Now);
+    // 著者のスライド2へのスライドコメントを追加します
+    author.Comments.AddComment("Hello Jawad, this is second slide comment", presentation.Slides[1], point, DateTime.Now);
 
-    // ISlide 1 にアクセス
+    // ISlide 1 にアクセスします
     ISlide slide = presentation.Slides[0];
 
-    // 引数に null を渡すと、全著者のコメントが選択したスライドに取得されます
+    // 引数に null を渡すと、すべての著者からのコメントが選択したスライドに持ち込まれます
     IComment[] Comments = slide.GetSlideComments(author);
 
-    // スライド 1 のインデックス 0 のコメントにアクセス
+    // スライド1のインデックス0のコメントにアクセスします
     String str = Comments[0].Text;
 
     presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 
     if (Comments.GetLength(0) > 0)
     {
-        // インデックス 0 で著者のコメントコレクションを選択
+        // インデックス0の著者のコメントコレクションを選択します
         ICommentCollection commentCollection = Comments[0].Author.Comments;
         String Comment = commentCollection[0].Text;
     }
 }
 ```
 
-## **スライドコメントにアクセスする**
-この C# コードは、PowerPoint プレゼンテーションのスライドにある既存のコメントにアクセスする方法を示しています。
 
+## **スライドコメントへのアクセス**
+この C# コードは、PowerPoint プレゼンテーションのスライド上に既存のコメントにアクセスする方法を示しています:
 ```c#
-// Presentation クラスをインスタンス化
+// Presentation クラスのインスタンスを生成します
 using (Presentation presentation = new Presentation("Comments1.pptx"))
 {
     foreach (var commentAuthor in presentation.CommentAuthors)
@@ -77,44 +93,44 @@ using (Presentation presentation = new Presentation("Comments1.pptx"))
         foreach (var comment1 in author.Comments)
         {
             var comment = (Comment) comment1;
-            Console.WriteLine("ISlide :" + comment.Slide.SlideNumber + " のコメント: " + comment.Text + " 著者: " + comment.Author.Name + " 投稿日時 :" + comment.CreatedTime + "\n");
+            Console.WriteLine("ISlide :" + comment.Slide.SlideNumber + " has comment: " + comment.Text + " with Author: " + comment.Author.Name + " posted on time :" + comment.CreatedTime + "\n");
         }
     }
 }
 ```
 
-## **返信コメント**
-親コメントは、コメントや返信の階層における最上位または元のコメントです。[ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) プロパティ（[IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) インターフェースから）を使用して、親コメントを設定または取得できます。
 
-この C# コードは、コメントを追加し、その返信を取得する方法を示しています。
+## **コメントへの返信**
+親コメントは、コメントや返信の階層における最上位（元）コメントです。[IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) インターフェイスの [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) プロパティを使用して、親コメントの取得または設定ができます。
 
+この C# コードは、コメントを追加し、返信を取得する方法を示しています:
 ```c#
 using (Presentation pres = new Presentation())
 {
-    // コメントを追加
+    // コメントを追加します
     ICommentAuthor author1 = pres.CommentAuthors.AddAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.Comments.AddComment("コメント1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
+    IComment comment1 = author1.Comments.AddComment("comment1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
 
-    // コメント1への返信を追加
+    // comment1 に対する返信を追加します
     ICommentAuthor author2 = pres.CommentAuthors.AddAuthor("Autror_2", "B.B.");
-    IComment reply1 = author2.Comments.AddComment("コメント1への返信 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
+    IComment reply1 = author2.Comments.AddComment("reply 1 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply1.ParentComment = comment1;
 
-    // コメント1への別の返信を追加
-    IComment reply2 = author2.Comments.AddComment("コメント1への返信 2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
+    // comment1 に対する別の返信を追加します
+    IComment reply2 = author2.Comments.AddComment("reply 2 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply2.ParentComment = comment1;
 
-    // 既存の返信への返信を追加
-    IComment subReply = author1.Comments.AddComment("返信 2へのサブ返信 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
+    // 既存の返信に対する返信を追加します
+    IComment subReply = author1.Comments.AddComment("subreply 3 for reply 2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     subReply.ParentComment = reply2;
 
-    IComment comment2 = author2.Comments.AddComment("コメント 2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    IComment comment3 = author2.Comments.AddComment("コメント 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
+    IComment comment2 = author2.Comments.AddComment("comment 2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
+    IComment comment3 = author2.Comments.AddComment("comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
 
-    IComment reply3 = author1.Comments.AddComment("コメント 3への返信 4", pres.Slides[0], new PointF(10, 10), DateTime.Now);
+    IComment reply3 = author1.Comments.AddComment("reply 4 for comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply3.ParentComment = comment3;
 
-    // コンソールにコメントの階層を表示
+    // コンソールにコメント階層を表示します
     ISlide slide = pres.Slides[0];
     var comments = slide.GetSlideComments(null);
     for (int i = 0; i < comments.Length; i++)
@@ -132,81 +148,81 @@ using (Presentation pres = new Presentation())
 
     pres.Save("parent_comment.pptx",SaveFormat.Pptx);
 
-    // comment1 とそれに対する全ての返信を削除
+    // comment1 とそのすべての返信を削除します
     comment1.Remove();
 
     pres.Save("remove_comment.pptx", SaveFormat.Pptx);
 }
 ```
 
-{{% alert color="warning" title="注意" %}} 
 
-* [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) メソッド（[IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) インターフェースから）を使用してコメントを削除すると、そのコメントへの返信も削除されます。
-* [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) 設定が循環参照を引き起こすと、[PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) がスローされます。
+{{% alert color="warning" title="Attention" %}} 
+
+* [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) インターフェイスの [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) メソッドでコメントを削除すると、コメントへの返信もすべて削除されます。  
+* [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) の設定が循環参照になると、[PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) がスローされます。
 
 {{% /alert %}}
 
-## **モダンコメントを追加する**
+## **モダンコメントの追加**
 
-2021年、Microsoft は PowerPoint に*モダンコメント*を導入しました。モダンコメント機能は、PowerPoint におけるコラボレーションを大幅に改善します。モダンコメントを通じて、PowerPoint ユーザーはコメントを解決し、オブジェクトやテキストにコメントを固定し、以前よりも簡単に対話を行うことができます。
+2021 年に Microsoft は PowerPoint に *モダンコメント* を導入しました。モダンコメント機能は、PowerPoint の共同作業を大幅に向上させます。モダンコメントにより、コメントの解決、オブジェクトやテキストへのコメントの固定、そしてこれまで以上に簡単にやり取りできるようになりました。
 
-[Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-11-release-notes/) では、[ModernComment](https://reference.aspose.com/slides/net/aspose.slides/moderncomment) クラスを追加することにより、モダンコメントのサポートを実装しました。[AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) と [InsertModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) メソッドが [CommentCollection](https://reference.aspose.com/slides/net/aspose.slides/commentcollection) クラスに追加されました。
+[Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-11-release-notes/) では、[ModernComment](https://reference.aspose.com/slides/net/aspose.slides/moderncomment) クラスを追加してモダンコメントのサポートを実装しました。[CommentCollection](https://reference.aspose.com/slides/net/aspose.slides/commentcollection) クラスに [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) および [InsertModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) メソッドが追加されました。
 
-この C# コードは、PowerPoint プレゼンテーションのスライドにモダンコメントを追加する方法を示しています：
-
+この C# コードは、PowerPoint プレゼンテーションのスライドにモダンコメントを追加する方法を示しています: 
 ```c#
 using (Presentation pres = new Presentation())
 {
-     ICommentAuthor newAuthor = pres.CommentAuthors.AddAuthor("著者名", "SA");
-     IModernComment modernComment = newAuthor.Comments.AddModernComment("これはモダンコメントです", pres.Slides[0], null, new PointF(100, 100), DateTime.Now);
+     ICommentAuthor newAuthor = pres.CommentAuthors.AddAuthor("Some Author", "SA");
+     IModernComment modernComment = newAuthor.Comments.AddModernComment("This is a modern comment", pres.Slides[0], null, new PointF(100, 100), DateTime.Now);
  
      pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **コメントを削除する**
 
-### **全コメントと著者を削除する**
+## **コメントの削除**
 
-この C# コードは、プレゼンテーションのすべてのコメントと著者を削除する方法を示しています。
+### **すべてのコメントと著者を削除**
 
+この C# コードは、プレゼンテーション内のすべてのコメントと著者を削除する方法を示しています:
 ```c#
 using (var presentation = new Presentation("example.pptx"))
 {
-    // プレゼンテーションの全てのコメントを削除
+    // プレゼンテーションからすべてのコメントを削除します
     foreach (var author in presentation.CommentAuthors)
     {
         author.Comments.Clear();
     }
 
-    // すべての著者を削除
+    // すべての著者を削除します
     presentation.CommentAuthors.Clear();
 
     presentation.Save("example_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-### **特定のコメントを削除する**
 
-この C# コードは、スライドで特定のコメントを削除する方法を示しています。
+### **特定のコメントを削除**
 
+この C# コードは、スライド上の特定のコメントを削除する方法を示しています:
 ```c#
 using (var presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
     
-    // コメントを追加...
-    ICommentAuthor author = presentation.CommentAuthors.AddAuthor("著者", "A");
-    author.Comments.AddComment("コメント 1", slide, new PointF(0.2f, 0.2f), DateTime.Now);
-    author.Comments.AddComment("コメント 2", slide, new PointF(0.3f, 0.2f), DateTime.Now);
+    // コメントを追加します...
+    ICommentAuthor author = presentation.CommentAuthors.AddAuthor("Author", "A");
+    author.Comments.AddComment("comment 1", slide, new PointF(0.2f, 0.2f), DateTime.Now);
+    author.Comments.AddComment("comment 2", slide, new PointF(0.3f, 0.2f), DateTime.Now);
     
-    // "コメント 1" テキストを含むすべてのコメントを削除
+    // テキスト "comment 1" 를 포함하는 모든 댓글을 제거합니다
     foreach (ICommentAuthor commentAuthor in presentation.CommentAuthors)
     {
         List<IComment> toRemove = new List<IComment>();
         foreach (IComment comment in slide.GetSlideComments(commentAuthor))
         {
-            if (comment.Text == "コメント 1")
+            if (comment.Text == "comment 1")
             {
                 toRemove.Add(comment);
             }
@@ -221,3 +237,18 @@ using (var presentation = new Presentation())
     presentation.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**Aspose.Slides はモダンコメントに「解決済み」などのステータスをサポートしていますか？**
+
+はい。[Modern comments](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/) は [Status](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/status/) プロパティを公開しています。コメントの状態（例: 解決済み）を取得および設定でき、この状態はファイルに保存され PowerPoint でも認識されます。
+
+**スレッド形式のディスカッション（返信チェーン）はサポートされますか？ネストの上限はありますか？**
+
+はい。各コメントは [parent comment](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/) を参照できるため、任意の深さの返信チェーンを構成できます。API で特定のネスト深さ上限は宣言されていません。
+
+**コメントマーカーの位置はスライドのどの座標系で定義されていますか？**
+
+位置はスライドの座標系における浮動小数点のポイントとして保存されます。これにより、必要な正確な位置にコメントマーカーを配置できます。

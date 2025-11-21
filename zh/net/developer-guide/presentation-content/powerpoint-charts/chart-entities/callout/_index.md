@@ -1,14 +1,23 @@
 ---
-title: 提示框
+title: 在 .NET 中管理演示文稿图表的标注
+linktitle: 标注
 type: docs
 url: /zh/net/callout/
-keywords: "图表提示框, 图表数据标签, C#, Csharp, Aspose.Slides for .NET"
-description: "在C#或.NET中的PowerPoint图表提示框和数据标签"
+keywords:
+- 图表标注
+- 使用标注
+- 数据标签
+- 标签格式
+- PowerPoint
+- 演示文稿
+- .NET
+- C#
+- Aspose.Slides
+description: "使用简洁的 C# 代码示例，在 Aspose.Slides for .NET 中创建和样式化标注，兼容 PPT 和 PPTX，自动化演示工作流。"
 ---
 
-## **使用提示框**
-新属性 **ShowLabelAsDataCallout** 已添加到 **DataLabelFormat** 类和 **IDataLabelFormat** 接口，用于确定指定图表的数据标签是显示为数据提示框还是数据标签。在下面给出的示例中，我们设置了提示框。
-
+## **使用标注**
+已向 **DataLabelFormat** 类和 **IDataLabelFormat** 接口添加了新属性 **ShowLabelAsDataCallout**，该属性确定指定图表的数据标签是显示为数据标注还是显示为数据标签。在下面的示例中，我们已设置标注。
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -21,10 +30,8 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-
-## **为圆环图设置提示框**
-Aspose.Slides for .NET 提供了为圆环图设置系列数据标签提示框形状的支持。下面给出了示例代码。
-
+## **为环形图设置标注**
+Aspose.Slides for .NET 提供了对环形图系列数据标签标注形状的设置支持。下面给出示例。
 ```c#
 Presentation pres = new Presentation("testc.pptx");
 ISlide slide = pres.Slides[0];
@@ -83,3 +90,14 @@ while (categoryIndex < 15)
 }
 pres.Save("chart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
+
+
+## **FAQ**
+
+**在将演示文稿转换为 PDF、HTML5、SVG 或图像时，标注是否会被保留？**
+
+是的。标注是图表渲染的一部分，因此在导出为[PDF](/slides/zh/net/convert-powerpoint-to-pdf/)、[HTML5](/slides/zh/net/export-to-html5/)、[SVG](/slides/zh/net/render-a-slide-as-an-svg-image/)或[光栅图像](/slides/zh/net/convert-powerpoint-to-png/)时，它们会与幻灯片的格式一起被保留。
+
+**自定义字体在标注中是否有效，导出时其外观能否被保留？**
+
+是的。Aspose.Slides 支持将[嵌入字体](/slides/zh/net/embedded-font/)嵌入演示文稿，并在导出如[PDF](/slides/zh/net/convert-powerpoint-to-pdf/)时控制字体嵌入，确保标注在不同系统上保持相同的外观。

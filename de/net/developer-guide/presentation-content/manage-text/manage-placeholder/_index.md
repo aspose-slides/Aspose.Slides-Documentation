@@ -1,54 +1,64 @@
 ---
-title: Platzhalter verwalten
+title: Verwalten von Präsentationsplatzhaltern in .NET
+linktitle: Platzhalter verwalten
 type: docs
 weight: 10
 url: /de/net/manage-placeholder/
-keywords: "Platzhalter, Platzhaltertext, Eingabetext, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "Ändern Sie Platzhaltertext und Eingabetext in PowerPoint-Präsentationen in C# oder .NET"
+keywords:
+- Platzhalter
+- Textplatzhalter
+- Bildplatzhalter
+- Diagrammplatzhalter
+- Hinweistext
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Verwalten Sie mühelos Platzhalter in Aspose.Slides für .NET: Text ersetzen, Hinweistexte anpassen und Bildtransparenz in PowerPoint und OpenDocument festlegen."
 ---
 
-## **Text im Platzhalter ändern**
-Mit [Aspose.Slides für .NET](/slides/de/net/) können Sie Platzhalter auf Folien in Präsentationen finden und bearbeiten. Aspose.Slides ermöglicht es Ihnen, Änderungen am Text in einem Platzhalter vorzunehmen.
+## **Text in Platzhalter ändern**
+Mit [Aspose.Slides für .NET](/slides/de/net/) können Sie Platzhalter in Folien von Präsentationen finden und ändern. Aspose.Slides ermöglicht es, den Text in einem Platzhalter zu ändern.
 
-**Voraussetzung**: Sie benötigen eine Präsentation, die einen Platzhalter enthält. Sie können eine solche Präsentation in der Standardanwendung Microsoft PowerPoint erstellen.
+**Voraussetzung**: Sie benötigen eine Präsentation, die einen Platzhalter enthält. Eine solche Präsentation können Sie in der Standard‑Microsoft‑PowerPoint‑App erstellen.
 
-So verwenden Sie Aspose.Slides, um den Text im Platzhalter in dieser Präsentation zu ersetzen:
+So verwenden Sie Aspose.Slides, um den Text im Platzhalter dieser Präsentation zu ersetzen:
 
-1. Instanziieren Sie die [`Presentation`](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse und übergeben Sie die Präsentation als Argument.
-2. Erhalten Sie eine Folienreferenz über ihren Index.
-3. Durchlaufen Sie die Formen, um den Platzhalter zu finden.
-4. Typecasten Sie die Platzhalterform zu einer [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) und ändern Sie den Text mithilfe des [`TextFrame`](https://reference.aspose.com/slides/net/aspose.slides/textframe/), das mit der [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) verknüpft ist.
-5. Speichern Sie die modifizierte Präsentation.
+1. Instanziieren Sie die [`Presentation`](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse und übergeben Sie die Präsentation als Argument.
+2. Holen Sie sich eine Folienreferenz über deren Index.
+3. Durchlaufen Sie die Shapes, um den Platzhalter zu finden.
+4. Casten Sie das Platzhalter‑Shape zu einem [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) und ändern Sie den Text über das [`TextFrame`](https://reference.aspose.com/slides/net/aspose.slides/textframe/), das dem [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) zugeordnet ist. 
+5. Speichern Sie die geänderte Präsentation.
 
-Dieser C#-Code zeigt, wie Sie den Text in einem Platzhalter ändern:
-
+Dieser C#‑Code zeigt, wie Sie den Text in einem Platzhalter ändern:
 ```c#
-// Instanziiert eine Presentation-Klasse
+// Instanziert eine Presentation-Klasse
 using (Presentation pres = new Presentation("ReplacingText.pptx"))
 {
 
     // Greift auf die erste Folie zu
     ISlide sld = pres.Slides[0];
 
-    // Durchläuft die Formen, um den Platzhalter zu finden
+    // Durchläuft Shapes, um den Platzhalter zu finden
     foreach (IShape shp in sld.Shapes)
         if (shp.Placeholder != null)
         {
             // Ändert den Text in jedem Platzhalter
-            ((IAutoShape)shp).TextFrame.Text = "Das ist ein Platzhalter";
+            ((IAutoShape)shp).TextFrame.Text = "This is a Placeholder";
         }
 
-    // Speichert die Präsentation auf der Festplatte
+    // Speichert die Präsentation auf dem Datenträger
     pres.Save("output_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
 
-## **Eingabetext im Platzhalter festlegen**
-Standard- und vorgefertigte Layouts enthalten Platzhalter-Eingabetexte wie ***Klicken Sie, um einen Titel hinzuzufügen*** oder ***Klicken Sie, um einen Untertitel hinzuzufügen***. Mit Aspose.Slides können Sie Ihre bevorzugten Eingabetexte in Platzhalter-Layout einfügen.
 
-Dieser C#-Code zeigt Ihnen, wie Sie den Eingabetext in einem Platzhalter festlegen:
+## **Platzhalter‑Prompt‑Text festlegen**
+Standard‑ und vordefinierte Layouts enthalten Platzhalter‑Prompt‑Texte wie ***Klicken Sie, um einen Titel hinzuzufügen*** oder ***Klicken Sie, um einen Untertitel hinzuzufügen***. Mit Aspose.Slides können Sie Ihre bevorzugten Prompt‑Texte in Platzhalter‑Layouts einfügen.
 
+Dieser C#‑Code zeigt, wie Sie den Prompt‑Text in einem Platzhalter festlegen:
 ```c#
 using (Presentation pres = new Presentation("Presentation2.pptx"))
 {
@@ -58,18 +68,18 @@ using (Presentation pres = new Presentation("Presentation2.pptx"))
         if (shape.Placeholder != null && shape is AutoShape)
         {
             string text = "";
-            if (shape.Placeholder.Type == PlaceholderType.CenteredTitle) // PowerPoint zeigt "Klicken Sie, um einen Titel hinzuzufügen" an
+            if (shape.Placeholder.Type == PlaceholderType.CenteredTitle) // PowerPoint zeigt "Klicken Sie, um einen Titel hinzuzufügen"
             {
-                text = "Titel hinzufügen";
+                text = "Add Title";
             }
             else if (shape.Placeholder.Type == PlaceholderType.Subtitle) // Fügt Untertitel hinzu
             {
-                text = "Untertitel hinzufügen";
+                text = "Add Subtitle";
             }
 
             ((IAutoShape)shape).TextFrame.Text = text;
 
-            Console.WriteLine($"Platzhalter mit Text: {text}");
+            Console.WriteLine($"Placeholder with text: {text}");
         }
     }
 
@@ -77,12 +87,12 @@ using (Presentation pres = new Presentation("Presentation2.pptx"))
 }
 ```
 
-## **Transparenz des Platzhalterbildes festlegen**
 
-Aspose.Slides ermöglicht es Ihnen, die Transparenz des Hintergrundbildes in einem Textplatzhalter festzulegen. Durch Anpassen der Transparenz des Bildes in einem solchen Rahmen können Sie den Text oder das Bild hervorheben (abhängig von den Farben des Textes und des Bildes).
+## **Transparenz des Platzhalter‑Bildes festlegen**
 
-Dieser C#-Code zeigt Ihnen, wie Sie die Transparenz für einen Bildhintergrund (innerhalb einer Form) festlegen:
+Aspose.Slides ermöglicht es, die Transparenz des Hintergrundbildes in einem Text‑Platzhalter zu setzen. Durch Anpassen der Transparenz des Bildes in einem solchen Rahmen können Sie den Text oder das Bild hervorheben (abhängig von den Farben von Text und Bild).
 
+Dieser C#‑Code zeigt, wie Sie die Transparenz für einen Bild‑Hintergrund (innerhalb einer Form) festlegen:
 ```c#
 using (var presentation = new Presentation())
 {
@@ -94,3 +104,18 @@ using (var presentation = new Presentation())
     autoShape.FillFormat.PictureFillFormat.Picture.ImageTransform.AddAlphaModulateFixedEffect(75);
 }
 ```
+
+
+## **FAQ**
+
+**Was ist ein Basis‑Platzhalter und wie unterscheidet er sich von einem lokalen Shape auf einer Folie?**
+
+Ein Basis‑Platzhalter ist das ursprüngliche Shape in einem Layout oder Master, von dem das Folien‑Shape erbt – Typ, Position und einige Formatierungen stammen daraus. Ein lokales Shape ist unabhängig; gibt es keinen Basis‑Platzhalter, gilt die Vererbung nicht.
+
+**Wie kann ich alle Titel oder Bildunterschriften einer Präsentation aktualisieren, ohne jede Folie einzeln zu durchlaufen?**
+
+Bearbeiten Sie den entsprechenden Platzhalter im Layout oder im Master. Folien, die auf diesen Layouts/diesem Master basieren, übernehmen die Änderung automatisch.
+
+**Wie steuere ich die Standard‑Kopf‑/Fußzeilen‑Platzhalter – Datum & Uhrzeit, Foliennummer und Fußzeilentext?**
+
+Verwenden Sie die HeaderFooter‑Manager im jeweiligen Geltungsbereich (normale Folien, Layouts, Master, Notizen/Handouts), um diese Platzhalter ein- oder auszuschalten und ihren Inhalt festzulegen.

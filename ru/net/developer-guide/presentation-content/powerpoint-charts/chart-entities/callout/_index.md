@@ -1,14 +1,23 @@
 ---
-title: Вызов
+title: Управление выносами в диаграммах презентаций в .NET
+linktitle: Вынос
 type: docs
 url: /ru/net/callout/
-keywords: "Вызов графика, метка данных графика, C#, Csharp, Aspose.Slides для .NET"
-description: "Вызовы графиков PowerPoint и метки данных на C# или .NET"
+keywords:
+- вынос диаграммы
+- использовать вынос
+- метка данных
+- формат метки
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Создавайте и оформляйте выносы в Aspose.Slides for .NET с помощью лаконичных примеров кода на C#, совместимых с PPT и PPTX, для автоматизации рабочих процессов презентаций."
 ---
 
-## **Использование вызовов**
-Новое свойство **ShowLabelAsDataCallout** было добавлено в класс **DataLabelFormat** и интерфейс **IDataLabelFormat**, которое определяет, будет ли указанная метка данных графика отображаться как вызов данных или как метка данных. В приведенном ниже примере мы установили вызовы.
-
+## **Использование выносов**
+Новый свойство **ShowLabelAsDataCallout** добавлено в класс **DataLabelFormat** и интерфейс **IDataLabelFormat**, которое определяет, будет ли метка данных указанного графика отображаться как вынос данных или как метка данных. В приведённом ниже примере мы настроили выноски.
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -21,10 +30,8 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-
-## **Установка вызова для кольцевого графика**
-Aspose.Slides для .NET предоставляет поддержку для установки формы вызова метки данных серии для кольцевого графика. Приведем ниже пример.
-
+## **Установка выноса для кольцевой диаграммы**
+Aspose.Slides for .NET предоставляет возможность задавать форму выноса метки данных серии для кольцевой диаграммы. Ниже приведён пример.
 ```c#
 Presentation pres = new Presentation("testc.pptx");
 ISlide slide = pres.Slides[0];
@@ -36,7 +43,7 @@ chart.HasLegend = false;
 int seriesIndex = 0;
 while (seriesIndex < 15)
 {
-	IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, seriesIndex + 1, "СЕРИЯ " + seriesIndex), chart.Type);
+	IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, seriesIndex + 1, "SERIES " + seriesIndex), chart.Type);
 	series.Explosion = 0;
 	series.ParentSeriesGroup.DoughnutHoleSize = (byte)20;
 	series.ParentSeriesGroup.FirstSliceAngle = 351;
@@ -45,7 +52,7 @@ while (seriesIndex < 15)
 int categoryIndex = 0;
 while (categoryIndex < 15)
 {
-	chart.ChartData.Categories.Add(workBook.GetCell(0, categoryIndex + 1, 0, "КАТЕГОРИЯ " + categoryIndex));
+	chart.ChartData.Categories.Add(workBook.GetCell(0, categoryIndex + 1, 0, "CATEGORY " + categoryIndex));
 	int i = 0;
 	while (i < chart.ChartData.Series.Count)
 	{
@@ -83,3 +90,14 @@ while (categoryIndex < 15)
 }
 pres.Save("chart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
+
+
+## **FAQ**
+
+**Сохраняются ли выноски при конвертации презентации в PDF, HTML5, SVG или изображения?**
+
+Да. Выноски являются частью отрисовки диаграммы, поэтому при экспорте в [PDF](/slides/ru/net/convert-powerpoint-to-pdf/), [HTML5](/slides/ru/net/export-to-html5/), [SVG](/slides/ru/net/render-a-slide-as-an-svg-image/), или [растровые изображения](/slides/ru/net/convert-powerpoint-to-png/), они сохраняются вместе с форматированием слайда.
+
+**Работают ли пользовательские шрифты во выносках, и можно ли сохранить их внешний вид при экспорте?**
+
+Да. Aspose.Slides поддерживает [встраивание шрифтов](/slides/ru/net/embedded-font/) в презентацию и управляет встраиванием шрифтов при экспорте, например в [PDF](/slides/ru/net/convert-powerpoint-to-pdf/), обеспечивая одинаковый внешний вид выносок на разных системах.

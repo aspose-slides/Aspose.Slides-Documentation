@@ -1,54 +1,63 @@
 ---
-title: إطار الصورة
+title: إدارة إطارات الصور في العروض التقديمية في .NET
+linktitle: إطار الصورة
 type: docs
 weight: 10
 url: /ar/net/picture-frame/
-keywords: 
-- إضافة إطار الصورة
-- إنشاء إطار الصورة
+keywords:
+- إطار الصورة
+- إضافة إطار صورة
+- إنشاء إطار صورة
 - إضافة صورة
 - إنشاء صورة
 - استخراج صورة
+- صورة نقطية
+- صورة متجهة
+- قص صورة
+- منطقة مقصوصة
 - خاصية StretchOff
 - تنسيق إطار الصورة
 - خصائص إطار الصورة
-- عرض PowerPoint
+- مقياس نسبي
+- تأثير الصورة
+- نسبة الأبعاد
+- شفافية الصورة
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "إضافة إطار الصورة إلى عرض PowerPoint باستخدام C# أو .NET"
+- Aspose.Slides
+description: "أضف إطارات الصور إلى عروض PowerPoint و OpenDocument باستخدام Aspose.Slides لـ .NET. سَهل سير عملك وحسّن تصاميم الشرائح."
 ---
 
-إطار الصورة هو شكل يحتوي على صورة، إنه مثل صورة داخل إطار.
+إطار الصورة هو شكل يحتوي على صورة — إنه مثل صورة داخل إطار. 
 
-يمكنك إضافة صورة إلى شريحة من خلال إطار الصورة. بهذه الطريقة، يمكنك تنسيق الصورة من خلال تنسيق إطار الصورة.
+يمكنك إضافة صورة إلى شريحة عبر إطار صورة. بهذه الطريقة، يمكنك تنسيق الصورة عن طريق تنسيق إطار الصورة.
 
-{{% alert title="نصيحة" color="primary" %}} 
-
-توفر Aspose محولات مجانية—[JPEG إلى PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) و[PNG إلى PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—التي تسمح للناس بإنشاء عروض تقديمية بسرعة من الصور. 
-
+{{% alert  title="Tip" color="primary" %}} 
+تقدم Aspose محولات مجانية — [JPEG إلى PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) و [PNG إلى PowerPoint](https://products.aspose.app/slides/import/png-to-ppt) — تسمح للناس بإنشاء عروض تقديمية بسرعة من الصور. 
 {{% /alert %}} 
 
-## **إنشاء إطار صورة**
+## **Create Picture Frame**
 
-1. قم بإنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation). 
-2. احصل على مرجع الشريحة من خلال فهرسها. 
-3. قم بإنشاء كائن [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) عن طريق إضافة صورة إلى [IImagescollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection) المرتبطة بكائن العرض الذي سيتم استخدامه لملء الشكل.
-4. حدد عرض الصورة وارتفاعها.
-5. قم بإنشاء [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe) بناءً على عرض الصورة وارتفاعها من خلال طريقة `AddPictureFrame` التي تم توفيرها بواسطة كائن الشكل المرتبط بالشريحة المرجعية.
-6. أضف إطار صورة (يحتوي على الصورة) إلى الشريحة.
-7. اكتب العرض المعدل كملف PPTX.
+1. إنشاء مثيل من فئة [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class. 
+2. الحصول على مرجع الشريحة من خلال فهرستها. 
+3. إنشاء كائن [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) بإضافة صورة إلى [IImagescollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection) المرتبط بكائن العرض التقديمي والذي سيُستخدم لملء الشكل. 
+4. تحديد عرض وارتفاع الصورة. 
+5. إنشاء [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe) استنادًا إلى عرض وارتفاع الصورة من خلال طريقة `AddPictureFrame` التي يوفّرها كائن الشكل المرتبط بالشريحة المرجعية. 
+6. إضافة إطار صورة (يحتوي على الصورة) إلى الشريحة. 
+7. كتابة العرض التقديمي المعدل كملف PPTX. 
 
-يوضح كود C# هذا كيفية إنشاء إطار صورة:
-
+يوضح لك هذا الكود C# كيفية إنشاء إطار صورة:
 ```c#
-// ينشئ مثيل من فئة Presentation التي تمثل ملف PPTX
+// ينشئ كائنًا من فئة Presentation التي تمثل ملف PPTX
 using (Presentation pres = new Presentation())
 {
     // يحصل على الشريحة الأولى
     ISlide slide = pres.Slides[0];
 
-    // يحمل صورة ويضيفها إلى مجموعة صور العرض
+    // يقوم بتحميل صورة ويضيفها إلى مجموعة صور العرض التقديمي
     IImage image = Images.FromFile("aspose-logo.jpg");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
@@ -62,35 +71,33 @@ using (Presentation pres = new Presentation())
     pictureFrame.LineFormat.Width = 20;
     pictureFrame.Rotation = 45;
 
-    // يكتب العرض إلى ملف PPTX
+    // يحفظ العرض التقديمي إلى ملف PPTX
     pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
 }
 ```
 
+
 {{% alert color="warning" %}} 
-
-تسمح لك إطارات الصور بإنشاء شرائح عرض تقديمي بسرعة بناءً على الصور. عند دمج إطار الصورة مع خيارات الحفظ من Aspose.Slides، يمكنك التحكم في عمليات الإدخال/الإخراج لتحويل الصور من تنسيق إلى آخر. قد ترغب في رؤية هذه الصفحات: تحويل [الصورة إلى JPG](https://products.aspose.com/slides/net/conversion/image-to-jpg/); تحويل [JPG إلى صورة](https://products.aspose.com/slides/net/conversion/jpg-to-image/); تحويل [JPG إلى PNG](https://products.aspose.com/slides/net/conversion/jpg-to-png/)، تحويل [PNG إلى JPG](https://products.aspose.com/slides/net/conversion/png-to-jpg/); تحويل [PNG إلى SVG](https://products.aspose.com/slides/net/conversion/png-to-svg/)، تحويل [SVG إلى PNG](https://products.aspose.com/slides/net/conversion/svg-to-png/).
-
+تتيح لك إطارات الصورة إنشاء شرائح عرض تقديمي بسرعة بناءً على الصور. عند الجمع بين إطار الصورة وخيارات الحفظ في Aspose.Slides، يمكنك معالجة عمليات الإدخال/الإخراج لتحويل الصور من تنسيق إلى آخر. قد ترغب في زيارة هذه الصفحات: تحويل [image to JPG](https://products.aspose.com/slides/net/conversion/image-to-jpg/); تحويل [JPG to image](https://products.aspose.com/slides/net/conversion/jpg-to-image/); تحويل [JPG to PNG](https://products.aspose.com/slides/net/conversion/jpg-to-png/)، تحويل [PNG to JPG](https://products.aspose.com/slides/net/conversion/png-to-jpg/); تحويل [PNG to SVG](https://products.aspose.com/slides/net/conversion/png-to-svg/)، تحويل [SVG to PNG](https://products.aspose.com/slides/net/conversion/svg-to-png/). 
 {{% /alert %}}
 
-## **إنشاء إطار صورة بمقياس نسبي**
+## **Create Picture Frame with Relative Scale**
 
-من خلال تغيير تدرج الصورة النسبي، يمكنك إنشاء إطار صورة أكثر تعقيدًا.
+من خلال تعديل مقياس الصورة النسبي، يمكنك إنشاء إطار صورة أكثر تعقيدًا. 
 
-1. قم بإنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. احصل على مرجع الشريحة من خلال فهرسها. 
-3. أضف صورة إلى مجموعة صور العرض.
-4. قم بإنشاء كائن [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) عن طريق إضافة صورة إلى [IImagescollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection) المرتبطة بكائن العرض الذي سيتم استخدامه لملء الشكل.
-5. حدد عرض الصورة وارتفاعها النسبي في إطار الصورة.
-6. اكتب العرض المعدل كملف PPTX.
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class. 
+2. الحصول على مرجع الشريحة من خلال فهرستها. 
+3. إضافة صورة إلى مجموعة صور العرض التقديمي. 
+4. إنشاء كائن [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) بإضافة صورة إلى [IImagescollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection) المرتبط بكائن العرض التقديمي والذي سيُستخدم لملء الشكل. 
+5. تحديد العرض والارتفاع النسبيين للصورة في إطار الصورة. 
+6. كتابة العرض التقديمي المعدل كملف PPTX. 
 
-يوضح كود C# هذا كيفية إنشاء إطار صورة بمقياس نسبي:
-
+يوضح لك هذا الكود C# كيفية إنشاء إطار صورة مع مقياس نسبي:
 ```c#
-// ينشئ مثيل من فئة Presentation التي تمثل ملف PPTX
+// ينشئ كائن فئة Presentation التي تمثل ملف PPTX
 using (Presentation presentation = new Presentation())
 {
-    // يحمل صورة ويضيفها إلى مجموعة صور العرض
+    // يقوم بتحميل صورة ويضيفها إلى مجموعة صور العرض التقديمي
     IImage image = Images.FromFile("aspose-logo.jpg");
     IPPImage ppImage = presentation.Images.AddImage(image);
     image.Dispose();
@@ -98,19 +105,19 @@ using (Presentation presentation = new Presentation())
     // يضيف إطار صورة إلى الشريحة
     IPictureFrame pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
 
-    // يحدد عرض وارتفاع المقياس النسبي
+    // يضبط العرض والارتفاع النسبيين للمقياس
     pictureFrame.RelativeScaleHeight = 0.8f;
     pictureFrame.RelativeScaleWidth = 1.35f;
 
-    // يحفظ العرض
-    presentation.Save("إضافة إطار صورة بمقياس نسبي_out.pptx", SaveFormat.Pptx);
+    // يحفظ العرض التقديمي
+    presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **استخراج صورة من إطار الصورة**
 
-يمكنك استخراج الصور من كائنات [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe) وحفظها في تنسيقات PNG وJPG وتنسيقات أخرى. توضح مثال الشفرة أدناه كيفية استخراج صورة من الوثيقة "sample.pptx" وحفظها بتنسيق PNG.
+## **Extract Raster Images from Picture Frames**
 
+يمكنك استخراج الصور النقطية من كائنات [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe) وحفظها بصيغة PNG أو JPG أو صيغ أخرى. يوضح المثال البرمجي أدناه كيفية استخراج صورة من المستند "sample.pptx" وحفظها بصيغة PNG. 
 ```c#
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -125,12 +132,34 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **الحصول على شفافية الصورة**
 
-تسمح لك Aspose.Slides بالحصول على شفافية الصورة. يوضح كود C# هذا العملية:
+## **Extract SVG Images from Picture Frames**
 
+عند احتواء عرض تقديمي على رسومات SVG موضوعة داخل أشكال [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/) ، يتيح لك Aspose.Slides for .NET استرجاع الصور المتجهة الأصلية بجودة كاملة. من خلال استعراض مجموعة أشكال الشريحة، يمكنك تحديد كل [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/)، والتحقق مما إذا كان [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) الأساسي يحتوي على محتوى SVG، ثم حفظ تلك الصورة إلى قرص أو تدفق بصيغتها الأصلية SVG.
+
+يوضح المثال البرمجي التالي كيفية استخراج صورة SVG من إطار صورة:
+```cs
+using var presentation = new Presentation("sample.pptx");
+
+var slide = presentation.Slides[0];
+var shape = slide.Shapes[0];
+
+if (shape is IPictureFrame pictureFrame)
+{
+    var svgImage = pictureFrame.PictureFormat.Picture.Image.SvgImage;
+    if (svgImage != null)
+    {
+        File.WriteAllText("output.svg", svgImage.SvgContent);
+    }
+}
+```
+
+
+## **Get Transparency of Image**
+
+يتيح لك Aspose.Slides الحصول على تأثير الشفافية المطبّق على الصورة. يوضح لك هذا الكود C# العملية:
 ```c#
-using (var presentation = new Presentation(folderPath + "Test.pptx"))
+using (var presentation = new Presentation("Test.pptx"))
 {
     var pictureFrame = (IPictureFrame)presentation.Slides[0].Shapes[0];
     var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
@@ -139,45 +168,49 @@ using (var presentation = new Presentation(folderPath + "Test.pptx"))
         if (effect is IAlphaModulateFixed alphaModulateFixed)
         {
             var transparencyValue = 100 - alphaModulateFixed.Amount;
-            Console.WriteLine("شفافية الصورة: " + transparencyValue);
+            Console.WriteLine("Picture transparency: " + transparencyValue);
         }
     }
 }
 ```
 
-## **تنسيق إطار الصورة**
 
-تقدم Aspose.Slides العديد من خيارات التنسيق التي يمكن تطبيقها على إطار الصورة. باستخدام هذه الخيارات، يمكنك تعديل إطار الصورة ليتناسب مع متطلبات محددة.
+{{% alert color="primary" %}} 
+يمكن العثور على جميع التأثيرات المطبقة على الصور في [Aspose.Slides.Effects](https://reference.aspose.com/slides/net/aspose.slides.effects/). 
+{{% /alert %}}
 
-1. قم بإنشاء مثيل من فئة [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) .
-2. احصل على مرجع الشريحة من خلال فهرسها. 
-3. قم بإنشاء كائن [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) عن طريق إضافة صورة إلى [IImagescollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection) المرتبطة بكائن العرض الذي سيتم استخدامه لملء الشكل.
-4. حدد عرض الصورة وارتفاعها.
-5. قم بإنشاء `PictureFrame` بناءً على عرض الصورة وارتفاعها من خلال طريقة [AddPictureFrame](http://www.aspose.com/api/net/slides/aspose.slides/ishapecollection/methods/addpictureframe) التي تم توفيرها بواسطة كائن [IShapes](http://www.aspose.com/api/net/slides/aspose.slides/ishapecollection) المرتبط بالشريحة المرجعية.
-6. أضف إطار الصورة (الذي يحتوي على الصورة) إلى الشريحة.
-7. حدد لون خط إطار الصورة.
-8. حدد عرض خط إطار الصورة.
-9. قم بتدوير إطار الصورة بإعطائه قيمة إيجابية أو سلبية.
-   * القيمة الإيجابية تدور الصورة في اتجاه عقارب الساعة. 
-   * القيمة السلبية تدور الصورة عكس اتجاه عقارب الساعة.
-10. أضف إطار الصورة (الذي يحتوي على الصورة) إلى الشريحة.
-11. اكتب العرض المعدل كملف PPTX.
+## **Picture Frame Formatting**
 
-يوضح كود C# هذا عملية تنسيق إطار الصورة:
+توفر Aspose.Slides العديد من خيارات التنسيق التي يمكن تطبيقها على إطار الصورة. باستخدام هذه الخيارات، يمكنك تعديل إطار الصورة لجعله يتوافق مع المتطلبات المحددة.
 
+1. إنشاء مثيل من فئة [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class. 
+2. الحصول على مرجع الشريحة من خلال فهرستها. 
+3. إنشاء كائن [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) بإضافة صورة إلى [IImagescollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection) المرتبط بكائن العرض التقديمي والذي سيُستخدم لملء الشكل. 
+4. تحديد عرض وارتفاع الصورة. 
+5. إنشاء `PictureFrame` استنادًا إلى عرض وارتفاع الصورة من خلال طريقة [AddPictureFrame](http://www.aspose.com/api/net/slides/aspose.slides/ishapecollection/methods/addpictureframe) التي يوفّرها كائن [IShapes](http://www.aspose.com/api/net/slides/aspose.slides/ishapecollection). 
+6. إضافة إطار الصورة (الذي يحتوي على الصورة) إلى الشريحة. 
+7. تعيين لون حد إطار الصورة. 
+8. تعيين عرض حد إطار الصورة. 
+9. تدوير إطار الصورة بمنحه قيمة موجبة أو سالبة. 
+   * القيمة الموجبة تدور الصورة باتجاه عقارب الساعة. 
+   * القيمة السالبة تدور الصورة عكس اتجاه عقارب الساعة. 
+10. إضافة إطار الصورة (الذي يحتوي على الصورة) إلى الشريحة. 
+11. كتابة العرض التقديمي المعدل كملف PPTX. 
+
+يوضح لك هذا الكود C# عملية تنسيق إطار الصورة:
 ```c#
-// ينشئ مثيل من فئة Presentation التي تمثل ملف PPTX
+// ينشئ كائن فئة Presentation التي تمثل ملف PPTX
 using (Presentation presentation = new Presentation())
 {
     // يحصل على الشريحة الأولى
     ISlide slide = presentation.Slides[0];
 
-    // يحمل صورة ويضيفها إلى مجموعة صور العرض
+    // يقوم بتحميل صورة ويضيفها إلى مجموعة صور العرض التقديمي
     IImage image = Images.FromFile("aspose-logo.jpg");
     IPPImage ppImage = presentation.Images.AddImage(image);
     image.Dispose();
 
-    // يضيف إطار صورة بأبعاد الصورة المتساوية
+    // يضيف إطار صورة بارتفاع وعرض الصورة المتساويين
     IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
     // يطبق بعض التنسيق على إطار الصورة
@@ -186,21 +219,20 @@ using (Presentation presentation = new Presentation())
     pictureFrame.LineFormat.Width = 20;
     pictureFrame.Rotation = 45;
 
-    // يكتب العرض إلى ملف PPTX
+    // يحفظ العرض التقديمي إلى ملف PPTX
     presentation.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
 }
 ```
 
+
 {{% alert color="primary" %}}
 
-طورت Aspose مؤخرًا [صانع الكولاج المجاني](https://products.aspose.app/slides/collage). إذا كنت بحاجة إلى [دمج صور JPG/JPEG](https://products.aspose.app/slides/collage/jpg) أو صور PNG، [إنشاء شبكات من الصور](https://products.aspose.app/slides/collage/photo-grid)، يمكنك استخدام هذه الخدمة. 
-
+طوّرت Aspose مؤخرًا [صانع كولاج مجاني](https://products.aspose.app/slides/collage). إذا احتجت إلى دمج صور JPG/JPEG أو PNG، أو إنشاء شبكات من الصور، يمكنك استخدام هذه الخدمة. 
 {{% /alert %}}
 
-## **إضافة صورة كرابط**
+## **Add Image as Link**
 
-لتجنب أحجام العروض الكبيرة، يمكنك إضافة صور (أو مقاطع فيديو) من خلال روابط بدلاً من إدخال الملفات مباشرة في العروض. يظهر كود C# هذا كيفية إضافة صورة وفيديو إلى عنصر نائب:
-
+لتقليل حجم العروض التقديمية الكبيرة، يمكنك إضافة الصور (أو الفيديوهات) عبر روابط بدلاً من تضمين الملفات مباشرة في العروض. يوضح لك هذا الكود C# كيفية إضافة صورة وفيديو إلى عنصر نائب:
 ```c#
 using (var presentation = new Presentation("input.pptx"))
 {
@@ -251,23 +283,23 @@ using (var presentation = new Presentation("input.pptx"))
 }
 ```
 
-## **قص الصورة**
 
-يوضح كود C# هذا كيفية قص صورة موجودة على شريحة:
+## **Crop Image**
 
+يظهر لك هذا الكود C# كيفية قص صورة موجودة على شريحة:
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // ينشئ كائن صورة جديدة
+    // ينشئ كائن صورة جديد
     IImage image = Images.FromFile(imagePath);
     IPPImage newImage = presentation.Images.AddImage(image);
     image.Dispose();
 
-    // يضيف إطار صورة إلى شريحة
+    // يضيف PictureFrame إلى شريحة
     IPictureFrame picFrame = presentation.Slides[0].Shapes.AddPictureFrame(
         ShapeType.Rectangle, 100, 100, 420, 250, newImage);
 
-    // يقص الصورة (قيمة النسبة المئوية)
+    // يقتطع الصورة (قيم النسبة المئوية)
     picFrame.PictureFormat.CropLeft = 23.6f;
     picFrame.PictureFormat.CropRight = 21.5f;
     picFrame.PictureFormat.CropTop = 3;
@@ -278,12 +310,12 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **حذف المناطق المقصوصة من الصورة**
 
-إذا كنت ترغب في حذف المناطق المقصوصة من صورة موجودة في إطار، يمكنك استخدام طريقة [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/). تعيد هذه الطريقة الصورة المقصوصة أو الصورة الأصلية إذا كان القص غير ضروري.
+## **Delete Cropped Areas of Picture**
 
-يظهر كود C# هذا العملية:
+إذا أردت حذف المناطق المقصوصة من صورة موجودة داخل إطار، يمكنك استخدام طريقة [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/). تُعيد هذه الطريقة الصورة المقصوصة أو الصورة الأصلية إذا لم يكن هناك حاجة للقص.
 
+يظهر لك هذا الكود C# العملية:
 ```c#
 using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
 {
@@ -300,20 +332,70 @@ using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
 }
 ```
 
-{{% alert title="ملاحظة" color="warning" %}} 
 
-تضيف طريقة [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) الصورة المقصوصة إلى مجموعة صور العرض. إذا كانت الصورة مستخدمة فقط في [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/) المعالج، يمكن أن يقلل هذا الإعداد من حجم العرض. خلاف ذلك، سيزداد عدد الصور في العرض الناتج.
+{{% alert title="NOTE" color="warning" %}} 
 
-تحول هذه الطريقة ملفات WMF/EMF الميتافايل إلى صورة PNG نقطية في عملية القص.
+طريقة [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) تُضيف الصورة المقصوصة إلى مجموعة صور العرض التقديمي. إذا كانت الصورة مستخدمة فقط في [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/) المعالجة، يمكن لهذا الإعداد تقليل حجم العرض التقديمي. خلاف ذلك، سيزيد عدد الصور في العرض الناتج.
 
+تحوّل هذه الطريقة ملفات WMF/EMF إلى صورة PNG نقطية أثناء عملية القص. 
 {{% /alert %}}
 
-## **قفل نسبة العرض إلى الارتفاع**
+## **Compress Image**
 
-إذا كنت ترغب في أن يحتفظ الشكل الذي يحتوي على صورة بنسبة العرض إلى الارتفاع حتى بعد تغيير أبعاد الصورة، يمكنك استخدام خاصية [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/aspectratiolocked/) لضبط إعداد *قفل نسبة العرض إلى الارتفاع*. 
+يمكنك ضغط صورة في عرض تقديمي باستخدام طريقة [`IPictureFillFormat.CompressImage`](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/compressimage/). 
+تضغط هذه الطريقة الصورة بتقليل حجمها بناءً على حجم الشكل والدقة المحددة، مع خيار حذف المناطق المقصوصة. 
 
-يوضح كود C# هذا كيفية قفل نسبة العرض إلى الارتفاع لشكل:
+تُعدل حجم الصورة ودقتها بطريقة مشابهة لميزة PowerPoint **Picture Format → Compress Pictures → Resolution**. 
 
+تُظهر الأمثلة البرمجية التالية كيفية ضغط صورة في عرض تقديمي بتحديد دقة مستهدفة وحذف المناطق المقصوصة اختياريًا:
+```csharp
+using (Presentation presentation = new Presentation("demo.pptx"))
+{
+    ISlide slide = presentation.Slides[0];
+
+    // احصل على إطار الصورة من الشريحة
+    IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
+
+    // ضغط الصورة بدقة مستهدفة 150 DPI (دقة الويب) وحذف المناطق المقصوصة
+    bool result = picFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+
+    // تحقق من نتيجة الضغط
+    if (result)
+    {
+        Console.WriteLine("Image successfully compressed.");
+    }
+    else
+    {
+        Console.WriteLine("Image compression failed or no changes were necessary.");
+    }
+}
+```
+
+
+أو باستخدام قيمة DPI مخصصة مباشرة:
+```csharp
+using (Presentation presentation = new Presentation("demo.pptx"))
+{
+    ISlide slide = presentation.Slides[0];
+
+    IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
+
+    // ضغط الصورة إلى 150 DPI (دقة الويب)، مع حذف المناطق المقصوصة
+    bool result = picFrame.PictureFormat.CompressImage(true, 150f);
+}
+```
+
+
+{{% alert title="NOTE" color="warning" %}} 
+
+تحوّل الطريقة الصورة إلى دقة أقل بناءً على حجم الشكل وDPI المقدم. يمكن أيضًا حذف المناطق المقصوصة لتحسين حجم الملف. إذا كانت الصورة ملف ميتافايل (WMF/EMF) أو SVG، لن يتم تطبيق الضغط. كما تُحافظ جودة JPEG أو تُقللها قليلًا بناءً على الدقة، كما تفعل PowerPoint مع JPEG عالي الدقة. 
+{{% /alert %}}
+
+## **Lock Aspect Ratio**
+
+إذا أردت أن يحتفظ الشكل الذي يحتوي على صورة بنسبة أبعاده حتى بعد تغيير أبعاد الصورة، يمكنك استخدام الخاصية [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/aspectratiolocked/) لتعيين إعداد *Lock Aspect Ratio*. 
+
+يوضح لك هذا الكود C# كيفية تأمين نسبة أبعاد الشكل:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -326,35 +408,34 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
     IPictureFrame pictureFrame = emptySlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, presImage.Width, presImage.Height, presImage);
 
-    // يعين الشكل للاحتفاظ بنسبة العرض إلى الارتفاع عند تغيير الحجم
+    // يضبط الشكل للحفاظ على نسبة الأبعاد عند تغيير الحجم
     pictureFrame.PictureFrameLock.AspectRatioLocked = true;
 }
 ```
 
-{{% alert title="ملاحظة" color="warning" %}} 
 
-يحتفظ إعداد *قفل نسبة العرض إلى الارتفاع* فقط بالنسبة إلى العرض إلى الارتفاع للشكل وليس الصورة التي تحتوي عليها.
+{{% alert title="NOTE" color="warning" %}} 
 
+إعداد *Lock Aspect Ratio* هذا يحافظ فقط على نسبة أبعاد الشكل وليس على الصورة التي يحتويها. 
 {{% /alert %}}
 
-## **استخدام خاصية StretchOff**
+## **Use StretchOff Property**
 
-باستخدام الخصائص [StretchOffsetLeft](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetleft)، [StretchOffsetTop](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsettop)، [StretchOffsetRight,](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetright) و[StretchOffsetBottom](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) من واجهة [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat) وفئة [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat)، يمكنك تحديد مستطيل التعبئة. 
+باستخدام الخصائص [StretchOffsetLeft](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetleft)، [StretchOffsetTop](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsettop)، [StretchOffsetRight](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetright) و[StretchOffsetBottom](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) من واجهة [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat) وفئة [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat)، يمكنك تحديد مستطيل ملء. 
 
-عند تحديد التمديد لصورة، يتم توسيع مستطيل المصدر ليتناسب مع مستطيل التعبئة المحدد. يتم تعريف كل حافة من مستطيل التعبئة بنسيج مئوي من الحافة المقابلة لصندوق الحدود للشكل. تحدد النسبة المئوية الإيجابية نطاقًا في حين تحدد النسبة المئوية السلبية نطاقًا خارجيًا.
+عند تحديد تمديد لصورة، يتم تحجيم مستطيل المصدر ليتناسب مع مستطيل الملء المحدد. يُعرّف كل حافة من حواف مستطيل الملء بنسبة إزاحة من الحافة المقابلة لمربع حدود الشكل. النسبة الموجبة تمثل تقليصًا داخلياً بينما النسبة السالبة تمثل توسعًا خارجيًا. 
 
-1. قم بإنشاء مثيل من فئة [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) .
-2. احصل على مرجع الشريحة من خلال فهرسها.
-3. أضف شكل مستطيل `AutoShape`. 
-4. قم بإنشاء صورة.
-5. اضبط نوع تعبئة الشكل.
-6. اضبط وضع تعبئة الصورة للشكل.
-7. أضف صورة محددة لملء الشكل.
-8. حدد تعويضات الصورة من الحافة المقابلة لصندوق الحدود للشكل.
-9. اكتب العرض المعدل كملف PPTX.
+1. إنشاء مثيل من فئة [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class. 
+2. الحصول على مرجع الشريحة من خلال فهرستها. 
+3. إضافة شكل مستطيل `AutoShape`. 
+4. إنشاء صورة. 
+5. تعيين نوع ملء الشكل. 
+6. تعيين نمط ملء صورة الشكل. 
+7. إضافة مجموعة صورة لملء الشكل. 
+8. تحديد إزاحات الصورة من الحافة المقابلة لمربع حدود الشكل. 
+9. كتابة العرض التقديمي المعدل كملف PPTX. 
 
-يوضح كود C# هذا عملية تستخدم فيها خاصية StretchOff:
-
+يوضح لك هذا الكود C# عملية استخدام خاصية StretchOff:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -364,7 +445,7 @@ using (Presentation pres = new Presentation())
 
     IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 400, ppImage);
 
-    // يحدد الصورة المنبثقة من كل جانب في جسم الشكل
+    // يضبط الصورة لتُمدّ من كل جانب في جسم الشكل
     pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
     pictureFrame.PictureFormat.StretchOffsetLeft = 24;
     pictureFrame.PictureFormat.StretchOffsetRight = 24;
@@ -374,3 +455,18 @@ using (Presentation pres = new Presentation())
     pres.Save("imageStretch.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**كيف يمكنني معرفة تنسيقات الصور المدعومة لإطار الصورة؟**  
+يدعم Aspose.Slides كل من الصور النقطية (PNG, JPEG, BMP, GIF, إلخ) والصور المتجهة (مثل SVG) عبر كائن الصورة المخصّص لـ[PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/). عادةً ما تتقاطع قائمة التنسيقات المدعومة مع قدرات محرك تحويل الشرائح والصور.
+
+**كيف سيؤثر إضافة العشرات من الصور الكبيرة على حجم PPTX وأدائه؟**  
+تؤدي تضمين الصور الكبيرة إلى زيادة حجم الملف واستهلاك الذاكرة؛ ربط الصور يساعد على تقليل حجم العرض التقديمي لكنه يتطلب بقاء الملفات الخارجية متاحة. يوفر Aspose.Slides إمكانية إضافة الصور عبر الروابط لتقليل حجم الملف.
+
+**كيف يمكنني تأمين كائن الصورة من التحريك/التغيير غير المقصود؟**  
+استخدم أقفال الشكل ([shape locks](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/pictureframelock/)) لإطار الصورة (مثلاً، تعطيل التحريك أو تغيير الحجم). يُوضّح آلية القفل للأشكال في مقالة الحماية المستقلة [protection article](/slides/ar/net/applying-protection-to-presentation/) وتُدعم أنواعًا متعددة من الأشكال بما فيها [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/).
+
+**هل يتم الحفاظ على دقة المتجهات SVG عند تصدير العرض التقديمي إلى PDF/صور؟**  
+يسمح Aspose.Slides باستخراج SVG من [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/) كمتجه أصلي. عند التصدير إلى PDF (/slides/ar/net/convert-powerpoint-to-pdf/) أو صيغ نقطية (/slides/ar/net/convert-powerpoint-to-png/)، قد يتم تحويله إلى نقطي حسب إعدادات التصدير؛ يبقى وجود SVG كمتجه مؤكدًا من سلوك الاستخراج.

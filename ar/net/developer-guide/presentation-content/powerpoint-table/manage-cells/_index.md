@@ -1,32 +1,36 @@
 ---
-title: إدارة الخلايا
+title: إدارة خلايا الجدول في العروض التقديمية في .NET
+linktitle: إدارة الخلايا
 type: docs
 weight: 30
 url: /ar/net/manage-cells/
 keywords:
-- جدول
-- خلايا مدمجة
-- خلايا مفصولة
-- صورة في خلية جدول
+- خلية جدول
+- دمج خلايا
+- إزالة حد
+- تقسيم خلية
+- صورة في الخلية
+- لون الخلفية
+- PowerPoint
+- عرض تقديمي
+- .NET
 - C#
-- Csharp
-- Aspose.Slides لـ .NET
-description: "خلايا الجدول في عروض PowerPoint باستخدام C# أو .NET"
+- Aspose.Slides
+description: "إدارة خلايا الجدول بسهولة في PowerPoint باستخدام Aspose.Slides لـ .NET. إتقان الوصول إلى الخلايا وتعديلها وتنسيقها بسرعة لأتمتة الشرائح بسلاسة."
 ---
 
-## **تحديد خلية الجدول المدمجة**
+## **تحديد خلية جدول مدمجة**
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-2. احصل على الجدول من الشريحة الأولى. 
-3. قم بتكرار صفوف وأعمدة الجدول للعثور على خلايا مدمجة.
-4. اطبع رسالة عند العثور على خلايا مدمجة.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
+2. الحصول على الجدول من الشريحة الأولى. 
+3. التنقل عبر صفوف وأعمدة الجدول للعثور على الخلايا المدمجة. 
+4. طباعة رسالة عند العثور على خلايا مدمجة.
 
-يوضح هذا الكود C# كيفية تحديد خلايا الجدول المدمجة في عرض تقديمي:
-
+يعرض لك هذا الكود C# كيفية تحديد خلايا الجدول المدمجة في عرض تقديمي:
 ```c#
 using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
 {
-    ITable table = pres.Slides[0].Shapes[0] as ITable; // افتراض أن Slide#0.Shape#0 هو جدول
+    ITable table = pres.Slides[0].Shapes[0] as ITable; // على افتراض أن الشريحة #0.الشكل #0 هو جدول
     for (int i = 0; i < table.Rows.Count; i++)
     {
         for (int j = 0; j < table.Columns.Count; j++)
@@ -34,7 +38,7 @@ using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
             ICell currentCell = table.Rows[i][j];
             if (currentCell.IsMergedCell)
             {
-                Console.WriteLine(string.Format("الخانة {0};{1} هي جزء من خلية مدمجة ب RowSpan={2} و ColSpan={3} تبدأ من الخانة {4};{5}.",
+                Console.WriteLine(string.Format("Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.",
                                   i, j, currentCell.RowSpan, currentCell.ColSpan, currentCell.FirstRowIndex, currentCell.FirstColumnIndex));
 
 
@@ -44,25 +48,26 @@ using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
 }
 ```
 
+
 ## **إزالة حدود خلايا الجدول**
-1. أنشئ مثيلاً من فئة `Presentation`.
-2. احصل على مرجع الشريحة من خلال فهرسها. 
-3. قم بتعريف مصفوفة من الأعمدة مع عرض.
-4. قم بتعريف مصفوفة من الصفوف مع ارتفاع.
-5. أضف جدولاً إلى الشريحة من خلال طريقة `AddTable`.
-6. تكرار كل خلية لإزالة الحدود العلوية والسفلية واليمنى واليسرى.
-7. احفظ العرض التقديمي المعدل كملف PPTX.
 
-يوضح هذا الكود C# كيفية إزالة الحدود من خلايا الجدول:
+1. إنشاء كائن من الفئة `Presentation`.
+2. الحصول على مرجع الشريحة عبر فهرسها. 
+3. تعريف مصفوفة من الأعمدة مع العرض.
+4. تعريف مصفوفة من الصفوف مع الارتفاع.
+5. إضافة جدول إلى الشريحة عبر طريقة `AddTable`.
+6. التنقل عبر كل خلية لإزالة الحدود العلوية والسفلية واليمنى واليسرى.
+7. حفظ العرض التقديمي المعدل كملف PPTX.
 
+يعرض لك هذا الكود C# كيفية إزالة حدود خلايا الجدول:
 ```c#
-// أنشئ مثيلاً من فئة Presentation التي تمثل ملف PPTX
+// ينشئ كائنًا من فئة Presentation التي تمثل ملف PPTX
 using (Presentation pres = new Presentation())
 {
    // الوصول إلى الشريحة الأولى
     Slide sld = (Slide)pres.Slides[0];
 
-    // تعريف الأعمدة بعرض والصفوف بارتفاعات
+    // تحديد الأعمدة مع العرض والصفوف مع الارتفاع
     double[] dblCols = { 50, 50, 50, 50 };
     double[] dblRows = { 50, 30, 30, 30, 30 };
 
@@ -79,30 +84,30 @@ using (Presentation pres = new Presentation())
             cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
         }
 
-    // كتابة ملف PPTX على القرص
+    // كتابة ملف PPTX إلى القرص
     pres.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
 
-## **الترقيم في الخلايا المدمجة**
-إذا قمنا بدمج زوجين من الخلايا (1, 1) × (2, 1) و (1, 2) × (2, 2)، فإن الجدول الناتج سيتم ترقيمه. يوضح هذا الكود C# العملية:
+## **التعداد في الخلايا المدمجة**
 
+إذا دمجنا زوجين من الخلايا (1, 1) × (2, 1) و (1, 2) × (2, 2)، سيتم ترقيم الجدول الناتج. يعرض هذا الكود C# العملية:
 ```c#
-// أنشئ مثيلاً من فئة Presentation التي تمثل ملف PPTX
+// ينشئ كائنًا من فئة Presentation التي تمثل ملف PPTX
 using (Presentation presentation = new Presentation())
 {
     // الوصول إلى الشريحة الأولى
     ISlide sld = presentation.Slides[0];
 
-    // تعريف الأعمدة بعرض والصفوف بارتفاعات
+    // يحدد الأعمدة بعرضها والصفوف بارتفاعها
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
-    // إضافة شكل جدول إلى الشريحة
+    // يضيف شكل جدول إلى الشريحة
     ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
 
-    // تعيين تنسيق الحدود لكل خلية
+    // يضبط تنسيق الحدود لكل خلية
     foreach (IRow row in tbl.Rows)
     {
         foreach (ICell cell in row)
@@ -125,33 +130,33 @@ using (Presentation presentation = new Presentation())
         }
     }
 
-    // دمج الخلايا (1, 1) × (2, 1)
+    // يدمج الخلايا (1, 1) x (2, 1)
     tbl.MergeCells(tbl[1, 1], tbl[2, 1], false);
 
-    // دمج الخلايا (1, 2) × (2, 2)
+    // يدمج الخلايا (1, 2) x (2, 2)
     tbl.MergeCells(tbl[1, 2], tbl[2, 2], false);
 
     presentation.Save("MergeCells_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-ثم نقوم بمزيد من دمج الخلايا من خلال دمج (1, 1) و (1, 2). النتيجة هي جدول يحتوي على خلية كبيرة مدمجة في وسطه:
 
+ثم نقوم بدمج الخلايا أكثر بدمج (1, 1) و (1, 2). النتيجة هي جدول يحتوي على خلية مدمجة كبيرة في مركزه: 
 ```c#
-// أنشئ مثيلاً من فئة Presentation التي تمثل ملف PPTX
+// ينشئ كائنًا من فئة Presentation التي تمثل ملف PPTX
 using (Presentation presentation = new Presentation())
 {
     // الوصول إلى الشريحة الأولى
     ISlide slide = presentation.Slides[0];
 
-    // تعريف الأعمدة بعرض والصفوف بارتفاعات
+    // يحدد الأعمدة بأعرضها والصفوف بأارتفاعها
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
-    // إضافة شكل جدول إلى الشريحة
+    // يضيف شكل جدول إلى الشريحة
     ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
 
-    // تعيين تنسيق الحدود لكل خلية
+    // يضبط تنسيق الحدود لكل خلية
     foreach (IRow row in table.Rows)
     {
         foreach (ICell cell in row)
@@ -175,42 +180,43 @@ using (Presentation presentation = new Presentation())
         }
     }
 
-    // دمج الخلايا (1, 1) × (2, 1)
+    // يدمج الخلايا (1, 1) x (2, 1)
     table.MergeCells(table[1, 1], table[2, 1], false);
 
-    // دمج الخلايا (1, 2) × (2, 2)
+    // يدمج الخلايا (1, 2) x (2, 2)
     table.MergeCells(table[1, 2], table[2, 2], false);
 
-    // دمج الخلايا (1, 2) × (2, 2)
+    // يدمج الخلايا (1, 2) x (2, 2)
     table.MergeCells(table[1, 1], table[1, 2], true);
 
-    // كتابة ملف PPTX إلى القرص
+    //يكتب ملف PPTX إلى القرص
     presentation.Save("MergeCells1_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **الترقيم في الخلية المفصولة**
-في الأمثلة السابقة، عندما تم دمج خلايا الجدول، لم يتغير الترقيم أو النظام العددي في الخلايا الأخرى. 
 
-هذه المرة، نستخدم جدولًا عاديًا (جدول بدون خلايا مدمجة) ثم نحاول تقسيم الخلية (1, 1) للحصول على جدول خاص. قد ترغب في الانتباه إلى ترقيم هذا الجدول، والذي قد يعتبر غريبًا. ومع ذلك، هذه هي الطريقة التي يقوم بها Microsoft PowerPoint بترقيم خلايا الجدول وAspose.Slides يفعل نفس الشيء. 
+## **التعداد في الخلية المقسمة**
 
-يوضح هذا الكود C# العملية التي وصفناها:
+في الأمثلة السابقة، عندما تم دمج خلايا الجدول، لم يتغير نظام الترقيم أو الأرقام في الخلايا الأخرى. 
 
+هذه المرة، نأخذ جدولًا عاديًا (جدول بدون خلايا مدمجة) ثم نحاول تقسيم الخلية (1,1) للحصول على جدول خاص. قد ترغب في ملاحظة ترقيم هذا الجدول، والذي قد يبدو غريبًا. ومع ذلك، هذه هي الطريقة التي يرقم بها Microsoft PowerPoint خلايا الجدول وتقوم Aspose.Slides بنفس الشيء. 
+
+يعرض لك هذا الكود C# العملية التي وصفناها:
 ```c#
-// أنشئ مثيلاً من فئة Presentation التي تمثل ملف PPTX
+// ينشئ كائنًا من فئة Presentation التي تمثل ملف PPTX
 using (Presentation presentation = new Presentation())
 {
     // الوصول إلى الشريحة الأولى
     ISlide slide = presentation.Slides[0];
 
-    // تعريف الأعمدة بعرض والصفوف بارتفاعات
+    // يحدد الأعمدة بأعرضها والصفوف بارتفاعها
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
-    // إضافة شكل جدول إلى الشريحة
+    // يضيف شكل جدول إلى الشريحة
     ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
 
-    // تعيين تنسيق الحدود لكل خلية
+    // يضبط تنسيق الحدود لكل خلية
     foreach (IRow row in table.Rows)
     {
         foreach (ICell cell in row)
@@ -234,24 +240,24 @@ using (Presentation presentation = new Presentation())
         }
     }
 
-    // دمج الخلايا (1, 1) × (2، 1)
+    // يدمج الخلايا (1, 1) x (2, 1)
     table.MergeCells(table[1, 1], table[2, 1], false);
 
-    // دمج الخلايا (1, 2) × (2، 2)
+    // يدمج الخلايا (1, 2) x (2, 2)
     table.MergeCells(table[1, 2], table[2, 2], false);
 
-    // تقسيم الخلية (1, 1). 
+    // يفصل الخلية (1, 1). 
     table[1, 1].SplitByWidth(table[2, 1].Width / 2);
 
-    // كتابة ملف PPTX على القرص
+    //يكتب ملف PPTX إلى القرص
     presentation.Save("CellSplit_out.pptx", SaveFormat.Pptx);
 }
 ```
 
+
 ## **تغيير لون خلفية خلية الجدول**
 
-يوضح هذا الكود C# كيفية تغيير لون خلفية خلية الجدول:
-
+يعرض لك هذا الكود C# كيفية تغيير لون خلفية خلية الجدول:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -263,7 +269,7 @@ using (Presentation presentation = new Presentation())
     // إنشاء جدول جديد
     ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
 
-    // تعيين لون الخلفية لخلية 
+    // تعيين لون الخلفية للخلية 
     ICell cell = table[2, 3];
     cell.CellFormat.FillFormat.FillType = FillType.Solid;
     cell.CellFormat.FillFormat.SolidFillColor.Color = Color.Red;
@@ -272,46 +278,65 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **إضافة صورة داخل خلية جدول**
 
-1. أنشئ مثيلاً من فئة `Presentation`.
-2. احصل على مرجع الشريحة من خلال فهرسها.
-3. قم بتعريف مصفوفة من الأعمدة مع عرض.
-4. قم بتعريف مصفوفة من الصفوف مع ارتفاع.
-5. أضف جدولاً إلى الشريحة من خلال طريقة `AddTable`. 
-6. أنشئ كائن `Bitmap` لاحتواء ملف الصورة.
-7. أضف صورة bitmap إلى كائن `IPPImage`.
-8. قم بتعيين `FillFormat` لخلية الجدول إلى `Picture`.
-9. أضف الصورة إلى أول خلية في الجدول.
-10. احفظ العرض التقديمي المعدل كملف PPTX.
+## **إضافة صورة داخل خلية الجدول**
 
-يوضح هذا الكود C# كيفية وضع صورة داخل خلية جدول عند إنشاء جدول:
+1. إنشاء كائن من الفئة `Presentation`.
+2. الحصول على مرجع الشريحة عبر فهرسها.
+3. تعريف مصفوفة من الأعمدة مع العرض.
+4. تعريف مصفوفة من الصفوف مع الارتفاع.
+5. إضافة جدول إلى الشريحة عبر طريقة `AddTable`. 
+6. إنشاء كائن `Bitmap` لاحتواء ملف الصورة.
+7. إضافة صورة الـ `Bitmap` إلى كائن `IPPImage`.
+8. تعيين الـ `FillFormat` لخلية الجدول إلى `Picture`.
+9. إضافة الصورة إلى الخلية الأولى في الجدول.
+10. حفظ العرض التقديمي المعدل كملف PPTX
 
+يعرض لك هذا الكود C# كيفية وضع صورة داخل خلية جدول عند إنشاء جدول:
 ```c#
-// أنشئ مثيلاً من فئة Presentation التي تمثل ملف PPTX
+// ينشئ كائنًا من فئة Presentation التي تمثل ملف PPTX
 using (Presentation presentation = new Presentation())
 {
     // الوصول إلى الشريحة الأولى
     ISlide slide = presentation.Slides[0];
 
-    // تعريف الأعمدة بعرض والصفوف بارتفاعات
+    // يعرف الأعمدة بعرضها والصفوف بارتفاعها
     double[] dblCols = { 150, 150, 150, 150 };
     double[] dblRows = { 100, 100, 100, 100, 90 };
 
-    // إضافة شكل جدول إلى الشريحة
+    // يضيف شكل جدول إلى الشريحة
     ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
 
-    // تحميل صورة من ملف وإضافتها إلى موارد العرض التقديمي
+    // يحمل صورة من ملف ويضيفها إلى موارد العرض التقديمي
     IImage image = Images.FromFile("aspose-logo.jpg");
     IPPImage ppImage = presentation.Images.AddImage(image);
     image.Dispose();
 
-    // إضافة الصورة إلى أول خلية في الجدول
+    // يضيف الصورة إلى الخلية الأولى في الجدول
     table[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
     table[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
     table[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = ppImage;
 
-    // حفظ ملف PPTX على القرص
+    // يحفظ ملف PPTX إلى القرص
     presentation.Save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**هل يمكنني تعيين سماكات خطوط وأنماط مختلفة لجوانب مختلفة من خلية واحدة؟**
+
+نعم. الحدود [العليا](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[السفلى](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[اليسرى](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[اليمنى](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) لديها خصائص منفصلة، بحيث يمكن أن تختلف سماكة ونمط كل جانب. هذا يتبع منطقيًا التحكم في الحدود لكل جانب للخلية كما هو موضح في المقال.
+
+**ماذا يحدث للصورة إذا غيرت حجم العمود/الصف بعد تعيين صورة كخلفية للخلية؟**
+
+يعتمد السلوك على [وضع التعبئة](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) (تمتد/تكرر). مع التمدد، تتكيف الصورة مع الخلية الجديدة؛ مع التكرار، يتم إعادة حساب البلاطات. يُشير المقال إلى أوضاع عرض الصور في الخلية.
+
+**هل يمكنني إسناد ارتباط تشعبي إلى جميع محتوى خلية؟**
+
+يتم تعيين [الارتباطات التشعبية](/slides/ar/net/manage-hyperlinks/) على مستوى النص (الجزء) داخل إطار نص الخلية أو على مستوى الجدول/الشكل بالكامل. عمليًا، تُعيّن الرابط إلى جزء أو إلى كل النص داخل الخلية.
+
+**هل يمكنني تعيين خطوط مختلفة داخل خلية واحدة؟**
+
+نعم. يدعم إطار نص الخلية [الأجزاء](https://reference.aspose.com/slides/net/aspose.slides/portion/) (القطع) بتنسيق مستقل—عائلة الخط، النمط، الحجم، واللون.
