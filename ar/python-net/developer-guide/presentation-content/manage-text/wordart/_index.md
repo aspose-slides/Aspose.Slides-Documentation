@@ -1,5 +1,5 @@
 ---
-title: إنشاء وتطبيق تأثيرات WordArt في Python
+title: إنشاء وتطبيق تأثيرات WordArt في بايثون
 linktitle: WordArt
 type: docs
 weight: 110
@@ -18,34 +18,31 @@ keywords:
 - تأثير الظل الداخلي
 - Python
 - Aspose.Slides
-description: "تعرّف على كيفية إنشاء وتخصيص تأثيرات WordArt في Aspose.Slides for Python via .NET. يقدّم هذا الدليل خطوة بخطوة مساعدة للمطورين على تحسين العروض التقديمية بنص أنيق واحترافي في Python."
+description: "تعلم كيفية إنشاء وتخصيص تأثيرات WordArt في Aspose.Slides لبايثون عبر .NET. يقدّم هذا الدليل خطوة بخطوة مساعدة للمطوّرين لتحسين العروض التقديمية بنص أنيق واحترافي في بايثون."
 ---
 
-## **ماذا عن فن الكلمات؟**
-فن الكلمة هو ميزة تسمح لك بتطبيق تأثيرات على النصوص لجعلها بارزة. مع فن الكلمة، على سبيل المثال، يمكنك تحديد شكل النص أو ملؤه بلون (أو تدرج)، وإضافة تأثيرات ثلاثية الأبعاد له، وما إلى ذلك. يمكنك أيضًا تشويه، وانحناء، وتمديد شكل النص.
+## **حول WordArt؟**
+WordArt أو Word Art هي ميزة تتيح لك تطبيق تأثيرات على النصوص لجعلها بارزة. مع WordArt، على سبيل المثال، يمكنك تحديد حدود النص أو ملئه بلون (أو تدرج)، إضافة تأثيرات ثلاثية الأبعاد إليه، إلخ. كما يمكنك إمالة أو انحناء أو تمديد شكل النص. 
 
-{{% alert color="primary" %}}
+{{% alert color="primary" %}} 
+WordArt يتيح لك التعامل مع النص كما تتعامل مع كائن رسومي. يتكون WordArt من تأثيرات أو تعديلات خاصة تُجرى على النصوص لجعلها أكثر جذباً أو وضوحاً. 
+{{% /alert %}} 
 
-يسمح لك فن الكلمة بالتعامل مع النص كمجسم رسومي. يتكون فن الكلمة من تأثيرات أو تعديلات خاصة تضاف للنصوص لجعلها أكثر جاذبية أو وضوحًا.
+**WordArt في Microsoft PowerPoint**
 
-{{% /alert %}}
+لاستخدام WordArt في Microsoft PowerPoint، عليك اختيار أحد قوالب WordArt المعدة مسبقاً. قالب WordArt هو مجموعة من التأثيرات تُطبّق على النص أو شكله. 
 
-**فن الكلمة في Microsoft PowerPoint**
+**WordArt في Aspose.Slides**
 
-لاستخدام فن الكلمة في Microsoft PowerPoint، يجب عليك اختيار أحد قوالب فن الكلمة المحددة مسبقًا. قالب فن الكلمة هو مجموعة من التأثيرات التي تُطبق على نص أو شكله.
+في Aspose.Slides for Python via .NET 20.10، نفّذنا دعم WordArt وأجرينا تحسينات على الميزة في إصدارات Aspose.Slides for Python via .NET اللاحقة. 
 
-**فن الكلمة في Aspose.Slides**
+مع Aspose.Slides for Python via .NET، يمكنك بسهولة إنشاء قالب WordArt خاص بك (تأثير واحد أو مجموعة تأثيرات) في Python وتطبيقه على النصوص. 
 
-في Aspose.Slides لبايثون عبر .NET 20.10، قمنا بتنفيذ دعم لفن الكلمة وأجرينا تحسينات على هذه الميزة في إصدارات Aspose.Slides لبايثون عبر .NET التي تليها.
+## إنشاء قالب WordArt بسيط وتطبيقه على نص
 
-مع Aspose.Slides لبايثون عبر .NET، يمكنك بسهولة إنشاء قالب فن الكلمة الخاص بك (تأثير واحد أو مجموعة من التأثيرات) في بايثون وتطبيقه على النصوص.
+**استخدام Aspose.Slides** 
 
-## إنشاء قالب بسيط لفن الكلمة وتطبيقه على نص
-
-**باستخدام Aspose.Slides**
-
-أولاً، نقوم بإنشاء نص بسيط باستخدام هذا الرمز بلغة بايثون:
-
+أولاً، ننشئ نصًا بسيطًا باستخدام هذا الكود في Python: 
 ```py
 import aspose.slides as slides
 
@@ -59,30 +56,30 @@ with slides.Presentation() as pres:
 
     pres.save("wordart-1.pptx", slides.export.SaveFormat.PPTX)
 ```
-الآن، نقوم بتعيين ارتفاع خط النص إلى قيمة أكبر لجعل التأثير أكثر وضوحًا من خلال هذا الرمز:
 
+الآن، نضبط ارتفاع خط النص إلى قيمة أكبر لجعل التأثير أكثر وضوحًا من خلال هذا الكود: 
 ```py 
     fontData = slides.FontData("Arial Black")
     portion.portion_format.latin_font = fontData
     portion.portion_format.font_height = 36
 ```
 
-**باستخدام Microsoft PowerPoint**
 
-اذهب إلى قائمة تأثيرات فن الكلمة في Microsoft PowerPoint:
+**استخدام Microsoft PowerPoint**
+
+انتقل إلى قائمة تأثيرات WordArt في Microsoft PowerPoint:
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
-يمكنك من القائمة على اليمين اختيار تأثير فن الكلمة المحدد مسبقًا. من القائمة على اليسار، يمكنك تحديد إعدادات لفن الكلمة الجديد.
+من القائمة على اليمين، يمكنك اختيار تأثير WordArt مُعرّف مسبقًا. من القائمة على اليسار، يمكنك تحديد إعدادات WordArt جديد. 
 
-هذه بعض المعلمات أو الخيارات المتاحة:
+هذه بعض الوسائط أو الخيارات المتاحة:
 
 ![todo:image_alt_text](image-20200930114015-3.png)
 
-**باستخدام Aspose.Slides**
+**استخدام Aspose.Slides**
 
-هنا، نطبق لون نمط SmallGrid على النص ونضيف حد للنص بعرض 1 بلون أسود باستخدام هذا الرمز:
-
+هنا، نطبق لون نمط SmallGrid على النص ونضيف حد نص أسود بعرض 1 باستخدام هذا الكود: 
 ```py 
     portion.portion_format.fill_format.fill_type = slides.FillType.PATTERN
     portion.portion_format.fill_format.pattern_format.fore_color.color = draw.Color.dark_orange
@@ -93,24 +90,24 @@ with slides.Presentation() as pres:
     portion.portion_format.line_format.fill_format.solid_fill_color.color = draw.Color.black
 ```
 
+
 النص الناتج:
 
 ![todo:image_alt_text](image-20200930114108-4.png)
 
-## تطبيق تأثيرات فن الكلمة الأخرى
+## تطبيق تأثيرات WordArt أخرى
 
-**باستخدام Microsoft PowerPoint**
+**استخدام Microsoft PowerPoint**
 
-من واجهة البرنامج، يمكنك تطبيق هذه التأثيرات على نص، كتلة نصية، شكل، أو عنصر مشابه:
+من واجهة البرنامج، يمكنك تطبيق هذه التأثيرات على نص أو كتلة نص أو شكل أو عنصر مشابه:
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-على سبيل المثال، يمكن تطبيق تأثيرات الظل، الانعكاس، والتوهج على نص؛ يمكن تطبيق تأثيرات تنسيق ثلاثي الأبعاد ودوران ثلاثي الأبعاد على كتلة نصية؛ و خاصية الحواف الناعمة يمكن تطبيقها على كائن الشكل (لا يزال له تأثير عندما لا يتم تعيين خاصية تنسيق ثلاثي الأبعاد).
+على سبيل المثال، يمكن تطبيق تأثيرات الظل، الانعكاس، والتوهج على نص؛ وتأثيرات تنسيق ثلاثي الأبعاد وتدوير ثلاثي الأبعاد على كتلة نص؛ وخاصية الحواف الناعمة يمكن تطبيقها على كائن شكل (لا يزال لها تأثير عندما لا يتم تعيين خاصية تنسيق ثلاثي الأبعاد). 
 
 ### تطبيق تأثيرات الظل
 
-هنا، نهدف إلى تعيين الخصائص المتعلقة بالنص فقط. نطبق تأثير الظل على النص باستخدام هذا الرمز في بايثون:
-
+هنا، نهدف إلى ضبط الخصائص المتعلقة بنص فقط. نطبق تأثير الظل على النص باستخدام هذا الكود في Python: 
 ```py 
     portion.portion_format.effect_format.enable_outer_shadow_effect()
     portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color = draw.Color.black
@@ -124,29 +121,29 @@ with slides.Presentation() as pres:
     portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color_transform.add(slides.ColorTransformOperation.SET_ALPHA, 0.32)
 ```
 
-تدعم واجهة برمجة تطبيقات Aspose.Slides ثلاثة أنواع من الظلال: OuterShadow وInnerShadow وPresetShadow.
 
-مع PresetShadow، يمكنك تطبيق ظل على نص (باستخدام قيم محددة مسبقًا).
+يدعم Aspose.Slides API ثلاثة أنواع من الظلال: OuterShadow وInnerShadow وPresetShadow. 
 
-**باستخدام Microsoft PowerPoint**
+مع PresetShadow، يمكنك تطبيق ظل على النص (باستخدام قيم مُعدة مسبقًا). 
 
-في PowerPoint، يمكنك استخدام نوع واحد من الظلال. إليك مثال:
+**استخدام Microsoft PowerPoint**
+
+في PowerPoint، يمكنك استخدام نوع واحد من الظلال. إليك مثالًا:
 
 ![todo:image_alt_text](image-20200930114225-6.png)
 
-**باستخدام Aspose.Slides**
+**استخدام Aspose.Slides**
 
-تسمح لك Aspose.Slides فعليًا بتطبيق نوعين من الظلال في وقت واحد: InnerShadow وPresetShadow.
+يسمح Aspose.Slides فعليًا بتطبيق نوعين من الظلال في آن واحد: InnerShadow وPresetShadow.
 
 **ملاحظات:**
 
-- عند استخدام OuterShadow وPresetShadow معًا، يتم تطبيق تأثير OuterShadow فقط.
-- إذا تم استخدام OuterShadow وInnerShadow في نفس الوقت، فإن التأثير الناتج أو المطبق يعتمد على إصدار PowerPoint. على سبيل المثال، في PowerPoint 2013، يتم مضاعفة التأثير. ولكن في PowerPoint 2007، يتم تطبيق تأثير OuterShadow.
+- عندما يُستخدم OuterShadow وPresetShadow معًا، يُطبّق فقط تأثير OuterShadow. 
+- إذا استُخدم OuterShadow وInnerShadow معًا، فإن النتيجة أو التأثير المطبق يعتمد على نسخة PowerPoint. على سبيل المثال، في PowerPoint 2013، يتضاعف التأثير. ولكن في PowerPoint 2007، يُطبّق تأثير OuterShadow. 
 
-### تطبيق العرض على النصوص
+### تطبيق عرض على النصوص
 
-نضيف العرض إلى النص من خلال هذا الكود في بايثون:
-
+نضيف عرضًا للنص من خلال عيّنة الكود هذه في Python: 
 ```py 
     portion.portion_format.effect_format.enable_reflection_effect()
     portion.portion_format.effect_format.reflection_effect.blur_radius = 0.5 
@@ -161,10 +158,10 @@ with slides.Presentation() as pres:
     portion.portion_format.effect_format.reflection_effect.rectangle_align = slides.RectangleAlignment.BOTTOM_LEFT  
 ```
 
+
 ### تطبيق تأثير التوهج على النصوص
 
-نطبق تأثير التوهج على النص لجعله يسطع أو يبرز باستخدام هذا الرمز:
-
+نطبق تأثير التوهج على النص لجعله يلمع أو يبرز باستخدام هذا الكود: 
 ```py 
     portion.portion_format.effect_format.enable_glow_effect()
     portion.portion_format.effect_format.glow_effect.color.r = 255
@@ -172,45 +169,42 @@ with slides.Presentation() as pres:
     portion.portion_format.effect_format.glow_effect.radius = 7
 ```
 
+
 نتيجة العملية:
 
 ![todo:image_alt_text](image-20200930114621-7.png)
 
-{{% alert color="primary" %}}
+{{% alert color="primary" %}} 
+يمكنك تغيير معلمات الظل والعرض والتوهج. تُضبط خصائص التأثيرات على كل جزء من النص بشكل منفصل. 
+{{% /alert %}} 
 
-يمكنك تغيير المعلمات للظل، العرض، والتوهج. يتم تعيين خصائص التأثيرات على كل جزء من النص بشكل منفصل.
+### استخدام التحويلات في WordArt
 
-{{% /alert %}}
-
-### استخدام التحويلات في فن الكلمة
-
-نستخدم خاصية Transform (التي تتعلق بكتلة النص بالكامل) من خلال هذا الرمز:
+نستخدم خاصية Transform (الموجودة في كتلة النص بأكملها) من خلال هذا الكود: 
 ```py 
 textFrame.text_frame_format.transform = slides.TextShapeType.ARCH_UP_POUR
 ```
+
 
 النتيجة:
 
 ![todo:image_alt_text](image-20200930114712-8.png)
 
-{{% alert color="primary" %}}
+{{% alert color="primary" %}} 
+يوفر كل من Microsoft PowerPoint وAspose.Slides for Python via .NET عددًا معينًا من أنواع التحويل المُعرّفة مسبقًا. 
+{{% /alert %}} 
 
-يوفر كل من Microsoft PowerPoint وAspose.Slides لبايثون عبر .NET عددًا معينًا من أنواع التحويلات المحددة مسبقًا.
+**استخدام PowerPoint**
 
-{{% /alert %}}
+للوصول إلى أنواع التحويل المُعرّفة مسبقًا، انتقل عبر: **Format** -> **TextEffect** -> **Transform**
 
-**باستخدام PowerPoint**
+**استخدام Aspose.Slides**
 
-للوصول إلى أنواع التحويلات المحددة مسبقًا، مرر عبر: **تنسيق** -> **تأثير النص** -> **تحويل**
-
-**باستخدام Aspose.Slides**
-
-لاختيار نوع تحويل، استخدم التعداد النصي TextShapeType.
+لاختيار نوع التحويل، استخدم تعداد TextShapeType. 
 
 ### تطبيق تأثيرات ثلاثية الأبعاد على النصوص والأشكال
 
-نحدد تأثيرًا ثلاثي الأبعاد على شكل النص باستخدام هذا الرمز النموذجي:
-
+نضبط تأثيرًا ثلاثيًا الأبعاد على شكل نص باستخدام عيّنة الكود هذه: 
 ```py 
     autoShape.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
     autoShape.three_d_format.bevel_bottom.height = 10.5
@@ -237,12 +231,12 @@ textFrame.text_frame_format.transform = slides.TextShapeType.ARCH_UP_POUR
     autoShape.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
 ```
 
-النص الناتج وشكله:
+
+النص والشكل الناتج:
 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
-نطبق تأثيرًا ثلاثي الأبعاد على النص باستخدام هذا الرمز في بايثون:
-
+نطبق تأثيرًا ثلاثيًا الأبعاد على النص باستخدام هذا الكود في Python: 
 ```py 
     textFrame.text_frame_format.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
     textFrame.text_frame_format.three_d_format.bevel_bottom.height = 3.5
@@ -269,61 +263,59 @@ textFrame.text_frame_format.transform = slides.TextShapeType.ARCH_UP_POUR
     textFrame.text_frame_format.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
 ```
 
+
 نتيجة العملية:
 
 ![todo:image_alt_text](image-20200930114905-10.png)
 
-{{% alert color="primary" %}}
+{{% alert color="primary" %}} 
+تطبيق تأثيرات ثلاثية الأبعاد على النصوص أو أشكالها وتفاعلاتها مع بعضها البعض يعتمد على قواعد معينة. 
 
-يعتمد تطبيق تأثيرات ثلاثية الأبعاد على النصوص أو أشكالها والتفاعلات بين التأثيرات على قواعد معينة.
+تخيل مشهدًا لنص والشكل الذي يحتوي على ذلك النص. يحتوي تأثير ثلاثي الأبعاد على تمثيل كائن ثلاثي الأبعاد والمشهد الذي وُضع فيه الكائن. 
 
-اعتبر مشهدًا لنص والشكل الذي يحتوي على ذلك النص. يتضمن التأثير ثلاثي الأبعاد تمثيل الكائن ثلاثي الأبعاد والمشهد الذي وُضع فيه الكائن.
+- عندما يُحدد المشهد لكل من الشكل والنص، يحصل مشهد الشكل على أولوية أعلى—يُتجاهل مشهد النص. 
+- عندما لا يمتلك الشكل مشهدًا خاصًا به ولكن له تمثيل ثلاثي الأبعاد، يُستخدم مشهد النص. 
+- وإلا—عندما لا يمتلك الشكل أصلاً تأثيرًا ثلاثيًا الأبعاد—يبقى الشكل مسطحًا ويُطبق التأثير الثلاثي الأبعاد فقط على النص. 
 
-- عند تعيين المشهد لكل من الشكل والنص، يحصل شكل المشهد على الأولوية الأعلى - يُتجاهل مشهد النص.
-- عندما يفتقر الشكل إلى مشهد خاص به ولكنه يحتوي على تمثيل ثلاثي الأبعاد، يتم استخدام مشهد النص.
-- خلاف ذلك - عندما لا يحتوي الشكل أصلاً على تأثير ثلاثي الأبعاد - يكون الشكل مسطحًا ويتم تطبيق التأثير ثلاثي الأبعاد فقط على النص.
-
-تتعلق الأوصاف بخصائص [ThreeDFormat.LightRig](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) و[ThreeDFormat.Camera](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/).
-
-{{% /alert %}}
+الوصف متصل بخصائص [ThreeDFormat.LightRig](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) و[ThreeDFormat.Camera](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/). 
+{{% /alert %}} 
 
 ## **تطبيق تأثيرات الظل الخارجي على النصوص**
-توفر Aspose.Slides لبايثون عبر .NET [**IOuterShadow**](https://reference.aspose.com/slides/python-net/aspose.slides.effects/ioutershadow/) و[**IInnerShadow**](https://reference.aspose.com/slides/python-net/aspose.slides.effects/iinnershadow/) التي تتيح لك تطبيق تأثيرات الظل على النص الذي تحمله TextFrame. اتبع هذه الخطوات:
+توفر Aspose.Slides for Python via .NET الفئة [**IOuterShadow**](https://reference.aspose.com/slides/python-net/aspose.slides.effects/ioutershadow/) والفئة [**IInnerShadow**](https://reference.aspose.com/slides/python-net/aspose.slides.effects/iinnershadow/) التي تسمح لك بتطبيق تأثيرات الظل على نص داخل TextFrame. اتبع الخطوات التالية:
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. احصل على مرجع لشريحة باستخدام فهرسها.
-3. أضف شكلاً تلقائيًا من نوع المستطيل إلى الشريحة.
-4. الوصول إلى TextFrame المرتبطة بالشكل التلقائي.
-5. تعيين FillType للشكل التلقائي إلى NoFill.
-6. قم بتثبيت فئة OuterShadow.
-7. تعيين BlurRadius للظل.
-8. تعيين اتجاه الظل.
-9. تعيين مسافة الظل.
-10. تعيين RectangleAlign إلى TopLeft.
-11. تعيين PresetColor للظل إلى اللون الأسود.
-12. كتابة العرض التقديمي كملف PPTX.
+1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). 
+2. احصل على مرجع الشريحة باستخدام فهرستها. 
+3. أضف AutoShape من نوع Rectangle إلى الشريحة. 
+4. وصول إلى TextFrame المرتبط بـ AutoShape. 
+5. اضبط FillType للـ AutoShape إلى NoFill. 
+6. أنشئ مثيلًا من فئة OuterShadow. 
+7. ضبط BlurRadius للظل. 
+8. ضبط Direction للظل. 
+9. ضبط Distance للظل. 
+10. ضبط RectanglelAlign إلى TopLeft. 
+11. ضبط PresetColor للظل إلى Black. 
+12. احفظ العرض التقديمي كملف PPTX. 
 
-هذا الرمز التجريبي بلغة بايثون - هو تنفيذ للخطوات أعلاه - يوضح لك كيفية تطبيق تأثير الظل الخارجي على نص:
-
+يعرض هذا الكود في Python—تنفيذ الخطوات أعلاه—كيفية تطبيق تأثير الظل الخارجي على نص: 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
 
-    # احصل على مرجع الشريحة
+    # الحصول على مرجع الشريحة
     sld = pres.slides[0]
 
-    # أضف شكلاً تلقائيًا من نوع المستطيل
+    # إضافة شكل تلقائي من نوع مستطيل
     ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
 
-    # أضف TextFrame إلى المستطيل
+    # إضافة إطار نص إلى المستطيل
     ashp.add_text_frame("Aspose TextBox")
 
-    # تعطيل تعبئة الشكل في حالة رغبتنا في الحصول على ظل النص
+    # تعطيل تعبئة الشكل في حال رغبتنا بالحصول على ظل النص
     ashp.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # أضف ظل خارجي وقم بتعيين جميع المعلمات اللازمة
+    # إضافة ظل خارجي وتعيين جميع المعلمات الضرورية
     ashp.effect_format.enable_outer_shadow_effect()
     shadow = ashp.effect_format.outer_shadow_effect
     shadow.blur_radius = 4.0
@@ -332,48 +324,47 @@ with slides.Presentation() as pres:
     shadow.rectangle_align = slides.RectangleAlignment.TOP_LEFT
     shadow.shadow_color.preset_color = slides.PresetColor.BLACK
 
-    # كتابة العرض التقديمي إلى القرص
+    #كتابة العرض التقديمي إلى القرص
     pres.save("pres_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
 ## **تطبيق تأثير الظل الداخلي على الأشكال**
-اتبع هذه الخطوات:
+اتبع الخطوات التالية:
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. احصل على مرجع الشريحة.
-3. أضف شكلاً تلقائيًا من نوع المستطيل.
-4. قم بتمكين تأثير الظل الداخلي.
-5. تعيين جميع المعلمات اللازمة.
-6. تعيين ColorType كـ Scheme.
-7. تعيين لون المخطط.
-8. كتابة العرض التقديمي كملف [PPTX](https://docs.fileformat.com/presentation/pptx/) .
+1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). 
+2. احصل على مرجع الشريحة. 
+3. أضف AutoShape من نوع Rectangle. 
+4. فعّل InnerShadowEffect. 
+5. اضبط جميع المعلمات اللازمة. 
+6. اضبط ColorType إلى Scheme. 
+7. اضبط Scheme Color. 
+8. احفظ العرض التقديمي كملف [PPTX](https://docs.fileformat.com/presentation/pptx/). 
 
-هذا الرمز التجريبي (استنادًا إلى الخطوات أعلاه) يوضح لك كيفية إضافة موصل بين شكلين في بايثون:
-
+يعرض هذا الكود (المستند إلى الخطوات أعلاه) كيفية إضافة موصل بين شكلين في Python: 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
-    # احصل على مرجع لشريحة
+    # الحصول على مرجع الشريحة
     slide = presentation.slides[0]
 
-    # أضف شكلاً تلقائيًا من نوع المستطيل
+    # إضافة AutoShape من نوع Rectangle
     ashp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 400, 300)
     ashp.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # أضف TextFrame إلى المستطيل
+    # إضافة TextFrame إلى Rectangle
     ashp.add_text_frame("Aspose TextBox")
     port = ashp.text_frame.paragraphs[0].portions[0]
     pf = port.portion_format
     pf.font_height = 50
 
-    # تمكين تأثير الظل الداخلي    
+    # تمكين inner_shadow_effect    
     ef = pf.effect_format
     ef.enable_inner_shadow_effect()
 
-    # تعيين جميع المعلمات اللازمة
+    # تعيين جميع المعلمات الضرورية
     ef.inner_shadow_effect.blur_radius = 8.0
     ef.inner_shadow_effect.direction = 90.0
     ef.inner_shadow_effect.distance = 6.0
@@ -382,9 +373,28 @@ with slides.Presentation() as presentation:
     # تعيين ColorType كـ Scheme
     ef.inner_shadow_effect.shadow_color.color_type = slides.ColorType.SCHEME
 
-    # تعيين لون المخطط
+    # تعيين Scheme Color
     ef.inner_shadow_effect.shadow_color.scheme_color = slides.SchemeColor.ACCENT1
 
     # حفظ العرض التقديمي
     presentation.save("WordArt_out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني استخدام تأثيرات WordArt مع خطوط أو نصوص بلغات مختلفة (مثل العربية أو الصينية)؟**
+
+نعم، يدعم Aspose.Slides Unicode ويعمل مع جميع الخطوط والنصوص الرئيسية. يمكن تطبيق تأثيرات WordArt مثل الظل، التعبئة، والحد بغض النظر عن اللغة، رغم أن توفر الخطوط وعرضها قد يعتمد على خطوط النظام. 
+
+**هل يمكنني تطبيق تأثيرات WordArt على عناصر ماستر الشريحة؟**
+
+نعم، يمكنك تطبيق تأثيرات WordArt على الأشكال في ماستر الشرائح، بما في ذلك نواقل العناوين، التذييلات، أو النص الخلفي. سيعكس أي تعديل يُجرى على تخطيط الماستر عبر جميع الشرائح المرتبطة. 
+
+**هل تؤثر تأثيرات WordArt على حجم ملف العرض؟**
+
+قليلاً. قد تزيد تأثيرات WordArt مثل الظلال، التوهج، وتعبئة التدرجات من حجم الملف قليلاً بسبب إضافة بيانات تنسيق، لكن الفرق عادةً ما يكون ضئيلًا. 
+
+**هل يمكنني معاينة نتيجة تأثيرات WordArt دون حفظ العرض؟**
+
+نعم، يمكنك تحويل الشرائح التي تحتوي على WordArt إلى صور (مثل PNG أو JPEG) باستخدام طريقة `get_image` من فئة [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) أو فئة [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/). يتيح لك ذلك معاينة النتيجة في الذاكرة أو على الشاشة قبل حفظ أو تصدير العرض بالكامل.

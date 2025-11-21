@@ -1,27 +1,44 @@
 ---
-title: Diagrammachse
+title: Diagrammachsen in Präsentationen mit Python anpassen
+linktitle: Diagrammachse
 type: docs
 url: /de/python-net/chart-axis/
-keywords: "PowerPoint Diagrammachse, Präsentationsdiagramme, Python, Diagrammachse manipulieren, Diagrammdaten"
-description: "Bearbeiten Sie PowerPoint-Diagrammachsen in Python"
+keywords:
+- Diagrammachse
+- vertikale Achse
+- horizontale Achse
+- Achse anpassen
+- Achse manipulieren
+- Achse verwalten
+- Achseneigenschaften
+- Maximalwert
+- Minimalwert
+- Achsenlinie
+- Datumsformat
+- Achsentitel
+- Achsenposition
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Aspose.Slides für Python via .NET verwenden, um Diagrammachsen in PowerPoint- und OpenDocument-Präsentationen für Berichte und Visualisierungen anzupassen."
 ---
 
+## **Ermitteln der Maximalwerte auf der vertikalen Achse in Diagrammen**
+Aspose.Slides for Python via .NET ermöglicht es Ihnen, die Minimal- und Maximalwerte einer vertikalen Achse zu erhalten. Führen Sie die folgenden Schritte aus:
 
-## **Maximalwerte auf der vertikalen Achse in Diagrammen abrufen**
-Aspose.Slides für Python über .NET ermöglicht es Ihnen, die Minimal- und Maximalwerte auf einer vertikalen Achse zu erhalten. Gehen Sie diese Schritte durch:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.
+2. Greifen Sie auf die erste Folie zu.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu.
+4. Ermitteln Sie den tatsächlichen Maximalwert der Achse.
+5. Ermitteln Sie den tatsächlichen Minimalwert der Achse.
+6. Ermitteln Sie die tatsächliche Haupteinheit der Achse.
+7. Ermitteln Sie die tatsächliche Nebeneinheit der Achse.
+8. Ermitteln Sie die tatsächliche Skalierung der Haupteinheit der Achse.
+9. Ermitteln Sie die tatsächliche Skalierung der Nebeneinheit der Achse.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-1. Greifen Sie auf die erste Folie zu.
-1. Fügen Sie ein Diagramm mit Standarddaten hinzu.
-1. Holen Sie den tatsächlichen Maximalwert auf der Achse.
-1. Holen Sie den tatsächlichen Minimalwert auf der Achse.
-1. Holen Sie die tatsächliche Hauptgröße der Achse.
-1. Holen Sie die tatsächliche Neben Größe der Achse.
-1. Holen Sie die tatsächliche Hauptgrößenskalierung der Achse.
-1. Holen Sie die tatsächliche Neben Größenskalierung der Achse.
-
-Dieser Beispielcode - eine Implementierung der obigen Schritte - zeigt Ihnen, wie Sie die erforderlichen Werte in Python abrufen:
-
+Dieser Beispielcode – eine Umsetzung der oben genannten Schritte – zeigt, wie Sie die erforderlichen Werte in Python erhalten:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -41,30 +58,27 @@ with slides.Presentation() as pres:
 ```
 
 
-## **Daten zwischen Achsen tauschen**
-Aspose.Slides ermöglicht es Ihnen, die Daten schnell zwischen den Achsen zu tauschen – die auf der vertikalen Achse (y-Achse) dargestellten Daten werden auf die horizontale Achse (x-Achse) verschoben und umgekehrt.
+## **Austausch der Daten zwischen Achsen**
+Aspose.Slides ermöglicht es Ihnen, die Daten zwischen Achsen schnell zu vertauschen – die auf der vertikalen Achse (Y‑Achse) dargestellten Daten werden zur horizontalen Achse (X‑Achse) und umgekehrt verschoben.
 
-Dieser Python-Code zeigt Ihnen, wie Sie die Daten zwischen den Achsen in einem Diagramm tauschen:
-
+Dieser Python‑Code zeigt, wie Sie den Datenaustausch zwischen Achsen in einem Diagramm durchführen:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-# Erstellt eine leere Präsentation
+# Erstellt leere Präsentation
 with slides.Presentation() as pres:
     chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 400, 300)
 
-    # Tauscht Zeilen und Spalten
-    chart.chart_data.switch_row_column()
+    #Wechselt Zeilen und Spalten
             
     # Speichert die Präsentation
     pres.save("SwitchChartRowColumns_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Deaktivieren der vertikalen Achse für Liniendiagramme**
 
-Dieser Python-Code zeigt Ihnen, wie Sie die vertikale Achse für ein Liniendiagramm ausblenden:
-
+## **Deaktivieren der Vertikalachse für Liniendiagramme**
+Dieser Python‑Code zeigt, wie Sie die Vertikalachse für ein Liniendiagramm ausblenden:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -76,10 +90,9 @@ with slides.Presentation() as pres:
     pres.save("chart-is_visible.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Deaktivieren der horizontalen Achse für Liniendiagramme**
 
-Dieser Code zeigt Ihnen, wie Sie die horizontale Achse für ein Liniendiagramm ausblenden:
-
+## **Deaktivieren der Horizontalachse für Liniendiagramme**
+Dieser Code zeigt, wie Sie die Horizontalachse für ein Liniendiagramm ausblenden:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -91,10 +104,9 @@ with slides.Presentation() as pres:
     pres.save("chart-2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ändern der Kategoriеachse**
 
-Mit der **CategoryAxisType**-Eigenschaft können Sie Ihren bevorzugten Kategoriеachsentyp (**Datum** oder **Text**) angeben. Dieser Code in Python demonstriert die Operation: 
-
+## **Ändern der Kategorienachse**
+Mit der Eigenschaft **CategoryAxisType** können Sie Ihren bevorzugten Typ der Kategorienachse (**date** oder **text**) festlegen. Dieser Python‑Code demonstriert die Vorgehensweise: 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -108,9 +120,9 @@ with slides.Presentation(path + "ExistingChart.pptx") as presentation:
     presentation.save("ChangeChartCategoryAxis_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Festlegen des Datumsformats für den Kategoriеachsenwert**
-Aspose.Slides für Python über .NET ermöglicht es Ihnen, das Datumsformat für einen Kategoriеachsenwert festzulegen. Die Operation wird in diesem Python-Code demonstriert:
 
+## **Festlegen des Datumsformats für den Wert der Kategorienachse**
+Aspose.Slides für Python via .NET ermöglicht es Ihnen, das Datumsformat für einen Kategorienachsenwert festzulegen. Der Vorgang wird in diesem Python‑Code gezeigt:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -146,9 +158,9 @@ with slides.Presentation() as pres:
     pres.save("test.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Festlegen des Drehwinkels für den Titel der Diagrammachse**
-Aspose.Slides für Python über .NET ermöglicht es Ihnen, den Drehwinkel für einen Titel der Diagrammachse festzulegen. Dieser Python-Code demonstriert die Operation:
 
+## **Festlegen des Rotationswinkels für den Diagrammachsentitel**
+Aspose.Slides für Python via .NET ermöglicht es Ihnen, den Rotationswinkel für einen Diagrammachsentitel festzulegen. Dieser Python‑Code demonstriert den Vorgang:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -161,9 +173,9 @@ with slides.Presentation() as pres:
     pres.save("test.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Festlegen der Positionsachse in einer Kategorie oder Werteachse**
-Aspose.Slides für Python über .NET ermöglicht es Ihnen, die Positionsachse in einer Kategorie- oder Werteachse festzulegen. Dieser Python-Code zeigt, wie Sie die Aufgabe durchführen:
 
+## **Festlegen der Position der Achse in einer Kategorien‑ oder Werteachse**
+Aspose.Slides für Python via .NET ermöglicht es Ihnen, die Position der Achse in einer Kategorien‑ oder Werteachse festzulegen. Dieser Python‑Code zeigt, wie die Aufgabe ausgeführt wird:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -175,9 +187,9 @@ with slides.Presentation() as pres:
 	pres.save("AsposeScatterChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Aktivieren der Anzeigeeinheit Beschriftung auf der Diagrammwertachse**
-Aspose.Slides für Python über .NET ermöglicht es Ihnen, ein Diagramm so zu konfigurieren, dass eine Einheitenspezifische Beschriftung auf seiner Diagrammwertachse angezeigt wird. Dieser Python-Code demonstriert die Operation:
 
+## **Aktivieren der Anzeigeeinheitsbeschriftung auf der Werteachse des Diagramms**
+Aspose.Slides für Python via .NET ermöglicht es Ihnen, ein Diagramm so zu konfigurieren, dass eine Einheitensbeschriftung auf seiner Werteachse angezeigt wird. Dieser Python‑Code demonstriert den Vorgang:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -187,3 +199,14 @@ with slides.Presentation() as pres:
 	chart.axes.vertical_axis.display_unit = charts.DisplayUnitType.MILLIONS
 	pres.save("Result.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Wie lege ich den Wert fest, an dem sich eine Achse mit der anderen schneidet (Achsenkreuzung)?**
+
+Achsen bieten eine [crossing setting](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/): Sie können wählen, bei Null, beim maximalen Kategorie‑/Wert‑Punkt oder bei einem bestimmten numerischen Wert zu kreuzen. Dies ist nützlich, um die X‑Achse nach oben oder unten zu verschieben oder um eine Basislinie hervorzuheben.
+
+**Wie kann ich die Tick‑Beschriftungen relativ zur Achse positionieren (neben, außen, innen)?**
+
+Setzen Sie die [label position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) auf "cross", "outside" oder "inside". Dies beeinflusst die Lesbarkeit und hilft, insbesondere bei kleinen Diagrammen Platz zu sparen.

@@ -1,38 +1,40 @@
 ---
-title: プレゼンテーションの調査
+title: Python でプレゼンテーション情報を取得し更新する
+linktitle: プレゼンテーション情報
 type: docs
 weight: 30
 url: /ja/python-net/examine-presentation/
 keywords:
-- PowerPoint
-- プレゼンテーション
-- プレゼンテーションフォーマット
-- プレゼンテーションプロパティ
-- ドキュメントプロパティ
+- プレゼンテーション形式
+- プレゼンテーション プロパティ
+- ドキュメント プロパティ
 - プロパティの取得
-- プロパティの読み込み
+- プロパティの読み取り
 - プロパティの変更
 - プロパティの修正
-- PPTX
-- PPT
+- プロパティの更新
+- PPTX の検査
+- PPT の検査
+- ODP の検査
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
 - Python
-description: "PythonでPowerPointプレゼンテーションプロパティを読み取り、修正する"
+- Aspose.Slides
+description: "Python を使用して PowerPoint および OpenDocument プレゼンテーションのスライド、構造、メタデータを調査し、より迅速な洞察と賢いコンテンツ監査を実現します。"
 ---
 
-Aspose.Slides for Python via .NETを使用すると、プレゼンテーションを調査してそのプロパティを知り、その動作を理解できます。
+Aspose.Slides for Python via .NET を使用すると、プレゼンテーションを調査してプロパティを確認し、その動作を理解できます。 
 
-{{% alert title="情報" color="info" %}} 
-
-[PresentationInfo](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/)および[DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/)クラスには、ここでの操作に使用されるプロパティとメソッドが含まれています。
-
+{{% alert title="Info" color="info" %}} 
+ここで使用される操作に必要なプロパティとメソッドは、[PresentationInfo](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/) と [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) クラスに含まれています。 
 {{% /alert %}} 
 
-## **プレゼンテーションフォーマットの確認**
+## **プレゼンテーション形式の確認**
 
-プレゼンテーションに取り組む前に、現在プレゼンテーションがどのフォーマット（PPT、PPTX、ODPなど）であるかを確認したい場合があります。
+プレゼンテーションを操作する前に、現在の形式（PPT、PPTX、ODP など）を確認したい場合があります。
 
-プレゼンテーションを読み込まずに、プレゼンテーションのフォーマットを確認できます。以下のPythonコードを参照してください。
-
+プレゼンテーションを読み込まずに形式を確認できます。以下の Python コードをご参照ください:
 ```py
 import aspose.slides as slides
 
@@ -46,10 +48,10 @@ info3 = slides.PresentationFactory.instance.get_presentation_info("pres.ppt")
 print(info3.load_format, info3.load_format == slides.LoadFormat.PPT)
 ```
 
+
 ## **プレゼンテーションプロパティの取得**
 
-このPythonコードは、プレゼンテーションプロパティ（プレゼンテーションに関する情報）を取得する方法を示しています。
-
+この Python コードは、プレゼンテーションのプロパティ（プレゼンテーションに関する情報）を取得する方法を示しています:
 ```py
 import aspose.slides as slides
 
@@ -60,40 +62,63 @@ print(props.subject)
 print(props.title)
 ```
 
-[DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/#properties)クラスのプロパティを確認したい場合があります。
+
+[DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/#properties) クラスの **properties** を確認したくなることがあります。
 
 ## **プレゼンテーションプロパティの更新**
 
-Aspose.Slidesは、プレゼンテーションプロパティを変更することを可能にする[PresentationInfo.update_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties)メソッドを提供します。
+Aspose.Slides は、[PresentationInfo.update_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties) メソッドを提供しており、プレゼンテーションのプロパティを変更できます。
 
-PowerPointプレゼンテーションが以下に示すドキュメントプロパティを持っているとしましょう。
+以下のような PowerPoint プレゼンテーションのドキュメントプロパティがあるとします。
 
-![PowerPointプレゼンテーションの元のドキュメントプロパティ](input_properties.png)
+![PowerPoint プレゼンテーションの元のドキュメントプロパティ](input_properties.png)
 
-このコード例は、いくつかのプレゼンテーションプロパティを編集する方法を示しています。
-
+このコード例は、いくつかのプレゼンテーションプロパティを編集する方法を示しています:
 ```py
 file_name = "sample.pptx"
 
 info = PresentationFactory.instance.get_presentation_info(file_name)
 
 properties = info.read_document_properties()
-properties.title = "私のタイトル"
+properties.title = "My title"
 properties.last_saved_time = datetime.now()
 
 info.update_document_properties(properties)
 info.write_binded_presentation(file_name)
 ```
 
-ドキュメントプロパティを変更した結果は以下に示されています。
 
-![PowerPointプレゼンテーションの変更されたドキュメントプロパティ](output_properties.png)
+ドキュメントプロパティを変更した結果は以下の通りです。
+
+![PowerPoint プレゼンテーションの変更後のドキュメントプロパティ](output_properties.png)
 
 ## **便利なリンク**
 
-プレゼンテーションやそのセキュリティ属性に関する詳細情報を得るために、以下のリンクが役立つかもしれません。
+プレゼンテーションやそのセキュリティ属性に関する詳細情報を得るために、次のリンクが役立ちます:
 
-- [プレゼンテーションが暗号化されているかどうかの確認](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [プレゼンテーションが書き込み保護されているかどうかの確認（読み取り専用）](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [プレゼンテーションを読み込む前にパスワード保護されているかどうかを確認する](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
+- [プレゼンテーションが暗号化されているかの確認](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
+- [プレゼンテーションが書き込み保護（読み取り専用）されているかの確認](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
+- [読み込む前にプレゼンテーションがパスワード保護されているかの確認](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
 - [プレゼンテーションを保護するために使用されたパスワードの確認](https://docs.aspose.com/slides/python-net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation)
+
+## **FAQ**
+
+**フォントが埋め込まれているか、どのフォントが埋め込まれているかを確認する方法は？**
+
+プレゼンテーションレベルで [embedded-font 情報](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) を探し、[実際にコンテンツで使用されているフォント](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_fonts/) の集合と比較して、レンダリングに必須のフォントを特定します。
+
+**ファイルに非表示スライドが含まれているか、またその数をすばやく確認する方法は？**
+
+[スライドコレクション](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) を反復し、各スライドの [visibility フラグ](https://reference.aspose.com/slides/python-net/aspose.slides/slide/hidden/) をチェックします。
+
+**カスタムスライドサイズや向きが使用されているか、デフォルトと異なるかを検出できるか？**
+
+はい。現在の [スライドサイズ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slide_size/) と向きを標準プリセットと比較し、印刷やエクスポート時の挙動を予測できます。
+
+**チャートが外部データソースを参照しているかをすぐに確認する方法は？**
+
+はい。すべての [チャート](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) を走査し、[データソース](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) を確認して、内部データかリンクベースか、壊れたリンクがあるかを把握します。
+
+**レンダリングや PDF エクスポートを遅くする可能性がある「重い」スライドを評価する方法は？**
+
+各スライドについてオブジェクト数を集計し、大きな画像、透明度、影、アニメーション、マルチメディアなどをチェックして、概算の複雑度スコアを付け、パフォーマンスのボトルネックとなり得るスライドをフラグ付けします。

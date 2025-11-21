@@ -1,25 +1,34 @@
 ---
-title: Présentation en Lecture Seule
+title: Enregistrer les présentations en mode lecture seule avec Python
+linktitle: Présentation en lecture seule
 type: docs
 weight: 30
 url: /fr/python-net/read-only-presentation/
-keywords: "Paramètre en lecture seule, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Présentation PowerPoint en lecture seule en Python"
+keywords:
+- lecture seule
+- protéger la présentation
+- empêcher la modification
+- PowerPoint
+- présentation
+- Python
+- Aspose.Slides
+description: "Charger et enregistrer des fichiers PowerPoint (PPT, PPTX) en mode lecture seule avec Aspose.Slides for Python via .NET, offrant des aperçus de diapositives précis sans modifier vos présentations."
 ---
 
-Dans PowerPoint 2019, Microsoft a introduit le paramètre **Toujours Ouvrir en Lecture Seule** comme l'une des options que les utilisateurs peuvent utiliser pour protéger leurs présentations. Vous pouvez souhaiter utiliser ce paramètre en lecture seule pour protéger une présentation lorsque
+## **Appliquer le mode lecture seule**
 
-- Vous souhaitez éviter des modifications accidentelles et garder le contenu de votre présentation en sécurité.
-- Vous souhaitez alerter les personnes que la présentation que vous avez fournie est la version finale.
+Dans PowerPoint 2019, Microsoft a introduit le paramètre **Always Open Read-Only** comme l’une des options que les utilisateurs peuvent utiliser pour protéger leurs présentations. Vous pouvez souhaiter utiliser ce paramètre Lecture seule pour protéger une présentation lorsque
 
-Après avoir sélectionné l'option **Toujours Ouvrir en Lecture Seule** pour une présentation, lorsque les utilisateurs ouvrent la présentation, ils voient la recommandation **Lecture Seule** et peuvent voir un message sous cette forme : *Pour éviter des modifications accidentelles, l'auteur a défini ce fichier pour s'ouvrir en lecture seule.*
+- Vous voulez empêcher les modifications accidentelles et garder le contenu de votre présentation en sécurité. 
+- Vous souhaitez avertir les personnes que la présentation que vous avez fournie est la version finale. 
 
-La recommandation en lecture seule est un moyen simple mais efficace de décourager l'édition car les utilisateurs doivent effectuer une tâche pour la supprimer avant d'être autorisés à modifier une présentation. Si vous ne souhaitez pas que les utilisateurs apportent des modifications à une présentation et souhaitez leur en parler de manière polie, alors la recommandation en lecture seule peut être une bonne option pour vous.
+Après avoir sélectionné l’option **Always Open Read-Only** pour une présentation, lorsque les utilisateurs ouvrent la présentation, ils voient la recommandation **Read-Only** et peuvent voir un message sous cette forme : *Pour éviter les modifications accidentelles, l’auteur a configuré ce fichier pour s’ouvrir en lecture seule.*
 
-> Si une présentation avec la protection **Lecture Seule** est ouverte dans une ancienne application Microsoft PowerPoint—qui ne prend pas en charge la fonction récemment introduite—la recommandation **Lecture Seule** est ignorée (la présentation s'ouvre normalement).
+La recommandation **Read-Only** est un moyen simple mais efficace de dissuasion qui décourage la modification car les utilisateurs doivent effectuer une action pour la supprimer avant de pouvoir éditer une présentation. Si vous ne souhaitez pas que les utilisateurs modifient une présentation et que vous voulez leur indiquer cela de manière polie, la recommandation **Read-Only** peut être une bonne option pour vous. 
 
-Aspose.Slides pour Python via .NET vous permet de définir une présentation en **Lecture Seule**, ce qui signifie que les utilisateurs (après avoir ouvert la présentation) voient la recommandation **Lecture Seule**. Ce code d'exemple vous montre comment définir une présentation en **Lecture Seule** en Python en utilisant Aspose.Slides :
+> Si une présentation protégée par **Read-Only** est ouverte dans une ancienne version de Microsoft PowerPoint—qui ne prend pas en charge la fonction récemment introduite—la recommandation **Read-Only** est ignorée (la présentation s’ouvre normalement).
 
+Aspose.Slides for Python via .NET vous permet de définir une présentation en **Read-Only**, ce qui signifie que les utilisateurs (après avoir ouvert la présentation) voient la recommandation **Read-Only**. Ce code d’exemple montre comment définir une présentation en **Read-Only** en Python avec Aspose.Slides :
 ```py
 import aspose.slides as slides
 
@@ -28,8 +37,27 @@ with slides.Presentation() as pres:
     pres.save("ReadOnlyPresentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+
 {{% alert color="primary" %}} 
 
-**Remarque** : La recommandation **Lecture Seule** est simplement destinée à décourager l'édition ou à empêcher les utilisateurs d'apporter des modifications accidentelles à une présentation PowerPoint. Si une personne motivée—qui sait ce qu'elle fait—décide de modifier votre présentation, elle peut facilement supprimer le paramètre en lecture seule. Si vous devez sérieusement empêcher la modification non autorisée, il vaut mieux utiliser [des protections plus strictes impliquant des encryptions et des mots de passe](https://docs.aspose.com/slides/python-net/password-protected-presentation/). 
+**Note** : La recommandation **Read-Only** vise simplement à décourager la modification ou à empêcher les utilisateurs d’apporter des changements accidentels à une présentation PowerPoint. Si une personne motivée—qui sait ce qu’elle fait— décide de modifier votre présentation, elle peut facilement supprimer le paramètre Read-Only. Si vous avez réellement besoin de prévenir les modifications non autorisées, il est préférable d’utiliser [des protections plus strictes qui impliquent le chiffrement et les mots de passe](https://docs.aspose.com/slides/python-net/password-protected-presentation/). 
 
 {{% /alert %}} 
+
+## **FAQ**
+
+**En quoi le 'Read-Only recommended' diffère-t-il d’une protection complète par mot de passe ?**
+
+« Read-Only recommended » ne fait qu’afficher une suggestion d’ouvrir le fichier en mode lecture seule et est facile à contourner. [Password protection](/slides/fr/python-net/password-protected-presentation/) restreint réellement l’ouverture ou la modification et convient lorsque vous avez besoin de véritables contrôles de sécurité.
+
+**Le 'Read-Only recommended' peut-il être combiné avec des filigranes pour décourager davantage les modifications ?**
+
+Oui. La recommandation peut être associée aux [watermarks](/slides/fr/python-net/watermark/) comme dissuasion visuelle ; ce sont des mécanismes séparés qui fonctionnent bien ensemble.
+
+**Une macro ou un outil externe peut-il toujours modifier le fichier lorsque la recommandation est activée ?**
+
+Oui. La recommandation n’empêche pas les modifications programmatiques. Pour prévenir les modifications automatisées, utilisez les [les mots de passe et le chiffrement](/slides/fr/python-net/password-protected-presentation/).
+
+**Comment le 'Read-Only recommended' se rapporte-t-il aux indicateurs 'is_encrypted' et 'is_write_protected' ?**
+
+Ce sont des signaux différents. « Read-Only recommended » est une invite douce et optionnelle ; [is_write_protected](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_write_protected/) et [is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_encrypted/) indiquent de réelles restrictions d’écriture ou de lecture qui dépendent de mots de passe ou de chiffrement.

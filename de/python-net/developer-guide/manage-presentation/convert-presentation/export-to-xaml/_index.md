@@ -1,30 +1,42 @@
 ---
-title: Export nach XAML
+title: Export Präsentationen nach XAML mit Python
+linktitle: Export nach XAML
 type: docs
 weight: 30
 url: /de/python-net/export-to-xaml/
-keywords: "Export PowerPoint-Präsentation, PowerPoint konvertieren, XAML, PowerPoint nach XAML, PPT nach XAML, PPTX nach XAML, Python"
-description: "Exportieren oder Konvertieren von PowerPoint-Präsentationen nach XAML"
+keywords:
+- PowerPoint exportieren
+- OpenDocument exportieren
+- Präsentation exportieren
+- PowerPoint konvertieren
+- OpenDocument konvertieren
+- Präsentation konvertieren
+- PowerPoint nach XAML
+- OpenDocument nach XAML
+- Präsentation nach XAML
+- PPT nach XAML
+- PPTX nach XAML
+- ODP nach XAML
+- Python
+- Aspose.Slides
+description: "Konvertieren Sie PowerPoint- und OpenDocument-Folien nach XAML in Python mit Aspose.Slides - eine schnelle, Office-freie Lösung, die Ihr Layout beibehält."
 ---
 
-# Exportieren von Präsentationen nach XAML
+## **Übersicht**
 
 {{% alert title="Info" color="info" %}} 
 
-In [Aspose.Slides 21.6](https://docs.aspose.com/slides/python-net/aspose-slides-for-net-21-6-release-notes/) haben wir die Unterstützung für den XAML-Export implementiert. Sie können jetzt Ihre Präsentationen nach XAML exportieren. 
+In [Aspose.Slides 21.6](https://docs.aspose.com/slides/python-net/aspose-slides-for-net-21-6-release-notes/), haben wir die Unterstützung für den XAML‑Export implementiert. Sie können Ihre Präsentationen jetzt nach XAML exportieren. 
 
 {{% /alert %}} 
 
-# Über XAML
+XAML ist eine deklarative Programmiersprache, die es Ihnen ermöglicht, Benutzeroberflächen für Apps zu erstellen oder zu schreiben, insbesondere für solche, die WPF (Windows Presentation Foundation), UWP (Universal Windows Platform) und Xamarin Forms verwenden.  
 
-XAML ist eine beschreibende Programmiersprache, die es Ihnen ermöglicht, Benutzeroberflächen für Apps zu erstellen oder zu schreiben, insbesondere für solche, die WPF (Windows Presentation Foundation), UWP (Universal Windows Platform) und Xamarin-Formulare verwenden.  
+XAML, eine XML‑basierte Sprache, ist Microsofts Variante zur Beschreibung einer GUI. Sie werden wahrscheinlich die meiste Zeit einen Designer verwenden, um an XAML‑Dateien zu arbeiten, können aber die GUI auch manuell erstellen und bearbeiten. 
 
-XAML, eine XML-basierte Sprache, ist die Variante von Microsoft zur Beschreibung einer GUI. Wahrscheinlich verwenden Sie meistens einen Designer, um an XAML-Dateien zu arbeiten, aber Sie können Ihre GUI auch selbst schreiben und bearbeiten. 
+## **Präsentationen mit den Standardeinstellungen nach XAML exportieren**
 
-## Exportieren von Präsentationen nach XAML mit Standardeinstellungen
-
-Dieser Python-Code zeigt Ihnen, wie Sie eine Präsentation mit den Standardeinstellungen nach XAML exportieren:
-
+Dieser Python‑Code zeigt, wie Sie eine Präsentation mit den Standardeinstellungen nach XAML exportieren:
 ```py
 import aspose.slides as slides
 
@@ -32,12 +44,12 @@ pres = slides.Presentation("pres.pptx")
 pres.save(slides.export.xaml.XamlOptions())
 ```
 
-## Exportieren von Präsentationen nach XAML mit benutzerdefinierten Optionen
 
-Sie können Optionen aus der [IXamlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/ixamloptions/) Schnittstelle auswählen, die den Exportprozess steuern und bestimmen, wie Aspose.Slides Ihre Präsentation nach XAML exportiert. 
+## **Präsentationen mit benutzerdefinierten Optionen nach XAML exportieren**
 
-Wenn Sie beispielsweise möchten, dass Aspose.Slides beim Export nach XAML die verborgenen Folien Ihrer Präsentation hinzufügt, können Sie die [ExportHiddenSlides](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/ixamloptions/) Eigenschaft auf true setzen. Hier ist ein Beispiel-Python-Code: 
+Sie können Optionen aus der [IXamlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/ixamloptions/)‑Schnittstelle auswählen, die den Exportvorgang steuern und bestimmen, wie Aspose.Slides Ihre Präsentation nach XAML exportiert. 
 
+Zum Beispiel können Sie, wenn Sie möchten, dass Aspose.Slides versteckte Folien Ihrer Präsentation beim Export nach XAML hinzufügt, die Eigenschaft [ExportHiddenSlides](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/ixamloptions/) auf true setzen. Siehe diesen Beispiel‑Python‑Code: 
 ```py
 import aspose.slides as slides
 
@@ -48,3 +60,18 @@ opt.export_hidden_slides = True
 
 pres.save(opt)
 ```
+
+
+## **FAQ**
+
+**Wie kann ich vorhersehbare Schriftarten sicherstellen, wenn die Originalschriftart auf dem Rechner nicht verfügbar ist?**
+
+Setzen Sie [default_regular_font](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/default_regular_font/) in [XamlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/) – sie wird als Ersatzschriftart verwendet, wenn die Originalschrift fehlt. Das hilft, unerwartete Ersetzungen zu vermeiden.
+
+**Ist das exportierte XAML nur für WPF gedacht oder kann es auch in anderen XAML‑Stacks verwendet werden?**
+
+XAML ist eine allgemeine UI‑Markup‑Sprache, die in WPF, UWP und Xamarin.Forms verwendet wird. Der Export zielt auf die Kompatibilität mit Microsoft‑XAML‑Stacks ab; das genaue Verhalten und die Unterstützung bestimmter Konstrukte hängen von der Zielplattform ab. Testen Sie das Markup in Ihrer Umgebung.
+
+**Werden versteckte Folien unterstützt und wie kann ich verhindern, dass sie standardmäßig exportiert werden?**
+
+Standardmäßig werden versteckte Folien nicht einbezogen. Sie können dieses Verhalten über [export_hidden_slides](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/export_hidden_slides/) in [XamlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/) steuern – deaktivieren Sie es, wenn Sie sie nicht exportieren möchten.

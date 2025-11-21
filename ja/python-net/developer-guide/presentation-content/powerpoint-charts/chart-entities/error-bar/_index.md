@@ -1,21 +1,28 @@
 ---
-title: エラーバー
+title: Python を使用したプレゼンテーション チャートのエラーバーのカスタマイズ
+linktitle: エラーバー
 type: docs
 url: /ja/python-net/error-bar/
-keywords: "エラーバー, エラーバー値 PowerPoint プレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "Python で PowerPoint プレゼンテーションにエラーバーを追加する"
+keywords:
+- エラーバー
+- カスタム値
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用してチャートにエラーバーを追加およびカスタマイズする方法を学び、PowerPoint と OpenDocument プレゼンテーションのデータ可視化を最適化します。"
 ---
 
-## **エラーバーを追加する**
-Aspose.Slides for Python via .NET は、エラーバーの値を管理するための簡単な API を提供します。サンプルコードは、カスタム値タイプを使用する際に適用されます。値を指定するには、系列の **DataPoints** コレクション内の特定のデータポイントの **ErrorBarCustomValues** プロパティを使用します。
+## **エラーバーの追加**
+Aspose.Slides for Python via .NET は、エラーバーの値を管理するためのシンプルな API を提供します。サンプルコードはカスタム値タイプを使用する場合に適用されます。値を指定するには、シリーズの **DataPoints** コレクション内の特定のデータポイントの **ErrorBarCustomValues** プロパティを使用します。
 
 1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. 希望のスライドにバブルチャートを追加します。
-1. 最初のチャート系列にアクセスし、エラーバーの X フォーマットを設定します。
-1. 最初のチャート系列にアクセスし、エラーバーの Y フォーマットを設定します。
-1. バーの値とフォーマットを設定します。
-1. 修正したプレゼンテーションを PPTX ファイルに書き込みます。
-
+1. 目的のスライドにバブルチャートを追加します。
+1. 最初のチャート系列にアクセスし、エラーバー X の書式を設定します。
+1. 最初のチャート系列にアクセスし、エラーバー Y の書式を設定します。
+1. バーの値と書式を設定します。
+1. 変更したプレゼンテーションを PPTX ファイルに書き出します。
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -25,7 +32,7 @@ with slides.Presentation() as presentation:
     # バブルチャートを作成
     chart = presentation.slides[0].shapes.add_chart(charts.ChartType.BUBBLE, 50, 50, 400, 300, True)
 
-    # エラーバーを追加し、そのフォーマットを設定
+    # エラーバーを追加し、その書式を設定
     errBarX = chart.chart_data.series[0].error_bars_x_format
     errBarY = chart.chart_data.series[0].error_bars_y_format
     errBarX.is_visible = True
@@ -43,18 +50,16 @@ with slides.Presentation() as presentation:
 ```
 
 
-
-## **カスタムエラーバー値を追加する**
-Aspose.Slides for Python via .NET は、カスタムエラーバー値を管理するための簡単な API を提供します。サンプルコードは、**IErrorBarsFormat.ValueType** プロパティが **Custom** に等しい場合に適用されます。値を指定するには、系列の **DataPoints** コレクション内の特定のデータポイントの **ErrorBarCustomValues** プロパティを使用します。
+## **カスタム エラーバー値の追加**
+Aspose.Slides for Python via .NET は、カスタムエラーバー値を管理するためのシンプルな API を提供します。サンプルコードは **IErrorBarsFormat.ValueType** プロパティが **Custom** に等しい場合に適用されます。値を指定するには、シリーズの **DataPoints** コレクション内の特定のデータポイントの **ErrorBarCustomValues** プロパティを使用します。
 
 1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. 希望のスライドにバブルチャートを追加します。
-1. 最初のチャート系列にアクセスし、エラーバーの X フォーマットを設定します。
-1. 最初のチャート系列にアクセスし、エラーバーの Y フォーマットを設定します。
+1. 目的のスライドにバブルチャートを追加します。
+1. 最初のチャート系列にアクセスし、エラーバー X の書式を設定します。
+1. 最初のチャート系列にアクセスし、エラーバー Y の書式を設定します。
 1. チャート系列の個々のデータポイントにアクセスし、個々の系列データポイントのエラーバー値を設定します。
-1. バーの値とフォーマットを設定します。
-1. 修正したプレゼンテーションを PPTX ファイルに書き込みます。
-
+1. バーの値と書式を設定します。
+1. 変更したプレゼンテーションを PPTX ファイルに書き出します。
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -64,7 +69,7 @@ with slides.Presentation() as presentation:
     # バブルチャートを作成
     chart = presentation.slides[0].shapes.add_chart(charts.ChartType.BUBBLE, 50, 50, 400, 300, True)
 
-    # カスタムエラーバーを追加し、そのフォーマットを設定
+    # カスタムエラーバーを追加し、その書式を設定
     series = chart.chart_data.series[0]
     errBarX = series.error_bars_x_format
     errBarY = series.error_bars_y_format
@@ -90,3 +95,18 @@ with slides.Presentation() as presentation:
     # プレゼンテーションを保存
     presentation.save("ErrorBarsCustomValues_out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**プレゼンテーションを PDF や画像にエクスポートするとき、エラーバーはどうなりますか？**
+
+エラーバーはチャートの一部として描画され、互換性のあるバージョンまたはレンダラーが使用されている限り、チャートの書式設定とともに変換時に保持されます。
+
+**エラーバーはマーカーやデータ ラベルと組み合わせることができますか？**
+
+はい。エラーバーは別個の要素で、マーカーやデータ ラベルと互換性があります。要素が重なる場合は、書式設定を調整する必要がある場合があります。
+
+**API でエラーバーを操作するためのプロパティや列挙体の一覧はどこで見つけられますか？**
+
+API リファレンスで確認できます: [ErrorBarsFormat](https://reference.aspose.com/slides/python-net/aspose.slides.charts/errorbarsformat/) クラスと、関連する列挙体 [ErrorBarType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/errorbartype/) および [ErrorBarValueType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/errorbarvaluetype/)。

@@ -1,34 +1,45 @@
 ---
-title: Paragraphe
+title: Obtenir les limites du paragraphe à partir des présentations en Python
+linktitle: Paragraphe
 type: docs
 weight: 60
 url: /fr/python-net/paragraph/
-keywords: "Paragraphe, portion, coordonnées de paragraphe, coordonnées de portion, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Paragraphe et portion dans une présentation PowerPoint en Python"
+keywords:
+- limites du paragraphe
+- limites de la portion de texte
+- coordonnée du paragraphe
+- coordonnée de la portion
+- taille du paragraphe
+- taille de la portion de texte
+- cadre de texte
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Apprenez à récupérer les limites du paragraphe et de la portion de texte dans Aspose.Slides pour Python via .NET afin d'optimiser le positionnement du texte dans les présentations PowerPoint et OpenDocument."
 ---
 
-## **Obtenir les coordonnées de paragraphe et de portion dans TextFrame**
-En utilisant Aspose.Slides pour Python via .NET, les développeurs peuvent désormais obtenir les coordonnées rectangulaires pour le Paragraphe à l'intérieur de la collection de paragraphes de TextFrame. Cela permet également d'obtenir les coordonnées de la portion à l'intérieur de la collection de portions d'un paragraphe. Dans ce sujet, nous allons démontrer avec l'aide d'un exemple comment obtenir les coordonnées rectangulaires pour le paragraphe ainsi que la position de la portion à l'intérieur d'un paragraphe.
+## **Obtenir les coordonnées du paragraphe et de la portion dans TextFrame**
+En utilisant Aspose.Slides for Python via .NET, les developpeurs peuvent desormais obtenir les coordonnees rectangulaires d'un Paragraph a l'interieur de la collection de paragraphes d'un TextFrame. Cela permet egalement d'obtenir les coordonnees d'une portion a l'interieur de la collection de portions d'un paragraphe. Dans cet article, nous allons montrer, a l'aide d'un exemple, comment obtenir les coordonnees rectangulaires d'un paragraphe ainsi que la position d'une portion a l'interieur d'un paragraphe.
 
-## **Obtenir les coordonnées rectangulaires du paragraphe**
-La nouvelle méthode **GetRect()** a été ajoutée. Elle permet d'obtenir le rectangle de limites du paragraphe.
-
+## **Obtenir les coordonnees rectangulaires du Paragraph**
+La nouvelle methode **GetRect()** a ete ajoutee. Elle permet d'obtenir le rectangle des limites du paragraphe.
 ```py
 import aspose.slides as slides
 
-# Instancier un objet Presentation qui représente un fichier de présentation
+# Instancie un objet Presentation qui représente un fichier de présentation
 with slides.Presentation(path + "Shapes.pptx") as presentation:
     shape = presentation.slides[0].shapes[0]
     textFrame = shape.text_frame
     rect = textFrame.paragraphs[0].get_rect()
 ```
 
-## **Obtenir la taille du paragraphe et de la portion à l'intérieur de la cellule de texte du tableau** ##
 
-Pour obtenir la taille et les coordonnées de la [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) ou du [Paragraphe](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) dans une cellule de texte de tableau, vous pouvez utiliser les méthodes [IPortion.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iportion/) et [IParagraph.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/).
+## **Obtenir la taille du paragraphe et de la portion a l'interieur du texte d'une cellule de tableau** ##
+Pour obtenir la taille et les coordonnees du [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) ou du [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) dans le texte d'une cellule de tableau, vous pouvez utiliser les methodes [IPortion.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iportion/) et [IParagraph.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/).
 
-Cet exemple de code montre l'opération décrite :
-
+Ce code d'exemple montre l'operation descrite:
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -62,3 +73,18 @@ with slides.Presentation(path + "source.pptx") as pres:
 
                 shape.fill_format.fill_type = slides.FillType.NO_FILL
 ```
+
+
+## **FAQ**
+
+**Dans quelles unites les coordonnees d'un paragraphe et des portions de texte sont-elles renvoyees ?**
+En points, ou 1 pouce = 72 points. Cela s'applique a toutes les coordonnees et dimensions sur la diapositive.
+
+**L'habillage du texte affecte-t-il les limites du paragraphe ?**
+Oui. Si le [wrapping](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) est active dans le [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/), le texte se coupe pour s'adapter a la largeur de la zone, ce qui modifie les limites reelles du paragraphe.
+
+**Les coordonnees du paragraphe peuvent-elles etre mappees de facon fiable aux pixels dans l'image exportee ?**
+Oui. Convertissez les points en pixels en utilisant : pixels = points x (DPI / 72). Le resultat depend du DPI choisi pour le rendu ou l'exportation.
+
+**Comment obtenir les parametres de mise en forme "effective" du paragraphe, en tenant compte de l'heritage des styles ?**
+Utilisez la [structure de donnees de mise en forme effective du paragraphe](/slides/fr/python-net/shape-effective-properties/) ; elle renvoie les valeurs finales consolidees pour les retraits, l'espacement, le wrapping, le RTL, etc.

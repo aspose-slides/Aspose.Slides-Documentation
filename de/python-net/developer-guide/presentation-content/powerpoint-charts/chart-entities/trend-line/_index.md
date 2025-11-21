@@ -11,95 +11,92 @@ keywords:
 - logarithmische Trendlinie
 - gleitende Durchschnittstrendlinie
 - polynomiale Trendlinie
-- Potenztrendlinie
+- Potenz‑Trendlinie
 - benutzerdefinierte Trendlinie
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Fügen Sie mit Aspose.Slides for Python via .NET schnell Trendlinien zu PowerPoint- und OpenDocument-Diagrammen hinzu und passen Sie diese an – ein praxisorientierter Leitfaden mit Codebeispielen, um die Prognosegenauigkeit zu verbessern und Ihr Publikum zu begeistern."
+description: "Fügen Sie schnell Trendlinien zu PowerPoint- und OpenDocument-Diagrammen mit Aspose.Slides für Python über .NET hinzu und passen Sie sie an – ein praxisorientierter Leitfaden und Codebeispiele zur Verbesserung der Prognosegenauigkeit und zur Einbindung Ihres Publikums."
 ---
 
 ## **Trendlinie hinzufügen**
-Aspose.Slides für Python über .NET bietet eine einfache API zur Verwaltung verschiedener Diagramm-Trendlinien:
+Aspose.Slides für Python über .NET bietet eine einfache API zur Verwaltung verschiedener Diagramm‑Trendlinien:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-1. Erhalten Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie ein Diagramm mit Standarddaten zusammen mit einem beliebigen gewünschten Typ hinzu (dieses Beispiel verwendet ChartType.CLUSTERED_COLUMN).
-1. Hinzufügen der exponentiellen Trendlinie für Diagrammreihe 1.
-1. Hinzufügen der linearen Trendlinie für Diagrammreihe 1.
-1. Hinzufügen der logarithmischen Trendlinie für Diagrammreihe 2.
-1. Hinzufügen der gleitenden Durchschnittstrendlinie für Diagrammreihe 2.
-1. Hinzufügen der polynomialen Trendlinie für Diagrammreihe 3.
-1. Hinzufügen der Potenztrendlinie für Diagrammreihe 3.
-1. Speichern der modifizierten Präsentation in einer PPTX-Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.
+2. Holen Sie sich die Referenz einer Folie über deren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu, wobei Sie den gewünschten Typ auswählen (in diesem Beispiel wird ChartType.CLUSTERED_COLUMN verwendet).
+4. Hinzufügen einer exponentiellen Trendlinie für Diagrammreihe 1.
+5. Hinzufügen einer linearen Trendlinie für Diagrammreihe 1.
+6. Hinzufügen einer logarithmischen Trendlinie für Diagrammreihe 2.
+7. Hinzufügen einer gleitenden Mittelwert‑Trendlinie für Diagrammreihe 2.
+8. Hinzufügen einer polynomialen Trendlinie für Diagrammreihe 3.
+9. Hinzufügen einer Potenz‑Trendlinie für Diagrammreihe 3.
+10. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.
 
 Der folgende Code wird verwendet, um ein Diagramm mit Trendlinien zu erstellen.
-
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Erstellen einer leeren Präsentation
+# Leere Präsentation erstellen
 with slides.Presentation() as pres:
 
-    # Erstellen eines gruppierten Säulendiagramms
+    # Gruppiertes Säulendiagramm erstellen
     chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 400)
 
-    # Hinzufügen der exponentiellen Trendlinie für Diagrammreihe 1
+    # Exponentielle Trendlinie für Diagrammreihe 1 hinzufügen
     tredLinep = chart.chart_data.series[0].trend_lines.add(charts.TrendlineType.EXPONENTIAL)
     tredLinep.display_equation = False
     tredLinep.display_r_squared_value = False
 
-    # Hinzufügen der linearen Trendlinie für Diagrammreihe 1
+    # Lineare Trendlinie für Diagrammreihe 1 hinzufügen
     tredLineLin = chart.chart_data.series[0].trend_lines.add(charts.TrendlineType.LINEAR)
     tredLineLin.trendline_type = charts.TrendlineType.LINEAR
     tredLineLin.format.line.fill_format.fill_type = slides.FillType.SOLID
     tredLineLin.format.line.fill_format.solid_fill_color.color = draw.Color.red
 
 
-    # Hinzufügen der logarithmischen Trendlinie für Diagrammreihe 2
+    # Logarithmische Trendlinie für Diagrammreihe 2 hinzufügen
     tredLineLog = chart.chart_data.series[1].trend_lines.add(charts.TrendlineType.LOGARITHMIC)
     tredLineLog.trendline_type = charts.TrendlineType.LOGARITHMIC
-    tredLineLog.add_text_frame_for_overriding("Neue log-Trendlinie")
+    tredLineLog.add_text_frame_for_overriding("New log trend line")
 
-    # Hinzufügen der gleitenden Durchschnittstrendlinie für Diagrammreihe 2
+    # Gleitende Mittelwert‑Trendlinie für Diagrammreihe 2 hinzufügen
     tredLineMovAvg = chart.chart_data.series[1].trend_lines.add(charts.TrendlineType.MOVING_AVERAGE)
     tredLineMovAvg.trendline_type = charts.TrendlineType.MOVING_AVERAGE
     tredLineMovAvg.period = 3
-    tredLineMovAvg.trendline_name = "Neuer Trendlinienname"
+    tredLineMovAvg.trendline_name = "New TrendLine Name"
 
-    # Hinzufügen der polynomialen Trendlinie für Diagrammreihe 3
+    # Polynomial‑Trendlinie für Diagrammreihe 3 hinzufügen
     tredLinePol = chart.chart_data.series[2].trend_lines.add(charts.TrendlineType.POLYNOMIAL)
     tredLinePol.trendline_type = charts.TrendlineType.POLYNOMIAL
     tredLinePol.forward = 1
     tredLinePol.order = 3
 
-    # Hinzufügen der Potenztrendlinie für Diagrammreihe 3
+    # Potenz‑Trendlinie für Diagrammreihe 3 hinzufügen
     tredLinePower = chart.chart_data.series[1].trend_lines.add(charts.TrendlineType.POWER)
     tredLinePower.trendline_type = charts.TrendlineType.POWER
     tredLinePower.backward = 1
 
-    # Speichern der Präsentation
+    # Präsentation speichern
     pres.save("Charttrend_lines_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-
 ## **Benutzerdefinierte Linie hinzufügen**
-Aspose.Slides für Python über .NET bietet eine einfache API zum Hinzufügen benutzerdefinierter Linien in ein Diagramm. Um eine einfache gerade Linie zu einer ausgewählten Folie der Präsentation hinzuzufügen, befolgen Sie bitte die folgenden Schritte:
+Aspose.Slides für Python über .NET bietet eine einfache API zum Hinzufügen benutzerdefinierter Linien in einem Diagramm. Um eine einfache gerade Linie zu einer ausgewählten Folie der Präsentation hinzuzufügen, befolgen Sie bitte die folgenden Schritte:
 
-- Erstellen Sie eine Instanz der Präsentationsklasse
-- Erhalten Sie die Referenz einer Folie, indem Sie ihren Index verwenden
-- Erstellen Sie ein neues Diagramm mit der Methode AddChart, die vom Shapes-Objekt bereitgestellt wird
-- Fügen Sie eine AutoShape vom Typ Linie mit der Methode AddAutoShape hinzu, die vom Shapes-Objekt bereitgestellt wird
-- Setzen Sie die Farbe der Linien des Shapes.
-- Schreiben Sie die modifizierte Präsentation als PPTX-Datei
+- Erstellen Sie eine Instanz der Presentation‑Klasse
+- Holen Sie sich die Referenz einer Folie über deren Index
+- Erstellen Sie ein neues Diagramm mit der AddChart‑Methode, die vom Shapes‑Objekt bereitgestellt wird
+- Fügen Sie eine AutoShape vom Typ Linie mithilfe der AddAutoShape‑Methode des Shapes‑Objekts hinzu
+- Legen Sie die Farbe der Formlinien fest.
+- Schreiben Sie die geänderte Präsentation als PPTX‑Datei
 
 Der folgende Code wird verwendet, um ein Diagramm mit benutzerdefinierten Linien zu erstellen.
-
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -112,3 +109,14 @@ with slides.Presentation() as pres:
     shape.line_format.fill_format.solid_fill_color.color = draw.Color.red
     pres.save("AddCustomLines.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Was bedeuten 'forward' und 'backward' bei einer Trendlinie?**
+
+Sie geben die Längen der Trendlinie an, die vorwärts bzw. rückwärts projiziert werden: Für Streudiagramme (XY) in Achseneinheiten; für Nicht‑Streudiagramme in der Anzahl der Kategorien. Es sind nur nicht‑negative Werte zulässig.
+
+**Bleibt die Trendlinie erhalten, wenn die Präsentation in PDF oder SVG exportiert oder eine Folie als Bild gerendert wird?**
+
+Ja. Aspose.Slides konvertiert Präsentationen in [PDF](/slides/de/python-net/convert-powerpoint-to-pdf/)/[SVG](/slides/de/python-net/render-a-slide-as-an-svg-image/) und rendert Diagramme zu Bildern; Trendlinien, als Teil des Diagramms, bleiben bei diesen Vorgängen erhalten. Eine Methode ist ebenfalls verfügbar, um ein Bild des Diagramms selbst zu [exportieren](/slides/de/python-net/create-shape-thumbnails/).

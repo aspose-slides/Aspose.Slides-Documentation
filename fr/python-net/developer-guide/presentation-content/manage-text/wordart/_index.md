@@ -1,37 +1,50 @@
 ---
-title: WordArt
+title: Créer et appliquer des effets WordArt en Python
+linktitle: WordArt
 type: docs
 weight: 110
 url: /fr/python-net/wordart/
-keywords: "WordArt, Art de texte, Créer WordArt, Modèle WordArt, Effets WordArt, Effets d'ombre, Effets d'affichage, Effets de lueur, Transformations WordArt, Effets 3D, Effets d'ombre extérieure, Effets d'ombre intérieure, Python, Aspose.Slides pour Python via .NET"
-description: "Ajouter, manipuler et gérer WordArt et effets dans des présentations PowerPoint en Python ou Aspose.Slides pour Python via .NET"
+keywords:
+- WordArt
+- créer WordArt
+- modèle WordArt
+- effet WordArt
+- effet d'ombre
+- effet d'affichage
+- effet de lueur
+- transformation WordArt
+- effet 3D
+- effet d'ombre externe
+- effet d'ombre interne
+- Python
+- Aspose.Slides
+description: "Apprenez à créer et personnaliser des effets WordArt dans Aspose.Slides pour Python via .NET. Ce guide étape par étape aide les développeurs à améliorer les présentations avec du texte élégant et professionnel en Python."
 ---
 
 ## **À propos de WordArt ?**
-WordArt ou Art de texte est une fonctionnalité qui vous permet d'appliquer des effets aux textes pour les faire ressortir. Avec WordArt, par exemple, vous pouvez contourner un texte ou le remplir d'une couleur (ou d'un dégradé), lui ajouter des effets 3D, etc. Vous pouvez également déformer, plier et étirer la forme d'un texte.
+WordArt ou Word Art est une fonctionnalité qui vous permet d’appliquer des effets au texte pour le faire ressortir. Avec WordArt, par exemple, vous pouvez tracer le contour d’un texte ou le remplir d’une couleur (ou d’un dégradé), ajouter des effets 3D, etc. Vous pouvez également incliner, plier et étirer la forme d’un texte. 
 
 {{% alert color="primary" %}} 
 
-WordArt vous permet de traiter un texte comme vous le feriez avec un objet graphique. WordArt se compose d'effets ou de modifications spéciales apportées aux textes pour les rendre plus attrayants ou remarquables. 
+WordArt vous permet de traiter un texte comme un objet graphique. WordArt se compose d’effets ou de modifications spéciales appliquées aux textes pour les rendre plus attrayants ou remarquables. 
 
 {{% /alert %}} 
 
 **WordArt dans Microsoft PowerPoint**
 
-Pour utiliser WordArt dans Microsoft PowerPoint, vous devez sélectionner l'un des modèles WordArt prédéfinis. Un modèle WordArt est un ensemble d'effets qui sont appliqués à un texte ou à sa forme.
+Pour utiliser WordArt dans Microsoft PowerPoint, vous devez sélectionner l’un des modèles WordArt prédéfinis. Un modèle WordArt est un ensemble d’effets appliqués à un texte ou à sa forme. 
 
 **WordArt dans Aspose.Slides**
 
-Dans Aspose.Slides pour Python via .NET 20.10, nous avons mis en œuvre le support de WordArt et apporté des améliorations à cette fonctionnalité dans les versions successives d'Aspose.Slides pour Python via .NET.
+Dans Aspose.Slides for Python via .NET 20.10, nous avons implémenté la prise en charge de WordArt et apporté des améliorations à la fonctionnalité dans les versions ultérieures d’Aspose.Slides for Python via .NET. 
 
-Avec Aspose.Slides pour Python via .NET, vous pouvez facilement créer votre propre modèle WordArt (un effet ou une combinaison d'effets) en Python et l'appliquer aux textes.
+Avec Aspose.Slides for Python via .NET, vous pouvez facilement créer votre propre modèle WordArt (un effet ou une combinaison d’effets) en Python et l’appliquer aux textes. 
 
-## Création d'un modèle WordArt simple et application à un texte
+## Créer un modèle WordArt simple et l’appliquer à un texte
 
-**En utilisant Aspose.Slides** 
+**Utilisation d’Aspose.Slides** 
 
-Tout d'abord, nous créons un texte simple en utilisant ce code Python : 
-
+Tout d’abord, nous créons un texte simple à l’aide de ce code Python :
 ```py
 import aspose.slides as slides
 
@@ -45,30 +58,30 @@ with slides.Presentation() as pres:
 
     pres.save("wordart-1.pptx", slides.export.SaveFormat.PPTX)
 ```
-Maintenant, nous réglons la hauteur de la police du texte sur une valeur plus élevée pour rendre l'effet plus visible à travers ce code :
 
+Ensuite, nous définissons la hauteur de la police du texte à une valeur plus grande pour rendre l’effet plus visible grâce à ce code :
 ```py 
     fontData = slides.FontData("Arial Black")
     portion.portion_format.latin_font = fontData
     portion.portion_format.font_height = 36
 ```
 
-**En utilisant Microsoft PowerPoint**
 
-Allez dans le menu des effets WordArt dans Microsoft PowerPoint :
+**Utilisation de Microsoft PowerPoint**
+
+Accédez au menu des effets WordArt dans Microsoft PowerPoint :
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
-À partir du menu à droite, vous pouvez choisir un effet WordArt prédéfini. À partir du menu à gauche, vous pouvez spécifier les paramètres pour un nouveau WordArt. 
+Dans le menu à droite, vous pouvez choisir un effet WordArt prédéfini. Dans le menu à gauche, vous pouvez spécifier les paramètres d’un nouveau WordArt. 
 
-Voici quelques-uns des paramètres ou options disponibles :
+Voici quelques‑uns des paramètres ou options disponibles :
 
 ![todo:image_alt_text](image-20200930114015-3.png)
 
-**En utilisant Aspose.Slides**
+**Utilisation d’Aspose.Slides**
 
-Ici, nous appliquons la couleur du motif SmallGrid au texte et ajoutons une bordure de texte noire de 1 de largeur en utilisant ce code :
-
+Ici, nous appliquons la couleur de motif SmallGrid au texte et ajoutons une bordure de texte noire de largeur 1 à l’aide de ce code :
 ```py 
     portion.portion_format.fill_format.fill_type = slides.FillType.PATTERN
     portion.portion_format.fill_format.pattern_format.fore_color.color = draw.Color.dark_orange
@@ -79,24 +92,24 @@ Ici, nous appliquons la couleur du motif SmallGrid au texte et ajoutons une bord
     portion.portion_format.line_format.fill_format.solid_fill_color.color = draw.Color.black
 ```
 
+
 Le texte résultant :
 
 ![todo:image_alt_text](image-20200930114108-4.png)
 
-## Application d'autres effets WordArt
+## Appliquer d’autres effets WordArt
 
-**En utilisant Microsoft PowerPoint**
+**Utilisation de Microsoft PowerPoint**
 
-À partir de l'interface du programme, vous pouvez appliquer ces effets à un texte, un bloc de texte, une forme ou un élément similaire :
+Depuis l’interface du programme, vous pouvez appliquer ces effets à un texte, un bloc de texte, une forme ou un élément similaire :
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-Par exemple, les effets d'ombre, de réflexion et de lueur peuvent être appliqués à un texte ; les effets de format 3D et de rotation 3D peuvent être appliqués à un bloc de texte ; la propriété Edges doux peut être appliquée à un objet Shape (cela a toujours un effet lorsqu'aucune propriété de format 3D n'est définie).
+Par exemple, les effets Ombre, Réflexion et Lueur peuvent être appliqués à un texte ; les effets Format 3D et Rotation 3D peuvent être appliqués à un bloc de texte ; la propriété Bords arrondis peut être appliquée à un objet Forme (elle a toujours un effet lorsqu’aucune propriété Format 3D n’est définie). 
 
-### Application des effets d'ombre
+### Appliquer des effets d’ombre
 
-Ici, nous avons l'intention de définir les propriétés relatives uniquement à un texte. Nous appliquons l'effet d'ombre à un texte en utilisant ce code en Python :
-
+Ici, nous avons l’intention de définir les propriétés liées uniquement à un texte. Nous appliquons l’effet d’ombre à un texte à l’aide de ce code en Python :
 ```py 
     portion.portion_format.effect_format.enable_outer_shadow_effect()
     portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color = draw.Color.black
@@ -110,29 +123,27 @@ Ici, nous avons l'intention de définir les propriétés relatives uniquement à
     portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color_transform.add(slides.ColorTransformOperation.SET_ALPHA, 0.32)
 ```
 
-L'API Aspose.Slides prend en charge trois types d'ombre : OuterShadow, InnerShadow et PresetShadow.
 
-Avec PresetShadow, vous pouvez appliquer une ombre à un texte (en utilisant des valeurs prédéfinies).
+L’API Aspose.Slides prend en charge trois types d’ombres : OuterShadow, InnerShadow et PresetShadow. 
 
-**En utilisant Microsoft PowerPoint**
+Avec PresetShadow, vous pouvez appliquer une ombre à un texte (en utilisant des valeurs prédéfinies). 
 
-Dans PowerPoint, vous pouvez utiliser un type d'ombre. Voici un exemple :
+**Utilisation de Microsoft PowerPoint**
+
+Dans PowerPoint, vous pouvez utiliser un type d’ombre. Voici un exemple :
 
 ![todo:image_alt_text](image-20200930114225-6.png)
 
-**En utilisant Aspose.Slides**
+**Utilisation d’Aspose.Slides**
 
-Aspose.Slides permet effectivement d'appliquer deux types d'ombres à la fois : InnerShadow et PresetShadow.
+Aspose.Slides permet en réalité d’appliquer deux types d’ombres simultanément : InnerShadow et PresetShadow.
 
-**Remarques :**
+- Lorsqu’OuterShadow et PresetShadow sont utilisés ensemble, seul l’effet OuterShadow est appliqué. 
+- Si OuterShadow et InnerShadow sont utilisés simultanément, l’effet résultant dépend de la version de PowerPoint. Par exemple, dans PowerPoint 2013, l’effet est doublé. Mais dans PowerPoint 2007, l’effet OuterShadow est appliqué. 
 
-- Lorsque OuterShadow et PresetShadow sont utilisés ensemble, seul l'effet OuterShadow est appliqué. 
-- Si OuterShadow et InnerShadow sont utilisés simultanément, l'effet résultant ou appliqué dépend de la version de PowerPoint. Par exemple, dans PowerPoint 2013, l'effet est doublé. Mais dans PowerPoint 2007, l'effet OuterShadow est appliqué.
+### Appliquer l’affichage aux textes
 
-### Application d'effets d'affichage aux textes
-
-Nous ajoutons un affichage au texte à l'aide de cet exemple de code en Python :
-
+Nous ajoutons un affichage au texte via cet exemple de code en Python :
 ```py 
     portion.portion_format.effect_format.enable_reflection_effect()
     portion.portion_format.effect_format.reflection_effect.blur_radius = 0.5 
@@ -147,10 +158,10 @@ Nous ajoutons un affichage au texte à l'aide de cet exemple de code en Python :
     portion.portion_format.effect_format.reflection_effect.rectangle_align = slides.RectangleAlignment.BOTTOM_LEFT  
 ```
 
-### Application de l'effet de lueur aux textes
 
-Nous appliquons l'effet de lueur au texte pour le faire briller ou ressortir en utilisant ce code :
+### Appliquer l’effet de lueur aux textes
 
+Nous appliquons l’effet de lueur au texte pour le faire briller ou le faire ressortir à l’aide de ce code :
 ```py 
     portion.portion_format.effect_format.enable_glow_effect()
     portion.portion_format.effect_format.glow_effect.color.r = 255
@@ -158,22 +169,24 @@ Nous appliquons l'effet de lueur au texte pour le faire briller ou ressortir en 
     portion.portion_format.effect_format.glow_effect.radius = 7
 ```
 
-Le résultat de l'opération :
+
+Le résultat de l’opération :
 
 ![todo:image_alt_text](image-20200930114621-7.png)
 
 {{% alert color="primary" %}} 
 
-Vous pouvez modifier les paramètres pour l'ombre, l'affichage et la lueur. Les propriétés des effets sont définies sur chaque portion du texte séparément. 
+Vous pouvez modifier les paramètres d’ombre, d’affichage et de lueur. Les propriétés des effets sont définies séparément pour chaque portion du texte. 
 
 {{% /alert %}} 
 
-### Utilisation des transformations dans WordArt
+### Utiliser les transformations dans WordArt
 
-Nous utilisons la propriété Transform (inhérente à l'ensemble du bloc de texte) via ce code :
+Nous utilisons la propriété Transform (inhérente à l’ensemble du bloc de texte) via ce code :
 ```py 
 textFrame.text_frame_format.transform = slides.TextShapeType.ARCH_UP_POUR
 ```
+
 
 Le résultat :
 
@@ -181,22 +194,21 @@ Le résultat :
 
 {{% alert color="primary" %}} 
 
-Microsoft PowerPoint et Aspose.Slides pour Python via .NET offrent un certain nombre de types de transformation prédéfinis. 
+Microsoft PowerPoint et Aspose.Slides for Python via .NET offrent un certain nombre de types de transformation prédéfinis. 
 
 {{% /alert %}} 
 
-**En utilisant PowerPoint**
+**Utilisation de PowerPoint**
 
-Pour accéder aux types de transformation prédéfinis, allez dans : **Format** -> **Effet de texte** -> **Transformer**
+Pour accéder aux types de transformation prédéfinis, suivez : **Format** -> **TextEffect** -> **Transform**
 
-**En utilisant Aspose.Slides**
+**Utilisation d’Aspose.Slides**
 
-Pour sélectionner un type de transformation, utilisez l'énumération TextShapeType.
+Pour sélectionner un type de transformation, utilisez l’énumération TextShapeType. 
 
-### Application d'effets 3D aux textes et formes
+### Appliquer des effets 3D aux textes et aux formes
 
-Nous appliquons un effet 3D à une forme de texte en utilisant cet exemple de code :
-
+Nous appliquons un effet 3D à une forme de texte à l’aide de cet exemple de code :
 ```py 
     autoShape.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
     autoShape.three_d_format.bevel_bottom.height = 10.5
@@ -223,12 +235,12 @@ Nous appliquons un effet 3D à une forme de texte en utilisant cet exemple de co
     autoShape.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
 ```
 
+
 Le texte résultant et sa forme :
 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
 Nous appliquons un effet 3D au texte avec ce code Python :
-
 ```py 
     textFrame.text_frame_format.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
     textFrame.text_frame_format.three_d_format.bevel_bottom.height = 3.5
@@ -255,61 +267,61 @@ Nous appliquons un effet 3D au texte avec ce code Python :
     textFrame.text_frame_format.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
 ```
 
-Le résultat de l'opération :
+
+Le résultat de l’opération :
 
 ![todo:image_alt_text](image-20200930114905-10.png)
 
 {{% alert color="primary" %}} 
 
-L'application d'effets 3D aux textes ou à leurs formes et les interactions entre les effets sont basées sur certaines règles. 
+L’application d’effets 3D aux textes ou à leurs formes ainsi que les interactions entre les effets sont basées sur certaines règles. 
 
-Considérez une scène pour un texte et la forme contenant ce texte. L'effet 3D contient la représentation de l'objet 3D et la scène sur laquelle l'objet a été placé. 
+Considérez une scène pour un texte et la forme contenant ce texte. L’effet 3D comprend la représentation d’un objet 3D et la scène sur laquelle l’objet est placé. 
 
-- Lorsque la scène est définie à la fois pour la figure et le texte, la scène de la figure a une priorité plus élevée—la scène du texte est ignorée. 
-- Lorsque la figure n'a pas sa propre scène mais a une représentation 3D, la scène du texte est utilisée. 
-- Sinon—lorsque la forme n'a initialement aucun effet 3D—la forme est plate et l'effet 3D n'est appliqué qu'au texte. 
+- Lorsque la scène est définie à la fois pour la forme et pour le texte, la scène de la forme a la priorité supérieure — la scène du texte est ignorée. 
+- Si la forme ne possède pas de scène propre mais possède une représentation 3D, la scène du texte est utilisée. 
+- Sinon—si la forme n’a initialement aucun effet 3D—la forme est plane et l’effet 3D n’est appliqué qu’au texte. 
 
-Les descriptions sont liées aux propriétés [ThreeDFormat.LightRig](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) et [ThreeDFormat.Camera](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/).
+Les descriptions sont liées aux propriétés [ThreeDFormat.LightRig](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) et [ThreeDFormat.Camera](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/). 
 
 {{% /alert %}} 
 
-## **Appliquer des effets d'ombre extérieure aux textes**
-Aspose.Slides pour Python via .NET fournit les classes [**IOuterShadow**](https://reference.aspose.com/slides/python-net/aspose.slides.effects/ioutershadow/) et [**IInnerShadow**](https://reference.aspose.com/slides/python-net/aspose.slides.effects/iinnershadow/) qui vous permettent d'appliquer des effets d'ombre à un texte contenu dans TextFrame. Suivez ces étapes :
+## **Appliquer des effets d’ombre externe aux textes**
+Aspose.Slides for Python via .NET fournit les classes [**IOuterShadow**](https://reference.aspose.com/slides/python-net/aspose.slides.effects/ioutershadow/) et [**IInnerShadow**](https://reference.aspose.com/slides/python-net/aspose.slides.effects/iinnershadow/) qui permettent d’appliquer des effets d’ombre à un texte contenu dans TextFrame. Suivez les étapes suivantes :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Obtenez la référence d'une diapositive en utilisant son index.
-3. Ajoutez une AutoShape de type Rectangle à la diapositive.
-4. Accédez à la TextFrame associée à l'AutoShape.
-5. Définissez le FillType de l'AutoShape sur NoFill.
-6. Instanciez la classe OuterShadow.
-7. Définissez le BlurRadius de l'ombre.
-8. Définissez la Direction de l'ombre.
-9. Définissez la Distance de l'ombre.
-10. Définissez l'Alignement du rectangle sur TopLeft.
-11. Définissez la couleur prédéfinie de l'ombre sur Noir.
-12. Écrivez la présentation sous forme de fichier PPTX.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).  
+2. Obtenir la référence d’une diapositive en utilisant son indice.  
+3. Ajouter une AutoShape de type Rectangle à la diapositive.  
+4. Accéder au TextFrame associé à l’AutoShape.  
+5. Définir la propriété FillType de l’AutoShape sur NoFill.  
+6. Instancier la classe OuterShadow  
+7. Définir la propriété BlurRadius de l’ombre.  
+8. Définir la Direction de l’ombre  
+9. Définir la Distance de l’ombre.  
+10. Définir la propriété RectanglelAlign sur TopLeft.  
+11. Définir la couleur prédéfinie (PresetColor) de l’ombre sur Black.  
+12. Enregistrer la présentation sous forme de fichier PPTX.  
 
-Cet exemple de code en Python—une implémentation des étapes ci-dessus—vous montre comment appliquer l'effet d'ombre extérieure à un texte :
-
+Ce code d’exemple en Python—une implémentation des étapes ci‑above—vous montre comment appliquer l’effet d’ombre externe à un texte :
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
 
-    # Obtenez la référence de la diapositive
+    # Obtenir la référence de la diapositive
     sld = pres.slides[0]
 
-    # Ajoutez une AutoShape de type Rectangle
+    # Ajouter un AutoShape de type Rectangle
     ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
 
-    # Ajoutez une TextFrame au Rectangle
+    # Ajouter un TextFrame au Rectangle
     ashp.add_text_frame("Aspose TextBox")
 
-    # Désactivez le remplissage de la forme au cas où nous voudrions obtenir l'ombre du texte
+    # Désactiver le remplissage de la forme au cas où nous voulons obtenir l'ombre du texte
     ashp.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # Ajoutez une ombre extérieure et définissez tous les paramètres nécessaires
+    # Ajouter une ombre externe et définir tous les paramètres nécessaires
     ashp.effect_format.enable_outer_shadow_effect()
     shadow = ashp.effect_format.outer_shadow_effect
     shadow.blur_radius = 4.0
@@ -318,59 +330,77 @@ with slides.Presentation() as pres:
     shadow.rectangle_align = slides.RectangleAlignment.TOP_LEFT
     shadow.shadow_color.preset_color = slides.PresetColor.BLACK
 
-    # Écrivez la présentation sur le disque
+    #Enregistrer la présentation sur le disque
     pres.save("pres_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **Appliquer un effet d'ombre intérieure aux formes**
+## **Appliquer l’effet d’ombre interne aux formes**
 Suivez ces étapes :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Obtenez une référence de la diapositive.
-3. Ajoutez une AutoShape de type Rectangle.
-4. Activez l'effet InnerShadowEffect.
-5. Définissez tous les paramètres nécessaires.
-6. Définissez le ColorType sur Scheme.
-7. Définissez la couleur du schéma.
-8. Écrivez la présentation sous forme de fichier [PPTX](https://docs.fileformat.com/presentation/pptx/) .
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).  
+2. Obtenir une référence de la diapositive.  
+3. Ajouter une AutoShape du type Rectangle.  
+4. Activer InnerShadowEffect.  
+5. Définir tous les paramètres nécessaires.  
+6. Définir la propriété ColorType sur Scheme.  
+7. Définir la couleur du schéma.  
+8. Enregistrer la présentation sous forme de fichier [PPTX](https://docs.fileformat.com/presentation/pptx/).  
 
-Cet exemple de code (basé sur les étapes ci-dessus) vous montre comment ajouter un connecteur entre deux formes en Python :
-
+Ce code d’exemple (basé sur les étapes ci‑above) vous montre comment ajouter un connecteur entre deux formes en Python :
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
-    # Obtenez la référence d'une diapositive
+    # Obtenir la référence d'une diapositive
     slide = presentation.slides[0]
 
-    # Ajoutez une AutoShape de type Rectangle
+    # Ajouter un AutoShape de type Rectangle
     ashp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 400, 300)
     ashp.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # Ajoutez une TextFrame au Rectangle
+    # Ajouter un TextFrame au Rectangle
     ashp.add_text_frame("Aspose TextBox")
     port = ashp.text_frame.paragraphs[0].portions[0]
     pf = port.portion_format
     pf.font_height = 50
 
-    # Activez l'effet inner_shadow_effect    
+    # Activer inner_shadow_effect
     ef = pf.effect_format
     ef.enable_inner_shadow_effect()
 
-    # Définissez tous les paramètres nécessaires
+    # Définir tous les paramètres nécessaires
     ef.inner_shadow_effect.blur_radius = 8.0
     ef.inner_shadow_effect.direction = 90.0
     ef.inner_shadow_effect.distance = 6.0
     ef.inner_shadow_effect.shadow_color.b = 189
 
-    # Définissez ColorType sur Scheme
+    # Définir ColorType sur Scheme
     ef.inner_shadow_effect.shadow_color.color_type = slides.ColorType.SCHEME
 
-    # Définissez la couleur du schéma
+    # Définir la couleur du schéma
     ef.inner_shadow_effect.shadow_color.scheme_color = slides.SchemeColor.ACCENT1
 
-    # Enregistrez la présentation
+    # Enregistrer la présentation
     presentation.save("WordArt_out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Puis‑je utiliser les effets WordArt avec différentes polices ou scripts (par ex., Arabe, Chinois) ?**
+
+Oui, Aspose.Slides prend en charge Unicode et fonctionne avec toutes les principales polices et scripts. Les effets WordArt tels que l’ombre, le remplissage et le contour peuvent être appliqués quel que soit la langue, bien que la disponibilité des polices et le rendu puissent dépendre des polices du système.
+
+**Puis‑je appliquer les effets WordArt aux éléments du masque des diapositives ?**
+
+Oui, vous pouvez appliquer les effets WordArt aux formes sur les masques des diapositives, y compris les espaces réservés de titre, les pieds de page ou le texte d’arrière‑plan. Les modifications apportées à la disposition du masque seront reflétées sur toutes les diapositives associées.
+
+**Les effets WordArt affectent‑ils la taille du fichier de la présentation ?**
+
+Légèrement. Les effets WordArt comme les ombres, les lueurs et les remplissages en dégradé peuvent augmenter légèrement la taille du fichier en raison des métadonnées de formatage ajoutées, mais la différence est généralement négligeable.
+
+**Puis‑je prévisualiser le résultat des effets WordArt sans enregistrer la présentation ?**
+
+Oui, vous pouvez rendre les diapositives contenant du WordArt en images (par ex., PNG, JPEG) à l’aide de la méthode `get_image` de la classe [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) ou [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/). Cela vous permet de prévisualiser le résultat en mémoire ou à l’écran avant d’enregistrer ou d’exporter la présentation complète.

@@ -1,26 +1,37 @@
 ---
-title: Эффект формы
+title: Применение эффектов фигур в презентациях с Python
+linktitle: Эффект фигуры
 type: docs
 weight: 30
 url: /ru/python-net/shape-effect
-keywords: "Эффект формы, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Применить эффект к форме PowerPoint в Python"
+keywords:
+- эффект фигуры
+- эффект тени
+- эффект отражения
+- эффект свечения
+- эффект мягких краёв
+- формат эффекта
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Преобразуйте свои файлы PPT, PPTX и ODP с помощью продвинутых эффектов фигур, используя Aspose.Slides для Python — создавайте яркие, профессиональные слайды за секунды."
 ---
 
-Хотя эффекты в PowerPoint могут использоваться для того, чтобы выделить форму, они отличаются от [заливок](/slides/ru/python-net/shape-formatting/#gradient-fill) или контуров. Используя эффекты PowerPoint, вы можете создать убедительные отражения на форме, распространить свечение формы и т. д.
+В то время как эффекты в PowerPoint могут использоваться для выделения формы, они отличаются от [заливки](/slides/ru/python-net/shape-formatting/#gradient-fill) или контуров. С помощью эффектов PowerPoint можно создать убедительные отражения на форме, распространить её светящееся свечение и т.д.
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 
-* PowerPoint предоставляет шесть эффектов, которые можно применить к формам. Вы можете применить один или несколько эффектов к форме.
+* PowerPoint предоставляет шесть эффектов, которые можно применять к фигурам. К одной фигуре можно применить один или несколько эффектов. 
 
-* Некоторые комбинации эффектов выглядят лучше, чем другие. По этой причине PowerPoint предлагает параметры под **Предустановки**. Параметры предустановок представляют собой известную хорошо выглядящую комбинацию двух или более эффектов. Таким образом, выбрав предустановку, вы не потратите время на тестирование или комбинирование различных эффектов в поисках красивой комбинации.
+* Некоторые комбинации эффектов выглядят лучше, чем другие. По этой причине PowerPoint имеет параметры под **Preset**. Параметры Preset представляют собой известные визуально привлекательные комбинации двух и более эффектов. Таким образом, выбрав готовый набор, вам не придётся тратить время на экспериментирование и комбинирование разных эффектов в поисках удачной комбинации.
 
-Aspose.Slides предоставляет свойства и методы в классе [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/), которые позволяют применять одни и те же эффекты к формам в презентациях PowerPoint.
+Aspose.Slides предоставляет свойства и методы в классе [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/), которые позволяют применять те же эффекты к фигурам в презентациях PowerPoint.
 
 ## **Применить эффект тени**
 
-Этот код на Python показывает, как применить эффект внешней тени (`outer_shadow_effect`) к прямоугольнику:
-
+This Python code shows you how to apply the outer shadow effect (`outer_shadow_effect`) to a rectangle:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -36,10 +47,10 @@ with slides.Presentation() as pres:
     pres.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+
 ## **Применить эффект отражения**
 
-Этот код на Python показывает, как применить эффект отражения к форме:
-
+This Python code shows you how to apply the reflection effect to a shape:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -56,10 +67,10 @@ with slides.Presentation() as pres:
     pres.save("reflection.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+
 ## **Применить эффект свечения**
 
-Этот код на Python показывает, как применить эффект свечения к форме:
-
+This Python code shows you how to apply the glow effect to a shape:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -74,10 +85,10 @@ with slides.Presentation() as pres:
     pres.save("glow.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Применить эффект мягких краев**
 
-Этот код на Python показывает, как применить эффект мягких краев к форме:
+## **Применить эффект мягких краёв**
 
+This Python code shows you how to apply the soft edges to a shape:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -90,3 +101,18 @@ with slides.Presentation() as pres:
 
     pres.save("softEdges.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Можно ли применить несколько эффектов к одной фигуре?**
+
+Да, вы можете комбинировать разные эффекты, такие как тень, отражение и свечение, на одной фигуре, чтобы создать более динамичный вид.
+
+**К каким фигурам можно применять эффекты?**
+
+Эффекты можно применять к различным фигурам, включая автоконтуры, диаграммы, таблицы, изображения, объекты SmartArt, OLE‑объекты и прочее.
+
+**Можно ли применять эффекты к сгруппированным фигурам?**
+
+Да, эффекты можно применять к сгруппированным фигурам. Эффект будет применён ко всей группе.

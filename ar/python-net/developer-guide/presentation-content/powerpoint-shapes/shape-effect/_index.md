@@ -1,26 +1,37 @@
 ---
-title: تأثير الشكل
+title: تطبيق تأثيرات الأشكال في العروض التقديمية باستخدام بايثون
+linktitle: تأثير الشكل
 type: docs
 weight: 30
 url: /ar/python-net/shape-effect
-keywords: "تأثير الشكل، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
-description: "تطبيق تأثير على شكل PowerPoint في بايثون"
+keywords:
+- تأثير الشكل
+- تأثير الظل
+- تأثير الانعكاس
+- تأثير التوهج
+- تأثير الحواف الناعمة
+- تنسيق التأثير
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "حوّل ملفات PPT و PPTX و ODP الخاصة بك باستخدام تأثيرات الأشكال المتقدمة عبر Aspose.Slides للبايثون—أنشئ شرائح جذابة ومحترفة في ثوانٍ."
 ---
 
-بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل بارزًا، إلا أنها تختلف عن [التعبئات](/slides/ar/python-net/shape-formatting/#gradient-fill) أو الحواف. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على شكل، ونشر توهج شكل، إلخ.
+بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل يبرز، فإنها تختلف عن [fills](/slides/ar/python-net/shape-formatting/#gradient-fill) أو الخطوط الخارجية. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، أو نشر توهج الشكل، إلخ.
 
 <img src="shape-effect.png" alt="تأثير الشكل" style="zoom:50%;" />
 
-* يوفر PowerPoint ستة تأثيرات يمكن تطبيقها على الأشكال. يمكنك تطبيق تأثير واحد أو أكثر على شكل.
+* يوفر PowerPoint ستة تأثيرات يمكن تطبيقها على الأشكال. يمكنك تطبيق واحد أو أكثر من التأثيرات على الشكل. 
 
-* تبدو بعض مجموعات التأثيرات أفضل من غيرها. لهذه السبب، تقدم PowerPoint خيارات تحت **preset**. خيارات preset هي في الأساس مجموعة معروفة ذات مظهر جيد من اثنين أو أكثر من التأثيرات. بهذه الطريقة، من خلال اختيار preset، لن تضطر إلى إضاعة الوقت في اختبار أو دمج تأثيرات مختلفة للعثور على مجموعة جميلة.
+* بعض تركيبات التأثيرات تبدو أفضل من غيرها. لهذا السبب، تتوفر خيارات PowerPoint تحت **Preset**. خيارات Preset هي في الأساس تركيبة معروفة المظهر من اثنين أو أكثر من التأثيرات. بهذه الطريقة، باختيار إعداد مسبق، لن تضطر إلى إضاعة الوقت في اختبار أو دمج تأثيرات مختلفة للعثور على تركيبة جميلة.
 
-توفر Aspose.Slides خصائص وطرق تحت فئة [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) التي تسمح لك بتطبيق نفس التأثيرات على الأشكال في عروض PowerPoint.
+توفر Aspose.Slides خصائص وأساليب تحت فئة [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) التي تتيح لك تطبيق نفس التأثيرات على الأشكال في عروض PowerPoint.
 
 ## **تطبيق تأثير الظل**
 
-يظهر لك هذا الكود البرمجي بلغة بايثون كيفية تطبيق تأثير الظل الخارجي (`outer_shadow_effect`) على مستطيل:
-
+هذا الشيفرة Python توضح لك كيفية تطبيق تأثير الظل الخارجي (`outer_shadow_effect`) على مستطيل:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -36,10 +47,10 @@ with slides.Presentation() as pres:
     pres.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+
 ## **تطبيق تأثير الانعكاس**
 
-يظهر لك هذا الكود البرمجي بلغة بايثون كيفية تطبيق تأثير الانعكاس على شكل:
-
+هذا الشيفرة Python توضح لك كيفية تطبيق تأثير الانعكاس على شكل:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -56,10 +67,10 @@ with slides.Presentation() as pres:
     pres.save("reflection.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+
 ## **تطبيق تأثير التوهج**
 
-يظهر لك هذا الكود البرمجي بلغة بايثون كيفية تطبيق تأثير التوهج على شكل:
-
+هذا الشيفرة Python توضح لك كيفية تطبيق تأثير التوهج على شكل:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -74,10 +85,10 @@ with slides.Presentation() as pres:
     pres.save("glow.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+
 ## **تطبيق تأثير الحواف الناعمة**
 
-يظهر لك هذا الكود البرمجي بلغة بايثون كيفية تطبيق الحواف الناعمة على شكل:
-
+هذا الشيفرة Python توضح لك كيفية تطبيق الحواف الناعمة على شكل:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -90,3 +101,18 @@ with slides.Presentation() as pres:
 
     pres.save("softEdges.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني تطبيق عدة تأثيرات على نفس الشكل؟**
+
+نعم، يمكنك دمج تأثيرات مختلفة، مثل الظل، والانعكاس، والتوهج، على شكل واحد لإنشاء مظهر أكثر ديناميكية.
+
+**ما هي الأشكال التي يمكنني تطبيق التأثيرات عليها؟**
+
+يمكنك تطبيق التأثيرات على أشكال متنوعة، بما في ذلك الأشكال التلقائية، المخططات، الجداول، الصور، كائنات SmartArt، كائنات OLE، وأكثر.
+
+**هل يمكنني تطبيق التأثيرات على مجموعة من الأشكال؟**
+
+نعم، يمكنك تطبيق التأثيرات على مجموعات الأشكال. سيُطبق التأثير على المجموعة بأكملها.

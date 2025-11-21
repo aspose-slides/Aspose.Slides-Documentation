@@ -1,109 +1,111 @@
 ---
-title: Zugriff auf Folien in Präsentationen mit Python
-linktitle: Folie aufrufen
+title: Folien in Präsentationen mit Python zugreifen
+linktitle: Folienzugriff
 type: docs
 weight: 20
 url: /de/python-net/access-slide-in-presentation/
 keywords:
-- auf folien zugreifen
-- folienindex
-- folien-ID
-- folienposition
-- position ändern
-- folieneigenschaften
-- foliennummer
+- Folienzugriff
+- Folienindex
+- Folien-ID
+- Folienposition
+- Position ändern
+- Folieneigenschaften
+- Foliennummer
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Folien in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides for Python via .NET aufrufen und verwalten. Steigern Sie Ihre Produktivität mit Codebeispielen."
+description: "Erfahren Sie, wie Sie Folien in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Python über .NET zugreifen und verwalten können. Steigern Sie die Produktivität mit Codebeispielen."
 ---
 
-Aspose.Slides ermöglicht den Zugriff auf Folien auf zwei Arten: über den Index und über die ID.
+## **Übersicht**
 
-## **Zugriff auf Folie über Index**
+Dieser Artikel erklärt, wie man auf bestimmte Folien in einer PowerPoint-Präsentation mit Aspose.Slides für Python zugreift. Er zeigt, wie man eine Präsentation öffnet, Folien nach Index oder eindeutiger ID referenziert und grundlegende Folieninformationen liest, die für die Navigation innerhalb der Datei benötigt werden. Mit diesen Techniken können Sie die genaue Folie, die Sie prüfen oder verarbeiten möchten, zuverlässig finden.
 
-Alle Folien in einer Präsentation sind numerisch basierend auf der Folienposition angeordnet, beginnend mit 0. Die erste Folie ist über den Index 0 zugänglich; die zweite Folie wird über den Index 1 erreicht; usw.
+## **Zugriff auf eine Folie nach Index**
 
-Die Klasse Presentation, die eine Präsentationsdatei repräsentiert, stellt alle Folien als eine [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Sammlung (Sammlung von [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) Objekten) zur Verfügung. Dieser Python-Code zeigt, wie man über den Index auf eine Folie zugreift:
+Folien in einer Präsentation werden nach ihrer Position indexiert, beginnend bei 0. Die erste Folie hat den Index 0, die zweite Folie hat den Index 1 und so weiter.
 
+Die Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) (die eine Präsentationsdatei darstellt) stellt Folien über eine [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) von [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/)-Objekten bereit.
+
+Der folgende Python-Code zeigt, wie man auf eine Folie nach ihrem Index zugreift:
 ```python
 import aspose.slides as slides
 
-# Erstellt ein Presentation-Objekt, das eine Präsentationsdatei repräsentiert
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Erhält einen Verweis auf die Folie über ihren Index
+# Erstelle ein Presentation-Objekt, das eine Präsentationsdatei darstellt.
+with slides.Presentation("sample.pptx") as presentation:
+    # Hole eine Folie anhand ihres Indexes.
     slide = presentation.slides[0]
 ```
 
-## **Zugriff auf Folie über ID**
 
-Jede Folie in einer Präsentation hat eine eindeutige ID, die mit ihr verbunden ist. Sie können die Methode `get_slide_by_id(id)` verwenden (bereitgestellt durch die [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse), um diese ID gezielt anzusprechen. Dieser Python-Code zeigt, wie man eine gültige Folien-ID angibt und über die Methode `get_slide_by_id(id)` auf diese Folie zugreift:
+## **Zugriff auf eine Folie nach ID**
 
+Jede Folie in einer Präsentation hat eine eindeutige ID, die ihr zugeordnet ist. Sie können die Methode [get_slide_by_id](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_slide_by_id/) (die von der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) bereitgestellt wird) verwenden, um diese ID anzusteuern. 
+
+Der folgende Python-Code zeigt, wie man eine gültige Folien-ID angibt und über die Methode [get_slide_by_id](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/get_slide_by_id/) auf diese Folie zugreift:
 ```python
 import aspose.slides as slides
 
-# Erstellt ein Presentation-Objekt, das eine Präsentationsdatei repräsentiert
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Erhält eine Folien-ID
+# Erstelle ein Presentation-Objekt, das eine Präsentationsdatei darstellt.
+with slides.Presentation("sample.pptx") as presentation:
+    # Erhalte die Folien-ID.
     id = presentation.slides[0].slide_id
-    # Greift auf die Folie über ihre ID zu
+    # Greife auf die Folie über ihre ID zu.
     slide = presentation.get_slide_by_id(id)
 ```
 
-## **Folie Position ändern**
 
-Aspose.Slides ermöglicht Ihnen, die Position einer Folie zu ändern. Zum Beispiel können Sie angeben, dass die erste Folie zur zweiten Folie werden soll.
+## **Ändern der Position einer Folie**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-2. Holen Sie sich den Verweis auf die Folie (deren Position Sie ändern möchten) über ihren Index.
-3. Legen Sie eine neue Position für die Folie über die Eigenschaft `slide_number` fest.
-4. Speichern Sie die modifizierte Präsentation.
+Aspose.Slides ermöglicht es, die Position einer Folie zu ändern. Zum Beispiel können Sie die erste Folie zur zweiten machen.
 
-Dieser Python-Code demonstriert eine Operation, bei der die Folie in Position 1 nach Position 2 verschoben wird:
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Holen Sie sich eine Referenz auf die Folie, deren Position Sie anhand ihres Index ändern möchten.
+1. Setzen Sie eine neue Position für die Folie über die Eigenschaft [slide_number](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_number/).
+1. Speichern Sie die geänderte Präsentation.
 
+Der folgende Python-Code verschiebt die Folie von Position 1 nach Position 2:
 ```python
 import aspose.slides as slides
 
-# Erstellt ein Presentation-Objekt, das eine Präsentationsdatei repräsentiert
-with slides.Presentation(path + "ChangePosition.pptx") as pres:
-    # Erhält die Folie, deren Position geändert wird
-    sld = pres.slides[0]
-    # Setzt die neue Position für die Folie
-    sld.slide_number = 2
-    # Speichert die modifizierte Präsentation
-    pres.save("Aspose_out.pptx", slides.export.SaveFormat.PPTX)
+# Instanziiere ein Presentation-Objekt, das eine Präsentationsdatei darstellt.
+with slides.Presentation("sample.pptx") as presentation:
+    # Hole die Folie, deren Position geändert wird.
+    slide = presentation.slides[0]
+    # Setze die neue Position für die Folie.
+    slide.slide_number = 2
+    # Speichere die geänderte Präsentation.
+    presentation.save("slide_number.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Die erste Folie wurde zur zweiten; die zweite Folie wurde zur ersten. Wenn Sie die Position einer Folie ändern, werden andere Folien automatisch angepasst.
 
-## **Folie Nummer festlegen**
+Die erste Folie wird zur zweiten; die zweite Folie wird zur ersten. Wenn Sie die Position einer Folie ändern, werden die anderen Folien automatisch angepasst.
 
-Durch die Verwendung der Eigenschaft `first_slide_number` (bereitgestellt durch die [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse) können Sie eine neue Nummer für die erste Folie in einer Präsentation festlegen. Diese Operation führt dazu, dass die anderen Foliennummern neu berechnet werden.
+## **Festlegen der Foliennummer**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-2. Holen Sie sich die Foliennummer.
-3. Legen Sie die Foliennummer fest.
-4. Speichern Sie die modifizierte Präsentation.
+Mit der Eigenschaft [first_slide_number](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/first_slide_number/) (die von der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) bereitgestellt wird) können Sie eine neue Nummer für die erste Folie in einer Präsentation festlegen. Dieser Vorgang führt dazu, dass die anderen Foliennummern neu berechnet werden.
 
-Dieser Python-Code demonstriert eine Operation, bei der die erste Foliennummer auf 10 gesetzt wird:
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Legen Sie die Foliennummer fest.
+1. Speichern Sie die geänderte Präsentation.
 
+Der folgende Python-Code demonstriert einen Vorgang, bei dem die erste Foliennummer auf 10 gesetzt wird:
 ```python
 import aspose.slides as slides
 
-# Erstellt ein Presentation-Objekt, das eine Präsentationsdatei repräsentiert
-with slides.Presentation(path + "HelloWorld.pptx") as presentation:
-    # Erhält die Foliennummer
-    firstSlideNumber = presentation.first_slide_number
-    # Setzt die Foliennummer
+# Instanziiere ein Presentation-Objekt, das eine Präsentationsdatei darstellt.
+with slides.Presentation("sample.pptx") as presentation:
+    # Setze die Foliennummer.
     presentation.first_slide_number = 10
-    # Speichert die modifizierte Präsentation
-    presentation.save("Set_Slide_Number_out.pptx", slides.export.SaveFormat.PPTX)
+    # Speichere die geänderte Präsentation.
+    presentation.save("first_slide_number.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Wenn Sie die erste Folie überspringen möchten, können Sie die Nummerierung ab der zweiten Folie beginnen (und die Nummerierung für die erste Folie ausblenden) auf folgende Weise:
 
+Wenn Sie die erste Folie überspringen möchten, können Sie die Nummerierung ab der zweiten Folie beginnen (und die Nummer auf der ersten Folie ausblenden), wie folgt:
 ```python
 import aspose.slides as slides
 
@@ -113,15 +115,30 @@ with slides.Presentation() as presentation:
     presentation.slides.add_empty_slide(layout_slide)
     presentation.slides.add_empty_slide(layout_slide)
 
-    # Legt die Nummer für die erste Präsentationsfolie fest
+    # Setze die Nummer für die erste Folie in der Präsentation.
     presentation.first_slide_number = 0
 
-    # Zeigt die Foliennummern für alle Folien an
+    # Zeige Foliennummern für alle Folien an.
     presentation.header_footer_manager.set_all_slide_numbers_visibility(True)
 
-    # Blendet die Foliennummer für die erste Folie aus
+    # Verstecke die Foliennummer auf der ersten Folie.
     presentation.slides[0].header_footer_manager.set_slide_number_visibility(False)
 
-    # Speichert die modifizierte Präsentation
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    # Speichere die geänderte Präsentation.
+    presentation.save("first_slide_number.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Stimmt die von einem Benutzer sichtbare Foliennummer mit dem nullbasierten Index der Sammlung überein?**
+
+Die auf einer Folie angezeigte Nummer kann bei einem beliebigen Wert beginnen (z. B. 10) und muss nicht mit dem Index übereinstimmen; die Beziehung wird durch die Einstellung [first slide number](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/first_slide_number/) der Präsentation gesteuert.
+
+**Beeinflussen ausgeblendete Folien die Indexierung?**
+
+Ja. Eine ausgeblendete Folie bleibt in der Sammlung und wird bei der Indexierung gezählt; „ausgeblendet“ bezieht sich auf die Anzeige, nicht auf ihre Position in der Sammlung.
+
+**Ändert sich der Index einer Folie, wenn andere Folien hinzugefügt oder entfernt werden?**
+
+Ja. Indizes spiegeln stets die aktuelle Reihenfolge der Folien wider und werden bei Einfüge-, Lösch- und Verschiebevorgängen neu berechnet.

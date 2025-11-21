@@ -1,47 +1,46 @@
 ---
-title: Python でプレゼンテーションの段落境界を取得する
+title: Pythonでプレゼンテーションから段落の境界を取得
 linktitle: 段落
 type: docs
 weight: 60
 url: /ja/python-net/paragraph/
 keywords:
 - 段落の境界
-- テキスト部分の境界
-- 段落座標
-- テキスト部分座標
-- 段落サイズ
-- テキスト部分サイズ
+- テキストポーションの境界
+- 段落の座標
+- ポーションの座標
+- 段落のサイズ
+- テキストポーションのサイズ
 - テキストフレーム
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "PowerPoint および OpenDocument プレゼンテーションでテキストの配置を最適化するために、Aspose.Slides for Python via .NET で段落とテキスト部分の境界を取得する方法を学びます。"
+description: "Aspose.Slides for Python via .NET で段落およびテキストポーションの境界を取得し、PowerPoint と OpenDocument のプレゼンテーションにおけるテキスト配置を最適化する方法を学びます。"
 ---
 
-## **TextFrame内の段落とポーションの座標を取得する**
-Aspose.Slides for Python via .NETを使用すると、開発者はTextFrameの段落コレクション内の段落の矩形座標を取得できるようになりました。これにより、段落内のポーションコレクション内のポーションの座標も取得できます。本トピックでは、段落の矩形座標と段落内のポーションの位置を取得する方法を例を用いて示します。
+## **テキストフレーム内の段落およびポーションの座標取得**
+Aspose.Slides for Python via .NET を使用すると、開発者は TextFrame の段落コレクション内の Paragraph の矩形座標を取得できるようになりました。また、段落のポーションコレクション内のポーションの座標も取得できます。このトピックでは、例を使って段落の矩形座標と段落内のポーションの位置を取得する方法を示します。
 
-## **段落の矩形座標を取得する**
-新しいメソッド**GetRect()**が追加されました。これにより、段落の境界矩形を取得できます。
-
+## **段落の矩形座標取得**
+新しいメソッド **GetRect()** が追加されました。これにより、段落のバウンド矩形を取得できます。
 ```py
 import aspose.slides as slides
 
-# プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化
+# プレゼンテーション ファイルを表す Presentation オブジェクトを生成します
 with slides.Presentation(path + "Shapes.pptx") as presentation:
     shape = presentation.slides[0].shapes[0]
     textFrame = shape.text_frame
     rect = textFrame.paragraphs[0].get_rect()
 ```
 
-## **テーブルセルのテキストフレーム内の段落とポーションのサイズを取得する** ##
 
-テーブルセルのテキストフレーム内で[ポーション](https://reference.aspose.com/slides/python-net/aspose.slides/portion/)または[段落](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/)のサイズと座標を取得するには、[IPortion.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iportion/)および[IParagraph.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/)メソッドを使用できます。
+## **テーブルセルのテキストフレーム内の段落およびポーションのサイズ取得** ##
 
-このサンプルコードは、説明した操作を示しています：
+テーブルセルのテキストフレーム内で [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) または [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) のサイズと座標を取得するには、[IPortion.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iportion/) と [IParagraph.GetRect](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/) メソッドを使用できます。
 
+このサンプルコードは上記の操作を示しています。
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -50,6 +49,7 @@ with slides.Presentation(path + "source.pptx") as pres:
     tbl = pres.slides[0].shapes[0]
 
     cell = tbl.rows[1][1]
+
 
     x = tbl.X + tbl.rows[1][1].offset_x
     y = tbl.Y + tbl.rows[1][1].offset_y
@@ -74,3 +74,22 @@ with slides.Presentation(path + "source.pptx") as pres:
 
                 shape.fill_format.fill_type = slides.FillType.NO_FILL
 ```
+
+
+## **FAQ**
+
+**段落およびテキストポーションの座標はどの単位で返されますか？**
+
+ポイント単位です。1インチは 72 ポイントに相当します。この単位はスライド上のすべての座標と寸法に適用されます。
+
+**ワードラップは段落のバウンドに影響しますか？**
+
+はい。もし [wrapping](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/) が [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) で有効になっている場合、テキストは領域の幅に合わせて折り返され、段落の実際のバウンドが変わります。
+
+**エクスポートされた画像で段落の座標をピクセルに正確にマッピングできますか？**
+
+はい。ポイントをピクセルに変換するには、次の式を使用します: pixels = points × (DPI / 72)。結果はレンダリング/エクスポート時に選択した DPI に依存します。
+
+**スタイル継承を考慮した「実効」段落書式設定パラメータはどのように取得しますか？**
+
+[effective paragraph formatting data structure](/slides/ja/python-net/shape-effective-properties/) を使用します。これにより、インデント、間隔、折り返し、RTL などの最終的な統合値が返されます。

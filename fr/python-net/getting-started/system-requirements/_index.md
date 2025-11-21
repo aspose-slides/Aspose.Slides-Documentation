@@ -3,16 +3,33 @@ title: Exigences système
 type: docs
 weight: 60
 url: /fr/python-net/system-requirements/
+keywords:
+- exigences système
+- système d'exploitation
+- installation
+- dépendances
+- Windows
+- Linux
+- macOS
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Découvrez les exigences système d'Aspose.Slides for Python via .NET. Assurez une prise en charge transparente de PowerPoint et OpenDocument sur Windows, Linux et macOS."
 ---
-Aspose.Slides pour Python via .NET ne nécessite aucun produit tiers tel que Microsoft PowerPoint à installer. Aspose.Slides lui-même est un moteur pour créer, modifier, convertir et rendre des documents dans divers formats, y compris les formats de présentation Microsoft PowerPoint.
 
-## Systèmes d'exploitation pris en charge
+## **Introduction**
 
-Aspose.Slides pour Python via .NET prend en charge les systèmes d'exploitation Windows 64 bits et 32 bits, macOS, Linux 64 bits où Python 3.5 ou ultérieur est installé.
+Aspose.Slides for Python via .NET ne nécessite aucun produit tiers, tel que Microsoft PowerPoint, installé. Aspose.Slides est un moteur permettant de créer, modifier, convertir et rendre des documents dans divers formats, y compris les formats de présentations Microsoft PowerPoint.
+
+## **Systèmes d’exploitation pris en charge**
+
+Aspose.Slides for Python prend en charge Windows (32 bits et 64 bits), macOS et Linux 64 bits sur des systèmes disposant de Python 3.5 ou ultérieur.
 
 <table>  
     <tr>
-        <td style="font-weight: bold; width:400px">Système d'exploitation</td>
+        <td style="font-weight: bold; width:400px">Système d’exploitation</td>
         <td style="font-weight: bold; width:400px">Versions</td>
     </tr>
     <tr>
@@ -41,7 +58,7 @@ Aspose.Slides pour Python via .NET prend en charge les systèmes d'exploitation 
                 <li>Ubuntu</li>
                 <li>OpenSUSE</li>
                 <li>CentOS</li>
-                <li>et d'autres</li>
+                <li>et d’autres</li>
             </ul>
         </td>
     </tr>
@@ -55,10 +72,24 @@ Aspose.Slides pour Python via .NET prend en charge les systèmes d'exploitation 
     </tr>
 </table>
 
-## Exigences système pour les plateformes cibles Linux et macOS
+## **Exigences système pour les plateformes cibles Linux et macOS**
 
-- Bibliothèques d'exécution GCC-6 (ou ultérieures).
-- [`libgdiplus`](https://github.com/mono/libgdiplus) : une implémentation Open Source de l'API GDI+.
-- Dépendances de l'exécution .NET Core. L'installation de .NET Core Runtime elle-même n'est PAS requise.
-- Pour Python 3.5-3.7 : La version `pymalloc` de Python est nécessaire. L'option de construction Python `--with-pymalloc` est activée par défaut. En général, la version `pymalloc` de Python est marquée par le suffixe `m` dans le nom de fichier.
-- Bibliothèque Python partagée `libpython`. L'option de construction Python `--enable-shared` est désactivée par défaut, certaines distributions Python ne contiennent pas la bibliothèque partagée `libpython`. Pour certaines plateformes Linux, la bibliothèque partagée `libpython` peut être installée à l'aide du gestionnaire de paquets, par exemple : `sudo apt-get install libpython3.7`. Le problème courant est que la bibliothèque `libpython` est installée dans un emplacement différent de l'emplacement standard du système pour les bibliothèques partagées. Le problème peut être résolu en utilisant les options de construction Python pour définir des chemins de bibliothèque alternatifs lors de la compilation de Python, ou résolu en créant un lien symbolique vers le fichier de bibliothèque `libpython` dans l'emplacement standard du système pour les bibliothèques partagées. En général, le nom de fichier de la bibliothèque partagée `libpython` est `libpythonX.Ym.so.1.0` pour Python 3.5-3.7, ou `libpythonX.Y.so.1.0` pour Python 3.8 ou ultérieures (par exemple : libpython3.7m.so.1.0, libpython3.9.so.1.0).  
+- Bibliothèques d’exécution GCC 6 (ou ultérieure).
+- [libgdiplus](https://github.com/mono/libgdiplus), une implémentation open source de l’API GDI+.
+- Dépendances du .NET Core Runtime. L’installation du .NET Core Runtime n’est PAS requise.
+- Pour Python 3.5–3.7 : la version `pymalloc` de Python est requise. L’option de construction `--with-pymalloc` est activée par défaut. En général, la version `pymalloc` de Python porte le suffixe `m` dans le nom de fichier.
+- La bibliothèque partagée `libpython`. L’option de construction Python `--enable-shared` est désactivée par défaut, et certaines distributions Python n’incluent pas la bibliothèque partagée `libpython`. Sur certaines plateformes Linux, vous pouvez installer la bibliothèque partagée `libpython` à l’aide du gestionnaire de paquets (par exemple, `sudo apt-get install libpython3.7`). Un problème fréquent est que la bibliothèque `libpython` est installée dans un emplacement non standard pour les bibliothèques partagées. Vous pouvez résoudre cela en utilisant les options de construction de Python pour définir des chemins de bibliothèque alternatifs lors de la compilation, ou en créant un lien symbolique vers le fichier de bibliothèque `libpython` dans l’emplacement standard des bibliothèques partagées du système. En général, le nom de fichier de la bibliothèque partagée `libpython` est `libpythonX.Ym.so.1.0` pour Python 3.5–3.7 ou `libpythonX.Y.so.1.0` pour Python 3.8 ou ultérieur (par exemple, `libpython3.7m.so.1.0`, `libpython3.9.so.1.0`).
+
+## **FAQ**
+
+**Dois‑je installer Microsoft PowerPoint pour les conversions et le rendu ?**
+
+Non, PowerPoint n’est pas requis ; Aspose.Slides est un moteur autonome pour [créer](/slides/fr/python-net/create-presentation/), modifier, [convertir](/slides/fr/python-net/convert-presentation/) et [rendre](/slides/fr/python-net/convert-powerpoint-to-png/) des présentations.
+
+**Une version spécifique de .NET (Core/5+/6+) est‑elle requise sur la machine ?**
+
+L’installation du .NET Runtime n’est pas nécessaire, mais ses dépendances doivent être présentes sous Linux/macOS. Cela signifie que le système doit contenir les paquets généralement installés en tant que dépendances de .NET, sans installer le runtime complet.
+
+**Quelles polices sont nécessaires pour un rendu correct ?**
+
+En pratique, les polices utilisées dans la présentation ou leurs [substituts](/slides/fr/python-net/font-substitution/) appropriés doivent être disponibles. Pour assurer un rendu cohérent sous Linux/macOS, il est conseillé d’installer les packages de polices courants.
