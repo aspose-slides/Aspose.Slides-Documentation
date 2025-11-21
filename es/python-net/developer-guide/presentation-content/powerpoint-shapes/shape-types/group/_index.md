@@ -1,79 +1,96 @@
 ---
-title: Grupo
+title: Formas de presentación en grupo con Python
+linktitle: Grupo de formas
 type: docs
 weight: 40
 url: /es/python-net/group/
-keywords: "Forma de grupo, forma de PowerPoint, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Añadir forma de grupo a la presentación de PowerPoint en Python"
+keywords:
+- forma de grupo
+- grupo de formas
+- agregar grupo
+- texto alternativo
+- PowerPoint
+- presentación
+- Python
+- Aspose.Slides
+description: "Aprenda a agrupar y desagrupar formas en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para Python: guía rápida paso a paso con código gratuito."
 ---
 
-## **Añadir forma de grupo**
-Aspose.Slides permite trabajar con formas de grupo en las diapositivas. Esta característica ayuda a los desarrolladores a soportar presentaciones más ricas. Aspose.Slides para Python a través de .NET soporta añadir o acceder a formas de grupo. Es posible añadir formas a una forma de grupo añadida para poblarla o acceder a cualquier propiedad de la forma de grupo. Para añadir una forma de grupo a una diapositiva usando Aspose.Slides para Python a través de .NET:
+## **Descripción general**
+
+Agrupar formas le permite tratar varios objetos de dibujo como una única unidad para que pueda moverlos, redimensionarlos, darles formato y transformarlos juntos. Con Aspose.Slides para Python, puede crear un [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), agregar y organizar formas secundarias dentro de él, y guardar el resultado en PPTX. Este artículo muestra cómo agregar una forma de grupo en una diapositiva y cómo acceder a los metadatos de accesibilidad, como el Texto alternativo, de las formas dentro del grupo, lo que permite una estructura más limpia y presentaciones más ricas y mantenibles.
+
+## **Agregar formas de grupo**
+
+Aspose.Slides admite trabajar con formas de grupo en una diapositiva. Esta función le permite crear presentaciones más ricas al tratar varias formas como un solo objeto. Puede agregar nuevas formas de grupo, acceder a las existentes, rellenarlas con formas secundarias y leer o modificar cualquiera de sus propiedades. Para agregar una forma de grupo a una diapositiva:
 
 1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Obtener la referencia de una diapositiva utilizando su índice.
-1. Añadir una forma de grupo a la diapositiva.
-1. Añadir las formas a la forma de grupo añadida.
-1. Guardar la presentación modificada como un archivo PPTX.
+2. Obtener una referencia a una diapositiva por índice.
+3. Agregar un [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) a la diapositiva.
+4. Añadir formas a la nueva forma de grupo.
+5. Guardar la presentación modificada como un archivo PPTX.
 
-El siguiente ejemplo añade una forma de grupo a una diapositiva.
-
+El siguiente ejemplo muestra cómo agregar una forma de grupo a una diapositiva.
 ```py
 import aspose.slides as slides
 
-# Instanciar la clase Presentation
-with slides.Presentation() as pres:
-    # Obtener la primera diapositiva
-    sld = pres.slides[0]
+# Instanciar la clase Presentation.
+with slides.Presentation() as presentation:
+    # Obtener la primera diapositiva.
+    slide = presentation.slides[0]
 
-    # Accediendo a la colección de formas de las diapositivas
-    slideShapes = sld.shapes
+    # Agregar una forma de grupo a la diapositiva.
+    group_shape = slide.shapes.add_group_shape()
 
-    # Añadiendo una forma de grupo a la diapositiva
-    groupShape = slideShapes.add_group_shape()
+    # Agregar formas dentro de la forma de grupo.
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 100, 100, 100)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 100, 100)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 300, 100, 100)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 300, 100, 100)
 
-    # Añadiendo formas dentro de la forma de grupo añadida
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 100, 100, 100)
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 100, 100)
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 300, 100, 100)
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 300, 100, 100)
-
-    # Añadiendo marco a la forma de grupo
-    groupShape.frame = slides.ShapeFrame(100, 300, 500, 40, -1, -1, 0)
-
-    # Escribir el archivo PPTX en disco
-    pres.save("GroupShape_out.pptx", slides.export.SaveFormat.PPTX)
+    # Guardar el archivo PPTX en disco.
+    presentation.save("group_shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **Acceder a la propiedad Texto alternativo**
 
-## **Acceder a la propiedad AltText**
-Este tema muestra pasos simples, completos con ejemplos de código, para añadir una forma de grupo y acceder a la propiedad AltText de las formas de grupo en las diapositivas. Para acceder a AltText de una forma de grupo en una diapositiva utilizando Aspose.Slides para Python a través de .NET:
+Esta sección explica cómo leer el Texto alternativo de las formas contenidas dentro de una forma de grupo en una diapositiva usando Aspose.Slides. Para acceder al Texto alternativo de las formas:
 
-1. Instanciar la clase `Presentation` que representa el archivo PPTX.
-1. Obtener la referencia de una diapositiva utilizando su índice.
-1. Acceder a la colección de formas de las diapositivas.
-1. Acceder a la forma de grupo.
-1. Acceder a la propiedad AltText.
+1. Instanciar la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) que representa un archivo PPTX.
+2. Obtener una referencia a la diapositiva por su índice.
+3. Acceder a la colección de formas de la diapositiva.
+4. Acceder al [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/).
+5. Leer la propiedad Texto alternativo.
 
-El siguiente ejemplo accede al texto alternativo de la forma de grupo.
-
+El siguiente ejemplo recupera el Texto alternativo de las formas contenidas dentro de formas de grupo.
 ```py
 import aspose.slides as slides
 
-# Instanciar la clase Presentation que representa el archivo PPTX
-with slides.Presentation(path + "AltText.pptx") as pres:
+# Instanciar la clase Presentation para abrir el archivo PPTX.
+with slides.Presentation("group_shape.pptx") as presentation:
+    # Obtener la primera diapositiva.
+    slide = presentation.slides[0]
 
-    # Obtener la primera diapositiva
-    sld = pres.slides[0]
-
-    for i in range(len(sld.shapes)):
-        # Accediendo a la colección de formas de las diapositivas
-        shape = sld.shapes[i]
-
-        if type(shape) is slides.GroupShape:
-            # Accediendo a la forma de grupo.
-            for j in range(len(shape.shapes)):
-                # Accediendo a la propiedad AltText
-                print(shape.shapes[j].alternative_text)
+    for shape in slide.shapes:
+        if isinstance(shape, slides.GroupShape):
+            # Acceder a la forma de grupo.
+            for child_shape in shape.shapes:
+                # Acceder a la propiedad Texto alternativo.
+                print(child_shape.alternative_text)
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Se admite la agrupación anidada (un grupo dentro de otro grupo)?**
+
+Sí. [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) tiene una propiedad [parent_group](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/parent_group/) que indica directamente el soporte de jerarquía (un grupo puede ser hijo de otro grupo).
+
+**¿Cómo controlo el orden Z del grupo respecto a otros objetos en la diapositiva?**
+
+Utilice la propiedad [z_order_position](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/z_order_position/) del [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) para inspeccionar su posición en la pila de visualización.
+
+**¿Puedo impedir mover/editar/desagrupar?**
+
+Sí. La sección de bloqueo del grupo se expone mediante [group_shape_lock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/group_shape_lock/), que permite restringir operaciones sobre el objeto.
