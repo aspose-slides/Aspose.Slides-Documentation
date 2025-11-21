@@ -1,141 +1,185 @@
 ---
-title: Переход слайда
+title: Управление переходами слайдов в презентациях с помощью Python
+linktitle: Переход слайда
 type: docs
 weight: 90
 url: /ru/python-net/slide-transition/
-keywords: "Добавить переход слайда, переход слайда PowerPoint, морфический переход, расширенный переход слайда, эффекты перехода, Python, Aspose.Slides"
-description: " Добавьте переход слайда PowerPoint и эффекты перехода в Python "
+keywords:
+- переход слайда
+- добавление перехода слайда
+- применение перехода слайда
+- расширенный переход слайда
+- морф переход
+- тип перехода
+- эффект перехода
+- Python
+- Aspose.Slides
+description: "Узнайте, как настроить переходы слайдов в Aspose.Slides для Python через .NET, с пошаговым руководством для презентаций PowerPoint и OpenDocument."
 ---
 
-## **Добавить переход слайда**
-Чтобы облегчить понимание, мы продемонстрировали использование Aspose.Slides для Python через .NET для управления простыми переходами слайдов. Разработчики могут не только применять разные эффекты перехода на слайдах, но и настраивать поведение этих эффектов перехода. Чтобы создать простой эффект перехода слайда, выполните следующие шаги:
+## **Обзор**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Примените тип перехода слайда к слайду из одного из эффектов перехода, предложенных Aspose.Slides для Python через .NET, через перечисление TransitionType.
-1. Запишите изменённый файл презентации.
+Aspose.Slides for Python предоставляет полный контроль над переходами слайдов, от выбора типа перехода до настройки времени и триггеров в рамках автоматизированных рабочих процессов презентаций. Вы можете установить переходы слайдов по щелчку и/или после заданной задержки, а также уточнить визуальное поведение с помощью эффектов, таких как затемнение из черного или входы из разных направлений. Библиотека также поддерживает переход Morph, введенный в PowerPoint 2019, включая режимы морфа по объекту, слову или символу для создания плавного, согласованного движения между слайдами.
 
+## **Добавление переходов слайдов**
+
+Чтобы упростить понимание, в этом примере показано, как использовать Aspose.Slides for Python для управления простыми переходами слайдов. Разработчики могут применять различные эффекты переходов к слайдам и настраивать их поведение. Чтобы создать простой переход слайда, выполните следующие шаги:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Примените переход к слайду, используя один из эффектов из перечисления [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/).
+1. Сохраните изменённый файл презентации.
 ```py
 import aspose.slides as slides
 
-# Создайте экземпляр класса Presentation для загрузки исходного файла презентации
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Примените переход типа круг к слайду 1
+# Создайте объект класса Presentation для загрузки файла презентации.
+with slides.Presentation("sample.pptx") as presentation:
+    # Примените переход «круг» к слайду 1.
     presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
 
-    # Примените переход типа комб к слайду 2
+    # Примените переход «гребень» к слайду 2.
     presentation.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.COMB
 
-    # Запишите презентацию на диск
-    presentation.save("SampleTransition_out.pptx", slides.export.SaveFormat.PPTX)
+    # Сохраните презентацию на диск.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **Добавить расширенный переход слайда**
-В предыдущем разделе мы просто применили простой эффект перехода к слайду. Теперь, чтобы сделать этот простой эффект перехода еще лучше и контролируемым, выполните следующие шаги:
+## **Добавление продвинутых переходов слайдов**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Примените тип перехода слайда к слайду из одного из эффектов перехода, предложенных Aspose.Slides для Python через .NET.
-1. Вы также можете установить переход на "Продолжить по щелчку", после определённого времени или и то, и другое.
-1. Если переход слайда активирован для "Продолжить по щелчку", переход будет продолжаться только когда кто-то щелкнет мышью. Более того, если свойство "Продолжить после времени" установлено, переход будет автоматически продолжен после истечения указанного времени.
-1. Запишите изменённую презентацию как файл презентации.
+В этом разделе мы применили простой эффект перехода к слайду. Чтобы сделать этот эффект более управляемым и полированным, выполните следующие шаги:
 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Примените переход к слайду, используя один из эффектов из перечисления [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/).
+1. Настройте переход для перехода по щелчку, после определённого промежутка времени или обоих вариантов.
+1. Сохраните изменённый файл презентации.
+
+Если включена опция **Advance On Click**, слайд будет переключаться только при щелчке пользователя. Если установлен параметр **Advance After Time**, слайд переключится автоматически после указанного интервала.
 ```py
 import aspose.slides as slides
 
-# Создайте экземпляр класса Presentation, который представляет файл презентации
-with slides.Presentation(path + "BetterSlideTransitions.pptx") as pres:
-    # Примените переход типа круг к слайду 1
-    pres.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
+# Создайте объект класса Presentation для открытия файла презентации.
+with slides.Presentation("sample.pptx") as presentation:
+    slide0 = presentation.slides[0]
 
-    # Установите время перехода в 3 секунды
-    pres.slides[0].slide_show_transition.advance_on_click = True
-    pres.slides[0].slide_show_transition.advance_after_time = 3000
+    # Примените переход «круг» к слайду 1.
+    slide0.slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
 
-    # Примените переход типа комб к слайду 2
-    pres.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.COMB
+    # Включите переход по щелчку и установите автоматический переход через 3 секунды.
+    slide0.slide_show_transition.advance_on_click = True
+    slide0.slide_show_transition.advance_after_time = 3000
 
-    # Установите время перехода в 5 секунд
-    pres.slides[1].slide_show_transition.advance_on_click = True
-    pres.slides[1].slide_show_transition.advance_after_time = 5000
+    slide1 = presentation.slides[1]
 
-    # Примените переход типа зум к слайду 3
-    pres.slides[2].slide_show_transition.type = slides.slideshow.TransitionType.ZOOM
+    # Примените переход «гребень» к слайду 2.
+    slide1.slide_show_transition.type = slides.slideshow.TransitionType.COMB
 
-    # Установите время перехода в 7 секунд
-    pres.slides[2].slide_show_transition.advance_on_click = True
-    pres.slides[2].slide_show_transition.advance_after_time = 7000
+    # Включите переход по щелчку и установите автоматический переход через 5 секунд.
+    slide1.slide_show_transition.advance_on_click = True
+    slide1.slide_show_transition.advance_after_time = 5000
 
-    # Запишите презентацию на диск
-    pres.save("SampleTransition_out.pptx", slides.export.SaveFormat.PPTX)
+    slide2 = presentation.slides[2]
+
+    # Примените переход зум к слайду 3.
+    slide2.slide_show_transition.type = slides.slideshow.TransitionType.ZOOM
+
+    # Включите переход по щелчку и установите автоматический переход через 7 секунд.
+    slide2.slide_show_transition.advance_on_click = True
+    slide2.slide_show_transition.advance_after_time = 7000
+
+    # Сохраните презентацию на диск.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **Морфический переход**
-Aspose.Slides для Python через .NET теперь поддерживает [Морфический переход](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/imorphtransition/). Они представляют собой новый морфический переход, введённый в PowerPoint 2019. Морфический переход позволяет анимировать плавное движение от одного слайда к следующему. Эта статья описывает концепцию и то, как использовать морфический переход. Чтобы эффективно использовать морфический переход, вам нужно иметь два слайда с по крайней мере одним общим объектом. Самый простой способ - дублировать слайд, а затем переместить объект на втором слайде в другое место.
+## **Переход Morph**
 
-Следующий фрагмент кода показывает, как добавить клон слайда с некоторым текстом в презентацию и установить морфический тип перехода [morph type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/imorphtransition/) ко второму слайду.
+Aspose.Slides for Python поддерживает [Morph transition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/morphtransition/), который анимирует плавное перемещение от одного слайда к другому. В этом разделе объясняется, как использовать переход Morph. Для эффективного использования вам нужны два слайда с хотя бы одним общим объектом. Самый простой подход — дублировать слайд, а затем переместить объект в другое положение на втором слайде.
 
+Ниже приведён фрагмент кода, показывающий, как клонировать слайд, содержащий текст, и применить к второму слайду переход Morph.
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    autoshape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 100)
-    autoshape.text_frame.text = "Морфический переход в презентациях PowerPoint"
+    slide0 = presentation.slides[0]
 
-    presentation.slides.add_clone(presentation.slides[0])
+    auto_shape = slide0.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 100)
+    auto_shape.text_frame.text = "Morph Transition in PowerPoint Presentations"
 
-    presentation.slides[1].shapes[0].x += 100
-    presentation.slides[1].shapes[0].y += 50
-    presentation.slides[1].shapes[0].width -= 200
-    presentation.slides[1].shapes[0].height -= 10
+    # Клонировать первый слайд, чтобы создать второй слайд с теми же фигурами для непрерывности Morph.
+    slide1 = presentation.slides.add_clone(slide0)
 
-    presentation.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.MORPH
+    # Выбрать тот же прямоугольник на втором слайде и изменить его положение и размер.
+    shape = slide1.shapes[0]
+    shape.x += 100
+    shape.y += 50
+    shape.width -= 200
+    shape.height -= 10
 
-    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
+    # Включить переход Morph на втором слайде, чтобы плавно анимировать изменения фигур.
+    slide1.slide_show_transition.type = slides.slideshow.TransitionType.MORPH
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **Типы морфических переходов**
-Новая [Aspose.Slides.SlideShow.TransitionMorphType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) перечисление было добавлено. Оно представляет различные типы морфических переходов слайда.
+## **Типы переходов Morph**
 
-Перечисление TransitionMorphType имеет три члена:
+Перечисление [TransitionMorphType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) представляет разные типы переходов Morph.
 
-- ByObject: морфический переход будет выполняться, принимая во внимание формы как неделимые объекты.
-- ByWord: морфический переход будет выполняться с передачей текста по словам, где это возможно.
-- ByChar: морфический переход будет выполняться с передачей текста по символам, где это возможно.
-
-Следующий фрагмент кода показывает, как установить морфический переход на слайд и изменить тип морфинга:
-
+Ниже приведён фрагмент кода, показывающий, как применить переход Morph к слайду и изменить тип морфа:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.MORPH
-    presentation.slides[0].slide_show_transition.value.morph_type = slides.slideshow.TransitionMorphType.BY_WORD
-    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    slide.slide_show_transition.type = slides.slideshow.TransitionType.MORPH
+    slide.slide_show_transition.value.morph_type = slides.slideshow.TransitionMorphType.BY_WORD
+    
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **Установить эффекты перехода**
-Aspose.Slides для Python через .NET поддерживает установку эффектов перехода, таких как, с черного, слева, справа и т.д. Для установки эффекта перехода, выполните следующие шаги:
+## **Установка эффектов переходов**
 
-- Создайте экземпляр класса [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-- Получите ссылку на слайд.
-- Установите эффект перехода.
-- Запишите презентацию как файл [PPTX ](https://docs.fileformat.com/presentation/pptx/).
+Aspose.Slides for Python позволяет задавать эффекты переходов, такие как **From Black**, **From Left**, **From Right** и др. Чтобы настроить эффект перехода, выполните следующие шаги:
 
-В приведенном ниже примере мы установили эффекты перехода.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Получите ссылку на слайд.
+1. Установите желаемый эффект перехода.
+1. Сохраните презентацию в файл PPTX.
 
+В примере ниже мы задаём несколько эффектов переходов.
 ```py
 import aspose.slides as slides
 
-# Создайте экземпляр класса Presentation
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+# Создайте объект класса Presentation для открытия файла презентации.
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    # Установите эффект
-    presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CUT
-    presentation.slides[0].slide_show_transition.value.from_black = True
+    # Примените переход Cut и включите From Black.
+    slide.slide_show_transition.type = slides.slideshow.TransitionType.CUT
+    slide.slide_show_transition.value.from_black = True
 
-    # Запишите презентацию на диск
-    presentation.save("SetTransitionEffects_out.pptx", slides.export.SaveFormat.PPTX)
+    # Сохраните презентацию на диск.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Можно ли управлять скоростью воспроизведения перехода слайда?**
+
+Да. Установите [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) перехода, используя настройку [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/) (например, slow/medium/fast).
+
+**Можно ли прикрепить аудио к переходу и заставить его зацикливаться?**
+
+Да. Вы можете внедрить звук для перехода и контролировать его поведение через параметры, такие как режим звука и зацикливание (например, [sound](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound/), [sound_mode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_mode/), [sound_loop](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_loop/), а также метаданные, такие как [sound_is_built_in](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_is_built_in/) и [sound_name](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_name/)).
+
+**Какой самый быстрый способ применить один и тот же переход ко всем слайдам?**
+
+Настройте желаемый тип перехода в параметрах перехода каждого слайда; переходы хранятся отдельно для каждого слайда, поэтому применение одного и того же типа ко всем слайдам даст единообразный результат.
+
+**Как проверить, какой переход сейчас установлен на слайде?**
+
+Изучите [transition settings](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/) слайда и прочитайте его [transition type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/); это значение точно указывает, какой эффект применён.

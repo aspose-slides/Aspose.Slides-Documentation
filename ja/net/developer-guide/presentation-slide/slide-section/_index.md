@@ -1,27 +1,26 @@
 ---
-title: スライドセクション
+title: スライド セクション
 type: docs
 weight: 100
 url: /ja/net/slide-section/
-keywords: "セクションを作成, セクションを追加, セクション名を編集, PowerPointプレゼンテーション, C#, Csharp, .NET, Aspose.Slides"
-description: "C#または.NETでPowerPointプレゼンテーションにセクションを追加および編集する"
+keywords: "セクションの作成, セクションの追加, セクション名の編集, PowerPoint プレゼンテーション, C#, Csharp, .NET, Aspose.Slides"
+description: "PowerPoint プレゼンテーションでセクションを追加および編集する（C# または .NET）"
 ---
 
-Aspose.Slides for .NETを使用すると、PowerPointプレゼンテーションをセクションに整理できます。特定のスライドを含むセクションを作成できます。
+Aspose.Slides for .NET を使用すると、PowerPoint プレゼンテーションをセクションに整理できます。特定のスライドを含むセクションを作成できます。
 
-次のような状況では、セクションを作成し、それを使用してプレゼンテーション内のスライドを論理的な部分に整理または分割することができます：
+以下のような状況で、セクションを作成してプレゼンテーション内のスライドを論理的なパートに整理または分割したくなることがあります。
 
-- 大規模なプレゼンテーションで他の人やチームと作業しているとき—特定のスライドを同僚やチームメンバーに割り当てる必要があるとき。
-- 多くのスライドを含むプレゼンテーションを扱っているとき—その内容を一度に管理または編集するのに苦労しているとき。
+- 大規模なプレゼンテーションで他の人やチームと共同作業を行い、特定のスライドを同僚やチームメンバーに割り当てる必要があるとき。  
+- スライドが多数含まれるプレゼンテーションを扱っており、内容を一度に管理・編集するのが困難なとき。
 
-理想的には、似たようなスライドを保持するセクションを作成すべきです—スライドには共通点があるか、あるルールに基づいてグループとして存在することができます—そして、そのセクションに内部のスライドを説明する名前を付けます。
+理想的には、共通点があるスライドや、ある規則に基づいてグループ化できるスライドをまとめたセクションを作成し、そのセクションにスライドの内容を表す名前を付けるべきです。
 
-## プレゼンテーションでのセクションの作成
+## **プレゼンテーションでのセクションの作成**
 
-プレゼンテーションにスライドを収容するセクションを追加するには、Aspose.Slides for .NETがAddSectionメソッドを提供しており、作成するセクションの名前とセクションが始まるスライドを指定できます。
+プレゼンテーションにスライドを収めるセクションを追加するには、Aspose.Slides for .NET が提供する AddSection メソッドを使用します。このメソッドでは、作成するセクションの名前とセクションの開始スライドを指定できます。
 
-このサンプルコードは、C#でプレゼンテーションにセクションを作成する方法を示しています：
-
+このサンプルコードは、C# でプレゼンテーションにセクションを作成する方法を示しています。  
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -31,8 +30,8 @@ using (Presentation pres = new Presentation())
     ISlide newSlide3 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
     ISlide newSlide4 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
 
-    ISection section1 = pres.Sections.AddSection("セクション 1", newSlide1);
-    ISection section2 = pres.Sections.AddSection("セクション 2", newSlide3); // section1はnewSlide2で終了し、その後section2が開始されます   
+    ISection section1 = pres.Sections.AddSection("Section 1", newSlide1);
+    ISection section2 = pres.Sections.AddSection("Section 2", newSlide3); // section1 は newSlide2 で終了し、その後 section2 が開始されます   
     
     pres.Save("pres-sections.pptx", SaveFormat.Pptx);
     
@@ -41,22 +40,37 @@ using (Presentation pres = new Presentation())
     
     pres.Sections.RemoveSectionWithSlides(section2);
     
-    pres.Sections.AppendEmptySection("最後の空のセクション");
+    pres.Sections.AppendEmptySection("Last empty section");
     
     pres.Save("pres-section-with-empty.pptx",SaveFormat.Pptx);
 }
 ```
 
-## セクション名の変更
 
-PowerPointプレゼンテーションでセクションを作成した後、その名前を変更することに決める場合があります。
+## **セクション名の変更**
 
-このサンプルコードは、Aspose.Slidesを使用してC#でプレゼンテーション内のセクションの名前を変更する方法を示しています：
+PowerPoint プレゼンテーションでセクションを作成した後、その名前を変更したくなることがあります。
 
+このサンプルコードは、Aspose.Slides を使用して C# でプレゼンテーション内のセクション名を変更する方法を示しています。  
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    ISection section = pres.Sections[0];
-   section.Name = "私のセクション";
+   section.Name = "My section";
 }
 ```
+
+
+## **よくある質問**
+
+**PPT（PowerPoint 97–2003）形式で保存した場合、セクションは保持されますか？**
+
+いいえ。PPT 形式はセクションのメタデータをサポートしていないため、.ppt で保存するとセクションのグルーピングは失われます。
+
+**セクション全体を「非表示」にできますか？**
+
+いいえ。個々のスライドのみが非表示にできます。セクションという単位には「非表示」状態がありません。
+
+**スライドからセクションをすぐに特定したり、逆にセクションの最初のスライドを取得したりできますか？**
+
+はい。セクションは開始スライドで一意に定義されます。あるスライドからそのスライドが属するセクションを判別でき、セクションからは最初のスライドにアクセスできます。

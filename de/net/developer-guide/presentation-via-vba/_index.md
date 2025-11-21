@@ -4,35 +4,33 @@ type: docs
 weight: 250
 url: /de/net/presentation-via-vba/
 keywords: "Makro, Makros, VBA, VBA-Makro, Makro hinzufügen, Makro entfernen, VBA hinzufügen, VBA entfernen, Makro extrahieren, VBA extrahieren, PowerPoint-Makro, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "Fügen Sie VBA-Makros in PowerPoint-Präsentationen in C# oder .NET hinzu, entfernen und extrahieren."
+description: "VBA-Makros in PowerPoint-Präsentationen in C# oder .NET hinzufügen, entfernen und extrahieren"
 ---
 
-Der [Aspose.Slides.Vba](https://reference.aspose.com/slides/net/aspose.slides.vba/) Namespace enthält Klassen und Schnittstellen für die Arbeit mit Makros und VBA-Code.
+Der [Aspose.Slides.Vba](https://reference.aspose.com/slides/net/aspose.slides.vba/) Namensraum enthält Klassen und Schnittstellen zur Arbeit mit Makros und VBA‑Code.
 
-{{% alert title="Hinweis" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
 Wenn Sie eine Präsentation, die Makros enthält, in ein anderes Dateiformat (PDF, HTML usw.) konvertieren, ignoriert Aspose.Slides alle Makros (Makros werden nicht in die resultierende Datei übernommen).
 
-Wenn Sie Makros zu einer Präsentation hinzufügen oder eine Präsentation mit Makros erneut speichern, schreibt Aspose.Slides einfach die Bytes für die Makros.
+Wenn Sie Makros zu einer Präsentation hinzufügen oder eine Präsentation, die Makros enthält, erneut speichern, schreibt Aspose.Slides einfach die Bytes für die Makros.
 
-Aspose.Slides **führt niemals** die Makros in einer Präsentation aus.
+Aspose.Slides **never** führt die Makros in einer Präsentation aus.
 
 {{% /alert %}}
 
-## **VBA-Makros hinzufügen**
+## **VBA‑Makros hinzufügen**
 
-Aspose.Slides stellt die [VbaProject](https://reference.aspose.com/slides/net/aspose.slides.vba/vbaproject/) Klasse zur Verfügung, um Ihnen zu ermöglichen, VBA-Projekte (und Projektverweise) zu erstellen und vorhandene Module zu bearbeiten. Sie können die [IVbaProject](https://reference.aspose.com/slides/net/aspose.slides.vba/ivbaproject/) Schnittstelle verwenden, um VBA, das in einer Präsentation eingebettet ist, zu verwalten.
+Aspose.Slides stellt die [VbaProject](https://reference.aspose.com/slides/net/aspose.slides.vba/vbaproject/)‑Klasse zur Verfügung, mit der Sie VBA‑Projekte (und Projektverweise) erstellen und vorhandene Module bearbeiten können. Sie können das [IVbaProject](https://reference.aspose.com/slides/net/aspose.slides.vba/ivbaproject/)‑Interface verwenden, um VBA, das in einer Präsentation eingebettet ist, zu verwalten.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) Klasse.
-1. Verwenden Sie den [VbaProject](https://reference.aspose.com/slides/net/aspose.slides.vba/vbaproject/vbaproject/#constructor) Konstruktor, um ein neues VBA-Projekt hinzuzufügen.
-1. Fügen Sie dem VbaProject ein Modul hinzu.
-1. Setzen Sie den Quellcode des Moduls.
-1. Fügen Sie Verweise auf <stdole> hinzu.
-1. Fügen Sie Verweise auf **Microsoft Office** hinzu.
-1. Verknüpfen Sie die Verweise mit dem VBA-Projekt.
-1. Speichern Sie die Präsentation.
-
-Dieser C#-Code zeigt, wie Sie ein VBA-Makro von Grund auf zu einer Präsentation hinzufügen:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑Klasse.  
+2. Verwenden Sie den [VbaProject](https://reference.aspose.com/slides/net/aspose.slides.vba/vbaproject/vbaproject/#constructor)‑Konstruktor, um ein neues VBA‑Projekt hinzuzufügen.  
+3. Fügen Sie dem VbaProject ein Modul hinzu.  
+4. Legen Sie den Quellcode des Moduls fest.  
+5. Fügen Sie Verweise zu <stdole> hinzu.  
+6. Fügen Sie Verweise zu **Microsoft Office** hinzu.  
+7. Verknüpfen Sie die Verweise mit dem VBA‑Projekt.  
+8. Speichern Sie die Präsentation.  
 
 ```c#
     // Erstellt eine Instanz der Präsentationsklasse
@@ -42,9 +40,9 @@ using (Presentation presentation = new Presentation())
     presentation.VbaProject = new VbaProject();
 
     // Fügt dem VBA-Projekt ein leeres Modul hinzu
-    IVbaModule module = presentation.VbaProject.Modules.AddEmptyModule("Modul");
+    IVbaModule module = presentation.VbaProject.Modules.AddEmptyModule("Module");
   
-    // Setzt den Quellcode des Moduls
+    // Legt den Quellcode des Moduls fest
     module.SourceCode = @"Sub Test(oShape As Shape) MsgBox ""Test"" End Sub";
 
     // Erstellt einen Verweis auf <stdole>
@@ -65,26 +63,25 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+
 {{% alert color="primary" %}} 
 
-Sie möchten möglicherweise **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros) ausprobieren, eine kostenlose Webanwendung zum Entfernen von Makros aus PowerPoint-, Excel- und Word-Dokumenten. 
+Vielleicht möchten Sie **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros) prüfen, eine kostenlose Web‑App zum Entfernen von Makros aus PowerPoint-, Excel‑ und Word‑Dokumenten. 
 
 {{% /alert %}} 
 
-## **VBA-Makros entfernen**
-Mit der [VbaProject](https://reference.aspose.com/slides/net/aspose.slides/presentation/vbaproject/) Eigenschaft der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) Klasse können Sie ein VBA-Makro entfernen.
+## **VBA‑Makros entfernen**
+Mit der [VbaProject](https://reference.aspose.com/slides/net/aspose.slides/presentation/vbaproject/)‑Eigenschaft der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑Klasse können Sie ein VBA‑Makro entfernen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) Klasse und laden Sie die Präsentation, die das Makro enthält.
-1. Greifen Sie auf das Makromodul zu und entfernen Sie es.
-1. Speichern Sie die modifizierte Präsentation.
-
-Dieser C#-Code zeigt, wie Sie ein VBA-Makro entfernen:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑Klasse und laden Sie die Präsentation, die das Makro enthält.  
+2. Greifen Sie auf das Makro‑Modul zu und entfernen Sie es.  
+3. Speichern Sie die geänderte Präsentation.  
 
 ```c#
     // Lädt die Präsentation, die das Makro enthält
 using (Presentation presentation = new Presentation(dataDir + "VBA.pptm"))
 {
-    // Greift auf das Vba-Modul zu und entfernt es
+    // Greift auf das Vba-Modul zu und entfernt es 
     presentation.VbaProject.Modules.Remove(presentation.VbaProject.Modules[0]);
 
     // Speichert die Präsentation
@@ -93,12 +90,10 @@ using (Presentation presentation = new Presentation(dataDir + "VBA.pptm"))
 ```
 
 
-## **VBA-Makros extrahieren**
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) Klasse und laden Sie die Präsentation, die das Makro enthält.
-2. Überprüfen Sie, ob die Präsentation ein VBA-Projekt enthält.
-3. Schleifen Sie durch alle Module, die im VBA-Projekt enthalten sind, um die Makros anzuzeigen.
-
-Dieser C#-Code zeigt, wie Sie VBA-Makros aus einer Präsentation mit Makros extrahieren:
+## **VBA‑Makros extrahieren**
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑Klasse und laden Sie die Präsentation, die das Makro enthält.  
+2. Prüfen Sie, ob die Präsentation ein VBA‑Projekt enthält.  
+3. Durchlaufen Sie alle im VBA‑Projekt enthaltenen Module, um die Makros anzuzeigen.  
 
 ```c#
     // Lädt die Präsentation, die das Makro enthält
@@ -115,26 +110,35 @@ using (Presentation pres = new Presentation("VBA.pptm"))
 }
 ```
 
-## **Überprüfen, ob ein VBA-Projekt passwortgeschützt ist**
 
-Mit der [IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/net/aspose.slides.vba/ivbaproject/ispasswordprotected/) Eigenschaft können Sie überprüfen, ob die Projekteigenschaften passwortgeschützt sind.
+## **Prüfen, ob ein VBA‑Projekt passwortgeschützt ist**
+Über die [IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/net/aspose.slides.vba/ivbaproject/ispasswordprotected/)‑Eigenschaft können Sie feststellen, ob die Eigenschaften eines Projekts passwortgeschützt sind.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) Klasse und laden Sie die Präsentation, die das Makro enthält.
-2. Überprüfen Sie, ob die Präsentation ein [VBA-Projekt](https://reference.aspose.com/slides/net/aspose.slides.vba/vbaproject/) enthält.
-3. Überprüfen Sie, ob das VBA-Projekt durch ein Passwort geschützt ist, um die Projekteigenschaften anzuzeigen.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑Klasse und laden Sie eine Präsentation, die ein Makro enthält.  
+2. Prüfen Sie, ob die Präsentation ein [VBA project](https://reference.aspose.com/slides/net/aspose.slides.vba/vbaproject/) enthält.  
+3. Prüfen Sie, ob das VBA‑Projekt passwortgeschützt ist, um seine Eigenschaften einzusehen.  
 
-Dieser C#-Code demonstriert die Operation:
-
-```c#
-using (Presentation pres = new Presentation("VBA.pptm"))
+```cs
+using (Presentation presentation = new Presentation("VBA.pptm"))
 {
-    if (pres.VbaProject == null) // Überprüft, ob die Präsentation ein VBA-Projekt enthält
-        return;
-
-    if (pres.VbaProject.IsPasswordProtected)
+    if (presentation.VbaProject != null) // Überprüft, ob die Präsentation ein VBA-Projekt enthält.
     {
-        Console.WriteLine("Das VBA-Projekt '" + pres.VbaProject.Name +
-                            "' ist durch ein Passwort geschützt, um die Projekteigenschaften anzuzeigen.");
+        if (presentation.VbaProject.IsPasswordProtected)
+        {
+            Console.WriteLine($"The VBA Project '{presentation.VbaProject.Name}' is protected by password to view project properties.");
+        }
     }
 }
 ```
+
+
+## **FAQ**
+
+**Was passiert mit Makros, wenn ich die Präsentation als PPTX speichere?**  
+Makros werden entfernt, da PPTX kein VBA unterstützt. Um Makros zu erhalten, wählen Sie PPTM, PPSM oder POTM.
+
+**Kann Aspose.Slides Makros innerhalb einer Präsentation ausführen, um beispielsweise Daten zu aktualisieren?**  
+Nein. Die Bibliothek führt niemals VBA‑Code aus; die Ausführung ist nur in PowerPoint mit den entsprechenden Sicherheitseinstellungen möglich.
+
+**Wird die Arbeit mit ActiveX‑Steuerelementen, die an VBA‑Code gebunden sind, unterstützt?**  
+Ja, Sie können vorhandene [ActiveX controls](/slides/de/net/activex/) ansprechen, deren Eigenschaften ändern und sie entfernen. Das ist nützlich, wenn Makros mit ActiveX interagieren.

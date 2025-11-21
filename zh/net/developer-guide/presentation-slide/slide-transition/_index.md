@@ -1,27 +1,26 @@
 ---
-title: 幻灯片过渡
+title: 幻灯片切换
 type: docs
 weight: 90
 url: /zh/net/slide-transition/
-keywords: "添加幻灯片过渡，PowerPoint 幻灯片过渡，形态过渡，高级幻灯片过渡，过渡效果，C#，Csharp，.NET，Aspose.Slides"
-description: "在 C# 或 .NET 中添加 PowerPoint 幻灯片过渡和过渡效果"
+keywords: "添加幻灯片切换, PowerPoint 幻灯片切换, 形变切换, 高级幻灯片切换, 切换效果, C#, Csharp, .NET, Aspose.Slides"
+description: "在 C# 或 .NET 中添加 PowerPoint 幻灯片切换和切换效果"
 ---
 
-## **添加幻灯片过渡**
-为便于理解，我们演示了使用 Aspose.Slides for .NET 管理简单幻灯片过渡。开发人员不仅可以在幻灯片上应用不同的幻灯片过渡效果，还可以自定义这些过渡效果的行为。要创建简单的幻灯片过渡效果，请遵循以下步骤：
+## **添加幻灯片切换**
+为了更容易理解，我们演示了使用 Aspose.Slides for .NET 管理简单幻灯片切换的用法。开发人员不仅可以在幻灯片上应用不同的切换效果，还可以自定义这些切换效果的行为。要创建一个简单的幻灯片切换效果，请按照以下步骤操作：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-1. 使用 TransitionType 枚举从 Aspose.Slides for .NET 提供的过渡效果中应用一种幻灯片过渡类型。
-1. 编写修改后的演示文稿文件。
-
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+2. 通过 TransitionType 枚举，从 Aspose.Slides for .NET 提供的过渡效果中为幻灯片应用 Slide Transition Type。
+3. 将修改后的演示文稿写入文件。
 ```c#
 // 实例化 Presentation 类以加载源演示文稿文件
 using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 {
-    // 在幻灯片 1 上应用圆形类型过渡
+    // 在第 1 张幻灯片上应用圆形过渡效果
     presentation.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
 
-    // 在幻灯片 2 上应用组合类型过渡
+    // 在第 2 张幻灯片上应用梳形过渡效果
     presentation.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
 
     // 将演示文稿写入磁盘
@@ -30,41 +29,40 @@ using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 ```
 
 
-## **添加高级幻灯片过渡**
-在上面的部分中，我们仅在幻灯片上应用了简单的过渡效果。现在，为了使这个简单的过渡效果更好并可控，请遵循以下步骤：
+## **添加高级幻灯片切换**
+在上述章节中，我们仅在幻灯片上应用了简单的切换效果。现在，为了让该简单切换效果更好且可控，请按照以下步骤操作：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-1. 使用 Aspose.Slides for .NET 提供的过渡效果中的一种应用幻灯片过渡类型。
-1. 您还可以将过渡设置为“单击后高级”、“经过特定时间”或“二者兼具”。
-1. 如果幻灯片过渡启用为单击后高级，则过渡仅在有人单击鼠标时才会继续。此外，如果设置了“经过时间后高级”属性，则在指定的高级时间经过后，过渡将自动继续。
-1. 将修改后的演示文稿作为演示文稿文件编写。
-
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+2. 从 Aspose.Slides for .NET 提供的过渡效果中为幻灯片应用 Slide Transition Type。
+3. 您还可以将切换设置为单击后前进、在特定时间段后前进，或同时设置两者。
+4. 如果幻灯片切换启用了“单击后前进”，则仅在有人点击鼠标时才会前进。此外，如果设置了“Advance After Time”属性，切换将在指定的时间过去后自动前进。
+5. 将修改后的演示文稿写入为演示文稿文件。
 ```c#
 // 实例化表示演示文稿文件的 Presentation 类
 using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
 {
 
-    // 在幻灯片 1 上应用圆形类型过渡
+    // 在第 1 张幻灯片上应用圆形过渡效果
     pres.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
 
 
-    // 设置3秒的过渡时间
+    // 设置 3 秒的切换时间
     pres.Slides[0].SlideShowTransition.AdvanceOnClick = true;
     pres.Slides[0].SlideShowTransition.AdvanceAfterTime = 3000;
 
-    // 在幻灯片 2 上应用组合类型过渡
+    // 在第 2 张幻灯片上应用梳形过渡效果
     pres.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
 
 
-    // 设置5秒的过渡时间
+    // 设置 5 秒的切换时间
     pres.Slides[1].SlideShowTransition.AdvanceOnClick = true;
     pres.Slides[1].SlideShowTransition.AdvanceAfterTime = 5000;
 
-    // 在幻灯片 3 上应用缩放类型过渡
+    // 在第 3 张幻灯片上应用缩放过渡效果
     pres.Slides[2].SlideShowTransition.Type = TransitionType.Zoom;
 
 
-    // 设置7秒的过渡时间
+    // 设置 7 秒的切换时间
     pres.Slides[2].SlideShowTransition.AdvanceOnClick = true;
     pres.Slides[2].SlideShowTransition.AdvanceAfterTime = 7000;
 
@@ -73,45 +71,45 @@ using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
 }
 ```
 
-此外，通过使用 [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) 属性，您可以检查幻灯片过渡是否已配置为移动到下一张幻灯片或禁用该设置。
 
-以下 C# 代码演示了操作：
+此外，使用 [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) 属性，您可以检查幻灯片切换是否已配置为移动到下一张幻灯片或已禁用该设置。
 
+This C# code demonstrates the operation:
 ```c#
 // 实例化表示演示文稿文件的 Presentation 类
 using (Presentation pres = new Presentation("SampleTransition_out.pptx"))
 {
     foreach (ISlide slide in pres.Slides)
     {
-        // 获取幻灯片过渡
+        // 获取幻灯片的过渡
         ISlideShowTransition slideTransition = slide.SlideShowTransition;
 
-        // 检查“经过时间后高级”设置是否启用
+        // 检查是否启用了 Advance After Time 设置
         if (slideTransition.AdvanceAfter)
         {
-            // 打印经过时间后的值
-            Console.WriteLine("幻灯片 #" + slide.SlideNumber + " AdvancedAfterTime: " + slideTransition.AdvanceAfterTime);
+            // 打印 Advance After Time 值
+            Console.WriteLine("The slide #" + slide.SlideNumber + " AdvancedAfterTime: " + slideTransition.AdvanceAfterTime);
         }
 
-        // 如果经过时间后值大于 2 秒，则在特定时间后禁用过渡
+        // 如果 AdvancedAfterTime 值大于 2 秒，则在特定时间后禁用过渡
         if (slideTransition.AdvanceAfterTime > 2000)
         {
             slideTransition.AdvanceAfter = false;
         }
     }
 }
-``` 
+```
 
-## **形态过渡**
-Aspose.Slides for .NET 现在支持 [Morph Transition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition)。它们代表在 PowerPoint 2019 中引入的新形态过渡。形态过渡允许您在幻灯片之间动画平滑移动。本文描述了这一概念以及如何使用形态过渡。要有效使用形态过渡，您需要有两个幻灯片，至少有一个共同的对象。最简单的方法是复制幻灯片，然后将第二张幻灯片上的对象移动到不同的位置。
 
-以下代码片段向您展示了如何将带有一些文本的幻灯片克隆添加到演示文稿并将过渡设置为 [morph type](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/properties/morphtype) 到第二张幻灯片。
+## **Morph 切换**
+Aspose.Slides for .NET 现在支持 [Morph Transition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition)。它们是 PowerPoint 2019 引入的新 Morph 切换。Morph 切换允许您对从一张幻灯片到下一张幻灯片的平滑移动进行动画处理。本文描述了该概念及其使用方法。要有效使用 Morph 切换，您需要有两张至少包含一个相同对象的幻灯片。最简单的方法是复制幻灯片，然后将第二张幻灯片上的对象移动到其他位置。
 
+以下代码片段展示了如何向演示文稿中添加带有文本的幻灯片克隆，并将 [morph type](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/properties/morphtype) 设置为第二张幻灯片的切换。
 ```c#
 using (Presentation presentation = new Presentation())
 {
     AutoShape autoshape = (AutoShape)presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.TextFrame.Text = "PowerPoint 演示文稿中的形态过渡";
+    autoshape.TextFrame.Text = "Morph Transition in PowerPoint Presentations";
 
     presentation.Slides.AddClone(presentation.Slides[0]);
 
@@ -126,17 +124,17 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **形态过渡类型**
-新添加了 [Aspose.Slides.SlideShow.TransitionMorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype) 枚举。它表示不同类型的形态幻灯片过渡。
+
+## **Morph 切换类型**
+新增了 [Aspose.Slides.SlideShow.TransitionMorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype) 枚举。它表示不同类型的 Morph 幻灯片切换。
 
 TransitionMorphType 枚举有三个成员：
 
-- ByObject: 形态过渡将考虑形状作为不可分割的对象。
-- ByWord: 形态过渡将尽可能按单词转移文本。
-- ByChar: 形态过渡将尽可能按字符转移文本。
+- ByObject：Morph 切换将在形状视为不可分割对象的前提下执行。
+- ByWord：Morph 切换将在可能的情况下按单词转移动文本。
+- ByChar：Morph 切换将在可能的情况下按字符转移动文本。
 
-以下代码片段向您展示了如何设置形态过渡到幻灯片并更改形态类型：
-
+以下代码片段展示了如何为幻灯片设置 Morph 切换并更改 Morph 类型：
 ```c#
 using (Presentation presentation = new Presentation("presentation.pptx"))
 {
@@ -146,16 +144,16 @@ using (Presentation presentation = new Presentation("presentation.pptx"))
 }
 ```
 
-## **设置过渡效果**
-Aspose.Slides for .NET 支持设置过渡效果，例如，从黑色、从左边、从右边等。为了设置过渡效果。请遵循以下步骤：
 
-- 创建 [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)类的实例。
+## **设置切换效果**
+Aspose.Slides for .NET 支持设置切换效果，例如从黑色、从左侧、从右侧等。要设置切换效果，请按照以下步骤操作：
+
+- 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
 - 获取幻灯片的引用。
-- 设置过渡效果。
-- 将演示文稿写入 [PPTX ](https://docs.fileformat.com/presentation/pptx/)文件。
+- 设置切换效果。
+- 将演示文稿写入为 [PPTX](https://docs.fileformat.com/presentation/pptx/) 文件。
 
-在下面给出的示例中，我们设置了过渡效果。
-
+在下面给出的示例中，我们已设置了切换效果。
 ```c#
 // 创建 Presentation 类的实例
 Presentation presentation = new Presentation("AccessSlides.pptx");
@@ -167,3 +165,22 @@ presentation.Slides[0].SlideShowTransition.Type = TransitionType.Cut;
 // 将演示文稿写入磁盘
 presentation.Save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
 ```
+
+
+## **FAQ**
+
+**我可以控制幻灯片切换的播放速度吗？**
+
+是的。使用 [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/) 设置来设置切换的 [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/)，例如慢/中/快。
+
+**我可以为切换附加音频并使其循环吗？**
+
+是的。您可以为切换嵌入声音，并通过诸如声音模式和循环等设置来控制行为（例如 [Sound](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/sound/)、[SoundMode](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/soundmode/)、[SoundLoop](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/soundloop/)，以及诸如 [SoundIsBuiltIn](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/soundisbuiltin/) 和 [SoundName](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/soundname/) 之类的元数据）。
+
+**将相同切换应用于每张幻灯片的最快方法是什么？**
+
+在每张幻灯片的切换设置中配置所需的切换类型；切换是按幻灯片存储的，因此在所有幻灯片上应用相同的类型即可获得一致的效果。
+
+**如何检查幻灯片上当前设置的切换类型？**
+
+检查幻灯片的 [transition settings](https://reference.aspose.com/slides/net/aspose.slides/baseslide/slideshowtransition/) 并读取其 [transition type](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/type/)，该值会精确告诉您应用了哪种效果。

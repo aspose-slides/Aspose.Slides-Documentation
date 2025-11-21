@@ -1,5 +1,5 @@
 ---
-title: Gestionar Celdas
+title: Administrar celdas
 type: docs
 weight: 30
 url: /es/net/manage-cells/
@@ -10,23 +10,22 @@ keywords:
 - imagen en celda de tabla
 - C#
 - Csharp
-- Aspose.Slides para .NET
+- Aspose.Slides for .NET
 description: "Celdas de tabla en presentaciones de PowerPoint en C# o .NET"
 ---
 
-## **Identificar Celda de Tabla Combinada**
+## **Identificar celda de tabla combinada**
 
-1. Crea una instancia de la [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Obtén la tabla de la primera diapositiva. 
-3. Itera a través de las filas y columnas de la tabla para encontrar celdas combinadas.
-4. Imprime un mensaje cuando se encuentren celdas combinadas.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Obtener la tabla de la primera diapositiva.
+3. Recorrer las filas y columnas de la tabla para encontrar celdas combinadas.
+4. Imprimir un mensaje cuando se encuentren celdas combinadas.
 
-Este código C# te muestra cómo identificar celdas de tabla combinadas en una presentación:
-
+Este código C# muestra cómo identificar celdas de tabla combinadas en una presentación:
 ```c#
 using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
 {
-    ITable table = pres.Slides[0].Shapes[0] as ITable; // suponiendo que Slide#0.Shape#0 es una tabla
+    ITable table = pres.Slides[0].Shapes[0] as ITable; // asumiendo que Slide#0.Shape#0 es una tabla
     for (int i = 0; i < table.Rows.Count; i++)
     {
         for (int j = 0; j < table.Columns.Count; j++)
@@ -34,7 +33,7 @@ using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
             ICell currentCell = table.Rows[i][j];
             if (currentCell.IsMergedCell)
             {
-                Console.WriteLine(string.Format("La celda {0};{1} es parte de una celda combinada con RowSpan={2} y ColSpan={3} comenzando desde la celda {4};{5}.",
+                Console.WriteLine(string.Format("Cell {0};{1} is a part of merged cell with RowSpan={2} and ColSpan={3} starting from Cell {4};{5}.",
                                   i, j, currentCell.RowSpan, currentCell.ColSpan, currentCell.FirstRowIndex, currentCell.FirstColumnIndex));
 
 
@@ -44,17 +43,17 @@ using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
 }
 ```
 
-## **Eliminar Bordes de Celdas de Tabla**
-1. Crea una instancia de la clase `Presentation`.
-2. Obtén una referencia de la diapositiva a través de su índice. 
-3. Define un array de columnas con ancho.
-4. Define un array de filas con altura.
-5. Agrega una tabla a la diapositiva a través del método `AddTable`.
-6. Itera a través de cada celda para eliminar los bordes superior, inferior, derecho e izquierdo.
-7. Guarda la presentación modificada como un archivo PPTX.
 
-Este código C# te muestra cómo eliminar los bordes de las celdas de tabla:
+## **Eliminar borde de celdas de tabla**
+1. Crear una instancia de la clase `Presentation`.
+2. Obtener una referencia a una diapositiva mediante su índice.
+3. Definir una matriz de columnas con ancho.
+4. Definir una matriz de filas con altura.
+5. Agregar una tabla a la diapositiva mediante el método `AddTable`.
+6. Recorrer cada celda para borrar los bordes superior, inferior, derecho e izquierdo.
+7. Guardar la presentación modificada como archivo PPTX.
 
+Este código C# muestra cómo eliminar los bordes de las celdas de tabla:
 ```c#
 // Instancia la clase Presentation que representa un archivo PPTX
 using (Presentation pres = new Presentation())
@@ -69,7 +68,7 @@ using (Presentation pres = new Presentation())
     // Agrega la forma de tabla a la diapositiva
     ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
 
-    // Establece el formato del borde para cada celda
+    // Establece el formato de borde para cada celda
     foreach (IRow row in tbl.Rows)
         foreach (ICell cell in row)
         {
@@ -79,14 +78,14 @@ using (Presentation pres = new Presentation())
             cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
         }
 
-    // Escribe el archivo PPTX en el disco
+    // Escribe el archivo PPTX en disco
     pres.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
-## **Numeración en Celdas Combinadas**
-Si combinamos 2 pares de celdas (1, 1) x (2, 1) y (1, 2) x (2, 2), la tabla resultante estará numerada. Este código C# demuestra el proceso:
 
+## **Numeración en celdas combinadas**
+Si combinamos 2 pares de celdas (1, 1) x (2, 1) y (1, 2) x (2, 2), la tabla resultante tendrá numeración. Este código C# demuestra el proceso:
 ```c#
 // Instancia la clase Presentation que representa un archivo PPTX
 using (Presentation presentation = new Presentation())
@@ -101,7 +100,7 @@ using (Presentation presentation = new Presentation())
     // Agrega una forma de tabla a la diapositiva
     ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
 
-    // Establece el formato del borde para cada celda
+    // Establece el formato de borde para cada celda
     foreach (IRow row in tbl.Rows)
     {
         foreach (ICell cell in row)
@@ -124,18 +123,18 @@ using (Presentation presentation = new Presentation())
         }
     }
 
-    // Combina celdas (1, 1) x (2, 1)
+    // Fusiona celdas (1, 1) x (2, 1)
     tbl.MergeCells(tbl[1, 1], tbl[2, 1], false);
 
-    // Combina celdas (1, 2) x (2, 2)
+    // Fusiona celdas (1, 2) x (2, 2)
     tbl.MergeCells(tbl[1, 2], tbl[2, 2], false);
 
     presentation.Save("MergeCells_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-Luego combinamos las celdas aún más combinando (1, 1) y (1, 2). El resultado es una tabla que contiene una gran celda combinada en su centro:
 
+Luego combinamos más celdas fusionando (1, 1) y (1, 2). El resultado es una tabla que contiene una gran celda combinada en su centro:
 ```c#
 // Instancia la clase Presentation que representa un archivo PPTX
 using (Presentation presentation = new Presentation())
@@ -150,7 +149,7 @@ using (Presentation presentation = new Presentation())
     // Agrega una forma de tabla a la diapositiva
     ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
 
-    // Establece el formato del borde para cada celda
+    // Establece el formato de borde para cada celda
     foreach (IRow row in table.Rows)
     {
         foreach (ICell cell in row)
@@ -174,27 +173,27 @@ using (Presentation presentation = new Presentation())
         }
     }
 
-    // Combina celdas (1, 1) x (2, 1)
+    // Fusiona celdas (1, 1) x (2, 1)
     table.MergeCells(table[1, 1], table[2, 1], false);
 
-    // Combina celdas (1, 2) x (2, 2)
+    // Fusiona celdas (1, 2) x (2, 2)
     table.MergeCells(table[1, 2], table[2, 2], false);
 
-    // Combina celdas (1, 1) y (1, 2)
+    // Fusiona celdas (1, 1) x (1, 2)
     table.MergeCells(table[1, 1], table[1, 2], true);
 
-    // Escribe el archivo PPTX en el disco
+    //Escribe el archivo PPTX en disco
     presentation.Save("MergeCells1_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Numeración en Celda Dividida**
-En los ejemplos anteriores, cuando las celdas de la tabla se combinaron, la numeración o el sistema de números en otras celdas no cambió. 
 
-Esta vez, tomamos una tabla regular (una tabla sin celdas combinadas) y luego intentamos dividir la celda (1,1) para obtener una tabla especial. Es posible que desees prestar atención a la numeración de esta tabla, que puede considerarse extraña. Sin embargo, así es como Microsoft PowerPoint numera las celdas de la tabla y Aspose.Slides hace lo mismo. 
+## **Numeración en celda dividida**
+En los ejemplos anteriores, cuando las celdas de la tabla se combinaron, la numeración o el sistema de números en otras celdas no cambió.
 
-Este código C# demuestra el proceso que describimos:
+Esta vez, tomamos una tabla normal (una tabla sin celdas combinadas) y luego intentamos dividir la celda (1,1) para obtener una tabla especial. Es posible que desee prestar atención a la numeración de esta tabla, que puede parecer extraña. Sin embargo, así es como Microsoft PowerPoint numera las celdas de tabla y Aspose.Slides hace lo mismo.
 
+Este código C# demuestra el proceso descrito:
 ```c#
 // Instancia la clase Presentation que representa un archivo PPTX
 using (Presentation presentation = new Presentation())
@@ -209,7 +208,7 @@ using (Presentation presentation = new Presentation())
     // Agrega una forma de tabla a la diapositiva
     ITable table = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
 
-    // Establece el formato del borde para cada celda
+    // Establece el formato de borde para cada celda
     foreach (IRow row in table.Rows)
     {
         foreach (ICell cell in row)
@@ -233,24 +232,24 @@ using (Presentation presentation = new Presentation())
         }
     }
 
-    // Combina celdas (1, 1) x (2, 1)
+    // Fusiona celdas (1, 1) x (2, 1)
     table.MergeCells(table[1, 1], table[2, 1], false);
 
-    // Combina celdas (1, 2) x (2, 2)
+    // Fusiona celdas (1, 2) x (2, 2)
     table.MergeCells(table[1, 2], table[2, 2], false);
 
-    // Divide la celda (1, 1).
+    // Divide la celda (1, 1). 
     table[1, 1].SplitByWidth(table[2, 1].Width / 2);
 
-    // Escribe el archivo PPTX en el disco
+    //Escribe el archivo PPTX en disco
     presentation.Save("CellSplit_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Cambiar el Color de Fondo de la Celda de la Tabla**
 
-Este código C# te muestra cómo cambiar el color de fondo de una celda de tabla:
+## **Cambiar color de fondo de la celda de tabla**
 
+Este código C# muestra cómo cambiar el color de fondo de una celda de tabla:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -259,10 +258,10 @@ using (Presentation presentation = new Presentation())
     double[] dblCols = { 150, 150, 150, 150 };
     double[] dblRows = { 50, 50, 50, 50, 50 };
 
-    // crea una nueva tabla
+    // crear una nueva tabla
     ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
 
-    // establece el color de fondo para una celda 
+    // establecer el color de fondo para una celda
     ICell cell = table[2, 3];
     cell.CellFormat.FillFormat.FillType = FillType.Solid;
     cell.CellFormat.FillFormat.SolidFillColor.Color = Color.Red;
@@ -271,21 +270,21 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Agregar Imagen Dentro de la Celda de la Tabla**
 
-1. Crea una instancia de la clase `Presentation`.
-2. Obtén una referencia de la diapositiva a través de su índice.
-3. Define un array de columnas con ancho.
-4. Define un array de filas con altura.
-5. Agrega una tabla a la diapositiva a través del método `AddTable`. 
-6. Crea un objeto `Bitmap` para contener el archivo de imagen.
-7. Agrega la imagen de bitmap al objeto `IPPImage`.
-8. Establece el `FillFormat` para la celda de la tabla a `Picture`.
-9. Agrega la imagen a la primera celda de la tabla.
-10. Guarda la presentación modificada como un archivo PPTX.
+## **Agregar imagen dentro de la celda de tabla**
 
-Este código C# te muestra cómo colocar una imagen dentro de una celda de tabla al crear una tabla:
+1. Crear una instancia de la clase `Presentation`.
+2. Obtener una referencia a una diapositiva mediante su índice.
+3. Definir una matriz de columnas con ancho.
+4. Definir una matriz de filas con altura.
+5. Agregar una tabla a la diapositiva mediante el método `AddTable`.
+6. Crear un objeto `Bitmap` para contener el archivo de imagen.
+7. Agregar la imagen bitmap al objeto `IPPImage`.
+8. Establecer el `FillFormat` de la celda de tabla a `Picture`.
+9. Agregar la imagen a la primera celda de la tabla.
+10. Guardar la presentación modificada como archivo PPTX
 
+Este código C# muestra cómo colocar una imagen dentro de una celda de tabla al crear una tabla:
 ```c#
 // Instancia la clase Presentation que representa un archivo PPTX
 using (Presentation presentation = new Presentation())
@@ -310,7 +309,26 @@ using (Presentation presentation = new Presentation())
     table[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
     table[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = ppImage;
 
-    // Guarda el archivo PPTX en el disco
+    // Guarda el archivo PPTX en disco
     presentation.Save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**¿Puedo establecer diferentes grosores y estilos de línea para los diferentes lados de una sola celda?**
+
+Sí. Los bordes [top](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[bottom](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[left](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[right](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) tienen propiedades separadas, por lo que el grosor y el estilo de cada lado pueden diferir. Esto sigue lógicamente del control de bordes por lado para una celda demostrado en el artículo.
+
+**¿Qué ocurre con la imagen si cambio el tamaño de la columna/fila después de establecer una imagen como fondo de la celda?**
+
+El comportamiento depende del [fill mode](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) (stretch/tile). Con estiramiento, la imagen se ajusta a la nueva celda; con azulejo, los azulejos se recalculan. El artículo menciona los modos de visualización de la imagen en una celda.
+
+**¿Puedo asignar un hipervínculo a todo el contenido de una celda?**
+
+[Hipervínculos](/slides/es/net/manage-hyperlinks/) se establecen a nivel de texto (porción) dentro del marco de texto de la celda o a nivel de toda la tabla/forma. En la práctica, asigna el enlace a una porción o a todo el texto en la celda.
+
+**¿Puedo establecer diferentes fuentes dentro de una sola celda?**
+
+Sí. El marco de texto de una celda admite [portions](https://reference.aspose.com/slides/net/aspose.slides/portion/) (runs) con formato independiente—familia de fuentes, estilo, tamaño y color.

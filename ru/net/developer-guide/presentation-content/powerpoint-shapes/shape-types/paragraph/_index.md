@@ -1,20 +1,19 @@
 ---
-title: Параграф
+title: Абзац
 type: docs
 weight: 60
 url: /ru/net/paragraph/
-keywords: "Параграф, порция, координаты параграфа, координаты порции, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
-description: "Параграф и порция в презентации PowerPoint на C# или .NET"
+keywords: "Абзац, фрагмент, координаты абзаца, координаты фрагмента, презентация PowerPoint, C#, Csharp, Aspose.Slides for .NET"
+description: "Абзац и фрагмент в презентации PowerPoint на C# или .NET"
 ---
 
-## **Получить координаты параграфа и порции в TextFrame**
-С помощью Aspose.Slides для .NET разработчики теперь могут получать прямоугольные координаты для параграфа внутри коллекции параграфов TextFrame. Это также позволяет получить координаты порции внутри коллекции порций параграфа. В этой теме мы собираемся продемонстрировать на примере, как получить прямоугольные координаты для параграфа вместе с позицией порции внутри параграфа.
+## **Получить координаты абзаца и фрагмента в TextFrame**
+С помощью Aspose.Slides for .NET разработчики теперь могут получить прямоугольные координаты Paragraph внутри коллекции абзацев TextFrame. Это также позволяет получить координаты Portion внутри коллекции фрагментов абзаца. В этой теме мы продемонстрируем на примере, как получить прямоугольные координаты абзаца вместе с позицией фрагмента внутри абзаца.
 
-## **Получить прямоугольные координаты параграфа**
-Метод **GetRect()** был добавлен. Он позволяет получить прямоугольник границ параграфа.
-
+## **Получить прямоугольные координаты абзаца**
+В новый метод **GetRect()** был добавлен. Он позволяет получить прямоугольник границ абзаца.
 ```c#
-// Создание объекта Presentation, который представляет файл презентации
+// Создать объект Presentation, представляющий файл презентации
 using (Presentation presentation = new Presentation("Shapes.pptx"))
 {
     IAutoShape shape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -23,12 +22,9 @@ using (Presentation presentation = new Presentation("Shapes.pptx"))
 }
 ```
 
-## **Получить размер параграфа и порции внутри текстового фрейма ячейки таблицы** ##
 
-Чтобы получить размер [Порции](https://reference.aspose.com/slides/net/aspose.slides/portion) или [Параграфа](https://reference.aspose.com/slides/net/aspose.slides/paragraph) и координаты в текстовом фрейме ячейки таблицы, вы можете использовать методы [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/methods/getrect) и [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/methods/getrect).
-
-Этот пример кода демонстрирует описанную операцию:
-
+## **Получить размер абзаца и фрагмента внутри текстового кадра ячейки таблицы**
+Чтобы получить размер и координаты [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion) или [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph) в текстовом кадре ячейки таблицы, вы можете использовать методы [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/methods/getrect) и [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/methods/getrect).
 ```csharp
 using (Presentation pres = new Presentation("source.pptx"))
 {
@@ -70,3 +66,18 @@ using (Presentation pres = new Presentation("source.pptx"))
     }
 }
 ```
+
+
+## **FAQ**
+
+**В каких единицах измеряются возвращаемые координаты абзаца и текстовых фрагментов?**  
+В пунктах, где 1 дюйм = 72 пункта. Это применимо ко всем координатам и размерам на слайде.
+
+**Влияет ли перенос слов на границы абзаца?**  
+Да. Если [wrapping](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/wraptext/) включен в [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/), текст разбивается, чтобы помещаться в ширину области, что меняет реальные границы абзаца.
+
+**Можно ли надежно сопоставить координаты абзаца пикселям в экспортированном изображении?**  
+Да. Переведите пункты в пиксели с помощью формулы: pixels = points × (DPI / 72). Результат зависит от выбранного DPI для рендеринга/экспорта.
+
+**Как получить «эффективные» параметры форматирования абзаца, учитывая наследование стилей?**  
+Используйте [структуру данных эффективного форматирования абзаца](/slides/ru/net/shape-effective-properties/); она возвращает окончательные объединённые значения для отступов, интервалов, переноса, RTL и прочего.
