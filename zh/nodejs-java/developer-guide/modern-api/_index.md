@@ -7,48 +7,47 @@ keywords: "跨平台 现代 API"
 description: "现代 API"
 ---
 
-## 介绍
+## **简介**
 
-Aspose Slides 在历史上依赖于 java.awt，并在公共 API 中包含以下类：
+Historically, Aspose Slides has a dependency on java.awt and has in the public API the following classes from there:
 - [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)
 - [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)
 
-从版本 24.4 开始，这个公共 API 被声明为过时。
+As of version 24.4, this public API is declared deprecated.
 
-为了解决对这些类的依赖，我们添加了所谓的“现代 API”——即应该代替过时 API 使用的 API，其签名包含对 BufferedImage 的依赖。Graphics2D 被声明为过时，其支持从公共 Slides API 中移除。
+In order to get rid of dependencies on these classes, we added the so-called "Modern API" - i.e. the API that should be used instead of the deprecated one, whose signatures contain dependencies on BufferedImage. Graphics2D is declared deprecated and its support is removed from the public Slides API.
 
-对依赖 System.Drawing 的过时公共 API 的移除将在 24.8 版本中进行。
+Removal of the deprecated public API with dependencies on System.Drawing will be in release 24.8.
 
-## 现代 API
+## **现代 API**
 
-向公共 API 添加了以下类和枚举：
+Added the following classes and enums to the public API:
 
-- IImage - 表示光栅或矢量图像。
-- ImageFormat - 表示图像的文件格式。
-- Images - 实例化和处理 IImage 接口的方法。
+- IImage - represents the raster or vector image.
+- ImageFormat - represents the file format of the image.
+- Images - methods to instantiate and work with the IImage class.
 
-请注意，IImage 是可处置的（它实现了 IDisposable 接口，其使用应包裹在 using 中或以其他方便的方式处置）。
+Please note that IImage is disposable (it implements the IDisposable class and its use should be wrapped in using or dispose-it in another convenient way).
 
-使用新 API 的典型场景如下所示：
-
+A typical scenario of using the new API may look as follows:
 ``` javascript
 var pres = new aspose.slides.Presentation();
 try {
     var ppImage;
-    // 从磁盘文件实例化 IImage 的可处置实例。
+    // 实例化一个可释放的 IImage 实例，来自磁盘上的文件。
     var image = aspose.slides.Images.fromFile("image.png");
     try {
-        // 通过将 IImage 实例添加到演示文稿的图像中来创建 PowerPoint 图像。
+        // 通过向演示文稿的图像集合添加 IImage 实例来创建 PowerPoint 图像。
         ppImage = pres.getImages().addImage(image);
     } finally {
         if (image != null) image.dispose();
     }
 
-    // 在幻灯片 #1 上添加图片形状
+    // 在第 1 张幻灯片上添加图片形状。
     pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 
     var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
-    // 获取表示幻灯片 #1 的 IImage 实例。
+    // 获取表示第 1 张幻灯片的 IImage 实例。
     var slideImage = pres.getSlides().get_Item(0).getImage(size);
     try {
         // 将图像保存到磁盘。
@@ -61,11 +60,12 @@ try {
 }
 ```
 
-## 用现代 API 替换旧代码
 
-一般来说，您需要用新的方法替换对旧方法（使用 ImageIO）的调用。
+## **用现代 API 替换旧代码**
 
-旧：
+In general, you will need to replace the call to the old method using ImageIO with the new one.
+
+Old:
 ``` javascript
 var imageio = java.import("javax.imageio.ImageIO");
 var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
@@ -73,7 +73,8 @@ var slideImage = pres.getSlides().get_Item(0).getThumbnail(size);
 var file = java.newInstanceSync("java.io.File", "image.png");
 imageio.write(slideImage, "PNG", file);
 ```
-新：
+
+New:
 ``` javascript
 var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
 var slideImage = pres.getSlides().get_Item(0).getImage(size);
@@ -81,10 +82,10 @@ slideImage.save("image.png", aspose.slides.ImageFormat.Png);
 slideImage.dispose();
 ```
 
-### 获取幻灯片缩略图
 
-使用过时 API 的代码：
+### **获取幻灯片缩略图**
 
+Code using a deprecated API:
 ``` javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -97,8 +98,8 @@ try {
 }
 ```
 
-现代 API：
 
+Modern API:
 ``` javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -110,10 +111,10 @@ try {
 }
 ```
 
-### 获取形状缩略图
 
-使用过时 API 的代码：
+### **获取形状缩略图**
 
+Code using a deprecated API:
 ``` javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -126,8 +127,8 @@ try {
 }
 ```
 
-现代 API：
 
+Modern API:
 ``` javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -139,10 +140,10 @@ try {
 }
 ```
 
-### 获取演示文稿缩略图
 
-使用过时 API 的代码：
+### **获取演示文稿缩略图**
 
+Code using a deprecated API:
 ``` javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -160,8 +161,8 @@ try {
 }
 ```
 
-现代 API：
 
+Modern API:
 ``` javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -184,10 +185,10 @@ try {
 }
 ```
 
-### 向演示文稿添加图片
 
-使用过时 API 的代码：
+### **向演示文稿添加图片**
 
+Code using a deprecated API:
 ``` javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -202,8 +203,8 @@ try {
 }
 ```
 
-现代 API：
 
+Modern API:
 ``` javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -217,26 +218,27 @@ try {
 }
 ```
 
-## 将要移除的方法及其在现代 API 中的替换
 
-### 演示文稿
-| 方法签名                               | 替换方法签名                             |
+## **将在现代 API 中被删除的方法及其替代方案**
+
+### **Presentation**
+| 方法签名 | 替代方法签名 |
 |-----------------------------------------------|---------------------------------------------------------|
-| public final BufferedImage[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options)                   |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY)   |
+| public final BufferedImage[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options) |
+| public final BufferedImage[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides) | public final IImage[] getImages(IRenderingOptions options, int[] slides) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, int[] slides, Dimension imageSize) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, Dimension imageSize) |
 
-### 形状
-| 方法签名                                                      | 替换方法签名                                       |
+### **Shape**
+| 方法签名 | 替代方法签名 |
 |----------------------------------------------------------------------|-------------------------------------------------------------------|
-| public final BufferedImage getThumbnail()                                        | public final IImage getImage()                                                           |
+| public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
 
-### 幻灯片
-| 方法签名                                                      | 替换方法签名                                           |
+### **Slide**
+| 方法签名 | 替代方法签名 |
 |----------------------------------------------------------------------|-----------------------------------------------------------------------|
 | public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
@@ -245,45 +247,53 @@ try {
 | public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
 | public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
 | public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | 将完全删除  |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | 将完全删除  |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | 将完全删除  |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | Will be deleted completely |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | Will be deleted completely |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | Will be deleted completely |
 
-### 输出
-| 方法签名                                                | 替换方法签名                                |
+### **Output**
+| 方法签名 | 替代方法签名 |
 |-----------------------------------------------------------------|-------------------------------------------------------------|
 | public final IOutputFile add(String path, BufferedImage image) | public final IOutputFile add(String path, IImage image) |
 
-### ImageCollection
-| 方法签名                          | 替换方法签名               |
+### **ImageCollection**
+| 方法签名 | 替代方法签名 |
 |-------------------------------------------|--------------------------------------------|
-| public final IPPImage addImage(BufferedImage image) | public final IPPImage addImage(IImage image) |
+| public final PPImage addImage(BufferedImage image) | public final PPImage addImage(IImage image) |
 
-### PPImage
-| 方法签名                     | 替换方法签名   |
+### **PPImage**
+| 方法签名 | 替代方法签名 |
 |--------------------------------------|-----------------------------------------|
 | public final BufferedImage getSystemImage() | public final IImage getImage() |
 
-### PatternFormat
-| 方法签名                                          | 替换方法签名                        |
+### **PatternFormat**
+| 方法签名 | 替代方法签名 |
 |-----------------------------------------------------------|-----------------------------------------------------|
-| public final BufferedImage getTileImage(Color styleColor)   | public final IImage getTile(Color styleColor) |
-| public final BufferedImage getTileImage(Color background, Color foreground) |public final IImage getTile(Color background, Color foreground) |
+| public final BufferedImage getTileImage(Color styleColor) | public final IImage getTile(Color styleColor) |
+| public final BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTile(Color background, Color foreground) |
 
-### PatternFormatEffectiveData
-| 方法签名                                          | 替换方法签名                        |
+### **PatternFormatEffectiveData**
+| 方法签名 | 替代方法签名 |
 |-----------------------------------------------------------|-----------------------------------------------------|
 | public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
 
+## **Graphics2D 支持将被取消**
 
-## API 对 Graphics2D 的支持将被中止
+Methods with [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) are declared deprecated and their support will be removed from the public API.
 
-包含 [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) 的方法被声明为过时，其支持将从公共 API 中移除。
+The part of the API that uses it will be removed:
+[Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/)
 
-使用它的 API 部分将被移除：
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
 
-[幻灯片](https://reference.aspose.com/slides/java/com.aspose.slides/slide/)
+# **常见问题**
 
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
+**IImage 相较于 Image/Bitmap 的实际优势是什么？**
+
+[IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) 统一了光栅图和矢量图的操作，并通过 [ImageFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imageformat/) 简化了多种格式的保存。
+
+**Modern API 会影响生成缩略图的性能吗？**
+
+将 `getThumbnail` 切换为 `getImage` 并不会导致性能下降：新方法在保留渲染选项的同时，提供了相同的图像生成能力。具体的提升或下降取决于使用场景，但功能上两者是等价的。
