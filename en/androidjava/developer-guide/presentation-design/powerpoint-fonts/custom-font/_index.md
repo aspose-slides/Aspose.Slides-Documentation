@@ -1,11 +1,23 @@
 ---
-title: Custom PowerPoint Font in Java
+title: Customize PowerPoint Fonts on Android
 linktitle: Custom Font
 type: docs
 weight: 20
 url: /androidjava/custom-font/
-keywords: "Fonts, custom fonts, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
-description: "PowerPoint custom fonts in Java"
+keywords:
+- font
+- custom font
+- external font
+- load font
+- manage fonts
+- font folder
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Customize fonts in PowerPoint slides with Aspose.Slides for Android via Java to keep your presentations sharp and consistent across any device."
 ---
 
 {{% alert color="primary" %}} 

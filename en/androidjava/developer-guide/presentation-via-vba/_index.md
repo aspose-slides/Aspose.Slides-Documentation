@@ -1,10 +1,26 @@
 ---
-title: Presentation via VBA
+title: Manage VBA Projects in Presentations on Android
+linktitle: Presentation via VBA
 type: docs
 weight: 250
 url: /androidjava/presentation-via-vba/
-keywords: "Macro, macros, VBA, VBA macro, add macro, remove macro, add VBA, remove VBA, extract macro, extract VBA, PowerPoint macro, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
-description: "Add, remove, and extract VBA macros in PowerPoint presentations in Java"
+keywords:
+- macro
+- VBA
+- VBA macro
+- add macro
+- remove macro
+- extract macro
+- add VBA
+- remove VBA
+- extract VBA
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Discover how to generate and manipulate PowerPoint and OpenDocument presentations via VBA with Aspose.Slides for Android via Java to streamline your workflow."
 ---
 
 {{% alert title="Note" color="warning" %}} 

@@ -1,11 +1,32 @@
 ---
 title: Create or Update PowerPoint Presentation Charts on Android
-linktitle: Create Chart
+linktitle: Create or Update Charts
 type: docs
 weight: 10
 url: /androidjava/create-chart/
-keywords: "Create chart, scattered chart, pie chart, tree map chart, stock chart, box and whisker chart, histogram chart, funnel chart, sunburst chart, multicategory chart, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
-description: "Create chart in PowerPoint presentation in Java"
+keywords:
+- add chart
+- create chart
+- edit chart
+- change chart
+- update chart
+- scattered chart
+- pie chart
+- line chart
+- tree map chart
+- stock chart
+- box and whisker chart
+- funnel chart
+- sunburst chart
+- histogram chart
+- radar chart
+- multicategory chart
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Create and customize charts in PowerPoint presentations using Aspose.Slides for Android. Add, format, and edit charts with practical Java code examples."
 ---
 
 ## Overview

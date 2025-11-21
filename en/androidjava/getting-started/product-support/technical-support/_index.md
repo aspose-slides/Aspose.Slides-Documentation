@@ -3,6 +3,15 @@ title: Technical Support
 type: docs
 weight: 10
 url: /androidjava/technical-support/
+keywords:
+- technical support
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Get fast, free technical support for Aspose.Slides for Android via Java, report issues effectively, and keep your PPT, PPTX and ODP projects running smoothly."
 ---
 
 {{% alert color="primary" %}} 

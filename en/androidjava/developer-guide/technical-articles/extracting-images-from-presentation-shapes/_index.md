@@ -1,11 +1,21 @@
 ---
-title: Extracting Images from Presentation shapes
+title: Extract Images from Presentation Shapes
+linktitle: Image from Shape
 type: docs
 weight: 100
 url: /androidjava/extracting-images-from-presentation-shapes/
-keywords: "Extract image, PowerPoint, PPT, PPTX, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
-description: "Extract images from PowerPoint presentation in Java"
-
+keywords:
+- extract image
+- retrieve image
+- slide background
+- shape background
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Extract images from shapes in PowerPoint and OpenDocument presentations with Aspose.Slides for Android via Java — quick, code-friendly solution."
 ---
 
 {{% alert color="primary" %}} 

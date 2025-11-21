@@ -1,10 +1,22 @@
 ---
-title: Connector
+title: Manage Connectors in Presentations on Android
+linktitle: Connector
 type: docs
 weight: 10
 url: /androidjava/connector/
-keywords: "Connect shapes, connectors, PowerPoint shapes, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
-description: "Connect PowerPoint shapes in Java"
+keywords:
+- connector
+- connector type
+- connector point
+- connector line
+- connector angle
+- connect shapes
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Empower Java apps to draw, connect and auto-route lines in PowerPoint slides on Android—gain full control over straight, elbow and curved connectors."
 ---
 
 A PowerPoint connector is a special line that connects or links two shapes together and stays attached to shapes even when they are moved or repositioned on a given slide. 

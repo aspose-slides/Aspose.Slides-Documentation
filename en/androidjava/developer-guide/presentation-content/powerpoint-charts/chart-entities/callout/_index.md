@@ -1,7 +1,19 @@
 ---
-title: Callout
+title: Manage Callouts in Presentation Charts on Android
+linktitle: Callout
 type: docs
 url: /androidjava/callout/
+keywords:
+- chart callout
+- use callout
+- data label
+- label format
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Create and style callouts in Aspose.Slides for Android with concise Java code examples, compatible with PPT and PPTX to automate presentation workflows."
 ---
 
 ## **Using Callouts**

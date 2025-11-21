@@ -1,9 +1,19 @@
 ---
-title: Exporting Math Equations
+title: Export Math Equations from Presentations on Android
+linktitle: Export Equations
 type: docs
 weight: 30
 url: /androidjava/exporting-math-equations/
-
+keywords:
+- export math equations
+- MathML
+- LaTeX
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Unlock seamless export of math equations from PowerPoint to MathML using Aspose.Slides for Android via Java—preserve formatting and boost compatibility."
 ---
 
 ## Exporting Math Equations from Presentations

@@ -1,10 +1,21 @@
 ---
-title: Digital Signature in PowerPoint
+title: Add Digital Signatures to Presentations on Android
+linktitle: Digital Signature
 type: docs
 weight: 10
 url: /androidjava/digital-signature-in-powerpoint/
-keywords: "Digital signature certificate, certificate authority"
-description: "Add digital signature certificate, certificate authority into PowerPoint presentation with Aspose.Slides."
+keywords:
+- digital signature
+- digital certificate
+- certificate authority
+- PFX certificate
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Learn how to digitally sign PowerPoint & OpenDocument files with Aspose.Slides for Android. Secure your slides in seconds with clear Java code examples."
 ---
 
 

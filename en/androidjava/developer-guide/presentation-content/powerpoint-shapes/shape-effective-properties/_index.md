@@ -1,8 +1,24 @@
 ---
-title: Shape Effective Properties
+title: Get Shape Effective Properties from Presentations on Android
+linktitle: Effective Properties
 type: docs
 weight: 50
 url: /androidjava/shape-effective-properties/
+keywords:
+- shape properties
+- camera properties
+- light rig
+- bevel shape
+- text frame
+- text style
+- font height
+- fill format
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Discover how Aspose.Slides for Android via Java calculates and applies effective shape properties for precise PowerPoint rendering."
 ---
 
 In this topic, we will discuss **effective** and **local** properties. When we set values directly at these levels

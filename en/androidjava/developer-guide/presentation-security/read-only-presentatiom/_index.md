@@ -1,9 +1,20 @@
 ---
-title: Read Only Presentation
+title: Save Presentations in Read-Only Mode on Android
+linktitle: Read-Only Presentation
 type: docs
 weight: 30
 url: /androidjava/read-only-presentation/
-
+keywords:
+- read only
+- protect presentation
+- prevent editing
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Save PowerPoint files (PPT, PPTX) in read-only mode with Aspose.Slides for Android via Java, offering precise slide previews without altering your presentations."
 ---
 
 In PowerPoint 2019, Microsoft introduced the **Always Open Read-Only** setting as one of the options users can use to protect their presentations. You may want to use this Read-Only setting to protect a presentation when

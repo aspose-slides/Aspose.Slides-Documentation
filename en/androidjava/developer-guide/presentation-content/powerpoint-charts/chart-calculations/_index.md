@@ -1,8 +1,24 @@
 ---
-title: Chart Calculations
+title: Optimize Chart Calculations for Presentations on Android
+linktitle: Chart Calculations
 type: docs
 weight: 50
 url: /androidjava/chart-calculations/
+keywords:
+- chart calculations
+- chart elements
+- element position
+- actual position
+- child element
+- parent element
+- chart values
+- actual value
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Understand chart calculations, data updates, and precision control in Aspose.Slides for Android for PPT and PPTX, with practical Java code examples."
 ---
 
 ## **Calculate Actual Values of Chart Elements**

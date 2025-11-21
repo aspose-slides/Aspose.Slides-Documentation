@@ -1,7 +1,18 @@
 ---
-title: 3D Chart
+title: Customize 3D Charts in Presentations on Android
+linktitle: 3D Chart
 type: docs
 url: /androidjava/3d-chart/
+keywords:
+- 3D chart
+- rotation
+- depth
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Learn how to create and customize 3-D charts in Aspose.Slides for Android via Java, with support for PPT and PPTX files—boost your presentations today."
 ---
 
 ## **Set RotationX, RotationY and DepthPercents properties of 3D Chart**

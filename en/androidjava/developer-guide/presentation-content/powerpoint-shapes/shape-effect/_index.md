@@ -1,10 +1,22 @@
 ---
-title: Shape Effect
+title: Apply Shape Effects in Presentations on Android
+linktitle: Shape Effect
 type: docs
 weight: 30
-url: /androidjava/shape-effect
-keywords: "Shape effect, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
-description: "Apply effect to PowerPoint shape in Java"
+url: /androidjava/shape-effect/
+keywords:
+- shape effect
+- shadow effect
+- reflection effect
+- glow effect
+- soft edges effect
+- effect format
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Transform your PPT and PPTX files with advanced shape effects using Aspose.Slides for Android via Java—create striking, professional slides in seconds."
 ---
 
 While effects in PowerPoint can be used to make a shape stand out, they differ from [fills](/slides/androidjava/shape-formatting/#gradient-fill) or outlines. Using PowerPoint effects, you can create convincing reflections on a shape, spread a shape's glow, etc.

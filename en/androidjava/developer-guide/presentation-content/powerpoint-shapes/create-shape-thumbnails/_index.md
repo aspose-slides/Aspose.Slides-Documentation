@@ -1,8 +1,20 @@
 ---
-title: Create Shape Thumbnails
+title: Create Thumbnails of Presentation Shapes on Android
+linktitle: Shape Thumbnails
 type: docs
 weight: 70
 url: /androidjava/create-shape-thumbnails/
+keywords:
+- shape thumbnail
+- shape image
+- render shape
+- shape rendering
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Generate high-quality shape thumbnails from PowerPoint slides with Aspose.Slides for Android via Java – easily create and export presentation thumbnails."
 ---
 
 

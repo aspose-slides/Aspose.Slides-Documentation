@@ -1,10 +1,29 @@
 ---
-title: Manage Rows and Columns
+title: Manage Rows and Columns in PowerPoint Tables on Android
+linktitle: Rows and Columns
 type: docs
 weight: 20
 url: /androidjava/manage-rows-and-columns/
-keywords: "Table, table rows and columns, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
-description: "Manage table rows and columns in PowerPoint presentations in Java"
+keywords:
+- table row
+- table column
+- first row
+- table header
+- clone row
+- clone column
+- copy row
+- copy column
+- remove row
+- remove column
+- row text formatting
+- column text formatting
+- table style
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Manage table rows and columns in PowerPoint with Aspose.Slides for Android via Java and speed up presentation editing and data updates."
 ---
 
 To allow you to manage a table's rows and columns in a PowerPoint presentation, Aspose.Slides provides the [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/) class, [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) interface, and many other types.

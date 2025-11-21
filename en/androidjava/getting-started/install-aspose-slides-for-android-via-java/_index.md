@@ -3,10 +3,19 @@ title: Install Aspose.Slides for Android via Java
 type: docs
 weight: 90
 url: /androidjava/install-aspose-slides-for-android-via-java/
+keywords:
+- install Aspose.Slides
+- download Aspose.Slides
+- use Aspose.Slides
+- Aspose.Slides installation
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Quickly install Aspose.Slides for Android. Step-by-step guide, system requirements, and Java code samples — start working with PowerPoint presentations today!"
 ---
-
-
-
 
 ## **Installation**
 Previously, Aspose.Slides for Android via Java was distributed as a single ZIP file containing the JAR file, demos, and the product documentation. 

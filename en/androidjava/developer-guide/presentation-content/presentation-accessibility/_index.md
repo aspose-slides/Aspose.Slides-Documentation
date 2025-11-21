@@ -13,7 +13,7 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Discover how Aspose.Slides for Android helps automate presentation accessibility checks in PPT, PPTX and ODP files—enhance screen reader experience and boost compliance."
+description: "Discover how Aspose.Slides for Android via Java helps automate presentation accessibility checks in PPT, PPTX and ODP files—enhance screen reader experience and boost compliance."
 ---
 
 ## **Overview**

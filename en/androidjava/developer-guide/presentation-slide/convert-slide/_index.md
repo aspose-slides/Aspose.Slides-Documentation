@@ -1,22 +1,25 @@
 ---
-title: Convert PowerPoint Slides to Images in Android
+title: Convert Presentation Slides to Images on Android
 linktitle: Slide to Image
 type: docs
 weight: 35
 url: /androidjava/convert-slide/
 keywords: 
 - convert slide
-- convert slide to image
-- export slide as image
-- save slide as image
+- export slide
 - slide to image
+- save slide as image
 - slide to PNG
 - slide to JPEG
 - slide to bitmap
+- slide to TIFF
+- PowerPoint
+- OpenDocument
+- presentation
 - Android
 - Java
 - Aspose.Slides
-description: "Learn how to convert PowerPoint and OpenDocument slides into various formats using Aspose.Slides for Android via Java. Easily export PPTX and ODP slides to BMP, PNG, JPEG, TIFF, and more with high-quality results."
+description: "Convert slides from PPT, PPTX and ODP to images using Aspose.Slides for Android—fast, high-quality rendering with clear Java code examples."
 ---
 
 ## **Overview**

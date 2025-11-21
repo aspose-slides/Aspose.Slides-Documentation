@@ -1,8 +1,20 @@
 ---
-title: Export Chart
+title: Export Presentation Charts on Android
+linktitle: Export Chart
 type: docs
 weight: 90
 url: /androidjava/export-chart/
+keywords:
+- chart
+- chart to image
+- chart as image
+- extract chart image
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Learn how to export presentation charts with Aspose.Slides for Android via Java, supporting PPT and PPTX formats, and streamline reporting into any workflow."
 ---
 
 ## **Get Chart Image**

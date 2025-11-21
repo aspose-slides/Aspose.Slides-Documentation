@@ -1,7 +1,21 @@
 ---
-title: Chart Data Marker
+title: Manage Chart Data Markers in Presentations on Android
+linktitle: Data Marker
 type: docs
 url: /androidjava/chart-data-marker/
+keywords:
+- chart
+- data point
+- marker
+- marker options
+- marker size
+- fill type
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Customize chart data markers in Aspose.Slides for Android, boosting presentation impact across PPT and PPTX formats with clear Java code examples."
 ---
 
 ## **Set Chart Marker Options**

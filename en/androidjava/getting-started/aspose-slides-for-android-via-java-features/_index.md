@@ -3,6 +3,15 @@ title: Aspose.Slides for Android via Java Features
 type: docs
 weight: 100
 url: /androidjava/aspose-slides-for-android-via-java-features/
+keywords:
+- features
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Explore Aspose.Slides for Android via Java features compared to Aspose.Slides for Java, including support for PPT, PPTX and ODP, conversions and rendering."
 ---
 
 {{% alert color="primary" %}} 

@@ -1,8 +1,19 @@
 ---
-title: Compare Slides
+title: Compare Presentation Slides on Android
+linktitle: Compare Slides
 type: docs
 weight: 50
 url: /androidjava/compare-slides/
+keywords:
+- compare slides
+- slide comparison
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Compare PowerPoint and OpenDocument presentations programmatically with Aspose.Slides for Android. Identify slide differences in Java code quickly."
 ---
 
 ## **Compare Two Slides**
