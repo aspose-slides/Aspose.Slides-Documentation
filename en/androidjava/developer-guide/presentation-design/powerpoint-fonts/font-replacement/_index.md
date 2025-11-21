@@ -1,10 +1,21 @@
 ---
-title: Font Replacement - PowerPoint Java API
+title: Streamline Font Replacement in Presentations on Android
 linktitle: Font Replacement
 type: docs
 weight: 60
 url: /androidjava/font-replacement/
-description: Learn how to replace fonts using the explicit replacement method in PowerPoint using the Java API.
+keywords:
+- font
+- replace font
+- font replacement
+- change font
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Seamlessly replace fonts in Aspose.Slides for Android via Java to ensure consistent typography in PowerPoint and OpenDocument presentations."
 ---
 
 If you change your mind about using a font, you can replace that font with another font. All instances of the old font will be replaced by the new font. 

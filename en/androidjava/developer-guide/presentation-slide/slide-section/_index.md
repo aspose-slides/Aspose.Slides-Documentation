@@ -1,8 +1,22 @@
 ---
-title: Slide Section
+title: Manage Slide Sections in Presentations on Android
+linktitle: Slide Section
 type: docs
 weight: 90
 url: /androidjava/slide-section/
+keywords:
+- create section
+- add section
+- edit section
+- change section
+- section name
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Streamline slide sections in PowerPoint and OpenDocument with Aspose.Slides for Android via Java—split, rename, and reorder to optimize PPTX and ODP workflows."
 ---
 
 With Aspose.Slides for Android via Java, you can organize a PowerPoint Presentation into sections. You get to create sections that contain specific slides.

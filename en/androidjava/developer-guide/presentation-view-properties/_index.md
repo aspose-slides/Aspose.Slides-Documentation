@@ -1,5 +1,6 @@
 ---
-title: Presentation View Properties
+title: Retrieve and Update Presentation View Properties on Android
+linktitle: View Properties
 type: docs
 weight: 80
 url: /androidjava/presentation-view-properties/
@@ -15,11 +16,12 @@ keywords:
 - auto adjust
 - default zoom
 - PowerPoint
+- OpenDocument
 - presentation
 - Android
 - Java
-- Aspose.Slides for Android via Java
-description: "Manage PowerPoint presentation view properties in Java"
+- Aspose.Slides
+description: "Discover Aspose.Slides for Android via Java view properties to customize formats PPT, PPTX, and ODP slides—adjust layouts, zoom levels, and display settings."
 ---
 
 {{% alert color="primary" %}} 

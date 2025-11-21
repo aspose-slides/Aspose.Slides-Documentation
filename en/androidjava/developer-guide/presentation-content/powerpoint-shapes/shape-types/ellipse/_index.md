@@ -1,8 +1,22 @@
 ---
-title: Ellipse
+title: Add Ellipses to Presentations on Android
+linktitle: Ellipse
 type: docs
 weight: 30
 url: /androidjava/ellipse/
+keywords:
+- ellipse
+- shape
+- add ellipse
+- create ellipse
+- draw ellipse
+- formatted ellipse
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Learn how to create, format, and manipulate ellipse shapes in Aspose.Slides for Android across PPT and PPTX presentations—Java code examples included."
 ---
 
 

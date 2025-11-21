@@ -1,8 +1,24 @@
 ---
-title: Chart Formatting
+title: Format Presentation Charts on Android
+linktitle: Chart Formatting
 type: docs
 weight: 60
 url: /androidjava/chart-formatting/
+keywords:
+- format chart
+- chart formatting
+- chart entity
+- chart properties
+- chart settings
+- chart options
+- font properties
+- rounded border
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Learn chart formatting in Aspose.Slides for Android via Java and elevate your PowerPoint presentation with professional, eye-catching styling."
 ---
 
 ## **Format Chart Entities**

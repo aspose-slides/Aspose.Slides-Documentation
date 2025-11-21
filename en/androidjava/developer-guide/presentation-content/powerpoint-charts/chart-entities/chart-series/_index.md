@@ -1,9 +1,22 @@
 ---
-title: Chart Series
+title: Manage Chart Data Series in Presentations on Android
+linktitle: Data Series
 type: docs
 url: /androidjava/chart-series/
-keywords: "Chart series, series color, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
-description: "Chart series in PowerPoint presentations in Java"
+keywords:
+- сhart series
+- series overlap
+- series color
+- category color
+- series name
+- data point
+- series gap
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Learn how to manage chart series on Android for PowerPoint (PPT/PPTX) with practical Java code examples and best practices to enhance your data presentations."
 ---
 
 A series is a row or column of numbers plotted in a chart.

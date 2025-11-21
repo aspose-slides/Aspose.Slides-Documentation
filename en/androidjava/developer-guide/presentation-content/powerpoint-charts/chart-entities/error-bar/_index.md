@@ -1,7 +1,17 @@
 ---
-title: Error Bar
+title: Customize Error Bars in Presentation Charts on Android
+linktitle: Error Bar
 type: docs
 url: /androidjava/error-bar/
+keywords:
+- error bar
+- custom value
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Learn how to add and customize error bars in charts with Aspose.Slides for Android via Java—optimize data visuals in PowerPoint presentations."
 ---
 
 ## **Add Error Bar**
