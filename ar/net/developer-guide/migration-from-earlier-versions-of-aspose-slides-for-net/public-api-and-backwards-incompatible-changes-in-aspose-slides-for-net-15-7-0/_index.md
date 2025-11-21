@@ -1,22 +1,36 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 15.7.0
+title: "واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 15.7.0"
+linktitle: "Aspose.Slides لـ .NET 15.7.0"
 type: docs
 weight: 180
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-7-0/
+keywords:
+- ترحيل
+- كود قديم
+- كود حديث
+- نهج تقليدي
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "استعراض تحديثات واجهة برمجة التطبيقات العامة والتغييرات المكسرة في Aspose.Slides لـ .NET للترحيل السلس لحلول العروض التقديمية PowerPoint PPT، PPTX و ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-تدرج هذه الصفحة جميع [المضاف](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-7-0/) أو [المزال](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-7-0/) من الفئات، والطرق، والخصائص، وما إلى ذلك، والتغييرات الأخرى المقدمة مع واجهة برمجة تطبيقات Aspose.Slides لـ .NET 15.7.0.
+هذه الصفحة تسرد جميع الفئات، الأساليب، الخصائص وما إلى ذلك التي تم [إضافتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-7-0/) أو [إزالتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-7-0/) والأية تغييرات أخرى تم تقديمها مع Aspose.Slides for .NET 15.7.0 API.
 
 {{% /alert %}} 
-## **تغييرات واجهة برمجة التطبيقات العامة**
-#### **تم إضافة Enums ImagePixelFormat**
-تم إضافة Enum Aspose.Slides.Export.ImagePixelFormat لتحديد تنسيق البكسل للصور المولدة.
-#### **تم إضافة method IChartDataPoint.GetAutomaticDataPointColor()**
-يعيد لونًا تلقائيًا لنقطة البيانات استنادًا إلى فهرس السلسلة، فهرس نقطة البيانات، ParentSeriesGroup، خاصية IsColorVaried ونمط الرسم البياني.
-يستخدم هذا اللون بشكل افتراضي إذا كان FillType يساوي NotDefined.
-#### **تم إضافة method RenderToGraphics إلى Slide**
-تم إضافة method RenderToGraphics (و تحميلاتها) إلى Aspose.Slides.Slide لرسم شريحة إلى كائن Graphics.
-#### **تم إضافة Property PixelFormat إلى ITiffOptions و TiffOptions**
-تم إضافة Property PixelFormat إلى Aspose.Slides.Export.ITiffOptions و Aspose.Slides.Export.TiffOptions لتحديد تنسيق البكسل للصور TIFF المولدة.
+## **تغييرات API العامة**
+#### **تم إضافة تعداد ImagePixelFormat**
+تم إضافة تعداد Aspose.Slides.Export.ImagePixelFormat لتحديد تنسيق البكسل للصور المُولدة.
+#### **تم إضافة طريقة IChartDataPoint.GetAutomaticDataPointColor()**
+تُعيد لونًا تلقائيًا لنقطة البيانات بناءً على فهرس السلسلة، فهرس نقطة البيانات، ParentSeriesGroup، الخاصية IsColorVaried، ونمط المخطط.
+يُستخدم هذا اللون افتراضيًا إذا كان FillType يساوي NotDefined.
+#### **تم إضافة طريقة RenderToGraphics إلى Slide**
+تم إضافة طريقة RenderToGraphics (ومتجاوزاتها) إلى Aspose.Slides.Slide لتصوير شريحة إلى كائن Graphics.
+#### **تم إضافة الخاصية PixelFormat إلى ITiffOptions و TiffOptions**
+تم إضافة الخاصية PixelFormat إلى Aspose.Slides.Export.ITiffOptions و Aspose.Slides.Export.TiffOptions لتحديد تنسيق البكسل للصور TIFF المُولدة.

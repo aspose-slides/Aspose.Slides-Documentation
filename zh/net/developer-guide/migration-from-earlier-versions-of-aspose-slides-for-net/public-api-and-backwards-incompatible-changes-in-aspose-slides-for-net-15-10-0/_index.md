@@ -1,24 +1,38 @@
 ---
-title: Aspose.Slides for .NET 15.10.0 的公共 API 和不兼容的更改
+title: Aspose.Slides for .NET 15.10.0 的公共 API 及向后不兼容的更改
+linktitle: Aspose.Slides for .NET 15.10.0
 type: docs
 weight: 200
 url: /zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/
+keywords:
+- 迁移
+- 传统代码
+- 现代代码
+- 传统方法
+- 现代方法
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- .NET
+- C#
+- Aspose.Slides
+description: "审阅 Aspose.Slides for .NET 的公共 API 更新和破坏性更改，以便平稳迁移您的 PowerPoint PPT、PPTX 和 ODP 演示文稿解决方案。"
 ---
 
 {{% alert color="primary" %}} 
 
-本页面列出了所有在 Aspose.Slides for .NET 15.10.0 API 中 [添加的](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) 或 [移除的](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) 类、方法、属性等，以及其他更改。
+此页面列出所有已[添加](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/)或已[移除](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/)的类、方法、属性等，以及 Aspose.Slides for .NET 15.10.0 API 引入的其他更改。
 
 {{% /alert %}} 
-## **公共 API 更改**
-#### **新增 VideoPlayerHtmlController 支持将媒体文件导出为 HTML**
-新的公共类 VideoPlayerHtmlController 已添加到 Aspose.Slides.Export 命名空间。通过此类的实例，用户可以将视频和音频文件导出为 HTML。
+## **Public API Changes**
+#### **新增 VideoPlayerHtmlController 以支持将媒体文件导出为 HTML**
+已在 Aspose.Slides.Export 命名空间中添加了新的公共类 VideoPlayerHtmlController。使用该类的实例，用户可以将视频和音频文件导出为 HTML。
 VideoPlayerHtmlController 构造函数接受以下参数：
 
-path: 生成视频和音频文件的路径
-fileName: HTML 文件的名称
+path: 将生成视频和音频文件的路径  
+fileName: HTML 文件的名称  
 
-baseUri: 用于生成链接的基础 URI
+baseUri: 用于生成链接的基本 URI  
 使用示例：
 
 ``` csharp
@@ -49,7 +63,7 @@ baseUri: 用于生成链接的基础 URI
 
 ``` 
 #### **已添加图表系列动画 API**
-在 Aspose.Slides.Animation.ISequence 接口中新增了 2 方法。
+已在 Aspose.Slides.Animation.ISequence 接口中添加了 2 个新方法。
 
 ``` csharp
 
@@ -59,15 +73,15 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-这些方法旨在支持图表元素动画：
-按系列
-按类别
-按系列元素
-按类别元素
+这些方法用于支持图表元素的动画：
+按系列  
+按类别  
+按系列元素  
+按类别元素  
 
-引入了两个新的枚举 EffectChartMajorGroupingType 和 EffectChartMinorGroupingType，与图表元素动画相关。
+引入了两个新枚举 EffectChartMajorGroupingType 和 EffectChartMinorGroupingType，用于图表元素动画。
 
-要向图表添加系列动画，可以使用以下代码：
+下面的代码演示了如何为图表添加系列动画：
 
 ``` csharp
 
@@ -353,4 +367,4 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 }
 
-``` 
+```

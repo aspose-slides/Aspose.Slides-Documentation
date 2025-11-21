@@ -1,8 +1,22 @@
 ---
-title: Convertir PowerPoint en C# | HTML, PNG, PDF, Word, TIFF
+title: Convertir des présentations PowerPoint en .NET | HTML, PNG, PDF, Word, TIFF
 linktitle: Convertir PowerPoint
 type: docs
 weight: 20
 url: /fr/net/convert-powerpoint/
-description: Cet article répertorie des sujets et des codes d'exemple en C# .NET qui peuvent être utilisés pour convertir PowerPoint (PPT, PPTX, ODP) dans différents formats comme HTML, PNG, PDF, Word, TIFF, etc. 
+keywords:
+- convertir PowerPoint
+- convertir présentation
+- convertir diapositive
+- convertir PPT
+- convertir PPTX
+- exporter PowerPoint
+- exporter présentation
+- exporter diapositive
+- exporter PPT
+- exporter PPTX
+- .NET
+- C#
+- Aspose.Slides
+description: "Convertir des présentations PowerPoint vers d'autres formats en utilisant Aspose.Slides pour .NET. Conversion PPT et PPTX rapide, précise et fluide."
 ---

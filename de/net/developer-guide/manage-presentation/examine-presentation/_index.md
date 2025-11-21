@@ -1,40 +1,43 @@
 ---
-title: Präsentation Untersuchen
+title: Abrufen und Aktualisieren von Präsentationsinformationen in .NET
+linktitle: Präsentationsinformationen
 type: docs
 weight: 30
 url: /de/net/examine-presentation/
 keywords:
+- Präsentationsformat
+- Präsentationseigenschaften
+- Dokumenteigenschaften
+- Eigenschaften abrufen
+- Eigenschaften lesen
+- Eigenschaften ändern
+- Eigenschaften modifizieren
+- Eigenschaften aktualisieren
+- PPTX untersuchen
+- PPT untersuchen
+- ODP untersuchen
 - PowerPoint
-- präsentation
-- präsentationsformat
-- präsentationseigenschaften
-- dokumenteigenschaften
-- eigenschaften abrufen
-- eigenschaften lesen
-- eigenschaften ändern
-- eigenschaften modifizieren
-- PPTX
-- PPT
-- C#
-- Csharp
+- OpenDocument
+- Präsentation
 - .NET
-description: "Lese und ändere die Eigenschaften von PowerPoint-Präsentationen in C# oder .NET"
+- C#
+- Aspose.Slides
+description: "Untersuchen Sie Folien, Struktur und Metadaten in PowerPoint- und OpenDocument-Präsentationen mit .NET für schnellere Einblicke und intelligentere Inhaltsprüfungen."
 ---
 
-Aspose.Slides für .NET ermöglicht es Ihnen, eine Präsentation zu untersuchen, um ihre Eigenschaften herauszufinden und ihr Verhalten zu verstehen.
+Aspose.Slides for .NET ermöglicht es Ihnen, eine Präsentation zu untersuchen, um ihre Eigenschaften zu ermitteln und ihr Verhalten zu verstehen. 
 
 {{% alert title="Info" color="info" %}} 
 
-Die Klassen [PresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo) und [DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/) enthalten die Eigenschaften und Methoden, die in den hier beschriebenen Operationen verwendet werden.
+Die Klassen [PresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo) und [DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/) enthalten die Eigenschaften und Methoden, die in den hier beschriebenen Vorgängen verwendet werden. 
 
 {{% /alert %}} 
 
-## **Überprüfen eines Präsentationsformats**
+## **Prüfen des Präsentationsformats**
 
-Bevor Sie mit einer Präsentation arbeiten, möchten Sie möglicherweise herausfinden, in welchem Format (PPT, PPTX, ODP und andere) sich die Präsentation gerade befindet.
+Bevor Sie an einer Präsentation arbeiten, möchten Sie möglicherweise herausfinden, in welchem Format (PPT, PPTX, ODP und andere) sich die Präsentation derzeit befindet.
 
-Sie können das Format einer Präsentation überprüfen, ohne die Präsentation zu laden. Sehen Sie sich diesen C#-Code an:
-
+Sie können das Format einer Präsentation prüfen, ohne sie zu laden. Siehe diesen C#-Code:
 ```c#
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
 Console.WriteLine(info.LoadFormat); // PPTX
@@ -46,10 +49,10 @@ IPresentationInfo info3 = PresentationFactory.Instance.GetPresentationInfo("pres
 Console.WriteLine(info3.LoadFormat); // ODP
 ```
 
-## **Eigenschaften der Präsentation abrufen**
 
-Dieser C#-Code zeigt Ihnen, wie Sie die Eigenschaften der Präsentation (Informationen über die Präsentation) abrufen können:
+## **Abrufen von Präsentationseigenschaften**
 
+Dieser C#-Code zeigt, wie Sie Präsentationseigenschaften (Informationen über die Präsentation) abrufen können:
 ```c#
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
 IDocumentProperties props = info.ReadDocumentProperties();
@@ -59,40 +62,63 @@ Console.WriteLine(props.Title);
 // .. 
 ```
 
-Sie möchten möglicherweise die [Eigenschaften der Klasse DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/#properties) einsehen.
 
-## **Präsentationseigenschaften aktualisieren**
+Möglicherweise möchten Sie die [Eigenschaften der Klasse DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/#properties) ansehen.
 
-Aspose.Slides bietet die Methode [PresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo/methods/updatedocumentproperties), mit der Sie Änderungen an den Eigenschaften der Präsentation vornehmen können.
+## **Aktualisieren von Präsentationseigenschaften**
 
-Angenommen, wir haben eine PowerPoint-Präsentation mit den unten angezeigten Dokumenteigenschaften.
+Aspose.Slides stellt die Methode [PresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo/methods/updatedocumentproperties) bereit, mit der Sie Änderungen an den Präsentationseigenschaften vornehmen können.
 
-![Ursprüngliche Dokumenteigenschaften der PowerPoint-Präsentation](input_properties.png)
+Angenommen, wir haben eine PowerPoint-Präsentation mit den unten gezeigten Dokumenteigenschaften.
 
-Dieses Codebeispiel zeigt Ihnen, wie Sie einige Präsentationseigenschaften bearbeiten:
+![Originale Dokumenteigenschaften der PowerPoint-Präsentation](input_properties.png)
 
+Dieses Codebeispiel zeigt, wie Sie einige Präsentationseigenschaften bearbeiten können:
 ```c#
 string fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo(fileName);
 
 IDocumentProperties properties = info.ReadDocumentProperties();
-properties.Title = "Mein Titel";
+properties.Title = "My title";
 properties.LastSavedTime = DateTime.Now;
 
 info.UpdateDocumentProperties(properties);
 info.WriteBindedPresentation(fileName);
 ```
 
-Die Ergebnisse der Änderung der Dokumenteigenschaften sind unten dargestellt.
+
+Die Ergebnisse der Änderung der Dokumenteigenschaften werden unten angezeigt.
 
 ![Geänderte Dokumenteigenschaften der PowerPoint-Präsentation](output_properties.png)
 
 ## **Nützliche Links**
 
-Um mehr Informationen über eine Präsentation und ihre Sicherheitsattribute zu erhalten, finden Sie diese Links möglicherweise nützlich:
+Um weitere Informationen über eine Präsentation und ihre Sicherheitseigenschaften zu erhalten, könnten diese Links nützlich sein:
 
 - [Überprüfen, ob eine Präsentation verschlüsselt ist](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Überprüfen, ob eine Präsentation schreibgeschützt ist (nur lesen)](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Überprüfen, ob eine Präsentation vor dem Laden passwortgeschützt ist](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Bestätigen des Passworts, das zum Schutz einer Präsentation verwendet wurde](https://docs.aspose.com/slides/net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Überprüfen, ob eine Präsentation schreibgeschützt (nur lesbar) ist](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
+- [Überprüfen, ob eine Präsentation passwortgeschützt ist, bevor sie geladen wird](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
+- [Bestätigen des zum Schutz einer Präsentation verwendeten Passworts](https://docs.aspose.com/slides/net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation)
+
+## **FAQ**
+
+**Wie kann ich prüfen, ob Schriftarten eingebettet sind und welche das sind?**
+
+Suchen Sie nach [Informationen zu eingebetteten Schriftarten](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts/) auf Präsentationsebene und vergleichen Sie diese Einträge mit dem Satz der [tatsächlich im Inhalt verwendeten Schriftarten](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getfonts/), um zu ermitteln, welche Schriftarten für die Darstellung kritisch sind.
+
+**Wie kann ich schnell erkennen, ob die Datei versteckte Folien enthält und wie viele?**
+
+Durchlaufen Sie die [Folien‑Sammlung](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/) und prüfen Sie das [Sichtbarkeits‑Flag](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) jeder Folie.
+
+**Kann ich erkennen, ob eine benutzerdefinierte Foliengröße und -ausrichtung verwendet werden und ob sie von den Vorgaben abweichen?**
+
+Ja. Vergleichen Sie die aktuelle [Foliengröße](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) und Ausrichtung mit den Standard‑Voreinstellungen; dies hilft, das Verhalten beim Druck und Export vorherzusehen.
+
+**Gibt es eine schnelle Möglichkeit zu prüfen, ob Diagramme externe Datenquellen referenzieren?**
+
+Ja. Durchlaufen Sie alle [Diagramme](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/), prüfen Sie deren [Datenquelle](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) und notieren Sie, ob die Daten intern oder verlinkt sind, einschließlich eventuell defekter Links.
+
+**Wie kann ich 'schwere' Folien beurteilen, die das Rendern oder den PDF‑Export verlangsamen könnten?**
+
+Zählen Sie für jede Folie die Objekte und suchen Sie nach großen Bildern, Transparenzen, Schatten, Animationen und Multimedia; vergeben Sie eine grobe Komplexitätsbewertung, um potenzielle Performance‑Engpässe zu kennzeichnen.

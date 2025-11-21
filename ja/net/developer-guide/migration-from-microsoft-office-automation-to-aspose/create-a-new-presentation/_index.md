@@ -1,50 +1,58 @@
 ---
-title: 新しいプレゼンテーションを作成する
+title: VSTO と Aspose.Slides for .NET を使用した新しいプレゼンテーションの作成
+linktitle: 新しいプレゼンテーションの作成
 type: docs
 weight: 10
 url: /ja/net/create-a-new-presentation/
+keywords:
+- プレゼンテーションの作成
+- 新しいプレゼンテーション
+- 移行
+- VSTO
+- Office オートメーション
+- PowerPoint
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Microsoft Office のオートメーションから Aspose.Slides for .NET に移行し、C# でクリーンで信頼性の高いコードで新しい PowerPoint (PPT、PPTX) プレゼンテーションを作成します。"
 ---
 
 {{% alert color="primary" %}} 
 
-VSTOは、開発者がMicrosoft Office内で実行できるアプリケーションを構築できるように開発されました。VSTOはCOMベースですが、.NETアプリケーションで使用できるように.NETオブジェクト内にラップされています。VSTOは.NETフレームワークのサポートとMicrosoft Office CLRベースのランタイムが必要です。Microsoft Officeアドインを作成するために使用できますが、サーバーサイドコンポーネントとして使用することはほとんど不可能です。また、深刻な展開の問題もあります。
+VSTO は、開発者が Microsoft Office 内で実行できるアプリケーションを構築できるように開発されました。VSTO は COM ベースですが、.NET オブジェクトでラップされているため .NET アプリケーションで使用できます。VSTO は .NET Framework のサポートと Microsoft Office の CLR ベースのランタイムが必要です。Microsoft Office アドインの作成には使用できますが、サーバーサイドコンポーネントとして使用することはほぼ不可能です。また、展開に重大な問題があります。
 
-Aspose.Slides for .NETは、VSTOと同様にMicrosoft PowerPointプレゼンテーションを操作するために使用できるコンポーネントですが、いくつかの利点があります：
-
-- Aspose.Slidesはマネージコードのみを含み、Microsoft Officeランタイムをインストールする必要がありません。
-- クライアントサイドコンポーネントとして、またはサーバーサイドコンポーネントとして使用できます。
-- Aspose.Slidesは単一のDLLに含まれているため、展開が簡単です。
+- Aspose.Slides はマネージドコードのみで構成されており、Microsoft Office のランタイムをインストールする必要がありません。
+- クライアントサイドコンポーネントとしてもサーバーサイドコンポーネントとしても使用できます。
+- Aspose.Slides は単一の DLL に含まれているため、展開が簡単です。
 
 {{% /alert %}} 
 ## **プレゼンテーションの作成**
-以下は、同じ目的を達成するためにVSTOとAspose.Slides for .NETがどのように使用されるかを示す2つのコード例です。最初の例は[VSTO](/slides/ja/net/create-a-new-presentation/); [2番目の例](/slides/ja/net/create-a-new-presentation/)はAspose.Slidesを使用しています。
-### **VSTOの例**
-**VSTOの出力** 
+以下は、VSTO と Aspose.Slides for .NET を使用して同じ目的を達成する方法を示す 2 つのコード例です。最初の例は [VSTO](/slides/ja/net/create-a-new-presentation/); [2 番目の例](/slides/ja/net/create-a-new-presentation/) は Aspose.Slides を使用しています。
+### **VSTO の例**
+**VSTO の出力** 
 
 ![todo:image_alt_text](create-a-new-presentation_1.png)
-
-
-
 ```c#
-//注意: PowerPointは上で定義された名前空間です
+//注: PowerPoint は上記のように定義された名前空間です
 //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
 //プレゼンテーションを作成
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 	.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//タイトルスライドレイアウトを取得
+//タイトル スライドのレイアウトを取得
 PowerPoint.CustomLayout layout = pres.SlideMaster.
 	CustomLayouts[PowerPoint.PpSlideLayout.ppLayoutTitle];
 
-//タイトルスライドを追加する。
+//タイトル スライドを追加.
 PowerPoint.Slide slide = pres.Slides.AddSlide(1, layout);
 
-//タイトルテキストを設定
-slide.Shapes.Title.TextFrame.TextRange.Text = "スライドタイトルヘッディング";
+//タイトル テキストを設定
+slide.Shapes.Title.TextFrame.TextRange.Text = "Slide Title Heading";
 
-//サブタイトルテキストを設定
-slide.Shapes[2].TextFrame.TextRange.Text = "スライドタイトルサブヘッディング";
+//サブタイトル テキストを設定
+slide.Shapes[2].TextFrame.TextRange.Text = "Slide Title Sub-Heading";
 
 //出力をディスクに書き込む
 pres.SaveAs("c:\\outVSTO.ppt",
@@ -53,13 +61,11 @@ pres.SaveAs("c:\\outVSTO.ppt",
 ```
 
 
-### **Aspose.Slides for .NETの例**
-**Aspose.Slidesからの出力** 
+
+### **Aspose.Slides for .NET の例**
+**Aspose.Slides の出力** 
 
 ![todo:image_alt_text](create-a-new-presentation_2.png)
-
-
-
 ```c#
 //プレゼンテーションを作成
 Presentation pres = new Presentation();
@@ -69,10 +75,10 @@ ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
 
 
 //タイトルテキストを設定
-((IAutoShape)slide.Shapes[0]).TextFrame.Text = "スライドタイトルヘッディング";
+((IAutoShape)slide.Shapes[0]).TextFrame.Text = "Slide Title Heading";
 
 //サブタイトルテキストを設定
-((IAutoShape)slide.Shapes[1]).TextFrame.Text = "スライドタイトルサブヘッディング";
+((IAutoShape)slide.Shapes[1]).TextFrame.Text = "Slide Title Sub-Heading";
 
 //出力をディスクに書き込む
 pres.Save("c:\\data\\outAsposeSlides.pptx", SaveFormat.Ppt);

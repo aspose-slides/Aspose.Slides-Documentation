@@ -1,96 +1,107 @@
 ---
-title: VSTOとAspose.Slides for .NETを使用してテキストを動的に追加する
+title: VSTO と Aspose.Slides for .NET を使用したテキストの動的追加
+linktitle: テキストの動的追加
 type: docs
 weight: 20
 url: /ja/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/
+keywords:
+- テキストを追加
+- 移行
+- VSTO
+- Office 自動化
+- PowerPoint
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Microsoft Office の自動化から Aspose.Slides for .NET へ移行し、C# で PowerPoint (PPT, PPTX) プレゼンテーションに動的テキストを追加する方法をご覧ください。"
 ---
 
 {{% alert color="primary" %}} 
 
-開発者が達成する一般的なタスクは、スライドにテキストを動的に追加することです。この記事では、[VSTO](/slides/ja/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/)および[Aspose.Slides for .NET](/slides/ja/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/)を使用してテキストを動的に追加するためのコード例を示します。
+開発者が頻繁に行うタスクの1つは、スライドにテキストを動的に追加することです。この記事では、[VSTO](/slides/ja/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) と [Aspose.Slides for .NET](/slides/ja/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) を使用してテキストを動的に追加するコード例を示します。
 
 {{% /alert %}} 
-## **テキストを動的に追加する**
-両方の方法は次の手順に従います：
+## **テキストの動的追加**
+両方の方法は以下の手順で実行します。
 
 1. プレゼンテーションを作成する。
-2. 空白のスライドを追加する。
-3. テキストボックスを追加する。
-4. テキストを設定する。
-5. プレゼンテーションを書き出す。
-## **VSTOコード例**
-以下のコードスニペットは、プレーンなスライドとその上にテキストの文字列を持つプレゼンテーションを生成します。
+1. 空白のスライドを追加する。
+1. テキスト ボックスを追加する。
+1. テキストを設定する。
+1. プレゼンテーションを書き出す。
+## **VSTO コード例**
+以下のコード スニペットは、プレーンなスライドとテキスト文字列が配置されたプレゼンテーションを生成します。
 
-**VSTOで作成されたプレゼンテーション** 
+**VSTO で作成されたプレゼンテーション** 
 
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-net_1.png)
-
 ```c#
-//注意: PowerPointは上で次のように定義された名前空間です
+//注: PowerPoint は、上記のように定義された名前空間です
 //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
-//プレゼンテーションを作成する
+//プレゼンテーションを作成
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 	.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//空白のスライドレイアウトを取得する
+//空白スライドのレイアウトを取得
 PowerPoint.CustomLayout layout = pres.SlideMaster.
 	CustomLayouts[7];
 
-//空白のスライドを追加する
+//空白スライドを追加
 PowerPoint.Slide sld = pres.Slides.AddSlide(1, layout);
 
-//テキストを追加する
+//テキストを追加
 PowerPoint.Shape shp = sld.Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 150, 100, 400, 100);
 
-//テキストを設定する
+//テキストを設定
 PowerPoint.TextRange txtRange = shp.TextFrame.TextRange;
-txtRange.Text = "動的に追加されたテキスト";
+txtRange.Text = "Text added dynamically";
 txtRange.Font.Name = "Arial";
 txtRange.Font.Bold = Microsoft.Office.Core.MsoTriState.msoTrue;
 txtRange.Font.Size = 32;
 
-//出力をディスクに保存する
+//出力をディスクに保存
 pres.SaveAs("c:\\outVSTO.ppt",
 	PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
 	Microsoft.Office.Core.MsoTriState.msoFalse);
-
 ```
 
 
 
-## **Aspose.Slides for .NETの例**
-以下のコードスニペットは、Aspose.Slidesを使用してプレーンなスライドとその上にテキストの文字列を持つプレゼンテーションを作成します。
 
-**Aspose.Slides for .NETを使用して作成されたプレゼンテーション** 
+## **Aspose.Slides for .NET の例**
+以下のコード スニペットは Aspose.Slides を使用して、プレーンなスライドとテキスト文字列が配置されたプレゼンテーションを作成します。
+
+**Aspose.Slides for .NET を使用して作成されたプレゼンテーション** 
 
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-net_2.png)
-
 ```c#
-//プレゼンテーションを作成する
+//プレゼンテーションを作成
 Presentation pres = new Presentation();
 
-//デフォルトのコンストラクターからプレゼンテーションを作成すると、空白のスライドが自動的に追加されます
-//したがって、空白のスライドを追加する必要はありません
+//プレゼンテーションを作成すると、デフォルトで空白スライドが追加されます
+//デフォルトコンストラクタからのプレゼンテーション
+//したがって、空白スライドを追加する必要はありません
 ISlide sld = pres.Slides[1];
 
-//テキストボックスを追加する
-//まずは長方形を追加します
+//テキストボックスを追加
+//追加するには、まず長方形を追加します
 IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 1200, 800, 3200, 370);
 
-//その線を非表示にする
+//線を非表示にする
 shp.LineFormat.Style = LineStyle.NotDefined;
 
-//次に、その中にテキストフレームを追加します
+//次に、その内部にテキストフレームを追加する
 ITextFrame tf = ((IAutoShape)shp).TextFrame;
 
-//テキストを設定する
-tf.Text = "動的に追加されたテキスト";
+//テキストを設定
+tf.Text = "Text added dynamically";
 IPortion port = tf.Paragraphs[0].Portions[0];
 
 port.PortionFormat.FontBold = NullableBool.True;
 port.PortionFormat.FontHeight = 32;
 
-//出力をディスクに保存する
+//出力をディスクに保存
 pres.Save("c:\\outAspose.ppt", SaveFormat.Ppt);
 ```

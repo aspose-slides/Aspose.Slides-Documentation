@@ -1,25 +1,36 @@
 ---
-title: Erstellung einer Tabelle auf einer PowerPoint-Folie
+title: Erstellung von Tabellen mit VSTO und Aspose.Slides für .NET
+linktitle: Erstellung von Tabellen
 type: docs
 weight: 50
 url: /de/net/creating-a-table-on-powerpoint-slide/
+keywords:
+- Tabelle erstellen
+- Migration
+- VSTO
+- Office-Automatisierung
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Von der Microsoft Office-Automatisierung zu Aspose.Slides für .NET migrieren und Tabellen in PowerPoint (PPT, PPTX)-Folien in C# mit flexibler Formatierung erstellen."
 ---
 
 {{% alert color="primary" %}} 
 
-Tabellen werden häufig verwendet, um Daten auf Präsentationsfolien anzuzeigen. Dieser Artikel zeigt, wie man programmgesteuert eine 15 x 15 Tabelle mit einer Schriftgröße von 10 erstellt, zunächst mit [VSTO 2008](/slides/de/net/creating-a-table-on-powerpoint-slide/) und dann mit [Aspose.Slides für .NET](/slides/de/net/creating-a-table-on-powerpoint-slide/).
+Tabellen werden häufig verwendet, um Daten auf Präsentationsfolien darzustellen. Dieser Artikel zeigt, wie man programmgesteuert eine 15 × 15‑Tabelle mit einer Schriftgröße von 10 erstellt, zuerst mit [VSTO 2008](/slides/de/net/creating-a-table-on-powerpoint-slide/) und dann mit [Aspose.Slides for .NET](/slides/de/net/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Tabellen erstellen**
-#### **VSTO 2008 Beispiel**
-Die folgenden Schritte fügen eine Tabelle zu einer Microsoft PowerPoint-Folie mit VSTO hinzu:
+#### **VSTO 2008‑Beispiel**
+Die folgenden Schritte fügen einer Microsoft PowerPoint‑Folie mithilfe von VSTO eine Tabelle hinzu:
 
-1. Erstellen Sie eine Präsentation.
-1. Fügen Sie eine leere Folie zur Präsentation hinzu.
-1. Fügen Sie eine 15 x 15 Tabelle zur Folie hinzu.
-1. Fügen Sie jedem Feld der Tabelle Text mit einer Schriftgröße von 10 hinzu.
-1. Speichern Sie die Präsentation auf der Festplatte.
-
+1. Erstelle eine Präsentation.
+1. Füge der Präsentation eine leere Folie hinzu.
+1. Füge der Folie eine 15 × 15‑Tabelle hinzu.
+1. Füge jedem Tabellenzelle Text mit einer Schriftgröße von 10 hinzu.
+1. Speichere die Präsentation auf dem Datenträger.
 ```c#
 //Erstelle eine Präsentation
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
@@ -43,16 +54,16 @@ foreach (PowerPoint.Row row in tbl.Rows)
     foreach (PowerPoint.Cell cell in row.Cells)
     {
         j = j + 1;
-        //Erhalte den Textrahmen jeder Zelle
+        //Hole den Textrahmen jeder Zelle
         PowerPoint.TextFrame tf = cell.Shape.TextFrame;
-        //Füge etwas Text hinzu
+        //Füge Text hinzu
         tf.TextRange.Text = "T" + i.ToString() + j.ToString();
         //Setze die Schriftgröße des Textes auf 10
         tf.TextRange.Paragraphs(0, tf.TextRange.Text.Length).Font.Size = 10;
     }
 }
 
-//Speichern Sie die Präsentation auf der Festplatte
+//Speichere die Präsentation auf dem Datenträger
 pres.SaveAs("d:\\tblVSTO.ppt",
       PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
       Microsoft.Office.Core.MsoTriState.msoFalse);
@@ -60,43 +71,43 @@ pres.SaveAs("d:\\tblVSTO.ppt",
 
 
 
-### **Aspose.Slides für .NET Beispiel**
-Die folgenden Schritte fügen eine Tabelle zu einer Microsoft PowerPoint-Folie mit Aspose.Slides hinzu:
 
-1. Erstellen Sie eine Präsentation.
-1. Fügen Sie eine 15 x 15 Tabelle zur ersten Folie hinzu.
-1. Fügen Sie jedem Feld der Tabelle Text mit einer Schriftgröße von 10 hinzu.
-1. Schreiben Sie die Präsentation auf der Festplatte.
+### **Aspose.Slides for .NET‑Beispiel**
+Die folgenden Schritte fügen einer Microsoft PowerPoint‑Folie mithilfe von Aspose.Slides eine Tabelle hinzu:
 
+1. Erstelle eine Präsentation.
+1. Füge der ersten Folie eine 15 × 15‑Tabelle hinzu.
+1. Füge jedem Tabellenzelle Text mit einer Schriftgröße von 10 hinzu.
+1. Schreibe die Präsentation auf den Datenträger.
 ```c#
 Presentation pres = new Presentation();
 
 //Zugriff auf die erste Folie
 ISlide sld = pres.Slides[0];
 
-//Definieren Sie Spalten mit Breiten und Zeilen mit Höhen
+//Definiere Spalten mit Breiten und Zeilen mit Höhen
 double[] dblCols = { 50, 50, 50 };
 double[] dblRows = { 50, 30, 30, 30, 30 };
 
-//Fügen Sie eine Tabelle hinzu
+//Füge eine Tabelle hinzu
 Aspose.Slides.ITable tbl = sld.Shapes.AddTable(50, 50, dblCols, dblRows);
 
-//Setzen Sie das Rahmenformat für jede Zelle
+//Setze Rahmenformat für jede Zelle
 foreach (IRow row in tbl.Rows)
 {
 	foreach (ICell cell in row)
 	{
 
-		//Erhalte den Textrahmen jeder Zelle
+		//Hole den Textrahmen jeder Zelle
 		ITextFrame tf = cell.TextFrame;
-		//Füge etwas Text hinzu
+		//Füge Text hinzu
 		tf.Text = "T" + cell.FirstRowIndex.ToString() + cell.FirstColumnIndex.ToString();
-		//Setze die Schriftgröße auf 10
+		//Setze Schriftgröße auf 10
 		tf.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 10;
 		tf.Paragraphs[0].ParagraphFormat.Bullet.Type = BulletType.None;
 	}
 }
 
-//Schreiben Sie die Präsentation auf die Festplatte
+//Schreibe die Präsentation auf die Festplatte
 pres.Save("C:\\data\\tblSLD.ppt", SaveFormat.Ppt);
 ```

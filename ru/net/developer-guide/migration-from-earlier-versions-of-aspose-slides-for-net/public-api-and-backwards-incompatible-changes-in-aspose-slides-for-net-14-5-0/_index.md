@@ -1,133 +1,113 @@
 ---
-title: Публичный API и изменения, несовместимые с предыдущими версиями в Aspose.Slides для .NET 14.5.0
+title: Публичный API и обратные несовместимые изменения в Aspose.Slides для .NET 14.5.0
+linktitle: Aspose.Slides для .NET 14.5.0
 type: docs
 weight: 70
 url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/
+keywords:
+- миграция
+- унаследованный код
+- современный код
+- унаследованный подход
+- современный подход
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Обзор обновлений публичного API и разрушающих изменений в Aspose.Slides для .NET, чтобы плавно мигрировать ваши решения для презентаций PowerPoint PPT, PPTX и ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Эта страница перечисляет все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) классы, методы, свойства и так далее, любые новые [ограничения](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) и другие [изменения](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) введенные с API Aspose.Slides для .NET 14.5.0.
+Эта страница перечисляет все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) классы, методы, свойства и т.д., любые новые [ограничения](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) и другие [изменения](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) введённые в API Aspose.Slides for .NET 14.5.0.
 
 {{% /alert %}} 
-## **Публичный API и изменения, несовместимые с предыдущими версиями**
-### **Добавленные интерфейсы, классы, свойства и методы**
-#### **Добавлен интерфейс Aspose.Slides.IPresentationInfo и класс PresentationInfo**
+## **Public API and Backwards Incompatible Changes**
+### **Added Interfaces, Classes, Properties and Methods**
+#### **Added the Aspose.Slides.IPresentationInfo Interface and PresentationInfo Class**
 Представляет информацию о презентации.
 
-- Булево свойство IsEncrypted принимает значение True, если презентация зашифрована, в противном случае - False.
-- Свойство LoadFormat получает тип презентации.
-#### **Добавлено свойство Aspose.Slides.IShape.IsGrouped**
-Свойство Aspose.Slides.IShape.IsGrouped определяет, является ли фигура группой.
-#### **Добавлено свойство Aspose.Slides.IShape.ParentGroup**
-Свойство Aspose.Slides.IShape.ParentGroup возвращает родительский объект GroupShape, если фигура находится в группе. В противном случае возвращает null.
-#### **Добавлен метод Aspose.Slides.IShapeCollection.AddGroupShape()**
-Метод Aspose.Slides.IShapeCollection.AddGroupShape() создает новую GroupShape и добавляет ее в конец коллекции.
-Размер и положение рамки GroupShape будут подогнаны под содержимое при добавлении новой фигуры.
-#### **Добавлен метод Aspose.Slides.IShapeCollection.Clear()**
+- Свойство Boolean IsEncrypted возвращает **True**, если презентация зашифрована, иначе **False**.
+- Свойство LoadFormat LoadFormat возвращает тип презентации.
+#### **Added the Aspose.Slides.IShape.IsGrouped Property**
+Свойство Aspose.Slides.IShape.IsGrouped определяет, находится ли объект в группе.
+#### **Added the Aspose.Slides.IShape.ParentGroup Property**
+Свойство Aspose.Slides.IShape.ParentGroup возвращает объект родительского GroupShape, если объект находится в группе. В противном случае возвращает **null**.
+#### **Added the Aspose.Slides.IShapeCollection.AddGroupShape() Method**
+Метод Aspose.Slides.IShapeCollection.AddGroupShape() создаёт новый GroupShape и добавляет его в конец коллекции. Размер и положение кадра GroupShape будут подстроены под содержимое при добавлении новой фигуры.
+#### **Added the Aspose.Slides.IShapeCollection.Clear() Method**
 Метод Aspose.Slides.IShapeCollection.Clear() удаляет все фигуры из коллекции.
-#### **Добавлен метод Aspose.Slides.IShapeCollection.InsertGroupShape(int)**
-Метод Aspose.Slides.IShapeCollection.InsertGroupShape(int) создает новую GroupShape и вставляет ее в коллекцию по указанному индексу.
-Размер и положение рамки GroupShape будут подогнаны под содержимое при добавлении новой фигуры.
-#### **Добавлены методы IPresentationFactory.GetPresentationInfo(string file), IPresentatoinFactory.GetPresentationInfo(Stream stream)**
-Эти методы позволяют получить информацию о файле или потоке презентации без полной загрузки презентации.
-#### **Добавлено свойство IPresentationFactory PresentationFactory.Instance**
-Это свойство позволяет разработчикам использовать функциональность фабрики без инстанцирования.
-### **Ограничения**
-#### **Ограничения для IShape.Frame**
-Добавлены ограничения на использование неопределенных значений для IShape.Frame. Код, который пытается назначить неопределенную рамку для IShape.Frame, не имеет смысла в большинстве случаев (особенно когда родительский GroupShape содержит несколько вложенных других {{GroupShape}}). Например:
+#### **Added the Aspose.Slides.IShapeCollection.InsertGroupShape(int) Method**
+Метод Aspose.Slides.IShapeCollection.InsertGroupShape(int) создаёт новый GroupShape и вставляет его в коллекцию в указанную позицию. Размер и положение кадра GroupShape будут подстроены под содержимое при добавлении новой фигуры.
+#### **Added the IPresentationFactory.GetPresentationInfo(string file), IPresentatoinFactory.GetPresentationInfo(Stream stream) Methods**
+Эти методы позволяют получить информацию о файле презентации или потоке без полной загрузки презентации.
+#### **Added the IPresentationFactory PresentationFactory.Instance Property**
+Это свойство позволяет разработчикам использовать функции фабрики без создания экземпляра.
+### **Restrictions**
+#### **Restrictions to IShape.Frame**
+Для свойства IShape.Frame добавлены ограничения на использование неопределённых значений. Код, который пытается присвоить неопределённый кадр IShape.Frame, обычно не имеет смысла (особенно когда родительский GroupShape вложен в другие {{GroupShape}}). Пример:
 
-``` csharp
-
+```csharp
  IShape shape = ...;
 
 shape.Frame = new ShapeFrame(float.NaN, float.NaN, float.NaN, float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, float.NaN);
-
 ``` 
 
 или
 
-``` csharp
-
+```csharp
  slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, float.NaN, float.NaN, float.NaN, float.NaN);
-
 ``` 
 
-Такой код может привести к неясным ситуациям. Поэтому добавлены ограничения для использования неопределенных значений для IShape.Frame. Значения x, y, width, height, flipH, flipV и rotationAngle должны быть определены (и не установлены в float.NaN или NullableBool.NotDefined). Пример кода выше теперь вызывает исключение ArgumentException.
-Это применимо к следующим случаям использования:
+Такой код может привести к неопределённым ситуациям. Поэтому добавлены ограничения на использование неопределённых значений для IShape.Frame. Параметры x, y, width, height, flipH, flipV и rotationAngle должны быть определены (и не должны быть равны float.NaN или NullableBool.NotDefined). Приведённый выше пример теперь бросает исключение **ArgumentException**. Это относится к следующим сценариям:
 
-``` csharp
-
+```csharp
  IShape shape = ...;
 
-shape.Frame = ...; // Не может быть неопределенной
+shape.Frame = ...; // Не может быть неопределённым
 
 IShapeCollection shapes = ...;
 
-// параметры x, y, width, height не могут быть float.NaN:
+// Параметры x, y, width, height не могут быть float.NaN:
 
 {
-
     shapes.AddAudioFrameCD(...);
-
     shapes.AddAudioFrameEmbedded(...);
-
     shapes.AddAudioFrameLinked(...);
-
     shapes.AddAutoShape(...);
-
     shapes.AddChart(...);
-
     shapes.AddConnector(...);
-
     shapes.AddOleObjectFrame(...);
-
     shapes.AddPictureFrame(...);
-
     shapes.AddSmartArt(...);
-
     shapes.AddTable(...);
-
     shapes.AddVideoFrame(...);
-
     shapes.InsertAudioFrameEmbedded(...);
-
     shapes.InsertAudioFrameLinked(...);
-
     shapes.InsertAutoShape(...);
-
     shapes.InsertChart(...);
-
     shapes.InsertConnector(...);
-
     shapes.InsertOleObjectFrame(...);
-
     shapes.InsertPictureFrame(...);
-
     shapes.InsertTable(...);
-
     shapes.InsertVideoFrame(...);
-
 }
-
 ``` 
 
-Но свойства рамки IShape.RawFrame могут быть неопределенными. Это имеет смысл, когда фигура связана с заполнительом. Тогда неопределенные значения рамки фигуры заменяются значениями родительской фигуры-заполнителя. Если родительской фигуры-заполнителя нет, то эта фигура использует значения по умолчанию при оценке эффективной рамки на основе своего IShape.RawFrame. Значения по умолчанию равны 0 и NullableBool.False для x, y, width, height, flipH, flipV и rotationAngle. Например:
+Но свойства кадра IShape.RawFrame могут быть неопределёнными. Это имеет смысл, когда фигура связана с заполнителем. Тогда неопределённые значения кадра наследуются от родительского заполнителя. Если родительского заполнителя нет, фигура использует значения по умолчанию при вычислении эффективного кадра на основе IShape.RawFrame. Значения по умолчанию: 0 и NullableBool.False для x, y, width, height, flipH, flipV и rotationAngle. Пример:
 
-``` csharp
-
+```csharp
  IShape shape = ...; // фигура связана с заполнителем
-
 shape.RawFrame = new ShapeFrame(float.NaN, float.NaN, 100, float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, 0);
-
-// теперь фигура унаследует значения x, y, height, flipH, flipV от заполнителя и переопределит width=100 и rotationAngle=0.
-
+// теперь фигура наследует x, y, height, flipH, flipV из заполнителя и переопределяет width=100 и rotationAngle=0.
 ``` 
-### **Измененные свойства**
-#### **Изменено название и тип свойства Aspose.Slides.IShapeCollection.Parent**
-- Тип свойства Aspose.Slides.IShapeCollection.Parent был изменен с ISlideComponent на новый интерфейс IGroupShape. Интерфейс IGroupShape является потомком ISlideComponent, поэтому существующий код не требует адаптации.
-- Название свойства Aspose.Slides.IShapeCollection.Parent было изменено с Parent на ParentGroup.
-#### **Изменены типы свойств Aspose.Slides.IShapeFrame.FlipH, .FlipV**
-- Тип свойства Aspose.Slides.IShapeFrame.FlipH был изменен с bool на NullableBool.
-- Свойство IShape.Frame возвращает эффективный экземпляр IShapeFrame (все его свойства имеют определенные эффективные значения).
-- Свойство IShape.RawFrame возвращает экземпляр IShapeFrame, у которого каждое свойство может иметь неопределенное значение (особенно FlipH или FlipV могут иметь значение NullableBool.NotDefined).
+### **Changed Properties**
+#### **Changed the Aspose.Slides.IShapeCollection.Parent Property Name and Type**
+- Тип свойства Aspose.Slides.IShapeCollection.Parent изменён с **ISlideComponent** на новый интерфейс **IGroupShape**. Интерфейс IGroupShape является наследником ISlideComponent, поэтому существующий код не требует адаптаций.
+- Имя свойства Aspose.Slides.IShapeCollection.Parent изменено с **Parent** на **ParentGroup**.
+#### **Changed the Aspose.Slides.IShapeFrame.FlipH, .FlipV Properties Types**
+- Тип свойства Aspose.Slides.IShapeFrame.FlipH изменён с **bool** на **NullableBool**.
+- Свойство IShape.Frame возвращает эффективный экземпляр IShapeFrame (все его свойства имеют определённые эффективные значения).
+- Свойство IShape.RawFrame возвращает экземпляр IShapeFrame, где каждое свойство может быть неопределённым (особенно FlipH или FlipV могут иметь значение **NullableBool.NotDefined**).

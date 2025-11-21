@@ -1,24 +1,38 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة في Aspose.Slides لـ .NET 15.10.0
+title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة للخلف في Aspose.Slides for .NET 15.10.0
+linktitle: Aspose.Slides لـ .NET 15.10.0
 type: docs
 weight: 200
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/
+keywords:
+- الهجرة
+- كود قديم
+- كود حديث
+- نهج قديم
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "مراجعة تحديثات واجهة برمجة التطبيقات العامة والتغييرات المكسورة في Aspose.Slides for .NET للترحيل السلس لحلول عروض PowerPoint PPT و PPTX و ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-تسرد هذه الصفحة جميع [المضاف](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) أو [المحذوف](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) الفئات، والطرق، والخصائص وما إلى ذلك، والتغييرات الأخرى التي تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لـ .NET 15.10.0.
+هذه الصفحة تُدرج جميع الفئات [added](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) أو [removed](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/)، والطرق، والخصائص وما إلى ذلك، بالإضافة إلى التغييرات الأخرى التي تم تقديمها مع Aspose.Slides for .NET 15.10.0 API.
 
 {{% /alert %}} 
-## **تغييرات واجهة برمجة التطبيقات العامة**
-#### **تمت إضافة فئة VideoPlayerHtmlController جديدة لدعم تصدير ملفات الوسائط إلى HTML**
-تمت إضافة الفئة العامة الجديدة VideoPlayerHtmlController إلى مساحة أسماء Aspose.Slides.Export. باستخدام مثيل هذه الفئة، يمكن للمستخدم تصدير ملفات الفيديو والصوت إلى HTML.
-تقبل منشئات VideoPlayerHtmlController المعلمات التالية:
+## **Public API Changes**
+#### **A new VideoPlayerHtmlController added to support export od media files to HTML**
+تم إضافة الفئة العامة الجديدة VideoPlayerHtmlController إلى مساحة الأسماء Aspose.Slides.Export. باستخدام مثيل هذه الفئة يمكن للمستخدم تصدير ملفات الفيديو والصوت إلى HTML.  
+مُنشئات VideoPlayerHtmlController تقبل المعلمات التالية:
 
 path: المسار الذي سيتم فيه إنشاء ملفات الفيديو والصوت  
 fileName: اسم ملف HTML  
+baseUri: الـ URI الأساسي الذي سيُستخدم لإنشاء الروابط  
 
-baseUri: URI الأساسي الذي سيتم استخدامه لإنشاء الروابط  
 مثال على الاستخدام:
 
 ``` csharp
@@ -48,8 +62,8 @@ baseUri: URI الأساسي الذي سيتم استخدامه لإنشاء ال
 }
 
 ``` 
-#### **تمت إضافة واجهة برمجة التطبيقات لتحريك سلاسل المخطط**
-تمت إضافة طريقتين جديدتين إلى واجهة Aspose.Slides.Animation.ISequence.
+#### **Chart series animation API has been added**
+تم إضافة الطريقتين الجديدتين إلى الواجهة Aspose.Slides.Animation.ISequence.
 
 ``` csharp
 
@@ -59,15 +73,15 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-تم تصميم هذه الطرق لدعم تحريك عناصر المخطط:
-حسب السلاسل  
-حسب الفئات  
-حسب عناصر السلسلة  
-حسب عناصر الفئة  
+تهدف هذه الطرائق إلى دعم رسوميات عناصر المخطط:
+by series
+by categories
+by series elements
+by categories elements
 
-تم تقديم القائمتين الجديدتين EffectChartMajorGroupingType و EffectChartMinorGroupingType المتعلقتين بتحريك عناصر المخطط.
+تم تقديم اثنين من التعدادات الجديدة EffectChartMajorGroupingType و EffectChartMinorGroupingType المتعلقة برسوميات عناصر المخطط.
 
-لإضافة تحريك سلسلة إلى المخطط، يمكن استخدام الكود التالي:
+لإضافة رسوميات سلسلة إلى المخطط يمكن استخدام الشيفرة التالية:
 
 ``` csharp
 
@@ -115,7 +129,7 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-تحريك الفئات:
+رسوميات الفئات:
 
 ``` csharp
 
@@ -163,7 +177,7 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-تحريك عناصر السلسلة:
+رسوميات عناصر السلسلة:
 
 ``` csharp
 
@@ -259,7 +273,7 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-تحريك عناصر الفئة:
+رسوميات عناصر الفئات:
 
 ``` csharp
 
@@ -353,4 +367,4 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 }
 
-``` 
+```

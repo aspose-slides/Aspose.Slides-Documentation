@@ -1,47 +1,63 @@
 ---
-title: Convertir PowerPoint a PDF con Notas en C#
-linktitle: Convertir PowerPoint a PDF con Notas
+title: Convertir presentaciones de PowerPoint a PDF con notas en .NET
+linktitle: PowerPoint a PDF con notas
 type: docs
 weight: 50
 url: /es/net/convert-powerpoint-to-pdf-with-notes/
-keywords: "convertir PowerPoint, Presentación, PowerPoint a PDF, notas, c#, csharp, .NET, Aspose.Slides"
-description: "Convertir PowerPoint a PDF con notas con C# o .NET"
+keywords:
+- convertir PowerPoint
+- convertir presentación
+- convertir diapositiva
+- convertir PPT
+- convertir PPTX
+- PowerPoint a PDF
+- presentación a PDF
+- diapositiva a PDF
+- PPT a PDF
+- PPTX a PDF
+- guardar presentación como PDF
+- guardar PPT como PDF
+- guardar PPTX como PDF
+- exportar PPT a PDF
+- exportar PPTX a PDF
+- notas del orador
+- PDF con notas
+- .NET
+- C#
+- Aspose.Slides
+description: "Convertir formatos PPT y PPTX a PDF con notas usando Aspose.Slides para .NET. Conservar diseños y notas del orador para presentaciones profesionales."
 ---
 
-## **Descripción General**
+## **Visión general**
 
-Mientras [conviertes PowerPoint a PDF](https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/), también puedes controlar cómo se colocan las notas y los comentarios en el documento exportado. Cubre los siguientes temas.
+En este artículo, aprenderá cómo convertir presentaciones de PowerPoint a formato PDF con notas del orador usando Aspose.Slides. Esta guía cubrirá los pasos necesarios y proporcionará ejemplos de código para ayudarle a realizar esta tarea de manera eficiente. Al final de este artículo, podrá:
 
-- [C# Convertir PPT a PDF con Notas](#convert-powerpoint-to-pdf-with-notes)
-- [C# Convertir PPTX a PDF con Notas](#convert-powerpoint-to-pdf-with-notes)
-- [C# Convertir ODP a PDF con Notas](#convert-powerpoint-to-pdf-with-notes)
-- [C# Convertir PowerPoint a PDF con Notas](#convert-powerpoint-to-pdf-with-notes)
+- Implementar el proceso de conversión para transformar diapositivas de PowerPoint en documentos PDF mientras se conservan las notas del orador.
+- Personalizar el PDF de salida para asegurarse de que las notas del orador se incluyan y formateen según sus requisitos.
 
-## **Convertir PowerPoint a PDF con Notas**
+## **Convertir PowerPoint a PDF con notas**
 
-El método [Guardar](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) expuesto por la clase Presentation se puede utilizar para convertir una presentación de PowerPoint PPT o PPTX a PDF con notas. Guardar una presentación de Microsoft PowerPoint en PDF con notas usando Aspose.Slides para .NET es un proceso de dos líneas. Simplemente abres la presentación y la guardas como PDF con notas. Los fragmentos de código en C# a continuación actualizan la presentación de muestra a PDF en vista de Diapositiva de Notas:
+El método `Save` en la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) puede usarse para convertir una presentación PPT o PPTX a un PDF con notas del orador. Con Aspose.Slides, simplemente carga la presentación, configura las opciones de diseño usando la clase [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/) para incluir las notas del orador, y luego guarda el archivo como PDF. El siguiente fragmento de código muestra cómo convertir una presentación de ejemplo a PDF en vista de diapositiva con notas.
+```cs
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    // Configurar opciones PDF para renderizar notas del orador.
+    PdfOptions pdfOptions = new PdfOptions
+    {
+        SlidesLayoutOptions = new NotesCommentsLayoutingOptions
+        {
+            NotesPosition = NotesPositions.BottomFull // Renderizar notas del orador debajo de la diapositiva.
+        }
+    };
 
-```c#
-// Instanciar un objeto Presentation que representa un archivo de presentación 
-Presentation presentation = new Presentation("SelectedSlides.pptx");
-Presentation auxPresentation = new Presentation();
-
-ISlide slide = presentation.Slides[0];
-
-auxPresentation.Slides.InsertClone(0, slide);
-
-// Estableciendo el Tipo y Tamaño de la Diapositiva 
-//auxPresentation.SlideSize.SetSize(presentation.SlideSize.Size.Width, presentation.SlideSize.Size.Height,SlideSizeScaleType.EnsureFit);
-auxPresentation.SlideSize.SetSize(612F, 792F, SlideSizeScaleType.EnsureFit);
-
-PdfOptions pdfOptions = new PdfOptions();
-pdfOptions.NotesCommentsLayouting.NotesPosition = NotesPositions.BottomFull;
-
-auxPresentation.Save("PDFnotes_out.pdf", SaveFormat.Pdf, pdfOptions);
+    // Guardar la presentación en PDF con notas del orador.
+    presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
+}
 ```
+
 
 {{% alert color="primary" %}} 
 
-Puede que desees consultar el convertidor de Aspose [PowerPoint a PDF](https://products.aspose.app/slides/conversion/powerpoint-to-pdf) o [PPT a PDF](https://products.aspose.app/slides/conversion/ppt-to-pdf). 
+Aspose [Convertidor en línea de PowerPoint a PDF](https://products.aspose.app/slides/conversion). 
 
-{{% /alert %}} 
+{{% /alert %}}

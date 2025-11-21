@@ -1,47 +1,61 @@
 ---
-title: تحويل PowerPoint إلى PDF مع الملاحظات في C#
-linktitle: تحويل PowerPoint إلى PDF مع الملاحظات
+title: تحويل عروض PowerPoint إلى PDF مع الملاحظات في .NET
+linktitle: PowerPoint إلى PDF مع الملاحظات
 type: docs
 weight: 50
 url: /ar/net/convert-powerpoint-to-pdf-with-notes/
-keywords: "تحويل PowerPoint، عرض تقديمي، PowerPoint إلى PDF، ملاحظات، c#، csharp، .NET، Aspose.Slides"
-description: "تحويل PowerPoint إلى PDF مع الملاحظات باستخدام C# أو .NET"
+keywords:
+- تحويل PowerPoint
+- تحويل العرض التقديمي
+- تحويل الشريحة
+- تحويل PPT
+- تحويل PPTX
+- PowerPoint إلى PDF
+- العرض التقديمي إلى PDF
+- الشريحة إلى PDF
+- PPT إلى PDF
+- PPTX إلى PDF
+- حفظ العرض التقديمي كـ PDF
+- حفظ PPT كـ PDF
+- حفظ PPTX كـ PDF
+- تصدير PPT إلى PDF
+- تصدير PPTX إلى PDF
+- ملاحظات المتحدث
+- PDF مع ملاحظات
+- .NET
+- C#
+- Aspose.Slides
+description: "تحويل صيغ PPT و PPTX إلى PDF مع الملاحظات باستخدام Aspose.Slides لـ .NET. الحفاظ على التخطيطات وملاحظات المتحدث للعروض التقديمية الاحترافية."
 ---
 
 ## **نظرة عامة**
 
-أثناء [تحويل PowerPoint إلى PDF](https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/)، يمكنك أيضًا التحكم في كيفية وضع الملاحظات والتعليقات في الوثيقة المصدرة. يتناول هذا الموضع الموضوعات التالية.
+في هذه المقالة، ستتعلم كيفية تحويل عروض PowerPoint إلى تنسيق PDF مع ملاحظات المتحدث باستخدام Aspose.Slides. سيغطي هذا الدليل الخطوات اللازمة ويقدم أمثلة على الشيفرة لمساعدتك في إنجاز هذه المهمة بكفاءة. في نهاية هذه المقالة، ستكون قادرًا على:
 
-- [C# تحويل PPT إلى PDF مع الملاحظات](#convert-powerpoint-to-pdf-with-notes)
-- [C# تحويل PPTX إلى PDF مع الملاحظات](#convert-powerpoint-to-pdf-with-notes)
-- [C# تحويل ODP إلى PDF مع الملاحظات](#convert-powerpoint-to-pdf-with-notes)
-- [C# تحويل PowerPoint إلى PDF مع الملاحظات](#convert-powerpoint-to-pdf-with-notes)
+- تنفيذ عملية التحويل لتحويل شرائح PowerPoint إلى مستندات PDF مع الحفاظ على ملاحظات المتحدث.
+- تخصيص ملف PDF الناتج لضمان تضمين ملاحظات المتحدث وتنسيقها وفقًا لمتطلباتك.
 
 ## **تحويل PowerPoint إلى PDF مع الملاحظات**
 
-يمكن استخدام [طريقة حفظ](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) التي تعرضها فئة Presentation لتحويل عرض PowerPoint PPT أو PPTX إلى PDF مع الملاحظات. يتم حفظ عرض Microsoft PowerPoint إلى PDF مع الملاحظات باستخدام Aspose.Slides لـ .NET في عمليتين فقط. تقوم ببساطة بفتح العرض وحفظه إلى PDF مع الملاحظات. تعمل الشيفرات البرمجية C# أدناه على تحديث العرض النموذجي إلى PDF في عرض ملاحظات الشرائح:
+يمكن استخدام طريقة `Save` في فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) لتحويل عرض PPT أو PPTX إلى PDF مع ملاحظات المتحدث. باستخدام Aspose.Slides، تقوم ببساطة بتحميل العرض، وضبط خيارات التخطيط باستخدام فئة [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/) لتضمين ملاحظات المتحدث، ثم حفظ الملف كملف PDF. يوضح المقتبس البرمجي التالي كيف يمكن تحويل عرض تقديمي نموذجي إلى PDF في وضع ملاحظات الشريحة.
+```cs
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    // تكوين خيارات PDF لتصيير ملاحظات المتحدث.
+    PdfOptions pdfOptions = new PdfOptions
+    {
+        SlidesLayoutOptions = new NotesCommentsLayoutingOptions
+        {
+            NotesPosition = NotesPositions.BottomFull // تصيير ملاحظات المتحدث أسفل الشريحة.
+        }
+    };
 
-```c#
-// إنشاء كائن Presentation يمثل ملف عرض تقديمي
-Presentation presentation = new Presentation("SelectedSlides.pptx");
-Presentation auxPresentation = new Presentation();
-
-ISlide slide = presentation.Slides[0];
-
-auxPresentation.Slides.InsertClone(0, slide);
-
-// إعداد نوع وحجم الشريحة 
-//auxPresentation.SlideSize.SetSize(presentation.SlideSize.Size.Width, presentation.SlideSize.Size.Height,SlideSizeScaleType.EnsureFit);
-auxPresentation.SlideSize.SetSize(612F, 792F, SlideSizeScaleType.EnsureFit);
-
-PdfOptions pdfOptions = new PdfOptions();
-pdfOptions.NotesCommentsLayouting.NotesPosition = NotesPositions.BottomFull;
-
-auxPresentation.Save("PDFnotes_out.pdf", SaveFormat.Pdf, pdfOptions);
+    // حفظ العرض التقديمي إلى PDF مع ملاحظات المتحدث.
+    presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
+}
 ```
 
+
 {{% alert color="primary" %}} 
-
-قد ترغب في الاطلاع على Aspose [تحويل PowerPoint إلى PDF](https://products.aspose.app/slides/conversion/powerpoint-to-pdf) أو [تحويل PPT إلى PDF](https://products.aspose.app/slides/conversion/ppt-to-pdf). 
-
-{{% /alert %}} 
+قد ترغب في الاطلاع على Aspose [محول PowerPoint إلى PDF عبر الإنترنت](https://products.aspose.app/slides/conversion). 
+{{% /alert %}}

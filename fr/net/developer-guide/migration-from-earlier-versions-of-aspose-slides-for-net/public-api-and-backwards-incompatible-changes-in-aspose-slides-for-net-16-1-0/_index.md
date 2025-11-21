@@ -1,21 +1,35 @@
 ---
-title: API Public et Changements Incompatibles en Arrière dans Aspose.Slides pour .NET 16.1.0
+title: API publique et changements incompatibles rétroactifs dans Aspose.Slides pour .NET 16.1.0
+linktitle: Aspose.Slides pour .NET 16.1.0
 type: docs
 weight: 220
 url: /fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/
+keywords:
+- migration
+- code hérité
+- code moderne
+- approche héritée
+- approche moderne
+- PowerPoint
+- OpenDocument
+- présentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Examinez les mises à jour de l'API publique et les changements majeurs dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentation PowerPoint PPT, PPTX et ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Cette page répertorie toutes les [ajouts](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) ou [suppressions](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) de classes, méthodes, propriétés, etc., et d'autres changements introduits avec l'API Aspose.Slides pour .NET 16.1.0.
+Cette page répertorie toutes les classes, méthodes, propriétés, etc. [ajoutés](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) ou [supprimés](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) et les autres modifications introduites avec l’API Aspose.Slides for .NET 16.1.0.
 
 {{% /alert %}} 
-## **Changements de l'API Public**
+## **Modifications de l’API publique**
 
 
 #### **La propriété RotationAngle a été ajoutée aux interfaces IChartTextBlockFormat et ITextFrameFormat**
 La propriété RotationAngle a été ajoutée aux interfaces Aspose.Slides.Charts.IChartTextBlockFormat et Aspose.Slides.ITextFrameFormat.
-Elle spécifie la rotation personnalisée appliquée au texte à l'intérieur de la zone de délimitation.
+Elle spécifie la rotation personnalisée appliquée au texte à l’intérieur de la boîte de délimitation.
 
 ``` csharp
 
@@ -33,7 +47,7 @@ series.Labels.DefaultDataLabelFormat.TextFormat.TextBlockFormat.RotationAngle = 
 
 chart.HasTitle = true;
 
-chart.ChartTitle.AddTextFrameForOverriding("Titre personnalisé").TextFrameFormat.RotationAngle = -30;
+chart.ChartTitle.AddTextFrameForOverriding("Custom title").TextFrameFormat.RotationAngle = -30;
 
 pres.Save("out.pptx", SaveFormat.Pptx);
 
@@ -41,4 +55,4 @@ pres.Save("out.pptx", SaveFormat.Pptx);
 
 
 ``` 
-#### **OdpException déplacé du namespace Aspose.Slides.Odp au namespace Aspose.Slides**
+#### **OdpException déplacé du namespace Aspose.Slides.Odp vers le namespace Aspose.Slides**

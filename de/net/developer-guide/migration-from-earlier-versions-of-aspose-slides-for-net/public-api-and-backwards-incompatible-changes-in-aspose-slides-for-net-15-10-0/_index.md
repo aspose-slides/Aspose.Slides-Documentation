@@ -1,25 +1,38 @@
 ---
-title: Öffentliches API und zurückwärts inkompatible Änderungen in Aspose.Slides für .NET 15.10.0
+title: Öffentliche API und abwärtsinkompatible Änderungen in Aspose.Slides für .NET 15.10.0
+linktitle: Aspose.Slides für .NET 15.10.0
 type: docs
 weight: 200
 url: /de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/
+keywords:
+- Migration
+- Legacy-Code
+- Moderner Code
+- Legacy-Ansatz
+- Moderner Ansatz
+- PowerPoint
+- OpenDocument
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Überblick über öffentliche API-Updates und Breaking-Changes in Aspose.Slides für .NET, um Ihre PowerPoint PPT-, PPTX- und ODP-Präsentationslösungen reibungslos zu migrieren."
 ---
 
 {{% alert color="primary" %}} 
 
-Diese Seite listet alle [hinzugefügten](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) oder [entfernten](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) Klassen, Methoden, Eigenschaften und so weiter sowie andere Änderungen auf, die mit dem Aspose.Slides für .NET 15.10.0 API eingeführt wurden.
+Diese Seite listet alle [hinzugefügten](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) oder [entfernten](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) Klassen, Methoden, Eigenschaften usw. sowie weitere Änderungen, die mit der Aspose.Slides for .NET 15.10.0 API eingeführt wurden.
 
 {{% /alert %}} 
-## **Änderungen der öffentlichen API**
-#### **Ein neuer VideoPlayerHtmlController wurde hinzugefügt, um den Export von Mediendateien nach HTML zu unterstützen**
-Die neue öffentliche Klasse VideoPlayerHtmlController wurde dem Aspose.Slides.Export Namespace hinzugefügt. Mithilfe der Instanz dieser Klasse kann der Benutzer Video- und Audiodateien in HTML exportieren.
-Die Konstruktoren von VideoPlayerHtmlController akzeptieren die folgenden Parameter:
+## **Öffentliche API-Änderungen**
+#### **Ein neuer VideoPlayerHtmlController hinzugefügt, um den Export von Mediendateien nach HTML zu unterstützen**
+Die neue öffentliche Klasse VideoPlayerHtmlController wurde dem Namespace Aspose.Slides.Export hinzugefügt. Mit einer Instanz dieser Klasse kann der Benutzer Video‑ und Audiodateien nach HTML exportieren. Der Konstruktor von VideoPlayerHtmlController akzeptiert die folgenden Parameter:
 
-path: Der Pfad, in dem Video- und Audiodateien generiert werden
-fileName: Der Name der HTML-Datei
+path: Der Pfad, unter dem die Video‑ und Audiodateien erzeugt werden  
+fileName: Der Name der HTML‑Datei  
 
-baseUri: Die Basis-URI, die zur Generierung von Links verwendet wird
-Beispiel zur Verwendung:
+baseUri: Die Basis‑URI, die zum Erzeugen von Links verwendet wird  
+Verwendungsbeispiel:
 
 ``` csharp
 
@@ -48,8 +61,8 @@ Beispiel zur Verwendung:
 }
 
 ``` 
-#### **API zur Animationsfolge von Diagrammserien wurde hinzugefügt**
-Es wurden zwei neue Methoden zur Aspose.Slides.Animation.ISequence-Schnittstelle hinzugefügt.
+#### **Chart-Serienanimations-API wurde hinzugefügt**
+Die neuen 2 Methoden wurden zur Schnittstelle Aspose.Slides.Animation.ISequence hinzugefügt.
 
 ``` csharp
 
@@ -59,15 +72,15 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-Diese Methoden sind dazu gedacht, die Animationen der Diagrammelemente zu unterstützen:
-nach Serien
-nach Kategorien
-nach Elemente in Serien
-nach Elemente in Kategorien
+Diese Methoden dienen der Unterstützung von Animationen der Chart‑Elemente:
+- nach Serien
+- nach Kategorien
+- nach Serien‑Elementen
+- nach Kategorien‑Elementen
 
-Die beiden neuen Enum EffectChartMajorGroupingType und EffectChartMinorGroupingType, die sich auf die Animation der Diagrammelemente beziehen, wurden eingeführt.
+Die beiden neuen Enums EffectChartMajorGroupingType und EffectChartMinorGroupingType, die sich auf die Animation von Chart‑Elementen beziehen, wurden eingeführt.
 
-Um eine Serienanimation zum Diagramm hinzuzufügen, kann der folgende Code verwendet werden:
+Um eine Serienanimation zum Diagramm hinzuzufügen, kann folgender Code verwendet werden:
 
 ``` csharp
 
@@ -115,7 +128,7 @@ Um eine Serienanimation zum Diagramm hinzuzufügen, kann der folgende Code verwe
 
 ``` 
 
-Kategorienanimation:
+Kategorien-Animation:
 
 ``` csharp
 
@@ -163,7 +176,7 @@ Kategorienanimation:
 
 ``` 
 
-Animation der Element der Serien:
+Serien‑Elemente-Animation:
 
 ``` csharp
 
@@ -259,7 +272,7 @@ Animation der Element der Serien:
 
 ``` 
 
-Animation der Elemente von Kategorien:
+Kategorien‑Elemente-Animation:
 
 ``` csharp
 
@@ -353,4 +366,4 @@ Animation der Elemente von Kategorien:
 
 }
 
-``` 
+```

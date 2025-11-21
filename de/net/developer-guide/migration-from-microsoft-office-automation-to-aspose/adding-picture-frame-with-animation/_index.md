@@ -1,45 +1,58 @@
 ---
-title: Hinzufügen eines Bilderrahmens mit Animation
+title: Hinzufügen von Bilderrahmen mit Animation unter Verwendung von VSTO und Aspose.Slides für .NET
+linktitle: Bilderrahmen mit Animation
 type: docs
 weight: 60
 url: /de/net/adding-picture-frame-with-animation/
+keywords:
+- Bilderrahmen
+- Bild hinzufügen
+- Grafik hinzufügen
+- Bild mit Animation
+- Grafik mit Animation
+- Migration
+- VSTO
+- Office-Automatisierung
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Migrieren Sie von Microsoft Office-Automatisierung zu Aspose.Slides für .NET und animieren Sie Bilderrahmen in PowerPoint (PPT, PPTX)-Folien mit sauberem C#-Code."
 ---
 
 {{% alert color="primary" %}} 
 
-Bilderahmen werden in Microsoft PowerPoint auf Formen oder Bilder angewendet, um Bilder in einer Präsentation zu rahmen. Dieser Artikel zeigt, wie man programmgesteuert einen Bilderrahmen erstellt und Animation darauf anwendet, zunächst mit [VSTO 2008](/slides/de/net/adding-picture-frame-with-animation/) und dann mit [Aspose.Slides für .NET](/slides/de/net/adding-picture-frame-with-animation/). Zuerst zeigen wir Ihnen, wie Sie einen Rahmen und eine Animation mit VSTO 2008 anwenden. Dann zeigen wir Ihnen, wie Sie die gleichen Schritte mit Aspose.Slides für .NET ausführen.
+Bilderrahmen werden in Microsoft PowerPoint auf Formen oder Bilder angewendet, um Bilder in einer Präsentation zu umrahmen. Dieser Artikel zeigt, wie man programmgesteuert einen Bilderrahmen erstellt und darauf eine Animation anwendet, zuerst mit [VSTO 2008](/slides/de/net/adding-picture-frame-with-animation/) und dann mit [Aspose.Slides for .NET](/slides/de/net/adding-picture-frame-with-animation/). Zuerst zeigen wir, wie man mit VSTO 2008 einen Rahmen und eine Animation anwendet. Dann zeigen wir, wie man die gleichen Schritte mit Aspose.Slides for .NET durchführt.
 
 {{% /alert %}} 
-## **Hinzugefügt Bilderrahmen mit Animation**
-Die folgenden Codebeispiele erstellen eine Präsentation mit einer Folie, fügen ein Bild mit einem Bilderrahmen hinzu und wenden Animation darauf an.
+## **Hinzufügen von Bilderrahmen mit Animation**
+Die untenstehenden Codebeispiele erstellen eine Präsentation mit einer Folie, fügen ein Bild mit einem Bilderrahmen hinzu und wenden darauf eine Animation an.
 ### **VSTO 2008 Beispiel**
 Verwenden Sie VSTO 2008 und führen Sie die folgenden Schritte aus:
 
 1. Erstellen Sie eine Präsentation.
 1. Fügen Sie eine leere Folie hinzu.
-1. Fügen Sie eine Bilderform zur Folie hinzu.
-1. Wenden Sie Animation auf das Bild an.
-1. Schreiben Sie die Präsentation auf die Festplatte.
+1. Fügen Sie der Folie ein Bild-Shape hinzu.
+1. Wenden Sie eine Animation auf das Bild an.
+1. Speichern Sie die Präsentation auf dem Datenträger.
 
-**Die ausgegebene Präsentation, erstellt mit VSTO** 
+**Die Ausgabepäsentation, erstellt mit VSTO** 
 
 ![todo:image_alt_text](adding-picture-frame-with-animation_1.png)
-
-
-
 ```c#
-//Erstellen einer leeren Präsentation
+//Leere Präsentation erstellen
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//Fügen Sie eine leere Folie hinzu
+//Leere Folie hinzufügen
 PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);
 
-//Bilderahmen hinzufügen
+//Bilderrahmen hinzufügen
 PowerPoint.Shape PicFrame = sld.Shapes.AddPicture(@"D:\Aspose Data\Desert.jpg",
 Microsoft.Office.Core.MsoTriState.msoTriStateMixed,
 Microsoft.Office.Core.MsoTriState.msoTriStateMixed, 150, 100, 400, 300);
 
-//Anwenden von Animationen auf den Bilderrahmen
+//Animation auf den Bilderrahmen anwenden
 PicFrame.AnimationSettings.EntryEffect = Microsoft.Office.Interop.PowerPoint.PpEntryEffect.ppEffectBoxIn;
 
 //Präsentation speichern
@@ -48,44 +61,42 @@ Microsoft.Office.Core.MsoTriState.msoFalse);
 ```
 
 
-### **Aspose.Slides für .NET Beispiel**
-Verwenden Sie Aspose.Slides für .NET und führen Sie die folgenden Schritte aus:
+
+### **Aspose.Slides for .NET Beispiel**
+Verwenden Sie Aspose.Slides for .NET und führen Sie die folgenden Schritte aus:
 
 1. Erstellen Sie eine Präsentation.
 1. Greifen Sie auf die erste Folie zu.
-1. Fügen Sie ein Bild zu einer Bildersammlung hinzu.
-1. Fügen Sie eine Bilderform zur Folie hinzu.
-1. Wenden Sie Animation auf das Bild an.
-1. Schreiben Sie die Präsentation auf die Festplatte.
+1. Fügen Sie ein Bild zu einer Bildsammlung hinzu.
+1. Fügen Sie der Folie ein Bild-Shape hinzu.
+1. Wenden Sie eine Animation auf das Bild an.
+1. Speichern Sie die Präsentation auf dem Datenträger.
 
-**Die ausgegebene Präsentation, erstellt mit Aspose.Slides** 
+**Die Ausgabepäsentation, erstellt mit Aspose.Slides** 
 
 ![todo:image_alt_text](adding-picture-frame-with-animation_2.png)
-
-
-
 ```c#
-// Erstellen einer leeren Präsentation
+// Leere Präsentation erstellen
 using (Presentation pres = new Presentation())
 {
-    // Zugriff auf die erste Folie
+    // Auf die erste Folie zugreifen
     ISlide slide = pres.Slides[0];
 
-    // Fügen Sie ein Bild zur Bildersammlung der Präsentation hinzu
+    // Ein Bild zur Bildsammlung der Präsentation hinzufügen
     IImage image = Images.FromFile("aspose.jpg");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
 
-    // Fügen Sie einen Bilderrahmen hinzu, dessen Höhe und Breite der Höhe und Breite des Bildes entsprechen
+    // Einen Bilderrahmen hinzufügen, dessen Höhe und Breite der Höhe und Breite des Bildes entsprechen
     IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
-    // Holen Sie sich die Hauptanimationssequenz der Folie
+    // Die Hauptanimationssequenz der Folie abrufen
     ISequence sequence = pres.Slides[0].Timeline.MainSequence;
 
-    // Fügen Sie den Fly from Left Animations-Effekt zum Bilderrahmen hinzu
+    // Den Fly from Left-Animationseffekt zum Bilderrahmen hinzufügen
     IEffect effect = sequence.AddEffect(pictureFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
-    // Speichern Sie die Präsentation
+    // Präsentation speichern
     pres.Save("AsposeAnim.ppt", SaveFormat.Ppt);
 }
 ```

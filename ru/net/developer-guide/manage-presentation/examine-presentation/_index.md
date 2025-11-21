@@ -1,26 +1,43 @@
 ---
-title: Проверка презентации
+title: "Получить и обновить информацию о презентации в .NET"
+linktitle: "Информация о презентации"
 type: docs
 weight: 30
 url: /ru/net/examine-presentation/
-keywords: "Проверка PowerPoint, PPTX, PPT, Проверка презентации, Свойства PowerPoint, Свойства презентации, C#, Csharp, .NET"
-description: "Проверка и получение свойств презентации PowerPoint на C# или .NET"
+keywords:
+  - "формат презентации"
+  - "свойства презентации"
+  - "свойства документа"
+  - "получить свойства"
+  - "читать свойства"
+  - "изменить свойства"
+  - "модифицировать свойства"
+  - "обновить свойства"
+  - "анализировать PPTX"
+  - "анализировать PPT"
+  - "анализировать ODP"
+  - "PowerPoint"
+  - "OpenDocument"
+  - "презентация"
+  - ".NET"
+  - "C#"
+  - "Aspose.Slides"
+description: "Исследуйте слайды, структуру и метаданные в презентациях PowerPoint и OpenDocument с помощью .NET для более быстрого получения инсайтов и более умных проверок контента."
 ---
 
-Aspose.Slides для .NET позволяет вам исследовать презентацию, чтобы узнать ее свойства и понять ее поведение. 
+Aspose.Slides for .NET позволяет исследовать презентацию, чтобы узнать её свойства и понять её поведение. 
 
-{{% alert title="Информация" color="info" %}} 
+{{% alert title="Info" color="info" %}} 
 
-Классы [PresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo) и [DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/) содержат свойства и методы, используемые в операциях здесь.
+Классы [PresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo) и [DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/) содержат свойства и методы, используемые в операциях ниже.
 
 {{% /alert %}} 
 
 ## **Проверка формата презентации**
 
-Перед работой с презентацией вы можете захотеть узнать, в каком формате (PPT, PPTX, ODP и других) находится презентация в данный момент.
+Перед работой с презентацией вы можете захотеть узнать, в каком формате (PPT, PPTX, ODP и др.) она находится в данный момент.
 
-Вы можете проверить формат презентации без загрузки самой презентации. Посмотрите этот код на C#:
-
+Можно проверить формат презентации без её загрузки. См. следующий код C#:
 ```c#
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
 Console.WriteLine(info.LoadFormat); // PPTX
@@ -32,40 +49,76 @@ IPresentationInfo info3 = PresentationFactory.Instance.GetPresentationInfo("pres
 Console.WriteLine(info3.LoadFormat); // ODP
 ```
 
+
 ## **Получение свойств презентации**
 
-Этот код на C# показывает, как получить свойства презентации (информацию о презентации):
-
+Этот код C# показывает, как получить свойства презентации (информацию о презентации):
 ```c#
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
 IDocumentProperties props = info.ReadDocumentProperties();
 Console.WriteLine(props.CreatedTime);
 Console.WriteLine(props.Subject);
 Console.WriteLine(props.Title);
-// .. 
+// ...
 ```
 
-Вы можете захотеть посмотреть [свойства класса DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/#properties).
+
+Возможно, вам будет интересно посмотреть на [свойства в классе DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/#properties).
 
 ## **Обновление свойств презентации**
 
-Aspose.Slides предоставляет метод [PresentationInfoUpdateDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo/methods/updatedocumentproperties), который позволяет вам вносить изменения в свойства презентации.
+Aspose.Slides предоставляет метод [PresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo/methods/updatedocumentproperties), позволяющий вносить изменения в свойства презентации.
 
-Этот код на C# показывает, как редактировать свойства презентации:
+Предположим, у нас есть презентация PowerPoint со свойствами документа, показанными ниже.
 
+![Original document properties of the PowerPoint presentation](input_properties.png)
+
+Этот пример кода показывает, как редактировать некоторые свойства презентации:
 ```c#
-IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
+string fileName = "sample.pptx";
 
-IDocumentProperties props = info.ReadDocumentProperties();
-props.Title = "Мой заголовок";
-info.UpdateDocumentProperties(props);
+IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo(fileName);
+
+IDocumentProperties properties = info.ReadDocumentProperties();
+properties.Title = "My title";
+properties.LastSavedTime = DateTime.Now;
+
+info.UpdateDocumentProperties(properties);
+info.WriteBindedPresentation(fileName);
 ```
 
-### **Полезные ссылки**
 
-Чтобы получить больше информации о презентации и ее атрибутах безопасности, вы можете найти эти ссылки полезными:
+Результаты изменения свойств документа показаны ниже.
+
+![Changed document properties of the PowerPoint presentation](output_properties.png)
+
+## **Полезные ссылки**
+
+Чтобы получить больше информации о презентации и её параметрах безопасности, могут быть полезны следующие ссылки:
 
 - [Проверка, зашифрована ли презентация](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Проверка, защищена ли презентация от записи (только для чтения)](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Проверка, защищена ли презентация паролем перед загрузкой](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
+- [Проверка, защищена ли презентация от записи (только чтение)](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
+- [Проверка, защищена ли презентация паролем перед её загрузкой](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
 - [Подтверждение пароля, использованного для защиты презентации](https://docs.aspose.com/slides/net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+
+## **FAQ**
+
+**Как проверить, встроены ли шрифты и какие именно?**
+
+Ищите информацию о [встроенных шрифтах](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts/) на уровне презентации, затем сравните эти записи с набором [шрифтов, фактически использованных в содержимом](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getfonts/), чтобы определить, какие шрифты критичны для рендеринга.
+
+**Как быстро определить, есть ли в файле скрытые слайды и их количество?**
+
+Пройдитесь по [коллекции слайдов](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/) и проверьте у каждого слайда [флаг видимости](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/).
+
+**Можно ли обнаружить, используется ли пользовательский размер и ориентация слайдов, и отличаются ли они от значений по умолчанию?**
+
+Да. Сравните текущий [размер слайда](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) и ориентацию со стандартными предустановками; это помогает предвидеть поведение при печати и экспорте.
+
+**Есть ли быстрый способ увидеть, ссылаются ли диаграммы на внешние источники данных?**
+
+Да. Пройдите по всем [диаграммам](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/), проверьте их [источник данных](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/), и отметьте, являются ли данные внутренними или связанными, включая любые битые ссылки.
+
+**Как оценить «тяжелые» слайды, которые могут замедлять рендеринг или экспорт в PDF?**
+
+Для каждого слайда подсчитайте количество объектов и ищите большие изображения, прозрачность, тени, анимацию и мультимедиа; назначьте приблизительный показатель сложности, чтобы отметить потенциальные узкие места производительности.

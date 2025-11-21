@@ -1,89 +1,107 @@
 ---
-title: Ein Slide als SVG-Bild in C# rendern
-linktitle: Ein Slide als SVG-Bild rendern
+title: Präsentationsfolien als SVG-Bilder in .NET rendern
+linktitle: Folie zu SVG
 type: docs
 weight: 50
 url: /de/net/render-a-slide-as-an-svg-image/
-description: Dieser Artikel erklärt, wie man eine PowerPoint-Präsentation in das SVG-Format mithilfe von C# konvertiert. Sie können PPT-, PPTX- und ODP-Formate in SVG-Bilder umwandeln.
-keywords: C# PowerPoint in SVG konvertieren, C# PPT in SVG, C# PPTX in SVG
+keywords:
+- PowerPoint zu SVG
+- Präsentation zu SVG
+- Folie zu SVG
+- PPT zu SVG
+- PPTX zu SVG
+- PPT als SVG speichern
+- PPTX als SVG speichern
+- PPT nach SVG exportieren
+- PPTX nach SVG exportieren
+- Folie rendern
+- Folie konvertieren
+- Folie exportieren
+- Vektorbild
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie PowerPoint-Folien mit Aspose.Slides für .NET als SVG-Bilder rendern. Hochwertige Visualisierungen mit einfachen C#-Codebeispielen."
 ---
 
-## Übersicht
+## **Übersicht**
 
-Dieser Artikel erklärt, wie man eine **PowerPoint-Präsentation in das SVG-Format mithilfe von C# konvertiert**. Er behandelt die folgenden Themen.
+Dieser Artikel erklärt, wie man **PowerPoint‑Präsentationen in das SVG‑Format mit C# konvertiert**. Er behandelt die folgenden Themen.
 
 _Format_: **PowerPoint**
 - [C# PowerPoint zu SVG](#csharp-powerpoint-to-svg)
-- [C# PowerPoint in SVG konvertieren](#csharp-powerpoint-to-svg)
-- [C# Wie konvertiere ich eine PowerPoint-Datei in SVG](#csharp-powerpoint-to-svg)
+- [C# PowerPoint zu SVG](#csharp-powerpoint-to-svg)
+- [C# PowerPoint zu SVG](#csharp-powerpoint-to-svg)
 
 _Format_: **PPT**
 - [C# PPT zu SVG](#csharp-ppt-to-svg)
-- [C# PPT in SVG konvertieren](#csharp-ppt-to-svg)
-- [C# Wie konvertiere ich eine PPT-Datei in SVG](#csharp-ppt-to-svg)
+- [C# PPT zu SVG](#csharp-ppt-to-svg)
+- [C# PPT zu SVG](#csharp-ppt-to-svg)
 
 _Format_: **PPTX**
 - [C# PPTX zu SVG](#csharp-pptx-to-svg)
-- [C# PPTX in SVG konvertieren](#csharp-pptx-to-svg)
-- [C# Wie konvertiere ich eine PPTX-Datei in SVG](#csharp-pptx-to-svg)
+- [C# PPTX zu SVG](#csharp-pptx-to-svg)
+- [C# PPTX zu SVG](#csharp-pptx-to-svg)
 
 _Format_: **ODP**
 - [C# ODP zu SVG](#csharp-odp-to-svg)
-- [C# ODP in SVG konvertieren](#csharp-odp-to-svg)
-- [C# Wie konvertiere ich eine ODP-Datei in SVG](#csharp-odp-to-svg)
+- [C# ODP zu SVG](#csharp-odp-to-svg)
+- [C# ODP zu SVG](#csharp-odp-to-svg)
 
 _Format_: **Slide**
-- [C# PowerPoint-Slide in SVG konvertieren](#render-a-slide-as-an-svg-image)
-- [C# PPT-Slide in SVG konvertieren](#render-a-slide-as-an-svg-image)
-- [C# PPTX-Slide in SVG konvertieren](#render-a-slide-as-an-svg-image)
-- [C# ODP-Slide in SVG konvertieren](#render-a-slide-as-an-svg-image)
+- [C# PowerPoint‑Folie zu SVG konvertieren](#render-a-slide-as-an-svg-image)
+- [C# PPT‑Folie zu SVG konvertieren](#render-a-slide-as-an-svg-image)
+- [C# PPTX‑Folie zu SVG konvertieren](#render-a-slide-as-an-svg-image)
+- [C# ODP‑Folie zu SVG konvertieren](#render-a-slide-as-an-svg-image)
 
-Andere Themen, die in diesem Artikel behandelt werden.
+Weitere Themen, die in diesem Artikel behandelt werden.
 - [Siehe auch](#see-also)
 
-## SVG-Format
-SVG—eine Abkürzung für Scalable Vector Graphics—ist ein Standardgrafiktyp oder -format, das zur Darstellung zweidimensionaler Bilder verwendet wird. SVG speichert Bilder als Vektoren in XML mit Details, die ihr Verhalten oder Aussehen definieren.
+## **SVG-Format**
+SVG – ein Akronym für Scalable Vector Graphics – ist ein standardisiertes Grafikformat zur Darstellung zweidimensionaler Bilder. SVG speichert Bilder als Vektoren in XML mit Details, die ihr Verhalten oder ihr Aussehen definieren.
 
-SVG ist eines der wenigen Bildformate, die sehr hohe Standards in diesen Punkten erfüllen: Skalierbarkeit, Interaktivität, Leistung, Zugänglichkeit, Programmierbarkeit und andere. Aus diesen Gründen wird es häufig in der Webentwicklung verwendet.
+SVG ist eines der wenigen Bildformate, die in diesen Bereichen sehr hohe Standards erfüllen: Skalierbarkeit, Interaktivität, Leistung, Barrierefreiheit, Programmierbarkeit und andere. Aus diesem Grund wird es häufig in der Webentwicklung eingesetzt.
 
-Sie möchten möglicherweise SVG-Dateien verwenden, wenn Sie
+Sie möchten SVG‑Dateien verwenden, wenn Sie
 
-- **Ihre Präsentation in einem *sehr großen Format* drucken möchten.** SVG-Bilder können auf jede Auflösung oder Ebene skaliert werden. Sie können SVG-Bilder so oft wie nötig in der Größe ändern, ohne Qualität einzubüßen.
-- **Diagramme und Grafiken von Ihren Folien in *verschiedenen Medien oder Plattformen* verwenden möchten.** Die meisten Leser können SVG-Dateien interpretieren.
-- **die *kleinsten möglichen Bildgrößen* verwenden möchten.** SVG-Dateien sind im Allgemeinen kleiner als ihre hochauflösenden Pendants in anderen Formaten, insbesondere in solchen, die auf Bitmap (JPEG oder PNG) basieren.
+- **Drucken Sie Ihre Präsentation in einem *sehr großen Format*.** SVG‑Bilder können auf jede Auflösung oder jedes Niveau skaliert werden. Sie können SVG‑Bilder beliebig oft ohne Qualitätsverlust vergrößern.
+- **Verwenden Sie Diagramme und Grafiken aus Ihren Folien in *verschiedenen Medien oder Plattformen*.** Die meisten Betrachter können SVG‑Dateien interpretieren.
+- **Verwenden Sie die *kleinstmöglichen Bildgrößen*.** SVG‑Dateien sind im Allgemeinen kleiner als ihre hochauflösenden Gegenstücke in anderen Formaten, insbesondere in bitmapbasierten Formaten (JPEG oder PNG).
 
-## Rendern eines Slides als SVG-Bild
+## **Eine Folie als SVG-Bild rendern**
 
-Aspose.Slides für .NET ermöglicht es Ihnen, Folien in Ihren Präsentationen als SVG-Bilder zu exportieren. Gehen Sie diese Schritte durch, um SVG-Bilder zu erzeugen:
+Aspose.Slides für .NET ermöglicht das Exportieren von Folien Ihrer Präsentationen als SVG‑Bilder. Befolgen Sie diese Schritte, um SVG‑Bilder zu erzeugen:
 
-_Schritte: PowerPoint zu SVG-Konvertierungen in C#_
+_Schritte: PowerPoint‑zu‑SVG‑Konvertierungen in C#_
 
-Der folgende Beispielcode erklärt diese Konvertierungen mithilfe von .NET.
-- <a name="csharp-powerpoint-to-svg" id="csharp-powerpoint-to-svg"><strong>Schritte: PowerPoint in SVG in C# konvertieren</strong></a>
-- <a name="csharp-ppt-to-svg" id="csharp-ppt-to-svg"><strong>Schritte: PPT in SVG in C# konvertieren</strong></a>
-- <a name="csharp-pptx-to-svg" id="csharp-pptx-to-svg"><strong>Schritte: PPTX in SVG in C# konvertieren</strong></a>
-- <a name="csharp-odp-to-svg" id="csharp-odp-to-svg"><strong>Schritte: ODP in SVG in C# konvertieren</strong></a>
+Der folgende Beispielcode erklärt diese Konvertierungen mit .NET.
 
-_Code Schritte:_
+- <a name="csharp-powerpoint-to-svg" id="csharp-powerpoint-to-svg"><strong>Schritte: PowerPoint zu SVG in C# konvertieren</strong></a>
+- <a name="csharp-ppt-to-svg" id="csharp-ppt-to-svg"><strong>Schritte: PPT zu SVG in C# konvertieren</strong></a>
+- <a name="csharp-pptx-to-svg" id="csharp-pptx-to-svg"><strong>Schritte: PPTX zu SVG in C# konvertieren</strong></a>
+- <a name="csharp-odp-to-svg" id="csharp-odp-to-svg"><strong>Schritte: ODP zu SVG in C# konvertieren</strong></a>
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) Klasse.
-   * _.ppt_ Erweiterung zum Laden der **PPT**-Datei innerhalb der _Presentation_ Klasse.
-   * _.pptx_ Erweiterung zum Laden der **PPTX**-Datei innerhalb der _Presentation_ Klasse.
-   * _.odp_ Erweiterung zum Laden der **ODP**-Datei innerhalb der _Presentation_ Klasse.
-   * _.pps_ Erweiterung zum Laden der **PPS**-Datei innerhalb der _Presentation_ Klasse.
-2. Iterieren Sie durch alle Folien in der Präsentation.
-3. Schreiben Sie jede Folie in ihre eigene SVG-Datei über FileStream.
+_Code‑Schritte:_
+
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+   * _.ppt_-Erweiterung, um eine **PPT**‑Datei in der Klasse _Presentation_ zu laden.
+   * _.pptx_-Erweiterung, um eine **PPTX**‑Datei in der Klasse _Presentation_ zu laden.
+   * _.odp_-Erweiterung, um eine **ODP**‑Datei in der Klasse _Presentation_ zu laden.
+   * _.pps_-Erweiterung, um eine **PPS**‑Datei in der Klasse _Presentation_ zu laden.
+2. Durchlaufen Sie alle Folien der Präsentation.
+3. Schreiben Sie jede Folie mit einem FileStream in eine eigene SVG‑Datei.
 
 {{% alert color="primary" %}} 
 
-Sie möchten vielleicht unsere [kostenlose Webanwendung](https://products.aspose.app/slides/conversion/ppt-to-svg) ausprobieren, in der wir die PPT zu SVG-Konvertierungsfunktion von Aspose.Slides für .NET implementiert haben.
+Sie können unsere [kostenlose Webanwendung](https://products.aspose.app/slides/conversion/ppt-to-svg) ausprobieren, in der wir die PPT‑zu‑SVG‑Konvertierungsfunktion von Aspose.Slides für .NET implementiert haben.
 
 {{% /alert %}} 
 
-Dieser Beispielcode in C# zeigt Ihnen, wie man PowerPoint in SVG mithilfe von Aspose.Slides konvertiert:
-
+Der folgende Beispielcode in C# zeigt, wie Sie PowerPoint mit Aspose.Slides in SVG konvertieren: 
 ``` csharp
-// Präsentationsobjekt kann PowerPoint-Formate wie PPT, PPTX, ODP usw. laden.
+// Presentation-Objekt kann PowerPoint-Formate wie PPT, PPTX, ODP usw. laden.
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     for (var index = 0; index < pres.Slides.Count; index++)
@@ -98,9 +116,24 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## Siehe auch 
 
-Dieser Artikel behandelt auch diese Themen. Die Codes sind dieselben wie oben.
+## **FAQ**
+
+**Warum kann das resultierende SVG in verschiedenen Browsern unterschiedlich aussehen?**
+
+Die Unterstützung spezifischer SVG‑Funktionen wird von Browser‑Engines unterschiedlich implementiert. Die Parameter von [SVGOptions](https://reference.aspose.com/slides/net/aspose.slides.export/svgoptions/) helfen, Inkompatibilitäten auszugleichen.
+
+**Ist es möglich, nicht nur Folien, sondern auch einzelne Formen zu SVG zu exportieren?**
+
+Ja. Jede [Form kann als separate SVG](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/) gespeichert werden, was für Icons, Piktogramme und die Wiederverwendung von Grafiken praktisch ist.
+
+**Kann man mehrere Folien zu einer einzigen SVG (Strip/Dokument) kombinieren?**
+
+Das Standard‑Szenario ist eine Folie → eine SVG. Das Kombinieren mehrerer Folien zu einer einzigen SVG‑Leinwand ist ein Nachbearbeitungsschritt, der auf Anwendungsebene durchgeführt wird.
+
+## **Siehe auch** 
+
+Dieser Artikel behandelt außerdem diese Themen. Der Code ist derselbe wie oben.
 
 _Format_: **PowerPoint**
 - [C# PowerPoint zu SVG Code](#csharp-powerpoint-to-svg)

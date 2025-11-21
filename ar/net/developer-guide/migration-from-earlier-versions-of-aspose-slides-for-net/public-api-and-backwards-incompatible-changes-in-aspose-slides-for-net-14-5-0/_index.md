@@ -1,135 +1,115 @@
 ---
-title: واجهة API العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 14.5.0
+title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة للوراء في Aspose.Slides for .NET 14.5.0
+linktitle: Aspose.Slides لـ .NET 14.5.0
 type: docs
 weight: 70
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/
+keywords:
+- ترحيل
+- كود قديم
+- كود حديث
+- نهج قديم
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "استعرض تحديثات واجهة برمجة التطبيقات العامة والتغييرات المكسرة في Aspose.Slides لـ .NET لتقوم بترحيل حلول العروض التقديمية PowerPoint PPT و PPTX و ODP بسلاسة."
 ---
 
 {{% alert color="primary" %}} 
 
-تشمل هذه الصفحة جميع [الإضافات](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) من الفئات والأساليب والخصائص وما إلى ذلك، وأي [قيود](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) جديدة وتغييرات أخرى [مقدمة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) مع واجهة API لـ Aspose.Slides لـ .NET 14.5.0.
+هذه الصفحة تسرد جميع الفئات والطرق والخصائص وما إلى ذلك التي تم [إضافتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) ، وأي [قيود](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) وتغييرات [أخرى](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) تم تقديمها مع واجهة برمجة تطبيقات Aspose.Slides for .NET 14.5.0.
 
 {{% /alert %}} 
-## **واجهة API العامة والتغييرات غير المتوافقة مع الإصدارات السابقة**
-### **الواجهات والفئات والخصائص والأساليب المضافة**
-#### **تمت إضافة واجهة Aspose.Slides.IPresentationInfo وفئة PresentationInfo**
+## **واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة للخلف**
+### **الواجهات والفئات والخصائص والطرق التي تم إضافتها**
+#### **تم إضافة واجهة Aspose.Slides.IPresentationInfo وفئة PresentationInfo**
 تمثل معلومات حول العرض التقديمي.
 
-- خاصية Boolean IsEncrypted تأخذ قيمة True إذا كان العرض التقديمي مشفرًا، وإلا تأخذ قيمة False.
-- خاصية LoadFormat LoadFormat تأخذ نوع العرض التقديمي.
-#### **تمت إضافة خاصية Aspose.Slides.IShape.IsGrouped**
-تحدد خاصية Aspose.Slides.IShape.IsGrouped ما إذا كانت الشكل مجمعًا.
-#### **تمت إضافة خاصية Aspose.Slides.IShape.ParentGroup**
-تعيد خاصية Aspose.Slides.IShape.ParentGroup كائن GroupShape الأب إذا كانت الشكل مجمعًا. خلاف ذلك، تعيد null.
-#### **تمت إضافة طريقة Aspose.Slides.IShapeCollection.AddGroupShape()**
-تقوم طريقة Aspose.Slides.IShapeCollection.AddGroupShape() بإنشاء GroupShape جديد وإضافته إلى نهاية المجموعة.
-سيتم ضبط حجم وموضع إطار GroupShape ليتناسب مع المحتوى عند إضافة شكل جديد.
-#### **تمت إضافة طريقة Aspose.Slides.IShapeCollection.Clear()**
-تقوم طريقة Aspose.Slides.IShapeCollection.Clear() بإزالة جميع الأشكال من المجموعة.
-#### **تمت إضافة طريقة Aspose.Slides.IShapeCollection.InsertGroupShape(int)**
-تقوم طريقة Aspose.Slides.IShapeCollection.InsertGroupShape(int) بإنشاء GroupShape جديد وإدخاله في المجموعة عند موضع الفهرس المحدد.
-سيتم ضبط حجم وموضع إطار GroupShape ليتناسب مع المحتوى عند إضافة شكل جديد.
-#### **تمت إضافة طرق IPresentationFactory.GetPresentationInfo(string file) و IPresentationFactory.GetPresentationInfo(Stream stream)**
-تسمح هذه الطرق بالحصول على معلومات حول ملف أو تدفق العرض التقديمي دون تحميله بالكامل.
-#### **تمت إضافة خاصية IPresentationFactory PresentationFactory.Instance**
-تسمح هذه الخاصية للمطورين باستخدام وظيفة المصنع دون الحاجة إلى التهيئة.
+- الخاصية Boolean IsEncrypted تُعيد True إذا كان العرض التقديمي مشفرًا، وإلا تُعيد False.
+- الخاصية LoadFormat تُعيد نوع العرض التقديمي.
+#### **تم إضافة الخاصية Aspose.Slides.IShape.IsGrouped**
+تحدد الخاصية Aspose.Slides.IShape.IsGrouped ما إذا كان الشكل مُجَمَّعًا.
+#### **تم إضافة الخاصية Aspose.Slides.IShape.ParentGroup**
+تُعيد الخاصية Aspose.Slides.IShape.ParentGroup كائن GroupShape الأب إذا كان الشكل مُجَمَّعًا. وإلا تُعيد null.
+#### **تم إضافة الطريقة Aspose.Slides.IShapeCollection.AddGroupShape()**
+تُنشئ الطريقة Aspose.Slides.IShapeCollection.AddGroupShape() كائن GroupShape جديد وتضيفه إلى نهاية المجموعة.
+سيتم ضبط حجم وإحداثيات إطار GroupShape لتتناسب مع المحتوى عند إضافة شكل جديد.
+#### **تم إضافة الطريقة Aspose.Slides.IShapeCollection.Clear()**
+تُزيل الطريقة Aspose.Slides.IShapeCollection.Clear() جميع الأشكال من المجموعة.
+#### **تم إضافة الطريقة Aspose.Slides.IShapeCollection.InsertGroupShape(int)**
+تُنشئ الطريقة Aspose.Slides.IShapeCollection.InsertGroupShape(int) كائن GroupShape جديد وتدرجه في المجموعة في الموضع المحدد.
+سيتم ضبط حجم وإحداثيات إطار GroupShape لتتناسب مع المحتوى عند إضافة شكل جديد.
+#### **تم إضافة الطرق IPresentationFactory.GetPresentationInfo(string file)، IPresentatoinFactory.GetPresentationInfo(Stream stream)**
+تتيح هذه الطرق الحصول على معلومات حول ملف العرض التقديمي أو التدفق دون تحميل العرض بالكامل.
+#### **تم إضافة الخاصية IPresentationFactory PresentationFactory.Instance**
+تُتيح هذه الخاصية للمطورين استخدام وظائف المصنع دون إنشاء كائن.
 ### **القيود**
-#### **القيود على IShape.Frame**
-تمت إضافة قيود لاستخدام القيم غير المعرفة لـ IShape.Frame. الكود الذي يحاول تعيين إطار غير معرف لـ IShape.Frame لا معنى له في معظم الحالات (خصوصًا عندما يتم تضمين GroupShape الأب في {{GroupShape}} أخرى متعددة). على سبيل المثال:
+#### **قيود على IShape.Frame**
+تم إضافة قيود لاستخدام قيم غير معرفة لـ IShape.Frame. الشيفرة التي تحاول تعيين إطار غير معرف إلى IShape.Frame لا معنى لها في معظم الحالات (خاصة عندما يكون الـ GroupShape الأب مُدمجًا عدة مرات داخل {{GroupShape}} أخرى). على سبيل المثال:
 
-``` csharp
-
+```csharp
  IShape shape = ...;
 
 shape.Frame = new ShapeFrame(float.NaN, float.NaN, float.NaN, float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, float.NaN);
-
-
 ``` 
 
 أو
 
-``` csharp
-
+```csharp
  slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, float.NaN, float.NaN, float.NaN, float.NaN);
-
 ``` 
 
-يمكن أن تؤدي مثل هذه الشيفرة إلى حالات غير واضحة. لذا تمت إضافة قيود لاستخدام القيم غير المعرفة لـ IShape.Frame. يجب أن تكون قيم x وy وwidth وheight وflipH وflipV وrotationAngle معرفة (وليس تعيينها إلى float.NaN أو NullableBool.NotDefined). الشيفرة المثال أعلاه الآن ترمي استثناء ArgumentException.
-ينطبق هذا على هذه الاستخدامات:
+مثل هذا الشيفرة قد يؤدي إلى أوضاع غير واضحة. لذا تم إضافة قيود لاستخدام قيم غير معرفة لـ IShape.Frame. يجب أن تكون قيم x و y والعرض والارتفاع و flipH و flipV و rotationAngle معرفة (وليس من القيم float.NaN أو NullableBool.NotDefined). الشيفرة في المثال أعلاه الآن تُطلق استثناء ArgumentException.
+ينطبق ذلك على حالات الاستخدام التالية:
 
-``` csharp
-
+```csharp
  IShape shape = ...;
 
-shape.Frame = ...; // لا يمكن أن تكون غير معرّفة
+shape.Frame = ...; // لا يمكن أن تكون غير معرفة
 
 IShapeCollection shapes = ...;
 
-// لا يمكن أن تكون القيم x وy وwidth وheight float.NaN:
-
+// لا يمكن أن تكون معلمات x و y والعرض والارتفاع float.NaN:
 {
-
     shapes.AddAudioFrameCD(...);
-
     shapes.AddAudioFrameEmbedded(...);
-
     shapes.AddAudioFrameLinked(...);
-
     shapes.AddAutoShape(...);
-
     shapes.AddChart(...);
-
     shapes.AddConnector(...);
-
     shapes.AddOleObjectFrame(...);
-
     shapes.AddPictureFrame(...);
-
     shapes.AddSmartArt(...);
-
     shapes.AddTable(...);
-
     shapes.AddVideoFrame(...);
-
     shapes.InsertAudioFrameEmbedded(...);
-
     shapes.InsertAudioFrameLinked(...);
-
     shapes.InsertAutoShape(...);
-
     shapes.InsertChart(...);
-
     shapes.InsertConnector(...);
-
     shapes.InsertOleObjectFrame(...);
-
     shapes.InsertPictureFrame(...);
-
     shapes.InsertTable(...);
-
     shapes.InsertVideoFrame(...);
-
 }
-
-
 ``` 
 
-لكن يمكن أن تكون خصائص إطار IShape.RawFrame غير معرفة. هذا له معنى عندما يرتبط الشكل بمكان الحجز. ثم يتم تجاوز قيم إطار الشكل غير المعرفة من شكل المكان الحجز الأب. إذا لم يكن هناك شكل مكان الحجز أب، فإن الشكل يستخدم القيم الافتراضية عند تقييم إطار الفعلي بناءً على IShape.RawFrame الخاص به. القيم الافتراضية هي 0 وNullableBool.False لـ x وy وwidth وheight وflipH وflipV وrotationAngle. على سبيل المثال:
+لكن خصائص إطار IShape.RawFrame يمكن أن تكون غير معرفة. هذا منطقي عندما يكون الشكل مرتبطًا بمكان حفظ مؤقت (placeholder). عندها تُستبدل قيم إطار الشكل غير المعرفة من قبل الشكل المؤقت الأب. إذا لم يكن هناك شكل مؤقت أب، فإن هذا الشكل يستخدم القيم الافتراضية عندما يقيّم الإطار الفعلي بناءً على IShape.RawFrame. القيم الافتراضية هي 0 و NullableBool.False لـ x و y والعرض والارتفاع و flipH و flipV و rotationAngle. على سبيل المثال:
 
-``` csharp
-
- IShape shape = ...; // الشكل مرتبط بالمكان الحجز
-
+```csharp
+ IShape shape = ...; // الشكل مرتبط بمكان حفظ مؤقت
 shape.RawFrame = new ShapeFrame(float.NaN, float.NaN, 100, float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, 0);
-
-// الآن الشكل يرث قيم x وy وheight وflipH وflipV من المكان الحجز ويعوض width=100 وrotationAngle=0.
-
+// الآن يرث الشكل قيم x و y والارتفاع و flipH و flipV من المكان المؤقت ويُستبدل العرض =100 والزاوية =0.
 ``` 
-### **الخصائص المتغيرة**
-#### **تغيير اسم ونوع خاصية Aspose.Slides.IShapeCollection.Parent**
-- تم تغيير نوع خاصية Aspose.Slides.IShapeCollection.Parent من ISlideComponent إلى واجهة IGroupShape الجديدة. واجهة IGroupShape هي سليل لـ ISlideComponent لذا لا تحتاج الشيفرة الحالية إلى تعديلات.
+### **الخصائص التي تم تغييرها**
+#### **تم تغيير اسم نوع خاصية Aspose.Slides.IShapeCollection.Parent**
+- تم تغيير نوع خاصية Aspose.Slides.IShapeCollection.Parent من ISlideComponent إلى الواجهة الجديدة IGroupShape. الواجهة IGroupShape هي فرع من ISlideComponent لذا لا يحتاج الكود الحالي إلى تعديل.
 - تم تغيير اسم خاصية Aspose.Slides.IShapeCollection.Parent من Parent إلى ParentGroup.
-#### **تغيير أنواع خصائص Aspose.Slides.IShapeFrame.FlipH و.FlipV**
+#### **تم تغيير نوع خصائص Aspose.Slides.IShapeFrame.FlipH و .FlipV**
 - تم تغيير نوع خاصية Aspose.Slides.IShapeFrame.FlipH من bool إلى NullableBool.
-- ترجع خاصية IShape.Frame نسخة فعالة من IShapeFrame (جميع خصائصها لها قيم فعالة معرفة).
-- ترجع خاصية IShape.RawFrame نسخة من IShapeFrame يمكن أن تكون لكل خاصية فيها قيمة غير معرفة (خصوصًا يمكن أن تحتوي FlipH أو FlipV على قيمة NullableBool.NotDefined).
+- خاصية IShape.Frame تُعيد نسخة فعّالة من IShapeFrame (جميع خصائصها لها قيم فعّالة معرفة).
+- خاصية IShape.RawFrame تُعيد نسخة من IShapeFrame يمكن أن تكون كل خاصية فيها غير معرفة (خصوصًا FlipH أو FlipV يمكن أن يكون لهما القيمة NullableBool.NotDefined).

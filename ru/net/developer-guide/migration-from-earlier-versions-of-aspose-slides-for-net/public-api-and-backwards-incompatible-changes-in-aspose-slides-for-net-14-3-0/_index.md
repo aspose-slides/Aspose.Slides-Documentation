@@ -1,17 +1,31 @@
 ---
 title: Публичный API и несовместимые изменения в Aspose.Slides для .NET 14.3.0
+linktitle: Aspose.Slides для .NET 14.3.0
 type: docs
 weight: 50
 url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-3-0/
+keywords:
+- миграция
+- устаревший код
+- современный код
+- устаревший подход
+- современный подход
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Обзор обновлений публичного API и разрушающих изменений в Aspose.Slides для .NET, позволяющих плавно мигрировать ваши решения для презентаций PowerPoint PPT, PPTX и ODP."
 ---
 
-## **Публичный API и несовместимые изменения**
-### **Добавлены перечисление Aspose.Slides.ShapeThumbnailBounds и методы Aspose.Slides.IShape.GetThumbnail()**
-Методы GetThumbnail() и GetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY) используются для создания отдельного эскиза формы. Перечисление ShapeThumbnailBounds определяет возможные типы границ эскиза формы.
-### **Свойство UniqueId добавлено в Aspose.Slides.IShape**
-Свойство Aspose.Slides.IShape.UniqueId получает уникальный идентификатор формы в пределах презентации. Эти уникальные идентификаторы хранятся в пользовательских тегах формы.
-### **Подпись метода SetGroupingItem изменена в IChartCategoryLevelsManager**
-Подпись метода IChartCategoryLevelsManager
+## **Public API and Backwards Incompatible Changes**
+### **Aspose.Slides.ShapeThumbnailBounds Enumeration and Aspose.Slides.IShape.GetThumbnail() Methods Added**
+Методы GetThumbnail() и GetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY) используются для создания отдельной миниатюры фигуры. Перечисление ShapeThumbnailBounds определяет возможные типы границ миниатюры фигуры.
+### **Property UniqueId has been added to Aspose.Slides.IShape**
+Свойство Aspose.Slides.IShape.UniqueId возвращает уникальный в рамках презентации идентификатор фигуры. Эти уникальные идентификаторы хранятся в пользовательских тегах фигуры.
+### **Signature of the SetGroupingItem Method Changed in IChartCategoryLevelsManager**
+Signature of the IChartCategoryLevelsManager method
 
 ``` csharp
 
@@ -19,7 +33,7 @@ url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 
 ``` 
 
-теперь устарела и заменена на подпись
+устарела и заменена сигнатурой
 
 ``` csharp
 
@@ -27,30 +41,30 @@ url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 
 ``` 
 
-Теперь такие вызовы, как
+Теперь вызовы вида
 
 ``` csharp
 
- .SetGroupingItem(1, workbook.GetCell(0, "A2", "Группа 1"));
+ .SetGroupingItem(1, workbook.GetCell(0, "A2", "Group 1"));
 
 ``` 
 
-должны быть изменены на вызовы, такие как
+должны быть заменены вызовами вида
 
 ``` csharp
 
- .SetGroupingItem(1, "Группа 1");
+ .SetGroupingItem(1, "Group 1");
 
 ``` 
 
-Передайте значение, такое как "Группа 1", в SetGroupingItem, а не значение типа IChartDataCell. Конструирование IChartDataCell с заданным рабочим листом, строкой и столбцом для уровней категорий должно соответствовать определенным требованиям и было инкапсулировано в методе SetGroupingItem(int, object).
-### **Свойство SlideId добавлено в интерфейс Aspose.Slides.IBaseSlide**
-Свойство SlideId получает уникальный идентификатор слайда.
-### **Свойство SoundName добавлено в ISlideShowTransition**
-Читаемая и запись строка. Указывает человекочитаемое имя для звука перехода. Свойство Sound должно быть задано, чтобы получить или установить имя звука. Это имя появляется в пользовательском интерфейсе PowerPoint при ручной настройке звука перехода. Может вызвать PptxException, если свойство Sound не задано.
-### **Тип свойства ChartSeriesGroup.Type изменен**
-Свойство ChartSeriesGroup.Type было изменено с перечисления ChartType на новое перечисление CombinableSeriesTypesGroup. Перечисление CombinableSeriesTypesGroup представляет группы комбинируемых типов серии.
-### **Добавлена поддержка генерации индивидуальных миниатюр форм**
+Передайте значение вроде "Group 1" в SetGroupingItem, а не значение типа IChartDataCell. Создание IChartDataCell с указанием листа, строки и столбца для уровней категорий требует соблюдения некоторых требований и было инкапсулировано в методе SetGroupingItem(int, object).
+### **SlideId Property Added to the Aspose.Slides.IBaseSlide Interface**
+Свойство SlideId возвращает уникальный идентификатор слайда.
+### **SoundName Property Added to ISlideShowTransition**
+Читаемая и записываемая строка. Указывает человекочитаемое название звука перехода. Свойство Sound должно быть присвоено для получения или установки названия звука. Это название отображается в пользовательском интерфейсе PowerPoint при ручной настройке звука перехода. Может вызвать PptxException, если свойство Sound не присвоено.
+### **Type of ChartSeriesGroup.Type Property Changed**
+Свойство ChartSeriesGroup.Type было изменено: вместо перечисления ChartType теперь используется новое перечисление CombinableSeriesTypesGroup. Перечисление CombinableSeriesTypesGroup представляет группы комбинируемых типов серий.
+### **Support for Generating Individual Shape Thumbnails Added**
 Aspose.Slides.ShapeThumbnailBounds
 
 Новые члены в Aspose.Slides.IShape, Aspose.Slides.Shape:
