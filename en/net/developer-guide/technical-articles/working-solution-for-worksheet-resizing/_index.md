@@ -11,9 +11,10 @@ keywords:
 - worksheet
 - PowerPoint
 - presentation
+- .NET
 - C#
-- Aspose.Slides for .NET
-description: "Working solution for worksheet resizing in PowerPoint presentations using C#"
+- Aspose.Slides
+description: "Fix Excel worksheet OLE resizing in presentations: two ways to keep object frames consistent—scale the frame or the sheet—across the PPT and PPTX formats."
 ---
 
 {{% alert color="primary" %}} 

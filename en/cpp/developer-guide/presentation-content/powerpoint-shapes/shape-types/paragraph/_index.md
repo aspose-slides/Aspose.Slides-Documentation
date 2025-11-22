@@ -1,8 +1,22 @@
 ---
-title: Paragraph
+title: Get Paragraph Bounds from Presentations in C++
+linktitle: Paragraph
 type: docs
 weight: 60
 url: /cpp/paragraph/
+keywords:
+- paragraph bounds
+- text portion bounds
+- paragraph coordinate
+- portion coordinate
+- paragraph size
+- text portion size
+- text frame
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Learn how to retrieve paragraph and text-portion bounds in Aspose.Slides for C++ to optimize text positioning in PowerPoint presentations."
 ---
 
 ## **Get Paragraph and Portion Coordinates in TextFrame**

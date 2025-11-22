@@ -1,10 +1,21 @@
 ---
-title: Manage Zoom
+title: Manage Presentation Zoom in Java
+linktitle: Manage Zoom
 type: docs
 weight: 60
 url: /java/manage-zoom/
-keywords: "Zoom, Zoom frame, Add zoom, Format zoom frame, Summary zoom, PowerPoint presentation, Java, Aspose.Slides for Java"
-description: "Add zoom or zoom frames to PowerPoint presentations in Java"
+keywords:
+- zoom
+- zoom frame
+- slide zoom
+- section zoom
+- summary zoom
+- add zoom
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Create and customize Zoom with Aspose.Slides for Java — jump between sections, add thumbnails and transitions across PPT, PPTX and ODP presentations."
 ---
 
 ## **Overview**

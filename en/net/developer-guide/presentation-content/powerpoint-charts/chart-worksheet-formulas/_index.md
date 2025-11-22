@@ -1,10 +1,31 @@
 ---
-title: Chart Worksheet Formulas
+title: Apply Chart Worksheet Formulas in Presentations in .NET
+linktitle: Worksheet Formulas
 type: docs
 weight: 70
 url: /net/chart-worksheet-formulas/
-keywords: "Chart spreadsheet, chart formula, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Chart spreadsheet and formula in PowerPoint presentation in C# or .NET"
+keywords:
+- chart spreadsheet
+- chart worksheet
+- chart formula
+- worksheet formula
+- spreadsheet formula
+- data source
+- logical constant
+- numerical constant
+- string constant
+- error constant
+- arithmetic constant
+- comparison operator
+- A1 style
+- R1C1 style
+- predefined function
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Apply Excel-style formulas in Aspose.Slides for .NET chart worksheets and automate reports across PPT and PPTX files."
 ---
 
 

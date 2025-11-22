@@ -1,6 +1,6 @@
 ---
-title: Create or Update PowerPoint Presentation Charts in C#
-linktitle: Create or Update a Chart
+title: Create or Update PowerPoint Presentation Charts in .NET
+linktitle: Create or Update Charts
 type: docs
 weight: 10
 url: /net/create-chart/
@@ -21,10 +21,12 @@ keywords:
 - histogram chart
 - radar chart
 - multicategory chart
-- PowerPoint presentation
+- PowerPoint
+- presentation
+- .NET
 - C#
 - Aspose.Slides
-description: "Learn how to create and customize charts in PowerPoint and OpenDocument presentations using Aspose.Slides for .NET. It covers adding, formatting, and editing charts in presentations with practical code examples in C#."
+description: "Create and customize charts in PowerPoint presentations using Aspose.Slides for .NET. Add, format, and edit charts with practical code examples in C#."
 ---
 
 ## **Overview**

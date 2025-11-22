@@ -1,10 +1,20 @@
 ---
-title: Group
+title: Group Presentation Shapes in .NET
+linktitle: Shape Group
 type: docs
 weight: 40
 url: /net/group/
-keywords: "Group shape, PowerPoint shape, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Add group shape to PowerPoint presentation in C# or .NET"
+keywords:
+- group shape
+- shape group
+- add group
+- alternative text
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn to group and ungroup shapes in PowerPoint decks using Aspose.Slides for .NET—fast, step-by-step guide with free C# code."
 ---
 
 ## **Add Group Shape**
@@ -92,7 +102,7 @@ Yes. [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupsha
 
 **How do I control the group’s z-order relative to other objects on the slide?**
 
-Use the [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/)’s [ZOrderPosition](https://reference.aspose.com/slides/net/aspose.slides/shape/zorderposition/) property to inspect or change its position in the display stack.
+Use the [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/)’s [ZOrderPosition](https://reference.aspose.com/slides/net/aspose.slides/shape/zorderposition/) property to inspect its position in the display stack.
 
 **Can I prevent moving/editing/ungrouping?**
 

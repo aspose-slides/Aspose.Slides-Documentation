@@ -1,11 +1,27 @@
 ---
-title: Import Presentation - C++ PowerPoint API
+title: Import Presentations from PDF or HTML in C++
 linktitle: Import Presentation
 type: docs
 weight: 60
 url: /cpp/import-presentation/
-keywords: "Import PowerPoint, PDF to Presentation, PDF to PPTX, PDF to PPT, C++, Aspose.Slides for C++"
-description: "Import PowerPoint presentation from PDF. Convert PDF to PowerPoint"
+keywords:
+- import presentation
+- import slide
+- import PDF
+- import HTML
+- PDF to presentation
+- PDF to PPT
+- PDF to PPTX
+- PDF to ODP
+- HTML to presentation
+- HTML to PPT
+- HTML to PPTX
+- HTML to ODP
+- PowerPoint
+- OpenDocument
+- C++
+- Aspose.Slides
+description: "Effortlessly import PDF and HTML documents into PowerPoint and OpenDocument presentations in C++ with Aspose.Slides for seamless, high-performance slide processing."
 ---
 
 Using [**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/), you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection) class to allow you to import presentations from PDF, HTML documents, etc.

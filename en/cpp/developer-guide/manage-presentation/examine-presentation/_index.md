@@ -1,12 +1,10 @@
 ---
-title: Examine Presentation - C++ PowerPoint API
-linktitle: Examine Presentation
+title: Retrieve and Update Presentation Information in C++
+linktitle: Presentation Information
 type: docs
 weight: 30
 url: /cpp/examine-presentation/
 keywords:
-- PowerPoint
-- presentation
 - presentation format
 - presentation properties
 - document properties
@@ -14,10 +12,16 @@ keywords:
 - read properties
 - change properties
 - modify properties
-- PPTX
-- PPT
+- update properties
+- examine PPTX
+- examine PPT
+- examine ODP
+- PowerPoint
+- OpenDocument
+- presentation
 - C++
-description: "Read and modify PowerPoint presentation properties in C++"
+- Aspose.Slides
+description: "Explore slides, structure and metadata in PowerPoint and OpenDocument presentations using C++ for faster insights and smarter content audits."
 ---
 
 Aspose.Slides for C++ allows you to examine a presentation to find out its properties and understand its behavior. 

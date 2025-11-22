@@ -1,8 +1,20 @@
 ---
-title: Create a New Presentation
+title: Create New Presentations Using VSTO and Aspose.Slides for Java
+linktitle: Create New Presentation
 type: docs
 weight: 10
 url: /java/create-a-new-presentation/
+keywords:
+- create presentation
+- new presentation
+- migration
+- VSTO
+- Office automation
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Migrate from Microsoft Office automation to Aspose.Slides for Java and create new PowerPoint (PPT, PPTX) presentations in Java with clean, reliable code."
 ---
 
 {{% alert color="primary" %}} 

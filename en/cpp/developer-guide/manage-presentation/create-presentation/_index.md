@@ -1,10 +1,24 @@
 ---
-title: Create Presentation - C++ PowerPoint API
+title: Create Presentations in C++
 linktitle: Create Presentation
 type: docs
 weight: 10
 url: /cpp/create-presentation/
-description: To create PowerPoint Presentation in C++ API, please follow the steps mentioned in this article. The code adds a line to the first slide of the presentation.
+keywords:
+- create presentation
+- new presentation
+- create PPT
+- new PPT
+- create PPTX
+- new PPTX
+- create ODP
+- new ODP
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Create presentations in C++ with Aspose.Slides—produce PPT, PPTX, and ODP files, benefit from OpenDocument support, and save them programmatically for reliable results."
 ---
 
 ## **Create PowerPoint Presentation**

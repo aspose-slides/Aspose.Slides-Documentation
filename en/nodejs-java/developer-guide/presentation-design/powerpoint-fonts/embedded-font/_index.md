@@ -116,3 +116,12 @@ try {
 }
 ```
 
+## **FAQ**
+
+**How can I tell that a specific font in the presentation will still be substituted during rendering despite embedding?**
+
+Check the [substitution information](/slides/nodejs-java/font-substitution/) in the font manager and the [fallback/substitution rules](/slides/nodejs-java/fallback-font/): if the font is unavailable or restricted, a fallback will be used.
+
+**Is it worth embedding "system" fonts like Arial/Calibri?**
+
+Usually no—they are almost always available. But for full portability in "thin" environments (Docker, a Linux server without preinstalled fonts), embedding system fonts can eliminate the risk of unexpected substitutions.

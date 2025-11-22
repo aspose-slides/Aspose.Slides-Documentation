@@ -1,279 +1,281 @@
 ---
-title: Gérer les masques de diapositives PowerPoint en Python
-linktitle: Masque de diapositives
+title: Gérer les maîtres de diapositives PowerPoint en Python
+linktitle: Maître de diapositive
 type: docs
 weight: 80
 url: /fr/python-net/slide-master/
 keywords:
-- masque de diapositives
-- diapositive principale
-- masque de diapositives PPT
-- plusieurs masques de diapositives
-- comparer les masques de diapositives
+- maître de diapositive
+- maître de diapositive
+- maître de diapositive PPT
+- plusieurs maîtres de diapositives
+- comparer les maîtres de diapositives
 - arrière-plan
 - espace réservé
-- cloner un masque de diapositives
-- copier un masque de diapositives
-- dupliquer un masque de diapositives
-- masque de diapositives inutilisé
+- cloner le maître de diapositive
+- copier le maître de diapositive
+- dupliquer le maître de diapositive
+- maître de diapositive inutilisé
 - Python
 - Aspose.Slides
-description: "Automatisez les masques de diapositives PowerPoint et OpenDocument avec Aspose.Slides for Python via .NET pour maximiser l'efficacité de développement. Un guide complet pour les débutants comme pour les utilisateurs avancés."
+description: "Automatisez les maîtres de diapositives PowerPoint et OpenDocument avec Aspose.Slides pour Python via .NET afin d'optimiser l'efficacité du développement. Un guide complet pour les débutants et les utilisateurs avancés."
 ---
 
-## **Qu'est-ce qu'un Maître de Diapositive dans PowerPoint**
+## **Vue d'ensemble**
 
-Un **Maître de Diapositive** est un modèle de diapositive qui définit la mise en page, les styles, le thème, les polices, l'arrière-plan et d'autres propriétés pour les diapositives d'une présentation. Si vous souhaitez créer une présentation (ou série de présentations) avec le même style et modèle pour votre entreprise, vous pouvez utiliser un maître de diapositive.
+Un **Slide Master** est un modèle de diapositive qui définit la mise en page, les styles, le thème, les polices, l'arrière‑plan et d’autres propriétés des diapositives d’une présentation. Si vous souhaitez créer une présentation (ou une série de présentations) avec le même style et le même modèle pour votre entreprise, vous pouvez utiliser un Slide Master.
 
-Un Maître de Diapositive est utile car il vous permet de définir et de changer l'apparence de toutes les diapositives de la présentation en une seule fois. Aspose.Slides prend en charge le mécanisme Maître de Diapositive de PowerPoint.
+Un Slide Master est utile car il vous permet de définir et de modifier l’apparence de toutes les diapositives d’une présentation en une seule fois. Aspose.Slides prend en charge le mécanisme de Slide Master de PowerPoint.
 
-VBA vous permet également de manipuler un Maître de Diapositive et d'exécuter les mêmes opérations prises en charge dans PowerPoint : changer les arrière-plans, ajouter des formes, personnaliser la mise en page, etc. Aspose.Slides fournit des mécanismes flexibles pour vous permettre d'utiliser les Maîtres de Diapositives et d'effectuer des tâches de base avec eux.
+VBA permet également de manipuler le Slide Master et d’exécuter les mêmes opérations prises en charge dans PowerPoint : modifier les arrière‑plans, ajouter des formes, personnaliser les mises en page, etc. Aspose.Slides fournit des API flexibles qui vous permettent de travailler avec les Slide Masters et d’exécuter des tâches courantes.
 
-Voici les opérations de base sur le Maître de Diapositive :
+Voici les opérations de base sur le Slide Master :
 
-- Créer ou Modifier un Maître de Diapositive.
-- Appliquer un Maître de Diapositive aux diapositives de présentation.
-- Changer l'arrière-plan du Maître de Diapositive.
-- Ajouter une image, un espace réservé, Smart Art, etc. au Maître de Diapositive.
+- Créer un Slide Master.
+- Appliquer le Slide Master aux diapositives de la présentation.
+- Modifier l’arrière‑plan du Slide Master.
+- Ajouter une image, un espace réservé, un SmartArt, etc., au Slide Master.
 
-Voici des opérations plus avancées impliquant le Maître de Diapositive :
+Voici des opérations plus avancées impliquant le Slide Master :
 
-- Comparer les Maîtres de Diapositives.
-- Fusionner des Maîtres de Diapositives.
-- Appliquer plusieurs Maîtres de Diapositives.
-- Copier une diapositive avec son Maître de Diapositive vers une autre présentation.
-- Découvrir les Maîtres de Diapositives dupliqués dans les présentations.
-- Définir le Maître de Diapositive comme la vue par défaut de la présentation.
+- Comparer des Slide Masters.
+- Fusionner des Slide Masters.
+- Appliquer plusieurs Slide Masters.
+- Copier une diapositive avec son Slide Master vers une autre présentation.
+- Identifier les Slide Masters en double dans les présentations.
+- Définir le Slide Master comme vue par défaut de la présentation.
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
+Vous pouvez consulter l’[Visionneuse PowerPoint en ligne Aspose](https://products.aspose.app/slides/viewer) car il s’agit d’une implémentation en direct de certains des processus fondamentaux décrits ici.
+{{% /alert %}}
 
-Vous voudrez peut-être consulter le [**Visionneuse PowerPoint en Ligne**](https://products.aspose.app/slides/viewer) d'Aspose car c'est une implémentation live de certains des processus de base décrits ici.
+## **Comment le Slide Master est appliqué**
 
-{{% /alert %}} 
+Avant de travailler avec un Slide Master, vous pourriez vouloir comprendre comment les Slide Masters sont utilisés dans les présentations et appliqués aux diapositives.
 
-## **Comment le Maître de Diapositive est-il appliqué**
+- Chaque présentation possède au moins un Slide Master par défaut.
+- Une présentation peut contenir plusieurs Slide Masters. Vous pouvez ajouter plusieurs Slide Masters et les utiliser pour styliser différentes parties d’une présentation de différentes manières.
 
-Avant de travailler avec un maître de diapositive, vous voudrez peut-être comprendre comment ils sont utilisés dans les présentations et appliqués aux diapositives.
+Dans Aspose.Slides, un Slide Master est représenté par le type [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/).
 
-* Chaque présentation a au moins un Maître de Diapositive par défaut.
-* Une présentation peut contenir plusieurs Maîtres de Diapositives. Vous pouvez ajouter plusieurs Maîtres de Diapositives et les utiliser pour styliser différentes parties d'une présentation de différentes manières.
+L’objet [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) d’Aspose.Slides contient la collection [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) de type [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/), qui regroupe toutes les diapositives maîtres définies dans une présentation.
 
-Dans **Aspose.Slides**, un Maître de Diapositive est représenté par le type [**IMasterSlide**](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/).
+Au‑delà des opérations CRUD, la classe [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/) fournit des méthodes utiles telles que [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/add_clone/) et [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/insert_clone/). Elles étendent la fonctionnalité de clonage de diapositives de base et, lors de la manipulation des Slide Masters, permettent de mettre en œuvre des configurations plus complexes.
 
-L'objet [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) d'Aspose.Slides contient la liste [**masters**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) du type [**IMasterSlideCollection**](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/), qui contient une liste de toutes les diapositives maîtres définies dans une présentation.
+Lorsqu’une nouvelle diapositive est ajoutée à une présentation, un Slide Master lui est appliqué automatiquement. Par défaut, le Slide Master de la diapositive précédente est sélectionné.
 
-En plus des opérations CRUD, l'interface [IMasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/) contient ces méthodes utiles : [**add_clone**](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/) et [**insert_clone**](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/). Ces méthodes sont héritées de la fonction de clonage de diapositive de base. Mais lorsqu'il s'agit de Maîtres de Diapositives, ces méthodes vous permettent de mettre en œuvre des configurations compliquées.
+**Remarque :** Les diapositives de la présentation sont stockées dans la collection [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/), et chaque nouvelle diapositive est ajoutée à la fin de cette collection par défaut. Si une présentation ne contient qu’un seul Slide Master, ce Slide Master est sélectionné pour toutes les nouvelles diapositives. Pour cette raison, vous n’avez pas besoin de spécifier le Slide Master pour chaque nouvelle diapositive que vous créez.
 
-Lorsqu'une nouvelle diapositive est ajoutée à une présentation, un Maître de Diapositive lui est appliqué automatiquement. Le Maître de Diapositive de la diapositive précédente est sélectionné par défaut.
-
-**Remarque** : Les diapositives de présentation sont stockées dans la liste [Slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), et chaque nouvelle diapositive est ajoutée à la fin de la collection par défaut. Si une présentation contient un seul Maître de Diapositive, ce maître de diapositive est sélectionné pour toutes les nouvelles diapositives. C'est la raison pour laquelle vous n'avez pas à définir le Maître de Diapositive pour chaque nouvelle diapositive que vous créez.
-
-Le principe est le même pour PowerPoint et Aspose.Slides. Par exemple, dans PowerPoint, lorsque vous ajoutez une nouvelle présentation, vous pouvez simplement appuyer sur la ligne du bas sous la dernière diapositive, puis une nouvelle diapositive (avec le Maître de Diapositive de la dernière présentation) sera créée :
+Le même principe s’applique dans PowerPoint et Aspose.Slides. Par exemple, dans PowerPoint, lorsque vous ajoutez une nouvelle diapositive, vous pouvez cliquer dans la zone sous la dernière diapositive, et une nouvelle diapositive (utilisant le Slide Master de la diapositive précédente) sera créée.
 
 ![todo:image_alt_text](slide-master_1.jpg)
 
-Dans Aspose.Slides, vous pouvez effectuer la tâche équivalente avec la méthode [add_clone(ISlide)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+Dans Aspose.Slides, vous pouvez effectuer la tâche équivalente en utilisant la méthode [add_clone(ISlide)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) de la classe [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/).
 
-## **Maître de Diapositive dans la hiérarchie des Diapositives**
+## **Slide Master dans la hiérarchie des diapositives**
 
-Utiliser les Dispositions de Diapositive avec le Maître de Diapositive permet une flexibilité maximale. Une Disposition de Diapositive vous permet de définir tous les mêmes styles que le Maître de Diapositive (arrière-plan, polices, formes, etc.). Cependant, lorsque plusieurs Dispositions de Diapositive sont combinées sur un Maître de Diapositive, un nouveau style est créé. Lorsque vous appliquez une Disposition de Diapositive à une seule diapositive, vous pouvez changer son style par rapport à celui appliqué par le Maître de Diapositive.
+Utiliser les **Slide Layouts** avec le **Slide Master** offre une flexibilité maximale. Un Slide Layout peut définir les mêmes types de styles que le Slide Master (arrière‑plan, polices, formes, etc.). Lorsque plusieurs Slide Layouts sont définis sous un Slide Master, ils forment ensemble un système de style cohérent. En appliquant un Slide Layout à une diapositive individuelle, vous pouvez ajuster son style par rapport à ce que le Slide Master fournit.
 
-Le Maître de Diapositive a la priorité sur tous les éléments de configuration : Maître de Diapositive -> Disposition de Diapositive -> Diapositive :
+La priorité est : **Slide Master** → **Slide Layout** → **Slide**.
 
-![todo:image_alt_text](slide-master_2)
+![todo:image_alt_text](slide-master_2.jpg)
 
-Chaque [IMasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/) a une propriété [**LayoutSlides**](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/) avec une liste des Dispositions de Diapositive. Un type [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide) a une propriété [**LayoutSlide**](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) avec un lien sur une Disposition de Diapositive appliquée à la diapositive. L'interaction entre une diapositive et un Maître de Diapositive se produit à travers une Disposition de Diapositive.
+Chaque objet [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/) possède une propriété [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/layout_slides/) qui contient la liste des mises en page de diapositives. Un [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) possède une propriété [layout_slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/layout_slide/) qui référence la mise en page appliquée. L’interaction entre une diapositive et le Slide Master se fait via son Slide Layout.
 
-{{% alert color="info" title="Remarque" %}}
-
-* Dans Aspose.Slides, tous les éléments de configuration des diapositives (Maître de Diapositive, Disposition de Diapositive, et la diapositive elle-même) sont en réalité des objets diapositives implémentant l'interface [**IBaseSlide**](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseslide/).
-* Par conséquent, le Maître de Diapositive et la Disposition de Diapositive peuvent implémenter les mêmes propriétés et vous devez savoir comment leurs valeurs seront appliquées à un objet [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/). Le Maître de Diapositive est appliqué en premier à une diapositive, puis la Disposition de Diapositive est appliquée. Par exemple, si le Maître de Diapositive et la Disposition de Diapositive ont tous deux une valeur d'arrière-plan, la diapositive finira par avoir l'arrière-plan de la Disposition de Diapositive.
-
+{{% alert color="info" title="Note" %}}
+- Dans Aspose.Slides, toutes les constructions de diapositive (Slide Master, Slide Layout et la diapositive elle‑maître) sont des objets de diapositive qui étendent la classe [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/).
+- Étant donné que le Slide Master et le Slide Layout exposent de nombreuses propriétés similaires, vous devez savoir comment leurs valeurs sont appliquées à un objet [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/). Le Slide Master est appliqué en premier, suivi du Slide Layout. Par exemple, si le Slide Master et le Slide Layout définissent tous deux un arrière‑plan, la diapositive utilise l’arrière‑plan du Slide Layout.
 {{% /alert %}}
 
-## **Ce que comprend un Maître de Diapositive**
+## **Ce que comprend un Slide Master**
 
-Pour comprendre comment un Maître de Diapositive peut être modifié, vous devez connaître ses constituants. Voici les propriétés principales du [MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) :
+Pour comprendre comment un Slide Master peut être modifié, vous devez connaître ses composants. Voici les propriétés fondamentales de [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/) :
 
-- `background` obtenir/définir l'arrière-plan de la diapositive.
-- `body_style` obtenir/définir les styles de texte du corps de la diapositive.
-- `shapes` obtenir/définir toutes les formes du Maître de Diapositive (espaces réservés, cadres photo, etc.).
-- `controls` - obtenir/définir les contrôles ActiveX.
-- `theme_manager` - obtenir le gestionnaire de thème.
-- `header_footer_manager` - obtenir le gestionnaire d'en-tête et de pied de page.
+- `background` — obtient/ définit l’arrière‑plan de la diapositive.
+- `body_style` — obtient/ définit les styles de texte du corps de la diapositive.
+- `shapes` — obtient/ définit toutes les formes du Slide Master (espaces réservés, cadres d’image, etc.).
+- `controls` — obtient/ définit les contrôles ActiveX.
+- `theme_manager` — obtient le gestionnaire de thème.
+- `header_footer_manager` — obtient le gestionnaire d’en‑tête et de pied de page.
 
-Méthodes du Maître de Diapositive :
+Méthodes du Slide Master :
 
-- `get_depending_slides()` - obtenir toutes les diapositives dépendant du Maître de Diapositive.
-- `apply_external_theme_to_depending_slides(fname)` - permet de créer un nouveau Maître de Diapositive basé sur le Maître de Diapositive actuel et un nouveau thème. Le nouveau Maître de Diapositive sera ensuite appliqué à toutes les diapositives dépendantes.
+- `get_depending_slides()` — récupère toutes les diapositives dépendant du Slide Master.
+- `apply_external_theme_to_depending_slides(fname)` — crée un nouveau Slide Master basé sur le actuel et un thème extérieur, puis applique le nouveau Slide Master à toutes les diapositives dépendantes.
 
-## **Obtenir le Maître de Diapositive**
+## **Obtenir le Slide Master**
 
-Dans PowerPoint, le Maître de Diapositive peut être accessible depuis le menu Affichage -> Maître de Diapositive :
+Dans PowerPoint, vous pouvez accéder au Slide Master via **Affichage** → **Slide Master** :
 
 ![todo:image_alt_text](slide-master_3.jpg)
 
-Avec Aspose.Slides, vous pouvez accéder à un Maître de Diapositive de cette manière :
-
+En utilisant Aspose.Slides, vous pouvez accéder à un Slide Master comme suit :
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    # Donne accès au maître de diapositive de la présentation
-    masterSlide = pres.masters[0]
+with slides.Presentation() as presentation:
+    # Obtenez la première diapositive maître de la présentation.
+    master_slide = presentation.masters[0]
 ```
 
-L'interface [IMasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/) représente un Maître de Diapositive. La propriété `masters` (liée au type [IMasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/)) contient une liste de tous les Maîtres de Diapositives définis dans la présentation.
 
-## **Ajouter une Image au Maître de Diapositive**
+La classe [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/) représente un Slide Master. La propriété [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) (une [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/)) contient tous les Slide Masters définis dans la présentation.
 
-Lorsque vous ajoutez une image à un Maître de Diapositive, cette image apparaîtra sur toutes les diapositives dépendant de ce maître de diapositive.
+## **Ajouter une image au Slide Master**
 
-Par exemple, vous pouvez placer le logo de votre entreprise et quelques images sur le Maître de Diapositive, puis revenir au mode d'édition des diapositives. Vous devriez voir l'image sur chaque diapositive.
+Lorsque vous ajoutez une image à un Slide Master, cette image apparaît sur toutes les diapositives qui dépendent de ce maître.
+
+Par exemple, placez le logo de votre entreprise ou d’autres images sur le Slide Master, puis revenez à la vue Normale. Vous verrez l’image sur chaque diapositive dépendante.
 
 ![todo:image_alt_text](slide-master_4.png)
 
-Vous pouvez ajouter des images à un Maître de Diapositive avec Aspose.Slides :
-
+Vous pouvez ajouter des images à un Slide Master avec Aspose.Slides :
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    image = pres.images.add_image(open("image.png", "rb").read())
-    pres.masters[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
+with slides.Presentation() as presentation:
 
-    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
+    with open("image.png", "rb") as image_stream:
+        image = presentation.images.add_image(image_stream.read())
+
+    master_slide = presentation.masters[0]
+    master_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
+
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" title="À voir aussi" %}} 
 
-Pour plus d'informations sur l'ajout d'images à une diapositive, consultez l'article sur le [Cadre d'Image](/slides/fr/python-net/picture-frame/#create-picture-frame).
+{{% alert color="primary" title="See also" %}}
+Pour plus d’informations sur l’ajout d’images à une diapositive, consultez l’article [Ajouter des cadres d’image aux présentations avec Python](/slides/fr/python-net/picture-frame/).
 {{% /alert %}}
 
-## **Ajouter un Espace Réservé au Maître de Diapositive**
+## **Ajouter un espace réservé au Slide Master**
 
-Ces champs de texte sont des espaces réservés standards sur un Maître de Diapositive :
+Ces champs de texte sont les espaces réservés standard sur un Slide Master :
 
-* Cliquez pour modifier le style de titre du Maître
+- Cliquez pour modifier le style de titre du maître
+- Modifier les styles de texte du maître
+- Deuxième niveau
+- Troisième niveau
 
-* Modifier les styles de texte du Maître
+Ces espaces réservés apparaissent également sur les diapositives basées sur le Slide Master. Vous pouvez les modifier sur le Slide Master, et les changements sont appliqués automatiquement aux diapositives.
 
-* Deuxième niveau
-
-* Troisième niveau
-
-Ils apparaissent également sur les diapositives basées sur le Maître de Diapositive. Vous pouvez modifier ces espaces réservés sur un Maître de Diapositive et les modifications sont automatiquement appliquées aux diapositives.
-
-Dans PowerPoint, vous pouvez ajouter un espace réservé par le chemin Maître de Diapositive -> Insérer un Espace Réservé :
+Dans PowerPoint, vous pouvez ajouter un espace réservé via **Slide Master** → **Insert Placeholder** :
 
 ![todo:image_alt_text](slide-master_5.png)
 
-Examinons un exemple plus compliqué d'espaces réservés avec Aspose.Slides. Considérez une diapositive avec des espaces réservés modélisés à partir du Maître de Diapositive :
+Examinons un exemple plus complexe d’espaces réservés dans Aspose.Slides. Considérez une diapositive avec des espaces réservés hérités du Slide Master :
 
 ![todo:image_alt_text](slide-master_6.png)
 
-Nous voulons modifier le formatage du Titre et du Sous-titre sur le Maître de Diapositive de cette manière :
+Nous voulons mettre à jour le formatage du titre et du sous‑titre sur le Slide Master comme suit :
 
 ![todo:image_alt_text](slide-master_7.png)
 
-Tout d'abord, nous récupérons le contenu de l'espace réservé de titre à partir de l'objet Maître de Diapositive, puis utilisons le champ `PlaceHolder.FillFormat` :
-
+Tout d’abord, récupérez l’espace réservé du titre depuis le Slide Master, puis utilisez la propriété `PlaceHolder.fill_format` :
 ```python
-# Obtient la référence à l'espace réservé de titre du maître
-titlePlaceholder = masterSlide.shapes[0]
+# Obtenez une référence à l'espace réservé du titre de la diapositive maître.
+title_placeholder = master_slide.shapes[0]
 
-# Définit le remplissage de format comme remplissage dégradé
-titlePlaceholder.fill_format.fill_type = slides.FillType.GRADIENT
-titlePlaceholder.fill_format.gradient_format.gradient_stops.add(0, draw.Color.red)
-titlePlaceholder.fill_format.gradient_format.gradient_stops.add(50, draw.Color.green)
-titlePlaceholder.fill_format.gradient_format.gradient_stops.add(100, draw.Color.blue)
+# Définir le format de remplissage sur un dégradé.
+title_placeholder.fill_format.fill_type = slides.FillType.GRADIENT
+title_placeholder.fill_format.gradient_format.gradient_stops.add(0, draw.Color.red)
+title_placeholder.fill_format.gradient_format.gradient_stops.add(50, draw.Color.green)
+title_placeholder.fill_format.gradient_format.gradient_stops.add(100, draw.Color.blue)
 ```
 
-Le style et le formatage du titre changeront pour toutes les diapositives basées sur le maître de diapositive :
+
+Le style et le formatage du titre changeront sur toutes les diapositives basées sur le Slide Master :
 
 ![todo:image_alt_text](slide-master_8.png)
 
-{{% alert color="primary" title="À voir aussi" %}} 
-
-* [Définir le Texte d'invite dans un Espace Réservé](https://docs.aspose.com/slides/python-net/manage-placeholder/)
-* [Formatage du Texte](https://docs.aspose.com/slides/python-net/text-formatting/)
-
+{{% alert color="primary" title="See also" %}}
+* [Gérer les espaces réservés dans les présentations avec Python](/slides/fr/python-net/manage-placeholder/)
+* [Formater le texte PowerPoint en Python](/slides/fr/python-net/text-formatting/)
 {{% /alert %}}
 
-## **Changer l'Arrière-Plan sur le Maître de Diapositive**
+## **Modifier l’arrière‑plan du Slide Master**
 
-Lorsque vous changez la couleur d'arrière-plan d'un maître de diapositive, toutes les diapositives normales de la présentation obtiendront la nouvelle couleur. Ce code Python démontre l'opération :
-
+Lorsque vous modifiez la couleur d’arrière‑plan d’un Slide Master, toutes les diapositives ordinaires de la présentation héritent de la nouvelle couleur. Le code Python suivant le démontre :
 ```python
-masterSlide.background.type = slides.BackgroundType.OWN_BACKGROUND
-masterSlide.background.fill_format.fill_type = slides.FillType.SOLID
-masterSlide.background.fill_format.solid_fill_color.color = draw.Color.gray
+master_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+master_slide.background.fill_format.fill_type = slides.FillType.SOLID
+master_slide.background.fill_format.solid_fill_color.color = draw.Color.gray
 ```
 
-{{% alert color="primary" title="À voir aussi" %}} 
 
-- [Arrière-plan de Présentation](https://docs.aspose.com/slides/python-net/presentation-background/)
-
-- [Thème de Présentation](https://docs.aspose.com/slides/python-net/presentation-theme/)
-
+{{% alert color="primary" title="See also" %}}
+* [Gérer les arrière‑plans de présentation en Python](/slides/fr/python-net/presentation-background/)
+* [Gérer les thèmes de présentation PowerPoint en Python](/slides/fr/python-net/presentation-theme/)
 {{% /alert %}}
 
-## **Cloner un Maître de Diapositive vers une Autre Présentation**
+## **Ajouter plusieurs Slide Masters à une présentation**
 
-Pour cloner un Maître de Diapositive vers une autre présentation, appelez la méthode `add_clone(source_slide, dest_master, allow_clone_missing_layout)` à partir de la présentation de destination avec un Maître de Diapositive passé à celui-ci. Ce code Python vous montre comment cloner un Maître de Diapositive vers une autre présentation :
+Aspose.Slides vous permet d’ajouter plusieurs Slide Masters et Slide Layouts à n’importe quelle présentation. Cela vous permet de configurer les styles, les mises en page et les options de formatage des diapositives de nombreuses manières différentes.
 
-```python
-# Ajoute un nouveau maître de diapositive 
-pres1MasterSlide = pres.masters.add_clone(masterSlide)
-```
-
-## **Ajouter Plusieurs Maîtres de Diapositives à la Présentation**
-
-Aspose.Slides vous permet d'ajouter plusieurs Maîtres de Diapositives et Dispositions de Diapositive à toute présentation donnée. Cela vous permet de mettre en place des styles, des dispositions et des options de formatage pour les diapositives de présentation de nombreuses manières.
-
-Dans PowerPoint, vous pouvez ajouter de nouveaux Maîtres de Diapositives et Dispositions (depuis le menu "Maître de Diapositive") de cette manière :
+Dans PowerPoint, vous pouvez ajouter de nouveaux Slide Masters et Slide Layouts depuis le menu **Slide Master** comme suit :
 
 ![todo:image_alt_text](slide-master_9.jpg)
 
-Avec Aspose.Slides, vous pouvez ajouter un nouveau Maître de Diapositive en appelant la méthode `add_clone` :
-
+En utilisant Aspose.Slides, vous pouvez ajouter un nouveau Slide Master en appelant la méthode `add_clone` :
 ```python
-# Ajoute un nouveau maître de diapositive
-secondMasterSlide = pres.masters.add_clone(masterSlide)
+# Ajouter une nouvelle diapositive maître.
+master_slide2 = presentation.masters.add_clone(master_slide1)
 ```
 
-## **Comparer les Maîtres de Diapositives**
 
-Un Maître de Diapositive implémente l'interface [IBaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseslide/) contenant la méthode `equals(slide)`, qui peut ensuite être utilisée pour comparer des diapositives. Elle renvoie `true` pour les Maîtres de Diapositives identiques en structure et contenu statique.
+## **Comparer les Slide Masters**
 
-Deux Maîtres de Diapositives sont égaux si leurs formes, styles, textes, animations et autres paramètres, etc. sont égaux. La comparaison ne prend pas en compte les valeurs d'identifiant uniques (par exemple, SlideId) et le contenu dynamique (par exemple, la date actuelle dans l'Espace Réservé Date).
+Un Slide Master étend la classe [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/) qui comprend la méthode `equals(slide)` pour comparer des diapositives. Cette méthode renvoie vrai lorsque les Slide Masters sont identiques en structure et en contenu statique.
 
-## **Définir le Maître de Diapositive comme la Vue Par Défaut de la Présentation**
+Deux Slide Masters sont considérés égaux si leurs formes, styles, texte, animations et autres paramètres sont les mêmes. La comparaison ignore les valeurs d’identifiants uniques (par ex., `slide_id`) et le contenu dynamique (par ex., la date actuelle dans un espace réservé de type Date).
 
-Aspose.Slides vous permet de définir un Maître de Diapositive comme la vue par défaut pour une présentation. La vue par défaut est ce que vous voyez en premier lorsque vous ouvrez une présentation.
+## **Définir le Slide Master comme vue par défaut de la présentation**
 
-Ce code vous montre comment définir un Maître de Diapositive comme la vue par défaut d'une présentation en Python :
-
+Aspose.Slides vous permet de définir un Slide Master comme vue par défaut de la présentation. La vue par défaut est ce que vous voyez en premier lorsque vous ouvrez la présentation. L’exemple Python suivant montre comment définir un Slide Master comme vue par défaut de la présentation :
 ```py
 import aspose.slides as slides
 
-# Instancie une classe Presentation qui représente le fichier de présentation
+# Instanciez la classe Presentation qui représente un fichier de présentation.
 with slides.Presentation() as presentation:
-    # Définit la Vue Par Défaut comme SlideMasterView
+    # Définissez la vue par défaut comme la vue Slide Master.
     presentation.view_properties.last_view = slides.ViewType.SLIDE_MASTER_VIEW
 
-    # Sauvegarde la présentation
-    presentation.save("PresView.pptx", slides.export.SaveFormat.PPTX)
+    # Enregistrez la présentation.
+    presentation.save("presentation_view.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Supprimer un Maître de Diapositive Non Utilisé**
 
-Aspose.Slides fournit la méthode `remove_unused_master_slides` (de la classe [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/)) pour vous permettre de supprimer des maîtres de diapositives indésirables et non utilisés. Ce code Python vous montre comment supprimer un maître de diapositive d'une présentation PowerPoint :
+## **Supprimer un Slide Master inutilisé**
 
+Aspose.Slides fournit la méthode `remove_unused_master_slides` (dans la classe [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/)) pour supprimer les diapositives maîtres indésirables et inutilisées. Le code Python suivant montre comment retirer les diapositives maîtres inutilisées d’une présentation PowerPoint :
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    slides.lowcode.Compress.remove_unused_master_slides(pres)
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("presentation.pptx") as presentation:
+    slides.lowcode.Compress.remove_unused_master_slides(presentation)
+    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Qu’est‑ce qu’un Slide Master dans PowerPoint ?**
+
+Un Slide Master est un modèle de diapositive qui définit la mise en page, les styles, les thèmes, les polices, l’arrière‑plan et d’autres propriétés des diapositives d’une présentation. Il vous permet de définir et de modifier l’apparence de toutes les diapositives de la présentation en une seule fois.
+
+**Comment les Slide Masters sont‑ils liés aux Slide Layouts ?**
+
+Les Slide Layouts fonctionnent en conjonction avec les Slide Masters pour offrir de la flexibilité dans la conception des diapositives. Alors qu’un Slide Master définit des styles et thèmes globaux, les [Slide Layouts](/slides/fr/python-net/slide-layout/) permettent des variantes dans l’agencement du contenu. La hiérarchie est la suivante :
+
+- **Slide Master** → Définit les styles globaux.
+- **Slide Layout** → Fournit différents agencements de contenu.
+- **Slide** → Hérite du design de son Slide Layout.
+
+**Puis‑je avoir plusieurs Slide Masters dans une même présentation ?**
+
+Oui, une présentation peut contenir plusieurs Slide Masters. Cela vous permet de styliser différentes sections d’une présentation de plusieurs manières, offrant ainsi de la flexibilité dans le design.
+
+**Comment accéder et modifier un Slide Master avec Aspose.Slides ?**
+
+Dans Aspose.Slides, un Slide Master est représenté par la classe [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/). Vous pouvez accéder à un Slide Master via la propriété [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) de l’objet [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).

@@ -1,89 +1,117 @@
 ---
-title: Управление Заполнителем
+title: Управление заполнителями в презентациях с помощью Python
+linktitle: Управление заполнителями
 type: docs
 weight: 10
 url: /ru/python-net/manage-placeholder/
-keywords: "Заполнитель, Текст заполнителя, Текст подсказки, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Изменение текста заполнителя и текста подсказки в презентациях PowerPoint на Python"
+keywords:
+- заполнитель
+- текстовый заполнитель
+- заполнитель изображения
+- заполнитель диаграммы
+- текст подсказки
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Легко управлять заполнителями в Aspose.Slides для Python через .NET: заменять текст, настраивать подсказки и задавать прозрачность изображений в PowerPoint и OpenDocument."
 ---
 
-## **Изменить Текст в Заполнителе**
+## **Обзор**
 
-С помощью [Aspose.Slides для Python через .NET](/slides/ru/python-net/) вы можете находить и изменять заполнители на слайдах в презентациях. Aspose.Slides позволяет изменять текст в заполнителе.
+Заполнители определяют зарезервированные области на мастерах, макетах и слайдах — такие как заголовок, основное содержание, изображение, диаграмма, дата/время, номер слайда и нижний колонтитул — которые контролируют, куда помещается контент и как он наследует форматирование. С помощью Aspose.Slides для Python вы можете обнаружить заполнители на слайде, его макете или мастере, проверив, что `shape.placeholder` не равно `None`, изучив `placeholder.type`, а затем считать или изменить связанное содержимое и форматирование. API позволяет добавить новые заполнители в мастер или макет, чтобы они распространялись на дочерние слайды, перемещать и изменять размер существующих, преобразовать заполнитель в обычную форму, когда требуется полный контроль, или удалить его для упрощения дизайна. Приведённые ниже примеры показывают, как перечислить заполнители, обновить текст и стиль, а также поддерживать согласованность макетов, применяя изменения на соответствующем уровне.
 
-**Предварительные условия**: Вам нужна презентация, содержащая заполнитель. Вы можете создать такую презентацию в стандартном приложении Microsoft PowerPoint.
+## **Изменение текста в заполнителях**
 
-Вот как вы можете использовать Aspose.Slides для замены текста в заполнителе в этой презентации:
+С помощью Aspose.Slides для Python вы можете находить и изменять заполнители на слайдах презентации. Aspose.Slides позволяет изменять текст в заполнитель.
 
-1. Создайте экземпляр класса [`Presentation`](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и передайте презентацию в качестве аргумента.
-2. Получите ссылку на слайд по его индексу.
-3. Переберите фигуры, чтобы найти заполнитель.
-4. Приведите фигуру заполнителя к типу [`AutoShape`](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) и измените текст с помощью [`TextFrame`](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/), связанного с [`AutoShape`](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
-5. Сохраните измененную презентацию.
+**Prerequisite:** Вам нужна презентация, содержащая заполнитель. Вы можете создать такую презентацию в Microsoft PowerPoint.
 
-Этот код на Python показывает, как изменить текст в заполнителе:
+Это как использовать Aspose.Slides для замены текста в заполнитель:
 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и передайте презентацию в качестве аргумента.  
+2. Получите ссылку на слайд по его индексу.  
+3. Итерируйте формы, чтобы найти заполнитель.  
+4. Измените текст, используя [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) связанную с [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).  
+5. Сохраните изменённую презентацию.
+
+Этот код Python показывает, как изменить текст в заполнитель:
 ```python
 import aspose.slides as slides
 
-# Создает экземпляр класса Presentation
-with slides.Presentation(path + "ReplacingText.pptx") as pres:
-    # Получает доступ к первому слайду
-    sld = pres.slides[0]
+# Создайте экземпляр класса Presentation.
+with slides.Presentation("ReplacingText.pptx") as presentation:
+    # Получите первый слайд.
+    slide = presentation.slides[0]
 
-    # Перебирает фигуры, чтобы найти заполнитель
-    for shp in sld.shapes:
-        if shp.placeholder != None:
-            # Изменяет текст в каждом заполнителе
-            shp.text_frame.text = "Это Заполнитель"
+    # Переберите фигуры, чтобы найти заполнители.
+    for shape in slide.shapes:
+        if shape.placeholder is not None:
+            # Измените текст в каждом заполняющем элементе.
+            shape.text_frame.text = "This is Placeholder"
 
-    # Сохраняет презентацию на диск
-    pres.save("output_out.pptx", slides.export.SaveFormat.PPTX)
+    # Сохраните презентацию на диск.
+    presentation.save("ReplacingText_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **Установить Текст Подсказки в Заполнителе**
-Стандартные и заранее определенные макеты содержат текст подсказки для заполнителей, такой как ***Нажмите, чтобы добавить заголовок*** или ***Нажмите, чтобы добавить подзаголовок***. С помощью Aspose.Slides вы можете вставить предпочтительные тексты подсказок в макеты заполнителей.
+## **Установка текста‑подсказки для заполнителя**
 
-Этот код на Python показывает, как установить текст подсказки в заполнитель:
+Стандартные и готовые макеты включают текст‑подсказки заполнителей, такие как **Click to add a title** или **Click to add a subtitle**. С помощью Aspose.Slides вы можете заменить эти подсказки собственным текстом в макетах заполнителей.
 
+Следующий пример Python показывает, как установить текст‑подсказку для заполнителя:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation(path + "Presentation2.pptx") as pres:
-    slide = pres.slides[0]
-    for shape in slide.slide.shapes: # Перебирает слайд
-        if shape.placeholder != None and type(shape) is slides.AutoShape:
-            text = ""
-            if shape.placeholder.type == slides.PlaceholderType.CENTERED_TITLE: # PowerPoint отображает "Нажмите, чтобы добавить заголовок". 
-                text = "Добавить Заголовок"
-            elif shape.placeholder.type == slides.PlaceholderType.SUBTITLE: # Добавляет подзаголовок.
-                text = "Добавить Подзаголовок"
+with slides.Presentation("PromptText.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    # Переберите формы, чтобы найти заполнители.
+    for shape in slide.slide.shapes:
+        if shape.placeholder is not None and type(shape) is slides.AutoShape:
+            if shape.placeholder.type == slides.PlaceholderType.CENTERED_TITLE:
+                text = "Add Title"
+            elif shape.placeholder.type == slides.PlaceholderType.SUBTITLE:
+                text = "Add Subtitle"
 
             shape.text_frame.text = text
+            print(f"Placeholder with text: {text}")
 
-            print("Заполнитель с текстом: {text}".format(text = text))
-
-    pres.save("Placeholders_PromptText.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("PromptText_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Установить Прозрачность Изображения Заполнителя**
 
-Aspose.Slides позволяет устанавливать прозрачность фона изображения в текстовом заполнителе. Регулируя прозрачность изображения в таком кадре, вы можете выделить текст или изображение (в зависимости от цветов текста и изображения).
+## **Установка прозрачности изображения в заполнитель**
 
-Этот код на Python показывает, как установить прозрачность для фона изображения (внутри фигуры):
+Aspose.Slides позволяет установить прозрачность фонового изображения в текстовом заполнителе. Регулируя прозрачность картинки в этом кадре, вы можете выделять либо текст, либо изображение, в зависимости от их цветов.
 
+Следующий пример Python показывает, как установить прозрачность фонового изображения внутри формы:
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    autoShape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
-    
-    autoShape.fill_format.fill_type = slides.FillType.PICTURE
-    with open("image.png", "rb") as in_file:
-        autoShape.fill_format.picture_fill_format.picture.image = presentation.images.add_image(in_file)
+    slide = presentation.slides[0]
 
-        autoShape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-        autoShape.fill_format.picture_fill_format.picture.image_transform.add_alpha_modulate_fixed_effect(75)
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
+    auto_shape.fill_format.fill_type = slides.FillType.PICTURE
 
+    with open("image.png", "rb") as image_stream:
+        auto_shape.fill_format.picture_fill_format.picture.image = presentation.images.add_image(image_stream)
+        auto_shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+        auto_shape.fill_format.picture_fill_format.picture.image_transform.add_alpha_modulate_fixed_effect(75)
 ```
+
+
+## **FAQ**
+
+**Что такое базовый заполнитель и чем он отличается от локальной формы на слайде?**
+
+Базовый заполнитель — это оригинальная форма на макете или мастере, от которой наследуется форма слайда — тип, позиция и часть форматирования берутся из него. Локальная форма — независимая; если базового заполнителя нет, наследование не применяется.
+
+**Как обновить все заголовки или подписи во всей презентации без перебора каждого слайда?**
+
+Отредактируйте соответствующий заполнитель на макете или мастере. Слайды, основанные на этих макетах/мастере, автоматически унаследуют изменение.
+
+**Как управлять стандартными заполнителями верхнего/нижнего колонтитула — датой и временем, номером слайда и текстом нижнего колонтитула?**
+
+Используйте менеджеры HeaderFooter в нужном объёме (обычные слайды, макеты, мастер, заметки/раздатки), чтобы включать или отключать эти заполнители и задавать их содержимое.

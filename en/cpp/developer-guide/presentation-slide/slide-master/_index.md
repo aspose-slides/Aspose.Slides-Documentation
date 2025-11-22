@@ -1,10 +1,27 @@
 ---
-title: Slide Master
+title: Manage Presentation Slide Masters in C++
+linktitle: Slide Master
 type: docs
 weight: 80
 url: /cpp/slide-master/
-keywords: "Add Slide Master, PPT master slide, slide master PowerPoint, Image to Slide Master, Placeholder, Multiple Slide Masters, Compare Slide Masters, C++, CPP, Aspose.Slides for C++"
-description: "Add or edit slide master in PowerPoint presentation in C++"
+keywords:
+- slide master
+- master slide
+- PPT master slide
+- multiple master slides
+- compare master slides
+- background
+- placeholder
+- clone master slide
+- copy master slide
+- duplicate master slide
+- unused master slide
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Manage Slide Masters in Aspose.Slides for C++: create, edit and apply layouts, themes and placeholders to PPT, PPTX and ODP with concise C++ examples."
 ---
 
 ## **What is a Slide Master in PowerPoint**

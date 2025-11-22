@@ -1,8 +1,25 @@
 ---
-title: Manage SmartArt Shape
+title: Manage SmartArt Graphics in Presentations Using Java
+linktitle: SmartArt Graphics
 type: docs
 weight: 20
 url: /java/manage-smartart-shape/
+keywords:
+- SmartArt object
+- SmartArt graphic
+- SmartArt style
+- SmartArt color
+- create SmartArt
+- add SmartArt
+- edit SmartArt
+- change SmartArt
+- access SmartArt
+- SmartArt layout type
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Automate PowerPoint SmartArt creation, editing, and styling in Java using Aspose.Slides, featuring concise code examples and performance-focused guidance."
 ---
 
 

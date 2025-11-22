@@ -3,6 +3,12 @@ title: Licensing Bug
 type: docs
 weight: 95
 url: /java/licensing-bug/
+keywords:
+- licensing bug
+- perpetual license
+- Java
+- Aspose.Slides
+description: "Learn how a licensing bug in Aspose.Slides for Java 23.2–23.7 affects perpetual keys and how to fix it to keep working with PPT, PPTX and ODP."
 ---
 
 This article describes a licensing bug encountered in Aspose.Slides for Java versions 23.2, 23.3, 23.4, 23.5, 23.6 and 23.7. This bug caused perpetual licenses to become temporarily unusable after their subscription expired.

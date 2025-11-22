@@ -1,10 +1,21 @@
 ---
-title: Manage Cells
+title: Manage Table Cells in Presentations Using Java
+linktitle: Manage Cells
 type: docs
 weight: 30
 url: /java/manage-cells/
-keywords: "Table, merged cells, split cells, image in table cell, Java, Aspose.Slides for Java"
-description: "Table cells in PowerPoint presentations in Java"
+keywords:
+- table cell
+- merge cells
+- remove border
+- split cell
+- image in cell
+- background color
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Effortlessly manage table cells in PowerPoint with Aspose.Slides for Java. Master accessing, modifying, and styling cells quickly for seamless slide automation."
 ---
 
 

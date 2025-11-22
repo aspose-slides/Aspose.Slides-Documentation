@@ -1,6 +1,6 @@
 ---
-title: Convert PPT and PPTX to PDF in C# [Advanced Features Included]
-linktitle: Convert PPT and PPTX to PDF
+title: Convert PPT and PPTX to PDF in .NET [Advanced Features Included]
+linktitle: PowerPoint to PDF
 type: docs
 weight: 40
 url: /net/convert-powerpoint-to-pdf/
@@ -13,17 +13,18 @@ keywords:
 - convert PPT to PDF
 - PPTX to PDF
 - convert PPTX to PDF
-- ODP to PDF
-- convert ODP to PDF
 - save PowerPoint as PDF
+- save PPT as PDF
+- save PPTX as PDF
+- export PPT to PDF
+- export PPTX to PDF
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
-- C#
-- Csharp
 - .NET
-- Aspose.Slides for .NET
-description: "Learn how to convert PPT, PPTX, and ODP presentations to PDF in C# or .NET using Aspose.Slides. Implement advanced features like password protection, compliance standards, and custom options for high-quality, accessible PDF documents."
+- C#
+- Aspose.Slides
+description: "Convert PowerPoint PPT/PPTX to high-quality, searchable PDFs in .NET using Aspose.Slides, with fast C# code examples and advanced conversion options."
 ---
 
 ## **Overview**

@@ -18,7 +18,7 @@ keywords:
 - презентация
 - Python
 - Aspose.Slides
-description: "Конвертируйте OpenDocument ODP в PDF, PPT, PPTX, XPS, HTML, TIFF или SWF в Python с помощью Aspose.Slides: примеры кода, высокая точность, пакетное преобразование и настройка."
+description: "Конвертировать OpenDocument ODP в PDF, PPT, PPTX, XPS, HTML, TIFF или SWF в Python с помощью Aspose.Slides: примеры кода, высокая точность, пакетное преобразование и настройка."
 ---
 
 [**Aspose.Slides API**](https://products.aspose.com/slides/python-net/) позволяет вам конвертировать презентации OpenOffice ODP в множество форматов. API, используемый для конвертации ODP файлов в другие форматы документов, такой же, как и для операций конвертации PowerPoint (PPT и PPTX).

@@ -1,6 +1,6 @@
 ---
-title: Secure PowerPoint Presentations with Passwords Using C#
-linktitle: Password Protected Presentation
+title: Secure Presentations with Passwords in .NET
+linktitle: Password Protection
 type: docs
 weight: 20
 url: /net/password-protected-presentation/
@@ -26,10 +26,13 @@ keywords:
 - disable password
 - disable protection
 - remove write protection
-- PowerPoint presentation
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
 - C#
 - Aspose.Slides
-description: "Learn how to effortlessly lock and unlock password-protected PowerPoint and OpenDocument presentations with Aspose.Slides for .NET. Boost your productivity and secure your presentations with our step-by-step guide."
+description: "Learn how to effortlessly lock and unlock password-protected PowerPoint and OpenDocument presentations with Aspose.Slides for .NET. Secure your presentations."
 ---
 
 ## **Overview**

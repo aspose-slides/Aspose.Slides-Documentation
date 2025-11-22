@@ -1,21 +1,20 @@
 ---
-title: Create a Chart in a PowerPoint Presentation in C#
-linktitle: Create a Chart
+title: Create Charts Using VSTO and Aspose.Slides for .NET
+linktitle: Create Chart
 type: docs
 weight: 80
 url: /net/create-a-chart-in-a-microsoft-powerpoint-presentation/
 keywords:
-- VSTO
-- automation
-- migration
-- chart
 - create chart
+- migration
+- VSTO
+- Office automation
 - PowerPoint
 - presentation
-- C#
 - .NET
+- C#
 - Aspose.Slides
-description: "Learn how to automate PowerPoint chart creation using C#. This step-by-step guide shows why Aspose.Slides for .NET is a faster, more powerful alternative to Microsoft.Office.Interop."
+description: "Learn how to automate PowerPoint chart creation in C#. This step-by-step guide shows why Aspose.Slides for .NET is a faster, more powerful alternative to Microsoft.Office.Interop."
 ---
 
 ## **Overview**

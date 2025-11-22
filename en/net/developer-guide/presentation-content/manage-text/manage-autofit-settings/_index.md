@@ -1,6 +1,6 @@
 ---
-title: Enhance Your Presentations with AutoFit in C#
-linktitle: Manage Autofit Settings
+title: Enhance Your Presentations with AutoFit in .NET
+linktitle: Autofit Settings
 type: docs
 weight: 30
 url: /net/manage-autofit-settings/

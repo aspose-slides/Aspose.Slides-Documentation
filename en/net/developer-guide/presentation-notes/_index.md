@@ -1,13 +1,24 @@
 ---
-title: Presentation Notes
+title: Manage Presentation Notes in .NET
+linktitle: Presentation Notes
 type: docs
 weight: 110
 url: /net/presentation-notes/
-keywords: "Notes, PowerPoint notes, add notes, remove notes, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Add and remove notes in PowerPoint presentations in C# or .NET"
+keywords:
+- notes
+- notes slide
+- add notes
+- remove notes
+- notes style
+- master notes
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Customize presentation notes with Aspose.Slides for .NET. Seamlessly work with PowerPoint and OpenDocument notes to boost your productivity."
 ---
-
-
 
 Aspose.Slides supports removing notes slides from a presentation. In this topic, we will introduce this new feature of removing Notes also adding notes style slides from any presentation. Aspose.Slides for .NET provides the feature of removing notes of any slide as well as add style to existing notes. Developers can remove notes in the following ways:
 

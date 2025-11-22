@@ -1,6 +1,6 @@
 ---
-title: Open a Presentation in C#
-linktitle: Open Presentations
+title: Open Presentations in .NET
+linktitle: Open Presentation
 type: docs
 weight: 20
 url: /net/open-presentation/

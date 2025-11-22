@@ -1,8 +1,21 @@
 ---
-title: Manage SmartArt
+title: Manage SmartArt in PowerPoint Presentations Using Java
+linktitle: Manage SmartArt
 type: docs
 weight: 10
 url: /java/manage-smartart/
+keywords:
+- SmartArt
+- SmartArt text
+- layout type
+- hidden property
+- organization chart
+- picture organization chart
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn to build and edit PowerPoint SmartArt with Aspose.Slides for Java using clear code samples that speed up slide design and automation."
 ---
 
 ## **Get Text from SmartArt**

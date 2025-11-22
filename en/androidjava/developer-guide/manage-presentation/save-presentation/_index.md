@@ -1,6 +1,6 @@
 ---
 title: Save Presentations on Android
-linktitle: Save Presentations
+linktitle: Save Presentation
 type: docs
 weight: 80
 url: /androidjava/save-presentation/

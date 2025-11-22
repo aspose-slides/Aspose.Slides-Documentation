@@ -1,16 +1,16 @@
 ---
-title: Améliorez vos présentations PowerPoint avec des animations en Python
+title: Améliorer les présentations PowerPoint avec des animations en Python
 linktitle: Animation PowerPoint
 type: docs
 weight: 150
 url: /fr/python-net/powerpoint-animation/
 keywords:
-- ajouter une animation
-- mettre à jour une animation
-- modifier une animation
-- supprimer une animation
-- gérer les animations
-- contrôler l'animation
+- ajouter animation
+- mettre à jour animation
+- modifier animation
+- supprimer animation
+- gérer animation
+- contrôler animation
 - effet d'animation
 - animation PowerPoint
 - chronologie d'animation
@@ -23,68 +23,94 @@ keywords:
 - objet OLE animé
 - image animée
 - tableau animé
-- PowerPoint
-- présentation
+- présentation PowerPoint
 - Python
 - Aspose.Slides
-description: "Découvrez les capacités d'Aspose.Slides for Python via .NET pour la gestion des animations PowerPoint. Cette vue d'ensemble générale met en avant les fonctionnalités clés et fournit des pistes pour améliorer vos présentations."
+description: "Explorez les capacités d'Aspose.Slides pour Python via .NET dans la gestion des animations PowerPoint. Cette vue d'ensemble générale met en évidence les fonctionnalités clés et offre des conseils pour améliorer vos présentations."
 ---
 
-Puisque les présentations sont conçues pour présenter quelque chose, leur apparence visuelle et leur comportement interactif sont toujours pris en compte lors de leur création.
+## **Vue d'ensemble**
 
-**L'animation PowerPoint** joue un rôle important pour rendre la présentation attrayante et captivante pour les spectateurs. Aspose.Slides pour Python via .NET offre une large gamme d'options pour ajouter de l'animation à une présentation PowerPoint :
+Les présentations sont conçues pour transmettre des informations, c’est pourquoi leur apparence visuelle et leur comportement interactif sont des considérations essentielles lors de la création.
 
-- appliquer divers types d'effets d'animation PowerPoint sur des formes, graphiques, tableaux, objets OLE et autres éléments de présentation.
-- utiliser plusieurs effets d'animation PowerPoint sur une forme.
-- utiliser une chronologie d'animation pour contrôler les effets d'animation.
-- créer une animation personnalisée.
+**L’animation PowerPoint** joue un rôle important pour rendre une présentation attrayante et engageante pour les spectateurs. Aspose.Slides for Python via .NET offre un large éventail d’options pour ajouter des animations à une présentation PowerPoint. Vous pouvez :
 
-Dans Aspose.Slides pour Python via .NET, divers effets d'animation peuvent être appliqués sur les formes. Comme chaque élément sur la diapositive, y compris le texte, les images, l'objet OLE, le tableau, etc., est considéré comme une forme, cela signifie que nous pouvons appliquer un effet d'animation sur chaque élément d'une diapositive.
+- Appliquer différents effets d’animation aux formes, graphiques, tableaux, objets OLE et autres éléments.  
+- Utiliser plusieurs effets d’animation sur une même forme.  
+- Contrôler les effets via la chronologie d’animation.  
+- Créer des animations personnalisées.
 
-[**Aspose.Slides.Animation**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/) **espace de noms** fournit des classes pour travailler avec les animations PowerPoint.
-## **Effets d'Animation**
-Aspose.Slides prend en charge **150+ effets d'animation**, y compris des effets d'animation de base comme Bounce, PathFootball, effet Zoom et des effets d'animation spécifiques comme OLEObjectShow, OLEObjectOpen. Vous pouvez trouver une liste complète des effets d'animation dans l’[**énumération EffectType**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttype/).
+Dans Aspose.Slides for Python via .NET, les effets d’animation peuvent être appliqués aux formes. Comme chaque élément d’une diapositive – texte, images, objets OLE et tableaux – est traité comme une forme, vous pouvez appliquer des effets d’animation à n’importe quel élément de la diapositive.
 
-De plus, ces effets d'animation peuvent être utilisés en combinaison avec ceux-ci :
+L’espace de noms [aspose.slides.animation](https://reference.aspose.com/slides/python-net/aspose.slides.animation/) fournit les classes permettant de travailler avec les animations PowerPoint.
 
-- [ColorEffect](https://reference.aspose.com/slides/python-net/aspose.slides.animation/coloreffect/)
-- [CommandEffect](https://reference.aspose.com/slides/python-net/aspose.slides.animation/commandeffect/)
-- [FilterEffect](https://reference.aspose.com/slides/python-net/aspose.slides.animation/filtereffect/)
-- [MotionEffect](https://reference.aspose.com/slides/python-net/aspose.slides.animation/motioneffect/)
-- [PropertyEffect](https://reference.aspose.com/slides/python-net/aspose.slides.animation/propertyeffect/)
-- [RotationEffect](https://reference.aspose.com/slides/python-net/aspose.slides.animation/rotationeffect)
-- [ScaleEffect](https://reference.aspose.com/slides/python-net/aspose.slides.animation/scaleeffect/)
+## **Effets d’animation**
+
+Aspose.Slides prend en charge **plus de 150 effets d’animation**, y compris des effets de base tels que Bounce, PathFootball et Zoom, ainsi que des effets spécialisés comme OLEObjectShow et OLEObjectOpen. Vous trouvez la liste complète dans l’énumération [EffectType](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttype/).
+
+De plus, ces effets d’animation peuvent être combinés avec les effets suivants :
+
+- [ColorEffect](https://reference.aspose.com/slides/python-net/aspose.slides.animation/coloreffect/)  
+- [CommandEffect](https://reference.aspose.com/slides/python-net/aspose.slides.animation/commandeffect/)  
+- [FilterEffect](https://reference.aspose.com/slides/python-net/aspose.slides.animation/filtereffect/)  
+- [MotionEffect](https://reference.aspose.com/slides/python-net/aspose.slides.animation/motioneffect/)  
+- [PropertyEffect](https://reference.aspose.com/slides/python-net/aspose.slides.animation/propertyeffect/)  
+- [RotationEffect](https://reference.aspose.com/slides/python-net/aspose.slides.animation/rotationeffect)  
+- [ScaleEffect](https://reference.aspose.com/slides/python-net/aspose.slides.animation/scaleeffect/)  
 - [SetEffect](https://reference.aspose.com/slides/python-net/aspose.slides.animation/seteffect/)
-## **Animation Personnalisée**
-Il est possible de créer vos propres **animations personnalisées** dans Aspose.Slides. 
-Cela peut être réalisé si vous combinez plusieurs comportements ensemble dans une nouvelle animation personnalisée.
 
-[**Comportement**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/behavior/) est une unité de base de tout effet d'animation PowerPoint. Tous les effets d'animation sont en fait un ensemble de comportements composés en une seule stratégie. Vous pouvez combiner des comportements en une animation personnalisée une fois et la réutiliser dans d'autres présentations. Si vous ajoutez un nouveau comportement à un effet d'animation PowerPoint standard - ce sera une autre animation personnalisée. Par exemple, vous pouvez ajouter un comportement de répétition à une animation pour qu'elle se répète plusieurs fois.
+## **Animation personnalisée**
 
-[**Point d'Animation**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/point/) est un point où le comportement doit être appliqué.
-## **Chronologie d'Animation**
-[**Séquence**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/) est une collection d'effets d'animation appliqués sur une forme concrète.
+Vous pouvez créer vos propres **animations personnalisées** dans Aspose.Slides en combinant plusieurs comportements en un seul effet.
 
-[**Chronologie**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animationtimeline/) est un ensemble de séquences utilisé dans une diapositive concrète. C'est un moteur d'animation représenté depuis PowerPoint 2002. Dans les versions PowerPoint précédentes, il était difficile d'ajouter des effets d'animation à la présentation, ce qui ne pouvait être réalisé qu'avec différents contournements. La chronologie vient remplacer l'ancienne classe AnimationSettings et fournir un modèle d'objet plus clair pour l'animation PowerPoint. Une diapositive ne peut avoir qu'une seule chronologie d'animation.
-## **Animation Interactive**
-[**Déclencheur**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttriggertype/) permet de définir des actions utilisateur (par exemple, clic sur un bouton), qui déclencheront le début d'une certaine animation. Les déclencheurs ont été ajoutés uniquement dans la dernière version de PowerPoint.
-## **Animation de Forme**
-Aspose.Slides permet d'appliquer de l'animation aux formes, qui peuvent en fait être du texte, un rectangle, une ligne, un cadre, un objet OLE, etc.
+[Behavior](https://reference.aspose.com/slides/python-net/aspose.slides.animation/behavior/) est le bloc de construction de base de tout effet d’animation PowerPoint. Chaque effet d’animation est essentiellement un ensemble de comportements disposés dans une stratégie ou une chronologie. Vous pouvez assembler les comportements en une animation personnalisée une fois, puis la réutiliser dans d’autres présentations. Si vous ajoutez un nouveau comportement à un effet d’animation PowerPoint standard, il devient une animation personnalisée — par exemple, ajouter un comportement de répétition pour que l’animation se joue plusieurs fois.
 
-{{% alert color="primary" %}} 
-En savoir plus sur [**L'Animation de Forme**](/slides/fr/python-net/shape-animation/).
+[Animation Point](https://reference.aspose.com/slides/python-net/aspose.slides.animation/point/) marque le moment ou la position où un comportement est appliqué (une image clé).
+
+## **Chronologie d’animation**
+
+[Sequence](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/) est une collection d’effets d’animation appliqués à une forme spécifique.
+
+[Timeline](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animationtimeline/) est l’ensemble de séquences utilisé sur une diapositive donnée. Elle a été introduite dans PowerPoint 2002. Dans les versions antérieures, ajouter des effets d’animation était difficile et nécessitait souvent des contournements. La chronologie remplace l’ancienne classe `AnimationSettings` et fournit un modèle d’objet plus clair pour les animations PowerPoint. Chaque diapositive ne peut contenir qu’une seule chronologie d’animation.
+
+## **Animation interactive**
+
+[Trigger](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttriggertype/) vous permet de définir des actions utilisateur (par ex., un clic sur un bouton) qui déclenchent une animation précise. Les déclencheurs n’ont été ajoutés que dans les versions les plus récentes de PowerPoint.
+
+## **Animation de forme**
+
+Aspose.Slides vous permet d’appliquer des animations aux formes — texte, rectangles, lignes, cadres, objets OLE, etc.
+
+{{% alert color="primary" %}}
+Lisez plus [**À propos de l’animation de forme**](/slides/fr/python-net/shape-animation/).
 {{% /alert %}}
 
-## **Graphiques Animés**
-Pour créer des graphiques animés, vous devez utiliser toutes les mêmes classes que pour les formes. Cependant, il est possible d'utiliser l'animation PowerPoint uniquement sur les catégories de graphiques ou les séries de graphiques. Vous pouvez également appliquer un effet d'animation à un élément de catégorie ou à un élément de série.
+## **Graphiques animés**
 
-{{% alert color="primary" %}} 
-En savoir plus sur [**Les Graphiques Animés**](/slides/fr/python-net/animated-charts/).
+Pour créer des graphiques animés, utilisez les mêmes classes que pour les formes. Cependant, les animations PowerPoint ne peuvent être appliquées qu’aux catégories ou aux séries d’un graphique. Vous pouvez également appliquer un effet d’animation à un élément de catégorie individuel ou à un élément de série.
+
+{{% alert color="primary" %}}
+Lisez plus [**À propos des graphiques animés**](/slides/fr/python-net/animated-charts/).
 {{% /alert %}}
 
-## **Texte Animé**
-En plus du texte animé, il est également possible d'appliquer de l'animation à un paragraphe.
+## **Texte animé**
 
-{{% alert color="primary" %}} 
-En savoir plus sur [**Le Texte Animé**](/slides/fr/python-net/animated-text/).
+En plus d’animer du texte, vous pouvez appliquer une animation à un paragraphe.
+
+{{% alert color="primary" %}}
+Lisez plus [**À propos du texte animé**](/slides/fr/python-net/animated-text/).
 {{% /alert %}}
+
+## **FAQ**
+
+**Les animations seront‑elles conservées lors de l’exportation en PDF ?**
+
+Non. Le PDF est un format statique, les animations et les [transitions de diapositive](/slides/fr/python-net/slide-transition/) ne sont pas lues. Si vous avez besoin de mouvement, exportez vers [HTML5](/slides/fr/python-net/export-to-html5/), [GIF animé](/slides/fr/python-net/convert-powerpoint-to-animated-gif/) ou [vidéo](/slides/fr/python-net/convert-powerpoint-to-video/) à la place.
+
+**Puis‑je transformer une présentation animée en vidéo et contrôler le nombre d’images par seconde ainsi que la taille du cadre ?**
+
+Oui. Vous pouvez [rendre la présentation sous forme de cadres](/slides/fr/python-net/convert-powerpoint-to-video/) et les encoder en vidéo (par ex., avec ffmpeg), en choisissant le FPS et la résolution. Les animations et les transitions de diapositive sont lues pendant le rendu.
+
+**Les animations resteront‑elles intactes lors du travail avec ODP (et pas seulement PPTX) ?**
+
+PPT, PPTX et ODP sont pris en charge pour la [lecture](/slides/fr/python-net/open-presentation/) et l’[écriture](/slides/fr/python-net/save-presentation/), mais les différences de format signifient que certains effets peuvent apparaître ou se comporter légèrement différemment. Validez les cas critiques avec des échantillons réels.

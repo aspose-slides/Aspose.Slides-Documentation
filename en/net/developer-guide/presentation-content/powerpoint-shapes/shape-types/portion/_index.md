@@ -1,10 +1,20 @@
 ---
-title: Portion
+title: Manage Text Portions in Presentations in .NET
+linktitle: Text Portion
 type: docs
 weight: 70
 url: /net/portion/
-keywords: "Portion, PowerPoint shape, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Get portion in PowerPoint presentation in C# or .NET"
+keywords:
+- text portion
+- text part
+- text coordinates
+- text position
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how to manage text portions in PowerPoint presentations using Aspose.Slides for .NET, boosting performance and customization."
 ---
 
 ## **Get Position Coordinates of Portion**

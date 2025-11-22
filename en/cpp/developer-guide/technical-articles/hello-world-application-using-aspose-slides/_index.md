@@ -1,8 +1,17 @@
 ---
-title: Hello World Application using Aspose.Slides
+title: Hello World Application using Aspose.Slides for C++
 type: docs
 weight: 80
 url: /cpp/hello-world-application-using-aspose-slides/
+keywords:
+- hello world
+- application
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Create your first C++ app with Aspose.Slides, a simple Hello World example that gets you ready to automate PPT, PPTX and ODP presentations."
 ---
 
 ## **Steps to Create Hello World Application**

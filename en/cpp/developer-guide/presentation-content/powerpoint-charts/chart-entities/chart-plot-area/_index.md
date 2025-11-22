@@ -1,7 +1,20 @@
 ---
-title: Chart Plot Area
+title: Customize Plot Areas of Presentation Charts in С++
+linktitle: Plot Area
 type: docs
 url: /cpp/chart-plot-area/
+keywords:
+- chart
+- plot area
+- plot area width
+- plot area height
+- plot area size
+- layout mode
+- PowerPoint
+- presentation
+- С++
+- Aspose.Slides
+description: "Discover how to customize chart plot areas in PowerPoint presentations with Aspose.Slides for С++. Improve your slide visuals effortlessly."
 ---
 
 ## **Get Width, Height of Chart Plot Area**

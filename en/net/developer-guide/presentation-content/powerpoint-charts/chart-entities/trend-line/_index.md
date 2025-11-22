@@ -1,9 +1,24 @@
 ---
-title: Trend Line
+title: Add Trend Lines to Presentation Charts in .NET
+linktitle: Trend Line
 type: docs
 url: /net/trend-line/
-keywords: "Trend line, custom line PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Add trend line and custom line to PowerPoint presentations in C# or .NET"
+keywords:
+- chart
+- trend line
+- exponential trend line
+- linear trend line
+- logarithmic trend line
+- moving average trend line
+- polynomial trend line
+- power trend line
+- custom trend line
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Quickly add and customize trend lines in PowerPoint charts with Aspose.Slides for .NET — a practical guide to engage your audience."
 ---
 
 ## **Add Trend Line**

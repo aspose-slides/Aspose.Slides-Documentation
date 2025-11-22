@@ -1,8 +1,19 @@
 ---
-title: Aspose.Slides for C++ - Performance Metrics and Benchmarks
+title: "Aspose.Slides for C++: Performance Metrics and Benchmarks"
 type: docs
 weight: 20
 url: /cpp/aspose-slides-for-c-performance-metrics-and-benchmarks/
+keywords:
+- performance
+- metrics
+- benchmarks
+- VSTO
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Compare Aspose.Slides for C++ performance with VSTO using real benchmarks and see how it speeds up working with PPT, PPTX and ODP presentations."
 ---
 
 ## **Purpose**

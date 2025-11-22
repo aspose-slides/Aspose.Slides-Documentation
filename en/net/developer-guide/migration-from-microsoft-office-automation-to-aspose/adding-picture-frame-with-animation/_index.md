@@ -1,8 +1,24 @@
 ---
-title: Adding Picture Frame with Animation
+title: Adding Picture Frames with Animation Using VSTO and Aspose.Slides for .NET
+linktitle: Picture Frames with Animation
 type: docs
 weight: 60
 url: /net/adding-picture-frame-with-animation/
+keywords:
+- picture frame
+- add image
+- add picture
+- image with animation
+- picture with animation
+- migration
+- VSTO
+- Office automation
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Migrate from Microsoft Office automation to Aspose.Slides for .NET and animate picture frames in PowerPoint (PPT, PPTX) slides with clean C# code."
 ---
 
 {{% alert color="primary" %}} 

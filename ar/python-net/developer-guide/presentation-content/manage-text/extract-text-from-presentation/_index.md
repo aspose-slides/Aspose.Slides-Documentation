@@ -1,120 +1,146 @@
 ---
-title: استخراج النص من العرض
+title: استخراج نص متقدم من عروض PowerPoint التقديمية باستخدام Python
+linktitle: استخراج النص
 type: docs
 weight: 90
 url: /ar/python-net/extract-text-from-presentation/
-keywords: "استخراج النص من الشريحة، استخراج النص من PowerPoint، بايثون، Aspose.Slides لـ Python عبر .NET"
-description: "استخراج النص من الشريحة أو عرض PowerPoint في بايثون"
+keywords:
+- استخراج النص
+- استخراج النص من الشريحة
+- استخراج النص من العرض
+- استخراج النص من PowerPoint
+- استخراج النص من OpenDocument
+- استخراج النص من PPT
+- استخراج النص من PPTX
+- استخراج النص من ODP
+- استرجاع النص
+- استرجاع النص من الشريحة
+- استرجاع النص من العرض
+- استرجاع النص من PowerPoint
+- استرجاع النص من OpenDocument
+- استرجاع النص من PPT
+- استرجاع النص من PPTX
+- استرجاع النص من ODP
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "تعلم كيفية استخراج النص بسرعة وسهولة من عروض PowerPoint التقديمية باستخدام Aspose.Slides للـ Python عبر .NET. اتبع دليلنا البسيط خطوة بخطوة لتوفير الوقت والوصول إلى محتوى الشرائح بفعالية في تطبيقاتك."
 ---
 
-{{% alert color="primary" %}} 
+## **نظرة عامة**
 
-ليس من غير المألوف أن يحتاج المطورون إلى استخراج النص من عرض تقديمي. للقيام بذلك، تحتاج إلى استخراج النص من جميع الأشكال على جميع الشرائح في العرض. يشرح هذا المقال كيفية استخراج النص من عروض Microsoft PowerPoint PPTX باستخدام Aspose.Slides. يمكن استخراج النص بطرق التالية:
+استخراج النص من العروض التقديمية هو مهمة شائعة ولكنها أساسية للمطورين العاملين مع محتوى الشرائح. سواء كنت تتعامل مع ملفات Microsoft PowerPoint بصيغة PPT أو PPTX، أو عروض OpenDocument (ODP)، فإن الوصول إلى البيانات النصية واستردادها يمكن أن يكون حاسمًا للتحليل، الأتمتة، الفهرسة، أو أغراض نقل المحتوى.
 
-- [استخراج النص من شريحة واحدة](/slides/ar/python-net/extracting-text-from-the-presentation/)
-- [استخراج النص باستخدام طريقة GetAllTextBoxes](/slides/ar/python-net/extracting-text-from-the-presentation/)
-- [استخراج النص بشكل مصنف وسريع](/slides/ar/python-net/extracting-text-from-the-presentation/)
+توفر هذه المقالة دليلًا شاملاً حول كيفية استخراج النص بكفاءة من تنسيقات عروض تقديمية مختلفة، بما في ذلك PPT و PPTX و ODP، باستخدام Aspose.Slides for Python. ستتعلم كيفية التكرار المنهجي عبر عناصر العرض لاسترجاع محتوى النص الذي تحتاجه بدقة.
 
-{{% /alert %}} 
-## **استخراج النص من الشريحة**
-تقدم Aspose.Slides لـ Python عبر .NET مساحة الأسماء Aspose.Slides.Util التي تشمل فئة SlideUtil. تكشف هذه الفئة عن عدد من الطرق الثابتة المفرطة لتحميل لاستخراج النص بالكامل من عرض تقديمي أو شريحة. لاستخراج النص من شريحة في عرض PPTX، 
-استخدم طريقة [GetAllTextBoxes](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/) الثابتة المفرطة المقدمة من فئة SlideUtil. تقبل هذه الطريقة كائن الشريحة كمعامل.
-عند التنفيذ، تقوم طريقة الشريحة بمسح النص بالكامل من الشريحة الممررة كمعامل وتعيد مصفوفة من كائنات TextFrame. هذا يعني أن أي تنسيق نصي متعلق بالنص متوفر. الكود التالي يستخرج جميع النصوص من الشريحة الأولى في العرض:
+## **استخراج النص من شريحة**
 
+توفر Aspose.Slides for Python مساحة الاسم [aspose.slides.util](https://reference.aspose.com/slides/python-net/aspose.slides.util/) التي تشمل الفئة [SlideUtil](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/). تعرض هذه الفئة عدة أساليب ثابتة محملة لتجاوز لتجميع كل النص من عرض تقديمي أو شريحة. لاستخراج النص من شريحة في عرض تقديمي، استخدم الأسلوب [get_all_text_boxes](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/get_all_text_boxes/). يقبل هذا الأسلوب كائنًا من النوع [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) كمعامل. عند تنفيذه، يفحص الأسلوب الشريحة بالكامل بحثًا عن النص ويعيد مصفوفة من الكائنات من النوع [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/)، مع الحفاظ على أي تنسيق للنص.
+
+القطعة البرمجية التالية تستخرج كل النص من الشريحة الأولى في العرض:
 ```py
 import aspose.slides as slides
 
-#instantiate فئة العرض التي تمثل ملف PPTX
-with slides.Presentation("pres.pptx") as pptxPresentation:
-    # احصل على مصفوفة من كائنات ITextFrame من جميع الشرائح في PPTX
-    textFramesPPTX = slides.util.SlideUtil.get_all_text_boxes(pptxPresentation.slides[0])
-    
-    # تكرار عبر مصفوفة TextFrames
-    for i in range(len(textFramesPPTX)):
-	    # تكرار عبر الفقرات في ITextFrame الحالي
-        for para in textFramesPPTX[i].paragraphs:
-            # تكرار عبر الأجزاء في IParagraph الحالي
-            for port in para.portions:
-			    # عرض النص في الجزء الحالي
-                print(port.text)
-
-    			# عرض ارتفاع خط النص
-                print(port.portion_format.font_height)
-
-			    # عرض اسم خط النص
-                if port.portion_format.latin_font != None:
-                    print(port.portion_format.latin_font.font_name)
+# إنشاء كائن من فئة Presentation التي تمثل ملف PPTX.
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    # الحصول على مصفوفة من كائنات TextFrame من جميع الشرائح في ملف PPTX.
+    text_frames = slides.util.SlideUtil.get_all_text_boxes(slide)
+    # التكرار عبر مصفوفة إطارات النص.
+    for text_frame in text_frames:
+        # التكرار عبر الفقرات في إطار النص الحالي.
+        for paragraph in text_frame.paragraphs:
+            # التكرار عبر أجزاء النص في الفقرة الحالية.
+            for portion in paragraph.portions:
+                # عرض النص في الجزء الحالي.
+                print(portion.text)
+                # عرض ارتفاع الخط للنص.
+                print(portion.portion_format.font_height)
+                # عرض اسم الخط للنص.
+                if portion.portion_format.latin_font is not None:
+                    print(portion.portion_format.latin_font.font_name)
 ```
 
 
+## **استخراج النص من عرض تقديمي**
 
+لمسح النص من كامل العرض التقديمي، استخدم الأسلوب الثابت [get_all_text_frames](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/get_all_text_frames/) الذي تقدمه الفئة [SlideUtil](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/). يقبل هذا الأسلوب معاملين:
 
-## **استخراج النص من العرض**
-لمسح النص من العرض الكامل، استخدم
- [GetAllTextFrames](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/) طريقة ثابتة مقدمة من فئة SlideUtil. تأخذ هذه الطريقة معاملين:
+1. كائن من النوع [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) يمثل عرض PowerPoint أو OpenDocument سيتم استخراج النص منه.  
+2. قيمة `Boolean` تشير إلى ما إذا كان يجب تضمين الشرائح الرئيسية عند مسح النص من العرض.
 
-1. أولاً، كائن Presentation الذي يمثل عرض PPTX الذي يتم استخراج النص منه.
-2. ثانياً، قيمة Boolean تحدد ما إذا كان ينبغي تضمين الشريحة الرئيسية عند مسح النص من العرض.
-   تعيد الطريقة مصفوفة من كائنات TextFrame، كاملة بمعلومات تنسيق النص. الكود أدناه يمسح النص ومعلومات التنسيق من عرض تقديمي، بما في ذلك الشرائح الرئيسية.
-
+يعيد الأسلوب مصفوفة من الكائنات من النوع [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/)، متضمنةً معلومات تنسيق النص. الشيفرة أدناه تقوم بمسح النص وتفاصيل التنسيق من عرض تقديمي، بما في ذلك الشرائح الرئيسية.
 ```py
 import aspose.slides as slides
 
-#instantiate فئة العرض التي تمثل ملف PPTX
-with slides.Presentation("pres.pptx") as pptxPresentation:
-    # احصل على مصفوفة من كائنات ITextFrame من جميع الشرائح في PPTX
-    textFramesPPTX = slides.util.SlideUtil.get_all_text_frames(pptxPresentation, True)
-    
-    # تكرار عبر مصفوفة TextFrames
-    for i in range(len(textFramesPPTX)):
-	    # تكرار عبر الفقرات في ITextFrame الحالي
-        for para in textFramesPPTX[i].paragraphs:
-            # تكرار عبر الأجزاء في IParagraph الحالي
-            for port in para.portions:
-			    # عرض النص في الجزء الحالي
-                print(port.text)
-
-    			# عرض ارتفاع خط النص
-                print(port.portion_format.font_height)
-
-			    # عرض اسم خط النص
-                if port.portion_format.latin_font != None:
-                    print(port.portion_format.latin_font.font_name)
+# إنشاء كائن من فئة Presentation التي تمثل ملف PPTX.
+with slides.Presentation("pres.pptx") as presentation:
+    # الحصول على مصفوفة من كائنات TextFrame من جميع الشرائح في ملف PPTX.
+    text_frames = slides.util.SlideUtil.get_all_text_frames(presentation, True)
+    # التكرار عبر مصفوفة إطارات النص.
+    for text_frame in text_frames:
+        # التكرار عبر الفقرات في إطار النص الحالي.
+        for paragraph in text_frame.paragraphs:
+            # التكرار عبر أجزاء النص في الفقرة الحالية.
+            for portion in paragraph.portions:
+                # عرض النص في الجزء الحالي.
+                print(portion.text)
+                # عرض ارتفاع الخط للنص.
+                print(portion.portion_format.font_height)
+                # عرض اسم الخط للنص.
+                if portion.portion_format.latin_font is not None:
+                    print(portion.portion_format.latin_font.font_name)
 ```
 
 
+## **استخراج النص المصنف والسريع**
 
-
-## **استخراج نص مصنف وسريع**
-تمت إضافة طريقة ثابتة جديدة GetPresentationText إلى فئة Presentation. هناك عمليتين مفرطتين لهذه الطريقة:
-
+الفئة [PresentationFactory](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentationfactory/) توفر أيضًا أساليب ثابتة لاستخراج كل النص من العروض:
 ```py
-slides.Presentation.get_presentation_text(stream)
-slides.Presentation.get_presentation_text(stream, mode)      
+PresentationFactory.get_presentation_text(stream, mode)
+PresentationFactory.get_presentation_text(file, mode)
+PresentationFactory.get_presentation_text(stream, mode, options)
 ```
 
-تشير وسيطة enum ExtractionMode إلى الوضع لتنظيم نتيجة النص ويمكن تعيينها للقيم التالية:
-غير مرتبة - النص الخام دون اعتبار للموقع على الشريحة
-مرتبة - يتم وضع النص بنفس ترتيب الشريحة
 
-يمكن استخدام الوضع غير المرتب عندما تكون السرعة حرجة، فهو أسرع من الوضع المرتب.
+المعامل enum [TextExtractionArrangingMode](https://reference.aspose.com/slides/python-net/aspose.slides/textextractionarrangingmode/) يحدد وضع تنظيم نتيجة استخراج النص ويمكن ضبطه على القيم التالية:
+- `UNARRANGED` - النص الخام دون اعتبار لموقعه على الشريحة.  
+- `ARRANGED` - يتم ترتيب النص بنفس الترتيب الموجود على الشريحة.
 
-يمثل PresentationText النص الخام المستخرج من العرض. يحتوي على خاصية `slides_text` من مساحة Aspose.Slides.Util والتي تعيد مصفوفة من كائنات SlideText. يمثل كل كائن النص على الشريحة المقابلة. تحتوي كائنات SlideText على الخصائص التالية:
+يمكن استخدام وضع `UNARRANGED` عندما تكون السرعة أمرًا حاسمًا؛ فهو أسرع من وضع `ARRANGED`.
 
-SlideText.text - النص على أشكال الشريحة
-SlideText.master_text - النص على أشكال الصفحة الرئيسية لهذه الشريحة
-SlideText.layout_text - النص على أشكال صفحة التخطيط لهذه الشريحة
-SlideText.notes_text - النص على أشكال صفحة الملاحظات لهذه الشريحة
+الفئة [PresentationText](https://reference.aspose.com/slides/python-net/aspose.slides/presentationtext/) تمثل النص الخام المستخرج من العرض التقديمي. تحتوي على الخاصية `slides_text` التي تُعيد مصفوفة من الكائنات من النوع [ISlideText](https://reference.aspose.com/slides/python-net/aspose.slides/islidetext/). كل كائن يمثل النص على الشريحة المقابلة. كائن من النوع [ISlideText](https://reference.aspose.com/slides/python-net/aspose.slides/islidetext/) يمتلك الخصائص التالية:
 
-
-يمكن استخدام واجهة برمجة التطبيقات الجديدة بهذه الطريقة:
-
+- `text` - النص داخل أشكال الشريحة.  
+- `master_text` - النص داخل أشكال الشريحة الرئيسية المرتبطة بهذه الشريحة.  
+- `layout_text` - النص داخل أشكال شريحة التخطيط المرتبطة بهذه الشريحة.  
+- `notes_text` - النص داخل أشكال شريحة الملاحظات المرتبطة بهذه الشريحة.  
+- `comments_text` - النص داخل التعليقات المرتبطة بهذه الشريحة.
 ```py
 import aspose.slides as slides
 
-text1 = slides.PresentationFactory().get_presentation_text("pres.pptx", slides.TextExtractionArrangingMode.UNARRANGED)
-print(text1.slides_text[0].text)
-print(text1.slides_text[0].layout_text)
-print(text1.slides_text[0].master_text)
-print(text1.slides_text[0].notes_text)
+arranging_mode = slides.TextExtractionArrangingMode.UNARRANGED
+presentation_text = slides.PresentationFactory().get_presentation_text("sample.pptx", arranging_mode)
+slide_text = presentation_text.slides_text[0]
+print(slide_text.text)
+print(slide_text.layout_text)
+print(slide_text.master_text)
+print(slide_text.notes_text)
 ```
+
+
+## **الأسئلة الشائعة**
+
+**ما مدى سرعة معالجة Aspose.Slides للعرض التقديمي الكبير أثناء استخراج النص؟**
+
+Aspose.Slides مُحسّنة لأداء عالٍ وتُعالج حتى [العروض الكبيرة](/slides/ar/python-net/open-presentation/) بكفاءة، مما يجعلها مناسبة للسيناريوهات الفورية أو المعالجة الضخمة.
+
+**هل يمكن لـ Aspose.Slides استخراج النص من الجداول والرسوم البيانية داخل العروض؟**
+
+نعم، يدعم Aspose.Slides استخراج النص من الجداول والرسوم البيانية وغيرها من العناصر المعقدة في الشريحة، مما يتيح لك الوصول إلى جميع المحتويات النصية وتحليلها بسهولة.
+
+**هل أحتاج إلى ترخيص خاص لـ Aspose.Slides لاستخراج النص من العروض؟**
+
+يمكنك استخراج النص باستخدام نسخة التجربة المجانية من Aspose.Slides، رغم أنها تحتوي على [قيود معينة](/slides/ar/python-net/licensing/)، مثل معالجة عدد محدود من الشرائح. للحصول على استخدام غير مقيد ومعالجة عروض أكبر، يُنصح بشراء ترخيص كامل.

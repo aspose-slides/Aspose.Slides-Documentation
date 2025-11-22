@@ -1,10 +1,29 @@
 ---
-title: Manage Hyperlinks
+title: Manage Presentation Hyperlinks in .NET
+linktitle: Manage Hyperlink
 type: docs
 weight: 20
 url: /net/manage-hyperlinks/
-keywords: "Add hyperlink, PowerPoint Presentation, PowerPoint Hyperlink, text hyperlink, slide hyperlink, shape hyperlink, image hyperlink, video hyperlink, .NET, C#, Csharp"
-description: "Add hyperlink to a PowerPoint Presentation in C# or .NET"
+keywords:
+- add URL
+- add hyperlink
+- create hyperlink
+- format hyperlink
+- remove hyperlink
+- update hyperlink
+- text hyperlink
+- slide hyperlink
+- shape hyperlink
+- image hyperlink
+- video hyperlink
+- mutable hyperlink
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Effortlessly manage hyperlinks in PowerPoint and OpenDocument presentations with Aspose.Slides for .NET—enhance interactivity and workflow in minutes."
 ---
 
 A hyperlink is a reference to an object or data or a place in something. These are common hyperlinks in PowerPoint Presentations:

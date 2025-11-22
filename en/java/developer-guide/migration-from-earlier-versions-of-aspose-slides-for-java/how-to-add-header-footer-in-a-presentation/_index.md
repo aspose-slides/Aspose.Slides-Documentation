@@ -1,8 +1,23 @@
 ---
-title: How to Add Header Footer in a Presentation
+title: How to Add Headers & Footers to Presentations in Java
+linktitle: Add Header & Footer
 type: docs
 weight: 20
 url: /java/how-to-add-header-footer-in-a-presentation/
+keywords:
+- migration
+- add header
+- add footer
+- legacy code
+- modern code
+- legacy approach
+- modern approach
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn how to add headers and footers in PowerPoint PPT, PPTX and ODP presentations in Java using both legacy and modern Aspose.Slides APIs."
 ---
 
 {{% alert color="primary" %}} 

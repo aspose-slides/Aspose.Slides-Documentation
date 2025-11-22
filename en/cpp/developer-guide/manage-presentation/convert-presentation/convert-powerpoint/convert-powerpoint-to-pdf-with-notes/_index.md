@@ -1,23 +1,30 @@
 ---
-title: Convert PowerPoint to PDF with Notes in C++
-linktitle: Convert PowerPoint to PDF with Notes
+title: Convert PowerPoint Presentations to PDF with Notes in C++
+linktitle: PowerPoint to PDF with Notes
 type: docs
 weight: 50
 url: /cpp/convert-powerpoint-to-pdf-with-notes/
 keywords:
 - convert PowerPoint
+- convert presentation
+- convert slide
 - convert PPT
 - convert PPTX
-- presentation
 - PowerPoint to PDF
+- presentation to PDF
+- slide to PDF
 - PPT to PDF
 - PPTX to PDF
-- OpenDocument to PDF
-- ODP to PDF
+- save presentation as PDF
+- save PPT as PDF
+- save PPTX as PDF
+- export PPT to PDF
+- export PPTX to PDF
 - speaker notes
+- PDF with notes
 - C++
 - Aspose.Slides
-description: "Convert PowerPoint to PDF with notes with C++"
+description: "Convert formats PPT and PPTX to PDF with notes using Aspose.Slides for C++. Preserve layouts and speaker notes for professional presentations."
 ---
 
 ## **Overview**

@@ -3,6 +3,20 @@ title: Features Overview
 type: docs
 weight: 10
 url: /java/features-overview/
+keywords:
+- features
+- supported platforms
+- file format
+- conversion
+- rendering
+- printing
+- formatting
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Discover Aspose.Slides for Java: a powerful API to create, edit, automate, and convert PowerPoint and OpenDocument presentations efficiently."
 ---
 
 ## **Supported Platforms**

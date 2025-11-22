@@ -2,7 +2,20 @@
 title: SmartArt
 type: docs
 weight: 140
-url: /net/examples/elements/smartart
+url: /net/examples/elements/smartart/
+keywords:
+- SmartArt example
+- add SmartArt
+- access SmartArt
+- remove SmartArt
+- SmartArt layout
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Build and edit SmartArt in C# with Aspose.Slides: add nodes, change layouts and styles, convert to shapes with precision, and export for PPT, PPTX and ODP."
 ---
 
 Shows how to add SmartArt graphics, access them, remove them, and change layouts using **Aspose.Slides for .NET**.

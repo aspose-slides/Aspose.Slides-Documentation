@@ -1,17 +1,23 @@
 ---
-title: Default Font
+title: Specify Default Presentation Fonts in С++
+linktitle: Default Font
 type: docs
 weight: 30
 url: /cpp/default-font/
-keywords: 
-- font
+keywords:
 - default font
-- render presentation
+- regular font
+- normal font
+- asian font
+- PDF export
+- XPS export
+- image export
 - PowerPoint
+- OpenDocument
 - presentation
-- C++
-- Aspose.Slides for C++
-description: PowerPoint C++ API lets you set the default font for rendering presentations to PDF, XPS or thumbnails
+- С++
+- Aspose.Slides
+description: "Set default fonts in Aspose.Slides for С++ to ensure proper PowerPoint (PPT, PPTX) and OpenDocument (ODP) conversion to PDF, XPS and images."
 ---
 
 ## **Set Default Font**

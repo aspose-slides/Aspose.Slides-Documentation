@@ -16,7 +16,7 @@ keywords:
 - präsentation
 - Python
 - Aspose.Slides
-description: "Entdecken Sie Aspose.Slides for Python via .NET: eine leistungsstarke API, mit der Sie PowerPoint- und OpenDocument-Präsentationen effizient erstellen, bearbeiten, automatisieren und konvertieren können."
+description: "Entdecken Sie Aspose.Slides für Python via .NET: eine leistungsstarke API zum Erstellen, Bearbeiten, Automatisieren und Konvertieren von PowerPoint- und OpenDocument-Präsentationen effizient."
 ---
 
 ## **Unterstützte Plattformen**

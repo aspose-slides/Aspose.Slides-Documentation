@@ -2,7 +2,20 @@
 title: Table
 type: docs
 weight: 120
-url: /net/examples/elements/table
+url: /net/examples/elements/table/
+keywords:
+- table example
+- add table
+- access table
+- remove table
+- merge cells
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Create and format tables in C# with Aspose.Slides: insert data, merge cells, style borders, align content, and import/export for PPT, PPTX and ODP."
 ---
 
 Examples for adding tables, accessing them, removing them, and merging cells using **Aspose.Slides for .NET**.

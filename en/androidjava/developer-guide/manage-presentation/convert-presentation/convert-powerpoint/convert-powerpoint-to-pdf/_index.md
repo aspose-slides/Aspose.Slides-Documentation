@@ -1,6 +1,6 @@
 ---
-title: Convert PPT and PPTX to PDF in Android [Advanced Features Included]
-linktitle: Convert PPT and PPTX to PDF
+title: Convert PPT and PPTX to PDF on Android [Advanced Features Included]
+linktitle: PowerPoint to PDF
 type: docs
 weight: 40
 url: /androidjava/convert-powerpoint-to-pdf/
@@ -13,16 +13,18 @@ keywords:
 - convert PPT to PDF
 - PPTX to PDF
 - convert PPTX to PDF
-- ODP to PDF
-- convert ODP to PDF
 - save PowerPoint as PDF
+- save PPT as PDF
+- save PPTX as PDF
+- export PPT to PDF
+- export PPTX to PDF
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
 - Android
 - Java
-- Aspose.Slides for Android via Java
-description: "Learn how to convert PPT, PPTX, and ODP presentations to PDF in Android using Aspose.Slides. Implement advanced features like password protection, compliance standards, and custom options for high-quality, accessible PDF documents."
+- Aspose.Slides
+description: "Convert PowerPoint PPT/PPTX to high-quality, searchable PDFs in Java using Aspose.Slides for Android, with fast code examples and advanced conversion options."
 ---
 
 ## **Overview**

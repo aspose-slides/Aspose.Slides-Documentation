@@ -1,5 +1,5 @@
 ---
-title: Get Warning Callbacks for Font Substitution
+title: Get Warning Callbacks for Font Substitution in .NET
 type: docs
 weight: 120
 url: /net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/

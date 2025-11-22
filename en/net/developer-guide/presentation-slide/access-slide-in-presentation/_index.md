@@ -1,10 +1,24 @@
 ---
-title: Access Slide in Presentation
+title: Access Presentation Slides in .NET
+linktitle: Access Slide
 type: docs
 weight: 20
 url: /net/access-slide-in-presentation/
-keywords: "Access PowerPoint Presentation, Access slide, Edit slide properties, Change slide position, Set slide number, index, ID, position  C#, Csharp, .NET, Aspose.Slides"
-description: "Access PowerPoint slide by index, ID, or position in C# or .NET. Edit slide properties"
+keywords:
+- access slide
+- slide index
+- slide id
+- slide position
+- change position
+- slide properties
+- slide number
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how to access and manage slides in PowerPoint and OpenDocument presentations with Aspose.Slides for .NET. Boost productivity with code examples."
 ---
 
 Aspose.Slides allows you to access slides in two ways: by index and by ID.

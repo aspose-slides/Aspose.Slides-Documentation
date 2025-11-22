@@ -1,8 +1,22 @@
 ---
-title: Create and Embed an Excel Chart as an OLE Object into a Microsoft PowerPoint Slide
+title: Create and Embed Excel Charts as OLE Objects Using VSTO and Aspose.Slides for .NET
+linktitle: Create and Embed Excel Charts as OLE Objects
 type: docs
 weight: 70
 url: /net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+keywords:
+- create chart
+- embed Excel chart
+- OLE object
+- migration
+- VSTO
+- Office automation
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Migrate from Microsoft Office automation to Aspose.Slides for .NET and embed Excel charts as OLE objects into PowerPoint (PPT, PPTX) slides in C#."
 ---
 
 {{% alert color="primary" %}} 

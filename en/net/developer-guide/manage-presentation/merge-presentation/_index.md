@@ -1,11 +1,26 @@
 ---
-title: Efficiently Merge PowerPoint Presentations (PPT, PPTX) with C#
-linktitle: Merge Presentation
+title: Efficiently Merge Presentations in .NET
+linktitle: Merge Presentations
 type: docs
 weight: 40
 url: /net/merge-presentation/
-keywords: "Merge PowerPoint, PPTX, PPT, combine PowerPoint, merge presentation, combine presentation, C#, Csharp, .NET"
-description: "Learn to merge or combine PowerPoint presentations in C# or .NET effortlessly."
+keywords:
+- merge PowerPoint
+- merge presentations
+- merge slides
+- merge PPT
+- merge PPTX
+- merge ODP
+- combine PowerPoint
+- combine presentations
+- combine slides
+- combine PPT
+- combine PPTX
+- combine ODP
+- .NET
+- C#
+- Aspose.Slides
+description: "Effortlessly merge PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations with Aspose.Slides for .NET, streamlining your workflow."
 ---
 
 ## **Optimize Your Presentation Merging**

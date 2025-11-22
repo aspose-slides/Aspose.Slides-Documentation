@@ -1,10 +1,21 @@
 ---
-title: Managing Tags and Custom Data
+title: Manage Tags and Custom Data in Presentations in .NET
+linktitle: Tags and Custom Data
 type: docs
 weight: 300
-url: /net/managing-tags-and-custom-data
-keywords: "Tags, Custom data, Value for tags, Add tags, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Add tags and custom data to PowerPoint presentations in C# or .NET"
+url: /net/managing-tags-and-custom-data/
+keywords:
+- document properties
+- tag
+- custom data
+- add tag
+- pair values
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how to add, read, update, and remove tags & custom data in Aspose.Slides for .NET, with examples for PowerPoint and OpenDocument presentations."
 ---
 
 ## **Data Storage in Presentation Files**

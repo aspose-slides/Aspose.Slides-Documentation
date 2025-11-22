@@ -2,7 +2,20 @@
 title: Hyperlink
 type: docs
 weight: 130
-url: /net/examples/elements/hyperlink
+url: /net/examples/elements/hyperlink/
+keywords:
+- hyperlink example
+- add hyperlink
+- access hyperlink
+- remove hyperlink
+- update hyperlink
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Add, edit, and remove hyperlinks in C# with Aspose.Slides: link text, shapes, slides, URLs and email; set targets and actions for PPT, PPTX and ODP."
 ---
 
 Demonstrates adding, accessing, removing, and updating hyperlinks on shapes using **Aspose.Slides for .NET**.

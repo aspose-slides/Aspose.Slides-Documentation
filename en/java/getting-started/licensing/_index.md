@@ -3,6 +3,20 @@ title: Licensing
 type: docs
 weight: 90
 url: /java/licensing/
+keywords:
+- license
+- temporary license
+- set license
+- use license
+- validate license
+- license file
+- evaluation version
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Apply, manage, and troubleshoot licenses in Aspose.Slides for Java. Ensure uninterrupted access to full features with our step-by-step licensing guide."
 ---
 
 ## **Evaluate Aspose.Slides**

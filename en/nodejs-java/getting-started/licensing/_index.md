@@ -39,7 +39,7 @@ You may want to see [Metered Licensing](https://docs.aspose.com/slides/nodejs-ja
 
 {{% /alert %}} 
 
-## Purchased License
+## **Purchased License**
 
 After purchase, you need to apply the license file or stream. 
 
@@ -118,3 +118,13 @@ license.setLicense(readStream, function(err, list) {
         console.error(err); return; 
     }});
 ```
+
+## **FAQ**
+
+**Can I apply the license in a completely offline environment (no internet access)?**
+
+Yes. License validation is performed locally using the license file; no internet connection is required.
+
+**What happens after the one-year subscription expires? Will the library stop working?**
+
+No. The license is perpetual: you can continue using versions released before your subscription end date; you just won’t be eligible to use newer releases without renewing.

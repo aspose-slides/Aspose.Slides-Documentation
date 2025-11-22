@@ -2,7 +2,20 @@
 title: MathText
 type: docs
 weight: 160
-url: /net/examples/elements/mathtext
+url: /net/examples/elements/math-text/
+keywords:
+- math text example
+- add math text
+- access math text
+- remove math text
+- format math text
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Work with math text in C# using Aspose.Slides: create and edit equations, fractions, radicals, scripts, formatting, and render results for PPT and PPTX."
 ---
 
 Illustrates working with mathematical text shapes and formatting equations using **Aspose.Slides for .NET**.

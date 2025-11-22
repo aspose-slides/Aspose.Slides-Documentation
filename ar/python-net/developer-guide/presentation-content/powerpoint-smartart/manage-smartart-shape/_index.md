@@ -1,139 +1,167 @@
 ---
-title: إدارة شكل SmartArt
+title: "إدارة رسومات SmartArt في العروض التقديمية باستخدام Python"
+linktitle: "رسومات SmartArt"
 type: docs
 weight: 20
 url: /ar/python-net/manage-smartart-shape/
-keywords: "شكل SmartArt، أسلوب شكل SmartArt، أسلوب لون شكل SmartArt، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
-description: "إدارة SmartArt في عروض PowerPoint باستخدام بايثون"
+keywords:
+- "كائن SmartArt"
+- "رسمة SmartArt"
+- "نمط SmartArt"
+- "لون SmartArt"
+- "إنشاء SmartArt"
+- "إضافة SmartArt"
+- "تحرير SmartArt"
+- "تغيير SmartArt"
+- "الوصول إلى SmartArt"
+- "نوع تخطيط SmartArt"
+- "PowerPoint"
+- "العرض التقديمي"
+- "Python"
+- "Aspose.Slides"
+description: "أتمتة إنشاء وتحرير وتنسيق SmartArt في PowerPoint باستخدام Python عبر .NET مع Aspose.Slides، مع أمثلة شفرة مختصرة وإرشادات تركّز على الأداء."
 ---
 
-## **إنشاء شكل SmartArt**
-تسهل Aspose.Slides لبايثون عبر .NET الآن إضافة أشكال SmartArt مخصصة في الشرائح من الصفر. قدمت Aspose.Slides لبايثون عبر .NET أبسط واجهة برمجة تطبيقات لإنشاء أشكال SmartArt بأبسط طريقة. لإنشاء شكل SmartArt في شريحة، يرجى اتباع الخطوات أدناه:
+## **إنشاء أشكال SmartArt**
 
-- إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-- الحصول على مرجع لشريحة باستخدام الفهرس الخاص بها.
-- إضافة شكل SmartArt عن طريق تعيين LayoutType الخاص به.
-- كتابة العرض المعدل كملف PPTX.
+يتيح لك Aspose.Slides for Python عبر .NET إضافة أشكال SmartArt مخصصة إلى الشرائح من الصفر. تجعل لك API ذلك سهلًا. لإضافة شكل SmartArt إلى شريحة:
 
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. الحصول على الشريحة المستهدفة بواسطة الفهرس الخاص بها.
+3. إضافة شكل SmartArt مع تحديد نوع التخطيط الخاص به.
+4. حفظ العرض التقديمي المعدل كملف PPTX.
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
-# إنشاء العرض التقديمي
-with slides.Presentation() as pres:
-    # الوصول إلى شريحة العرض
-    slide = pres.slides[0]
-
-    # إضافة شكل Smart Art
-    smart = slide.shapes.add_smart_art(0, 0, 400, 400, art.SmartArtLayoutType.BASIC_BLOCK_LIST)
-
-    # حفظ العرض التقديمي
-    pres.save("SimpleSmartArt_out.pptx", slides.export.SaveFormat.PPTX)
+# إنشاء كائن فئة Presentation.
+with slides.Presentation() as presentation:
+    # الوصول إلى شريحة العرض التقديمي.
+    slide = presentation.slides[0]
+    # إضافة شكل SmartArt.
+    smart_art = slide.shapes.add_smart_art(0, 0, 400, 400, smartart.SmartArtLayoutType.BASIC_BLOCK_LIST)
+    # حفظ العرض التقديمي إلى القرص.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **الوصول إلى أشكال SmartArt على الشرائح**
 
-## **الوصول إلى شكل SmartArt في الشريحة**
-سيتم استخدام الكود التالي للوصول إلى أشكال SmartArt المضافة في شريحة العرض. في الكود النموذجي سوف نتنقل عبر كل شكل داخل الشريحة ونتحقق مما إذا كان شكل SmartArt. إذا كان الشكل من نوع SmartArt، فسوف نقوم بتحويل نوعه إلى مثيل SmartArt.
-
+يعرض الشيفرة التالية كيفية الوصول إلى أشكال SmartArt على شريحة. تقوم العينة بالتنقل عبر كل شكل على الشريحة وتتحقق مما إذا كان كائنًا من نوع [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/) .
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
-# تحميل العرض التقديمي المرغوب
-with slides.Presentation(path + "SmartArt.pptx") as pres:
-
-    # التنقل عبر كل شكل داخل الشريحة الأولى
-    for shape in pres.slides[0].shapes:
-        # التحقق مما إذا كان الشكل من نوع SmartArt
-        if type(shape) is art.SmartArt:
-            # تحويل الشكل إلى SmartArtEx
-            print("اسم الشكل:" + shape.name)
-```
-
-
-
-## **الوصول إلى شكل SmartArt مع نوع تخطيط محدد**
-سيساعد الكود النموذجي التالي على الوصول إلى شكل SmartArt مع نوع تخطيط محدد. يرجى ملاحظة أنه لا يمكنك تغيير نوع التخطيط لشكل SmartArt حيث إنه للقراءة فقط ويُعيّن فقط عند إضافة شكل SmartArt.
-
-- إنشاء مثيل من `Presentation` class وتحميل العرض التقديمي مع شكل SmartArt.
-- الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.
-- التنقل عبر كل شكل داخل الشريحة الأولى.
-- التحقق مما إذا كان الشكل من نوع SmartArt وتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
-- تحقق من شكل SmartArt مع نوع التخطيط المحدد وقم بما هو مطلوب بعدها.
-
-```py
-import aspose.slides as slides
-import aspose.slides.smartart as art
-
-with slides.Presentation(path + "SmartArt.pptx") as presentation:
-    # التنقل عبر كل شكل داخل الشريحة الأولى
+# تحميل ملف عرض تقديمي.
+with slides.Presentation("SmartArt.pptx") as presentation:
+    # التكرار عبر كل شكل في الشريحة الأولى.
     for shape in presentation.slides[0].shapes:
-        # التحقق مما إذا كان الشكل من نوع SmartArt
-        if type(shape) is art.SmartArt:
-            # التحقق من تخطيط SmartArt
-            if shape.layout == art.SmartArtLayoutType.BASIC_BLOCK_LIST:
-                print("قم بفعل شيء هنا....")
+        # التحقق مما إذا كان الشكل شكل SmartArt.
+        if isinstance(shape, smartart.SmartArt):
+            # طباعة اسم الشكل.
+            print("Shape name:", shape.name)
 ```
 
 
+## **الوصول إلى أشكال SmartArt بنوع تخطيط محدد**
 
-## **تغيير أسلوب شكل SmartArt**
-سيساعد الكود النموذجي التالي على الوصول إلى شكل SmartArt مع نوع تخطيط محدد.
+يعرض المثال التالي كيفية الوصول إلى شكل SmartArt بنوع تخطيط محدد. لاحظ أنه لا يمكنك تغيير نوع تخطيط SmartArt؛ فهو للقراءة فقط ويتم تعيينه عند إنشاء الشكل.
 
-- إنشاء مثيل من `Presentation` class وتحميل العرض التقديمي مع شكل SmartArt.
-- الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.
-- التنقل عبر كل شكل داخل الشريحة الأولى.
-- التحقق مما إذا كان الشكل من نوع SmartArt وتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
-- العثور على شكل SmartArt مع نمط محدد.
-- تعيين نمط جديد لشكل SmartArt.
-- حفظ العرض التقديمي.
-
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) وتحميل العرض التقديمي الذي يحتوي على شكل SmartArt.
+2. الحصول على إشارة إلى الشريحة الأولى بواسطة الفهرس.
+3. التنقل عبر كل شكل على الشريحة الأولى.
+4. التحقق مما إذا كان الشكل كائنًا من نوع [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/) .
+5. إذا كان نوع تخطيط شكل SmartArt يطابق ما تحتاجه، قم بتنفيذ الإجراءات المطلوبة.
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
-with slides.Presentation(path + "SmartArt.pptx") as presentation:
-    # التنقل عبر كل شكل داخل الشريحة الأولى
+with slides.Presentation("SmartArt.pptx") as presentation:
+    # التكرار عبر كل شكل في الشريحة الأولى.
     for shape in presentation.slides[0].shapes:
-        # التحقق مما إذا كان الشكل من نوع SmartArt
-        if type(shape) is art.SmartArt:
-            # التحقق من نمط SmartArt
-            if shape.quick_style == art.SmartArtQuickStyleType.SIMPLE_FILL:
-                # تغيير نمط SmartArt
-                smart.quick_style = art.SmartArtQuickStyleType.CARTOON
-
-    # حفظ العرض التقديمي
-    presentation.save("ChangeSmartArtStyle_out.pptx", slides.export.SaveFormat.PPTX)
+        # التحقق مما إذا كان الشكل شكل SmartArt.
+        if isinstance(shape, smartart.SmartArt):
+            # التحقق من نوع تخطيط SmartArt.
+            if shape.layout == smartart.SmartArtLayoutType.BASIC_BLOCK_LIST:
+                print("Do something here...")
 ```
 
 
+## **تغيير نمط شكل SmartArt**
 
-## **تغيير أسلوب لون شكل SmartArt**
-في هذا المثال، سنتعلم كيفية تغيير نمط اللون لأي شكل SmartArt. في الكود النموذجي التالي سنقوم بالوصول إلى شكل SmartArt مع نمط لون محدد وسنقوم بتغيير نمطه.
+يعرض المثال التالي كيفية تحديد مواقع أشكال SmartArt وتغيير نمطها:
 
-- إنشاء مثيل من `Presentation` class وتحميل العرض التقديمي مع شكل SmartArt.
-- الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.
-- التنقل عبر كل شكل داخل الشريحة الأولى.
-- التحقق مما إذا كان الشكل من نوع SmartArt وتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
-- العثور على شكل SmartArt مع نمط لون محدد.
-- تعيين نمط لون جديد لشكل SmartArt.
-- حفظ العرض التقديمي.
-
+1. إنشاء [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) وتحميل الملف الذي يحتوي على شكل (أشكال) SmartArt.
+2. الحصول على إشارة إلى الشريحة الأولى بواسطة الفهرس.
+3. التنقل عبر كل شكل على الشريحة الأولى.
+4. العثور على شكل SmartArt بالنمط المحدد.
+5. تعيين النمط الجديد لشكل SmartArt.
+6. حفظ العرض التقديمي.
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
-with slides.Presentation(path + "SmartArt.pptx") as presentation:
-    # التنقل عبر كل شكل داخل الشريحة الأولى
+with slides.Presentation("SmartArt.pptx") as presentation:
+    # التكرار عبر كل شكل في الشريحة الأولى.
     for shape in presentation.slides[0].shapes:
-        # التحقق مما إذا كان الشكل من نوع SmartArt
-        if type(shape) is art.SmartArt:
-            # التحقق من نوع لون SmartArt
-            if shape.color_style == art.SmartArtColorType.COLORED_FILL_ACCENT1:
-                # تغيير نوع لون SmartArt
-                shape.color_style = art.SmartArtColorType.COLORFUL_ACCENT_COLORS
-
-    # حفظ العرض التقديمي
-    presentation.save("ChangeSmartArtColorStyle_out.pptx", slides.export.SaveFormat.PPTX)
+        # التحقق مما إذا كان الشكل شكل SmartArt.
+        if isinstance(shape, smartart.SmartArt):
+            # التحقق من نمط SmartArt.
+            if shape.quick_style == smartart.SmartArtQuickStyleType.SIMPLE_FILL:
+                # تغيير نمط SmartArt.
+                smart.quick_style = smartart.SmartArtQuickStyleType.CARTOON
+    # حفظ العرض التقديمي.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **تغيير نمط اللون لأشكال SmartArt**
+
+يعرض هذا المثال كيفية تغيير نمط اللون لشكل SmartArt. يحدد الشيفرة عينة شكل SmartArt بنمط لون محدد ويقوم بتحديثه.
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) وتحميل العرض التقديمي الذي يحتوي على شكل (أشكال) SmartArt.
+2. الحصول على إشارة إلى الشريحة الأولى بواسطة الفهرس.
+3. التنقل عبر كل شكل على الشريحة الأولى.
+4. التحقق مما إذا كان الشكل كائنًا من نوع [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/) .
+5. تحديد شكل SmartArt بالنمط اللوني المحدد.
+6. تعيين نمط اللون الجديد لذلك الشكل SmartArt.
+7. حفظ العرض التقديمي.
+```py
+import aspose.slides as slides
+import aspose.slides.smartart as smartart
+
+with slides.Presentation("SmartArt.pptx") as presentation:
+    # التكرار عبر كل شكل في الشريحة الأولى.
+    for shape in presentation.slides[0].shapes:
+        # التحقق مما إذا كان الشكل شكل SmartArt.
+        if isinstance(shape, smartart.SmartArt):
+            # التحقق من نوع اللون.
+            if shape.color_style == smartart.SmartArtColorType.COLORED_FILL_ACCENT1:
+                # تغيير نوع اللون.
+                shape.color_style = smartart.SmartArtColorType.COLORFUL_ACCENT_COLORS
+    # حفظ العرض التقديمي.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني تحريك SmartArt ككائن واحد؟**
+
+نعم. SmartArt هو شكل، لذا يمكنك تطبيق [الرسوم المتحركة القياسية](/slides/ar/python-net/powerpoint-animation/) عبر واجهة برمجة تطبيقات الرسوم المتحركة (دخول، خروج، تأكيد، مسارات الحركة) تمامًا كما هو الحال مع الأشكال الأخرى.
+
+**كيف يمكنني العثور على SmartArt معين على شريحة إذا لم أكن أعرف معرفه الداخلي؟**
+
+قم بتعيين واستخدام النص البديل (AltText) وابحث عن الشكل باستخدام تلك القيمة — هذه طريقة موصى بها لتحديد موقع الشكل المستهدف.
+
+**هل يمكنني تجميع SmartArt مع أشكال أخرى؟**
+
+نعم. يمكنك تجميع SmartArt مع أشكال أخرى (صور، جداول، إلخ) ثم [التعامل مع المجموعة](/slides/ar/python-net/group/).
+
+**كيف أحصل على صورة لـ SmartArt معين (مثلاً للمعاينة أو التقرير)؟**
+
+صدّر صورة مصغرة/صورة للشكل؛ المكتبة يمكنها [تصيير الأشكال الفردية](/slides/ar/python-net/create-shape-thumbnails/) إلى ملفات نقطية (PNG/JPG/TIFF).
+
+**هل ستُحافظ مظهر SmartArt عند تحويل العرض التقديمي بالكامل إلى PDF؟**
+
+نعم. محرك التصيير يهدف إلى دقة عالية لتصدير [PDF](/slides/ar/python-net/convert-powerpoint-to-pdf/)، مع مجموعة من خيارات الجودة والتوافق.

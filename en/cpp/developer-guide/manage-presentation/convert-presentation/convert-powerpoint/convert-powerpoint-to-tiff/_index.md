@@ -9,16 +9,20 @@ keywords:
 - convert OpenDocument
 - convert presentation
 - convert slide
+- convert PPT
+- convert PPTX
 - PowerPoint to TIFF
-- OpenDocument to TIFF
 - presentation to TIFF
 - slide to TIFF
 - PPT to TIFF
 - PPTX to TIFF
-- ODP to TIFF
+- save PPT as TIFF
+- save PPTX as TIFF
+- export PPT to TIFF
+- export PPTX to TIFF
 - C++
 - Aspose.Slides
-description: "Learn how to easily convert PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations to high-quality TIFF images using Aspose.Slides for C++. Step-by-step guide with code examples included."
+description: "Learn how to easily convert PowerPoint (PPT, PPTX) presentations to high-quality TIFF images using Aspose.Slides for C++, with code examples."
 ---
 
 ## **Overview**

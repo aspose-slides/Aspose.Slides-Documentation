@@ -1,21 +1,24 @@
 ---
-title: Convert PowerPoint Slides to Images in Java
+title: Convert Presentation Slides to Images in Java
 linktitle: Slide to Image
 type: docs
 weight: 35
 url: /java/convert-slide/
 keywords: 
 - convert slide
-- convert slide to image
-- export slide as image
-- save slide as image
+- export slide
 - slide to image
+- save slide as image
 - slide to PNG
 - slide to JPEG
 - slide to bitmap
+- slide to TIFF
+- PowerPoint
+- OpenDocument
+- presentation
 - Java
 - Aspose.Slides
-description: "Learn how to convert PowerPoint and OpenDocument slides into various formats using Aspose.Slides for Java. Easily export PPTX and ODP slides to BMP, PNG, JPEG, TIFF, and more with high-quality results."
+description: "Convert slides from PPT, PPTX and ODP to images in Java using Aspose.Slides—fast, high-quality rendering with clear code examples."
 ---
 
 ## **Overview**

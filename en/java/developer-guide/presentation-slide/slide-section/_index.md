@@ -1,8 +1,21 @@
 ---
-title: Slide Section
+title: Manage Slide Sections in Presentations Using Java
+linktitle: Slide Section
 type: docs
 weight: 90
 url: /java/slide-section/
+keywords:
+- create section
+- add section
+- edit section
+- change section
+- section name
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Streamline slide sections in PowerPoint and OpenDocument with Aspose.Slides for Java — split, rename, and reorder to optimize PPTX and ODP workflows."
 ---
 
 With Aspose.Slides for Java, you can organize a PowerPoint Presentation into sections. You get to create sections that contain specific slides. 

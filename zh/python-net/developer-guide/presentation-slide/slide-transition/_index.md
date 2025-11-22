@@ -29,6 +29,13 @@ Aspose.Slides for Python 提供对幻灯片切换的完整控制，包括选择�
 1. 使用 [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) 枚举中的一种效果应用幻灯片切换。  
 1. 保存修改后的演示文稿文件。
 
+## **添加幻灯片切换**
+
+为了更易理解，以下示例演示如何使用 Aspose.Slides for Python 管理简单的幻灯片切换。开发者可以对幻灯片应用不同的切换效果并自定义其行为。要创建一个简单的幻灯片切换，请按以下步骤操作：
+
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。  
+1. 使用 [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) 枚举中的一种效果应用幻灯片切换。  
+1. 保存修改后的演示文件。  
 ```py
 import aspose.slides as slides
 
@@ -56,6 +63,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 如果启用了 **Advance On Click**，幻灯片仅在用户点击时前进。如果设置了 **Advance After Time** 属性，幻灯片将在指定间隔后自动前进。
 
+如果启用了 **Advance On Click**，则幻灯片仅在用户点击时前进。如果设置了 **Advance After Time** 属性，幻灯片将在指定间隔后自动前进。  
 ```py
 import aspose.slides as slides
 
@@ -99,6 +107,7 @@ Aspose.Slides for Python 支持 [Morph transition](https://reference.aspose.com/
 
 以下代码片段展示了如何克隆包含文本的幻灯片并对第二页应用 Morph 切换。
 
+以下代码片段演示如何克隆包含文本的幻灯片并对第二张幻灯片应用 Morph 切换。  
 ```py
 import aspose.slides as slides
 
@@ -131,6 +140,16 @@ with slides.Presentation() as presentation:
 
 以下代码片段展示了如何对幻灯片应用 Morph 切换并更改形变类型：
 
+## **设置切换效果**
+
+Aspose.Slides for Python 允许您设置诸如 **From Black**、**From Left**、**From Right** 等切换效果。要配置切换效果，请按以下步骤操作：
+
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。  
+1. 获取对幻灯片的引用。  
+1. 设置所需的切换效果。  
+1. 将演示保存为 PPTX 文件。  
+
+在下面的示例中，我们设置了多种切换效果。  
 ```py
 import aspose.slides as slides
 
@@ -155,8 +174,9 @@ Aspose.Slides for Python 让您可以设置 **From Black**、**From Left**、**F
 
 在下面的示例中，我们设置了多种切换效果。
 
-```py
-import aspose.slides as slides
+可以。您可以为切换嵌入声音，并通过诸如 sound、sound_mode、sound_loop 等设置以及 sound_is_built_in、sound_name 等元数据来控制其行为。
+
+**将相同的切换应用于每张幻灯片的最快方法是什么？**
 
 # 实例化 Presentation 类以打开演示文稿文件。
 with slides.Presentation("sample.pptx") as presentation:

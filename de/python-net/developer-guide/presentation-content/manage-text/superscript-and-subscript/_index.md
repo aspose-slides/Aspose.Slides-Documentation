@@ -1,87 +1,97 @@
 ---
-title: Verwalten von Hoch- und Tiefstellung in Python
-linktitle: Hoch- und Tiefstellung
+title: Verwalten von Hoch- und Tiefgestellt in Python
+linktitle: Hoch- und Tiefgestellt
 type: docs
 weight: 80
 url: /de/python-net/superscript-and-subscript/
 keywords:
-- Hochstellung
-- Tiefstellung
-- Hochstellung hinzufügen
-- Tiefstellung hinzufügen
+- Hochgestellt
+- Tiefgestellt
+- Hochgestellt hinzufügen
+- Tiefgestellt hinzufügen
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Meistern Sie Hoch- und Tiefstellung in Aspose.Slides für Python via .NET und verleihen Sie Ihren Präsentationen mit professioneller Textformatierung maximale Wirkung."
+description: "Meistern Sie Hoch- und Tiefgestellt in Aspose.Slides für Python über .NET und verbessern Sie Ihre Präsentationen mit professioneller Textformatierung für maximale Wirkung."
 ---
 
-## **Verwalten von Hoch- und Tiefgestellt Text**
-Sie können hochgestellten und tiefgestellten Text innerhalb eines beliebigen Absatzes hinzufügen. Um hochgestellten oder tiefgestellten Text in einem Aspose.Slides Textfeld hinzuzufügen, muss man die **Escapement**-Eigenschaften der PortionFormat-Klasse verwenden.
+## **Hoch- und Tiefgestellt Text hinzufügen**
 
-Diese Eigenschaft gibt den hochgestellten oder tiefgestellten Text zurück oder setzt ihn (Wert von -100 % (tiefgestellt) bis 100 % (hochgestellt)). Zum Beispiel:
+Sie können Hoch- und Tiefgestellt‑Text zu jedem Absatzabschnitt hinzufügen. In Aspose.Slides verwenden Sie die `escapement`‑Eigenschaft der [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/)‑Klasse, um dies zu steuern.
 
-- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-- Erhalten Sie die Referenz einer Folie, indem Sie ihren Index verwenden.
-- Fügen Sie der Folie eine IAutoShape vom Typ Rechteck hinzu.
-- Greifen Sie auf das ITextFrame zu, das mit der IAutoShape verbunden ist.
-- Löschen Sie bestehende Absätze.
-- Erstellen Sie ein neues Absatzobjekt, um hochgestellten Text zu halten, und fügen Sie es der IParagraphs-Sammlung des ITextFrame hinzu.
-- Erstellen Sie ein neues Portionsobjekt.
-- Setzen Sie die Escapement-Eigenschaft für die Portion zwischen 0 und 100, um hochgestellten Text hinzuzufügen. (0 bedeutet kein Hochgestellt)
-- Setzen Sie etwas Text für die Portion und fügen Sie dann diesen in die Portionssammlung des Absatzes hinzu.
-- Erstellen Sie ein neues Absatzobjekt, um tiefgestellten Text zu halten, und fügen Sie es der IParagraphs-Sammlung des ITextFrame hinzu.
-- Erstellen Sie ein neues Portionsobjekt.
-- Setzen Sie die Escapement-Eigenschaft für die Portion zwischen 0 und -100, um tiefgestellten Text hinzuzufügen. (0 bedeutet kein Tiefgestellt)
-- Setzen Sie etwas Text für die Portion und fügen Sie dann diesen in die Portionssammlung des Absatzes ein.
-- Speichern Sie die Präsentation als PPTX-Datei.
+`escapement` ist ein Prozentsatz von **-100% bis 100%**:
 
-Die Umsetzung der obigen Schritte ist unten angegeben.
+- **> 0** → Hochgestellt (z. B. 25% = leichte Anhebung; 100% = volles Hochstellen)
+- **0** → Grundlinie (kein Hoch‑ oder Tiefstellen)
+- **< 0** → Tiefgestellt (z. B. -25% = leichte Absenkung; -100% = volles Tiefstellen)
 
+Schritte:
+
+1. Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) und holen Sie eine Folie.
+2. Fügen Sie eine Rechteck-[AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) hinzu und greifen Sie auf dessen [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) zu.
+3. Löschen Sie vorhandene Absätze.
+4. Für Hochgestellt: Erstellen Sie einen Absatz und einen Portion, setzen Sie `portion.portion_format.escapement` auf einen Wert zwischen **0 und 100**, setzen Sie den Text und fügen Sie die Portion hinzu.
+5. Für Tiefgestellt: Erstellen Sie einen weiteren Absatz und Portion, setzen Sie `escapement` auf einen Wert zwischen **-100 und 0**, setzen Sie den Text und fügen Sie die Portion hinzu.
+6. Speichern Sie die Präsentation als PPTX.
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("pres.pptx") as presentation:
-    # Folie erhalten
+    # Folie holen.
     slide = presentation.slides[0]
 
-    # Textfeld erstellen
+    # Textfeld erstellen.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
-    textFrame = shape.text_frame
-    textFrame.paragraphs.clear()
+    shape.text_frame.paragraphs.clear()
 
-    # Absatz für hochgestellten Text erstellen
-    superPar = slides.Paragraph()
+    # Absatz für hochgestellten Text erstellen.
+    superscript_paragraph = slides.Paragraph()
 
-    # Portion mit normalem Text erstellen
+    # Textabschnitt mit normalem Text erstellen.
     portion1 = slides.Portion()
     portion1.text = "SlideTitle"
-    superPar.portions.add(portion1)
+    superscript_paragraph.portions.add(portion1)
 
-    # Portion mit hochgestelltem Text erstellen
-    superPortion = slides.Portion()
-    superPortion.portion_format.escapement = 30
-    superPortion.text = "TM"
-    superPar.portions.add(superPortion)
+    # Textabschnitt mit hochgestelltem Text erstellen.
+    superscript_portion = slides.Portion()
+    superscript_portion.portion_format.escapement = 30
+    superscript_portion.text = "TM"
+    superscript_paragraph.portions.add(superscript_portion)
 
-    # Absatz für tiefgestellten Text erstellen
-    paragraph2 = slides.Paragraph()
+    # Absatz für tiefgestellten Text erstellen.
+    subscript_paragraph = slides.Paragraph()
 
-    # Portion mit normalem Text erstellen
+    # Textabschnitt mit normalem Text erstellen.
     portion2 = slides.Portion()
     portion2.text = "a"
-    paragraph2.portions.add(portion2)
+    subscript_paragraph.portions.add(portion2)
 
-    # Portion mit tiefgestelltem Text erstellen
-    subPortion = slides.Portion()
-    subPortion.portion_format.escapement = -25
-    subPortion.text = "i"
-    paragraph2.portions.add(subPortion)
+    # Textabschnitt mit tiefgestelltem Text erstellen.
+    subscript_portion = slides.Portion()
+    subscript_portion.portion_format.escapement = -25
+    subscript_portion.text = "i"
+    subscript_paragraph.portions.add(subscript_portion)
 
-    # Absätze zum Textfeld hinzufügen
-    textFrame.paragraphs.add(superPar)
-    textFrame.paragraphs.add(paragraph2)
+    # Absätze zum Textfeld hinzufügen.
+    shape.text_frame.paragraphs.add(superscript_paragraph)
+    shape.text_frame.paragraphs.add(subscript_paragraph)
 
     presentation.save("TestOut.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Kann ich Hoch‑ oder Tiefgestellt in Tabellen und anderen Containern anwenden, nicht nur in normalen Textfeldern?**
+
+Ja. Sie können Text als Hoch‑ oder Tiefgestellt formatieren, wenn das Objekt ein [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) bereitstellt (einschließlich Tabellenzellen). Die Formatierung gilt für Textabschnitte innerhalb dieses Rahmens.
+
+**Bleiben Hoch‑ und Tiefgestellt‑Formate beim Exportieren zu PDF, HTML oder Bildern erhalten?**
+
+Ja. Aspose.Slides bewahrt die Hoch‑ und Tiefgestellt‑Formatierung beim Export in gängige Formate wie [PDF](/slides/de/python-net/convert-powerpoint-to-pdf/), [HTML](/slides/de/python-net/convert-powerpoint-to-html/) und [Raster‑Bilder](/slides/de/python-net/convert-powerpoint-to-png/), weil die Rendering‑Pipeline die Formatierung auf Portionsebene respektiert.
+
+**Kann ich Hoch‑ oder Tiefgestellt mit Hyperlinks im selben Textfragment kombinieren?**
+
+Ja. [Hyperlinks](/slides/de/python-net/manage-hyperlinks/) werden auf Portionsebene (Fragment) zugewiesen, sodass eine Portion gleichzeitig einen Hyperlink haben und als Hoch‑ oder Tiefgestellt formatiert sein kann.
