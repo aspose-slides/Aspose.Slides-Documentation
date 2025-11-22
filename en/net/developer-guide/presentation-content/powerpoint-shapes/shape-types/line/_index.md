@@ -1,10 +1,24 @@
 ---
-title: Line
+title: Add Line Shapes to Presentations in .NET
+linktitle: Line
 type: docs
 weight: 50
 url: /net/Line/
-keywords: "Line, PowerPoint shape, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Add line in PowerPoint presentation in C# or .NET"
+keywords:
+- line
+- create line
+- add line
+- plain line
+- configure line
+- customize line
+- dash style
+- arrow head
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn to manipulate line formatting in PowerPoint presentations with Aspose.Slides for .NET. Discover properties, methods, and examples."
 ---
 
 Aspose.Slides for .NET supports adding different kinds of shapes to the slides. In this topic, we will start working with shapes by adding lines to the slides. Using Aspose.Slides for .NET, developers can not only create simple lines , but some fancy lines can also be drawn on the slides.
@@ -78,3 +92,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+## **FAQ**
+
+**Can I convert a regular line into a connector so it "snaps" to shapes?**
+
+No. A regular line (an [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) of type [Line](https://reference.aspose.com/slides/net/aspose.slides/shapetype/)) does not automatically become a connector. To make it snap to shapes, use the dedicated [Connector](https://reference.aspose.com/slides/net/aspose.slides/connector/) type and the [corresponding APIs](/slides/net/connector/) for connections.
+
+**What should I do if a line’s properties are inherited from the theme and it’s hard to determine the final values?**
+
+[Read the effective properties](/slides/net/shape-effective-properties/) through the [ILineFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilinefillformateffectivedata/) interfaces—these already account for inheritance and theme styles.
+
+**Can I lock a line against editing (moving, resizing)?**
+
+Yes. Shapes provide [lock objects](https://reference.aspose.com/slides/net/aspose.slides/autoshape/autoshapelock/) that let you [disallow editing operations](/slides/net/applying-protection-to-presentation/).

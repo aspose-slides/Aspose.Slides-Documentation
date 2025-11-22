@@ -65,15 +65,14 @@ Puede que desee consultar otros [convertidores gratuitos de Aspose](https://prod
 
 {{% alert title="Note" color="warning" %}} 
 
-Además de los procesos de conversión descritos aquí, Aspose.Slides también admite estas operaciones de conversión que involucran el formato HTML: 
+Además de los procesos de conversión descritos aquí, Aspose.Slides también soporta estas operaciones de conversión que involucran el formato HTML: 
 
 * [HTML a imagen](https://products.aspose.com/slides/python-net/conversion/html-to-image/)
 * [HTML a JPG](https://products.aspose.com/slides/python-net/conversion/html-to-jpg/)
 * [HTML a XML](https://products.aspose.com/slides/python-net/conversion/html-to-xml/)
 * [HTML a TIFF](https://products.aspose.com/slides/python-net/conversion/html-to-tiff/)
 
-{{% /alert %}}
-
+{{% /alert %}} 
 
 ## **Convertir PowerPoint a HTML**
 Usando Aspose.Slides, puede convertir una presentación completa de PowerPoint a HTML de esta manera:
@@ -93,7 +92,7 @@ options = slides.export.HtmlOptions()
 options.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_FULL
 options.html_formatter = slides.export.HtmlFormatter.create_document_formatter("", False)
 
-# Guardar la presentación en HTML
+# Guardando la presentación en HTML
 pres.save("ConvertWholePresentationToHTML_out.html", slides.export.SaveFormat.HTML, options)
 ```
 
@@ -111,7 +110,7 @@ controller = slides.export.ResponsiveHtmlController()
 htmlOptions = slides.export.HtmlOptions()
 htmlOptions.html_formatter = slides.export.HtmlFormatter.create_custom_formatter(controller)
 
-# Guardar la presentación en HTML
+# Guardando la presentación en HTML
 pres.save("ConvertPresentationToResponsiveHTML_out.html", slides.export.SaveFormat.HTML, htmlOptions)
 ```
 
@@ -157,7 +156,7 @@ pres.save("input-PFDinDisplayPro-Regular-installed.html", slides.export.SaveForm
 
 Convertir una diapositiva de presentación separada a HTML. Para ello use el mismo método [**Save**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) expuesto por la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) que se usa para convertir toda la presentación PPT(X) en un documento HTML. La clase [**HtmlOptions**](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/) también puede usarse para establecer opciones de conversión adicionales:
 ```py
-# [TODO[not_supported_yet]: implementación en python de la interfaz .net]
+# [TODO[not_supported_yet]: implementación de python de la interfaz .net]
 ```
 
 

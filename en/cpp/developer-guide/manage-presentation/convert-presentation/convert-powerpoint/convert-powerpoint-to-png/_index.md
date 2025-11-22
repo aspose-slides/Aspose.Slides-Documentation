@@ -1,10 +1,27 @@
 ---
-title: Convert PowerPoint to PNG
+title: Convert PowerPoint Slides to PNG in C++
+linktitle: PowerPoint to PNG
 type: docs
 weight: 30
 url: /cpp/convert-powerpoint-to-png/
-keywords: PowerPoint to PNG, PPT to PNG, PPTX to PNG, C++, Aspose.Slides for C++
-description: Convert PowerPoint presentation to PNG
+keywords:
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- PowerPoint to PNG
+- presentation to PNG
+- slide to PNG
+- PPT to PNG
+- PPTX to PNG
+- save PPT as PNG
+- save PPTX as PNG
+- export PPT to PNG
+- export PPTX to PNG
+- C++
+- Aspose.Slides
+description: "Convert PowerPoint presentations to high-quality PNG images quickly with Aspose.Slides for C++, ensuring precise, automated results."
 ---
 
 ## **About PowerPoint to PNG Conversion**

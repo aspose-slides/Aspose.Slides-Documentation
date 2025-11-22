@@ -6,18 +6,18 @@ weight: 30
 url: /zh/python-net/convert-powerpoint-to-html/
 keywords:
 - 转换 PowerPoint
-- 转换演示文稿
-- 转换幻灯片
+- 转换 演示文稿
+- 转换 幻灯片
 - 转换 PPT
 - 转换 PPTX
 - PowerPoint 转 HTML
-- 演示文稿转 HTML
-- 幻灯片转 HTML
+- 演示文稿 转 HTML
+- 幻灯片 转 HTML
 - PPT 转 HTML
 - PPTX 转 HTML
 - 将 PowerPoint 保存为 HTML
-- 将演示文稿保存为 HTML
-- 将幻灯片保存为 HTML
+- 将 演示文稿 保存为 HTML
+- 将 幻灯片 保存为 HTML
 - 将 PPT 保存为 HTML
 - 将 PPTX 保存为 HTML
 - Python
@@ -74,6 +74,7 @@ description: "在 Python 中将 PowerPoint 演示文稿转换为响应式 HTML�
 * [HTML 转 TIFF](https://products.aspose.com/slides/python-net/conversion/html-to-tiff/)
 
 {{% /alert %}}
+
 
 ## **将 PowerPoint 转换为 HTML**
 

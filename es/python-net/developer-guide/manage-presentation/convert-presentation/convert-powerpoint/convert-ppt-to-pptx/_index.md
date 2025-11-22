@@ -18,7 +18,7 @@ description: "Convierta presentaciones PPT heredadas a PPTX modernos rápidament
 
 Este artículo explica cómo convertir una presentación de PowerPoint en formato PPT a formato PPTX utilizando Python y una aplicación en línea de conversión de PPT a PPTX. El tema siguiente se cubre:
 
-- Convertir PPT a PPTX en Python
+- Convertir PPT a PPTX con Python
 
 ## **Python Convertir PPT a PPTX**
 

@@ -3,6 +3,17 @@ title: Why Not Open XML SDK
 type: docs
 weight: 120
 url: /java/why-not-open-xml-sdk/
+keywords:
+- Open XML SDK
+- comparing
+- presentation object model
+- high quality conversion
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "See why Aspose.Slides is a better choice than the free Open XML SDK: compare features, automation-free conversion, and broad support for PPT, PPTX and ODP."
 ---
 
 {{% alert color="primary" %}} 

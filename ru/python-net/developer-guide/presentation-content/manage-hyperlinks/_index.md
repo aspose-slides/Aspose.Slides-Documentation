@@ -1,6 +1,6 @@
 ---
-title: Управляйте гиперссылками в презентациях на Python
-linktitle: Управление гиперссылками
+title: Управление гиперссылками в презентациях с Python
+linktitle: Управление гиперссылкой
 type: docs
 weight: 20
 url: /ru/python-net/manage-hyperlinks/
@@ -11,9 +11,9 @@ keywords:
 - форматировать гиперссылку
 - удалить гиперссылку
 - обновить гиперссылку
-- текстовая гиперссылка
+- гиперссылка в тексте
 - гиперссылка на слайд
-- гиперссылка на фигуру
+- гиперссылка на объект
 - гиперссылка на изображение
 - гиперссылка на видео
 - изменяемая гиперссылка
@@ -21,129 +21,136 @@ keywords:
 - OpenDocument
 - презентация
 - Python
-description: "Легко управляйте гиперссылками в презентациях PowerPoint и OpenDocument с Aspose.Slides for Python via .NET — повышайте интерактивность и ускоряйте рабочие процессы за считанные минуты."
+description: "Легко управляйте гиперссылками в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides for Python via .NET — повышайте интерактивность и эффективность работы за считанные минуты."
 ---
 
-Гиперссылка — это ссылка на объект или данные или место в чем-то. Вот распространенные гиперссылки в презентациях PowerPoint:
+## **Обзор**
 
-* Ссылки на веб-сайты внутри текстов, фигур или медиа
+Гиперссылка — это ссылка на внешний ресурс, объект или элемент данных, либо конкретное место внутри файла. Распространённые типы гиперссылок в презентациях PowerPoint включают:
+
+* Ссылки на веб‑сайты, встроенные в текст, фигуры или медиа
 * Ссылки на слайды
 
-Aspose.Slides для Python через .NET позволяет выполнять множество задач, связанных с гиперссылками в презентациях.
+Aspose.Slides for Python via .NET предоставляет широкий набор операций, связанных с гиперссылками, в презентациях.
 
-{{% alert color="primary" %}} 
+## **Добавление URL‑гиперссылок**
 
-Вы можете ознакомиться с простым, [бесплатным онлайн-редактором PowerPoint от Aspose.](https://products.aspose.app/slides/editor)
+В этом разделе объясняется, как добавить URL‑гиперссылки к элементам слайда при работе с Aspose.Slides. Описывается назначение адресов ссылок тексту, фигурам и изображениям для обеспечения плавной навигации во время презентаций.
 
-{{% /alert %}} 
+### **Добавление URL‑гиперссылок к тексту**
 
-## **Добавление гиперссылок URL**
-
-### **Добавление гиперссылок URL к текстам**
-
-Этот код на Python показывает, как добавить гиперссылку на веб-сайт к тексту:
-
+Следующий пример кода демонстрирует, как добавить гиперссылку на веб‑сайт к тексту:
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    shape1 = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
-    shape1.add_text_frame("Aspose: API для работы с форматами файлов")
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click.tooltip = "Более 70% компаний из списка Fortune 100 доверяют API Aspose"
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.font_height = 32
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
+    shape.add_text_frame("Aspose: File Format APIs")
     
-    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
+    text_portion = shape.text_frame.paragraphs[0].portions[0]
+
+    text_portion.portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    text_portion.portion_format.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Добавление гиперссылок URL к фигурам или рамкам**
 
-Этот пример кода на Python показывает, как добавить гиперссылку на веб-сайт к фигуре:
+### **Добавление URL‑гиперссылок к фигурам или кадрам**
 
+Следующий пример кода демонстрирует, как добавить гиперссылку на веб‑сайт к фигуре:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50)
-    
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50)
+
     shape.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    shape.hyperlink_click.tooltip = "Более 70% компаний из списка Fortune 100 доверяют API Aspose"
+    shape.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
 
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Добавление гиперссылка URL к медиа**
 
-Aspose.Slides позволяет добавлять гиперссылки к изображениям, аудио и видеофайлам.
+### **Добавление URL‑гиперссылок к медиа**
 
-Этот пример кода показывает, как добавить гиперссылку к **изображению**:
+Aspose.Slides позволяет добавлять гиперссылки к изображениям, аудио‑ и видеофайлам.
 
+Следующий пример кода демонстрирует, как добавить гиперссылку к **изображению**:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    # Добавление изображения в презентацию
-    with open("img.jpeg", "rb") as fs:
-        data = fs.read()
-        image = pres.images.add_image(data)
-        
-        # Создание рамки для изображения на слайде 1 на основе ранее добавленного изображения
-        pictureFrame = pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-        pictureFrame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-        pictureFrame.hyperlink_click.tooltip = "Более 70% компаний из списка Fortune 100 доверяют API Aspose"
+    # Добавить изображение в презентацию.
+    with open("image.jpeg", "rb") as image_stream:
+        image_data = image_stream.read()
+        image = presentation.images.add_image(image_data)
 
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+    # Создать рамку изображения на слайде 1, используя ранее добавленное изображение.
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
+
+    picture_frame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    picture_frame.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Этот пример кода показывает, как добавить гиперссылку к **аудиофайлу**:
 
+Следующий пример кода демонстрирует, как добавить гиперссылку к **аудиофайлу**:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    with open("audio.mp3", "rb") as fs:
-        data = fs.read()
-        audio = pres.audios.add_audio(data)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with open("audio.mp3", "rb") as audio_stream:
+        audio_data = audio_stream.read()
+        audio = presentation.audios.add_audio(audio_data)
         
-        audioFrame = pres.slides[0].shapes.add_audio_frame_embedded(10, 10, 100, 100, audio)
+    audio_frame = slide.shapes.add_audio_frame_embedded(10, 10, 100, 100, audio)
 
-        audioFrame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-        audioFrame.hyperlink_click.tooltip = "Более 70% компаний из списка Fortune 100 доверяют API Aspose"
+    audio_frame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    audio_frame.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
 
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Этот пример кода показывает, как добавить гиперссылку к **видео**:
 
+Следующий пример кода демонстрирует, как добавить гиперссылку к **видео**:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    with open("video.avi", "rb") as fs:
-        data = fs.read()
-        video = pres.videos.add_video(data)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with open("video.avi", "rb") as video_stream:
+        video_data = video_stream.read()
+        video = presentation.videos.add_video(video_data)
         
-        videoFrame = pres.slides[0].shapes.add_video_frame(10, 10, 100, 100, video)
+    video_frame = slide.shapes.add_video_frame(10, 10, 100, 100, video)
 
-        videoFrame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-        videoFrame.hyperlink_click.tooltip = "Более 70% компаний из списка Fortune 100 доверяют API Aspose"
+    video_frame.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    video_frame.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
 
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{%  alert  title="Совет"  color="primary"  %}} 
 
-Вы можете ознакомиться с *[Управление OLE](https://docs.aspose.com/slides/python-net/manage-ole/)*.
-
+{{% alert title="Tip" color="primary" %}}
+Возможно, вам будет интересно посмотреть [Управление OLE в презентациях с помощью Python](/slides/ru/python-net/manage_ole/).
 {{% /alert %}}
 
 ## **Использование гиперссылок для создания оглавления**
 
-Поскольку гиперссылки позволяют добавлять ссылки на объекты или места, вы можете использовать их для создания оглавления.
+Поскольку гиперссылки позволяют ссылаться на объекты или места, их можно использовать для построения оглавления.
 
-Этот пример кода показывает, как создать оглавление с гиперссылками:
-
+Ниже приведён пример кода, показывающий, как создать оглавление с гиперссылками:
 ```py
 import aspose.slides as slides
 
@@ -159,113 +166,149 @@ with slides.Presentation() as presentation:
     paragraph = slides.Paragraph()
     paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    paragraph.text = "Заголовок слайда 2 .......... "
+    paragraph.text = "Title of slide 2 .......... "
 
-    linkPortion = slides.Portion()
-    linkPortion.text = "Страница 2"
-    linkPortion.portion_format.hyperlink_manager.set_internal_hyperlink_click(second_slide)
+    link_text_portion = slides.Portion()
+    link_text_portion.text = "Page 2"
+    link_text_portion.portion_format.hyperlink_manager.set_internal_hyperlink_click(second_slide)
 
-    paragraph.portions.add(linkPortion)
+    paragraph.portions.add(link_text_portion)
     content_table.text_frame.paragraphs.add(paragraph)
 
     presentation.save("link_to_slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Форматирование гиперссылок**
 
-### **Цвет**
+## **Форматирование гиперсылок**
 
-С помощью свойства [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/) интерфейса [IHyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/) вы можете установить цвет для гиперссылок, а также получить информацию о цвете из гиперссылок. Эта функция была впервые введена в PowerPoint 2019, поэтому изменения, связанные с этим свойством, не применяются к более ранним версиям PowerPoint.
+В этом разделе показано, как формировать внешний вид гиперссылок в Aspose.Slides. Вы узнаете, как управлять цветом и другими параметрами стиля, чтобы поддерживать единообразное форматирование гиперссылок в тексте, фигурах и изображениях.
 
-Этот пример кода демонстрирует операцию, при которой гиперссылки с разными цветами добавляются на один и тот же слайд:
+### **Цвет гиперссылки**
 
+С помощью свойства [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) класса [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) можно задать цвет гиперссылки и прочитать информацию о её цвете. Эта функция была введена в PowerPoint 2019, поэтому изменения, выполненные через это свойство, не применяются к более ранним версиям PowerPoint.
+
+Следующий пример демонстрирует, как добавить гиперссылки с разными цветами к одному слайду:
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    shape1 = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
-    shape1.add_text_frame("Это пример цветной гиперссылки.")
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click.color_source = slides.HyperlinkColorSource.PORTION_FORMAT
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.fill_format.fill_type = slides.FillType.SOLID
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.fill_format.solid_fill_color.color = draw.Color.red
+    slide = presentation.slides[0]
 
-    shape2 = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 450, 50, False)
-    shape2.add_text_frame("Это пример обычной гиперссылки.")
-    shape2.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
+    shape1.add_text_frame("This is a sample of a colored hyperlink.")
 
-    presentation.save("presentation-out-hyperlink.pptx", slides.export.SaveFormat.PPTX)
+    text_portion1 = shape1.text_frame.paragraphs[0].portions[0]
+    text_portion1.portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    text_portion1.portion_format.hyperlink_click.color_source = slides.HyperlinkColorSource.PORTION_FORMAT
+    text_portion1.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    text_portion1.portion_format.fill_format.solid_fill_color.color = draw.Color.red
+
+    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 450, 50, False)
+    shape2.add_text_frame("This is a sample of a regular hyperlink.")
+
+    text_portion2 = shape2.text_frame.paragraphs[0].portions[0]
+    text_portion2.portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+
+    presentation.save("hyperlinks.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Удаление гиперссылок в презентациях**
 
-### **Удаление гиперссылок из текстов**
+## **Удаление гиперссылок из презентаций**
 
-Этот код на Python показывает, как удалить гиперссылку из текста на слайде презентации:
+В этом разделе объясняется, как удалять гиперссылки из презентаций при работе с Aspose.Slides. Вы узнаете, как очищать цели ссылок в тексте, фигурах и изображениях, сохраняя исходное содержание и форматирование.
 
+### **Удаление гиперссылок из текста**
+
+Следующий пример кода показывает, как удалить гиперссылки из текста на слайде презентации:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    slide = pres.slides[0]
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
     for shape in slide.shapes:
         if type(shape) is slides.AutoShape:
             for paragraph in shape.text_frame.paragraphs:
-                for portion in paragraph.portions:
-                    portion.portion_format.hyperlink_manager.remove_hyperlink_click()
-    pres.save("pres-removed-hyperlinks.pptx", slides.export.SaveFormat.PPTX)
+                for text_portion in paragraph.portions:
+                    text_portion.portion_format.hyperlink_manager.remove_hyperlink_click()
+
+    presentation.save("removed_hyperlinks.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Удаление гиперсылок из фигур или рамок**
 
-Этот код на Python показывает, как удалить гиперссылку из фигуры на слайде презентации: 
+### **Удаление гиперссылок из фигур или кадров**
 
+Следующий пример кода показывает, как удалить гиперссылки из фигур на слайде презентации:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("demo.pptx") as pres:
-   slide = pres.slides[0]
+with slides.Presentation("sample.pptx") as presentation:
+   slide = presentation.slides[0]
+
    for shape in slide.shapes:
        shape.hyperlink_manager.remove_hyperlink_click()
-   pres.save("pres-removed-hyperlinks.pptx", slides.export.SaveFormat.PPTX)
+
+   presentation.save("removed_hyperlinks.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Изменяемая гиперссылка**
 
-Класс [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink) является изменяемым. С помощью этого класса вы можете изменять значения для следующих свойств:
+## **Изменяемые гиперссылки**
 
-- [IHyperlink.TargetFrame](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
-- [IHyperlink.Tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
-- [IHyperlink.History](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
-- [IHyperlink.HighlightClick](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
-- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlink/)
+Класс [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) изменяемый. С помощью этого класса можно менять значения следующих свойств:
 
-В приведенном ниже коде показано, как добавить гиперссылку на слайд и позже изменить ее подсказку:
+- [target_frame](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_frame/)
+- [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/)
+- [history](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/history/)
+- [highlight_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/highlight_click/)
+- [stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/)
 
+Следующий фрагмент кода демонстрирует, как добавить гиперссылку к слайду, а затем изменить её всплывающую подсказку:
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    shape1 = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
-    shape1.add_text_frame("Aspose: API для работы с форматами файлов")
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.hyperlink_click.tooltip = "Более 70% компаний из списка Fortune 100 доверяют API Aspose"
-    shape1.text_frame.paragraphs[0].portions[0].portion_format.font_height = 32
+    slide = presentation.slides[0]
 
-    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 600, 50, False)
+    shape.add_text_frame("Aspose: File Format APIs")
+
+    text_portion = shape.text_frame.paragraphs[0].portions[0]
+    text_portion.portion_format.hyperlink_click = slides.Hyperlink("https://www.aspose.com/")
+    text_portion.portion_format.hyperlink_click.tooltip = "More than 70% of Fortune 100 companies trust Aspose APIs."
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
 
 ## **Поддерживаемые свойства в IHyperlinkQueries**
 
-Вы можете получить доступ к IHyperlinkQueries из презентации, слайда или текста, для которых определена гиперссылка.
+Вы можете получить доступ к [HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) из презентации, слайда или текста, содержащего гиперссылку.
 
-- [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentation/)
-- [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseslide/)
-- [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/)
+- [Presentation.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/hyperlink_queries/)
+- [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/hyperlink_queries/)
+- [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/)
 
-Класс IHyperlinkQueries поддерживает следующие методы и свойства: 
+Класс [HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) поддерживает следующие методы: 
 
-- [IHyperlinkQueries.GetHyperlinkClicks();](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/)
-- [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/)
-- [IHyperlinkQueries.GetAnyHyperlinks();](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/)
-- [IHyperlinkQueries.RemoveAllHyperlinks();](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkqueries/)
+- [get_hyperlink_clicks()](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/)
+- [get_hyperlink_mouse_overs()](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/)
+- [get_any_hyperlinks()](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/)
+- [remove_all_hyperlinks()](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/)
+
+{{% alert color="primary" %}}
+Возможно, вам будет интересно проверить простой бесплатный онлайн‑редактор [Редактор PowerPoint](https://products.aspose.app/slides/editor).
+{{% /alert %}}
+
+## **FAQ**
+
+**Как создать внутреннюю навигацию не только к слайду, но и к «разделу» или первому слайду раздела?**
+
+Разделы в PowerPoint — это группы слайдов; навигация технически ориентирована на конкретный слайд. Чтобы «перейти к разделу», обычно делают ссылку на его первый слайд.
+
+**Могу ли я прикрепить гиперссылку к элементам шаблона слайда, чтобы она работала на всех слайдах?**
+
+Да. Элементы шаблона слайда и макета поддерживают гиперссылки. Такие ссылки отображаются на дочерних слайдах и кликабельны во время демонстрации.
+
+**Сохранятся ли гиперссылки при экспорте в PDF, HTML, изображения или видео?**
+
+В [PDF](/slides/ru/python-net/convert-powerpoint-to-pdf/) и [HTML](/slides/ru/python-net/convert-powerpoint-to-html/) ссылки, как правило, сохраняются. При экспорте в [изображения](/slides/ru/python-net/convert-powerpoint-to-png/) и [видео](/slides/ru/python-net/convert-powerpoint-to-video/) кликабельность не переносится из‑за характера этих форматов (растровые кадры/видео не поддерживают гиперссылки).

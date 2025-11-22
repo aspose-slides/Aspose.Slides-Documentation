@@ -1,8 +1,19 @@
 ---
-title: Add Slide to Presentation
+title: Add Slides to Presentations in Java
+linktitle: Add Slide
 type: docs
 weight: 10
 url: /java/add-slide-to-presentation/
+keywords:
+- add slide
+- create slide
+- empty slide
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Easily add slides to your PowerPoint and OpenDocument presentations using Aspose.Slides for Java—seamless, efficient slide insertion in seconds."
 ---
 
 ## **Add Slide to Presentation**

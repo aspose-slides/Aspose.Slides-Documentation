@@ -1,10 +1,24 @@
 ---
-title: Manage Autofit Settings
+title: Enhance Your Presentations with AutoFit on Android
+linktitle: Autofit Settings
 type: docs
 weight: 30
 url: /androidjava/manage-autofit-settings/
-keywords: "Textbox, Autofit, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
-description: "Set the autofit settings for textbox in PowerPoint in Java"
+keywords:
+- textbox
+- autofit
+- do not autofit
+- fit text
+- shrink text
+- wrap text
+- resize shape
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Manage AutoFit settings in Aspose.Slides for Android via Java to optimize text display in your PowerPoint and OpenDocument presentations and improve content readability."
 ---
 
 By default, when you add a textbox, Microsoft PowerPoint uses the **Resize shape to fix text** setting for the textbox—it automatically resizes the textbox to ensure its text always fits into it. 

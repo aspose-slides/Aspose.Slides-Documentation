@@ -1,16 +1,24 @@
 ---
-title: Embedding Fonts in PowerPoint with C#
-linktitle: Embedding Fonts
+title: Embed Fonts in Presentations in .NET
+linktitle: Embedding Font
 type: docs
 weight: 40
 url: /net/embedded-font/
 keywords:
-- embed fonts
-- PowerPoint C#
-- add fonts
+- add font
+- embed font
+- font embedding
+- get embedded font
+- add embedded font
+- remove embedded font
+- compress embedded font
+- PowerPoint
+- OpenDocument
 - presentation
-- Aspose.Slides for .NET
-description: "Learn to embed, add, and manage fonts in PowerPoint presentations using C# and .NET"
+- .NET
+- C#
+- Aspose.Slides
+description: "Embed TrueType fonts in PowerPoint and OpenDocument presentations with Aspose.Slides for .NET, ensuring accurate rendering across all platforms."
 ---
 
 **Embedding fonts in PowerPoint** ensures your presentation maintains its intended appearance across different systems. Whether using unique fonts for creativity or standard ones, embedding fonts prevents text and layout disruption.
@@ -95,3 +103,13 @@ using (Presentation pres = new Presentation("pres.pptx"))
     pres.Save("pres-out.pptx", SaveFormat.Pptx);
 }
 ```
+
+## **FAQ**
+
+**How can I tell that a specific font in the presentation will still be substituted during rendering despite embedding?**
+
+Check the [substitution information](/slides/net/font-substitution/) in the font manager and the [fallback/substitution rules](/slides/net/fallback-font/): if the font is unavailable or restricted, a fallback will be used.
+
+**Is it worth embedding "system" fonts like Arial/Calibri?**
+
+Usually no—they are almost always available. But for full portability in "thin" environments (Docker, a Linux server without preinstalled fonts), embedding system fonts can eliminate the risk of unexpected substitutions.

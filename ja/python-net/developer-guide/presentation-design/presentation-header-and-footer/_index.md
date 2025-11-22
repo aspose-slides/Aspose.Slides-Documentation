@@ -1,5 +1,5 @@
 ---
-title: Python でプレゼンテーションのヘッダーとフッターを管理する
+title: Pythonでプレゼンテーションのヘッダーとフッターを管理する
 linktitle: ヘッダーとフッター
 type: docs
 weight: 140
@@ -20,102 +20,117 @@ keywords:
 description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションにヘッダーとフッターを追加およびカスタマイズし、プロフェッショナルな外観を実現します。"
 ---
 
-{{% alert color="primary" %}} 
+## **概要**
 
-[Aspose.Slides](/slides/ja/python-net/)は、スライドマスターレベルで実際に管理されているスライドのヘッダーとフッターテキストを操作するサポートを提供します。
+Aspose.Slides for Python を使用すると、プレゼンテーション全体のヘッダーおよびフッター プレースホルダーを正確なスコープで制御できます。フッター テキスト、日付/時刻、スライド番号はマスター レベルで管理され、全体に適用することも、スライドごとに調整することもできます。ヘッダーはノートと配布資料でサポートされており、マスターノート スライドまたは個々のノート スライド上の専用ヘッダー と フッターマネージャーを使用して、可視性の切り替えやヘッダー、フッター、日付/時刻、ページ番号のテキスト設定が行えます。本記事では、これらのプレースホルダーを更新し、デッキ全体に一貫して変更を伝播させるための主要パターンを概説します。
 
-{{% /alert %}} 
+## **ヘッダーとフッター テキストの管理**
 
-[Aspose.Slides for Python via .NET](/slides/ja/python-net/)は、プレゼンテーションスライド内のヘッダーとフッターを管理する機能を提供します。これらは実際にはプレゼンテーションマスターレベルで管理されています。
-## **ヘッダーとフッターテキストを管理する**
-特定のスライドの注釈を以下の例のように更新することができます：
+このセクションでは、プレゼンテーション内のヘッダーとフッター コンテンツの管理方法—フッター、日付と時刻、スライド番号の有効化または変更—について学びます。設定を適用する対象のスコープ（プレゼンテーション全体、個別スライド、ノート/配布資料ビュー）を簡潔に説明し、Aspose.Slides API を使用してそれらを迅速かつ一貫して更新する方法を示します。
 
+以下のコード例は、プレゼンテーションを開き、フッターテキストを有効化して設定し、マスターノート スライド上のヘッダーテキストを更新し、ファイルを保存します。
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# ヘッダー/フッターテキストを設定するメソッド
+# ヘッダーテキストを設定する関数。
 def update_header_footer_text(master):
     for shape in master.shapes:
         if shape.placeholder is not None:
             if shape.placeholder.type == slides.PlaceholderType.HEADER:
-                shape.text_frame.text = "こんにちは新しいヘッダー"
+                shape.text_frame.text = "Hi, there is a header"
 
-# プレゼンテーションをロード
-with slides.Presentation("combined_with_master.pptx") as pres:
-    # フッターを設定
-    pres.header_footer_manager.set_all_footers_text("私のフッターテキスト")
-    pres.header_footer_manager.set_all_footers_visibility(True)
 
-    # ヘッダーにアクセスして更新
-    masterNotesSlide = pres.master_notes_slide_manager.master_notes_slide
-    if masterNotesSlide is not None:
-        update_header_footer_text(masterNotesSlide)
+# プレゼンテーションを読み込む。
+with slides.Presentation("sample.pptx") as presentation:
+    # フッターを設定する。
+    presentation.header_footer_manager.set_all_footers_text("My Footer text")
+    presentation.header_footer_manager.set_all_footers_visibility(True)
 
-    # プレゼンテーションを保存
-    pres.save("HeaderFooter-out.pptx", slides.export.SaveFormat.PPTX)
+    # ヘッダーにアクセスして更新する。
+    master_notes_slide = presentation.master_notes_slide_manager.master_notes_slide
+    if master_notes_slide is not None:
+        update_header_footer_text(master_notes_slide)
+
+    # プレゼンテーションを保存する。
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **ノート スライド上のヘッダーとフッターの管理**
 
+このセクションでは、Aspose.Slides におけるノート スライド専用のヘッダーとフッターの管理方法を学びます。関連するプレースホルダーの有効化、フッター、日付/時刻、ページ番号のテキスト設定、そしてこれらの変更をノート マスターと個々のノート ページ全体に一貫して適用する方法を取り上げます。
 
-## **ハンドアウトとノートスライドのヘッダーとフッターを管理する**
-Aspose.Slides for Python via .NETは、ハンドアウトとノートスライドのヘッダーとフッターをサポートしています。以下の手順に従ってください：
+以下の手順に従ってください。
 
-- 動画を含む[プレゼンテーション](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)をロードします。
-- ノートマスターとすべてのノートスライドのヘッダーとフッター設定を変更します。
-- マスターノートスライドとすべての子フッタープレースホルダーを表示します。
-- マスターノートスライドとすべての子の日時プレースホルダーを表示します。
-- 最初のノートスライドのみのヘッダーとフッター設定を変更します。
-- ノートスライドのヘッダープレースホルダーを表示します。
-- ノートスライドのヘッダープレースホルダーにテキストを設定します。
-- ノートスライドの日時プレースホルダーにテキストを設定します。
-- 修正されたプレゼンテーションファイルを書き込みます。
-
-コードスニペットは以下の例に示されています。
-
+1. プレゼンテーション ファイルを読み込みます。  
+1. マスターノート スライドとその[ヘッダーとフッターマネージャー](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/)を取得します。  
+1. マスターノート スライド上で、マスターとすべての子ノート スライドに対してヘッダー、フッター、スライド番号、日付/時刻の可視性を有効にします。  
+1. マスターノート スライド上で、マスターとすべての子ノート スライドに対してヘッダー、フッター、日付/時刻のテキストを設定します。  
+1. 最初のプレゼンテーション スライドのノート スライドとその[ヘッダーとフッターマネージャー](https://reference.aspose.com/slides/python-net/aspose.slides/notesslideheaderfootermanager/)を取得します。  
+1. この最初のノート スライドだけに対して、ヘッダー、フッター、スライド番号、日付/時刻が可視になるようにします（オフになっているものはオンにします）。  
+1. この最初のノート スライドだけに対して、ヘッダー、フッター、日付/時刻のテキストを設定します。  
+1. プレゼンテーションを PPTX 形式で保存します。  
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-with slides.Presentation("combined_with_master.pptx") as presentation:
-	masterNotesSlide = presentation.master_notes_slide_manager.master_notes_slide
-	if masterNotesSlide != None:
-		headerFooterManager = masterNotesSlide.header_footer_manager
+with slides.Presentation("sample.pptx") as presentation:
+    master_notes_slide = presentation.master_notes_slide_manager.master_notes_slide
+    if master_notes_slide is not None:
+        header_footer_manager = master_notes_slide.header_footer_manager
 
-		# マスターノートスライドとすべての子フッタープレースホルダーを表示
-		headerFooterManager.set_header_and_child_headers_visibility(True) 
-		headerFooterManager.set_footer_and_child_footers_visibility(True) 
-		headerFooterManager.set_slide_number_and_child_slide_numbers_visibility(True) 
-		headerFooterManager.set_date_time_and_child_date_times_visibility(True)
+        # マスターノートスライドとすべての子ヘッダー、フッター、スライド番号、日付/時刻プレースホルダーを表示します。
+        header_footer_manager.set_header_and_child_headers_visibility(True)
+        header_footer_manager.set_footer_and_child_footers_visibility(True)
+        header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
+        header_footer_manager.set_date_time_and_child_date_times_visibility(True)
 
-		# マスターノートスライドとすべての子のヘッダープレースホルダーにテキストを設定
-		headerFooterManager.set_header_and_child_headers_text("ヘッダーテキスト") 
-		headerFooterManager.set_footer_and_child_footers_text("フッターテキスト") 
-		headerFooterManager.set_date_time_and_child_date_times_text("日時テキスト") 
+        # マスターノートスライドとすべての子ヘッダー、フッター、日付/時刻プレースホルダーにテキストを設定します。
+        header_footer_manager.set_header_and_child_headers_text("Header text")
+        header_footer_manager.set_footer_and_child_footers_text("Footer text")
+        header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
 
-	# 最初のノートスライドのみヘッダーとフッター設定を変更
-	notesSlide = presentation.slides[0].notes_slide_manager.notes_slide
-	if notesSlide != None:
-		headerFooterManager = notesSlide.header_footer_manager
+    # 最初のノートスライドのみのヘッダー、フッター、スライド番号、日付/時刻設定を変更します。
+    notesSlide = presentation.slides[0].notes_slide_manager.notes_slide
+    if notesSlide is not None:
+        header_footer_manager = notesSlide.header_footer_manager
 
-		# ノートスライドのヘッダープレースホルダーを表示
+        # ヘッダー、フッター、スライド番号、日付/時刻プレースホルダーが表示されていることを確認します。
+        if not header_footer_manager.is_header_visible:
+            header_footer_manager.set_header_visibility(True)
 
-		if not headerFooterManager.is_header_visible:
-			headerFooterManager.set_header_visibility(True) 
+        if not header_footer_manager.is_footer_visible:
+            header_footer_manager.set_footer_visibility(True)
 
-		if not headerFooterManager.is_footer_visible:
-			headerFooterManager.set_footer_visibility(True) 
+        if not header_footer_manager.is_slide_number_visible:
+            header_footer_manager.set_slide_number_visibility(True)
 
-		if not headerFooterManager.is_slide_number_visible:
-			headerFooterManager.set_slide_number_visibility(True) 
+        if not header_footer_manager.is_date_time_visible:
+            header_footer_manager.set_date_time_visibility(True)
 
-		if not headerFooterManager.is_date_time_visible:
-			headerFooterManager.set_date_time_visibility(True) 
+        # ノートスライドのヘッダー、フッター、日付/時刻プレースホルダーにテキストを設定します。
+        header_footer_manager.set_header_text("New header text")
+        header_footer_manager.set_footer_text("New footer text")
+        header_footer_manager.set_date_time_text("New date and time text")
 
-		# ノートスライドのヘッダープレースホルダーにテキストを設定
-		headerFooterManager.set_header_text("新しいヘッダーテキスト") 
-		headerFooterManager.set_footer_text("新しいフッターテキスト") 
-		headerFooterManager.set_date_time_text("新しい日時テキスト") 
-	presentation.save("testresult.pptx",slides.export.SaveFormat.PPTX)
+    # プレゼンテーションを保存します。
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**通常のスライドに「ヘッダー」を追加できますか？**
+
+PowerPoint では「ヘッダー」はノートと配布資料にのみ存在し、通常のスライドではフッター、日付/時刻、スライド番号がサポートされる要素です。Aspose.Slides でも同じ制限が適用され、ヘッダーはノート/配布資料専用で、スライド上ではフッター/日付/時刻/スライド番号が利用可能です。
+
+**レイアウトにフッター領域がない場合、可視化を「オン」にできますか？**
+
+はい。ヘッダー/フッターマネージャーで可視性を確認し、必要に応じて有効化します。これらの API 指標とメソッドは、プレースホルダーが欠落または非表示の場合に対応できるよう設計されています。
+
+**スライド番号を 1 以外の値から開始させるにはどうすればよいですか？**
+
+プレゼンテーションの[最初のスライド番号](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/first_slide_number/)を設定します。その後、すべての番号付けが再計算されます。たとえば 0 や 10 から開始し、タイトル スライドの番号を非表示にすることができます。
+
+**PDF/画像/HTML にエクスポートした場合、ヘッダー/フッターはどうなりますか？**
+
+ヘッダー/フッターはプレゼンテーションの通常のテキスト要素としてレンダリングされます。つまり、スライドやノート ページ上で要素が可視であれば、出力形式でも他のコンテンツと同様に表示されます。

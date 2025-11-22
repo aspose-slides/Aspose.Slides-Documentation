@@ -6,109 +6,99 @@ url: /ja/python-net/licensing/
 keywords:
 - ライセンス
 - 一時ライセンス
-- ライセンスを設定
-- ライセンスを使用
-- ライセンスを検証
+- ライセンス設定
+- ライセンス使用
+- ライセンス検証
 - ライセンスファイル
 - 評価版
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET でライセンスを適用、管理、トラブルシューティングする方法を学びましょう。ステップバイステップのライセンスガイドで、全機能への途切れないアクセスを確保します。"
+description: "Aspose.Slides for Python via .NET のライセンスの適用、管理、トラブルシューティング方法を学びます。ステップバイステップのライセンスガイドで、フル機能への継続的なアクセスを確保しましょう。"
 ---
 
-## **Aspose.Slidesの評価**
+## **Aspose.Slides を評価する**
 
-{{% alert color="primary" %}} 
+**Aspose.Slides for Python via .NET** の評価版は、[ダウンロードページ](https://pypi.org/project/Aspose.Slides/)から入手できます。評価版は製品版と同じ機能を提供します。評価パッケージは購入版と同一で、ライセンスを適用する数行のコードを追加するとライセンスが有効になります。
 
-**Aspose.Slides for Python via .NET**の評価版を[ダウンロードページ](https://pypi.org/project/Aspose.Slides/)からダウンロードできます。評価版は製品のライセンス版と同じ機能を提供します。評価パッケージは購入したパッケージと同じです。評価版は、ライセンスを適用するためにいくつかのコード行を追加すると、単にライセンス版になります。
+**Aspose.Slides** の評価に満足したら、[ライセンスを購入](https://purchase.aspose.com/buy)できます。利用可能なサブスクリプションオプションをご確認ください。ご質問がある場合は、Aspose の営業チームまでお問い合わせください。
 
-**Aspose.Slides**の評価に満足したら、[ライセンスを購入](https://purchase.aspose.com/buy)できます。異なるサブスクリプションの種類を確認することをお勧めします。質問がある場合は、Asposeの営業チームにお問い合わせください。
-
-すべてのAsposeライセンスには、サブスクリプション期間内にリリースされた新しいバージョンや修正への無料アップグレードが付いてきます。ライセンス製品を持つユーザーや評価版を使用しているユーザーにも、無制限の技術サポートが提供されます。
-
-{{% /alert %}} 
+すべての Aspose ライセンスには、1 年間のサブスクリプションが含まれ、その期間中の新バージョンおよび修正への無料アップグレードが提供されます。ライセンス版・評価版のユーザーは、無料で無制限のテクニカルサポートを受けられます。
 
 **評価版の制限事項**
 
-* Aspose.Slides評価版（ライセンスが指定されていない）は完全な製品機能を提供しますが、開いて保存する操作時にドキュメントの上部に評価用の透かしを挿入します。
-* プレゼンテーションスライドからテキストを抽出する際は、1枚のスライドに制限されます。
-
-{{% alert color="primary" %}} 
-
-制限なくAspose.Slidesをテストするには、**30日間の一時ライセンス**を請求できます。詳しくは[一時ライセンスの取得方法](https://purchase.aspose.com/temporary-license)をご覧ください。
-
-{{% /alert %}}
-
-## **Aspose.Slidesのライセンス**
-
-* 評価版はライセンスを購入し、ライセンスを適用するためにいくつかのコード行を追加するとライセンス版になります。
-* ライセンスは、製品名、ライセンスが付与されている開発者数、サブスクリプションの有効期限などの詳細を含むプレーンテキストのXMLファイルです。
-* ライセンスファイルはデジタル署名されているため、ファイルを変更しないでください。たとえ無意識に余分な改行を追加しても、それが無効になります。
-* Aspose.Slides for Python via .NETは通常、以下の場所でライセンスを見つけようとします：
-  * 明示的なパス
-  * Aspose.Slides for Python via .NETを呼び出すPythonスクリプトがあるフォルダ
-* 評価版に関連する制限を回避するには、Aspose.Slidesを使用する前にライセンスを設定する必要があります。アプリケーションまたはプロセスごとに1回ライセンスを設定するだけです。
-
-{{% alert color="primary" %}} 
-
-[メーター制ライセンス](/slides/ja/python-net/metered-licensing/)を確認することをお勧めします。
-
-{{% /alert %}} 
-
-
-## **ライセンスの適用**
-
-ライセンスは**ファイル**、**ストリーム**、または**埋め込みリソース**から読み込むことができます。 
+* Aspose.Slides の評価版（ライセンス未適用）では全機能が利用できますが、ドキュメントを開くまたは保存するたびに、上部に評価用の透かしが追加されます。
+* プレゼンテーションからテキストを抽出する場合、1 スライドに制限されます。
 
 {{% alert color="primary" %}}
+制限なしで Aspose.Slides を試したい場合は、**30 日間の一時ライセンス**を申請できます。詳細は [一時ライセンスの取得方法](https://purchase.aspose.com/temporary-license) ページをご覧ください。
+{{% /alert %}}
 
-Aspose.Slidesではライセンス操作のために[License](https://reference.aspose.com/slides/python-net/aspose.slides/license/)クラスが提供されています。
+## **Aspose.Slides のライセンス管理**
 
-{{% /alert %}} 
+* 評価版は、ライセンスを購入し、数行のコードで適用すると正式にライセンスが有効になります。
+* ライセンスはプレーンテキストの XML ファイルで、製品名、対象開発者数、サブスクリプションの有効期限などの情報が含まれます。
+* ライセンスファイルはデジタル署名されているため、変更してはいけません。1 行の改行でも無効になります。
+* Aspose.Slides for Python via .NET は、次の場所でライセンスを検索します。
+  * 明示的に指定したパス
+  * Aspose.Slides for Python via .NET を呼び出す Python スクリプトが存在するフォルダー
+* 評価版の制限を回避するには、Aspose.Slides を使用する前にライセンスを設定してください。アプリケーションまたはプロセスごとに一度設定すれば完了です。
+
+{{% alert color="primary" %}}
+[従量課金ライセンス](/slides/ja/python-net/metered-licensing/) もご確認ください。
+{{% /alert %}}
+
+## **ライセンスの適用方法**
+
+ライセンスは **ファイル**、**ストリーム**、または **埋め込みリソース** から読み込めます。
+
+{{% alert color="primary" %}}
+Aspose.Slides は、ライセンス管理用に [License](https://reference.aspose.com/slides/python-net/aspose.slides/license/) クラスを提供しています。
+{{% /alert %}}
+
+{{% alert color="warning" %}}
+新しいライセンスはバージョン 21.4 以降でのみ Aspose.Slides を有効化できます。以前のバージョンは別のライセンスシステムを使用しているため、これらのライセンスは認識されません。
+{{% /alert %}}
 
 ### **ファイル**
 
-ライセンスを設定する最も簡単な方法は、ライセンスファイルをコンポーネントのDLL（Aspose.Slidesに含まれる）と同じフォルダに置き、そのパスなしでファイル名を指定することです。
+最も簡単な方法は、コンポーネントの DLL と同じフォルダーにライセンスファイルを配置し、ファイル名（パスなし）のみを指定することです。
 
-このPythonコードは、ライセンスファイルを設定する方法を示しています：
-
-``` python
+次の Python コードはライセンスファイルの設定方法を示しています:
+```py
 import aspose.slides as slides
 
-# Licenseクラスをインスタンス化
+# ライセンス クラスをインスタンス化します。
 license = slides.License()
 
-# ライセンスファイルのパスを設定
+# ライセンス ファイル パスを設定します。
 license.set_license("Aspose.Slides.lic")
 ```
 
-{{% alert color="warning" %}} 
 
-ライセンスファイルを別のディレクトリに置いた場合、[License.set_license()](https://reference.aspose.com/slides/python-net/aspose.slides/license/)メソッドを呼び出すとき、指定された明示的なものの最後にあるライセンスファイル名は、あなたのライセンスファイルと同じでなければなりません。
+{{% alert color="warning" %}}
+ライセンスファイルを別のディレクトリに置く場合、[License.set_license()](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) を呼び出す際に、明示的なパスの最後にあるファイル名が実際のライセンスファイル名と一致している必要があります。
 
-たとえば、ライセンスファイル名を*Aspose.Slides.lic.xml*に変更できます。次に、コード内で、ファイルへのパス（*Aspose.Slides.lic.xml*で終了）を[License.set_license()](https://reference.aspose.com/slides/python-net/aspose.slides/license/)メソッドに渡す必要があります。
-
+例として、ライセンスファイル名を *Aspose.Slides.lic.xml* に変更し、コード内でそのフルパス（末尾が Aspose.Slides.lic.xml）を [License.set_license()](https://reference.aspose.com/slides/python-net/aspose.slides/license/set_license/#str) に渡してください。
 {{% /alert %}}
 
 ### **ストリーム**
 
-ストリームからライセンスを読み込むことができます。このPythonコードは、ストリームからライセンスを適用する方法を示しています：
-
-``` python
+ストリームからライセンスをロードできます。次の Python の例は、ストリームからライセンスを適用する方法を示しています:
+```py
 import aspose.slides as slides
 
-# Licenseクラスをインスタンス化
+# ライセンス クラスをインスタンス化します。
 license = slides.License()
 
-# ストリームを通じてライセンスを設定
+# ストリームからライセンスを設定します。
 license.set_license(stream)
 ```
 
+
 ## **ライセンスの検証**
 
-ライセンスが正しく設定されているか確認するには、検証することができます。このPythonコードは、ライセンスを検証する方法を示しています：
-
-```python
+ライセンスが正しく適用されたか確認するには、検証を行います。次の Python コードはライセンスの検証方法を示しています:
+```py
 import aspose.slides as slides
 
 license = slides.License()
@@ -116,13 +106,22 @@ license = slides.License()
 license.set_license("Aspose.Slides.lic")
 
 if license.is_licensed():
-    print("ライセンスが有効です！")
+    print("License is good!")
 ```
 
-## **スレッドセーフ**
 
-{{% alert title="注" color="warning" %}} 
+## **スレッド安全性**
 
-[License.set_license()](https://reference.aspose.com/slides/python-net/aspose.slides/license/)メソッドはスレッドセーフではありません。このメソッドが多くのスレッドから同時に呼び出される必要がある場合は、問題を避けるために同期プリミティブ（ロックなど）を使用することをお勧めします。
-
+{{% alert title="Note" color="warning" %}}
+[License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/) メソッドはスレッドセーフではありません。複数スレッドから同時に呼び出す必要がある場合は、`threading.Lock` などの同期プリミティブを使用して問題を回避してください。
 {{% /alert %}}
+
+## **FAQ**
+
+**完全にオフラインの環境（インターネットアクセスなし）でライセンスを適用できますか？**
+
+はい。ライセンスの検証はローカルのライセンスファイルで行われるため、インターネット接続は不要です。
+
+**1 年間のサブスクリプションが終了した後はどうなりますか？ライブラリは動作しなくなりますか？**
+
+いいえ。ライセンスは永続的です。サブスクリプション終了日以前にリリースされたバージョンは引き続き使用可能ですが、更新しない限り新しいリリースは利用できません。

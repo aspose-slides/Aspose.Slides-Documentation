@@ -1,10 +1,30 @@
 ---
-title: Shape Manipulations
+title: Manage Presentation Shapes in .NET
+linktitle: Shape Manipulation
 type: docs
 weight: 40
 url: /net/shape-manipulations/
-keywords: "PowerPoint shape, shape on slide, find shape, clone shape, remove shape, hide shape, change shape order, get interlop shape ID, shape alternative text, shape layout formats, shape as SVG, align shape, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Manipulate PowerPoint shapes in C# or .NET"
+keywords:
+- PowerPoint shape
+- presentation shape
+- shape on slide
+- find shape
+- clone shape
+- remove shape
+- hide shape
+- change shape order
+- get interop shape ID
+- shape alternative text
+- shape layout formats
+- shape as SVG
+- shape to SVG
+- align shape
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn to create, edit and optimize shapes in Aspose.Slides for .NET and deliver high-performance PowerPoint presentations."
 ---
 
 ## **Find Shape in Slide**
@@ -355,3 +375,17 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 The result:
 
 ![The flipped shape](flipped_shape.png)
+
+## **FAQ**
+
+**Can I combine shapes (union/intersect/subtract) on a slide like in a desktop editor?**
+
+There isn’t a built-in Boolean operation API. You can approximate it by constructing the desired outline yourself—e.g., compute the resulting geometry (via [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/)) and create a new shape with that contour, optionally removing the originals.
+
+**How can I control the stacking order (z-order) so a shape always stays "on top"?**
+
+Change the insertion/move order within the slide’s [shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) collection. For predictable results, finalize the z-order after all other slide modifications.
+
+**Can I "lock" a shape to prevent users from editing it in PowerPoint?**
+
+Yes. Set [shape-level protection flags](/slides/net/applying-protection-to-presentation/) (e.g., lock selection, movement, resizing, text edits). If needed, mirror restrictions on the master or layout. Note this is UI-level protection, not a security feature; for stronger protection, combine with file-level restrictions like [read-only recommendations or passwords](/slides/net/password-protected-presentation/).

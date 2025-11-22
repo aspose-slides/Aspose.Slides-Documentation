@@ -1,9 +1,22 @@
 ---
-title: Presentation Notes
+title: Manage Presentation Notes in C++
+linktitle: Presentation Notes
 type: docs
 weight: 110
 url: /cpp/presentation-notes/
-keywords: "PowerPoint presentation speaker notes"
+keywords:
+- notes
+- notes slide
+- add notes
+- remove notes
+- notes style
+- master notes
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Customize presentation notes with Aspose.Slides for C++. Seamlessly work with PowerPoint and OpenDocument notes to boost your productivity."
 ---
 
 

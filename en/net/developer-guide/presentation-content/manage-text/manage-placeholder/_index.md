@@ -1,10 +1,21 @@
 ---
-title: Manage Placeholder
+title: Manage Presentation Placeholders in .NET
+linktitle: Manage Placeholders
 type: docs
 weight: 10
 url: /net/manage-placeholder/
-keywords: "Placeholder, Placeholder text, Prompt text, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Change Placeholder text and prompt text in PowerPoint presentations in C# or .NET"
+keywords:
+- placeholder
+- text placeholder 
+- image placeholder
+- chart placeholder
+- prompt text
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Effortlessly manage placeholders in Aspose.Slides for .NET: replace text, customize prompts & set image transparency in PowerPoint and OpenDocument."
 ---
 
 ## **Change Text in Placeholder**

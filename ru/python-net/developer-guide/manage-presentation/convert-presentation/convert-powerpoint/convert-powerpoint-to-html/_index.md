@@ -68,10 +68,10 @@ description: "Конвертировать презентации PowerPoint в 
 
 Помимо описанных здесь процессов конвертации, Aspose.Slides также поддерживает следующие операции конвертации, связанные с форматом HTML:
 
-* [HTML в изображение](https://products.aspose.com/slides/python-net/conversion/html-to-image/)
-* [HTML в JPG](https://products.aspose.com/slides/python-net/conversion/html-to-jpg/)
-* [HTML в XML](https://products.aspose.com/slides/python-net/conversion/html-to-xml/)
-* [HTML в TIFF](https://products.aspose.com/slides/python-net/conversion/html-to-tiff/)
+* [HTML to image](https://products.aspose.com/slides/python-net/conversion/html-to-image/)
+* [HTML to JPG](https://products.aspose.com/slides/python-net/conversion/html-to-jpg/)
+* [HTML to XML](https://products.aspose.com/slides/python-net/conversion/html-to-xml/)
+* [HTML to TIFF](https://products.aspose.com/slides/python-net/conversion/html-to-tiff/)
 
 {{% /alert %}}
 

@@ -1,5 +1,5 @@
 ---
-title: Управляйте строками и столбцами в таблицах PowerPoint с помощью Python
+title: Управление строками и столбцами в таблицах PowerPoint с помощью Python
 linktitle: Строки и столбцы
 type: docs
 weight: 20
@@ -22,219 +22,242 @@ keywords:
 - презентация
 - Python
 - Aspose.Slides
-description: "Управляйте строками и столбцами таблиц в PowerPoint и OpenDocument с помощью Aspose.Slides for Python via .NET и ускоряйте редактирование презентаций и обновление данных."
+description: "Управляйте строками и столбцами таблиц в PowerPoint и OpenDocument с помощью Aspose.Slides для Python через .NET и ускоряйте редактирование презентаций и обновление данных."
 ---
 
-Чтобы управлять строками и колонками таблицы в презентации PowerPoint, Aspose.Slides предоставляет класс [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/), интерфейс [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) и многие другие типы.
+## **Обзор**
 
-## **Установить первую строку в качестве заголовка**
+В этой статье показано, как управлять строками и столбцами таблиц в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides for Python. Вы узнаете, как добавлять, вставлять, клонировать и удалять строки или столбцы, помечать первую строку как заголовок, корректировать размеры и расположение, а также применять форматирование текста и стилей на уровне строки или столбца. Каждый шаг продемонстрирован с помощью компактных автономных фрагментов кода, основанных на API [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/), чтобы вы могли быстро найти таблицу на слайде и изменить её структуру в соответствии с дизайном.
+
+## **Установить первую строку как заголовок**
+
+Пометьте первую строку таблицы как заголовок, чтобы явно различать заголовки столбцов и данные. В Aspose.Slides for Python достаточно включить параметр *First Row* таблицы, чтобы применить форматирование заголовка, определённое выбранным стилем таблицы.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и загрузите презентацию.
-2. Получите ссылку на слайд через его индекс.
-3. Создайте объект [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) и установите его в null.
-4. Переберите все объекты [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) для поиска соответствующей таблицы.
-5. Установите первую строку таблицы в качестве заголовка.
-
-Этот код на Python показывает, как установить первую строку таблицы в качестве заголовка:
+1. Получите доступ к слайду по его индексу.
+1. Пройдитесь по всем объектам [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/), чтобы найти нужную таблицу.
+1. Установите первую строку таблицы в качестве заголовка.
 
 ```python
 import aspose.slides as slides
 
-# Создает экземпляр класса Presentation
-with slides.Presentation("table.pptx") as pres:
-    # Получает доступ к первому слайду
-    sld = pres.slides[0]
+# Создать экземпляр класса Presentation.
+with slides.Presentation("table.pptx") as presentation:
+    # Получить доступ к первому слайду.
+    slide = presentation.slides[0]
 
-    # Инициализирует null TableEx
-    tbl = None
+    # Пройтись по объектам shapes и получить ссылку на таблицу.
+    for shape in slide.shapes:
+        if type(shape) is slides.Table:
+            table = shape
+            break
 
-    # Перебирает фигуры и устанавливает ссылку на таблицу
-    for shp in sld.shapes:
-        if type(shp) is slides.Table:
-            tbl = shp
-
-    # Устанавливает первую строку таблицы в качестве заголовка
-    tbl.first_row = True
+    # Установить первую строку таблицы как заголовок.
+    table.first_row = True
     
-    # Сохраняет презентацию на диск
-    pres.save("table_out.pptx", slides.export.SaveFormat.PPTX)
+    # Сохранить презентацию на диск.
+    presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Клонирование строки или колонки таблицы**
+
+## **Клонировать строку или столбец таблицы**
+
+Клонируйте любую строку или столбец таблицы и вставьте копию в нужное место таблицы. Дубликат сохраняет содержимое ячеек, форматирование и размеры, что позволяет быстро и последовательно расширять макеты.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и загрузите презентацию.
-2. Получите ссылку на слайд через его индекс.
-3. Определите массив `columnWidth`.
-4. Определите массив `rowHeight`.
-5. Добавьте объект [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) на слайд с помощью метода `add_table(x, y, column_widths, row_heights)`.
-6. Клонируйте строку таблицы.
-7. Клонируйте колонку таблицы.
-8. Сохраните измененную презентацию.
-
-Этот код на Python показывает, как клонировать строку или колонку таблицы PowerPoint:
+1. Получите доступ к слайду по его индексу.
+1. Определите массив ширин столбцов.
+1. Определите массив высот строк.
+1. Добавьте [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) на слайд, используя `add_table(x, y, column_widths, row_heights)`.
+1. Клонируйте строку таблицы.
+1. Клонируйте столбец таблицы.
+1. Сохраните изменённую презентацию.
 
 ```python
  import aspose.slides as slides
 
-# Создает экземпляр класса Presentation
+# Создать экземпляр класса Presentation.
 with slides.Presentation() as presentation:
+    # Доступ к первому слайду.
+    slide = presentation.slides[0]
 
-    # Получает доступ к первому слайду
-    sld = presentation.slides[0]
+    # Задать ширины столбцов и высоты строк.
+    column_widths = [50, 50, 50]
+    row_heights = [50, 30, 30, 30, 30]
 
-    # Определяет ширины колонок и высоты строк
-    dblCols =  [50, 50, 50] 
-    dblRows =  [50, 30, 30, 30, 30] 
+    # Добавить таблицу на слайд.
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Добавляет фигуру таблицы на слайд
-    table = sld.shapes.add_table(100, 50, dblCols, dblRows)
+    # Добавить текст в строку 1, столбец 1.
+    table.rows[0][0].text_frame.text = "Row 1 Cell 1"
 
-    # Добавляет текст в ячейку 1 строки 1
-    table.rows[0][0].text_frame.text = "Ячейка 1 Строка 1"
+    # Добавить текст в строку 2, столбец 1.
+    table.rows[1][0].text_frame.text = "Row 1 Cell 2"
 
-    # Добавляет текст в ячейку 1 строки 2
-    table.rows[1][0].text_frame.text = "Ячейка 1 Строка 2"
-
-    # Клонирует строку 1 в конец таблицы
+    # Клонировать строку 1 в конец таблицы.
     table.rows.add_clone(table.rows[0], False)
 
-    # Добавляет текст в ячейку 2 строки 1
-    table.rows[0][1].text_frame.text = "Ячейка 2 Строка 1"
+    # Добавить текст в строку 1, столбец 2.
+    table.rows[0][1].text_frame.text = "Row 2 Cell 1"
 
-    # Добавляет текст в ячейку 2 строки 2
-    table.rows[1][1].text_frame.text = "Ячейка 2 Строка 2"
+    # Добавить текст в строку 2, столбец 2.
+    table.rows[1][1].text_frame.text = "Row 2 Cell 2"
 
-    # Клонирует строку 2 как 4-ю строку таблицы
+    # Клонировать строку 2 как 4-ю строку таблицы.
     table.rows.insert_clone(3,table.rows[1], False)
 
-    # Клонирует первую колонку в конец
+    # Клонировать первый столбец в конец.
     table.columns.add_clone(table.columns[0], False)
 
-    # Клонирует 2-ю колонку по индексу 4-й колонки
+    # Клонировать второй столбец по индексу 3 (четвертая позиция).
     table.columns.insert_clone(3,table.columns[1], False)
     
-    # Сохраняет презентацию на диск
+    # Сохранить презентацию на диск.
     presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Удалить строку или колонку из таблицы**
+
+## **Удалить строку или столбец из таблицы**
+
+Оптимизируйте таблицу, удаляя любую строку или столбец по индексу с помощью Aspose.Slides for Python — макет автоматически пересчитывается, сохраняя форматирование оставшихся ячеек. Это удобно для упрощения сеток данных или удаления заполнителей без необходимости воссоздавать таблицу.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и загрузите презентацию.
-2. Получите ссылку на слайд через его индекс.
-3. Определите массив `columnWidth`.
-4. Определите массив `rowHeight`.
-5. Добавьте объект [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) на слайд с помощью метода `add_table(x, y, column_widths, row_heights)`.
-6. Удалите строку таблицы.
-7. Удалите колонку таблицы.
-8. Сохраните измененную презентацию.
-
-Этот код на Python показывает, как удалить строку или колонку из таблицы:
+1. Получите доступ к слайду по его индексу.
+1. Определите массив ширин столбцов.
+1. Определите массив высот строк.
+1. Добавьте ITable на слайд, используя `add_table(x, y, column_widths, row_heights)`.
+1. Удалите строку таблицы.
+1. Удалите столбец таблицы.
+1. Сохраните изменённую презентацию.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    colWidth =  [100, 50, 30] 
-    rowHeight =  [30, 50, 30] 
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    
+    column_widths = [100, 50, 30]
+    row_heights = [30, 50, 30]
 
-    table = slide.shapes.add_table(100, 100, colWidth, rowHeight)
+    table = slide.shapes.add_table(100, 100, column_widths, row_heights)
     table.rows.remove_at(1, False)
     table.columns.remove_at(1, False)
-    pres.save("TestTable_out.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("TestTable_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Установить форматирование текста на уровне строки таблицы**
+
+## **Настроить форматирование текста на уровне строк таблицы**
+
+Примените единообразный стиль текста ко всей строке таблицы одним шагом. С Aspose.Slides for Python вы можете установить семейство шрифта, размер, начертание, цвет и выравнивание для всех ячеек строки одновременно, чтобы заголовки или группы данных были согласованы.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и загрузите презентацию.
-2. Получите ссылку на слайд через его индекс.
-3. Получите доступ к соответствующему объекту [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) на слайде.
-4. Установите `font_height` ячеек первой строки.
-5. Установите `alignment` и `margin_right` ячеек первой строки.
-6. Установите `text_vertical_type` ячеек второй строки.
-7. Сохраните измененную презентацию.
-
-Этот код на Python демонстрирует операцию.
+1. Получите доступ к слайду по его индексу.
+1. Получите доступ к соответствующему объекту [Table] на слайде.
+1. Установите высоту шрифта для ячеек первой строки.
+1. Установите выравнивание и правый отступ для ячеек первой строки.
+1. Установите вертикальный тип текста для ячеек второй строки.
+1. Сохраните изменённую презентацию.
 
 ```python
 import aspose.slides as slides
 
-# Создает экземпляр класса Presentation
+# Создать экземпляр класса Presentation.
 with slides.Presentation() as presentation:
-    
     slide = presentation.slides[0]
 
-    someTable = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
 
-    # Устанавливает высоту шрифта ячеек первой строки
-    portionFormat = slides.PortionFormat()
-    portionFormat.font_height = 25
-    someTable.rows[0].set_text_format(portionFormat)
+    # Установить высоту шрифта для ячеек первой строки.
+    portion_format = slides.PortionFormat()
+    portion_format.font_height = 25
+    table.rows[0].set_text_format(portion_format)
 
-    # Устанавливает выравнивание текста и правый отступ ячеек первой строки
-    paragraphFormat = slides.ParagraphFormat()
-    paragraphFormat.alignment = slides.TextAlignment.RIGHT
-    paragraphFormat.margin_right = 20
-    someTable.rows[0].set_text_format(paragraphFormat)
+    # Установить выравнивание текста и правый отступ для ячеек первой строки.
+    paragraph_format = slides.ParagraphFormat()
+    paragraph_format.alignment = slides.TextAlignment.RIGHT
+    paragraph_format.margin_right = 20
+    table.rows[0].set_text_format(paragraph_format)
 
-    # Устанавливает вертикальный тип текста ячеек второй строки
-    textFrameFormat = slides.TextFrameFormat()
-    textFrameFormat.text_vertical_type = slides.TextVerticalType.VERTICAL
-    someTable.rows[1].set_text_format(textFrameFormat)
+    # Установить вертикальный тип текста для ячеек второй строки.
+    text_frame_format = slides.TextFrameFormat()
+    text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
+    table.rows[1].set_text_format(text_frame_format)
 	
-    # Сохраняет презентацию на диск
+    # Сохранить презентацию на диск.
     presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Установить форматирование текста на уровне колонки таблицы**
+
+## **Настроить форматирование текста на уровне столбцов таблицы**
+
+Примените единообразный стиль текста ко всему столбцу таблицы одновременно. С Aspose.Slides for Python можно задать семейство шрифта, размер, начертание, цвет и выравнивание для всех ячеек столбца, создавая согласованные вертикальные полосы для заголовков или данных.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и загрузите презентацию.
-2. Получите ссылку на слайд через его индекс.
-3. Получите доступ к соответствующему объекту [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) на слайде.
-4. Установите `font_height` ячеек первой колонки.
-5. Установите `alignment` и `margin_right` ячеек первой колонки.
-6. Установите `text_vertical_type` ячеек второй колонки.
-7. Сохраните измененную презентацию.
-
-Этот код на Python демонстрирует операцию: 
+1. Получите доступ к слайду по его индексу.
+1. Получите доступ к соответствующему объекту [Table] на слайде.
+1. Установите высоту шрифта для ячеек первого столбца.
+1. Установите выравнивание и правый отступ для ячеек первого столбца.
+1. Установите вертикальный тип текста для ячеек второго столбца.
+1. Сохраните изменённую презентацию.
 
 ```python
 import aspose.slides as slides
 
-# Создает экземпляр класса Presentation
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    someTable = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+# Создать экземпляр класса Presentation.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Устанавливает высоту шрифта ячеек первой колонки
-    portionFormat = slides.PortionFormat()
-    portionFormat.font_height = 25
-    someTable.columns[0].set_text_format(portionFormat)
+    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
 
-    # Устанавливает выравнивание текста и правый отступ ячеек первой колонки 
-    paragraphFormat = slides.ParagraphFormat()
-    paragraphFormat.alignment = slides.TextAlignment.RIGHT
-    paragraphFormat.margin_right = 20
-    someTable.columns[0].set_text_format(paragraphFormat)
+    # Установить высоту шрифта для ячеек первого столбца.
+    portion_format = slides.PortionFormat()
+    portion_format.font_height = 25
+    table.columns[0].set_text_format(portion_format)
 
-    # Устанавливает вертикальный тип текста ячеек второй колонки
-    textFrameFormat = slides.TextFrameFormat()
-    textFrameFormat.text_vertical_type = slides.TextVerticalType.VERTICAL
-    someTable.columns[1].set_text_format(textFrameFormat)
+    # Установить выравнивание текста и правый отступ для ячеек первого столбца.
+    paragraph_format = slides.ParagraphFormat()
+    paragraph_format.alignment = slides.TextAlignment.RIGHT
+    paragraph_format.margin_right = 20
+    table.columns[0].set_text_format(paragraph_format)
 
-    # Сохраняет презентацию на диск
-    pres.save("result.pptx", slides.export.SaveFormat.PPTX)
+    # Установить вертикальный тип текста для ячеек второго столбца.
+    text_frame_format = slides.TextFrameFormat()
+    text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
+    table.columns[1].set_text_format(text_frame_format)
+
+    # Сохранить презентацию на диск.
+    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
 ```
+
 
 ## **Получить свойства стиля таблицы**
 
-Aspose.Slides позволяет вам извлекать свойства стиля для таблицы, чтобы вы могли использовать эти детали для другой таблицы или где-то еще. Этот код на Python показывает, как получить свойства стиля из предварительно заданного стиля таблицы:
+Aspose.Slides позволяет получить свойства стиля таблицы, чтобы вы могли повторно использовать их для другой таблицы или в другом месте. Следующий код Python демонстрирует, как получить свойства стиля из предустановленного стиля таблицы:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    table = pres.slides[0].shapes.add_table(10, 10, [100, 150], [5, 5, 5])
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    table = slide.shapes.add_table(10, 10, [100, 150], [5, 5, 5])
     table.style_preset = slides.TableStylePreset.DARK_STYLE1
-    pres.save("table.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Можно ли применить темы/стили PowerPoint к уже созданной таблице?**
+
+Да. Таблица наследует тему слайда/макета/шаблона, и вы всё равно можете переопределять заливки, границы и цвета текста поверх этой темы.
+
+**Можно ли сортировать строки таблицы, как в Excel?**
+
+Нет, таблицы Aspose.Slides не поддерживают встроенную сортировку или фильтры. Сначала отсортируйте данные в памяти, а затем заново заполните строки таблицы в этом порядке.
+
+**Можно ли использовать полосатые (заштрихованные) столбцы, сохраняя пользовательские цвета в отдельных ячейках?**
+
+Да. Включите полосатые столбцы, а затем переопределите отдельные ячейки локальным форматированием; форматирование уровня ячейки имеет приоритет над стилем таблицы.

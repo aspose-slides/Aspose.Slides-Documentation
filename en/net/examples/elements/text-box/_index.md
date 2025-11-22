@@ -2,7 +2,19 @@
 title: Text Box
 type: docs
 weight: 40
-url: /net/examples/elements/text-box
+url: /net/examples/elements/text-box/
+keywords:
+- text box example
+- add text box
+- access text box
+- remove text box
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Create and format text boxes in C# with Aspose.Slides: set fonts, alignment, wrapping, autofit, and links to polish slides for PowerPoint and OpenDocument."
 ---
 
 In Aspose.Slides, a **text box** is represented by an `AutoShape`. Nearly any shape can contain text, but a typical text box has no fill or border and displays only text.

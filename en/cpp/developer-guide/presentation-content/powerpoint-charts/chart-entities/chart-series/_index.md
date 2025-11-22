@@ -1,7 +1,21 @@
 ---
-title: Chart Series
+title: Manage Chart Data Series in Presentations Using С++
+linktitle: Data Series
 type: docs
 url: /cpp/chart-series/
+keywords:
+- сhart series
+- series overlap
+- series color
+- category color
+- series name
+- data point
+- series gap
+- PowerPoint
+- presentation
+- С++
+- Aspose.Slides
+description: "Learn how to manage chart series in С++ for PowerPoint (PPT/PPTX) with practical code examples and best practices to enhance your data presentations."
 ---
 
 A series is a row or column of numbers plotted in a chart.

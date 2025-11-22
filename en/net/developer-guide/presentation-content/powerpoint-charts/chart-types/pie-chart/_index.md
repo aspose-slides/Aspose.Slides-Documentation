@@ -1,9 +1,22 @@
 ---
-title: Pie Chart
+title: Customize Pie Charts in Presentations in .NET
+linktitle: Pie Chart
 type: docs
 url: /net/pie-chart/
-keywords: "Pie chart, plot options, slice colors, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Pie chart plot options and slice colors in PowerPoint presentation in C# or .NET"
+keywords:
+- pie chart
+- manage chart
+- customize chart
+- chart options
+- chart settings
+- plot options
+- slice color
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how to create and customize pie charts in .NET with Aspose.Slides, exportable to PowerPoint, boosting your data storytelling in seconds."
 ---
 
 ## **Second Plot Options for Pie of Pie and Bar of Pie Chart**
@@ -102,3 +115,12 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+## **FAQ**
+
+**Are the 'Pie of Pie' and 'Bar of Pie' variations supported?**
+
+Yes, the library [supports](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) a secondary plot for pie charts, including the 'Pie of Pie' and 'Bar of Pie' types.
+
+**Can I export just the chart as an image (for example, PNG)?**
+
+Yes, you can [export the chart itself as an image](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (such as PNG) without the entire presentation.

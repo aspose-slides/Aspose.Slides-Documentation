@@ -1,7 +1,16 @@
 ---
-title: Error Bar
+title: Customize Error Bars in Presentation Charts Using Java
+linktitle: Error Bar
 type: docs
 url: /java/error-bar/
+keywords:
+- error bar
+- custom value
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn how to add and customize error bars in charts with Aspose.Slides for Java—optimize data visuals in PowerPoint presentations."
 ---
 
 ## **Add Error Bar**

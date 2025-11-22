@@ -60,7 +60,7 @@ En utilisant sa propre API, Aspose a développé des convertisseurs gratuits de 
 
 [![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
 
-Vous pouvez également consulter d'autres [convertisseurs gratuits d'Aspose](https://products.aspose.app/slides/conversion).
+Vous pouvez également consulter d’autres [convertisseurs gratuits d’Aspose](https://products.aspose.app/slides/conversion).
 
 {{% /alert %}} 
 
@@ -68,10 +68,10 @@ Vous pouvez également consulter d'autres [convertisseurs gratuits d'Aspose](htt
 
 En plus des processus de conversion décrits ici, Aspose.Slides prend également en charge les opérations de conversion suivantes impliquant le format HTML :
 
-* [HTML en image](https://products.aspose.com/slides/python-net/conversion/html-to-image/)
-* [HTML en JPG](https://products.aspose.com/slides/python-net/conversion/html-to-jpg/)
-* [HTML en XML](https://products.aspose.com/slides/python-net/conversion/html-to-xml/)
-* [HTML en TIFF](https://products.aspose.com/slides/python-net/conversion/html-to-tiff/)
+* [HTML vers image](https://products.aspose.com/slides/python-net/conversion/html-to-image/)
+* [HTML vers JPG](https://products.aspose.com/slides/python-net/conversion/html-to-jpg/)
+* [HTML vers XML](https://products.aspose.com/slides/python-net/conversion/html-to-xml/)
+* [HTML vers TIFF](https://products.aspose.com/slides/python-net/conversion/html-to-tiff/)
 
 {{% /alert %}}
 

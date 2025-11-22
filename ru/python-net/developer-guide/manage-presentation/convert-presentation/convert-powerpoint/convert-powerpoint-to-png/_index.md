@@ -1,77 +1,100 @@
 ---
-title: Конвертация PowerPoint в PNG
+title: Конвертировать слайды PowerPoint в PNG на Python
+linktitle: Слайд в PNG
 type: docs
 weight: 30
 url: /ru/python-net/convert-powerpoint-to-png/
-keywords: PowerPoint в PNG, PPT в PNG, PPTX в PNG, Python, Aspose.Slides для Python через .NET
-description: Конвертация презентации PowerPoint в PNG
+keywords:
+- конвертировать PowerPoint в PNG
+- конвертировать презентацию в PNG
+- конвертировать слайд в PNG
+- конвертировать PPT в PNG
+- конвертировать PPTX в PNG
+- конвертировать ODP в PNG
+- PowerPoint в PNG
+- презентация в PNG
+- слайд в PNG
+- PPT в PNG
+- PPTX в PNG
+- ODP в PNG
+- Python
+- Aspose.Slides
+description: "Конвертировать презентации PowerPoint и OpenDocument в высококачественные PNG-изображения быстро с помощью Aspose.Slides for Python via .NET, обеспечивая точные, автоматизированные результаты."
 ---
 
-## **О конвертации PowerPoint в PNG**
+## **Обзор**
 
-Формат PNG (Portable Network Graphics) не так популярен, как JPEG (Joint Photographic Experts Group), но всё же очень распространён.
+Aspose.Slides for Python via .NET упрощает преобразование презентаций PowerPoint в PNG. Вы загружаете презентацию, проходите её слайды, рендерите каждый в растровое изображение и сохраняете результат в виде файлов PNG. Это идеально подходит для создания превью слайдов, встраивания слайдов в веб-страниц или создания статических ресурсов для последующей обработки.
 
-**Случай использования:** Когда у вас есть сложное изображение и размер не имеет значения, PNG является лучшим форматом изображения, чем JPEG.
+## **Преобразование слайдов в PNG**
 
-{{% alert title="Совет" color="primary" %}} Вам может быть интересно ознакомиться с бесплатными **конвертерами PowerPoint в PNG** от Aspose: [PPTX в PNG](https://products.aspose.app/slides/conversion/pptx-to-png) и [PPT в PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Это действующая реализация процесса, описанного на этой странице. {{% /alert %}}
+В этом разделе показан самый простой пример преобразования презентации PowerPoint в изображения PNG с использованием Aspose.Slides for Python via .NET.
 
-## **Конвертация PowerPoint в PNG**
-
-Следуйте этим шагам:
+Выполните следующие шаги:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Получите объект слайда из коллекции [Presentation.Slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) через интерфейс [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/).
-3. Используйте метод [ISlide.GetImage](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) для получения миниатюры для каждого слайда.
-4. Используйте метод [IPresentation.SaveMethod(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentation/) для сохранения миниатюры слайда в формате PNG.
-
-Этот код на Python показывает, как конвертировать презентацию PowerPoint в PNG:
+2. Получите слайд из коллекции `Presentation.slides` (см. класс [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/)).
+3. Вызовите метод `Slide.get_image` для создания миниатюры слайда.
+4. Вызовите метод `Presentation.save` для сохранения миниатюры слайда в формате PNG.
 
 ```py
 import aspose.slides as slides
 
-pres = slides.Presentation("pres.pptx")
-
-for index in range(pres.slides.length):
-    slide = pres.slides[index]
-    with slide.get_image() as image:
-        image.save("slide_{i}.png".format(i = index), slides.ImageFormat.PNG)
+with slides.Presentation("presentation.pptx") as presentation:
+    for index, slide in enumerate(presentation.slides):
+        with slide.get_image() as image:
+            image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-## **Конвертация PowerPoint в PNG с пользовательскими размерами**
 
-Если вы хотите получить PNG-файлы определенного масштаба, вы можете установить значения `desiredX` и `desiredY`, которые определяют размеры результирующей миниатюры.
+## **Преобразование слайдов в PNG с пользовательскими размерами**
 
-Этот код на Python демонстрирует описанную операцию:
+Для экспорта слайдов в PNG с пользовательским масштабом вызовите `Slide.get_image`, передав коэффициенты горизонтального и вертикального масштабирования. Эти множители изменяют размер вывода относительно оригинальных размеров слайда — например, `2.0` удваивает и ширину, и высоту. Используйте одинаковые значения для `scale_x` и `scale_y`, чтобы сохранить пропорции.
 
 ```py
 import aspose.slides as slides
 
-pres = slides.Presentation("pres.pptx")
+scale_x = 2
+scale_y = scale_x
 
-scaleX = 2
-scaleY = 2
-for index in range(pres.slides.length):
-    slide = pres.slides[index]
-    with slide.get_image(scaleX, scaleY) as image:
-        image.save("slide_{index}.png".format(index=index), slides.ImageFormat.PNG)
+with slides.Presentation("presentation.pptx") as presentation:
+    for index, slide in enumerate(presentation.slides):
+        with slide.get_image(scale_x, scale_y) as image:
+            image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-## **Конвертация PowerPoint в PNG с заданным размером**
 
-Если вы хотите получить PNG-файлы определенного размера, вы можете передать свои предпочтительные аргументы `width` и `height` для `ImageSize`.
+## **Преобразование слайдов в PNG с пользовательским размером**
 
-Этот код показывает, как конвертировать PowerPoint в PNG, указывая размер для изображений:
+Если необходимо создать файлы PNG заданного размера, передайте желаемые значения `width` и `height`. Приведённый ниже код демонстрирует, как преобразовать PowerPoint в PNG, указав размер изображения: 
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as drawing
 
-pres = slides.Presentation(path + "pres.pptx")
-
 size = drawing.Size(960, 720)
 
-for index in range(pres.slides.length):
-    slide = pres.slides[index]
-    with slide.get_image(size) as image:
-        image.save("slide_{index}.png".format(index=index), slides.ImageFormat.PNG)
+with slides.Presentation("presentation.pptx") as presentation:
+    for index, slide in enumerate(presentation.slides):
+        with slide.get_image(size) as image:
+            image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
+
+
+{{% alert title="Tip" color="primary" %}}
+Возможно, вам будет интересно попробовать бесплатные **конвертеры PowerPoint в PNG** от Aspose — [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) и [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Они предоставляют живую реализацию процесса, описанного на этой странице.
+{{% /alert %}}
+
+## **FAQ**
+
+**Как экспортировать только конкретную фигуру (например, диаграмму или изображение), а не весь слайд?**
+
+Aspose.Slides поддерживает [создание миниатюр для отдельных фигур](/slides/ru/python-net/create-shape-thumbnails/); вы можете отрендерить фигуру в PNG‑изображение.
+
+**Поддерживается ли параллельное преобразование на сервере?**
+
+Да, но [не делите](/slides/ru/python-net/multithreading/) один экземпляр презентации между потоками. Используйте отдельный экземпляр для каждого потока или процесса.
+
+**Каковы ограничения пробной версии при экспорте в PNG?**
+
+В режиме оценки к изображениям добавляется водяной знак, а также применяются [другие ограничения](/slides/ru/python-net/licensing/) до установки лицензии.

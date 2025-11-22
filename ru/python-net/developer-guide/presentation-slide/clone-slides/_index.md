@@ -1,189 +1,197 @@
 ---
-title: Клонировать слайды
+title: Клонирование слайдов PowerPoint в Python
+linktitle: Клонировать слайды
 type: docs
 weight: 40
 url: /ru/python-net/clone-slides/
-keywords: "Клонировать слайд, Копировать слайд, Сохранить копию слайда, PowerPoint, Презентация, Python, Aspose.Slides"
-description: "Клонировать слайд PowerPoint на Python"
+keywords:
+- клонировать слайд
+- копировать слайд
+- сохранить слайд
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Быстро клонируйте или дублируйте слайды PowerPoint с помощью Aspose.Slides для Python via .NET. Следуйте нашим понятным примерам кода и советам, чтобы автоматизировать создание PPT за секунды, повысить продуктивность и избавиться от ручной работы."
 ---
 
-## **Клонирование слайдов в презентации**
-Клонирование – это процесс создания точной копии или реплики чего-либо. Aspose.Slides для Python через .NET также позволяет создать копию или клон любого слайда и затем вставить этот клонированный слайд в текущую или любую другую открытую презентацию. Процесс клонирования слайда создает новый слайд, который может быть изменен разработчиками без изменения оригинального слайда. Существует несколько возможных способов клонирования слайда:
+## **Обзор**
 
-- Клонировать в конце презентации.
-- Клонировать в другое место в презентации.
-- Клонировать в конце другой презентации.
-- Клонировать в другое место в другой презентации.
-- Клонировать в конкретном месте в другой презентации.
+Клонирование — это процесс создания точной копии или реплики чего‑либо. Aspose.Slides for Python via .NET позволяет клонировать любой слайд и вставлять этот клон в текущую презентацию или в другую открытую презентацию. Процесс клонирования создаёт новый слайд, который можно изменять, не влияя на оригинал.
 
-В Aspose.Slides для Python через .NET (коллекция объектов [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/), предоставляемая объектом [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)) предоставляет методы [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) и [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) для выполнения вышеуказанных типов клонирования слайдов.
-## **Клонировать в конце презентации**
-Если вы хотите клонировать слайд и затем использовать его в том же файле презентации в конце существующих слайдов, используйте метод [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) в соответствии со следующими шагами:
+- Клонировать слайд в конец в рамках одной и той же презентации.
+- Клонировать слайд в определённую позицию в той же презентации.
+- Клонировать слайд в конец другой презентации.
+- Клонировать слайд в определённую позицию другой презентации.
+- Клонировать слайд вместе с его мастер‑слайдом в другую презентацию.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Создайте экземпляр класса [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/), ссылаясь на коллекцию слайдов, предоставляемую объектом [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Вызовите метод [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/), предоставляемый объектом [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/), и передайте слайд, который нужно клонировать, в качестве параметра методу [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/).
-3. Запишите измененный файл презентации.
+В Aspose.Slides for Python via .NET объект [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) раскрывает [slide collection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/), который предоставляет методы `add_clone` и `insert_clone` для выполнения этих видов клонирования слайдов.
 
-В приведенном ниже примере мы клонировали слайд (расположенный на первой позиции – индекс 0 – презентации) в конец презентации.
+## **Клонирование в конец в той же презентации**
 
-```py
-import aspose.slides as slides
-
-# Создайте экземпляр класса Presentation, представляющего файл презентации
-with slides.Presentation(path + "CloneWithinSamePresentationToEnd.pptx") as pres:
-    # Клонируйте нужный слайд в конец коллекции слайдов в той же презентации
-    slds = pres.slides
-
-    slds.add_clone(pres.slides[0])
-
-    # Сохраните измененную презентацию на диск
-    pres.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Клонировать в другое место в презентации**
-Если вы хотите клонировать слайд и затем использовать его в том же файле презентации, но в другом месте, используйте метод [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/):
+Если вы хотите клонировать слайд в той же презентации и добавить его в конец существующих слайдов, используйте метод `add_clone`. Выполните следующие шаги:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Создайте экземпляр класса, ссылаясь на коллекцию **Slides**, предоставляемую объектом [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Вызовите метод [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/), предоставляемый объектом [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/), и передайте слайд для клонирования вместе с индексом для новой позиции в качестве параметра методу [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/).
-1. Запишите измененную презентацию в файл PPTX.
+2. Получите коллекцию слайдов из объекта [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+3. Вызовите метод `add_clone` у [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/), передав слайд, который нужно клонировать.
+4. Сохраните изменённую презентацию.
 
-В приведенном ниже примере мы клонировали слайд (расположенный на нулевом индексе – позиции 1 – презентации) в индекс 1 – позиция 2 – презентации.
-
+В приведённом ниже примере первый слайд (индекс 0) клонируется и добавляется в конец презентации.
 ```py
 import aspose.slides as slides
 
-# Создайте экземпляр класса Presentation, представляющего файл презентации
-with slides.Presentation(path + "CloneWithInSamePresentation.pptx") as pres:
-    # Клонируйте нужный слайд в конец коллекции слайдов в той же презентации
-    slds = pres.slides
-
-    # Клонируйте нужный слайд в указанном индексе в той же презентации
-    slds.insert_clone(2, pres.slides[1])
-
-    # Сохраните измененную презентацию на диск
-    pres.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
+# Создайте экземпляр класса Presentation, представляющий файл презентации.
+with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentation:
+    # Клонируйте нужный слайд в конец коллекции слайдов в той же презентации.
+    presentation.slides.add_clone(presentation.slides[0])
+    # Сохраните изменённую презентацию на диск.
+    presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **Клонировать в конце другой презентации**
-Если вам нужно клонировать слайд из одной презентации и использовать его в другом файле презентации, в конце существующих слайдов:
+## **Клонирование в определённую позицию в той же презентации**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), содержащий презентацию, из которой будет клонироваться слайд.
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), содержащий целевую презентацию, в которую будет добавлен слайд.
-1. Создайте экземпляр класса [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/), ссылаясь на коллекцию **Slides**, предоставляемую объектом Presentation целевой презентации.
-1. Вызовите метод [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/), предоставляемый объектом [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/), и передайте слайд из исходной презентации в качестве параметра методу [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/).
-1. Запишите измененный файл целевой презентации.
+Если вы хотите клонировать слайд в той же презентации и разместить его в другой позиции, используйте метод `insert_clone`:
 
-В приведенном ниже примере мы клонировали слайд (с первого индекса исходной презентации) в конец целевой презентации.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Получите коллекцию слайдов из объекта [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+3. Вызовите метод `insert_clone` у [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/), передав слайд для клонирования и целевой индекс для его новой позиции.
+4. Сохраните изменённую презентацию.
 
+В приведённом ниже примере слайд с индексом 0 (позиция 1) клонируется в индекс 1 (позиция 2) в той же презентации.
 ```py
 import aspose.slides as slides
 
-# Создайте экземпляр класса Presentation, чтобы загрузить исходный файл презентации
-with slides.Presentation(path + "CloneAtEndOfAnother.pptx") as srcPres:
-    # Создайте экземпляр класса Presentation для целевой PPTX (куда будет клонироваться слайд)
-    with slides.Presentation() as destPres:
-        # Клонируйте нужный слайд из исходной презентации в конец коллекции слайдов в целевой презентации
-        slds = destPres.slides
-        slds.add_clone(srcPres.slides[0])
-
-        # Сохраните целевую презентацию на диск
-        destPres.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
+# Создайте экземпляр класса Presentation, представляющий файл презентации.
+with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
+    # Клонируйте нужный слайд в указанную позицию (индекс) в той же презентации.
+    presentation.slides.insert_clone(2, presentation.slides[1])
+    # Сохраните изменённую презентацию на диск.
+    presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **Клонировать в другое место в другой презентации**
-Если вам нужно клонировать слайд из одной презентации и использовать его в другом файле презентации, в конкретном месте:
+## **Клонирование в конец другой презентации**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), содержащий исходную презентацию, из которой будет клонироваться слайд.
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), содержащий презентацию, в которую будет добавлен слайд.
-1. Создайте экземпляр класса [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/), ссылаясь на коллекцию Slides, предоставляемую объектом Presentation целевой презентации.
-1. Вызовите метод [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/), предоставленный объектом [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/), и передайте слайд из исходной презентации вместе с желаемой позицией в качестве параметра методу [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/).
-1. Запишите измененный файл целевой презентации.
+Если необходимо клонировать слайд из одной презентации и добавить его в конец другой презентации:
 
-В приведенном ниже примере мы клонировали слайд (из нулевого индекса исходной презентации) в индекс 1 (позиция 2) целевой презентации.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) для исходной презентации (той, которая содержит слайд для клонирования).
+2. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) для целевой презентации (куда будет добавлен слайд).
+3. Получите коллекцию слайдов из целевой презентации.
+4. Вызовите `add_clone` у целевой [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/), передав слайд из исходной презентации.
+5. Сохраните изменённую целевую презентацию.
 
+В приведённом ниже примере слайд с индексом 0 в исходной презентации клонируется в конец целевой презентации.
 ```py
 import aspose.slides as slides
 
-# Создайте экземпляр класса Presentation, чтобы загрузить исходный файл презентации
-with slides.Presentation(path + "CloneAtEndOfAnother.pptx") as srcPres:
-    # Создайте экземпляр класса Presentation для целевой PPTX (куда будет клонироваться слайд)
-    with slides.Presentation("Aspose2_out.pptx") as destPres:
-        slds = destPres.slides
-        slds.insert_clone(2, srcPres.slides[0])
-
-        # Сохраните целевую презентацию на диск
-        destPres.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
+# Создайте экземпляр класса Presentation, представляющий исходный файл презентации.
+with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
+    # Создайте экземпляр класса Presentation для целевого PPTX (куда будет клонирован слайд).
+    with slides.Presentation() as target_presentation:
+        # Клонируйте нужный слайд из исходной презентации в конец коллекции слайдов целевой презентации.
+        target_presentation.slides.add_clone(source_presentation.slides[0])
+        # Сохраните целевую презентацию на диск.
+        target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **Клонировать в конкретном месте в другой презентации**
-Если вам нужно клонировать слайд с мастер-слайдом из одной презентации и использовать его в другой презентации, вам сначала нужно клонировать желаемый мастер-слайд из исходной презентации в целевую презентацию. Затем вам нужно использовать этот мастер-слайд для клонирования слайда с мастер-слайдом. Метод **add_clone(ISlide, IMasterSlide)** ожидает мастер-слайд из целевой презентации, а не из исходной. Чтобы клонировать слайд с мастером, выполните следующие шаги:
+## **Клонирование в определённую позицию другой презентации**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), содержащего исходную презентацию, из которой будет клонироваться слайд.
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), содержащего целевую презентацию, в которую будет клонироваться слайд.
-1. Получите слайд, который нужно клонировать, вместе с мастер-слайдом.
-1. Создайте экземпляр класса [IMasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/), ссылаясь на коллекцию мастеров, предоставляемую объектом [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) целевой презентации.
-1. Вызовите метод [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/), предоставленный объектом [IMasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/), и передайте мастер из исходного PPTX, который нужно клонировать, в качестве параметра методу [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/).
-1. Создайте экземпляр класса [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/), установив ссылку на коллекцию слайдов, предоставляемую объектом [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) целевой презентации.
-2. Вызовите метод [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/), предоставленный объектом [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/), и передайте слайд из исходной презентации для клонирования и мастер-слайд в качестве параметра методу [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/).
-3. Запишите измененный файл целевой презентации.
+Если необходимо клонировать слайд из одной презентации и вставить его в другую презентацию в определённую позицию:
 
-В приведенном ниже примере мы клонировали слайд с мастер-слайдом (расположенным на нулевом индексе исходной презентации) в конец целевой презентации, используя мастер из исходного слайда.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) для исходной презентации (той, которая содержит слайд для клонирования).
+2. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) для целевой презентации (куда будет добавлен слайд).
+3. Получите коллекцию слайдов из целевой презентации.
+4. Вызовите метод `insert_clone` у целевой [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/), передав слайд из исходной презентации и желаемый целевой индекс.
+5. Сохраните изменённую целевую презентацию.
 
+В приведённом ниже примере слайд с индексом 0 в исходной презентации клонируется в индекс 1 (позиция 2) в целевой презентации.
 ```py
 import aspose.slides as slides
 
-# Создайте экземпляр класса Presentation, чтобы загрузить исходный файл презентации
-with slides.Presentation(path + "CloneToAnotherPresentationWithMaster.pptx") as srcPres:
-    # Создайте экземпляр класса Presentation для целевой презентации (куда будет клонироваться слайд)
-    with slides.Presentation() as destPres:
-        # Получите ISlide из коллекции слайдов в исходной презентации вместе с
-        # Мастер-слайдом
-        sourceSlide = srcPres.slides[0]
-        sourceMaster = sourceSlide.layout_slide.master_slide
-
-        # Клонируйте нужный мастер-слайд из исходной презентации в коллекцию мастеров в
-        # Целевой презентации
-        masters = destPres.masters
-        destMaster = sourceSlide.layout_slide.master_slide
-
-        # Клонируйте нужный мастер-слайд из исходной презентации в коллекцию мастеров в
-        # Целевой презентации
-        iSlide = masters.add_clone(sourceMaster)
-
-        # Клонируйте нужный слайд из исходной презентации с нужным мастером в конец
-        # Коллекции слайдов в целевой презентации
-        slds = destPres.slides
-        slds.add_clone(sourceSlide, iSlide, True)
-      
-        # Сохраните целевую презентацию на диск
-        destPres.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
+# Создайте экземпляр класса Presentation, представляющий исходный файл презентации.
+with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
+    # Создайте экземпляр класса Presentation для целевого PPTX (куда будет клонирован слайд).
+    with slides.Presentation("Aspose2_out.pptx") as target_presentation:
+        # Вставьте клон первого слайда из исходного в целевую презентацию по индексу 2.
+        target_presentation.slides.insert_clone(2, source_presentation.slides[0])
+        # Сохраните целевую презентацию на диск.
+        target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **Клонирование слайда вместе с его мастер‑слайдом в другую презентацию**
 
-## Клонировать в конце в указанном разделе
+Если необходимо клонировать слайд **со своим мастер‑слайдом** из одной презентации и использовать его в другой, сначала клонируйте требуемый мастер‑слайд из исходной презентации в целевую. Затем используйте этот мастер‑слайд целевой презентации при клонировании слайда. Метод `add_clone(Slide, MasterSlide)` ожидает **мастер‑слайд из целевой презентации**, а не из исходной.
 
-С помощью Aspose.Slides для Python через .NET вы можете клонировать слайд из одного раздела презентации и вставить этот слайд в другой раздел в той же презентации. В этом случае вам необходимо использовать метод [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) из интерфейса [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/). 
+Чтобы клонировать слайд вместе с его мастер‑слайдом, выполните следующие шаги:
 
-Этот код на Python показывает, как клонировать слайд и вставить клонированный слайд в указанный раздел:
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) для исходной презентации (той, которая содержит слайд для клонирования).
+2. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) для целевой презентации.
+3. Получите доступ к исходному слайду, который нужно клонировать, и к его мастер‑слайду.
+4. Получите [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/) из коллекции мастеров целевой презентации.
+5. Вызовите `add_clone` у целевого [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/), передав исходный мастер‑слайд для его клонирования в целевую презентацию.
+6. Получите [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) из коллекции слайдов целевой презентации.
+7. Вызовите `add_clone` у целевого [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/), передав исходный слайд и клонированный мастер‑слайд целевой презентации.
+8. Сохраните изменённую целевую презентацию.
 
+В приведённом ниже примере слайд с индексом 0 в исходной презентации клонируется в конец целевой презентации с использованием мастер‑слайда, клонированного из исходной презентации.
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
-    slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100) # для клонирования
-    
-    slide2 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
-    section = pres.sections.add_section("Раздел2", slide2)
-
-    pres.slides.add_clone(slide, section)
-    
-    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
+# Создайте экземпляр класса Presentation, представляющий исходный файл презентации.
+with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
+    # Создайте экземпляр класса Presentation для целевой презентации, куда будет клонирован слайд.
+    with slides.Presentation() as target_presentation:
+        # Получите первый слайд из исходной презентации.
+        source_slide = source_presentation.slides[0]
+        # Получите мастер‑слайд, используемый первым слайдом.
+        source_master = source_slide.layout_slide.master_slide
+        # Клонируйте мастер‑слайд в коллекцию мастеров целевой презентации.
+        cloned_master = target_presentation.masters.add_clone(source_master)
+        # Клонируйте слайд из исходной презентации в конец целевой презентации, используя склонированный мастер‑слайд.
+        target_presentation.slides.add_clone(source_slide, cloned_master, True)
+        # Сохраните целевую презентацию на диск.
+        target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **Клонирование в конец в указанном разделе**
+
+С помощью Aspose.Slides for Python via .NET вы можете клонировать слайд из одного раздела презентации и вставить его в другой раздел той же презентации. Для этого используйте метод `add_clone(Slide, Section)` интерфейса [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/).
+
+Ниже приведён пример на Python, показывающий, как клонировать слайд и вставить клон в указанный раздел:
+```py
+import aspose.slides as slides
+
+# Создайте новую пустую презентацию.
+with slides.Presentation() as presentation:
+    # Добавьте пустой слайд на основе макета первого слайда.
+    slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
+    # Добавьте форму‑эллипс на новый слайд; этот слайд будет клонирован позже.
+    slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100)
+    # Добавьте ещё один пустой слайд на основе макета первого слайда.
+    slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
+    # Создайте раздел с именем "Section2", который начинается со slide2.
+    section = presentation.sections.add_section("Section2", slide2)
+    # Клонируйте ранее созданный слайд в раздел "Section2".
+    presentation.slides.add_clone(slide, section)
+    # Сохраните презентацию в файл PPTX.
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
+```
+
+
+## **FAQ**
+
+**Клонируются ли заметки докладчика и комментарии рецензентов?**
+
+Да. Страницы заметок и комментарии рецензентов включаются в клон. Если вы их не хотите, [удалите их](/slides/ru/python-net/presentation-notes/) после вставки.
+
+**Как обрабатываются диаграммы и их источники данных?**
+
+Объект диаграммы, её форматирование и встроенные данные копируются. Если диаграмма была связана с внешним источником (например, OLE‑встроенной книгой), эта связь сохраняется как [OLE‑объект](/slides/ru/python-net/manage-ole/). После перемещения между файлами проверьте доступность данных и поведение обновления.
+
+**Могу ли я управлять позицией вставки и разделами для клона?**
+
+Да. Вы можете вставить клон в определённый индекс слайда и разместить его в выбранном [разделе](/slides/ru/python-net/slide-section/). Если целевой раздел не существует, сначала создайте его, а затем переместите слайд в него.

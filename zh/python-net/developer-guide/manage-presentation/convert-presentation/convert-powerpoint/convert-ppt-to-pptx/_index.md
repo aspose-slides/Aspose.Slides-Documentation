@@ -24,11 +24,11 @@ description: "使用 Aspose.Slides 在 Python 中快速将传统 PPT 演示文�
 
 有关将 PPT 转换为 PPTX 的 Python 示例代码，请参见下面的章节，即 [Convert PPT to PPTX](#convert-ppt-to-pptx)。它仅加载 PPT 文件并以 PPTX 格式保存。通过指定不同的保存格式，还可以将 PPT 文件保存为 PDF、XPS、ODP、HTML 等多种格式，详见以下文章：
 
-- [Python 将 PPT 转换为 PDF](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-pdf/)
-- [Python 将 PPT 转换为 XPS](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-xps/)
-- [Python 将 PPT 转换为 HTML](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-html/)
-- [Python 将 PPT 转换为 ODP](https://docs.aspose.com/slides/python-net/save-presentation/)
-- [Python 将 PPT 转换为图像](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-png/)
+- [Python Convert PPT to PDF](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-pdf/)
+- [Python Convert PPT to XPS](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-xps/)
+- [Python Convert PPT to HTML](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-html/)
+- [Python Convert PPT to ODP](https://docs.aspose.com/slides/python-net/save-presentation/)
+- [Python Convert PPT to Image](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-png/)
 
 ## **关于 PPT 到 PPTX 转换**
 使用 Aspose.Slides API 将旧的 PPT 格式转换为 PPTX。如果需要将成千上万的 PPT 演示文稿转换为 PPTX 格式，最佳解决方案是以编程方式完成。借助 Aspose.Slides API，只需几行代码即可实现。该 API 完全兼容将 PPT 演示文稿转换为 PPTX，并且可以：
@@ -41,7 +41,7 @@ description: "使用 Aspose.Slides 在 Python 中快速将传统 PPT 演示文�
 
 {{% alert color="primary" %}}
 
-查看 [**Aspose.Slides PPT 到 PPTX 转换**](https://products.aspose.app/slides/conversion/ppt-to-pptx) 应用：
+了解一下[**Aspose.Slides PPT to PPTX Conversion**](https://products.aspose.app/slides/conversion/ppt-to-pptx)应用：
 
 [](https://products.aspose.app/slides/conversion/ppt-to-pptx)
 

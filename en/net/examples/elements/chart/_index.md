@@ -2,7 +2,20 @@
 title: Chart
 type: docs
 weight: 60
-url: /net/examples/elements/chart
+url: /net/examples/elements/chart/
+keywords:
+- chart example
+- add chart
+- access chart
+- remove chart
+- update chart
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Create and customize charts in C# with Aspose.Slides: add data, format series, axes and labels, change types, and export—works with PPT, PPTX and ODP."
 ---
 
 Examples for adding, accessing, removing, and updating different chart types with **Aspose.Slides for .NET**. The snippets below demonstrate basic chart operations.

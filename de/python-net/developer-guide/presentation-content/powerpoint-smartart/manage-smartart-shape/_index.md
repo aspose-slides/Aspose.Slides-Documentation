@@ -1,139 +1,167 @@
 ---
-title: Verwalten von SmartArt-Formen
+title: SmartArt-Grafiken in Präsentationen mit Python verwalten
+linktitle: SmartArt-Grafiken
 type: docs
 weight: 20
 url: /de/python-net/manage-smartart-shape/
-keywords: "SmartArt-Form, SmartArt-Formstil, SmartArt-Formfarbstil, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Verwalten von SmartArt in PowerPoint-Präsentationen in Python"
+keywords:
+- SmartArt-Objekt
+- SmartArt-Grafik
+- SmartArt-Stil
+- SmartArt-Farbe
+- SmartArt erstellen
+- SmartArt hinzufügen
+- SmartArt bearbeiten
+- SmartArt ändern
+- SmartArt zugreifen
+- SmartArt-Layouttyp
+- PowerPoint
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Automatisieren Sie die Erstellung, Bearbeitung und Gestaltung von PowerPoint‑SmartArt in Python über .NET mit Aspose.Slides, inklusive knapper Code‑Beispiele und leistungsorientierter Anleitung."
 ---
 
-## **SmartArt-Form erstellen**
-Aspose.Slides für Python über .NET erleichtert nun das Hinzufügen benutzerdefinierter SmartArt-Formen zu ihren Folien von Grund auf. Aspose.Slides für Python über .NET hat die einfachste API bereitgestellt, um SmartArt-Formen auf die einfachste Weise zu erstellen. Um eine SmartArt-Form auf einer Folie zu erstellen, befolgen Sie bitte die folgenden Schritte:
+## **SmartArt‑Formen erstellen**
 
-- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-- Abrufen der Referenz zu einer Folie unter Verwendung ihres Index.
-- Eine SmartArt-Form hinzufügen, indem Sie den Layouttyp festlegen.
-- Die modifizierte Präsentation als PPTX-Datei speichern.
+Aspose.Slides für Python via .NET ermöglicht das Hinzufügen benutzerdefinierter SmartArt‑Formen zu Folien von Grund auf. Die API macht dies einfach. So fügen Sie einer Folie eine SmartArt‑Form hinzu:
 
+1. Erstellen Sie eine Instanz der Klasse [Präsentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Rufen Sie die Ziel‑Folie über ihren Index ab.
+3. Fügen Sie eine SmartArt‑Form hinzu und geben Sie deren Layout‑Typ an.
+4. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
-# Präsentation instanziieren
-with slides.Presentation() as pres:
-    # Auf die Folie der Präsentation zugreifen
-    slide = pres.slides[0]
-
-    # Smart Art Form hinzufügen
-    smart = slide.shapes.add_smart_art(0, 0, 400, 400, art.SmartArtLayoutType.BASIC_BLOCK_LIST)
-
-    # Präsentation speichern
-    pres.save("SimpleSmartArt_out.pptx", slides.export.SaveFormat.PPTX)
+# Instanziieren Sie die Presentation-Klasse.
+with slides.Presentation() as presentation:
+    # Greifen Sie auf die Präsentationsfolie zu.
+    slide = presentation.slides[0]
+    # Fügen Sie eine SmartArt-Form hinzu.
+    smart_art = slide.shapes.add_smart_art(0, 0, 400, 400, smartart.SmartArtLayoutType.BASIC_BLOCK_LIST)
+    # Speichern Sie die Präsentation auf dem Datenträger.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **SmartArt‑Formen auf Folien zugreifen**
 
-## **Zugriff auf SmartArt-Form in der Folie**
-Der folgende Code wird verwendet, um auf die in der Präsentationsfolie hinzugefügten SmartArt-Formen zuzugreifen. Im Beispielcode werden wir durch jede Form innerhalb der Folie traversieren und überprüfen, ob es sich um eine SmartArt-Form handelt. Wenn die Form vom Typ SmartArt ist, werden wir sie in eine SmartArt-Instanz umwandeln.
-
+Der folgende Code zeigt, wie Sie auf SmartArt‑Formen einer Folie zugreifen können. Das Beispiel iteriert über jede Form auf der Folie und prüft, ob es sich um ein [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/)-Objekt handelt.
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
-# Die gewünschte Präsentation laden
-with slides.Presentation(path + "SmartArt.pptx") as pres:
-
-    # Durch jede Form innerhalb der ersten Folie traversieren
-    for shape in pres.slides[0].shapes:
-        # Überprüfen, ob die Form vom Typ SmartArt ist
-        if type(shape) is art.SmartArt:
-            # Form in SmartArtEx umwandeln
-            print("Formname:" + shape.name)
-```
-
-
-
-## **Zugriff auf SmartArt-Form mit einem bestimmten Layouttyp**
-Der folgende Beispielcode hilft, auf die SmartArt-Form mit einem bestimmten Layouttyp zuzugreifen. Bitte beachten Sie, dass Sie den Layouttyp der SmartArt nicht ändern können, da er schreibgeschützt ist und nur festgelegt wird, wenn die SmartArt-Form hinzugefügt wird.
-
-- Erstellen Sie eine Instanz der `Presentation` Klasse und laden Sie die Präsentation mit der SmartArt-Form.
-- Abrufen der Referenz zur ersten Folie unter Verwendung ihres Index.
-- Durch jede Form innerhalb der ersten Folie traversieren.
-- Überprüfen, ob die Form vom Typ SmartArt ist und die ausgewählte Form in SmartArt umwandeln, wenn es sich um SmartArt handelt.
-- Überprüfen Sie die SmartArt-Form mit dem bestimmten Layouttyp und führen Sie die erforderlichen Aktionen danach aus.
-
-```py
-import aspose.slides as slides
-import aspose.slides.smartart as art
-
-with slides.Presentation(path + "SmartArt.pptx") as presentation:
-    # Durch jede Form innerhalb der ersten Folie traversieren
+# Laden Sie eine Präsentationsdatei.
+with slides.Presentation("SmartArt.pptx") as presentation:
+    # Durchlaufen Sie jede Form auf der ersten Folie.
     for shape in presentation.slides[0].shapes:
-        # Überprüfen, ob die Form vom Typ SmartArt ist
-        if type(shape) is art.SmartArt:
-            # Überprüfen des SmartArt-Layouts
-            if shape.layout == art.SmartArtLayoutType.BASIC_BLOCK_LIST:
-                print("Mach hier etwas....")
+        # Prüfen Sie, ob die Form eine SmartArt-Form ist.
+        if isinstance(shape, smartart.SmartArt):
+            # Geben Sie den Namen der Form aus.
+            print("Shape name:", shape.name)
 ```
 
 
+## **Zugriff auf SmartArt‑Formen mit einem angegebenen Layout‑Typ**
 
-## **SmartArt-Formstil ändern**
-Der folgende Beispielcode hilft, auf die SmartArt-Form mit einem bestimmten Layouttyp zuzugreifen.
+Das folgende Beispiel zeigt, wie Sie auf eine SmartArt‑Form mit einem angegebenen Layout‑Typ zugreifen können. Beachten Sie, dass Sie den Layout‑Typ einer SmartArt nicht ändern können – er ist schreibgeschützt und wird beim Erstellen der Form festgelegt.
 
-- Erstellen Sie eine Instanz der `Presentation` Klasse und laden Sie die Präsentation mit der SmartArt-Form.
-- Abrufen der Referenz zur ersten Folie unter Verwendung ihres Index.
-- Durch jede Form innerhalb der ersten Folie traversieren.
-- Überprüfen, ob die Form vom Typ SmartArt ist und die ausgewählte Form in SmartArt umwandeln, wenn es sich um SmartArt handelt.
-- Finden Sie die SmartArt-Form mit einem bestimmten Stil.
-- Setzen Sie den neuen Stil für die SmartArt-Form.
-- Speichern Sie die Präsentation.
-
+1. Erstellen Sie eine Instanz von [Präsentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), und laden Sie die Präsentation, die die SmartArt‑Form enthält.
+2. Rufen Sie über den Index die erste Folie ab.
+3. Iterieren Sie über jede Form auf der ersten Folie.
+4. Prüfen Sie, ob die Form ein [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/)-Objekt ist.
+5. Wenn der Layout‑Typ der SmartArt‑Form mit dem gewünschten übereinstimmt, führen Sie die erforderlichen Aktionen aus.
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
-with slides.Presentation(path + "SmartArt.pptx") as presentation:
-    # Durch jede Form innerhalb der ersten Folie traversieren
+with slides.Presentation("SmartArt.pptx") as presentation:
+    # Durchlaufen Sie jede Form auf der ersten Folie.
     for shape in presentation.slides[0].shapes:
-        # Überprüfen, ob die Form vom Typ SmartArt ist
-        if type(shape) is art.SmartArt:
-            # Überprüfen des SmartArt-Stils
-            if shape.quick_style == art.SmartArtQuickStyleType.SIMPLE_FILL:
-                # Ändern des SmartArt-Stils
-                smart.quick_style = art.SmartArtQuickStyleType.CARTOON
-
-    # Präsentation speichern
-    presentation.save("ChangeSmartArtStyle_out.pptx", slides.export.SaveFormat.PPTX)
+        # Prüfen Sie, ob die Form eine SmartArt-Form ist.
+        if isinstance(shape, smartart.SmartArt):
+            # Prüfen Sie den SmartArt-Layouttyp.
+            if shape.layout == smartart.SmartArtLayoutType.BASIC_BLOCK_LIST:
+                print("Do something here...")
 ```
 
 
+## **SmartArt‑Formstil ändern**
 
-## **SmartArt-Formfarbstil ändern**
-In diesem Beispiel lernen wir, den Farbstil für eine beliebige SmartArt-Form zu ändern. Im folgenden Beispielcode wird auf die SmartArt-Form mit einem bestimmten Farbstil zugegriffen und ihr Stil geändert.
+Das folgende Beispiel zeigt, wie Sie SmartArt‑Formen finden und deren Stil ändern können:
 
-- Erstellen Sie eine Instanz der `Presentation` Klasse und laden Sie die Präsentation mit der SmartArt-Form.
-- Abrufen der Referenz zur ersten Folie unter Verwendung ihres Index.
-- Durch jede Form innerhalb der ersten Folie traversieren.
-- Überprüfen, ob die Form vom Typ SmartArt ist und die ausgewählte Form in SmartArt umwandeln, wenn es sich um SmartArt handelt.
-- Finden Sie die SmartArt-Form mit einem bestimmten Farbstil.
-- Setzen Sie den neuen Farbstil für die SmartArt-Form.
-- Speichern Sie die Präsentation.
-
+1. Erstellen Sie eine [Präsentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) und laden Sie die Datei, die die SmartArt‑Form(en) enthält.
+2. Rufen Sie über den Index die erste Folie ab.
+3. Iterieren Sie über jede Form auf der ersten Folie.
+4. Suchen Sie die SmartArt‑Form mit dem angegebenen Stil.
+5. Weisen Sie der SmartArt‑Form den neuen Stil zu.
+6. Speichern Sie die Präsentation.
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
-with slides.Presentation(path + "SmartArt.pptx") as presentation:
-    # Durch jede Form innerhalb der ersten Folie traversieren
+with slides.Presentation("SmartArt.pptx") as presentation:
+    # Durchlaufen Sie jede Form auf der ersten Folie.
     for shape in presentation.slides[0].shapes:
-        # Überprüfen, ob die Form vom Typ SmartArt ist
-        if type(shape) is art.SmartArt:
-            # Überprüfen des SmartArt-Farbstils
-            if shape.color_style == art.SmartArtColorType.COLORED_FILL_ACCENT1:
-                # Ändern des SmartArt-Farbstils
-                shape.color_style = art.SmartArtColorType.COLORFUL_ACCENT_COLORS
-
-    # Präsentation speichern
-    presentation.save("ChangeSmartArtColorStyle_out.pptx", slides.export.SaveFormat.PPTX)
+        # Prüfen Sie, ob die Form eine SmartArt-Form ist.
+        if isinstance(shape, smartart.SmartArt):
+            # Prüfen Sie den SmartArt-Stil.
+            if shape.quick_style == smartart.SmartArtQuickStyleType.SIMPLE_FILL:
+                # Ändern Sie den SmartArt-Stil.
+                smart.quick_style = smartart.SmartArtQuickStyleType.CARTOON
+    # Speichern Sie die Präsentation.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **Farbstil von SmartArt‑Formen ändern**
+
+Dieses Beispiel zeigt, wie Sie den Farbstil einer SmartArt‑Form ändern können. Der Beispielcode findet eine SmartArt‑Form mit einem angegebenen Farbstil und aktualisiert sie.
+
+1. Erstellen Sie eine Instanz der Klasse [Präsentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) und laden Sie die Präsentation, die die SmartArt‑Form(en) enthält.
+2. Rufen Sie über den Index die erste Folie ab.
+3. Iterieren Sie über jede Form auf der ersten Folie.
+4. Prüfen Sie, ob die Form ein [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/)-Objekt ist.
+5. Suchen Sie die SmartArt‑Form mit dem angegebenen Farbstil.
+6. Legen Sie den neuen Farbstil für diese SmartArt‑Form fest.
+7. Speichern Sie die Präsentation.
+```py
+import aspose.slides as slides
+import aspose.slides.smartart as smartart
+
+with slides.Presentation("SmartArt.pptx") as presentation:
+    # Durchlaufen Sie jede Form auf der ersten Folie.
+    for shape in presentation.slides[0].shapes:
+        # Prüfen Sie, ob die Form eine SmartArt-Form ist.
+        if isinstance(shape, smartart.SmartArt):
+            # Prüfen Sie den Farbtyp.
+            if shape.color_style == smartart.SmartArtColorType.COLORED_FILL_ACCENT1:
+                # Ändern Sie den Farbtyp.
+                shape.color_style = smartart.SmartArtColorType.COLORFUL_ACCENT_COLORS
+    # Speichern Sie die Präsentation.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+
+## **FAQ**
+
+**Kann ich SmartArt als einzelnes Objekt animieren?**
+
+Ja. SmartArt ist eine Form, sodass Sie über die Animations‑API [Standardanimationen](/slides/de/python-net/powerpoint-animation/) (Eintritt, Austritt, Hervorhebung, Bewegungspfad) genauso wie bei anderen Formen anwenden können.
+
+**Wie finde ich ein bestimmtes SmartArt auf einer Folie, wenn ich seine interne ID nicht kenne?**
+
+Legen Sie den Alternativtext (AltText) fest und verwenden Sie ihn, um die Form nach diesem Wert zu suchen – das ist ein empfohlener Weg, um die Ziel‑Form zu finden.
+
+**Kann ich SmartArt mit anderen Formen gruppieren?**
+
+Ja. Sie können SmartArt mit anderen Formen (Bildern, Tabellen usw.) gruppieren und anschließend die Gruppe [manipulieren](/slides/de/python-net/group/).
+
+**Wie erhalte ich ein Bild eines bestimmten SmartArt (z. B. für eine Vorschau oder einen Bericht)?**
+
+Exportieren Sie ein Thumbnail/Bild der Form; die Bibliothek kann einzelne Formen [in Rasterdateien (PNG/JPG/TIFF)](/slides/de/python-net/create-shape-thumbnails/) rendern.
+
+**Wird das Aussehen von SmartArt beim Konvertieren der gesamten Präsentation in PDF erhalten bleiben?**
+
+Ja. Die Rendering‑Engine zielt auf hohe Treue beim [PDF‑Export](/slides/de/python-net/convert-powerpoint-to-pdf/) ab und bietet diverse Qualitäts‑ und Kompatibilitätsoptionen.

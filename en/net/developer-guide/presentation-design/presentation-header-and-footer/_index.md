@@ -1,10 +1,25 @@
 ---
-title: Presentation Header and Footer
+title: Manage Presentation Headers and Footers in .NET
+linktitle: Header and Footer
 type: docs
 weight: 140
 url: /net/presentation-header-and-footer/
-keywords: "Header, footer, set header, set footer, set headed and footer, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "PowerPoint header and footer in C# or .NET"
+keywords:
+- header
+- header text
+- footer
+- footer text
+- set header
+- set footer
+- handout
+- notes
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Use Aspose.Slides for .NET to add and customize headers and footers in PowerPoint and OpenDocument presentations for a professional look."
 ---
 
 {{% alert color="primary" %}} 
@@ -119,3 +134,20 @@ using (Presentation presentation = new Presentation("presentation.pptx"))
  }
 ```
 
+## **FAQ**
+
+**Can I add a "header" to regular slides?**
+
+In PowerPoint, "Header" exists only for notes and handouts; on regular slides, the supported elements are the footer, date/time, and slide number. In Aspose.Slides this matches the same limitations: header only for Notes/Handout, and on slides—Footer/DateTime/SlideNumber.
+
+**What if the layout doesn’t contain a footer area—can I "turn on" its visibility?**
+
+Yes. Check the visibility via the header/footer manager and enable it if needed. These API indicators and methods are designed for cases when the placeholder is missing or hidden.
+
+**How do I make the slide number start from a value other than 1?**
+
+Set the presentation’s [first slide number](https://reference.aspose.com/slides/net/aspose.slides/presentation/firstslidenumber/); after that, all numbering is recalculated. For example, you can start at 0 or 10, and hide the number on the title slide.
+
+**What happens to headers/footers when exporting to PDF/images/HTML?**
+
+They are rendered as regular text elements of the presentation. That is, if the elements are visible on slides/notes pages, they will also appear in the output format along with the rest of the content.

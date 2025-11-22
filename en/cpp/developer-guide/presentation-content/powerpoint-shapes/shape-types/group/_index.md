@@ -1,8 +1,19 @@
 ---
-title: Group
+title: Group Presentation Shapes in C++
+linktitle: Shape Group
 type: docs
 weight: 40
 url: /cpp/group/
+keywords:
+- group shape
+- shape group
+- add group
+- alternative text
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Learn to group and ungroup shapes in PowerPoint decks using Aspose.Slides for C++ — fast, step-by-step guide with free C++ code."
 ---
 
 

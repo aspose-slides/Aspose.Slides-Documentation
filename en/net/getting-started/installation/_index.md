@@ -3,8 +3,21 @@ title: Installation
 type: docs
 weight: 70
 url: /net/installation/
-keywords: "Download Aspose.Slides, Install Aspose.Slides, Aspose.Slides Installation, Windows, macOS, .NET"
-description: "Install Aspose.Slides for .NET in Windows or macOS"
+keywords:
+- install Aspose.Slides
+- download Aspose.Slides
+- use Aspose.Slides
+- Aspose.Slides installation
+- Windows
+- Linux
+- macOS
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how to quickly install Aspose.Slides for .NET. Step-by-step guide, system requirements, and code samples — start working with PowerPoint presentations today!"
 ---
 
 ## **Windows**
@@ -84,3 +97,9 @@ To install mono-libgdiplus separately on your mac, see [this article](https://do
    * You can copy the code on [this page](/slides/net/create-presentation/).
 7. Run the app.
 8. Open your project's *folder/bin/Debug/presentation_file_name*.
+
+## **FAQ**
+
+**Is there a free version or trial limitation?**
+
+Yes, by default, Aspose.Slides runs in evaluation mode, which places watermarks and may have other limitations. To remove restrictions, you need to apply a valid [license](/slides/net/licensing/).

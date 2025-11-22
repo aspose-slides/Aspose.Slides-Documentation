@@ -1,11 +1,29 @@
 ---
-title: Render a Slide as an SVG Image in C#
-linktitle: Render a Slide as an SVG Image
+title: Render Presentation Slides as SVG Images in .NET
+linktitle: Slide to SVG
 type: docs
 weight: 50
 url: /net/render-a-slide-as-an-svg-image/
-description: This article explains how to convert PowerPoint Presentation to SVG format using C#. You can convert PPT, PPTX, ODP formats into SVG images.
-keywords: C# Convert PowerPoint to SVG, C# PPT to SVG, C# PPTX to SVG
+keywords:
+- PowerPoint to SVG
+- presentation to SVG
+- slide to SVG
+- PPT to SVG
+- PPTX to SVG
+- save PPT as SVG
+- save PPTX as SVG
+- export PPT to SVG
+- export PPTX to SVG
+- render slide
+- convert slide
+- export slide
+- vector image
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how to render PowerPoint slides as SVG images using Aspose.Slides for .NET. High-quality visuals with simple C# code examples."
 ---
 
 ## **Overview**

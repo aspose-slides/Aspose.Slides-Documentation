@@ -1,25 +1,31 @@
 ---
-title: Custom Shape
+title: Customize Presentation Shapes in .NET
+linktitle: Custom Shape
 type: docs
 weight: 20
 url: /net/custom-shape/
 keywords: 
-- shape
 - custom shape
+- add shape
 - create shape
-- geometry
+- change shape
 - shape geometry
 - geometry path
 - path points
 - edit points
+- add point
+- remove point
+- editing operation
+- curved corner
 - PowerPoint
 - presentation
+- .NET
 - C#
-- Aspose.Slides for .NET
-description: "Add a custom shape to a PowerPoint presentation in .NET"
+- Aspose.Slides
+description: "Create and customize shapes in PowerPoint presentations with Aspose.Slides for .NET: geometry paths, curved corners, composite shapes."
 ---
 
-## Change a Shape Using Edit Points
+## **Change a Shape Using Edit Points**
 
 Consider a square. In PowerPoint, using **edit points**, you can 
 
@@ -344,3 +350,17 @@ using (Presentation pres = new Presentation())
 }
 ```
 ![example5_image](custom_shape_5.png)
+
+## **FAQ**
+
+**What will happen to the fill and outline after replacing the geometry?**
+
+The style remains with the shape; only the contour changes. The fill and outline are automatically applied to the new geometry.
+
+**How do I correctly rotate a custom shape along with its geometry?**
+
+Use the shape’s [rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) property; the geometry rotates with the shape because it’s bound to the shape’s own coordinate system.
+
+**Can I convert a custom shape to an image to "lock in" the result?**
+
+Yes. Export the required [slide](/slides/net/convert-powerpoint-to-png/) area or the [shape](/slides/net/create-shape-thumbnails/) itself to a raster format; this simplifies further work with heavy geometries.

@@ -1,8 +1,22 @@
 ---
-title: How to create Hello World Presentation document
+title: How to Create Hello World Presentations in Java
+linktitle: Hello World Presentation
 type: docs
 weight: 10
 url: /java/how-to-create-hello-world-presentation-document/
+keywords:
+- migration
+- hello world
+- legacy code
+- modern code
+- legacy approach
+- modern approach
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+- description: "Create a Hello World PowerPoint PPT, PPTX and ODP presentation in Java with Aspose.Slides using both legacy and modern APIs in one simple guide."
 ---
 
 {{% alert color="primary" %}} 

@@ -1,10 +1,27 @@
 ---
-title: Aspose.Slides for .NET 6 Cross Platform
+title: Aspose.Slides for .NET 6 Cross-Platform
 type: docs
 weight: 237
-url: /net/slides-for-net-6-cross-platform
-keywords: Aspose.Slides, .NET, Cross platform
-description: Aspose.Slides for .NET 6 Cross Platform
+url: /net/slides-for-net-6-cross-platform/
+keywords:
+- cross-platform
+- .NET 6
+- GLIBC
+- csproj
+- target path
+- dependent library
+- Aspose.Slides.dll
+- System.Drawing.Common
+- name conflict
+- extern alias
+- CS0433
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Use Aspose.Slides for .NET 6 to build cross-platform C# apps on Windows, Linux, and macOS that create, edit, and convert PowerPoint PPT, PPTX and ODP files."
 ---
 
 1. Cross-platform Aspose.Slides for .NET6 can be used for .NET 7 and future .NET releases.

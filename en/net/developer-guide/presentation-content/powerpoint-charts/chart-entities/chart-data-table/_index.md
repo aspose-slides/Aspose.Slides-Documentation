@@ -1,9 +1,18 @@
 ---
-title: Chart Data Table
+title: Customize Chart Data Tables in Presentations in .NET
+linktitle: Data Table
 type: docs
 url: /net/chart-data-table/
-keywords: "Font properties, chart data table, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Set font properties for chart database table in PowerPoint presentations in C# or .NET"
+keywords:
+- chart data
+- data table
+- font properties
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Customize chart data tables in .NET for PPT and PPTX with Aspose.Slides to boost efficiency and appeal in presentations."
 ---
 
 ## **Set Font Properties for Chart Data Table**

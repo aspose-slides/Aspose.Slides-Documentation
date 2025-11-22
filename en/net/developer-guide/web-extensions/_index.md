@@ -3,8 +3,27 @@ title: New HTML Export System - Aspose.Slides.WebExtensions
 type: docs
 weight: 240
 url: /net/web-extensions/
-keywords: "Export PowerPoint HTML, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "PowerPoint HTML export in C# or .NET"
+keywords:
+- web extension
+- template engine
+- export PowerPoint
+- export OpenDocument
+- export presentation
+- export slide
+- export PPT
+- export PPTX
+- export ODP
+- PowerPoint to HTML
+- OpenDocument to HTML
+- presentation to HTML
+- slide to HTML
+- PPT to HTML
+- PPTX to HTML
+- ODP to HTML
+- .NET
+- C#
+- Aspose.Slides
+description: "Export presentations to HTML with templates, CSS and JS—no SVG. Learn single or multi-page output, resource control, and customization for PPT, PPTX and ODP."
 ---
 
 

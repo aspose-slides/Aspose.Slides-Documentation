@@ -2,7 +2,21 @@
 title: Audio
 type: docs
 weight: 70
-url: /net/examples/elements/audio
+url: /net/examples/elements/audio/
+keywords:
+- audio example
+- audio frame
+- add audio
+- access audio
+- remove audio
+- audio playback
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Work with audio in C# using Aspose.Slides: add, replace, extract, and trim sounds, set volume and playback for slides and shapes in PowerPoint and OpenDocument."
 ---
 
 Illustrates how to embed audio frames and control playback with **Aspose.Slides for .NET**. The following examples show basic audio operations.

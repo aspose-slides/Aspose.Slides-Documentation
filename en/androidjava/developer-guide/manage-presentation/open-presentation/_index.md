@@ -1,11 +1,12 @@
 ---
-title: Open a Presentation on Android
-linktitle: Open Presentations
+title: Open Presentations on Android
+linktitle: Open Presentation
 type: docs
 weight: 20
 url: /androidjava/open-presentation/
 keywords:
 - open PowerPoint
+- open OpenDocument
 - open presentation
 - open PPTX
 - open PPT
@@ -21,7 +22,7 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Open PowerPoint (.pptx, .ppt) and OpenDocument (.odp) presentations effortlessly with Aspose.Slides for Android—fast, reliable, fully featured."
+description: "Open PowerPoint (.pptx, .ppt) and OpenDocument (.odp) presentations effortlessly with Aspose.Slides for Android via Java—fast, reliable, fully featured."
 ---
 
 ## **Overview**

@@ -1,10 +1,21 @@
 ---
-title: Animated Text
+title: Animate PowerPoint Text in .NET
+linktitle: Animated Text
 type: docs
 weight: 60
 url: /net/animated-text/
-keywords: "Animated text, Animation effects, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Add animated text and effects to PowerPoint presentation in C# or .NET"
+keywords:
+- animated text
+- text animation
+- animated paragraph
+- paragraph animation
+- animation effect
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Create dynamic animated text in PowerPoint and OpenDocument presentations using Aspose.Slides for .NET, with easy-to-follow, optimized C# code examples."
 ---
 
 ## **Adding Animation Effects to Paragraphs**

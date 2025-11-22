@@ -1,5 +1,6 @@
 ---
-title: Image
+title: Optimize Image Management in Presentations on Android
+linktitle: Manage Images
 type: docs
 weight: 10
 url: /androidjava/image/
@@ -20,11 +21,10 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentation
-- EMF
-- SVG
 - Android
+- Java
 - Aspose.Slides
-description: "Streamline image management in PowerPoint and OpenDocument with Aspose.Slides for Android, optimizing performance and automating your workflow."
+description: "Streamline image management in PowerPoint and OpenDocument with Aspose.Slides for Android via Java, optimizing performance and automating your workflow."
 ---
 
 ## **Images in Slides In Presentations**

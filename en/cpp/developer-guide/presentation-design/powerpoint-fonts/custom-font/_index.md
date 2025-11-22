@@ -1,10 +1,22 @@
 ---
-title: Custom Font in C++
+title: Customize PowerPoint Fonts in С++
+linktitle: Custom Font
 type: docs
 weight: 20
 url: /cpp/custom-font/
-keywords: "Fonts, custom fonts, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
-description: "PowerPoint custom fonts in C++"
+keywords:
+- font
+- custom font
+- external font
+- load font
+- manage fonts
+- font folder
+- PowerPoint
+- OpenDocument
+- presentation
+- С++
+- Aspose.Slides
+description: "Customize fonts in PowerPoint slides with Aspose.Slides for С++ to keep your presentations sharp and consistent across any device."
 ---
 
 {{% alert color="primary" %}} 

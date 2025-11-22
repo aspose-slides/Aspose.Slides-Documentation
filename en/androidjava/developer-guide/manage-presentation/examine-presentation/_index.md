@@ -1,11 +1,10 @@
 ---
-title: Examine Presentation
+title: Retrieve and Update Presentation Information on Android
+linktitle: Presentation Information
 type: docs
 weight: 30
 url: /androidjava/examine-presentation/
 keywords:
-- PowerPoint
-- presentation
 - presentation format
 - presentation properties
 - document properties
@@ -13,11 +12,17 @@ keywords:
 - read properties
 - change properties
 - modify properties
-- PPTX
-- PPT
+- update properties
+- examine PPTX
+- examine PPT
+- examine ODP
+- PowerPoint
+- OpenDocument
+- presentation
 - Android
 - Java
-description: "Read and modify PowerPoint presentation properties in Android via Java"
+- Aspose.Slides
+description: "Explore slides, structure and metadata in PowerPoint and OpenDocument presentations using Java for faster insights and smarter content audits."
 ---
 
 Aspose.Slides for Android via Java allows you to examine a presentation to find out its properties and understand its behavior.

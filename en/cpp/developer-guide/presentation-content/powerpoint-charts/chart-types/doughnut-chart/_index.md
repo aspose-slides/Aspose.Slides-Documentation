@@ -1,8 +1,18 @@
 ---
-title: Doughnut Chart
+title: Customize Doughnut Charts in Presentations Using С++
+linktitle: Doughnut Chart
 type: docs
 weight: 30
 url: /cpp/doughnut-chart/
+keywords:
+- doughnut chart
+- center gap
+- hole size
+- PowerPoint
+- presentation
+- С++
+- Aspose.Slides
+description: "Discover how to create and customize doughnut charts in Aspose.Slides for С++, supporting PowerPoint formats for dynamic presentations."
 ---
 
 ## **Specify Center Gap in Doughnut Chart**

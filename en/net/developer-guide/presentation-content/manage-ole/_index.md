@@ -1,5 +1,5 @@
 ---
-title: Manage OLE in Presentations Using C#
+title: Manage OLE Objects in Presentations in .NET
 linktitle: Manage OLE
 type: docs
 weight: 40

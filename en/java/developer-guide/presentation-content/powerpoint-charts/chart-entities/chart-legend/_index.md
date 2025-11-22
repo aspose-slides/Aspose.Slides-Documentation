@@ -1,7 +1,17 @@
 ---
-title: Chart Legend
+title: Customize Chart Legends in Presentations Using Java
+linktitle: Chart Legend
 type: docs
 url: /java/chart-legend/
+keywords:
+- chart legend
+- legend position
+- font size
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Customize chart legends with Aspose.Slides for Java to optimize PowerPoint presentations with tailored legend formatting."
 ---
 
 ## **Legend Positioning**

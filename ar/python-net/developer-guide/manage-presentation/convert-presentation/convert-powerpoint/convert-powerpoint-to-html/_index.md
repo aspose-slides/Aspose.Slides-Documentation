@@ -29,11 +29,11 @@ description: "تحويل عروض PowerPoint إلى HTML استجابي باست
 
 تشرح هذه المقالة كيفية تحويل عرض PowerPoint إلى تنسيق HTML باستخدام Python. وتغطي المواضيع التالية.
 
-- تحويل PowerPoint إلى HTML في Python
-- تحويل PPT إلى HTML في Python
-- تحويل PPTX إلى HTML في Python
-- تحويل ODP إلى HTML في Python
-- تحويل شريحة PowerPoint إلى HTML في Python
+- تحويل PowerPoint إلى HTML في بايثون
+- تحويل PPT إلى HTML في بايثون
+- تحويل PPTX إلى HTML في بايثون
+- تحويل ODP إلى HTML في بايثون
+- تحويل شريحة PowerPoint إلى HTML في بايثون
 
 ## **PowerPoint إلى HTML باستخدام Python**
 
@@ -43,7 +43,9 @@ description: "تحويل عروض PowerPoint إلى HTML استجابي باست
 
 باستخدام [**Aspose.Slides for Python via .NET**](https://products.aspose.com/slides/python-net/)، يمكن للتطبيقات والمطورين تحويل عرض PowerPoint إلى HTML: **PPTX إلى HTML** أو **PPT إلى HTML**.
 
-**Aspose.Slides** توفر العديد من الخيارات (غالبًا من فئة [**HtmlOptions**](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/)) التي تحدد عملية تحويل PowerPoint إلى HTML:
+باستخدام [**Aspose.Slides for Python via .NET**](https://products.aspose.com/slides/python-net/)، يمكن للتطبيقات والمطورين تحويل عرض PowerPoint إلى HTML: **PPTX إلى HTML** أو **PPT إلى HTML**.
+
+**Aspose.Slides** توفر العديد من الخيارات (معظمها من فئة [**HtmlOptions**](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/)) التي تحدد عملية تحويل PowerPoint إلى HTML:
 
 * تحويل عرض PowerPoint كامل إلى HTML.
 * تحويل شريحة معينة في عرض PowerPoint إلى HTML.
@@ -74,6 +76,7 @@ description: "تحويل عروض PowerPoint إلى HTML استجابي باست
 * [HTML إلى TIFF](https://products.aspose.com/slides/python-net/conversion/html-to-tiff/)
 
 {{% /alert %}}
+
 
 ## **تحويل PowerPoint إلى HTML**
 
@@ -158,7 +161,7 @@ pres.save("input-PFDinDisplayPro-Regular-installed.html", slides.export.SaveForm
 
 تحويل شريحة عرض تقديمي منفصلة إلى HTML. للقيام بذلك استخدم نفس طريقة [**Save**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) المعروضة بواسطة فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) التي تُستخدم لتحويل عرض PPT(X) كامل إلى مستند HTML. يمكن أيضًا استخدام فئة [**HtmlOptions**](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/) لتعيين خيارات التحويل الإضافية:
 ```py
-# [TODO[not_supported_yet]: تنفيذ python لواجهة .net]
+# [TODO[not_supported_yet]: تنفيذ بايثون لواجهة .net]
 ```
 
 
@@ -168,7 +171,7 @@ pres.save("input-PFDinDisplayPro-Regular-installed.html", slides.export.SaveForm
 
 يعرض كود python في هذا المثال كيفية استخدام الطرق القابلة لإعادة التعريف لإنشاء مستند HTML مخصص مع رابط إلى ملف CSS:
 ```py
-# [TODO[not_supported_yet]: تنفيذ python لواجهات .net]
+# [TODO[not_supported_yet]: تنفيذ بايثون لواجهات .net]
 ```
 
 
@@ -178,7 +181,7 @@ pres.save("input-PFDinDisplayPro-Regular-installed.html", slides.export.SaveForm
 
 يعرض هذا الكود python كيفية تحويل PowerPoint إلى HTML مع ربط جميع الخطوط واستبعاد "Calibri" و "Arial" (لأنهما موجودان بالفعل في النظام):
 ```py
-# [TODO[not_supported_yet]: تنفيذ python لواجهات .net]
+# [TODO[not_supported_yet]: تنفيذ بايثون لواجهات .net]
 ```
 
 

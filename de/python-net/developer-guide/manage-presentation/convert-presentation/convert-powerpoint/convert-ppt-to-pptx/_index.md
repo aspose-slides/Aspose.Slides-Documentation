@@ -6,7 +6,7 @@ weight: 20
 url: /de/python-net/convert-ppt-to-pptx/
 keywords:
 - PPT konvertieren
-- PPT zu PPTX
+- PPT nach PPTX
 - PowerPoint
 - Präsentation
 - Python

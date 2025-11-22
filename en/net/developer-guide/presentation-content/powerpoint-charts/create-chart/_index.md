@@ -1,6 +1,6 @@
 ---
-title: Create or Update PowerPoint Presentation Charts in C#
-linktitle: Create or Update a Chart
+title: Create or Update PowerPoint Presentation Charts in .NET
+linktitle: Create or Update Charts
 type: docs
 weight: 10
 url: /net/create-chart/
@@ -21,10 +21,12 @@ keywords:
 - histogram chart
 - radar chart
 - multicategory chart
-- PowerPoint presentation
+- PowerPoint
+- presentation
+- .NET
 - C#
 - Aspose.Slides
-description: "Learn how to create and customize charts in PowerPoint and OpenDocument presentations using Aspose.Slides for .NET. It covers adding, formatting, and editing charts in presentations with practical code examples in C#."
+description: "Create and customize charts in PowerPoint presentations using Aspose.Slides for .NET. Add, format, and edit charts with practical code examples in C#."
 ---
 
 ## **Overview**
@@ -849,11 +851,11 @@ The result:
 
 ### **Create Combination Charts**
 
-A combination chart (or combo chart) is a chart that combines two or more chart types into a single graph. This type of chart allows you to highlight, compare, or review differences between two or more sets of data, enabling you to identify any relationships between them.
+A combination chart (or combo chart) combines two or more chart types in a single graph. This chart lets you highlight, compare, or examine differences between two or more data sets, helping you identify relationships between them.
 
 ![The combination chart](combination_chart.png)
 
-This C# code shows you how to create the combination chart from the above image in a PowerPoint presentation:
+The following C# code shows how to create the combination chart shown above in a PowerPoint presentation:
 
 ```c#
 private static void CreateComboChart()
@@ -1155,7 +1157,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **FAQs**
+## **FAQ**
 
 **What chart types are supported by Aspose.Slides for .NET?**
 

@@ -3,6 +3,22 @@ title: Product Support
 type: docs
 weight: 90
 url: /cpp/product-support/
+keywords:
+- product
+- support
+- technical
+- free
+- unlimited
+- issue
+- documentation
+- API reference
+- resources
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Get free, fast Aspose.Slides for C++ product support: forums, docs, updates, code help to fix issues across PowerPoint and OpenDocument workflows."
 ---
 
 ## **Technical support**

@@ -1,26 +1,33 @@
 ---
-title: Manage PowerPoint Paragraph in Java
+title: Manage PowerPoint Text Paragraphs in Java
+linktitle: Manage Paragraph
 type: docs
 weight: 40
 url: /java/manage-paragraph/
 keywords:
 - add text
-- add paragraphs
+- add paragraph
 - manage text
-- manage paragraphs
+- manage paragraph
+- manage bullet
 - paragraph indent
+- hanging indent
 - paragraph bullet
 - numbered list
+- bulleted list
 - paragraph properties
 - import HTML
 - text to HTML
 - paragraph to HTML
-- paragraphs to images
-- export paragraphs
-- PowerPoint presentation
+- paragraph to image
+- text to image
+- export paragraph
+- PowerPoint
+- OpenDocument
+- presentation
 - Java
-- Aspose.Slides for Java
-description: "Create paragraphs and manage paragraph properties in PowerPoint presentations in Java"
+- Aspose.Slides
+description: "Master paragraph formatting with Aspose.Slides for Java—optimize alignment, spacing & style in PPT, PPTX, and ODP presentations in Java."
 ---
 
 Aspose.Slides provides all the interfaces and classes you need to work with PowerPoint texts, paragraphs, and portions in Java.

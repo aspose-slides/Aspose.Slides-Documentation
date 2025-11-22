@@ -3,6 +3,24 @@ title: Product Overview
 type: docs
 weight: 10
 url: /java/product-overview/
+keywords:
+- product overview
+- document processing
+- key features
+- presentation features
+- slide features
+- graphic features
+- multimedia features
+- table features
+- text features
+- advanced features
+- technical support
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java lets you create, edit and convert PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations without Microsoft Office."
 ---
 
 ![todo:image_alt_text](product-overview_1.png)

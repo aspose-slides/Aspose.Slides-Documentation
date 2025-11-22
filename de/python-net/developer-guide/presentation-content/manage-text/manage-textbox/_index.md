@@ -1,236 +1,219 @@
 ---
-title: Textfelder in Präsentationen mit Python verwalten
-linktitle: Textfeld verwalten
+title: "Textfelder in Präsentationen mit Python verwalten"
+linktitle: "Textfeld verwalten"
 type: docs
 weight: 20
 url: /de/python-net/manage-textbox/
 keywords:
-- textfeld
-- textrahmen
-- text hinzufügen
-- text aktualisieren
-- textfeld erstellen
-- textfeld prüfen
-- textspalte hinzufügen
-- hyperlink hinzufügen
+- Textfeld
+- Textrahmen
+- Text hinzufügen
+- Text aktualisieren
+- Textfeld erstellen
+- Textfeld prüfen
+- Textspalte hinzufügen
+- Hyperlink hinzufügen
 - PowerPoint
-- präsentation
+- Präsentation
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET vereinfacht das Erstellen, Bearbeiten und Klonen von Textfeldern in PowerPoint- und OpenDocument-Dateien und verbessert die Automatisierung Ihrer Präsentationen."
+description: "Aspose.Slides für Python via .NET ermöglicht das einfache Erstellen, Bearbeiten und Kopieren von Textfeldern in PowerPoint- und OpenDocument-Dateien und verbessert Ihre Präsentationsautomatisierung."
 ---
 
-Texte auf Folien existieren typischerweise in Textfeldern oder Formen. Um also Text zu einer Folie hinzuzufügen, müssen Sie ein Textfeld hinzufügen und dann Text in das Textfeld einfügen. Aspose.Slides für Python über .NET bietet das [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) Interface, das es Ihnen ermöglicht, eine Form hinzuzufügen, die Text enthält.
+## **Übersicht**
+
+Texte auf Folien befinden sich typischerweise in Textfeldern oder Formen. Daher müssen Sie, um Text zu einer Folie hinzuzufügen, ein Textfeld hinzufügen und dann Text in das Textfeld einfügen. Aspose.Slides für Python stellt die [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) Klasse bereit, die es Ihnen ermöglicht, eine Form mit Text hinzuzufügen.
 
 {{% alert title="Info" color="info" %}}
-
-Aspose.Slides bietet auch das [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) Interface, mit dem Sie Formen zu Folien hinzufügen können. Es können jedoch nicht alle über das `IShape` Interface hinzugefügten Formen Text halten. Aber Formen, die über das [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) Interface hinzugefügt werden, können Text enthalten. 
-
+Aspose.Slides bietet außerdem die [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) Klasse an. Allerdings können nicht alle Formen Text enthalten.
 {{% /alert %}}
 
-{{% alert title="Hinweis" color="warning" %}} 
-
-Wenn Sie also mit einer Form umgehen, der Sie Text hinzufügen möchten, sollten Sie überprüfen und bestätigen, dass sie über das `IAutoShape` Interface vererbt wurde. Nur dann können Sie mit dem [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) arbeiten, der eine Eigenschaft unter `IAutoShape` ist. Siehe den Abschnitt [Text aktualisieren](https://docs.aspose.com/slides/python-net/manage-textbox/#update-text) auf dieser Seite. 
-
+{{% alert title="Note" color="warning" %}}
+Daher sollten Sie, wenn Sie mit einer Form arbeiten, der Sie Text hinzufügen möchten, überprüfen und bestätigen, dass sie durch die [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) Klasse gecastet wurde. Nur dann können Sie mit [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/), das eine Eigenschaft von [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) ist, arbeiten. Siehe den Abschnitt [Update Text](/slides/de/python-net/manage-textbox/#update-text) auf dieser Seite.
 {{% /alert %}}
 
-## **Textfeld auf Folie erstellen**
+## **Textfelder auf Folien erstellen**
 
-Um ein Textfeld auf einer Folie zu erstellen, gehen Sie folgendermaßen vor:
+Um ein Textfeld auf einer Folie zu erstellen:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse. 
-2. Erhalten Sie eine Referenz zur ersten Folie in der neu erstellten Präsentation. 
-3. Fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) Objekt mit [ShapeType](https://reference.aspose.com/slides/python-net/aspose.slides/igeometryshape/) als `RECTANGLE` an einer bestimmten Position auf der Folie hinzu und erhalten Sie die Referenz für das neu hinzugefügte `IAutoShape` Objekt. 
-4. Fügen Sie eine `text_frame` Eigenschaft zum `IAutoShape` Objekt hinzu, die Text enthalten wird. Im folgenden Beispiel haben wir diesen Text hinzugefügt: *Aspose TextBox*
-5. Schließlich speichern Sie die PPTX-Datei über das `Presentation` Objekt. 
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
+2. Holen Sie eine Referenz zur ersten Folie.
+3. Fügen Sie eine [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) mit `ShapeType.RECTANGLE` an der gewünschten Position auf der Folie hinzu.
+4. Setzen Sie den Text im [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) der Form.
+5. Speichern Sie die Präsentation als PPTX-Datei.
 
-Dieser Python-Code – eine Implementierung der oben beschriebenen Schritte – zeigt Ihnen, wie Sie Text zu einer Folie hinzufügen:
-
+Das folgende Python-Beispiel implementiert diese Schritte:
 ```py
 import aspose.slides as slides
 
-# Instanziiert PresentationEx
-with slides.Presentation() as pres:
+# Instanziieren Sie die Presentation-Klasse.
+with slides.Presentation() as presentation:
 
-    # Holt die erste Folie in der Präsentation
-    sld = pres.slides[0]
+    # Holen Sie die erste Folie aus der Präsentation.
+    slide = presentation.slides[0]
 
-    # Fügt eine AutoShape mit der Art als Rechteck hinzu
-    ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
+    # Fügen Sie eine AutoShape vom Typ RECTANGLE hinzu.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
 
-    # Fügt TextFrame zum Rechteck hinzu
-    ashp.add_text_frame(" ")
+    shape.text_frame.text = "Aspose TextBox"
 
-    # Greift auf das Textfeld zu
-    txtFrame = ashp.text_frame
-
-    # Erstellt das Paragraph-Objekt für das Textfeld
-    para = txtFrame.paragraphs[0]
-
-    # Erstellt ein Portion-Objekt für den Paragraphen
-    portion = para.portions[0]
-
-    # Setzt Text
-    portion.text = "Aspose TextBox"
-
-    # Speichert die Präsentation auf der Festplatte
-    pres.save("TextBox_out.pptx", slides.export.SaveFormat.PPTX)
+    # Speichern Sie die Präsentation auf dem Datenträger.
+    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Überprüfen Sie, ob es sich um eine Textfeldform handelt**
 
-Aspose.Slides bietet die `is_text_box` Eigenschaft (aus der [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) Klasse), um Ihnen zu ermöglichen, Formen zu untersuchen und Textfelder zu finden.
+## **Überprüfen, ob eine Form ein Textfeld ist**
+
+Aspose.Slides stellt die [is_text_box](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/is_text_box/) Eigenschaft auf der [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) Klasse bereit, mit der Sie bestimmen können, ob eine Form ein Textfeld ist.
 
 ![Textfeld und Form](istextbox.png)
 
-Dieser Python-Code zeigt Ihnen, wie Sie überprüfen, ob eine Form als Textfeld erstellt wurde:
-
+Dieses Python-Beispiel zeigt, wie man prüft, ob eine Form als Textfeld erstellt wurde:
 ```python
-from aspose.slides import Presentation, AutoShape
+import aspose.slides as slides
 
-with Presentation("pres.pptx") as pres:
-    for slide in pres.slides:
+with slides.Presentation("Sample.pptx") as presentation:
+    for slide in presentation.slides:
         for shape in slide.shapes:
-            if (type(shape) is AutoShape):
-                print("Form ist Textfeld" if shape.is_text_box else "Form ist kein Textfeld")
+            if isinstance(shape, slides.AutoShape):
+                print("shape is a text box" if shape.is_text_box else "shape is not a text box")
 ```
 
-## **Spalte im Textfeld hinzufügen**
 
-Aspose.Slides bietet die [column_count](https://reference.aspose.com/slides/python-net/aspose.slides/itextframeformat/) und [column_spacing](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) Eigenschaften (aus der [ITextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/itextframeformat/) Schnittstelle und der [text_frame_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) Klasse), die es Ihnen ermöglichen, Spalten zu Textfeldern hinzuzufügen. Sie können die Anzahl der Spalten in einem Textfeld angeben und den Abstand in Punkten zwischen den Spalten festlegen. 
-
-Dieser Code in Python demonstriert die beschriebene Operation:
-
+Beachten Sie, dass wenn Sie eine [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) mit der [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) Klasse hinzufügen, die `is_text_box` Eigenschaft der Form `False` zurückgibt. Nachdem Sie jedoch Text hinzugefügt haben – entweder mit der `add_text_frame` Methode oder durch Setzen der `text` Eigenschaft – gibt `is_text_box` `True` zurück.
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # Holt die erste Folie in der Präsentation
     slide = presentation.slides[0]
 
-    # Fügt eine AutoShape mit der Art als Rechteck hinzu
-    aShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
+    shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 40)
+    # shape1.is_text_box ist falsch
+    shape1.add_text_frame("shape 1")
+    # shape1.is_text_box ist wahr
 
-    # Fügt TextFrame zum Rechteck hinzu
-    aShape.add_text_frame("Alle diese Spalten sind darauf beschränkt, innerhalb eines einzigen Textcontainers zu bleiben -- " +
-    "Sie können Text hinzufügen oder löschen und der neue oder verbleibende Text passt sich automatisch an " +
-    "an, um innerhalb des Containers zu fließen. Sie können keinen Text von einem Container " +
-    "in einen anderen fließen lassen -- wir haben Ihnen gesagt, dass die Spaltenoptionen von PowerPoint für Text begrenzt sind!")
+    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 110, 100, 40)
+    # shape2.is_text_box ist falsch
+    shape2.text_frame.text = "shape 2"
+    # shape2.is_text_box ist wahr
 
-    # Holt das Textformat des TextFrames
-    format = aShape.text_frame.text_frame_format
+    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 210, 100, 40)
+    # shape3.is_text_box ist falsch
+    shape3.add_text_frame("")
+    # shape3.is_text_box ist falsch
 
-    # Gibt die Anzahl der Spalten im TextFrame an
-    format.column_count = 3
-
-    # Gibt den Abstand zwischen den Spalten an
-    format.column_spacing = 10
-
-    # Speichert die Präsentation
-    presentation.save("ColumnCount.pptx", slides.export.SaveFormat.PPTX)
+    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 310, 100, 40)
+    # shape4.is_text_box ist falsch
+    shape4.text_frame.text = ""
+    # shape4.is_text_box ist falsch
 ```
 
-## **Spalte im Textfeld hinzufügen**
 
-Aspose.Slides für Python über .NET bietet die [ColumnCount](https://reference.aspose.com/slides/python-net/aspose.slides/itextframeformat/) Eigenschaft (aus der [ITextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/itextframeformat/) Schnittstelle), die es Ihnen ermöglicht, Spalten in Textfeldern hinzuzufügen. Über diese Eigenschaft können Sie Ihre bevorzugte Anzahl von Spalten in einem Textfeld angeben. 
+## **Spalten zu Textfeldern hinzufügen**
 
-Dieser Python-Code zeigt Ihnen, wie Sie eine Spalte innerhalb eines Textfeldes hinzufügen:
+Aspose.Slides stellt die [column_count](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/column_count/) und [column_spacing](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/column_spacing/) Eigenschaften auf der [TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) Klasse zur Verfügung, um Spalten zu Textfeldern hinzuzufügen. Sie können die Anzahl der Spalten angeben und den Abstand (in Punkten) zwischen den Spalten festlegen.
 
+Der folgende Python-Code demonstriert diesen Vorgang:
 ```py
 import aspose.slides as slides
 
-outPptxFileName = "ColumnsTest.pptx"
-with slides.Presentation() as pres:
-    shape1 = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
-    format = shape1.text_frame.text_frame_format
+with slides.Presentation() as presentation:
 
-    format.column_count = 2
-    shape1.text_frame.text = """Alle diese Spalten sind gezwungen, innerhalb eines einzelnen Textcontainers zu bleiben -- 
-        Sie können Text hinzufügen oder löschen - und der neue oder verbleibende Text passt sich automatisch 
-        an, um innerhalb des Containers zu bleiben. Sie können keinen Text von einem Container 
-        in einen anderen überlaufen lassen, da die Spaltenoptionen für Text in PowerPoint begrenzt sind!
-        pres.save(outPptxFileName, slides.export.SaveFormat.PPTX)"""
+	# Holen Sie die erste Folie aus der Präsentation.
+	slide = presentation.slides[0]
 
-    with slides.Presentation(path + outPptxFileName) as test:
-        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_count)
-        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_spacing)
+	# Fügen Sie eine AutoShape vom Typ RECTANGLE hinzu.
+	shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
 
-    format.column_spacing = 20
-    pres.save(path + outPptxFileName, slides.export.SaveFormat.PPTX)
+	# Fügen Sie dem Rechteck ein TextFrame hinzu.
+	shape.add_text_frame("All of these columns are confined to a single text container—" +
+	"you can add or delete text, and any new or remaining text automatically reflows " +
+	"within the container. You cannot have text flow from one container to another, " +
+	"though—PowerPoint’s column options for text are limited!")
 
-    with slides.Presentation(path + outPptxFileName) as test:
-        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_count)
-        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_spacing)
+	# Holen Sie das Textformat des TextFrames.
+	format = shape.text_frame.text_frame_format
 
-    format.column_count = 3
-    format.column_spacing = 15
-    pres.save(path + outPptxFileName, slides.export.SaveFormat.PPTX)
+	# Geben Sie die Anzahl der Spalten im TextFrame an.
+	format.column_count = 3
 
-    with slides.Presentation(path + outPptxFileName) as test:
-        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_count)
-        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_spacing)
+	# Geben Sie den Abstand zwischen den Spalten an.
+	format.column_spacing = 10
+
+	# Speichern Sie die Präsentation.
+	presentation.save("ColumnCount.pptx", slides.export.SaveFormat.PPTX)
 ```
+
 
 ## **Text aktualisieren**
 
-Aspose.Slides ermöglicht es Ihnen, den Text in einem Textfeld oder in allen Texten in einer Präsentation zu ändern oder zu aktualisieren. 
+Aspose.Slides ermöglicht es Ihnen, den Text in einem einzelnen Textfeld oder in einer gesamten Präsentation zu aktualisieren.
 
-Dieser Python-Code demonstriert eine Operation, bei der alle Texte in einer Präsentation aktualisiert oder geändert werden:
-
+Das folgende Python-Beispiel zeigt, wie man den gesamten Text in einer Präsentation aktualisiert:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    for slide in pres.slides:
+with slides.Presentation("Sample.pptx") as presentation:
+    for slide in presentation.slides:
         for shape in slide.shapes:
             if type(shape) is slides.AutoShape:
                 for paragraph in shape.text_frame.paragraphs:
                     for portion in paragraph.portions:
-                        portion.text = portion.text.replace("Jahre", "Monate")
+                        portion.text = portion.text.replace("years", "months")
                         portion.portion_format.font_bold = 1
   
-    # Speichert die bearbeitete Präsentation
-    pres.save("text-changed.pptx", slides.export.SaveFormat.PPTX)
+    # Speichern Sie die geänderte Präsentation.
+    presentation.save("TextChanged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Textbox mit Hyperlink hinzufügen** 
 
-Sie können einen Link in ein Textfeld einfügen. Wenn das Textfeld angeklickt wird, werden die Benutzer aufgefordert, den Link zu öffnen. 
+## **Textfelder mit Hyperlinks hinzufügen**
 
-Um ein Textfeld mit einem Link hinzuzufügen, gehen Sie folgendermaßen vor:
+Sie können in einem Textfeld einen Link einfügen. Wenn das Textfeld angeklickt wird, öffnet sich der Link.
 
-1. Erstellen Sie eine Instanz der `Presentation` Klasse. 
-2. Erhalten Sie eine Referenz zur ersten Folie in der neu erstellten Präsentation. 
-3. Fügen Sie ein `AutoShape` Objekt mit `ShapeType` als `RECTANGLE` an einer bestimmten Position auf der Folie hinzu und erhalten Sie eine Referenz des neu hinzugefügten AutoShape Objekts.
-4. Fügen Sie ein `text_frame` zum `AutoShape` Objekt hinzu, das *Aspose TextBox* als Standardtext enthält. 
-5. Instanziieren Sie die `hyperlink_manager` Klasse. 
-6. Weisen Sie das `hyperlink_manager` Objekt der [HyperlinkClick](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) Eigenschaft zu, die mit Ihrem bevorzugten Teil des `TextFrame` verbunden ist. 
-7. Schließlich speichern Sie die PPTX-Datei über das `Presentation` Objekt. 
+Um ein Textfeld mit einem Hyperlink hinzuzufügen, gehen Sie wie folgt vor:
 
-Dieser Python-Code - eine Implementierung der oben beschriebenen Schritte - zeigt Ihnen, wie Sie ein Textfeld mit einem Hyperlink zu einer Folie hinzufügen:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
+2. Holen Sie eine Referenz zur ersten Folie.
+3. Fügen Sie eine [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) mit `ShapeType.RECTANGLE` an der gewünschten Position auf der Folie hinzu.
+4. Setzen Sie den Text im [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) der Form.
+5. Holen Sie eine Referenz zum [HyperlinkManager](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/).
+6. Verwenden Sie die `hyperlink_manager` Eigenschaft, um einen externen Klick-Hyperlink festzulegen.
+7. Speichern Sie die Präsentation als PPTX-Datei.
 
+Dieses Python-Beispiel zeigt, wie man ein Textfeld mit einem Hyperlink zu einer Folie hinzufügt:
 ```py
 import aspose.slides as slides
 
-# Instanziiert eine Präsentationsklasse, die eine PPTX darstellt
-with slides.Presentation() as pptxPresentation:
-    # Holt die erste Folie in der Präsentation
-    slide = pptxPresentation.slides[0]
+# Instanziieren Sie die Presentation-Klasse.
+with slides.Presentation() as presentation:
 
-    # Fügt ein AutoShape Objekt mit der Art als Rechteck hinzu
-    pptxShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 150, 50)
+    # Holen Sie die erste Folie aus der Präsentation.
+    slide = presentation.slides[0]
 
-    # Greift auf die ITextFrame-Eigenschaft zu, die mit dem AutoShape verbunden ist
-    pptxShape.add_text_frame("")
+    # Fügen Sie eine AutoShape vom Typ RECTANGLE hinzu.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 150, 50)
 
-    textFrame = pptxShape.text_frame
+    text_portion = shape.text_frame.paragraphs[0].portions[0]
 
-    # Fügt Text zum Rahmen hinzu
-    textFrame.paragraphs[0].portions[0].text = "Aspose.Slides"
+    # Text zum Frame hinzufügen.
+    text_portion.text = "Aspose.Slides"
 
-    # Setzt den Hyperlink für den Textteil
-    hm = textFrame.paragraphs[0].portions[0].portion_format.hyperlink_manager
-    hm.set_external_hyperlink_click("http://www.aspose.com")
-    # Speichert die PPTX-Präsentation
-    pptxPresentation.save("hLinkPPTX_out.pptx", slides.export.SaveFormat.PPTX)
+    # Setzen Sie einen Hyperlink für den Portion-Text.
+    hyperlink_manager = text_portion.portion_format.hyperlink_manager
+    hyperlink_manager.set_external_hyperlink_click("http://www.aspose.com")
+
+    # Speichern Sie die Präsentation als PPTX-Datei.
+    presentation.save("Hyperlink.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Was ist der Unterschied zwischen einem Textfeld und einem Textplatzhalter bei der Arbeit mit Masterfolien?**
+
+Ein [Platzhalter](/slides/de/python-net/manage-placeholder/) erbt Stil/Position vom [Master](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/) und kann auf [Layouts](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/) überschrieben werden, während ein reguläres Textfeld ein unabhängiges Objekt auf einer bestimmten Folie ist und sich nicht ändert, wenn Sie das Layout wechseln.
+
+**Wie kann ich einen massiven Textaustausch in der gesamten Präsentation durchführen, ohne den Text in Diagrammen, Tabellen und SmartArt zu verändern?**
+
+Beschränken Sie die Iteration auf AutoShapes, die Textframes besitzen, und schließen Sie eingebettete Objekte ([Diagramme](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/), [Tabellen](https://reference.aspose.com/slides/python-net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/)) aus, indem Sie deren Sammlungen separat durchlaufen oder diese Objekttypen überspringen.

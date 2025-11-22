@@ -6,12 +6,14 @@ weight: 20
 url: /net/automating-powerpoint-generation-on-cloud-platforms/
 keywords:
 - cloud platforms
+- cloud integration
 - automate PowerPoint generation
 - generate presentations programmatically
 - PowerPoint automation
 - dynamic slide creation
 - automated business reports
 - PPT automation
+- OpenDocument
 - .NET presentation
 - C#
 - Aspose.Slides

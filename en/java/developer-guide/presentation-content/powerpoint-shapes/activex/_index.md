@@ -1,8 +1,21 @@
 ---
-title: ActiveX
+title: Manage ActiveX Controls in Presentations Using Java
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /java/activex/
+keywords:
+- ActiveX
+- ActiveX control
+- manage ActiveX
+- add ActiveX
+- modify ActiveX
+- media player
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn how Aspose.Slides for Java leverages ActiveX to automate and enhance PowerPoint presentations, giving developers powerful control over slides."
 ---
 
 

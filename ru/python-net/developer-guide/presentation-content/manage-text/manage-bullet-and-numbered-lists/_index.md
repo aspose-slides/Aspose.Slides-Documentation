@@ -1,5 +1,5 @@
 ---
-title: Управляйте маркированными и нумерованными списками в презентациях на Python
+title: Управление маркированными и нумерованными списками в презентациях на Python
 linktitle: Управление списками
 type: docs
 weight: 70
@@ -8,8 +8,8 @@ keywords:
 - маркер
 - маркированный список
 - нумерованный список
-- символ маркера
-- графический маркер
+- символический маркер
+- изображение-меркер
 - пользовательский маркер
 - многоуровневый список
 - создать маркер
@@ -20,209 +20,257 @@ keywords:
 - презентация
 - Python
 - Aspose.Slides
-description: "Узнайте, как управлять маркированными и нумерованными списками в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides for Python via .NET. Пошаговое руководство с примерами кода, которое поможет быстро начать работу."
+description: "Узнайте, как управлять маркированными и нумерованными списками в презентациях PowerPoint и OpenDocument с использованием Aspose.Slides for Python via .NET. Пошаговое руководство с примерами кода, помогающее быстро начать работу."
 ---
 
-В **Microsoft PowerPoint** вы можете создавать маркированные и нумерованные списки так же, как в Word и других текстовых редакторах. **Aspose.Slides для Python через .NET** также позволяет использовать маркировку и нумерацию на слайдах ваших презентаций.
+## **Обзор**
 
-### Почему использовать маркированные списки?
+Эффективное управление маркированными и нумерованными списками важно при создании убедительных презентаций. С Aspose.Slides for Python вы можете легко автоматизировать форматирование списков в своих слайдах программно. Эта статья проведет вас через понятные примеры того, как создавать, изменять и настраивать маркированные и нумерованные списки с помощью Python. Откройте для себя простые, но мощные способы управления отступами, стилями, схемами нумерации и маркерами, позволяющие вашим презентациям выглядеть профессионально и последовательно каждый раз.
 
-Маркированные списки помогают вам быстро и эффективно организовывать и представлять информацию.
+**Зачем использовать маркированные списки?**
 
-**Пример маркированного списка**
+Маркированные списки помогают организовать и ясно представить информацию, повышая читаемость и вовлечённость. Обычно маркированный список служит трем ключевым целям:
 
-В большинстве случаев маркированный список выполняет три основные функции:
+- Выделяет важную информацию, сразу привлекая внимание.
+- Позволяет читателям быстро просмотреть и определить основные пункты.
+- Эффективно передаёт существенные детали в лаконичном формате.
 
-- привлекает внимание ваших читателей или зрителей к важной информации
-- позволяет вашим читателям или зрителям легко находить ключевые моменты
-- эффективно передает и сообщает важные детали.
+**Зачем использовать нумерованные списки?**
 
-### Почему использовать нумерованные списки?
+Нумерованные списки — ещё один ценный инструмент для чёткой организации и представления вашего контента. Они особенно полезны, когда порядок или иерархия элементов имеет значение. Используйте нумерованные списки вместо маркеров, когда шаги или пункты должны следовать определённому порядку (например, *Шаг 1, Шаг 2, Шаг 3* и т.д.), или когда необходимо позже ссылаться на конкретные шаги в тексте (например, *см. Шаг 3*). Это делает ваши инструкции или объяснения яснее, проще для восприятия и обеспечивает лёгкую навигацию и ссылки на ваш контент.
 
-Нумерованные списки также помогают в организации и представлении информации. В идеале, вам следует использовать номера (вместо маркеров), когда важен порядок записей (например, *шаг 1, шаг 2* и т.д.) или когда запись должна быть ссылаемой (например, *см. шаг 3*).
+## **Создание символных маркеров**
 
-**Пример нумерованного списка**
-
-Это краткое изложение шагов (шаг 1 по шагу 15) в процедуре **Создание маркировки** ниже:
-
-1. Создайте экземпляр класса презентации.
-2. Выполните несколько задач (шаг 3 по шагу 14).
-3. Сохраните презентацию.
-
-## Создание маркировки
-
-Для создания маркированного списка выполните следующие шаги:
+Чтобы создать маркированный список, выполните следующие действия:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Получите доступ к слайду (в который вы хотите добавить маркированный список) в коллекции слайдов через объект [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/).
-3. Добавьте [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) на выбранном слайде.
-4. Получите доступ к [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) добавленной формы.
-5. Удалите параграф по умолчанию в [text_frame]().
-6. Создайте экземпляр первого параграфа с использованием класса [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/).
-8. Установите тип маркера на Символ и затем установите символ маркера.
-9. Установите текст параграфа.
-10. Установите отступ параграфа для установки маркера.
-11. Установите цвет маркера.
-12. Установите высоту маркера.
-13. Добавьте созданный параграф в коллекцию параграфов [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-14. Добавьте второй параграф и повторите шаги 7-12.
-15. Сохраните презентацию.
+1. Получите слайд (на котором нужно добавить список) из коллекции слайдов с помощью объекта [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/).
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) на выбранный слайд.
+1. Получите [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) добавленной фигуры.
+1. Удалите абзац по умолчанию в текстовом фрейме.
+1. Создайте первый абзац с помощью класса [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/).
+1. Установите тип маркера `SYMBOL` и задайте символ маркера.
+1. Установите текст абзаца.
+1. Задайте отступ абзаца, чтобы контролировать расположение маркера.
+1. Установите цвет маркера.
+1. Установите высоту маркера.
+1. Добавьте созданный абзац в коллекцию абзацев текстового фрейма.
+1. Добавьте второй абзац и повторите шаги 7–12.
+1. Сохраните презентацию.
 
-Этот пример кода на Python — реализация вышеперечисленных шагов — показывает, как создать маркированный список на слайде:
-
+Следующий код Python демонстрирует, как создать маркированный список на слайде:
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
-    textFrame = autoShape.text_frame
-    textFrame.paragraphs.clear()
-    
+def create_paragraph(text):
     paragraph = slides.Paragraph()
     paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
     paragraph.paragraph_format.bullet.char = '*'
     paragraph.paragraph_format.indent = 15
-    paragraph.paragraph_format.bullet.is_bullet_hard_color = 1
-    paragraph.paragraph_format.bullet.color.color = draw.Color.red
+    paragraph.paragraph_format.bullet.is_bullet_hard_color = slides.NullableBool.TRUE
+    paragraph.paragraph_format.bullet.color.color = draw.Color.indian_red
     paragraph.paragraph_format.bullet.height = 100
-    paragraph.text = "Мой текст"
+    paragraph.text = text
+    return paragraph
 
-    textFrame.paragraphs.add(paragraph)
-    
-    
-    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 200, 50)
+
+    text_frame = auto_shape.text_frame
+    text_frame.paragraphs.clear()
+
+    paragraph1 = create_paragraph("The first paragraph")
+    text_frame.paragraphs.add(paragraph1)
+
+    paragraph2 = create_paragraph("The second paragraph")
+    text_frame.paragraphs.add(paragraph2)
+
+    presentation.save("symbol_bullets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## Создание изображений в маркировке
 
-Aspose.Slides для Python через .NET позволяет вам изменять маркеры в маркированных списках. Вы можете заменить маркеры на свои символы или изображения. Если вы хотите добавить визуальный интерес к списку или привлечь еще большее внимание к записям в списке, вы можете использовать свое собственное изображение в качестве маркера.
+Результат:
 
- {{% alert color="primary" %}} 
+![The symbol bullets](symbol_bullets.png)
 
-В идеале, если вы собираетесь заменить обычный символ маркера на изображение, вам стоит выбрать простое графическое изображение с прозрачным фоном. Такие изображения лучше всего подходят в качестве настраиваемых символов маркировки.
+## **Создание изображений‑маркеров**
 
-В любом случае изображение, которое вы выберете, будет уменьшено до очень небольшого размера, поэтому мы настоятельно рекомендуем выбрать изображение, которое будет хорошо выглядеть (как замена символу маркера) в списке.
+Aspose.Slides for Python via .NET позволяет настраивать маркеры в маркированных списках. Вы можете заменять стандартные маркеры пользовательскими символами или изображениями. Если вы хотите добавить визуальный интерес к списку или привлечь больше внимания к отдельным элементам, можете использовать собственное изображение в качестве маркера.
 
-{{% /alert %}} 
+{{% alert color="primary" %}}
+Идеально, если вы планируете заменить обычный символ маркера изображением, выбирать простую графику с прозрачным фоном. Такие изображения хорошо работают в качестве пользовательских маркеров.
+{{% /alert %}}
 
-Чтобы создать изображение в маркировке, выполните следующие шаги:
+Имейте в виду, что изображение будет уменьшено до очень небольшого размера. Поэтому настоятельно рекомендуется выбирать изображение, которое остаётся чётким и визуально эффективным, когда используется как маркер в списке.
+
+Чтобы создать изображение‑маркер, выполните следующие действия:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Получите доступ к нужному слайду в коллекции слайдов, используя объект [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/).
-3. Добавьте [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) на выбранном слайде.
-4. Получите доступ к [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) добавленной формы.
-5. Удалите параграф по умолчанию в [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-6. Создайте экземпляр первого параграфа, используя класс [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/).
-7. Загрузите изображение с диска и добавьте его в [Presentation.images](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и затем используйте экземпляр [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/), который был возвращен из метода [add_image](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/).
-8. Установите тип маркера на Изображение и затем установите изображение.
-9. Установите текст параграфа.
-10. Установите отступ параграфа для установки маркера.
-11. Установите цвет маркера.
-12. Установите высоту маркеров.
-13. Добавьте созданный параграф в коллекцию параграфов [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-14. Добавьте второй параграф и повторите шаги 7-13.
-15. Сохраните презентацию.
+1. Получите нужный слайд из коллекции слайдов с помощью объекта [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/).
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) на выбранный слайд, используя метод `add_auto_shape`.
+1. Получите [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) добавленной фигуры.
+1. Удалите абзац по умолчанию из текстового фрейма.
+1. Загрузите изображение с диска, добавьте его в [Presentation.images](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/images/), и получите экземпляр [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/), возвращённый методом [add_image](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/#methods).
+1. Создайте первый экземпляр [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/).
+1. Установите тип маркера `PICTURE`, затем назначьте изображение.
+1. Установите текст абзаца.
+1. Задайте отступ абзаца, чтобы позиционировать маркер.
+1. Установите цвет маркера.
+1. Установите высоту маркера.
+1. Добавьте абзац в коллекцию абзацев текстового фрейма.
+1. Добавьте второй абзац и повторите шаги 8–13.
+1. Сохраните презентацию.
 
- Этот код на Python показывает, как создать изображение в маркировке на слайде:
+Предположим, у нас есть файл «image.png»:
 
+![A picture for the bullets](picture_for_bullets.png)
+
+Следующий код Python показывает, как создать маркеры‑изображения на слайде:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
-    textFrame = autoShape.text_frame
-    textFrame.paragraphs.clear()
-    
-    
+def create_paragraph(text, image):
     paragraph = slides.Paragraph()
     paragraph.paragraph_format.bullet.type = slides.BulletType.PICTURE
-    with open("img.jpeg", "rb") as in_file:
-        image = pres.images.add_image(in_file)
     paragraph.paragraph_format.bullet.picture.image = image
     paragraph.paragraph_format.indent = 15
     paragraph.paragraph_format.bullet.height = 100
-    paragraph.text = "Мой текст"
+    paragraph.text = text
+    return paragraph
 
-    textFrame.paragraphs.add(paragraph)
-    
-    pres.save("pres-bullets.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 200, 50)
+
+    text_frame = auto_shape.text_frame
+    text_frame.paragraphs.clear()
+
+    with open("image.png", "rb") as image_stream:
+        bullet_image = presentation.images.add_image(image_stream)
+
+    paragraph1 = create_paragraph("The first paragraph", bullet_image)
+    text_frame.paragraphs.add(paragraph1)
+
+    paragraph2 = create_paragraph("The second paragraph", bullet_image)
+    text_frame.paragraphs.add(paragraph2)
+
+    presentation.save("picture_bullets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## Создание многоуровневых маркированных списков
 
-Чтобы создать маркированный список, который содержит элементы на разных уровнях — дополнительные списки под основным маркированным списком — выполните следующие шаги:
+Результат:
+
+![The picture bullets](picture_bullets.png)
+
+## **Создание многоуровневых списков**
+
+Чтобы создать маркированный список, содержащий элементы на нескольких уровнях (подсписки под основными пунктами), выполните следующие действия:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Получите доступ к нужному слайду в коллекции слайдов, используя объект [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/).
-3. Добавьте [auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) на выбранном слайде.
-4. Получите доступ к [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) добавленной формы.
-5. Удалите параграф по умолчанию в [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-6. Создайте экземпляр первого параграфа, используя класс [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/), и установите глубину равной 0.
-7. Создайте экземпляр второго параграфа с использованием класса Paragraph и глубиной, установленной на 1.
-8. Создайте экземпляр третьего параграфа с использованием класса Paragraph и глубиной, установленной на 2.
-9. Создайте экземпляр четвертого параграфа с использованием класса Paragraph и глубиной, установленной на 3.
-10. Добавьте созданные параграфы в коллекцию параграфов [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-11. Сохраните презентацию.
+1. Получите нужный слайд из коллекции слайдов с помощью объекта [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/).
+1. Добавьте [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) на выбранный слайд, используя метод `add_auto_shape`.
+1. Получите [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) добавленной фигуры.
+1. Удалите абзац по умолчанию из текстового фрейма.
+1. Создайте первый экземпляр [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) и задайте его глубину 0 (основной уровень).
+1. Создайте второй абзац и задайте его глубину 1 (первый подуровень).
+1. Создайте третий абзац и задайте его глубину 2 (второй подуровень).
+1. Создайте четвёртый абзац и задайте его глубину 3 (третий подуровень).
+1. Добавьте все созданные абзацы в коллекцию абзацев текстового фрейма.
+1. Сохраните презентацию.
 
-Этот код, который является реализацией вышеперечисленных шагов, показывает, как создать многоуровневый маркированный список на Python:
-
+Следующий код Python показывает, как создать многоуровневый маркированный список:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 300, 300)
-    textFrame = autoShape.text_frame
-    textFrame.paragraphs.clear()
-    
-    paragraph = slides.Paragraph()
-    paragraph.paragraph_format.depth = 0
-    paragraph.text = "Мой текст Глубина 0"
-    textFrame.paragraphs.add(paragraph)
-    
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 260, 110)
+
+    text_frame = auto_shape.text_frame
+    text_frame.paragraphs.clear()
+
+    paragraph1 = slides.Paragraph()
+    paragraph1.paragraph_format.depth = 0
+    paragraph1.text = "My text - Depth 0"
+    text_frame.paragraphs.add(paragraph1)
+
     paragraph2 = slides.Paragraph()
-    paragraph2.paragraph_format.depth = 0
-    paragraph2.text = "Мой текст Глубина 1"
-    textFrame.paragraphs.add(paragraph2)
-    
+    paragraph2.paragraph_format.depth = 1
+    paragraph2.text = "My text - Depth 1"
+    text_frame.paragraphs.add(paragraph2)
+
     paragraph3 = slides.Paragraph()
     paragraph3.paragraph_format.depth = 2
-    paragraph3.text = "Мой текст Глубина 2"
-    textFrame.paragraphs.add(paragraph3)
-    
+    paragraph3.text = "My text - Depth 2"
+    text_frame.paragraphs.add(paragraph3)
+
     paragraph4 = slides.Paragraph()
     paragraph4.paragraph_format.depth = 3
-    paragraph4.text = "Мой текст Глубина 3"
-    textFrame.paragraphs.add(paragraph4)
-    
-    pres.save("pres-bullets2.pptx", slides.export.SaveFormat.PPTX)
+    paragraph4.text = "My text - Depth 3"
+    text_frame.paragraphs.add(paragraph4)
+
+    presentation.save("multilevel_bullets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## Создание номеров
 
- Этот код на Python показывает, как создать нумерованный список на слайде:
+Результат:
 
+![The multilevel list](multilevel_list.png)
+
+## **Создание нумерованных маркеров**
+
+Создание чётких и упорядоченных нумерованных списков просто с Aspose.Slides for Python. Нумерованные списки значительно повышают читаемость и помогают вести аудиторию через шаги или упорядоченную информацию. Будь то учебные слайды, документация процессов или планирование презентаций, нумерованные списки гарантируют, что ваше сообщение остаётся структурированным и лёгким для восприятия.
+
+Aspose.Slides позволяет легко добавлять, настраивать и форматировать нумерованные списки программно. Вы можете задавать разные стили нумерации — числовой (1, 2, 3), буквенный (A, B, C) или римские цифры (I, II, III) — в соответствии с контекстом или желаемым оформлением презентаций.
+
+Следующий код Python показывает, как создать нумерованный список на слайде:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
-    textFrame = autoShape.text_frame
-    textFrame.paragraphs.clear()
-    
-    paragraph = slides.Paragraph()
-    paragraph.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    paragraph.text = "Мой текст 1"
-    textFrame.paragraphs.add(paragraph)
-    
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 90, 80)
+
+    text_frame = auto_shape.text_frame
+    text_frame.paragraphs.clear()
+
+    paragraph1 = slides.Paragraph()
+    paragraph1.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    paragraph1.text = "Apple"
+    text_frame.paragraphs.add(paragraph1)
+
     paragraph2 = slides.Paragraph()
     paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    paragraph2.text = "Мой текст 2"
-    textFrame.paragraphs.add(paragraph2)
-    
-    pres.save("pres-bullets3.pptx", slides.export.SaveFormat.PPTX)
+    paragraph2.text = "Orange"
+    text_frame.paragraphs.add(paragraph2)
+
+    paragraph3 = slides.Paragraph()
+    paragraph3.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    paragraph3.text = "Banana"
+    text_frame.paragraphs.add(paragraph3)
+
+    presentation.save("numbered_bullets.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+Результат:
+
+![The numbered bullets](numbered_bullets.png)
+
+## **FAQ**
+
+**Можно ли экспортировать маркированные и нумерованные списки, созданные с Aspose.Slides, в другие форматы, такие как PDF или изображения?**
+
+Да, Aspose.Slides полностью сохраняет форматирование и структуру маркеров и нумерованных списков при экспорте презентаций в форматы PDF, изображения и другие, обеспечивая согласованные результаты.
+
+**Можно ли импортировать маркеры или нумерованные списки из существующих презентаций?**
+
+Да, Aspose.Slides позволяет импортировать и редактировать маркеры или нумерованные списки из существующих презентаций, сохраняя их исходное форматирование и внешний вид.
+
+**Поддерживает ли Aspose.Slides маркеры и нумерованные списки в презентациях, созданных на нескольких языках?**
+
+Да, Aspose.Slides полностью поддерживает многоязычные презентации, позволяя создавать маркеры и нумерованные списки на любом языке, включая специальные или нелатинские символы.
