@@ -3,49 +3,48 @@ title: Zoom verwalten
 type: docs
 weight: 60
 url: /de/net/manage-zoom/
-keywords: 
-- zoom
-- zoom rahmen
-- zoom hinzufügen
-- zoom rahmen formatieren
-- zusammenfassungszoom
+keywords:
+- Zoom
+- Zoom-Frame
+- Zoom hinzufügen
+- Zoom-Frame formatieren
+- Zusammenfassungs-Zoom
 - PowerPoint-Präsentation
 - C#
 - Csharp
 - Aspose.Slides für .NET
-description: "Fügen Sie Zoom oder Zoomrahmen in PowerPoint-Präsentationen mit C# oder .NET hinzu"
+description: "Zoom oder Zoom-Frames zu PowerPoint-Präsentationen in C# oder .NET hinzufügen"
 ---
 
 ## **Übersicht**
-Zoomen in PowerPoint ermöglicht es Ihnen, zu bestimmten Folien, Abschnitten und Teilen einer Präsentation zu springen. Wenn Sie präsentieren, kann diese Fähigkeit, schnell durch den Inhalt zu navigieren, sehr nützlich sein.
+Zooms in PowerPoint ermöglichen es Ihnen, zu bestimmten Folien, Abschnitten und Bereichen einer Präsentation zu springen und zurückzukehren. Beim Präsentieren kann diese Möglichkeit, schnell durch Inhalte zu navigieren, sehr nützlich sein. 
 
 ![overview_image](overview.png)
 
-* Um eine gesamte Präsentation auf einer einzigen Folie zusammenzufassen, verwenden Sie einen [Zusammenfassungszoom](#Zusammenfassungszoom).
-* Um nur ausgewählte Folien anzuzeigen, verwenden Sie einen [Folienspringen](#Folienspringen).
-* Um nur einen einzelnen Abschnitt anzuzeigen, verwenden Sie einen [Abschnittszoom](#Abschnittszoom).
+* Um eine gesamte Präsentation auf einer einzigen Folie zusammenzufassen, verwenden Sie einen [Summary Zoom](#Summary-Zoom).
+* Um nur ausgewählte Folien anzuzeigen, verwenden Sie einen [Slide Zoom](#Slide-Zoom).
+* Um nur einen einzelnen Abschnitt anzuzeigen, verwenden Sie einen [Section Zoom](#Section-Zoom).
 
-## **Folienspringen**
-Ein Folienspringen kann Ihre Präsentation dynamischer gestalten, indem Sie zwischen Folien in beliebiger Reihenfolge navigieren können, ohne den Fluss Ihrer Präsentation zu unterbrechen. Folienspringen sind großartig für kurze Präsentationen ohne viele Abschnitte, aber Sie können sie auch in verschiedenen Präsentationsszenarien verwenden.
+## **Folien‑Zoom**
+Ein Folien‑Zoom kann Ihre Präsentation dynamischer machen, da er Ihnen erlaubt, frei zwischen Folien in beliebiger Reihenfolge zu navigieren, ohne den Ablauf zu unterbrechen. Folien‑Zooms eignen sich hervorragend für kurze Präsentationen ohne viele Abschnitte, können aber auch in anderen Szenarien eingesetzt werden.
 
-Folienspringen helfen Ihnen, in mehrere Informationsstücke einzutauchen, während Sie sich wie auf einer einzelnen Leinwand fühlen.
+Folien‑Zooms helfen Ihnen, mehrere Informationsstücke zu vertiefen, während Sie das Gefühl behalten, sich auf einer einzigen Leinwand zu befinden. 
 
 ![overview_image](slidezoomsel.png)
 
-Für Folienspringobjekte stellt Aspose.Slides die [ZoomImageType](https://reference.aspose.com/slides/net/aspose.slides/zoomimagetype) Aufzählung, die [IZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/izoomframe) Schnittstelle und einige Methoden in der [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) Schnittstelle zur Verfügung.
+Für Folien‑Zoom‑Objekte stellt Aspose.Slides die Aufzählung [ZoomImageType](https://reference.aspose.com/slides/net/aspose.slides/zoomimagetype), das Interface [IZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/izoomframe) und einige Methoden im Interface [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) bereit.
 
-### **Zoomrahmen erstellen**
+### **Erstellen von Zoom‑Frames**
 
-Sie können einen Zoomrahmen auf einer Folie auf folgende Weise hinzufügen:
+Sie können einem Folien‑Zoom‑Frame wie folgt hinzufügen:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-2. Erstellen Sie neue Folien, zu denen Sie die Zoomrahmen verlinken möchten. 
-3. Fügen Sie den erstellten Folien einen Identifikationstext und einen Hintergrund hinzu.
-4. Fügen Sie die Zoomrahmen (mit Verweisen auf die erstellten Folien) zur ersten Folie hinzu.
-5. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
+2. Erstellen Sie neue Folien, zu denen Sie die Zoom‑Frames verlinken möchten. 
+3. Fügen Sie den erstellten Folien einen Identifizierungstext und einen Hintergrund hinzu.
+4. Fügen Sie Zoom‑Frames (die Verweise auf die erstellten Folien enthalten) zur ersten Folie hinzu.
+5. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser C#-Code zeigt Ihnen, wie Sie einen Zoomrahmen auf einer Folie erstellen:
-
+Dieser C#‑Code zeigt, wie Sie einen Zoom‑Frame auf einer Folie erstellen:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
@@ -60,7 +59,7 @@ using (Presentation pres = new Presentation())
 
     // Erstellt ein Textfeld für die zweite Folie
     IAutoShape autoshape = slide2.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "Zweite Folie";
+    autoshape.TextFrame.Text = "Second Slide";
 
     // Erstellt einen Hintergrund für die dritte Folie
     slide3.Background.Type = BackgroundType.OwnBackground;
@@ -69,7 +68,7 @@ using (Presentation pres = new Presentation())
 
     // Erstellt ein Textfeld für die dritte Folie
     autoshape = slide3.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "Dritte Folie";
+    autoshape.TextFrame.Text = "Trird Slide";
 
     //Fügt ZoomFrame-Objekte hinzu
     pres.Slides[0].Shapes.AddZoomFrame(20, 20, 250, 200, slide2);
@@ -79,33 +78,33 @@ using (Presentation pres = new Presentation())
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
-### **Zoomrahmen mit benutzerdefinierten Bildern erstellen**
-Mit Aspose.Slides für .NET können Sie einen Zoomrahmen mit einem anderen Folienvorschau-Bild auf folgende Weise erstellen: 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-2. Erstellen Sie eine neue Folie, zu der Sie den Zoomrahmen verlinken möchten. 
-3. Fügen Sie der Folie einen Identifikationstext und einen Hintergrund hinzu.
-4. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) Objekt, indem Sie ein Bild in die mit der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Objekt verbundene Bilderkollektion hinzufügen, das zum Füllen des Rahmens verwendet wird.
-5. Fügen Sie die Zoomrahmen (mit dem Verweis auf die erstellte Folie) zur ersten Folie hinzu.
-6. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
 
-Dieser C#-Code zeigt Ihnen, wie Sie einen Zoomrahmen mit einem anderen Bild erstellen:
+### **Erstellen von Zoom‑Frames mit benutzerdefinierten Bildern**
+Mit Aspose.Slides für .NET können Sie einen Zoom‑Frame mit einem anderen Folienvorschau‑Bild wie folgt erstellen: 
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
+2. Erstellen Sie eine neue Folie, zu der Sie den Zoom‑Frame verlinken möchten. 
+3. Fügen Sie der Folie einen Identifizierungstext und einen Hintergrund hinzu.
+4. Erzeugen Sie ein [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage)-Objekt, indem Sie dem Images‑Katalog des [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Objekts ein Bild hinzufügen, das den Frame füllen soll.
+5. Fügen Sie Zoom‑Frames (die den Verweis auf die erstellte Folie enthalten) zur ersten Folie hinzu.
+6. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
+Dieser C#‑Code zeigt, wie Sie einen Zoom‑Frame mit einem anderen Bild erstellen:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
     //Fügt eine neue Folie zur Präsentation hinzu
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
 
-    // Erstellt einen Hintergrund für die zweite Folie
+    //Erstellt einen Hintergrund für die zweite Folie
     slide.Background.Type = BackgroundType.OwnBackground;
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
 
-    // Erstellt ein Textfeld für die dritte Folie
+    //Erstellt ein Textfeld für die dritte Folie
     IAutoShape autoshape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "Zweite Folie";
+    autoshape.TextFrame.Text = "Second Slide";
 
-    // Erstellt ein neues Bild für das Zoomobjekt
+    //Erstellt ein neues Bild für das Zoom-Objekt
     IImage image = Images.FromFile("image.png");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
@@ -113,27 +112,27 @@ using (Presentation pres = new Presentation())
     //Fügt das ZoomFrame-Objekt hinzu
     pres.Slides[0].Shapes.AddZoomFrame(20, 20, 300, 200, slide, ppImage);
 
-    // Speichert die Präsentation
+    //Speichert die Präsentation
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
-### **Zoomrahmen formatieren**
-In den vorherigen Abschnitten zeigten wir Ihnen, wie man einfache Zoomrahmen erstellt. Um kompliziertere Zoomrahmen zu erstellen, müssen Sie die Formatierung eines einfachen Rahmens ändern. Es stehen mehrere Formatierungsoptionen zur Verfügung, die Sie auf einen Zoomrahmen anwenden können. 
 
-Sie können die Formatierung eines Zoomrahmens auf einer Folie auf folgende Weise steuern:
+### **Formatieren von Zoom‑Frames**
+In den vorherigen Abschnitten haben wir gezeigt, wie man einfache Zoom‑Frames erstellt. Um komplexere Zoom‑Frames zu erstellen, müssen Sie die Formatierung eines einfachen Frames ändern. Es gibt mehrere Formatierungsoptionen, die Sie auf einen Zoom‑Frame anwenden können. 
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-2. Erstellen Sie neue Folien, zu denen Sie den Zoomrahmen verlinken möchten. 
-3. Fügen Sie den erstellten Folien einige Identifikationstexte und Hintergründe hinzu.
-4. Fügen Sie die Zoomrahmen (mit Verweisen auf die erstellten Folien) zur ersten Folie hinzu.
-5. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) Objekt, indem Sie ein Bild in die mit der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Objekt verbundene Bilderkollektion hinzufügen, das zum Füllen des Rahmens verwendet wird.
-6. Setzen Sie ein benutzerdefiniertes Bild für das erste Zoomrahmenobjekt.
-7. Ändern Sie die Linienformatierung für das zweite Zoomrahmenobjekt.
-8. Entfernen Sie den Hintergrund von einem Bild des zweiten Zoomrahmenobjekts.
-5. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+Sie können die Formatierung eines Zoom‑Frames auf einer Folie wie folgt steuern:
 
-Dieser C#-Code zeigt Ihnen, wie Sie die Formatierung eines Zoomrahmens auf einer Folie ändern: 
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
+2. Erstellen Sie neue Folien, zu denen Sie den Zoom‑Frame verlinken möchten. 
+3. Fügen Sie den erstellten Folien einen Identifizierungstext und einen Hintergrund hinzu.
+4. Fügen Sie Zoom‑Frames (die Verweise auf die erstellten Folien enthalten) zur ersten Folie hinzu.
+5. Erzeugen Sie ein [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage)-Objekt, indem Sie dem Images‑Katalog des [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Objekts ein Bild hinzufügen, das den Frame füllen soll.
+6. Legen Sie ein benutzerdefiniertes Bild für das erste Zoom‑Frame‑Objekt fest.
+7. Ändern Sie das Linienformat für das zweite Zoom‑Frame‑Objekt.
+8. Entfernen Sie den Hintergrund aus dem Bild des zweiten Zoom‑Frame‑Objekts.
+5. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
+Dieser C#‑Code zeigt, wie Sie die Formatierung eines Zoom‑Frames auf einer Folie ändern: 
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
@@ -148,7 +147,7 @@ using (Presentation pres = new Presentation())
 
     // Erstellt ein Textfeld für die zweite Folie
     IAutoShape autoshape = slide2.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "Zweite Folie";
+    autoshape.TextFrame.Text = "Second Slide";
 
     // Erstellt einen Hintergrund für die dritte Folie
     slide3.Background.Type = BackgroundType.OwnBackground;
@@ -157,13 +156,13 @@ using (Presentation pres = new Presentation())
 
     // Erstellt ein Textfeld für die dritte Folie
     autoshape = slide3.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "Dritte Folie";
+    autoshape.TextFrame.Text = "Trird Slide";
 
     //Fügt ZoomFrame-Objekte hinzu
     IZoomFrame zoomFrame1 = pres.Slides[0].Shapes.AddZoomFrame(20, 20, 250, 200, slide2);
     IZoomFrame zoomFrame2 = pres.Slides[0].Shapes.AddZoomFrame(200, 250, 250, 200, slide3);
 
-    // Erstellt ein neues Bild für das Zoomobjekt
+    // Erstellt ein neues Bild für das Zoom-Objekt
     IImage image = Images.FromFile("image.png");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
@@ -171,13 +170,13 @@ using (Presentation pres = new Presentation())
     // Setzt ein benutzerdefiniertes Bild für das zoomFrame1-Objekt
     zoomFrame1.ZoomImage = ppImage;
 
-    // Setzt eine Zoomrahmenformatierung für das zoomFrame2-Objekt
+    // Setzt ein Zoom-Frame-Format für das zoomFrame2-Objekt
     zoomFrame2.LineFormat.Width = 5;
     zoomFrame2.LineFormat.FillFormat.FillType = FillType.Solid;
     zoomFrame2.LineFormat.FillFormat.SolidFillColor.Color = Color.HotPink;
     zoomFrame2.LineFormat.DashStyle = LineDashStyle.DashDot;
 
-    // Einstellung für den Hintergrund nicht anzeigen für das zoomFrame2-Objekt
+    // Einstellung zum Ausblenden des Hintergrunds für das zoomFrame2-Objekt
     zoomFrame2.ShowBackground = false;
 
     // Speichert die Präsentation
@@ -185,27 +184,27 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Abschnittszoom**
 
-Ein Abschnittszoom ist ein Link zu einem Abschnitt in Ihrer Präsentation. Sie können Abschnittszoooms verwenden, um zu den Abschnitten zurückzukehren, die Sie wirklich betonen möchten. Oder Sie können sie verwenden, um hervorzuheben, wie bestimmte Teile Ihrer Präsentation miteinander verbunden sind. 
+## **Abschnitts‑Zoom**
+
+Ein Abschnitts‑Zoom ist ein Link zu einem Abschnitt Ihrer Präsentation. Sie können Abschnitts‑Zooms verwenden, um zu Abschnitten zurückzukehren, die Sie besonders betonen möchten. Oder Sie nutzen sie, um hervorzuheben, wie bestimmte Teile Ihrer Präsentation miteinander verbunden sind. 
 
 ![overview_image](seczoomsel.png)
 
-Für Abschnittszoomobjekte stellt Aspose.Slides die [ISectionZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isectionzoomframe) Schnittstelle und einige Methoden in der [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) Schnittstelle bereit.
+Für Abschnitts‑Zoom‑Objekte stellt Aspose.Slides das Interface [ISectionZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isectionzoomframe) und einige Methoden im Interface [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) bereit.
 
-### **Abschnittszoomrahmen erstellen**
+### **Erstellen von Abschnitts‑Zoom‑Frames**
 
-Sie können einen Abschnittszoomrahmen auf einer Folie auf folgende Weise hinzufügen:
+Sie können einen Abschnitts‑Zoom‑Frame zu einer Folie wie folgt hinzufügen:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
 2. Erstellen Sie eine neue Folie. 
-3. Fügen Sie dem erstellten Folien einen Identifikationshintergrund hinzu.
-4. Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoomrahmen verlinken möchten. 
-5. Fügen Sie einen Abschnittszoomrahmen (mit Verweisen auf den erstellten Abschnitt) zur ersten Folie hinzu.
-6. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+3. Fügen Sie der erstellten Folie einen Identifizierungs‑Hintergrund hinzu.
+4. Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
+5. Fügen Sie einen Abschnitts‑Zoom‑Frame (der Verweise auf den erstellten Abschnitt enthält) zur ersten Folie hinzu.
+6. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser C#-Code zeigt Ihnen, wie Sie einen Zoomrahmen auf einer Folie erstellen:
-
+Dieser C#‑Code zeigt, wie Sie einen Zoom‑Frame auf einer Folie erstellen:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
@@ -216,7 +215,7 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.Sections.AddSection("Abschnitt 1", slide);
+    pres.Sections.AddSection("Section 1", slide);
 
     // Fügt ein SectionZoomFrame-Objekt hinzu
     ISectionZoomFrame sectionZoomFrame = pres.Slides[0].Shapes.AddSectionZoomFrame(20, 20, 300, 200, pres.Sections[1]);
@@ -225,66 +224,66 @@ using (Presentation pres = new Presentation())
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
-### **Abschnittszoomrahmen mit benutzerdefinierten Bildern erstellen**
 
-Mit Aspose.Slides für .NET können Sie einen Abschnittszoomrahmen mit einem anderen Folienvorschau-Bild auf folgende Weise erstellen: 
+### **Erstellen von Abschnitts‑Zoom‑Frames mit benutzerdefinierten Bildern**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
+Mit Aspose.Slides für .NET können Sie einen Abschnitts‑Zoom‑Frame mit einem anderen Folienvorschau‑Bild wie folgt erstellen: 
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
 2. Erstellen Sie eine neue Folie.
-3. Fügen Sie dem erstellten Folien einen Identifikationshintergrund hinzu.
-4. Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoomrahmen verlinken möchten. 
-5.  Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) Objekt, indem Sie ein Bild in die Bilderkollektion einfügen, die mit dem [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Objekt verbunden ist, das zum Füllen des Rahmens verwendet wird.
-5.  Fügen Sie einen Abschnittszoomrahmen (mit einem Verweis auf den erstellten Abschnitt) zur ersten Folie hinzu.
-6. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+3. Fügen Sie der erstellten Folie einen Identifizierungs‑Hintergrund hinzu.
+4. Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
+5. Erzeugen Sie ein [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage)-Objekt, indem Sie dem Images‑Katalog des [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Objekts ein Bild hinzufügen, das den Frame füllen soll.
+5. Fügen Sie einen Abschnitts‑Zoom‑Frame (der einen Verweis auf den erstellten Abschnitt enthält) zur ersten Folie hinzu.
+6. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser C#-Code zeigt Ihnen, wie Sie einen Zoomrahmen mit einem anderen Bild erstellen:
-
+Dieser C#‑Code zeigt, wie Sie einen Zoom‑Frame mit einem anderen Bild erstellen:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
-    //Fügt eine neue Folie zur Präsentation hinzu
+    //Fügt neue Folie zur Präsentation hinzu
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.YellowGreen;
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.Sections.AddSection("Abschnitt 1", slide);
+    pres.Sections.AddSection("Section 1", slide);
 
-    // Erstellt ein neues Bild für das Zoomobjekt
+    // Erstellt ein neues Bild für das Zoom-Objekt
     IImage image = Images.FromFile("image.png");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
 
-    // Fügt ein SectionZoomFrame-Objekt hinzu
+    // Fügt SectionZoomFrame-Objekt hinzu
     ISectionZoomFrame sectionZoomFrame = pres.Slides[0].Shapes.AddSectionZoomFrame(20, 20, 300, 200, pres.Sections[1], ppImage);
 
     // Speichert die Präsentation
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
-### **Abschnittszoomrahmen formatieren**
 
-Um kompliziertere Abschnittszoomrahmen zu erstellen, müssen Sie die Formatierung eines einfachen Rahmens ändern. Es stehen mehrere Formatierungsoptionen zur Verfügung, die Sie auf einen Abschnittszoomrahmen anwenden können. 
+### **Formatieren von Abschnitts‑Zoom‑Frames**
 
-Sie können die Formatierung eines Abschnittszoomrahmens auf einer Folie auf folgende Weise steuern:
+Um komplexere Abschnitts‑Zoom‑Frames zu erstellen, müssen Sie die Formatierung eines einfachen Frames ändern. Es gibt mehrere Formatierungsoptionen, die Sie auf einen Abschnitts‑Zoom‑Frame anwenden können. 
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
+Sie können die Formatierung eines Abschnitts‑Zoom‑Frames auf einer Folie wie folgt steuern:
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
 2. Erstellen Sie eine neue Folie.
-3. Fügen Sie dem erstellten Folien eine Identifikationshintergrund hinzu.
-4. Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoomrahmen verlinken möchten. 
-5. Fügen Sie einen Abschnittszoomrahmen (mit Verweisen auf den erstellten Abschnitt) zur ersten Folie hinzu.
-6. Ändern Sie die Größe und Position des erstellten Abschnittszoomobjekts.
-7. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) Objekt, indem Sie ein Bild in die mit dem [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Objekt verbundene Bilderkollektion hinzufügen, das zum Füllen des Rahmens verwendet wird.
-8. Setzen Sie ein benutzerdefiniertes Bild für das erstellte Abschnittszoomrahmenobjekt.
-9. Aktivieren Sie die Fähigkeit, *zur ursprünglichen Folie vom verlinkten Abschnitt zurückzukehren*. 
-10. Entfernen Sie den Hintergrund von einem Bild des Abschnittszoomrahmenobjekts.
-11. Ändern Sie die Linienformatierung des zweiten Zoomrahmenobjekts.
+3. Fügen Sie der erstellten Folie einen Identifizierungs‑Hintergrund hinzu.
+4. Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
+5. Fügen Sie einen Abschnitts‑Zoom‑Frame (der Verweise auf den erstellten Abschnitt enthält) zur ersten Folie hinzu.
+6. Ändern Sie Größe und Position des erstellten Abschnitts‑Zoom‑Objekts.
+7. Erzeugen Sie ein [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage)-Objekt, indem Sie dem Images‑Katalog des [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Objekts ein Bild hinzufügen, das den Frame füllen soll.
+8. Legen Sie ein benutzerdefiniertes Bild für das erstellte Abschnitts‑Zoom‑Frame‑Objekt fest.
+9. Aktivieren Sie die *Rückkehr zur Ausgangs‑Folientextur aus dem verknüpften Abschnitt*-Funktion.
+10. Entfernen Sie den Hintergrund aus dem Bild des Abschnitts‑Zoom‑Frame‑Objekts.
+11. Ändern Sie das Linienformat für das zweite Zoom‑Frame‑Objekt.
 12. Ändern Sie die Übergangsdauer.
-13. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+13. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser C#-Code zeigt Ihnen, wie Sie die Formatierung eines Abschnittszoomrahmens ändern:
-
+Dieser C#‑Code zeigt, wie Sie die Formatierung eines Abschnitts‑Zoom‑Frames ändern:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
@@ -295,9 +294,9 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.Sections.AddSection("Abschnitt 1", slide);
+    pres.Sections.AddSection("Section 1", slide);
 
-    // Fügt ein SectionZoomFrame-Objekt hinzu
+    // Fügt SectionZoomFrame-Objekt hinzu
     ISectionZoomFrame sectionZoomFrame = pres.Slides[0].Shapes.AddSectionZoomFrame(20, 20, 300, 200, pres.Sections[1]);
 
     // Formatierung für SectionZoomFrame
@@ -328,25 +327,24 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Zusammenfassungszoom**
+## **Zusammenfassungs‑Zoom**
 
-Ein Zusammenfassungszoom ist wie eine Landingpage, auf der alle Teile Ihrer Präsentation gleichzeitig angezeigt werden. Wenn Sie präsentieren, können Sie den Zoom verwenden, um von einem Ort in Ihrer Präsentation zu einem anderen in beliebiger Reihenfolge zu gelangen. Sie können kreativ werden, überspringen oder Teile Ihrer Diashow wieder besuchen, ohne den Fluss Ihrer Präsentation zu unterbrechen.
+Ein Zusammenfassungs‑Zoom ist wie eine Startseite, auf der alle Teile Ihrer Präsentation gleichzeitig angezeigt werden. Beim Präsentieren können Sie den Zoom nutzen, um von einem beliebigen Punkt Ihrer Präsentation zu einem anderen in beliebiger Reihenfolge zu springen. Sie können kreativ sein, vorwärts springen oder Teile Ihrer Präsentation erneut besuchen, ohne den Ablauf zu unterbrechen.
 
 ![overview_image](sumzoomsel.png)
 
-Für Zusammenfassungszoomobjekte stellt Aspose.Slides die [ISummaryZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomframe), [ISummaryZoomFrameSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection) und [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection) Schnittstellen sowie einige Methoden in der [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) Schnittstelle zur Verfügung.
+Für Zusammenfassungs‑Zoom‑Objekte stellt Aspose.Slides die Interfaces [ISummaryZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomframe), [ISummaryZoomFrameSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection) und [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection) sowie einige Methoden im Interface [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) bereit.
 
-### **Zusammenfassungszoom erstellen**
+### **Erstellen von Zusammenfassungs‑Zoom**
 
-Sie können einen Zusammenfassungszoomrahmen auf eine Folie auf folgende Weise hinzufügen:
+Sie können einen Zusammenfassungs‑Zoom‑Frame zu einer Folie wie folgt hinzufügen:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-2. Erstellen Sie neue Folien mit Identifikationshintergrund und neuen Abschnitten für die erstellten Folien.
-3. Fügen Sie den Zusammenfassungszoomrahmen zur ersten Folie hinzu.
-4. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
+2. Erstellen Sie neue Folien mit Identifizierungs‑Hintergrund und neuen Abschnitten für die erstellten Folien.
+3. Fügen Sie den Zusammenfassungs‑Zoom‑Frame zur ersten Folie hinzu.
+4. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser C#-Code zeigt Ihnen, wie Sie einen Zusammenfassungszoomrahmen auf einer Folie erstellen:
-
+Dieser C#‑Code zeigt, wie Sie einen Zusammenfassungs‑Zoom‑Frame auf einer Folie erstellen:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
@@ -357,7 +355,7 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.Sections.AddSection("Abschnitt 1", slide);
+    pres.Sections.AddSection("Section 1", slide);
 
     //Fügt eine neue Folie zur Präsentation hinzu
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
@@ -366,7 +364,7 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.Sections.AddSection("Abschnitt 2", slide);
+    pres.Sections.AddSection("Section 2", slide);
 
     //Fügt eine neue Folie zur Präsentation hinzu
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
@@ -375,7 +373,7 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.Sections.AddSection("Abschnitt 3", slide);
+    pres.Sections.AddSection("Section 3", slide);
 
     //Fügt eine neue Folie zur Präsentation hinzu
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
@@ -384,7 +382,7 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.Sections.AddSection("Abschnitt 4", slide);
+    pres.Sections.AddSection("Section 4", slide);
 
     // Fügt ein SummaryZoomFrame-Objekt hinzu
     ISummaryZoomFrame summaryZoomFrame = pres.Slides[0].Shapes.AddSummaryZoomFrame(150, 50, 300, 200);
@@ -394,20 +392,20 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Zusammenfassungszoomabschnitt hinzufügen und entfernen**
 
-Alle Abschnitte in einem Zusammenfassungszoomrahmen werden durch [ISummaryZoomFrameSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection) Objekte dargestellt, die in dem [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection) Objekt gespeichert sind. Sie können ein Zusammenfassungszoomabschnittobjekt über die [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection) Schnittstelle auf folgende Weise hinzufügen oder entfernen:
+### **Hinzufügen und Entfernen von Zusammenfassungs‑Zoom‑Abschnitten**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-2. Erstellen Sie neue Folien mit Identifikationshintergrund und neuen Abschnitten für die erstellten Folien.
-3. Fügen Sie einen Zusammenfassungszoomrahmen in die erste Folie ein.
-4. Fügen Sie eine neue Folie und einen Abschnitt zur Präsentation hinzu.
-5. Fügen Sie den erstellten Abschnitt zum Zusammenfassungszoomrahmen hinzu.
-6. Entfernen Sie den ersten Abschnitt aus dem Zusammenfassungszoomrahmen.
-7. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+Alle Abschnitte in einem Zusammenfassungs‑Zoom‑Frame werden durch [ISummaryZoomFrameSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection)-Objekte repräsentiert, die im [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection)-Objekt gespeichert sind. Sie können einen Zusammenfassungs‑Zoom‑Abschnitt über das [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection)-Interface wie folgt hinzufügen oder entfernen:
 
-Dieser C#-Code zeigt Ihnen, wie Sie Abschnitte in einem Zusammenfassungszoomrahmen hinzufügen und entfernen:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
+2. Erstellen Sie neue Folien mit Identifizierungs‑Hintergrund und neuen Abschnitten für die erstellten Folien.
+3. Fügen Sie einen Zusammenfassungs‑Zoom‑Frame in die erste Folie ein.
+4. Fügen Sie der Präsentation eine neue Folie und einen neuen Abschnitt hinzu.
+5. Fügen Sie den erstellten Abschnitt dem Zusammenfassungs‑Zoom‑Frame hinzu.
+6. Entfernen Sie den ersten Abschnitt aus dem Zusammenfassungs‑Zoom‑Frame.
+7. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
+Dieser C#‑Code zeigt, wie Sie Abschnitte in einem Zusammenfassungs‑Zoom‑Frame hinzufügen und entfernen:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
@@ -418,7 +416,7 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.Sections.AddSection("Abschnitt 1", slide);
+    pres.Sections.AddSection("Section 1", slide);
 
     //Fügt eine neue Folie zur Präsentation hinzu
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
@@ -427,7 +425,7 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.Sections.AddSection("Abschnitt 2", slide);
+    pres.Sections.AddSection("Section 2", slide);
 
     // Fügt ein SummaryZoomFrame-Objekt hinzu
     ISummaryZoomFrame summaryZoomFrame = pres.Slides[0].Shapes.AddSummaryZoomFrame(150, 50, 300, 200);
@@ -439,12 +437,12 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    ISection section3 = pres.Sections.AddSection("Abschnitt 3", slide);
+    ISection section3 = pres.Sections.AddSection("Section 3", slide);
 
-    // Fügt einen Abschnitt zum Zusammenfassungszoom hinzu
+    // Fügt einen Abschnitt zum Summary Zoom hinzu
     summaryZoomFrame.SummaryZoomCollection.AddSummaryZoomSection(section3);
 
-    // Entfernt einen Abschnitt aus dem Zusammenfassungszoom
+    // Entfernt Abschnitt aus dem Summary Zoom
     summaryZoomFrame.SummaryZoomCollection.RemoveSummaryZoomSection(pres.Sections[1]);
 
     // Speichert die Präsentation
@@ -452,25 +450,25 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Zusammenfassungszoomabschnitte formatieren**
 
-Um kompliziertere Zusammenfassungszoomabschnittobjekte zu erstellen, müssen Sie die Formatierung eines einfachen Rahmens ändern. Es stehen mehrere Formatierungsoptionen zur Verfügung, die Sie auf ein Zusammenfassungszoomabschnittobjekt anwenden können. 
+### **Formatieren von Zusammenfassungs‑Zoom‑Abschnitten**
 
-Sie können die Formatierung für ein Zusammenfassungszoomabschnittobjekt in einem Zusammenfassungszoomrahmen auf folgende Weise steuern:
+Um komplexere Zusammenfassungs‑Zoom‑Abschnitts‑Objekte zu erstellen, müssen Sie die Formatierung eines einfachen Frames ändern. Es gibt mehrere Formatierungsoptionen, die Sie auf ein Zusammenfassungs‑Zoom‑Abschnitts‑Objekt anwenden können. 
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-2. Erstellen Sie neue Folien mit Identifikationshintergrund und neuen Abschnitten für die erstellten Folien.
-3. Fügen Sie einen Zusammenfassungszoomrahmen zur ersten Folie hinzu.
-4. Holen Sie sich ein Zusammenfassungszoomabschnittobjekt für das erste Objekt aus der `ISummaryZoomSectionCollection`.
-7. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) Objekt, indem Sie ein Bild in die Bilderkollektion einfügen, die mit dem [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Objekt verbunden ist, das zum Füllen des Rahmens verwendet wird.
-8. Setzen Sie ein benutzerdefiniertes Bild für das erstellte Abschnittszoomrahmenobjekt.
-9. Aktivieren Sie die Fähigkeit, *zur ursprünglichen Folie vom verlinkten Abschnitt zurückzukehren*. 
-11. Ändern Sie die Linienformatierung des zweiten Zoomrahmenobjekts.
+Sie können die Formatierung eines Zusammenfassungs‑Zoom‑Abschnitts‑Objekts in einem Zusammenfassungs‑Zoom‑Frame wie folgt steuern:
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
+2. Erstellen Sie neue Folien mit Identifizierungs‑Hintergrund und neuen Abschnitten für die erstellten Folien.
+3. Fügen Sie einen Zusammenfassungs‑Zoom‑Frame zur ersten Folie hinzu.
+4. Holen Sie sich ein Zusammenfassungs‑Zoom‑Abschnitts‑Objekt für das erste Objekt aus der `ISummaryZoomSectionCollection`.
+7. Erzeugen Sie ein [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage)-Objekt, indem Sie dem Images‑Katalog des [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Objekts ein Bild hinzufügen, das den Frame füllen soll.
+8. Legen Sie ein benutzerdefiniertes Bild für das erstellte Abschnitts‑Zoom‑Frame‑Objekt fest.
+9. Aktivieren Sie die *Rückkehr zur Ausgangs‑Folientextur aus dem verknüpften Abschnitt*-Funktion. 
+11. Ändern Sie das Linienformat für das zweite Zoom‑Frame‑Objekt.
 12. Ändern Sie die Übergangsdauer.
-13. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+13. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser C#-Code zeigt Ihnen, wie Sie die Formatierung für ein Zusammenfassungszoomabschnittobjekt ändern:
-
+Dieser C#‑Code zeigt, wie Sie die Formatierung eines Zusammenfassungs‑Zoom‑Abschnitts‑Objekts ändern:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
@@ -481,7 +479,7 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.Sections.AddSection("Abschnitt 1", slide);
+    pres.Sections.AddSection("Section 1", slide);
 
     //Fügt eine neue Folie zur Präsentation hinzu
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
@@ -490,19 +488,19 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.Sections.AddSection("Abschnitt 2", slide);
+    pres.Sections.AddSection("Section 2", slide);
 
     // Fügt ein SummaryZoomFrame-Objekt hinzu
     ISummaryZoomFrame summaryZoomFrame = pres.Slides[0].Shapes.AddSummaryZoomFrame(150, 50, 300, 200);
 
-    // Holt sich das erste SummaryZoomSection-Objekt
+    // Holt das erste SummaryZoomSection-Objekt
     ISummaryZoomSection summarySection = summaryZoomFrame.SummaryZoomCollection[0];
 
     IImage image = Images.FromFile("image.png");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
 
-    // Formatierung für das SummaryZoomSection-Objekt
+    // Formatierung für SummaryZoomSection-Objekt
     summarySection.ZoomImage = ppImage;
     summarySection.ReturnToParent = false;
 
@@ -517,3 +515,18 @@ using (Presentation pres = new Presentation())
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**Kann ich die Rückkehr zur übergeordneten Folie nach dem Anzeigen des Ziels steuern?**
+
+Ja. Der [Zoom frame](https://reference.aspose.com/slides/net/aspose.slides/zoomframe/) bzw. das [section](https://reference.aspose.com/slides/net/aspose.slides/sectionzoomframe/) verfügt über das Verhalten `ReturnToParent`, das, wenn aktiviert, den Betrachter nach dem Besuch des Zielinhalts zurück zur Ausgangs‑Folientextur führt.
+
+**Kann ich die „Geschwindigkeit“ oder Dauer des Zoom‑Übergangs anpassen?**
+
+Ja. Zoom unterstützt das Setzen einer `TransitionDuration`, sodass Sie die Dauer der Sprunganimation steuern können.
+
+**Gibt es Beschränkungen, wie viele Zoom‑Objekte eine Präsentation enthalten darf?**
+
+Es gibt keine fest dokumentierte API‑Grenze. Praktische Grenzen hängen von der Gesamtkomplexität der Präsentation und der Leistung des Viewers ab. Sie können viele Zoom‑Frames hinzufügen, sollten jedoch Dateigröße und Renderzeit berücksichtigen.

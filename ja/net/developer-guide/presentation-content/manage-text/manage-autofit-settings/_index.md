@@ -1,42 +1,56 @@
 ---
-title: 自動調整設定の管理
+title: C# の AutoFit でプレゼンテーションを強化する
+linktitle: AutoFit 設定の管理
 type: docs
 weight: 30
 url: /ja/net/manage-autofit-settings/
-keywords: "テキストボックス, 自動調整, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
-description: "C# または .NET で PowerPoint のテキストボックスの自動調整設定を設定する"
+keywords:
+- テキストボックス
+- AutoFit
+- 自動調整しない
+- テキストに合わせる
+- テキストを縮小
+- テキストの折り返し
+- 図形のサイズ変更
+- PowerPoint
+- プレゼンテーション
+- C#
+- .NET
+- Aspose.Slides
+description: "Aspose.Slides for .NET で AutoFit 設定を管理し、PowerPoint および OpenDocument のプレゼンテーションにおけるテキスト表示を最適化してコンテンツの可読性を向上させる方法を学びます。"
 ---
 
-デフォルトでは、テキストボックスを追加すると、Microsoft PowerPoint はテキストボックスに対して **テキストに合わせて図形をサイズ変更** 設定を使用します—これは、テキストが常にテキストボックスに収まるように、自動的にテキストボックスのサイズを変更します。
+## **概要**
 
-![textbox-in-powerpoint](textbox-in-powerpoint.png)
+デフォルトでは、テキストボックスを追加すると、Microsoft PowerPoint はテキストボックスに対して **Resize shape to fit text** 設定を使用します。テキストが常に収まるようにテキストボックスのサイズが自動的に変更されます。
 
-* テキストボックス内のテキストが長くなったり大きくなったりすると、PowerPoint はテキストボックスを自動的に拡大し—高さを増加させて—より多くのテキストを保持できるようにします。
-* テキストボックス内のテキストが短くなったり小さくなったりすると、PowerPoint はテキストボックスを自動的に縮小し—高さを減少させて—無駄なスペースを取り除きます。
+![PowerPoint のテキストボックス](textbox-in-powerpoint.png)
 
-PowerPoint では、テキストボックスの自動調整動作を制御するための 4 つの重要なパラメーターまたはオプションがあります:
+* テキストボックス内のテキストが長くまたは大きくなると、PowerPoint はテキストボックスを自動的に拡大し（高さを増やし）、より多くのテキストを収められるようにします。
+* テキストボックス内のテキストが短くまたは小さくなると、PowerPoint はテキストボックスの高さを減らして自動的に縮小し、余分なスペースを取り除きます。
 
-* **自動調整しない**
-* **オーバーフロー時にテキストを縮小**
-* **テキストに合わせて図形をサイズ変更**
-* **形状内でテキストを折り返す。**
+PowerPoint では、テキストボックスの AutoFit 動作を制御する重要な 4 つのパラメータまたはオプションがあります：
 
-![autofit-options-powerpoint](autofit-options-powerpoint.png)
+* **Do not Autofit**
+* **Shrink text on overflow**
+* **Resize shape to fit text**
+* **Wrap text in shape**
 
-Aspose.Slides for .NET では、プレゼンテーション内のテキストボックスの自動調整動作を制御できる、[TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) クラスのいくつかのプロパティに類似したオプションが提供されます。
+![PowerPoint の AutoFit オプション](autofit-options-powerpoint.png)
 
-## **テキストに合わせて図形をサイズ変更**
+Aspose.Slides for .NET は、プレゼンテーション内のテキストボックスの AutoFit 動作を制御できる、[TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) クラスのプロパティという形で、同様のオプションを提供します。
 
-ボックス内のテキストが変更されても常にそのボックスに収まるようにしたい場合は、**テキストに合わせて図形をサイズ変更** オプションを使用する必要があります。この設定を指定するには、[AutofitType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/autofittype) プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) クラスから）を `Shape` に設定します。
+## **テキストに合わせて図形のサイズを変更**
 
-![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
+ボックス内のテキストを常にそのボックスに合わせたい場合は、**Resize shape to fit text** オプションを使用する必要があります。この設定を指定するには、[TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) クラスの `AutofitType` プロパティを `Shape` に設定します。
 
-この C# コードは、PowerPoint プレゼンテーション内でテキストが常にボックスに収まるように指定する方法を示しています:
+![PowerPoint の「テキストに合わせて図形のサイズを変更」設定](alwaysfit-setting-powerpoint.png)
 
+この C# コードは、PowerPoint プレゼンテーションでテキストが常にボックスに収まるように指定する方法を示しています:
 ```c#
- using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
     Portion portion = new Portion("lorem ipsum...");
@@ -47,24 +61,24 @@ Aspose.Slides for .NET では、プレゼンテーション内のテキストボ
     ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
     textFrameFormat.AutofitType = TextAutofitType.Shape;
 
-    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+    presentation.Save("output_presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
-テキストが長くなったり大きくなったりした場合、テキストボックスは自動的にリサイズされ（高さが増加し）、すべてのテキストが収まるようにします。テキストが短くなると、反対のことが起こります。
+
+テキストが長くまたは大きくなると、テキストボックスは自動的にサイズ変更（高さが増加）され、すべてのテキストが収まるようになります。テキストが短くなると、逆の処理が行われます。
 
 ## **自動調整しない**
 
-テキストが変更されてもテキストボックスや図形の寸法を保持したい場合は、**自動調整しない** オプションを使用する必要があります。この設定を指定するには、[AutofitType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/autofittype) プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) クラスから）を `None` に設定します。
+テキストボックスや図形のサイズを、テキストの変更に関係なく保持したい場合は、**Do not Autofit** オプションを使用する必要があります。この設定を指定するには、[TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) クラスの `AutofitType` プロパティを `None` に設定します。
 
-![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
+![PowerPoint の「自動調整しない」設定](donotautofit-setting-powerpoint.png)
 
-この C# コードは、PowerPoint プレゼンテーション内でテキストボックスが常にその寸法を保持するように指定する方法を示しています:
-
+この C# コードは、PowerPoint プレゼンテーションでテキストボックスが常にサイズを保持するように指定する方法を示しています:
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
     Portion portion = new Portion("lorem ipsum...");
@@ -75,24 +89,24 @@ using (Presentation pres = new Presentation())
     ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
     textFrameFormat.AutofitType = TextAutofitType.None;
 
-    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+    presentation.Save("output_presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
-テキストがボックスに対して長すぎる場合、テキストはあふれ出します。
+
+テキストがボックスに対して長くなりすぎると、テキストがはみ出します。
 
 ## **オーバーフロー時にテキストを縮小**
 
-テキストがボックスに対して長すぎる場合、**オーバーフロー時にテキストを縮小** オプションを使用すると、テキストのサイズと間隔を減少させて、ボックスに収まるように指定できます。この設定を指定するには、[AutofitType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/autofittype) プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) クラスから）を `Normal` に設定します。
+テキストがボックスに対して長くなりすぎた場合、**Shrink text on overflow** オプションを使用して、テキストのサイズと行間を縮小し、ボックスに収めることができます。この設定を指定するには、[TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) クラスの `AutofitType` プロパティを `Normal` に設定します。
 
-![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
+![PowerPoint の「オーバーフロー時にテキストを縮小」設定](shrinktextonoverflow-setting-powerpoint.png)
 
-この C# コードは、PowerPoint プレゼンテーション内でテキストがオーバーフロー時に縮小されるように指定する方法を示しています:
-
+この C# コードは、PowerPoint プレゼンテーションでテキストがオーバーフローしたときに縮小されるように指定する方法を示しています:
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
     Portion portion = new Portion("lorem ipsum...");
@@ -103,26 +117,24 @@ using (Presentation pres = new Presentation())
     ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
     textFrameFormat.AutofitType = TextAutofitType.Normal;
 
-    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+    presentation.Save("output_presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
-{{% alert title="情報" color="info" %}}
 
-**オーバーフロー時にテキストを縮小** オプションが使用される場合、設定はテキストがボックスに対して長すぎる場合にのみ適用されます。
-
+{{% alert title="Info" color="info" %}}
+**Shrink text on overflow** オプションが使用されると、テキストがボックスの幅を超えた場合にのみ設定が適用されます。
 {{% /alert %}}
 
-## **テキストを折り返す**
+## **テキストの折り返し**
 
-テキストが形状の境界を超える場合（幅のみ）にテキストをその形状内で折り返したい場合は、**形状内でテキストを折り返す** パラメーターを使用する必要があります。この設定を指定するには、[WrapText](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/wraptext) プロパティ（[TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) クラスから）を `true` に設定する必要があります。
+テキストが図形の幅を超えたときに、テキストをその図形内で折り返したい場合は、**Wrap text in shape** パラメータを使用します。この設定を指定するには、[TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) クラスの `WrapText` プロパティを `NullableBool.True` に設定します。
 
-この C# コードは、PowerPoint プレゼンテーション内でテキストの折り返し設定を使用する方法を示しています:
-
+この C# コードは、PowerPoint プレゼンテーションでテキストの折り返し設定を使用する方法を示しています:
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
     Portion portion = new Portion("lorem ipsum...");
@@ -133,12 +145,25 @@ using (Presentation pres = new Presentation())
     ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
     textFrameFormat.WrapText = NullableBool.True;
 
-    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+    presentation.Save("output_presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
-{{% alert title="注意" color="warning" %}} 
 
-形状の `WrapText` プロパティを `False` に設定すると、形状内のテキストが形状の幅を超えて長くなると、テキストは 1 行で形状の境界を超えて延長されます。
-
+{{% alert title="Note" color="warning" %}} 
+`WrapText` プロパティを `NullableBool.False` に設定した場合、図形内のテキストが図形の幅より長くなると、テキストは単一行で図形の境界を超えて伸びます。
 {{% /alert %}}
+
+## **よくある質問**
+
+**テキスト フレームの内部余白は AutoFit に影響しますか？**
+
+はい。パディング（内部余白）はテキストの使用可能領域を減らすため、AutoFit が早期に作動し、フォントが縮小されたり図形がリサイズされたりします。AutoFit を調整する前に余白を確認し、必要に応じて調整してください。
+
+**AutoFit は手動改行やソフト改行とどのように連動しますか？**
+
+強制改行はそのまま保持され、AutoFit はそれらの周囲でフォントサイズや行間を調整します。不要な改行を削除すると、AutoFit が過度にテキストを縮小する必要が減ります。
+
+**テーマフォントの変更やフォント置換は AutoFit の結果に影響しますか？**
+
+はい。字形メトリクスが異なるフォントに置換すると、テキストの幅や高さが変わり、最終的なフォントサイズや改行位置が変化する可能性があります。フォントを変更または置換した後は、必ずスライドを再確認してください。

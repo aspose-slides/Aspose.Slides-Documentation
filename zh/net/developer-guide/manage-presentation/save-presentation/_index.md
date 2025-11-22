@@ -1,155 +1,195 @@
 ---
-title: 在.NET中保存演示文稿
+title: 在 .NET 中保存演示文稿
 linktitle: 保存演示文稿
 type: docs
 weight: 80
 url: /zh/net/save-presentation/
-keywords: "保存PowerPoint, PPT, PPTX, 保存演示文稿, 文件, 流, C#, Csharp, .NET"
-description: "在C#或.NET中将PowerPoint演示文稿保存为文件或流"
+keywords:
+- 保存 PowerPoint
+- 保存 OpenDocument
+- 保存演示文稿
+- 保存幻灯片
+- 保存 PPT
+- 保存 PPTX
+- 保存 ODP
+- 演示文稿到文件
+- 演示文稿到流
+- 预定义视图类型
+- 严格 Office Open XML 格式
+- Zip64 模式
+- 刷新缩略图
+- 保存进度
+- .NET
+- C#
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides 在 .NET 中保存演示文稿——导出为 PowerPoint 或 OpenDocument，同时保留布局、字体和效果。"
 ---
 
-## **保存演示文稿**
-打开演示文稿描述了如何使用[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类打开演示文稿。本文解释了如何创建和保存演示文稿。
-[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类持有演示文稿的内容。无论是从头创建演示文稿还是修改现有演示文稿，完成后都希望保存演示文稿。使用Aspose.Slides for .NET，可以将其保存为**文件**或**流**。本文解释了如何以不同方式保存演示文稿：
+## **概览**
 
-### **将演示文稿保存为文件**
-通过调用[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类的[Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index)方法将演示文稿保存为文件。只需将文件名和保存格式传递给[Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index)方法。以下示例显示了如何使用C#和Aspose.Slides for .NET保存演示文稿。
+[在 C# 中打开演示文稿](/slides/zh/net/open-presentation/) 说明了如何使用 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类打开演示文稿。本文介绍如何创建和保存演示文稿。Presentation 类包含演示文稿的内容。无论是从头创建演示文稿还是修改已有演示文稿，完成后都需要保存。使用 Aspose.Slides for .NET，您可以将演示文稿保存为 **文件** 或 **流**。本文阐述了保存演示文稿的不同方式。
 
-```c#
-// 实例化一个表示PPT文件的Presentation对象
-Presentation presentation= new Presentation();
+## **将演示文稿保存为文件**
 
-//...在这里做一些工作...
-
-// 将您的演示文稿保存到文件
-presentation.Save("Saved_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-```
-
-
-### **将演示文稿保存为流**
-通过将输出流传递给[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类的Save方法，可以将演示文稿保存为流。有多种类型的流可以保存演示文稿。在下面的示例中，我们创建了一个新的演示文稿文件，在形状中添加文本，并将演示文稿保存到流中。
-
-```c#
-// 实例化一个表示PPT文件的Presentation对象
+通过调用 Presentation 类的 `Save` 方法，可以将演示文稿保存为文件。将文件名和保存格式作为参数传递给该方法。下面的示例演示了如何使用 Aspose.Slides 保存演示文稿。
+```cs
+// 实例化表示演示文稿文件的 Presentation 类。
 using (Presentation presentation = new Presentation())
 {
+    // 在此执行一些操作...
 
-    IAutoShape shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 200, 200);
-
-    // 向形状添加文本
-    shape.TextFrame.Text = "此演示展示了如何创建PowerPoint文件并将其保存到流中。";
-
-    FileStream toStream = new FileStream("Save_As_Stream_out.pptx", FileMode.Create);
-    presentation.Save(toStream, Aspose.Slides.Export.SaveFormat.Pptx);
-    toStream.Close();
+    // 将演示文稿保存到文件。
+    presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-### **保存具有预定义视图类型的演示文稿**
-Aspose.Slides for .NET提供了一种功能，可以在PowerPoint中打开生成的演示文稿时设置视图类型，通过[ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/viewproperties)类。[LastView](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/properties/lastview)属性用于通过使用[ViewType](https://reference.aspose.com/slides/net/aspose.slides/viewtype)枚举来设置视图类型。
+## **将演示文稿保存到流**
 
-```csharp
-using (Presentation pres = new Presentation())
+您可以通过向 Presentation 类的 `Save` 方法传入输出流，将演示文稿保存到流中。演示文稿可以写入多种流类型。以下示例创建了一个新演示文稿并将其保存到文件流。
+```cs
+// 实例化表示演示文稿文件的 Presentation 类。
+using (Presentation presentation = new Presentation())
 {
-    pres.ViewProperties.LastView = ViewType.SlideMasterView;
-    pres.Save("pres-will-open-SlideMasterView.pptx", SaveFormat.Pptx);
+    using (FileStream fileStream = new FileStream("Output.pptx", FileMode.Create))
+    {
+        // 将演示文稿保存到流。
+        presentation.Save(fileStream, SaveFormat.Pptx);
+    }
 }
 ```
 
-### **将演示文稿保存为严格的Office Open XML格式**
-Aspose.Slides允许您将演示文稿保存为严格的Office Open XML格式。为此，它提供了[**Aspose.Slides.Export.PptxOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/pptxoptions)类，您可以在保存演示文稿文件时设置Conformance属性。如果将其值设置为Conformance.Iso29500_2008_Strict，则输出的演示文稿文件将以严格的Office Open XML格式保存。
 
-以下示例代码创建一个演示文稿并将其保存为严格的Office Open XML格式。在调用演示文稿的Save方法时，将**[Aspose.Slides.Export.PptxOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pptxoptions)**对象传递给它，并将[**Conformance**](https://reference.aspose.com/slides/net/aspose.slides.export/pptxoptions/properties/conformance)属性设置为[**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/net/aspose.slides.export/conformance)。
+## **使用预定义视图类型保存演示文稿**
 
-```csharp
-   // 实例化一个表示演示文稿文件的Presentation对象
-   using (Presentation presentation = new Presentation())
-   {
-       // 获取第一张幻灯片
-       ISlide slide = presentation.Slides[0];
-
-       // 添加一个类型为线的自动形状
-       slide.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
-
-       // 将演示文稿保存为严格的Office Open XML格式
-       presentation.Save(dataDir + "NewPresentation_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx,
-           new PptxOptions() { Conformance = Conformance.Iso29500_2008_Strict });
-
-   }
+Aspose.Slides 允许您通过 ViewProperties 类设置生成的演示文稿打开时 PowerPoint 使用的初始视图。将 LastView 属性设置为 ViewType 枚举中的某个值。
+```cs
+using (Presentation presentation = new Presentation())
+{
+    presentation.ViewProperties.LastView = ViewType.SlideMasterView;
+    presentation.Save("SlideMasterView.pptx", SaveFormat.Pptx);
+}
 ```
 
-### **将演示文稿保存为Zip64模式的Office Open XML格式**
-Office Open XML文件是一个ZIP存档，它在未压缩的文件大小、压缩的文件大小以及存档的总大小上有4 GB（2^32字节）的限制，存档中的文件限制为65,535（2^16-1）。ZIP64格式扩展可以将这些限制增加到2^64。
 
-新的[**IPptxOptions.Zip64Mode**](https://reference.aspose.com/slides/net/aspose.slides.export/ipptxoptions/zip64mode/)属性允许您选择何时使用ZIP64格式扩展来保存Office Open XML文件。
+## **以 Strict Office Open XML 格式保存演示文稿**
 
-该属性提供以下模式：
+Aspose.Slides 允许您以 Strict Office Open XML 格式保存演示文稿。保存时使用 PptxOptions 类并设置其 Conformance 属性。如果将其设为 `Conformance.Iso29500_2008_Strict`，输出文件将以 Strict Office Open XML 格式保存。
 
-- [Zip64Mode.IfNecessary](https://reference.aspose.com/slides/net/aspose.slides.export/zip64mode/)意味着只有在演示文稿超出上述限制时，才会使用ZIP64格式扩展。这是默认模式。
-- [Zip64Mode.Never](https://reference.aspose.com/slides/net/aspose.slides.export/zip64mode/)意味着将不会使用ZIP64格式扩展。 
-- [Zip64Mode.Always](https://reference.aspose.com/slides/net/aspose.slides.export/zip64mode/)意味着将始终使用ZIP64格式扩展。
-
-以下C#代码演示了如何使用ZIP64格式扩展将演示文稿保存为PPTX格式：
-
-```c#
-using (Presentation pres = new Presentation("Sample.pptx"))
+下面的示例创建了一个演示文稿并以 Strict Office Open XML 格式保存。
+```cs
+PptxOptions options = new PptxOptions()
 {
-    pres.Save("Sample-zip64.pptx", SaveFormat.Pptx, new PptxOptions()
+    Conformance = Conformance.Iso29500_2008_Strict
+};
+
+// 实例化表示演示文稿文件的 Presentation 类。
+using (Presentation presentation = new Presentation())
+{
+    // 将演示文稿保存为 Strict Office Open XML 格式。
+    presentation.Save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
+}
+```
+
+
+## **以 Zip64 模式保存 Office Open XML 格式的演示文稿**
+
+Office Open XML 文件是一个 ZIP 存档，对任意文件的未压缩大小、压缩大小以及整个存档的总大小均限制为 4 GB（2^32 字节），并且存档中文件数量上限为 65,535（2^16‑1）个。ZIP64 格式扩展将这些限制提升至 2^64。
+
+IPptxOptions.Zip64Mode 属性允许您在保存 Office Open XML 文件时选择何时使用 ZIP64 格式扩展。
+
+此属性提供以下模式：
+
+- `IfNecessary` 使用 ZIP64 格式扩展，仅在演示文稿超过上述限制时使用。这是默认模式。
+- `Never` 永不使用 ZIP64 格式扩展。
+- `Always` 总是使用 ZIP64 格式扩展。
+
+下面的代码演示了如何在启用 ZIP64 格式扩展的情况下将演示文稿保存为 PPTX：
+```cs
+using (Presentation presentation = new Presentation("Sample.pptx"))
+{
+    presentation.Save("OutputZip64.pptx", SaveFormat.Pptx, new PptxOptions()
     {
         Zip64Mode = Zip64Mode.Always
     });
 }
 ```
 
-{{% alert title="注意" color="warning" %}}
 
-在Zip64Mode.Never模式下保存时，如果演示文稿无法以ZIP32格式保存，将抛出[PptxException](https://reference.aspose.com/slides/net/aspose.slides/pptxexception/)异常。
-
+{{% alert title="NOTE" color="warning" %}}
+当使用 `Zip64Mode.Never` 保存时，如果演示文稿无法以 ZIP32 格式保存，则会抛出 [PptxException](https://reference.aspose.com/slides/net/aspose.slides/pptxexception/)。
 {{% /alert %}}
 
-### **以百分比形式保存进度更新**
-新的[**IProgressCallback**](https://reference.aspose.com/slides/net/aspose.slides/iprogresscallback)接口已添加到[**ISaveOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/isaveoptions)接口和[**SaveOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions)抽象类中。**IProgressCallback**接口表示一个回调对象，用于以百分比形式保存进度更新。
+## **保存演示文稿时不刷新缩略图**
 
-以下代码片段展示了如何使用IProgressCallback接口：
+PptxOptions.RefreshThumbnail 属性控制在将演示文稿保存为 PPTX 时是否生成缩略图：
 
-```c#
-using (Presentation presentation = new Presentation("ConvertToPDF.pptx"))
+- 如果设置为 `true`，在保存时会刷新缩略图。这是默认值。
+- 如果设置为 `false`，则保留当前缩略图。如果演示文稿没有缩略图，则不会生成。
+
+下面的代码将演示文稿保存为 PPTX，且不刷新缩略图。
+```cs
+using (Presentation presentation = new Presentation("Sample.pptx"))
 {
-    ISaveOptions saveOptions = new PdfOptions();
-    saveOptions.ProgressCallback = new ExportProgressHandler();
-    presentation.Save("ConvertToPDF.pdf", SaveFormat.Pdf, saveOptions);
+    presentation.Save("Output.pptx", SaveFormat.Pptx, new PptxOptions()
+    {
+        RefreshThumbnail = false
+    });
 }
 ```
 
-```c#
+
+{{% alert title="Info" color="info" %}}
+此选项有助于缩短以 PPTX 格式保存演示文稿所需的时间。
+{{% /alert %}}
+
+## **以百分比显示保存进度更新**
+
+IProgressCallback 接口通过 ISaveOptions 接口公开的 ProgressCallback 属性以及抽象的 SaveOptions 类使用。将 IProgressCallback 的实现分配给 ProgressCallback 可接收以百分比形式的保存进度更新。
+
+以下代码片段演示了如何使用 IProgressCallback。
+```cs
+ISaveOptions saveOptions = new PdfOptions();
+saveOptions.ProgressCallback = new ExportProgressHandler();
+
+using (Presentation presentation = new Presentation("Sample.pptx"))
+{
+    presentation.Save("Output.pdf", SaveFormat.Pdf, saveOptions);
+}
+```
+
+```cs
 class ExportProgressHandler : IProgressCallback
 {
     public void Reporting(double progressValue)
     {
-        // 在此处使用进度百分比值
+        // 在此使用进度百分比值。
         int progress = Convert.ToInt32(progressValue);
-        Console.WriteLine(progress + "% 文件已转换");
+
+        Console.WriteLine(progress + "% of the file has been converted.");
     }
 }
 ```
 
-{{% alert title="信息" color="info" %}}
 
-使用其自己的API，Aspose开发了一个[免费的PowerPoint拆分器应用程序](https://products.aspose.app/slides/splitter)，允许用户将演示文稿拆分为多个文件。本质上，该应用将给定演示文稿中的选定幻灯片保存为新的PowerPoint（PPTX或PPT）文件。
-
+{{% alert title="Info" color="info" %}}
+Aspose 已开发了一款免费 PowerPoint 拆分应用（[https://products.aspose.app/slides/splitter](https://products.aspose.app/slides/splitter)），该应用使用其 API。该应用可通过将选定的幻灯片另存为新的 PPTX 或 PPT 文件，将演示文稿拆分为多个文件。
 {{% /alert %}}
 
-<h2>打开和保存演示文稿</h2>
+## **常见问答**
 
-<a name="csharp-open-save-presentation"><strong>步骤：在C#中打开和保存演示文稿</strong></a>
+**是否支持“快速保存”（增量保存）仅写入更改？**
 
-1. 创建一个[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)类的实例，使用任何格式，即PPT、PPTX、ODP等。
-2. 将_Presentation_保存为[SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)支持的任何格式。
+不支持。每次保存都会生成完整的目标文件，不支持增量的“快速保存”。
 
-```c#
-// 加载任何受支持的文件到Presentation，例如ppt、pptx、odp等。
-Presentation presentation = new Presentation("Sample.odp");
+**从多个线程保存同一个 Presentation 实例是否线程安全？**
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
-```
+不安全。Presentation 实例不是线程安全的；请在单个线程中进行保存。
+
+**保存时超链接和外部链接文件会怎样？**
+
+超链接会被保留。外部链接的文件（例如通过相对路径引用的视频）不会自动复制——请确保引用的路径仍然可访问。
+
+**我可以设置/保存文档元数据（作者、标题、公司、日期）吗？**
+
+可以。支持标准的文档属性，并将在保存时写入文件。

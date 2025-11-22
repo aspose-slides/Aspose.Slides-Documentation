@@ -1,34 +1,33 @@
 ---
-title: تصدير إلى HTML5
+title: "تصدير إلى HTML5"
 type: docs
 weight: 40
 url: /ar/net/export-to-html5/
 keywords:
-- PowerPoint إلى HTML
-- شرائح إلى HTML
-- HTML5
-- تصدير HTML
-- تصدير العرض التقديمي
-- تحويل العرض التقديمي
-- تحويل الشرائح
-- C#
-- Csharp
-- Aspose.Slides لـ .NET
-description: "تصدير PowerPoint إلى HTML5 في C# أو .NET"
+  - "PowerPoint إلى HTML"
+  - "شرائح إلى HTML"
+  - "HTML5"
+  - "تصدير HTML"
+  - "تصدير العرض التقديمي"
+  - "تحويل العرض التقديمي"
+  - "تحويل الشرائح"
+  - "C#"
+  - "Csharp"
+  - "Aspose.Slides for .NET"
+description: "تصدير PowerPoint إلى HTML5 باستخدام C# أو .NET"
 ---
 
-{{% alert title="معلومات" color="info" %}}
+{{% alert title="Info" color="info" %}}
 
-في [Aspose.Slides 21.9](/slides/ar/net/aspose-slides-for-net-21-9-release-notes/)، قمنا بتنفيذ دعم تصدير HTML5. ومع ذلك، إذا كنت تفضل تصدير PowerPoint إلى HTML باستخدام WebExtensions، انظر [هذه المقالة](/slides/ar/net/web-extensions/) بدلاً من ذلك.
+في [Aspose.Slides 21.9](/slides/ar/net/aspose-slides-for-net-21-9-release-notes/) تم تنفيذ دعم لتصدير HTML5. ومع ذلك، إذا كنت تفضّل تصدير PowerPoint إلى HTML باستخدام WebExtensions، راجع [هذه المقالة](/slides/ar/net/web-extensions/) بدلاً من ذلك. 
 
 {{% /alert %}} 
 
-تتيح لك عملية التصدير إلى HTML5 هنا تحويل PowerPoint إلى HTML دون استخدام إضافات الويب أو التبعية. بهذه الطريقة، باستخدام قوالبك الخاصة، يمكنك تطبيق خيارات مرنة جداً تحدد عملية التصدير وHTML وCSS وJavaScript وخصائص الرسوم المتحركة الناتجة.
+تسمح لك عملية التصدير إلى HTML5 هنا بتحويل PowerPoint إلى HTML دون الحاجة إلى ملحقات ويب أو تبعيات. بهذه الطريقة، باستخدام القوالب الخاصة بك، يمكنك تطبيق خيارات مرنة تُحدد عملية التصدير والـ HTML وCSS وJavaScript وسمات الرسوم المتحركة الناتجة. 
 
 ## **تصدير PowerPoint إلى HTML5**
 
-يوضح هذا الكود C# كيفية تصدير عرض تقديمي إلى HTML5 دون استخدام إضافات الويب والتبعية:
-
+يعرض هذا الكود C# كيفية تصدير عرض تقديمي إلى HTML5 دون ملحقات ويب أو تبعيات:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -36,14 +35,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
+
 {{% alert color="primary" %}} 
 
-في هذه الحالة، تحصل على HTML نظيف.
+في هذه الحالة ستحصل على HTML نظيف. 
 
 {{% /alert %}}
 
-قد ترغب في تحديد إعدادات لرسوم الشكل و انتقالات الشرائح بهذه الطريقة:
-
+قد ترغب في تحديد إعدادات لتحريك الأشكال وانتقالات الشرائح بهذه الطريقة:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -55,10 +54,10 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-#### **تصدير PowerPoint إلى HTML**
 
-يوضح هذا الكود C# عملية تصدير PowerPoint القياسية إلى HTML:
+## **تصدير PowerPoint إلى HTML**
 
+يعرض هذا الكود C# العملية القياسية لتحويل PowerPoint إلى HTML:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -66,30 +65,30 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-في هذه الحالة، يتم عرض محتوى العرض التقديمي من خلال SVG في شكل يشبه هذا:
 
+في هذه الحالة يتم عرض محتوى العرض التقديمي عبر SVG بالشكل التالي:
 ```html
 <body>
 <div class="slide" name="slide" id="slideslideIface1">
      <svg version="1.1">
-         <g> محتوى الشريحة هنا </g>
+         <g> THE SLIDE CONTENT GOES HERE </g>
      </svg>
 </div>
 </body>
 ```
 
-{{% alert title="ملاحظة" color="warning" %}} 
 
-عند استخدام هذه الطريقة لتصدير PowerPoint إلى HTML، بسبب عرض SVG، لن تتمكن من تطبيق أنماط أو تحريك عناصر معينة.
+{{% alert title="Note" color="warning" %}} 
+
+عند استخدام هذه الطريقة لتصدير PowerPoint إلى HTML، بسبب عرض SVG، لن تكون قادرًا على تطبيق الأنماط أو تحريك عناصر محددة. 
 
 {{% /alert %}}
 
-## **تصدير PowerPoint إلى HTML5 وضع العرض الشرائح**
+## **تصدير PowerPoint إلى وضع عرض الشرائح HTML5**
 
-**Aspose.Slides** تتيح لك تحويل عرض PowerPoint إلى وثيقة HTML5 يتم عرض الشرائح فيها في وضع عرض الشريحة. في هذه الحالة، عندما تفتح ملف HTML5 الناتج في متصفح، ترى العرض التقديمي في وضع عرض الشريحة على صفحة الويب.
+**Aspose.Slides** يتيح لك تحويل عرض تقديمي PowerPoint إلى مستند HTML5 تُعرض فيه الشرائح في وضع عرض الشرائح. في هذه الحالة، عند فتح ملف HTML5 الناتج في المتصفح، ترى العرض التقديمي في وضع عرض الشرائح على صفحة الويب. 
 
-يوضح هذا الكود C# عملية تصدير PowerPoint إلى HTML5 وضع العرض الشرائح:
-
+يعرض هذا الكود C# عملية تصدير PowerPoint إلى عرض الشرائح HTML5:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -101,17 +100,18 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## تحويل عرض تقديمي إلى وثيقة HTML5 مع التعليقات
 
-التعليقات في PowerPoint هي أداة تسمح للمستخدمين بترك ملاحظات أو تعليقات على شرائح العرض. إنها مفيدة بشكل خاص في المشاريع التعاونية، حيث يمكن لعدة أشخاص إضافة اقتراحاتهم أو ملاحظاتهم على عناصر الشرائح المحددة دون تغيير المحتوى الرئيسي. تُظهر كل تعليق اسم المؤلف، مما يسهل تتبع من غادر الملاحظة.
+## **تحويل عرض تقديمي إلى مستند HTML5 مع التعليقات**
 
-لنقل إن لدينا العرض التقديمي PowerPoint التالي محفوظًا في ملف "sample.pptx".
+التعليقات في PowerPoint هي أداة تسمح للمستخدمين بترك ملاحظات أو ملاحظات على شرائح العرض. تكون مفيدة بشكل خاص في المشاريع التعاونية، حيث يمكن لأكثر من شخص إضافة اقتراحاتهم أو ملاحظاتهم إلى عناصر شريحة معينة دون تغيير المحتوى الرئيسي. تُظهر كل تعليق اسم المؤلف، مما يسهل تتبع من ترك الملاحظة.
 
-![تعليقان على شريحة العرض](two_comments_pptx.png)
+لنفترض أن لدينا عرض تقديمي PowerPoint محفوظ في الملف "sample.pptx".
 
-عند تحويل عرض PowerPoint إلى وثيقة HTML5، يمكنك بسهولة تحديد ما إذا كنت ترغب في تضمين التعليقات من العرض التقديمي في وثيقة الإخراج. للقيام بذلك، تحتاج إلى تحديد معلمات العرض للتعليقات في خاصية `NotesCommentsLayouting` من فئة [Html5Options](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/).
+![Two comments on the presentation slide](two_comments_pptx.png)
 
-يوضح مثال الكود التالي كيفية تحويل عرض تقديمي إلى وثيقة HTML5 مع عرض التعليقات إلى يمين الشرائح.
+عند تحويل عرض تقديمي PowerPoint إلى مستند HTML5، يمكنك بسهولة تحديد ما إذا كنت تريد تضمين التعليقات من العرض في المستند الناتج. للقيام بذلك، تحتاج إلى تحديد معلمات عرض التعليقات في خاصية `NotesCommentsLayouting` من فصل [Html5Options](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/) . 
+
+الكود التالي يحول عرضًا تقديميًا إلى مستند HTML5 مع عرض التعليقات إلى يمين الشرائح.
 ```cs
 var html5Options = new Html5Options
 {
@@ -125,6 +125,21 @@ using var presentation = new Presentation("sample.pptx");
 presentation.Save("output.html", SaveFormat.Html5, html5Options);
 ```
 
-تم عرض وثيقة "output.html" في الصورة أدناه.
 
-![التعليقات في وثيقة HTML5 الناتجة](two_comments_html5.png)
+يظهر مستند "output.html" في الصورة أدناه.
+
+![The comments in the output HTML5 document](two_comments_html5.png)
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني التحكم فيما إذا كانت تحريكات الكائنات وانتقالات الشرائح ستُشغل في HTML5؟**
+
+نعم، يوفر HTML5 خيارات منفصلة لتمكين أو تعطيل [تحريكات الأشكال](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animateshapes/) و[انتقالات الشرائح](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animatetransitions/).
+
+**هل يتم دعم إخراج التعليقات، وأين يمكن وضعها بالنسبة للشارحة؟**
+
+نعم، يمكن إضافة التعليقات في HTML5 وتحديد موقعها (على سبيل المثال، إلى يمين الشريحة) عبر [إعدادات التخطيط](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/notescommentslayouting/) للملاحظات والتعليقات.
+
+**هل يمكنني تخطي الروابط التي تستدعي JavaScript لأسباب أمنية أو سياسات CSP؟**
+
+نعم، هناك [إعداد](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/skipjavascriptlinks/) يسمح بتخطي الروابط التي تحتوي على استدعاءات JavaScript أثناء الحفظ. يساعد ذلك في الالتزام بسياسات الأمان الصارمة.

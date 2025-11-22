@@ -1,17 +1,16 @@
 ---
-title: ملصق بيانات الرسم البياني
+title: تسمية بيانات المخطط
 type: docs
 url: /ar/net/chart-data-label/
-keywords: "ملصق بيانات الرسم البياني, مسافة الملصق, C#, Csharp, Aspose.Slides for .NET"
-description: "تعيين ملصق بيانات الرسم البياني في PowerPoint والمسافة في C# أو .NET"
+keywords: "تسمية بيانات المخطط, مسافة التسمية, C#, Csharp, Aspose.Slides for .NET"
+description: "تعيين تسمية بيانات مخطط PowerPoint والمسافة في C# أو .NET"
 ---
 
-تظهر ملصقات البيانات على الرسم البياني تفاصيل حول سلسلة بيانات الرسم البياني أو نقاط البيانات الفردية. تتيح للقراء التعرف بسرعة على سلسلة البيانات كما تجعل الرسوم البيانية أسهل في الفهم.
+تُظهر تسميات البيانات في المخطط تفاصيل حول سلسلة بيانات المخطط أو نقاط البيانات الفردية. فهي تسمح للقراء بتحديد سلاسل البيانات بسرعة كما تجعل المخططات أسهل في الفهم.
 
-## **تعيين دقة البيانات في ملصقات بيانات الرسم البياني**
+## **تعيين دقة البيانات في تسميات بيانات المخطط**
 
-يوضح هذا الكود بلغة C# كيفية تعيين دقة البيانات في ملصق بيانات الرسم البياني:
-
+يظهر هذا الكود C# كيفية تعيين دقة البيانات في تسمية بيانات المخطط:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -23,11 +22,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **عرض النسبة المئوية كملصقات**
-تتيح Aspose.Slides for .NET تعيين ملصقات النسبة المئوية على الرسوم البيانية المعروضة. يوضح هذا الكود بلغة C# العملية:
 
+## **عرض النسبة المئوية كتسميات**
+
+تتيح لك Aspose.Slides for .NET تعيين تسميات النسبة المئوية على المخططات المعروضة. يوضح هذا الكود C# العملية:
 ```c#
-// ينشئ مثيلاً لفئة Presentation
+// إنشاء كائن من فئة Presentation
 Presentation presentation = new Presentation();
 
 ISlide slide = presentation.Slides[0];
@@ -72,45 +72,47 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
     }
 }
 
-// يحفظ العرض التقديمي الذي يحتوي على الرسم البياني
+// حفظ العرض التقديمي الذي يحتوي على المخطط
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **تعيين علامة النسبة المئوية مع ملصقات بيانات الرسم البياني**
-يوضح هذا الكود بلغة C# كيفية تعيين علامة النسبة المئوية لملصق بيانات الرسم البياني:
 
+
+## **تعيين علامة النسبة المئوية في تسميات بيانات المخطط**
+
+يظهر هذا الكود C# كيفية تعيين علامة النسبة المئوية لتسمية بيانات المخطط:
 ```c#
-// ينشئ مثيلاً لفئة Presentation
+// ينشئ كائنًا من فئة Presentation
 Presentation presentation = new Presentation();
 
-// يحصل على مرجع شريحة من خلال فهرسها
+// يحصل على مرجع الشريحة عبر فهرسها
 ISlide slide = presentation.Slides[0];
 
-// ينشئ الرسم البياني PercentsStackedColumn على شريحة
+// ينشئ مخطط PercentsStackedColumn على شريحة
 IChart chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
-// يعين NumberFormatLinkedToSource إلى false
+// يضبط الخاصية NumberFormatLinkedToSource إلى false
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.NumberFormat = "0.00%";
 
 chart.ChartData.Series.Clear();
 int defaultWorksheetIndex = 0;
 
-// يحصل على ورقة عمل بيانات الرسم البياني
+// يحصل على ورقة بيانات المخطط
 IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-// يضيف سلسلتين جديدتين
+// يضيف سلسلة جديدة
 IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.Type);
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 1, 0.30));
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 1, 0.50));
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 1, 0.80));
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 1, 0.65));
 
-// يعين لون التعبئة للسلسلة
+// يضبط لون التعبئة للسلسلة
 series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-// يعين خصائص LabelFormat
+// يضبط خصائص تنسيق التسمية
 series.Labels.DefaultDataLabelFormat.ShowValue = true;
 series.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
 series.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
@@ -119,14 +121,14 @@ series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillTyp
 series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
 series.Labels.DefaultDataLabelFormat.ShowValue = true;
 
-// يضيف سلسلتين جديدتين
+// يضيف سلسلة جديدة
 IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.Type);
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 2, 0.70));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 2, 0.50));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 2, 0.20));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 2, 0.35));
 
-// يعين نوع التعبئة واللون
+// يضبط نوع التعبئة واللون
 series2.Format.Fill.FillType = FillType.Solid;
 series2.Format.Fill.SolidFillColor.Color = Color.Blue;
 series2.Labels.DefaultDataLabelFormat.ShowValue = true;
@@ -136,36 +138,37 @@ series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
 series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
 series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
 
-// يكتب العرض التقديمي إلى القرص
+// يحفظ العرض التقديمي إلى القرص
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **تعيين مسافة الملصق من المحور**
-يوضح هذا الكود بلغة C# كيفية تعيين مسافة الملصق من محور الفئة عندما تتعامل مع رسم بياني مرسوم من المحاور:
 
+## **تعيين مسافة التسمية من المحور**
+
+يظهر هذا الكود C# كيفية تعيين مسافة التسمية من محور الفئات عندما تكون تتعامل مع مخطط مرسم من المحاور:
 ```c#
-// ينشئ مثيلاً لفئة Presentation
+// ينشئ كائنًا من فئة Presentation
 Presentation presentation = new Presentation();
 
-// يحصل على مرجع شريحة
+// يحصل على مرجع الشريحة
 ISlide sld = presentation.Slides[0];
 
-// ينشئ رسمًا بيانيًا على الشريحة
+// ينشئ مخططًا على الشريحة
 IChart ch = sld.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-// يعين مسافة الملصق من المحور
+// يضبط مسافة التسمية من المحور
 ch.Axes.HorizontalAxis.LabelOffset = 500;
 
-// يكتب العرض التقديمي إلى القرص
+// يحفظ العرض التقديمي إلى القرص
 presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
-## **تعديل موقع الملصق**
 
-عندما تقوم بإنشاء رسم بياني لا يعتمد على أي محور مثل الرسم البياني الدائري، قد تنتهي ملصقات بيانات الرسم البياني بالقرب من حافته. في مثل هذه الحالة، تحتاج إلى تعديل موقع ملصق البيانات بحيث يتم عرض خطوط الربط بوضوح.
+## **ضبط موضع التسمية**
 
-يوضح هذا الكود بلغة C# كيفية تعديل موقع الملصق على رسم بياني دائري:
+عند إنشاء مخطط لا يعتمد على أي محور مثل مخطط الفطيرة، قد تكون تسميات البيانات قريبة جدًا من حافته. في هذه الحالة، عليك ضبط موضع تسمية البيانات بحيث تظهر خطوط الربط بوضوح.
 
+يظهر هذا الكود C# كيفية ضبط موضع التسمية في مخطط الفطيرة:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -183,4 +186,19 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+![مخطط دائري مع تسمية مضبوطة](pie-chart-adjusted-label.png)
+
+## **الأسئلة المتكررة**
+
+**كيف يمكنني منع تداخل تسميات البيانات في المخططات الكثيفة؟**
+
+استخدام وضعية وضع التسميات التلقائي، خطوط الربط، وتقليل حجم الخط؛ إذا لزم الأمر، إخفاء بعض الحقول (مثل الفئة) أو إظهار التسميات فقط للنقاط المتطرفة/المفتاحية.
+
+**كيف يمكنني إلغاء تفعيل التسميات للقيم الصفرية أو السلبية أو الفارغة فقط؟**
+
+تصفية نقاط البيانات قبل تمكين التسميات وإيقاف العرض للقيم التي تساوي 0 أو القيم السلبية أو القيم المفقودة وفق قاعدة محددة.
+
+**كيف يمكنني ضمان نمط تسمية متسق عند التصدير إلى PDF/صور؟**
+
+تعيين الخطوط صراحةً (العائلة، الحجم) والتأكد من توفر الخط على جانب العرض لتجنب fallback.

@@ -1,664 +1,519 @@
 ---
-title: 文本格式化
+title: 在 C# 中格式化 PowerPoint 文本
 linktitle: 文本格式化
 type: docs
 weight: 50
 url: /zh/net/text-formatting/
 keywords:
-- 高亮文本
+- 突出显示文本
 - 正则表达式
-- 对齐文本段落
+- 对齐段落
+- 文本样式
+- 文本背景
 - 文本透明度
-- 段落字体属性
-- 字体家族
+- 字符间距
+- 字体属性
+- 字体族
 - 文本旋转
-- 自定义角度旋转
+- 旋转角度
 - 文本框
 - 行间距
-- 自适应属性
+- 自动适应属性
 - 文本框锚点
-- 文本制表符
-- 默认文本样式
+- 文本制表
+- 默认语言
+- PowerPoint
+- OpenDocument
+- 演示文稿
 - C#
-- Aspose.Slides for .NET
-description: "在 C# 中管理和操作文本及文本框属性"
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for .NET 在 PowerPoint 和 OpenDocument 演示文稿中格式化和美化文本。通过强大的 C# 示例代码自定义字体、颜色、对齐方式等。"
 ---
 
-## 概述
+## **概述**
 
-本文描述了如何 **使用 C# 处理 PowerPoint 演示文稿的文本格式化**，例如高亮文本、应用正则表达式、对齐文本段落、设置文本透明度、改变段落字体属性、使用字体家族、设置文本旋转、自定义角度旋转、管理文本框、设置行间距、使用自适应属性、设置文本框锚点、改变文本制表符。文章涵盖了这些主题。
+本文介绍如何使用 Aspose.Slides for .NET 在 PowerPoint 和 OpenDocument 演示文稿中管理和格式化文本。您将学习如何应用字体选择、大小、颜色、突出显示、背景色、间距和对齐等文本格式化功能。此外，还包括对文本框、段落、格式化以及自定义旋转和自动适应行为等高级布局选项的使用。
 
-## **高亮文本**
-新的 HighlightText 方法已添加到 ITextFrame 接口和 TextFrame 类。
+无论是以编程方式生成演示文稿，还是自定义现有内容，这些示例都可帮助您创建清晰、专业的文本布局，以提升幻灯片的可读性。
 
-它允许使用文本样本以背景颜色高亮文本部分，类似于 PowerPoint 2019 中的文本高亮颜色工具。
+在下面的示例中，我们使用名为 **"sample.pptx"** 的文件，该文件在第一页包含一个文本框，文本如下：
 
-1. 实例化 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类并传入输入文件。
-   - 输入文件可以是 PPT、PPTX、ODP 等。
-3. 使用 [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) 集合访问其幻灯片。
-4. 使用 [Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) 集合访问形状，并将其转换为 [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/)。
-5. 使用 [TextFrame.Highlight()](https://reference.aspose.com/slides/net/aspose.slides/textframe/highlighttext/#highlighttext) 方法高亮文本。
-6. 以所需的输出格式保存演示文稿，即 PPT、PPTX 或 ODP 等。
+![示例文字](sample_text.png)
 
-```c#
-Presentation presentation = new Presentation("SomePresentation.pptx");
-((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightText("title", Color.LightBlue); // 高亮所有词语 'important'
-((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightText("to", Color.Violet, new TextHighlightingOptions()
+## **突出显示文本**
+
+[ITextFrame.HighlightText](https://reference.aspose.com/slides/net/aspose.slides/itextframe/highlighttext/) 方法允许您根据匹配的文本样本，以背景色突出显示文本的一部分。
+
+使用此方法，请按以下步骤操作：
+
+1. 使用输入文件（PPT、PPTX、ODP 等）实例化 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类。  
+1. 通过 [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) 集合获取目标幻灯片。  
+1. 从 [Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) 集合中获取目标形状，并将其强制转换为 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。  
+1. 使用 [ITextFrame.HighlightText](https://reference.aspose.com/slides/net/aspose.slides/itextframe/highlighttext/) 方法提供示例文本和颜色，以突出显示所需文本。  
+1. 将演示文稿保存为所需的输出格式（例如 PPT、PPTX、ODP）。
+
+下面的代码示例突出显示所有出现的 **"try"** 字符和完整单词 **"to"**。
+```cs
+using (var presentation = new Presentation("sample.pptx"))
 {
-    WholeWordsOnly = true
-}); // 高亮所有单独的 'the' 出现
-presentation.Save("SomePresentation-out2.pptx", SaveFormat.Pptx);
+    // 获取第一张幻灯片中的第一个形状。
+    var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
+
+    // 在形状中突出显示单词 "try"。
+    shape.TextFrame.HighlightText("try", Color.LightBlue);
+
+    var searchOptions = new TextSearchOptions()
+    {
+        WholeWordsOnly = true
+    };
+
+    // 在形状中突出显示单词 "to"。
+    shape.TextFrame.HighlightText("to", Color.Violet, searchOptions, null);
+
+    presentation.Save("highlighted_text.pptx", SaveFormat.Pptx);
+}
 ```
+
+
+结果：
+
+![突出显示的文本](highlighted_text.png)
 
 {{% alert color="primary" %}} 
-
-Aspose 提供了一个简单的 [免费在线 PowerPoint 编辑服务](https://products.aspose.app/slides/editor)
-
+Aspose 提供了一个简单的[免费在线 PowerPoint 编辑器](https://products.aspose.app/slides/editor)。
 {{% /alert %}} 
 
+## **使用正则表达式突出显示文本**
 
-## **使用正则表达式高亮文本**
-新的 HighlightRegex 方法已添加到 ITextFrame 接口和 TextFrame 类。
+Aspose.Slides for .NET 允许您使用正则表达式在 PowerPoint 幻灯片中搜索并突出显示特定文本部分。该功能在需要动态强调关键字、模式或数据驱动内容时尤其有用。[ITextFrame.HighlightRegex](https://docs.aspose.com/slides/net/text-formatting/) 方法允许您使用正则表达式以背景色突出显示文本片段。
 
-它允许使用正则表达式以背景颜色高亮文本部分，类似于 PowerPoint 2019 中的文本高亮颜色工具。
+下面的代码示例突出显示所有包含 **七个或更多字符** 的单词：
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-以下代码片段显示如何使用此功能：
+    // 突出显示所有七个或更多字符的单词。
+    shape.TextFrame.HighlightRegex(@"\b[^\s]{7,}\b", Color.Yellow, null);
 
-```c#
-Presentation presentation = new Presentation("SomePresentation.pptx");
-TextHighlightingOptions options = new TextHighlightingOptions();
-((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightRegex(@"\b[^\s]{5,}\b", Color.Blue, options); // 高亮所有 10 个符号或更长的词语
-presentation.Save("SomePresentation-out.pptx", SaveFormat.Pptx);
+    presentation.Save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
+}
 ```
+
+
+结果：
+
+![使用正则表达式突出显示的文本](highlighted_text_using_regex.png)
 
 ## **设置文本背景颜色**
 
-Aspose.Slides 允许您为文本设置偏好的背景颜色。
+Aspose.Slides for .NET 使您能够为 PowerPoint 幻灯片中的整个段落或单独的文本片段应用背景颜色。当您想突出显示特定单词或短语、吸引对关键信息的注意，或提升演示文稿的视觉效果时，此功能非常实用。
 
-以下 C# 代码显示您如何为整个文本设置背景颜色： 
-
-```c#
-using (Presentation pres = new Presentation())
+以下代码示例演示如何为 **整个段落** 设置背景颜色：
+```cs
+using (var presentation = new Presentation("sample.pptx"))
 {
-    IAutoShape autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
-    autoShape.TextFrame.Paragraphs.Clear();
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    Paragraph para = new Paragraph();
+    // 为整个段落设置高亮颜色。
+    paragraph.ParagraphFormat.DefaultPortionFormat.HighlightColor.Color = Color.LightGray;
 
-    var portion1 = new Portion("Black");
-    portion1.PortionFormat.FontBold = NullableBool.True;
-    
-    var portion2 = new Portion(" Red ");
-    
-    var portion3 = new Portion("Black");
-    portion3.PortionFormat.FontBold = NullableBool.True;
-    
-    para.Portions.Add(portion1);
-    para.Portions.Add(portion2);
-    para.Portions.Add(portion3);
-    autoShape.TextFrame.Paragraphs.Add(para);
-    
-    pres.Save("text.pptx", SaveFormat.Pptx);
+    presentation.Save("gray_paragraph.pptx", SaveFormat.Pptx);
 }
+```
 
-using (Presentation pres = new Presentation("text.pptx"))
+
+结果：
+
+![灰色段落](gray_paragraph.png)
+
+下面的代码示例演示如何为 **加粗字体的文本片段** 设置背景颜色：
+```cs
+using (var presentation = new Presentation("sample.pptx"))
 {
-    var autoShape = (IAutoShape)pres.Slides[0].Shapes[0];
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    foreach (IPortion portion in autoShape.TextFrame.Paragraphs[0].Portions)
+    foreach (var portion in paragraph.Portions)
     {
-        portion.PortionFormat.HighlightColor.Color = Color.Blue;
+        if (portion.PortionFormat.GetEffective().FontBold)
+        {
+            // 设置文本片段的高亮颜色。
+            portion.PortionFormat.HighlightColor.Color = Color.LightGray;
+        }
     }
 
-    pres.Save("text-red.pptx", SaveFormat.Pptx);
+    presentation.Save("gray_text_portions.pptx", SaveFormat.Pptx);
 }
 ```
 
-此 C# 代码显示您如何仅为部分文本设置背景颜色：
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IAutoShape autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
-    autoShape.TextFrame.Paragraphs.Clear();
+结果：
 
-    Paragraph para = new Paragraph();
-
-    var portion1 = new Portion("Black");
-    portion1.PortionFormat.FontBold = NullableBool.True;
-    
-    var portion2 = new Portion(" Red ");
-    
-    var portion3 = new Portion("Black");
-    portion3.PortionFormat.FontBold = NullableBool.True;
-    
-    para.Portions.Add(portion1);
-    para.Portions.Add(portion2);
-    para.Portions.Add(portion3);
-    autoShape.TextFrame.Paragraphs.Add(para);
-    
-    pres.Save("text.pptx", SaveFormat.Pptx);
-}
-
-using (Presentation pres = new Presentation("text.pptx"))
-{
-    var autoShape = (IAutoShape)pres.Slides[0].Shapes[0];
-
-    IPortion redPortion = autoShape.TextFrame.Paragraphs[0].Portions
-        .First(p => p.Text.Contains("Red"));
-
-    redPortion.PortionFormat.HighlightColor.Color = Color.Red;
-    
-    pres.Save("text-red.pptx", SaveFormat.Pptx);
-}
-```
+![灰色文本片段](gray_text_portions.png)
 
 ## **对齐文本段落**
 
-文本格式化是创建任何类型文档或演示文稿的关键元素之一。我们知道 Aspose.Slides for .NET 支持向幻灯片中添加文本，但在本主题中，我们将看到如何控制幻灯片中文本段落的对齐。请按照以下步骤使用 Aspose.Slides for .NET 对齐文本段落：
+文本对齐是幻灯片格式化的关键因素，影响可读性和视觉美感。在 Aspose.Slides for .NET 中，您可以精确控制文本框内段落的对齐方式，确保内容始终以居中、左对齐、右对齐或两端对齐的形式呈现。本节说明如何在 PowerPoint 演示文稿中应用和自定义文本对齐。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-2. 使用其索引获取幻灯片的引用。
-3. 访问幻灯片中存在的占位符形状，并将其类型转换为 AutoShape。
-4. 从 AutoShape 暴露的 TextFrame 中获取（需要对齐的）段落。
-5. 对齐段落。段落可以对齐到右边、左边、居中和两端对齐。
-6. 将修改后的演示文稿写入 PPTX 文件。
-
-以上步骤的实现如下。
-
-```c#
-// 实例化表示 PPTX 文件的 Presentation 对象
-using (Presentation pres = new Presentation("ParagraphsAlignment.pptx"))
+以下代码示例展示如何将段落对齐至 **居中**：
+```cs
+using (var presentation = new Presentation("sample.pptx"))
 {
-
-    // 访问第一张幻灯片
-    ISlide slide = pres.Slides[0];
-
-    // 访问幻灯片中的第一个和第二个占位符并将其类型转换为 AutoShape
-    ITextFrame tf1 = ((IAutoShape)slide.Shapes[0]).TextFrame;
-    ITextFrame tf2 = ((IAutoShape)slide.Shapes[1]).TextFrame;
-
-    // 更改两个占位符中的文本
-    tf1.Text = "根据 Aspose 居中对齐";
-    tf2.Text = "根据 Aspose 居中对齐";
-
-    // 获取占位符的第一个段落
-    IParagraph para1 = tf1.Paragraphs[0];
-    IParagraph para2 = tf2.Paragraphs[0];
-
-    // 将文本段落对齐到中心
-    para1.ParagraphFormat.Alignment = TextAlignment.Center;
-    para2.ParagraphFormat.Alignment = TextAlignment.Center;
-
-    // 将演示文稿写入 PPTX 文件
-    pres.Save("Centeralign_out.pptx", SaveFormat.Pptx);
-}
-```
-
-
-## **设置文本透明度**
-本文演示如何使用 Aspose.Slides for .NET 为任何文本形状设置透明度属性。为文本设置透明度，请按照以下步骤操作：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-2. 获取幻灯片的引用。
-3. 设置阴影颜色。
-4. 将演示文稿写入 PPTX 文件。
-
-以上步骤的实现如下。
-
-```c#
-using (Presentation pres = new Presentation("transparency.pptx"))
-{
-    IAutoShape shape = (IAutoShape)pres.Slides[0].Shapes[0];
-    IEffectFormat effects = shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.EffectFormat;
-
-    IOuterShadow outerShadowEffect = effects.OuterShadowEffect;
-
-    Color shadowColor = outerShadowEffect.ShadowColor.Color;
-    Console.WriteLine($"{shadowColor} - 透明度为: {((float)shadowColor.A / byte.MaxValue) * 100}");
-
-    // 将透明度设置为零百分比
-    outerShadowEffect.ShadowColor.Color = Color.FromArgb(255, shadowColor);
-
-    pres.Save("transparency-2.pptx", SaveFormat.Pptx);
-}
-```
-
-## **设置文本的字符间距**
-
-Aspose.Slides 允许您设置文本框中字母之间的间距。通过这种方式，您可以通过扩展或压缩字符之间的间距来调整文本行或块的视觉密度。
-
-以下 C# 代码展示了如何扩展一行文本的间距并收缩另一行文本的间距：
-
-```c#
-var presentation = new Presentation("in.pptx");
-
-var textBox1 = (IAutoShape) presentation.Slides[0].Shapes[0];
-var textBox2 = (IAutoShape) presentation.Slides[0].Shapes[1];
-
-textBox1.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.Spacing = 20; // 扩展
-textBox2.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.Spacing = -2; // 收缩
-
-presentation.Save("out.pptx", SaveFormat.Pptx);
-```
-
-## **管理段落的字体属性**
-
-演示文稿通常包含文本和图像。文本可以以多种方式格式化，无论是为了突出特定部分和单词，还是符合企业风格。文本格式化有助于用户改变演示文稿内容的外观和感觉。本文展示了如何使用 Aspose.Slides for .NET 配置幻灯片上文本段落的字体属性。要使用 Aspose.Slides for .NET 管理段落的字体属性：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-2. 使用其索引获取幻灯片的引用。
-3. 访问幻灯片中的占位符形状并将其类型转换为 AutoShape。
-4. 从 AutoShape 暴露的 TextFrame 中获取段落。
-5. 对段落进行对齐。
-6. 访问段落的文本部分。
-7. 使用 FontData 定义字体，并相应地设置文本部分的字体。
-   1. 将字体设置为粗体。
-   1. 将字体设置为斜体。
-8. 使用部分对象暴露的 FillFormat 设置字体颜色。
-9. 将修改后的演示文稿写入 [PPTX](https://docs.fileformat.com/presentation/pptx/) 文件。
-
-以上步骤的实现如下。它使用一个未装饰的演示文稿并对其中一张幻灯片的字体进行格式化。
-
-```c#
-// 实例化表示 PPTX 文件的 Presentation 对象
-using (Presentation pres = new Presentation("FontProperties.pptx"))
-{
-
-    // 通过其幻灯片位置访问幻灯片
-    ISlide slide = pres.Slides[0];
-
-    // 访问幻灯片中的第一个和第二个占位符并将其类型转换为 AutoShape
-    ITextFrame tf1 = ((IAutoShape)slide.Shapes[0]).TextFrame;
-    ITextFrame tf2 = ((IAutoShape)slide.Shapes[1]).TextFrame;
-
-    // 访问第一个段落
-    IParagraph para1 = tf1.Paragraphs[0];
-    IParagraph para2 = tf2.Paragraphs[0];
-
-    // 访问第一个部分
-    IPortion port1 = para1.Portions[0];
-    IPortion port2 = para2.Portions[0];
-
-    // 定义新字体
-    FontData fd1 = new FontData("Elephant");
-    FontData fd2 = new FontData("Castellar");
-
-    // 将新字体分配给部分
-    port1.PortionFormat.LatinFont = fd1;
-    port2.PortionFormat.LatinFont = fd2;
-
-    // 设置字体为粗体
-    port1.PortionFormat.FontBold = NullableBool.True;
-    port2.PortionFormat.FontBold = NullableBool.True;
-
-    // 设置字体为斜体
-    port1.PortionFormat.FontItalic = NullableBool.True;
-    port2.PortionFormat.FontItalic = NullableBool.True;
-
-    // 设置字体颜色
-    port1.PortionFormat.FillFormat.FillType = FillType.Solid;
-    port1.PortionFormat.FillFormat.SolidFillColor.Color = Color.Purple;
-    port2.PortionFormat.FillFormat.FillType = FillType.Solid;
-    port2.PortionFormat.FillFormat.SolidFillColor.Color = Color.Peru;
-
-    //将 PPTX 保存到磁盘
-    pres.Save("WelcomeFont_out.pptx", SaveFormat.Pptx);
-}
-```
-
-
-## **管理文本的字体家族**
-部分用于在段落中保存具有相似格式样式的文本。本文展示了如何使用 Aspose.Slides for .NET 创建一个包含一些文本的文本框，然后定义特定的字体和字体家族类别的各种其他属性。要创建文本框并设置其中文本的字体属性：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-2. 使用其索引获取幻灯片的引用。
-3. 向幻灯片添加类型为矩形的 AutoShape。
-4. 移除与 AutoShape 关联的填充样式。
-5. 访问 AutoShape 的 TextFrame。
-6. 向 TextFrame 添加一些文本。
-7. 访问与 TextFrame 关联的 Portion 对象。
-8. 定义用于 Portion 的字体。
-9. 使用 Portion 对象暴露的相关属性设置其他字体属性，例如粗体、斜体、下划线、颜色和高度。
-10. 将修改后的演示文稿写入 PPTX 文件。
-
-以下是上述步骤的实现。
-
-```c#
-// 实例化 Presentation
-using (Presentation presentation = new Presentation())
-{
-   
-    // 获取第一张幻灯片
-    ISlide sld = presentation.Slides[0];
-
-    // 添加类型为矩形的 AutoShape
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
-
-    // 移除与 AutoShape 关联的任何填充样式
-    ashp.FillFormat.FillType = FillType.NoFill;
-
-    // 访问与 AutoShape 关联的 TextFrame
-    ITextFrame tf = ashp.TextFrame;
-    tf.Text = "Aspose 文本框";
-
-    // 访问与 TextFrame 关联的 Portion
-    IPortion port = tf.Paragraphs[0].Portions[0];
-
-    // 设置 Portion 的字体
-    port.PortionFormat.LatinFont = new FontData("Times New Roman");
-
-    // 设置字体的粗体属性
-    port.PortionFormat.FontBold = NullableBool.True;
-
-    // 设置字体的斜体属性
-    port.PortionFormat.FontItalic = NullableBool.True;
-
-    // 设置字体的下划线属性
-    port.PortionFormat.FontUnderline = TextUnderlineType.Single;
-
-    // 设置字体的高度
-    port.PortionFormat.FontHeight = 25;
-
-    // 设置字体的颜色
-    port.PortionFormat.FillFormat.FillType = FillType.Solid;
-    port.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-
-    // 保存 PPTX 到磁盘 
-    presentation.Save("SetTextFontProperties_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **设置文本的字体大小**
-
-Aspose.Slides 允许您为段落中的现有文本及将来可能添加的其他文本选择自己偏好的字体大小。
-
-以下 C# 代码展示了如何为包含在段落中的文本设置字体大小：
-
-```c#
-var presentation = new Presentation("example.pptx");
-
-// 获取第一个形状，例如。
-var shape = presentation.Slides[0].Shapes[0];
-
-if (shape is IAutoShape autoShape)
-{
-    // 获取第一个段落，例如。
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // 将所有文本部分的默认字体大小设置为 20 磅。 
-    paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 20;
+    // 将段落对齐方式设置为居中。
+    paragraph.ParagraphFormat.Alignment = TextAlignment.Center;
 
-    // 将当前段落中的文本部分的字体大小设置为 20 磅。
+    presentation.Save("aligned_paragraph.pptx", SaveFormat.Pptx);
+}
+```
+
+
+结果：
+
+![对齐的段落](aligned_paragraph.png)
+
+## **设置文本透明度**
+
+调整文本透明度可创建细腻的视觉效果并提升幻灯片美感。Aspose.Slides for .NET 提供了为段落和文本片段设置透明度级别的功能，便于将文本与背景融合或强调特定元素。本节展示如何在演示文稿中为文本应用透明度设置。
+
+下面的代码示例演示如何为 **整个段落** 设置透明度：
+```cs
+int alpha = 50;
+
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+    // 设置文本的填充颜色为透明颜色。
+    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
+
+    presentation.Save("transparent_paragraph.pptx", SaveFormat.Pptx);
+}
+```
+
+
+结果：
+
+![透明段落](transparent_paragraph.png)
+
+以下代码示例演示如何为 **加粗字体的文本片段** 设置透明度：
+```cs
+int alpha = 50;
+
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
+
     foreach (var portion in paragraph.Portions)
     {
-        portion.PortionFormat.FontHeight = 20;
+        if (portion.PortionFormat.GetEffective().FontBold)
+        {
+            // 设置文本片段的透明度。
+            portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+            portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
+        }
     }
-}
 
-presentation.Save("output.pptx", SaveFormat.Pptx);
+    presentation.Save("transparent_text_portions.pptx", SaveFormat.Pptx);
+}
 ```
+
+
+结果：
+
+![透明文本片段](transparent_text_portions.png)
+
+## **设置文本字符间距**
+
+Aspose.Slides 允许您设置文本框中字母之间的间距。通过扩展或压缩字符间距，可调节行或文本块的视觉密度。
+
+以下 C# 代码展示如何在 **整个段落** 中扩大字符间距：
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+    // 注意：使用负值来压缩字符间距。
+    paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // 扩展字符间距。
+
+    presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
+}
+```
+
+
+结果：
+
+![段落中的字符间距](character_spacing_in_paragraph.png)
+
+下面的代码示例展示如何在 **加粗字体的文本片段** 中扩大字符间距：
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+    foreach (var portion in paragraph.Portions)
+    {
+        if (portion.PortionFormat.GetEffective().FontBold)
+        {
+            // 注意：使用负值来压缩字符间距。
+            portion.PortionFormat.Spacing = 3;  // 扩展字符间距。
+        }
+    }
+
+    presentation.Save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx);
+}
+```
+
+
+结果：
+
+![文本片段中的字符间距](character_spacing_in_text_portions.png)
+
+## **管理文本字体属性**
+
+Aspose.Slides for .NET 允许您在段落级别和单个文本片段级别细致地调整字体设置，确保视觉一致性并满足演示文稿的设计需求。您可以为整个段落定义字体样式、大小及其他格式选项，从而对文本外观拥有更大的控制权。本节演示如何在幻灯片中管理文本段落的字体属性。
+
+以下代码为整个段落设置字体和文本样式：包括字体大小、粗体、斜体、点状下划线以及 Times New Roman 字体，适用于段落中的所有片段。
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+    // 为段落设置字体属性。
+    paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 12;
+    paragraph.ParagraphFormat.DefaultPortionFormat.FontBold = NullableBool.True;
+    paragraph.ParagraphFormat.DefaultPortionFormat.FontItalic = NullableBool.True;
+    paragraph.ParagraphFormat.DefaultPortionFormat.FontUnderline = TextUnderlineType.Dotted;
+    paragraph.ParagraphFormat.DefaultPortionFormat.LatinFont = new FontData("Times New Roman");
+
+    presentation.Save("font_properties_for_paragraph.pptx", SaveFormat.Pptx);
+}
+```
+
+
+结果：
+
+![段落的字体属性](font_properties_for_paragraph.png)
+
+下面的代码示例将相同属性应用于 **加粗字体的文本片段**：
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+    foreach (var portion in paragraph.Portions)
+    {
+        if (portion.PortionFormat.GetEffective().FontBold)
+        {
+            // 为文本片段设置字体属性。
+            portion.PortionFormat.FontHeight = 13;
+            portion.PortionFormat.FontItalic = NullableBool.True;
+            portion.PortionFormat.FontUnderline = TextUnderlineType.Dotted;
+            portion.PortionFormat.LatinFont = new FontData("Times New Roman");
+        }
+    }
+
+    presentation.Save("font_properties_for_text_portions.pptx", SaveFormat.Pptx);
+}
+```
+
+
+结果：
+
+![文本片段的字体属性](font_properties_for_text_portions.png)
 
 ## **设置文本旋转**
 
-Aspose.Slides for .NET 允许开发人员旋转文本。文本可以设置为水平、垂直、垂直270、WordArt垂直、东亚垂直、蒙古垂直或从左到右的WordArt 垂直。要旋转任何 TextFrame 的文本，请按照以下步骤操作：
+旋转文本可以优化幻灯片布局并强调特定内容。使用 Aspose.Slides for .NET，您可以轻松为形状内的文本设置旋转角度，以匹配设计需求。本节演示如何设置和控制文本旋转，以实现所需的视觉效果。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-2. 访问第一张幻灯片。
-3. 向幻灯片添加任意形状。
-4. 访问 TextFrame。
-5. 旋转文本。
-6. 将文件保存到磁盘。
+以下代码示例将形状中文本的方向设置为 `Vertical270`，使文本 **逆时针旋转 90 度**：
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-```c#
-// 创建 Presentation 类的实例
-Presentation presentation = new Presentation();
+    autoShape.TextFrame.TextFrameFormat.TextVerticalType = TextVerticalType.Vertical270;
 
-// 获取第一张幻灯片 
-ISlide slide = presentation.Slides[0];
-
-// 添加类型为矩形的 AutoShape
-IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
-
-// 向矩形添加 TextFrame
-ashp.AddTextFrame(" ");
-ashp.FillFormat.FillType = FillType.NoFill;
-
-// 访问文本框
-ITextFrame txtFrame = ashp.TextFrame;
-txtFrame.TextFrameFormat.TextVerticalType = TextVerticalType.Vertical270;
-
-// 为文本框创建段落对象
-IParagraph para = txtFrame.Paragraphs[0];
-
-// 为段落创建部分对象
-IPortion portion = para.Portions[0];
-portion.Text = "一只快速的棕色狐狸跳过懒狗。一只快速的棕色狐狸跳过懒狗。";
-portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-
-// 保存演示文稿
-presentation.Save("RotateText_out.pptx", SaveFormat.Pptx);
+    presentation.Save("text_rotation.pptx", SaveFormat.Pptx);
+}
 ```
 
 
-## **设置文本框的自定义旋转角度**
-Aspose.Slides for .NET 现在支持设置文本框的自定义旋转角度。在本主题中，我们将看到如何在 Aspose.Slides 中设置 RotationAngle 属性。新的 RotationAngle 属性已添加到 IChartTextBlockFormat 和 ITextFrameFormat 接口中，允许设置文本框的自定义旋转角度。要设置 RotationAngle 属性，请按照以下步骤操作：
+结果：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-2. 在幻灯片上添加一个图表。
-3. 设置 RotationAngle 属性。
-4. 将演示文稿写入 PPTX 文件。
+![文本旋转](text_rotation.png)
 
-在以下示例中，我们设置 RotationAngle 属性。
+## **为文本框设置自定义旋转**
 
-```c#
-// 创建 Presentation 类的实例
-Presentation presentation = new Presentation();
+为 `TextFrame` 设置自定义旋转角度，可让您以精确角度定位文本，从而实现更具创意和灵活性的幻灯片设计。Aspose.Slides for .NET 完全控制文本框的旋转，便于将文本与其他幻灯片元素对齐。本节指导您如何为 `TextFrame` 应用特定旋转角度。
 
-IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+下面的代码示例在形状内将文本框顺时针旋转 3 度：
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-IChartSeries series = chart.ChartData.Series[0];
+    autoShape.TextFrame.TextFrameFormat.RotationAngle = 3;
 
-series.Labels.DefaultDataLabelFormat.ShowValue = true;
-series.Labels.DefaultDataLabelFormat.TextFormat.TextBlockFormat.RotationAngle = 65;
-
-chart.HasTitle = true;
-chart.ChartTitle.AddTextFrameForOverriding("自定义标题").TextFrameFormat.RotationAngle = -30;
-
-// 保存演示文稿
-presentation.Save("textframe-rotation_out.pptx", SaveFormat.Pptx);
+    presentation.Save("custom_text_rotation.pptx", SaveFormat.Pptx);
+}
 ```
 
 
-## **段落的行间距**
-Aspose.Slides 提供了属性 ([SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/spaceafter), [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/spacebefore) 和 [SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/spacewithin)) 在 [ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/) 类下，允许您管理段落的行间距。这三个属性的用法如下：
+结果：
 
-* 要以百分比指定段落的行间距，请使用正值。 
-* 要以点数指定段落的行间距，请使用负值。
+![自定义文本旋转](custom_text_rotation.png)
 
-例如，您可以通过将 `SpaceBefore` 属性设置为 -16 来为段落应用 16 磅的行间距。
+## **设置段落行间距**
 
-以下是如何为特定段落指定行间距：
+Aspose.Slides 在 [ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/) 类下提供 `SpaceAfter`、`SpaceBefore` 和 `SpaceWithin` 属性，可用于管理段落的行间距。这些属性的使用方式如下：
 
-1. 加载一个包含某些文本的 AutoShape 的演示文稿。
-2. 通过其索引获取幻灯片的引用。
-3. 访问 TextFrame。
-4. 访问段落。
-5. 设置段落属性。
-6. 保存演示文稿。
+* 使用正值指定行间距为行高的百分比。  
+* 使用负值指定行间距的磅值。
 
-以下 C# 代码展示了如何为段落指定行间距：
+以下代码示例展示如何在段落内部指定行间距：
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-```c#
-// 创建 Presentation 类的实例
-Presentation presentation = new Presentation("Fonts.pptx");
+    paragraph.ParagraphFormat.SpaceWithin = 200;
 
-// 通过其索引获取幻灯片的引用
-ISlide sld = presentation.Slides[0];
-
-// 访问 TextFrame
-ITextFrame tf1 = ((IAutoShape)sld.Shapes[0]).TextFrame;
-
-// 访问段落
-IParagraph para1 = tf1.Paragraphs[0];
-
-// 设置段落的属性
-para1.ParagraphFormat.SpaceWithin = 80;
-para1.ParagraphFormat.SpaceBefore = 40;
-para1.ParagraphFormat.SpaceAfter = 40;
-// 保存演示文稿
-presentation.Save("LineSpacing_out.pptx", SaveFormat.Pptx);
+    presentation.Save("line_spacing.pptx", SaveFormat.Pptx);
+}
 ```
 
 
-## **设置文本框的 AutofitType 属性**
-在本主题中，我们将探索文本框的不同格式属性。本文涵盖如何设置文本框的 AutofitType 属性、文本的锚点以及在演示文稿中旋转文本。Aspose.Slides for .NET 允许开发人员为任何文本框设置 AutofitType 属性。AutofitType 可以设置为 Normal 或 Shape。如果设置为 Normal，则形状将保持不变，而文本将进行调整而不导致形状发生变化；如果 AutofitType 设置为 Shape，则形状将被修改，以便仅包含所需的文本。要设置文本框的 AutofitType 属性，请按照以下步骤操作：
+结果：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-2. 访问第一张幻灯片。
-3. 向幻灯片添加任意形状。
-4. 访问 TextFrame。
-5. 设置 TextFrame 的 AutofitType。
-6. 将文件保存到磁盘。
+![段落内部的行间距](line_spacing.png)
 
-```c#
-// 创建 Presentation 类的实例
-Presentation presentation = new Presentation();
+## **为文本框设置 AutoFit 类型**
 
-// 访问第一张幻灯片 
-ISlide slide = presentation.Slides[0];
+AutoFitType 属性决定当文本超出容器边界时的行为。Aspose.Slides for .NET 允许您控制文本是收缩以适应、溢出还是自动调整形状大小。本节演示如何为 `TextFrame` 设置 `AutofitType`，以在形状内有效管理文本布局。
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-// 添加类型为矩形的 AutoShape
-IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
+    autoShape.TextFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
 
-// 向矩形添加 TextFrame
-ashp.AddTextFrame(" ");
-ashp.FillFormat.FillType = FillType.NoFill;
-
-// 访问文本框
-ITextFrame txtFrame = ashp.TextFrame;
-txtFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
-
-// 为文本框创建段落对象
-IParagraph para = txtFrame.Paragraphs[0];
-
-// 为段落创建部分对象
-IPortion portion = para.Portions[0];
-portion.Text = "一只快速的棕色狐狸跳过懒狗。一只快速的棕色狐狸跳过懒狗。";
-portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-
-// 保存演示文稿
-presentation.Save("formatText_out.pptx", SaveFormat.Pptx); 
+    presentation.Save("autofit_type.pptx", SaveFormat.Pptx);
+}
 ```
 
 
-## **设置文本框的锚点**
-Aspose.Slides for .NET 允许开发人员设置任何 TextFrame 的锚点。TextAnchorType 指定文本在形状中的位置。TextAnchorType 可以设置为顶部、中间、底部、两端对齐或均匀分布。要设置任何 TextFrame 的锚点，请按照以下步骤操作：
+## **设置文本框锚点**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-2. 访问第一张幻灯片。
-3. 向幻灯片添加任意形状。
-4. 访问 TextFrame。
-5. 设置 TextAnchorType 的 TextFrame。
-6. 将文件保存到磁盘。
+锚点定义文本在形状内部的垂直位置。使用 Aspose.Slides for .NET，您可以为 `TextFrame` 设置锚点类型，以将文本对齐到形状的顶部、居中或底部。本节展示如何调整锚点设置，以实现所需的文本垂直对齐。
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-```c#
-// 创建 Presentation 类的实例
-Presentation presentation = new Presentation();
+    autoShape.TextFrame.TextFrameFormat.AnchoringType = TextAnchorType.Bottom;
 
-// 获取第一张幻灯片 
-ISlide slide = presentation.Slides[0];
-
-// 添加类型为矩形的 AutoShape
-IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
-
-// 向矩形添加 TextFrame
-ashp.AddTextFrame(" ");
-ashp.FillFormat.FillType = FillType.NoFill;
-
-// 访问文本框
-ITextFrame txtFrame = ashp.TextFrame;
-txtFrame.TextFrameFormat.AnchoringType = TextAnchorType.Bottom;
-
-// 为文本框创建段落对象
-IParagraph para = txtFrame.Paragraphs[0];
-
-// 为段落创建部分对象
-IPortion portion = para.Portions[0];
-portion.Text = "一只快速的棕色狐狸跳过懒狗。一只快速的棕色狐狸跳过懒狗。";
-portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-
-// 保存演示文稿
-presentation.Save("AnchorText_out.pptx", SaveFormat.Pptx);
+    presentation.Save("text_anchor.pptx", SaveFormat.Pptx);
+}
 ```
 
-## **设置文本制表符**
-- EffectiveTabs.ExplicitTabCount (在本例中为 2) 属性等于 Tabs.Count。
-- EffectiveTabs 集合包括所有制表符（来自 Tabs 集合和默认制表符）。
-- EffectiveTabs.ExplicitTabCount (在本例中为 2) 属性等于 Tabs.Count。
-- EffectiveTabs.DefaultTabSize (294) 属性显示了默认制表符之间的距离（在我们的示例中为 3 和 4）。
-- 使用 EffectiveTabs.GetTabByIndex(index) 和 index = 0 将返回第一个显式制表符（Position = 731），index = 1 - 第二个制表符（Position = 1241）。如果尝试使用 index = 2 获取下一个制表符，则它将返回第一个默认制表符（Position = 1470）等等。
-- 使用 EffectiveTabs.GetTabAfterPosition(pos) 用于在某些文本后获取下一个制表符。例如您有文本：“Helloworld！”。为了渲染这样的文本，您需要知道在哪里开始绘制“world！”。首先，您应该计算“Hello”的像素长度，随后调用 GetTabAfterPosition，传入这个值。您将获得下一个制表符的位置来绘制“world！”。
+
+## **设置文本制表位**
+
+制表位帮助通过在内容元素之间添加一致的间距，将文本组织成结构化布局。Aspose.Slides for .NET 支持在文本段落中设置自定义制表位，实现对文本定位的精确控制。本节演示如何配置文本制表位，以获得更好的对齐和格式化效果。
+```cs
+using (var presentation = new Presentation("sample.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
+
+    paragraph.ParagraphFormat.DefaultTabSize = 100;
+    paragraph.ParagraphFormat.Tabs.Add(30, TabAlignment.Left);
+
+    presentation.Save("paragraph_tabs.pptx", SaveFormat.Pptx);
+}
+```
+
+
+结果：
+
+![段落制表位](paragraph_tabs.png)
 
 ## **设置校对语言**
 
-Aspose.Slides 提供了 [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) 属性（由 [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) 类暴露），允许您为 PowerPoint 文档设置校对语言。校对语言是检查 PowerPoint 中拼写和语法的语言。
+Aspose.Slides 在 [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) 类中提供 `LanguageId` 属性，允许您为 PowerPoint 文档设置校对语言。校对语言决定 PowerPoint 中拼写和语法检查使用的语言。
 
-以下 C# 代码展示了如何设置 PowerPoint 的校对语言：
-
-```c#
-using (Presentation pres = new Presentation(pptxFileName))
+以下代码示例展示如何为文本片段设置校对语言：
+```cs
+using (var presentation = new Presentation("presentation.pptx"))
 {
-    AutoShape autoShape = (AutoShape)pres.Slides[0].Shapes[0];
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-    IParagraph paragraph = autoShape.TextFrame.Paragraphs[0];
+    var paragraph = autoShape.TextFrame.Paragraphs[0];
     paragraph.Portions.Clear();
 
-    Portion newPortion = new Portion();
+    var font = new FontData("SimSun");
 
-    IFontData font = new FontData("SimSun");
-    IPortionFormat portionFormat = newPortion.PortionFormat;
-    portionFormat.ComplexScriptFont = font;
-    portionFormat.EastAsianFont = font;
-    portionFormat.LatinFont = font;
+    var textPortion = new Portion();
+    textPortion.PortionFormat.ComplexScriptFont = font;
+    textPortion.PortionFormat.EastAsianFont = font;
+    textPortion.PortionFormat.LatinFont = font;
 
-    portionFormat.LanguageId = "zh-CN"; // 设置校对语言的 Id
-    
-    newPortion.Text = "1。";
-    paragraph.Portions.Add(newPortion);
+    // 设置校对语言的 Id。
+    textPortion.PortionFormat.LanguageId = "zh-CN";
+
+    textPortion.Text = "1。";
+    paragraph.Portions.Add(textPortion);
+
+    presentation.Save("proofing_language.pptx", SaveFormat.Pptx);
 }
 ```
+
 
 ## **设置默认语言**
 
-以下 C# 代码展示了如何为整个 PowerPoint 演示文稿设置默认语言：
-
-```c#
-LoadOptions loadOptions = new LoadOptions();
+为文本指定默认语言可确保 PowerPoint 中的拼写检查、断字和文本转语音功能的正确性。Aspose.Slides for .NET 允许您在文本片段或段落级别设置语言。本节展示如何为演示文稿文本定义默认语言。
+```cs
+var loadOptions = new LoadOptions();
 loadOptions.DefaultTextLanguage = "en-US";
-using (Presentation pres = new Presentation(loadOptions))
+
+using (var presentation = new Presentation(loadOptions))
 {
-    // 添加一个带文本的新矩形形状
-    IAutoShape shp = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
-    shp.TextFrame.Text = "新文本";
-    
-    // 检查第一个部分的语言
-    Console.WriteLine(shp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LanguageId);
+    var slide = presentation.Slides[0];
+
+    // 添加一个带文本的新矩形形状。
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
+    shape.TextFrame.Text = "Sample text";
+
+    // 检查第一个文本片段的语言。
+    var portion = shape.TextFrame.Paragraphs[0].Portions[0];
+    Console.WriteLine(portion.PortionFormat.LanguageId);
 }
 ```
 
+
 ## **设置默认文本样式**
 
-如果您需要将相同的默认文本格式应用于演示文稿中的所有文本元素，可以使用 [IPresentation](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/) 接口中的 `DefaultTextStyle` 属性并设置首选格式。以下代码示例显示如何在新的演示文稿中为所有幻灯片上的文本设置默认粗体字体（14 磅）。
+如果需要一次性为演示文稿中的所有文本元素应用相同的默认文本格式，可使用 [IPresentation](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/) 接口的 `DefaultTextStyle` 属性并定义所需的格式。
 
-```c#
-using (Presentation presentation = new Presentation())
+以下代码示例展示如何在新演示文稿中为所有幻灯片的文本设置 14 磅、粗体的默认字体。
+```cs
+using (var presentation = new Presentation())
 {
-    // 获取顶级段落格式。
-    IParagraphFormat paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
+    // 获取顶层段落格式。
+    var paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
 
     if (paragraphFormat != null)
     {
@@ -666,6 +521,51 @@ using (Presentation presentation = new Presentation())
         paragraphFormat.DefaultPortionFormat.FontBold = NullableBool.True;
     }
 
-    presentation.Save("DefaultTextStyle.pptx", SaveFormat.Pptx);
+    presentation.Save("default_text_style.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **提取带全大写效果的文本**
+
+在 PowerPoint 中，应用 **All Caps** 字体效果会使文本在幻灯片上显示为大写，即使原始输入为小写。当使用 Aspose.Slides 检索此类文本片段时，库会返回原始输入的文本。为处理此情况，请检查 [TextCapType](https://reference.aspose.com/slides/net/aspose.slides/textcaptype/)——如果返回 `All`，只需将返回的字符串转换为大写，以使输出与幻灯片上显示的内容一致。
+
+假设在 sample2.pptx 文件的第一张幻灯片上有如下文本框：
+
+![全大写效果](all_caps_effect.png)
+
+下面的代码示例展示如何提取带 **All Caps** 效果的文本：
+```cs
+using (var presentation = new Presentation("sample2.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var textPortion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+
+    Console.WriteLine($"Original text: {textPortion.Text}");
+
+    var textFormat = textPortion.PortionFormat.GetEffective();
+    if (textFormat.TextCapType == TextCapType.All)
+    {
+        var text = textPortion.Text.ToUpper();
+        Console.WriteLine($"All-Caps effect: {text}");
+    }
+}
+```
+
+
+输出：
+```text
+Original text: Hello, Aspose!
+All-Caps effect: HELLO, ASPOSE!
+```
+
+
+## **常见问题**
+
+**如何修改幻灯片中表格的文本？**
+
+要修改幻灯片中表格的文本，需要使用 [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) 对象。您可以遍历表格中的所有单元格，通过访问每个单元格的 `TextFrame` 和 `ParagraphFormat` 属性来更改其中的文本。
+
+**如何为 PowerPoint 幻灯片中的文本应用渐变色？**
+
+要为文本应用渐变色，请在 [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) 中使用 `FillFormat` 属性。将 `FillFormat` 设置为 `Gradient`，并定义渐变的起止颜色以及方向、透明度等其他属性，以在文本上创建渐变效果。

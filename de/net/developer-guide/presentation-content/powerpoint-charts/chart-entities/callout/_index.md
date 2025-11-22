@@ -2,13 +2,12 @@
 title: Callout
 type: docs
 url: /de/net/callout/
-keywords: "Chart Callout, Diagrammdatenelement, C#, Csharp, Aspose.Slides für .NET"
+keywords: "Diagramm-Callout, Diagramm-Datenbeschriftung, C#, Csharp, Aspose.Slides für .NET"
 description: "PowerPoint-Diagramm-Callouts und Datenbeschriftungen in C# oder .NET"
 ---
 
 ## **Verwendung von Callouts**
-Eine neue Eigenschaft **ShowLabelAsDataCallout** wurde zur Klasse **DataLabelFormat** und zum Interface **IDataLabelFormat** hinzugefügt, die bestimmt, ob die angegebene Datenbeschriftung des Diagramms als Daten-Callout oder als Datenbeschriftung angezeigt wird. Im folgenden Beispiel haben wir die Callouts gesetzt.
-
+Die neue Eigenschaft **ShowLabelAsDataCallout** wurde zur Klasse **DataLabelFormat** und zur Schnittstelle **IDataLabelFormat** hinzugefügt. Sie bestimmt, ob das Datenetikett des angegebenen Diagramms als Daten‑Callout oder als Datenetikett angezeigt wird. Im nachfolgenden Beispiel haben wir die Callouts festgelegt.
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -21,9 +20,8 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **Callout für Donut-Diagramm setzen**
-Aspose.Slides für .NET bietet Unterstützung beim Festlegen der Form von Datenbeschriftungs-Callouts für ein Donut-Diagramm. Unten wird ein Beispiel gegeben.
-
+## **Callout für Donut‑Diagramm festlegen**
+Aspose.Slides für .NET bietet Unterstützung für das Festlegen der Callout‑Form des Serien‑Datenetiketts für ein Donut‑Diagramm. Im Folgenden finden Sie ein Beispiel.
 ```c#
 Presentation pres = new Presentation("testc.pptx");
 ISlide slide = pres.Slides[0];
@@ -35,7 +33,7 @@ chart.HasLegend = false;
 int seriesIndex = 0;
 while (seriesIndex < 15)
 {
-	IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, seriesIndex + 1, "SERIE " + seriesIndex), chart.Type);
+	IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, seriesIndex + 1, "SERIES " + seriesIndex), chart.Type);
 	series.Explosion = 0;
 	series.ParentSeriesGroup.DoughnutHoleSize = (byte)20;
 	series.ParentSeriesGroup.FirstSliceAngle = 351;
@@ -44,7 +42,7 @@ while (seriesIndex < 15)
 int categoryIndex = 0;
 while (categoryIndex < 15)
 {
-	chart.ChartData.Categories.Add(workBook.GetCell(0, categoryIndex + 1, 0, "KATEGORIE " + categoryIndex));
+	chart.ChartData.Categories.Add(workBook.GetCell(0, categoryIndex + 1, 0, "CATEGORY " + categoryIndex));
 	int i = 0;
 	while (i < chart.ChartData.Series.Count)
 	{
@@ -82,3 +80,14 @@ while (categoryIndex < 15)
 }
 pres.Save("chart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
+
+
+## **FAQ**
+
+**Werden Callouts beim Konvertieren einer Präsentation in PDF, HTML5, SVG oder Bilder beibehalten?**
+
+Ja. Callouts sind Teil der Diagrammdarstellung, sodass sie beim Export nach [PDF](/slides/de/net/convert-powerpoint-to-pdf/), [HTML5](/slides/de/net/export-to-html5/), [SVG](/slides/de/net/render-a-slide-as-an-svg-image/) oder [Rasterbilder](/slides/de/net/convert-powerpoint-to-png/) zusammen mit der Formatierung der Folie beibehalten werden.
+
+**Funktionieren benutzerdefinierte Schriftarten in Callouts und kann ihr Aussehen beim Export beibehalten werden?**
+
+Ja. Aspose.Slides unterstützt das [Einbetten von Schriftarten](/slides/de/net/embedded-font/) in die Präsentation und steuert das Einbetten von Schriftarten bei Exporten wie [PDF](/slides/de/net/convert-powerpoint-to-pdf/), sodass die Callouts auf verschiedenen Systemen gleich aussehen.

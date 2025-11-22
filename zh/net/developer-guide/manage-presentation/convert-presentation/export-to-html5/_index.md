@@ -1,11 +1,11 @@
 ---
-title: 导出到 HTML5
+title: 导出为 HTML5
 type: docs
 weight: 40
 url: /zh/net/export-to-html5/
 keywords:
-- PowerPoint 到 HTML
-- 幻灯片到 HTML
+- PowerPoint 转 HTML
+- 幻灯片 转 HTML
 - HTML5
 - HTML 导出
 - 导出演示文稿
@@ -17,18 +17,17 @@ keywords:
 description: "在 C# 或 .NET 中将 PowerPoint 导出为 HTML5"
 ---
 
-{{% alert title="信息" color="info" %}}
+{{% alert title="Info" color="info" %}}
 
-在 [Aspose.Slides 21.9](/slides/zh/net/aspose-slides-for-net-21-9-release-notes/) 中，我们实现了对 HTML5 导出的支持。然而，如果您更喜欢使用 Web 扩展将 PowerPoint 导出为 HTML，请参阅 [这篇文章](/slides/zh/net/web-extensions/)。
+在 [Aspose.Slides 21.9](/slides/zh/net/aspose-slides-for-net-21-9-release-notes/) 中，我们实现了对 HTML5 导出的支持。但是，如果您更倾向于使用 WebExtensions 将 PowerPoint 导出为 HTML，请参阅 [this article](/slides/zh/net/web-extensions/)。
 
-{{% /alert %}}
+{{% /alert %}} 
 
-导出到 HTML5 的过程允许您在不使用 Web 扩展或依赖项的情况下将 PowerPoint 转换为 HTML。通过使用您自己的模板，您可以应用定义导出过程及生成的 HTML、CSS、JavaScript 和动画属性的灵活选项。
+此处的 HTML5 导出过程允许您在不使用 WebExtensions 或其他依赖的情况下将 PowerPoint 转换为 HTML。通过使用您自己的模板，您可以应用高度灵活的选项来定义导出过程以及生成的 HTML、CSS、JavaScript 和动画属性。
 
-## **将 PowerPoint 导出为 HTML5**
+## **Export PowerPoint to HTML5**
 
-以下 C# 代码演示了如何在没有 Web 扩展和依赖项的情况下将演示文稿导出为 HTML5：
-
+下面的 C# 代码演示了如何在没有 WebExtensions 和依赖的情况下将演示文稿导出为 HTML5：
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -36,14 +35,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-{{% alert color="primary" %}}
 
-在这种情况下，您将获得干净的 HTML。
+{{% alert color="primary" %}} 
+
+在这种情况下，您将获得纯净的 HTML。
 
 {{% /alert %}}
 
-您可能希望以这种方式指定形状动画和幻灯片过渡的设置：
-
+您可以通过以下方式指定形状动画和幻灯片切换的设置：
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -55,10 +54,10 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-#### **将 PowerPoint 导出为 HTML**
 
-以下 C# 代码演示了标准的 PowerPoint 到 HTML 过程：
+## **Export PowerPoint to HTML**
 
+下面的 C# 示例演示了标准的 PowerPoint 到 HTML 的转换过程：
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -66,30 +65,30 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-在这种情况下，演示文稿的内容通过 SVG 以以下形式呈现：
 
+在此示例中，演示文稿内容通过 SVG 渲染，呈现形式如下：
 ```html
 <body>
 <div class="slide" name="slide" id="slideslideIface1">
      <svg version="1.1">
-         <g> 幻灯片内容在这里 </g>
+         <g> THE SLIDE CONTENT GOES HERE </g>
      </svg>
 </div>
 </body>
 ```
 
-{{% alert title="注意" color="warning" %}}
 
-当您使用此方法将 PowerPoint 导出为 HTML 时，由于 SVG 渲染，您将无法应用样式或动画特定元素。
+{{% alert title="Note" color="warning" %}} 
+
+使用此方法将 PowerPoint 导出为 HTML 时，由于采用 SVG 渲染，您将无法对特定元素应用样式或进行动画处理。
 
 {{% /alert %}}
 
-## **导出 PowerPoint 至 HTML5 幻灯片视图**
+## **Export PowerPoint to HTML5 Slide View**
 
-**Aspose.Slides** 允许您将 PowerPoint 演示文稿转换为 HTML5 文档，其中幻灯片以幻灯片视图模式呈现。在这种情况下，当您在浏览器中打开生成的 HTML5 文件时，您将在网页上看到演示文稿的幻灯片视图模式。
+**Aspose.Slides** 允许您将 PowerPoint 演示文稿转换为 HTML5 文档，并以幻灯片视图模式呈现幻灯片。这样，当您在浏览器中打开生成的 HTML5 文件时，演示文稿将在网页上以幻灯片视图模式显示。
 
-以下 C# 代码演示了 PowerPoint 到 HTML5 幻灯片视图导出过程：
-
+下面的 C# 代码演示了 PowerPoint 到 HTML5 幻灯片视图的导出过程：
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -101,17 +100,18 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## 将演示文稿转换为带注释的 HTML5 文档
 
-PowerPoint 中的注释是允许用户在演示文稿幻灯片上留下笔记或反馈的工具。它们在协作项目中尤其有用，在这种情况下，多个人可以向特定幻灯片元素添加建议或备注，而不改变主要内容。每个注释会显示作者的姓名，便于跟踪是谁留下的评论。
+## **Convert a Presentation to an HTML5 Document with Comments**
 
-假设我们有以下保存为 "sample.pptx" 文件的 PowerPoint 演示文稿。
+PowerPoint 中的批注是一种工具，允许用户在幻灯片上留下备注或反馈。它们在协作项目中尤为有用，多个用户可以对特定幻灯片元素添加建议或意见，而不会更改主体内容。每条批注都会显示作者姓名，便于追踪是谁留下的备注。
 
-![幻灯片上有两个注释](two_comments_pptx.png)
+假设我们有一个名为 “sample.pptx” 的 PowerPoint 演示文稿。
 
-当您将 PowerPoint 演示文稿转换为 HTML5 文档时，您可以轻松指定是否将演示文稿中的注释包含在输出文档中。要做到这一点，您需要在 [Html5Options](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/) 类的 `NotesCommentsLayouting` 属性中指定注释的展示参数。
+![Two comments on the presentation slide](two_comments_pptx.png)
 
-以下代码示例将演示文稿转换为带有注释显示在幻灯片右侧的 HTML5 文档。
+将 PowerPoint 演示文稿转换为 HTML5 文档时，您可以轻松指定是否在输出文档中包含演示文稿的批注。为此，需要在 [Html5Options](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/) 类的 `NotesCommentsLayouting` 属性中设置批注的显示参数。
+
+下面的代码示例将演示文稿转换为在幻灯片右侧显示批注的 HTML5 文档。
 ```cs
 var html5Options = new Html5Options
 {
@@ -125,6 +125,21 @@ using var presentation = new Presentation("sample.pptx");
 presentation.Save("output.html", SaveFormat.Html5, html5Options);
 ```
 
-"output.html" 文档在下面的图像中显示。
 
-![输出 HTML5 文档中的注释](two_comments_html5.png)
+下面的图片展示了 “output.html” 文档的效果。
+
+![The comments in the output HTML5 document](two_comments_html5.png)
+
+## **FAQ**
+
+**Can I control whether object animations and slide transitions will play in HTML5?**
+
+是的，HTML5 提供了单独的选项来启用或禁用 [shape animations](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animateshapes/) 和 [slide transitions](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animatetransitions/)。
+
+**Is the output of comments supported, and where can they be placed relative to the slide?**
+
+是的，批注可以在 HTML5 中添加，并通过 [layout settings](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/notescommentslayouting/) 将其定位（例如放置在幻灯片右侧）。
+
+**Can I skip links that invoke JavaScript for security or CSP reasons?**
+
+是的，有一个 [setting](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/skipjavascriptlinks/) 可以在保存时跳过包含 JavaScript 调用的超链接，从而帮助遵守严格的安全策略。

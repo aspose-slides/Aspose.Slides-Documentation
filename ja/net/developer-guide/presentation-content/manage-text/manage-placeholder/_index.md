@@ -3,73 +3,71 @@ title: プレースホルダーの管理
 type: docs
 weight: 10
 url: /ja/net/manage-placeholder/
-keywords: "プレースホルダー, プレースホルダー テキスト, プロンプト テキスト, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
-description: "C#または.NETでPowerPointプレゼンテーションのプレースホルダーテキストとプロンプトテキストを変更します"
+keywords: "プレースホルダー, プレースホルダー テキスト, プロンプトテキスト, PowerPoint プレゼンテーション, C#, C#, Aspose.Slides for .NET"
+description: "PowerPoint プレゼンテーションのプレースホルダー テキストとプロンプトテキストを C# または .NET で変更する"
 ---
 
 ## **プレースホルダーのテキストを変更する**
-[Aspose.Slides for .NET](/slides/ja/net/)を使用すると、プレゼンテーションのスライド上のプレースホルダーを見つけて修正できます。Aspose.Slidesを使用すると、プレースホルダー内のテキストを変更できます。
+Aspose.Slides for .NET を使用すると、プレゼンテーションのスライド内のプレースホルダーを検索・変更できます。Aspose.Slides を使って、プレースホルダー内のテキストを変更できます。
 
-**前提条件**: プレースホルダーを含むプレゼンテーションが必要です。標準のMicrosoft PowerPointアプリでそのようなプレゼンテーションを作成できます。
+**Prerequisite**: プレースホルダーが含まれるプレゼンテーションが必要です。そのようなプレゼンテーションは標準の Microsoft PowerPoint アプリで作成できます。
 
-これが、そのプレゼンテーションのプレースホルダー内のテキストを置き換えるためのAspose.Slidesの使用方法です：
+以下は、Aspose.Slides を使用してそのプレゼンテーションのプレースホルダーのテキストを置換する手順です。
 
-1. [`Presentation`](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスをインスタンス化し、プレゼンテーションを引数として渡します。
-2. インデックスを使用してスライドの参照を取得します。
-3. シェイプを繰り返してプレースホルダーを見つけます。
-4. プレースホルダーシェイプを[`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/)に型キャストし、[`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/)に関連付けられた[`TextFrame`](https://reference.aspose.com/slides/net/aspose.slides/textframe/)を使用してテキストを変更します。
-5. 修正されたプレゼンテーションを保存します。
+1. `Presentation` クラスのインスタンスを作成し、プレゼンテーションを引数として渡します。
+2. インデックスを使用してスライド参照を取得します。
+3. シェイプをイテレートしてプレースホルダーを見つけます。
+4. プレースホルダーシェイプを `AutoShape` にキャストし、`AutoShape` に関連付けられた `TextFrame` を使用してテキストを変更します。 
+5. 変更したプレゼンテーションを保存します。
 
-このC#コードは、プレースホルダー内のテキストを変更する方法を示しています：
-
+この C# コードは、プレースホルダーのテキストを変更する方法を示しています。
 ```c#
-// プレゼンテーションクラスをインスタンス化
+// Presentation クラスのインスタンスを作成します
 using (Presentation pres = new Presentation("ReplacingText.pptx"))
 {
 
-    // 最初のスライドにアクセス
+    // 最初のスライドにアクセスします
     ISlide sld = pres.Slides[0];
 
-    // プレースホルダーを見つけるためにシェイプを繰り返す
+    // プレースホルダーを探すためにシェイプを列挙します
     foreach (IShape shp in sld.Shapes)
         if (shp.Placeholder != null)
         {
-            // 各プレースホルダーのテキストを変更
-            ((IAutoShape)shp).TextFrame.Text = "これはプレースホルダーです";
+            // 各プレースホルダーのテキストを変更します
+            ((IAutoShape)shp).TextFrame.Text = "This is a Placeholder";
         }
 
-    // プレゼンテーションをディスクに保存
+    // プレゼンテーションをディスクに保存します
     pres.Save("output_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
 
 ## **プレースホルダーのプロンプトテキストを設定する**
-標準およびプリビルドのレイアウトには、***タイトルを追加するにはクリック***や***サブタイトルを追加するにはクリック***のようなプレースホルダープロンプトテキストが含まれています。Aspose.Slidesを使用すると、プレースホルダーレイアウトに好みのプロンプトテキストを挿入できます。
+標準およびプリセットのレイアウトには、***クリックしてタイトルを追加*** や ***クリックしてサブタイトルを追加*** などのプレースホルダー用プロンプトテキストが含まれています。Aspose.Slides を使用すると、好きなプロンプトテキストをプレースホルダーレイアウトに挿入できます。
 
-このC#コードは、プレースホルダー内のプロンプトテキストを設定する方法を示しています：
-
+この C# コードは、プレースホルダーにプロンプトテキストを設定する方法を示しています。
 ```c#
 using (Presentation pres = new Presentation("Presentation2.pptx"))
 {
     ISlide slide = pres.Slides[0];
-    foreach (IShape shape in slide.Slide.Shapes) // スライドを繰り返す
+    foreach (IShape shape in slide.Slide.Shapes) // スライドをイテレートします
     {
         if (shape.Placeholder != null && shape is AutoShape)
         {
             string text = "";
-            if (shape.Placeholder.Type == PlaceholderType.CenteredTitle) // PowerPointは「タイトルを追加するにはクリック」と表示
+            if (shape.Placeholder.Type == PlaceholderType.CenteredTitle) // PowerPoint は「Click to add title」を表示します
             {
-                text = "タイトルを追加";
+                text = "Add Title";
             }
-            else if (shape.Placeholder.Type == PlaceholderType.Subtitle) // サブタイトルを追加
+            else if (shape.Placeholder.Type == PlaceholderType.Subtitle) // サブタイトルを追加します
             {
-                text = "サブタイトルを追加";
+                text = "Add Subtitle";
             }
 
             ((IAutoShape)shape).TextFrame.Text = text;
 
-            Console.WriteLine($"テキストを含むプレースホルダー: {text}");
+            Console.WriteLine($"Placeholder with text: {text}");
         }
     }
 
@@ -77,12 +75,12 @@ using (Presentation pres = new Presentation("Presentation2.pptx"))
 }
 ```
 
-## **プレースホルダーの画像の透過性を設定する**
 
-Aspose.Slidesを使用すると、テキストプレースホルダー内の背景画像の透過性を設定できます。このようなフレーム内の画像の透過性を調整することで、テキストや画像が際立つようにできます（テキストと画像の色に応じて）。
+## **プレースホルダー画像の透明度を設定する**
 
-このC#コードは、シェイプ内の画像背景の透過性を設定する方法を示しています：
+Aspose.Slides では、テキスト プレースホルダー内の背景画像の透明度を設定できます。そのフレーム内の画像の透明度を調整することで、テキストまたは画像を際立たせることができます（テキストと画像の色によります）。
 
+この C# コードは、シェイプ内の画像背景の透明度を設定する方法を示しています。
 ```c#
 using (var presentation = new Presentation())
 {
@@ -94,3 +92,18 @@ using (var presentation = new Presentation())
     autoShape.FillFormat.PictureFillFormat.Picture.ImageTransform.AddAlphaModulateFixedEffect(75);
 }
 ```
+
+
+## **FAQ**
+
+**ベースプレースホルダーとは何か、スライド上のローカルシェイプとはどのように異なるか**
+
+ベースプレースホルダーは、レイアウトまたはマスタ上にあるスライドのシェイプが継承する元となるシェイプです。そのタイプ、位置、および一部の書式設定はベースプレースホルダーから継承されます。ローカルシェイプは独立しており、ベースプレースホルダーが存在しない場合は継承は適用されません。
+
+**プレゼンテーション全体のタイトルやキャプションを、各スライドを走査せずに更新するにはどうすればよいですか？**
+
+レイアウトまたはマスタ上の該当プレースホルダーを編集します。そのレイアウトやマスタを使用しているスライドは、変更を自動的に継承します。
+
+**標準のヘッダー/フッタープレースホルダー（日付と時刻、スライド番号、フッターテキスト）をどのように制御できますか？**
+
+適切なスコープ（通常スライド、レイアウト、マスタ、ノート/配布資料）の HeaderFooter マネージャーを使用して、これらのプレースホルダーを有効または無効にし、内容を設定します。

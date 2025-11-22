@@ -1,117 +1,116 @@
 ---
-title: モダンAPI
+title: モダン API
 type: docs
 weight: 237
 url: /ja/net/modern-api/
-keywords: "クロスプラットフォーム モダンAPI System.Drawing"
-description: "モダンAPI"
+keywords: "CrossPlatform モダン API System.Drawing"
+description: "モダン API"
 ---
 
-## はじめに
+## **はじめに**
 
-これまで、Aspose SlidesはSystem.Drawingに依存しており、公開APIには以下のクラスが含まれています：
+歴史的に、Aspose Slides は System.Drawing に依存しており、公開 API にはそこからの以下のクラスが含まれています:
 - [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics)
 - [Image](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.image)
 - [Bitmap](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.bitmap)
 - [PrinterSettings](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.printing.printersettings)
 
-バージョン24.4から、この公開APIは非推奨と宣言されました。
+バージョン 24.4 以降、この公開 API は非推奨と宣言されています。
 
-System.Drawingのサポートは、.NET6以降の非Windowsバージョンでは削除されました（[破壊的変更](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)）。したがって、Slidesは2つのライブラリバージョンアプローチを実施しました：
-- [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET) - Windows向けの.NET6+サポート、Windows/Linux/MacOS向けの.NETStandard、.NETFramework 2+ (Windows)。
-  - [System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/)に依存しています。
-- [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) - 依存関係のないWindows/Linux/MacOSバージョン。
+.NET6 以降のバージョンでの System.Drawing のサポートが非 Windows 環境向けに削除されたため（[breaking change](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)）、Slides は 2 つのライブラリ バージョン方式を実装しました:
+- [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET) - Windows 用 .NET6+、Windows/Linux/MacOS 用 .NETStandard、Windows 用 .NETFramework 2+ をサポート。
+  - [System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/) に依存しています。
+- [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) - 依存関係のない Windows/Linux/MacOS 用バージョン。
 
-[Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform)の不便さは、同じ名前空間で独自のSystem.Drawingのバージョンを実装していることです（公開APIとの後方互換性をサポートするため）。したがって、Aspose.Slides.NET6.CrossPlatformと.NETFrameworkまたはSystem.Drawing.CommonパッケージのSystem.Drawingを同時に使用する場合、エイリアスを使用しない限り、名前の衝突が発生します。
+[Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) の不便な点は、同じ名前空間に独自の System.Drawing の実装を持ち（公開 API との下位互換性をサポートするため）、.NETFramework の System.Drawing または System.Drawing.Common パッケージと同時に使用するとエイリアスを使用しない限り名前の衝突が発生することです。
 
-Aspose.Slides.NETのメインパッケージにおけるSystem.Drawingへの依存関係を排除するために、いわゆる「モダンAPI」を追加しました。これは、以下のSystem.Drawingからの型：ImageおよびBitmapに対する依存関係を含む非推奨のAPIの代わりに使用するAPIです。PrinterSettingsとGraphicsは非推奨として宣言され、そのサポートは公開Slides APIから削除されました。
+メインの Aspose.Slides.NET パッケージから System.Drawing への依存を排除するために、いわゆる「モダン API」を追加しました。つまり、非推奨の API の代わりに使用すべき API で、シグネチャに System.Drawing の Image と Bitmap が含まれています。PrinterSettings と Graphics は非推奨とされ、公開 Slides API からのサポートが削除されました。
 
-System.Drawingへの依存関係を持つ非推奨の公開APIは、リリース24.8で削除される予定です。
+System.Drawing への依存を持つ非推奨の公開 API の削除は、リリース 24.8 で行われます。
 
-## モダンAPI
+## **モダン API**
 
-以下のクラスと列挙型が公開APIに追加されました：
+公開 API に以下のクラスと列挙型を追加しました:
 
-- Aspose.Slides.IImage - ラスタまたはベクトル画像を表します。
-- Aspose.Slides.ImageFormat - 画像のファイル形式を表します。
-- Aspose.Slides.Images - IImageインターフェースのインスタンス化および操作に使用されるメソッド。
+- Aspose.Slides.IImage – ラスタまたはベクタ画像を表します。
+- Aspose.Slides.ImageFormat – 画像のファイル形式を表します。
+- Aspose.Slides.Images – IImage インターフェイスを生成し操作するメソッド。
 
-IImageは破棄可能であることに注意してください（IDisposableインターフェースを実装しており、その使用はusingでラップするか、他の便利な方法で破棄する必要があります）。
+IImage は IDisposable を実装しており、using でラップするか、別の適切な方法で Dispose する必要があることに注意してください。
 
-新しいAPIの使用の典型的なシナリオは次のようになります：
-
-``` csharp
+新しい API の典型的な使用シナリオは次のようになります:
+```csharp
 using (Presentation pres = new Presentation())
 {
     IPPImage ppImage;
-    // ディスク上のファイルからIImageの破棄可能なインスタンスをインスタンス化。
+    // ディスク上のファイルから破棄可能な IImage インスタンスを生成します。  
     using (IImage image = Images.FromFile("image.png"))
     {
-        // IImageのインスタンスをプレゼンテーションの画像に追加してPowerPoint画像を作成。
+        // IImage のインスタンスをプレゼンテーションの画像コレクションに追加して PowerPoint 画像を作成します。
         ppImage = pres.Images.AddImage(image);
     }
 
-    // スライド#1に画像シェイプを追加
+    // スライド #1 に画像シェイプを追加します。
     pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 
-    // スライド#1を表すIImageのインスタンスを取得。
+    // スライド #1 を表す IImage のインスタンスを取得します。
     using (var slideImage = pres.Slides[0].GetImage(new Size(1920, 1080)))
     {
-        // ディスクに画像を保存。
+        // 画像をディスクに保存します。
         slideImage.Save("slide1.jpeg", ImageFormat.Jpeg);
     }
 }
 ```
 
-## 古いコードをモダンAPIに置き換える
 
-移行を容易にするために、新しいIImageのインターフェースはImageおよびBitmapクラスの個別のシグニチャを繰り返します。一般的に、System.Drawingを使用した古いメソッドの呼び出しを新しいメソッドに置き換えるだけで済みます。
+## **モダン API への置き換え**
 
-### スライドのサムネイルを取得
+移行を容易にするために、新しい IImage のインターフェイスは Image と Bitmap クラスの個別シグネチャを繰り返しています。基本的には、System.Drawing を使用した旧メソッド呼び出しを新しいものに置き換えるだけです。
 
-非推奨APIを使用したコード：
+### **スライドのサムネイル取得**
 
-``` csharp
+非推奨 API を使用したコード:
+```csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Slides[0].GetThumbnail().Save("slide1.png");
 }
 ```
 
-モダンAPI：
 
-``` csharp
+モダン API:
+```csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Slides[0].GetImage().Save("slide1.png");
 }
 ```
 
-### シェイプのサムネイルを取得
 
-非推奨APIを使用したコード：
+### **シェイプのサムネイル取得**
 
-``` csharp
+非推奨 API を使用したコード:
+```csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Slides[0].Shapes[0].GetThumbnail().Save("shape.png");
 }
 ```
 
-モダンAPI：
 
-``` csharp
+モダン API:
+```csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Slides[0].Shapes[0].GetImage().Save("shape.png");
 }
 ```
 
-### プレゼンテーションのサムネイルを取得
 
-非推奨APIを使用したコード：
+### **プレゼンテーションのサムネイル取得**
 
-``` csharp
+非推奨 API を使用したコード:
+```csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     var bitmaps = pres.GetThumbnails(new RenderingOptions(), new Size(1980, 1028));
@@ -133,9 +132,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-モダンAPI：
 
-``` csharp
+モダン API:
+```csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     var images = pres.GetImages(new RenderingOptions(), new Size(1980, 1028));
@@ -157,11 +156,11 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-### プレゼンテーションに画像を追加
 
-非推奨APIを使用したコード：
+### **プレゼンテーションへの画像追加**
 
-``` csharp
+非推奨 API を使用したコード:
+```csharp
 using (Presentation pres = new Presentation())
 {
     IPPImage ppImage;
@@ -174,9 +173,9 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-モダンAPI：
 
-``` csharp
+モダン API:
+```csharp
 using (Presentation pres = new Presentation())
 {
     IPPImage ppImage;
@@ -188,92 +187,104 @@ using (Presentation pres = new Presentation())
     pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 }
 ```
-## 取り除かれるメソッド/プロパティとモダンAPIでの置き換え
 
-### プレゼンテーション
-| メソッドシグネチャ                               | 置き換えメソッドシグネチャ                             |
+
+## **削除対象のメソッド/プロパティとモダン API における置換**
+
+### **Presentation**
+| メソッド シグネチャ | 代替メソッド シグネチャ |
 |-----------------------------------------------|---------------------------------------------------------|
-| public Bitmap[] GetThumbnails(IRenderingOptions options) | [GetImages(IRenderingOptions options)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages)                   |
-| public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides) | [GetImages(IRenderingOptions options, int[] slides)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages_1)   |
+| public Bitmap[] GetThumbnails(IRenderingOptions options) | [GetImages(IRenderingOptions options)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages) |
+| public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides) | [GetImages(IRenderingOptions options, int[] slides)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages_1) |
 | public Bitmap[] GetThumbnails(IRenderingOptions options, float scaleX, float scaleY) | [GetImages(IRenderingOptions options, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages_4) |
 | public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | [GetImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages_2) |
 | public Bitmap[] GetThumbnails(IRenderingOptions options, Size imageSize) | [GetImages(IRenderingOptions options, Size imageSize)]() |
 | public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides, Size imageSize) | [GetImages(IRenderingOptions options, int[] slides, Size imageSize)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages_3) |
-| public void Save(string fname, SaveFormat format, HttpResponse response, bool showInline) | 完全に削除される予定 |
-| public void Save(string fname, SaveFormat format, ISaveOptions options, HttpResponse response, bool showInline) | 完全に削除される予定 |
-| public void Print()                           | 完全に削除される予定                               |
-| public void Print(PrinterSettings printerSettings) | 完全に削除される予定                            |
-| public void Print(string printerName)         | 完全に削除される予定                               |
-| public void Print(PrinterSettings printerSettings, string presName) | 完全に削除される予定                          |
+| public void Save(string fname, SaveFormat format, HttpResponse response, bool showInline) | 完全に削除されます |
+| public void Save(string fname, SaveFormat format, ISaveOptions options, HttpResponse response, bool showInline) | 完全に削除されます |
+| public void Print() | 完全に削除されます |
+| public void Print(PrinterSettings printerSettings) | 完全に削除されます |
+| public void Print(string printerName) | 完全に削除されます |
+| public void Print(PrinterSettings printerSettings, string presName) | 完全に削除されます |
 
-### シェイプ
-| メソッドシグネチャ                                                      | 置き換えメソッドシグネチャ                                       |
+### **Shape**
+| メソッド シグネチャ | 代替メソッド シグネチャ |
 |----------------------------------------------------------------------|-------------------------------------------------------------------|
-| public Bitmap GetThumbnail()                                          | [GetImage](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage#getimage)                                                           |
+| public Bitmap GetThumbnail() | [GetImage](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage#getimage) |
 | public Bitmap GetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY) | [GetImage(ShapeThumbnailBounds bounds, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage#getimage_1) |
 
-### スライド
-| メソッドシグネチャ                                                      | 置き換えメソッドシグネチャ                                           |
+### **Slide**
+| メソッド シグネチャ | 代替メソッド シグネチャ |
 |----------------------------------------------------------------------|-----------------------------------------------------------------------|
-| public Bitmap GetThumbnail(float scaleX, float scaleY)                | [GetImage(float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_5)                                 |
-| public Bitmap GetThumbnail()                                         | [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage)                                                              |
-| public Bitmap GetThumbnail(IRenderingOptions options)                | [GetImage(IRenderingOptions options)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_1)                                  |
-| public Bitmap GetThumbnail(Size imageSize)                           | [GetImage(Size imageSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_6)                                             |
-| public Bitmap GetThumbnail(ITiffOptions options)                    | [GetImage(ITiffOptions options)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_4)                                      |
+| public Bitmap GetThumbnail(float scaleX, float scaleY) | [GetImage(float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_5) |
+| public Bitmap GetThumbnail() | [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage) |
+| public Bitmap GetThumbnail(IRenderingOptions options) | [GetImage(IRenderingOptions options)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_1) |
+| public Bitmap GetThumbnail(Size imageSize) | [GetImage(Size imageSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_6) |
+| public Bitmap GetThumbnail(ITiffOptions options) | [GetImage(ITiffOptions options)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_4) |
 | public Bitmap GetThumbnail(IRenderingOptions options, float scaleX, float scaleY) | [GetImage(IRenderingOptions options, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_2) |
-| public Bitmap GetThumbnail(IRenderingOptions options, Size imageSize) | [GetImage(IRenderingOptions options, Size imageSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_3)               |
-| public void RenderToGraphics(IRenderingOptions options, Graphics graphics) | 完全に削除される予定                                       |
-| public void RenderToGraphics(IRenderingOptions options, Graphics graphics, float scaleX, float scaleY) | 完全に削除される予定                             |
-| public void RenderToGraphics(IRenderingOptions options, Graphics graphics, Size renderingSize) | 完全に削除される予定                                    |
+| public Bitmap GetThumbnail(IRenderingOptions options, Size imageSize) | [GetImage(IRenderingOptions options, Size imageSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_3) |
+| public void RenderToGraphics(IRenderingOptions options, Graphics graphics) | 完全に削除されます |
+| public void RenderToGraphics(IRenderingOptions options, Graphics graphics, float scaleX, float scaleY) | 完全に削除されます |
+| public void RenderToGraphics(IRenderingOptions options, Graphics graphics, Size renderingSize) | 完全に削除されます |
 
-#### 出力
-| メソッドシグネチャ                                                | 置き換えメソッドシグネチャ                                |
+### **Output**
+| メソッド シグネチャ | 代替メソッド シグネチャ |
 |-----------------------------------------------------------------|-------------------------------------------------------------|
-| public IOutputFile Add(string path, Image image)               | [Add(string path, IImage image)](https://reference.aspose.com/slides/net/aspose.slides.export.web/output/add#add_1)                               |
+| public IOutputFile Add(string path, Image image) | [Add(string path, IImage image)](https://reference.aspose.com/slides/net/aspose.slides.export.web/output/add#add_1) |
 
-### ImageCollection
-| メソッドシグネチャ                          | 置き換えメソッドシグネチャ               |
+### **ImageCollection**
+| メソッド シグネチャ | 代替メソッド シグネチャ |
 |-------------------------------------------|--------------------------------------------|
-| IPPImage AddImage(Image image)           | [AddImage(IImage image)](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/addimage#addimage)                      |
+| IPPImage AddImage(Image image) | [AddImage(IImage image)](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/addimage#addimage) |
 
-### ImageWrapperFactory
-| メソッドシグネチャ                                         | 置き換えメソッドシグネチャ                            |
+### **ImageWrapperFactory**
+| メソッド シグネチャ | 代替メソッド シグネチャ |
 |----------------------------------------------------------|---------------------------------------------------------|
-| IImageWrapper CreateImageWrapper(Image image)           | [CreateImageWrapper(IImage image)](https://reference.aspose.com/slides/net/aspose.slides/imagewrapperfactory/createimagewrapper#createimagewrapper)                        |
+| IImageWrapper CreateImageWrapper(Image image) | [CreateImageWrapper(IImage image)](https://reference.aspose.com/slides/net/aspose.slides/imagewrapperfactory/createimagewrapper#createimagewrapper) |
 
-### PPImage
-| メソッド/プロパティシグネチャ                     | 置き換えメソッドシグネチャ   |
+### **PPImage**
+| メソッド/プロパティ シグネチャ | 代替メソッド シグネチャ |
 |--------------------------------------|-----------------------------------------|
-| void ReplaceImage(Image newImage)   | [ReplaceImage(IImage newImage)](https://reference.aspose.com/slides/net/aspose.slides/ppimage/replaceimage#replaceimage)            |
-| Image SystemImage { get; }          | [IImage Image { get; }](https://reference.aspose.com/slides/net/aspose.slides/ppimage/image)                    |
+| void ReplaceImage(Image newImage) | [ReplaceImage(IImage newImage)](https://reference.aspose.com/slides/net/aspose.slides/ppimage/replaceimage#replaceimage) |
+| Image SystemImage { get; } | [IImage Image { get; }](https://reference.aspose.com/slides/net/aspose.slides/ppimage/image) |
 
-### PatternFormat
-| メソッドシグネチャ                                          | 置き換えメソッドシグネチャ                        |
+### **PatternFormat**
+| メソッド シグネチャ | 代替メソッド シグネチャ |
 |-----------------------------------------------------------|-----------------------------------------------------|
-| Bitmap GetTileImage(Color background, Color foreground)   | [GetTile(Color background, Color foreground)](https://reference.aspose.com/slides/net/aspose.slides/patternformat/gettile#gettile_1)         |
-| Bitmap GetTileImage(Color styleColor)                     | [GetTile(Color styleColor)](https://reference.aspose.com/slides/net/aspose.slides/patternformat/gettile#gettile)                           |
+| Bitmap GetTileImage(Color background, Color foreground) | [GetTile(Color background, Color foreground)](https://reference.aspose.com/slides/net/aspose.slides/patternformat/gettile#gettile_1) |
+| Bitmap GetTileImage(Color styleColor) | [GetTile(Color styleColor)](https://reference.aspose.com/slides/net/aspose.slides/patternformat/gettile#gettile) |
 
-### IPatternFormatEffectiveData
-| メソッドシグネチャ                                          | 置き換えメソッドシグネチャ                        |
+### **IPatternFormatEffectiveData**
+| メソッド シグネチャ | 代替メソッド シグネチャ |
 |-----------------------------------------------------------|-----------------------------------------------------|
-| Bitmap GetTileImage(Color background, Color foreground)   | [GetTileIImage(SlidesImage image)](https://reference.aspose.com/slides/net/aspose.slides/ipatternformateffectivedata/gettileiimage)                    |
+| Bitmap GetTileImage(Color background, Color foreground) | [GetTileIImage(SlidesImage image)](https://reference.aspose.com/slides/net/aspose.slides/ipatternformateffectivedata/gettileiimage) |
 
-## Aspose.Slides.NET6.CrossPlatformのサポートは終了します
+## **Graphics と PrinterSettings の API サポートは中止されます**
 
-[Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET)バージョン24.8のリリースに続いて、[Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform)のサポートは終了する予定です。
-
-## GraphicsおよびPrinterSettingsのAPIサポートは終了します
-
-[Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics)クラスは、.NET6以降のクロスプラットフォームバージョンではサポートされていません。Aspose Slidesでは、それを使用するAPIの一部が削除されます：
+[Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) クラスは .NET6 以上のクロスプラットフォーム バージョンではサポートされません。Aspose Slides では、これを使用する API 部分が削除されます:
 [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide/)
 - [public void RenderToGraphics(IRenderingOptions options, Graphics graphics)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_3)
 - [public void RenderToGraphics(IRenderingOptions options, Graphics graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_3)
 - [public void RenderToGraphics(IRenderingOptions options, Graphics graphics, Size renderingSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_5)
 
-また、印刷に関連するAPIの一部も削除されます：
+また、印刷に関する API 部分も削除されます:
 
 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/):
 - [public void Presentation.Print](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print)
 - [public void Print(PrinterSettings printerSettings)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_1)
 - [public void Print(string printerName)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_3)
 - [public void Print(PrinterSettings printerSettings, string presName)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_2)
+
+# **FAQ**
+
+**なぜ System.Drawing.Graphics が削除されたのですか？**
+
+`Graphics` のサポートは、レンダリングと画像処理を統一し、プラットフォーム固有の依存関係を排除し、[IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) によるクロスプラットフォーム アプローチへ切り替えるために、公開 API から削除されます。すべての `Graphics` 向けレンダリング メソッドが削除されます。
+
+**IImage は Image/Bitmap と比べて実際にどんな利点がありますか？**
+
+[IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) はラスタ画像とベクタ画像の両方を統一的に扱い、[ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) を介したさまざまな形式への保存を簡素化し、`System.Drawing` への依存を低減し、環境間でのコード移植性を向上させます。
+
+**モダン API はサムネイル生成のパフォーマンスに影響しますか？**
+
+`GetThumbnail` から `GetImage` への切り替えは性能を劣化させません。新メソッドはオプションとサイズ指定で画像を生成する同等の機能を提供し、シナリオによって得られるメリットやデメリットは異なりますが、機能的には置換は同等です。

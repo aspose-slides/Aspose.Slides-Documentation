@@ -1,17 +1,16 @@
 ---
-title: チャートデータラベル
+title: チャート データ ラベル
 type: docs
 url: /ja/net/chart-data-label/
-keywords: "チャートデータラベル,ラベル距離, C#, Csharp, Aspose.Slides for .NET"
-description: "C#または.NETでPowerPointチャートデータラベルと距離を設定します"
+keywords: "チャート データ ラベル,label 距離, C#, Csharp, Aspose.Slides for .NET"
+description: "C# または .NET で PowerPoint のチャート データ ラベルと距離を設定する"
 ---
 
-チャート上のデータラベルは、チャートデータ系列や個々のデータポイントに関する詳細を表示します。これにより、読者はデータ系列を迅速に特定し、チャートを理解しやすくします。
+チャートのデータ ラベルは、チャートのデータ シリーズまたは個々のデータ ポイントに関する詳細を示します。読者はデータ シリーズをすばやく識別でき、チャートの理解もしやすくなります。
 
-## **チャートデータラベルのデータ精度を設定する**
+## **チャート データ ラベルのデータ精度を設定する**
 
-このC#コードは、チャートデータラベルにおけるデータの精度を設定する方法を示しています：
-
+この C# コードは、チャート データ ラベルのデータ 精度を設定する方法を示します。
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -23,11 +22,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **パーセンテージをラベルとして表示する**
-Aspose.Slides for .NETを使用すると、表示されたチャートにパーセンテージラベルを設定できます。このC#コードはその操作を示しています：
 
+## **ラベルとしてパーセンテージを表示**
+
+Aspose.Slides for .NET は、表示されるチャートにパーセンテージ ラベルを設定できます。この C# コードはその操作を示します。
 ```c#
-// プレゼンテーションクラスのインスタンスを作成
+// Presentation クラスのインスタンスを作成します
 Presentation presentation = new Presentation();
 
 ISlide slide = presentation.Slides[0];
@@ -72,45 +72,46 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
     }
 }
 
-// チャートを含むプレゼンテーションを保存
+// チャートを含むプレゼンテーションを保存します
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **チャートデータラベルにパーセンテージ記号を設定する**
-このC#コードは、チャートデータラベルにパーセンテージ記号を設定する方法を示しています：
 
+## **チャート データ ラベルにパーセンテージ記号を設定**
+
+この C# コードは、チャート データ ラベルにパーセンテージ記号を設定する方法を示します。
 ```c#
-// プレゼンテーションクラスのインスタンスを作成
+// Presentation クラスのインスタンスを作成します
 Presentation presentation = new Presentation();
 
-// スライドのインデックスを通じて参照を取得
+// インデックスでスライドの参照を取得します
 ISlide slide = presentation.Slides[0];
 
-// スライドにパーセント積み上げ棒グラフを作成
+// スライドに PercentsStackedColumn チャートを作成します
 IChart chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
-// NumberFormatLinkedToSourceをfalseに設定
+// NumberFormatLinkedToSource を false に設定します
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.NumberFormat = "0.00%";
 
 chart.ChartData.Series.Clear();
 int defaultWorksheetIndex = 0;
 
-// チャートデータワークシートを取得
+// チャート データ ワークシートを取得します
 IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-// 新しい系列を追加
+// 新しい系列を追加します
 IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.Type);
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 1, 0.30));
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 1, 0.50));
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 1, 0.80));
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 1, 0.65));
 
-// 系列の塗りつぶし色を設定
+// 系列の塗りつぶし色を設定します
 series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-// LabelFormatプロパティを設定
+// LabelFormat プロパティを設定します
 series.Labels.DefaultDataLabelFormat.ShowValue = true;
 series.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
 series.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
@@ -119,14 +120,14 @@ series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillTyp
 series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
 series.Labels.DefaultDataLabelFormat.ShowValue = true;
 
-// 新しい系列を追加
+// 新しい系列を追加します
 IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.Type);
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 2, 0.70));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 2, 0.50));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 2, 0.20));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 2, 0.35));
 
-// 塗りつぶしタイプと色を設定
+// 塗りつぶしタイプと色を設定します
 series2.Format.Fill.FillType = FillType.Solid;
 series2.Format.Fill.SolidFillColor.Color = Color.Blue;
 series2.Labels.DefaultDataLabelFormat.ShowValue = true;
@@ -136,36 +137,37 @@ series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
 series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
 series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
 
-// プレゼンテーションをディスクに書き込む
+// プレゼンテーションをディスクに保存します
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **軸からのラベル距離を設定する**
-このC#コードは、軸からカテゴリラベルの距離を設定する方法を示しています：
 
+## **軸からラベルまでの距離を設定**
+
+この C# コードは、軸からプロットされたチャートのカテゴリ 軸へのラベル距離を設定する方法を示します。
 ```c#
-// プレゼンテーションクラスのインスタンスを作成
+// Presentation クラスのインスタンスを作成します
 Presentation presentation = new Presentation();
 
-// スライドの参照を取得
+// スライドの参照を取得します
 ISlide sld = presentation.Slides[0];
 
-// スライドにチャートを作成
+// スライド上にチャートを作成します
 IChart ch = sld.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-// 軸からのラベル距離を設定
+// 軸からラベルまでの距離を設定します
 ch.Axes.HorizontalAxis.LabelOffset = 500;
 
-// プレゼンテーションをディスクに書き込む
+// プレゼンテーションをディスクに保存します
 presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
-## **ラベル位置を調整する**
 
-チャートを作成する際、軸に依存しないチャート（例：円グラフ）では、チャートのデータラベルがエッジに近すぎる場合があります。このような場合、リーダラインがはっきり表示されるようにデータラベルの位置を調整する必要があります。
+## **ラベル位置の調整**
 
-このC#コードは、円グラフでラベルの位置を調整する方法を示します：
+軸に依存しないチャート（例えば円グラフ）を作成すると、チャートのデータ ラベルがエッジに近すぎることがあります。その場合、リーダー ラインが明確に表示されるようにデータ ラベルの位置を調整する必要があります。
 
+この C# コードは、円グラフのラベル位置を調整する方法を示します。
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -183,4 +185,19 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+![円グラフ-調整ラベル](pie-chart-adjusted-label.png)
+
+## **FAQ**
+
+**密集したチャートでデータ ラベルが重なるのを防ぐには？**
+
+自動ラベル配置、リーダー ライン、フォント サイズの削減を組み合わせます。必要に応じて一部のフィールド（例: カテゴリ）を非表示にするか、極端または重要なポイントのみにラベルを表示します。
+
+**ゼロ、負、または空の値に対してのみラベルを無効にするには？**
+
+ラベルを有効にする前にデータ ポイントをフィルタリングし、0、負の値、または欠損値に対して表示をオフにするルールを適用します。
+
+**PDF/画像にエクスポートするときにラベル スタイルを一貫させるには？**
+
+フォント（ファミリ、サイズ）を明示的に設定し、レンダリング側でフォントが利用可能か確認してフォント フォールバックを防止します。

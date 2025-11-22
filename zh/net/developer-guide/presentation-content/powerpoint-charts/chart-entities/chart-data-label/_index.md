@@ -6,12 +6,10 @@ keywords: "图表数据标签,标签距离, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中设置 PowerPoint 图表数据标签和距离"
 ---
 
-图表上的数据标签显示有关图表数据系列或单个数据点的详细信息。它们使读者能够快速识别数据系列，并且还使图表更易于理解。
+图表上的数据标签显示有关图表数据系列或单个数据点的详细信息。它们使读者能够快速识别数据系列，并且使图表更易于理解。
 
-## **设置图表数据标签中的数据精度**
-
-以下 C# 代码演示了如何在图表数据标签中设置数据精度：
-
+## **设置图表数据标签的数据精度**
+此 C# 代码展示了如何在图表数据标签中设置数据精度：
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -23,9 +21,9 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **显示百分比作为标签**
-Aspose.Slides for .NET 允许您在显示的图表上设置百分比标签。以下 C# 代码演示了该操作：
 
+## **将百分比显示为标签**
+Aspose.Slides for .NET 允许在显示的图表上设置百分比标签。此 C# 代码演示了该操作：
 ```c#
 // 创建 Presentation 类的实例
 Presentation presentation = new Presentation();
@@ -76,9 +74,9 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **为图表数据标签设置百分号**
-以下 C# 代码演示了如何为图表数据标签设置百分号：
 
+## **在图表数据标签中设置百分号**
+此 C# 代码展示了如何为图表数据标签设置百分号：
 ```c#
 // 创建 Presentation 类的实例
 Presentation presentation = new Presentation();
@@ -110,7 +108,7 @@ series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetInde
 series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-// 设置 LabelFormat 属性
+// 设置标签格式属性
 series.Labels.DefaultDataLabelFormat.ShowValue = true;
 series.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
 series.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
@@ -126,7 +124,7 @@ series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetInd
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 2, 0.20));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 2, 0.35));
 
-// 设置填充类型和颜色
+// 设置 Fill type and color
 series2.Format.Fill.FillType = FillType.Solid;
 series2.Format.Fill.SolidFillColor.Color = Color.Blue;
 series2.Labels.DefaultDataLabelFormat.ShowValue = true;
@@ -140,9 +138,9 @@ series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidF
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **设置距离轴的标签**
-以下 C# 代码演示了如何在处理来自轴的图表时设置标签距离类别轴的距离：
 
+## **设置标签距离轴的距离**
+此 C# 代码展示了在处理基于轴绘制的图表时，如何设置标签与类别轴之间的距离：
 ```c#
 // 创建 Presentation 类的实例
 Presentation presentation = new Presentation();
@@ -153,19 +151,18 @@ ISlide sld = presentation.Slides[0];
 // 在幻灯片上创建图表
 IChart ch = sld.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-// 设置与轴的标签距离
+// 设置标签相对于坐标轴的距离
 ch.Axes.HorizontalAxis.LabelOffset = 500;
 
 // 将演示文稿写入磁盘
 presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
+
 ## **调整标签位置**
+当您创建的图表不依赖任何轴（例如饼图）时，图表的数据标签可能会太靠近边缘。此时，需要调整数据标签的位置，以便清晰显示引线。
 
-当您创建一个不依赖于任何轴的图表（例如饼图）时，图表的数据标签可能会靠得太近。在这种情况下，您必须调整数据标签的位置，以确保引导线能够清晰显示。
-
-以下 C# 代码演示了如何在饼图上调整标签位置：
-
+此 C# 代码展示了如何在饼图上调整标签位置：
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -183,4 +180,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **FAQ**
+
+**如何防止密集图表上的数据标签重叠？**
+结合自动标签布局、引线以及减小字体大小；必要时隐藏某些字段（例如类别），或仅对极端/关键点显示标签。
+
+**如何仅对零、负数或空值禁用标签？**
+在启用标签之前过滤数据点，并根据定义的规则关闭对值为 0、负数或缺失值的显示。
+
+**如何在导出为 PDF/图片时确保标签样式一致？**
+显式设置字体（系列、大小），并确保渲染端可用该字体，以避免回退。

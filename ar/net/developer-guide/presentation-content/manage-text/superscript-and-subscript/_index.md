@@ -1,78 +1,114 @@
 ---
-title: النص العلوي والنص السلفي
+title: إدارة النصوص المرتفعة والمتدنية في C#
+linktitle: النص المرتفع والنص المتدنٍ
 type: docs
 weight: 80
 url: /ar/net/superscript-and-subscript/
-keywords: "نص علوي, نص سلفي, إضافة نص علوي, إضافة نص سلفي, عرض PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "إضافة نص علوي ونص سلفي إلى عروض PowerPoint في C# أو .NET"
+keywords:
+- مرتفع
+- متدنٍ
+- إضافة نص مرتفع
+- إضافة نص متدنٍ
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- C#
+- Csharp
+- Aspose.Slides
+description: "اتقن النصوص المرتفعة والمتدنية في Aspose.Slides for .NET وارتقِ بعروضك التقديمية باستخدام تنسيق نصي احترافي لتحقيق أقصى تأثير."
 ---
 
-## **إدارة النص العلوي والنص السلفي**
-يمكنك إضافة نص علوي ونص سلفي داخل أي جزء من الفقرة. لإضافة نص علوي أو نص سلفي في إطار نص Aspose.Slides، يجب استخدام **خاصية الإزاحة** في فئة PortionFormat.
+## **نظرة عامة**
 
-تُرجع هذه الخاصية أو تضبط النص العلوي أو النص السلفي (قيمة من -100% (نص سلفي) إلى 100% (نص علوي). على سبيل المثال:
+توفر Aspose.Slides for .NET ميزات لدمج النصوص المرتفعة والنصوص السفلية في عروض PowerPoint (PPT، PPTX) وOpenDocument (ODP). سواء كنت تحتاج إلى تمييز الصيغ الكيميائية أو المعادلات الرياضية أو إضافة هوامش توضيحية، فإن خيارات التنسيق المتخصصة هذه تساعد على الحفاظ على الوضوح والدقة. في هذه المقالة، ستتعلم كيفية تطبيق أنماط النص المرتفع والنص السلفي بسلاسة وضمان نتائج احترافية في كل شريحة.
 
-- أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-- احصل على مرجع لشريحة باستخدام فهرسها.
-- أضف شكل تلقائي من نوع مستطيل إلى الشريحة.
-- الوصول إلى ITextFrame المرتبط بـ IAutoShape.
-- مسح الفقرات الموجودة.
-- أنشئ كائن فقرة جديد للحفاظ على النص العلوي وأضفه إلى مجموعة IParagraphs من ITextFrame.
-- أنشئ كائن جزء جديد.
-- اضبط خاصية الإزاحة للجزء بين 0 و100 لإضافة النص العلوي. (0 تعني عدم وجود نص علوي).
-- اضبط بعض النصوص للجزء ثم أضف ذلك إلى مجموعة أجزاء الفقرة.
-- أنشئ كائن فقرة جديد للحفاظ على النص السلفي وأضفه إلى مجموعة IParagraphs من ITextFrame.
-- أنشئ كائن جزء جديد.
-- اضبط خاصية الإزاحة للجزء بين 0 و-100 لإضافة النص السلفي. (0 تعني عدم وجود نص سلفي).
-- اضبط بعض النصوص للجزء ثم أضف ذلك إلى مجموعة أجزاء الفقرة.
-- احفظ العرض كملف PPTX.
+## **إضافة نص مرتفع وأسفل السطر**
 
-تنفيذ الخطوات المذكورة أعلاه موضح أدناه.
+يمكنك إضافة نص مرتفع وأسفل السطر داخل أي فقرة في عرض تقديمي. لتحقيق ذلك باستخدام Aspose.Slides، يجب عليك استخدام خاصية `Escapement` في فئة [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/).
 
+تتيح لك هذه الخاصية ضبط النص كمرتفع أو سلفي، بقيم تتراوح من -100٪ (سلفي) إلى 100٪ (مرتفع).
+
+خطوات التنفيذ:
+
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) من النوع `Rectangle` إلى الشريحة.
+1. الوصول إلى [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) المرتبط بـ [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
+1. مسح الفقرات الموجودة.
+1. إنشاء [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) جديد للنص المرتفع وإضافته إلى مجموعة الفقرات في [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).
+1. إنشاء عنصر جزء نص جديد.
+1. ضبط خاصية `Escapement` لجزء النص بين 0 إلى 100 لتطبيق النص المرتفع (0 يعني عدم وجود نص مرتفع).
+1. تعيين بعض النص لـ [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/) وإضافته إلى مجموعة الأجزاء في الفقرة.
+1. إنشاء [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) جديد للنص السلفي وإضافته إلى مجموعة الفقرات.
+1. إنشاء عنصر جزء نص جديد.
+1. ضبط خاصية `Escapement` لجزء النص بين 0 إلى -100 لتطبيق النص السلفي (0 يعني عدم وجود نص سلفي).
+1. تعيين بعض النص لـ [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/) وإضافته إلى مجموعة الأجزاء في الفقرة.
+1. حفظ العرض التقديمي كملف PPTX.
+
+الكود C# التالي ينفّذ هذه الخطوات:
 ```c#
-using (Presentation presentation = new Presentation("test.pptx"))
+using (Presentation presentation = new Presentation())
 {
-    // الحصول على الشريحة
+    // احصل على الشريحة الأولى.
     ISlide slide = presentation.Slides[0];
 
-    // إنشاء مربع نص
+    // إنشاء صندوق نص.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
     ITextFrame textFrame = shape.TextFrame;
+
     textFrame.Paragraphs.Clear();
 
-    // إنشاء فقرة للنص العلوي
+    // إنشاء فقرة لنص مرتفع.
     IParagraph superPar = new Paragraph();
 
-    // إنشاء جزء مع نص عادي
+    // إنشاء جزء نص مع نص عادي.
     IPortion portion1 = new Portion();
-    portion1.Text = "عنوان الشريحة";
+    portion1.Text = "MyProduct";
     superPar.Portions.Add(portion1);
 
-    // إنشاء جزء مع نص علوي
+    // إنشاء جزء نص مع نص مرتفع.
     IPortion superPortion = new Portion();
     superPortion.PortionFormat.Escapement = 30;
     superPortion.Text = "TM";
     superPar.Portions.Add(superPortion);
 
-    // إنشاء فقرة للنص السلفي
+    // إنشاء فقرة لنص سفلي.
     IParagraph paragraph2 = new Paragraph();
 
-    // إنشاء جزء مع نص عادي
+    // إنشاء جزء نص مع نص عادي.
     IPortion portion2 = new Portion();
-    portion2.Text = "أ";
+    portion2.Text = "a";
     paragraph2.Portions.Add(portion2);
 
-    // إنشاء جزء مع نص سلفي
+    // إنشاء جزء نص مع نص سفلي.
     IPortion subPortion = new Portion();
     subPortion.PortionFormat.Escapement = -25;
-    subPortion.Text = "ي";
+    subPortion.Text = "i";
     paragraph2.Portions.Add(subPortion);
 
-    // إضافة الفقرات إلى مربع النص
+    // إضافة الفقرات إلى صندوق النص.
     textFrame.Paragraphs.Add(superPar);
     textFrame.Paragraphs.Add(paragraph2);
 
-    presentation.Save("TestOut.pptx", SaveFormat.Pptx);
-    System.Diagnostics.Process.Start("TestOut.pptx");
- } 
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
 ```
+
+
+النتيجة:
+
+![النص المرتفع والملفوف أسفل السطر](superscript_and_subscript.png)
+
+## **الأسئلة الشائعة**
+
+**هل سيُحافظ على النصوص المرتفعة والملفوفة أسفل السطر عند تصديرها إلى PDF أو تنسيقات أخرى؟**
+
+نعم، يحتفظ Aspose.Slides for .NET بتنسيق النص المرتفع والملفوف أسفل السطر بشكل صحيح عند تصدير العروض إلى PDF أو PPT/PPTX أو الصور أو أي تنسيقات مدعومة أخرى. يظل التنسيق المتخصص محفوظًا في جميع ملفات الإخراج.
+
+**هل يمكن دمج النصوص المرتفعة والملفوفة أسفل السطر مع أنماط تنسيق أخرى مثل الغامق أو المائل؟**
+
+نعم، يتيح Aspose.Slides خلط الأنماط النصية المختلفة داخل جزء نص واحد. يمكنك تمكين الغامق أو المائل أو التح underline وتطبيق النص المرتفع أو السلفي في الوقت نفسه من خلال ضبط الخصائص المناسبة في [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/).
+
+**هل يعمل تنسيق النص المرتفع والملفوف أسفل السطر للنص داخل الجداول أو المخططات أو SmartArt؟**
+
+نعم، يدعم Aspose.Slides for .NET التنسيق داخل معظم الكائنات، بما في ذلك الجداول وعناصر المخططات. عند العمل مع SmartArt، يجب الوصول إلى العناصر المناسبة (مثل [SmartArtNode](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartartnode/)) وحاويات النص الخاصة بها، ثم ضبط خصائص [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) بنفس الطريقة.

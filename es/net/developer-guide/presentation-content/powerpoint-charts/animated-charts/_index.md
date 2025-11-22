@@ -1,29 +1,28 @@
 ---
-title: Gráficos Animados
+title: Gráficos animados
 type: docs
 weight: 80
 url: /es/net/animated-charts/
-keywords: "Gráficos, Series de Gráficos, Animación Presentación PowerPoint, PPTX, PPT, C#, Csharp, Aspose.Slides para .NET"
-description: "Series de gráficos y animaciones en PowerPoint en C# o .NET"
+keywords: "Gráficos, Series de gráficos, Animación de presentación de PowerPoint, PPTX, PPT, C#, Csharp, Aspose.Slides for .NET"
+description: "Series de gráficos y animaciones de PowerPoint en C# o .NET"
 ---
 
-Aspose.Slides para .NET admite la animación de los elementos del gráfico. **Series**, **Categorías**, **Elementos de Series**, **Elementos de Categorías** se pueden animar con el método [**ISequence**.**AddEffect**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence/methods/addeffect) y dos enums [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/net/aspose.slides.animation/effectchartmajorgroupingtype) y [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/net/aspose.slides.animation/effectchartminorgroupingtype).
+Aspose.Slides para .NET admite la animación de los elementos del gráfico. **Series**, **Categorías**, **Elementos de Series**, **Elementos de Categorías** pueden animarse con el método [**ISequence**.**AddEffect**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence/methods/addeffect) y dos enumeraciones [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/net/aspose.slides.animation/effectchartmajorgroupingtype) y [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/net/aspose.slides.animation/effectchartminorgroupingtype).
 
 ## **Animación de Series de Gráficos**
-Si desea animar una serie de gráficos, escriba el código de acuerdo con los pasos que se enumeran a continuación:
+Si desea animar una serie de gráfico, escriba el código según los pasos enumerados a continuación:
 
-1. Cargar una presentación.
-1. Obtener referencia del objeto gráfico.
-1. Animar la serie.
-1. Guardar el archivo de presentación en el disco.
+1. Cargue una presentación.
+1. Obtenga la referencia del objeto de gráfico.
+1. Anime la serie.
+1. Guarde el archivo de la presentación en disco.
 
-En el ejemplo que se presenta a continuación, hemos animado series de gráficos.
-
+En el ejemplo a continuación, animamos la serie del gráfico.
 ```c#
 // Instanciar la clase Presentation que representa un archivo de presentación 
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // Obtener referencia del objeto gráfico
+    // Obtener la referencia del objeto de gráfico
     var slide = presentation.Slides[0] as Slide;
     var shapes = slide.Shapes as ShapeCollection;
     var chart = shapes[0] as IChart;
@@ -48,26 +47,25 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
     EffectChartMajorGroupingType.BySeries, 3,
     EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Guardar la presentación modificada en el disco 
+    // Guardar la presentación modificada en disco 
     presentation.Save("AnimatingSeries_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
 ## **Animación de Categorías de Gráficos**
-Si desea animar una serie de gráficos, escriba el código de acuerdo con los pasos que se enumeran a continuación:
+Si desea animar una serie de gráfico, escriba el código según los pasos enumerados a continuación:
 
-1. Cargar una presentación.
-1. Obtener referencia del objeto gráfico.
-1. Animar la Categoría.
-1. Guardar el archivo de presentación en el disco.
+1. Cargue una presentación.
+1. Obtenga la referencia del objeto de gráfico.
+1. Anime la categoría.
+1. Guarde el archivo de la presentación en disco.
 
-En el ejemplo que se presenta a continuación, hemos animado la categoría de gráficos.
-
+En el ejemplo a continuación, animamos la categoría del gráfico.
 ```c#
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // Obtener referencia del objeto gráfico
+    // Obtener la referencia del objeto de gráfico
     var slide = presentation.Slides[0] as Slide;
     var shapes = slide.Shapes as ShapeCollection;
     var chart = shapes[0] as IChart;
@@ -89,32 +87,31 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 2, 2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Guardar el archivo de presentación en el disco
+    // Guardar el archivo de presentación en disco
     presentation.Save("AnimatingCategoriesElements_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-## **Animación en Elementos de Series**
-Si desea animar elementos de series, escriba el código de acuerdo con los pasos que se enumeran a continuación:
+## **Animación en Elementos de Serie**
+Si desea animar los elementos de la serie, escriba el código según los pasos enumerados a continuación:
 
-1. Cargar una presentación.
-1. Obtener referencia del objeto gráfico.
-1. Animar los elementos de las series.
-1. Guardar el archivo de presentación en el disco.
+1. Cargue una presentación.
+1. Obtenga la referencia del objeto de gráfico.
+1. Anime los elementos de la serie.
+1. Guarde el archivo de la presentación en disco.
 
-En el ejemplo que se presenta a continuación, hemos animado los elementos de las series.
-
+En el ejemplo a continuación, hemos animado los elementos de la serie.
 ```c#
 // Cargar una presentación
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // Obtener referencia del objeto gráfico
+    // Obtener la referencia del objeto de gráfico
     var slide = presentation.Slides[0] as Slide;
     var shapes = slide.Shapes as ShapeCollection;
     var chart = shapes[0] as IChart;
 
-    // Animar elementos de las series
+    // Animar los elementos de la serie
     slide.Timeline.MainSequence.AddEffect(chart, EffectType.Fade, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 0, 0, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
@@ -132,25 +129,25 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 2, 2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Guardar el archivo de presentación en el disco 
+    // Guardar el archivo de presentación en disco 
     presentation.Save("AnimatingSeriesElements_out.pptx", SaveFormat.Pptx);
+}
 ```
 
 
 ## **Animación en Elementos de Categoría**
-Si desea animar los elementos de categorías, escriba el código de acuerdo con los pasos que se enumeran a continuación:
+Si desea animar los elementos de las categorías, escriba el código según los pasos enumerados a continuación:
 
-1. Cargar una presentación.
-1. Obtener referencia del objeto gráfico.
-1. Animar los elementos de las categorías.
-1. Guardar el archivo de presentación en el disco.
+1. Cargue una presentación.
+1. Obtenga la referencia del objeto de gráfico.
+1. Anime los elementos de las categorías.
+1. Guarde el archivo de la presentación en disco.
 
-En el ejemplo que se presenta a continuación, hemos animado los elementos de las categorías.
-
+En el ejemplo a continuación, hemos animado los elementos de las categorías.
 ```c#
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // Obtener referencia del objeto gráfico
+    // Obtener la referencia del objeto del gráfico
     var slide = presentation.Slides[0] as Slide;
     var shapes = slide.Shapes as ShapeCollection;
     var chart = shapes[0] as IChart;
@@ -172,7 +169,25 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 2, 2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Guardar el archivo de presentación en el disco
+    // Guardar el archivo de presentación en disco
     presentation.Save("AnimatingCategoriesElements_out.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Se admiten diferentes tipos de efecto (p. ej., entrada, énfasis, salida) para los gráficos como para las formas normales?**
+Sí. Un gráfico se trata como una forma, por lo que admite los tipos estándar de efectos de animación, incluidos entrada, énfasis y salida, con control total a través de la línea de tiempo de la diapositiva y las secuencias de animación.
+
+**¿Puedo combinar la animación de gráficos con transiciones de diapositivas?**
+Sí. [Transitions](/slides/es/net/slide-transition/) se aplican a la diapositiva, mientras que los efectos de animación se aplican a los objetos de la diapositiva. Puede usar ambos juntos en la misma presentación y controlarlos de forma independiente.
+
+**¿Se conservan las animaciones de los gráficos al guardar en PPTX?**
+Sí. Cuando [save to PPTX](/slides/es/net/save-presentation/), todos los efectos de animación y su orden se conservan porque forman parte del modelo de animación nativo de la presentación.
+
+**¿Puedo leer animaciones de gráficos existentes de una presentación y modificarlas?**
+Sí. La [API](https://reference.aspose.com/slides/net/aspose.slides.animation/) proporciona acceso a la línea de tiempo de la diapositiva, secuencias y efectos, lo que permite inspeccionar animaciones de gráficos existentes y ajustarlas sin recrear todo desde cero.
+
+**¿Puedo producir un video que incluya animaciones de gráficos usando Aspose.Slides?**
+Sí. Puede [export a presentation to video](/slides/es/net/convert-powerpoint-to-video/) conservando las animaciones, configurando los tiempos y otras opciones de exportación para que el clip resultante refleje la reproducción animada.

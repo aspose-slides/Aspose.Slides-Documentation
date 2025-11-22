@@ -1,372 +1,257 @@
 ---
-title: WordArt
+title: Créer et appliquer des effets WordArt en C#
+linktitle: WordArt
 type: docs
 weight: 110
 url: /fr/net/wordart/
-keywords: "WordArt, Art de texte, Créer WordArt, Modèle WordArt, Effets WordArt, Effets d'ombre, Effets d'affichage, Effets de lueur, Transformations WordArt, Effets 3D, Effets d'ombre externe, Effets d'ombre interne, C#, Csharp, Aspose.Slides pour .NET"
-description: "Ajouter, manipuler et gérer le WordArt et les effets dans des présentations PowerPoint en C# ou Aspose.Slides pour .NET"
+keywords:
+- WordArt
+- créer WordArt
+- modèle WordArt
+- effet WordArt
+- effet d'ombre
+- effet d'affichage
+- effet de lueur
+- transformation WordArt
+- effet 3D
+- effet d'ombre externe
+- effet d'ombre interne
+- C#
+- Csharp
+- .NET
+- Aspose.Slides
+description: "Apprenez comment créer et personnaliser les effets WordArt dans Aspose.Slides pour .NET. Ce guide étape par étape aide les développeurs à améliorer les présentations avec du texte élégant et professionnel en C#."
 ---
 
-## **À propos de WordArt ?**
-WordArt ou Art de texte est une fonctionnalité qui vous permet d'appliquer des effets aux textes pour les faire ressortir. Avec WordArt, par exemple, vous pouvez contourner un texte ou le remplir avec une couleur (ou un dégradé), lui ajouter des effets 3D, etc. Vous pouvez également déformer, plier et étirer la forme d'un texte. 
+## **Vue d'ensemble**
 
-{{% alert color="primary" %}} 
+Les effets WordArt vous permettent d’ajouter du texte visuellement attrayant et stylisé à vos présentations PowerPoint. Avec Aspose.Slides for .NET, les développeurs peuvent créer, personnaliser et gérer WordArt de manière programmatique comme dans Microsoft PowerPoint—sans nécessiter l’installation d’Office. Cet article donne un aperçu du travail avec WordArt en .NET, incluant comment appliquer des transformations de texte, des styles de remplissage, des contours, des ombres et d’autres options de mise en forme pour rendre le contenu de votre présentation plus expressif et engageant. WordArt vous permet de traiter le texte comme un objet graphique. Il consiste en des effets ou des modifications spéciales appliquées au texte pour le rendre plus attractif ou visible.
 
-WordArt vous permet de traiter un texte comme vous le feriez avec un objet graphique. WordArt consiste en des effets ou des modifications spéciales appliquées aux textes pour les rendre plus attrayants ou remarquables. 
+## **Créer un modèle WordArt simple et l’appliquer au texte**
 
-{{% /alert %}} 
+Dans cette section, nous explorerons comment créer un modèle WordArt simple et l’appliquer au texte à l’aide d’Aspose.Slides for .NET. WordArt offre un moyen facile d’améliorer l’apparence du texte avec des effets visuels saisissants et des styles. En apprenant les étapes de base de la création et de l’utilisation de WordArt, vous pouvez facilement adapter ces techniques à tout projet, rendant vos présentations plus dynamiques et mémorables.
 
-**WordArt dans Microsoft PowerPoint**
-
-Pour utiliser WordArt dans Microsoft PowerPoint, vous devez sélectionner un des modèles WordArt prédéfinis. Un modèle WordArt est un ensemble d'effets qui est appliqué à un texte ou à sa forme. 
-
-**WordArt dans Aspose.Slides**
-
-Dans Aspose.Slides pour .NET 20.10, nous avons implémenté la prise en charge de WordArt et apporté des améliorations à la fonctionnalité dans les versions ultérieures d'Aspose.Slides pour .NET. 
-
-Avec Aspose.Slides pour .NET, vous pouvez facilement créer votre propre modèle WordArt (un effet ou une combinaison d'effets) en C# et l'appliquer à des textes. 
-
-## Création d'un modèle WordArt simple et application à un texte
-
-**Utilisation d'Aspose.Slides** 
-
-Tout d'abord, nous créons un texte simple en utilisant ce code C# : 
-
-``` csharp 
-using (Presentation pres = new Presentation())
+Tout d’abord, nous créons un texte simple en utilisant le code C# suivant :
+```cs
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
-    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ISlide slide = presentation.Slides[0];
+
+    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
     ITextFrame textFrame = autoShape.TextFrame;
 
-    Portion portion = (Portion)textFrame.Paragraphs[0].Portions[0];
+    IPortion portion = textFrame.Paragraphs[0].Portions[0];
     portion.Text = "Aspose.Slides";
 }
 ```
-Maintenant, nous définissons la hauteur de police du texte à une valeur plus élevée pour rendre l'effet plus visible à l'aide de ce code :
 
-``` csharp 
-FontData fontData = new FontData("Arial Black");
-portion.PortionFormat.LatinFont = fontData;
-portion.PortionFormat.FontHeight = 36;
+
+Ensuite, nous définissons la hauteur de police du texte à une valeur plus grande pour rendre l’effet plus visible en utilisant le code suivant :
+```cs
+    portion.PortionFormat.LatinFont = new FontData("Arial Black");
+    portion.PortionFormat.FontHeight = 36;
 ```
 
-**Utilisation de Microsoft PowerPoint**
 
-Allez dans le menu des effets WordArt dans Microsoft PowerPoint :
-
-![todo:image_alt_text](image-20200930113926-1.png)
-
-Dans le menu à droite, vous pouvez choisir un effet WordArt prédéfini. Dans le menu à gauche, vous pouvez spécifier les paramètres d'un nouveau WordArt. 
-
-Voici quelques-uns des paramètres ou options disponibles :
-
-![todo:image_alt_text](image-20200930114015-3.png)
-
-**Utilisation d'Aspose.Slides**
-
-Ici, nous appliquons la couleur du motif SmallGrid au texte et ajoutons une bordure de texte noire d'une largeur de 1 avec ce code :
-
-``` csharp 
-portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
-portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
-portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
-portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
-            
-portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
-portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+Ici, nous appliquons le remplissage en motif SmallGrid au texte et ajoutons une bordure de texte noire d’une largeur de 1 en utilisant le code suivant :
+```cs
+    portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
+    portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
+    portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
+    portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
+                
+    portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
+    portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
 ```
+
 
 Le texte résultant :
 
-![todo:image_alt_text](image-20200930114108-4.png)
+![Le modèle WordArt simple](WordArt_template.png)
 
-## Application d'autres effets WordArt
+## **Appliquer d’autres effets WordArt**
 
-**Utilisation de Microsoft PowerPoint**
+En plus des transformations de base, Aspose.Slides for .NET vous permet d’appliquer une variété d’effets WordArt avancés pour améliorer l’apparence de votre texte. Cela comprend les contours, les remplissages, les ombres, les reflets et les effets de lueur. En combinant ces fonctionnalités, vous pouvez créer des styles de texte accrocheurs qui se démarquent dans vos présentations. Cette section montre comment appliquer ces effets de manière programmatique en utilisant des exemples de code simples et clairs.
 
-Depuis l'interface du programme, vous pouvez appliquer ces effets à un texte, bloc de texte, forme ou élément similaire :
+### **Appliquer des effets d’ombre externe**
 
-![todo:image_alt_text](image-20200930114129-5.png)
+Les effets d’ombre externe aident le texte à se démarquer en ajoutant une ombre derrière son contour, créant une impression de profondeur et de séparation de l’arrière‑plan. Aspose.Slides for .NET vous permet d’appliquer et de personnaliser facilement les ombres externes sur le texte WordArt. Dans cette section, vous apprendrez à définir la couleur de l’ombre, la direction, la distance, le rayon de flou, et plus encore pour obtenir l’impact visuel souhaité.
 
-Par exemple, les effets d'ombre, de reflet et de lueur peuvent être appliqués à un texte ; les effets de format 3D et de rotation 3D peuvent être appliqués à un bloc de texte ; la propriété des bords doux peut être appliquée à un objet de forme (elle a toujours un effet même lorsqu'aucune propriété de format 3D n'est définie). 
-
-### Application des effets d'ombre
-
-Ici, nous avons l'intention de définir les propriétés relatives à un texte uniquement. Nous appliquons l'effet d'ombre à un texte en utilisant ce code en C# :
-
-``` csharp 
-portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
-portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 65;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4.73;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 2;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 30;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
+Le fragment de code C# suivant applique un effet d’ombre au texte créé ci‑dessus.
+```cs
+    portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
+    portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
+    portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
+    portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 100;
+    portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4;
+    portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
+    portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 30;
+    portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 20;
+    portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
+    portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
 ```
 
-L'API Aspose.Slides prend en charge trois types d'ombres : OuterShadow, InnerShadow et PresetShadow. 
 
- Avec PresetShadow, vous pouvez appliquer une ombre à un texte (en utilisant des valeurs prédéfinies). 
+Le texte résultant :
 
-**Utilisation de Microsoft PowerPoint**
-
-Dans PowerPoint, vous pouvez utiliser un type d'ombre. Voici un exemple :
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**Utilisation d'Aspose.Slides**
-
-Aspose.Slides permet en fait d'appliquer deux types d'ombres en même temps : InnerShadow et PresetShadow.
-
-**Notes :**
-
-- Lorsque OuterShadow et PresetShadow sont utilisés ensemble, seul l'effet OuterShadow est appliqué. 
-- Si OuterShadow et InnerShadow sont utilisés simultanément, l'effet résultant ou appliqué dépend de la version de PowerPoint. Par exemple, dans PowerPoint 2013, l'effet est doublé. Mais dans PowerPoint 2007, l'effet OuterShadow est appliqué. 
-
-### Application de l'affichage aux textes
-
-Nous ajoutons l'affichage au texte grâce à cet exemple de code en C# :
-
-``` csharp 
-portion.PortionFormat.EffectFormat.EnableReflectionEffect();
-portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5; 
-portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72; 
-portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f; 
-portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f; 
-portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90; 
-portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100; 
-portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
-portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
-portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
-portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;   
-```
-
-### Application de l'effet de lueur aux textes
-
-Nous appliquons l'effet de lueur au texte pour le faire briller ou ressortir en utilisant ce code :
-
-``` csharp 
-portion.PortionFormat.EffectFormat.EnableGlowEffect();
-portion.PortionFormat.EffectFormat.GlowEffect.Color.R = 255;
-portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
-portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
-```
-
-Le résultat de l'opération :
-
-![todo:image_alt_text](image-20200930114621-7.png)
+![L’effet d’ombre externe](outer_shadow_effect.png)
 
 {{% alert color="primary" %}} 
+- Lorsque OuterShadow et PresetShadow sont utilisés ensemble, seul l’effet OuterShadow est appliqué.
+- Si OuterShadow et InnerShadow sont utilisés simultanément, l’effet résultant dépend de la version de PowerPoint. Par exemple, dans PowerPoint 2013, l’effet est doublé, tandis que dans PowerPoint 2007, seul l’effet OuterShadow est appliqué.
+{{% /alert %}}
 
-Vous pouvez changer les paramètres pour l'ombre, l'affichage et la lueur. Les propriétés des effets sont définies sur chaque portion du texte séparément. 
+### **Appliquer des effets de réflexion**
 
-{{% /alert %}} 
+Dans cette section, nous explorerons comment appliquer des effets de réflexion dans vos diapositives à l’aide d’Aspose.Slides for .NET. Les effets de réflexion peuvent être un moyen efficace de donner à votre texte ou à vos formes une apparence élégante et moderne, aidant les éléments clés à se démarquer et ajoutant de la profondeur à votre présentation. En comprenant le processus d’application et de personnalisation de ces effets, vous pouvez facilement les adapter à vos besoins de conception et aux exigences de votre identité visuelle.
 
-### Utilisation des transformations dans WordArt
-
-Nous utilisons la propriété Transform (inhérente à l'ensemble du bloc de texte) via ce code :
-``` csharp 
-textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
+Ajoutez un effet de réflexion au texte à l’aide de cet exemple de code C# :
+```cs
+    portion.PortionFormat.EffectFormat.EnableReflectionEffect();
+    portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5; 
+    portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72; 
+    portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f; 
+    portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f; 
+    portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90; 
+    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100; 
+    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
+    portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
+    portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
+    portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;   
 ```
 
-Le résultat :
 
-![todo:image_alt_text](image-20200930114712-8.png)
+Le texte résultant :
+
+![L’effet de réflexion](reflection_effect.png)
+
+### **Appliquer des effets de lueur**
+
+Dans cette section, nous explorerons comment appliquer un effet de lueur au texte à l’aide d’Aspose.Slides for .NET. L’effet de lueur peut faire ressortir votre texte avec un contour lumineux, améliorant l’attrait visuel de vos diapositives. En ajustant des paramètres comme la couleur et l’intensité, vous pouvez facilement adapter la lueur à votre conception et à vos besoins de marque, assurant que les points clés de votre présentation captent l’attention du public.
+
+Appliquez un effet de lueur au texte pour le faire briller ou le faire ressortir en utilisant le code suivant :
+```cs
+    portion.PortionFormat.EffectFormat.EnableGlowEffect();
+    portion.PortionFormat.EffectFormat.GlowEffect.Color.R = 255;
+    portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
+    portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
+```
+
+
+Le texte résultant :
+
+![L’effet de lueur](glow_effect.png)
+
+### **Appliquer des transformations WordArt**
+
+Dans cette section, nous explorerons comment utiliser les transformations dans WordArt avec Aspose.Slides for .NET. Les transformations vous permettent de plier, d’étirer ou de déformer le texte, créant des effets uniques et visuellement saisissants. En maîtrisant ces techniques, vous pouvez facilement adapter les formes et les styles de texte à votre identité visuelle ou à votre vision créative, assurant une présentation convaincante et soignée.
+
+Utilisez la propriété `Transform` (qui s’applique à l’ensemble du bloc de texte) avec le code suivant :
+```cs
+    textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
+```
+
+
+Le texte résultant :
+
+![La transformation WordArt](transform_effect.png)
 
 {{% alert color="primary" %}} 
-
-À la fois Microsoft PowerPoint et Aspose.Slides pour .NET fournissent un certain nombre de types de transformation prédéfinis. 
-
+Aspose.Slides for .NET fournit un ensemble de [types de transformation](https://reference.aspose.com/slides/net/aspose.slides/textshapetype/) prédéfinis.
 {{% /alert %}} 
 
-**Utilisation de PowerPoint**
+### **Appliquer des effets 3D aux formes et au texte**
 
-Pour accéder aux types de transformation prédéfinis, allez à : **Format** -> **TextEffect** -> **Transform**
+Créer des visuels réalistes et accrocheurs peut améliorer considérablement l’impact de vos présentations. Dans cette section, nous explorerons comment appliquer des effets tridimensionnels (3D) aux formes à l’aide d’Aspose.Slides for .NET. En manipulant des paramètres comme la profondeur, l’angle et l’éclairage, vous pouvez produire des transformations 3D impressionnantes qui captent immédiatement l’attention de votre public. Que vous visiez des reflets subtils ou des illusions dramatiques, ces fonctionnalités offrent des moyens flexibles d’améliorer votre conception et de transmettre des idées de manière plus captivante.
 
-**Utilisation d'Aspose.Slides**
+Utilisez le code d’exemple suivant pour appliquer un effet 3D à la forme :
+```cs
+    autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
+    autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
+    autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
 
-Pour sélectionner un type de transformation, utilisez l'énumération TextShapeType. 
+    autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+    autoShape.ThreeDFormat.BevelTop.Height = 12.5;
+    autoShape.ThreeDFormat.BevelTop.Width = 11;
 
-### Application d'effets 3D aux textes et formes
+    autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
+    autoShape.ThreeDFormat.ExtrusionHeight = 6;
 
-Nous définissons un effet 3D à une forme de texte en utilisant ce code d'exemple :
+    autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
+    autoShape.ThreeDFormat.ContourWidth = 1.5;
 
-``` csharp 
-autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
-autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
+    autoShape.ThreeDFormat.Depth = 3;
 
-autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-autoShape.ThreeDFormat.BevelTop.Height = 12.5;
-autoShape.ThreeDFormat.BevelTop.Width = 11;
+    autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
 
-autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-autoShape.ThreeDFormat.ExtrusionHeight = 6;
+    autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+    autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+    autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
 
-autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-autoShape.ThreeDFormat.ContourWidth = 1.5;
-
-autoShape.ThreeDFormat.Depth = 3;
-
-autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
-
-autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
-
-autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+    autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
 
-Le texte résultant et sa forme :
 
-![todo:image_alt_text](image-20200930114816-9.png)
+La forme résultante :
 
-Nous appliquons un effet 3D au texte avec ce code C# :
+![L’effet 3D de la forme](shape_3D_effect.png)
 
-``` csharp 
-textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
-textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
+Utilisez le code d’exemple suivant pour appliquer un effet 3D au texte :
+```cs
+    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
+    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
+    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
 
-textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
-textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
+    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
+    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
 
-textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight= 6;
+    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
+    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight= 6;
 
-textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
+    textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
+    textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
 
-textFrame.TextFrameFormat.ThreeDFormat.Depth= 3;
+    textFrame.TextFrameFormat.ThreeDFormat.Depth= 3;
 
-textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+    textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
 
-textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+    textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+    textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+    textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
 
-textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+    textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
 
-Le résultat de l'opération :
 
-![todo:image_alt_text](image-20200930114905-10.png)
+Le texte résultant :
+
+![L’effet 3D du texte](text_3D_effect.png)
 
 {{% alert color="primary" %}} 
+L’application d’effets 3D au texte ou à leurs formes — et l’interaction entre ces effets — est régie par des règles spécifiques. Considérez une scène impliquant à la fois un texte et la forme contenant ce texte. Un effet 3D comprend la représentation 3D de l’objet et la scène sur laquelle il est placé.
 
-L'application d'effets 3D aux textes ou à leurs formes et les interactions entre les effets sont basées sur certaines règles. 
+- Si une scène est définie à la fois pour la forme et pour le texte, la scène de la forme prend le dessus et la scène du texte est ignorée.
+- Si la forme n’a pas de scène propre mais possède une représentation 3D, la scène du texte est utilisée.
+- Si la forme n’a aucun effet 3D, elle est considérée comme plate et l’effet 3D est appliqué uniquement au texte.
 
-Considérez une scène pour un texte et la forme contenant ce texte. L'effet 3D contient une représentation 3D de l'objet et la scène sur laquelle l'objet a été placé. 
-
-- Lorsque la scène est définie pour la figure et le texte, la scène de la figure a une priorité plus élevée - la scène du texte est ignorée. 
-- Lorsque la figure n'a pas sa propre scène mais a une représentation 3D, la scène du texte est utilisée. 
-- Sinon - lorsque la forme n'a d'abord aucun effet 3D - la forme est plate et l'effet 3D n'est appliqué qu'au texte. 
-
-Les descriptions sont liées aux propriétés [ThreeDFormat.LightRig](https://reference.aspose.com/slides/net/aspose.slides/threedformat/properties/lightrig) et [ThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/threedformat/properties/camera).
-
+Ces comportements sont liés aux propriétés [ThreeDFormat.LightRig](https://reference.aspose.com/slides/net/aspose.slides/threedformat/lightrig/) et [ThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/threedformat/camera/).
 {{% /alert %}} 
 
-## **Appliquer des effets d'ombre externe aux textes**
-Aspose.Slides pour .NET fournit les classes [**IOuterShadow**](https://reference.aspose.com/slides/net/aspose.slides.effects/ioutershadow) et [**IInnerShadow**](https://reference.aspose.com/slides/net/aspose.slides.effects/iinnershadow) qui vous permettent d'appliquer des effets d'ombre à un texte porté par TextFrame. Suivez ces étapes :
+## **FAQ**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Obtenez la référence d'une diapositive en utilisant son index.
-3. Ajoutez une forme automatique de type Rectangle à la diapositive.
-4. Accédez à la TextFrame associée à la forme automatique.
-5. Définissez le FillType de la forme automatique sur NoFill.
-6. Instanciez la classe OuterShadow.
-7. Définissez le BlurRadius de l'ombre.
-8. Définissez la Direction de l'ombre.
-9. Définissez la Distance de l'ombre.
-10. Définissez le RectangleAlign sur TopLeft.
-11. Définissez la couleur prédéfinie de l'ombre sur Noir.
-12. Enregistrez la présentation sous un fichier PPTX.
+**Puis-je utiliser les effets WordArt avec différentes polices ou scripts (par ex. arabe, chinois) ?**
 
-Ce code d'exemple en C#—une implémentation des étapes ci-dessus—vous montre comment appliquer l'effet d'ombre externe à un texte :
+Oui, Aspose.Slides for .NET prend en charge Unicode et fonctionne avec toutes les polices et scripts majeurs. Les effets WordArt tels que l’ombre, le remplissage et le contour peuvent être appliqués quel que soit la langue, bien que la disponibilité des polices et le rendu puissent dépendre des polices du système.
 
-```c#
-using (Presentation pres = new Presentation())
-{
+**Puis-je appliquer des effets WordArt aux éléments du masque des diapositives ?**
 
-    // Obtenez la référence de la diapositive
-    ISlide sld = pres.Slides[0];
+Oui, vous pouvez appliquer des effets WordArt aux formes du masque des diapositives, y compris les espaces réservés de titre, les pieds de page ou le texte de fond. Les modifications apportées à la mise en page du masque seront répercutées sur toutes les diapositives associées.
 
-    // Ajoutez une forme automatique de type Rectangle
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
+**Les effets WordArt affectent-ils la taille du fichier de la présentation ?**
 
-    // Ajoutez TextFrame au Rectangle
-    ashp.AddTextFrame("Aspose TextBox");
+Légèrement. Les effets WordArt tels que les ombres, les lueurs et les remplissages en dégradé peuvent légèrement augmenter la taille du fichier en raison des métadonnées de mise en forme ajoutées, mais la différence est généralement négligeable.
 
-    // Désactivez le remplissage de la forme au cas où nous voudrions obtenir l'ombre du texte
-    ashp.FillFormat.FillType = FillType.NoFill;
+**Puis-je prévisualiser le résultat des effets WordArt sans enregistrer la présentation ?**
 
-    // Ajoutez une ombre extérieure et définissez tous les paramètres nécessaires
-    ashp.EffectFormat.EnableOuterShadowEffect();
-    IOuterShadow shadow = ashp.EffectFormat.OuterShadowEffect;
-    shadow.BlurRadius = 4.0;
-    shadow.Direction = 45;
-    shadow.Distance = 3;
-    shadow.RectangleAlign = RectangleAlignment.TopLeft;
-    shadow.ShadowColor.PresetColor = PresetColor.Black;
-
-    //Écrivez la présentation sur le disque
-    pres.Save("pres_out.pptx", SaveFormat.Pptx);
-}
-```
-
-
-## **Appliquer l'effet d'ombre interne aux formes**
-Suivez ces étapes :
-
-1. Créez une instance de la [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) classe.
-2. Obtenez une référence de la diapositive.
-3. Ajoutez une forme automatique de type Rectangle.
-4. Activez l'InnerShadowEffect.
-5. Définissez tous les paramètres nécessaires.
-6. Définissez le ColorType sur Scheme.
-7. Définissez la couleur du schéma.
-8. Enregistrez la présentation sous un fichier [PPTX](https://docs.fileformat.com/presentation/pptx/) .
-
-Ce code d'exemple (basé sur les étapes ci-dessus) vous montre comment ajouter un connecteur entre deux formes en C# :
-
-```c#
-using(Presentation presentation = new Presentation())
-{
-    // Obtenez la référence d'une diapositive
-    ISlide slide = presentation.Slides[0];
-
-    // Ajoutez une forme automatique de type Rectangle
-    IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
-    ashp.FillFormat.FillType = FillType.NoFill;
-
-    // Ajoutez TextFrame au Rectangle
-    ashp.AddTextFrame("Aspose TextBox");
-    IPortion port = ashp.TextFrame.Paragraphs[0].Portions[0];
-    IPortionFormat pf = port.PortionFormat;
-    pf.FontHeight = 50;
-
-    // Activez l'InnerShadowEffect    
-    IEffectFormat ef = pf.EffectFormat;
-    ef.EnableInnerShadowEffect();
-
-    // Définissez tous les paramètres nécessaires
-    ef.InnerShadowEffect.BlurRadius = 8.0;
-    ef.InnerShadowEffect.Direction = 90.0F;
-    ef.InnerShadowEffect.Distance = 6.0;
-    ef.InnerShadowEffect.ShadowColor.B = 189;
-
-    // Définissez le ColorType sur Scheme
-    ef.InnerShadowEffect.ShadowColor.ColorType = ColorType.Scheme;
-
-    // Définissez la couleur du schéma
-    ef.InnerShadowEffect.ShadowColor.SchemeColor = SchemeColor.Accent1;
-
-    // Enregistrez la présentation
-    presentation.Save("WordArt_out.pptx", SaveFormat.Pptx);
-}
-```
+Oui, vous pouvez rendre les diapositives contenant du WordArt en images (par ex. PNG, JPEG) en utilisant la méthode `GetImage` des interfaces [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) ou [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/). Cela vous permet de prévisualiser le résultat en mémoire ou à l’écran avant d’enregistrer ou d’exporter la présentation complète.

@@ -3,22 +3,21 @@ title: アニメーションテキスト
 type: docs
 weight: 60
 url: /ja/net/animated-text/
-keywords: "アニメーションテキスト, アニメーション効果, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
-description: "C#または.NETでPowerPointプレゼンテーションにアニメーションテキストと効果を追加する"
+keywords: "アニメーションテキスト, アニメーション効果, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
+description: "C# または .NET で PowerPoint プレゼンテーションにアニメーションテキストと効果を追加します"
 ---
 
-## 段落にアニメーション効果を追加する
+## **段落へのアニメーション効果の追加**
 
-[**AddEffect()**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence/methods/addeffect/index) メソッドを [**Sequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence) と [**ISequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence) クラスに追加しました。このメソッドを使用すると、単一の段落にアニメーション効果を追加できます。このサンプルコードは、単一の段落にアニメーション効果を追加する方法を示しています：
-
+We added the [**AddEffect()**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence/methods/addeffect/index) method to the [**Sequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence) and [**ISequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
 ```c#
 using (Presentation presentation = new Presentation(dataDir + "Presentation1.pptx"))
 {
-    // 効果を追加する段落を選択
+    // エフェクトを追加する段落を選択
     IAutoShape autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     IParagraph paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // 選択した段落にフライアニメーション効果を追加
+    // 選択した段落に Fly アニメーション効果を追加
     IEffect effect = presentation.Slides[0].Timeline.MainSequence.AddEffect(paragraph, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
 
@@ -27,13 +26,11 @@ using (Presentation presentation = new Presentation(dataDir + "Presentation1.ppt
 ```
 
 
+## **段落内のアニメーション効果の取得**
 
-## 段落内のアニメーション効果を取得する
+You may decide to find out the animation effects added to a paragraph—for example, in one scenario, you want to get the animation effects in a paragraph because you plan to apply those effects to another paragraph or shape.
 
-段落に追加されたアニメーション効果を調べることを決定するかもしれません。例えば、あるシナリオでは、別の段落や図形にそれらの効果を適用する計画があるため、段落のアニメーション効果を取得したいと思います。
-
-Aspose.Slides for .NETを使用すると、テキストフレーム（図形）に含まれる段落に適用されたすべてのアニメーション効果を取得できます。このサンプルコードは、段落のアニメーション効果を取得する方法を示しています：
-
+Aspose.Slides for .NET allows you to get all the animation effects applied to paragraphs contained in a text frame (shape). This sample code shows you how to get the animation effects in a paragraph:
 ```c#
 using (Presentation pres = new Presentation("Test.pptx"))
 {
@@ -45,7 +42,22 @@ using (Presentation pres = new Presentation("Test.pptx"))
 		IEffect[] effects = sequence.GetEffectsByParagraph(paragraph);
 
 		if (effects.Length > 0)
-			Console.WriteLine("段落 \"" + paragraph.Text + "\" には " + effects[0].Type + " 効果があります。");
+			Console.WriteLine("Paragraph \"" + paragraph.Text + "\" has " + effects[0].Type + " effect.");
 	}
 }
 ```
+
+
+## **FAQ**
+
+**テキストアニメーションはスライドトランジションとどう違い、組み合わせることはできますか？**
+
+Text animations control object behavior over time on a slide, while [transitions](/slides/ja/net/slide-transition/) control how slides change. They’re independent and can be used together; playback order is governed by the animation timeline and the transition settings.
+
+**PDFや画像にエクスポートしたとき、テキストアニメーションは保持されますか？**
+
+No. PDF and raster images are static, so you’ll see a single state of the slide without motion. To keep movement, use [video](/slides/ja/net/convert-powerpoint-to-video/) or [HTML](/slides/ja/net/export-to-html5/) export.
+
+**レイアウトやスライドマスタでテキストアニメーションは機能しますか？**
+
+Effects applied to layout/master objects are inherited by slides, but their timing and interaction with slide-level animations depend on the final sequence on the slide.

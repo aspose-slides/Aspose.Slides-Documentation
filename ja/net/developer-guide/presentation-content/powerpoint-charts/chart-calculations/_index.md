@@ -3,13 +3,12 @@ title: チャート計算
 type: docs
 weight: 50
 url: /ja/net/chart-calculations/
-keywords: "チャート計算, チャート要素, 要素位置, チャート値 C#, Csharp, Aspose.Slides for .NET"
-description: "C#または.NETにおけるPowerPointチャート計算と値"
+keywords: "チャート計算, チャート要素, 要素の位置, チャート値 C#, C#, Aspose.Slides for .NET"
+description: "PowerPoint のチャート計算と値（C# または .NET）"
 ---
 
-## **チャート要素の実際の値を計算する**
-Aspose.Slides for .NETは、これらのプロパティを取得するためのシンプルなAPIを提供します。これにより、チャート要素の実際の値を計算することができます。実際の値には、IActualLayoutインターフェースを実装する要素の位置（IActualLayout.ActualX、IActualLayout.ActualY、IActualLayout.ActualWidth、IActualLayout.ActualHeight）および実際の軸値（IAxis.ActualMaxValue、IAxis.ActualMinValue、IAxis.ActualMajorUnit、IAxis.ActualMinorUnit、IAxis.ActualMajorUnitScale、IAxis.ActualMinorUnitScale）が含まれます。
-
+## **チャート要素の実際の値を計算**
+Aspose.Slides for .NET は、これらのプロパティを取得するためのシンプルな API を提供します。これにより、チャート要素の実際の値を計算できます。実際の値には、IActualLayout インターフェイスを実装する要素の位置 (IActualLayout.ActualX、IActualLayout.ActualY、IActualLayout.ActualWidth、IActualLayout.ActualHeight) と、実際の軸の値 (IAxis.ActualMaxValue、IAxis.ActualMinValue、IAxis.ActualMajorUnit、IAxis.ActualMinorUnit、IAxis.ActualMajorUnitScale、IAxis.ActualMinorUnitScale) が含まれます。
 ```c#
 using (Presentation pres = new Presentation("test.pptx"))
 {
@@ -19,17 +18,17 @@ using (Presentation pres = new Presentation("test.pptx"))
     double y = chart.PlotArea.ActualY;
     double w = chart.PlotArea.ActualWidth;
     double h = chart.PlotArea.ActualHeight;
-	
-	// プレゼンテーションを保存する
-	pres.Save("Result.pptx", SaveFormat.Pptx);
+    
+    // プレゼンテーションを保存
+    pres.Save("Result.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **親チャート要素の実際の位置を計算する**
-Aspose.Slides for .NETは、これらのプロパティを取得するためのシンプルなAPIを提供します。IActualLayoutのプロパティは、親チャート要素の実際の位置に関する情報を提供します。プロパティに実際の値を設定するには、IChart.ValidateChartLayout()メソッドを事前に呼び出す必要があります。
 
+## **親チャート要素の実際の位置を計算**
+Aspose.Slides for .NET は、これらのプロパティを取得するためのシンプルな API を提供します。IActualLayout のプロパティは、親チャート要素の実際の位置に関する情報を提供します。実際の値でプロパティを埋めるには、事前に IChart.ValidateChartLayout() メソッドを呼び出す必要があります。
 ```c#
-// 空のプレゼンテーションを作成する
+// 空のプレゼンテーションを作成
 using (Presentation pres = new Presentation())
 {
    Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
@@ -42,28 +41,28 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **チャートから情報を隠す**
-このトピックは、チャートから情報を隠す方法を理解するのに役立ちます。Aspose.Slides for .NETを使用すると、チャートから**タイトル、縦軸、横軸**、および**グリッド線**を隠すことができます。以下のコード例は、これらのプロパティを使用する方法を示しています。
 
+## **チャートから情報を非表示にする**
+このトピックでは、チャートから情報を非表示にする方法を解説します。Aspose.Slides for .NET を使用すると、**タイトル、垂直軸、水平軸** および **グリッド線** をチャートから非表示にできます。以下のコード例は、これらのプロパティの使用方法を示しています。
 ```c#
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];
     IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 140, 118, 320, 370);
 
-    // チャートタイトルを隠す
+    //チャートのタイトルを非表示にする
     chart.HasTitle = false;
 
-    // 値軸を隠す
+    ///値軸を非表示にする
     chart.Axes.VerticalAxis.IsVisible = false;
 
-    // カテゴリー軸の可視性
+    //カテゴリ軸の表示
     chart.Axes.HorizontalAxis.IsVisible = false;
 
-    // 凡例を隠す
+    //凡例を非表示にする
     chart.HasLegend = false;
 
-    // メジャーグリッドラインを隠す
+    //主要グリッド線を非表示にする
     chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
 
     for (int i = 0; i < chart.ChartData.Series.Count; i++)
@@ -78,7 +77,7 @@ using (Presentation pres = new Presentation())
     series.Labels.DefaultDataLabelFormat.Position = LegendDataLabelPosition.Top;
     series.Marker.Size = 15;
 
-    // シリーズの線の色を設定する
+    //系列の線の色を設定する
     series.Format.Line.FillFormat.FillType = FillType.Solid;
     series.Format.Line.FillFormat.SolidFillColor.Color = Color.Purple;
     series.Format.Line.DashStyle = LineDashStyle.Solid;
@@ -86,3 +85,18 @@ using (Presentation pres = new Presentation())
     pres.Save("HideInformationFromChart.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**外部の Excel ワークブックをデータ ソースとして使用できますか？また、再計算にどのように影響しますか？**
+
+はい。チャートは外部ワークブックを参照できます。外部ソースに接続または更新すると、数式と値はそのワークブックから取得され、チャートは開く/編集する操作中に更新を反映します。API を使用すると、[外部ワークブックを指定](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/setexternalworkbook/) パスを設定し、リンクされたデータを管理できます。
+
+**自分で回帰分析を実装せずにトレンドラインを計算・表示できますか？**
+
+はい。[トレンドライン](/slides/ja/net/trend-line/)（線形、指数など）は Aspose.Slides によって追加・更新され、パラメータはシリーズ データから自動的に再計算されるため、独自の計算を実装する必要はありません。
+
+**プレゼンテーションに外部リンクを持つ複数のチャートがある場合、各チャートが計算値に使用するワークブックを制御できますか？**
+
+はい。各チャートはそれぞれの[外部ワークブック](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/setexternalworkbook/) を指すことができ、他のチャートとは独立してチャートごとに外部ワークブックを作成または置き換えることも可能です。

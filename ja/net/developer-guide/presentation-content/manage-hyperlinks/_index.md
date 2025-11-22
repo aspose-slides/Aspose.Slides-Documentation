@@ -3,81 +3,78 @@ title: ハイパーリンクの管理
 type: docs
 weight: 20
 url: /ja/net/manage-hyperlinks/
-keywords: "ハイパーリンクの追加, PowerPointプレゼンテーション, PowerPointハイパーリンク, テキストハイパーリンク, スライドハイパーリンク, 形状ハイパーリンク, 画像ハイパーリンク, 動画ハイパーリンク, .NET, C#, Csharp"
-description: "C#または.NETでPowerPointプレゼンテーションにハイパーリンクを追加する"
+keywords: "ハイパーリンクを追加, PowerPoint プレゼンテーション, PowerPoint ハイパーリンク, テキスト ハイパーリンク, スライド ハイパーリンク, シェイプ ハイパーリンク, 画像 ハイパーリンク, ビデオ ハイパーリンク, .NET, C#, Csharp"
+description: "C# または .NET で PowerPoint プレゼンテーションにハイパーリンクを追加する"
 ---
 
-ハイパーリンクは、オブジェクト、データ、または何かの中の場所への参照です。PowerPointプレゼンテーションで一般的なハイパーリンクは次のとおりです。
+ハイパーリンクは、オブジェクトやデータ、または何かの中の場所への参照です。これらはPowerPointプレゼンテーションで一般的に使用されるハイパーリンクです：
 
-* テキスト、形状、またはメディア内のウェブサイトへのリンク
+* テキスト、シェイプ、またはメディア内のウェブサイトへのリンク
 * スライドへのリンク
 
-Aspose.Slides for .NETを使用すると、プレゼンテーション内のハイパーリンクに関する多くの作業を実行できます。
+Aspose.Slides for .NET を使用すると、プレゼンテーション内のハイパーリンクに関する多くのタスクを実行できます。
 
 {{% alert color="primary" %}} 
-
-Asposeのシンプルな、[無料のオンラインPowerPointエディタ](https://products.aspose.app/slides/editor)をチェックしてみるとよいでしょう。
-
+Asposeシンプル版や、[無料のオンラインPowerPointエディタ。](https://products.aspose.app/slides/editor)をご確認ください。
 {{% /alert %}} 
 
-## **URLハイパーリンクの追加**
+## **ハイパーリンクを使用した目次の作成**
 
 ### **テキストへのURLハイパーリンクの追加**
 
 このC#コードは、テキストにウェブサイトのハイパーリンクを追加する方法を示しています。
-
 ```c#
 using (Presentation presentation = new Presentation())
 {
 	IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
-	shape1.AddTextFrame("Aspose: ファイル形式API");
+	shape1.AddTextFrame("Aspose: File Format APIs");
 	shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-	shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.Tooltip = "70％以上のフォーチュン100企業がAspose APIを信頼しています";
+	shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
 	shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 32;
 
 	presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 }
 ```
 
-### **形状またはフレームへのURLハイパーリンクの追加**
 
-このC#のサンプルコードは、形状にウェブサイトのハイパーリンクを追加する方法を示しています。
+### **シェイプまたはフレームへのURLハイパーリンクの追加**
 
+このC#サンプルコードは、シェイプにウェブサイトのハイパーリンクを追加する方法を示しています。
 ```c#
 using (Presentation pres = new Presentation())
 {
     IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
     
     shape.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    shape.HyperlinkClick.Tooltip = "70％以上のフォーチュン100企業がAspose APIを信頼しています";
+    shape.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
 
     pres.Save("pres-out.pptx", SaveFormat.Pptx);
 }
 ```
 
+
 ### **メディアへのURLハイパーリンクの追加**
 
-Aspose.Slidesを使用すると、画像、音声、および動画ファイルにハイパーリンクを追加することができます。
+Aspose.Slides を使用すると、画像、音声、動画ファイルにハイパーリンクを追加できます。 
 
-このサンプルコードは、**画像**にハイパーリンクを追加する方法を示しています。
-
+このサンプルコードは、**画像**にハイパーリンクを追加する方法を示しています：
 ```c#
 using (Presentation pres = new Presentation())
 {
     // プレゼンテーションに画像を追加
     IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    // 以前に追加した画像に基づいてスライド1に画像フレームを作成
+    // 以前に追加した画像を元にスライド1に画像フレームを作成
     IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
 
     pictureFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    pictureFrame.HyperlinkClick.Tooltip = "70％以上のフォーチュン100企業がAspose APIを信頼しています";
+    pictureFrame.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspify APIs";
 
     pres.Save("pres-out.pptx", SaveFormat.Pptx);
 }
 ```
 
-このサンプルコードは、**音声ファイル**にハイパーリンクを追加する方法を示しています。
 
+このサンプルコードは、**音声ファイル**にハイパーリンクを追加する方法を示しています：
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -85,14 +82,14 @@ using (Presentation pres = new Presentation())
     IAudioFrame audioFrame = pres.Slides[0].Shapes.AddAudioFrameEmbedded(10, 10, 100, 100, audio);
 
     audioFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    audioFrame.HyperlinkClick.Tooltip = "70％以上のフォーチュン100企業がAspose APIを信頼しています";
+    audioFrame.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
 
     pres.Save("pres-out.pptx", SaveFormat.Pptx);
 }
 ```
 
-このサンプルコードは、**動画**にハイパーリンクを追加する方法を示しています。
 
+このサンプルコードは、**動画**にハイパーリンクを追加する方法を示しています：
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -100,24 +97,22 @@ using (Presentation pres = new Presentation())
     IVideoFrame videoFrame = pres.Slides[0].Shapes.AddVideoFrame(10, 10, 100, 100, video);
 
     videoFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    videoFrame.HyperlinkClick.Tooltip = "70％以上のフォーチュン100企業がAspose APIを信頼しています";
+    videoFrame.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
 
     pres.Save("pres-out.pptx", SaveFormat.Pptx);
 }
 ```
 
-{{%  alert  title="ヒント"  color="primary"  %}} 
 
-*[OLEの管理](https://docs.aspose.com/slides/net/manage-ole/)*を参照することをお勧めします。
+{{%  alert  title="Tip"  color="primary"  %}} 
+*[OLEの管理](https://docs.aspose.com/slides/net/manage-ole/)*をご覧ください。
+{{% /alert %}}
 
-{{% /alert %}} 
+## **ハイパーリンクを使用した目次の作成**
 
-## **ハイパーリンクを使用して目次を作成する**
+ハイパーリンクはオブジェクトや場所への参照を追加できるため、目次の作成に利用できます。 
 
-ハイパーリンクを使用すると、オブジェクトや場所への参照を追加できるため、目次を作成するために利用することができます。
-
-このサンプルコードは、ハイパーリンクを使用して目次を作成する方法を示しています。
-
+このサンプルコードは、ハイパーリンク付きの目次を作成する方法を示しています。
 ```c#
 using (var presentation = new Presentation())
 {
@@ -132,10 +127,10 @@ using (var presentation = new Presentation())
     var paragraph = new Paragraph();
     paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    paragraph.Text = "スライド2のタイトル .......... ";
+    paragraph.Text = "Title of slide 2 .......... ";
 
     var linkPortion = new Portion();
-    linkPortion.Text = "ページ2";
+    linkPortion.Text = "Page 2";
     linkPortion.PortionFormat.HyperlinkManager.SetInternalHyperlinkClick(secondSlide);
 
     paragraph.Portions.Add(linkPortion);
@@ -145,100 +140,101 @@ using (var presentation = new Presentation())
 }
 ```
 
-## **ハイパーリンクのフォーマット**
 
-### **色**
+## **ハイパーリンクの書式設定**
 
-[IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink)インターフェースの[ColorSource](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/colorsource)プロパティを使って、ハイパーリンクの色を設定したり、ハイパーリンクから色の情報を取得したりすることができます。この機能はPowerPoint 2019で初めて導入されたため、プロパティに関する変更は古いPowerPointバージョンには適用されません。
+### **カラー**
 
-このサンプルコードは、異なる色のハイパーリンクが同じスライドに追加された操作を示しています。
+IHyperlink インターフェイスの [ColorSource](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/colorsource) プロパティを使用すると、ハイパーリンクの色を設定したり、ハイパーリンクから色情報を取得したりできます。この機能は PowerPoint 2019 で初めて導入されたため、プロパティに関する変更は古い PowerPoint バージョンには適用されません。
 
+このサンプルコードは、異なる色のハイパーリンクを同じスライドに追加する操作を示しています：
 ```c#
 using (Presentation presentation = new Presentation())
 {
     IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
-    shape1.AddTextFrame("これは色付きのハイパーリンクのサンプルです。");
+    shape1.AddTextFrame("This is a sample of colored hyperlink.");
     shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
     shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.ColorSource = HyperlinkColorSource.PortionFormat;
     shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.FillType = FillType.Solid;
     shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.SolidFillColor.Color = Color.Red;
 
     IAutoShape shape2 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 450, 50, false);
-    shape2.AddTextFrame("これは通常のハイパーリンクのサンプルです。");
+    shape2.AddTextFrame("This is a sample of usual hyperlink.");
     shape2.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
 
     presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 }
 ```
-### **音**
 
-Aspose.Slidesは、ハイパーリンクを音で強調表示できるようにするためのこれらのプロパティを提供します：
+### **サウンド**
+
+Aspose.Slides は、ハイパーリンクにサウンドを付加して強調できる以下のプロパティを提供します。
+
 - [IHyperlink.Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/sound) 
 - [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
 #### **ハイパーリンクサウンドの追加**
 
-このC#コードは、音を再生するハイパーリンクを設定し、別のハイパーリンクでそれを停止する方法を示しています。
-
+このC#コードは、サウンドを再生するハイパーリンクを設定し、別のハイパーリンクで停止させる方法を示しています：
 ```c#
 using (Presentation pres = new Presentation())
 {
-	// プレゼンテーションの音声コレクションに新しい音声を追加
+	// プレゼンテーションのオーディオコレクションに新しいオーディオを追加
 	IAudio playSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
 
 	ISlide firstSlide = pres.Slides[0];
 
-	// 次のスライドへのハイパーリンクを持つ新しい形状を追加
+	// 次のスライドへのハイパーリンクを持つ新しいシェイプを追加
 	IShape firstShape = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
 	firstShape.HyperlinkClick = Hyperlink.NextSlide;
 
-	// "音なし"に対してハイパーリンクをチェック
+	// 「無音」かどうかハイパーリンクをチェック
 	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
 	{
-		// 音を再生するハイパーリンクを設定
+		// 音声を再生するハイパーリンクを設定
 		firstShape.HyperlinkClick.Sound = playSound;
 	}
 
 	// 空のスライドを追加 
 	ISlide secondSlide = pres.Slides.AddEmptySlide(firstSlide.LayoutSlide);
 
-	// NoActionハイパーリンクを持つ新しい形状を追加
+	// NoAction ハイパーリンクを持つ新しいシェイプを追加
 	IShape secondShape = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
 	secondShape.HyperlinkClick = Hyperlink.NoAction;
 
-	// "前の音を停止"フラグを設定
+	// ハイパーリンクの「前の音を停止」フラグを設定
 	secondShape.HyperlinkClick.StopSoundOnClick = true;
 
 	pres.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
 }
 ```
 
-#### **ハイパーリンク音の抽出**
 
-このC#コードは、ハイパーリンクで使用されている音を抽出する方法を示しています。
+#### **ハイパーリンクサウンドの抽出**
 
+このC#コードは、ハイパーリンクで使用されているサウンドを抽出する方法を示しています：
 ```c#
 using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 {
 	ISlide firstSlide = pres.Slides[0];
 
-	// 最初の形状のハイパーリンクを取得
+	// 最初のシェイプのハイパーリンクを取得
 	IHyperlink link = firstSlide.Shapes[0].HyperlinkClick;
 
 	if (link.Sound != null)
 	{
-		// ハイパーリンク音をバイト配列として抽出
+		// ハイパーリンクのサウンドをバイト配列として抽出
 		byte[] audioData = link.Sound.BinaryData;
 	}
 }
 ```
 
-## **プレゼンテーションからのハイパーリンクの削除**
 
-### **テキストからのハイパーリンクの削除**
+## **プレゼンテーションからハイパーリンクを削除する**
 
-このC#コードは、プレゼンテーションスライドのテキストからハイパーリンクを削除する方法を示しています。
+### **テキストからハイパーリンクを削除する**
 
+このC#コードは、プレゼンテーションスライドのテキストからハイパーリンクを削除する方法を示しています：
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -262,10 +258,10 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-### **形状またはフレームからのハイパーリンクの削除**
 
-このC#コードは、プレゼンテーションスライドの形状からハイパーリンクを削除する方法を示しています。 
+### **シェイプまたはフレームからハイパーリンクを削除する**
 
+このC#コードは、プレゼンテーションスライドのシェイプからハイパーリンクを削除する方法を示しています： 
 ``` csharp
 using (Presentation pres = new Presentation("demo.pptx")) 
 { 
@@ -278,27 +274,27 @@ using (Presentation pres = new Presentation("demo.pptx"))
 }
 ```
 
-## **ミュータブルハイパーリンク**
 
-[Hyperlink](https://reference.aspose.com/slides/net/aspose.slides/hyperlink)クラスはミュータブルです。このクラスを使用すると、次のプロパティの値を変更できます。
+## **可変ハイパーリンク**
+
+[Hyperlink](https://reference.aspose.com/slides/net/aspose.slides/hyperlink) クラスは可変です。このクラスを使用すると、以下のプロパティの値を変更できます。
 
 - [IHyperlink.TargetFrame](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/targetframe)
 - [IHyperlink.Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/tooltip)
 - [IHyperlink.History](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/history)
 - [IHyperlink.HighlightClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/highlightclick)
 
-このコードスニペットは、スライドにハイパーリンクを追加し、後でそのツールチップを編集する方法を示しています。
-
+このコードスニペットは、スライドにハイパーリンクを追加し、後でツールチップを編集する方法を示しています：
 ```c#
 using (Presentation presentation = new Presentation())
 {   
    IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    
     
-   shape1.AddTextFrame("Aspose: ファイル形式API");
+   shape1.AddTextFrame("Aspose: File Format APIs");
     
    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
     
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.Tooltip = "70％以上のフォーチュン100企業がAspose APIを信頼しています";
+    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
     
     shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 32;
     
@@ -306,17 +302,32 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **IHyperlinkQueriesでサポートされているプロパティ**
 
-プレゼンテーション、スライド、またはハイパーリンクが定義されているテキストからIHyperlinkQueriesにアクセスできます。 
+## **IHyperlinkQueries のサポートプロパティ**
+
+ハイパーリンクが定義されているプレゼンテーション、スライド、またはテキストから IHyperlinkQueries にアクセスできます。 
 
 - [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/properties/hyperlinkqueries)
 - [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
 - [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/itextframe/properties/hyperlinkqueries)
 
-IHyperlinkQueriesクラスは、次のメソッドとプロパティをサポートしています。
+IHyperlinkQueries クラスは、以下のメソッドとプロパティをサポートしています。 
 
 - [IHyperlinkQueries.GetHyperlinkClicks();](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkclicks)
 - [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkmouseovers)
 - [IHyperlinkQueries.GetAnyHyperlinks();](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/methods/getanyhyperlinks)
 - [IHyperlinkQueries.RemoveAllHyperlinks();](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/methods/removeallhyperlinks)
+
+## **FAQ**
+
+**スライドだけでなく、セクションやセクションの最初のスライドへの内部ナビゲーションはどう作成できますか？**
+
+PowerPoint のセクションはスライドのグループであり、ナビゲーションは技術的には特定のスライドを対象とします。セクションへ「移動」するには、通常、そのセクションの最初のスライドへのリンクを作成します。
+
+**マスタースライドの要素にハイパーリンクを付けて、すべてのスライドで機能させることはできますか？**
+
+はい。マスタースライドおよびレイアウト要素はハイパーリンクをサポートします。そのようなリンクは子スライド上に表示され、スライドショー中にクリック可能です。
+
+**PDF、HTML、画像、動画へエクスポートするときにハイパーリンクは保持されますか？**
+
+[PDF](/slides/ja/net/convert-powerpoint-to-pdf/) と [HTML](/slides/ja/net/convert-powerpoint-to-html/) では、リンクは通常保持されます。[画像](/slides/ja/net/convert-powerpoint-to-png/) や [動画](/slides/ja/net/convert-powerpoint-to-video/) へエクスポートする場合、これらのフォーマットはラスターフレーム/ビデオでハイパーリンクをサポートしないため、クリック可能性は引き継がれません。

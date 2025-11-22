@@ -3,13 +3,12 @@ title: حسابات المخطط
 type: docs
 weight: 50
 url: /ar/net/chart-calculations/
-keywords: "حسابات المخطط، عناصر المخطط، موضع العنصر، قيم المخطط C#، Csharp، Aspose.Slides لـ .NET"
-description: "حسابات وقيم مخطط PowerPoint في C# أو .NET"
+keywords: "حسابات المخطط, عناصر المخطط, موقع العنصر, قيم المخطط C#, Csharp, Aspose.Slides for .NET"
+description: "حسابات وقيم مخططات PowerPoint في C# أو .NET"
 ---
 
-## **احسب القيم الفعلية لعناصر المخطط**
-توفر Aspose.Slides لـ .NET واجهة برمجة تطبيقات بسيطة للحصول على هذه الخصائص. سيساعدك ذلك في حساب القيم الفعلية لعناصر المخطط. تشمل القيم الفعلية موضع العناصر التي تنفذ واجهة IActualLayout (IActualLayout.ActualX، IActualLayout.ActualY، IActualLayout.ActualWidth، IActualLayout.ActualHeight) والقيم الفعلية للمحاور (IAxis.ActualMaxValue، IAxis.ActualMinValue، IAxis.ActualMajorUnit، IAxis.ActualMinorUnit، IAxis.ActualMajorUnitScale، IAxis.ActualMinorUnitScale).
-
+## **حساب القيم الفعلية لعناصر المخطط**
+Aspose.Slides for .NET يوفر API بسيط للحصول على هذه الخصائص. سيساعدك ذلك على حساب القيم الفعلية لعناصر المخطط. تشمل القيم الفعلية موضع العناصر التي تنفذ واجهة IActualLayout (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight) والقيم الفعلية للمحاور (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale).
 ```c#
 using (Presentation pres = new Presentation("test.pptx"))
 {
@@ -26,10 +25,8 @@ using (Presentation pres = new Presentation("test.pptx"))
 ```
 
 
-
-## **احسب موضع العناصر الأصلية في المخطط**
-توفر Aspose.Slides لـ .NET واجهة برمجة تطبيقات بسيطة للحصول على هذه الخصائص. توفر خصائص IActualLayout معلومات حول الموضع الفعلي للعناصر الأصلية في المخطط. من الضروري استدعاء الطريقة IChart.ValidateChartLayout() مسبقًا لملء الخصائص بالقيم الفعلية.
-
+## **حساب الموضع الفعلي لعناصر المخطط الأصلية**
+Aspose.Slides for .NET يوفر API بسيط للحصول على هذه الخصائص. خصائص IActualLayout توفر معلومات حول الموضع الفعلي لعنصر المخطط الأصل. من الضروري استدعاء الطريقة IChart.ValidateChartLayout() مسبقًا لملء الخصائص بالقيم الفعلية.
 ```c#
 // إنشاء عرض تقديمي فارغ
 using (Presentation pres = new Presentation())
@@ -45,10 +42,8 @@ using (Presentation pres = new Presentation())
 ```
 
 
-
 ## **إخفاء المعلومات من المخطط**
-تساعدك هذه الصفحة على فهم كيفية إخفاء المعلومات من المخطط. باستخدام Aspose.Slides لـ .NET يمكنك إخفاء **العنوان، المحور العمودي، المحور الأفقي** و **خطوط الشبكة** من المخطط. يوضح المثال البرمجي أدناه كيفية استخدام هذه الخصائص.
-
+هذا الموضوع يساعدك على فهم كيفية إخفاء المعلومات من المخطط. باستخدام Aspose.Slides for .NET يمكنك إخفاء **العنوان**, **المحور العمودي**, **المحور الأفقي** و **خطوط الشبكة** من المخطط. مثال الشيفرة أدناه يوضح كيفية استخدام هذه الخصائص.
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -58,13 +53,13 @@ using (Presentation pres = new Presentation())
     //إخفاء عنوان المخطط
     chart.HasTitle = false;
 
-    //إخفاء محور القيم
+    ///إخفاء محور القيم
     chart.Axes.VerticalAxis.IsVisible = false;
 
-    //رؤية محور الفئات
+    //إظهار محور الفئة
     chart.Axes.HorizontalAxis.IsVisible = false;
 
-    //إخفاء الأسطورة
+    //إخفاء وسيلة الإيضاح
     chart.HasLegend = false;
 
     //إخفاء خطوط الشبكة الرئيسية
@@ -79,7 +74,7 @@ using (Presentation pres = new Presentation())
 
     series.Marker.Symbol = MarkerStyleType.Circle;
     series.Labels.DefaultDataLabelFormat.ShowValue = true;
-    series.Labels.DefaultDataLabelFormat.Position = LegendDataLabelPosition.Top;
+    series.Labels.DefaultDataLabelFormat.Position = LegendDataLabelFormat.Top;
     series.Marker.Size = 15;
 
     //تعيين لون خط السلسلة
@@ -90,3 +85,18 @@ using (Presentation pres = new Presentation())
     pres.Save("HideInformationFromChart.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل تعمل دفاتر عمل Excel الخارجية كمصدر بيانات، وكيف يؤثر ذلك على إعادة الحساب؟**
+
+نعم. يمكن للمخطط الإشارة إلى دفتر عمل خارجي: عند الاتصال أو تحديث المصدر الخارجي، تُؤخذ الصيغ والقيم من ذلك الدفتر، ويعكس المخطط التحديثات أثناء عمليات الفتح/التحرير. يتيح لك API [تحديد دفتر العمل الخارجي](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/setexternalworkbook/) والمسار وإدارة البيانات المرتبطة.
+
+**هل يمكنني حساب وعرض خطوط الاتجاه دون تنفيذ التحليل الانحداري بنفسي؟**
+
+نعم. [خطوط الاتجاه](/slides/ar/net/trend-line/) (خطية، أسية، وغيرها) تُضاف وتُحدَّث تلقائيًا بواسطة Aspose.Slides؛ يتم إعادة حساب معلماتها من بيانات السلسلة تلقائيًا، لذلك لا تحتاج إلى تنفيذ حساباتك الخاصة.
+
+**إذا كان العرض التقديمي يحتوي على مخططات متعددة مرتبطة بروابط خارجية، هل يمكنني التحكم في دفتر العمل الذي يستخدمه كل مخطط للقيم المحسوبة؟**
+
+نعم. يمكن لكل مخطط الإشارة إلى [دفتر العمل الخارجي](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/setexternalworkbook/) الخاص به، أو يمكنك إنشاء/استبدال دفتر عمل خارجي لكل مخطط بشكل مستقل عن الآخرين.

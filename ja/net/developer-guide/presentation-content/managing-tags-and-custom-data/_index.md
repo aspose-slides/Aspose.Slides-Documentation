@@ -1,30 +1,27 @@
 ---
-title: タグとカスタムデータの管理
+title: タグとカスタム データの管理
 type: docs
 weight: 300
 url: /ja/net/managing-tags-and-custom-data
-keywords: "タグ, カスタムデータ, タグの値, タグを追加, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
-description: "C# または .NET で PowerPoint プレゼンテーションにタグとカスタムデータを追加します"
+keywords: "タグ, カスタム データ, タグの値, タグの追加, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
+description: "C# または .NET で PowerPoint プレゼンテーションにタグとカスタム データを追加する"
 ---
 
-## プレゼンテーションファイルのデータストレージ
+## **プレゼンテーション ファイルのデータ保存**
 
-PPTXファイル（.pptx拡張子を持つアイテム）は、Office Open XML仕様の一部であるPresentationML形式で保存されます。Office Open XML形式は、プレゼンテーションに含まれるデータの構造を定義しています。 
+PPTX ファイル（.pptx 拡張子のアイテム）は PresentationML フォーマットで保存されており、これは Office Open XML 仕様の一部です。Office Open XML フォーマットはプレゼンテーションに含まれるデータの構造を定義します。
 
-*スライド*はプレゼンテーションの要素の1つであり、*スライドパート*は1つのスライドの内容を含んでいます。スライドパートは、ISO/IEC 29500によって定義された多くのパート—ユーザー定義タグなど—との明示的な関係を持つことが許可されています。
+スライドはプレゼンテーションの要素の一つであり、*スライド パート* は単一のスライドのコンテンツを含みます。スライド パートは ISO/IEC 29500 で定義されたユーザー定義タグなど、複数のパートへの明示的なリレーションシップを持つことが許可されています。
 
-プレゼンテーションに特有のカスタムデータまたはユーザーは、タグ（[ITagCollection](https://reference.aspose.com/slides/net/aspose.slides/itagcollection)）およびCustomXmlParts（[ICustomXmlPartCollection](https://reference.aspose.com/slides/net/aspose.slides/icustomxmlpartcollection)）として存在することができます。
+カスタム データ（プレゼンテーション固有）やユーザーはタグ（[ITagCollection](https://reference.aspose.com/slides/net/aspose.slides/itagcollection)）および CustomXmlParts（[ICustomXmlPartCollection](https://reference.aspose.com/slides/net/aspose.slides/icustomxmlpartcollection)）として存在できます。
 
 {{% alert color="primary" %}} 
-
-タグは本質的に文字列-キーのペア値です。 
-
+タグは本質的に文字列キーと値のペアです。 
 {{% /alert %}} 
 
-## タグの値を取得する
+## **タグの値の取得**
 
-スライドでは、タグはIDocumentProperties.Keywordsプロパティに対応します。このサンプルコードは、Aspose.Slides for .NETを使用して[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)のタグの値を取得する方法を示しています：
-
+スライドでは、タグは IDocumentProperties.Keywords プロパティに対応します。このサンプルコードは、Aspose.Slides for .NET の [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) でタグの値を取得する方法を示しています：
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -32,17 +29,17 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## プレゼンテーションにタグを追加する
 
-Aspose.Slidesを使用すると、プレゼンテーションにタグを追加することができます。タグは通常、2つの項目で構成されます：
+## **プレゼンテーションへのタグの追加**
 
-- カスタムプロパティの名前 - `MyTag` 
-- カスタムプロパティの値 - `My Tag Value`
+Aspose.Slides を使用すると、プレゼンテーションにタグを追加できます。タグは通常、2 つの項目で構成されます:
 
-特定のルールやプロパティに基づいていくつかのプレゼンテーションを分類する必要がある場合は、それらのプレゼンテーションにタグを追加することでメリットを得ることができます。たとえば、北米の国々からのすべてのプレゼンテーションをカテゴリ化またはまとめたい場合は、北米タグを作成し、関連する国（アメリカ、メキシコ、カナダ）を値として割り当てることができます。 
+- カスタム プロパティの名前 - `MyTag`
+- カスタム プロパティの値 - `My Tag Value`
 
-このサンプルコードは、Aspose.Slides for .NETを使用して[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)にタグを追加する方法を示しています：
+特定のルールやプロパティに基づいてプレゼンテーションを分類する必要がある場合、タグを追加すると便利です。たとえば、北米の国々のプレゼンテーションをまとめて分類したい場合、北米タグを作成し、該当する国（米国、メキシコ、カナダ）を値として割り当てることができます。
 
+このサンプルコードは、Aspose.Slides for .NET を使用して [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) にタグを追加する方法を示しています：
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -51,8 +48,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-タグは[Slide](https://reference.aspose.com/slides/net/aspose.slides/slide)にも設定できます：
 
+タグは [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide) に対しても設定できます：
 ```csharp
 using(Presentation pres = new Presentation())
 {
@@ -61,8 +58,8 @@ using(Presentation pres = new Presentation())
 }
 ```
 
-または、個々の[Shape](https://reference.aspose.com/slides/net/aspose.slides/shape)にも：
 
+または個々の [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape) に対しても設定できます：
 ```csharp
 using(Presentation pres = new Presentation())
 {
@@ -72,3 +69,18 @@ using(Presentation pres = new Presentation())
     shape.CustomData.Tags["tag"] = "value";
 }
 ```
+
+
+## **FAQ**
+
+**プレゼンテーション、スライド、またはシェイプからすべてのタグを一括で削除できますか？**
+
+はい。[tag collection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/) は [clear](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/clear/) 操作をサポートしており、すべてのキーと値のペアを一度に削除します。
+
+**コレクション全体を反復処理せずに、名前で単一のタグを削除するにはどうすればよいですか？**
+
+タグのキーで削除するには、[TagCollection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/) の [Remove(name)](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/remove/) 操作を使用します。
+
+**分析やフィルタリングのためにタグ名の完全なリストを取得するにはどうすればよいですか？**
+
+[tag collection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/) で [GetNamesOfTags](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/getnamesoftags/) を使用すると、すべてのタグ名の配列が返されます。
