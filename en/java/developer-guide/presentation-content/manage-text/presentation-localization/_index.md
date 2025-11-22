@@ -1,8 +1,19 @@
 ---
-title: Presentation Localization
+title: Automate Presentation Localization in Java
+linktitle: Presentation Localization
 type: docs
 weight: 100
 url: /java/presentation-localization/
+keywords:
+- change language
+- spell check
+- language id
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Automate PowerPoint and OpenDocument slide localization in Java with Aspose.Slides, using practical code samples and tips for faster global rollout."
 ---
 
 ## **Change Language for Presentation and Shape's Text**

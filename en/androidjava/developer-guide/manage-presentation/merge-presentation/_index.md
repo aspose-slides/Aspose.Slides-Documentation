@@ -1,10 +1,26 @@
 ---
-title: Merge Presentation
+title: Efficiently Merge Presentations on Android
+linktitle: Merge Presentations
 type: docs
 weight: 40
 url: /androidjava/merge-presentation/
-keywords: "Merge PowerPoint, PPTX, PPT, combine PowerPoint, merge presentation, combine presentation, Java"
-description: "Merge or combine PowerPoint Presentation in Java"
+keywords:
+- merge PowerPoint
+- merge presentations
+- merge slides
+- merge PPT
+- merge PPTX
+- merge ODP
+- combine PowerPoint
+- combine presentations
+- combine slides
+- combine PPT
+- combine PPTX
+- combine ODP
+- Android
+- Java
+- Aspose.Slides
+description: "Effortlessly merge PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations with Aspose.Slides for Android via Java, streamlining your workflow."
 ---
 
 

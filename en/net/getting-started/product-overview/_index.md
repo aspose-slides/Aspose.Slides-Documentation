@@ -3,14 +3,31 @@ title: Product Overview
 type: docs
 weight: 10
 url: /net/product-overview/
+keywords:
+- product overview
+- document processing
+- key features
+- presentation features
+- slide features
+- graphic features
+- multimedia features
+- table features
+- text features
+- advanced features
+- technical support
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET lets you create, edit and convert PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations without Microsoft Office."
 ---
-
-
 
 ## **Product Description**
 Aspose.Slides for .NET is a Microsoft PowerPoint® management API that enables .NET applications to read and write PowerPoint® documents without using Microsoft PowerPoint®. 
 
-### Why You Should Use Aspose.Slides for .NET
+### **Why You Should Use Aspose.Slides for .NET**
 
 - Aspose.Slides for .NET is the first and only component that provides the functionalities required to manage PowerPoint® documents. 
 - Aspose.Slides for .NET offers a lot of key features such as managing texts, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF, and other formats, and many more capabilities. 
@@ -138,3 +155,49 @@ Internet Service Providers hosting multiple applications from different companie
 - FileIOPermission is restricted. This means you can only access files in your application's virtual directory hierarchy.
 
 Due to the reasons above, Aspose .NET components can only be used on servers that grant the Full Trust permission set. 
+
+## **FAQ**
+
+**Does it support PDF conformance levels for archiving and accessibility (PDF/A and PDF/UA)?**
+
+Yes. You can save to PDF with PDF/A-2a/2b/2u, PDF/A-3a/3b, as well as PDF/UA by configuring [PDF export options](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
+
+**Is there a font substitution mechanism and support for custom fonts to ensure correct rendering?**
+
+Yes. The library lets you [load custom fonts](/slides/net/custom-font/) and [define fallback rules](/slides/net/fallback-font/) so missing glyphs are substituted reliably during conversion and rendering.
+
+**Can I detect whether a file is password-protected without fully opening it?**
+
+Yes. You can [inspect a presentation](/slides/net/examine-presentation/) to determine if it requires a password before loading the full document.
+
+**Is Microsoft PowerPoint required for processing and conversions?**
+
+No. Aspose.Slides is a standalone engine; PowerPoint is not needed on the server or workstation.
+
+**Is it safe to process presentations from multiple threads?**
+
+Yes, you can process different documents in parallel in separate threads; just avoid using the same presentation instance concurrently [across threads](/slides/net/multithreading/).
+
+**Are macros preserved and can I manage VBA in PPTM/PPSM files?**
+
+Yes. Presentations with macros [are supported](/slides/net/presentation-via-vba/), and you can [inspect and manage VBA projects](https://reference.aspose.com/slides/net/aspose.slides.vba/) in those files.
+
+**Can I convert PDF or HTML back into PowerPoint slides?**
+
+Yes. You can [import PDF pages or HTML content](/slides/net/import-presentation/) to create or populate slides in a presentation.
+
+**Is XPS export supported, and can I control the quality and content of the XPS output?**
+
+Yes. [Export to XPS](/slides/net/convert-powerpoint-to-xps/) is available, and [save options](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) allow you to tune output quality and included content.
+
+**Can I convert slides to images and control the output quality?**
+
+Yes. Slides can be [rendered to PNG, JPEG, GIF, BMP, TIFF](/slides/net/convert-powerpoint-to-png/) and other formats with fine-grained control over size and quality.
+
+**Are mathematical formulas supported (MathML/MathText) and can they be exported?**
+
+Yes. You can [create and edit mathematical text](/slides/net/powerpoint-math-equations/) and [export equations](/slides/net/exporting-math-equations/), including to MathML.
+
+**How does the library handle encryption and passwords (open, set, remove)?**
+
+[It supports](/slides/net/password-protected-presentation/) opening encrypted presentations, setting or removing passwords for opening and modifying, and checking a file’s protection status.

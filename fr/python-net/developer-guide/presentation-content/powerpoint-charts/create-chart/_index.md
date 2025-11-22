@@ -37,7 +37,7 @@ Les graphiques aident les gens à visualiser rapidement des données et à obten
 
 **Pourquoi créer des graphiques ?**
 
-En utilisant des graphiques, vous pouvez :
+Les graphiques aident les gens à visualiser rapidement les données et à obtenir des insights qui ne sont pas immédiatement évidents dans un tableau ou une feuille de calcul.
 
 * agréger, condenser ou résumer de grandes quantités de données sur une seule diapositive d’une présentation ;
 * mettre en évidence des motifs et des tendances dans les données ;
@@ -47,10 +47,16 @@ En utilisant des graphiques, vous pouvez :
 
 Dans PowerPoint, vous pouvez créer des graphiques via la fonction *Insérer*, qui propose des modèles pour concevoir de nombreux types de graphiques. Avec Aspose.Slides, vous pouvez créer à la fois des graphiques classiques (basés sur des types de graphiques populaires) et des graphiques personnalisés.
 
-{{% alert color="primary" %}} 
+* agrandir, condenser ou résumer de grandes quantités de données sur une seule diapositive ;
+* révéler des motifs et des tendances dans les données ;
+* déduire la direction et l’élan des données dans le temps ou par rapport à une unité de mesure spécifique ;
+* repérer les valeurs aberrantes, erreurs et données incohérentes ;
+* communiquer ou présenter des données complexes.
 
 Utilisez l’énumération [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) du namespace [Aspose.Slides.Charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/). Les valeurs de cette énumération correspondent à différents types de graphiques.
 
+{{% alert color="primary" %}} 
+Utilisez l’énumération [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) du namespace [Aspose.Slides.Charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/). Les valeurs de cette énumération correspondent à différents types de graphiques.
 {{% /alert %}} 
 
 ### **Créer des graphiques à colonnes groupées**

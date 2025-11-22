@@ -1,26 +1,25 @@
 ---
-title: Merge PowerPoint and OpenDocument Presentations in Java
+title: Efficiently Merge Presentations in Java
 linktitle: Merge Presentations
 type: docs
 weight: 40
 url: /java/merge-presentation/
 keywords:
 - merge PowerPoint
-- merge OpenDocument
 - merge presentations
 - merge slides
-- merge PPTX
 - merge PPT
+- merge PPTX
 - merge ODP
 - combine PowerPoint
-- combine OpenDocument
 - combine presentations
 - combine slides
-- combine PPTX
 - combine PPT
+- combine PPTX
 - combine ODP
 - Java
-description: "Learn how to merge PowerPoint and OpenDocument presentations in Java using Aspose.Slides. Follow this simple guide to combine multiple PPTX, PPT, and ODP files quickly and programmatically."
+- Aspose.Slides
+description: "Effortlessly merge PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations with Aspose.Slides for Java, streamlining your workflow."
 ---
 
 ## **Overview**

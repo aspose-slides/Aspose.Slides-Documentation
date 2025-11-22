@@ -1,8 +1,24 @@
 ---
-title: Convert ODP to PPTX
+title: Convert ODP to PPTX in C++
+linktitle: ODP to PPTX
 type: docs
 weight: 10
 url: /cpp/convert-odp-to-pptx/
+keywords:
+- convert OpenDocument
+- convert presentation
+- convert slide
+- convert ODP
+- OpenDocument to PPTX
+- ODP to PPTX
+- save ODP as PPTX
+- export ODP to PPTX
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Convert ODP to PPTX with Aspose.Slides for C++. Clean code examples, batch tips, and high-quality results—no PowerPoint needed."
 ---
 
 Aspose.Slides for .NET offers Presentation class that represents a presentation file. [**Presentation**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class can now also access ODP through Presentation constructor when the object is instantiated. The following example shows how to convert a ODP Presentation into PPTX Presentation.

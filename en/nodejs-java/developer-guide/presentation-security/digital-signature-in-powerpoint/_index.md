@@ -71,3 +71,17 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**Can I remove existing signatures from a file?**
+
+Yes. The digital signatures collection supports [removing individual items](https://reference.aspose.com/slides/nodejs-java/aspose.slides/digitalsignaturecollection/removeat/) and [clearing it entirely](https://reference.aspose.com/slides/nodejs-java/aspose.slides/digitalsignaturecollection/clear/); after you save the file, the presentation will have no signatures.
+
+**Does the file become "read-only" after signing?**
+
+No. A signature preserves integrity and authorship but does not block edits. To restrict editing, combine it with ["Read-only" or a password](/slides/nodejs-java/password-protected-presentation/).
+
+**Will the signature display correctly in different versions of PowerPoint?**
+
+The signature is created for the OOXML (PPTX) container. Modern versions of PowerPoint that support OOXML signatures display the status of such signatures correctly.

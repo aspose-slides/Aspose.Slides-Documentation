@@ -1,38 +1,31 @@
 ---
-title: Convert PPT, PPTX, and ODP to JPG on Android
-linktitle: Slides to JPG
+title: Convert PPT and PPTX to JPG on Android
+linktitle: PowerPoint to JPG
 type: docs
 weight: 60
 url: /androidjava/convert-powerpoint-to-jpg/
 keywords: 
-- convert PowerPoint to JPG
-- convert presentation to JPG
-- convert slide to JPG
-- convert PPT to JPG
-- convert PPTX to JPG
-- convert ODP to JPG
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
 - PowerPoint to JPG
 - presentation to JPG
 - slide to JPG
 - PPT to JPG
 - PPTX to JPG
-- ODP to JPG
-- convert PowerPoint to JPEG
-- convert presentation to JPEG
-- convert slide to JPEG
-- convert PPT to JPEG
-- convert PPTX to JPEG
-- convert ODP to JPEG
-- PowerPoint to JPEG
-- presentation to JPEG
-- slide to JPEG
-- PPT to JPEG
-- PPTX to JPEG
-- ODP to JPEG
+- save PowerPoint as JPG
+- save presentation as JPG
+- save slide as JPG
+- save PPT as JPG
+- save PPTX as JPG
+- export PPT to JPG
+- export PPTX to JPG
 - Android
 - Java
 - Aspose.Slides
-description: "Learn how to transform your slides from PowerPoint and OpenDocument presentations into high-quality JPEG images on Android with just a few lines of code. Optimize presentations for web use, sharing, and archiving. Read the full guide now!"
+description: "Convert PowerPoint (PPT, PPTX) slides to high-quality JPG images in Java with Aspose.Slides for Android using fast, reliable code examples."
 ---
 
 ## **Overview**

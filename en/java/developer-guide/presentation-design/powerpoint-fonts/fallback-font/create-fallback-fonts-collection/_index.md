@@ -1,8 +1,21 @@
 ---
-title: Create Fallback Fonts Collection
+title: Configure Fallback Font Collections in Java
+linktitle: Fallback Font Collection
 type: docs
 weight: 20
 url: /java/create-fallback-fonts-collection/
+keywords:
+- fallback font
+- fallback rule
+- font collection
+- configure font
+- set up font
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Set up a fallback fonts collection in Aspose.Slides for Java to keep text consistent and crisp in PowerPoint and OpenDocument presentations."
 ---
 
 Instances of [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection), that implements [IFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRulesCollection) interface. It is possible to add or remove rules from the collection.

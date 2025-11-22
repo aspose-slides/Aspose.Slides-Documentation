@@ -1,8 +1,19 @@
 ---
-title: Adding Text Dynamically using VSTO and Aspose.Slides for Java
+title: Adding Text Dynamically Using VSTO and Aspose.Slides for Java
+linktitle: Adding Text Dynamically
 type: docs
 weight: 20
 url: /java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/
+keywords:
+- add text
+- migration
+- VSTO
+- Office automation
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "See how to migrate from Microsoft Office automation to Aspose.Slides for Java and add dynamic text to PowerPoint (PPT, PPTX) presentations in Java."
 ---
 
 {{% alert color="primary" %}} 

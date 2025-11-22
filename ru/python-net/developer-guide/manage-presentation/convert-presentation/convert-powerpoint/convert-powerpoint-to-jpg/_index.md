@@ -1,74 +1,156 @@
 ---
-title: Конвертировать PowerPoint PPT в JPG на Python
-linktitle: Конвертировать PowerPoint PPT в JPG
+title: Преобразовать PPT, PPTX и ODP в JPG на Python
+linktitle: Конвертировать слайды в JPG изображения
 type: docs
 weight: 60
 url: /ru/python-net/convert-powerpoint-to-jpg/
-keywords: "python ppt в изображение, Конвертировать презентацию PowerPoint, JPG, JPEG, PowerPoint в JPG, PowerPoint в JPEG, PPT в JPG, PPTX в JPG, PPT в JPEG, PPTX в JPEG, Python, Aspose.Slides"
-description: "Конвертировать PowerPoint в JPG на Python. Сохранить слайд как изображение JPG"
+keywords:
+- конвертировать PowerPoint в JPG
+- конвертировать презентацию в JPG
+- конвертировать слайд в JPG
+- конвертировать PPT в JPG
+- конвертировать PPTX в JPG
+- конвертировать ODP в JPG
+- PowerPoint в JPG
+- презентация в JPG
+- слайд в JPG
+- PPT в JPG
+- PPTX в JPG
+- ODP в JPG
+- конвертировать PowerPoint в JPEG
+- конвертировать презентацию в JPEG
+- конвертировать слайд в JPEG
+- конвертировать PPT в JPEG
+- конвертировать PPTX в JPEG
+- конвертировать ODP в JPEG
+- PowerPoint в JPEG
+- презентация в JPEG
+- слайд в JPEG
+- PPT в JPEG
+- PPTX в JPEG
+- ODP в JPEG
+- Python
+- Aspose.Slides
+description: "Узнайте, как преобразовать ваши слайды из презентаций PowerPoint и OpenDocument в качественные изображения JPEG всего несколькими строками кода на Python. Оптимизируйте презентации для веб‑использования, обмена и архивирования. Читайте полное руководство сейчас!"
 ---
 
-## **О конвертации PowerPoint в JPG**
-С помощью [**Aspose.Slides .NET API**](https://products.aspose.com/slides/python-net/) вы можете конвертировать презентацию PowerPoint PPT или PPTX в изображение JPG на Python. Также можно конвертировать PPT/PPTX в BMP, PNG или SVG на Python. С помощью этих функций легко реализовать собственный просмотрщик презентаций, создать миниатюру для каждого слайда. Это может быть полезно, если вы хотите защитить слайды презентации от копирования, продемонстрировать презентацию в режиме только для чтения. Aspose.Slides позволяет конвертировать всю презентацию или определённый слайд в форматы изображений.
+## **Обзор**
 
-{{% alert color="primary" %}} 
+Конвертация презентаций PowerPoint и OpenDocument в JPG‑изображения помогает делиться слайдами, оптимизировать производительность и встраивать контент в веб‑сайты или приложения. Aspose.Slides для Python позволяет преобразовать файлы PPTX, PPT и ODP в изображения высокого качества JPEG. В этом руководстве объясняются различные методы конвертации.
 
-Чтобы увидеть, как Aspose.Slides конвертирует PowerPoint в изображения JPG, вы можете попробовать эти бесплатные онлайн-конвертеры: PowerPoint [PPTX в JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) и [PPT в JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg). 
+Благодаря этим возможностям легко реализовать собственный просмотрщик презентаций и создать миниатюру для каждого слайда. Это может быть полезно, если вы хотите защитить слайды презентации от копирования или продемонстрировать презентацию в режиме только для чтения. Aspose.Slides позволяет конвертировать всю презентацию или отдельный слайд в форматы изображений.
 
-{{% /alert %}} 
-
-![todo:image_alt_text](ppt-to-jpg.png)
-
-## **Конвертация PowerPoint PPT/PPTX в JPG**
-Вот шаги для конвертации PPT/PPTX в JPG:
+## **Конвертировать слайды презентации в JPG‑изображения**
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Получите объект слайда типа [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) из коллекции [Presentation.Slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-3. Создайте миниатюру каждого слайда, а затем конвертируйте её в JPG. Метод [**ISlide.GetImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) используется для получения миниатюры слайда, он возвращает объект [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) в результате. Метод [GetImage](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) должен быть вызван у нужного слайда типа [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/), значения масштабов для полученной миниатюры передаются в этот метод.
-4. После получения миниатюры слайда вызовите метод [**IImage.Save(string filename, ImageFormat format)**](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) из объекта миниатюры. Передайте ему имя файла и формат изображения. 
+2. Получите объект слайда типа [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) из коллекции [Presentation.slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/).
+3. Создайте изображение слайда, используя метод [Slide.get_image(scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#float-float).
+4. Вызовите метод [IImage.save(filename, format)](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/#str-imageformat) у объекта изображения. Передайте имя выходного файла и формат изображения в качестве аргументов.
+
+{{% alert color="primary" %}}
+**Примечание:** Конвертация PPT, PPTX или ODP в JPG отличается от конвертации в другие форматы в API Aspose.Slides для Python. Для других форматов обычно используется метод [Presentation.save(fname, format, options)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/#str-asposeslidesexportsaveformat-asposeslidesexportisaveoptions). Однако для конвертации в JPG необходимо использовать метод [IImage.save(filename, format)](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/#str-imageformat).
+{{% /alert %}}
+```py
+import aspose.slides as slides
+
+scale_x = 1
+scale_y = scale_x
+
+with slides.Presentation("PowerPoint_Presentation.ppt") as presentation:
+    for slide in presentation.slides:
+        with slide.get_image(scale_x, scale_y) as thumbnail:
+            # Сохранить изображение на диск в формате JPEG.
+            file_name = f"Slide_{slide.slide_number}.jpg"
+            thumbnail.save(file_name, slides.ImageFormat.JPEG)
+```
+
+
+## **Конвертировать слайды в JPG с пользовательскими размерами**
+
+Чтобы изменить размеры получаемых JPG‑изображений, вы можете задать размер изображения, передав его в метод [Slide.get_image(image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposepydrawingsize). Это позволяет создавать изображения с конкретными значениями ширины и высоты, гарантируя, что результат соответствует вашим требованиям к разрешению и соотношению сторон. Такая гибкость особенно полезна при генерации изображений для веб‑приложений, отчетов или документации, где требуются точные размеры изображения.
+```py
+import aspose.slides as slides
+import aspose.pydrawing as pydrawing
+
+image_size = pydrawing.Size(1200, 800)
+
+with slides.Presentation("PowerPoint_Presentation.pptx") as presentation:
+    for slide in presentation.slides:
+        # Создать изображение слайда указанного размера.
+        with slide.get_image(image_size) as thumbnail:
+            # Сохранить изображение на диск в формате JPEG.
+            file_name = f"Slide_{slide.slide_number}.jpg"
+            thumbnail.save(file_name, slides.ImageFormat.JPEG)
+```
+
+
+## **Отображать комментарии при сохранении слайдов как изображения**
+
+Aspose.Slides для Python предоставляет возможность отображать комментарии на слайдах презентации при их конвертации в JPG‑изображения. Эта функция особенно полезна для сохранения аннотаций, отзывов или обсуждений, добавленных сотрудниками в презентациях PowerPoint. Включив эту опцию, вы гарантируете, что комментарии будут видны на сгенерированных изображениях, что упрощает их просмотр и обмен отзывами без необходимости открывать исходный файл презентации.
+
+Предположим, у нас есть файл презентации "sample.pptx" со слайдом, содержащим комментарии:
+
+![The slide with comments](slide_with_comments.png)
+
+Следующий код на Python преобразует слайд в JPG‑изображение с сохранением комментариев:
+```py
+import aspose.slides as slides
+import aspose.pydrawing as pydrawing
+
+scale_x = 1
+scale_y = scale_x
+
+with slides.Presentation("sample.pptx") as presentation:
+    # Установить параметры для комментариев слайда.
+    comments_options = slides.export.NotesCommentsLayoutingOptions()
+    comments_options.comments_position = slides.export.CommentsPositions.RIGHT
+    comments_options.comments_area_width = 200
+    comments_options.comments_area_color = pydrawing.Color.dark_orange
+
+    options = slides.export.RenderingOptions()
+    options.slides_layout_options = comments_options
+
+    # Преобразовать первый слайд в изображение.
+    with presentation.slides[0].get_image(options, scale_x, scale_y) as thumbnail:
+        thumbnail.save("Slide_1.jpg", slides.ImageFormat.JPEG)
+```
+
+
+Результат:
+
+![The JPG image with comments](image_with_comments.png)
+
+## **См. также**
+
+Смотрите другие варианты конвертации PPT, PPTX или ODP в изображения, например:
+
+- [Convert PowerPoint to GIF](/slides/ru/python-net/convert-powerpoint-to-animated-gif/)
+- [Convert PowerPoint to PNG](/slides/ru/python-net/convert-powerpoint-to-png/)
+- [Convert PowerPoint to TIFF](/slides/ru/python-net/convert-powerpoint-to-tiff/)
+- [Convert PowerPoint to SVG](/slides/ru/python-net/render-a-slide-as-an-svg-image/)
 
 {{% alert color="primary" %}} 
-**Примечание**: Конвертация PPT/PPTX в JPG отличается от конвертации в другие типы в Aspose.Slides .NET API. Для других типов вы обычно используете метод [**IPresentation.SaveMethod(String, SaveFormat, ISaveOptions)**](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentation/), но здесь вам нужен метод [**Image.Save(string filename, ImageFormat format)**](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.image.save?view=netframework-4.8).
+Чтобы увидеть, как Aspose.Slides конвертирует PowerPoint в JPG‑изображения, попробуйте эти бесплатные онлайн‑конвертеры: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) и [PPT to JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg). 
 {{% /alert %}} 
 
-```py
-import aspose.slides as slides
+![Free Online PPTX to JPG Converter](ppt-to-jpg.png)
 
-pres = slides.Presentation("pres.pptx")
+{{% alert title="Tip" color="primary" %}}
+Aspose предоставляет бесплатное веб‑приложение [FREE Collage](https://products.aspose.app/slides/collage). С помощью этой онлайн‑службы вы можете объединять изображения [JPG в JPG](https://products.aspose.app/slides/collage/jpg) или PNG в PNG, создавать [фото‑решётки](https://products.aspose.app/slides/collage/photo-grid) и т.д. 
 
-for sld in pres.slides:
-    with sld.get_image(1, 1) as bmp:
-        bmp.save("Slide_{num}.jpg".format(num=str(sld.slide_number)), slides.ImageFormat.JPEG)
-```
-
-## **Конвертация PowerPoint PPT/PPTX в JPG с настраиваемыми размерами**
-Чтобы изменить размер полученной миниатюры и изображения JPG, вы можете установить значения *ScaleX* и *ScaleY*, передавая их в метод [**ISlide.GetImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/python-net/aspose.slides/islide/):
-
-```py
-import aspose.slides as slides
-
-pres = slides.Presentation("pres.pptx")
-
-desiredX = 1200
-desiredY = 800
-scaleX = (float)(1.0 / pres.slide_size.size.width) * desiredX
-scaleY = (float)(1.0 / pres.slide_size.size.height) * desiredY
-
-for sld in pres.slides:
-    with sld.get_image(scaleX, scaleY) as bmp:
-        bmp.save("Slide_{num}.jpg".format(num=str(sld.slide_number)), slides.ImageFormat.JPEG)
-```
-
-{{% alert title="Совет" color="primary" %}}
-
-Aspose предоставляет [БЕСПЛАТНОЕ веб-приложение Collage](https://products.aspose.app/slides/collage). С помощью этого онлайн-сервиса вы можете объединять [JPG в JPG](https://products.aspose.app/slides/collage/jpg) или PNG в PNG, создавать [фото-сетки](https://products.aspose.app/slides/collage/photo-grid) и так далее. 
-
-Используя те же принципы, описанные в этой статье, вы можете конвертировать изображения из одного формата в другой. Для получения дополнительной информации смотрите эти страницы: конвертировать [изображение в JPG](https://products.aspose.com/slides/python-net/conversion/image-to-jpg/); конвертировать [JPG в изображение](https://products.aspose.com/slides/python-net/conversion/jpg-to-image/); конвертировать [JPG в PNG](https://products.aspose.com/slides/python-net/conversion/jpg-to-png/), конвертировать [PNG в JPG](https://products.aspose.com/slides/python-net/conversion/png-to-jpg/); конвертировать [PNG в SVG](https://products.aspose.com/slides/python-net/conversion/png-to-svg/), конвертировать [SVG в PNG](https://products.aspose.com/slides/python-net/conversion/svg-to-png/).
-
+Используя те же принципы, описанные в этой статье, вы можете конвертировать изображения из одного формата в другой. Для получения дополнительной информации см. эти страницы: конвертировать [image to JPG](https://products.aspose.com/slides/python-net/conversion/image-to-jpg/); конвертировать [JPG to image](https://products.aspose.com/slides/python-net/conversion/jpg-to-image/); конвертировать [JPG to PNG](https://products.aspose.com/slides/python-net/conversion/jpg-to-png/), конвертировать [PNG to JPG](https://products.aspose.com/slides/python-net/conversion/png-to-jpg/); конвертировать [PNG to SVG](https://products.aspose.com/slides/python-net/conversion/png-to-svg/), конвертировать [SVG to PNG](https://products.aspose.com/slides/python-net/conversion/svg-to-png/).
 {{% /alert %}}
 
-## **Смотрите также**
+## **FAQ**
 
-Смотрите другие варианты конвертации PPT/PPTX в изображение, такие как:
+**Поддерживает ли этот метод пакетную конвертацию?**
 
-- [Конвертация PPT/PPTX в SVG](/slides/ru/python-net/render-a-slide-as-an-svg-image/).
+Да, Aspose.Slides позволяет выполнять пакетную конвертацию нескольких слайдов в JPG за одну операцию.
+
+**Поддерживает ли конвертация SmartArt, диаграммы и другие сложные объекты?**
+
+Да, Aspose.Slides отображает весь контент, включая SmartArt, диаграммы, таблицы, фигуры и многое другое. Однако точность отображения может немного отличаться от PowerPoint, особенно при использовании пользовательских или отсутствующих шрифтов.
+
+**Есть ли ограничения на количество слайдов, которые можно обработать?**
+
+Сам Aspose.Slides не накладывает строгих ограничений на количество обрабатываемых слайдов. Однако при работе с большими презентациями или изображениями высокого разрешения вы можете столкнуться с ошибкой нехватки памяти.

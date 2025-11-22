@@ -1,10 +1,22 @@
 ---
-title: Manage SmartArt
+title: Manage SmartArt in PowerPoint Presentations in .NET
+linktitle: Manage SmartArt
 type: docs
 weight: 10
 url: /net/manage-smartart/
-keywords: "SmartArt, text from SmartArt, Organization type chart, Picture organization chart, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "SmartArt and organization type chart in PowerPoint presentations in C# or .NET"
+keywords:
+- SmartArt
+- SmartArt text
+- layout type
+- hidden property
+- organization chart
+- picture organization chart
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn to build and edit PowerPoint SmartArt with Aspose.Slides for .NET using clear C# code samples that speed up slide design and automation."
 ---
 
 ## **Get Text from SmartArt**
@@ -137,5 +149,20 @@ public static void Run()
 }
 ```
 
+## **FAQ**
 
+**Does SmartArt support mirroring/reversing for RTL languages?**
 
+Yes. The [IsReversed](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/isreversed/) property switches the diagram direction (LTR/RTL) if the selected SmartArt type supports reversal.
+
+**How can I copy SmartArt to the same slide or to another presentation while preserving formatting?**
+
+You can [clone the SmartArt shape](/slides/net/shape-manipulations/) via the shapes collection ([ShapeCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addclone/)) or [clone the entire slide](/slides/net/clone-slides/) containing this shape. Both approaches preserve size, position, and styling.
+
+**How do I render SmartArt to a raster image for preview or web export?**
+
+[Render the slide](/slides/net/convert-powerpoint-to-png/) (or the whole presentation) to PNG/JPEG through the API that converts slides/presentations to images—SmartArt will be drawn as part of the slide.
+
+**How can I programmatically select a specific SmartArt on a slide if there are several?**
+
+A common practice is to use [alternative text](https://reference.aspose.com/slides/net/aspose.slides/shape/alternativetext/) (Alt Text) or a [Name](https://reference.aspose.com/slides/net/aspose.slides/shape/name/) and search for the shape by that attribute within [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/), then check the type to confirm it’s [SmartArt](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/). The documentation describes typical techniques for finding and working with shapes.

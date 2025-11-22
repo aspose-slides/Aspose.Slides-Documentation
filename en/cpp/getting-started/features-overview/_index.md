@@ -3,7 +3,20 @@ title: Features Overview
 type: docs
 weight: 10
 url: /cpp/features-overview/
-description: C++ PowerPoint API supports most of the PowerPoint document formats and also exports them to popular formats. Key features include conversions, rendering, content manipulation and formatting.
+keywords:
+- features
+- supported platforms
+- file format
+- conversion
+- rendering
+- printing
+- formatting
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Discover Aspose.Slides for C++: a powerful API to create, edit, automate, and convert PowerPoint and OpenDocument presentations efficiently."
 ---
 
 ## **File Formats and Conversions**

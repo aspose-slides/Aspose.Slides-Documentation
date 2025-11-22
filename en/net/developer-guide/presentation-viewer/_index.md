@@ -1,5 +1,5 @@
 ---
-title: Create a Presentation Viewer in C#
+title: Create a Presentation Viewer in .NET
 linktitle: Presentation Viewer
 type: docs
 weight: 50
@@ -13,10 +13,11 @@ keywords:
 - view ODP
 - PowerPoint
 - OpenDocument
+- presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Learn how to create a custom presentation viewer in .NET using Aspose.Slides. Easily display PowerPoint (PPTX, PPT) and OpenDocument (ODP) files without Microsoft PowerPoint or other office software."
+- Aspose.Slides
+description: "Create a custom presentation viewer in .NET using Aspose.Slides. Easily display PowerPoint and OpenDocument files without Microsoft PowerPoint."
 ---
 
 ## **Overview**
@@ -174,7 +175,7 @@ Try [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) free 
 
 [![Online PowerPoint Viewer](online-PowerPoint-viewer.png)](https://products.aspose.app/slides/viewer/)
 
-## **FAQs**
+## **FAQ**
 
 **Can I embed a presentation viewer in an ASP.NET web application?**
 

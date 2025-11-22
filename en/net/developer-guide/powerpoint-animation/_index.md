@@ -1,5 +1,5 @@
 ---
-title: Enhancing PowerPoint Presentations with Animations in C#
+title: Enhance PowerPoint Presentations with Animations in .NET
 linktitle: PowerPoint Animation
 type: docs
 weight: 150
@@ -24,9 +24,9 @@ keywords:
 - animated image
 - animated table
 - PowerPoint presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
+- Aspose.Slides
 description: "Explore the capabilities of Aspose.Slides for .NET in handling PowerPoint animations. This general overview highlights key features and offers insights to enhance your presentations."
 ---
 

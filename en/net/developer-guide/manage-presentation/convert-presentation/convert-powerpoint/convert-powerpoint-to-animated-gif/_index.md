@@ -1,10 +1,31 @@
 ---
-title: Convert PowerPoint to Animated GIF
+title: Convert PowerPoint Presentations to Animated GIFs in .NET
+linktitle: PowerPoint to GIF
 type: docs
 weight: 65
 url: /net/convert-powerpoint-to-animated-gif/
-keywords: "Convert PowerPoint, PPT, PPTX, animated GIF, PPT to animated GIF, PPTX to animated GIF C#, Csharp, .NET, default settings, custom settings "
-description: "Convert PowerPoint Presentation to animated GIF: PPT to GIF, PPTX to GIF in C# or .NET"
+keywords:
+- animated GIF
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- PowerPoint to GIF
+- presentation to GIF
+- slide to GIF
+- PPT to GIF
+- PPTX to GIF
+- save PPT as GIF
+- save PPTX as GIF
+- export PPT as GIF
+- export PPTX as GIF
+- default settings
+- custom settings
+- .NET
+- C#
+- Aspose.Slides
+description: "Easily convert PowerPoint presentations (PPT, PPTX) to animated GIFs with Aspose.Slides for .NET. Fast, high-quality results."
 ---
 
 ## **Convert Presentations to Animated GIF Using Default Settings**

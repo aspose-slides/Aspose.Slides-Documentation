@@ -1,23 +1,23 @@
 ---
-title: Use Embedded Fonts in PowerPoint Presentations in C++
-linktitle: Embedded Font
+title: Embed Fonts in Presentations Using С++
+linktitle: Embedding Font
 type: docs
 weight: 40
 url: /cpp/embedded-font/
 keywords:
-- font
-- embedded font
 - add font
 - embed font
+- font embedding
 - get embedded font
 - add embedded font
 - remove embedded font
 - compress embedded font
 - PowerPoint
+- OpenDocument
 - presentation
-- C++
+- С++
 - Aspose.Slides
-description: "Learn how to embed fonts in PowerPoint presentations using Aspose.Slides for C++. Ensure text consistency across devices by preserving custom fonts inside your PPTX files."
+description: "Embed TrueType fonts in PowerPoint and OpenDocument presentations with Aspose.Slides for С++, ensuring accurate rendering across all platforms."
 ---
 
 ## **Overview**

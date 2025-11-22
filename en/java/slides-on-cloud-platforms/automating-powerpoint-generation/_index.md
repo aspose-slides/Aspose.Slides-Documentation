@@ -6,6 +6,7 @@ weight: 20
 url: /java/automating-powerpoint-generation-on-cloud-platforms/
 keywords:
 - cloud platforms
+- cloud integration
 - automate PowerPoint generation
 - generate presentations programmatically
 - PowerPoint automation

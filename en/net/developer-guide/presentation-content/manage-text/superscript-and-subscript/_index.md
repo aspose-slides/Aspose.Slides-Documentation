@@ -1,5 +1,5 @@
 ---
-title: Manage Superscript and Subscript in C#
+title: Manage Superscript and Subscript in Presentations in .NET
 linktitle: Superscript and Subscript
 type: docs
 weight: 80
@@ -12,8 +12,8 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentation
+- .NET
 - C#
-- Csharp
 - Aspose.Slides
 description: "Master superscript and subscript in Aspose.Slides for .NET and elevate your presentations with professional text formatting for maximum impact."
 ---

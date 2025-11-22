@@ -1,5 +1,6 @@
 ---
-title: Image
+title: Optimize Image Management in Presentations in .NET
+linktitle: Manage Images
 type: docs
 weight: 10
 url: /net/image/

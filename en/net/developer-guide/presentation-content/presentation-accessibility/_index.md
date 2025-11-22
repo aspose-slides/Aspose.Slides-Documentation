@@ -1,5 +1,5 @@
 ---
-title: Manage Presentation Accessibility in C#
+title: Manage Presentation Accessibility in .NET
 linktitle: Presentation Accessibility
 type: docs
 weight: 30
@@ -13,7 +13,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Discover how Aspose.Slides for .NET helps automate presentation accessibility checks in PPT, PPTX and ODP files—enhance screen reader experience and boost compliance."
+description: "Automate presentation accessibility checks in PPT, PPTX and ODP files with Aspose.Slides for .NET—enhance screen reader experience and boost compliance."
 ---
 
 ## **Overview**

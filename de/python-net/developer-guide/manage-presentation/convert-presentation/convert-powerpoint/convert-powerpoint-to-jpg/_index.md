@@ -1,6 +1,6 @@
 ---
-title: PPT, PPTX und ODP in JPG konvertieren in Python
-linktitle: Folien zu JPG
+title: PPT, PPTX und ODP in JPG mit Python konvertieren
+linktitle: Folien in JPG-Bilder konvertieren
 type: docs
 weight: 60
 url: /de/python-net/convert-powerpoint-to-jpg/
@@ -31,70 +31,121 @@ keywords:
 - ODP zu JPEG
 - Python
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Ihre Folien aus PowerPoint- und OpenDocument-Präsentationen mit nur wenigen Zeilen Python-Code in hochwertige JPEG-Bilder umwandeln. Optimieren Sie Präsentationen für die Webnutzung, das Teilen und die Archivierung. Lesen Sie jetzt die vollständige Anleitung!"
+description: "Erfahren Sie, wie Sie Ihre Folien aus PowerPoint- und OpenDocument-Präsentationen mit nur wenigen Codezeilen in Python in hochwertige JPEG-Bilder umwandeln. Optimieren Sie Präsentationen für die Webnutzung, das Teilen und die Archivierung. Lesen Sie jetzt den vollständigen Leitfaden!"
 ---
 
-## **Über die Konvertierung von PowerPoint in JPG**
-Mit [**Aspose.Slides .NET API**](https://products.aspose.com/slides/python-net/) können Sie PowerPoint PPT- oder PPTX-Präsentationen in JPG-Bilder in Python konvertieren. Es ist auch möglich, PPT/PPTX in BMP, PNG oder SVG in Python zu konvertieren. Mit diesen Funktionen ist es einfach, Ihren eigenen Präsentationsbetrachter zu implementieren und das Thumbnail für jede Folie zu erstellen. Dies kann nützlich sein, wenn Sie Präsentationsfolien vor Urheberrechtsverletzungen schützen oder die Präsentation im Nur-Lese-Modus darstellen möchten. Aspose.Slides ermöglicht es, die gesamte Präsentation oder eine bestimmte Folie in Bildformate zu konvertieren.
+## **Übersicht**
 
-{{% alert color="primary" %}} 
+Das Konvertieren von PowerPoint- und OpenDocument-Präsentationen in JPG-Bilder erleichtert das Teilen von Folien, die Leistungsoptimierung und das Einbetten von Inhalten in Websites oder Anwendungen. Aspose.Slides für Python ermöglicht das Umwandeln von PPTX-, PPT- und ODP-Dateien in JPEG-Bilder in hoher Qualität. Dieser Leitfaden erklärt verschiedene Methoden zur Konvertierung.
 
-Um zu sehen, wie Aspose.Slides PowerPoint in JPG-Bilder konvertiert, möchten Sie vielleicht diese kostenlosen Online-Konverter ausprobieren: PowerPoint [PPTX in JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) und [PPT in JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg). 
+Mit diesen Funktionen ist es einfach, einen eigenen Präsentationsbetrachter zu implementieren und für jede Folie ein Thumbnail zu erstellen. Das kann nützlich sein, wenn Sie Folien vor dem Kopieren schützen oder die Präsentation im Nur-Lese‑Modus demonstrieren möchten. Aspose.Slides ermöglicht die Konvertierung der gesamten Präsentation oder einer einzelnen Folie in Bildformate.
 
-{{% /alert %}} 
+## **Präsentationsfolien in JPG-Bilder konvertieren**
 
-![todo:image_alt_text](ppt-to-jpg.png)
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.
+1. Holen Sie das Folienobjekt vom Typ [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) aus der Sammlung [Presentation.slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/).
+1. Erzeugen Sie ein Bild der Folie mit der Methode [Slide.get_image(scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#float-float).
+1. Rufen Sie die Methode [IImage.save(filename, format)](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/#str-imageformat) auf dem Bildobjekt auf. Übergeben Sie den Ausgabedateinamen und das Bildformat als Argumente.
 
-## **PowerPoint PPT/PPTX in JPG konvertieren**
-Hier sind die Schritte, um PPT/PPTX in JPG zu konvertieren:
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-2. Holen Sie sich das Folienobjekt vom [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) Typ aus der [Presentation.Slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Sammlung.
-3. Erstellen Sie das Thumbnail jeder Folie und konvertieren Sie es dann in JPG. Die [**ISlide.GetImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) Methode wird verwendet, um ein Thumbnail einer Folie zu erhalten; sie gibt ein [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) Objekt als Ergebnis zurück. Die [GetImage](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) Methode muss von der benötigten Folie des [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) Typs aufgerufen werden; die Skalen des resultierenden Thumbnails werden in die Methode übergeben.
-4. Nachdem Sie das Folien-Thumbnail erhalten haben, rufen Sie die [**IImage.Save(string filename, ImageFormat format)**](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) Methode vom Thumbnail-Objekt auf. Übergeben Sie den resultierenden Dateinamen und das Bildformat an die Methode. 
-
-{{% alert color="primary" %}} 
-**Hinweis**: Die Konvertierung von PPT/PPTX in JPG unterscheidet sich von der Konvertierung in andere Typen in der Aspose.Slides .NET API. Für andere Typen verwenden Sie normalerweise die [**IPresentation.SaveMethod(String, SaveFormat, ISaveOptions)**](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentation/) Methode, aber hier benötigen Sie die [**Image.Save(string filename, ImageFormat format)**](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.image.save?view=netframework-4.8) Methode.
-{{% /alert %}} 
-
-```py
-import aspose.slides as slides
-
-pres = slides.Presentation("pres.pptx")
-
-for sld in pres.slides:
-    with sld.get_image(1, 1) as bmp:
-        bmp.save("Folien_{num}.jpg".format(num=str(sld.slide_number)), slides.ImageFormat.JPEG)
-```
-
-## **PowerPoint PPT/PPTX in JPG mit benutzerdefinierten Abmessungen konvertieren**
-Um die Abmessungen des resultierenden Thumbnails und des JPG-Bildes zu ändern, können Sie die *ScaleX*- und *ScaleY*-Werte festlegen, indem Sie sie in die [**ISlide.GetImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) Methode übergeben:
-
-```py
-import aspose.slides as slides
-
-pres = slides.Presentation("pres.pptx")
-
-gewünschteX = 1200
-gewünschteY = 800
-scaleX = (float)(1.0 / pres.slide_size.size.width) * gewünschteX
-scaleY = (float)(1.0 / pres.slide_size.size.height) * gewünschteY
-
-for sld in pres.slides:
-    with sld.get_image(scaleX, scaleY) as bmp:
-        bmp.save("Folien_{num}.jpg".format(num=str(sld.slide_number)), slides.ImageFormat.JPEG)
-```
-
-{{% alert title="Tipp" color="primary" %}}
-
-Aspose bietet eine [KOSTENLOSE Collage-Webanwendung](https://products.aspose.app/slides/collage). Mit diesem Online-Service können Sie [JPG in JPG](https://products.aspose.app/slides/collage/jpg) oder PNG in PNG Bilder zusammenfügen, [Foto-Raster](https://products.aspose.app/slides/collage/photo-grid) erstellen usw. 
-
-Mit denselben Prinzipien, die in diesem Artikel beschrieben sind, können Sie Bilder von einem Format in ein anderes konvertieren. Weitere Informationen finden Sie auf diesen Seiten: konvertieren [Bild in JPG](https://products.aspose.com/slides/python-net/conversion/image-to-jpg/); konvertieren [JPG in Bild](https://products.aspose.com/slides/python-net/conversion/jpg-to-image/); konvertieren [JPG in PNG](https://products.aspose.com/slides/python-net/conversion/jpg-to-png/), konvertieren [PNG in JPG](https://products.aspose.com/slides/python-net/conversion/png-to-jpg/); konvertieren [PNG in SVG](https://products.aspose.com/slides/python-net/conversion/png-to-svg/), konvertieren [SVG in PNG](https://products.aspose.com/slides/python-net/conversion/svg-to-png/).
-
+{{% alert color="primary" %}}
+**Hinweis:** Die Konvertierung von PPT, PPTX oder ODP nach JPG unterscheidet sich von der Konvertierung in andere Formate in der Aspose.Slides‑Python‑API. Für andere Formate verwenden Sie normalerweise die Methode [Presentation.save(fname, format, options)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/#str-asposeslidesexportsaveformat-asposeslidesexportisaveoptions). Für die JPG‑Konvertierung müssen Sie jedoch die Methode [IImage.save(filename, format)](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/#str-imageformat) verwenden.
 {{% /alert %}}
+```py
+import aspose.slides as slides
+
+scale_x = 1
+scale_y = scale_x
+
+with slides.Presentation("PowerPoint_Presentation.ppt") as presentation:
+    for slide in presentation.slides:
+        with slide.get_image(scale_x, scale_y) as thumbnail:
+            # Bild im JPEG-Format auf der Festplatte speichern.
+            file_name = f"Slide_{slide.slide_number}.jpg"
+            thumbnail.save(file_name, slides.ImageFormat.JPEG)
+```
+
+
+## **Folien in JPG mit benutzerdefinierten Abmessungen konvertieren**
+
+Um die Abmessungen der erzeugten JPG‑Bilder zu ändern, können Sie die Bildgröße übergeben, indem Sie sie an die Methode [Slide.get_image(image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposepydrawingsize) übergeben. Dadurch können Sie Bilder mit bestimmten Breiten‑ und Höhenwerten erzeugen und sicherstellen, dass die Ausgabe Ihren Anforderungen an Auflösung und Seitenverhältnis entspricht. Diese Flexibilität ist besonders nützlich beim Erzeugen von Bildern für Web‑Anwendungen, Berichte oder Dokumentationen, bei denen präzise Bildabmessungen erforderlich sind.
+```py
+import aspose.slides as slides
+import aspose.pydrawing as pydrawing
+
+image_size = pydrawing.Size(1200, 800)
+
+with slides.Presentation("PowerPoint_Presentation.pptx") as presentation:
+    for slide in presentation.slides:
+        # Erstelle ein Folienbild mit der angegebenen Größe.
+        with slide.get_image(image_size) as thumbnail:
+            # Bild im JPEG-Format auf der Festplatte speichern.
+            file_name = f"Slide_{slide.slide_number}.jpg"
+            thumbnail.save(file_name, slides.ImageFormat.JPEG)
+```
+
+
+## **Kommentare beim Speichern von Folien als Bilder rendern**
+
+Aspose.Slides für Python bietet eine Funktion, mit der Sie Kommentare auf den Folien einer Präsentation beim Konvertieren in JPG‑Bilder rendern können. Diese Funktion ist besonders nützlich, um Anmerkungen, Rückmeldungen oder Diskussionen, die von Mitarbeitern in PowerPoint‑Präsentationen hinzugefügt wurden, zu erhalten. Durch Aktivieren dieser Option werden Kommentare in den erzeugten Bildern sichtbar, was das Überprüfen und Teilen von Rückmeldungen erleichtert, ohne die Originalpräsentationsdatei öffnen zu müssen.
+
+Der folgende Python‑Code konvertiert die Folie in ein JPG‑Bild und bewahrt dabei die Kommentare:
+```py
+import aspose.slides as slides
+import aspose.pydrawing as pydrawing
+
+scale_x = 1
+scale_y = scale_x
+
+with slides.Presentation("sample.pptx") as presentation:
+    # Optionen für die Folienkommentare festlegen.
+    comments_options = slides.export.NotesCommentsLayoutingOptions()
+    comments_options.comments_position = slides.export.CommentsPositions.RIGHT
+    comments_options.comments_area_width = 200
+    comments_options.comments_area_color = pydrawing.Color.dark_orange
+
+    options = slides.export.RenderingOptions()
+    options.slides_layout_options = comments_options
+
+    # Erste Folie in ein Bild konvertieren.
+    with presentation.slides[0].get_image(options, scale_x, scale_y) as thumbnail:
+        thumbnail.save("Slide_1.jpg", slides.ImageFormat.JPEG)
+```
+
+
+Das Ergebnis:
+![Das JPG‑Bild mit Kommentaren](image_with_comments.png)
 
 ## **Siehe auch**
 
-Siehe weitere Optionen zur Konvertierung von PPT/PPTX in Bilder wie:
+- [PowerPoint nach GIF konvertieren](/slides/de/python-net/convert-powerpoint-to-animated-gif/)
+- [PowerPoint nach PNG konvertieren](/slides/de/python-net/convert-powerpoint-to-png/)
+- [PowerPoint nach TIFF konvertieren](/slides/de/python-net/convert-powerpoint-to-tiff/)
+- [PowerPoint nach SVG konvertieren](/slides/de/python-net/render-a-slide-as-an-svg-image/)
 
-- [PPT/PPTX zu SVG-Konvertierung](/slides/de/python-net/render-a-slide-as-an-svg-image/).
+{{% alert color="primary" %}} 
+Um zu sehen, wie Aspose.Slides PowerPoint in JPG‑Bilder konvertiert, probieren Sie diese kostenlosen Online‑Konverter aus: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) und [PPT to JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg). 
+{{% /alert %}} 
+
+![Kostenloser Online‑PPTX‑zu‑JPG‑Konverter](ppt-to-jpg.png)
+
+{{% alert title="Tip" color="primary" %}}
+
+Aspose stellt eine [KOSTENLOSE Collage‑Web‑App](https://products.aspose.app/slides/collage) bereit. Mit diesem Online‑Dienst können Sie [JPG zu JPG](https://products.aspose.app/slides/collage/jpg) oder PNG zu PNG‑Bilder zusammenführen, [Fotogitter](https://products.aspose.app/slides/collage/photo-grid) erstellen usw. 
+
+Mit denselben in diesem Artikel beschriebenen Prinzipien können Sie Bilder von einem Format in ein anderes konvertieren. Weitere Informationen finden Sie auf diesen Seiten: Bild zu JPG konvertieren [image to JPG](https://products.aspose.com/slides/python-net/conversion/image-to-jpg/); JPG zu Bild konvertieren [JPG to image](https://products.aspose.com/slides/python-net/conversion/jpg-to-image/); JPG zu PNG konvertieren [JPG to PNG](https://products.aspose.com/slides/python-net/conversion/jpg-to-png/), PNG zu JPG konvertieren [PNG to JPG](https://products.aspose.com/slides/python-net/conversion/png-to-jpg/); PNG zu SVG konvertieren [PNG to SVG](https://products.aspose.com/slides/python-net/conversion/png-to-svg/), SVG zu PNG konvertieren [SVG to PNG](https://products.aspose.com/slides/python-net/conversion/svg-to-png/).
+
+{{% /alert %}}
+
+## **FAQ**
+
+**Unterstützt diese Methode die Stapelkonvertierung?**
+
+Ja, Aspose.Slides ermöglicht die Stapelkonvertierung mehrerer Folien zu JPG in einem einzigen Vorgang.
+
+**Unterstützt die Konvertierung SmartArt, Diagramme und andere komplexe Objekte?**
+
+Ja, Aspose.Slides rendert alle Inhalte, einschließlich SmartArt, Diagrammen, Tabellen, Formen und mehr. Die Rendering‑Genauigkeit kann jedoch im Vergleich zu PowerPoint leicht variieren, insbesondere bei benutzerdefinierten oder fehlenden Schriften.
+
+**Gibt es Einschränkungen bezüglich der Anzahl der verarbeitbaren Folien?**
+
+Aspose.Slides selbst legt keine festen Beschränkungen für die Anzahl der zu verarbeitenden Folien fest. Allerdings können bei großen Präsentationen oder hochauflösenden Bildern Speicher‑Ausnahmefehler auftreten.

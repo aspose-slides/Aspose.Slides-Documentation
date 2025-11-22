@@ -1,10 +1,28 @@
 ---
-title: Presentation Comments
+title: Manage Presentation Comments on Android
+linktitle: Presentation Comments
 type: docs
 weight: 100
 url: /androidjava/presentation-comments/
-keywords: "Comments, PowerPoint comments, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
-description: "Add comments and replies in PowerPoint presentation in Java"
+keywords:
+- comment
+- modern comment
+- PowerPoint comments
+- presentation comments
+- slide comments
+- add comment
+- access comment
+- edit comment
+- reply comment
+- remove comment
+- delete comment
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Master presentation comments with Aspose.Slides for Android via Java: add, read, edit, and delete comments in PowerPoint files fast and easily."
 ---
 
 In PowerPoint, a comment appears as a note or annotation on a slide. When a comment is clicked, its contents or messages are revealed. 

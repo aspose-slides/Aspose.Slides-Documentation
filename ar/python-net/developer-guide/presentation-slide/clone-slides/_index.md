@@ -1,190 +1,199 @@
 ---
-title: استنساخ الشرائح
+title: استنساخ شرائح PowerPoint في Python
+linktitle: استنساخ الشرائح
 type: docs
 weight: 40
 url: /ar/python-net/clone-slides/
-keywords: "استنساخ شريحة، نسخ شريحة، حفظ نسخة الشريحة، PowerPoint، عرض تقديمي، Python، Aspose.Slides"
-description: "استنساخ شريحة PowerPoint في Python"
+keywords:
+- استنساخ شريحة
+- نسخ شريحة
+- حفظ شريحة
+- PowerPoint
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "استنسخ أو كرّر شرائح PowerPoint بسرعة باستخدام Aspose.Slides for Python عبر .NET. اتبع أمثلة الشيفرة الواضحة ونصائحنا لأتمتة إنشاء العروض التقديمية في ثوانٍ، وزد الإنتاجية، وتخلص من العمل اليدوي."
 ---
 
-## **استنساخ الشرائح في العرض التقديمي**
-الاستنساخ هو عملية صنع نسخة مطابقة أو نسخة متماثلة من شيء ما. يتيح Aspose.Slides لـ Python عبر .NET أيضًا إنشاء نسخة أو استنساخ لأي شريحة ثم إدراج تلك الشريحة المستنسخة في العرض التقديمي الحالي أو أي عرض تقديمي مفتوح آخر. تخلق عملية استنساخ الشريحة شريحة جديدة يمكن تعديلها من قبل المطورين دون تغيير الشريحة الأصلية. هناك عدة طرق ممكنة لاستنساخ شريحة:
+## **نظرة عامة**
 
-- استنساخ في النهاية داخل عرض تقديمي.
-- استنساخ في موضع آخر داخل العرض التقديمي.
-- استنساخ في النهاية في عرض تقديمي آخر.
-- استنساخ في موضع آخر في عرض تقديمي آخر.
-- استنساخ في موضع محدد في عرض تقديمي آخر.
+الاستنساخ هو عملية إنشاء نسخة مطابقة أو مستنسخة من شيء ما. Aspose.Slides for Python via .NET يسمح لك باستنساخ أي شريحة وإدراج النسخة المستنسخة في العرض التقديمي الحالي أو في عرض تقديمي آخر مفتوح. عملية الاستنساخ تنشئ شريحة جديدة يمكنك تعديلها دون التأثير على الأصل.
 
-في Aspose.Slides لـ Python عبر .NET، (مجموعة من [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) الكائنات) المعرَّضة من قبل الكائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) توفر طرق [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) و [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) لتنفيذ أنواع استنساخ الشرائح المذكورة أعلاه.
-## **الاستنساخ في النهاية داخل عرض تقديمي**
-إذا كنت ترغب في استنساخ شريحة ثم استخدامها داخل نفس ملف العرض التقديمي في نهاية الشرائح الموجودة، استخدم طريقة [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) وفقًا للخطوات المدرجة أدناه:
+هناك عدة طرق لاستنساخ شريحة:
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. قم بإنشاء مثيل من فئة [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) بالإشارة إلى مجموعة الشرائح المعرضة من قبل كائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-3. استدعِ طريقة [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) المعرضة من كائن [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) ومرر الشريحة التي سيتم استنساخها كمعامل إلى طريقة [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/).
-4. اكتب ملف العرض التقديمي المعدل.
+- استنساخ شريحة في النهاية داخل نفس العرض التقديمي.
+- استنساخ شريحة إلى موضع محدد داخل نفس العرض التقديمي.
+- استنساخ شريحة في النهاية من عرض تقديمي آخر.
+- استنساخ شريحة إلى موضع محدد في عرض تقديمي آخر.
+- استنساخ شريحة مع الشريحة الرئيسية إلى عرض تقديمي آخر.
 
-في المثال المعطى أدناه، قمنا باستنساخ شريحة (تقع في الموضع الأول – فهرس صفر – من العرض التقديمي) إلى نهاية العرض التقديمي.
+في Aspose.Slides for Python via .NET، توفر [مجموعة الشرائح](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) التي يعرّفها كائن [العرض التقديمي](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) طرق `add_clone` و `insert_clone` لتنفيذ هذه الأنواع من استنساخ الشرائح.
 
+## **استنساخ في النهاية داخل نفس العرض التقديمي**
+
+إذا كنت تريد استنساخ شريحة داخل نفس العرض التقديمي وإلحاقها في نهاية الشرائح الموجودة، استخدم طريقة `add_clone`. اتبع الخطوات التالية:
+
+1. أنشئ نسخة من فئة [العرض التقديمي](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. احصل على مجموعة الشرائح من كائن [العرض التقديمي](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. استدعِ طريقة `add_clone` على كائن [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/)، مع تمرير الشريحة التي تريد استنساخها.
+1. احفظ العرض التقديمي المعدل.
+
+في المثال أدناه، تُستنسخ الشريحة الأولى (الفهرس 0) وتُلحق بنهاية العرض التقديمي.
 ```py
 import aspose.slides as slides
 
-# إنشاء مثيل لفئة Presentation التي تمثل ملف عرض تقديمي
-with slides.Presentation(path + "CloneWithinSamePresentationToEnd.pptx") as pres:
-    # استنساخ الشريحة المطلوبة إلى نهاية مجموعة الشرائح في نفس العرض التقديمي
-    slds = pres.slides
-
-    slds.add_clone(pres.slides[0])
-
-    # كتابة العرض التقديمي المعدل إلى القرص
-    pres.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
+# إنشاء كائن فئة Presentation لتمثيل ملف العرض التقديمي.
+with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentation:
+    # استنساخ الشريحة المطلوبة إلى نهاية مجموعة الشرائح في نفس العرض التقديمي.
+    presentation.slides.add_clone(presentation.slides[0])
+    # حفظ العرض التقديمي المعدل إلى القرص.
+    presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **الاستنساخ في موضع آخر داخل العرض التقديمي**
-إذا كنت ترغب في استنساخ شريحة ثم استخدامها داخل نفس ملف العرض التقديمي ولكن في موضع مختلف، استخدم طريقة [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/):
+## **استنساخ إلى موضع محدد داخل نفس العرض التقديمي**
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. قم بإنشاء مثيل من الفئة بالإشارة إلى مجموعة **Slides** المعرضة من قبل كائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-3. استدعِ طريقة [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) المعرضة من كائن [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) ومرر الشريحة التي سيتم استنساخها مع الفهرس لموضع الجديد كمعامل إلى طريقة [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/).
-4. اكتب العرض التقديمي المعدل كملف PPTX.
+إذا كنت تريد استنساخ شريحة داخل نفس العرض التقديمي ووضعها في موضع مختلف، استخدم طريقة `insert_clone`:
 
-في المثال المعطى أدناه، قمنا باستنساخ شريحة (تقع في فهرس صفر – الموضع 1 – من العرض التقديمي) إلى الفهرس 1 – الموضع 2 – من العرض التقديمي.
+1. أنشئ نسخة من فئة [العرض التقديمي](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. احصل على مجموعة الشرائح من كائن [العرض التقديمي](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. استدعِ طريقة `insert_clone` على كائن [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/)، مع تمرير الشريحة التي تريد استنساخها والفهرس المستهدف للموقع الجديد.
+1. احفظ العرض التقديمي المعدل.
 
+في المثال أدناه، تُستنسخ الشريحة في الفهرس 0 (الموضع 1) إلى الفهرس 1 (الموضع 2) داخل نفس العرض التقديمي.
 ```py
 import aspose.slides as slides
 
-# إنشاء مثيل لفئة Presentation التي تمثل ملف عرض تقديمي
-with slides.Presentation(path + "CloneWithInSamePresentation.pptx") as pres:
-    # استنساخ الشريحة المطلوبة إلى نهاية مجموعة الشرائح في نفس العرض التقديمي
-    slds = pres.slides
-
-    # استنساخ الشريحة المطلوبة إلى الفهرس المحدد في نفس العرض التقديمي
-    slds.insert_clone(2, pres.slides[1])
-
-    # كتابة العرض التقديمي المعدل إلى القرص
-    pres.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
+# إنشاء كائن فئة Presentation لتمثيل ملف العرض التقديمي.
+with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
+    # استنساخ الشريحة المطلوبة إلى الموضع المحدد (الفهرس) داخل نفس العرض التقديمي.
+    presentation.slides.insert_clone(2, presentation.slides[1])
+    # حفظ العرض التقديمي المعدل إلى القرص.
+    presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **الاستنساخ في النهاية في عرض تقديمي آخر**
-إذا كنت بحاجة إلى استنساخ شريحة من عرض تقديمي واحد واستخدامها في ملف عرض تقديمي آخر، في النهاية الشرائح الموجودة:
+## **استنساخ في النهاية من عرض تقديمي آخر**
 
-1. أنشئ مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) التي تحتوي على العرض التقديمي الذي سيتم استنساخ الشريحة منه.
-2. أنشئ مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) التي تحتوي على العرض التقديمي الوجهة الذي ستتم إضافة الشريحة إليه.
-3. قم بإنشاء مثيل من فئة [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) بالإشارة إلى مجموعة **Slides** المعرضة من كائن Presentation للعرض التقديمي الوجهة.
-4. استدعِ طريقة [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) المعرضة من كائن [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) ومرر الشريحة من العرض التقديمي المصدر كمعامل إلى طريقة [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/).
-5. اكتب ملف العرض التقديمي المعدل الوجهة.
+إذا كنت بحاجة إلى استنساخ شريحة من عرض تقديمي وإلحاقها في نهاية عرض تقديمي آخر:
 
-في المثال المعطى أدناه، قمنا باستنساخ شريحة (من المؤشر الأول من العرض التقديمي المصدر) إلى نهاية العرض التقديمي الوجهة.
+1. أنشئ نسخة من فئة [العرض التقديمي](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) للعرض المصدر (الذي يحتوي على الشريحة المراد استنساخها).
+1. أنشئ نسخة من فئة [العرض التقديمي](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) للعرض الهدف (حيث ستُضاف الشريحة).
+1. احصل على مجموعة الشرائح من العرض الهدف.
+1. استدعِ `add_clone` على [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) الخاص بالهدف، مع تمرير الشريحة من العرض المصدر.
+1. احفظ العرض الهدف المعدل.
 
+في المثال أدناه، تُستنسخ الشريحة في الفهرس 0 في العرض المصدر إلى نهاية العرض الهدف.
 ```py
 import aspose.slides as slides
 
-# إنشاء مثيل لفئة Presentation لتحميل ملف العرض التقديمي المصدر
-with slides.Presentation(path + "CloneAtEndOfAnother.pptx") as srcPres:
-    # إنشاء مثيل لفئة Presentation لوجهة PPTX (حيث سيتم استنساخ الشريحة)
-    with slides.Presentation() as destPres:
-        # استنساخ الشريحة المطلوبة من العرض التقديمي المصدر إلى نهاية مجموعة الشرائح في العرض التقديمي الوجهة
-        slds = destPres.slides
-        slds.add_clone(srcPres.slides[0])
-
-        # كتابة العرض التقديمي الوجهة إلى القرص
-        destPres.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
+# إنشاء كائن فئة Presentation لتمثيل ملف العرض التقديمي المصدر.
+with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
+    # إنشاء كائن فئة Presentation لملف PPTX الوجهة (حيث سيتم استنساخ الشريحة).
+    with slides.Presentation() as target_presentation:
+        # استنساخ الشريحة المطلوبة من العرض التقديمي المصدر إلى نهاية مجموعة الشرائح في العرض التقديمي الوجهة.
+        target_presentation.slides.add_clone(source_presentation.slides[0])
+        # حفظ العرض التقديمي الوجهة إلى القرص.
+        target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **الاستنساخ في موضع آخر في عرض تقديمي آخر**
-إذا كنت بحاجة إلى استنساخ شريحة من عرض تقديمي واحد واستخدامها في ملف عرض تقديمي آخر، في موضع محدد:
+## **استنساخ إلى موضع محدد في عرض تقديمي آخر**
 
-1. أنشئ مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) التي تحتوي على العرض التقديمي المصدر الذي ستُستنسخ منه الشريحة.
-2. أنشئ مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) التي تحتوي على العرض التقديمي الذي ستتم إضافة الشريحة إليه.
-3. أنشئ مثيل من فئة [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) بالإشارة إلى مجموعة الشرائح المعرضة من كائن Presentation للعرض التقديمي الوجهة.
-4. استدعِ طريقة [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) المعرضة من كائن [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) ومرر الشريحة من العرض التقديمي المصدر مع الموضع المطلوب كمعامل إلى طريقة [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/).
-5. اكتب ملف العرض التقديمي المعدل الوجهة.
+إذا كنت بحاجة إلى استنساخ شريحة من عرض تقديمي وإدراجها في عرض تقديمي آخر في موضع محدد:
 
-في المثال المعطى أدناه، قمنا باستنساخ شريحة (من الفهرس صفر من العرض التقديمي المصدر) إلى الفهرس 1 (الموضع 2) من العرض التقديمي الوجهة.
+1. أنشئ نسخة من فئة [العرض التقديمي](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) للعرض المصدر.
+1. أنشئ نسخة من فئة [العرض التقديمي](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) للعرض الهدف.
+1. احصل على مجموعة الشرائح من العرض الهدف.
+1. استدعِ طريقة `insert_clone` على [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) الخاص بالهدف، مع تمرير الشريحة من العرض المصدر والفهرس المستهدف.
+1. احفظ العرض الهدف المعدل.
 
+في المثال أدناه، تُستنسخ الشريحة في الفهرس 0 في العرض المصدر إلى الفهرس 1 (الموضع 2) في العرض الهدف.
 ```py
 import aspose.slides as slides
 
-# إنشاء مثيل لفئة Presentation لتحميل ملف العرض التقديمي المصدر
-with slides.Presentation(path + "CloneAtEndOfAnother.pptx") as srcPres:
-    # إنشاء مثيل لفئة Presentation لعرض التقديمي الوجهة (حيث سيتم استنساخ الشريحة)
-    with slides.Presentation("Aspose2_out.pptx") as destPres:
-        slds = destPres.slides
-        slds.insert_clone(2, srcPres.slides[0])
-
-        # كتابة العرض التقديمي الوجهة إلى القرص
-        destPres.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
+# إنشاء كائن فئة Presentation لتمثيل ملف العرض التقديمي المصدر.
+with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
+    # إنشاء كائن فئة Presentation لملف PPTX الوجهة (حيث سيتم استنساخ الشريحة).
+    with slides.Presentation("Aspose2_out.pptx") as target_presentation:
+        # إدراج نسخة مستنسخة من الشريحة الأولى من المصدر عند الفهرس 2 في العرض التقديمي الوجهة.
+        target_presentation.slides.insert_clone(2, source_presentation.slides[0])
+        # حفظ العرض التقديمي الوجهة إلى القرص.
+        target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **استنساخ في موضع محدد في عرض تقديمي آخر**
-إذا كنت بحاجة إلى استنساخ شريحة تحتوي على شريحة رئيسية من عرض تقديمي من واستخدامها في عرض تقديمي آخر، تحتاج إلى استنساخ الشريحة الرئيسية المطلوبة من العرض التقديمي المصدر إلى العرض التقديمي الوجهة أولاً. ثم تحتاج إلى استخدام تلك الشريحة الرئيسية لاستنساخ الشريحة مع الشريحة الرئيسية. تتوقع **add_clone(ISlide, IMasterSlide)** شريحة رئيسية من العرض التقديمي الوجهة بدلاً من العرض التقديمي المصدر. من أجل استنساخ الشريحة مع الرئيسية، يرجى اتباع الخطوات أدناه:
+## **استنساخ شريحة مع الشريحة الرئيسية إلى عرض تقديمي آخر**
 
-1. أنشئ مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) التي تحتوي على العرض التقديمي المصدر الذي سيتم استنساخ الشريحة منه.
-2. أنشئ مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) التي تحتوي على العرض التقديمي الوجهة الذي سيتم استنساخ الشريحة إليه.
-3. الوصول إلى الشريحة التي ستُستنسخ مع الشريحة الرئيسية.
-4. قم بإنشاء مثيل من فئة [IMasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/) بالإشارة إلى مجموعة الماستر المعرضة من كائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) للعرض التقديمي الوجهة.
-5. استدعِ طريقة [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) المعرضة من كائن [IMasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/) ومرر الماستر من PPTX المصدر الذي سيتم استنساخه كمعامل إلى طريقة [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/).
-6. قم بإنشاء مثيل من فئة [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) عن طريق تعيين الإشارة إلى مجموعة الشرائح المعرضة من كائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) للعرض التقديمي الوجهة.
-7. استدعِ طريقة [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) المعرضة من كائن [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) ومرر الشريحة من العرض التقديمي المصدر التي سيتم استنساخها والشريحة الرئيسية كمعامل إلى طريقة [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/).
-8. اكتب ملف العرض التقديمي المعدل الوجهة.
+إذا كنت بحاجة إلى استنساخ شريحة **مع الشريحة الرئيسية** من عرض تقديمي واستخدامها في آخر، قم أولاً باستنساخ الشريحة الرئيسية المطلوبة من العرض المصدر إلى العرض الهدف. ثم استخدم تلك الشريحة الرئيسية في استنساخ الشريحة. طريقة `add_clone(Slide, MasterSlide)` تتوقع **شريحة رئيسية من العرض الهدف**، وليس من العرض المصدر.
 
-في المثال المعطى أدناه، قمنا باستنساخ شريحة تحتوي على شريحة رئيسية (تقع في الفهرس صفر من العرض التقديمي المصدر) إلى نهاية العرض التقديمي الوجهة باستخدام شريحة رئيسية من الشريحة المصدر.
+لإستنسخ شريحة مع الشريحة الرئيسية، اتبع الخطوات التالية:
 
+1. أنشئ نسخة من فئة [العرض التقديمي](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) للعرض المصدر.
+1. أنشئ نسخة من فئة [العرض التقديمي](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) للعرض الهدف.
+1. احصل على الشريحة المصدر التي ستُستنسخ وشريحتها الرئيسية.
+1. احصل على [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/) من مجموعة الشرائح الرئيسية للعرض الهدف.
+1. استدعِ `add_clone` على [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/)، مع تمرير الشريحة الرئيسية المصدر لاستنساخها إلى الهدف.
+1. احصل على [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) من مجموعة الشرائح للعرض الهدف.
+1. استدعِ `add_clone` على [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/)، مع تمرير الشريحة المصدر والشريحة الرئيسية المستنسخة في الهدف.
+1. احفظ العرض الهدف المعدل.
+
+في المثال أدناه، تُستنسخ الشريحة في الفهرس 0 في العرض المصدر إلى نهاية العرض الهدف باستخدام الشريحة الرئيسية المستنسخة من المصدر.
 ```py
 import aspose.slides as slides
 
-# إنشاء مثيل لفئة Presentation لتحميل ملف العرض التقديمي المصدر
-with slides.Presentation(path + "CloneToAnotherPresentationWithMaster.pptx") as srcPres:
-    # إنشاء مثيل لفئة Presentation للعرض التقديمي الوجهة (حيث سيتم استنساخ الشريحة)
-    with slides.Presentation() as destPres:
-        # إنشئ ISlide من مجموعة الشرائح في العرض التقديمي المصدر مع
-        # شريحة رئيسية
-        sourceSlide = srcPres.slides[0]
-        sourceMaster = sourceSlide.layout_slide.master_slide
-
-        # استنساخ الشريحة الرئيسية المطلوبة من العرض التقديمي المصدر إلى مجموعة الماستر في
-        # العرض التقديمي الوجهة
-        masters = destPres.masters
-        destMaster = sourceSlide.layout_slide.master_slide
-
-        # استنساخ الشريحة الرئيسية المطلوبة من العرض التقديمي المصدر إلى مجموعة الماستر في
-        # العرض التقديمي الوجهة
-        iSlide = masters.add_clone(sourceMaster)
-
-        # استنساخ الشريحة المطلوبة من العرض التقديمي المصدر مع الماستر المطلوب إلى نهاية
-        # مجموعة الشرائح في العرض التقديمي الوجهة
-        slds = destPres.slides
-        slds.add_clone(sourceSlide, iSlide, True)
-      
-        # استنساخ الشريحة الرئيسية المطلوبة من العرض التقديمي المصدر إلى مجموعة الماستر في العرض التقديمي الوجهة
-        # حفظ العرض التقديمي الوجهة إلى القرص
-        destPres.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
+# إنشاء كائن فئة Presentation لتمثيل ملف العرض التقديمي المصدر.
+with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
+    # إنشاء كائن فئة Presentation للعرض التقديمي الوجهة حيث سيتم استنساخ الشريحة.
+    with slides.Presentation() as target_presentation:
+        # الحصول على الشريحة الأولى من العرض التقديمي المصدر.
+        source_slide = source_presentation.slides[0]
+        # الحصول على الشريحة الرئيسية المستخدمة من قبل الشريحة الأولى.
+        source_master = source_slide.layout_slide.master_slide
+        # استنساخ الشريحة الرئيسية إلى مجموعة الشرائح الرئيسية للعرض التقديمي الوجهة.
+        cloned_master = target_presentation.masters.add_clone(source_master)
+        # استنساخ الشريحة من العرض التقديمي المصدر إلى نهاية العرض التقديمي الوجهة باستخدام الشريحة الرئيسية المستنسخة.
+        target_presentation.slides.add_clone(source_slide, cloned_master, True)
+        # حفظ العرض التقديمي الوجهة إلى القرص.
+        target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **استنساخ في النهاية في قسم محدد**
 
-## الاستنساخ في النهاية في قسم محدد
+مع Aspose.Slides for Python via .NET، يمكنك استنساخ شريحة من قسم في عرض تقديمي وإدراجها في قسم آخر داخل نفس العرض. للقيام بذلك، استخدم طريقة `add_clone(Slide, Section)` لواجهة [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/).
 
-مع Aspose.Slides لـ Python عبر .NET، يمكنك استنساخ شريحة من قسم واحد من عرض تقديمي وإدراج تلك الشريحة في قسم آخر في نفس العرض التقديمي. في هذه الحالة، يجب عليك استخدام طريقة [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) من واجهة [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/). 
-
-يوضح لك هذا الشيفرة البرمجية في Python كيفية استنساخ شريحة وإدراج الشريحة المستنسخة في قسم محدد:
-
+يوضح مثال Python التالي كيفية استنساخ شريحة وإدراج النسخة في قسم محدد:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
-    slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100) # للاستنساخ
-    
-    slide2 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
-    section = pres.sections.add_section("Section2", slide2)
-
-    pres.slides.add_clone(slide, section)
-    
-    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
+# إنشاء عرض تقديمي فارغ جديد.
+with slides.Presentation() as presentation:
+    # إضافة شريحة فارغة استنادًا إلى تخطيط الشريحة الأولى.
+    slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
+    # إضافة شكل بيضاوي إلى الشريحة الجديدة؛ سيتم استنساخ هذه الشريحة لاحقًا.
+    slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100)
+    # إضافة شريحة فارغة أخرى استنادًا إلى تخطيط الشريحة الأولى.
+    slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
+    # إنشاء قسم باسم "Section2" يبدأ عند slide2.
+    section = presentation.sections.add_section("Section2", slide2)
+    # استنساخ الشريحة التي تم إنشاؤها مسبقًا إلى قسم "Section2".
+    presentation.slides.add_clone(slide, section)
+    # حفظ العرض التقديمي كملف PPTX.
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يتم استنساخ ملاحظات المتحدث وتعليقات المراجعين؟**
+
+نعم. يتم تضمين صفحة الملاحظات وتعليقات المراجعة في النسخة المستنسخة. إذا لم ترغب في ذلك، يمكنك [إزالتها](/slides/ar/python-net/presentation-notes/) بعد الإدراج.
+
+**كيف يتم التعامل مع المخططات ومصادر البيانات الخاصة بها؟**
+
+يتم نسخ كائن المخطط، وتنسيقه، والبيانات المدمجة. إذا كان المخطط مرتبطًا بمصدر خارجي (مثل مصنف OLE مدمج)، يتم الحفاظ على هذا الارتباط كـ [كائن OLE](/slides/ar/python-net/manage-ole/). بعد النقل بين الملفات، تحقق من توفر البيانات وسلوك التحديث.
+
+**هل يمكن التحكم في موضع الإدراج والأقسام للنسخة المستنسخة؟**
+
+نعم. يمكنك إدراج النسخة في فهرس شريحة محدد ووضعها في [قسم](/slides/ar/python-net/slide-section/) مختار. إذا لم يكن القسم الهدف موجودًا، أنشئه أولًا ثم انقل الشريحة إليه.

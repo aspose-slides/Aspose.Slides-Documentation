@@ -1,7 +1,18 @@
 ---
-title: Callout
+title: Manage Callouts in Presentation Charts Using С++
+linktitle: Callout
 type: docs
 url: /cpp/callout/
+keywords:
+- chart callout
+- use callout
+- data label
+- label format
+- PowerPoint
+- presentation
+- С++
+- Aspose.Slides
+description: "Create and style callouts in Aspose.Slides for С++ with concise code examples, compatible with PPT and PPTX to automate presentation workflows."
 ---
 
 ## **Using Callout**

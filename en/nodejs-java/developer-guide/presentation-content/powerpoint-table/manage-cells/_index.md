@@ -295,3 +295,21 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**Can I set different line thicknesses and styles for different sides of a single cell?**
+
+Yes. The [top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderright/) borders have separate properties, so the thickness and style of each side can differ. This logically follows from the per-side border control for a cell demonstrated in the article.
+
+**What happens to the image if I change the column/row size after setting a picture as the cell’s background?**
+
+The behavior depends on the [fill mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) (stretch/tile). With stretching, the image adjusts to the new cell; with tiling, the tiles are recalculated. The article mentions the image display modes in a cell.
+
+**Can I assign a hyperlink to all the content of a cell?**
+
+[Hyperlinks](/slides/nodejs-java/manage-hyperlinks/) are set at the text (portion) level inside the cell’s text frame or at the level of the entire table/shape. In practice, you assign the link to a portion or to all the text in the cell.
+
+**Can I set different fonts within a single cell?**
+
+Yes. A cell’s text frame supports [portions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) (runs) with independent formatting—font family, style, size, and color.

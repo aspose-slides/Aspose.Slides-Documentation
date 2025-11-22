@@ -1,8 +1,21 @@
 ---
-title: Create a New Presentation
+title: Create New Presentations Using VSTO and Aspose.Slides for .NET
+linktitle: Create New Presentation
 type: docs
 weight: 10
 url: /net/create-a-new-presentation/
+keywords:
+- create presentation
+- new presentation
+- migration
+- VSTO
+- Office automation
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Migrate from Microsoft Office automation to Aspose.Slides for .NET and create new PowerPoint (PPT, PPTX) presentations in C# with clean, reliable code."
 ---
 
 {{% alert color="primary" %}} 

@@ -1,11 +1,10 @@
 ---
-title: Examine Presentation
+title: Retrieve and Update Presentation Information in .NET
+linktitle: Presentation Information
 type: docs
 weight: 30
 url: /net/examine-presentation/
 keywords:
-- PowerPoint
-- presentation
 - presentation format
 - presentation properties
 - document properties
@@ -13,12 +12,17 @@ keywords:
 - read properties
 - change properties
 - modify properties
-- PPTX
-- PPT
-- C#
-- Csharp
+- update properties
+- examine PPTX
+- examine PPT
+- examine ODP
+- PowerPoint
+- OpenDocument
+- presentation
 - .NET
-description: "Read and modify PowerPoint presentation properties in C# or .NET"
+- C#
+- Aspose.Slides
+description: "Explore slides, structure and metadata in PowerPoint and OpenDocument presentations using .NET for faster insights and smarter content audits."
 ---
 
 Aspose.Slides for .NET allows you to examine a presentation to find out its properties and understand its behavior. 

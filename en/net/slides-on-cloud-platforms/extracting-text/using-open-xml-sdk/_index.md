@@ -4,8 +4,18 @@ linktitle: Open XML SDK
 type: docs
 weight: 20
 url: /net/extracting-text-on-cloud-platforms-using-open-xml-sdk/
-keywords: "Open XML SDK, PPTX text extraction, PPT to PPTX conversion, ODP to PPTX, .NET slide processing, presentation text extraction, C#, master slides, speaker notes, extracting text from slides"
-description: "Learn how to extract text from PPT, PPTX, and ODP files using Open XML SDK. Explore direct XML access, performance benefits, and best practices for high-efficiency .NET slide processing across Windows, Linux, and macOS."
+keywords:
+- cloud platforms
+- cloud integration
+- Open XML SDK
+- PPTX text extraction
+- .NET slide processing
+- presentation text extraction
+- master slide
+- speaker notes
+- extracting text from slides
+- C#
+description: "Learn how to extract text from PPT, PPTX and ODP in .NET using Open XML SDK, with XML-based access, performance tips, and conversion workarounds for cloud apps."
 ---
 
 # Extracting Text from PPT, PPTX, ODP Using Open XML SDK

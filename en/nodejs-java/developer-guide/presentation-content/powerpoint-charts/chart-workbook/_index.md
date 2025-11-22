@@ -238,3 +238,29 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**Can I determine whether a specific chart is linked to an external or an embedded workbook?**
+
+Yes. A chart has a [data source type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) and a [path to an external workbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); if the source is an external workbook, you can read the full path to make sure an external file is being used.
+
+**Are relative paths to external workbooks supported, and how are they stored?**
+
+Yes. If you specify a relative path, it is automatically converted to an absolute path. This is convenient for project portability; however, be aware that the presentation will store the absolute path in the PPTX file.
+
+**Can I use workbooks located on network resources/shares?**
+
+Yes, such workbooks can be used as an external data source. However, editing remote workbooks directly from Aspose.Slides is not supported—they can only be used as a source.
+
+**Does Aspose.Slides overwrite the external XLSX when saving the presentation?**
+
+No. The presentation stores a [link to the external file](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) and uses it for reading data. The external file itself is not modified when the presentation is saved.
+
+**What should I do if the external file is password-protected?**
+
+Aspose.Slides does not accept a password when linking. A common approach is to remove protection in advance or prepare a decrypted copy (for example, using [Aspose.Cells](/cells/nodejs-java/)) and link to that copy.
+
+**Can multiple charts reference the same external workbook?**
+
+Yes. Each chart stores its own link. If they all point to the same file, updating that file will be reflected in each chart the next time the data is loaded.

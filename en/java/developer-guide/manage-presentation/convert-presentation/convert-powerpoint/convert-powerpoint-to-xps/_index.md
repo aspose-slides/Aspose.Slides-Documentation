@@ -1,10 +1,29 @@
 ---
-title: Convert PowerPoint to XPS
+title: Convert PowerPoint Presentations to XPS in Java
+linktitle: PowerPoint to XPS
 type: docs
 weight: 70
 url: /java/convert-powerpoint-to-xps/
-keywords: "PPT, PPTX to XPS"
-description: "Convert PowerPoint PPT(X) to XPS in Java"
+keywords:
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- PowerPoint to XPS
+- presentation to XPS
+- slide to XPS
+- PPT to XPS
+- PPTX to XPS
+- save PPT as XPS
+- save PPTX as XPS
+- export PPT to XPS
+- export PPTX to XPS
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Convert PowerPoint PPT/PPTX to high-quality, platform-independent XPS in Java using Aspose.Slides. Get step-by-step guide and sample code."
 ---
 
 ## **About XPS**

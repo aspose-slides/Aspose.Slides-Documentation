@@ -1,9 +1,20 @@
 ---
-title: Chart Data Label
+title: Manage Chart Data Labels in Presentations Using С++
+linktitle: Data Label
 type: docs
 url: /cpp/chart-data-label/
-keywords: "Chart data label,label distance, C++, CPP, Aspose.Slides for C++"
-description: "Set PowerPoint chart data label and distance in C++"
+keywords:
+- chart
+- data label
+- data precision
+- percentage
+- label distance
+- label location
+- PowerPoint
+- presentation
+- С++
+- Aspose.Slides
+description: "Learn to add and format chart data labels in PowerPoint presentations using Aspose.Slides for С++ for more engaging slides."
 ---
 
 Data labels on a chart show details about the chart data series or individual data points. They allow readers to quickly identify data series and they also make charts easier to understand.

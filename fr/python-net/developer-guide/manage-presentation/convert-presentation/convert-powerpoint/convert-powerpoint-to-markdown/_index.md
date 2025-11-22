@@ -1,6 +1,6 @@
 ---
-title: Convertir des présentations PowerPoint en Markdown avec Python
-linktitle: PowerPoint vers Markdown
+title: Convertir les présentations PowerPoint en Markdown avec Python
+linktitle: PowerPoint en Markdown
 type: docs
 weight: 140
 url: /fr/python-net/convert-powerpoint-to-markdown/
@@ -25,95 +25,97 @@ keywords:
 - Markdown
 - Python
 - Aspose.Slides
-description: "Convertissez des diapositives PowerPoint et OpenDocument—PPT, PPTX, ODP—en Markdown propre avec Aspose.Slides for Python via .NET, automatisez la documentation et conservez la mise en forme."
+description: "Convertir les diapositives PowerPoint et OpenDocument—PPT, PPTX, ODP—en Markdown propre avec Aspose.Slides pour Python via .NET, automatiser la documentation et conserver le formatage."
 ---
 
-{{% alert color="info" %}} 
+## **Convertir les présentations en Markdown**
 
-Le support de la conversion de PowerPoint en markdown a été implémenté dans [Aspose.Slides 23.7](https://docs.aspose.com/slides/python-net/aspose-slides-for-python-net-23-7-release-notes/).
+L'exemple ci-dessous montre la façon la plus simple de convertir une présentation PowerPoint en Markdown à l'aide d'Aspose.Slides pour Python via .NET avec les paramètres par défaut.
 
-{{% /alert %}} 
+1. Instancier une [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) pour charger la présentation.
+1. Appeler `save` pour l'exporter en tant que fichier Markdown.
 
-{{% alert color="warning" %}} 
-
-L’exportation de PowerPoint en markdown est **sans images** par défaut. Si vous souhaitez exporter un document PowerPoint contenant des images, vous devez définir `saveOptions.export_type = MarkdownExportType.VISUAL` et définir également le `base_path` où les images référencées dans le document markdown seront enregistrées.
-
-{{% /alert %}} 
-
-## **Convertir PowerPoint en Markdown**
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) pour représenter un objet de présentation.
-2. Utilisez la méthode [Save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/#methods) pour enregistrer l'objet en tant que fichier markdown.
-
-Ce code Python vous montre comment convertir PowerPoint en markdown : 
-
+Utilisez l'extrait Python ci-dessous pour effectuer la conversion:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:  
-    pres.save("pres.md", slides.export.SaveFormat.MD)
+with slides.Presentation("presentation.pptx") as presentation:  
+    presentation.save("presentation.md", slides.export.SaveFormat.MD)
 ```
 
-## Convertir PowerPoint en Saveur Markdown
 
-Aspose.Slides vous permet de convertir PowerPoint en markdown (contenant une syntaxe de base), CommonMark, markdown à saveur GitHub, Trello, XWiki, GitLab, et 17 autres saveurs de markdown.
+## **Convertir les présentations en variantes de Markdown**
 
-Ce code Python vous montre comment convertir PowerPoint en CommonMark : 
+Aspose.Slides vous permet de convertir des présentations en formats Markdown, y compris le Markdown de base, CommonMark, le Markdown de type GitHub, Trello, XWiki, GitLab et 17 autres variantes Markdown.
 
-```python
-from aspose.slides import Presentation
-from aspose.slides.dom.export.markdown.saveoptions import MarkdownSaveOptions, Flavor
-from aspose.slides.export import SaveFormat
-
-with Presentation("pres.pptx") as pres:  
-    saveOptions = MarkdownSaveOptions()
-    saveOptions.flavor = Flavor.COMMONMARK
-
-    pres.save("pres.md", SaveFormat.MD, saveOptions)
-```
-
-Les 23 saveurs de markdown prises en charge sont [énumérées sous l'énumération Flavor](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/flavor/) de la classe [MarkdownSaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/).
-
-## **Convertir une Présentation Contenant des Images en Markdown**
-
-La classe [MarkdownSaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) fournit des propriétés et des énumérations qui vous permettent d'utiliser certaines options ou paramètres pour le fichier markdown résultant. L’énumération [MarkdownExportType](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) peut, par exemple, être définie sur des valeurs qui déterminent comment les images sont rendues ou gérées : `Sequential`, `TextOnly`, `Visual`.
-
-### **Convertir les Images Séquentiellement**
-
-Si vous souhaitez que les images apparaissent individuellement les unes après les autres dans le markdown résultant, vous devez choisir l'option séquentielle. Ce code Python vous montre comment convertir une présentation contenant des images en markdown : 
-
+L'exemple Python suivant montre comment convertir une présentation PowerPoint en CommonMark :
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    markdownSaveOptions = slides.export.MarkdownSaveOptions()
-    markdownSaveOptions.show_hidden_slides = True
-    markdownSaveOptions.show_slide_number = True
-    markdownSaveOptions.flavor = slides.export.Flavor.GITHUB
-    markdownSaveOptions.export_type = slides.export.MarkdownExportType.SEQUENTIAL
-    markdownSaveOptions.new_line_type = slides.export.NewLineType.WINDOWS
-    
-    pres.save("doc.md", [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ], slides.export.SaveFormat.MD, markdownSaveOptions)
+save_options = slides.export.MarkdownSaveOptions()
+save_options.flavor = slides.export.Flavor.COMMON_MARK
+
+with slides.Presentation("presentation.pptx") as presentation:
+    presentation.save("presentation.md", slides.export.SaveFormat.MD, save_options)
 ```
 
-### **Convertir les Images Visuellement**
 
-Si vous souhaitez que les images apparaissent ensemble dans le markdown résultant, vous devez choisir l'option visuelle. Dans ce cas, les images seront enregistrées dans le répertoire actuel de l'application (et un chemin relatif sera construit pour elles dans le document markdown), ou vous pouvez spécifier votre chemin préféré et le nom du dossier.
+Les 23 variantes Markdown prises en charge sont répertoriées dans l'énumération [Flavor](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/flavor/) de la classe [MarkdownSaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/).
 
-Ce code Python démontre l'opération : 
+## **Convertir les présentations contenant des images en Markdown**
 
+La classe [MarkdownSaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) fournit des propriétés et des énumérations qui vous permettent de configurer le fichier Markdown résultant. Par exemple, l'énumération [MarkdownExportType](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) contrôle la façon dont les images sont traitées : `SEQUENTIAL`, `TEXT_ONLY` ou `VISUAL`.
+
+### **Convertir les images séquentiellement**
+
+Si vous souhaitez que les images apparaissent individuellement—une après l'autre—dans le Markdown généré, choisissez l'option `SEQUENTIAL`. L'exemple Python ci-dessous montre comment convertir une présentation contenant des images en Markdown.
 ```python
-from aspose.slides import Presentation
-from aspose.slides.dom.export.markdown.saveoptions import MarkdownSaveOptions, MarkdownExportType
-from aspose.slides.export import SaveFormat
+import aspose.slides as slides
 
-with Presentation("pres.pptx") as pres:  
-    outPath = "c:\\documents"
+save_options = slides.export.MarkdownSaveOptions()
+save_options.show_hidden_slides = True
+save_options.show_slide_number = True
+save_options.flavor = slides.export.Flavor.GITHUB
+save_options.export_type = slides.export.MarkdownExportType.SEQUENTIAL
+save_options.new_line_type = slides.export.NewLineType.WINDOWS
 
-    saveOptions = MarkdownSaveOptions()
-    saveOptions.export_type = MarkdownExportType.VISUAL
-    saveOptions.images_save_folder_name = "md-images"
-    saveOptions.base_path = outPath
+slide_indices = [1, 3, 5]
 
-    pres.save(outPath + "\\pres.md", SaveFormat.MD, saveOptions)
+with slides.Presentation("presentation.pptx") as presentation:
+    presentation.save("presentation.md", slide_indices, slides.export.SaveFormat.MD, save_options)
 ```
+
+
+### **Convertir les images visuellement**
+
+Si vous souhaitez que les images apparaissent groupées dans le Markdown résultant, choisissez l'option `VISUAL`. Dans ce mode, les images sont enregistrées dans le répertoire courant de l'application (et le document Markdown utilise des chemins relatifs), ou vous pouvez spécifier un chemin de sortie personnalisé et le nom du dossier.
+
+L'exemple Python ci-dessous illustre cette opération :
+```python
+import os
+import aspose.slides as slides
+
+save_options = slides.export.MarkdownSaveOptions()
+save_options.export_type = slides.export.MarkdownExportType.VISUAL
+save_options.images_save_folder_name = "md-images"
+save_options.base_path = "c:\\documents"
+
+with slides.Presentation("presentation.pptx") as presentation:
+    file_path = os.path.join(save_options.base_path, "presentation.md")
+    presentation.save(file_path, slides.export.SaveFormat.MD, save_options)
+```
+
+
+## **FAQ**
+
+**Les hyperliens survivent-ils à l'exportation vers Markdown ?**
+
+Oui. Les [hyperliens](/slides/fr/python-net/manage-hyperlinks/) du texte sont conservés sous forme de liens Markdown standard. Les [transitions](/slides/fr/python-net/slide-transition/) et les [animations](/slides/fr/python-net/powerpoint-animation/) des diapositives ne sont pas converties.
+
+**Puis-je accélérer la conversion en l'exécutant sur plusieurs threads ?**
+
+Vous pouvez paralléliser par fichier, mais [ne partagez pas](/slides/fr/python-net/multithreading/) la même instance [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) entre les threads. Utilisez des instances/processus distincts par fichier pour éviter les conflits.
+
+**Que se passe‑t‑il avec les images — où sont‑elles sauvegardées et les chemins sont‑ils relatifs ?**
+
+Les [Images](/slides/fr/python-net/image/) sont exportées vers un dossier dédié, et le fichier Markdown les référence avec des chemins relatifs par défaut. Vous pouvez configurer le chemin de sortie de base et le nom du dossier d’actifs pour maintenir une structure de dépôt prévisible.

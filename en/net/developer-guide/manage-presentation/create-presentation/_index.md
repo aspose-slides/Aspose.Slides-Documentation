@@ -1,11 +1,25 @@
 ---
-title: Create Presentation in .NET
+title: Create Presentations in .NET
 linktitle: Create Presentation
 type: docs
 weight: 10
 url: /net/create-presentation/
-keywords: "Create PowerPoint, PPTX, PPT, Create Presentation, Initialize Presentation, C#, .NET"
-description: "Creating PowerPoint Presentations Programmatically in C# e.g. PPT, PPTX, ODP etc."
+keywords:
+- create presentation
+- new presentation
+- create PPT
+- new PPT
+- create PPTX
+- new PPTX
+- create ODP
+- new ODP
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Create presentations in .NET with Aspose.Slides—produce PPT, PPTX, and ODP files, benefit from OpenDocument support, and save them programmatically for reliable results."
 ---
 
 ## **Create PowerPoint Presentation**

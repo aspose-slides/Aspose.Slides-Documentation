@@ -1,42 +1,38 @@
 ---
-title: Convert PowerPoint Presentations to Word Documents in C#
-linktitle: Convert PowerPoint to Word
+title: Convert PowerPoint Presentations to Word Documents in .NET
+linktitle: PowerPoint to Word
 type: docs
 weight: 110
 url: /net/convert-powerpoint-to-word/
 keywords:
-- PowerPoint to DOCX
-- OpenDocument to DOCX
-- presentation to DOCX
-- slide to DOCX
-- PPT to DOCX
-- PPTX to DOCX
-- ODP to DOCX
-- PowerPoint to DOC
-- OpenDocument to DOC
-- presentation to DOC
-- slide to DOC
-- PPT to DOC
-- PPTX to DOC
-- ODP to DOC
-- PowerPoint to Word
-- OpenDocument to Word
-- presentation to Word
-- slide to Word
-- PPT to Word
-- PPTX to Word
-- ODP to Word
 - сonvert PowerPoint
-- convert OpenDocument
 - convert presentation
 - convert slide
 - convert PPT
 - convert PPTX
-- convert ODP
-- C#
+- PowerPoint to Word
+- presentation to Word
+- slide to Word
+- PPT to Word
+- PPTX to Word
+- PowerPoint to DOCX
+- presentation to DOCX
+- slide to DOCX
+- PPT to DOCX
+- PPTX to DOCX
+- PowerPoint to DOC
+- presentation to DOC
+- slide to DOC
+- PPT to DOC
+- PPTX to DOC
+- save PPT as DOCX
+- save PPTX as DOCX
+- export PPT to DOCX
+- export PPTX to DOCX
 - .NET
+- C#
 - Aspose.Slides
-description: "Learn how to effortlessly convert PowerPoint and OpenDocument presentations to Word documents using Aspose.Slides for .NET. Our step-by-step guide with sample C# code provides the solution for developers looking to streamline their document workflows."
+description: "Convert PowerPoint PPT and PPTX slides to editable Word documents in C# using Aspose.Slides for .NET with precise layout, images and formatting preserved."
 ---
 
 ## **Overview**

@@ -1,7 +1,20 @@
 ---
-title: Chart Data Marker
+title: Manage Chart Data Markers in Presentations Using Java
+linktitle: Data Marker
 type: docs
 url: /java/chart-data-marker/
+keywords:
+- chart
+- data point
+- marker
+- marker options
+- marker size
+- fill type
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn how to customize chart data markers in Aspose.Slides for Java, boosting presentation impact across PPT and PPTX formats with clear Java code examples."
 ---
 
 ## **Set Chart Marker Options**

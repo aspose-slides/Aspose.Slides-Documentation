@@ -13,7 +13,7 @@ keywords:
 - 散点图
 - 饼图
 - 折线图
-- 树状图
+- 树图
 - 股票图
 - 箱线图
 - 漏斗图
@@ -534,11 +534,10 @@ with slides.Presentation() as presentation:
     series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 2, 4, 38))
     series.data_points.add_data_point_for_stock_series(workbook.get_cell(0, 3, 4, 50))
 
-    chart.chart_data.series_groups[0].up_down_bars.has_up_down_bars = True
-    chart.chart_data.series_groups[0].hi_low_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
+下面的 Python 代码展示了如何创建股票图：
+{{6dcfb1d4-cf41-4728-b312-78dd749033e}}
 
-    for ser in chart.chart_data.series:
-        ser.format.line.fill_format.fill_type = slides.FillType.NO_FILL
+结果：
 
     presentation.save("StockChart.pptx", slides.export.SaveFormat.PPTX)
 ```

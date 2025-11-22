@@ -77,3 +77,17 @@ The result:
 Check out Aspose [Free PowerPoint to Poster Converter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online).
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Can I control the position of the notes area in the resulting TIFF?**
+
+Yes. Use the [notes layout settings](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/#setSlidesLayoutOptions) to choose among options like `None`, `BottomTruncated`, or `BottomFull`, which respectively hide notes, fit them into a single page, or allow them to flow onto additional pages.
+
+**How can I reduce the size of a TIFF file with notes without visible loss of quality?**
+
+Pick an [efficient compression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/setcompressiontype/) (e.g., `LZW` or `RLE`), set a reasonable DPI, and, if acceptable, use a lower [pixel format](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/setpixelformat/) (such as 8 bpp or 1 bpp for monochrome). Slightly reducing the [image dimensions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/setimagesize/) can also help without noticeably hurting readability.
+
+**Does the font in the notes affect the result if the original fonts are missing from the system?**
+
+Yes. Missing fonts trigger [substitution](/slides/nodejs-java/font-selection-sequence/), which can change text metrics and appearance. To avoid this, [supply the required fonts](/slides/nodejs-java/custom-font/) or set a default [fallback font](/slides/nodejs-java/fallback-font/) so the intended typefaces are used.

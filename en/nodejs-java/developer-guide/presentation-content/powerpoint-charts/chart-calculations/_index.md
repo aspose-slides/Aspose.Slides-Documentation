@@ -6,6 +6,7 @@ url: /nodejs-java/chart-calculations/
 ---
 
 ## **Calculate Actual Values of Chart Elements**
+
 Aspose.Slides for Node.js via Java provides a simple API for getting these properties. Properties of [Axis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis) class provide information about actual position of axis chart element ([Axis.getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMaxValue--), [Axis.getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinValue--), [Axis.getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnit--), [Axis.getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnit--), [Axis.getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnitScale--), [Axis.getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnitScale--)). It is necessary to call method [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) previously to fill properties with actual values.
 
 ```javascript
@@ -25,6 +26,7 @@ try {
 ```
 
 ## **Calculate Actual Position of Parent Chart Elements**
+
 Aspose.Slides for Node.js via Java provides a simple API for getting these properties. Properties of [ActualLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout) class provide information about actual position of parent chart element ([ActualLayout.getActualX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualX--), [ActualLayout.getActualY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualY--), [ActualLayout.getActualWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualWidth--), [ActualLayout.getActualHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ActualLayout#getActualHeight--)). It is necessary to call method [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) previously to fill properties with actual values.
 
 ```javascript
@@ -44,6 +46,7 @@ try {
 ```
 
 ## **Hide Information from Chart**
+
 This topic helps you to understand how to hide information from chart. Using Aspose.Slides for Node.js via Java you can hide **Title, Vertical Axis, Horizontal Axis** and **Grid Lines** from chart. Below code example shows how to use these properties.
 
 ```javascript
@@ -80,3 +83,17 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**Do external Excel workbooks work as a data source, and how does that affect recalculation?**
+
+Yes. A chart can reference an external workbook: when you connect or refresh the external source, formulas and values are taken from that workbook, and the chart reflects the updates during open/edit operations. The API lets you [specify the external workbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) path and manage the linked data.
+
+**Can I compute and display trendlines without implementing regression myself?**
+
+Yes. [Trendlines](/slides/nodejs-java/trend-line/) (linear, exponential, and others) are added and updated by Aspose.Slides; their parameters are recalculated from the series data automatically, so you don’t need to implement your own calculations.
+
+**If a presentation has multiple charts with external links, can I control which workbook each chart uses for computed values?**
+
+Yes. Each chart can point to its own [external workbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/), or you can create/replace an external workbook per chart independently of the others.

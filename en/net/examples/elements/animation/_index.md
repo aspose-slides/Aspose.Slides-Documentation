@@ -2,7 +2,20 @@
 title: Animation
 type: docs
 weight: 100
-url: /net/examples/elements/animation
+url: /net/examples/elements/animation/
+keywords:
+- animation example
+- add animation
+- access animation
+- remove animation
+- animation sequence
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Master slide animations in C# with Aspose.Slides: add, edit, and remove effects, timings, and triggers to create dynamic presentations in PPT, PPTX and ODP."
 ---
 
 Shows how to create simple animations and manage their sequence using **Aspose.Slides for .NET**.

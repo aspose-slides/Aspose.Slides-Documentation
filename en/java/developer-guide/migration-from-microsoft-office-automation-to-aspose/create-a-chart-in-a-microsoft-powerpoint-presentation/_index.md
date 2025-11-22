@@ -1,8 +1,19 @@
 ---
-title: Create a Chart  in a Microsoft PowerPoint Presentation
+title: Create Charts Using VSTO and Aspose.Slides for Java
+linktitle: Create Chart
 type: docs
 weight: 70
 url: /java/create-a-chart-in-a-microsoft-powerpoint-presentation/
+keywords:
+- create chart
+- migration
+- VSTO
+- Office automation
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn how to automate PowerPoint chart creation in Java. This step-by-step guide shows why Aspose.Slides for Java is a faster, more powerful alternative to Microsoft.Office.Interop."
 ---
 
 {{% alert color="primary" %}} 

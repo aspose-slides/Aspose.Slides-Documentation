@@ -1,16 +1,19 @@
 ---
-title: Shape Thumbnails
+title: Create Thumbnails of Presentation Shapes in C++
+linktitle: Shape Thumbnails
 type: docs
 weight: 70
 url: /cpp/shape-thumbnails/
-keywords: 
+keywords:
 - shape thumbnail
 - shape image
+- render shape
+- shape rendering
 - PowerPoint
 - presentation
 - C++
-- Aspose.Slides for С++
-description: "Extract shape thumbnails from PowerPoint presentations in C++"
+- Aspose.Slides
+description: "Generate high-quality shape thumbnails from PowerPoint slides with Aspose.Slides for C++ – easily create and export presentation thumbnails."
 ---
 
 

@@ -3,6 +3,42 @@ title: Supported File Formats
 type: docs
 weight: 30
 url: /net/supported-file-formats/
+keywords:
+- file format
+- supported format
+- PPT
+- POT
+- PPS
+- PPTX
+- POTX
+- PPSX
+- PPTM
+- PPSM
+- POTM
+- ODP
+- FODP
+- OTP
+- TIFF
+- EMF
+- PDF
+- XPS
+- JPEG
+- PNG
+- GIF
+- BMP
+- SVG
+- SWF
+- HTML
+- XAML
+- MD
+- XML
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Discover all file formats Aspose.Slides for .NET can open, save, and convert — including PPT, PPTX and ODP — with clear import/export support notes."
 ---
 
 ## **Supported Microsoft PowerPoint Versions**
@@ -48,3 +84,25 @@ This table contains the file formats that Aspose.Slides for .NET can load and sa
 |[XAML](https://docs.fileformat.com/web/xaml/)|Extensible Application Markup Language| |{{< emoticons/tick >}}| |
 |[MD](https://docs.fileformat.com/word-processing/md/)|Markdown| |{{< emoticons/tick >}}| |
 |[XML](https://docs.fileformat.com/web/xml/)|PowerPoint XML Presentation| |{{< emoticons/tick >}}| |
+
+## **FAQ**
+
+**Can I save presentations to PDF that meet archival and accessibility standards (PDF/A and PDF/UA)?**
+
+Yes. Aspose.Slides supports exporting to PDF with compliance levels such as PDF/A-2a, PDF/A-2b, PDF/A-2u, PDF/A-3a, PDF/A-3b, as well as PDF/UA through the [compliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/compliance/) setting in [PDF export options](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
+
+**Does the library support font embedding when exporting to PDF, with fine-grained control over what gets embedded?**
+
+Yes. You can control whether fonts are fully embedded or subsetted (only used glyphs), specify how common system fonts are treated, and configure behavior for ASCII text through [PDF export options](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
+
+**Can I detect whether a file is password-protected before actually loading it?**
+
+Yes. Using the [factory-based inspection API](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/), you can query a presentation file to determine if it is password-protected without opening it fully.
+
+**Are there font fallback mechanisms and support for custom fonts?**
+
+Yes. The library supports [loading](/slides/net/custom-font/) and [embedding](/slides/net/embedded-font/) custom fonts and provides font [fallback rules](/slides/net/fallback-font/) to prevent missing glyphs during rendering and conversion.
+
+**Can I export slides to XPS, and are there options to tune the XPS output?**
+
+Yes. [Export to XPS](/slides/net/convert-powerpoint-to-xps/) is supported, and you can adjust relevant [save options](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) to control the output quality and content of the XPS document.

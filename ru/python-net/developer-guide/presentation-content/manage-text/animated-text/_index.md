@@ -1,5 +1,5 @@
 ---
-title: Анимируйте текст PowerPoint на Python
+title: Анимация текста PowerPoint в Python
 linktitle: Анимированный текст
 type: docs
 weight: 60
@@ -14,42 +14,65 @@ keywords:
 - презентация
 - Python
 - Aspose.Slides
-description: "Создавайте динамичный анимированный текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides for Python via .NET, используя простые и оптимизированные примеры кода."
+description: "Создайте динамический анимированный текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides for Python через .NET, используя простые для понимания, оптимизированные примеры кода."
 ---
 
-## Добавление эффектов анимации к абзацам
+## **Обзор**
 
-Мы добавили метод [**add_effect()**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/) в классы [**Sequence**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/) и [**ISequence**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/isequence/). Этот метод позволяет добавлять эффекты анимации к одному абзацу. Этот пример кода показывает, как добавить эффект анимации к одному абзацу:
+В этой статье показано, как анимировать текст в презентациях PowerPoint с помощью Aspose.Slides for Python. Вы узнаете, как добавлять эффекты к отдельным абзацам, настраивать триггеры и считывать существующие последовательности анимации. В конце вы сможете создавать переиспользуемые рабочие процессы анимации текста, которые экспортируются в стандартный PPTX и корректно воспроизводятся в PowerPoint.
 
+## **Добавление анимационных эффектов к абзацу**
+
+Метод [add_effect](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/add_effect/) класса [Sequence](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/) позволяет применить анимационный эффект к отдельному абзацу. Пример кода ниже демонстрирует, как это сделать:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "Presentation1.pptx") as presentation:
-    # выберите абзац для добавления эффекта
-    autoShape = presentation.slides[0].shapes[0]
-    paragraph = autoShape.text_frame.paragraphs[0]
+with slides.Presentation("Presentation.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    # добавьте эффект анимации "Вылет" к выбранному абзацу
-    effect = presentation.slides[0].timeline.main_sequence.add_effect(paragraph, slides.animation.EffectType.FLY, slides.animation.EffectSubtype.LEFT, slides.animation.EffectTriggerType.ON_CLICK)
-    presentation.save("AnimationEffectinParagraph.pptx", slides.export.SaveFormat.PPTX)
+    # Выберите абзац, к которому нужно добавить эффект.
+    auto_shape = slide.shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
+
+    # Добавьте эффект анимации Fly к выбранному абзацу.
+    effect = slide.timeline.main_sequence.add_effect(paragraph,
+                                                     slides.animation.EffectType.FLY,
+                                                     slides.animation.EffectSubtype.LEFT,
+                                                     slides.animation.EffectTriggerType.ON_CLICK)
+    presentation.save("ParagraphAnimationEffect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **Получение анимационных эффектов абзаца**
 
-## Получение эффектов анимации в абзацах
+Возможно, вам потребуется определить, какие анимационные эффекты применены к абзацу, например, если вы планируете скопировать эти эффекты в другой абзац или форму.
 
-Вы можете решить узнать, какие эффекты анимации добавлены к абзацу — например, в одном сценарии вы хотите получить эффекты анимации в абзаце, потому что планируете применить эти эффекты к другому абзацу или форме.
-
-Aspose.Slides для Python через .NET позволяет вам получить все эффекты анимации, примененные к абзацам, содержащимся в текстовом кадре (форме). Этот пример кода показывает, как получить эффекты анимации в абзаце:
-
+Aspose.Slides for Python позволяет получить все анимационные эффекты, применённые к абзацам в текстовом фрейме (форме). Пример кода ниже показывает, как получить анимационные эффекты абзаца:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("AnimationEffectinParagraph.pptx") as pres:
-    sequence = pres.slides[0].timeline.main_sequence
-    autoShape = pres.slides[0].shapes[0]
-    for paragraph in autoShape.text_frame.paragraphs:
+with slides.Presentation("ParagraphAnimationEffect.pptx") as presentation:
+    slide = presentation.slides[0]
+    sequence = slide.timeline.main_sequence
+    auto_shape = slide.shapes[0]
+
+    for paragraph in auto_shape.text_frame.paragraphs:
         effects = sequence.get_effects_by_paragraph(paragraph)
         if len(effects) > 0:
-            print("Абзац \"" + paragraph.text + "\" имеет эффект " + str(effects[0].type) + ".")
+            print(f"Paragraph \"{paragraph.text}\" has the first animation effect of type {str(effects[0].type)}.")
 ```
+
+
+## **FAQ**
+
+**Чем анимация текста отличается от переходов слайдов, и можно ли их комбинировать?**
+
+Анимация текста управляет поведением объектов во времени на слайде, тогда как [transitions](/slides/ru/python-net/slide-transition/) управляют переходом между слайдами. Они независимы и могут использоваться вместе; порядок воспроизведения определяется временной шкалой анимации и настройками перехода.
+
+**Сохраняются ли анимации текста при экспорте в PDF или изображения?**
+
+Нет. PDF и растровые изображения являются статичными, поэтому вы увидите единственное состояние слайда без движения. Чтобы сохранить анимацию, используйте экспорт в [video](/slides/ru/python-net/convert-powerpoint-to-video/) или [HTML](/slides/ru/python-net/export-to-html5/).
+
+**Работают ли анимации текста в шаблонах и мастер‑слайде?**
+
+Эффекты, применённые к объектам шаблона/мастера, наследуются слайдами, но их временные параметры и взаимодействие с анимациями уровня слайда зависят от конечной последовательности на слайде.

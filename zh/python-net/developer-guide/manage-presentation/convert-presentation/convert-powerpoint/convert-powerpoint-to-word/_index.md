@@ -1,5 +1,5 @@
 ---
-title: 在 Python 中将 PowerPoint 演示文稿转换为 Word 文档
+title: 使用 Python 将 PowerPoint 演示文稿转换为 Word 文档
 linktitle: PowerPoint 转 Word
 type: docs
 weight: 110
@@ -28,67 +28,97 @@ keywords:
 - ODP 转 Word
 - 转换 PowerPoint
 - 转换 OpenDocument
-- 转换演示文稿
-- 转换幻灯片
+- 转换 演示文稿
+- 转换 幻灯片
 - 转换 PPT
 - 转换 PPTX
 - 转换 ODP
 - Python
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Python 轻松将 PowerPoint 和 OpenDocument 演示文稿转换为 Word 文档。我们的分步指南配有 Python 示例代码，为希望简化文档工作流程的开发人员提供解决方案。"
+description: 使用 Aspose.Slides for Python via .NET，轻松将 PowerPoint 和 OpenDocument 演示文稿转换为 Word 文档。我们的分步指南附带示例 Python 代码，为希望简化文档工作流的开发者提供解决方案。
 ---
 
-如果您计划以新方式使用演示文稿（PPT 或 PPTX）中的文本内容或信息，您可能会从将演示文稿转换为 Word（DOC 或 DOCX）中受益。
+## **概述**
 
-* 与 Microsoft PowerPoint 相比，Microsoft Word 应用程序更具备处理内容的工具或功能。 
-* 除了 Word 中的编辑功能外，您还可以受益于增强的协作、打印和共享功能。
+本文为开发人员提供了使用 Aspose.Slides for Python via .NET 和 Aspose.Words for Python via .NET 将 PowerPoint 和 OpenDocument 演示文稿转换为 Word 文档的解决方案。分步指南将带您完成转换过程的每个阶段。
 
-{{% alert color="primary" %}} 
+## **将演示文稿转换为Word文档**
 
-您可能想尝试我们的 [**演示文稿到 Word 在线转换器**](https://products.aspose.app/slides/conversion/ppt-to-word)，看看从幻灯片中处理文本内容可以带来什么收益。
+按照以下说明将 PowerPoint 或 OpenDocument 演示文稿转换为 Word 文档：
 
-{{% /alert %}} 
+1. 实例化 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类并加载演示文稿文件。
+2. 实例化 [Document](https://reference.aspose.com/words/python-net/aspose.words/document/) 和 [DocumentBuilder](https://reference.aspose.com/words/python-net/aspose.words/documentbuilder/) 类以生成 Word 文档。
+3. 使用 [DocumentBuilder.page_setup](https://reference.aspose.com/words/python-net/aspose.words/documentbuilder/page_setup/) 属性将 Word 文档的页面大小设置为与演示文稿相同。
+4. 使用 [DocumentBuilder.page_setup](https://reference.aspose.com/words/python-net/aspose.words/documentbuilder/page_setup/) 属性设置 Word 文档的页边距。
+5. 使用 [Presentation.slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) 属性遍历所有演示文稿幻灯片。
+    - 使用来自 [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) 类的 `get_image` 方法生成幻灯片图像并将其保存到内存流。
+    - 使用来自 [DocumentBuilder](https://reference.aspose.com/words/python-net/aspose.words/documentbuilder/) 类的 `insert_image` 方法将幻灯片图像添加到 Word 文档。
+6. 将 Word 文档保存为文件。
 
-## **Aspose.Slides 和 Aspose.Words**
+假设我们有一个名为 “sample.pptx” 的演示文稿，如下所示：
 
-要将 PowerPoint 文件（PPTX 或 PPT）转换为 Word（DOCX 或 DOCX），您需要同时使用 [Aspose.Slides for Python via .NET](https://products.aspose.com/slides/python-net/) 和 [Aspose.Words for Python via .NET](https://products.aspose.com/words/python-net/)。
-
-作为一个独立的 API，[Aspose.Slides](https://products.aspose.com/slides/python-net/) for Python via .NET 提供了允许您从演示文稿中提取文本的功能。
-
-[Aspose.Words](https://products.aspose.com/words/python-net/) 是一个先进的文档处理 API，允许应用程序生成、修改、转换、渲染、打印文件，以及在不使用 Microsoft Word 的情况下执行其他文档相关的任务。
-
-## **在 Python 中将 PowerPoint 转换为 Word**
-
-1. 将这些命名空间添加到您的 program.py 文件中：
+![PowerPoint 演示文稿](PowerPoint.png)
 
 ```py
 import aspose.slides as slides
 import aspose.words as words
-```
 
-2. 使用以下代码片段将 PowerPoint 转换为 Word：
-
-```py
+# 加载演示文稿文件。
 with slides.Presentation("sample.pptx") as presentation:
-    doc = words.Document()
-    builder = words.DocumentBuilder(doc)
 
-    for index in range(presentation.slides.length):
-        slide = presentation.slides[index]
+    # 创建 Document 和 DocumentBuilder 对象。
+    document = words.Document()
+    builder = words.DocumentBuilder(document)
 
-        file_name = "slide_{i}.png".format(i=index)
+    # 在 Word 文档中设置页面大小。
+    slide_size = presentation.slide_size.size
+    builder.page_setup.page_width = slide_size.width
+    builder.page_setup.page_height = slide_size.height
 
-        # 生成幻灯片图像
-        with slide.get_image(1, 1) as image:
-            image.save(file_name, slides.ImageFormat.PNG)
+    # 在 Word 文档中设置页边距。
+    builder.page_setup.left_margin = 0
+    builder.page_setup.right_margin = 0
+    builder.page_setup.top_margin = 0
+    builder.page_setup.bottom_margin = 0
 
-        builder.insert_image(file_name)
+    scale_x = 2
+    scale_y = 2
 
-        for shape in slide.shapes:
-            # 插入幻灯片的文本
-            if type(shape) is slides.AutoShape:
-                builder.writeln(shape.text_frame.text)
+    # 遍历所有演示文稿幻灯片。
+    for slide in presentation.slides:
+
+        # 生成幻灯片图像并保存到内存流。
+        with slide.get_image(scale_x, scale_y) as image:
+            image_stream = BytesIO()
+            image.save(image_stream, slides.ImageFormat.PNG)
+
+        # 将幻灯片图像添加到 Word 文档。
+        image_stream.seek(0)
+        image_width = builder.page_setup.page_width
+        image_height = builder.page_setup.page_height
+        builder.insert_image(image_stream.read(), image_width, image_height)
 
         builder.insert_break(words.BreakType.PAGE_BREAK)
-    doc.save("output.docx")
+
+    # 将 Word 文档保存为文件。
+    document.save("output.docx")
 ```
+
+
+结果：
+
+![Word 文档](Word.png)
+
+{{% alert color="primary" %}} 
+尝试我们的 [**在线 PPT 转 Word 转换器**](https://products.aspose.app/slides/conversion/ppt-to-word) ，了解将 PowerPoint 和 OpenDocument 演示文稿转换为 Word 文档可以获得的好处。 
+{{% /alert %}}
+
+## **常见问题**
+
+**需要安装哪些组件才能将 PowerPoint 和 OpenDocument 演示文稿转换为 Word 文档？**
+
+只需在 Python 项目中添加 [Aspose.Slides for Python via .NET](https://pypi.org/project/Aspose.Slides/) 和 [Aspose.Words for Python .NET](https://pypi.org/project/aspose-words/) 相应的包即可。这两个包均作为独立 API 工作，无需安装 Microsoft Office。
+
+**是否支持所有 PowerPoint 和 OpenDocument 演示文稿格式？**
+
+Aspose.Slides for Python .NET [支持所有演示文稿格式](/slides/zh/python-net/supported-file-formats/)，包括 PPT、PPTX、ODP 等常见文件类型。这确保您可以处理在不同版本的 Microsoft PowerPoint 中创建的演示文稿。

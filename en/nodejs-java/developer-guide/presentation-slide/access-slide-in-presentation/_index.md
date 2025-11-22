@@ -121,3 +121,17 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**Does the slide number a user sees match the collection’s zero-based index?**
+
+The number shown on a slide can start from an arbitrary value (e.g., 10) and does not have to match the index; the relationship is controlled by the presentation’s [first slide number](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/setfirstslidenumber/) setting.
+
+**Do hidden slides affect indexing?**
+
+Yes. A hidden slide remains in the collection and is counted in indexing; "hidden" refers to display, not its position in the collection.
+
+**Does a slide’s index change when other slides are added or removed?**
+
+Yes. Indexes always reflect the current order in slides and are recalculated upon insert, delete, and move operations.

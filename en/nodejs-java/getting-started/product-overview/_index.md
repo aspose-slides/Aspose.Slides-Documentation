@@ -10,7 +10,7 @@ url: /nodejs-java/product-overview/
 ## **Product Description**
 Aspose.Slides for Node.js via Java is a cross-platform class library that enables your applications to perform a wide variety of document processing tasks without using Microsoft PowerPoint®.
 
-### Why You Should Use Aspose.Slides for Node.js via Java
+### **Why You Should Use Aspose.Slides for Node.js via Java**
 
 - Aspose.Slides for Node.js via Java is the first and only component that provides the functionalities required to manage PowerPoint® documents. 
 - Aspose.Slides for Node.js via Java offers a lot of key features such as managing texts, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF, and other formats, and many more capabilities. 
@@ -135,3 +135,49 @@ This table lists important Aspose.Slides for Node.js via Java technical resource
 |[Aspose.Slides for Node.js via Java download](https://releases.aspose.com/slides/nodejs-java/)|Download the latest version of Aspose.Slides here. We often release new versions.|
 |[Aspose.Slides support forum](https://forum.aspose.com/c/slides/11)|Post your questions and issues here for a speedy resolution.|
 |[Aspose.Slides for Node.js via Java product documentation](/slides/nodejs-java/)|Full online documentation that contains this document and the Aspose.Slides API Reference.|
+
+## **FAQ**
+
+**Does it support PDF conformance levels for archiving and accessibility (PDF/A and PDF/UA)?**
+
+Yes. You can save to PDF with PDF/A-2a/2b/2u, PDF/A-3a/3b, as well as PDF/UA by configuring [PDF export options](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/).
+
+**Is there a font substitution mechanism and support for custom fonts to ensure correct rendering?**
+
+Yes. The library lets you [load custom fonts](/slides/nodejs-java/custom-font/) and [define fallback rules](/slides/nodejs-java/fallback-font/) so missing glyphs are substituted reliably during conversion and rendering.
+
+**Can I detect whether a file is password-protected without fully opening it?**
+
+Yes. You can [inspect a presentation](/slides/nodejs-java/examine-presentation/) to determine if it requires a password before loading the full document.
+
+**Is Microsoft PowerPoint required for processing and conversions?**
+
+No. Aspose.Slides is a standalone engine; PowerPoint is not needed on the server or workstation.
+
+**Is it safe to process presentations from multiple threads?**
+
+Yes, you can process different documents in parallel in separate threads; just avoid using the same presentation instance concurrently [across threads](/slides/nodejs-java/multithreading/).
+
+**Are macros preserved and can I manage VBA in PPTM/PPSM files?**
+
+Yes. Presentations with macros [are supported](/slides/nodejs-java/presentation-via-vba/), and you can inspect and manage VBA projects in those files.
+
+**Can I convert PDF or HTML back into PowerPoint slides?**
+
+Yes. You can [import PDF pages or HTML content](/slides/nodejs-java/import-presentation/) to create or populate slides in a presentation.
+
+**Is XPS export supported, and can I control the quality and content of the XPS output?**
+
+Yes. [Export to XPS](/slides/nodejs-java/convert-powerpoint-to-xps/) is available, and [save options](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xpsoptions/) allow you to tune output quality and included content.
+
+**Can I convert slides to images and control the output quality?**
+
+Yes. Slides can be [rendered to PNG, JPEG, GIF, BMP, TIFF](/slides/nodejs-java/convert-powerpoint-to-png/) and other formats with fine-grained control over size and quality.
+
+**Are mathematical formulas supported (MathML/MathText) and can they be exported?**
+
+Yes. You can [create and edit mathematical text](/slides/nodejs-java/powerpoint-math-equations/) and [export equations](/slides/nodejs-java/exporting-math-equations/), including to MathML.
+
+**How does the library handle encryption and passwords (open, set, remove)?**
+
+[It supports](/slides/nodejs-java/password-protected-presentation/) opening encrypted presentations, setting or removing passwords for opening and modifying, and checking a file’s protection status.
