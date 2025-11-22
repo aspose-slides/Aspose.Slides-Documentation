@@ -1,16 +1,37 @@
 ---
-title: PowerPointをアニメーションGIFに変換する
+title: JavaでPowerPointプレゼンテーションをアニメーションGIFに変換
+linktitle: PowerPointからGIFへ
 type: docs
 weight: 65
 url: /ja/java/convert-powerpoint-to-animated-gif/
-keywords: "PowerPointをアニメーションGIFに変換する, PPTをGIFに, PPTXをGIFに"
-description: "Aspose.Slides APIを使用して、PowerPointをアニメーションGIFに変換します: PPTをGIFに, PPTXをGIFに。"
+keywords:
+- アニメーションGIF
+- PowerPointを変換
+- プレゼンテーションを変換
+- スライドを変換
+- PPTを変換
+- PPTXを変換
+- PowerPointからGIFへ
+- プレゼンテーションからGIFへ
+- スライドからGIFへ
+- PPTからGIFへ
+- PPTXからGIFへ
+- PPTをGIFとして保存
+- PPTXをGIFとして保存
+- PPTをGIFとしてエクスポート
+- PPTXをGIFとしてエクスポート
+- デフォルト設定
+- カスタム設定
+- PowerPoint
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Javaを使用して、PowerPointプレゼンテーション（PPT、PPTX）を簡単にアニメーションGIFに変換できます。高速で高品質な結果を提供します。"
 ---
 
-## デフォルト設定を使用してプレゼンテーションをアニメーションGIFに変換する ##
+## デフォルト設定を使用したプレゼンテーションのアニメーションGIFへの変換 ##
 
-このJavaのサンプルコードは、標準設定を使用してプレゼンテーションをアニメーションGIFに変換する方法を示しています：
-
+このJavaサンプルコードは、標準設定を使用してプレゼンテーションをアニメーションGIFに変換する方法を示しています:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -20,24 +41,22 @@ try {
 }
 ```
 
-アニメーションGIFはデフォルトのパラメータで作成されます。 
 
-{{% alert title="ヒント" color="primary" %}} 
+アニメーションGIFはデフォルトのパラメーターで作成されます。 
 
-GIFのパラメータをカスタマイズしたい場合は、[GifOptions](https://reference.aspose.com/slides/java/com.aspose.slides/GifOptions)クラスを使用できます。以下のサンプルコードを参照してください。 
-
+{{%  alert  title="TIP"  color="primary"  %}} 
+GIFのパラメーターをカスタマイズしたい場合は、[GifOptions](https://reference.aspose.com/slides/java/com.aspose.slides/GifOptions) クラスを使用できます。以下のサンプルコードをご覧ください。 
 {{% /alert %}} 
 
-## カスタム設定を使用してプレゼンテーションをアニメーションGIFに変換する ##
-このサンプルコードは、カスタム設定を使用してプレゼンテーションをアニメーションGIFに変換する方法を示しています：
-
+## カスタム設定を使用したプレゼンテーションのアニメーションGIFへの変換 ##
+このサンプルコードは、Javaでカスタム設定を使用してプレゼンテーションをアニメーションGIFに変換する方法を示しています:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
 	GifOptions gifOptions = new GifOptions();
-	gifOptions.setFrameSize(new Dimension(960, 720)); // 結果のGIFのサイズ  
-	gifOptions.setDefaultDelay(2000); // 各スライドが次のスライドに変更されるまでの表示時間
-	gifOptions.setTransitionFps(35); // トランジションアニメーションの品質向上のためにFPSを増やす
+	gifOptions.setFrameSize(new Dimension(960, 720)); // 生成された GIF のサイズ
+	gifOptions.setDefaultDelay(2000); // 各スライドが次に切り替わるまでの表示時間
+	gifOptions.setTransitionFps(35); // トランジションアニメーションの品質向上のために FPS を上げる
 	
 	pres.save("pres.gif", SaveFormat.Gif, gifOptions);
 } finally {
@@ -45,8 +64,7 @@ try {
 }
 ```
 
-{{% alert title="情報" color="info" %}}
 
-Asposeによって開発された無料の[テキストからGIF](https://products.aspose.app/slides/text-to-gif)コンバータをチェックしてみてください。 
-
+{{% alert title="Info" color="info" %}}
+Asposeが提供する無料の [Text to GIF](https://products.aspose.app/slides/text-to-gif) コンバーターをご確認いただけます。 
 {{% /alert %}}

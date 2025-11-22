@@ -1,45 +1,70 @@
 ---
-title: PowerPoint in JPG konvertieren
+title: PPT und PPTX in Java zu JPG konvertieren
+linktitle: PowerPoint zu JPG
 type: docs
 weight: 60
 url: /de/java/convert-powerpoint-to-jpg/
-keywords: "PowerPoint in JPG konvertieren, PPTX in JPEG, PPT in JPEG"
-description: "PowerPoint in JPG konvertieren: PPT in JPG, PPTX in JPG in Java"
+keywords:
+- PowerPoint konvertieren
+- Präsentation konvertieren
+- Folie konvertieren
+- PPT konvertieren
+- PPTX konvertieren
+- PowerPoint zu JPG
+- Präsentation zu JPG
+- Folie zu JPG
+- PPT zu JPG
+- PPTX zu JPG
+- PowerPoint als JPG speichern
+- Präsentation als JPG speichern
+- Folie als JPG speichern
+- PPT als JPG speichern
+- PPTX als JPG speichern
+- PPT nach JPG exportieren
+- PPTX nach JPG exportieren
+- Java
+- Aspose.Slides
+description: "Konvertieren Sie PowerPoint‑Folien (PPT, PPTX) in Java mit Aspose.Slides for Java zu hochwertigen JPG‑Bildern mithilfe schneller, zuverlässiger Code‑Beispiele."
 ---
 
-## **Über die Konvertierung von PowerPoint zu JPG**
-Mit der [**Aspose.Slides API**](https://products.aspose.com/slides/java/) können Sie eine PowerPoint PPT- oder PPTX-Präsentation in ein JPG-Bild konvertieren. Es ist auch möglich, PPT/PPTX in JPEG, PNG oder SVG zu konvertieren. Mit diesen Funktionen ist es einfach, Ihren eigenen Präsentationsbetrachter zu implementieren und für jede Folie ein Thumbnail zu erstellen. Dies kann nützlich sein, wenn Sie Präsentationsfolien vor Urheberrechtsverletzungen schützen oder die Präsentation im Nur-Lese-Modus anzeigen möchten. Aspose.Slides ermöglicht es, die gesamte Präsentation oder eine bestimmte Folie in Bildformate zu konvertieren.
+## Suchen Sie einen Online-PPT-zu-JPG-Konverter?
+Bevor Sie zum Java‑Code springen, wenn Sie ein **schnelles Online‑Tool** benötigen, um PowerPoint (PPT, PPTX) ohne Code in JPG zu konvertieren, schauen Sie sich unseren Online‑Konverter an:  
+[Aspose PPT‑zu‑JPG‑Konverter](https://products.aspose.app/slides/conversion/ppt-to-jpg)
+
+Wenn Sie ein **Entwickler sind, der nach einer programmgesteuerten Lösung sucht**, lesen Sie weiter, um zu erfahren, wie Sie PowerPoint‑Folien mit **Aspose.Slides for Java** in JPG konvertieren.
+
+## **Über die PowerPoint‑zu‑JPG‑Konvertierung**
+Mit [**Aspose.Slides API**](https://products.aspose.com/slides/java/) können Sie PowerPoint‑PPT‑ oder PPTX‑Präsentationen in JPG‑Bilder konvertieren. Es ist außerdem möglich, PPT/PPTX in JPEG, PNG oder SVG zu konvertieren. Mit diesen Funktionen lässt sich leicht ein eigener Präsentations‑Viewer implementieren, Thumbnail für jede Folie erstellen. Das kann nützlich sein, wenn Sie Folien vor Kopieren schützen oder die Präsentation im Nur‑Lese‑Modus demonstrieren möchten. Aspose.Slides ermöglicht die Konvertierung der gesamten Präsentation oder einzelner Folien in Bildformate.
 
 {{% alert color="primary" %}} 
 
-Um zu sehen, wie Aspose.Slides PowerPoint in JPG-Bilder konvertiert, möchten Sie möglicherweise diese kostenlosen Online-Konverter ausprobieren: PowerPoint [PPTX in JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) und [PPT in JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg). 
+Um zu sehen, wie Aspose.Slides PowerPoint in JPG‑Bilder konvertiert, können Sie diese kostenlosen Online‑Konverter testen: PowerPoint [PPTX zu JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) und [PPT zu JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg). 
 
 {{% /alert %}} 
 
 [![todo:image_alt_text](ppt-to-jpg.png)
 
 ## **PowerPoint PPT/PPTX in JPG konvertieren**
-Hier sind die Schritte zum Konvertieren von PPT/PPTX in JPG:
+So konvertieren Sie PPT/PPTX in JPG:
 
-1. Erstellen Sie eine Instanz des Typs [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Holen Sie sich das Folienobjekt vom Typ [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) aus der Sammlung [Presentation.getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) .
-3. Erstellen Sie das Thumbnail jeder Folie und konvertieren Sie es dann in JPG. Die Methode [**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-float-float-) wird verwendet, um ein Thumbnail einer Folie zu erhalten, sie gibt ein [Images](https://reference.aspose.com/slides/java/com.aspose.slides/Images)-Objekt als Ergebnis zurück. Die Methode [getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-com.aspose.slides.IRenderingOptions-float-float-) muss von der benötigten Folie des Typs [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) aufgerufen werden, die Maßstäbe des resultierenden Thumbnails werden in die Methode übergeben.
-4. Nachdem Sie das Folien-Thumbnail erhalten haben, rufen Sie die Methode [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) vom Thumbnail-Objekt aus auf. Übergeben Sie den resultierenden Dateinamen und das Bildformat.
+1. Erzeugen Sie eine Instanz des Typs [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Holen Sie das Folienobjekt des Typs [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) aus der [Presentation.getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--)‑Sammlung.
+3. Erstellen Sie das Thumbnail jeder Folie und konvertieren Sie es anschließend in JPG. Die Methode [**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-float-float-) wird verwendet, um ein Thumbnail einer Folie zu erhalten; sie gibt ein [Images](https://reference.aspose.com/slides/java/com.aspose.slides/Images)‑Objekt zurück. Die [getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-com.aspose.slides.IRenderingOptions-float-float-)‑Methode muss vom gewünschten [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide)‑Objekt aufgerufen werden, wobei die Skalierungswerte des resultierenden Thumbnails übergeben werden.
+4. Nachdem Sie das Folien‑Thumbnail erhalten haben, rufen Sie die Methode [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) vom Thumbnail‑Objekt auf. Übergeben Sie dabei den gewünschten Dateinamen und das Bildformat.
 
 {{% alert color="primary" %}}
 
-**Hinweis**: Die Konvertierung von PPT/PPTX in JPG unterscheidet sich von der Konvertierung in andere Typen in der Aspose.Slides API. Für andere Typen verwenden Sie normalerweise die Methode [**IPresentation.Save(String fname, int format, ISaveOptions options)**](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-), aber hier müssen Sie die Methode [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) verwenden.
+**Hinweis**: Die Konvertierung von PPT/PPTX nach JPG unterscheidet sich von der Konvertierung in andere Formate in der Aspose.Slides‑API. Für andere Formate verwenden Sie normalerweise [**IPresentation.Save(String fname, int format, ISaveOptions options)**](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-), hier benötigen Sie jedoch die [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/java/com.aspose.slides/IImage#save(String formatName, int imageFormat))‑Methode.
 
 {{% /alert %}} 
-
 ```java
-Presentation pres = new Presentation("PowerPoint-Präsentation.pptx");
+Presentation pres = new Presentation("PowerPoint-Presentation.pptx");
 try {
     for (ISlide sld : pres.getSlides()) {
-        // Erstellt ein Vollbildbild
+        // Erzeugt ein Bild in voller Größe
         IImage slideImage = sld.getImage(1f, 1f);
 
-        // Speichert das Bild auf der Festplatte im JPEG-Format
+        // Speichert das Bild im JPEG-Format auf der Festplatte
         try {
               slideImage.save(String.format("Slide_%d.jpg", sld.getSlideNumber()), ImageFormat.Jpeg);
         } finally {
@@ -51,25 +76,25 @@ try {
 }
 ```
 
-## **PowerPoint PPT/PPTX in JPG mit benutzerdefinierten Abmessungen konvertieren**
-Um die Dimensionen des resultierenden Thumbnails und des JPG-Bildes zu ändern, können Sie die Werte *ScaleX* und *ScaleY* setzen, indem Sie sie in die [**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-float-float-) Methoden übergeben:
 
+## **PowerPoint PPT/PPTX in JPG mit benutzerdefinierten Abmessungen konvertieren**
+Um die Abmessungen des resultierenden Thumbnails und JPG‑Bildes zu ändern, setzen Sie die *ScaleX*‑ und *ScaleY*‑Werte, indem Sie sie an die [**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-float-float-)‑Methoden übergeben:
 ```java
-Presentation pres = new Presentation("PowerPoint-Präsentation.pptx");
+Presentation pres = new Presentation("PowerPoint-Presentation.pptx");
 try {
-    // Definiert Dimensionen
+    // Definiert die Abmessungen
     int desiredX = 1200;
     int desiredY = 800;
-    // Holt skalierten Werte von X und Y
+    // Ermittelt skalierte Werte von X und Y
     float ScaleX = (float) (1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
     float ScaleY = (float) (1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
 
     for (ISlide sld : pres.getSlides())
     {
-        // Erstellt ein Vollbildbild
+        // Erstellt ein Bild in voller Größe
         IImage slideImage = sld.getImage(ScaleX, ScaleY);
 
-        // Speichert das Bild auf der Festplatte im JPEG-Format
+        // Speichert das Bild im JPEG-Format auf der Festplatte
         try {
               slideImage.save(String.format("Slide_%d.jpg", sld.getSlideNumber()), ImageFormat.Jpeg);
         } finally {
@@ -81,9 +106,9 @@ try {
 }
 ```
 
-## **Kommentare beim Speichern der Präsentation in ein Bild rendern**
-Aspose.Slides für Java bietet eine Funktion, die es Ihnen ermöglicht, Kommentare in den Folien einer Präsentation zu rendern, wenn Sie diese Folien in Bilder konvertieren. Dieser Java-Code demonstriert die Operation:
 
+## **Kommentare beim Speichern der Präsentation als Bild rendern**
+Aspose.Slides for Java bietet eine Funktion, mit der Sie Kommentare in den Folien einer Präsentation rendern können, wenn Sie diese Folien in Bilder konvertieren. Dieser Java‑Code demonstriert die Vorgehensweise:
 ```java
 Presentation pres = new Presentation("presentation.pptx");
 try {
@@ -106,16 +131,31 @@ try {
 }
 ```
 
-{{% alert title="Tipp" color="primary" %}}
 
-Aspose bietet eine [KOSTENLOSE Collage-Web-App](https://products.aspose.app/slides/collage). Mit diesem Onlinedienst können Sie [JPG in JPG](https://products.aspose.app/slides/collage/jpg) oder PNG in PNG-Bilder zusammenführen, [Fotogitter](https://products.aspose.app/slides/collage/photo-grid) erstellen usw. 
+{{% alert title="Tip" color="primary" %}}
 
-Mit denselben Prinzipien, die in diesem Artikel beschrieben sind, können Sie Bilder von einem Format in ein anderes konvertieren. Weitere Informationen finden Sie auf diesen Seiten: konvertieren Sie [Bild in JPG](https://products.aspose.com/slides/java/conversion/image-to-jpg/); konvertieren Sie [JPG in Bild](https://products.aspose.com/slides/java/conversion/jpg-to-image/); konvertieren Sie [JPG in PNG](https://products.aspose.com/slides/java/conversion/jpg-to-png/), konvertieren Sie [PNG in JPG](https://products.aspose.com/slides/java/conversion/png-to-jpg/); konvertieren Sie [PNG in SVG](https://products.aspose.com/slides/java/conversion/png-to-svg/), konvertieren Sie [SVG in PNG](https://products.aspose.com/slides/java/conversion/svg-to-png/).
+Aspose stellt eine [KOSTENLOSE Collage‑Web‑App](https://products.aspose.app/slides/collage) zur Verfügung. Mit diesem Online‑Dienst können Sie [JPG zu JPG](https://products.aspose.app/slides/collage/jpg)‑ oder PNG‑zu‑PNG‑Bilder zusammenführen, [Fotogitter](https://products.aspose.app/slides/collage/photo-grid) erstellen und mehr. 
+
+Unter Anwendung der in diesem Artikel beschriebenen Prinzipien können Sie Bilder von einem Format in ein anderes konvertieren. Weitere Informationen finden Sie auf diesen Seiten: Bild nach JPG konvertieren ([image to JPG](https://products.aspose.com/slides/java/conversion/image-to-jpg/)); JPG nach Bild ([JPG to image](https://products.aspose.com/slides/java/conversion/jpg-to-image/)); JPG nach PNG ([JPG to PNG](https://products.aspose.com/slides/java/conversion/jpg-to-png/)); PNG nach JPG ([PNG to JPG](https://products.aspose.com/slides/java/conversion/png-to-jpg/)); PNG nach SVG ([PNG to SVG](https://products.aspose.com/slides/java/conversion/png-to-svg/)); SVG nach PNG ([SVG to PNG](https://products.aspose.com/slides/java/conversion/svg-to-png/)).
 
 {{% /alert %}}
 
+## Häufig gestellte Fragen (FAQ)
+
+### Wie kann ich PowerPoint (PPT, PPTX) in JPG konvertieren?  
+Sie können PowerPoint‑Folien mit Aspose.Slides for Java in JPG konvertieren. Dadurch erhalten Sie hochwertige Bildkonvertierungen mit voller Kontrolle über die Ausgabeeinstellungen.
+
+### Unterstützt diese Methode die Batch‑Konvertierung?  
+Ja, Aspose.Slides ermöglicht die Batch‑Konvertierung mehrerer Folien in JPG in einem einzigen Vorgang.
+
+### Kann ich eine benutzerdefinierte Auflösung für das Ausgabe‑JPG festlegen?  
+Ja, Sie können benutzerdefinierte Bildauflösung und Qualitäts‑Einstellungen über die Aspose.Slides‑API definieren.
+
+### Gibt es einen Online‑PowerPoint‑zu‑JPG‑Konverter?  
+Aspose bietet sowohl programmgesteuerte Lösungen als auch Online‑Konverter. Sehen Sie sich den [Aspose Online PPT‑zu‑JPG‑Konverter](https://products.aspose.app/slides/conversion/ppt-to-jpg) für schnelle Konvertierungen an.
+
 ## **Siehe auch**
 
-Siehe andere Optionen für die Konvertierung von PPT/PPTX in Bilder wie:
+Weitere Optionen zum Konvertieren von PPT/PPTX in Bilder finden Sie hier:
 
-- [PPT/PPTX in SVG-Konvertierung](/slides/de/java/render-a-slide-as-an-svg-image/).
+- [PPT/PPTX zu SVG‑Konvertierung](/slides/de/java/render-a-slide-as-an-svg-image/)

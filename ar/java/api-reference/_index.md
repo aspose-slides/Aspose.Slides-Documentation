@@ -1,17 +1,23 @@
 ---
-title: مرجع واجهة برمجة التطبيقات
+title: مرجع API
 type: docs
 weight: 50
 url: /ar/java/api-reference/
+keywords:
+- مرجع API
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "إنشاء وتحرير وتحويل العروض التقديمية في Java—دون الحاجة إلى PowerPoint. يدعم Aspose.Slides صيغ PPT و PPTX و ODP مع تصدير سريع إلى SVG/PDF."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
-Aspose.Slides for Java هي مكتبة فصول تمكّن تطبيقات Java من قراءة وكتابة مستندات العرض 
-دون الحاجة لاستخدام Microsoft PowerPoint® أو غيره. تتيح Aspose.Slides for Java إدارة النصوص والأشكال 
-والجداول والرسوم المتحركة، إضافة الصوت والفيديو إلى الشرائح، معاينة الشرائح، تصدير الشرائح إلى SVG، PDF والمزيد.
+Aspose.Slides for Java هي مكتبة فئات تتيح لتطبيقات Java قراءة وكتابة مستندات العروض التقديمية دون استخدام Microsoft PowerPoint® أو غيرها. Aspose.Slides for Java تسمح بإدارة النصوص، الأشكال، الجداول والرسوم المتحركة، إضافة الصوت والفيديو إلى الشرائح، معاينة الشرائح، تصدير الشرائح إلى تنسيق SVG وPDF وأكثر.
 
-يمكن العثور على أحدث مرجع API في 
-[Aspose.Slides for Java API Reference.](https://reference.aspose.com/slides/java)
+أحدث مرجع برمجي يمكن العثور عليه على
+[مرجع Aspose.Slides for Java API](https://reference.aspose.com/slides/java)
 
 {{% /alert %}}

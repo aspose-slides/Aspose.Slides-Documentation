@@ -1,16 +1,37 @@
 ---
-title: تحويل PowerPoint إلى GIF متحرك
+title: تحويل عروض PowerPoint إلى GIF متحرك في Java
+linktitle: PowerPoint إلى GIF
 type: docs
 weight: 65
 url: /ar/java/convert-powerpoint-to-animated-gif/
-keywords: "تحويل PowerPoint إلى GIF متحرك، PPT إلى GIF، PPTX إلى GIF"
-description: "تحويل PowerPoint إلى GIF متحرك: PPT إلى GIF، PPTX إلى GIF، باستخدام واجهة برمجة التطبيقات Aspose.Slides."
+keywords:
+- GIF متحرك
+- تحويل PowerPoint
+- تحويل العرض التقديمي
+- تحويل الشريحة
+- تحويل PPT
+- تحويل PPTX
+- PowerPoint إلى GIF
+- العرض التقديمي إلى GIF
+- الشريحة إلى GIF
+- PPT إلى GIF
+- PPTX إلى GIF
+- حفظ PPT بصيغة GIF
+- حفظ PPTX بصيغة GIF
+- تصدير PPT بصيغة GIF
+- تصدير PPTX بصيغة GIF
+- الإعدادات الافتراضية
+- الإعدادات المخصصة
+- PowerPoint
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "قم بسهولة بتحويل عروض PowerPoint (PPT، PPTX) إلى GIF متحرك باستخدام Aspose.Slides لـ Java. نتائج سريعة وعالية الجودة."
 ---
 
 ## تحويل العروض التقديمية إلى GIF متحرك باستخدام الإعدادات الافتراضية ##
 
-تظهر لك هذه الكود النموذجي بلغة Java كيفية تحويل عرض تقديمي إلى GIF متحرك باستخدام الإعدادات القياسية:
-
+يوضح لك هذا المثال البرمجي بلغة Java كيفية تحويل عرض تقديمي إلى GIF متحرك باستخدام الإعدادات القياسية:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -20,24 +41,22 @@ try {
 }
 ```
 
-سيتم إنشاء GIF المتحرك باستخدام المعلمات الافتراضية.
 
-{{% alert title="نصيحة" color="primary" %}} 
+سيتم إنشاء GIF المتحرك باستخدام المعلمات الافتراضية. 
 
-إذا كنت تفضل تخصيص المعلمات لـ GIF، يمكنك استخدام فئة [GifOptions](https://reference.aspose.com/slides/java/com.aspose.slides/GifOptions). انظر الكود النموذجي أدناه. 
-
+{{%  alert  title="TIP"  color="primary"  %}} 
+إذا كنت تفضل تخصيص المعلمات الخاصة بـ GIF، يمكنك استخدام الفئة [GifOptions](https://reference.aspose.com/slides/java/com.aspose.slides/GifOptions) . راجع مثال الكود أدناه. 
 {{% /alert %}} 
 
 ## تحويل العروض التقديمية إلى GIF متحرك باستخدام الإعدادات المخصصة ##
-يوضح لك هذا الكود النموذجي كيفية تحويل عرض تقديمي إلى GIF متحرك باستخدام الإعدادات المخصصة بلغة Java:
-
+هذا المثال البرمجي يوضح لك كيفية تحويل عرض تقديمي إلى GIF متحرك باستخدام إعدادات مخصصة في Java:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
 	GifOptions gifOptions = new GifOptions();
 	gifOptions.setFrameSize(new Dimension(960, 720)); // حجم GIF الناتج  
-	gifOptions.setDefaultDelay(2000); // مدة عرض كل شريحة قبل الانتقال إلى الشريحة التالية
-	gifOptions.setTransitionFps(35); // زيادة FPS لتحسين جودة انتقال الرسوم المتحركة
+	gifOptions.setDefaultDelay(2000); // المدة التي ستُعرض فيها كل شريحة قبل الانتقال إلى التالية
+	gifOptions.setTransitionFps(35); // زيادة عدد الإطارات في الثانية لتحسين جودة حركة الانتقال
 	
 	pres.save("pres.gif", SaveFormat.Gif, gifOptions);
 } finally {
@@ -45,8 +64,7 @@ try {
 }
 ```
 
-{{% alert title="معلومات" color="info" %}}
 
-قد ترغب في الاطلاع على محول [نص إلى GIF](https://products.aspose.app/slides/text-to-gif) مجاني تم تطويره بواسطة Aspose.
-
+{{% alert title="Info" color="info" %}}
+قد ترغب في تجربة محول مجاني من النص إلى GIF طورته Aspose. 
 {{% /alert %}}

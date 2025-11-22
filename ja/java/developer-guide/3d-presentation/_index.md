@@ -1,33 +1,35 @@
 ---
-title: 3Dプレゼンテーション
+title: Javaで3Dプレゼンテーションを作成する
+linktitle: 3D プレゼンテーション
 type: docs
 weight: 232
 url: /ja/java/3d-presentation/
 keywords:
-- 3D
 - 3D PowerPoint
-- 3Dプレゼンテーション
-- 3D回転
-- 3D深さ
-- 3D押し出し
-- 3Dグラデーション
-- 3Dテキスト
-- PowerPointプレゼンテーション
+- 3D プレゼンテーション
+- 3D 回転
+- 3D 奥行き
+- 3D 押し出し
+- 3D グラデーション
+- 3D テキスト
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
 - Java
-- Aspose.Slides for Java
-description: "Javaでの3D PowerPointプレゼンテーション"
+- Aspose.Slides
+description: "Aspose.Slides を使用して Java でインタラクティブな 3D プレゼンテーションを簡単に作成できます。PowerPoint および OpenDocument フォーマットへ迅速にエクスポートでき、さまざまな用途に活用できます。"
 ---
 
 ## 概要
-Aspose.Slides Java 20.9以降、プレゼンテーションで3Dを作成することが可能になりました。PowerPoint 3Dは、プレゼンテーションに命を吹き込む方法です。3Dプレゼンテーションを使用して、実世界のオブジェクトを表示したり、将来のビジネスプロジェクトの3Dモデル、建物の3Dモデルやその内装、ゲームキャラクターの3Dモデル、またはデータの3D表現をデモしたりします。
+Aspose.Slides Java 20.9 以降、プレゼンテーションで 3D を作成できるようになりました。PowerPoint 3D はプレゼンテーションに命を吹き込む方法です。3D プレゼンテーションで実世界のオブジェクトを表示したり、将来のビジネスプロジェクトの 3D モデル、建物や内部の 3D モデル、ゲームキャラクターの 3D モデル、またはデータの 3D 表現を行ったりできます。
 
-PowerPointの3Dモデルは、2Dシェイプから作成することができ、次のような効果を適用できます：3D回転、3D深さと押し出し、3Dグラデーション、3Dテキストなど。シェイプに適用される3D機能のリストは、**[ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat)**クラスにあります。このクラスのインスタンスは次の方法で取得できます：
+PowerPoint の 3D モデルは 2D 図形から作成でき、3D 回転、3D 奥行きと射出、3D グラデーション、3D テキストなどの効果を適用します。図形に適用できる 3D 機能の一覧は **[ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat)** クラスで確認できます。クラスのインスタンスは次の方法で取得できます：
 
-- **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/java/com.aspose.slides/Shape#getThreeDFormat--)** メソッドを使用してPowerPoint 3Dモデルを作成します。
-- **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getThreeDFormat--)** メソッドを使用して3Dテキスト（WordArt）を作成します。
+- **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/java/com.aspose.slides/Shape#getThreeDFormat--)** メソッドは PowerPoint 3D モデルを作成します。
+- **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getThreeDFormat--)** メソッドは 3D テキスト（WordArt）を作成します。
 
-**[ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat)**に実装されているすべての効果は、シェイプとテキストの両方に使用できます。ここでは、**[ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat)**クラスの主なメソッドを簡単に見ていきましょう。次の例では、テキストのある矩形2Dシェイプを作成します。シェイプのカメラビューを取得し、回転を変更して3Dモデルのように見せます。平面光源を設定し、その方向を3Dモデルの上に向けることで、モデルにより多くのボリュームを与えます。変更されたマテリアル、押し出し高さ、色により3Dモデルはより生き生きと見えます。
-```java
+**[ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat)** に実装されているすべての効果は、図形とテキストの両方で使用できます。**[ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat)** クラスの主なメソッドを簡単に見てみましょう。次の例では、テキストが付いた長方形の 2D 図形を作成します。図形にカメラビューを取得し、回転を変更して 3D モデルのように見せます。フラットライトとその方向を 3D モデルの上部に設定し、ボリューム感を高めます。素材、射出高さ、色を変更することで、3D モデルがより生き生きとします。  
+``` java 
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
@@ -53,18 +55,18 @@ presentation.save("sandbox_3d.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-ここが結果の3Dモデルです：
+
+以下は結果の 3D モデルです：
 
 ![todo:image_alt_text](img_01_01.png)
 
-## 3D回転
-PowerPointでの3Dモデルの回転は、メニューを介して行えます：
+## 3D 回転
+PowerPoint で 3D モデルの回転はメニューから行えます：
 
 ![todo:image_alt_text](img_02_01.png)
 
-Aspose.Slides APIを使用して3Dモデルを回転するには、**[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getCamera--)** メソッドを使用し、3Dシェイプに対するカメラの回転を設定します：
-
-```java
+Aspose.Slides API で 3D モデルを回転させるには、**[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getCamera--)** メソッドを使用し、カメラの回転を 3D 図形に対して設定します：  
+``` java
 IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
 // ... 他の3Dシーンパラメータを設定
@@ -74,10 +76,10 @@ thumbnail.save("sample_3d.png", ImageFormat.Png);
 thumbnail.dispose();
 ```
 
-## 3D深さと押し出し
-**[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getExtrusionHeight--)** および **[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getExtrusionColor--)** メソッドは、シェイプに押し出しを作成するために使用されます：
 
-```java
+## 3D 奥行きと射出
+**[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getExtrusionHeight--)** と **[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getExtrusionColor--)** メソッドは図形に射出を作成するために使用されます：  
+``` java
 IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
 shape.getThreeDFormat().setExtrusionHeight(100);
@@ -89,14 +91,14 @@ thumbnail.save("sample_3d.png", ImageFormat.Png);
 thumbnail.dispose();
 ```
 
-PowerPointでは、シェイプの深さは次のように設定されます：
+
+PowerPoint では、図形の奥行きは次の方法で設定します：
 
 ![todo:image_alt_text](img_02_02.png)
 
-## 3Dグラデーション
-3Dグラデーションは、PowerPointの3Dシェイプにより多くのボリュームを与えることができます：
-
-```java
+## 3D グラデーション
+3D グラデーションは PowerPoint の 3D 図形にボリューム感を与えます：  
+``` java
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
@@ -124,32 +126,34 @@ thumbnail.dispose();
 presentation.dispose();
 ```
 
-こちらがその見た目です：
+
+このように見えます：
 
 ![todo:image_alt_text](img_02_03.png)
-
-画像グラデーションも作成できます：
-```java
+  
+画像グラデーションも作成できます：  
+``` java
 byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
 IPPImage image = presentation.getImages().addImage(imageData);
 
 shape.getFillFormat().setFillType(FillType.Picture);
 shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
 shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-// ... 3D設定: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* プロパティ
+// ... 3D を設定: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* のプロパティ
 
 IImage thumbnail = slide.getImage(imageScale, imageScale);
 thumbnail.save("sample_3d.png", ImageFormat.Png);
 thumbnail.dispose();
 ```
 
-こちらが結果です：
+
+結果は以下の通りです：
 
 ![todo:image_alt_text](img_02_04.png)
 
-## 3Dテキスト（WordArt）
-3Dテキスト（WordArt）を作成するには、次の操作を行います：
-```java
+## 3D テキスト (WordArt)
+3D テキスト（WordArt）を作成するには、以下を実行します：  
+``` java
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
@@ -169,7 +173,7 @@ portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(Pa
 shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(128);
 
 ITextFrameFormat textFrameFormat = shape.getTextFrame().getTextFrameFormat();
-// "Arch Up" WordArt変形効果を設定
+// "Arch Up" の WordArt 変形効果を設定
 textFrameFormat.setTransform(TextShapeType.ArchUp);
 
 textFrameFormat.getThreeDFormat().setExtrusionHeight(3.5f);
@@ -189,13 +193,14 @@ presentation.save("text3d.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-こちらが結果です：
+
+結果は以下の通りです：
 
 ![todo:image_alt_text](img_02_05.png)
 
-## 対応していない - 近日公開
-次のPowerPoint 3D機能はまだサポートされていません：
+## 未サポート - 今後実装予定
+以下の PowerPoint 3D 機能はまだサポートされていません： 
 - ベベル
 - マテリアル
 - 輪郭
-- 照明
+- ライティング
