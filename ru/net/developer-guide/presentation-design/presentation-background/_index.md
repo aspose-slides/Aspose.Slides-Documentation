@@ -1,158 +1,208 @@
 ---
-title: Фон презентации
+title: Управление фонами презентаций в C#
+linktitle: Фон слайда
 type: docs
 weight: 20
 url: /ru/net/presentation-background/
-keywords: "фон PowerPoint, установить фон, C#, Csharp, Aspose.Slides для .NET"
-description: "Установить фон в презентации PowerPoint на C# или .NET"
+keywords:
+- фон презентации
+- фон слайда
+- сплошной цвет
+- градиентный цвет
+- фон изображения
+- прозрачность фона
+- свойства фона
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Узнайте, как задавать динамические фоны в файлах PowerPoint и OpenDocument с помощью Aspose.Slides для .NET, а также получите советы по коду для улучшения ваших презентаций."
 ---
 
-Сплошные цвета, градиенты и изображения часто используются в качестве фоновых изображений для слайдов. Вы можете установить фон как для **обычного слайда** (один слайд), так и для **мастера слайдов** (несколько слайдов сразу).
+## **Обзор**
 
-<img src="powerpoint-background.png" alt="powerpoint-background"  />
+Сплошные цвета, градиенты и изображения обычно используются в качестве фона слайдов. Вы можете установить фон для **обычного слайда** (один слайд) или **главного слайда** (применяется к нескольким слайдам одновременно).
 
-## **Установить сплошной цвет в качестве фона для обычного слайда**
+![Фон PowerPoint](powerpoint-background.png)
 
-Aspose.Slides позволяет установить сплошной цвет в качестве фона для конкретного слайда в презентации (даже если эта презентация содержит мастер-слайд). Изменение фона затрагивает только выбранный слайд.
+## **Установить сплошной цвет фона для обычного слайда**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-2. Установите перечисление [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) для слайда на `OwnBackground`.
-3. Установите перечисление [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) для фона слайда на `Solid`.
-4. Используйте свойство [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/), предоставляемое [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/), чтобы указать сплошной цвет для фона.
+Aspose.Slides позволяет установить сплошной цвет в качестве фона для конкретного слайда презентации — даже если презентация использует главный слайд. Изменение применяется только к выбранному слайду.
+
+1. Создайте экземпляр класса [Презентация](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. Установите у слайда свойство [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) в значение `OwnBackground`.
+3. Установите для фона слайда свойство [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) в значение `Solid`.
+4. Используйте свойство [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) на объекте [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) , чтобы указать сплошной цвет фона.
 5. Сохраните изменённую презентацию.
 
-Этот код на C# показывает, как установить сплошной цвет (синий) в качестве фона для обычного слайда:
-
-```c#
-// Создает экземпляр класса Presentation
-using (Presentation pres = new Presentation())
+```cs
+// Создать экземпляр класса Presentation.
+using (Presentation presentation = new Presentation())
 {
+    ISlide slide = presentation.Slides[0];
 
-    // Устанавливает цвет фона для первого ISlide на синий
-    pres.Slides[0].Background.Type = BackgroundType.OwnBackground;
-    pres.Slides[0].Background.FillFormat.FillType = FillType.Solid;
-    pres.Slides[0].Background.FillFormat.SolidFillColor.Color = Color.Blue;
-    
-    // Записывает презентацию на диск
-    pres.Save("ContentBG_out.pptx", SaveFormat.Pptx);
+    // Установить цвет фона слайда в синий.
+    slide.Background.Type = BackgroundType.OwnBackground;
+    slide.Background.FillFormat.FillType = FillType.Solid;
+    slide.Background.FillFormat.SolidFillColor.Color = Color.Blue;
+
+    // Сохранить презентацию на диск.
+    presentation.Save("SolidColorBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Установить сплошной цвет в качестве фона для мастера слайдов**
 
-Aspose.Slides позволяет установить сплошной цвет в качестве фона для мастер-слайда в презентации. Мастер-слайд действует как шаблон, который содержит и контролирует параметры форматирования для всех слайдов. Поэтому, когда вы выбираете сплошной цвет в качестве фона для мастер-слайда, этот новый фон будет использоваться для всех слайдов.
+## **Установить сплошной цвет фона для главного слайда**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-2. Установите перечисление [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) для мастер-слайда (`Masters`) на `OwnBackground`.
-3. Установите перечисление [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) для фона мастер-слайда на `Solid`.
-4. Используйте свойство [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/), предоставляемое [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/), чтобы указать сплошной цвет для фона.
+Aspose.Slides позволяет установить сплошной цвет в качестве фона для главного слайда презентации. Главный слайд выступает в роли шаблона, который контролирует форматирование всех слайдов, поэтому при выборе сплошного цвета для фона главного слайда он применяется ко всем слайдам.
+
+1. Создайте экземпляр класса [Презентация](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. Установите у главного слайда свойство [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) (через `masters`) в значение `OwnBackground`.
+3. Установите для фона главного слайда свойство [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) в значение `Solid`.
+4. Используйте [SolidFillColor], чтобы указать сплошной цвет фона.
 5. Сохраните изменённую презентацию.
 
-Этот код на C# показывает, как установить сплошной цвет (лесной зелёный) в качестве фона для мастер-слайда в презентации:
-
-```c#
-// Создает экземпляр класса Presentation
-using (Presentation pres = new Presentation())
+```cs
+// Создать экземпляр класса Presentation.
+using (Presentation presentation = new Presentation())
 {
+    IMasterSlide masterSlide = presentation.Masters[0];
 
-    // Устанавливает цвет фона для Master ISlide на лесной зелёный
-    pres.Masters[0].Background.Type = BackgroundType.OwnBackground;
-    pres.Masters[0].Background.FillFormat.FillType = FillType.Solid;
-    pres.Masters[0].Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
+    // Установить цвет фона для главного слайда в цвет лесного зелёного.
+    masterSlide.Background.Type = BackgroundType.OwnBackground;
+    masterSlide.Background.FillFormat.FillType = FillType.Solid;
+    masterSlide.Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
 
-    // Записывает презентацию на диск
-    pres.Save("SetSlideBackgroundMaster_out.pptx", SaveFormat.Pptx);
-
+    // Сохранить презентацию на диск.
+    presentation.Save("MasterSlideBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Установить градиентный цвет в качестве фона для слайда**
 
-Градиент — это графический эффект, основанный на постепенном изменении цвета. Градиентные цвета, используемые в качестве фонов для слайдов, делают презентации более художественными и профессиональными. Aspose.Slides позволяет установить градиентный цвет в качестве фона для слайдов в презентациях.
+## **Установить градиентный фон для слайда**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-2. Установите перечисление [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) для слайда на `OwnBackground`.
-3. Установите перечисление [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) для фона мастер-слайда на `Gradient`.
-4. Используйте свойство [GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/gradientformat/), предоставляемое [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/), чтобы указать ваши предпочтительные настройки градиента.
+Градиент — это графический эффект, создаваемый постепенным изменением цвета. При использовании в качестве фона слайда градиенты могут сделать презентацию более художественной и профессиональной. Aspose.Slides позволяет установить градиентный цвет в качестве фона для слайдов.
+
+1. Создайте экземпляр класса [Презентация](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. Установите у слайда свойство [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) в значение `OwnBackground`.
+3. Установите для фона слайда свойство [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) в значение `Gradient`.
+4. Используйте свойство [GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/gradientformat/) на объекте [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) , чтобы настроить предпочтительные параметры градиента.
 5. Сохраните изменённую презентацию.
 
-Этот код на C# показывает, как установить градиентный цвет в качестве фона для слайда:
-
-```c#
-// Создает экземпляр класса Presentation
-using (Presentation pres = new Presentation("SetBackgroundToGradient.pptx"))
+```cs
+// Создать экземпляр класса Presentation.
+using (Presentation presentation = new Presentation())
 {
+    ISlide slide = presentation.Slides[0];
 
-    // Применяет градиентный эффект к фону
-    pres.Slides[0].Background.Type = BackgroundType.OwnBackground;
-    pres.Slides[0].Background.FillFormat.FillType = FillType.Gradient;
-    pres.Slides[0].Background.FillFormat.GradientFormat.TileFlip = TileFlip.FlipBoth;
+    // Применить градиентный эффект к фону.
+    slide.Background.Type = BackgroundType.OwnBackground;
+    slide.Background.FillFormat.FillType = FillType.Gradient;
+    slide.Background.FillFormat.GradientFormat.TileFlip = TileFlip.FlipBoth;
 
-    // Записывает презентацию на диск
-    pres.Save("ContentBG_Grad_out.pptx", SaveFormat.Pptx);
+    // Сохранить презентацию на диск.
+    presentation.Save("GradientBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Установить изображение в качестве фона для слайда**
 
-Кроме сплошных и градиентных цветов, Aspose.Slides также позволяет устанавливать изображения в качестве фона для слайдов в презентациях.
+## **Установить изображение в качестве фона слайда**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-2. Установите перечисление [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) для слайда на `OwnBackground`.
-3. Установите перечисление [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) для фона мастер-слайда на `Picture`.
-4. Загрузите изображение, которое вы хотите использовать в качестве фона слайда.
+В дополнение к сплошным и градиентным заливкам Aspose.Slides позволяет использовать изображения в качестве фона слайдов.
+
+1. Создайте экземпляр класса [Презентация](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. Установите у слайда свойство [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) в значение `OwnBackground`.
+3. Установите для фона слайда свойство [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) в значение `Picture`.
+4. Загрузите изображение, которое хотите использовать в качестве фона слайда.
 5. Добавьте изображение в коллекцию изображений презентации.
-6. Используйте свойство [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/picturefillformat/), предоставляемое [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/), чтобы установить изображение в качестве фона.
+6. Используйте свойство [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/picturefillformat/) на объекте [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) , чтобы назначить изображение в качестве фона.
 7. Сохраните изменённую презентацию.
 
-Этот код на C# показывает, как установить изображение в качестве фона для слайда:
-
 ```c#
-// Создает экземпляр класса Presentation
-using (Presentation pres = new Presentation("SetImageAsBackground.pptx"))
+// Создать экземпляр класса Presentation.
+using (Presentation presentation = new Presentation())
 {
+    ISlide slide = presentation.Slides[0];
 
-    // Устанавливает условия для фонового изображения
-    pres.Slides[0].Background.Type = BackgroundType.OwnBackground;
-    pres.Slides[0].Background.FillFormat.FillType = FillType.Picture;
-    pres.Slides[0].Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+    // Установить свойства фонового изображения.
+    slide.Background.Type = BackgroundType.OwnBackground;
+    slide.Background.FillFormat.FillType = FillType.Picture;
+    slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
 
-    // Загружает изображение
-    System.Drawing.Image img = (System.Drawing.Image)new Bitmap(dataDir + "Tulips.jpg");
+    // Загрузить изображение.
+    IImage image = Images.FromFile("Tulips.jpg");
+    // Добавить изображение в коллекцию изображений презентации.
+    IPPImage ppImage = presentation.Images.AddImage(image);
+    image.Dispose();
 
-    // Добавляет изображение в коллекцию изображений презентации
-    IPPImage imgx = pres.Images.AddImage(img);
+    slide.Background.FillFormat.PictureFillFormat.Picture.Image = ppImage;
 
-    pres.Slides[0].Background.FillFormat.PictureFillFormat.Picture.Image = imgx;
-
-    // Записывает презентацию на диск
-    pres.Save("ContentBG_Img_out.pptx", SaveFormat.Pptx);
+    // Сохранить презентацию на диск.
+    presentation.Save("ImageAsBackground.pptx", SaveFormat.Pptx);
 }
-
 ```
+
+
+```cs
+using (Presentation presentation = new Presentation())
+{
+    ISlide firstSlide = presentation.Slides[0];
+
+    IBackground background = firstSlide.Background;
+
+    background.Type = BackgroundType.OwnBackground;
+    background.FillFormat.FillType = FillType.Picture;
+
+    IPPImage ppImage;
+    using (IImage newImage = Aspose.Slides.Images.FromFile("image.png"))
+        ppImage = presentation.Images.AddImage(newImage);
+
+    // Установить изображение, используемое для заливки фона.
+    IPictureFillFormat backPictureFillFormat = background.FillFormat.PictureFillFormat;
+    backPictureFillFormat.Picture.Image = ppImage;
+
+    // Установить режим заливки изображения в режим Плитка и настроить свойства плитки.
+    backPictureFillFormat.PictureFillMode = PictureFillMode.Tile;
+    backPictureFillFormat.TileOffsetX = 15f;
+    backPictureFillFormat.TileOffsetY = 15f;
+    backPictureFillFormat.TileScaleX = 46f;
+    backPictureFillFormat.TileScaleY = 87f;
+    backPictureFillFormat.TileAlignment = RectangleAlignment.Center;
+    backPictureFillFormat.TileFlip = TileFlip.FlipY;
+
+    presentation.Save("TileBackground.pptx", SaveFormat.Pptx);
+}
+```
+
+
+{{% alert color="primary" %}}
+Читайте подробнее: [**Изображение плиткой в качестве текстуры**](/slides/ru/net/shape-formatting/#tile-picture-as-texture).
+{{% /alert %}}
 
 ### **Изменить прозрачность фонового изображения**
 
-Вы можете захотеть отрегулировать прозрачность фонового изображения слайда, чтобы сделать содержимое слайда более заметным. Этот код на C# показывает, как изменить прозрачность для фонового изображения слайда:
+Возможно, вы захотите отрегулировать прозрачность фонового изображения слайда, чтобы выделить содержимое слайда. Ниже приведён пример кода C#, показывающий, как изменить прозрачность фонового изображения слайда:
 
-```c#
-var transparencyValue = 30; // например
+```cs
+var transparencyValue = 30; // Например.
 
-// Получает коллекцию операций трансформации изображения
+// Получить коллекцию операций преобразования изображения.
 var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
 
-// Находит эффект прозрачности с фиксированным процентом.
-var transparencyOperation = null as AlphaModulateFixed;
+// Найти существующий эффект прозрачности с фиксированным процентом.
+var transparencyOperation = null as IAlphaModulateFixed;
 foreach (var operation in imageTransform)
 {
-    if (operation is AlphaModulateFixed alphaModulateFixed)
+    if (operation is IAlphaModulateFixed alphaModulateFixed)
     {
         transparencyOperation = alphaModulateFixed;
         break;
     }
 }
 
-// Устанавливает новое значение прозрачности.
+// Установить новое значение прозрачности.
 if (transparencyOperation == null)
 {
     imageTransform.AddAlphaModulateFixedEffect(100 - transparencyValue);
@@ -163,22 +213,36 @@ else
 }
 ```
 
+
 ## **Получить значение фона слайда**
 
-Aspose.Slides предоставляет интерфейс [IBackgroundEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/), который позволяет получить эффективные значения фонов слайдов. Этот интерфейс содержит информацию о эффективном [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/fillformat) и эффективном [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/effectformat/).
+Aspose.Slides предоставляет интерфейс [IBackgroundEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/) для получения эффективных значений фона слайда. Этот интерфейс открывает доступ к эффективным [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/fillformat/) и [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/effectformat/) .
 
-Используя свойство [Background](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/background/) из класса [BaseSlide](https://reference.aspose.com/slides/net/aspose.slides/baseslide/), вы можете получить эффективное значение для фона слайда.
+С помощью свойства `background` класса [BaseSlide](https://reference.aspose.com/slides/net/aspose.slides/baseslide/) можно получить эффективный фон слайда.
 
-Этот код на C# показывает, как получить эффективное значение фона слайда:
+```cs
+// Создать экземпляр класса Presentation.
+using (Presentation presentation = new Presentation("Sample.pptx"))
+{
+    ISlide slide = presentation.Slides[0];  
 
-```c#
-// Создает экземпляр класса Presentation
-Presentation pres = new Presentation("SamplePresentation.pptx");
+    // Получить эффективный фон с учётом мастера, макета и темы.
+    IBackgroundEffectiveData effBackground = slide.Background.GetEffective();
 
-IBackgroundEffectiveData effBackground = pres.Slides[0].Background.GetEffective();
-
-if (effBackground.FillFormat.FillType == FillType.Solid)
-    Console.WriteLine("Цвет заливки: " + effBackground.FillFormat.SolidFillColor);
-else
-    Console.WriteLine("Тип заливки: " + effBackground.FillFormat.FillType);
+    if (effBackground.FillFormat.FillType == FillType.Solid)
+        Console.WriteLine("Fill color: " + effBackground.FillFormat.SolidFillColor);
+    else
+        Console.WriteLine("Fill type: " + effBackground.FillFormat.FillType);
+}
 ```
+
+
+## **Часто задаваемые вопросы**
+
+**Могу ли я сбросить пользовательский фон и восстановить фон темы/макета?**
+
+Да. Удалите пользовательскую заливку слайда, и фон будет снова наследоваться от соответствующего слайда [макета](/slides/ru/net/slide-layout/)/[главного](/slides/ru/net/slide-master/) (т.е. от [фоновой темы](/slides/ru/net/presentation-theme/)).
+
+**Что произойдёт с фоном, если я позже изменю тему презентации?**
+
+Если у слайда есть собственная заливка, она останется неизменной. Если фон наследуется от [макета](/slides/ru/net/slide-layout/)/[главного](/slides/ru/net/slide-master/), он обновится, чтобы соответствовать [новой теме](/slides/ru/net/presentation-theme/).

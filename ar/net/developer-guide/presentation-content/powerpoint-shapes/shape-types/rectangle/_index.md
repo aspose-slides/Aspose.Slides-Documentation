@@ -3,72 +3,94 @@ title: مستطيل
 type: docs
 weight: 80
 url: /ar/net/rectangle/
-keywords: "إنشاء مستطيل، شكل PowerPoint، تقديم PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
-description: "إنشاء مستطيل في تقديم PowerPoint باستخدام C# أو .NET"
+keywords: "إنشاء مستطيل, شكل PowerPoint, عرض PowerPoint, C#, Csharp, Aspose.Slides for .NET"
+description: "إنشاء مستطيل في عرض PowerPoint باستخدام C# أو .NET"
 ---
 
-
 ## **إنشاء مستطيل بسيط**
-مثل المواضيع السابقة، هذه أيضًا تتعلق بإضافة شكل، وهذه المرة الشكل الذي سنتحدث عنه هو المستطيل. في هذا الموضوع، قمنا بشرح كيفية تمكين المطورين من إضافة مستطيلات بسيطة أو منسقة إلى شرائحهم باستخدام Aspose.Slides لـ .NET. لإضافة مستطيل بسيط إلى شريحة مختارة من العرض، يرجى اتباع الخطوات أدناه:
+مثل المواضيع السابقة، هذا الموضوع أيضًا يتناول إضافة شكل، وهذه المرة الشكل الذي سنناقشه هو المستطيل. في هذا الموضوع، وصفنا كيف يمكن للمطورين إضافة مستطيلات بسيطة أو مُنسّقة إلى شرائحهم باستخدام Aspose.Slides for .NET. لإضافة مستطيل بسيط إلى شريحة محددة من العرض التقديمي، يرجى اتباع الخطوات أدناه:
 
-1. قم بإنشاء مثيل من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
-1. احصل على مرجع الشريحة باستخدام فهرسها.
-1. أضف IAutoShape من نوع المستطيل باستخدام طريقة AddAutoShape المكشوفة بواسطة كائن IShapes.
-1. اكتب العرض المعدل كملف PPTX.
+1. إنشاء نسخة من فئة [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)
+2. الحصول على مرجع شريحة باستخدام الفهرس الخاص بها.
+3. إضافة IAutoShape من نوع Rectangle باستخدام طريقة AddAutoShape التي تعرضها كائن IShapes.
+4. كتابة العرض التقديمي المعدّل كملف PPTX.
 
-في المثال المعطى أدناه، أضفنا مستطيلًا بسيطًا إلى الشريحة الأولى من العرض.
-
+في المثال الموضّح أدناه، أضفنا مستطيلًا بسيطًا إلى الشريحة الأولى من العرض التقديمي.
 ```c#
-// Instantiate Prseetation class that represents the PPTX
+// إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
 using (Presentation pres = new Presentation())
 {
 
-    // Get the first slide
+    // الحصول على الشريحة الأولى
     ISlide sld = pres.Slides[0];
 
-    // Add autoshape of rectangle type
+    // إضافة شكل تلقائي من النوع مستطيل
     sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 150, 50);
 
-    //Write the PPTX file to disk
+    // حفظ ملف PPTX على القرص
     pres.Save("RectShp1_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-## **إنشاء مستطيل مزخرف**
-لإضافة مستطيل مزخرف إلى شريحة، يرجى اتباع الخطوات أدناه:
+## **إنشاء مستطيل مُنسّق**
+لإضافة مستطيل مُنسّق إلى شريحة، يرجى اتباع الخطوات أدناه:
 
-1. قم بإنشاء مثيل من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
-1. احصل على مرجع الشريحة باستخدام فهرسها.
-1. أضف IAutoShape من نوع المستطيل باستخدام طريقة AddAutoShape المكشوفة بواسطة كائن IShapes.
-1. اضبط نوع التعبئة للمستطيل إلى صلب.
-1. اضبط لون المستطيل باستخدام خاصية SolidFillColor.Color كما هو مكشوف من كائن FillFormat المرتبط بكائن IShape.
-1. اضبط لون خطوط المستطيل.
-1. اضبط عرض خطوط المستطيل.
-1. اكتب العرض المعدل كملف PPTX.
-   تم تنفيذ الخطوات أعلاه في المثال المعطى أدناه.
+1. إنشاء نسخة من فئة [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)
+2. الحصول على مرجع شريحة باستخدام الفهرس الخاص بها.
+3. إضافة IAutoShape من نوع Rectangle باستخدام طريقة AddAutoShape التي تعرضها كائن IShapes.
+4. إعداد نوع التعبئة للمستطيل إلى Solid.
+5. ضبط لون المستطيل باستخدام الخاصية SolidFillColor.Color التي تعرضها كائن FillFormat المرتبط بكائن IShape.
+6. ضبط لون خطوط المستطيل.
+7. ضبط عرض خطوط المستطيل.
+8. كتابة العرض التقديمي المعدّل كملف PPTX.
 
+تم تنفيذ الخطوات المذكورة أعلاه في المثال الموضّح أدناه.
 ```c#
-// Instantiate Prseetation class that represents the PPTX
+// إنشاء كائن من فئة Presentation الذي يمثل ملف PPTX
 using (Presentation pres = new Presentation())
 {
 
-    // Get the first slide
+    // احصل على الشريحة الأولى
     ISlide sld = pres.Slides[0];
 
-    // Add autoshape of rectangle type
+    // إضافة شكل تلقائي من النوع مستطيل
     IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 150, 50);
 
-    // Apply some formatting to rectangle shape
+    // تطبيق بعض التنسيقات على شكل المستطيل
     shp.FillFormat.FillType = FillType.Solid;
     shp.FillFormat.SolidFillColor.Color = Color.Chocolate;
 
-    // Apply some formatting to the line of rectangle
+    // تطبيق بعض التنسيقات على خط المستطيل
     shp.LineFormat.FillFormat.FillType = FillType.Solid;
     shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
     shp.LineFormat.Width = 5;
 
-    //Write the PPTX file to disk
+    // حفظ ملف PPTX على القرص
     pres.Save("RectShp2_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**كيف يمكنني إضافة مستطيل بأركان مدورة؟**  
+استخدم نوع الشكل [shape type](https://reference.aspose.com/slides/net/aspose.slides/shapetype/) بأركان مدورة واضبط نصف قطر الزاوية في خصائص الشكل؛ يمكن أيضًا تطبيق التدوير على كل زاوية عبر تعديل الهندسة.
+
+**كيف أملأ مستطيلًا بصورة (نقش)؟**  
+اختر [fill type](https://reference.aspose.com/slides/net/aspose.slides/filltype/) للصورة، قدم مصدر الصورة، وقم بضبط [stretching/tiling modes](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/).
+
+**هل يمكن للمستطيل أن يحتوي على ظل وتوهّج؟**  
+نعم. [Outer/inner shadow, glow, and soft edges](/slides/ar/net/shape-effect/) متاحة مع معلمات قابلة للتعديل.
+
+**هل يمكنني تحويل المستطيل إلى زر مع ارتباط تشعبي؟**  
+نعم. [Assign a hyperlink](/slides/ar/net/manage-hyperlinks/) للنقر على الشكل (الانتقال إلى شريحة، ملف، عنوان ويب، أو بريد إلكتروني).
+
+**كيف يمكنني حماية المستطيل من التحريك والتغييرات؟**  
+[Use shape locks](/slides/ar/net/applying-protection-to-presentation/): يمكنك منع التحريك، تغيير الحجم، الاختيار، أو تحرير النص للحفاظ على التخطيط.
+
+**هل يمكنني تحويل المستطيل إلى صورة نقطية أو SVG؟**  
+نعم. يمكنك [render the shape](http://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) إلى صورة بحجم/مقياس محدد أو [export it as SVG](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/) للاستخدام كمتجه.
+
+**كيف أحصل بسرعة على الخصائص الفعلية (الفعّالة) للمستطيل مع مراعاة السمة والوراثة؟**  
+[Use the shape’s effective properties](/slides/ar/net/shape-effective-properties/): تُعيد الواجهة البرمجية القيم المحسوبة التي تأخذ في الاعتبار أنماط السمة، التخطيط، والإعدادات المحلية، مما يبسط تحليل التنسيق.

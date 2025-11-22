@@ -1,32 +1,31 @@
 ---
-title: Aspose.Slidesにおけるマルチスレッディング
+title: Aspose.Slides のマルチスレッド処理
 type: docs
 weight: 310
 url: /ja/net/multithreading/
 keywords:
 - PowerPoint
 - プレゼンテーション
-- マルチスレッディング
-- 並列作業
+- マルチスレッド
+- 並列処理
 - スライドの変換
-- スライドを画像に
+- スライドから画像へ
 - C#
 - .NET
 - Aspose.Slides for .NET
 ---
 
-## **はじめに**
+## **イントロダクション**
 
-プレゼンテーションを使った並列作業は可能であり（解析/読み込み/クローン作成を除く）、通常はうまくいくものの、ライブラリを複数のスレッドで使用する際に不正確な結果が得られる可能性があります。
+プレゼンテーションでの並列作業は（解析/ロード/クローンを除き）可能で、ほとんどの場合問題なく動作しますが、ライブラリを複数のスレッドで使用すると、結果が正しくない場合がわずかにあります。
 
-マルチスレッディング環境で単一の[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)インスタンスを使用することは**推奨されません**。そうすると、検出が難しい予測不能なエラーや失敗が発生する可能性があります。
+マルチスレッド環境で単一の[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)インスタンスを使用しないことを強く推奨します。予測できないエラーや検出が難しい障害が発生する可能性があるためです。
 
-複数のスレッドで[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを読み込み、保存、またはクローンすることは**安全ではありません**。そのような操作は**サポートされていません**。そのようなタスクを実行する必要がある場合は、いくつかの単一スレッドプロセスを使用して操作を並列化する必要があります。そして、これらの各プロセスは自身のプレゼンテーションインスタンスを使用する必要があります。
+複数のスレッドで[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスをロード、保存、またはクローンすることは安全ではありません。これらの操作は**サポートされていません**。これらのタスクを実行する必要がある場合は、複数のシングルスレッドプロセスを使用して並列化し、各プロセスが独自のプレゼンテーションインスタンスを使用する必要があります。
 
-## **プレゼンテーションスライドを並列で画像に変換する**
+## **プレゼンテーション スライドを並列で画像に変換**
 
-PowerPointプレゼンテーションのすべてのスライドをPNG画像に並列で変換したいとしましょう。複数のスレッドで単一の`Presentation`インスタンスを使用することが安全ではないため、プレゼンテーションのスライドを別々のプレゼンテーションに分割し、各プレゼンテーションを別のスレッドで使用してスライドを画像に並列で変換します。以下のコード例は、これを行う方法を示しています。
-
+PowerPoint プレゼンテーションのすべてのスライドを PNG 画像に並列で変換したいとします。`Presentation` インスタンスを複数のスレッドで使用するのは安全でないため、プレゼンテーションのスライドを別々のプレゼンテーションに分割し、各スレッドでそれぞれのプレゼンテーションを使用してスライドを画像に並列変換します。以下のコード例がその方法を示しています。
 ```cs
 var inputFilePath = "sample.pptx";
 var outputFilePathTemplate = "slide_{0}.png";
@@ -41,13 +40,13 @@ var conversionTasks = new List<Task>(slideCount);
 
 for (var slideIndex = 0; slideIndex < slideCount; slideIndex++)
 {
-    // スライドiを別のプレゼンテーションに抽出します。
+    // スライド i を別個のプレゼンテーションに抽出します。
     var slidePresentation = new Presentation();
     slidePresentation.SlideSize.SetSize(slideSize.Width, slideSize.Height, SlideSizeScaleType.DoNotScale);
     slidePresentation.Slides.RemoveAt(0);
     slidePresentation.Slides.AddClone(presentation.Slides[slideIndex]);
 
-    // 別のタスクでスライドを画像に変換します。
+    // スライドを別のタスクで画像に変換します。
     var slideNumber = slideIndex + 1;
     conversionTasks.Add(Task.Run(() =>
     {
@@ -68,3 +67,22 @@ for (var slideIndex = 0; slideIndex < slideCount; slideIndex++)
 
 await Task.WhenAll(conversionTasks);
 ```
+
+
+## **FAQ**
+
+**スレッドごとにライセンス設定を呼び出す必要がありますか？**
+
+いいえ。スレッドが開始する前にプロセス/アプリドメインごとに一度行えば十分です。[license setup](/slides/ja/net/licensing/) が同時に呼び出される可能性がある場合（例：遅延初期化中）、その呼び出しを同期してください。license setup メソッド自体はスレッドセーフではありません。
+
+**スレッド間で `Presentation` または `Slide` オブジェクトを渡すことはできますか？**
+
+「ライブ」なプレゼンテーションオブジェクトをスレッド間で渡すことは推奨されません。スレッドごとに独立したインスタンスを使用するか、各スレッド用に別々のプレゼンテーション/スライドコンテナを事前に作成してください。このアプローチは、単一のプレゼンテーションインスタンスをスレッド間で共有しないという一般的な推奨に沿ったものです。
+
+**各スレッドが独自の `Presentation` インスタンスを持つ場合、PDF、HTML、画像など異なるフォーマットへのエクスポートを並列化しても安全ですか？**
+
+はい。独立したインスタンスと個別の出力パスを使用すれば、通常これらのタスクは正しく並列化できます。プレゼンテーションオブジェクトや I/O ストリームを共有しないようにしてください。
+
+**マルチスレッド環境でグローバルフォント設定（フォルダー、置換など）をどう扱うべきですか？**
+
+スレッドを開始する前にすべてのグローバルフォント設定を初期化し、並列処理中に変更しないでください。これにより、共有フォントリソースへのアクセス競合が防止されます。

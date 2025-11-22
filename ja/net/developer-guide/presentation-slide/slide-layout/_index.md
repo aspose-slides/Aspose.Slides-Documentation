@@ -1,59 +1,82 @@
 ---
-title: スライドレイアウト
+title: "C# でスライドレイアウトを適用または変更する"
+linktitle: "スライドレイアウト"
 type: docs
 weight: 60
 url: /ja/net/slide-layout/
-keyword: "スライドサイズを設定する、スライドオプションを設定する、スライドサイズを指定する、フッターの可視性、子フッター、コンテンツのスケーリング、ページサイズ、C#、Csharp、.NET、Aspose.Slides"
-description: "C#または.NETでPowerPointスライドのサイズとオプションを設定する"
+keywords:
+- スライドレイアウト
+- コンテンツレイアウト
+- プレースホルダー
+- プレゼンテーションデザイン
+- スライドデザイン
+- 未使用レイアウト
+- フッターの表示
+- タイトルスライド
+- タイトルとコンテンツ
+- セクションヘッダー
+- 2つのコンテンツ
+- 比較
+- タイトルのみ
+- 空白レイアウト
+- キャプション付きコンテンツ
+- キャプション付き画像
+- タイトルと縦テキスト
+- 縦タイトルとテキスト
+- C#
+- .NET
+- Aspose.Slides
+description: "Aspose.Slides for .NET でスライドレイアウトの管理とカスタマイズ方法を学びます。レイアウトタイプ、プレースホルダーの制御、フッターの表示、そして C# のコード例を通じたレイアウト操作について紹介します。"
 ---
 
-スライドレイアウトには、スライドに表示されるすべてのコンテンツのプレースホルダーと書式設定情報が含まれています。レイアウトは、利用可能なコンテンツプレースホルダーとその配置場所を決定します。
+## **概要**
 
-スライドレイアウトを使用すると、プレゼンテーションを迅速に作成およびデザインできます（簡単なものでも複雑なものでも）。これらは、PowerPointプレゼンテーションで使用される最も人気のあるスライドレイアウトの一部です：
+スライドレイアウトは、プレースホルダーボックスの配置とスライド上のコンテンツの書式設定を定義します。利用できるプレースホルダーとその表示位置を制御します。スライドレイアウトを使用すると、シンプルなものから複雑なものまで、プレゼンテーションを迅速かつ一貫してデザインできます。PowerPoint の最も一般的なスライドレイアウトは次のとおりです。
 
-* **タイトルスライドレイアウト**。このレイアウトは、2つのテキストプレースホルダーで構成されています。一つのプレースホルダーはタイトル用で、もう一つはサブタイトル用です。
-* **タイトルとコンテンツのレイアウト**。このレイアウトには、上部にタイトル用の比較的小さなプレースホルダーと、コアコンテンツ用の大きなプレースホルダー（グラフ、段落、箇条書き、番号付きリスト、画像など）が含まれています。
-* **空白のレイアウト**。このレイアウトにはプレースホルダーがなく、ゼロから要素を作成することができます。
+**タイトル スライド レイアウト** – タイトル用とサブタイトル用の 2 つのテキストプレースホルダーが含まれます。
 
-スライドマスターは、スライドレイアウトに関する情報を保存する最上位の階層スライドであるため、マスタースライドを使用してスライドレイアウトにアクセスし、それらに変更を加えることができます。レイアウトスライドは、タイプまたは名前でアクセスできます。同様に、すべてのスライドには一意のIDがあり、それを使用してアクセスできます。
+**タイトルとコンテンツ レイアウト** – 上部に小さなタイトルプレースホルダー、下部にテキスト、箇条書き、チャート、画像などのメインコンテンツ用の大きなプレースホルダーがあります。
 
-また、特定のプレゼンテーション内の特定のスライドレイアウトに直接変更を加えることもできます。
+**空白 レイアウト** – プレースホルダーがなく、スライドをゼロからデザインできます。
 
-* スライドレイアウト（マスタースライドのものを含む）を操作できるように、Aspose.Slidesは、[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)クラスの下で[LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/)や[Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/)のようなプロパティを提供します。
-* 関連作業を実行するために、Aspose.Slidesは[MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/)、[MasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/masterlayoutslidecollection/)、[SlideSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/)、[BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/baseslideheaderfootermanager/)など、さまざまなタイプを提供します。
+スライドレイアウトはスライドマスターの一部であり、プレゼンテーション全体のレイアウトスタイルを定義する最上位スライドです。スライドマスター経由でレイアウトスライドにアクセスし、タイプ、名前、または固有 ID で取得・変更できます。また、プレゼンテーション内で特定のレイアウトスライドを直接編集することも可能です。
 
-{{% alert title="情報" color="info" %}}
+Aspose.Slides for .NET でスライドレイアウトを操作するには、次を使用します。
 
-特にマスタースライドを操作する方法についての詳細は、[Slide Master](https://docs.aspose.com/slides/net/slide-master/)の記事を参照してください。
+- [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスの [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) および [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) プロパティ
+- [ILayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/)、[IMasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/)、[ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/)、[ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslideheaderfootermanager/) などの型
 
+{{% alert title="Info" color="info" %}}
+マスタースライドの操作について詳しくは、[Slide Master](/slides/ja/net/slide-master/) 記事をご覧ください。
 {{% /alert %}}
 
-## **プレゼンテーションにスライドレイアウトを追加する**
+## **プレゼンテーションへのスライドレイアウトの追加**
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)クラスのインスタンスを作成します。
-1. [MasterSlideコレクション](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/)にアクセスします。
-1. 既存のレイアウトスライドを調べ、必要なレイアウトスライドがすでにLayout Slideコレクションに存在しているか確認します。そうでなければ、追加したいレイアウトスライドを追加します。
-1. 新しいレイアウトスライドに基づいて空のスライドを追加します。
+スライドの外観や構造をカスタマイズするために、プレゼンテーションに新しいレイアウトスライドを追加する必要があります。Aspose.Slides for .NET では、特定のレイアウトが既に存在するかどうかを確認し、必要に応じて新規作成し、そのレイアウトに基づいてスライドを挿入できます。
+
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/) にアクセスします。
+1. コレクション内に目的のレイアウトスライドが既に存在するか確認します。存在しない場合は必要なレイアウトスライドを追加します。
+1. 新しいレイアウトスライドを基に空のスライドを追加します。
 1. プレゼンテーションを保存します。
 
-このC#コードは、PowerPointプレゼンテーションにスライドレイアウトを追加する方法を示しています：
-
-```c#
-// プレゼンテーションファイルを表すPresentationクラスをインスタンス化します
-using (Presentation presentation = new Presentation("AccessSlides.pptx"))
+以下の C# コードは、PowerPoint プレゼンテーションにスライドレイアウトを追加する方法を示しています。
+```cs
+// PowerPoint ファイルを表す Presentation クラスのインスタンスを作成します。
+using (Presentation presentation = new Presentation("Sample.pptx"))
 {
-    // レイアウトスライドタイプを調べます
+    // レイアウトスライドのタイプを順に調べて、レイアウトスライドを選択します。
     IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
     ILayoutSlide layoutSlide = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Title);
 
     if (layoutSlide == null)
     {
-        // プレゼンテーションに一部のレイアウトタイプが含まれていない状況。
-        // プレゼンテーションファイルには空白とカスタムレイアウトタイプのみが含まれています。
-        // ただし、カスタムタイプのレイアウトスライドは異なるスライド名を持ち、
-        // "Title"、"Title and Content"などの名前をレイアウトスライド選択に使用できます。
-        // プレースホルダー形状タイプのセットも使用できます。例えば、
-        // タイトルスライドにはタイトルプレースホルダータイプのみが必要です。
+        //     プレゼンテーションにすべてのレイアウトタイプが含まれていない状況です。
+        //     プレゼンテーションファイルには Blank と Custom のレイアウトタイプのみが含まれています。
+        //     ただし、カスタムタイプのレイアウトスライドは認識可能な名前を持つ場合があります、
+        //     例えば "Title"、"Title and Content" などで、レイアウトスライドの選択に使用できます。
+        //     プレースホルダーシェイプのタイプ集合に依存することもできます。
+        //     例として、Title スライドは Title プレースホルダータイプだけを持つべきです。
         foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
         {
             if (titleAndObjectLayoutSlide.Name == "Title and Object")
@@ -85,147 +108,156 @@ using (Presentation presentation = new Presentation("AccessSlides.pptx"))
         }
     }
 
-    // 追加されたレイアウトスライドで空のスライドを追加します
+    // 追加したレイアウトスライドを使用して空のスライドを追加します。
     presentation.Slides.InsertEmptySlide(0, layoutSlide);
 
-    // プレゼンテーションをディスクに保存します  
-    presentation.Save("AddLayoutSlides_out.pptx", SaveFormat.Pptx);
+    // プレゼンテーションをディスクに保存します。  
+    presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **未使用のレイアウトスライドを削除する**
 
-Aspose.Slidesは、不要な未使用のレイアウトスライドを削除するために、[RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/)メソッドを[Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/)クラスから提供します。このC#コードは、PowerPointプレゼンテーションからレイアウトスライドを削除する方法を示しています：
+## **未使用レイアウトスライドの削除**
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+Aspose.Slides は、[Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) クラスの [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) メソッドを提供し、不要または未使用のレイアウトスライドを削除できます。
+
+以下の C# コードは、PowerPoint プレゼンテーションからレイアウトスライドを削除する方法を示しています。
+```cs
+using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(pres);
+    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(presentation);
     
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
+    presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **スライドレイアウトにサイズとタイプを設定する**
 
-特定のレイアウトスライドのサイズとタイプを設定できるように、Aspose.Slidesは、[Type](https://reference.aspose.com/slides/net/aspose.slides/slidesize/properties/type)および[Size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/properties/size)プロパティを提供します（[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)クラスから）。このC#は、その操作を示しています：
+## **スライドレイアウトへのプレースホルダーの追加**
 
-```c#
-// プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化します 
-Presentation presentation = new Presentation("AccessSlides.pptx");
-Presentation auxPresentation = new Presentation();
+Aspose.Slides は、[ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/placeholdermanager/) プロパティを提供し、レイアウトスライドに新しいプレースホルダーを追加できます。
 
-ISlide slide = presentation.Slides[0];
+このマネージャーは、以下のプレースホルダータイプに対応したメソッドを含みます。
 
-// 生成されたプレゼンテーションのスライドサイズをソースに設定します
-auxPresentation.SlideSize.SetSize(presentation.SlideSize.Type, SlideSizeScaleType.EnsureFit);
+| PowerPoint プレースホルダー          | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/) メソッド |
+| ----------------------------------- | ------------------------------------------------------------ |
+| ![Content](content.png)             | AddContentPlaceholder(float x, float y, float width, float height) |
+| ![Content (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
+| ![Text](text.png)                   | AddTextPlaceholder(float x, float y, float width, float height) |
+| ![Text (Vertical)](textV.png)       | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
+| ![Picture](picture.png)             | AddPicturePlaceholder(float x, float y, float width, float height) |
+| ![Chart](chart.png)                 | AddChartPlaceholder(float x, float y, float width, float height) |
+| ![Table](table.png)                 | AddTablePlaceholder(float x, float y, float width, float height) |
+| ![SmartArt](smartart.png)           | AddSmartArtPlaceholder(float x, float y, float width, float height) |
+| ![Media](media.png)                 | AddMediaPlaceholder(float x, float y, float width, float height) |
+| ![Online Image](onlineimage.png)    | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
 
-auxPresentation.Slides.InsertClone(0, slide);
-auxPresentation.Slides.RemoveAt(0);
-// プレゼンテーションをディスクに保存します
-auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
-```
-
-## **スライド内のフッターの可視性を設定する**
-
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. スライドフッタープレースホルダーを表示可能に設定します。
-1. 日時プレースホルダーを表示可能に設定します。
-1. プレゼンテーションを保存します。
-
-このC#コードは、スライドのフッターの可視性を設定する方法を示しています（および関連タスクを実行します）：
-
-```c#
-using (Presentation presentation = new Presentation("presentation.ppt"))
+以下の C# コードは、空白レイアウトスライドに新しいプレースホルダー シェイプを追加する方法を示しています。
+```cs
+using (var presentation = new Presentation())
 {
-    IBaseSlideHeaderFooterManager headerFooterManager = presentation.Slides[0].HeaderFooterManager;
-    if (!headerFooterManager.IsFooterVisible) // プロパティIsFooterVisibleは、スライドのフッタープレースホルダーが欠如していることを示すために使用されます
-    {
-        headerFooterManager.SetFooterVisibility(true); // メソッドSetFooterVisibilityはスライドフッタープレースホルダーを表示可能に設定するために使用されます
-    }
-    if (!headerFooterManager.IsSlideNumberVisible) // プロパティIsSlideNumberVisibleは、スライドページ番号プレースホルダーが欠如していることを示すために使用されます
-    {
-        headerFooterManager.SetSlideNumberVisibility(true); // メソッドSetSlideNumberVisibilityはスライドページ番号プレースホルダーを表示可能に設定するために使用されます
-    }
-    if (!headerFooterManager.IsDateTimeVisible) // プロパティIsDateTimeVisibleは、スライドの日時プレースホルダーが欠如していることを示すために使用されます
-    {
-        headerFooterManager.SetDateTimeVisibility(true); // メソッドSetFooterVisibilityは、スライドの日時プレースホルダーを表示可能に設定するために使用されます
-    }
-    headerFooterManager.SetFooterText("フッターのテキスト"); // メソッドSetFooterTextはスライドフッタープレースホルダーにテキストを設定するために使用されます
-    headerFooterManager.SetDateTimeText("日時のテキスト"); // メソッドSetDateTimeTextはスライドの日時プレースホルダーにテキストを設定するために使用されます。
+    // Blank レイアウトスライドを取得します。
+    ILayoutSlide layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 
-	presentation.Save("Presentation.ppt", SaveFormat.ppt);
+    // レイアウトスライドのプレースホルダーマネージャーを取得します。
+    ILayoutPlaceholderManager placeholderManager = layout.PlaceholderManager;
+
+    // Blank レイアウトスライドにさまざまなプレースホルダーを追加します。
+    placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
+    placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
+    placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
+    placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
+
+    // Blank レイアウトを使用して新しいスライドを追加します。
+    ISlide newSlide = presentation.Slides.AddEmptySlide(layout);
+
+    presentation.Save("Placeholders.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **スライド内の子フッターの可視性を設定する**
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
-1. インデックスを使用してマスタースライドの参照を取得します。
-1. マスタースライドとすべての子フッタープレースホルダーを表示可能に設定します。
-1. マスタースライドとすべての子フッタープレースホルダーのテキストを設定します。
-1. マスタースライドとすべての子日時プレースホルダーのテキストを設定します。
+結果:
+
+![The placeholders on the layout slide](add_placeholders.png)
+
+## **レイアウトスライドのフッター表示設定**
+
+PowerPoint プレゼンテーションでは、フッター要素（日付、スライド番号、カスタムテキスト）をレイアウトに応じて表示・非表示にできます。Aspose.Slides for .NET は、これらフッタープレースホルダーの表示状態を制御でき、特定のレイアウトだけフッター情報を表示し、他のレイアウトはシンプルに保つことが可能です。
+
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでレイアウトスライドの参照を取得します。
+1. スライドフッター プレースホルダーを表示に設定します。
+1. スライド番号 プレースホルダーを表示に設定します。
+1. 日付/時刻 プレースホルダーを表示に設定します。
 1. プレゼンテーションを保存します。
 
-このC#コードは、その操作を示しています：
+以下の C# コードは、スライドフッターの表示状態を設定する方法を示しています。
+```cs
+using (Presentation presentation = new Presentation("Presentation.ppt"))
+{
+    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.LayoutSlides[0].HeaderFooterManager;
 
-```c#
-using (Presentation presentation = new Presentation("presentation.ppt"))
+    if (!headerFooterManager.IsFooterVisible)
+    {
+        headerFooterManager.SetFooterVisibility(true);
+    }
+
+    if (!headerFooterManager.IsSlideNumberVisible)
+    {
+        headerFooterManager.SetSlideNumberVisibility(true);
+    }
+
+    if (!headerFooterManager.IsDateTimeVisible)
+    {
+        headerFooterManager.SetDateTimeVisibility(true);
+    }
+
+    headerFooterManager.SetFooterText("Footer text");
+    headerFooterManager.SetDateTimeText("Date and time text");
+
+    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
+}
+```
+
+
+## **スライドの子フッター表示設定**
+
+PowerPoint プレゼンテーションでは、日付、スライド番号、カスタムテキストといったフッター要素をマスタースライドレベルで制御し、すべてのレイアウトスライドに一貫したフッター情報を提供できます。Aspose.Slides for .NET は、マスタースライド上でこれらフッタープレースホルダーの表示と内容を設定し、子レイアウトスライドへ自動的に反映させることができます。
+
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでマスタースライドの参照を取得します。
+1. マスターとすべての子フッタープレースホルダーを表示に設定します。
+1. マスターとすべての子スライド番号プレースホルダーを表示に設定します。
+1. マスターとすべての子日付/時刻プレースホルダーを表示に設定します。
+1. プレゼンテーションを保存します。
+
+以下の C# コードは、この操作を示しています。
+```cs
+using (Presentation presentation = new Presentation("Presentation.ppt"))
 {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
-    headerFooterManager.SetFooterAndChildFootersVisibility(true); // メソッドSetFooterAndChildFootersVisibilityはマスタースライドとすべての子フッタープレースホルダーを表示可能に設定するために使用されます
-    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // メソッドSetSlideNumberAndChildSlideNumbersVisibilityはマスタースライドとすべての子ページ番号プレースホルダーを表示可能に設定するために使用されます
-    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // メソッドSetDateTimeAndChildDateTimesVisibilityはマスタースライドとすべての子日時プレースホルダーを表示可能に設定するために使用されます
 
-    headerFooterManager.SetFooterAndChildFootersText("フッターのテキスト"); // メソッドSetFooterAndChildFootersTextはマスタースライドとすべての子フッタープレースホルダーのテキストを設定するために使用されます
-    headerFooterManager.SetDateTimeAndChildDateTimesText("日時のテキスト"); // メソッドSetDateTimeAndChildDateTimesTextはマスタースライドとすべての子日時プレースホルダーにテキストを設定するために使用されます
+    headerFooterManager.SetFooterAndChildFootersVisibility(true);
+    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager.SetFooterAndChildFootersText("Footer text");
+    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+
+    presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **コンテンツスケーリングに応じてスライドサイズを設定する**
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成し、サイズを設定したいスライドを含むプレゼンテーションを読み込みます。
-1. 新しいプレゼンテーションを生成するために、別の[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
-1. インデックスを使ってスライドの参照を取得します（最初のプレゼンテーションから）。
-1. スライドフッタープレースホルダーを表示可能に設定します。
-1. 日時プレースホルダーを表示可能に設定します。
-1. プレゼンテーションを保存します。
+## **FAQ**
 
-このC#はその操作を示しています：
+**マスタースライドとレイアウトスライドの違いは何ですか？**
 
-```c#
-// プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化します 
-Presentation presentation = new Presentation("AccessSlides.pptx");
-Presentation auxPresentation = new Presentation();
+マスタースライドは全体的なテーマと既定の書式設定を定義し、レイアウトスライドはコンテンツの種類ごとにプレースホルダーの具体的な配置を定義します。
 
-ISlide slide = presentation.Slides[0];
+**レイアウトスライドを別のプレゼンテーションにコピーできますか？**
 
-// 生成されたプレゼンテーションのスライドサイズをソースに設定します
-presentation.SlideSize.SetSize(540, 720, SlideSizeScaleType.EnsureFit); // メソッドSetSizeは、コンテンツが収まるようにスライドサイズを設定するために使用されます
-presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize); // メソッドSetSizeは、コンテンツの最大サイズを持つようにスライドサイズを設定するために使用されます
-           
-// プレゼンテーションをディスクに保存します
-auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
-```
+はい。1 つのプレゼンテーションの [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) コレクションからレイアウトスライドをクローンし、`AddClone` メソッドを使って別のプレゼンテーションに挿入できます。
 
-## **PDF生成時のページサイズを設定する**
+**使用中のスライドが参照しているレイアウトスライドを削除しようとするとどうなりますか？**
 
-特定のプレゼンテーション（ポスターなど）は、PDFドキュメントにしばしば変換されます。PowerPointをPDFに変換して最良の印刷およびアクセシビリティオプションにアクセスする場合、スライドをPDF文書に適したサイズ（例えばA4）に設定したいでしょう。
-
-Aspose.Slidesは、スライドに対する好みの設定を指定できる[SlideSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/)クラスを提供します。このC#コードは、プレゼンテーション内のスライドに特定の用紙サイズを設定するために、[Type](https://reference.aspose.com/slides/net/aspose.slides/slidesize/type/)プロパティ（`SlideSize`クラスから）を使用する方法を示しています：
-
-```c#
-// プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化します 
-Presentation presentation = new Presentation();
-
-// SlideSize.Typeプロパティを設定します 
-presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.EnsureFit);
-
-// PDFオプションの異なるプロパティを設定します
-PdfOptions opts = new PdfOptions();
-opts.SufficientResolution = 600;
-
-// プレゼンテーションをディスクに保存します
-presentation.Save("SetPDFPageSize_out.pdf", SaveFormat.Pdf, opts);
-```
+プレゼンテーション内で少なくとも 1 枚のスライドが参照しているレイアウトスライドを削除しようとすると、Aspose.Slides は [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception/) をスローします。未使用のレイアウトスライドだけを安全に削除するには、[RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) を使用してください。

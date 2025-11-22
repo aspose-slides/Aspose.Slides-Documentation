@@ -1,22 +1,21 @@
 ---
-title: Effektive Eigenschaften von Formen
+title: "Effektive Formeigenschaften"
 type: docs
 weight: 50
 url: /de/net/shape-effective-properties/
-keywords: "Formeigenschaften, Kamer Eigenschaften, Licht Rig, Fasenform, Textfeld, Textstil, Schriftgrößewert, Füllformat für Tabelle, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "Erhalten Sie effektive Eigenschaften von Formen in PowerPoint-Präsentationen in C# oder .NET"
+keywords: "Formeigenschaften, Kameraeigenschaften, Light Rig, Fasenform, Textfeld, Textstil, Schrifthöhenwert, Füllformat für Tabelle, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Ermitteln Sie effektive Formeigenschaften in PowerPoint-Präsentationen in C# oder .NET"
 ---
 
-In diesem Thema werden wir **effektive** und **lokale** Eigenschaften diskutieren. Wenn wir Werte direkt auf diesen Ebenen festlegen
+In diesem Thema besprechen wir **effective** und **local** Eigenschaften. Wenn wir Werte direkt auf diesen Ebenen setzen
 
-1. In Portionseigenschaften auf der Folie der Portion.
-1. Im Prototypformtextstil auf dem Layout oder der Masterfolie (wenn das Textfeldform der Portion eines hat).
+1. In Absatz‑Eigenschaften auf der Folie des Absatzes.
+1. Im Textstil der Prototypform auf Layout‑ oder Masterfolie (wenn die Textfeldform des Absatzes einen hat).
 1. In den globalen Texteinstellungen der Präsentation.
 
-dann werden diese Werte als **lokale** Werte bezeichnet. Auf jeder Ebene können **lokale** Werte definiert oder weggelassen werden. Aber letztendlich, wenn es darum geht, dass die Anwendung wissen muss, wie die Portion aussehen soll, verwendet sie **effektive** Werte. Sie können effektive Werte abrufen, indem Sie die Methode **getEffective()** des lokalen Formats verwenden.
+dann werden diese Werte **local** Werte genannt. Auf jeder Ebene können **local** Werte definiert oder weggelassen werden. Aber schließlich, wenn die Anwendung wissen muss, wie der Absatz aussehen soll, verwendet sie **effective** Werte. Sie können **effective** Werte erhalten, indem Sie die **getEffective()**‑Methode des lokalen Formats verwenden.
 
-Das folgende Beispiel zeigt, wie man effektive Werte erhält.
-
+Das folgende Beispiel zeigt, wie man **effective** Werte erhält.
 ```c#
 using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
@@ -32,65 +31,65 @@ using (Presentation pres = new Presentation("Presentation1.pptx"))
 
 
 
-## **Effektive Eigenschaften der Kamera abrufen**
-Aspose.Slides für .NET ermöglicht Entwicklern, effektive Eigenschaften der Kamera abzurufen. Zu diesem Zweck wurde die Klasse **CameraEffectiveData** in Aspose.Slides hinzugefügt. Die KameraEffectiveData-Klasse stellt ein unveränderliches Objekt dar, das die effektiven Kameraeigenschaften enthält. Eine Instanz der Klasse **CameraEffectiveData** wird als Teil der Klasse **ThreeDFormatEffectiveData** verwendet, die ein effektives Wertepaar für die Klasse ThreeDFormat darstellt.
+
+## **Effektive Eigenschaften der Kamera**
+Aspose.Slides für .NET ermöglicht Entwicklern, effektive Eigenschaften der Kamera zu erhalten. Zu diesem Zweck wurde die **CameraEffectiveData**‑Klasse in Aspose.Slides hinzugefügt. Die CameraEffectiveData‑Klasse stellt ein unveränderliches Objekt dar, das effektive Kamera‑Eigenschaften enthält. Eine Instanz der **CameraEffectiveData**‑Klasse wird als Teil der **ThreeDFormatEffectiveData**‑Klasse verwendet, die ein Paar effektiver Werte für die ThreeDFormat‑Klasse darstellt.
 
 Das folgende Codebeispiel zeigt, wie man effektive Eigenschaften für die Kamera erhält.
-
 ```c#
 using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
 	IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
 
-	Console.WriteLine("= Effektive Kameraeigenschaften =");
-	Console.WriteLine("Typ: " + threeDEffectiveData.Camera.CameraType);
-	Console.WriteLine("Sichtfeld: " + threeDEffectiveData.Camera.FieldOfViewAngle);
+	Console.WriteLine("= Effective camera properties =");
+	Console.WriteLine("Type: " + threeDEffectiveData.Camera.CameraType);
+	Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngle);
 	Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
 }
 ```
 
 
-## **Effektive Eigenschaften des Licht Rigs abrufen**
-Aspose.Slides für .NET ermöglicht Entwicklern, effektive Eigenschaften des Licht Rigs abzurufen. Zu diesem Zweck wurde die Klasse **LightRigEffectiveData** in Aspose.Slides hinzugefügt. Die LightRigEffectiveData-Klasse stellt ein unveränderliches Objekt dar, das die effektiven Eigenschaften des Licht Rigs enthält. Eine Instanz der Klasse **LightRigEffectiveData** wird als Teil der Klasse **ThreeDFormatEffectiveData** verwendet, die ein effektives Wertepaar für die Klasse ThreeDFormat darstellt.
 
-Das folgende Codebeispiel zeigt, wie man effektive Eigenschaften für das Licht Rig erhält.
+## **Effektive Eigenschaften des Light Rig**
+Aspose.Slides für .NET ermöglicht Entwicklern, effektive Eigenschaften des Light Rig zu erhalten. Zu diesem Zweck wurde die **LightRigEffectiveData**‑Klasse in Aspose.Slides hinzugefügt. Die LightRigEffectiveData‑Klasse stellt ein unveränderliches Objekt dar, das effektive Light‑Rig‑Eigenschaften enthält. Eine Instanz der **LightRigEffectiveData**‑Klasse wird als Teil der **ThreeDFormatEffectiveData**‑Klasse verwendet, die ein Paar effektiver Werte für die ThreeDFormat‑Klasse darstellt.
 
+Das folgende Codebeispiel zeigt, wie man effektive Eigenschaften für das Light Rig erhält.
 ```c#
 using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
 	IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
 
-	Console.WriteLine("= Effektive Eigenschaften des Licht Rigs =");
-	Console.WriteLine("Typ: " + threeDEffectiveData.LightRig.LightType);
-	Console.WriteLine("Richtung: " + threeDEffectiveData.LightRig.Direction);
+	Console.WriteLine("= Effective light rig properties =");
+	Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
+	Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
 }
 ```
 
 
-## **Effektive Eigenschaften der Fasenform abrufen**
-Aspose.Slides für .NET ermöglicht Entwicklern, effektive Eigenschaften der Fasenform abzurufen. Zu diesem Zweck wurde die Klasse **ShapeBevelEffectiveData** in Aspose.Slides hinzugefügt. Die ShapeBevelEffectiveData-Klasse stellt ein unveränderliches Objekt dar, das die effektiven Relief-Eigenschaften der Form enthält. Eine Instanz der Klasse **ShapeBevelEffectiveData** wird als Teil der Klasse **ThreeDFormatEffectiveData** verwendet, die ein effektives Wertepaar für die Klasse ThreeDFormat darstellt.
 
-Das folgende Codebeispiel zeigt, wie man effektive Eigenschaften für die Fasenform erhält.
+## **Effektive Eigenschaften des Bevel Shape**
+Aspose.Slides für .NET ermöglicht Entwicklern, effektive Eigenschaften des Bevel Shape zu erhalten. Zu diesem Zweck wurde die **ShapeBevelEffectiveData**‑Klasse in Aspose.Slides hinzugefügt. Die ShapeBevelEffectiveData‑Klasse stellt ein unveränderliches Objekt dar, das effektive Relief‑Eigenschaften der Form enthält. Eine Instanz der **ShapeBevelEffectiveData**‑Klasse wird als Teil der **ThreeDFormatEffectiveData**‑Klasse verwendet, die ein Paar effektiver Werte für die ThreeDFormat‑Klasse darstellt.
 
+Das folgende Codebeispiel zeigt, wie man effektive Eigenschaften für das Bevel Shape erhält.
 ```c#
 using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
 	IThreeDFormatEffectiveData threeDEffectiveData = pres.Slides[0].Shapes[0].ThreeDFormat.GetEffective();
 
-	Console.WriteLine("= Effektive Relief-Eigenschaften der oberen Fläche der Form =");
-	Console.WriteLine("Typ: " + threeDEffectiveData.BevelTop.BevelType);
-	Console.WriteLine("Breite: " + threeDEffectiveData.BevelTop.Width);
-	Console.WriteLine("Höhe: " + threeDEffectiveData.BevelTop.Height);
+	Console.WriteLine("= Effective shape's top face relief properties =");
+	Console.WriteLine("Type: " + threeDEffectiveData.BevelTop.BevelType);
+	Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
+	Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
 }
 ```
 
 
 
-## **Effektive Eigenschaften des Textfelds abrufen**
-Mit Aspose.Slides für .NET können Sie effektive Eigenschaften des Textfelds abrufen. Zu diesem Zweck wurde die Klasse **TextFrameFormatEffectiveData** in Aspose.Slides hinzugefügt, die effektive Formatierungseigenschaften des Textfelds enthält.
 
-Das folgende Codebeispiel zeigt, wie man effektive Formatierungseigenschaften des Textfelds erhält.
+## **Effektive Eigenschaften des Text Frame**
+Mit Aspose.Slides für .NET können Sie effektive Eigenschaften des Text Frame erhalten. Zu diesem Zweck wurde die **TextFrameFormatEffectiveData**‑Klasse in Aspose.Slides hinzugefügt, die effektive Formatierungseigenschaften des Text Frames enthält.
 
+Das folgende Codebeispiel zeigt, wie man effektive Formatierungseigenschaften des Text Frames erhält.
 ```c#
 using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
@@ -100,24 +99,24 @@ using (Presentation pres = new Presentation("Presentation1.pptx"))
 	ITextFrameFormatEffectiveData effectiveTextFrameFormat = textFrameFormat.GetEffective();
 
 
-	Console.WriteLine("Anker-Typ: " + effectiveTextFrameFormat.AnchoringType);
-	Console.WriteLine("Automatische Anpassungsart: " + effectiveTextFrameFormat.AutofitType);
-	Console.WriteLine("Text vertikaler Typ: " + effectiveTextFrameFormat.TextVerticalType);
-	Console.WriteLine("Ränder");
-	Console.WriteLine("   Links: " + effectiveTextFrameFormat.MarginLeft);
-	Console.WriteLine("   Oben: " + effectiveTextFrameFormat.MarginTop);
-	Console.WriteLine("   Rechts: " + effectiveTextFrameFormat.MarginRight);
-	Console.WriteLine("   Unten: " + effectiveTextFrameFormat.MarginBottom);
+	Console.WriteLine("Anchoring type: " + effectiveTextFrameFormat.AnchoringType);
+	Console.WriteLine("Autofit type: " + effectiveTextFrameFormat.AutofitType);
+	Console.WriteLine("Text vertical type: " + effectiveTextFrameFormat.TextVerticalType);
+	Console.WriteLine("Margins");
+	Console.WriteLine("   Left: " + effectiveTextFrameFormat.MarginLeft);
+	Console.WriteLine("   Top: " + effectiveTextFrameFormat.MarginTop);
+	Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
+	Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
 }
 ```
 
 
 
-## **Effektive Eigenschaften des Textstils abrufen**
-Mit Aspose.Slides für .NET können Sie effektive Eigenschaften des Textstils abrufen. Zu diesem Zweck wurde die Klasse **TextStyleEffectiveData** in Aspose.Slides hinzugefügt, die effektive Eigenschaften des Textstils enthält.
 
-Das folgende Codebeispiel zeigt, wie man effektive Eigenschaften des Textstils erhält.
+## **Effektive Eigenschaften des Text Style**
+Mit Aspose.Slides für .NET können Sie effektive Eigenschaften des Text Style erhalten. Zu diesem Zweck wurde die **TextStyleEffectiveData**‑Klasse in Aspose.Slides hinzugefügt, die effektive Eigenschaften des Text Styles enthält.
 
+Das folgende Codebeispiel zeigt, wie man effektive Eigenschaften des Text Styles erhält.
 ```c#
 using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
@@ -128,21 +127,20 @@ using (Presentation pres = new Presentation("Presentation1.pptx"))
     for (int i = 0; i <= 8; i++)
     {
         IParagraphFormatEffectiveData effectiveStyleLevel = effectiveTextStyle.GetLevel(i);
-        Console.WriteLine("= Effektive Absatzformatierung für Stil-Ebene #" + i + " =");
+        Console.WriteLine("= Effective paragraph formatting for style level #" + i + " =");
 
-        Console.WriteLine("Tiefe: " + effectiveStyleLevel.Depth);
-        Console.WriteLine("Einzug: " + effectiveStyleLevel.Indent);
-        Console.WriteLine("Ausrichtung: " + effectiveStyleLevel.Alignment);
-        Console.WriteLine("Schriftausrichtung: " + effectiveStyleLevel.FontAlignment);
+        Console.WriteLine("Depth: " + effectiveStyleLevel.Depth);
+        Console.WriteLine("Indent: " + effectiveStyleLevel.Indent);
+        Console.WriteLine("Alignment: " + effectiveStyleLevel.Alignment);
+        Console.WriteLine("Font alignment: " + effectiveStyleLevel.FontAlignment);
     }
 }
-
 ```
 
 
-## **Effektiven Schriftgrößewert abrufen**
-Mit Aspose.Slides für .NET können Sie effektive Eigenschaften der Schriftgröße abrufen. Hier ist der Code, der zeigt, wie sich der effektive Schriftgrößewert der Portion ändert, nachdem lokale Schriftgrößewerte auf verschiedenen Präsentationsstruktur-Ebenen festgelegt wurden.
 
+## **Effektiver Schrifthöhenwert**
+Mit Aspose.Slides für .NET können Sie effektive Eigenschaften der Schrifthöhe erhalten. Hier ist der Code, der zeigt, wie sich der effektive Schrifthöhenwert eines Abschnitts ändert, nachdem auf verschiedenen Ebenen der Präsentationsstruktur lokale Schrifthöhenwerte gesetzt wurden.
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -150,37 +148,37 @@ using (Presentation pres = new Presentation())
     newShape.AddTextFrame("");
     newShape.TextFrame.Paragraphs[0].Portions.Clear();
 
-    IPortion portion0 = new Portion("Beispieltext mit erster Portion");
-    IPortion portion1 = new Portion(" und zweiter Portion.");
+    IPortion portion0 = new Portion("Sample text with first portion");
+    IPortion portion1 = new Portion(" and second portion.");
 
     newShape.TextFrame.Paragraphs[0].Portions.Add(portion0);
     newShape.TextFrame.Paragraphs[0].Portions.Add(portion1);
 
-    Console.WriteLine("Effektive Schriftgröße direkt nach der Erstellung:");
+    Console.WriteLine("Effective font height just after creation:");
     Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
     Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
 
     pres.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 24;
 
-    Console.WriteLine("Effektive Schriftgröße nach Festlegung der standardmäßigen Schriftgröße der gesamten Präsentation:");
+    Console.WriteLine("Effective font height after setting entire presentation default font height:");
     Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
     Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
 
     newShape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 40;
 
-    Console.WriteLine("Effektive Schriftgröße nach Festlegung der standardmäßigen Schriftgröße des Absatzes:");
+    Console.WriteLine("Effective font height after setting paragraph default font height:");
     Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
     Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
 
     newShape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 55;
 
-    Console.WriteLine("Effektive Schriftgröße nach Festlegung der Schriftgröße von Portion #0:");
+    Console.WriteLine("Effective font height after setting portion #0 font height:");
     Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
     Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
 
     newShape.TextFrame.Paragraphs[0].Portions[1].PortionFormat.FontHeight = 18;
 
-    Console.WriteLine("Effektive Schriftgröße nach Festlegung der Schriftgröße von Portion #1:");
+    Console.WriteLine("Effective font height after setting portion #1 font height:");
     Console.WriteLine("Portion #0: " + portion0.PortionFormat.GetEffective().FontHeight);
     Console.WriteLine("Portion #1: " + portion1.PortionFormat.GetEffective().FontHeight);
 
@@ -189,11 +187,11 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Effektives Füllformat für Tabellen abrufen**
-Mit Aspose.Slides für .NET können Sie effektive Füllformatierungen für unterschiedliche logische Teile der Tabelle abrufen. Zu diesem Zweck wurde das Interface **IFillFormatEffectiveData** in Aspose.Slides hinzugefügt, das effektive Füllformatierungseigenschaften enthält. Bitte beachten Sie, dass die Zellformatierung immer eine höhere Priorität hat als die Zeilenformatierung, eine Zeile eine höhere Priorität hat als eine Spalte und eine Spalte eine höhere Priorität hat als die gesamte Tabelle.
 
-Die Eigenschaften **CellFormatEffectiveData** werden immer verwendet, um die Tabelle zu zeichnen. Das folgende Codebeispiel zeigt, wie man effektive Füllformatierungen für verschiedene logische Teile der Tabelle erhält.
+## **Effektives Füllformat für Tabelle**
+Mit Aspose.Slides für .NET können Sie effektive Füllformatierung für verschiedene logische Teile einer Tabelle erhalten. Zu diesem Zweck wurde das **IFillFormatEffectiveData**‑Interface in Aspose.Slides hinzugefügt, das effektive Füllformatierungseigenschaften enthält. Bitte beachten Sie, dass die Zellenformatierung stets höhere Priorität hat als die Zeilenformatierung, eine Zeile hat höhere Priorität als eine Spalte und eine Spalte höher als die gesamte Tabelle.
 
+Schließlich werden immer die **CellFormatEffectiveData**‑Eigenschaften verwendet, um die Tabelle zu zeichnen. Das folgende Codebeispiel zeigt, wie man effektive Füllformatierung für verschiedene logische Tabellenteile erhält.
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -209,3 +207,34 @@ using (Presentation pres = new Presentation("pres.pptx"))
 	IFillFormatEffectiveData cellFillFormatEffective = cellFormatEffective.FillFormat;
 }
 ```
+
+
+## **FAQ**
+
+**Wie kann ich erkennen, ob ich einen "snapshot" statt eines "live-object" erhalten habe, und wann sollte ich effektive Eigenschaften erneut lesen?**
+
+EffectiveData‑Objekte sind unveränderliche Snapshots der zum Zeitpunkt des Aufrufs berechneten Werte. Wenn Sie lokale oder geerbte Einstellungen der Form ändern, rufen Sie die effektiven Daten erneut ab, um die aktualisierten Werte zu erhalten.
+
+**Wirkt sich das Ändern der Layout-/Master-Folien auf bereits abgerufene effektive Eigenschaften aus?**
+
+Ja, jedoch erst, nachdem Sie sie erneut gelesen haben. Ein bereits erhaltenes EffectiveData‑Objekt aktualisiert sich nicht selbst – fordern Sie es nach einer Änderung des Layouts oder Masters erneut an.
+
+**Kann ich Werte über EffectiveData ändern?**
+
+Nein. EffectiveData ist schreibgeschützt. Nehmen Sie Änderungen an den lokalen Formatierungsobjekten (Form/Text/3D usw.) vor und holen Sie anschließend die effektiven Werte erneut.
+
+**Was passiert, wenn eine Eigenschaft weder auf Formenebene, noch im Layout/Master, noch in den globalen Einstellungen festgelegt ist?**
+
+Der effektive Wert wird durch den Standard‑Mechanismus (PowerPoint/Aspose.Slides‑Standardwerte) bestimmt. Dieser aufgelöste Wert wird Teil des EffectiveData‑Snapshots.
+
+**Kann ich anhand eines effektiven Schriftwerts erkennen, welche Ebene die Größe oder Schriftart bereitgestellt hat?**
+
+Nicht direkt. EffectiveData liefert den endgültigen Wert. Um die Quelle zu finden, prüfen Sie die lokalen Werte im Abschnitt/Absatz/Textfeld und die Textstile im Layout/Master/der Präsentation, um zu sehen, wo die erste explizite Definition vorkommt.
+
+**Warum sehen EffectiveData‑Werte manchmal identisch zu den lokalen aus?**
+
+Weil der lokale Wert letztlich final ist (keine Vererbung von höheren Ebenen notwendig war). In solchen Fällen entspricht der effektive Wert dem lokalen.
+
+**Wann sollte ich effektive Eigenschaften verwenden und wann nur mit lokalen arbeiten?**
+
+Verwenden Sie EffectiveData, wenn Sie das „wie gerendert“ Ergebnis nach Anwendung aller Vererbungen benötigen (z. B. zum Angleichen von Farben, Einzügen oder Größen). Wenn Sie die Formatierung auf einer bestimmten Ebene ändern müssen, passen Sie die lokalen Eigenschaften an und lesen Sie gegebenenfalls EffectiveData erneut ein, um das Ergebnis zu überprüfen.

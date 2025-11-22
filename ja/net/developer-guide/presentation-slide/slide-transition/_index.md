@@ -3,92 +3,95 @@ title: スライド トランジション
 type: docs
 weight: 90
 url: /ja/net/slide-transition/
-keywords: "スライド トランジションを追加, PowerPoint スライド トランジション, モーフ トランジション, 高度なスライド トランジション, トランジション エフェクト, C#, Csharp, .NET, Aspose.Slides"
-description: "C# または .NET で PowerPoint スライド トランジションとトランジション エフェクトを追加"
+keywords: "スライド トランジションを追加, PowerPoint スライド トランジション, モーフ トランジション, 高度なスライド トランジション, トランジション効果, C#, Csharp, .NET, Aspose.Slides"
+description: "C#または.NETでPowerPointスライド トランジションとトランジション効果を追加"
 ---
 
-## **スライド トランジションを追加**
-理解しやすくするために、Aspose.Slides for .NET を使用してシンプルなスライド トランジションの管理方法を示しました。開発者は、スライドに異なるスライド トランジション エフェクトを適用するだけでなく、これらのトランジション エフェクトの動作をカスタマイズすることもできます。シンプルなスライド トランジション エフェクトを作成するには、以下の手順に従ってください。
+## **スライド トランジションの追加**
+理解しやすくするために、Aspose.Slides for .NET を使用してシンプルなスライド トランジションを管理する方法を示しました。開発者はスライドにさまざまなトランジション効果を適用できるだけでなく、これらの効果の挙動もカスタマイズできます。シンプルなスライド トランジション効果を作成するには、以下の手順に従います。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-1. TransitionType 列挙体を介して、Aspose.Slides for .NET が提供するトランジション エフェクトのいずれかからスライドにスライド トランジション タイプを適用します。
-1. 修正されたプレゼンテーションファイルを書き込みます。
-
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+2. TransitionType 列挙体で提供されるトランジション効果のいずれかを使用して、スライドにスライド トランジション タイプを適用します。  
+3. 変更されたプレゼンテーション ファイルを書き出します。  
 ```c#
-// ソースプレゼンテーションファイルを読み込むために Presentation クラスをインスタンス化
+// ソースプレゼンテーションファイルを読み込むために Presentation クラスのインスタンスを作成します
 using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 {
-    // スライド 1 にサークル タイプのトランジションを適用
+    // スライド 1 にサークルタイプのトランジションを適用します
     presentation.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
 
-    // スライド 2 にコンボ タイプのトランジションを適用
+    // スライド 2 にコンブタイプのトランジションを適用します
     presentation.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
 
-    // プレゼンテーションをディスクに保存
+    // プレゼンテーションをディスクに保存します
     presentation.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **高度なスライド トランジションを追加**
-上記のセクションでは、スライドにシンプルなトランジションエフェクトを適用しました。次に、そのシンプルなトランジションエフェクトをさらに優れたものにし、制御するために、以下の手順に従ってください。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-1. Aspose.Slides for .NET が提供するトランジションエフェクトのいずれかからスライドにスライドトランジションタイプを適用します。
-1. クリック時、特定の時間経過後、またはその両方で進むようにトランジションを設定できます。
-1. スライドトランジションが クリック時の進行を有効にすると、誰かがマウスをクリックしたときにのみトランジションが進行します。さらに、Advance After Time プロパティが設定されている場合、指定された進行時間が経過するとトランジションが自動的に進行します。
-1. 修正されたプレゼンテーションをプレゼンテーションファイルとして書き込みます。
+## **高度なスライド トランジションの追加**
+前節ではシンプルなトランジション効果をスライドに適用しました。ここでは、そのシンプルなトランジション効果をさらに高度かつ制御可能にする手順を示します。
 
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+2. Aspose.Slides for .NET が提供するトランジション効果のいずれかを使用して、スライドにスライド トランジション タイプを適用します。  
+3. トランジションを「クリックで進む」か、特定の時間経過後、またはその両方で進むように設定できます。  
+4. スライド トランジションが「クリックで進む」に設定されている場合、マウスクリック時にのみ次へ進みます。さらに、Advance After Time プロパティが設定されている場合、指定された時間が経過すると自動的に次へ進みます。  
+5. 変更されたプレゼンテーションをプレゼンテーション ファイルとして書き出します。  
 ```c#
-// プレゼンテーションファイルを表す Presentation クラスをインスタンス化
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します
 using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
 {
-    // スライド 1 にサークル タイプのトランジションを適用
+
+    // スライド 1 にサークルタイプのトランジションを適用します
     pres.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
 
-    // 3 秒のトランジション時間を設定
+
+    // トランジション時間を 3 秒に設定します
     pres.Slides[0].SlideShowTransition.AdvanceOnClick = true;
     pres.Slides[0].SlideShowTransition.AdvanceAfterTime = 3000;
 
-    // スライド 2 にコンボ タイプのトランジションを適用
+    // スライド 2 にコンブタイプのトランジションを適用します
     pres.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
 
-    // 5 秒のトランジション時間を設定
+
+    // トランジション時間を 5 秒に設定します
     pres.Slides[1].SlideShowTransition.AdvanceOnClick = true;
     pres.Slides[1].SlideShowTransition.AdvanceAfterTime = 5000;
 
-    // スライド 3 にズーム タイプのトランジションを適用
+    // スライド 3 にズームタイプのトランジションを適用します
     pres.Slides[2].SlideShowTransition.Type = TransitionType.Zoom;
 
-    // 7 秒のトランジション時間を設定
+
+    // トランジション時間を 7 秒に設定します
     pres.Slides[2].SlideShowTransition.AdvanceOnClick = true;
     pres.Slides[2].SlideShowTransition.AdvanceAfterTime = 7000;
 
-    // プレゼンテーションをディスクに保存
+    // プレゼンテーションをディスクに保存します
     pres.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-さらに、[AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) プロパティを使用すると、スライドトランジションが次のスライドに移動するように設定されているか、設定が無効になっているかを確認できます。
 
-この C# コードは操作を示しています：
+さらに、[AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) プロパティを使用して、スライド トランジションが次のスライドへ移動するように構成されているか、または設定が無効になっているかを確認できます。
 
+以下の C# コードが操作を示しています。  
 ```c#
-// プレゼンテーションファイルを表す Presentation クラスをインスタンス化
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します
 using (Presentation pres = new Presentation("SampleTransition_out.pptx"))
 {
     foreach (ISlide slide in pres.Slides)
     {
-        // スライドのトランジションを取得
+        // スライドのトランジションを取得します
         ISlideShowTransition slideTransition = slide.SlideShowTransition;
 
-        // Advance After Time 設定が有効かどうかを確認
+        // Advance After Time 設定が有効かどうかを確認します
         if (slideTransition.AdvanceAfter)
         {
-            // Advance After Time 値を出力
-            Console.WriteLine("スライド #" + slide.SlideNumber + " AdvancedAfterTime: " + slideTransition.AdvanceAfterTime);
+            // Advance After Time の値を出力します
+            Console.WriteLine("The slide #" + slide.SlideNumber + " AdvancedAfterTime: " + slideTransition.AdvanceAfterTime);
         }
 
-        // AdvancedAfterTime 値が 2 秒を超える場合、特定の時間後にトランジションを無効にする
+        // AdvancedAfterTime の値が 2 秒より大きい場合、指定時間後のトランジションを無効にします
         if (slideTransition.AdvanceAfterTime > 2000)
         {
             slideTransition.AdvanceAfter = false;
@@ -97,16 +100,16 @@ using (Presentation pres = new Presentation("SampleTransition_out.pptx"))
 }
 ```
 
+
 ## **モーフ トランジション**
-Aspose.Slides for .NET では、[モーフ トランジション](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition)がサポートされるようになりました。これは、PowerPoint 2019 で導入された新しいモーフ トランジションを表しています。モーフ トランジションを使用すると、一つのスライドから次のスライドへの滑らかな動きをアニメーション化できます。この記事では、概念とモーフ トランジションの使用方法を説明します。モーフ トランジションを効果的に使用するには、少なくとも一つの共通オブジェクトを持つ2つのスライドが必要です。最も簡単な方法は、スライドを複製し、2番目のスライドでオブジェクトを別の場所に移動することです。
+Aspose.Slides for .NET は現在、[Morph Transition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition) をサポートしています。これは PowerPoint 2019 で導入された新しいモーフ トランジションです。Morph トランジションにより、あるスライドから次のスライドへの滑らかな移動をアニメーション化できます。この記事では概念と Morph トランジションの使用方法を説明します。Morph トランジションを効果的に使用するには、少なくとも 1 つの共通オブジェクトを持つ 2 枚のスライドが必要です。最も簡単な方法はスライドを複製し、2 枚目のスライドでオブジェクトを別の位置に移動することです。
 
-以下のコードスニペットは、テキストを含むスライドのクローンをプレゼンテーションに追加し、2番目のスライドに[モーフタイプ](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/properties/morphtype)のトランジションを設定する方法を示しています。
-
+以下のコード スニペットは、プレゼンテーションにテキストを含むスライドのクローンを追加し、2 枚目のスライドに [morph type](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/properties/morphtype) のトランジションを設定する方法を示します。  
 ```c#
 using (Presentation presentation = new Presentation())
 {
     AutoShape autoshape = (AutoShape)presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.TextFrame.Text = "PowerPoint プレゼンテーションのモーフ トランジション";
+    autoshape.TextFrame.Text = "Morph Transition in PowerPoint Presentations";
 
     presentation.Slides.AddClone(presentation.Slides[0]);
 
@@ -121,17 +124,17 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **モーフ トランジション タイプ**
-新しい[Aspose.Slides.SlideShow.TransitionMorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype) 列挙体が追加されました。これは、異なるタイプのモーフ スライド トランジションを表します。
 
-TransitionMorphType 列挙体には 3 つのメンバーがあります：
+## **モーフ トランジションのタイプ**
+新しい [Aspose.Slides.SlideShow.TransitionMorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype) 列挙体が追加されました。これはさまざまなタイプのモーフ スライド トランジションを表します。
 
-- ByObject: モーフ トランジションは、シェイプを不可分なオブジェクトとして考慮して実行されます。
-- ByWord: モーフ トランジションは、可能な場合、単語ごとにテキストを移動させることで実行されます。
-- ByChar: モーフ トランジションは、可能な場合、文字ごとにテキストを移動させることで実行されます。
+TransitionMorphType 列挙体には 3 つのメンバーがあります。
 
-以下のコードスニペットは、スライドにモーフ トランジションを設定し、モーフ タイプを変更する方法を示しています：
+- **ByObject**: 形状を分割不可能なオブジェクトとして扱い、モーフ トランジションを実行します。  
+- **ByWord**: 可能な限り単語単位でテキストを転送しながらモーフ トランジションを実行します。  
+- **ByChar**: 可能な限り文字単位でテキストを転送しながらモーフ トランジションを実行します。
 
+以下のコード スニペットは、スライドにモーフ トランジションを設定し、モーフ タイプを変更する方法を示します。  
 ```c#
 using (Presentation presentation = new Presentation("presentation.pptx"))
 {
@@ -141,24 +144,43 @@ using (Presentation presentation = new Presentation("presentation.pptx"))
 }
 ```
 
-## **トランジション エフェクトの設定**
-Aspose.Slides for .NET では、ブラックから、左から、右からなどのトランジション エフェクトを設定することをサポートしています。トランジション エフェクトを設定するには、以下の手順に従ってください。
 
-- [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
-- スライドの参照を取得します。
-- トランジション エフェクトを設定します。
-- プレゼンテーションを[PPTX](https://docs.fileformat.com/presentation/pptx/)ファイルとして書き込みます。
+## **トランジション効果の設定**
+Aspose.Slides for .NET は、黒から、左から、右から などのトランジション効果の設定をサポートしています。トランジション効果を設定するには、以下の手順に従ってください。
 
-以下の例では、トランジション エフェクトを設定しています。
+- [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+- スライドの参照を取得します。  
+- トランジション効果を設定します。  
+- プレゼンテーションを [PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルとして書き出します。
 
+以下の例では、トランジション効果を設定しています。  
 ```c#
-// Presentation クラスのインスタンスを作成
+// Presentation クラスのインスタンスを作成します
 Presentation presentation = new Presentation("AccessSlides.pptx");
 
-// エフェクトを設定
+// エフェクトを設定します
 presentation.Slides[0].SlideShowTransition.Type = TransitionType.Cut;
 ((OptionalBlackTransition)presentation.Slides[0].SlideShowTransition.Value).FromBlack = true;
 
-// プレゼンテーションをディスクに保存
+// プレゼンテーションをディスクに保存します
 presentation.Save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
 ```
+
+
+## **FAQ**
+
+**スライド トランジションの再生速度を制御できますか？**
+
+はい。トランジションの [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) を [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/) 設定（例: slow/medium/fast）で指定できます。
+
+**トランジションにオーディオを添付してループさせることはできますか？**
+
+はい。トランジション用にサウンドを埋め込み、Sound、SoundMode、SoundLoop などの設定や、SoundIsBuiltIn、SoundName といったメタデータで動作を制御できます。
+
+**すべてのスライドに同じトランジションを適用する最速の方法は何ですか？**
+
+各スライドのトランジション設定で目的のトランジション タイプを構成すれば、スライドごとに保存されるため、すべてのスライドに同一タイプを適用するだけで一貫した結果が得られます。
+
+**現在のスライドに設定されているトランジションを確認する方法は？**
+
+スライドの [transition settings](https://reference.aspose.com/slides/net/aspose.slides/baseslide/slideshowtransition/) を調べ、[transition type](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/type/) を取得します。その値が適用されているエフェクトを正確に示します。

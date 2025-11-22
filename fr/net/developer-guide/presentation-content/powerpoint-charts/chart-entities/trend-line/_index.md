@@ -1,64 +1,63 @@
 ---
-title: Ligne de Tendance
+title: Ligne de tendance
 type: docs
 url: /fr/net/trend-line/
-keywords: "Ligne de tendance, ligne personnalisée présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
-description: "Ajouter une ligne de tendance et une ligne personnalisée aux présentations PowerPoint en C# ou .NET"
+keywords: "Ligne de tendance, ligne personnalisée présentation PowerPoint, C#, Csharp, Aspose.Slides for .NET"
+description: "Ajoutez une ligne de tendance et une ligne personnalisée aux présentations PowerPoint en C# ou .NET"
 ---
 
-## **Ajouter une Ligne de Tendance**
-Aspose.Slides pour .NET fournit une API simple pour gérer différentes lignes de tendance de graphique :
+## **Ajouter une ligne de tendance**
+Aspose.Slides for .NET fournit une API simple pour gérer différentes lignes de tendance de graphiques :
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Obtenir une référence de la diapositive par son index.
-1. Ajouter un graphique avec des données par défaut ainsi que tout type souhaité (cet exemple utilise ChartType.ClusteredColumn).
-1. Ajouter une ligne de tendance exponentielle pour la série de graphique 1.
-1. Ajouter une ligne de tendance linéaire pour la série de graphique 1.
-1. Ajouter une ligne de tendance logarithmique pour la série de graphique 2.
-1. Ajouter une ligne de tendance de moyenne mobile pour la série de graphique 2.
-1. Ajouter une ligne de tendance polynomiale pour la série de graphique 3.
-1. Ajouter une ligne de tendance puissance pour la série de graphique 3.
-1. Écrire la présentation modifiée dans un fichier PPTX.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Obtenez la référence d’une diapositive par son indice.
+3. Ajoutez un graphique avec des données par défaut ainsi que le type souhaité (cet exemple utilise ChartType.ClusteredColumn).
+4. Ajout d’une ligne de tendance exponentielle pour la série de graphique 1.
+5. Ajout d’une ligne de tendance linéaire pour la série de graphique 1.
+6. Ajout d’une ligne de tendance logarithmique pour la série de graphique 2.
+7. Ajout d’une ligne de tendance moyenne mobile pour la série de graphique 2.
+8. Ajout d’une ligne de tendance polynomiale pour la série de graphique 3.
+9. Ajout d’une ligne de tendance puissance pour la série de graphique 3.
+10. Enregistrez la présentation modifiée dans un fichier PPTX.
 
-Le code suivant est utilisé pour créer un graphique avec des Lignes de Tendance.
-
+Le code suivant est utilisé pour créer un graphique avec des lignes de tendance.
 ```c#
 // Création d'une présentation vide
 Presentation pres = new Presentation();
 
-// Création d'un graphique à colonnes groupées
+// Création d'un diagramme à colonnes groupées
 IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
 
-// Ajout d'une ligne de tendance exponentielle pour la série de graphique 1
+// Ajout d'une ligne de tendance exponentielle pour la série 1 du graphique
 ITrendline tredLinep = chart.ChartData.Series[0].TrendLines.Add(TrendlineType.Exponential);
 tredLinep.DisplayEquation = false;
 tredLinep.DisplayRSquaredValue = false;
 
-// Ajout d'une ligne de tendance linéaire pour la série de graphique 1
+// Ajout d'une ligne de tendance linéaire pour la série 1 du graphique
 ITrendline tredLineLin = chart.ChartData.Series[0].TrendLines.Add(TrendlineType.Linear);
 tredLineLin.TrendlineType = TrendlineType.Linear;
 tredLineLin.Format.Line.FillFormat.FillType = FillType.Solid;
 tredLineLin.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
 
 
-// Ajout d'une ligne de tendance logarithmique pour la série de graphique 2
+// Ajout d'une ligne de tendance logarithmique pour la série 2 du graphique
 ITrendline tredLineLog = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.Logarithmic);
 tredLineLog.TrendlineType = TrendlineType.Logarithmic;
-tredLineLog.AddTextFrameForOverriding("Nouvelle ligne de tendance logarithmique");
+tredLineLog.AddTextFrameForOverriding("New log trend line");
 
-// Ajout d'une ligne de tendance de moyenne mobile pour la série de graphique 2
+// Ajout d'une ligne de tendance moyenne mobile pour la série 2 du graphique
 ITrendline tredLineMovAvg = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.MovingAverage);
 tredLineMovAvg.TrendlineType = TrendlineType.MovingAverage;
 tredLineMovAvg.Period = 3;
-tredLineMovAvg.TrendlineName = "Nouveau nom de ligne de tendance";
+tredLineMovAvg.TrendlineName = "New TrendLine Name";
 
-// Ajout d'une ligne de tendance polynomiale pour la série de graphique 3
+// Ajout d'une ligne de tendance polynomiale pour la série 3 du graphique
 ITrendline tredLinePol = chart.ChartData.Series[2].TrendLines.Add(TrendlineType.Polynomial);
 tredLinePol.TrendlineType = TrendlineType.Polynomial;
 tredLinePol.Forward = 1;
 tredLinePol.Order = 3;
 
-// Ajout d'une ligne de tendance puissance pour la série de graphique 3
+// Ajout d'une ligne de tendance puissance pour la série 3 du graphique
 ITrendline tredLinePower = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.Power);
 tredLinePower.TrendlineType = TrendlineType.Power;
 tredLinePower.Backward = 1;
@@ -69,18 +68,18 @@ pres.Save("ChartTrendLines_out.pptx", SaveFormat.Pptx);
 
 
 
-## **Ajouter une Ligne Personnalisée**
-Aspose.Slides pour .NET fournit une API simple pour ajouter des lignes personnalisées dans un graphique. Pour ajouter une ligne simple à une diapositive sélectionnée de la présentation, veuillez suivre les étapes ci-dessous :
 
-- Créer une instance de la classe Presentation
-- Obtenir la référence d'une diapositive en utilisant son index
-- Créer un nouveau graphique en utilisant la méthode AddChart exposée par l'objet Shapes
-- Ajouter une forme automatique de type Ligne en utilisant la méthode AddAutoShape exposée par l'objet Shapes
-- Définir la couleur des lignes de la forme.
-- Écrire la présentation modifiée en tant que fichier PPTX
+## **Ajouter une ligne personnalisée**
+Aspose.Slides for .NET fournit une API simple pour ajouter des lignes personnalisées dans un graphique. Pour ajouter une ligne simple à une diapositive sélectionnée de la présentation, veuillez suivre les étapes ci-dessous :
 
-Le code suivant est utilisé pour créer un graphique avec des Lignes Personnalisées.
+- Créez une instance de la classe Presentation
+- Obtenez la référence d’une diapositive en utilisant son Index
+- Créez un nouveau graphique en utilisant la méthode AddChart exposée par l’objet Shapes
+- Ajoutez une AutoShape de type Line en utilisant la méthode AddAutoShape exposée par l’objet Shapes
+- Définissez la couleur des lignes de la forme.
+- Enregistrez la présentation modifiée en tant que fichier PPTX
 
+Le code suivant est utilisé pour créer un graphique avec des lignes personnalisées.
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -91,3 +90,14 @@ using (Presentation pres = new Presentation())
     pres.Save("AddCustomLines.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**Que signifient 'forward' et 'backward' pour une ligne de tendance ?**
+
+Ce sont les longueurs de la ligne de tendance projetées en avant/en arrière : pour les graphiques à dispersion (XY) - en unités d'axe; pour les graphiques non à dispersion - en nombre de catégories. Seules les valeurs non négatives sont autorisées.
+
+**La ligne de tendance sera-t-elle conservée lors de l'exportation de la présentation au format PDF ou SVG, ou lors du rendu d’une diapositive en image ?**
+
+Oui. Aspose.Slides convertit les présentations au format [PDF](/slides/fr/net/convert-powerpoint-to-pdf/)/[SVG](/slides/fr/net/render-a-slide-as-an-svg-image/) et rend les graphiques en images ; les lignes de tendance, en tant que partie du graphique, sont conservées lors de ces opérations. Une méthode est également disponible pour [exporter une image du graphique](/slides/fr/net/create-shape-thumbnails/) elle‑même.

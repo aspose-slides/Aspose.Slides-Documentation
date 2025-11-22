@@ -1,135 +1,152 @@
----  
-title: ライセンス  
-type: docs  
-weight: 80  
-url: /ja/net/licensing/  
----  
+---
+title: ライセンス
+type: docs
+weight: 80
+url: /ja/net/licensing/
+---
 
-## **Aspose.Slidesの評価**
+## **Aspose.Slides の評価**
 
 {{% alert color="primary" %}} 
 
-**Aspose.Slides for NET**の評価版を[NuGetのダウンロードページ](https://www.nuget.org/packages/Aspose.Slides.NET/)からダウンロードできます。評価版は、製品のライセンス版と同じ機能を提供します。評価パッケージは購入されたパッケージと同じです。評価版は、いくつかのコード行を追加することで（ライセンスを適用するために）ライセンス版に変わります。
+**Aspose.Slides for NET** の評価版は、[its NuGet download page](https://www.nuget.org/packages/Aspose.Slides.NET/)からダウンロードできます。評価版は製品のライセンス版と同じ機能を提供します。評価パッケージは購入したパッケージと同一です。評価版は、数行のコードを追加してライセンスを適用すれば、ライセンス版になります。
 
-**Aspose.Slides**の評価が満足できるものであれば、[ライセンスを購入](https://purchase.aspose.com/buy)できます。異なるサブスクリプションタイプを確認することをお勧めします。質問がある場合は、Asposeの販売チームにお問い合わせください。
+**Aspose.Slides** の評価に満足したら、[purchase a license](https://purchase.aspose.com/buy)できます。さまざまなサブスクリプションタイプをご確認ください。質問がある場合は、Aspose の営業チームにお問い合わせください。
 
-すべてのAsposeライセンスには、新しいバージョンやサブスクリプション期間内にリリースされた修正への無料アップグレードが1年間含まれています。ライセンス製品をお持ちのユーザーや評価版ユーザーは、無料で無制限のテクニカルサポートを受けられます。
+すべての Aspose ライセンスには、サブスクリプション期間中にリリースされる新バージョンや修正への無料アップグレードが 1 年間付帯します。ライセンス製品または評価版を使用しているユーザーは、無料かつ無制限のテクニカルサポートを受けられます。
 
 {{% /alert %}} 
 
-**評価版の制限**
+**Evaluation version limitations**
 
-* Aspose.Slidesの評価版（ライセンス未指定）は、完全な製品機能を提供しますが、文書のオープンおよび保存操作時に評価用のウォーターマークを挿入します。
-* プレゼンテーションスライドからテキストを抽出する際は、1スライドに制限されています。
+* Aspose.Slides の評価版（ライセンスが指定されていない）はフル機能を提供しますが、開くおよび保存する際に文書上部に評価用透かしが挿入されます。 
+* プレゼンテーション スライドからテキストを抽出する場合、1 スライドに限定されます。
 
 {{% alert color="primary" %}} 
 
-制限なしでAspose.Slidesをテストするには、**30日間の一時ライセンス**をリクエストできます。詳細については、[一時ライセンスの取得方法](https://purchase.aspose.com/temporary-license)ページをご覧ください。
+制限なしで Aspose.Slides をテストするには、**30-Day Temporary License**を取得できます。詳細は[How to get a Temporary License](https://purchase.aspose.com/temporary-license)のページをご覧ください。
 
 {{% /alert %}}
 
-## **Aspose.Slidesにおけるライセンス**
+## **Aspose.Slides のライセンス**
 
-* 評価版は、ライセンスを購入し、いくつかのコード行を追加するとライセンス版になります（ライセンスを適用するために）。
-* ライセンスは、製品名、ライセンスされている開発者の数、サブスクリプションの有効期限などの詳細を含むプレーンテキストのXMLファイルです。
-* ライセンスファイルはデジタル署名されているため、ファイルを変更しないでください。ファイルの内容に意図せず追加した改行すらも無効にします。
-* Aspose.Slides for .NET は通常、以下の場所でライセンスを探します：
+* 評価版は、ライセンスを購入し、数行のコードでライセンスを適用すると、ライセンス版になります。 
+* ライセンスはプレーンテキストの XML ファイルで、製品名、ライセンス対象開発者数、サブスクリプション有効期限などの情報が含まれます。 
+* ライセンスファイルはデジタル署名されているため、変更してはいけません。余分な改行を加えるだけでも無効になります。 
+* Aspose.Slides for .NET は通常、以下の場所でライセンスを検索します:
   * 明示的なパス
-  * コンポーネントのDLLが含まれるフォルダー（Aspose.Slidesに含まれています）
-  * コンポーネントのDLLを呼び出したアセンブリが含まれるフォルダー（Aspose.Slidesに含まれています）
-  * エントリーアセンブリ（あなたの.exe）が含まれるフォルダー
-  * コンポーネントのDLLを呼び出したアセンブリ内の埋め込みリソース（Aspose.Slidesに含まれています）。
-* 評価版に関連する制限を回避するには、Aspose.Slidesを使用する前にライセンスを設定する必要があります。アプリケーションまたはプロセスごとにライセンスを1回設定すれば大丈夫です。
+  * コンポーネントの DLL が格納されているフォルダー（Aspose.Slides に含まれる）
+  * コンポーネントの DLL を呼び出したアセンブリが格納されているフォルダー（Aspose.Slides に含まれる）
+  * エントリ アセンブリ（.exe）が格納されているフォルダー
+  * コンポーネントの DLL を呼び出したアセンブリに埋め込まれたリソース（Aspose.Slides に含まれる）
+* 評価版の制限を回避するには、Aspose.Slides を使用する前にライセンスを設定する必要があります。アプリケーションまたはプロセスごとに一度だけ設定すれば完了です。
 
 {{% alert color="primary" %}} 
 
-[メーターライセンス](https://docs.aspose.com/slides/net/metered-licensing/)を確認することをお勧めします。
+[Metered Licensing](https://docs.aspose.com/slides/net/metered-licensing/)をご覧ください。
 
 {{% /alert %}} 
 
+
 ## **ライセンスの適用**
-ライセンスは**ファイル**、**ストリーム**、または**埋め込みリソース**から読み込むことができます。
+ライセンスは **ファイル**、**ストリーム**、または **埋め込みリソース** からロードできます。 
 
 {{% alert color="primary" %}}
 
-Aspose.Slidesはライセンス操作のための[License](https://reference.aspose.com/slides/net/aspose.slides/license)クラスを提供しています。
+Aspose.Slides はライセンス操作用に [License](https://reference.aspose.com/slides/net/aspose.slides/license) クラスを提供します。
 
 {{% /alert %}} 
 
+{{% alert color="warning" %}} 
+
+新しいライセンスはバージョン 21.4 以降の Aspose.Slides のみで有効です。以前のバージョンは別のライセンスシステムを使用しており、これらのライセンスは認識されません。
+
+{{% /alert %}}
+
 ### **ファイル**
-ライセンスを設定する最も簡単な方法は、ライセンスファイルをコンポーネントのDLLが含まれる同じフォルダーに置き、パスを指定せずにファイル名のみを指定することです。
+最も簡単なライセンス設定方法は、ライセンスファイルをコンポーネントの DLL があるフォルダー（Aspose.Slides に含まれる）に置き、パスなしでファイル名だけを指定することです。
 
-このC#コードは、ライセンスファイルを設定する方法を示しています：
-
-```csharp
-// Licenseクラスをインスタンス化
+この C# コードは、ライセンス ファイルの設定方法を示しています:
+``` csharp
+// License クラスのインスタンスを作成します 
 Aspose.Slides.License license = new Aspose.Slides.License();
 
-// ライセンスファイルのパスを設定
+// ライセンス ファイルのパスを設定します
 license.SetLicense("Aspose.Slides.lic");
 ```
 
+
 {{% alert color="warning" %}} 
 
-ライセンスファイルを異なるディレクトリに置くと、[SetLicense](https://reference.aspose.com/slides/net/aspose.slides/license/setlicense/#setlicense_1)メソッドを呼び出す際、指定された明示的なパスの最後のライセンスファイル名は、ライセンスファイル名と同じでなければなりません。
+ライセンス ファイルを別のディレクトリに置く場合、[SetLicense](https://reference.aspose.com/slides/net/aspose.slides/license/setlicense/#setlicense_1) メソッドを呼び出す際に、指定した明示的パスの最後にあるファイル名が実際のライセンス ファイル名と一致している必要があります。
 
-たとえば、ライセンスファイル名を*Aspose.Slides.lic.xml*に変更することができます。この場合、コード内で、ファイルのパス（*Aspose.Slides.lic.xml*で終わる）を[SetLicense](https://reference.aspose.com/slides/net/aspose.slides/license/setlicense/#setlicense_1)メソッドに渡す必要があります。
+例として、ライセンス ファイル名を *Aspose.Slides.lic.xml* に変更できます。その場合、コード内で [SetLicense](https://reference.aspose.com/slides/net/aspose.slides/license/setlicense/#setlicense_1) メソッドに *Aspose.Slides.lic.xml* で終わるパスを渡す必要があります。
 
 {{% /alert %}}
 
 ### **ストリーム**
-ストリームからライセンスを読み込むことができます。このC#コードは、ストリームからライセンスを適用する方法を示しています：
-
-```csharp
-// Licenseクラスをインスタンス化
+ストリームからライセンスをロードできます。この C# コードは、ストリームからライセンスを適用する方法を示しています:
+``` csharp
+// ライセンス クラスのインスタンスを作成します 
 Aspose.Slides.License license = new Aspose.Slides.License();
 
-// ストリームを介してライセンスを設定
+// ストリームを介してライセンスを設定します
 license.SetLicense(myStream);
 ```
 
+
 ### **埋め込みリソース**
-アプリケーションにライセンスをパッケージ化して（紛失を避けるために）、コンポーネントのDLLを呼び出すアセンブリの1つにライセンスを埋め込みリソースとして追加します。
+ライセンスをアプリケーションに同梱（失くさないように）するには、コンポーネントの DLL を呼び出すアセンブリのいずれかに埋め込みリソースとしてライセンスを追加します（Aspose.Slides に含まれる）。
 
-これが、ライセンスファイルを埋め込みリソースとして追加する方法です：
+このようにライセンス ファイルを埋め込みリソースとして追加します:
 
-1. Visual Studioで、以下の手順でライセンス（.lic）ファイルをプロジェクトに追加します：**ファイル** > **既存アイテムの追加** > **追加**。
-2. **ソリューションエクスプローラー**でファイルを選択します。
-3. **プロパティ**ウィンドウで、**ビルドアクション**を**埋め込まれたリソース**に設定します。
-4. アセンブリに埋め込まれたライセンスにアクセスするには、ライセンスファイルを埋め込みリソースとしてプロジェクトに追加し、ライセンスファイル名を`SetLicense`メソッドに渡します。
+1. Visual Studio で、ライセンス（.lic）ファイルをプロジェクトに追加します。**File** > **Add Existing Item** > **Add** の順に操作してください。 
+2. **Solution Explorer** でファイルを選択します。 
+3. **Properties** ウィンドウで **Build Action** を **Embedded Resource** に設定します。 
+4. アセンブリに埋め込まれたライセンスにアクセスするには、プロジェクトにライセンス ファイルを埋め込みリソースとして追加し、`SetLicense` メソッドにライセンス ファイル名を渡します。 
 
-`License`クラスは自動的に埋め込まれたリソース内のライセンスファイルを見つけます。Microsoft .NET Frameworkの`System.Reflection.Assembly`クラスの`GetExecutingAssembly`および`GetManifestResourceStream`メソッドを呼び出す必要はありません。
+`License` クラスは埋め込みリソース内のライセンス ファイルを自動的に検索します。Microsoft .NET Framework の `System.Reflection.Assembly` クラスの `GetExecutingAssembly` や `GetManifestResourceStream` メソッドを呼び出す必要はありません。
 
-このC#コードは、埋め込まれたリソースとしてライセンスを設定する方法を示しています：
-
-```csharp
-// Licenseクラスをインスタンス化
+この C# コードは、埋め込みリソースとしてライセンスを設定する方法を示しています:
+``` csharp
+// ライセンス クラスをインスタンス化します
 Aspose.Slides.License license = new Aspose.Slides.License();
 
-// アセンブリに埋め込まれたライセンスファイル名を渡す
+// アセンブリに埋め込まれたライセンス ファイル名を渡します
 license.SetLicense("Aspose.Slides.lic");
 ```
 
+
 ## **ライセンスの検証**
 
-ライセンスが正しく設定されているか確認するために、検証できます。このC#コードは、ライセンスを検証する方法を示しています：
-
-```csharp
+ライセンスが正しく設定されているか確認するには、検証できます。この C# コードは、ライセンスを検証する方法を示しています:
+```c#
 Aspose.Slides.License license = new Aspose.Slides.License();
 
 license.SetLicense("Aspose.Slides.lic");
 
 if (license.IsLicensed())
 {
-    Console.WriteLine("ライセンスは有効です！");
+    Console.WriteLine("License is good!");
     Console.Read();
 }
 ```
 
-## **スレッドセーフ**
 
-{{% alert title="注意" color="warning" %}} 
+## **スレッド安全性**
 
-[license.SetLicense](https://reference.aspose.com/slides/net/aspose.slides/license/setlicense/)メソッドはスレッドセーフではありません。このメソッドを多くのスレッドから同時に呼び出す必要がある場合は、問題を避けるために同期プリミティブ（ロックなど）を使用することを検討してください。
+{{% alert title="Note" color="warning" %}} 
+
+[license.SetLicense](https://reference.aspose.com/slides/net/aspose.slides/license/setlicense/) メソッドはスレッド セーフではありません。このメソッドを多数のスレッドから同時に呼び出す必要がある場合、ロックなどの同期プリミティブを使用して問題を回避してください。 
 
 {{% /alert %}}
+
+## **FAQ**
+
+**完全にオフライン環境（インターネット接続なし）でライセンスを適用できますか？**
+
+はい。ライセンスの検証はローカルでライセンス ファイルを使用して行われるため、インターネット接続は不要です。
+
+**1 年間のサブスクリプションが期限切れになるとどうなりますか？ ライブラリは動作しなくなりますか？**
+
+いいえ。ライセンスは永久的です。サブスクリプション終了日以前にリリースされたバージョンは引き続き使用できますが、更新しない限り新しいリリースは利用できなくなります。

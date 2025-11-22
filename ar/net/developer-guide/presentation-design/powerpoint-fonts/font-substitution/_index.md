@@ -1,10 +1,10 @@
 ---
-title: استبدال الخطوط - PowerPoint C# API
-linktitle: استبدال الخطوط
+title: استبدال الخط - PowerPoint C# API
+linktitle: استبدال الخط
 type: docs
 weight: 70
 url: /ar/net/font-substitution/
-keywords: 
+keywords:
 - خط
 - خط بديل
 - PowerPoint
@@ -12,14 +12,14 @@ keywords:
 - C#
 - Csharp
 - Aspose.Slides for .NET
-description: تتيح لك واجهة برمجة تطبيقات PowerPoint C# استبدال الخطوط داخل العروض التقديمية
+description: يتيح لك API PowerPoint C# استبدال الخطوط داخل العروض التقديمية
 ---
 
-## **الحصول على استبدال الخطوط**
+## **الحصول على استبدال الخط**
 
-لتمكينك من اكتشاف الخطوط المستخدمة في العرض التقديمي والتي تم استبدالها خلال عملية عرض العرض، توفر Aspose.Slides طريقة [GetSubstitution](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getsubstitutions/) من واجهة [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/).
+لتمكينك من معرفة الخطوط التي يتم استبدالها أثناء عملية عرض العرض التقديمي، توفر Aspose.Slides طريقة [GetSubstitution](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getsubstitutions/) من الواجهة [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/).
 
-يوضح كود C# كيفية الحصول على جميع استبدالات الخطوط التي يتم تنفيذها عند عرض العرض:
+يعرض لك كود C# كيفية الحصول على جميع استبدالات الخط التي تُجرى عند عرض عرض تقديمي:
 ```c#
 using (Presentation pres = new Presentation(@"Presentation.pptx"))
 {
@@ -31,48 +31,76 @@ using (Presentation pres = new Presentation(@"Presentation.pptx"))
 ```
 
 
-## **تحديد قواعد استبدال الخطوط**
+## **ضبط قواعد استبدال الخط**
 
-تتيح لك Aspose.Slides تعيين قواعد للخطوط تحدد ما يجب القيام به في ظروف معينة (على سبيل المثال، عندما لا يمكن الوصول إلى خط معين) بهذه الطريقة:
+Aspose.Slides يسمح لك بتحديد قواعد للخطوط تحدد ما يجب القيام به في ظروف معينة (على سبيل المثال، عندما لا يمكن الوصول إلى الخط) بهذه الطريقة:
 
-1. تحميل العرض التقديمي المعني.
-2. تحميل الخط الذي سيتم استبداله.
-3. تحميل الخط الجديد.
-4. إضافة قاعدة للاستبدال.
-5. إضافة القاعدة إلى مجموعة قواعد استبدال الخطوط في العرض التقديمي.
-6. توليد صورة الشريحة لملاحظة التأثير.
+1. تحميل العرض التقديمي المناسب.  
+2. تحميل الخط الذي سيتم استبداله.  
+3. تحميل الخط الجديد.  
+4. إضافة قاعدة للاستبدال.  
+5. إضافة القاعدة إلى مجموعة قواعد استبدال الخط في العرض التقديمي.  
+6. إنشاء صورة الشريحة لملاحظة التأثير.
 
-يظهر هذا الكود C# عملية استبدال الخطوط:
-
+هذا كود C# يوضح عملية استبدال الخط:
 ```c#
-// يحمّل عرض تقديمي
-Presentation presentation = new Presentation("Fonts.pptx");
-
-// يحمّل الخط المصدر الذي سيتم استبداله
-IFontData sourceFont = new FontData("SomeRareFont");
-
-// يحمّل الخط الجديد
-IFontData destFont = new FontData("Arial");
-
-// يضيف قاعدة خط لاستبدال الخطوط
-IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-
-// يضيف القاعدة إلى مجموعة قواعد الخطوط البديلة
-IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-fontSubstRuleCollection.Add(fontSubstRule);
-
-// يضيف مجموعة قواعد الخطوط إلى قائمة القواعد
-presentation.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
-
-using (IImage image = presentation.Slides[0].GetImage(1f, 1f))
-{
-    // يحفظ الصورة على القرص بصيغة JPEG
-    image.Save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-}
+ // تحميل عرض تقديمي
+ Presentation presentation = new Presentation("Fonts.pptx");
+ 
+ // تحميل الخط المصدر الذي سيتم استبداله
+ IFontData sourceFont = new FontData("SomeRareFont");
+ 
+ // تحميل الخط الجديد
+ IFontData destFont = new FontData("Arial");
+ 
+ // إضافة قاعدة خط لاستبدال الخط
+ IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
+ 
+ // إضافة القاعدة إلى مجموعة قواعد استبدال الخطوط
+ IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
+ fontSubstRuleCollection.Add(fontSubstRule);
+ 
+ // إضافة مجموعة قواعد الخط إلى قائمة القواعد
+ presentation.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
+ 
+ using (IImage image = presentation.Slides[0].GetImage(1f, 1f))
+ {
+     // حفظ الصورة إلى القرص بتنسيق JPEG
+     image.Save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+ }
 ```
 
-{{%  alert title="ملاحظة"  color="warning"   %}} 
 
-قد ترغب في رؤية [**استبدال الخطوط**](/slides/ar/net/font-replacement/). 
-
+{{%  alert title="NOTE"  color="warning"   %}} 
+قد ترغب في الاطلاع على [**استبدال الخط**](/slides/ar/net/font-replacement/). 
 {{% /alert %}}
+
+## **الأسئلة المتكررة**
+
+**ما الفرق بين استبدال الخط واستبدال الخطوط؟**
+
+[الاستبدال](/slides/ar/net/font-replacement/) هو تجاوز قسري لخط بآخر عبر كامل العرض التقديمي. الاستبدال هو قاعدة تُفعل تحت شرط محدد، على سبيل المثال عندما يكون الخط الأصلي غير متوفر، ثم يُستخدم خط بديل معين.
+
+**متى تُطبق قواعد الاستبدال بدقة؟**
+
+تشارك القواعد في تسلسل [اختيار الخط](/slides/ar/net/font-selection-sequence/) القياسي الذي يُقيم أثناء التحميل والعرض والتحويل؛ إذا كان الخط المختار غير متوفر، يُطبق الاستبدال أو الاستبدال.
+
+**ما السلوك الافتراضي إذا لم يتم تكوين استبدال ولا استبدال خطوط وكان الخط مفقودًا على النظام؟**
+
+ستحاول المكتبة اختيار أقرب خط نظام متاح، مشابهًا لسلوك PowerPoint.
+
+**هل يمكنني إرفاق خطوط خارجية مخصصة وقت التشغيل لتجنب الاستبدال؟**
+
+نعم. يمكنك [إضافة خطوط خارجية](/slides/ar/net/custom-font/) وقت التشغيل بحيث تُعتبر المكتبة لهذه الخطوط عند الاختيار والعرض، بما في ذلك التحويلات اللاحقة.
+
+**هل توزع Aspose أي خطوط مع المكتبة؟**
+
+لا. لا توزع Aspose خطوطًا مدفوعة أو مجانية؛ أنت تضيف وتستخدم الخطوط وفقًا لتقديرك ومسؤوليتك.
+
+**هل هناك اختلافات في سلوك الاستبدال على Windows وLinux وmacOS؟**
+
+نعم. يبدأ اكتشاف الخطوط من دلائل خطوط نظام التشغيل. مجموعة الخطوط المتاحة افتراضيًا ومسارات البحث تختلف بين المنصات، مما يؤثر على التوفر والحاجة إلى الاستبدال.
+
+**كيف يجب أن أجهز البيئة لتقليل الاستبدال غير المتوقع أثناء التحويلات الدفعة؟**
+
+قم بمزامنة مجموعة الخطوط عبر الأجهزة أو الحاويات، [أضف الخطوط الخارجية](/slides/ar/net/custom-font/) المطلوبة للمستندات الناتجة، و[دمج الخطوط](/slides/ar/net/embedded-font/) في العروض التقديمية عندما يكون ذلك ممكنًا لتكون الخطوط المختارة متاحة أثناء العرض.

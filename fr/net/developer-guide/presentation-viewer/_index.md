@@ -1,180 +1,189 @@
----  
-title: Visionneuse de Présentation  
-type: docs  
-weight: 50  
-url: /fr/net/presentation-viewer/  
-keywords:  
-- voir présentation PowerPoint  
-- voir ppt  
-- voir PPTX  
-- C#  
-- Csharp  
-- Aspose.Slides pour .NET  
-description: "Voir la présentation PowerPoint en C# ou .NET"  
----  
+---
+title: Créer un visionneur de présentation en C#
+linktitle: Visionneur de présentation
+type: docs
+weight: 50
+url: /fr/net/presentation-viewer/
+keywords:
+- voir la présentation
+- visionneur de présentation
+- créer un visionneur de présentation
+- voir PPT
+- voir PPTX
+- voir ODP
+- PowerPoint
+- OpenDocument
+- C#
+- Csharp
+- Aspose.Slides for .NET
+description: "Apprenez à créer un visionneur de présentation personnalisé en .NET avec Aspose.Slides. Affichez facilement les fichiers PowerPoint (PPTX, PPT) et OpenDocument (ODP) sans Microsoft PowerPoint ni autre logiciel de bureautique."
+---
 
-Aspose.Slides pour .NET est utilisé pour créer des fichiers de présentation, complets avec des diapositives. Ces diapositives peuvent être visualisées en ouvrant les présentations avec Microsoft PowerPoint. Mais parfois, les développeurs peuvent également avoir besoin de voir les diapositives sous forme d'images dans leur visionneuse d'images préférée ou de créer leur propre visionneuse de présentation. Dans de tels cas, Aspose.Slides pour .NET vous permet d'exporter une diapositive individuelle en une image. Cet article décrit comment le faire.  
-## **Exemple en Direct**  
-Vous pouvez essayer l'application gratuite [**Visionneuse Aspose.Slides**](https://products.aspose.app/slides/viewer/) pour voir ce que vous pouvez implémenter avec l'API Aspose.Slides :  
+## **Vue d'ensemble**
 
-![powerpoint-in-aspose-viewer](powerpoint-in-aspose-viewer.png)  
+Aspose.Slides pour .NET est utilisé pour créer des fichiers de présentation contenant des diapositives. Ces diapositives peuvent être visualisées en ouvrant les présentations dans Microsoft PowerPoint, par exemple. Cependant, les développeurs peuvent parfois avoir besoin de visualiser les diapositives sous forme d'images dans leur visionneuse d'images préférée ou de les utiliser dans un visionneur de présentation personnalisé. Dans de tels cas, Aspose.Slides vous permet d'exporter des diapositives individuelles sous forme d'images. Cet article explique comment procéder.
 
-## **Générer une Image SVG à partir d'une Diapositive**  
-Pour générer une image SVG à partir d'une diapositive souhaitée avec Aspose.Slides.PPTX pour .NET, veuillez suivre les étapes ci-dessous :  
+## **Générer une image SVG à partir d'une diapositive**
 
-- Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
-- Obtenez la référence de la diapositive souhaitée en utilisant son ID ou son index.  
-- Obtenez l'image SVG dans un flux mémoire.  
-- Enregistrez le flux mémoire dans un fichier.  
+Pour générer une image SVG à partir d'une diapositive de présentation avec Aspose.Slides, suivez les étapes ci-dessous :
 
-```c#  
-// Instancier une classe Presentation qui représente le fichier de présentation  
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Obtenir une référence à la diapositive par son indice.
+1. Ouvrir un flux de fichier.
+1. Enregistrer la diapositive sous forme d'image SVG dans le flux de fichier.
+```c#
+int slideIndex = 0;
 
-using (Presentation pres = new Presentation("CreateSlidesSVGImage.pptx"))  
-{  
-    // Accéder à la première diapositive  
-    ISlide sld = pres.Slides[0];  
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ISlide slide = presentation.Slides[slideIndex];
 
-    // Créer un objet de flux mémoire  
-    MemoryStream SvgStream = new MemoryStream();  
+    using (FileStream svgStream = File.Create("output.svg"))
+    {
+        slide.WriteAsSvg(svgStream);
+    }
+}
+```
 
-    // Générer l'image SVG de la diapositive et la sauvegarder dans le flux mémoire  
-    sld.WriteAsSvg(SvgStream);  
-    SvgStream.Position = 0;  
 
-    // Sauvegarder le flux mémoire dans un fichier  
-    using (Stream fileStream = System.IO.File.OpenWrite("Aspose_out.svg"))  
-    {  
-        byte[] buffer = new byte[8 * 1024];  
-        int len;  
-        while ((len = SvgStream.Read(buffer, 0, buffer.Length)) > 0)  
-        {  
-            fileStream.Write(buffer, 0, len);  
-        }  
-    }  
-    SvgStream.Close();  
-}  
-```  
+## **Générer un SVG avec un ID de forme personnalisé**
 
-## **Générer un SVG avec des IDS de Forme Personnalisés**  
-Aspose.Slides pour .NET peut être utilisé pour générer [SVG ](https://docs.fileformat.com/page-description-language/svg/) à partir de diapos avec un ID de forme personnalisé. Pour cela, utilisez la propriété ID de [ISvgShape](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape), qui représente l'ID personnalisé des formes dans le SVG généré. CustomSvgShapeFormattingController peut être utilisé pour définir l'ID de la forme.  
+Aspose.Slides peut être utilisé pour générer un [SVG](https://docs.fileformat.com/page-description-language/svg/) à partir d'une diapositive avec un `ID` de forme personnalisé. Pour ce faire, utilisez la propriété Id de l'interface [ISvgShape](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape). La classe `CustomSvgShapeFormattingController` peut être utilisée pour définir l'ID de la forme.
+```c#
+int slideIndex = 0;
 
-```c#  
-using (Presentation pres = new Presentation("pptxFileName.pptx"))  
-{  
-    using (FileStream stream = new FileStream(outputPath, FileMode.OpenOrCreate))  
-    {  
-        SVGOptions svgOptions = new SVGOptions  
-        {  
-            ShapeFormattingController = new CustomSvgShapeFormattingController()  
-        };  
+using (Presentation presentation = new Presentation("sample.odp"))
+{
+    ISlide slide = presentation.Slides[slideIndex];
+    
+    SVGOptions svgOptions = new SVGOptions
+    {
+        ShapeFormattingController = new CustomSvgShapeFormattingController()
+    };
 
-        pres.Slides[0].WriteAsSvg(stream, svgOptions);  
-    }  
-}  
-```  
+    using (FileStream svgStream = File.Create("output.svg"))
+    {
+        slide.WriteAsSvg(svgStream, svgOptions);
+    }
+}
+```
 
-```c#  
-class CustomSvgShapeFormattingController : ISvgShapeFormattingController  
-{  
-    private int m_shapeIndex;  
+```c#
+class CustomSvgShapeFormattingController : ISvgShapeFormattingController
+{
+    private int m_shapeIndex;
 
-    public CustomSvgShapeFormattingController(int shapeStartIndex = 0)  
-    {  
-        m_shapeIndex = shapeStartIndex;  
-    }  
+    public CustomSvgShapeFormattingController(int shapeStartIndex = 0)
+    {
+        m_shapeIndex = shapeStartIndex;
+    }
 
-    public void FormatShape(ISvgShape svgShape, IShape shape)  
-    {  
-        svgShape.Id = string.Format("shape-{0}", m_shapeIndex++);  
-    }  
-}  
-```  
+    public void FormatShape(ISvgShape svgShape, IShape shape)
+    {
+        svgShape.Id = string.Format("shape-{0}", m_shapeIndex++);
+    }
+}
+```
 
-## **Créer une Image de Miniature des Diapositives**  
-Aspose.Slides pour .NET vous aide à générer des images miniatures des diapositives. Pour générer la miniature d'une diapositive souhaitée à l'aide d'Aspose.Slides pour .NET :  
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
-1. Obtenez la référence de n'importe quelle diapositive souhaitée en utilisant son ID ou son index.  
-1. Obtenez l'image miniature de la diapositive référencée à une échelle spécifiée.  
-1. Sauvegardez l'image miniature dans n'importe quel format d'image souhaité.  
+## **Créer une image miniature d'une diapositive**
 
-```c#  
-// Instancier une classe Presentation qui représente le fichier de présentation  
-using (Presentation pres = new Presentation("ThumbnailFromSlide.pptx"))  
-{  
-    // Accéder à la première diapositive  
-    ISlide sld = pres.Slides[0];  
+Aspose.Slides vous aide à générer des images miniatures de diapositives. Pour générer une miniature d'une diapositive avec Aspose.Slides, suivez les étapes ci-dessous :
 
-    // Créer une image à l'échelle complète  
-    using (IImage image = sld.GetImage(1f, 1f))  
-    {  
-        // Sauvegarder l'image sur le disque au format JPEG  
-        image.Save("Thumbnail_out.jpg", ImageFormat.Jpeg);  
-    }  
-}  
-```  
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Obtenir une référence à la diapositive par son indice.
+1. Créer une image miniature de la diapositive référencée à l'échelle souhaitée.
+1. Enregistrer l'image miniature dans le format d'image de votre choix.
+```c#
+int slideIndex = 0;
+float scaleX = 1;
+float scaleY = scaleX;
 
-## **Créer une Miniature avec des Dimensions Définies par l'Utilisateur**  
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
-1. Obtenez la référence de n'importe quelle diapositive souhaitée en utilisant son ID ou son index.  
-1. Obtenez l'image miniature de la diapositive référencée à une échelle spécifiée.  
-1. Sauvegardez l'image miniature dans n'importe quel format d'image souhaité.  
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ISlide slide = presentation.Slides[slideIndex];
 
-```c#  
-// Instancier une classe Presentation qui représente le fichier de présentation  
-using (Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx"))  
-{  
-    // Accéder à la première diapositive  
-    ISlide sld = pres.Slides[0];  
+    using (IImage image = slide.GetImage(scaleX, scaleY))
+    {
+        image.Save("output.jpg", ImageFormat.Jpeg);
+    }
+}
+```
 
-    // Dimension définie par l'utilisateur  
-    int desiredX = 1200;  
-    int desiredY = 800;  
 
-    // Obtenir la valeur mise à l'échelle de X et Y  
-    float ScaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;  
-    float ScaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;  
+## **Créer une miniature de diapositive avec des dimensions définies par l'utilisateur**
 
-    // Créer une image à l'échelle complète  
-    using (IImage image = sld.GetImage(ScaleX, ScaleY))  
-    {  
-        // Sauvegarder l'image sur le disque au format JPEG  
-        image.Save("Thumbnail2_out.jpg", ImageFormat.Jpeg);  
-    }  
-}  
-```  
+Pour créer une image miniature de diapositive avec des dimensions définies par l'utilisateur, suivez les étapes ci-dessous :
 
-## **Créer une Miniature à partir d'une Diapositive en Vue de Notes**  
-Pour générer la miniature de toute diapositive souhaitée en Vue de Notes à l'aide d'Aspose.Slides pour .NET :  
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Obtenir une référence à la diapositive par son indice.
+1. Générer une image miniature de la diapositive référencée avec les dimensions spécifiées.
+1. Enregistrer l'image miniature dans le format d'image de votre choix.
+```c#
+int slideIndex = 0;
+Size slideSize = new Size(1200, 800);
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
-1. Obtenez la référence de n'importe quelle diapositive souhaitée en utilisant son ID ou son index.  
-1. Obtenez l'image miniature de la diapositive référencée à une échelle spécifiée en Vue de Notes.  
-1. Sauvegardez l'image miniature dans n'importe quel format d'image souhaité.  
+using (Presentation presentation = new Presentation("sample.odp"))
+{
+    ISlide slide = presentation.Slides[slideIndex];
 
-Le code ci-dessous produit une miniature de la première diapositive d'une présentation en Vue de Notes.  
+    using (IImage image = slide.GetImage(slideSize))
+    {
+        image.Save("output.jpg", ImageFormat.Jpeg);
+    }
+}
+```
 
-```c#  
-// Instancier une classe Presentation qui représente le fichier de présentation  
-using (Presentation pres = new Presentation("ThumbnailFromSlideInNotes.pptx"))  
-{  
-    // Accéder à la première diapositive  
-    ISlide sld = pres.Slides[0];  
 
-    // Dimension définie par l'utilisateur  
-    int desiredX = 1200;  
-    int desiredY = 800;  
+## **Créer une miniature de diapositive avec des notes du présentateur**
 
-    // Obtenir la valeur mise à l'échelle de X et Y  
-    float ScaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;  
-    float ScaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;  
+Pour générer une miniature d'une diapositive avec des notes du présentateur à l'aide d'Aspose.Slides, suivez les étapes ci-dessous :
 
-    // Créer une image à l'échelle complète                
-    using (IImage image = sld.GetImage(ScaleX, ScaleY))  
-    {  
-        // Sauvegarder l'image sur le disque au format JPEG  
-        image.Save("Notes_tnail_out.jpg", ImageFormat.Jpeg);  
-    }  
-}  
-```  
+1. Créer une instance de la classe [RenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/renderingoptions/).
+1. Utiliser la propriété `RenderingOptions.SlidesLayoutOptions` pour définir la position des notes du présentateur.
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Obtenir une référence à la diapositive par son indice.
+1. Générer une image miniature de la diapositive référencée en utilisant les options de rendu.
+1. Enregistrer l'image miniature dans le format d'image de votre choix.
+```c#
+int slideIndex = 0;
+
+RenderingOptions renderingOptions = new RenderingOptions
+{
+    SlidesLayoutOptions = new NotesCommentsLayoutingOptions
+    {
+        NotesPosition = NotesPositions.BottomTruncated
+    }
+};
+
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ISlide slide = presentation.Slides[slideIndex];
+
+    using (IImage image = slide.GetImage(renderingOptions))
+    {
+        image.Save("output.png", ImageFormat.Png);
+    }
+}
+```
+
+
+## **Exemple en direct**
+
+Essayez l'application gratuite [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) pour voir ce que vous pouvez implémenter avec l'API Aspose.Slides :
+
+[![Online PowerPoint Viewer](online-PowerPoint-viewer.png)](https://products.aspose.app/slides/viewer/)
+
+## **FAQ**
+
+**Puis-je intégrer un visionneur de présentation dans une application web ASP.NET ?**
+
+Oui. Vous pouvez utiliser Aspose.Slides côté serveur pour rendre les diapositives sous forme d'images ou de HTML et les afficher dans le navigateur. Les fonctionnalités de navigation et de zoom peuvent être implémentées avec JavaScript pour une expérience interactive.
+
+**Quelle est la meilleure façon d'afficher les diapositives dans un visionneur .NET personnalisé ?**
+
+L'approche recommandée consiste à rendre chaque diapositive sous forme d'image (par ex. PNG ou SVG) ou à la convertir en HTML à l'aide d'Aspose.Slides, puis à afficher le résultat dans une boîte d'image (pour le bureau) ou un conteneur HTML (pour le web).
+
+**Comment gérer de grandes présentations contenant de nombreuses diapositives ?**
+
+Pour les présentations volumineuses, envisagez le chargement paresseux ou le rendu à la demande des diapositives. Cela signifie générer le contenu d'une diapositive uniquement lorsque l'utilisateur y accède, réduisant ainsi la mémoire et le temps de chargement.

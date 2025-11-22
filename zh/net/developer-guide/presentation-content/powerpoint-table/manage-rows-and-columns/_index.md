@@ -5,32 +5,32 @@ weight: 20
 url: /zh/net/manage-rows-and-columns/
 keywords: "表格, 表格行和列, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中管理 PowerPoint 演示文稿中的表格行和列"
-
 ---
 
-为了让您能够在 PowerPoint 演示文稿中管理表格的行和列，Aspose.Slides 提供了 [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) 类， [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) 接口和许多其他类型。
+为了让您在 PowerPoint 演示文稿中管理表格的行和列，Aspose.Slides 提供了 [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) 类、[ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) 接口以及许多其他类型。 
 
-## **将第一行设置为标题**
+## **将首行设为标题**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例并加载演示文稿。
-2. 通过索引获取幻灯片的引用。
-3. 创建一个 [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) 对象并将其设置为 null。
-4. 遍历所有 [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) 对象以查找相关表格。
-5. 将表格的第一行设置为其标题。
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例并加载演示文稿。 
+2. 通过索引获取幻灯片的引用。 
+3. 创建一个 [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) 对象并将其设为 null。 
+4. 遍历所有 [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) 对象以查找相关表格。 
+5. 将表格的首行设为标题行。 
 
-以下 C# 代码显示了如何将表格的第一行设置为其标题：
-
+下面的 C# 代码演示如何将表格的首行设为标题行：
 ```c#
 // 实例化 Presentation 类
+// 访问第一张幻灯片
+// 初始化 null TableEx
+// 遍历形状并将引用设置为表格
+// 将表格的第一行设为标题行
+// 将演示文稿保存到磁盘
 Presentation pres = new Presentation("table.pptx");
 
-// 访问第一张幻灯片
 ISlide sld = pres.Slides[0];
 
-// 初始化 null TableEx
 ITable tbl = null;
 
-// 遍历形状并设置对表格的引用
 foreach (IShape shp in sld.Shapes)
 {
     if (shp is ITable)
@@ -39,63 +39,60 @@ foreach (IShape shp in sld.Shapes)
     }
 }
 
-// 将表格的第一行设置为其标题
 tbl.FirstRow = true;
 
-// 将演示文稿保存到磁盘
 pres.Save("First_row_header.pptx", SaveFormat.Pptx);
 ```
 
 
 ## **克隆表格的行或列**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例并加载演示文稿，
-2. 通过索引获取幻灯片的引用。
-3. 定义一个 `columnWidth` 数组。
-4. 定义一个 `rowHeight` 数组。
-5. 通过 [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) 方法将 [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) 对象添加到幻灯片。
-6. 克隆表格行。
-7. 克隆表格列。
-8. 保存修改后的演示文稿。
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例并加载演示文稿， 
+2. 通过索引获取幻灯片的引用。 
+3. 定义一个 `columnWidth` 数组。 
+4. 定义一个 `rowHeight` 数组。 
+5. 通过 [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) 方法向幻灯片添加一个 [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) 对象。 
+6. 克隆表格行。 
+7. 克隆表格列。 
+8. 保存修改后的演示文稿。 
 
-以下 C# 代码显示了如何克隆 PowerPoint 表格的行或列：
-
+下面的 C# 代码演示如何克隆 PowerPoint 表格的行或列：
 ```c#
-// 实例化 Presentation 类
+ // 实例化 Presentation 类
 using (Presentation presentation = new Presentation("Test.pptx"))
 {
     // 访问第一张幻灯片
     ISlide sld = presentation.Slides[0];
 
-    // 定义具有宽度的列和具有高度的行
+    // 定义列宽和行高
     double[] dblCols = { 50, 50, 50 };
     double[] dblRows = { 50, 30, 30, 30, 30 };
 
-    // 向幻灯片添加一个表格形状
+    // 向幻灯片添加表格形状
     ITable table = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
 
-    // 向第 1 行第 1 列添加一些文本
-    table[0, 0].TextFrame.Text = "第 1 行 第 1 列";
+    // 向第1行第1列单元格添加文本
+    table[0, 0].TextFrame.Text = "Row 1 Cell 1";
 
-    // 向第 1 行第 2 列添加一些文本
-    table[1, 0].TextFrame.Text = "第 1 行 第 2 列";
+    // 向第1行第2列单元格添加文本
+    table[1, 0].TextFrame.Text = "Row 1 Cell 2";
 
-    // 在表格末尾克隆第 1 行
+    // 在表格末尾克隆第1行
     table.Rows.AddClone(table.Rows[0], false);
 
-    // 向第 2 行第 1 列添加一些文本
-    table[0, 1].TextFrame.Text = "第 2 行 第 1 列";
+    // 向第2行第1列单元格添加文本
+    table[0, 1].TextFrame.Text = "Row 2 Cell 1";
 
-    // 向第 2 行第 2 列添加一些文本
-    table[1, 1].TextFrame.Text = "第 2 行 第 2 列";
+    // 向第2行第2列单元格添加文本
+    table[1, 1].TextFrame.Text = "Row 2 Cell 2";
 
-    // 将第 2 行克隆为表格的第 4 行
+    // 将第2行克隆为表格的第4行
     table.Rows.InsertClone(3,table.Rows[1], false);
 
-    // 在末尾克隆第 1 列
+    // 在末尾克隆第一列
     table.Columns.AddClone(table.Columns[0], false);
 
-    // 在第 4 列索引处克隆第 2 列
+    // 在第4列位置克隆第2列
     table.Columns.InsertClone(3,table.Columns[1], false);
     
     // 将演示文稿保存到磁盘 
@@ -103,19 +100,19 @@ using (Presentation presentation = new Presentation("Test.pptx"))
 }
 ```
 
-## **从表中移除行或列**
+
+## **从表格中删除行或列**
 
 1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例并加载演示文稿， 
 2. 通过索引获取幻灯片的引用。 
 3. 定义一个 `columnWidth` 数组。 
 4. 定义一个 `rowHeight` 数组。 
-5. 通过 [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) 方法将 [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) 对象添加到幻灯片。
-6. 移除表格行。
-7. 移除表格列。
-8. 保存修改后的演示文稿。
+5. 通过 [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) 方法向幻灯片添加一个 [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) 对象。 
+6. 删除表格行。 
+7. 删除表格列。 
+8. 保存修改后的演示文稿。 
 
-以下 C# 代码显示了如何从表中移除行或列：
-
+下面的 C# 代码演示如何从表格中删除行或列：
 ```c#
 Presentation pres = new Presentation();
 
@@ -129,18 +126,18 @@ table.Columns.RemoveAt(1, false);
 pres.Save("TestTable_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
+
 ## **在表格行级别设置文本格式**
 
 1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例并加载演示文稿， 
 2. 通过索引获取幻灯片的引用。 
-3. 从幻灯片访问相关 [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) 对象。 
-4. 设置第一行单元格的 [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/)。 
-5. 设置第一行单元格的 [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) 和 [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/)。 
+3. 从幻灯片中获取相关的 [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) 对象。 
+4. 设置首行单元格的 [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/)。 
+5. 设置首行单元格的 [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) 和 [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/)。 
 6. 设置第二行单元格的 [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/)。 
-7. 保存修改后的演示文稿。
+7. 保存修改后的演示文稿。 
 
-以下 C# 代码演示了该操作。
-
+下面的 C# 代码演示此操作。
 ```c#
 // 创建 Presentation 类的实例
 Presentation presentation = new Presentation();
@@ -160,7 +157,7 @@ paragraphFormat.Alignment = TextAlignment.Right;
 paragraphFormat.MarginRight = 20;
 someTable.Rows[0].SetTextFormat(paragraphFormat);
 
-// 设置第二行单元格的文本垂直类型
+// 设置第二行单元格的文本垂直方向类型
 TextFrameFormat textFrameFormat = new TextFrameFormat();
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
 someTable.Rows[1].SetTextFormat(textFrameFormat);
@@ -169,18 +166,18 @@ someTable.Rows[1].SetTextFormat(textFrameFormat);
 presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
+
 ## **在表格列级别设置文本格式**
 
 1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例并加载演示文稿， 
 2. 通过索引获取幻灯片的引用。 
-3. 从幻灯片访问相关 [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) 对象。 
-4. 设置第一列单元格的 [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/)。 
-5. 设置第一列单元格的 [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) 和 [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/)。 
+3. 从幻灯片中获取相关的 [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) 对象。 
+4. 设置首列单元格的 [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/)。 
+5. 设置首列单元格的 [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) 和 [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/)。 
 6. 设置第二列单元格的 [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/)。 
-7. 保存修改后的演示文稿。
+7. 保存修改后的演示文稿。 
 
-以下 C# 代码演示了该操作：
-
+下面的 C# 代码演示此操作： 
 ```c#
 // 创建 Presentation 类的实例
 Presentation pres = new Presentation();
@@ -200,20 +197,19 @@ paragraphFormat.Alignment = TextAlignment.Right;
 paragraphFormat.MarginRight = 20;
 someTable.Columns[0].SetTextFormat(paragraphFormat);
 
-// 设置第二列单元格的文本垂直类型
+// 设置第二列单元格的文本垂直方向类型
 TextFrameFormat textFrameFormat = new TextFrameFormat();
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
 someTable.Columns[1].SetTextFormat(textFrameFormat);
 
 // 将演示文稿保存到磁盘
 pres.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-
 ```
+
 
 ## **获取表格样式属性**
 
-Aspose.Slides 允许您检索表格的样式属性，以便您可以将这些细节用于另一个表格或其他地方。以下 C# 代码展示了如何从表格预设样式中获取样式属性：
-
+Aspose.Slides 允许您检索表格的样式属性，以便在其他表格或其他位置使用这些详细信息。下面的 C# 代码演示如何从表格预设样式获取样式属性： 
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -222,3 +218,18 @@ using (Presentation pres = new Presentation())
     pres.Save("table.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**我可以将已创建的表格应用 PowerPoint 主题/样式吗？**
+
+可以。表格会继承幻灯片/布局/母版的主题，您仍然可以在此基础上覆盖填充、边框和文字颜色。
+
+**我可以像 Excel 那样对表格行进行排序吗？**
+
+不，Aspose.Slides 表格没有内置的排序或筛选功能。请先在内存中对数据进行排序，然后按照该顺序重新填充表格行。
+
+**我可以在保持特定单元格自定义颜色的同时使用带状（条纹）列吗？**
+
+可以。开启带状列后，再对特定单元格应用本地格式；单元格级别的格式会覆盖表格样式。

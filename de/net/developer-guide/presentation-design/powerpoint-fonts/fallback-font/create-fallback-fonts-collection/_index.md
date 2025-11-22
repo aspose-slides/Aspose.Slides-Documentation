@@ -1,20 +1,21 @@
 ---
-title: Erstellen einer Fallback-Schriftarten-Sammlung
+title: Fallback-Schriftarten-Sammlung erstellen
 type: docs
 weight: 20
 url: /de/net/create-fallback-fonts-collection/
-keywords: "Fallback-Schriftarten-Sammlung, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
+keywords: "Fallback-Schriftarten-Sammlung, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides for .NET"
 description: "Fallback-Schriftarten-Sammlung in PowerPoint in C# oder .NET"
 ---
 
-Instanzen der [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule) Klasse können in der [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) organisiert werden, die das [IFontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontfallbackrulescollection) Interface implementiert. Es ist möglich, Regeln zur Sammlung hinzuzufügen oder zu entfernen.
+## **Fallback-Regeln anwenden**
 
-Diese Sammlung kann dann der [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) Eigenschaft der [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager) Klasse zugewiesen werden. FontsManager steuert die Schriftarten in der Präsentation. Erfahren Sie mehr [Über FontsManager und FontsLoader](/slides/de/net/about-fontsmanager-and-fontsloader/).
+Instanzen der Klasse [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule) können in [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) organisiert werden, die das [IFontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontfallbackrulescollection) Interface implementiert. Es ist möglich, Regeln zur Sammlung hinzuzufügen oder zu entfernen.
 
-Jede [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) hat eine [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/fontsmanager) Eigenschaft mit seiner eigenen Instanz der FontsManager-Klasse.
+Dann kann diese Sammlung der Eigenschaft [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) der Klasse [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager) zugewiesen werden. FontsManager steuert die Schriften in der gesamten Präsentation. Erfahren Sie mehr [Über FontsManager und FontsLoader](/slides/de/net/about-fontsmanager-and-fontsloader/).
 
-Hier ist ein Beispiel, wie man eine Fallback-Schriftarten-Regelsammlung erstellt und diese in den FontsManager einer bestimmten Präsentation zuweist:  
+Jede [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) hat eine [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/fontsmanager)‑Eigenschaft mit ihrer eigenen Instanz der FontsManager‑Klasse.
 
+Hier ein Beispiel, wie man eine Sammlung von Fallback‑Schrift‑Regeln erstellt und sie dem FontsManager einer bestimmten Präsentation zuweist:  
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -27,8 +28,27 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Nachdem der FontsManager mit der Fallback-Schriftarten-Sammlung initialisiert wurde, werden die Fallback-Schriftarten während der Präsentationsgerendering angewendet.
+
+Nachdem der FontsManager mit einer Fallback‑Schrift‑Sammlung initialisiert wurde, werden die Fallback‑Schriften während der Render­ung der Präsentation angewendet.
 
 {{% alert color="primary" %}} 
-Erfahren Sie mehr darüber, wie Sie eine [Präsentation mit Fallback-Schriftart rendern](/slides/de/net/render-presentation-with-fallback-font/).
+Erfahren Sie mehr, wie man [Präsentation mit Fallback‑Schrift rendern](/slides/de/net/render-presentation-with-fallback-font/) verwendet.
 {{% /alert %}}
+
+## **FAQ**
+
+**Werden meine Fallback‑Regeln in die PPTX‑Datei eingebettet und nach dem Speichern in PowerPoint sichtbar sein?**
+
+Nein. Fallback‑Regeln sind Laufzeit‑Render‑Einstellungen; sie werden nicht in die PPTX serialisiert und erscheinen nicht in der PowerPoint‑Benutzeroberfläche.
+
+**Wird Fallback auf Text in SmartArt, WordArt, Diagrammen und Tabellen angewendet?**
+
+Ja. Der gleiche Glyph‑Substitutions‑Mechanismus wird für jeglichen Text in diesen Objekten verwendet.
+
+**Stellt Aspose irgendwelche Schriften mit der Bibliothek bereit?**
+
+Nein. Sie fügen Schriften eigenständig hinzu und verwenden sie auf eigene Verantwortung.
+
+**Können Ersatz/ Substitution für fehlende Schriften und Fallback für fehlende Glyphen zusammen verwendet werden?**
+
+Ja. Sie sind unabhängige Phasen derselben Schrift‑Auflösungs‑Pipeline: zuerst löst die Engine die Verfügbarkeit von Schriften ([replacement](/slides/de/net/font-replacement/)/[substitution](/slides/de/net/font-substitution/)), dann füllt Fallback fehlende Glyphen in verfügbaren Schriften.

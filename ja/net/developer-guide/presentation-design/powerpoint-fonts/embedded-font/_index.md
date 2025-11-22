@@ -1,37 +1,36 @@
 ---
-title: 埋め込みフォント - PowerPoint C# API
-linktitle: 埋め込みフォント
+title: PowerPointでC#を使用したフォント埋め込み
+linktitle: フォント埋め込み
 type: docs
 weight: 40
 url: /ja/net/embedded-font/
 keywords:
-- フォント
-- 埋め込みフォント
-- フォントの追加
-- PowerPoint
+- フォント埋め込み
+- PowerPoint C#
+- フォント追加
 - プレゼンテーション
-- C#
-- Csharp
 - Aspose.Slides for .NET
-description: "C#または.NETでPowerPointプレゼンテーションに埋め込みフォントを使用する"
+description: "C# と .NET を使用して PowerPoint プレゼンテーションにフォントを埋め込み、追加、管理する方法を学びます"
 ---
 
-**PowerPointの埋め込みフォント**は、プレゼンテーションを任意のシステムやデバイスで正しく表示させたいときに便利です。作業に創造性を発揮してサードパーティのフォントや非標準のフォントを使用した場合、フォントを埋め込む理由はさらに増えます。そうしない場合（埋め込みフォントなし）、スライド上のテキストや数字、レイアウト、スタイルなどが変更されたり、混乱を招く四角形に変わる可能性があります。
 
-[FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/) クラス、[FontData](https://reference.aspose.com/slides/net/aspose.slides/fontdata/) クラス、[Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) クラス、およびそれらのインターフェイスには、PowerPointプレゼンテーションで埋め込みフォントを操作するために必要なプロパティやメソッドのほとんどが含まれています。
+**PowerPoint へのフォント埋め込み** は、プレゼンテーションがさまざまなシステムでも意図した外観を維持できるようにします。独自のフォントでクリエイティブに表現する場合でも、標準フォントを使用する場合でも、フォントを埋め込むことでテキストやレイアウトの崩れを防止できます。
 
-## **プレゼンテーションから埋め込みフォントを取得または削除する**
+サードパーティや非標準のフォントを使用した場合、さらに埋め込む理由が増えます。埋め込みがない場合、スライド上のテキストや数字、レイアウト、スタイリングなどが変わったり、意味不明な四角形に置き換わる可能性があります。
 
-Aspose.Slidesは、プレゼンテーションに埋め込まれているフォントを取得（または確認）するための [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts) メソッドを提供しています（[FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/) クラスによって公開）。フォントを削除するには、同じクラスによって公開されている [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont) メソッドを使用します。
+以下のクラスを利用して埋め込みフォントを管理します: [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/), [FontData](https://reference.aspose.com/slides/net/aspose.slides/fontdata/), および [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/)。
 
-このC#コードは、プレゼンテーションから埋め込みフォントを取得および削除する方法を示しています：
+## **埋め込みフォントの取得と削除**
 
+プレゼンテーションから埋め込みフォントを簡単に取得または削除するには、[GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts) と [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont) メソッドを使用します。
+
+この C# コードは、プレゼンテーションから埋め込みフォントを取得および削除する方法を示しています:
 ```c#
 using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // 埋め込み "FunSized" フォントを使用するテキストフレームを含むスライドをレンダリングします
+    // 埋め込み "FunSized" を使用したテキストフレームを含むスライドをレンダリングします
     using (IImage image = slide.GetImage(new Size(960, 720)))
     {
         image.Save("picture1_out.png", ImageFormat.Png);
@@ -41,16 +40,16 @@ using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
 
     IFontData[] embeddedFonts = fontsManager.GetEmbeddedFonts();
 
-    // "Calibri"フォントを見つける
+    // "Calibri" フォントを検索します
     IFontData funSizedEmbeddedFont = Array.Find(embeddedFonts, delegate (IFontData data)
     {
         return data.FontName == "Calibri";
     });
 
-    // "Calibri"フォントを削除する
+    // "Calibri" フォントを削除します
     fontsManager.RemoveEmbeddedFont(funSizedEmbeddedFont);
 
-    // プレゼンテーションをレンダリングします；"Calibri"フォントは既存のフォントに置き換えられます
+    // プレゼンテーションをレンダリングします；"Calibri" フォントは既存のフォントに置き換えられます
     using (IImage image = slide.GetImage(new Size(960, 720)))
     {
         image.Save("picture2_out.png", ImageFormat.Png);
@@ -61,15 +60,13 @@ using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
 }
 ```
 
-## **プレゼンテーションに埋め込みフォントを追加する**
-[EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) 列挙体と、[AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/) メソッドの2つのオーバーロードを使用すると、プレゼンテーションにフォントを埋め込むための好みの（埋め込み）ルールを選択できます。このC#コードは、プレゼンテーションにフォントを埋め込みおよび追加する方法を示しています：
 
+## **埋め込みフォントの追加**
+
+[EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) 列挙体と [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/) メソッドの 2 つのオーバーロードを使用して、好みの埋め込みルールを選択し、プレゼンテーションにフォントを埋め込むことができます。この C# コードは、フォントを埋め込んで追加する方法を示しています:
 ```c#
-// プレゼンテーションを読み込む
+// プレゼンテーションをロードします
 Presentation presentation = new Presentation("Fonts.pptx");
-
-// 置き換えるソースフォントを読み込む
-IFontData sourceFont = new FontData("Arial");
 
 IFontData[] allFonts = presentation.FontsManager.GetFonts();
 IFontData[] embeddedFonts = presentation.FontsManager.GetEmbeddedFonts();
@@ -81,16 +78,16 @@ foreach (IFontData font in allFonts)
     }
 }
 
-// プレゼンテーションをディスクに保存する
+// プレゼンテーションをディスクに保存します
 presentation.Save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
 ```
 
-## **埋め込みフォントを圧縮する**
 
-プレゼンテーションに埋め込まれているフォントを圧縮してファイルサイズを減らすために、Aspose.Slidesは [CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) メソッドを提供しています（[Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) クラスによって公開）。
+## **埋め込みフォントの圧縮**
 
-このC#コードは、埋め込みPowerPointフォントを圧縮する方法を示しています：
+[CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) を使用して埋め込みフォントを圧縮し、ファイルサイズを最適化します。
 
+圧縮のサンプルコード:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -98,3 +95,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
     pres.Save("pres-out.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**埋め込みが行われていても、プレゼンテーション内の特定のフォントがレンダリング時に置き換えられるかどうかは、どのように確認できますか？**
+
+フォントマネージャーの [置換情報](/slides/ja/net/font-substitution/) と [フォールバック/置換ルール](/slides/ja/net/fallback-font/) を確認してください。フォントが利用できない、または制限されている場合はフォールバックが使用されます。
+
+**Arial や Calibri といった「システム」フォントを埋め込む価値はありますか？**
+
+通常は不要です。これらのフォントはほとんどの環境で利用可能です。ただし、Docker や事前にフォントがインストールされていない Linux サーバーなど、限られた環境で完全な移植性を確保したい場合は、システムフォントを埋め込むことで予期せぬ置換のリスクを回避できます。

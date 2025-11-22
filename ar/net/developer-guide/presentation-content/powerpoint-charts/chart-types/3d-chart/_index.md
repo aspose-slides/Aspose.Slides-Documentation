@@ -6,39 +6,38 @@ keywords: "مخطط ثلاثي الأبعاد, rotationX, rotationY, depthpercen
 description: "تعيين rotationX و rotationY و depthpercents لمخطط ثلاثي الأبعاد في عرض PowerPoint باستخدام C# أو .NET"
 ---
 
-## **تعيين خصائص RotationX و RotationY و DepthPercents لمخطط ثلاثي الأبعاد**
-توفر Aspose.Slides for .NET واجهة برمجة تطبيقات بسيطة لتعيين هذه الخصائص. سيساعدك المقال التالي في كيفية تعيين خصائص مختلفة مثل دوران X و Y، و **DepthPercents** وغيرها. الشفرة التجريبية تطبق تعيين الخصائص المذكورة أعلاه.
+## **تعيين خصائص RotationX و RotationY و DepthPercents للمخطط ثلاثي الأبعاد**
+توفر Aspose.Slides for .NET واجهة برمجة تطبيقات بسيطة لتعيين هذه الخصائص. سيساعدك المقال التالي على كيفية تعيين خصائص مختلفة مثل دوران X وY و**DepthPercents** وما إلى ذلك. يوضح الكود النموذجي كيفية تطبيق الإعدادات المذكورة أعلاه.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 1. الوصول إلى الشريحة الأولى.
-1. إضافة مخطط مع بيانات افتراضية.
+1. إضافة مخطط ببيانات افتراضية.
 1. تعيين خصائص Rotation3D.
 1. كتابة العرض المعدل إلى ملف PPTX.
-
 ```c#
-// إنشاء نسخة من فئة Presentation
+// إنشاء كائن من فئة Presentation
 Presentation presentation = new Presentation();
            
 // الوصول إلى الشريحة الأولى
 ISlide slide = presentation.Slides[0];
 
-// إضافة مخطط مع بيانات افتراضية
+// إضافة مخطط ببيانات افتراضية
 IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn3D, 0, 0, 500, 500);
 
 // تعيين فهرس ورقة بيانات المخطط
 int defaultWorksheetIndex = 0;
 
-// الحصول على ورقة بيانات المخطط
+// الحصول على ورقة عمل بيانات المخطط
 IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
-// إضافة سلاسل
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "السلسلة 1"), chart.Type);
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "السلسلة 2"), chart.Type);
+// إضافة سلسلة
+chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
+chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
 
 // إضافة فئات
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "الفئة 1"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "الفئة 2"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "الفئة 3"));
+chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
+chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
+chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
 
 // تعيين خصائص Rotation3D
 chart.Rotation3D.RightAngleAxes = true;
@@ -60,6 +59,21 @@ series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3
 // تعيين قيمة OverLap
 series.ParentSeriesGroup.Overlap = 100;         
 
-// كتابة العرض إلى القرص
+// حفظ العرض على القرص
 presentation.Save("Rotation3D_out.pptx", SaveFormat.Pptx);
 ```
+
+
+## **FAQ**
+
+**ما أنواع المخططات التي تدعم وضع 3D في Aspose.Slides؟**
+
+يدعم Aspose.Slides المتغيرات ثلاثية الأبعاد من المخططات العمودية، بما في ذلك Column 3D و Clustered Column 3D و Stacked Column 3D و 100% Stacked Column 3D، إلى جانب الأنواع الثلاثية الأبعاد المرتبطة المعروضة عبر تعداد [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/). للحصول على قائمة دقيقة ومحدثة، راجع أعضاء [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) في مرجع API للإصدار المثبت لديك.
+
+**هل يمكن الحصول على صورة نقطية لمخطط 3D لتضمينها في تقرير أو على الويب؟**
+
+نعم. يمكنك تصدير المخطط إلى صورة عبر [chart API](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) أو [تحويل الشريحة بالكامل](/slides/ar/net/convert-powerpoint-to-png/) إلى صيغ مثل PNG أو JPEG. هذا مفيد عندما تحتاج إلى معاينة دقيقة بالبكسل أو ترغب في تضمين المخطط في مستندات أو لوحات معلومات أو صفحات ويب دون الحاجة إلى PowerPoint.
+
+**ما مدى كفاءة بناء وعرض المخططات ثلاثية الأبعاد الكبيرة؟**
+
+تعتمد الأداء على حجم البيانات وتعقيد الرسوم. للحصول على أفضل النتائج، احرص على تقليل التأثيرات ثلاثية الأبعاد، وتجنب القوام الثقيلة على الجدران ومناطق الرسم، وقم بتقليل عدد النقاط في كل سلسلة قدر الإمكان، وقم بالعرض بدقة وأبعاد مناسبة لتتناسب مع شاشة العرض أو متطلبات الطباعة.

@@ -1,63 +1,84 @@
 ---
-title: Diseño de Diapositivas
+title: Aplicar o cambiar un diseño de diapositiva en C#
+linktitle: Diseño de diapositiva
 type: docs
 weight: 60
 url: /es/net/slide-layout/
-keyword: "Establecer tamaño de diapositiva, configurar opciones de diapositiva, especificar tamaño de diapositiva, visibilidad del pie de página, pie de página secundario, escalado de contenido, tamaño de página, C#, Csharp, .NET, Aspose.Slides"
-description: "Establecer el tamaño y las opciones de diapositivas de PowerPoint en C# o .NET"
+keywords:
+- diseño de diapositiva
+- diseño de contenido
+- marcador de posición
+- diseño de presentación
+- diseño de diapositiva
+- diseño sin usar
+- visibilidad del pie de página
+- diapositiva de título
+- título y contenido
+- encabezado de sección
+- dos contenidos
+- comparación
+- solo título
+- diseño en blanco
+- contenido con leyenda
+- imagen con leyenda
+- título y texto vertical
+- título vertical y texto
+- C#
+- .NET
+- Aspose.Slides
+description: "Aprenda a administrar y personalizar los diseños de diapositivas en Aspose.Slides para .NET. Explore los tipos de diseño, el control de marcadores de posición, la visibilidad del pie de página y la manipulación de diseños mediante ejemplos de código en C#."
 ---
 
-Un diseño de diapositiva contiene los cuadros de marcador de posición y la información de formato para todo el contenido que aparece en una diapositiva. El diseño determina los marcadores de posición de contenido disponibles y dónde se colocan.
+## **Descripción general**
 
-Los diseños de diapositivas permiten crear y diseñar presentaciones rápidamente (ya sean simples o complejas). Estos son algunos de los diseños de diapositivas más populares utilizados en presentaciones de PowerPoint: 
+Un diseño de diapositiva define la disposición de los cuadros de marcadores de posición y el formato del contenido en una diapositiva. Controla qué marcadores de posición están disponibles y dónde aparecen. Los diseños de diapositiva le ayudan a crear presentaciones de forma rápida y coherente—ya sea que esté creando algo simple o más complejo. Algunos de los diseños de diapositiva más comunes en PowerPoint incluyen:
 
-* **Diseño de Diapositiva de Título**. Este diseño consta de dos marcadores de posición de texto. Un marcador de posición es para el título y el otro es para el subtítulo. 
-* **Diseño de Título y Contenido**. Este diseño contiene un marcador de posición relativamente pequeño en la parte superior para el título y un marcador de posición más grande para el contenido principal (gráfico, párrafos, lista con viñetas, lista numerada, imágenes, etc).
-* **Diseño en Blanco**. Este diseño carece de marcadores de posición, por lo que permite crear elementos desde cero.
+**Diseño de diapositiva de título** – Incluye dos marcadores de posición de texto: uno para el título y otro para el subtítulo.
 
-Dado que un maestro de diapositivas es la diapositiva jerárquica superior que almacena información sobre diseños de diapositivas, puede usar la diapositiva maestra para acceder a los diseños de diapositivas y realizarlos. Un diseño de diapositiva se puede acceder por tipo o nombre. De manera similar, cada diapositiva tiene un id único, que se puede utilizar para acceder a ella.
+**Diseño de título y contenido** – Presenta un marcador de posición de título más pequeño en la parte superior y uno más grande debajo para el contenido principal (como texto, viñetas, gráficos, imágenes y más).
 
-Alternativamente, puede realizar cambios directamente en un diseño de diapositiva específico en una presentación.
+**Diseño en blanco** – No contiene marcadores de posición, lo que le brinda control total para diseñar la diapositiva desde cero.
 
-* Para permitirle trabajar con diseños de diapositivas (incluidos los de las diapositivas maestras), Aspose.Slides proporciona propiedades como [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) y [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) bajo la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-* Para realizar tareas relacionadas, Aspose.Slides proporciona [MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/baseslideheaderfootermanager/), y muchos otros tipos.
+Los diseños de diapositiva forman parte de una diapositiva maestra, que es la diapositiva de nivel superior que define los estilos de diseño para la presentación. Puede acceder y modificar los diseños de diapositiva a través de la diapositiva maestra—ya sea por su tipo, nombre o ID único. Alternativamente, puede editar un diseño de diapositiva específico directamente dentro de la presentación.
+
+Para trabajar con diseños de diapositiva en Aspose.Slides for .NET, puede usar:
+- Propiedades como [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) y [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) bajo la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+- Tipos como [ILayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/), y [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslideheaderfootermanager/)
 
 {{% alert title="Info" color="info" %}}
-
-Para obtener más información sobre cómo trabajar con Diapositivas Maestras en particular, consulte el artículo [Slide Master](https://docs.aspose.com/slides/net/slide-master/).
-
+Para obtener más información sobre el trabajo con diapositivas maestras, consulte el artículo [Slide Master](/slides/es/net/slide-master/).
 {{% /alert %}}
 
-## **Agregar Diseño de Diapositiva a la Presentación**
+## **Agregar diseños de diapositiva a presentaciones**
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Acceda a la [colección MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/).
-1. Recorrer los diseños de diapositivas existentes para confirmar que el diseño de diapositiva requerido ya existe en la colección de Diseño de Diapositivas. De lo contrario, agregue el diseño de diapositiva que desea. 
-1. Agregue una diapositiva vacía basada en el nuevo diseño de diapositiva.
+Para personalizar la apariencia y la estructura de sus diapositivas, puede que necesite agregar nuevos diseños de diapositiva a una presentación. Aspose.Slides for .NET le permite comprobar si un diseño específico ya existe, agregar uno nuevo si es necesario y usarlo para insertar diapositivas basadas en ese diseño.
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+1. Acceda a la [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/) .
+1. Verifique si el diseño de diapositiva deseado ya existe en la colección. Si no, añada el diseño de diapositiva que necesita.
+1. Añada una diapositiva en blanco basada en el nuevo diseño de diapositiva.
 1. Guarde la presentación.
 
-Este código C# le muestra cómo agregar un diseño de diapositiva a una presentación de PowerPoint:
-
-```c#
-// Instancia una clase Presentation que representa el archivo de presentación
-using (Presentation presentation = new Presentation("AccessSlides.pptx"))
+El siguiente código C# muestra cómo agregar un diseño de diapositiva a una presentación de PowerPoint:
+```cs
+// Instanciar la clase Presentation que representa un archivo PowerPoint.
+using (Presentation presentation = new Presentation("Sample.pptx"))
 {
-    // Recorre los tipos de diapositivas de diseño
+    // Recorrer los tipos de diapositivas de diseño para seleccionar una diapositiva de diseño.
     IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
     ILayoutSlide layoutSlide = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Title);
 
     if (layoutSlide == null)
     {
-        // La situación donde una presentación no contiene algunos tipos de diseño.
-        // El archivo de presentación solo contiene tipos de diseño en blanco y personalizados.
-        // Pero las diapositivas de diseño con tipos personalizados tienen diferentes nombres de diapositivas,
-        // como "Título", "Título y Contenido", etc. Y es posible utilizar estos
-        // nombres para la selección de la diapositiva de diseño.
-        // También puede usar un conjunto de tipos de forma de marcador de posición. Por ejemplo,
-        // La diapositiva de título debe tener solo el tipo de marcador de posición Título, etc.
+        // Una situación en la que la presentación no contiene todos los tipos de diseño.
+        // El archivo de presentación contiene solo los tipos de diseño Blank y Custom.
+        // Sin embargo, las diapositivas de diseño con tipos personalizados pueden tener nombres reconocibles,
+        // como "Title", "Title and Content", etc., que pueden usarse para la selección de diapositivas de diseño.
+        // También puedes basarte en un conjunto de tipos de forma de marcador de posición.
+        // Por ejemplo, una diapositiva Title solo debe tener el tipo de marcador de posición Title, y así sucesivamente.
         foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
         {
-            if (titleAndObjectLayoutSlide.Name == "Título y Objeto")
+            if (titleAndObjectLayoutSlide.Name == "Title and Object")
             {
                 layoutSlide = titleAndObjectLayoutSlide;
                 break;
@@ -68,7 +89,7 @@ using (Presentation presentation = new Presentation("AccessSlides.pptx"))
         {
             foreach (ILayoutSlide titleLayoutSlide in layoutSlides)
             {
-                if (titleLayoutSlide.Name == "Título")
+                if (titleLayoutSlide.Name == "Title")
                 {
                     layoutSlide = titleLayoutSlide;
                     break;
@@ -80,153 +101,162 @@ using (Presentation presentation = new Presentation("AccessSlides.pptx"))
                 layoutSlide = layoutSlides.GetByType(SlideLayoutType.Blank);
                 if (layoutSlide == null)
                 {
-                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Título y Objeto");
+                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
                 }
             }
         }
     }
 
-    // Agrega una diapositiva vacía con el diseño agregado
+    // Agregar una diapositiva vacía usando la diapositiva de diseño añadida.
     presentation.Slides.InsertEmptySlide(0, layoutSlide);
 
-    // Guarda la presentación en el disco  
-    presentation.Save("AddLayoutSlides_out.pptx", SaveFormat.Pptx);
+    // Guardar la presentación en disco.  
+    presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Eliminar Diseño de Diapositiva No Utilizado**
 
-Aspose.Slides proporciona el método [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) de la clase [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) para permitirle eliminar diapositivas de diseño no deseadas y no utilizadas. Este código C# le muestra cómo eliminar un diseño de diapositiva de una presentación de PowerPoint:
+## **Eliminar diseños de diapositiva no utilizados**
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+Aspose.Slides ofrece el método [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) de la clase [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) para permitirle eliminar diseños de diapositiva no deseados y no utilizados.
+
+El siguiente código C# muestra cómo eliminar un diseño de diapositiva de una presentación de PowerPoint:
+```cs
+using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(pres);
+    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(presentation);
     
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
+    presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Establecer Tamaño y Tipo para Diseño de Diapositiva**
 
-Para permitirle establecer el tamaño y tipo para un diseño de diapositiva específico, Aspose.Slides proporciona las propiedades [Type](https://reference.aspose.com/slides/net/aspose.slides/slidesize/properties/type) y [Size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/properties/size) (de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)). Este C# demuestra la operación:
+## **Agregar marcadores de posición a los diseños de diapositiva**
 
-```c#
-// Instancia un objeto Presentation que representa un archivo de presentación 
-Presentation presentation = new Presentation("AccessSlides.pptx");
-Presentation auxPresentation = new Presentation();
+Aspose.Slides proporciona la propiedad [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/placeholdermanager/), que permite agregar nuevos marcadores de posición a un diseño de diapositiva.
 
-ISlide slide = presentation.Slides[0];
+Este administrador contiene métodos para los siguientes tipos de marcadores de posición:
 
-// Establece el tamaño de diapositivas para la presentación generada al de la fuente
-auxPresentation.SlideSize.SetSize(presentation.SlideSize.Type,SlideSizeScaleType.EnsureFit);
+| Marcador de posición de PowerPoint | Método de [ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/) |
+| ----------------------------------- | ------------------------------------------------------------ |
+| ![Content](content.png)             | AddContentPlaceholder(float x, float y, float width, float height) |
+| ![Content (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
+| ![Text](text.png)                   | AddTextPlaceholder(float x, float y, float width, float height) |
+| ![Text (Vertical)](textV.png)       | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
+| ![Picture](picture.png)             | AddPicturePlaceholder(float x, float y, float width, float height) |
+| ![Chart](chart.png)                 | AddChartPlaceholder(float x, float y, float width, float height) |
+| ![Table](table.png)                 | AddTablePlaceholder(float x, float y, float width, float height) |
+| ![SmartArt](smartart.png)           | AddSmartArtPlaceholder(float x, float y, float width, float height) |
+| ![Media](media.png)                 | AddMediaPlaceholder(float x, float y, float width, float height) |
+| ![Online Image](onlineimage.png)    | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
 
-auxPresentation.Slides.InsertClone(0, slide);
-auxPresentation.Slides.RemoveAt(0);
-// Guarda la presentación en el disco
-auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
-```
-
-## **Establecer Visibilidad del Pie de Página Dentro de la Diapositiva**
-
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Obtenga la referencia de una diapositiva a través de su índice.
-1. Establezca el marcador de posición del pie de página de la diapositiva como visible. 
-1. Establezca el marcador de posición de fecha y hora como visible. 
-1. Guarde la presentación. 
-
-Este código C# le muestra cómo establecer la visibilidad para un pie de página de la diapositiva (y realizar tareas relacionadas):
-
-```c#
-using (Presentation presentation = new Presentation("presentation.ppt"))
+El siguiente código C# muestra cómo agregar nuevas formas de marcador de posición al diseño en blanco:
+```cs
+using (var presentation = new Presentation())
 {
-    IBaseSlideHeaderFooterManager headerFooterManager = presentation.Slides[0].HeaderFooterManager;
-    if (!headerFooterManager.IsFooterVisible) // La propiedad IsFooterVisible se usa para especificar que falta un marcador de posición de pie de página de la diapositiva
-    {
-        headerFooterManager.SetFooterVisibility(true); // El método SetFooterVisibility se usa para establecer un marcador de posición de pie de página de la diapositiva como visible
-    }
-    if (!headerFooterManager.IsSlideNumberVisible) // La propiedad IsSlideNumberVisible se usa para especificar que falta un marcador de posición de número de página de la diapositiva
-    {
-        headerFooterManager.SetSlideNumberVisibility(true); // El método SetSlideNumberVisibility se usa para establecer un marcador de posición de número de página de la diapositiva como visible
-    }
-    if (!headerFooterManager.IsDateTimeVisible) // La propiedad IsDateTimeVisible se usa para especificar que falta un marcador de posición de fecha y hora de la diapositiva
-    {
-        headerFooterManager.SetDateTimeVisibility(true); // El método SetFooterVisibility se usa para establecer un marcador de posición de fecha y hora de la diapositiva como visible
-    }
-    headerFooterManager.SetFooterText("Texto del pie de página"); // El método SetFooterText se usa para establecer un texto para un marcador de posición de pie de página de la diapositiva
-    headerFooterManager.SetDateTimeText("Texto de fecha y hora"); // El método SetDateTimeText se usa para establecer un texto para un marcador de posición de fecha y hora de la diapositiva.
+    // Obtener la diapositiva de diseño en blanco.
+    ILayoutSlide layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 
-	presentation.Save("Presentation.ppt",SaveFormat.ppt);
+    // Obtener el administrador de marcadores de posición de la diapositiva de diseño.
+    ILayoutPlaceholderManager placeholderManager = layout.PlaceholderManager;
+
+    // Añadir diferentes marcadores de posición a la diapositiva de diseño en blanco.
+    placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
+    placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
+    placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
+    placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
+
+    // Añadir una nueva diapositiva con el diseño en blanco.
+    ISlide newSlide = presentation.Slides.AddEmptySlide(layout);
+
+    presentation.Save("Placeholders.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Establecer Visibilidad del Pie de Página Secundario Dentro de la Diapositiva**
 
-1. Cree una instancia de la [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Obtenga una referencia para la diapositiva maestra a través de su índice. 
-1. Establezca la diapositiva maestra y todos los marcadores de posición de pie de página secundarios como visibles.
-1. Establezca un texto para la diapositiva maestra y todos los marcadores de posición de pie de página secundarios. 
-1. Establezca un texto para la diapositiva maestra y todos los marcadores de posición de fecha y hora secundarios. 
-1. Guarde la presentación. 
+El resultado:
 
-Este código C# demuestra la operación:
+![The placeholders on the layout slide](add_placeholders.png)
 
-```c#
-using (Presentation presentation = new Presentation("presentation.ppt"))
+## **Establecer la visibilidad del pie de página para un diseño de diapositiva**
+
+En presentaciones de PowerPoint, los elementos del pie de página como la fecha, el número de diapositiva y el texto personalizado pueden mostrarse u ocultarse según el diseño de la diapositiva. Aspose.Slides for .NET le permite controlar la visibilidad de estos marcadores de posición de pie de página. Esto es útil cuando desea que ciertos diseños muestren información del pie de página mientras que otros permanezcan limpios y minimalistas.
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. Obtenga una referencia al diseño de diapositiva por su índice.
+3. Establezca el marcador de posición del pie de página de la diapositiva como visible.
+4. Establezca el marcador de posición del número de diapositiva como visible.
+5. Establezca el marcador de posición de fecha y hora como visible.
+6. Guarde la presentación.
+
+El siguiente código C# muestra cómo establecer la visibilidad de un pie de página de diapositiva y realizar tareas relacionadas:
+```cs
+using (Presentation presentation = new Presentation("Presentation.ppt"))
+{
+    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.LayoutSlides[0].HeaderFooterManager;
+
+    if (!headerFooterManager.IsFooterVisible)
+    {
+        headerFooterManager.SetFooterVisibility(true);
+    }
+
+    if (!headerFooterManager.IsSlideNumberVisible)
+    {
+        headerFooterManager.SetSlideNumberVisibility(true);
+    }
+
+    if (!headerFooterManager.IsDateTimeVisible)
+    {
+        headerFooterManager.SetDateTimeVisibility(true);
+    }
+
+    headerFooterManager.SetFooterText("Footer text");
+    headerFooterManager.SetDateTimeText("Date and time text");
+
+    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
+}
+```
+
+
+## **Establecer la visibilidad del pie de página hijo para una diapositiva**
+
+En presentaciones de PowerPoint, los elementos del pie de página como la fecha, el número de diapositiva y el texto personalizado pueden controlarse a nivel de diapositiva maestra para garantizar la consistencia en todos los diseños de diapositiva. Aspose.Slides for .NET le permite establecer la visibilidad y el contenido de estos marcadores de posición de pie de página en la diapositiva maestra y propagar estos ajustes a todos los diseños de diapositiva hijos. Este enfoque garantiza una información de pie de página uniforme en toda su presentación.
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. Obtenga una referencia a la diapositiva maestra por su índice.
+3. Establezca los marcadores de posición del pie de página de la maestra y de todos los hijos como visibles.
+4. Establezca los marcadores de posición del número de diapositiva de la maestra y de todos los hijos como visibles.
+5. Establezca los marcadores de posición de fecha y hora de la maestra y de todos los hijos como visibles.
+6. Guarde la presentación.
+
+El siguiente código C# muestra esta operación:
+```cs
+using (Presentation presentation = new Presentation("Presentation.ppt"))
 {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
-    headerFooterManager.SetFooterAndChildFootersVisibility(true); // El método SetFooterAndChildFootersVisibility se usa para establecer que el pie de página de la diapositiva maestra y todos los marcadores de posición de pie de página secundarios sean visibles
-    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // El método SetSlideNumberAndChildSlideNumbersVisibility se usa para establecer que el número de página de la diapositiva maestra y todos los marcadores de posición de número de página secundarios sean visibles
-    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // El método SetDateTimeAndChildDateTimesVisibility se usa para establecer que la diapositiva maestra y todos los marcadores de posición de fecha y hora secundarios sean visibles
 
-    headerFooterManager.SetFooterAndChildFootersText("Texto del pie de página"); // El método SetFooterAndChildFootersText se usa para establecer textos para la diapositiva maestra y todos los marcadores de posición de pie de página secundarios
-    headerFooterManager.SetDateTimeAndChildDateTimesText("Texto de fecha y hora"); // El método SetDateTimeAndChildDateTimesText se usa para establecer texto para la diapositiva maestra y todos los marcadores de posición de fecha y hora secundarios
+    headerFooterManager.SetFooterAndChildFootersVisibility(true);
+    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager.SetFooterAndChildFootersText("Footer text");
+    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+
+    presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Establecer Tamaño de Diapositiva con Respecto al Escalado del Contenido**
 
-1. Cree una instancia de la [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class y cargue la presentación que contiene la diapositiva cuyo tamaño desea establecer. 
-1. Cree otra instancia de la [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class para generar una nueva presentación. 
-1. Obtenga la referencia de la diapositiva (de la primera presentación) a través de su índice.
-1. Establezca el marcador de posición del pie de página de la diapositiva como visible. 
-1. Establezca el marcador de posición de fecha y hora como visible. 
-1. Guarde la presentación. 
+## **Preguntas frecuentes**
 
-Este C# demuestra la operación: 
+**¿Cuál es la diferencia entre una diapositiva maestra y un diseño de diapositiva?**
 
-```c#
-// Instancia un objeto Presentation que representa un archivo de presentación 
-Presentation presentation = new Presentation("AccessSlides.pptx");
-Presentation auxPresentation = new Presentation();
+Una diapositiva maestra define el tema general y el formato predeterminado, mientras que los diseños de diapositiva definen disposiciones específicas de marcadores de posición para diferentes tipos de contenido.
 
-ISlide slide = presentation.Slides[0];
+**¿Puedo copiar un diseño de diapositiva de una presentación a otra?**
 
-// Establece el tamaño de diapositivas para las presentaciones generadas al de la fuente
-presentation.SlideSize.SetSize(540, 720, SlideSizeScaleType.EnsureFit); // El método SetSize se usa para establecer el tamaño de la diapositiva con escalado de contenido para asegurar ajuste
-presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize); // El método SetSize se usa para establecer el tamaño de la diapositiva con el tamaño máximo de contenido
-           
-// Guarda la presentación en el disco
-auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
-```
+Sí, puede clonar un diseño de diapositiva de la colección [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) de una presentación e insertarlo en otra usando el método `AddClone`.
 
-## **Establecer Tamaño de Página al Generar PDF**
+**¿Qué ocurre si elimino un diseño de diapositiva que todavía es usado por una diapositiva?**
 
-Ciertas presentaciones (como carteles) a menudo se convierten en documentos PDF. Si está buscando convertir su PowerPoint a PDF para acceder a las mejores opciones de impresión y accesibilidad, desea establecer sus diapositivas en tamaños que se adapten a documentos PDF (A4, por ejemplo).
-
-Aspose.Slides proporciona la clase [SlideSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/) para permitirle especificar sus ajustes preferidos para las diapositivas. Este código C# le muestra cómo usar la propiedad [Type](https://reference.aspose.com/slides/net/aspose.slides/slidesize/type/) (de la clase `SlideSize`) para establecer un tamaño de papel específico para las diapositivas en una presentación:
-
-```c#
-// Instancia un objeto Presentation que representa un archivo de presentación 
-Presentation presentation = new Presentation();
-
-// Establece la propiedad SlideSize.Type 
-presentation.SlideSize.SetSize(SlideSizeType.A4Paper,SlideSizeScaleType.EnsureFit);
-
-// Establece diferentes propiedades para Opciones de PDF
-PdfOptions opts = new  PdfOptions();
-opts.SufficientResolution = 600;
-
-// Guarda la presentación en el disco
-presentation.Save("SetPDFPageSize_out.pdf", SaveFormat.Pdf, opts);
-```
+Si intenta eliminar un diseño de diapositiva que todavía está referenciado por al menos una diapositiva en la presentación, Aspose.Slides lanzará una [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception/). Para evitarlo, use [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) que elimina de forma segura sólo los diseños de diapositiva que no están en uso.

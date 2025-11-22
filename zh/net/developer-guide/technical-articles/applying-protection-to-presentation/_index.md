@@ -1,206 +1,162 @@
 ---
-title: 应用保护到演示文稿
+title: 使用形状锁防止演示文稿编辑
+linktitle: 防止演示文稿编辑
 type: docs
 weight: 70
 url: /zh/net/applying-protection-to-presentation/
+keywords:
+- 防止编辑
+- 防止被编辑
+- 锁定形状
+- 锁定位置
+- 锁定选择
+- 锁定大小
+- 锁定分组
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- .NET
+- C#
+- Aspose.Slides
+description: "了解 Aspose.Slides for .NET 如何在 PPT、PPTX 和 ODP 文件中锁定或解锁形状，保护演示文稿的安全，同时允许受控编辑并加快交付速度。"
 ---
 
-{{% alert color="primary" %}}
+## **背景**
 
-Aspose.Slides 的一个常见用途是创建、更新和保存 Microsoft PowerPoint 2007 (PPTX) 演示文稿，作为自动化工作流的一部分。以这种方式使用 Aspose.Slides 的应用程序用户可以访问输出演示文稿。对其进行编辑保护是一个常见的问题。自动生成的演示文稿保持其原始格式和内容是很重要的。
+Aspose.Slides 的常见用途是作为自动化工作流的一部分，创建、更新和保存 Microsoft PowerPoint (PPTX) 演示文稿。以这种方式使用 Aspose.Slides 的应用程序的用户可以访问生成的演示文稿，因此保护它们不被编辑是一个常见的关注点。确保自动生成的演示文稿保留其原始格式和内容非常重要。
 
-本文解释了 [演示文稿和幻灯片是如何构建的](/slides/zh/net/applying-protection-to-presentation/)，以及 Aspose.Slides for .NET 如何 [应用保护到](/slides/zh/net/applying-protection-to-presentation/) 演示文稿，然后 [从中移除保护](/slides/zh/net/applying-protection-to-presentation/)。该功能是 Aspose.Slides 独有的，在撰写时，Microsoft PowerPoint 中尚不可用。它为开发者提供了一种控制他们的应用程序创建的演示文稿如何使用的方式。
+本文说明了演示文稿和幻灯片的结构以及 Aspose.Slides for .NET 如何对演示文稿应用保护并随后移除保护。它为开发人员提供了一种控制其应用程序生成的演示文稿使用方式的方法。
 
-{{% /alert %}} 
 ## **幻灯片的组成**
-PPTX 幻灯片由多个组件组成，如自动形状、表格、OLE 对象、组合形状、图片框、视频框、连接器以及用于构建演示文稿的各种其他元素。
 
-在 Aspose.Slides for .NET 中，幻灯片上的每个元素都转化为 Shape 对象。换句话说，幻灯片上每个元素都是一个 Shape 对象或一个从 Shape 对象派生的对象。
+演示文稿幻灯片由自动形状、表格、OLE 对象、组合形状、图片框、视频框、连接器以及用于构建演示文稿的其他元素等组件组成。在 Aspose.Slides for .NET 中，幻灯片上的每个元素都由实现了 [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) 接口或继承自实现该接口的类的对象表示。
 
-PPTX 的结构比较复杂，因此，与 PPT 不同，PPT 中可以对所有类型的形状使用通用锁，而不同类型的形状有不同类型的锁。BaseShapeLock 类是通用的 PPTX 锁定类。Aspose.Slides for .NET 支持以下类型的锁定，以用于 PPTX。
+PPTX 的结构相当复杂，因此不同于 PPT（在 PPT 中可以对所有类型的形状使用通用锁），不同的形状类型需要不同的锁。[IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) 接口是 PPTX 的通用锁定类。Aspose.Slides for .NET 在 PPTX 中支持以下类型的锁定：
 
-- AutoShapeLock 锁定自动形状。
-- ConnectorLock 锁定连接器形状。
-- GraphicalObjectLock 锁定图形对象。
-- GroupshapeLock 锁定组合形状。
-- PictureFrameLock 锁定图片框。
+- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) 锁定自动形状。  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) 锁定连接器形状。  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) 锁定图形对象。  
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) 锁定组合形状。  
+- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) 锁定图片框。  
 
-在 Presentation 对象上执行的任何操作都会应用于整个演示文稿。
+对 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 对象中所有形状对象执行的任何操作都会应用于整个演示文稿。
+
 ## **应用和移除保护**
-应用保护确保演示文稿无法被编辑。这是一种保护演示文稿内容的有效技术。
-### **应用保护到 PPTX 形状**
-Aspose.Slides for .NET 提供 Shape 类来处理幻灯片上的形状。
 
-如前所述，每个形状类都有一个关联的形状锁类来进行保护。本文重点介绍 NoSelect、NoMove 和 NoResize 锁。这些锁确保形状无法被选择（通过鼠标点击或其他选择方法），也无法被移动或调整大小。
+应用保护可确保演示文稿无法被编辑。这是保护演示文稿内容的有效技术。
 
-下面的代码示例将保护应用于演示文稿中的所有形状类型。
+### **对 PPTX 形状应用保护**
 
-```c#
-// 实例化表示 PPTX 文件的 Presentation 类
-Presentation pTemplate = new Presentation("RectPicFrame.pptx");
+Aspose.Slides for .NET 提供了用于处理幻灯片上形状的 [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) 接口。
 
-// ISlide 对象用于访问演示文稿中的幻灯片
-ISlide slide = pTemplate.Slides[0];
+如前所述，每个形状类都有相应的形状锁定类用于保护。本文重点介绍 NoSelect、NoMove 和 NoResize 锁。这些锁确保形状无法被选中（通过鼠标点击或其他选择方式），且无法移动或调整大小。
 
-// IShape 对象用于临时存储形状
-IShape shape;
+下面的代码示例对演示文稿中的所有形状类型应用保护。
+```cs
+// 实例化表示 PPTX 文件的 Presentation 类。
+using Presentation presentation = new Presentation("Sample.pptx");
 
-// 遍历演示文稿中的所有幻灯片
-for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
-{
-    slide = pTemplate.Slides[slideCount];
-
-    // 遍历幻灯片中的所有形状
-    for (int count = 0; count < slide.Shapes.Count; count++)
+// Traversing all the slides in the presentation.
+    // 遍历演示文稿中的所有幻灯片。
+    foreach (ISlide slide in presentation.Slides)
     {
-        shape = slide.Shapes[count];
-
-        // 如果形状是自动形状
-        if (shape is IAutoShape)
+        // Traversing all the shapes in the slide.
+        // 遍历幻灯片中的所有形状。
+        foreach (IShape shape in slide.Shapes)
         {
-            // 类型转换为自动形状并获取自动形状锁
-            IAutoShape Ashp = shape as IAutoShape;
-            IAutoShapeLock AutoShapeLock = Ashp.ShapeLock;
-
-            // 应用形状锁
-            AutoShapeLock.PositionLocked = true;
-            AutoShapeLock.SelectLocked = true;
-            AutoShapeLock.SizeLocked = true;
-        }
-
-        // 如果形状是组合形状
-        else if (shape is IGroupShape)
-        {
-            // 类型转换为组合形状并获取组合形状锁
-            IGroupShape Group = shape as IGroupShape;
-            IGroupShapeLock groupShapeLock = Group.ShapeLock;
-
-            // 应用形状锁
-            groupShapeLock.GroupingLocked = true;
-            groupShapeLock.PositionLocked = true;
-            groupShapeLock.SelectLocked = true;
-            groupShapeLock.SizeLocked = true;
-        }
-
-        // 如果形状是连接器
-        else if (shape is IConnector)
-        {
-            // 类型转换为连接器形状并获取连接器形状锁
-            IConnector Conn = shape as IConnector;
-            IConnectorLock ConnLock = Conn.ShapeLock;
-
-            // 应用形状锁
-            ConnLock.PositionMove = true;
-            ConnLock.SelectLocked = true;
-            ConnLock.SizeLocked = true;
-        }
-
-        // 如果形状是图片框
-        else if (shape is IPictureFrame)
-        {
-            // 类型转换为图片框并获取图片框形状锁
-            IPictureFrame Pic = shape as IPictureFrame;
-            IPictureFrameLock PicLock = Pic.ShapeLock;
-
-            // 应用形状锁
-            PicLock.PositionLocked = true;
-            PicLock.SelectLocked = true;
-            PicLock.SizeLocked = true;
+            if (shape is IAutoShape autoShape)
+            {
+                autoShape.ShapeLock.PositionLocked = true;
+                autoShape.ShapeLock.SelectLocked = true;
+                autoShape.ShapeLock.SizeLocked = true;
+            }
+            else if (shape is IGroupShape groupShape)
+            {
+                groupShape.ShapeLock.GroupingLocked = true;
+                groupShape.ShapeLock.PositionLocked = true;
+                groupShape.ShapeLock.SelectLocked = true;
+                groupShape.ShapeLock.SizeLocked = true;
+            }
+            else if (shape is IConnector connectorShape)
+            {
+                connectorShape.ShapeLock.PositionMove = true;
+                connectorShape.ShapeLock.SelectLocked = true;
+                connectorShape.ShapeLock.SizeLocked = true;
+            }
+            else if (shape is IPictureFrame pictureFrame)
+            {
+                pictureFrame.ShapeLock.PositionLocked = true;
+                pictureFrame.ShapeLock.SelectLocked = true;
+                pictureFrame.ShapeLock.SizeLocked = true;
+            }
         }
     }
 
-}
-// 保存演示文稿文件
-pTemplate.Save("ProtectedSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+// Saving the presentation file.
+presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 ```
+
 
 ### **移除保护**
-使用 Aspose.Slides for .NET 应用的保护只能通过使用 Aspose.Slides for .NET 移除。要解锁形状，请将应用的锁的值设置为 false。下面的代码示例展示了如何在锁定的演示文稿中解锁形状。
 
-```c#
-// 打开所需的演示文稿
-Presentation pTemplate = new Presentation("ProtectedSample.pptx");
+要解锁形状，请将已应用锁的值设为 `false`。以下代码示例展示了如何在已锁定的演示文稿中解锁形状。
+```cs
+// 实例化表示 PPTX 文件的 Presentation 类。
+using Presentation presentation = new Presentation("ProtectedSample.pptx");
 
-// ISlide 对象用于访问演示文稿中的幻灯片
-ISlide slide = pTemplate.Slides[0];
-
-// IShape 对象用于临时存储形状
-IShape shape;
-
-// 遍历演示文稿中的所有幻灯片
-for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
+// 遍历演示文稿中的所有幻灯片。
+foreach (ISlide slide in presentation.Slides)
 {
-    slide = pTemplate.Slides[slideCount];
-
-    // 遍历幻灯片中的所有形状
-    for (int count = 0; count < slide.Shapes.Count; count++)
+    // 遍历幻灯片中的所有形状。
+    foreach (IShape shape in slide.Shapes)
     {
-        shape = slide.Shapes[count];
-
-        // 如果形状是自动形状
-        if (shape is IAutoShape)
+        if (shape is IAutoShape autoShape)
         {
-            // 类型转换为自动形状并获取自动形状锁
-            IAutoShape Ashp = shape as AutoShape;
-            IAutoShapeLock AutoShapeLock = Ashp.ShapeLock;
-
-            // 应用形状锁
-            AutoShapeLock.PositionLocked = false;
-            AutoShapeLock.SelectLocked = false;
-            AutoShapeLock.SizeLocked = false;
+            autoShape.ShapeLock.PositionLocked = false;
+            autoShape.ShapeLock.SelectLocked = false;
+            autoShape.ShapeLock.SizeLocked = false;
         }
-
-        // 如果形状是组合形状
-        else if (shape is IGroupShape)
+        else if (shape is IGroupShape groupShape)
         {
-            // 类型转换为组合形状并获取组合形状锁
-            IGroupShape Group = shape as IGroupShape;
-            IGroupShapeLock groupShapeLock = Group.ShapeLock;
-
-            // 应用形状锁
-            groupShapeLock.GroupingLocked = false;
-            groupShapeLock.PositionLocked = false;
-            groupShapeLock.SelectLocked = false;
-            groupShapeLock.SizeLocked = false;
+            groupShape.ShapeLock.GroupingLocked = false;
+            groupShape.ShapeLock.PositionLocked = false;
+            groupShape.ShapeLock.SelectLocked = false;
+            groupShape.ShapeLock.SizeLocked = false;
         }
-
-        // 如果形状是连接器
-        else if (shape is IConnector)
+        else if (shape is IConnector connectorShape)
         {
-            // 类型转换为连接器并获取连接器锁
-            IConnector Conn = shape as IConnector;
-            IConnectorLock ConnLock = Conn.ShapeLock;
-
-            // 应用形状锁
-            ConnLock.PositionMove = false;
-            ConnLock.SelectLocked = false;
-            ConnLock.SizeLocked = false;
+            connectorShape.ShapeLock.PositionMove = false;
+            connectorShape.ShapeLock.SelectLocked = false;
+            connectorShape.ShapeLock.SizeLocked = false;
         }
-
-        // 如果形状是图片框
-        else if (shape is IPictureFrame)
+        else if (shape is IPictureFrame pictureFrame)
         {
-            // 类型转换为图片框并获取图片框锁
-            IPictureFrame Pic = shape as IPictureFrame;
-            IPictureFrameLock PicLock = Pic.ShapeLock;
-
-            // 应用形状锁
-            PicLock.PositionLocked = false;
-            PicLock.SelectLocked = false;
-            PicLock.SizeLocked = false;
+            pictureFrame.ShapeLock.PositionLocked = false;
+            pictureFrame.ShapeLock.SelectLocked = false;
+            pictureFrame.ShapeLock.SizeLocked = false;
         }
     }
-
 }
-// 保存演示文稿文件
-pTemplate.Save("RemoveProtectionSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+
+// 保存演示文稿文件。
+presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
 
-### **总结**
-{{% alert color="primary" %}}
 
-Aspose.Slides 提供了多种选项来对演示文稿中的形状应用保护。可以锁定特定形状，或遍历演示文稿中的所有形状并将其全部锁定，从而有效锁定演示文稿。
+### **结论**
 
-只有 Aspose.Slides for .NET 可以从先前保护的演示文稿中移除保护。通过将锁的值设置为 false 来移除保护。
+Aspose.Slides 提供了多种保护演示文稿中形状的选项。您可以锁定单个形状，或遍历演示文稿中的所有形状并逐一锁定，从而有效地保护整个文件。通过将锁的值设为 `false` 可以移除保护。
 
-{{% /alert %}}
+## **常见问题**
+
+**我可以在同一演示文稿中同时使用形状锁和密码保护吗？**
+
+是的。锁定限制文件内对象的编辑，而 [password protection](/slides/zh/net/password-protected-presentation/) 控制打开和/或保存更改的访问权限。这两种机制相辅相成，共同工作。
+
+**我可以只限制特定幻灯片的编辑，而不影响其他幻灯片吗？**
+
+是的。对所选幻灯片上的形状应用锁定；其余幻灯片仍保持可编辑。
+
+**形状锁是否适用于组合对象和连接器？**
+
+是的。针对组合、连接器、图形对象以及其他形状类型均支持专用的锁定类型。

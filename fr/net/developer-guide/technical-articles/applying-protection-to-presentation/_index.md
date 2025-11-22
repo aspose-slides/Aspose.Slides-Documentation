@@ -1,211 +1,160 @@
 ---
-title: Application de la protection à la présentation
+title: Empêcher les modifications de présentation avec les verrous de forme
+linktitle: Empêcher les modifications de présentation
 type: docs
 weight: 70
 url: /fr/net/applying-protection-to-presentation/
+keywords:
+- empêcher les modifications
+- protéger contre la modification
+- verrouiller la forme
+- verrouiller la position
+- verrouiller la sélection
+- verrouiller la taille
+- verrouiller le regroupement
+- PowerPoint
+- OpenDocument
+- présentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Découvrez comment Aspose.Slides pour .NET verrouille ou déverrouille les formes dans les fichiers PPT, PPTX et ODP, sécurisant les présentations tout en permettant des modifications contrôlées et une livraison plus rapide."
 ---
 
-{{% alert color="primary" %}} 
+## **Contexte**
 
-Une utilisation courante d'Aspose.Slides est de créer, mettre à jour et enregistrer des présentations Microsoft PowerPoint 2007 (PPTX) dans le cadre d'un flux de travail automatisé. Les utilisateurs de l'application qui utilise Aspose.Slides de cette manière ont accès aux présentations exportées. Les protéger contre l'édition est une préoccupation fréquente. Il est important que les présentations générées automatiquement conservent leur formatage et leur contenu d'origine.
+Une utilisation courante d'Aspose.Slides consiste à créer, mettre à jour et enregistrer des présentations Microsoft PowerPoint (PPTX) dans le cadre d'un flux de travail automatisé. Les utilisateurs d'applications qui utilisent Aspose.Slides de cette manière ont accès aux présentations générées, ce qui rend la protection contre la modification une préoccupation fréquente. Il est important que les présentations générées automatiquement conservent leur formatage et leur contenu d'origine.
 
-Cet article explique comment [les présentations et les diapositives sont construites](/slides/fr/net/applying-protection-to-presentation/) et comment Aspose.Slides pour .NET peut [appliquer la protection à](/slides/fr/net/applying-protection-to-presentation/), puis [la retirer de](/slides/fr/net/applying-protection-to-presentation/) une présentation. Cette fonctionnalité est unique à Aspose.Slides et, au moment de l'écriture, n'est pas disponible dans Microsoft PowerPoint. Elle offre aux développeurs un moyen de contrôler comment les présentations créées par leurs applications sont utilisées.
+Cet article explique comment les présentations et les diapositives sont structurées et comment Aspose.Slides pour .NET peut appliquer une protection à une présentation puis la supprimer. Il fournit aux développeurs un moyen de contrôler l'utilisation des présentations générées par leurs applications.
 
-{{% /alert %}} 
-## **Composition d'une diapositive**
-Une diapositive PPTX est composée d'un certain nombre de composants tels que des formes automatiques, des tableaux, des objets OLE, des formes groupées, des cadres d'image, des cadres vidéo, des connecteurs et les différents autres éléments disponibles pour construire une présentation.
+## **Composition d’une diapositive**
 
-Dans Aspose.Slides pour .NET, chaque élément sur une diapositive est transformé en objet Shape. En d'autres termes, chaque élément de la diapositive est soit un objet Shape, soit un objet dérivé de l'objet Shape.
+Une diapositive de présentation est composée d'éléments tels que des formes automatiques, des tableaux, des objets OLE, des formes groupées, des cadres d'image, des cadres vidéo, des connecteurs et d'autres éléments utilisés pour créer une présentation. Dans Aspose.Slides pour .NET, chaque élément d'une diapositive est représenté par un objet qui implémente l'interface [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) ou hérite d'une classe qui le fait.
 
-La structure du PPTX est complexe, donc contrairement au PPT, où un verrou générique peut être utilisé pour tous les types de formes, il existe différents types de verrous pour différents types de formes. La classe BaseShapeLock est la classe de verrouillage générique pour PPTX. Les types de verrous suivants sont pris en charge dans Aspose.Slides pour .NET pour PPTX.
+La structure du PPTX est complexe, ainsi, contrairement au PPT, où un verrou générique peut être utilisé pour tous les types de formes, différents types de formes nécessitent des verrous différents. L'interface [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) est la classe de verrouillage générique pour le PPTX. Les types de verrous suivants sont pris en charge dans Aspose.Slides pour .NET pour le PPTX :
 
-- AutoShapeLock verrouille les formes automatiques.
-- ConnectorLock verrouille les formes de connecteurs.
-- GraphicalObjectLock verrouille les objets graphiques.
-- GroupshapeLock verrouille les formes de groupe.
-- PictureFrameLock verrouille les cadres d'image.
+- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) verrouille les formes automatiques.  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) verrouille les formes de connecteur.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) verrouille les objets graphiques.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) verrouille les formes groupées.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) verrouille les cadres d'image.  
 
-Toute action effectuée sur tous les objets Shape dans un objet Presentation s'applique à l'ensemble de la présentation.
-## **Application et retrait de la protection**
-Appliquer une protection garantit qu'une présentation ne peut pas être éditée. C'est une technique utile pour protéger le contenu d'une présentation.
-### **Application de la protection aux formes PPTX**
-Aspose.Slides pour .NET fournit la classe Shape pour gérer une forme sur la diapositive.
+Toute action effectuée sur tous les objets de forme dans un objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) est appliquée à l'ensemble de la présentation.
 
-Comme mentionné plus tôt, chaque classe de forme a une classe de verrouillage associée pour la protection. Cet article se concentre sur les verrous NoSelect, NoMove et NoResize. Ces verrous garantissent que les formes ne peuvent pas être sélectionnées (via des clics de souris ou d'autres méthodes de sélection), et qu'elles ne peuvent pas être déplacées ou redimensionnées.
+## **Appliquer et retirer la protection**
 
-Les exemples de code qui suivent appliquent la protection à tous les types de formes dans une présentation.
+L'application d'une protection garantit qu'une présentation ne peut pas être modifiée. C'est une technique utile pour protéger le contenu de la présentation.
 
-```c#
-//Instanciation de la classe Presentation représentant un fichier PPTX
-Presentation pTemplate = new Presentation("RectPicFrame.pptx");
-           
+### **Appliquer la protection aux formes PPTX**
 
-//Objet ISlide pour accéder aux diapositives de la présentation
-ISlide slide = pTemplate.Slides[0];
+Aspose.Slides pour .NET fournit l'interface [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) pour travailler avec les formes sur une diapositive.
 
-//Objet IShape pour contenir des formes temporaires
-IShape shape;
+Comme indiqué précédemment, chaque classe de forme possède une classe de verrouillage de forme associée pour la protection. Cet article se concentre sur les verrous NoSelect, NoMove et NoResize. Ces verrous garantissent que les formes ne peuvent pas être sélectionnées (par clics de souris ou autres méthodes de sélection) et qu'elles ne peuvent pas être déplacées ou redimensionnées.
 
-//Parcourt de toutes les diapositives dans la présentation
-for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
+L'exemple de code qui suit applique la protection à tous les types de formes dans une présentation.
+```cs
+// Instancier la classe Presentation qui représente un fichier PPTX.
+using Presentation presentation = new Presentation("Sample.pptx");
+
+// Parcourir toutes les diapositives de la présentation.
+foreach (ISlide slide in presentation.Slides)
 {
-    slide = pTemplate.Slides[slideCount];
-
-    //Parcourt de toutes les formes dans les diapositives
-    for (int count = 0; count < slide.Shapes.Count; count++)
+    // Parcourir toutes les formes de la diapositive.
+    foreach (IShape shape in slide.Shapes)
     {
-        shape = slide.Shapes[count];
-
-        //si la forme est une forme automatique
-        if (shape is IAutoShape)
+        if (shape is IAutoShape autoShape)
         {
-            //Conversion en forme automatique et obtention du verrou de forme automatique
-            IAutoShape Ashp = shape as IAutoShape;
-            IAutoShapeLock AutoShapeLock = Ashp.ShapeLock;
-
-            //Application des verrous à la forme
-            AutoShapeLock.PositionLocked = true;
-            AutoShapeLock.SelectLocked = true;
-            AutoShapeLock.SizeLocked = true;
+            autoShape.ShapeLock.PositionLocked = true;
+            autoShape.ShapeLock.SelectLocked = true;
+            autoShape.ShapeLock.SizeLocked = true;
         }
-
-        //si la forme est une forme de groupe
-        else if (shape is IGroupShape)
+        else if (shape is IGroupShape groupShape)
         {
-            //Conversion en forme de groupe et obtention du verrou de forme de groupe
-            IGroupShape Group = shape as IGroupShape;
-            IGroupShapeLock groupShapeLock = Group.ShapeLock;
-
-            //Application des verrous à la forme
-            groupShapeLock.GroupingLocked = true;
-            groupShapeLock.PositionLocked = true;
-            groupShapeLock.SelectLocked = true;
-            groupShapeLock.SizeLocked = true;
+            groupShape.ShapeLock.GroupingLocked = true;
+            groupShape.ShapeLock.PositionLocked = true;
+            groupShape.ShapeLock.SelectLocked = true;
+            groupShape.ShapeLock.SizeLocked = true;
         }
-
-        //si la forme est un connecteur
-        else if (shape is IConnector)
+        else if (shape is IConnector connectorShape)
         {
-            //Conversion en forme de connecteur et obtention du verrou de forme de connecteur
-            IConnector Conn = shape as IConnector;
-            IConnectorLock ConnLock = Conn.ShapeLock;
-
-            //Application des verrous à la forme
-            ConnLock.PositionMove = true;
-            ConnLock.SelectLocked = true;
-            ConnLock.SizeLocked = true;
+            connectorShape.ShapeLock.PositionMove = true;
+            connectorShape.ShapeLock.SelectLocked = true;
+            connectorShape.ShapeLock.SizeLocked = true;
         }
-
-        //si la forme est un cadre d'image
-        else if (shape is IPictureFrame)
+        else if (shape is IPictureFrame pictureFrame)
         {
-            //Conversion en forme de cadre d'image et obtention du verrou de forme de cadre d'image
-            IPictureFrame Pic = shape as IPictureFrame;
-            IPictureFrameLock PicLock = Pic.ShapeLock;
-
-            //Application des verrous à la forme
-            PicLock.PositionLocked = true;
-            PicLock.SelectLocked = true;
-            PicLock.SizeLocked = true;
+            pictureFrame.ShapeLock.PositionLocked = true;
+            pictureFrame.ShapeLock.SelectLocked = true;
+            pictureFrame.ShapeLock.SizeLocked = true;
         }
     }
-
-
 }
-//Enregistrement du fichier de présentation
-pTemplate.Save("ProtectedSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+
+// Enregistrer le fichier de présentation.
+presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 ```
 
 
-### **Retrait de la protection**
-La protection appliquée à l'aide d'Aspose.Slides pour .NET ne peut être retirée qu'avec Aspose.Slides pour .NET. Pour déverrouiller une forme, définissez la valeur du verrou appliqué sur false. L'exemple de code qui suit montre comment déverrouiller des formes dans une présentation verrouillée.
+### **Supprimer la protection**
 
-```c#
-//Ouvrir la présentation souhaitée
-Presentation pTemplate = new Presentation("ProtectedSample.pptx");
+Pour déverrouiller une forme, définissez la valeur du verrou appliqué sur `false`. L'exemple de code suivant montre comment déverrouiller les formes dans une présentation verrouillée.
+```cs
+// Instancier la classe Presentation qui représente un fichier PPTX.
+using Presentation presentation = new Presentation("ProtectedSample.pptx");
 
-//Objet ISlide pour accéder aux diapositives de la présentation
-ISlide slide = pTemplate.Slides[0];
-
-//Objet IShape pour contenir des formes temporaires
-IShape shape;
-
-//Parcourt de toutes les diapositives dans la présentation
-for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
+// Parcourir toutes les diapositives de la présentation.
+foreach (ISlide slide in presentation.Slides)
 {
-    slide = pTemplate.Slides[slideCount];
-
-    //Parcourt de toutes les formes dans les diapositives
-    for (int count = 0; count < slide.Shapes.Count; count++)
+    // Parcourir toutes les formes de la diapositive.
+    foreach (IShape shape in slide.Shapes)
     {
-        shape = slide.Shapes[count];
-
-        //si la forme est une forme automatique
-        if (shape is IAutoShape)
+        if (shape is IAutoShape autoShape)
         {
-            //Conversion en forme automatique et obtention du verrou de forme automatique
-            IAutoShape Ashp = shape as AutoShape;
-            IAutoShapeLock AutoShapeLock = Ashp.ShapeLock;
-
-            //Application des verrous à la forme
-            AutoShapeLock.PositionLocked = false;
-            AutoShapeLock.SelectLocked = false;
-            AutoShapeLock.SizeLocked = false;
+            autoShape.ShapeLock.PositionLocked = false;
+            autoShape.ShapeLock.SelectLocked = false;
+            autoShape.ShapeLock.SizeLocked = false;
         }
-
-        //si la forme est une forme de groupe
-        else if (shape is IGroupShape)
+        else if (shape is IGroupShape groupShape)
         {
-            //Conversion en forme de groupe et obtention du verrou de forme de groupe
-            IGroupShape Group = shape as IGroupShape;
-            IGroupShapeLock groupShapeLock = Group.ShapeLock;
-
-            //Application des verrous à la forme
-            groupShapeLock.GroupingLocked = false;
-            groupShapeLock.PositionLocked = false;
-            groupShapeLock.SelectLocked = false;
-            groupShapeLock.SizeLocked = false;
+            groupShape.ShapeLock.GroupingLocked = false;
+            groupShape.ShapeLock.PositionLocked = false;
+            groupShape.ShapeLock.SelectLocked = false;
+            groupShape.ShapeLock.SizeLocked = false;
         }
-
-        //si la forme est une forme de connecteur
-        else if (shape is IConnector)
+        else if (shape is IConnector connectorShape)
         {
-            //Conversion en forme de connecteur et obtention du verrou de forme de connecteur
-            IConnector Conn = shape as IConnector;
-            IConnectorLock ConnLock = Conn.ShapeLock;
-
-            //Application des verrous à la forme
-            ConnLock.PositionMove = false;
-            ConnLock.SelectLocked = false;
-            ConnLock.SizeLocked = false;
+            connectorShape.ShapeLock.PositionMove = false;
+            connectorShape.ShapeLock.SelectLocked = false;
+            connectorShape.ShapeLock.SizeLocked = false;
         }
-
-        //si la forme est un cadre d'image
-        else if (shape is IPictureFrame)
+        else if (shape is IPictureFrame pictureFrame)
         {
-            //Conversion en forme de cadre d'image et obtention du verrou de forme de cadre d'image
-            IPictureFrame Pic = shape as IPictureFrame;
-            IPictureFrameLock PicLock = Pic.ShapeLock;
-
-            //Application des verrous à la forme
-            PicLock.PositionLocked = false;
-            PicLock.SelectLocked = false;
-            PicLock.SizeLocked = false;
+            pictureFrame.ShapeLock.PositionLocked = false;
+            pictureFrame.ShapeLock.SelectLocked = false;
+            pictureFrame.ShapeLock.SizeLocked = false;
         }
     }
-
 }
-//Enregistrement du fichier de présentation
-pTemplate.Save("RemoveProtectionSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+
+// Enregistrer le fichier de présentation.
+presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
 
 
+### **Conclusion**
 
-### **Résumé**
-{{% alert color="primary" %}} 
+Aspose.Slides propose plusieurs options pour protéger les formes dans une présentation. Vous pouvez verrouiller une forme individuelle ou parcourir toutes les formes d'une présentation et verrouiller chacune d'elles afin de sécuriser efficacement le fichier complet. Vous pouvez supprimer la protection en définissant la valeur du verrou sur `false`.
 
-Aspose.Slides offre plusieurs options pour appliquer la protection aux formes dans une présentation. Il est possible de verrouiller une forme particulière, ou de parcourir toutes les formes d'une présentation et de toutes les verrouiller pour verrouiller efficacement la présentation.
+## **FAQ**
 
-Seul Aspose.Slides pour .NET peut retirer la protection d'une présentation qu'il a préalablement protégée. Retirez la protection en définissant la valeur d'un verrou sur false.
+**Puis-je combiner les verrous de forme et la protection par mot de passe dans la même présentation ?**
 
-{{% /alert %}} 
+Oui. Les verrous limitent la modification des objets à l'intérieur du fichier, tandis que la [protection par mot de passe](/slides/fr/net/password-protected-presentation/) contrôle l'accès à l'ouverture et/ou à l'enregistrement des modifications. Ces mécanismes se complètent et fonctionnent ensemble.
+
+**Puis-je restreindre la modification sur des diapositives spécifiques sans affecter les autres ?**
+
+Oui. Appliquez des verrous aux formes des diapositives sélectionnées ; les diapositives restantes resteront modifiables.
+
+**Les verrous de forme s'appliquent-ils aux objets groupés et aux connecteurs ?**
+
+Oui. Des types de verrous dédiés sont pris en charge pour les groupes, les connecteurs, les objets graphiques et les autres types de formes.

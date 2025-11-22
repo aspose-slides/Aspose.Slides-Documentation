@@ -3,74 +3,75 @@ title: Gruppe
 type: docs
 weight: 40
 url: /de/net/group/
-keywords: "Gruppengeometrie, PowerPoint-Geometrie, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "Fügen Sie einer PowerPoint-Präsentation in C# oder .NET eine Gruppengeometrie hinzu"
+keywords: "Gruppenshape, PowerPoint-Form, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides for .NET"
+description: "Gruppenshape zur PowerPoint-Präsentation in C# oder .NET hinzufügen"
 ---
 
-## **Gruppengeometrie hinzufügen**
-Aspose.Slides unterstützt die Arbeit mit Gruppengeometrien auf Folien. Diese Funktion hilft Entwicklern, reichhaltigere Präsentationen zu unterstützen. Aspose.Slides für .NET unterstützt das Hinzufügen oder Zugreifen auf Gruppengeometrien. Es ist möglich, Geometrien zu einer hinzugefügten Gruppengeometrie hinzuzufügen, um sie zu bevölkern, oder auf eine beliebige Eigenschaft der Gruppengeometrie zuzugreifen. Um einer Folie mit Aspose.Slides für .NET eine Gruppengeometrie hinzuzufügen:
+## **Gruppenshape hinzufügen**
+Aspose.Slides unterstützt die Arbeit mit Gruppenshapes auf Folien. Diese Funktion hilft Entwicklern, reichere Präsentationen zu unterstützen. Aspose.Slides für .NET unterstützt das Hinzufügen oder den Zugriff auf Gruppenshapes. Es ist möglich, Formen zu einer hinzugefügten Gruppenshape hinzuzufügen, um sie zu füllen oder auf jede Eigenschaft der Gruppenshape zuzugreifen. Um mit Aspose.Slides für .NET eine Gruppenshape zu einer Folie hinzuzufügen:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
-1. Erhalten Sie die Referenz einer Folie, indem Sie ihren Index verwenden.
-1. Fügen Sie der Folie eine Gruppengeometrie hinzu.
-1. Fügen Sie die Geometrien zur hinzugefügten Gruppengeometrie hinzu.
-1. Speichern Sie die modifizierte Präsentation als PPTX-Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑Klasse.
+1. Holen Sie sich die Referenz einer Folie, indem Sie deren Index verwenden.
+1. Fügen Sie der Folie eine Gruppenshape hinzu.
+1. Fügen Sie der hinzugefügten Gruppenshape Formen hinzu.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Das folgende Beispiel fügt einer Folie eine Gruppengeometrie hinzu.
-
+Das Beispiel unten fügt einer Folie eine Gruppenshape hinzu.
 ```c#
-// Instanziieren Sie die Presentation-Klasse 
+// Instanzieren der Presentation-Klasse 
 using (Presentation pres = new Presentation())
 {
-    // Holen Sie sich die erste Folie 
+    // Erste Folie abrufen 
     ISlide sld = pres.Slides[0];
 
-    // Zugriff auf die Geometriesammlung der Folien 
+    // Zugriff auf die Formensammlung der Folien 
     IShapeCollection slideShapes = sld.Shapes;
 
-    // Fügen Sie der Folie eine Gruppengeometrie hinzu 
+    // Hinzufügen einer Gruppenshape zur Folie 
     IGroupShape groupShape = slideShapes.AddGroupShape();
 
-    // Fügen Sie Geometrien innerhalb der hinzugefügten Gruppengeometrie hinzu 
+    // Hinzufügen von Formen in die hinzugefügte Gruppenshape 
     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 100, 100, 100);
     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 100, 100);
     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 300, 100, 100);
     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 300, 100, 100);
 
-    // Fügen Sie den Rahmen der Gruppengeometrie hinzu 
+    // Hinzufügen des Gruppenshape-Rahmens 
     groupShape.Frame = new ShapeFrame(100, 300, 500, 40, NullableBool.False, NullableBool.False, 0);
 
-    // Schreiben Sie die PPTX-Datei auf die Festplatte 
+    // Schreibe die PPTX-Datei auf die Festplatte 
     pres.Save("GroupShape_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Auf die AltText-Eigenschaft zugreifen**
-Dieses Thema zeigt einfache Schritte, komplett mit Codebeispielen, um eine Gruppengeometrie hinzuzufügen und die AltText-Eigenschaft von Gruppengeometrien auf Folien zuzugreifen. Um den AltText einer Gruppengeometrie in einer Folie mit Aspose.Slides für .NET zuzugreifen:
 
-1. Instanziieren Sie die `Presentation`-Klasse, die die PPTX-Datei darstellt.
-1. Erhalten Sie die Referenz einer Folie, indem Sie ihren Index verwenden.
-1. Zugriff auf die Geometriesammlung der Folien.
-1. Zugriff auf die Gruppengeometrie.
-1. Zugriff auf die AltText-Eigenschaft.
 
-Das folgende Beispiel greift auf den alternativen Text der Gruppengeometrie zu.
 
+## **AltText‑Eigenschaft zugreifen**
+Dieses Thema zeigt einfache Schritte, inklusive Codebeispielen, zum Hinzufügen einer Gruppenshape und zum Zugreifen auf die AltText‑Eigenschaft von Gruppenshapes auf Folien. Um mit Aspose.Slides für .NET den AltText einer Gruppenshape auf einer Folie zuzugreifen:
+
+1. Instanziieren Sie die `Presentation`‑Klasse, die die PPTX‑Datei darstellt.
+1. Holen Sie sich die Referenz einer Folie, indem Sie deren Index verwenden.
+1. Greifen Sie auf die Formensammlung der Folien zu.
+1. Greifen Sie auf die Gruppenshape zu.
+1. Greifen Sie auf die AltText‑Eigenschaft zu.
+
+Das Beispiel unten greift auf den alternativen Text der Gruppenshape zu.
 ```c#
-// Instanziieren Sie die Presentation-Klasse, die die PPTX-Datei darstellt
+// Instanziieren der Presentation-Klasse, die die PPTX-Datei darstellt
 Presentation pres = new Presentation("AltText.pptx");
 
-// Holen Sie sich die erste Folie
+// Erste Folie abrufen
 ISlide sld = pres.Slides[0];
 
 for (int i = 0; i < sld.Shapes.Count; i++)
 {
-    // Zugriff auf die Geometriesammlung der Folien
+    // Zugriff auf die Formensammlung der Folien
     IShape shape = sld.Shapes[i];
 
     if (shape is GroupShape)
     {
-        // Zugriff auf die Gruppengeometrie.
+        // Zugriff auf die Gruppenshape.
         IGroupShape grphShape = (IGroupShape)shape;
         for (int j = 0; j < grphShape.Shapes.Count; j++)
         {
@@ -81,3 +82,18 @@ for (int i = 0; i < sld.Shapes.Count; i++)
     }
 }
 ```
+
+
+## **FAQ**
+
+**Wird verschachteltes Gruppieren (eine Gruppe innerhalb einer Gruppe) unterstützt?**
+
+Ja. [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/) hat eine [ParentGroup](https://reference.aspose.com/slides/net/aspose.slides/shape/parentgroup/)‑Eigenschaft, die direkt die Hierarchiesunterstützung anzeigt (eine Gruppe kann Kind einer anderen Gruppe sein).
+
+**Wie steuere ich die Z‑Reihenfolge der Gruppe im Verhältnis zu anderen Objekten auf der Folie?**
+
+Verwenden Sie die [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/)‑[ZOrderPosition](https://reference.aspose.com/slides/net/aspose.slides/shape/zorderposition/)‑Eigenschaft, um ihre Position im Anzeigestapel zu prüfen oder zu ändern.
+
+**Kann ich das Verschieben/Bearbeiten/Entgruppieren verhindern?**
+
+Ja. Der Sperrabschnitt der Gruppe wird über [GroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/groupshape/groupshapelock/) bereitgestellt, mit dem Sie Vorgänge an dem Objekt einschränken können.

@@ -1,311 +1,314 @@
 ---
-title: Серия диаграмм
+title: Управление сериями диаграмм в C#
+linktitle: Серии диаграммы
 type: docs
 url: /ru/net/chart-series/
-keywords: "Серии диаграмм, цвет серий, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
-description: "Серии диаграмм в презентациях PowerPoint на C# или .NET"
+keywords:
+- серия диаграмм
+- перекрытие серии
+- цвет серии
+- цвет категории
+- имя серии
+- точка данных
+- промежуток серии
+- PowerPoint
+- презентация
+- C#
+- .NET
+- Aspose.Slides
+description: "Узнайте, как управлять сериями диаграмм в C# для PowerPoint (PPT/PPTX) с практическими примерами кода и рекомендациями по улучшению ваших данных в презентациях."
 ---
 
-Серия — это ряд или столбец чисел, отображаемых на диаграмме.
+## **Обзор**
+
+Эта статья описывает роль [ChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/) в Aspose.Slides для .NET, фокусируясь на структуре и визуализации данных в презентациях. Эти объекты предоставляют базовые элементы, определяющие отдельные наборы точек данных, категории и параметры отображения в диаграмме. Работая с [ChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/), разработчики могут без проблем интегрировать исходные источники данных и полностью контролировать отображение информации, создавая динамичные, основанные на данных презентации, которые явно передают инсайты и анализ.
+
+Серия — это строка или столбец чисел, отображаемых на диаграмме.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Установить перекрытие серий диаграммы**
+## **Установка перекрытия серий диаграммы**
 
-С помощью свойства [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) вы можете указать, насколько столбцы и бары должны перекрываться на 2D диаграмме (диапазон: от -100 до 100). Это свойство применяется ко всем сериям родительской группы серий: это проекция соответствующего свойства группы. Поэтому это свойство доступно только для чтения. 
+Свойство [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) управляет тем, как столбцы и колонны перекрываются в 2D‑диаграмме, задавая диапазон от -100 до 100. Поскольку это свойство связано с группой серий, а не с отдельной серией диаграммы, на уровне серии оно доступно только для чтения. Чтобы настроить значения перекрытия, используйте свойство `ParentSeriesGroup.Overlap` с возможностью чтения‑записи, которое применяет указанное перекрытие ко всем сериям в этой группе.
 
-Используйте свойство `ParentSeriesGroup.Overlap` для записи/чтения, чтобы установить предпочитаемое значение для `Overlap`. 
+Ниже приведён пример на C#, показывающий, как создать презентацию, добавить сгруппированную столбчатую диаграмму, получить доступ к первой серии диаграммы, настроить параметр перекрытия и затем сохранить результат в файл PPTX:
+```cs
+sbyte overlap = 30;
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Добавьте сгруппированную столбцовую диаграмму на слайд.
-1. Получите доступ к первой серии диаграммы.
-1. Получите доступ к `ParentSeriesGroup` серии диаграммы и установите предпочитаемое значение перекрытия для серии. 
-1. Запишите измененную презентацию в файл PPTX.
-
-Этот код на C# показывает, как установить перекрытие для серии диаграммы:
-
-```c#
 using (Presentation presentation = new Presentation())
 {
-    // Добавляет диаграмму
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.ChartData.Series;
-    if (series[0].Overlap == 0)
+    ISlide slide = presentation.Slides[0];
+
+    // Добавьте сгруппированную столбчатую диаграмму с данными по умолчанию.
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.ChartData.Series[0];
+    if (series.Overlap == 0)
     {
-        // Устанавливает перекрытие серий
-        series[0].ParentSeriesGroup.Overlap = -30;
+        // Установите перекрытие серии.
+        series.ParentSeriesGroup.Overlap = overlap;
     }
 
-    // Записывает файл презентации на диск
-    presentation.Save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
+    // Сохраните файл презентации на диск.
+    presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Изменить цвет серии**
-Aspose.Slides для .NET позволяет вам изменить цвет серии следующим образом:
 
-1. Создайте экземпляр класса `Presentation`.
-1. Добавьте диаграмму на слайд.
-1. Получите доступ к серии, цвет которой вы хотите изменить. 
-1. Установите предпочитаемый тип заливки и цвет заливки.
-1. Сохраните измененную презентацию.
+Результат:
 
-Этот код на C# показывает, как изменить цвет серии:
+![The series overlap](series_overlap.png)
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 600, 400);
-    IChartDataPoint point = chart.ChartData.Series[0].DataPoints[1];
-    
-    point.Explosion = 30;
-    point.Format.Fill.FillType = FillType.Solid;
-    point.Format.Fill.SolidFillColor.Color = Color.Blue;
+## **Изменение цвета заливки серии**
 
-    pres.Save("output.pptx", SaveFormat.Pptx);
-}
-```
+Aspose.Slides упрощает настройку цветов заливки серий диаграмм, позволяя выделять отдельные точки данных и создавать визуально привлекательные диаграммы. Это достигается с помощью объекта [IFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformat/), который поддерживает различные типы заливок, конфигурации цветов и другие продвинутые параметры стиля. После добавления диаграммы на слайд и получения доступа к нужной серии просто получите серию и примените соответствующий цвет заливки. Помимо сплошных заливок, вы также можете использовать градиентные или шаблонные заливки для большей гибкости дизайна. После задания цветов в соответствии с требованиями сохраните презентацию, чтобы завершить обновлённый вид.
 
-## **Изменить цвет категории серии**
-Aspose.Slides для .NET позволяет вам изменить цвет категории серии следующим образом:
+Ниже пример кода на C#, показывающий, как изменить цвет первой серии:
+```cs
+Color seriesColor = Color.Blue;
 
-1. Создайте экземпляр класса `Presentation`.
-1. Добавьте диаграмму на слайд.
-1. Получите доступ к категории серии, цвет которой вы хотите изменить.
-1. Установите предпочитаемый тип заливки и цвет заливки.
-1. Сохраните измененную презентацию.
-
-Этот код на C# показывает, как изменить цвет категории серии:
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-    IChartDataPoint point = chart.ChartData.Series[0].DataPoints[0];
-    
-    point.Format.Fill.FillType = FillType.Solid;
-    point.Format.Fill.SolidFillColor.Color = Color.Blue;
-
-    pres.Save("output.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Изменить имя серии** 
-
-По умолчанию имена в легенде для диаграммы — это содержимое ячеек над каждым столбцом или рядом данных. 
-
-В нашем примере (образец изображения), 
-
-* столбцы — это *Серия 1, Серия 2,* и *Серия 3*;
-* строки — это *Категория 1, Категория 2, Категория 3,* и *Категория 4.* 
-
-Aspose.Slides для .NET позволяет вам обновить или изменить имя серии в ее данных диаграммы и легенде. 
-
-Этот код на C# показывает, как изменить имя серии в данных диаграммы `ChartDataWorkbook`:
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    
-    IChartDataCell seriesCell = chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1);
-    seriesCell.Value = "Новое имя";
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-Этот код на C# показывает, как изменить имя серии в ее легенде через `Series`:
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IChartSeries series = chart.ChartData.Series[0];
-    
-    IStringChartValue name = series.Name;
-    name.AsCells[0].Value = "Новое имя";   
-}
-```
-
-## **Установить цвет заливки серии**
-
-Aspose.Slides для .NET позволяет вам установить автоматический цвет заливки для серий диаграммы внутри области построения следующим образом:
-
-1. Создайте экземпляр класса `Presentation`.
-1. Получите ссылку на слайд по его индексу.
-1. Добавьте диаграмму с данными по умолчанию на основе вашего предпочитаемого типа (в приведенном ниже примере мы использовали `ChartType.ClusteredColumn`).
-1. Получите доступ к сериям диаграммы и установите цвет заливки на автоматический.
-1. Сохраните презентацию в файл PPTX.
-
-Этот код на C# показывает, как установить автоматический цвет заливки для серии диаграммы:
-
-```c#
 using (Presentation presentation = new Presentation())
 {
-    // Создает сгруппированную столбцовую диаграмму
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
+    ISlide slide = presentation.Slides[0];
 
-    // Устанавливает формат заливки серий на автоматический
+    // Добавьте сгруппированную столбчатую диаграмму с данными по умолчанию.
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    // Установите цвет первой серии.
+    IChartSeries series = chart.ChartData.Series[0];
+    series.Format.Fill.FillType = FillType.Solid;
+    series.Format.Fill.SolidFillColor.Color = seriesColor;
+
+    // Сохраните файл презентации на диск.
+    presentation.Save("series_color.pptx", SaveFormat.Pptx);
+}
+```
+
+
+Результат:
+
+![The color of the series](series_color.png)
+
+## **Изменение названия серии** 
+
+Aspose.Slides предоставляет простой способ изменить названия серий диаграмм, упрощая маркировку данных понятным и значимым образом. Получая доступ к соответствующей ячейке листа в данных диаграммы, разработчики могут настроить представление данных. Такое изменение особенно полезно, когда названия серий необходимо обновить или уточнить в контексте данных. После переименования серии презентацию можно сохранить, чтобы зафиксировать изменения.
+
+Ниже фрагмент кода на C#, демонстрирующий этот процесс в действии.
+```cs
+string seriesName = "New name";
+
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
+
+    // Добавьте сгруппированную столбчатую диаграмму с данными по умолчанию.
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    // Установите имя первой серии.
+    IChartDataCell seriesCell = chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1);
+    seriesCell.Value = seriesName;
+
+    // Сохраните файл презентации на диск.
+    presentation.Save("series_name.pptx", SaveFormat.Pptx);
+}
+```
+
+
+Следующий код на C# показывает альтернативный способ изменить название серии:
+```cs
+string seriesName = "New name";
+
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
+
+    // Добавьте сгруппированную столбчатую диаграмму с данными по умолчанию.
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    // Установите имя первой серии.
+    IChartSeries series = chart.ChartData.Series[0];
+    series.Name.AsCells[0].Value = seriesName;
+
+    // Сохраните файл презентации на диск.
+    presentation.Save("series_name.pptx", SaveFormat.Pptx);
+}
+```
+
+
+Результат:
+
+![The series name](series_name.png)
+
+## **Получение автоматического цвета заливки серии** 
+
+Aspose.Slides для .NET позволяет получить автоматический цвет заливки серии диаграммы в области построения. После создания экземпляра класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) вы можете получить ссылку на нужный слайд по индексу, затем добавить диаграмму выбранного типа (например, `ChartType.ClusteredColumn`). Получив доступ к сериям в диаграмме, вы можете получить автоматический цвет заливки.
+
+Код на C# ниже подробно демонстрирует этот процесс.
+```cs
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
+
+    // Добавьте сгруппированную столбчатую диаграмму с данными по умолчанию.
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
     for (int i = 0; i < chart.ChartData.Series.Count; i++)
     {
-        chart.ChartData.Series[i].GetAutomaticSeriesColor();
+        // Получить цвет заливки серии.
+        Color color = chart.ChartData.Series[i].GetAutomaticSeriesColor();
+        Console.WriteLine($"Series {i} color: {color.Name}");
     }
-
-    // Записывает файл презентации на диск
-    presentation.Save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Установить инвертированные цвета заливки серий диаграммы**
-Aspose.Slides позволяет вам установить инвертированные цвета заливки для серий диаграмм внутри области построения следующим образом:
 
-1. Создайте экземпляр класса `Presentation`.
-2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму с данными по умолчанию на основе вашего предпочитаемого типа (в приведенном ниже примере мы использовали `ChartType.ClusteredColumn`).
-4. Получите доступ к серии диаграммы и установите цвет заливки на инвертированный.
-5. Сохраните презентацию в файл PPTX.
+Вывод:
+```text
+Series 0 color: ff4f81bd
+Series 1 color: ffc0504d
+Series 2 color: ff9bbb59
+```
 
-Этот код на C# демонстрирует операцию:
 
-```c#
+## **Установка инвертированного цвета заливки для серии диаграммы** 
+
+Если в вашей серии данных присутствуют как положительные, так и отрицательные значения, единообразная заливка всех столбцов или полос может затруднить восприятие диаграммы. Aspose.Slides для .NET позволяет назначить инвертированный цвет заливки — отдельную заливку, автоматически применяемую к точкам данных, находящимся ниже нуля, — чтобы отрицательные значения сразу бросались в глаза. В этом разделе вы узнаете, как включить эту опцию, выбрать подходящий цвет и сохранить обновлённую презентацию.
+
+Ниже пример кода, демонстрирующий эту операцию:
+```cs
 Color inverColor = Color.Red;
-using (Presentation pres = new Presentation())
+
+using (Presentation presentation = new Presentation())
 {
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+    ISlide slide = presentation.Slides[0];
+
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
     IChartDataWorkbook workBook = chart.ChartData.ChartDataWorkbook;
 
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    // Добавляет новые серии и категории
-    chart.ChartData.Series.Add(workBook.GetCell(0, 0, 1, "Серия 1"), chart.Type);
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 1, 0, "Категория 1"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 2, 0, "Категория 2"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 3, 0, "Категория 3"));
+    // Добавьте новые категории.
+    chart.ChartData.Categories.Add(workBook.GetCell(0, 1, 0, "Category 1"));
+    chart.ChartData.Categories.Add(workBook.GetCell(0, 2, 0, "Category 2"));
+    chart.ChartData.Categories.Add(workBook.GetCell(0, 3, 0, "Category 3"));
 
-    // Берет первую серию диаграммы и заполняет ее данными.
-    IChartSeries series = chart.ChartData.Series[0];
+    // Добавьте новую серию.
+    IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, 1, "Series 1"), chart.Type);
+
+    // Заполните данные серии.
     series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 1, 1, -20));
     series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 2, 1, 50));
     series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 3, 1, -30));
+
+    // Установите параметры цвета для серии.
     var seriesColor = series.GetAutomaticSeriesColor();
     series.InvertIfNegative = true;
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = seriesColor;
     series.InvertedSolidFillColor.Color = inverColor;
-    pres.Save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);               
+
+    presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Установить инвертирование серии, когда значение отрицательное**
-Aspose.Slides позволяет вам устанавливать инвертирование через свойства `IChartDataPoint.InvertIfNegative` и `ChartDataPoint.InvertIfNegative`. Когда инвертирование установлено с помощью этих свойств, точка данных инвертирует свои цвета, когда получает отрицательное значение. 
 
-Этот код на C# демонстрирует операцию:
+Результат:
 
-```c#
-using (Presentation pres = new Presentation())
+![The inverted solid fill color](inverted_solid_fill_color.png)
+
+Можно инвертировать цвет заливки для отдельной точки данных, а не всей серии. Просто получайте доступ к нужному `IChartDataPoint` и установите его свойство `InvertIfNegative` в true.
+
+Ниже пример кода, показывающий, как это сделать:
+```cs
+using (Presentation presentation = new Presentation())
 {
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.ChartData.Series;
+    ISlide slide = presentation.Slides[0];
+
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200, true);
+
     chart.ChartData.Series.Clear();
+    IChartSeries series = chart.ChartData.Series.Add(chart.ChartData.ChartDataWorkbook.GetCell(0, "B1"), chart.Type);
 
-    series.Add(chart.ChartData.ChartDataWorkbook.GetCell(0, "B1"), chart.Type);
-    series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B2", -5));
-    series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B3", 3));
-    series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B4", -2));
-    series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B5", 1));
+    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B2", -5));
+    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B3", 3));
+    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B4", -3));
+    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B5", 1));
 
-    series[0].InvertIfNegative = false;
-
-    series[0].DataPoints[2].InvertIfNegative = true;
-
-    pres.Save("out.pptx", SaveFormat.Pptx);
+    // Инвертировать цвет, если точка данных с индексом 2 отрицательная.
+    series.InvertIfNegative = false;
+    series.DataPoints[2].InvertIfNegative = true;
+                
+    presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Очистить данные конкретных точек данных**
-Aspose.Slides для .NET позволяет вам очистить данные `DataPoints` для конкретной серии диаграммы следующим образом:
 
-1. Создайте экземпляр класса `Presentation`.
-2. Получите ссылку на слайд по его индексу.
-3. Получите ссылку на диаграмму по ее индексу.
-4. Переберите все `DataPoints` диаграммы и установите `XValue` и `YValue` в null.
-5. Очистите все `DataPoints` для конкретной серии диаграммы.
-6. Запишите измененную презентацию в файл PPTX.
+## **Очистка значений конкретных точек данных** 
 
-Этот код на C# демонстрирует операцию:
+Иногда в диаграмме присутствуют тестовые значения, выбросы или устаревшие записи, которые необходимо удалить без перестроения всей серии. Aspose.Slides для .NET позволяет обратиться к любой точке данных по индексу, очистить её содержимое и мгновенно обновить график, чтобы оставшиеся точки сместились, а оси автоматически пересчитали масштаб.
 
-```c#
-using (Presentation pres = new Presentation("TestChart.pptx"))
+Ниже пример кода, демонстрирующий эту операцию:
+```cs
+using (Presentation presentation = new Presentation("test_chart.pptx"))
 {
-    ISlide sl = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
+    IChart chart = (IChart)slide.Shapes[0];
+    IChartSeries series = chart.ChartData.Series[0];
 
-    IChart chart = (IChart)sl.Shapes[0];
-
-    foreach (IChartDataPoint dataPoint in chart.ChartData.Series[0].DataPoints)
+    foreach (IChartDataPoint dataPoint in series.DataPoints)
     {
         dataPoint.XValue.AsCell.Value = null;
         dataPoint.YValue.AsCell.Value = null;
     }
 
-    chart.ChartData.Series[0].DataPoints.Clear();
+    series.DataPoints.Clear();
 
-    pres.Save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+    presentation.Save("clear_data_points.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Установить ширину зазора серии**
-Aspose.Slides для .NET позволяет вам установить ширину зазора серии через свойство **`GapWidth`** следующим образом:
 
-1. Создайте экземпляр класса `Presentation`.
-2. Получите доступ к первому слайду.
-3. Добавьте диаграмму с данными по умолчанию.
-4. Получите доступ к любой серии диаграммы.
-5. Установите свойство `GapWidth`.
-6. Запишите измененную презентацию в файл PPTX.
+## **Установка ширины промежутка серии** 
 
-Этот код на C# показывает, как установить ширину зазора серии:
+Ширина промежутка контролирует количество пустого пространства между соседними столбцами или полосами — более широкие промежутки подчёркивают отдельные категории, а более узкие создают более плотный, компактный вид. С помощью Aspose.Slides для .NET вы можете точно настроить этот параметр для всей серии, достигая необходимого визуального баланса в презентации без изменения исходных данных.
 
-```c#
-// Создает пустую презентацию 
-Presentation presentation = new Presentation();
+Ниже пример кода, показывающий, как установить ширину промежутка для серии:
+```cs
+ushort gapWidth = 30;
 
-// Получает доступ к первому слайду презентации
-ISlide slide = presentation.Slides[0];
+// Создайте пустую презентацию.
+using (Presentation presentation = new Presentation())
+{
+    // Доступ к первому слайду.
+    ISlide slide = presentation.Slides[0];
 
-// Добавляет диаграмму с данными по умолчанию
-IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 0, 0, 500, 500);
+    // Добавьте диаграмму с данными по умолчанию.
+    IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
 
-// Устанавливает индекс рабочего листа диаграммы
-int defaultWorksheetIndex = 0;
+    // Сохраните презентацию на диск.
+    presentation.Save("default_gap_width.pptx", SaveFormat.Pptx);
 
-// Получает рабочую книгу данных диаграммы
-IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
+    // Установите значение GapWidth.
+    IChartSeries series = chart.ChartData.Series[0];
+    series.ParentSeriesGroup.GapWidth = gapWidth;
 
-// Добавляет серии
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Серия 1"), chart.Type);
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Серия 2"), chart.Type);
-
-// Добавляет категории
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Категория 1"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Категория 2"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Категория 3"));
-
-// Берет вторую серию диаграммы
-IChartSeries series = chart.ChartData.Series[1];
-
-// Заполняет данные серии
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
-
-// Устанавливает значение GapWidth
-series.ParentSeriesGroup.GapWidth = 50;
-
-// Сохраняет презентацию на диск
-presentation.Save("GapWidth_out.pptx", SaveFormat.Pptx);
+    // Сохраните презентацию на диск.
+    presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
+}
 ```
+
+
+Результат:
+
+![The gap width](gap_width.png)
+
+## **FAQ**
+
+**Существует ли ограничение на количество серий, которые может содержать одна диаграмма?**
+
+Aspose.Slides не накладывает фиксированного ограничения на количество добавляемых серий. Практический лимит определяется читаемостью диаграммы и доступной оперативной памятью вашего приложения.
+
+**Что делать, если столбцы внутри кластера находятся слишком близко друг к другу или слишком далеко друг от друга?**
+
+Отрегулируйте параметр `GapWidth` для этой серии (или её родительской группы серий). Увеличение значения расширит пространство между столбцами, а уменьшение — сблизит их.

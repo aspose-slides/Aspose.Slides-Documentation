@@ -1,71 +1,69 @@
 ---
-title: Просмотрщик презентаций
+title: Создать просмотрщик презентаций на C#
+linktitle: Просмотрщик презентаций
 type: docs
 weight: 50
 url: /ru/net/presentation-viewer/
-keywords: "Просмотр презентации PowerPoint, просмотр ppt, просмотр PPTX, C#, Csharp, Aspose.Slides для .NET"
-description: "Просмотр презентации PowerPoint на C# или .NET"
+keywords: 
+- просматривать презентацию
+- просмотрщик презентаций
+- создать просмотрщик презентаций
+- просматривать PPT
+- просматривать PPTX
+- просматривать ODP
+- PowerPoint
+- OpenDocument
+- C#
+- Csharp
+- Aspose.Slides для .NET
+description: "Узнайте, как создать пользовательский просмотрщик презентаций в .NET с использованием Aspose.Slides. Легко отображайте файлы PowerPoint (PPTX, PPT) и OpenDocument (ODP) без Microsoft PowerPoint или другого офисного программного обеспечения."
 ---
 
-Aspose.Slides для .NET используется для создания файлов презентаций, состоящих из слайдов. Эти слайды можно просмотреть, открыв презентации с помощью Microsoft PowerPoint. Но иногда разработчикам также нужно просматривать слайды как изображения в любимом просмотрщике изображений или создать свой собственный просмотрщик презентаций. В таких случаях Aspose.Slides для .NET позволяет экспортировать отдельный слайд в изображение. Эта статья описывает, как это сделать.
-## **Прямой пример**
-Вы можете попробовать бесплатное приложение [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/), чтобы увидеть, что вы можете реализовать с помощью API Aspose.Slides:
+## **Обзор**
 
-![powerpoint-in-aspose-viewer](powerpoint-in-aspose-viewer.png)
+Aspose.Slides for .NET используется для создания файлов презентаций со слайдами. Эти слайды можно просматривать, открывая презентацию в Microsoft PowerPoint, например. Однако разработчикам иногда требуется просматривать слайды в виде изображений в предпочитаемом просмотрщике изображений или использовать их в кастомном просмотрщике презентаций. В таких случаях Aspose.Slides позволяет экспортировать отдельные слайды как изображения. Эта статья объясняет, как это сделать.
 
-## **Генерация SVG изображения из слайда**
-Чтобы сгенерировать SVG изображение из любого нужного слайда с помощью Aspose.Slides.PPTX для .NET, выполните следующие шаги:
+## **Создание SVG‑изображения со слайда**
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-- Получите ссылку на нужный слайд, используя его ID или индекс.
-- Получите SVG изображение в памяти.
-- Сохраните память в файл.
+Чтобы создать SVG‑изображение из слайда презентации с помощью Aspose.Slides, выполните следующие действия:
 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Откройте файловый поток.
+1. Сохраните слайд как SVG‑изображение в файловый поток.
 ```c#
-// Создайте экземпляр класса Presentation, представляющего файл презентации
+int slideIndex = 0;
 
-using (Presentation pres = new Presentation("CreateSlidesSVGImage.pptx"))
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
+    ISlide slide = presentation.Slides[slideIndex];
 
-    // Получите доступ к первому слайду
-    ISlide sld = pres.Slides[0];
-
-    // Создайте объект памяти
-    MemoryStream SvgStream = new MemoryStream();
-
-    // Генерация SVG изображения слайда и сохранение в памяти
-    sld.WriteAsSvg(SvgStream);
-    SvgStream.Position = 0;
-
-    // Сохраните поток памяти в файл
-    using (Stream fileStream = System.IO.File.OpenWrite("Aspose_out.svg"))
+    using (FileStream svgStream = File.Create("output.svg"))
     {
-        byte[] buffer = new byte[8 * 1024];
-        int len;
-        while ((len = SvgStream.Read(buffer, 0, buffer.Length)) > 0)
-        {
-            fileStream.Write(buffer, 0, len);
-        }
-
+        slide.WriteAsSvg(svgStream);
     }
-    SvgStream.Close();
 }
 ```
 
-## **Генерация SVG с пользовательскими идентификаторами форм**
-Aspose.Slides для .NET может использоваться для генерации [SVG ](https://docs.fileformat.com/page-description-language/svg/)из слайда с пользовательским идентификатором формы. Для этого используйте свойство ID из [ISvgShape](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape), которое представляет пользовательский идентификатор форм в сгенерированном SVG. Можно использовать CustomSvgShapeFormattingController для установки идентификатора формы.
 
+## **Создание SVG с пользовательским ID фигуры**
+
+Aspose.Slides можно использовать для создания [SVG](https://docs.fileformat.com/page-description-language/svg/) из слайда с пользовательским `ID` фигуры. Для этого используйте свойство Id интерфейса [ISvgShape](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape). Класс `CustomSvgShapeFormattingController` позволяет задать ID фигуры.
 ```c#
-using (Presentation pres = new Presentation("pptxFileName.pptx"))
-{
-    using (FileStream stream = new FileStream(outputPath, FileMode.OpenOrCreate))
-    {
-        SVGOptions svgOptions = new SVGOptions
-        {
-            ShapeFormattingController = new CustomSvgShapeFormattingController()
-        };
+int slideIndex = 0;
 
-        pres.Slides[0].WriteAsSvg(stream, svgOptions);
+using (Presentation presentation = new Presentation("sample.odp"))
+{
+    ISlide slide = presentation.Slides[slideIndex];
+    
+    SVGOptions svgOptions = new SVGOptions
+    {
+        ShapeFormattingController = new CustomSvgShapeFormattingController()
+    };
+
+    using (FileStream svgStream = File.Create("output.svg"))
+    {
+        slide.WriteAsSvg(svgStream, svgOptions);
     }
 }
 ```
@@ -73,103 +71,119 @@ using (Presentation pres = new Presentation("pptxFileName.pptx"))
 ```c#
 class CustomSvgShapeFormattingController : ISvgShapeFormattingController
 {
-	private int m_shapeIndex;
-	
-	public CustomSvgShapeFormattingController(int shapeStartIndex = 0)
-	{
-		m_shapeIndex = shapeStartIndex;
-	}
+    private int m_shapeIndex;
 
-	public void FormatShape(ISvgShape svgShape, IShape shape)
-	{
-		svgShape.Id = string.Format("shape-{0}", m_shapeIndex++);
-	}
+    public CustomSvgShapeFormattingController(int shapeStartIndex = 0)
+    {
+        m_shapeIndex = shapeStartIndex;
+    }
+
+    public void FormatShape(ISvgShape svgShape, IShape shape)
+    {
+        svgShape.Id = string.Format("shape-{0}", m_shapeIndex++);
+    }
 }
 ```
 
-## **Создание эскиза слайда**
-Aspose.Slides для .NET помогает вам генерировать эскизы изображений слайдов. Чтобы создать эскиз любого нужного слайда, используя Aspose.Slides для .NET:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Получите ссылку на любой нужный слайд, используя его ID или индекс.
-3. Получите изображение эскиза соответствующего слайда на указанном масштабе.
-4. Сохраните изображение эскиза в любом нужном формате.
+## **Создание миниатюры слайда**
 
+Aspose.Slides помогает генерировать миниатюры слайдов. Чтобы создать миниатюру слайда с помощью Aspose.Slides, выполните следующие действия:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Создайте изображение‑миниатюру указанного слайда в нужном масштабе.
+1. Сохраните изображение‑миниатюру в предпочитаемом формате изображения.
 ```c#
-// Создайте экземпляр класса Presentation, представляющего файл презентации
-using (Presentation pres = new Presentation("ThumbnailFromSlide.pptx"))
+int slideIndex = 0;
+float scaleX = 1;
+float scaleY = scaleX;
+
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
+    ISlide slide = presentation.Slides[slideIndex];
 
-    // Получите доступ к первому слайду
-    ISlide sld = pres.Slides[0];
-
-    // Создайте изображение полного масштаба
-    Bitmap bmp = sld.GetThumbnail(1f, 1f);
-
-    // Сохраните изображение на диск в формате JPEG
-    bmp.Save("Thumbnail_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-
+    using (IImage image = slide.GetImage(scaleX, scaleY))
+    {
+        image.Save("output.jpg", ImageFormat.Jpeg);
+    }
 }
 ```
 
-## **Создание миниатюры с заданными пользователем размерами**
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Получите ссылку на любой нужный слайд, используя его ID или индекс.
-3. Получите изображение эскиза соответствующего слайда на указанном масштабе.
-4. Сохраните изображение эскиза в любом нужном формате.
 
+## **Создание миниатюры слайда с пользовательскими размерами**
+
+Чтобы создать изображение‑миниатюру слайда с пользовательскими размерами, выполните следующие действия:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Сгенерируйте изображение‑миниатюру указанного слайда с заданными размерами.
+1. Сохраните изображение‑миниатюру в предпочитаемом формате изображения.
 ```c#
-// Создайте экземпляр класса Presentation, представляющего файл презентации
-using (Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx"))
+int slideIndex = 0;
+Size slideSize = new Size(1200, 800);
+
+using (Presentation presentation = new Presentation("sample.odp"))
 {
+    ISlide slide = presentation.Slides[slideIndex];
 
-    // Получите доступ к первому слайду
-    ISlide sld = pres.Slides[0];
-
-    // Пользовательские размеры
-    int desiredX = 1200;
-    int desiredY = 800;
-
-    // Получение масштабированных значений X и Y
-    float ScaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
-    float ScaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
-
-    // Создайте изображение полного масштаба
-    Bitmap bmp = sld.GetThumbnail(ScaleX, ScaleY);
-
-    // Сохраните изображение на диск в формате JPEG
-    bmp.Save("Thumbnail2_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+    using (IImage image = slide.GetImage(slideSize))
+    {
+        image.Save("output.jpg", ImageFormat.Jpeg);
+    }
 }
 ```
 
-## **Создание миниатюры из слайда в режиме заметок**
-Чтобы создать эскиз любого нужного слайда в режиме заметок с использованием Aspose.Slides для .NET:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Получите ссылку на любой нужный слайд, используя его ID или индекс.
-3. Получите изображение эскиза соответствующего слайда на указанном масштабе в режиме заметок.
-4. Сохраните изображение эскиза в любом нужном формате.
+## **Создание миниатюры слайда с заметками докладчика**
 
-Приведенный ниже фрагмент кода генерирует миниатюру первого слайда презентации в режиме заметок.
+Чтобы создать миниатюру слайда с заметками докладчика с помощью Aspose.Slides, выполните следующие действия:
 
+1. Создайте экземпляр класса [RenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/renderingoptions/) .
+1. Используйте свойство `RenderingOptions.SlidesLayoutOptions` для установки положения заметок докладчика.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
+1. Получите ссылку на слайд по его индексу.
+1. Сгенерируйте изображение‑миниатюру указанного слайда, используя параметры рендеринга.
+1. Сохраните изображение‑миниатюру в предпочитаемом формате изображения.
 ```c#
-// Создайте экземпляр класса Presentation, представляющего файл презентации
-using (Presentation pres = new Presentation("ThumbnailFromSlideInNotes.pptx"))
+int slideIndex = 0;
+
+RenderingOptions renderingOptions = new RenderingOptions
 {
-    // Получите доступ к первому слайду
-    ISlide sld = pres.Slides[0];
+    SlidesLayoutOptions = new NotesCommentsLayoutingOptions
+    {
+        NotesPosition = NotesPositions.BottomTruncated
+    }
+};
 
-    // Пользовательские размеры
-    int desiredX = 1200;
-    int desiredY = 800;
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ISlide slide = presentation.Slides[slideIndex];
 
-    // Получение масштабированных значений X и Y
-    float ScaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
-    float ScaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
-
-    // Создайте изображение полного масштаба                
-    Bitmap bmp = sld.GetThumbnail(ScaleX, ScaleY);
-    // Сохраните изображение на диск в формате JPEG
-    bmp.Save("Notes_tnail_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+    using (IImage image = slide.GetImage(renderingOptions))
+    {
+        image.Save("output.png", ImageFormat.Png);
+    }
 }
 ```
+
+
+## **Рабочий пример**
+
+Попробуйте бесплатное приложение [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) — чтобы увидеть, что можно реализовать с помощью API Aspose.Slides:
+
+[![Online PowerPoint Viewer](online-PowerPoint-viewer.png)](https://products.aspose.app/slides/viewer/)
+
+## **FAQ**
+
+**Можно ли встроить просмотрщик презентаций в веб‑приложение ASP.NET?**
+
+Да. Вы можете использовать Aspose.Slides на стороне сервера для рендеринга слайдов в виде изображений или HTML и отображать их в браузере. Навигацию и масштабирование можно реализовать с помощью JavaScript для интерактивного взаимодействия.
+
+**Как лучше всего отображать слайды в пользовательском .NET‑просмотрщике?**
+
+Рекомендуется рендерить каждый слайд как изображение (например, PNG или SVG) или конвертировать его в HTML с помощью Aspose.Slides, после чего показывать результат в элементе picture box (для настольных приложений) или в HTML‑контейнере (для веба).
+
+**Как работать с большими презентациями, содержащими много слайдов?**
+
+Для больших наборов слайдов рекомендуется использовать отложенную загрузку или рендеринг по запросу. Это означает генерацию содержимого слайда только при переходе к нему, что уменьшает потребление памяти и время загрузки.

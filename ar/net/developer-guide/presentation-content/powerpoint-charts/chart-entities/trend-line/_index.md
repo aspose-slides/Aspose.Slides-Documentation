@@ -2,62 +2,62 @@
 title: خط الاتجاه
 type: docs
 url: /ar/net/trend-line/
-keywords: "خط الاتجاه, خط مخصص عرض PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "إضافة خط اتجاه وخط مخصص إلى عروض PowerPoint في C# أو .NET"
+keywords: "خط الاتجاه، خط مخصص عرض تقديمي PowerPoint، C#، Csharp، Aspose.Slides for .NET"
+description: "إضافة خط اتجاه وخط مخصص إلى عروض PowerPoint التقديمية في C# أو .NET"
 ---
 
-## **إضافة خط الاتجاه**
-توفر Aspose.Slides for .NET واجهة برمجة تطبيقات بسيطة لإدارة خطوط الاتجاه المختلفة في الرسم البياني:
+## **إضافة خط اتجاه**
+توفر Aspose.Slides for .NET واجهة برمجة تطبيقات بسيطة لإدارة خطوط الاتجاه المختلفة في المخططات:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها.
-1. إضافة رسم بياني ببيانات افتراضية مع أي نوع مرغوب (هذا المثال يستخدم ChartType.ClusteredColumn).
-1. إضافة خط اتجاه أسي للسلسلة البيانية 1.
-1. إضافة خط اتجاه خطي للسلسلة البيانية 1.
-1. إضافة خط اتجاه لوغاريتمي للسلسلة البيانية 2.
-1. إضافة خط اتجاه متوسط متحرك للسلسلة البيانية 2.
-1. إضافة خط اتجاه حدودي للسلسلة البيانية 3.
-1. إضافة خط اتجاه طاقة للسلسلة البيانية 3.
-1. كتابة العرض المعدل إلى ملف PPTX.
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. الحصول على مرجع الشريحة باستخدام فهرسها.
+3. إضافة مخطط ببيانات افتراضية مع أي نوع مرغوب (هذا المثال يستخدم ChartType.ClusteredColumn).
+4. إضافة خط اتجاه أسي للسلسلة 1 في المخطط.
+5. إضافة خط اتجاه خطي للسلسلة 1 في المخطط.
+6. إضافة خط اتجاه لوغاريتمي للسلسلة 2 في المخطط.
+7. إضافة خط اتجاه متوسط متحرك للسلسلة 2 في المخطط.
+8. إضافة خط اتجاه متعدد الحدود للسلسلة 3 في المخطط.
+9. إضافة خط اتجاه أساسي للسلسلة 3 في المخطط.
+10. كتابة العرض التقديمي المعدل إلى ملف PPTX.
 
-يستخدم الكود التالي لإنشاء رسم بياني مع خطوط الاتجاه.
-
+يتم استخدام الشيفرة التالية لإنشاء مخطط مع خطوط الاتجاه.
 ```c#
 // إنشاء عرض تقديمي فارغ
 Presentation pres = new Presentation();
 
-// إنشاء رسم بياني عمودي مكدس
+// إنشاء مخطط عمودي متجمع
 IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
 
-// إضافة خط اتجاه أسي للسلسلة البيانية 1
+// إضافة خط اتجاه أسي للسلسلة 1 في المخطط
 ITrendline tredLinep = chart.ChartData.Series[0].TrendLines.Add(TrendlineType.Exponential);
 tredLinep.DisplayEquation = false;
 tredLinep.DisplayRSquaredValue = false;
 
-// إضافة خط اتجاه خطي للسلسلة البيانية 1
+// إضافة خط اتجاه خطي للسلسلة 1 في المخطط
 ITrendline tredLineLin = chart.ChartData.Series[0].TrendLines.Add(TrendlineType.Linear);
 tredLineLin.TrendlineType = TrendlineType.Linear;
 tredLineLin.Format.Line.FillFormat.FillType = FillType.Solid;
 tredLineLin.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
 
-// إضافة خط اتجاه لوغاريتمي للسلسلة البيانية 2
+
+// إضافة خط اتجاه لوغاريتمي للسلسلة 2 في المخطط
 ITrendline tredLineLog = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.Logarithmic);
 tredLineLog.TrendlineType = TrendlineType.Logarithmic;
-tredLineLog.AddTextFrameForOverriding("خط الاتجاه اللوغاريتمي الجديد");
+tredLineLog.AddTextFrameForOverriding("New log trend line");
 
-// إضافة خط اتجاه متوسط متحرك للسلسلة البيانية 2
+// إضافة خط اتجاه متوسط متحرك للسلسلة 2 في المخطط
 ITrendline tredLineMovAvg = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.MovingAverage);
 tredLineMovAvg.TrendlineType = TrendlineType.MovingAverage;
 tredLineMovAvg.Period = 3;
-tredLineMovAvg.TrendlineName = "اسم خط الاتجاه الجديد";
+tredLineMovAvg.TrendlineName = "New TrendLine Name";
 
-// إضافة خط اتجاه حدودي للسلسلة البيانية 3
+// إضافة خط اتجاه متعدد الحدود للسلسلة 3 في المخطط
 ITrendline tredLinePol = chart.ChartData.Series[2].TrendLines.Add(TrendlineType.Polynomial);
 tredLinePol.TrendlineType = TrendlineType.Polynomial;
 tredLinePol.Forward = 1;
 tredLinePol.Order = 3;
 
-// إضافة خط اتجاه طاقة للسلسلة البيانية 3
+// إضافة خط اتجاه أسّي للسلسلة 3 في المخطط
 ITrendline tredLinePower = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.Power);
 tredLinePower.TrendlineType = TrendlineType.Power;
 tredLinePower.Backward = 1;
@@ -67,19 +67,17 @@ pres.Save("ChartTrendLines_out.pptx", SaveFormat.Pptx);
 ```
 
 
-
 ## **إضافة خط مخصص**
-توفر Aspose.Slides for .NET واجهة برمجة تطبيقات بسيطة لإضافة خطوط مخصصة في الرسم البياني. لإضافة خط بسيط إلى شريحة مختارة من العرض التقديمي، يرجى اتباع الخطوات أدناه:
+توفر Aspose.Slides for .NET واجهة برمجة تطبيقات بسيطة لإضافة خطوط مخصصة في المخطط. لإضافة خط بسيط عادي إلى شريحة مختارة من العرض التقديمي، يرجى اتباع الخطوات أدناه:
 
-- إنشاء مثيل من فئة Presentation
-- الحصول على مرجع لشريحة باستخدام فهرسها
-- إنشاء رسم بياني جديد باستخدام طريقة AddChart التي تعرضها كائنات Shapes
-- إضافة شكل تلقائي من نوع خط باستخدام طريقة AddAutoShape التي تعرضها كائنات Shapes
+- إنشاء كائن من الفئة Presentation.
+- الحصول على مرجع شريحة باستخدام فهرستها.
+- إنشاء مخطط جديد باستخدام طريقة AddChart المتاحة عبر كائن Shapes.
+- إضافة AutoShape من نوع Line باستخدام طريقة AddAutoShape المتاحة عبر كائن Shapes.
 - تعيين لون خطوط الشكل.
-- كتابة العرض المعدل كملف PPTX
+- كتابة العرض التقديمي المعدل كملف PPTX.
 
-يستخدم الكود التالي لإنشاء رسم بياني مع خطوط مخصصة.
-
+يتم استخدام الشيفرة التالية لإنشاء مخطط مع خطوط مخصصة.
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -90,3 +88,14 @@ using (Presentation pres = new Presentation())
     pres.Save("AddCustomLines.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**ماذا تعني 'forward' و 'backward' في خط الاتجاه؟**
+
+إنها أطوال خط الاتجاه الممتد إلى الأمام/الخلف: في المخططات النقطية (XY) — بوحدات المحور؛ في المخططات غير النقطية — بعدد الفئات. لا يُسمح إلا بالقيم غير السالبة.
+
+**هل سيُحافظ على خط الاتجاه عند تصدير العرض التقديمي إلى PDF أو SVG، أو عند تحويل شريحة إلى صورة؟**
+
+نعم. تقوم Aspose.Slides بتحويل العروض التقديمية إلى [PDF](/slides/ar/net/convert-powerpoint-to-pdf/)/[SVG](/slides/ar/net/render-a-slide-as-an-svg-image/) وتُعيد رسم المخططات كصور؛ تُحفظ خطوط الاتجاه كجزء من المخطط أثناء هذه العمليات. تتوفر أيضًا طريقة لـ [تصدير صورة للمخطط](/slides/ar/net/create-shape-thumbnails/).

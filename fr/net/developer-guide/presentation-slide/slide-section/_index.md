@@ -1,27 +1,26 @@
 ---
-title: Section de Diapositive
+title: Section de diapositive
 type: docs
 weight: 100
 url: /fr/net/slide-section/
-keywords: "Créer section, Ajouter section, Modifier le nom de section, Présentation PowerPoint, C#, Csharp, .NET, Aspose.Slides"
+keywords: "Créer une section, Ajouter une section, Modifier le nom de la section, Présentation PowerPoint, C#, Csharp, .NET, Aspose.Slides"
 description: "Ajouter et modifier une section dans une présentation PowerPoint en C# ou .NET"
 ---
 
-Avec Aspose.Slides pour .NET, vous pouvez organiser une présentation PowerPoint en sections. Vous pouvez créer des sections qui contiennent des diapositives spécifiques.
+Avec Aspose.Slides pour .NET, vous pouvez organiser une présentation PowerPoint en sections. Vous pouvez créer des sections contenant des diapositives spécifiques. 
 
-Vous voudrez peut-être créer des sections et les utiliser pour organiser ou diviser des diapositives dans une présentation en parties logiques dans ces situations :
+Vous pouvez souhaiter créer des sections et les utiliser pour organiser ou diviser les diapositives d’une présentation en parties logiques dans les situations suivantes :
 
-- Lorsque vous travaillez sur une grande présentation avec d'autres personnes ou une équipe—et vous devez attribuer certaines diapositives à un collègue ou à d'autres membres de l'équipe.
-- Lorsque vous traitez une présentation contenant de nombreuses diapositives—et que vous avez du mal à gérer ou à modifier son contenu en une seule fois.
+- Lorsque vous travaillez sur une grande présentation avec d’autres personnes ou une équipe — et que vous devez attribuer certaines diapositives à un collègue ou à plusieurs membres de l’équipe. 
+- Lorsque vous gérez une présentation contenant de nombreuses diapositives — et que vous avez du mal à gérer ou à modifier son contenu en une fois.
 
-Idéalement, vous devriez créer une section qui abrite des diapositives similaires—les diapositives ont quelque chose en commun ou peuvent exister dans un groupe basé sur une règle—et donner à la section un nom qui décrit les diapositives qu'elle contient.
+Idéalement, vous devez créer une section qui regroupe des diapositives similaires — les diapositives ont quelque chose en commun ou peuvent être groupées selon une règle — et donner à la section un nom décrivant les diapositives qu’elle contient. 
 
-## Création de Sections dans les Présentations
+## **Création de sections dans les présentations**
 
-Pour ajouter une section qui abritera des diapositives dans une présentation, Aspose.Slides pour .NET fournit la méthode AddSection qui vous permet de spécifier le nom de la section que vous souhaitez créer et la diapositive à partir de laquelle la section commence.
+Pour ajouter une section qui regroupera des diapositives dans une présentation, Aspose.Slides pour .NET fournit la méthode AddSection qui vous permet de spécifier le nom de la section que vous souhaitez créer ainsi que la diapositive à partir de laquelle la section débute. 
 
-Ce code d'exemple montre comment créer une section dans une présentation en C# :
-
+Cet exemple de code montre comment créer une section dans une présentation en C#:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -32,8 +31,8 @@ using (Presentation pres = new Presentation())
     ISlide newSlide4 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
 
     ISection section1 = pres.Sections.AddSection("Section 1", newSlide1);
-    ISection section2 = pres.Sections.AddSection("Section 2", newSlide3); // section1 sera terminée à newSlide2 et après elle section2 commencera   
-
+    ISection section2 = pres.Sections.AddSection("Section 2", newSlide3); // section1 se terminera à newSlide2 et après cela section2 commencera   
+    
     pres.Save("pres-sections.pptx", SaveFormat.Pptx);
     
     pres.Sections.ReorderSectionWithSlides(section2, 0);
@@ -41,22 +40,37 @@ using (Presentation pres = new Presentation())
     
     pres.Sections.RemoveSectionWithSlides(section2);
     
-    pres.Sections.AppendEmptySection("Dernière section vide");
+    pres.Sections.AppendEmptySection("Last empty section");
     
     pres.Save("pres-section-with-empty.pptx",SaveFormat.Pptx);
 }
 ```
 
-## Changer les Noms des Sections
 
-Après avoir créé une section dans une présentation PowerPoint, vous pouvez décider de changer son nom.
+## **Modification du nom des sections**
 
-Ce code d'exemple montre comment changer le nom d'une section dans une présentation en C# utilisant Aspose.Slides :
+Après avoir créé une section dans une présentation PowerPoint, vous pouvez décider de modifier son nom. 
 
+Cet exemple de code montre comment changer le nom d’une section dans une présentation en C# en utilisant Aspose.Slides:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    ISection section = pres.Sections[0];
-   section.Name = "Ma section";
+   section.Name = "My section";
 }
 ```
+
+
+## **FAQ**
+
+**Les sections sont-elles conservées lors de l’enregistrement au format PPT (PowerPoint 97–2003) ?**
+
+Non. Le format PPT ne prend pas en charge les métadonnées de section, ainsi le groupement des sections est perdu lors de l’enregistrement au format .ppt.
+
+**Une section entière peut-elle être « masquée » ?**
+
+Non. Seules les diapositives individuelles peuvent être masquées. Une section en tant qu’entité n’a aucun état « masqué ».
+
+**Puis-je rapidement trouver une section à partir d’une diapositive et, inversement, la première diapositive d’une section ?**
+
+Oui. Une section est définie de façon unique par sa diapositive de départ ; à partir d’une diapositive, vous pouvez déterminer à quelle section elle appartient, et pour une section vous pouvez accéder à sa première diapositive.

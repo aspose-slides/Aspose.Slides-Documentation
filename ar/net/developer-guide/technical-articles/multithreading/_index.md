@@ -7,26 +7,25 @@ keywords:
 - PowerPoint
 - عرض تقديمي
 - البرمجة المتعددة الخيوط
-- العمل المتوازي
+- عمل متوازي
 - تحويل الشرائح
-- الشرائح إلى صور
+- شرائح إلى صور
 - C#
 - .NET
-- Aspose.Slides for .NET
+- Aspose.Slides لـ .NET
 ---
 
-## **مقدمة**
+## **Introduction**
 
-بينما العمل المتوازي مع العروض التقديمية ممكن (بجانب التحليل/التحميل/النسخ)، ويجري كل شيء بشكل جيد (معظم الأوقات)، هناك فرصة صغيرة أنك قد تحصل على نتائج غير صحيحة عند استخدام المكتبة في خيوط متعددة.
+في حين أن العمل المتوازي مع العروض التقديمية ممكن (بخلاف التحليل/التحميل/الاستنساخ) وعادةً ما يسير كل شيء على ما يرام (في معظم الأوقات)، إلا أن هناك احتمالًا صغيرًا للحصول على نتائج غير صحيحة عند استخدام المكتبة في عدة خيوط.
 
-نوصي بشدة بعدم استخدام نسخة واحدة من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) في بيئة متعددة الخيوط لأنها قد تؤدي إلى أخطاء أو فشل غير متوقع يصعب اكتشافه.
+نوصي بشدة بعدم استخدام نسخة واحدة من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) في بيئة متعددة الخيوط لأنه قد يؤدي إلى أخطاء أو فشل غير متوقع يصعب اكتشافه.
 
-ليس آمناً تحميل أو حفظ أو/و نسخ نسخة من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) في خيوط متعددة. مثل هذه العمليات **غير** مدعومة. إذا كنت بحاجة لأداء مثل هذه المهام، عليك أن تنظم العمليات بالتوازي باستخدام عدة عمليات ذات خيط واحد—ويجب أن تستخدم كل من هذه العمليات نسختها الخاصة من العرض التقديمي.
+ليس من الآمن تحميل أو حفظ أو/أو استنساخ نسخة من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) في عدة خيوط. هذه العمليات غير مدعومة. إذا كنت بحاجة إلى تنفيذ مثل هذه المهام، عليك تنفيذها بالتوازي باستخدام عدة عمليات أحادية الخيط—ويجب على كل عملية أن تستخدم نسخة عرض تقديمي خاصة بها.
 
-## **تحويل شرائح العرض التقديمي إلى صور بشكل متوازي**
+## **Convert Presentation Slides to Images in Parallel**
 
- لنفترض أننا نريد تحويل جميع الشرائح من عرض PowerPoint إلى صور PNG بشكل متوازي. بما أنه غير آمن استخدام نسخة واحدة من `Presentation` في خيوط متعددة، نقوم بتقسيم شرائح العرض التقديمي إلى عروض تقديمية منفصلة ونحول الشرائح إلى صور بشكل متوازي، باستخدام كل عرض تقديمي في خيط منفصل. يوضح المثال البرمجي التالي كيفية القيام بذلك.
-
+لنفترض أننا نريد تحويل جميع الشرائح من عرض PowerPoint إلى صور PNG بالتوازي. بما أنه غير آمن استخدام نسخة واحدة من `Presentation` في عدة خيوط، نقسم شرائح العرض إلى عروض تقديمية منفصلة ونحول الشرائح إلى صور بالتوازي، باستخدام كل عرض تقديمي في خيط منفصل. يظهر مثال الكود التالي كيفية القيام بذلك.
 ```cs
 var inputFilePath = "sample.pptx";
 var outputFilePathTemplate = "slide_{0}.png";
@@ -41,7 +40,7 @@ var conversionTasks = new List<Task>(slideCount);
 
 for (var slideIndex = 0; slideIndex < slideCount; slideIndex++)
 {
-    // استخراج الشريحة i إلى عرض تقديمي منفصل.
+    // استخراج الشريحة i في عرض تقديمي منفصل.
     var slidePresentation = new Presentation();
     slidePresentation.SlideSize.SetSize(slideSize.Width, slideSize.Height, SlideSizeScaleType.DoNotScale);
     slidePresentation.Slides.RemoveAt(0);
@@ -68,3 +67,22 @@ for (var slideIndex = 0; slideIndex < slideCount; slideIndex++)
 
 await Task.WhenAll(conversionTasks);
 ```
+
+
+## **FAQ**
+
+**Do I need to call license setup in every thread?**
+
+No. It’s enough to do it once per process/app domain before threads start. If [إعداد الترخيص](/slides/ar/net/licensing/) might be invoked concurrently (for example, during lazy initialization), synchronize that call because the license setup method itself is not thread‑safe.
+
+**Can I pass `Presentation` or `Slide` objects between threads?**
+
+Passing "live" presentation objects between threads is not recommended: use independent instances per thread or precreate separate presentations/slide containers for each thread. This approach follows the general recommendation not to share a single presentation instance across threads.
+
+**Is it safe to parallelize export to different formats (PDF, HTML, images) provided each thread has its own `Presentation` instance?**
+
+Yes. With independent instances and separate output paths, such tasks typically parallelize correctly; avoid any shared presentation objects and shared I/O streams.
+
+**What should I do with global font settings (folders, substitutions) in multithreading?**
+
+Initialize all global font settings before starting the threads and do not change them during parallel work. This eliminates races when accessing shared font resources.

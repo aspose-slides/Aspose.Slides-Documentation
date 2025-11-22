@@ -1,192 +1,189 @@
 ---
-title: プレゼンテーション ビューア
+title: C#でプレゼンテーションビューアを作成する
+linktitle: プレゼンテーションビューア
 type: docs
 weight: 50
 url: /ja/net/presentation-viewer/
-keywords: 
-- PowerPoint プレゼンテーションを表示
-- ppt を表示
-- PPTX を表示
+keywords:
+- プレゼンテーションを表示
+- プレゼンテーションビューア
+- プレゼンテーションビューアを作成
+- PPTを表示
+- PPTXを表示
+- ODPを表示
+- PowerPoint
+- OpenDocument
 - C#
 - Csharp
 - Aspose.Slides for .NET
-description: "C# または .NET で PowerPoint プレゼンテーションを表示"
+description: "Aspose.Slides を使用して .NET でカスタムのプレゼンテーションビューアを作成する方法を学びます。Microsoft PowerPoint やその他のオフィスソフトウェアを必要とせず、PowerPoint（PPTX、PPT）および OpenDocument（ODP）ファイルを簡単に表示できます。"
 ---
 
+## **概要**
 
-
-Aspose.Slides for .NET は、スライドを含むプレゼンテーションファイルを作成するために使用されます。これらのスライドは、Microsoft PowerPoint を使用してプレゼンテーションを開くことで表示できます。しかし、場合によっては、開発者が好きな画像ビューアでスライドを画像として表示する必要があるか、独自のプレゼンテーションビューアを作成する必要があることもあります。そのような場合に、Aspose.Slides for .NET を使用すると、個々のスライドを画像としてエクスポートすることができます。この記事では、その方法について説明します。
-## **ライブ例**
-Aspose.Slides API で実装可能な内容を確認するために、[**Aspose.Slides ビューア**](https://products.aspose.app/slides/viewer/) の無料アプリを試してみてください：
-
-![powerpoint-in-aspose-viewer](powerpoint-in-aspose-viewer.png)
+Aspose.Slides for .NET は、スライドを含むプレゼンテーション ファイルの作成に使用されます。これらのスライドは、たとえば Microsoft PowerPoint でプレゼンテーションを開くことで表示できます。ただし、開発者がスライドを好みの画像ビューアで画像として表示したり、独自のプレゼンテーション ビューアで使用したりする必要がある場合があります。そのようなケースでは、Aspose.Slides を使用して個々のスライドを画像としてエクスポートできます。本記事ではその手順を説明します。
 
 ## **スライドから SVG 画像を生成する**
-Aspose.Slides.PPTX for .NET を使用して任意のスライドから SVG 画像を生成するには、以下の手順に従ってください：
 
-- [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-- ID またはインデックスを使用して、必要なスライドの参照を取得します。
-- メモリストリーム内の SVG 画像を取得します。
-- メモリストリームをファイルに保存します。
+Aspose.Slides を使用してプレゼンテーション スライドから SVG 画像を生成するには、以下の手順に従います。
 
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
+1. インデックスでスライドへの参照を取得します。
+1. ファイルストリームを開きます。
+1. スライドを SVG 画像としてファイルストリームに保存します。
 ```c#
-// プレゼンテーションファイルを表す Presentation クラスをインスタンス化します
+int slideIndex = 0;
 
-using (Presentation pres = new Presentation("CreateSlidesSVGImage.pptx"))
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
+    ISlide slide = presentation.Slides[slideIndex];
 
-    // 最初のスライドにアクセスします
-    ISlide sld = pres.Slides[0];
-
-    // メモリストリームオブジェクトを作成します
-    MemoryStream SvgStream = new MemoryStream();
-
-    // スライドの SVG 画像を生成し、メモリストリームに保存します
-    sld.WriteAsSvg(SvgStream);
-    SvgStream.Position = 0;
-
-    // メモリストリームをファイルに保存します
-    using (Stream fileStream = System.IO.File.OpenWrite("Aspose_out.svg"))
+    using (FileStream svgStream = File.Create("output.svg"))
     {
-        byte[] buffer = new byte[8 * 1024];
-        int len;
-        while ((len = SvgStream.Read(buffer, 0, buffer.Length)) > 0)
-        {
-            fileStream.Write(buffer, 0, len);
-        }
-
-    }
-    SvgStream.Close();
-}
-```
-
-
-## **カスタムシェイプ ID で SVG を生成する**
-Aspose.Slides for .NET は、カスタムシェイプ ID を持つスライドから [SVG](https://docs.fileformat.com/page-description-language/svg/) を生成するために使用できます。そのためには、生成された SVG のシェイプのカスタム ID を表す [ISvgShape](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape) の ID プロパティを使用します。CustomSvgShapeFormattingController を使用してシェイプ ID を設定できます。
-
-```c#
-using (Presentation pres = new Presentation("pptxFileName.pptx"))
-{
-    using (FileStream stream = new FileStream(outputPath, FileMode.OpenOrCreate))
-    {
-        SVGOptions svgOptions = new SVGOptions
-        {
-            ShapeFormattingController = new CustomSvgShapeFormattingController()
-        };
-
-        pres.Slides[0].WriteAsSvg(stream, svgOptions);
+        slide.WriteAsSvg(svgStream);
     }
 }
 ```
 
 
+## **カスタム シェイプ ID を持つ SVG を生成する**
+
+Aspose.Slides を使用して、カスタム シェイプ `ID` を持つスライドから [SVG](https://docs.fileformat.com/page-description-language/svg/) を生成できます。そのためには、[ISvgShape](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape) インターフェイスの Id プロパティを使用します。`CustomSvgShapeFormattingController` クラスを使用してシェイプ ID を設定できます。
+```c#
+int slideIndex = 0;
+
+using (Presentation presentation = new Presentation("sample.odp"))
+{
+    ISlide slide = presentation.Slides[slideIndex];
+    
+    SVGOptions svgOptions = new SVGOptions
+    {
+        ShapeFormattingController = new CustomSvgShapeFormattingController()
+    };
+
+    using (FileStream svgStream = File.Create("output.svg"))
+    {
+        slide.WriteAsSvg(svgStream, svgOptions);
+    }
+}
+```
 
 ```c#
 class CustomSvgShapeFormattingController : ISvgShapeFormattingController
 {
-	private int m_shapeIndex;
-	
-	public CustomSvgShapeFormattingController(int shapeStartIndex = 0)
-	{
-		m_shapeIndex = shapeStartIndex;
-	}
+    private int m_shapeIndex;
 
-	public void FormatShape(ISvgShape svgShape, IShape shape)
-	{
-		svgShape.Id = string.Format("shape-{0}", m_shapeIndex++);
-	}
+    public CustomSvgShapeFormattingController(int shapeStartIndex = 0)
+    {
+        m_shapeIndex = shapeStartIndex;
+    }
+
+    public void FormatShape(ISvgShape svgShape, IShape shape)
+    {
+        svgShape.Id = string.Format("shape-{0}", m_shapeIndex++);
+    }
 }
 ```
 
 
 ## **スライドのサムネイル画像を作成する**
-Aspose.Slides for .NET は、スライドのサムネイル画像を生成するお手伝いをします。Aspose.Slides for .NET を使用して任意のスライドのサムネイルを生成するには：
+
+Aspose.Slides はスライドのサムネイル画像の生成を支援します。Aspose.Slides を使用してスライドのサムネイルを生成するには、以下の手順に従います。
 
 1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-1. ID またはインデックスを使用して、必要なスライドの参照を取得します。
-1. 参照されたスライドのサムネイル画像を指定されたスケールで取得します。
-1. 任意の画像形式でサムネイル画像を保存します。
-
+1. インデックスでスライドへの参照を取得します。
+1. 目的の倍率で参照したスライドのサムネイル画像を作成します。
+1. 好みの画像形式でサムネイル画像を保存します。
 ```c#
-// プレゼンテーションファイルを表す Presentation クラスをインスタンス化します
-using (Presentation pres = new Presentation("ThumbnailFromSlide.pptx"))
-{
-    // 最初のスライドにアクセスします
-    ISlide sld = pres.Slides[0];
+int slideIndex = 0;
+float scaleX = 1;
+float scaleY = scaleX;
 
-    // フルスケール画像を作成します
-    using (IImage image = sld.GetImage(1f, 1f))
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ISlide slide = presentation.Slides[slideIndex];
+
+    using (IImage image = slide.GetImage(scaleX, scaleY))
     {
-        // JPEG 形式でディスクに画像を保存します
-        image.Save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+        image.Save("output.jpg", ImageFormat.Jpeg);
     }
 }
 ```
 
 
-## **ユーザー定義の寸法でサムネイルを作成する**
+## **ユーザー定義サイズのスライド サムネイルを作成する**
+
+ユーザーが指定したサイズでスライドのサムネイル画像を作成するには、以下の手順に従います。
+
 1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-1. ID またはインデックスを使用して、必要なスライドの参照を取得します。
-1. 参照されたスライドのサムネイル画像を指定されたスケールで取得します。
-1. 任意の画像形式でサムネイル画像を保存します。
-
+1. インデックスでスライドへの参照を取得します。
+1. 指定したサイズで参照したスライドのサムネイル画像を生成します。
+1. 好みの画像形式でサムネイル画像を保存します。
 ```c#
-// プレゼンテーションファイルを表す Presentation クラスをインスタンス化します
-using (Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx"))
+int slideIndex = 0;
+Size slideSize = new Size(1200, 800);
+
+using (Presentation presentation = new Presentation("sample.odp"))
 {
+    ISlide slide = presentation.Slides[slideIndex];
 
-    // 最初のスライドにアクセスします
-    ISlide sld = pres.Slides[0];
-
-    // ユーザー定義の寸法
-    int desiredX = 1200;
-    int desiredY = 800;
-
-    // X および Y のスケール値を取得します
-    float ScaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
-    float ScaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
-
-
-    // フルスケール画像を作成します
-    using (IImage image = sld.GetImage(ScaleX, ScaleY))
+    using (IImage image = slide.GetImage(slideSize))
     {
-        // JPEG 形式でディスクに画像を保存します
-        image.Save("Thumbnail2_out.jpg", ImageFormat.Jpeg);
+        image.Save("output.jpg", ImageFormat.Jpeg);
     }
 }
 ```
 
 
-## **ノートスライドビューでスライドからサムネイルを作成する**
-Aspose.Slides for .NET を使用してノートスライドビューの任意のスライドのサムネイルを生成するには：
+## **スライドのサムネイルにスピーカーノートを付加する**
 
+Aspose.Slides を使用してスピーカーノート付きのスライドサムネイルを生成するには、以下の手順に従います。
+
+1. [RenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/renderingoptions/) クラスのインスタンスを作成します。
+1. `RenderingOptions.SlidesLayoutOptions` プロパティを使用してスピーカーノートの位置を設定します。
 1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-1. ID またはインデックスを使用して、必要なスライドの参照を取得します。
-1. ノートスライドビューで指定されたスケールで参照されたスライドのサムネイル画像を取得します。
-1. 任意の画像形式でサムネイル画像を保存します。
-
-以下のコードスニペットは、ノートスライドビューでプレゼンテーションの最初のスライドのサムネイルを生成します。
-
+1. インデックスでスライドへの参照を取得します。
+1. レンダリング オプションを使用して参照したスライドのサムネイル画像を生成します。
+1. 好みの画像形式でサムネイル画像を保存します。
 ```c#
-// プレゼンテーションファイルを表す Presentation クラスをインスタンス化します
-using (Presentation pres = new Presentation("ThumbnailFromSlideInNotes.pptx"))
+int slideIndex = 0;
+
+RenderingOptions renderingOptions = new RenderingOptions
 {
-    // 最初のスライドにアクセスします
-    ISlide sld = pres.Slides[0];
-
-    // ユーザー定義の寸法
-    int desiredX = 1200;
-    int desiredY = 800;
-
-    // X および Y のスケール値を取得します
-    float ScaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
-    float ScaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
-
-    // フルスケール画像を作成します                
-    using (IImage image = sld.GetImage(ScaleX, ScaleY))
+    SlidesLayoutOptions = new NotesCommentsLayoutingOptions
     {
-        // JPEG 形式でディスクに画像を保存します
-        image.Save("Notes_tnail_out.jpg", ImageFormat.Jpeg);
+        NotesPosition = NotesPositions.BottomTruncated
+    }
+};
+
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ISlide slide = presentation.Slides[slideIndex];
+
+    using (IImage image = slide.GetImage(renderingOptions))
+    {
+        image.Save("output.png", ImageFormat.Png);
     }
 }
-``` 
+```
+
+
+## **ライブ例**
+
+Aspose.Slides API を使用して実装できる内容を確認するには、無料アプリ **Aspose.Slides Viewer** をお試しください：
+
+[![Online PowerPoint Viewer](online-PowerPoint-viewer.png)](https://products.aspose.app/slides/viewer/)
+
+## **FAQ**
+
+**ASP.NET Web アプリケーションにプレゼンテーション ビューアを埋め込むことはできますか？**
+
+はい。サーバー側で Aspose.Slides を使用してスライドを画像または HTML にレンダリングし、ブラウザーで表示できます。ナビゲーションやズーム機能は JavaScript で実装すれば、インタラクティブな体験が可能です。
+
+**カスタム .NET ビューア内でスライドを表示する最適な方法は何ですか？**
+
+推奨される方法は、各スライドを画像（例: PNG または SVG）としてレンダリングするか、Aspose.Slides で HTML に変換し、デスクトップの場合はピクチャーボックス、Web の場合は HTML コンテナに出力を表示することです。
+
+**多数のスライドを含む大規模なプレゼンテーションはどう扱うべきですか？**
+
+大容量のデッキの場合、スライドの遅延読み込みまたはオンデマンドレンダリングを検討してください。これは、ユーザーがスライドに移動したときにのみそのスライドのコンテンツを生成することで、メモリ使用量とロード時間を削減します。
