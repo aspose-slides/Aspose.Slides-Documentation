@@ -1,993 +1,1172 @@
 ---
-title: 在C#或.NET中创建或更新PowerPoint演示文稿图表
+title: 在 C# 中创建或更新 PowerPoint 演示文稿图表
 linktitle: 创建或更新图表
 type: docs
 weight: 10
 url: /zh/net/create-chart/
-keywords: "创建图表,散点图,饼图,树形图,股票图,箱形图,直方图,漏斗图,日出图,多类别图, PowerPoint演示, C#, Csharp, Aspose.Slides for .NET"
-description: "在C#或.NET中创建PowerPoint演示文稿中的图表"
+keywords:
+- 添加图表
+- 创建图表
+- 编辑图表
+- 更改图表
+- 更新图表
+- 散点图
+- 饼图
+- 折线图
+- 树形图
+- 股票图表
+- 箱线图
+- 漏斗图
+- 旭辉图
+- 直方图
+- 雷达图
+- 多类别图表
+- PowerPoint 演示文稿
+- C#
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for .NET 在 PowerPoint 和 OpenDocument 演示文稿中创建和自定义图表。涵盖在演示文稿中添加、格式化和编辑图表，并提供 C# 实践代码示例。"
 ---
 
+## **概述**
+
+本文提供了使用 Aspose.Slides for .NET 创建和自定义图表的完整指南。您将学习如何以编程方式向幻灯片添加图表、填充数据，并应用各种格式选项以满足特定的设计要求。文章中通过详细的代码示例展示了从初始化演示文稿和图表对象到配置系列、坐标轴和图例的每一步。遵循本指南，您将能深入了解如何在 .NET 应用程序中集成动态图表生成，从而简化数据驱动演示文稿的创建过程。
+
 ## **创建图表**
-图表帮助人们快速可视化数据并获得洞察，这可能并不是从表格或电子表格中立即显而易见的。
+
+图表帮助人们快速直观地展示数据，并发现表格或电子表格中不易察觉的洞见。
 
 **为什么要创建图表？**
 
-通过使用图表，您可以
+使用图表，您可以：
 
-* 在演示文稿的单个幻灯片上汇总、简化或总结大量数据
-* 显示数据中的模式和趋势
-* 推断数据随时间或特定测量单位的方向和势头
-* 识别异常值、偏差、误差、无意义数据等
-* 传达或呈现复杂数据
+* 在单个幻灯片上汇总、压缩或概括大量数据；
+* 揭示数据中的模式和趋势；
+* 推断数据随时间或相对于特定计量单位的方向和动量；
+* 发现异常、偏差、错误和无意义的数据；
+* 传达或展示复杂数据。
 
-在PowerPoint中，您可以通过插入功能创建图表，该功能提供用于设计多种类型图表的模板。通过使用Aspose.Slides，您可以创建常规图表（基于流行的图表类型）和自定义图表。
+在 PowerPoint 中，您可以通过 *Insert* 功能创建图表，该功能提供了多种图表模板。使用 Aspose.Slides，您可以创建常规图表（基于流行的图表类型）以及自定义图表。
 
 {{% alert color="primary" %}} 
-
-为了让您能够创建图表，Aspose.Slides在[Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/)命名空间下提供了[ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/)枚举。该枚举下的值对应于不同的图表类型。
-
+使用位于 [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) 命名空间下的 [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) 枚举。该枚举的值对应不同的图表类型。
 {{% /alert %}} 
 
-### **创建常规图表**
-1. 创建[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类的实例。
-1. 通过其索引获取幻灯片的引用。
-1. 添加一个带有数据的图表并指定您首选的图表类型。
+### **创建簇状柱形图**
+
+本节说明如何使用 Aspose.Slides for .NET 创建簇状柱形图。您将学习初始化演示文稿、添加图表以及自定义标题、数据、系列、类别和样式等元素。按以下步骤操作，即可生成标准的簇状柱形图：
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加带有数据的图表，并指定 `ChartType.ClusteredColumn` 类型。
 1. 为图表添加标题。
-1. 访问图表数据工作表。
-1. 清除所有默认系列和类别。
+1. 访问图表的数据工作表。
+1. 清除所有默认的系列和类别。
 1. 添加新的系列和类别。
-1. 为图表系列添加一些新的图表数据。
-1. 为图表系列添加填充颜色。
+1. 为图表系列添加新数据。
+1. 为图表系列设置填充颜色。
 1. 为图表系列添加标签。
-1. 将修改后的演示文稿写入PPTX文件。
+1. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下C#代码向您展示了如何创建常规图表：
-
+以下 C# 代码演示如何创建簇状柱形图：
 ```c#
-// 实例化表示PPTX文件的Presentation类
-Presentation pres = new Presentation();
-
-// 访问第一张幻灯片
-ISlide sld = pres.Slides[0];
-
-// 添加带有默认数据的图表
-IChart chart = sld.Shapes.AddChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
-
-// 设置图表标题
-chart.ChartTitle.AddTextFrameForOverriding("示例标题");
-chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-chart.ChartTitle.Height = 20;
-chart.HasTitle = true;
-
-// 设置第一个系列以显示值
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-// 设置图表数据工作表的索引
-int defaultWorksheetIndex = 0;
-
-// 获取图表数据工作表
-IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
-
-// 删除默认生成的系列和类别
-chart.ChartData.Series.Clear();
-chart.ChartData.Categories.Clear();
-int s = chart.ChartData.Series.Count;
-s = chart.ChartData.Categories.Count;
-
-// 添加新的系列
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "系列 1"), chart.Type);
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "系列 2"), chart.Type);
-
-// 添加新的类别
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "类别 1"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "类别 2"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "类别 3"));
-
-// 获取第一个图表系列
-IChartSeries series = chart.ChartData.Series[0];
-
-// 填充系列数据
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-
-// 设置系列的填充颜色
-series.Format.Fill.FillType = FillType.Solid;
-series.Format.Fill.SolidFillColor.Color = Color.Red;
-
-// 获取第二个图表系列
-series = chart.ChartData.Series[1];
-
-// 填充系列数据
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
-
-// 设置系列的填充颜色
-series.Format.Fill.FillType = FillType.Solid;
-series.Format.Fill.SolidFillColor.Color = Color.Green;
-
-// 设置第一个标签以显示类别名称
-IDataLabel lbl = series.DataPoints[0].Label;
-lbl.DataLabelFormat.ShowCategoryName = true;
-
-lbl = series.DataPoints[1].Label;
-lbl.DataLabelFormat.ShowSeriesName = true;
-
-// 设置第三个标签显示值
-lbl = series.DataPoints[2].Label;
-lbl.DataLabelFormat.ShowValue = true;
-lbl.DataLabelFormat.ShowSeriesName = true;
-lbl.DataLabelFormat.Separator = "/";
-            
-// 将PPTX文件保存到磁盘
-pres.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
-```
-
-### **创建散点图**
-散点图（也称为散点图或x-y图）通常用于检查模式或演示两个变量之间的相关性。
-
-您可能想在以下情况下使用散点图
-
-* 您有成对的数值数据
-* 您有两个变量可以很好地配对
-* 您想确定两个变量是否相关
-* 您有一个独立变量，该独立变量具有多个依赖变量的值
-
-以下C#代码向您展示了如何创建带有不同系列标记的散点图：
-
-```c#
-Presentation pres = new Presentation();
-
-ISlide slide = pres.Slides[0];
-
-// 创建默认图表
-IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
-
-// 获取默认图表数据工作表索引
-int defaultWorksheetIndex = 0;
-
-// 获取图表数据工作表
-IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
-
-// 删除演示系列
-chart.ChartData.Series.Clear();
-
-// 添加新的系列
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, "系列 1"), chart.Type);
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 3, "系列 2"), chart.Type);
-
-// 获取第一个图表系列
-IChartSeries series = chart.ChartData.Series[0];
-
-// 向系列添加新点 (1:3)
-series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 1), fact.GetCell(defaultWorksheetIndex, 2, 2, 3));
-
-// 添加新点 (2:10)
-series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 2), fact.GetCell(defaultWorksheetIndex, 3, 2, 10));
-
-// 更改系列类型
-series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
-
-// 更改图表系列标记
-series.Marker.Size = 10;
-series.Marker.Symbol = MarkerStyleType.Star;
-
-// 获取第二个图表系列
-series = chart.ChartData.Series[1];
-
-// 向图表系列添加新点 (5:2)
-series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 2, 3, 5), fact.GetCell(defaultWorksheetIndex, 2, 4, 2));
-
-// 添加新点 (3:1)
-series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 3, 3, 3), fact.GetCell(defaultWorksheetIndex, 3, 4, 1));
-
-// 添加新点 (2:2)
-series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 4, 3, 2), fact.GetCell(defaultWorksheetIndex, 4, 4, 2));
-
-// 添加新点 (5:1)
-series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 5, 3, 5), fact.GetCell(defaultWorksheetIndex, 5, 4, 1));
-
-// 更改图表系列标记
-series.Marker.Size = 10;
-series.Marker.Symbol = MarkerStyleType.Circle;
-
-// 将PPTX文件保存到磁盘
-pres.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
-```
-
-### **创建饼图**
-饼图最佳用于显示数据中的部分与整体关系，尤其是当数据包含带有数值的分类标签时。然而，如果您的数据包含多个部分或标签，您可能想考虑使用柱状图。
-
-1. 创建[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类的实例。
-1. 通过其索引获取幻灯片的引用。
-1. 添加带有默认数据和所需类型的图表（在本例中，为`ChartType.Pie`）。
-1. 访问图表数据IChartDataWorkbook。
-1. 清除默认系列和类别。
-1. 添加新的系列和类别。
-1. 为图表系列添加新的图表数据。
-1. 为图表的扇区添加新的点和自定义颜色。
-1. 设置系列的标签。
-1. 为系列标签设置领导行。
-1. 设置饼图幻灯片的旋转角度。
-1. 将修改后的演示文稿写入PPTX文件。
-
-以下C#代码向您展示了如何创建饼图：
-
-```c#
-// 实例化表示PPTX文件的Presentation类
-Presentation presentation = new Presentation();
-
-// 访问第一张幻灯片
-ISlide slides = presentation.Slides[0];
-
-// 添加带有默认数据的图表
-IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
-
-// 设置图表标题
-chart.ChartTitle.AddTextFrameForOverriding("示例标题");
-chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-chart.ChartTitle.Height = 20;
-chart.HasTitle = true;
-
-// 设置第一个系列以显示值
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-// 设置图表数据工作表的索引
-int defaultWorksheetIndex = 0;
-
-// 获取图表数据工作表
-IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
-
-// 删除默认生成的系列和类别
-chart.ChartData.Series.Clear();
-chart.ChartData.Categories.Clear();
-
-// 添加新的类别
-chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "第一季度"));
-chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "第二季度"));
-chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "第三季度"));
-
-// 添加新的系列
-IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "系列 1"), chart.Type);
-
-// 填充系列数据
-series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-
-// 无法在新版本中使用
-// 添加新点并设置扇区颜色
-// series.IsColorVaried = true;
-chart.ChartData.SeriesGroups[0].IsColorVaried = true;
-
-IChartDataPoint point = series.DataPoints[0];
-point.Format.Fill.FillType = FillType.Solid;
-point.Format.Fill.SolidFillColor.Color = Color.Cyan;
-// 设置扇区边框
-point.Format.Line.FillFormat.FillType = FillType.Solid;
-point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
-point.Format.Line.Width = 3.0;
-point.Format.Line.Style = LineStyle.ThinThick;
-point.Format.Line.DashStyle = LineDashStyle.DashDot;
-
-IChartDataPoint point1 = series.DataPoints[1];
-point1.Format.Fill.FillType = FillType.Solid;
-point1.Format.Fill.SolidFillColor.Color = Color.Brown;
-
-// 设置扇区边框
-point1.Format.Line.FillFormat.FillType = FillType.Solid;
-point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
-point1.Format.Line.Width = 3.0;
-point1.Format.Line.Style = LineStyle.Single;
-point1.Format.Line.DashStyle = LineDashStyle.LargeDashDot;
-
-IChartDataPoint point2 = series.DataPoints[2];
-point2.Format.Fill.FillType = FillType.Solid;
-point2.Format.Fill.SolidFillColor.Color = Color.Coral;
-
-// 设置扇区边框
-point2.Format.Line.FillFormat.FillType = FillType.Solid;
-point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
-point2.Format.Line.Width = 2.0;
-point2.Format.Line.Style = LineStyle.ThinThin;
-point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
-
-// 为新系列的每个类别创建自定义标签
-IDataLabel lbl1 = series.DataPoints[0].Label;
-
-// lbl.ShowCategoryName = true;
-lbl1.DataLabelFormat.ShowValue = true;
-
-IDataLabel lbl2 = series.DataPoints[1].Label;
-lbl2.DataLabelFormat.ShowValue = true;
-lbl2.DataLabelFormat.ShowLegendKey = true;
-lbl2.DataLabelFormat.ShowPercentage = true;
-
-IDataLabel lbl3 = series.DataPoints[2].Label;
-lbl3.DataLabelFormat.ShowSeriesName = true;
-lbl3.DataLabelFormat.ShowPercentage = true;
-
-// 设置图表系列显示领导行
-series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
-
-// 设置饼图扇区的旋转角度
-chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
-
-// 将PPTX文件保存到磁盘
-presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
-```
-
-### **创建线图**
-线图（也称为线性图）最佳用于您想要演示随时间变化的值的情况。使用线图，您可以同时比较大量数据，跟踪随时间的变化和趋势，突出数据系列中的异常等。
-
-1. 创建[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类的实例。
-1. 通过其索引获取幻灯片的引用。
-1. 添加带有默认数据和所需类型的图表（在本例中，为`ChartType.Line`）。
-1. 访问图表数据IChartDataWorkbook。
-1. 清除默认系列和类别。
-1. 添加新的系列和类别。
-1. 为图表系列添加新的图表数据。
-1. 将修改后的演示文稿写入PPTX文件。
-
-以下C#代码向您展示了如何创建线图：
-
-```c#
-using (Presentation pres = new Presentation())
+// 实例化 Presentation 类。
+using (Presentation presentation = new Presentation())
 {
-    IChart lineChart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 10, 50, 600, 350);
-    
-    pres.Save("lineChart.pptx", SaveFormat.Pptx);
+    // 访问第一张幻灯片。
+    ISlide slide = presentation.Slides[0];
+
+    // 添加一个带有默认数据的簇状柱形图。
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+    // 设置图表标题。
+    chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+    chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+    chart.ChartTitle.Height = 20;
+    chart.HasTitle = true;
+
+    // 设置第一系列显示数值。
+    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+
+    // 设置图表数据工作表的索引。
+    int worksheetIndex = 0;
+
+    // 获取图表数据工作簿。
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+
+    // 删除默认生成的系列和类别。
+    chart.ChartData.Series.Clear();
+    chart.ChartData.Categories.Clear();
+
+    // 添加新系列。
+    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
+    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), chart.Type);
+
+    // 添加新类别。
+    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
+    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
+    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
+
+    // 获取第一图表系列。
+    IChartSeries series = chart.ChartData.Series[0];
+
+    // 填充系列数据。
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
+
+    // 设置系列的填充颜色。
+    series.Format.Fill.FillType = FillType.Solid;
+    series.Format.Fill.SolidFillColor.Color = Color.Red;
+
+    // 获取第二图表系列。
+    series = chart.ChartData.Series[1];
+
+    // 填充系列数据。
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
+
+    // 设置系列的填充颜色。
+    series.Format.Fill.FillType = FillType.Solid;
+    series.Format.Fill.SolidFillColor.Color = Color.Green;
+
+    // 设置第一个标签显示类别名称。
+    IDataLabel label = series.DataPoints[0].Label;
+    label.DataLabelFormat.ShowCategoryName = true;
+
+    label = series.DataPoints[1].Label;
+    label.DataLabelFormat.ShowSeriesName = true;
+
+    // 设置系列在第三个标签上显示数值。
+    label = series.DataPoints[2].Label;
+    label.DataLabelFormat.ShowValue = true;
+    label.DataLabelFormat.ShowSeriesName = true;
+    label.DataLabelFormat.Separator = "/";
+
+    // 将演示文稿保存为 PPTX 文件。
+    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-默认情况下，线图上的点通过直线连接。如果您希望点之间通过虚线连接，可以指定您首选的虚线类型，方法如下： xxx
 
+结果：
+
+![簇状柱形图](clustered_column_chart.png)
+
+### **创建散点图**
+
+散点图（亦称散点图或 x‑y 图）常用于检查模式或展示两个变量之间的相关性。
+
+在以下情况使用散点图：
+
+* 您拥有成对的数值数据；
+* 您有两个相互配对的变量；
+* 您想确定这两个变量是否有关联；
+* 您有一个自变量对应多个因变量的取值。
+
+以下 C# 代码展示如何使用不同标记系列创建散点图：
 ```c#
-IChart lineChart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 10, 50, 600, 350);
+// 实例化 Presentation 类。
+using (Presentation presentation = new Presentation())
+{
+    // 访问第一张幻灯片。
+    ISlide slide = presentation.Slides[0];
 
+    // 创建默认散点图。
+    IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
+
+    // 设置图表数据工作表的索引。
+    int worksheetIndex = 0;
+
+    // 获取图表数据工作簿。
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+
+    // 删除默认系列。
+    chart.ChartData.Series.Clear();
+
+    // 添加新系列。
+    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 1, "Series 1"), chart.Type);
+    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 3, "Series 2"), chart.Type);
+
+    // 获取第一图表系列。
+    IChartSeries series = chart.ChartData.Series[0];
+
+    // 向系列添加新点 (1:3)。
+    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 1, 1), workbook.GetCell(worksheetIndex, 2, 2, 3));
+
+    // 添加新点 (2:10)。
+    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
+
+    // 更改系列类型。
+    series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
+
+    // 更改图表系列标记。
+    series.Marker.Size = 10;
+    series.Marker.Symbol = MarkerStyleType.Star;
+
+    // 获取第二图表系列。
+    series = chart.ChartData.Series[1];
+
+    // 向图表系列添加新点 (5:2)。
+    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 3, 5), workbook.GetCell(worksheetIndex, 2, 4, 2));
+
+    // 添加新点 (3:1)。
+    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 3, 3), workbook.GetCell(worksheetIndex, 3, 4, 1));
+
+    // 添加新点 (2:2)。
+    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 4, 3, 2), workbook.GetCell(worksheetIndex, 4, 4, 2));
+
+    // 添加新点 (5:1)。
+    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 5, 3, 5), workbook.GetCell(worksheetIndex, 5, 4, 1));
+
+    // 更改图表系列标记。
+    series.Marker.Size = 10;
+    series.Marker.Symbol = MarkerStyleType.Circle;
+
+    // 将演示文稿保存为 PPTX 文件。
+    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
+结果：
+
+![散点图](scatter_chart.png)
+
+### **创建饼图**
+
+饼图最适合展示数据的部分与整体关系，尤其是当数据包含带数值的分类标签时。但如果数据包含过多部分或标签，建议使用条形图。
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加默认数据的图表，并指定 `ChartType.Pie` 类型。
+1. 访问图表的数据工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)）。
+1. 清除默认的系列和类别。
+1. 添加新的系列和类别。
+1. 为图表系列添加新数据。
+1. 为饼图的扇区添加新点并应用自定义颜色。
+1. 为系列设置标签。
+1. 为系列标签启用引导线。
+1. 设置饼图的旋转角度。
+1. 将修改后的演示文稿保存为 PPTX 文件。
+
+以下 C# 代码展示如何创建饼图：
+```c#
+ // 实例化 Presentation 类。
+ using (Presentation presentation = new Presentation())
+ {
+     // 访问第一张幻灯片。
+     ISlide slide = presentation.Slides[0];
+
+     // 添加一个带有默认数据的图表。
+     IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
+
+     // 设置图表标题。
+     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+     chart.ChartTitle.Height = 20;
+     chart.HasTitle = true;
+
+     // 设置第一系列显示数值。
+     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+
+     // 设置图表数据工作表的索引。
+     int worksheetIndex = 0;
+
+     // 获取图表数据工作簿。
+     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+
+     // 删除默认生成的系列和类别。
+     chart.ChartData.Series.Clear();
+     chart.ChartData.Categories.Clear();
+
+     // 添加新类别。
+     chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "1st Qtr"));
+     chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
+     chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
+
+     // 添加新系列。
+     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
+
+     // 填充系列数据。
+     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
+     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
+     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
+
+     // 设置扇区颜色。
+     chart.ChartData.SeriesGroups[0].IsColorVaried = true;
+
+     IChartDataPoint point = series.DataPoints[0];
+     point.Format.Fill.FillType = FillType.Solid;
+     point.Format.Fill.SolidFillColor.Color = Color.Cyan;
+
+     // 设置扇区边框。
+     point.Format.Line.FillFormat.FillType = FillType.Solid;
+     point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
+     point.Format.Line.Width = 3.0;
+     point.Format.Line.Style = LineStyle.ThinThick;
+     point.Format.Line.DashStyle = LineDashStyle.LargeDash;
+
+     IChartDataPoint point1 = series.DataPoints[1];
+     point1.Format.Fill.FillType = FillType.Solid;
+     point1.Format.Fill.SolidFillColor.Color = Color.Brown;
+
+     // 设置扇区边框。
+     point1.Format.Line.FillFormat.FillType = FillType.Solid;
+     point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
+     point1.Format.Line.Width = 3.0;
+     point1.Format.Line.Style = LineStyle.Single;
+     point1.Format.Line.DashStyle = LineDashStyle.LargeDashDot;
+
+     IChartDataPoint point2 = series.DataPoints[2];
+     point2.Format.Fill.FillType = FillType.Solid;
+     point2.Format.Fill.SolidFillColor.Color = Color.Coral;
+
+     // 设置扇区边框。
+     point2.Format.Line.FillFormat.FillType = FillType.Solid;
+     point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
+     point2.Format.Line.Width = 2.0;
+     point2.Format.Line.Style = LineStyle.ThinThin;
+     point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
+
+     // 为新系列中的每个类别创建自定义标签。
+     IDataLabel label1 = series.DataPoints[0].Label;
+
+     label1.DataLabelFormat.ShowValue = true;
+
+     IDataLabel label2 = series.DataPoints[1].Label;
+     label2.DataLabelFormat.ShowValue = true;
+     label2.DataLabelFormat.ShowLegendKey = true;
+     label2.DataLabelFormat.ShowPercentage = true;
+
+     IDataLabel label3 = series.DataPoints[2].Label;
+     label3.DataLabelFormat.ShowSeriesName = true;
+     label3.DataLabelFormat.ShowPercentage = true;
+
+     // 设置系列显示图表的引线。
+     series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
+
+     // 设置饼图扇区的旋转角度。
+     chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
+
+     // 将演示文稿保存为 PPTX 文件。
+     presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
+ }
+```
+
+
+结果：
+
+![饼图](pie_chart.png)
+
+### **创建折线图**
+
+折线图（亦称折线图）最适合展示随时间变化的数值。使用折线图，您可以一次比较大量数据、跟踪随时间的变化和趋势、突出数据系列中的异常等。
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加默认数据的图表，并指定 `ChartType.Line` 类型。
+1. 访问图表的数据工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)）。
+1. 清除默认的系列和类别。
+1. 添加新的系列和类别。
+1. 为图表系列添加新数据。
+1. 将修改后的演示文稿保存为 PPTX 文件。
+
+以下 C# 代码展示如何创建折线图：
+```c#
+using (Presentation presentation = new Presentation())
+{
+    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+
+    presentation.Save("lineChart.pptx", SaveFormat.Pptx);
+}
+```
+
+
+默认情况下，折线图的点由直线连续连接。如果希望使用虚线连接点，可按如下方式指定虚线类型：
+```c#
 foreach (IChartSeries series in lineChart.ChartData.Series)
 {
     series.Format.Line.DashStyle = LineDashStyle.Dash;
 }
 ```
 
+
+结果：
+
+![折线图](line_chart.png)
+
 ### **创建树形图**
-树形图最佳用于销售数据，当您想要显示数据类别的相对大小时，同时快速吸引对每个类别的大贡献者的注意力。
 
-1. 创建[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类的实例。
-1. 通过其索引获取幻灯片的引用。
-1. 添加带有默认数据和所需类型的图表（在本例中，为`ChartType.TreeMap`）。
-1. 访问图表数据IChartDataWorkbook。
-1. 清除默认系列和类别。
+树形图在展示销售数据时最为合适，可显示数据类别的相对大小，并快速突出每个类别中贡献最大的项目。
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加默认数据的图表，并指定 `ChartType.Treemap` 类型。
+1. 访问图表的数据工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)）。
+1. 清除默认的系列和类别。
 1. 添加新的系列和类别。
-1. 为图表系列添加新的图表数据。
-1. 将修改后的演示文稿写入PPTX文件。
+1. 为图表系列添加新数据。
+1. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下C#代码向您展示了如何创建树形图：
-
+以下 C# 代码展示如何创建树形图：
 ```c#
 using (Presentation presentation = new Presentation())
 {
-	IChart chart = presentation.Slides[0].Shapes.AddChart(Aspose.Slides.Charts.ChartType.Treemap, 50, 50, 500, 400);
-	chart.ChartData.Categories.Clear();
-	chart.ChartData.Series.Clear();
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
+    chart.ChartData.Categories.Clear();
+    chart.ChartData.Series.Clear();
 
-	IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    workbook.Clear(0);
 
-	wb.Clear(0);
+    // 分支 1
+    IChartCategory leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C1", "Leaf1"));
+    leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
+    leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
 
-	// 分支 1
-	IChartCategory leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C1", "叶子1"));
-	leaf.GroupingLevels.SetGroupingItem(1, "茎1");
-	leaf.GroupingLevels.SetGroupingItem(2, "分支1");
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "C2", "Leaf2"));
 
-	chart.ChartData.Categories.Add(wb.GetCell(0, "C2", "叶子2"));
+    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C3", "Leaf3"));
+    leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
 
-	leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C3", "叶子3"));
-	leaf.GroupingLevels.SetGroupingItem(1, "茎2");
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "C4", "Leaf4"));
 
-	chart.ChartData.Categories.Add(wb.GetCell(0, "C4", "叶子4"));
+    // 分支 2
+    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C5", "Leaf5"));
+    leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
+    leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
 
-	// 分支 2
-	leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C5", "叶子5"));
-	leaf.GroupingLevels.SetGroupingItem(1, "茎3");
-	leaf.GroupingLevels.SetGroupingItem(2, "分支2");
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "C6", "Leaf6"));
 
-	chart.ChartData.Categories.Add(wb.GetCell(0, "C6", "叶子6"));
+    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C7", "Leaf7"));
+    leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
 
-	leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C7", "叶子7"));
-	leaf.GroupingLevels.SetGroupingItem(1, "茎4");
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "C8", "Leaf8"));
 
-	chart.ChartData.Categories.Add(wb.GetCell(0, "C8", "叶子8"));
+    IChartSeries series = chart.ChartData.Series.Add(ChartType.Treemap);
+    series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
+    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D1", 4));
+    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D2", 5));
+    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D3", 3));
+    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D4", 6));
+    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D5", 9));
+    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D6", 9));
+    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D7", 4));
+    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D8", 3));
 
-	IChartSeries series = chart.ChartData.Series.Add(Aspose.Slides.Charts.ChartType.Treemap);
-	series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
-	series.DataPoints.AddDataPointForTreemapSeries(wb.GetCell(0, "D1", 4));
-	series.DataPoints.AddDataPointForTreemapSeries(wb.GetCell(0, "D2", 5));
-	series.DataPoints.AddDataPointForTreemapSeries(wb.GetCell(0, "D3", 3));
-	series.DataPoints.AddDataPointForTreemapSeries(wb.GetCell(0, "D4", 6));
-	series.DataPoints.AddDataPointForTreemapSeries(wb.GetCell(0, "D5", 9));
-	series.DataPoints.AddDataPointForTreemapSeries(wb.GetCell(0, "D6", 9));
-	series.DataPoints.AddDataPointForTreemapSeries(wb.GetCell(0, "D7", 4));
-	series.DataPoints.AddDataPointForTreemapSeries(wb.GetCell(0, "D8", 3));
+    series.ParentLabelLayout = ParentLabelLayoutType.Overlapping;
 
-	series.ParentLabelLayout = ParentLabelLayoutType.Overlapping;
-
-	presentation.Save("Treemap.pptx", SaveFormat.Pptx);
+    presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 }
 ```
 
-### **创建股票图**
-1. 创建[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类的实例。
-1. 通过其索引获取幻灯片的引用。
-1. 添加带有默认数据和所需类型的图表（ChartType.OpenHighLowClose）。
-1. 访问图表数据IChartDataWorkbook。
-1. 清除默认系列和类别。
+
+结果：
+
+![树形图](treemap_chart.png)
+
+### **创建股票图表**
+
+股票图表用于显示开盘价、最高价、最低价和收盘价等金融数据，帮助分析市场趋势和波动性。它们提供了对股票表现的关键洞察，帮助投资者和分析师做出明智决策。
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加默认数据的图表，并指定 `ChartType.OpenHighLowClose` 类型。
+1. 访问图表的数据工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)）。
+1. 清除默认的系列和类别。
 1. 添加新的系列和类别。
-1. 为图表系列添加新的图表数据。
-1. 指定HiLowLines格式。
-1. 将修改后的演示文稿写入PPTX文件。
+1. 为图表系列添加新数据。
+1. 指定 HiLowLines 格式。
+1. 将修改后的演示文稿保存为 PPTX 文件。
 
-用于创建股票图的示例C#代码：
-
+以下 C# 代码展示如何创建股票图表：
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
-    
-	IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
 
-	chart.ChartData.Categories.Add(wb.GetCell(0, 1, 0, "A"));
-	chart.ChartData.Categories.Add(wb.GetCell(0, 2, 0, "B"));
-	chart.ChartData.Categories.Add(wb.GetCell(0, 3, 0, "C"));
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-	chart.ChartData.Series.Add(wb.GetCell(0, 0, 1, "开盘"), chart.Type);
-	chart.ChartData.Series.Add(wb.GetCell(0, 0, 2, "最高"), chart.Type);
-	chart.ChartData.Series.Add(wb.GetCell(0, 0, 3, "最低"), chart.Type);
-	chart.ChartData.Series.Add(wb.GetCell(0, 0, 4, "收盘"), chart.Type);
+    chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "A"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "B"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "C"));
 
-	IChartSeries series = chart.ChartData.Series[0];
+    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Open"), chart.Type);
+    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "High"), chart.Type);
+    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 3, "Low"), chart.Type);
+    chart.ChartData.Series.Add(workbook.GetCell(0, 0, 4, "Close"), chart.Type);
 
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 1, 1, 72));
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 2, 1, 25));
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 3, 1, 38));
+    IChartSeries series = chart.ChartData.Series[0];
+    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 1, 72));
+    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 1, 25));
+    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 1, 38));
 
-	series = chart.ChartData.Series[1];
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 1, 2, 172));
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 2, 2, 57));
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 3, 2, 57));
+    series = chart.ChartData.Series[1];
+    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 2, 172));
+    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 2, 57));
+    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 2, 57));
 
-	series = chart.ChartData.Series[2];
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 1, 3, 12));
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 2, 3, 12));
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 3, 3, 13));
+    series = chart.ChartData.Series[2];
+    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 3, 12));
+    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 3, 12));
+    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 3, 13));
 
-	series = chart.ChartData.Series[3];
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 1, 4, 25));
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 2, 4, 38));
-	series.DataPoints.AddDataPointForStockSeries(wb.GetCell(0, 3, 4, 50));
+    series = chart.ChartData.Series[3];
+    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 1, 4, 25));
+    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 2, 4, 38));
+    series.DataPoints.AddDataPointForStockSeries(workbook.GetCell(0, 3, 4, 50));
 
-	chart.ChartData.SeriesGroups[0].UpDownBars.HasUpDownBars = true;
-	chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.FillType = FillType.Solid;
+    chart.ChartData.SeriesGroups[0].UpDownBars.HasUpDownBars = true;
+    chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 
-	foreach (IChartSeries ser in chart.ChartData.Series)
-	{
-		ser.Format.Line.FillFormat.FillType = FillType.NoFill;
-	}
+    foreach (IChartSeries ser in chart.ChartData.Series)
+    {
+        ser.Format.Line.FillFormat.FillType = FillType.NoFill;
+    }
 
-	pres.Save("Stock-chart.pptx", SaveFormat.Pptx);
+    chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
+
+    presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 }
 ```
 
-### **创建箱形图**
-1. 创建[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类的实例。
-1. 通过其索引获取幻灯片的引用。
-1. 添加带有默认数据和所需类型的图表（ChartType.BoxAndWhisker）。
-1. 访问图表数据IChartDataWorkbook。
-1. 清除默认系列和类别。
+
+结果：
+
+![股票图表](stock_chart.png)
+
+### **创建箱线图**
+
+箱线图用于通过汇总关键统计量（如中位数、四分位数和潜在异常值）来展示数据分布。它们在探索性数据分析和统计研究中特别有用，可快速了解数据的变异性并识别异常。
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加默认数据的图表，并指定 `ChartType.BoxAndWhisker` 类型。
+1. 访问图表的数据工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)）。
+1. 清除默认的系列和类别。
 1. 添加新的系列和类别。
-1. 为图表系列添加新的图表数据。
-1. 将修改后的演示文稿写入PPTX文件。
+1. 为图表系列添加新数据。
+1. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下C#代码向您展示了如何创建箱形图：
-
+以下 C# 代码展示如何创建箱线图：
 ```c#
-public static void Run()
+using (Presentation presentation = new Presentation())
 {
-	using (Presentation pres = new Presentation("test.pptx"))
-	{
-		IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 50, 50, 500, 400);
-		chart.ChartData.Categories.Clear();
-		chart.ChartData.Series.Clear();
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
+    chart.ChartData.Categories.Clear();
+    chart.ChartData.Series.Clear();
 
-		IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    workbook.Clear(0);
 
-		wb.Clear(0);
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "A1", "Category 1"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "A2", "Category 2"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "A3", "Category 3"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "A4", "Category 4"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "A5", "Category 5"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "A6", "Category 6"));
 
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A1", "类别 1"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A2", "类别 1"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A3", "类别 1"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A4", "类别 1"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A5", "类别 1"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A6", "类别 1"));
+    IChartSeries series = chart.ChartData.Series.Add(ChartType.BoxAndWhisker);
 
-		IChartSeries series = chart.ChartData.Series.Add(ChartType.BoxAndWhisker);
+    series.QuartileMethod = QuartileMethodType.Exclusive;
+    series.ShowMeanLine = true;
+    series.ShowMeanMarkers = true;
+    series.ShowInnerPoints = true;
+    series.ShowOutlierPoints = true;
 
-		series.QuartileMethod = QuartileMethodType.Exclusive;
-		series.ShowMeanLine = true;
-		series.ShowMeanMarkers = true;
-		series.ShowInnerPoints = true;
-		series.ShowOutlierPoints = true;
+    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B1", 15));
+    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B2", 41));
+    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B3", 16));
+    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B4", 10));
+    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B5", 23));
+    series.DataPoints.AddDataPointForBoxAndWhiskerSeries(workbook.GetCell(0, "B6", 16));
 
-		series.DataPoints.AddDataPointForBoxAndWhiskerSeries(wb.GetCell(0, "B1", 15));
-		series.DataPoints.AddDataPointForBoxAndWhiskerSeries(wb.GetCell(0, "B2", 41));
-		series.DataPoints.AddDataPointForBoxAndWhiskerSeries(wb.GetCell(0, "B3", 16));
-		series.DataPoints.AddDataPointForBoxAndWhiskerSeries(wb.GetCell(0, "B4", 10));
-		series.DataPoints.AddDataPointForBoxAndWhiskerSeries(wb.GetCell(0, "B5", 23));
-		series.DataPoints.AddDataPointForBoxAndWhiskerSeries(wb.GetCell(0, "B6", 16));
-
-		pres.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
-	}
+    presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 }
 ```
+
 
 ### **创建漏斗图**
-1. 创建[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类的实例。
-1. 通过其索引获取幻灯片的引用。
-1. 添加带有默认数据和所需类型的图表（ChartType.Funnel）。
-1. 将修改后的演示文稿写入PPTX文件。
 
-以下C#代码向您展示了如何创建漏斗图：
+漏斗图用于可视化包含多个阶段的流程，数据量随每一步递减。它们有助于分析转化率、识别瓶颈并跟踪销售或营销流程的效率。
 
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加默认数据的图表，并指定 `ChartType.Funnel` 类型。
+1. 将修改后的演示文稿保存为 PPTX 文件。
+
+以下 C# 代码展示如何创建漏斗图：
 ```c#
-public static void Run()
+using (Presentation presentation = new Presentation("test.pptx"))
 {
-	using (Presentation pres = new Presentation("test.pptx"))
-	{
-		IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
-		chart.ChartData.Categories.Clear();
-		chart.ChartData.Series.Clear();
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
+    chart.ChartData.Categories.Clear();
+    chart.ChartData.Series.Clear();
 
-		IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    workbook.Clear(0);
 
-		wb.Clear(0);
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "A1", "Category 1"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "A2", "Category 2"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "A3", "Category 3"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "A4", "Category 4"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "A5", "Category 5"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "A6", "Category 6"));
 
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A1", "类别 1"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A2", "类别 2"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A3", "类别 3"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A4", "类别 4"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A5", "类别 5"));
-		chart.ChartData.Categories.Add(wb.GetCell(0, "A6", "类别 6"));
+    IChartSeries series = chart.ChartData.Series.Add(ChartType.Funnel);
 
-		IChartSeries series = chart.ChartData.Series.Add(ChartType.Funnel);
+    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B1", 50));
+    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B2", 100));
+    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B3", 200));
+    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B4", 300));
+    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B5", 400));
+    series.DataPoints.AddDataPointForFunnelSeries(workbook.GetCell(0, "B6", 500));
 
-		series.DataPoints.AddDataPointForFunnelSeries(wb.GetCell(0, "B1", 50));
-		series.DataPoints.AddDataPointForFunnelSeries(wb.GetCell(0, "B2", 100));
-		series.DataPoints.AddDataPointForFunnelSeries(wb.GetCell(0, "B3", 200));
-		series.DataPoints.AddDataPointForFunnelSeries(wb.GetCell(0, "B4", 300));
-		series.DataPoints.AddDataPointForFunnelSeries(wb.GetCell(0, "B5", 400));
-		series.DataPoints.AddDataPointForFunnelSeries(wb.GetCell(0, "B6", 500));
-
-		pres.Save("Funnel.pptx", SaveFormat.Pptx);
-	}
+    presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 }
 ```
 
-### **创建日出图**
-1. 创建[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类的实例。
-1. 通过其索引获取幻灯片的引用。
-1. 添加带有默认数据和所需类型的图表（在本例中，为`ChartType.sunburst`）。
-1. 将修改后的演示文稿写入PPTX文件。
 
-以下C#代码向您展示了如何创建日出图：
+结果：
 
-```c#
-public static void Run()
-{
-	using (Presentation pres = new Presentation("test.pptx"))
-	{
-		IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 50, 50, 500, 400);
-		chart.ChartData.Categories.Clear();
-		chart.ChartData.Series.Clear();
+![漏斗图](funnel_chart.png)
 
-		IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
+### **创建旭辉图**
 
-		wb.Clear(0);
+旭辉图用于可视化层级数据，将不同层级显示为同心环。它们帮助展示部分与整体的关系，适合以紧凑的形式呈现嵌套类别和子类别。
 
-		// 分支 1
-		IChartCategory leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C1", "叶子1"));
-		leaf.GroupingLevels.SetGroupingItem(1, "茎1");
-		leaf.GroupingLevels.SetGroupingItem(2, "分支1");
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加默认数据的图表，并指定 `ChartType.Sunburst` 类型。
+1. 将修改后的演示文稿保存为 PPTX 文件。
 
-		chart.ChartData.Categories.Add(wb.GetCell(0, "C2", "叶子2"));
-
-		leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C3", "叶子3"));
-		leaf.GroupingLevels.SetGroupingItem(1, "茎2");
-
-		chart.ChartData.Categories.Add(wb.GetCell(0, "C4", "叶子4"));
-
-		// 分支 2
-		leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C5", "叶子5"));
-		leaf.GroupingLevels.SetGroupingItem(1, "茎3");
-		leaf.GroupingLevels.SetGroupingItem(2, "分支2");
-
-		chart.ChartData.Categories.Add(wb.GetCell(0, "C6", "叶子6"));
-
-		leaf = chart.ChartData.Categories.Add(wb.GetCell(0, "C7", "叶子7"));
-		leaf.GroupingLevels.SetGroupingItem(1, "茎4");
-
-		chart.ChartData.Categories.Add(wb.GetCell(0, "C8", "叶子8"));
-
-		IChartSeries series = chart.ChartData.Series.Add(ChartType.Sunburst);
-		series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
-		series.DataPoints.AddDataPointForSunburstSeries(wb.GetCell(0, "D1", 4));
-		series.DataPoints.AddDataPointForSunburstSeries(wb.GetCell(0, "D2", 5));
-		series.DataPoints.AddDataPointForSunburstSeries(wb.GetCell(0, "D3", 3));
-		series.DataPoints.AddDataPointForSunburstSeries(wb.GetCell(0, "D4", 6));
-		series.DataPoints.AddDataPointForSunburstSeries(wb.GetCell(0, "D5", 9));
-		series.DataPoints.AddDataPointForSunburstSeries(wb.GetCell(0, "D6", 9));
-		series.DataPoints.AddDataPointForSunburstSeries(wb.GetCell(0, "D7", 4));
-		series.DataPoints.AddDataPointForSunburstSeries(wb.GetCell(0, "D8", 3));
-
-		pres.Save("Sunburst.pptx", SaveFormat.Pptx);
-	}
-}
-```
-
-### **创建直方图**
-1. 创建[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类的实例。
-1. 通过其索引获取幻灯片的引用。
-1. 添加一些图表并指定您的首选图表类型（在本例中为`ChartType.Histogram`）。
-1. 访问图表数据`IChartDataWorkbook`。
-1. 清除默认系列和类别。
-1. 添加新的系列和类别。
-1. 将修改后的演示文稿写入PPTX文件。
-
-以下C#代码向您展示了如何创建直方图：
-
-```c#
-public static void Run()
-{
-	using (Presentation pres = new Presentation("test.pptx"))
-	{
-		IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Histogram, 50, 50, 500, 400);
-		chart.ChartData.Categories.Clear();
-		chart.ChartData.Series.Clear();
-
-		IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
-
-		wb.Clear(0);
-
-		IChartSeries series = chart.ChartData.Series.Add(ChartType.Histogram);
-		series.DataPoints.AddDataPointForHistogramSeries(wb.GetCell(0, "A1", 15));
-		series.DataPoints.AddDataPointForHistogramSeries(wb.GetCell(0, "A2", -41));
-		series.DataPoints.AddDataPointForHistogramSeries(wb.GetCell(0, "A3", 16));
-		series.DataPoints.AddDataPointForHistogramSeries(wb.GetCell(0, "A4", 10));
-		series.DataPoints.AddDataPointForHistogramSeries(wb.GetCell(0, "A5", -23));
-		series.DataPoints.AddDataPointForHistogramSeries(wb.GetCell(0, "A6", 16));
-
-		chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
-
-		pres.Save("Histogram.pptx", SaveFormat.Pptx);
-	}
-}
-```
-
-### **创建雷达图**
-1. 创建[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类的实例。
-1. 通过其索引获取幻灯片的引用。
-1. 添加带有数据并指定您的首选图表类型（在本例中为`ChartType.Radar`）的图表。
-1. 将修改后的演示文稿写入PPTX文件。  
-
-以下C#代码向您展示了如何创建雷达图：
-
+以下 C# 代码展示如何创建旭辉图：
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    presentation.Slides[0].Shapes.AddChart(ChartType.Radar, 20, 20, 400, 300);
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
+    chart.ChartData.Categories.Clear();
+    chart.ChartData.Series.Clear();
+
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    workbook.Clear(0);
+
+    // 分支 1
+    IChartCategory leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C1", "Leaf1"));
+    leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
+    leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
+
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "C2", "Leaf2"));
+
+    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C3", "Leaf3"));
+    leaf.GroupingLevels.SetGroupingItem(1, "Stem2");
+
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "C4", "Leaf4"));
+
+    // 分支 2
+    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C5", "Leaf5"));
+    leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
+    leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
+
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "C6", "Leaf6"));
+
+    leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C7", "Leaf7"));
+    leaf.GroupingLevels.SetGroupingItem(1, "Stem4");
+
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "C8", "Leaf8"));
+
+    IChartSeries series = chart.ChartData.Series.Add(ChartType.Sunburst);
+    series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
+    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D1", 4));
+    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D2", 5));
+    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D3", 3));
+    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D4", 6));
+    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D5", 9));
+    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D6", 9));
+    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D7", 4));
+    series.DataPoints.AddDataPointForSunburstSeries(workbook.GetCell(0, "D8", 3));
+
+    presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
+}
+```
+
+
+结果：
+
+![旭辉图](sunburst_chart.png)
+
+### **创建直方图**
+
+直方图用于通过将数值数据分段或分箱来展示其分布。它们对于识别频率、偏度、离散程度以及检测数据集中的异常值非常有用。
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加带有数据的图表，并指定 `ChartType.Histogram` 类型。
+1. 访问图表的数据工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)）。
+1. 清除默认的系列和类别。
+1. 添加新的系列和类别。
+1. 将修改后的演示文稿保存为 PPTX 文件。
+
+以下 C# 代码展示如何创建直方图：
+```c#
+using (Presentation presentation = new Presentation())
+{
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
+    chart.ChartData.Categories.Clear();
+    chart.ChartData.Series.Clear();
+
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    workbook.Clear(0);
+
+    IChartSeries series = chart.ChartData.Series.Add(ChartType.Histogram);
+    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A1", 15));
+    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A2", -41));
+    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A3", 16));
+    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A4", 10));
+    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A5", -23));
+    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A6", 16));
+
+    chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
+
+    presentation.Save("Histogram.pptx", SaveFormat.Pptx);
+}
+```
+
+
+结果：
+
+![直方图](histogram_chart.png)
+
+### **创建雷达图**
+
+雷达图用于在二维平面上显示多变量数据，便于同时比较多个变量。它们特别适合识别多个性能指标或属性之间的模式、优势和弱点。
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加带有数据的图表，并指定 `ChartType.Radar` 类型。
+1. 将修改后的演示文稿保存为 PPTX 文件。
+
+以下 C# 代码展示如何创建雷达图：
+```c#
+using (Presentation presentation = new Presentation())
+{
+    presentation.Slides[0].Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
     presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
 }
 ```
 
-### **创建多类别图**
-1. 创建[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类的实例。
-1. 通过其索引获取幻灯片的引用。
-1. 添加带有默认数据的图表及所需类型（ChartType.ClusteredColumn）。
-1. 访问图表数据IChartDataWorkbook。
-1. 清除默认系列和类别。
+
+结果：
+
+![雷达图](radar_chart.png)
+
+### **创建多类别图表**
+
+多类别图表用于显示涉及多个分类分组的数据，使您能够在多个维度上同时比较数值。它们在分析复杂、多层次数据集的趋势和关系时尤其有帮助。
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加默认数据的图表，并指定 `ChartType.ClusteredColumn` 类型。
+1. 访问图表的数据工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)）。
+1. 清除默认的系列和类别。
 1. 添加新的系列和类别。
-1. 为图表系列添加新的图表数据。
-1. 将修改后的演示文稿写入PPTX文件。
+1. 为图表系列添加新数据。
+1. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下C#代码向您展示了如何创建多类别图：
-
+以下 C# 代码展示如何创建多类别图表：
 ```c#
-Presentation pres = new Presentation();
-ISlide slide = pres.Slides[0];
-
-IChart ch = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 600, 450);
-ch.ChartData.Series.Clear();
-ch.ChartData.Categories.Clear();
-
-IChartDataWorkbook fact = ch.ChartData.ChartDataWorkbook;
-fact.Clear(0);
-int defaultWorksheetIndex = 0;
-
-IChartCategory category = ch.ChartData.Categories.Add(fact.GetCell(0, "c2", "A"));
-category.GroupingLevels.SetGroupingItem(1, "组1");
-category = ch.ChartData.Categories.Add(fact.GetCell(0, "c3", "B"));
-
-category = ch.ChartData.Categories.Add(fact.GetCell(0, "c4", "C"));
-category.GroupingLevels.SetGroupingItem(1, "组2");
-category = ch.ChartData.Categories.Add(fact.GetCell(0, "c5", "D"));
-
-category = ch.ChartData.Categories.Add(fact.GetCell(0, "c6", "E"));
-category.GroupingLevels.SetGroupingItem(1, "组3");
-category = ch.ChartData.Categories.Add(fact.GetCell(0, "c7", "F"));
-
-category = ch.ChartData.Categories.Add(fact.GetCell(0, "c8", "G"));
-category.GroupingLevels.SetGroupingItem(1, "组4");
-category = ch.ChartData.Categories.Add(fact.GetCell(0, "c9", "H"));
-
-// 添加系列
-IChartSeries series = ch.ChartData.Series.Add(fact.GetCell(0, "D1", "系列 1"),
-    ChartType.ClusteredColumn);
-
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "D2", 10));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "D3", 20));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "D4", 30));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "D5", 40));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "D6", 50));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "D7", 60));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "D8", 70));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, "D9", 80));
-// 保存带图表的演示
-pres.Save("AsposeChart_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-```
-
-### **创建地图图**
-地图图是对包含数据区域的可视化。地图图最佳用于比较地理区域之间的数据或值。
-
-以下C#代码向您展示了如何创建地图图：
-
-```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Map, 50, 50, 500, 400);
-    pres.Save("mapChart.pptx", SaveFormat.Pptx);
-}
-```
+    ISlide slide = presentation.Slides[0];
 
-### **创建组合图**
-组合图（或组合图表）是将两种或多种图表组合在单个图形上的图表。这种图表允许您突出、比较或审查两个（或多个）数据集之间的差异。通过这种方式，您可以看到数据集之间的关系（如果有的话）。
-
-![combination-chart-ppt](combination-chart-ppt.png)
-
-以下C#代码向您展示了如何在PowerPoint中创建组合图：
-
-```c#
-private static void CreateComboChart()
-{
-    using (Presentation pres = new Presentation())
-    {
-        IChart chart = CreateChart(pres.Slides[0]);
-        AddFirstSeriesToChart(chart);
-        AddSecondSeriesToChart(chart);
-        pres.Save("combo-chart.pptx", SaveFormat.Pptx);
-    }
-}
-
-private static IChart CreateChart(ISlide slide)
-{
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    const int worksheetIndex = 0;
-    
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "系列 1"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 2, "系列 2"), chart.Type);
-    
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "类别 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "类别 2"));
-    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "类别 3"));
+    workbook.Clear(0);
 
-    IChartSeries series = chart.ChartData.Series[0];
+    int worksheetIndex = 0;
 
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
-    
-    series = chart.ChartData.Series[1];
-    
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
+    IChartCategory category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c2", "A"));
+    category.GroupingLevels.SetGroupingItem(1, "Group1");
+    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c3", "B"));
 
-    return chart;
+    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c4", "C"));
+    category.GroupingLevels.SetGroupingItem(1, "Group2");
+    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c5", "D"));
+
+    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c6", "E"));
+    category.GroupingLevels.SetGroupingItem(1, "Group3");
+    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c7", "F"));
+
+    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c8", "G"));
+    category.GroupingLevels.SetGroupingItem(1, "Group4");
+    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c9", "H"));
+
+    // 添加系列。
+    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, "D1", "Series 1"), ChartType.ClusteredColumn);
+
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D2", 10));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D3", 20));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D4", 30));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D5", 40));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D6", 50));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D7", 60));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D8", 70));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D9", 80));
+
+    // 保存包含图表的演示文稿。
+    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
+结果：
+
+![多类别图表](multi_category_chart.png)
+
+### **创建地图图表**
+
+地图图表用于通过将信息映射到特定位置（如国家、州或城市）来可视化地理数据。它们特别适合分析区域趋势、人口统计数据和空间分布，以直观且富有吸引力的方式呈现。
+
+以下 C# 代码展示如何创建地图图表：
+```c#
+using (Presentation presentation = new Presentation())
+{
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
+    presentation.Save("mapChart.pptx", SaveFormat.Pptx);
+}
+```
+
+
+结果：
+
+![地图图表](map_chart.png)
+
+### **创建组合图表**
+
+组合图表（或称组合图）在同一坐标系中组合两种或多种图表类型。该图表可突出、比较或检查多个数据集之间的差异，帮助您识别它们之间的关系。
+
+![组合图表](combination_chart.png)
+
+以下 C# 代码展示如何在 PowerPoint 演示文稿中创建上图所示的组合图表：
+```c#
+private static void CreateComboChart()
+{
+    using (Presentation presentation = new Presentation())
+    {
+        IChart chart = CreateChartWithFirstSeries(presentation.Slides[0]);
+
+        AddSecondSeriesToChart(chart);
+        AddThirdSeriesToChart(chart);
+
+        SetPrimaryAxesFormat(chart);
+        SetSecondaryAxesFormat(chart);
+
+        presentation.Save("combo-chart.pptx", SaveFormat.Pptx);
+    }
 }
 
-private static void AddFirstSeriesToChart(IChart chart)
+private static IChart CreateChartWithFirstSeries(ISlide slide)
 {
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+
+    // 设置图表标题
+    chart.HasTitle = true;
+    chart.ChartTitle.AddTextFrameForOverriding("Chart Title");
+    chart.ChartTitle.Overlay = false;
+    IPortionFormat portionFormat = 
+       chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+    portionFormat.FontBold = NullableBool.False;
+    portionFormat.FontHeight = 18f;
+
+    // 设置图表图例
+    chart.Legend.Position = LegendPositionType.Bottom;
+    chart.Legend.TextFormat.PortionFormat.FontHeight = 12f;
+
+    // 删除默认生成的系列和类别
+    chart.ChartData.Series.Clear();
+    chart.ChartData.Categories.Clear();
+
+    int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    const int worksheetIndex = 0;
-    
-    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 3, "系列 3"), ChartType.ScatterWithSmoothLines);
 
-    series.DataPoints.AddDataPointForScatterSeries(
-        workbook.GetCell(worksheetIndex, 0, 1, 3),
-        workbook.GetCell(worksheetIndex, 0, 2, 5));
-    
-    series.DataPoints.AddDataPointForScatterSeries(
-        workbook.GetCell(worksheetIndex, 1, 3, 10),
-        workbook.GetCell(worksheetIndex, 1, 4, 13));
+    // 添加新类别
+    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
+    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
+    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
+    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 4, 0, "Category 4"));
 
-    series.DataPoints.AddDataPointForScatterSeries(
-        workbook.GetCell(worksheetIndex, 2, 3, 20),
-        workbook.GetCell(worksheetIndex, 2, 4, 15));
+    // 添加第一系列
+    IChartSeries series = chart.ChartData.Series.Add(
+        workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
 
-    series.PlotOnSecondAxis = true;
+    series.ParentSeriesGroup.Overlap = -25;
+    series.ParentSeriesGroup.GapWidth = 220;
+
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 4.3));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 2.5));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 3.5));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 4, 1, 4.5));
+
+    return chart;
 }
 
 private static void AddSecondSeriesToChart(IChart chart)
 {
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
     const int worksheetIndex = 0;
-    
-    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 5, "系列 4"),
-        ChartType.ScatterWithStraightLinesAndMarkers);
 
-    series.DataPoints.AddDataPointForScatterSeries(
-        workbook.GetCell(worksheetIndex, 1, 3, 5),
-        workbook.GetCell(worksheetIndex, 1, 4, 2));
-    
-    series.DataPoints.AddDataPointForScatterSeries(
-        workbook.GetCell(worksheetIndex, 1, 5, 10),
-        workbook.GetCell(worksheetIndex, 1, 6, 7));
+    IChartSeries series = chart.ChartData.Series.Add(
+        workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), ChartType.ClusteredColumn);
 
-    series.DataPoints.AddDataPointForScatterSeries(
-        workbook.GetCell(worksheetIndex, 2, 5, 15),
-        workbook.GetCell(worksheetIndex, 2, 6, 12));
+    series.ParentSeriesGroup.Overlap = -25;
+    series.ParentSeriesGroup.GapWidth = 220;
 
-    series.DataPoints.AddDataPointForScatterSeries(
-        workbook.GetCell(worksheetIndex, 3, 5, 12),
-        workbook.GetCell(worksheetIndex, 3, 6, 9));
-    
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 2.4));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 4.4));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 1.8));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 4, 2, 2.8));
+}
+
+private static void AddThirdSeriesToChart(IChart chart)
+{
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    const int worksheetIndex = 0;
+
+    IChartSeries series = chart.ChartData.Series.Add(
+        workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), ChartType.Line);
+
+    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 1, 3, 2.0));
+    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 2, 3, 2.0));
+    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 3, 3, 3.0));
+    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 4, 3, 5.0));
+
     series.PlotOnSecondAxis = true;
+}
+
+private static void SetPrimaryAxesFormat(IChart chart)
+{
+    // 设置水平轴
+    IAxis horizontalAxis = chart.Axes.HorizontalAxis;
+    horizontalAxis.TextFormat.PortionFormat.FontHeight = 12f;
+    horizontalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
+
+    SetAxisTitle(horizontalAxis, "X Axis");
+
+    // 设置垂直轴
+    IAxis verticalAxis = chart.Axes.VerticalAxis;
+    verticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
+    verticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
+
+    SetAxisTitle(verticalAxis, "Y Axis 1");
+
+    // 设置垂直主网格线颜色
+    ILineFillFormat majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
+    majorGridLinesFormat.FillType = FillType.Solid;
+    majorGridLinesFormat.SolidFillColor.Color = Color.FromArgb(217, 217, 217);
+}
+
+private static void SetSecondaryAxesFormat(IChart chart)
+{
+    // 设置次要水平轴
+    IAxis secondaryHorizontalAxis = chart.Axes.SecondaryHorizontalAxis;
+    secondaryHorizontalAxis.Position = AxisPositionType.Bottom;
+    secondaryHorizontalAxis.CrossType = CrossesType.Maximum;
+    secondaryHorizontalAxis.IsVisible = false;
+    secondaryHorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
+    secondaryHorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
+
+    // 设置次要垂直轴
+    IAxis secondaryVerticalAxis = chart.Axes.SecondaryVerticalAxis;
+    secondaryVerticalAxis.Position = AxisPositionType.Right;
+    secondaryVerticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
+    secondaryVerticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
+    secondaryVerticalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
+    secondaryVerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
+
+    SetAxisTitle(secondaryVerticalAxis, "Y Axis 2");
+}
+
+private static void SetAxisTitle(IAxis axis, string axisTitle)
+{
+    axis.HasTitle = true;
+    axis.Title.Overlay = false;
+    IPortionFormat titlePortionFormat =
+        axis.Title.AddTextFrameForOverriding(axisTitle).Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+    titlePortionFormat.FontBold = NullableBool.False;
+    titlePortionFormat.FontHeight = 12f;
 }
 ```
 
+
 ## **更新图表**
 
-1. 实例化一个表示包含图表的演示文稿的[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类。
-2. 通过索引获取幻灯片的引用。
-3. 遍历所有形状以查找所需的图表。
-4. 访问图表数据工作表。
-5. 通过更改系列值来修改图表数据系列数据。
-6. 添加新系列并填充数据。
-7. 将修改后的演示文稿写入PPTX文件。
+Aspose.Slides for .NET 使您能够通过修改图表数据、格式和样式来更新 PowerPoint 图表。此功能简化了使用动态内容保持演示文稿最新的过程，并确保图表准确反映当前数据和视觉标准。
 
-以下C#代码向您展示了如何更新图表：
+1. 实例化表示包含图表的演示文稿的 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类。
+1. 通过索引获取幻灯片的引用。
+1. 遍历所有形状以找到图表。
+1. 访问图表的数据工作表。
+1. 通过更改系列值来修改图表数据系列。
+1. 添加新系列并填充其数据。
+1. 将修改后的演示文稿保存为 PPTX 文件。
 
+以下 C# 代码展示如何更新图表：
 ```c#
-// 实例化表示PPTX文件的Presentation类
-Presentation pres = new Presentation("ExistingChart.pptx");
+const string chartName = "My chart";
 
-// 访问第一张幻灯片
-ISlide sld = pres.Slides[0];
+// 实例化表示 PPTX 文件的 Presentation 类。
+using (Presentation presentation = new Presentation("ExistingChart.pptx"))
+{
+    // 访问第一张幻灯片。
+    ISlide slide = presentation.Slides[0];
 
-// 添加带有默认数据的图表
-IChart chart = (IChart)sld.Shapes[0];
+    foreach (IShape shape in slide.Shapes)
+    {
+        if (shape is IChart chart && chart.Name == chartName)
+        {
+            // 设置图表数据工作表的索引。
+            int worksheetIndex = 0;
 
-// 设置图表数据工作表的索引
-int defaultWorksheetIndex = 0;
+            // 获取图表数据工作簿。
+            IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-// 获取图表数据工作表
-IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
+            // 更改图表类别名称。
+            workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
+            workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
 
-// 更改图表类别名称
-fact.GetCell(defaultWorksheetIndex, 1, 0, "修改后的类别 1");
-fact.GetCell(defaultWorksheetIndex, 2, 0, "修改后的类别 2");
+            // 获取第一条图表系列。
+            IChartSeries series = chart.ChartData.Series[0];
 
-// 获取第一个图表系列
-IChartSeries series = chart.ChartData.Series[0];
+            // 更新系列数据。
+            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // 修改系列名称。
+            series.DataPoints[0].Value.Data = 90;
+            series.DataPoints[1].Value.Data = 123;
+            series.DataPoints[2].Value.Data = 44;
 
-// 更新系列数据
-fact.GetCell(defaultWorksheetIndex, 0, 1, "新系列1");// 修改系列名称
-series.DataPoints[0].Value.Data = 90;
-series.DataPoints[1].Value.Data = 123;
-series.DataPoints[2].Value.Data = 44;
+            // 获取第二条图表系列。
+            series = chart.ChartData.Series[1];
 
-// 获取第二个图表系列
-series = chart.ChartData.Series[1];
+            // 更新系列数据。
+            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // 修改系列名称。
+            series.DataPoints[0].Value.Data = 23;
+            series.DataPoints[1].Value.Data = 67;
+            series.DataPoints[2].Value.Data = 99;
 
-// 现在更新系列数据
-fact.GetCell(defaultWorksheetIndex, 0, 2, "新系列2");// 修改系列名称
-series.DataPoints[0].Value.Data = 23;
-series.DataPoints[1].Value.Data = 67;
-series.DataPoints[2].Value.Data = 99;
+            // 添加新系列。
+            series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), chart.Type);
 
-// 现在，添加新系列
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 3, "系列 3"), chart.Type);
+            // 填充系列数据。
+            series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 3, 20));
+            series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 3, 50));
+            series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 3, 30));
 
-// 获取第三个图表系列
-series = chart.ChartData.Series[2];
+            chart.Type = ChartType.ClusteredCylinder;
+        }
+    }
 
-// 现在填充系列数据
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 3, 20));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 3, 50));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 3, 30));
-
-chart.Type = ChartType.ClusteredCylinder;
-
-// 保存带图表的演示文稿
-pres.Save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
+    // 保存包含图表的演示文稿。
+    presentation.Save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
+}
 ```
+
 
 ## **为图表设置数据范围**
 
-1. 实例化一个表示包含图表的演示文稿的[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类。
-2. 通过索引获取幻灯片的引用。
-3. 遍历所有形状以查找所需的图表。
-4. 访问图表数据并设置范围。
-5. 将修改后的演示文稿保存为PPTX文件。
+Aspose.Slides for .NET 提供灵活性，可将工作表中的特定数据范围定义为图表数据的来源。这意味着您可以直接映射工作表的一部分到图表，控制哪些单元格贡献给图表的系列和类别。因此，您可以轻松更新并同步图表与工作表中最新的数据更改，确保 PowerPoint 演示文稿反映当前且准确的信息。
 
-以下C#代码向您展示了如何为图表设置数据范围：
+1. 实例化表示包含图表的演示文稿的 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类。
+1. 通过索引获取幻灯片的引用。
+1. 遍历所有形状以找到图表。
+1. 访问图表数据并设置范围。
+1. 将修改后的演示文稿保存为 PPTX 文件。
 
+以下 C# 代码展示如何为图表设置数据范围：
 ```c#
-// 实例化表示PPTX文件的Presentation类
-Presentation presentation = new Presentation("ExistingChart.pptx");
+const string chartName = "My chart";
 
-// 访问第一张幻灯片并添加带有默认数据的图表
-ISlide slide = presentation.Slides[0];
-IChart chart = (IChart)slide.Shapes[0];
-chart.ChartData.SetRange("Sheet1!A1:B4");
-presentation.Save("SetDataRange_out.pptx", SaveFormat.Pptx);
+// 实例化表示 PPTX 文件的 Presentation 类。
+using (Presentation presentation = new Presentation("ExistingChart.pptx"))
+{
+    // 访问第一张幻灯片。
+    ISlide slide = presentation.Slides[0];
+
+    foreach (IShape shape in slide.Shapes)
+    {
+        if (shape is IChart chart && chart.Name == chartName)
+        {
+            chart.ChartData.SetRange("Sheet1!A1:B4");
+        }
+    }
+
+    presentation.Save("SetDataRange_out.pptx", SaveFormat.Pptx);
+}
 ```
 
+
 ## **在图表中使用默认标记**
-当您在图表中使用默认标记时，每个图表系列都会自动获得不同的默认标记符号。
 
-以下C#代码向您展示了如何在图表系列中自动设置标记：
+使用默认标记时，每个图表系列会自动获得不同的默认标记符号。
 
+以下 C# 代码展示如何自动为图表系列设置标记：
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
     IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 10, 10, 400, 400);
 
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
-    chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "系列 1"), chart.Type);
-    IChartSeries series = chart.ChartData.Series[0];
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "C1"));
-    series.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 1, 1, 24));
-    chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "C2"));
-    series.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 2, 1, 23));
-    chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "C3"));
-    series.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 3, 1, -10));
-    chart.ChartData.Categories.Add(fact.GetCell(0, 4, 0, "C4"));
-    series.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 4, 1, null));
+    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-    chart.ChartData.Series.Add(fact.GetCell(0, 0, 2, "系列 2"), chart.Type);
-    // 获取第二个图表系列
-    IChartSeries series2 = chart.ChartData.Series[1];
+    chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "C1"));
+    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 1, 24));
 
-    // 填充系列数据
-    series2.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 1, 2, 30));
-    series2.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 2, 2, 10));
-    series2.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 3, 2, 60));
-    series2.DataPoints.AddDataPointForLineSeries(fact.GetCell(0, 4, 2, 40));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "C2"));
+    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 1, 23));
+
+    chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "C3"));
+    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 1, -10));
+
+    chart.ChartData.Categories.Add(workbook.GetCell(0, 4, 0, "C4"));
+    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 4, 1, null));
+
+    IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "Series 2"), chart.Type);
+
+    // 填充系列数据。
+    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 2, 30));
+    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 2, 10));
+    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 2, 60));
+    series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 4, 2, 40));
 
     chart.HasLegend = true;
     chart.Legend.Overlay = false;
 
-    pres.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
+    presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **常见问题**
+
+**Aspose.Slides for .NET 支持哪些图表类型？**
+
+Aspose.Slides for .NET 支持广泛的图表类型，包括柱形图、折线图、饼图、面积图、散点图、直方图、雷达图等。此灵活性让您能够选择最符合数据可视化需求的图表类型。
+
+**如何在幻灯片上添加新图表？**
+
+要添加图表，首先创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例，使用索引获取目标幻灯片，然后调用添加图表的方法，指定图表类型和初始数据。此过程可将图表直接嵌入演示文稿。
+
+**如何更新图表中显示的数据？**
+
+您可以通过访问图表的数据工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)），清除默认的系列和类别，再添加自定义数据，从而以编程方式刷新图表以反映最新数据。
+
+**是否可以自定义图表的外观？**
+
+可以，Aspose.Slides for .NET 提供丰富的自定义选项。您可以修改颜色、字体、标签、图例以及其他格式元素，以满足特定的设计需求。

@@ -1,18 +1,18 @@
 ---
-title: 创建或更新 PowerPoint 演示文稿图表
+title: 在 PHP 中创建或更新 PowerPoint 演示文稿图表
 linktitle: 创建图表
 type: docs
 weight: 10
 url: /zh/php-java/create-chart/
-keywords: "创建图表, 散点图, 饼图, 树状图, 股票图, 箱形图, 直方图, 漏斗图, 日冕图, 多类别图, PowerPoint 演示文稿, Java, Aspose.Slides for PHP via Java"
-description: "在 PowerPoint 演示文稿中创建图表"
+keywords: "创建图表, 散点图, 饼图, 树图, 股票图, 箱线图, 直方图, 漏斗图, 旭日图, 多分类图, PowerPoint 演示文稿, Java, Aspose.Slides for PHP via Java"
+description: "在 PowerPoint 演示文稿中创建图表 "
 ---
 
 ## 概述
 
-本文描述了如何在 **Java 中创建 PowerPoint 演示文稿图表**。您还可以**更新图表**。它涵盖了以下主题。
+本文介绍如何在 **Java** 中**创建 PowerPoint 演示文稿图表**。您还可以**更新图表**。本文涵盖以下主题。
 
-_图表_: **常规**
+_图表_: **普通**
 - [Java 创建 PowerPoint 图表](#java-create-powerpoint-chart)
 - [Java 创建演示文稿图表](#java-create-presentation-chart)
 - [Java 创建 PowerPoint 演示文稿图表](#java-create-powerpoint-presentation-chart)
@@ -27,30 +27,30 @@ _图表_: **饼图**
 - [Java 创建 PowerPoint 饼图](#java-create-powerpoint-pie-chart)
 - [Java 创建 PowerPoint 演示文稿饼图](#java-create-powerpoint-presentation-pie-chart)
 
-_图表_: **树状图**
-- [Java 创建树状图](#java-create-tree-map-chart)
-- [Java 创建 PowerPoint 树状图](#java-create-powerpoint-tree-map-chart)
-- [Java 创建 PowerPoint 演示文稿树状图](#java-create-powerpoint-presentation-tree-map-chart)
+_图表_: **树图**
+- [Java 创建树图](#java-create-tree-map-chart)
+- [Java 创建 PowerPoint 树图](#java-create-powerpoint-tree-map-chart)
+- [Java 创建 PowerPoint 演示文稿树图](#java-create-powerpoint-presentation-tree-map-chart)
 
 _图表_: **股票图**
 - [Java 创建股票图](#java-create-stock-chart)
 - [Java 创建 PowerPoint 股票图](#java-create-powerpoint-stock-chart)
 - [Java 创建 PowerPoint 演示文稿股票图](#java-create-powerpoint-presentation-stock-chart)
 
-_图表_: **箱形图**
-- [Java 创建箱形图](#java-create-box-and-whisker-chart)
-- [Java 创建 PowerPoint 箱形图](#java-create-powerpoint-box-and-whisker-chart)
-- [Java 创建 PowerPoint 演示文稿箱形图](#java-create-powerpoint-presentation-box-and-whisker-chart)
+_图表_: **箱线图**
+- [Java 创建箱线图](#java-create-box-and-whisker-chart)
+- [Java 创建 PowerPoint 箱线图](#java-create-powerpoint-box-and-whisker-chart)
+- [Java 创建 PowerPoint 演示文稿箱线图](#java-create-powerpoint-presentation-box-and-whisker-chart)
 
 _图表_: **漏斗图**
 - [Java 创建漏斗图](#java-create-funnel-chart)
 - [Java 创建 PowerPoint 漏斗图](#java-create-powerpoint-funnel-chart)
 - [Java 创建 PowerPoint 演示文稿漏斗图](#java-create-powerpoint-presentation-funnel-chart)
 
-_图表_: **日冕图**
-- [Java 创建日冕图](#java-create-sunburst-chart)
-- [Java 创建 PowerPoint 日冕图](#java-create-powerpoint-sunburst-chart)
-- [Java 创建 PowerPoint 演示文稿日冕图](#java-create-powerpoint-presentation-sunburst-chart)
+_图表_: **旭辉图**
+- [Java 创建旭辉图](#java-create-sunburst-chart)
+- [Java 创建 PowerPoint 旭辉图](#java-create-powerpoint-sunburst-chart)
+- [Java 创建 PowerPoint 演示文稿旭辉图](#java-create-powerpoint-presentation-sunburst-chart)
 
 _图表_: **直方图**
 - [Java 创建直方图](#java-create-histogram-chart)
@@ -62,10 +62,10 @@ _图表_: **雷达图**
 - [Java 创建 PowerPoint 雷达图](#java-create-powerpoint-radar-chart)
 - [Java 创建 PowerPoint 演示文稿雷达图](#java-create-powerpoint-presentation-radar-chart)
 
-_图表_: **多类别图**
-- [Java 创建多类别图](#java-create-multi-category-chart)
-- [Java 创建 PowerPoint 多类别图](#java-create-powerpoint-multi-category-chart)
-- [Java 创建 PowerPoint 演示文稿多类别图](#java-create-powerpoint-presentation-multi-category-chart)
+_图表_: **多分类图**
+- [Java 创建多分类图](#java-create-multi-category-chart)
+- [Java 创建 PowerPoint 多分类图](#java-create-powerpoint-multi-category-chart)
+- [Java 创建 PowerPoint 演示文稿多分类图](#java-create-powerpoint-presentation-multi-category-chart)
 
 _图表_: **地图图**
 - [Java 创建地图图](#java-create-map-chart)
@@ -79,64 +79,63 @@ _操作_: **更新图表**
 
 
 ## **创建图表**
-图表帮助人们快速可视化数据并获得见解，这些见解在表格或电子表格中可能并不明显。 
+图表帮助人们快速可视化数据并获得洞察，这些信息可能不易从表格或电子表格中直接看出。
 
 
-**为什么要创建图表？**
+**为何创建图表？**
 
 使用图表，您可以
 
-* 在演示文稿的单一幻灯片上聚合、浓缩或总结大量数据
+* 在演示文稿的单个幻灯片上聚合、压缩或汇总大量数据
 * 揭示数据中的模式和趋势
-* 推断数据随时间的方向和动量，或针对特定的测量单位 
-* 发现异常值、偏差、偏差、错误、无意义数据等 
-* 传达或呈现复杂数据
+* 推断数据随时间或相对于特定计量单位的方向和势头
+* 发现异常值、偏差、错误、无意义的数据等
+* 传达或展示复杂数据
 
-在 PowerPoint 中，您可以通过插入功能创建图表，该功能提供用于设计多种类型图表的模板。使用 Aspose.Slides，您可以创建常规图表（基于常见图表类型）和自定义图表。 
+在 PowerPoint 中，您可以通过“插入”功能创建图表，该功能提供用于设计多种图表的模板。使用 Aspose.Slides，您可以创建常规图表（基于流行图表类型）和自定义图表。
 
 {{% alert color="primary" %}} 
 
-为了让您创建图表，Aspose.Slides 提供了 [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType) 类。该类下的字段对应于不同的图表类型。
+为帮助您创建图表，Aspose.Slides 提供了 [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType) 类。此类下的字段对应不同的图表类型。
 
 {{% /alert %}} 
 
-### **创建常规图表**
+### **创建普通图表**
 
 _步骤：创建图表_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>步骤：</em> 创建 PowerPoint 图表 </strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>步骤：</em> 创建演示文稿图表 </strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>步骤：</em> 创建 PowerPoint 演示文稿图表 </strong></a>
+- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Steps:</em> Create PowerPoint Chart </strong></a>
+- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Steps:</em> Create Presentation Chart </strong></a>
+- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Chart </strong></a>
 
 _代码步骤：_
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-2. 通过其索引获取幻灯片的引用。
-3. 添加带有一些数据的图表并指定您首选的图表类型。 
+2. 通过索引获取幻灯片的引用。
+3. 添加一个带有一些数据的图表，并指定您偏好的图表类型。 
 4. 为图表添加标题。 
-5. 访问图表数据工作表。
-6. 清除所有默认系列和类别。
-7. 添加新的系列和类别。
-8. 为图表系列添加一些新的图表数据。
-9. 为图表系列添加填充颜色。
+5. 访问图表数据工作表。 
+6. 清除所有默认的系列和类别。 
+7. 添加新的系列和类别。 
+8. 为图表系列添加一些新数据。 
+9. 为图表系列添加填充颜色。 
 10. 为图表系列添加标签。 
 11. 将修改后的演示文稿写入 PPTX 文件。
 
-以下 PHP 代码显示了如何创建一个常规图表：
-
+此 PHP 代码展示了如何创建普通图表：
 ```php
   # 实例化一个表示 PPTX 文件的演示文稿类
   $pres = new Presentation();
   try {
-    # 访问第一个幻灯片
+    # 访问第一张幻灯片
     $sld = $pres->getSlides()->get_Item(0);
-    # 添加带有默认数据的图表
+    # 添加一个带默认数据的图表
     $chart = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 0, 0, 500, 500);
     # 设置图表标题
-    $chart->getChartTitle()->addTextFrameForOverriding("示例标题");
+    $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->hasTitle();
-    # 设置第一个系列显示值
+    # 设置第一系列显示数值
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     # 设置图表数据工作表的索引
     $defaultWorksheetIndex = 0;
@@ -148,13 +147,13 @@ _代码步骤：_
     $s = $chart->getChartData()->getSeries()->size();
     $s = $chart->getChartData()->getCategories()->size();
     # 添加新系列
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "系列 1"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "系列 2"), $chart->getType());
+    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
+    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
     # 添加新类别
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "类别 1"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "类别 2"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "类别 3"));
-    # 获取第一个图表系列
+    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
+    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
+    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
+    # 获取第一条图表系列
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     # 现在填充系列数据
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
@@ -163,27 +162,27 @@ _代码步骤：_
     # 设置系列的填充颜色
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # 获取第二个图表系列
+    # 获取第二条图表系列
     $series = $chart->getChartData()->getSeries()->get_Item(1);
     # 填充系列数据
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
-    # 设置系列的填充颜色
+    # 设置该系列的填充颜色
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    # 为新系列创建自定义标签
+    # 为新系列的每个类别创建自定义标签
     # 设置第一个标签显示类别名称
     $lbl = $series->getDataPoints()->get_Item(0)->getLabel();
     $lbl->getDataLabelFormat()->setShowCategoryName(true);
     $lbl = $series->getDataPoints()->get_Item(1)->getLabel();
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
-    # 显示第三个标签的值
+    # 显示第三个标签的数值
     $lbl = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl->getDataLabelFormat()->setShowValue(true);
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
     $lbl->getDataLabelFormat()->setSeparator("/");
-    # 保存带图表的演示文稿
+    # 保存带有图表的演示文稿
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -192,35 +191,35 @@ _代码步骤：_
   }
 ```
 
+
 ### **创建散点图**
-散点图（也称为散点图或 x-y 图）通常用于检查模式或演示两个变量之间的相关性。 
+散点图（也称为散点图或 X‑Y 图）常用于检查模式或演示两个变量之间的相关性。
 
-您可能希望在以下情况下使用散点图 
+当满足以下情况时，您可能需要使用散点图
 
-* 您有成对的数值数据
-* 您有两个变量，它们彼此之间配合良好
+* 您拥有成对的数值数据
+* 您有两个配对良好的变量
 * 您想确定两个变量是否相关
-* 您有一个独立变量，该变量对于一个因变量有多个值
+* 您有一个独立变量对应多个因变量值
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>步骤：</em> 创建散点图 </strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>步骤：</em> 创建 PowerPoint 散点图 </strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>步骤：</em> 创建 PowerPoint 演示文稿散点图 </strong></a>
+<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Steps:</em> Create Scattered Chart </strong></a> |
+<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Scattered Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Scattered Chart </strong></a>
 
-1. 请按照 [创建常规图表](#creating-normal-charts) 中提到的步骤进行操作
-2. 在第三步中，添加带有一些数据的图表并将图表类型指定为以下之一
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _表示散点图。_
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _表示用曲线连接的散点图，带数据标记。_
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _表示用曲线连接的散点图，不带数据标记。_
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _表示用线连接的散点图，带数据标记。_
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _表示用线连接的散点图，不带数据标记。_
+1. 请遵循上面 [创建普通图表](#creating-normal-charts) 中的步骤
+2. 第三步，添加一个带有一些数据的图表，并将图表类型指定为以下之一
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _表示散点图（带标记）。_
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _表示通过曲线相连并带有数据标记的散点图。_
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _表示通过曲线相连且不带数据标记的散点图。_
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _表示通过直线相连并带有数据标记的散点图。_
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _表示通过直线相连且不带数据标记的散点图。_
 
-以下 PHP 代码显示了如何创建一个带有不同系列标记的散点图：
-
+此 PHP 代码展示了如何使用不同标记系列创建散点图：
 ```php
   # 实例化一个表示 PPTX 文件的演示文稿类
   $pres = new Presentation();
   try {
-    # 访问第一个幻灯片
+    # 访问第一张幻灯片
     $slide = $pres->getSlides()->get_Item(0);
     # 创建默认图表
     $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 0, 0, 400, 400);
@@ -231,9 +230,9 @@ _代码步骤：_
     # 删除演示系列
     $chart->getChartData()->getSeries()->clear();
     # 添加新系列
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "系列 1"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 3, "系列 2"), $chart->getType());
-    # 获取第一个图表系列
+    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
+    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 3, "Series 2"), $chart->getType());
+    # 获取第一条图表系列
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     # 向系列添加一个新点 (1:3)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 1), $fact->getCell($defaultWorksheetIndex, 2, 2, 3));
@@ -244,7 +243,7 @@ _代码步骤：_
     # 更改图表系列标记
     $series->getMarker()->setSize(10);
     $series->getMarker()->setSymbol(MarkerStyleType::Star);
-    # 获取第二个图表系列
+    # 获取第二条图表系列
     $series = $chart->getChartData()->getSeries()->get_Item(1);
     # 在那里添加一个新点 (5:2)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 5), $fact->getCell($defaultWorksheetIndex, 2, 4, 2));
@@ -265,43 +264,43 @@ _代码步骤：_
   }
 ```
 
+
 ### **创建饼图**
 
-饼图最适合于显示数据中的部分与整体的关系，特别是当数据包含带有数值的类别标签时。然而，如果您的数据包含许多部分或标签，您可能想考虑使用条形图。
+饼图最适用于展示数据的整体与部分关系，尤其是当数据包含带数值的分类标签时。然而，如果您的数据包含许多部分或标签，建议考虑使用条形图。
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>步骤：</em> 创建饼图 </strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>步骤：</em> 创建 PowerPoint 饼图 </strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>步骤：</em> 创建 PowerPoint 演示文稿饼图 </strong></a>
+<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Steps:</em> Create Pie Chart </strong></a> |
+<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Steps:</em> Create PowerPoint Pie Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Pie Chart </strong></a>
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-2. 通过其索引获取幻灯片的引用。
-3. 添加带有默认数据的图表并指定所需的类型（在这种情况下， [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Pie）。
+2. 通过索引获取幻灯片的引用。
+3. 添加一个带有默认数据并指定类型为 [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Pie 的图表。
 4. 访问图表数据 [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook)。
-5. 清除默认系列和类别。
+5. 清除默认的系列和类别。
 6. 添加新的系列和类别。
-7. 为图表系列添加新的图表数据。
-8. 为饼图的扇区添加新点并添加自定义颜色。
+7. 为图表系列添加新数据。
+8. 为图表添加新点并为饼图的扇区指定自定义颜色。
 9. 为系列设置标签。
-10. 为系列标签设置引导线。
-11. 设置饼图幻灯片的旋转角度。
-12. 将修改后的演示文稿写入 PPTX 文件
+10. 为系列标签设置指引线。
+11. 设置饼图的旋转角度。
+12. 将修改后的演示文稿写入 PPTX 文件。
 
-以下 PHP 代码显示了如何创建一个饼图：
-
+此 PHP 代码展示了如何创建饼图：
 ```php
   # 实例化一个表示 PPTX 文件的演示文稿类
   $pres = new Presentation();
   try {
-    # 访问第一个幻灯片
+    # 访问第一张幻灯片
     $slides = $pres->getSlides()->get_Item(0);
-    # 添加带有默认数据的图表
+    # 添加带默认数据的图表
     $chart = $slides->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
     # 设置图表标题
-    $chart->getChartTitle()->addTextFrameForOverriding("示例标题");
+    $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->setTitle(true);
-    # 设置第一个系列显示值
+    # 设置第一系列显示数值
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     # 设置图表数据工作表的索引
     $defaultWorksheetIndex = 0;
@@ -311,16 +310,16 @@ _代码步骤：_
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     # 添加新类别
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "第一季度"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "第二季度"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "第三季度"));
+    $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "First Qtr"));
+    $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "2nd Qtr"));
+    $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3rd Qtr"));
     # 添加新系列
-    $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "系列 1"), $chart->getType());
+    $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
     # 填充系列数据
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    # 无法在新版本中使用
+    # 在新版本中不工作
     # 添加新点并设置扇区颜色
     # series.IsColorVaried = true;
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
@@ -351,7 +350,7 @@ _代码步骤：_
     $point2->getFormat()->getLine()->setWidth(2.0);
     $point2->getFormat()->getLine()->setStyle(LineStyle->ThinThin);
     $point2->getFormat()->getLine()->setDashStyle(LineDashStyle->LargeDashDotDot);
-    # 为每个类别创建自定义标签
+    # 为新系列的每个类别创建自定义标签
     $lbl1 = $series->getDataPoints()->get_Item(0)->getLabel();
     # lbl.ShowCategoryName = true;
     $lbl1->getDataLabelFormat()->setShowValue(true);
@@ -375,21 +374,21 @@ _代码步骤：_
   }
 ```
 
-### **创建线图**
 
-线图（也称为线型图）最适合用于演示随时间变化的值。在使用线图时，您可以一次性比较大量数据，跟踪随时间的变化和趋势，突出数据显示系列中的异常，等。
+### **创建折线图**
+
+折线图（亦称为折线图）最适用于展示随时间变化的数值。使用折线图，您可以一次比较大量数据，跟踪随时间的变化和趋势，突出数据系列中的异常等。
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-1. 通过其索引获取幻灯片的引用。
-1. 添加带有默认数据的图表并指定所需的类型（在这种情况下， `ChartType::Line`）。
+1. 通过索引获取幻灯片的引用。
+1. 添加一个带有默认数据并指定类型为 `ChartType::Line` 的图表。
 1. 访问图表数据 IChartDataWorkbook。
-1. 清除默认系列和类别。
+1. 清除默认的系列和类别。
 1. 添加新的系列和类别。
-1. 为图表系列添加新的图表数据。
+1. 为图表系列添加新数据。
 1. 将修改后的演示文稿写入 PPTX 文件
 
-以下 PHP 代码显示了如何创建一个线图：
-
+此 PHP 代码展示了如何创建折线图：
 ```php
   $pres = new Presentation();
   try {
@@ -402,8 +401,8 @@ _代码步骤：_
   }
 ```
 
-默认情况下，线图上的点通过直线连接。如果您希望点通过虚线连接，可以这样指定您首选的虚线类型：
 
+默认情况下，折线图上的点由直线连续相连。如果希望点之间使用虚线相连，可使用以下方式指定所需的虚线类型：
 ```php
   $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
   foreach($lineChart->getChartData()->getSeries() as $series) {
@@ -411,25 +410,25 @@ _代码步骤：_
   }
 ```
 
-### **创建树状图**
 
-树状图最适合用于销售数据，当您想要显示数据类别的相对大小并迅速引起注意的大型贡献者时， 应该使用此类型图表。 
+### **创建树图**
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>步骤：</em> 创建树状图 </strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>步骤：</em> 创建 PowerPoint 树状图 </strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>步骤：</em> 创建 PowerPoint 演示文稿树状图 </strong></a>
+树图在显示各数据类别相对大小并同时快速突出每个类别中贡献最大的项时最为合适，常用于销售数据展示。
+
+<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Steps:</em> Create Tree Map Chart </strong></a> |
+<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Tree Map Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Tree Map Chart </strong></a>
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-2. 通过其索引获取幻灯片的引用。
-3. 添加带有默认数据的图表并指定所需的类型（在这种情况下，[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).TreeMap）。
+2. 通过索引获取幻灯片的引用。
+3. 添加一个带有默认数据并指定类型为 [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).TreeMap 的图表。
 4. 访问图表数据 [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook)。
-5. 清除默认系列和类别。
+5. 清除默认的系列和类别。
 6. 添加新的系列和类别。
-7. 为图表系列添加新的图表数据。
+7. 为图表系列添加新数据。
 8. 将修改后的演示文稿写入 PPTX 文件
 
-以下 PHP 代码显示了如何创建一个树状图：
-
+此 PHP 代码展示了如何创建树图：
 ```php
   $pres = new Presentation();
   try {
@@ -439,21 +438,21 @@ _代码步骤：_
     $wb = $chart->getChartData()->getChartDataWorkbook();
     $wb->clear(0);
     # 分支 1
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C1", "叶子1"));
-    $leaf->getGroupingLevels()->setGroupingItem(1, "主干1");
-    $leaf->getGroupingLevels()->setGroupingItem(2, "分支1");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C2", "叶子2"));
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C3", "叶子3"));
-    $leaf->getGroupingLevels()->setGroupingItem(1, "主干2");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C4", "叶子4"));
+    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C1", "Leaf1"));
+    $leaf->getGroupingLevels()->setGroupingItem(1, "Stem1");
+    $leaf->getGroupingLevels()->setGroupingItem(2, "Branch1");
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C2", "Leaf2"));
+    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C3", "Leaf3"));
+    $leaf->getGroupingLevels()->setGroupingItem(1, "Stem2");
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C4", "Leaf4"));
     # 分支 2
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C5", "叶子5"));
-    $leaf->getGroupingLevels()->setGroupingItem(1, "主干3");
-    $leaf->getGroupingLevels()->setGroupingItem(2, "分支2");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C6", "叶子6"));
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C7", "叶子7"));
-    $leaf->getGroupingLevels()->setGroupingItem(1, "主干4");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C8", "叶子8"));
+    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C5", "Leaf5"));
+    $leaf->getGroupingLevels()->setGroupingItem(1, "Stem3");
+    $leaf->getGroupingLevels()->setGroupingItem(2, "Branch2");
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C6", "Leaf6"));
+    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C7", "Leaf7"));
+    $leaf->getGroupingLevels()->setGroupingItem(1, "Stem4");
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C8", "Leaf8"));
     $series = $chart->getChartData()->getSeries()->add(ChartType::Treemap);
     $series->getLabels()->getDefaultDataLabelFormat()->setShowCategoryName(true);
     $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D1", 4));
@@ -473,24 +472,24 @@ _代码步骤：_
   }
 ```
 
+
 ### **创建股票图**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>步骤：</em> 创建股票图 </strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>步骤：</em> 创建 PowerPoint 股票图 </strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>步骤：</em> 创建 PowerPoint 演示文稿股票图 </strong></a>
+<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Steps:</em> Create Stock Chart </strong></a> |
+<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Steps:</em> Create PowerPoint Stock Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Stock Chart </strong></a>
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-2. 通过其索引获取幻灯片的引用。
-3. 添加带有默认数据的图表并指定所需的类型 ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).OpenHighLowClose)。
+2. 通过索引获取幻灯片的引用。
+3. 添加一个带有默认数据并指定类型为 [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).OpenHighLowClose 的图表。
 4. 访问图表数据 [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook)。
-5. 清除默认系列和类别。
+5. 清除默认的系列和类别。
 6. 添加新的系列和类别。
-7. 为图表系列添加新的图表数据。
+7. 为图表系列添加新数据。
 8. 指定 HiLowLines 格式。
 9. 将修改后的演示文稿写入 PPTX 文件
 
 用于创建股票图的示例 PHP 代码：
-
 ```php
   $pres = new Presentation();
   try {
@@ -501,10 +500,10 @@ _代码步骤：_
     $chart->getChartData()->getCategories()->add($wb->getCell(0, 1, 0, "A"));
     $chart->getChartData()->getCategories()->add($wb->getCell(0, 2, 0, "B"));
     $chart->getChartData()->getCategories()->add($wb->getCell(0, 3, 0, "C"));
-    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 1, "开盘价"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 2, "最高价"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 3, "最低价"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 4, "收盘价"), $chart->getType());
+    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 1, "Open"), $chart->getType());
+    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 2, "High"), $chart->getType());
+    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 3, "Low"), $chart->getType());
+    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 4, "Close"), $chart->getType());
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 1, 1, 72));
     $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 2, 1, 25));
@@ -534,23 +533,23 @@ _代码步骤：_
   }
 ```
 
-### **创建箱形图**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>步骤：</em> 创建箱形图 </strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>步骤：</em> 创建 PowerPoint 箱形图 </strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>步骤：</em> 创建 PowerPoint 演示文稿箱形图 </strong></a>
+### **创建箱线图**
+
+<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Steps:</em> Create Box and Whisker Chart </strong></a> |
+<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Box and Whisker Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Box and Whisker Chart </strong></a>
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-2. 通过其索引获取幻灯片的引用。
-3. 添加带有默认数据的图表并指定所需的类型 ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).BoxAndWhisker)。
+2. 通过索引获取幻灯片的引用。
+3. 添加一个带有默认数据并指定类型为 [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).BoxAndWhisker 的图表。
 4. 访问图表数据 [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook)。
-5. 清除默认系列和类别。
+5. 清除默认的系列和类别。
 6. 添加新的系列和类别。
-7. 为图表系列添加新的图表数据。
+7. 为图表系列添加新数据。
 8. 将修改后的演示文稿写入 PPTX 文件
 
-以下 PHP 代码显示了如何创建一个箱形图：
-
+此 PHP 代码展示了如何创建箱线图：
 ```php
   $pres = new Presentation();
   try {
@@ -559,12 +558,12 @@ _代码步骤：_
     $chart->getChartData()->getSeries()->clear();
     $wb = $chart->getChartData()->getChartDataWorkbook();
     $wb->clear(0);
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A1", "类别 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A2", "类别 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A3", "类别 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A4", "类别 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A5", "类别 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A6", "类别 1"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A1", "Category 1"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A2", "Category 1"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A3", "Category 1"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A4", "Category 1"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A5", "Category 1"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A6", "Category 1"));
     $series = $chart->getChartData()->getSeries()->add(ChartType::BoxAndWhisker);
     $series->setQuartileMethod(QuartileMethodType::Exclusive);
     $series->setShowMeanLine(true);
@@ -585,19 +584,19 @@ _代码步骤：_
   }
 ```
 
+
 ### **创建漏斗图**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>步骤：</em> 创建漏斗图 </strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>步骤：</em> 创建 PowerPoint 漏斗图 </strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>步骤：</em> 创建 PowerPoint 演示文稿漏斗图 </strong></a>
+<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Steps:</em> Create Funnel Chart </strong></a> |
+<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Funnel Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Funnel Chart </strong></a>
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-2. 通过其索引获取幻灯片的引用。
-3. 添加带有默认数据的图表并指定所需的类型 ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Funnel)。
+2. 通过索引获取幻灯片的引用。
+3. 添加一个带有默认数据并指定类型为 [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Funnel 的图表。
 4. 将修改后的演示文稿写入 PPTX 文件
 
-以下 PHP 代码显示了如何创建一个漏斗图：
-
+此 PHP 代码展示了如何创建漏斗图：
 ```php
   $pres = new Presentation();
   try {
@@ -606,12 +605,12 @@ _代码步骤：_
     $chart->getChartData()->getSeries()->clear();
     $wb = $chart->getChartData()->getChartDataWorkbook();
     $wb->clear(0);
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A1", "类别 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A2", "类别 2"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A3", "类别 3"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A4", "类别 4"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A5", "类别 5"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A6", "类别 6"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A1", "Category 1"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A2", "Category 2"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A3", "Category 3"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A4", "Category 4"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A5", "Category 5"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A6", "Category 6"));
     $series = $chart->getChartData()->getSeries()->add(ChartType::Funnel);
     $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B1", 50));
     $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B2", 100));
@@ -627,19 +626,19 @@ _代码步骤：_
   }
 ```
 
-### **创建日冕图**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>步骤：</em> 创建日冕图 </strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>步骤：</em> 创建 PowerPoint 日冕图 </strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>步骤：</em> 创建 PowerPoint 演示文稿日冕图 </strong></a>
+### **创建旭辉图**
+
+<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Steps:</em> Create Sunburst Chart </strong></a> |
+<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Sunburst Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Sunburst Chart </strong></a>
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-2. 通过其索引获取幻灯片的引用。
-3. 添加带有默认数据的图表并指定所需的类型（在这种情况下，[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).sunburst）。
+2. 通过索引获取幻灯片的引用。
+3. 添加一个带有默认数据并指定类型为 [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).sunburst 的图表。
 4. 将修改后的演示文稿写入 PPTX 文件
 
-以下 PHP 代码显示了如何创建一个日冕图：
-
+此 PHP 代码展示了如何创建旭辉图：
 ```php
   $pres = new Presentation();
   try {
@@ -649,21 +648,21 @@ _代码步骤：_
     $wb = $chart->getChartData()->getChartDataWorkbook();
     $wb->clear(0);
     # 分支 1
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C1", "叶子1"));
-    $leaf->getGroupingLevels()->setGroupingItem(1, "主干1");
-    $leaf->getGroupingLevels()->setGroupingItem(2, "分支1");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C2", "叶子2"));
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C3", "叶子3"));
-    $leaf->getGroupingLevels()->setGroupingItem(1, "主干2");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C4", "叶子4"));
+    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C1", "Leaf1"));
+    $leaf->getGroupingLevels()->setGroupingItem(1, "Stem1");
+    $leaf->getGroupingLevels()->setGroupingItem(2, "Branch1");
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C2", "Leaf2"));
+    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C3", "Leaf3"));
+    $leaf->getGroupingLevels()->setGroupingItem(1, "Stem2");
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C4", "Leaf4"));
     # 分支 2
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C5", "叶子5"));
-    $leaf->getGroupingLevels()->setGroupingItem(1, "主干3");
-    $leaf->getGroupingLevels()->setGroupingItem(2, "分支2");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C6", "叶子6"));
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C7", "叶子7"));
-    $leaf->getGroupingLevels()->setGroupingItem(1, "主干4");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C8", "叶子8"));
+    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C5", "Leaf5"));
+    $leaf->getGroupingLevels()->setGroupingItem(1, "Stem3");
+    $leaf->getGroupingLevels()->setGroupingItem(2, "Branch2");
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C6", "Leaf6"));
+    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C7", "Leaf7"));
+    $leaf->getGroupingLevels()->setGroupingItem(1, "Stem4");
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C8", "Leaf8"));
     $series = $chart->getChartData()->getSeries()->add(ChartType::Sunburst);
     $series->getLabels()->getDefaultDataLabelFormat()->setShowCategoryName(true);
     $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D1", 4));
@@ -682,23 +681,22 @@ _代码步骤：_
   }
 ```
 
+
 ### **创建直方图**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>步骤：</em> 创建直方图 </strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>步骤：</em> 创建 PowerPoint 直方图 </strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>步骤：</em> 创建 PowerPoint 演示文稿直方图 </strong></a>
+<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Steps:</em> Create Histogram Chart </strong></a> |
+<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Histogram Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Histogram Chart </strong></a>
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-2. 通过其索引获取幻灯片的引用。
-3. 添加带有默认数据的图表并指定所需的类型 ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Histogram)。
+2. 通过索引获取幻灯片的引用。
+3. 添加一个带有默认数据并指定类型为 [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Histogram 的图表。
 4. 访问图表数据 [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook)。
-5. 清除默认系列和类别。
+5. 清除默认的系列和类别。
 6. 添加新的系列和类别。
-7. 为图表系列添加新的图表数据。
-8. 将修改后的演示文稿写入 PPTX 文件
+7. 将修改后的演示文稿写入 PPTX 文件
 
-以下 PHP 代码显示了如何创建一个直方图：
-
+此 PHP 代码展示了如何创建直方图：
 ```php
   $pres = new Presentation();
   $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Histogram, 50, 50, 500, 400);
@@ -714,22 +712,21 @@ _代码步骤：_
   $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A5", -23));
   $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A6", 16));
   $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
-
 ```
+
 
 ### **创建雷达图**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>步骤：</em> 创建雷达图 </strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>步骤：</em> 创建 PowerPoint 雷达图 </strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>步骤：</em> 创建 PowerPoint 演示文稿雷达图 </strong></a>
+<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Steps:</em> Create Radar Chart </strong></a> |
+<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Steps:</em> Create PowerPoint Radar Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Radar Chart </strong></a>
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-2. 通过其索引获取幻灯片的引用。 
-3. 添加图表并指定您首选的图表类型（在这种情况下，`ChartType::Radar`）。
+2. 通过索引获取幻灯片的引用。 
+3. 添加一个带有一些数据并指定类型为 `ChartType::Radar` 的图表。
 4. 将修改后的演示文稿写入 PPTX 文件
 
-以下 PHP 代码显示了如何创建一个雷达图：
-
+此 PHP 代码展示了如何创建雷达图：
 ```php
   $pres = new Presentation();
   try {
@@ -742,23 +739,23 @@ _代码步骤：_
   }
 ```
 
-### **创建多类别图**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>步骤：</em> 创建多类别图 </strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>步骤：</em> 创建 PowerPoint 多类别图 </strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>步骤：</em> 创建 PowerPoint 演示文稿多类别图 </strong></a>
+### **创建多分类图**
+
+<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Steps:</em> Create Multi Category Chart </strong></a> |
+<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Multi Category Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Multi Category Chart </strong></a>
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。
-2. 通过其索引获取幻灯片的引用。 
-3. 添加带有默认数据的图表并指定所需的类型（在这种情况下，[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).ClusteredColumn）。
+2. 通过索引获取幻灯片的引用。 
+3. 添加一个带有默认数据并指定类型为 [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).ClusteredColumn 的图表。
 4. 访问图表数据 [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook)。
-5. 清除默认系列和类别。
+5. 清除默认的系列和类别。
 6. 添加新的系列和类别。
-7. 为图表系列添加新的图表数据。
+7. 为图表系列添加新数据。
 8. 将修改后的演示文稿写入 PPTX 文件。
 
-以下 PHP 代码显示了如何创建一个多类别图：
-
+此 PHP 代码展示了如何创建多分类图：
 ```php
   $pres = new Presentation();
   try {
@@ -769,19 +766,19 @@ _代码步骤：_
     $fact->clear(0);
     $defaultWorksheetIndex = 0;
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c2", "A"));
-    $category->getGroupingLevels()->setGroupingItem(1, "组1");
+    $category->getGroupingLevels()->setGroupingItem(1, "Group1");
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c3", "B"));
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c4", "C"));
-    $category->getGroupingLevels()->setGroupingItem(1, "组2");
+    $category->getGroupingLevels()->setGroupingItem(1, "Group2");
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c5", "D"));
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c6", "E"));
-    $category->getGroupingLevels()->setGroupingItem(1, "组3");
+    $category->getGroupingLevels()->setGroupingItem(1, "Group3");
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c7", "F"));
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c8", "G"));
-    $category->getGroupingLevels()->setGroupingItem(1, "组4");
+    $category->getGroupingLevels()->setGroupingItem(1, "Group4");
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c9", "H"));
     # 添加系列
-    $series = $ch->getChartData()->getSeries()->add($fact->getCell(0, "D1", "系列 1"), ChartType::ClusteredColumn);
+    $series = $ch->getChartData()->getSeries()->add($fact->getCell(0, "D1", "Series 1"), ChartType::ClusteredColumn);
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D2", 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D3", 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D4", 30));
@@ -799,16 +796,16 @@ _代码步骤：_
   }
 ```
 
+
 ### **创建地图图**
 
-地图图是对区域数据的可视化。地图图最适合用于比较各地理区域的数据或值。
+地图图是对包含数据的区域进行可视化的方式。地图图最适用于比较不同地理区域之间的数据或数值。
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>步骤：</em> 创建地图图 </strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>步骤：</em> 创建 PowerPoint 地图图 </strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>步骤：</em> 创建 PowerPoint 演示文稿地图图 </strong></a>
+<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Steps:</em> Create Map Chart </strong></a> |
+<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Steps:</em> Create PowerPoint Map Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Map Chart </strong></a>
 
-以下 PHP 代码显示了如何创建一个地图图：
-
+此 PHP 代码展示了如何创建地图图：
 ```php
   $pres = new Presentation();
   try {
@@ -821,52 +818,193 @@ _代码步骤：_
   }
 ```
 
+
 ### **创建组合图**
 
-组合图（或组合图表）是将两个或多个图表合并为一个单一图表的图表。这样的图表可以突出显示、比较或回顾两个（或多个）数据集之间的差异。通过这种方式，您可以看到数据集之间的关系（如果有的话）。 
+组合图（或称为组合图表）在单个图形中组合两种或多种图表类型。此图表可帮助您突出、比较或检查多个数据集之间的差异，从而识别它们之间的关系。
 
-![combination-chart-ppt](combination-chart-ppt.png)
+![The combination chart](combination_chart.png)
 
-以下 PHP 代码显示了如何在 PowerPoint 中创建组合图：
-
+以下 PHP 代码展示了如何在 PowerPoint 演示文稿中创建上图所示的组合图：
 ```php
+function createComboChart() {
+    $presentation = new Presentation();
+    $slide = $presentation->getSlides()->get_Item(0);
+    try {
+        $chart = createChartWithFirstSeries($slide);
 
+        addSecondSeriesToChart($chart);
+        addThirdSeriesToChart($chart);
+
+        setPrimaryAxesFormat($chart);
+        setSecondaryAxesFormat($chart);
+
+        $presentation->save("combo-chart.pptx", SaveFormat::Pptx);
+    } finally {
+        $presentation->dispose();
+    }
+}
+
+function createChartWithFirstSeries($slide) {
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+
+    // 设置图表标题。
+    $chart->setTitle(true);
+    $chart->getChartTitle()->addTextFrameForOverriding("Chart Title");
+    $chart->getChartTitle()->setOverlay(false);
+    $titleParagraph = $chart->getChartTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0);
+    $titleFormat = $titleParagraph->getParagraphFormat()->getDefaultPortionFormat();
+    $titleFormat->setFontBold(NullableBool::False);
+    $titleFormat->setFontHeight(18);
+    
+    // 设置图表图例。
+    $chart->getLegend()->setPosition(LegendPositionType::Bottom);
+    $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(12);
+
+    // 删除默认生成的系列和类别。
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $worksheetIndex = 0;
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    // 添加新类别。
+    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 1, 0, "Category 1"));
+    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 2, 0, "Category 2"));
+    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 3, 0, "Category 3"));
+    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 4, 0, "Category 4"));
+
+    // 添加第一系列。
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 1, "Series 1");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    $series->getParentSeriesGroup()->setOverlap(-25);
+    $series->getParentSeriesGroup()->setGapWidth(220);
+
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 1, 1, 4.3));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 2, 1, 2.5));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 3, 1, 3.5));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 4, 1, 4.5));
+
+    return $chart;
+}
+
+function addSecondSeriesToChart($chart) {
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
+
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 2, "Series 2");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::ClusteredColumn);
+
+    $series->getParentSeriesGroup()->setOverlap(-25);
+    $series->getParentSeriesGroup()->setGapWidth(220);
+
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 1, 2, 2.4));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 2, 2, 4.4));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 3, 2, 1.8));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 4, 2, 2.8));
+}
+
+function addThirdSeriesToChart($chart) {
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
+
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 3, "Series 3");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::Line);
+
+    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 1, 3, 2.0));
+    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 2, 3, 2.0));
+    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 3, 3, 3.0));
+    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 4, 3, 5.0));
+
+    $series->setPlotOnSecondAxis(true);
+}
+
+function setPrimaryAxesFormat($chart) {
+    // 设置水平轴。
+    $horizontalAxis = $chart->getAxes()->getHorizontalAxis();
+    $horizontalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
+    $horizontalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+
+    setAxisTitle($horizontalAxis, "X Axis");
+
+    // 设置垂直轴。
+    $verticalAxis = $chart->getAxes()->getVerticalAxis();
+    $verticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
+    $verticalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+
+    setAxisTitle($verticalAxis, "Y Axis 1");
+
+    // 设置垂直主要网格线颜色。
+    $majorGridLinesFormat = $verticalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat();
+    $majorGridLinesFormat->setFillType(FillType::Solid);
+    $majorGridLinesFormat->getSolidFillColor()->setColor(new java("java.awt.Color", 217, 217, 217));
+}
+
+function setSecondaryAxesFormat($chart) {
+    // 设置次要水平轴。
+    $secondaryHorizontalAxis = $chart->getAxes()->getSecondaryHorizontalAxis();
+    $secondaryHorizontalAxis->setPosition(AxisPositionType::Bottom);
+    $secondaryHorizontalAxis->setCrossType(CrossesType::Maximum);
+    $secondaryHorizontalAxis->setVisible(false);
+    $secondaryHorizontalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+    $secondaryHorizontalAxis->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+
+    // 设置次要垂直轴。
+    $secondaryVerticalAxis = $chart->getAxes()->getSecondaryVerticalAxis();
+    $secondaryVerticalAxis->setPosition(AxisPositionType::Right);
+    $secondaryVerticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
+    $secondaryVerticalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+    $secondaryVerticalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+    $secondaryVerticalAxis->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+
+    setAxisTitle($secondaryVerticalAxis, "Y Axis 2");
+}
+
+function setAxisTitle($axis, $axisTitle) {
+    $axis->setTitle(true);
+    $axis->getTitle()->setOverlay(false);
+    $titleParagraph = $axis->getTitle()->addTextFrameForOverriding($axisTitle)->getParagraphs()->get_Item(0);
+    $titleFormat = $titleParagraph->getParagraphFormat()->getDefaultPortionFormat();
+    $titleFormat->setFontBold(NullableBool::False);
+    $titleFormat->setFontHeight(12);
+}
 ```
+
 
 ## **更新图表**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>步骤：</em> 更新 PowerPoint 图表 </strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>步骤：</em> 更新演示文稿图表 </strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>步骤：</em> 更新 PowerPoint 演示文稿图表 </strong></a>
+<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Steps:</em> Update PowerPoint Chart </strong></a> |
+<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Steps:</em> Update Presentation Chart </strong></a> |
+<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Steps:</em> Update PowerPoint Presentation Chart </strong></a>
 
-1. 实例化一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例，该实例表示包含您要更新的图表的演示文稿。
-2. 通过其索引获取幻灯片的引用。
-3. 遍历所有形状以找到所需的图表。
+1. 实例化一个表示包含要更新图表的演示文稿的 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类。
+2. 通过索引获取幻灯片的引用。
+3. 遍历所有形状以查找所需的图表。
 4. 访问图表数据工作表。
-5. 通过更改系列值来修改图表数据系列数据。
-6. 添加新的系列并填充数据。
+5. 通过更改系列值修改图表系列数据。
+6. 添加新系列并填充数据。
 7. 将修改后的演示文稿写入 PPTX 文件。
 
-以下 PHP 代码显示了如何更新图表：
-
+此 PHP 代码展示了如何更新图表：
 ```php
   $pres = new Presentation();
   try {
-    # 访问第一张幻灯片
+    # 访问第一个幻灯片标记
     $sld = $pres->getSlides()->get_Item(0);
-    # 获取带有默认数据的图表
+    # 获取默认数据的图表
     $chart = $sld->getShapes()->get_Item(0);
-    # 设置图表数据表的索引
+    # 设置图表数据工作表的索引
     $defaultWorksheetIndex = 0;
     # 获取图表数据工作表
     $fact = $chart->getChartData()->getChartDataWorkbook();
     # 更改图表类别名称
-    $fact->getCell($defaultWorksheetIndex, 1, 0, "修改后的类别 1");
-    $fact->getCell($defaultWorksheetIndex, 2, 0, "修改后的类别 2");
+    $fact->getCell($defaultWorksheetIndex, 1, 0, "Modified Category 1");
+    $fact->getCell($defaultWorksheetIndex, 2, 0, "Modified Category 2");
     # 获取第一个图表系列
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     # 现在更新系列数据
-    $fact->getCell($defaultWorksheetIndex, 0, 1, "新系列1");// 修改系列名称
+    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// 修改系列名称
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(123);
@@ -874,13 +1012,13 @@ _代码步骤：_
     # 获取第二个图表系列
     $series = $chart->getChartData()->getSeries()->get_Item(1);
     # 现在更新系列数据
-    $fact->getCell($defaultWorksheetIndex, 0, 2, "新系列2");// 修改系列名称
+    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// 修改系列名称
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(99);
-    # 现在，添加一个新系列
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 3, "系列 3"), $chart->getType());
+    # 现在，添加新系列
+    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 3, "Series 3"), $chart->getType());
     # 获取第三个图表系列
     $series = $chart->getChartData()->getSeries()->get_Item(2);
     # 现在填充系列数据
@@ -888,7 +1026,7 @@ _代码步骤：_
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 30));
     $chart->setType(ChartType::ClusteredCylinder);
-    # 保存带图表的演示文稿
+    # 保存带有图表的演示文稿
     $pres->save("AsposeChartModified_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -897,18 +1035,18 @@ _代码步骤：_
   }
 ```
 
+
 ## **设置图表的数据范围**
 
-要为图表设置数据范围，可以按照以下步骤操作：
+若要设置图表的数据范围，请执行以下操作：
 
-1. 实例化一个 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例，该实例表示包含图表的演示文稿。
-2. 通过其索引获取幻灯片的引用。
-3. 遍历所有形状以找到所需的图表。
+1. 实例化一个表示包含该图表的演示文稿的 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类。
+2. 通过索引获取幻灯片的引用。
+3. 遍历所有形状以查找所需的图表。
 4. 访问图表数据并设置范围。
 5. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下 PHP 代码显示了如何为图表设置数据范围：
-
+此 PHP 代码展示了如何设置图表的数据范围：
 ```php
   $pres = new Presentation();
   try {
@@ -923,11 +1061,11 @@ _代码步骤：_
   }
 ```
 
+
 ## **在图表中使用默认标记**
-当您在图表中使用默认标记时，每个图表系列会自动获得不同的默认标记符号。
+在图表中使用默认标记时，每个图表系列会自动获取不同的默认标记符号。
 
-以下 PHP 代码显示了如何自动设置图表系列标记：
-
+此 PHP 代码展示了如何自动为图表系列设置标记：
 ```php
   $pres = new Presentation();
   try {
@@ -936,7 +1074,7 @@ _代码步骤：_
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "系列 1"), $chart->getType());
+    $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "C1"));
     $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 1, 1, 24));
@@ -946,7 +1084,7 @@ _代码步骤：_
     $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 3, 1, -10));
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 4, 0, "C4"));
     $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 4, 1, null));
-    $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 2, "系列 2"), $chart->getType());
+    $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 2, "Series 2"), $chart->getType());
     # 获取第二个图表系列
     $series2 = $chart->getChartData()->getSeries()->get_Item(1);
     # 现在填充系列数据
