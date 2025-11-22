@@ -3,59 +3,57 @@ title: خط
 type: docs
 weight: 50
 url: /ar/net/Line/
-keywords: "خط، شكل PowerPoint، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
-description: "إضافة خط في عرض PowerPoint باستخدام C# أو .NET"
+keywords: "خط، شكل PowerPoint، عرض تقديمي PowerPoint، C#، Csharp، Aspose.Slides for .NET"
+description: "إضافة خط في عرض تقديمي PowerPoint باستخدام C# أو .NET"
 ---
 
-تدعم Aspose.Slides لـ .NET إضافة أنواع مختلفة من الأشكال إلى الشريحة. في هذا الموضوع، سنبدأ العمل مع الأشكال من خلال إضافة خطوط إلى الشرائح. باستخدام Aspose.Slides لـ .NET، يمكن للمطورين إنشاء خطوط بسيطة، ولكن يمكن أيضًا رسم بعض الخطوط الفاخرة على الشرائح.
+يدعم Aspose.Slides for .NET إضافة أنواع مختلفة من الأشكال إلى الشرائح. في هذا الموضوع، سنبدأ العمل مع الأشكال عن طريق إضافة خطوط إلى الشرائح. باستخدام Aspose.Slides for .NET، يمكن للمطورين ليس فقط إنشاء خطوط بسيطة، بل يمكن أيضًا رسم خطوط مزخرفة على الشرائح.
 ## **إنشاء خط عادي**
-لإضافة خط عادي بسيط إلى الشريحة المحددة من العرض، يرجى اتباع الخطوات أدناه:
+لإضافة خط عادي بسيط إلى شريحة مختارة من العرض التقديمي، يرجى اتباع الخطوات أدناه:
 
-- إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
-- الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها.
-- إضافة AutoShape من نوع الخط باستخدام [AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/methods/addautoshape/index) الطريقة المعرضة من قبل كائن Shapes.
-- كتابة العرض المعدل كملف PPTX.
+- إنشاء مثيل من [العرض التقديمي ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
+- احصل على مرجع الشريحة باستخدام فهرسها.
+- أضف AutoShape من نوع Line باستخدام طريقة [AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/methods/addautoshape/index) المعروضة بواسطة كائن Shapes.
+- احفظ العرض التقديمي المعدل كملف PPTX.
 
-في المثال المعطى أدناه، أضفنا خطًا إلى الشريحة الأولى من العرض.
-
+في المثال الموضح أدناه، أضفنا خطًا إلى الشريحة الأولى من العرض التقديمي.
 ```c#
-// إنشاء مثيل من PresentationEx class الذي يمثل ملف PPTX
+// إنشاء فئة PresentationEx التي تمثل ملف PPTX
 using (Presentation pres = new Presentation())
 {
     // الحصول على الشريحة الأولى
     ISlide sld = pres.Slides[0];
 
-    // إضافة AutoShape من نوع الخط
+    // إضافة AutoShape من النوع Line
     sld.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
-    // كتابة ملف PPTX إلى القرص
+    // حفظ PPTX إلى القرص
     pres.Save("LineShape1_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-## **إنشاء خط بشكل سهم**
-تتيح Aspose.Slides لـ .NET أيضًا للمطورين تكوين بعض خصائص الخط لجعله يبدو أكثر جاذبية. لنحاول تكوين بعض الخصائص لنجعل الخط يبدو كأنه سهم. يرجى اتباع الخطوات أدناه للقيام بذلك:
+## **إنشاء خط على شكل سهم**
+يوفر Aspose.Slides for .NET أيضًا للمطورين إمكانية تكوين بعض خصائص الخط لجعله أكثر جاذبية. دعنا نجرب تكوين بعض خصائص الخط لجعله يبدو كسهم. يرجى اتباع الخطوات أدناه للقيام بذلك:
 
-- إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
-- الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها.
-- إضافة AutoShape من نوع الخط باستخدام طريقة AddAutoShape المعرضة من قبل كائن Shapes.
-- تعيين نمط الخط إلى أحد الأنماط المعروضة من قبل Aspose.Slides لـ .NET.
-- تعيين عرض الخط.
-- تعيين [نمط الخط المنقط](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle) للخط إلى أحد الأنماط المعروضة من قبل Aspose.Slides لـ .NET.
-- تعيين [نمط رأس السهم](https://reference.aspose.com/slides/net/aspose.slides/linearrowheadstyle) وطول نقطة البداية للخط.
-- تعيين نمط رأس السهم وطول نقطة النهاية للخط.
-- كتابة العرض المعدل كملف PPTX.
-
+- إنشاء مثيل من [العرض التقديمي ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class[](http://www.aspose.com/api/net/slides/aspose.slides/)[](http://www.aspose.com/api/net/slides/aspose.slides/).
+- احصل على مرجع الشريحة باستخدام فهرسها.
+- أضف AutoShape من نوع Line باستخدام طريقة AddAutoShape المعروضة بواسطة كائن Shapes.
+- اضبط نمط الخط إلى أحد الأنماط المتاحة في Aspose.Slides for .NET.
+- اضبط عرض الخط.
+- اضبط [نمط الشرط](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle) للخط إلى أحد الأنماط المتاحة في Aspose.Slides for .NET.
+- اضبط [نمط رأس السهم](https://reference.aspose.com/slides/net/aspose.slides/linearrowheadstyle) وطول نقطة البداية للخط.
+- اضبط نمط رأس السهم وطول نقطة النهاية للخط.
+- احفظ العرض التقديمي المعدل كملف PPTX.
 ```c#
-// إنشاء مثيل من PresentationEx class الذي يمثل ملف PPTX
+// إنشاء فئة PresentationEx التي تمثل ملف PPTX
 using (Presentation pres = new Presentation())
 {
 
     // الحصول على الشريحة الأولى
     ISlide sld = pres.Slides[0];
 
-    // إضافة AutoShape من نوع الخط
+    // إضافة AutoShape من النوع line
     IAutoShape shp = sld.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
     // تطبيق بعض التنسيقات على الخط
@@ -73,7 +71,22 @@ using (Presentation pres = new Presentation())
     shp.LineFormat.FillFormat.FillType = FillType.Solid;
     shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Maroon;
 
-    // كتابة ملف PPTX إلى القرص
+    //حفظ PPTX إلى القرص
     pres.Save("LineShape2_out.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **الأسئلة المتداولة**
+
+**هل يمكنني تحويل خط عادي إلى موصل بحيث "يلتصق" بالأشكال؟**
+
+لا. لا يتحول الخط العادي (هو [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) من النوع [Line](https://reference.aspose.com/slides/net/aspose.slides/shapetype/)) تلقائيًا إلى موصل. لجعله يلتصق بالأشكال، استخدم النوع المخصص [Connector](https://reference.aspose.com/slides/net/aspose.slides/connector/) و[واجهات برمجة التطبيقات المقابلة](/slides/ar/net/connector/) للاتصالات.
+
+**ماذا أفعل إذا كانت خصائص الخط موروثة من السمة ويصعب تحديد القيم النهائية؟**
+
+[اقرأ الخصائص الفعالة](/slides/ar/net/shape-effective-properties/) عبر واجهات [ILineFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilinefillformateffectivedata/) — هذه الواجهات تأخذ بالفعل في الاعتبار الوراثة وأنماط السمة.
+
+**هل يمكنني قفل خط لمنع تحريره (نقله، تغيير حجمه)؟**
+
+نعم. توفر الأشكال [كائنات القفل](https://reference.aspose.com/slides/net/aspose.slides/autoshape/autoshapelock/) التي تسمح لك [بمنع عمليات التحرير](/slides/ar/net/applying-protection-to-presentation/).
