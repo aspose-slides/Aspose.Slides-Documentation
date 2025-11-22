@@ -1,8 +1,26 @@
 ---
-title: WordArt
+title: Create and Apply WordArt Effects in C++
+linktitle: WordArt
 type: docs
 weight: 110
 url: /cpp/wordart/
+keywords:
+- WordArt
+- create WordArt
+- WordArt template
+- WordArt effect
+- shadow effect
+- display effect
+- glow effect
+- WordArt transformation
+- 3D effect
+- outer shadow effect
+- inner Shadow effect
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Create and customize WordArt effects in Aspose.Slides for C++. This step-by-step guide helps developers enhance presentations with professional text in C++."
 ---
 
 ## **About WordArt?**

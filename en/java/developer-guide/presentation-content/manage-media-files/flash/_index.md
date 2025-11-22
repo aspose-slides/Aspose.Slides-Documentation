@@ -1,9 +1,18 @@
 ---
-title: Flash
+title: Extract Flash Objects from Presentations in Java
+linktitle: Flash
 type: docs
 weight: 10
 url: /java/flash/
-description: Extract Flash Objects from PowerPoint Presentation using Java
+keywords:
+- extract flash
+- flash object
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn how to extract Flash objects from PowerPoint and OpenDocument slides in Java with Aspose.Slides, complete code samples and best practices."
 ---
 
 ## **Extract Flash Objects from Presentation**

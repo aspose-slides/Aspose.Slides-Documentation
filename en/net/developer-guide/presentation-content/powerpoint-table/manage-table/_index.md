@@ -1,10 +1,23 @@
 ---
-title: Manage Table
+title: Manage Presentation Tables in .NET
+linktitle: Manage Table
 type: docs
 weight: 10
 url: /net/manage-table/
-keywords: "Table, create table, access table, table aspect ratio, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Create and manage table in PowerPoint presentations in C# or .NET"
+keywords:
+- add table
+- create table
+- access table
+- aspect ratio
+- align text
+- text formatting
+- table style
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Create & edit tables in PowerPoint slides with Aspose.Slides for .NET. Discover simple C# code examples to streamline your table workflows."
 ---
 
 A table in PowerPoint is an efficient way of displaying and portraying information. The information in a grid of cells (arranged in rows and columns) is straightforward and easy to understand.

@@ -1,21 +1,28 @@
 ---
-title: Shape Animation
+title: Apply Shape Animations in Presentations Using C++
+linktitle: Shape Animation
 type: docs
 weight: 60
 url: /cpp/shape-animation/
-keywords: 
+keywords:
 - shape
 - animation
 - effect
-- add effects
-- get effects
-- extract effects
+- animated shape
+- animated text
+- add animation
+- get animation
+- extract animation
+- add effect
+- get effect
+- extract effect
+- effect sound
 - apply animation
 - PowerPoint
 - presentation
 - C++
-- Aspose.Slides for C++
-description: "Apply PowerPoint animation in C++"
+- Aspose.Slides
+description: "Discover how to create and customize shape animations in PowerPoint presentations with Aspose.Slides for C++. Stand out!"
 ---
 
 Animations are visual effects that can be applied to texts, images, shapes, or [charts](/slides/cpp/animated-charts/). They give life to presentations or its constituents. 

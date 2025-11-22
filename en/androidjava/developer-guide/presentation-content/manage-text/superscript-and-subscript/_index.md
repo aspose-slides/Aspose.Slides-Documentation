@@ -1,8 +1,21 @@
 ---
-title: Superscript and Subscript
+title: Manage Superscript and Subscript in Presentations on Android
+linktitle: Superscript and Subscript
 type: docs
 weight: 80
 url: /androidjava/superscript-and-subscript/
+keywords:
+- superscript
+- subscript
+- add superscript
+- add subscript
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Master superscript and subscript in Aspose.Slides for Android via Java and elevate your presentations with professional text formatting for maximum impact."
 ---
 
 ## **Manage Super Script and Sub Script Text**

@@ -13,7 +13,9 @@ keywords:
 - macOS
 - PowerPoint
 - OpenDocument
-- preentation
+- presentation
+- .NET
+- C#
 - Aspose.Slides
 description: "Discover Aspose.Slides for .NET system requirements. Ensure seamless PowerPoint and OpenDocument support on Windows, Linux, and macOS."
 ---

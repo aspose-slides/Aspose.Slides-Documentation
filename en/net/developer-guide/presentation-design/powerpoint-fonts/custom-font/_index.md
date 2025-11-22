@@ -1,11 +1,23 @@
 ---
-title: Custom PowerPoint Font in C#
+title: Customize PowerPoint Fonts in .NET
 linktitle: Custom Font
 type: docs
 weight: 20
 url: /net/custom-font/
-keywords: "Fonts, custom fonts, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "PowerPoint custom fonts in C#"
+keywords:
+- font
+- custom font
+- external font
+- load font
+- manage fonts
+- font folder
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Customize fonts in PowerPoint slides with Aspose.Slides for .NET to keep your presentations sharp and consistent across any device."
 ---
 
 {{% alert color="primary" %}} 

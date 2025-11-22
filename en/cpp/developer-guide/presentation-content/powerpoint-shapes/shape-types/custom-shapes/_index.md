@@ -1,22 +1,27 @@
 ---
-title: Custom Shape
+title: Customize Presentation Shapes in C++
+linktitle: Custom Shape
 type: docs
 weight: 20
 url: /cpp/custom-shape/
 keywords: 
-- shape
 - custom shape
+- add shape
 - create shape
-- geometry
+- change shape
 - shape geometry
 - geometry path
 - path points
 - edit points
+- add point
+- remove point
+- editing operation
+- curved corner
 - PowerPoint
 - presentation
 - C++
-- Aspose.Slides for C++
-description: "Add a custom shape to a PowerPoint presentation in C++"
+- Aspose.Slides
+description: "Create and customize shapes in PowerPoint presentations with Aspose.Slides for C++: geometry paths, curved corners, composite shapes."
 ---
 
 # Change a Shape Using Edit Points

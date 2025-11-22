@@ -2,7 +2,21 @@
 title: Video
 type: docs
 weight: 80
-url: /net/examples/elements/video
+url: /net/examples/elements/video/
+keywords:
+- video example
+- video frame
+- add video
+- access video
+- remove video
+- video playback
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Work with video in C# using Aspose.Slides: insert, replace, trim, set poster frames and playback options, and export presentations for PPT, PPTX and ODP."
 ---
 
 Shows how to embed video frames and set playback options using **Aspose.Slides for .NET**.

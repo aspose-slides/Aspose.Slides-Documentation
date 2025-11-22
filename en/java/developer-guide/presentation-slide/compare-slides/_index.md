@@ -1,8 +1,18 @@
 ---
-title: Compare Slides
+title: Compare Presentation Slides in Java
+linktitle: Compare Slides
 type: docs
 weight: 50
 url: /java/compare-slides/
+keywords:
+- compare slides
+- slide comparison
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Compare PowerPoint and OpenDocument presentations programmatically with Aspose.Slides for Java. Identify slide differences in code quickly."
 ---
 
 ## **Compare Two Slides**

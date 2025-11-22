@@ -1,116 +1,142 @@
 ---
-title: Откройте Презентацию на Python
-linktitle: Открытие Презентации
+title: Открыть презентацию в Python
+linktitle: Открыть презентации
 type: docs
 weight: 20
 url: /ru/python-net/open-presentation/
 keywords:
 - открыть PowerPoint
 - открыть презентацию
-- открыть большую презентацию
-- открыть презентацию защищенную паролем
-- открыть PPT
 - открыть PPTX
+- открыть PPT
 - открыть ODP
 - загрузить презентацию
+- загрузить PPTX
+- загрузить PPT
+- загрузить ODP
+- защищённая презентация
+- большая презентация
+- внешний ресурс
+- двоичный объект
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET: быстро открывайте и обрабатывайте презентации PowerPoint и OpenDocument без установки PowerPoint, с примерами кода."
+description: "Легко открывайте презентации PowerPoint (.pptx, .ppt) и OpenDocument (.odp) с помощью Aspose.Slides для Python через .NET — быстро, надёжно, полностью функционально."
 ---
 
-Кроме создания презентаций PowerPoint с нуля, Aspose.Slides позволяет вам открывать существующие презентации. После того как вы загрузите презентацию, вы сможете получить информацию о ней, редактировать содержание на слайдах, добавлять новые слайды или удалять существующие и т. д.
+## **Обзор**
 
-## Открыть Презентацию
+Помимо создания презентаций PowerPoint с нуля, Aspose.Slides также позволяет открывать существующие презентации. После загрузки презентации вы можете получить о ней информацию, редактировать содержимое слайдов, добавлять новые слайды, удалять существующие и многое другое.
 
-Чтобы открыть существующую презентацию, вам просто нужно создать экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и передать путь к файлу (презентации, которую вы хотите открыть) в его конструктор.
+## **Открытие презентаций**
 
-Этот код на Python показывает, как открыть презентацию и узнать, сколько слайдов она содержит:
+Чтобы открыть существующую презентацию, создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и передайте путь к файлу в его конструктор.
 
+Следующий пример на Python показывает, как открыть презентацию и получить количество слайдов:
 ```python
 import aspose.slides as slides
 
-# Создает экземпляр класса Presentation и передает путь к файлу в его конструктор
-with slides.Presentation("pres.pptx") as pres:
-    # Выводит общее количество слайдов в презентации
-    print(pres.slides.length)
+# Создайте экземпляр класса Presentation и передайте путь к файлу в его конструктор.
+with slides.Presentation("sample.pptx") as presentation:
+    # Выведите общее количество слайдов в презентации.
+    print(presentation.slides.length)
 ```
 
-## **Открыть Защищенную Паролем Презентацию**
 
-Когда вам необходимо открыть презентацию, защищённую паролем, вы можете передать пароль через свойство `password` (из класса [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/)), чтобы расшифровать презентацию и загрузить её. Этот код на Python демонстрирует эту операцию:
+## **Открытие защищённых паролем презентаций**
 
+Когда необходимо открыть презентацию, защищённую паролем, передайте пароль через свойство [password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/) класса [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) для её расшифровки и загрузки. Следующий код на Python демонстрирует эту операцию:
 ```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
-load_options.password = "PASSWORD"
-with slides.Presentation("pres.pptx", load_options) as pres:
-    ...
+load_options.password = "YOUR_PASSWORD"
+
+with slides.Presentation("sample.pptx", load_options) as presentation:
+    # Выполняйте операции над дешифрованной презентацией.
 ```
 
-## Открыть Большую Презентацию
 
-Aspose.Slides предоставляет параметры (в частности, свойство `blob_management_options`) в классе [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/), чтобы позволить вам открывать большие презентации.
+## **Открытие больших презентаций**
 
-Этот код на Python демонстрирует операцию, в которой загружается большая презентация (например, размером 2 ГБ):
+Aspose.Slides предоставляет параметры — в частности свойство [blob_management_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/blob_management_options/) класса [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) — для помощи в загрузке больших презентаций.
 
+Этот код на Python демонстрирует загрузку большой презентации (например, 2 ГБ):
 ```python
 import aspose.slides as slides
 import os
 
-loadOptions = slides.LoadOptions()
-loadOptions.blob_management_options = slides.BlobManagementOptions()
-loadOptions.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
+file_path = "LargePresentation.pptx"
 
-with slides.Presentation("pres.pptx", loadOptions) as pres:
-    # Большая презентация была загружена и может быть использована, но потребление памяти всё еще низкое.
+load_options = slides.LoadOptions()
+# Выберите поведение KeepLocked — файл презентации останется заблокированным на весь срок жизни 
+# экземпляра Presentation, но его не требуется загружать в память или копировать во временный файл.
+load_options.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
+load_options.blob_management_options.is_temporary_files_allowed = True
+load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024  # 10 МБ
 
-    # Вносит изменения в презентацию.
-    pres.slides[0].name = "Очень большая презентация"
+with slides.Presentation(file_path, load_options) as presentation:
+    # Большая презентация загружена и может быть использована, при этом потребление памяти остаётся низким.
 
-    # Презентация будет сохранена в другой файл. Потребление памяти остаётся низким во время операции
-    pres.save("veryLargePresentation-copy.pptx", slides.export.SaveFormat.PPTX)
+    # Внесите изменения в презентацию.
+    presentation.slides[0].name = "Large presentation"
 
-    # Нельзя делать это! Будет вызвано исключение IO, поскольку файл заблокирован, пока объекты pres будут
-    # не освобождены
-    os.remove("pres.pptx")
+    # Сохраните презентацию в другой файл. Потребление памяти остаётся низким во время этой операции.
+    presentation.save("LargePresentation-copy.pptx", slides.export.SaveFormat.PPTX)
 
-# Здесь это можно делать. Исходный файл не заблокирован объектом pres.
-os.remove("pres.pptx")
+    # Не делайте этого! Будет выброшено исключение ввода/вывода, потому что файл заблокирован до освобождения объекта презентации.
+    os.remove(file_path)
+
+# Здесь это можно сделать. Исходный файл больше не заблокирован объектом презентации.
+os.remove(file_path)
 ```
 
-{{% alert color="info" title="Информация" %}}
 
-Чтобы обойти определённые ограничения при взаимодействии с потоками, Aspose.Slides может копировать содержимое потока. Загрузка большой презентации через её поток приведёт к копированию содержимого презентации и вызовет медленную загрузку. Поэтому, когда вы собираетесь загружать большую презентацию, мы настоятельно рекомендуем использовать путь к файлу презентации, а не её поток.
+{{% alert color="info" title="Info" %}}
+Чтобы обойти некоторые ограничения при работе с потоками, Aspose.Slides может копировать содержимое потока. Загрузка большой презентации из потока приводит к копированию презентации и может замедлить процесс загрузки. Поэтому, когда необходимо загрузить большую презентацию, настоятельно рекомендуется использовать путь к файлу презентации, а не поток.
 
-Когда вы хотите создать презентацию, содержащую большие объекты (видео, аудио, большие изображения и т. д.), вы можете использовать [Blob facility](https://docs.aspose.com/slides/python-net/manage-blob/) для уменьшения потребления памяти.
+При создании презентации, содержащей крупные объекты (видео, аудио, изображения высокого разрешения и др.), вы можете воспользоваться [управлением BLOB](/slides/ru/python-net/manage-blob/) для снижения потребления памяти.
+{{%/alert %}}
 
-{{%/alert %}} 
+## **Управление внешними ресурсами**
 
-
-## Загрузить Презентацию
-
-Aspose.Slides предоставляет [IResourceLoadingCallback](https://reference.aspose.com/slides/python-net/aspose.slides/iresourceloadingcallback/) с единственным методом, позволяющим управлять внешними ресурсами. Этот код на Python показывает, как использовать интерфейс `IResourceLoadingCallback`:
-
+Aspose.Slides предоставляет интерфейс [IResourceLoadingCallback](https://reference.aspose.com/slides/python-net/aspose.slides/iresourceloadingcallback/), позволяющий управлять внешними ресурсами. Следующий код на Python показывает, как использовать интерфейс `IResourceLoadingCallback`:
 ```python
-# [TODO[not_supported_yet]: реализация python .net интерфейсов]
+# [TODO[not_supported_yet]: реализация .NET интерфейсов на python]
 ```
 
-<h2>Открыть и Сохранить Презентацию</h2>
 
-<a name="python-net-open-save-presentation"><strong>Шаги: Открыть и Сохранить Презентацию в Python</strong></a>
+## **Загрузка презентаций без встроенных двоичных объектов**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и передайте файл, который вы хотите открыть.
-2. Сохраните презентацию.
+Презентация PowerPoint может содержать следующие типы встроенных двоичных объектов:
 
-```python
+- проект VBA (доступен через [Presentation.vba_project](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/vba_project/));
+- встроенные данные OLE‑объекта (доступны через [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/));
+- двоичные данные ActiveX‑элемента управления (доступны через [Control.active_x_control_binary](https://reference.aspose.com/slides/python-net/aspose.slides/control/active_x_control_binary/)).
+
+Используя свойство [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/), можно загрузить презентацию без каких-либо встроенных двоичных объектов.
+
+Этот параметр полезен для удаления потенциально вредоносного двоичного контента. Следующий код на Python демонстрирует загрузку презентации без встроенного двоичного контента:
+```py
 import aspose.slides as slides
 
-# Создаёт объект Presentation, представляющий файл PPT
-with slides.Presentation() as presentation:
-    
-    #...выполните некоторые работы здесь...
+load_options = slides.LoadOptions()
+load_options.delete_embedded_binary_objects = True
 
-    # Сохраните вашу презентацию в файл
-    presentation.save("Saved_out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("malware.ppt", load_options) as presentation:
+    # Выполняйте операции с презентацией.
 ```
+
+
+## **FAQ**
+
+**Как определить, что файл повреждён и его нельзя открыть?**
+
+Во время загрузки будет выброшено исключение парсинга/валидации формата. Часто такие ошибки указывают на недействительную структуру ZIP‑архива или повреждённые записи PowerPoint.
+
+**Что происходит, если при открытии отсутствуют необходимые шрифты?**
+
+Файл откроется, но последующее [рендеринг/экспорт](/slides/ru/python-net/convert-presentation/) может заменить шрифты. [Настройте замену шрифтов](/slides/ru/python-net/font-substitution/) или [добавьте необходимые шрифты](/slides/ru/python-net/custom-font/) в среду выполнения.
+
+**Как обрабатываются встроенные медиа (видео/аудио) при открытии?**
+
+Они становятся доступными как ресурсы презентации. Если медиа ссылки находятся во внешних путях, убедитесь, что эти пути доступны в вашей среде; иначе [рендеринг/экспорт](/slides/ru/python-net/convert-presentation/) может опустить медиа.

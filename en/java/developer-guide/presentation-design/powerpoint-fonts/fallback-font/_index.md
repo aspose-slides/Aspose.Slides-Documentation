@@ -1,10 +1,21 @@
 ---
-title: Fallback Font - PowerPoint Java API
+title: Manage Fallback Fonts for Presentations in Java
 linktitle: Fallback Font
 type: docs
 weight: 50
 url: /java/fallback-font/
-description: Fallback font is used when the font specified for text is available in the system, but this font does not contain a necessary glyph. In this case, it is possible for PowePoint Java API to use one of the specified fallback fonts for the glyph replacement.
+keywords:
+- fallback font
+- available font
+- glyph replacement
+- specify font
+- specify rule
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "See how Aspose.Slides for Java uses fallback fonts to keep text readable in PowerPoint and OpenDocument presentations when original fonts aren’t available."
 ---
 
 ## **Fallback Font**

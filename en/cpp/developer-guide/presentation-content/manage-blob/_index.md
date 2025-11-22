@@ -1,10 +1,26 @@
 ---
-title: Manage Blob
+title: Manage Presentation BLOBs in C++ for Efficient Memory Use
+linktitle: Manage BLOB
 type: docs
 weight: 10
 url: /cpp/manage-blob/
-keywords: "Add blob, Export blob, Add image as blob, PowerPoint Presentation, C++, Aspose.Slides for C++"
-description: "Add blob to PowerPoint presentation in C++. Export blob. Add Image as blob"
+keywords:
+- large object
+- large item
+- large file
+- add BLOB
+- export BLOB
+- add image as BLOB
+- reduce memory
+- memory consumption
+- large presentation
+- temporary file
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Manage BLOB data in Aspose.Slides for C++ to streamline PowerPoint and OpenDocument file operations for efficient presentation handling."
 ---
 
 ## **About BLOB**

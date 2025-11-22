@@ -1,9 +1,19 @@
 ---
-title: Data Points of Treemap and Sunburst Chart
+title: Customize Data Points in Treemap and Sunburst Charts Using С++
+linktitle: Data Points in Treemap and Sunburst Charts
 type: docs
 url: /cpp/data-points-of-treemap-and-sunburst-chart/
-keywords: "Sunburst graph"
-description: "Sunburst Graph, Sunburst Diagram, Sunburst Chart, Radial Chart, Radial Graph or Multi Level Pie Chart with Aspose.Slides."
+keywords:
+- treemap chart
+- sunburst chart
+- data point
+- label color
+- branch color
+- PowerPoint
+- presentation
+- С++
+- Aspose.Slides
+description: "Learn how to manage data points in treemap and sunburst charts with Aspose.Slides for С++, compatible with PowerPoint formats."
 ---
 
 Among other types of PowerPoint charts, there are two "hierarchical" types - **Treemap** and **Sunburst** chart (also known as Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph or Multi Level Pie Chart). These charts display hierarchical data organized as a tree - from leaves to the top of the branch. Leaves are defined by the series data points, and each subsequent nested grouping level defined by the corresponding category. Aspose.Slides for C++ allows to format data points of Sunburst Chart and Treemap in C++.

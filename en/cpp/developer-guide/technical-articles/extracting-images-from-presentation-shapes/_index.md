@@ -1,11 +1,20 @@
 ---
-title: Extracting Images from Presentation shapes
+title: Extract Images from Presentation Shapes
+linktitle: Image from Shape
 type: docs
 weight: 90
 url: /cpp/extracting-images-from-presentation-shapes/
-keywords: "Extract image, PowerPoint, PPT, PPTX, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
-description: "Extract images from PowerPoint presentation in C++"
-
+keywords:
+- extract image
+- retrieve image
+- slide background
+- shape background
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Extract images from shapes in PowerPoint and OpenDocument presentations with Aspose.Slides for C++ — quick, code-friendly solution."
 ---
 
 {{% alert color="primary" %}} 

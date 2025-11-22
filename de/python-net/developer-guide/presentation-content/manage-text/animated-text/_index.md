@@ -1,45 +1,78 @@
 ---
-title: Animierter Text
+title: PowerPoint-Text in Python animieren
+linktitle: Animierter Text
 type: docs
 weight: 60
 url: /de/python-net/animated-text/
-keywords: "Animierter Text, Animationseffekte, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Fügen Sie animierten Text und Effekte zu PowerPoint-Präsentationen in Python hinzu"
+keywords:
+- animierter Text
+- Textanimation
+- animierter Absatz
+- Absatzanimation
+- Animationseffekt
+- PowerPoint
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Erstellen Sie dynamischen animierten Text in PowerPoint- und OpenDocument-Präsentationen mithilfe von Aspose.Slides für Python über .NET, mit leicht nachvollziehbaren, optimierten Codebeispielen."
 ---
 
-## Hinzufügen von Animationseffekten zu Absätzen
+## **Übersicht**
 
-Wir haben die [**add_effect()**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/) Methode zu den [**Sequence**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/) und [**ISequence**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/isequence/) Klassen hinzugefügt. Mit dieser Methode können Sie Animationseffekte zu einem einzelnen Absatz hinzufügen. Dieser Beispielcode zeigt Ihnen, wie Sie einen Animationseffekt zu einem einzelnen Absatz hinzufügen:
+Dieser Artikel zeigt, wie Text in PowerPoint‑Präsentationen mit Aspose.Slides für Python animiert werden kann. Sie lernen, Effekte einzelnen Absätzen hinzuzufügen, Trigger anzupassen und bestehende Animationssequenzen auszulesen. Am Ende können Sie wiederverwendbare Text‑Animations‑Workflows erstellen, die in das Standard‑PPTX‑Format exportiert werden und in PowerPoint korrekt abgespielt werden.
 
+## **Paragraph-Animations-Effekte hinzufügen**
+
+Die Methode [add_effect](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/add_effect/) der Klasse [Sequence](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/) ermöglicht das Anwenden eines Animations‑Effekts auf einen einzelnen Absatz. Der Beispielcode unten demonstriert, wie das geht:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "Presentation1.pptx") as presentation:
-    # Absatz auswählen, um Effekt hinzuzufügen
-    autoShape = presentation.slides[0].shapes[0]
-    paragraph = autoShape.text_frame.paragraphs[0]
+with slides.Presentation("Presentation.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    # Fly-Animationseffekt zum ausgewählten Absatz hinzufügen
-    effect = presentation.slides[0].timeline.main_sequence.add_effect(paragraph, slides.animation.EffectType.FLY, slides.animation.EffectSubtype.LEFT, slides.animation.EffectTriggerType.ON_CLICK)
-    presentation.save("AnimationEffectinParagraph.pptx", slides.export.SaveFormat.PPTX)
+    # Wählen Sie den Absatz zum Hinzufügen des Effekts aus.
+    auto_shape = slide.shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
+
+    # Fügen Sie dem ausgewählten Absatz einen Fly-Animationseffekt hinzu.
+    effect = slide.timeline.main_sequence.add_effect(paragraph,
+                                                     slides.animation.EffectType.FLY,
+                                                     slides.animation.EffectSubtype.LEFT,
+                                                     slides.animation.EffectTriggerType.ON_CLICK)
+    presentation.save("ParagraphAnimationEffect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **Paragraph-Animations-Effekte abrufen**
 
-## Abrufen der Animationseffekte in Absätzen
+Möglicherweise möchten Sie ermitteln, welche Animations‑Effekte einem Absatz zugewiesen sind – zum Beispiel, wenn Sie diese Effekte auf einen anderen Absatz oder ein anderes Shape kopieren wollen.
 
-Sie können entscheiden, die Animationseffekte zu ermitteln, die einem Absatz hinzugefügt wurden – zum Beispiel in einem Szenario, in dem Sie die Animationseffekte in einem Absatz abrufen möchten, weil Sie planen, diese Effekte auf einen anderen Absatz oder ein anderes Shape anzuwenden.
-
-Aspose.Slides für Python über .NET ermöglicht es Ihnen, alle Animationseffekte abzurufen, die auf Absätze in einem Textfeld (Shape) angewendet wurden. Dieser Beispielcode zeigt Ihnen, wie Sie die Animationseffekte in einem Absatz abrufen:
-
+Aspose.Slides für Python erlaubt das Abrufen aller Animations‑Effekte, die auf die Absätze in einem Text‑Frame (Shape) angewendet wurden. Der Beispielcode unten zeigt, wie die Animations‑Effekte eines Absatzes ausgelesen werden:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("AnimationEffectinParagraph.pptx") as pres:
-    sequence = pres.slides[0].timeline.main_sequence
-    autoShape = pres.slides[0].shapes[0]
-    for paragraph in autoShape.text_frame.paragraphs:
+with slides.Presentation("ParagraphAnimationEffect.pptx") as presentation:
+    slide = presentation.slides[0]
+    sequence = slide.timeline.main_sequence
+    auto_shape = slide.shapes[0]
+
+    for paragraph in auto_shape.text_frame.paragraphs:
         effects = sequence.get_effects_by_paragraph(paragraph)
         if len(effects) > 0:
-            print("Absatz \"" + paragraph.text + "\" hat " + str(effects[0].type) + " Effekt.")
+            print(f"Paragraph \"{paragraph.text}\" has the first animation effect of type {str(effects[0].type)}.")
 ```
+
+
+## **FAQ**
+
+**Wie unterscheiden sich Text‑Animationen von Folien‑Übergängen und können sie kombiniert werden?**
+
+Text‑Animationen steuern das Verhalten von Objekten über die Zeit auf einer Folie, während [transitions](/slides/de/python-net/slide-transition/) festlegen, wie Folienwechsel ablaufen. Sie sind unabhängig und können gemeinsam verwendet werden; die Wiedergabereihenfolge wird durch die Animations‑Zeitachse und die Übergangs‑Einstellungen bestimmt.
+
+**Werden Text‑Animationen beim Exportieren in PDF oder Bilder beibehalten?**
+
+Nein. PDF‑ und Raster‑Bilddateien sind statisch, sodass nur ein einzelner Folienzustand ohne Bewegung angezeigt wird. Um Bewegung zu erhalten, benutzen Sie den Export nach [video](/slides/de/python-net/convert-powerpoint-to-video/) oder [HTML](/slides/de/python-net/export-to-html5/).
+
+**Funktionieren Text‑Animationen in Layouts und im Folien‑Master?**
+
+Effekte, die auf Layout‑/Master‑Objekte angewendet werden, werden von den Folien geerbt, aber ihr Timing und ihre Interaktion mit Folien‑Animationen hängen von der endgültigen Sequenz auf der jeweiligen Folie ab.

@@ -1,11 +1,25 @@
 ---
-title: Merge Presentation - C++ PowerPoint API
-linktitle: Merge Presentation
+title: Efficiently Merge Presentations in C++
+linktitle: Merge Presentations
 type: docs
 weight: 40
 url: /cpp/merge-presentation/
-keywords: "Merge PowerPoint, PPTX, PPT, combine PowerPoint, merge presentation, combine presentation, C++"
-description: The article explains how you can merge or combine PowerPoint Presentations using C++ PowerPoint API or Library.
+keywords:
+- merge PowerPoint
+- merge presentations
+- merge slides
+- merge PPT
+- merge PPTX
+- merge ODP
+- combine PowerPoint
+- combine presentations
+- combine slides
+- combine PPT
+- combine PPTX
+- combine ODP
+- C++
+- Aspose.Slides
+description: "Effortlessly merge PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations with Aspose.Slides for C++, streamlining your workflow."
 ---
 
 {{% alert  title="Tip" color="primary" %}} 

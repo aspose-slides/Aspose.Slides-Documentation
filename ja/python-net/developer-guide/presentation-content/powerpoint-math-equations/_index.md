@@ -6,373 +6,429 @@ weight: 80
 url: /ja/python-net/powerpoint-math-equations/
 keywords:
 - 数式
-- PowerPoint の数式
+- PowerPoint 数式
 - 数学記号
-- PowerPoint の数学記号
-- 数学式
-- PowerPoint の数学式
-- 数学テキスト
-- PowerPoint の数学テキスト
-- PowerPoint に数式を追加
-- PowerPoint に数学記号を追加
-- PowerPoint に数学式を追加
-- PowerPoint に数学テキストを追加
+- PowerPoint 数学記号
+- 数式
+- PowerPoint 数式
+- 数式テキスト
+- PowerPoint 数式テキスト
+- PowerPoint に数式を追加する
+- PowerPoint に数学記号を追加する
+- PowerPoint に数式を追加する
+- PowerPoint に数式テキストを追加する
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して PowerPoint の数式を操作する方法を学びます。プレゼンテーションの作成と編集を自動化するための詳細な手順、コード例、ヒントを入手できます。"
+description: "Aspose.Slides for Python via .NET を使用して PowerPoint の数式を操作する方法を学びます。プレゼンテーションの作成と編集を自動化するための詳細な手順、コード例、ヒントを提供します。"
 ---
 
 ## **概要**
-PowerPointでは、数学方程式や数式を作成してプレゼンテーションに表示することが可能です。そのために、さまざまな数学記号がPowerPointで表示され、テキストや方程式に追加できます。そのために、PowerPointでは数学方程式のコンストラクタが使用され、以下のような複雑な数式を作成するのに役立ちます：
+
+PowerPoint では、数式や方程式を書いてプレゼンテーションに表示できます。さまざまな数学記号が用意されており、テキストや数式に追加できます。数式コンストラクターは、次のような複雑な式を作成するために使用されます。
 
 - 数学分数
 - 数学根号
 - 数学関数
 - 極限および対数関数
-- N-項演算
+- N 項演算子
 - 行列
 - 大きな演算子
-- サイン、コサイン関数
+- sin、cos 関数
 
-PowerPointに数学方程式を追加するには、*挿入 -> 数式*メニューを使用します：
+PowerPoint で数式を追加するには、*Insert → Equation* メニューを使用します。
 
 ![todo:image_alt_text](powerpoint-math-equations_1.png)
 
-これにより、PowerPointで表示できるXML形式の数学テキストが作成されます：
+これにより、PowerPoint で次のように表示できる XML 形式の数式テキストが作成されます。
 
 ![todo:image_alt_text](powerpoint-math-equations_2.png)
 
-PowerPointは、多数の数学記号をサポートしており、数学方程式を作成できます。しかし、PowerPointで複雑な数学方程式を作成することは、しばしば良好で専門的な見た目の結果をもたらしません。数学プレゼンテーションを頻繁に作成する必要があるユーザーは、魅力的な数学式を作成するためにサードパーティのソリューションを使用することがよくあります。
+PowerPoint は数式作成のために幅広い記号をサポートしていますが、複雑な数式を作成すると、必ずしも洗練されたプロフェッショナルな結果になりません。そのため、頻繁に数式プレゼンテーションを作成するユーザーは、見栄えの良い数式のためにサードパーティ製品を利用することが多くなっています。
 
-[**Aspose.Slide API**](https://products.aspose.com/slides/python-net/)を使用すると、Pythonでプログラム的にPowerPointプレゼンテーション内の数学方程式に取り組むことができます。新しい数学式を作成するか、以前に作成されたものを編集します。数学構造の画像へのエクスポートも部分的にサポートされています。
+[**Aspose.Slides API**](https://products.aspose.com/slides/python-net/) を使用すれば、Python で PowerPoint プレゼンテーション内の数式をプログラムで操作できます。新しい数式を作成したり、既存の数式を編集したりできます。数式構造を画像としてエクスポートする部分的なサポートも提供されています。
 
-## **数学方程式の作成方法**
-数学要素は、任意の入れ子レベルの数学構造を構築するために使用されます。数学要素の線形コレクションは、[**MathBlock**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/)クラスで表される数学ブロックを形成します。[**MathBlock**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/)クラスは、本質的に分離された数学表現、数式、または方程式です。[**MathPortion**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/)は数学的な部分であり、数学テキストを保持するために使用されます（[**Portion**](https://reference.aspose.com/slides/python-net/aspose.slides/portion/)と混同しないでください）。[**MathParagraph**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/)は、数学ブロックのセットを操作することを可能にします。前述のクラスは、Aspose.Slides APIを通じてPowerPointの数学方程式に取り組むための鍵となります。
+## **数式の作成方法**
 
-Aspose.Slides APIを使用して次の数学方程式を作成する方法を見てみましょう：
+数式要素は入れ子レベルに関係なく任意の数式構造を構築するために使用されます。これらの要素の線形コレクションが数式ブロックを形成し、[MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) クラスで表されます。[MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) クラスは単独の数式・式・方程式を表します。[MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) は通常の [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) クラスとは別に数式テキストを保持し、[MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) を使用して [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) オブジェクトの集合を操作できます。これらのクラスは Aspose.Slides API を介した PowerPoint 数式操作に不可欠です。
+
+以下の数式を Aspose.Slides API で作成する方法を見てみましょう。
 
 ![todo:image_alt_text](powerpoint-math-equations_3.png)
 
-スライドに数学式を追加するには、最初に数学テキストが含まれるシェイプを追加します：
-
+スライドに数式を追加するには、まず数式テキストを保持するシェイプを追加します。
 ```py
 import aspose.slides as slides
 import aspose.slides.mathtext as math
 
-with slides.Presentation() as pres:
-    mathShape = pres.slides[0].shapes.add_math_shape(0, 0, 720, 150)
+with slides.Presentation() as presentation:
+    math_shape = presentation.slides[0].shapes.add_math_shape(0, 0, 720, 150)
 ```
 
-作成後、シェイプにはデフォルトで数学的な部分とともに1つの段落がすでに含まれています。[**MathPortion**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/)クラスは、内部に数学テキストを含む部分です。[**MathPortion**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/)内の数学的な内容にアクセスするには、[**MathParagraph**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/)変数を参照します：
 
+シェイプを作成すると、デフォルトで数式部分を含む段落が 1 つ含まれています。[MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) クラスは数式テキストを含む部分を表します。[MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) 内の数式コンテンツにアクセスするには、[MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) 変数を参照してください。
 ```py
-    mathParagraph = mathShape.text_frame.paragraphs[0].portions[0].math_paragraph
+math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
 ```
 
-[**MathParagraph**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/)クラスは、数学要素の組み合わせから構成される数学ブロック（[**MathBlock**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/)）を読み取り、追加し、編集し、削除することを可能にします。例えば、分数を作成してプレゼンテーションに配置します：
+
+[MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) クラスを使って、数式要素の組み合わせで構成される数式ブロック ([MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/)) を読み取り、追加、編集、削除できます。たとえば、分数を作成してプレゼンテーションに配置します。
+```py
+fraction = math.MathematicalText("x").divide("y")
+math_paragraph.add(math.MathBlock(fraction))
+``` 
 
 ```py
+math_block = (
+    math.MathematicalText("c").set_superscript("2").
+        join("=").
+        join(math.MathematicalText("a").set_superscript("2")).
+        join("+").
+        join(math.MathematicalText("b").set_superscript("2")))
+```
+
+
+[IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) インターフェイスの操作は、すべての要素タイプで実装されており、[MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) クラスにも適用されます。
+
+以下に完全なサンプルコードを示します。
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    math_shape = presentation.slides[0].shapes.add_math_shape(0, 0, 720, 150)
+
+    math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
     fraction = math.MathematicalText("x").divide("y")
-    mathParagraph.add(math.MathBlock(fraction))
-```
+    math_paragraph.add(math.MathBlock(fraction))
 
-各数学要素は、[**IMathElement**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)インターフェースを実装するクラスによって表されます。このインターフェースは、数学的表現を簡単に作成するための多数のメソッドを提供します。単一のコード行でかなり複雑な数学表現を作成できます。例えば、ピタゴラスの定理は次のようになります：
-
-```py
-    mathBlock = (
+    math_block = (
         math.MathematicalText("c").set_superscript("2").
             join("=").
             join(math.MathematicalText("a").set_superscript("2")).
             join("+").
             join(math.MathematicalText("b").set_superscript("2")))
+
+    math_paragraph.add(math_block)
+
+    presentation.save("math.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-インターフェース[**IMathElement**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)の操作は、[**MathBlock**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/)を含む任意の種類の要素で実装されています。
 
-完全なサンプルコード：
+## **数式要素の種類**
 
-```py
-import aspose.slides as slides
-import aspose.slides.mathtext as math
+数式は数式要素のシーケンスで構成されます。数式ブロックはこのシーケンスを表し、要素の引数は入れ子構造のツリーを形成します。
 
-with slides.Presentation() as pres:
-    mathShape = pres.slides[0].shapes.add_math_shape(0, 0, 720, 150)
+数式ブロックを構築するために使用できる要素は多数あり、各要素は別の要素の中に集約できてツリー構造を作ります。最もシンプルな要素は、他の数式テキスト要素を含まないものです。
 
-    mathParagraph = mathShape.text_frame.paragraphs[0].portions[0].math_paragraph
+各数式要素は [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) インターフェイスを実装しており、共通の数式操作セットをさまざまな要素タイプで使用できます。
 
-    fraction = math.MathematicalText("x").divide("y")
-    mathParagraph.add(math.MathBlock(fraction))
-
-    mathBlock = (
-        math.MathematicalText("c").set_superscript("2").
-            join("=").
-            join(math.MathematicalText("a").set_superscript("2")).
-            join("+").
-            join(math.MathematicalText("b").set_superscript("2")))
-
-    mathParagraph.add(mathBlock)
-
-    pres.save("math.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **数学要素の種類**
-数学表現は、数学要素のシーケンスから形成されます。数学要素のシーケンスは数学ブロックとして表され、数学要素の引数は木のようなネストを形成します。
-
-数学ブロックを構築するために使用できる数学要素の種類はたくさんあります。これらの要素のそれぞれは、他の要素に含まれる（集約される）ことができます。つまり、要素は実際には他の要素のコンテナとして機能し、木のような構造を形成します。最も単純なタイプの要素は、他の数学テキスト要素を含まない要素です。
-
-各タイプの数学要素は、[**IMathElement**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)インターフェースを実装しており、さまざまなタイプの数学要素に対して共通の数学操作セットを使用することを可能にします。
 ### **MathematicalText クラス**
-[**MathematicalText**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/)クラスは、数学的なテキスト - すべての数学構造の基盤となる要素を表します。数学的なテキストは、オペランド、演算子、変数、および任意の他の線形テキストを表すことができます。
 
-例：𝑎=𝑏+𝑐
+[MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) クラスは数式テキストを表し、すべての数式構造の基礎要素です。数式テキストはオペランドや演算子、変数、またはその他の線形テキストを表すことがあります。
+
+例: 𝑎=𝑏+𝑐
+
 ### **MathFraction クラス**
-[**MathFraction**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfraction/)クラスは、分子と分母を分数バーで区切った分数オブジェクトを指定します。分数バーは、分数のプロパティに応じて水平または対角線的になることがあります。分数オブジェクトは、1つの要素を他の要素の上に配置するスタック関数を表すためにも使用され、分数バーはありません。
 
-例：
+[MathFraction](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfraction/) クラスは分子と分母で構成され、分数線で区切られる分数オブジェクトを指定します。分数線は水平または斜めに設定でき、分数プロパティに依存します。また、分数線なしで要素を上下に配置するスタック関数としても使用されます。
+
+例:
 
 ![todo:image_alt_text](powerpoint-math-equations_4.png)
-### **MathRadical クラス**
-[**MathRadical**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathradical/)クラスは、基底とオプションの指数から構成される根号関数を指定します。
 
-例：
+### **MathRadical クラス**
+
+[MathRadical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathradical/) クラスは根号（数学的ルート）を指定し、基底とオプションの次数から構成されます。
+
+例:
 
 ![todo:image_alt_text](powerpoint-math-equations_5.png)
-### **MathFunction クラス**
-[**MathFunction**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunction/)クラスは、引数の関数を指定します。プロパティを含みます：[Name](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunction/) - 関数名と[Base](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunction/) - 関数引数。
 
-例：
+### **MathFunction クラス**
+
+[MathFunction](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunction/) クラスは引数の関数を指定します。`name` プロパティで関数名を、`base` プロパティで関数の引数を表します。
+
+例:
 
 ![todo:image_alt_text](powerpoint-math-equations_6.png)
+
 ### **MathNaryOperator クラス**
-[**MathNaryOperator**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathnaryoperator/)クラスは、総和や積分などのN-項数学オブジェクトを指定します。演算子、基底（またはオペランド）、およびオプションの上限と下限から構成されます。N-項演算子の例には、総和、和、交差、積分があります。
 
-このクラスには、加算、減算などの単純な演算子は含まれていません。それらは、単一のテキスト要素 - [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/)で表されます。
+[MathNaryOperator](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathnaryoperator/) クラスは総和や積分などの N 項演算子を指定します。演算子、基底（またはオペランド）、オプションの上限・下限で構成されます。例として総和、和集合、積集合、積分があります。
 
-例：
+このクラスは単純な加算や減算などの演算子は含みません。これらは単一テキストの [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) で表されます。
+
+例:
 
 ![todo:image_alt_text](powerpoint-math-equations_7.png)
+
 ### **MathLimit クラス**
-[**MathLimit**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/)クラスは、上限または下限を作成します。ベースライン上のテキストとその直上または下に小さくなったテキストから構成される制限オブジェクトを指定します。この要素には「lim」という単語は含まれていませんが、式の上または下にテキストを配置することができます。したがって、式
+
+[MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/) クラスは上限または下限を作成します。ベースライン上のテキストと、その直上または下に配置される縮小サイズのテキストで構成されます。`lim` という文字は含まれませんが、式の上部または下部にテキストを配置できます。
+
+例:
 
 ![todo:image_alt_text](powerpoint-math-equations_8.png)
 
-は、[**MathFunction**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunction/)と[**MathLimit**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/)要素の組み合わせを使用してこのように作成されます：
-
+上記は [MathFunction](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunction/) と [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/) 要素の組み合わせで作成されています。
 ```py
-    funcName = math.MathLimit(math.MathematicalText("lim"), math.MathematicalText("𝑥→∞"))
-    mathFunc = math.MathFunction(funcName, math.MathematicalText("𝑥"))
+function_name = math.MathLimit(math.MathematicalText("lim"), math.MathematicalText("𝑥→∞"))
+math_function = math.MathFunction(function_name, math.MathematicalText("𝑥"))
 ```
 
+
 ### **MathSubscriptElement、MathSuperscriptElement、MathRightSubSuperscriptElement、MathLeftSubSuperscriptElement クラス**
+
 - [MathSubscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathsubscriptelement/)
 - [MathSuperscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathsuperscriptelement/)
 - [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathrightsubsuperscriptelement/)
 - [MathLeftSubSuperscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathleftsubsuperscriptelement/)
 
-以下のクラスは、下付きインデックスまたは上付きインデックスを指定します。引数の左または右側で同時に下付きおよび上付き文字を設定できますが、単一の下付きまたは上付き文字は右側でのみサポートされています。[MathSubscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathsubscriptelement/)は、数値の数学的な指数を設定するためにも使用できます。
+これらのクラスは下付きインデックスまたは上付きインデックスを指定します。左側または右側で同時に下付きと上付きの両方を設定できますが、単一の下付きまたは上付きは右側のみでサポートされます。また、[MathSubscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathsubscriptelement/) は数の次数を設定するためにも使用できます。
 
-例：
+例:
 
 ![todo:image_alt_text](powerpoint-math-equations_9.png)
-### **MathMatrix クラス**
-[**MathMatrix**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/)クラスは、1つ以上の行と列に配置された子要素から成る行列オブジェクトを指定します。行列には組み込みの区切り文字がないことに注意することが重要です。行列を括弧で囲むには、区切り文字オブジェクト - [**IMathDelimiter**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathdelimiter/)を使用する必要があります。null引数は、行列にギャップを作成するために使用できます。
 
-例：
+### **MathMatrix クラス**
+
+[MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) クラスは子要素を 1 行以上の行と列に配置した行列オブジェクトを指定します。行列自体に区切り記号は組み込まれていないため、括弧で囲む場合は [MathDelimiter](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimiter/) を使用します。空の引数で行列の隙間を作れます。
+
+例:
 
 ![todo:image_alt_text](powerpoint-math-equations_10.png)
-### **MathArray クラス**
-[**MathArray**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/matharray/)クラスは、方程式または任意の数学オブジェクトの縦の配列を指定します。
 
-例：
+### **MathArray クラス**
+
+[MathArray](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/matharray/) クラスは垂直方向の配列（複数の式や任意の数式オブジェクト）を指定します。
+
+例:
 
 ![todo:image_alt_text](powerpoint-math-equations_11.png)
-### **数学要素のフォーマット**
-- [**MathBorderBox**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/)クラス： 表示要素の周りに矩形または他の境界を描画します。
-  
-  例： ![todo:image_alt_text](powerpoint-math-equations_12.png)
 
-- [**MathBox**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathbox/)クラス：数学的要素の論理的ボックス化（パッケージング）を指定します。たとえば、ボックス化されたオブジェクトは、整列ポイントの有無にかかわらず演算子エミュレーターとして機能したり、行の改行を防ぐためにグループ化されたりします。たとえば、「==」演算子は、改行を防ぐためにボックス化される必要があります。
-- [**MathDelimiter**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimiter/)クラス：開閉文字（括弧、波括弧、角括弧、垂直バーなど）からなる区切り文字オブジェクトを指定し、その内部に1つ以上の数学要素を指定した文字で区切って含めます。例：(𝑥2); [𝑥2|𝑦2].
-  
-  例： ![todo:image_alt_text](powerpoint-math-equations_13.png)
+### **数式要素の書式設定**
 
-- [**MathAccent**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathaccent/)クラス： 基底と結合ダイアクリティカルマークからなるアクセント関数を指定します。 
+- **MathBorderBox** クラス: [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) の周囲に矩形または代替の枠を描画します。
 
-  例： 𝑎́.
+例:
 
-- [**MathBar**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/MathBar/)クラス： 基底引数とオーバーバーまたはアンダーバーからなるバー関数を指定します。
-  
-  例： ![todo:image_alt_text](powerpoint-math-equations_14.png)
+![todo:image_alt_text](powerpoint-math-equations_12.png)
 
-- [**MathGroupingCharacter**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/MathGroupingCharacter/)クラス： 表現の上または下に群れのシンボルを指定し、通常は要素間の関係を強調します。
-  
-  例： ![todo:image_alt_text](powerpoint-math-equations_15.png)
+- **MathBox** クラス: 数式要素の論理的なボックス化（パッケージ化）を指定します。ボックス化されたオブジェクトは、演算子エミュレータとして機能したり、改行ポイントとして使用したり、改行を防止するためにグループ化できます。例として「==」演算子は改行を防ぐためにボックス化すべきです。
 
-## **数学操作**
-各数学要素および数学表現（[**MathBlock**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/)を介して）は、[**IMathElement**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)インターフェースを実装します。これにより、既存の構造に対して操作を使用し、より複雑な数学表現を形成できます。すべての操作には、引数として[**IMathElement**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)または文字列の2つのパラメータセットが存在します。文字列引数が使用されている場合、[**MathematicalText**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/)クラスのインスタンスは明示的に指定された文字列から作成されます。Aspose.Slidesで利用可能な数学操作は以下の通りです。
+- **MathDelimiter** クラス: 開始文字と終了文字（丸括弧、波かっこ、角括弧、縦棒など）で構成され、内部に 1 個以上の数式要素を含む区切り文字オブジェクトを指定します。
+
+例:
+
+![todo:image_alt_text](powerpoint-math-equations_13.png)
+
+- **MathAccent** クラス: 基底と結合アクセント記号からなるアクセント機能を指定します。
+
+例: 𝑎́.
+
+- **MathBar** クラス: 基底引数と上棒または下棒からなるバー機能を指定します。
+
+例:
+
+![todo:image_alt_text](powerpoint-math-equations_14.png)
+
+- **MathGroupingCharacter** クラス: 式の上または下に配置され、要素間の関係を強調するためのグループ記号を指定します。
+
+例:
+
+![todo:image_alt_text](powerpoint-math-equations_15.png)
+
+## **数式操作**
+
+各数式要素と [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) を通じた数式全体は、[IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) インターフェイスを実装しています。これにより、既存の構造に対して操作を行い、より複雑な数式を構築できます。すべての操作は、[IMathElement] または文字列引数のいずれかを受け取ります。文字列引数が使用された場合、指定された文字列から暗黙的に [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) インスタンスが作成されます。Aspose.Slides が提供する数式操作は以下のとおりです。
+
 ### **Join メソッド**
-- [Join(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [Join(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
 
-数学要素を結合し、数学ブロックを形成します。たとえば：
+- [join(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/join/#str)
+- [join(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/join/#imathelement)
 
+これらのメソッドは数式要素を結合し、数式ブロックを形成します。例:
 ```py
-    element1 = math.MathematicalText("x")
-    element2 = math.MathematicalText("y")
-    block = element1.join(element2)
+element1 = math.MathematicalText("x")
+element2 = math.MathematicalText("y")
+block = element1.join(element2)
 ```
+
+
 ### **Divide メソッド**
-- [Divide(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [Divide(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [Divide(String, MathFractionTypes)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [Divide(IMathElement, MathFractionTypes)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
 
-指定された型の分数を、この分子と指定された分母で作成します。たとえば：
+- [divide(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/#str)
+- [divide(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/#imathelement)
+- [divide(String,MathFractionTypes)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/#str-mathfractiontypes)
+- [divide(IMathElement,MathFractionTypes)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/#imathelement-mathfractiontypes)
 
+これらは指定されたタイプの分数を作成し、分子と分母を設定します。例:
 ```py
-    numerator = math.MathematicalText("x")
-    fraction = numerator.divide("y", math.MathFractionTypes.LINEAR)
+numerator = math.MathematicalText("x")
+fraction = numerator.divide("y", math.MathFractionTypes.LINEAR)
 ```
+
+
 ### **Enclose メソッド**
-- [Enclose()](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [Enclose(Char, Char)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
 
-要素を指定された文字（括弧など）で囲みます。
+- [enclose()](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/enclose/#)
+- [enclose(Char,Char)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/enclose/#char-char)
 
+要素を指定した文字で囲むメソッドです（例: 丸括弧）。例:
 ```py
-# 数学要素を括弧で囲みます
-MathDelimiter enclose()
-
-# 指定された文字でこの要素を囲みます
-MathDelimiter enclose(char beginningCharacter, char endingCharacter)
+delimiter = math.MathematicalText("x").enclose('[', ']')
+delimiter2 = math.MathematicalText("elem1").join("elem2").enclose()
 ```
 
-たとえば：
 
-```py
-    delimiter = math.MathematicalText("x").enclose('[', ']')
-    delimiter2 = math.MathematicalText("elem1").join("elem2").enclose()
-```
 ### **Function メソッド**
-- [Function(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [Function(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
 
-関数名として現在のオブジェクトを使って引数の関数を取得します。
+- [function(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/#str)
+- [function(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/#imathelement)
 
-たとえば：
-
+現在のオブジェクトを関数名として、引数関数を作成します。例:
 ```py
-func = math.MathematicalText("sin").function("x")
+function = math.MathematicalText("sin").function("x")
 ```
+
+
 ### **AsArgumentOfFunction メソッド**
-- [AsArgumentOfFunction(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [AsArgumentOfFunction(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [AsArgumentOfFunction(MathFunctionsOfOneArgument)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [AsArgumentOfFunction(MathFunctionsOfTwoArguments, IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [AsArgumentOfFunction(MathFunctionsOfTwoArguments, String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
 
-指定された関数を使用して、現在のインスタンスを引数として扱います。次のことができます：
+- [as_argument_of_function(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
+- [as_argument_of_function(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
+- [as_argument_of_function(MathFunctionsOfOneArgument)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
+- [as_argument_of_function(MathFunctionsOfTwoArguments,IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
+- [as_argument_of_function(MathFunctionsOfTwoArguments,String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
 
-- 関数名として文字列を指定します。例えば「cos」。
-- 列挙値[**MathFunctionsOfOneArgument**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunctionsofoneargument/)のいずれかを選びます。例えば**MathFunctionsOfOneArgument.ArcSin.**
-- [**IMathElement**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)のインスタンスを選択します。
+現在のインスタンスを引数として、指定された関数を適用します。たとえば:
 
-たとえば：
+- 関数名を文字列で指定（例: "cos"）
+- 列挙型 [MathFunctionsOfOneArgument](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunctionsofoneargument/) または [MathFunctionsOfTwoArguments](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfunctionsoftwoarguments/) から選択（例: `MathFunctionsOfOneArgument.ARC_SIN`）
+- [IMathElement] のインスタンスを使用
 
+例:
 ```py
-    funcName = math.MathLimit(math.MathematicalText("lim"), math.MathematicalText("𝑛→∞"))
-    func1 = math.MathematicalText("2x").as_argument_of_function(funcName)
-    func2 = math.MathematicalText("x").as_argument_of_function("sin")
-    func3 = math.MathematicalText("x").as_argument_of_function(math.MathFunctionsOfOneArgument.SIN)
-    func4 = math.MathematicalText("x").as_argument_of_function(math.MathFunctionsOfTwoArguments.LOG, "3")
+function_name = math.MathLimit(math.MathematicalText("lim"), math.MathematicalText("𝑛→∞"))
+func1 = math.MathematicalText("2x").as_argument_of_function(function_name)
+func2 = math.MathematicalText("x").as_argument_of_function("sin")
+func3 = math.MathematicalText("x").as_argument_of_function(math.MathFunctionsOfOneArgument.SIN)
+func4 = math.MathematicalText("x").as_argument_of_function(math.MathFunctionsOfTwoArguments.LOG, "3")
 ```
+
+
 ### **SetSubscript、SetSuperscript、SetSubSuperscriptOnTheRight、SetSubSuperscriptOnTheLeft メソッド**
-- [SetSubscript(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [SetSubscript(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [SetSuperscript(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [SetSuperscript(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [SetSubSuperscriptOnTheRight(String, String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [SetSubSuperscriptOnTheRight(IMathElement, IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [SetSubSuperscriptOnTheLeft(String, String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [SetSubSuperscriptOnTheLeft(IMathElement, IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
 
-下付き文字と上付き文字を設定します。引数の左または右側で同時に下付きおよび上付き文字を設定できますが、単一の下付きまたは上付き文字は右側でのみサポートされています。**Superscript**は、数値の数学的な指数を設定するためにも使用できます。
+- [set_subscript(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_subscript/#str)
+- [set_subscript(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_subscript/#imathelement)
+- [set_superscript(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_superscript/#str)
+- [set_superscript(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_superscript/#imathelement)
+- [set_sub_superscript_on_the_right(String,String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_right/#str-str)
+- [set_sub_superscript_on_the_right(IMathElement,IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_right/#imathelement-imathelement)
+- [set_sub_superscript_on_the_left(String,String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/#str-str)
+- [set_sub_superscript_on_the_left(IMathElement,IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/#imathelement-imathelement)
 
-例：
+これらは下付き・上付きインデックスを設定します。左右どちら側でも同時に設定可能ですが、単一の下付きまたは上付きは右側のみでサポートされます。**Superscript** は数の次数を設定することもできます。
 
+例:
 ```py
-    script = math.MathematicalText("y").set_sub_superscript_on_the_left("2x", "3z")
+script = math.MathematicalText("y").set_sub_superscript_on_the_left("2x", "3z")
 ```
+
+
 ### **Radical メソッド**
-- [Radical(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [Radical(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
 
-指定された引数から指定された次数の数学的な根を指定します。
+- [radical(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/radical/#str)
+- [radical(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/radical/#imathelement)
 
-例：
+指定された引数に基づき、指定された次数の数学的根を設定します。
 
+例:
 ```py
-    radical = math.MathematicalText("x").radical("3")
+radical = math.MathematicalText("x").radical("3")
 ```
-### **SetUpperLimit および SetLowerLimit メソッド**
-- [SetUpperLimit(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [SetUpperLimit(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [SetLowerLimit(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [SetLowerLimit(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
 
-上限または下限を取得します。ここで、上限と下限は単にベースに対する引数の位置を示します。
 
-式を考えます：
+### **SetUpperLimit と SetLowerLimit メソッド**
+
+- [set_upper_limit(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_upper_limit/#str)
+- [set_upper_limit(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_upper_limit/#imathelement)
+- [set_lower_limit(String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/#str)
+- [set_lower_limit(IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/#imathelement)
+
+これらは上限または下限を設定します。"upper" と "lower" は基底に対する位置を示します。
+
+例として次の式を考えます。
 
 ![todo:image_alt_text](powerpoint-math-equations_8.png)
 
-このような式は、[MathFunction](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/MathFunction/)と[MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/MathLimit/)クラスの組み合わせおよび[IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)の操作を使用して次のように作成できます：
-
+このような式は [MathFunction](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/MathFunction/) と [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/MathLimit/) クラス、および [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) の操作で作成できます。
 ```py
-mathExpression = math.MathematicalText("lim").set_lower_limit("x→∞").function("x")
+math_expression = math.MathematicalText("lim").set_lower_limit("x→∞").function("x")
 ```
-### **Nary および Integral メソッド**
-- [Nary(MathNaryOperatorTypes, IMathElement, IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [Nary(MathNaryOperatorTypes, String, String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [Integral(MathIntegralTypes)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [Integral(MathIntegralTypes, IMathElement, IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [Integral(MathIntegralTypes, String, String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [Integral(MathIntegralTypes, IMathElement, IMathElement, MathLimitLocations)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
-- [Integral(MathIntegralTypes, String, String, MathLimitLocations)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)
 
-**Nary**と**Integral**メソッドは、[**INaryOperator**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathnaryoperator/)タイプで表されたN-項演算子を作成して返します。Naryメソッドでは、[**MathNaryOperatorTypes**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathnaryoperatortypes/)列挙が演算子のタイプを指定し、総和、和など、積分を含めません。Integralメソッドでは、積分型の列挙[**MathIntegralTypes**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathintegraltypes/)を使用した特別な操作が存在します。 
 
-例：
+### **Nary と Integral メソッド**
 
+- [nary(MathNaryOperatorTypes,IMathElement,IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/nary/#mathnaryoperatortypes-imathelement-imathelement)
+- [nary(MathNaryOperatorTypes,String,String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/nary/#mathnaryoperatortypes-str-str)
+- [integral(MathIntegralTypes)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/#mathintegraltypes)
+- [integral(MathIntegralTypes,IMathElement,IMathElement)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/#mathintegraltypes-imathelement-imathelement)
+- [integral(MathIntegralTypes,String,String)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/#mathintegraltypes-str-str)
+- [integral(MathIntegralTypes,IMathElement,IMathElement,MathLimitLocations)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/#mathintegraltypes-imathelement-imathelement-mathlimitlocations)
+- [integral(MathIntegralTypes,String,String,MathLimitLocations)](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/#mathintegraltypes-str-str-mathlimitlocations)
+
+`nary` と `integral` はいずれも [MathNaryOperator](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathnaryoperator/) タイプのオブジェクトを生成して返します。`nary` メソッドでは [MathNaryOperatorTypes](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathnaryoperatortypes/) 列挙体で演算子の種類（総和や和集合など）を指定し、積分は除外されます。`integral` メソッドは積分専用の操作を提供し、[MathIntegralTypes](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathintegraltypes/) 列挙体で種類を指定します。
+
+例:
 ```py
-    baseArg = math.MathematicalText("x").join(math.MathematicalText("dx").to_box())
-    integral = baseArg.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
+base_arg = math.MathematicalText("x").join(math.MathematicalText("dx").to_box())
+integral = base_arg.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
 ```
+
+
 ### **ToMathArray メソッド**
-[**ToMathArray**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)は要素を縦の配列に配置します。この操作が**MathBlock**インスタンスに対して呼び出されると、すべての子要素が返された配列に配置されます。
 
-例：
+[to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_math_array/) は要素を垂直配列に配置します。これを [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) インスタンスで呼び出すと、すべての子要素が返された配列に配置されます。
 
+例:
 ```py
-    arrayFunction = math.MathematicalText("x").join("y").to_math_array()
+array_function = math.MathematicalText("x").join("y").to_math_array()
 ```
-### **フォーマット操作：Accent、Overbar、Underbar、Group、ToBorderBox、ToBox**
-- [**Accent**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)メソッドは、アクセントマーク（要素の上にある文字）を設定します。
-- [**Overbar**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)および[**Underbar**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)メソッドは、上または下にバーを設定します。
-- [**Group**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)メソッドは、底のカールブレースや他のグループ化文字を使用してグループ化します。
-- [**ToBorderBox**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)メソッドは、ボーダーボックスに配置します。
-- [**ToBox**](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/)メソッドは、非視覚的ボックス（論理的グループ化）に配置します。
 
-例：
 
+### **書式設定操作: Accent、Overbar、Underbar、Group、ToBorderBox、ToBox**
+
+- [accent](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/accent/) メソッドは要素の上部にアクセント記号（文字）を付加します。
+- [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/overbar/) と [underbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/underbar/) メソッドはそれぞれ要素の上または下にバーを設定します。
+- [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/group/) メソッドは下部の波かっこなどのグルーピング文字で要素をまとめます。
+- [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_border_box/) メソッドは要素を枠付きボックスに配置します。
+- [to_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_box/) メソッドは視覚的でないボックス（論理的グルーピング）に配置します。
+
+例:
 ```py
-    accent = math.MathematicalText("x").accent(chr(0x0303))
-    bar = math.MathematicalText("x").overbar()
-    groupChr = math.MathematicalText("x").join("y").join("z").group(chr(0x23E1), 
-            math.MathTopBotPositions.BOTTOM, 
-            math.MathTopBotPositions.TOP)
-    borderBox = math.MathematicalText("x+y+z").to_border_box()
-    boxedOperator = math.MathematicalText(":=").to_box()
+accent = math.MathematicalText("x").accent(chr(0x0303))
+bar = math.MathematicalText("x").overbar()
+group_chr = math.MathematicalText("x").join("y").join("z").group(chr(0x23E1), 
+        math.MathTopBotPositions.BOTTOM, 
+        math.MathTopBotPositions.TOP)
+border_box = math.MathematicalText("x+y+z").to_border_box()
+boxed_operator = math.MathematicalText(":=").to_box()
 ```
+
+
+## **FAQ**
+
+**PowerPoint のスライドに数式を追加するにはどうすればよいですか？**
+
+数式シェイプを作成するには、[create a math shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) メソッドでオブジェクトを作成します。作成されたシェイプは自動的に数式部分を含みます。次に、[MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) から [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) を取得し、[MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) オブジェクトを追加します。
+
+**複雑な入れ子数式を作成できますか？**
+
+はい。Aspose.Slides は [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) を入れ子にすることで複雑な数式を作成できます。各数式要素は Join、Divide、Enclose などの操作を適用して、より複雑な構造に組み合わせられます。
+
+**既存の数式を更新または変更するにはどうすればよいですか？**
+
+数式を更新するには、[MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) から既存の [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) にアクセスします。その後、Join、Divide、Enclose などのメソッドを使用して数式の個々の要素を変更します。編集後にプレゼンテーションを保存すれば変更が適用されます。

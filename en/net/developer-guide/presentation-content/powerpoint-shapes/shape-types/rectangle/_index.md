@@ -1,10 +1,21 @@
 ---
-title: Rectangle
+title: Add Rectangles to Presentations in .NET
+linktitle: Rectangle
 type: docs
 weight: 80
 url: /net/rectangle/
-keywords: "Create rectangle, PowerPoint shape, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Create rectangle in PowerPoint presentation in C# or .NET"
+keywords:
+- add rectangle
+- create rectangle
+- rectangle shape
+- simple rectangle
+- formatted rectangle
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Boost your PowerPoint presentations by adding rectangles with Aspose.Slides for .NET—easily design and modify shapes programmatically."
 ---
 
 

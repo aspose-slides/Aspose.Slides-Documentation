@@ -1,5 +1,6 @@
 ---
-title: Manage TextBox
+title: Manage Text Boxes in Presentations on Android
+linktitle: Manage Text Box
 type: docs
 weight: 20
 url: /androidjava/manage-textbox/
@@ -8,13 +9,16 @@ keywords:
 - text frame
 - add text
 - update text
-- text box with a hyperlink
+- create text box
+- check text box
+- add text column
+- add hyperlink
 - PowerPoint
 - presentation
 - Android
 - Java
-- Aspose.Slides for Android via Java
-description: "Manage a text box or text frame in PowerPoint presentations using Java"
+- Aspose.Slides
+description: "Aspose.Slides for Android via Java makes it easy to create, edit, and clone text boxes in PowerPoint and OpenDocument files, enhancing your presentation automation."
 ---
 
 

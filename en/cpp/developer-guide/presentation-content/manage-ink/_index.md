@@ -1,10 +1,21 @@
 ---
-title: Manage Ink
+title: Manage Presentation Ink Objects in C++
+linktitle: Manage Ink
 type: docs
 weight: 95
 url: /cpp/manage-ink/
-keywords: "Ink in PowerPoint, Ink tools, C++ Ink, Draw in PowerPoint, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
-description: "Use ink tools to draw objects in PowerPoint C++"
+keywords:
+- ink
+- ink object
+- ink trace
+- manage ink
+- draw ink
+- drawing
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Manage PowerPoint ink objects—create, edit & style digital ink with Aspose.Slides for C++. Get code samples for traces, brush color & size."
 ---
 
 PowerPoint provides the ink function to allow you to draw non-standard figures, which can be used to highlight other objects, show connections and processes, and draw attention to specific items on a slide. 

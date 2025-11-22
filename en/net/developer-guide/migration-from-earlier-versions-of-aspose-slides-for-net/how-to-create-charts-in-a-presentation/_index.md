@@ -1,8 +1,23 @@
 ---
-title: How to Create Charts in a Presentation
+title: How to Create Charts in Presentations in .NET
+linktitle: Create Chart
 type: docs
 weight: 30
 url: /net/how-to-create-charts-in-a-presentation/
+keywords:
+- migration
+- create chart
+- legacy code
+- modern code
+- legacy approach
+- modern approach
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how to create charts in PowerPoint PPT, PPTX and ODP presentations in .NET with Aspose.Slides using both legacy and modern chart APIs."
 ---
 
 {{% alert color="primary" %}} 

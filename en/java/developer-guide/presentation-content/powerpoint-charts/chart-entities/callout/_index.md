@@ -1,7 +1,18 @@
 ---
-title: Callout
+title: Manage Callouts in Presentation Charts Using Java
+linktitle: Callout
 type: docs
 url: /java/callout/
+keywords:
+- chart callout
+- use callout
+- data label
+- label format
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Create and style callouts in Aspose.Slides for Java with concise code examples, compatible with PPT and PPTX to automate presentation workflows."
 ---
 
 ## **Using Callouts**

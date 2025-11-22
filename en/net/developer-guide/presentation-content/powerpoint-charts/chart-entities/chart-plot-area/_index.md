@@ -1,9 +1,21 @@
 ---
-title: Chart Plot Area
+title: Customize Plot Areas of Presentation Charts in .NET
+linktitle: Plot Area
 type: docs
 url: /net/chart-plot-area/
-keywords: "Chart Plot Area PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Get width, height of chart plot area. Set layout mode. PowerPoint presentation in C# or .NET"
+keywords:
+- chart
+- plot area
+- plot area width
+- plot area height
+- plot area size
+- layout mode
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Discover how to customize chart plot areas in PowerPoint presentations with Aspose.Slides for .NET. Improve your slide visuals effortlessly."
 ---
 
 ## **Get Width, Height of Chart Plot Area**

@@ -1,55 +1,78 @@
 ---
-title: Python で PowerPoint テキストをアニメーション化する
-linktitle: アニメーション テキスト
+title: PythonでPowerPointテキストをアニメーション化
+linktitle: アニメーションテキスト
 type: docs
 weight: 60
 url: /ja/python-net/animated-text/
 keywords:
-- アニメーション テキスト
-- テキスト アニメーション
-- アニメーション 段落
+- アニメーションテキスト
+- テキストアニメーション
+- アニメーション段落
 - 段落アニメーション
 - アニメーション効果
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションに動的なアニメーション テキストを作成する方法を、わかりやすく最適化されたコード例とともに紹介します。"
+description: "Aspose.Slides for Python を .NET 経由で使用し、PowerPoint および OpenDocument プレゼンテーションで動的なアニメーションテキストを作成します。わかりやすく最適化されたコード例を提供します。"
 ---
 
-## 段落にアニメーション効果を追加する
+## **概要**
 
-[**add_effect()**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/) メソッドを [**Sequence**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/) および [**ISequence**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/isequence/) クラスに追加しました。このメソッドを使用すると、単一の段落にアニメーション効果を追加できます。このサンプルコードは、単一の段落にアニメーション効果を追加する方法を示しています：
+このドキュメントでは、Aspose.Slides for Python を使用して PowerPoint プレゼンテーション内のテキストにアニメーションを付ける方法を示します。段落ごとにエフェクトを追加したり、トリガーを調整したり、既存のアニメーション シーケンスを取得したりする手順を学びます。最後まで読むと、標準の PPTX にエクスポートでき、PowerPoint で正しく再生される再利用可能なテキスト アニメーション ワークフローを作成できるようになります。
 
+## **段落アニメーション エフェクトの追加**
+
+[add_effect](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/add_effect/) メソッド（[Sequence](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/) クラス）を使用すると、単一の段落にアニメーション エフェクトを適用できます。以下のサンプル コードが手順を示しています:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "Presentation1.pptx") as presentation:
-    # 効果を追加する段落を選択
-    autoShape = presentation.slides[0].shapes[0]
-    paragraph = autoShape.text_frame.paragraphs[0]
+with slides.Presentation("Presentation.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    # 選択した段落にフライアニメーション効果を追加
-    effect = presentation.slides[0].timeline.main_sequence.add_effect(paragraph, slides.animation.EffectType.FLY, slides.animation.EffectSubtype.LEFT, slides.animation.EffectTriggerType.ON_CLICK)
-    presentation.save("AnimationEffectinParagraph.pptx", slides.export.SaveFormat.PPTX)
+    # エフェクトを追加する段落を選択します。
+    auto_shape = slide.shapes[0]
+    paragraph = auto_shape.text_frame.paragraphs[0]
+
+    # 選択した段落にフライ アニメーション エフェクトを追加します。
+    effect = slide.timeline.main_sequence.add_effect(paragraph,
+                                                     slides.animation.EffectType.FLY,
+                                                     slides.animation.EffectSubtype.LEFT,
+                                                     slides.animation.EffectTriggerType.ON_CLICK)
+    presentation.save("ParagraphAnimationEffect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **段落アニメーション エフェクトの取得**
 
-## 段落のアニメーション効果を取得する
+段落に適用されているアニメーション エフェクトを確認したい場合があります。たとえば、これらのエフェクトを別の段落やシェイプにコピーしたいときです。
 
-段落に追加されたアニメーション効果を調べることを決定する場合があります。たとえば、あるシナリオでは、他の段落や図形にそれらの効果を適用する予定があるため、段落のアニメーション効果を取得したいとします。
-
-Aspose.Slides for Python via .NETを使用すると、テキストフレーム（図形）に含まれる段落に適用されたすべてのアニメーション効果を取得できます。このサンプルコードは、段落のアニメーション効果を取得する方法を示しています：
-
+Aspose.Slides for Python では、テキスト フレーム（シェイプ）内の段落に適用されたすべてのアニメーション エフェクトを取得できます。以下のサンプル コードは、段落のアニメーション エフェクトを取得する方法を示しています:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("AnimationEffectinParagraph.pptx") as pres:
-    sequence = pres.slides[0].timeline.main_sequence
-    autoShape = pres.slides[0].shapes[0]
-    for paragraph in autoShape.text_frame.paragraphs:
+with slides.Presentation("ParagraphAnimationEffect.pptx") as presentation:
+    slide = presentation.slides[0]
+    sequence = slide.timeline.main_sequence
+    auto_shape = slide.shapes[0]
+
+    for paragraph in auto_shape.text_frame.paragraphs:
         effects = sequence.get_effects_by_paragraph(paragraph)
         if len(effects) > 0:
-            print("段落 \"" + paragraph.text + "\" には " + str(effects[0].type) + " 効果があります。")
+            print(f"Paragraph \"{paragraph.text}\" has the first animation effect of type {str(effects[0].type)}.")
 ```
+
+
+## **FAQ**
+
+**テキスト アニメーションはスライド トランジションとはどのように異なり、併用できますか？**
+
+テキスト アニメーションはスライド上のオブジェクトの時間経過による動作を制御し、[transitions](/slides/ja/python-net/slide-transition/) はスライド同士の切り替え方法を制御します。これらは独立しており、同時に使用できます。再生順序はアニメーション タイムラインとトランジション設定によって決まります。
+
+**テキスト アニメーションは PDF や画像にエクスポートしたときに保持されますか？**
+
+保持されません。PDF やラスタ画像は静的であり、スライドの単一状態しか表示されません。動きを残したい場合は、[video](/slides/ja/python-net/convert-powerpoint-to-video/) や [HTML](/slides/ja/python-net/export-to-html5/) へのエクスポートを使用してください。
+
+**テキスト アニメーションはレイアウトやスライド マスターでも機能しますか？**
+
+レイアウト／マスター オブジェクトに適用されたエフェクトはスライドに継承されますが、タイミングやスライドレベルのアニメーションとの相互作用は、最終的なスライド上のシーケンスに依存します。

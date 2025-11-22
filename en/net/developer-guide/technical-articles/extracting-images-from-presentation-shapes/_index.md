@@ -1,10 +1,21 @@
 ---
-title: Extracting Images from Presentation shapes
+title: Extract Images from Presentation Shapes in .NET
+linktitle: Image from Shape
 type: docs
 weight: 90
 url: /net/extracting-images-from-presentation-shapes/
-keywords: "Extract image, PowerPoint, PPT, PPTX, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Extract images from PowerPoint presentation in C# or .NET"
+keywords:
+- extract image
+- retrieve image
+- slide background
+- shape background
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Extract images from shapes in PowerPoint and OpenDocument presentations with Aspose.Slides for .NET — quick, code-friendly solution."
 ---
 
 ## **Extract Images from Shapes**

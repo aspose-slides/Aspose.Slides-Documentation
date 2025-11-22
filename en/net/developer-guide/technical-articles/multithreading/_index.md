@@ -1,18 +1,22 @@
 ---
-title: Multithreading in Aspose.Slides
+title: Multithreading in Aspose.Slides for .NET
+linktitle: Multithreading
 type: docs
 weight: 310
 url: /net/multithreading/
 keywords:
-- PowerPoint
-- presentation
 - multithreading
+- multiple threads
 - parallel work
 - convert slides
 - slides to images
-- C#
+- PowerPoint
+- OpenDocument
+- presentation
 - .NET
-- Aspose.Slides for .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET multithreading boosts PowerPoint and OpenDocument processing. Discover best practices for efficient presentation workflows."
 ---
 
 ## **Introduction**

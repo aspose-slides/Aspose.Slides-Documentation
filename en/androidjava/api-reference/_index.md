@@ -6,10 +6,12 @@ url: /androidjava/api-reference/
 keywords:
 - API reference
 - PowerPoint
+- OpenDocument
 - presentation
 - Android
 - Java
-- Aspose.Slides for Android via Java
+- Aspose.Slides
+description: "Create, edit, and convert presentations in Java—no PowerPoint needed. Aspose.Slides for Android supports PPT, PPTX, and ODP with fast SVG/PDF export."
 ---
 
 {{% alert color="primary" %}} 

@@ -1,11 +1,10 @@
 ---
-title: FAQs
+title: FAQ
 type: docs
 weight: 340
 url: /androidjava/faqs/
 keywords:
 - FAQ
-- PowerPoint
 - presentation format
 - out of memory error
 - slide size
@@ -14,9 +13,13 @@ keywords:
 - paragraph size
 - formatting tables
 - font
+- PowerPoint
+- OpenDocument
+- presentation
 - Android
 - Java
-- Aspose.Slides for Android via Java
+- Aspose.Slides
+description: "Get answers to FAQ on Aspose.Slides for Android via Java, covering PowerPoint and OpenDocument support, installation guidance, licensing, troubleshooting."
 ---
 
 ## **Supported File Formats**

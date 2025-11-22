@@ -1,5 +1,5 @@
 ---
-title: Apply Shape Effects in PowerPoint Using C#
+title: Apply Shape Effects in Presentations in .NET
 linktitle: Shape Effect
 type: docs
 weight: 30
@@ -10,15 +10,13 @@ keywords:
 - reflection effect
 - glow effect
 - soft edges effect
-- bevel effect
-- 3-D format
-- 3-D rotation
+- effect format
 - PowerPoint
 - presentation
-- C#
 - .NET
+- C#
 - Aspose.Slides
-description: "Enhance your PowerPoint presentations with stunning shape effects like shadows, reflections, and glows using Aspose.Slides for .NET. Automate visual enhancements with easy-to-use code and create professional-quality slides effortlessly."
+description: "Transform your PPT and PPTX files with advanced shape effects using Aspose.Slides for .NET—create striking, professional slides in seconds."
 ---
 
 ## **Overview**

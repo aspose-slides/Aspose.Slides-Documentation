@@ -1,10 +1,23 @@
 ---
-title: Paragraph
+title: Get Paragraph Bounds from Presentations in .NET
+linktitle: Paragraph
 type: docs
 weight: 60
 url: /net/paragraph/
-keywords: "Paragraph, portion, paragraph coordinate, portion coordinate, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Paragraph and portion in PowerPoint presentation in C# or .NET"
+keywords:
+- paragraph bounds
+- text portion bounds
+- paragraph coordinate
+- portion coordinate
+- paragraph size
+- text portion size
+- text frame
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how to retrieve paragraph and text-portion bounds in Aspose.Slides for .NET to optimize text positioning in PowerPoint presentations."
 ---
 
 ## **Get Paragraph and Portion Coordinates in TextFrame**

@@ -1,22 +1,28 @@
 ---
-title: Convert PowerPoint to PNG in C#
-linktitle: Convert PowerPoint to PNG
+title: Convert PowerPoint Slides to PNG in .NET
+linktitle: PowerPoint to PNG
 type: docs
 weight: 30
 url: /net/convert-powerpoint-to-png/
 keywords:
-- PowerPoint to png
-- ppt to png
-- pptx to png
-- odp to png
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
 - PowerPoint to PNG
+- presentation to PNG
+- slide to PNG
 - PPT to PNG
 - PPTX to PNG
-- ODP to PNG
+- save PPT as PNG
+- save PPTX as PNG
+- export PPT to PNG
+- export PPTX to PNG
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: Convert PowerPoint presentation to PNG in C#. Convert PPT to PNG in C#. Convert PPTX to PNG in C#. Convert ODP to PNG in C#
+- Aspose.Slides
+description: "Convert PowerPoint presentations to high-quality PNG images quickly with Aspose.Slides for .NET, ensuring precise, automated results."
 ---
 
 ## **Overview**

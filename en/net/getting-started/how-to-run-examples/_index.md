@@ -3,6 +3,18 @@ title: How to Run Examples
 type: docs
 weight: 130
 url: /net/how-to-run-examples/
+keywords:
+- examples
+- software requirements
+- NuGet
+- GitHub
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Run Aspose.Slides for .NET examples fast: clone the repo, restore packages, then build and test features for PPT, PPTX and ODP."
 ---
 
 ## **Software Requirements**

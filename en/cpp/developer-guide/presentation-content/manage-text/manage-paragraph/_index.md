@@ -1,26 +1,33 @@
 ---
-title: Manage PowerPoint Paragraph in C++
+title: Manage PowerPoint Text Paragraphs in C++
+linktitle: Manage Paragraph
 type: docs
 weight: 40
 url: /cpp/manage-paragraph/
 keywords:
 - add text
-- add paragraphs
+- add paragraph
 - manage text
-- manage paragraphs
+- manage paragraph
+- manage bullet
 - paragraph indent
+- hanging indent
 - paragraph bullet
 - numbered list
+- bulleted list
 - paragraph properties
 - import HTML
 - text to HTML
 - paragraph to HTML
-- paragraphs to images
-- export paragraphs
-- PowerPoint presentation
+- paragraph to image
+- text to image
+- export paragraph
+- PowerPoint
+- OpenDocument
+- presentation
 - C++
-- Aspose.Slides for C++
-description: "Create paragraphs and manage paragraph properties in PowerPoint presentations in C++"
+- Aspose.Slides
+description: "Master paragraph formatting with Aspose.Slides for C++—optimize alignment, spacing & style in PPT, PPTX, and ODP presentations in C++."
 ---
 
 Aspose.Slides provides all the interfaces and classes you need to work with PowerPoint texts, paragraphs, and portions in C++.

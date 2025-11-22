@@ -1,11 +1,20 @@
 ---
-title: Presentation Localization
+title: Automate Presentation Localization in C++
+linktitle: Presentation Localization
 type: docs
 weight: 100
 url: /cpp/presentation-localization/
+keywords:
+- change language
+- spell check
+- language id
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Automate PowerPoint and OpenDocument slide localization in C++ with Aspose.Slides, using practical code samples and tips for faster global rollout."
 ---
-
-
 
 ## **Change Language for Presentation and Shape's Text**
 - Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.

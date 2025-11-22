@@ -1,8 +1,22 @@
 ---
-title: How to Create Charts in a Presentation
+title: How to Create Charts in Presentations Using Java
+linktitle: Create Chart
 type: docs
 weight: 30
 url: /java/how-to-create-charts-in-a-presentation/
+keywords:
+- migration
+- create chart
+- legacy code
+- modern code
+- legacy approach
+- modern approach
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn how to create charts in PowerPoint PPT, PPTX and ODP presentations in Java with Aspose.Slides using both legacy and modern chart APIs."
 ---
 
 {{% alert color="primary" %}} 

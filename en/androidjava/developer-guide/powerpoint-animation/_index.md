@@ -1,10 +1,34 @@
 ---
-title: PowerPoint Animation
+title: Enhance PowerPoint Presentations with Animations on Android
+linktitle: PowerPoint Animation
 type: docs
 weight: 150
 url: /androidjava/powerpoint-animation/
-keywords: "PowerPoint animation"
-description: "PowerPoint animation, PowerPoint slide animation with Aspose.Slides."
+keywords:
+- add animation
+- update animation
+- change animation
+- remove animation
+- manage animation
+- control animation
+- animation effect
+- PowerPoint animation
+- animation timeline
+- interactive animation
+- custom animation
+- shape animation
+- animated chart
+- animated text
+- animated shape
+- animated OLE object
+- animated image
+- animated table
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Explore the capabilities of Aspose.Slides for Android via Java in handling PowerPoint animations. This general overview highlights key features."
 ---
 
 Since presentations are meant to present something, their visual appearance and interactive behavior is always considered while creating them.

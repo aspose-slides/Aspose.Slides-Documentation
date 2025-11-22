@@ -1,10 +1,31 @@
 ---
-title: Convert PowerPoint to Video
+title: Convert PowerPoint Presentations to Video in Java
+linktitle: PowerPoint to Video
 type: docs
 weight: 130
 url: /java/convert-powerpoint-to-video/
-keywords: "Convert PowerPoint, PPT, PPTX, Presentation, Video, MP4, PPT to video, PPT to MP4, Java, Aspose.Slides"
-description: "Convert PowerPoint to Video in Java"
+keywords:
+- convert PowerPoint
+- convert presentation
+- convert PPT
+- convert PPTX
+- PowerPoint to video
+- presentation to video
+- PPT to video
+- PPTX to video
+- PowerPoint to MP4
+- presentation to MP4
+- PPT to MP4
+- PPTX to MP4
+- save PPT as MP4
+- save PPTX as MP4
+- export PPT to MP4
+- export PPTX to MP4
+- video conversion
+- PowerPoint
+- Java
+- Aspose.Slides
+description: "Learn how to convert PowerPoint presentations to video in Java. Discover sample code and automation techniques to streamline your workflow."
 ---
 
 By converting your PowerPoint presentation to video, you get 

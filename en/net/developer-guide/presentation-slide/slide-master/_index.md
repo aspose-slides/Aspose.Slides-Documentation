@@ -1,13 +1,29 @@
 ---
-title: What is Slide Master in PowerPoint? Definition & Usage Guide
+title: Manage Presentation Slide Masters in .NET
 linktitle: Slide Master
 type: docs
 weight: 80
 url: /net/slide-master/
-keywords: "Add Slide Master, PPT master slide, slide master PowerPoint, Image to Slide Master, Placeholder, Multiple Slide Masters, Compare Slide Masters, C#, Csharp, .NET, Aspose.Slides"
-description: "Learn what a Slide Master is in PowerPoint and how it helps you control slide layouts, fonts, colors, and branding. Easy step-by-step guide with examples in C# or .NET."
+keywords:
+- slide master
+- master slide
+- PPT master slide
+- multiple master slides
+- compare master slides
+- background
+- placeholder
+- clone master slide
+- copy master slide
+- duplicate master slide
+- unused master slide
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Manage Slide Masters in Aspose.Slides for .NET: create, edit and apply layouts, themes and placeholders to PPT, PPTX and ODP with concise C# examples."
 ---
-
 
 ## **What is a Slide Master in PowerPoint**
 A **Slide Master** in PowerPoint is a feature that controls the layout, fonts, and styles across multiple slides. It helps maintain consistency and branding in presentations. If you want to create a presentation (or series of presentations) with the same style and template for your company, you can use a slide master. 

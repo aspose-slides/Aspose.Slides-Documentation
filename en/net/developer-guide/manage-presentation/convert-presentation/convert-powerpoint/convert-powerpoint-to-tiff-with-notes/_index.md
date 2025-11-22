@@ -1,33 +1,34 @@
 ---
-title: Convert PowerPoint to TIFF with Notes in C#
+title: Convert PowerPoint Presentations to TIFF with Notes in .NET
 linktitle: PowerPoint to TIFF with Notes
 type: docs
 weight: 100
 url: /net/convert-powerpoint-to-tiff-with-notes/
 keywords:
-- convert PowerPoint to TIFF
-- convert presentation to TIFF
-- convert slide to TIFF
-- convert PPT to TIFF
-- convert PPTX to TIFF
-- convert ODP to TIFF
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
 - PowerPoint to TIFF
 - presentation to TIFF
 - slide to TIFF
 - PPT to TIFF
 - PPTX to TIFF
-- ODP to TIFF
+- save PPT as TIFF
+- save PPTX as TIFF
+- export PPT to TIFF
+- export PPTX to TIFF
 - PowerPoint with notes
 - presentation with notes
 - slide with notes
 - PPT with notes
 - PPTX with notes
-- ODP with notes
 - TIFF with notes
-- C#
 - .NET
+- C#
 - Aspose.Slides
-description: "Convert PowerPoint and OpenDocument presentations to TIFF with notes using Aspose.Slides for .NET. Learn how to export slides with speaker notes efficiently."
+description: "Convert PowerPoint presentations to TIFF with notes using Aspose.Slides for .NET. Learn how to export slides with speaker notes efficiently."
 ---
 
 ## **Overview**

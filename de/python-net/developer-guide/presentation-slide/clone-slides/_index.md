@@ -1,185 +1,199 @@
 ---
-title: Folien klonen
+title: PowerPoint-Folien in Python klonen
+linktitle: Folien klonen
 type: docs
 weight: 40
 url: /de/python-net/clone-slides/
-keywords: "Folie klonen, Folie kopieren, Folienkopie speichern, PowerPoint, Präsentation, Python, Aspose.Slides"
-description: "PowerPoint-Folie in Python klonen"
+keywords:
+- Folie klonen
+- Folie kopieren
+- Folie speichern
+- PowerPoint
+- Präsentation
+- Python
+- Aspose.Slides
+description: "PowerPoint-Folien schnell klonen oder duplizieren mit Aspose.Slides für Python via .NET. Folgen Sie unseren klaren Code-Beispielen und Tipps, um die PPT-Erstellung in Sekunden zu automatisieren, die Produktivität zu steigern und manuelle Arbeit zu eliminieren."
 ---
 
-## **Folien in der Präsentation klonen**
-Klonen ist der Prozess, eine exakte Kopie oder Replik von etwas zu erstellen. Aspose.Slides für Python über .NET ermöglicht es ebenfalls, eine Kopie oder einen Klon einer beliebigen Folie zu erstellen und diesen geklonten Folie dann in die aktuelle oder eine andere geöffnete Präsentation einzufügen. Der Prozess des Folienklonens erstellt eine neue Folie, die von Entwicklern verändert werden kann, ohne die ursprüngliche Folie zu verändern. Es gibt mehrere mögliche Wege, eine Folie zu klonen:
+## **Übersicht**
 
-- Folie am Ende innerhalb einer Präsentation klonen.
-- Folie an einer anderen Position innerhalb der Präsentation klonen.
-- Folie am Ende in einer anderen Präsentation klonen.
-- Folie an einer anderen Position in einer anderen Präsentation klonen.
-- Folie an einer bestimmten Position in einer anderen Präsentation klonen.
+Cloning ist der Vorgang, bei dem eine exakte Kopie oder Replik eines Objekts erstellt wird. Aspose.Slides für Python via .NET ermöglicht das Klonen einer beliebigen Folie und das Einfügen dieser Kopie in die aktuelle Präsentation oder in eine andere geöffnete Präsentation. Der Klonvorgang erzeugt eine neue Folie, die Sie ändern können, ohne das Original zu beeinflussen.
 
-In Aspose.Slides für Python über .NET stellt eine Sammlung von [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) Objekten, die vom [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Objekt bereitgestellt werden, die Methoden [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) und [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) zur Verfügung, um die obigen Arten des Folienklonens durchzuführen.
+Es gibt mehrere Möglichkeiten, eine Folie zu klonen:
 
-## **Folie am Ende innerhalb einer Präsentation klonen**
-Wenn Sie eine Folie klonen und dann innerhalb derselben Präsentationsdatei am Ende der bestehenden Folien verwenden möchten, verwenden Sie die Methode [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) gemäß den unten aufgeführten Schritten:
+- Klonen einer Folie am Ende innerhalb derselben Präsentation.
+- Klonen einer Folie an einer bestimmten Position innerhalb derselben Präsentation.
+- Klonen einer Folie am Ende einer anderen Präsentation.
+- Klonen einer Folie an einer bestimmten Position in einer anderen Präsentation.
+- Klonen einer Folie mit ihrer Masterfolie in eine andere Präsentation.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-1. Instanziieren Sie die [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Klasse, indem Sie sich auf die von dem [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Objekt bereitgestellte Folienkollektion beziehen.
-2. Rufen Sie die vom [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Objekt bereitgestellte [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Methode auf und übergeben Sie die zu klonende Folie als Parameter an die [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Methode.
-3. Schreiben Sie die modifizierte Präsentationsdatei.
+In Aspose.Slides für Python via .NET stellt die [Folien-Sammlung](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) des [Präsentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Objekts die Methoden `add_clone` und `insert_clone` bereit, um diese Arten von Folienklonen durchzuführen.
 
-Im folgenden Beispiel haben wir eine Folie (die sich an der ersten Position – Nullindex – der Präsentation befindet) an das Ende der Präsentation geklont.
+## **Klonen am Ende innerhalb derselben Präsentation**
 
+Wenn Sie eine Folie innerhalb derselben Präsentation klonen und an das Ende der vorhandenen Folien anhängen möchten, verwenden Sie die Methode `add_clone`. Führen Sie die folgenden Schritte aus:
+
+1. Erstellen Sie eine Instanz der [Präsentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.
+1. Holen Sie die Folien-Sammlung vom [Präsentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Objekt.
+1. Rufen Sie die Methode `add_clone` auf der [Folien-Sammlung](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) auf und übergeben Sie die zu klonende Folie.
+1. Speichern Sie die geänderte Präsentation.
+
+Im folgenden Beispiel wird die erste Folie (Index 0) geklont und an das Ende der Präsentation angehängt.
 ```py
 import aspose.slides as slides
 
-# Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei repräsentiert
-with slides.Presentation(path + "CloneWithinSamePresentationToEnd.pptx") as pres:
-    # Klonen Sie die gewünschte Folie an das Ende der Sammlung von Folien in derselben Präsentation
-    slds = pres.slides
-
-    slds.add_clone(pres.slides[0])
-
-    # Schreiben Sie die modifizierte Präsentation auf die Festplatte
-    pres.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
+# Erstellen Sie eine Instanz der Presentation-Klasse, um die Präsentationsdatei zu repräsentieren.
+with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentation:
+    # Klonen Sie die gewünschte Folie an das Ende der Folien-Sammlung in derselben Präsentation.
+    presentation.slides.add_clone(presentation.slides[0])
+    # Speichern Sie die geänderte Präsentation auf dem Datenträger.
+    presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Folie an einer anderen Position innerhalb der Präsentation klonen**
-Wenn Sie eine Folie klonen und dann innerhalb derselben Präsentationsdatei, aber an einer anderen Position verwenden möchten, verwenden Sie die Methode [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/):
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-1. Instanziieren Sie die Klasse, indem Sie sich auf die von dem [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Objekt bereitgestellte **Slides**-Kollektion beziehen.
-1. Rufen Sie die vom [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Objekt bereitgestellte [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) Methode auf und übergeben Sie die zu klonende Folie zusammen mit dem Index für die neue Position als Parameter an die [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) Methode.
-1. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+## **Klonen an einer bestimmten Position innerhalb derselben Präsentation**
 
-Im folgenden Beispiel haben wir eine Folie (die sich an dem Nullindex – Position 1 – der Präsentation befindet) nach Index 1 – Position 2 – der Präsentation geklont.
+Wenn Sie eine Folie innerhalb derselben Präsentation klonen und an einer anderen Position platzieren möchten, verwenden Sie die Methode `insert_clone`:
 
+1. Erstellen Sie eine Instanz der [Präsentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.
+1. Holen Sie die Folien-Sammlung vom [Präsentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Objekt.
+1. Rufen Sie die Methode `insert_clone` auf der [Folien-Sammlung](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) auf und übergeben Sie die zu klonende Folie sowie den Ziel‑Index für die neue Position.
+1. Speichern Sie die geänderte Präsentation.
+
+Im folgenden Beispiel wird die Folie mit Index 0 (Position 1) auf Index 1 (Position 2) innerhalb derselben Präsentation geklont.
 ```py
 import aspose.slides as slides
 
-# Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei repräsentiert
-with slides.Presentation(path + "CloneWithInSamePresentation.pptx") as pres:
-    # Klonen Sie die gewünschte Folie an das Ende der Sammlung von Folien in derselben Präsentation
-    slds = pres.slides
-
-    # Klonen Sie die gewünschte Folie an den angegebenen Index in derselben Präsentation
-    slds.insert_clone(2, pres.slides[1])
-
-    # Schreiben Sie die modifizierte Präsentation auf die Festplatte
-    pres.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
+# Instanziieren Sie die Presentation-Klasse, um die Präsentationsdatei darzustellen.
+with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
+    # Klonen Sie die gewünschte Folie an die angegebene Position (Index) innerhalb derselben Präsentation.
+    presentation.slides.insert_clone(2, presentation.slides[1])
+    # Speichern Sie die geänderte Präsentation auf dem Datenträger.
+    presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Folie am Ende in einer anderen Präsentation klonen**
-Wenn Sie eine Folie aus einer Präsentation klonen und in einer anderen Präsentationsdatei am Ende der bestehenden Folien verwenden müssen:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse, die die Präsentation enthält, aus der die Folie geklont wird.
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse, die die Zielpräsentation enthält, zu der die Folie hinzugefügt werden soll.
-1. Instanziieren Sie die [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Klasse, indem Sie sich auf die von dem Zielpräsentationsobjekt bereitgestellte **Slides**-Kollektion beziehen.
-1. Rufen Sie die vom [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Objekt bereitgestellte [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Methode auf und übergeben Sie die Folie aus der Quellpräsentation als Parameter an die [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Methode.
-1. Schreiben Sie die modifizierte Zielpräsentationsdatei.
+## **Klonen am Ende einer anderen Präsentation**
 
-Im folgenden Beispiel haben wir eine Folie (von dem ersten Index der Quellpräsentation) an das Ende der Zielpräsentation geklont.
+Wenn Sie eine Folie aus einer Präsentation klonen und an das Ende einer anderen Präsentation anhängen müssen:
 
+1. Erstellen Sie eine Instanz der [Präsentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse für die Quellpräsentation (die Folie enthält, die geklont werden soll).
+1. Erstellen Sie eine Instanz der [Präsentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse für die Zielpräsentation (wo die Folie hinzugefügt wird).
+1. Holen Sie die Folien-Sammlung der Zielpräsentation.
+1. Rufen Sie `add_clone` auf der Ziel‑[Folien-Sammlung](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) auf und übergeben Sie die Folie aus der Quellpräsentation.
+1. Speichern Sie die geänderte Zielpräsentation.
+
+Im folgenden Beispiel wird die Folie mit Index 0 in der Quellpräsentation am Ende der Zielpräsentation geklont.
 ```py
 import aspose.slides as slides
 
-# Instanziieren Sie die Presentation-Klasse, um die Quellpräsentationsdatei zu laden
-with slides.Presentation(path + "CloneAtEndOfAnother.pptx") as srcPres:
-    # Instanziieren Sie die Presentation-Klasse für die Ziel-PPTX (wo die Folie geklont werden soll)
-    with slides.Presentation() as destPres:
-        # Klonen Sie die gewünschte Folie aus der Quellpräsentation an das Ende der Sammlung von Folien in der Zielpräsentation
-        slds = destPres.slides
-        slds.add_clone(srcPres.slides[0])
-
-        # Schreiben Sie die Zielpräsentation auf die Festplatte
-        destPres.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
+# Instanziieren Sie die Presentation‑Klasse, um die Quelldatei der Präsentation darzustellen.
+with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
+    # Instanziieren Sie die Presentation‑Klasse für die Ziel‑PPTX (wo die Folie geklont wird).
+    with slides.Presentation() as target_presentation:
+        # Klonen Sie die gewünschte Folie aus der Quellpräsentation an das Ende der Folien‑Sammlung in der Zielpräsentation.
+        target_presentation.slides.add_clone(source_presentation.slides[0])
+        # Speichern Sie die Zielpräsentation auf dem Datenträger.
+        target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Folie an einer anderen Position in einer anderen Präsentation klonen**
-Wenn Sie eine Folie aus einer Präsentation klonen und in einer anderen Präsentationsdatei an einer bestimmten Position verwenden müssen:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse, die die Quellpräsentation enthält, aus der die Folie geklont wird.
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse, die die Präsentation enthält, zu der die Folie hinzugefügt wird.
-1. Instanziieren Sie die [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Klasse, indem Sie sich auf die von dem Zielpräsentationsobjekt bereitgestellte Folienkollektion beziehen.
-1. Rufen Sie die vom [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Objekt bereitgestellte [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) Methode auf und übergeben Sie die Folie aus der Quellpräsentation zusammen mit der gewünschten Position als Parameter an die [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) Methode.
-1. Schreiben Sie die modifizierte Zielpräsentationsdatei.
+## **Klonen an einer bestimmten Position in einer anderen Präsentation**
 
-Im folgenden Beispiel haben wir eine Folie (von dem Nullindex der Quellpräsentation) an Index 1 (Position 2) der Zielpräsentation geklont.
+Wenn Sie eine Folie aus einer Präsentation klonen und an einer bestimmten Position in einer anderen Präsentation einfügen müssen:
 
+1. Erstellen Sie eine Instanz der [Präsentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse für die Quellpräsentation (die Folie enthält, die geklont werden soll).
+1. Erstellen Sie eine Instanz der [Präsentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse für die Zielpräsentation (wo die Folie hinzugefügt wird).
+1. Holen Sie die Folien-Sammlung der Zielpräsentation.
+1. Rufen Sie die Methode `insert_clone` auf der Ziel‑[Folien-Sammlung](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) auf und übergeben Sie die Folie aus der Quellpräsentation sowie den gewünschten Ziel‑Index.
+1. Speichern Sie die geänderte Zielpräsentation.
+
+Im folgenden Beispiel wird die Folie mit Index 0 in der Quellpräsentation auf Index 1 (Position 2) in der Zielpräsentation geklont.
 ```py
 import aspose.slides as slides
 
-# Instanziieren Sie die Presentation-Klasse, um die Quellpräsentationsdatei zu laden
-with slides.Presentation(path + "CloneAtEndOfAnother.pptx") as srcPres:
-    # Instanziieren Sie die Presentation-Klasse für die Ziel-PPTX (wo die Folie geklont werden soll)
-    with slides.Presentation("Aspose2_out.pptx") as destPres:
-        slds = destPres.slides
-        slds.insert_clone(2, srcPres.slides[0])
-
-        # Schreiben Sie die Zielpräsentation auf die Festplatte
-        destPres.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
+# Instanziieren Sie die Presentation-Klasse, um die Quelldatei der Präsentation darzustellen.
+with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
+    # Instanziieren Sie die Presentation-Klasse für die Ziel-PPTX (wo die Folie geklont werden soll).
+    with slides.Presentation("Aspose2_out.pptx") as target_presentation:
+        # Fügen Sie einen Klon der ersten Folie aus der Quelle an Index 2 in der Zielpräsentation ein.
+        target_presentation.slides.insert_clone(2, source_presentation.slides[0])
+        # Speichern Sie die Zielpräsentation auf dem Datenträger.
+        target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Folie an einer bestimmten Position in einer anderen Präsentation klonen**
-Wenn Sie eine Folie mit einem Master aus einer Präsentation klonen und in einer anderen Präsentation verwenden müssen, müssen Sie zuerst den gewünschten Master aus der Quellpräsentation in die Zielpräsentation klonen. Dann müssen Sie diesen Master verwenden, um die Folie mit Master zu klonen. Die **add_clone(ISlide, IMasterSlide)** erwartet einen Master aus der Zielpräsentation anstelle von der Quellpräsentation. Um die Folie mit einem Master zu klonen, folgen Sie bitte den folgenden Schritten:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse, die die Quellpräsentation enthält, aus der die Folie geklont wird.
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse, die die Zielpräsentation enthält, zu der die Folie geklont wird.
-1. Greifen Sie auf die Folie zu, die geklont werden soll, zusammen mit dem Master.
-1. Instanziieren Sie die [IMasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/) Klasse, indem Sie sich auf die von dem Zielpräsentationsobjekt bereitgestellte Masters-Kollektion beziehen.
-1. Rufen Sie die vom [IMasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/) Objekt bereitgestellte [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Methode auf und übergeben Sie den Master aus der Quell-PPTX, der geklont werden soll, als Parameter an die [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Methode.
-1. Instanziieren Sie die [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Klasse, indem Sie den Bezug auf die von dem Zielpräsentationsobjekt bereitgestellte Folienkollektion einrichten.
-2. Rufen Sie die vom [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Objekt bereitgestellte [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Methode auf und übergeben Sie die Folie aus der Quellpräsentation, die geklont werden soll, und den Master Slide als Parameter an die [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Methode.
-3. Schreiben Sie die modifizierte Zielpräsentationsdatei.
+## **Klonen einer Folie mit ihrer Masterfolie in eine andere Präsentation**
 
-Im folgenden Beispiel haben wir eine Folie mit Master (die sich am Nullindex der Quellpräsentation befindet) an das Ende der Zielpräsentation geklont, wobei ein Master aus der Quellfolie verwendet wird.
+Wenn Sie eine Folie **mit ihrer Masterfolie** aus einer Präsentation klonen und in einer anderen verwenden möchten, klonen Sie zunächst die erforderliche Masterfolie aus der Quellpräsentation in die Zielpräsentation. Verwenden Sie dann diesen Ziel‑Master beim Klonen der Folie. Die Methode `add_clone(Slide, MasterSlide)` erwartet eine **Masterfolie der Zielpräsentation**, nicht der Quelle.
 
+So klonen Sie eine Folie mit ihrer Masterfolie:
+
+1. Erstellen Sie eine Instanz der [Präsentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse für die Quellpräsentation (die Folie enthält, die geklont werden soll).
+1. Erstellen Sie eine Instanz der [Präsentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse für die Zielpräsentation.
+1. Greifen Sie auf die zu klonende Quellfolie und deren Masterfolie zu.
+1. Holen Sie die [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/) aus der Master‑Sammlung der Zielpräsentation.
+1. Rufen Sie `add_clone` auf der Ziel‑[MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/) auf und übergeben Sie die Quell‑Masterfolie, um sie in das Ziel zu klonen.
+1. Holen Sie die [Folien-Sammlung](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) aus der Folien‑Sammlung der Zielpräsentation.
+1. Rufen Sie `add_clone` auf der Ziel‑[Folien-Sammlung](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) auf und übergeben Sie die Quellfolie sowie den geklonten Ziel‑Master.
+1. Speichern Sie die geänderte Zielpräsentation.
+
+Im folgenden Beispiel wird die Folie mit Index 0 in der Quellpräsentation am Ende der Zielpräsentation geklont, wobei der Master aus der Quelle geklont wurde.
 ```py
 import aspose.slides as slides
 
-# Instanziieren Sie die Presentation-Klasse, um die Quellpräsentationsdatei zu laden
-with slides.Presentation(path + "CloneToAnotherPresentationWithMaster.pptx") as srcPres:
-    # Instanziieren Sie die Presentation-Klasse für die Zielpräsentation (wo die Folie geklont werden soll)
-    with slides.Presentation() as destPres:
-        # Instanziieren Sie ISlide aus der Sammlung von Folien in der Quellpräsentation zusammen mit
-        # Masterfolie
-        sourceSlide = srcPres.slides[0]
-        sourceMaster = sourceSlide.layout_slide.master_slide
-
-        # Klonen Sie die gewünschte Masterfolie aus der Quellpräsentation in die Sammlung von Masterfolien in der
-        # Zielpräsentation
-        masters = destPres.masters
-        destMaster = sourceSlide.layout_slide.master_slide
-
-        # Klonen Sie die gewünschte Masterfolie aus der Quellpräsentation in die Sammlung von Masterfolien in der
-        # Zielpräsentation
-        iSlide = masters.add_clone(sourceMaster)
-
-        # Klonen Sie die gewünschte Folie aus der Quellpräsentation mit dem gewünschten Master an das Ende der
-        # Sammlung von Folien in der Zielpräsentation
-        slds = destPres.slides
-        slds.add_clone(sourceSlide, iSlide, True)
-
-        # Klonen Sie die gewünschte Masterfolie aus der Quellpräsentation in die Sammlung von Masterfolien in der
-        # Zielpräsentation, speichern Sie die Zielpräsentation auf die Festplatte
-        destPres.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
+# Instanziieren Sie die Presentation-Klasse, um die Quelldatei der Präsentation darzustellen.
+with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
+    # Instanziieren Sie die Presentation-Klasse für die Zielpräsentation, in die die Folie geklont wird.
+    with slides.Presentation() as target_presentation:
+        # Holen Sie die erste Folie aus der Quellpräsentation.
+        source_slide = source_presentation.slides[0]
+        # Holen Sie die Masterfolie, die von der ersten Folie verwendet wird.
+        source_master = source_slide.layout_slide.master_slide
+        # Klonen Sie die Masterfolie in die Master‑Sammlung der Zielpräsentation.
+        cloned_master = target_presentation.masters.add_clone(source_master)
+        # Klonen Sie die Folie aus der Quellpräsentation an das Ende der Zielpräsentation unter Verwendung der geklonten Masterfolie.
+        target_presentation.slides.add_clone(source_slide, cloned_master, True)
+        # Speichern Sie die Zielpräsentation auf dem Datenträger.
+        target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## Folie am Ende in einem bestimmten Abschnitt klonen
 
-Mit Aspose.Slides für Python über .NET können Sie eine Folie aus einem Abschnitt einer Präsentation klonen und diese Folie in einen anderen Abschnitt derselben Präsentation einfügen. In diesem Fall müssen Sie die [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Methode aus dem [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Interface verwenden.
+## **Klonen am Ende in einem angegebenen Abschnitt**
 
-Dieser Python-Code zeigt Ihnen, wie man eine Folie klont und die geklonte Folie in einen bestimmten Abschnitt einfügt:
+Mit Aspose.Slides für Python via .NET können Sie eine Folie aus einem Abschnitt einer Präsentation klonen und in einen anderen Abschnitt derselben Präsentation einfügen. Verwenden Sie hierfür die Methode `add_clone(Slide, Section)` des [Folien-Sammlung](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/)-Interfaces.
 
+Das folgende Python‑Beispiel zeigt, wie eine Folie geklont und der Clone in einen angegebenen Abschnitt eingefügt wird:
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
-    slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100) # zu klonende Folie
-
-    slide2 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
-    section = pres.sections.add_section("Section2", slide2)
-
-    pres.slides.add_clone(slide, section)
-
-    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
+# Erstelle eine neue leere Präsentation.
+with slides.Presentation() as presentation:
+    # Füge eine leere Folie basierend auf dem Layout der ersten Folie hinzu.
+    slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
+    # Füge der neuen Folie eine Ellipse-Form hinzu; diese Folie wird später geklont.
+    slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100)
+    # Füge eine weitere leere Folie basierend auf dem Layout der ersten Folie hinzu.
+    slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
+    # Erstelle einen Abschnitt mit dem Namen "Section2", der bei slide2 beginnt.
+    section = presentation.sections.add_section("Section2", slide2)
+    # Klone die zuvor erstellte Folie in den Abschnitt "Section2".
+    presentation.slides.add_clone(slide, section)
+    # Speichere die Präsentation als PPTX-Datei.
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Werden Sprecher‑Notizen und Reviewer‑Kommentare geklont?**
+
+Ja. Die Notizenseite und die Review‑Kommentare werden in den Clone übernommen. Wenn Sie sie nicht benötigen, [entfernen Sie sie](/slides/de/python-net/presentation-notes/) nach dem Einfügen.
+
+**Wie werden Diagramme und ihre Datenquellen behandelt?**
+
+Das Diagrammobjekt, die Formatierung und die eingebetteten Daten werden kopiert. Wenn das Diagramm mit einer externen Quelle (z. B. einer OLE‑eingebetteten Arbeitsmappe) verknüpft war, bleibt diese Verknüpfung als [OLE‑Objekt](/slides/de/python-net/manage-ole/) erhalten. Nach dem Verschieben zwischen Dateien sollten Sie die Datenverfügbarkeit und das Aktualisierungsverhalten prüfen.
+
+**Kann ich die Einfügeposition und die Abschnitte für den Clone steuern?**
+
+Ja. Sie können den Clone an einem bestimmten Folien‑Index einfügen und ihn in einen ausgewählten [Abschnitt](/slides/de/python-net/slide-section/) verschieben. Wenn der Ziel‑Abschnitt nicht existiert, erstellen Sie ihn zuerst und verschieben dann die Folie hinein.

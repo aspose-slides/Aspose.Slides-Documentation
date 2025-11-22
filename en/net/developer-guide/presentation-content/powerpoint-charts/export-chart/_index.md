@@ -1,18 +1,20 @@
 ---
-title: Export Chart
+title: Export Presentation Charts in .NET
+linktitle: Export Chart
 type: docs
 weight: 90
 url: /net/export-chart/
 keywords:
 - chart
-- chart image
+- chart to image
+- chart as image
 - extract chart image
 - PowerPoint
 - presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Get chart images from PowerPoint presentations in C# or .NET"
+- Aspose.Slides
+description: "Learn how to export presentation charts with Aspose.Slides for .NET, supporting PPT and PPTX formats, and streamline reporting into any workflow."
 ---
 
 ## **Get Chart Image**
