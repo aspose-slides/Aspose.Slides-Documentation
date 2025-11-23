@@ -1,7 +1,18 @@
 ---
-title: Chart Data Table
+title: Customize Chart Data Tables in Presentations on Android
+linktitle: Data Table
 type: docs
 url: /androidjava/chart-data-table/
+keywords:
+- chart data
+- data table
+- font properties
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Customize chart data tables in Java for PPT and PPTX with Aspose.Slides for Android to boost efficiency and appeal in presentations."
 ---
 
 ## **Set Font Properties for Chart Data Table**

@@ -1,8 +1,20 @@
 ---
-title: Group
+title: Group Presentation Shapes on Android
+linktitle: Shape Group
 type: docs
 weight: 40
 url: /androidjava/group/
+keywords:
+- group shape
+- shape group
+- add group
+- alternative text
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Learn to group and ungroup shapes in PowerPoint decks using Aspose.Slides for Android—fast, step-by-step guide with free Java code."
 ---
 
 ## **Add Group Shape**

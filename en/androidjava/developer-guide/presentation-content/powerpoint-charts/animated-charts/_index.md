@@ -1,8 +1,25 @@
 ---
-title: Animated Charts
+title: Animate PowerPoint Charts on Android
+linktitle: Animated Charts
 type: docs
 weight: 80
 url: /androidjava/animated-charts/
+keywords:
+- chart
+- animated chart
+- chart animation
+- chart series
+- chart category
+- series element
+- category element
+- add effect
+- effect type
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Create stunning animated charts in Java with Aspose.Slides for Android. Boost presentations with dynamic visuals in PPT and PPTX files—get started now."
 ---
 
 
