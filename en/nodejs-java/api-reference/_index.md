@@ -3,6 +3,15 @@ title: API Reference
 type: docs
 weight: 50
 url: /nodejs-java/api-reference/
+keywords:
+- API reference
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Create, edit, and convert presentations in JavaScript—no PowerPoint needed. Aspose.Slides for Node.js supports PPT, PPTX, and ODP with fast SVG/PDF export."
 ---
 
 {{% alert color="primary" %}} 

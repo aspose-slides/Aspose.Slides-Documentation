@@ -1,8 +1,29 @@
 ---
-title: Render a Slide as an SVG Image
+title: Render Presentation Slides as SVG Images in JavaScript
+linktitle: Slide to SVG
 type: docs
 weight: 50
 url: /nodejs-java/render-a-slide-as-an-svg-image/
+keywords:
+- PowerPoint to SVG
+- presentation to SVG
+- slide to SVG
+- PPT to SVG
+- PPTX to SVG
+- save PPT as SVG
+- save PPTX as SVG
+- export PPT to SVG
+- export PPTX to SVG
+- render slide
+- convert slide
+- export slide
+- vector image
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn how to render PowerPoint slides as SVG images using Aspose.Slides for Node.js via Java. High-quality visuals with simple JavaScript code examples."
 ---
 
 ## **SVG Format**
