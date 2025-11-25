@@ -5,7 +5,6 @@ type: docs
 weight: 237
 url: /java/modern-api/
 keywords:
-- System.Drawing
 - modern API
 - drawing
 - slide thumbnail

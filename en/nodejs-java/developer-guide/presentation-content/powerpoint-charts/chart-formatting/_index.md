@@ -1,8 +1,24 @@
 ---
-title: Chart Formatting
+title: Format Presentation Charts in JavaScript
+linktitle: Chart Formatting
 type: docs
 weight: 60
 url: /nodejs-java/chart-formatting/
+keywords:
+- format chart
+- chart formatting
+- chart entity
+- chart properties
+- chart settings
+- chart options
+- font properties
+- rounded border
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn chart formatting in Aspose.Slides for Node.js in JavaScript and elevate your PowerPoint presentation with professional, eye-catching styling."
 ---
 
 ## **Format Chart Entities**

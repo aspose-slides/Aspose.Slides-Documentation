@@ -26,7 +26,7 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Optimize OLE object management in PowerPoint and OpenDocument files with Aspose.Slides for Node.js. Embed, update, and export OLE content seamlessly."
+description: "Optimize OLE object management in PowerPoint and OpenDocument files with Aspose.Slides for Node.js via Java. Embed, update, and export OLE content seamlessly."
 ---
 
 {{% alert color="primary" %}} 

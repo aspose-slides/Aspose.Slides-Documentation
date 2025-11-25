@@ -1,9 +1,27 @@
 ---
-title: Manage Blob
+title: Manage Presentation BLOBs in JavaScript for Efficient Memory Use
+linktitle: Manage BLOB
 type: docs
 weight: 10
 url: /nodejs-java/manage-blob/
-description: Manage Blob in PowerPoint Presentation using JavaScript. Use Blob to reduce memory consumption in PowerPoint Presentation using JavaScript. Add large file through Blob to PowerPoint Presentation using JavaScript. Export large file through Blob from PowerPoint Presentation using JavaScript. Load a large PowerPoint Presentation as Blob using JavaScript.
+keywords:
+- large object
+- large item
+- large file
+- add BLOB
+- export BLOB
+- add image as BLOB
+- reduce memory
+- memory consumption
+- large presentation
+- temporary file
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Manage BLOB data in JavaScript with Aspose.Slides for Node.js to streamline PowerPoint and OpenDocument file operations for efficient presentation handling."
 ---
 
 ## **About BLOB**

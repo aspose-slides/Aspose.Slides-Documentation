@@ -1,10 +1,22 @@
 ---
-title: Animated Text
+title: Animate PowerPoint Text in JavaScript
+linktitle: Animated Text
 type: docs
 weight: 60
 url: /nodejs-java/animated-text/
-keywords: "Animated text in PowerPoint"
-description: "Animated text in PowerPoint with Java"
+keywords:
+- animated text
+- text animation
+- animated paragraph
+- paragraph animation
+- animation effect
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Create dynamic animated text in PowerPoint and OpenDocument presentations using Aspose.Slides for Node.js, with easy-to-follow, optimized code examples."
 ---
 
 ## **Adding Animation Effects to Paragraphs**
