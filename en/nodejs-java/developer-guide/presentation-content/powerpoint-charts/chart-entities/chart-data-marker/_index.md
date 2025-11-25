@@ -1,7 +1,21 @@
 ---
-title: Chart Data Marker
+title: Manage Chart Data Markers in Presentations Using JavaScript
+linktitle: Data Marker
 type: docs
 url: /nodejs-java/chart-data-marker/
+keywords:
+- chart
+- data point
+- marker
+- marker options
+- marker size
+- fill type
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn how to customize chart data markers in Aspose.Slides for Node.js, boosting presentation impact across PPT and PPTX formats with clear code examples."
 ---
 
 ## **Set Chart Marker Options**

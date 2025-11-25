@@ -1,7 +1,18 @@
 ---
-title: Chart Legend
+title: Customize Chart Legends in Presentations Using JavaScript
+linktitle: Chart Legend
 type: docs
 url: /nodejs-java/chart-legend/
+keywords:
+- chart legend
+- legend position
+- font size
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Customize chart legends with JavaScript and Aspose.Slides for Node.js to optimize PowerPoint presentations with tailored legend formatting."
 ---
 
 ## **Legend Positioning**

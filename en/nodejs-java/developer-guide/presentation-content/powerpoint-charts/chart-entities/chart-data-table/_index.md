@@ -1,7 +1,18 @@
 ---
-title: Chart Data Table
+title: Customize Chart Data Tables in Presentations Using JavaScript
+linktitle: Data Table
 type: docs
 url: /nodejs-java/chart-data-table/
+keywords:
+- chart data
+- data table
+- font properties
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Customize chart data tables in JavaScript for PPT and PPTX with Aspose.Slides for Node.js via Java to boost efficiency and appeal in presentations."
 ---
 
 ## **Set Font Properties for Chart Data Table**

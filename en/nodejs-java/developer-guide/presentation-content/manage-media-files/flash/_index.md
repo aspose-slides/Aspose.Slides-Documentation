@@ -1,9 +1,19 @@
 ---
-title: Flash
+title: Extract Flash Objects from Presentations in JavaScript
+linktitle: Flash
 type: docs
 weight: 10
 url: /nodejs-java/flash/
-description: Extract Flash Objects from PowerPoint Presentation using JavaScript
+keywords:
+- extract flash
+- flash object
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn how to extract Flash objects from PowerPoint and OpenDocument slides in JavaScript with Aspose.Slides, complete code samples and best practices."
 ---
 
 ## **Extract Flash Objects from Presentation**

@@ -1,7 +1,19 @@
 ---
-title: Bubble Chart
+title: Customize Bubble Charts in Presentations Using JavaScript
+linktitle: Bubble Chart
 type: docs
 url: /nodejs-java/bubble-chart/
+keywords:
+- bubble chart
+- bubble size
+- size scaling
+- size representation
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Create and customize powerful bubble charts in PowerPoint with JavaScript and Aspose.Slides for Node.js via Java to enhance your data visualization easily."
 ---
 
 ## **Bubble Chart Size Scaling**
