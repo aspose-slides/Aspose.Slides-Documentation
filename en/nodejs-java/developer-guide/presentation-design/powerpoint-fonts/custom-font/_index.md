@@ -1,11 +1,23 @@
 ---
-title: Custom PowerPoint Font in JavaScript
+title: Customize PowerPoint Fonts in JavaScript
 linktitle: Custom Font
 type: docs
 weight: 20
 url: /nodejs-java/custom-font/
-keywords: "Fonts, custom fonts, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "PowerPoint custom fonts in JavaScript"
+keywords:
+- font
+- custom font
+- external font
+- load font
+- manage fonts
+- font folder
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Customize fonts in PowerPoint slides with JavaScript and Aspose.Slides for Node.js via Java to keep your presentations sharp and consistent across any device."
 ---
 
 {{% alert color="primary" %}} 

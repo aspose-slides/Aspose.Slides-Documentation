@@ -1,5 +1,6 @@
 ---
-title: Presentation Properties
+title: Manage Presentation Properties in JavaScript
+linktitle: Presentation Properties
 type: docs
 weight: 70
 url: /nodejs-java/presentation-properties/
@@ -10,15 +11,19 @@ keywords:
 - built-in properties
 - custom properties
 - advanced properties
+- manage properties
 - modify properties
 - document metadata
 - edit metadata
+- proofing language
+- default language
 - PowerPoint
+- OpenDocument
 - presentation
 - Node.js
 - JavaScript
-- Aspose.Slides for Node.js via Java
-description: "Manage PowerPoint presentation properties in JavaScript"
+- Aspose.Slides
+description: "Master presentation properties in Aspose.Slides for Node.js via Java and streamline search, branding and workflow in your PowerPoint and OpenDocument files."
 ---
 
 {{% alert color="primary" %}} 

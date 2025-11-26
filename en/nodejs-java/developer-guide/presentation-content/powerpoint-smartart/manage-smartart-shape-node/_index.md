@@ -1,11 +1,26 @@
 ---
-title: Create or Manage PowerPoint SmartArt Shape Node in JavaScript
-linktitle: Manage SmartArt Shape Node
+title: Manage SmartArt Shape Nodes in Presentations Using JavaScript
+linktitle: SmartArt Shape Node
 type: docs
 weight: 30
 url: /nodejs-java/manage-smartart-shape-node/
-keywords: smartart powerpoint, smartart nodes, smartart position, remove smartart, smartart nodes add, powerpoint presentation, powerpoint java, powerpoint JavaScript api
-description: Manage smart art node and child node in PowerPoint Presentations in JavaScript
+keywords:
+- SmartArt node
+- child node
+- add node
+- node position
+- access node
+- remove node
+- custom position
+- assistant node
+- fill format
+- render node
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Manage SmartArt shape nodes in PPT and PPTX with Aspose.Slides for Node.js. Get clear JavaScript code samples and tips to streamline your presentations."
 ---
 
 ## **Add SmartArt Node in PowerPoint Presentation using JavaScript**

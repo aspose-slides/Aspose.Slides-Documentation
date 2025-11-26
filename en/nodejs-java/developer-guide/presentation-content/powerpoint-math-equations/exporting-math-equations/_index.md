@@ -1,9 +1,19 @@
 ---
-title: Exporting Math Equations
+title: Export Math Equations from Presentations in JavaScript
+linktitle: Export Equations
 type: docs
 weight: 30
 url: /nodejs-java/exporting-math-equations/
-
+keywords:
+- export math equations
+- MathML
+- LaTeX
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Unlock seamless export of math equations from PowerPoint to MathML using JavaScript and Aspose.Slides for Node.js—preserve formatting and boost compatibility."
 ---
 
 ## **Exporting Math Equations from Presentations**

@@ -1,8 +1,22 @@
 ---
-title: Create Fallback Fonts Collection
+title: Configure Fallback Font Collections in JavaScript
+linktitle: Fallback Font Collection
 type: docs
 weight: 20
 url: /nodejs-java/create-fallback-fonts-collection/
+keywords:
+- fallback font
+- fallback rule
+- font collection
+- configure font
+- set up font
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Set up a fallback fonts collection in JavaScript with Aspose.Slides for Node.js to keep text consistent and crisp in PowerPoint and OpenDocument presentations."
 ---
 
 ## **Apply Fallback Rules**

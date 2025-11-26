@@ -1,8 +1,22 @@
 ---
-title: Ellipse
+title: Add Ellipses to Presentations in JavaScript
+linktitle: Ellipse
 type: docs
 weight: 30
 url: /nodejs-java/ellipse/
+keywords:
+- ellipse
+- shape
+- add ellipse
+- create ellipse
+- draw ellipse
+- formatted ellipse
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn how to create, format, and manipulate ellipse shapes in Aspose.Slides for Node.js across PPT and PPTX presentations—JavaScript code examples included."
 ---
 
 
