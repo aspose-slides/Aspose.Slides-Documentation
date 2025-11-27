@@ -3,6 +3,25 @@ title: Product Overview
 type: docs
 weight: 10
 url: /nodejs-java/product-overview/
+keywords:
+- product overview
+- document processing
+- key features
+- presentation features
+- slide features
+- graphic features
+- multimedia features
+- table features
+- text features
+- advanced features
+- technical support
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Aspose.Slides for Node.js via Java lets you create, edit and convert PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations without Microsoft Office."
 ---
 
 ![todo:image_alt_text](aspose_slides-for-nodejs-via-java.png)

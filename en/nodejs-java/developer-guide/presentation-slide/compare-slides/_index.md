@@ -1,8 +1,19 @@
 ---
-title: Compare Slides
+title: Compare Presentation Slides in JavaScript
+linktitle: Compare Slides
 type: docs
 weight: 50
 url: /nodejs-java/compare-slides/
+keywords:
+- compare slides
+- slide comparison
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Compare PowerPoint and OpenDocument presentations programmatically with Aspose.Slides for Node.js via Java. Identify slide differences in code quickly."
 ---
 
 ## **Compare Two Slides**

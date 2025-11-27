@@ -1,9 +1,23 @@
 ---
 title: Licensing
-description: "Aspose.Slides for Node.js via Java provides different plans for purchase or offers a Free Trial and a 30-day Temporary License for evaluation using Licensing and Subscription policies."
 type: docs
 weight: 80
 url: /nodejs-java/licensing/
+keywords:
+- license
+- temporary license
+- set license
+- use license
+- validate license
+- license file
+- evaluation version
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Apply, manage, and troubleshoot licenses in Aspose.Slides for Node.js. Ensure uninterrupted access to full features with our step-by-step licensing guide."
 ---
 
 Sometimes, for the best evaluation outcomes, a hands-on approach might be needed. For this reason, Aspose.Slides provides different purchase plans and also offers a Free Trial and a 30-day Temporary License for evaluation.

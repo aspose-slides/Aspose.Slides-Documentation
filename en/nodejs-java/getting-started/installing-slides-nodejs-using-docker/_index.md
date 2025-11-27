@@ -1,5 +1,5 @@
 ---
-title: Installing Aspose.Slides for Node.js via Java Using Docker
+title: Install Aspose.Slides for Node.js via Java Using Docker
 type: docs
 weight: 75
 url: /nodejs-java/installing-slides-nodejs-using-docker/
@@ -11,9 +11,17 @@ keywords:
 - Windows
 - macOS
 - Linux
-- JavaScript
+- cross-platform compatibility
+- dependency isolation
+- simplified deployment
+- project setup
+- PowerPoint
+- OpenDocument
+- presentation
 - Node.js
-description: "Installing Aspose.Slides for Node.js via Java Using Docker"
+- JavaScript
+- Aspose.Slides
+description: "Run Aspose.Slides in Docker containers: configure images, dependencies, fonts, and licensing to build scalable services that process PowerPoint & OpenDocument."
 ---
 
 ## Prerequisites:
