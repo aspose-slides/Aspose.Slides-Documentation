@@ -20,9 +20,10 @@ keywords:
 - reset formatting
 - PowerPoint
 - presentation
-- Java
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Learn how to format PowerPoint shapes in JavaScript using Aspose.Slides—set fill, line, and effect styles for PPT, PPTX, and ODP files with precision and full control."
+description: "Format PowerPoint shapes in JavaScript using Aspose.Slides—set fill, line, and effect styles for PPT, PPTX, and ODP files with precision and full control."
 ---
 
 ## **Overview**

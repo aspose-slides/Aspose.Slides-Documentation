@@ -1,18 +1,23 @@
 ---
-title: Font Selection Sequence in JavaScript
-linktitle: Font Selection Sequence
+title: Font Selection Sequence in Aspose.Slides for Node.js via Java
+linktitle: Font Selection
 type: docs
 weight: 80
 url: /nodejs-java/font-selection-sequence/
 keywords:
-- font
 - font selection
 - font substitution
 - font replacement
-- PowerPoint presentation
-- Java
-- Aspose.Slides for Node.js via Java
-description: PowerPoint font selection sequence in JavaScript
+- substitution rule
+- available font
+- missing font
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Discover how Aspose.Slides for Node.js via Java selects fonts, ensuring crisp, consistent presentation of PPT, PPTX and ODP files—improve your slides now."
 ---
 
 ## **Font Selection**

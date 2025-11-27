@@ -1,8 +1,21 @@
 ---
-title: Render Presentation with Fallback Font
+title: Render Presentations with Fallback Fonts in JavaScript
+linktitle: Render Presentations
 type: docs
 weight: 30
 url: /nodejs-java/render-presentation-with-fallback-font/
+keywords:
+- fallback font
+- render PowerPoint
+- render presentation
+- render slide
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Render presentations with fallback fonts in Aspose.Slides for Node.js – keep text consistent across PPT, PPTX and ODP with step-by-step JavaScript code samples."
 ---
 
 The following example includes these steps:

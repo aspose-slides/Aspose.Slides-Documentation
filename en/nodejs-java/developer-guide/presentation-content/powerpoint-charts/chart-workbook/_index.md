@@ -1,10 +1,24 @@
 ---
-title: Chart Workbook
+title: Manage Chart Workbooks in Presentations Using JavaScript
+linktitle: Chart Workbook
 type: docs
 weight: 70
 url: /nodejs-java/chart-workbook/
-keywords: "Chart workbook, chart data, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Chart workbook in PowerPoint presentation in JavaScript"
+keywords:
+- chart workbook
+- chart data
+- workbook cell
+- data label
+- worksheet
+- data source
+- external workbook
+- external data
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Discover Aspose.Slides for Node.js via Java: effortlessly manage chart workbooks in PowerPoint and OpenDocument formats to streamline your presentation data."
 ---
 
 ## **Set Chart Data from Workbook**

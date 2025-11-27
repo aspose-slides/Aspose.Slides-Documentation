@@ -1,8 +1,20 @@
 ---
-title: Portion
+title: Manage Text Portions in Presentations Using JavaScript
+linktitle: Text Portion
 type: docs
 weight: 70
 url: /nodejs-java/portion/
+keywords:
+- text portion
+- text part
+- text coordinates
+- text position
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn how to manage text portions in PowerPoint presentations using JavaScript and Aspose.Slides for Node.js via Java, boosting performance and customization."
 ---
 
 ## **Get Position Coordinates of Portion**
