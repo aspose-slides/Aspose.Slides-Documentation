@@ -1,5 +1,5 @@
 ---
-title: Apply or Change a Slide Layout in JavaScript
+title: Apply or Change Slide Layouts in JavaScript
 linktitle: Slide Layout
 type: docs
 weight: 60
@@ -23,10 +23,13 @@ keywords:
 - picture with caption
 - title and vertical text
 - vertical title and text
+- PowerPoint
+- OpenDocument
+- presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Learn how to manage and customize slide layouts in Aspose.Slides for Node.js. Explore layout types, placeholder control, footer visibility, and layout manipulation through code examples in JavaScript."
+description: "Manage and customize slide layouts in Aspose.Slides for Node.js. Explore layout types, placeholder control, and footer visibility through code examples."
 ---
 
 ## **Overview**

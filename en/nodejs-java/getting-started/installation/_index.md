@@ -4,15 +4,20 @@ type: docs
 weight: 70
 url: /nodejs-java/installation/
 keywords:
-- download Aspose.Slides
 - install Aspose.Slides
+- download Aspose.Slides
+- use Aspose.Slides
 - Aspose.Slides installation
 - Windows
-- macOS
 - Linux
-- JavaScript
+- macOS
+- PowerPoint
+- OpenDocument
+- presentation
 - Node.js
-description: "Install Aspose.Slides for Node.js via Java in Windows, Linux or macOS"
+- JavaScript
+- Aspose.Slides
+description: "Learn how to quickly install Aspose.Slides. Step-by-step guide, system requirements, and code samples — start working with PowerPoint presentations today!"
 ---
 
 Aspose.Slides for Node.js via Java is platform-independent API and can be used on any platform (Windows, Linux and MacOS) where `Node.js` and [`java`](https://www.npmjs.com/package/java) bridge are installed.

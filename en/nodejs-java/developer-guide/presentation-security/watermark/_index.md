@@ -1,10 +1,33 @@
 ---
-title: Watermark
+title: Add Watermarks to Presentations in JavaScript
+linktitle: Watermark
 type: docs
 weight: 40
 url: /nodejs-java/watermark/
-keywords: "watermark in presentation"
-description: "Use watermark in PowerPoint with Aspose.Slides. Add watermark in ppt presentation or remove watermark. Insert image watermark or text watermark."
+keywords:
+- watermark
+- text watermark
+- image watermark
+- add watermark
+- change watermark
+- remove watermark
+- delete watermark
+- add watermark to PPT
+- add watermark to PPTX
+- add watermark to ODP
+- remove watermark from PPT
+- remove watermark from PPTX
+- remove watermark from ODP
+- delete watermark from PPT
+- delete watermark from PPTX
+- delete watermark from ODP
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Manage text and image watermarks in PowerPoint and OpenDocument presentations in Node.js to indicate a draft, confidential information, copyright, and more."
 ---
 
 

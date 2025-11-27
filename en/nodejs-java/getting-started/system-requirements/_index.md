@@ -3,6 +3,21 @@ title: System Requirements
 type: docs
 weight: 60
 url: /nodejs-java/system-requirements/
+keywords:
+- system requirements
+- operating system
+- installation
+- dependencies
+- Windows
+- Linux
+- macOS
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Discover Aspose.Slides for Node.js via Java system requirements. Ensure seamless PowerPoint and OpenDocument support on Windows, Linux, and macOS."
 ---
 
 Aspose.Slides for Node.js via Java does not require any third party product such as Microsoft PowerPoint to be installed. Aspose.Slides itself is an engine for creating, modifying, converting, and rendering of documents in various formats, including Microsoft PowerPoint presentation formats.

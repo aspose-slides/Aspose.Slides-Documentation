@@ -1,10 +1,19 @@
 ---
 title: Aspose.Slides for Node.js via Java
 second_title: "Aspose.Slides for Node.js via .NET Documentation"
-description: Aspose.Slides for Node.js via Java provides a lot of key features such as managing text, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF format and more.
 type: docs
 weight: 47
 url: /nodejs-java/
+keywords:
+- documentation
+- presentation processing
+- presentation conversion
+- PowerPoint
+- OpenDocument
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Aspose.Slides is a Microsoft PowerPoint® management API that enables applications to read and write PowerPoint® documents without using Microsoft PowerPoint®."
 is_root: true
 ---
 

@@ -1,17 +1,22 @@
 ---
-title: Multithreading in Aspose.Slides
+title: Multithreading in Aspose.Slides for Node.js via Java
+linktitle: Multithreading
 type: docs
 weight: 310
 url: /nodejs-java/multithreading/
 keywords:
-- PowerPoint
-- presentation
 - multithreading
+- multiple threads
 - parallel work
 - convert slides
 - slides to images
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
 - JavaScript
-- Aspose.Slides for Node.js via Java
+- Aspose.Slides
+description: "Aspose.Slides for Node.js via Java multithreading boosts PowerPoint and OpenDocument processing. Discover best practices for efficient presentation workflows."
 ---
 
 ## **Introduction**
