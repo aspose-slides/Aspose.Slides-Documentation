@@ -1,19 +1,26 @@
 ---
-title: Export to HTML5
+title: Convert Presentations to HTML5 in PHP
+linktitle: Presentation to HTML5
 type: docs
 weight: 40
 url: /php-java/export-to-html5/
 keywords:
-- PowerPoint to HTML
-- slides to HTML
-- HTML5
-- HTML export
-- export presentation
-- convert presentation
-- convert slides
+- PowerPoint to HTML5
+- OpenDocument to HTML5
+- presentation to HTML5
+- slide to HTML5
+- PPT to HTML5
+- PPTX to HTML5
+- ODP to HTML5
+- save PPT as HTML5
+- save PPTX as HTML5
+- save ODP as HTML5
+- export PPT to HTML5
+- export PPTX to HTML5
+- export ODP to HTML5
 - PHP
-- Aspose.Slides for PHP via Java
-description: "Export PowerPoint to HTML5 in PHP"
+- Aspose.Slides
+description: "Export PowerPoint & OpenDocument presentations to responsive HTML5 with Aspose.Slides for PHP via Java. Preserve formatting, animations, and interactivity."
 ---
 
 {{% alert title="Info" color="info" %}}
