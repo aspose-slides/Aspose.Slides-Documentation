@@ -1,7 +1,17 @@
 ---
-title: Chart Legend
+title: Customize Chart Legends in Presentations Using PHP
+linktitle: Chart Legend
 type: docs
 url: /php-java/chart-legend/
+keywords:
+- chart legend
+- legend position
+- font size
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Customize chart legends with Aspose.Slides for PHP via Java to optimize PowerPoint presentations with tailored legend formatting."
 ---
 
 ## **Legend Positioning**

@@ -1,10 +1,23 @@
 ---
-title: PowerPoint Math Equations
+title: Add Math Equations to PowerPoint Presentations in PHP
+linktitle: PowerPoint Math Equations
 type: docs
 weight: 80
 url: /php-java/powerpoint-math-equations/
-keywords: " PowerPoint Math Equations, PowerPoint Math Symbols, PowerPoint Formula, PowerPoint Math Text"
-description: "PowerPoint Math Equations, PowerPoint Math Symbols, PowerPoint Formula, PowerPoint Math Text"
+keywords:
+- math equation
+- math symbol
+- math formula
+- math text
+- add math equation
+- add math symbol
+- add math formula
+- add math text
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Insert and edit math equations in PowerPoint PPT and PPTX with Aspose.Slides for PHP via Java, supporting OMML, formatting controls, and clear code samples."
 ---
 
 ## **Overview**

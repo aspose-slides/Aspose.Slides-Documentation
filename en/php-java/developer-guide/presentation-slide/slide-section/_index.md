@@ -1,8 +1,21 @@
 ---
-title: Slide Section
+title: Manage Slide Sections in Presentations Using PHP
+linktitle: Slide Section
 type: docs
 weight: 90
 url: /php-java/slide-section/
+keywords:
+- create section
+- add section
+- edit section
+- change section
+- section name
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Streamline slide sections in PowerPoint and OpenDocument with Aspose.Slides for PHP via Java — split, rename, and reorder to optimize PPTX and ODP workflows."
 ---
 
 With Aspose.Slides for PHP via Java, you can organize a PowerPoint Presentation into sections. You get to create sections that contain specific slides.
