@@ -1,8 +1,19 @@
 ---
-title: Clone Slides
+title: Clone Presentation Slides in PHP
+linktitle: Clone Slides
 type: docs
 weight: 35
 url: /php-java/clone-slides/
+keywords:
+- clone slide
+- copy slide
+- save slide
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Quickly duplicate PowerPoint slides with Aspose.Slides for PHP. Follow our clear code examples to automate PPT creation in seconds and eliminate manual work."
 ---
 
 

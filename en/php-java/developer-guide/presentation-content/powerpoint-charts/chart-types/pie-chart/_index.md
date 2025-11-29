@@ -1,7 +1,21 @@
 ---
-title: Pie Chart
+title: Customize Pie Charts in Presentations Using PHP
+linktitle: Pie Chart
 type: docs
 url: /php-java/pie-chart/
+keywords:
+- pie chart
+- manage chart
+- customize chart
+- chart options
+- chart settings
+- plot options
+- slice color
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Learn how to create and customize pie charts with Aspose.Slides for PHP via Java, exportable to PowerPoint, boosting your data storytelling in seconds."
 ---
 
 ## **Second Plot Options for Pie of Pie and Bar of Pie Chart**

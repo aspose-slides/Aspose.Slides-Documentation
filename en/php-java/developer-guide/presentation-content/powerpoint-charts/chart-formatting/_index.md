@@ -1,8 +1,23 @@
 ---
-title: Chart Formatting
+title: Format Presentation Charts in PHP
+linktitle: Chart Formatting
 type: docs
 weight: 60
 url: /php-java/chart-formatting/
+keywords:
+- format chart
+- chart formatting
+- chart entity
+- chart properties
+- chart settings
+- chart options
+- font properties
+- rounded border
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Learn chart formatting in Aspose.Slides for PHP via Java and elevate your PowerPoint presentation with professional, eye-catching styling."
 ---
 
 ## **Format Chart Entities**

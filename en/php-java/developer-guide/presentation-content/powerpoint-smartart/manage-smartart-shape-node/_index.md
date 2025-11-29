@@ -1,11 +1,25 @@
 ---
-title: Create or Manage PowerPoint SmartArt Shape Node
-linktitle: Manage SmartArt Shape Node
+title: Manage SmartArt Shape Nodes in Presentations Using PHP
+linktitle: SmartArt Shape Node
 type: docs
 weight: 30
 url: /php-java/manage-smartart-shape-node/
-keywords: smartart powerpoint, smartart nodes, smartart position, remove smartart, smartart nodes add, powerpoint presentation, powerpoint java, powerpoint java api
-description: Manage smart art node and child node in PowerPoint Presentations
+keywords:
+- SmartArt node
+- child node
+- add node
+- node position
+- access node
+- remove node
+- custom position
+- assistant node
+- fill format
+- render node
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Manage SmartArt shape nodes in PPT and PPTX with Aspose.Slides for PHP via Java. Get clear code samples and tips to streamline your presentations."
 ---
 
 ## **Add SmartArt Node in PowerPoint Presentation using PHP**

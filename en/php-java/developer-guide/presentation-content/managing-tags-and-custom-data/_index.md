@@ -1,9 +1,20 @@
 ---
-title: Managing Tags and Custom Data
+title: Manage Tags and Custom Data in Presentations Using PHP
+linktitle: Tags and Custom Data
 type: docs
 weight: 300
-url: /php-java/managing-tags-and-custom-data
-
+url: /php-java/managing-tags-and-custom-data/
+keywords:
+- document properties
+- tag
+- custom data
+- add tag
+- pair values
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Learn how to add, read, update, and remove tags & custom data in Aspose.Slides for PHP via Java, with examples for PowerPoint and OpenDocument presentations."
 ---
 
 ## Data Storage in Presentation Files

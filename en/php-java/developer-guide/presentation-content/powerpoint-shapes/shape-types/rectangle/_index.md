@@ -1,8 +1,20 @@
 ---
-title: Rectangle
+title: Add Rectangles to Presentations in PHP
+linktitle: Rectangle
 type: docs
 weight: 80
 url: /php-java/rectangle/
+keywords:
+- add rectangle
+- create rectangle
+- rectangle shape
+- simple rectangle
+- formatted rectangle
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Boost your PowerPoint presentations by adding rectangles with Aspose.Slides for PHP via Java — easily design and modify shapes programmatically."
 ---
 
 {{% alert color="primary" %}} 

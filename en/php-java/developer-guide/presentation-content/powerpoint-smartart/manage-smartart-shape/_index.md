@@ -1,8 +1,25 @@
 ---
-title: Manage SmartArt Shape
+title: Manage SmartArt Graphics in Presentations Using PHP
+linktitle: SmartArt Graphics
 type: docs
 weight: 20
 url: /php-java/manage-smartart-shape/
+keywords:
+- SmartArt object
+- SmartArt graphic
+- SmartArt style
+- SmartArt color
+- create SmartArt
+- add SmartArt
+- edit SmartArt
+- change SmartArt
+- access SmartArt
+- SmartArt layout type
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Automate PowerPoint SmartArt creation, editing, and styling in PHP using Aspose.Slides, featuring concise code examples and performance-focused guidance."
 ---
 
 

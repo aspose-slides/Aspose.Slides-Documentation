@@ -1,10 +1,28 @@
 ---
-title: Manage Hyperlinks
+title: Manage Presentation Hyperlinks in PHP
+linktitle: Manage Hyperlink
 type: docs
 weight: 20
 url: /php-java/manage-hyperlinks/
-keywords: "PowerPoint Hyperlink, text hyperlink, slide hyperlink, shape hyperlink, image hyperlink, video hyperlink, Java"
-description: "How to add hyperlink to a PowerPoint Presentation "
+keywords:
+- add URL
+- add hyperlink
+- create hyperlink
+- format hyperlink
+- remove hyperlink
+- update hyperlink
+- text hyperlink
+- slide hyperlink
+- shape hyperlink
+- image hyperlink
+- video hyperlink
+- mutable hyperlink
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Effortlessly manage hyperlinks in PowerPoint and OpenDocument presentations with Aspose.Slides for PHP via Java — enhance interactivity and workflow in minutes."
 ---
 
 A hyperlink is a reference to an object or data or a place in something. These are common hyperlinks in PowerPoint Presentations:

@@ -1,8 +1,19 @@
 ---
-title: Group
+title: Group Presentation Shapes in PHP
+linktitle: Shape Group
 type: docs
 weight: 40
 url: /php-java/group/
+keywords:
+- group shape
+- shape group
+- add group
+- alternative text
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Learn to group and ungroup shapes in PowerPoint decks using Aspose.Slides for PHP via Java — fast, step-by-step guide with free code."
 ---
 
 ## **Add Group Shape**

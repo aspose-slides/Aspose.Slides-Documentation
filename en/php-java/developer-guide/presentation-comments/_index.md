@@ -1,10 +1,27 @@
 ---
-title: Presentation Comments
+title: Manage Presentation Comments in PHP
+linktitle: Presentation Comments
 type: docs
 weight: 100
 url: /php-java/presentation-comments/
-keywords: "Comments, PowerPoint comments, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Add comments and replies in PowerPoint presentation "
+keywords:
+- comment
+- modern comment
+- PowerPoint comments
+- presentation comments
+- slide comments
+- add comment
+- access comment
+- edit comment
+- reply comment
+- remove comment
+- delete comment
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Master presentation comments with Aspose.Slides for PHP via Java: add, read, edit, and delete comments in PowerPoint files fast and easily."
 ---
 
 In PowerPoint, a comment appears as a note or annotation on a slide. When a comment is clicked, its contents or messages are revealed. 

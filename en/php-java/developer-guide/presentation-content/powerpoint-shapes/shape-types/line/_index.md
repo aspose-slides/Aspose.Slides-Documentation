@@ -1,8 +1,23 @@
 ---
-title: Line
+title: Add Line Shapes to Presentations in PHP
+linktitle: Line
 type: docs
 weight: 50
 url: /php-java/Line/
+keywords:
+- line
+- create line
+- add line
+- plain line
+- configure line
+- customize line
+- dash style
+- arrow head
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Learn to manipulate line formatting in PowerPoint presentations with Aspose.Slides for PHP via Java. Discover properties, methods, and examples."
 ---
 
 

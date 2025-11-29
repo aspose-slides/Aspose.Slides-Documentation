@@ -24,9 +24,8 @@ keywords:
 - PowerPoint 
 - presentation
 - PHP
-- Java
 - Aspose.Slides
-description: "Optimize OLE object management in PowerPoint and OpenDocument files with Aspose.Slides for PHP. Embed, update, and export OLE content seamlessly."
+description: "Optimize OLE object management in PowerPoint and OpenDocument files with Aspose.Slides for PHP via Java. Embed, update, and export OLE content seamlessly."
 ---
 
 {{% alert color="primary" %}} 

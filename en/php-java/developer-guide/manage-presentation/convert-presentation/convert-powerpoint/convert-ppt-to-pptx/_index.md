@@ -1,11 +1,22 @@
 ---
-title: Convert PPT to PPTX
-linktitle: Convert PPT to PPTX
+title: Convert PPT to PPTX in PHP
+linktitle: PPT to PPTX
 type: docs
 weight: 20
 url: /php-java/convert-ppt-to-pptx/
-keywords: "PHP  Convert PPT to PPTX, PowerPoint PPT to PPTX "
-description: "Convert PowerPoint PPT to PPTX ."
+keywords:
+- convert PowerPoint
+- convert presentation
+- convert slide
+- сonvert PPT
+- PPT to PPTX
+- save PPT as PPTX
+- export PPT to PPTX
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Convert legacy PPT presentations to modern PPTX fast with Aspose.Slides for PHP via Java — clear tutorial, free code samples, no Microsoft Office dependency."
 ---
 
 ## **Overview**

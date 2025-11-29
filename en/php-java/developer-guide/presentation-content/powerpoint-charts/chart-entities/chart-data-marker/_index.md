@@ -1,7 +1,20 @@
 ---
-title: Chart Data Marker
+title: Manage Chart Data Markers in Presentations Using PHP
+linktitle: Data Marker
 type: docs
 url: /php-java/chart-data-marker/
+keywords:
+- chart
+- data point
+- marker
+- marker options
+- marker size
+- fill type
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Learn how to customize chart data markers in Aspose.Slides for PHP, boosting presentation impact across PPT and PPTX formats with clear code examples."
 ---
 
 ## **Set Chart Marker Options**

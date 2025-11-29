@@ -1,10 +1,21 @@
 ---
-title: Animated Text
+title: Animate PowerPoint Text in PHP
+linktitle: Animated Text
 type: docs
 weight: 60
 url: /php-java/animated-text/
-keywords: "Animated text in PowerPoint"
-description: "Animated text in PowerPoint with Java"
+keywords:
+- animated text
+- text animation
+- animated paragraph
+- paragraph animation
+- animation effect
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Create dynamic animated text in PowerPoint and OpenDocument presentations using Aspose.Slides for PHP via Java, with easy-to-follow, optimized code examples."
 ---
 
 ## Adding Animation Effects to Paragraphs

@@ -1,9 +1,32 @@
 ---
-title: Slide Size
+title: Change the Presentation Slide Size in PHP
+linktitle: Slide Size
 type: docs
 weight: 70
 url: /php-java/slide-size/
-
+keywords:
+- slide size
+- aspect ratio
+- standard
+- widescreen
+- 4:3
+- 16:9
+- set slide size
+- change slide size
+- custom slide size
+- special slide size
+- unique slide size
+- full-size slide
+- screen type
+- do not scale
+- ensure fit
+- maximize
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+descriptions: "Learn how to quickly resize slides in PPT, PPTX and ODP files with PHP and Aspose.Slides, optimize presentations for any screen without losing quality."
 ---
 
 ## Slide Sizes in PowerPoint Presentations

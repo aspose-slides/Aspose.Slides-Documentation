@@ -1,10 +1,21 @@
 ---
-title: Connector
+title: Manage Connectors in Presentations Using PHP
+linktitle: Connector
 type: docs
 weight: 10
 url: /php-java/connector/
-keywords: "Connect shapes, connectors, PowerPoint shapes, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Connect PowerPoint shapes "
+keywords:
+- connector
+- connector type
+- connector point
+- connector line
+- connector angle
+- connect shapes
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Empower PHP apps to draw, connect and auto-route lines in PowerPoint slides — gain full control over straight, elbow and curved connectors."
 ---
 
 A PowerPoint connector is a special line that connects or links two shapes together and stays attached to shapes even when they are moved or repositioned on a given slide. 

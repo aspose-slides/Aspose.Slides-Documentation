@@ -1,8 +1,21 @@
 ---
-title: ActiveX
+title: Manage ActiveX Controls in Presentations Using PHP
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /php-java/activex/
+keywords:
+- ActiveX
+- ActiveX control
+- manage ActiveX
+- add ActiveX
+- modify ActiveX
+- media player
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Learn how Aspose.Slides for PHP via Java leverages ActiveX to automate and enhance PowerPoint presentations, giving developers powerful control over slides."
 ---
 
 

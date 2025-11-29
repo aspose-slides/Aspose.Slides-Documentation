@@ -1,9 +1,21 @@
 ---
-title: Manage Placeholder
+title: Manage Presentation Placeholders in PHP
+linktitle: Manage Placeholders
 type: docs
 weight: 10
 url: /php-java/manage-placeholder/
-description: Change Text in a Placeholder in PowerPoint Slides using PHP. Set Prompt Text in a Placeholder in PowerPoint Slides using PHP.
+keywords:
+- placeholder
+- text placeholder 
+- image placeholder
+- chart placeholder
+- prompt text
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Effortlessly manage placeholders in Aspose.Slides for PHP via Java: replace text, customize prompts & set image transparency in PowerPoint and OpenDocument."
 ---
 
 ## **Change Text in Placeholder**

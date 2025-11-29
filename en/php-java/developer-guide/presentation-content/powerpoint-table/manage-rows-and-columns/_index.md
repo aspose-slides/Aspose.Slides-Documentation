@@ -1,10 +1,28 @@
 ---
-title: Manage Rows and Columns
+title: Manage Rows and Columns in PowerPoint Tables Using PHP
+linktitle: Rows and Columns
 type: docs
 weight: 20
 url: /php-java/manage-rows-and-columns/
-keywords: "Table, table rows and columns, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Manage table rows and columns in PowerPoint presentations "
+keywords:
+- table row
+- table column
+- first row
+- table header
+- clone row
+- clone column
+- copy row
+- copy column
+- remove row
+- remove column
+- row text formatting
+- column text formatting
+- table style
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Manage table rows and columns in PowerPoint with Aspose.Slides for PHP via Java and speed up presentation editing and data updates."
 ---
 
 To allow you to manage a table's rows and columns in a PowerPoint presentation, Aspose.Slides provides the [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) class, [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) interface, and many other types.

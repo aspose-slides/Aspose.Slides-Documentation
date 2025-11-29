@@ -1,8 +1,19 @@
 ---
-title: Export Chart
+title: Export Presentation Charts in PHP
+linktitle: Export Chart
 type: docs
 weight: 90
 url: /php-java/export-chart/
+keywords:
+- chart
+- chart to image
+- chart as image
+- extract chart image
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Learn how to export presentation charts with Aspose.Slides for PHP via Java, supporting PPT and PPTX formats, and streamline reporting into any workflow."
 ---
 
 ## **Get Chart Image**

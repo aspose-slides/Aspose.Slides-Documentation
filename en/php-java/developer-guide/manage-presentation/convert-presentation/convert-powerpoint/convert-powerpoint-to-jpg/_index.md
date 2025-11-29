@@ -1,10 +1,30 @@
 ---
-title: Convert Powerpoint to JPG
+title: Convert PPT and PPTX to JPG in PHP
+linktitle: PowerPoint to JPG
 type: docs
 weight: 60
 url: /php-java/convert-powerpoint-to-jpg/
-keywords: "Convert PowerPoint to JPG, PPTX to JPEG, PPT to JPEG"
-description: "Convert PowerPoint to JPG: PPT to JPG, PPTX to JPG "
+keywords: 
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- PowerPoint to JPG
+- presentation to JPG
+- slide to JPG
+- PPT to JPG
+- PPTX to JPG
+- save PowerPoint as JPG
+- save presentation as JPG
+- save slide as JPG
+- save PPT as JPG
+- save PPTX as JPG
+- export PPT to JPG
+- export PPTX to JPG
+- PHP
+- Aspose.Slides
+description: "Convert PowerPoint (PPT, PPTX) slides to high-quality JPG images in PHP with Aspose.Slides for PHP using fast, reliable code examples."
 ---
 
 

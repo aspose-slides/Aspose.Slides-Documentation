@@ -1,8 +1,19 @@
 ---
-title: Presentation Localization
+title: Automate Presentation Localization in PHP
+linktitle: Presentation Localization
 type: docs
 weight: 100
 url: /php-java/presentation-localization/
+keywords:
+- change language
+- spell check
+- language id
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Automate PowerPoint and OpenDocument slide localization with Aspose.Slides for PHP via Java, using practical code samples and tips for faster global rollout."
 ---
 
 ## **Change Language for Presentation and Shape's Text**

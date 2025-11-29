@@ -1,8 +1,19 @@
 ---
-title: Portion
+title: Manage Text Portions in Presentations Using PHP
+linktitle: Text Portion
 type: docs
 weight: 70
 url: /php-java/portion/
+keywords:
+- text portion
+- text part
+- text coordinates
+- text position
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Learn how to manage text portions in PowerPoint presentations using Aspose.Slides for PHP via Java, boosting performance and customization."
 ---
 
 ## **Get Position Coordinates of Portion**

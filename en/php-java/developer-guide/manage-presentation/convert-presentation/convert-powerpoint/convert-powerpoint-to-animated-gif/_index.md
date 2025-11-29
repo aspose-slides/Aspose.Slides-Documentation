@@ -1,10 +1,32 @@
 ---
-title: Convert PowerPoint to Animated GIF
+title: Convert PowerPoint Presentations to Animated GIFs in PHP
+linktitle: PowerPoint to GIF
 type: docs
 weight: 65
 url: /php-java/convert-powerpoint-to-animated-gif/
-keywords: "Convert PowerPoint to animated GIF, PPT to GIF, PPTX to GIF"
-description: "Convert PowerPoint to animated GIF: PPT to GIF, PPTX to GIF, with Aspose.Slides API."
+keywords:
+- animated GIF
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- PowerPoint to GIF
+- presentation to GIF
+- slide to GIF
+- PPT to GIF
+- PPTX to GIF
+- save PPT as GIF
+- save PPTX as GIF
+- export PPT as GIF
+- export PPTX as GIF
+- default settings
+- custom settings
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Easily convert PowerPoint presentations (PPT, PPTX) to animated GIFs with Aspose.Slides for PHP via Java. Fast, high-quality results."
 ---
 
 ## Converting Presentations to Animated GIF Using Default Settings ##

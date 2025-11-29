@@ -1,10 +1,21 @@
 ---
-title: Manage Cells
+title: Manage Table Cells in Presentations Using PHP
+linktitle: Manage Cells
 type: docs
 weight: 30
 url: /php-java/manage-cells/
-keywords: "Table, merged cells, split cells, image in table cell, Java, Aspose.Slides for PHP via Java"
-description: "Table cells in PowerPoint presentations "
+keywords:
+- table cell
+- merge cells
+- remove border
+- split cell
+- image in cell
+- background color
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Effortlessly manage table cells in PowerPoint with Aspose.Slides for PHP. Master accessing, modifying, and styling cells quickly for seamless slide automation."
 ---
 
 

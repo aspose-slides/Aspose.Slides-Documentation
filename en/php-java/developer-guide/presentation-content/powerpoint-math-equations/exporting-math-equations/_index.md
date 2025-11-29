@@ -1,9 +1,18 @@
 ---
-title: Exporting Math Equations
+title: Export Math Equations from Presentations in PHP
+linktitle: Export Equations
 type: docs
 weight: 30
 url: /php-java/exporting-math-equations/
-
+keywords:
+- export math equations
+- MathML
+- LaTeX
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Unlock seamless export of math equations from PowerPoint to MathML using Aspose.Slides for PHP via Java — preserve formatting and boost compatibility."
 ---
 
 ## Exporting Math Equations from Presentations

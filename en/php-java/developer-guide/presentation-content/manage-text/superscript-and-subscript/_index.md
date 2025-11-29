@@ -1,8 +1,20 @@
 ---
-title: Superscript and Subscript
+title: Manage Superscript and Subscript in Presentations Using PHP
+linktitle: Superscript and Subscript
 type: docs
 weight: 80
 url: /php-java/superscript-and-subscript/
+keywords:
+- superscript
+- subscript
+- add superscript
+- add subscript
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Master superscript and subscript in Aspose.Slides for PHP via Java and elevate your presentations with professional text formatting for maximum impact."
 ---
 
 ## **Manage Super Script and Sub Script Text**

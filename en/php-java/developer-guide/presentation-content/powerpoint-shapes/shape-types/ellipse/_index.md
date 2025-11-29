@@ -1,8 +1,21 @@
 ---
-title: Ellipse
+title: Add Ellipses to Presentations in PHP
+linktitle: Ellipse
 type: docs
 weight: 30
 url: /php-java/ellipse/
+keywords:
+- ellipse
+- shape
+- add ellipse
+- create ellipse
+- draw ellipse
+- formatted ellipse
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Learn how to create, format, and manipulate ellipse shapes in Aspose.Slides for PHP via Java across PPT and PPTX presentations — code examples included."
 ---
 
 

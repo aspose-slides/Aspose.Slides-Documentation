@@ -1,7 +1,20 @@
 ---
-title: Chart Plot Area
+title: Customize Plot Areas of Presentation Charts in PHP
+linktitle: Plot Area
 type: docs
 url: /php-java/chart-plot-area/
+keywords:
+- chart
+- plot area
+- plot area width
+- plot area height
+- plot area size
+- layout mode
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Discover how to customize chart plot areas in PowerPoint presentations with Aspose.Slides for PHP via Java. Improve your slide visuals effortlessly."
 ---
 
 

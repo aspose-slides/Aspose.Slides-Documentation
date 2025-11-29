@@ -17,7 +17,7 @@ keywords:
 - presentation
 - PHP
 - Aspose.Slides
-description: "Learn how to set dynamic backgrounds in PowerPoint and OpenDocument files using Aspose.Slides for PHP, with code tips to boost your presentations."
+description: "Learn how to set dynamic backgrounds in PowerPoint and OpenDocument files using Aspose.Slides for PHP via Java, with code tips to boost your presentations."
 ---
 
 ## **Overview**

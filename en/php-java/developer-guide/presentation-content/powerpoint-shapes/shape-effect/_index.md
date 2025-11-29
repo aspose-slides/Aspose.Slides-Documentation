@@ -1,10 +1,21 @@
 ---
-title: Shape Effect
+title: Apply Shape Effects in Presentations Using PHP
+linktitle: Shape Effect
 type: docs
 weight: 30
-url: /php-java/shape-effect
-keywords: "Shape effect, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Apply effect to PowerPoint shape "
+url: /php-java/shape-effect/
+keywords:
+- shape effect
+- shadow effect
+- reflection effect
+- glow effect
+- soft edges effect
+- effect format
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Transform your PPT and PPTX files with advanced shape effects using Aspose.Slides for PHP via Java — create striking, professional slides in seconds."
 ---
 
 While effects in PowerPoint can be used to make a shape stand out, they differ from [fills](/slides/php-java/shape-formatting/#gradient-fill) or outlines. Using PowerPoint effects, you can create convincing reflections on a shape, spread a shape's glow, etc.

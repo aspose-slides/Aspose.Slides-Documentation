@@ -1,11 +1,24 @@
 ---
-title: Create PowerPoint Presentation using PHP
+title: Create Presentations in PHP
 linktitle: Create Presentation
 type: docs
 weight: 10
 url: /php-java/create-presentation/
-keywords: create ppt java, create ppt presentation, create pptx java
-description: Learn how to create PowerPoint Presentations e.g. PPT, PPTX using PHP from scratch.
+keywords:
+- create presentation
+- new presentation
+- create PPT
+- new PPT
+- create PPTX
+- new PPTX
+- create ODP
+- new ODP
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Create presentations with Aspose.Slides for PHP via Java — produce PPT, PPTX, and ODP files and save them programmatically for reliable results."
 ---
 
 ## **Create PowerPoint Presentation**

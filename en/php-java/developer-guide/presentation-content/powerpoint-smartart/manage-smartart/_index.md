@@ -1,8 +1,21 @@
 ---
-title: Manage SmartArt
+title: Manage SmartArt in PowerPoint Presentations Using PHP
+linktitle: Manage SmartArt
 type: docs
 weight: 10
 url: /php-java/manage-smartart/
+keywords:
+- SmartArt
+- SmartArt text
+- layout type
+- hidden property
+- organization chart
+- picture organization chart
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Learn to build and edit PowerPoint SmartArt with Aspose.Slides for PHP via Java using clear code samples that speed up slide design and automation."
 ---
 
 ## **Get Text from SmartArt**

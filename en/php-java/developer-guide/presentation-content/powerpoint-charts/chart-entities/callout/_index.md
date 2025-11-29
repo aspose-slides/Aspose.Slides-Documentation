@@ -1,7 +1,18 @@
 ---
-title: Callout
+title: Manage Callouts in Presentation Charts Using PHP
+linktitle: Callout
 type: docs
 url: /php-java/callout/
+keywords:
+- chart callout
+- use callout
+- data label
+- label format
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Create and style callouts in Aspose.Slides for PHP via Java with concise code examples, compatible with PPT and PPTX to automate presentation workflows."
 ---
 
 ## **Using Callouts**

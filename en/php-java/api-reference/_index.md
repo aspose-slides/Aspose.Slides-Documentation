@@ -3,6 +3,14 @@ title: API Reference
 type: docs
 weight: 50
 url: /php-java/api-reference/
+keywords:
+- API reference
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Create, edit, and convert presentations in PHP — no PowerPoint needed. Aspose.Slides for PHP via Java supports PPT, PPTX, and ODP with fast SVG/PDF export."
 ---
 
 {{% alert color="primary" %}} 

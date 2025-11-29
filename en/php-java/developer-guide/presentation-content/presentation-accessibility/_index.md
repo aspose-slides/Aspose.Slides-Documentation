@@ -12,7 +12,7 @@ keywords:
 - presentation
 - PHP
 - Aspose.Slides
-description: "Discover how Aspose.Slides for PHP helps automate presentation accessibility checks in PPT, PPTX and ODP files—enhance screen reader experience and boost compliance."
+description: "Discover how Aspose.Slides helps automate presentation accessibility checks in PPT, PPTX and ODP files—enhance screen reader experience and boost compliance."
 ---
 
 ## **Overview**
