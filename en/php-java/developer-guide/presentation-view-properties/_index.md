@@ -1,5 +1,6 @@
 ---
-title: Presentation View Properties
+title: Retrieve and Update Presentation View Properties in PHP
+linktitle: View Properties
 type: docs
 weight: 80
 url: /php-java/presentation-view-properties/
@@ -15,11 +16,11 @@ keywords:
 - auto adjust
 - default zoom
 - PowerPoint
+- OpenDocument
 - presentation
 - PHP
-- Java
-- Aspose.Slides for PHP via Java
-description: "Manage PowerPoint presentation view properties in PHP"
+- Aspose.Slides
+description: "Discover Aspose.Slides for PHP via Java view properties to customize formats PPT, PPTX, and ODP slides — adjust layouts, zoom levels, and display settings."
 ---
 
 {{% alert color="primary" %}} 

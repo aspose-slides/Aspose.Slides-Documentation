@@ -1,10 +1,23 @@
 ---
-title: Slide Transition
+title: Manage Slide Transitions in Presentations Using PHP
+linktitle: Slide Transition
 type: docs
 weight: 80
 url: /php-java/slide-transition/
-keywords: "PowerPoint slide transition, morph transition "
-description: "PowerPoint slide transition, PowerPoint morph transition "
+keywords:
+- slide transition
+- add slide transition
+- apply slide transition
+- advanced slide transition
+- morph transition
+- transition type
+- transition effect
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Discover how to customize slide transitions in Aspose.Slides for PHP via Java, with step-by-step guidance for PowerPoint and OpenDocument presentations."
 ---
 
 

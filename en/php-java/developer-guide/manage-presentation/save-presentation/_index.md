@@ -1,6 +1,6 @@
 ---
 title: Save Presentations in PHP
-linktitle: Save Presentations
+linktitle: Save Presentation
 type: docs
 weight: 80
 url: /php-java/save-presentation/
@@ -21,7 +21,7 @@ keywords:
 - saving progress
 - PHP
 - Aspose.Slides
-description: "Discover how to save presentations in PHP using Aspose.Slides—export to PowerPoint or OpenDocument while retaining layouts, fonts and effects."
+description: "Discover how to save presentations using Aspose.Slides for PHP via Java — export to PowerPoint or OpenDocument while retaining layouts, fonts and effects."
 ---
 
 ## **Overview**

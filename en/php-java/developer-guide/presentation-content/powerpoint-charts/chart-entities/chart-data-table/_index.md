@@ -1,7 +1,17 @@
 ---
-title: Chart Data Table
+title: Customize Chart Data Tables in Presentations Using PHP
+linktitle: Data Table
 type: docs
 url: /php-java/chart-data-table/
+keywords:
+- chart data
+- data table
+- font properties
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Customize chart data tables for PPT and PPTX with Aspose.Slides for PHP via Java to boost efficiency and appeal in presentations."
 ---
 
 ## **Set Font Properties for Chart Data Table**

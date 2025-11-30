@@ -1,20 +1,22 @@
 ---
-title: Presentation Viewer
+title: Create a Presentation Viewer in PHP
+linktitle: Presentation Viewer
 type: docs
 weight: 50
 url: /php-java/presentation-viewer/
 keywords: 
 - view presentation
 - presentation viewer
+- create presentation viewer
 - view PPT
 - view PPTX
 - view ODP
 - PowerPoint
 - OpenDocument
+- presentation
 - PHP
-- Java
-- Aspose.Slides for PHP via Java
-description: "PowerPoint presentation viewer in PHP"
+- Aspose.Slides
+description: "Create a custom presentation viewer using Aspose.Slides for PHP via Java. Easily display PowerPoint and OpenDocument files without Microsoft PowerPoint."
 ---
 
 Aspose.Slides for PHP via Java is used to create presentation files with slides. These slides can be viewed by opening presentations in Microsoft PowerPoint, for example. However, sometimes developers may need to view slides as images in their preferred image viewer or create their own presentation viewer. In such cases, Aspose.Slides allows you to export an individual slide as an image. This article describes how to do it.
