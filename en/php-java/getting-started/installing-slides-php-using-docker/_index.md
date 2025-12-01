@@ -1,5 +1,5 @@
 ---
-title: Installing Aspose.Slides for PHP via Java Using Docker
+title: Install Aspose.Slides for PHP via Java Using Docker
 type: docs
 weight: 75
 url: /php-java/installing-slides-php-using-docker/
@@ -11,8 +11,16 @@ keywords:
 - Windows
 - macOS
 - Linux
+- cross-platform compatibility
+- dependency isolation
+- simplified deployment
+- project setup
+- PowerPoint
+- OpenDocument
+- presentation
 - PHP
-description: "Installing Aspose.Slides for PHP via Java Using Docker"
+- Aspose.Slides
+description: "Run Aspose.Slides in Docker containers: configure images, dependencies, fonts, and licensing to build scalable services that process PowerPoint & OpenDocument."
 ---
 
 ## Prerequisites:
