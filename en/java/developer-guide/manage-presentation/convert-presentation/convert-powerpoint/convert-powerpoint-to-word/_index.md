@@ -87,3 +87,13 @@ for (ISlide slide : pres.getSlides()) {
 doc.save("output.docx");
 pres.dispose();
 ```
+
+## **FAQ**
+
+**What components need to be installed to convert PowerPoint and OpenDocument presentations to Word documents?**
+
+You only need to add the respective package for [Aspose.Slides for Java](https://releases.aspose.com/slides/java/) and [Aspose.Words for Java](https://releases.aspose.com/words/java/) to your project. Both libraries operate as standalone APIs, and there is no requirement for Microsoft Office to be installed.
+
+**Are all PowerPoint and OpenDocument presentation formats supported?**
+
+Aspose.Slides [supports all presentation formats](/slides/java/supported-file-formats/), including PPT, PPTX, ODP, and other common file types. This ensures that you can work with presentations created in various versions of Microsoft PowerPoint.

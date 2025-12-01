@@ -196,7 +196,7 @@ try {
 
 ## **Merge Slides into a Presentation Section**
 
-Merging slides into a specific presentation section helps organize content and improve slide navigation. Aspose.Slides for .NET allows you to merge slides to existing sections. This ensures a clear structure while preserving the original formatting of each slide.
+Merging slides into a specific presentation section helps organize content and improve slide navigation. Aspose.Slides allows you to merge slides to existing sections. This ensures a clear structure while preserving the original formatting of each slide.
 
 The following Java code shows how to merge a specific slide into a section in a presentation:
 
@@ -233,7 +233,7 @@ Besides presentations, Aspose.Slides allows you to merge other files:
 - **Documents**, such as [PDF to PDF](https://products.aspose.com/slides/java/merger/pdf-to-pdf/) or [HTML to HTML](https://products.aspose.com/slides/java/merger/html-to-html/)
 - **Mixed file types**, such as [image to PDF](https://products.aspose.com/slides/java/merger/image-to-pdf/), [JPG to PDF](https://products.aspose.com/slides/java/merger/jpg-to-pdf/), or [TIFF to PDF](https://products.aspose.com/slides/java/merger/tiff-to-pdf/)
 
-## **FAQs**
+## **FAQ**
 
 **Are there any limitations on the number of slides when merging presentations?**
 
@@ -245,4 +245,4 @@ Yes, Aspose.Slides preserves multimedia content embedded in slides, but the fina
 
 **Will fonts be preserved when merging presentations?**
 
-Yes. Fonts used in source presentations are preserved in the output file, assuming they are installed on the system or embedded.
+Yes. Fonts used in source presentations are preserved in the output file, assuming they are installed on the system or [embedded](/slides/java/embedded-font/).
