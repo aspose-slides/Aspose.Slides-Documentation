@@ -1,6 +1,6 @@
 ---
-title: Configure Fallback Fonts in Python
-linktitle: Configure Fallback Fonts
+title: Configure Fallback Font Collections in Python
+linktitle: Fallback Font Collection
 type: docs
 weight: 20
 url: /python-net/create-fallback-fonts-collection/
