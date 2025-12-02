@@ -1,0 +1,18 @@
+---
+title: Слайды по облачным платформам
+type: docs
+weight: 40
+url: /ru/python-net/slides-on-cloud-platforms/
+keywords:
+- облачные платформы
+- облачная интеграция
+- автоматизация PowerPoint
+- извлечение текста
+- интеграция с Google
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Узнайте, как Aspose.Slides работает на основных облачных платформах, с рекомендациями по развертыванию, руководством по масштабированию и лучшими практиками обработки PowerPoint и OpenDocument."
+---

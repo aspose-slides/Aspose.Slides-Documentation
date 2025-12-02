@@ -1,11 +1,11 @@
 ---
-title: Gestionar series de gráfico en Python
-linktitle: Series de gráfico
+title: Administrar series de datos de gráficos con Python
+linktitle: Series de datos
 type: docs
 url: /es/python-net/chart-series/
 keywords:
-- series de gráfico
-- solapamiento de series
+- series de gráficos
+- superposición de series
 - color de series
 - color de categoría
 - nombre de serie
@@ -15,22 +15,22 @@ keywords:
 - presentación
 - Python
 - Aspose.Slides
-description: "Aprenda a gestionar series de gráficos en Python para PowerPoint (PPT/PPTX) con ejemplos de código prácticos y buenas prácticas para mejorar sus presentaciones de datos."
+description: "Aprenda a gestionar series de datos de gráficos en Python para PowerPoint (PPT/PPTX) con ejemplos de código prácticos y mejores prácticas para mejorar sus presentaciones de datos."
 ---
 
-## **Visión general**
+## **Descripción general**
 
-Este artículo describe el papel de [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) en Aspose.Slides para Python, centrado en cómo se estructuran y visualizan los datos dentro de las presentaciones. Estos objetos proporcionan los elementos fundamentales que definen conjuntos individuales de puntos de datos, categorías y parámetros de apariencia en un gráfico. Al trabajar con [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/), los desarrolladores pueden integrar sin problemas las fuentes de datos subyacentes y mantener un control total sobre cómo se muestra la información, lo que resulta en presentaciones dinámicas y basadas en datos que transmiten claramente ideas y análisis.
+Este artículo describe el papel de [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) en Aspose.Slides para Python, centrándose en cómo se estructuran y visualizan los datos dentro de las presentaciones. Estos objetos proporcionan los elementos fundamentales que definen conjuntos individuales de puntos de datos, categorías y parámetros de apariencia en un gráfico. Al trabajar con [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/), los desarrolladores pueden integrar sin problemas las fuentes de datos subyacentes y mantener un control total sobre cómo se muestra la información, lo que produce presentaciones dinámicas y basadas en datos que transmiten claramente ideas y análisis.
 
 Una serie es una fila o columna de números representados en un gráfico.
 
-![serie-de-gráfica-powerpoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Establecer solapamiento de series**
+## **Establecer superposición de series**
 
-La propiedad [ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) controla cómo se superponen las barras y columnas en un gráfico 2D especificando un rango de -100 a 100. Dado que esta propiedad está asociada al grupo de series y no a series de gráfico individuales, es de solo lectura a nivel de serie. Para configurar los valores de solapamiento, utilice la propiedad de lectura/escritura `parent_series_group.overlap`, que aplica el solapamiento especificado a todas las series del grupo.
+La propiedad [ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) controla cómo se superponen las barras y columnas en un gráfico 2D especificando un rango de -100 a 100. Dado que esta propiedad está asociada al grupo de series y no a series de gráfico individuales, es de solo lectura a nivel de serie. Para configurar los valores de superposición, use la propiedad `parent_series_group.overlap` de lectura/escritura, que aplica la superposición especificada a todas las series del grupo.
 
-A continuación se muestra un ejemplo en Python que demuestra cómo crear una presentación, agregar un gráfico de columnas agrupadas, acceder a la primera serie del gráfico, configurar el ajuste de solapamiento y luego guardar el resultado como un archivo PPTX:
+A continuación se muestra un ejemplo en Python que demuestra cómo crear una presentación, agregar un gráfico de columnas agrupadas, acceder a la primera serie del gráfico, configurar la opción de superposición y luego guardar el resultado como un archivo PPTX:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -40,12 +40,12 @@ series_overlap = 30
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Agregar un gráfico de columnas agrupadas con datos predeterminados.
+    # Añadir un gráfico de columnas agrupadas con datos predeterminados.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     series = chart.chart_data.series[0]
     if series.overlap == 0:
-        # Establecer el solapamiento de series.
+        # Establecer la superposición de series.
         series.parent_series_group.overlap = series_overlap
 
     # Guardar el archivo de presentación en disco.
@@ -55,11 +55,11 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![El solapamiento de la serie](series_overlap.png)
+![La superposición de series](series_overlap.png)
 
 ## **Cambiar color de relleno de la serie**
 
-Aspose.Slides facilita la personalización de los colores de relleno de las series de un gráfico, permitiéndole resaltar puntos de datos específicos y crear gráficos visualmente atractivos. Esto se logra a través del objeto [Format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/), que admite varios tipos de relleno, configuraciones de color y otras opciones avanzadas de estilo. Después de agregar un gráfico a una diapositiva y acceder a la serie deseada, simplemente obtenga la serie y aplique el color de relleno apropiado. Más allá de los rellenos sólidos, también puede aprovechar los rellenos degradados o de patrón para una mayor flexibilidad de diseño. Una vez que haya establecido los colores según sus requisitos, guarde la presentación para finalizar el aspecto actualizado.
+Aspose.Slides facilita la personalización de los colores de relleno de las series de gráficos, permitiéndole resaltar puntos de datos específicos y crear gráficos visualmente atractivos. Esto se logra a través del objeto [Format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/), que admite varios tipos de relleno, configuraciones de color y otras opciones de estilo avanzadas. Después de agregar un gráfico a una diapositiva y acceder a la serie deseada, simplemente obtenga la serie y aplique el color de relleno apropiado. Además de los rellenos sólidos, también puede aprovechar rellenos de degradado o de patrón para una mayor flexibilidad de diseño. Una vez que haya configurado los colores según sus requisitos, guarde la presentación para finalizar el aspecto actualizado.
 
 El siguiente ejemplo de código Python muestra cómo cambiar el color de la primera serie:
 ```py
@@ -72,7 +72,7 @@ series_color = draw.Color.blue
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Agregar un gráfico de columnas agrupadas con datos predeterminados.
+    # Añadir un gráfico de columnas agrupadas con datos predeterminados.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     # Establecer el color de la primera serie.
@@ -89,9 +89,9 @@ El resultado:
 
 ![El color de la serie](series_color.png)
 
-## **Renombrar una serie** 
+## **Renombrar una serie**
 
-Aspose.Slides ofrece una forma sencilla de modificar los nombres de las series de un gráfico, facilitando la etiquetación de los datos de manera clara y significativa. Al acceder a la celda de hoja de cálculo correspondiente en los datos del gráfico, los desarrolladores pueden personalizar cómo se presentan los datos. Esta modificación es particularmente útil cuando los nombres de las series deben actualizarse o aclararse según el contexto de los datos. Después de renombrar la serie, la presentación puede guardarse para conservar los cambios. 
+Aspose.Slides ofrece una manera sencilla de modificar los nombres de las series de gráficos, facilitando la etiquetación de los datos de forma clara y significativa. Al acceder a la celda de hoja de cálculo relevante en los datos del gráfico, los desarrolladores pueden personalizar cómo se presentan los datos. Esta modificación es particularmente útil cuando los nombres de las series deben actualizarse o aclararse según el contexto de los datos. Después de renombrar la serie, la presentación puede guardarse para conservar los cambios.
 
 A continuación se muestra un fragmento de código Python que demuestra este proceso en acción.
 ```py
@@ -103,7 +103,7 @@ series_name = "New name"
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Agregar un gráfico de columnas agrupadas con datos predeterminados.
+    # Añadir un gráfico de columnas agrupadas con datos predeterminados.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
     
     # Establecer el nombre de la primera serie.
@@ -115,7 +115,7 @@ with slides.Presentation() as presentation:
 ```
 
 
-El siguiente código Python muestra una forma alternativa de cambiar el nombre de la serie:
+El siguiente código Python muestra una manera alternativa de cambiar el nombre de la serie:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -125,7 +125,7 @@ series_name = "New name"
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Agregar un gráfico de columnas agrupadas con datos predeterminados.
+    # Añadir un gráfico de columnas agrupadas con datos predeterminados.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
     series = chart.chart_data.series[0]
     
@@ -143,9 +143,9 @@ El resultado:
 
 ## **Obtener color de relleno automático de la serie**
 
-Aspose.Slides para Python le permite obtener el color de relleno automático de las series de un gráfico dentro de una zona de trazado. Después de crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), puede obtener una referencia a la diapositiva deseada por índice y, a continuación, agregar un gráfico usando el tipo que prefiera (como `ChartType.CLUSTERED_COLUMN`). Al acceder a las series en el gráfico, puede obtener el color de relleno automático.
+Aspose.Slides for Python le permite obtener el color de relleno automático para series de gráficos dentro del área de trazado. Después de crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), puede obtener una referencia a la diapositiva deseada por índice, luego agregar un gráfico usando el tipo que prefiera (como `ChartType.CLUSTERED_COLUMN`). Al acceder a las series en el gráfico, puede obtener el color de relleno automático.
 
-El código Python a continuación demuestra este proceso en detalle.
+El código Python a continuación muestra este proceso en detalle.
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -153,7 +153,7 @@ import aspose.slides.charts as charts
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Agregar un gráfico de columnas agrupadas con datos predeterminados.
+    # Añadir un gráfico de columnas agrupadas con datos predeterminados.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     for i in range(len(chart.chart_data.series)):
@@ -173,7 +173,7 @@ Series 2 color: ff9bbb59
 
 ## **Establecer colores de relleno invertidos para una serie**
 
-Cuando su serie de datos contiene valores tanto positivos como negativos, colorear todas las columnas o barras de la misma manera puede dificultar la lectura del gráfico. Aspose.Slides para Python le permite asignar un color de relleno invertido —un relleno separado que se aplica automáticamente a los puntos de datos que caen por debajo de cero— de modo que los valores negativos destaquen a simple vista. En esta sección aprenderá cómo habilitar esa opción, elegir un color apropiado y guardar la presentación actualizada.
+Cuando su serie de datos contiene valores tanto positivos como negativos, colorear todas las columnas o barras de la misma forma puede dificultar la lectura del gráfico. Aspose.Slides para Python le permite asignar un color de relleno invertido, un relleno separado que se aplica automáticamente a los puntos de datos que caen por debajo de cero, de modo que los valores negativos se destaquen de un vistazo. En esta sección aprenderá cómo habilitar esa opción, elegir un color apropiado y guardar la presentación actualizada.
 
 El siguiente ejemplo de código demuestra la operación:
 ```py
@@ -249,7 +249,7 @@ with slides.Presentation() as presentation:
 
 ## **Borrar datos de puntos de datos específicos**
 
-A veces un gráfico contiene valores de prueba, valores atípicos o entradas obsoletas que necesita eliminar sin reconstruir toda la serie. Aspose.Slides para Python le permite apuntar a cualquier punto de datos por índice, borrar su contenido y actualizar instantáneamente el trazado para que los puntos restantes se desplacen y los ejes se reescalen automáticamente.
+A veces un gráfico contiene valores de prueba, valores atípicos o entradas obsoletas que necesita eliminar sin reconstruir toda la serie. Aspose.Slides para Python le permite apuntar a cualquier punto de datos por índice, borrar su contenido y refrescar instantáneamente el trazado para que los puntos restantes se desplacen y los ejes se reescalen automáticamente.
 
 El siguiente ejemplo de código demuestra la operación:
 ```py
@@ -271,11 +271,11 @@ with slides.Presentation("test_chart.pptx") as presentation:
 ```
 
 
-## **Establecer ancho del espacio entre series**
+## **Establecer ancho de separación de la serie**
 
-El ancho del hueco controla la cantidad de espacio vacío entre columnas o barras adyacentes: los huecos más amplios enfatizan las categorías individuales, mientras que los huecos más estrechos crean un aspecto más denso y compacto. Con Aspose.Slides para Python puede ajustar finamente este parámetro para una serie completa, logrando exactamente el equilibrio visual que su presentación requiere sin modificar los datos subyacentes.
+El ancho de espacio controla la cantidad de espacio vacío entre columnas o barras adyacentes: los espacios más amplios resaltan categorías individuales, mientras que los espacios más estrechos crean una apariencia más densa y compacta. Con Aspose.Slides para Python puede ajustar finamente este parámetro para una serie completa, logrando exactamente el equilibrio visual que su presentación requiere sin alterar los datos subyacentes.
 
-El siguiente ejemplo de código muestra cómo establecer el ancho del hueco para una serie:
+El siguiente ejemplo de código muestra cómo establecer el ancho de espacio para una serie:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -305,14 +305,14 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![El ancho del hueco](gap_width.png)
+![El ancho de espacio](gap_width.png)
 
-## **FAQ**
+## **Preguntas frecuentes**
 
-**¿Existe un límite en la cantidad de series que puede contener un único gráfico?**
+**¿Hay un límite en la cantidad de series que puede contener un único gráfico?**
 
-Aspose.Slides no impone un límite fijo en la cantidad de series que puede agregar. El techo práctico está determinado por la legibilidad del gráfico y por la memoria disponible para su aplicación.
+Aspose.Slides no impone un límite fijo en la cantidad de series que agregue. El límite práctico está determinado por la legibilidad del gráfico y por la memoria disponible para su aplicación.
 
-**¿Qué pasa si las columnas dentro de un clúster están demasiado juntas o demasiado separadas?**
+**¿Qué pasa si las columnas dentro de un grupo están demasiado juntas o demasiado separadas?**
 
-Ajuste la configuración [gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/gap_width/) para esa serie (o su grupo de series padre). Aumentar el valor amplía el espacio entre columnas, mientras que disminuirlo las acerca entre sí.
+Ajuste la configuración [gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/gap_width/) para esa serie (o su grupo de series padre). Incrementar el valor amplía el espacio entre columnas, mientras que disminuirlo las acerca más.

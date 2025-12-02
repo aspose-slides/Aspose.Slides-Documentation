@@ -1,6 +1,6 @@
 ---
-title: إدارة سلاسل المخطط في بايثون
-linktitle: سلسلة المخطط
+title: إدارة سلاسل بيانات المخطط في بايثون
+linktitle: سلاسل البيانات
 type: docs
 url: /ar/python-net/chart-series/
 keywords:
@@ -9,27 +9,28 @@ keywords:
 - لون السلسلة
 - لون الفئة
 - اسم السلسلة
-- نقطة بيانات
+- نقطة البيانات
 - فجوة السلسلة
 - PowerPoint
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تعرّف على كيفية إدارة سلاسل المخطط في بايثون لبرنامج PowerPoint (PPT/PPTX) باستخدام أمثلة عملية على الشيفرة وأفضل الممارسات لتحسين عروض البيانات الخاصة بك."
+description: "تعلم كيفية إدارة سلاسل بيانات المخطط في بايثون لبرنامج PowerPoint (PPT/PPTX) مع أمثلة عملية على الشيفرة وأفضل الممارسات لتعزيز عروض البيانات الخاصة بك."
 ---
 
 ## **نظرة عامة**
 
-هذا المقال يصف دور [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) في Aspose.Slides for Python، مع التركيز على كيفية هيكلة البيانات وتصورها داخل العروض التقديمية. توفر هذه الكائنات العناصر الأساسية التي تحدد مجموعات نقاط البيانات الفردية والفئات ومعلمات المظهر في المخطط. من خلال العمل مع [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/)، يمكن للمطورين دمج مصادر البيانات الأساسية بسلاسة والحفاظ على التحكم الكامل في طريقة عرض المعلومات، مما ينتج عروضًا تقديمية ديناميكية قائمة على البيانات تنقل الأفكار والتحليل بوضوح.
+تصف هذه المقالة دور [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) في Aspose.Slides للغة Python، مع التركيز على كيفية هيكلة البيانات وتصورها داخل العروض التقديمية. توفر هذه الكائنات العناصر الأساسية التي تعرف مجموعات منفصلة من نقاط البيانات والفئات ومعلمات المظهر في المخطط. من خلال العمل مع [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/)، يمكن للمطورين دمج مصادر البيانات الأساسية بسلاسة والحفاظ على سيطرة كاملة على طريقة عرض المعلومات، مما ينتج عروضًا تقديمية ديناميكية ومبنية على البيانات تنقل الأفكار والتحليل بوضوح.
 
 السلسلة هي صف أو عمود من الأرقام يتم رسمه في مخطط.
 
-![سلسلة-الرسم-البياني-في-بوربوينت](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **تعيين تداخل السلسلة**
+## **تحديد تراكب السلسلة**
 
-خاصية [ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) تتحكم في كيفية تداخل الأشرطة والأعمدة في مخطط ثنائي الأبعاد عن طريق تحديد نطاق من -100 إلى 100. بما أن هذه الخاصية مرتبطة بمجموعة السلاسل بدلاً من كل سلسلة مخطط على حدة، فهي للقراءة فقط على مستوى السلسلة. لتكوين قيم التداخل، استخدم خاصية `parent_series_group.overlap` القابلة للقراءة والكتابة، والتي تطبق التداخل المحدد على جميع السلاسل في تلك المجموعة.
+تتحكم الخاصية [ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) في كيفية تداخل الأشرطة والأعمدة في المخطط ثنائي الأبعاد عن طريق تحديد نطاق من -100 إلى 100. نظرًا لأن هذه الخاصية مرتبطة بمجموعة السلاسل بدلاً من كل سلسلة على حدة، فهي قراءة فقط على مستوى السلسلة. لتكوين قيم التداخل، استخدم الخاصية `parent_series_group.overlap` القابلة للقراءة والكتابة، والتي تطبق التداخل المحدد على جميع السلاسل في تلك المجموعة.
 
+فيما يلي مثال بلغة Python يوضح كيفية إنشاء عرض تقديمي، إضافة مخطط أعمدة مجمع، الوصول إلى أول سلسلة في المخطط، ضبط إعداد التداخل، ثم حفظ النتيجة كملف PPTX:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -39,7 +40,7 @@ series_overlap = 30
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # أضف مخطط عمودي متجمع مع البيانات الافتراضية.
+    # أضف مخطط أعمدة متجمع مع البيانات الافتراضية.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     series = chart.chart_data.series[0]
@@ -47,19 +48,20 @@ with slides.Presentation() as presentation:
         # تعيين تداخل السلسلة.
         series.parent_series_group.overlap = series_overlap
 
-    # حفظ ملف العرض التقديمي إلى القرص.
+    # احفظ ملف العرض التقديمي إلى القرص.
     presentation.save("series_overlap.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
 النتيجة:
 
-![تداخل السلسلة](series_overlap.png)
+![تراكب السلسلة](series_overlap.png)
 
 ## **تغيير لون تعبئة السلسلة**
 
-يتيح Aspose.Slides تخصيص ألوان تعبئة سلاسل المخطط بسهولة، مما يسمح لك بتمييز نقاط بيانات معينة وإنشاء مخططات جذابة بصريًا. يتم ذلك عبر كائن [Format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/)، الذي يدعم أنواع تعبئة مختلفة وتكوينات ألوان وخيارات تنسيق متقدمة أخرى. بعد إضافة مخطط إلى شريحة والوصول إلى السلسلة المطلوبة، احصل على السلسلة وطبق لون التعبئة المناسب. بخلاف التعبئة الصلبة، يمكنك أيضًا الاستفادة من تعبئة التدرج أو النمط لتوفير مرونة تصميمية أكبر. بمجرد ضبط الألوان وفقًا لمتطلباتك، احفظ العرض التقديمي لتثبيت المظهر المحدث.
+يسهل Aspose.Slides تخصيص ألوان تعبئة سلسلة المخطط، مما يتيح لك إبراز نقاط بيانات معينة وإنشاء مخططات جذابة بصريًا. يتم ذلك من خلال كائن [Format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/)، الذي يدعم أنواع تعبئة متعددة وتكوينات ألوان وخيارات تنسيق متقدمة أخرى. بعد إضافة مخطط إلى شريحة والوصول إلى السلسلة المطلوبة، ما عليك سوى الحصول على السلسلة وتطبيق لون التعبئة المناسب. إلى جانب التعبئات الصلبة، يمكنك أيضًا الاستفادة من تعبئات التدرج أو النمط لمزيد من مرونة التصميم. بمجرد ضبط الألوان وفقًا لمتطلباتك، احفظ العرض التقديمي لتثبيت الشكل المحدث.
 
+المثال التالي بلغة Python يوضح كيفية تغيير لون السلسلة الأولى:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -70,10 +72,10 @@ series_color = draw.Color.blue
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # أضف مخطط عمودي متجمع مع البيانات الافتراضية.
+    # أضف مخطط أعمدة متجمع مع البيانات الافتراضية.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
-    # حدد لون السلسلة الأولى.
+    # تعيين لون السلسلة الأولى.
     series = chart.chart_data.series[0]
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = series_color
@@ -89,8 +91,9 @@ with slides.Presentation() as presentation:
 
 ## **إعادة تسمية سلسلة**
 
-يوفر Aspose.Slides طريقة بسيطة لتعديل أسماء سلاسل المخطط، مما يسهل تسمية البيانات بطريقة واضحة وذات معنى. من خلال الوصول إلى خلية ورقة العمل ذات الصلة ببيانات المخطط، يمكن للمطورين تخصيص طريقة عرض البيانات. هذا التعديل مفيد خصوصًا عندما تحتاج أسماء السلاسل إلى تحديث أو توضيح بناءً على سياق البيانات. بعد إعادة تسمية السلسلة، يمكن حفظ العرض التقديمي لتثبيت التغييرات.
+يوفر Aspose.Slides طريقة بسيطة لتعديل أسماء سلاسل المخطط، مما يسهل وضع علامات واضحة وذات معنى على البيانات. من خلال الوصول إلى خلية ورقة العمل ذات الصلة في بيانات المخطط، يمكن للمطورين تخصيص طريقة عرض البيانات. هذا التعديل مفيد خصوصًا عندما تحتاج أسماء السلاسل إلى تحديث أو توضيح بناءً على سياق البيانات. بعد إعادة تسمية السلسلة، يمكن حفظ العرض التقديمي لتثبيت التغييرات.
 
+فيما يلي مقتطف كود Python يُظهر هذه العملية عمليًا.
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -100,10 +103,10 @@ series_name = "New name"
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # أضف مخطط عمودي متجمع مع البيانات الافتراضية.
+    # أضف مخطط أعمدة متجمع مع البيانات الافتراضية.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
     
-    # تحديد اسم السلسلة الأولى.
+    # تعيين اسم السلسلة الأولى.
     series_cell = chart.chart_data.chart_data_workbook.get_cell(0, 0, 1)
     series_cell.value = series_name
     
@@ -112,8 +115,7 @@ with slides.Presentation() as presentation:
 ```
 
 
-الشفرة البديلة لتغيير اسم السلسلة:
-
+المثال التالي بلغة Python يُظهر طريقة بديلة لتغيير اسم السلسلة:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -123,7 +125,7 @@ series_name = "New name"
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # أضف مخطط عمودي متجمع مع البيانات الافتراضية.
+    # أضف مخطط أعمدة متجمع مع البيانات الافتراضية.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
     series = chart.chart_data.series[0]
     
@@ -139,10 +141,11 @@ with slides.Presentation() as presentation:
 
 ![اسم السلسلة](series_name.png)
 
-## **الحصول على لون تعبئة السلسلة التلقائي**
+## **الحصول على لون التعبئة التلقائي للسلسلة**
 
-يسمح Aspose.Slides for Python بالحصول على لون التعبئة التلقائي لسلاسل المخطط داخل منطقة الرسم. بعد إنشاء كائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) والحصول على المرجع إلى الشريحة المطلوبة عبر الفهرس، يمكنك إضافة مخطط من النوع المفضل (مثل `ChartType.CLUSTERED_COLUMN`). من خلال الوصول إلى السلسلة في المخطط، يمكنك استخراج لون التعبئة التلقائي.
+يتيح Aspose.Slides للغة Python الحصول على لون التعبئة التلقائي لسلسلة المخطط داخل منطقة الرسم. بعد إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)، يمكنك الحصول على مرجع للشفافة المطلوبة حسب الفهرس، ثم إضافة مخطط من النوع المفضل لديك (مثل `ChartType.CLUSTERED_COLUMN`). من خلال الوصول إلى السلسلة في المخطط، يمكنك الحصول على لون التعبئة التلقائي.
 
+الكود التالي بلغة Python يوضح هذه العملية بالتفصيل.
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -150,7 +153,7 @@ import aspose.slides.charts as charts
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # أضف مخطط عمودي متجمع مع البيانات الافتراضية.
+    # أضف مخطط أعمدة متجمع مع البيانات الافتراضية.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     for i in range(len(chart.chart_data.series)):
@@ -160,6 +163,7 @@ with slides.Presentation() as presentation:
 ```
 
 
+نموذج الإخراج:
 ```text
 Series 0 color: ff4f81bd
 Series 1 color: ffc0504d
@@ -167,10 +171,11 @@ Series 2 color: ff9bbb59
 ```
 
 
-## **تعيين تعبئة عكسية للسلسلة**
+## **تعيين ألوان تعبئة معكوسة للسلسلة**
 
-عندما تحتوي سلسلة البيانات على قيم موجبة وسالبة، قد يجعل تلوين كل عمود أو شريط باللون نفسه المخطط صعب القراءة. يتيح Aspose.Slides for Python تعيين لون تعبئة عكسي — تعبئة منفصلة تُطبق تلقائيًا على نقاط البيانات التي تقع تحت الصفر — وبذلك تبرز القيم السالبة بنظرة واحدة. في هذا القسم ستتعلم كيفية تفعيل هذا الخيار، اختيار لون مناسب، وحفظ العرض التقديمي المحدث.
+عند احتواء سلسلة البيانات الخاصة بك على قيم موجبة وسالبة، فإن تلوين كل عمود أو شريط بنفس اللون قد يجعل المخطط صعب القراءة. يتيح Aspose.Slides للغة Python تعيين لون تعبئة معكوس—تعبئة منفصلة تُطبق تلقائيًا على نقاط البيانات التي تقع تحت الصفر—لتبرز القيم السالبة بنظرة واحدة. في هذا القسم ستتعلم كيفية تمكين هذا الخيار، اختيار اللون المناسب، وحفظ العرض التقديمي المحدث.
 
+المثال التالي يوضح العملية:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -200,7 +205,7 @@ with slides.Presentation() as presentation:
     series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 2, 1, 50))
     series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 3, 1, -30))
 
-    # حدد إعدادات اللون للسلسلة.
+    # تعيين إعدادات اللون للسلسلة.
     series_color = series.get_automatic_series_color()
     series.invert_if_negative = True
     series.format.fill.fill_type = slides.FillType.SOLID
@@ -212,10 +217,11 @@ with slides.Presentation() as presentation:
 
 النتيجة:
 
-![لون التعبئة الصلب العكسي](inverted_solid_fill_color.png)
+![لون التعبئة الصلبة المعكوس](inverted_solid_fill_color.png)
 
-يمكنك عكس لون التعبئة لنقطة بيانات واحدة بدلاً من السلسلة بأكملها. ما عليك سوى الوصول إلى `ChartDataPoint` المطلوبة وتعيين خاصية `invert_if_negative` إلى `True`.
+يمكنك عكس لون التعبئة لنقطة بيانات واحدة بدلًا من السلسلة بأكملها. ما عليك سوى الوصول إلى `ChartDataPoint` المطلوبة وتعيين الخاصية `invert_if_negative` إلى `True`.
 
+المثال التالي يوضح كيفية القيام بذلك:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -243,8 +249,9 @@ with slides.Presentation() as presentation:
 
 ## **مسح البيانات لنقاط بيانات محددة**
 
-أحيانًا يحتوي المخطط على قيم اختبارية، قيم شاذة، أو مدخلات قديمة تحتاج إلى إزالتها دون إعادة بناء السلسلة بالكامل. يتيح Aspose.Slides for Python استهداف أي نقطة بيانات عبر الفهرس، مسح محتواها، وتحديث المخطط فورًا بحيث تنقل النقاط المتبقية وتُعاد مقياس المحاور تلقائيًا.
+في بعض الأحيان يحتوي المخطط على قيم اختبار أو قيم شاذة أو إدخالات قديمة تحتاج إلى إزالتها دون إعادة بناء السلسلة بالكامل. يتيح Aspose.Slides للغة Python استهداف أي نقطة بيانات حسب الفهرس، مسح محتواها، وتحديث الرسم فورًا بحيث تتحرك النقاط المتبقية وتُعاد مقياس المحاور تلقائيًا.
 
+المثال التالي يوضح العملية:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -266,31 +273,32 @@ with slides.Presentation("test_chart.pptx") as presentation:
 
 ## **تعيين عرض الفجوة للسلسلة**
 
-يتحكم عرض الفجوة في مقدار المساحة الفارغة بين الأعمدة أو الأشرطة المتجاورة — زيادة الفجوة تُبرز الفئات الفردية، بينما تقليل الفجوة يخلق مظهرًا أكثر كثافة وضغطًا. من خلال Aspose.Slides for Python يمكنك ضبط هذه المعلمة لسلسلة كاملة، لتحقيق التوازن البصري المطلوب في العرض التقديمي دون تعديل البيانات الأساسية.
+يتحكم عرض الفجوة في مقدار المسافة الفارغة بين الأعمدة أو الأشرطة المتجاورة—فكلما زادت الفجوة، زاد التركيز على الفئات الفردية، بينما الفجوات الضيقة تعطي مظهرًا أكثر كثافة وتكثف العناصر. عبر Aspose.Slides للغة Python يمكنك ضبط هذا المعامل لسلسلة بأكملها، محققًا التوازن البصري المطلوب في عرضك التقديمي دون تعديل البيانات الأساسية.
 
+المثال التالي يوضح كيفية ضبط عرض الفجوة لسلسلة:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
 gap_width = 30
 
-# أنشئ عرض تقديمي فارغ.
+# إنشاء عرض تقديمي فارغ.
 with slides.Presentation() as presentation:
 
     # الوصول إلى الشريحة الأولى.
     slide = presentation.slides[0]
 
-    # أضف مخططًا بالبيانات الافتراضية.
+    # إضافة مخطط ببيانات افتراضية.
     chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 500, 200)
 
-    # احفظ العرض التقديمي إلى القرص.
+    # حفظ العرض التقديمي إلى القرص.
     presentation.save("default_gap_width.pptx", slides.export.SaveFormat.PPTX)
 
-    # ضبط قيمة gap_width.
+    # تعيين قيمة gap_width.
     series = chart.chart_data.series[0]
     series.parent_series_group.gap_width = gap_width
 
-    # احفظ العرض التقديمي إلى القرص.
+    # حفظ العرض التقديمي إلى القرص.
     presentation.save("gap_width_30.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -299,12 +307,12 @@ with slides.Presentation() as presentation:
 
 ![عرض الفجوة](gap_width.png)
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
 **هل هناك حد لعدد السلاسل التي يمكن أن يحتويها مخطط واحد؟**
 
-لا يفرض Aspose.Slides حدًا ثابتًا لعدد السلاسل التي يمكنك إضافتها. الحد العملي يُحدد بقراءة المخطط والذاكرة المتوفرة لتطبيقك.
+لا تفرض Aspose.Slides حدًا ثابتًا على عدد السلاسل التي تضيفها. الحد العملي يُحدد بقراءة المخطط والذاكرة المتاحة لتطبيقك.
 
-**ماذا لو كانت الأعمدة داخل مجموعة العنقودية متقاربة جدًا أو متباعدة جدًا؟**
+**ماذا إذا كانت الأعمدة داخل مجموعة ما تكون قريبة جدًا من بعضها أو متباعدة جدًا؟**
 
-قم بضبط إعداد [gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/gap_width/) لتلك السلسلة (أو مجموعة السلاسل الأم). زيادة القيمة تُوسّع المسافة بين الأعمدة، بينما تقليلها يجعلهما أقرب.
+قم بضبط إعداد [gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/gap_width/) لتلك السلسلة (أو مجموعة السلاسل الأم). زيادة القيمة توسع الفجوة بين الأعمدة، بينما تقليلها يقرّبها من بعضها.
