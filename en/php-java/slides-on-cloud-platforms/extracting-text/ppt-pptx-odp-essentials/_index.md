@@ -4,12 +4,15 @@ type: docs
 weight: 10
 url: /php-java/slide-text-extraction-ppt-pptx-odp-essentials/
 keywords:
+- cloud platforms
+- cloud integration
 - presentation text extraction
 - slide text extraction
 - extract text from PPT
 - extract text from PPTX
 - extract text from ODP
 - Microsoft PowerPoint
+- OpenDocument
 - LibreOffice Impress
 - Office Open XML
 - search indexing

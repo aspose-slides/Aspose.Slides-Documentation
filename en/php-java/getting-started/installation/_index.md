@@ -4,14 +4,19 @@ type: docs
 weight: 70
 url: /php-java/installation/
 keywords:
-- download Aspose.Slides
 - install Aspose.Slides
+- download Aspose.Slides
+- use Aspose.Slides
 - Aspose.Slides installation
 - Windows
-- macOS
 - Linux
+- macOS
+- PowerPoint
+- OpenDocument
+- presentation
 - PHP
-description: "Install Aspose.Slides for PHP via Java in Windows, Linux or macOS"
+- Aspose.Slides
+description: "Quickly install Aspose.Slides for PHP via Java. Step-by-step guide, system requirements, and code samples — start working with PowerPoint presentations today!"
 ---
 
 ## **Configure environment**

@@ -3,6 +3,18 @@ title: Declaration
 type: docs
 weight: 60
 url: /php-java/declaration/
+keywords:
+- declaration
+- components
+- Full Trust permission
+- registry settings
+- system files
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Learn about Aspose.Slides for PHP trust requirements, permissions, and hosting limitations so you can safely deploy apps that process PPT, PPTX and ODP on servers."
 ---
 
 {{% alert color="primary" %}} 
