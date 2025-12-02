@@ -1,5 +1,6 @@
 ---
-title: Presentation Content
+title: Manage Presentation Content in Python
+linktitle: Presentation Content
 type: docs
 weight: 30
 url: /python-net/presentation-content/
