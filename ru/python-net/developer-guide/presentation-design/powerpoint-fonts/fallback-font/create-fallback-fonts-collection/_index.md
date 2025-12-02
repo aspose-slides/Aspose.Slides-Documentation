@@ -1,6 +1,6 @@
 ---
-title: Настройка резервных шрифтов с помощью Python
-linktitle: Настройка резервных шрифтов
+title: Настройка коллекций резервных шрифтов в Python
+linktitle: Коллекция резервных шрифтов
 type: docs
 weight: 20
 url: /ru/python-net/create-fallback-fonts-collection/
@@ -15,17 +15,18 @@ keywords:
 - презентация
 - Python
 - Aspose.Slides
-description: "Настройте коллекцию резервных шрифтов в Aspose.Slides for Python via .NET, чтобы сохранить текст единообразным и четким в презентациях PowerPoint и OpenDocument."
+description: "Создайте коллекцию резервных шрифтов в Aspose.Slides для Python через .NET, чтобы обеспечить согласованность и чёткость текста в презентациях PowerPoint и OpenDocument."
 ---
 
-Экземпляры класса [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) могут быть организованы в [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/), который реализует [IFontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrulescollection/) интерфейс. Можно добавлять или удалять правила из коллекции.
+## **Применить правила резервного шрифта**
 
-Затем эта коллекция может быть назначена свойству [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) класса [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/). FontsManager управляет шрифтами в презентации. Узнайте больше [О FontsManager и FontsLoader](/slides/ru/python-net/about-fontsmanager-and-fontsloader/).
+Экземпляры класса [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) могут быть организованы в [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/), который реализует интерфейс [IFontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrulescollection/). Можно добавлять или удалять правила из коллекции.
 
-Каждая [Презентация](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) имеет свойство [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) с экземпляром класса FontsManager.
+Затем эту коллекцию можно назначить свойству [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) класса [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/). FontsManager управляет шрифтами во всей презентации. Подробнее [О FontsManager и FontsLoader](/slides/ru/python-net/about-fontsmanager-and-fontsloader/).
 
-Вот пример того, как создать коллекцию правил запасных шрифтов и назначить её в FontsManager определенной презентации:  
+У каждого [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) есть свойство [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) со своим собственным экземпляром класса FontsManager.
 
+Ниже приведён пример того, как создать коллекцию правил резервных шрифтов и назначить её в FontsManager определённой презентации:
 ```py
 import aspose.slides as slides
 
@@ -38,8 +39,27 @@ with slides.Presentation() as presentation:
 	presentation.fonts_manager.font_fall_back_rules_collection = userRulesList
 ```
 
-После инициализации FontsManager с коллекцией запасных шрифтов, запасные шрифты применяются во время рендеринга презентации.
+
+После того как FontsManager инициализирован коллекцией резервных шрифтов, резервные шрифты применяются во время рендеринга презентации.
 
 {{% alert color="primary" %}} 
-Узнайте больше о том, как [Рендерить презентацию с запасным шрифтом](/slides/ru/python-net/render-presentation-with-fallback-font/).
+Подробнее о том, как [Визуализировать презентацию с резервным шрифтом](/slides/ru/python-net/render-presentation-with-fallback-font/).
 {{% /alert %}}
+
+## **Часто задаваемые вопросы**
+
+**Будут ли мои правила резервного шрифта встроены в файл PPTX и видимы в PowerPoint после сохранения?**
+
+Нет. Правила резервного шрифта — это настройки рендеринга во время выполнения; они не сериализуются в PPTX и не появятся в пользовательском интерфейсе PowerPoint.
+
+**Применяется ли резервный шрифт к тексту внутри SmartArt, WordArt, диаграмм и таблиц?**
+
+Да. Тот же механизм подстановки глифов используется для любого текста в этих объектах.
+
+**Поставляет ли Aspose какие‑либо шрифты вместе с библиотекой?**
+
+Нет. Вы добавляете и используете шрифты сами, на своей ответственности.
+
+**Можно ли одновременно использовать замену/подстановку отсутствующих шрифтов и резервный шрифт для отсутствующих глифов?**
+
+Да. Это независимые этапы одного и того же конвейера разрешения шрифтов: сначала движок определяет доступность шрифтов ([replacement](/slides/ru/python-net/font-replacement/)/[substitution](/slides/ru/python-net/font-substitution/)), затем резервный шрифт заполняет пробелы для отсутствующих глифов в доступных шрифтах.

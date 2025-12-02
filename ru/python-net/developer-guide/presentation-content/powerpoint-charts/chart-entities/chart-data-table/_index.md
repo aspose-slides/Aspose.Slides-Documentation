@@ -1,22 +1,30 @@
 ---
-title: Таблица данных графика
+title: Настройка таблиц данных диаграмм в Python
+linktitle: Таблица данных
 type: docs
 url: /ru/python-net/chart-data-table/
-keywords: "Свойства шрифтов, таблица данных графика, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Установить свойства шрифтов для таблицы данных графика в презентациях PowerPoint на Python"
+keywords:
+- данные диаграммы
+- таблица данных
+- свойства шрифта
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Настройте таблицы данных диаграмм в Python для PPT, PPTX и ODP с помощью Aspose.Slides, чтобы повысить эффективность и привлекательность презентаций."
 ---
 
-## **Установка свойств шрифтов для таблицы данных графика**
-Aspose.Slides для Python через .NET предоставляет поддержку изменения цвета категорий в цвете серии.
+## **Установить свойства шрифта для таблицы данных диаграммы**
+Aspose.Slides для Python через .NET предоставляет возможность изменять цвет категорий в цвете серии. 
 
-1. Создайте объект класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Добавьте график на слайд.
-1. Установите таблицу графика.
-1. Установите высоту шрифта.
-1. Сохраните измененную презентацию.
+1. Создайте объект класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. Добавьте диаграмму на слайд.
+3. Установите таблицу диаграммы.
+4. Установите высоту шрифта.
+5. Сохраните изменённую презентацию.
 
-Ниже приведен пример кода.
-
+Ниже приведён пример. 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -31,3 +39,22 @@ with slides.Presentation() as pres:
 
 	pres.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Могу ли я отображать небольшие элементы легенды рядом со значениями в таблице данных диаграммы?**
+
+Да. Таблица данных поддерживает [ключи легенды](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datatable/show_legend_key/), и их можно включать или выключать.
+
+**Будет ли таблица данных сохранена при экспорте презентации в PDF, HTML или изображения?**
+
+Да. Aspose.Slides рендерит диаграмму как часть слайда, поэтому экспортированный [PDF](/slides/ru/python-net/convert-powerpoint-to-pdf/)/[HTML](/slides/ru/python-net/convert-powerpoint-to-html/)/[image](/slides/ru/python-net/convert-powerpoint-to-png/) включает диаграмму с её таблицей данных.
+
+**Поддерживаются ли таблицы данных для диаграмм, полученных из файла шаблона?**
+
+Да. Для любой диаграммы, загруженной из существующей презентации или шаблона, можно проверить и изменить, отображается ли таблица данных, используя свойства диаграммы. См. свойство [отображается](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_data_table/) .
+
+**Как быстро найти, какие диаграммы в файле имеют включённую таблицу данных?**
+
+Проверьте свойство каждой диаграммы, указывающее, отображается ли таблица данных, и пройдитесь по слайдам, чтобы определить диаграммы, у которых она включена. См. свойство [отображается](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_data_table/) .

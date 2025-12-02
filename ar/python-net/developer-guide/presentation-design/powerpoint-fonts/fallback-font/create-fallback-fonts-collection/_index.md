@@ -1,20 +1,32 @@
 ---
-title: إنشاء مجموعة خطوط احتياطية
+title: تكوين مجموعات خطوط الرجوع في Python
+linktitle: مجموعة خطوط الرجوع
 type: docs
 weight: 20
 url: /ar/python-net/create-fallback-fonts-collection/
-keywords: "مجموعة خطوط احتياطية، عرض PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
-description: "مجموعة خطوط احتياطية في PowerPoint باستخدام بايثون"
+keywords:
+- خط رجوع
+- قاعدة رجوع
+- مجموعة خطوط
+- تهيئة الخط
+- إعداد الخط
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "إعداد مجموعة خطوط الرجوع في Aspose.Slides لبايثون عبر .NET للحفاظ على تناسق النص وحدته في عروض PowerPoint وOpenDocument."
 ---
 
-يمكن تنظيم كInstances من [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) في [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/)، التي تنفذ [IFontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrulescollection/) واجهة. من الممكن إضافة أو إزالة قواعد من المجموعة.
+## **تطبيق قواعد الرجوع**
 
-ثم يمكن تعيين هذه المجموعة إلى [FontFallBackRulesCollection ](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)خاصية من فئة [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) . يتحكم FontsManager في الخطوط عبر العرض التقديمي. اقرأ المزيد [حول FontsManager وFontsLoader](/slides/ar/python-net/about-fontsmanager-and-fontsloader/).
+يمكن تنظيم مثيلات فئة [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) في [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/)، التي تنفّذ واجهة [IFontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrulescollection/). يمكن إضافة أو إزالة القواعد من المجموعة.
 
-كل [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)لها خاصية [FontsManager ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) مع مثيل خاص بها من فئة FontsManager.
+ثم يمكن تعيين هذه المجموعة إلى خاصية [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) في فئة [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/). يتحكم FontsManager في الخطوط عبر العرض التقديمي. اقرأ المزيد [About FontsManager and FontsLoader](/slides/ar/python-net/about-fontsmanager-and-fontsloader/).
 
-إليك مثال حول كيفية إنشاء مجموعة قواعد خطوط احتياطية وتعيينها إلى FontsManager لعرض تقديمي معين:  
+كل [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) يحتوي على خاصية [FontsManager ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) مع نسخة خاصة به من فئة FontsManager.
 
+فيما يلي مثال على كيفية إنشاء مجموعة قواعد خطوط الرجوع وتعيينها في FontsManager لعرض تقديمي معين:
 ```py
 import aspose.slides as slides
 
@@ -27,8 +39,27 @@ with slides.Presentation() as presentation:
 	presentation.fonts_manager.font_fall_back_rules_collection = userRulesList
 ```
 
-بعد تهيئة FontsManager باستخدام مجموعة الخطوط الاحتياطية، يتم تطبيق الخطوط الاحتياطية أثناء عرض العرض التقديمي.
+
+بعد تهيئة FontsManager بمجموعة خطوط الرجوع، يتم تطبيق خطوط الرجوع أثناء عرض التقديم.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد حول كيفية [عرض عرض تقديمي بخط احتياطي](/slides/ar/python-net/render-presentation-with-fallback-font/).
+اقرأ المزيد حول كيفية [Render Presentation with Fallback Font](/slides/ar/python-net/render-presentation-with-fallback-font/).
 {{% /alert %}}
+
+## **الأسئلة المتكررة**
+
+**هل سيتم تضمين قواعد الرجوع في ملف PPTX وستظهر في PowerPoint بعد الحفظ؟**
+
+لا. قواعد الرجوع هي إعدادات عرض في وقت التنفيذ؛ لا يتم تسلسلها إلى ملف PPTX ولن تظهر في واجهة PowerPoint.
+
+**هل ينطبق الرجوع على النص داخل SmartArt وWordArt والرسوم البيانية والجداول؟**
+
+نعم. يتم استخدام نفس آلية استبدال الحروف لأي نص في هذه العناصر.
+
+**هل توزع Aspose أي خطوط مع المكتبة؟**
+
+لا. تقوم بإضافة واستخدام الخطوط بنفسك وتتحمل المسؤولية.
+
+**هل يمكن استخدام الاستبدال/الإحلال للخطوط المفقودة والرجوع للرموز المفقودة معًا؟**
+
+نعم. هما مرحلتان مستقلتان من نفس خط أنابيب حل الخطوط: أولاً يقوم المحرك بحل توفر الخطوط ([replacement](/slides/ar/python-net/font-replacement/)/[substitution](/slides/ar/python-net/font-substitution/))، ثم يملأ الرجوع الفجوات للرموز المفقودة في الخطوط المتاحة.
