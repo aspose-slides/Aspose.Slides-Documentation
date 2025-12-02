@@ -344,3 +344,13 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**Is there a limit to how many series a single chart can contain?**
+
+Aspose.Slides imposes no fixed cap on the number of series you add. The practical ceiling is set by chart readability and by the memory available to your application.
+
+**What if the columns within a cluster are too close together or too far apart?**
+
+Adjust the `GapWidth` setting for that series (or its parent series group). Increasing the value widens the space between columns, while decreasing it brings them closer together.

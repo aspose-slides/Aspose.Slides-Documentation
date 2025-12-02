@@ -90,3 +90,17 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**Can I remove all tags from a presentation, slide, or shape in one operation?**
+
+Yes. The [tag collection](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/) supports a [clear](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/#clear--) operation that deletes all key–value pairs at once.
+
+**How do I delete a single tag by its name without iterating over the whole collection?**
+
+Use the [Remove(name)](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/#remove-java.lang.String-) operation on [tag collection](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/) to delete the tag by its key.
+
+**How can I retrieve the complete list of tag names for analytics or filtering?**
+
+Use [getNamesOfTags](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/#getNamesOfTags--) on the [tag collection](https://reference.aspose.com/slides/java/com.aspose.slides/tagcollection/); it returns an array of all tag names.

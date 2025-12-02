@@ -714,3 +714,13 @@ Output:
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
+
+## **FAQ**
+
+**How to modify text in a table on a slide?**
+
+To modify text in a table on a slide, you need to use the [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) interface. You can iterate through all the cells in the table and change the text in each cell by accessing its `TextFrame` and `ParagraphFormat` properties within each cell.
+
+**How to apply gradient color to text in a PowerPoint slide?**
+
+To apply gradient color to text, use the `getFillFormat` method in [BasePortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/). Set the `FilFormat` to `Gradient`, where you can define the gradient's start and end colors, along with other properties such as direction and transparency to create the gradient effect on the text.

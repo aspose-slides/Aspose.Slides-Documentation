@@ -164,7 +164,16 @@ If you set the `WrapText` property to `False` for a shape, when the text inside 
 
 {{% /alert %}}
 
+## **FAQ**
 
+**Do the text frame’s internal margins affect AutoFit?**
 
+Yes. Padding (internal margins) reduces the usable area for text, so AutoFit will kick in earlier—shrinking the font or resizing the shape sooner. Check and adjust margins before tuning AutoFit.
 
+**How does AutoFit interact with manual and soft line breaks?**
 
+Forced breaks remain in place, and AutoFit adapts font size and spacing around them. Removing unnecessary breaks often reduces how aggressively AutoFit needs to shrink the text.
+
+**Does changing the theme font or triggering font substitution affect AutoFit results?**
+
+Yes. Substituting to a font with different glyph metrics changes text width/height, which can alter final font size and line wrapping. After any font change or substitution, re-check the slides.

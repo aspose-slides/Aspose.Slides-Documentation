@@ -45,3 +45,17 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**Can I create a multi-level doughnut with multiple rings?**
+
+Yes. Add multiple series to a single doughnut chart—each series becomes a separate ring. The ring order is determined by the order of the series in the collection.
+
+**Is an "exploded" doughnut (separated slices) supported?**
+
+Yes. There is an Exploded Doughnut [chart type](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) and an explosion property on data points; you can separate individual slices.
+
+**How can I get an image of a doughnut chart (PNG/SVG) for a report?**
+
+A chart is a shape; you can render it to a [raster image](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage-int-float-float-) or export the chart to an [SVG image](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).

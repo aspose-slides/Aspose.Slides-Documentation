@@ -111,3 +111,13 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**What do 'forward' and 'backward' mean for a trendline?**
+
+They are the lengths of the trendline projected forward/backward: for scatter (XY) charts — in axis units; for non-scatter charts — in number of categories. Only non-negative values are allowed.
+
+**Will the trendline be preserved when exporting the presentation to PDF or SVG, or when rendering a slide to an image?**
+
+Yes. Aspose.Slides converts presentations to [PDF](/slides/java/convert-powerpoint-to-pdf/)/[SVG](/slides/java/render-a-slide-as-an-svg-image/) and renders charts to images; trendlines, as part of the chart, are preserved during these operations. A method is also available to [export an image of the chart](/slides/java/create-shape-thumbnails/) itself.
