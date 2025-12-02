@@ -1,22 +1,30 @@
 ---
-title: Daten Tabelle für Diagramme
+title: Diagrammdatentabellen in Python anpassen
+linktitle: Datentabelle
 type: docs
 url: /de/python-net/chart-data-table/
-keywords: "Schriftarten-Eigenschaften, Daten Tabelle für Diagramme, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Schriftarten-Eigenschaften für die Datenbank Tabelle von Diagrammen in PowerPoint-Präsentationen in Python festlegen"
+keywords:
+- Diagrammdaten
+- Datentabelle
+- Schrifteigenschaften
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Passen Sie Diagrammdatentabellen in Python für PPT, PPTX und ODP mit Aspose.Slides an, um die Effizienz und Attraktivität von Präsentationen zu steigern."
 ---
 
-## **Schriftarten-Eigenschaften für Daten Tabelle von Diagrammen festlegen**
-Aspose.Slides für Python über .NET unterstützt das Ändern der Farben von Kategorien in der Farbserie.
+## **Set Font Properties for Chart Data Table**
+Aspose.Slides for Python via .NET bietet Unterstützung für das Ändern der Farbe von Kategorien in einer Serienfarbe.
 
-1. Instanziieren Sie das [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klassenobjekt.
-1. Fügen Sie ein Diagramm auf der Folie hinzu.
-1. Legen Sie die Diagrammtabelle fest.
+1. Instanziieren Sie das [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klassenobjekt.
+1. Fügen Sie ein Diagramm zur Folie hinzu.
+1. Setzen Sie die Diagrammtabelle.
 1. Legen Sie die Schriftgröße fest.
-1. Speichern Sie die modifizierte Präsentation.
+1. Speichern Sie die geänderte Präsentation.
 
-Unten ist ein Beispiel angegeben.
-
+Ein Beispiel wird unten angegeben.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -31,3 +39,22 @@ with slides.Presentation() as pres:
 
 	pres.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Kann ich kleine Legenden-Schlüssel neben den Werten in der Datentabelle des Diagramms anzeigen?**
+
+Ja. Die Datentabelle unterstützt [legend keys](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datatable/show_legend_key/), und Sie können sie ein- oder ausschalten.
+
+**Wird die Datentabelle beim Export der Präsentation in PDF, HTML oder Bilder beibehalten?**
+
+Ja. Aspose.Slides rendert das Diagramm als Teil der Folie, sodass das exportierte [PDF](/slides/de/python-net/convert-powerpoint-to-pdf/)/[HTML](/slides/de/python-net/convert-powerpoint-to-html/)/[image](/slides/de/python-net/convert-powerpoint-to-png/) das Diagramm mit seiner Datentabelle enthält.
+
+**Werden Datentabellen für Diagramme unterstützt, die aus einer Vorlagendatei stammen?**
+
+Ja. Für jedes Diagramm, das aus einer bestehenden Präsentation oder Vorlage geladen wird, können Sie prüfen und ändern, ob eine Datentabelle [ist angezeigt](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_data_table/) mittels der Diagrammeigenschaften.
+
+**Wie kann ich schnell herausfinden, welche Diagramme in einer Datei die Datentabelle aktiviert haben?**
+
+Untersuchen Sie die Eigenschaft jedes Diagramms, die angibt, ob die Datentabelle [ist angezeigt](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_data_table/) und iterieren Sie über die Folien, um die Diagramme zu identifizieren, bei denen sie aktiviert ist.

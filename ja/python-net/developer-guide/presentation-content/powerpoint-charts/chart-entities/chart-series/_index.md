@@ -1,36 +1,36 @@
 ---
-title: Pythonでチャートシリーズを管理する
-linktitle: チャートシリーズ
+title: Pythonでチャート データシリーズを管理する
+linktitle: データシリーズ
 type: docs
 url: /ja/python-net/chart-series/
 keywords:
 - チャートシリーズ
-- シリーズのオーバーラップ
+- シリーズの重なり
 - シリーズの色
-- カテゴリの色
+- カテゴリ色
 - シリーズ名
 - データポイント
-- シリーズのギャップ
+- シリーズ間隔
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "PowerPoint（PPT/PPTX）用のPythonでチャートシリーズを管理する方法を学び、実践的なコード例とベストプラクティスでデータプレゼンテーションを強化します。"
+description: "PowerPoint (PPT/PPTX) 用の Pythonでチャート データシリーズを管理する方法を、実用的なコード例とベストプラクティスとともに学び、データプレゼンテーションを強化します。"
 ---
 
 ## **概要**
 
-このドキュメントでは、Aspose.Slides for Python における [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) の役割について説明し、プレゼンテーション内でデータがどのように構造化・可視化されるかに焦点を当てます。これらのオブジェクトは、チャート内の個々のデータポイント、カテゴリ、および外観パラメータを定義する基礎要素を提供します。[ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) を使用することで、開発者は基になるデータソースをシームレスに統合し、情報の表示方法を完全に制御でき、インサイトや分析を明確に伝える動的でデータ駆動型のプレゼンテーションを実現できます。
+この記事では、Aspose.Slides for Python における [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) の役割について説明し、プレゼンテーション内でデータがどのように構造化され、可視化されるかに焦点を当てます。これらのオブジェクトは、チャート内のデータポイント、カテゴリ、外観パラメータの個々のセットを定義する基礎要素を提供します。[ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) を使用することで、開発者は基盤となるデータソースをシームレスに統合し、情報の表示方法を完全にコントロールでき、動的でデータ駆動型のプレゼンテーションを実現し、洞察と分析を明確に伝えることができます。
 
 シリーズは、チャートにプロットされる数値の行または列です。
 
-![チャートシリーズ PowerPoint](chart-series-powerpoint.png)
+![チャートシリーズ](chart-series-powerpoint.png)
 
-## **シリーズのオーバーラップ設定**
+## **シリーズの重なり設定**
 
-[ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) プロパティは、2D チャート内の棒や列の重なり具合を -100 から 100 の範囲で指定して制御します。このプロパティは個々のチャートシリーズではなくシリーズ グループに関連付けられているため、シリーズレベルでは読み取り専用です。オーバーラップ値を設定するには、`parent_series_group.overlap` の読み書き可能なプロパティを使用し、指定したオーバーラップをそのグループ内のすべてのシリーズに適用します。
+[ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) プロパティは、2D チャートにおける棒や柱の重なりを -100 から 100 の範囲で指定して制御します。このプロパティは個々のチャートシリーズではなくシリーズ グループに関連付けられているため、シリーズレベルでは読み取り専用です。重なりの値を設定するには、`parent_series_group.overlap` の読み書き可能なプロパティを使用し、そのグループ内のすべてのシリーズに指定した重なりを適用します。
 
-以下は、プレゼンテーションを作成し、クラスター化列チャートを追加し、最初のチャートシリーズにアクセスしてオーバーラップ設定を構成し、結果を PPTX ファイルとして保存する Python の例です。
+以下は、プレゼンテーションを作成し、クラスター化された縦棒グラフを追加し、最初のチャートシリーズにアクセスして重なり設定を構成し、結果を PPTX ファイルとして保存する方法を示す Python の例です。
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -40,12 +40,12 @@ series_overlap = 30
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # デフォルトデータでクラスター化列チャートを追加します。
+    # デフォルトデータでクラスター化された縦棒グラフを追加します。
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     series = chart.chart_data.series[0]
     if series.overlap == 0:
-        # シリーズのオーバーラップを設定します。
+        # シリーズの重なりを設定します。
         series.parent_series_group.overlap = series_overlap
 
     # プレゼンテーションファイルをディスクに保存します。
@@ -55,11 +55,11 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![シリーズのオーバーラップ](series_overlap.png)
+![シリーズの重なり](series_overlap.png)
 
 ## **シリーズの塗りつぶし色の変更**
 
-Aspose.Slides を使用すると、チャートシリーズの塗りつぶし色を簡単にカスタマイズでき、特定のデータポイントを強調したり、視覚的に魅力的なチャートを作成したりできます。これは、さまざまな塗りつぶしタイプ、カラー設定、その他高度なスタイリング オプションをサポートする [Format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/) オブジェクトを介して実現します。スライドにチャートを追加し、目的のシリーズにアクセスしたら、シリーズを取得して適切な塗りつぶし色を適用するだけです。単色塗りつぶしに加えて、グラデーションやパターン塗りつぶしも活用でき、デザインの柔軟性が向上します。要件に合わせて色を設定したら、プレゼンテーションを保存して外観を確定します。
+Aspose.Slides を使用すると、チャートシリーズの塗りつぶし色を簡単にカスタマイズでき、特定のデータポイントを強調表示したり、視覚的に魅力的なチャートを作成したりできます。これは、さまざまな塗りつぶしタイプ、カラー設定、その他の高度なスタイリングオプションをサポートする [Format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/) オブジェクトを使用して実現します。スライドにチャートを追加し、目的のシリーズにアクセスしたら、シリーズを取得して適切な塗りつぶし色を適用するだけです。単色塗りつぶしだけでなく、グラデーションやパターン塗りつぶしも活用でき、デザインの柔軟性が高まります。要件に合わせて色を設定したら、プレゼンテーションを保存して更新された外観を確定します。
 
 以下の Python コード例は、最初のシリーズの色を変更する方法を示しています。
 ```py
@@ -72,7 +72,7 @@ series_color = draw.Color.blue
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # デフォルトデータでクラスター化列チャートを追加します。
+    # デフォルトデータでクラスター化された縦棒グラフを追加します。
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     # 最初のシリーズの色を設定します。
@@ -91,9 +91,9 @@ with slides.Presentation() as presentation:
 
 ## **シリーズの名前変更** 
 
-Aspose.Slides は、チャートシリーズの名前を簡単に変更できる機能を提供し、データに対して明確かつ意味のあるラベル付けを容易にします。チャート データ内の該当ワークシートのセルにアクセスすることで、開発者はデータの提示方法をカスタマイズできます。この変更は、シリーズ名をデータのコンテキストに基づいて更新または明確化する必要がある場合に特に有用です。シリーズの名前を変更した後、プレゼンテーションを保存して変更を永続化できます。
+Aspose.Slides は、チャートシリーズの名前を簡単に変更できる方法を提供し、データに対してわかりやすく意味のあるラベル付けを容易にします。チャートデータ内の該当するワークシートセルにアクセスすることで、開発者はデータの表示方法をカスタマイズできます。データのコンテキストに応じてシリーズ名を更新または明確化する必要がある場合に特に有用です。シリーズの名前を変更した後、プレゼンテーションを保存して変更を永続化できます。
 
-以下は、このプロセスを実際に示す Python コード スニペットです。
+以下は、このプロセスを実際に実演する Python コード スニペットです。
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -103,7 +103,7 @@ series_name = "New name"
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # デフォルトデータでクラスター化列チャートを追加します。
+    # デフォルトデータでクラスター化された縦棒グラフを追加します。
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
     
     # 最初のシリーズの名前を設定します。
@@ -115,7 +115,7 @@ with slides.Presentation() as presentation:
 ```
 
 
-別の方法でシリーズ名を変更する Python コードは次のとおりです。
+以下の Python コードは、シリーズ名を変更する代替方法を示しています。
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -125,7 +125,7 @@ series_name = "New name"
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # デフォルトデータでクラスター化列チャートを追加します。
+    # デフォルトデータでクラスター化された縦棒グラフを追加します。
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
     series = chart.chart_data.series[0]
     
@@ -141,11 +141,11 @@ with slides.Presentation() as presentation:
 
 ![シリーズ名](series_name.png)
 
-## **自動シリーズ塗りつぶしカラーの取得**
+## **シリーズの自動塗りつぶし色取得**
 
-Aspose.Slides for Python を使用すると、プロット領域内のチャートシリーズの自動塗りつぶしカラーを取得できます。[Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成した後、インデックスで目的のスライドへの参照を取得し、好みのタイプ（たとえば `ChartType.CLUSTERED_COLUMN`）でチャートを追加します。チャート内のシリーズにアクセスすれば、自動塗りつぶしカラーを取得できます。
+Aspose.Slides for Python は、プロット領域内のチャートシリーズに対して自動塗りつぶし色を取得できるようにします。[Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成した後、インデックスで目的のスライドへの参照を取得し、好みのタイプ（例:`ChartType.CLUSTERED_COLUMN`）でチャートを追加します。チャート内のシリーズにアクセスすれば、自動塗りつぶし色を取得できます。
 
-以下の Python コードは、このプロセスを詳細に示しています。
+以下の Python コードは、このプロセスを詳しく示しています。
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -153,7 +153,7 @@ import aspose.slides.charts as charts
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # デフォルトデータでクラスター化列チャートを追加します。
+    # デフォルトデータでクラスター化された縦棒グラフを追加します。
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     for i in range(len(chart.chart_data.series)):
@@ -163,7 +163,7 @@ with slides.Presentation() as presentation:
 ```
 
 
-サンプル出力:
+出力例:
 ```text
 Series 0 color: ff4f81bd
 Series 1 color: ffc0504d
@@ -171,11 +171,11 @@ Series 2 color: ff9bbb59
 ```
 
 
-## **シリーズの反転塗りつぶしカラー設定**
+## **シリーズの反転塗りつぶし色を設定**
 
-シリーズに正と負の両方の値が含まれる場合、すべての列や棒を同じ色で塗るとチャートが読みづらくなります。Aspose.Slides for Python では、負の値に対して自動的に適用される別個の塗りつぶし（反転塗りつぶしカラー）を割り当てることができ、負の値が一目で際立ちます。このセクションでは、そのオプションを有効にし、適切なカラーを選択し、更新されたプレゼンテーションを保存する方法を学びます。
+データシリーズに正の値と負の値の両方が含まれる場合、すべての棒や柱を同じ色で塗るだけではチャートが読みにくくなることがあります。Aspose.Slides for Python は、負の値に自動的に適用される別個の塗りつぶし（反転塗りつぶし色）を割り当てることができ、負の値が一目で目立つようになります。このセクションでは、そのオプションを有効にし、適切な色を選択し、更新されたプレゼンテーションを保存する方法を学びます。
 
-以下のコード例は操作を示しています。
+以下のコード例は、この操作を示しています。
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -217,11 +217,11 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![反転した単色塗りつぶしカラー](inverted_solid_fill_color.png)
+![反転した実線塗りつぶし色](inverted_solid_fill_color.png)
 
-単一のデータポイントだけに反転塗りつぶしカラーを適用することもできます。目的の `ChartDataPoint` にアクセスし、その `invert_if_negative` プロパティを `True` に設定してください。
+単一のデータポイントだけに塗りつぶし色を反転させることもできます。目的の `ChartDataPoint` にアクセスし、その `invert_if_negative` プロパティを `True` に設定するだけです。
 
-この操作を示すコード例は次のとおりです。
+以下のコード例は、これを実行する方法を示しています。
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -247,11 +247,11 @@ with slides.Presentation() as presentation:
 ```
 
 
-## **特定データポイントのデータクリア**
+## **特定のデータポイントのデータをクリア**
 
-チャートにテスト値、外れ値、または古いエントリが含まれていて、シリーズ全体を再構築せずに削除したい場合があります。Aspose.Slides for Python を使用すると、インデックスで任意のデータポイントを指定し、その内容をクリアし、残りのポイントが自動的にシフトして軸が再スケールされるようにすぐにプロットを更新できます。
+時折、チャートにテスト値、外れ値、または不要なエントリが含まれており、シリーズ全体を作り直すことなくそれらを削除したいことがあります。Aspose.Slides for Python は、インデックスで任意のデータポイントを対象にして内容をクリアし、プロットを即座にリフレッシュし、残りのポイントがシフトし、軸が自動的に再スケーリングされるようにできます。
 
-以下のコード例が操作を示しています。
+以下のコード例は、この操作を示しています。
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -271,9 +271,9 @@ with slides.Presentation("test_chart.pptx") as presentation:
 ```
 
 
-## **シリーズのギャップ幅設定**
+## **シリーズのギャップ幅を設定**
 
-ギャップ幅は隣接する列や棒の間の空白量を制御します。ギャップが広いと個々のカテゴリが強調され、狭いと密集したコンパクトな外観になります。Aspose.Slides for Python を使用すると、シリーズ全体のこのパラメータを微調整でき、基になるデータを変更せずにプレゼンテーションに必要な視覚的バランスを実現できます。
+ギャップ幅は隣接する柱や棒の間の空白量を制御します。ギャップが広いと各カテゴリが強調され、狭いとより密集したコンパクトな外観になります。Aspose.Slides for Python を使用すると、シリーズ全体に対してこのパラメータを微調整でき、基になるデータを変更せずにプレゼンテーションに必要な視覚的バランスを正確に実現できます。
 
 以下のコード例は、シリーズのギャップ幅を設定する方法を示しています。
 ```py
@@ -309,10 +309,10 @@ with slides.Presentation() as presentation:
 
 ## **FAQ**
 
-**1つのチャートに含められるシリーズの数に上限はありますか？**
+**単一のチャートに含められるシリーズの数に制限はありますか？**
 
-Aspose.Slides にはシリーズ数の固定上限はありません。実際の上限はチャートの可読性とアプリケーションで利用可能なメモリによって決まります。
+Aspose.Slides は、追加できるシリーズ数に固定の上限を課していません。実用的な上限は、チャートの可読性とアプリケーションで利用可能なメモリによって決まります。
 
-**クラスター内の列が互いに近すぎる、または遠すぎる場合はどうすればよいですか？**
+**クラスタ内の列が近すぎる、または離れすぎる場合はどうすればよいですか？**
 
-そのシリーズ（または親シリーズ グループ）の [gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/gap_width/) 設定を調整してください。値を大きくすると列間のスペースが広がり、値を小さくすると列が近づきます。
+そのシリーズ（または親シリーズ グループ）の [gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/gap_width/) 設定を調整します。値を増やすと列間の間隔が広がり、減らすとより近くなります。

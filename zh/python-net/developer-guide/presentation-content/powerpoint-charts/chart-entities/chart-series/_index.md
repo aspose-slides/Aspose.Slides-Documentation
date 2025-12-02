@@ -1,6 +1,6 @@
 ---
-title: 在 Python 中管理图表系列
-linktitle: 图表系列
+title: 在 Python 中管理图表数据系列
+linktitle: 数据系列
 type: docs
 url: /zh/python-net/chart-series/
 keywords:
@@ -15,22 +15,22 @@ keywords:
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "了解如何在 Python 中管理 PowerPoint（PPT/PPTX）的图表系列，提供实用代码示例和最佳实践，以提升数据演示效果。"
+description: "了解如何在 Python 中管理 PowerPoint (PPT/PPTX) 的图表数据系列，提供实用代码示例和最佳实践，提升数据演示效果。"
 ---
 
 ## **概述**
 
-本文描述了 Aspose.Slides for Python 中 [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) 的作用，重点介绍了数据在演示文稿中的结构化和可视化方式。这些对象提供了定义图表中单个数据点集合、类别以及外观参数的基础元素。通过使用 [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/)，开发人员可以无缝集成底层数据源，并完全控制信息的展示方式，从而生成动态、数据驱动的演示文稿，清晰传达洞察和分析。
+本文描述了 [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) 在 Aspose.Slides for Python 中的作用，重点关注数据在演示文稿中的结构化和可视化方式。这些对象提供了定义图表中单个数据点集合、类别和外观参数的基础要素。通过使用 [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/)，开发人员可以无缝集成底层数据源，并完全控制信息的显示方式，从而生成动态、数据驱动的演示文稿，清晰传达洞察和分析。
 
 系列是一行或一列在图表中绘制的数字。
 
-![图表系列-PowerPoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
 ## **设置系列重叠**
 
-[ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) 属性通过指定 -100 到 100 之间的范围来控制 2D 图表中柱形和条形的重叠方式。由于该属性与系列组相关，而不是单个图表系列相关，因此在系列级别上为只读。若要配置重叠值，请使用 `parent_series_group.overlap` 可读写属性，该属性会将指定的重叠应用于该组中的所有系列。
+[ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) 属性通过指定 -100 到 100 的范围来控制 2D 图表中条形和柱形的重叠方式。由于此属性与系列组而非单个图表系列关联，在系列层面上为只读。要配置重叠值，请使用 `parent_series_group.overlap` 可读写属性，它会将指定的重叠应用于该组中的所有系列。
 
-下面的 Python 示例演示了如何创建演示文稿、添加聚类柱形图、访问第一个图表系列、配置重叠设置，然后将结果保存为 PPTX 文件：
+以下 Python 示例演示了如何创建演示文稿、添加簇状柱形图、访问第一个图表系列、配置重叠设置，然后将结果保存为 PPTX 文件：
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -40,7 +40,7 @@ series_overlap = 30
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # 添加一个带默认数据的簇状柱形图。
+    # 添加一个默认数据的簇状柱形图。
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     series = chart.chart_data.series[0]
@@ -55,13 +55,13 @@ with slides.Presentation() as presentation:
 
 结果：
 
-![系列重叠](series_overlap.png)
+![The series overlap](series_overlap.png)
 
 ## **更改系列填充颜色**
 
-Aspose.Slides 使自定义图表系列的填充颜色变得简单，您可以突出显示特定数据点并创建视觉上吸引人的图表。这是通过 [Format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/) 对象实现的，该对象支持多种填充类型、颜色配置和其他高级样式选项。在向幻灯片添加图表并访问所需系列后，只需获取该系列并应用相应的填充颜色。除了纯色填充，您还可以使用渐变或图案填充以获得更高的设计灵活性。设置完符合需求的颜色后，保存演示文稿即可完成更新。
+Aspose.Slides 使自定义图表系列的填充颜色变得简单，允许您突出显示特定数据点并创建视觉上更具吸引力的图表。这通过 [Format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/) 对象实现，该对象支持多种填充类型、颜色配置及其他高级样式选项。将图表添加到幻灯片并访问所需系列后，只需获取该系列并应用适当的填充颜色。除纯色填充外，您还可以利用渐变或图案填充以获得更灵活的设计。一旦根据需求设置好颜色，保存演示文稿即可完成更新后的外观。
 
-以下 Python 代码示例展示了如何更改第一个系列的颜色：
+以下 Python 代码示例展示了如何更改第一系列的颜色：
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -72,7 +72,7 @@ series_color = draw.Color.blue
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # 添加一个带默认数据的簇状柱形图。
+    # 添加一个默认数据的簇状柱形图。
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     # 设置第一系列的颜色。
@@ -87,13 +87,13 @@ with slides.Presentation() as presentation:
 
 结果：
 
-![系列颜色](series_color.png)
+![The color of the series](series_color.png)
 
-## **重命名系列**
+## **重命名系列** 
 
-Aspose.Slides 提供了一种简便的方法来修改图表系列的名称，从而更清晰、直观地标记数据。通过访问图表数据中的相关工作表单元格，开发人员可以自定义数据呈现方式。当需要根据数据上下文更新或澄清系列名称时，此功能尤其有用。重命名系列后，保存演示文稿即可保留更改。
+Aspose.Slides 提供了一种简便的方法来修改图表系列的名称，使数据标注更加清晰且有意义。通过访问图表数据中的相关工作表单元格，开发人员可以自定义数据的呈现方式。当需要根据数据上下文更新或澄清系列名称时，此修改尤为有用。重命名系列后，可以保存演示文稿以保留更改。
 
-下面的 Python 代码片段演示了此过程：
+下面的 Python 代码片段演示了实际操作过程。
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -103,7 +103,7 @@ series_name = "New name"
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # 添加一个带默认数据的簇状柱形图。
+    # 添加一个默认数据的簇状柱形图。
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
     
     # 设置第一系列的名称。
@@ -125,7 +125,7 @@ series_name = "New name"
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # 添加一个带默认数据的簇状柱形图。
+    # 添加一个默认数据的簇状柱形图。
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
     series = chart.chart_data.series[0]
     
@@ -139,11 +139,11 @@ with slides.Presentation() as presentation:
 
 结果：
 
-![系列名称](series_name.png)
+![The series name](series_name.png)
 
 ## **获取自动系列填充颜色**
 
-Aspose.Slides for Python 允许您获取绘图区域内图表系列的自动填充颜色。创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例后，您可以按索引获取所需幻灯片，然后使用首选类型（例如 `ChartType.CLUSTERED_COLUMN`）添加图表。通过访问图表中的系列，即可获取自动填充颜色。
+Aspose.Slides for Python 允许您获取绘图区域内图表系列的自动填充颜色。创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例后，您可以通过索引获取所需幻灯片的引用，然后使用首选类型（如 `ChartType.CLUSTERED_COLUMN`）添加图表。通过访问图表中的系列，您可以获取自动填充颜色。
 
 下面的 Python 代码详细演示了此过程。
 ```py
@@ -153,7 +153,7 @@ import aspose.slides.charts as charts
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # 添加一个带默认数据的簇状柱形图。
+    # 添加一个默认数据的簇状柱形图。
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     for i in range(len(chart.chart_data.series)):
@@ -173,7 +173,7 @@ Series 2 color: ff9bbb59
 
 ## **为系列设置反转填充颜色**
 
-当数据系列包含正负值时，为所有柱形或条形使用相同颜色会导致图表难以阅读。Aspose.Slides for Python 允许您分配反转填充颜色——对低于零的数据点自动应用的独立填充，使负值一目了然。本节将教您如何启用此选项、选择合适的颜色并保存更新后的演示文稿。
+当数据系列同时包含正值和负值时，单纯为每个柱形或条形使用相同颜色会导致图表难以阅读。Aspose.Slides for Python 允许您分配反转填充颜色——对低于零的 数据点 自动应用的单独填充，使负值一目了然。在本节中，您将学习如何启用此选项、选择合适的颜色并保存更新后的演示文稿。
 
 以下代码示例演示了该操作：
 ```py
@@ -205,7 +205,7 @@ with slides.Presentation() as presentation:
     series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 2, 1, 50))
     series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 3, 1, -30))
 
-    # 设置系列的颜色参数。
+    # 设置系列的颜色设置。
     series_color = series.get_automatic_series_color()
     series.invert_if_negative = True
     series.format.fill.fill_type = slides.FillType.SOLID
@@ -217,11 +217,11 @@ with slides.Presentation() as presentation:
 
 结果：
 
-![反转实心填充颜色](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-您可以为单个数据点而非整个系列反转填充颜色。只需访问所需的 `ChartDataPoint` 并将其 `invert_if_negative` 属性设为 `True`。
+您可以为单个数据点而不是整个系列反转填充颜色。只需访问所需的 `ChartDataPoint` 并将其 `invert_if_negative` 属性设置为 `True` 即可。
 
-下面的代码示例展示了具体做法：
+以下代码示例展示了如何实现：
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -249,9 +249,9 @@ with slides.Presentation() as presentation:
 
 ## **清除特定数据点的数据**
 
-有时图表中会包含测试值、异常值或已废弃的条目，您需要在不重建整个系列的情况下将其移除。Aspose.Slides for Python 让您能够按索引定位任意数据点，清除其内容，并立即刷新绘图，使其余点自动移动并重新缩放坐标轴。
+有时图表中会包含测试值、异常值或过时的条目，需要在不重建整个系列的情况下将其删除。Aspose.Slides for Python 允许您通过索引定位任意数据点，清除其内容，并立即刷新绘图，使其余点移动，坐标轴自动重新缩放。
 
-下面的代码示例演示了该操作：
+以下代码示例演示了该操作：
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -273,9 +273,9 @@ with slides.Presentation("test_chart.pptx") as presentation:
 
 ## **设置系列间隙宽度**
 
-间隙宽度控制相邻柱形或条形之间的空白空间——更宽的间隙强调单个类别，而更窄的间隙则产生更密集、紧凑的视觉效果。通过 Aspose.Slides for Python，您可以为整个系列微调此参数，实现演示文稿所需的视觉平衡，而无需更改底层数据。
+间隙宽度控制相邻柱形或条形之间的空白量——更宽的间隙突出各类别，而更窄的间隙则呈现更密集、更紧凑的外观。通过 Aspose.Slides for Python，您可以为整个系列微调此参数，实现演示文稿所需的视觉平衡，而无需更改底层数据。
 
-下面的代码示例展示了如何为系列设置间隙宽度：
+以下代码示例展示了如何为系列设置间隙宽度：
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -288,7 +288,7 @@ with slides.Presentation() as presentation:
     # 访问第一张幻灯片。
     slide = presentation.slides[0]
 
-    # 添加一个带默认数据的图表。
+    # 添加一个默认数据的堆积柱形图。
     chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 500, 200)
 
     # 将演示文稿保存到磁盘。
@@ -305,14 +305,14 @@ with slides.Presentation() as presentation:
 
 结果：
 
-![间隙宽度](gap_width.png)
+![The gap width](gap_width.png)
 
-## **常见问题**
+## **FAQ**
 
-**单个图表能够包含的系列数量有限制吗？**
+**单个图表能够包含的系列数量是否有限制？**
 
-Aspose.Slides 对您添加的系列数量没有固定上限。实际限制取决于图表的可读性以及应用程序可用的内存。
+Aspose.Slides 对您添加的系列数量没有固定上限。实际的上限受到图表可读性以及应用程序可用内存的限制。
 
-**如果聚类中的柱形太靠近或太分散该怎么办？**
+**如果簇内的柱形之间太靠近或太分散怎么办？**
 
-调整该系列（或其父系列组）的 [gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/gap_width/) 设置。增大该值可扩大柱形之间的间距，减小则使它们更靠近。
+调整该系列（或其父系列组）的 [gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/gap_width/) 设置。增大数值会扩大柱形之间的间距，减小数值则会使其更靠近。
