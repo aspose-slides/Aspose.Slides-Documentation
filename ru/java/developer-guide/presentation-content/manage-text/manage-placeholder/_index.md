@@ -1,75 +1,86 @@
 ---
-title: Управление заполнителем
+title: Управление заполняющими элементами презентации в Java
+linktitle: Управление заполнителями
 type: docs
 weight: 10
 url: /ru/java/manage-placeholder/
-description: Изменение текста в заполнителе на слайдах PowerPoint с использованием Java. Установите текст подсказки в заполнителе на слайдах PowerPoint с использованием Java.
+keywords:
+- заполнитель
+- текстовый заполнитель
+- графический заполнитель
+- заполнитель диаграммы
+- подсказочный текст
+- PowerPoint
+- OpenDocument
+- презентация
+- Java
+- Aspose.Slides
+description: "Беспроблемно управлять заполнителями в Aspose.Slides for Java: заменять текст, настраивать подсказки и задавать прозрачность изображений в PowerPoint и OpenDocument."
 ---
 
-## **Изменение текста в заполнителе**
-С помощью [Aspose.Slides для Java](/slides/ru/java/) вы можете находить и изменять заполнители на слайдах в презентациях. Aspose.Slides позволяет вносить изменения в текст заполнителя.
+## **Изменить текст в заполнителе**
+Используя [Aspose.Slides for Java](/slides/ru/java/), вы можете находить и изменять заполнители на слайдах в презентациях. Aspose.Slides позволяет вносить изменения в текст заполнителя.
 
-**Предварительное условие**: Вам нужна презентация, которая содержит заполнитель. Вы можете создать такую презентацию в стандартном приложении Microsoft PowerPoint.
+**Требования**: Вам нужна презентация, содержащая заполнитель. Вы можете создать такую презентацию в стандартном приложении Microsoft PowerPoint.
 
-Вот как использовать Aspose.Slides для замены текста в заполнителе в этой презентации:
+Вот как использовать Aspose.Slides для замены текста в заполнительe в этой презентации:
 
-1. Инстанцировать класс [`Presentation`](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) и передать презентацию в качестве аргумента.
-2. Получить ссылку на слайд через его индекс.
-3. Перебирать формы, чтобы найти заполнитель.
-4. Привести форму заполнителя к типу [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) и изменить текст с помощью [`TextFrame`](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame), связанного с [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape).
-5. Сохранить изменённую презентацию.
+1. Создайте экземпляр класса [`Presentation`](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) и передайте презентацию в качестве аргумента.
+2. Получите ссылку на слайд по его индексу.
+3. Итерируйте по объектам shape, чтобы найти заполнитель.
+4. Приведите тип заполнителя shape к [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) и измените текст, используя [`TextFrame`](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame), связанный с [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape).
+5. Сохраните изменённую презентацию.
 
-Этот код на Java показывает, как изменить текст в заполнителе:
-
+Этот Java‑код показывает, как изменить текст в заполнительe:
 ```java
-// Инстанцирует класс Presentation
+// Создает экземпляр класса Presentation
 Presentation pres = new Presentation("ReplacingText.pptx");
 try {
 
-    // Получает доступ к первому слайду
+    // Получает первый слайд
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Перебирает формы, чтобы найти заполнитель
+    // Проходит по фигурам, чтобы найти заполнитель
     for (IShape shp : sld.getShapes()) 
     {
         if (shp.getPlaceholder() != null) {
             // Изменяет текст в каждом заполнителе
-            ((IAutoShape) shp).getTextFrame().setText("Это заполнитель");
+            ((IAutoShape) shp).getTextFrame().setText("This is Placeholder");
         }
     }
 
     // Сохраняет презентацию на диск
-    pres.save("output_out.pptx", SaveFormat.Pptx);
+    pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Установка текста подсказки в заполнителе**
-Стандартные и предварительно созданные макеты содержат текст подсказки для заполнителей, такой как ***Нажмите, чтобы добавить заголовок*** или ***Нажмите, чтобы добавить подзаголовок***. С помощью Aspose.Slides вы можете вставить свой предпочтительный текст подсказки в макеты заполнителей.
 
-Этот код на Java показывает, как установить текст подсказки в заполнителе:
+## **Установить подсказочный текст в заполнителе**
+Стандартные и готовые макеты содержат подсказочные тексты заполнителей, такие как ***Click to add a title*** или ***Click to add a subtitle***. С помощью Aspose.Slides вы можете добавить свои собственные подсказочные тексты в макеты заполнителей.
 
+Этот Java‑код показывает, как установить подсказочный текст в заполнитель:
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
-    for (IShape shape : slide.getSlide().getShapes()) // Перебирает слайд
+    for (IShape shape : slide.getSlide().getShapes()) // Итерирует по слайду
     {
         if (shape.getPlaceholder() != null && shape instanceof AutoShape)
         {
             String text = "";
-            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPoint отображает "Нажмите, чтобы добавить заголовок" 
+            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPoint отображает "Click to add title"
             {
-                text = "Добавить заголовок";
+                text = "Add Title";
             }
             else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) // Добавляет подзаголовок
             {
-                text = "Добавить подзаголовок";
+                text = "Add Subtitle";
             }
 
             ((IAutoShape)shape).getTextFrame().setText(text);
-            System.out.println("Заполнитель с текстом: " + text);
+            System.out.println("Placeholder with text: " + text);
         }
     }
 
@@ -79,12 +90,11 @@ try {
 }
 ```
 
-## **Установка прозрачности изображения в заполнителе**
 
-Aspose.Slides позволяет устанавливать прозрачность фона изображения в текстовом заполнителе. Настраивая прозрачность изображения в такой рамке, вы можете выделить текст или изображение (в зависимости от цветов текста и изображения).
+## **Установить прозрачность изображения в заполнителе**
+Aspose.Slides позволяет установить прозрачность фонового изображения в текстовом заполнителе. Регулируя прозрачность изображения в таком кадре, вы можете подчеркнуть текст или изображение (в зависимости от их цветов).
 
-Этот код на Java показывает, как установить прозрачность для фона изображения (внутри формы):
-
+Этот Java‑код показывает, как установить прозрачность фонового изображения (внутри shape):
 ```java
 Presentation presentation = new Presentation("example.pptx");
 
@@ -97,7 +107,7 @@ for (int i = 0; i < operationCollection.size(); i++)
     {
         AlphaModulateFixed alphaModulate = (AlphaModulateFixed)operationCollection.get_Item(i);
         float currentValue = 100 - alphaModulate.getAmount();
-        System.out.println("Текущее значение прозрачности: " + currentValue);
+        System.out.println("Current transparency value: " + currentValue);
 
         int alphaValue = 40;
         alphaModulate.setAmount(100 - alphaValue);
@@ -106,3 +116,18 @@ for (int i = 0; i < operationCollection.size(); i++)
 
 presentation.save("example_out.pptx", SaveFormat.Pptx);
 ```
+
+
+## **FAQ**
+
+**Что такое базовый заполнитель и чем он отличается от локального shape на слайде?**
+
+Базовый заполнитель — это исходный shape в макете или мастере, от которого наследуется shape слайда — тип, позиция и часть форматирования берутся из него. Локальный shape независим; если базового заполнителя нет, наследование не применяется.
+
+**Как обновить все заголовки или подписи во всей презентации без перебора каждого слайда?**
+
+Отредактируйте соответствующий заполнитель в макете или мастере. Слайды, основанные на этих макетах/мастере, автоматически унаследуют изменение.
+
+**Как управлять стандартными placeholders заголовка/нижнего колонтитула — датой и временем, номером слайда и текстом нижнего колонтитула?**
+
+Используйте менеджеры HeaderFooter в нужном контексте (обычные слайды, макеты, мастер, заметки/раздаточные материалы), чтобы включать или отключать эти заполнители и задавать их содержимое.

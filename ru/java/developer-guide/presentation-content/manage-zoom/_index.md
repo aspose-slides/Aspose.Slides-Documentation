@@ -1,41 +1,50 @@
 ---
-title: Управление Зумом
+title: Управление Zoom в презентации на Java
+linktitle: Управление Zoom
 type: docs
 weight: 60
 url: /ru/java/manage-zoom/
-keywords: "Zoom, Zoom фрейм, Добавить зум, Форматировать зум фрейм, Сводка зум, Презентация PowerPoint, Java, Aspose.Slides для Java"
-description: "Добавьте зум или зум фреймы в презентации PowerPoint на Java"
+keywords:
+- масштабирование
+- Zoom-кадр
+- Zoom слайда
+- Zoom раздела
+- Zoom сводки
+- добавление Zoom
+- PowerPoint
+- презентация
+- Java
+- Aspose.Slides
+description: "Создавайте и настраивайте Zoom с помощью Aspose.Slides для Java — переходите между разделами, добавляйте миниатюры и переходы в презентациях PPT, PPTX и ODP."
 ---
 
 ## **Обзор**
-Зумы в PowerPoint позволяют вам переходить к конкретным слайдам, секциям и частям презентации и обратно. Во время презентации эта возможность быстро перемещаться по содержимому может оказаться очень полезной.
+Zoom в PowerPoint позволяет переходить к определённым слайдам, разделам и частям презентации и обратно. При демонстрации эта возможность быстрой навигации по содержимому может оказаться очень полезной. 
 
 ![overview_image](overview.png)
 
-* Чтобы подвести итоги всей презентации на одном слайде, используйте [Сводный Зум](#Summary-Zoom).
-* Чтобы показать только выбранные слайды, используйте [Зум слайдов](#Slide-Zoom).
-* Чтобы показать только одну секцию, используйте [Зум секции](#Section-Zoom).
+* Чтобы суммировать всю презентацию на одном слайде, используйте [Сводный Zoom](#Summary-Zoom).
+* Чтобы показывать только выбранные слайды, используйте [Zoom‑слайда](#Slide-Zoom).
+* Чтобы показывать только один раздел, используйте [Zoom‑раздела](#Section-Zoom).
 
-## **Зум слайдов**
-Зум слайдов может сделать вашу презентацию более динамичной, позволяя вам свободно перемещаться между слайдами в любом порядке, не прерывая поток вашей презентации. Зумы слайдов отлично подходят для коротких презентаций без большого количества секций, но их все еще можно применять в различных сценариях презентации.
+## **Zoom‑слайда**
+Zoom‑слайда может сделать вашу презентацию более динамичной, позволяя свободно перемещаться между слайдами в любом выбранном порядке без прерывания её потока. Zoom‑слайды отлично подходят для коротких презентаций без множества разделов, однако их можно использовать и в других сценариях.
 
-Зумы слайдов помогают вам углубляться в несколько частей информации, при этом создавая ощущение, что вы находитесь на одном холсте.
+Zoom‑слайды помогают глубже рассматривать несколько фрагментов информации, создавая ощущение работы на едином холсте. 
 
 ![overview_image](slidezoomsel.png)
 
-Для объектов зума слайдов Aspose.Slides предоставляет перечисление [ZoomImageType](https://reference.aspose.com/slides/java/com.aspose.slides/ZoomImageType), интерфейс [IZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IZoomFrame) и некоторые методы в интерфейсе [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection).
+Для объектов Zoom‑слайда Aspose.Slides предоставляет перечисление [ZoomImageType](https://reference.aspose.com/slides/java/com.aspose.slides/ZoomImageType), интерфейс [IZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IZoomFrame), а также некоторые методы интерфейса [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection).
 
-### **Создание зум фреймов**
+### **Создание Zoom‑кадров**
 
-Вы можете добавить зум фрейм на слайд следующим образом:
+Вы можете добавить Zoom‑кадр на слайд следующим образом:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Создайте новые слайды, к которым вы планируете привязать зум фреймы.
-3. Добавьте текст идентификации и фон к созданным слайдам.
-4. Добавьте зум фреймы (содержашие ссылки на созданные слайды) на первый слайд.
-5. Запишите модифицированную презентацию в файл PPTX.
-
-Этот код на Java демонстрирует, как создать зум фрейм на слайде:
+1.	Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2.	Создайте новые слайды, к которым вы планируете привязать Zoom‑кадры. 
+3.	Добавьте идентифицирующий текст и фон к созданным слайдам.
+4.	Добавьте Zoom‑кадры (связывающие ссылки на созданные слайды) на первый слайд.
+5.	Сохраните изменённую презентацию в файл PPTX.
 
 ``` java
 Presentation pres = new Presentation();
@@ -44,44 +53,43 @@ try {
     ISlide slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     ISlide slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
 
-    // Создает фон для второго слайда
+    //Создаёт фон для второго слайда
     slide2.getBackground().setType(BackgroundType.OwnBackground);
     slide2.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide2.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
 
-    // Создает текстовое поле для второго слайда
+    //Создаёт текстовое поле для второго слайда
     IAutoShape autoshape = slide2.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Второй слайд");
+    autoshape.getTextFrame().setText("Second Slide");
 
-    // Создает фон для третьего слайда
+    //Создаёт фон для третьего слайда
     slide3.getBackground().setType(BackgroundType.OwnBackground);
     slide3.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide3.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray);
 
-    // Создает текстовое поле для третьего слайда
+    //Создаёт текстовое поле для третьего слайда
     autoshape = slide3.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Третий слайд");
+    autoshape.getTextFrame().setText("Trird Slide");
 
     //Добавляет объекты ZoomFrame
     pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
     pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
 
-    // Сохраняет презентацию
+    //Сохраняет презентацию
     pres.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
-### **Создание зум фреймов с настраиваемыми изображениями**
-С помощью Aspose.Slides для Java вы можете создать зум фрейм с другим изображением предварительного просмотра слайда следующим образом:
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Создайте новый слайд, к которому вы планируете привязать зум фрейм.
-3. Добавьте текст идентификации и фон к слайду.
-4. Создайте объект [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage), добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation), который будет использоваться для заполнения фрейма.
-5. Добавьте зум фреймы (содержашие ссылку на созданный слайд) на первый слайд.
-6. Запишите модифицированную презентацию в файл PPTX.
 
-Этот код на Java демонстрирует, как создать зум фрейм с другим изображением:
+### **Создание Zoom‑кадров с пользовательскими изображениями**
+С помощью Aspose.Slides for Java вы можете создать Zoom‑кадр с другим изображением предварительного просмотра слайда следующим образом: 
+1.	Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2.	Создайте новый слайд, к которому вы планируете привязать Zoom‑кадр. 
+3.	Добавьте идентифицирующий текст и фон к слайду.
+4.	Создайте объект [IPPImage], добавив изображение в коллекцию Images, связанную с объектом [Presentation], которое будет использовано для заполнения кадра.
+5.	Добавьте Zoom‑кадры (ссылающиеся на созданный слайд) на первый слайд.
+6.	Сохраните изменённую презентацию в файл PPTX.
 
 ``` java
 Presentation pres = new Presentation();
@@ -96,7 +104,7 @@ try {
 
     // Создает текстовое поле для третьего слайда
     IAutoShape autoshape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Второй слайд");
+    autoshape.getTextFrame().setText("Second Slide");
 
     // Создает новое изображение для объекта зума
     IPPImage picture;
@@ -116,22 +124,21 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
-### **Форматирование зум фреймов**
-В предыдущих разделах мы показали вам, как создавать простые зум фреймы. Чтобы создать более сложные зум фреймы, вам нужно изменить форматирование простого фрейма. Есть несколько вариантов форматирования, которые вы можете применить к зум фрейму.
 
-Вы можете контролировать форматирование зум фрейма на слайде следующим образом:
+### **Форматирование Zoom‑кадров**
+В предыдущих разделах мы показали, как создать простые Zoom‑кадры. Чтобы создать более сложные Zoom‑кадры, необходимо изменить форматирование простого кадра. Существует несколько вариантов форматирования, которые можно применить к Zoom‑кадру. 
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Создайте новые слайды, к которым вы намерены привязать зум фрейм.
-3. Добавьте некоторый текст идентификации и фон к созданным слайдам.
-4. Добавьте зум фреймы (содержашие ссылки на созданные слайды) на первый слайд.
-5. Создайте объект [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage), добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation), который будет использоваться для заполнения фрейма.
-6. Установите настраиваемое изображение для первого объекта зума.
-7. Измените формат линии для второго объекта зума.
-8. Удалите фон с изображения второго объекта зума.
-5. Запишите модифицированную презентацию в файл PPTX.
+Вы можете управлять форматированием Zoom‑кадра на слайде следующим образом:
 
-Этот код на Java демонстрирует, как изменить форматирование зум фрейма на слайде:
+1.	Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2.	Создайте новые слайды, к которым вы планируете привязать Zoom‑кадр. 
+3.	Добавьте идентифицирующий текст и фон к созданным слайдам.
+4.	Добавьте Zoom‑кадры (ссылающиеся на созданные слайды) на первый слайд.
+5.	Создайте объект [IPPImage], добавив изображение в коллекцию Images, связанную с объектом [Presentation], которое будет использовано для заполнения кадра.
+6.	Установите пользовательское изображение для первого объекта Zoom‑кадра.
+7.	Измените формат линии для второго объекта Zoom‑кадра.
+8.	Удалите фон с изображения второго объекта Zoom‑кадра.
+9.	Сохраните изменённую презентацию в файл PPTX.
 
 ``` java 
 Presentation pres = new Presentation();
@@ -140,29 +147,29 @@ try {
     ISlide slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     ISlide slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
 
-    // Создает фон для второго слайда
+    // Создаёт фон для второго слайда
     slide2.getBackground().setType(BackgroundType.OwnBackground);
     slide2.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide2.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
 
-    // Создает текстовое поле для второго слайда
+    // Создаёт текстовое поле для второго слайда
     IAutoShape autoshape = slide2.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Второй слайд");
+    autoshape.getTextFrame().setText("Second Slide");
 
-    // Создает фон для третьего слайда
+    // Создаёт фон для третьего слайда
     slide3.getBackground().setType(BackgroundType.OwnBackground);
     slide3.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide3.getBackground().getFillFormat().getSolidFillColor().setColor(Color.darkGray);
 
-    // Создает текстовое поле для третьего слайда
+    // Создаёт текстовое поле для третьего слайда
     autoshape = slide3.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Третий слайд");
+    autoshape.getTextFrame().setText("Trird Slide");
 
     //Добавляет объекты ZoomFrame
     IZoomFrame zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
     IZoomFrame zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
 
-    // Создает новое изображение для объекта зума
+    // Создаёт новое изображение для объекта зума
     IPPImage picture;
         IImage image = Images.fromFile("image.png");
         try {
@@ -170,16 +177,16 @@ try {
         } finally {
             if (image != null) image.dispose();
         }
-    // Устанавливает настраиваемое изображение для объекта zoomFrame1
+    // Устанавливает пользовательское изображение для объекта zoomFrame1
     zoomFrame1.setImage(picture);
 
-    // Устанавливает формат зум фрейма для объекта zoomFrame2
+    // Устанавливает формат ZoomFrame для объекта zoomFrame2
     zoomFrame2.getLineFormat().setWidth(5);
     zoomFrame2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.pink);
     zoomFrame2.getLineFormat().setDashStyle(LineDashStyle.DashDot);
 
-    // Установка "Не показывать фон" для объекта zoomFrame2
+    // Настройка: не показывать фон для объекта zoomFrame2
     zoomFrame2.setShowBackground(false);
 
     // Сохраняет презентацию
@@ -190,26 +197,25 @@ try {
 }
 ```
 
-## **Зум секций**
 
-Зум секций - это ссылка на секцию в вашей презентации. Вы можете использовать зумы секций, чтобы вернуться к секциям, которые вы хотите действительно подчеркнуть. Или вы можете использовать их, чтобы выделить, как определенные части вашей презентации связаны.
+## **Zoom‑раздела**
+
+Zoom‑раздела представляет собой ссылку на раздел в вашей презентации. Вы можете использовать Zoom‑раздела, чтобы возвращаться к разделам, которые хотите особенно выделить. Или использовать их для показа того, как отдельные части вашей презентации соединяются друг с другом. 
 
 ![overview_image](seczoomsel.png)
 
-Для объектов зума секций Aspose.Slides предоставляет интерфейс [ISectionZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ISectionZoomFrame) и некоторые методы в интерфейсе [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection).
+Для объектов Zoom‑раздела Aspose.Slides предоставляет интерфейс [ISectionZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ISectionZoomFrame) и некоторые методы интерфейса [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection).
 
-### **Создание зум фреймов секций**
+### **Создание Zoom‑кадров раздела**
 
-Вы можете добавить зум фрейм секции на слайд следующим образом:
+Вы можете добавить Zoom‑кадр раздела на слайд следующим образом:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Создайте новый слайд.
-3. Добавьте идентификационный фон к созданному слайду.
-4. Создайте новую секцию, к которой вы планируете привязать зум фрейм.
-5. Добавьте зум фрейм секции (содержаший ссылки на созданную секцию) на первый слайд.
-6. Запишите модифицированную презентацию в файл PPTX.
-
-Этот код на Java демонстрирует, как создать зум фрейм на слайде:
+1.	Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2.	Создайте новый слайд. 
+3.	Добавьте идентифицирующий фон к созданному слайду.
+4.	Создайте новый раздел, к которому вы планируете привязать Zoom‑кадр. 
+5.	Добавьте Zoom‑кадр раздела (ссылающийся на созданный раздел) на первый слайд.
+6.	Сохраните изменённую презентацию в файл PPTX.
 
 ``` java
 Presentation pres = new Presentation();
@@ -220,8 +226,8 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Добавляет новую секцию в презентацию
-    pres.getSections().addSection("Секция 1", slide);
+    // Добавляет новый раздел в презентацию
+    pres.getSections().addSection("Section 1", slide);
 
     // Добавляет объект SectionZoomFrame
     ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
@@ -232,19 +238,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
-### **Создание зум фреймов секций с настраиваемыми изображениями**
 
-Используя Aspose.Slides для Java, вы можете создать зум фрейм секции с другим изображением предварительного просмотра слайда следующим образом:
+### **Создание Zoom‑кадров раздела с пользовательскими изображениями**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Создайте новый слайд.
-3. Добавьте идентификационный фон к созданному слайду.
-4. Создайте новую секцию, к которой вы планируете привязать зум фрейм.
-5. Создайте объект [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage), добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation), который будет использоваться для заполнения фрейма.
-5. Добавьте зум фрейм секции (содержаший ссылку на созданную секцию) на первый слайд.
-6. Запишите модифицированную презентацию в файл PPTX.
+С помощью Aspose.Slides for Java вы можете создать Zoom‑кадр раздела с другим изображением предварительного просмотра слайда следующим образом: 
 
-Этот код на Java демонстрирует, как создать зум фрейм с другим изображением:
+1.	Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2.	Создайте новый слайд.
+3.	Добавьте идентифицирующий фон к созданному слайду.
+4.	Создайте новый раздел, к которому вы планируете привязать Zoom‑кадр. 
+5.	Создайте объект [IPPImage], добавив изображение в коллекцию Images, связанную с объектом [Presentation], которое будет использовано для заполнения кадра.
+5.	Добавьте Zoom‑кадр раздела (ссылающийся на созданный раздел) на первый слайд.
+6.	Сохраните изменённую презентацию в файл PPTX.
 
 ``` java 
 Presentation pres = new Presentation();
@@ -255,10 +260,10 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Добавляет новую секцию в презентацию
-    pres.getSections().addSection("Секция 1", slide);
+    // Добавляет новый раздел в презентацию
+    pres.getSections().addSection("Section 1", slide);
 
-    // Создает новое изображение для объекта зума
+    // Создаёт новое изображение для объекта зума
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
@@ -277,27 +282,26 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
-### **Форматирование зум фреймов секций**
 
-Чтобы создать более сложные зум фреймы секций, вам нужно изменить форматирование простого фрейма. Есть несколько вариантов форматирования, которые вы можете применить к зум фрейму секции.
+### **Форматирование Zoom‑кадров раздела**
 
-Вы можете контролировать форматирование зум фрейма секции на слайде следующим образом:
+Чтобы создать более сложные Zoom‑кадры раздела, необходимо изменить форматирование простого кадра. Существует несколько вариантов форматирования, которые можно применить к Zoom‑кадру раздела. 
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Создайте новый слайд.
-3. Добавьте идентификационный фон к созданному слайду.
-4. Создайте новую секцию, к которой вы планируете привязать зум фрейм.
-5. Добавьте зум фрейм секции (содержаший ссылки на созданную секцию) на первый слайд.
-6. Измените размер и позицию созданного объекта зума секции.
-7. Создайте объект [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage), добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation), который будет использоваться для заполнения фрейма.
-8. Установите настраиваемое изображение для созданного объекта зума секции.
-9. Установите возможность *возврата к оригинальному слайду из связанной секции*.
-10. Удалите фон с изображения объекта зума секции.
-11. Измените формат линии для второго объекта зума.
-12. Измените продолжительность перехода.
-13. Запишите модифицированную презентацию в файл PPTX.
+Вы можете управлять форматированием Zoom‑кадра раздела на слайде следующим образом:
 
-Этот код на Java демонстрирует, как изменить форматирование для объекта зума секции:
+1.	Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2.	Создайте новый слайд.
+3.	Добавьте идентифицирующий фон к созданному слайду.
+4.	Создайте новый раздел, к которому вы планируете привязать Zoom‑кадр. 
+5.	Добавьте Zoom‑кадр раздела (ссылающийся на созданный раздел) на первый слайд.
+6.	Измените размер и положение созданного объекта Zoom‑раздела.
+7.	Создайте объект [IPPImage], добавив изображение в коллекцию Images, связанную с объектом [Presentation], которое будет использовано для заполнения кадра.
+8.	Установите пользовательское изображение для созданного объекта Zoom‑кадра раздела.
+9.	Установите возможность *возврата к исходному слайду из связанного раздела*.
+10.	Удалите фон с изображения объекта Zoom‑кадра раздела.
+11.	Измените формат линии для второго объекта Zoom‑кадра.
+12.	Измените длительность перехода.
+13.	Сохраните изменённую презентацию в файл PPTX.
 
 ``` java
 Presentation pres = new Presentation();
@@ -308,8 +312,8 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.yellow);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Добавляет новую секцию в презентацию
-    pres.getSections().addSection("Секция 1", slide);
+    // Добавляет новый раздел в презентацию
+    pres.getSections().addSection("Section 1", slide);
 
     // Добавляет объект SectionZoomFrame
     ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
@@ -348,24 +352,22 @@ try {
 ```
 
 
-## **Сводный Зум**
+## **Сводный Zoom**
 
-Сводный зум - это как целевая страница, где все элементы вашей презентации отображаются сразу. Когда вы презентацию, вы можете использовать зум, чтобы перемещаться от одного места в вашей презентации к другому в любом порядке, который вам нравится. Вы можете проявить креативность, пропустить вперед или снова посетить части вашего слайд-шоу, не прерывая поток вашей презентации.
+Сводный Zoom похож на целевую страницу, где сразу отображаются все части вашей презентации. При демонстрации вы можете использовать Zoom, чтобы переходить из любого места презентации в любое другое в произвольном порядке. Можно проявлять креативность, пропускать части или возвращаться к уже пройденным слайдам без прерывания потока презентации.
 
 ![overview_image](sumzoomsel.png)
 
-Для объектов сводного зума Aspose.Slides предоставляет интерфейсы [ISummaryZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomFrame), [ISummaryZoomSection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSection) и [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) и некоторые методы в интерфейсе [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection).
+Для объектов сводного Zoom Aspose.Slides предоставляет интерфейсы [ISummaryZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomFrame), [ISummaryZoomSection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSection) и [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection), а также некоторые методы интерфейса [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection).
 
-### **Создание сводного зума**
+### **Создание сводного Zoom**
 
-Вы можете добавить сводный зум фрейм на слайд следующим образом:
+Вы можете добавить сводный Zoom‑кадр на слайд следующим образом:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Создайте новые слайды с идентификационным фоном и новые секции для созданных слайдов.
-3. Добавьте сводный зум фрейм на первый слайд.
-4. Запишите модифицированную презентацию в файл PPTX.
-
-Этот код на Java демонстрирует, как создать сводный зум фрейм на слайде:
+1.	Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2.	Создайте новые слайды с идентифицирующим фоном и новыми разделами для созданных слайдов.
+3.	Добавьте сводный Zoom‑кадр на первый слайд.
+4.	Сохраните изменённую презентацию в файл PPTX.
 
 ``` java 
 Presentation pres = new Presentation();
@@ -376,8 +378,8 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Добавляет новую секцию в презентацию
-    pres.getSections().addSection("Секция 1", slide);
+    // Добавляет новый раздел в презентацию
+    pres.getSections().addSection("Section 1", slide);
 
     //Добавляет новый слайд в презентацию
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
@@ -385,28 +387,28 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Добавляет новую секцию в презентацию
-    pres.getSections().addSection("Секция 2", slide);
+    // Adds a new section to the presentation
+    pres.getSections().addSection("Section 2", slide);
 
-    //Добавляет новый слайд в презентацию
+    //Adds a new slide to the presentation
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Добавляет новую секцию в презентацию
-    pres.getSections().addSection("Секция 3", slide);
+    // Adds a new section to the presentation
+    pres.getSections().addSection("Section 3", slide);
 
-    //Добавляет новый слайд в презентацию
+    //Adds a new slide to the presentation
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.green);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Добавляет новую секцию в презентацию
-    pres.getSections().addSection("Секция 4", slide);
+    // Adds a new section to the presentation
+    pres.getSections().addSection("Section 4", slide);
 
-    // Добавляет объект SummaryZoomFrame
+    // Adds a SummaryZoomFrame object
     ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
 
     // Сохраняет презентацию
@@ -416,19 +418,18 @@ try {
 }
 ```
 
-### **Добавление и удаление секций сводного зума**
 
-Все секции в сводном зум фрейме представлены объектами [ISummaryZoomSection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSection), которые хранятся в объекте [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection). Вы можете добавить или удалить объект секции сводного зума через интерфейс [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) следующим образом:
+### **Добавление и удаление разделов сводного Zoom**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Создайте новые слайды с идентификационным фоном и новые секции для созданных слайдов.
-3. Добавьте сводный зум фрейм на первый слайд.
-4. Добавьте новый слайд и секцию в презентацию.
-5. Добавьте созданную секцию в сводный зум фрейм.
-6. Удалите первую секцию из сводного зум фрейма.
-7. Запишите модифицированную презентацию в файл PPTX.
+Все разделы в сводном Zoom‑кадре представлены объектами [ISummaryZoomSection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSection), которые хранятся в объекте [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection). Вы можете добавить или удалить объект раздела сводного Zoom через интерфейс [ISummaryZoomSectionCollection] следующим образом:
 
-Этот код на Java демонстрирует, как добавлять и удалять секции в сводном зум фрейме:
+1.	Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2.	Создайте новые слайды с идентифицирующим фоном и новыми разделами для созданных слайдов.
+3.	Добавьте сводный Zoom‑кадр в первый слайд.
+4.	Добавьте новый слайд и раздел в презентацию.
+5.	Добавьте созданный раздел в сводный Zoom‑кадр.
+6.	Удалите первый раздел из сводного Zoom‑кадра.
+7.	Сохраните изменённую презентацию в файл PPTX.
 
 ``` java
 Presentation pres = new Presentation();
@@ -439,8 +440,8 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("Секция 1", slide);
+    // Добавляет новый раздел в презентацию
+    pres.getSections().addSection("Section 1", slide);
 
     //Добавляет новый слайд в презентацию
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
@@ -448,10 +449,10 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Adds a new section to the presentation
-    pres.getSections().addSection("Секция 2", slide);
+    // Добавляет новый раздел в презентацию
+    pres.getSections().addSection("Section 2", slide);
 
-    // Adds SummaryZoomFrame object
+    // Добавляет объект SummaryZoomFrame
     ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
 
     //Добавляет новый слайд в презентацию
@@ -460,13 +461,13 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.magenta);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Добавляет новую секцию в презентацию
-    ISection section3 = pres.getSections().addSection("Секция 3", slide);
+    // Добавляет новый раздел в презентацию
+    ISection section3 = pres.getSections().addSection("Section 3", slide);
 
-    // Добавляет секцию к сводному зуму
+    // Добавляет раздел к Summary Zoom
     summaryZoomFrame.getSummaryZoomCollection().addSummaryZoomSection(section3);
 
-    // Удаляет секцию из сводного зума
+    // Удаляет раздел из Summary Zoom
     summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(pres.getSections().get_Item(1));
 
     // Сохраняет презентацию
@@ -476,24 +477,23 @@ try {
 }
 ```
 
-### **Форматирование секций сводного зума**
 
-Чтобы создать более сложные объекты секции сводного зума, вам нужно изменить форматирование простого фрейма. Существует несколько вариантов форматирования, которые вы можете применить к объекту секции сводного зума.
+### **Форматирование разделов сводного Zoom**
 
-Вы можете контролировать форматирование для объекта секции сводного зума в сводном зум фрейме следующим образом:
+Чтобы создать более сложные объекты разделов сводного Zoom, необходимо изменить форматирование простого кадра. Существует несколько вариантов форматирования, которые можно применить к объекту раздела сводного Zoom. 
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Создайте новые слайды с идентификационным фоном и новые секции для созданных слайдов.
-3. Добавьте сводный зум фрейм на первый слайд.
-4. Получите объект секции сводного зума для первого объекта из `ISummaryZoomSectionCollection`.
-7. Создайте объект [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage), добавив изображение в коллекцию изображений, связанную с объектом [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation), который будет использоваться для заполнения фрейма.
-8. Установите настраиваемое изображение для созданного объекта зума секции.
-9. Установите возможность *возврата к оригинальному слайду из связанной секции*.
-11. Измените формат линии для второго объекта зума.
-12. Измените продолжительность перехода.
-13. Запишите модифицированную презентацию в файл PPTX.
+Вы можете управлять форматированием объекта раздела сводного Zoom в кадре следующим образом:
 
-Этот код на Java демонстрирует, как изменить форматирование для объекта секции сводного зума:
+1.	Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2.	Создайте новые слайды с идентифицирующим фоном и новыми разделами для созданных слайдов.
+3.	Добавьте сводный Zoom‑кадр на первый слайд.
+4.	Получите объект раздела сводного Zoom для первого объекта из `ISummaryZoomSectionCollection`.
+7.	Создайте объект [IPPImage], добавив изображение в коллекцию images, связанную с объектом [Presentation], которое будет использовано для заполнения кадра.
+8.	Установите пользовательское изображение для созданного объекта Zoom‑кадра раздела.
+9.	Установите возможность *возврата к исходному слайду из связанного раздела*.
+11.	Измените формат линии для второго объекта Zoom‑кадра.
+12.	Измените длительность перехода.
+13.	Сохраните изменённую презентацию в файл PPTX.
 
 ``` java
 Presentation pres = new Presentation();
@@ -504,8 +504,8 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.gray);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Добавляет новую секцию в презентацию
-    pres.getSections().addSection("Секция 1", slide);
+    // Добавляет новый раздел в презентацию
+    pres.getSections().addSection("Section 1", slide);
 
     //Добавляет новый слайд в презентацию
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
@@ -513,8 +513,8 @@ try {
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
     slide.getBackground().setType(BackgroundType.OwnBackground);
 
-    // Добавляет новую секцию в презентацию
-    pres.getSections().addSection("Секция 2", slide);
+    // Добавляет новый раздел в презентацию
+    pres.getSections().addSection("Section 2", slide);
 
     // Добавляет объект SummaryZoomFrame
     ISummaryZoomFrame summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
@@ -522,7 +522,7 @@ try {
     // Получает первый объект SummaryZoomSection
     ISummaryZoomSection summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
 
-    // Форматирование для объекта SummaryZoomSection
+    // Форматирование объекта SummaryZoomSection
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
@@ -548,3 +548,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Вопросы и ответы**
+
+**Можно ли контролировать возврат к «родительскому» слайду после отображения цели?**
+
+Да. У [Zoom‑кадра](https://reference.aspose.com/slides/java/com.aspose.slides/zoomframe/) или [раздела](https://reference.aspose.com/slides/java/com.aspose.slides/sectionzoomframe/) есть свойство `ReturnToParent`, которое при включении возвращает зрителей к исходному слайду после посещения целевого контента.
+
+**Можно ли изменить «скорость» или длительность перехода Zoom?**
+
+Да. Zoom поддерживает установку `TransitionDuration`, позволяя контролировать продолжительность анимации перехода.
+
+**Есть ли ограничения на количество Zoom‑объектов в презентации?**
+
+Твердого ограничения API не задокументировано. Практические ограничения зависят от общей сложности презентации и производительности просмотрщика. Вы можете добавить много Zoom‑кадров, но учитывайте размер файла и время рендеринга.

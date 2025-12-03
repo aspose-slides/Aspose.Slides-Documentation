@@ -1,24 +1,34 @@
 ---
-title: Animierter Text
+title: PowerPoint-Text in Java animieren
+linktitle: Animierter Text
 type: docs
 weight: 60
 url: /de/java/animated-text/
-keywords: "Animierter Text in PowerPoint"
-description: "Animierter Text in PowerPoint mit Java"
+keywords:
+- animierter Text
+- Textanimation
+- animierter Absatz
+- Absatzanimation
+- Animationseffekt
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Java
+- Aspose.Slides
+description: "Erstellen Sie dynamischen, animierten Text in PowerPoint- und OpenDocument-Präsentationen mithilfe von Aspose.Slides für Java, mit leicht nachvollziehbaren, optimierten Java-Codebeispielen."
 ---
 
-## Hinzufügen von Animationseffekten zu Absätzen
+## **Animations-Effekte zu Absätzen hinzufügen**
 
-Wir haben die [**addEffect()**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) Methode zu den [**Sequence**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence) und [**ISequence**](https://reference.aspose.com/slides/java/com.aspose.slides/ISequence) Klassen hinzugefügt. Diese Methode ermöglicht es Ihnen, Animationseffekte zu einem einzelnen Absatz hinzuzufügen. Dieser Beispielcode zeigt Ihnen, wie man einen Animationseffekt zu einem einzelnen Absatz hinzufügt:
-
+Wir haben die [**addEffect()**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) Methode zu den Klassen [**Sequence**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence) und [**ISequence**](https://reference.aspose.com/slides/java/com.aspose.slides/ISequence) hinzugefügt. Diese Methode ermöglicht das Hinzufügen von Animations‑Effekten zu einem einzelnen Absatz. Der Beispielcode zeigt, wie man einen Animations‑Effekt zu einem einzelnen Absatz hinzufügt:
 ```java
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // wählen Sie den Absatz aus, um den Effekt hinzuzufügen
+    // Absatz auswählen, dem ein Effekt hinzugefügt werden soll
     IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Fügen Sie den Fly-Animationseffekt zum ausgewählten Absatz hinzu
+    // Fly-Animationseffekt zum ausgewählten Absatz hinzufügen
     IEffect effect = presentation.getSlides().get_Item(0).getTimeline().getMainSequence().
             addEffect(paragraph, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
@@ -28,12 +38,12 @@ try {
 }
 ```
 
-## Abrufen der Animationseffekte in Absätzen
 
-Sie können entscheiden, die Animationseffekte, die zu einem Absatz hinzugefügt wurden, zu finden – zum Beispiel, in einem Szenario möchten Sie die Animationseffekte in einem Absatz abrufen, weil Sie planen, diese Effekte auf einen anderen Absatz oder eine Form anzuwenden.
+## **Animations‑Effekte von Absätzen abrufen**
 
-Aspose.Slides für Java ermöglicht es Ihnen, alle Animationseffekte abzurufen, die auf Absätze angewendet wurden, die sich in einem Textfeld (Form) befinden. Dieser Beispielcode zeigt Ihnen, wie man die Animationseffekte in einem Absatz abruft:
+Möglicherweise möchten Sie die zu einem Absatz hinzugefügten Animations‑Effekte herausfinden – zum Beispiel, wenn Sie die Animations‑Effekte eines Absatzes erhalten wollen, weil Sie diese Effekte einem anderen Absatz oder einer anderen Form zuweisen möchten.
 
+Aspose.Slides für Java ermöglicht es Ihnen, alle auf Absätze in einem Textfeld (Form) angewendeten Animations‑Effekte abzurufen. Der Beispielcode zeigt, wie man die Animations‑Effekte in einem Absatz erhält:
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -45,9 +55,24 @@ try {
         IEffect[] effects = sequence.getEffectsByParagraph(paragraph);
 
         if (effects.length > 0)
-            System.out.println("Absatz \"" + paragraph.getText() + "\" hat " + effects[0].getType() + " Effekt.");
+            System.out.println("Paragraph \"" + paragraph.getText() + "\" has " + effects[0].getType() + " effect.");
     }
 } finally {
     pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Wie unterscheiden sich Textanimationen von Folienübergängen, und können sie kombiniert werden?**
+
+Textanimationen steuern das Verhalten von Objekten im Laufe der Zeit auf einer Folie, während [Übergänge](/slides/de/java/slide-transition/) bestimmen, wie Folien wechseln. Sie sind unabhängig voneinander und können zusammen verwendet werden; die Abspielreihenfolge wird vom Animations‑Zeitplan und den Übergangseinstellungen bestimmt.
+
+**Werden Textanimationen beim Exportieren zu PDF oder Bildern beibehalten?**
+
+Nein. PDF‑ und Rasterbilder sind statisch, daher sehen Sie nur einen einzelnen Zustand der Folie ohne Bewegung. Um die Bewegung beizubehalten, verwenden Sie den Export als [Video](/slides/de/java/convert-powerpoint-to-video/) oder [HTML](/slides/de/java/export-to-html5/).
+
+**Funktionieren Textanimationen in Layouts und im Folienmaster?**
+
+Auf Layout‑/Master‑Objekte angewendete Effekte werden von den Folien übernommen, aber ihr Timing und die Interaktion mit Folien‑Animationen hängen von der endgültigen Reihenfolge auf der Folie ab.

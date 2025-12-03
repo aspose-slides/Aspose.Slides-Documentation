@@ -1,36 +1,48 @@
 ---
-title: API Moderne
+title: Améliorer le traitement des images avec l'API moderne
+linktitle: API moderne
 type: docs
 weight: 237
 url: /fr/java/modern-api/
-keywords: "API Moderne CrossPlatform"
-description: "API Moderne"
+keywords:
+- API moderne
+- dessin
+- vignette de diapositive
+- diapositive vers image
+- vignette de forme
+- forme vers image
+- vignette de présentation
+- présentation vers images
+- ajouter image
+- ajouter image
+- Java
+- Aspose.Slides
+description: "Modernisez le traitement des images de diapositives en remplaçant les API d'imagerie obsolètes par l'API moderne Java pour une automatisation fluide de PowerPoint et d'OpenDocument."
 ---
 
-## Introduction
+## **Introduction**
 
-Historiquement, Aspose Slides dépend de java.awt et a dans l'API publique les classes suivantes provenant de là :
+Historiquement, Aspose Slides dépend de `java.awt` et expose dans son API publique les classes suivantes provenant de ce package :
 - [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)
 - [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)
 
 À partir de la version 24.4, cette API publique est déclarée obsolète.
 
-Afin de se débarrasser des dépendances à ces classes, nous avons ajouté ce que l'on appelle "l'API Moderne" - c'est-à-dire l'API qui doit être utilisée à la place de celle qui est obsolète, dont les signatures contiennent des dépendances sur BufferedImage. Graphics2D est déclaré obsolète et son support est retiré de l'API publique de Slides.
+Afin de se débarrasser de ces dépendances, nous avons ajouté ce que l’on appelle l’« API moderne » : l’API qui doit être utilisée à la place de l’ancienne, dont les signatures ne contiennent plus de dépendances à `BufferedImage`. `Graphics2D` est déclaré obsolète et son support est retiré de l’API publique Slides.
 
-La suppression de l'API publique obsolète avec des dépendances sur System.Drawing se fera dans la version 24.8.
+Le retrait de l’API publique obsolète dépendante de `System.Drawing` sera effectué dans la version 24.8.
 
-## API Moderne
+## **API moderne**
 
-Ajout des classes et des énumérations suivantes à l'API publique :
+Ajout des classes et énumérations suivantes à l’API publique :
 
-- IImage - représente l'image raster ou vectorielle.
-- ImageFormat - représente le format de fichier de l'image.
-- Images - méthodes pour instancier et travailler avec l'interface IImage.
+- `IImage` – représente l’image raster ou vectorielle.
+- `ImageFormat` – représente le format de fichier de l’image.
+- `Images` – méthodes pour créer et manipuler l’interface `IImage`.
 
-Veuillez noter que IImage est jetable (il implémente l'interface IDisposable et son utilisation doit être encapsulée dans un using ou être libérée d'une autre manière appropriée).
+Veuillez noter que `IImage` est jetable (il implémente l’interface `IDisposable` et son utilisation doit être entourée d’un `using` ou d’une libération explicite).
 
-Un scénario typique d'utilisation de la nouvelle API peut ressembler à ceci :
-
+Un scénario typique d’utilisation de la nouvelle API peut ressembler à ceci :
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -60,9 +72,10 @@ try {
 }
 ```
 
-## Remplacer l'ancien code par l'API Moderne
 
-En général, vous devrez remplacer l'appel à l'ancienne méthode utilisant ImageIO par la nouvelle.
+## **Remplacement du code ancien par l’API moderne**
+
+En général, vous devez remplacer l’appel à l’ancienne méthode utilisant `ImageIO` par le nouvel appel.
 
 Ancien :
 ``` java
@@ -73,6 +86,7 @@ try {
     e.printStackTrace();
 }
 ```
+
 Nouveau :
 ``` java
 IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(1920, 1080));
@@ -83,10 +97,10 @@ try {
 }
 ```
 
-### Obtenir une vignette de diapositive
+
+### **Obtention d’une vignette de diapositive**
 
 Code utilisant une API obsolète :
-
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -101,8 +115,8 @@ try {
 }
 ```
 
-API Moderne :
 
+API moderne :
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -117,10 +131,10 @@ try {
 }
 ```
 
-### Obtenir une vignette de forme
+
+### **Obtention d’une vignette de forme**
 
 Code utilisant une API obsolète :
-
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -135,8 +149,8 @@ try {
 }
 ```
 
-API Moderne :
 
+API moderne :
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -151,10 +165,10 @@ try {
 }
 ```
 
-### Obtenir une vignette de présentation
+
+### **Obtention d’une vignette de présentation**
 
 Code utilisant une API obsolète :
-
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -176,8 +190,8 @@ try {
 }
 ```
 
-API Moderne :
 
+API moderne :
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -202,10 +216,10 @@ try {
 }
 ```
 
-### Ajouter une image à une présentation
+
+### **Ajout d’une image à une présentation**
 
 Code utilisant une API obsolète :
-
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -223,8 +237,8 @@ try {
 }
 ```
 
-API Moderne :
 
+API moderne :
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -242,73 +256,87 @@ try {
 }
 ```
 
-## Méthodes à supprimer et leur remplacement dans l'API Moderne
 
-### Présentation
-| Méthode Signature                               | Méthode de Remplacement                              |
-|-----------------------------------------------|-----------------------------------------------------|
-| public final BufferedImage[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options)           |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY)     |
+## **Méthodes à supprimer et leurs remplacements dans l’API moderne**
+
+### **Presentation**
+| Signature de méthode                               | Signature de méthode de remplacement                             |
+|----------------------------------------------------|-------------------------------------------------------------------|
+| public final BufferedImage[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options)                   |
+| public final BufferedImage[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY)   |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides) | public final IImage[] getImages(IRenderingOptions options, int[] slides) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, int[] slides, Dimension imageSize) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, Dimension imageSize) |
 
-### Forme
-| Méthode Signature                                                      | Méthode de Remplacement                                         |
-|----------------------------------------------------------------------|---------------------------------------------------------------|
-| public final BufferedImage getThumbnail()                                        | public final IImage getImage()                                                   |
+### **Shape**
+| Signature de méthode                                                      | Signature de méthode de remplacement                                       |
+|--------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| public final BufferedImage getThumbnail()                                 | public final IImage getImage()                                             |
 | public final BufferedImage getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
 
-### Diapositive
-| Méthode Signature                                                      | Méthode de Remplacement                                           |
-|----------------------------------------------------------------------|-------------------------------------------------------------------|
-| public final BufferedImage getThumbnail() | public final IImage getImage() |
-| public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
-| public final BufferedImage getThumbnail(IRenderingOptions options) | public final IImage getImage(IRenderingOptions options) |
-| public final BufferedImage getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options) |
-| public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
-| public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
-| public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | Sera complètement supprimé  |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | Sera complètement supprimé  |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | Sera complètement supprimé  |
+### **Slide**
+| Signature de méthode                                                      | Signature de méthode de remplacement                                           |
+|--------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| public final BufferedImage getThumbnail()                                 | public final IImage getImage()                                                 |
+| public final BufferedImage getThumbnail(float scaleX, float scaleY)       | public final IImage getImage(float scaleX, float scaleY)                       |
+| public final BufferedImage getThumbnail(IRenderingOptions options)        | public final IImage getImage(IRenderingOptions options)                        |
+| public final BufferedImage getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options)                        |
+| public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize)   |
+| public final BufferedImage getThumbnail(ITiffOptions options)             | public final IImage getImage(ITiffOptions options)                             |
+| public final BufferedImage getThumbnail(Dimension imageSize)              | public final IImage getImage(Dimension imageSize)                              |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | Will be deleted completely  |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | Will be deleted completely  |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | Will be deleted completely  |
 
-### Sortie
-| Méthode Signature                                                | Méthode de Remplacement                               |
-|-----------------------------------------------------------------|------------------------------------------------------|
-| public final IOutputFile add(String path, BufferedImage image) | public final IOutputFile add(String path, IImage image) |
+### **Output**
+| Signature de méthode                                                | Signature de méthode de remplacement                                |
+|---------------------------------------------------------------------|---------------------------------------------------------------------|
+| public final IOutputFile add(String path, BufferedImage image)     | public final IOutputFile add(String path, IImage image)            |
 
-### ImageCollection
-| Méthode Signature                          | Méthode de Remplacement               |
-|-------------------------------------------|---------------------------------------|
-| public final IPPImage addImage(BufferedImage image) | public final IPPImage addImage(IImage image) |
+### **ImageCollection**
+| Signature de méthode                          | Signature de méthode de remplacement               |
+|-----------------------------------------------|----------------------------------------------------|
+| public final IPPImage addImage(BufferedImage image) | public final IPPImage addImage(IImage image)      |
 
-### PPImage
-| Méthode Signature                     | Méthode de Remplacement   |
-|--------------------------------------|---------------------------|
-| public final BufferedImage getSystemImage() | public final IImage getImage() |
+### **PPImage**
+| Signature de méthode                     | Signature de méthode de remplacement   |
+|------------------------------------------|----------------------------------------|
+| public final BufferedImage getSystemImage() | public final IImage getImage()         |
 
-### PatternFormat
-| Méthode Signature                                          | Méthode de Remplacement                        |
-|-----------------------------------------------------------|-------------------------------------------------|
-| public final BufferedImage getTileImage(Color styleColor)   | public final IImage getTile(Color styleColor) |
+### **PatternFormat**
+| Signature de méthode                                          | Signature de méthode de remplacement                        |
+|---------------------------------------------------------------|-------------------------------------------------------------|
+| public final BufferedImage getTileImage(Color styleColor)     | public final IImage getTile(Color styleColor)               |
 | public final BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTile(Color background, Color foreground) |
 
-### PatternFormatEffectiveData
-| Méthode Signature                                          | Méthode de Remplacement                        |
-|-----------------------------------------------------------|-------------------------------------------------|
+### **PatternFormatEffectiveData**
+| Signature de méthode                                          | Signature de méthode de remplacement                        |
+|---------------------------------------------------------------|-------------------------------------------------------------|
 | public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
 
+## **Le support de Graphics2D sera interrompu**
 
-## Le support de l'API pour Graphics2D sera arrêté
+Les méthodes utilisant [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) sont déclarées obsolètes et leur support sera retiré de l’API publique.
 
-Les méthodes avec [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) sont déclarées obsolètes et leur support sera retiré de l'API publique.
+La partie de l’API qui l’emploie sera supprimée :
 
-La partie de l'API qui l'utilise sera supprimée :
-
-[Diapositive](https://reference.aspose.com/slides/java/com.aspose.slides/slide/)
+[Slide](https://reference.aspose.com/slides/java/com.aspose.slides/slide/)
 
 - [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
 - [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
 - [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
+
+## **FAQ**
+
+**Pourquoi `java.awt.Graphics2D` a‑t‑il été abandonné ?**
+
+Le support de `Graphics2D` est retiré de l’API publique afin d’unifier le rendu et la gestion des images, d’éliminer les dépendances spécifiques à la plateforme et d’adopter une approche multiplateforme avec [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/). Toutes les méthodes de rendu vers `Graphics2D` seront supprimées.
+
+**Quel est l’avantage pratique de `IImage` par rapport à `BufferedImage` ?**
+
+[IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/) unifie la manipulation des images raster et vectorielles et simplifie l’enregistrement dans différents formats via [ImageFormat](https://reference.aspose.com/slides/java/com.aspose.slides/imageformat/).
+
+**L’API moderne affectera‑t‑elle les performances de génération des vignettes ?**
+
+Passer de `getThumbnail` à `getImage` n’empêche pas les scénarios existants : les nouvelles méthodes offrent les mêmes capacités de production d’images avec options et tailles, tout en conservant le support des options de rendu. Le gain ou la perte spécifiques dépendent du scénario, mais fonctionnellement les remplacements sont équivalents.

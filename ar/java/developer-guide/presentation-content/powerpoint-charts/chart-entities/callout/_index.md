@@ -1,12 +1,22 @@
 ---
-title: استدعاء
+title: إدارة التعليقات التوضيحية في مخططات العرض باستخدام Java
+linktitle: شرح بياني
 type: docs
 url: /ar/java/callout/
+keywords:
+- شرح المخطط
+- استخدام التعليق التوضيحي
+- تسمية البيانات
+- تنسيق التسمية
+- PowerPoint
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "إنشاء وتنسيق التعليقات التوضيحية في Aspose.Slides for Java مع أمثلة شفرة مختصرة، متوافقة مع PPT و PPTX لأتمتة سير عمل العروض التقديمية."
 ---
 
-## **استخدام الاستدعاءات**
-تمت إضافة طرق جديدة [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) و [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) إلى فئة [DataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/datalabelformat) وواجهة [IDataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat). تحدد هذه الطرق ما إذا كان سيتعين عرض تسمية البيانات الخاصة بالمخطط المحدد كاستدعاء بيانات أو كتسمية بيانات.
-
+## **استخدام التعليقات التوضيحية**
+تمت إضافة طريقتين جديدتين [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) و [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) إلى فئة [DataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/datalabelformat) والواجهة [IDataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat). تحدد هاتان الطريقتان ما إذا كانت تسمية البيانات المحددة للمخطط ستُعرض كشرح بياني أو كـ تسمية بيانات.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -22,9 +32,9 @@ try {
 }
 ```
 
-## **تعيين الاستدعاء لمخطط الدونات**
-توفر Aspose.Slides لـ Java دعمًا لتعيين شكل تسميات بيانات السلسلة لمخطط دونات. فيما يلي مثال عينة.
 
+## **تعيين شرح لمخطط Doughnut**
+توفر Aspose.Slides for Java دعمًا لتعيين شكل شرح تسمية بيانات السلسلة لمخطط Doughnut. فيما يلي مثال عيني.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -86,3 +96,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل يتم الاحتفاظ بالتعليقات التوضيحية عند تحويل عرض تقديمي إلى PDF أو HTML5 أو SVG أو صور؟**
+
+نعم. التعليقات التوضيحية هي جزء من رسم المخطط، لذا عند التصدير إلى [PDF](/slides/ar/java/convert-powerpoint-to-pdf/)، [HTML5](/slides/ar/java/export-to-html5/)، [SVG](/slides/ar/java/render-a-slide-as-an-svg-image/)، أو [صور نقطية](/slides/ar/java/convert-powerpoint-to-png/)، يتم الاحتفاظ بها مع تنسيق الشريحة.
+
+**هل تعمل الخطوط المخصصة في التعليقات التوضيحية، وهل يمكن الحفاظ على مظهرها عند التصدير؟**
+
+نعم. تدعم Aspose.Slides [تضمين الخطوط](/slides/ar/java/embedded-font/) في العرض وتتحكم في تضمين الخطوط أثناء عمليات التصدير مثل [PDF](/slides/ar/java/convert-powerpoint-to-pdf/)، مما يضمن أن تبدو التعليقات التوضيحية نفسها عبر الأنظمة المختلفة.

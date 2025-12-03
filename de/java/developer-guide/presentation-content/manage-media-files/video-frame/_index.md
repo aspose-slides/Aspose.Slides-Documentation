@@ -1,33 +1,45 @@
 ---
-title: Video Frame
+title: Verwalten von Videorahmen in Präsentationen mit Java
+linktitle: Videorahmen
 type: docs
 weight: 10
 url: /de/java/video-frame/
-keywords: "Video hinzufügen, Video-Frame erstellen, Video extrahieren, PowerPoint-Präsentation, Java, Aspose.Slides für Java"
-description: "Fügen Sie ein Video-Frame zu einer PowerPoint-Präsentation in Java hinzu"
+keywords:
+- Video hinzufügen
+- Video erstellen
+- Video einbetten
+- Video extrahieren
+- Video abrufen
+- Videorahmen
+- Webquelle
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Java
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie programmgesteuert Videorahmen in PowerPoint‑ und OpenDocument‑Folien mit Aspose.Slides für Java hinzufügen und extrahieren. Schnelle Anleitung."
 ---
 
-Ein gut platziertes Video in einer Präsentation kann Ihre Botschaft überzeugender gestalten und die Engagement-Levels Ihres Publikums erhöhen.
+Ein gut platziertes Video in einer Präsentation kann Ihre Botschaft überzeugender machen und die Interaktionsrate mit Ihrem Publikum erhöhen. 
 
-PowerPoint ermöglicht es, Videos auf zwei Arten in eine Folie einzufügen:
+PowerPoint ermöglicht es Ihnen, Videos auf einer Folie in einer Präsentation auf zwei Arten hinzuzufügen:
 
-* Fügen Sie ein lokales Video (auf Ihrem Computer gespeichert) hinzu oder betten Sie es ein
-* Fügen Sie ein Online-Video (aus einer Webquelle wie YouTube) hinzu.
+* Ein lokales Video hinzufügen oder einbetten (auf Ihrem Rechner gespeichert)
+* Ein Online‑Video hinzufügen (aus einer Web‑Quelle wie YouTube).
 
-Um Ihnen das Hinzufügen von Videos (Videoobjekten) zu einer Präsentation zu ermöglichen, bietet Aspose.Slides das [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) Interface, das [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) Interface und andere relevante Typen.
+Um Ihnen das Hinzufügen von Videos (Video‑Objekten) zu einer Präsentation zu ermöglichen, stellt Aspose.Slides das Interface [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) , das Interface [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) und weitere relevante Typen bereit. 
 
-## **Erstellen eines eingebetteten Video-Frames**
+## **Einbetten von Videorahmen erstellen**
 
-Wenn die Videodatei, die Sie zu Ihrer Folie hinzufügen möchten, lokal gespeichert ist, können Sie einen Video-Frame erstellen, um das Video in Ihrer Präsentation einzubetten.
+Wenn die Videodatei, die Sie zu Ihrer Folie hinzufügen möchten, lokal gespeichert ist, können Sie einen Videorahmen erstellen, um das Video in Ihrer Präsentation einzubetten. 
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.
-1. Holen Sie sich eine Referenz zur Folie über ihren Index.
-1. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) Objekt hinzu und übergeben Sie den Videodateipfad, um das Video mit der Präsentation einzubetten.
-1. Fügen Sie ein [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) Objekt hinzu, um einen Rahmen für das Video zu erstellen.
-1. Speichern Sie die modifizierte Präsentation.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Rufen Sie die Referenz einer Folie über deren Index ab. 
+3. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/)‑Objekt hinzu und übergeben Sie den Pfad zur Videodatei, um das Video in die Präsentation einzubetten. 
+4. Fügen Sie ein [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/)‑Objekt hinzu, um einen Rahmen für das Video zu erstellen.  
+5. Speichern Sie die geänderte Präsentation. 
 
-Dieser Java-Code zeigt Ihnen, wie Sie ein lokal gespeichertes Video zu einer Präsentation hinzufügen:
-
+Dieser Java‑Code zeigt, wie Sie ein lokal gespeichertes Video zu einer Präsentation hinzufügen:
 ```java
 // Instanziiert die Presentation-Klasse
 Presentation pres = new Presentation("pres.pptx");
@@ -37,10 +49,10 @@ try {
     
     IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
 
-    // Holt die erste Folie und fügt einen Video-Frame hinzu
+    // Holt die erste Folie und fügt einen Videorahmen hinzu
     pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
 
-    // Speichert die Präsentation auf der Festplatte
+    // Speichert die Präsentation auf dem Datenträger
     pres.save("pres-with-video.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -48,8 +60,8 @@ try {
 }
 ```
 
-Alternativ können Sie ein Video hinzufügen, indem Sie seinen Dateipfad direkt an die [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) Methode übergeben:
 
+Alternativ können Sie ein Video hinzufügen, indem Sie dessen Dateipfad direkt an die Methode [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) übergeben:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -61,20 +73,20 @@ try {
 ```
 
 
-## **Erstellen eines Video-Frames mit Video aus einer Webquelle**
 
-Microsoft [PowerPoint 2013 und neuer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) unterstützt YouTube-Videos in Präsentationen. Wenn das Video, das Sie verwenden möchten, online verfügbar ist (z. B. auf YouTube), können Sie es über seinen Weblink zu Ihrer Präsentation hinzufügen.
+## **Videorahmen mit Videos aus Web‑Quellen erstellen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse.
-1. Holen Sie sich eine Referenz zur Folie über ihren Index.
-1. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) Objekt hinzu und übergeben Sie den Link zum Video.
-1. Setzen Sie ein Thumbnail für den Video-Frame.
-1. Speichern Sie die Präsentation.
+Microsoft [PowerPoint 2013 und neuer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) unterstützt YouTube‑Videos in Präsentationen. Wenn das von Ihnen gewünschte Video online verfügbar ist (z. B. auf YouTube), können Sie es über seinen Web‑Link zu Ihrer Präsentation hinzufügen. 
 
-Dieser Java-Code zeigt Ihnen, wie Sie ein Video von der Web zu einer Folie in einer PowerPoint-Präsentation hinzufügen:
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Rufen Sie die Referenz einer Folie über deren Index ab. 
+3. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/)‑Objekt hinzu und übergeben Sie den Link zum Video.
+4. Legen Sie ein Vorschau‑Bild (Thumbnail) für den Videorahmen fest. 
+5. Speichern Sie die Präsentation. 
 
+Dieser Java‑Code zeigt, wie Sie ein Video aus dem Web zu einer Folie in einer PowerPoint‑Präsentation hinzufügen:
 ```java
-// Instanziiert ein Presentation-Objekt, das eine Präsentationsdatei darstellt 
+// Instanziiert ein Presentation-Objekt, das eine Präsentationsdatei darstellt
 Presentation pres = new Presentation();
 try {
     addVideoFromYouTube(pres, "Tj75Arhq5ho");
@@ -92,7 +104,7 @@ private static void addVideoFromYouTube(Presentation pres, String videoID)
             10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
     videoFrame.setPlayMode(VideoPlayModePreset.Auto);
 
-    // Lädt das Thumbnail
+    // Lädt das Vorschaubild
     String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
     URL url;
 
@@ -107,19 +119,19 @@ private static void addVideoFromYouTube(Presentation pres, String videoID)
 }
 ```
 
-## **Video von Folie extrahieren**
 
-Neben dem Hinzufügen von Videos zu Folien erlaubt Aspose.Slides Ihnen auch, Videos, die in Präsentationen eingebettet sind, zu extrahieren.
+## **Video aus Folien extrahieren**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse, um die Präsentation zu laden, die das Video enthält.
-2. Durchlaufen Sie alle [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) Objekte.
-3. Durchlaufen Sie alle [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) Objekte, um einen [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/) zu finden.
-4. Speichern Sie das Video auf der Festplatte.
+Neben dem Hinzufügen von Videos zu Folien ermöglicht Aspose.Slides das Extrahieren von in Präsentationen eingebetteten Videos.
 
-Dieser Java-Code zeigt Ihnen, wie Sie das Video auf einer Präsentationsfolie extrahieren:
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation), um die Präsentation zu laden, die das Video enthält. 
+2. Iterieren Sie über alle [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/)‑Objekte.
+3. Iterieren Sie über alle [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/)‑Objekte, um einen [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/) zu finden. 
+4. Speichern Sie das Video auf dem Datenträger.
 
+Dieser Java‑Code zeigt, wie Sie das Video von einer Präsentationsfolie extrahieren:
 ```java
-// Instanziiert ein Presentation-Objekt, das eine Präsentationsdatei darstellt 
+// Instanziert ein Presentation-Objekt, das eine Präsentationsdatei darstellt 
 Presentation pres = new Presentation("VideoSample.pptx");
 try {
     for (ISlide slide : pres.getSlides()) 
@@ -133,7 +145,7 @@ try {
                 int ss = type.lastIndexOf('-');
                 byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
 
-                // Holt die Dateiendung
+                // Holt die Dateierweiterung
                 int charIndex = type.indexOf("/");
                 type = type.substring(charIndex + 1);
 
@@ -149,3 +161,22 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Welche Wiedergabeparameter können für einen VideoFrame geändert werden?**
+
+Sie können den [Wiedergabemodus](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (automatisch oder bei Klick) und das [Looping](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) steuern. Diese Optionen stehen über die Eigenschaften des [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/)-Objekts zur Verfügung.
+
+**Beeinflusst das Hinzufügen eines Videos die PPTX‑Dateigröße?**
+
+Ja. Wenn Sie ein lokales Video einbetten, werden die Binärdaten in das Dokument aufgenommen, sodass die Präsentationsgröße proportional zur Dateigröße zunimmt. Wenn Sie ein Online‑Video hinzufügen, werden nur ein Link und ein Vorschaubild eingebettet, wodurch die Größenzunahme kleiner ist.
+
+**Kann ich das Video in einem bestehenden VideoFrame ersetzen, ohne Position und Größe zu ändern?**
+
+Ja. Sie können den [Video‑Inhalt](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) innerhalb des Rahmens austauschen, während Sie die Geometrie der Form beibehalten; dies ist ein gängiges Szenario zum Aktualisieren von Medien in einem bestehenden Layout.
+
+**Kann der Inhaltstyp (MIME) eines eingebetteten Videos ermittelt werden?**
+
+Ja. Ein eingebettetes Video besitzt einen [Content‑Typ](https://reference.aspose.com/slides/java/com.aspose.slides/video/#getContentType--) , den Sie auslesen und beispielsweise beim Speichern auf die Festplatte verwenden können.

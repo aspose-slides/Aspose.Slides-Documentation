@@ -1,42 +1,48 @@
 ---
-title: Formateo de Texto
+title: Formatear texto de PowerPoint en Java
+linktitle: Formateo de texto
 type: docs
 weight: 50
 url: /es/java/text-formatting/
 keywords:
 - resaltar texto
 - expresión regular
-- alinear párrafos de texto
-- transparencia del texto
-- propiedades de la fuente del párrafo
+- alinear párrafo
+- estilo de texto
+- fondo de texto
+- transparencia de texto
+- espaciado de caracteres
+- propiedades de fuente
 - familia de fuentes
-- rotación del texto
-- rotación de ángulo personalizado
+- rotación de texto
+- ángulo de rotación
 - marco de texto
 - interlineado
 - propiedad autofit
 - ancla del marco de texto
 - tabulación de texto
-- estilo de texto predeterminado
+- idioma predeterminado
+- PowerPoint
+- OpenDocument
+- presentación
 - Java
-- Aspose.Slides para Java
-description: "Gestionar y manipular propiedades del texto y del marco de texto en Java"
+- Aspose.Slides
+description: "Formatea y da estilo al texto en presentaciones PowerPoint y OpenDocument usando Aspose.Slides para Java. Personaliza fuentes, colores, alineación y más."
 ---
 
-## **Resaltar Texto**
-El método [highlightText](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame#highlightText-java.lang.String-java.awt.Color-) se ha añadido a la interfaz [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame) y a la clase [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame).
+## **Resaltar texto**
+El método [highlightText](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame#highlightText-java.lang.String-java.awt.Color-) ha sido añadido a la interfaz [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame) y a la clase [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame).
 
-Permite resaltar una parte del texto con un color de fondo usando una muestra de texto, similar a la herramienta de Color de Resaltado de Texto en PowerPoint 2019.
+Permite resaltar una parte del texto con color de fondo usando una muestra de texto, similar a la herramienta Color de resaltado de texto en PowerPoint 2019.
 
-El siguiente fragmento de código muestra cómo utilizar esta función:
-
+El fragmento de código a continuación muestra cómo usar esta función:
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     TextHighlightingOptions textHighlightingOptions = new TextHighlightingOptions();
     textHighlightingOptions.setWholeWordsOnly(true);
     
-    ((AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightText("title", Color.BLUE); // resaltando todas las palabras 'importante'
+    ((AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightText("title", Color.BLUE); // resaltando todas las palabras 'important'
     ((AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightText("to", Color.MAGENTA, textHighlightingOptions);// resaltando todas las ocurrencias separadas de 'the'
     
     pres.save("OutputPresentation-highlight.pptx", SaveFormat.Pptx);
@@ -45,20 +51,19 @@ try {
 }
 ```
 
+
 {{% alert color="primary" %}} 
 
-Aspose proporciona un sencillo [servicio de edición de PowerPoint en línea gratuito](https://products.aspose.app/slides/editor)
+Aspose ofrece un sencillo, [servicio gratuito de edición de PowerPoint en línea](https://products.aspose.app/slides/editor)
 
 {{% /alert %}} 
 
-## **Resaltar Texto usando Expresión Regular**
+## **Resaltar texto usando expresión regular**
+El método [highlightRegex](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame#highlightRegex-java.lang.String-java.awt.Color-com.aspose.slides.ITextHighlightingOptions-) ha sido añadido a la interfaz [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame) y a la clase [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame).
 
-El método [highlightRegex](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame#highlightRegex-java.lang.String-java.awt.Color-com.aspose.slides.ITextHighlightingOptions-) se ha añadido a la interfaz [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame) y a la clase [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame).
+Permite resaltar una parte del texto con color de fondo usando una expresión regular, similar a la herramienta Color de resaltado de texto en PowerPoint 2019.
 
-Permite resaltar una parte del texto con un color de fondo usando regex, similar a la herramienta de Color de Resaltado de Texto en PowerPoint 2019.
-
-El siguiente fragmento de código muestra cómo utilizar esta función:
-
+El fragmento de código a continuación muestra cómo usar esta función:
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -72,12 +77,11 @@ try {
 }
 ```
 
-## **Establecer Color de Fondo del Texto**
 
-Aspose.Slides te permite especificar tu color preferido para el fondo de un texto.
+## **Establecer color de fondo del texto**
+Aspose.Slides le permite especificar el color preferido para el fondo de un texto.
 
-Este código Java muestra cómo establecer el color de fondo para todo el texto:
-
+Este código Java muestra cómo establecer el color de fondo para un texto completo:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -86,12 +90,12 @@ try {
 
     Paragraph para = new Paragraph();
 
-    Portion portion1 = new Portion("Negro");
+    Portion portion1 = new Portion("Black");
     portion1.getPortionFormat().setFontBold(NullableBool.True);
 
-    Portion portion2 = new Portion(" Rojo ");
+    Portion portion2 = new Portion(" Red ");
 
-    Portion portion3 = new Portion("Negro");
+    Portion portion3 = new Portion("Black");
     portion3.getPortionFormat().setFontBold(NullableBool.True);
 
     para.getPortions().add(portion1);
@@ -118,8 +122,8 @@ try {
 }
 ```
 
-Este código Java muestra cómo establecer el color de fondo solo para una porción de un texto:
 
+Este código Java muestra cómo establecer el color de fondo para solo una parte de un texto:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -128,12 +132,12 @@ try {
     
     Paragraph para = new Paragraph();
 
-    Portion portion1 = new Portion("Negro");
+    Portion portion1 = new Portion("Black");
     portion1.getPortionFormat().setFontBold(NullableBool.True);
 
-    Portion portion2 = new Portion(" Rojo ");
+    Portion portion2 = new Portion(" Red ");
 
-    Portion portion3 = new Portion("Negro");
+    Portion portion3 = new Portion("Black");
     portion3.getPortionFormat().setFontBold(NullableBool.True);
     
     para.getPortions().add(portion1);
@@ -151,7 +155,7 @@ try {
     IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
     Optional<IPortion> redPortion = StreamSupport.stream(autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().spliterator(), false)
-            .filter(p -> p.getText().contains("Rojo"))
+            .filter(p -> p.getText().contains("Red"))
             .findFirst();
 
     if(redPortion.isPresent())
@@ -163,19 +167,18 @@ try {
 }
 ```
 
-## **Alinear Párrafos de Texto**
 
-El formateo de texto es uno de los elementos clave al crear cualquier tipo de documentos o presentaciones. Sabemos que Aspose.Slides para Java admite la adición de texto a las diapositivas, pero en este tema, veremos cómo podemos controlar la alineación de los párrafos de texto en una diapositiva. Siga los pasos a continuación para alinear los párrafos de texto utilizando Aspose.Slides para Java:
+## **Alinear párrafos de texto**
+El formato de texto es uno de los elementos clave al crear cualquier tipo de documento o presentación. Sabemos que Aspose.Slides for Java admite la inserción de texto en diapositivas, pero en este tema veremos cómo controlar la alineación de los párrafos de texto en una diapositiva. Siga los pasos a continuación para alinear los párrafos de texto usando Aspose.Slides for Java:
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Obtenga la referencia de una diapositiva utilizando su índice.
-3. Acceda a las formas de marcador de posición presentes en la diapositiva y conviértalas en [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape).
-4. Obtenga el párrafo (que necesita ser alineado) del [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape#getTextFrame--) expuesto por [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape).
-5. Alinee el párrafo. Un párrafo puede alinearse a la derecha, a la izquierda, al centro y justificar.
-6. Escriba la presentación modificada como un archivo PPTX.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Obtener la referencia de una diapositiva usando su índice.
+3. Acceder a las formas de marcador de posición presentes en la diapositiva y convertirlas a un [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape).
+4. Obtener el párrafo (que debe alinearse) del [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape#getTextFrame--) expuesto por el [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape).
+5. Alinear el párrafo. Un párrafo puede alinearse a la derecha, izquierda, centro o justificado.
+6. Guardar la presentación modificada como archivo PPTX.
 
-La implementación de los pasos anteriores se presenta a continuación.
-
+La implementación de los pasos anteriores se muestra a continuación.
 ```java
 // Instanciar un objeto Presentation que representa un archivo PPTX
 Presentation pres = new Presentation("ParagraphsAlignment.pptx");
@@ -183,39 +186,39 @@ try {
     // Accediendo a la primera diapositiva
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Accediendo al primer y segundo marcador de posición en la diapositiva y convirtiéndolos en AutoShape
+    // Accediendo al primer y segundo placeholder en la diapositiva y convirtiéndolo a AutoShape
     ITextFrame tf1 = ((IAutoShape)slide.getShapes().get_Item(0)).getTextFrame();
     ITextFrame tf2 = ((IAutoShape)slide.getShapes().get_Item(1)).getTextFrame();
 
-    // Cambiando el texto en ambos marcadores de posición
-    tf1.setText("Alineación al centro por Aspose");
-    tf2.setText("Alineación al centro por Aspose");
+    // Cambiar el texto en ambos placeholders
+    tf1.setText("Center Align by Aspose");
+    tf2.setText("Center Align by Aspose");
 
-    // Obteniendo el primer párrafo de los marcadores de posición
+    // Obtener el primer párrafo de los placeholders
     IParagraph para1 = tf1.getParagraphs().get_Item(0);
     IParagraph para2 = tf2.getParagraphs().get_Item(0);
 
-    // Alineando el párrafo de texto al centro
+    // Alinear el párrafo de texto al centro
     para1.getParagraphFormat().setAlignment(TextAlignment.Center);
     para2.getParagraphFormat().setAlignment(TextAlignment.Center);
 
-    // Escribiendo la presentación como un archivo PPTX
+    // Escribir la presentación como un archivo PPTX
     pres.save("Centeralign_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Establecer Transparencia para el Texto**
-Este artículo demuestra cómo establecer la propiedad de transparencia a cualquier forma de texto utilizando Aspose.Slides para Java. Para establecer la transparencia en el texto, siga los pasos a continuación:
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Obtenga la referencia de una diapositiva.
-3. Establezca el color de sombra.
-4. Escriba la presentación como un archivo PPTX.
+## **Establecer transparencia para el texto**
+Este artículo demuestra cómo establecer la propiedad de transparencia a cualquier forma de texto usando Aspose.Slides for Java. Para establecer la transparencia al texto, siga los pasos a continuación:
 
-La implementación de los pasos anteriores se presenta a continuación.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Obtener la referencia de una diapositiva.
+3. Establecer el color de la sombra
+4. Guardar la presentación como archivo PPTX.
 
+La implementación de los pasos anteriores se muestra a continuación.
 ```java
 Presentation pres = new Presentation("transparency.pptx");
 try {
@@ -225,9 +228,9 @@ try {
     IOuterShadow outerShadowEffect = effects.getOuterShadowEffect();
 
     Color shadowColor = outerShadowEffect.getShadowColor().getColor();
-    System.out.println(shadowColor.toString() + " - la transparencia es: "+ (shadowColor.getAlpha() / 255f) * 100);
+    System.out.println(shadowColor.toString() + " - transparency is: "+ (shadowColor.getAlpha() / 255f) * 100);
 
-    // establecer transparencia al cero por ciento
+    // establecer la transparencia a cero por ciento
     outerShadowEffect.getShadowColor().setColor(new Color(shadowColor.getRed(), shadowColor.getGreen(), shadowColor.getBlue(), 255));
 
     pres.save("transparency-2.pptx", SaveFormat.Pptx);
@@ -236,12 +239,11 @@ try {
 }
 ```
 
-## **Establecer Espaciado de Caracteres para el Texto**
 
-Aspose.Slides te permite establecer el espacio entre letras en un cuadro de texto. De esta manera, puedes ajustar la densidad visual de una línea o bloque de texto expandiendo o condensando el espaciado entre caracteres.
+## **Establecer espaciado de caracteres para el texto**
+Aspose.Slides permite establecer el espacio entre letras en un cuadro de texto. De esta manera, puede ajustar la densidad visual de una línea o bloque de texto ampliando o condensando el espaciado entre caracteres.
 
-Este código Java muestra cómo expandir el espaciado para una línea de texto y condensar el espaciado para otra línea:
-
+Este código Java muestra cómo ampliar el espaciado para una línea de texto y condensar el espaciado para otra línea:
 ```java
 Presentation presentation = new Presentation("in.pptx");
 
@@ -254,32 +256,31 @@ textBox2.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefa
 presentation.save("out.pptx", SaveFormat.Pptx);
 ```
 
-## **Gestionar Propiedades de Fuente de los Párrafos**
 
-Las presentaciones suelen contener tanto texto como imágenes. El texto puede formatearse de diversas maneras, ya sea para resaltar secciones y palabras específicas, o para conformarse con estilos corporativos. El formateo de texto ayuda a los usuarios a variar la apariencia del contenido de la presentación. Este artículo muestra cómo usar Aspose.Slides para Java para configurar las propiedades de fuente de los párrafos de texto en las diapositivas. Para gestionar las propiedades de fuente de un párrafo utilizando Aspose.Slides para Java:
+## **Administrar propiedades de fuente del párrafo**
+Las presentaciones suelen contener tanto texto como imágenes. El texto puede formatearse de diversas maneras, ya sea para resaltar secciones y palabras específicas o para cumplir con estilos corporativos. El formato de texto ayuda a los usuarios a variar la apariencia del contenido de la presentación. Este artículo muestra cómo usar Aspose.Slides for Java para configurar las propiedades de fuente de los párrafos de texto en las diapositivas. Para administrar las propiedades de fuente de un párrafo usando Aspose.Slides for Java:
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Obtenga la referencia de una diapositiva utilizando su índice.
-1. Acceda a las formas de marcador de posición en la diapositiva y conviértalas en [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
-1. Obtenga el [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame) de la [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame) expuesta por [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
-1. Justifique el párrafo.
-1. Acceda a la porción de texto de un párrafo.
-1. Defina la fuente utilizando FontData y establezca la fuente de la porción de texto en consecuencia.
-   1. Establezca la fuente en negrita.
-   1. Establezca la fuente en cursiva.
-1. Establezca el color de fuente utilizando el [getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/IBasePortionFormat#getFillFormat--) expuesto por el objeto [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion).
-1. Escriba la presentación modificada en un archivo [PPTX](https://docs.fileformat.com/presentation/pptx/).
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. Obtener la referencia de una diapositiva usando su índice.
+1. Acceder a las formas de marcador de posición en la diapositiva y convertirlas a [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
+1. Obtener el [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame) del [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame) expuesto por el [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
+1. Justificar el párrafo.
+1. Acceder al Portion de texto del párrafo.
+1. Definir la fuente usando FontData y establecer la fuente del Portion de texto en consecuencia.
+   1. Establecer la fuente en negrita.
+   1. Establecer la fuente en cursiva.
+1. Establecer el color de la fuente usando el [getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/IBasePortionFormat#getFillFormat--) expuesto por el objeto [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion).
+1. Guardar la presentación modificada en un archivo [PPTX](https://docs.fileformat.com/presentation/pptx/).
 
-La implementación de los pasos anteriores se presenta a continuación. Toma una presentación sin adornos y formatea las fuentes en una de las diapositivas.
-
+La implementación de los pasos anteriores se muestra a continuación. Toma una presentación sin adornos y formatea las fuentes en una de las diapositivas.
 ```java
-// Instanciar un objeto Presentación que representa un archivo PPTX
+// Instanciar un objeto Presentation que representa un archivo PPTX
 Presentation pres = new Presentation("FontProperties.pptx");
 try {
-    // Accediendo a una diapositiva utilizando su posición en la diapositiva
+    // Accediendo a una diapositiva usando su posición
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Accediendo al primer y segundo marcador de posición en la diapositiva y convirtiéndolos en AutoShape
+    // Accediendo al primer y segundo marcador de posición en la diapositiva y convirtiéndolo a AutoShape
     ITextFrame tf1 = ((IAutoShape)slide.getShapes().get_Item(0)).getTextFrame();
     ITextFrame tf2 = ((IAutoShape)slide.getShapes().get_Item(1)).getTextFrame();
 
@@ -299,80 +300,80 @@ try {
     port1.getPortionFormat().setLatinFont(fd1);
     port2.getPortionFormat().setLatinFont(fd2);
 
-    // Establecer la fuente en Negrita
+    // Establecer fuente en negrita
     port1.getPortionFormat().setFontBold(NullableBool.True);
     port2.getPortionFormat().setFontBold(NullableBool.True);
 
-    // Establecer la fuente en Cursiva
+    // Establecer fuente en cursiva
     port1.getPortionFormat().setFontItalic(NullableBool.True);
     port2.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Establecer el color de la fuente
+    // Establecer color de fuente
     port1.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     port1.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
     port2.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     port2.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
 
-    // Escribir el PPTX en el disco
+    //Escribir el PPTX en disco
     pres.save("WelcomeFont_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Gestionar Familia de Fuentes del Texto**
-Una porción se utiliza para contener texto con un estilo de formato similar en un párrafo. Este artículo muestra cómo usar Aspose.Slides para Java para crear un cuadro de texto con algún texto y luego definir una fuente particular y varias otras propiedades de la categoría de familia de fuentes. Para crear un cuadro de texto y establecer propiedades de fuente del texto en él:
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Obtenga la referencia de una diapositiva utilizando su índice.
-3. Agregue un [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) del tipo [Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType#Rectangle) a la diapositiva.
-4. Elimine el estilo de relleno asociado con el [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
-5. Acceda al TextFrame del AutoShape.
-6. Agregue algo de texto al TextFrame.
-7. Acceda al objeto Portion asociado con el [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
-8. Defina la fuente que se utilizará para la [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion).
-9. Establezca otras propiedades de la fuente como negrita, cursiva, subrayado, color y altura utilizando las propiedades relevantes expuestas por el objeto Portion.
-10. Escriba la presentación modificada como un archivo PPTX.
+## **Administrar familia de fuentes del texto**
+Un Portion se utiliza para contener texto con estilo de formato similar en un párrafo. Este artículo muestra cómo usar Aspose.Slides for Java para crear un cuadro de texto con algo de texto y luego definir una fuente específica, así como diversas propiedades de la familia de fuentes. Para crear un cuadro de texto y establecer propiedades de fuente del texto en él:
 
-La implementación de los pasos anteriores se presenta a continuación.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Obtener la referencia de una diapositiva usando su índice.
+3. Añadir un [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) del tipo [Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType#Rectangle) a la diapositiva.
+4. Eliminar el estilo de relleno asociado al [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
+5. Acceder al TextFrame del AutoShape.
+6. Añadir texto al TextFrame.
+7. Acceder al objeto Portion asociado al [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
+8. Definir la fuente que se usará para el [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion).
+9. Establecer otras propiedades de fuente como negrita, cursiva, subrayado, color y tamaño usando las propiedades relevantes expuestas por el objeto Portion.
+10. Guardar la presentación modificada como archivo PPTX.
 
+La implementación de los pasos anteriores se muestra a continuación.
 ```java
-// Instanciar Presentación
+// Instanciar una Presentation
 Presentation pres = new Presentation();
 try {
 
     // Obtener la primera diapositiva
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Agregar un AutoShape de tipo Rectangle
+    // Añadir un AutoShape de tipo Rectangle
     IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
 
-    // Eliminar cualquier estilo de relleno asociado con el AutoShape
+    // Eliminar cualquier estilo de relleno asociado al AutoShape
     ashp.getFillFormat().setFillType(FillType.NoFill);
 
-    // Acceder al TextFrame asociado con el AutoShape
+    // Acceder al TextFrame asociado al AutoShape
     ITextFrame tf = ashp.getTextFrame();
-    tf.setText("Cuadro de Texto Aspose");
+    tf.setText("Aspose TextBox");
 
-    // Acceder a la Porción asociada con el TextFrame
+    // Acceder a la Portion asociada al TextFrame
     IPortion port = tf.getParagraphs().get_Item(0).getPortions().get_Item(0);
 
-    // Establecer la Fuente para la Porción
+    // Establecer la fuente para la Portion
     port.getPortionFormat().setLatinFont(new FontData("Times New Roman"));
 
-    // Establecer la propiedad Negrita de la Fuente
+    // Establecer la propiedad Bold de la fuente
     port.getPortionFormat().setFontBold(NullableBool.True);
 
-    // Establecer la propiedad Cursiva de la Fuente
+    // Establecer la propiedad Italic de la fuente
     port.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Establecer la propiedad Subrayado de la Fuente
+    // Establecer la propiedad Underline de la fuente
     port.getPortionFormat().setFontUnderline(TextUnderlineType.Single);
 
-    // Establecer la Altura de la Fuente
+    // Establecer la altura de la fuente
     port.getPortionFormat().setFontHeight(25);
 
-    // Establecer el color de la Fuente
+    // Establecer el color de la fuente
     port.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     port.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
@@ -383,12 +384,11 @@ try {
 }
 ```
 
-## **Establecer Tamaño de Fuente para el Texto**
 
-Aspose.Slides te permite elegir tu tamaño de fuente preferido para el texto existente en un párrafo y otros textos que se puedan agregar al párrafo más tarde.
+## **Establecer tamaño de fuente para el texto**
+Aspose.Slides permite elegir el tamaño de fuente preferido para el texto existente en un párrafo y para otros textos que puedan añadirse al párrafo posteriormente.
 
-Este código Java muestra cómo establecer el tamaño de la fuente para los textos contenidos en un párrafo:
-
+Este código Java muestra cómo establecer el tamaño de fuente para los textos contenidos en un párrafo:
 ```java
 Presentation presentation = new Presentation("example.pptx");
 try {
@@ -415,17 +415,16 @@ try {
 }
 ```
 
-## **Establecer Rotación del Texto**
 
-Aspose.Slides para Java permite a los desarrolladores rotar el texto. El texto puede aparecer como [Horizontal](https://reference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#Horizontal), [Vertical](https://reference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#Vertical), [Vertical270](https://reference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#Vertical270), [WordArtVertical](https://reference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#WordArtVertical), [EastAsianVertical](https://reference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#EastAsianVertical), [MongolianVertical](https://reference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#MongolianVertical) o [WordArtVerticalRightToLeft](https://reference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#WordArtVerticalRightToLeft). Para rotar el texto de cualquier TextFrame, siga los pasos a continuación:
+## **Establecer rotación del texto**
+Aspose.Slides for Java permite a los desarrolladores rotar el texto. El texto puede configurarse para aparecer como [Horizontal](https://reference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#Horizontal), [Vertical](https://reference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#Vertical), [Vertical270](https://reference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#Vertical270), [WordArtVertical](https://reference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#WordArtVertical), [EastAsianVertical](https://reference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#EastAsianVertical), [MongolianVertical](https://reference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#MongolianVertical) o [WordArtVerticalRightToLeft](https://reference.aspose.com/slides/java/com.aspose.slides/TextVerticalType#WordArtVerticalRightToLeft). Para rotar el texto de cualquier TextFrame, siga los pasos a continuación:
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Acceda a la primera diapositiva.
-3. Agregue cualquier forma a la diapositiva.
-4. Acceda al [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
-5. [Rote el texto](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setTextVerticalType-byte-).
-6. Guarde el archivo en disco.
-
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Acceder a la primera diapositiva.
+3. Añadir cualquier forma a la diapositiva.
+4. Acceder al [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
+5. [Rotar el texto](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setTextVerticalType-byte-).
+6. Guardar el archivo en disco.
 ```java
 // Crear una instancia de la clase Presentation
 Presentation pres = new Presentation();
@@ -436,40 +435,40 @@ try {
     // Agregar un AutoShape de tipo Rectangle
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
     
-    // Agregar TextFrame al rectángulo
+    // Agregar un TextFrame al rectángulo
     ashp.addTextFrame("");
     ashp.getFillFormat().setFillType(FillType.NoFill);
     
-    // Accediendo al marco de texto
+    // Acceder al marco de texto
     ITextFrame txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setTextVerticalType(TextVerticalType.Vertical270);
     
-    // Crear el objeto Párrafo para el marco de texto
+    // Crear el objeto Paragraph para el TextFrame
     IParagraph para = txtFrame.getParagraphs().get_Item(0);
     
-    // Crear objeto Porción para el párrafo
+    // Crear el objeto Portion para el párrafo
     IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Una rápida y marrón zorro salta sobre el perro perezoso. Una rápida y marrón zorro salta sobre el perro perezoso.");
+    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     
-    // Guardar la Presentación
+    // Guardar la presentación
     pres.save("RotateText_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Establecer Ángulo de Rotación Personalizado para TextFrame**
-Aspose.Slides para Java ahora permite establecer ángulos de rotación personalizados para el textframe. En este tema, veremos con un ejemplo cómo establecer la propiedad RotationAngle en Aspose.Slides. Los nuevos métodos [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setRotationAngle-float-) y [getRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#getRotationAngle--) se han añadido a las interfaces [IChartTextBlockFormat](https://reference.aspose.com/slides/java/com.aspose.slides/IChartTextBlockFormat) y [ITextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat), que permiten establecer el ángulo de rotación personalizado para el textframe. Para establecer el RotationAngle, siga los pasos a continuación:
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Agregue un gráfico en la diapositiva.
-3. [Establezca la propiedad RotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setRotationAngle-float-).
-4. Escriba la presentación como un archivo PPTX.
+## **Establecer ángulo de rotación personalizado para TextFrame**
+Aspose.Slides for Java ahora admite establecer un ángulo de rotación personalizado para TextFrame. En este tema, veremos con un ejemplo cómo establecer la propiedad RotationAngle en Aspose.Slides. Los nuevos métodos [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setRotationAngle-float-) y [getRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#getRotationAngle--) se han añadido a las interfaces [IChartTextBlockFormat](https://reference.aspose.com/slides/java/com.aspose.slides/IChartTextBlockFormat) y [ITextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat), y permiten establecer el ángulo de rotación personalizado para TextFrame. Para establecer RotationAngle, siga los pasos a continuación:
 
-En el ejemplo dado a continuación, establecemos la propiedad RotationAngle.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Añadir un gráfico a la diapositiva.
+3. [Establecer la propiedad RotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setRotationAngle-float-).
+4. Guardar la presentación como archivo PPTX.
 
+En el ejemplo a continuación, establecemos la propiedad RotationAngle.
 ```java
 // Crear una instancia de la clase Presentation
 Presentation pres = new Presentation();
@@ -477,10 +476,10 @@ try {
     // Obtener la primera diapositiva
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Agregar un AutoShape de tipo Rectangle
+    // Añadir un AutoShape de tipo Rectangle
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
 
-    // Agregar TextFrame al rectángulo
+    // Añadir TextFrame al rectángulo
     ashp.addTextFrame("");
     ashp.getFillFormat().setFillType(FillType.NoFill);
 
@@ -488,41 +487,41 @@ try {
     ITextFrame txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setRotationAngle(25);
 
-    // Crear el objeto Párrafo para el marco de texto
+    // Crear el objeto Paragraph para el TextFrame
     IParagraph para = txtFrame.getParagraphs().get_Item(0);
 
-    // Crear objeto Porción para el párrafo
+    // Crear el objeto Portion para el párrafo
     IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Ejemplo de rotación de texto.");
+    portion.setText("Text rotation example.");
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
-    // Guardar la Presentación
+    // Guardar la presentación
     pres.save(resourcesOutputPath+"RotateText_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Espaciado de Línea del Párrafo**
-Aspose.Slides proporciona propiedades bajo [`ParagraphFormat`](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraphFormat)—`SpaceAfter`, `SpaceBefore` y `SpaceWithin`—que te permiten gestionar el espaciado de línea para un párrafo. Las tres propiedades se usan de la siguiente manera:
 
-* Para especificar el espaciado de línea para un párrafo en porcentaje, use un valor positivo. 
-* Para especificar el espaciado de línea para un párrafo en puntos, use un valor negativo.
+## **Interlineado del párrafo**
+Aspose.Slides proporciona propiedades bajo [`ParagraphFormat`](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraphFormat)—`SpaceAfter`, `SpaceBefore` y `SpaceWithin`—que permiten gestionar el interlineado de un párrafo. Las tres propiedades se usan de la siguiente manera:
 
-Por ejemplo, puedes aplicar un espaciado de línea de 16pt para un párrafo configurando la propiedad `SpaceBefore` a -16.
+* Para especificar el interlineado de un párrafo en porcentaje, use un valor positivo. 
+* Para especificar el interlineado de un párrafo en puntos, use un valor negativo.
 
-Así es como especificas el espaciado de línea para un párrafo específico:
+Por ejemplo, puede aplicar un interlineado de 16 pt a un párrafo estableciendo la propiedad `SpaceBefore` a -16.
 
-1. Carga una presentación que contenga un AutoShape con algo de texto en él.
-2. Obtén la referencia de una diapositiva a través de su índice.
-3. Accede al TextFrame.
-4. Accede al Párrafo.
-5. Establece las propiedades del Párrafo.
-6. Guarda la presentación.
+Así es como especifica el interlineado para un párrafo específico:
 
-Este código Java muestra cómo especificar el espaciado de línea para un párrafo:
+1. Cargar una presentación que contenga un AutoShape con texto.
+2. Obtener la referencia de una diapositiva mediante su índice.
+3. Acceder al TextFrame.
+4. Acceder al Paragraph.
+5. Establecer las propiedades del Paragraph.
+6. Guardar la presentación.
 
+Este código Java muestra cómo especificar el interlineado para un párrafo:
 ```java
 // Crear una instancia de la clase Presentation
 Presentation pres = new Presentation("Fonts.pptx");
@@ -533,31 +532,31 @@ try {
     // Acceder al TextFrame
     ITextFrame tf1 = ((IAutoShape)sld.getShapes().get_Item(0)).getTextFrame();
     
-    // Acceder al Párrafo
+    // Acceder al párrafo
     IParagraph para = tf1.getParagraphs().get_Item(0);
     
-    // Establecer propiedades del Párrafo
+    // Establecer propiedades del párrafo
     para.getParagraphFormat().setSpaceWithin(80);
     para.getParagraphFormat().setSpaceBefore(40);
     para.getParagraphFormat().setSpaceAfter(40);
     
-    // Guardar la Presentación
+    // Guardar la presentación
     pres.save("LineSpacing_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Establecer la Propiedad AutofitType para TextFrame**
-En este tema, exploraremos las diferentes propiedades de formateo del marco de texto. Este artículo cubre cómo establecer la propiedad AutofitType del marco de texto, anclar texto y rotar el texto en presentaciones. Aspose.Slides para Java permite a los desarrolladores establecer la propiedad AutofitType de cualquier marco de texto. AutofitType podría establecerse en [Normal](https://reference.aspose.com/slides/java/com.aspose.slides/TextAutofitType#Normal) o [Shape](https://reference.aspose.com/slides/java/com.aspose.slides/TextAutofitType#Shape). Si se establece en [Normal](https://reference.aspose.com/slides/java/com.aspose.slides/TextAutofitType#Normal), la forma permanecerá igual, mientras que el texto se ajustará sin causar que la forma cambie; si AutofitType se establece en [Shape](https://reference.aspose.com/slides/java/com.aspose.slides/TextAutofitType#Shape), entonces la forma se modificará de tal manera que solo el texto requerido esté contenido en ella. Para establecer la propiedad AutofitType de un marco de texto, siga los pasos a continuación:
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Acceda a la primera diapositiva.
-3. Agregue cualquier forma a la diapositiva.
-4. Acceda al [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
-5. [Establezca el AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setAutofitType-byte-) del TextFrame.
-6. Guarde el archivo en disco.
+## **Establecer la propiedad AutofitType para TextFrame**
+En este tema exploraremos las diferentes propiedades de formato de un cuadro de texto. Este artículo cubre cómo establecer la propiedad AutofitType de un cuadro de texto, el ancla del texto y la rotación del texto en una presentación. Aspose.Slides for Java permite a los desarrolladores establecer la propiedad AutofitType de cualquier cuadro de texto. AutofitType puede establecerse en [Normal](https://reference.aspose.com/slides/java/com.aspose.slides/TextAutofitType#Normal) o [Shape](https://reference.aspose.com/slides/java/com.aspose.slides/TextAutofitType#Shape). Si se establece en [Normal](https://reference.aspose.com/slides/java/com.aspose.slides/TextAutofitType#Normal), la forma permanecerá igual mientras el texto se ajusta sin modificar la forma; si AutofitType se establece en [Shape](https://reference.aspose.com/slides/java/com.aspose.slides/TextAutofitType#Shape), la forma se modificará de modo que solo contenga el texto necesario. Para establecer la propiedad AutofitType de un cuadro de texto, siga los pasos a continuación:
 
+1. Crear una instancia de la clase [Presentation ](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
+2. Acceder a la primera diapositiva.
+3. Añadir cualquier forma a la diapositiva.
+4. Acceder al [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
+5. [Establecer el AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setAutofitType-byte-) del TextFrame.
+6. Guardar el archivo en disco.
 ```java
 // Crear una instancia de la clase Presentation
 Presentation pres = new Presentation();
@@ -565,10 +564,10 @@ try {
     // Acceder a la primera diapositiva
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Agregar un AutoShape de tipo Rectangle
+    // Añadir un AutoShape de tipo Rectangle
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 150);
 
-    // Agregar TextFrame al Rectángulo
+    // Añadir TextFrame al rectángulo
     ashp.addTextFrame("");
     ashp.getFillFormat().setFillType(FillType.NoFill);
 
@@ -576,43 +575,43 @@ try {
     ITextFrame txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
 
-    // Crear el objeto Párrafo para el marco de texto
+    // Crear el objeto Paragraph para el marco de texto
     IParagraph para = txtFrame.getParagraphs().get_Item(0);
 
-    // Crear objeto Porción para el párrafo
+    // Crear el objeto Portion para el párrafo
     IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Una rápida y marrón zorro salta sobre el perro perezoso. Una rápida y marrón zorro salta sobre el perro perezoso.");
+    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
-    // Guardar Presentación
+    // Guardar la presentación
     pres.save(resourcesOutputPath + "formatText_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Establecer Ancla del TextFrame**
-Aspose.Slides para Java permite a los desarrolladores establecer el ancla de cualquier TextFrame. TextAnchorType especifica dónde se coloca ese texto en la forma. El AnclaType podría establecerse en [Top](https://reference.aspose.com/slides/java/com.aspose.slides/TextAnchorType#Top), [Center](https://reference.aspose.com/slides/java/com.aspose.slides/TextAnchorType#Center), [Bottom](https://reference.aspose.com/slides/java/com.aspose.slides/TextAnchorType#Bottom), [Justified](https://reference.aspose.com/slides/java/com.aspose.slides/TextAnchorType#Justified) o [Distributed](https://reference.aspose.com/slides/java/com.aspose.slides/TextAnchorType#Distributed). Para establecer el ancla de cualquier TextFrame, siga los pasos a continuación:
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Acceda a la primera diapositiva.
-3. Agregue cualquier forma a la diapositiva.
-4. Acceda al [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
-5. [Establezca TextAnchorType](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setAnchoringType-byte-) del TextFrame.
-6. Guarde el archivo en disco.
+## **Establecer ancla de TextFrame**
+Aspose.Slides for Java permite a los desarrolladores anclar cualquier TextFrame. TextAnchorType especifica dónde se coloca el texto dentro de la forma. AnchorType puede establecerse en [Top](https://reference.aspose.com/slides/java/com.aspose.slides/TextAnchorType#Top), [Center](https://reference.aspose.com/slides/java/com.aspose.slides/TextAnchorType#Center), [Bottom](https://reference.aspose.com/slides/java/com.aspose.slides/TextAnchorType#Bottom), [Justified](https://reference.aspose.com/slides/java/com.aspose.slides/TextAnchorType#Justified) o [Distributed](https://reference.aspose.com/slides/java/com.aspose.slides/TextAnchorType#Distributed). Para establecer el ancla de cualquier TextFrame, siga los pasos a continuación:
 
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Acceder a la primera diapositiva.
+3. Añadir cualquier forma a la diapositiva.
+4. Acceder al [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape).
+5. [Establecer TextAnchorType](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setAnchoringType-byte-) del TextFrame.
+6. Guardar el archivo en disco.
 ```java
 // Crear una instancia de la clase Presentation
 Presentation pres = new Presentation();
 try {
-    // Obtener la primera diapositiva 
+    // Obtener la primera diapositiva
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Agregar un AutoShape de tipo Rectangle
+    // Añadir un AutoShape de tipo Rectangle
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
     
-    // Agregar TextFrame al Rectángulo
+    // Añadir TextFrame al rectángulo
     ashp.addTextFrame("");
     ashp.getFillFormat().setFillType(FillType.NoFill);
     
@@ -620,39 +619,38 @@ try {
     ITextFrame txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setAnchoringType(TextAnchorType.Bottom);
     
-    // Crear el objeto Párrafo para el marco de texto
+    // Crear el objeto Paragraph para el marco de texto
     IParagraph para = txtFrame.getParagraphs().get_Item(0);
     
-    // Crear objeto Porción para el párrafo
+    // Crear el objeto Portion para el párrafo
     IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Una rápida y marrón zorro salta sobre el perro perezoso. Una rápida y marrón zorro salta sobre el perro perezoso.");
+    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     
-    // Guardar Presentación
+    // Guardar la presentación
     pres.save("AnchorText_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Tabs y EffectiveTabs en Presentación**
-Todas las tabulaciones de texto se dan en píxeles.
+
+## **Tabulaciones y EffectiveTabs en la presentación**
+Todas las tabulaciones de texto se expresan en píxeles.
 
 |![todo:image_alt_text](http://i.imgur.com/POpc1Lw.png)|
 | :- |
-|**Figura: 2 Tabulaciones Explícitas y 2 Tabulaciones Predeterminadas**|
-- La propiedad EffectiveTabs.ExplicitTabCount (2 en nuestro caso) es igual a Tabs.Count.
+|**Figure: 2 Explicit Tabs and 2 Default Tabs**|
+- EffectiveTabs.ExplicitTabCount (2 en nuestro caso) es igual a Tabs.Count.
 - La colección EffectiveTabs incluye todas las tabulaciones (de la colección Tabs y las tabulaciones predeterminadas).
-- La propiedad EffectiveTabs.ExplicitTabCount (2 en nuestro caso) es igual a Tabs.Count.
-- La propiedad EffectiveTabs.DefaultTabSize (294) muestra la distancia entre las pestañas predeterminadas (3 y 4 en nuestro ejemplo).
-- EffectiveTabs.GetTabByIndex(index) con índice = 0 devolverá la primera pestaña explícita (Posición = 731), índice = 1 - segunda pestaña (Posición = 1241). Si intentas obtener la siguiente pestaña con el índice = 2, devolverá la primera pestaña predeterminada (Posición = 1470) y etc.
-- EffectiveTabs.GetTabAfterPosition(pos) se utiliza para obtener la siguiente tabulación después de algún texto. Por ejemplo, tienes el texto: "¡Hola Mundo!". Para renderizar tal texto, debes saber dónde comenzar a dibujar "¡mundo!". Primero, deberías calcular la longitud de "Hola" en píxeles y llamar a GetTabAfterPosition con este valor. Obtendrás la siguiente posición de tabulación para dibujar "¡mundo!".
+- EffectiveTabs.ExplicitTabCount (2 en nuestro caso) es igual a Tabs.Count.
+- EffectiveTabs.DefaultTabSize (294) muestra la distancia entre las tabulaciones predeterminadas (3 y 4 en nuestro ejemplo).
+- EffectiveTabs.GetTabByIndex(index) con index = 0 devolverá la primera tabulación explícita (Position = 731), index = 1 la segunda tabulación (Position = 1241). Si intenta obtener la siguiente tabulación con index = 2 devolverá la primera tabulación predeterminada (Position = 1470) y así sucesivamente.
+- EffectiveTabs.GetTabAfterPosition(pos) se usa para obtener la tabulación siguiente después de algún texto. Por ejemplo, tiene el texto: "Hello World!". Para renderizar dicho texto debe saber dónde comenzar a dibujar "world!". Primero, calcule la longitud de "Hello" en píxeles y llame a GetTabAfterPosition con este valor. Obtendrá la posición de la siguiente tabulación para dibujar "world!".
 
-## **Establecer Estilo de Texto Predeterminado**
-
-Si necesitas aplicar el mismo formato de texto predeterminado a todos los elementos de texto de una presentación a la vez, entonces puedes usar el método `getDefaultTextStyle` de la interfaz [IPresentation](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/) y establecer el formato preferido. El siguiente ejemplo de código muestra cómo establecer la fuente en negrita predeterminada (14 pt) para el texto en todas las diapositivas de una nueva presentación.
-
+## **Establecer estilo de texto predeterminado**
+Si necesita aplicar el mismo formato de texto predeterminado a todos los elementos de texto de una presentación a la vez, puede usar el método `getDefaultTextStyle` de la interfaz [IPresentation](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/) y establecer el formato preferido. El siguiente ejemplo de código muestra cómo establecer la fuente en negrita predeterminada (14 pt) para el texto en todas las diapositivas de una nueva presentación.
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -669,3 +667,50 @@ try {
     presentation.dispose();
 }
 ```
+
+
+## **Extraer texto con el efecto mayúsculas**
+En PowerPoint, aplicar el efecto de fuente **All Caps** hace que el texto aparezca en mayúsculas en la diapositiva incluso cuando originalmente se escribió en minúsculas. Cuando recupera dicha porción de texto con Aspose.Slides, la biblioteca devuelve el texto exactamente como se ingresó. Para manejar esto, verifique [TextCapType](https://reference.aspose.com/slides/java/com.aspose.slides/textcaptype/)—si indica `All`, simplemente convierta la cadena devuelta a mayúsculas para que la salida coincida con lo que los usuarios ven en la diapositiva.
+
+Supongamos que tenemos el siguiente cuadro de texto en la primera diapositiva del archivo sample2.pptx.
+
+![The All Caps effect](all_caps_effect.png)
+
+El siguiente ejemplo de código muestra cómo extraer el texto con el efecto **All Caps** aplicado:
+```java
+Presentation presentation = new Presentation("sample2.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape) slide.getShapes().get_Item(0);
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    IPortion textPortion = paragraph.getPortions().get_Item(0);
+
+    System.out.println("Original text: " + textPortion.getText());
+
+    IPortionFormatEffectiveData textFormat = textPortion.getPortionFormat().getEffective();
+    if (textFormat.getTextCapType() == TextCapType.All) {
+        String text = textPortion.getText().toUpperCase();
+        System.out.println("All-Caps effect: " + text);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+
+Salida:
+```text
+Original text: Hello, Aspose!
+All-Caps effect: HELLO, ASPOSE!
+```
+
+
+## **Preguntas frecuentes**
+
+**¿Cómo modificar texto en una tabla en una diapositiva?**
+
+Para modificar texto en una tabla en una diapositiva, necesita usar la interfaz [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/). Puede iterar todas las celdas de la tabla y cambiar el texto en cada celda accediendo a sus propiedades `TextFrame` y `ParagraphFormat` dentro de cada celda.
+
+**¿Cómo aplicar color degradado al texto en una diapositiva de PowerPoint?**
+
+Para aplicar color degradado al texto, use el método `getFillFormat` en [BasePortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/). Establezca `FilFormat` a `Gradient`, donde podrá definir los colores de inicio y fin del degradado, junto con otras propiedades como dirección y transparencia para crear el efecto degradado en el texto.

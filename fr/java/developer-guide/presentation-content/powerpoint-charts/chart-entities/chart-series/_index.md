@@ -1,58 +1,69 @@
 ---
-title: Série de Graphiques
+title: Gérer les séries de données de graphique dans les présentations en Java
+linktitle: Séries de données
 type: docs
 url: /fr/java/chart-series/
-keywords: "Série de graphiques, couleur de série, présentation PowerPoint, Java, Aspose.Slides pour Java"
-description: "Séries de graphiques dans les présentations PowerPoint en Java"
+keywords:
+- séries de graphique
+- chevauchement de séries
+- couleur de série
+- couleur de catégorie
+- nom de série
+- point de données
+- écart de série
+- PowerPoint
+- présentation
+- Java
+- Aspose.Slides
+description: "Apprenez à gérer les séries de graphiques en Java pour PowerPoint (PPT/PPTX) grâce à des exemples de code pratiques et aux meilleures pratiques pour améliorer vos présentations de données."
 ---
 
-Une série est une ligne ou une colonne de nombres tracés dans un graphique.
+Une série est une ligne ou une colonne de nombres tracée dans un diagramme.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Définir le chevauchement des séries de graphiques**
+## **Définir le chevauchement des séries du graphique**
 
-Avec la propriété [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap), vous pouvez spécifier combien de barres et de colonnes doivent se chevaucher dans un graphique 2D (plage : -100 à 100). Cette propriété s'applique à toutes les séries du groupe de séries parent : il s'agit d'une projection de la propriété de groupe appropriée. Par conséquent, cette propriété est en lecture seule.
+Avec la propriété [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap), vous pouvez spécifier à quel point les barres et les colonnes doivent se chevaucher sur un graphique 2D (plage : -100 à 100). Cette propriété s'applique à toutes les séries du groupe de séries parent : il s'agit d'une projection de la propriété de groupe appropriée. Par conséquent, cette propriété est en lecture seule.
 
-Utilisez la propriété en lecture/écriture `ParentSeriesGroup.Overlap` pour définir votre valeur préférée pour `Overlap`.
+Utilisez la propriété en lecture/écriture `ParentSeriesGroup.Overlap` pour définir la valeur souhaitée pour `Overlap`.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
 1. Ajoutez un graphique à colonnes groupées sur une diapositive.
-1. Accédez à la première série de graphiques.
-1. Accédez au `ParentSeriesGroup` de la série de graphiques et définissez votre valeur de chevauchement préférée pour la série.
-1. Écrivez la présentation modifiée dans un fichier PPTX.
+1. Accédez à la première série du graphique.
+1. Accédez au `ParentSeriesGroup` de la série du graphique et définissez la valeur de chevauchement souhaitée pour la série.
+1. Enregistrez la présentation modifiée dans un fichier PPTX.
 
-Ce code Java vous montre comment définir le chevauchement pour une série de graphiques :
-
+Ce code Java vous montre comment définir le chevauchement pour une série de graphique :
 ```java
 Presentation pres = new Presentation();
 try {
-    // Ajoute un graphique
+    // Ajoute le graphique
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
     IChartSeriesCollection series = chart.getChartData().getSeries();
     if (series.get_Item(0).getOverlap() == 0)
     {
-        // Définit le chevauchement de la série
+        // Définit le chevauchement des séries
         series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
     }
 
-    // Écrit le fichier de présentation sur le disque
+    // Enregistre le fichier de présentation sur le disque
     pres.save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Changer la couleur de la série**
-Aspose.Slides pour Java vous permet de changer la couleur d'une série de cette façon :
+
+## **Modifier la couleur de la série**
+
+Aspose.Slides for Java vous permet de modifier la couleur d'une série de cette manière :
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
 1. Ajoutez un graphique sur la diapositive.
-1. Accédez à la série dont vous souhaitez changer la couleur.
-1. Définissez votre type de remplissage et votre couleur de remplissage préférés.
+1. Accédez à la série dont vous souhaitez modifier la couleur.
+1. Définissez le type de remplissage et la couleur de remplissage souhaités.
 1. Enregistrez la présentation modifiée.
-
-Ce code Java vous montre comment changer la couleur d'une série :
 
 ```java
 Presentation pres = new Presentation("test.pptx");
@@ -70,16 +81,16 @@ try {
 }
 ```
 
-## **Changer la couleur de la catégorie de la série**
-Aspose.Slides pour Java vous permet de changer la couleur de la catégorie d'une série de cette façon :
+
+## **Modifier la couleur de la catégorie de série**
+
+Aspose.Slides for Java vous permet de modifier la couleur d'une catégorie de série de cette manière :
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
 1. Ajoutez un graphique sur la diapositive.
-1. Accédez à la catégorie de série dont vous souhaitez changer la couleur.
-1. Définissez votre type de remplissage et votre couleur de remplissage préférés.
+1. Accédez à la catégorie de série dont vous souhaitez modifier la couleur.
+1. Définissez le type de remplissage et la couleur de remplissage souhaités.
 1. Enregistrez la présentation modifiée.
-
-Ce code Java vous montre comment changer la couleur de la catégorie d'une série :
 
 ```java
 Presentation pres = new Presentation();
@@ -96,26 +107,26 @@ try {
 }
 ```
 
-## **Changer le nom de la série**
 
-Par défaut, les noms des légendes pour un graphique sont le contenu des cellules au-dessus de chaque colonne ou ligne de données.
+## **Modifier le nom de la série** 
+
+Par défaut, les noms de légende d'un graphique sont le contenu des cellules situées au-dessus de chaque colonne ou ligne de données. 
 
 Dans notre exemple (image d'exemple),
 
-* les colonnes sont *Série 1, Série 2,* et *Série 3* ;
-* les lignes sont *Catégorie 1, Catégorie 2, Catégorie 3,* et *Catégorie 4.* 
+* les colonnes sont *Series 1, Series 2,* et *Series 3* ;
+* les lignes sont *Category 1, Category 2, Category 3,* et *Category 4.* 
 
-Aspose.Slides pour Java vous permet de mettre à jour ou de changer le nom d'une série dans ses données de graphique et sa légende.
+Aspose.Slides for Java vous permet de mettre à jour ou de modifier le nom d'une série dans ses données de graphique et sa légende. 
 
-Ce code Java vous montre comment changer le nom d'une série dans ses données de graphiques `ChartDataWorkbook` :
-
+Ce code Java vous montre comment modifier le nom d'une série dans ses données de graphique `ChartDataWorkbook` :
 ```java
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
 
     IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("Nouveau nom");
+    seriesCell.setValue("New name");
 
     pres.save("pres.pptx", SaveFormat.Pptx);
 } finally {
@@ -123,8 +134,8 @@ try {
 }
 ```
 
-Ce code Java vous montre comment changer le nom d'une série dans sa légende via `Series` :
 
+Ce code Java vous montre comment modifier le nom d'une série dans sa légende via`Series` :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -132,23 +143,22 @@ try {
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
     IStringChartValue name = series.getName();
-    name.getAsCells().get_Item(0).setValue("Nouveau nom");
+    name.getAsCells().get_Item(0).setValue("New name");
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Définir la couleur de remplissage des séries de graphiques**
 
-Aspose.Slides pour Java vous permet de définir la couleur de remplissage automatique pour les séries de graphiques à l'intérieur d'une zone de tracé de cette façon :
+## **Définir la couleur de remplissage de la série du graphique**
+
+Aspose.Slides for Java vous permet de définir la couleur de remplissage automatique pour les séries du graphique à l'intérieur d'une zone de tracé de cette manière :
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
 1. Obtenez la référence d'une diapositive par son index.
-1. Ajoutez un graphique avec des données par défaut basé sur votre type préféré (dans l'exemple ci-dessous, nous avons utilisé `ChartType.ClusteredColumn`).
-1. Accédez aux séries de graphiques et définissez la couleur de remplissage sur Automatique.
+1. Ajoutez un graphique avec des données par défaut en fonction du type souhaité (dans l'exemple ci-dessous, nous avons utilisé `ChartType.ClusteredColumn`).
+1. Accédez à la série du graphique et définissez la couleur de remplissage sur Automatic.
 1. Enregistrez la présentation dans un fichier PPTX.
-
-Ce code Java vous montre comment définir la couleur de remplissage automatique pour une série de graphiques :
 
 ```java
 Presentation pres = new Presentation();
@@ -156,29 +166,29 @@ try {
     // Crée un graphique à colonnes groupées
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
 
-    // Définit le format de remplissage de la série sur automatique
+    // Définit le format de remplissage des séries sur automatique
     for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
     {
         chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
     }
 
-    // Écrit le fichier de présentation sur le disque
+    // Enregistre le fichier de présentation sur le disque
     pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Définir les couleurs de remplissage inversées des séries de graphiques**
-Aspose.Slides vous permet de définir la couleur de remplissage inversée pour les séries de graphiques à l'intérieur d'une zone de tracé de cette façon :
+
+## **Définir les couleurs de remplissage inversées pour la série du graphique**
+
+Aspose.Slides vous permet de définir la couleur de remplissage inversée pour les séries du graphique à l'intérieur d'une zone de tracé de cette manière :
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
 1. Obtenez la référence d'une diapositive par son index.
-1. Ajoutez un graphique avec des données par défaut basé sur votre type préféré (dans l'exemple ci-dessous, nous avons utilisé `ChartType.ClusteredColumn`).
-1. Accédez aux séries de graphiques et définissez la couleur de remplissage sur inverse.
+1. Ajoutez un graphique avec des données par défaut en fonction du type souhaité (dans l'exemple ci-dessous, nous avons utilisé `ChartType.ClusteredColumn`).
+1. Accédez à la série du graphique et définissez la couleur de remplissage sur invert.
 1. Enregistrez la présentation dans un fichier PPTX.
-
-Ce code Java illustre l'opération :
 
 ```java
 Color inverColor = Color.RED;
@@ -191,12 +201,12 @@ try {
     chart.getChartData().getCategories().clear();
 
     // Ajoute de nouvelles séries et catégories
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Série 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Catégorie 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Catégorie 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Catégorie 3"));
+    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
+    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
+    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
+    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
 
-    // Prend la première série de graphiques et remplit ses données de série.
+    // Prend la première série du graphique et remplit ses données de série.
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
     series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
@@ -213,10 +223,10 @@ try {
 }
 ```
 
-## **Définir les inversions des séries lorsque la valeur est négative**
-Aspose.Slides vous permet de définir des inversions via les propriétés `IChartDataPoint.InvertIfNegative` et `ChartDataPoint.InvertIfNegative`. Lorsqu'une inversion est définie à l'aide des propriétés, le point de données inverse ses couleurs lorsqu'il reçoit une valeur négative.
 
-Ce code Java illustre l'opération :
+## **Inverser la série lorsque la valeur est négative**
+
+Aspose.Slides vous permet de définir les inversions via les propriétés `IChartDataPoint.InvertIfNegative` et `ChartDataPoint.InvertIfNegative`. Lorsqu'une inversion est définie à l'aide de ces propriétés, le point de données inverse ses couleurs lorsqu'il reçoit une valeur négative.
 
 ```java
 Presentation pres = new Presentation();
@@ -241,17 +251,17 @@ try {
 }
 ```
 
-## **Effacer les données de points de données spécifiques**
-Aspose.Slides pour Java vous permet d'effacer les données `DataPoints` pour une série de graphiques spécifique de cette manière :
+
+## **Effacer les données des points de données spécifiques**
+
+Aspose.Slides for Java vous permet d'effacer les données `DataPoints` d'une série de graphique spécifique de cette manière :
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Obtenez la référence d'une diapositive à travers son index.
-3. Obtenez la référence d'un graphique à travers son index.
-4. Itérez à travers tous les `DataPoints` du graphique et définissez `XValue` et `YValue` sur null.
-5. Effacez tous les `DataPoints` pour la série de graphiques spécifique.
-6. Écrivez la présentation modifiée dans un fichier PPTX.
-
-Ce code Java illustre l'opération :
+2. Obtenez la référence d'une diapositive via son index.
+3. Obtenez la référence d'un graphique via son index.
+4. Parcourez tous les `DataPoints` du graphique et définissez `XValue` et `YValue` sur null.
+5. Effacez tous`DataPoints` pour des séries de graphique spécifiques.
+6. Enregistrez la présentation modifiée dans un fichier PPTX.
 
 ```java
 Presentation pres = new Presentation("TestChart.pptx");
@@ -274,20 +284,20 @@ try {
 }
 ```
 
-## **Définir la largeur d'écart des séries**
-Aspose.Slides pour Java vous permet de définir la largeur d'écart d'une série via la propriété **`GapWidth`** de cette manière :
+
+## **Définir la largeur de l'écart de la série**
+
+Aspose.Slides for Java vous permet de définir la largeur d'écart d'une série via la propriété **`GapWidth`** de cette manière :
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
 1. Accédez à la première diapositive.
 1. Ajoutez un graphique avec des données par défaut.
-1. Accédez à n'importe quelle série de graphiques.
+1. Accédez à n'importe quelle série du graphique.
 1. Définissez la propriété `GapWidth`.
-1. Écrivez la présentation modifiée dans un fichier PPTX.
-
-Ce code en Java vous montre comment définir la largeur d'écart d'une série :
+1. Enregistrez la présentation modifiée dans un fichier PPTX.
 
 ```java
-// Crée une présentation vide 
+// Crée une présentation vide
 Presentation pres = new Presentation();
 try {
     // Accède à la première diapositive de la présentation
@@ -299,19 +309,19 @@ try {
     // Définit l'index de la feuille de données du graphique
     int defaultWorksheetIndex = 0;
     
-    // Obtient la feuille de travail des données du graphique
+    // Obtient la feuille de données du graphique
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
     // Ajoute des séries
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Série 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Série 2"), chart.getType());
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
     
     // Ajoute des catégories
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Catégorie 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Catégorie 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Catégorie 3"));
+    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
+    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
+    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
-    // Prend la deuxième série de graphiques
+    // Prend la deuxième série du graphique
     IChartSeries series = chart.getChartData().getSeries().get_Item(1);
     
     // Remplit les données de la série
@@ -322,7 +332,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     
-    // Définit la valeur de GapWidth
+    // Définit la valeur GapWidth
     series.getParentSeriesGroup().setGapWidth(50);
     
     // Enregistre la présentation sur le disque
@@ -331,3 +341,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Existe-t-il une limite au nombre de séries qu'un seul graphique peut contenir ?**
+
+Aspose.Slides n'impose aucune limite fixe au nombre de séries que vous ajoutez. Le plafond pratique est déterminé par la lisibilité du graphique et par la mémoire disponible pour votre application.
+
+**Que faire si les colonnes d'un groupe sont trop proches ou trop éloignées ?**
+
+Ajustez le paramètre `GapWidth` pour cette série (ou son groupe de séries parent). Augmenter la valeur élargit l'espace entre les colonnes, tandis que la diminuer les rapproche.

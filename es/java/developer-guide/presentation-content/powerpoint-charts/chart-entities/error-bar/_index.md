@@ -1,27 +1,35 @@
 ---
-title: Barra de error
+title: Personalizar barras de error en gráficos de presentación usando Java
+linktitle: Barra de error
 type: docs
 url: /es/java/error-bar/
+keywords:
+- barra de error
+- valor personalizado
+- PowerPoint
+- presentación
+- Java
+- Aspose.Slides
+description: "Aprenda a agregar y personalizar barras de error en gráficos con Aspose.Slides para Java—optimice los datos visuales en presentaciones de PowerPoint."
 ---
 
-## **Agregar Barra de Error**
-Aspose.Slides para Java proporciona una API simple para gestionar los valores de las barras de error. El código de muestra se aplica al utilizar un tipo de valor personalizado. Para especificar un valor, utiliza la propiedad **ErrorBarCustomValues** de un punto de datos específico en la colección de series [**DataPoints**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartSeriesCollection):
+## **Agregar barra de error**
+Aspose.Slides for Java ofrece una API sencilla para gestionar los valores de las barras de error. El código de ejemplo se aplica al usar un tipo de valor personalizado. Para especificar un valor, use la propiedad **ErrorBarCustomValues** de un punto de datos específico en la colección [**DataPoints**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartSeriesCollection) de la serie:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Agrega un gráfico de burbujas en la diapositiva deseada.
-1. Accede a la primera serie de gráficos y establece el formato de la barra de error X.
-1. Accede a la primera serie de gráficos y establece el formato de la barra de error Y.
-1. Establecer valores y formato de las barras.
-1. Escribe la presentación modificada en un archivo PPTX.
-
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. Agregue un gráfico de burbujas en la diapositiva deseada.
+1. Acceda a la primera serie del gráfico y establezca el formato X de la barra de error.
+1. Acceda a la primera serie del gráfico y establezca el formato Y de la barra de error.
+1. Estableciendo los valores y el formato de las barras.
+1. Guarde la presentación modificada en un archivo PPTX.
 ```java
-// Create an instance of Presentation class
+// Crear una instancia de la clase Presentation
 Presentation pres = new Presentation();
 try {
-    // Creating a bubble chart
+    // Crear un gráfico de burbujas
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 400, 300, true);
 
-    // Adding Error bars and setting its format
+    // Agregar barras de error y establecer su formato
     IErrorBarsFormat errBarX = chart.getChartData().getSeries().get_Item(0).getErrorBarsXFormat();
     IErrorBarsFormat errBarY = chart.getChartData().getSeries().get_Item(0).getErrorBarsYFormat();
 
@@ -35,32 +43,32 @@ try {
     errBarY.getFormat().getLine().setWidth(2.0f);
     errBarX.hasEndCap();
 
-    // Saving presentation
+    // Guardar la presentación
     pres.save("ErrorBars.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Agregar Valor de Barra de Error Personalizado**
-Aspose.Slides para Java proporciona una API simple para gestionar valores de barras de error personalizados. El código de muestra se aplica cuando la propiedad [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/java/com.aspose.slides/IErrorBarsFormat#getValue--) es igual a **Custom**. Para especificar un valor, utiliza la propiedad **ErrorBarCustomValues** de un punto de datos específico en la colección de series [**DataPoints**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartSeriesCollection):
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Agrega un gráfico de burbujas en la diapositiva deseada.
-1. Accede a la primera serie de gráficos y establece el formato de la barra de error X.
-1. Accede a la primera serie de gráficos y establece el formato de la barra de error Y.
-1. Accede a los puntos de datos individuales de la serie de gráficos y establece los valores de la barra de error para el punto de datos de serie individual.
-1. Establecer valores y formato de las barras.
-1. Escribe la presentación modificada en un archivo PPTX.
+## **Agregar valor de barra de error personalizado**
+Aspose.Slides for Java ofrece una API sencilla para gestionar valores de barra de error personalizados. El código de ejemplo se aplica cuando la propiedad [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/java/com.aspose.slides/IErrorBarsFormat#getValue--) es igual a **Custom**. Para especificar un valor, use la propiedad **ErrorBarCustomValues** de un punto de datos específico en la colección [**DataPoints**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartSeriesCollection) de la serie:
 
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. Agregue un gráfico de burbujas en la diapositiva deseada.
+1. Acceda a la primera serie del gráfico y establezca el formato X de la barra de error.
+1. Acceda a la primera serie del gráfico y establezca el formato Y de la barra de error.
+1. Acceda a los puntos de datos individuales de la serie del gráfico y establezca los valores de la barra de error para cada punto de datos de la serie.
+1. Estableciendo los valores y el formato de las barras.
+1. Guarde la presentación modificada en un archivo PPTX.
 ```java
-// Create an instance of Presentation class
+// Crear una instancia de la clase Presentation
 Presentation pres = new Presentation();
 try {
-    // Creating a bubble chart
+    // Crear un gráfico de burbujas
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 400, 300, true);
 
-    // Adding custom Error bars and setting its format
+    // Añadiendo barras de error personalizadas y estableciendo su formato
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     IErrorBarsFormat errBarX = series.getErrorBarsXFormat();
     IErrorBarsFormat errBarY = series.getErrorBarsYFormat();
@@ -69,15 +77,15 @@ try {
     errBarX.setValueType((byte) ErrorBarValueType.Custom);
     errBarY.setValueType((byte) ErrorBarValueType.Custom);
 
-    // Accessing chart series data point and setting error bars values for
-    // individual point
+    // Accediendo al punto de datos de la serie del gráfico y estableciendo valores de barras de error para
+    // punto individual
     IChartDataPointCollection points = series.getDataPoints();
     points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXPlusValues((byte) DataSourceType.DoubleLiterals);
     points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXMinusValues((byte) DataSourceType.DoubleLiterals);
     points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForYPlusValues((byte) DataSourceType.DoubleLiterals);
     points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForYMinusValues((byte) DataSourceType.DoubleLiterals);
 
-    // Setting error bars for chart series points
+    // Estableciendo barras de error para los puntos de la serie del gráfico
     for (int i = 0; i < points.size(); i++) {
         points.get_Item(i).getErrorBarsCustomValues().getXMinus().setAsLiteralDouble(i + 1);
         points.get_Item(i).getErrorBarsCustomValues().getXPlus().setAsLiteralDouble(i + 1);
@@ -85,9 +93,24 @@ try {
         points.get_Item(i).getErrorBarsCustomValues().getYPlus().setAsLiteralDouble(i + 1);
     }
 
-    // Saving presentation
+    // Guardando la presentación
     pres.save("ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Qué ocurre con las barras de error al exportar una presentación a PDF o imágenes?**
+
+Se renderizan como parte del gráfico y se conservan durante la conversión junto con el resto del formato del gráfico, siempre que se utilice una versión o motor compatible.
+
+**¿Se pueden combinar las barras de error con marcadores y etiquetas de datos?**
+
+Sí. Las barras de error son un elemento independiente y son compatibles con marcadores y etiquetas de datos; si los elementos se superponen, es posible que deba ajustar el formato.
+
+**¿Dónde puedo encontrar la lista de propiedades y clases para trabajar con barras de error en la API?**
+
+En la referencia de la API: la clase [ErrorBarsFormat](https://reference.aspose.com/slides/java/com.aspose.slides/errorbarsformat/) y las clases relacionadas [ErrorBarType](https://reference.aspose.com/slides/java/com.aspose.slides/errorbartype/) y [ErrorBarValueType](https://reference.aspose.com/slides/java/com.aspose.slides/errorbarvaluetype/).

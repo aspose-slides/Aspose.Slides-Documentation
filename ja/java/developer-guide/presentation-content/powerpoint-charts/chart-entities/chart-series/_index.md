@@ -1,29 +1,40 @@
 ---
-title: チャートシリーズ
+title: Java を使用してプレゼンテーションのチャート データ系列を管理する
+linktitle: データ系列
 type: docs
 url: /ja/java/chart-series/
-keywords: "チャートシリーズ, シリーズカラー, PowerPointプレゼンテーション, Java, Aspose.Slides for Java"
-description: "JavaにおけるPowerPointプレゼンテーションのチャートシリーズ"
+keywords:
+- チャート系列
+- 系列の重なり
+- 系列の色
+- カテゴリの色
+- 系列名
+- データポイント
+- 系列のギャップ
+- PowerPoint
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "実用的なコード例とベストプラクティスで、PowerPoint (PPT/PPTX) における Java のチャート系列管理方法を学び、データ プレゼンテーションを向上させましょう。"
 ---
 
-シリーズは、チャートにプロットされた数値の行または列です。
+シリーズは、チャートにプロットされた行または列の数値です。
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **チャートシリーズの重なりを設定**
+## **チャート系列の重なりを設定**
 
-[IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap)プロパティを使用すると、2Dチャート上でバーや列がどのくらい重なるべきかを指定できます（範囲：-100から100）。このプロパティは親シリーズグループのすべてのシリーズに適用されます：これは適切なグループプロパティの投影です。したがって、このプロパティは読み取り専用です。
+[IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap)プロパティを使用すると、2Dチャート上の棒や列がどの程度重なるかを指定できます（範囲: -100 ～ 100）。このプロパティは親系列グループのすべての系列に適用されます。したがって、このプロパティは読み取り専用です。
 
-`ParentSeriesGroup.Overlap`読み取り/書き込みプロパティを使用して、`Overlap`の好みの値を設定します。
+`ParentSeriesGroup.Overlap` の読み書き可能プロパティを使用して、`Overlap` の希望値を設定してください。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
-1. スライドにクラスター化された縦棒グラフを追加します。
-1. 最初のチャートシリーズにアクセスします。
-1. チャートシリーズの`ParentSeriesGroup`にアクセスし、シリーズの好みの重なりの値を設定します。
-1. 変更されたプレゼンテーションをPPTXファイルに書き込みます。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。  
+2. スライドにクラスタ化列チャートを追加します。  
+3. 最初のチャート系列にアクセスします。  
+4. 系列の `ParentSeriesGroup` にアクセスし、系列の重なり値を希望の値に設定します。  
+5. 変更されたプレゼンテーションをPPTXファイルに書き込みます。
 
-このJavaコードは、チャートシリーズの重なりを設定する方法を示しています：
-
+このJavaコードは、チャート系列の重なりを設定する方法を示しています:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -32,28 +43,29 @@ try {
     IChartSeriesCollection series = chart.getChartData().getSeries();
     if (series.get_Item(0).getOverlap() == 0)
     {
-        // シリーズの重なりを設定
+        // 系列の重なりを設定
         series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
     }
 
-    // プレゼンテーションファイルをディスクに書き込む
+    // プレゼンテーション ファイルをディスクに書き込み
     pres.save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **シリーズの色を変更**
-Aspose.Slides for Javaでは、次のようにシリーズの色を変更できます：
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
-1. スライドにチャートを追加します。
-1. 色を変更したいシリーズにアクセスします。
-1. 好みの塗りつぶしタイプと塗りつぶし色を設定します。
-1. 変更されたプレゼンテーションを保存します。
+## **系列の色を変更**
 
-このJavaコードは、シリーズの色を変更する方法を示しています：
+Aspose.Slides for Java では、次の手順で系列の色を変更できます。
 
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。  
+2. スライドにチャートを追加します。  
+3. 色を変更したい系列にアクセスします。  
+4. 希望の塗りつぶしタイプと塗りつぶし色を設定します。  
+5. 変更されたプレゼンテーションを保存します。
+
+このJavaコードは、系列の色を変更する方法を示しています:
 ```java
 Presentation pres = new Presentation("test.pptx");
 try {
@@ -70,17 +82,18 @@ try {
 }
 ```
 
-## **シリーズカテゴリの色を変更**
-Aspose.Slides for Javaでは、次のようにシリーズカテゴリの色を変更できます：
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
-1. スライドにチャートを追加します。
-1. 色を変更したいシリーズカテゴリにアクセスします。
-1. 好みの塗りつぶしタイプと塗りつぶし色を設定します。
-1. 変更されたプレゼンテーションを保存します。
+## **系列カテゴリの色を変更**
 
-このJavaコードは、シリーズカテゴリの色を変更する方法を示しています：
+Aspose.Slides for Java では、次の手順で系列カテゴリの色を変更できます。
 
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。  
+2. スライドにチャートを追加します。  
+3. 色を変更したい系列カテゴリにアクセスします。  
+4. 希望の塗りつぶしタイプと塗りつぶし色を設定します。  
+5. 変更されたプレゼンテーションを保存します。
+
+このJavaコードは、系列カテゴリの色を変更する方法を示しています:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -96,26 +109,26 @@ try {
 }
 ```
 
-## **シリーズの名前を変更** 
 
-デフォルトでは、チャートの凡例名は各列または行のデータの上にあるセルの内容です。
+## **系列の名前を変更** 
 
-私たちの例で（サンプル画像）、
+デフォルトでは、チャートの凡例名は各列または行の上にあるセルの内容です。
 
-* 列は *シリーズ1、シリーズ2、シリーズ3*です；
-* 行は *カテゴリ1、カテゴリ2、カテゴリ3、およびカテゴリ4*です。 
+サンプル画像の例では、
 
-Aspose.Slides for Javaでは、チャートデータと凡例でシリーズ名を更新または変更できます。
+* 列は *Series 1, Series 2,* と *Series 3* です；  
+* 行は *Category 1, Category 2, Category 3,* と *Category 4* です。
 
-このJavaコードは、チャートデータ`ChartDataWorkbook`内のシリーズ名を変更する方法を示しています：
+Aspose.Slides for Java では、チャート データおよび凡例内の系列名を更新または変更できます。
 
+このJavaコードは、`ChartDataWorkbook` のチャート データで系列の名前を変更する方法を示しています:
 ```java
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
 
     IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("新しい名前");
+    seriesCell.setValue("New name");
 
     pres.save("pres.pptx", SaveFormat.Pptx);
 } finally {
@@ -123,8 +136,8 @@ try {
 }
 ```
 
-このJavaコードは、`Series`を通じて凡例内のシリーズ名を変更する方法を示しています：
 
+このJavaコードは、`Series` を介して凡例内の系列名を変更する方法を示しています:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -132,54 +145,55 @@ try {
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
     IStringChartValue name = series.getName();
-    name.getAsCells().get_Item(0).setValue("新しい名前");
+    name.getAsCells().get_Item(0).setValue("New name");
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **チャートシリーズの塗りつぶし色を設定**
 
-Aspose.Slides for Javaでは、次のようにチャートシリーズ内のプロット領域の自動塗りつぶし色を設定できます：
+## **チャート系列の塗りつぶし色を設定**
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. お好みのタイプに基づいて、デフォルトデータでチャートを追加します（以下の例では、`ChartType.ClusteredColumn`を使用しました）。
-1. チャートシリーズにアクセスし、塗りつぶし色を自動的に設定します。
-1. プレゼンテーションをPPTXファイルに保存します。
+Aspose.Slides for Java では、プロット領域内のチャート系列に自動塗りつぶし色を設定できます。
 
-このJavaコードは、チャートシリーズの自動塗りつぶし色を設定する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。  
+2. インデックスでスライドの参照を取得します。  
+3. 好みのタイプ（以下の例では `ChartType.ClusteredColumn`）に基づくデフォルト データでチャートを追加します。  
+4. チャート系列にアクセスし、塗りつぶし色を Automatic に設定します。  
+5. プレゼンテーションをPPTXファイルに保存します。
 
+このJavaコードは、チャート系列の自動塗りつぶし色を設定する方法を示しています:
 ```java
 Presentation pres = new Presentation();
 try {
-    // クラスター化された縦棒グラフを作成
+    // クラスタ化列チャートを作成
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
 
-    // シリーズの塗りつぶし形式を自動に設定
+    // 系列の塗りつぶし形式を自動に設定
     for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
     {
         chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
     }
 
-    // プレゼンテーションファイルをディスクに書き込む
+    // プレゼンテーションファイルをディスクに書き込み
     pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **チャートシリーズの反転塗りつぶし色を設定**
-Aspose.Slidesでは、次のようにチャートシリーズ内のプロット領域の反転塗りつぶし色を設定できます：
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. お好みのタイプに基づいて、デフォルトデータでチャートを追加します（以下の例では、`ChartType.ClusteredColumn`を使用しました）。
-1. チャートシリーズにアクセスし、塗りつぶし色を反転します。
-1. プレゼンテーションをPPTXファイルに保存します。
+## **チャート系列の反転塗りつぶし色を設定**
 
-このJavaコードは、操作を示しています：
+Aspose.Slides では、プロット領域内のチャート系列に対して反転塗りつぶし色を設定できます。
 
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。  
+2. インデックスでスライドの参照を取得します。  
+3. 好みのタイプ（以下の例では `ChartType.ClusteredColumn`）に基づくデフォルト データでチャートを追加します。  
+4. チャート系列にアクセスし、塗りつぶし色を invert に設定します。  
+5. プレゼンテーションをPPTXファイルに保存します。
+
+このJavaコードは、操作を実演しています:
 ```java
 Color inverColor = Color.RED;
 Presentation pres = new Presentation();
@@ -190,13 +204,13 @@ try {
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
-    // 新しいシリーズとカテゴリを追加
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "シリーズ1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "カテゴリ1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "カテゴリ2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "カテゴリ3"));
+    // 新しい系列とカテゴリを追加
+    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
+    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
+    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
+    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
 
-    // 最初のチャートシリーズを取得し、そのシリーズデータを補充します。
+    // 最初のチャート系列を取得し、系列データを設定
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
     series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
@@ -213,11 +227,12 @@ try {
 }
 ```
 
-## **値が負のときにシリーズを反転させる**
-Aspose.Slidesでは、`IChartDataPoint.InvertIfNegative`と`ChartDataPoint.InvertIfNegative`プロパティを通じて反転を設定できます。プロパティを使用して反転を設定すると、データポイントは負の値を持つときにその色を反転します。
 
-このJavaコードは、操作を示しています：
+## **値が負の場合に系列を反転させる**
 
+Aspose.Slides では、`IChartDataPoint.InvertIfNegative` および `ChartDataPoint.InvertIfNegative` プロパティを使用して反転を設定できます。これらのプロパティで反転を設定すると、データポイントが負の値を取得したときに色が反転します。
+
+このJavaコードは、操作を実演しています:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -241,18 +256,19 @@ try {
 }
 ```
 
-## **特定のデータポイントのデータをクリア**
-Aspose.Slides for Javaでは、特定のチャートシリーズの`DataPoints`データをクリアできます：
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
-2. インデックスを通じてスライドの参照を取得します。
-3. インデックスを通じてチャートの参照を取得します。
-4. すべてのチャート`DataPoints`を反復処理し、`XValue`と`YValue`をnullに設定します。
-5. 特定のチャートシリーズのすべての`DataPoints`をクリアします。
+## **特定のデータポイントのデータをクリア**
+
+Aspose.Slides for Java では、次の手順で特定のチャート系列の `DataPoints` データをクリアできます。
+
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。  
+2. インデックスでスライドの参照を取得します。  
+3. インデックスでチャートの参照を取得します。  
+4. すべてのチャート `DataPoints` を反復処理し、`XValue` と `YValue` を null に設定します。  
+5. 特定のチャート系列のすべての `DataPoints` をクリアします。  
 6. 変更されたプレゼンテーションをPPTXファイルに書き込みます。
 
-このJavaコードは、操作を示しています：
-
+このJavaコードは、操作を実演しています:
 ```java
 Presentation pres = new Presentation("TestChart.pptx");
 try {
@@ -274,20 +290,21 @@ try {
 }
 ```
 
-## **シリーズの間隔幅を設定**
-Aspose.Slides for Javaでは、**`GapWidth`**プロパティを通じてシリーズの間隔幅を設定できます：
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。
-1. 最初のスライドにアクセスします。
-1. デフォルトデータを持つチャートを追加します。
-1. 任意のチャートシリーズにアクセスします。
-1. `GapWidth`プロパティを設定します。
-1. 変更されたプレゼンテーションをPPTXファイルに書き込みます。
+## **系列のギャップ幅を設定**
 
-このJavaコードは、シリーズの間隔幅を設定する方法を示しています：
+Aspose.Slides for Java では、**`GapWidth`** プロパティを使用して系列のギャップ幅を設定できます。
 
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスのインスタンスを作成します。  
+2. 最初のスライドにアクセスします。  
+3. デフォルト データでチャートを追加します。  
+4. 任意のチャート系列にアクセスします。  
+5. `GapWidth` プロパティを設定します。  
+6. 変更されたプレゼンテーションをPPTXファイルに書き込みます。
+
+このJavaコードは、系列のギャップ幅を設定する方法を示しています:
 ```java
-// 空のプレゼンテーションを作成
+// 空のプレゼンテーションを作成 
 Presentation pres = new Presentation();
 try {
     // プレゼンテーションの最初のスライドにアクセス
@@ -302,19 +319,19 @@ try {
     // チャートデータワークシートを取得
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // シリーズを追加
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "シリーズ1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "シリーズ2"), chart.getType());
+    // 系列を追加
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
     
     // カテゴリを追加
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "カテゴリ1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "カテゴリ2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "カテゴリ3"));
+    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
+    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
+    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
-    // 二番目のチャートシリーズを取得
+    // 2番目のチャート系列を取得
     IChartSeries series = chart.getChartData().getSeries().get_Item(1);
     
-    // シリーズデータを補充
+    // 系列データを設定
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
@@ -322,12 +339,23 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     
-    // GapWidthの値を設定
+    // GapWidth の値を設定
     series.getParentSeriesGroup().setGapWidth(50);
     
-    // ディスクにプレゼンテーションを保存
+    // プレゼンテーションをディスクに保存
     pres.save("GapWidth_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**1 つのチャートに含められる系列の数に上限はありますか？**
+
+Aspose.Slides では、追加できる系列数に固定の上限はありません。実用的な上限はチャートの可読性とアプリケーションで利用可能なメモリによって決まります。
+
+**クラスター内の列が近すぎる、または離れすぎる場合はどうすればよいですか？**
+
+その系列（または親系列グループ）の `GapWidth` 設定を調整してください。値を増やすと列間のスペースが広がり、減らすと列が近づきます。

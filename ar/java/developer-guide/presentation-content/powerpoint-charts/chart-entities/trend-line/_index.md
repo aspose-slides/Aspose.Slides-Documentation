@@ -1,87 +1,102 @@
 ---
-title: خط الاتجاه
+title: إضافة خطوط الاتجاه إلى مخططات العرض في جافا
+linktitle: خط الاتجاه
 type: docs
 url: /ar/java/trend-line/
+keywords:
+- مخطط
+- خط الاتجاه
+- خط الاتجاه الأسي
+- خط الاتجاه الخطي
+- خط الاتجاه اللوغاريتمي
+- خط الاتجاه المتوسط المتحرك
+- خط الاتجاه المتعدد الحدود
+- خط الاتجاه القوي
+- خط الاتجاه المخصص
+- PowerPoint
+- عرض
+- جافا
+- Aspose.Slides
+description: "أضف خطوط الاتجاه وخصّصها بسرعة في مخططات PowerPoint باستخدام Aspose.Slides for Java — دليل عملي لجذب جمهورك."
 ---
 
-## **إضافة خط اتجاه**
-تقدم Aspose.Slides لـ Java واجهة برمجة تطبيقات بسيطة لإدارة خطوط الاتجاه المختلفة في الرسم البياني:
+## **إضافة خط الاتجاه**
+Aspose.Slides for Java يوفر API بسيط لإدارة خطوط الاتجاه المختلفة في المخططات:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. الحصول على مرجع شريحة من خلال فهرسها.
-1. إضافة رسم بياني ببيانات افتراضية مع أي نوع مرغوب فيه (يستخدم هذا المثال ChartType.ClusteredColumn).
-1. إضافة خط اتجاه أسي لسلسلة الرسم البياني 1.
-1. إضافة خط اتجاه خطي لسلسلة الرسم البياني 1.
-1. إضافة خط اتجاه لوغاريتمي لسلسلة الرسم البياني 2.
-1. إضافة خط اتجاه متوسط متحرك لسلسلة الرسم البياني 2.
-1. إضافة خط اتجاه متعدد الحدود لسلسلة الرسم البياني 3.
-1. إضافة خط اتجاه قوي لسلسلة الرسم البياني 3.
-1. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. الحصول على مرجع الشريحة عبر فهرستها.
+1. إضافة مخطط ببيانات افتراضية مع أي نوع مرغوب (هذا المثال يستخدم ChartType.ClusteredColumn).
+1. إضافة خط اتجاه أسي لسلسلة المخطط 1.
+1. إضافة خط اتجاه خطي لسلسلة المخطط 1.
+1. إضافة خط اتجاه لوغاريتمي لسلسلة المخطط 2.
+1. إضافة خط اتجاه متوسط متحرك لسلسلة المخطط 2.
+1. إضافة خط اتجاه متعدد الحدود لسلسلة المخطط 3.
+1. إضافة خط اتجاه قوة لسلسلة المخطط 3.
+1. كتابة العرض المعدل إلى ملف PPTX.
 
-الشفرة التالية تُستخدم لإنشاء رسم بياني مع خطوط اتجاه.
-
+الكود التالي يُستخدم لإنشاء مخطط مع خطوط الاتجاه.
 ```java
-// إنشاء مثيل من فئة Presentation
+// إنشاء نسخة من فئة Presentation
 Presentation pres = new Presentation();
 try {
-    // إنشاء رسم بياني عمودي مجمع
+    // إنشاء مخطط أعمدة متجمع
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
     
-    // إضافة خط اتجاه أسي لسلسلة الرسم البياني 1
+    // إضافة خط اتجاه أسي للسلسلة 1
     ITrendline tredLinep = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Exponential);
     tredLinep.setDisplayEquation(false);
     tredLinep.setDisplayRSquaredValue(false);
     
-    // إضافة خط اتجاه خطي لسلسلة الرسم البياني 1
+    // إضافة خط اتجاه خطي للسلسلة 1
     ITrendline tredLineLin = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Linear);
     tredLineLin.setTrendlineType(TrendlineType.Linear);
     tredLineLin.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     tredLineLin.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     
     
-    // إضافة خط اتجاه لوغاريتمي لسلسلة الرسم البياني 2
+    // إضافة خط اتجاه لوغاريتمي للسلسلة 2
     ITrendline tredLineLog = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Logarithmic);
     tredLineLog.setTrendlineType(TrendlineType.Logarithmic);
-    tredLineLog.addTextFrameForOverriding("خط الاتجاه اللوغاريتمي الجديد");
+    tredLineLog.addTextFrameForOverriding("New log trend line");
     
-    // إضافة خط اتجاه متوسط متحرك لسلسلة الرسم البياني 2
+    // إضافة خط اتجاه متوسط متحرك للسلسلة 2
     ITrendline tredLineMovAvg = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.MovingAverage);
     tredLineMovAvg.setTrendlineType(TrendlineType.MovingAverage);
     tredLineMovAvg.setPeriod((byte)3);
-    tredLineMovAvg.setTrendlineName("اسم خط الاتجاه الجديد");
+    tredLineMovAvg.setTrendlineName("New TrendLine Name");
     
-    // إضافة خط اتجاه متعدد الحدود لسلسلة الرسم البياني 3
+    // إضافة خط اتجاه متعدد حدود للسلسلة 3
     ITrendline tredLinePol = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Polynomial);
     tredLinePol.setTrendlineType(TrendlineType.Polynomial);
     tredLinePol.setForward(1);
     tredLinePol.setOrder((byte)3);
     
-    // إضافة خط اتجاه قوي لسلسلة الرسم البياني 3
+    // إضافة خط اتجاه قوة للسلسلة 3
     ITrendline tredLinePower = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Power);
     tredLinePower.setTrendlineType(TrendlineType.Power);
     tredLinePower.setBackward(1);
     
-    // حفظ العرض التقديمي
+    // حفظ العرض
     pres.save("ChartTrendLines_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+
 ## **إضافة خط مخصص**
-تقدم Aspose.Slides لـ Java واجهة برمجة تطبيقات بسيطة لإضافة خطوط مخصصة في رسم بياني. لإضافة خط بسيط إلى شريحة مختارة من العرض التقديمي، يرجى اتباع الخطوات أدناه:
+Aspose.Slides for Java يوفر API بسيط لإضافة خطوط مخصصة في المخطط. لإضافة خط بسيط إلى شريحة مختارة من العرض، يرجى اتباع الخطوات أدناه:
 
-- إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)
-- الحصول على مرجع لشريحة من خلال استخدام فهرسها
-- إنشاء رسم بياني جديد باستخدام طريقة AddChart التي يوفرها كائن Shapes
-- إضافة شكل تلقائي من نوع خط باستخدام طريقة AddAutoShape التي يوفرها كائن Shapes
-- تعيين لون خطوط الشكل.
-- كتابة العرض التقديمي المعدل كملف PPTX
+- إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 
+- الحصول على مرجع الشريحة باستخدام فهرستها
+- إنشاء مخطط جديد باستخدام طريقة AddChart المعروضة عبر كائن Shapes
+- إضافة AutoShape من نوع Line باستخدام طريقة AddAutoShape المعروضة عبر كائن Shapes
+- ضبط لون خطوط الشكل.
+- كتابة العرض المعدل كملف PPTX
 
-الشفرة التالية تُستخدم لإنشاء رسم بياني مع خطوط مخصصة.
-
+الكود التالي يُستخدم لإنشاء مخطط مع خطوط مخصصة.
 ```java
-// إنشاء مثيل من فئة Presentation
+// إنشاء نسخة من فئة Presentation
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
@@ -95,3 +110,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**ماذا يعني "forward" و "backward" بالنسبة لخط الاتجاه؟**
+
+هما طولا لخط الاتجاه الممدود إلى الأمام/الخلف: للمخططات النقطية (XY) — بوحدات المحور؛ للمخططات غير النقطية — بعدد الفئات. يُسمح فقط بالقيم غير السلبية.
+
+**هل يُحفظ خط الاتجاه عند تصدير العرض إلى PDF أو SVG، أو عند تحويل شريحة إلى صورة؟**
+
+نعم. Aspose.Slides يحول العروض إلى [PDF](/slides/ar/java/convert-powerpoint-to-pdf/)/[SVG](/slides/ar/java/render-a-slide-as-an-svg-image/) ويُعيد رسم المخططات كصور؛ خطوط الاتجاه، كجزء من المخطط، تُحفظ خلال هذه العمليات. هناك طريقة متاحة أيضاً لـ [تصدير صورة للمخطط](/slides/ar/java/create-shape-thumbnails/) نفسه.

@@ -1,53 +1,65 @@
 ---
-title: واجهة برمجة التطبيقات الحديثة
+title: تعزيز معالجة الصور باستخدام الواجهة الحديثة
+linktitle: الواجهة الحديثة
 type: docs
 weight: 237
 url: /ar/java/modern-api/
-keywords: "واجهة برمجة التطبيقات الحديثة عبر الأنظمة"
-description: "واجهة برمجة التطبيقات الحديثة"
+keywords:
+- واجهة حديثة
+- رسم
+- صورة مصغرة للشفرة
+- تحويل الشفرة إلى صورة
+- صورة مصغرة للشكل
+- تحويل الشكل إلى صورة
+- صورة مصغرة للعرض التقديمي
+- تحويل العرض التقديمي إلى صور
+- إضافة صورة
+- إضافة صورة
+- Java
+- Aspose.Slides
+description: "تحديث معالجة صور الشرائح عن طريق استبدال واجهات الصور المهجورة بواجهة Java الحديثة لتسهيل أتمتة PowerPoint و OpenDocument."
 ---
 
-## المقدمة
+## **المقدمة**
 
-تاريخيًا، تعتمد Aspose Slides على java.awt وتحتوي على الفئات التالية في واجهتها العامة:
+تاريخيًا، كان Aspose Slides يعتمد على java.awt وكان في واجهة برمجة التطبيقات العامة يحتوي على الفئات التالية من هناك:
 - [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)
 - [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)
 
-اعتبارًا من الإصدار 24.4، تم الإبلاغ عن هذه الواجهة العامة على أنها مهجورة.
+اعتبارًا من الإصدار 24.4، تم الإعلان عن إهمال هذه الواجهة العامة.
 
-للتخلص من الاعتماد على هذه الفئات، أضفنا ما يُعرف بـ "واجهة برمجة التطبيقات الحديثة" - أي الواجهة التي ينبغي استخدامها بدلاً من تلك التي تم الإبلاغ عنها بأنها مهجورة، والتي تحتوي توقيعها على اعتماد على BufferedImage. تم الإبلاغ عن Graphics2D على أنها مهجورة وتمت إزالة دعمها من واجهة Slides العامة.
+من أجل التخلص من الاعتماد على هذه الفئات، أضفنا ما يُسمى "الواجهة الحديثة" – أي الواجهة التي يجب استخدامها بدلًا من الواجهة المهملة، والتي لا تتضمن توقيعات تعتمد على BufferedImage. تم إعلان Graphics2D مهجورًا وتم إزالة دعمه من واجهة Slides العامة.
 
-سيتم إزالة واجهة برمجة التطبيقات العامة المهجورة التي تعتمد على System.Drawing في الإصدار 24.8.
+إزالة الواجهة العامة المهملة التي تعتمد على System.Drawing سيكون في الإصدار 24.8.
 
-## واجهة برمجة التطبيقات الحديثة
+## **الواجهة الحديثة**
 
-أضيفت الفئات والـ enums التالية إلى الواجهة العامة:
+تم إضافة الفئات والعدادات التالية إلى الواجهة العامة:
 
-- IImage - تمثل الصورة النقطية أو المتجهة.
-- ImageFormat - تمثل تنسيق ملف الصورة.
-- Images - طرق لاستدعاء وأعمال مع واجهة IImage.
+- IImage – تمثل الصورة النقطية أو المتجهية.
+- ImageFormat – يمثل تنسيق ملف الصورة.
+- Images – طرق لإنشاء والعمل مع واجهة IImage.
 
-يرجى ملاحظة أن IImage قابلة للتخلص (فهي تنفذ واجهة IDisposable ويجب أن يتم لف استخدامها في using أو التخلص منها بطريقة مريحة أخرى).
+يرجى ملاحظة أن IImage قابلة للتصرف (تُنفّذ واجهة IDisposable ويجب تغليف استخدامها في using أو التخلص منها بطريقة ملائمة).
 
 سيناريو نموذجي لاستخدام الواجهة الجديدة قد يبدو كما يلي:
-
 ``` java
 Presentation pres = new Presentation();
 try {
     IPPImage ppImage;
-    // استدعاء مثيل قابل للتخلص من IImage من الملف على القرص.
+    // إنشاء مثيل قابل للتخلص منه من IImage من الملف على القرص.
     IImage image = Images.fromFile("image.png");
     try {
-        // إنشاء صورة PowerPoint عن طريق إضافة مثيل من IImage إلى صور العرض التقديمي.
+        // إنشاء صورة PowerPoint بإضافة مثيل IImage إلى صور العرض التقديمي.
         ppImage = pres.getImages().addImage(image);
     } finally {
         if (image != null) image.dispose();
     }
 
-    // إضافة شكل صورة على الشريحة #1
+    // إضافة شكل صورة على الشريحة رقم 1
     pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 
-    // الحصول على مثيل من IImage يمثل الشريحة #1.
+    // الحصول على مثيل IImage يمثل الشريحة رقم 1.
     IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(1920, 1080));
     try {
         // حفظ الصورة على القرص.
@@ -60,11 +72,12 @@ try {
 }
 ```
 
-## استبدال الكود القديم بواجهة برمجة التطبيقات الحديثة
 
-بشكل عام، ستحتاج إلى استبدال الاتصال بالطريقة القديمة باستخدام ImageIO بالطريقة الجديدة.
+## **استبدال الكود القديم بالواجهة الحديثة**
 
-قديم:
+بشكل عام، ستحتاج إلى استبدال استدعاء الطريقة القديمة باستخدام ImageIO بالبديل الجديد.
+
+القديم:
 ``` java
 BufferedImage slideImage = pres.getSlides().get_Item(0).getThumbnail(new Dimension(1920, 1080));
 try {
@@ -73,7 +86,8 @@ try {
     e.printStackTrace();
 }
 ```
-جديد:
+
+الجديد:
 ``` java
 IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(1920, 1080));
 try {
@@ -83,10 +97,10 @@ try {
 }
 ```
 
-### الحصول على صورة مصغرة لشريحة
 
-كود يستخدم واجهة برمجة تطبيقات مهجورة:
+### **الحصول على صورة مصغرة للشفرة**
 
+الكود باستخدام واجهة مهملة:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -101,8 +115,8 @@ try {
 }
 ```
 
-واجهة برمجة التطبيقات الحديثة:
 
+الواجهة الحديثة:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -117,10 +131,10 @@ try {
 }
 ```
 
-### الحصول على صورة مصغرة لشكل
 
-كود يستخدم واجهة برمجة تطبيقات مهجورة:
+### **الحصول على صورة مصغرة للشكل**
 
+الكود باستخدام واجهة مهملة:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -135,8 +149,8 @@ try {
 }
 ```
 
-واجهة برمجة التطبيقات الحديثة:
 
+الواجهة الحديثة:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -151,10 +165,10 @@ try {
 }
 ```
 
-### الحصول على صورة مصغرة للعرض التقديمي
 
-كود يستخدم واجهة برمجة تطبيقات مهجورة:
+### **الحصول على صورة مصغرة للعرض التقديمي**
 
+الكود باستخدام واجهة مهملة:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -176,8 +190,8 @@ try {
 }
 ```
 
-واجهة برمجة التطبيقات الحديثة:
 
+الواجهة الحديثة:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -202,10 +216,10 @@ try {
 }
 ```
 
-### إضافة صورة إلى عرض تقديمي
 
-كود يستخدم واجهة برمجة تطبيقات مهجورة:
+### **إضافة صورة إلى العرض التقديمي**
 
+الكود باستخدام واجهة مهملة:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -223,8 +237,8 @@ try {
 }
 ```
 
-واجهة برمجة التطبيقات الحديثة:
 
+الواجهة الحديثة:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -242,27 +256,28 @@ try {
 }
 ```
 
-## الطرق التي ستتم إزالتها واستبدالها في واجهة برمجة التطبيقات الحديثة
 
-### العرض التقديمي
-| توقيع الطريقة                               | توقيع الطريقة البديلة                             |
-|-----------------------------------------------|---------------------------------------------------------|
-| public final BufferedImage[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options)                   |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY)   |
+## **الطرق التي ستُزال وبدائلها في الواجهة الحديثة**
+
+### **العرض التقديمي**
+| توقيع الطريقة | توقيع الطريقة البديلة |
+|---|---|
+| public final BufferedImage[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options) |
+| public final BufferedImage[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides) | public final IImage[] getImages(IRenderingOptions options, int[] slides) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, int[] slides, Dimension imageSize) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, Dimension imageSize) |
 
-### الشكل
-| توقيع الطريقة                                                      | توقيع الطريقة البديلة                                       |
-|----------------------------------------------------------------------|-------------------------------------------------------------------|
-| public final BufferedImage getThumbnail()                                        | public final IImage getImage()                                                           |
+### **الشكل**
+| توقيع الطريقة | توقيع الطريقة البديلة |
+|---|---|
+| public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
 
-### الشريحة
-| توقيع الطريقة                                                      | توقيع الطريقة البديلة                                           |
-|----------------------------------------------------------------------|-----------------------------------------------------------------------|
+### **الشفرة**
+| توقيع الطريقة | توقيع الطريقة البديلة |
+|---|---|
 | public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
 | public final BufferedImage getThumbnail(IRenderingOptions options) | public final IImage getImage(IRenderingOptions options) |
@@ -270,45 +285,58 @@ try {
 | public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
 | public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
 | public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | سيتم حذفه بالكامل  |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | سيتم حذفه بالكامل  |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | سيتم حذفه بالكامل  |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | Will be deleted completely |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | Will be deleted completely |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | Will be deleted completely |
 
-### الإخراج
-| توقيع الطريقة                                                | توقيع الطريقة البديلة                                |
-|-----------------------------------------------------------------|-------------------------------------------------------------|
+### **الإخراج**
+| توقيع الطريقة | توقيع الطريقة البديلة |
+|---|---|
 | public final IOutputFile add(String path, BufferedImage image) | public final IOutputFile add(String path, IImage image) |
 
-### مجموعة الصور
-| توقيع الطريقة                          | توقيع الطريقة البديلة               |
-|-------------------------------------------|--------------------------------------------|
+### **ImageCollection**
+| توقيع الطريقة | توقيع الطريقة البديلة |
+|---|---|
 | public final IPPImage addImage(BufferedImage image) | public final IPPImage addImage(IImage image) |
 
-### PPImage
-| توقيع الطريقة                     | توقيع الطريقة البديلة   |
-|--------------------------------------|-----------------------------------------|
+### **PPImage**
+| توقيع الطريقة | توقيع الطريقة البديلة |
+|---|---|
 | public final BufferedImage getSystemImage() | public final IImage getImage() |
 
-### تنسيق النمط
-| توقيع الطريقة                                          | توقيع الطريقة البديلة                        |
-|-----------------------------------------------------------|-----------------------------------------------------|
-| public final BufferedImage getTileImage(Color styleColor)   | public final IImage getTile(Color styleColor) |
-| public final BufferedImage getTileImage(Color background, Color foreground) |public final IImage getTile(Color background, Color foreground) |
+### **PatternFormat**
+| توقيع الطريقة | توقيع الطريقة البديلة |
+|---|---|
+| public final BufferedImage getTileImage(Color styleColor) | public final IImage getTile(Color styleColor) |
+| public final BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTile(Color background, Color foreground) |
 
-### بيانات تنسيق النمط الفعالة
-| توقيع الطريقة                                          | توقيع الطريقة البديلة                        |
-|-----------------------------------------------------------|-----------------------------------------------------|
+### **PatternFormatEffectiveData**
+| توقيع الطريقة | توقيع الطريقة البديلة |
+|---|---|
 | public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
 
+## **سيتم إيقاف دعم واجهة Graphics2D**
 
-## دعم واجهة برمجة التطبيقات لـ Graphics2D سيتم إلغاؤه
+الطرق التي تستخدم [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) تم إعلانها مهملة وسيتم إزالة دعمها من الواجهة العامة.
 
-تم الإبلاغ عن الطرق التي تستخدم [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) بأنها مهجورة وسيتم إزالة دعمها من الواجهة العامة.
-
-الجزء من واجهة برمجة التطبيقات التي تستخدمها سيتم إزالته:
+الجزء من الواجهة الذي يستخدمها سيُحذف:
 
 [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/slide/)
 
 - [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
 - [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
 - [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
+
+## **الأسئلة المتكررة**
+
+**لماذا تم حذف java.awt.Graphics2D؟**
+
+يتم إزالة دعم `Graphics2D` من الواجهة العامة لتوحيد العمل مع التصيير والصور، وإلغاء الروابط إلى الاعتمادات الخاصة بالنظام الأساسي، والتحول إلى نهج متعدد المنصات باستخدام [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/). سيتم حذف جميع طرق التصيير إلى `Graphics2D`.
+
+**ما الفائدة العملية لـ IImage مقارنةً بـ BufferedImage؟**
+
+[IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/) يدمج العمل مع كل من الصور النقطية والمتجهية ويبسّط الحفظ إلى صيغ مختلفة عبر [ImageFormat](https://reference.aspose.com/slides/java/com.aspose.slides/imageformat/).
+
+**هل ستؤثر الواجهة الحديثة على أداء إنشاء الصور المصغرة؟**
+
+الانتقال من `getThumbnail` إلى `getImage` لا ي ухудшит الأداء في السيناريوهات العامة: الطرق الجديدة توفر نفس الإمكانات لإنتاج الصور مع الخيارات والأحجام، مع الحفاظ على دعم خيارات التصيير. الكسب أو الفقدان المحدد يعتمد على السيناريو، لكن الوظيفية متكافئة.
