@@ -1,27 +1,53 @@
 ---
-title: PowerPoint アニメーション
+title: JavaでPowerPointプレゼンテーションをアニメーションで強化する
+linktitle: PowerPoint アニメーション
 type: docs
 weight: 150
 url: /ja/java/powerpoint-animation/
-keywords: "PowerPoint アニメーション"
-description: "PowerPoint アニメーション、Aspose.Slides を使用した PowerPoint スライドアニメーション。"
+keywords:
+- アニメーションを追加
+- アニメーションを更新
+- アニメーションを変更
+- アニメーションを削除
+- アニメーションを管理
+- アニメーションを制御
+- アニメーション効果
+- PowerPoint アニメーション
+- アニメーションタイムライン
+- インタラクティブアニメーション
+- カスタムアニメーション
+- 図形アニメーション
+- アニメーションチャート
+- アニメーションテキスト
+- アニメーション図形
+- アニメーション OLE オブジェクト
+- アニメーション画像
+- アニメーションテーブル
+- PowerPoint
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java が PowerPoint アニメーションを処理する機能を探求してください。この一般的な概要では、主要な機能をハイライトし、プレゼンテーションを強化するための洞察を提供します。"
 ---
 
-プレゼンテーションは何かを提示することを目的としているため、その視覚的な外観とインタラクティブな動作は常に作成時に考慮されます。
+## **概要**
 
-**PowerPoint アニメーション**は、プレゼンテーションを視聴者にとって目を引く魅力的なものにするために重要な役割を果たします。Aspose.Slides for Java は、PowerPoint プレゼンテーションにアニメーションを追加するための幅広いオプションを提供します。
+プレゼンテーションは何かを提示するためのものなので、作成時には常に視覚的な外観とインタラクティブな動作が考慮されます。
 
-- 形状、チャート、テーブル、OLEオブジェクトおよび他のプレゼンテーション要素にさまざまなタイプの PowerPoint アニメーション効果を適用します。
-- 形状に複数の PowerPoint アニメーション効果を使用します。
-- アニメーションタイムラインを使用してアニメーション効果を制御します。
-- カスタムアニメーションを作成します。
+**PowerPoint アニメーション**は、プレゼンテーションを視覚的に魅力的にするために重要な役割を果たします。Aspose.Slides for Java は、PowerPoint プレゼンテーションにアニメーションを追加するための幅広いオプションを提供します。
 
-Aspose.Slides for Java では、さまざまなアニメーション効果を形状に適用できます。スライド上のテキスト、画像、OLEオブジェクト、テーブルなど、すべての要素が形状と見なされるため、スライドのすべての要素にアニメーション効果を適用できることを意味します。
+- さまざまな種類の PowerPoint アニメーション効果を、図形、グラフ、表、OLE オブジェクト、その他のプレゼンテーション要素に適用できます。
+- 1 つの図形に複数の PowerPoint アニメーション効果を使用できます。
+- アニメーション タイムラインを使用してアニメーション効果を制御できます。
+- カスタム アニメーションを作成できます。
+
+Aspose.Slides for Java では、図形にさまざまなアニメーション効果を適用できます。スライド上のテキスト、画像、OLE オブジェクト、表などすべての要素は図形として扱われるため、スライド内のすべての要素にアニメーション効果を適用できるということです。
+
 
 ## **アニメーション効果**
-Aspose.Slides は、Bounce、PathFootball、Zoom効果のような基本的なアニメーション効果や、OLEObjectShow、OLEObjectOpenのような特定のアニメーション効果を含む**150以上のアニメーション効果**をサポートしています。アニメーション効果の完全なリストは、[**EffectType**](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttype)列挙体でご確認いただけます。
+Aspose.Slides は **150 以上のアニメーション効果** をサポートしており、Bounce、PathFootball、Zoom 効果などの基本的なアニメーションから、OLEObjectShow、OLEObjectOpen などの特定のアニメーションまで含まれます。すべてのアニメーション効果の一覧は [**EffectType**](https://reference.aspose.com/slides/java/com.aspose.slides/effecttype/) 列挙体で確認できます。
 
-さらに、これらのアニメーション効果は以下のと組み合わせて使用できます：
+さらに、これらのアニメーション効果は以下と組み合わせて使用できます。
 
 - [ColorEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/java/com.aspose.slides/CommandEffect)
@@ -32,38 +58,54 @@ Aspose.Slides は、Bounce、PathFootball、Zoom効果のような基本的な�
 - [ScaleEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ScaleEffect)
 - [SetEffect](https://reference.aspose.com/slides/java/com.aspose.slides/SetEffect)
 
-## **カスタムアニメーション**
-Aspose.Slides で**カスタムアニメーション**を作成することが可能です。これは、いくつかの動作を組み合わせて新しいカスタムアニメーションを作成することで達成できます。
 
-[**Behavior**](https://reference.aspose.com/slides/java/com.aspose.slides/Behavior)は、任意の PowerPoint アニメーション効果の構成単位です。すべてのアニメーション効果は、実際には一つの戦略に構成された動作の集合です。動作をカスタムアニメーションに一度組み合わせて、他のプレゼンテーションで再利用できます。標準の PowerPoint アニメーション効果に新しい動作を追加すると、それは別のカスタムアニメーションになります。例えば、アニメーションに繰り返し動作を追加して、数回繰り返すようにすることができます。
+## **カスタム アニメーション**
+Aspose.Slides で独自の **カスタム アニメーション** を作成することが可能です。  
+これは、複数のビヘイビアを組み合わせて新しいカスタム アニメーションにすることで実現できます。
 
-[**Animation Point**](https://reference.aspose.com/slides/java/com.aspose.slides/Point)は、動作が適用される点です。
+[**Behavior**](https://reference.aspose.com/slides/java/com.aspose.slides/Behavior) は任意の PowerPoint アニメーション効果の構成要素です。すべてのアニメーション効果は実質的にビヘイビアの集合であり、1 つの戦略にまとめられています。ビヘイビアを一度カスタム アニメーションに組み合わせれば、他のプレゼンテーションでも再利用できます。標準の PowerPoint アニメーション効果に新しいビヘイビアを追加すれば、別のカスタム アニメーションとなります。たとえば、リピート ビヘイビアを追加すれば、アニメーションを数回繰り返すように設定できます。
 
-## **アニメーションタイムライン**
-[**Sequence**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence)は、特定の形状に適用されたアニメーション効果のコレクションです。
+[**Animation Point**](https://reference.aspose.com/slides/java/com.aspose.slides/Point) はビヘイビアを適用すべき位置を指します。
 
-[**Timeline**](https://reference.aspose.com/slides/java/com.aspose.slides/AnimationTimeLine)は、特定のスライドで使用されるシーケンスのセットです。これは、PowerPoint 2002 以降に取り入れられたアニメーションエンジンです。以前の PowerPoint バージョンでは、アニメーション効果をプレゼンテーションに追加するのが困難で、さまざまな回避策を使用してのみ可能でした。タイムラインは、古い AnimationSettings クラスを置き換え、PowerPoint アニメーションのためのより明確なオブジェクトモデルを提供します。1つのスライドには1つのアニメーションタイムラインしか持てません。
+## **アニメーション タイムライン**
+[**Sequence**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence) は、特定の図形に適用されるアニメーション効果のコレクションです。
 
-## **インタラクティブアニメーション**
-[**Trigger**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectTriggerType)は、特定のアニメーションを開始させるユーザーのアクション（例：ボタンクリック）を定義できるようにします。トリガーは最新の PowerPoint バージョンにのみ追加されました。
+[**Timeline**](https://reference.aspose.com/slides/java/com.aspose.slides/AnimationTimeLine) は、特定のスライドで使用される Sequence の集合です。PowerPoint 2002 以降に導入されたアニメーション エンジンです。従来の PowerPoint バージョンでは、アニメーション効果を追加するのが困難で、さまざまな回避策が必要でした。Timeline は古い AnimationSettings クラスに代わるもので、PowerPoint アニメーションのオブジェクト モデルをより明確に提供します。1 つのスライドには **1 つだけ** のアニメーション タイムラインが設定できます。
 
-## **形状アニメーション**
-Aspose.Slides は、テキスト、長方形、線、フレーム、OLEオブジェクトなどにアニメーションを適用することを許可します。
+## **インタラクティブ アニメーション**
+[**Trigger**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectTriggerType) は、ユーザー アクション（例：ボタンのクリック）を定義し、そのアクションに応じて特定のアニメーションを開始させることができます。トリガーは最新バージョンの PowerPoint のみで利用可能です。
 
-{{% alert color="primary" %}} 
-詳細は[**形状アニメーションについて**](/slides/ja/java/shape-animation/)をお読みください。
-{{% /alert %}}
-
-## **アニメーションチャート**
-アニメーションチャートを作成するには、形状と同じクラスを使用する必要があります。ただし、PowerPoint アニメーションはチャートのカテゴリまたはチャート系列にのみ適用できます。また、カテゴリ要素または系列要素にアニメーション効果を適用することもできます。
+## **図形アニメーション**
+Aspose.Slides は、テキスト、長方形、線、フレーム、OLE オブジェクトなど、実質的にすべての図形にアニメーションを適用できるようにします。
 
 {{% alert color="primary" %}} 
-詳細は[**アニメーションチャートについて**](/slides/ja/java/animated-charts/)をお読みください。
+さらに読む [**図形アニメーションについて**](/slides/ja/java/shape-animation/)。
 {{% /alert %}}
 
-## **アニメーションテキスト**
-アニメーションテキストに加えて、段落にアニメーションを適用することも可能です。
+## **アニメーション グラフ**
+アニメーション グラフを作成するには、図形と同じクラスを使用します。ただし、PowerPoint アニメーションはグラフのカテゴリまたは系列にのみ適用できます。カテゴリ要素や系列要素にもアニメーション効果を適用できます。
 
 {{% alert color="primary" %}} 
-詳細は[**アニメーションテキストについて**](/slides/ja/java/animated-text/)をお読みください。
+さらに読む [**アニメーション グラフについて**](/slides/ja/java/animated-charts/)。
 {{% /alert %}}
+
+## **アニメーション テキスト**
+アニメーション テキストだけでなく、段落に対してもアニメーションを適用できます。
+
+{{% alert color="primary" %}} 
+さらに読む [**アニメーション テキストについて**](/slides/ja/java/animated-text/)。
+{{% /alert %}}
+
+## **FAQ**
+
+**アニメーションは PDF にエクスポートしても保持されますか？**
+
+いいえ。PDF は静的フォーマットであるため、アニメーションや [スライド トランジション](/slides/ja/java/slide-transition/) は再生されません。動きを必要とする場合は、[HTML5](/slides/ja/java/export-to-html5/)、[アニメーション GIF](/slides/ja/java/convert-powerpoint-to-animated-gif/)、または [ビデオ](/slides/ja/java/convert-powerpoint-to-video/) にエクスポートしてください。
+
+**アニメーション プレゼンテーションをビデオに変換し、フレームレートやフレームサイズを制御できますか？**
+
+はい。プレゼンテーションをフレームとして[レンダリング](/slides/ja/java/convert-powerpoint-to-video/)し、ffmpeg などでビデオにエンコードする際に FPS や解像度を選択できます。レンダリング中にアニメーションとスライド トランジションが再生されます。
+
+**ODP（PPTX だけでなく）でもアニメーションは保持されますか？**
+
+PPT、PPTX、ODP はすべて [読み取り](/slides/ja/java/open-presentation/) および [書き込み](/slides/ja/java/save-presentation/) がサポートされていますが、フォーマットの違いにより一部の効果が見た目や動作で若干異なる場合があります。重要なケースは実際のサンプルで検証してください。

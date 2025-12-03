@@ -1,60 +1,74 @@
 ---
-title: واجهة برمجة التطبيقات الحديثة
+title: "تعزيز معالجة الصور باستخدام الواجهة الحديثة"
+linktitle: "الواجهة الحديثة"
 type: docs
 weight: 237
 url: /ar/net/modern-api/
-keywords: "نظام واجهة برمجة التطبيقات الحديثة المتعددة المنصات System.Drawing"
-description: "واجهة برمجة التطبيقات الحديثة"
+keywords:
+- "System.Drawing"
+- "الواجهة الحديثة"
+- "الرسم"
+- "صورة مصغرة للشرائح"
+- "تحويل الشريحة إلى صورة"
+- "صورة مصغرة للشكل"
+- "تحويل الشكل إلى صورة"
+- "صورة مصغرة للعرض التقديمي"
+- "تحويل العرض التقديمي إلى صور"
+- "إضافة صورة"
+- "إضافة صورة"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "تحديث معالجة صور الشرائح عن طريق استبدال واجهات التصوير التي تم إهمالها بواجهة .NET الحديثة لتوفير أتمتة سلسة لـ PowerPoint وOpenDocument."
 ---
 
-## المقدمة
+## **المقدمة**
 
-تاريخياً، كانت Aspose Slides تعتمد على System.Drawing وتحتوي في واجهة برمجة التطبيقات العامة على الفئات التالية من هناك:
+تاريخيًا، Aspose Slides يعتمد على System.Drawing وكان يحتوي في واجهة برمجة التطبيقات العامة على الفئات التالية من هناك:
 - [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics)
 - [Image](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.image)
 - [Bitmap](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.bitmap)
 - [PrinterSettings](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.printing.printersettings)
 
-اعتبارًا من الإصدار 24.4، تم إعلان أن واجهة برمجة التطبيقات العامة هذه أصبحت قديمة.
+اعتبارًا من الإصدار 24.4، تم الإعلان عن إهمال واجهة برمجة التطبيقات العامة هذه.
 
-نظرًا لأن دعم System.Drawing في الإصدارات .NET6 وما فوق تم إزالته للإصدارات غير الخاصة بنظام ويندوز ([تغيير جذري](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only))، قامت Slides بتنفيذ نهج يعتمد على إصدارين من المكتبة:
-- [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET) - دعم لـ .NET6+ على ويندوز و .NETStandard لنظامي ويندوز / لينوكس / ماك أو إس و .NETFramework 2+ (ويندوز).
-  - تعتمد على [System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/).
-- [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) - إصدار ويندوز / لينوكس / ماك أو إس بدون تبعيات.
+نظرًا لإزالة دعم System.Drawing في الإصدارات .NET6 وما فوق للإصدارات غير الويندوز ([تغيير كسرية](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only))، نفذت Slides نهج إصدار مكتبتين:
+- [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET) - دعم .NET6+ للويندوز، .NETStandard للويندوز/لينكس/ماك، .NETFramework 2+ (ويندوز).
+  - يعتمد على [System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/).
+- [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) - إصدار ويندوز/لينكس/ماك بدون تبعيات.
 
-العيب في [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) هو أنه ينفذ نسخته الخاصة من System.Drawing في نفس المساحة الاسمية (للدعم التوافقي مع واجهة برمجة التطبيقات العامة). وبالتالي، عند استخدام Aspose.Slides.NET6.CrossPlatform و System.Drawing من .NETFramework أو حزمة System.Drawing.Common في نفس الوقت، يحدث تعارض في الأسماء ما لم يتم استخدام اسم مستعار.
+العيب في [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) هو أنه يطبق نسخة خاصة به من System.Drawing في نفس مساحة الاسم (لدعم التوافق الرجعي مع الواجهة العامة). وبالتالي، عندما يُستخدم Aspose.Slides.NET6.CrossPlatform مع System.Drawing من .NETFramework أو حزمة System.Drawing.Common في نفس الوقت، يحدث تعارض في الأسماء ما لم يُستخدم الاسم المستعار.
 
-للتخلص من التبعيات على System.Drawing في الحزمة الرئيسية Aspose.Slides.NET، أضفنا ما يسمى "واجهة برمجة التطبيقات الحديثة" - أي الواجهة التي ينبغي استخدامها بدلاً من الواجهة الموقوفة، والتي تحتوي تواقيعها على تبعيات من الأنواع التالية من System.Drawing: Image و Bitmap. وتم إعلان أن PrinterSettings و Graphics أصبحت قديمة وتمت إزالة دعمها من واجهة برمجة التطبيقات العامة لـ Slides.
+من أجل التخلص من التبعيات على System.Drawing في حزمة Aspose.Slides.NET الرئيسية، أضفنا ما يُسمى "الواجهة الحديثة" – أي الواجهة التي يجب استخدامها بدلاً من الواجهة المهملة، والتي تحتوي توقيعاتها على تبعيات الأنواع التالية من System.Drawing: Image و Bitmap. تم إعلان PrinterSettings و Graphics مهملتين وتم إزالة دعمهما من واجهة برمجة التطبيقات العامة لـ Slides.
 
-سيتم إزالة واجهة برمجة التطبيقات العامة القديمة التي تحتوي على تبعيات على System.Drawing في الإصدار 24.8.
+إزالة الواجهة العامة المهملة التي تعتمد على System.Drawing ستكون في الإصدار 24.8.
 
-## واجهة برمجة التطبيقات الحديثة
+## **الواجهة الحديثة**
 
-تم إضافة الفئات والإعدادات التالية إلى واجهة برمجة التطبيقات العامة:
+أضيفت الفئات والعدادات التالية إلى الواجهة العامة:
 
-- Aspose.Slides.IImage - تمثل الصورة النقطية أو الصورة المتجهة.
-- Aspose.Slides.ImageFormat - تمثل تنسيق ملف الصورة.
-- Aspose.Slides.Images - طرق لإنشاء والعمل مع واجهة IImage.
+- Aspose.Slides.IImage – تمثل الصورة النقطية أو المتجهة.
+- Aspose.Slides.ImageFormat – تمثل تنسيق ملف الصورة.
+- Aspose.Slides.Images – طرق لإنشاء والعمل مع واجهة IImage.
 
-يرجى ملاحظة أن IImage قابلة للتصرف (تنفذ واجهة IDisposable ويجب إلحاق استخدامها بـ using أو التخلص منها بطريقة أخرى ملائمة).
+يرجى ملاحظة أن IImage قابلة للتصرف (تطبق واجهة IDisposable ويجب تغليف استخدامها في using أو التخلص منها بطريقة مناسبة).
 
-قد يبدو سيناريو الاستخدام النموذجي للواجهة الجديدة كما يلي:
-
+سيناريو نموذجي لاستخدام الواجهة الحديثة قد يبدو كما يلي:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
     IPPImage ppImage;
-    // إنشاء مثيل يمكن التخلص منه من IImage من الملف على القرص.  
+    // إنشاء نسخة قابلة للتخلص من IImage من الملف على القرص.  
     using (IImage image = Images.FromFile("image.png"))
     {
-        // إنشاء صورة PowerPoint عن طريق إضافة مثيل من IImage إلى صور العرض التقديمي.
+        // إنشاء صورة PowerPoint بإضافة نسخة من IImage إلى صور العرض التقديمي.
         ppImage = pres.Images.AddImage(image);
     }
 
     // إضافة شكل صورة على الشريحة #1
     pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 
-    // الحصول على مثيل من IImage يمثل الشريحة #1.
+    // الحصول على نسخة من IImage تمثل الشريحة #1.
     using (var slideImage = pres.Slides[0].GetImage(new Size(1920, 1080)))
     {
         // حفظ الصورة على القرص.
@@ -63,14 +77,14 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## استبدال الشيفرة القديمة بواجهة برمجة التطبيقات الحديثة
 
-لتسهيل الانتقال، تكرر واجهة IImage الجديدة التواقيع المنفصلة للفئات Image و Bitmap. بشكل عام، تحتاج فقط إلى استبدال استدعاء الطريقة القديمة المستخدمة لـ System.Drawing بالطريقة الجديدة.
+## **استبدال الكود القديم بالواجهة الحديثة**
 
-### الحصول على صورة مصغرة للشريحة
+لتسهيل الانتقال، تُعيد واجهة IImage الجديدة توقيعات الفئات Image و Bitmap بشكل منفصل. بصورة عامة، ستحتاج فقط إلى استبدال استدعاء الطريقة القديمة التي تستخدم System.Drawing بالجديدة.
 
-شيفرة تستخدم واجهة برمجة التطبيقات القديمة:
+### **الحصول على صورة مصغرة للشرائح**
 
+الكود باستخدام واجهة مهملة:
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -78,8 +92,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-واجهة برمجة التطبيقات الحديثة:
 
+الواجهة الحديثة:
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -87,10 +101,10 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-### الحصول على صورة مصغرة لشكل
 
-شيفرة تستخدم واجهة برمجة التطبيقات القديمة:
+### **الحصول على صورة مصغرة للشكل**
 
+الكود باستخدام واجهة مهملة:
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -98,8 +112,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-واجهة برمجة التطبيقات الحديثة:
 
+الواجهة الحديثة:
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -107,10 +121,10 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-### الحصول على صورة مصغرة للعرض التقديمي
 
-شيفرة تستخدم واجهة برمجة التطبيقات القديمة:
+### **الحصول على صورة مصغرة للعرض التقديمي**
 
+الكود باستخدام واجهة مهملة:
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -133,8 +147,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-واجهة برمجة التطبيقات الحديثة:
 
+الواجهة الحديثة:
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -157,10 +171,10 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-### إضافة صورة إلى عرض تقديمي
 
-شيفرة تستخدم واجهة برمجة التطبيقات القديمة:
+### **إضافة صورة إلى عرض تقديمي**
 
+الكود باستخدام واجهة مهملة:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -174,8 +188,8 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-واجهة برمجة التطبيقات الحديثة:
 
+الواجهة الحديثة:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -189,92 +203,103 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## الطرق / الخصائص التي ستتم إزالتها واستبدالها في واجهة برمجة التطبيقات الحديثة
 
-### عرض تقديمي
-| توقيع الطريقة                               | توقيع طريقة الاستبدال                             |
+## **الطرق/الخصائص التي سيتم إزالتها واستبدالها في الواجهة الحديثة**
+
+### **Presentation**
+| توقيع الطريقة | توقيع طريقة الاستبدال |
 |-----------------------------------------------|---------------------------------------------------------|
-| public Bitmap[] GetThumbnails(IRenderingOptions options) | [GetImages(IRenderingOptions options)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages)                   |
-| public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides) | [GetImages(IRenderingOptions options, int[] slides)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages_1)   |
+| public Bitmap[] GetThumbnails(IRenderingOptions options) | [GetImages(IRenderingOptions options)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages) |
+| public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides) | [GetImages(IRenderingOptions options, int[] slides)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages_1) |
 | public Bitmap[] GetThumbnails(IRenderingOptions options, float scaleX, float scaleY) | [GetImages(IRenderingOptions options, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages_4) |
 | public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | [GetImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages_2) |
 | public Bitmap[] GetThumbnails(IRenderingOptions options, Size imageSize) | [GetImages(IRenderingOptions options, Size imageSize)]() |
 | public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides, Size imageSize) | [GetImages(IRenderingOptions options, int[] slides, Size imageSize)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages_3) |
-| public void Save(string fname, SaveFormat format, HttpResponse response, bool showInline) | سيتم حذفه تمامًا |
-| public void Save(string fname, SaveFormat format, ISaveOptions options, HttpResponse response, bool showInline) | سيتم حذفه تمامًا |
-| public void Print()                           | سيتم حذفه تمامًا                               |
-| public void Print(PrinterSettings printerSettings) | سيتم حذفه تمامًا                            |
-| public void Print(string printerName)         | سيتم حذفه تمامًا                               |
-| public void Print(PrinterSettings printerSettings, string presName) | سيتم حذفه تمامًا                          |
+| public void Save(string fname, SaveFormat format, HttpResponse response, bool showInline) | Will be deleted completely |
+| public void Save(string fname, SaveFormat format, ISaveOptions options, HttpResponse response, bool showInline) | Will be deleted completely |
+| public void Print() | Will be deleted completely |
+| public void Print(PrinterSettings printerSettings) | Will be deleted completely |
+| public void Print(string printerName) | Will be deleted completely |
+| public void Print(PrinterSettings printerSettings, string presName) | Will be deleted completely |
 
-### شكل
-| توقيع الطريقة                                                      | توقيع طريقة الاستبدال                                       |
+### **Shape**
+| توقيع الطريقة | توقيع طريقة الاستبدال |
 |----------------------------------------------------------------------|-------------------------------------------------------------------|
-| public Bitmap GetThumbnail()                                          | [GetImage](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage#getimage)                                                           |
+| public Bitmap GetThumbnail() | [GetImage](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage#getimage) |
 | public Bitmap GetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY) | [GetImage(ShapeThumbnailBounds bounds, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage#getimage_1) |
 
-### شريحة
-| توقيع الطريقة                                                      | توقيع طريقة الاستبدال                                           |
+### **Slide**
+| توقيع الطريقة | توقيع طريقة الاستبدال |
 |----------------------------------------------------------------------|-----------------------------------------------------------------------|
-| public Bitmap GetThumbnail(float scaleX, float scaleY)                | [GetImage(float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_5)                                 |
-| public Bitmap GetThumbnail()                                         | [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage)                                                              |
-| public Bitmap GetThumbnail(IRenderingOptions options)                | [GetImage(IRenderingOptions options)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_1)                                  |
-| public Bitmap GetThumbnail(Size imageSize)                           | [GetImage(Size imageSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_6)                                             |
-| public Bitmap GetThumbnail(ITiffOptions options)                    | [GetImage(ITiffOptions options)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_4)                                      |
+| public Bitmap GetThumbnail(float scaleX, float scaleY) | [GetImage(float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_5) |
+| public Bitmap GetThumbnail() | [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage) |
+| public Bitmap GetThumbnail(IRenderingOptions options) | [GetImage(IRenderingOptions options)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_1) |
+| public Bitmap GetThumbnail(Size imageSize) | [GetImage(Size imageSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_6) |
+| public Bitmap GetThumbnail(ITiffOptions options) | [GetImage(ITiffOptions options)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_4) |
 | public Bitmap GetThumbnail(IRenderingOptions options, float scaleX, float scaleY) | [GetImage(IRenderingOptions options, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_2) |
-| public Bitmap GetThumbnail(IRenderingOptions options, Size imageSize) | [GetImage(IRenderingOptions options, Size imageSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_3)               |
-| public void RenderToGraphics(IRenderingOptions options, Graphics graphics) | سيتم حذفه تمامًا                                       |
-| public void RenderToGraphics(IRenderingOptions options, Graphics graphics, float scaleX, float scaleY) | سيتم حذفه تمامًا                             |
-| public void RenderToGraphics(IRenderingOptions options, Graphics graphics, Size renderingSize) | سيتم حذفه تمامًا                                    |
+| public Bitmap GetThumbnail(IRenderingOptions options, Size imageSize) | [GetImage(IRenderingOptions options, Size imageSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_3) |
+| public void RenderToGraphics(IRenderingOptions options, Graphics graphics) | Will be deleted completely |
+| public void RenderToGraphics(IRenderingOptions options, Graphics graphics, float scaleX, float scaleY) | Will be deleted completely |
+| public void RenderToGraphics(IRenderingOptions options, Graphics graphics, Size renderingSize) | Will be deleted completely |
 
-#### مخرجات
-| توقيع الطريقة                                                | توقيع طريقة الاستبدال                                |
+### **Output**
+| توقيع الطريقة | توقيع طريقة الاستبدال |
 |-----------------------------------------------------------------|-------------------------------------------------------------|
-| public IOutputFile Add(string path, Image image)               | [Add(string path, IImage image)](https://reference.aspose.com/slides/net/aspose.slides.export.web/output/add#add_1)                               |
+| public IOutputFile Add(string path, Image image) | [Add(string path, IImage image)](https://reference.aspose.com/slides/net/aspose.slides.export.web/output/add#add_1) |
 
-### مجموعة الصور
-| توقيع الطريقة                          | توقيع طريقة الاستبدال               |
+### **ImageCollection**
+| توقيع الطريقة | توقيع طريقة الاستبدال |
 |-------------------------------------------|--------------------------------------------|
-| IPPImage AddImage(Image image)           | [AddImage(IImage image)](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/addimage#addimage)                      |
+| IPPImage AddImage(Image image) | [AddImage(IImage image)](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/addimage#addimage) |
 
-### مصنع غلاف الصورة
-| توقيع الطريقة                                         | توقيع طريقة الاستبدال                            |
+### **ImageWrapperFactory**
+| توقيع الطريقة | توقيع طريقة الاستبدال |
 |----------------------------------------------------------|---------------------------------------------------------|
-| IImageWrapper CreateImageWrapper(Image image)           | [CreateImageWrapper(IImage image)](https://reference.aspose.com/slides/net/aspose.slides/imagewrapperfactory/createimagewrapper#createimagewrapper)                        |
+| IImageWrapper CreateImageWrapper(Image image) | [CreateImageWrapper(IImage image)](https://reference.aspose.com/slides/net/aspose.slides/imagewrapperfactory/createimagewrapper#createimagewrapper) |
 
-### صورة العرض
-| توقيع / خاصية                                       | توقيع طريقة الاستبدال   |
+### **PPImage**
+| توقيع الطريقة/الخاصية | توقيع طريقة الاستبدال |
 |--------------------------------------|-----------------------------------------|
-| void ReplaceImage(Image newImage)   | [ReplaceImage(IImage newImage)](https://reference.aspose.com/slides/net/aspose.slides/ppimage/replaceimage#replaceimage)            |
-| Image SystemImage { get; }          | [IImage Image { get; }](https://reference.aspose.com/slides/net/aspose.slides/ppimage/image)                    |
+| void ReplaceImage(Image newImage) | [ReplaceImage(IImage newImage)](https://reference.aspose.com/slides/net/aspose.slides/ppimage/replaceimage#replaceimage) |
+| Image SystemImage { get; } | [IImage Image { get; }](https://reference.aspose.com/slides/net/aspose.slides/ppimage/image) |
 
-### تنسيق نمط
-| توقيع الطريقة                                          | توقيع طريقة الاستبدال                        |
+### **PatternFormat**
+| توقيع الطريقة | توقيع طريقة الاستبدال |
 |-----------------------------------------------------------|-----------------------------------------------------|
-| Bitmap GetTileImage(Color background, Color foreground)   | [GetTile(Color background, Color foreground)](https://reference.aspose.com/slides/net/aspose.slides/patternformat/gettile#gettile_1)         |
-| Bitmap GetTileImage(Color styleColor)                     | [GetTile(Color styleColor)](https://reference.aspose.com/slides/net/aspose.slides/patternformat/gettile#gettile)                           |
+| Bitmap GetTileImage(Color background, Color foreground) | [GetTile(Color background, Color foreground)](https://reference.aspose.com/slides/net/aspose.slides/patternformat/gettile#gettile_1) |
+| Bitmap GetTileImage(Color styleColor) | [GetTile(Color styleColor)](https://reference.aspose.com/slides/net/aspose.slides/patternformat/gettile#gettile) |
 
-### بيانات فعالة لتنسيق النمط
-| توقيع الطريقة                                          | توقيع طريقة الاستبدال                        |
+### **IPatternFormatEffectiveData**
+| توقيع الطريقة | توقيع طريقة الاستبدال |
 |-----------------------------------------------------------|-----------------------------------------------------|
-| Bitmap GetTileImage(Color background, Color foreground)   | [GetTileIImage(SlidesImage image)](https://reference.aspose.com/slides/net/aspose.slides/ipatternformateffectivedata/gettileiimage)                    |
+| Bitmap GetTileImage(Color background, Color foreground) | [GetTileIImage(SlidesImage image)](https://reference.aspose.com/slides/net/aspose.slides/ipatternformateffectivedata/gettileiimage) |
 
-## دعم Aspose.Slides.NET6.CrossPlatform سيتم إيقافه
+## **دعم Graphics و PrinterSettings سيتم إيقافه**
 
-بعد إصدار [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET) الإصدار 24.8، سيتم إيقاف دعم [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform).
-
-## دعم واجهة برمجة التطبيقات لـ Graphics و PrinterSettings سيتم إيقافه
-
-فئة [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) غير مدعومة للإصدارات المتعددة المنصات من .NET6 وما فوق. في Aspose Slides، سيتم إزالة جزء من واجهة برمجة التطبيقات الذي يستخدمها:
+فئة [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) غير مدعومة للإصدارات المتعددة المنصات من .NET6 وما فوق. في Aspose Slides، سيتم إزالة الجزء من الواجهة التي تستخدمها:
 [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide/)
 - [public void RenderToGraphics(IRenderingOptions options, Graphics graphics)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_3)
 - [public void RenderToGraphics(IRenderingOptions options, Graphics graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_3)
 - [public void RenderToGraphics(IRenderingOptions options, Graphics graphics, Size renderingSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_5)
 
-أيضًا، سيتم إزالة جزء من واجهة برمجة التطبيقات المتعلقة بالطباعة:
+كما سيتم إزالة الجزء المتعلق بالطباعة من الواجهة:
 
 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/):
 - [public void Presentation.Print](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print)
 - [public void Print(PrinterSettings printerSettings)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_1)
 - [public void Print(string printerName)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_3)
 - [public void Print(PrinterSettings printerSettings, string presName)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_2)
+
+## **الأسئلة الشائعة**
+
+**لماذا تم حذف System.Drawing.Graphics؟**
+
+يتم إزالة الدعم لـ `Graphics` من الواجهة العامة لتوحيد العمل مع العرض والصور، وإلغاء الارتباط بالاعتماديات الخاصة بالنظام، والانتقال إلى نهج متعدد المنصات باستخدام [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/). سيتم حذف جميع طرق العرض إلى `Graphics`.
+
+**ما الفائدة العملية من IImage مقارنةً بـ Image/Bitmap؟**
+
+[IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) يوحد العمل مع الصور النقطية والمتجهة، يبسط حفظها بصيغ متعددة عبر [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/)، يقلل الاعتماد على `System.Drawing`، ويجعل الشفرة أكثر قابلية للنقل بين البيئات.
+
+**هل ستؤثر الواجهة الحديثة على أداء إنشاء الصور المصغرة؟**
+
+التحول من `GetThumbnail` إلى `GetImage` لا يسبب تدهورًا في السيناريوهات: الطرق الجديدة توفر نفس القدرات لإنتاج الصور مع الخيارات والأحجام، مع الحفاظ على دعم خيارات العرض. الفائدة أو الخسارة المحددة تعتمد على السيناريو، لكن الاستبدالات وظيفيًا متكافئة.

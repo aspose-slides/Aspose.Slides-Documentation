@@ -1,17 +1,26 @@
 ---
-title: Метка данных диаграммы
+title: Управление подписями данных диаграмм в презентациях с помощью Java
+linktitle: Подпись данных
 type: docs
 url: /ru/java/chart-data-label/
-keywords: "Метка данных диаграммы, расстояние метки, Java, Aspose.Slides для Java"
-description: "Установка метки данных диаграммы PowerPoint и расстояния в Java"
+keywords:
+- диаграмма
+- подпись данных
+- точность данных
+- процент
+- расстояние подписи
+- расположение подписи
+- PowerPoint
+- презентация
+- Java
+- Aspose.Slides
+description: "Узнайте, как добавлять и форматировать подписи данных диаграмм в презентациях PowerPoint с помощью Aspose.Slides для Java, чтобы сделать слайды более привлекательными."
 ---
 
-Метки данных на диаграмме показывают детали о серии данных диаграммы или отдельных точках данных. Они позволяют читателям быстро идентифицировать серии данных и делают диаграммы более понятными.
+Подписи данных на диаграмме показывают детали о серии данных диаграммы или отдельном элементе данных. Они позволяют читателям быстро идентифицировать серии данных и делают диаграммы более понятными.
 
-## **Установить точность данных в метках данных диаграммы**
-
-Этот код на Java показывает, как установить точность данных в метке данных диаграммы:
-
+## **Установить точность данных в подписи данных диаграммы**
+Этот код на Java показывает, как установить точность данных в подписи данных диаграммы:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -26,9 +35,9 @@ try {
 }
 ```
 
-## **Отображение процентов как меток**
-Aspose.Slides для Java позволяет устанавливать процентные метки на отображаемых диаграммах. Этот код на Java демонстрирует операцию:
 
+## **Отображать процент в виде подписей**
+Аспозе.Slides для Java позволяет задавать процентные подписи на отображаемых диаграммах. Этот код на Java демонстрирует эту операцию:
 ```java
 // Создает экземпляр класса Presentation
 Presentation pres = new Presentation();
@@ -78,14 +87,14 @@ try {
 }
 ```
 
-## **Установить знак процента с метками данных диаграммы**
-Этот код на Java показывает, как установить знак процента для метки данных диаграммы:
 
+## **Установить знак процента в подписи данных диаграммы**
+Этот код на Java показывает, как установить знак процента для подписи данных диаграммы:
 ```java
 // Создает экземпляр класса Presentation
 Presentation pres = new Presentation();
 try {
-    // Получает ссылку на слайд через его индекс
+    // Получает ссылку на слайд по его индексу
     ISlide slide = pres.getSlides().get_Item(0);
     
     // Создает диаграмму PercentsStackedColumn на слайде
@@ -98,10 +107,10 @@ try {
     chart.getChartData().getSeries().clear();
     int defaultWorksheetIndex = 0;
     
-    // Получает рабочую таблицу данных диаграммы
+    // Получает лист данных диаграммы
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     
-    // Добавляет новые серии
+    // Добавляет новую серию
     IChartSeries series = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.getType());
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 1, 0.30));
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 1, 0.50));
@@ -121,14 +130,14 @@ try {
     series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
     series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     
-    // Добавляет новые серии
+    // Добавляет новую серию
     IChartSeries series2 = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.getType());
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 2, 0.70));
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 2, 0.50));
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 2, 0.20));
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 2, 0.35));
     
-    // Устанавливает тип и цвет заливки
+    // Устанавливает тип заполнения и цвет
     series2.getFormat().getFill().setFillType(FillType.Solid);
     series2.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
     series2.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -138,16 +147,16 @@ try {
     series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
     
-    // Записывает презентацию на диск
+    // Сохраняет презентацию на диск
     pres.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Установить расстояние меток** от оси
-Этот код на Java показывает, как установить расстояние метки от категориальной оси, когда вы работаете с диаграммой, построенной по осям:
 
+## **Установить расстояние подписи** от оси
+Этот код на Java показывает, как установить расстояние подписи от категориальной оси при работе с диаграммой, построенной по осям:
 ```java
 // Создает экземпляр класса Presentation
 Presentation pres = new Presentation();
@@ -158,7 +167,7 @@ try {
     // Создает диаграмму на слайде
     IChart ch = sld.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
     
-    // Устанавливает расстояние метки от оси
+    // Устанавливает расстояние подписи от оси
     ch.getAxes().getHorizontalAxis().setLabelOffset(500);
     
     // Записывает презентацию на диск
@@ -168,12 +177,12 @@ try {
 }
 ```
 
-## **Настроить расположение метки**
 
-Когда вы создаете диаграмму, которая не зависит от каких-либо осей, например, круговую диаграмму, метки данных диаграммы могут оказаться слишком близко к краю. В таком случае вам необходимо отрегулировать расположение метки данных, чтобы линии соединения отображались четко.
+## **Настроить расположение подписи**
 
-Этот код на Java показывает, как отрегулировать расположение метки на круговой диаграмме:
+Когда вы создаёте диаграмму, не зависящую от осей, например круговую диаграмму, подписи данных могут оказаться слишком близко к её краю. В таком случае необходимо отрегулировать расположение подписи данных, чтобы линии‑соединители отображались чётко.
 
+Этот код на Java показывает, как отрегулировать расположение подписи на круговой диаграмме:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -193,4 +202,16 @@ try {
 }
 ```
 
-![корневая диаграмма - отрегулированная метка](pie-chart-adjusted-label.png)
+
+![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **FAQ**
+
+**Как предотвратить перекрытие подписей данных на плотных диаграммах?**  
+Сочетайте автоматическое размещение подписей, линии‑соединители и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или отображайте подписи только для экстремальных/ключевых точек.
+
+**Как отключить подписи только для нулевых, отрицательных или пустых значений?**  
+Фильтруйте точки данных перед включением подписей и отключайте их отображение для значений 0, отрицательных значений или отсутствующих значений в соответствии с заданным правилом.
+
+**Как обеспечить согласованный стиль подписи при экспорте в PDF/изображения?**  
+Явно задавайте шрифты (семейство, размер) и проверяйте, что шрифт доступен на стороне рендеринга, чтобы избежать замены.

@@ -1,36 +1,50 @@
 ---
-title: WordArt
+title: JavaでWordArt効果を作成および適用
+linktitle: WordArt
 type: docs
 weight: 110
 url: /ja/java/wordart/
+keywords:
+- WordArt
+- WordArt作成
+- WordArtテンプレート
+- WordArt効果
+- 影効果
+- 表示効果
+- グロー効果
+- WordArt変形
+- 3D効果
+- 外部影効果
+- 内部影効果
+- PowerPoint
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for JavaでWordArt効果を作成およびカスタマイズします。このステップバイステップガイドは、開発者がJavaでプロフェッショナルなテキストを使用してプレゼンテーションを強化するのに役立ちます。"
 ---
 
-
-## **WordArtについて**
-WordArtは、テキストに効果を適用して目立たせる機能です。たとえば、WordArtを使用すると、テキストをアウトライン化したり、色（またはグラデーション）で埋めたり、3D効果を追加したりできます。また、テキストの形を傾けたり、曲げたり、引き伸ばしたりすることもできます。
+## **WordArt とは？**
+WordArt（または Word Art）は、テキストにエフェクトを適用して目立たせる機能です。たとえば、テキストに輪郭を付けたり、色（またはグラデーション）で塗りつぶしたり、3D エフェクトを追加したりできます。テキストの形状を斜めにしたり、曲げたり、伸縮させることもできます。
 
 {{% alert color="primary" %}} 
-
-WordArtは、テキストをグラフィカルオブジェクトとして扱うことができます。一般的に、WordArtは、テキストをより魅力的または目立つようにするための効果や特別な変更から成り立っています。
-
+WordArt は、テキストをグラフィック オブジェクトのように扱うことができます。一般に、WordArt はテキストをより魅力的または目立たせるために行うエフェクトや特別な修飾の集合です。 
 {{% /alert %}} 
 
-**Microsoft PowerPointにおけるWordArt**
+**Microsoft PowerPoint の WordArt**
 
-Microsoft PowerPointでWordArtを使用するには、あらかじめ定義されたWordArtテンプレートの1つを選択する必要があります。WordArtテンプレートは、テキストまたはその形状に適用される効果のセットです。
+Microsoft PowerPoint で WordArt を使用するには、事前定義された WordArt テンプレートのいずれかを選択する必要があります。WordArt テンプレートは、テキストまたはその形状に適用されるエフェクトのセットです。
 
-**Aspose.SlidesにおけるWordArt**
+**Aspose.Slides の WordArt**
 
-Aspose.Slides for Java 20.10では、WordArtのサポートを実装し、その後のAspose.Slides for Javaリリースで機能を改善しました。
+Aspose.Slides for Java 20.10 では WordArt のサポートを実装し、以降の Aspose.Slides for Java リリースで機能を改良しています。
 
-Aspose.Slides for Javaを使用すると、自分のWordArtテンプレート（1つの効果または効果の組み合わせ）を簡単にJavaで作成し、テキストに適用できます。
+Aspose.Slides for Java を使用すれば、Java で独自の WordArt テンプレート（単一エフェクトまたはエフェクトの組み合わせ）を簡単に作成し、テキストに適用できます。
 
-## シンプルなWordArtテンプレートを作成し、テキストに適用する
+## **シンプルな WordArt テンプレートを作成し、テキストに適用する**
 
-**Aspose.Slidesの使用**
+**Aspose.Slides を使用する** 
 
-まず、以下のJavaコードを使用してシンプルなテキストを作成します。
-
+最初に、次の Java コードでシンプルなテキストを作成します。 
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -44,30 +58,30 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
-次に、テキストのフォントサイズを大きくして効果をより目立たせるために、以下のコードを使用します。
 
+次に、エフェクトをより目立たせるためにテキストのフォント高さを大きな値に設定します。 
 ``` java 
 FontData fontData = new FontData("Arial Black");
 portion.getPortionFormat().setLatinFont(fontData);
 portion.getPortionFormat().setFontHeight(36);
 ```
 
-**Microsoft PowerPointの使用**
 
-Microsoft PowerPointのWordArt効果メニューに移動します：
+**Microsoft PowerPoint を使用する**
+
+Microsoft PowerPoint の WordArt エフェクト メニューに移動します:
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
-右側のメニューからあらかじめ定義されたWordArt効果を選択できます。左側のメニューから新しいWordArtの設定を指定できます。
+右側のメニューから事前定義された WordArt エフェクトを選択できます。左側のメニューから新しい WordArt の設定を指定できます。
 
-利用可能なパラメータやオプションのいくつかは以下の通りです：
+利用可能なパラメータやオプションの一部は次のとおりです:
 
 ![todo:image_alt_text](image-20200930114015-3.png)
 
-**Aspose.Slidesの使用**
+**Aspose.Slides を使用する**
 
-ここでは、[SmallGrid](https://reference.aspose.com/slides/java/com.aspose.slides/PatternStyle#SmallGrid)パターン色をテキストに適用し、幅1の黒いテキストボーダーを追加するために以下のコードを使用します。
-
+ここでは、テキストに [SmallGrid](https://reference.aspose.com/slides/java/com.aspose.slides/PatternStyle#SmallGrid) パターンカラーを適用し、幅 1 の黒いテキスト枠線を追加するコードを示します:
 ``` java 
 portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
 portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(Color.ORANGE);
@@ -78,24 +92,24 @@ portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.
 portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 ```
 
-結果として得られるテキスト：
+
+結果のテキスト:
 
 ![todo:image_alt_text](image-20200930114108-4.png)
 
-## 他のWordArt効果の適用
+## **他の WordArt エフェクトを適用する**
 
-**Microsoft PowerPointの使用**
+**Microsoft PowerPoint を使用する**
 
-プログラムのインターフェースから、テキスト、テキストブロック、形状、または同様の要素にこれらの効果を適用できます：
+プログラムのインターフェイスから、テキスト、テキスト ブロック、シェイプ、または同様の要素に次のエフェクトを適用できます:
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-たとえば、シャドウ、反射、グロウ効果はテキストに適用できます。3Dフォーマットおよび3D回転効果はテキストブロックに適用できます。ソフトエッジプロパティは形状オブジェクトに適用できます（3Dフォーマットプロパティが設定されていない場合でも効果があります）。 
+たとえば、Shadow、Reflection、Glow エフェクトはテキストに、3D Format と 3D Rotation エフェクトはテキスト ブロックに、Soft Edges プロパティはシェイプ オブジェクトに（3D Format プロパティが設定されていなくても効果があります）適用できます。
 
-### シャドウ効果の適用
+### **Shadow エフェクトを適用する**
 
-ここでは、テキストに関連するプロパティのみを設定することを目指します。以下のコードを使用して、Javaでテキストにシャドウ効果を適用します。
-
+ここではテキストにのみ関連するプロパティを設定します。次の Java コードでテキストに影効果を適用します:
 ``` java
 portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
 portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
@@ -109,29 +123,29 @@ portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVerti
 portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32f);
 ```
 
-Aspose.Slides APIは、OuterShadow、InnerShadow、PresetShadowの3種類のシャドウをサポートしています。
 
-PresetShadowを使用すると、テキストにシャドウを適用できます（プリセット値を使用）。
+Aspose.Slides API は、OuterShadow、InnerShadow、PresetShadow の 3 種類の影をサポートしています。
 
-**Microsoft PowerPointの使用**
+PresetShadow を使用すると、プリセット値でテキストに影を適用できます。
 
-PowerPointでは、1種類のシャドウを使用できます。以下はその例です：
+**Microsoft PowerPoint を使用する**
+
+PowerPoint では 1 種類の影しか使用できません。例は次のとおりです:
 
 ![todo:image_alt_text](image-20200930114225-6.png)
 
-**Aspose.Slidesの使用**
+**Aspose.Slides を使用する**
 
-Aspose.Slidesでは実際に、InnerShadowおよびPresetShadowの2種類のシャドウを同時に適用できます。
+Aspose.Slides では、InnerShadow と PresetShadow の 2 種類の影を同時に適用できます。
 
-**注意事項：**
+**注意点:**
 
-- OuterShadowとPresetShadowを同時に使用した場合、OuterShadow効果のみが適用されます。 
-- OuterShadowとInnerShadowを同時に使用した場合、結果として得られる効果はPowerPointのバージョンに依存します。たとえば、PowerPoint 2013では効果が倍増します。しかし、PowerPoint 2007ではOuterShadow効果が適用されます。 
+- OuterShadow と PresetShadow を同時に使用すると、OuterShadow のみが適用されます。 
+- OuterShadow と InnerShadow を同時に使用した場合、適用される効果は PowerPoint のバージョンに依存します。たとえば PowerPoint 2013 では効果が二重になり、PowerPoint 2007 では OuterShadow が適用されます。
 
-### テキストへの表示の適用
+### **テキストにディスプレイ効果を適用する**
 
-以下のJavaコードサンプルを使用して、テキストに表示を追加します。
-
+次の Java サンプルコードでテキストにディスプレイ効果を追加します:
 ``` java
 portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
 portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
@@ -146,10 +160,10 @@ portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflect
 portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);   
 ```
 
-### テキストへのグロウ効果の適用
 
-以下のコードを使用して、テキストにグロウ効果を適用して光るようにします。
+### **テキストに Glow 効果を適用する**
 
+次のコードでテキストに Glow 効果を適用し、光らせます:
 ``` java
 portion.getPortionFormat().getEffectFormat().enableGlowEffect();
 portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR((byte)255);
@@ -157,45 +171,42 @@ portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColor
 portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
 ```
 
-操作の結果：
+
+操作結果:
 
 ![todo:image_alt_text](image-20200930114621-7.png)
 
 {{% alert color="primary" %}} 
-
-シャドウ、表示、グロウのパラメータを変更できます。効果のプロパティは、テキストの各部分に個別に設定されます。 
-
+影、ディスプレイ、Glow のパラメータはそれぞれのテキスト部分ごとに個別に設定できます。 
 {{% /alert %}} 
 
-### WordArtにおける変形の使用
+### **WordArt で変形を使用する**
 
-以下のコードを通じて、Transformプロパティ（テキスト全体のブロックに固有）を使用します。
+次のコードでテキスト全体に適用される Transform プロパティを使用します:
 ``` java 
 textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
 ```
 
-結果：
+
+結果:
 
 ![todo:image_alt_text](image-20200930114712-8.png)
 
 {{% alert color="primary" %}} 
-
-Microsoft PowerPointとAspose.Slides for Javaは、あらかじめ定義された変形タイプのいくつかを提供します。 
-
+Microsoft PowerPoint と Aspose.Slides for Java の両方で、事前定義された変形タイプが一定数提供されています。 
 {{% /alert %}} 
 
-**PowerPointの使用**
+**PowerPoint を使用する**
 
-あらかじめ定義された変形タイプにアクセスするには、次のように移動します：**フォーマット** -> **テキスト効果** -> **変形**
+事前定義された変形タイプにアクセスするには、**Format** → **TextEffect** → **Transform** の順に辿ります。
 
-**Aspose.Slidesの使用**
+**Aspose.Slides を使用する**
 
-変形タイプを選択するには、TextShapeType列挙型を使用します。 
+変形タイプを選択するには、TextShapeType 列挙型を使用します。
 
-### テキストと形状への3D効果の適用
+### **テキストとシェイプに 3D エフェクトを適用する**
 
-以下のサンプルコードを使用して、テキスト形状に3D効果を設定します。
-
+次のサンプルコードでテキスト シェイプに 3D エフェクトを設定します:
 ``` java
 autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
 autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
@@ -222,12 +233,12 @@ autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
 autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
 ```
 
-結果として得られるテキストとその形状：
+
+結果のテキストとシェイプ:
 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
-以下のJavaコードを使用して、テキストに3D効果を適用します。
-
+次の Java コードでテキストに 3D エフェクトを適用します:
 ``` java
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
@@ -254,58 +265,56 @@ textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0,
 textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
 ```
 
-操作の結果：
+
+操作結果:
 
 ![todo:image_alt_text](image-20200930114905-10.png)
 
 {{% alert color="primary" %}} 
+テキストやシェイプへの 3D エフェクトの適用とエフェクト間の相互作用は、一定の規則に基づきます。 
 
-テキストやその形状に3D効果を適用することや、効果間の相互作用は特定のルールに基づいています。
+テキストとそのシェイプを含むシーンを考慮します。3D エフェクトは、オブジェクトの 3D 表現とそのオブジェクトが配置されたシーンを含みます。
 
-テキストと、そのテキストを含む形状のシーンを考慮してください。3D効果は3Dオブジェクトの表現と、オブジェクトが置かれたシーンを含みます。
+- 図とテキストの両方にシーンが設定されている場合、図のシーンが優先され、テキストのシーンは無視されます。 
+- 図に独自のシーンがなく 3D 表現だけがある場合、テキストのシーンが使用されます。 
+- それ以外の場合—シェイプ自体に 3D エフェクトが無い場合—シェイプは平面のままで、3D エフェクトはテキストのみに適用されます。 
 
-- テキストと図の両方にシーンが設定されている場合、図のシーンが優先され、テキストのシーンは無視されます。 
-- 図に独自のシーンが不足しており、3D表現がある場合、テキストのシーンが使用されます。 
-- それ以外の場合—図がもともと3D効果を持っていない場合、形状はフラットで3D効果はテキストのみに適用されます。 
-
-これらの説明は、ThreeDFormat.getLightRig()およびThreeDFormat.getCamera()メソッドに関連しています。
-
+これらの説明は ThreeDFormat.getLightRig() と ThreeDFormat.getCamera() メソッドに結び付いています。 
 {{% /alert %}} 
 
-## **テキストに外部シャドウ効果を適用する**
-Aspose.Slides for Javaは、[**IOuterShadow**](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IOuterShadow)と[**IInnerShadow**](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IInnerShadow)クラスを提供し、[TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame)によって運ばれるテキストにシャドウ効果を適用できます。以下の手順に従ってください：
+## **テキストに外部影効果を適用する**
+Aspose.Slides for Java は、[**IOuterShadow**](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IOuterShadow) および [**IInnerShadow**](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IInnerShadow) クラスを提供し、[TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame) に付随するテキストに影効果を適用できます。以下の手順に従ってください。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation)クラスのインスタンスを作成します。
-2. インデックスを使用してスライドへの参照を取得します。
-3. スライドに矩形タイプのAutoShapeを追加します。
-4. AutoShapeに関連付けられたTextFrameにアクセスします。
-5. AutoShapeのFillTypeをNoFillに設定します。
-6. OuterShadowクラスをインスタンス化します。
-7. シャドウのBlurRadiusを設定します。
-8. シャドウのDirectionを設定します。
-9. シャドウのDistanceを設定します。
-10. RectanglelAlignをTopLeftに設定します。
-11. シャドウのPresetColorをBlackに設定します。
-12. プレゼンテーションを[PPTX](https://docs.fileformat.com/presentation/pptx/)ファイルとして保存します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. スライドに矩形タイプの AutoShape を追加します。  
+4. AutoShape に関連付けられた TextFrame にアクセスします。  
+5. AutoShape の FillType を NoFill に設定します。  
+6. OuterShadow クラスのインスタンスを作成します。  
+7. 影の BlurRadius を設定します。  
+8. 影の Direction を設定します。  
+9. 影の Distance を設定します。  
+10. RectanglelAlign を TopLeft に設定します。  
+11. 影の PresetColor を Black に設定します。  
+12. プレゼンテーションを [PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルとして保存します。  
 
-以下のJavaコードは、上記の手順を実装したもので、テキストに外部シャドウ効果を適用する方法を示しています。
-
+上記手順を実装した Java のサンプルコードは、テキストに外部影効果を適用する方法を示しています:
 ```java
 Presentation pres = new Presentation();
 try {
-    // スライドの参照を取得
+    // スライドの参照を取得します
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // 矩形タイプのAutoShapeを追加
+    // 矩形タイプの AutoShape を追加します
     IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-    // 矩形にTextFrameを追加
+    // 矩形に TextFrame を追加します
     ashp.addTextFrame("Aspose TextBox");
 
-    // テキストのシャドウを取得するために形状の塗りを無効にする
+    // テキストの影を取得したい場合に備えてシェイプの塗りつぶしを無効にします
     ashp.getFillFormat().setFillType(FillType.NoFill);
 
-    // 外部シャドウを追加し、すべての必要なパラメータを設定
+    // 外側の影を追加し、必要なすべてのパラメータを設定します
     ashp.getEffectFormat().enableOuterShadowEffect();
     IOuterShadow shadow = ashp.getEffectFormat().getOuterShadowEffect();
     shadow.setBlurRadius(4.0);
@@ -314,62 +323,81 @@ try {
     shadow.setRectangleAlign(RectangleAlignment.TopLeft);
     shadow.getShadowColor().setPresetColor(PresetColor.Black);
 
-    // プレゼンテーションをディスクに書き込む
+    //プレゼンテーションをディスクに保存します
     pres.save("pres_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **形状に内部シャドウ効果を適用する**
-以下の手順に従ってください：
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation)クラスのインスタンスを作成します。
-2. スライドの参照を取得します。
-3. 矩形タイプのAutoShapeを追加します。
-4. InnerShadowEffectを有効にします。
-5. すべての必要なパラメータを設定します。
-6. ColorTypeをSchemeに設定します。
-7. Scheme Colorを設定します。
-8. プレゼンテーションを[PPTX](https://docs.fileformat.com/presentation/pptx/)ファイルとして保存します。
+## **シェイプに内部影効果を適用する**
+以下の手順に従ってください。
 
-このサンプルコード（上記の手順に基づく）は、Javaで2つの形状の間にコネクタを追加する方法を示しています。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) クラスのインスタンスを作成します。  
+2. スライドの参照を取得します。  
+3. 矩形タイプの AutoShape を追加します。  
+4. InnerShadowEffect を有効にします。  
+5. 必要なすべてのパラメータを設定します。  
+6. ColorType を Scheme に設定します。  
+7. Scheme Color を設定します。  
+8. プレゼンテーションを [PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルとして保存します。  
 
+上記手順に基づくサンプルコードは、Java で 2 つのシェイプ間にコネクタを追加する方法を示しています:
 ```java
 Presentation pres = new Presentation();
 try {
-    // スライドの参照を取得
+    // スライドの参照を取得します
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // 矩形タイプのAutoShapeを追加
+    // 矩形タイプの AutoShape を追加します
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
     ashp.getFillFormat().setFillType(FillType.NoFill);
 
-    // 矩形にTextFrameを追加
+    // 矩形に TextFrame を追加します
     ashp.addTextFrame("Aspose TextBox");
     IPortion port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     IPortionFormat pf = port.getPortionFormat();
     pf.setFontHeight(50);
 
-    // InnerShadowEffectを有効にする
+    // InnerShadowEffect を有効にします
     IEffectFormat ef = pf.getEffectFormat();
     ef.enableInnerShadowEffect();
 
-    // すべての必要なパラメータを設定
+    // 必要なすべてのパラメータを設定します
     ef.getInnerShadowEffect().setBlurRadius(8.0);
     ef.getInnerShadowEffect().setDirection(90.0F);
     ef.getInnerShadowEffect().setDistance(6.0);
     ef.getInnerShadowEffect().getShadowColor().setB((byte)189);
 
-    // ColorTypeをSchemeに設定
+    // ColorType を Scheme に設定します
     ef.getInnerShadowEffect().getShadowColor().setColorType(ColorType.Scheme);
 
-    // Scheme Colorを設定
+    // Scheme カラーを設定します
     ef.getInnerShadowEffect().getShadowColor().setSchemeColor(SchemeColor.Accent1);
 
-    // プレゼンテーションを保存
+    // プレゼンテーションを保存します
     pres.save("WordArt_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**さまざまなフォントやスクリプト（例：アラビア語、中文）でも WordArt エフェクトは使用できますか？**
+
+はい、Aspose.Slides は Unicode をサポートし、主要なフォントとスクリプトすべてで動作します。影、塗りつぶし、輪郭などの WordArt エフェクトは言語に関係なく適用できますが、フォントの利用可能性と描画はシステム フォントに依存する場合があります。
+
+**スライド マスターの要素にも WordArt エフェクトを適用できますか？**
+
+はい、マスタースライド上のシェイプ（タイトル プレースホルダー、フッター、背景テキストなど）に WordArt エフェクトを適用できます。マスターレイアウトに対する変更は、関連付けられたすべてのスライドに反映されます。
+
+**WordArt エフェクトはプレゼンテーション ファイルのサイズに影響しますか？**
+
+若干影響します。影、Glow、グラデーション塗りつぶしなどのエフェクトは、追加の書式設定メタデータによりファイルサイズをわずかに増加させますが、差は通常は無視できる程度です。
+
+**プレゼンテーションを保存せずに WordArt エフェクトの結果をプレビューできますか？**
+
+はい、`getImage` メソッドを使用して、[IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) または [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) インターフェイスから WordArt を含むスライドを画像（PNG、JPEG など）としてレンダリングできます。これにより、保存やエクスポートを行う前にメモリ上または画面上で結果をプレビューできます。

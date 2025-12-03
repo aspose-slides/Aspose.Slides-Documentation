@@ -1,24 +1,34 @@
 ---
-title: Анимированный текст
+title: Анимировать текст PowerPoint в Java
+linktitle: Анимированный текст
 type: docs
 weight: 60
 url: /ru/java/animated-text/
-keywords: "Анимированный текст в PowerPoint"
-description: "Анимированный текст в PowerPoint с использованием Java"
+keywords:
+- анимированный текст
+- анимация текста
+- анимированный абзац
+- анимация абзаца
+- эффект анимации
+- PowerPoint
+- OpenDocument
+- презентация
+- Java
+- Aspose.Slides
+description: "Создайте динамический анимированный текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides for Java, используя простые и оптимизированные примеры кода на Java."
 ---
 
-## Добавление эффектов анимации к абзацам
+## **Добавление анимационных эффектов к абзацам**
 
-Мы добавили метод [**addEffect()**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) в классы [**Sequence**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence) и [**ISequence**](https://reference.aspose.com/slides/java/com.aspose.slides/ISequence). Этот метод позволяет добавлять эффекты анимации к одному абзацу. Этот пример кода показывает, как добавить эффект анимации к одному абзацу:
-
+Мы добавили метод [**addEffect()**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) в классы [**Sequence**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence) и [**ISequence**](https://reference.aspose.com/slides/java/com.aspose.slides/ISequence). Этот метод позволяет добавить анимационный эффект к отдельному абзацу. Ниже приведён пример кода, показывающий, как добавить анимационный эффект к отдельному абзацу:
 ```java
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // выбрать абзац, к которому добавить эффект
+    // выбрать абзац для добавления эффекта
     IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // добавить эффект анимации "Полет" к выбранному абзацу
+    // добавить эффект анимации Fly к выбранному абзацу
     IEffect effect = presentation.getSlides().get_Item(0).getTimeline().getMainSequence().
             addEffect(paragraph, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
@@ -28,12 +38,12 @@ try {
 }
 ```
 
-## Получение эффектов анимации в абзацах
 
-Вы можете решить выяснить, какие эффекты анимации добавлены к абзацу — например, в одном сценарии вы хотите получить эффекты анимации в абзаце, потому что планируете применить эти эффекты к другому абзацу или фигуре.
+## **Получение анимационных эффектов абзацев**
 
-Aspose.Slides для Java позволяет вам получить все эффекты анимации, примененные к абзацам, содержащимся в текстовом фрейме (фигуре). Этот пример кода показывает, как получить эффекты анимации в абзаце:
+Вы можете захотеть узнать, какие анимационные эффекты были добавлены к абзацу — например, в одном случае вам нужно получить эффекты в абзаце, чтобы применить их к другому абзацу или фигуре.
 
+Aspose.Slides for Java позволяет получить все анимационные эффекты, применённые к абзацам, содержащимся в текстовой рамке (фигуре). Ниже приведён пример кода, показывающий, как получить анимационные эффекты в абзаце:
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -45,9 +55,24 @@ try {
         IEffect[] effects = sequence.getEffectsByParagraph(paragraph);
 
         if (effects.length > 0)
-            System.out.println("Абзац \"" + paragraph.getText() + "\" имеет эффект " + effects[0].getType() + ".");
+            System.out.println("Paragraph \"" + paragraph.getText() + "\" has " + effects[0].getType() + " effect.");
     }
 } finally {
     pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Чем отличаются текстовые анимации от переходов слайдов и можно ли их комбинировать?**
+
+Текстовые анимации управляют поведением объектов во времени на слайде, тогда как [transitions](/slides/ru/java/slide-transition/) управляют тем, как меняются слайды. Они независимы и могут использоваться вместе; порядок воспроизведения определяется временной шкалой анимации и настройками перехода.
+
+**Сохраняются ли текстовые анимации при экспорте в PDF или изображения?**
+
+Нет. PDF и растровые изображения статичны, поэтому вы увидите единственное состояние слайда без движения. Чтобы сохранить анимацию, используйте экспорт в [video](/slides/ru/java/convert-powerpoint-to-video/) или [HTML](/slides/ru/java/export-to-html5/).
+
+**Работают ли текстовые анимации в макетах и в образце слайда?**
+
+Эффекты, применённые к объектам макета/образца, наследуются слайдами, но их тайминг и взаимодействие с анимациями уровня слайда зависят от окончательной последовательности на слайде.

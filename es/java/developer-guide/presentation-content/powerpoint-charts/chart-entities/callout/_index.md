@@ -1,12 +1,22 @@
 ---
-title: Llamada
+title: Administrar callouts en gráficos de presentación con Java
+linktitle: Llamada
 type: docs
 url: /es/java/callout/
+keywords:
+- callout de gráfico
+- usar callout
+- etiqueta de datos
+- formato de etiqueta
+- PowerPoint
+- presentación
+- Java
+- Aspose.Slides
+description: "Cree y diseñe callouts en Aspose.Slides para Java con ejemplos de código concisos, compatibles con PPT y PPTX para automatizar flujos de trabajo de presentación."
 ---
 
-## **Uso de Llamadas**
-Se han agregado nuevos métodos [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) y [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) a la clase [DataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/datalabelformat) y a la interfaz [IDataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat). Estos métodos determinan si la etiqueta de datos del gráfico especificado se mostrará como llamada de datos o como etiqueta de datos.
-
+## **Uso de Callouts**
+Se han añadido los nuevos métodos [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#getShowLabelAsDataCallout--) y [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/java/com.aspose.slides/IDataLabelFormat#setShowLabelAsDataCallout-boolean-) a la clase [DataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/datalabelformat) y a la interfaz [IDataLabelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat). Estos métodos determinan si la etiqueta de datos del gráfico especificado se mostrará como llamada de datos o como etiqueta de datos.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -22,9 +32,9 @@ try {
 }
 ```
 
-## **Establecer Llamada para Gráfico de Dona**
-Aspose.Slides para Java proporciona soporte para establecer la forma de llamada de etiqueta de datos de la serie para un gráfico de dona. A continuación se da un ejemplo de muestra.
 
+## **Establecer Callout para gráfico de dona**
+Aspose.Slides for Java ofrece soporte para establecer la forma de la llamada de etiqueta de datos de serie para un gráfico de dona. A continuación se muestra un ejemplo.
 ```java
 Presentation pres = new Presentation();
 try {
@@ -46,7 +56,7 @@ try {
     int categoryIndex = 0;
     while (categoryIndex < 15)
     {
-        chart.getChartData().getCategories().add(workBook.getCell(0, categoryIndex + 1, 0, "CATEGORÍA " + categoryIndex));
+        chart.getChartData().getCategories().add(workBook.getCell(0, categoryIndex + 1, 0, "CATEGORY " + categoryIndex));
         int i = 0;
         while (i < chart.getChartData().getSeries().size())
         {
@@ -86,3 +96,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Se conservan los callouts al convertir una presentación a PDF, HTML5, SVG o imágenes?**
+
+Sí. Los callouts forman parte del renderizado del gráfico, por lo que al exportar a [PDF](/slides/es/java/convert-powerpoint-to-pdf/), [HTML5](/slides/es/java/export-to-html5/), [SVG](/slides/es/java/render-a-slide-as-an-svg-image/) o [raster images](/slides/es/java/convert-powerpoint-to-png/), se conservan junto con el formato de la diapositiva.
+
+**¿Funcionan las fuentes personalizadas en los callouts y se puede conservar su apariencia al exportar?**
+
+Sí. Aspose.Slides soporta [embedding fonts](/slides/es/java/embedded-font/) en la presentación y controla la incrustación de fuentes durante exportaciones como [PDF](/slides/es/java/convert-powerpoint-to-pdf/), asegurando que los callouts mantengan el mismo aspecto en diferentes sistemas.

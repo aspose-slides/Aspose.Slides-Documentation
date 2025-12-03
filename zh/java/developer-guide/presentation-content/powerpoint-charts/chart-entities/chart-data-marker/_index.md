@@ -1,26 +1,38 @@
 ---
-title: 图表数据标记
+title: 使用 Java 在演示文稿中管理图表数据标记
+linktitle: 数据标记
 type: docs
 url: /zh/java/chart-data-marker/
+keywords:
+- 图表
+- 数据点
+- 标记
+- 标记选项
+- 标记大小
+- 填充类型
+- PowerPoint
+- 演示文稿
+- Java
+- Aspose.Slides
+description: "了解如何在 Aspose.Slides for Java 中自定义图表数据标记，通过清晰的 Java 代码示例提升 PPT 和 PPTX 格式演示文稿的效果。"
 ---
 
 ## **设置图表标记选项**
-可以在特定系列的图表数据点上设置标记。为了设置图表标记选项，请按照以下步骤操作：
+可以在特定系列的图表数据点上设置标记。要设置图表标记选项，请按以下步骤操作：
 
 - 实例化 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类。
 - 创建默认图表。
 - 设置图片。
-- 取第一个图表系列。
+- 获取第一个图表系列。
 - 添加新数据点。
 - 将演示文稿写入磁盘。
 
-在下面给出的示例中，我们在数据点级别设置了图表标记选项。
-
+在下面的示例中，我们在数据点级别上设置了图表标记选项。
 ```java
-// 创建空的演示文稿
+// 创建空演示文稿
 Presentation pres = new Presentation();
 try {
-    // 访问第一个幻灯片
+    // 访问第一张幻灯片
     ISlide slide = pres.getSlides().get_Item(0);
     
     // 创建默认图表
@@ -36,7 +48,7 @@ try {
     chart.getChartData().getSeries().clear();
     
     // 添加新系列
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "系列 1"), chart.getType());
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
 
     // 加载图片 1
     IPPImage imgx1 = pres.getImages().addImage(new FileInputStream(new File("Desert.jpg")));
@@ -44,10 +56,10 @@ try {
     // 加载图片 2
     IPPImage imgx2 = pres.getImages().addImage(new FileInputStream(new File("Tulips.jpg")));
     
-    // 取第一个图表系列
+    // 获取第一条图表系列
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // 在此添加新点 (1:3)
+    // 在此处添加新数据点 (1:3)。
     IChartDataPoint point = series.getDataPoints().addDataPointForLineSeries(fact.getCell(defaultWorksheetIndex, 1, 1, (double) 4.5));
     point.getMarker().getFormat().getFill().setFillType(FillType.Picture);
     point.getMarker().getFormat().getFill().getPictureFillFormat().getPicture().setImage(imgx1);
@@ -64,7 +76,7 @@ try {
     point.getMarker().getFormat().getFill().setFillType(FillType.Picture);
     point.getMarker().getFormat().getFill().getPictureFillFormat().getPicture().setImage(imgx2);
     
-    // 改变图表系列标记
+    // 更改图表系列标记
     series.getMarker().setSize(15);
     
     // 保存带有图表的演示文稿
@@ -74,3 +86,14 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **常见问题**
+
+**有哪些开箱即用的标记形状？**
+
+标准形状可用（圆形、方形、菱形、三角形等）；列表由 [MarkerStyleType](https://reference.aspose.com/slides/java/com.aspose.slides/markerstyletype/) 类定义。如果需要非标准形状，请使用带图片填充的标记来模拟自定义视觉效果。
+
+**导出图表为图像或 SVG 时，标记是否会被保留？**
+
+会的。将图表渲染为 [raster formats](/slides/zh/java/convert-powerpoint-to-png/) 或保存 [shapes as SVG](/slides/zh/java/render-a-slide-as-an-svg-image/) 时，标记会保留其外观和设置，包括大小、填充和轮廓。

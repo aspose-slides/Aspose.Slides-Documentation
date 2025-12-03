@@ -1,43 +1,53 @@
 ---
-title: Marco de Audio
+title: Gestionar audio en presentaciones con Java
+linktitle: Marco de audio
 type: docs
 weight: 10
 url: /es/java/audio-frame/
-keywords: "Agregar audio, Marco de audio, Propiedades de audio, Extraer audio, Java, Aspose.Slides para Java"
-description: "Agregar audio a la presentación de PowerPoint en Java"
+keywords:
+- audio
+- marco de audio
+- miniatura
+- agregar audio
+- propiedades de audio
+- opciones de audio
+- extraer audio
+- Java
+- Aspose.Slides
+description: "Crear y controlar marcos de audio en Aspose.Slides para Java—ejemplos de código para incrustar, recortar, reproducir en bucle y configurar la reproducción en presentaciones PPT, PPTX y ODP."
 ---
 
-## **Crear Marco de Audio**
-Aspose.Slides para Java te permite agregar archivos de audio a las diapositivas. Los archivos de audio se incrustan en las diapositivas como marcos de audio.
+## **Crear marcos de audio**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Obtén la referencia de una diapositiva a través de su índice.
-3. Carga el flujo del archivo de audio que deseas incrustar en la diapositiva.
-4. Agrega el marco de audio incrustado (que contiene el archivo de audio) a la diapositiva.
-5. Establece [PlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/AudioPlayModePreset) y `Volume` expuestos por el objeto [IAudioFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IAudioFrame).
-6. Guarda la presentación modificada.
+Aspose.Slides for Java le permite agregar archivos de audio a las diapositivas. Los archivos de audio se incrustan en las diapositivas como marcos de audio. 
 
-Este código Java muestra cómo agregar un marco de audio incrustado a una diapositiva:
+1. Cree una instancia de la [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) clase.
+2. Obtenga la referencia de una diapositiva mediante su índice.
+3. Cargue el flujo del archivo de audio que desea incrustar en la diapositiva.
+4. Añada el marco de audio incrustado (que contiene el archivo de audio) a la diapositiva.
+5. Establezca [PlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/AudioPlayModePreset) y `Volume` expuestos por el objeto [IAudioFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IAudioFrame).
+6. Guarde la presentación modificada.
 
-```Java
+Este código Java le muestra cómo agregar un marco de audio incrustado a una diapositiva:
+```java
 // Instancia una clase Presentation que representa un archivo de presentación
 Presentation pres = new Presentation();
 try {
     // Obtiene la primera diapositiva
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Carga el archivo de sonido wav al flujo
+    // Carga el archivo de sonido wav a un flujo
     FileInputStream fstr = new FileInputStream(new File("audio.wav"));
 
-    // Agrega el Marco de Audio
+    // Añade el marco de audio
     IAudioFrame audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
     fstr.close();
     
-    // Establece el Modo de Reproducción y el Volumen del Audio
+    // Establece el modo de reproducción y el volumen del audio
     audioFrame.setPlayMode(AudioPlayModePreset.Auto);
     audioFrame.setVolume(AudioVolumeMode.Loud);
 
-    // Escribe el archivo de PowerPoint en el disco
+    // Escribe el archivo PowerPoint en disco
     pres.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
 } finally {
@@ -45,12 +55,12 @@ try {
 }
 ```
 
-## **Cambiar la Miniatura del Marco de Audio**
 
-Cuando agregas un archivo de audio a una presentación, el audio aparece como un marco con una imagen estándar predeterminada (ver la imagen en la sección siguiente). Puedes cambiar la imagen de vista previa del marco de audio (establecer tu imagen preferida).
+## **Cambiar la miniatura del marco de audio**
 
-Este código Java muestra cómo cambiar la miniatura o imagen de vista previa de un marco de audio:
+Cuando agrega un archivo de audio a una presentación, el audio aparece como un marco con una imagen predeterminada estándar (vea la imagen en la sección a continuación). Cambie la imagen de vista previa del marco de audio (establezca su imagen preferida).
 
+Este código Java le muestra cómo cambiar la miniatura o la imagen de vista previa de un marco de audio:
 ```java
 Presentation presentation = new Presentation();
 try {
@@ -70,10 +80,10 @@ try {
         if (image != null) image.dispose();
     }
 
-    // Establece la imagen para el marco de audio.
+    // Sets the image for the audio frame.
     audioFrame.getPictureFormat().getPicture().setImage(picture); // <-----
 
-    // Guarda la presentación modificada en el disco
+    //Guarda la presentación modificada en disco
     presentation.save("example_out.pptx", SaveFormat.Pptx);
 } catch(IOException e) {
 } finally {
@@ -81,43 +91,53 @@ try {
 }
 ```
 
-## **Cambiar las Opciones de Reproducción de Audio**
 
-Aspose.Slides para Java te permite cambiar las opciones que controlan la reproducción o propiedades de un audio. Por ejemplo, puedes ajustar el volumen de un audio, configurar el audio para que se reproduzca en un bucle, o incluso ocultar el ícono de audio.
+## **Cambiar las opciones de reproducción de audio**
 
-El panel de **Opciones de Audio** en Microsoft PowerPoint:
+Aspose.Slides for Java le permite cambiar opciones que controlan la reproducción o las propiedades de un audio. Por ejemplo, puede ajustar el volumen de un audio, configurar el audio para que se reproduzca en bucle o incluso ocultar el ícono de audio.
+
+El panel **Audio Options** en Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-Las opciones de audio de PowerPoint que corresponden a las propiedades de [AudioFrame](https://reference.aspose.com/slides/java/com.aspose.slides/AudioFrame) de Aspose.Slides:
-- La lista desplegable **Inicio** de Opciones de Audio coincide con la propiedad [AudioFrame.PlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/AudioFrame#getPlayMode--) 
-- Las Opciones de Audio **Volumen** coinciden con la propiedad [AudioFrame.Volume](https://reference.aspose.com/slides/java/com.aspose.slides/AudioFrame#getVolume--)
-- Las Opciones de Audio **Reproducir entre Diapositivas** coinciden con la propiedad [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/java/com.aspose.slides/AudioFrame#getPlayAcrossSlides--)
-- Las Opciones de Audio **Repetir hasta Detenerse** coinciden con la propiedad [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/AudioFrame#getPlayLoopMode--)
-- Las Opciones de Audio **Ocultar Durante la Presentación** coinciden con la propiedad [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/java/com.aspose.slides/AudioFrame#getHideAtShowing--)
-- Las Opciones de Audio **Rebobinar después de Reproducir** coinciden con la propiedad [AudioFrame.RewindAudio](https://reference.aspose.com/slides/java/com.aspose.slides/AudioFrame#getRewindAudio--)
+Opciones de **Audio** de PowerPoint que corresponden a las propiedades de Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/java/com.aspose.slides/AudioFrame):
 
-Así es como cambias las opciones de reproducción de audio:
+- **Start** lista desplegable coincide con el método [AudioFrame.setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setPlayMode-int-)
+- **Volume** coincide con el método [AudioFrame.setVolume](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setVolume-int-)
+- **Play Across Slides** coincide con el método [AudioFrame.setPlayAcrossSlides](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setPlayAcrossSlides-boolean-)
+- **Loop until Stopped** coincide con el método [AudioFrame.setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setPlayLoopMode-boolean-)
+- **Hide During Show** coincide con el método [AudioFrame.setHideAtShowing](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setHideAtShowing-boolean-)
+- **Rewind after Playing** coincide con el método [AudioFrame.setRewindAudio](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setRewindAudio-boolean-)
 
-1. [Crear](#create-audio-frame) o obtener el Marco de Audio.
-2. Establece nuevos valores para las propiedades del Marco de Audio que deseas ajustar.
-3. Guarda el archivo de PowerPoint modificado.
+Opciones de **Edición** de PowerPoint que corresponden a las propiedades de Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/java/com.aspose.slides/AudioFrame):
 
-Este código Java demuestra una operación en la que se ajustan las opciones de un audio:
+- **Fade In** coincide con el método [AudioFrame.setFadeInDuration](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setFadeInDuration-float-)
+- **Fade Out** coincide con el método [AudioFrame.setFadeOutDuration](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setFadeOutDuration-float-)
+- **Trim Audio Start Time** coincide con el método [AudioFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setTrimFromStart-float-)
+- **Trim Audio End Time** el valor equivale a la duración del audio menos el valor del método [AudioFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setTrimFromEnd-float-)
 
+El control de **Volumen** de PowerPoint en el panel de control de audio corresponde al método [AudioFrame.setVolumeValue](https://reference.aspose.com/slides/java/com.aspose.slides/audioframe/#setVolumeValue-float-). Le permite cambiar el volumen del audio como un porcentaje.
+
+Así es como cambia las opciones de reproducción de audio:
+
+1. [Crear](#create-audio-frame) o obtenga el Marco de audio.
+2. Establezca nuevos valores para las propiedades del Marco de audio que desea ajustar.
+3. Guarde el archivo de PowerPoint modificado.
+
+Este código Java muestra una operación en la que se ajustan las opciones de un audio:
 ```java 
 Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
 try {
     // Obtiene la forma AudioFrame
     AudioFrame audioFrame = (AudioFrame)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // Establece el modo de reproducción para que se reproduzca al hacer clic
+    // Establece el modo de reproducción para reproducir al hacer clic
     audioFrame.setPlayMode(AudioPlayModePreset.OnClick);
 
     // Establece el volumen a Bajo
     audioFrame.setVolume(AudioVolumeMode.Low);
 
-    // Establece el audio para reproducir entre diapositivas
+    // Establece que el audio se reproduzca a través de diapositivas
     audioFrame.setPlayAcrossSlides(true);
 
     // Desactiva el bucle para el audio
@@ -126,27 +146,74 @@ try {
     // Oculta el AudioFrame durante la presentación
     audioFrame.setHideAtShowing(true);
 
-    // Rebobina el audio al inicio después de reproducir
+    // Retrocede el audio al inicio después de reproducir
     audioFrame.setRewindAudio(true);
 
-    // Guarda el archivo de PowerPoint en el disco
+    // Guarda el archivo PowerPoint en disco
     pres.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Extraer Audio**
 
-Aspose.Slides para Java te permite extraer el sonido utilizado en las transiciones de diapositivas. Por ejemplo, puedes extraer el sonido utilizado en una diapositiva específica.
+Este ejemplo Java muestra cómo agregar un nuevo marco de audio con audio incrustado, recortarlo y establecer las duraciones de fundido:
+```java
+Presentation pres = new Presentation();
+try {
+    ISlide slide = pres.getSlides().get_Item(0);
+    
+    byte[] audioData = Files.readAllBytes(Paths.get("sampleaudio.mp3"));
+    IAudio audio = pres.getAudios().addAudio(audioData);
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) y carga la presentación con transiciones de diapositivas.
-2. Accede a la diapositiva deseada.
-3. Accede a las [transiciones de presentación](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getSlideShowTransition--) para la diapositiva.
-4. Extrae el sonido en datos de bytes.
+    // Establece el desplazamiento inicial del recorte a 1,5 segundos
+    audioFrame.setTrimFromStart(1500f);
+    // Establece el desplazamiento final del recorte a 2 segundos
+    audioFrame.setTrimFromEnd(2000f);
 
-Este código en Java te muestra cómo extraer el audio utilizado en una diapositiva:
+    // Establece la duración de fundido de entrada a 200 ms
+    audioFrame.setFadeInDuration(200f);
+    // Establece la duración de fundido de salida a 500 ms
+    audioFrame.setFadeOutDuration(500f);
 
+    pres.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
+} finally {
+    pres.dispose();
+}
+```
+
+
+El siguiente fragmento de código muestra cómo obtener un marco de audio con audio incrustado y establecer su volumen al 85%:
+```java
+Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
+try {
+    ISlide slide = pres.getSlides().get_Item(0);
+
+    // Obtiene una forma de marco de audio
+    IAudioFrame audioFrame = (IAudioFrame)slide.getShapes().get_Item(0);
+
+    // Establece el volumen del audio al 85%
+    audioFrame.setVolumeValue(85f);
+
+    pres.save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
+}
+finally {
+    pres.dispose();
+}
+```
+
+
+## **Extraer audio**
+
+Aspose.Slides for Java le permite extraer el sonido utilizado en las transiciones de la presentación de diapositivas. Por ejemplo, puede extraer el sonido usado en una diapositiva específica.
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) y cargue la presentación que contiene el audio.
+2. Obtenga la referencia de la diapositiva correspondiente mediante su índice.
+3. Acceda a las [transiciones de presentación](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getSlideShowTransition--) de la diapositiva.
+4. Extraiga el sonido en datos de bytes.
+
+Este código en Java le muestra cómo extraer el audio usado en una diapositiva:
 ```java
 // Instancia una clase Presentation que representa un archivo de presentación
 Presentation pres = new Presentation("AudioSlide.pptx");
@@ -154,13 +221,28 @@ try {
     // Accede a la diapositiva deseada
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Obtiene los efectos de transición de presentación para la diapositiva
+    // Obtiene los efectos de transición de la presentación para la diapositiva
     ISlideShowTransition transition = slide.getSlideShowTransition();
     
-    // Extrae el sonido en un arreglo de bytes
+    //Extrae el sonido en una matriz de bytes
     byte[] audio = transition.getSound().getBinaryData();
-    System.out.println("Longitud: " + audio.length);
+    System.out.println("Length: " + audio.length);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**¿Puedo reutilizar el mismo recurso de audio en varias diapositivas sin inflar el tamaño del archivo?**
+
+Sí. Agregue el audio una sola vez a la [colección de audio](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getAudios--) compartida de la presentación y cree marcos de audio adicionales que referencien ese recurso existente. Esto evita duplicar los datos multimedia y mantiene el tamaño de la presentación bajo control.
+
+**¿Puedo reemplazar el sonido en un marco de audio existente sin recrear la forma?**
+
+Sí. Para un sonido vinculado, actualice la [ruta del vínculo](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) para que apunte al nuevo archivo. Para un sonido incrustado, reemplace el objeto [audio incrustado](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-) con otro de la [colección de audio](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getAudios--) de la presentación. El formato del marco y la mayoría de la configuración de reproducción permanecen intactos.
+
+**¿El recorte cambia los datos de audio subyacentes almacenados en la presentación?**
+
+No. El recorte solo ajusta los límites de reproducción. Los bytes originales del audio permanecen sin cambios y son accesibles a través del audio incrustado o la colección de audio de la presentación.
