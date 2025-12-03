@@ -25,28 +25,28 @@ This page lists all [added](/slides/net/public-api-and-backwards-incompatible-ch
 
 {{% /alert %}} 
 ## **Public API Changes**
-#### **DataLabel constructor signature has been changed**
+#### **DataLabel Constructor Signature Has Been Changed**
 DataLabel constructor signature has been changed:
 was: DataLabel.#ctor(Aspose.Slides.Charts.IChartSeries);
 now: DataLabel.#ctor(Aspose.Slides.Charts.IChartDataPoint).
-#### **Members IDocumentProperties.Count, .GetPropertyName(int index), .Remove(string name), .Contains(string name) have been marked as Obsolete and its substitutions have been introduced instead.**
+#### **Members IDocumentProperties.Count, .GetPropertyName(int index), .Remove(string name), .Contains(string name) Have Been Marked as Obsolete and Its Substitutions Have Been Introduced Instead.**
 Property IDocumentProperties.Count and methods IDocumentProperties.GetPropertyName(int index), .Remove(string name), .Contains(string name) have been marked as Obsolete. Property IDocumentProperties.CountOfCustomProperties and methods IDocumentProperties.GetCustomPropertyName(int index), .RemoveCustomProperty(string name), .ContainsCustomProperty(string name) have been added instead.
-#### **Method INotesSlideManager.RemoveNotesSlide() has been added**
+#### **Method INotesSlideManager.RemoveNotesSlide() Has Been Added**
 Method INotesSlideManager.RemoveNotesSlide() has been added for removing notes slide of some slide.
-#### **Method Remove has been added to IComment**
+#### **Method Remove Has Been Added to IComment**
 Method IComment.Remove has been added for removing comment from the collection.
-#### **Method Remove has been added to ICommentAuthor**
+#### **Method Remove Has Been Added to ICommentAuthor**
 Method ICommentAuthor.Remove has been added for removing author of comments from the collection.
-#### **Methods ClearCustomProperties and ClearBuiltInProperties have been added to IDocumentProperties**
+#### **Methods ClearCustomProperties and ClearBuiltInProperties Have Been Added to IDocumentProperties**
 Method IDocumentProperties.ClearCustomProperties has been added for removing all custom document properties.
 Method IDocumentProperties.ClearBuiltInProperties has been added for removing and setting default values for all builtIn document properties (Company, Subject, Author etc).
-#### **Methods RemoveAt, Remove and Clear have been added to ICommentAuthorCollection**
+#### **Methods RemoveAt, Remove and Clear Have Been Added to ICommentAuthorCollection**
 Method ICommentAuthorCollection.RemoveAt has added for removing author by specified index.
 Method ICommentAuthorCollection.Remove has added for removing specified author from collection.
 Method ICommentAuthorCollection.Clear has been added for removing all items from collection.
-#### **Property AppVersion has been added to IDocumentProperties**
+#### **Property AppVersion Has Been Added to IDocumentProperties**
 Property IDocumentProperties.AppVersion has been added to get builtIn document property which representis internal version numbers used by Microsoft during development.
-#### **Property BlackWhiteMode has been added to IShape and to Shape**
+#### **Property BlackWhiteMode Has Been Added to IShape and to Shape**
 Property BlackWhiteMode has been added to IShape and to Shape.
 
 This property specifies how a shape will render in black-and-white display mode.
@@ -65,7 +65,7 @@ This property specifies how a shape will render in black-and-white display mode.
 |White |Render with white coloring |
 |Hidden |Not render |
 |NotDefined|means that property isn't set|
-#### **Рroperty ISlide.NotesSlideManager has been added. Property ISlide.NotesSlide and method ISlide.AddNotesSlide() have been marked as Obsolete.**
+#### **Рroperty ISlide.NotesSlideManager Has Been Added. Property ISlide.NotesSlide and Method ISlide.AddNotesSlide() Have Been Marked as Obsolete.**
 ISlide.NotesSlide, ISlide.AddNotesSlide() members has been marked as Obsolete. Use new property ISlide.NotesSlideManager instead.
 
 ``` csharp

@@ -62,7 +62,7 @@ You may want to see [Metered Licensing](https://docs.aspose.com/slides/net/meter
 {{% /alert %}} 
 
 
-## **Applying a License**
+## **Apply a License**
 A license can be loaded from a **file**, **stream**, or **embedded resource**. 
 
 {{% alert color="primary" %}}
@@ -132,7 +132,7 @@ Aspose.Slides.License license = new Aspose.Slides.License();
 license.SetLicense("Aspose.Slides.lic");
 ```
 
-## **Validating a License**
+## **Validate a License**
 
 To check whether a license has been set properly, you can validate it. This C# code shows you how to validate a license:
 

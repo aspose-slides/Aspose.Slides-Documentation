@@ -27,7 +27,7 @@ description: "Export presentations to HTML with templates, CSS and JS—no SVG. 
 ---
 
 
-## Introduction
+## **Introduction**
 
 * In old Aspose.Slides API builds, when you export PowerPoint to HTML, the resulting HTML got represented as an SVG markup combined with HTML. Each slide got exported as an SVG container. 
 * In new Aspose.Slides versions, when you use the WebExtensions system for exporting PowerPoint presentations to HTML, you get to customize the HTML export settings to deliver the best results. 
@@ -346,7 +346,7 @@ You can also use index.html to include the reference on custom table CSS styles 
 </html>
 ```
 
-## **Create Project from Scratch: Animated Slides Transitions**
+## **Create a Project from Scratch: Animated Slides Transitions**
 
 WebExtensions allows you to export presentations with animated slide transitions—you just need to set the `AnimateTransitions` property in `WebDocumentOptions` to `true`:
 

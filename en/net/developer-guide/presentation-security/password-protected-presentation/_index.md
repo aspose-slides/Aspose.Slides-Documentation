@@ -173,7 +173,7 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 }
 ```
 
-## **Check whether a Presentation Is Password Protected**
+## **Check Whether a Presentation Is Password Protected**
 
 Before you load a presentation, you might want to check that it hasn't been protected with a password. This helps you avoid errors and similar issues that occur when a password-protected presentation is loaded without the correct password.
 
@@ -184,7 +184,7 @@ var presentationInfo = PresentationFactory.Instance.GetPresentationInfo("example
 Console.WriteLine("The presentation is password protected: " + presentationInfo.IsPasswordProtected);
 ```
 
-## **Check whether a Presentation Is Encrypted**
+## **Check Whether a Presentation Is Encrypted**
 
 Aspose.Slides allows you to check whether a presentation is encrypted. To perform this task, you can use the [IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager/properties/isencrypted) property, which returns `true` if the presentation is encrypted or `false` if it is not.
 
@@ -197,7 +197,7 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 }
 ```
 
-## **Check whether a Presentation Is Write Protected**
+## **Check Whether a Presentation Is Write Protected**
 
 Aspose.Slides allows you to check whether a presentation is write-protected. To perform this task, you can use the [IsWriteProtected](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager/properties/iswriteprotected) property, which returns `true` if the presentation is write-protected or `false` if it is not.
 
@@ -230,7 +230,7 @@ It returns `true` if the presentation has been encrypted with the specified pass
 - [Digital Signature in PowerPoint](/slides/net/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **Password Protect a Presentation Online**
+## **Password-Protect a Presentation Online**
 
 1. Go to our [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock) page. 
 1. Click **Drop or upload your files**.

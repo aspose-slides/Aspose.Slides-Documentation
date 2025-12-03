@@ -56,7 +56,7 @@ the properties added specific for data points. 
 two properties: [**Format**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointlevel/properties/format) and 
 [**DataLabel** ](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointlevel/properties/label)which 
 provide access to corresponding settings.
-## **Show Data Point Value**
+## **Show a Data Point Value**
 Show value of "Leaf 4" data point:
 
 
@@ -67,7 +67,7 @@ dataPoints[3].DataPointLevels[0].Label.DataLabelFormat.ShowValue = true;
 ```
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
-## **Set Data Point Label and Color**
+## **Set a Data Point Label and Color**
 Set "Branch 1" data label to show series name ("Series1") instead of category name. Then set text color to yellow:
 
 
@@ -82,7 +82,7 @@ branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.
 ```
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
-## **Set Data Point Branch Color**
+## **Set a Data Point Branch Color**
 
 Change color of "Stem 4" branch:
 

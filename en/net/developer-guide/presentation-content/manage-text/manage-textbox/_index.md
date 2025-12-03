@@ -33,7 +33,7 @@ Therefore, when dealing with an existing shape to which you want to add text, yo
 
 {{% /alert %}}
 
-## **Create Text Box on Slide**
+## **Create a Text Box on a Slide**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class. 
 2. Get the first slide's reference through its index. 
@@ -74,7 +74,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Check for Text Box Shape**
+## **Check for a Text Box Shape**
 
 Aspose.Slides provides the [IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) property from the [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) interface, allowing you to examine shapes and identify text boxes.
 
@@ -124,7 +124,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Add Column in Text Box**
+## **Add Columns to a Text Box**
 
 Aspose.Slides provides the [ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount) and [ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/columnspacing) properties (from the [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat) interface and [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) class) to allow you to add columns to textboxes. You get to specify the number of columns in a text box and then specify the spacing in points between columns. 
 
@@ -160,7 +160,7 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **Add Column in Text Frame**
+## **Add Columns to a Text Frame**
 Aspose.Slides for .NET provides the [ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount) property (from the [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat) interface) that allows you to add columns in text frames. Through this property, you can specify your preferred number of columns in a text frame. 
 
  This C# code shows you how to add a column inside a text frame:
@@ -238,7 +238,7 @@ using(Presentation pres = new Presentation("text.pptx"))
 }
 ```
 
-## **Add Text Box with Hyperlink** 
+## **Add a Text Box with a Hyperlink** 
 
 You can insert a link inside a textbox. When the textbox is clicked, users are directed to open the link. 
 

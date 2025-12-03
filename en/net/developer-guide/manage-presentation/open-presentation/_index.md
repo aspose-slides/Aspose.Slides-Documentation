@@ -145,7 +145,7 @@ public class ImageLoadingHandler : IResourceLoadingCallback
 }
 ```
 
-## **Load Presentations Without Embedded Binary Objects**
+## **Load Presentations without Embedded Binary Objects**
 
 A PowerPoint presentation can contain the following types of embedded binary objects:
 

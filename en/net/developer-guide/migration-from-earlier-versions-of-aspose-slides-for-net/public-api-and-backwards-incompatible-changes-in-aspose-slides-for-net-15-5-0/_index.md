@@ -25,17 +25,17 @@ This page lists all [added](/slides/net/public-api-and-backwards-incompatible-ch
 
 {{% /alert %}} 
 ## **Public API Changes**
-#### **CommonSlideViewProperties class and ICommonSlideViewProperties interface have been added**
+#### **CommonSlideViewProperties Class and ICommonSlideViewProperties Interface Have Been Added**
 The Aspose.Slides.CommonSlideViewProperties class and Aspose.Slides.ICommonSlideViewProperties interface respresent common slide view properties (currently view scale options).
-#### **IAxis.LabelOffset property has been added**
+#### **IAxis.LabelOffset Property Has Been Added**
 IAxis.LabelOffset property specifies the distance of labels from the axis. Applied to category or date axis.
-#### **IChartTextBlockFormat.AutofitType property has been added**
+#### **IChartTextBlockFormat.AutofitType Property Has Been Added**
 Changing of this property can produce a certain influence only for these chart parts: DataLabel and DataLabelFormat (full suport in PowerPoint 2013; in PowerPoint 2007 there is no effect for rendering).
-#### **IChartTextBlockFormat.WrapText property has been added**
+#### **IChartTextBlockFormat.WrapText Property Has Been Added**
 Changing of this property can produce a certain influence only for these chart parts: DataLabel and DataLabelFormat (full suport in PowerPoint 2007/2013).
-#### **Margin properties have been added to IChartTextBlockFormat**
+#### **Margin Properties Have Been Added to IChartTextBlockFormat**
 Changing of this properties can produce a certain influence only for these chart parts: DataLabel and DataLabelFormat (full suport in PowerPoint 2013; in PowerPoint 2007 there is no effect for rendering).
-#### **ViewProperties.NotesViewProperties property has been added**
+#### **ViewProperties.NotesViewProperties Property Has Been Added**
 Aspose.Slides.ViewProperties.NotesViewProperties property has been added. Its specifies common view properties associated with the notes view mode.
-#### **ViewProperties.SlideViewProperties property has been added**
+#### **ViewProperties.SlideViewProperties Property Has Been Added**
 Aspose.Slides.ViewProperties.SlideViewProperties property has been added. Its specifies common view properties associated with the slide view mode.

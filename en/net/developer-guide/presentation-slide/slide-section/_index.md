@@ -28,7 +28,7 @@ You may want to create sections and use them to organize or divide slides in a p
 
 Ideally, you should create a section that houses similar slides—the slides have something in common or they can exist in a group based on a rule—and give the section a name that describes the slides inside it. 
 
-## **Creating Sections in Presentations**
+## **Create Sections in Presentations**
 
 To add a section that will house slides in a presentation, Aspose.Slides for .NET provides the AddSection method that allows you to specify the name of the section you intend to create and the slide from which the section starts. 
 
@@ -59,7 +59,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Changing the Names of Sections**
+## **Change the Names of Sections**
 
 After you create a section in a PowerPoint presentation, you may decide to change its name. 
 

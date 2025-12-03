@@ -25,7 +25,7 @@ This page lists all [added](/slides/net/public-api-and-backwards-incompatible-ch
 
 {{% /alert %}} 
 ## **Public API Changes**
-#### **A new VideoPlayerHtmlController added to support export od media files to HTML**
+#### **A New VideoPlayerHtmlController Added to Support Export Media Files to HTML**
 The new public class VideoPlayerHtmlController has been added to Aspose.Slides.Export namespace. Using the instance of this class user can export video and audio files into HTML.
 VideoPlayerHtmlController contructors accepts the following parameters:
 
@@ -62,7 +62,7 @@ Usage example:
 }
 
 ``` 
-#### **Chart series animation API has been added**
+#### **Chart Series Animation API Has Been Added**
 The new 2 methods have been added to Aspose.Slides.Animation.ISequence interface.
 
 ``` csharp

@@ -20,7 +20,7 @@ description: "Master slide animations in C# with Aspose.Slides: add, edit, and r
 
 Shows how to create simple animations and manage their sequence using **Aspose.Slides for .NET**.
 
-## Add an Animation
+## **Add an Animation**
 
 Create a rectangle shape and apply a fade-in effect triggered on click.
 
@@ -36,7 +36,7 @@ static void Add_Animation()
 }
 ```
 
-## Access an Animation
+## **Access an Animation**
 
 Retrieve the first animation effect from the slide timeline.
 
@@ -53,7 +53,7 @@ static void Access_Animation()
 }
 ```
 
-## Remove an Animation
+## **Remove an Animation**
 
 Remove an animation effect from the sequence.
 
@@ -70,7 +70,7 @@ static void Remove_Animation()
 }
 ```
 
-## Sequence Animations
+## **Sequence Animations**
 
 Add multiple effects and demonstrate the order in which animations occur.
 

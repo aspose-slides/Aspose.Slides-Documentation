@@ -24,7 +24,7 @@ Aspose.Slides supports removing notes slides from a presentation. In this topic
 
 - Remove Notes of a Specific Slide of a presentation.
 - Remove Notes of All Slides of a Presentation.
-## **Remove Notes from Slide**
+## **Remove Notes from a Slide**
 Notes of some specific slide could be removed as shown in the example below:
 
 ```c#
@@ -59,7 +59,7 @@ presentation.Save("RemoveNotesFromAllSlides_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Add NotesStyle**
+## **Add a Notes Style**
 NotesStyle property has been added to [IMasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/imasternotesslide) interface and [MasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/masternotesslide) class respectively. This property specifies the style of a notes text.  The implementation is demonstrated in the example below.
 
 ```c#

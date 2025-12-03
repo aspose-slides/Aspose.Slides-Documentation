@@ -25,7 +25,7 @@ This page lists all [added](/slides/net/public-api-and-backwards-incompatible-ch
 
 {{% /alert %}} 
 ## **Public API Changes**
-#### **Property DoughnutHoleSize has been added to IChartSeries and ChartSeries**
+#### **Property DoughnutHoleSize Has Been Added to IChartSeries and ChartSeries**
 Specifies the size of the hole in a doughnut chart.
 
 ``` csharp

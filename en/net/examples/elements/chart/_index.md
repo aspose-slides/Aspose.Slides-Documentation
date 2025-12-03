@@ -20,7 +20,7 @@ description: "Create and customize charts in C# with Aspose.Slides: add data, fo
 
 Examples for adding, accessing, removing, and updating different chart types with **Aspose.Slides for .NET**. The snippets below demonstrate basic chart operations.
 
-## Add a Chart
+## **Add a Chart**
 
 This method adds a simple area chart to the first slide.
 
@@ -35,7 +35,7 @@ static void Add_Chart()
 }
 ```
 
-## Access a Chart
+## **Access a Chart**
 
 After creating a chart, you can retrieve it through the shape collection.
 
@@ -51,7 +51,7 @@ static void Access_Chart()
 }
 ```
 
-## Remove a Chart
+## **Remove a Chart**
 
 The following code removes a chart from a slide.
 
@@ -67,7 +67,7 @@ static void Remove_Chart()
 }
 ```
 
-## Update Chart Data
+## **Update Chart Data**
 
 You can change chart properties such as the title.
 
