@@ -750,3 +750,21 @@ try {
     if (presentation != null) presentation.dispose();
 }
 ```
+
+## **FAQ**
+
+**Can I completely disable line wrapping inside a text frame?**
+
+Yes. Use the text frame’s wrapping setting ([setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setWrapText-byte-)) to turn wrapping off so lines won’t break at the frame’s edges.
+
+**How can I get the exact on-slide bounds of a specific paragraph?**
+
+You can retrieve the paragraph’s (and even a single portion’s) bounding rectangle to know its precise position and size on the slide.
+
+**Where is paragraph alignment (left/right/center/justify) controlled?**
+
+[Alignment](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphformat/#setAlignment-int-) is a paragraph-level setting in [ParagraphFormat](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphformat/); it applies to the whole paragraph regardless of individual portion formatting.
+
+**Can I set a spell-check language for just part of a paragraph (e.g., one word)?**
+
+Yes. The language is set at the portion level ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)), so multiple languages can coexist within a single paragraph.

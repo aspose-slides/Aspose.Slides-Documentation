@@ -560,4 +560,16 @@ try {
 }
 ```
 
-  
+## **FAQ**
+
+**Can I control returning to the 'parent' slide after showing the target?**
+
+Yes. The [Zoom frame](https://reference.aspose.com/slides/java/com.aspose.slides/zoomframe/) or [section](https://reference.aspose.com/slides/java/com.aspose.slides/sectionzoomframe/) has a `ReturnToParent` behavior that, when enabled, sends viewers back to the originating slide after they visit the target content.
+
+**Can I adjust the 'speed' or duration of the Zoom transition?**
+
+Yes. Zoom supports setting a `TransitionDuration` so you can control how long the jump animation takes.
+
+**Are there limits on how many Zoom objects a presentation can contain?**
+
+There is no hard API limit documented. Practical limits depend on overall presentation complexity and the viewer's performance. You can add many Zoom frames, but consider file size and rendering time.

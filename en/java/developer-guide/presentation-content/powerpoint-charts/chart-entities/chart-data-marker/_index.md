@@ -87,3 +87,13 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**Which marker shapes are available out of the box?**
+
+Standard shapes are available (circle, square, diamond, triangle, etc.); the list is defined by the [MarkerStyleType](https://reference.aspose.com/slides/java/com.aspose.slides/markerstyletype/) class. If you need a non-standard shape, use a marker with a picture fill to emulate custom visuals.
+
+**Are markers preserved when exporting a chart to an image or SVG?**
+
+Yes. When rendering charts to [raster formats](/slides/java/convert-powerpoint-to-png/) or saving [shapes as SVG](/slides/java/render-a-slide-as-an-svg-image/), markers retain their appearance and settings, including size, fill, and outline.

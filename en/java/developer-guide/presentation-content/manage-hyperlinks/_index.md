@@ -40,7 +40,7 @@ You may want to check out Aspose simple, [free online PowerPoint editor.](https:
 
 ## **Adding URL Hyperlinks**
 
-### **Adding URL Hyperlinks to Texts**
+### **Adding URL Hyperlinks to Text**
 
 This Java code shows you how to add a website hyperlink to a text:
 
@@ -151,7 +151,7 @@ You may want to see *[Manage OLE](/slides/java/manage-ole/)*.
 
 {{% /alert %}}
 
-## **Using Hyperlinks to Create Table of Contents**
+## **Using Hyperlinks to Create Tables of Contents**
 
 Since hyperlinks allow you to add references to objects or places, you can use them to create a table of contents. 
 
@@ -217,7 +217,7 @@ try {
 
 ## **Removing Hyperlinks in Presentations**
 
-### **Removing Hyperlinks from Texts**
+### **Removing Hyperlinks from Text**
 
 This Java code shows you how to remove the hyperlink from a text in a presentation slide:
 
@@ -308,3 +308,16 @@ The [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slid
 - [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
 - [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
 
+## **FAQ**
+
+**How can I create internal navigation not just to a slide, but to a "section" or the first slide of a section?**
+
+Sections in PowerPoint are groupings of slides; navigation technically targets a specific slide. To "navigate to a section", you typically link to its first slide.
+
+**Can I attach a hyperlink to master slide elements so it works on all slides?**
+
+Yes. Master slide and layout elements support hyperlinks. Such links appear on child slides and are clickable during the slideshow.
+
+**Will hyperlinks be preserved when exporting to PDF, HTML, images, or video?**
+
+In [PDF](/slides/java/convert-powerpoint-to-pdf/) and [HTML](/slides/java/convert-powerpoint-to-html/), yes—links are generally preserved. When exporting to [images](/slides/java/convert-powerpoint-to-png/) and [video](/slides/java/convert-powerpoint-to-video/), clickability will not carry over due to the nature of those formats (raster frames/video do not support hyperlinks).

@@ -43,7 +43,7 @@ In Aspose.Slides for Java 20.10, we implemented support for WordArt and made imp
 
 With Aspose.Slides for Java, you can easily create your own WordArt template (one effect or combination of effects) in Java and apply it to texts. 
 
-## Creating a Simple WordArt Template and Applying It to a Text
+## **Creating a Simple WordArt Template and Applying It to a Text**
 
 **Using Aspose.Slides** 
 
@@ -100,7 +100,7 @@ The resulting text:
 
 ![todo:image_alt_text](image-20200930114108-4.png)
 
-## Applying Other WordArt Effects
+## **Applying Other WordArt Effects**
 
 **Using Microsoft PowerPoint**
 
@@ -110,7 +110,7 @@ From the program’s interface, you can apply these effects to a text, text bloc
 
 For example, Shadow, Reflection, and Glow effects can be applied to a text; 3D Format and 3D Rotation effects can be applied to a text block; Soft Edges property can be applied to a Shape Object (it still has an effect when no 3D Format property is set). 
 
-### Applying Shadow Effects
+### **Applying Shadow Effects**
 
 Here, we intend to set the properties relating to a text only. We apply the shadow effect to a text using this code in Java:
 
@@ -146,7 +146,7 @@ Aspose.Slides actually allows you to apply two types of shadows at once: InnerSh
 - When OuterShadow and PresetShadow are used together, only the OuterShadow effect gets applied. 
 - If OuterShadow and InnerShadow get used simultaneously, the resulting or applied effect depends on the PowerPoint version. For instance, in PowerPoint 2013, the effect gets doubled. But in PowerPoint 2007, the OuterShadow effect gets applied. 
 
-### Applying Display to Texts
+### **Applying Display to Texts**
 
 We add display to the text through this code sample in Java:
 
@@ -164,7 +164,7 @@ portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflect
 portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);   
 ```
 
-### Applying Glow Effect to Texts
+### **Applying Glow Effect to Texts**
 
 We apply the glow effect to the text to make it shine or stand out using this code:
 
@@ -185,7 +185,7 @@ You can change the parameters for shadow, display, and glow. The effects’ prop
 
 {{% /alert %}} 
 
-### Using Transformations in WordArt
+### **Using Transformations in WordArt**
 
 We use the Transform property (inherent in the entire block of text) through this code:
 ``` java 
@@ -210,7 +210,7 @@ To access predefined transformation types, go through: **Format** -> **TextEffec
 
 To select a transformation type, use the TextShapeType enum. 
 
-### Applying 3D effects to Texts and Shapes
+### **Applying 3D effects to Texts and Shapes**
 
 We set a 3D effect to a text shape using this sample code:
 
@@ -392,4 +392,20 @@ try {
 }
 ```
 
+## **FAQ**
 
+**Can I use WordArt effects with different fonts or scripts (e.g., Arabic, Chinese)?**
+
+Yes, Aspose.Slides supports Unicode and works with all major fonts and scripts. WordArt effects such as shadow, fill, and outline can be applied regardless of the language, although font availability and rendering may depend on the system fonts.
+
+**Can I apply WordArt effects to slide master elements?**
+
+Yes, you can apply WordArt effects to shapes on master slides, including title placeholders, footers, or background text. Changes made to the master layout will be reflected across all associated slides.
+
+**Do WordArt effects affect presentation file size?**
+
+Slightly. WordArt effects like shadows, glows, and gradient fills may slightly increase the file size due to added formatting metadata, but the difference is usually negligible.
+
+**Can I preview the result of WordArt effects without saving the presentation?**
+
+Yes, you can render slides containing WordArt to images (e.g., PNG, JPEG) using the `getImage` method from the [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) or [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) interfaces. This lets you preview the result in-memory or on-screen before saving or exporting the full presentation.

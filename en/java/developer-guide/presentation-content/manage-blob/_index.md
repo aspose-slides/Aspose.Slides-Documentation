@@ -200,3 +200,25 @@ loadOptions.getBlobManagementOptions().setTempFilesRootPath("temp");
 When you use `TempFilesRootPath`, Aspose.Slides does not automatically create a folder to store temporary files. You have to create the folder manually. 
 
 {{% /alert %}}
+
+## **FAQ**
+
+**What data in an Aspose.Slides presentation is treated as BLOB and controlled by BLOB options?**
+
+Large binary objects such as images, audio, and video are treated as BLOB. The whole presentation file also involves BLOB handling when it’s loaded or saved. These objects are governed by BLOB policies that let you manage memory usage and spill to temporary files when needed.
+
+**Where do I configure BLOB handling rules during presentation loading?**
+
+Use [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/) with [BlobManagementOptions](https://reference.aspose.com/slides/java/com.aspose.slides/blobmanagementoptions/). There you set the in-memory limit for BLOB, allow or disallow temporary files, choose the root path for temp files, and select source locking behavior.
+
+**Do BLOB settings affect performance, and how do I balance speed vs memory?**
+
+Yes. Keeping BLOB in memory maximizes speed but increases RAM consumption; lowering the memory limit shifts more work to temporary files, reducing RAM at the cost of additional I/O. Use the [setMaxBlobsBytesInMemory](https://reference.aspose.com/slides/java/com.aspose.slides/blobmanagementoptions/#setMaxBlobsBytesInMemory-long-) method to reach the right balance for your workload and environment.
+
+**Do BLOB options help when opening extremely large presentations (e.g., gigabytes)?**
+
+Yes. [BlobManagementOptions](https://reference.aspose.com/slides/java/com.aspose.slides/blobmanagementoptions/) are designed for such scenarios: enabling temporary files and using source locking can significantly reduce peak RAM use and stabilize processing for very large decks.
+
+**Can I use BLOB policies when loading from streams instead of disk files?**
+
+Yes. The same rules apply to streams: the presentation instance can own and lock the input stream (depending on the chosen locking mode), and temporary files are used when allowed, keeping memory usage predictable during processing.

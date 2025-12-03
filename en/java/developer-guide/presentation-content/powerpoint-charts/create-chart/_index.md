@@ -1240,3 +1240,21 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**What chart types are supported by Aspose.Slides?**
+
+Aspose.Slides supports a wide range of [chart types](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/), including bar, line, pie, area, scatter, histogram, radar, and many more. This flexibility allows you to choose the most appropriate chart type for your data visualization needs.
+
+**How do I add a new chart to a slide?**
+
+To add a chart, you first create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class, retrieve the desired slide using its index, and then call the method to add a chart, specifying the chart type and initial data. This process integrates the chart directly into your presentation.
+
+**How can I update the data displayed in a chart?**
+
+You can update a chart’s data by accessing its data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)), clearing any default series and categories, and then adding your custom data. This allows you to refresh the chart to reflect the latest data.
+
+**Is it possible to customize the appearance of the chart?**
+
+Yes, Aspose.Slides provides extensive customization options. You can modify colors, fonts, labels, legends, and other [formatting elements](/slides/java/chart-entities/) to tailor the chart’s appearance to your specific design requirements.
