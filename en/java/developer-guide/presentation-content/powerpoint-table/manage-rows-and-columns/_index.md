@@ -27,7 +27,7 @@ description: "Manage table rows and columns in PowerPoint with Aspose.Slides for
 
 To allow you to manage a table's rows and columns in a PowerPoint presentation, Aspose.Slides provides the [Table](https://reference.aspose.com/slides/java/com.aspose.slides/table/) class, [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) interface, and many other types. 
 
-## **Set First Row as Header**
+## **Set the First Row as a Header**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class and load the presentation. 
 2. Get a slide's reference through its index. 
@@ -67,7 +67,7 @@ try {
 ```
 
 
-## **Clone Table's Row or Column**
+## **Clone a Table Row or Column**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class and load the presentation, 
 2. Get a slide's reference through its index. 
@@ -125,7 +125,7 @@ try {
 }
 ```
 
-## **Remove Row or Column from Table**
+## **Remove a Row or Column from a Table**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class and load the presentation, 
 2. Get a slide's reference through its index. 
@@ -156,7 +156,7 @@ try {
 }
 ```
 
-## **Set Text Formatting on Table Row Level**
+## **Set Text Formatting on the Table Row Level**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class and load the presentation, 
 2. Get a slide's reference through its index. 
@@ -201,7 +201,7 @@ try {
 }
 ```
 
-## **Set Text Formatting on Table Column Level**
+## **Set Text Formatting on the Table Column Level**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class and load the presentation, 
 2. Get a slide's reference through its index. 
@@ -260,3 +260,16 @@ try {
 }
 ```
 
+## **FAQ**
+
+**Can I apply PowerPoint themes/styles to a table that’s already created?**
+
+Yes. The table inherits the slide/layout/master theme, and you can still override fills, borders, and text colors on top of that theme.
+
+**Can I sort table rows like in Excel?**
+
+No, Aspose.Slides tables don’t have built-in sorting or filters. Sort your data in memory first, then repopulate the table rows in that order.
+
+**Can I have banded (striped) columns while keeping custom colors on specific cells?**
+
+Yes. Turn on banded columns, then override specific cells with local formatting; cell-level formatting takes precedence over the table style.

@@ -16,7 +16,7 @@ keywords:
 description: "Automate PowerPoint and OpenDocument slide localization in Java with Aspose.Slides, using practical code samples and tips for faster global rollout."
 ---
 
-## **Change Language for Presentation and Shape's Text**
+## **Change Language for a Presentation and Shape Text**
 - Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) of [Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType#Rectangle) type to the slide.

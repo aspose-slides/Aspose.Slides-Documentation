@@ -249,7 +249,7 @@ public class CustomFormattingController implements IHtmlFormattingController
 ```
 
 
-## **Save CSS and Images When Exporting To HTML**
+## **Save CSS and Images When Exporting to HTML**
 Using new CSS style files, you can easily change the style of the HTML file resulting from the PowerPoint to HTML conversion process. 
 
 The Java code in this example shows you how to use overridable methods to create a custom HTML document with a link to a CSS file:
@@ -302,7 +302,7 @@ public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
 }
 ```
 
-## **Link All Fonts When Converting Presentation to HTML**
+## **Link All Fonts When Converting a Presentation to HTML**
 
 If you do not want to embed fonts (to avoid increasing the size of the resulting HTML), you can link all fonts by implementing your own  `LinkAllFontsHtmlController` version. 
 

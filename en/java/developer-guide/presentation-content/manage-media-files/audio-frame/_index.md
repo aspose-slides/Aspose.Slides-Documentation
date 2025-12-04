@@ -56,7 +56,7 @@ try {
 }
 ```
 
-## **Change Audio Frame Thumbnail**
+## **Change the Audio Frame Thumbnail**
 
 When you add an audio file to a presentation, the audio appears as a frame with a standard default image (see the image in the section below). You change the audio frame's preview image (set your preferred image).
 

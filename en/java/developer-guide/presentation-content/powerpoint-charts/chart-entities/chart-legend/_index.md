@@ -48,7 +48,7 @@ try {
 }
 ```
 
-## **Set Font Size of Legend**
+## **Set the Font Size of a Legend**
 The Aspose.Slides for Java lets developers allow to set font size of legend. Please follow the steps below: 
 
 - Instantiate [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
@@ -77,7 +77,7 @@ try {
 }
 ```
 
-## **Set Font Size of Individual Legend**
+## **Set the Font Size of an Individual Legend**
 The Aspose.Slides for Java lets developers allow to set font size of individual legend entries. Please follow the steps below: 
 
 - Instantiate [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.

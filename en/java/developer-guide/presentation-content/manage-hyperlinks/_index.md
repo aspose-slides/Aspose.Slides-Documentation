@@ -38,9 +38,9 @@ You may want to check out Aspose simple, [free online PowerPoint editor.](https:
 
 {{% /alert %}} 
 
-## **Adding URL Hyperlinks**
+## **Add URL Hyperlinks**
 
-### **Adding URL Hyperlinks to Text**
+### **Add URL Hyperlinks to Text**
 
 This Java code shows you how to add a website hyperlink to a text:
 
@@ -61,7 +61,7 @@ try {
 }
 ```
 
-### **Adding URL Hyperlinks to Shapes or Frames**
+### **Add URL Hyperlinks to Shapes or Frames**
 
 This sample code in Java shows you how to add a website hyperlink to a shape:
 
@@ -79,7 +79,7 @@ try {
 }
 ```
 
-### **Adding URL Hyperlinks to Media**
+### **Add URL Hyperlinks to Media**
 
 Aspose.Slides allows you to add hyperlinks to images, audio, and video files. 
 
@@ -151,7 +151,7 @@ You may want to see *[Manage OLE](/slides/java/manage-ole/)*.
 
 {{% /alert %}}
 
-## **Using Hyperlinks to Create Tables of Contents**
+## **Use Hyperlinks to Create a Table of Contents**
 
 Since hyperlinks allow you to add references to objects or places, you can use them to create a table of contents. 
 
@@ -186,7 +186,7 @@ try {
 }
 ```
 
-## **Formatting Hyperlinks**
+## **Format Hyperlinks**
 
 ### **Color**
 
@@ -215,9 +215,9 @@ try {
 }
 ```
 
-## **Removing Hyperlinks in Presentations**
+## **Remove Hyperlinks from Presentations**
 
-### **Removing Hyperlinks from Text**
+### **Remove Hyperlinks from Text**
 
 This Java code shows you how to remove the hyperlink from a text in a presentation slide:
 
@@ -246,7 +246,7 @@ try {
 }
 ```
 
-### **Removing Hyperlinks from Shapes or Frames**
+### **Remove Hyperlinks from Shapes or Frames**
 
 This Java code shows you how to remove the hyperlink from a shape in a presentation slide: 
 

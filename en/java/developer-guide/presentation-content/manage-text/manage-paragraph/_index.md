@@ -38,7 +38,7 @@ Aspose.Slides provides all the interfaces and classes you need to work with Powe
 
 An `IParagraph` object is capable of handling texts with different formatting properties through its underlying `IPortion` objects.
 
-## **Add Multiple Paragraph Containing Multiple Portions**
+## **Add Multiple Paragraphs Containing Multiple Portions**
 
 These steps show you how to add a text frame containing 3 paragraphs and each paragraph containing 3 portions:
 
@@ -372,7 +372,7 @@ try {
 ```
 
 
-## **Manage Paragraph with Custom Numbered List**
+## **Manage a Paragraph with a Custom Numbered List**
 
 The [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/) interface provides the [NumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) property and others that allow you to manage paragraphs with custom numbering or formatting. 
 
@@ -494,7 +494,7 @@ try {
 }
 ```
 
-## **Set Hanging Indent for Paragraph**
+## **Set Hanging Indent for a Paragraph**
 
 This Java code shows you how to set the hanging indent for a paragraph:
 
@@ -525,7 +525,7 @@ try {
 }
 ```
 
-## **Manage End Paragraph Run Properties for Paragraph**
+## **Manage End Paragraph Run Properties**
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
 1. Get the reference for the slide containing the paragraph through its position.
@@ -612,7 +612,7 @@ try {
 ```
 
 
-## **Export Paragraphs Text to HTML**
+## **Export Paragraph Text to HTML**
 
 Aspose.Slides provides enhanced support for exporting texts (contained in paragraphs) to HTML.
 

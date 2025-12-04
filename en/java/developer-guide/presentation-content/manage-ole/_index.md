@@ -41,7 +41,7 @@ Consider a chart created in MS Excel. The chart is then placed inside a PowerPoi
 
 [Aspose.Slides for Java](https://products.aspose.com/slides/java/) allows you to insert OLE Objects into slides as OLE object frames ([OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame)).
 
-## **Adding OLE Object Frames to Slides**
+## **Add OLE Object Frames to Slides**
 
 Assuming you have already created a chart in Microsoft Excel and want to embed it in a slide as an OLE object frame using Aspose.Slides for Java, you can do it this way:
 
@@ -70,7 +70,7 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-### **Adding Linked OLE Object Frames**
+### **Add Linked OLE Object Frames**
 
 Aspose.Slides for Java allows you to add an [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/OleObjectFrame) without embedding data but only with a link to the file.
 
@@ -87,7 +87,7 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Accessing OLE Object Frames**
+## **Access OLE Object Frames**
 
 If an OLE object is already embedded in a slide, you can easily find or access it this way:
 
@@ -117,7 +117,7 @@ if (shape instanceof IOleObjectFrame) {
 }
 ```
 
-### **Accessing Linked OLE Object Frame Properties**
+### **Access Linked OLE Object Frame Properties**
 
 Aspose.Slides allows you to access linked OLE object frame properties.
 
@@ -147,7 +147,7 @@ if (shape instanceof IOleObjectFrame) {
 presentation.dispose();
 ```
 
-## **Changing OLE Object Data**
+## **Change OLE Object Data**
 
 {{% alert color="primary" %}} 
 
@@ -202,7 +202,7 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Embedding Other File Types in Slides**
+## **Embed Other File Types in Slides**
 
 Besides Excel charts, Aspose.Slides for Java allows you to embed other types of files into slides. For example, you can insert HTML, PDF, and ZIP files as objects. When a user double-clicks the inserted object, it automatically opens in the relevant program, or the user is prompted to select an appropriate program to open it.
 
@@ -226,7 +226,7 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Setting File Types for Embedded Objects**
+## **Set File Types for Embedded Objects**
 
 When working with presentations, you may need to replace old OLE objects with new ones or replace an unsupported OLE object with a supported one. Aspose.Slides for Java allows you to set the file type for an embedded object, enabling you to update the OLE frame data or its extension.
 
@@ -249,7 +249,7 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Setting Icon Images and Titles for Embedded Objects**
+## **Set Icon Images and Titles for Embedded Objects**
 
 After embedding an OLE object, a preview consisting of an icon image is added automatically. This preview is what users see before accessing or opening the OLE object. If you want to use a specific image and text as elements in the preview, you can set the icon image and title using Aspose.Slides for Java.
 
@@ -281,7 +281,7 @@ After you add a linked OLE object to a presentation slide, when you open the pre
 oleFrame.setUpdateAutomatic(false);
 ```
 
-## **Extracting Embedded Files**
+## **Extract Embedded Files**
 
 Aspose.Slides for Java allows you to extract the files embedded in slides as OLE objects this way:
 

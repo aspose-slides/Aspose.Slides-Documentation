@@ -22,7 +22,7 @@ A series is a row or column of numbers plotted in a chart.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Set Chart Series Overlap**
+## **Set the Chart Series Overlap**
 
 With the [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) property, you can specify how much bars and columns should overlap on a 2D chart (range: -100 to 100). This property applies to all series of the parent series group: this is a projection of the appropriate group property. Therefore, this property is read-only. 
 
@@ -55,7 +55,7 @@ try {
 }
 ```
 
-## **Change Series Color**
+## **Change the Series Color**
 Aspose.Slides for Java allows you to change a series' color this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
@@ -82,7 +82,7 @@ try {
 }
 ```
 
-## **Change Series Category's Color**
+## **Change the Series Category Color**
 Aspose.Slides for Java allows you to change a series category's color this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
@@ -108,7 +108,7 @@ try {
 }
 ```
 
-## **Change Series' Name** 
+## **Change the Series Name** 
 
 By default, the legend names for a chart are the contents of cells above each column or row of data. 
 
@@ -150,7 +150,7 @@ try {
 }
 ```
 
-## **Set Chart Series Fill Color**
+## **Set the Chart Series Fill Color**
 
 Aspose.Slides for Java allows you to set the automatic fill color for chart series inside a plot area this way:
 
@@ -181,7 +181,7 @@ try {
 }
 ```
 
-## **Set Chart Series Invert Fill Colors**
+## **Set Invert Fill Color for a Chart Series**
 Aspose.Slides allows you to set the invert fill color for chart series inside a plot area this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
@@ -226,7 +226,7 @@ try {
 ```
 
 
-## **Set Series to Invert When Value is Negative**
+## **Set a Series to Invert When Value Is Negative**
 Aspose.Slides allows you to set inverts through the`IChartDataPoint.InvertIfNegative` and `ChartDataPoint.InvertIfNegative` properties. When an invert is set using the properties, the data point inverts its colors when it gets a negative value. 
 
 This Java code demonstrates the operation:
@@ -254,7 +254,7 @@ try {
 }
 ```
 
-## **Clear Specific Data Points' Data**
+## **Clear Specific Point Data**
 Aspose.Slides for Java allows you to clear the `DataPoints` data for a specific chart series this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
@@ -287,7 +287,7 @@ try {
 }
 ```
 
-## **Set Series Gap Width**
+## **Set the Series Gap Width**
 Aspose.Slides for Java allows you to set a series' Gap Width through the **`GapWidth`** property this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.

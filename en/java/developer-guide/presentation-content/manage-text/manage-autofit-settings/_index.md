@@ -38,7 +38,7 @@ In PowerPoint, these are the 4 important parameters or options that control the 
 
 Aspose.Slides for Java provides similar options—some properties under the [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) class—that allow you to control the autofit behavior for textboxes in presentations. 
 
-## **Resize Shape to Fit Text**
+## **Resize a Shape to Fit Text**
 
 If you want the text in a box to always fit into that box after changes are made to the text, you have to use the **Resize shape to fix text** option. To specify this setting, set the [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) class) to `Shape`.
 
