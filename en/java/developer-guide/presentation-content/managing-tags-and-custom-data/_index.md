@@ -17,7 +17,7 @@ keywords:
 description: "Learn how to add, read, update, and remove tags & custom data in Aspose.Slides for Java, with examples for PowerPoint and OpenDocument presentations."
 ---
 
-## Data Storage in Presentation Files
+## **Data Storage in Presentation Files**
 
 PPTX files—items with the .pptx extension—are stored in the PresentationML format, which is part of the Office Open XML specification. The Office Open XML format defines the structure for data contained in presentations. 
 
@@ -31,7 +31,7 @@ Tags are essentially string-key pair values.
 
 {{% /alert %}} 
 
-## Getting the Values for Tags
+## **Get Values of Tags**
 
 In slides, a tag corresponds to the [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/java/com.aspose.slides/IDocumentProperties#getKeywords--) and [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/java/com.aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) methods. This sample code shows you how to get a tag’s value with Aspose.Slides for Java for [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation):
 
@@ -44,7 +44,7 @@ try{
 }
 ```
 
-## Adding Tags to Presentations
+## **Add Tags to Presentations**
 
 Aspose.Slides allows you to add tags to presentations. A tag typically consists of two items: 
 

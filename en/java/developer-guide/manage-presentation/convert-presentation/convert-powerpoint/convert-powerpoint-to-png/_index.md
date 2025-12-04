@@ -61,7 +61,7 @@ try {
 }
 ```
 
-## **Convert PowerPoint to PNG With Custom Dimensions**
+## **Convert PowerPoint to PNG with Custom Dimensions**
 
 If you want to obtain PNG files around a certain scale, you can set the values for `desiredX` and `desiredY`, which determine the dimensions of the resulting thumbnail. 
 
@@ -87,7 +87,7 @@ try {
 }
 ```
 
-## **Convert PowerPoint to PNG With Custom Size**
+## **Convert PowerPoint to PNG with Custom Size**
 
 If you want to obtain PNG files around a certain size, you can pass your preferred `width` and `height` arguments for `ImageSize`. 
 

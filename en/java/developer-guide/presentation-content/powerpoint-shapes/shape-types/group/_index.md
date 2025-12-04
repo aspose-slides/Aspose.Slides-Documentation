@@ -16,7 +16,7 @@ keywords:
 description: "Learn to group and ungroup shapes in PowerPoint decks using Aspose.Slides for Java—fast, step-by-step guide with free Java code."
 ---
 
-## **Add Group Shape**
+## **Add a Group Shape**
 Aspose.Slides support working with group shapes on slides. This feature helps developers support richer presentations. Aspose.Slides for Java supports adding or accessing group shapes. It is possible to add shapes to an added group shape to populate it or access any property of group shape. To add a group shape to a slide using Aspose.Slides for Java:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
@@ -56,7 +56,7 @@ try {
 }
 ```
 
-## **Access AltText Property**
+## **Access the AltText Property**
 This topic shows simple steps, complete with code examples, for adding a group shape and accessing AltText property of group shapes on slides. To access AltText of a group shape in a slide using Aspose.Slides for Java:
 
 1. Instantiate [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class that represents PPTX file.
@@ -96,3 +96,17 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**Is nested grouping (a group inside a group) supported?**
+
+Yes. [GroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/groupshape/) has a [getParentGroup](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getParentGroup--) method, which directly indicates hierarchy support (a group can be a child of another group).
+
+**How do I control the group’s z-order relative to other objects on the slide?**
+
+Use the [GroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/groupshape/)’s [getZOrderPosition](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getZOrderPosition--) method to inspect its position in the display stack.
+
+**Can I prevent moving/editing/ungrouping?**
+
+Yes. The group’s lock section is exposed via [GroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/groupshape/#getGroupShapeLock--), which lets you restrict operations on the object.

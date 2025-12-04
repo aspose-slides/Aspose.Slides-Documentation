@@ -213,7 +213,7 @@ try {
 }
 ```
 
-## **Set Font Properties for Chart**
+## **Set Font Properties for a Chart**
 Aspose.Slides for Java provides support for setting the font related properties for the chart. Please follow the steps below for setting the font properties for chart.
 
 - Instantiate [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class object.
@@ -238,7 +238,7 @@ try {
 }
 ```
 
-## **Set Format of Numerics**
+## **Set the Numeric Format**
 Aspose.Slides for Java provides a simple API for managing chart data format:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.

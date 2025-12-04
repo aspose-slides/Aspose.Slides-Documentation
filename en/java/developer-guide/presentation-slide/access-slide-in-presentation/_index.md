@@ -22,7 +22,7 @@ description: "Learn how to access and manage slides in PowerPoint and OpenDocume
 
 Aspose.Slides allows you to access slides in two ways: by index and by ID.
 
-## **Access Slide by Index**
+## **Access a Slide by Index**
 
 All slides in a presentation are arranged numerically based on the slide position starting from 0. The first slide is accessible through index 0; the second slide is accessed through index 1; etc.
 
@@ -39,7 +39,7 @@ try {
 }
 ```
 
-## **Access Slide by ID**
+## **Access a Slide by ID**
 
 Each slide in a presentation has a unique ID associated with it. You can use the [getSlideById](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlideById-long-) method (exposed by the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class) to target that ID. This Java code shows you how to provide a valid slide ID and access that slide through the [getSlideById](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlideById-long-) method:
 
@@ -57,7 +57,7 @@ try {
 }
 ```
 
-## **Change Slide Position**
+## **Change the Slide Position**
 
 Aspose.Slides allow you to change a slide position. For example, you can specify that the first slide should become the second slide.
 
@@ -88,7 +88,7 @@ try {
 The first slide became the second; the second slide became the first. When you change a slide's position, other slides are automatically adjusted.
 
 
-## **Set Slide Number**
+## **Set the Slide Number**
 
 Using the [setFirstSlideNumber](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-) property (exposed by the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class), you can specify a new number for the first slide in a presentation. This operation causes other slide numbers to be recalculated.
 
@@ -141,3 +141,17 @@ try {
     if (presentation != null) presentation.dispose();
 }
 ```
+
+## **FAQ**
+
+**Does the slide number a user sees match the collection’s zero-based index?**
+
+The number shown on a slide can start from an arbitrary value (e.g., 10) and does not have to match the index; the relationship is controlled by the presentation’s [first slide number](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-) setting.
+
+**Do hidden slides affect indexing?**
+
+Yes. A hidden slide remains in the collection and is counted in indexing; "hidden" refers to display, not its position in the collection.
+
+**Does a slide’s index change when other slides are added or removed?**
+
+Yes. Indexes always reflect the current order in slides and are recalculated upon insert, delete, and move operations.

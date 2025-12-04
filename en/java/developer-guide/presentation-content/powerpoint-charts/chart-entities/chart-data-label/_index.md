@@ -19,7 +19,7 @@ description: "Learn to add and format chart data labels in PowerPoint presentati
 
 Data labels on a chart show details about the chart data series or individual data points. They allow readers to quickly identify data series and they also make charts easier to understand.
 
-## **Set Precision of Data in Chart Data Labels**
+## **Set Data Precision in Chart Data Labels**
 
 This Java code shows you how to set the data precision in a chart data label:
 
@@ -156,7 +156,7 @@ try {
 }
 ```
 
-## **Set Label Distances** From Axis
+## **Set Label Distance from an Axis**
 This Java code shows you how to set the label distance from a category axis when you are dealing with a chart plotted from axes:
 
 ```java

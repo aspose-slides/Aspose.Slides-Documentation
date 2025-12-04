@@ -28,7 +28,7 @@ While effects in PowerPoint can be used to make a shape stand out, they differ f
 
 Aspose.Slides provides properties and methods under the [EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/EffectFormat) class that allow you to apply the same effects to shapes in PowerPoint presentations.
 
-## **Apply Shadow Effect**
+## **Apply a Shadow Effect**
 
 This Java code shows you how to apply the outer shadow effect ([OuterShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/EffectFormat#setOuterShadowEffect--)) to a rectangle:
 
@@ -48,7 +48,7 @@ try {
 }
 ```
 
-## **Apply Reflection Effect**
+## **Apply a Reflection Effect**
 
 This Java code shows you how to apply the reflection effect to a shape:
 
@@ -69,7 +69,7 @@ try {
 }
 ```
 
-## **Apply Glow Effect**
+## **Apply a Glow Effect**
 
 This Java code shows you how to apply the glow effect to a shape:
 
@@ -88,7 +88,7 @@ try {
 }
 ```
 
-## **Apply Soft Edges Effect**
+## **Apply a Soft Edges Effect**
 
 This Java code shows you how to apply the soft edges to a shape:
 
@@ -105,3 +105,17 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**Can I apply multiple effects to the same shape?**
+
+Yes, you can combine different effects, such as shadow, reflection, and glow, on a single shape to create a more dynamic appearance.
+
+**What shapes can I apply effects to?**
+
+You can apply effects to various shapes, including autoshapes, charts, tables, pictures, SmartArt objects, OLE objects, and more.
+
+**Can I apply effects to grouped shapes?**
+
+Yes, you can apply effects to grouped shapes. The effect will apply to the entire group.

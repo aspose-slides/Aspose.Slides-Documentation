@@ -57,7 +57,7 @@ try {
 }
 ```
 
-## **Hide Information from Chart**
+## **Hide Chart Elements**
 This topic helps you to understand how to hide information from chart. Using Aspose.Slides for Java you can hide **Title, Vertical Axis, Horizontal Axis** and **Grid Lines** from chart. Below code example shows how to use these properties.
 
 ```java

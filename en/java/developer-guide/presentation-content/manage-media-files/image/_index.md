@@ -52,7 +52,7 @@ You can manipulate input/output operations involving images and PowerPoint prese
 
 Aspose.Slides supports operations with images in these popular formats: JPEG, PNG, GIF, and others. 
 
-## **Adding Images Stored Locally to Slides**
+## **Add Images Stored Locally to Slides**
 
 You can add one or several images on your computer onto a slide in a presentation. This sample code in Java shows you how to add an image to a slide:
 
@@ -75,7 +75,7 @@ try {
 }
 ```
 
-## **Adding Images from the Web to Slides**
+## **Add Images from the Web to Slides**
 
 If the image you want to add to a slide is unavailable on your computer, you can add the image directly from the web. 
 
@@ -114,7 +114,7 @@ try {
 }
 ```
 
-## **Adding Images to Slide Masters**
+## **Add Images to Slide Masters**
 
 A slide master is the top slide that stores and controls information (theme, layout, etc.) about all slides under it. So, when you add an image to a slide master, that image appears on every slide under that slide master. 
 
@@ -141,11 +141,11 @@ try {
 }
 ```
 
-## **Adding Images as Slide Background**
+## **Add Images as Slide Backgrounds**
 
 You may decide to use a picture as the background for a specific slide or several slides. In that case, you have to see *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/java/presentation-background/#setting-images-as-background-for-slides)*.
 
-## **Adding SVG to Presentations**
+## **Add SVG to Presentations**
 You can add or insert any image into a presentation by using the [addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) method that belongs to the [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) interface.
 
 To create an image object based on SVG image, you can do it this way:
@@ -171,7 +171,7 @@ try {
 }
 ```
 
-## **Converting SVG to a Set of Shapes**
+## **Convert SVG to a Set of Shapes**
 Aspose.Slides' conversion of SVG to a set of shapes is similar to the PowerPoint functionality used to work with SVG images:
 
 ![PowerPoint Popup Menu](img_01_01.png)
@@ -205,7 +205,7 @@ try {
 }
 ```
 
-## **Adding Images as EMF to Slides**
+## **Add Images as EMF to Slides**
 Aspose.Slides for Java allows you to generate EMF images from excel sheets and add the images as EMF in slides with Aspose.Cells. 
 
 This sample code shows you how to perform the described task:
@@ -252,7 +252,7 @@ try {
 }
 ```
 
-## **Replacing Images in the Image Collection**
+## **Replace Images in the Image Collection**
 
 Aspose.Slides lets you replace images stored in a presentation’s image collection (including those used by slide shapes). This section shows several approaches to updating images in the collection. The API provides straightforward methods to replace an image using raw byte data, an [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/) instance, or another image that already exists in the collection.
 

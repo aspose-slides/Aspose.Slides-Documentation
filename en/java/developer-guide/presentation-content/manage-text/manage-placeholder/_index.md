@@ -18,7 +18,7 @@ keywords:
 description: "Effortlessly manage placeholders in Aspose.Slides for Java: replace text, customize prompts & set image transparency in PowerPoint and OpenDocument."
 ---
 
-## **Change Text in Placeholder**
+## **Change Text in a Placeholder**
 Using [Aspose.Slides for Java](/slides/java/), you can find and modify placeholders on slides in presentations. Aspose.Slides allows you to make changes to the text in a placeholder.
 
 **Prerequisite**: You need a presentation that contains a placeholder. You can create such a presentation in the standard Microsoft PowerPoint app.
@@ -57,7 +57,7 @@ try {
 }
 ```
 
-## **Set Prompt Text in Placeholder**
+## **Set Prompt Text in a Placeholder**
 Standard and pre-built layouts contain placeholder prompt texts such as ***Click to add a title*** or ***Click to add a subtitle***. Using Aspose.Slides, you can insert your preferred prompt texts into placeholder layouts.
 
 This Java code shows you how to set the prompt text in a placeholder:

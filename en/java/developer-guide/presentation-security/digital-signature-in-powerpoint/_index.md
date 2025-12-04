@@ -31,7 +31,7 @@ Presentation may contain more than one digital signatures. After the digital sig
 
 
 To sign presentation or check the authenticity of presentation signatures, **Aspose.Slides API** provides [**IDigitalSignature**](https://reference.aspose.com/slides/java/com.aspose.slides/IDigitalSignature) interface, [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/IDigitalSignatureCollection) interface and [**IPresentation.getDigitalSignatures**](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentation#getDigitalSignatures--) method. Currently, digital signatures are supported for PPTX format only.
-## **Add Digital Signature from PFX Certificate**
+## **Add a Digital Signature from a PFX Certificate**
 The code sample below demonstrates how to add digital signature from a PFX certificate:
 
 1. Open PFX file and pass PFX password to [**DigitalSignature**](https://reference.aspose.com/slides/java/com.aspose.slides/DigitalSignature) object.
@@ -86,3 +86,17 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**Can I remove existing signatures from a file?**
+
+Yes. The digital signatures collection supports [removing individual items](https://reference.aspose.com/slides/java/com.aspose.slides/digitalsignaturecollection/#removeAt-int-) and [clearing it entirely](https://reference.aspose.com/slides/java/com.aspose.slides/digitalsignaturecollection/#clear--); after you save the file, the presentation will have no signatures.
+
+**Does the file become "read-only" after signing?**
+
+No. A signature preserves integrity and authorship but does not block edits. To restrict editing, combine it with ["Read-only" or a password](/slides/java/password-protected-presentation/).
+
+**Will the signature display correctly in different versions of PowerPoint?**
+
+The signature is created for the OOXML (PPTX) container. Modern versions of PowerPoint that support OOXML signatures display the status of such signatures correctly.
