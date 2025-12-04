@@ -23,7 +23,7 @@ The structure of PPTX is complex so unlike PPT, where a generic lock can be used
 - PictureFrameLock locks picture frames.
 
 Any action performed on all Shape objects in a Presentation object is applied to the whole presentation.
-## **Applying and Removing Protection**
+## **Apply and Remove Protection**
 Applying protection ensures that a presentation cannot be edited. It is a useful technique for protecting a presentation's content.
 
 **Applying Protection to PPTX Shapes**

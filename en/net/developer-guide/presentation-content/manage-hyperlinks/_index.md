@@ -39,9 +39,9 @@ You may want to check out Aspose simple, [free online PowerPoint editor.](https:
 
 {{% /alert %}} 
 
-## **Adding URL Hyperlinks**
+## **Add URL Hyperlinks**
 
-### **Adding URL Hyperlinks to Texts**
+### **Add URL Hyperlinks to Text**
 
 This C# code shows you how to add a website hyperlink to a text:
 
@@ -58,7 +58,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Adding URL Hyperlinks to Shapes or Frames**
+### **Add URL Hyperlinks to Shapes or Frames**
 
 This sample code in C# shows you how to add a website hyperlink to a shape:
 
@@ -74,7 +74,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Adding URL Hyperlinks to Media**
+### **Add URL Hyperlinks to Media**
 
 Aspose.Slides allows you to add hyperlinks to images, audio, and video files. 
 
@@ -132,7 +132,7 @@ You may want to see *[Manage OLE](https://docs.aspose.com/slides/net/manage-ole/
 {{% /alert %}}
 
 
-## **Using Hyperlinks to Create Table of Contents**
+## **Use Hyperlinks to Create a Table of Contents**
 
 Since hyperlinks allow you to add references to objects or places, you can use them to create a table of contents. 
 
@@ -165,7 +165,7 @@ using (var presentation = new Presentation())
 }
 ```
 
-## **Formatting Hyperlinks**
+## **Format Hyperlinks**
 
 ### **Color**
 
@@ -196,7 +196,7 @@ Aspose.Slides provides these properties to allow you emphasize a hyperlink with 
 - [IHyperlink.Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/sound) 
 - [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
-#### **Add Hyperlink Sound**
+#### **Add a Hyperlink Sound**
 
 This C# code shows you how to set the hyperlink that plays a sound and stop it with another hyperlink:
 
@@ -233,7 +233,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-#### **Extract Hyperlink Sound**
+#### **Extract a Hyperlink Sound**
 
 This C# code shows you how to extract the sound used in an hyperlink:
 
@@ -253,9 +253,9 @@ using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 }
 ```
 
-## **Removing Hyperlinks in Presentations**
+## **Remove Hyperlinks from Presentations**
 
-### **Removing Hyperlinks from Texts**
+### **Remove Hyperlinks from Text**
 
 This C# code shows you how to remove the hyperlink from a text in a presentation slide:
 
@@ -282,7 +282,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-### **Removing Hyperlinks from Shapes or Frames**
+### **Remove Hyperlinks from Shapes or Frames**
 
 This C# code shows you how to remove the hyperlink from a shape in a presentation slide: 
 

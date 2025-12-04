@@ -58,7 +58,7 @@ using (Presentation presentation = new Presentation(dataDir + "DefaultFonts.pptx
 FontsLoader.ClearCache();
 ```
 
-## **Get Custom Fonts Folder**
+## **Get Custom Font Folders**
 Aspose.Slides provides the [GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/) method to allow you to find font folders. This method returns folders added through the `LoadExternalFonts` method and system font folders.
 
 This C# code shows you how to use [GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/):
@@ -70,7 +70,7 @@ string[] fontFolders = FontsLoader.GetFontFolders();
 ```
 
 
-## **Specify Custom Fonts Used With Presentation**
+## **Specify Custom Fonts Used with a Presentation**
 Aspose.Slides provides the [DocumentLevelFontSources](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/documentlevelfontsources/) property to allow you to specify external fonts that will be used with the presentation.
 
 This C# code shows you how to use the [DocumentLevelFontSources](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/documentlevelfontsources/) property:

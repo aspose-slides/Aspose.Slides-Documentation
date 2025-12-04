@@ -19,7 +19,7 @@ keywords:
 description: "Learn how to create and customize pie charts in .NET with Aspose.Slides, exportable to PowerPoint, boosting your data storytelling in seconds."
 ---
 
-## **Second Plot Options for Pie of Pie and Bar of Pie Chart**
+## **Second Plot Options for Pie of Pie and Bar of Pie Charts**
 Aspose.Slides for .NET now supports, second plot options for Pie of Pie or Bar of Pie chart. In this topic, we will see with example how to Specify these options using Aspose.Slides. In order to specify the properties. Please follow the steps below:
 
 1. Instantiate [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class object.

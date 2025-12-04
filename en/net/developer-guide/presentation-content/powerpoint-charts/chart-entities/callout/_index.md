@@ -32,7 +32,7 @@ using (Presentation presentation = new Presentation())
 
 
 
-## **Set Callout for Doughnut Chart**
+## **Set a Callout for a Doughnut Chart**
 Aspose.Slides for .NET provides support for setting series data label callout shape for a Doughnut chart. Below sample example is given. 
 
 ```c#

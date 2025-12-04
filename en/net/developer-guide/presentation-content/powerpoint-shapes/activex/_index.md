@@ -143,7 +143,7 @@ presentation.Save("withActiveX.cleared_out.pptm", Aspose.Slides.Export.SaveForma
 ```
 
 
-## **Add ActiveX Media Player Control**
+## **Add an ActiveX Media Player Control**
 To add ActiveX Media Player control, please perform following steps:
 
 1. Create an instance of the Presentation class and load the sample presentation with Media Player ActiveX controls in it.

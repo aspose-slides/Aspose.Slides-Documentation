@@ -25,13 +25,13 @@ This page lists all [added](/slides/net/public-api-and-backwards-incompatible-ch
 
 {{% /alert %}} 
 ## **Public API Changes**
-#### **Enum OrganizationChartLayoutType has been added**
+#### **Enum OrganizationChartLayoutType Has Been Added**
 The Aspose.Slides.SmartArt.OrganizationChartLayoutType enum represents formatting type the child nodes in an organization chart.
-#### **Method IBulletFormat.ApplyDefaultParagraphIndentsShifts has been added**
+#### **Method IBulletFormat.ApplyDefaultParagraphIndentsShifts Has Been Added**
 Method Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts sets default non-zero shifts for effective paragraph Indent and MarginLeft when bullets is enabled (like PowerPoint do if enable paragraph bullets/numbering in it). If bullets is disabled then just reset paragraph Indent and MarginLeft (like PowerPoint do if disable paragraph bullets/numbering in it).
 
 See examples [here](/slides/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
-#### **Method IConnector.Reroute has been added**
+#### **Method IConnector.Reroute Has Been Added**
 Method Aspose.Slides.IConnector.Reroute reroutes connector so that it take the shortest possible path between the shapes it connect. To do this, the Reroute() method may change the StartShapeConnectionSiteIndex and EndShapeConnectionSiteIndex.
 
 ``` csharp
@@ -59,7 +59,7 @@ Method Aspose.Slides.IConnector.Reroute reroutes connector so that it take the s
 }
 
 ``` 
-#### **Method IPresentation.GetSlideById has been added**
+#### **Method IPresentation.GetSlideById Has Been Added**
 Method Aspose.Slides.IPresentation.GetSlideById(System.UInt32) returns a Slide, MasterSlide or LayoutSlide by slide Id.
 
 ``` csharp
@@ -77,7 +77,7 @@ Method Aspose.Slides.IPresentation.GetSlideById(System.UInt32) returns a Slide, 
 }
 
 ``` 
-#### **Property IShape.ConnectionSiteCount has been added**
+#### **Property IShape.ConnectionSiteCount Has Been Added**
 Property Aspose.Slides.IShape.ConnectionSiteCount returns the number of connection sites on the shape.
 
 ``` csharp
@@ -113,7 +113,7 @@ Property Aspose.Slides.IShape.ConnectionSiteCount returns the number of connecti
 }
 
 ``` 
-#### **Property ISmartArt.IsReversed has been added**
+#### **Property ISmartArt.IsReversed Has Been Added**
 Property Aspose.Slides.SmartArt.ISmartArt.IsReversed allows get or sets the state of the SmartArt diagram with regard to (left-to-right) LTR or (right-to-left) RTL, if the diagram supports reversal.
 
 ``` csharp
@@ -131,7 +131,7 @@ Property Aspose.Slides.SmartArt.ISmartArt.IsReversed allows get or sets the stat
 }
 
 ``` 
-#### **Property ISmartArt.Nodes has been added**
+#### **Property ISmartArt.Nodes Has Been Added**
 Property Aspose.Slides.SmartArt.ISmartArt.Nodes returns collection of root nodes in SmartArt object.
 
 ``` csharp
@@ -151,7 +151,7 @@ Property Aspose.Slides.SmartArt.ISmartArt.Nodes returns collection of root nodes
 }
 
 ``` 
-#### **Property ISmartArtNode.IsHidden has been added**
+#### **Property ISmartArtNode.IsHidden Has Been Added**
 Property Aspose.Slides.SmartArt.ISmartArtNode.IsHidden returns true if this node is a hidden node in the data model.
 
 ``` csharp
@@ -179,7 +179,7 @@ Property Aspose.Slides.SmartArt.ISmartArtNode.IsHidden returns true if this node
 }
 
 ``` 
-#### **Property ISmartArtNode.OrganizationChartLayout has been added**
+#### **Property ISmartArtNode.OrganizationChartLayout Has Been Added**
 Property Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout allows get or sets organization chart type associated with current node.
 
 ``` csharp
@@ -197,7 +197,7 @@ Property Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout allows get
 }
 
 ``` 
-#### **Set method for property ISmartArt.Layout has been added**
+#### **Set Method for Property ISmartArt.Layout Has Been Added**
 The set method for property Aspose.Slides.SmartArt.ISmartArt.Layout has been added.It allows change layout type of an existing diagram.
 
 ``` csharp
@@ -215,8 +215,8 @@ The set method for property Aspose.Slides.SmartArt.ISmartArt.Layout has been add
 }
 
 ``` 
-#### **Minor API changes**
-**This is the list of minor API changes:**
+#### **Minor API Changes**
+**This Is the List of Minor API Changes:**
 
 |Enum Aspose.Slides.BevelColorMode |deleted, unused enum |
 | :- | :- |

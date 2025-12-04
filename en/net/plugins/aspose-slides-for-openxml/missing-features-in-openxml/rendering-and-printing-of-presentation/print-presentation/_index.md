@@ -5,7 +5,7 @@ url: /net/print-the-presentation/
 ---
 
 Aspose.Slides for .NET provides four overloads methods for printing of the presentations. These methods are flexible enough to print the presentation to the default printer or to any of the available printer with customized settings. You only need to select the appropriate print method according to the requirement.
-## **Printing to default printer**
+## **Print to the Default Printer**
 Printing of the presentation to the default printer is quite simple in Aspose.Slides for .NET. Perform the following steps in order to print the presentation to default printer:
 
 - Create an instance of Presentation class to load a presentation that is to be printed
@@ -51,7 +51,7 @@ public static void PrintBySpecificPrinter()
 
 
 ``` 
-## **Printing to specific printer**
+## **Print to a Specific Printer**
 Printing of the presentation to the specific printer requires the name of the printer as parameter to the Print method of the Presentation. Perform the following steps in order to print the presentation to the desired printer:
 
 - Create an instance of Presentation class to load a presentation that is to be printed

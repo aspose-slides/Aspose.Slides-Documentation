@@ -111,7 +111,7 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
-## **Merge Presentations with Slide Master**
+## **Merge Presentations with a Slide Master**
 
 Aspose.Slides provides the [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation. 
 
@@ -138,7 +138,7 @@ The slide layout for the slide master is determined automatically. When an appro
 
 If you want the slides in the output presentation to have a different slide layout, use the [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/1) method instead when merging. 
 
-## **Merge Specific Slides From Presentations**
+## **Merge Specific Slides from Presentations**
 
 Merging specific slides from multiple presentations is useful for creating custom slide decks. Aspose.Slides for .NET allows you to select and import only the slides you need. The API preserves formatting, layout, and design of the original slides.
 
@@ -178,7 +178,7 @@ static ISlide GetTitleSlide(IPresentation presentation)
 }
 ```
 
-## **Merge Presentations With Slide Layout**
+## **Merge Presentations with a Slide Layout**
 
 This C# code shows you how to combine slides from presentations while applying your preferred slide layout to them to get one output presentation:
 
@@ -195,7 +195,7 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
-## **Merge Presentations With Different Slide Sizes**
+## **Merge Presentations with Different Slide Sizes**
 
 {{% alert title="Note" color="warning" %}} 
 
@@ -222,7 +222,7 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
-## **Merge Slides to Presentation Section**
+## **Merge Slides to a Presentation Section**
 
 This C# code shows you how to merge a specific slide to a section in a presentation:
 

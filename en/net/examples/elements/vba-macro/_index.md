@@ -19,7 +19,7 @@ description: "Work with VBA macros in C# using Aspose.Slides: add or edit projec
 
 Illustrates how to add, access, and remove VBA macros using **Aspose.Slides for .NET**.
 
-## Add a VBA Macro
+## **Add a VBA Macro**
 
 Create a presentation with a VBA project and a simple macro module.
 
@@ -34,7 +34,7 @@ static void Add_Vba_Macro()
 }
 ```
 
-## Access a VBA Macro
+## **Access a VBA Macro**
 
 Retrieve the first module from the VBA project.
 
@@ -51,7 +51,7 @@ static void Access_Vba_Macro()
 }
 ```
 
-## Remove a VBA Macro
+## **Remove a VBA Macro**
 
 Delete a module from the VBA project.
 
