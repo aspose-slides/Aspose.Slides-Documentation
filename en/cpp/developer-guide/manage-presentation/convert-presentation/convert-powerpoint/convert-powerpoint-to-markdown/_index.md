@@ -54,7 +54,7 @@ System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.p
 pres->Save(u"pres.md", SaveFormat::Md);
 ```
 
-## Convert PowerPoint to Markdown Flavor
+## **Convert PowerPoint to Markdown Flavor**
 
 Aspose.Slides allows you to convert PowerPoint to markdown (containing basic syntax), CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab, and 17 other markdown flavors.
 
@@ -69,7 +69,7 @@ pres->Save(u"pres.md", Aspose::Slides::Export::SaveFormat::Md, opt);
 
 The 23 supported markdown flavors are [listed under the Flavor enumeration](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/flavor/) from the [MarkdownSaveOptions](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) class.
 
-## **Convert Presentation Containing Images to Markdown**
+## **Convert a Presentation Containing Images to Markdown**
 
 The [MarkdownSaveOptions](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) class provides properties and enumerations that allow you to use certain options or settings for the resulting markdown file. The [MarkdownExportType](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) enum, for example, can be set to values that determine how images are rendered or handled: `Sequential`, `TextOnly`, `Visual`.
 
@@ -105,6 +105,18 @@ opt->set_ExportType(Aspose::Slides::DOM::Export::Markdown::SaveOptions::Markdown
 opt->set_ImagesSaveFolderName(u"md-images");
 opt->set_BasePath(outPath);
 pres->Save(System::IO::Path::Combine(outPath, u"pres.md"), Aspose::Slides::Export::SaveFormat::Md, opt);
-
 ```
 
+## **FAQ**
+
+**Do hyperlinks survive the export to Markdown?**
+
+Yes. Text [hyperlinks](/slides/cpp/manage-hyperlinks/) are preserved as standard Markdown links. Slide [transitions](/slides/cpp/slide-transition/) and [animations](/slides/cpp/powerpoint-animation/) are not converted.
+
+**Can I speed up conversion by running it in multiple threads?**
+
+You can parallelize across files, but [don’t share](/slides/cpp/multithreading/) the same [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) instance across threads. Use separate instances/processes per file to avoid contention.
+
+**What happens to images—where are they saved, and are the paths relative?**
+
+[Images](/slides/cpp/image/) are exported to a dedicated folder, and the Markdown file references them with relative paths by default. You can configure the base output path and asset folder name to keep a predictable repository structure.

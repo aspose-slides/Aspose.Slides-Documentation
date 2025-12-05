@@ -20,7 +20,7 @@ keywords:
 description: "Generate interactive 3D presentations in C++ with Aspose.Slides effortlessly. Export quickly to PowerPoint and OpenDocument formats for versatile use."
 ---
 
-## Overview
+## **Overview**
 Since Aspose.Slides 20.9 its possible to create and modify PowerPoint 3D models. This can be achieved by bringing 2D shapes a set of 3D effects. By creating a camera 
 view on the shape, you may rotate it by the axis. Create an extrusion or depth on the shape, which will transform the shape from a 2d shape to a 3D model. 
 Setting the light effect on the 3D shape or changing the materials can make it look more alive. Changing the colors of 3D models to a 3D gradient, 
@@ -60,7 +60,7 @@ The resulting PowerPoint 3D model:
 
 ![todo:image_alt_text](img_01_01.png)
 
-## 3D Rotation
+## **3D Rotation**
 In PowerPoint shape rotation is available via:
 
 ![todo:image_alt_text](img_02_01.png)
@@ -79,7 +79,7 @@ thumbnail->Save(u"sample_3d.png");
 thumbnail->Dispose();
 ```
 
-## 3D Depth and Extrusion
+## **3D Depth and Extrusion**
 To add depth and extrusion for a PowerPoint 3D model use 
 [IThreeDFormat.set_ExtrusionHeight()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#adf0bad4894b1c36d9e4b044ef4978295) method.
 For modifying extrusion color use 
@@ -102,7 +102,7 @@ Depth menu in PowerPoint:
 ![todo:image_alt_text](img_02_02.png)
 
 
-## 3D Gradient
+## **3D Gradient**
 Drawing a 3D gradient on PowerPoint 3D model can be done via 
 [Shape.get_FillFormat().get_GradientFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a1f075336cb7a0e05cd5d7a706b6f4f58) 
 method:
@@ -160,7 +160,7 @@ thumbnail->Dispose();
 
 ![todo:image_alt_text](img_02_04.png)
 
-## 3D Text (WordArt)
+## **3D Text (WordArt)**
 To apply rotation, extrusion, light, gradient on text and make it a 3D text(WordArt), you need to access [IAutoShape.get_TextFrame().get_TextFrameFormat().get_ThreeDFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5e681109403c2e57aa76a500fe508b30) method:
 
 ``` cpp
@@ -210,15 +210,16 @@ An example of 3D text (WordArt):
 
 ![todo:image_alt_text](img_02_05.png)
 
- 
-## Not Supported - Coming Soon
-The following PowerPoint 3D features are not supported yet: 
-- Bevel
-- Material
-- Contour
-- Lighting
+## **FAQ**
 
-We continue to improve our 3D Engine, and these features are the subject of further implementation.
+**Will 3D effects be preserved when exporting a presentation to images/PDF/HTML?**
 
- 
+Yes. The Slides 3D engine renders 3D effects when exporting to supported formats ([images](/slides/cpp/convert-powerpoint-to-png/), [PDF](/slides/cpp/convert-powerpoint-to-pdf/), [HTML](/slides/cpp/convert-powerpoint-to-html/), etc.).
 
+**Can I retrieve the "effective" (final) 3D parameter values that account for themes, inheritance, etc.?**
+
+Yes. Slides provides APIs to [read effective values](/slides/cpp/shape-effective-properties/) (including for 3D—lighting, bevels, etc.) so you can see the final applied settings.
+
+**Do 3D effects work when converting a presentation to video?**
+
+Yes. When [generating frames for the video](/slides/cpp/convert-powerpoint-to-video/), 3D effects are rendered just as they are for [exported images](/slides/cpp/convert-powerpoint-to-png/).
