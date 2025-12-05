@@ -46,3 +46,12 @@ Aspose.Slides for Java supports any 32-bit or 64-bit operating system that runs 
 ## **Supported Java Versions**
 Aspose.Slides for Java supports J2SE 6.0 (Java 1.6) and higher.
 
+## **FAQ**
+
+**Do I need Microsoft PowerPoint installed for conversions and rendering?**
+
+No, PowerPoint is not required; Aspose.Slides is a standalone engine for [creating](/slides/java/create-presentation/), modifying, [converting](/slides/java/convert-presentation/), and [rendering](/slides/java/convert-powerpoint-to-png/) presentations.
+
+**Which fonts are needed for correct rendering?**
+
+In practice, the fonts used in the presentation or proper [substitutes](/slides/java/font-substitution/) must be available. To ensure consistent rendering on Linux/macOS, it is advisable to install common font packages.
