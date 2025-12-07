@@ -1,31 +1,47 @@
 ---
-title: تحويل PowerPoint إلى PNG
+title: تحويل شرائح PowerPoint إلى PNG في C++
+linktitle: PowerPoint إلى PNG
 type: docs
 weight: 30
 url: /ar/cpp/convert-powerpoint-to-png/
-keywords: PowerPoint إلى PNG، PPT إلى PNG، PPTX إلى PNG، C++، Aspose.Slides لـ C++
-description: تحويل عرض PowerPoint إلى PNG
+keywords:
+- تحويل PowerPoint
+- تحويل العرض التقديمي
+- تحويل الشريحة
+- تحويل PPT
+- تحويل PPTX
+- PowerPoint إلى PNG
+- العرض التقديمي إلى PNG
+- الشريحة إلى PNG
+- PPT إلى PNG
+- PPTX إلى PNG
+- حفظ PPT كـ PNG
+- حفظ PPTX كـ PNG
+- تصدير PPT إلى PNG
+- تصدير PPTX إلى PNG
+- C++
+- Aspose.Slides
+description: "قم بتحويل عروض PowerPoint إلى صور PNG عالية الجودة بسرعة باستخدام Aspose.Slides للغة C++، مع ضمان نتائج دقيقة وآلية."
 ---
 
 ## **حول تحويل PowerPoint إلى PNG**
 
-تنسيق PNG (صور الشبكة المحمولة) ليس شائعًا مثل JPEG (مجموعة خبراء التصوير المشتركة)، لكنه لا يزال شائعًا جدًا.
+تنسيق PNG (Portable Network Graphics) ليس شائعًا كما JPEG (Joint Photographic Experts Group)، لكنه لا يزال شائعًا جدًا. 
 
-**حالة الاستخدام:** عندما يكون لديك صورة معقدة والحجم ليس مشكلة، فإن PNG هو تنسيق صورة أفضل من JPEG.
+**حالة الاستخدام:** عندما يكون لديك صورة معقدة ولا يكون الحجم مشكلة، فإن PNG هو تنسيق صورة أفضل من JPEG. 
 
-{{% alert title="نصيحة" color="primary" %}} قد ترغب في مراجعة **محولات PowerPoint إلى PNG** المجانية من Aspose: [PPTX إلى PNG](https://products.aspose.app/slides/conversion/pptx-to-png) و [PPT إلى PNG](https://products.aspose.app/slides/conversion/ppt-to-png). إنها تنفيذ حي للعملية الموضحة في هذه الصفحة. {{% /alert %}}
+{{% alert title="Tip" color="primary" %}} قد ترغب في الاطلاع على محولات Aspose المجانية **PowerPoint إلى PNG**: [PPTX إلى PNG](https://products.aspose.app/slides/conversion/pptx-to-png) و [PPT إلى PNG](https://products.aspose.app/slides/conversion/ppt-to-png). هي تنفيذ حي للعملية الموضحة في هذه الصفحة. {{% /alert %}}
 
 ## **تحويل PowerPoint إلى PNG**
 
-اتبع هذه الخطوات:
+اتبع الخطوات التالية:
 
-1. انشئ كائن من فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
 2. احصل على كائن الشريحة من مجموعة [Presentation::get_Slides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) تحت واجهة [ISlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide).
-3. استخدم طريقة [ISlide::GetImage()](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage) للحصول على الصورة المصغرة لكل شريحة.
-4. استخدم طريقة [IImage::Save(String, ImageFormatPtr](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/#iimagesavesystemstring-imageformat-method) لحفظ الصورة المصغرة للشريحة بتنسيق PNG.
+3. استخدم طريقة [ISlide::GetImage()](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage) للحصول على صورة مصغرة لكل شريحة.
+4. استخدم طريقة [IImage::Save(String, ImageFormatPtr](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/#iimagesavesystemstring-imageformat-method) لحفظ الصورة المصغرة للشريحة بصيغة PNG. 
 
-يعرض هذا الكود بلغة C++ كيفية تحويل عرض PowerPoint إلى PNG:
-
+هذا الكود بلغة C++ يوضح لك كيفية تحويل عرض PowerPoint إلى PNG:
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
     
@@ -37,12 +53,12 @@ for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
 }
 ```
 
+
 ## **تحويل PowerPoint إلى PNG بأبعاد مخصصة**
 
-إذا كنت تريد الحصول على ملفات PNG حول مقياس معين، يمكنك تعيين القيم لـ `desiredX` و `desiredY`، التي تحدد أبعاد الصورة المصغرة الناتجة.
+إذا كنت ترغب في الحصول على ملفات PNG بحجم معين، يمكنك تعيين القيم لـ `desiredX` و `desiredY`، والتي تحدد أبعاد الصورة المصغرة الناتجة. 
 
-يوضح هذا الكود بلغة C++ العملية الموصوفة:
-
+هذا الكود بلغة C++ يوضح العملية الموصوفة:
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
@@ -56,12 +72,12 @@ for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
 }
 ```
 
+
 ## **تحويل PowerPoint إلى PNG بحجم مخصص**
 
-إذا كنت تريد الحصول على ملفات PNG حول حجم معين، يمكنك تمرير وسيطتي `width` و `height` المفضلتين لـ `ImageSize`.
+إذا كنت ترغب في الحصول على ملفات PNG بحجم معين، يمكنك تمرير القيم المفضلة لـ `width` و `height` إلى `ImageSize`. 
 
-يوضح هذا الكود لك كيفية تحويل PowerPoint إلى PNG مع تحديد الحجم للصور:
-
+هذا الكود يوضح لك كيفية تحويل PowerPoint إلى PNG مع تحديد حجم الصور: 
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
     
@@ -73,3 +89,18 @@ for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
     slide->GetImage(size)->Save(fileName, ImageFormat::Png);
 }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**كيف يمكنني تصدير شكل معين فقط (مثل مخطط أو صورة) بدلاً من الشريحة بالكامل؟**
+
+تدعم Aspose.Slides [إنشاء صور مصغرة للأشكال الفردية](/slides/ar/cpp/create-shape-thumbnails/); يمكنك تحويل الشكل إلى صورة PNG.
+
+**هل يُدعم التحويل المتوازي على الخادم؟**
+
+نعم، ولكن [لا تشارك](/slides/ar/cpp/multithreading/) كائن العرض الواحد عبر الخيوط. استخدم كائنًا منفصلاً لكل خيط أو عملية.
+
+**ما هي قيود نسخة التجربة عند التصدير إلى PNG؟**
+
+يضيف وضع التقييم علامة مائية إلى الصور الناتجة ويُطبق [قيودًا أخرى](/slides/ar/cpp/licensing/) حتى يتم تطبيق الترخيص.

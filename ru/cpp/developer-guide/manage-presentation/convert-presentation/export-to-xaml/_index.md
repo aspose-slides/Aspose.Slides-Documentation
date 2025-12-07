@@ -1,12 +1,34 @@
 ---
-title: Экспорт в XAML
+title: Экспорт презентаций в XAML на C++
+linktitle: Презентация в XAML
 type: docs
 weight: 30
 url: /ru/cpp/export-to-xaml/
-
+keywords:
+- экспорт PowerPoint
+- экспорт OpenDocument
+- экспорт презентации
+- преобразовать PowerPoint
+- преобразовать OpenDocument
+- преобразовать презентацию
+- PowerPoint в XAML
+- OpenDocument в XAML
+- презентация в XAML
+- PPT в XAML
+- PPTX в XAML
+- ODP в XAML
+- сохранить PPT как XAML
+- сохранить PPTX как XAML
+- сохранить ODP как XAML
+- экспорт PPT в XAML
+- экспорт PPTX в XAML
+- экспорт ODP в XAML
+- C++
+- Aspose.Slides
+description: "Конвертируйте слайды PowerPoint и OpenDocument в XAML на C++ с помощью Aspose.Slides — быстрое решение без Office, сохраняющее макет неповреждённым."
 ---
 
-# Экспорт презентаций в XAML
+## **Экспорт презентаций в XAML**
 
 {{% alert color="primary" %}} 
 
@@ -14,27 +36,26 @@ url: /ru/cpp/export-to-xaml/
 
 {{% /alert %}} 
 
-# О XAML
+## **О XAML**
 
-XAML - это описательный язык программирования, который позволяет вам создавать или писать пользовательские интерфейсы для приложений, особенно тех, которые используют WPF (Windows Presentation Foundation), UWP (Универсальная платформа Windows) и формы Xamarin.  
+XAML — это описательный язык программирования, позволяющий создавать или писать пользовательские интерфейсы для приложений, особенно тех, которые используют WPF (Windows Presentation Foundation), UWP (Universal Windows Platform) и Xamarin Forms.  
 
-XAML, который является языком на основе XML, представляет собой вариант Microsoft для описания графического интерфейса. Вы, скорее всего, будете использовать дизайнер для работы с файлами XAML большую часть времени, но при этом вы все равно можете писать и редактировать свой графический интерфейс.
+XAML, являющийся языком на основе XML, — вариант Microsoft для описания графического интерфейса. Обычно вы будете работать с XAML‑файлами в дизайнере, но при этом можете писать и редактировать интерфейс вручную. 
 
-## Экспорт презентаций в XAML с параметрами по умолчанию
+## **Экспорт презентаций в XAML с параметрами по умолчанию**
 
-Этот код на C++ показывает, как экспортировать презентацию в XAML с настройками по умолчанию:
-
+Этот код C++ демонстрирует, как экспортировать презентацию в XAML с настройками по умолчанию:
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(System::MakeObject<XamlOptions>());
 ```
 
-## Экспорт презентаций в XAML с пользовательскими параметрами
 
-Вы можете выбрать параметры из интерфейса [IXamlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_options), которые контролируют процесс экспорта и определяют, как Aspose.Slides экспортирует вашу презентацию в XAML. 
+## **Экспорт презентаций в XAML с пользовательскими параметрами**
 
-Например, если вы хотите, чтобы Aspose.Slides добавил скрытые слайды из вашей презентации при экспорте в XAML, вы можете передать значение true методу [set_ExportHiddenSlides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_options#a94c59a06cc2163b17e6fa2fe817c0313). Вот этот образец кода на C++: 
+Вы можете выбирать параметры из интерфейса [IXamlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_options), которые управляют процессом экспорта и определяют, как Aspose.Slides экспортирует вашу презентацию в XAML. 
 
+Например, если вы хотите, чтобы Aspose.Slides добавлял скрытые слайды из вашей презентации при экспорте в XAML, вы можете передать true методу [set_ExportHiddenSlides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_options#a94c59a06cc2163b17e6fa2fe817c0313). См. пример кода C++: 
 ``` cpp
 auto xamlOptions = System::MakeObject<XamlOptions>();
 xamlOptions->set_ExportHiddenSlides(true);
@@ -42,3 +63,18 @@ xamlOptions->set_ExportHiddenSlides(true);
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(xamlOptions);
 ```
+
+
+## **Часто задаваемые вопросы**
+
+**Как обеспечить предсказуемое отображение шрифтов, если оригинальный шрифт недоступен на машине?**
+
+Используйте [set_DefaultRegularFont](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_defaultregularfont/) в [XamlOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export.xaml/xamloptions/) — он используется как резервный шрифт, когда оригинальный отсутствует. Это помогает избежать неожиданных замен.
+
+**Экспортированный XAML предназначен только для WPF или его можно использовать и в других XAML‑стэках?**
+
+XAML — это общий язык разметки пользовательского интерфейса, используемый в WPF, UWP и Xamarin.Forms. Экспорт ориентирован на совместимость со стэками Microsoft XAML; точное поведение и поддержка конкретных конструкций зависят от целевой платформы. Проверьте разметку в своей среде.
+
+**Поддерживаются ли скрытые слайды и как отключить их экспорт по умолчанию?**
+
+По умолчанию скрытые слайды не включаются. Управлять этим поведением можно через [set_ExportHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export.xaml/xamloptions/set_exporthiddenslides/) в [XamlOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export.xaml/xamloptions/) — оставьте его отключённым, если экспорт скрытых слайдов не требуется.

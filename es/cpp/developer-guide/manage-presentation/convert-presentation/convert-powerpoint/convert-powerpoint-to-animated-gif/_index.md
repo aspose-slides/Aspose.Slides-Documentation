@@ -1,47 +1,80 @@
 ---
-title: Convertir PowerPoint a GIF Animado
+title: Convertir presentaciones de PowerPoint a GIF animados en C++
+linktitle: PowerPoint a GIF
 type: docs
 weight: 65
 url: /es/cpp/convert-powerpoint-to-animated-gif/
-keywords: "Convertir PowerPoint a GIF animado, "
-description: "Convertir PowerPoint a GIF animado: PPT a GIF, PPTX a GIF, con la API Aspose.Slides."
+keywords:
+- GIF animado
+- convertir PowerPoint
+- convertir presentación
+- convertir diapositiva
+- convertir PPT
+- convertir PPTX
+- PowerPoint a GIF
+- presentación a GIF
+- diapositiva a GIF
+- PPT a GIF
+- PPTX a GIF
+- guardar PPT como GIF
+- guardar PPTX como GIF
+- exportar PPT como GIF
+- exportar PPTX como GIF
+- configuraciones predeterminadas
+- configuraciones personalizadas
+- PowerPoint
+- presentación
+- C++
+- Aspose.Slides
+description: "Convierta fácilmente presentaciones de PowerPoint (PPT, PPTX) a GIF animados con Aspose.Slides para C++. Resultados rápidos y de alta calidad."
 ---
 
-## Convertir Presentaciones a GIF Animado Usando Configuraciones Predeterminadas ##
+## **Convertir presentaciones a GIF animado usando la configuración predeterminada**
 
-Este código de muestra en C++ te muestra cómo convertir una presentación a GIF animado usando configuraciones estándar:
-
+Este código de ejemplo en C++ muestra cómo convertir una presentación a GIF animado usando la configuración estándar:
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(u"pres.gif", SaveFormat::Gif);
 ```
 
-El GIF animado se creará con parámetros predeterminados.
 
-{{%  alert  title="CONSEJO"  color="primary"  %}} 
+El GIF animado se creará con los parámetros predeterminados. 
 
-Si prefieres personalizar los parámetros para el GIF, puedes usar la clase [GifOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.gif_options). Consulta el código de muestra a continuación.
+{{%  alert  title="TIP"  color="primary"  %}} 
+
+Si prefiere personalizar los parámetros del GIF, puede usar la clase [GifOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.gif_options). Consulte el código de ejemplo a continuación. 
 
 {{% /alert %}} 
 
-## Convertir Presentaciones a GIF Animado Usando Configuraciones Personalizadas ##
-Este código de muestra te muestra cómo convertir una presentación a GIF animado usando configuraciones personalizadas en C++:
+## **Convertir presentaciones a GIF animado usando configuraciones personalizadas**
 
+Este código de ejemplo muestra cómo convertir una presentación a GIF animado usando configuraciones personalizadas en C++:
 ``` cpp
 auto gifOptions = System::MakeObject<GifOptions>();
 // el tamaño del GIF resultante
 gifOptions->set_FrameSize(Size(960, 720));
-// cuánto tiempo se mostrará cada diapositiva antes de cambiar a la siguiente
+// cuánto tiempo se mostrará cada diapositiva hasta que se cambie a la siguiente
 gifOptions->set_DefaultDelay(2000);
-// aumentar FPS para mejorar la calidad de transición de animación
+// aumentar FPS para mejorar la calidad de la animación de transición
 gifOptions->set_TransitionFps(35);
 
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(u"pres.gif", SaveFormat::Gif, gifOptions);
 ```
 
-{{% alert title="Información" color="info" %}}
 
-Puede que desees consultar un conversor GRATUITO de [Texto a GIF](https://products.aspose.app/slides/text-to-gif) desarrollado por Aspose.
+{{% alert title="Info" color="info" %}}
+
+Puede que quiera probar un conversor GRATUITO de [Texto a GIF](https://products.aspose.app/slides/text-to-gif) desarrollado por Aspose. 
 
 {{% /alert %}}
+
+## **FAQ**
+
+**¿Qué pasa si las fuentes usadas en la presentación no están instaladas en el sistema?**
+
+Instale las fuentes faltantes o [configure fuentes de respaldo](/slides/es/cpp/powerpoint-fonts/). Aspose.Slides las sustituirá, pero la apariencia podría variar. Para la marca, siempre asegúrese de que los tipos de letra requeridos estén disponibles explícitamente.
+
+**¿Puedo superponer una marca de agua en los fotogramas del GIF?**
+
+Sí. [Agregue un objeto/logo semitransparente](/slides/es/cpp/watermark/) a la diapositiva maestra o a diapositivas individuales antes de la exportación — la marca de agua aparecerá en cada fotograma.

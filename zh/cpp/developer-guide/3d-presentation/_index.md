@@ -1,27 +1,29 @@
 ---
-title: 3D 演示
+title: 在 C++ 中创建 3D 演示文稿
+linktitle: 3D 演示文稿
 type: docs
 weight: 232
 url: /zh/cpp/3d-presentation/
 keywords:
-- 3D
 - 3D PowerPoint
-- 3D 演示
+- 3D 演示文稿
 - 3D 旋转
 - 3D 深度
-- 3D 牵引
+- 3D 拉伸
 - 3D 渐变
 - 3D 文本
-- PowerPoint 演示
+- PowerPoint
+- OpenDocument
+- 演示文稿
 - C++
-- Aspose.Slides for C++
-description: "C++ 中的 3D PowerPoint 演示"
+- Aspose.Slides
+description: "使用 Aspose.Slides 在 C++ 中轻松生成交互式 3D 演示文稿。快速导出为 PowerPoint 和 OpenDocument 格式，灵活使用。"
 ---
 
-## 概述
-自 Aspose.Slides 20.9 以来，可以创建和修改 PowerPoint 3D 模型。这可以通过为 2D 形状添加一组 3D 效果来实现。通过在形状上创建一个相机视图，您可以沿轴旋转它。在形状上创建一个挤出或深度，这将把形状从 2D 形状转换为 3D 模型。设置 3D 形状上的光效或更改材料可以使其看起来更生动。将 3D 模型的颜色更改为 3D 渐变、修改形状轮廓、添加斜面可以使 3D 模型更具立体感。所有 3D 效果均可应用于 PowerPoint 3D 模型和文本。
+## **概述**
+自 Aspose.Slides 20.9 起，您可以创建和修改 PowerPoint 3D 模型。通过为 2D 形状添加一系列 3D 效果即可实现。为形状创建摄像机视图后，可围绕轴旋转它。为形状创建拉伸或深度，可将 2D 形状转换为 3D 模型。设置 3D 形状的光照效果或更改材质可以使其更生动。将 3D 模型的颜色更改为 3D 渐变，修改形状轮廓，添加倒角可使 3D 模型更具体积感。所有 3D 效果均可应用于 PowerPoint 3D 模型和文本。
 
-让我们观察第一个创建 3D 模型的示例，其中包含上述所有功能：
+让我们来看创建 3D 模型的第一个示例，其中包含上述所有功能：
 ``` cpp
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
@@ -51,17 +53,17 @@ presentation->Save(u"sandbox_3d.pptx", Export::SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+
 生成的 PowerPoint 3D 模型：
 
 ![todo:image_alt_text](img_01_01.png)
 
-## 3D 旋转
-在 PowerPoint 中，形状旋转可以通过：
+## **3D 旋转**
+在 PowerPoint 中，形状旋转可通过以下方式进行：
 
 ![todo:image_alt_text](img_02_01.png)
 
-要旋转 PowerPoint 3D 模型，需要在形状上创建一个相机视图。这是通过 [IThreeDFormat.get_Camera()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#ad2f989bd1fd64fd4136e1f17660035d4) 方法实现的。旋转方法是从相机类调用的，就好像您正在旋转相机一样。实际上，当您相对于形状旋转相机时，您是在 3D 平面上旋转形状。
-
+要旋转 PowerPoint 3D 模型，需要在形状上创建摄像机视图。这可以通过[IThreeDFormat.get_Camera()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#ad2f989bd1fd64fd4136e1f17660035d4) 方法实现。旋转方法在摄像机类中调用，仿佛您在旋转摄像机。实际上，当您相对于形状旋转摄像机时，您就在 3D 平面上旋转形状。
 ``` cpp
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
@@ -72,12 +74,9 @@ thumbnail->Save(u"sample_3d.png");
 thumbnail->Dispose();
 ```
 
-## 3D 深度和挤出
-要为 PowerPoint 3D 模型添加深度和挤出，请使用 
-[IThreeDFormat.set_ExtrusionHeight()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#adf0bad4894b1c36d9e4b044ef4978295) 方法。
-要修改挤出颜色，请使用 
-[IThreeDFormat.get_ExtrusionColor()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#aa7db8859d23a9b4eb2f35f3a42025e9e) 方法：
 
+## **3D 深度和拉伸**
+要为 PowerPoint 3D 模型添加深度和拉伸，请使用[IThreeDFormat.set_ExtrusionHeight()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#adf0bad4894b1c36d9e4b044ef4978295) 方法。要修改拉伸颜色，请使用[IThreeDFormat.get_ExtrusionColor()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#aa7db8859d23a9b4eb2f35f3a42025e9e) 方法：
 ``` cpp
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
@@ -90,15 +89,14 @@ thumbnail->Save(u"sample_3d.png");
 thumbnail->Dispose();
 ```
 
+
 PowerPoint 中的深度菜单：
 
 ![todo:image_alt_text](img_02_02.png)
 
 
-## 3D 渐变
-在 PowerPoint 3D 模型上绘制 3D 渐变可以通过 
-[Shape.get_FillFormat().get_GradientFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a1f075336cb7a0e05cd5d7a706b6f4f58) 方法完成：
-
+## **3D 渐变**
+在 PowerPoint 3D 模型上绘制 3D 渐变可通过[Shape.get_FillFormat().get_GradientFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a1f075336cb7a0e05cd5d7a706b6f4f58) 方法实现：
 ``` cpp
 using namespace Aspose::Slides;
 
@@ -108,7 +106,7 @@ auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 250.0f, 250.0f);
-shape->get_TextFrame()->set_Text(u"3D 渐变");
+shape->get_TextFrame()->set_Text(u"3D Gradient");
 shape->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(64.0f);
 
 shape->get_FillFormat()->set_FillType(FillType::Gradient);
@@ -127,12 +125,12 @@ thumbnail->Save(u"sample_3d.png");
 thumbnail->Dispose();
 ```
 
-具有 3D 渐变的 3D 模型：
+
+带有 3D 渐变的 3D 模型：
 
 ![todo:image_alt_text](img_02_03.png)
   
-要创建图像渐变，请使用 
-[Shape.get_FillFormat().get_PictureFillFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#ac01c9a38197ddcd80c180aceeaf155cb) 方法：
+要创建图像渐变，请使用[Shape.get_FillFormat().get_PictureFillFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#ac01c9a38197ddcd80c180aceeaf155cb) 方法：
 ``` cpp
 auto imageData = System::IO::File::ReadAllBytes(u"image.jpg");
 auto image = presentation->get_Images()->AddImage(imageData);
@@ -140,7 +138,7 @@ auto image = presentation->get_Images()->AddImage(imageData);
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 shape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(image);
 shape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
-// .. 设置 3D：相机、光照装置、挤出
+// .. 设置 3D：相机、光线装置、拉伸
 
 auto thumbnail = slide->GetImage(imageScale, imageScale);
 thumbnail->Save(u"sample_3d.png");
@@ -148,13 +146,13 @@ thumbnail->Dispose();
 ```
 
 
-具有图像渐变的 3D 模型：
+
+带有图像渐变的 3D 模型：
 
 ![todo:image_alt_text](img_02_04.png)
 
-## 3D 文本 (WordArt)
-要对文本应用旋转、挤出、光照、渐变并使其成为 3D 文本 (WordArt)，您需要访问 [IAutoShape.get_TextFrame().get_TextFrameFormat().get_ThreeDFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5e681109403c2e57aa76a500fe508b30) 方法：
-
+## **3D 文本（WordArt）**
+要在文本上应用旋转、拉伸、光照、渐变并将其制作成 3D 文本（WordArt），需要访问[IAutoShape.get_TextFrame().get_TextFrameFormat().get_ThreeDFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5e681109403c2e57aa76a500fe508b30) 方法：
 ``` cpp
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
@@ -167,7 +165,7 @@ auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 250.0f, 250.0f);
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
-shape->get_TextFrame()->set_Text(u"3D 文本");
+shape->get_TextFrame()->set_Text(u"3D Text");
 
 auto portion = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
 portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Pattern);
@@ -178,7 +176,7 @@ portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->set_Pattern
 shape->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(128.0f);
 
 auto textFrameFormat = shape->get_TextFrame()->get_TextFrameFormat();
-// 设置 "Arch Up" WordArt 转换效果
+// 设置 "Arch Up" WordArt 变换效果
 textFrameFormat->set_Transform(TextShapeType::ArchUp);
 
 textFrameFormat->get_ThreeDFormat()->set_ExtrusionHeight(3.5);
@@ -198,16 +196,21 @@ presentation->Save(u"text3d.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-一个 3D 文本 (WordArt) 示例：
+
+3D 文本（WordArt）示例：
 
 ![todo:image_alt_text](img_02_05.png)
 
- 
-## 不支持 - 即将推出
-以下 PowerPoint 3D 功能尚不支持： 
-- 斜面
-- 材料
-- 轮廓
-- 照明
+## **常见问题**
 
-我们将继续改进我们的 3D 引擎，这些功能将被进一步实现。
+**将演示文稿导出为图像/PDF/HTML 时，3D 效果会被保留吗？**
+
+是的。Slides 3D 引擎在导出到受支持的格式时会渲染 3D 效果（[图像](/slides/zh/cpp/convert-powerpoint-to-png/)、[PDF](/slides/zh/cpp/convert-powerpoint-to-pdf/)、[HTML](/slides/zh/cpp/convert-powerpoint-to-html/) 等）。
+
+**我能检索考虑主题、继承等因素的“有效”（最终）3D 参数值吗？**
+
+是的。Slides 提供了 API 来[读取有效值](/slides/zh/cpp/shape-effective-properties/)（包括 3D——灯光、倒角等），以便您查看最终应用的设置。
+
+**将演示文稿转换为视频时，3D 效果会起作用吗？**
+
+是的。在[生成视频帧](/slides/zh/cpp/convert-powerpoint-to-video/)时，3D 效果的渲染方式与[导出图像](/slides/zh/cpp/convert-powerpoint-to-png/)相同。

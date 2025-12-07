@@ -1,16 +1,35 @@
 ---
-title: 将 PowerPoint 转换为 HTML 在 C++
-linktitle: 将 PowerPoint 转换为 HTML
+title: 使用 C++ 将 PowerPoint 演示文稿转换为 HTML
+linktitle: PowerPoint 转 HTML
 type: docs
 weight: 30
 url: /zh/cpp/convert-powerpoint-to-html/
-keywords: "C++ PowerPoint 转 HTML, 转换 PowerPoint 演示文稿, PPTX, PPT, PPT 转 HTML, PPTX 转 HTML, PowerPoint 转 HTML, 将 PowerPoint 保存为 HTML, 将 PPT 保存为 HTML, 将 PPTX 保存为 HTML, C++, CPP, Aspose.Slides, HTML 导出"
-description: "在 C++ 中转换 PowerPoint 为 HTML。将 PPTX 或 PPT 保存为 HTML 在 C++ 中。将幻灯片保存为 HTML 在 C++ 中。"
+keywords:
+- 转换 PowerPoint
+- 转换演示文稿
+- 转换幻灯片
+- 转换 PPT
+- 转换 PPTX
+- PowerPoint 转 HTML
+- 演示文稿转 HTML
+- 幻灯片转 HTML
+- PPT 转 HTML
+- PPTX 转 HTML
+- 将 PowerPoint 保存为 HTML
+- 将演示文稿保存为 HTML
+- 将幻灯片保存为 HTML
+- 将 PPT 保存为 HTML
+- 将 PPTX 保存为 HTML
+- 导出 PPT 为 HTML
+- 导出 PPTX 为 HTML
+- C++
+- Aspose.Slides
+description: "使用 C++ 将 PowerPoint 演示文稿转换为响应式 HTML。通过 Aspose.Slides 转换指南，保留布局、链接和图像，实现快速且完美的效果。"
 ---
 
-## **概述**
+## **概览**
 
-本文解释了如何使用 C++ 将 PowerPoint 演示文稿转换为 HTML 格式。它涵盖以下主题。
+这篇文章说明如何使用 C++ 将 PowerPoint 演示文稿转换为 HTML 格式。它涵盖以下主题。
 
 - [在 C++ 中将 PowerPoint 转换为 HTML](#convert-powerpoint-to-html)
 - [在 C++ 中将 PPT 转换为 HTML](#convert-powerpoint-to-html)
@@ -18,58 +37,59 @@ description: "在 C++ 中转换 PowerPoint 为 HTML。将 PPTX 或 PPT 保存为
 - [在 C++ 中将 ODP 转换为 HTML](#convert-powerpoint-to-html)
 - [在 C++ 中将 PowerPoint 幻灯片转换为 HTML](#convert-slide-to-html)
 
-## **C++ PowerPoint 转 HTML**
+## **在 C++ 中将 PowerPoint 转换为 HTML**
 
-有关将 PowerPoint 转换为 HTML 的 C++ 示例代码，请参见下面的部分，即 [在 C++ 中将 PowerPoint 转换为 HTML](#convert-powerpoint-to-html)。该代码可以在演示对象中加载多种格式，如 PPT、PPTX 和 ODP，并将其保存为 HTML 格式。
+有关在 C++ 中将 PowerPoint 转换为 HTML 的示例代码，请参见下面的章节，即[将 PowerPoint 转换为 HTML](#convert-powerpoint-to-html)。代码可以在 Presentation 对象中加载多种格式，如 PPT、PPTX 和 ODP，并将其保存为 HTML 格式。
 
-## **关于 PowerPoint 到 HTML 转换**
-使用 [**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/)，应用程序和开发人员可以将 PowerPoint 演示文稿转换为 HTML：**PPTX 转 HTML** 或 **PPT 转 HTML**。
+## **关于 PowerPoint 到 HTML 的转换**
 
-**Aspose.Slides** 提供多种选项（主要来自 [**HtmlOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) 类），定义 PowerPoint 到 HTML 的转换过程：
+使用 [**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/)，应用程序和开发者可以将 PowerPoint 演示文稿转换为 HTML：**PPTX 到 HTML** 或 **PPT 到 HTML**。 
 
-* 将整个 PowerPoint 演示文稿转换为 HTML。
-* 将 PowerPoint 演示文稿中的特定幻灯片转换为 HTML。
-* 将演示文稿媒体（图像、视频等）转换为 HTML。
-* 将 PowerPoint 演示文稿转换为响应式 HTML。
-* 将 PowerPoint 演示文稿转换为包含或不包含发言者备注的 HTML。
-* 将 PowerPoint 演示文稿转换为包含或不包含评论的 HTML。
-* 将 PowerPoint 演示文稿转换为使用原始或嵌入字体的 HTML。
-* 在转换 PowerPoint 演示文稿为 HTML 时使用新的 CSS 样式。
+**Aspose.Slides** 提供许多选项（主要来自 [**HtmlOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) 类），用于定义 PowerPoint 到 HTML 的转换过程：
 
-{{% alert color="primary" %}}
+* 将整个 PowerPoint 演示文稿转换为 HTML。  
+* 将 PowerPoint 演示文稿中的特定幻灯片转换为 HTML。  
+* 将演示文稿的媒体（图像、视频等）转换为 HTML。  
+* 将 PowerPoint 演示文稿转换为响应式 HTML。  
+* 将 PowerPoint 演示文稿转换为包含或不包含演讲者备注的 HTML。  
+* 将 PowerPoint 演示文稿转换为包含或不包含批注的 HTML。  
+* 将 PowerPoint 演示文稿转换为使用原始字体或嵌入字体的 HTML。  
+* 在使用新 CSS 样式的情况下将 PowerPoint 演示文稿转换为 HTML。  
 
-使用其自己的 API，Aspose 开发了免费的 [演示文稿到 HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html) 转换器：[PPT 转 HTML](https://products.aspose.app/slides/conversion/ppt-to-html)，[PPTX 转 HTML](https://products.aspose.app/slides/conversion/pptx-to-html)，[ODP 转 HTML](https://products.aspose.app/slides/conversion/odp-to-html) 等等。
+{{% alert color="primary" %}} 
+
+使用其自己的 API，Aspose 开发了免费的[演示文稿转 HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html)转换器： [PPT 转 HTML](https://products.aspose.app/slides/conversion/ppt-to-html)、[PPTX 转 HTML](https://products.aspose.app/slides/conversion/pptx-to-html)、[ODP 转 HTML](https://products.aspose.app/slides/conversion/odp-to-html) 等。 
 
 [![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
 
-您可能想要查看来自 Aspose 的其他 [免费转换器](https://products.aspose.app/slides/conversion)。
+您可能想查看 Aspose 的其他[免费转换器](https://products.aspose.app/slides/conversion)。
+
+{{% /alert %}} 
+
+{{% alert title="Note" color="warning" %}} 
+
+除了本文介绍的转换过程外，Aspose.Slides 还支持以下涉及 HTML 格式的转换操作：
+
+* [HTML 转图片](https://products.aspose.com/slides/cpp/conversion/html-to-image/)
+* [HTML 转 JPG](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)
+* [HTML 转 XML](https://products.aspose.com/slides/cpp/conversion/html-to-xml/)
+* [HTML 转 TIFF](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)
 
 {{% /alert %}}
 
-{{% alert title="注意" color="warning" %}}
-
-除了此处描述的转换过程外，Aspose.Slides 还支持涉及 HTML 格式的以下转换操作：
-
-* [HTML 到图像](https://products.aspose.com/slides/cpp/conversion/html-to-image/)
-* [HTML 到 JPG](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)
-* [HTML 到 XML](https://products.aspose.com/slides/cpp/conversion/html-to-xml/)
-* [HTML 到 TIFF](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)
-
-{{% /alert %}}
 
 ## **将 PowerPoint 转换为 HTML**
-使用 Aspose.Slides，您可以以这种方式将整个 PowerPoint 演示文稿转换为 HTML：
+使用 Aspose.Slides，您可以这样将整个 PowerPoint 演示文稿转换为 HTML：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。
-   * 在 _Presentation_ 类中加载 **.ppt** 以**在 C++ 中将 PPT 转换为 HTML**
-   * 在 _Presentation_ 类中加载 **.pptx** 以**在 C++ 中将 PPTX 转换为 HTML**
-   * 在 _Presentation_ 类中加载 **.odp** 以**在 C++ 中将 ODP 转换为 HTML**
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。  
+   * 将 **.ppt** 加载到 _Presentation_ 类中以 **在 C++ 中将 PPT 转换为 HTML**  
+   * 将 **.pptx** 加载到 _Presentation_ 类中以 **在 C++ 中将 PPTX 转换为 HTML**  
+   * 将 **.odp** 加载到 _Presentation_ 类中以 **在 C++ 中将 ODP 转换为 HTML**  
 3. 使用 [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a5c310c99c623922fc32e91a6d74f7020) 方法将对象保存为 HTML 文件。
 
-以下代码向您展示了如何在 C++ 中将 PowerPoint 转换为 HTML：
-
+此代码演示了如何在 C++ 中将 PowerPoint 转换为 HTML：  
 ```cpp
-// 实例化一个 Presentation 对象，表示一个演示文稿文件
+// 实例化一个表示演示文稿文件的 Presentation 对象
 auto presentation = System::MakeObject<Presentation>(u"Convert_HTML.pptx");
     
 auto htmlOpt = System::MakeObject<HtmlOptions>();
@@ -79,11 +99,11 @@ htmlOpt->set_HtmlFormatter(HtmlFormatter::CreateDocumentFormatter(u"", false));
 presentation->Save(u"ConvertWholePresentationToHTML_out.html", SaveFormat::Html, htmlOpt);
 ```
 
-## **将 PowerPoint 转换为响应式 HTML**
-Aspose.Slides 提供了 [ResponsiveHtmlController ](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.responsive_html_controller) 类，允许您生成响应式 HTML 文件。以下代码向您展示了如何在 C++ 中将 PowerPoint 演示文稿转换为响应式 HTML：
 
+## **将 PowerPoint 转换为响应式 HTML**
+Aspose.Slides 提供了 [ResponsiveHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.responsive_html_controller) 类，允许生成响应式 HTML 文件。此代码演示了如何在 C++ 中将 PowerPoint 演示文稿转换为响应式 HTML：  
 ```cpp
-// 实例化一个 Presentation 对象，表示一个演示文稿文件
+// 实例化一个表示演示文稿文件的 Presentation 对象
 auto presentation = System::MakeObject<Presentation>(u"Convert_HTML.pptx");
 
 auto controller = System::MakeObject<ResponsiveHtmlController>();
@@ -94,9 +114,9 @@ htmlOptions->set_HtmlFormatter(HtmlFormatter::CreateCustomFormatter(controller))
 presentation->Save(u"ConvertPresentationToResponsiveHTML_out.html", SaveFormat::Html, htmlOptions);
 ```
 
-## **将 PowerPoint 转换为包含备注的 HTML**
-以下代码向您展示了如何在 C++ 中将 PowerPoint 转换为包含备注的 HTML：
 
+## **将 PowerPoint 转换为带备注的 HTML**
+此代码演示了如何在 C++ 中将 PowerPoint 转换为带备注的 HTML：  
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
 
@@ -109,13 +129,13 @@ options->set_NotesPosition(NotesPositions::BottomFull);
 pres->Save(u"Output.html", SaveFormat::Html, opt);
 ```
 
-## **将 PowerPoint 转换为 HTML 时保留原始字体**
-Aspose.Slides 提供了 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller) 类，允许您在将演示文稿转换为 HTML 时嵌入所有字体。
 
-为了防止某些字体被嵌入，您可以将字体名称的数组传递给 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller) 类的参数化构造函数。常用字体，如 Calibri 或 Arial，当在演示文稿中使用时，不必嵌入，因为大多数系统已经包含了这些字体。当这些字体被嵌入时，生成的 HTML 文档就会变得不必要地大。
+## **将 PowerPoint 转换为带原始字体的 HTML**
+Aspose.Slides 提供了 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller) 类，允许在将演示文稿转换为 HTML 时嵌入所有字体。
 
-[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller) 类支持继承，并提供 [WriteFont](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller#a1dfd1c26bb181c8581ec67d270ce0b77) 方法，该方法旨在被重写。
+为了防止某些字体被嵌入，可以向 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller) 的参数化构造函数传递字体名称数组。像 Calibri 或 Arial 这样的常用字体在演示文稿中使用时无需嵌入，因为大多数系统已经包含这些字体。如果这些字体被嵌入，生成的 HTML 文档会不必要地增大。
 
+[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller) 类支持继承，并提供了 [WriteFont](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller#a1dfd1c26bb181c8581ec67d270ce0b77) 方法，供重写使用。  
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"input.pptx");
 
@@ -130,11 +150,11 @@ htmlOptionsEmbed->set_HtmlFormatter(HtmlFormatter::CreateCustomFormatter(embedFo
 pres->Save(u"input-PFDinDisplayPro-Regular-installed.html", SaveFormat::Html, htmlOptionsEmbed);
 ```
 
-## **将 PowerPoint 转换为具有高质量图像的 HTML**
-默认情况下，当您将 PowerPoint 转换为 HTML 时，Aspose.Slides 输出小的 HTML，其图像为 72 DPI 并删除裁剪区域。要获得具有更高质量图像的 HTML 文件，您必须将 `PicturesCompression` 属性（来自 `HtmlOptions` 类）设置为 96（即 `PicturesCompression::Dpi96`）或更高的 [值](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.export#adc51ca67b7e5c99f6fad75b02ebfd6d8)。
 
-以下 C++ 代码向您展示了如何将 PowerPoint 演示文稿转换为 HTML，同时获得 150 DPI（即 `PicturesCompression::Dpi150`）的高质量图像：
+## **将 PowerPoint 转换为高质量图像的 HTML**
+默认情况下，将 PowerPoint 转换为 HTML 时，Aspose.Slides 输出的 HTML 图像分辨率为 72 DPI，且裁剪区域已删除。若要获得更高质量的图像，需要将 `PicturesCompression`（来自 `HtmlOptions` 类）属性设置为 96（即 `PicturesCompression::Dpi96`）或更高的[数值](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.export#adc51ca67b7e5c99f6fad75b02ebfd6d8)。
 
+以下 C++ 代码演示了如何在将 PowerPoint 演示文稿转换为 HTML 时，以 150 DPI（`PicturesCompression::Dpi150`）获取高质量图像：  
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"InputDoc.pptx");
 
@@ -144,8 +164,8 @@ htmlOpts->set_PicturesCompression(PicturesCompression::Dpi150);
 pres->Save(u"OutputDoc-dpi150.html", SaveFormat::Html, htmlOpts);
 ```
 
-以下代码在 C++ 中向您展示了如何输出具有完整质量图像的 HTML：
 
+以下 C++ 代码演示了如何输出包含全质量图像的 HTML：  
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"InputDoc.pptx");
 
@@ -155,12 +175,12 @@ htmlOpts->set_DeletePicturesCroppedAreas(false);
 pres->Save(u"Outputdoc-noCrop.html", SaveFormat::Html, htmlOpts);
 ```
 
+
 ## **将幻灯片转换为 HTML**
-要将 PowerPoint 中的特定幻灯片转换为 HTML，您必须实例化相同的 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类（用于将整个演示文稿转换为 HTML），然后使用 [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a5c310c99c623922fc32e91a6d74f7020) 方法将文件保存为 HTML。[HtmlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) 类可以用来指定额外的转换选项：
+要将 PowerPoint 中的特定幻灯片转换为 HTML，需要实例化与转换整个演示文稿为 HTML 相同的 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类，然后使用 [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a5c310c99c623922fc32e91a6d74f7020) 方法将文件保存为 HTML。可以使用 [HtmlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) 类指定其他转换选项：
 
-以下 C++ 代码向您展示了如何将 PowerPoint 演示文稿中的幻灯片转换为 HTML：
-
-```cpp
+此 C++ 代码演示了如何将 PowerPoint 演示文稿中的幻灯片转换为 HTML：  
+``` cpp
 class CustomFormattingController : public IHtmlFormattingController
 {
 public:
@@ -193,7 +213,7 @@ void Run()
     
     auto presentation = System::MakeObject<Presentation>(dataDir + u"Individual-Slide.pptx");
 
-    auto formatter = HtmlFormatter::CreateCustomFormatter(MakeObject<CustomFormattingController>());
+    auto formatter = HtmlFormatter::CreateCustomFormatter(MakeObject<CustomFormattingController>();
     auto htmlOptions = System::MakeObject<HtmlOptions>();
     htmlOptions->set_HtmlFormatter(formatter);
 
@@ -206,12 +226,12 @@ void Run()
 }
 ```
 
-## **导出 HTML 时保存 CSS 和图像**
-使用新的 CSS 样式文件，您可以轻松地改变由 PowerPoint 到 HTML 转换过程生成的 HTML 文件的样式。
 
-以下 C++ 代码示例向您展示了如何使用可覆盖的方法创建一个自定义 HTML 文档，并链接到 CSS 文件：
+## **导出为 HTML 时保存 CSS 和图像**
+使用新的 CSS 样式文件，您可以轻松更改 PowerPoint 转换为 HTML 过程生成的 HTML 文件的样式。
 
-```cpp
+此示例中的 C++ 代码演示了如何使用可覆盖的方法创建带有 CSS 文件链接的自定义 HTML 文档：  
+``` cpp
 class CustomHeaderAndFontsController : public EmbedAllFontsHtmlController
 {
 public:
@@ -228,7 +248,7 @@ public:
 
     void WriteAllFonts(SharedPtr<IHtmlGenerator> generator, SharedPtr<IPresentation> presentation) override
     {
-        generator->AddHtml(u"<!-- 嵌入字体 -->");
+        generator->AddHtml(u"<!-- Embedded fonts -->");
         EmbedAllFontsHtmlController::WriteAllFonts(generator, presentation);
     }
 
@@ -244,7 +264,7 @@ u"<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" +
 u"<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}\">\n" + u"</head>";
 ```
 
-```cpp
+``` cpp
 void Run()
 {
     // 文档目录的路径。
@@ -259,11 +279,11 @@ void Run()
 }
 ```
 
-## **在转换演示文稿为 HTML 时链接所有字体**
-如果您不想嵌入字体（以避免增加生成 HTML 的大小），您可以通过实现自己的 `LinkAllFontsHtmlController` 版本来链接所有字体。
 
-以下 C++ 代码展示了如何在将 PowerPoint 转换为 HTML 时链接所有字体，并排除 "Calibri" 和 "Arial"（因为它们已经存在于系统中）：
+## **在将演示文稿转换为 HTML 时链接所有字体**
+如果不想嵌入字体（以免增大生成的 HTML 大小），可以通过实现自己的 `LinkAllFontsHtmlController` 版本来链接所有字体。
 
+此 C++ 代码演示了如何在将 PowerPoint 转换为 HTML 时链接所有字体，并排除 “Calibri” 与 “Arial”（因为系统已存在这些字体）：  
 ```cpp
 class LinkAllFontsHtmlController : public EmbedAllFontsHtmlController
 {
@@ -278,7 +298,7 @@ public:
         String fontStyle, String fontWeight, ArrayPtr<uint8_t> fontData)
     {
         String fontName = substitutedFont == nullptr ? originalFont->get_FontName() : substitutedFont->get_FontName();
-        String path = String::Format(u"{0}.woff", fontName); // 可能需要一些路径清理
+        String path = String::Format(u"{0}.woff", fontName); // 可能需要对路径进行清理
         IO::File::WriteAllBytes(IO::Path::Combine(m_basePath, path), fontData);
 
         generator->AddHtml(u"<style>");
@@ -295,7 +315,7 @@ private:
 };
 ```
 
-```cpp
+``` cpp
 void Run()
 {
     auto pres = System::MakeObject<Presentation>(u"pres.pptx");
@@ -312,9 +332,9 @@ void Run()
 }
 ```
 
-## **将 PowerPoint 转换为响应式 HTML**
-以下 C++ 代码向您展示了如何将 PowerPoint 演示文稿转换为响应式 HTML：
 
+## **将 PowerPoint 转换为响应式 HTML**
+此 C++ 代码演示了如何将 PowerPoint 演示文稿转换为响应式 HTML：  
 ```cpp
 auto presentation = System::MakeObject<Presentation>(u"SomePresentation.pptx");
 auto saveOptions = System::MakeObject<HtmlOptions>();
@@ -323,16 +343,15 @@ presentation->Save(u"SomePresentation-out.html", SaveFormat::Html, saveOptions);
 ```
 
 
-## **导出媒体文件到 HTML**
-使用 Aspose.Slides for C++，您可以以如下方式导出媒体文件：
+## **将媒体文件导出为 HTML**
+使用 Aspose.Slides for C++，可以按以下方式导出媒体文件：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。
-1. 获取对幻灯片的引用。
-1. 向幻灯片添加视频。
-1. 将演示文稿写入 HTML 文件。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。  
+2. 获取对幻灯片的引用。  
+3. 向幻灯片添加视频。  
+4. 将演示文稿写入为 HTML 文件。
 
-以下 C++ 代码向您展示了如何将视频添加到演示文稿中，然后将其保存为 HTML：
-
+此 C++ 代码演示了如何向演示文稿添加视频并将其保存为 HTML：  
 ```cpp
  // 加载演示文稿
 auto pres = System::MakeObject<Presentation>();
@@ -360,3 +379,18 @@ htmlOptions->set_SlideImageFormat(SlideImageFormat::Svg(svgOptions));
 // 保存文件
 pres->Save(IO::Path::Combine(path, fileName), SaveFormat::Html, htmlOptions);
 ```
+
+
+## **常见问题**
+
+**在将多个演示文稿转换为HTML时，Aspose.Slides 的性能如何？**
+
+性能取决于演示文稿的大小和复杂度。Aspose.Slides 在批量操作中高度高效且可扩展。若要在转换大量演示文稿时获得最佳性能，建议尽可能使用多线程或并行处理。
+
+**Aspose.Slides 是否支持将超链接导出为HTML？**
+
+是的，Aspose.Slides 完全支持将嵌入的超链接导出为 HTML。转换为 HTML 格式时，超链接会自动保留并保持可点击。
+
+**在将演示文稿转换为HTML时，幻灯片数量有任何限制吗？**
+
+使用 Aspose.Slides 时对幻灯片数量没有限制。您可以转换任意大小的演示文稿。但对于包含非常大量幻灯片的演示文稿，性能可能受服务器或系统可用资源的影响。
