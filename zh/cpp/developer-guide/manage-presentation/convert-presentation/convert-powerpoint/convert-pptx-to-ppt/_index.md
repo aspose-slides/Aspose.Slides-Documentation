@@ -1,36 +1,63 @@
 ---
-title: 将PPTX转换为PPT的C++
-linktitle: 将PPTX转换为PPT
+title: C++ 中将 PPTX 转换为 PPT
+linktitle: PPTX 转 PPT
 type: docs
 weight: 21
 url: /zh/cpp/convert-pptx-to-ppt/
-keywords: "C++ 将PPTX转换为PPT, 转换PowerPoint演示文稿, PPTX到PPT, Python, Aspose.Slides"
-description: "在C++中将PowerPoint PPTX转换为PPT"
+keywords:
+- 转换 PowerPoint
+- 转换 演示文稿
+- 转换 幻灯片
+- 转换 PPTX
+- PPTX 转 PPT
+- 将 PPTX 保存为 PPT
+- 导出 PPTX 为 PPT
+- PowerPoint
+- 演示文稿
+- C++
+- Aspose.Slides
+description: "使用 Aspose.Slides for C++轻松将 PPTX 转换为 PPT—确保与 PowerPoint 格式的无缝兼容，同时保留演示文稿的布局和质量。"
 ---
 
 ## **概述**
 
-本文解释了如何使用C++将PPTX格式的PowerPoint演示文稿转换为PPT格式。以下主题将被涵盖。
+本文说明如何使用 C++ 将 PPTX 格式的 PowerPoint 演示文稿转换为 PPT 格式。涵盖以下主题。
 
-- 在C++中将PPTX转换为PPT
+- 使用 C++ 将 PPTX 转换为 PPT
 
-## **C++ 将PPTX转换为PPT**
+## **使用 C++ 将 PPTX 转换为 PPT**
 
-有关将PPTX转换为PPT的C++示例代码，请参阅以下部分，即[将PPTX转换为PPT](#convert-pptx-to-ppt)。它只需加载PPTX文件并以PPT格式保存。通过指定不同的保存格式，您还可以将PPTX文件保存为其他多种格式，如PDF、XPS、ODP、HTML等，具体内容可参见这些文章。
+有关将 PPTX 转换为 PPT 的 C++ 示例代码，请参见下面的章节，即[Convert PPTX to PPT](#convert-pptx-to-ppt)。它仅加载 PPTX 文件并以 PPT 格式保存。通过指定不同的保存格式，还可以将 PPTX 文件保存为许多其他格式，如 PDF、XPS、ODP、HTML 等，详见这些文章。
 
-- [C++ 将PPTX转换为PDF](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-pdf/)
-- [C++ 将PPTX转换为XPS](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-xps/)
-- [C++ 将PPTX转换为HTML](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-html/)
-- [C++ 将PPTX转换为ODP](https://docs.aspose.com/slides/cpp/save-presentation/)
-- [C++ 将PPTX转换为图像](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-png/)
+- [C++ 将 PPTX 转换为 PDF](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-pdf/)
+- [C++ 将 PPTX 转换为 XPS](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-xps/)
+- [C++ 将 PPTX 转换为 HTML](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-html/)
+- [C++ 将 PPTX 转换为 ODP](https://docs.aspose.com/slides/cpp/save-presentation/)
+- [C++ 将 PPTX 转换为图像](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-png/)
 
-## **将PPTX转换为PPT**
-要将PPTX转换为PPT，只需将文件名和保存格式传递给[**Presentation**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/)类的**Save**方法。下面的C++代码示例使用默认选项将Presentation从PPTX转换为PPT。
+## **将 PPTX 转换为 PPT**
+
+要将 PPTX 转换为 PPT，只需将文件名和保存格式传递给[**Presentation**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) 类的 **Save** 方法。下面的 C++ 代码示例使用默认选项将演示文稿从 PPTX 转换为 PPT。
 
 ```cpp
-// 加载PPTX。
+// 加载 PPTX.
 SharedPtr<Presentation> prs = MakeObject<Presentation>(u"sourceFile.pptx");
 
-// 以PPT格式保存。
+// 以 PPT 格式保存.
 prs->Save(u"convertedFile.ppt", Aspose::Slides::Export::SaveFormat::Ppt);
 ```
+
+
+## **常见问题**
+
+**将 PPTX 的所有效果和功能在保存为传统 PPT（97–2003）格式时都会保留吗？**
+
+并非总是如此。PPT 格式缺少一些较新的功能（例如某些效果、对象和行为），因此在转换过程中可能会对这些功能进行简化或栅格化处理。
+
+**我能仅将选定的幻灯片转换为 PPT，而不是整个演示文稿吗？**
+
+直接保存会针对整个演示文稿。若只转换特定幻灯片，需要先创建仅包含这些幻灯片的新演示文稿并将其保存为 PPT；或者使用支持按幻灯片转换参数的服务/API。
+
+**是否支持受密码保护的演示文稿？**
+
+支持。您可以检测文件是否受保护，使用密码打开它，并且还可以[configure protection/encryption settings](/slides/zh/cpp/password-protected-presentation/) 对保存的 PPT 进行保护/加密设置。

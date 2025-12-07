@@ -1,54 +1,74 @@
 ---
-title: Convertir PowerPoint en HTML en C++
-linktitle: Convertir PowerPoint en HTML
+title: Convertir des présentations PowerPoint en HTML en C++
+linktitle: PowerPoint vers HTML
 type: docs
 weight: 30
 url: /fr/cpp/convert-powerpoint-to-html/
-keywords: "C++ PowerPoint en HTML, Convertir présentation PowerPoint, PPTX, PPT, PPT en HTML, PPTX en HTML, PowerPoint en HTML, Enregistrer PowerPoint en tant qu'HTML, Enregistrer PPT en tant qu'HTML, Enregistrer PPTX en tant qu'HTML, C++, CPP, Aspose.Slides, exportation HTML"
-description: "Convertir PowerPoint en HTML en C++. Enregistrer PPTX ou PPT sous forme d'HTML en C++. Enregistrer les diapositives en tant qu'HTML en C++"
+keywords:
+- convertir PowerPoint
+- convertir présentation
+- convertir diapositive
+- convertir PPT
+- convertir PPTX
+- PowerPoint vers HTML
+- présentation vers HTML
+- diapositive vers HTML
+- PPT vers HTML
+- PPTX vers HTML
+- enregistrer PowerPoint en HTML
+- enregistrer présentation en HTML
+- enregistrer diapositive en HTML
+- enregistrer PPT en HTML
+- enregistrer PPTX en HTML
+- exporter PPT en HTML
+- exporter PPTX en HTML
+- C++
+- Aspose.Slides
+description: "Convertir des présentations PowerPoint en HTML adaptatif en C++. Conserver la mise en page, les liens et les images grâce au guide de conversion Aspose.Slides pour des résultats rapides et impeccables."
 ---
 
-## **Aperçu**
+## **Vue d'ensemble**
 
 Cet article explique comment convertir une présentation PowerPoint au format HTML en utilisant C++. Il couvre les sujets suivants.
 
-- [Convertir PowerPoint en HTML en C++](#convertir-powerpoint-en-html)
-- [Convertir PPT en HTML en C++](#convertir-powerpoint-en-html)
-- [Convertir PPTX en HTML en C++](#convertir-powerpoint-en-html)
-- [Convertir ODP en HTML en C++](#convertir-powerpoint-en-html)
-- [Convertir diapositive PowerPoint en HTML en C++](#convertir-diapositive-en-html)
+- [Convertir PowerPoint en HTML en C++](#convert-powerpoint-to-html)
+- [Convertir PPT en HTML en C++](#convert-powerpoint-to-html)
+- [Convertir PPTX en HTML en C++](#convert-powerpoint-to-html)
+- [Convertir ODP en HTML en C++](#convert-powerpoint-to-html)
+- [Convertir une diapositive PowerPoint en HTML en C++](#convert-slide-to-html)
 
-## **C++ PowerPoint en HTML**
+## **PowerPoint en HTML en C++**
 
-Pour un exemple de code C++ pour convertir PowerPoint en HTML, veuillez consulter la section ci-dessous, c'est-à-dire [Convertir PowerPoint en HTML](#convertir-powerpoint-en-html). Le code peut charger plusieurs formats comme PPT, PPTX et ODP dans l'objet Presentation et le sauvegarder au format HTML.
+Pour le code d'exemple C++ permettant de convertir PowerPoint en HTML, veuillez consulter la section ci-dessous, c'est‑à‑dire [Convertir PowerPoint en HTML](#convert-powerpoint-to-html). Le code peut charger plusieurs formats tels que PPT, PPTX et ODP dans l'objet Presentation et les enregistrer au format HTML.
 
 ## **À propos de la conversion PowerPoint en HTML**
-En utilisant [**Aspose.Slides pour C++**](https://products.aspose.com/slides/cpp/), les applications et les développeurs peuvent convertir une présentation PowerPoint en HTML : **PPTX en HTML** ou **PPT en HTML**. 
+
+En utilisant [**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/), les applications et les développeurs peuvent convertir une présentation PowerPoint en HTML : **PPTX en HTML** ou **PPT en HTML**.  
 
 **Aspose.Slides** propose de nombreuses options (principalement de la classe [**HtmlOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options)) qui définissent le processus de conversion de PowerPoint en HTML :
 
-* Convertir toute une présentation PowerPoint en HTML.
-* Convertir une diapositive spécifique d’une présentation PowerPoint en HTML.
-* Convertir le média de présentation (images, vidéos, etc.) en HTML.
-* Convertir une présentation PowerPoint en HTML réactif. 
-* Convertir une présentation PowerPoint en HTML avec les notes du présentateur incluses ou exclues. 
-* Convertir une présentation PowerPoint en HTML avec les commentaires inclus ou exclus. 
-* Convertir une présentation PowerPoint en HTML avec des polices originales ou intégrées. 
-* Convertir une présentation PowerPoint en HTML tout en utilisant le nouveau style CSS. 
+* Convertir une présentation PowerPoint entière en HTML.  
+* Convertir une diapositive spécifique d’une présentation PowerPoint en HTML.  
+* Convertir les médias de la présentation (images, vidéos, etc.) en HTML.  
+* Convertir une présentation PowerPoint en HTML adaptatif.  
+* Convertir une présentation PowerPoint en HTML avec ou sans notes du présentateur.  
+* Convertir une présentation PowerPoint en HTML avec ou sans commentaires.  
+* Convertir une présentation PowerPoint en HTML avec les polices originales ou incorporées.  
+* Convertir une présentation PowerPoint en HTML en utilisant le nouveau style CSS.  
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}  
 
-En utilisant sa propre API, Aspose a développé des convertisseurs gratuits [présentation en HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html) : [PPT en HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX en HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP en HTML](https://products.aspose.app/slides/conversion/odp-to-html), etc. 
+En utilisant sa propre API, Aspose a développé des convertisseurs gratuits [présentation vers HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html) : [PPT en HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX en HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP en HTML](https://products.aspose.app/slides/conversion/odp-to-html), etc.  
 
 [![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
 
-Vous voudrez peut-être consulter d'autres [convertisseurs gratuits d'Aspose](https://products.aspose.app/slides/conversion).
+Vous pouvez consulter d’autres [convertisseurs gratuits d’Aspose](https://products.aspose.app/slides/conversion).  
 
-{{% /alert %}} 
+{{% /alert %}}  
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Note" color="warning" %}}  
 
-En plus des processus de conversion décrits ici, Aspose.Slides prend également en charge ces opérations de conversion impliquant le format HTML : 
+En plus des processus de conversion décrits ici, Aspose.Slides prend également en charge les opérations de conversion suivantes impliquant le format HTML :
 
 * [HTML vers image](https://products.aspose.com/slides/cpp/conversion/html-to-image/)
 * [HTML vers JPG](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)
@@ -57,18 +77,17 @@ En plus des processus de conversion décrits ici, Aspose.Slides prend également
 
 {{% /alert %}}
 
-
 ## **Convertir PowerPoint en HTML**
-En utilisant Aspose.Slides, vous pouvez convertir une présentation PowerPoint entière en HTML de cette manière :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-   * Chargez **.ppt** dans la classe _Presentation_ pour **Convertir PPT en HTML en C++**
-   * Chargez **.pptx** dans la classe _Presentation_ pour **Convertir PPTX en HTML en C++**
-   * Chargez **.odp** dans la classe _Presentation_ pour **Convertir ODP en HTML en C++**
-3. Utilisez la méthode [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a5c310c99c623922fc32e91a6d74f7020) pour enregistrer l'objet sous forme de fichier HTML.
+Avec Aspose.Slides, vous pouvez convertir une présentation PowerPoint entière en HTML de la façon suivante :
 
-Ce code vous montre comment convertir un PowerPoint en HTML en C++ :
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
+   * Charger **.ppt** dans la classe _Presentation_ pour **Convertir PPT en HTML en C++**  
+   * Charger **.pptx** dans la classe _Presentation_ pour **Convertir PPTX en HTML en C++**  
+   * Charger **.odp** dans la classe _Presentation_ pour **Convertir ODP en HTML en C++**  
+3. Utiliser la méthode [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a5c310c99c623922fc32e91a6d74f7020) pour enregistrer l’objet sous forme de fichier HTML.
 
+Ce code montre comment convertir un PowerPoint en HTML en C++ :
 ```cpp
 // Instancier un objet Presentation qui représente un fichier de présentation
 auto presentation = System::MakeObject<Presentation>(u"Convert_HTML.pptx");
@@ -76,13 +95,14 @@ auto presentation = System::MakeObject<Presentation>(u"Convert_HTML.pptx");
 auto htmlOpt = System::MakeObject<HtmlOptions>();
 htmlOpt->set_HtmlFormatter(HtmlFormatter::CreateDocumentFormatter(u"", false));
 
-// Sauvegarder la présentation en HTML
+// Enregistrer la présentation en HTML
 presentation->Save(u"ConvertWholePresentationToHTML_out.html", SaveFormat::Html, htmlOpt);
 ```
 
-## **Convertir PowerPoint en HTML réactif**
-Aspose.Slides propose la classe [ResponsiveHtmlController ](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.responsive_html_controller) qui vous permet de générer des fichiers HTML réactifs. Ce code vous montre comment convertir une présentation PowerPoint en HTML réactif en C++ :
 
+## **Convertir PowerPoint en HTML adaptatif**
+
+Aspose.Slides fournit la classe [ResponsiveHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.responsive_html_controller) qui permet de générer des fichiers HTML adaptatifs. Ce code montre comment convertir une présentation PowerPoint en HTML adaptatif en C++ :
 ```cpp
 // Instancier un objet Presentation qui représente un fichier de présentation
 auto presentation = System::MakeObject<Presentation>(u"Convert_HTML.pptx");
@@ -91,13 +111,14 @@ auto controller = System::MakeObject<ResponsiveHtmlController>();
 auto htmlOptions = System::MakeObject<HtmlOptions>();
 htmlOptions->set_HtmlFormatter(HtmlFormatter::CreateCustomFormatter(controller));
 
-// Sauvegarder la présentation en HTML
+// Enregistrer la présentation en HTML
 presentation->Save(u"ConvertPresentationToResponsiveHTML_out.html", SaveFormat::Html, htmlOptions);
 ```
 
-## **Convertir PowerPoint en HTML avec notes**
-Ce code vous montre comment convertir un PowerPoint en HTML avec des notes en C++ :
 
+## **Convertir PowerPoint en HTML avec notes**
+
+Ce code montre comment convertir un PowerPoint en HTML avec notes en C++ :
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
 
@@ -106,21 +127,22 @@ auto opt = System::MakeObject<HtmlOptions>();
 auto options = opt->get_NotesCommentsLayouting();
 options->set_NotesPosition(NotesPositions::BottomFull);
 
-// Sauvegarder les pages de notes
+// Saving notes pages
 pres->Save(u"Output.html", SaveFormat::Html, opt);
 ```
 
-## **Convertir PowerPoint en HTML avec des polices originales**
-Aspose.Slides propose la classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller) qui vous permet d'incorporer toutes les polices dans une présentation lors de la conversion de la présentation en HTML.
 
-Pour empêcher certaines polices d'être intégrées, vous pouvez passer un tableau de noms de polices à un constructeur paramétré de la classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller). Les polices populaires, telles que Calibri ou Arial, lorsqu'elles sont utilisées dans une présentation, n'ont pas besoin d'être intégrées car la plupart des systèmes contiennent déjà ces polices. Lorsque ces polices sont intégrées, le document HTML résultant devient inutilement volumineux.
+## **Convertir PowerPoint en HTML avec polices originales**
 
-La classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller) prend en charge l'héritage et fournit la méthode [WriteFont](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller#a1dfd1c26bb181c8581ec67d270ce0b77), qui est destinée à être écrasée. 
+Aspose.Slides fournit la classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller) qui permet d’incorporer toutes les polices d’une présentation lors de la conversion de la présentation en HTML.  
 
+Pour empêcher l’incorporation de certaines polices, vous pouvez transmettre un tableau de noms de polices à un constructeur paramétré de la classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller). Les polices populaires, comme Calibri ou Arial, lorsqu’elles sont utilisées dans une présentation, n’ont pas besoin d’être incorporées car la plupart des systèmes les contiennent déjà. Lorsque ces polices sont incorporées, le document HTML résultant devient inutilement volumineux.  
+
+La classe [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller) prend en charge l’héritage et fournit la méthode [WriteFont](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller#a1dfd1c26bb181c8581ec67d270ce0b77), qui est destinée à être remplacée.  
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"input.pptx");
 
-// exclure les polices par défaut de la présentation
+// exclude default presentation fonts
 auto fontNameExcludeList = System::MakeArray<System::String>({ u"Calibri", u"Arial" });
 
 auto embedFontsController = System::MakeObject<EmbedAllFontsHtmlController>(fontNameExcludeList);
@@ -131,11 +153,12 @@ htmlOptionsEmbed->set_HtmlFormatter(HtmlFormatter::CreateCustomFormatter(embedFo
 pres->Save(u"input-PFDinDisplayPro-Regular-installed.html", SaveFormat::Html, htmlOptionsEmbed);
 ```
 
-## **Convertir PowerPoint en HTML avec des images de haute qualité**
-Par défaut, lorsque vous convertissez PowerPoint en HTML, Aspose.Slides génère un petit HTML avec des images à 72 DPI et supprime les zones recadrées. Pour obtenir des fichiers HTML avec des images de qualité supérieure, vous devez définir la propriété `PicturesCompression` (de la classe `HtmlOptions`) à 96 (c'est-à-dire `PicturesCompression::Dpi96`) ou des [valeurs](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.export#adc51ca67b7e5c99f6fad75b02ebfd6d8) supérieures.
 
-Ce code C++ vous montre comment convertir une présentation PowerPoint en HTML tout en obtenant des images de haute qualité à 150 DPI (c'est-à-dire `PicturesCompression::Dpi150`) :
+## **Convertir PowerPoint en HTML avec images haute qualité**
 
+Par défaut, lorsque vous convertissez un PowerPoint en HTML, Aspose.Slides produit un HTML léger avec des images à 72 DPI et supprime les zones recadrées. Pour obtenir des fichiers HTML avec des images de meilleure qualité, vous devez définir la propriété `PicturesCompression` (de la classe `HtmlOptions`) à 96 (c’est‑à‑dire `PicturesCompression::Dpi96`) ou à une valeur supérieure [[valeurs](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.export#adc51ca67b7e5c99f6fad75b02ebfd6d8)].  
+
+Ce code C++ montre comment convertir une présentation PowerPoint en HTML tout en obtenant des images de haute qualité à 150 DPI (c’est‑à‑dire `PicturesCompression::Dpi150`) :
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"InputDoc.pptx");
 
@@ -145,8 +168,8 @@ htmlOpts->set_PicturesCompression(PicturesCompression::Dpi150);
 pres->Save(u"OutputDoc-dpi150.html", SaveFormat::Html, htmlOpts);
 ```
 
-Ce code en C++ vous montre comment générer un HTML avec des images de pleine qualité :
 
+Ce code en C++ montre comment générer un HTML avec des images en pleine qualité :
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"InputDoc.pptx");
 
@@ -156,11 +179,12 @@ htmlOpts->set_DeletePicturesCroppedAreas(false);
 pres->Save(u"Outputdoc-noCrop.html", SaveFormat::Html, htmlOpts);
 ```
 
+
 ## **Convertir une diapositive en HTML**
-Pour convertir une diapositive spécifique d'un PowerPoint en HTML, vous devez instancier la même classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) (utilisée pour convertir des présentations entières en HTML) et ensuite utiliser la méthode [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a5c310c99c623922fc32e91a6d74f7020) pour enregistrer le fichier en tant qu'HTML. La classe [HtmlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) peut être utilisée pour spécifier des options de conversion supplémentaires :
 
-Ce code C++ vous montre comment convertir une diapositive d'une présentation PowerPoint en HTML :
+Pour convertir une diapositive spécifique d’un PowerPoint en HTML, vous devez instancier la même classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) (utilisée pour convertir des présentations complètes en HTML), puis utiliser la méthode [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a5c310c99c623922fc32e91a6d74f7020) pour enregistrer le fichier au format HTML. La classe [HtmlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) peut être utilisée pour spécifier des options de conversion supplémentaires :
 
+Ce code C++ montre comment convertir une diapositive d’une présentation PowerPoint en HTML :
 ``` cpp
 class CustomFormattingController : public IHtmlFormattingController
 {
@@ -194,11 +218,11 @@ void Run()
     
     auto presentation = System::MakeObject<Presentation>(dataDir + u"Individual-Slide.pptx");
 
-    auto formatter = HtmlFormatter::CreateCustomFormatter(MakeObject<CustomFormattingController>());
+    auto formatter = HtmlFormatter::CreateCustomFormatter(MakeObject<CustomFormattingController>();
     auto htmlOptions = System::MakeObject<HtmlOptions>();
     htmlOptions->set_HtmlFormatter(formatter);
 
-    // Sauvegarder le fichier              
+    // Enregistrement du fichier              
     for (int32_t i = 0; i < presentation->get_Slides()->get_Count(); i++)
     {
         presentation->Save(dataDir + u"Individual Slide" + (i + 1) + u"_out.html", 
@@ -207,11 +231,12 @@ void Run()
 }
 ```
 
-## **Enregistrer CSS et images lors de l'exportation en HTML**
-En utilisant de nouveaux fichiers de style CSS, vous pouvez facilement changer le style du fichier HTML résultant du processus de conversion de PowerPoint en HTML. 
 
-Le code C++ dans cet exemple vous montre comment utiliser des méthodes surchargées pour créer un document HTML personnalisé avec un lien vers un fichier CSS :
+## **Enregistrer le CSS et les images lors de l’exportation en HTML**
 
+En utilisant de nouveaux fichiers de style CSS, vous pouvez facilement modifier le style du fichier HTML résultant du processus de conversion PowerPoint en HTML.  
+
+Le code C++ de cet exemple montre comment utiliser des méthodes réimplémentables pour créer un document HTML personnalisé avec un lien vers un fichier CSS :
 ``` cpp
 class CustomHeaderAndFontsController : public EmbedAllFontsHtmlController
 {
@@ -229,7 +254,7 @@ public:
 
     void WriteAllFonts(SharedPtr<IHtmlGenerator> generator, SharedPtr<IPresentation> presentation) override
     {
-        generator->AddHtml(u"<!-- Polices embarquées -->");
+        generator->AddHtml(u"<!-- Embedded fonts -->");
         EmbedAllFontsHtmlController::WriteAllFonts(generator, presentation);
     }
 
@@ -248,7 +273,7 @@ u"<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}\">\n" + u"</head>";
 ``` cpp
 void Run()
 {
-    // Le chemin vers le répertoire des documents.
+    // Le chemin du répertoire des documents.
     System::String dataDir = GetDataPath();
 
     auto pres = System::MakeObject<Presentation>(u"pres.pptx");
@@ -260,11 +285,12 @@ void Run()
 }
 ```
 
-## **Lier toutes les polices lors de la conversion de la présentation en HTML**
-Si vous ne souhaitez pas incorporer les polices (pour éviter d'augmenter la taille du HTML résultant), vous pouvez lier toutes les polices en implémentant votre propre version de `LinkAllFontsHtmlController`. 
 
-Ce code C++ vous montre comment convertir un PowerPoint en HTML tout en liant toutes les polices et en excluant "Calibri" et "Arial" (puisqu'elles existent déjà dans le système) : 
+## **Lier toutes les polices lors de la conversion d’une présentation en HTML**
 
+Si vous ne souhaitez pas incorporer les polices (afin d’éviter d’augmenter la taille du HTML résultant), vous pouvez lier toutes les polices en implémentant votre propre version du `LinkAllFontsHtmlController`.  
+
+Ce code C++ montre comment convertir un PowerPoint en HTML tout en liant toutes les polices et en excluant « Calibri » et « Arial » (puisqu’elles existent déjà dans le système) :
 ```cpp
 class LinkAllFontsHtmlController : public EmbedAllFontsHtmlController
 {
@@ -279,7 +305,7 @@ public:
         String fontStyle, String fontWeight, ArrayPtr<uint8_t> fontData)
     {
         String fontName = substitutedFont == nullptr ? originalFont->get_FontName() : substitutedFont->get_FontName();
-        String path = String::Format(u"{0}.woff", fontName); // une certaine sanitation de chemin peut être nécessaire
+        String path = String::Format(u"{0}.woff", fontName); // une certaine désinfection du chemin peut être nécessaire
         IO::File::WriteAllBytes(IO::Path::Combine(m_basePath, path), fontData);
 
         generator->AddHtml(u"<style>");
@@ -313,9 +339,10 @@ void Run()
 }
 ```
 
-## **Convertir PowerPoint en HTML réactif**
-Ce code C++ vous montre comment convertir une présentation PowerPoint en HTML réactif :
 
+## **Convertir PowerPoint en HTML adaptatif**
+
+Ce code C++ montre comment convertir une présentation PowerPoint en HTML adaptatif :
 ```cpp
 auto presentation = System::MakeObject<Presentation>(u"SomePresentation.pptx");
 auto saveOptions = System::MakeObject<HtmlOptions>();
@@ -325,15 +352,15 @@ presentation->Save(u"SomePresentation-out.html", SaveFormat::Html, saveOptions);
 
 
 ## **Exporter des fichiers multimédias en HTML**
-En utilisant Aspose.Slides pour C++, vous pouvez exporter des fichiers multimédias de cette manière :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-1. Obtenez une référence à la diapositive.
-1. Ajoutez une vidéo à la diapositive.
-1. Écrivez la présentation sous forme de fichier HTML.
+En utilisant Aspose.Slides for C++, vous pouvez exporter des fichiers multimédias de la façon suivante :
 
-Ce code C++ vous montre comment ajouter une vidéo à la présentation et ensuite la sauvegarder sous forme de HTML : 
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
+2. Obtenir une référence à la diapositive.  
+3. Ajouter une vidéo à la diapositive.  
+4. Enregistrer la présentation sous forme de fichier HTML.  
 
+Ce code C++ montre comment ajouter une vidéo à la présentation puis l’enregistrer en HTML :
 ```cpp
  // Charge une présentation
 auto pres = System::MakeObject<Presentation>();
@@ -361,3 +388,18 @@ htmlOptions->set_SlideImageFormat(SlideImageFormat::Svg(svgOptions));
 // Enregistre le fichier
 pres->Save(IO::Path::Combine(path, fileName), SaveFormat::Html, htmlOptions);
 ```
+
+
+## **FAQ**
+
+**Quelle est la performance d’Aspose.Slides lors de la conversion de plusieurs présentations en HTML ?**
+
+Les performances dépendent de la taille et de la complexité des présentations. Aspose.Slides est très efficace et évolutif pour les opérations par lots. Pour obtenir des performances optimales lors de la conversion d’un grand nombre de présentations, il est recommandé d’utiliser le multithreading ou le traitement parallèle chaque fois que possible.
+
+**Aspose.Slides prend‑il en charge l’exportation des hyperliens vers HTML ?**
+
+Oui, Aspose.Slides prend pleinement en charge l’exportation des hyperliens incorporés vers HTML. Lors de la conversion des présentations au format HTML, les hyperliens sont automatiquement conservés et restent cliquables.
+
+**Existe‑t‑il une limite au nombre de diapositives lors de la conversion de présentations en HTML ?**
+
+Il n’existe aucune limite au nombre de diapositives avec Aspose.Slides. Vous pouvez convertir des présentations de toute taille. Toutefois, pour des présentations contenant un très grand nombre de diapositives, les performances peuvent dépendre des ressources disponibles sur votre serveur ou système.

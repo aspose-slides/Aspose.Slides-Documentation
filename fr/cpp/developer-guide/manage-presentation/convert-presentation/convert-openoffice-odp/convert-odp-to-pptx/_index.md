@@ -1,12 +1,29 @@
 ---
-title: Convertir ODP en PPTX
+title: Convertir ODP en PPTX en C++
+linktitle: ODP en PPTX
 type: docs
 weight: 10
 url: /fr/cpp/convert-odp-to-pptx/
+keywords:
+- convertir OpenDocument
+- convertir présentation
+- convertir diapositive
+- convertir ODP
+- OpenDocument en PPTX
+- ODP en PPTX
+- enregistrer ODP en PPTX
+- exporter ODP en PPTX
+- PowerPoint
+- OpenDocument
+- présentation
+- C++
+- Aspose.Slides
+description: "Convertissez ODP en PPTX avec Aspose.Slides pour C++. Exemples de code clairs, astuces par lot et résultats de haute qualité — aucun PowerPoint requis."
 ---
 
-Aspose.Slides pour .NET offre la classe Presentation qui représente un fichier de présentation. [**Presentation**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) peut maintenant également accéder à ODP par le biais du constructeur Presentation lors de l'instanciation de l'objet. L'exemple suivant montre comment convertir une présentation ODP en présentation PPTX.
+## **Conversion ODP vers PPTX**
 
+Aspose.Slides for .NET propose la classe Presentation qui représente un fichier de présentation. [**Presentation**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) la classe peut désormais également accéder à ODP via le constructeur Presentation lors de l'instanciation de l'objet. L'exemple suivant montre comment convertir une présentation ODP en présentation PPTX.
 ``` cpp
 // Le chemin du répertoire des documents.
 String dataDir = GetDataPath();
@@ -14,11 +31,29 @@ String dataDir = GetDataPath();
 // Ouvrir le fichier ODP
 auto pres = System::MakeObject<Presentation>(dataDir + u"AccessOpenDoc.odp");
 
-// Sauvegarder la présentation ODP au format PPTX
+// Enregistrement de la présentation ODP au format PPTX
 pres->Save(dataDir + u"AccessOpenDoc_out.pptx", SaveFormat::Pptx);
 ```
 
 
-
 ## **Exemple en direct**
-Vous pouvez visiter [**Aspose.Slides Conversion**](https://products.aspose.app/slides/conversion/) application web, qui est construite avec **Aspose.Slides API.** L'application démontre comment la conversion ODP en PPTX peut être implémentée avec l'API Aspose.Slides.
+
+Vous pouvez visiter l'application Web [**Conversion Aspose.Slides**](https://products.aspose.app/slides/conversion/) qui est construite avec **Aspose.Slides API.** L'application montre comment la conversion ODP vers PPTX peut être implémentée avec Aspose.Slides API.
+
+## **FAQ**
+
+**Dois‑je installer Microsoft PowerPoint ou LibreOffice pour convertir ODP en PPTX ?**
+
+Non. Aspose.Slides fonctionne de façon autonome et ne nécessite aucune application tierce pour lire ou écrire ODP/PPTX.
+
+**Les diapositives maître, les mises en page et les thèmes sont‑ils conservés lors de la conversion ?**
+
+Oui. La bibliothèque utilise un modèle complet d’objet de présentation et conserve la structure, y compris les diapositives maître et les mises en page, de sorte que le design reste correct après la conversion.
+
+**Puis‑je convertir des fichiers ODP protégés par mot de passe ?**
+
+Oui. Aspose.Slides prend en charge la détection de la protection, l'ouverture et le travail avec les [présentations protégées](/slides/fr/cpp/password-protected-presentation/) (y compris ODP) lorsque vous fournissez le mot de passe, ainsi que la configuration du chiffrement et l'accès aux propriétés du document.
+
+**Aspose.Slides convient‑il aux services de conversion cloud ou basés sur REST ?**
+
+Oui. Vous pouvez utiliser la bibliothèque locale dans votre propre back‑end ou [Aspose.Slides Cloud](https://products.aspose.cloud/slides/family/) (REST API) ; les deux options prennent en charge la conversion ODP → PPTX.

@@ -1,31 +1,47 @@
 ---
-title: Конвертация PowerPoint в PNG
+title: Конвертировать слайды PowerPoint в PNG на C++
+linktitle: PowerPoint в PNG
 type: docs
 weight: 30
 url: /ru/cpp/convert-powerpoint-to-png/
-keywords: PowerPoint в PNG, PPT в PNG, PPTX в PNG, C++, Aspose.Slides для C++
-description: Конвертируйте презентацию PowerPoint в PNG
+keywords:
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPT
+- конвертировать PPTX
+- PowerPoint в PNG
+- презентацию в PNG
+- слайд в PNG
+- PPT в PNG
+- PPTX в PNG
+- сохранить PPT как PNG
+- сохранить PPTX как PNG
+- экспортировать PPT в PNG
+- экспортировать PPTX в PNG
+- C++
+- Aspose.Slides
+description: "Конвертировать презентации PowerPoint в высококачественные PNG‑изображения быстро с помощью Aspose.Slides для C++, обеспечивая точные, автоматические результаты."
 ---
 
-## **О конвертации PowerPoint в PNG**
+## **О преобразовании PowerPoint в PNG**
 
-Формат PNG (Portable Network Graphics) не так популярен, как JPEG (Joint Photographic Experts Group), но все же очень распространен.
+Формат PNG (Portable Network Graphics) не так популярен, как JPEG (Joint Photographic Experts Group), но всё же широко используется. 
 
-**Сценарий использования:** Когда у вас есть сложное изображение и размер не является проблемой, PNG - лучший формат изображения, чем JPEG.
+**Случай использования:** Если у вас сложное изображение и размер не имеет значения, PNG является лучшим форматом изображения, чем JPEG. 
 
-{{% alert title="Совет" color="primary" %}} Вам может быть интересно попробовать бесплатные **конвертеры PowerPoint в PNG** от Aspose: [PPTX в PNG](https://products.aspose.app/slides/conversion/pptx-to-png) и [PPT в PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Они являются живой реализацией процесса, описанного на этой странице. {{% /alert %}}
+{{% alert title="Tip" color="primary" %}} Возможно, вам будет интересно ознакомьтесь с бесплатными конвертерами Aspose **PowerPoint to PNG**: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) и [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Это живые реализации процесса, описанного на этой странице. {{% /alert %}}
 
-## **Конвертировать PowerPoint в PNG**
+## **Преобразование PowerPoint в PNG**
 
-Следуйте этим шагам:
+Выполните следующие шаги:
 
-1. Создайте объект класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Получите объект слайда из коллекции [Presentation::get_Slides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) через интерфейс [ISlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide).
-3. Используйте метод [ISlide::GetImage()](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage) для получения миниатюры каждого слайда.
-4. Используйте метод [IImage::Save(String, ImageFormatPtr](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/#iimagesavesystemstring-imageformat-method) для сохранения миниатюры слайда в формате PNG.
+1. Instantiate the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+2. Get the slide object from the [Presentation::get_Slides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) collection under the [ISlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide) interface. 
+3. Use a [ISlide::GetImage()](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage) method to get the thumbnail for each slide. 
+4. Use the [IImage::Save(String, ImageFormatPtr](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/#iimagesavesystemstring-imageformat-method) method to save the slide thumbnail to the PNG format. 
 
-Этот код на C++ показывает, как конвертировать презентацию PowerPoint в PNG:
-
+Этот код на C++ показывает, как преобразовать презентацию PowerPoint в PNG:
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
     
@@ -37,12 +53,12 @@ for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
 }
 ```
 
-## **Конвертировать PowerPoint в PNG с пользовательскими размерами**
 
-Если вы хотите получить файлы PNG с определенным масштабом, вы можете задать значения для `desiredX` и `desiredY`, которые определяют размеры результирующей миниатюры.
+## **Преобразование PowerPoint в PNG с пользовательскими размерами**
+
+Если вам нужны PNG‑файлы определённого масштаба, вы можете задать значения `desiredX` и `desiredY`, которые определяют размеры получаемого миниатюра. 
 
 Этот код на C++ демонстрирует описанную операцию:
-
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
@@ -56,12 +72,12 @@ for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
 }
 ```
 
-## **Конвертировать PowerPoint в PNG с заданным размером**
 
-Если вы хотите получить файлы PNG определенного размера, вы можете передать желаемые аргументы `width` и `height` для `ImageSize`.
+## **Преобразование PowerPoint в PNG с пользовательским размером**
 
-Этот код показывает, как конвертировать PowerPoint в PNG, указывая размер для изображений:
+Если вам нужны PNG‑файлы определённого размера, вы можете передать желаемые аргументы `width` и `height` для `ImageSize`. 
 
+Этот код показывает, как преобразовать PowerPoint в PNG, задавая размер изображений: 
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
     
@@ -73,3 +89,18 @@ for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
     slide->GetImage(size)->Save(fileName, ImageFormat::Png);
 }
 ```
+
+
+## **Часто задаваемые вопросы**
+
+**Как экспортировать только конкретный объект (например, диаграмму или изображение), а не весь слайд?**
+
+Aspose.Slides поддерживает [создание миниатюр для отдельных объектов](/slides/ru/cpp/create-shape-thumbnails/); вы можете отобразить объект в PNG‑изображение.
+
+**Поддерживается ли параллельное преобразование на сервере?**
+
+Да, но [не делитесь](/slides/ru/cpp/multithreading/) единственным экземпляром презентации между потоками. Используйте отдельный экземпляр для каждого потока или процесса.
+
+**Каковы ограничения пробной версии при экспорте в PNG?**
+
+В режиме оценки к выходным изображениям добавляется водяной знак, а также применяются [другие ограничения](/slides/ru/cpp/licensing/) до применения лицензии.

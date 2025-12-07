@@ -1,19 +1,44 @@
 ---
-title: 将 PowerPoint 转换为 SWF Flash
+title: 在 C++ 中将 PowerPoint 演示文稿转换为 SWF Flash
+linktitle: PowerPoint 到 SWF
 type: docs
 weight: 80
 url: /zh/cpp/convert-powerpoint-to-swf-flash/
-keywords: "PPT, PPTX 转 SWF"
-description: "使用 Aspose.Slides API 将 PowerPoint PPT，PPTX 转换为 SWF Flash 格式。"
+keywords:
+- 转换 PowerPoint
+- 转换 演示文稿
+- 转换 幻灯片
+- 转换 PPT
+- 转换 PPTX
+- PowerPoint 到 SWF
+- 演示文稿 到 SWF
+- 幻灯片 到 SWF
+- PPT 到 SWF
+- PPTX 到 SWF
+- PowerPoint 到 Flash
+- 演示文稿 到 Flash
+- 幻灯片 到 Flash
+- PPT 到 Flash
+- PPTX 到 Flash
+- 将 PPT 保存为 SWF
+- 将 PPTX 保存为 SWF
+- 导出 PPT 为 SWF
+- 导出 PPTX 为 SWF
+- PowerPoint
+- 演示文稿
+- C++
+- Aspose.Slides
+description: "使用 Aspose.Slides 在 C++ 中将 PowerPoint (PPT/PPTX) 转换为 SWF Flash。一步一步的代码示例，快速高质量输出，无需 PowerPoint 自动化。"
 ---
 
-由 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类公开的 [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) 方法可用于将整个演示文稿转换为 SWF 文档。您还可以使用 [SWFOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.swf_options) 类和 [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options) 接口在生成的 SWF 中包含注释。以下示例演示了如何使用 SWFOptions 类提供的选项将演示文稿转换为 SWF 文档。
+## **将演示文稿转换为Flash**
 
+由[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)类公开的[Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e)方法可以用于将整个演示文稿转换为SWF文档。您还可以通过使用[SWFOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.swf_options)类和[INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options)接口在生成的SWF中包含批注。下面的示例演示了如何使用SWFOptions类提供的选项将演示文稿转换为SWF文档。
 ``` cpp
 // 文档目录的路径。
     System::String dataDir = GetDataPath();
 
-    // 实例化一个表示演示文稿文件的 Presentation 对象
+    // 实例化一个代表演示文稿文件的 Presentation 对象
     auto presentation = System::MakeObject<Presentation>(dataDir + u"HelloWorld.pptx");
 
     auto swfOptions = System::MakeObject<SwfOptions>();
@@ -22,8 +47,27 @@ description: "使用 Aspose.Slides API 将 PowerPoint PPT，PPTX 转换为 SWF F
     auto notesOptions = swfOptions->get_NotesCommentsLayouting();
     notesOptions->set_NotesPosition(NotesPositions::BottomFull);
 
-    // 保存演示文稿和备注页面
+    // 保存演示文稿和笔记页
     presentation->Save(dataDir + u"SaveAsSwf_out.swf", SaveFormat::Swf, swfOptions);
     swfOptions->set_ViewerIncluded(true);
     presentation->Save(dataDir + u"SaveNotes_out.swf", SaveFormat::Swf, swfOptions);
 ```
+
+
+## **FAQ**
+
+**我可以在SWF中包含隐藏幻灯片吗？**
+
+是的。使用[SwfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/)中的[set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_showhiddenslides/)方法。默认情况下，隐藏的幻灯片不会被导出。
+
+**如何控制压缩以及最终的SWF大小？**
+
+使用[set_Compressed](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_compressed/)方法并调整[JPEG quality](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_jpegquality/)以在文件大小和图像保真度之间取得平衡。
+
+**'set_ViewerIncluded' 是什么用途，何时应使用它？**
+
+[set_ViewerIncluded](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_viewerincluded/)会添加嵌入式播放器UI（导航控件、面板、搜索）。如果您计划使用自己的播放器或需要没有UI的裸SWF框架，请将其禁用。
+
+**如果导出机器上缺少源字体会怎样？**
+
+Aspose.Slides 将使用您在[SwfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/)中通过[set_DefaultRegularFont](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_defaultregularfont/)指定的字体进行替换，以避免意外的回退。

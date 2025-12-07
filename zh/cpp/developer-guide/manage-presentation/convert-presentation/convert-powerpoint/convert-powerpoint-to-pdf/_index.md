@@ -1,41 +1,48 @@
 ---
-title: 在 C++ 中将 PowerPoint 转换为 PDF
-linktitle: 将 PowerPoint 转换为 PDF
+title: 将 PPT 和 PPTX 转换为 C++ 中的 PDF（包含高级功能）
+linktitle: PowerPoint 转 PDF
 type: docs
 weight: 40
 url: /zh/cpp/convert-powerpoint-to-pdf/
 keywords:
 - 转换 PowerPoint
-- 演示文稿
+- 转换演示文稿
 - PowerPoint 转 PDF
+- 演示文稿 转 PDF
 - PPT 转 PDF
+- 将 PPT 转 PDF
 - PPTX 转 PDF
+- 将 PPTX 转 PDF
 - 将 PowerPoint 保存为 PDF
+- 将 PPT 保存为 PDF
+- 将 PPTX 保存为 PDF
+- 导出 PPT 为 PDF
+- 导出 PPTX 为 PDF
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
 - C++
-- Aspose.Slides for C++
-description: "在 C++ 中将 PowerPoint 演示文稿转换为 PDF。将 PowerPoint 保存为符合或可访问性标准的 PDF。"
+- Aspose.Slides
+description: "使用 Aspose.Slides 在 C++ 中将 PowerPoint PPT/PPTX 转换为高质量、可搜索的 PDF，提供快速代码示例和高级转换选项。"
 ---
 
 ## **概述**
 
-将 PowerPoint 文档转换为 PDF 格式提供多个优点，包括确保在不同设备之间的兼容性，以及保留演示文稿的布局和格式。本文将向您展示如何将演示文稿转换为 PDF 文档，使用各种选项控制图像质量，包含隐藏幻灯片，使用密码保护 PDF 文档，检测字体替换，选择要转换的幻灯片，并将合规标准应用于输出文档。
+将 PowerPoint 演示文稿（PPT、PPTX、ODP 等）转换为 C++ 中的 PDF 格式具有多种优势，包括在不同设备间的兼容性以及保留演示文稿的布局和格式。本指南演示了如何将演示文稿转换为 PDF 文档，使用各种选项控制图像质量，包含隐藏幻灯片，为 PDF 文件设置密码，检测字体替换，选择特定幻灯片进行转换，以及对输出文档应用合规标准。
 
-## **PowerPoint 到 PDF 转换**
+## **PowerPoint转PDF转换**
 
 使用 Aspose.Slides，您可以将以下格式的演示文稿转换为 PDF：
 
-* PPT
-* PPTX
-* ODP
+* **PPT**
+* **PPTX**
+* **ODP**
 
-要将演示文稿转换为 PDF，您只需将文件名作为参数传递给 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) 类，然后使用 [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) 方法将演示文稿保存为 PDF。[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) 类暴露了通常用于将演示文稿转换为 PDF 的 [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) 方法。
+要将演示文稿转换为 PDF，请将文件名作为参数传递给 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类，然后使用 `Save` 方法将演示文稿保存为 PDF。[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类公开的 `Save` 方法通常用于将演示文稿转换为 PDF。
 
-{{%  alert title="注意"  color="warning"   %}}
+{{%  alert title="NOTE"  color="warning"   %}} 
 
-Aspose.Slides for C++ 直接在输出文档中写入 API 信息和版本号。例如，当将演示文稿转换为 PDF 时，Aspose.Slides for C++ 会将应用程序字段填充为 '*Aspose.Slides*' 值，PDF 生成字段填充为 '*Aspose.Slides v XX.XX*' 的形式。**注意**，您无法指示 Aspose.Slides for C++ 更改或从输出文档中移除此信息。
+Aspose.Slides for C++ 会在输出文档中插入其 API 信息和版本号。例如，在将演示文稿转换为 PDF 时，Aspose.Slides 会在 Application 字段填入 “*Aspose.Slides*”，在 PDF Producer 字段填入类似 “*Aspose.Slides v XX.XX*” 的值。**注意**，无法指示 Aspose.Slides 更改或移除这些信息。
 
 {{% /alert %}}
 
@@ -43,256 +50,290 @@ Aspose.Slides 允许您转换：
 
 * 整个演示文稿为 PDF
 * 演示文稿中的特定幻灯片为 PDF
-* 最终演示文稿
 
-Aspose.Slides 将演示文稿导出为 PDF 的方式，使生成的 PDF 内容与原始演示文稿非常相似。以下已知元素和属性通常在演示文稿到 PDF 的转换中正确呈现：
+Aspose.Slides 将演示文稿导出为 PDF，确保生成的 PDF 与原始演示文稿高度匹配。转换过程中会准确呈现以下元素和属性，包括：
 
 * 图像
-* 文本框和其他形状
-* 文本及其格式
-* 段落及其格式
+* 文本框和形状
+* 文本格式
+* 段落格式
 * 超链接
 * 页眉和页脚
 * 项目符号
 * 表格
 
-## **将 PowerPoint 转换为 PDF**
+## **将PowerPoint转换为PDF**
 
-标准的 PowerPoint PDF 转换操作使用默认选项执行。在这种情况下，Aspose.Slides 尝试使用最佳设置在最高质量级别下转换提供的演示文稿为 PDF。
+标准的 PowerPoint 转 PDF 转换过程使用默认选项。在此情况下，Aspose.Slides 会尝试使用最佳设置在最高质量级别下将提供的演示文稿转换为 PDF。
 
-<a name="cpp-powerpoint-to-pdf" id="cpp-powerpoint-to-pdf"><strong>步骤：在 C++ 中将 PowerPoint 转换为 PDF</strong></a> |
-<a name="cpp-ppt-to-pdf" id="cpp-ppt-to-pdf"><strong>步骤：在 C++ 中将 PPT 转换为 PDF</strong></a> |
-<a name="cpp-pptx-to-pdf" id="cpp-pptx-to-pdf"><strong>步骤：在 C++ 中将 PPTX 转换为 PDF</strong></a> |
-<a name="cpp-odp-to-pdf" id="cpp-odp-to-pdf"><strong>步骤：在 C++ 中将 ODP 转换为 PDF</strong></a>
-
-以下 C++ 代码展示了如何将 PowerPoint 转换为 PDF：
-
+下面的 C++ 代码演示了如何将演示文稿（PPT、PPTX、ODP 等）转换为 PDF：
 ```c++
-// 实例化表示 PowerPoint 文件的 Presentation 类
-auto presentation = System::MakeObject<Presentation>(u"PowerPoint.ppt");
+// 实例化表示 PowerPoint 或 OpenDocument 文件的 Presentation 类。
+auto presentation = MakeObject<Presentation>(u"PowerPoint.ppt");
 
-// 将演示文稿保存为 PDF
+// 将演示文稿保存为 PDF。
 presentation->Save(u"PPT-to-PDF.pdf", SaveFormat::Pdf);
+
+presentation->Dispose();
 ```
 
-{{%  alert  color="primary"  %}}
 
-Aspose 提供了一个免费的在线 [**PowerPoint 到 PDF 转换器**](https://products.aspose.app/slides/conversion/ppt-to-pdf)，演示了演示文稿到 PDF 的转换过程。要获得此处描述的过程的实时实现，您可以尝试使用转换器。
+{{%  alert  color="primary"  %}} 
+
+Aspose 提供了免费的在线 [PowerPoint转PDF转换器](https://products.aspose.app/slides/conversion/ppt-to-pdf) ，演示了演示文稿到 PDF 的转换过程。您可以使用此转换器进行测试，以实时实现本文所述的步骤。
 
 {{% /alert %}}
 
-## **使用选项将 PowerPoint 转换为 PDF**
+## **将PowerPoint转换为PDF（含选项）**
 
-Aspose.Slides 提供自定义选项——[PdfOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.pdf_options/) 类下的属性——允许您自定义 PDF（从转换过程中得到的结果），使用密码锁定 PDF，甚至指定转换过程应该如何进行。
+Aspose.Slides 提供自定义选项——位于 [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) 类下的属性——帮助您自定义生成的 PDF、使用密码锁定 PDF，或指定转换过程的行为。
 
-### **使用自定义选项将 PowerPoint 转换为 PDF**
+### **使用自定义选项将PowerPoint转换为PDF**
 
-使用自定义转换选项，您可以为光栅图像设置首选质量设置，指定如何处理元文件，设置文本的压缩级别，设置图像的 DPI 等。
+通过自定义转换选项，您可以定义光栅图像的首选质量设置，指定元文件的处理方式，为文本设置压缩级别，配置图像的 DPI 等。
 
-以下代码示例演示了一个 PowerPoint 演示文稿使用多个自定义选项转换为 PDF 的操作：
-
+下面的代码示例演示了如何使用多个自定义选项将 PowerPoint 演示文稿转换为 PDF：
 ```c++
-// 实例化 PdfOptions 类
-auto pdfOptions = System::MakeObject<PdfOptions>();
+// 实例化 PdfOptions 类。
+auto pdfOptions = MakeObject<PdfOptions>();
 
-// 设置 JPG 图像的质量
+// 设置 JPG 图像的质量。
 pdfOptions->set_JpegQuality(90);
 
-// 为图像设置 DPI
+// 设置图像的 DPI。
 pdfOptions->set_SufficientResolution(300);
 
-// 设置元文件的行为
+// 设置元文件的处理方式。
 pdfOptions->set_SaveMetafilesAsPng(true);
 
-// 设置文本内容的压缩级别
+// 设置文本内容的压缩级别。
 pdfOptions->set_TextCompression(PdfTextCompression::Flate);
 
-// 定义 PDF 合规模式
+// 定义 PDF 合规模式。
 pdfOptions->set_Compliance(PdfCompliance::Pdf15);
 
-// 实例化表示 PowerPoint 文档的 Presentation 类
-auto presentation = System::MakeObject<Presentation>(u"PowerPoint.pptx");
+// 实例化表示 PowerPoint 或 OpenDocument 文件的 Presentation 类。
+auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
-// 将演示文稿保存为 PDF 文档
+// 将演示文稿保存为 PDF 文档。
 presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 
 presentation->Dispose();
 ```
 
-### **将 PowerPoint 转换为带有隐藏幻灯片的 PDF**
 
-如果演示文稿包含隐藏幻灯片，您可以使用自定义选项——[PdfOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.pdf_options/) 类中的 [ShowHiddenSlides](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.pdf_options#ad11e5a17110d70456df91cc1a5dade23) 属性——指示 Aspose.Slides 在结果 PDF 中包含隐藏幻灯片作为页。
+### **将PowerPoint转换为包含隐藏幻灯片的PDF**
 
-以下 C++ 代码展示了如何将 PowerPoint 演示文稿转换为包含隐藏幻灯片的 PDF：
+如果演示文稿包含隐藏幻灯片，您可以使用 [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) 类的 [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) 方法，将隐藏幻灯片作为页面包含在生成的 PDF 中。
 
+下面的 C++ 代码展示了如何在转换为 PDF 时包含隐藏幻灯片：
 ```c++
-// 实例化表示 PowerPoint 文件的 Presentation 类
-auto presentation = System::MakeObject<Presentation>(u"PowerPoint.pptx");
+// 实例化表示 PowerPoint 或 OpenDocument 文件的 Presentation 类。
+auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
-// 实例化 PdfOptions 类
-auto pdfOptions = System::MakeObject<PdfOptions>();
+// 实例化 PdfOptions 类。
+auto pdfOptions = MakeObject<PdfOptions>();
 
-// 添加隐藏幻灯片
+// 添加隐藏幻灯片。
 pdfOptions->set_ShowHiddenSlides(true);
 
-// 将演示文稿保存为 PDF
+// 将演示文稿保存为 PDF。
 presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
+
+presentation->Dispose();
 ```
 
-### **将 PowerPoint 转换为受密码保护的 PDF**
 
-以下 C++ 代码展示了如何将 PowerPoint 转换为受密码保护的 PDF（使用 [PdfOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.pdf_options/) 类中的保护参数）：
+### **将PowerPoint转换为受密码保护的PDF**
 
+下面的 C++ 代码演示了如何使用 [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) 类的保护参数，将 PowerPoint 演示文稿转换为受密码保护的 PDF：
 ```c++
-// 实例化表示 PowerPoint 文件的 Presentation 对象
-auto presentation = System::MakeObject<Presentation>(u"PowerPoint.pptx");
+// 实例化表示 PowerPoint 或 OpenDocument 文件的 Presentation 类。
+auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
-/// 实例化 PdfOptions 类
-auto pdfOptions = System::MakeObject<PdfOptions>();
+// 实例化 PdfOptions 类。
+auto pdfOptions = MakeObject<PdfOptions>();
 
-// 设置 PDF 密码和访问权限
+// 设置 PDF 密码和访问权限。
 pdfOptions->set_Password(u"password");
 pdfOptions->set_AccessPermissions(PdfAccessPermissions::PrintDocument | PdfAccessPermissions::HighQualityPrint);
 
-// 将演示文稿保存为 PDF
+// 将演示文稿保存为 PDF。
 presentation->Save(u"PPTX-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
+
+presentation->Dispose();
 ```
 
-### 检测字体替换
 
-Aspose.Slides 提供了 [get_WarningCallback()](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/get_warningcallback/) 方法在 [SaveOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/) 类下，允许您在演示文稿到 PDF 转换过程中检测字体替换。
+### **检测字体替换**
 
-以下 C++ 代码展示了如何检测字体替换：
+Aspose.Slides 在 [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) 类下提供了 [set_WarningCallback](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_warningcallback/) 方法，帮助您在演示文稿转 PDF 的过程中检测字体替换。
 
+下面的 C++ 代码演示了如何检测字体替换：
 ```c++
-class FontSubstSendsWarningCallback : public Warnings::IWarningCallback
+// 实现警告回调。
+class FontSubstitutionHandler : public IWarningCallback
 {
 public:
-    Warnings::ReturnAction Warning(System::SharedPtr<Warnings::IWarningInfo> warning) override;
+    ReturnAction Warning(SharedPtr<IWarningInfo> warning) override;
 };
 
-Warnings::ReturnAction FontSubstSendsWarningCallback::Warning(System::SharedPtr<Warnings::IWarningInfo> warning)
+ReturnAction FontSubstitutionHandler::Warning(SharedPtr<IWarningInfo> warning)
 {
-    if (warning->get_WarningType() == Warnings::WarningType::CompatibilityIssue)
+    if (warning->get_WarningType() == WarningType::DataLoss && 
+        warning->get_Description().StartsWith(u"Font will be substituted"))
     {
-        return Warnings::ReturnAction::Continue;
+        Console::WriteLine(u"Font substitution warning: {0}", warning->get_Description());
     }
 
-    if (warning->get_WarningType() == Warnings::WarningType::DataLoss && warning->get_Description().StartsWith(u"Font will be substituted"))
-    {
-        System::Console::WriteLine(u"字体替换警告: {0}", warning->get_Description());
-    }
-
-    return Warnings::ReturnAction::Continue;
+    return ReturnAction::Continue;
 }
-```
 
-接下来的 C++ 代码展示了如何使用上述类：
-
-```c++
 int main()
 {
-    System::SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
-    System::SharedPtr<FontSubstSendsWarningCallback> warningCallback = System::MakeObject<FontSubstSendsWarningCallback>();
-    loadOptions->set_WarningCallback(warningCallback);
+    // 实例化表示 PowerPoint 或 OpenDocument 文件的 Presentation 类。
+    auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-    System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+    // 在 PDF 选项中设置警告回调。
+    auto pdfOptions = MakeObject<PdfOptions>();
+    pdfOptions->set_WarningCallback(MakeObject<FontSubstitutionHandler>());
+
+    // 将演示文稿保存为 PDF。
+    presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
+    
+    presentation->Dispose();
+
     return 0;
 }
 ```
 
+
 {{%  alert color="primary"  %}} 
 
-有关在渲染过程中获取字体替换的回调的更多信息，请参见 [获取字体替换的警告回调](https://docs.aspose.com/slides/cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/)。
+有关在渲染过程中接收字体替换回调的更多信息，请参阅 [获取字体替换警告回调](/slides/zh/cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/)。
 
-有关字体替换的更多信息，请参见 [字体替换](https://docs.aspose.com/slides/cpp/font-substitution/) 文章。
+有关字体替换的更多信息，请阅读 [字体替换](/slides/zh/cpp/font-substitution/) 文章。
 
 {{% /alert %}} 
 
-## **将 PowerPoint 中的选定幻灯片转换为 PDF**
+## **将PowerPoint中选定的幻灯片转换为PDF**
 
-以下 C++ 代码展示了如何将 PowerPoint 演示文稿中的特定幻灯片转换为 PDF：
-
+下面的 C++ 代码演示了如何仅将 PowerPoint 演示文稿中的特定幻灯片转换为 PDF：
 ```C++
-// 实例化表示 PowerPoint 文件的 Presentation 对象
-auto presentation = System::MakeObject<Presentation>(u"PowerPoint.pptx");
+// 实例化表示 PowerPoint 或 OpenDocument 文件的 Presentation 类。
+auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
-// 设置幻灯片位置数组
-auto slides = System::MakeArray<int32_t>({1, 3});
+// 设置幻灯片编号数组。
+auto slides = MakeArray<int32_t>({ 1, 3 });
 
-// 将演示文稿保存为 PDF
+// 将演示文稿保存为 PDF。
 presentation->Save(u"PPTX-to-PDF.pdf", slides, SaveFormat::Pdf);
+
+presentation->Dispose();
 ```
 
-## **使用自定义幻灯片大小将 PowerPoint 转换为 PDF**
 
-以下 C++ 代码展示了如何在指定幻灯片大小的情况下将 PowerPoint 转换为 PDF：
+## **将PowerPoint转换为自定义幻灯片尺寸的PDF**
 
+下面的 C++ 代码演示了如何使用指定的幻灯片尺寸将 PowerPoint 演示文稿转换为 PDF：
 ```C++
-// 文档目录的路径。
-String dataDir = GetDataPath()
+// 实例化表示 PowerPoint 或 OpenDocument 文件的 Presentation 类。
+auto presentation = MakeObject<Presentation>(u"SelectedSlides.pptx");
 
-// 实例化表示 PowerPoint 文件的 Presentation 对象 
-auto presentation = System::MakeObject<Presentation>(dataDir + u"SelectedSlides.pptx");
-auto auxPresentation = System::MakeObject<Presentation>();
+// 创建一个具有调整后幻灯片尺寸的新演示文稿。
+auto resizedPresentation = MakeObject<Presentation>();
 
-auto slide = presentation->get_Slides()->idx_get(0);
+// 设置自定义幻灯片尺寸。
+resizedPresentation->get_SlideSize()->SetSize(slideWidth, slideHeight, SlideSizeScaleType::EnsureFit);
 
-auxPresentation->get_Slides()->InsertClone(0, slide);
+// 从原始演示文稿克隆第一张幻灯片。
+auto slide = presentation->get_Slide(0);
+resizedPresentation->get_Slides()->InsertClone(0, slide);
 
-// 设置幻灯片类型和大小 
-auxPresentation->get_SlideSize()->SetSize(612.F, 792.F, SlideSizeScaleType::EnsureFit);
+// 将调整大小的演示文稿保存为带备注的 PDF。
+resizedPresentation->Save(u"PDF_with_notes.pdf", SaveFormat::Pdf);
 
-auto pdfOptions = System::MakeObject<PdfOptions>();
-auto options = pdfOptions->get_NotesCommentsLayouting();
-options->set_NotesPosition(NotesPositions::BottomFull);
-
-auxPresentation->Save(dataDir + u"PDFnotes_out.pdf", SaveFormat::Pdf, pdfOptions);
+resizedPresentation->Dispose();
+presentation->Dispose();
 ```
 
-## **在备注幻灯片视图中将 PowerPoint 转换为 PDF**
 
-以下 C++ 代码展示了如何将 PowerPoint 转换为 PDF 备注：
+## **在备注幻灯片视图中将PowerPoint转换为PDF**
 
+下面的 C++ 代码演示了如何将包含备注的 PowerPoint 演示文稿转换为 PDF：
 ```C++
-// 文档目录的路径。
-System::String dataDir = u""; 
+// 实例化表示 PowerPoint 或 OpenDocument 文件的 Presentation 类。
+auto presentation = MakeObject<Presentation>(u"SelectedSlides.pptx");
 
-// 实例化表示 PowerPoint 文件的 Presentation 类
-auto presentation = System::MakeObject<Presentation>(dataDir + u"NotesFile.pptx");
+// 使用备注布局配置 PDF 选项。
+auto notesOptions = MakeObject<NotesCommentsLayoutingOptions>();
+notesOptions->set_NotesPosition(NotesPositions::BottomFull);
+auto pdfOptions = MakeObject<PdfOptions>();
+pdfOptions->set_SlidesLayoutOptions(notesOptions);
 
-auto pdfOptions = System::MakeObject<PdfOptions>();
-auto options = pdfOptions->get_NotesCommentsLayouting();
-options->set_NotesPosition(NotesPositions::BottomFull);
+// 将演示文稿保存为带备注的 PDF。
+presentation->Save(u"PDF_with_notes.tiff", SaveFormat::Pdf, pdfOptions);
 
-// 将演示文稿保存为 PDF 备注
-presentation->Save(dataDir + u"Pdf_Notes_out.tiff", SaveFormat::Pdf, pdfOptions);
+presentation->Dispose();
 ```
+
 
 ## **PDF 的可访问性和合规标准**
 
-Aspose.Slides 允许您使用符合 [Web 内容可访问性指南 (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) 的转换程序。您可以使用以下任何合规标准将 PowerPoint 文档导出为 PDF：**PDF/A1a**、**PDF/A1b** 和 **PDF/UA**。
+Aspose.Slides 允许您使用符合 [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) 的转换流程。您可以使用以下任一种合规标准将 PowerPoint 文档导出为 PDF：**PDF/A1a**、**PDF/A1b** 和 **PDF/UA**。
 
-以下 C++ 代码演示了一种 PowerPoint 到 PDF 的转换操作，其中根据不同的合规标准获得多个 PDF：
-
+下面的 C++ 代码演示了基于不同合规标准生成多个 PDF 的 PowerPoint 转 PDF 过程：
 ```C++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+auto presentation = MakeObject<Presentation>(u"pres.pptx");
 
-auto pdfOptionsA1a = System::MakeObject<PdfOptions>();
+auto pdfOptionsA1a = MakeObject<PdfOptions>();
+
 pdfOptionsA1a->set_Compliance(PdfCompliance::PdfA1a);
-pres->Save(u"pres-a1a-compliance.pdf", SaveFormat::Pdf, pdfOptionsA1a);
+presentation->Save(u"pres-a1a-compliance.pdf", SaveFormat::Pdf, pdfOptionsA1a);
 
-auto pdfOptionsA1b = System::MakeObject<PdfOptions>();
+auto pdfOptionsA1b = MakeObject<PdfOptions>();
 pdfOptionsA1b->set_Compliance(PdfCompliance::PdfA1b);
-pres->Save(u"pres-a1b-compliance.pdf", SaveFormat::Pdf, pdfOptionsA1b);
+presentation->Save(u"pres-a1b-compliance.pdf", SaveFormat::Pdf, pdfOptionsA1b);
 
-auto pdfOptionsUa = System::MakeObject<PdfOptions>();
+auto pdfOptionsUa = MakeObject<PdfOptions>();
 pdfOptionsUa->set_Compliance(PdfCompliance::PdfUa);
-pres->Save(u"pres-ua-compliance.pdf", SaveFormat::Pdf, pdfOptionsUa);
+
+presentation->Save(u"pres-ua-compliance.pdf", SaveFormat::Pdf, pdfOptionsUa);
+
+presentation->Dispose();
 ```
 
-{{% alert title="注意" color="warning" %}} 
 
-Aspose.Slides 对 PDF 转换操作的支持扩展到允许您将 PDF 转换为最流行的文件格式。您可以进行 [PDF 到 HTML](https://products.aspose.com/slides/cpp/conversion/pdf-to-html/)、[PDF 到图像](https://products.aspose.com/slides/cpp/conversion/pdf-to-image/)、[PDF 到 JPG](https://products.aspose.com/slides/cpp/conversion/pdf-to-jpg/) 和 [PDF 到 PNG](https://products.aspose.com/slides/cpp/conversion/pdf-to-png/) 的转换。其他 PDF 转换操作针对特定格式——[PDF 到 SVG](https://products.aspose.com/slides/cpp/conversion/pdf-to-svg/)、[PDF 到 TIFF](https://products.aspose.com/slides/cpp/conversion/pdf-to-tiff/) 和 [PDF 到 XML](https://products.aspose.com/slides/cpp/conversion/pdf-to-xml/)——也受到支持。
+{{% alert title="Note" color="warning" %}} 
+
+Aspose.Slides 支持 PDF 转换操作，允许您将 PDF 文件转换为常见格式。您可以执行 [PDF转HTML](https://products.aspose.com/slides/cpp/conversion/pdf-to-html/)、[PDF转图像](https://products.aspose.com/slides/cpp/conversion/pdf-to-image/)、[PDF转JPG](https://products.aspose.com/slides/cpp/conversion/pdf-to-jpg/)、和 [PDF转PNG](https://products.aspose.com/slides/cpp/conversion/pdf-to-png/) 转换。其他面向专用格式的 PDF 转换—[PDF转SVG](https://products.aspose.com/slides/cpp/conversion/pdf-to-svg/)、[PDF转TIFF](https://products.aspose.com/slides/cpp/conversion/pdf-to-tiff/)、以及 [PDF转XML](https://products.aspose.com/slides/cpp/conversion/pdf-to-xml/)—也受支持。
 
 {{% /alert %}}
+
+## **常见问题**
+
+**是否可以批量将多个 PowerPoint 文件转换为 PDF？**
+
+是的，Aspose.Slides 支持批量将多个 PPT 或 PPTX 文件转换为 PDF。您可以遍历文件并以编程方式应用转换流程。
+
+**可以为转换后的 PDF 设置密码保护吗？**
+
+完全可以。使用 [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) 类在转换过程中设置密码并定义访问权限。
+
+**如何在 PDF 中包含隐藏幻灯片？**
+
+在 [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) 类中使用 `set_ShowHiddenSlides` 方法即可在生成的 PDF 中包含隐藏幻灯片。
+
+**Aspose.Slides 能否在 PDF 中保持高图像质量？**
+
+可以，您可以使用 `set_JpegQuality` 和 `set_SufficientResolution` 等方法在 [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) 类中控制图像质量，确保 PDF 中的图像保持高质量。
+
+**Aspose.Slides 是否支持 PDF/A 合规标准？**
+
+是的，Aspose.Slides 允许您导出符合多种标准的 PDF，包括 PDF/A1a、PDF/A1b 和 PDF/UA，确保文档满足可访问性和归档要求。
+
+## **其他资源**
+
+- [Aspose.Slides for C++ 文档](/slides/zh/cpp/)
+- [Aspose.Slides for C++ API 参考]https://reference.aspose.com/slides/cpp/
+- [Aspose 免费在线转换器]https://products.aspose.app/slides/conversion
