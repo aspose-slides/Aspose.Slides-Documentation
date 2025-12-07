@@ -1,42 +1,64 @@
 ---
-title: PowerPointをC++でMarkdownに変換する
+title: PowerPoint プレゼンテーションを C++ で Markdown に変換
+linktitle: PowerPoint から Markdown へ
 type: docs
 weight: 140
 url: /ja/cpp/convert-powerpoint-to-markdown/
-keywords: "PowerPointをMarkdownに変換, pptをmdに変換, PowerPoint, PPT, PPTX, プレゼンテーション, Markdown, C++, CPP, Aspose.Slides for C++"
-description: "C++でPowerPointをMarkdownに変換する"
+keywords:
+- PowerPoint を変換
+- プレゼンテーションを変換
+- スライドを変換
+- PPT を変換
+- PPTX を変換
+- PowerPoint から MD へ
+- プレゼンテーションを MD に
+- スライドを MD に
+- PPT を MD に
+- PPTX を MD に
+- PowerPoint を Markdown として保存
+- プレゼンテーションを Markdown として保存
+- スライドを Markdown として保存
+- PPT を MD として保存
+- PPTX を MD として保存
+- PPT を MD にエクスポート
+- PPTX を MD にエクスポート
+- PowerPoint
+- プレゼンテーション
+- Markdown
+- C++
+- Aspose.Slides
+description: "PowerPoint のスライド（PPT、PPTX）を Aspose.Slides for C++ でクリーンな Markdown に変換し、ドキュメント自動化と書式保持を実現します。"
 ---
 
 {{% alert color="info" %}} 
 
-PowerPointからMarkdownへの変換サポートは、[Aspose.Slides 23.7](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-23-7-release-notes/)に実装されました。
+PowerPoint から markdown への変換サポートは [Aspose.Slides 23.7](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-23-7-release-notes/) で実装されました。
 
 {{% /alert %}} 
 
 {{% alert color="warning" %}} 
 
-PowerPointからMarkdownへのエクスポートは、デフォルトで**画像なし**となっています。画像を含むPowerPoint文書をエクスポートしたい場合は、`SaveOptions::MarkdownExportType::Visual)`を設定し、Markdown文書内で参照される画像が保存される`BasePath`も設定する必要があります。
+PowerPoint から markdown へのエクスポートはデフォルトで **画像なし** です。画像を含む PowerPoint ドキュメントをエクスポートしたい場合は、`SaveOptions::MarkdownExportType::Visual)` を設定し、Markdown ドキュメントで参照される画像の保存先となる `BasePath` も指定する必要があります。
 
 {{% /alert %}} 
 
-## **PowerPointをMarkdownに変換する**
+## **PowerPoint を Markdown に変換する**
 
-1. プレゼンテーションオブジェクトを表すために[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)クラスのインスタンスを作成します。
-2. [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/#presentationsavesystemsharedptrexportxamlixamloptions-method)メソッドを使用して、オブジェクトをMarkdownファイルとして保存します。
+1. プレゼンテーションオブジェクトを表すために [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. Save メソッドを使用してオブジェクトを markdown ファイルとして保存します。
 
-このC++コードは、PowerPointをMarkdownに変換する方法を示しています：
-
+この C++ コードは PowerPoint を markdown に変換する方法を示します:
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(u"pres.md", SaveFormat::Md);
 ```
 
-## PowerPointをMarkdownフレーバーに変換する
 
-Aspose.Slidesは、PowerPointをMarkdown（基本構文を含む）、CommonMark、GitHubフレーバーのMarkdown、Trello、XWiki、GitLab、その他17のMarkdownフレーバーに変換することを可能にします。
+## **PowerPoint を Markdown のフレーバーに変換する**
 
-このC++コードは、PowerPointをCommonMarkに変換する方法を示しています：
+Aspose.Slides を使用すると、PowerPoint を markdown（基本構文を含む）、CommonMark、GitHub フレーバーの markdown、Trello、XWiki、GitLab、その他 17 種類の markdown フレーバーに変換できます。
 
+この C++ コードは PowerPoint を CommonMark に変換する方法を示します: 
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 auto opt = System::MakeObject<MarkdownSaveOptions>();
@@ -44,16 +66,16 @@ opt->set_Flavor(Aspose::Slides::DOM::Export::Markdown::SaveOptions::Flavor::Comm
 pres->Save(u"pres.md", Aspose::Slides::Export::SaveFormat::Md, opt);
 ```
 
-サポートされている23のMarkdownフレーバーは、[Flavor列挙型](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/flavor/)の下に[MarkdownSaveOptions](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/)クラスからリストされています。
 
-## **画像を含むプレゼンテーションをMarkdownに変換する**
+サポートされている 23 の markdown フレーバーは、[MarkdownSaveOptions](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) クラスの [Flavor 列挙体](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/flavor/) に一覧されています。
 
-[MarkdownSaveOptions](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/)クラスは、結果のMarkdownファイルに対して特定のオプションまたは設定を使用できるプロパティや列挙型を提供します。たとえば、[MarkdownExportType](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/)列挙型は、画像がどのようにレンダリングまたは処理されるかを決定する値に設定できます：`Sequential`、`TextOnly`、`Visual`。
+## **画像を含むプレゼンテーションを Markdown に変換する**
+
+[MarkdownSaveOptions](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) クラスは、生成される markdown ファイルに対して特定のオプションや設定を使用できるプロパティと列挙体を提供します。たとえば、[MarkdownExportType](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) 列挙体は、画像のレンダリングや処理方法を決定する `Sequential`、`TextOnly`、`Visual` の値に設定できます。
 
 ### **画像を順次変換する**
 
-結果のMarkdownに画像を個別に1つずつ表示したい場合は、順次オプションを選択する必要があります。このC++コードは、画像を含むプレゼンテーションをMarkdownに変換する方法を示しています：
-
+画像を結果の markdown に個別に一つずつ表示させたい場合は、Sequential オプションを選択する必要があります。この C++ コードは、画像を含むプレゼンテーションを markdown に変換する方法を示します:
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
@@ -68,12 +90,12 @@ markdownSaveOptions->set_NewLineType(NewLineType::Windows);
 pres->Save(u"doc.md", System::MakeArray<int32_t>({1, 2, 3, 4, 5, 6, 7, 8, 9}), SaveFormat::Md, markdownSaveOptions);
 ```
 
-### **画像を視覚的に変換する**
 
-結果のMarkdownに画像を一緒に表示したい場合は、視覚的オプションを選択する必要があります。この場合、画像はアプリケーションの現在のディレクトリに保存され（Markdown文書内に相対パスが構築されます）、好みのパスとフォルダ名を指定することもできます。
+### **画像をビジュアルに変換する**
 
-このC++コードは、操作を示しています：
+画像を結果の markdown にまとめて表示させたい場合は、Visual オプションを選択する必要があります。この場合、画像はアプリケーションの現在のディレクトリに保存され（markdown ドキュメント内には相対パスが作成されます）、もしくは任意のパスとフォルダー名を指定することも可能です。
 
+この C++ コードは操作を示しています: 
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 const System::String outPath = u"x:\\documents";
@@ -83,3 +105,18 @@ opt->set_ImagesSaveFolderName(u"md-images");
 opt->set_BasePath(outPath);
 pres->Save(System::IO::Path::Combine(outPath, u"pres.md"), Aspose::Slides::Export::SaveFormat::Md, opt);
 ```
+
+
+## **FAQ**
+
+**ハイパーリンクは Markdown へのエクスポート後も残りますか？**
+
+はい。テキスト [hyperlinks](/slides/ja/cpp/manage-hyperlinks/) は標準的な Markdown リンクとして保持されます。スライドの [transitions](/slides/ja/cpp/slide-transition/) や [animations](/slides/ja/cpp/powerpoint-animation/) は変換されません。
+
+**複数スレッドで実行して変換速度を上げられますか？**
+
+ファイル単位で並列化は可能ですが、同じ [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) インスタンスをスレッド間で共有しないでください。スレッドごとに別々のインスタンスまたはプロセスを使用して競合を回避します。
+
+**画像はどう扱われますか—どこに保存され、パスは相対ですか？**
+
+[Images](/slides/ja/cpp/image/) は専用フォルダーにエクスポートされ、Markdown ファイルはデフォルトで相対パスで参照します。ベース出力パスとアセットフォルダー名を設定すれば、リポジトリ構造を予測可能に保てます。

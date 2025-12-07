@@ -1,103 +1,120 @@
 ---
-title: C++でPowerPointをHTMLに変換する
-linktitle: PowerPointをHTMLに変換
+title: C++ で PowerPoint プレゼンテーションを HTML に変換
+linktitle: PowerPoint を HTML に変換
 type: docs
 weight: 30
 url: /ja/cpp/convert-powerpoint-to-html/
-keywords: "C++ PowerPoint to HTML, PowerPointプレゼンテーションを変換, PPTX, PPT, PPTをHTMLに, PPTXをHTMLに, PowerPointをHTMLに, PowerPointをHTMLとして保存, PPTをHTMLとして保存, PPTXをHTMLとして保存, C++, CPP, Aspose.Slides, HTMLエクスポート"
-description: "C++でPowerPointをHTMLに変換します。C++でPPTXまたはPPTをHTMLとして保存します。C++でスライドをHTMLとして保存します。"
+keywords:
+- PowerPoint を変換
+- プレゼンテーションを変換
+- スライドを変換
+- PPT を変換
+- PPTX を変換
+- PowerPoint を HTML に変換
+- プレゼンテーションを HTML に変換
+- スライドを HTML に変換
+- PPT を HTML に変換
+- PPTX を HTML に変換
+- PowerPoint を HTML として保存
+- プレゼンテーションを HTML として保存
+- スライドを HTML として保存
+- PPT を HTML として保存
+- PPTX を HTML として保存
+- PPT を HTML にエクスポート
+- PPTX を HTML にエクスポート
+- C++
+- Aspose.Slides
+description: "C++ で PowerPoint プレゼンテーションをレスポンシブ HTML に変換します。レイアウト、リンク、画像を保持し、Aspose.Slides の変換ガイドで高速かつ完璧な結果を実現します。"
 ---
 
 ## **概要**
 
-この記事では、C++を使用してPowerPointプレゼンテーションをHTML形式に変換する方法を説明します。以下のトピックをカバーしています。
+この記事では、C++ を使用して PowerPoint プレゼンテーションを HTML 形式に変換する方法を説明します。以下のトピックをカバーしています。
 
-- [C++でPowerPointをHTMLに変換](#convert-powerpoint-to-html)
-- [C++でPPTをHTMLに変換](#convert-powerpoint-to-html)
-- [C++でPPTXをHTMLに変換](#convert-powerpoint-to-html)
-- [C++でODPをHTMLに変換](#convert-powerpoint-to-html)
-- [C++でPowerPointスライドをHTMLに変換](#convert-slide-to-html)
+- [PowerPoint を HTML に変換 (C++)](#convert-powerpoint-to-html)
+- [PPT を HTML に変換 (C++)](#convert-powerpoint-to-html)
+- [PPTX を HTML に変換 (C++)](#convert-powerpoint-to-html)
+- [ODP を HTML に変換 (C++)](#convert-powerpoint-to-html)
+- [PowerPoint スライドを HTML に変換 (C++)](#convert-slide-to-html)
 
-## **C++ PowerPointをHTMLに変換**
+## **C++ で PowerPoint を HTML に変換**
 
-PowerPointをHTMLに変換するためのC++のサンプルコードについては、下記のセクション、つまり[C++でPowerPointをHTMLに変換](#convert-powerpoint-to-html)を参照してください。コードは、PPT、PPTX、ODPなどのさまざまな形式のプレゼンテーションオブジェクトをロードし、HTML形式で保存できます。
+PowerPoint を HTML に変換する C++ のサンプルコードについては、下記セクション [PowerPoint を HTML に変換](#convert-powerpoint-to-html) を参照してください。コードは PPT、PPTX、ODP などの形式を Presentation オブジェクトで読み込み、HTML 形式で保存できます。
 
-## **PowerPointからHTMLへの変換について**
-[**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/)を使用すると、アプリケーションや開発者はPowerPointプレゼンテーションをHTMLに変換できます：**PPTXをHTMLに**または**PPTをHTMLに**。
+## **PowerPoint を HTML に変換する概要**
+Using [**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/), applications and developers can convert a PowerPoint presentation to HTML: **PPTX to HTML** or **PPT to HTML**. 
 
-**Aspose.Slides**は、PowerPointからHTMLへの変換プロセスを定義する多くのオプション（主に[**HtmlOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options)クラスから）を提供します：
+**Aspose.Slides** provides many options (mostly from the [**HtmlOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) class) that define the PowerPoint to HTML conversion process:
 
-* PowerPointプレゼンテーション全体をHTMLに変換します。
-* PowerPointプレゼンテーション内の特定のスライドをHTMLに変換します。
-* プレゼンテーションメディア（画像、動画など）をHTMLに変換します。
-* PowerPointプレゼンテーションをレスポンシブHTMLに変換します。
-* 発表者のノートを含めたり除外したりして、PowerPointプレゼンテーションをHTMLに変換します。
-* コメントを含めたり除外したりして、PowerPointプレゼンテーションをHTMLに変換します。
-* 元のフォントまたは埋め込みフォントを使用してPowerPointプレゼンテーションをHTMLに変換します。
-* 新しいCSSスタイルを使用してPowerPointプレゼンテーションをHTMLに変換します。
+* PowerPoint プレゼンテーション全体を HTML に変換します。
+* PowerPoint プレゼンテーションの特定のスライドを HTML に変換します。
+* プレゼンテーションのメディア（画像、動画など）を HTML に変換します。
+* PowerPoint プレゼンテーションをレスポンシブ HTML に変換します。
+* スピーカーノートを含めるか除外した HTML に PowerPoint プレゼンテーションを変換します。
+* コメントを含めるか除外した HTML に PowerPoint プレゼンテーションを変換します。
+* 元のフォントまたは埋め込みフォントを使用した HTML に PowerPoint プレゼンテーションを変換します。
+* 新しい CSS スタイルを使用した HTML に PowerPoint プレゼンテーションを変換します。
 
 {{% alert color="primary" %}} 
 
-独自のAPIを使用して、Asposeは無料の[プレゼンテーションをHTMLに](https://products.aspose.app/slides/conversion/powerpoint-to-html)変換ツールを開発しました：[PPTをHTMLに](https://products.aspose.app/slides/conversion/ppt-to-html)、[PPTXをHTMLに](https://products.aspose.app/slides/conversion/pptx-to-html)、[ODPをHTMLに](https://products.aspose.app/slides/conversion/odp-to-html)など。
+Using its own API, Aspose developed free [presentation to HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html) converters: [PPT to HTML](https://products.aspose.app/slides/conversion/ppt-to-html), [PPTX to HTML](https://products.aspose.app/slides/conversion/pptx-to-html), [ODP to HTML](https://products.aspose.app/slides/conversion/odp-to-html), etc. 
 
 [![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
 
-他の[無料のAspose変換ツール](https://products.aspose.app/slides/conversion)も確認してみてください。
+You may want to check out other [free converters from Aspose](https://products.aspose.app/slides/conversion).
 
 {{% /alert %}} 
 
-{{% alert title="注意" color="warning" %}} 
+{{% alert title="注" color="warning" %}} 
 
-ここで説明されている変換プロセスの他に、Aspose.SlidesはHTML形式を使用したこれらの変換操作もサポートしています：
+Besides the conversion processes described here, Aspose.Slides also supports these conversion operations involving the HTML format: 
 
-* [HTMLから画像へ](https://products.aspose.com/slides/cpp/conversion/html-to-image/)
-* [HTMLからJPGへ](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)
-* [HTMLからXMLへ](https://products.aspose.com/slides/cpp/conversion/html-to-xml/)
-* [HTMLからTIFFへ](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)
+* [HTML to image](https://products.aspose.com/slides/cpp/conversion/html-to-image/)
+* [HTML to JPG](https://products.aspose.com/slides/cpp/conversion/html-to-jpg/)
+* [HTML to XML](https://products.aspose.com/slides/cpp/conversion/html-to-xml/)
+* [HTML to TIFF](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)
 
 {{% /alert %}}
 
+## **PowerPoint を HTML に変換**
+Using Aspose.Slides, you can convert an entire PowerPoint presentation to HTML this way:
 
-## **PowerPointをHTMLに変換する**
-Aspose.Slidesを使用することで、次の手順でPowerPointプレゼンテーション全体をHTMLに変換できます：
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+   * Load **.ppt** in _Presentation_ class to **Convert PPT to HTML in C++**
+   * Load **.pptx** in _Presentation_ class to **Convert PPTX to HTML in C++**
+   * Load **.odp** in _Presentation_ class to **Convert ODP to HTML in C++**
+3. Use the [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a5c310c99c623922fc32e91a6d74f7020) method to save the object as an HTML file.
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)クラスのインスタンスを作成します。
-   * **.ppt**を_Presentation_クラスにロードして**C++でPPTをHTMLに変換**
-   * **.pptx**を_Presentation_クラスにロードして**C++でPPTXをHTMLに変換**
-   * **.odp**を_Presentation_クラスにロードして**C++でODPをHTMLに変換**
-3. [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a5c310c99c623922fc32e91a6d74f7020)メソッドを使用してオブジェクトをHTMLファイルとして保存します。
-
-このコードは、C++でPowerPointをHTMLに変換する方法を示しています：
-
+This code shows you how to convert a PowerPoint to HTML in C++:
 ```cpp
-// プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化
+// プレゼンテーション ファイルを表す Presentation オブジェクトをインスタンス化する
 auto presentation = System::MakeObject<Presentation>(u"Convert_HTML.pptx");
     
 auto htmlOpt = System::MakeObject<HtmlOptions>();
 htmlOpt->set_HtmlFormatter(HtmlFormatter::CreateDocumentFormatter(u"", false));
 
-// プレゼンテーションをHTMLとして保存
+// プレゼンテーションを HTML に保存する
 presentation->Save(u"ConvertWholePresentationToHTML_out.html", SaveFormat::Html, htmlOpt);
 ```
 
-## **PowerPointをレスポンシブHTMLに変換する**
-Aspose.Slidesは、レスポンシブHTMLファイルを生成するための[ResponsiveHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.responsive_html_controller)クラスを提供しています。このコードは、C++でPowerPointプレゼンテーションをレスポンシブHTMLに変換する方法を示しています：
 
+## **PowerPoint をレスポンシブ HTML に変換**
+Aspose.Slides provides the [ResponsiveHtmlController ](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.responsive_html_controller) class that allows you to generate responsive HTML files. This code shows you how to convert a PowerPoint presentation to responsive HTML in C++:
 ```cpp
-// プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化
+// プレゼンテーション ファイルを表す Presentation オブジェクトをインスタンス化する
 auto presentation = System::MakeObject<Presentation>(u"Convert_HTML.pptx");
 
 auto controller = System::MakeObject<ResponsiveHtmlController>();
 auto htmlOptions = System::MakeObject<HtmlOptions>();
 htmlOptions->set_HtmlFormatter(HtmlFormatter::CreateCustomFormatter(controller));
 
-// プレゼンテーションをHTMLとして保存
+// プレゼンテーションを HTML に保存する
 presentation->Save(u"ConvertPresentationToResponsiveHTML_out.html", SaveFormat::Html, htmlOptions);
 ```
 
-## **ノート付きのPowerPointをHTMLに変換する**
-このコードは、C++でノート付きのPowerPointをHTMLに変換する方法を示しています：
 
+## **PowerPoint をノート付き HTML に変換**
+This code shows you how to convert a PowerPoint to HTML with notes in C++:
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"Presentation.pptx");
 
@@ -106,21 +123,21 @@ auto opt = System::MakeObject<HtmlOptions>();
 auto options = opt->get_NotesCommentsLayouting();
 options->set_NotesPosition(NotesPositions::BottomFull);
 
-// ノートページを保存
+// Saving notes pages
 pres->Save(u"Output.html", SaveFormat::Html, opt);
 ```
 
-## **元のフォント付きでPowerPointをHTMLに変換する**
-Aspose.Slidesは、プレゼンテーションをHTMLに変換する際にすべてのフォントを埋め込むことができる[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller)クラスを提供しています。
 
-特定のフォントが埋め込まれないようにするには、[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller)クラスのパラメータ化コンストラクタにフォント名の配列を渡すことができます。プレゼンテーションで使用される人気のフォント、例えばCalibriやArialは、ほとんどのシステムに既に含まれているため、埋め込む必要はありません。これらのフォントが埋め込まれると、結果として得られるHTMLドキュメントが不必要に大きくなります。
+## **PowerPoint を元のフォントで HTML に変換**
+Aspose.Slides provides the [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller) class that allows you to embed all the fonts in a presentation while converting the presentation to HTML.
 
-[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller)クラスは継承をサポートし、上書きされることを意図した[WriteFont](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller#a1dfd1c26bb181c8581ec67d270ce0b77)メソッドを提供します。
+To prevent certain fonts from being embedded, you can pass an array of font names to a parameterized constructor from the [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller) class. Popular fonts, such as Calibri or Arial, when used in a presentation, do not have to be embedded because most systems already contain such fonts. When those fonts are embedded, the resulting HTML document becomes unnecessarily large.
 
+The [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller) class supports inheritance and provides the [WriteFont](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.embed_all_fonts_html_controller#a1dfd1c26bb181c8581ec67d270ce0b77) method, which is meant to be overwritten. 
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"input.pptx");
 
-// デフォルトのプレゼンテーションフォントを除外
+// exclude default presentation fonts
 auto fontNameExcludeList = System::MakeArray<System::String>({ u"Calibri", u"Arial" });
 
 auto embedFontsController = System::MakeObject<EmbedAllFontsHtmlController>(fontNameExcludeList);
@@ -131,11 +148,11 @@ htmlOptionsEmbed->set_HtmlFormatter(HtmlFormatter::CreateCustomFormatter(embedFo
 pres->Save(u"input-PFDinDisplayPro-Regular-installed.html", SaveFormat::Html, htmlOptionsEmbed);
 ```
 
-## **高品質画像でPowerPointをHTMLに変換する**
-デフォルトでは、PowerPointをHTMLに変換する際、Aspose.Slidesは72 DPIの小さなHTMLと切り取られた領域を削除した画像を出力します。高品質の画像を持つHTMLファイルを得るには、`HtmlOptions`クラスの`PicturesCompression`プロパティを96（つまり、`PicturesCompression::Dpi96`）以上の値に設定する必要があります[値](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.export#adc51ca67b7e5c99f6fad75b02ebfd6d8)。
 
-このC++コードは、150 DPI（つまり、`PicturesCompression::Dpi150`）で高品質画像を取得しながらPowerPointプレゼンテーションをHTMLに変換する方法を示しています：
+## **PowerPoint を高画質画像付き HTML に変換**
+By default, when you convert PowerPoint to HTML, Aspose.Slides outputs small HTML with images at 72 DPI and deleted cropped areas. To obtain HTML files with higher quality images, you have to set the `PicturesCompression` property (from the `HtmlOptions` class) to 96 (i.e., `PicturesCompression::Dpi96`) or higher [values](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.export#adc51ca67b7e5c99f6fad75b02ebfd6d8).
 
+This C++ code shows you how to convert a PowerPoint presentation to HTML while obtaining high quality images at 150 DPI (i.e. `PicturesCompression::Dpi150`):
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"InputDoc.pptx");
 
@@ -145,8 +162,8 @@ htmlOpts->set_PicturesCompression(PicturesCompression::Dpi150);
 pres->Save(u"OutputDoc-dpi150.html", SaveFormat::Html, htmlOpts);
 ```
 
-このC++コードは、フルクオリティ画像でHTMLを出力する方法を示しています：
 
+This code in C++ shows you how to output HTML with full quality images:
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"InputDoc.pptx");
 
@@ -156,11 +173,11 @@ htmlOpts->set_DeletePicturesCroppedAreas(false);
 pres->Save(u"Outputdoc-noCrop.html", SaveFormat::Html, htmlOpts);
 ```
 
-## **スライドをHTMLに変換する**
-PowerPointの特定のスライドをHTMLに変換するには、全体のプレゼンテーションをHTMLに変換する際に使用するのと同じ[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)クラスをインスタンス化し、[Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a5c310c99c623922fc32e91a6d74f7020)メソッドを使用してファイルをHTMLとして保存する必要があります。[HtmlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options)クラスを使用して追加の変換オプションを指定できます：
 
-このC++コードは、PowerPointのプレゼンテーション内のスライドをHTMLに変換する方法を示しています：
+## **スライドを HTML に変換**
+To convert a specific slide in a PowerPoint to HTML, you have to instantiate the same [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class (used to convert entire presentations to HTML) and then use the [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a5c310c99c623922fc32e91a6d74f7020) method to save the file as HTML. The [HtmlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) class can be used to specify additional conversion options:
 
+This C++ code shows you how to convert a slide in a PowerPoint presentation to HTML:
 ``` cpp
 class CustomFormattingController : public IHtmlFormattingController
 {
@@ -187,14 +204,14 @@ const String CustomFormattingController::SlideHeader = u"<div class=\"slide\" na
 const String CustomFormattingController::SlideFooter = u"</div>";
 ```
 
-``` cpp
+```cpp
 void Run()
 {
     String dataDir = GetDataPath();
     
     auto presentation = System::MakeObject<Presentation>(dataDir + u"Individual-Slide.pptx");
 
-    auto formatter = HtmlFormatter::CreateCustomFormatter(MakeObject<CustomFormattingController>());
+    auto formatter = HtmlFormatter::CreateCustomFormatter(MakeObject<CustomFormattingController>();
     auto htmlOptions = System::MakeObject<HtmlOptions>();
     htmlOptions->set_HtmlFormatter(formatter);
 
@@ -207,11 +224,11 @@ void Run()
 }
 ```
 
-## **HTMLにエクスポートする際にCSSと画像を保存**
-新しいCSSスタイルファイルを使用することで、PowerPointをHTMLに変換するプロセスから得られるHTMLファイルのスタイルを簡単に変更できます。
 
-この例のC++コードは、オーバーライド可能なメソッドを使用してCSSファイルへのリンクを持つカスタムHTMLドキュメントを作成する方法を示しています：
+## **HTML エクスポート時に CSS と画像を保存**
+Using new CSS style files, you can easily change the style of the HTML file resulting from the PowerPoint to HTML conversion process. 
 
+The C++ code in this example shows you how to use overridable methods to create a custom HTML document with a link to a CSS file:
 ``` cpp
 class CustomHeaderAndFontsController : public EmbedAllFontsHtmlController
 {
@@ -229,7 +246,7 @@ public:
 
     void WriteAllFonts(SharedPtr<IHtmlGenerator> generator, SharedPtr<IPresentation> presentation) override
     {
-        generator->AddHtml(u"<!-- 埋め込まれたフォント -->");
+        generator->AddHtml(u"<!-- Embedded fonts -->");
         EmbedAllFontsHtmlController::WriteAllFonts(generator, presentation);
     }
 
@@ -245,10 +262,10 @@ u"<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" +
 u"<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}\">\n" + u"</head>";
 ```
 
-``` cpp
+```cpp
 void Run()
 {
-    // ドキュメントディレクトリへのパス
+    // ドキュメントディレクトリへのパス。
     System::String dataDir = GetDataPath();
 
     auto pres = System::MakeObject<Presentation>(u"pres.pptx");
@@ -260,11 +277,11 @@ void Run()
 }
 ```
 
-## **プレゼンテーションをHTMLに変換する際にすべてのフォントをリンクする**
-フォントを埋め込まない（結果として得られるHTMLのサイズを増加させない）場合、独自の`LinkAllFontsHtmlController`バージョンを実装することで、すべてのフォントをリンクできます。
 
-このC++コードは、PowerPointをHTMLに変換する際にすべてのフォントをリンクし、「Calibri」と「Arial」を除外する方法を示しています（これらはすでにシステムに存在するため）：
+## **HTML に変換する際にすべてのフォントをリンク**
+If you do not want to embed fonts (to avoid increasing the size of the resulting HTML), you can link all fonts by implementing your own  `LinkAllFontsHtmlController` version. 
 
+This C++ code shows you how to convert a PowerPoint to HTML while linking all fonts and excluding "Calibri" and "Arial" (since they already exist in the system): 
 ```cpp
 class LinkAllFontsHtmlController : public EmbedAllFontsHtmlController
 {
@@ -279,7 +296,7 @@ public:
         String fontStyle, String fontWeight, ArrayPtr<uint8_t> fontData)
     {
         String fontName = substitutedFont == nullptr ? originalFont->get_FontName() : substitutedFont->get_FontName();
-        String path = String::Format(u"{0}.woff", fontName); // 一部のパスの正規化が必要な場合があります
+        String path = String::Format(u"{0}.woff", fontName); // パスのサニタイズが必要になる場合があります
         IO::File::WriteAllBytes(IO::Path::Combine(m_basePath, path), fontData);
 
         generator->AddHtml(u"<style>");
@@ -296,7 +313,7 @@ private:
 };
 ```
 
-``` cpp
+```cpp
 void Run()
 {
     auto pres = System::MakeObject<Presentation>(u"pres.pptx");
@@ -313,9 +330,9 @@ void Run()
 }
 ```
 
-## **PowerPointをレスポンシブHTMLに変換する**
-このC++コードは、PowerPointプレゼンテーションをレスポンシブHTMLに変換する方法を示しています：
 
+## **PowerPoint をレスポンシブ HTML に変換**
+This C++ code shows you how to convert a PowerPoint presentation to responsive HTML:
 ```cpp
 auto presentation = System::MakeObject<Presentation>(u"SomePresentation.pptx");
 auto saveOptions = System::MakeObject<HtmlOptions>();
@@ -324,18 +341,17 @@ presentation->Save(u"SomePresentation-out.html", SaveFormat::Html, saveOptions);
 ```
 
 
-## **メディアファイルをHTMLにエクスポートする**
-Aspose.Slides for C++を使用して、次の方法でメディアファイルをエクスポートできます：
+## **メディアファイルを HTML にエクスポート**
+Using Aspose.Slides for C++, you can export media files this way:
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)クラスのインスタンスを作成します。
-1. スライドへの参照を取得します。
-1. スライドに動画を追加します。
-1. プレゼンテーションをHTMLファイルとして書き出します。
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
+2. Get a reference to the slide.
+3. Add a video to the slide.
+4. Write the presentation as a HTML file.
 
-このC++コードは、プレゼンテーションに動画を追加し、HTMLとして保存する方法を示しています：
-
+This C++ code shows you how to add a video to the presentation and then save it as HTML: 
 ```cpp
- // プレゼンテーションをロード
+ // プレゼンテーションを読み込む
 auto pres = System::MakeObject<Presentation>();
 
 const System::String path = u"C:/out/";
@@ -351,13 +367,28 @@ slide->get_Shapes()->AddVideoFrame(10.0f, 10.0f, 100.0f, 100.0f, video);
 
 auto controller = System::MakeObject<VideoPlayerHtmlController>(path, fileName, baseUri);
 
-// HTMLオプションを設定
+// HTML オプションを設定する
 auto htmlOptions = System::MakeObject<HtmlOptions>(controller);
 auto svgOptions = System::MakeObject<SVGOptions>(controller);
 
 htmlOptions->set_HtmlFormatter(HtmlFormatter::CreateCustomFormatter(controller));
 htmlOptions->set_SlideImageFormat(SlideImageFormat::Svg(svgOptions));
 
-// ファイルを保存
+// ファイルを保存する
 pres->Save(IO::Path::Combine(path, fileName), SaveFormat::Html, htmlOptions);
 ```
+
+
+## **FAQ**
+
+**複数のプレゼンテーションを HTML に変換する際の Aspose.Slides のパフォーマンスはどうですか？**
+
+Performance depends on the size and complexity of presentations. Aspose.Slides is highly efficient and scalable for batch operations. To achieve optimal performance when converting many presentations, it’s recommended to use multithreading or parallel processing whenever possible.
+
+**Aspose.Slides はハイパーリンクの HTML へのエクスポートをサポートしていますか？**
+
+Yes, Aspose.Slides fully supports exporting embedded hyperlinks to HTML. When you convert presentations to HTML format, hyperlinks are preserved automatically and remain clickable.
+
+**プレゼンテーションを HTML に変換する際、スライド数に制限はありますか？**
+
+There is no limit on the number of slides when using Aspose.Slides. You can convert presentations of any size. However, for presentations containing a very large number of slides, performance may depend on the available resources of your server or system.

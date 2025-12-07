@@ -1,32 +1,52 @@
 ---
-title: تحويل PowerPoint إلى فيديو
+title: تحويل عروض PowerPoint إلى فيديو باستخدام C++
+linktitle: PowerPoint إلى فيديو
 type: docs
 weight: 130
 url: /ar/cpp/convert-powerpoint-to-video/
-keywords: "تحويل PowerPoint, PPT, PPTX, عرض, فيديو, MP4, PPT إلى فيديو, PPT إلى MP4, C++, Aspose.Slides"
-description: "تحويل PowerPoint إلى الفيديو باستخدام Aspose.Slides لـ C++ API"
+keywords:
+- تحويل PowerPoint
+- تحويل العرض
+- تحويل PPT
+- تحويل PPTX
+- PowerPoint إلى فيديو
+- العرض إلى فيديو
+- PPT إلى فيديو
+- PPTX إلى فيديو
+- PowerPoint إلى MP4
+- العرض إلى MP4
+- PPT إلى MP4
+- PPTX إلى MP4
+- حفظ PPT كـ MP4
+- حفظ PPTX كـ MP4
+- تصدير PPT إلى MP4
+- تصدير PPTX إلى MP4
+- تحويل الفيديو
+- PowerPoint
+- C++
+- Aspose.Slides
+description: "تعرف على كيفية تحويل عروض PowerPoint إلى فيديو باستخدام C++. اكتشف عينة الشيفرة وتقنيات الأتمتة لتبسيط سير العمل الخاص بك."
 ---
 
-من خلال تحويل عرض PowerPoint الخاص بك إلى فيديو، تحصل على 
+## **نظرة عامة**
 
-* **زيادة في الوصول:** جميع الأجهزة (بغض النظر عن النظام الأساسي) مزودة بلاعبات فيديو بشكل افتراضي مقارنةً بتطبيقات فتح العروض، لذا يجد المستخدمون أنه من الأسهل فتح أو تشغيل مقاطع الفيديو.
-* **نطاق أوسع:** يمكنك من خلال مقاطع الفيديو الوصول إلى جمهور كبير واستهدافهم بمعلومات قد تبدو مملة بخلاف ذلك في عرض. تشير معظم الاستطلاعات والإحصائيات إلى أن الناس يشاهدون ويستهلكون مقاطع الفيديو أكثر من أشكال المحتوى الأخرى، وعادةً ما يفضلون مثل هذا المحتوى.
+من خلال تحويل عرض PowerPoint التقديمي إلى فيديو، ستحصل على 
 
-## **تحويل PowerPoint إلى فيديو في Aspose.Slides**
+* **زيادة في إمكانية الوصول:** جميع الأجهزة (بغض النظر عن النظام الأساسي) مجهزة بمشغلات الفيديو بشكل افتراضي مقارنةً بتطبيقات فتح العروض، لذا يجد المستخدمون أنه من الأسهل فتح أو تشغيل الفيديوهات.
+* **نطاق أوسع:** من خلال الفيديوهات، يمكنك الوصول إلى جمهور كبير وتوجيههم بالمعلومات التي قد تبدو مملة في عرض تقديمي. تشير معظم الاستطلاعات والإحصاءات إلى أن الناس يشاهدون ويستهلكون الفيديوهات أكثر من أشكال المحتوى الأخرى، وعادةً ما يفضلون هذا النوع من المحتوى.
 
-في [Aspose.Slides 22.11](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-22-11-release-notes/)، قمنا بتنفيذ دعم تحويل العرض إلى فيديو. 
+في [Aspose.Slides 22.11](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-22-11-release-notes/) تم تنفيذ دعم تحويل العرض إلى فيديو. 
 
-* استخدم Aspose.Slides لتوليد مجموعة من الإطارات (من شرائح العرض) التي تتوافق مع معدل إطارات معين (إطارات في الثانية)
-* استخدم أداة خارجية مثل `ffmpeg` لإنشاء فيديو بناءً على الإطارات.
+* استخدم Aspose.Slides لتوليد مجموعة من الإطارات (من شرائح العرض) التي تتوافق مع عدد محدد من الإطارات في الثانية (FPS).
+* استخدم أداة طرف ثالث مثل `ffmpeg` لإنشاء فيديو بناءً على الإطارات.
 
-### **تحويل PowerPoint إلى فيديو**
+## **تحويل عرض PowerPoint إلى فيديو**
 
 1. قم بتنزيل ffmpeg [هنا](https://ffmpeg.org/download.html).
-2. أضف المسار إلى `ffmpeg.exe` إلى متغير البيئة `PATH`.
-3. قم بتشغيل كود تحويل PowerPoint إلى فيديو.
+2. أضف مسار `ffmpeg.exe` إلى متغير البيئة `PATH`.
+3. شغّل كود تحويل PowerPoint إلى فيديو.
 
-هذا الكود C++ يوضح لك كيفية تحويل عرض (يحتوي على شكل وصفتين متحركتين) إلى فيديو:
-
+هذا الكود بلغة C++ يوضح لك كيفية تحويل عرض ( يحتوي على شكل وتأثيري تحريك ) إلى فيديو:
 ```c++
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
@@ -39,7 +59,7 @@ void Run()
     auto presentation = System::MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    // يضيف شكل مبتسم ثم يحركه
+    // يضيف شكل ابتسامة ثم يحركه
     System::SharedPtr<IAutoShape> smile = slide->get_Shapes()->AddAutoShape(ShapeType::SmileyFace, 110.0f, 20.0f, 500.0f, 500.0f);
     auto sequence = slide->get_Timeline()->get_MainSequence();
     System::SharedPtr<IEffect> effectIn = sequence->AddEffect(smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
@@ -62,24 +82,22 @@ void Run()
 }
 ```
 
+
 ## **تأثيرات الفيديو**
 
-يمكنك تطبيق الرسوم المتحركة على الكائنات على الشرائح واستخدام الانتقالات بين الشرائح.
+يمكنك تطبيق التحريكات على الكائنات داخل الشرائح واستخدام الانتقالات بين الشرائح.
 
 {{% alert color="primary" %}} 
-
-قد ترغب في رؤية هذه المقالات: [رسوم متحركة PowerPoint](https://docs.aspose.com/slides/cpp/powerpoint-animation/)، [رسوم متحركة الشكل](https://docs.aspose.com/slides/cpp/shape-animation/)، و[تأثير الشكل](https://docs.aspose.com/slides/cpp/shape-effect/).
-
+قد ترغب في الاطلاع على هذه المقالات: [PowerPoint Animation](https://docs.aspose.com/slides/cpp/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/cpp/shape-animation/), و [Shape Effect](https://docs.aspose.com/slides/cpp/shape-effect/).
 {{% /alert %}} 
 
-تجعل الرسوم المتحركة والانتقالات العروض التقديمية أكثر جاذبية واهتمامًا—وهي تفعل نفس الشيء بالنسبة للفيديوهات. دعنا نضيف شريحة أخرى وانتقالًا إلى الكود الخاص بالعرض السابق:
-
+تجعل التحريكات والانتقالات عروض الشرائح أكثر جذباً وإثارة— وتفعل الشيء نفسه للفيديوهات. لنضيف شريحة وانتقال آخر إلى الكود للعرض السابق:
 ```c++
-// يضيف شكل مبتسم ثم يحركه
+// يضيف شكل ابتسامة ويُحركه
 
 // ...
 
-// يضيف شريحة جديدة وانتقال متحرك
+// يضيف شريحة جديدة مع انتقال متحرك
 
 System::SharedPtr<ISlide> newSlide = presentation->get_Slides()->AddEmptySlide(presentation->get_Slide(0)->get_LayoutSlide());
 
@@ -96,8 +114,8 @@ fillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Indigo()
 newSlide->get_SlideShowTransition()->set_Type(TransitionType::Push);
 ```
 
-يدعم Aspose.Slides أيضًا الرسوم المتحركة للنصوص. لذا نقوم بتحريك الفقرات على الكائنات، والتي ستظهر واحدة تلو الأخرى (مع التأخير المحدد إلى ثانية):
 
+تدعم Aspose.Slides أيضًا التحريك للنصوص. لذا نقوم بتحريك الفقرات على الكائنات، بحيث تظهر واحدة تلو الأخرى (مع تأخير ثانية واحدة):
 ```c++
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
@@ -110,15 +128,15 @@ void Run()
     auto presentation = System::MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    // يضيف نصوصًا ورسوم متحركة
+    // يضيف النص والرسوم المتحركة
     System::SharedPtr<IAutoShape> autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 210.0f, 120.0f, 300.0f, 300.0f);
     System::SharedPtr<Paragraph> para1 = System::MakeObject<Paragraph>();
     para1->get_Portions()->Add(System::MakeObject<Portion>(u"Aspose Slides for C++"));
     System::SharedPtr<Paragraph> para2 = System::MakeObject<Paragraph>();
-    para2->get_Portions()->Add(System::MakeObject<Portion>(u"تحويل عرض PowerPoint مع نص إلى فيديو"));
+    para2->get_Portions()->Add(System::MakeObject<Portion>(u"convert PowerPoint Presentation with text to video"));
 
     System::SharedPtr<Paragraph> para3 = System::MakeObject<Paragraph>();
-    para3->get_Portions()->Add(System::MakeObject<Portion>(u"فقرة تلو الأخرى"));
+    para3->get_Portions()->Add(System::MakeObject<Portion>(u"paragraph by paragraph"));
     auto paragraphs = autoShape->get_TextFrame()->get_Paragraphs();
     paragraphs->Add(para1);
     paragraphs->Add(para2);
@@ -139,7 +157,7 @@ void Run()
     effect3->get_Timing()->set_TriggerDelayTime(1.0f);
     effect4->get_Timing()->set_TriggerDelayTime(1.0f);
 
-    // تحويل الإطارات إلى فيديو
+    // يحوّل الإطارات إلى فيديو
     const int32_t fps = 33;
 
     auto animationsGenerator = System::MakeObject<PresentationAnimationsGenerator>(presentation);
@@ -156,30 +174,30 @@ void Run()
 }
 ```
 
+
 ## **فئات تحويل الفيديو**
 
-لتتمكن من تنفيذ مهام تحويل PowerPoint إلى فيديو، توفر Aspose.Slides [PresentationAnimationsGenerator](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_animations_generator/) و[PresentationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_player/) كلاس.
+لتمكينك من أداء مهام تحويل PowerPoint إلى فيديو، توفر Aspose.Slides الفئات [PresentationAnimationsGenerator](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_animations_generator/) و[PresentationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_player/).
 
-يتيح لك PresentationAnimationsGenerator تعيين حجم الإطار للفيديو (الذي سيتم إنشاؤه لاحقًا) من خلال مُنشئه. إذا قمت بتمرير مثيل العرض، فسيتم استخدام `Presentation.SlideSize` وتوليد الرسوم المتحركة التي يستخدمها [PresentationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_player/). 
+PresentationAnimationsGenerator تتيح لك ضبط حجم الإطار للفيديو (الذي سيُنشأ لاحقًا) عبر المُنشئ الخاص بها. إذا مررت كائن عرض، سيتم استخدام `Presentation.SlideSize` وتوليد التحريكات التي يستخدمها [PresentationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_player/). 
 
-عند توليد الرسوم المتحركة، يتم إنشاء حدث `NewAnimation` لكل رسوم متحركة تالية، والذي يحتوي على المعامل [IPresentationAnimationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player/). الأخير هو كلاس يمثل مشغلًا لرسوم متحركة منفصلة.
+عند توليد التحريكات، يُنشأ حدث `NewAnimation` لكل تحريك لاحق، يحتوي على معامل [IPresentationAnimationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player/). الأخير هو فئة تمثل مشغلًا لتحريك منفصل.
 
-للاستفادة من [IPresentationAnimationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player/)، يتم استخدام خاصية [get_Duration](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91) (المدة الكاملة للرسوم المتحركة) و[SetTimePosition](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0) الطريقة. يتم تعيين كل موضع رسوم متحركة ضمن نطاق *0 إلى المدة*، ثم ستعيد `GetFrame` طريقة صورة متجهة تتوافق مع حالة الرسوم المتحركة في تلك اللحظة.
-
+للعمل مع [IPresentationAnimationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player/)، تُستخدم الخاصية [get_Duration](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91) (المدة الكاملة للتحريك) والطريقة [SetTimePosition](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0). يتم ضبط موقع كل تحريك ضمن النطاق *0 إلى المدة*، ثم تُعيد طريقة `GetFrame` صورة Bitmap تتطابق مع حالة التحريك في تلك اللحظة.
 ```c++
 void OnNewAnimation(System::SharedPtr<IPresentationAnimationPlayer> animationPlayer)
 {
-    System::Console::WriteLine(u"المدة الإجمالية للرسوم المتحركة: {0}", animationPlayer->get_Duration());
+    System::Console::WriteLine(u"Total animation duration: {0}", animationPlayer->get_Duration());
 
     animationPlayer->SetTimePosition(0);
     // حالة الرسوم المتحركة الأولية
     System::SharedPtr<System::Drawing::Bitmap> bitmap = animationPlayer->GetFrame();
-    // صورة حالة الرسوم المتحركة الأولية
+    // صورة البت لحالة الرسوم المتحركة الأولية
 
     animationPlayer->SetTimePosition(animationPlayer->get_Duration());
     // الحالة النهائية للرسوم المتحركة
     System::SharedPtr<System::Drawing::Bitmap> lastBitmap = animationPlayer->GetFrame();
-    // الإطار الأخير من الرسوم المتحركة
+    // الإطار الأخير للرسوم المتحركة
     lastBitmap->Save(u"last.png");
 }
 
@@ -188,7 +206,7 @@ void Run()
     auto presentation = System::MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    // يضيف شكل مبتسم ثم يحركه
+    // يضيف شكل ابتسامة ويحرّكه
     System::SharedPtr<IAutoShape> smile = slide->get_Shapes()->AddAutoShape(ShapeType::SmileyFace, 110.0f, 20.0f, 500.0f, 500.0f);
     auto sequence = slide->get_Timeline()->get_MainSequence();
     System::SharedPtr<IEffect> effectIn = sequence->AddEffect(smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
@@ -201,8 +219,8 @@ void Run()
 }
 ```
 
-لجعل جميع الرسوم المتحركة في العرض تلعب معًا، يتم استخدام [PresentationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_player/) كلاس. يستقبل هذا الكلاس مثيلًا من [PresentationAnimationsGenerator](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_animations_generator/) وFPS للتأثيرات في مُنشئه، ثم يستدعي حدث `FrameTick` لجميع الرسوم المتحركة لتشغيلها:
 
+لجعل جميع التحريكات في عرض ما تُشغل مرة واحدة، تُستخدم فئة [PresentationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_player/). تأخذ هذه الفئة كائنًا من [PresentationAnimationsGenerator](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_animations_generator/) ومعدل FPS للتأثيرات في مُنشئها ثم تستدعي حدث `FrameTick` لجميع التحريكات لتشغيلها:
 ```c++
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
@@ -221,7 +239,8 @@ void Run()
 }
 ```
 
-ثم يمكن تجميع الإطارات الناتجة لإنتاج فيديو. انظر قسم [تحويل PowerPoint إلى فيديو](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+
+بعد ذلك يمكن تجميع الإطارات المولدة لإنتاج فيديو. راجع قسم [Convert PowerPoint to Video](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
 ## **الرسوم المتحركة والتأثيرات المدعومة**
 
@@ -230,18 +249,18 @@ void Run()
 
 | نوع الرسوم المتحركة | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **ظهور** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
+| **الظهور** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
 | **تلاشي** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **طيران داخلي** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **عائم داخلي** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **انقسام** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+| **التحليق الداخل** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+| **الطفو الداخل** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+| **تقسيم** | ![مدعوم](v.png) | ![مدعوم](v.png) |
 | **مسح** | ![مدعوم](v.png) | ![مدعوم](v.png) |
 | **شكل** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **دائرة** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **أشرطة عشوائية** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+| **عجلة** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+| **أعمدة عشوائية** | ![مدعوم](v.png) | ![مدعوم](v.png) |
 | **نمو وتدوير** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
 | **تكبير** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **دوار** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+| **تدوير** | ![مدعوم](v.png) | ![مدعوم](v.png) |
 | **ارتداد** | ![مدعوم](v.png) | ![مدعوم](v.png) |
 
 
@@ -249,17 +268,17 @@ void Run()
 
 | نوع الرسوم المتحركة | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **نبضة** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **نبضة اللون** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **توازن** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+| **نَبْض** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
+| **نَبْض اللون** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
+| **تمايل** | ![مدعوم](v.png) | ![مدعوم](v.png) |
 | **دوران** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **نمو/تقليص** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **تتلاشى** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **تعتيم** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **تيسير** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
+| **تكبير/تصغير** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
+| **إزالة التشبع** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
+| **تغميق** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
+| **تفتح** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
 | **شفافية** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
 | **لون الكائن** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
-| **لون مكمل** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
+| **اللون المكمل** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
 | **لون الخط** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
 | **لون التعبئة** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
 
@@ -269,24 +288,38 @@ void Run()
 |---|---|---|
 | **اختفاء** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
 | **تلاشي** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **طيران خارجي** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **عائم خارجي** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **انقسام** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+| **التحليق الخارج** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+| **الطفو الخارج** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+| **تقسيم** | ![مدعوم](v.png) | ![مدعوم](v.png) |
 | **مسح** | ![مدعوم](v.png) | ![مدعوم](v.png) |
 | **شكل** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **أشرطة عشوائية** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **تقليص وتدوير** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
+| **أعمدة عشوائية** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+| **تصغير وتدوير** | ![غير مدعوم](x.png) | ![مدعوم](v.png) |
 | **تكبير** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **دوار** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **ارتداد** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+| **تدوير** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+| **ارتداد** | ![مدعوم](v.png) | ![مدبوم](v.png) |
 
-**مسارات الحركة:**
+**مسارات الحركة**:
 
 | نوع الرسوم المتحركة | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **خطوط** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **دوائر** | ![مدعوم](v.png) | ![مدعوم](v.png) |
-| **اللفات** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+| **أقواس** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+| **دورات** | ![مدعوم](v.png) | ![مدعوم](v.png) |
 | **أشكال** | ![مدعوم](v.png) | ![مدعوم](v.png) |
 | **حلقات** | ![مدعوم](v.png) | ![مدعوم](v.png) |
 | **مسار مخصص** | ![مدعوم](v.png) | ![مدعوم](v.png) |
+
+## **الأسئلة المتكررة**
+
+**هل من الممكن تحويل العروض التقديمية المحمية بكلمة مرور؟**
+
+نعم، تتيح Aspose.Slides العمل مع [العروض التقديمية المحمية بكلمة مرور](/slides/ar/cpp/password-protected-presentation/). عند معالجة مثل هذه الملفات، تحتاج إلى تقديم كلمة المرور الصحيحة لتتمكن المكتبة من الوصول إلى محتوى العرض.
+
+**هل تدعم Aspose.Slides الاستخدام في حلول السحابة؟**
+
+نعم، يمكن دمج Aspose.Slides في التطبيقات والخدمات السحابية. صُممت المكتبة لتعمل في بيئات الخادم، مع ضمان الأداء العالي والقابلية للتوسع لمعالجة دفعات الملفات.
+
+**هل هناك أي حدود لحجم العروض التقديمية أثناء التحويل؟**
+
+تستطيع Aspose.Slides التعامل مع عروض تقديمية بحجم افتراضي كبير. ومع ذلك، عند التعامل مع ملفات ضخمة جدًا قد تحتاج إلى موارد نظام إضافية، وغالبًا ما يُنصح بتحسين العرض لتحسين الأداء.

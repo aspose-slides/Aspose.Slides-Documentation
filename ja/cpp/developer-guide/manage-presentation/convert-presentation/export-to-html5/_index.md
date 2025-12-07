@@ -1,33 +1,39 @@
 ---
-title: HTML5へのエクスポート
+title: プレゼンテーションを C++ で HTML5 に変換
+linktitle: HTML5 へのプレゼンテーション
 type: docs
 weight: 40
 url: /ja/cpp/export-to-html5/
 keywords:
-- PowerPointをHTMLに
-- スライドをHTMLに
-- HTML5
-- HTMLエクスポート
-- プレゼンテーションをエクスポート
-- プレゼンテーションを変換
-- スライドを変換
+- PowerPoint を HTML5 に変換
+- OpenDocument を HTML5 に変換
+- プレゼンテーションを HTML5 に変換
+- スライドを HTML5 に変換
+- PPT を HTML5 に変換
+- PPTX を HTML5 に変換
+- ODP を HTML5 に変換
+- PPT を HTML5 として保存
+- PPTX を HTML5 として保存
+- ODP を HTML5 として保存
+- PPT を HTML5 にエクスポート
+- PPTX を HTML5 にエクスポート
+- ODP を HTML5 にエクスポート
 - C++
-- Aspose.Slides for C++
-description: "C++でPowerPointをHTML5にエクスポート" 
+- Aspose.Slides
+description: "Aspose.Slides for C++ を使用して PowerPoint および OpenDocument プレゼンテーションをレスポンシブな HTML5 にエクスポートします。書式、アニメーション、インタラクティブ性を保持します。"
 ---
 
 {{% alert title="情報" color="info" %}}
 
-[Aspose.Slides 21.9](/slides/ja/cpp/aspose-slides-for-cpp-21-9-release-notes/)では、HTML5エクスポートのサポートを実装しました。
+[Aspose.Slides 21.9](/slides/ja/cpp/aspose-slides-for-cpp-21-9-release-notes/) で HTML5 エクスポートのサポートを実装しました。
 
 {{% /alert %}} 
 
-ここでのHTML5へのエクスポートプロセスにより、PowerPointをHTMLに変換できます。この方法を使えば、自分自身のテンプレートを使用して、エクスポートプロセスと結果として得られるHTML、CSS、JavaScript、およびアニメーション属性を定義する非常に柔軟なオプションを適用できます。
+ここでの HTML5 エクスポートプロセスにより、PowerPoint を HTML に変換できます。独自のテンプレートを使用して、エクスポートプロセスと生成される HTML、CSS、JavaScript、アニメーション属性を定義する非常に柔軟なオプションを適用できます。
 
-## **PowerPointをHTML5にエクスポート**
+## **PowerPoint を HTML5 にエクスポート**
 
-このC++のコードは、プレゼンテーションをHTML5にエクスポートする方法を示しています。
-
+この C++ コードは、プレゼンテーションを HTML5 にエクスポートする方法を示しています。
 ```cpp
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
@@ -36,14 +42,14 @@ auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(u"pres.html", SaveFormat::Html5);
 ```
 
+
 {{% alert color="primary" %}} 
 
-この場合、きれいなHTMLが得られます。 
+この場合、クリーンな HTML が得られます。
 
 {{% /alert %}}
 
-形状アニメーションやスライドトランジションの設定をこのように指定したい場合があります：
-
+シェイプのアニメーションやスライド遷移の設定をこのように指定することもできます：
 ```cpp
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
@@ -55,10 +61,10 @@ options->set_AnimateTransitions(true);
 pres->Save(u"pres.html", SaveFormat::Html5, options);
 ```
 
-## **PowerPointをHTMLにエクスポート**
 
-このC++は、標準的なPowerPointからHTMLへのプロセスを示します：
+## **PowerPoint を HTML にエクスポート**
 
+この C++ は標準的な PowerPoint から HTML へのプロセスを示しています：
 ```cpp
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
@@ -67,30 +73,30 @@ auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(u"pres.html", SaveFormat::Html);
 ```
 
-この場合、プレゼンテーションの内容は、次のような形式でSVGを通じてレンダリングされます：
 
+この場合、プレゼンテーションのコンテンツは次のような形式で SVG を介してレンダリングされます：
 ```html
 <body>
 <div class="slide" name="slide" id="slideslideIface1">
      <svg version="1.1">
-         <g> スライドの内容がここに入ります </g>
+         <g> THE SLIDE CONTENT GOES HERE </g>
      </svg>
 </div>
 </body>
 ```
 
-{{% alert title="注記" color="warning" %}} 
 
-この方法を使用してPowerPointをHTMLにエクスポートする場合、SVGレンダリングのため、特定の要素にスタイルを適用したりアニメーションを適用したりすることはできません。 
+{{% alert title="注意" color="warning" %}} 
+
+この方法で PowerPoint を HTML にエクスポートすると、SVG レンダリングのため、特定の要素にスタイルを適用したりアニメーションを付けたりすることはできません。
 
 {{% /alert %}}
 
-## **HTML5スライドビューへのPowerPointエクスポート**
+## **PowerPoint を HTML5 スライドビューにエクスポート**
 
-**Aspose.Slides**は、PowerPointプレゼンテーションをHTML5ドキュメントに変換することを可能にし、その中でスライドがスライドビューモードで表示されます。この場合、生成されたHTML5ファイルをブラウザで開くと、ウェブページ上でスライドビューモードのプレゼンテーションが表示されます。
+**Aspose.Slides** は、スライドがスライド ビュー モードで表示される HTML5 ドキュメントに PowerPoint プレゼンテーションを変換できるようにします。この場合、生成された HTML5 ファイルをブラウザーで開くと、Web ページ上でスライド ビュー モードのプレゼンテーションが表示されます。
 
-このC++のコードは、PowerPointからHTML5スライドビューへのエクスポートプロセスを示しています：
-
+この C++ コードは、PowerPoint から HTML5 スライド ビューへのエクスポートプロセスを示しています：
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 auto html5Options = System::MakeObject<Html5Options>();
@@ -99,17 +105,18 @@ html5Options->set_AnimateTransitions(true);
 pres->Save(u"HTML5-slide-view.html", SaveFormat::Html5, html5Options);
 ```
 
-## コメント付きのプレゼンテーションをHTML5ドキュメントに変換
 
-PowerPointのコメントは、ユーザーがプレゼンテーションスライドにメモやフィードバックを残すためのツールです。これらは特に共同プロジェクトにおいて便利で、複数の人がメインコンテンツを変更することなく、特定のスライド要素に提案や意見を追加できます。各コメントには著者の名前が表示され、誰がコメントを残したかを追跡するのが簡単です。
+## **コメント付き HTML5 ドキュメントへのプレゼンテーション変換**
 
-以下の「sample.pptx」ファイルに保存されたPowerPointプレゼンテーションがあるとします。
+PowerPoint のコメントは、プレゼンテーション スライドにメモやフィードバックを残すためのツールです。特に共同プロジェクトで役立ち、複数のユーザーがメイン コンテンツを変更せずに特定のスライド要素に提案やコメントを追加できます。各コメントには作者名が表示され、誰がコメントしたかが一目で分かります。
+
+次のような PowerPoint プレゼンテーションが「sample.pptx」ファイルに保存されているとします。
 
 ![プレゼンテーションスライドの2つのコメント](two_comments_pptx.png)
 
-PowerPointプレゼンテーションをHTML5ドキュメントに変換するとき、出力ドキュメントにプレゼンテーションからコメントを含めるかどうかを簡単に指定できます。これを行うには、[Html5Options](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/)クラスの`get_NotesCommentsLayouting`メソッドでコメントの表示パラメータを指定する必要があります。
+PowerPoint プレゼンテーションを HTML5 ドキュメントに変換する際に、出力ドキュメントにプレゼンテーションのコメントを含めるかどうかを簡単に指定できます。そのためには、[Html5Options](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/) クラスの `get_NotesCommentsLayouting` メソッドでコメントの表示パラメータを指定します。
 
-以下のコード例は、スライドの右にコメントが表示されるHTML5ドキュメントにプレゼンテーションを変換します。
+次のコード例は、スライドの右側にコメントを表示した状態でプレゼンテーションを HTML5 ドキュメントに変換します。
 ```cpp
 auto html5Options = MakeObject<Html5Options>();
 html5Options->get_NotesCommentsLayouting()->set_CommentsPosition(CommentsPositions::Right);
@@ -119,6 +126,21 @@ presentation->Save(u"output.html", SaveFormat::Html5, html5Options);
 presentation->Dispose();
 ```
 
-「output.html」ドキュメントは、以下の画像に示されています。
 
-![出力HTML5ドキュメントのコメント](two_comments_html5.png)
+以下の画像に「output.html」ドキュメントが示されています。
+
+![出力された HTML5 ドキュメント内のコメント](two_comments_html5.png)
+
+## **FAQ**
+
+**HTML5 でオブジェクト アニメーションやスライド遷移の再生を制御できますか？**
+
+はい、HTML5 では [shape animations](https://reference.aspose.com/slides/cpp/aspose.slides.export.html5options/set_animateshapes/) と [slide transitions](https://reference.aspose.com/slides/cpp/aspose.slides.export.html5options/set_animatetransitions/) を有効または無効にする個別のオプションが提供されています。
+
+**コメントの出力はサポートされており、スライドに対してどこに配置できますか？**
+
+はい、HTML5 でコメントを追加でき、ノートとコメントのレイアウト設定を使用して（例: スライドの右側）配置できます。
+
+**セキュリティや CSP の理由で JavaScript を呼び出すリンクをスキップできますか？**
+
+はい、[setting](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_skipjavascriptlinks/) があり、保存時に JavaScript 呼び出しを含むハイパーリンクをスキップできます。これにより、厳格なセキュリティ ポリシーに準拠できます。

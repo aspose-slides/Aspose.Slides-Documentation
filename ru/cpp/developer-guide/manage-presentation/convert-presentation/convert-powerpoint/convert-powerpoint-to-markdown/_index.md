@@ -1,10 +1,33 @@
 ---
-title: Преобразование PowerPoint в Markdown на C++
+title: Конвертировать презентации PowerPoint в Markdown на C++
+linktitle: PowerPoint в Markdown
 type: docs
 weight: 140
 url: /ru/cpp/convert-powerpoint-to-markdown/
-keywords: "Преобразование PowerPoint в Markdown, Преобразовать ppt в md, PowerPoint, PPT, PPTX, Презентация, Markdown, C++, CPP, Aspose.Slides для C++"
-description: "Преобразование PowerPoint в Markdown на C++"
+keywords:
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPT
+- конвертировать PPTX
+- PowerPoint в MD
+- презентация в MD
+- слайд в MD
+- PPT в MD
+- PPTX в MD
+- сохранить PowerPoint как Markdown
+- сохранить презентацию как Markdown
+- сохранить слайд как Markdown
+- сохранить PPT как MD
+- сохранить PPTX как MD
+- экспортировать PPT в MD
+- экспортировать PPTX в MD
+- PowerPoint
+- презентация
+- Markdown
+- C++
+- Aspose.Slides
+description: "Конвертировать слайды PowerPoint—PPT, PPTX—в чистый Markdown с помощью Aspose.Slides для C++, автоматизировать документацию и сохранять форматирование."
 ---
 
 {{% alert color="info" %}} 
@@ -15,28 +38,27 @@ description: "Преобразование PowerPoint в Markdown на C++"
 
 {{% alert color="warning" %}} 
 
-Экспорт PowerPoint в markdown по умолчанию **без изображений**. Если вы хотите экспортировать документ PowerPoint, содержащий изображения, вам нужно установить `SaveOptions::MarkdownExportType::Visual)` и также указать `BasePath`, где будут сохранены изображения, на которые ссылается markdown документ.
+Экспорт PowerPoint в markdown по умолчанию **без изображений**. Если вы хотите экспортировать документ PowerPoint, содержащий изображения, вам нужно установить `SaveOptions::MarkdownExportType::Visual)` и также задать `BasePath`, где будут сохранены изображения, на которые ссылается markdown‑документ.
 
 {{% /alert %}} 
 
 ## **Преобразование PowerPoint в Markdown**
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) для представления объекта презентации.
-2. Используйте метод [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/#presentationsavesystemsharedptrexportxamlixamloptions-method) для сохранения объекта как markdown файла.
+2. Используйте метод [Save ](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/#presentationsavesystemsharedptrexportxamlixamloptions-method)для сохранения объекта в файл markdown.
 
-Этот код на C++ демонстрирует, как преобразовать PowerPoint в markdown:
-
+Этот код C++ показывает, как преобразовать PowerPoint в markdown:
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(u"pres.md", SaveFormat::Md);
 ```
 
-## Преобразование PowerPoint в разные варианты Markdown
 
-Aspose.Slides позволяет преобразовывать PowerPoint в markdown (с содержащейся базовой синтаксической разметкой), CommonMark, GitHub-совместимый markdown, Trello, XWiki, GitLab и 17 других вариантов markdown.
+## **Преобразование PowerPoint в варианты Markdown**
 
-Этот код на C++ демонстрирует, как преобразовать PowerPoint в CommonMark:
+Aspose.Slides позволяет преобразовать PowerPoint в markdown (с базовым синтаксисом), CommonMark, GitHub‑flavored markdown, Trello, XWiki, GitLab и ещё 17 вариантов markdown.
 
+Этот код C++ показывает, как преобразовать PowerPoint в CommonMark: 
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 auto opt = System::MakeObject<MarkdownSaveOptions>();
@@ -44,16 +66,16 @@ opt->set_Flavor(Aspose::Slides::DOM::Export::Markdown::SaveOptions::Flavor::Comm
 pres->Save(u"pres.md", Aspose::Slides::Export::SaveFormat::Md, opt);
 ```
 
-23 поддерживаемых варианта markdown [перечислены в перечислении Flavor](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/flavor/) в классе [MarkdownSaveOptions](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/).
 
-## **Преобразование презентации с изображениями в Markdown**
+23 поддерживаемых варианта markdown [перечислены в перечислении Flavor](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/flavor/) класса [MarkdownSaveOptions](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/).
 
-Класс [MarkdownSaveOptions](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) предоставляет свойства и перечисления, которые позволяют использовать определенные варианты или настройки для результирующего markdown файла. Например, перечисление [MarkdownExportType](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) может быть установлено на значения, определяющие, как обрабатываются или отображаются изображения: `Последовательно`, `Только текст`, `Визуально`.
+## **Преобразование презентации, содержащей изображения, в Markdown**
+
+Класс [MarkdownSaveOptions](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) предоставляет свойства и перечисления, позволяющие использовать определённые параметры или настройки для получаемого markdown‑файла. Перечисление [MarkdownExportType](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) например, можно установить в значения, определяющие, как изображения будут отображаться или обрабатываться: `Sequential`, `TextOnly`, `Visual`.
 
 ### **Последовательное преобразование изображений**
 
-Если вы хотите, чтобы изображения отображались по одному в результирующем markdown, вам нужно выбрать последовательный вариант. Этот код на C++ демонстрирует, как преобразовать презентацию с изображениями в markdown:
-
+Если вы хотите, чтобы изображения отображались последовательно одно за другим в результирующем markdown, необходимо выбрать последовательный вариант. Этот код C++ показывает, как преобразовать презентацию с изображениями в markdown:
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
@@ -68,12 +90,12 @@ markdownSaveOptions->set_NewLineType(NewLineType::Windows);
 pres->Save(u"doc.md", System::MakeArray<int32_t>({1, 2, 3, 4, 5, 6, 7, 8, 9}), SaveFormat::Md, markdownSaveOptions);
 ```
 
+
 ### **Визуальное преобразование изображений**
 
-Если вы хотите, чтобы изображения отображались вместе в результирующем markdown, вам нужно выбрать визуальный вариант. В этом случае изображения будут сохранены в текущем каталоге приложения (и для них будет построен относительный путь в markdown документе), или вы можете указать предпочитаемый путь и имя папки.
+Если вы хотите, чтобы изображения отображались совместно в результирующем markdown, необходимо выбрать визуальный вариант. В этом случае изображения будут сохранены в текущий каталог приложения (и в markdown‑документе будет построен относительный путь к ним), либо вы можете указать предпочитаемый путь и имя папки.
 
-Этот код на C++ демонстрирует операцию:
-
+Этот код C++ демонстрирует операцию: 
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 const System::String outPath = u"x:\\documents";
@@ -83,3 +105,18 @@ opt->set_ImagesSaveFolderName(u"md-images");
 opt->set_BasePath(outPath);
 pres->Save(System::IO::Path::Combine(outPath, u"pres.md"), Aspose::Slides::Export::SaveFormat::Md, opt);
 ```
+
+
+## **FAQ**
+
+**Сохраняются ли гиперссылки при экспорте в Markdown?**
+
+Да. Текстовые [гиперссылки](/slides/ru/cpp/manage-hyperlinks/) сохраняются как стандартные ссылки Markdown. [Переходы](/slides/ru/cpp/slide-transition/) слайдов и [анимации](/slides/ru/cpp/powerpoint-animation/) не конвертируются.
+
+**Могу ли я ускорить преобразование, запустив его в нескольких потоках?**
+
+Можно выполнять параллельную обработку файлов, но [не следует делить](/slides/ru/cpp/multithreading/) один и тот же объект [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) между потоками. Используйте отдельные экземпляры/процессы для каждого файла, чтобы избежать конфликтов.
+
+**Что происходит с изображениями — где они сохраняются и являются ли пути относительными?**
+
+[Изображения](/slides/ru/cpp/image/) экспортируются в отдельную папку, а Markdown‑файл по умолчанию ссылается на них относительными путями. Вы можете настроить базовый путь вывода и имя папки ресурсов, чтобы поддерживать предсказуемую структуру репозитория.

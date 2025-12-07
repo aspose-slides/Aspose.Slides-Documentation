@@ -1,32 +1,52 @@
 ---
-title: 将PowerPoint转换为视频
+title: 在 C++ 中将 PowerPoint 演示文稿转换为视频
+linktitle: PowerPoint 转视频
 type: docs
 weight: 130
 url: /zh/cpp/convert-powerpoint-to-video/
-keywords: "将PowerPoint转换为视频, PPT, PPTX, 演示文稿, 视频, MP4, PPT转视频, PPT转MP4, C++, Aspose.Slides"
-description: "使用Aspose.Slides for C++ API将PowerPoint转换为视频"
+keywords:
+- 转换 PowerPoint
+- 转换演示文稿
+- 转换 PPT
+- 转换 PPTX
+- PowerPoint 转视频
+- 演示文稿转视频
+- PPT 转视频
+- PPTX 转视频
+- PowerPoint 转 MP4
+- 演示文稿转 MP4
+- PPT 转 MP4
+- PPTX 转 MP4
+- 将 PPT 保存为 MP4
+- 将 PPTX 保存为 MP4
+- 导出 PPT 为 MP4
+- 导出 PPTX 为 MP4
+- 视频转换
+- PowerPoint
+- C++
+- Aspose.Slides
+description: "了解如何在 C++ 中将 PowerPoint 演示文稿转换为视频。探索示例代码和自动化技术，以简化工作流程。"
 ---
 
-通过将PowerPoint演示文稿转换为视频，您可以获得
+## **概述**
 
-* **提高可访问性：** 与需要打开演示文稿的应用程序相比，所有设备（无论平台）默认都配备有视频播放器，因此用户更容易打开或播放视频。
-* **更广泛的受众：** 通过视频，您可以接触到更大的人群，并用可能在演示中看起来无聊的信息进行目标定位。大多数调查和统计数据显示，人们观看和消费视频的频率高于其他形式的内容，他们通常更喜欢这种内容。
+将 PowerPoint 演示文稿转换为视频后，您将获得 
 
-## **Aspose.Slides中的PowerPoint到视频转换**
+* **可访问性提升：** 所有设备（无论平台）默认配备视频播放器，而不是演示文稿打开应用程序，因此用户更容易打开或播放视频。
+* **更广的覆盖面：** 通过视频，您可以覆盖大量受众，并向他们传递在演示文稿中可能显得枯燥的信息。大多数调查和统计表明，人们观看和消费视频的比例高于其他内容形式，而且普遍更喜欢此类内容。
 
-在[Aspose.Slides 22.11](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-22-11-release-notes/)中，我们实现了演示文稿转换为视频的支持。
+在 [Aspose.Slides 22.11](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-22-11-release-notes/) 中，我们实现了对演示文稿转视频的支持。 
 
-* 使用Aspose.Slides生成一组与特定FPS（每秒帧数）对应的帧（来自演示文稿幻灯片）。
-* 使用像`ffmpeg`这样的第三方实用程序根据这些帧创建视频。
+* 使用 Aspose.Slides 生成一组帧（来自演示文稿幻灯片），对应特定的 FPS（每秒帧数）
+* 使用第三方工具，例如 `ffmpeg`，基于这些帧创建视频。
 
-### **将PowerPoint转换为视频**
+## **将 PowerPoint 演示文稿转换为视频**
 
-1. 在[这里](https://ffmpeg.org/download.html)下载ffmpeg。
-2. 将`ffmpeg.exe`的路径添加到环境变量`PATH`中。
-3. 运行PowerPoint到视频的代码。
+1. 下载 ffmpeg [here](https://ffmpeg.org/download.html)。
+2. 将 `ffmpeg.exe` 的路径添加到环境变量 `PATH`。
+3. 运行 PowerPoint 转视频代码。
 
-以下C++代码展示了如何将包含图形和两个动画效果的演示文稿转换为视频：
-
+以下 C++ 代码演示了如何将包含图形和两个动画效果的演示文稿转换为视频：
 ```c++
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
@@ -39,7 +59,7 @@ void Run()
     auto presentation = System::MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    // 添加笑脸形状然后对其进行动画处理
+    // 添加一个笑脸形状并对其进行动画处理
     System::SharedPtr<IAutoShape> smile = slide->get_Shapes()->AddAutoShape(ShapeType::SmileyFace, 110.0f, 20.0f, 500.0f, 500.0f);
     auto sequence = slide->get_Timeline()->get_MainSequence();
     System::SharedPtr<IEffect> effectIn = sequence->AddEffect(smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
@@ -62,24 +82,24 @@ void Run()
 }
 ```
 
+
 ## **视频效果**
 
-您可以对幻灯片上的对象应用动画，并在幻灯片之间使用过渡效果。
+您可以对幻灯片上的对象应用动画，并在幻灯片之间使用转换效果。
 
 {{% alert color="primary" %}} 
 
-您可能想查看以下文章：[PowerPoint动画](https://docs.aspose.com/slides/cpp/powerpoint-animation/)、[形状动画](https://docs.aspose.com/slides/cpp/shape-animation/)和[形状效果](https://docs.aspose.com/slides/cpp/shape-effect/)。
+您可能想阅读以下文章： [PowerPoint 动画](https://docs.aspose.com/slides/cpp/powerpoint-animation/)、[形状动画](https://docs.aspose.com/slides/cpp/shape-animation/)、以及 [形状效果](https://docs.aspose.com/slides/cpp/shape-effect/)。
 
 {{% /alert %}} 
 
-动画和过渡使幻灯片演示更具吸引力和趣味性——它们在视频中也发挥着同样的作用。让我们为之前的演示添加另一张幻灯片和过渡：
-
+动画和转换使幻灯片放映更具吸引力和趣味性——它们对视频也同样适用。让我们在上一演示文稿的代码中添加另一张幻灯片和转换效果：
 ```c++
-// 添加笑脸形状并对其进行动画处理
+// 添加一个笑脸形状并对其进行动画处理
 
 // ...
 
-// 添加新幻灯片和动画过渡
+// 添加一个新幻灯片并设置动画过渡
 
 System::SharedPtr<ISlide> newSlide = presentation->get_Slides()->AddEmptySlide(presentation->get_Slide(0)->get_LayoutSlide());
 
@@ -96,8 +116,8 @@ fillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Indigo()
 newSlide->get_SlideShowTransition()->set_Type(TransitionType::Push);
 ```
 
-Aspose.Slides还支持文本动画。因此我们将段落进行动画处理，使其逐个出现（设置延迟为一秒）：
 
+Aspose.Slides 还支持文本动画。因此我们对对象上的段落进行动画处理，使其依次出现（延迟设置为一秒）：
 ```c++
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
@@ -115,10 +135,10 @@ void Run()
     System::SharedPtr<Paragraph> para1 = System::MakeObject<Paragraph>();
     para1->get_Portions()->Add(System::MakeObject<Portion>(u"Aspose Slides for C++"));
     System::SharedPtr<Paragraph> para2 = System::MakeObject<Paragraph>();
-    para2->get_Portions()->Add(System::MakeObject<Portion>(u"带文本的PowerPoint演示文稿转换为视频"));
+    para2->get_Portions()->Add(System::MakeObject<Portion>(u"convert PowerPoint Presentation with text to video"));
 
     System::SharedPtr<Paragraph> para3 = System::MakeObject<Paragraph>();
-    para3->get_Portions()->Add(System::MakeObject<Portion>(u"逐段出现"));
+    para3->get_Portions()->Add(System::MakeObject<Portion>(u"paragraph by paragraph"));
     auto paragraphs = autoShape->get_TextFrame()->get_Paragraphs();
     paragraphs->Add(para1);
     paragraphs->Add(para2);
@@ -156,20 +176,20 @@ void Run()
 }
 ```
 
+
 ## **视频转换类**
 
-为了让您能够执行PowerPoint到视频转换任务，Aspose.Slides提供了[PresentationAnimationsGenerator](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_animations_generator/)和[PresentationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_player/)类。
+为了让您执行 PowerPoint 到视频的转换任务，Aspose.Slides 提供了 [PresentationAnimationsGenerator](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_animations_generator/) 和 [PresentationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_player/) 类。
 
-PresentationAnimationsGenerator允许您通过其构造函数设置视频的帧大小（随后将创建）。如果您传递一个演示文稿实例，则将使用`Presentation.SlideSize`，并生成[PresentationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_player/)使用的动画。
+PresentationAnimationsGenerator 通过构造函数允许您设置视频的帧大小（稍后将创建的视频）。如果传入演示文稿实例，则使用 `Presentation.SlideSize`，并生成供 [PresentationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_player/) 使用的动画。
 
-当动画生成时，会为每个后续动画生成一个`NewAnimation`事件，其中具有[IPresentationAnimationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player/)参数。后者是表示单独动画播放器的类。
+生成动画时，会为每个后续动画触发 `NewAnimation` 事件，该事件带有 [IPresentationAnimationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player/) 参数。后者是表示单独动画播放器的类。
 
-要与[IPresentationAnimationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player/)一起工作，使用[get_Duration](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91)（动画的总持续时间）属性和[SetTimePosition](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0)方法。每个动画位置在*0到持续时间*范围内设置，然后`GetFrame`方法将返回与该时刻动画状态相对应的Bitmap。
-
+要使用 [IPresentationAnimationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player/)，需要使用其 [get_Duration](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91)（动画的完整时长）属性和 [SetTimePosition](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0) 方法。每个动画位置在 *0 到 duration* 范围内设置，然后 `GetFrame` 方法将返回对应该时刻动画状态的 Bitmap。
 ```c++
 void OnNewAnimation(System::SharedPtr<IPresentationAnimationPlayer> animationPlayer)
 {
-    System::Console::WriteLine(u"总动画时长：{0}", animationPlayer->get_Duration());
+    System::Console::WriteLine(u"Total animation duration: {0}", animationPlayer->get_Duration());
 
     animationPlayer->SetTimePosition(0);
     // 初始动画状态
@@ -188,7 +208,7 @@ void Run()
     auto presentation = System::MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    // 添加笑脸形状并对其进行动画处理
+    // 添加一个笑脸形状并对其进行动画处理
     System::SharedPtr<IAutoShape> smile = slide->get_Shapes()->AddAutoShape(ShapeType::SmileyFace, 110.0f, 20.0f, 500.0f, 500.0f);
     auto sequence = slide->get_Timeline()->get_MainSequence();
     System::SharedPtr<IEffect> effectIn = sequence->AddEffect(smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
@@ -201,8 +221,8 @@ void Run()
 }
 ```
 
-要使演示文稿中的所有动画同时播放，使用[PresentationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_player/)类。该类在其构造函数中采用[PresentationAnimationsGenerator](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_animations_generator/)实例和效果的FPS，然后调用`FrameTick`事件以使所有动画播放：
 
+要让演示文稿中的所有动画同时播放，使用 [PresentationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_player/) 类。该类在构造函数中接受一个 [PresentationAnimationsGenerator](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_animations_generator/) 实例和效果的 FPS，然后为所有动画调用 `FrameTick` 事件以实现播放：
 ```c++
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
@@ -221,72 +241,85 @@ void Run()
 }
 ```
 
-然后可以将生成的帧编译以产生视频。请参见[将PowerPoint转换为视频](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-video/#convert-powerpoint-to-video)部分。
 
-## **支持的动画和效果**
+随后可以将生成的帧编译成视频。请参阅 [Convert PowerPoint to Video](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-video/#convert-powerpoint-to-video) 部分。
 
+## **受支持的动画和效果**
 
-**进入**：
-
-| 动画类型 | Aspose.Slides | PowerPoint |
-|---|---|---|
-| **出现** | ![不支持](x.png) | ![支持](v.png) |
-| **淡入** | ![支持](v.png) | ![支持](v.png) |
-| **飞入** | ![支持](v.png) | ![支持](v.png) |
-| **漂浮进入** | ![支持](v.png) | ![支持](v.png) |
-| **分裂** | ![支持](v.png) | ![支持](v.png) |
-| **擦除** | ![支持](v.png) | ![支持](v.png) |
-| **形状** | ![支持](v.png) | ![支持](v.png) |
-| **轮子** | ![支持](v.png) | ![支持](v.png) |
-| **随机条** | ![支持](v.png) | ![支持](v.png) |
-| **增长与转动** | ![不支持](x.png) | ![支持](v.png) |
-| **缩放** | ![支持](v.png) | ![支持](v.png) |
-| **旋转** | ![支持](v.png) | ![支持](v.png) |
-| **弹跳** | ![支持](v.png) | ![支持](v.png) |
-
-
-**强调**：
+**进入**
 
 | 动画类型 | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **脉动** | ![不支持](x.png) | ![支持](v.png) |
-| **颜色脉动** | ![不支持](x.png) | ![支持](v.png) |
-| **摇摆** | ![支持](v.png) | ![支持](v.png) |
-| **旋转** | ![支持](v.png) | ![支持](v.png) |
-| **增大/缩小** | ![不支持](x.png) | ![支持](v.png) |
-| **去饱和** | ![不支持](x.png) | ![支持](v.png) |
-| **变暗** | ![不支持](x.png) | ![支持](v.png) |
-| **变亮** | ![不支持](x.png) | ![支持](v.png) |
-| **透明度** | ![不支持](x.png) | ![支持](v.png) |
-| **对象颜色** | ![不支持](x.png) | ![支持](v.png) |
-| **互补颜色** | ![不支持](x.png) | ![支持](v.png) |
-| **线条颜色** | ![不支持](x.png) | ![支持](v.png) |
-| **填充颜色** | ![不支持](x.png) | ![支持](v.png) |
+| **Appear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly In** | ![supported](v.png) | ![supported](v.png) |
+| **Float In** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Wheel** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**退出**：
+**强调**
 
 | 动画类型 | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **消失** | ![不支持](x.png) | ![支持](v.png) |
-| **淡出** | ![支持](v.png) | ![支持](v.png) |
-| **飞出** | ![支持](v.png) | ![支持](v.png) |
-| **漂浮退出** | ![支持](v.png) | ![支持](v.png) |
-| **分裂** | ![支持](v.png) | ![支持](v.png) |
-| **擦除** | ![支持](v.png) | ![支持](v.png) |
-| **形状** | ![支持](v.png) | ![支持](v.png) |
-| **随机条** | ![支持](v.png) | ![支持](v.png) |
-| **缩小与转动** | ![不支持](x.png) | ![支持](v.png) |
-| **缩放** | ![支持](v.png) | ![支持](v.png) |
-| **旋转** | ![支持](v.png) | ![支持](v.png) |
-| **弹跳** | ![支持](v.png) | ![支持](v.png) |
+| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Teeter** | ![supported](v.png) | ![supported](v.png) |
+| **Spin** | ![supported](v.png) | ![supported](v.png) |
+| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
+| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
+| **Darken** | ![not supported](x.png) | ![supported](v.png) |
+| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
+| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
+| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
+
+**退出**
+
+| 动画类型 | Aspose.Slides | PowerPoint |
+|---|---|---|
+| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
+| **Float Out** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
 **运动路径：**
 
 | 动画类型 | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **线条** | ![支持](v.png) | ![支持](v.png) |
-| **弧线** | ![支持](v.png) | ![支持](v.png) |
-| **转弯** | ![支持](v.png) | ![支持](v.png) |
-| **形状** | ![支持](v.png) | ![支持](v.png) |
-| **循环** | ![支持](v.png) | ![支持](v.png) |
-| **自定义路径** | ![支持](v.png) | ![支持](v.png) |
+| **Lines** | ![supported](v.png) | ![supported](v.png) |
+| **Arcs** | ![supported](v.png) | ![supported](v.png) |
+| **Turns** | ![supported](v.png) | ![supported](v.png) |
+| **Shapes** | ![supported](v.png) | ![supported](v.png) |
+| **Loops** | ![supported](v.png) | ![supported](v.png) |
+| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
+
+## **常见问题**
+
+**是否可以转换受密码保护的演示文稿？**
+
+是的，Aspose.Slides 支持处理 [受密码保护的演示文稿](/slides/zh/cpp/password-protected-presentation/)。在处理此类文件时，您需要提供正确的密码，以便库能够访问演示文稿的内容。
+
+**Aspose.Slides 是否支持在云解决方案中使用？**
+
+是的，Aspose.Slides 可以集成到云应用程序和服务中。该库专为服务器环境设计，确保在批量处理文件时具备高性能和可伸缩性。
+
+**在转换过程中，演示文稿的大小是否有限制？**
+
+Aspose.Slides 能够处理几乎任意大小的演示文稿。然而，在处理非常大的文件时，可能需要额外的系统资源，有时建议对演示文稿进行优化以提升性能。
