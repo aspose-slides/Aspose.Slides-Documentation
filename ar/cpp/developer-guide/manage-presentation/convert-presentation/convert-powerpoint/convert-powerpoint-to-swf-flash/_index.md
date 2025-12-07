@@ -1,19 +1,44 @@
 ---
-title: تحويل PowerPoint إلى SWF فلاش
+title: تحويل عروض PowerPoint إلى فلاش SWF في C++
+linktitle: PowerPoint إلى SWF
 type: docs
 weight: 80
 url: /ar/cpp/convert-powerpoint-to-swf-flash/
-keywords: "PPT، PPTX إلى SWF"
-description: "تحويل PowerPoint PPT، PPTX إلى صيغة SWF فلاش باستخدام واجهة برمجة تطبيقات Aspose.Slides."
+keywords:
+- تحويل PowerPoint
+- تحويل العرض التقديمي
+- تحويل الشريحة
+- تحويل PPT
+- تحويل PPTX
+- PowerPoint إلى SWF
+- العرض التقديمي إلى SWF
+- الشريحة إلى SWF
+- PPT إلى SWF
+- PPTX إلى SWF
+- PowerPoint إلى فلاش
+- العرض التقديمي إلى فلاش
+- الشريحة إلى فلاش
+- PPT إلى فلاش
+- PPTX إلى فلاش
+- حفظ PPT بصيغة SWF
+- حفظ PPTX بصيغة SWF
+- تصدير PPT إلى SWF
+- تصدير PPTX إلى SWF
+- PowerPoint
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "تحويل PowerPoint (PPT/PPTX) إلى فلاش SWF في C++ باستخدام Aspose.Slides. أمثلة شفرات خطوة بخطوة، إخراج سريع وعالي الجودة، بدون أتمتة PowerPoint."
 ---
 
-يمكن استخدام طريقة [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) التي تعرضها [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) لتحويل العرض التقديمي بالكامل إلى مستند SWF. يمكنك أيضًا تضمين التعليقات في SWF المُنتَج باستخدام [SWFOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.swf_options) وواجهة [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options). يوضح المثال التالي كيفية تحويل عرض تقديمي إلى مستند SWF باستخدام الخيارات المقدمة من فئة SWFOptions.
+## **تحويل العروض التقديمية إلى فلاش**
 
+يمكن استخدام طريقة [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) الموجودة في فئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) لتقويم كامل العرض التقديمي إلى مستند SWF. يمكنك أيضًا تضمين التعليقات في ملف SWF المُنتج باستخدام فئة [SWFOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.swf_options) وواجهة [INotesCommentsLayoutingOptions ](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_notes_comments_layouting_options)interface. يوضح المثال التالي كيفية تحويل عرض تقديمي إلى مستند SWF باستخدام الخيارات المتوفرة في فئة SWFOptions.
 ``` cpp
-// المسار إلى دليل المستندات.
+// مسار دليل المستندات.
     System::String dataDir = GetDataPath();
 
-    // إنشاء كائن Presentation يُمثل ملف عرض تقديمي
+    // إنشاء كائن Presentation يمثل ملف عرض تقديمي
     auto presentation = System::MakeObject<Presentation>(dataDir + u"HelloWorld.pptx");
 
     auto swfOptions = System::MakeObject<SwfOptions>();
@@ -22,8 +47,27 @@ description: "تحويل PowerPoint PPT، PPTX إلى صيغة SWF فلاش با
     auto notesOptions = swfOptions->get_NotesCommentsLayouting();
     notesOptions->set_NotesPosition(NotesPositions::BottomFull);
 
-    // حفظ صفحات العرض التقديمي والملاحظات
+    // حفظ العرض التقديمي وصفحات الملاحظات
     presentation->Save(dataDir + u"SaveAsSwf_out.swf", SaveFormat::Swf, swfOptions);
     swfOptions->set_ViewerIncluded(true);
     presentation->Save(dataDir + u"SaveNotes_out.swf", SaveFormat::Swf, swfOptions);
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني تضمين الشرائح المخفية في ملف SWF؟**
+
+نعم. استخدم طريقة [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_showhiddenslides/) في فئة [SwfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/). بشكل افتراضي، لا يتم تصدير الشرائح المخفية.
+
+**كيف يمكنني التحكم في الضغط وحجم ملف SWF النهائي؟**
+
+استخدم طريقة [set_Compressed](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_compressed/) واضبط [JPEG quality](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_jpegquality/) لتحقيق التوازن بين حجم الملف ودقة الصورة.
+
+**ما هو الغرض من 'set_ViewerIncluded' ومتى يجب استخدامه؟**
+
+تضيف طريقة [set_ViewerIncluded](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/set_viewerincluded/) واجهة مستخدم مشغٍّ مدمجة (عناصر تحكم تنقل، ألواح، بحث). قم بإلغاء تفعيلها إذا كنت تخطط لاستخدام مشغل خاص بك أو تحتاج إطار SWF بسيط دون واجهة مستخدم.
+
+**ماذا يحدث إذا كان خط المصدر مفقودًا على جهاز التصدير؟**
+
+ستستبدل Aspose.Slides الخط الذي حددته عبر طريقة [set_DefaultRegularFont](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_defaultregularfont/) في فئة [SwfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/swfoptions/) لتجنب الاعتماد غير المقصود على خط بديل.

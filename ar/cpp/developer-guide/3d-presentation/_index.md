@@ -1,29 +1,29 @@
 ---
-title: عرض ثلاثي الأبعاد
+title: إنشاء عروض تقديمية ثلاثية الأبعاد في C++
+linktitle: عرض ثلاثي الأبعاد
 type: docs
 weight: 232
 url: /ar/cpp/3d-presentation/
 keywords:
-- ثلاثي الأبعاد
 - PowerPoint ثلاثي الأبعاد
 - عرض ثلاثي الأبعاد
-- دوران ثلاثي الأبعاد
+- تدوير ثلاثي الأبعاد
 - عمق ثلاثي الأبعاد
 - بروز ثلاثي الأبعاد
 - تدرج ثلاثي الأبعاد
 - نص ثلاثي الأبعاد
-- عرض PowerPoint
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
 - C++
-- Aspose.Slides لـ C++
-description: "عرض PowerPoint ثلاثي الأبعاد بلغة C++"
+- Aspose.Slides
+description: "إنشاء عروض تقديمية ثلاثية الأبعاد تفاعلية في C++ باستخدام Aspose.Slides بسهولة. صدّر بسرعة إلى صيغ PowerPoint و OpenDocument للاستخدام المتعدد."
 ---
 
-## نظرة عامة
-منذ Aspose.Slides 20.9 أصبح من الممكن إنشاء وتعديل نماذج PowerPoint ثلاثية الأبعاد. يمكن تحقيق ذلك من خلال إضافة مجموعة من التأثيرات الثلاثية الأبعاد إلى الأشكال ثنائية الأبعاد. عن طريق إنشاء عرض كاميرا على الشكل، يمكنك تدويره حول المحور. قم بإنشاء بروز أو عمق على الشكل، مما يحول الشكل من شكل ثنائي الأبعاد إلى نموذج ثلاثي الأبعاد. 
-يمكن أن يؤدي تعيين تأثير الضوء على الشكل ثلاثي الأبعاد أو تغيير المواد إلى جعله يبدو أكثر حيوية. تغيير ألوان النماذج ثلاثية الأبعاد إلى تدرج ثلاثي الأبعاد، 
-تعديل شكل الكنتور، وإضافة حافة تجعل النموذج ثلاثي الأبعاد أكثر حجماً. يمكن تطبيق جميع التأثيرات ثلاثية الأبعاد على كل من نماذج PowerPoint ثلاثية الأبعاد والنصوص.
+## **نظرة عامة**
+منذ إصدار Aspose.Slides 20.9 أصبح من الممكن إنشاء وتعديل نماذج PowerPoint ثلاثية الأبعاد. يمكن تحقيق ذلك بإضافة مجموعة من التأثيرات ثلاثية الأبعاد إلى الأشكال الثنائية الأبعاد. عن طريق إنشاء عرض كاميرا على الشكل، يمكنك تدويره حول المحور. إنشاء بروز أو عمق على الشكل سيحول الشكل من شكل ثنائي الأبعاد إلى نموذج ثلاثي الأبعاد. ضبط تأثير الإضاءة على الشكل ثلاثي الأبعاد أو تغيير المواد يمكن أن يجعله يبدو أكثر حيوية. تغيير ألوان النماذج ثلاثية الأبعاد إلى تدرج لوني ثلاثي الأبعاد، تعديل حدود الأشكال، إضافة شطوف تجعل النموذج ثلاثي الأبعاد أكثر حجمًا. يمكن تطبيق جميع التأثيرات ثلاثية الأبعاد على كل من نماذج PowerPoint ثلاثية الأبعاد والنصوص.
 
-دعنا نلاحظ المثال الأول لإنشاء نماذج ثلاثية الأبعاد، والذي يتضمن جميع الميزات المذكورة أعلاه:
+لنتابع المثال الأول لإنشاء نماذج ثلاثية الأبعاد، والذي يتضمن جميع الميزات المذكورة أعلاه:
 ``` cpp
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
@@ -53,54 +53,50 @@ presentation->Save(u"sandbox_3d.pptx", Export::SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+
 نموذج PowerPoint ثلاثي الأبعاد الناتج:
 
 ![todo:image_alt_text](img_01_01.png)
 
-## دوران ثلاثي الأبعاد
-في PowerPoint، يتوفر دوران الشكل عبر:
+## **تدوير ثلاثي الأبعاد**
+في PowerPoint يتوفر تدوير الشكل عبر:
 
 ![todo:image_alt_text](img_02_01.png)
 
-لتدوير نماذج PowerPoint ثلاثية الأبعاد، من الضروري إنشاء عرض كاميرا على الشكل. يتم ذلك باستخدام طريقة [IThreeDFormat.get_Camera()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#ad2f989bd1fd64fd4136e1f17660035d4) 
-. يتم استدعاء طريقة الدوران من فئة الكاميرا كما لو كنت تقوم بتدوير الكاميرا. في الواقع، عند تدوير الكاميرا بالنسبة إلى الشكل، فإنك تقوم بتدوير الشكل على المستوى ثلاثي الأبعاد.
-
+لتدوير نماذج PowerPoint ثلاثية الأبعاد، من الضروري إنشاء عرض كاميرا على الشكل. يتم ذلك باستخدام طريقة [IThreeDFormat.get_Camera()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#ad2f989bd1fd64fd4136e1f17660035d4). تُستدعى طريقة التدوير من فئة الكاميرا كما لو كنت تقوم بتدوير الكاميرا. في الواقع، عندما تقوم بتدوير الكاميرا بالنسبة إلى الشكل، فأنت تدور الشكل على المستوى ثلاثي الأبعاد.
 ``` cpp
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
-// ... تعيين معلمات المشهد الثلاثي الأبعاد الأخرى
+// ... تعيين معلمات المشهد ثلاثي الأبعاد الأخرى
 
 auto thumbnail = slide->GetImage(imageScale, imageScale);
 thumbnail->Save(u"sample_3d.png");
 thumbnail->Dispose();
 ```
 
-## عمق وبروز ثلاثي الأبعاد
-لإضافة عمق وبروز لنموذج PowerPoint ثلاثي الأبعاد استخدم 
-[IThreeDFormat.set_ExtrusionHeight()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#adf0bad4894b1c36d9e4b044ef4978295) .
-لتعديل لون البروز استخدم 
-[IThreeDFormat.get_ExtrusionColor()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#aa7db8859d23a9b4eb2f35f3a42025e9e) :
+
+## **العمق والبروز ثلاثي الأبعاد**
+لإضافة عمق وبروز لنموذج PowerPoint ثلاثي الأبعاد استخدم طريقة [IThreeDFormat.set_ExtrusionHeight()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#adf0bad4894b1c36d9e4b044ef4978295). لتعديل لون البروز استخدم طريقة [IThreeDFormat.get_ExtrusionColor()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#aa7db8859d23a9b4eb2f35f3a42025e9e):
 ``` cpp
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
 shape->get_ThreeDFormat()->set_ExtrusionHeight(100.0);
 shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(System::Drawing::Color::get_Purple());
-// ... تعيين معلمات المشهد الثلاثي الأبعاد الأخرى
+// ... تعيين معلمات المشهد ثلاثي الأبعاد الأخرى
 
 auto thumbnail = slide->GetImage(imageScale, imageScale);
 thumbnail->Save(u"sample_3d.png");
 thumbnail->Dispose();
 ```
 
+
 قائمة العمق في PowerPoint:
 
 ![todo:image_alt_text](img_02_02.png)
 
-## تدرج ثلاثي الأبعاد
-يمكن رسم تدرج ثلاثي الأبعاد على نموذج PowerPoint ثلاثي الأبعاد عبر 
-[Shape.get_FillFormat().get_GradientFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a1f075336cb7a0e05cd5d7a706b6f4f58) 
-الطريقة:
 
+## **تدرج لوني ثلاثي الأبعاد**
+يمكن رسم تدرج لوني ثلاثي الأبعاد على نموذج PowerPoint ثلاثي الأبعاد عبر طريقة [Shape.get_FillFormat().get_GradientFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a1f075336cb7a0e05cd5d7a706b6f4f58):
 ``` cpp
 using namespace Aspose::Slides;
 
@@ -110,7 +106,7 @@ auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 250.0f, 250.0f);
-shape->get_TextFrame()->set_Text(u"تدرج ثلاثي الأبعاد");
+shape->get_TextFrame()->set_Text(u"3D Gradient");
 shape->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(64.0f);
 
 shape->get_FillFormat()->set_FillType(FillType::Gradient);
@@ -129,12 +125,12 @@ thumbnail->Save(u"sample_3d.png");
 thumbnail->Dispose();
 ```
 
-نموذج ثلاثي الأبعاد مع تدرج ثلاثي الأبعاد:
+
+نموذج ثلاثي الأبعاد مع تدرج لوني ثلاثي الأبعاد:
 
 ![todo:image_alt_text](img_02_03.png)
-
-لإنشاء تدرج صورة استخدم 
-[Shape.get_FillFormat().get_PictureFillFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#ac01c9a38197ddcd80c180aceeaf155cb) الطريقة:
+  
+لإنشاء تدرج لوني بالصورة استخدم طريقة [Shape.get_FillFormat().get_PictureFillFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#ac01c9a38197ddcd80c180aceeaf155cb):
 ``` cpp
 auto imageData = System::IO::File::ReadAllBytes(u"image.jpg");
 auto image = presentation->get_Images()->AddImage(imageData);
@@ -149,13 +145,13 @@ thumbnail->Save(u"sample_3d.png");
 thumbnail->Dispose();
 ```
 
+
 نموذج ثلاثي الأبعاد مع تدرج صورة:
 
 ![todo:image_alt_text](img_02_04.png)
 
-## نص ثلاثي الأبعاد (WordArt)
-لتطبيق الدوران، البروز، الضوء، التدرج على النص وجعله نصاً ثلاثي الأبعاد (WordArt)، تحتاج إلى الوصول إلى [IAutoShape.get_TextFrame().get_TextFrameFormat().get_ThreeDFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5e681109403c2e57aa76a500fe508b30) الطريقة:
-
+## **نص ثلاثي الأبعاد (WordArt)**
+لتطبيق التدوير والبروز والإضاءة والتدرج على النص وتحويله إلى نص ثلاثي الأبعاد (WordArt)، تحتاج إلى الوصول إلى طريقة [IAutoShape.get_TextFrame().get_TextFrameFormat().get_ThreeDFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5e681109403c2e57aa76a500fe508b30):
 ``` cpp
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
@@ -168,7 +164,7 @@ auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 250.0f, 250.0f);
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
-shape->get_TextFrame()->set_Text(u"نص ثلاثي الأبعاد");
+shape->get_TextFrame()->set_Text(u"3D Text");
 
 auto portion = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
 portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Pattern);
@@ -179,7 +175,7 @@ portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->set_Pattern
 shape->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(128.0f);
 
 auto textFrameFormat = shape->get_TextFrame()->get_TextFrameFormat();
-// إعداد تأثير تحويل WordArt "القوس للأعلى"
+// setup "Arch Up" WordArt transform effect
 textFrameFormat->set_Transform(TextShapeType::ArchUp);
 
 textFrameFormat->get_ThreeDFormat()->set_ExtrusionHeight(3.5);
@@ -199,15 +195,21 @@ presentation->Save(u"text3d.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+
 مثال على نص ثلاثي الأبعاد (WordArt):
 
 ![todo:image_alt_text](img_02_05.png)
 
-## غير مدعوم - قادم قريباً
-الميزات الثلاثية الأبعاد التالية في PowerPoint غير مدعومة بعد: 
-- حافة
-- مادة
-- كنتور
-- إضاءة
+## **الأسئلة الشائعة**
 
-نواصل تحسين محركنا الثلاثي الأبعاد، وهذه الميزات هي موضوع تنفيذ إضافي.
+**هل ستظل تأثيرات 3D محفوظة عند تصدير العرض التقديمي إلى صور/PDF/HTML؟**
+
+نعم. يقوم محرك Slides ثلاثي الأبعاد بتجسيد تأثيرات 3D عند التصدير إلى التنسيقات المدعومة ([images](/slides/ar/cpp/convert-powerpoint-to-png/)، [PDF](/slides/ar/cpp/convert-powerpoint-to-pdf/)، [HTML](/slides/ar/cpp/convert-powerpoint-to-html/)، إلخ).
+
+**هل يمكنني استرداد القيم "الفعالة" (النهائية) لمعلمات 3D التي تأخذ في الاعتبار السمات والوراثة وما إلى ذلك؟**
+
+نعم. توفر Slides واجهات برمجة تطبيقات لـ [قراءة القيم الفعالة](/slides/ar/cpp/shape-effective-properties/) (بما في ذلك 3D—الإضاءة، الشطوف، إلخ) بحيث يمكنك رؤية الإعدادات النهائية المطبقة.
+
+**هل تعمل تأثيرات 3D عند تحويل العرض التقديمي إلى فيديو؟**
+
+نعم. عند [إنشاء إطارات للفيديو](/slides/ar/cpp/convert-powerpoint-to-video/)، يتم تجسيد تأثيرات 3D كما هي في [الصور المصدرة](/slides/ar/cpp/convert-powerpoint-to-png/).
