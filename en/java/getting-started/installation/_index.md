@@ -69,7 +69,7 @@ Aspose hosts all Java APIs in its [Maven repositories](https://releases.aspose.c
 
 The Aspose.Slides for Java dependency will then be defined in your Maven project.
 
-## **FAQs**
+## **FAQ**
 
 **How can I verify that Aspose.Slides is integrated correctly?**
 
