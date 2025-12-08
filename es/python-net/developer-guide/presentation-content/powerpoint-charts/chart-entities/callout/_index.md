@@ -1,14 +1,20 @@
 ---
-title: Llamadas de atención
+title: Administrar Callouts en Gráficos de Presentación con Python
+linktitle: Callout
 type: docs
 url: /es/python-net/callout/
-keywords: "Llamadas de atención de gráficos, etiqueta de datos de gráfico, Python, Aspose.Slides para Python a través de .NET"
-description: "Llamadas de atención y etiquetas de datos de gráficos de PowerPoint en Python"
+keywords:
+- callout de gráfico
+- usar callout
+- etiqueta de datos
+- formato de etiqueta
+- Python
+- Aspose.Slides
+description: "Cree y diseñe callouts en Aspose.Slides para Python .NET con ejemplos de código concisos, compatibles con PPT, PPTX y ODP para automatizar flujos de trabajo de presentaciones."
 ---
 
-## **Usando Llamadas de Atención**
-Se ha agregado una nueva propiedad **ShowLabelAsDataCallout** a la clase **DataLabelFormat** y a la interfaz **IDataLabelFormat**, que determina si la etiqueta de datos de un gráfico especificado se mostrará como una llamada de atención de datos o como una etiqueta de datos. En el ejemplo dado a continuación, hemos establecido las Llamadas de Atención.
-
+## **Uso de Callouts**
+Se ha añadido la nueva propiedad **ShowLabelAsDataCallout** a la clase **DataLabelFormat** y a la interfaz **IDataLabelFormat**, que determina si la etiqueta de datos del gráfico especificado se mostrará como llamada de datos o como etiqueta de datos. En el ejemplo que se muestra a continuación, hemos configurado los Callouts.
 ```py
 import aspose.slides as slides
 
@@ -21,10 +27,8 @@ with slides.Presentation() as presentation:
 ```
 
 
-
-## **Configurar Llamadas de Atención para Gráficos de Rosquilla**
-Aspose.Slides para Python a través de .NET proporciona soporte para establecer la forma de llamada de atención de la etiqueta de datos de la serie para un gráfico de Rosquilla. A continuación se presenta un ejemplo de muestra.
-
+## **Configurar Callout para Gráfico de Rosquilla**
+Aspose.Slides for Python via .NET ofrece soporte para establecer la forma de llamada de etiqueta de datos de series para un gráfico de rosquilla. A continuación se muestra un ejemplo de código.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -39,14 +43,14 @@ with slides.Presentation() as pres:
     chart.has_legend = False
     seriesIndex = 0
     while seriesIndex < 15:
-        series = chart.chart_data.series.add(workBook.get_cell(0, 0, seriesIndex + 1, "SERIE " + str(seriesIndex)), chart.type)
+        series = chart.chart_data.series.add(workBook.get_cell(0, 0, seriesIndex + 1, "SERIES " + str(seriesIndex)), chart.type)
         series.explosion = 0
         series.parent_series_group.doughnut_hole_size = 20
         series.parent_series_group.first_slice_angle = 351
         seriesIndex += 1
     categoryIndex = 0
     while categoryIndex < 15:
-        chart.chart_data.categories.add(workBook.get_cell(0, categoryIndex + 1, 0, "CATEGORÍA " + str(categoryIndex)))
+        chart.chart_data.categories.add(workBook.get_cell(0, categoryIndex + 1, 0, "CATEGORY " + str(categoryIndex)))
         i = 0
         while i < len(chart.chart_data.series):
             iCS = chart.chart_data.series[i]
@@ -75,6 +79,17 @@ with slides.Presentation() as pres:
                 lbl.as_i_layoutable.x += 0.5
                 lbl.as_i_layoutable.y += 0.5
             i += 1
-        categoryIndex += 1 
+        categoryIndex +=1 
     pres.save("chart.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**¿Se conservan los callouts al convertir una presentación a PDF, HTML5, SVG o imágenes?**
+
+Sí. Los callouts forman parte de la representación del gráfico, por lo que al exportar a [PDF](/slides/es/python-net/convert-powerpoint-to-pdf/), [HTML5](/slides/es/python-net/export-to-html5/), [SVG](/slides/es/python-net/render-a-slide-as-an-svg-image/) o [imágenes raster](/slides/es/python-net/convert-powerpoint-to-png/), se conservan junto con el formato de la diapositiva.
+
+**¿Las fuentes personalizadas funcionan en los callouts y se puede preservar su apariencia al exportar?**
+
+Sí. Aspose.Slides admite [incrustar fuentes](/slides/es/python-net/embedded-font/) en la presentación y controla la incrustación de fuentes durante exportaciones como [PDF](/slides/es/python-net/convert-powerpoint-to-pdf/), garantizando que los callouts se vean iguales en diferentes sistemas.

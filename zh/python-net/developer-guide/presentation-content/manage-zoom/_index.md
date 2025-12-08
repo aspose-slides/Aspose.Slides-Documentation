@@ -1,12 +1,12 @@
 ---
-title: 在演示文稿中使用 Python 管理缩放
+title: 使用 Python 在演示文稿中管理缩放
 linktitle: 缩放
 type: docs
 weight: 60
 url: /zh/python-net/manage-zoom/
 keywords:
 - 缩放
-- 缩放框架
+- 缩放帧
 - 幻灯片缩放
 - 章节缩放
 - 摘要缩放
@@ -15,44 +15,43 @@ keywords:
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via .NET 创建和自定义 Zoom — 在 PPT、PPTX 和 ODP 演示文稿的章节之间跳转，添加缩略图和过渡效果。"
+description: "使用 Aspose.Slides for Python via .NET 创建和自定义缩放 — 在 PPT、PPTX 和 ODP 演示文稿中在章节之间跳转，添加缩略图和过渡效果。"
 ---
 
 ## **概述**
-PowerPoint 中的缩放允许您在演示文稿的特定幻灯片、部分和内容之间快速跳转。当您进行演示时，这种快速导航的能力可能会非常有用。
+PowerPoint 中的缩放功能允许您在演示文稿的特定幻灯片、章节和部分之间来回跳转。在演示时，这种快速导航内容的能力可能非常有用。
 
 ![overview](overview.png)
 
-* 要在单个幻灯片上概述整个演示文稿，请使用 [概要缩放](#Summary-Zoom)。
-* 要仅显示选定的幻灯片，请使用 [幻灯片缩放](#Slide-Zoom)。
-* 要仅显示单个部分，请使用 [部分缩放](#Section-Zoom)。
+* 要在单张幻灯片上概括整个演示文稿，请使用[Summary Zoom](#Summary-Zoom)。
+* 仅显示选定幻灯片，请使用[Slide Zoom](#Slide-Zoom)。
+* 仅显示单个章节，请使用[Section Zoom](#Section-Zoom)。
 
 ## **幻灯片缩放**
 
-幻灯片缩放可以使您的演示文稿更具动态性，允许您在所选择的幻灯片之间自由导航，而不会中断演示文稿的流程。幻灯片缩放适用于没有许多部分的简短演示，但您仍然可以在不同的演示场景中使用它们。
+幻灯片缩放可以使您的演示更具活力，允许您自由选择任意顺序在幻灯片之间导航，而不会打断演示的流程。幻灯片缩放非常适合章节不多的短篇演示，但在其他演示场景中同样可用。
 
-幻灯片缩放帮助您深入了解多个信息，同时感觉就像在单一画布上。 
+幻灯片缩放帮助您在感觉像是单一画布的环境中深入多个信息片段。
 
 ![slidezoomsel](slidezoomsel.png)
 
-对于幻灯片缩放对象，Aspose.Slides 提供了 [ZoomImageType](https://reference.aspose.com/slides/python-net/aspose.slides/zoomimagetype/) 枚举、[IZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/izoomframe/) 接口，以及 [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) 接口中的一些方法。
+对于幻灯片缩放对象，Aspose.Slides 提供了 [ZoomImageType](https://reference.aspose.com/slides/python-net/aspose.slides/zoomimagetype/) 枚举、[IZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/izoomframe/) 接口以及在 [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) 接口中的一些方法。
 
-### **创建缩放框**
-您可以通过以下方式在幻灯片上添加缩放框：
+### **创建缩放帧**
+您可以按以下方式在幻灯片上添加缩放帧：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
 2. 创建您打算链接的新幻灯片。
 3. 为创建的幻灯片添加标识文本和背景。
-4. 在第一张幻灯片中添加缩放框（包含对创建的幻灯片的引用）。
-5. 将修改后的演示稿写入 PPTX 文件。
+4. 在第一张幻灯片中添加缩放帧（包含对创建的幻灯片的引用）。
+5. 将修改后的演示文稿写入为 PPTX 文件。
 
-此示例代码向您展示了如何在幻灯片中创建缩放框：
 ```py 
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    # 添加新幻灯片到演示文稿
+    #添加新幻灯片到演示文稿
     slide2 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide3 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
@@ -63,7 +62,7 @@ with slides.Presentation() as pres:
 
     # 为第二张幻灯片创建文本框
     autoshape = slide2.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "第二张幻灯片"
+    autoshape.text_frame.text = "Second Slide"
 
     # 为第三张幻灯片创建背景
     slide3.background.type = slides.BackgroundType.OWN_BACKGROUND
@@ -72,32 +71,32 @@ with slides.Presentation() as pres:
 
     # 为第三张幻灯片创建文本框
     autoshape = slide3.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "第三张幻灯片"
+    autoshape.text_frame.text = "Trird Slide"
 
-    # 添加 ZoomFrame 对象
+    #Add ZoomFrame objects
     pres.slides[0].shapes.add_zoom_frame(20, 20, 250, 200, slide2)
     pres.slides[0].shapes.add_zoom_frame(200, 250, 250, 200, slide3)
 
     # 保存演示文稿
     pres.save("presentation-zoom.pptx", slides.export.SaveFormat.PPTX)
 ```
-### **使用自定义图像创建缩放框**
-使用 Aspose.Slides for Python via .NET，您可以通过以下方法创建带有不同于幻灯片预览图像的缩放框： 
+
+### **使用自定义图像创建缩放帧**
+使用 Aspose.Slides for Python via .NET，您可以按以下方式创建使用非幻灯片预览图像的缩放帧：
+
 1. 创建 `Presentation` 类的实例。
 2. 创建您打算链接的新幻灯片。
 3. 为创建的幻灯片添加标识文本和背景。
-4. 通过向与 Presentation 对象关联的图像集合添加图像来创建 [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) 对象，以用于填充框。
-5. 在第一张幻灯片中添加缩放框（包含对创建的幻灯片的引用）。
-6. 将修改后的演示稿写入 PPTX 文件。
-
-此 python 代码向您展示了如何使用不同图像创建缩放框：
+4. 通过向与 Presentation 对象关联的 Images 集合中添加图像，创建一个 [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) 对象，以填充帧。
+5. 在第一张幻灯片中添加缩放帧（包含对创建的幻灯片的引用）。
+6. 将修改后的演示文稿写入为 PPTX 文件。
 
 ```py 
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    # 添加新幻灯片到演示文稿
+    #添加一个新幻灯片到演示文稿
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
     # 为第二张幻灯片创建背景
@@ -107,41 +106,40 @@ with slides.Presentation() as pres:
 
     # 为第三张幻灯片创建文本框
     autoshape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "第二张幻灯片"
+    autoshape.text_frame.text = "Second Slide"
 
     # 为缩放对象创建新图像
     image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
 
-    # 添加 ZoomFrame 对象
+    #添加 ZoomFrame 对象
     pres.slides[0].shapes.add_zoom_frame(20, 20, 300, 200, slide, image)
 
     # 保存演示文稿
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **格式化缩放框**
-在前面的部分中，我们向您展示了如何创建简单的缩放框。要创建更复杂的缩放框，您必须更改框的格式。您可以在缩放框上应用多个格式设置。
 
-您可以通过以下方式控制幻灯片中缩放框的格式：
+### **格式化缩放帧**
+在前面的章节中，我们向您展示了如何创建简单的缩放帧。要创建更复杂的缩放帧，需要修改帧的格式。可以对缩放帧应用多种格式设置。
+
+您可以按以下方式控制幻灯片中缩放帧的格式：
 
 1. 创建 `Presentation` 类的实例。
-2. 创建链接的新幻灯片。
+2. 创建要链接的新幻灯片。
 3. 为创建的幻灯片添加标识文本和背景。
-4. 在第一张幻灯片中添加缩放框（包含对创建的幻灯片的引用）。
-5. 通过向与 Presentation 对象关联的图像集合添加图像来创建 [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) 对象，以用于填充框。
-6. 为第一个缩放框对象设置自定义图像。
-7. 更改第二个缩放框对象的线条格式。
-8. 从第二个缩放框对象的图像中删除背景。
-9. 将修改后的演示稿写入 PPTX 文件。
-
-此 python 示例代码向您展示了如何更改缩放框的格式：
+4. 在第一张幻灯片中添加缩放帧（包含对创建的幻灯片的引用）。
+5. 通过向与 Presentation 对象关联的 Images 集合中添加图像，创建一个 [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) 对象，以填充帧。
+6. 为第一个缩放帧对象设置自定义图像。
+7. 更改第二个缩放帧对象的线条格式。
+8. 去除第二个缩放帧对象图像的背景。
+9. 将修改后的演示文稿写入为 PPTX 文件。
 
 ```py 
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    # 添加新幻灯片到演示文稿
+    #添加新幻灯片到演示文稿
     slide2 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide3 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
@@ -152,7 +150,7 @@ with slides.Presentation() as pres:
 
     # 为第二张幻灯片创建文本框
     autoshape = slide2.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "第二张幻灯片"
+    autoshape.text_frame.text = "Second Slide"
 
     # 为第三张幻灯片创建背景
     slide3.background.type = slides.BackgroundType.OWN_BACKGROUND
@@ -161,9 +159,9 @@ with slides.Presentation() as pres:
 
     # 为第三张幻灯片创建文本框
     autoshape = slide3.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "第三张幻灯片"
+    autoshape.text_frame.text = "Trird Slide"
 
-    # 添加 ZoomFrame 对象
+    #添加 ZoomFrame 对象
     zoomFrame1 = pres.slides[0].shapes.add_zoom_frame(20, 20, 250, 200, slide2)
     zoomFrame2 = pres.slides[0].shapes.add_zoom_frame(200, 250, 250, 200, slide3)
 
@@ -172,7 +170,7 @@ with slides.Presentation() as pres:
     # 为 zoomFrame1 对象设置自定义图像
     zoomFrame1.image = image
 
-    # 为 zoomFrame2 对象设置缩放框格式
+    # 为 zoomFrame2 对象设置缩放帧格式
     zoomFrame2.line_format.width = 5
     zoomFrame2.line_format.fill_format.fill_type = slides.FillType.SOLID
     zoomFrame2.line_format.fill_format.solid_fill_color.color = draw.Color.hot_pink
@@ -185,33 +183,31 @@ with slides.Presentation() as pres:
     pres.save("presentation-zoom2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **部分缩放**
 
-部分缩放是您演示文稿中一个部分的链接。您可以使用部分缩放返回到您想特别强调的部分。或者，您可以使用它们来强调您演示中某些部分之间的联系。 
+## **章节缩放**
+
+章节缩放是指向演示文稿中某个章节的链接。您可以使用章节缩放返回需要特别强调的章节，或用于突出演示文稿中各部分之间的关联。
 
 ![seczoomsel](seczoomsel.png)
 
-对于部分缩放对象，Aspose.Slides 提供了 [ISectionZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/isectionzoomframe/) 接口以及 [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) 接口中的一些方法。
+对于章节缩放对象，Aspose.Slides 提供了 [ISectionZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/isectionzoomframe/) 接口以及在 [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) 接口中的一些方法。
 
-### **创建部分缩放框**
+### **创建章节缩放帧**
+您可以按以下方式在幻灯片上添加章节缩放帧：
 
-您可以通过以下方式在幻灯片上添加部分缩放框：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-2. 创建新幻灯片。 
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
+2. 创建一张新幻灯片。
 3. 为创建的幻灯片添加标识背景。
-4. 创建一个您打算链接的部分。
-5. 向第一张幻灯片添加部分缩放框（包含对创建的部分的引用）。
-6. 将修改后的演示稿写入 PPTX 文件。
-
-此 python 代码向您展示了如何在幻灯片上创建缩放框：
+4. 创建一个您打算链接缩放帧的新章节。
+5. 在第一张幻灯片中添加章节缩放帧（包含对创建的章节的引用）。
+6. 将修改后的演示文稿写入为 PPTX 文件。
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    # 向演示文稿添加新幻灯片
+    #添加一个新幻灯片到演示文稿
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
@@ -219,8 +215,8 @@ with slides.Presentation() as pres:
     slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
 
 
-    # 向演示文稿添加新部分
-    pres.sections.add_section("部分 1", slide)
+    # 添加一个新章节到演示文稿
+    pres.sections.add_section("Section 1", slide)
 
     # 添加 SectionZoomFrame 对象
     sectionZoomFrame = pres.slides[0].shapes.add_section_zoom_frame(20, 20, 300, 200, pres.sections[1])
@@ -229,26 +225,24 @@ with slides.Presentation() as pres:
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **使用自定义图像创建部分缩放框**
 
-使用 Aspose.Slides for Python，您可以通过以下方式创建具有不同幻灯片预览图像的部分缩放框： 
+### **使用自定义图像创建章节缩放帧**
+使用 Aspose.Slides for Python，您可以按以下方式创建使用不同幻灯片预览图像的章节缩放帧：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-2. 创建新幻灯片。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
+2. 创建一张新幻灯片。
 3. 为创建的幻灯片添加标识背景。
-4. 创建一个您打算链接的部分。
-5. 通过向与 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 对象关联的图像集合添加图像，创建一个 `IPPImage` 对象，以填充框。
-6. 向第一张幻灯片添加部分缩放框（包含对创建的部分的引用）。
-7. 将修改后的演示稿写入 PPTX 文件。
-
-此 python 代码向您展示了如何使用不同图像创建缩放框：
+4. 创建一个您打算链接缩放帧的新章节。
+5. 通过向与 Presentation 对象关联的 Images 集合中添加图像，创建一个 `IPPImage` 对象，以填充帧。
+6. 在第一张幻灯片中添加章节缩放帧（包含对创建的章节的引用）。
+7. 将修改后的演示文稿写入为 PPTX 文件。
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    # 向演示文稿添加新幻灯片
+    #添加一个新幻灯片到演示文稿
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
@@ -256,8 +250,8 @@ with slides.Presentation() as pres:
     slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
 
 
-    # 向演示文稿添加新部分
-    pres.sections.add_section("部分 1", slide)
+    # 添加一个新章节到演示文稿
+    pres.sections.add_section("Section 1", slide)
 
     # 为缩放对象创建新图像
     image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
@@ -269,27 +263,25 @@ with slides.Presentation() as pres:
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **格式化部分缩放框**
 
-要创建更复杂的部分缩放框，您必须更改简单框的格式。您可以对部分缩放框应用多个格式选项。
+### **格式化章节缩放帧**
+要创建更复杂的章节缩放帧，需要修改简单帧的格式。可以对章节缩放帧应用多种格式选项。
 
-您可以通过以下方式控制对幻灯片中部分缩放框的格式：
+您可以按以下方式在幻灯片中控制章节缩放帧的格式：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-2. 创建新幻灯片。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
+2. 创建一张新幻灯片。
 3. 为创建的幻灯片添加标识背景。
-4. 创建一个您打算链接的部分。
-5. 向第一张幻灯片添加部分缩放框（包含对创建的部分的引用）。
-6. 更改为创建的部分缩放对象的大小和位置。
-7. 通过向与 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 对象关联的图像集合添加图像，创建一个 `IPPImage` 对象，以填充框。
-8. 为创建的部分缩放框对象设置自定义图像。
-9. 设置*从链接的部分返回到原始幻灯片*的功能。 
-10. 从部分缩放框对象的图像中删除背景。
-11. 更改第二个缩放框对象的线条格式。
+4. 创建一个您打算链接缩放帧的新章节。
+5. 在第一张幻灯片中添加章节缩放帧（包含对创建的章节的引用）。
+6. 更改创建的章节缩放对象的大小和位置。
+7. 通过向与 Presentation 对象关联的 Images 集合中添加图像，创建一个 `IPPImage` 对象，以填充帧。
+8. 为创建的章节缩放帧对象设置自定义图像。
+9. 设置*从链接章节返回原始幻灯片*的功能。
+10. 去除章节缩放帧对象图像的背景。
+11. 更改第二个缩放帧对象的线条格式。
 12. 更改过渡持续时间。
-13. 将修改后的演示稿写入 PPTX 文件。
-
-此 python 代码向您展示了如何更改部分缩放框的格式：
+13. 将修改后的演示文稿写入为 PPTX 文件。
 
 ```py
 import aspose.slides as slides
@@ -297,19 +289,19 @@ import aspose.pydrawing as draw
 
 
 with slides.Presentation() as pres:
-    # 向演示文稿添加新幻灯片
+    #添加一个新幻灯片到演示文稿
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # 向演示文稿添加新部分
-    pres.sections.add_section("部分 1", slide)
+    # 添加一个新章节到演示文稿
+    pres.sections.add_section("Section 1", slide)
 
     # 添加 SectionZoomFrame 对象
     sectionZoomFrame = pres.slides[0].shapes.add_section_zoom_frame(20, 20, 300, 200, pres.sections[1])
 
-    # 部分缩放框的格式
+    # SectionZoomFrame 的格式设置
     sectionZoomFrame.x = 100
     sectionZoomFrame.y = 300
     sectionZoomFrame.width = 100
@@ -332,33 +324,31 @@ with slides.Presentation() as pres:
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+
 ## **摘要缩放**
 
-摘要缩放就像一个着陆页，您演示文稿的所有内容一次性显示。当您进行演示时，您可以使用缩放以任何顺序从演示文稿的一处跳转到另一处。您可以发挥创意、跳过前进，或在不打断演示文稿流程的情况下重温幻灯片展示的部分。
+摘要缩放类似于一个着陆页，展示演示文稿的所有部分。演示时，您可以使用缩放在演示文稿的任意位置之间任意顺序跳转。您可以创意地前进、跳过或重新访问幻灯片内容，而不会中断演示的流程。
 
 ![overview_image](summaryzoom.png)
 
-对于摘要缩放对象，Aspose.Slides 提供了 [ISummaryZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomframe/)、[ISummaryZoomFrameSection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsection/) 和 [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) 接口，以及 [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) 接口中的一些方法。
+对于摘要缩放对象，Aspose.Slides 提供了 [ISummaryZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomframe/)、[ISummaryZoomFrameSection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsection/) 和 [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) 接口以及在 [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) 接口中的一些方法。
 
 ### **创建摘要缩放**
+您可以按以下方式在幻灯片上添加摘要缩放帧：
 
-您可以通过以下方式向幻灯片添加摘要缩放框：
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
+2. 为创建的幻灯片创建带有标识背景和新章节的幻灯片。
+3. 将摘要缩放帧添加到第一张幻灯片。
+4. 将修改后的演示文稿写入为 PPTX 文件。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-2. 创建带有标识背景的新幻灯片，以及为创建的幻灯片创建的新部分。
-3. 将摘要缩放框添加到第一张幻灯片。
-4. 将修改后的演示稿写入 PPTX 文件。
-
-此 python 代码向您展示了如何在幻灯片上创建摘要缩放框：
-
-```py 
+```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
     # 创建幻灯片数组
     for slideNumber in range(5):
-        # 向演示文稿添加新幻灯片
+        #添加新幻灯片到演示文稿
         slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
         # 为幻灯片创建背景
@@ -368,9 +358,9 @@ with slides.Presentation() as pres:
 
         # 为幻灯片创建文本框
         autoshape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-        autoshape.text_frame.text = "幻灯片 - {num}".format(num = (slideNumber + 2))
+        autoshape.text_frame.text = "Slide - {num}".format(num = (slideNumber + 2))
 
-    # 在第一张幻灯片中创建所有幻灯片的缩放对象
+    # 为第一张幻灯片中的所有幻灯片创建缩放对象
     for slideNumber in range(1, len(pres.slides)):
         x = (slideNumber - 1) * 100
         y = (slideNumber - 1) * 100
@@ -383,19 +373,17 @@ with slides.Presentation() as pres:
     pres.save("presentation-zoom3.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **添加和删除摘要缩放部分**
 
-摘要缩放框中的所有部分由 [ISummaryZoomFrameSection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsection/) 对象表示，这些对象存储在 [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) 对象中。您可以通过 [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) 接口以以下方式添加或删除摘要缩放部分对象：
+### **添加和移除摘要缩放章节**
+所有摘要缩放帧中的章节均由 [ISummaryZoomFrameSection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsection/) 对象表示，这些对象存储在 [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) 对象中。您可以通过 [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) 接口按以下方式添加或移除摘要缩放章节对象：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-2. 创建带有标识背景的新幻灯片以及为创建的幻灯片创建的新部分。
-3. 在第一张幻灯片中添加摘要缩放框。
-4. 添加一张新幻灯片和部分到演示文稿。
-5. 将创建的部分添加到摘要缩放框。
-6. 从摘要缩放框中删除第一部分。
-7. 将修改后的演示稿写入 PPTX 文件。
-
-此 python 代码向您展示了如何在摘要缩放框中添加和删除部分：
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
+2. 为创建的幻灯片创建带有标识背景和新章节的幻灯片。
+3. 将摘要缩放帧添加到第一张幻灯片。
+4. 向演示文稿中添加新幻灯片和章节。
+5. 将创建的章节添加到摘要缩放帧。
+6. 从摘要缩放帧中移除第一章节。
+7. 将修改后的演示文稿写入为 PPTX 文件。
 
 ``` python
 import aspose.slides as slides
@@ -403,87 +391,85 @@ import aspose.pydrawing as draw
 
 
 with slides.Presentation() as pres:
-    # 向演示文稿添加新幻灯片
+    #添加一个新幻灯片到演示文稿
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # 向演示文稿添加新部分
-    pres.sections.add_section("部分 1", slide)
+    # 添加一个新章节到演示文稿
+    pres.sections.add_section("Section 1", slide)
 
-    # 向演示文稿添加新幻灯片
+    #添加一个新幻灯片到演示文稿
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.aqua
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # 向演示文稿添加新部分
-    pres.sections.add_section("部分 2", slide)
+    # 添加一个新章节到演示文稿
+    pres.sections.add_section("Section 2", slide)
 
     # 添加 SummaryZoomFrame 对象
     summaryZoomFrame = pres.slides[0].shapes.add_summary_zoom_frame(150, 50, 300, 200)
 
-    # 向演示文稿添加新幻灯片
+    #添加一个新幻灯片到演示文稿
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.chartreuse
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # 向演示文稿添加新部分
-    section3 = pres.sections.add_section("部分 3", slide)
+    # 添加一个新章节到演示文稿
+    section3 = pres.sections.add_section("Section 3", slide)
 
-    # 向摘要缩放添加部分
+    # 向 Summary Zoom 添加章节
     summaryZoomFrame.summary_zoom_collection.add_summary_zoom_section(section3)
 
-    # 从摘要缩放中移除部分
+    # 从 Summary Zoom 删除章节
     summaryZoomFrame.summary_zoom_collection.remove_summary_zoom_section(pres.sections[1])
 
     # 保存演示文稿
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **格式化摘要缩放部分**
 
-要创建更复杂的摘要缩放部分对象，您必须更改简单框的格式。您可以对摘要缩放部分对象应用多个格式选项。
+### **格式化摘要缩放章节**
+要创建更复杂的摘要缩放章节对象，需要修改简单帧的格式。可以对摘要缩放章节对象应用多种格式选项。
 
-您可以通过以下方式控制摘要缩放部分对象的格式：
+您可以按以下方式在摘要缩放帧中控制摘要缩放章节对象的格式：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-2. 创建带有标识背景的新幻灯片以及为创建的幻灯片创建的新部分。
-3. 在第一张幻灯片中添加摘要缩放框。
-4. 从 `ISummaryZoomSectionCollection` 中获取第一个摘要缩放部分对象。
-5. 通过向与 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 对象关联的图像集合添加图像，创建一个 `IPPImage` 对象，以填充框。
-6. 为创建的摘要缩放框部分对象设置自定义图像。
-7. 设置*从链接的部分返回到原始幻灯片*的功能。 
-8. 更改第二个缩放框对象的线条格式。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
+2. 为创建的幻灯片创建带有标识背景和新章节的幻灯片。
+3. 将摘要缩放帧添加到第一张幻灯片。
+4. 从 `ISummaryZoomSectionCollection` 获取第一个对象的摘要缩放章节对象。
+5. 通过向与 Presentation 对象关联的 images 集合中添加图像，创建一个 `IPPImage` 对象，以填充帧。
+6. 为创建的章节缩放帧对象设置自定义图像。
+7. 设置*从链接章节返回原始幻灯片*的功能。
+8. 更改第二个缩放帧对象的线条格式。
 9. 更改过渡持续时间。
-10. 将修改后的演示稿写入 PPTX 文件。
-
-此 python 代码向您展示了如何更改摘要缩放部分对象的格式：
+10. 将修改后的演示文稿写入为 PPTX 文件。
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    # 向演示文稿添加新幻灯片
+    #添加一个新幻灯片到演示文稿
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.brown
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # 向演示文稿添加新部分
-    pres.sections.add_section("部分 1", slide)
+    # 添加一个新章节到演示文稿
+    pres.sections.add_section("Section 1", slide)
 
-    # 向演示文稿添加新幻灯片
+    #添加一个新幻灯片到演示文稿
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.aqua
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # 向演示文稿添加新部分
-    pres.sections.add_section("部分 2", slide)
+    # 添加一个新章节到演示文稿
+    pres.sections.add_section("Section 2", slide)
 
     # 添加 SummaryZoomFrame 对象
     summaryZoomFrame = pres.slides[0].shapes.add_summary_zoom_frame(150, 50, 300, 200)
@@ -491,7 +477,7 @@ with slides.Presentation() as pres:
     # 获取第一个 SummaryZoomSection 对象
     summarySection = summaryZoomFrame.summary_zoom_collection[0]
 
-    # SummaryZoomSection 对象的格式
+    # 对 SummaryZoomSection 对象进行格式设置
     image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
     summarySection.image = image
 
@@ -507,3 +493,18 @@ with slides.Presentation() as pres:
     # 保存演示文稿
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **常见问题**
+
+**在显示目标后，我能控制返回到“父”幻灯片吗？**
+
+是的。[Zoom frame](https://reference.aspose.com/slides/python-net/aspose.slides/zoomframe/) 或 [section](https://reference.aspose.com/slides/python-net/aspose.slides/sectionzoomframe/) 具有 `return_to_parent` 行为，启用后会在观看者访问目标内容后将其送回原始幻灯片。
+
+**我可以调整 Zoom 过渡的“速度”或持续时间吗？**
+
+可以。Zoom 支持设置 `transition_duration`，从而控制跳转动画的时长。
+
+**演示文稿中可以包含多少个 Zoom 对象是否有限制？**
+
+文档中未列出硬性 API 限制。实际限制取决于演示文稿的整体复杂度和查看器的性能。您可以添加大量 Zoom 帧，但需考虑文件大小和渲染时间。

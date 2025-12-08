@@ -19,20 +19,19 @@ keywords:
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via .NET 在 PPT、PPTX 和 ODP 中管理 SmartArt 形状节点。获取清晰的代码示例和技巧，简化您的演示文稿."
+description: "使用 Aspose.Slides for Python via .NET 在 PPT、PPTX 和 ODP 中管理 SmartArt 形状节点。获取清晰的代码示例和技巧，以简化您的演示文稿。"
 ---
 
 ## **添加 SmartArt 节点**
-Aspose.Slides for Python via .NET 提供了最简单的 API，以最简单的方式管理 SmartArt 形状。以下示例代码将帮助在 SmartArt 形状中添加节点和子节点。
+Aspose.Slides for Python via .NET 提供了最简洁的 API，以最简便的方式管理 SmartArt 形状。以下示例代码演示如何在 SmartArt 形状中添加节点和子节点。
 
-- 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例，并加载带有 SmartArt 形状的演示文稿。
-- 通过使用其索引获取第一张幻灯片的引用。
-- 遍历第一张幻灯片中的每个形状。
-- 检查形状是否为 SmartArt 类型，并在它是 SmartArt 时将所选形状转换为 SmartArt。
-- 在 SmartArt 形状的 NodeCollection 中添加一个新节点，并在 TextFrame 中设置文本。
-- 现在，在新添加的 SmartArt 节点中添加一个子节点，并在 TextFrame 中设置文本。
+- 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例并加载包含 SmartArt 形状的演示文稿。
+- 使用索引获取第一张幻灯片的引用。
+- 遍历第一张幻灯片中的所有形状。
+- 检查形状是否为 SmartArt 类型，如果是，则将选定的形状强制转换为 SmartArt。
+- 在 SmartArt 形状的 NodeCollection 中添加新节点并在 TextFrame 中设置文本。
+- 在新添加的 SmartArt 节点中添加子节点并在 TextFrame 中设置文本。
 - 保存演示文稿。
-
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -40,38 +39,36 @@ import aspose.slides.smartart as art
 
 # 加载所需的演示文稿
 with slides.Presentation(path + "AddNodes.pptx") as pres:
-    # 遍历第一张幻灯片中的每个形状
+    # 遍历第一张幻灯片中的所有形状
     for shape in pres.slides[0].shapes:
 
         # 检查形状是否为 SmartArt 类型
         if type(shape) is art.SmartArt:
-            # 添加一个新的 SmartArt 节点
+            # 添加新的 SmartArt 节点
             node1 = shape.all_nodes.add_node()
             # 添加文本
-            node1.text_frame.text = "测试"
+            node1.text_frame.text = "Test"
 
-            # 在父节点中添加新子节点。它将在集合的末尾添加
+            # 在父节点中添加新的子节点。它将被添加到集合的末尾
             new_node = node1.child_nodes.add_node()
 
             # 添加文本
-            new_node.text_frame.text = "新节点已添加"
+            new_node.text_frame.text = "New Node Added"
 
     # 保存演示文稿
     pres.save("AddSmartArtNode_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-
 ## **在特定位置添加 SmartArt 节点**
-在以下示例代码中，我们解释了如何在特定位置添加属于 SmartArt 形状的相应节点的子节点。
+以下示例代码说明如何在 SmartArt 形状的相应节点下的特定位置添加子节点。
 
-- 创建一个 `Presentation` 类的实例。
-- 通过使用其索引获取第一张幻灯片的引用。
-- 在访问的幻灯片中添加一个 StackedList 类型的 SmartArt 形状。
-- 访问添加的 SmartArt 形状中的第一个节点。
-- 现在，在位置 2 为所选节点添加子节点，并设置其文本。
+- 创建 `Presentation` 类的实例。
+- 使用索引获取第一张幻灯片的引用。
+- 在目标幻灯片中添加 StackedList 类型的 SmartArt 形状。
+- 访问已添加 SmartArt 形状的第一个节点。
+- 在位置 2 处为选定的节点添加子节点并设置其文本。
 - 保存演示文稿。
-
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -85,37 +82,29 @@ with slides.Presentation() as pres:
     # 添加 Smart Art IShape
     smart = slide.shapes.add_smart_art(0, 0, 400, 400, art.SmartArtLayoutType.STACKED_LIST)
 
-    # 访问添加的 SmartArt 形状中的节点
+    # 访问索引为 0 的 SmartArt 节点
     node = smart.all_nodes[0]
 
-    # 在父节点中的位置 2 添加新子节点
+    # 在父节点中于位置 2 添加新的子节点
     chNode = node.child_nodes.add_node_by_position(2)
 
     # 添加文本
-    chNode.text_frame.text = "示例文本已添加"
+    chNode.text_frame.text = "Sample text Added"
 
     # 保存演示文稿
     pres.save("AddSmartArtNodeByPosition_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-
-
 ## **访问 SmartArt 节点**
-以下示例代码将帮助访问 SmartArt 形状内部的节点。请注意，您不能更改 SmartArt 的 LayoutType，因为它是只读的，并且仅在添加 SmartArt 形状时设置。
+以下示例代码帮助访问 SmartArt 形状中的节点。请注意，SmartArt 的 LayoutType 为只读，且仅在添加 SmartArt 形状时设置，无法更改。
 
-- 创建一个 `Presentation` 类的实例，并加载带有 SmartArt 形状的演示文稿。
-
-- 通过使用其索引获取第一张幻灯片的引用。
-
-- 遍历第一张幻灯片中的每个形状。
-
-- 检查形状是否为 SmartArt 类型，并在它是 SmartArt 时将所选形状转换为 SmartArt。
-
-- 遍历 SmartArt 形状内部的所有节点。
-
-- 访问并显示诸如 SmartArt 节点位置、级别和文本等信息。
-
+- 创建 `Presentation` 类的实例并加载包含 SmartArt 形状的演示文稿。
+- 使用索引获取第一张幻灯片的引用。
+- 遍历第一张幻灯片中的所有形状。
+- 检查形状是否为 SmartArt 类型，如果是，则将选定的形状强制转换为 SmartArt。
+- 遍历 SmartArt 形状中的所有节点。
+- 访问并显示节点的位置信息、层级和文本。
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -123,33 +112,30 @@ import aspose.slides.smartart as art
 
 # 加载所需的演示文稿
 with slides.Presentation(path + "AccessSmartArt.pptx") as pres:
-    # 遍历第一张幻灯片中的每个形状
+    # 遍历第一张幻灯片中的所有形状
     for shape in pres.slides[0].shapes:
         # 检查形状是否为 SmartArt 类型
         if type(shape) is art.SmartArt:
-            # 遍历 SmartArt 内部的所有节点
+            # 遍历 SmartArt 中的所有节点
             for i in range(len(shape.all_nodes)):
-                # 访问索引为 i 的 SmartArt 节点
+                # 访问索引 i 处的 SmartArt 节点
                 node = shape.all_nodes[i]
 
                 # 打印 SmartArt 节点参数
                 print("i = {0}, text = {1},  level = {2}, position = {3}".format(i, node.text_frame.text, node.level, node.position))
-  ```
-
-  
+```
 
 
 ## **访问 SmartArt 子节点**
-以下示例代码将帮助访问属于 SmartArt 形状相应节点的子节点。
+以下示例代码帮助访问 SmartArt 形状中各节点的子节点。
 
-- 创建一个 PresentationEx 类的实例，并加载带有 SmartArt 形状的演示文稿。
-- 通过使用其索引获取第一张幻灯片的引用。
-- 遍历第一张幻灯片中的每个形状。
-- 检查形状是否为 SmartArt 类型，并在它是 SmartArt 时将所选形状转换为 SmartArtEx。
-- 遍历 SmartArt 形状内部的所有节点。
-- 对于每个选定的 SmartArt 形状节点，遍历特定节点内部的所有子节点。
-- 访问并显示诸如子节点位置、级别和文本等信息。
-
+- 创建 PresentationEx 类的实例并加载包含 SmartArt 形状的演示文稿。
+- 使用索引获取第一张幻灯片的引用。
+- 遍历第一张幻灯片中的所有形状。
+- 检查形状是否为 SmartArt 类型，如果是，则将选定的形状强制转换为 SmartArtEx。
+- 遍历 SmartArt 形状中的所有节点。
+- 对于每个选定的 SmartArt 节点，遍历其内部的所有子节点。
+- 访问并显示子节点的位置信息、层级和文本。
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -157,11 +143,11 @@ import aspose.slides.smartart as art
 
 # 加载所需的演示文稿
 with slides.Presentation(path + "AccessChildNodes.pptx") as pres:
-    # 遍历第一张幻灯片中的每个形状
+    # 遍历第一张幻灯片中的所有形状
     for shape in pres.slides[0].shapes:
         # 检查形状是否为 SmartArt 类型
         if type(shape) is art.SmartArt:
-            # 遍历 SmartArt 内部的所有节点
+            # 遍历 SmartArt 中的所有节点
             for node0 in shape.all_nodes:
                 # 遍历子节点
                 for j in range(len(node0.child_nodes)):
@@ -170,22 +156,19 @@ with slides.Presentation(path + "AccessChildNodes.pptx") as pres:
 
                     # 打印 SmartArt 子节点参数
                     print("j = {0}, text = {1},  level = {2}, position = {3}".format(j, node.text_frame.text, node.level, node.position))
-
 ```
 
 
-
 ## **在特定位置访问 SmartArt 子节点**
-在此示例中，我们将学习如何访问特定位置属于 SmartArt 形状相应节点的子节点。
+本示例演示如何在特定位置访问 SmartArt 形状各节点的子节点。
 
-- 创建一个 `Presentation` 类的实例。
-- 通过使用其索引获取第一张幻灯片的引用。
-- 添加一个 StackedList 类型的 SmartArt 形状。
-- 访问添加的 SmartArt 形状。
-- 访问所访问 SmartArt 形状中索引为 0 的节点。
-- 现在，使用 GetNodeByPosition() 方法访问所访问 SmartArt 节点的子节点位置 1。
-- 访问并显示诸如子节点位置、级别和文本等信息。
-
+- 创建 `Presentation` 类的实例。
+- 使用索引获取第一张幻灯片的引用。
+- 添加 StackedList 类型的 SmartArt 形状。
+- 访问已添加的 SmartArt 形状。
+- 获取索引为 0 的节点。
+- 使用 GetNodeByPosition() 方法在该节点中访问位置 1 的子节点。
+- 访问并显示子节点的位置信息、层级和文本。
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -197,29 +180,26 @@ with slides.Presentation() as pres:
     slide = pres.slides[0]
     # 在第一张幻灯片中添加 SmartArt 形状
     smart = slide.shapes.add_smart_art(0, 0, 400, 400, art.SmartArtLayoutType.STACKED_LIST)
-    # 访问 SmartArt 中索引为 0 的节点
+    # 访问索引为 0 的 SmartArt 节点
     node = smart.all_nodes[0]
-    # 访问父节点中位置为 1 的子节点
+    # 在父节点中访问位置为 1 的子节点
     position = 1
     chNode = node.child_nodes[position] 
     # 打印 SmartArt 子节点参数
     print("j = {0}, text = {1},  level = {2}, position = {3}".format(position, chNode.text_frame.text, chNode.level, chNode.position))
-
 ```
 
 
-
 ## **删除 SmartArt 节点**
-在此示例中，我们将学习如何删除 SmartArt 形状内部的节点。
+本示例演示如何删除 SmartArt 形状中的节点。
 
-- 创建一个 `Presentation` 类的实例，并加载带有 SmartArt 形状的演示文稿。
-- 通过使用其索引获取第一张幻灯片的引用。
-- 遍历第一张幻灯片中的每个形状。
-- 检查形状是否为 SmartArt 类型，并在它是 SmartArt 时将所选形状转换为 SmartArt。
-- 检查 SmartArt 是否有超过 0 个节点。
+- 创建 `Presentation` 类的实例并加载包含 SmartArt 形状的演示文稿。
+- 使用索引获取第一张幻灯片的引用。
+- 遍历第一张幻灯片中的所有形状。
+- 检查形状是否为 SmartArt 类型，如果是，则将选定的形状强制转换为 SmartArt。
+- 检查 SmartArt 是否包含超过 0 个节点。
 - 选择要删除的 SmartArt 节点。
-- 现在，使用 RemoveNode() 方法删除所选节点并保存演示文稿。
-
+- 使用 RemoveNode() 方法删除选定的节点并保存演示文稿。
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -227,16 +207,16 @@ import aspose.slides.smartart as art
 
 # 加载所需的演示文稿
 with slides.Presentation(path + "RemoveNode.pptx") as pres:
-    # 遍历第一张幻灯片中的每个形状
+    # 遍历第一张幻灯片中的所有形状
     for shape in pres.slides[0].shapes:
         # 检查形状是否为 SmartArt 类型
         if type(shape) is art.SmartArt:
-            # 将形状转换为 SmartArtEx
+            # 将形状强制转换为 SmartArtEx
             if len(shape.all_nodes) > 0:
-                # 访问 SmartArt 节点
+                # 访问索引为 0 的 SmartArt 节点
                 node = shape.all_nodes[0]
 
-                # 移除所选节点
+                # 删除选中的节点
                 shape.all_nodes.remove_node(node)
 
     # 保存演示文稿
@@ -244,19 +224,17 @@ with slides.Presentation(path + "RemoveNode.pptx") as pres:
 ```
 
 
-
 ## **在特定位置删除 SmartArt 节点**
-在此示例中，我们将学习如何在特定位置删除 SmartArt 形状内部的节点。
+本示例演示如何在特定位置删除 SmartArt 形状中的节点。
 
-- 创建一个 `Presentation` 类的实例，并加载带有 SmartArt 形状的演示文稿。
-- 通过使用其索引获取第一张幻灯片的引用。
-- 遍历第一张幻灯片中的每个形状。
-- 检查形状是否为 SmartArt 类型，并在它是 SmartArt 时将所选形状转换为 SmartArt。
-- 选择 SmartArt 形状中的索引 0 的节点。
-- 现在，检查所选 SmartArt 节点是否有超过 2 个子节点。
-- 现在，使用 RemoveNodeByPosition() 方法删除位置 1 的节点。
+- 创建 `Presentation` 类的实例并加载包含 SmartArt 形状的演示文稿。
+- 使用索引获取第一张幻灯片的引用。
+- 遍历第一张幻灯片中的所有形状。
+- 检查形状是否为 SmartArt 类型，如果是，则将选定的形状强制转换为 SmartArt。
+- 选择索引为 0 的 SmartArt 节点。
+- 检查选定的 SmartArt 节点是否拥有超过 2 个子节点。
+- 使用 RemoveNodeByPosition() 方法删除位置为 1 的子节点。
 - 保存演示文稿。
-
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -264,16 +242,16 @@ import aspose.slides.smartart as art
 
 # 加载所需的演示文稿
 with slides.Presentation(path + "RemoveNodeSpecificPosition.pptx") as pres:             
-    # 遍历第一张幻灯片中的每个形状
+    # 遍历第一张幻灯片中的所有形状
     for shape in pres.slides[0].shapes:
         # 检查形状是否为 SmartArt 类型
         if type(shape) is art.SmartArt:
-            # 将形状转换为 SmartArt
+            # 将形状强制转换为 SmartArt
             if len(shape.all_nodes) > 0:
-                # 访问 SmartArt 节点
+                # 访问索引为 0 的 SmartArt 节点
                 node = shape.all_nodes[0]
                 if len(node.child_nodes) >= 2:
-                    # 删除位置 1 的子节点
+                    # 删除位置为 1 的子节点
                     node.child_nodes.remove_node(1)
 
     # 保存演示文稿
@@ -281,10 +259,8 @@ with slides.Presentation(path + "RemoveNodeSpecificPosition.pptx") as pres:
 ```
 
 
-
-## **为 SmartArt 中的子节点设置自定义位置**
-现在，Aspose.Slides for Python via .NET 支持设置 SmartArtShape 的 X 和 Y 属性。以下代码示例展示了如何设置自定义 SmartArtShape 位置、大小和旋转，请注意，添加新节点会导致所有节点的位置和大小重新计算。
-
+## **为 SmartArt 子节点设置自定义位置**
+现在 Aspose.Slides for Python via .NET 支持设置 SmartArtShape 的 X 和 Y 属性。下面的代码片段展示了如何设置自定义的 SmartArtShape 位置、大小和旋转，请注意添加新节点会重新计算所有节点的位置和大小。
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -294,7 +270,7 @@ import aspose.slides.smartart as art
 with slides.Presentation(path + "AccessChildNodes.pptx") as pres: 
 	smart = pres.slides[0].shapes.add_smart_art(20, 20, 600, 500, art.SmartArtLayoutType.ORGANIZATION_CHART)
 
-	# 移动 SmartArt 形状到新位置
+	# 将 SmartArt 形状移动到新位置
 	node = smart.all_nodes[1]
 	shape = node.shapes[1]
 	shape.x += (shape.width * 2)
@@ -319,18 +295,16 @@ with slides.Presentation(path + "AccessChildNodes.pptx") as pres:
 ```
 
 
+## **检查助理节点**
+以下示例代码将探讨如何识别 SmartArt 节点集合中的助理节点并对其进行修改。
 
-## **检查助手节点**
-在以下示例代码中，我们将研究如何识别 SmartArt 节点集合中的助手节点并进行更改。
-
-- 创建一个 PresentationEx 类的实例并加载带有 SmartArt 形状的演示文稿。
-- 通过使用其索引获取第二张幻灯片的引用。
-- 遍历第一张幻灯片中的每个形状。
-- 检查形状是否为 SmartArt 类型，并在它是 SmartArt 时将所选形状转换为 SmartArtEx。
-- 遍历 SmartArt 形状内部的所有节点，并检查它们是否为助手节点。
-- 将助手节点的状态更改为普通节点。
+- 创建 PresentationEx 类的实例并加载包含 SmartArt 形状的演示文稿。
+- 使用索引获取第二张幻灯片的引用。
+- 遍历第一张幻灯片中的所有形状。
+- 检查形状是否为 SmartArt 类型，如果是，则将选定的形状强制转换为 SmartArtEx。
+- 遍历 SmartArt 形状中的所有节点并检查它们是否为助理节点。
+- 将助理节点的状态更改为普通节点。
 - 保存演示文稿。
-
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -338,34 +312,32 @@ import aspose.slides.smartart as art
 
 # 创建演示文稿实例
 with slides.Presentation(path + "AssistantNode.pptx") as pres: 
-    # 遍历第一张幻灯片中的每个形状
+    # 遍历第一张幻灯片中的所有形状
     for shape in pres.slides[0].shapes:
         # 检查形状是否为 SmartArt 类型
         if type(shape) is art.SmartArt:
-            # 遍历 SmartArt 形状内部的所有节点
+            # 遍历 SmartArt 形状的所有节点
             for node in shape.all_nodes:
                 tc = node.text_frame.text
-                # 检查节点是否为助手节点
+                # 检查节点是否为助理节点
                 if node.is_assistant:
-                    # 将助手节点设置为 false 并将其变为普通节点
+                    # 将助理节点设为 false 并使其成为普通节点
                     node.is_assistant = False
     # 保存演示文稿
     pres.save("ChangeAssitantNode_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-
 ## **设置节点的填充格式**
-Aspose.Slides for Python via .NET 使得添加自定义 SmartArt 形状并设置其填充格式成为可能。本文解释了如何创建和访问 SmartArt 形状并使用 Aspose.Slides for Python via .NET 设置其填充格式。
+Aspose.Slides for Python via .NET 使得添加自定义 SmartArt 形状并设置其填充格式成为可能。本文说明如何创建和访问 SmartArt 形状以及使用 Aspose.Slides for Python via .NET 设置其填充格式。
 
-请遵循以下步骤：
+请按以下步骤操作：
 
-- 创建一个 `Presentation` 类的实例。
-- 通过使用其索引获取幻灯片的引用。
-- 通过设置其 LayoutType 添加 SmartArt 形状。
-- 为 SmartArt 形状节点设置 FillFormat。
+- 创建 `Presentation` 类的实例。
+- 使用索引获取幻灯片的引用。
+- 通过设置 LayoutType 添加 SmartArt 形状。
+- 为 SmartArt 形状的节点设置 FillFormat。
 - 将修改后的演示文稿写入 PPTX 文件。
-
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -378,7 +350,7 @@ with slides.Presentation() as presentation:
     # 添加 SmartArt 形状和节点
     chevron = slide.shapes.add_smart_art(10, 10, 800, 60, art.SmartArtLayoutType.CLOSED_CHEVRON_PROCESS)
     node = chevron.all_nodes.add_node()
-    node.text_frame.text = "一些文本"
+    node.text_frame.text = "Some text"
 
     # 设置节点填充颜色
     for item in node.shapes:
@@ -390,28 +362,26 @@ with slides.Presentation() as presentation:
 ```
 
 
-
 ## **生成 SmartArt 子节点的缩略图**
-开发人员可以通过以下步骤生成 SmartArt 子节点的缩略图：
+开发者可以按以下步骤生成 SmartArt 子节点的缩略图：
 
 1. 实例化表示 PPTX 文件的 `Presentation` 类。
-1. 添加 SmartArt。
-1. 通过使用其索引获取节点的引用。
-1. 获取缩略图图像。
-1. 将缩略图图像以任何所需的图像格式保存。
+2. 添加 SmartArt。
+3. 使用索引获取节点的引用。
+4. 获取缩略图图像。
+5. 将缩略图保存为任意所需的图像格式。
 
-以下示例生成 SmartArt 子节点的缩略图
-
+下面的示例演示如何生成 SmartArt 子节点的缩略图
 ```py
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# 实例化表示 PPTX 文件的 Presentation 类 
+# 实例化表示 PPTX 文件的 Presentation 类
 with slides.Presentation() as presentation: 
-    # 添加 SmartArt 
+    # 添加 SmartArt
     smart = pres.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.BASIC_CYCLE)
 
-    # 通过使用其索引获取节点的引用  
+    # 通过索引获取节点的引用
     node = smart.nodes[1]
 
     # 获取缩略图
@@ -419,3 +389,22 @@ with slides.Presentation() as presentation:
         # 保存缩略图
         bmp.save("SmartArt_ChildNote_Thumbnail_out.jpeg", slides.ImageFormat.JPEG)
 ```
+
+
+## **常见问题**
+
+**是否支持 SmartArt 动画？**
+
+是的。SmartArt 被视为普通形状，您可以[应用标准动画](/slides/zh/python-net/shape-animation/)(进入、退出、强调、运动路径)并调整时间。如果需要，还可以为 SmartArt 节点内部的形状单独设置动画。
+
+**如果不知道内部 ID，如何可靠地定位幻灯片上的特定 SmartArt？**
+
+使用[替代文本](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/alternative_text/)进行标识。为 SmartArt 设置唯一的 AltText，即可在代码中通过该文本查找，而无需依赖内部标识符。
+
+**将演示文稿转换为 PDF 时，SmartArt 的外观会被保留吗？**
+
+会。Aspose.Slides 在[PDF 导出](/slides/zh/python-net/convert-powerpoint-to-pdf/)过程中高保真渲染 SmartArt，保持布局、颜色和效果。
+
+**我能提取整个 SmartArt 的图像用于预览或报告吗？**
+
+可以。您可以将 SmartArt 形状渲染为[光栅格式](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/get_image/)或[SVG](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/write_as_svg/)以获得可伸缩的矢量输出，适用于缩略图、报告或 Web 使用。

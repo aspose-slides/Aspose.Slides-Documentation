@@ -1,30 +1,35 @@
 ---
-title: إدارة العلامات والبيانات المخصصة
+title: إدارة الوسوم والبيانات المخصصة في العروض التقديمية باستخدام بايثون
+linktitle: الوسوم والبيانات المخصصة
 type: docs
 weight: 300
 url: /ar/python-net/managing-tags-and-custom-data/
-keywords: "العلامات، البيانات المخصصة، قيمة العلامات، إضافة علامات، عرض PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
-description: "إضافة علامات وبيانات مخصصة إلى عروض PowerPoint في بايثون"
+keywords:
+- خصائص المستند
+- وسم
+- بيانات مخصصة
+- إضافة وسم
+- قيم أزواج
+- PowerPoint
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "تعلم كيفية إضافة وقراءة وتحديث وإزالة الوسوم والبيانات المخصصة في Aspose.Slides for Python عبر .NET، مع أمثلة لعروض PowerPoint وOpenDocument."
 ---
 
-## تخزين البيانات في ملفات العروض التقديمية
+## **تخزين البيانات في ملفات العروض التقديمية**
 
-تُخزن ملفات PPTX - العناصر التي تحمل امتداد .pptx - بتنسيق PresentationML، وهو جزء من مواصفة Office Open XML. يحدد تنسيق Office Open XML الهيكلية للبيانات الموجودة في العروض التقديمية.
+تُخزن ملفات PPTX — العناصر التي تحمل الامتداد .pptx — بتنسيق PresentationML، وهو جزء من مواصفة Office Open XML. يحدد تنسيق Office Open XML بنية البيانات الموجودة في العروض التقديمية. 
 
-مع كون *الشريحة* واحدة من العناصر في العروض التقديمية، تحتوي *جزء الشريحة* على محتوى شريحة واحدة. يُسمح لجزء الشريحة بوجود علاقات صريحة مع العديد من الأجزاء - مثل العلامات المعرفة من قبل المستخدم - المحددة بواسطة ISO/IEC 29500.
+مع اعتبار *الشريحة* أحد العناصر في العروض التقديمية، يحتوي *جزء الشريحة* على محتوى شريحة واحدة. يُسمح لجزء الشريحة بوجود علاقات صريحة مع العديد من الأجزاء — مثل العلامات المعرفة من المستخدم — وفقًا لتعريف ISO/IEC 29500. 
 
-يمكن أن توجد البيانات المخصصة (المحددة لعروض تقديمية معينة) أو المستخدمين كعلامات ([ITagCollection](https://reference.aspose.com/slides/python-net/aspose.slides/itagcollection/)) وCustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/python-net/aspose.slides/icustomxmlpartcollection/)).
+يمكن أن توجد البيانات المخصصة (المحددة لعرض تقديمي) أو المستخدم كوسوم ([ITagCollection](https://reference.aspose.com/slides/python-net/aspose.slides/itagcollection/)) وأجزاء XML مخصصة ([ICustomXmlPartCollection](https://reference.aspose.com/slides/python-net/aspose.slides/icustomxmlpartcollection/)). 
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}الوسوم هي أساسًا قيم أزواج سلسلة-مفتاح.{{% /alert %}} 
 
-العلامات هي بشكل أساسي قيم أزواج مفتاح نصي.
+## **الحصول على قيم الوسوم**
 
-{{% /alert %}} 
-
-## الحصول على قيم العلامات
-
-في الشرائح، تت correspond العلامة إلى خاصية IDocumentProperties.Keywords. يُظهر لك هذا الكود النموذجي كيفية الحصول على قيمة علامة باستخدام Aspose.Slides لـ بايثون عبر .NET لـ [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/):
-
+في الشرائح، يتطابق الوسم مع الخاصية IDocumentProperties.Keywords. يوضح هذا المثال كيفية الحصول على قيمة وسم باستخدام Aspose.Slides for Python عبر .NET لـ [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/):
 ```py
 import aspose.slides as slides
 
@@ -32,17 +37,17 @@ with slides.Presentation("pres.pptx") as pres:
     print(pres.document_properties.keywords)
 ```
 
-## إضافة علامات إلى العروض التقديمية
 
-يسمح لك Aspose.Slides بإضافة علامات إلى العروض التقديمية. تتكون العلامة عادةً من عنصرين:
+## **إضافة وسوم إلى العروض التقديمية**
 
-- اسم خاصية مخصصة - `MyTag`
+Aspose.Slides تتيح لك إضافة وسوم إلى العروض التقديمية. يتكون الوسم عادةً من عنصرين:
+
+- اسم الخاصية المخصصة - `MyTag` 
 - قيمة الخاصية المخصصة - `My Tag Value`
 
-إذا كنت بحاجة إلى تصنيف بعض العروض التقديمية بناءً على قاعدة أو خاصية محددة، يمكنك الاستفادة من إضافة علامات إلى تلك العروض التقديمية. على سبيل المثال، إذا كنت تريد تصنيف جميع العروض التقديمية من دول أمريكا الشمالية معًا، يمكنك إنشاء علامة أمريكية شمالية ثم تعيين البلدان ذات الصلة (الولايات المتحدة، المكسيك، وكندا) كقيم.
+إذا كنت بحاجة إلى تصنيف بعض العروض التقديمية بناءً على قاعدة أو خاصية محددة، فقد تستفيد من إضافة وسوم لتلك العروض. على سبيل المثال، إذا رغبت في تجميع جميع العروض من دول أمريكا الشمالية معًا، يمكنك إنشاء وسم لأمريكا الشمالية ثم تعيين الدول ذات الصلة (الولايات المتحدة، المكسيك، وكندا) كقيم. 
 
-هذا الكود النموذجي يظهر لك كيفية إضافة علامة إلى [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) باستخدام Aspose.Slides لـ بايثون عبر .NET:
-
+يوضح هذا المثال كيفية إضافة وسم إلى [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) باستخدام Aspose.Slides for Python عبر .NET:
 ```py
 import aspose.slides as slides
 
@@ -51,8 +56,8 @@ with slides.Presentation("pres.pptx") as pres:
    tags.add("MyTag", "My Tag Value")
 ```
 
-يمكن أيضًا تعيين علامات لـ [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/):
 
+يمكن أيضًا تعيين وسوم لـ [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/):
 ```py
 import aspose.slides as slides
 
@@ -62,14 +67,29 @@ with slides.Presentation("pres.pptx") as pres:
     tags.add("tag", "value")
 ```
 
-أو أي [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) فردية:
 
+أو لأي شكل فردي [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/):
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("pres.pptx") as pres:
     slide = pres.slides[0]
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 50)
-    shape.text_frame.text = "نصي"
+    shape.text_frame.text = "My text"
     shape.custom_data.tags.add("tag", "value")
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني إزالة جميع الوسوم من عرض تقديمي أو شريحة أو شكل في عملية واحدة؟**
+
+نعم. يدعم [tag collection](https://reference.aspose.com/slides/python-net/aspose.slides/tagcollection/) عملية [clear](https://reference.aspose.com/slides/python-net/aspose.slides/tagcollection/clear/) التي تحذف جميع أزواج المفتاح‑القيمة مرةً واحدة.
+
+**كيف أحذف وسمًا واحدًا باستخدام اسمه دون التكرار عبر المجموعة بأكملها؟**
+
+استخدم عملية [remove(name)](https://reference.aspose.com/slides/python-net/aspose.slides/tagcollection/remove/) على [TagCollection](https://reference.aspose.com/slides/python-net/aspose.slides/tagcollection/) لحذف الوسم باستخدام مفتاحه.
+
+**كيف يمكنني استرداد القائمة الكاملة لأسماء الوسوم للتحليل أو التصفية؟**
+
+استخدم [get_names_of_tags](https://reference.aspose.com/slides/python-net/aspose.slides/tagcollection/get_names_of_tags/) على [tag collection](https://reference.aspose.com/slides/python-net/aspose.slides/tagcollection/); تُرجع مصفوفة تحتوي على جميع أسماء الوسوم.

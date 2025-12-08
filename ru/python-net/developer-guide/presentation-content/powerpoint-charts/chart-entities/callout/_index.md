@@ -1,14 +1,20 @@
 ---
-title: Выноски
+title: Управление подсказками в диаграммах презентаций с Python
+linktitle: Подсказка
 type: docs
 url: /ru/python-net/callout/
-keywords: "Выноски диаграммы, метки данных диаграммы, Python, Aspose.Slides для Python через .NET"
-description: "Выноски и метки данных диаграмм PowerPoint на Python"
+keywords:
+- вызов диаграммы
+- использовать подсказку
+- метка данных
+- формат метки
+- Python
+- Aspose.Slides
+description: "Создавайте и стилизуйте подсказки в Aspose.Slides для Python .NET с помощью кратких примеров кода, совместимых с PPT, PPTX и ODP, чтобы автоматизировать рабочие процессы презентаций."
 ---
 
-## **Использование выносок**
-В класс **DataLabelFormat** и интерфейс **IDataLabelFormat** добавлено новое свойство **ShowLabelAsDataCallout**, которое определяет, будет ли указана метка данных диаграммы отображаться в виде выноски данных или в виде метки данных. В приведенном ниже примере мы установили выноски.
-
+## **Использование Callouts**
+Новый свойство **ShowLabelAsDataCallout** добавлено в класс **DataLabelFormat** и интерфейс **IDataLabelFormat**, которое определяет, будет ли метка данных указанного графика отображаться как всплывающая подсказка (data callout) или как метка данных. В приведённом ниже примере мы настроили Callouts.
 ```py
 import aspose.slides as slides
 
@@ -21,10 +27,8 @@ with slides.Presentation() as presentation:
 ```
 
 
-
-## **Установка выноски для круговой диаграммы**
-Aspose.Slides для Python через .NET предоставляет поддержку установки формы выноски метки данных для круговой диаграммы. Приведен пример ниже.
-
+## **Установка Callout для кольцевой диаграммы**
+Aspose.Slides for Python via .NET предоставляет возможность задавать форму всплывающей подсказки метки данных серии для кольцевой диаграммы. Ниже приведён пример.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -39,14 +43,14 @@ with slides.Presentation() as pres:
     chart.has_legend = False
     seriesIndex = 0
     while seriesIndex < 15:
-        series = chart.chart_data.series.add(workBook.get_cell(0, 0, seriesIndex + 1, "СЕРИЯ " + str(seriesIndex)), chart.type)
+        series = chart.chart_data.series.add(workBook.get_cell(0, 0, seriesIndex + 1, "SERIES " + str(seriesIndex)), chart.type)
         series.explosion = 0
         series.parent_series_group.doughnut_hole_size = 20
         series.parent_series_group.first_slice_angle = 351
         seriesIndex += 1
     categoryIndex = 0
     while categoryIndex < 15:
-        chart.chart_data.categories.add(workBook.get_cell(0, categoryIndex + 1, 0, "КАТЕГОРИЯ " + str(categoryIndex)))
+        chart.chart_data.categories.add(workBook.get_cell(0, categoryIndex + 1, 0, "CATEGORY " + str(categoryIndex)))
         i = 0
         while i < len(chart.chart_data.series):
             iCS = chart.chart_data.series[i]
@@ -78,3 +82,14 @@ with slides.Presentation() as pres:
         categoryIndex +=1 
     pres.save("chart.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Сохраняются ли Callouts при преобразовании презентации в PDF, HTML5, SVG или изображения?**
+
+Да. Callouts являются частью рендеринга диаграммы, поэтому при экспорте в [PDF](/slides/ru/python-net/convert-powerpoint-to-pdf/), [HTML5](/slides/ru/python-net/export-to-html5/), [SVG](/slides/ru/python-net/render-a-slide-as-an-svg-image/), или [растровые изображения](/slides/ru/python-net/convert-powerpoint-to-png/), они сохраняются вместе с оформлением слайда.
+
+**Работают ли пользовательские шрифты в Callouts и может ли их внешний вид сохраняться при экспорте?**
+
+Да. Aspose.Slides поддерживает [встраивание шрифтов](/slides/ru/python-net/embedded-font/) в презентацию и управляет их встраиванием при экспорте, например в [PDF](/slides/ru/python-net/convert-powerpoint-to-pdf/), гарантируя, что Callouts выглядят одинаково на разных системах.
