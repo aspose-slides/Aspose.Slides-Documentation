@@ -1,10 +1,31 @@
 ---
-title: Convert Powerpoint to JPG
+title: Convert PPT and PPTX to JPG in JavaScript
+linktitle: PowerPoint to JPG
 type: docs
 weight: 60
 url: /nodejs-java/convert-powerpoint-to-jpg/
-keywords: "Convert PowerPoint to JPG, PPTX to JPEG, PPT to JPEG"
-description: "Convert PowerPoint to JPG: PPT to JPG, PPTX to JPG in JavaScript"
+keywords: 
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- PowerPoint to JPG
+- presentation to JPG
+- slide to JPG
+- PPT to JPG
+- PPTX to JPG
+- save PowerPoint as JPG
+- save presentation as JPG
+- save slide as JPG
+- save PPT as JPG
+- save PPTX as JPG
+- export PPT to JPG
+- export PPTX to JPG
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Convert PowerPoint (PPT, PPTX) slides to high-quality JPG images in JavaScript with Aspose.Slides for Node.js via Java using fast, reliable code examples."
 ---
 
 

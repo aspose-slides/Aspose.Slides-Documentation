@@ -3,22 +3,25 @@ title: Exportieren von mathematischen Gleichungen
 type: docs
 weight: 30
 url: /de/net/exporting-math-equations/
-keywords: "Mathematische Gleichungen exportieren, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "Exportieren von PowerPoint mathematischen Gleichungen in C# oder .NET"
+keywords: "Exportieren von mathematischen Gleichungen, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
+description: "Exportieren von PowerPoint-Mathematikgleichungen in C# oder .NET"
 ---
 
-Aspose.Slides für .NET ermöglicht es Ihnen, mathematische Gleichungen aus Präsentationen zu exportieren. Zum Beispiel müssen Sie möglicherweise die mathematischen Gleichungen auf Folien (aus einer bestimmten Präsentation) extrahieren und in einem anderen Programm oder auf einer anderen Plattform verwenden.
+## **Einführung**
+
+Aspose.Slides für .NET ermöglicht das Exportieren von mathematischen Gleichungen aus Präsentationen. Beispielsweise müssen Sie möglicherweise die mathematischen Gleichungen auf Folien (aus einer bestimmten Präsentation) extrahieren und in einem anderen Programm oder einer anderen Plattform verwenden. 
 
 {{% alert color="primary" %}} 
 
-Sie können Gleichungen in MathML exportieren, einem beliebten Format oder Standard für mathematische Gleichungen und ähnliche Inhalte, die im Web und in vielen Anwendungen zu sehen sind. 
+Sie können Gleichungen nach MathML exportieren, einem weit verbreiteten Format oder Standard für mathematische Gleichungen und ähnliche Inhalte, die im Web und in vielen Anwendungen gesehen werden. 
 
 {{% /alert %}}
 
-Während Menschen den Code für einige Gleichungsformate wie LaTeX leicht schreiben können, haben sie Schwierigkeiten, den Code für MathML zu schreiben, da letzteres automatisch von Apps generiert werden soll. Programme lesen und parsen MathML problemlos, da dessen Code in XML geschrieben ist, weshalb MathML häufig als Aus- und Druckformat in vielen Bereichen verwendet wird.
+## **Math‑Formeln als MathML speichern**
 
-Dieser Beispielcode zeigt Ihnen, wie Sie eine mathematische Gleichung aus einer Präsentation in MathML exportieren:
+Während Menschen den Code für einige Gleichungsformate wie LaTeX leicht schreiben können, fällt es ihnen schwer, den Code für MathML zu schreiben, weil Letzteres automatisch von Apps generiert werden soll. Programme lesen und parsen MathML leicht, weil sein Code in XML vorliegt, sodass MathML in vielen Bereichen als Ausgabe‑ und Druckformat verwendet wird. 
 
+Dieser Beispielcode zeigt, wie Sie eine mathematische Gleichung aus einer Präsentation nach MathML exportieren:
 ```c#
 using (Presentation pres = new Presentation())
         {
@@ -31,3 +34,26 @@ using (Presentation pres = new Presentation())
                 mathParagraph.WriteAsMathMl(stream);
         }
 ```
+
+
+## **FAQ**
+
+**Was genau wird nach MathML exportiert – ein Absatz oder ein einzelner Formelblock?**
+
+Sie können entweder einen gesamten mathematischen Absatz ([MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/)) oder einen einzelnen Block ([MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock/)) nach MathML exportieren. Beide Typen bieten eine Methode zum Schreiben nach MathML.
+
+**Wie kann ich erkennen, dass ein Objekt auf einer Folie eine mathematische Formel und kein normaler Text oder ein Bild ist?**
+
+Eine Formel befindet sich in einem [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) und hat einen [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/). Bilder und reguläre Textportionen ohne einen [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) sind keine exportierbaren Formeln.
+
+**Woher stammt das MathML in einer Präsentation – ist es PowerPoint‑spezifisch oder ein Standard?**
+
+Der Export zielt auf standardmäßiges MathML (XML). Aspose verwendet Presentation MathML – die Präsentationsuntermenge des Standards –, die in vielen Anwendungen und im Web weithin genutzt wird.
+
+**Wird der Export von Formeln in Tabellen, SmartArt, Gruppen usw. unterstützt?**
+
+Ja, wenn diese Objekte Textportionen mit einem [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) enthalten (d. h. echte PowerPoint‑Formeln), werden sie exportiert. Ist eine Formel als Bild eingebettet, wird sie nicht exportiert.
+
+**Modifiziert der Export nach MathML die ursprüngliche Präsentation?**
+
+Nein. Das Schreiben von MathML ist eine Serialisierung des Inhalts der Formel; sie verändert die Präsentationsdatei nicht.

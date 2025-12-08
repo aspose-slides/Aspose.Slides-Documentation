@@ -35,7 +35,7 @@ To convert a slide into an image, follow these steps:
 
 In .NET, a [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) is an object that allows you to work with images defined by pixel data. You can use an instance of this class to save images in a wide range of formats (BMP, JPG, PNG, etc.).
 
-## **Convert Slides to Bitmap and Save the Images in PNG**
+## **Convert Slides to Bitmaps and Save the Images in PNG**
 
 You can convert a slide to a bitmap object and use it directly in your application. Alternatively, you can convert a slide to a bitmap and then save the image in JPEG or any other preferred format.
 

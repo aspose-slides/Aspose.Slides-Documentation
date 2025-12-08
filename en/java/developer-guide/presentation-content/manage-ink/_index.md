@@ -22,7 +22,7 @@ PowerPoint provides the ink function to allow you to draw non-standard figures, 
 
 Aspose.Slides provides all the Ink types (e.g. [Ink](https://reference.aspose.com/slides/java/com.aspose.slides/ink/) class) you need to create and manage ink objects. 
 
-## **Differences between Regular Object and Ink Objects**
+## **Differences between Regular Objects and Ink Objects**
 
 Objects on a PowerPoint slide are typically represented by shape objects. A shape object, in its simplest form, is a container that defines the area of the object itself (its frame) alongside its properties. The latter includes the container area size, the shape of the container, the container's background, etc. For information, see [Shape Layout Format](https://docs.aspose.com/slides/java/shape-manipulations/#access-layout-formats-for-shape).
 
@@ -38,7 +38,7 @@ The simplest form of encoding specifies the X and Y coordinates of each sample p
 
 ![ink_powerpoint2](ink_powerpoint2.png)
 
-## Brush Properties For Drawing 
+## **Brush Properties for Drawing**
 
 You can use a brush to draw lines connecting trace elements' points. The brush has its own color and size, corresponding to the `Brush.Color` and `Brush.Size` properties. 
 

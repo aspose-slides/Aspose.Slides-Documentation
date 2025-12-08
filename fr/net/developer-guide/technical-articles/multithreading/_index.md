@@ -8,7 +8,7 @@ keywords:
 - présentation
 - multithreading
 - travail parallèle
-- convertir des diapositives
+- convertir les diapositives
 - diapositives en images
 - C#
 - .NET
@@ -17,16 +17,15 @@ keywords:
 
 ## **Introduction**
 
-Bien que le travail parallèle avec des présentations soit possible (en plus de l'analyse/le chargement/le clonage) et que tout se passe bien (la plupart du temps), il y a une petite chance que vous obteniez des résultats incorrects lorsque vous utilisez la bibliothèque dans plusieurs threads.
+Bien que le travail parallèle avec les presentations soit possible (en dehors du parsing/loading/cloning) et que tout se passe bien (la plupart du temps), il existe une petite chance d'obtenir des résultats incorrects lorsque vous utilisez la bibliotheque dans plusieurs threads.
 
-Nous vous recommandons fortement de **ne pas** utiliser une seule instance de [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) dans un environnement multi-threading car cela pourrait entraîner des erreurs ou des échecs imprévisibles qui ne sont pas facilement détectés.
+Nous recommandons fortement de **ne pas** utiliser une seule instance de [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) dans un environnement multithreading, car cela pourrait entraîner des erreurs ou des echecs imprevisibles qui ne sont pas facilement detects.
 
-Il **n'est pas** sûr de charger, d'enregistrer et/ou de cloner une instance d'une classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) dans plusieurs threads. De telles opérations **ne sont pas** supportées. Si vous devez effectuer de telles tâches, vous devez paralléliser les opérations en utilisant plusieurs processus à thread unique—et chacun de ces processus doit utiliser sa propre instance de présentation.
+Il n'est **pas** sûr de charger, d'enregistrer et/ou de cloner une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) dans plusieurs threads. De telles operations ne sont **pas** prises en charge. Si vous devez effectuer ces taches, vous devez paralleliser les operations en utilisant plusieurs processus monothread et chaque processus doit utiliser sa propre instance de presentation.
 
-## **Convertir les diapositives de présentation en images en parallèle**
+## **Convertir les diapositives de la presentation en images en parallel**
 
-Disons que nous voulons convertir toutes les diapositives d'une présentation PowerPoint en images PNG en parallèle. Comme il est dangereux d'utiliser une seule instance de `Presentation` dans plusieurs threads, nous divisons les diapositives de présentation en présentations séparées et convertissons les diapositives en images en parallèle, en utilisant chaque présentation dans un thread séparé. L'exemple de code suivant montre comment procéder.
-
+Supposons que nous voulions convertir toutes les diapositives d'une presentation PowerPoint en images PNG en parallel. Comme il n'est pas sûr d'utiliser une seule instance `Presentation` dans plusieurs threads, nous separeons les diapositives de la presentation en presentations distinctes et convertissons les diapositives en images en parallel, chaque presentation etant utilisee dans un thread separe. L'exemple de code suivant montre comment proceder.
 ```cs
 var inputFilePath = "sample.pptx";
 var outputFilePathTemplate = "slide_{0}.png";
@@ -68,3 +67,22 @@ for (var slideIndex = 0; slideIndex < slideCount; slideIndex++)
 
 await Task.WhenAll(conversionTasks);
 ```
+
+
+## **FAQ**
+
+**Dois-je appeler la configuration de licence dans chaque thread?**
+
+Non. Il suffit de le faire une fois par processus/domaine d'application avant le demarrage des threads. Si la [license setup](/slides/fr/net/licensing/) peut etre invoquee simultanee (par exemple, lors d'une initialisation paresseuse), synchronisez cet appel car la methode de configuration de licence elle-meme n'est pas sure pour le multithreading.
+
+**Puis-je passer des objets `Presentation` ou `Slide` entre les threads?**
+
+Passer des objets de presentation "actifs" entre les threads n'est pas recommande: utilisez des instances independantes par thread ou precreez des presentations/containers de diapositives separes pour chaque thread. Cette approche suit la recommandation generale de ne pas partager une seule instance de presentation entre les threads.
+
+**Est-il sûr de paralleliser l'exportation vers différents formats (PDF, HTML, images) a condition que chaque thread dispose de sa propre instance `Presentation`?**
+
+Oui. Avec des instances independantes et des chemins de sortie distincts, ces taches se paralelisent generalement correctement; evitez tout objet de presentation partage ainsi que les flux d'E/S partages.
+
+**Que faut-il faire avec les paramètres de police globaux (dossiers, substitutions) en multithreading?**
+
+Initialisez tous les parametres de police globaux avant de demarrer les threads et ne les modifiez pas pendant le travail parallel. Cela elimine les conditions de concurrence lors de l'acces aux ressources de police partagees.

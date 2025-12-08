@@ -20,7 +20,7 @@ Provides examples of accessing existing ink shapes and removing them using **Asp
 
 > ❗ **Note:** Ink shapes represent user input from specialized devices. Aspose.Slides cannot create new ink strokes programmatically, but you can read and modify existing ink.
 
-## Access Ink
+## **Access Ink**
 
 Read the tags from the first ink shape on a slide.
 
@@ -42,7 +42,7 @@ static void Access_Ink()
 }
 ```
 
-## Remove Ink
+## **Remove Ink**
 
 Delete an ink shape from the slide if one exists.
 

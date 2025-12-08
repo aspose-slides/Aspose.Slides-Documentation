@@ -4,11 +4,14 @@ type: docs
 weight: 65
 url: /nodejs-java/typescript-support/
 keywords:
+- TypeScript
+- PowerPoint
+- OpenDocument
+- presentation
 - Node.js
 - JavaScript
-- TypeScript
-- Aspose.Slides for Node.js via Java
-description: "Discover how to use TypeScript with Aspose.Slides for Node.js via Java for streamlined presentation management. Explore new features and examples to enhance development efficiency."
+- Aspose.Slides
+description: "Use TypeScript with Aspose.Slides for Node.js for streamlined presentation management. Explore new features and examples to enhance development efficiency."
 ---
 
 

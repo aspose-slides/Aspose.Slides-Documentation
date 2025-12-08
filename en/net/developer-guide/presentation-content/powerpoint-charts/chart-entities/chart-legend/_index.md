@@ -48,7 +48,7 @@ presentation.Save("Legend_out.pptx", SaveFormat.Pptx);
 
 
 
-## **Set Font Size of Legend**
+## **Set the Font Size of a Legend**
 The Aspose.Slides for .NET lets developers allow to set font size of legend. Please follow the steps below: 
 
 - Instantiate `Presentation` class.
@@ -74,7 +74,7 @@ using (Presentation pres = new Presentation("test.pptx"))
 ```
 
 
-## **Set Font Size of Individual Legend**
+## **Set the Font Size of an Individual Legend**
 The Aspose.Slides for .NET lets developers allow to set font size of individual legend entries. Please follow the steps below: 
 
 - Instantiate `Presentation` class.

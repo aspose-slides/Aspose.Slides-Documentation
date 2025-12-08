@@ -1,7 +1,23 @@
 ---
-title: Trend Line
+title: Add Trend Lines to Presentation Charts in PHP
+linktitle: Trend Line
 type: docs
 url: /php-java/trend-line/
+keywords:
+- chart
+- trend line
+- exponential trend line
+- linear trend line
+- logarithmic trend line
+- moving average trend line
+- polynomial trend line
+- power trend line
+- custom trend line
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Quickly add and customize trend lines in PowerPoint charts with Aspose.Slides for PHP via Java — a practical guide to engage your audience."
 ---
 
 ## **Add Trend Line**

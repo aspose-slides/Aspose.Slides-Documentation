@@ -1,11 +1,30 @@
 ---
-title: Convert PowerPoint to HTML
-linktitle: Convert Powerpoint to HTML
+title: Convert PowerPoint Presentations to HTML in PHP
+linktitle: PowerPoint to HTML
 type: docs
 weight: 30
 url: /php-java/convert-powerpoint-to-html/
-keywords: "PHP  PowerPoint to HTML, Convert PowerPoint Presentation, PPTX, PPT, PPT to HTML, PPTX to HTML, PowerPoint to HTML, Save PowerPoint as HTML, Save PPT as HTML, Save PPTX as HTML, Java, Aspose.Slides, HTML export"
-description: "Convert PowerPoint HTML : Save PPTX or PPT as HTML . Save slides as HTML "
+keywords:
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- PowerPoint to HTML
+- presentation to HTML
+- slide to HTML
+- PPT to HTML
+- PPTX to HTML
+- save PowerPoint as HTML
+- save presentation as HTML
+- save slide as HTML
+- save PPT as HTML
+- save PPTX as HTML
+- export PPT to HTML
+- export PPTX to HTML
+- PHP
+- Aspose.Slides
+description: "Convert PowerPoint presentations to responsive HTML in PHP. Preserve layout, links, and images with Aspose.Slides conversion guide for fast, flawless results."
 ---
 
 ## **Overview**

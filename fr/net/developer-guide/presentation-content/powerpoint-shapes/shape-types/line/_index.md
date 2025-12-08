@@ -53,7 +53,7 @@ using (Presentation pres = new Presentation())
     // Obtenir la première diapositive
     ISlide sld = pres.Slides[0];
 
-    // Ajouter une autoshape de type ligne
+    // Ajouter un autoshape de type ligne
     IAutoShape shp = sld.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
     // Appliquer un formatage à la ligne

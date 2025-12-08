@@ -1,6 +1,6 @@
 ---
 title: Save Presentations in JavaScript
-linktitle: Save Presentations
+linktitle: Save Presentation
 type: docs
 weight: 80
 url: /nodejs-java/save-presentation/
@@ -22,7 +22,7 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Discover how to save presentations in JavaScript using Aspose.Slides—export to PowerPoint or OpenDocument while retaining layouts, fonts and effects."
+description: "Discover how to save presentations using Aspose.Slides for Node.js via Java—export to PowerPoint or OpenDocument while retaining layouts, fonts and effects."
 ---
 
 ## **Overview**

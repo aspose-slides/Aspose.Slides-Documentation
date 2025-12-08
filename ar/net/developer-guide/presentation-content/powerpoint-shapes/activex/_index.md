@@ -3,26 +3,26 @@ title: ActiveX
 type: docs
 weight: 80
 url: /ar/net/activex/
-keywords: "ActiveX, عناصر التحكم ActiveX, عرض PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "إدارة عناصر التحكم ActiveX في عرض PowerPoint باستخدام C# أو .NET"
+keywords: "ActiveX, عناصر تحكم ActiveX, عرض PowerPoint, C#, Csharp, Aspose.Slides for .NET"
+description: "إدارة عناصر تحكم ActiveX في عرض PowerPoint باستخدام C# أو .NET"
 ---
 
-تُستخدم عناصر التحكم ActiveX في العروض التقديمية. تتيح لك Aspose.Slides for .NET إدارة عناصر التحكم ActiveX، ولكن إدارتها تتطلب بعض التعقيد وتختلف عن الأشكال العادية في العرض التقديمي. بدءًا من Aspose.Slides for .NET 6.9.0، يدعم المكون إدارة عناصر التحكم ActiveX. في الوقت الحالي، يمكنك الوصول إلى عنصر التحكم ActiveX المضاف بالفعل في عرضك التقديمي وتعديله أو حذفه باستخدام خصائصه المختلفة. تذكر، أن عناصر التحكم ActiveX ليست أشكالًا وليست جزءًا من IShapeCollection الخاصة بالعرض التقديمي ولكنها جزء من IControlCollection المنفصلة. تُظهر هذه المقالة كيفية العمل معهم.
-## **تعديل عناصر التحكم ActiveX**
-لإدارة عنصر تحكم ActiveX بسيط مثل مربع نص وزر أمر بسيط في شريحة:
+يتم استخدام عناصر التحكم ActiveX في العروض التقديمية. يتيح لك Aspose.Slides for .NET إدارة عناصر التحكم ActiveX، ولكن إدارتها أمر أكثر تعقيدًا ومختلفًا عن الأشكال العادية في العرض. بدءًا من Aspose.Slides for .NET 6.9.0، يدعم المكوّن إدارة عناصر التحكم ActiveX. في الوقت الحالي، يمكنك الوصول إلى عنصر التحكم ActiveX الذي تم إضافته مسبقًا في العرض وتعديله أو حذفه باستخدام خصائصه المتنوعة. تذكّر أن عناصر التحكم ActiveX ليست أشكالًا وليست جزءًا من IShapeCollection في العرض بل هي جزء من IControlCollection المنفصل. تُظهر هذه المقالة كيفية العمل معها.
 
-1. قم بإنشاء مثيل من فئة العرض التقديمي وقم بتحميل العرض التقديمي مع عناصر التحكم ActiveX فيه.
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. قم بالوصول إلى عناصر التحكم ActiveX في الشريحة من خلال الوصول إلى IControlCollection.
-1. قم بالوصول إلى عنصر التحكم ActiveX المسمى TextBox1 باستخدام كائن ControlEx.
-1. قم بتغيير خصائص مختلفة لعنصر التحكم ActiveX TextBox1 بما في ذلك النص، الخط، ارتفاع الخط وموقع الإطار.
+## **تعديل عناصر تحكم ActiveX**
+لإدارة عنصر تحكم ActiveX بسيط مثل مربع نص وزر أمر بسيط على شريحة:
+
+1. إنشاء مثيل من فئة Presentation وتحميل العرض الذي يحتوي على عناصر تحكم ActiveX.
+1. الحصول على مرجع الشريحة عبر فهرستها.
+1. الوصول إلى عناصر التحكم ActiveX في الشريحة عن طريق الوصول إلى IControlCollection.
+1. الوصول إلى عنصر التحكم ActiveX TextBox1 باستخدام كائن ControlEx.
+1. تغيير الخصائص المختلفة لعنصر التحكم ActiveX TextBox1 بما في ذلك النص، الخط، ارتفاع الخط وموقع الإطار.
 1. الوصول إلى عنصر التحكم الثاني المسمى CommandButton1.
-1. قم بتغيير تسمية الزر، الخط والموقع.
-1. نقل موضع إطارات عناصر التحكم ActiveX.
-1. اكتب العرض التقديمي المعدل إلى ملف PPTX.
+1. تعديل تسمية الزر، الخط والموقع.
+1. تحريك موقع إطارات عناصر التحكم ActiveX.
+1. كتابة العرض المعدل إلى ملف PPTX.
 
-يتحدث مقتطف الكود أدناه عن تحديث عناصر التحكم ActiveX على الشرائح كما هو موضح أدناه.
-
+المقتطف البرمجي أدناه يحدّث عناصر التحكم ActiveX على شرائح العرض كما هو موضح أدناه.
 ```c#
 // الوصول إلى العرض التقديمي مع عناصر التحكم ActiveX
 Presentation presentation = new Presentation("ActiveX.pptm");
@@ -30,15 +30,15 @@ Presentation presentation = new Presentation("ActiveX.pptm");
 // الوصول إلى الشريحة الأولى في العرض التقديمي
 ISlide slide = presentation.Slides[0];
 
-// تغيير نص TextBox
+// تغيير نص مربع النص
 IControl control = slide.Controls[0];
 
 if (control.Name == "TextBox1" && control.Properties != null)
 {
-    string newText = "تم تغيير النص";
+    string newText = "Changed text";
     control.Properties["Value"] = newText;
 
-    // تغيير الصورة البديلة. ستقوم Powerpoint باستبدال هذه الصورة أثناء تفعيل ActiveX، لذا قد يكون من المقبول أحيانًا ترك الصورة دون تغيير.
+    // تغيير الصورة البديلة. سيستبدل PowerPoint هذه الصورة أثناء تفعيل ActiveX، لذا في بعض الأحيان يمكن ترك الصورة دون تغيير.
 
     Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
     Graphics graphics = Graphics.FromImage(image);
@@ -111,7 +111,7 @@ if (control.Name == "CommandButton1" && control.Properties != null)
     control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
 }
 
-// نقل إطارات ActiveX 100 نقطة للأسفل
+// تحريك إطارات ActiveX للأسفل بمقدار 100 نقطة
 foreach (Control ctl in slide.Controls)
 {
     IShapeFrame frame = control.Frame;
@@ -123,41 +123,55 @@ foreach (Control ctl in slide.Controls)
 presentation.Save("withActiveX-edited_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
 
 
-// الآن إزالة العناصر
+// الآن إزالة العناصر التحكم
 slide.Controls.Clear();
 
-// حفظ العرض التقديمي مع عناصر التحكم ActiveX التي تم مسحها
+// حفظ العرض التقديمي مع عناصر التحكم ActiveX المُزالة
 presentation.Save("withActiveX.cleared_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
 ```
 
 
-## **إضافة عنصر تحكم مشغل الوسائط ActiveX**
-لإضافة عنصر تحكم مشغل الوسائط ActiveX، يرجى اتباع الخطوات التالية:
+## **إضافة عنصر تحكم ActiveX Media Player**
+لإضافة عنصر تحكم ActiveX Media Player، يرجى تنفيذ الخطوات التالية:
 
-1. قم بإنشاء مثيل من فئة العرض التقديمي وقم بتحميل العرض التقديمي عينة مع عناصر التحكم Media Player ActiveX فيه.
-1. قم بإنشاء مثيل فئة العرض التقديمي المستهدفة واجعل مثيل العرض فارغًا.
-1. استنساخ الشريحة مع عنصر التحكم Media Player ActiveX في العرض المقدم كقالب إلى العرض المستهدف.
-1. الوصول إلى الشريحة المستنسخة في العرض المستهدف.
-1. الوصول إلى عناصر التحكم ActiveX في الشريحة من خلال الوصول إلى IControlCollection.
+1. إنشاء مثيل من فئة Presentation وتحميل العرض التجريبي الذي يحتوي على عناصر تحكم Media Player ActiveX.
+1. إنشاء مثيل من فئة Presentation الهدف وتوليد مثيل عرض فارغ.
+1. استنساخ الشريحة التي تحتوي على عنصر تحكم Media Player ActiveX في عرض القالب إلى عرض الهدف.
+1. الوصول إلى الشريحة المستنسخة في عرض الهدف.
+1. الوصول إلى عناصر التحكم ActiveX في الشريحة عن طريق الوصول إلى IControlCollection.
 1. الوصول إلى عنصر التحكم Media Player ActiveX وتعيين مسار الفيديو باستخدام خصائصه.
-1. حفظ العرض التقديمي إلى ملف PPTX.
-
+1. حفظ العرض إلى ملف PPTX.
 ```c#
-// إنشاء فئة العرض التقديمي التي تمثل ملف PPTX
+// إنشاء كائن من فئة Presentation الذي يمثل ملف PPTX
 Presentation presentation = new Presentation("template.pptx");
 
-// إنشاء مثيل عرض تقديمي فارغ
+// إنشاء مثال عرض تقديمي فارغ
 Presentation newPresentation = new Presentation();
 
 // إزالة الشريحة الافتراضية
 newPresentation.Slides.RemoveAt(0);
 
-// استنساخ الشريحة مع عنصر التحكم Media Player ActiveX
+// استنساخ الشريحة التي تحتوي على عنصر تحكم Media Player ActiveX
 newPresentation.Slides.InsertClone(0, presentation.Slides[0]);
 
-// الوصول إلى عنصر التحكم Media Player ActiveX وتعيين مسار الفيديو
+// الوصول إلى عنصر تحكم Media Player ActiveX وتعيين مسار الفيديو
 newPresentation.Slides[0].Controls[0].Properties["URL"] = "Wildlife.mp4";
 
 // حفظ العرض التقديمي
 newPresentation.Save("LinkingVideoActiveXControl_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يحتفظ Aspose.Slides بعناصر التحكم ActiveX عند القراءة وإعادة الحفظ إذا لم يمكن تنفيذها في بيئة Python؟**
+
+نعم. يتعامل Aspose.Slides معها كجزء من العرض ويمكنه قراءة/تعديل خصائصها وإطاراتها؛ لا يلزم تنفيذ العناصر نفسها للحفاظ عليها.
+
+**كيف تختلف عناصر التحكم ActiveX عن كائنات OLE في العرض؟**
+
+عناصر التحكم ActiveX هي عناصر تفاعلية مُدارة (أزرار، مربعات نص، مشغل وسائط)، في حين أن [OLE](/slides/ar/net/manage-ole/) تشير إلى كائنات التطبيقات المضمنة (مثلاً ورقة عمل Excel). يتم تخزينها ومعالجتها بطريقة مختلفة ولها نماذج خاصية متميزة.
+
+**هل تعمل أحداث ActiveX والماكروات VBA إذا تم تعديل الملف بواسطة Aspose.Slides؟**
+
+يحافظ Aspose.Slides على العلامات التعريفية والبيانات الوصفية الحالية؛ ومع ذلك، تعمل الأحداث والماكروات فقط داخل PowerPoint على نظام Windows عندما تسمح الأمان بذلك. المكتبة لا تنفّذ VBA.

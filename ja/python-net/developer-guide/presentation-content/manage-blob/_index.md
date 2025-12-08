@@ -1,66 +1,65 @@
 ---
-title: Python でプレゼンテーションの BLOB を管理してメモリを効率的に使用する
-linktitle: BLOB を管理
+title: Python でプレゼンテーションの BLOB を管理し、効率的なメモリ使用を実現
+linktitle: BLOB 管理
 type: docs
 weight: 10
 url: /ja/python-net/manage-blob/
 keywords:
 - 大きなオブジェクト
-- 大きなアイテム
+- 大きな項目
 - 大きなファイル
-- BLOB を追加
-- BLOB をエクスポート
+- BLOB の追加
+- BLOB のエクスポート
 - 画像を BLOB として追加
-- メモリを削減
-- メモリ使用量
-- 大きなプレゼンテーション
+- メモリ削減
+- メモリ消費
+- 大規模プレゼンテーション
 - 一時ファイル
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python における BLOB データを管理し、PowerPoint および OpenDocument ファイル操作を効率化して効果的なプレゼンテーション処理を実現します。"
+description: "Aspose.Slides for Python via .NET における BLOB データを管理し、PowerPoint および OpenDocument ファイル操作を効率化して、プレゼンテーションの取り扱いを最適化します。"
 ---
 
-### **BLOBについて**
+## **BLOB について**
 
-**BLOB** (**Binary Large Object**) は通常、バイナリ形式で保存された大きなアイテム（写真、プレゼンテーション、ドキュメント、メディアなど）を指します。
+**BLOB** (**Binary Large Object**) は通常、バイナリ形式で保存される大きな項目（写真、プレゼンテーション、文書、またはメディア）です。 
 
-Aspose.Slides for Python via .NETは、大きなファイルが関与する場合にメモリ消費を減らす方法でオブジェクトにBLOBを使用することを可能にします。
+Aspose.Slides for Python via .NET を使用すると、大きなファイルが関与する場合にメモリ使用量を削減する方法でオブジェクトに BLOB を使用できます。 
 
-# **メモリ消費を減らすためのBLOBの使用**
+## **BLOB を使用してメモリ使用量を削減する**
 
-### **プレゼンテーションにBLOBを介して大きなファイルを追加する**
+### **BLOB を介して大きなファイルをプレゼンテーションに追加する**
 
-[Aspose.Slides](/slides/ja/python-net/) for .NETは、メモリ消費を減らすためにBLOBを使用するプロセスを介して大きなファイル（この場合は大きな動画ファイル）をプレゼンテーションに追加することを可能にします。
+[Aspose.Slides](/slides/ja/python-net/) for .NET を使用すると、BLOB を介したプロセスで大きなファイル（この場合は大きなビデオ ファイル）を追加し、メモリ使用量を削減できます。
 
-このPythonコードは、BLOBプロセスを介して大きな動画ファイルをプレゼンテーションに追加する方法を示しています：
-
+この Python の例では、BLOB プロセスを使用して大きなビデオ ファイルをプレゼンテーションに追加する方法を示します：
 ```py
 import aspose.slides as slides
 
 pathToVeryLargeVideo = "veryLargeVideo.avi"
 
-# 動画が追加される新しいプレゼンテーションを作成
+# 動画を追加する新しいプレゼンテーションを作成します
 with slides.Presentation() as pres:
     with open(pathToVeryLargeVideo, "br") as fileStream:
-        # プレゼンテーションに動画を追加します - "veryLargeVideo.avi"ファイルにアクセスするつもりはないので
-        # KeepLockedの動作を選択します。
+        # 動画をプレゼンテーションに追加します - KeepLocked 動作を選択したのは
+        # 「veryLargeVideo.avi」ファイルにアクセスするつもりがないためです。
         video = pres.videos.add_video(fileStream, slides.LoadingStreamBehavior.KEEP_LOCKED)
         pres.slides[0].shapes.add_video_frame(0, 0, 480, 270, video)
 
-        # プレゼンテーションを保存します。大きなプレゼンテーションが出力される間、presオブジェクトのライフサイクルを通じて
-        # メモリ消費は低く抑えられます。
+        # プレゼンテーションを保存します。大きなプレゼンテーションが出力される間、メモリ消費は
+        # pres オブジェクトのライフサイクル全体で低く保たれます 
         pres.save("presentationWithLargeVideo.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-### **プレゼンテーションからBLOBを介して大きなファイルをエクスポートする**
-Aspose.Slides for Python via .NETは、プレゼンテーションからBLOBを使用するプロセスを介して大きなファイル（この場合はオーディオまたは動画ファイル）をエクスポートすることを可能にします。たとえば、大きなメディアファイルをプレゼンテーションから抽出する必要があるが、コンピュータのメモリにファイルを読み込みたくない場合があります。BLOBプロセスを通じてファイルをエクスポートすることで、メモリ消費を低く抑えることができます。
 
-このPythonコードは、説明した操作を示しています：
+### **BLOB を介してプレゼンテーションから大きなファイルをエクスポートする**
+Aspose.Slides for Python via .NET を使用すると、BLOB を介したプロセスでプレゼンテーションから大きなファイル（この場合はオーディオまたはビデオ ファイル）をエクスポートできます。たとえば、プレゼンテーションから大きなメディア ファイルを抽出する必要があるが、そのファイルをコンピュータのメモリに読み込ませたくない場合です。BLOB プロセスを通じてファイルをエクスポートすることで、メモリ使用量を低く抑えることができます。 
 
+以下の Python コードは、上記の操作を実演しています：
 ```py
 import aspose.slides as slides
 
@@ -70,20 +69,21 @@ loadOptions.blob_management_options.presentation_locking_behavior = slides.Prese
 loadOptions.blob_management_options.is_temporary_files_allowed = True
 
 with slides.Presentation(path + "Video.pptx", loadOptions) as pres:
-    # 各動画をファイルに保存します。高いメモリ使用を防ぐために、プレゼンテーションの動画ストリームから
-    # 新しく作成された動画ファイルのストリームにデータを転送するためのバッファが必要です。
-    # byte[] buffer = new byte[8 * 1024];
+	# 各ビデオをファイルに保存します。メモリ使用量が高くなるのを防ぐため、バッファが必要です
+	# プレゼンテーションのビデオストリームから新しく作成したビデオファイル用のストリームへデータを転送します
+	# byte[] buffer = new byte[8 * 1024];
     bufferSize = 8 * 1024
 
-    # 動画を反復処理
+	# ビデオを反復処理します
     index = 0
-    # 必要であれば、オーディオファイルにも同様の手順を適用することができます。
+    # 必要に応じて、同じ手順をオーディオファイルにも適用できます 
     for video in pres.videos:
-        # プレゼンテーション動画ストリームを開きます。注意してください、意図的にvideo.BinaryDataのようなプロパティにアクセスすることは
-        # 避けています - なぜならこのプロパティは全動画を含むバイト配列を返すため、その後バイトがメモリにロードされるからです。video.GetStreamを使用し、
-        # ストリームを返します - そして全動画をメモリに読み込む必要はありません。
+		# プレゼンテーションのビデオストリームを開きます。意図的にプロパティへのアクセスを避けたことに注意してください
+		# video.BinaryData のようなプロパティは、完全なビデオを含むバイト配列を返すため、
+		# メモリにバイトがロードされます。video.GetStream を使用すると、Stream が返され、 
+		#  メモリにビデオ全体をロードする必要はありません
         with video.get_stream() as presVideoStream:
-            with open("video{index}.avi".format(index=index), "wb") as outputFileStream:
+            with open("video{index}.avi".format(index = index), "wb") as outputFileStream:
                 buffer = presVideoStream.read(8 * 1024)
                 bytesRead = len(buffer)
                 while bytesRead > 0:
@@ -94,11 +94,11 @@ with slides.Presentation(path + "Video.pptx", loadOptions) as pres:
         index += 1
 ```
 
-### **プレゼンテーションにBLOBとして画像を追加する**
-[**IImageCollection**](https://reference.aspose.com/slides/python-net/aspose.slides/iimagecollection/)インターフェースと[**ImageCollection**](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/)クラスのメソッドを使用すると、大きな画像をストリームとして追加してBLOBとして扱うことができます。
 
-このPythonコードは、BLOBプロセスを介して大きな画像を追加する方法を示しています：
+### **プレゼンテーションに画像を BLOB として追加する**
+インターフェイス [**IImageCollection**](https://reference.aspose.com/slides/python-net/aspose.slides/iimagecollection/) とクラス [**ImageCollection** ](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/) のメソッドを使用すると、大きな画像をストリームとして追加し、BLOB として扱うことができます。 
 
+この Python コードは、BLOB プロセスを介して大きな画像を追加する方法を示しています：
 ```py
 import aspose.slides as slides
 
@@ -110,25 +110,24 @@ with slides.Presentation() as pres:
     pres.save("presentationWithLargeImage.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **メモリと大きなプレゼンテーション**
 
-通常、大きなプレゼンテーションをロードするには、コンピュータは大量の一時メモリを必要とします。プレゼンテーションの内容はすべてメモリにロードされ、プレゼンテーションが読み込まれたファイルは使用されなくなります。
+## **メモリと大規模プレゼンテーション**
 
-1.5 GBの動画ファイルを含む大きなPowerPointプレゼンテーション（large.pptx）を考えてみてください。プレゼンテーションをロードする標準的な方法は、このPythonコードで説明されています：
+通常、大規模なプレゼンテーションをロードするには、コンピュータに大量の一時メモリが必要です。プレゼンテーションのすべての内容がメモリに読み込まれ、プレゼンテーションがロードされた元のファイルは使用されなくなります。 
 
+たとえば、1.5 GB のビデオ ファイルを含む大規模な PowerPoint プレゼンテーション（large.pptx）を考えてみましょう。プレゼンテーションをロードする標準的な方法は、以下の Python コードで説明されています：
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("large.pptx") as pres:
-    pres.save("large.pdf", slides.export.SaveFormat.PDF)
+	pres.save("large.pdf", slides.export.SaveFormat.PDF)
 ```
 
-しかし、この方法は約1.6 GBの一時メモリを消費します。
 
-### **大きなプレゼンテーションをBLOBとしてロードする**
+しかし、この方法は約 1.6 GB の一時メモリを消費します。 
 
-BLOBを使用するプロセスを介して、大きなプレゼンテーションを少ないメモリでロードすることができます。このPythonコードは、BLOBプロセスを使用して大きなプレゼンテーションファイル（large.pptx）をロードする実装を示しています：
-
+### **BLOB として大規模プレゼンテーションをロードする**
+BLOB を使用したプロセスにより、少量のメモリで大規模なプレゼンテーションをロードできます。この Python コードは、BLOB プロセスを使用して大規模プレゼンテーション ファイル（large.pptx）をロードする実装を示しています：
 ```py
 import aspose.slides as slides
 
@@ -138,13 +137,12 @@ loadOptions.blob_management_options.presentation_locking_behavior = slides.Prese
 loadOptions.blob_management_options.is_temporary_files_allowed = True
 
 with slides.Presentation("large.pptx", loadOptions) as pres:
-    pres.save("large.pdf", slides.export.SaveFormat.PDF)
+	pres.save("large.pdf", slides.export.SaveFormat.PDF)
 ```
 
-#### **一時ファイルのフォルダーを変更する**
 
-BLOBプロセスを使用すると、コンピュータは一時ファイルを一時ファイル用のデフォルトフォルダーに作成します。一時ファイルを別のフォルダーに保持したい場合は、`temp_files_root_path`を使用してストレージの設定を変更できます：
-
+### **一時ファイルのフォルダーを変更する**
+BLOB プロセスを使用すると、コンピュータは既定の一時ファイル フォルダーに一時ファイルを作成します。別のフォルダーに一時ファイルを保存したい場合は、`temp_files_root_path` を使用して保存設定を変更できます：
 ```py
 import aspose.slides as slides
 
@@ -155,8 +153,24 @@ loadOptions.blob_management_options.is_temporary_files_allowed = True
 loadOptions.blob_management_options.temp_files_root_path = "temp"
 ```
 
-{{% alert title="情報" color="info" %}}
 
-`temp_files_root_path`を使用する際、Aspose.Slidesは一時ファイルを保存するために自動的にフォルダーを作成しません。手動でフォルダーを作成する必要があります。
-
+{{% alert title="Info" color="info" %}}
+`temp_files_root_path` を使用すると、Aspose.Slides は一時ファイルを保存するフォルダーを自動的に作成しません。フォルダーは手動で作成する必要があります。 
 {{% /alert %}}
+
+## **よくある質問**
+
+**Aspose.Slides のプレゼンテーション内でどのデータが BLOB とみなされ、BLOB オプションで制御されますか？**
+画像、音声、ビデオなどの大きなバイナリ オブジェクトは BLOB として扱われます。プレゼンテーション全体のファイルも、ロードまたは保存時に BLOB の取り扱いが行われます。これらのオブジェクトは BLOB ポリシーにより管理され、メモリ使用量を制御し、必要に応じて一時ファイルにスピルできるようになります。
+
+**プレゼンテーションのロード時に BLOB の取り扱いルールはどこで設定しますか？**
+[LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) と [BlobManagementOptions](https://reference.aspose.com/slides/python-net/aspose.slides/blobmanagementoptions/) を使用します。ここで BLOB のメモリ上限を設定し、一時ファイルの使用許可・不許可、一次ファイルのルート パス、ソース ロック動作を選択できます。
+
+**BLOB 設定はパフォーマンスに影響しますか？速度とメモリのバランスはどう取りますか？**
+はい。BLOB をメモリに保持すると速度は最大化されますが、RAM 使用量が増加します。メモリ上限を下げると、作業の多くが一時ファイルにオフロードされ、RAM は削減されますが追加の I/O が発生します。ワークロードと環境に合わせて、[max_blobs_bytes_in_memory](https://reference.aspose.com/slides/python-net/aspose.slides/blobmanagementoptions/max_blobs_bytes_in_memory/) の閾値を調整し、適切なバランスを取ってください。
+
+**極めて大きなプレゼンテーション（例：数ギガバイト）を開く際に BLOB オプションは役立ちますか？**
+はい。[BlobManagementOptions](https://reference.aspose.com/slides/python-net/aspose.slides/blobmanagementoptions/) はこのようなシナリオ向けに設計されています。一時ファイルを有効にし、ソース ロックを使用することで、ピーク時の RAM 使用量を大幅に削減し、非常に大きなデッキの処理を安定させることができます。
+
+**ディスク ファイルではなくストリームからロードする際にも BLOB ポリシーを使用できますか？**
+はい。同じルールがストリームにも適用されます。プレゼンテーション インスタンスは入力ストリームを所有およびロックでき（選択したロック モードに依存）、許可されている場合は一時ファイルが使用され、処理中のメモリ使用量を予測可能に保ちます。

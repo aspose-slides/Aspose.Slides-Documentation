@@ -1,372 +1,257 @@
 ---
-title: ワードアート
+title: C# で WordArt 効果を作成および適用する
+linktitle: WordArt
 type: docs
 weight: 110
 url: /ja/net/wordart/
-keywords: "ワードアート, Word Art, ワードアートを作成, ワードアートテンプレート, ワードアート効果, シャドウ効果, 表示効果, グロー効果, ワードアート変換, 3D効果, 外部シャドウ効果, 内部シャドウ効果, C#, Csharp, Aspose.Slides for .NET"
-description: "C# または Aspose.Slides for .NET で PowerPoint プレゼンテーションにワードアートと効果を追加、操作、管理します"
+keywords:
+- WordArt
+- WordArt の作成
+- WordArt テンプレート
+- WordArt 効果
+- 影効果
+- 表示効果
+- 光彩効果
+- WordArt 変形
+- 3D 効果
+- 外側の影効果
+- 内側の影効果
+- C#
+- C#
+- .NET
+- Aspose.Slides
+description: "Aspose.Slides for .NET で WordArt 効果を作成およびカスタマイズする方法を学びます。このステップバイステップ ガイドは、開発者が C# でスタイリッシュでプロフェッショナルなテキストを使用してプレゼンテーションを向上させるのに役立ちます。"
 ---
 
-## **ワードアートとは？**
-ワードアートは、テキストに効果を適用して目立たせる機能です。たとえば、ワードアートを使用すると、テキストにアウトラインを付けたり、色（またはグラデーション）で塗りつぶしたり、3D効果を追加したりできます。また、テキストの形状を傾けたり、曲げたり、伸ばしたりすることもできます。 
+## **概要**
 
-{{% alert color="primary" %}} 
+WordArt 効果を使用すると、PowerPoint プレゼンテーションに視覚的に魅力的でスタイリッシュなテキストを追加できます。Aspose.Slides for .NET を使用すれば、Office をインストールせずに、Microsoft PowerPoint と同様に WordArt をプログラムで作成、カスタマイズ、管理できます。本記事では、.NET で WordArt を扱う概要を説明し、テキスト変換、塗りつぶしスタイル、アウトライン、影、その他の書式設定オプションを適用して、プレゼンテーションの内容をより表現力豊かで魅力的にする方法を紹介します。WordArt はテキストをグラフィック オブジェクトとして扱うことができます。テキストに対して適用される効果や特別な変更により、テキストをより目立たせたり魅力的にしたりします。
 
-ワードアートは、テキストをグラフィックオブジェクトとして扱うことを可能にします。ワードアートは、テキストに適用される効果や特別な変更から成り、より魅力的または目立つものになります。 
+## **シンプルな WordArt テンプレートを作成しテキストに適用する**
 
-{{% /alert %}} 
+このセクションでは、Aspose.Slides for .NET を使用してシンプルな WordArt テンプレートを作成し、テキストに適用する方法を探ります。WordArt は、印象的なビジュアル効果やスタイルでテキストの外観を向上させる簡単な手段です。WordArt の作成と使用の基本手順を学べば、任意のプロジェクトにすぐに適用でき、プレゼンテーションをより鮮やかで記憶に残るものにできます。
 
-**Microsoft PowerPoint のワードアート**
-
-Microsoft PowerPoint でワードアートを使用するには、あらかじめ定義されたワードアートテンプレートのいずれかを選択する必要があります。ワードアートテンプレートは、テキストまたはその形状に適用される効果のセットです。 
-
-**Aspose.Slides のワードアート**
-
-Aspose.Slides for .NET 20.10 では、ワードアートのサポートを実装し、その後の Aspose.Slides for .NET のリリースで機能を改善しました。 
-
-Aspose.Slides for .NET を使用すると、C# で独自のワードアートテンプレート（1 つの効果または効果の組み合わせ）を簡単に作成し、テキストに適用できます。 
-
-## シンプルなワードアートテンプレートの作成とテキストへの適用
-
-**Aspose.Slides を使用する**
-
-まず、次の C# コードを使用してシンプルなテキストを作成します: 
-
-``` csharp 
-using (Presentation pres = new Presentation())
+まず、次の C# コードでシンプルなテキストを作成します。
+```cs
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
-    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ISlide slide = presentation.Slides[0];
+
+    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
     ITextFrame textFrame = autoShape.TextFrame;
 
-    Portion portion = (Portion)textFrame.Paragraphs[0].Portions[0];
+    IPortion portion = textFrame.Paragraphs[0].Portions[0];
     portion.Text = "Aspose.Slides";
 }
 ```
-次に、テキストのフォントサイズを大きく設定して、次のコードを通じて効果がより目立つようにします:
 
-``` csharp 
-FontData fontData = new FontData("Arial Black");
-portion.PortionFormat.LatinFont = fontData;
-portion.PortionFormat.FontHeight = 36;
+
+次に、以下のコードでテキストのフォントの高さを大きく設定し、効果を目立たせます。
+```cs
+    portion.PortionFormat.LatinFont = new FontData("Arial Black");
+    portion.PortionFormat.FontHeight = 36;
 ```
 
-**Microsoft PowerPoint を使用する**
 
-Microsoft PowerPoint でワードアート効果のメニューにアクセスします:
-
-![todo:image_alt_text](image-20200930113926-1.png)
-
-右側のメニューからあらかじめ定義されたワードアート効果を選択できます。左のメニューからは新しいワードアートの設定を指定できます。 
-
-利用可能なパラメータまたはオプションの一部は次のとおりです:
-
-![todo:image_alt_text](image-20200930114015-3.png)
-
-**Aspose.Slides を使用する**
-
-ここでは、次のコードを使用してテキストに SmallGrid パターンカラーを適用し、幅 1 の黒いテキストボーダーを追加します:
-
-``` csharp 
-portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
-portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
-portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
-portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
-            
-portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
-portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+ここでは、SmallGrid パターン塗りつぶしをテキストに適用し、幅 1 の黒いテキスト枠線を追加します。
+```cs
+    portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
+    portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
+    portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
+    portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
+                
+    portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
+    portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
 ```
 
-得られたテキスト:
 
-![todo:image_alt_text](image-20200930114108-4.png)
+結果のテキスト:
 
-## 他のワードアート効果の適用
+![単純なWordArtテンプレート](WordArt_template.png)
 
-**Microsoft PowerPoint を使用する**
+## **その他の WordArt 効果を適用する**
 
-プログラムのインターフェイスから、テキスト、テキストブロック、形状、または類似の要素にこれらの効果を適用できます:
+基本的な変形に加えて、Aspose.Slides for .NET では、テキストの外観を強化するさまざまな高度な WordArt 効果を適用できます。これらにはアウトライン、塗りつぶし、影、反射、光彩効果が含まれます。これらの機能を組み合わせることで、プレゼンテーションで際立つ目を引くテキスト スタイルを作成できます。このセクションでは、シンプルでクリーンなコード例を使って、これらの効果をプログラムで適用する方法を示します。
 
-![todo:image_alt_text](image-20200930114129-5.png)
+### **外側の影効果を適用する**
 
-たとえば、シャドウ、反射、グロー効果をテキストに適用することができ、3D形式および3D回転効果はテキストブロックに適用できます。ソフトエッジプロパティはシェイプオブジェクトにも適用できます（3D形式プロパティが設定されていない場合でも効果が残ります）。 
+外側の影効果は、テキストの輪郭の背後に影を付けて深みと背景からの分離感を生み出し、テキストを際立たせます。Aspose.Slides for .NET を使用すると、WordArt テキストに外側の影を簡単に適用およびカスタマイズできます。このセクションでは、影の色、方向、距離、ぼかし半径などを設定して、目的のビジュアル インパクトを実現する方法を学びます。
 
-### シャドウ効果の適用
-
-ここでは、テキストに関するプロパティを設定することを目的としています。次の C# コードを使用してテキストにシャドウ効果を適用します:
-
-``` csharp 
-portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
-portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 65;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4.73;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 2;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 30;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
-portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
+次の C# コード スニペットは、上記で作成したテキストに影効果を適用します。
+```cs
+    portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
+    portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
+    portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
+    portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleVertical = 100;
+    portion.PortionFormat.EffectFormat.OuterShadowEffect.BlurRadius = 4;
+    portion.PortionFormat.EffectFormat.OuterShadowEffect.Direction = 230;
+    portion.PortionFormat.EffectFormat.OuterShadowEffect.Distance = 30;
+    portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 20;
+    portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
+    portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
 ```
 
-Aspose.Slides API は、OuterShadow、InnerShadow、および PresetShadow の 3 種類のシャドウをサポートしています。 
 
- PresetShadow を使用すると、テキストにシャドウを適用できます（プレセット値を使用）。 
+結果のテキスト:
 
-**Microsoft PowerPoint を使用する**
-
-PowerPoint では、1 つの種類のシャドウを使用できます。以下はその例です:
-
-![todo:image_alt_text](image-20200930114225-6.png)
-
-**Aspose.Slides を使用する**
-
-Aspose.Slides では、実際に InnerShadow と PresetShadow の 2 種類のシャドウを同時に適用できます。
-
-**注:**
-
-- OuterShadow と PresetShadow を一緒に使用すると、OuterShadow 効果だけが適用されます。 
-- OuterShadow と InnerShadow を同時に使用すると、適用される効果は PowerPoint のバージョンによって異なります。たとえば、PowerPoint 2013 では効果が二重になりますが、PowerPoint 2007 では OuterShadow 効果が適用されます。 
-
-### テキストへの表示の適用
-
-次の C# コードサンプルを使用して、テキストに表示を追加します:
-
-``` csharp 
-portion.PortionFormat.EffectFormat.EnableReflectionEffect();
-portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5; 
-portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72; 
-portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f; 
-portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f; 
-portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90; 
-portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100; 
-portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
-portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
-portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
-portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;   
-```
-
-### テキストへのグロー効果の適用
-
-次のコードを使用して、テキストにグロー効果を適用して目立たせます:
-
-``` csharp 
-portion.PortionFormat.EffectFormat.EnableGlowEffect();
-portion.PortionFormat.EffectFormat.GlowEffect.Color.R = 255;
-portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
-portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
-```
-
-操作の結果:
-
-![todo:image_alt_text](image-20200930114621-7.png)
+![外側の影効果](outer_shadow_effect.png)
 
 {{% alert color="primary" %}} 
+- OuterShadow と PresetShadow を同時に使用すると、適用されるのは OuterShadow 効果のみです。  
+- OuterShadow と InnerShadow を同時に使用した場合、結果の効果は PowerPoint のバージョンに依存します。たとえば、PowerPoint 2013 では効果が二重になり、PowerPoint 2007 では OuterShadow 効果のみが適用されます。  
+{{% /alert %}}
 
-シャドウ、表示、グローのパラメータを変更できます。効果のプロパティは、テキストの各部分に個別に設定されます。 
+### **反射効果を適用する**
 
-{{% /alert %}} 
+このセクションでは、Aspose.Slides for .NET を使用してスライドに反射効果を適用する方法を探ります。反射効果は、テキストや図形にスタイリッシュでモダンな外観を与え、重要な要素を際立たせ、プレゼンテーションに奥行きを加える効果的な手段です。これらの効果の適用とカスタマイズ手順を理解すれば、デザイン要件やブランド要件に合わせて簡単に調整できます。
 
-### ワードアートでの変換の使用
-
-次のコードを通じて、テキスト全体のブロックに固有の Transform プロパティを使用します:
-``` csharp 
-textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
+次の C# コード例でテキストに反射効果を追加します。
+```cs
+    portion.PortionFormat.EffectFormat.EnableReflectionEffect();
+    portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5; 
+    portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72; 
+    portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f; 
+    portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f; 
+    portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90; 
+    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100; 
+    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
+    portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
+    portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
+    portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;   
 ```
 
-結果:
 
-![todo:image_alt_text](image-20200930114712-8.png)
+結果のテキスト:
+
+![反射効果](reflection_effect.png)
+
+### **光彩効果を適用する**
+
+このセクションでは、Aspose.Slides for .NET を使用してテキストに光彩効果を適用する方法を探ります。光彩効果は、テキストに光る輪郭を付けて際立たせ、スライドの視覚的魅力を高めます。色や強度などの設定を調整することで、デザインやブランドのニーズに合わせた光彩を簡単に作成でき、プレゼンテーションの重要ポイントを観客の注意に引き付けることができます。
+
+次のコードでテキストに光彩効果を適用し、輝かせます。
+```cs
+    portion.PortionFormat.EffectFormat.EnableGlowEffect();
+    portion.PortionFormat.EffectFormat.GlowEffect.Color.R = 255;
+    portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
+    portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
+```
+
+
+結果のテキスト:
+
+![光彩効果](glow_effect.png)
+
+### **WordArt の変形を適用する**
+
+このセクションでは、Aspose.Slides for .NET で WordArt の変形を使用する方法を探ります。変形によりテキストを曲げたり伸ばしたり、歪めたりして、独自で視覚的に際立った効果を作り出せます。これらのテクニックを習得すれば、テキストの形状やスタイルをブランドやクリエイティブなビジョンに合わせて簡単に調整でき、説得力のある洗練されたプレゼンテーションを実現できます。
+
+次のコードで `Transform` プロパティ（テキスト全体に適用）を使用します。
+```cs
+    textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
+```
+
+
+結果のテキスト:
+
+![WordArt 変形効果](transform_effect.png)
 
 {{% alert color="primary" %}} 
-
-Microsoft PowerPoint と Aspose.Slides for .NET では、あらかじめ定義された特定の変換タイプの数を提供しています。 
-
+Aspose.Slides for .NET は、事前定義された[変形タイプ](https://reference.aspose.com/slides/net/aspose.slides/textshapetype/)のセットを提供します。  
 {{% /alert %}} 
 
-**PowerPoint を使用する**
+### **シェイプとテキストに 3D 効果を適用する**
 
-あらかじめ定義された変換タイプにアクセスするには、**フォーマット** -> **テキスト効果** -> **変換** を経由します。
+リアルで目を引くビジュアルを作成すると、プレゼンテーションのインパクトが大幅に向上します。このセクションでは、Aspose.Slides for .NET を使用してシェイプに三次元 (3D) 効果を適用する方法を探ります。深さ、角度、照明などのパラメーターを操作することで、観客の注意を瞬時に引く印象的な 3D 変形を作成できます。微妙なハイライトからドラマチックな錯覚まで、これらの機能はデザインを格上げし、アイデアをより魅力的に伝える柔軟な手段を提供します。
 
-**Aspose.Slides を使用する**
+次のサンプルコードでシェイプに 3D 効果を設定します。
+```cs
+    autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
+    autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
+    autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
 
-変換タイプを選択するには、TextShapeType 列挙型を使用します。 
+    autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+    autoShape.ThreeDFormat.BevelTop.Height = 12.5;
+    autoShape.ThreeDFormat.BevelTop.Width = 11;
 
-### テキストや形状への 3D 効果の適用
+    autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
+    autoShape.ThreeDFormat.ExtrusionHeight = 6;
 
-次のサンプル コードを使用して、テキスト形状に 3D 効果を設定します:
+    autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
+    autoShape.ThreeDFormat.ContourWidth = 1.5;
 
-``` csharp 
-autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
-autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
+    autoShape.ThreeDFormat.Depth = 3;
 
-autoShape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-autoShape.ThreeDFormat.BevelTop.Height = 12.5;
-autoShape.ThreeDFormat.BevelTop.Width = 11;
+    autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
 
-autoShape.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-autoShape.ThreeDFormat.ExtrusionHeight = 6;
+    autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+    autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+    autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
 
-autoShape.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-autoShape.ThreeDFormat.ContourWidth = 1.5;
-
-autoShape.ThreeDFormat.Depth = 3;
-
-autoShape.ThreeDFormat.Material = MaterialPresetType.Plastic;
-
-autoShape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
-
-autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+    autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
 
-得られたテキストとその形状:
 
-![todo:image_alt_text](image-20200930114816-9.png)
+結果のシェイプ:
 
-次の C# コードを使用してテキストにも 3D 効果を適用します:
+![シェイプの 3D 効果](shape_3D_effect.png)
 
-``` csharp 
-textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
-textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
-textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
+次のサンプルコードでテキストに 3D 効果を設定します。
+```cs
+    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
+    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
+    textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
 
-textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
-textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
+    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Height = 4;
+    textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
 
-textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight= 6;
+    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
+    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight= 6;
 
-textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
-textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
+    textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
+    textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
 
-textFrame.TextFrameFormat.ThreeDFormat.Depth= 3;
+    textFrame.TextFrameFormat.ThreeDFormat.Depth= 3;
 
-textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+    textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
 
-textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+    textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+    textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+    textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
 
-textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+    textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
 ```
 
-操作の結果:
 
-![todo:image_alt_text](image-20200930114905-10.png)
+結果のテキスト:
+
+![テキストの 3D 効果](text_3D_effect.png)
 
 {{% alert color="primary" %}} 
+テキストまたはそのシェイプに 3D 効果を適用する際のルールと、これらの効果間の相互作用は特定の規則に従います。テキストとそのテキストを含むシェイプの両方がシーンを持つケースを考えてみましょう。3D 効果にはオブジェクトの 3D 表現と配置先シーンが含まれます。
 
-テキストやその形状への 3D 効果の適用および効果間の相互作用は、特定のルールに基づいています。 
+- シェイプとテキストの両方にシーンが設定されている場合、シェイプのシーンが優先され、テキストのシーンは無視されます。  
+- シェイプにシーンがないが 3D 表現がある場合、テキストのシーンが使用されます。  
+- シェイプに 3D 効果がまったくない場合、フラットとして扱われ、3D 効果はテキストのみに適用されます。  
 
-テキストとそのテキストを含む形状のシーンを考慮してください。3D 効果には3Dオブジェクトの表現とそのオブジェクトが配置されたシーンが含まれます。 
-
-- シーンが図とテキストの両方に設定されている場合、図のシーンが優先され、テキストのシーンは無視されます。 
-- 図が独自のシーンを持っていないが 3D 表現がある場合、テキストのシーンが使用されます。 
-- そうでなければ—形状に元々 3D 効果がない場合—形状は平坦で、3D 効果はテキストのみに適用されます。 
-
-説明は、[ThreeDFormat.LightRig](https://reference.aspose.com/slides/net/aspose.slides/threedformat/properties/lightrig) および [ThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/threedformat/properties/camera) プロパティに関連しています。
-
+これらの挙動は [ThreeDFormat.LightRig](https://reference.aspose.com/slides/net/aspose.slides/threedformat/lightrig/) と [ThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/threedformat/camera/) プロパティに関連しています。  
 {{% /alert %}} 
 
-## **テキストへの外部シャドウ効果の適用**
-Aspose.Slides for .NET では、テキストにシャドウ効果を適用するための [**IOuterShadow**](https://reference.aspose.com/slides/net/aspose.slides.effects/ioutershadow) および [**IInnerShadow**](https://reference.aspose.com/slides/net/aspose.slides.effects/iinnershadow) クラスを提供しています。これらの手順に従ってください:
+## **FAQ**
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドの参照を取得します。
-3. スライドに長方形型の AutoShape を追加します。
-4. AutoShape に関連付けられた TextFrame にアクセスします。
-5. AutoShape の FillType を NoFill に設定します。
-6. OuterShadow クラスをインスタンス化します
-7. シャドウの BlurRadius を設定します。
-8. シャドウの Direction を設定します。
-9. シャドウの Distance を設定します。
-10. RectangleAlign を TopLeft に設定します。
-11. シャドウの PresetColor を Black に設定します。
-12. プレゼンテーションを PPTX ファイルとして書き出します。
+**異なるフォントやスクリプト（例: アラビア語、中国語）でも WordArt 効果は使えますか？**
 
-以下の C# コードサンプル—上記の手順の実装—では、テキストに外部シャドウ効果を適用する方法を示します:
+はい、Aspose.Slides for .NET は Unicode をサポートし、すべての主要フォントとスクリプトで動作します。影、塗りつぶし、アウトラインなどの WordArt 効果は言語に関係なく適用できますが、フォントの可用性や描画はシステムにインストールされたフォントに依存する場合があります。
 
-```c#
-using (Presentation pres = new Presentation())
-{
+**スライド マスターの要素にも WordArt 効果を適用できますか？**
 
-    // スライドの参照を取得
-    ISlide sld = pres.Slides[0];
+はい、マスタースライド上のシェイプ（タイトル プレースホルダー、フッター、背景テキストなど）にも WordArt 効果を適用できます。マスター レイアウトに加えた変更は、関連付けられたすべてのスライドに反映されます。
 
-    // 長方形型の AutoShape を追加
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
+**WordArt 効果はプレゼンテーションのファイルサイズに影響しますか？**
 
-    // Rectangle に TextFrame を追加
-    ashp.AddTextFrame("Aspose TextBox");
+わずかに影響します。影、光彩、グラデーション塗りつぶしなどの効果は、追加の書式メタデータが発生するためファイルサイズを少しだけ増加させますが、差は通常は無視できる程度です。
 
-    // テキストのシャドウを取得する場合、形状の塗りつぶしを無効にします
-    ashp.FillFormat.FillType = FillType.NoFill;
+**プレゼンテーションを保存せずに WordArt 効果の結果をプレビューできますか？**
 
-    // 外部シャドウを追加し、必要なすべてのパラメーターを設定します
-    ashp.EffectFormat.EnableOuterShadowEffect();
-    IOuterShadow shadow = ashp.EffectFormat.OuterShadowEffect;
-    shadow.BlurRadius = 4.0;
-    shadow.Direction = 45;
-    shadow.Distance = 3;
-    shadow.RectangleAlign = RectangleAlignment.TopLeft;
-    shadow.ShadowColor.PresetColor = PresetColor.Black;
-
-    // プレゼンテーションをディスクに保存
-    pres.Save("pres_out.pptx", SaveFormat.Pptx);
-}
-```
-
-
-## **形状に内部シャドウ効果を適用**
-以下の手順に従ってください:
-
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. スライドの参照を取得します。
-3. 長方形型の AutoShape を追加します。
-4. InnerShadowEffect を有効にします。
-5. 必要なすべてのパラメーターを設定します。
-6. ColorType を Scheme に設定します。
-7. スキームカラーを設定します。
-8. プレゼンテーションを [PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルとして保存します。
-
-以下の C# コードサンプル（上記の手順に基づいて）は、2 つの形状の間にコネクタを追加する方法を示しています:
-
-```c#
-using(Presentation presentation = new Presentation())
-{
-    // スライドの参照を取得
-    ISlide slide = presentation.Slides[0];
-
-    // 長方形型の AutoShape を追加
-    IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
-    ashp.FillFormat.FillType = FillType.NoFill;
-
-    // Rectangle に TextFrame を追加
-    ashp.AddTextFrame("Aspose TextBox");
-    IPortion port = ashp.TextFrame.Paragraphs[0].Portions[0];
-    IPortionFormat pf = port.PortionFormat;
-    pf.FontHeight = 50;
-
-    // InnerShadowEffect を有効にします    
-    IEffectFormat ef = pf.EffectFormat;
-    ef.EnableInnerShadowEffect();
-
-    // 必要なすべてのパラメーターを設定します
-    ef.InnerShadowEffect.BlurRadius = 8.0;
-    ef.InnerShadowEffect.Direction = 90.0F;
-    ef.InnerShadowEffect.Distance = 6.0;
-    ef.InnerShadowEffect.ShadowColor.B = 189;
-
-    // ColorType を Scheme に設定します
-    ef.InnerShadowEffect.ShadowColor.ColorType = ColorType.Scheme;
-
-    // スキームカラーを設定します
-    ef.InnerShadowEffect.ShadowColor.SchemeColor = SchemeColor.Accent1;
-
-    // プレゼンテーションを保存
-    presentation.Save("WordArt_out.pptx", SaveFormat.Pptx);
-}
-```
+はい、`GetImage` メソッドを使用して、WordArt を含むスライドを画像（PNG、JPEG など）にレンダリングできます。これは、[IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) または [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/) インターフェイスから取得でき、保存やエクスポートを行う前にメモリ内または画面上で結果をプレビューできます。

@@ -1,16 +1,15 @@
 ---
-title: PowerPoint in animiertes GIF umwandeln
+title: PowerPoint in animiertes GIF konvertieren
 type: docs
 weight: 65
 url: /de/net/convert-powerpoint-to-animated-gif/
-keywords: "PowerPoint umwandeln, PPT, PPTX, animiertes GIF, PPT in animiertes GIF, PPTX in animiertes GIF C#, Csharp, .NET, Standardparameter, benutzerdefinierte Parameter"
-description: "PowerPoint-Präsentation in animiertes GIF umwandeln: PPT in GIF, PPTX in GIF in C# oder .NET"
+keywords: "PowerPoint konvertieren, PPT, PPTX, animiertes GIF, PPT zu animiertem GIF, PPTX zu animiertem GIF C#, Csharp, .NET, Standardeinstellungen, benutzerdefinierte Einstellungen "
+description: "PowerPoint-Präsentation in animiertes GIF konvertieren: PPT zu GIF, PPTX zu GIF in C# oder .NET"
 ---
 
-## Konvertieren von Präsentationen in animiertes GIF mit Standardparametern ##
+## **Präsentationen mit Standardeinstellungen in animiertes GIF konvertieren**
 
-Dieser Beispielcode in C# zeigt Ihnen, wie Sie eine Präsentation mit Standardparametern in ein animiertes GIF umwandeln:
-
+Dieser Beispielcode in C# zeigt, wie man eine Präsentation mit den Standard‑Einstellungen in ein animiertes GIF konvertiert:
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -18,31 +17,43 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-Das animierte GIF wird mit den Standardparametern erstellt.
 
-{{%  alert  title="TIPP"  color="primary"  %}} 
+Das animierte GIF wird mit den Standard‑Parametern erstellt. 
 
-Wenn Sie die Parameter für das GIF anpassen möchten, können Sie die [GifOptions](https://reference.aspose.com/slides/net/aspose.slides.export/gifoptions) Klasse verwenden. Siehe den Beispielcode unten.
+{{%  alert  title="TIP"  color="primary"  %}} 
+
+Wenn Sie die Parameter für das GIF anpassen möchten, können Sie die Klasse [GifOptions](https://reference.aspose.com/slides/net/aspose.slides.export/gifoptions) verwenden. Siehe den Beispielcode unten. 
 
 {{% /alert %}} 
 
-## Konvertieren von Präsentationen in animiertes GIF mit benutzerdefinierten Einstellungen ##
-Dieser Beispielcode zeigt Ihnen, wie Sie eine Präsentation mit benutzerdefinierten Einstellungen in C# in ein animiertes GIF umwandeln:
+## **Präsentationen mit benutzerdefinierten Einstellungen in animiertes GIF konvertieren**
 
+Dieser Beispielcode zeigt, wie man eine Präsentation mit benutzerdefinierten Einstellungen in ein animiertes GIF in C# konvertiert:
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Save("pres.gif", SaveFormat.Gif, new GifOptions
     {
-        FrameSize = new Size(960, 720), // die Größe des resultierenden GIF  
-        DefaultDelay = 2000, // wie lange jede Folie angezeigt wird, bis sie zur nächsten gewechselt wird
+        FrameSize = new Size(960, 720), // die Größe des resultierenden GIFs
+        DefaultDelay = 2000, // wie lange jede Folie angezeigt wird, bis sie zur nächsten wechselt
         TransitionFps = 35 // FPS erhöhen, um die Qualität der Übergangsanimation zu verbessern
     });
 }
 ```
 
+
 {{% alert title="Info" color="info" %}}
 
-Sie möchten vielleicht einen kostenlosen [Text zu GIF](https://products.aspose.app/slides/text-to-gif) Konverter, der von Aspose entwickelt wurde, ausprobieren.
+Vielleicht möchten Sie den KOSTENLOSEN [Text to GIF](https://products.aspose.app/slides/text-to-gif) Konverter von Aspose ausprobieren. 
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Was ist, wenn die in der Präsentation verwendeten Schriftarten nicht auf dem System installiert sind?**
+
+Installieren Sie die fehlenden Schriftarten oder [konfigurieren Sie Ersatzschriftarten](/slides/de/net/powerpoint-fonts/). Aspose.Slides wird ersetzen, aber das Aussehen kann abweichen. Für Branding sollten Sie stets sicherstellen, dass die benötigten Schriftarten explizit verfügbar sind.
+
+**Kann ich ein Wasserzeichen über die GIF‑Frames legen?**
+
+Ja. [Fügen Sie ein halbtransparentes Objekt/Logo](/slides/de/net/watermark/) dem Master‑Foliensatz oder einzelnen Folien vor dem Export hinzu — das Wasserzeichen erscheint auf jedem Frame.

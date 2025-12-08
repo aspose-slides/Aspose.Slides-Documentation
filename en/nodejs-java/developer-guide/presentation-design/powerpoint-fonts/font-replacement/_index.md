@@ -1,10 +1,21 @@
 ---
-title: Font Replacement - PowerPoint JavaScript API
+title: Streamline Font Replacement in Presentations Using JavaScript
 linktitle: Font Replacement
 type: docs
 weight: 60
 url: /nodejs-java/font-replacement/
-description: Learn how to replace fonts using the explicit replacement method in PowerPoint using the JavaScript API.
+keywords:
+- font
+- replace font
+- font replacement
+- change font
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Seamlessly replace fonts in JavaScript with Aspose.Slides for Node.js via Java to ensure consistent typography in PowerPoint and OpenDocument presentations."
 ---
 
 ## **Replace Fonts**

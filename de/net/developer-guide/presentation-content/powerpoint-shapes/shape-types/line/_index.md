@@ -34,6 +34,7 @@ using (Presentation pres = new Presentation())
 ```
 
 
+
 ## **Pfeilförmige Linie erstellen**
 Aspose.Slides für .NET ermöglicht es Entwicklern außerdem, einige Eigenschaften der Linie zu konfigurieren, um sie ansprechender zu gestalten. Versuchen wir, einige Eigenschaften einer Linie so einzustellen, dass sie wie ein Pfeil aussieht. Befolgen Sie dazu die folgenden Schritte:
 

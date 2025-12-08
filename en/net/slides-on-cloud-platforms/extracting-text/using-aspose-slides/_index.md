@@ -23,11 +23,11 @@ keywords:
 description: "Extract text from presentations on popular cloud platforms using Aspose.Slides APIs, automating search, analysis, and export for PPT, PPTX and ODP."
 ---
 
-# Extracting Text from PPT, PPTX, and ODP – Slides
+## **Introduction**
 
 Aspose.Slides provides a **powerful, high-level API** for extracting text from presentation files, including **PPT, PPTX, and ODP**. Unlike the Open XML SDK—which only supports PPTX and involves complex XML parsing—Aspose.Slides simplifies text extraction, allowing you to focus on integrating the extracted content into your workflows.
 
-## Fast Text Extraction with PresentationFactory.Instance.GetPresentationText
+## **Fast Text Extraction with PresentationFactory.Instance.GetPresentationText**
 
 To extract text from a presentation, the **Aspose.Slides API** offers the static method `PresentationFactory.Instance.GetPresentationText`. It includes multiple overloads for working with a presentation file or a data stream, capturing text from **slides, master slides, layouts, notes, and comments**. The extracted text is accessed via the `IPresentationText` interface.
 
@@ -48,11 +48,11 @@ foreach (var slideText in slideTexts)
 }
 ```
 
-## Modes of Operation for GetPresentationText
+## **Modes of Operation for GetPresentationText**
 
 The `GetPresentationText` method in `PresentationFactory` lets you fine-tune text extraction using the `TextExtractionArrangingMode` parameter, which controls how text is organized in the output.
 
-### Available Modes:
+### **Available Modes**
 
 - **TextExtractionArrangingMode.Unarranged** – Extracts text in a freeform manner, disregarding the original slide layout.  
 - **TextExtractionArrangingMode.Arranged** – Preserves text order according to its placement on each slide.
@@ -70,7 +70,7 @@ foreach (var slideText in slideTexts)
 }
 ```
 
-## Key Advantages of PresentationFactory Methods
+## **Key Advantages of PresentationFactory Methods**
 
 - **No Need to Load Entire Presentations**: Minimizes memory consumption and boosts processing speed.  
 - **Optimized for Large Files**: Efficiently handles even substantial presentations, extracting text swiftly.  
@@ -83,7 +83,7 @@ foreach (var slideText in slideTexts)
 - **Cross-Platform Compatibility**: Operates on **Windows, Linux, macOS**, and in cloud environments.  
 - **High Performance and Scalability**: Suited for **SaaS applications** and large-scale enterprise deployments.
 
-## Supported Operating Systems
+## **Supported Operating Systems**
 
 Aspose.Slides runs on a variety of operating systems:
 
@@ -91,7 +91,7 @@ Aspose.Slides runs on a variety of operating systems:
 - **Linux** (various distributions, including Ubuntu, Debian, Fedora, CentOS, etc.)  
 - **macOS** (including modern versions such as 10.15 Catalina and later)  
 
-## Supported Programming Languages
+## **Supported Programming Languages**
 
 Aspose.Slides integrates with multiple platforms and languages:
 
@@ -101,6 +101,6 @@ Aspose.Slides integrates with multiple platforms and languages:
 - **Python via .NET** – Incorporate Aspose.Slides functionality using .NET interoperability.  
 - **Other .NET-Compatible Languages** – Utilize the library in any environment supported by .NET.
 
-## Conclusion
+## **Conclusion**
 
 Aspose.Slides delivers **comprehensive text extraction** for PowerPoint and OpenDocument presentations, supporting **varied file formats, intuitive text structuring, and straightforward implementation** when compared to the Open XML SDK. From **slides and notes to template content**, **Aspose.Slides** is a high-efficiency, feature-rich solution for extracting and managing presentation text.

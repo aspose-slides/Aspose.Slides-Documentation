@@ -1,154 +1,201 @@
 ---
-title: حفظ العرض التقديمي في .NET
-linktitle: حفظ العرض التقديمي
+title: حفظ العروض التقديمية في .NET
+linktitle: حفظ العروض التقديمية
 type: docs
 weight: 80
 url: /ar/net/save-presentation/
-keywords: "حفظ PowerPoint, PPT, PPTX, حفظ العرض التقديمي, ملف, تدفق, C#, Csharp, .NET"
-description: "حفظ عرض PowerPoint كملف أو تدفق في C# أو .NET"
+keywords:
+- حفظ PowerPoint
+- حفظ OpenDocument
+- حفظ العرض التقديمي
+- حفظ الشريحة
+- حفظ PPT
+- حفظ PPTX
+- حفظ ODP
+- عرض تقديمي إلى ملف
+- عرض تقديمي إلى تيار
+- نوع عرض مسبق التعريف
+- تنسيق Strict Office Open XML
+- وضع Zip64
+- تحديث الصورة المصغرة
+- حفظ التقدم
+- .NET
+- C#
+- Aspose.Slides
+description: "اكتشف كيفية حفظ العروض التقديمية في .NET باستخدام Aspose.Slides—تصدير إلى PowerPoint أو OpenDocument مع الحفاظ على التخطيطات والخطوط والمؤثرات."
 ---
 
-## **حفظ العرض التقديمي**
-فتح عرض تقديمي وصف كيف تستخدم فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) لفتح عرض تقديمي. يشرح هذا المقال كيفية إنشاء وحفظ العروض التقديمية.
-تحتوي فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) على محتوى العرض التقديمي. سواء كنت تنشئ عرضًا تقديميًا من الصفر أو تعدل أحد العروض الموجودة، عند الانتهاء، تريد حفظ العرض التقديمي. باستخدام Aspose.Slides لـ .NET، يمكن حفظه كـ **ملف** أو **تدفق**. يشرح هذا المقال كيفية حفظ عرض تقديمي بطرق مختلفة:
+## **نظرة عامة**
 
-### **حفظ العروض التقديمية إلى ملفات**
-احفظ العرض التقديمي كملف عن طريق استدعاء طريقة [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) في فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation). ببساطة مرر اسم الملف ونوع الحفظ إلى طريقة [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index). تظهر الأمثلة التالية كيفية حفظ عرض تقديمي باستخدام Aspose.Slides لـ .NET باستخدام C#.
+[فتح العروض التقديمية في C#](/slides/ar/net/open-presentation/) يوضح كيفية استخدام فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) لفتح عرض تقديمي. يشرح هذا المقال كيفية إنشاء العروض التقديمية وحفظها. فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) تحتوي على محتويات العرض. سواء كنت تنشئ عرضًا تقديميًا من الصفر أو تعدّل عرضًا موجودًا، فستحتاج إلى حفظه عندما تنتهي. مع Aspose.Slides for .NET يمكنك الحفظ إلى **ملف** أو **تيار**. يوضح هذا المقال الطرق المختلفة لحفظ عرض تقديمي.
 
-```c#
-// أنشئ كائن Presentation يمثل ملف PPT
-Presentation presentation= new Presentation();
+## **حفظ العروض التقديمية إلى ملفات**
 
-//...قم ببعض العمل هنا...
-
-// احفظ عرضك التقديمي كملف
-presentation.Save("Saved_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-```
-
-### **حفظ العروض التقديمية إلى تدفقات**
-من الممكن حفظ العرض التقديمي إلى تدفق عن طريق تمرير تدفق الإخراج إلى طريقة حفظ فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation). هناك العديد من أنواع التدفقات التي يمكن حفظ العرض التقديمي إليها. في المثال أدناه، أنشأنا ملف عرض تقديمي جديد، وأضفنا نصًا في شكل وحفظنا العرض التقديمي في التدفق.
-
-```c#
-// أنشئ كائن Presentation يمثل ملف PPT
+احفظ عرضًا تقديميًا إلى ملف عن طريق استدعاء طريقة `Save` في فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). مرّر اسم الملف وتنسيق الحفظ إلى الطريقة. المثال التالي يوضح كيفية حفظ عرض تقديمي باستخدام Aspose.Slides.
+```cs
+// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
 using (Presentation presentation = new Presentation())
 {
+    // قم ببعض الأعمال هنا...
 
-    IAutoShape shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 200, 200);
-
-    // أضف نصًا إلى الشكل
-    shape.TextFrame.Text = "توضح هذه التجربة كيفية إنشاء ملف PowerPoint وحفظه في تدفق.";
-
-    FileStream toStream = new FileStream("Save_As_Stream_out.pptx", FileMode.Create);
-    presentation.Save(toStream, Aspose.Slides.Export.SaveFormat.Pptx);
-    toStream.Close();
+    // حفظ العرض التقديمي إلى ملف.
+    presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 
-### **حفظ العروض التقديمية مع نوع العرض المحدد مسبقًا**
-توفر Aspose.Slides لـ .NET إمكانية تعيين نوع العرض للعروض التقديمية المولدة عندما يتم فتحها في PowerPoint من خلال فئة [ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/viewproperties). يتم استخدام خاصية [LastView](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/properties/lastview) لتعيين نوع العرض باستخدام المُعداد [ViewType](https://reference.aspose.com/slides/net/aspose.slides/viewtype).
 
-```csharp
-using (Presentation pres = new Presentation())
+## **حفظ العروض التقديمية إلى تيارات**
+
+يمكنك حفظ عرض تقديمي إلى تيار بتمرير تيار إخراج إلى طريقة `Save` في فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). يمكن كتابة العرض إلى العديد من أنواع التيارات. في المثال أدناه، ننشئ عرضًا تقديميًا جديدًا ونحفظه إلى تيار ملف.
+```cs
+// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+using (Presentation presentation = new Presentation())
 {
-    pres.ViewProperties.LastView = ViewType.SlideMasterView;
-    pres.Save("pres-will-open-SlideMasterView.pptx", SaveFormat.Pptx);
+    using (FileStream fileStream = new FileStream("Output.pptx", FileMode.Create))
+    {
+        // حفظ العرض التقديمي إلى التيار.
+        presentation.Save(fileStream, SaveFormat.Pptx);
+    }
 }
 ```
 
-### **حفظ العروض التقديمية في تنسيق Office Open XML الصارم**
-يسمح لك Aspose.Slides بحفظ العرض التقديمي في تنسيق Office Open XML الصارم. لهذا الغرض، توفر فئة [**Aspose.Slides.Export.PptxOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/pptxoptions) حيث يمكنك تعيين خاصية Conformance أثناء حفظ ملف العرض التقديمي. إذا قمت بتعيين قيمتها إلى Conformance.Iso29500_2008_Strict، فسيتم حفظ ملف العرض التقديمي الناتج في تنسيق Office Open XML الصارم.
 
-ينشئ نموذج الشيفرة التالي عرضًا تقديميًا ويحفظه في تنسيق Office Open XML الصارم. عند استدعاء طريقة الحفظ للعرض التقديمي، يتم تمرير كائن **[Aspose.Slides.Export.PptxOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pptxoptions)** معه مع تعيين خاصية [**Conformance**](https://reference.aspose.com/slides/net/aspose.slides.export/pptxoptions/properties/conformance) على [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/net/aspose.slides.export/conformance).
+## **حفظ العروض التقديمية بنوع عرض مسبق التعريف**
 
-```csharp
-   // أنشئ كائن Presentation يمثل ملف عرض تقديمي
-   using (Presentation presentation = new Presentation())
-   {
-       // احصل على الشريحة الأولى
-       ISlide slide = presentation.Slides[0];
-
-       // أضف شكلًا تلقائيًا من نوع خط
-       slide.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
-
-       // احفظ العرض التقديمي في تنسيق Office Open XML الصارم
-       presentation.Save(dataDir + "NewPresentation_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx,
-           new PptxOptions() { Conformance = Conformance.Iso29500_2008_Strict });
-
-   }
+يتيح لك Aspose.Slides تعيين العرض الأولي الذي يستخدمه PowerPoint عند فتح العرض المولد عبر فئة [ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/). عيّن خاصية [LastView](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/lastview/) إلى قيمة من تعداد [ViewType](https://reference.aspose.com/slides/net/aspose.slides/viewtype/).
+```cs
+using (Presentation presentation = new Presentation())
+{
+    presentation.ViewProperties.LastView = ViewType.SlideMasterView;
+    presentation.Save("SlideMasterView.pptx", SaveFormat.Pptx);
+}
 ```
 
-### **حفظ العروض التقديمية في تنسيق Office Open XML في وضع Zip64**
-ملف Office Open XML هو أرشيف ZIP له حد يصل إلى 4 جيجا بايت (2^32 بايت) على الحجم غير المضغوط لملف، والحجم المضغوط لملف، والحجم الإجمالي للأرشيف، بالإضافة إلى حد يبلغ 65,535 (2^16-1) ملف في الأرشيف. تزيد امتدادات تنسيق ZIP64 الحدود إلى 2^64.
 
-تسمح لك خاصية [**IPptxOptions.Zip64Mode**](https://reference.aspose.com/slides/net/aspose.slides.export/ipptxoptions/zip64mode/) باختيار متى يجب استخدام امتدادات تنسيق ZIP64 للملف Office Open XML المحفوظ.
+## **حفظ العروض التقديمية بتنسيق Strict Office Open XML**
+
+يتيح لك Aspose.Slides حفظ عرض تقديمي بتنسيق Strict Office Open XML. استخدم فئة [PptxOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pptxoptions/) وعين خاصية التوافق عند الحفظ. إذا عينت `Conformance.Iso29500_2008_Strict`، يتم حفظ ملف الإخراج بتنسيق Strict Office Open XML.
+
+يوضح المثال أدناه إنشاء عرض تقديمي وحفظه بتنسيق Strict Office Open XML.
+```cs
+PptxOptions options = new PptxOptions()
+{
+    Conformance = Conformance.Iso29500_2008_Strict
+};
+
+// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+using (Presentation presentation = new Presentation())
+{
+    // حفظ العرض التقديمي بتنسيق Strict Office Open XML.
+    presentation.Save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
+}
+```
+
+
+## **حفظ العروض التقديمية بتنسيق Office Open XML في وضع Zip64**
+
+ملف Office Open XML هو أرشيف ZIP يفرض حدودًا بحجم 4 GB (2^32 بايت) على الحجم غير المضغوط لأي ملف، وحجم ضغط أي ملف، وإجمالي حجم الأرشيف، كما يحد عدد الملفات إلى 65 535 (2^16‑1). تمددات تنسيق ZIP64 ترفع هذه الحدود إلى 2^64.
+
+خاصية [IPptxOptions.Zip64Mode](https://reference.aspose.com/slides/net/aspose.slides.export/ipptxoptions/zip64mode/) تتيح لك اختيار متى تُستخدم امتدادات تنسيق ZIP64 عند حفظ ملف Office Open XML.
 
 توفر هذه الخاصية الأوضاع التالية:
 
-- [Zip64Mode.IfNecessary](https://reference.aspose.com/slides/net/aspose.slides.export/zip64mode/) تعني أن امتدادات تنسيق ZIP64 ستستخدم فقط إذا كان العرض التقديمي يتجاوز الحدود المذكورة أعلاه. هذا هو الوضع الافتراضي.
-- [Zip64Mode.Never](https://reference.aspose.com/slides/net/aspose.slides.export/zip64mode/) تعني أنه لن يتم استخدام امتدادات تنسيق ZIP64.
-- [Zip64Mode.Always](https://reference.aspose.com/slides/net/aspose.slides.export/zip64mode/) تعني أنه سيتم دائمًا استخدام امتدادات تنسيق ZIP64.
+- `IfNecessary` يستخدم امتدادات ZIP64 فقط إذا تجاوز العرض القيود المذكورة أعلاه. هذا هو الوضع الافتراضي.
+- `Never` لا يستخدم امتدادات ZIP64 أبدًا.
+- `Always` يستخدم امتدادات ZIP64 دائمًا.
 
-توضح الشيفرة التالية كيف تحفظ العرض التقديمي في تنسيق PPTX مع امتدادات تنسيق ZIP64:
-
-```c#
-using (Presentation pres = new Presentation("Sample.pptx"))
+يعرض الكود التالي كيفية حفظ عرض تقديمي كـ PPTX مع تمكين امتدادات تنسيق ZIP64:
+```cs
+using (Presentation presentation = new Presentation("Sample.pptx"))
 {
-    pres.Save("Sample-zip64.pptx", SaveFormat.Pptx, new PptxOptions()
+    presentation.Save("OutputZip64.pptx", SaveFormat.Pptx, new PptxOptions()
     {
         Zip64Mode = Zip64Mode.Always
     });
 }
 ```
 
-{{% alert title="ملاحظة" color="warning" %}}
 
-ستؤدي الحفظ في وضع Zip64Mode.Never إلى رفع استثناء [PptxException](https://reference.aspose.com/slides/net/aspose.slides/pptxexception/) إذا لم يكن من الممكن حفظ العرض التقديمي في تنسيق ZIP32.
+{{% alert title="NOTE" color="warning" %}}
+
+عند الحفظ باستخدام `Zip64Mode.Never`، يُطرح استثناء [PptxException](https://reference.aspose.com/slides/net/aspose.slides/pptxexception/) إذا تعذّر حفظ العرض بتنسيق ZIP32.
 
 {{% /alert %}}
 
-### **تحديثات حفظ التقدم بنسب مئوية**
-تمت إضافة واجهة [**IProgressCallback**](https://reference.aspose.com/slides/net/aspose.slides/iprogresscallback) جديدة إلى واجهة [**ISaveOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/isaveoptions) والفئة المجردة [**SaveOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions). تمثل واجهة **IProgressCallback** كائنًا للنداء الخلفي لتحديثات التقدم في النسبة المئوية.
+## **حفظ العروض التقديمية دون تحديث الصورة المصغرة**
 
-تظهر مقتطفات الشيفرة التالية كيفية استخدام واجهة IProgressCallback:
+خاصية [PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/net/aspose.slides.export/ipptxoptions/refreshthumbnail/) تتحكم في إنشاء الصورة المصغرة عند حفظ عرض تقديمي إلى PPTX:
 
-```c#
-using (Presentation presentation = new Presentation("ConvertToPDF.pptx"))
+- إذا عُينت إلى `true`، تُحدث الصورة المصغرة أثناء الحفظ. هذا هو الوضع الافتراضي.
+- إذا عُينت إلى `false`، تُحفظ الصورة المصغرة الحالية. إذا لم يكن للعرض صورة مصغرة، لن يُنشأ أي شيء.
+
+في الكود أدناه، يُحفظ العرض إلى PPTX دون تحديث صورته المصغرة.
+```cs
+using (Presentation presentation = new Presentation("Sample.pptx"))
 {
-    ISaveOptions saveOptions = new PdfOptions();
-    saveOptions.ProgressCallback = new ExportProgressHandler();
-    presentation.Save("ConvertToPDF.pdf", SaveFormat.Pdf, saveOptions);
+    presentation.Save("Output.pptx", SaveFormat.Pptx, new PptxOptions()
+    {
+        RefreshThumbnail = false
+    });
 }
-
 ```
 
-```c#
+
+{{% alert title="Info" color="info" %}}
+
+يساعد هذا الخيار في تقليل الزمن المطلوب لحفظ العرض بتنسيق PPTX.
+
+{{% /alert %}}
+
+## **تحديثات حفظ التقدم كنسبة مئوية**
+
+يُستخدم واجهة [IProgressCallback](https://reference.aspose.com/slides/net/aspose.slides/iprogresscallback/) عبر خاصية `ProgressCallback` التي تعرّضها واجهة [ISaveOptions](https://reference.aspose.com/slides/net/aspose.slides.export/isaveoptions/) والفئة المجردة [SaveOptions](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/). عيّن تنفيذًا لـ [IProgressCallback](https://reference.aspose.com/slides/net/aspose.slides/iprogresscallback/) إلى `ProgressCallback` لتلقي تحديثات تقدم الحفظ كنسبة مئوية.
+
+يعرض مقتطفات الكود التالية كيفية استخدام `IProgressCallback`.
+```cs
+ISaveOptions saveOptions = new PdfOptions();
+saveOptions.ProgressCallback = new ExportProgressHandler();
+
+using (Presentation presentation = new Presentation("Sample.pptx"))
+{
+    presentation.Save("Output.pdf", SaveFormat.Pdf, saveOptions);
+}
+```
+
+```cs
 class ExportProgressHandler : IProgressCallback
 {
     public void Reporting(double progressValue)
     {
-        // استخدم قيمة النسبة المئوية هنا
+        // استخدم قيمة نسبة التقدم هنا.
         int progress = Convert.ToInt32(progressValue);
-        Console.WriteLine(progress + "% الملف تم تحويله");
+
+        Console.WriteLine(progress + "% of the file has been converted.");
     }
 }
 ```
 
-{{% alert title="معلومات" color="info" %}}
 
-باستخدام واجهتها البرمجية الخاصة، طورت Aspose تطبيق [مقسم PowerPoint مجاني](https://products.aspose.app/slides/splitter) يسمح للمستخدمين بتقسيم عروضهم التقديمية إلى ملفات متعددة. أساسًا، يقوم التطبيق بحفظ الشرائح المحددة من عرض تقديمي معين كملفات PowerPoint جديدة (PPTX أو PPT).
+{{% alert title="Info" color="info" %}}
+
+طوّرت Aspose تطبيقًا مجانيًا لتقسيم PowerPoint باستخدام واجهتها البرمجية الخاصة. يتيح لك التطبيق تقسيم عرض تقديمي إلى ملفات متعددة بحفظ الشرائح المختارة كملفات PPTX أو PPT جديدة.
 
 {{% /alert %}}
 
-<h2>فتح وحفظ العرض التقديمي</h2>
+## **الأسئلة الشائعة**
 
-<a name="csharp-open-save-presentation"><strong>الخطوات: فتح وحفظ العرض التقديمي في C#</strong></a>
+**هل يدعم "الحفظ السريع" (الحفظ التدريجي) بحيث تُكتب التغييرات فقط؟**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) بأي تنسيق مثل PPT، PPTX، ODP إلخ.
-2. احفظ _العرض التقديمي_ في أي تنسيق مدعوم بواسطة [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)
+لا. كل عملية حفظ تُنشئ الملف الهدف بالكامل؛ الحفظ التدريجي "السريع" غير مدعوم.
 
-```c#
-// قم بتحميل أي ملف مدعوم في العرض التقديمي مثل ppt، pptx، odp إلخ.
-Presentation presentation = new Presentation("Sample.odp");
+**هل يمكن حفظ نفس كائن Presentation من عدة خيوط بشكل آمن؟**
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
-```
+لا. كائن [Presentation](/slides/ar/net/multithreading/) غير آمن للخلية المتعددة؛ احفظه من خيط واحد.
+
+**ماذا يحدث للروابط التشعبية والملفات المرتبطة خارجياً عند الحفظ؟**
+
+يتم الحفاظ على [الروابط التشعبية](/slides/ar/net/manage-hyperlinks/). الملفات المرتبطة خارجياً (مثل الفيديوهات عبر مسارات نسبية) لا تُنسخ تلقائيًا—تأكد من بقاء المسارات المشار إليها متاحة.
+
+**هل يمكنني تعيين/حفظ بيانات تعريف المستند (المؤلف، العنوان، الشركة، التاريخ)؟**
+
+نعم. تُدعم خصائص المستند القياسية [/slides/net/presentation-properties/] وسيتم كتابتها إلى الملف عند الحفظ.

@@ -21,7 +21,7 @@ Aspose.Slides for .NET はスライドにさまざまな種類のシェイプを
 // PPTX ファイルを表す PresentationEx クラスのインスタンス化
 using (Presentation pres = new Presentation())
 {
-    // 最初のスライドを取得
+    // 最初のスライドを取得します
     ISlide sld = pres.Slides[0];
 
     // ラインタイプのオートシェイプを追加
@@ -50,7 +50,7 @@ Aspose.Slides for .NET は、ラインの外観をより魅力的にするため
 using (Presentation pres = new Presentation())
 {
 
-    // 最初のスライドを取得
+    // 最初のスライドを取得します
     ISlide sld = pres.Slides[0];
 
     // ラインタイプのオートシェイプを追加

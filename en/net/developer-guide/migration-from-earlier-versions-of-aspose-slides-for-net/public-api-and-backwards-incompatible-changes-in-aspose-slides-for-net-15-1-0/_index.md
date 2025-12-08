@@ -25,7 +25,7 @@ This page lists all [added](/slides/net/public-api-and-backwards-incompatible-ch
 
 {{% /alert %}} 
 ## **Public API Chages**
-#### **Fonts substitutions functinality has been added**
+#### **Fonts Substitutions Functinality Has Been Added**
 Possibility to replace font globally across the presentation and temporary for rendering has been added.
 
 New property "FontsManager" of Presentation class has been introduced. FontsManager class has following members:

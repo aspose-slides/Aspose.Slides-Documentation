@@ -1,8 +1,22 @@
 ---
-title: ActiveX
+title: Manage ActiveX Controls in Presentations Using JavaScript
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /nodejs-java/activex/
+keywords:
+- ActiveX
+- ActiveX control
+- manage ActiveX
+- add ActiveX
+- modify ActiveX
+- media player
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn how Aspose.Slides for Node.js via Java leverages ActiveX to automate and enhance PowerPoint presentations, giving developers powerful control over slides."
 ---
 
 

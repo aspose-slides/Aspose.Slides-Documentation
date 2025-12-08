@@ -21,17 +21,17 @@ description: Convertir presentación de PowerPoint a PNG en C#. Convertir PPT a 
 
 ## **Resumen**
 
-Este artículo explica cómo convertir una presentación de PowerPoint al formato PNG utilizando C#. Cubre los siguientes temas.
+Este artículo explica cómo convertir una presentación de PowerPoint al formato PNG usando C#. Cubre los siguientes temas.
 
-- [Convertir PowerPoint a PNG en C#](#convertir-powerpoint-a-png)
-- [Convertir PPT a PNG en C#](#convertir-powerpoint-a-png)
-- [Convertir PPTX a PNG en C#](#convertir-powerpoint-a-png)
-- [Convertir ODP a PNG en C#](#convertir-powerpoint-a-png)
-- [Convertir diapositiva de PowerPoint a imagen en C#](#convertir-powerpoint-a-png)
+- [Convertir PowerPoint a PNG en C#](#convert-powerpoint-to-png)
+- [Convertir PPT a PNG en C#](#convert-powerpoint-to-png)
+- [Convertir PPTX a PNG en C#](#convert-powerpoint-to-png)
+- [Convertir ODP a PNG en C#](#convert-powerpoint-to-png)
+- [Convertir diapositiva de PowerPoint a imagen en C#](#convert-powerpoint-to-png)
 
-## **C# PowerPoint a PNG**
+## **PowerPoint a PNG con C#**
 
-Para el código de ejemplo en C# para convertir PowerPoint a PNG, consulte la sección a continuación es decir, [Convertir PowerPoint a PNG](#convertir-powerpoint-a-png). El código puede cargar varios formatos como PPT, PPTX y ODP en el objeto de Presentación y luego guardar su miniatura de diapositiva en formato PNG. Las otras conversiones de PowerPoint a imagen que son algo similares como JPG, BMP, TIFF y SVG se discuten en estos artículos.
+Para obtener código de ejemplo en C# que convierta PowerPoint a PNG, consulte la sección a continuación, es decir, [Convertir PowerPoint a PNG](#convert-powerpoint-to-png). El código puede cargar varios formatos como PPT, PPTX y ODP en el objeto Presentation y luego guardar la miniatura de la diapositiva en formato PNG. Las demás conversiones de PowerPoint a imagen, que son similares, como JPG, BMP, TIFF y SVG se tratan en estos artículos.
 
 - [C# PowerPoint a JPG](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
 - [C# PowerPoint a BMP](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
@@ -40,23 +40,22 @@ Para el código de ejemplo en C# para convertir PowerPoint a PNG, consulte la se
 
 ## **Acerca de la conversión de PowerPoint a PNG**
 
-El formato PNG (Portable Network Graphics) no es tan popular como JPEG (Joint Photographic Experts Group), pero sigue siendo muy popular. 
+El formato PNG (Portable Network Graphics) no es tan popular como JPEG (Joint Photographic Experts Group), pero sigue siendo muy popular.
 
-**Caso de uso:** Cuando tienes una imagen compleja y el tamaño no es un problema, PNG es un mejor formato de imagen que JPEG. 
+**Caso de uso:** Cuando tienes una imagen compleja y el tamaño no es un problema, PNG es un formato de imagen mejor que JPEG.
 
-{{% alert title="Consejo" color="primary" %}} Puede que desees consultar los **Convertidores de PowerPoint a PNG** gratuitos de Aspose: [PPTX a PNG](https://products.aspose.app/slides/conversion/pptx-to-png) y [PPT a PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Son una implementación en vivo del proceso descrito en esta página. {{% /alert %}}
+{{% alert title="Tip" color="primary" %}} Puede que quieras probar los convertidores gratuitos de Aspose **PowerPoint a PNG**: [PPTX a PNG](https://products.aspose.app/slides/conversion/pptx-to-png) y [PPT a PNG](https://products.aspose.app/slides/conversion/ppt-to-png). Son una implementación en vivo del proceso descrito en esta página. {{% /alert %}}
 
 ## **Convertir PowerPoint a PNG**
 
-Sigue estos pasos:
+Siga estos pasos:
 
-1. Instancia la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Obtén el objeto de diapositiva de la colección [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) bajo la interfaz [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide). 
-3. Usa el método [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) para obtener la miniatura de cada diapositiva. 
-4. Usa el método [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/save/methods/5) para guardar la miniatura de la diapositiva en formato PNG. 
+1. Instanciar la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Obtener el objeto diapositiva de la colección [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) bajo la interfaz [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide).
+3. Utilizar el método [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) para obtener la miniatura de cada diapositiva.
+4. Utilizar el método [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/save/methods/5) para guardar la miniatura de la diapositiva en formato PNG.
 
-Este código en C# te muestra cómo convertir una presentación de PowerPoint a PNG. El objeto de Presentación puede cargar PPT, PPTX, ODP, etc., luego cada diapositiva en el objeto de presentación se convierte a formato PNG u otro formato de imagen.
-
+Este código en C# le muestra cómo convertir una presentación de PowerPoint a PNG. El objeto Presentation puede cargar PPT, PPTX, ODP, etc., y cada diapositiva del objeto se convierte al formato PNG u otros formatos de imagen.
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -72,12 +71,12 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
+
 ## **Convertir PowerPoint a PNG con dimensiones personalizadas**
 
-Si deseas obtener archivos PNG alrededor de una escala determinada, puedes establecer los valores para `desiredX` y `desiredY`, que determinan las dimensiones de la miniatura resultante. 
+Si desea obtener archivos PNG con una escala determinada, puede establecer los valores de `desiredX` y `desiredY`, que determinan las dimensiones de la miniatura resultante.
 
 Este código en C# demuestra la operación descrita:
-
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -95,12 +94,12 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
+
 ## **Convertir PowerPoint a PNG con tamaño personalizado**
 
-Si deseas obtener archivos PNG alrededor de un tamaño determinado, puedes pasar tus argumentos preferidos `width` y `height` para `imageSize`. 
+Si desea obtener archivos PNG con un tamaño concreto, puede pasar los argumentos `width` y `height` que prefiera para `imageSize`.
 
-Este código te muestra cómo convertir un PowerPoint a PNG mientras especificas el tamaño para las imágenes: 
-
+Este código le muestra cómo convertir un PowerPoint a PNG especificando el tamaño de las imágenes:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -116,3 +115,18 @@ using (Presentation pres = new Presentation("pres.pptx"))
     }
 }
 ```
+
+
+## **FAQ**
+
+**¿Cómo puedo exportar solo una forma específica (p. ej., un gráfico o una imagen) en lugar de toda la diapositiva?**
+
+Aspose.Slides admite [generar miniaturas para formas individuales](/slides/es/net/create-shape-thumbnails/); puede renderizar una forma a una imagen PNG.
+
+**¿Se admite la conversión paralela en un servidor?**
+
+Sí, pero [no comparta](/slides/es/net/multithreading/) una única instancia de Presentation entre hilos. Use una instancia separada por hilo o proceso.
+
+**¿Cuáles son las limitaciones de la versión de prueba al exportar a PNG?**
+
+El modo de evaluación agrega una marca de agua a las imágenes de salida y aplica [otras restricciones](/slides/es/net/licensing/) hasta que se aplique una licencia.

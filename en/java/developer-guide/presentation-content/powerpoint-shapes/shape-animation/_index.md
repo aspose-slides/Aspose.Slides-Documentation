@@ -44,7 +44,7 @@ PowerPoint provides many options and tools for animations and animation effects 
 * Aspose.Slides provides the classes and types you need to work with animations under the `Aspose.Slides.Animation` namespace,
 * Aspose.Slides provides over **150 animation effects** under the [EffectType](https://reference.aspose.com/slides/java/com.aspose.slides/effecttype) enumeration. These effects are essentially the same (or equivalent) effects used in PowerPoint.
 
-## **Apply Animation to TextBox**
+## **Apply Animation to a TextBox**
 
 Aspose.Slides for Java allows you to apply animation to the text in a shape. 
 
@@ -93,7 +93,7 @@ Besides applying animations to text, you can also apply animations to a single [
 
 {{% /alert %}} 
 
-## **Apply Animation to PictureFrame**
+## **Apply Animation to a PictureFrame**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
@@ -134,7 +134,7 @@ try {
 }
 ```
 
-## **Apply Animation to Shape**
+## **Apply Animation to a Shape**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
@@ -187,7 +187,7 @@ try {
 }
 ```
 
-## **Get the Animation Effects Applied to Shape**
+## **Get the Animation Effects Applied to a Shape**
 
 The following examples show you how to use the `getEffectsByShape` method from the [ISequence](https://reference.aspose.com/slides/java/com.aspose.slides/isequence/) interface to get all animation effects applied to a shape.
 
@@ -334,7 +334,7 @@ Aspose.Slides provides these properties to allow you to work with sounds in anim
 - [setSound(IAudio value)](https://reference.aspose.com/slides/java/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-) 
 - [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/effect/#setStopPreviousSound-boolean-) 
 
-### **Add Animation Effect Sound**
+### **Add an Animation Effect Sound**
 
 This Java code shows you how to add an animation effect sound and stop it when the next effect starts:
 
@@ -372,7 +372,7 @@ try {
 }
 ```
 
-### **Extract Animation Effect Sound**
+### **Extract an Animation Effect Sound**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/aspose.slides/presentation/) class.
 2. Get a slide’s reference through its index. 
@@ -488,3 +488,16 @@ try {
 }
 ```
 
+## **FAQ**
+
+**How can I ensure animations are preserved when publishing the presentation to the web?**
+
+[Export to HTML5](/slides/java/export-to-html5/) and enable the [options](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/) responsible for [shape](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) and [transition](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) animations. Plain HTML does not play slide animations, whereas HTML5 does.
+
+**How does changing the z-order (layer order) of shapes affect animation?**
+
+Animation and drawing order are independent: an effect controls the timing and type of appearing/disappearing, while [z-order](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getZOrderPosition--) determines what covers what. The visible result is defined by their combination. (This is the general PowerPoint behavior; the Aspose.Slides effects-and-shapes model follows the same logic.)
+
+**Are there limitations when converting animations to video for certain effects?**
+
+In general, [animations are supported](/slides/java/convert-powerpoint-to-video/), but rare cases or specific effects may be rendered differently. It is recommended to test with the effects you use and with the library version.

@@ -3,8 +3,19 @@ title: Limitations and API Differences
 type: docs
 weight: 100
 url: /nodejs-java/limitations-and-api-differences/
-keywords: "node, powerpoint, limitation, api, differences"
-description: "Aspose.Slides for Node.js via Java limitations and api differences."
+keywords:
+- limitation
+- API differences
+- importing library
+- package comparison
+- streaming files
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Compare the limitations and API differences between Aspose.Slides for Node.js via Java and Aspose.Slides for Java."
 ---
 
 ## **Public API Differences**

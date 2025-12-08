@@ -3,6 +3,22 @@ title: Product Support
 type: docs
 weight: 100
 url: /php-java/product-support/
+keywords:
+- product
+- support
+- technical
+- free
+- unlimited
+- issue
+- documentation
+- API reference
+- resources
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Get free, fast Aspose.Slides for PHP product support: forums, docs, updates, code help to fix issues across PowerPoint and OpenDocument workflows."
 ---
 
 ## **Technical support**

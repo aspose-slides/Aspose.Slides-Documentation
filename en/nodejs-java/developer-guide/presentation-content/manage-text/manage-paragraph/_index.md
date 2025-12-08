@@ -1,26 +1,34 @@
 ---
-title: Manage PowerPoint Paragraph in JavaScript
+title: Manage PowerPoint Text Paragraphs in JavaScript
+linktitle: Manage Paragraph
 type: docs
 weight: 40
 url: /nodejs-java/manage-paragraph/
 keywords:
 - add text
-- add paragraphs
+- add paragraph
 - manage text
-- manage paragraphs
+- manage paragraph
+- manage bullet
 - paragraph indent
+- hanging indent
 - paragraph bullet
 - numbered list
+- bulleted list
 - paragraph properties
 - import HTML
 - text to HTML
 - paragraph to HTML
-- paragraphs to images
-- export paragraphs
-- PowerPoint presentation
+- paragraph to image
+- text to image
+- export paragraph
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
 - JavaScript
-- Aspose.Slides for Node.js via Java
-description: "Create paragraphs and manage paragraph properties in PowerPoint presentations in JavaScript"
+- Aspose.Slides
+description: "Master paragraph formatting with Aspose.Slides for Node.js via Java—optimize alignment, spacing & style in PPT, PPTX, and ODP presentations in JavaScript."
 ---
 
 Aspose.Slides provides all the classs and classes you need to work with PowerPoint texts, paragraphs, and portions in Java.

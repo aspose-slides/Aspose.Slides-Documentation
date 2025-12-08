@@ -59,16 +59,40 @@ The result:
 
 ![The new presentation](new_presentation.png)
 
-## **FAQs**
+## **FAQ**
 
-**Can I create presentations without an Aspose.Slides license?**
+**What formats can I save a new presentation to?**
 
-Yes. The library runs in evaluation mode, but it stamps each slide with an "Evaluation Only" watermark and imposes limitations on certain operations. Load a valid license through the [License](https://reference.aspose.com/slides/java/com.aspose.slides/license/) class to lift these restrictions.
+You can save to [PPTX, PPT, and ODP](/slides/java/save-presentation/), and export to [PDF](/slides/java/convert-powerpoint-to-pdf/), [XPS](/slides/java/convert-powerpoint-to-xps/), [HTML](/slides/java/convert-powerpoint-to-html/), [SVG](/slides/java/convert-powerpoint-to-png/), and [images](/slides/java/convert-powerpoint-to-png/), among others.
 
-**How thread‑safe is the `Presentation` object?**
+**Can I start from a template (POTX/POTM) and save as a regular PPTX?**
 
-A single [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) instance is not thread‑safe—simultaneous reads or writes from multiple threads can cause race conditions. Process separate presentations in separate threads, or clone the object before using it concurrently.
+Yes. Load the template and save to the desired format; POTX/POTM/PPTM and similar formats [are supported](/slides/java/supported-file-formats/).
 
-**Can I save the presentation directly to an `OutputStream` instead of the file system?**
+**How do I control slide size/aspect ratio when creating a presentation?**
 
-Absolutely. Invoke `presentation.save(outputStream, SaveFormat.Pptx)` (or another format) to stream the document straight to a network socket, database, or cloud storage without ever writing a temporary file.
+Set the [slide size](/slides/java/slide-size/) (including presets like 4:3 and 16:9 or custom dimensions) and choose how content should scale.
+
+**In what units are sizes and coordinates measured?**
+
+In points: 1 inch equals 72 units.
+
+**How do I handle very large presentations (with many media files) to reduce memory usage?**
+
+Use [BLOB management strategies](/slides/java/manage-blob/), limit in-memory storage by leveraging temporary files, and prefer file-based workflows over purely in-memory streams.
+
+**Can I create/save presentations in parallel?**
+
+You cannot operate on the same [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) instance from [multiple threads](/slides/java/multithreading/). Run separate, isolated instances per thread or process.
+
+**How do I remove the trial watermark and limitations?**
+
+[Apply a license](/slides/java/licensing/) once per process. The license XML must remain unmodified, and the license setup should be synchronized if multiple threads are involved.
+
+**Can I digitally sign the PPTX I create?**
+
+Yes. [Digital signatures](/slides/java/digital-signature-in-powerpoint/) (adding and verifying) are supported for presentations.
+
+**Are macros (VBA) supported in created presentations?**
+
+Yes. You can [create/edit VBA projects](/slides/java/presentation-via-vba/) and save macro-enabled files such as PPTM/PPSM.

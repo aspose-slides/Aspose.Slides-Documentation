@@ -1,10 +1,24 @@
 ---
-title: Presentation Header and Footer
+title: Manage Presentation Headers and Footers in PHP
+linktitle: Header and Footer
 type: docs
 weight: 140
 url: /php-java/presentation-header-and-footer/
-keywords: "PowerPoint header and footer "
-description: "PowerPoint header and footer "
+keywords:
+- header
+- header text
+- footer
+- footer text
+- set header
+- set footer
+- handout
+- notes
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Use Aspose.Slides for PHP via Java to add and customize headers and footers in PowerPoint and OpenDocument presentations for a professional look."
 ---
 
 {{% alert color="primary" %}} 

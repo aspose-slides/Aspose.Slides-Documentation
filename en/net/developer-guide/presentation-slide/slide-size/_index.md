@@ -30,7 +30,7 @@ keywords:
 descriptions: "Learn how to quickly resize slides in PPT, PPTX and ODP files with .NET and Aspose.Slides, optimize presentations for any screen without losing quality."
 ---
 
-## **Customizing Slide Sizes and Aspect Ratios in PowerPoint**
+## **Customize Slide Sizes and Aspect Ratios in a Presentation**
 
 Aspose.Slides for .NET provides comprehensive tools to adjust the slide size and aspect ratio in PowerPoint presentations, critical for both printing and on-screen display. 
 
@@ -46,7 +46,7 @@ Ensure consistency throughout your presentation as a single slide size and aspec
 By default, presentations created with Aspose.Slides use the standard 4:3 aspect ratio.
 {{% /alert %}}
 
-## **How to Change Slide Size in PowerPoint**
+## **How to Change the Slide Size in a Presentation**
 
 This example demonstrates changing a presentation's slide size with Aspose.Slides in C#:
 
@@ -70,7 +70,7 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 }
 ```
 
-## **Handling Slide Content After Resizing**
+## **Handle Slide Content After Resizing**
 
 Post-resizing, slide contents may distort. You can control how Aspose.Slides manages this resizing:
 

@@ -1,8 +1,24 @@
 ---
-title: Create Fallback Font
+title: Specify Fallback Fonts for Presentations in JavaScript
+linktitle: Fallback Font
 type: docs
 weight: 10
 url: /nodejs-java/create-fallback-font/
+keywords:
+- fallback font
+- fallback rule
+- apply font
+- replace font
+- Unicode range
+- missed glyph
+- proper glyph
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Master Aspose.Slides for Node.js to set fallback fonts in PPT, PPTX and ODP files in JavaScript, safeguarding consistent text display on any device or OS."
 ---
 
 ## **Fallback Rules**

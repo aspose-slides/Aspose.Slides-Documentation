@@ -1,5 +1,6 @@
 ---
-title: Presentation Properties
+title: Manage Presentation Properties on Android
+linktitle: Presentation Properties
 type: docs
 weight: 70
 url: /androidjava/presentation-properties/
@@ -10,15 +11,19 @@ keywords:
 - built-in properties
 - custom properties
 - advanced properties
+- manage properties
 - modify properties
 - document metadata
 - edit metadata
+- proofing language
+- default language
 - PowerPoint
+- OpenDocument
 - presentation
 - Android
 - Java
-- Aspose.Slides for Android via Java
-description: "Manage PowerPoint presentation properties in Java"
+- Aspose.Slides
+description: "Master presentation properties in Aspose.Slides for Android via Java and streamline search, branding and workflow in your PowerPoint and OpenDocument files."
 ---
 
 {{% alert color="primary" %}} 

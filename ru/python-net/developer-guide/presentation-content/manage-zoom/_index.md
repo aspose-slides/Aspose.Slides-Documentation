@@ -1,225 +1,226 @@
 ---
-title: Управляйте обзорами в презентациях на Python
-linktitle: Обзор
+title: Управление зумами в презентациях с Python
+linktitle: Зум
 type: docs
 weight: 60
 url: /ru/python-net/manage-zoom/
 keywords:
-- обзор
-- рамка обзора
-- обзор слайда
-- обзор раздела
-- обзор сводки
-- добавить обзор
+- зум
+- зум-кадр
+- зум слайда
+- зум раздела
+- зум-резюме
+- добавить зум
 - PowerPoint
 - презентация
 - Python
 - Aspose.Slides
-description: "Создавайте и настраивайте обзор с помощью Aspose.Slides for Python via .NET — переходите между разделами, добавляйте миниатюры и переходы в презентациях PPT, PPTX и ODP."
+description: "Создавайте и настраивайте зум с помощью Aspose.Slides для Python через .NET — переходите между разделами, добавляйте миниатюры и переходы в презентациях PPT, PPTX и ODP."
 ---
 
 ## **Обзор**
-Зумы в PowerPoint позволяют вам быстро переходить к конкретным слайдам, разделам и частям презентации. Когда вы представляете, эта способность быстро перемещаться по содержимому может оказаться очень полезной.
+Zoom в PowerPoint позволяет переключаться к отдельным слайдам, разделам и частям презентации и обратно. При проведении презентации эта возможность быстро перемещаться по содержимому может оказаться очень полезной. 
 
-![overview](overview.png)
+![обзор](overview.png)
 
-* Чтобы суммировать всю презентацию на одном слайде, используйте [Сводку зума](#Summary-Zoom).
-* Чтобы показать только выбранные слайды, используйте [Зум слайдов](#Slide-Zoom).
-* Чтобы показать только один раздел, используйте [Зум раздела](#Section-Zoom).
+* Чтобы суммировать всю презентацию на одном слайде, используйте [Summary Zoom](#Summary-Zoom).
+* Чтобы показывать только выбранные слайды, используйте [Slide Zoom](#Slide-Zoom).
+* Чтобы показывать только один раздел, используйте [Section Zoom](#Section-Zoom).
 
-## **Зум слайдов**
+## **Slide Zoom**
 
-Зум слайдов может сделать вашу презентацию более динамичной, позволяя вам свободно перемещаться между слайдами в любом порядке, который вы выберете, не прерывая поток вашей презентации. Зумы слайдов прекрасно подходят для коротких презентаций без множества разделов, но вы все равно можете использовать их в различных сценариях презентации.
+Slide Zoom может сделать вашу презентацию более динамичной, позволяя свободно переключаться между слайдами в любом порядке без прерывания потока презентации. Slide Zoom отлично подходит для коротких презентаций без множества разделов, но их также можно использовать в разных сценариях представления.
 
-Зумы слайдов помогают вам углубиться в несколько частей информации, когда вы чувствуете, что находитесь на одном холсте.
+Slide Zoom помогает детализировать несколько фрагментов информации, будто вы работаете на едином холсте. 
 
 ![slidezoomsel](slidezoomsel.png)
 
-Для объектов зума слайдов Aspose.Slides предоставляет перечисление [ZoomImageType](https://reference.aspose.com/slides/python-net/aspose.slides/zoomimagetype/), интерфейс [IZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/izoomframe/) и некоторые методы в интерфейсе [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/).
+Для объектов Slide Zoom Aspose.Slides предоставляет перечисление [ZoomImageType](https://reference.aspose.com/slides/python-net/aspose.slides/zoomimagetype/), интерфейс [IZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/izoomframe/) и некоторые методы в интерфейсе [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/).
 
-### **Создание зум рамок**
-Вы можете добавить зум рамку на слайде следующим образом:
+### **Создание Zoom‑кадров**
+Вы можете добавить Zoom‑кадр на слайд следующим образом:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Создайте новые слайды, к которым вы намереваетесь подключить.
-3. Добавьте идентификационный текст и фон к созданным слайдам.
-4. Добавьте зум рамки (ссылающиеся на созданные слайды) на первый слайд.
-5. Запишите измененную презентацию в файл PPTX.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2.	Create new slides to which you intend to link. 
+3.	Add an identification text and background to the created slides.
+4.	Add zoom frames (containing the references to created slides) into the first slide.
+5.	Write the modified presentation as a PPTX file.
 
-Этот пример кода показывает, как создать зум рамку на слайде:
+Этот пример кода показывает, как создать Zoom‑кадр на слайде:
 ```py 
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    #Добавить новые слайды к презентации
+    #Добавить новые слайды в презентацию
     slide2 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide3 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
-    # Создайте фон для второго слайда
+    # Создать фон для второго слайда
     slide2.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide2.background.fill_format.fill_type = slides.FillType.SOLID
     slide2.background.fill_format.solid_fill_color.color = draw.Color.cyan
 
-    # Создайте текстовое поле для второго слайда
+    # Создать текстовое поле для второго слайда
     autoshape = slide2.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "Второй слайд"
+    autoshape.text_frame.text = "Second Slide"
 
-    # Создайте фон для третьего слайда
+    # Создать фон для третьего слайда
     slide3.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide3.background.fill_format.fill_type = slides.FillType.SOLID
     slide3.background.fill_format.solid_fill_color.color = draw.Color.dark_khaki
 
-    # Создайте текстовое поле для третьего слайда
+    # Создать текстовое поле для третьего слайда
     autoshape = slide3.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "Третий слайд"
+    autoshape.text_frame.text = "Trird Slide"
 
-    #Добавьте объекты ZoomFrame
+    #Add ZoomFrame objects
     pres.slides[0].shapes.add_zoom_frame(20, 20, 250, 200, slide2)
     pres.slides[0].shapes.add_zoom_frame(200, 250, 250, 200, slide3)
 
-    # Сохраните презентацию
+    # Сохранить презентацию
     pres.save("presentation-zoom.pptx", slides.export.SaveFormat.PPTX)
 ```
-### **Создание зум рамок с пользовательскими изображениями**
-С помощью Aspose.Slides для Python через .NET вы можете создать зум рамку с изображением, отличным от изображения предпросмотра слайда следующим образом: 
-1. Создайте экземпляр класса `Presentation`.
-2. Создайте новый слайд, к которому вы намереваетесь подключить. 
-3. Добавьте идентификационный текст и фон к созданному слайду.
-4. Создайте объект [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/), добавив изображение в коллекцию Images, связанную с объектом Presentation, которое будет использоваться для заполнения рамки.
-5. Добавьте зум рамки (ссылающиеся на созданный слайд) на первый слайд.
-6. Запишите измененную презентацию в файл PPTX.
 
-Этот код python показывает, как создать зум рамку с другим изображением:
+### **Создание Zoom‑кадров с пользовательскими изображениями**
+С помощью Aspose.Slides for Python via .NET можно создать Zoom‑кадр с изображением, отличающимся от изображения превью слайда, следующим образом: 
+1.	Create an instance of the `Presentation` class.
+2.	Create a new slide to which you intend to link. 
+3.	Add an identification text and background to created slide.
+4.	Create an [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the frame.
+5.	Add zoom frames (containing the reference to created slide) into the first slide.
+6.	Write the modified presentation as a PPTX file.
 
+Этот python‑код показывает, как создать Zoom‑кадр с другим изображением:
 ```py 
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    #Добавить новый слайд к презентации
+    #Добавить новый слайд в презентацию
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
-    # Создайте фон для второго слайда
+    # Создать фон для второго слайда
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.cyan
 
-    # Создайте текстовое поле для третьего слайда
+    # Создать текстовое поле для третьего слайда
     autoshape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "Второй слайд"
+    autoshape.text_frame.text = "Second Slide"
 
-    # Создайте новое изображение для объекта зума
+    # Создать новое изображение для объекта зум
     image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
 
-    #Добавьте объект ZoomFrame
+    #Добавить объект ZoomFrame
     pres.slides[0].shapes.add_zoom_frame(20, 20, 300, 200, slide, image)
 
-    # Сохраните презентацию
+    # Сохранить презентацию
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Форматирование зум рамок**
-В предыдущих разделах (выше) мы показали вам, как создать простые зум рамки. Чтобы создать более сложные зум рамки, вам нужно изменить форматирование рамок. Существует несколько настроек форматирования, которые вы можете применить к зум рамке. 
 
-Вы можете контролировать форматирование зум рамки на слайде следующим образом:
+### **Форматирование Zoom‑кадров**
+В предыдущих разделах (выше) мы показали, как создавать простые Zoom‑кадры. Чтобы создавать более сложные Zoom‑кадры, необходимо изменить их форматирование. Существует несколько параметров форматирования, которые можно применить к Zoom‑кадру. 
 
-1. Создайте экземпляр класса `Presentation`.
-2. Создайте новые слайды для связывания.
-3. Добавьте идентификационный текст и фон к созданным слайдам.
-4. Добавьте зум рамки (ссылающиеся на созданные слайды) на первый слайд.
-5. Создайте объект [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/), добавив изображение в коллекцию Images, связанную с объектом Presentation, которое будет использоваться для заполнения рамки.
-6. Установите пользовательское изображение для первого объекта зум рамки.
-7. Измените формат линии для второго объекта зум рамки.
-8. Удалите фон из изображения второго объекта зум рамки.
-9. Запишите измененную презентацию в файл PPTX.
+Вы можете управлять форматированием Zoom‑кадра на слайде следующим образом:
 
-Этот пример кода python показывает, как изменить форматирование зум рамки: 
+1.	Create an instance of the `Presentation` class.
+2.	Create new slides to link to.
+3.	Add identification text and background to created slides.
+4.	Add zoom frames (containing the references to created slides) into the first slide.
+5.	Create an [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) object by adding an image to the Images collection associated with the Presentation object that will be used to fill the frame.
+6.Set a custom image for the first zoom frame object.
+7.Change the line format for the second zoom frame object.
+8.Remove the background from an image of the second zoom frame object.
+5.Write the modified presentation as a PPTX file.
 
+Этот python‑пример кода показывает, как изменить форматирование Zoom‑кадра: 
 ```py 
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    #Добавить новые слайды к презентации
+    #Добавить новые слайды в презентацию
     slide2 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide3 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
-    # Создайте фон для второго слайда
+    # Создать фон для второго слайда
     slide2.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide2.background.fill_format.fill_type = slides.FillType.SOLID
     slide2.background.fill_format.solid_fill_color.color = draw.Color.cyan
 
-    # Создайте текстовое поле для второго слайда
+    # Создать текстовое поле для второго слайда
     autoshape = slide2.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "Второй слайд"
+    autoshape.text_frame.text = "Second Slide"
 
-    # Создайте фон для третьего слайда
+    # Создать фон для третьего слайда
     slide3.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide3.background.fill_format.fill_type = slides.FillType.SOLID
     slide3.background.fill_format.solid_fill_color.color = draw.Color.dark_khaki
 
-    # Создайте текстовое поле для третьего слайда
+    # Создать текстовое поле для третьего слайда
     autoshape = slide3.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "Третий слайд"
+    autoshape.text_frame.text = "Trird Slide"
 
-    #Добавьте объекты ZoomFrame
+    #Добавить объекты ZoomFrame
     zoomFrame1 = pres.slides[0].shapes.add_zoom_frame(20, 20, 250, 200, slide2)
     zoomFrame2 = pres.slides[0].shapes.add_zoom_frame(200, 250, 250, 200, slide3)
 
-    # Создайте новое изображение для объекта зума
+    # Создать новое изображение для объекта зум
     image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
-    # Установите пользовательское изображение для объекта zoomFrame1
+    # Установить пользовательское изображение для объекта zoomFrame1
     zoomFrame1.image = image
 
-    # Установите формат зум рамки для объекта zoomFrame2
+    # Установить формат ZoomFrame для объекта zoomFrame2
     zoomFrame2.line_format.width = 5
     zoomFrame2.line_format.fill_format.fill_type = slides.FillType.SOLID
     zoomFrame2.line_format.fill_format.solid_fill_color.color = draw.Color.hot_pink
     zoomFrame2.line_format.dash_style = slides.LineDashStyle.DASH_DOT
 
-    # Не показывайте фон для объекта zoomFrame2
+    # Не показывать фон для объекта zoomFrame2
     zoomFrame2.show_background = False
 
-    # Сохраните презентацию
+    # Сохранить презентацию
     pres.save("presentation-zoom2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Зум раздела**
 
-Зум раздела — это ссылка на раздел в вашей презентации. Вы можете использовать зумы разделов, чтобы вернуться к разделам, которые хотите сильно подчеркнуть. Или вы можете использовать их, чтобы подчеркнуть, как определенные части вашей презентации соединяются.
+## **Section Zoom**
+
+Section Zoom — это ссылка на раздел в вашей презентации. Вы можете использовать Section Zoom, чтобы возвращаться к разделам, которым хотите уделить особое внимание. Или использовать их, чтобы подчеркнуть взаимосвязи между различными частями презентации. 
 
 ![seczoomsel](seczoomsel.png)
 
-Для объектов зума раздела Aspose.Slides предоставляет интерфейс [ISectionZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/isectionzoomframe/) и некоторые методы в интерфейсе [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/).
+Для объектов Section Zoom Aspose.Slides предоставляет интерфейс [ISectionZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/isectionzoomframe/) и некоторые методы в интерфейсе [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/).
 
-### **Создание рамок зум раздела**
+### **Создание Section Zoom‑кадров**
 
-Вы можете добавить зум рамку раздела на слайд следующим образом:
+Вы можете добавить Section Zoom‑кадр на слайд следующим образом:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Создайте новый слайд. 
-3. Добавьте идентификационный фон к созданному слайду.
-4. Создайте новый раздел, к которому вы намереваетесь подключить зум рамку. 
-5. Добавьте зум рамку раздела (ссылающуюся на созданный раздел) на первый слайд.
-6. Запишите измененную презентацию в файл PPTX.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2.	Create a new slide. 
+3.	Add an identification background to the created slide.
+4.	Create a new section to which you intend to link the zoom frame. 
+5.	Add a section zoom frame (containing references to the created section) to the first slide.
+6.	Write the modified presentation as a PPTX file.
 
-Этот код python показывает, как создать зум рамку на слайде:
-
+Этот python‑код показывает, как создать Zoom‑кадр на слайде:
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    #Добавляет новый слайд к презентации
+    #Добавляет новый слайд в презентацию
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
 
-    # Добавляет новый раздел к презентации
-    pres.sections.add_section("Раздел 1", slide)
+
+    # Добавляет новый раздел в презентацию
+    pres.sections.add_section("Section 1", slide)
 
     # Добавляет объект SectionZoomFrame
     sectionZoomFrame = pres.slides[0].shapes.add_section_zoom_frame(20, 20, 300, 200, pres.sections[1])
@@ -228,36 +229,37 @@ with slides.Presentation() as pres:
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Создание рамок зум раздела с пользовательскими изображениями**
 
-С использованием Aspose.Slides для Python вы можете создать рамку зума раздела с другим изображением предпросмотра слайда следующим образом: 
+### **Создание Section Zoom‑кадров с пользовательскими изображениями**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Создайте новый слайд.
-3. Добавьте идентификационный фон к созданному слайду.
-4. Создайте новый раздел, к которому вы намереваетесь подключить зум рамку. 
-5. Создайте объект `IPPImage`, добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), которое будет использоваться для заполнения рамки.
-6. Добавьте зум рамку раздела (ссылающуюся на созданный раздел) на первый слайд.
-7. Запишите измененную презентацию в файл PPTX.
+С помощью Aspose.Slides for Python можно создать Section Zoom‑кадр с другим изображением превью слайда следующим образом: 
 
-Этот код python показывает, как создать зум рамку с другим изображением:
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2.	Create a new slide.
+3.	Add an identification background to created slide.
+4.	Create a new section to which you intend to link the zoom frame. 
+5.	Create an `IPPImage` object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object that will be used to fill the frame.
+6.	Add a section zoom frame (containing a reference to the created section) to the first slide.
+7.	Write the modified presentation as a PPTX file.
 
+Этот python‑код показывает, как создать Zoom‑кадр с другим изображением:
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    #Добавляет новый слайд к презентации
+    #Добавляет новый слайд в презентацию
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
 
-    # Добавляет новый раздел к презентации
-    pres.sections.add_section("Раздел 1", slide)
 
-    # Создайте новое изображение для объекта зума
+    # Добавляет новый раздел в презентацию
+    pres.sections.add_section("Section 1", slide)
+
+    # Создает новое изображение для зум-объекта
     image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
 
     # Добавляет объект SectionZoomFrame
@@ -267,46 +269,47 @@ with slides.Presentation() as pres:
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Форматирование рамок зум раздела**
 
-Чтобы создать более сложные рамки зум раздела, вам нужно изменить форматирование простой рамки. Есть несколько параметров форматирования, которые вы можете применить к зум рамке раздела. 
+### **Форматирование Section Zoom‑кадров**
 
-Вы можете контролировать форматирование зум рамки раздела на слайде следующим образом:
+Чтобы создавать более сложные Section Zoom‑кадры, необходимо изменить форматирование простого кадра. Существует несколько вариантов форматирования, которые можно применить к Section Zoom‑кадру. 
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Создайте новый слайд.
-3. Добавьте идентификационный фон к созданному слайду.
-4. Создайте новый раздел, к которому вы намереваетесь подключить зум рамку. 
-5. Добавьте зум рамку раздела (ссылающуюся на созданный раздел) на первый слайд.
-6. Измените размер и положение созданного объекта зума раздела.
-7. Создайте объект `IPPImage`, добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), которое будет использоваться для заполнения рамки.
-8. Установите пользовательское изображение для созданного объекта зум рамки.
-9. Установите возможность *возврата к оригинальному слайду из связанного раздела*. 
-10. Удалите фон из изображения объекта зум рамки раздела.
-11. Измените формат линии для второго объекта зум рамки.
-12. Измените длительность перехода.
-13. Запишите измененную презентацию в файл PPTX.
+Вы можете управлять форматированием Section Zoom‑кадра на слайде следующим образом:
 
-Этот код python показывает, как изменить форматирование объекта зум рамки раздела:
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2.	Create a new slide.
+3.	Add identification background to created slide.
+4.	Create a new section to which you intend to link the zoom frame. 
+5.	Add a section zoom frame (containing references to created section) to the first slide.
+6.Change the size and position for the created section zoom object.
+7.Create an `IPPImage` object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object that will be used to fill the frame.
+8.Set a custom image for the created section zoom frame object.
+9.Set the *return to the original slide from the linked section* ability. 
+10.Remove the background from an image of the section zoom frame object.
+11.Change the line format for the second zoom frame object.
+12.Change the transition duration.
+13.Write the modified presentation as a PPTX file.
 
+Этот python‑код показывает, как изменить форматирование Section Zoom‑кадра:
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
+
 with slides.Presentation() as pres:
-    #Добавляет новый слайд к презентации
+    #Добавляет новый слайд в презентацию
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # Добавляет новый раздел к презентации
-    pres.sections.add_section("Раздел 1", slide)
+    # Добавляет новый раздел в презентацию
+    pres.sections.add_section("Section 1", slide)
 
-    # Добавление объекта SectionZoomFrame
+    # Add SectionZoomFrame object
     sectionZoomFrame = pres.slides[0].shapes.add_section_zoom_frame(20, 20, 300, 200, pres.sections[1])
 
-    # Форматирование для SectionZoomFrame
+    # Formatting for SectionZoomFrame
     sectionZoomFrame.x = 100
     sectionZoomFrame.y = 300
     sectionZoomFrame.width = 100
@@ -329,158 +332,158 @@ with slides.Presentation() as pres:
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Сводка зума**
 
-Сводка зума — это как посадочная страница, где отображаются все части вашей презентации одновременно. Когда вы представляете, вы можете использовать зум, чтобы переходить из одного места в презентации в другое в любом порядке, который вам нравится. Вы можете проявить креативность, пропускать вперед или возвращаться к частям вашей презентации, не прерывая ее поток.
+## **Summary Zoom**
+
+Summary Zoom — это своего рода целевая страница, на которой одновременно отображаются все части презентации. При проведении презентации вы можете использовать Zoom, чтобы переходить от одного места к другому в произвольном порядке. Вы можете креативно перемещаться вперёд, назад или возвращаться к отдельным частям слайд‑шоу без прерывания потока презентации.
 
 ![overview_image](summaryzoom.png)
 
-Для объектов сводки зума Aspose.Slides предоставляет интерфейсы [ISummaryZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomframe/), [ISummaryZoomFrameSection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsection/) и [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) и некоторые методы в интерфейсе [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/).
+Для объектов Summary Zoom Aspose.Slides предоставляет интерфейсы [ISummaryZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomframe/), [ISummaryZoomFrameSection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsection/), [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) и некоторые методы в интерфейсе [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/).
 
-### **Создание сводки зума**
+### **Создание Summary Zoom**
 
-Вы можете добавить зум рамку сводки на слайд следующим образом:
+Вы можете добавить Summary Zoom‑кадр на слайд следующим образом:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Создайте новые слайды с идентификационным фоном и новыми разделами для созданных слайдов.
-3. Добавьте зум рамку сводки на первый слайд.
-4. Запишите измененную презентацию в файл PPTX.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2.	Create new slides with identification background and new sections for created slides.
+3.	Add the summary zoom frame to the first slide.
+4.	Write the modified presentation as a PPTX file.
 
-Этот код python показывает, как создать зум рамку сводки на слайде:
-
+Этот python‑код показывает, как создать Summary Zoom‑кадр на слайде:
 ```py 
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    # Создайте массив слайдов
+    # Создать массив слайдов
     for slideNumber in range(5):
-        #Добавить новые слайды к презентации
+        #Add новые слайды в презентацию
         slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
-        # Создайте фон для слайда
+        # Создать фон для слайда
         slide.background.type = slides.BackgroundType.OWN_BACKGROUND
         slide.background.fill_format.fill_type = slides.FillType.SOLID
         slide.background.fill_format.solid_fill_color.color = draw.Color.dark_khaki
 
-        # Создайте текстовое поле для слайда
+        # Создать текстовое поле для слайда
         autoshape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-        autoshape.text_frame.text = "Слайд - {num}".format(num = (slideNumber + 2))
+        autoshape.text_frame.text = "Slide - {num}".format(num = (slideNumber + 2))
 
-    # Создайте объекты зума для всех слайдов на первом слайде
+    # Создать объекты зума для всех слайдов на первом слайде
     for slideNumber in range(1, len(pres.slides)):
         x = (slideNumber - 1) * 100
         y = (slideNumber - 1) * 100
         zoomFrame = pres.slides[0].shapes.add_zoom_frame(x, y, 150, 120, pres.slides[slideNumber])
 
-        # Установите свойство ReturnToParent, чтобы вернуться на первый слайд
+        # Установить свойство ReturnToParent для возврата к первому слайду
         zoomFrame.return_to_parent = True
 
-    # Сохраните презентацию
+    # Сохранить презентацию
     pres.save("presentation-zoom3.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Добавление и удаление секции сводки зума**
 
-Все разделы в рамке сводки зума представлены объектами [ISummaryZoomFrameSection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsection/), которые хранятся в объекте [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/). Вы можете добавлять или удалять объект секции сводки зума через интерфейс [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) следующим образом:
+### **Добавление и удаление секций Summary Zoom**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Создайте новые слайды с идентификационным фоном и новыми разделами для созданных слайдов.
-3. Добавьте рамку зум сводки на первый слайд.
-4. Добавьте новый слайд и раздел в презентацию.
-5. Добавьте созданный раздел в рамку зум сводки.
-6. Удалите первый раздел из рамки зум сводки.
-7. Запишите измененную презентацию в файл PPTX.
+Все секции в Summary Zoom‑кадре представлены объектами [ISummaryZoomFrameSection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsection/), которые хранятся в объекте [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/). Вы можете добавить или удалить объект секции Summary Zoom через интерфейс [ISummaryZoomSectionCollection] следующим образом:
 
-Этот код python показывает, как добавлять и удалять секции в рамке зум сводки:
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2.	Create new slides with identification background and new sections for created slides.
+3.	Add a summary zoom frame into the first slide.
+4.	Add a new slide and section to the presentation.
+5.	Add the created section to the summary zoom frame.
+6.	Remove the first section from the summary zoom frame.
+7.	Write the modified presentation as a PPTX file.
 
+Этот python‑код показывает, как добавить и удалить секции в Summary Zoom‑кадре:
 ``` python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 
 with slides.Presentation() as pres:
-    #Добавляет новый слайд к презентации
+    #Добавляет новый слайд в презентацию
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # Добавляет новый раздел к презентации
-    pres.sections.add_section("Раздел 1", slide)
+    # Добавляет новый раздел в презентацию
+    pres.sections.add_section("Section 1", slide)
 
-    #Добавляет новый слайд к презентации
+    #Добавляет новый слайд в презентацию
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.aqua
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # Добавляет новый раздел к презентации
-    pres.sections.add_section("Раздел 2", slide)
+    # Добавляет новый раздел в презентацию
+    pres.sections.add_section("Section 2", slide)
 
     # Добавляет объект SummaryZoomFrame
     summaryZoomFrame = pres.slides[0].shapes.add_summary_zoom_frame(150, 50, 300, 200)
 
-    #Добавляет новый слайд к презентации
+    #Добавляет новый слайд в презентацию
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.chartreuse
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # Добавляет новый раздел к презентации
-    section3 = pres.sections.add_section("Раздел 3", slide)
+    # Добавляет новый раздел в презентацию
+    section3 = pres.sections.add_section("Section 3", slide)
 
-    # Добавляет секцию в зум сводки
+    # Добавляет раздел в Summary Zoom
     summaryZoomFrame.summary_zoom_collection.add_summary_zoom_section(section3)
 
-    # Удаляет секцию из зума сводки
+    # Удаляет раздел из Summary Zoom
     summaryZoomFrame.summary_zoom_collection.remove_summary_zoom_section(pres.sections[1])
 
     # Сохраняет презентацию
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Форматирование секций сводки зума**
 
-Чтобы создать более сложные объекты секции зума сводки, вам нужно изменить форматирование простой рамки. Есть несколько параметров форматирования, которые вы можете применить к объекту секции зума сводки. 
+### **Форматирование секций Summary Zoom**
 
-Вы можете контролировать форматирование для объекта секции зума сводки в рамке сводки зума следующим образом:
+Чтобы создавать более сложные объекты секций Summary Zoom, необходимо изменить форматирование простого кадра. Существует несколько вариантов форматирования, которые можно применить к объекту секции Summary Zoom. 
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Создайте новые слайды с идентификационным фоном и новыми разделами для созданных слайдов.
-3. Добавьте рамку зум сводки на первый слайд.
-4. Получите объект секции зума сводки для первого объекта из `ISummaryZoomSectionCollection`.
-5. Создайте объект `IPPImage`, добавив изображение в коллекцию изображений, связанную с объектом  [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), которое будет использоваться для заполнения рамки.
-6. Установите пользовательское изображение для созданного объекта секции зума сводки.
-7. Установите возможность *возврата к оригинальному слайду из связанного раздела*. 
-8. Измените формат линии для второго объекта зум рамки.
-9. Измените длительность перехода.
-10. Запишите измененную презентацию в файл PPTX.
+Вы можете управлять форматированием объекта секции Summary Zoom в Summary Zoom‑кадре следующим образом:
 
-Этот код python показывает, как изменить форматирование для объекта секции зума сводки:
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2.	Create new slides with identification background and new sections for created slides.
+3.	Add a summary zoom frame to the first slide.
+4.	Get a summary zoom section object for the first object from the `ISummaryZoomSectionCollection`.
+5.	Create an `IPPImage` object by adding an image to the images collection associated with the  [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object that will be used to fill the frame.
+6.	Set a custom image for the created section zoom frame object.
+7.	Set the *return to the original slide from the linked section* ability. 
+8.	Change the line format for the second zoom frame object.
+9.	Change the transition duration.
+10.	Write the modified presentation as a PPTX file.
 
+Этот python‑код показывает, как изменить форматирование объекта секции Summary Zoom:
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    #Добавляет новый слайд к презентации
+    #Добавляет новый слайд в презентацию
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.brown
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # Добавляет новый раздел к презентации
-    pres.sections.add_section("Раздел 1", slide)
+    # Добавляет новый раздел в презентацию
+    pres.sections.add_section("Section 1", slide)
 
-    #Добавляет новый слайд к презентации
+    #Добавляет новый слайд в презентацию
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.aqua
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # Добавляет новый раздел к презентации
-    pres.sections.add_section("Раздел 2", slide)
+    # Добавляет новый раздел в презентацию
+    pres.sections.add_section("Section 2", slide)
 
     # Добавляет объект SummaryZoomFrame
     summaryZoomFrame = pres.slides[0].shapes.add_summary_zoom_frame(150, 50, 300, 200)
@@ -488,7 +491,7 @@ with slides.Presentation() as pres:
     # Получает первый объект SummaryZoomSection
     summarySection = summaryZoomFrame.summary_zoom_collection[0]
 
-    # Форматирование для объекта SummaryZoomSection
+    # Форматирование объекта SummaryZoomSection
     image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
     summarySection.image = image
 
@@ -504,3 +507,18 @@ with slides.Presentation() as pres:
     # Сохраняет презентацию
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Можно ли управлять возвратом к «родительскому» слайду после показа цели?**
+
+Да. У [Zoom‑кадра](https://reference.aspose.com/slides/python-net/aspose.slides/zoomframe/) или [section](https://reference.aspose.com/slides/python-net/aspose.slides/sectionzoomframe/) есть поведение `return_to_parent`, которое при включении отправляет зрителей обратно к исходному слайду после просмотра целевого содержимого.
+
+**Можно ли настроить «скорость» или длительность перехода Zoom?**
+
+Да. Zoom поддерживает установку `transition_duration`, позволяя контролировать, сколько времени занимает анимация перехода.
+
+**Есть ли ограничения на количество Zoom‑объектов в презентации?**
+
+Твёрдого ограничения API не задокументировано. Практические ограничения зависят от общей сложности презентации и производительности устройства просмотра. Вы можете добавить много Zoom‑кадров, но учитывайте размер файла и время рендеринга.

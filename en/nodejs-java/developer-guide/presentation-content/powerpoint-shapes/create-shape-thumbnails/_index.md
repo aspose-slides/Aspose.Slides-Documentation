@@ -1,8 +1,20 @@
 ---
-title: Create Shape Thumbnails
+title: Create Thumbnails of Presentation Shapes in JavaScript
+linktitle: Shape Thumbnails
 type: docs
 weight: 70
 url: /nodejs-java/create-shape-thumbnails/
+keywords:
+- shape thumbnail
+- shape image
+- render shape
+- shape rendering
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Generate high-quality shape thumbnails from PowerPoint slides with JavaScript and Aspose.Slides for Node.js – easily create and export presentation thumbnails."
 ---
 
 

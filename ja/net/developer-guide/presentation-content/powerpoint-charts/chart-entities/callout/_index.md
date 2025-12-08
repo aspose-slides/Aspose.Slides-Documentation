@@ -2,13 +2,12 @@
 title: コールアウト
 type: docs
 url: /ja/net/callout/
-keywords: "チャートコールアウト, チャートデータラベル, C#, Csharp, Aspose.Slides for .NET"
-description: "C# または .NET における PowerPoint チャートコールアウトとデータラベル"
+keywords: "チャート コールアウト, チャート データ ラベル, C#, Csharp, Aspose.Slides for .NET"
+description: "PowerPoint のチャートコールアウトとデータラベル（C# または .NET）"
 ---
 
-## **コールアウトの使用**
-新しいプロパティ **ShowLabelAsDataCallout** が **DataLabelFormat** クラスと **IDataLabelFormat** インターフェイスに追加され、指定されたチャートのデータラベルがデータコールアウトとして表示されるかデータラベルとして表示されるかを決定します。以下の例では、コールアウトを設定しました。
-
+## **Callouts の使用**
+新しいプロパティ **ShowLabelAsDataCallout** が **DataLabelFormat** クラスおよび **IDataLabelFormat** インターフェイスに追加され、指定したチャートのデータラベルをデータコールアウトとして表示するかデータラベルとして表示するかを決定します。以下の例では、コールアウトを設定しています。
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -22,9 +21,9 @@ using (Presentation presentation = new Presentation())
 
 
 
-## **ドーナツチャートのコールアウトの設定**
-Aspose.Slides for .NET では、ドーナツチャートの系列データラベルコールアウト形状の設定をサポートしています。以下にサンプル例を示します。
 
+## **ドーナツ チャートのコールアウト設定**
+Aspose.Slides for .NET は、ドーナツ チャートの系列データラベルコールアウト形状の設定をサポートします。以下にサンプル例を示します。
 ```c#
 Presentation pres = new Presentation("testc.pptx");
 ISlide slide = pres.Slides[0];
@@ -83,3 +82,14 @@ while (categoryIndex < 15)
 }
 pres.Save("chart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
+
+
+## **FAQ**
+
+**プレゼンテーションを PDF、HTML5、SVG、または画像に変換するときにコールアウトは保持されますか？**
+
+はい。コールアウトはチャートのレンダリングの一部であるため、[PDF](/slides/ja/net/convert-powerpoint-to-pdf/)、[HTML5](/slides/ja/net/export-to-html5/)、[SVG](/slides/ja/net/render-a-slide-as-an-svg-image/)、または[raster images](/slides/ja/net/convert-powerpoint-to-png/) にエクスポートすると、スライドの書式設定とともに保持されます。
+
+**カスタムフォントはコールアウトで機能しますか、エクスポート時に外観を保持できますか？**
+
+はい。Aspose.Slides はプレゼンテーションへの[フォントの埋め込み](/slides/ja/net/embedded-font/)をサポートし、[PDF](/slides/ja/net/convert-powerpoint-to-pdf/) などのエクスポート時にフォント埋め込みを制御するため、異なるシステム間でもコールアウトの外観が同じになります。

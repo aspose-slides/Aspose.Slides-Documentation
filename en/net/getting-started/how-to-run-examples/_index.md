@@ -34,7 +34,7 @@ For instructions on installing the NuGet package manager, go to this page: https
    The example project uses the NuGet Automatic Package Restore feature, so you need to have an active internet connection. 
 
    If you do not have an active internet connection on the machine where you intend to execute examples, please check [Installation](https://docs.aspose.com/slides/net/installation/) and (manually) add a reference to Aspose.Slides.dll in the example project.
-## **Download from GitHub**
+## **Download Aspose.Slides from GitHub**
 All Aspose.Slides for .NET examples are hosted on [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET).
 
 You can either clone the repository using your favorite GitHub client or download the ZIP file [here](https://github.com/aspose-slides/Aspose.Slides-for-.NET/archive/master.zip).

@@ -1,8 +1,18 @@
 ---
-title: Compare Slides
+title: Compare Presentation Slides in PHP
+linktitle: Compare Slides
 type: docs
 weight: 50
 url: /php-java/compare-slides/
+keywords:
+- compare slides
+- slide comparison
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Compare PowerPoint and OpenDocument presentations programmatically with Aspose.Slides for PHP via Java. Identify slide differences in code quickly."
 ---
 
 ## **Compare Two Slides**

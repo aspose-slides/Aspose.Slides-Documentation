@@ -3,75 +3,84 @@ title: PowerPointをXPSに変換
 type: docs
 weight: 70
 url: /ja/net/convert-powerpoint-to-xps
-keywords: "PowerPointプレゼンテーションの変換, PowerPointからXPS, PPTからXPS, PPTXからXPS, 変換, C#, Csharp, .NET, Aspose.Slides"
+keywords: "PowerPointプレゼンテーションの変換, PowerPointからXPSへ, PPTからXPSへ, PPTXからXPSへ, 変換, C#, Csharp, .NET, Aspose.Slides"
 description: "C#または.NETでPowerPointプレゼンテーションをXPSに変換します。"
 ---
 
-## **XPSについて**
-マイクロソフトは[XPS](https://docs.fileformat.com/page-description-language/xps/)を[PDF](https://docs.fileformat.com/pdf/)の代替として開発しました。XPSはPDFに非常に似たファイルを出力することによって内容を印刷することを可能にします。XPS形式はXMLに基づいています。XPSファイルのレイアウトまたは構造は、すべてのオペレーティングシステムやプリンターで同じままです。
+## **XPS について**
+Microsoft は [XPS](https://docs.fileformat.com/page-description-language/xps/) を [PDF](https://docs.fileformat.com/pdf/) の代替として開発しました。 PDF に非常に似たファイルを出力することでコンテンツを印刷できるようになります。 XPS フォーマットは XML に基づいています。 XPS ファイルのレイアウトや構造は、すべてのオペレーティングシステムやプリンターで同じままです。
 
-## Microsoft XPS形式を使用するタイミング
+## **Microsoft XPS フォーマットを使用すべきとき**
 
-{{% alert color="primary" %}}
+{{% alert color="primary" %}} 
 
-Aspose.SlidesがPPTまたはPPTXプレゼンテーションをXPS形式に変換する方法を確認するには、[この無料のオンライン変換アプリ](https://products.aspose.app/slides/conversion)をチェックしてください。
+Microsoft PowerPoint の PPT または PPTX プレゼンテーションが XPS フォーマットにどのように変換されるかを確認したい場合は、[この無料オンライン変換アプリ](https://products.aspose.app/slides/conversion) をご利用ください。 
 
-{{% /alert %}}
+{{% /alert %}} 
 
-ストレージコストを削減したい場合は、Microsoft PowerPointプレゼンテーションをXPS形式に変換できます。これにより、ドキュメントの保存、共有、および印刷が容易になります。
+ストレージコストを削減したい場合は、Microsoft PowerPoint プレゼンテーションを XPS フォーマットに変換できます。これにより、ドキュメントの保存、共有、印刷が容易になります。 
 
-MicrosoftはWindows（Windows 10でも）でXPSの強力なサポートを引き続き実装しているため、ファイルをこの形式で保存することを検討するかもしれません。Windows 8.1、Windows 8、Windows 7、Windows Vistaを使用している場合、特定の操作に対してXPSが最良の選択肢となる場合があります。
+Microsoft は Windows（Windows 10 でも）で XPS のサポートを強化し続けているため、このフォーマットでファイルを保存することを検討すべきです。Windows 8.1、Windows 8、Windows 7、Windows Vista を使用している場合、特定の操作では XPS が最適な選択肢になることがあります。 
 
-- **Windows 8**はXPSファイルにOXPS（Open XPS）形式を使用します。OXPSは元のXPS形式の標準化されたバージョンです。Windows 8はPDFファイルよりもXPSファイルに対してより良いサポートを提供します。
-  - **XPS:** 組み込みのXPSビューワ/リーダーとXPSへの印刷機能が利用可能です。
-  - **PDF**: PDFリーダーは利用可能ですが、PDFへの印刷機能はありません。
+- **Windows 8** は XPS ファイルに OXPS（Open XPS）形式を使用します。 OXPS は元の XPS フォーマットの標準化バージョンです。Windows 8 は PDF ファイルよりも XPS ファイルのサポートが優れています。 
+  - **XPS:** 組み込みの XPS ビューア/リーダーと XPS への印刷機能が利用可能。 
+  - **PDF:** PDF リーダーは利用可能だが、PDF への印刷機能はなし。 
 
-- **Windows 7およびWindows Vista**は元のXPS形式を使用します。これらのオペレーティングシステムはPDFよりもXPSファイルに対してより良いサポートを提供します。
-  - **XPS**: 組み込みのXPSビューワとXPSへの印刷機能が利用可能です。
-  - **PDF**: PDFリーダーはありません。PDFへの印刷機能はありません。
+- **Windows 7 と Windows Vista** は元の XPS フォーマットを使用します。これらの OS も PDF より XPS ファイルのサポートが優れています。 
+  - **XPS:** 組み込みの XPS ビューアと XPS への印刷機能が利用可能。 
+  - **PDF:** PDF リーダーなし。PDF への印刷機能なし。 
 
-|<p>**入力PPT(X):</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**出力XPS:</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
+|<p>**入力 PPT(X):**</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**出力 XPS:**</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
 | :- | :- |
 
-Microsoftは最終的にWindows 10のPDFへの印刷機能を通じてPDFでの印刷操作のサポートを実装しました。それ以前は、ユーザーはXPS形式を通じて文書を印刷することが期待されていました。
+Microsoft は最終的に Windows 10 の「Print to PDF」機能を通じて PDF の印刷操作サポートを実装しました。以前はユーザーは XPS フォーマットを介して文書を印刷することが想定されていました。 
 
-## Aspose.SlidesによるXPS変換
+## **Aspose.Slides を使用した XPS 変換**
 
-[**Aspose.Slides**](https://products.aspose.com/slides/net/) for .NETでは、[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスが公開する[**Save**](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index)メソッドを使用して、プレゼンテーション全体をXPS文書に変換できます。
+.NET 用の [**Aspose.Slides**](https://products.aspose.com/slides/net/) では、[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスが提供する [**Save**](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) メソッドを使用して、プレゼンテーション全体を XPS ドキュメントに変換できます。 
 
-プレゼンテーションをXPSに変換する際には、次のいずれかの設定を使用してプレゼンテーションを保存する必要があります：
+プレゼンテーションを XPS に変換する際は、以下のいずれかの設定でプレゼンテーションを保存する必要があります。
 
-- デフォルト設定（[**XPSOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions)なし）
-- カスタム設定（[**XPSOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions)あり）
+- デフォルト設定（[**XPSOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions) なし） 
+- カスタム設定（[**XPSOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions) あり） 
 
-### **デフォルト設定を使用してプレゼンテーションをXPSに変換**
+### **既定設定を使用してプレゼンテーションを XPS に変換する**
 
-このC#のサンプルコードは、標準設定を使用してプレゼンテーションをXPS文書に変換する方法を示しています：
-
+この C# サンプルコードは、標準設定を使用してプレゼンテーションを XPS ドキュメントに変換する方法を示しています。 
 ```c#
-// プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化
+// プレゼンテーション ファイルを表す Presentation オブジェクトをインスタンス化します
 using (Presentation pres = new Presentation("Convert_XPS.pptx"))
 {
-    // プレゼンテーションをXPS文書として保存
+    // プレゼンテーションを XPS ドキュメントとして保存します
     pres.Save("XPS_Output_Without_XPSOption_out.xps", SaveFormat.Xps);
 }
 ```
 
-### **カスタム設定を使用してプレゼンテーションをXPSに変換**
 
-このサンプルコードは、カスタム設定を使用してプレゼンテーションをXPS文書に変換する方法を示しています：
-
+### **カスタム設定を使用してプレゼンテーションを XPS に変換する**
+このサンプルコードは、C# でカスタム設定を使用してプレゼンテーションを XPS ドキュメントに変換する方法を示しています。 
 ```c#
-// プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化
+// プレゼンテーション ファイルを表す Presentation オブジェクトをインスタンス化します
 using (Presentation pres = new Presentation("Convert_XPS_Options.pptx"))
 {
-    // TiffOptionsクラスをインスタンス化
+    // TiffOptions クラスをインスタンス化します
     XpsOptions options = new XpsOptions();
 
-    // メタファイルをPNGとして保存
+    // メタファイルを PNG として保存します
     options.SaveMetafilesAsPng = true;
 
-    // プレゼンテーションをXPS文書として保存
+    // プレゼンテーションを XPS ドキュメントとして保存します
     pres.Save("XPS_With_Options_out.xps", SaveFormat.Xps, options);
 }
 ```
+
+
+## **FAQ**
+
+**XPS をファイルではなくストリームに保存できますか？**
+
+はい。Aspose.Slides はストリームへ直接エクスポートできるため、Web API、サーバー側パイプライン、ファイルシステムに触れずに XPS を送信したいシナリオに最適です。
+
+**非表示スライドは XPS に含まれますか？除外できますか？**
+
+既定では通常（表示）スライドのみがレンダリングされます。保存前に [エクスポート設定](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) を使用して、[非表示スライドの含める・除外する](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/showhiddenslides/)ことができます。これにより、出力に意図したページだけが含まれます。

@@ -71,7 +71,7 @@ for (int i = 0; i < sld.Shapes.Count; i++)
 
     if (shape is GroupShape)
     {
-        // Accéder à la forme de groupe.
+        // Accéder à la forme groupée.
         IGroupShape grphShape = (IGroupShape)shape;
         for (int j = 0; j < grphShape.Shapes.Count; j++)
         {

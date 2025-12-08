@@ -1,9 +1,26 @@
 ---
-title: Manage Blob
+title: Manage Presentation BLOBs in PHP for Efficient Memory Use
+linktitle: Manage BLOB
 type: docs
 weight: 10
 url: /php-java/manage-blob/
-description: Manage Blob in PowerPoint Presentation using PHP. Use Blob to reduce memory consumption in PowerPoint Presentation using PHP. Add large file through Blob to PowerPoint Presentation using PHP. Export large file through Blob from PowerPoint Presentation using PHP. Load a large PowerPoint Presentation as Blob using PHP.
+keywords:
+- large object
+- large item
+- large file
+- add BLOB
+- export BLOB
+- add image as BLOB
+- reduce memory
+- memory consumption
+- large presentation
+- temporary file
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Manage BLOB data in Aspose.Slides for PHP via Java to streamline PowerPoint and OpenDocument file operations for efficient presentation handling."
 ---
 
 ## **About BLOB**

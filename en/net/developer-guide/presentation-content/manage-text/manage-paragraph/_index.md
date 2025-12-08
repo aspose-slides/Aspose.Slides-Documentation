@@ -38,7 +38,7 @@ Aspose.Slides provides all the interfaces and classes you need to work with Powe
 
 An `IParagraph` object is capable of handling texts with different formatting properties through its underlying `IPortion` objects.
 
-## **Add Multiple Paragraph Containing Multiple Portions**
+## **Add Multiple Paragraphs Containing Multiple Portions**
 
 These steps show you how to add a text frame containing 3 paragraphs and each paragraph containing 3 portions:
 
@@ -360,7 +360,7 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Manage Paragraph with Custom Numbered List**
+## **Manage a Paragraph with a Custom Numbered List**
 The [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/) interface provides the [NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith) property and others that allow you to manage paragraphs with custom numbering or formatting. 
 
 1. Create an instance of the [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
@@ -473,7 +473,7 @@ para3.ParagraphFormat.Indent = 50;
 pres.Save("InOutDent_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Set Hanging Indent for Paragraph**
+## **Set Hanging Indent for a Paragraph**
 
 This C# code shows you how to set the hanging indent for a paragraph:  
 
@@ -506,7 +506,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Manage End Paragraph Run Properties for Paragraph**
+## **Manage End Paragraph Run Properties**
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get the reference for the slide containing the paragraph through its position.
@@ -586,7 +586,7 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Export Paragraphs Text to HTML**
+## **Export Paragraph Text to HTML**
 Aspose.Slides provides enhanced support for exporting texts (contained in paragraphs) to HTML.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the desired presentation.

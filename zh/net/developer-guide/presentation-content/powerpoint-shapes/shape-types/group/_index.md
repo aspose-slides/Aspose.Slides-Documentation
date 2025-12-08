@@ -45,6 +45,8 @@ using (Presentation pres = new Presentation())
 ```
 
 
+## **访问 AltText 属性**
+本主题展示了添加组形状并访问幻灯片上组形状的 AltText 属性的简单步骤和代码示例。要使用 Aspose.Slides for .NET 在幻灯片中访问组形状的 AltText：
 
 
 ## **访问 AltText 属性**

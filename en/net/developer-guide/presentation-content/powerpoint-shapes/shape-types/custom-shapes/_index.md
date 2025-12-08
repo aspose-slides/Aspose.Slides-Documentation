@@ -124,7 +124,7 @@ void MoveTo(float x, float y);
 void RemoveAt(int index);
 ```
 
-## **Add Custom Points to Shape**
+## **Add Custom Points to a Shape**
 
 1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) class and set the [ShapeType.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/shapetype) type.
 2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) class from the shape.
@@ -148,7 +148,7 @@ using (Presentation pres = new Presentation())
 
 ![example1_image](custom_shape_1.png)
 
-##  **Remove Points from Shape**
+##  **Remove Points from a Shape**
 
 1. Create an instance of [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) class and set the [ShapeType.Heart](https://reference.aspose.com/slides/net/aspose.slides/shapetype) type. 
 2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) class from the shape.
@@ -169,7 +169,7 @@ using (Presentation pres = new Presentation())
 ```
 ![example2_image](custom_shape_2.png)
 
-##  **Create Custom Shape**
+##  **Create a Custom Shape**
 
 1. Calculate the points for the shape.
 2. Create an instance of the [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) class. 
@@ -217,7 +217,7 @@ using (Presentation pres = new Presentation())
 ```
 ![example3_image](custom_shape_3.png)
 
-## **Create Composite Custom Shape**
+## **Create a Composite Custom Shape**
 
   1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) class.
   2. Create a first instance of the [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) class.
@@ -250,7 +250,7 @@ using (Presentation pres = new Presentation())
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Create Custom Shape with Curved Corners**
+## **Create a Custom Shape with Curved Corners**
 
 This C# code shows you how to create a custom shape with curved corners (inwards);
 

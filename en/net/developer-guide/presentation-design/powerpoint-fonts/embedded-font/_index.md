@@ -27,7 +27,7 @@ If you used a third-party or non-standard font because you got creative with you
 
 Utilize the [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/), [FontData](https://reference.aspose.com/slides/net/aspose.slides/fontdata/), and [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) classes to manage embedded fonts.
 
-## **Getting and Removing Embedded Fonts**
+## **Get and Remove Embedded Fonts**
 
 Retrieve or remove embedded fonts from a presentation effortlessly with the [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts) and [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont) methods.
 
@@ -68,7 +68,7 @@ using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
 }
 ```
 
-## **Adding Embedded Fonts**
+## **Add Embedded Fonts**
 
 Using the [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) enum and two overloads of the [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/) method, you can select your preferred (embedding) rule to embed the fonts in a presentation. This C# code shows you how to embed and add fonts to a presentation:
 
@@ -90,7 +90,7 @@ foreach (IFontData font in allFonts)
 presentation.Save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Compressing Embedded Fonts**
+## **Compress Embedded Fonts**
 
 Optimize file size by compressing embedded fonts using [CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/).
 

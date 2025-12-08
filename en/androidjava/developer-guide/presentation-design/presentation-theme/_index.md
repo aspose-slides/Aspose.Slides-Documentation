@@ -1,10 +1,28 @@
 ---
-title: Presentation Theme
+title: Manage Presentation Themes on Android
+linktitle: Presentation Theme
 type: docs
 weight: 10
 url: /androidjava/presentation-theme/
-keywords: "Theme, PowerPoint theme, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
-description: "PowerPoint presentation theme in Java"
+keywords:
+- PowerPoint theme
+- presentation theme
+- slide theme
+- set theme
+- change theme
+- manage theme
+- theme color
+- additional palette
+- theme font
+- theme style
+- theme effect
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Master presentation themes in Aspose.Slides for Android via Java to create, customize and convert PowerPoint files with consistent branding."
 ---
 
 A presentation theme defines the properties of design elements. When you select a presentation theme, you are essentially choosing a specific set of visual elements and their properties.

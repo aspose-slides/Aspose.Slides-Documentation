@@ -37,7 +37,7 @@ To allow you to use comments in PowerPoint presentations, Aspose.Slides for .NET
 * The  [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) class, which contains information on authors and their comments: who added the comment, the time the comment was added, the comment's position, etc. 
 * The [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) class, which contains information on individual authors: the author's name, his initials, comments associated with the author's name, etc. 
 
-## **Add Slide Comment**
+## **Add Slide Comments**
 This C# code shows you how to add a comment to a slide in a PowerPoint presentation:
 
 ```c#
@@ -164,7 +164,7 @@ using (Presentation pres = new Presentation())
 
 {{% /alert %}}
 
-## **Add Modern Comment**
+## **Add Modern Comments**
 
 In 2021, Microsoft introduced *modern comments* in PowerPoint. The modern comments feature significantly improves collaboration in PowerPoint. Through modern comments, PowerPoint users get to resolve comments, anchor comments to objects and texts, and engage in interactions a lot more easily than before. 
 
@@ -182,7 +182,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Remove Comment**
+## **Remove Comments**
 
 ### **Delete All Comments and Authors**
 

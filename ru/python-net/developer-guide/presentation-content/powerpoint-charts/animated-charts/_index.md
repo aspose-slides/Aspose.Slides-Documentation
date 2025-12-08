@@ -1,35 +1,49 @@
 ---
-title: Анимированные графики
+title: Анимировать диаграммы PowerPoint в Python
+linktitle: Анимированные диаграммы
 type: docs
 weight: 80
 url: /ru/python-net/animated-charts/
-keywords: "Графики, Серии графиков, Анимация, Презентация PowerPoint, PPTX, PPT, Python, Aspose.Slides for Python via .NET"
-description: "Серии графиков и анимация в PowerPoint на Python"
+keywords:
+- диаграмма
+- анимированная диаграмма
+- анимация диаграмм
+- серия диаграммы
+- категория диаграммы
+- элемент серии
+- элемент категории
+- добавить эффект
+- тип эффекта
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Создайте потрясающие анимированные диаграммы в Python с помощью Aspose.Slides. Улучшите презентации динамической визуализацией в файлах PPT, PPTX и ODP — начните прямо сейчас."
 ---
 
-Aspose.Slides for Python via .NET поддерживает анимацию элементов графиков. **Серии**, **Категории**, **Элементы серии**, **Элементы категорий** могут быть анимированы с помощью метода [**ISequence**.**AddEffect** ](https://reference.aspose.com/slides/python-net/aspose.slides.animation/isequence/) и двух перечислений [**EffectChartMajorGroupingType** ](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effectchartmajorgroupingtype/) и [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effectchartminorgroupingtype/).
-## **Анимация серий графиков**
-Если вы хотите анимировать серию графиков, напишите код, согласно шагам, приведенным ниже:
+Aspose.Slides for Python via .NET поддерживает анимацию элементов диаграммы. **Series**, **Categories**, **Series Elements**, **Categories Elements** можно анимировать с помощью метода [**ISequence**.**AddEffect**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/isequence/) и двух перечислений [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effectchartmajorgroupingtype/) и [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effectchartminorgroupingtype/).
 
-1. Загрузите презентацию.
-1. Получите ссылку на объект графика.
-1. Анимируйте серию.
-1. Запишите файл презентации на диск.
+## **Анимация серии диаграммы**
+Если вы хотите анимировать серию диаграммы, напишите код согласно нижеуказанным шагам:
 
-В примере, приведенном ниже, мы анимировали серии графиков.
+1. Загрузите презентацию.  
+2. Получите ссылку на объект диаграммы.  
+3. Анимируйте серию.  
+4. Запишите файл презентации на диск.
 
+В приведённом ниже примере мы анимировали серию диаграммы.  
 ```py
 import aspose.slides.animation as anim;
 import aspose.slides as slides
 
-# Создайте экземпляр класса Presentation, который представляет файл презентации 
+# Создать экземпляр класса Presentation, представляющий файл презентации 
 with slides.Presentation(path + "ExistingChart.pptx") as presentation:
-    # Получите ссылку на объект графика
+    # Получить ссылку на объект диаграммы
     slide = presentation.slides[0]
     shapes = slide.shapes
     chart = shapes[0]
 
-    # Анимируйте серию
+    # Анимировать серию
     slide.timeline.main_sequence.add_effect(chart, 
         anim.EffectType.FADE, 
         anim.EffectSubtype.NONE, 
@@ -59,32 +73,31 @@ with slides.Presentation(path + "ExistingChart.pptx") as presentation:
         anim.EffectSubtype.NONE, 
         anim.EffectTriggerType.AFTER_PREVIOUS)
 
-    # Запишите измененную презентацию на диск 
+    # Записать изменённую презентацию на диск 
     presentation.save("AnimatingSeries_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **Анимация категорий графиков**
-Если вы хотите анимировать серию графиков, напишите код, согласно шагам, приведенным ниже:
+## **Анимация категории диаграммы**
+Если вы хотите анимировать категорию диаграммы, напишите код согласно нижеуказанным шагам:
 
-1. Загрузите презентацию.
-1. Получите ссылку на объект графика.
-1. Анимируйте категорию.
-1. Запишите файл презентации на диск.
+1. Загрузите презентацию.  
+2. Получите ссылку на объект диаграммы.  
+3. Анимируйте категорию.  
+4. Запишите файл презентации на диск.
 
-В примере, приведенном ниже, мы анимировали категорию графиков.
-
+В приведённом ниже примере мы анимировали категорию диаграммы.  
 ```py
 import aspose.slides.animation as anim;
 import aspose.slides as slides
 
 with slides.Presentation(path + "ExistingChart.pptx") as presentation:
-    # Получите ссылку на объект графика
+    # Получить ссылку на объект диаграммы
     slide = presentation.slides[0]
     shapes = slide.shapes
     chart = shapes[0]
 
-    # Анимируйте элементы категорий
+    # Анимировать элементы категорий
     slide.timeline.main_sequence.add_effect(chart, anim.EffectType.FADE, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 0, 0, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 0, 1, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
@@ -101,33 +114,32 @@ with slides.Presentation(path + "ExistingChart.pptx") as presentation:
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 2, 2, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 2, 3, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
 
-    # Запишите файл презентации на диск
+    # Записать файл презентации на диск
     presentation.save("AnimatingCategoriesElements_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **Анимация в элементах серии**
-Если вы хотите анимировать элементы серии, напишите код, согласно шагам, приведенным ниже:
+## **Анимация в элементе серии**
+Если вы хотите анимировать элементы серии, напишите код согласно нижеуказанным шагам:
 
-1. Загрузите презентацию.
-1. Получите ссылку на объект графика.
-1. Анимируйте элементы серии.
-1. Запишите файл презентации на диск.
+1. Загрузите презентацию.  
+2. Получите ссылку на объект диаграммы.  
+3. Анимируйте элементы серии.  
+4. Запишите файл презентации на диск.
 
-В примере, приведенном ниже, мы анимировали элементы серии.
-
+В приведённом ниже примере мы анимировали элементы серии.  
 ```py
 import aspose.slides.animation as anim;
 import aspose.slides as slides
 
-# Загрузите презентацию
+# Загрузить презентацию
 with slides.Presentation(path + "ExistingChart.pptx") as presentation:
-    # Получите ссылку на объект графика
+    # Получить ссылку на объект диаграммы
     slide = presentation.slides[0]
     shapes = slide.shapes
     chart = shapes[0]
 
-    # Анимируйте элементы серии
+    # Анимировать элементы серии
     slide.timeline.main_sequence.add_effect(chart, anim.EffectType.FADE, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
 
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_SERIES, 0, 0, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
@@ -145,32 +157,31 @@ with slides.Presentation(path + "ExistingChart.pptx") as presentation:
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_SERIES, 2, 2, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_SERIES, 2, 3, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
 
-    # Запишите файл презентации на диск 
+    # Записать файл презентации на диск 
     presentation.save("AnimatingSeriesElements_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **Анимация в элементах категории**
-Если вы хотите анимировать элементы категорий, напишите код, согласно шагам, приведенным ниже:
+## **Анимация в элементе категории**
+Если вы хотите анимировать элементы категорий, напишите код согласно нижеуказанным шагам:
 
-1. Загрузите презентацию.
-1. Получите ссылку на объект графика.
-1. Анимируйте элементы категорий.
-1. Запишите файл презентации на диск.
+1. Загрузите презентацию.  
+2. Получите ссылку на объект диаграммы.  
+3. Анимируйте элементы категорий.  
+4. Запишите файл презентации на диск.
 
-В примере, приведенном ниже, мы анимировали элементы категорий.
-
+В приведённом ниже примере мы анимировали элементы категорий.  
 ```py
 import aspose.slides.animation as anim;
 import aspose.slides as slides
 
 with slides.Presentation(path + "ExistingChart.pptx") as presentation:
-    # Получите ссылку на объект графика
+    # Получить ссылку на объект диаграммы
     slide = presentation.slides[0]
     shapes = slide.shapes
     chart = shapes[0]
 
-    # Анимируйте элементы категорий
+    # Анимировать элементы категорий
     slide.timeline.main_sequence.add_effect(chart, anim.EffectType.FADE, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 0, 0, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 0, 1, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
@@ -187,6 +198,25 @@ with slides.Presentation(path + "ExistingChart.pptx") as presentation:
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 2, 2, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 2, 3, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
 
-    # Запишите файл презентации на диск
+    # Записать файл презентации на диск
     presentation.save("AnimatingCategoriesElements_out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+
+## **FAQ**
+
+**Поддерживаются ли различные типы эффектов (например, появление, акцент, исчезновение) для диаграмм так же, как и для обычных фигур?**  
+Да. Диаграмма рассматривается как фигура, поэтому поддерживает стандартные типы анимационных эффектов, включая появление, акцент и исчезновение, с полным контролем через временную шкалу слайда и последовательности анимаций.
+
+**Можно ли сочетать анимацию диаграммы с переходами слайда?**  
+Да. [Transitions](/slides/ru/python-net/slide-transition/) применяются к слайду, тогда как анимационные эффекты применяются к объектам на слайде. Вы можете использовать их вместе в одной презентации и управлять ими независимо.
+
+**Сохраняются ли анимации диаграмм при сохранении в PPTX?**  
+Да. При [save to PPTX](/slides/ru/python-net/save-presentation/) все анимационные эффекты и их порядок сохраняются, поскольку они являются частью нативной модели анимации презентации.
+
+**Можно ли прочитать существующие анимации диаграмм из презентации и изменить их?**  
+Да. [API](https://reference.aspose.com/slides/python-net/aspose.slides.animation/) предоставляет доступ к временной шкале слайда, последовательностям и эффектам, позволяя просматривать существующие анимации диаграмм и корректировать их без полной переделки.
+
+**Можно ли создать видео, включающее анимацию диаграмм, используя Aspose.Slides for Python via .NET?**  
+Да. Вы можете [export a presentation to video](/slides/ru/python-net/convert-powerpoint-to-video/) с сохранением анимаций, настройкой таймингов и другими параметрами экспорта, чтобы получившийся клип отражал анимированное воспроизведение.

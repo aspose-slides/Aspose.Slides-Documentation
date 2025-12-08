@@ -57,7 +57,7 @@ try {
 }
 ```
 
-## **Hide Information from Chart**
+## **Hide Chart Elements**
 This topic helps you to understand how to hide information from chart. Using Aspose.Slides for Java you can hide **Title, Vertical Axis, Horizontal Axis** and **Grid Lines** from chart. Below code example shows how to use these properties.
 
 ```java
@@ -103,3 +103,17 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**Do external Excel workbooks work as a data source, and how does that affect recalculation?**
+
+Yes. A chart can reference an external workbook: when you connect or refresh the external source, formulas and values are taken from that workbook, and the chart reflects the updates during open/edit operations. The API lets you [specify the external workbook](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setExternalWorkbook-java.lang.String-boolean-) path and manage the linked data.
+
+**Can I compute and display trendlines without implementing regression myself?**
+
+Yes. [Trendlines](/slides/java/trend-line/) (linear, exponential, and others) are added and updated by Aspose.Slides; their parameters are recalculated from the series data automatically, so you don’t need to implement your own calculations.
+
+**If a presentation has multiple charts with external links, can I control which workbook each chart uses for computed values?**
+
+Yes. Each chart can point to its own [external workbook](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setExternalWorkbook-java.lang.String-boolean-), or you can create/replace an external workbook per chart independently of the others.

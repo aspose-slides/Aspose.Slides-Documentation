@@ -1,8 +1,20 @@
 ---
-title: Render Presentation with Fallback Font
+title: Render Presentations with Fallback Fonts in PHP
+linktitle: Render Presentations
 type: docs
 weight: 30
 url: /php-java/render-presentation-with-fallback-font/
+keywords:
+- fallback font
+- render PowerPoint
+- render presentation
+- render slide
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Render presentations with fallback fonts in Aspose.Slides for PHP via Java – keep text consistent across PPT, PPTX and ODP with step-by-step code samples."
 ---
 
 The following example includes these steps:

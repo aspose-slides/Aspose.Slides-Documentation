@@ -1,8 +1,20 @@
 ---
-title: Clone Slides
+title: Clone Presentation Slides in JavaScript
+linktitle: Clone Slides
 type: docs
 weight: 35
 url: /nodejs-java/clone-slides/
+keywords:
+- clone slide
+- copy slide
+- save slide
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Quickly duplicate PowerPoint slides with Aspose.Slides for Node.js. Follow our code examples to automate PPT creation in seconds and eliminate manual work."
 ---
 
 

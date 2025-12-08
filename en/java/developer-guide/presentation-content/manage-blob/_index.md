@@ -37,7 +37,7 @@ To circumvent certain limitations when interacting with streams, Aspose.Slides m
 
 ## **Use BLOB to Reduce Memory Consumption**
 
-### **Add Large File through BLOB to a Presentation**
+### **Add a Large File through BLOB to a Presentation**
 
 [Aspose.Slides](/slides/java/) for Java allows you to add large files (in this case, a large video file) through a process involving BLOBs to reduce memory consumption.
 
@@ -69,7 +69,7 @@ try {
 ```
 
 
-### **Export Large File Through BLOB from Presentation**
+### **Export a Large File through BLOB from Presentation**
 Aspose.Slides for Java allows you to export large files (in this case, an audio or video file) through a process involving BLOBs from presentations. For example, you may need to extract a large media file from a presentation but do not want the file to be loaded into your computer's memory. By exporting the file through the BLOB process, you get to keep memory consumption low. 
 
 This code in Java demonstrates the described operation:
@@ -120,7 +120,7 @@ try {
 
 ```
 
-### **Add Image as BLOB in Presentation**
+### **Add an Image as BLOB to a Presentation**
 With methods from the [**IImageCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) interface and [**ImageCollection** ](https://reference.aspose.com/slides/java/com.aspose.slides/ImageCollection) class, you can add a large image as a stream to get it treated as a BLOB. 
 
 This Java code shows you how to add a large image through the BLOB process:
@@ -200,3 +200,25 @@ loadOptions.getBlobManagementOptions().setTempFilesRootPath("temp");
 When you use `TempFilesRootPath`, Aspose.Slides does not automatically create a folder to store temporary files. You have to create the folder manually. 
 
 {{% /alert %}}
+
+## **FAQ**
+
+**What data in an Aspose.Slides presentation is treated as BLOB and controlled by BLOB options?**
+
+Large binary objects such as images, audio, and video are treated as BLOB. The whole presentation file also involves BLOB handling when it’s loaded or saved. These objects are governed by BLOB policies that let you manage memory usage and spill to temporary files when needed.
+
+**Where do I configure BLOB handling rules during presentation loading?**
+
+Use [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/) with [BlobManagementOptions](https://reference.aspose.com/slides/java/com.aspose.slides/blobmanagementoptions/). There you set the in-memory limit for BLOB, allow or disallow temporary files, choose the root path for temp files, and select source locking behavior.
+
+**Do BLOB settings affect performance, and how do I balance speed vs memory?**
+
+Yes. Keeping BLOB in memory maximizes speed but increases RAM consumption; lowering the memory limit shifts more work to temporary files, reducing RAM at the cost of additional I/O. Use the [setMaxBlobsBytesInMemory](https://reference.aspose.com/slides/java/com.aspose.slides/blobmanagementoptions/#setMaxBlobsBytesInMemory-long-) method to reach the right balance for your workload and environment.
+
+**Do BLOB options help when opening extremely large presentations (e.g., gigabytes)?**
+
+Yes. [BlobManagementOptions](https://reference.aspose.com/slides/java/com.aspose.slides/blobmanagementoptions/) are designed for such scenarios: enabling temporary files and using source locking can significantly reduce peak RAM use and stabilize processing for very large decks.
+
+**Can I use BLOB policies when loading from streams instead of disk files?**
+
+Yes. The same rules apply to streams: the presentation instance can own and lock the input stream (depending on the chosen locking mode), and temporary files are used when allowed, keeping memory usage predictable during processing.

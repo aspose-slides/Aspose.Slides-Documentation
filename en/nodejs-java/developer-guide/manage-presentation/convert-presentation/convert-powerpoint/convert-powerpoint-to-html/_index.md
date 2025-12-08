@@ -1,11 +1,31 @@
 ---
-title: Convert PowerPoint to HTML in JavaScript
-linktitle: Convert Powerpoint to HTML
+title: Convert PowerPoint Presentations to HTML in JavaScript
+linktitle: PowerPoint to HTML
 type: docs
 weight: 30
 url: /nodejs-java/convert-powerpoint-to-html/
-keywords: "Java PowerPoint to HTML, Convert PowerPoint Presentation, PPTX, PPT, PPT to HTML, PPTX to HTML, PowerPoint to HTML, Save PowerPoint as HTML, Save PPT as HTML, Save PPTX as HTML, Java, Aspose.Slides, HTML export"
-description: "Convert PowerPoint to HTML in JavaScript. Save PPTX or PPT as HTML in JavaScript. Save slides as HTML in JavaScript"
+keywords:
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- PowerPoint to HTML
+- presentation to HTML
+- slide to HTML
+- PPT to HTML
+- PPTX to HTML
+- save PowerPoint as HTML
+- save presentation as HTML
+- save slide as HTML
+- save PPT as HTML
+- save PPTX as HTML
+- export PPT to HTML
+- export PPTX to HTML
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Convert PowerPoint presentations to responsive HTML. Preserve layout, links, and images with Aspose.Slides conversion guide for fast, flawless results."
 ---
 
 ## **Overview**

@@ -89,3 +89,16 @@ try {
 }
 ```
 
+## **FAQ**
+
+**Will superscript and subscript be preserved when exporting to PDF or other formats?**
+
+Yes, Aspose.Slides properly retains superscript and subscript formatting when exporting presentations to PDF, PPT/PPTX, images, and other supported formats. The specialized formatting remains intact in all output files.
+
+**Can superscript and subscript be combined with other formatting styles such as bold or italics?**
+
+Yes, Aspose.Slides allows you to mix various text styles within a single portion of text. You can enable bold, italics, underline, and simultaneously apply superscript or subscript by configuring the corresponding properties in [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/).
+
+**Do superscript and subscript formatting work for text inside tables, charts, or SmartArt?**
+
+Yes, Aspose.Slides supports formatting within most objects, including tables and chart elements. When working with SmartArt, you need to access the appropriate elements (such as [SmartArtNode](https://reference.aspose.com/slides/java/com.aspose.slides/smartartnode/)) and their text containers, and then configure the [PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/) properties in a similar manner.

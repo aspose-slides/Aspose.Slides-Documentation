@@ -1,22 +1,32 @@
 ---
-title: Extracción de imágenes de formas de presentación
+title: Extraer imágenes de formas de presentación en Python
+linktitle: Imagen de forma
 type: docs
 weight: 90
 url: /es/python-net/extracting-images-from-presentation-shapes/
-keywords: "Extraer imagen, PowerPoint, PPT, PPTX, presentación de PowerPoint, Python, Aspose.Slides para Python"
-description: "Extraer imágenes de presentaciones de PowerPoint en Python"
+keywords:
+- extraer imagen
+- recuperar imagen
+- fondo de diapositiva
+- fondo de forma
+- PowerPoint
+- presentación
+- Python
+- Aspose.Slides
+description: "Extrae imágenes de formas en presentaciones de PowerPoint y OpenDocument con Aspose.Slides para Python a través de .NET — solución rápida y fácil de usar."
 ---
+
+## **Extraer imágenes de formas**
 
 {{% alert color="primary" %}} 
 
-Las imágenes a menudo se agregan a las formas y también se utilizan frecuentemente como fondos de diapositivas. Los objetos de imagen se agregan a través de [IImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/iimagecollection/), que es una colección de objetos [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/). 
+Las imágenes a menudo se añaden a las formas y también se usan frecuentemente como fondos de diapositivas. Los objetos de imagen se añaden a través de [IImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/iimagecollection/), que es una colección de objetos [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/). 
 
-Este artículo explica cómo puedes extraer las imágenes añadidas a las presentaciones. 
+Este artículo explica cómo extraer las imágenes añadidas a las presentaciones. 
 
 {{% /alert %}} 
 
-Para extraer una imagen de una presentación, primero debes localizar la imagen revisando cada diapositiva y luego revisando cada forma. Una vez que la imagen se encuentre o se identifique, puedes extraerla y guardarla como un nuevo archivo. XXX 
-
+Para extraer una imagen de una presentación, debe localizar la imagen primero recorriendo cada diapositiva y luego cada forma. Una vez que la imagen se encuentre o identifique, puede extraerla y guardarla como un nuevo archivo. XXX 
 ```py
 import aspose.slides as slides
 
@@ -79,3 +89,22 @@ with slides.Presentation("pres.pptx") as pres:
                                 file_name.format("shape_"+str(i)+"_", slideIndex, image_type), 
                                 image_format)
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Puedo extraer la imagen original sin recortes, efectos o transformaciones de la forma?**
+
+Sí. Cuando accede a la imagen de una forma, obtiene el objeto de imagen de la [image collection](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/) de la presentación, lo que significa los píxeles originales sin recortes ni efectos de estilo. El flujo de trabajo recorre la colección de imágenes de la presentación y los objetos [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/), que almacenan los datos sin procesar.
+
+**¿Existe el riesgo de duplicar archivos idénticos al guardar muchas imágenes a la vez?**
+
+Sí, si guarda todo indiscriminadamente. La [image collection](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/) de una presentación puede contener datos binarios idénticos referenciados por diferentes formas o diapositivas. Para evitar duplicados, compare los hash, tamaños o contenidos de los datos extraídos antes de escribir.
+
+**¿Cómo puedo determinar qué formas están vinculadas a una imagen específica de la colección de la presentación?**
+
+Aspose.Slides no almacena enlaces inversos de [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) a las formas. Construya un mapeo manualmente durante la recorrido: cada vez que encuentre una referencia a un [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/), registre qué formas lo utilizan.
+
+**¿Puedo extraer imágenes incrustadas dentro de objetos OLE, como documentos adjuntos?**
+
+No directamente, porque un objeto OLE es un contenedor. Necesita extraer el paquete OLE y luego analizar su contenido usando herramientas separadas. Las formas de imagen de la presentación funcionan a través de [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/); OLE es un tipo de objeto diferente.

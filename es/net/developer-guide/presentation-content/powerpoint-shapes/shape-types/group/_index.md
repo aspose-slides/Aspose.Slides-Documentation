@@ -56,7 +56,7 @@ Este tema muestra pasos simples, con ejemplos de código, para agregar una forma
 
 El ejemplo a continuación accede al texto alternativo de la forma de grupo.
 ```c#
-// Instanciar la clase Presentation que representa el archivo PPTX
+// Instanciar la clase Presentation que representa un archivo PPTX
 Presentation pres = new Presentation("AltText.pptx");
 
 // Obtener la primera diapositiva
@@ -64,17 +64,17 @@ ISlide sld = pres.Slides[0];
 
 for (int i = 0; i < sld.Shapes.Count; i++)
 {
-    // Accediendo a la colección de formas de las diapositivas
+    // Acceder a la colección de formas de las diapositivas
     IShape shape = sld.Shapes[i];
 
     if (shape is GroupShape)
     {
-        // Accediendo a la forma de grupo.
+        // Acceder a la forma de grupo.
         IGroupShape grphShape = (IGroupShape)shape;
         for (int j = 0; j < grphShape.Shapes.Count; j++)
         {
             IShape shape2 = grphShape.Shapes[j];
-            // Accediendo a la propiedad AltText
+            // Acceder a la propiedad AltText
             Console.WriteLine(shape2.AlternativeText);
         }
     }

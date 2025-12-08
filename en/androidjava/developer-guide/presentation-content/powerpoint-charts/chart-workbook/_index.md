@@ -1,10 +1,24 @@
 ---
-title: Chart Workbook
+title: Manage Chart Workbooks in Presentations on Android
+linktitle: Chart Workbook
 type: docs
 weight: 70
 url: /androidjava/chart-workbook/
-keywords: "Chart workbook, chart data, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
-description: "Chart workbook in PowerPoint presentation in Java"
+keywords:
+- chart workbook
+- chart data
+- workbook cell
+- data label
+- worksheet
+- data source
+- external workbook
+- external data
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Discover Aspose.Slides for Android via Java: effortlessly manage chart workbooks in PowerPoint and OpenDocument formats to streamline your presentation data."
 ---
 
 ## **Set Chart Data from Workbook**

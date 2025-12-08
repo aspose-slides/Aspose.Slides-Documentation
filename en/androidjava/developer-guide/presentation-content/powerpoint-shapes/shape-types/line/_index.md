@@ -1,8 +1,24 @@
 ---
-title: Line
+title: Add Line Shapes to Presentations on Android
+linktitle: Line
 type: docs
 weight: 50
 url: /androidjava/Line/
+keywords:
+- line
+- create line
+- add line
+- plain line
+- configure line
+- customize line
+- dash style
+- arrow head
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Learn to manipulate line formatting in PowerPoint presentations with Aspose.Slides for Android. Discover properties, methods, and Java examples."
 ---
 
 

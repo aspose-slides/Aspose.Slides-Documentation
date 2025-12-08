@@ -21,7 +21,7 @@ keywords:
 description: "Quickly add and customize trend lines in PowerPoint charts with Aspose.Slides for .NET — a practical guide to engage your audience."
 ---
 
-## **Add Trend Line**
+## **Add a Trend Line**
 Aspose.Slides for .NET provides a simple API for managing different chart Trend Lines:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
@@ -84,7 +84,7 @@ pres.Save("ChartTrendLines_out.pptx", SaveFormat.Pptx);
 
 
 
-## **Add Custom Line**
+## **Add a Custom Line**
 Aspose.Slides for .NET provides a simple API to add custom lines in a chart. To add a simple plain line to a selected slide of the presentation, please follow the steps below:
 
 - Create an instance of Presentation class

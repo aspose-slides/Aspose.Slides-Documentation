@@ -17,8 +17,12 @@ Aspose.Slides for .NET 支持向幻灯片添加不同类型的形状。 在本�
 - 使用 Shapes 对象公开的 [AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/methods/addautoshape/index) 方法添加 Line 类型的 AutoShape。
 - 将修改后的演示文稿保存为 PPTX 文件。
 
-在下面的示例中，我们已向演示文稿的第一张幻灯片添加了一条线。
+- 创建一个 [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)类的实例。
+- 使用索引获取幻灯片的引用。
+- 使用 Shapes 对象公开的 [AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/methods/addautoshape/index) 方法添加 Line 类型的 AutoShape。
+- 将修改后的演示文稿保存为 PPTX 文件。
 
+在下面的示例中，我们在演示文稿的第一张幻灯片上添加了一条直线。
 ```c#
  // 实例化表示 PPTX 文件的 PresentationEx 类
  using (Presentation pres = new Presentation())

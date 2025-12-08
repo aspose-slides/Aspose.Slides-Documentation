@@ -21,7 +21,7 @@ description: "Work with audio in C# using Aspose.Slides: add, replace, extract, 
 
 Illustrates how to embed audio frames and control playback with **Aspose.Slides for .NET**. The following examples show basic audio operations.
 
-## Add an Audio Frame
+## **Add an Audio Frame**
 
 Insert an empty audio frame that can later hold embedded sound data.
 
@@ -36,7 +36,7 @@ static void Add_Audio()
 }
 ```
 
-## Access an Audio Frame
+## **Access an Audio Frame**
 
 This code retrieves the first audio frame on a slide.
 
@@ -52,7 +52,7 @@ static void Access_Audio()
 }
 ```
 
-## Remove an Audio Frame
+## **Remove an Audio Frame**
 
 Delete a previously added audio frame.
 
@@ -68,7 +68,7 @@ static void Remove_Audio()
 }
 ```
 
-## Set Audio Playback
+## **Set Audio Playback**
 
 Configure the audio frame to play automatically when the slide appears.
 

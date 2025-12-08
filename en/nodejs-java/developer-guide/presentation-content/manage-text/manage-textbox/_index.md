@@ -1,5 +1,6 @@
 ---
-title: Manage TextBox
+title: Manage Text Boxes in Presentations Using JavaScript
+linktitle: Manage Text Box
 type: docs
 weight: 20
 url: /nodejs-java/manage-textbox/
@@ -8,13 +9,16 @@ keywords:
 - text frame
 - add text
 - update text
-- text box with a hyperlink
+- create text box
+- check text box
+- add text column
+- add hyperlink
 - PowerPoint
 - presentation
 - Node.js
 - JavaScript
-- Aspose.Slides for Node.js via Java
-description: "Manage a text box or text frame in PowerPoint presentations using JavaScript"
+- Aspose.Slides
+description: "Aspose.Slides for Node.js makes it easy to create, edit, and clone text boxes in PowerPoint and OpenDocument files, enhancing your presentation automation."
 ---
 
 

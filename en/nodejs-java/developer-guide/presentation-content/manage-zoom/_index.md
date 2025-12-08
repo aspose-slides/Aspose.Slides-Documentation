@@ -1,10 +1,22 @@
 ---
-title: Manage Zoom
+title: Manage Presentation Zoom in JavaScript
+linktitle: Manage Zoom
 type: docs
 weight: 60
 url: /nodejs-java/manage-zoom/
-keywords: "Zoom, Zoom frame, Add zoom, Format zoom frame, Summary zoom, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Add zoom or zoom frames to PowerPoint presentations in JavaScript"
+keywords:
+- zoom
+- zoom frame
+- slide zoom
+- section zoom
+- summary zoom
+- add zoom
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Create and customize Zoom with Aspose.Slides for Node.js — jump between sections, add thumbnails and transitions across PPT, PPTX and ODP presentations."
 ---
 
 ## **Overview**

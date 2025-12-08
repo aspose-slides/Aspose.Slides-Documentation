@@ -1,11 +1,22 @@
 ---
-title: Font Selection Sequence
-linktitle: Font Selection Sequence
+title: Font Selection Sequence in Aspose.Slides for PHP
+linktitle: Font Selection
 type: docs
 weight: 80
 url: /php-java/font-selection-sequence/
-keywords: "Font, Font selection, Font substitution, Font replacement, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: PowerPoint font selection sequence
+keywords:
+- font selection
+- font substitution
+- font replacement
+- substitution rule
+- available font
+- missing font
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Discover how Aspose.Slides for PHP via Java selects fonts, ensuring crisp, consistent presentation of PPT, PPTX and ODP files — improve your slides now."
 ---
 
 ## Font Selection

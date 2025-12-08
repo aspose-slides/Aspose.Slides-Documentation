@@ -1,10 +1,31 @@
 ---
-title: Chart Worksheet Formulas
+title: Apply Chart Worksheet Formulas in Presentations Using JavaScript
+linktitle: Worksheet Formulas
 type: docs
 weight: 70
 url: /nodejs-java/chart-worksheet-formulas/
-keywords: "powerpoint equations, powerpoint spreadsheet formulas"
-description: "PowerPoint Equations and Spreadsheet Formulas"
+keywords:
+- chart spreadsheet
+- chart worksheet
+- chart formula
+- worksheet formula
+- spreadsheet formula
+- data source
+- logical constant
+- numerical constant
+- string constant
+- error constant
+- arithmetic constant
+- comparison operator
+- A1 style
+- R1C1 style
+- predefined function
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Apply Excel-style formulas in Aspose.Slides for Node.js via Java chart worksheets and automate reports across PPT and PPTX files in JavaScript."
 ---
 
 

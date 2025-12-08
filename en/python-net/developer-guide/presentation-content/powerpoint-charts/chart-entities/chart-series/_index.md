@@ -1,6 +1,6 @@
 ---
-title: Manage Chart Series in Python
-linktitle: Chart Series
+title: Manage Chart Data Series in Python
+linktitle: Data Series
 type: docs
 url: /python-net/chart-series/
 keywords:
@@ -15,7 +15,7 @@ keywords:
 - presentation
 - Python
 - Aspose.Slides
-description: "Learn how to manage chart series in Python for PowerPoint (PPT/PPTX) with practical code examples and best practices to enhance your data presentations."
+description: "Learn how to manage chart data series in Python for PowerPoint (PPT/PPTX) with practical code examples and best practices to enhance your data presentations."
 ---
 
 ## **Overview**

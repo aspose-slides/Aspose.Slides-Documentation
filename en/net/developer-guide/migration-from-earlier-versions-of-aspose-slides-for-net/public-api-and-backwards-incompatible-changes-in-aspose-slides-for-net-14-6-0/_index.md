@@ -213,7 +213,7 @@ The following methods add/insert a copy of a specified shape into the collection
 }
 
 ``` 
-#### **Added the ViewType enum, IViewProperties interface, ViewProperties class and IPresentation.ViewProperties Properties**
+#### **Added the ViewType Enum, IViewProperties Interface, ViewProperties Class and IPresentation.ViewProperties Properties**
 The IPresentation.ViewProperty allows developers to change the presentation view type and notes visibility when a presentation is opened in PowerPoint.
 
 ``` csharp

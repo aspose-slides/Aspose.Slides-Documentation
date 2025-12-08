@@ -1,5 +1,5 @@
 ---
-title: Create a Presentation in Python
+title: Create Presentations in Python
 linktitle: Create Presentation
 type: docs
 weight: 10

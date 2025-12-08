@@ -12,7 +12,7 @@ Aspose.Slides for .NET поддерживает добавление разны�
 ## **Создать простую линию**
 Чтобы добавить простую линию на выбранный слайд презентации, выполните следующие шаги:
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+- Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Получите ссылку на слайд, используя его индекс.
 - Добавьте AutoShape типа Line, используя метод [AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/methods/addautoshape/index), предоставляемый объектом Shapes.
 - Запишите изменённую презентацию в файл PPTX.
@@ -61,16 +61,13 @@ using (Presentation pres = new Presentation())
     shp.LineFormat.Style = LineStyle.ThickBetweenThin;
     shp.LineFormat.Width = 10;
 
-    shp.LineFormat.DashStyle = LineDashStyle.DashDot;
+Нет. Обычная линия (это [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) типа [Line](https://reference.aspose.com/slides/net/aspose.slides/shapetype/)) автоматически не становится соединителем. Чтобы она «прилипала» к фигурам, используйте специальный тип [Connector](https://reference.aspose.com/slides/net/aspose.slides/connector/) и [соответствующие API](/slides/ru/net/connector/) для соединений.
 
-    shp.LineFormat.BeginArrowheadLength = LineArrowheadLength.Short;
-    shp.LineFormat.BeginArrowheadStyle = LineArrowheadStyle.Oval;
+**Что делать, если свойства линии наследуются из темы и трудно определить окончательные значения?**
 
-    shp.LineFormat.EndArrowheadLength = LineArrowheadLength.Long;
-    shp.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+[Читайте эффективные свойства](/slides/ru/net/shape-effective-properties/) через классы [ILineFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilinefillformateffectivedata/) — они уже учитывают наследование и стили темы.
 
-    shp.LineFormat.FillFormat.FillType = FillType.Solid;
-    shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Maroon;
+**Могу ли я заблокировать линию от изменения (перемещения, изменения размера)?**
 
     //Записать PPTX на диск
     pres.Save("LineShape2_out.pptx", SaveFormat.Pptx);

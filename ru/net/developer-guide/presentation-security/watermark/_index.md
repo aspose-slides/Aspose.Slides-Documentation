@@ -1,251 +1,251 @@
 ---
-title: Водяной знак
+title: Добавить водяной знак в презентацию на C#
+linktitle: Водяной знак
 type: docs
 weight: 40
 url: /ru/net/watermark/
-keywords: "Водяной знак, добавить водяной знак, текстовый водяной знак, изображение водяного знака, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
-description: "Добавление текстового и изображенческого водяного знака в презентацию PowerPoint на C# или .NET"
+keywords:
+- водяной знак
+- текстовый водяной знак
+- изображение водяного знака
+- добавить водяной знак
+- изменить водяной знак
+- удалить водяной знак
+- удалить водяной знак
+- добавить водяной знак в презентацию
+- добавить водяной знак в PPT
+- добавить водяной знак в PPTX
+- добавить водяной знак в ODP
+- удалить водяной знак из презентации
+- удалить водяной знак из PPT
+- удалить водяной знак из PPTX
+- удалить водяной знак из ODP
+- удалить водяной знак из презентации
+- удалить водяной знак из PPT
+- удалить водяной знак из PPTX
+- удалить водяной знак из ODP
+- PowerPoint
+- OpenDocument
+- презентация
+- C#
+- Csharp
+- Aspose.Slides for .NET
+description: "Узнайте, как управлять текстовыми и графическими водяными знаками в презентациях PowerPoint и OpenDocument на C#, чтобы обозначать черновик, конфиденциальную информацию, авторские права и многое другое."
 ---
 
-## **О водяном знаке**
-**Водяной знак** в презентации — это текстовая или изображенческая метка, используемая на слайде или на всех слайдах презентации. Обычно водяной знак используется для указания на то, что презентация является черновиком (например, водяной знак "Черновик"); что она содержит конфиденциальную информацию (например, водяной знак "Конфиденциально"); для указания, к какой компании она принадлежит (например, водяной знак "Название компании"); для идентификации автора презентации и т.д. Водяной знак помогает предотвратить нарушение авторских прав на презентацию, указывая, что презентацию нельзя копировать. Водяные знаки используются как в формате PowerPoint, так и OpenOffice. В Aspose.Slides вы можете добавить водяной знак в форматы файлов PowerPoint PPT, PPTX и OpenOffice ODP.
+## **Обзор**
 
-В [**Aspose.Slides**](https://products.aspose.com/slides/net/) существуют различные способы создания водяного знака в PowerPoint или OpenOffice, обернуть его в разные формы, изменить дизайн и поведение и т.д. Общее то, что для добавления текстовых водяных знаков вы должны использовать класс [**TextFrame**](https://reference.aspose.com/slides/net/aspose.slides/textframe), а для добавления изображенческого водяного знака - [**PictureFrame**](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/). PictureFrame реализует интерфейс [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) и может использовать все преимущества гибких настроек объекта формы. TextFrame не является формой, и его настройки ограничены. Поэтому рекомендуется обернуть TextFrame в объект [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape).
+**Водяной знак** в презентации — это текстовый или графический штамп, используемый на отдельном слайде или на всех слайдах презентации. Обычно водяной знак используется для указания, что презентация является черновиком (например, водяной знак «Черновик»), содержит конфиденциальную информацию (например, «Конфиденциально»), относится к определённой компании (например, «Название компании»), идентифицирует автора презентации и т.д. Водяной знак помогает предотвратить нарушения авторских прав, указывая, что презентацию нельзя копировать. Водяные знаки используются как в форматах PowerPoint, так и в OpenDocument. В Aspose.Slides вы можете добавить водяной знак в файлы PowerPoint PPT, PPTX и OpenDocument ODP.
 
-Существует два способа применения водяного знака: к одному слайду и ко всем слайдам презентации. Мастер слайдов используется для применения водяного знака ко всем слайдам презентации - водяной знак добавляется в Мастер слайдов, полностью проектируется там и применяется ко всем слайдам без изменения разрешения на изменение водяного знака на слайдах.
+В [**Aspose.Slides**](https://products.aspose.com/slides/net/) существует несколько способов создания водяных знаков в документах PowerPoint или OpenDocument и изменения их дизайна и поведения. Общий момент — для добавления текстовых водяных знаков следует использовать интерфейс [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/), а для добавления графических — класс [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/) или заполнить форму водяного знака изображением. `PictureFrame` реализует интерфейс [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape), что позволяет использовать все гибкие параметры объекта формы. Поскольку `ITextFrame` не является формой и его параметры ограничены, он оборачивается в объект [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape).
 
-Водяной знак обычно считается недоступным для редактирования другими пользователями. Чтобы предотвратить редактирование водяного знака (или точнее, родительской формы водяного знака), Aspose.Slides предоставляет функциональность блокировки форм. Определенная форма может быть заблокирована на обычном слайде или на Мастере слайдов. Когда форма водяного знака блокируется на Мастере слайдов - она будет заблокирована на всех слайдах презентации.
+Есть два способа применения водяного знака: к отдельному слайду или ко всем слайдам презентации. Для применения к каждому слайду используется Slide Master — водяной знак добавляется в Slide Master, полностью оформляется там и применяется ко всем слайдам, не влияя на возможность изменения водяного знака на отдельных слайдах.
 
-Вы можете установить имя водяного знака, чтобы в будущем, если вы захотите удалить водяной знак, вы могли найти его в формах слайда по имени.
+Водяной знак обычно считается недоступным для редактирования другими пользователями. Чтобы предотвратить редактирование водяного знака (точнее, родительской формы знака), Aspose.Slides предоставляет функциональность блокировки формы. Конкретную форму можно заблокировать как на обычном слайде, так и на Slide Master. Когда форма водяного знака заблокирована на Slide Master, она будет заблокирована на всех слайдах презентации.
 
-Вы можете оформлять водяной знак любым образом, однако обычно существуют общие особенности внутри водяных знаков, такие как: центрирование, вращение, передний план и т.д. Мы рассмотрим, как их использовать в примерах ниже.
+Вы можете задать имя водяному знаку, чтобы в дальнейшем, при необходимости удалить его, найти форму по имени в коллекции форм слайда.
+
+Водяной знак можно оформить как угодно; однако обычно у водяных знаков есть общие черты: центрирование, вращение, расположение спереди и т.д. Мы рассмотрим, как использовать эти возможности в примерах ниже.
+
 ## **Текстовый водяной знак**
+
 ### **Добавление текстового водяного знака на слайд**
-Чтобы добавить текстовый водяной знак в PPT, PPTX или ODP, вы можете сначала добавить форму на слайд, а затем добавить текстовую рамку в эту форму. Текстовая рамка представлена типом [**TextFrame**](https://reference.aspose.com/slides/net/aspose.slides/textframe). Этот тип не наследуется от [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), который имеет широкий набор свойств для гибкой настройки водяного знака. Поэтому рекомендуется обернуть объект [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) в объект [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/). Чтобы добавить водяной знак в форму, используйте метод [**AddTextFrame**](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/methods/addtextframe) с переданным текстом водяного знака:
 
-``` csharp
+Чтобы добавить текстовый водяной знак в PPT, PPTX или ODP, сначала добавьте форму на слайд, затем добавьте в эту форму текстовый фрейм. Текстовый фрейм представлен интерфейсом [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe). Этот тип не наследуется от [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), который имеет широкий набор свойств для гибкого позиционирования водяного знака. Поэтому объект [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe) оборачивается в объект [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/). Чтобы добавить текст водяного знака в форму, используйте метод [AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/methods/addtextframe), как показано ниже.
+```cs
+string watermarkText = "CONFIDENTIAL";
 
- using (var presentation = new Presentation())
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
 
-{
-
-	ISlide slide = presentation.Slides[0];
-
-	IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 0, 0, 0, 0);
-
-	ITextFrame watermarkTextFrame = watermarkShape.AddTextFrame("Водяной знак");
-
-}
-
+// Добавьте водяной знак на слайд.
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
 
-
-{{% alert color="primary" title="Смотрите также" %}} 
-- [Как использовать ](/slides/ru/net/slide-master/)[TextFrame](/slides/ru/net/adding-and-formatting-text/)
+{{% alert color="primary" title="See also" %}} 
+- [How to Use the TextFrame Class?](/slides/ru/net/text-formatting/)
 {{% /alert %}}
 
 ### **Добавление текстового водяного знака в презентацию**
-Если вы хотите добавить водяной знак в презентацию (то есть, на все слайды сразу), добавьте его в [**MasterSlide**](https://reference.aspose.com/slides/net/aspose.slides/masterslide/). Вся другая логика остается такой же, как и в случае добавления водяного знака на один слайд - создайте объект [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) и затем добавьте в него водяной знак с помощью метода [**AddTextFrame**](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/methods/addtextframe):
 
-``` csharp
+Если нужно добавить текстовый водяной знак ко всей презентации (то есть сразу на все слайды), добавьте его в [MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/). Остальная логика такая же, как при добавлении водяного знака на отдельный слайд — создайте объект [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) и затем добавьте в него водяной знак с помощью метода [AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/methods/addtextframe).
+```cs
+string watermarkText = "CONFIDENTIAL";
 
- using (var presentation = new Presentation())
+using Presentation presentation = new Presentation();
+IMasterSlide masterSlide = presentation.Masters[0];
 
-{
-
-	IMasterSlide master = pres.Masters[0];
-
-	IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 0, 0, 0, 0);
-
-	ITextFrame watermarkTextFrame = watermarkShape.AddTextFrame("Водяной знак");
-
-}
-
+// Добавьте водяной знак на мастер-слайд.
+IAutoShape watermarkShape = masterSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
 
-{{% alert color="primary" title="Смотрите также" %}} 
-- [Как использовать ](/slides/ru/net/slide-master/)[Мастер слайдов](/slides/ru/net/slide-master/)
+{{% alert color="primary" title="See also" %}} 
+- [How to Use the Slide Master?](/slides/ru/net/slide-master/)
 {{% /alert %}}
 
-### **Изменение шрифта текстового водяного знака**
-Вы можете изменить шрифт текстового водяного знака:
+### **Установка прозрачности формы водяного знака**
 
-``` csharp
+По умолчанию прямоугольная форма имеет цвета заливки и линии. Это значит, что после добавления водяного знака он может отображаться с плотным фоном или границей, отвлекая внимание от содержимого слайда. Чтобы водяной знак оставался ненавязчивым и не мешал визуальному оформлению, форму можно сделать полностью прозрачной.
 
- int alpha = 150, red = 200, green = 200, blue = 200;
-
-IPortion watermarkPortion = watermarkTextFrame.Paragraphs[0].Portions[0];
-
-watermarkPortion.PortionFormat.FontHeight = 52;
-
+Следующие строки кода делают форму прозрачной, удаляя как цвет заливки, так и цвет границы:
+```cs
+watermarkShape.FillFormat.FillType = FillType.NoFill;
+watermarkShape.LineFormat.FillFormat.FillType = FillType.NoFill;
 ```
 
 
-### **Установка прозрачности текстового водяного знака**
-Чтобы установить прозрачность текстового водяного знака, используйте следующий код:
+### **Установка шрифта для текстового водяного знака**
 
-``` csharp
+Перед тем как применить текстовый водяной знак к слайду, важно настроить его внешний вид так, чтобы он гармонировал с общим дизайном. Вы можете изменить тип и размер шрифта, чтобы водяной знак был и читаемым, и эстетичным. Настройка шрифта также помогает укрепить фирменный стиль или просто подобрать соответствие стилю презентации.
 
- int alpha = 150, red = 200, green = 200, blue = 200;
+Ниже пример кода, показывающего, как задать определённый латинский шрифт и высоту шрифта для водяного знака:
+```cs
+IPortionFormat textFormat = watermarkFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+textFormat.LatinFont = new FontData("Arial");
+textFormat.FontHeight = 50;
+```
 
-IPortion watermarkPortion = watermarkTextFrame.Paragraphs[0].Portions[0];
 
-watermarkPortion.PortionFormat.FillFormat.FillType = FillType.Solid;
+### **Установка цвета текста водяного знака**
 
-watermarkPortion.PortionFormat.FillFormat.SolidFillColor.Color = System.Drawing.Color.FromArgb(alpha, red, green, blue);
+Перед применением водяного знака убедитесь, что цвет текста установлен так, чтобы он сочетался с содержимым слайда и не доминировал. Регулирование прозрачности (альфа‑канала) вместе с компонентами красного, зелёного и синего позволяет создать ненавязчивый полупрозрачный водяной знак, который виден, но не отвлекает. Этот подход сохраняет фокус на основной презентации, одновременно защищая контент.
 
+Для установки цвета текста водяного знака используйте следующий код:
+```cs
+int alpha = 150, red = 200, green = 200, blue = 200;
+
+IFillFormat fillFormat = watermarkFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat;
+fillFormat.FillType = FillType.Solid;
+fillFormat.SolidFillColor.Color = Color.FromArgb(alpha, red, green, blue);
 ```
 
 
 ### **Центрирование текстового водяного знака**
-Можно центрировать водяной знак на слайде, и для этого вы можете сделать следующее:
 
-``` csharp
+Правильное центрирование текстового водяного знака может значительно улучшить эстетическое восприятие презентации, обеспечивая симметричное расположение независимо от размеров слайда. Такой подход придаёт слайдам профессиональный вид и гарантирует, что водяной знак не будет мешать основному содержимому.
 
- PointF center = new PointF(presentation.SlideSize.Size.Width / 2, presentation.SlideSize.Size.Height / 2);
+Ниже пример кода, демонстрирующего, как вычислить центральную позицию слайда и разместить текстовый водяной знак соответственно:
+```cs
+SizeF slideSize = presentation.SlideSize.Size;
 
-float width = 300;
+float watermarkWidth = 400;
+float watermarkHeight = 40;
+float watermarkX = (slideSize.Width - watermarkWidth) / 2;
+float watermarkY = (slideSize.Height - watermarkHeight) / 2;
 
-float height = 300;
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(
+    ShapeType.Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
 
-float x = center.X - width / 2;
-
-float y = center.Y - height / 2;
-
-//...
-
-IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, x, y, width, height);
-
+ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
 
-## **Изображенческий водяной знак**
-### **Добавление изображенческого водяного знака в презентацию**
-Чтобы добавить изображенческий водяной знак на все слайды презентации, вы можете сделать следующее:
+Изображение ниже показывает итоговый результат.
 
-``` csharp
+![The text watermark](text_watermark.png)
 
- IPPImage image = presentation.Images.AddImage(File.ReadAllBytes("watermark.png"));
+## **Графический водяной знак**
 
+### **Добавление графического водяного знака в презентацию**
 
-// ...
+Во многих случаях графический водяной знак может обеспечить уникальный фирменный элемент или более визуально привлекательную альтернативу текстовому знаку. Перед добавлением убедитесь, что файл изображения доступен (например, PNG для прозрачности). В следующем примере показывается, как загрузить изображение из файловой системы, добавить его в презентацию и применить как водяной знак с помощью свойств заливки формы.
+```cs
+using FileStream imageStream = File.OpenRead("watermark.png");
+IPPImage image = presentation.Images.AddImage(imageStream);
 
 watermarkShape.FillFormat.FillType = FillType.Picture;
-
 watermarkShape.FillFormat.PictureFillFormat.Picture.Image = image;
-
 watermarkShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-
 ```
-
 
 
 ## **Блокировка водяного знака от редактирования**
-Если необходимо предотвратить редактирование водяного знака, используйте свойство [**AutoShape.ShapeLock**](https://reference.aspose.com/slides/net/aspose.slides/autoshape/properties/shapelock) на форме, которая его оборачивает. С помощью этого свойства вы можете защитить форму от выделения, изменения размера, изменения положения, группировки с другими элементами, заблокировать ее текст от редактирования и многое другое:
 
-``` csharp
-
- // Блокировка форм от изменения
-
+Если необходимо предотвратить редактирование водяного знака, используйте свойство [IAutoShape.ShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/properties/shapelock) формы. С его помощью можно запретить выбор формы, изменение её размеров, перемещение, группировку с другими элементами, блокировать её текст от редактирования и многое другое:
+```cs
+// Заблокировать форму водяного знака от изменения.
 watermarkShape.ShapeLock.SelectLocked = true;
-
 watermarkShape.ShapeLock.SizeLocked = true;
-
 watermarkShape.ShapeLock.TextLocked = true;
-
 watermarkShape.ShapeLock.PositionLocked = true;
-
 watermarkShape.ShapeLock.GroupingLocked = true;
-
 ```
 
 
+## **Перемещение водяного знака на передний план**
 
-{{% alert color="primary" title="Смотрите также" %}} 
-- [Как заблокировать формы от редактирования](/slides/ru/net/presentation-locking/)
-{{% /alert %}}
-
-## **Вынести водяной знак на передний план**
-В Aspose.Slides порядок наложения форм можно установить с помощью метода [**SlideCollection.Reorder**](https://reference.aspose.com/slides/net/aspose.slides.slidecollection/reorder/methods/1). Для этого вам нужно вызвать этот метод из списка слайдов презентации и передать ссылку на форму и ее номер порядка в метод. Таким образом, можно поместить форму на передний план или на задний план слайда. Эта функция особенно полезна, если вам нужно разместить водяной знак на переднем плане презентации:
-
-``` csharp
-
- slide.Shapes.Reorder(slide.Shapes.Count - 1, watermarkShape);
-
+В Aspose.Slides порядок Z‑уровня форм можно задать методом [IShapeCollection.Reorder](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/reorder/#reorder). Для этого вызовите метод из списка слайдов презентации, передав ссылку на форму и её номер порядка. Так можно переместить форму на передний план или отправить её назад. Эта возможность особенно полезна, когда нужно разместить водяной знак спереди презентации:
+```cs
+int shapeCount = slide.Shapes.Count;
+slide.Shapes.Reorder(shapeCount - 1, watermarkShape);
 ```
 
 
 ## **Установка вращения водяного знака**
-Вот пример того, как установить вращение водяного знака (и его родительской формы):
 
-``` csharp
+Регулирование вращения водяного знака может существенно улучшить визуальный эффект и тонкость его восприятия. Диагональный водяной знак, например, менее навязчив, но всё равно обеспечивает надёжную защиту от неавторизованного использования. В следующем примере рассчитывается подходящий угол на основе размеров слайда, чтобы водяной знак разместился по диагонали. Такое динамическое вычисление гарантирует эффективность знака независимо от размеров слайдов.
+```cs
+double diagonalAngle = Math.Atan((slideSize.Height / slideSize.Width)) * 180 / Math.PI;
 
- float h = presentation.SlideSize.Size.Height;
-
-float w = presentation.SlideSize.Size.Width;
-
-watermarkShape.X = Convert.ToInt32((w - watermarkShape.Width) / 2);
-
-watermarkShape.Y = Convert.ToInt32((h - watermarkShape.Height) / 2);
-
-watermarkShape.Rotation = calculateRotation(h, w);
-
-
-
-private int calculateRotation(float height, float width)
-
-{
-
-	double pageHeight = Convert.ToDouble(height);
-
-	double pageWidth = Convert.ToDouble(width);
-
-	double rotation = Math.Atan((pageHeight / pageWidth)) * 180 / Math.PI;
-
-	return Convert.ToInt32(rotation);
-
-}
-
+watermarkShape.Rotation = (float)diagonalAngle;
 ```
 
 
-## **Установка имени водяного знака**
-Aspose.Slides позволяет установить имя формы. По имени формы вы можете получить к ней доступ в будущем, чтобы изменить или удалить. Чтобы установить имя родительской формы водяного знака - установите его в свойство [**AutoShape.Name**](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/name):
+## **Задание имени для водяного знака**
 
-``` csharp
-
- watermarkShape.Name = "водяной знак";
-
+Aspose.Slides позволяет задать имя форме. С помощью имени формы её можно найти в будущем для изменения или удаления. Чтобы задать имя форме водяного знака, присвойте его свойству [IAutoShape.Name](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/name):
+```cs
+watermarkShape.Name = "watermark";
 ```
 
 
 ## **Удаление водяного знака**
-Чтобы удалить форму водяного знака и ее дочерние элементы с слайда, используйте свойство [AutoShape.Name](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/name), чтобы найти его в формах слайда. Затем передайте форму водяного знака в метод [**ShapeCollection.Remove**](https://reference.aspose.com/net/cells/aspose.cells.drawing/shapecollection/methods/remove):
 
-``` csharp
-
- for (int i = 0; i < slide.Shapes.Count; i++)
-
+Чтобы удалить форму водяного знака, используйте свойство [IAutoShape.Name](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/name) для её поиска в коллекции форм слайда. Затем передайте найденную форму в метод [IShapeCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/remove/):
+```cs
+List<IShape> slideShapes = slide.Shapes.ToList();
+foreach (IShape shape in slideShapes)
 {
-
-	AutoShape shape = (AutoShape)slide.Shapes[i];
-
-	if (String.Compare(shape.Name, "водяной знак", StringComparison.Ordinal) == 0)
-
-	{
-
-		slide.Shapes.Remove(watermarkShape);
-
-	}
-
+    if (string.Compare(shape.Name, "watermark", StringComparison.Ordinal) == 0)
+    {
+        slide.Shapes.Remove(watermarkShape);
+    }
 }
-
 ```
 
 
-## **Живой пример**
-Вы можете ознакомиться с **бесплатными** онлайн-инструментами **Aspose.Slides** [**Добавить водяной знак**](https://products.aspose.app/slides/watermark) и [**Удалить водяной знак**](https://products.aspose.app/slides/watermark/remove-watermark). 
+## **Онлайн‑пример**
 
-![todo:image_alt_text](slides-watermark.png)
+Вы можете попробовать бесплатные онлайн‑инструменты Aspose.Slides — [Add Watermark](https://products.aspose.app/slides/watermark) и [Remove Watermark](https://products.aspose.app/slides/watermark/remove-watermark).
+
+![Online tools to add and remove watermarks](online_tools.png)
+
+## **FAQ**
+
+**Что такое водяной знак и зачем он нужен?**
+
+Водяной знак — это текстовое или графическое наложение на слайды, которое помогает защитить интеллектуальную собственность, усилить узнаваемость бренда или предотвратить несанкционированное использование презентаций.
+
+**Можно ли добавить водяной знак ко всем слайдам презентации?**
+
+Да, Aspose.Slides позволяет программно добавить водяной знак на каждый слайд презентации. Можно пройтись по всем слайдам и применить настройки водяного знака индивидуально.
+
+**Как отрегулировать прозрачность водяного знака?**
+
+Прозрачность регулируется изменением настроек заливки ([FillFormat](https://reference.aspose.com/slides/net/aspose.slides/shape/fillformat/)) формы. Это делает водяной знак ненавязчивым и не отвлекает от содержимого слайда.
+
+**Какие форматы изображений поддерживаются для водяных знаков?**
+
+Aspose.Slides поддерживает PNG, JPEG, GIF, BMP, SVG и другие форматы.
+
+**Можно ли настроить шрифт и стиль текстового водяного знака?**
+
+Да, можно выбрать любой шрифт, размер и стиль, чтобы он соответствовал дизайну презентации и поддерживал фирменный стиль.
+
+**Как изменить позицию или ориентацию водяного знака?**
+
+Позицию и ориентацию можно программно изменить, изменяя координаты, размеры и свойства вращения формы.

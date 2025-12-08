@@ -20,7 +20,7 @@ description: "Add, read, edit, and export speaker notes in C# with Aspose.Slides
 
 Shows how to add, read, remove, and update notes slides using **Aspose.Slides for .NET**.
 
-## Add a Notes Slide
+## **Add a Notes Slide**
 
 Create a notes slide and assign text to it.
 
@@ -35,7 +35,7 @@ static void Add_Note()
 }
 ```
 
-## Access a Notes Slide
+## **Access a Notes Slide**
 
 Read text from an existing notes slide.
 
@@ -50,7 +50,7 @@ static void Access_Note()
 }
 ```
 
-## Remove a Notes Slide
+## **Remove a Notes Slide**
 
 Remove the notes slide associated with a slide.
 
@@ -65,7 +65,7 @@ static void Remove_Note()
 }
 ```
 
-## Update Notes Text
+## **Update Notes Text**
 
 Change the text of a notes slide.
 

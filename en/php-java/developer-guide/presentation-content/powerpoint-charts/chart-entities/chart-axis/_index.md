@@ -1,9 +1,27 @@
 ---
-title: Chart Axis
+title: Customize Chart Axes in Presentations Using PHP
+linktitle: Chart Axis
 type: docs
 url: /php-java/chart-axis/
-keywords: "PowerPoint Chart Axis, Presentation Charts, Java, Manipulate Chart Axis, Chart data"
-description: "How to edit PowerPoint chart axis "
+keywords:
+- chart axis
+- vertical axis
+- horizontal axis
+- customize axis
+- manipulate axis
+- manage axis
+- axis properties
+- max value
+- min value
+- axis line
+- date format
+- axis title
+- axis position
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Discover how to use Aspose.Slides for PHP via Java to customize chart axes in PowerPoint presentations for reports and visualizations."
 ---
 
 

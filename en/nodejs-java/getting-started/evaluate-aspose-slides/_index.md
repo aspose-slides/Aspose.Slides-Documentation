@@ -3,6 +3,21 @@ title: Evaluate Aspose.Slides
 type: docs
 weight: 120
 url: /nodejs-java/evaluate-aspose-slides/
+keywords:
+- evaluate Aspose.Slides
+- Aspose.Slides evaluation
+- evaluation version
+- full functionality
+- evaluation watermark
+- purchase Aspose.Slides
+- limitation
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Evaluate Aspose.Slides for Node.js via Java and explore API features for PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations—start your free trial."
 ---
 
 ## **Aspose.Slides Evaluation**

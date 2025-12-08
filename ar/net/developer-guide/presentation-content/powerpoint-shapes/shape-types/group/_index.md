@@ -21,16 +21,16 @@ description: "إضافة شكل مجموعة إلى عرض PowerPoint باستخ
 // إنشاء كائن من الفئة Presentation 
 using (Presentation pres = new Presentation())
 {
-    // الحصول على الشريحة الأولى 
+    // الحصول على الشريحة الأولى
     ISlide sld = pres.Slides[0];
 
-    // الوصول إلى مجموعة الأشكال في الشرائح 
+    // الوصول إلى مجموعة الأشكال في الشرائح
     IShapeCollection slideShapes = sld.Shapes;
 
-    // إضافة شكل مجموعة إلى الشريحة 
+    // إضافة شكل مجموعة إلى الشريحة
     IGroupShape groupShape = slideShapes.AddGroupShape();
 
-    // إضافة أشكال داخل شكل المجموعة المضاف 
+    // إضافة أشكال داخل شكل المجموعة المضاف
     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 100, 100, 100);
     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 100, 100);
     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 300, 100, 100);
@@ -39,7 +39,7 @@ using (Presentation pres = new Presentation())
     // إضافة إطار لشكل المجموعة 
     groupShape.Frame = new ShapeFrame(100, 300, 500, 40, NullableBool.False, NullableBool.False, 0);
 
-    // كتابة ملف PPTX إلى القرص 
+    // كتابة ملف PPTX إلى القرص
     pres.Save("GroupShape_out.pptx", SaveFormat.Pptx);
 }
 ```

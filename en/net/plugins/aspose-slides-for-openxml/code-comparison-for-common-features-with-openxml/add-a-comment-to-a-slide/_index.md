@@ -5,7 +5,7 @@ weight: 10
 url: /net/add-a-comment-to-a-slide/
 ---
 
-## **OpenXML Presentation:**
+## **OpenXML Presentation**
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";

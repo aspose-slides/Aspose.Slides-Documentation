@@ -1,5 +1,5 @@
 ---
-title: تحويل عروض PowerPoint إلى XPS في بايثون
+title: تحويل عروض PowerPoint إلى XPS باستخدام Python
 linktitle: PowerPoint إلى XPS
 type: docs
 weight: 70
@@ -13,52 +13,49 @@ keywords:
 - PPTX إلى XPS
 - PowerPoint
 - العرض التقديمي
-- بايثون
+- Python
 - Aspose.Slides
-description: تحويل عروض PowerPoint (PPT/PPTX) إلى XPS عالي الجودة ومستقل عن النظام الأساسي في Python باستخدام Aspose.Slides. احصل على دليل خطوة بخطوة وكود مثال.
+description: "تحويل ملفات PowerPoint PPT/PPTX إلى XPS عالي الجودة وغير معتمد على نظام التشغيل باستخدام Python و Aspose.Slides. احصل على دليل خطوة بخطوة وعينات الكود."
 ---
 
 ## **حول XPS**
-طورت مايكروسوفت [XPS](https://docs.fileformat.com/page-description-language/xps/) كبديل لـ [PDF](https://docs.fileformat.com/pdf/). يسمح لك بطباعة المحتوى من خلال إخراج ملف مشابه جدًا لملف PDF. يعتمد تنسيق XPS على XML. يظل تخطيط أو هيكل ملف XPS كما هو في جميع أنظمة التشغيل والطابعات. 
+قامت مايكروسوفت بتطوير [XPS](https://docs.fileformat.com/page-description-language/xps/) كبديل لـ[PDF](https://docs.fileformat.com/pdf/). يسمح لك بطباعة المحتوى عن طريق إنشاء ملف يشبه ملف PDF إلى حد كبير. تنسيق XPS مبني على XML. يبقى تخطيط أو بنية ملف XPS نفسه على جميع أنظمة التشغيل والطابعات. 
 
-## متى تستخدم تنسيق XPS من مايكروسوفت
+## متى يجب استخدام تنسيق XPS من مايكروسوفت
 
 {{% alert color="primary" %}} 
-
-لمعرفة كيف تقوم Aspose.Slides بتحويل عرض PPT أو PPTX إلى تنسيق XPS، يمكنك التحقق من [هذا التطبيق المجاني للتحويل عبر الإنترنت](https://products.aspose.app/slides/conversion). 
-
+لمعرفة كيفية تحويل Aspose.Slides لعرض PPT أو PPTX إلى تنسيق XPS، يمكنك زيارة [هذا التطبيق المجاني للتحويل عبر الإنترنت](https://products.aspose.app/slides/conversion). 
 {{% /alert %}} 
 
-إذا كنت ترغب في تقليل تكاليف التخزين، يمكنك تحويل عرض Microsoft PowerPoint الخاص بك إلى تنسيق XPS. بهذه الطريقة، ستجد أنه من الأسهل حفظ ومشاركة وطباعة مستنداتك. 
+إذا كنت ترغب في تقليل تكاليف التخزين، يمكنك تحويل عرض Microsoft PowerPoint إلى تنسيق XPS. بهذه الطريقة سيكون من الأسهل حفظ المستندات ومشاركتها وطباعةها. 
 
-تواصل مايكروسوفت تنفيذ دعم قوي لـ XPS في ويندوز (حتى في ويندوز 10)، لذا قد ترغب في التفكير في حفظ الملفات إلى هذا التنسيق. إذا كنت تتعامل مع ويندوز 8.1 أو ويندوز 8 أو ويندوز 7 أو ويندوز فيستا، فإن XPS قد يكون في الواقع الخيار الأفضل لك لبعض العمليات. 
+مايكروسوفت تستمر في تقديم دعم قوي لتنسيق XPS في نظام Windows (حتى في Windows 10)، لذا قد ترغب في حفظ الملفات بهذا التنسيق. إذا كنت تتعامل مع Windows 8.1 أو Windows 8 أو Windows 7 أو Windows Vista، فقد يكون XPS خيارك الأفضل لبعض العمليات. 
 
-- **ويندوز 8** يستخدم تنسيق OXPS (Open XPS) لملفات XPS. OXPS هو نسخة موحدة من تنسيق XPS الأصلي. يوفر ويندوز 8 دعمًا أفضل لملفات XPS مقارنةً بملفات PDF. 
-  - **XPS:** عارض/قارئ XPS مضمن وميزة الطباعة إلى XPS متاحة. 
-  - **PDF**: قارئ PDF متاح ولكن لا توجد ميزة الطباعة إلى PDF. 
+- **Windows 8** يستخدم تنسيق OXPS (Open XPS) لملفات XPS. OXPS هو نسخة موحدة من تنسيق XPS الأصلي. يوفر Windows 8 دعماً أفضل لملفات XPS مقارنة بملفات PDF. 
+  - **XPS:** عارض/قارئ XPS مدمج وميزة طباعة إلى XPS متوفرة. 
+  - **PDF:** قارئ PDF متوفر لكن لا توجد ميزة طباعة إلى PDF. 
 
-- **ويندوز 7 وويندوز فيستا** يستخدمان تنسيق XPS الأصلي. توفر هذه الأنظمة تشغيل أيضًا دعمًا أفضل لملفات XPS مقارنةً بملفات PDF. 
-  - **XPS**: عارض XPS مضمن وميزة الطباعة إلى XPS متاحة. 
-  - **PDF**: لا يوجد قارئ PDF. لا توجد ميزة الطباعة إلى PDF. 
+- **Windows 7 وWindows Vista** يستخدمان تنسيق XPS الأصلي. كذلك توفر هاتان الأنظمة دعماً أفضل لملفات XPS مقارنة بملفات PDF. 
+  - **XPS:** عارض XPS مدمج وميزة طباعة إلى XPS متوفرة. 
+  - **PDF:** لا يوجد قارئ PDF. لا توجد ميزة طباعة إلى PDF. 
 
-|<p>**الإدخال PPT(X):</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**الإخراج XPS:</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
+|<p>**إدخال PPT(X):</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**إخراج XPS:</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
 | :- | :- |
 
-نفذت مايكروسوفت في النهاية دعمًا لعمليات الطباعة في PDF من خلال ميزة الطباعة إلى PDF في ويندوز 10. كان من المتوقع من المستخدمين سابقًا طباعة المستندات من خلال تنسيق XPS. 
+قامت مايكروسوفت في النهاية بتطبيق دعم عمليات الطباعة إلى PDF عبر ميزة Print to PDF في Windows 10. في السابق كان يُتوقع من المستخدمين طباعة المستندات عبر تنسيق XPS. 
 
 ## تحويل XPS باستخدام Aspose.Slides
 
-في [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) لـ .NET، يمكنك استخدام [**Save**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) الطريقة المقدمة من [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) لتحويل العرض التقديمي بالكامل إلى مستند XPS. 
+في [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) لـ.NET، يمكنك استخدام طريقة [**Save**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) المعروضة من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) لتحويل العرض بالكامل إلى مستند XPS. 
 
-عند تحويل عرض تقديمي إلى XPS، يجب عليك حفظ العرض التقديمي باستخدام أي من هذه الإعدادات:
+عند تحويل عرض تقديمي إلى XPS، يجب حفظ العرض باستخدام أحد الإعدادات التالية:
 
 - الإعدادات الافتراضية (بدون [**XPSOptions**](https://reference.aspose.com/slides/python-net/aspose.slides.export/xpsoptions/))
 - الإعدادات المخصصة (مع [**XPSOptions**](https://reference.aspose.com/slides/python-net/aspose.slides.export/xpsoptions/))
 
 ### **تحويل العروض التقديمية إلى XPS باستخدام الإعدادات الافتراضية**
 
-يوضح هذا الكود المصدري في بايثون كيفية تحويل عرض تقديمي إلى مستند XPS باستخدام الإعدادات القياسية:
-
+يظهر هذا الكود النموذجي بلغة Python كيفية تحويل عرض تقديمي إلى مستند XPS باستخدام الإعدادات القياسية:
 ```py
 import aspose.slides as slides
 
@@ -71,20 +68,30 @@ pres.save("XPS_Output_Without_XPSOption_out.xps", slides.export.SaveFormat.XPS)
 
 
 ### **تحويل العروض التقديمية إلى XPS باستخدام الإعدادات المخصصة**
-يظهر هذا الكود المصدري كيفية تحويل عرض تقديمي إلى مستند XPS باستخدام الإعدادات المخصصة في بايثون:
-
+يظهر هذا الكود النموذجي كيفية تحويل عرض تقديمي إلى مستند XPS باستخدام الإعدادات المخصصة في Python:
 ```py
 import aspose.slides as slides
 
 # إنشاء كائن Presentation يمثل ملف عرض تقديمي
 pres = slides.Presentation("Convert_XPS_Options.pptx")
 
-# إنشاء كائن من فئة TiffOptions
+# إنشاء فئة TiffOptions
 options = slides.export.XpsOptions()
 
-# حفظ ملفات الميتا كـ PNG
+# حفظ ملفات MetaFiles بصيغة PNG
 options.save_metafiles_as_png = True
 
 # حفظ العرض التقديمي إلى مستند XPS
 pres.save("XPS_With_Options_out.xps", slides.export.SaveFormat.XPS, options)
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني حفظ XPS إلى تدفق بدلاً من ملف؟**
+
+نعم—Aspose.Slides يتيح لك تصدير مباشرة إلى تدفق، وهو مثالي لواجهات برمجة التطبيقات على الويب، أو خطوط الأنابيب على الخادم، أو أي سيناريو تحتاج فيه إلى إرسال XPS دون التعامل مع نظام الملفات.
+
+**هل يتم نقل الشرائح المخفية إلى XPS، وهل يمكن استبعادها؟**
+
+بشكل افتراضي، يتم تصيير الشرائح العادية (المرئية) فقط. يمكنك [include or exclude hidden slides](https://reference.aspose.com/slides/python-net/aspose.slides.export/xpsoptions/show_hidden_slides/) من خلال [export settings](https://reference.aspose.com/slides/python-net/aspose.slides.export/xpsoptions/) قبل الحفظ إلى XPS، لضمان أن يحتوي الناتج على الصفحات التي تريدها بالضبط.

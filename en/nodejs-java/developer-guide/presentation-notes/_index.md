@@ -1,10 +1,23 @@
 ---
-title: Presentation Notes
+title: Manage Presentation Notes in JavaScript
+linktitle: Presentation Notes
 type: docs
 weight: 110
 url: /nodejs-java/presentation-notes/
-keywords: "PowerPoint speaker notes in JavaScript"
-description: "Presentation notes, speaker notes in JavaScript"
+keywords:
+- notes
+- notes slide
+- add notes
+- remove notes
+- notes style
+- master notes
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Customize presentation notes in JavaScript with Aspose.Slides for Node.js. Seamlessly work with PowerPoint and OpenDocument notes to boost your productivity."
 ---
 
 

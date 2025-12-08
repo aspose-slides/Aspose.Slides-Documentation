@@ -49,7 +49,6 @@ using (Presentation pres = new Presentation())
 // إنشاء فئة PresentationEx التي تمثل ملف PPTX
 using (Presentation pres = new Presentation())
 {
-
     // الحصول على الشريحة الأولى
     ISlide sld = pres.Slides[0];
 

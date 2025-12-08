@@ -1,8 +1,24 @@
 ---
-title: 3D Presentation
+title: Create 3D Presentations in JavaScript
+linktitle: 3D Presentation
 type: docs
 weight: 232
 url: /nodejs-java/3d-presentation/
+keywords:
+- 3D PowerPoint
+- 3D presentation
+- 3D rotation
+- 3D depth
+- 3D extrusion
+- 3D gradient
+- 3D text
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Generate interactive 3D presentations in JavaScript with Aspose.Slides effortlessly. Export quickly to PowerPoint and OpenDocument formats for versatile use."
 ---
 
 ## **Overview**
