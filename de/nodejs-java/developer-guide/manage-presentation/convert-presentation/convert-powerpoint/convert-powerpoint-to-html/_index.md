@@ -409,5 +409,3 @@ Ja, Aspose.Slides unterstützt den Export eingebetteter Hyperlinks nach HTML vol
 **Gibt es ein Limit für die Anzahl der Folien beim Konvertieren von Präsentationen zu HTML?**
 
 Es gibt kein Limit für die Folienanzahl bei der Verwendung von Aspose.Slides. Sie können Präsentationen jeder Größe konvertieren. Bei Präsentationen mit einer sehr großen Folienzahl kann die Leistung jedoch von den verfügbaren Ressourcen Ihres Servers oder Systems abhängen.
-
-{{% /alert %}}
