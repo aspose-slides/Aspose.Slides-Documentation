@@ -18,7 +18,7 @@ keywords:
 description: "Create dynamic animated text in PowerPoint and OpenDocument presentations using Aspose.Slides for .NET, with easy-to-follow, optimized C# code examples."
 ---
 
-## **Adding Animation Effects to Paragraphs**
+## **Add Animation Effects to Paragraphs**
 
 We added the [**AddEffect()**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence/methods/addeffect/index) method to the [**Sequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence) and [**ISequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
 
@@ -37,7 +37,7 @@ using (Presentation presentation = new Presentation(dataDir + "Presentation1.ppt
 }
 ```
 
-## **Getting the Animation Effects in Paragraphs**
+## **Get Animation Effects for Paragraphs**
 
 You may decide to find out the animation effects added to a paragraph—for example, in one scenario, you want to get the animation effects in a paragraph because you plan to apply those effects to another paragraph or shape.
 

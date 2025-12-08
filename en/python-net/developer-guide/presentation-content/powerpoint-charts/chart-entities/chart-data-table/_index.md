@@ -1,6 +1,6 @@
 ---
 title: Customize Chart Data Tables in Python
-linktitle: Chart Data Table
+linktitle: Data Table
 type: docs
 url: /python-net/chart-data-table/
 keywords:

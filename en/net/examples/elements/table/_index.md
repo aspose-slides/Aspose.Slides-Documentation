@@ -20,7 +20,7 @@ description: "Create and format tables in C# with Aspose.Slides: insert data, me
 
 Examples for adding tables, accessing them, removing them, and merging cells using **Aspose.Slides for .NET**.
 
-## Add a Table
+## **Add a Table**
 
 Create a simple table with two rows and two columns.
 
@@ -36,7 +36,7 @@ static void Add_Table()
 }
 ```
 
-## Access a Table
+## **Access a Table**
 
 Retrieve the first table shape on the slide.
 
@@ -54,7 +54,7 @@ static void Access_Table()
 }
 ```
 
-## Remove a Table
+## **Remove a Table**
 
 Delete a table from a slide.
 
@@ -71,7 +71,7 @@ static void Remove_Table()
 }
 ```
 
-## Merge Table Cells
+## **Merge Table Cells**
 
 Merge adjacent cells of a table into a single cell.
 

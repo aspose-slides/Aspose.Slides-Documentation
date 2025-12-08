@@ -3,6 +3,41 @@ title: Supported File Formats
 type: docs
 weight: 30
 url: /php-java/supported-file-formats/
+keywords:
+- file format
+- supported format
+- PPT
+- POT
+- PPS
+- PPTX
+- POTX
+- PPSX
+- PPTM
+- PPSM
+- POTM
+- ODP
+- FODP
+- OTP
+- TIFF
+- EMF
+- PDF
+- XPS
+- JPEG
+- PNG
+- GIF
+- BMP
+- SVG
+- SWF
+- HTML
+- XAML
+- MD
+- XML
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Discover all file formats Aspose.Slides for PHP via Java can open, save, and convert — including PPT, PPTX and ODP — with clear import/export support notes."
 ---
 
 ## **Supported Microsoft PowerPoint Versions**

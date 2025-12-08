@@ -1,10 +1,25 @@
 ---
-title: Presentation Header and Footer
+title: Manage Presentation Headers and Footers on Android
+linktitle: Header & Footer
 type: docs
 weight: 140
 url: /androidjava/presentation-header-and-footer/
-keywords: "PowerPoint header and footer in Java"
-description: "PowerPoint header and footer in Java"
+keywords:
+- header
+- header text
+- footer
+- footer text
+- set header
+- set footer
+- handout
+- notes
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Use Aspose.Slides for Android via Java to add and customize headers and footers in PowerPoint and OpenDocument presentations for a professional look."
 ---
 
 {{% alert color="primary" %}} 

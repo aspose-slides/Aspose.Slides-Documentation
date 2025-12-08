@@ -50,7 +50,7 @@ This is a summary of the steps (step 1 to step 15) in the **Creating Bullets** p
 2. Perform several tasks (step 3 to step 14).
 3. Save the presentation. 
 
-## **Creating Bullets**
+## **Create Bullets**
 
 To create a bullet list, through these steps:
 
@@ -98,7 +98,7 @@ using (Presentation pres = new Presentation())
 
  
 
-## **Creating Picture Bullets**
+## **Create Picture Bullets**
 
 Aspose.Slides for .NET allows you to change the bullets on bullet lists. You get to replace the bullets with custom symbols or images. If you want to add visual interest to a list or draw even more attention to entries on a list, you can use your own image as the bullet. 
 
@@ -157,7 +157,7 @@ using (Presentation pres = new Presentation())
 
  
 
-## **Creating Multilevel Bullets**
+## **Create Multilevel Bullets**
 
 To create a bullet list that contains items on different levels—additional lists under the main bullet list—go through these steps:
 
@@ -209,7 +209,7 @@ using (Presentation pres = new Presentation())
 
  
 
-## **Creating Numbers**
+## **Create Numbers**
 
  This C# code shows you how to create a numbered list in a slide:
 

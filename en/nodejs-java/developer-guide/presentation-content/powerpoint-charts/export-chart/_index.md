@@ -1,8 +1,20 @@
 ---
-title: Export Chart
+title: Export Presentation Charts in JavaScript
+linktitle: Export Chart
 type: docs
 weight: 90
 url: /nodejs-java/export-chart/
+keywords:
+- chart
+- chart to image
+- chart as image
+- extract chart image
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn how to export presentation charts with Aspose.Slides for Node.js via Java, supporting PPT and PPTX formats, and streamline reporting into any workflow."
 ---
 
 ## **Get Chart Image**

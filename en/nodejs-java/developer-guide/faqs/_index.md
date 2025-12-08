@@ -1,11 +1,10 @@
 ---
-title: FAQs
+title: FAQ
 type: docs
 weight: 340
 url: /nodejs-java/faqs/
 keywords:
 - FAQ
-- PowerPoint
 - presentation format
 - out of memory error
 - slide size
@@ -14,9 +13,13 @@ keywords:
 - paragraph size
 - formatting tables
 - font
-- Node
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
 - JavaScript
-- Aspose.Slides for Node.js via Java
+- Aspose.Slides
+description: "Get answers to FAQ on Aspose.Slides for Node.js via Java, covering PowerPoint and OpenDocument support, installation guidance, licensing, troubleshooting."
 ---
 
 ## **Supported File Formats**

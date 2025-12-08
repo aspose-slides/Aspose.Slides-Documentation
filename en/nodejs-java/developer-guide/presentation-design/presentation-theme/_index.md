@@ -1,10 +1,28 @@
 ---
-title: Presentation Theme
+title: Manage Presentation Themes in JavaScript
+linktitle: Presentation Theme
 type: docs
 weight: 10
 url: /nodejs-java/presentation-theme/
-keywords: "Theme, PowerPoint theme, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "PowerPoint presentation theme in JavaScript"
+keywords:
+- PowerPoint theme
+- presentation theme
+- slide theme
+- set theme
+- change theme
+- manage theme
+- theme color
+- additional palette
+- theme font
+- theme style
+- theme effect
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Master presentation themes in JavaScript with Aspose.Slides for Node.js to create, customize and convert PowerPoint files with consistent branding."
 ---
 
 A presentation theme defines the properties of design elements. When you select a presentation theme, you are essentially choosing a specific set of visual elements and their properties.

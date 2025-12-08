@@ -1,10 +1,22 @@
 ---
-title: PPT vs PPTX
+title: "Understanding the Difference: PPT vs PPTX"
+linktitle: PPT vs PPTX
 type: docs
 weight: 10
 url: /nodejs-java/ppt-vs-pptx/
-keywords: "PPT vs PPTX"
-description: "Read about PPT vs PPTX differences in Aspose.Slides."
+keywords:
+- PPT vs PPTX
+- PPT or PPTX
+- legacy format
+- modern format
+- binary format
+- modern standard
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Compare PPT vs PPTX for PowerPoint with Aspose.Slides for Node.js via Java, exploring format differences, benefits, compatibility, and conversion tips."
 ---
 
 

@@ -27,7 +27,7 @@ keywords:
 - presentation
 - PHP
 - Aspose.Slides
-description: "Learn how to format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for PHP via Java. Customize fonts, colors, alignment, and more with powerful PHP code examples."
+description: "Format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for PHP via Java. Customize fonts, colors, alignment, and more."
 ---
 
 

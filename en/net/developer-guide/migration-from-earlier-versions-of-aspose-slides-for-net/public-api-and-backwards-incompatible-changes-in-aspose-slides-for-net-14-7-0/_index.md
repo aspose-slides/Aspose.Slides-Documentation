@@ -50,7 +50,7 @@ The Aspose.Slides.SlideShow.TransitionType enumeration has been extended with ne
 - New elements related to new PowerPoint 2013 transitions: Airplane, Crush, Curtains, Drape, FallOver, Fracture, Origami, PageCurlDouble, PageCurlSingle, PeelOff, Prestige, Wind.
 #### **Added the RevealTransition Class and IRevealTransition Interface**
 The Aspose.Slides.SlideShow.RevealTransition class (and its interface Aspose.Slides.SlideShow.IRevealTransition) relates to the Reveal transition type supported from this release.
-#### **Added the RippleTransition class, IRippleTransition Interface and TransitionCornerAndCenterDirectionType Enumeration**
+#### **Added the RippleTransition Class, IRippleTransition Interface and TransitionCornerAndCenterDirectionType Enumeration**
 The Aspose.Slides.SlideShow.RippleTransition class (and its interface Aspose.Slides.SlideShow.IRippleTransition) relates to the Ripple transition type supported from this release.
 
 The Aspose.Slides.SlideShow.TransitionCornerAndCenterDirectionType enumeration is used in this class and specifies a direction, restricted to the corners and center.

@@ -1074,6 +1074,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 
 
+
 ## **Datenbereich für Diagramme festlegen**
 
 Aspose.Slides für .NET bietet die Flexibilität, einen bestimmten Datenbereich aus einem Arbeitsblatt als Quelle für die Diagrammdaten festzulegen. Das bedeutet, dass Sie einen Teil Ihres Arbeitsblatts direkt dem Diagramm zuordnen können, sodass Sie kontrollieren, welche Zellen zu den Serien und Kategorien des Diagramms beitragen. Dadurch können Sie Ihre Diagramme leicht aktualisieren und mit den neuesten Änderungen im Arbeitsblatt synchronisieren, sodass Ihre PowerPoint‑Präsentationen aktuelle und genaue Informationen widerspiegeln.

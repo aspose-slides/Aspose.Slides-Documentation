@@ -1,14 +1,20 @@
 ---
-title: Appel
+title: Gérer les callouts dans les graphiques de présentation avec Python
+linktitle: Appel
 type: docs
 url: /fr/python-net/callout/
-keywords: "Appel de graphique, étiquette de données de graphique, Python, Aspose.Slides pour Python via .NET"
-description: "Appels de graphiques PowerPoint et étiquettes de données en Python"
+keywords:
+- callout de graphique
+- utiliser le callout
+- étiquette de données
+- format d'étiquette
+- Python
+- Aspose.Slides
+description: "Créer et styliser des callouts dans Aspose.Slides pour Python .NET avec des exemples de code concis, compatibles avec PPT, PPTX et ODP pour automatiser les flux de travail de présentation."
 ---
 
-## **Utilisation des Appels**
-La nouvelle propriété **ShowLabelAsDataCallout** a été ajoutée à la classe **DataLabelFormat** et à l'interface **IDataLabelFormat**, qui détermine si l'étiquette de données spécifiée du graphique sera affichée comme un appel de données ou comme une étiquette de données. Dans l'exemple ci-dessous, nous avons défini les Appels.
-
+## **Utilisation des callouts**
+La nouvelle propriété **ShowLabelAsDataCallout** a été ajoutée à la classe **DataLabelFormat** et à l'interface **IDataLabelFormat**, ce qui détermine si l'étiquette de données d'un graphique spécifié sera affichée comme callout ou comme étiquette de données. Dans l'exemple ci-dessous, nous avons configuré les callouts.
 ```py
 import aspose.slides as slides
 
@@ -21,10 +27,8 @@ with slides.Presentation() as presentation:
 ```
 
 
-
-## **Définir un Appel pour un Graphique en Anneau**
-Aspose.Slides pour Python via .NET prend en charge la définition de la forme d'étiquette de données de série pour un graphique en anneau. L'exemple ci-dessous est donné.
-
+## **Définir le callout pour le graphique anneau**
+Aspose.Slides for Python via .NET prend en charge la définition de la forme du callout d'étiquette de données de série pour un graphique anneau. L'exemple suivant est fourni.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -39,14 +43,14 @@ with slides.Presentation() as pres:
     chart.has_legend = False
     seriesIndex = 0
     while seriesIndex < 15:
-        series = chart.chart_data.series.add(workBook.get_cell(0, 0, seriesIndex + 1, "SERIE " + str(seriesIndex)), chart.type)
+        series = chart.chart_data.series.add(workBook.get_cell(0, 0, seriesIndex + 1, "SERIES " + str(seriesIndex)), chart.type)
         series.explosion = 0
         series.parent_series_group.doughnut_hole_size = 20
         series.parent_series_group.first_slice_angle = 351
         seriesIndex += 1
     categoryIndex = 0
     while categoryIndex < 15:
-        chart.chart_data.categories.add(workBook.get_cell(0, categoryIndex + 1, 0, "CATÉGORIE " + str(categoryIndex)))
+        chart.chart_data.categories.add(workBook.get_cell(0, categoryIndex + 1, 0, "CATEGORY " + str(categoryIndex)))
         i = 0
         while i < len(chart.chart_data.series):
             iCS = chart.chart_data.series[i]
@@ -78,3 +82,14 @@ with slides.Presentation() as pres:
         categoryIndex +=1 
     pres.save("chart.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Les callouts sont-ils conservés lors de la conversion d’une présentation en PDF, HTML5, SVG ou images ?**
+
+Oui. Les callouts font partie du rendu du graphique, donc lors de l’exportation vers [PDF](/slides/fr/python-net/convert-powerpoint-to-pdf/), [HTML5](/slides/fr/python-net/export-to-html5/), [SVG](/slides/fr/python-net/render-a-slide-as-an-svg-image/), ou [images raster](/slides/fr/python-net/convert-powerpoint-to-png/), ils sont conservés avec le formatage de la diapositive.
+
+**Les polices personnalisées fonctionnent-elles dans les callouts, et leur apparence peut-elle être préservée à l’exportation ?**
+
+Oui. Aspose.Slides prend en charge [l’incorporation de polices](/slides/fr/python-net/embedded-font/) dans la présentation et contrôle l’incorporation des polices lors des exportations telles que [PDF](/slides/fr/python-net/convert-powerpoint-to-pdf/), garantissant que les callouts conservent le même aspect sur différents systèmes.

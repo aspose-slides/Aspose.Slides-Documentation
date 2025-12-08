@@ -1,11 +1,21 @@
 ---
-title: Extracting Images from Presentation shapes
+title: Extract Images from Presentation Shapes
+linktitle: Image from Shape
 type: docs
 weight: 100
 url: /nodejs-java/extracting-images-from-presentation-shapes/
-keywords: "Extract image, PowerPoint, PPT, PPTX, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Extract images from PowerPoint presentation in JavaScript"
-
+keywords:
+- extract image
+- retrieve image
+- slide background
+- shape background
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Extract images from shapes in PowerPoint and OpenDocument presentations with JavaScript and Aspose.Slides for Node.js — quick, code-friendly solution."
 ---
 
 {{% alert color="primary" %}} 

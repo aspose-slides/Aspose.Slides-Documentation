@@ -1,7 +1,21 @@
 ---
-title: Chart Plot Area
+title: Customize Plot Areas of Presentation Charts in JavaScript
+linktitle: Plot Area
 type: docs
 url: /nodejs-java/chart-plot-area/
+keywords:
+- chart
+- plot area
+- plot area width
+- plot area height
+- plot area size
+- layout mode
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Discover how to customize chart plot areas in PowerPoint presentations with JavaScript and Aspose.Slides for Node.js. Improve your slide visuals effortlessly."
 ---
 
 

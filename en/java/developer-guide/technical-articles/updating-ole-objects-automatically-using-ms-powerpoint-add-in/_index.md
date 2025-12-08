@@ -16,9 +16,9 @@ keywords:
 description: "Discover how to auto-update OLE charts and objects in PowerPoint with an add-in and Aspose.Slides for Java, featuring practical code and optimization tips."
 ---
 
-## **Updating OLE Objects Automatically**
+## **Update OLE Objects Automatically**
 
-One of the most frequent questions asked by Aspose.Slides for .NET customers is how to create or modify editable charts (or other OLE objects) so that they update automatically when the presentation is opened. Unfortunately, PowerPoint doesn’t support automatic macros in the same way Excel and Word do. The only macros available are `Auto_Open` and `Auto_Close`, and these only run automatically from an add-in. This short technical tip shows how to achieve that.
+One of the most frequent questions asked by Aspose.Slides for Java customers is how to create or modify editable charts (or other OLE objects) so that they update automatically when the presentation is opened. Unfortunately, PowerPoint doesn’t support automatic macros in the same way Excel and Word do. The only macros available are `Auto_Open` and `Auto_Close`, and these only run automatically from an add-in. This short technical tip shows how to achieve that.
 
 First, several freeware add-ins are available that add the Auto_Open macro feature to PowerPoint, for example [AutoEvents Add-in](http://skp.mvps.org/autoevents.htm) and [Event Generator](https://www.officeoneonline.com/eventgen/eventgen.html).
 
@@ -44,4 +44,4 @@ for (var oSlide : ActivePresentation.Slides) {
 }
 ```
 
-Any changes made to OLE objects with Aspose.Slides for .NET will be automatically updated when PowerPoint opens the presentation. If you have many OLE objects and don’t want to update them all, simply add a custom tag to the shapes you need to process and check for it in the macro.
+Any changes made to OLE objects with Aspose.Slides for Java will be automatically updated when PowerPoint opens the presentation. If you have many OLE objects and don’t want to update them all, simply add a custom tag to the shapes you need to process and check for it in the macro.

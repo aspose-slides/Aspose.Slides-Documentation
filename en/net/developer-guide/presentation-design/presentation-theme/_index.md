@@ -71,7 +71,7 @@ pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
 
 The new color is applied automatically on both elements.
 
-### **Set Theme Color from Additional Palette**
+### **Set Theme Color from an Additional Palette**
 
 When you apply luminance transformations to the main theme color(1), colors from the additional palette(2) are formed. You can then set and get those theme colors. 
 

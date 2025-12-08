@@ -1,8 +1,20 @@
 ---
-title: Portion
+title: Manage Text Portions in Presentations on Android
+linktitle: Text Portion
 type: docs
 weight: 70
 url: /androidjava/portion/
+keywords:
+- text portion
+- text part
+- text coordinates
+- text position
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Learn how to manage text portions in PowerPoint presentations using Aspose.Slides for Android via Java, boosting performance and customization."
 ---
 
 ## **Get Position Coordinates of Portion**

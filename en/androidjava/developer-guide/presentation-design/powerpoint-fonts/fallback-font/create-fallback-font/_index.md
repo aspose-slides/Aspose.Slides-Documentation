@@ -1,8 +1,24 @@
 ---
-title: Create Fallback Font
+title: Specify Fallback Fonts for Presentations on Android
+linktitle: Fallback Font
 type: docs
 weight: 10
 url: /androidjava/create-fallback-font/
+keywords:
+- fallback font
+- fallback rule
+- apply font
+- replace font
+- Unicode range
+- missed glyph
+- proper glyph
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Master Aspose.Slides for Android via Java to set fallback fonts in PPT, PPTX and ODP files, safeguarding consistent text display on any device or OS."
 ---
 
 Aspose.Slides supports [IFontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFontFallBackRule) interface and [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) class to specify the rules to apply a fallback font. [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) class represents an association between the specified Unicode range, used for searching missed glyphs, and a list of fonts that may contain proper glyphs:

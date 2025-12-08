@@ -1,10 +1,24 @@
 ---
-title: Slide Transition
+title: Manage Slide Transitions in Presentations Using JavaScript
+linktitle: Slide Transition
 type: docs
 weight: 80
 url: /nodejs-java/slide-transition/
-keywords: "PowerPoint slide transition, morph transition in JavaScript"
-description: "PowerPoint slide transition, PowerPoint morph transition in JavaScript"
+keywords:
+- slide transition
+- add slide transition
+- apply slide transition
+- advanced slide transition
+- morph transition
+- transition type
+- transition effect
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Customize slide transitions in JavaScript with Aspose.Slides for Node.js via Java, with step-by-step guidance for PowerPoint and OpenDocument presentations."
 ---
 
 

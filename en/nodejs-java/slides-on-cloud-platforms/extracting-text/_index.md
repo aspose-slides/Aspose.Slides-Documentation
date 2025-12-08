@@ -3,4 +3,20 @@ title: Extracting Text from PPT, PPTX, ODP
 type: docs
 weight: 40
 url: /nodejs-java/extracting-text-from-ppt-pptx-odp-on-cloud-platforms/
+keywords:
+- cloud platforms
+- cloud integration
+- extract text
+- text extraction
+- PPT
+- PPTX
+- ODP
+- Open XML SDK
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Extract and process slide text from PPT, PPTX and ODP on major cloud platforms using Aspose.Slides for Node.js to power search, analytics, and automation."
 ---

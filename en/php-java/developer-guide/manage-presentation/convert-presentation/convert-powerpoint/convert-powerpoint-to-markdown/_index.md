@@ -5,27 +5,29 @@ type: docs
 weight: 140
 url: /php-java/convert-powerpoint-to-markdown/
 keywords:
-- convert PowerPoint to Markdown
-- convert OpenDocument to Markdown
-- convert presentation to Markdown
-- convert slide to Markdown
-- convert PPT to Markdown
-- convert PPTX to Markdown
-- convert ODP to Markdown
-- convert PowerPoint to MD
-- convert OpenDocument to MD
-- convert presentation to MD
-- convert slide to MD
-- convert PPT to MD
-- convert PPTX to MD
-- convert ODP to MD
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- PowerPoint to MD
+- presentation to MD
+- slide to MD
+- PPT to MD
+- PPTX to MD
+- save PowerPoint as Markdown
+- save presentation as Markdown
+- save slide as Markdown
+- save PPT as MD
+- save PPTX as MD
+- export PPT to MD
+- exportPPTX to MD
 - PowerPoint
-- OpenDocument
 - presentation
 - Markdown
 - PHP
 - Aspose.Slides
-description: "Convert PowerPoint and OpenDocument slides—PPT, PPTX, ODP—to clean Markdown with Aspose.Slides for PHP via Java, automate documentation and keep formatting."
+description: "Convert PowerPoint slides — PPT, PPTX — to clean Markdown with Aspose.Slides for PHP via Java, automate documentation and keep formatting."
 ---
 
 ## **Overview**

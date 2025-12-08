@@ -5,12 +5,19 @@ weight: 90
 url: /androidjava/licensing/
 keywords:
 - license
-- purchase
 - temporary license
-- LIC file
+- set license
+- use license
+- validate license
+- license file
+- evaluation version
+- PowerPoint
+- OpenDocument
+- presentation
 - Android
 - Java
-- Aspose.Slides for Android via Java
+- Aspose.Slides
+description: "Apply, manage, and troubleshoot licenses in Aspose.Slides for Android via Java. Ensure uninterrupted access to full features with our licensing guide."
 ---
 
 ## **Evaluate Aspose.Slides**

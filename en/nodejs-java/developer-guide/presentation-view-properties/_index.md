@@ -1,5 +1,6 @@
 ---
-title: Presentation View Properties
+title: Retrieve and Update Presentation View Properties in JavaScript
+linktitle: View Properties
 type: docs
 weight: 80
 url: /nodejs-java/presentation-view-properties/
@@ -15,11 +16,12 @@ keywords:
 - auto adjust
 - default zoom
 - PowerPoint
+- OpenDocument
 - presentation
 - Node.js
-- Java
-- Aspose.Slides for Node.js via Java
-description: "Manage PowerPoint presentation view properties in JavaScript"
+- JavaScript
+- Aspose.Slides
+description: "Discover Aspose.Slides for Node.js via Java view properties to customize formats PPT, PPTX, and ODP slides—adjust layouts, zoom levels, and display settings."
 ---
 
 {{% alert color="primary" %}} 

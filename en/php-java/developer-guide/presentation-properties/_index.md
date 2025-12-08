@@ -1,5 +1,6 @@
 ---
-title: Presentation Properties
+title: Manage Presentation Properties in PHP
+linktitle: Presentation Properties
 type: docs
 weight: 70
 url: /php-java/presentation-properties/
@@ -10,15 +11,18 @@ keywords:
 - built-in properties
 - custom properties
 - advanced properties
+- manage properties
 - modify properties
 - document metadata
 - edit metadata
+- proofing language
+- default language
 - PowerPoint
+- OpenDocument
 - presentation
 - PHP
-- Java
-- Aspose.Slides for PHP via Java
-description: "Manage PowerPoint presentation properties in PHP"
+- Aspose.Slides
+description: "Master presentation properties in Aspose.Slides for PHP via Java and streamline search, branding and workflow in your PowerPoint and OpenDocument files."
 ---
 
 {{% alert color="primary" %}} 

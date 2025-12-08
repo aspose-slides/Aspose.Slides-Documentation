@@ -1,8 +1,21 @@
 ---
-title: Rectangle
+title: Add Rectangles to Presentations in JavaScript
+linktitle: Rectangle
 type: docs
 weight: 80
 url: /nodejs-java/rectangle/
+keywords:
+- add rectangle
+- create rectangle
+- rectangle shape
+- simple rectangle
+- formatted rectangle
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Boost your PowerPoint presentations by adding rectangles with JavaScript and Aspose.Slides for Node.js—easily design and modify shapes programmatically."
 ---
 
 {{% alert color="primary" %}} 

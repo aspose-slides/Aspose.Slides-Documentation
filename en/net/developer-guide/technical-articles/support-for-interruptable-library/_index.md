@@ -99,31 +99,31 @@ private static Task Run(Action<IInterruptionToken> action, IInterruptionToken to
 
 ## **FAQ**
 
-**Q: What is the purpose of the Aspose.Slides interrupt library?**
+**What is the purpose of the Aspose.Slides interrupt library?**
 
 It provides a mechanism to interrupt long-running operations—such as loading, saving, or rendering presentations—before they complete. This is useful when processing time must be limited or the task is no longer needed.
 
-**Q: What is the difference between [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) and [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/)?**
+**What is the difference between [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) and [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/)?**
 
 - `InterruptionToken` is passed to the Aspose.Slides API and checked during long-running operations.
 - `InterruptionTokenSource` is used in your code to create tokens and trigger interruptions by calling `Interrupt()`.
 
-**Q: Can I use .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) with the interrupt library?**
+**Can I use .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) with the interrupt library?**
 
 Yes. You can monitor the [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) in your application logic and call [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/interrupt/) when cancellation is requested. This enables Aspose.Slides to integrate with standard .NET cancellation workflows.
 
-**Q: What tasks can be interrupted?**
+**What tasks can be interrupted?**
 
 Any Aspose.Slides task that accepts an [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/)—such as loading a presentation with `Presentation(path, loadOptions)` or saving with `Presentation.Save(...)`—can be interrupted.
 
-**Q: Does interruption happen immediately?**
+**Does interruption happen immediately?**
 
 No. Interruption is cooperative: the operation periodically checks the token and stops as soon as it detects that [Interrupt()](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/interrupt/) has been called.
 
-**Q: What happens if I call [Interrupt()](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/interrupt/) after a task has already completed?**
+**What happens if I call [Interrupt()](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/interrupt/) after a task has already completed?**
 
 Nothing—the call has no effect if the corresponding task has already completed.
 
-**Q: Can I reuse the same [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/) for multiple tasks?**
+**Can I reuse the same [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/) for multiple tasks?**
 
 Yes—but after you call [Interrupt()](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/interrupt/) on that source, all tasks using its tokens will be interrupted. Use separate token sources to manage tasks independently.

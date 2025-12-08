@@ -7,14 +7,14 @@ keywords: "Font exception, Font error, Linux, Java, Aspose.Slides for Java"
 description: "Font exceptions and errors on Linux"
 ---
 
-## **Missing text or images (emf or wmf) when code is executed on Linux**
+## **Missing Text or Images (EMF or WMF) When Code Is Executed on Linux**
 
 This problem occurs in systems with restrictions in these cases:
 
 1. When there are no fonts installed or when the font folder for the java process cannot be accessed
 2. When the TEMP directory cannot be accessed.
 
-### Solution
+### **Solution**
 
 Check and confirm that access to the TEMP directory and the fonts folder has been granted. 
 
@@ -52,14 +52,14 @@ try {
 }
 ```
 
-## **Exception: InvalidOperationException: Cannot find any fonts installed on the system**
+## **Exception: InvalidOperationException: Cannot Find Any Fonts Installed on the System**
 
 This exception occurs when
 
 1) the Java process cannot access the fonts folder
 2) no fonts have been installed.
 
-### Solution
+### **Solution**
 
 1. Check and confirm that access to the font folder for the Java process has been granted.
 
@@ -89,11 +89,11 @@ This exception occurs when
      FontsLoader.loadExternalFonts(pathToFontsFolders);
      ```
 
-## **Exception: NoClassDefFoundError: Could not initialize class com.aspose.slides.internal.ey.this**
+## **Exception: NoClassDefFoundError: Could Not Initialize Class com.aspose.slides.internal.ey.this**
 
 This exception occurs on a Linux system that lacks fontconfig and fonts. 
 
-### Solution:
+### **Solution**
 
 Install fontconfig:
 
@@ -127,11 +127,11 @@ Additionally, some open-jdk versions (for example, **alpine JDK**) also **requir
   fc-cache -fv
   ```
 
-## **Exception: UnsatisfiedLinkError: libfreetype.so.6: cannot open shared object file: No such file or directory**
+## **Exception: UnsatisfiedLinkError: libfreetype.so.6: Cannot Open Shared Object File: No Such File or Directory**
 
 This exception occurs on a Linux system that lacks the libfreetype library. 
 
-### Solution:
+### **Solution**
 
 Install libfreetype and fontconfig:
 

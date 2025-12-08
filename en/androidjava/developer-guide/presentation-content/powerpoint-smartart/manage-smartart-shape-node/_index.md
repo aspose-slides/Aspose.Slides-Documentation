@@ -1,11 +1,26 @@
 ---
-title: Create or Manage PowerPoint SmartArt Shape Node in Java
-linktitle: Manage SmartArt Shape Node
+title: Manage SmartArt Shape Nodes in Presentations on Android
+linktitle: SmartArt Shape Node
 type: docs
 weight: 30
 url: /androidjava/manage-smartart-shape-node/
-keywords: smartart powerpoint, smartart nodes, smartart position, remove smartart, smartart nodes add, powerpoint presentation, powerpoint java, powerpoint java api
-description: Manage smart art node and child node in PowerPoint Presentations in Java
+keywords:
+- SmartArt node
+- child node
+- add node
+- node position
+- access node
+- remove node
+- custom position
+- assistant node
+- fill format
+- render node
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Manage SmartArt shape nodes in PPT and PPTX with Aspose.Slides for Android. Get clear Java code samples and tips to streamline your presentations."
 ---
 
 ## **Add SmartArt Node in PowerPoint Presentation using Java**

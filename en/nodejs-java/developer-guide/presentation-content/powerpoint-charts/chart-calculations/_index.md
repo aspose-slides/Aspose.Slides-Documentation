@@ -1,8 +1,24 @@
 ---
-title: Chart Calculations
+title: Optimize Chart Calculations for Presentations in JavaScript
+linktitle: Chart Calculations
 type: docs
 weight: 50
 url: /nodejs-java/chart-calculations/
+keywords:
+- chart calculations
+- chart elements
+- element position
+- actual position
+- child element
+- parent element
+- chart values
+- actual value
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Understand chart calculations, data updates, and precision control in Aspose.Slides for Node.js for PPT and PPTX, with practical JavaScript code examples."
 ---
 
 ## **Calculate Actual Values of Chart Elements**

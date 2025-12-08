@@ -1,5 +1,6 @@
 ---
-title: Image
+title: Optimize Image Management in Presentations Using JavaScript
+linktitle: Manage Images
 type: docs
 weight: 10
 url: /nodejs-java/image/
@@ -23,8 +24,9 @@ keywords:
 - EMF
 - SVG
 - Node.js
+- JavaScript
 - Aspose.Slides
-description: "Streamline image management in PowerPoint and OpenDocument with Aspose.Slides for Node.js, optimizing performance and automating your workflow."
+description: "Streamline image management in PowerPoint and OpenDocument with JavaScript and Aspose.Slides for Node.js, optimizing performance and automating your workflow."
 ---
 
 ## **Images in Slides In Presentations**

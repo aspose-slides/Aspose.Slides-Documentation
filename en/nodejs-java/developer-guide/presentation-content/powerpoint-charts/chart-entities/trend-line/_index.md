@@ -1,7 +1,24 @@
 ---
-title: Trend Line
+title: Add Trend Lines to Presentation Charts in JavaScript
+linktitle: Trend Line
 type: docs
 url: /nodejs-java/trend-line/
+keywords:
+- chart
+- trend line
+- exponential trend line
+- linear trend line
+- logarithmic trend line
+- moving average trend line
+- polynomial trend line
+- power trend line
+- custom trend line
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Quickly add and customize trend lines in PowerPoint charts with JavaScript and Aspose.Slides for Node.js via Java — a practical guide to engage your audience."
 ---
 
 ## **Add Trend Line**

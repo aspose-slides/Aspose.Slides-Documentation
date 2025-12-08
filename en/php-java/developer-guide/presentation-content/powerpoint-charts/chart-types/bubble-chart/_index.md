@@ -1,7 +1,18 @@
 ---
-title: Bubble Chart
+title: Customize Bubble Charts in Presentations Using PHP
+linktitle: Bubble Chart
 type: docs
 url: /php-java/bubble-chart/
+keywords:
+- bubble chart
+- bubble size
+- size scaling
+- size representation
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Create and customize powerful bubble charts in PowerPoint with Aspose.Slides for PHP via Java to enhance your data visualization easily."
 ---
 
 ## **Bubble Chart Size Scaling**

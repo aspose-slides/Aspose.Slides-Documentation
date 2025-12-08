@@ -1,21 +1,20 @@
 ---
-title: プレゼンテーションのグラフでコールアウトを管理する Python のコード
-linktitle: コールアウト
+title: Python を使用したプレゼンテーションチャートの呼び出し線の管理
+linktitle: 呼び出し線
 type: docs
 url: /ja/python-net/callout/
 keywords:
-- グラフのコールアウト
-- コールアウトの使用
-- データラベル
-- ラベルの形式
+- チャート呼び出し線
+- 呼び出し線の使用
+- データ ラベル
+- ラベル形式
 - Python
 - Aspose.Slides
-description: "簡潔なコード例を使用して、Aspose.Slides for Python via .NET でコールアウトを作成およびスタイル設定し、PPT、PPTX、ODP との互換性を保ちながらプレゼンテーションのワークフローを自動化します。"
+description: "簡潔なコード例で Aspose.Slides for Python .NET の呼び出し線を作成およびスタイル設定し、PPT、PPTX、ODP に対応してプレゼンテーションワークフローを自動化します。"
 ---
 
-## **コールアウトの使用**
-新しいプロパティ **ShowLabelAsDataCallout** が **DataLabelFormat** クラスと **IDataLabelFormat** インターフェースに追加され、指定されたチャートのデータラベルがデータコールアウトとして表示されるかデータラベルとして表示されるかを決定します。以下の例では、コールアウトを設定しています。
-
+## **呼び出し線の使用**
+**ShowLabelAsDataCallout** という新しいプロパティが **DataLabelFormat** クラスと **IDataLabelFormat** インターフェイスに追加されました。このプロパティは、指定されたチャートのデータラベルをデータ呼び出し線として表示するか、データラベルとして表示するかを決定します。以下の例では、呼び出し線を設定しています。
 ```py
 import aspose.slides as slides
 
@@ -28,10 +27,8 @@ with slides.Presentation() as presentation:
 ```
 
 
-
-## **ドーナツチャートのコールアウトを設定する**
-Aspose.Slides for Python via .NETは、ドーナツチャートの系列データラベルコールアウトの形状を設定するサポートを提供しています。以下にサンプル例を示します。
-
+## **ドーナツ チャートの呼び出し線の設定**
+Aspose.Slides for Python via .NET は、ドーナツチャートのシリーズ データラベル呼び出し線の形状を設定する機能を提供します。以下にサンプル例を示します。
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -85,3 +82,14 @@ with slides.Presentation() as pres:
         categoryIndex +=1 
     pres.save("chart.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**プレゼンテーションを PDF、HTML5、SVG、または画像に変換するときに呼び出し線は保持されますか？**
+
+はい。呼び出し線はチャートのレンダリングの一部であるため、[PDF](/slides/ja/python-net/convert-powerpoint-to-pdf/)、[HTML5](/slides/ja/python-net/export-to-html5/)、[SVG](/slides/ja/python-net/render-a-slide-as-an-svg-image/)、または[ラスタ画像](/slides/ja/python-net/convert-powerpoint-to-png/)へエクスポートする際に、スライドの書式設定とともに保持されます。
+
+**カスタムフォントは呼び出し線で使用でき、エクスポート時に外観が保持されますか？**
+
+はい。Aspose.Slides はプレゼンテーションへの[フォント埋め込み](/slides/ja/python-net/embedded-font/)をサポートしており、[PDF](/slides/ja/python-net/convert-powerpoint-to-pdf/) などのエクスポート時にフォント埋め込みを制御し、異なるシステムでも呼び出し線の外観が同じになるようにします。

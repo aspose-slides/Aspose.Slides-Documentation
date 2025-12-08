@@ -1,9 +1,28 @@
 ---
-title: Chart Axis
+title: Customize Chart Axes in Presentations Using JavaScript
+linktitle: Chart Axis
 type: docs
 url: /nodejs-java/chart-axis/
-keywords: "PowerPoint Chart Axis, Presentation Charts, Java, Manipulate Chart Axis, Chart data"
-description: "How to edit PowerPoint chart axis in JavaScript"
+keywords:
+- chart axis
+- vertical axis
+- horizontal axis
+- customize axis
+- manipulate axis
+- manage axis
+- axis properties
+- max value
+- min value
+- axis line
+- date format
+- axis title
+- axis position
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Discover how to use JavaScript with Aspose.Slides for Node.js via Java to customize chart axes in PowerPoint presentations for reports and visualizations."
 ---
 
 

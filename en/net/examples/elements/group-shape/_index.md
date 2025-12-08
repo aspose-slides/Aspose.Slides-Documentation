@@ -20,7 +20,7 @@ description: "Work with group shapes in C# using Aspose.Slides: create and ungro
 
 Examples for creating groups of shapes, accessing them, ungrouping, and removal using **Aspose.Slides for .NET**.
 
-## Add a Group Shape
+## **Add a Group Shape**
 
 Create a group containing two basic shapes.
 
@@ -36,7 +36,7 @@ static void Add_Group_Shape()
 }
 ```
 
-## Access a Group Shape
+## **Access a Group Shape**
 
 Retrieve the first group shape from a slide.
 
@@ -52,7 +52,7 @@ static void Access_Group_Shape()
 }
 ```
 
-## Remove a Group Shape
+## **Remove a Group Shape**
 
 Delete a group shape from the slide.
 
@@ -67,7 +67,7 @@ static void Remove_Group_Shape()
 }
 ```
 
-## Ungroup Shapes
+## **Ungroup Shapes**
 
 Move shapes out of a group container.
 

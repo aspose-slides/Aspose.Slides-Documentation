@@ -1,27 +1,26 @@
 ---
-title: Gérer les Espaces réservés
+title: Gérer les espaces réservés
 type: docs
 weight: 10
 url: /fr/net/manage-placeholder/
-keywords: "Espace réservé, Texte d'espace réservé, Texte d'invite, Présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
-description: "Modifier le texte de l'espace réservé et le texte d'invite dans des présentations PowerPoint en C# ou .NET"
+keywords: "Espace réservé, Texte d'espace réservé, Texte d'invite, Présentation PowerPoint, C#, Csharp, Aspose.Slides for .NET"
+description: "Modifier le texte et le texte d'invite des espaces réservés dans les présentations PowerPoint en C# ou .NET"
 ---
 
-## **Modifier le Texte dans l'Espace Réservé**
-En utilisant [Aspose.Slides pour .NET](/slides/fr/net/), vous pouvez trouver et modifier les espaces réservés sur des diapositives dans des présentations. Aspose.Slides vous permet de modifier le texte dans un espace réservé.
+## **Modifier le texte dans un espace réservé**
+En utilisant [Aspose.Slides for .NET](/slides/fr/net/), vous pouvez rechercher et modifier les espaces réservés sur les diapositives dans les présentations. Aspose.Slides vous permet d'apporter des modifications au texte d'un espace réservé.
 
-**Prérequis**: Vous avez besoin d'une présentation qui contient un espace réservé. Vous pouvez créer une telle présentation dans l'application Microsoft PowerPoint standard.
+**Prerequisite**: Vous avez besoin d'une présentation contenant un espace réservé. Vous pouvez créer une telle présentation dans l'application Microsoft PowerPoint standard.
 
 Voici comment utiliser Aspose.Slides pour remplacer le texte dans l'espace réservé de cette présentation :
 
-1. Instanciez la classe [`Presentation`](https://reference.aspose.com/slides/net/aspose.slides/presentation) et passez la présentation comme argument.
-2. Obtenez une référence à une diapositive par son index.
-3. Parcourez les formes pour trouver l'espace réservé.
-4. Typecast la forme de l'espace réservé en une [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) et modifiez le texte à l'aide de [`TextFrame`](https://reference.aspose.com/slides/net/aspose.slides/textframe/) associé à l[`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/).
+1. Instanciez la classe [`Presentation`](https://reference.aspose.com/slides/net/aspose.slides/presentation) et passez la présentation en argument.
+2. Obtenez une référence à une diapositive via son index.
+3. Itérez à travers les formes pour trouver l'espace réservé.
+4. Convertissez la forme de l'espace réservé en [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) et modifiez le texte en utilisant le [`TextFrame`](https://reference.aspose.com/slides/net/aspose.slides/textframe/) associé à l[`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/).
 5. Enregistrez la présentation modifiée.
 
-Ce code C# montre comment modifier le texte dans un espace réservé :
-
+Ce code C# montre comment modifier le texte d'un espace réservé :
 ```c#
 // Instancie une classe Presentation
 using (Presentation pres = new Presentation("ReplacingText.pptx"))
@@ -30,46 +29,45 @@ using (Presentation pres = new Presentation("ReplacingText.pptx"))
     // Accède à la première diapositive
     ISlide sld = pres.Slides[0];
 
-    // Itère à travers les formes pour trouver l'espace réservé
+    // Parcourt les formes pour trouver l'espace réservé
     foreach (IShape shp in sld.Shapes)
         if (shp.Placeholder != null)
         {
-            // Modifie le texte dans chaque espace réservé
-            ((IAutoShape)shp).TextFrame.Text = "Ceci est un Espace Réservé";
+            // Modifie le texte de chaque espace réservé
+            ((IAutoShape)shp).TextFrame.Text = "This is a Placeholder";
         }
 
-    // Sauvegarde la présentation sur le disque
+    // Enregistre la présentation sur le disque
     pres.Save("output_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
 
-## **Définir le Texte d'Invite dans l'Espace Réservé**
-Les mises en page standard et prédéfinies contiennent des textes d'invite pour les espaces réservés tels que ***Cliquez pour ajouter un titre*** ou ***Cliquez pour ajouter un sous-titre***. En utilisant Aspose.Slides, vous pouvez insérer vos textes d'invite préférés dans les mises en page d'espaces réservés.
+## **Définir le texte d'invite dans un espace réservé**
+Les mises en page standard et préconfigurées contiennent des textes d'invite d'espace réservé tels que ***Click to add a title*** ou ***Click to add a subtitle***. En utilisant Aspose.Slides, vous pouvez insérer vos textes d'invite préférés dans les mises en page d'espaces réservés.
 
-Ce code C# vous montre comment définir le texte d'invite dans un espace réservé :
-
+Ce code C# montre comment définir le texte d'invite dans un espace réservé :
 ```c#
 using (Presentation pres = new Presentation("Presentation2.pptx"))
 {
     ISlide slide = pres.Slides[0];
-    foreach (IShape shape in slide.Slide.Shapes) // Itère à travers la diapositive
+    foreach (IShape shape in slide.Slide.Shapes) // Parcourt la diapositive
     {
         if (shape.Placeholder != null && shape is AutoShape)
         {
             string text = "";
             if (shape.Placeholder.Type == PlaceholderType.CenteredTitle) // PowerPoint affiche "Cliquez pour ajouter un titre"
             {
-                text = "Ajouter un Titre";
+                text = "Add Title";
             }
-            else if (shape.Placeholder.Type == PlaceholderType.Subtitle) // Ajoute un sous-titre
+            else if (shape.Placeholder.Type == PlaceholderType.Subtitle) // Ajoute le sous-titre
             {
-                text = "Ajouter un Sous-titre";
+                text = "Add Subtitle";
             }
 
             ((IAutoShape)shape).TextFrame.Text = text;
 
-            Console.WriteLine($"Espace réservé avec texte : {text}");
+            Console.WriteLine($"Placeholder with text: {text}");
         }
     }
 
@@ -77,12 +75,11 @@ using (Presentation pres = new Presentation("Presentation2.pptx"))
 }
 ```
 
-## **Définir la Transparence de l'Image de l'Espace Réservé**
 
-Aspose.Slides vous permet de définir la transparence de l'image de fond dans un espace réservé de texte. En ajustant la transparence de l'image dans un tel cadre, vous pouvez faire ressortir le texte ou l'image (selon les couleurs du texte et de l'image).
+## **Définir la transparence de l'image d'un espace réservé**
+Aspose.Slides vous permet de définir la transparence de l'image d'arrière-plan dans un espace réservé de texte. En ajustant la transparence de l'image dans ce cadre, vous pouvez faire ressortir le texte ou l'image (selon les couleurs du texte et de l'image).
 
-Ce code C# vous montre comment définir la transparence pour un arrière-plan d'image (dans une forme) :
-
+Ce code C# montre comment définir la transparence d'une image d'arrière-plan (à l'intérieur d'une forme) :
 ```c#
 using (var presentation = new Presentation())
 {
@@ -94,3 +91,18 @@ using (var presentation = new Presentation())
     autoShape.FillFormat.PictureFillFormat.Picture.ImageTransform.AddAlphaModulateFixedEffect(75);
 }
 ```
+
+
+## **FAQ**
+
+**Quel est un espace réservé de base, et en quoi diffère-t-il d'une forme locale sur une diapositive ?**
+
+Un espace réservé de base est la forme originale sur une mise en page ou un masque dont la forme de la diapositive hérite - le type, la position et certains formats en proviennent. Une forme locale est indépendante; s'il n'existe pas d'espace réservé de base, l'héritage ne s'applique pas.
+
+**Comment puis-je mettre à jour tous les titres ou légendes d'une présentation sans parcourir chaque diapositive ?**
+
+Modifiez l'espace réservé correspondant sur la mise en page ou le masque. Les diapositives basées sur ces mises en page ou ce masque hériteront automatiquement du changement.
+
+**Comment contrôler les espaces réservés d'en-tête/pied de page standard - date et heure, numéro de diapositive et texte du pied de page ?**
+
+Utilisez les gestionnaires HeaderFooter au niveau approprié (diapositives normales, mises en page, masque, notes/versions imprimées) pour activer ou désactiver ces espaces réservés et définir leur contenu.

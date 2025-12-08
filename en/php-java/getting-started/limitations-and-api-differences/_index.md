@@ -3,6 +3,16 @@ title: Limitations and API Differences
 type: docs
 weight: 100
 url: /php-java/limitations-and-api-differences/
+keywords:
+- limitation
+- API differences
+- package comparison
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Compare the limitations and API differences between Aspose.Slides for PHP via Java and Aspose.Slides for Java."
 ---
 
 

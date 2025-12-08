@@ -18,7 +18,7 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Read data from Excel workbooks in Aspose.Slides using the ExcelDataWorkbook API. Load sheets and cells and use values to generate data-driven PowerPoint presentations."
+description: "Read data from Excel workbooks in JavaScript with Aspose.Slides. Load sheets and cells and use values to generate data-driven PowerPoint presentations."
 ---
 
 ## **Introduction**

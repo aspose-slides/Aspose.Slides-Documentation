@@ -1,7 +1,18 @@
 ---
-title: Chart Legend
+title: Customize Chart Legends in Presentations on Android
+linktitle: Chart Legend
 type: docs
 url: /androidjava/chart-legend/
+keywords:
+- chart legend
+- legend position
+- font size
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Customize chart legends with Aspose.Slides for Android via Java to optimize PowerPoint presentations with tailored legend formatting."
 ---
 
 ## **Legend Positioning**

@@ -1,10 +1,19 @@
 ---
 title: Aspose.Slides for Android via Java
 second_title: Aspose.Slides Documentation
-description: Aspose.Slides for Android offers many key features that allow you to add, modify, and manipulate text, shapes, tables & animations, audios, and videos in slides.
 type: docs
 weight: 40
 url: /androidjava/
+keywords:
+- documentation
+- presentation processing
+- presentation conversion
+- PowerPoint
+- OpenDocument
+- Android
+- Java
+- Aspose.Slides
+description: Aspose.Slides for Android is a Microsoft PowerPoint® management API that enables Java applications to read and write PowerPoint® documents without using Microsoft PowerPoint®.
 is_root: true
 ---
 

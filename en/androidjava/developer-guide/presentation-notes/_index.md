@@ -1,10 +1,23 @@
 ---
-title: Presentation Notes
+title: Manage Presentation Notes on Android
+linktitle: Presentation Notes
 type: docs
 weight: 110
 url: /androidjava/presentation-notes/
-keywords: "PowerPoint speaker notes in Java"
-description: "Presentation notes, speaker notes in Java"
+keywords:
+- notes
+- notes slide
+- add notes
+- remove notes
+- notes style
+- master notes
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Customize presentation notes with Aspose.Slides for Android via Java. Seamlessly work with PowerPoint and OpenDocument notes to boost your productivity."
 ---
 
 

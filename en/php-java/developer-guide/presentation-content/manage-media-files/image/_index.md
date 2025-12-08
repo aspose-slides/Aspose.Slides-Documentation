@@ -1,5 +1,6 @@
 ---
-title: Image
+title: Optimize Image Management in Presentations Using PHP
+linktitle: Manage Images
 type: docs
 weight: 10
 url: /php-java/image/
@@ -24,7 +25,7 @@ keywords:
 - SVG
 - PHP
 - Aspose.Slides
-description: "Streamline image management in PowerPoint and OpenDocument with Aspose.Slides for PHP, optimizing performance and automating your workflow."
+description: "Streamline image management in PowerPoint and OpenDocument with Aspose.Slides for PHP via Java, optimizing performance and automating your workflow."
 ---
 
 ## **Images in Slides In Presentations**

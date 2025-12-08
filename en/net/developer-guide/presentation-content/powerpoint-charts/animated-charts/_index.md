@@ -109,7 +109,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 ```
 
 
-## **Animation in Series Element**
+## **Animation in a Series Element**
 If you want to animate series elements, write the code according to the steps listed below:
 
 1. Load a presentation.
@@ -151,7 +151,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 ```
 
 
-## **Animation in Category Element**
+## **Animation in a Category Element**
 If you want to animate categories elements, write the code according to the steps listed below:
 
 1. Load a presentation.

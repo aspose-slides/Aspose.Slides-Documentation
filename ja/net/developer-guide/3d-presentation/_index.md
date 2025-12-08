@@ -1,45 +1,43 @@
 ---
-title: 3Dプレゼンテーション
+title: 3D プレゼンテーション
 type: docs
 weight: 232
 url: /ja/net/3d-presentation/
 keywords:
 - 3D
 - 3D PowerPoint
-- 3Dプレゼンテーション
-- 3D回転
-- 3D深さ
-- 3D押出し
-- 3Dグラデーション
-- 3Dテキスト
-- PowerPointプレゼンテーション
+- 3D プレゼンテーション
+- 3D 回転
+- 3D 深度
+- 3D 押し出し
+- 3D グラデーション
+- 3D テキスト
+- PowerPoint プレゼンテーション
 - C#
-- Csharp
+- C#
 - Aspose.Slides for .NET
-description: "C#または.NETでの3D PowerPointプレゼンテーション"
+description: "C# または .NET での 3D PowerPoint プレゼンテーション"
 ---
 
-## 概要
-通常、どのように3D PowerPointプレゼンテーションを作成しますか？
-Microsoft PowerPointでは、3Dモデルを追加したり、形状に3D効果を適用したり、3Dテキストを作成したり、プレゼンテーションに3Dグラフィックスをアップロードしたり、PowerPoint 3Dアニメーションを作成したりできます。
+## **概要**
+通常、3D PowerPoint プレゼンテーションはどのように作成しますか？
 
-3D効果を作成することは、プレゼンテーションを3Dプレゼンテーションに改善する大きな影響を及ぼし、3Dプレゼンテーションの最も簡単な実装になる可能性があります。
-Aspose.Slides 20.9バージョン以降、新しい**クロスプラットフォーム3Dエンジン**が追加されました。この新しい3Dエンジンは、3D効果を伴う形状やテキストをエクスポートおよびラスタライズすることを可能にします。以前のバージョンでは、3D効果が適用されたスライドの形状は平面でレンダリングされていました。しかし、今では**本格的な3D**で形状をレンダリングすることが可能です。
-さらに、現在ではSlidesの公開APIを介して3D効果を持つ形状を作成することも可能です。
+Microsoft PowerPoint を使用すると、3D モデルを追加したり、図形に 3D 効果を適用したり、3D テキストを作成したり、プレゼンテーションに 3D グラフィックをアップロードしたり、PowerPoint の 3D アニメーションを作成したりして、3D プレゼンテーションを作成できます。
 
-Aspose.Slides APIでは、形状をPowerPoint 3D形状にするために、[IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/threedformat)プロパティを使用します。これは、[IThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat)インターフェースの機能を継承しています：
-- [BevelBottom](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/bevelbottom) 
-および [BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/beveltop): 形状にベベルを設定し、ベベルタイプ（例：角度、円、ソフトラウンド）を定義し、ベベルの高さと幅を定義します。
-- [Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera): 物体の周りのカメラの動きを模倣するために使用されます。言い換えれば、カメラの回転、ズーム、その他のプロパティを設定することで、あなたの形状をPowerPointの3Dモデルとして楽しむことができます。
-- [ContourColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourcolor) 
-および [ContourWidth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourwidth): 形状を3D PowerPoint形状のように見せるために輪郭プロパティを設定します。
-- [Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/depth), 
-[ExtrusionColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) 
-および [ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight): これらは、2D形状を3D形状に変換するために使用され、形状の深さを設定したり押し出したりします。
-- [LightRig](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/lightrig): 3D形状に光の効果を作成できます。このプロパティのロジックはカメラに似ており、3D形状に対して光の回転を設定し、光のタイプを選択できます。
-- [Material](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/material): 3D形状の材料のタイプを設定することで、より生き生きとした効果をもたらすことができます。このプロパティは、金属、プラスチック、粉末、マットなどの定義済み材料のセットを提供します。
+3D 効果を作成すると、プレゼンテーションを 3D に変換する大きなインパクトが得られ、3D プレゼンテーションの最も簡単な実装になることもあります。
 
-すべての3D機能は、形状とテキストの両方に適用できます。上記のプロパティにアクセスする方法を見て、それらを段階的に詳しく見ていきましょう：
+Aspose.Slides 20.9 バージョン以降、新しい **クロスプラットフォーム 3D エンジン** が追加されました。この新しい 3D エンジンにより、3D 効果を持つ図形やテキストをエクスポートおよびラスタライズできるようになりました。従来のバージョンでは、3D 効果が適用された Slides の図形は平面で描画されていましたが、現在は **本格的な 3D** で図形を描画できるようになりました。さらに、Slides のパブリック API を使用して 3D 効果を持つ図形を作成できるようになりました。
+
+Aspose.Slides API では、図形を PowerPoint の 3D 図形にするには [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/threedformat) プロパティを使用します。このプロパティは [IThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat) インターフェイスの機能を継承しています：
+
+- [BevelBottom](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/bevelbottom) と [BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/beveltop): 図形にベベルを設定し、ベベルの種類（例: Angle、Circle、SoftRound）やベベルの高さと幅を定義します。
+- [Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera): オブジェクトの周りのカメラの動きを模倣するために使用されます。つまり、回転、ズーム、その他のプロパティを設定することで、PowerPoint の 3D モデルのように図形を操作できます。
+- [ContourColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourcolor) と [ContourWidth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourwidth): 輪郭のプロパティを設定して、図形を 3D PowerPoint 図形のように見せます。
+- [Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/depth)、[ExtrusionColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) と [ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight): 図形を三次元にするために使用されます。つまり、深さを設定したり押し出したりして、2D 図形を 3D 図形に変換します。
+- [LightRig](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/lightrig): 3D 図形に光効果を付与できます。このプロパティのロジックは Camera に似ており、光の回転を 3D 図形に対して設定し、光のタイプを選択できます。
+- [Material](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/material): 3D 図形の素材タイプを設定することで、よりリアルな効果を得られます。このプロパティは Metal、Plastic、Powder、Matte などの事前定義された素材のセットを提供します。
+
+すべての 3D 機能は図形とテキストの両方に適用できます。上記のプロパティへのアクセス方法を見て、ステップバイステップで詳細を確認しましょう：
 ``` csharp 
 const float imageScale = 2;
 
@@ -68,21 +66,21 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-レンダリングされたサムネイルは次のようになります：
+
+レンダリングされたサムネイルは以下のようになります：
 
 ![todo:image_alt_text](img_01_01.png)
 
-## 3D回転
-PowerPointの3D形状を3D平面で回転させることが可能で、よりインタラクティブになります。PowerPointで3D形状を回転させるには、通常次のメニューを使用します：
+## **3D 回転**
+PowerPoint の 3D 図形は 3D 平面で回転させることができ、インタラクティブ性が向上します。PowerPoint で 3D 図形を回転させるには、通常以下のメニューを使用します：
 
 ![todo:image_alt_text](img_02_01.png)
 
-Aspose.Slides APIでは、3D形状の回転は、[IThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera)プロパティを使用して管理できます：
-
+Aspose.Slides API では、3D 図形の回転は [IThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera) プロパティを使用して管理できます：
 ``` csharp
 IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
-// ... その他の3Dシーンパラメータを設定
+// ... 他の 3D シーン パラメータを設定
 
 using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
 {
@@ -90,16 +88,15 @@ using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
 }
 ```
 
-## 3D深さと押出し
-形状に3D形状の第三の次元をもたらすために、[IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) 
-および [IThreeDFormat.ExtrusionColor.Color](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor)プロパティを使用します：
 
+## **3D の深さと押し出し**
+図形に第3次元を加えて 3D 図形にするには、[IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) と [IThreeDFormat.ExtrusionColor.Color](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) プロパティを使用します：
 ``` csharp
 IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
 shape.ThreeDFormat.ExtrusionHeight = 100;
 shape.ThreeDFormat.ExtrusionColor.Color = Color.Purple;
-// ... その他の3Dシーンパラメータを設定
+// ... 他の 3D シーン パラメータを設定
 
 using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
 {
@@ -107,13 +104,13 @@ using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
 }
 ```
 
-通常、PowerPointでDepthメニューを使用してPowerPoint 3D形状のDepthを設定します：
+
+通常、PowerPoint の Depth メニューを使用して PowerPoint 3D 図形の深さを設定します：
 
 ![todo:image_alt_text](img_02_02.png)
 
-## 3Dグラデーション
-グラデーションを使用してPowerPoint 3D形状の色を塗りつぶすことができます。グラデーション塗りつぶしの色の形状を作成し、3D効果を適用してみましょう：
-
+## **3D グラデーション**
+グラデーションは PowerPoint の 3D 図形の色を塗りつぶすために使用できます。グラデーション塗りつぶしの図形を作成し、そこに 3D 効果を適用してみましょう：
 ``` csharp
 const float imageScale = 2;
 
@@ -122,7 +119,7 @@ using (Presentation presentation = new Presentation())
     ISlide slide = presentation.Slides[0];
 
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
-    shape.TextFrame.Text = "3Dグラデーション";
+    shape.TextFrame.Text = "3D Gradient";
     shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 64;
 
     shape.FillFormat.FillType = FillType.Gradient;
@@ -143,11 +140,12 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-こちらが結果です：
+
+結果は以下の通りです：
 
 ![todo:image_alt_text](img_02_03.png)
 
-グラデーション塗りつぶしの色を除いて、画像で形状を塗りつぶすことも可能です：
+グラデーション塗りつぶしに加えて、画像で図形を塗りつぶすことも可能です：
 ``` csharp
 byte[] imageData = File.ReadAllBytes("image.jpg");
 IPPImage image = presentation.Images.AddImage(imageData);
@@ -155,7 +153,7 @@ IPPImage image = presentation.Images.AddImage(imageData);
 shape.FillFormat.FillType = FillType.Picture;
 shape.FillFormat.PictureFillFormat.Picture.Image = image;
 shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-// ... 3Dを設定：shape.ThreeDFormat.Camera、shape.ThreeDFormat.LightRig、shape.ThreeDFormat.Extrusion*プロパティ
+// ... 3D を設定: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* プロパティ
 
 using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
 {
@@ -163,13 +161,13 @@ using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
 }
 ```
 
-それは次のように見えます：
+
+見た目は次のようになります：
 
 ![todo:image_alt_text](img_02_04.png)
 
-## 3Dテキスト（WordArt）
-Aspose.Slidesでは、テキストにも3Dを適用することができます。3Dテキストを作成するためには、WordArt変換効果を使用できます：
-
+## **3D テキスト (WordArt)**
+Aspose.Slides では、テキストにも 3D を適用できます。3D テキストを作成するには WordArt の変形効果を使用できます：
 ``` csharp
 const float imageScale = 2;
 
@@ -180,7 +178,7 @@ using (Presentation presentation = new Presentation())
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
     shape.FillFormat.FillType = FillType.NoFill;
     shape.LineFormat.FillFormat.FillType = FillType.NoFill;
-    shape.TextFrame.Text = "3Dテキスト";
+    shape.TextFrame.Text = "3D Text";
 
     Portion portion = (Portion)shape.TextFrame.Paragraphs[0].Portions[0];
     portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
@@ -191,7 +189,7 @@ using (Presentation presentation = new Presentation())
     shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 128;
 
     ITextFrameFormat textFrameFormat = shape.TextFrame.TextFrameFormat;
-    // "アーチアップ" WordArt変換効果を設定
+    // "Arch Up" WordArt変形効果を設定
     textFrameFormat.Transform = TextShapeType.ArchUp;
 
     textFrameFormat.ThreeDFormat.ExtrusionHeight = 3.5f;
@@ -212,15 +210,20 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-こちらが結果です：
+
+結果は以下の通りです：
 
 ![todo:image_alt_text](img_02_05.png)
 
-## サポートされていない - 近日公開
-次のPowerPoint 3D機能はまだサポートされていません： 
-- ベベル
-- 材料
-- 輪郭
-- 照明
+## **よくある質問**
+**プレゼンテーションを画像/PDF/HTML にエクスポートする際に 3D 効果は保持されますか？**
 
-私たちは3Dエンジンの改善を続けており、これらの機能は今後の実装の対象となります。
+はい。Slides の 3D エンジンは、サポートされている形式（[images](/slides/ja/net/convert-powerpoint-to-png/)、[PDF](/slides/ja/net/convert-powerpoint-to-pdf/)、[HTML](/slides/ja/net/convert-powerpoint-to-html/) など）へのエクスポート時に 3D 効果をレンダリングします。
+
+**テーマや継承などを考慮した「有効」な（最終的な）3D パラメータ値を取得できますか？**
+
+はい。Slides には [有効な値を読み取る](/slides/ja/net/shape-effective-properties/) API が用意されており、3D（照明、ベベルなど）に関しても最終的に適用された設定を確認できます。
+
+**プレゼンテーションをビデオに変換する際に 3D 効果は機能しますか？**
+
+はい。ビデオ用のフレームを生成する際（[生成フレーム](/slides/ja/net/convert-powerpoint-to-video/)）も、エクスポートされた画像と同様に 3D 効果がレンダリングされます。

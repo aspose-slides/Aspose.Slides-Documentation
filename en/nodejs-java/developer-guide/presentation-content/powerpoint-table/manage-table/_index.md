@@ -1,10 +1,23 @@
 ---
-title: Manage Table
+title: Manage Presentation Tables in JavaScript
+linktitle: Manage Table
 type: docs
 weight: 10
 url: /nodejs-java/manage-table/
-keywords: "Table, create table, access table, table aspect ratio, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Create and manage table in PowerPoint presentations in JavaScript"
+keywords:
+- add table
+- create table
+- access table
+- aspect ratio
+- align text
+- text formatting
+- table style
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Create & edit tables in PowerPoint slides with JavaScript and Aspose.Slides for Node.js. Discover simple code examples to streamline your table workflows."
 ---
 
 A table in PowerPoint is an efficient way of displaying and portraying information. The information in a grid of cells (arranged in rows and columns) is straightforward and easy to understand.

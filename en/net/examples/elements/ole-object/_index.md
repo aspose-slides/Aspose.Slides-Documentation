@@ -20,7 +20,7 @@ description: "Work with OLE objects in C# using Aspose.Slides: insert or update 
 
 Demonstrates embedding a file as an OLE object and updating its data using **Aspose.Slides for .NET**.
 
-## Add an OLE Object
+## **Add an OLE Object**
 
 Embed a PDF file into the presentation.
 
@@ -35,7 +35,7 @@ static void Add_Ole_Object()
 }
 ```
 
-## Access an OLE Object
+## **Access an OLE Object**
 
 Retrieve the first OLE object frame on a slide.
 
@@ -51,7 +51,7 @@ static void Access_Ole_Object()
 }
 ```
 
-## Remove an OLE Object
+## **Remove an OLE Object**
 
 Delete an embedded OLE object from the slide.
 
@@ -67,7 +67,7 @@ static void Remove_Ole_Object()
 }
 ```
 
-## Update OLE Object Data
+## **Update OLE Object Data**
 
 Replace the data embedded in an existing OLE object.
 

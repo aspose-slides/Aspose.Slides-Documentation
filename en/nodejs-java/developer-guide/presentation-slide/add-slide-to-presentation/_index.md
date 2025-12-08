@@ -1,8 +1,20 @@
 ---
-title: Add Slide to Presentation
+title: Add Slides to Presentations in JavaScript
+linktitle: Add Slide
 type: docs
 weight: 10
 url: /nodejs-java/add-slide-to-presentation/
+keywords:
+- add slide
+- create slide
+- empty slide
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Easily add slides to your PowerPoint and OpenDocument presentations using Aspose.Slides for Node.js via Java — seamless, efficient slide insertion in seconds."
 ---
 
 ## **Add Slide to Presentation**

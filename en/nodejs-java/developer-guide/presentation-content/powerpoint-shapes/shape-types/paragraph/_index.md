@@ -1,8 +1,23 @@
 ---
-title: Paragraph
+title: Get Paragraph Bounds from Presentations in JavaScript
+linktitle: Paragraph
 type: docs
 weight: 60
 url: /nodejs-java/paragraph/
+keywords:
+- paragraph bounds
+- text portion bounds
+- paragraph coordinate
+- portion coordinate
+- paragraph size
+- text portion size
+- text frame
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn how to retrieve paragraph and text-portion bounds in JavaScript with Aspose.Slides for Node.js to optimize text positioning in PowerPoint presentations."
 ---
 
 

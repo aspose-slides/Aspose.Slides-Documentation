@@ -35,7 +35,7 @@ This article explains how to convert PowerPoint Presentation to PNG format using
 - [Convert ODP to PNG in C#](#convert-powerpoint-to-png)
 - [Convert PowerPoint Slide to Image in C#](#convert-powerpoint-to-png)
 
-## **C# PowerPoint to PNG**
+## **PowerPoint to PNG in .NET**
 
 For C# sample code to convert PowerPoint to PNG, please see the section below i.e. [Convert PowerPoint to PNG](#convert-powerpoint-to-png). The code can load number of formats like PPT, PPTX and ODP in Presentation object and then save its slide thumbnail to PNG format. The other PowerPoint to Image conversions which are sort of similar like JPG, BMP, TIFF and SVG are discussed in these articles.
 
