@@ -1,8 +1,22 @@
 ---
 title: Public API and Backwards Incompatible Changes in Aspose.Slides for .NET 15.1.0
+linktitle: Aspose.Slides for .NET 15.1.0
 type: docs
 weight: 130
 url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/
+keywords:
+- migration
+- legacy code
+- modern code
+- legacy approach
+- modern approach
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Review public API updates and breaking changes in Aspose.Slides for .NET to smoothly migrate your PowerPoint PPT, PPTX and ODP presentation solutions."
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +25,7 @@ This page lists all [added](/slides/net/public-api-and-backwards-incompatible-ch
 
 {{% /alert %}} 
 ## **Public API Chages**
-#### **Fonts substitutions functinality has been added**
+#### **Fonts Substitutions Functinality Has Been Added**
 Possibility to replace font globally across the presentation and temporary for rendering has been added.
 
 New property "FontsManager" of Presentation class has been introduced. FontsManager class has following members:

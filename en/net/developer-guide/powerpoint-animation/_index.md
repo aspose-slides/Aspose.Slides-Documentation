@@ -1,5 +1,5 @@
 ---
-title: Enhancing PowerPoint Presentations with Animations in C#
+title: Enhance PowerPoint Presentations with Animations in .NET
 linktitle: PowerPoint Animation
 type: docs
 weight: 150
@@ -24,9 +24,9 @@ keywords:
 - animated image
 - animated table
 - PowerPoint presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
+- Aspose.Slides
 description: "Explore the capabilities of Aspose.Slides for .NET in handling PowerPoint animations. This general overview highlights key features and offers insights to enhance your presentations."
 ---
 
@@ -94,10 +94,24 @@ To create animated charts, you should use the same classes as for the shapes. Ho
 Read more [**About Animated Charts**](/slides/net/animated-charts/).
 {{% /alert %}}
 
-## **Animated text**
+## **Animated Text**
 
 Except animated text, it is also possible to apply animation to a paragraph.
 
 {{% alert color="primary" %}} 
 Read more [**About Animated Text**](/slides/net/animated-text/).
 {{% /alert %}}
+
+## **FAQ**
+
+**Will animations be preserved when exporting to PDF?**
+
+No. PDF is a static format, so animations and [slide transitions](/slides/net/slide-transition/) don’t play. If you need motion, export to [HTML5](/slides/net/export-to-html5/), [animated GIF](/slides/net/convert-powerpoint-to-animated-gif/), or [video](/slides/net/convert-powerpoint-to-video/) instead.
+
+**Can I turn an animated presentation into a video and control the frame rate and frame size?**
+
+Yes. You can [render the presentation as frames](/slides/net/convert-powerpoint-to-video/) and encode them into a video (e.g., via ffmpeg), choosing the FPS and resolution. Animations and slide transitions are played during rendering.
+
+**Will animations remain intact when working with ODP (not just PPTX)?**
+
+PPT, PPTX, and ODP are supported for [reading](/slides/net/open-presentation/) and [writing](/slides/net/save-presentation/), but format differences mean certain effects may look or behave slightly differently. Validate critical cases with real samples.

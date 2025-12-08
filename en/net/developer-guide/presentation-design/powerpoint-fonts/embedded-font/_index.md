@@ -1,16 +1,24 @@
 ---
-title: Embedding Fonts in PowerPoint with C#
-linktitle: Embedding Fonts
+title: Embed Fonts in Presentations in .NET
+linktitle: Embedding Font
 type: docs
 weight: 40
 url: /net/embedded-font/
 keywords:
-- embed fonts
-- PowerPoint C#
-- add fonts
+- add font
+- embed font
+- font embedding
+- get embedded font
+- add embedded font
+- remove embedded font
+- compress embedded font
+- PowerPoint
+- OpenDocument
 - presentation
-- Aspose.Slides for .NET
-description: "Learn to embed, add, and manage fonts in PowerPoint presentations using C# and .NET"
+- .NET
+- C#
+- Aspose.Slides
+description: "Embed TrueType fonts in PowerPoint and OpenDocument presentations with Aspose.Slides for .NET, ensuring accurate rendering across all platforms."
 ---
 
 **Embedding fonts in PowerPoint** ensures your presentation maintains its intended appearance across different systems. Whether using unique fonts for creativity or standard ones, embedding fonts prevents text and layout disruption.
@@ -19,7 +27,7 @@ If you used a third-party or non-standard font because you got creative with you
 
 Utilize the [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/), [FontData](https://reference.aspose.com/slides/net/aspose.slides/fontdata/), and [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) classes to manage embedded fonts.
 
-## **Getting and Removing Embedded Fonts**
+## **Get and Remove Embedded Fonts**
 
 Retrieve or remove embedded fonts from a presentation effortlessly with the [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts) and [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont) methods.
 
@@ -60,7 +68,7 @@ using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
 }
 ```
 
-## **Adding Embedded Fonts**
+## **Add Embedded Fonts**
 
 Using the [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) enum and two overloads of the [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/) method, you can select your preferred (embedding) rule to embed the fonts in a presentation. This C# code shows you how to embed and add fonts to a presentation:
 
@@ -82,7 +90,7 @@ foreach (IFontData font in allFonts)
 presentation.Save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Compressing Embedded Fonts**
+## **Compress Embedded Fonts**
 
 Optimize file size by compressing embedded fonts using [CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/).
 
@@ -95,3 +103,13 @@ using (Presentation pres = new Presentation("pres.pptx"))
     pres.Save("pres-out.pptx", SaveFormat.Pptx);
 }
 ```
+
+## **FAQ**
+
+**How can I tell that a specific font in the presentation will still be substituted during rendering despite embedding?**
+
+Check the [substitution information](/slides/net/font-substitution/) in the font manager and the [fallback/substitution rules](/slides/net/fallback-font/): if the font is unavailable or restricted, a fallback will be used.
+
+**Is it worth embedding "system" fonts like Arial/Calibri?**
+
+Usually no—they are almost always available. But for full portability in "thin" environments (Docker, a Linux server without preinstalled fonts), embedding system fonts can eliminate the risk of unexpected substitutions.

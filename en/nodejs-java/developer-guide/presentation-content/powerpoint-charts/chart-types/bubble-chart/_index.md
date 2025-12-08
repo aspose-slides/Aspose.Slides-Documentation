@@ -1,7 +1,19 @@
 ---
-title: Bubble Chart
+title: Customize Bubble Charts in Presentations Using JavaScript
+linktitle: Bubble Chart
 type: docs
 url: /nodejs-java/bubble-chart/
+keywords:
+- bubble chart
+- bubble size
+- size scaling
+- size representation
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Create and customize powerful bubble charts in PowerPoint with JavaScript and Aspose.Slides for Node.js via Java to enhance your data visualization easily."
 ---
 
 ## **Bubble Chart Size Scaling**
@@ -35,3 +47,17 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**Is a "bubble chart with 3-D effect" supported, and how does it differ from a regular one?**
+
+Yes. There is a separate chart type, "Bubble with 3-D." It applies 3-D styling to the bubbles but does not add an additional axis; the data remain X-Y-S (size). The type is available in the [chart type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) enumeration.
+
+**Is there a limit on the number of series and points in a bubble chart?**
+
+There is no hard limit at the API level; constraints are determined by performance and the target PowerPoint version. It is recommended to keep the number of points reasonable for readability and rendering speed.
+
+**How will export affect the appearance of a bubble chart (PDF, images)?**
+
+Export to supported formats preserves the chart’s appearance; rendering is performed by the Aspose.Slides engine. For raster/vector formats, general chart-graphics rendering rules apply (resolution, anti-aliasing), so choose sufficient DPI for printing.

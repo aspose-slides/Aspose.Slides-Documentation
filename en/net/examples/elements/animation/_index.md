@@ -2,12 +2,25 @@
 title: Animation
 type: docs
 weight: 100
-url: /net/examples/elements/animation
+url: /net/examples/elements/animation/
+keywords:
+- animation example
+- add animation
+- access animation
+- remove animation
+- animation sequence
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Master slide animations in C# with Aspose.Slides: add, edit, and remove effects, timings, and triggers to create dynamic presentations in PPT, PPTX and ODP."
 ---
 
 Shows how to create simple animations and manage their sequence using **Aspose.Slides for .NET**.
 
-## Add an Animation
+## **Add an Animation**
 
 Create a rectangle shape and apply a fade-in effect triggered on click.
 
@@ -23,7 +36,7 @@ static void Add_Animation()
 }
 ```
 
-## Access an Animation
+## **Access an Animation**
 
 Retrieve the first animation effect from the slide timeline.
 
@@ -40,7 +53,7 @@ static void Access_Animation()
 }
 ```
 
-## Remove an Animation
+## **Remove an Animation**
 
 Remove an animation effect from the sequence.
 
@@ -57,7 +70,7 @@ static void Remove_Animation()
 }
 ```
 
-## Sequence Animations
+## **Sequence Animations**
 
 Add multiple effects and demonstrate the order in which animations occur.
 

@@ -1,10 +1,24 @@
 ---
-title: Manage Autofit Settings
+title: Enhance Your Presentations with AutoFit in JavaScript
+linktitle: Autofit Settings
 type: docs
 weight: 30
 url: /nodejs-java/manage-autofit-settings/
-keywords: "Textbox, Autofit, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Set the autofit settings for textbox in PowerPoint in JavaScript"
+keywords:
+- textbox
+- autofit
+- do not autofit
+- fit text
+- shrink text
+- wrap text
+- resize shape
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Manage AutoFit settings in Aspose.Slides for Node.js to optimize text display in your PowerPoint and OpenDocument presentations and improve content readability."
 ---
 
 By default, when you add a textbox, Microsoft PowerPoint uses the **Resize shape to fix text** setting for the textbox—it automatically resizes the textbox to ensure its text always fits into it. 
@@ -147,7 +161,16 @@ If you call the `setWrapText` method with `False` value for a shape, when the te
 
 {{% /alert %}}
 
+## **FAQ**
 
+**Do the text frame’s internal margins affect AutoFit?**
 
+Yes. Padding (internal margins) reduces the usable area for text, so AutoFit will kick in earlier—shrinking the font or resizing the shape sooner. Check and adjust margins before tuning AutoFit.
 
+**How does AutoFit interact with manual and soft line breaks?**
 
+Forced breaks remain in place, and AutoFit adapts font size and spacing around them. Removing unnecessary breaks often reduces how aggressively AutoFit needs to shrink the text.
+
+**Does changing the theme font or triggering font substitution affect AutoFit results?**
+
+Yes. Substituting to a font with different glyph metrics changes text width/height, which can alter final font size and line wrapping. After any font change or substitution, re-check the slides.

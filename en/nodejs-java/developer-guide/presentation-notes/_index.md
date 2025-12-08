@@ -1,10 +1,23 @@
 ---
-title: Presentation Notes
+title: Manage Presentation Notes in JavaScript
+linktitle: Presentation Notes
 type: docs
 weight: 110
 url: /nodejs-java/presentation-notes/
-keywords: "PowerPoint speaker notes in JavaScript"
-description: "Presentation notes, speaker notes in JavaScript"
+keywords:
+- notes
+- notes slide
+- add notes
+- remove notes
+- notes style
+- master notes
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Customize presentation notes in JavaScript with Aspose.Slides for Node.js. Seamlessly work with PowerPoint and OpenDocument notes to boost your productivity."
 ---
 
 
@@ -83,3 +96,13 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**Which API entity provides access to the notes of a specific slide?**
+
+Notes are accessed through the slide’s notes manager: the slide has a [NotesSlideManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notesslidemanager/) and a [method](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/) that returns the notes object, or `null` if there are no notes.
+
+**Are there differences in notes support across the PowerPoint versions the library works with?**
+
+The library targets a broad range of Microsoft PowerPoint formats (97–newer) and ODP; notes are supported within these formats without depending on an installed copy of PowerPoint.

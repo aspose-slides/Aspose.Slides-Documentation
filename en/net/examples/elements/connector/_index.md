@@ -2,12 +2,25 @@
 title: Connector
 type: docs
 weight: 190
-url: /net/examples/elements/connector
+url: /net/examples/elements/connector/
+keywords:
+- connector example
+- add connector
+- access connector
+- remove connector
+- reconnect shapes
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Draw and control connectors in C# with Aspose.Slides: add, route, reroute, set connection points, arrows and styles to link shapes in PPT, PPTX and ODP."
 ---
 
 Shows how to connect shapes with connectors and change their targets using **Aspose.Slides for .NET**.
 
-## Add a Connector
+## **Add a Connector**
 
 Insert a connector shape between two points on the slide.
 
@@ -21,7 +34,7 @@ static void Add_Connector()
 }
 ```
 
-## Access a Connector
+## **Access a Connector**
 
 Retrieve the first connector shape added to a slide.
 
@@ -36,7 +49,7 @@ static void Access_Connector()
 }
 ```
 
-## Remove a Connector
+## **Remove a Connector**
 
 Delete a connector from the slide.
 
@@ -51,7 +64,7 @@ static void Remove_Connector()
 }
 ```
 
-## Reconnect Shapes
+## **Reconnect Shapes**
 
 Attach a connector to two shapes by assigning start and end targets.
 

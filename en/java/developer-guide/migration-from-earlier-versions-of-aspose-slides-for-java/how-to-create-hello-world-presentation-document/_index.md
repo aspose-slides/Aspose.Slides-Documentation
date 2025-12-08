@@ -1,8 +1,22 @@
 ---
-title: How to create Hello World Presentation document
+title: How to Create Hello World Presentations in Java
+linktitle: Hello World Presentation
 type: docs
 weight: 10
 url: /java/how-to-create-hello-world-presentation-document/
+keywords:
+- migration
+- hello world
+- legacy code
+- modern code
+- legacy approach
+- modern approach
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+- description: "Create a Hello World PowerPoint PPT, PPTX and ODP presentation in Java with Aspose.Slides using both legacy and modern APIs in one simple guide."
 ---
 
 {{% alert color="primary" %}} 
@@ -10,9 +24,9 @@ url: /java/how-to-create-hello-world-presentation-document/
 A new [Aspose.Slides for Java API](/slides/java/) has been released and now this single product supports the capability to generate PowerPoint documents from scratch and editing the existing ones.
 
 {{% /alert %}} 
-## **Support for Legacy code**
+## **Support for Legacy Code**
 In order to use the legacy code developed with Aspose.Slides for Java versions earlier to 13.x, you need to make some minor changes in your code and the code will work as earlier. All the classes that were present in old Aspose.Slides for Java under Aspose.Slide and Aspose.Slides.Pptx namespaces are now merged in single Aspose.Slides namespace. Please take a look over the following simple code snippet for creating a Hello World Presentation document in legacy Aspose.Slides API and follow the steps describing how to migrate to new merged API.
-## **Legacy Aspose.Slides for Java approach**
+## **Legacy Aspose.Slides for Java Approach**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Creation-HelloWorldPresentation-HelloWorldPresentation.java" >}}
-## **New Aspose.Slides for Java 14.x.x approach**
+## **New Aspose.Slides for Java 14.x.x Approach**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Creation-CreateAPresentation-CreateAPresentation.java" >}}

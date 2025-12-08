@@ -1,10 +1,22 @@
 ---
-title: Pie Chart
+title: Customize Pie Charts in Presentations Using С++
+linktitle: Pie Chart
 type: docs
 url: /cpp/pie-chart/
+keywords:
+- pie chart
+- manage chart
+- customize chart
+- chart options
+- chart settings
+- plot options
+- slice color
+- PowerPoint
+- presentation
+- С++
+- Aspose.Slides
+description: "Learn how to create and customize pie charts in С++ with Aspose.Slides, exportable to PowerPoint, boosting your data storytelling in seconds."
 ---
-
-
 
 ## **Second Plot Options for Pie of Pie and Bar of Pie Chart**
 Aspose.Slides for C++ now supports, second plot options for Pie of Pie or Bar of Pie chart. In this topic, we will see with example how to Specify these options using Aspose.Slides. In order to specify the properties. Please follow the steps below:

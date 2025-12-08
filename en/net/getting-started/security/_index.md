@@ -3,6 +3,15 @@ title: Security
 type: docs
 weight: 160
 url: /net/security/
+keywords:
+- security
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "See how Aspose.Slides handles code security, static analysis, and OWASP Top 10 compliance so your apps can safely process PPT, PPTX and ODP on any server."
 ---
 
 ## **Security in Aspose.Slides**
@@ -16,13 +25,13 @@ Aspose applies the best practices when developing its products.
 
 * The risks inherent with or associated with the Microsoft Office package do not apply to Aspose components, so Aspose products are very secure.
 
-## Questions and Answers
+## **FAQ**
 
-> What systems are used to monitor for vulnerabilities in Aspose code?
+**What systems are used to monitor for vulnerabilities in Aspose code?**
 
 We run a static code analysis for every Aspose.Slides release. We can provide security reports that prove Aspose.Slides code passes OWASP Top 10. 
 
-> What systems do you employ to monitor for vulnerabilities in external packages?
+**What systems do you employ to monitor for vulnerabilities in external packages?**
 
 We do not employ systems to check for vulnerabilities in external packages because Aspose.Slides does not contain or use any external packages. Aspose.Slides depends on ONLY the .NET framework itself.
 

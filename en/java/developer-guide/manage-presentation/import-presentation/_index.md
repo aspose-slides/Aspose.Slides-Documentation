@@ -1,10 +1,27 @@
 ---
-title: Import Presentation
+title: Import Presentations from PDF or HTML in Java
+linktitle: Import Presentation
 type: docs
 weight: 60
 url: /java/import-presentation/
-keywords: "Import PowerPoint, PDF to Presentation, PDF to PPTX, PDF to PPT, Java, Aspose.Slides for Java"
-description: "Import PowerPoint presentation from PDF. Convert PDF to PowerPoint"
+keywords:
+- import presentation
+- import slide
+- import PDF
+- import HTML
+- PDF to presentation
+- PDF to PPT
+- PDF to PPTX
+- PDF to ODP
+- HTML to presentation
+- HTML to PPT
+- HTML to PPTX
+- HTML to ODP
+- PowerPoint
+- OpenDocument
+- Java
+- Aspose.Slides
+description: "Effortlessly import PDF and HTML documents into PowerPoint and OpenDocument presentations in Java with Aspose.Slides for seamless, high-performance slide processing."
 ---
 
 Using [**Aspose.Slides for Java**](https://products.aspose.com/slides/java/), you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/slidecollection/) class to allow you to import presentations from PDFs, HTML documents, etc.
@@ -63,6 +80,12 @@ try {
     if (presentation != null) presentation.dispose();
 }
 ```
+
+## **FAQ**
+
+**Are tables preserved when importing a PDF, and can their detection be improved?**
+
+Tables can be detected during import; [PdfImportOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfimportoptions/) includes a [setDetectTables](https://reference.aspose.com/slides/java/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) method that enables table recognition. The effectiveness depends on the PDF’s structure.
 
 {{% alert title="Note" color="warning" %}} 
 

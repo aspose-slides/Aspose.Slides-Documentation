@@ -1,14 +1,25 @@
 ---
-title: Manage Cells
+title: Manage Table Cells in Presentations Using Java
+linktitle: Manage Cells
 type: docs
 weight: 30
 url: /java/manage-cells/
-keywords: "Table, merged cells, split cells, image in table cell, Java, Aspose.Slides for Java"
-description: "Table cells in PowerPoint presentations in Java"
+keywords:
+- table cell
+- merge cells
+- remove border
+- split cell
+- image in cell
+- background color
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Effortlessly manage table cells in PowerPoint with Aspose.Slides for Java. Master accessing, modifying, and styling cells quickly for seamless slide automation."
 ---
 
 
-## **Identify Merged Table Cell**
+## **Identify a Merged Table Cell**
 1. Create an instance of the  [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 2. Get the table from the first slide. 
 3. Iterate through the table's rows and columns to find merge cells.
@@ -37,7 +48,7 @@ try {
 }
 ```
 
-## **Remove Table Cells Border**
+## **Remove Table Cell Borders**
 1. Create an instance of the  [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
 3. Define an array of columns with width.
@@ -188,7 +199,7 @@ try {
 }
 ```
 
-## **Numbering in Splitted Cell**
+## **Numbering in a Splitted Cell**
 In previous examples, when table cells got merged, the numeration or number system in other cells did not change. 
 
 This time, we take a regular table (a table without merged cells) and then try to split cell (1,1) to get a special table. You may want to pay attention to this table's numbering, which may be considered strange. However, that is the way Microsoft PowerPoint numerates table cells and Aspose.Slides does the same thing. 
@@ -248,7 +259,7 @@ try {
 }
 ```
 
-## **Change Table Cell Background Color**
+## **Change the Table Cell Background Color**
 
 This Java code shows you how to change a table cell's background color:
 
@@ -274,7 +285,7 @@ try {
 }
 ```
 
-## **Add Image Inside Table Cell**
+## **Add an Image Inside a Table Cell**
 
 1. Create an instance of the  [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
@@ -325,3 +336,21 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**Can I set different line thicknesses and styles for different sides of a single cell?**
+
+Yes. The [top](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderRight--) borders have separate properties, so the thickness and style of each side can differ. This logically follows from the per-side border control for a cell demonstrated in the article.
+
+**What happens to the image if I change the column/row size after setting a picture as the cell’s background?**
+
+The behavior depends on the [fill mode](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) (stretch/tile). With stretching, the image adjusts to the new cell; with tiling, the tiles are recalculated. The article mentions the image display modes in a cell.
+
+**Can I assign a hyperlink to all the content of a cell?**
+
+[Hyperlinks](/slides/java/manage-hyperlinks/) are set at the text (portion) level inside the cell’s text frame or at the level of the entire table/shape. In practice, you assign the link to a portion or to all the text in the cell.
+
+**Can I set different fonts within a single cell?**
+
+Yes. A cell’s text frame supports [portions](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) (runs) with independent formatting—font family, style, size, and color.

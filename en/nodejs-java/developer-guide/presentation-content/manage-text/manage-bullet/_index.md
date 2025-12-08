@@ -1,15 +1,32 @@
 ---
-title: Manage Bullet
+title: Manage Bulleted and Numbered Lists in Presentations Using JavaScript
+linktitle: Manage Lists
 type: docs
 weight: 60
 url: /nodejs-java/manage-bullet/
-keywords: "Bullets, Bullet lists, Numbers, Numbered lists, Picture bullets, multilevel bullets, PowerPoint Presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Create bullet and numbered lists in PowerPoint presentation in JavaScript"
+keywords:
+- bullet
+- bulleted list
+- numbered list
+- symbol bullet
+- picture bullet
+- custom bullet
+- multilevel list
+- create bullet
+- add bullet
+- add list
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn how to manage bulleted and numbered lists in PowerPoint and OpenDocument presentations in JavaScript using Aspose.Slides for Node.js. Step-by-step guide."
 ---
 
 In **Microsoft PowerPoint**, you can create bullet and numbered lists the same way you do in Word and other text editors. **Aspose.Slides for Node.js via Java** also allows you to use bullets and numbers in slides in your presentations.
 
-## Why Use Bullet Lists?
+## **Why Use Bullet Lists?**
 
 Bullet lists help you to organize and present information quickly and efficiently. 
 
@@ -21,7 +38,7 @@ In most cases, a bullet list serves these three main functions:
 - allows your readers or viewers to scan for key points easily
 - communicates and delivers important details efficiently.
 
-## Why Use Numbered Lists?
+## **Why Use Numbered Lists?**
 
 Numbered lists also help in organizing and presenting information. Ideally, you should use numbers (in place of bullets) when the order of the entries (for example, *step 1, step 2*, etc.) is important or when an entry has to be referenced (for example, *see step 3*).
 
@@ -33,7 +50,8 @@ This is a summary of the steps (step 1 to step 15) in the **Creating Bullets** p
 2. Perform several tasks (step 3 to step 14).
 3. Save the presentation. 
 
-## Creating Bullets
+## **Creating Bullets**
+
 This topic is also the part of the topic series of managing text paragraphs. This page will illustrate how we can manage paragraph bullets. Bullets are more useful where something is to be described in steps. Moreover, text looks well organized with the use of bullets. Bulleted paragraphs are always easier to read and understand. We will see how developers can use this small yet powerful feature of Aspose.Slides for Node.js via Java. Please follow the steps below to manage the paragraph bullets using Aspose.Slides for Node.js via Java:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
@@ -91,7 +109,7 @@ try {
 }
 ```
 
-## Creating Picture Bullets
+## **Creating Picture Bullets**
 
 Aspose.Slides for Node.js via Java allows you to change the bullets on bullet lists. You get to replace the bullets with custom symbols or images. If you want to add visual interest to a list or draw even more attention to entries on a list, you can use your own image as the bullet.
 
@@ -164,7 +182,7 @@ try {
 }
 ```
 
-## Creating Multilevel Bullets
+## **Creating Multilevel Bullets**
 
 To create a bullet list that contains items on different levels—additional lists under the main bullet list—go through these steps:
 
@@ -248,7 +266,8 @@ try {
 }
 ```
 
-## Create Custom Numbered List
+## **Create Custom Numbered List**
+
 Aspose.Slides for Node.js via Java provides a simple API to manage paragraphs with custom numbers formatting. To add a custom number list in a paragraph, please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
@@ -303,3 +322,17 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**Can bulleted and numbered lists created with Aspose.Slides be exported to other formats such as PDF or images?**
+
+Yes, Aspose.Slides fully preserves the formatting and structure of bullet and numbered lists when presentations are exported to formats like PDF, images, and others, ensuring consistent results.
+
+**Is it possible to import bullet or numbered lists from existing presentations?**
+
+Yes, Aspose.Slides allows you to import and edit bullet or numbered lists from existing presentations while preserving their original formatting and appearance.
+
+**Does Aspose.Slides support bullet and numbered lists in presentations created in multiple languages?**
+
+Yes, Aspose.Slides fully supports multilingual presentations, allowing you to create bullet and numbered lists in any language, including the use of special or non-Latin characters.

@@ -2,12 +2,25 @@
 title: OleObject
 type: docs
 weight: 210
-url: /net/examples/elements/leobject
+url: /net/examples/elements/ole-object/
+keywords:
+- OLE object example
+- add OLE object
+- access OLE object
+- remove OLE object
+- update OLE object
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Work with OLE objects in C# using Aspose.Slides: insert or update embedded files, set icons or links, extract content, control behavior for PPT, PPTX and ODP."
 ---
 
 Demonstrates embedding a file as an OLE object and updating its data using **Aspose.Slides for .NET**.
 
-## Add an OLE Object
+## **Add an OLE Object**
 
 Embed a PDF file into the presentation.
 
@@ -22,7 +35,7 @@ static void Add_Ole_Object()
 }
 ```
 
-## Access an OLE Object
+## **Access an OLE Object**
 
 Retrieve the first OLE object frame on a slide.
 
@@ -38,7 +51,7 @@ static void Access_Ole_Object()
 }
 ```
 
-## Remove an OLE Object
+## **Remove an OLE Object**
 
 Delete an embedded OLE object from the slide.
 
@@ -54,7 +67,7 @@ static void Remove_Ole_Object()
 }
 ```
 
-## Update OLE Object Data
+## **Update OLE Object Data**
 
 Replace the data embedded in an existing OLE object.
 

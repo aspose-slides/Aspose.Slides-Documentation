@@ -1,5 +1,6 @@
 ---
-title: Presentation Properties
+title: Manage Presentation Properties in JavaScript
+linktitle: Presentation Properties
 type: docs
 weight: 70
 url: /nodejs-java/presentation-properties/
@@ -10,15 +11,19 @@ keywords:
 - built-in properties
 - custom properties
 - advanced properties
+- manage properties
 - modify properties
 - document metadata
 - edit metadata
+- proofing language
+- default language
 - PowerPoint
+- OpenDocument
 - presentation
 - Node.js
 - JavaScript
-- Aspose.Slides for Node.js via Java
-description: "Manage PowerPoint presentation properties in JavaScript"
+- Aspose.Slides
+description: "Master presentation properties in Aspose.Slides for Node.js via Java and streamline search, branding and workflow in your PowerPoint and OpenDocument files."
 ---
 
 {{% alert color="primary" %}} 
@@ -319,3 +324,17 @@ try {
 Try [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) online app to see how to work with document properties via Aspose.Slides API:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+
+## ***FAQ**
+
+**How can I remove a built-in property from a presentation?**
+
+Built-in properties are an integral part of the presentation and cannot be removed entirely. However, you can either change their values or set them to empty if allowed by the specific property.
+
+**What happens if I add a custom property that already exists?**
+
+If you add a custom property that already exists, its existing value will be overwritten with the new one. You do not need to remove or check the property beforehand, as Aspose.Slides automatically updates the property's value.
+
+**Can I access presentation properties without fully loading the presentation?**
+
+Yes, you can access presentation properties without fully loading the presentation by using the `getPresentationInfo` method from the [PresentationFactory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationfactory/) class. Then, utilize the `readDocumentProperties` method provided by the [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationinfo/) class to read the properties efficiently, saving memory and improving performance.

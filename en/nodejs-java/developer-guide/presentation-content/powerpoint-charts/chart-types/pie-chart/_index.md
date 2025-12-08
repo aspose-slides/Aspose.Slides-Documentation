@@ -1,7 +1,22 @@
 ---
-title: Pie Chart
+title: Customize Pie Charts in Presentations Using JavaScript
+linktitle: Pie Chart
 type: docs
 url: /nodejs-java/pie-chart/
+keywords:
+- pie chart
+- manage chart
+- customize chart
+- chart options
+- chart settings
+- plot options
+- slice color
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn how to create and customize pie charts in JavaScript with Aspose.Slides for Node.js, exportable to PowerPoint, boosting your data storytelling in seconds."
 ---
 
 ## **Second Plot Options for Pie of Pie and Bar of Pie Chart**
@@ -88,3 +103,13 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**Are the 'Pie of Pie' and 'Bar of Pie' variations supported?**
+
+Yes, the library [supports](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) a secondary plot for pie charts, including the 'Pie of Pie' and 'Bar of Pie' types.
+
+**Can I export just the chart as an image (for example, PNG)?**
+
+Yes, you can [export the chart itself as an image](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) (such as PNG) without the entire presentation.

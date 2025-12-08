@@ -1,8 +1,33 @@
 ---
-title: Extract Text from Presentation
+title: Advanced Text Extraction from Presentations in JavaScript
+linktitle: Extract Text
 type: docs
 weight: 90
 url: /nodejs-java/extract-text-from-presentation/
+keywords:
+- extract text
+- extract text from slide
+- extract text from presentation
+- extract text from PowerPoint
+- extract text from OpenDocument
+- extract text from PPT
+- extract text from PPTX
+- extract text from ODP
+- retrieve text
+- retrieve text from slide
+- retrieve text from presentation
+- retrieve text from PowerPoint
+- retrieve text from OpenDocument
+- retrieve text from PPT
+- retrieve text from PPTX
+- retrieve text from ODP
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Quickly extract text from PowerPoint and OpenDocument presentations using Aspose.Slides for Node.js. Follow our simple, step-by-step guide to save time."
 ---
 
 {{% alert color="primary" %}} 
@@ -10,7 +35,9 @@ url: /nodejs-java/extract-text-from-presentation/
 It's not uncommon that developers need to extract the text from a presentation. To do so, you need to extract text from all the shapes on all the slides in a presentation. This article explains how to extract text from Microsoft PowerPoint PPTX presentations using Aspose.Slides. 
 
 {{% /alert %}} 
+
 ## **Extract Text from Slide**
+
 Aspose.Slides for Node.js via Java provides the [SlideUtil](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil) class. This class exposes a number of overloaded static methods for extracting the entire text from a presentation or slide. To extract the text from a slide in a PPTX presentation,
 use the [getAllTextBoxes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#getAllTextBoxes-aspose.slides.IBaseSlide-) overloaded static method exposed by the [SlideUtil](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil) class. This method accepts the Slide object as a parameter.
 Upon execution, the Slide method scans the entire text from the slide passed as parameter and returns an array of [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) objects. This means that any text formatting associated with the text is available. The following piece of code extracts all the text on the first slide of the presentation:
@@ -49,6 +76,7 @@ try {
 ```
 
 ## **Extract Text from Presentation**
+
 To scan the text from the whole presentation, use the
  [getAllTextFrames](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#getAllTextFrames-aspose.slides.IPresentation-boolean-) static method exposed by the SlideUtil class. It takes two parameters:
 
@@ -87,6 +115,7 @@ try {
 ```
 
 ## **Categorized and Fast Text Extraction**
+
 The new static method getPresentationText has been added to Presentation class. There are three overloads for this method:
 
 ```javascript
@@ -120,6 +149,16 @@ console.log(text1.getSlidesText()[0].getMasterText());
 console.log(text1.getSlidesText()[0].getNotesText());
 ```
 
+## **FAQ**
 
+**How fast does Aspose.Slides process large presentations during text extraction?**
 
+Aspose.Slides is optimized for high performance and efficiently processes even large presentations, making it suitable for real-time or bulk processing scenarios.
 
+**Can Aspose.Slides extract text from tables and charts within presentations?**
+
+Yes, Aspose.Slides fully supports extracting text from tables, charts, and other complex slide elements, allowing you to access and analyze all textual content easily.
+
+**Do I need a special Aspose.Slides license to extract text from presentations?**
+
+You can extract text using the free trial version of Aspose.Slides, although it will have certain limitations, such as processing only a limited number of slides. For unrestricted use and to handle larger presentations, purchasing a full license is recommended.

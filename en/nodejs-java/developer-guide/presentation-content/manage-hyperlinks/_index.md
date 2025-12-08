@@ -1,10 +1,29 @@
 ---
-title: Manage Hyperlinks
+title: Manage Presentation Hyperlinks in JavaScript
+linktitle: Manage Hyperlink
 type: docs
 weight: 20
 url: /nodejs-java/manage-hyperlinks/
-keywords: "PowerPoint Hyperlink, text hyperlink, slide hyperlink, shape hyperlink, image hyperlink, video hyperlink, Java"
-description: "How to add hyperlink to a PowerPoint Presentation in JavaScript"
+keywords:
+- add URL
+- add hyperlink
+- create hyperlink
+- format hyperlink
+- remove hyperlink
+- update hyperlink
+- text hyperlink
+- slide hyperlink
+- shape hyperlink
+- image hyperlink
+- video hyperlink
+- mutable hyperlink
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Effortlessly manage hyperlinks in PowerPoint and OpenDocument presentations with Aspose.Slides for Node.js—enhance interactivity and workflow in minutes."
 ---
 
 A hyperlink is a reference to an object or data or a place in something. These are common hyperlinks in PowerPoint Presentations:
@@ -298,3 +317,16 @@ The [HyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.sl
 - [HyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks--)
 - [HyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks--)
 
+## **FAQ**
+
+**How can I create internal navigation not just to a slide, but to a "section" or the first slide of a section?**
+
+Sections in PowerPoint are groupings of slides; navigation technically targets a specific slide. To "navigate to a section", you typically link to its first slide.
+
+**Can I attach a hyperlink to master slide elements so it works on all slides?**
+
+Yes. Master slide and layout elements support hyperlinks. Such links appear on child slides and are clickable during the slideshow.
+
+**Will hyperlinks be preserved when exporting to PDF, HTML, images, or video?**
+
+In [PDF](/slides/nodejs-java/convert-powerpoint-to-pdf/) and [HTML](/slides/nodejs-java/convert-powerpoint-to-html/), yes—links are generally preserved. When exporting to [images](/slides/nodejs-java/convert-powerpoint-to-png/) and [video](/slides/nodejs-java/convert-powerpoint-to-video/), clickability will not carry over due to the nature of those formats (raster frames/video do not support hyperlinks).

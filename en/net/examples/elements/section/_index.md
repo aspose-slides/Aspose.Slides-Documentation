@@ -2,12 +2,26 @@
 title: Section
 type: docs
 weight: 90
-url: /net/examples/elements/section
+url: /net/examples/elements/section/
+keywords:
+- section example
+- slide section
+- add section
+- access section
+- remove section
+- rename section
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Manage slide sections in C# with Aspose.Slides: create, rename, reorder easily, move slides between sections, and control visibility for PPT, PPTX and ODP."
 ---
 
 Examples for managing presentation sections—add, access, remove, and rename them programmatically using **Aspose.Slides for .NET**.
 
-## Add a Section
+## **Add a Section**
 
 Create a section that starts at a specific slide.
 
@@ -21,7 +35,7 @@ static void Add_Section()
 }
 ```
 
-## Access a Section
+## **Access a Section**
 
 Read section information from a presentation.
 
@@ -37,7 +51,7 @@ static void Access_Section()
 }
 ```
 
-## Remove a Section
+## **Remove a Section**
 
 Delete a previously added section.
 
@@ -52,7 +66,7 @@ static void Remove_Section()
 }
 ```
 
-## Rename a Section
+## **Rename a Section**
 
 Change the name of an existing section.
 

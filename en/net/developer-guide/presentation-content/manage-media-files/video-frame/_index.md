@@ -1,10 +1,24 @@
 ---
-title: Video Frame
+title: Manage Video Frames in Presentations in .NET
+linktitle: Video Frame
 type: docs
 weight: 10
 url: /net/video-frame/
-keywords: "Add video, create video frame, extract video, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Add Video frame to PowerPoint presentation in C# or .NET"
+keywords:
+- add video
+- create video
+- embed video
+- extract video
+- retrive video
+- video frame
+- web source
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn to programmatically add and extract video frames in PowerPoint and OpenDocument slides using Aspose.Slides for .NET. Fast how-to guide."
 ---
 
 A well-placed video in a presentation can make your message more compelling and increase engagement levels with your audience. 
@@ -16,7 +30,7 @@ PowerPoint allows you to add videos to a slide in a presentation in two ways:
 
 To allow you to add videos (video objects) to a presentation, Aspose.Slides provides the [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) interface, [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) interface, and other relevant types. 
 
-## **Create Embedded Video Frame**
+## **Create an Embedded Video Frame**
 
 If the video file you want to add to your slide is stored locally, you can create a video frame to embed the video in your presentation. 
 
@@ -56,7 +70,7 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Create Video Frame with Video from Web Source**
+## **Create a Video Frame with Video from a Web Source**
 Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) support YouTube videos in presentations. If the video you want to use is available online (e.g. on YouTube), you can add it to your presentation through its web link. 
 
 1. Create an instance of [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class
@@ -93,7 +107,7 @@ private static void AddVideoFromYouTube(Presentation pres, string videoId)
 }
 ```
 
-## **Extract Video From Slide**
+## **Extract Video from a Slide**
 Besides adding videos to slides, Aspose.Slides allows you to extract videos embedded in presentations.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class to load the presentation containing the video. 
@@ -129,3 +143,21 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 ```
+
+## **FAQ**
+
+**Which video playback parameters can be changed for a VideoFrame?**
+
+You can control the [playback mode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (auto or on click) and [looping](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/). These options are available via the [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/) object's properties.
+
+**Does adding a video affect the PPTX file size?**
+
+Yes. When you embed a local video, the binary data is included in the document, so the presentation size grows in proportion to the file size. When you add an online video, a link and a thumbnail are embedded, so the size increase is smaller.
+
+**Can I replace the video in an existing VideoFrame without changing its position and size?**
+
+Yes. You can swap the [video content](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) within the frame while preserving the shape's geometry; this is a common scenario for updating media in an existing layout.
+
+**Can the content type (MIME) of an embedded video be determined?**
+
+Yes. An embedded video has a [content type](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) that you can read and use, for example when saving it to disk.

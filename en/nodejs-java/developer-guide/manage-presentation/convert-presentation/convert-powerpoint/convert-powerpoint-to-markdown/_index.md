@@ -1,10 +1,34 @@
 ---
-title: Convert PowerPoint to Markdown in JavaScript
+title: Convert PowerPoint Presentations to Markdown in JavaScript
+linktitle: PowerPoint to Markdown
 type: docs
 weight: 140
 url: /nodejs-java/convert-powerpoint-to-markdown/
-keywords: "Convert PowerPoint to Markdown, Convert ppt to md, PowerPoint, PPT, PPTX, Presentation, Markdown, Java, Aspose.Slides for Node.js via Java"
-description: "Convert PowerPoint to Markdown in JavaScript"
+keywords:
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- PowerPoint to MD
+- presentation to MD
+- slide to MD
+- PPT to MD
+- PPTX to MD
+- save PowerPoint as Markdown
+- save presentation as Markdown
+- save slide as Markdown
+- save PPT as MD
+- save PPTX as MD
+- export PPT to MD
+- exportPPTX to MD
+- PowerPoint
+- presentation
+- Markdown
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Convert PowerPoint slides in JavaScript—PPT, PPTX—to clean Markdown with Aspose.Slides for Node.js via Java, automate documentation and keep formatting."
 ---
 
 {{% alert color="info" %}} 
@@ -37,7 +61,7 @@ try {
 }
 ```
 
-## Convert PowerPoint to Markdown Flavor
+## **Convert PowerPoint to Markdown Flavor**
 
 Aspose.Slides allows you to convert PowerPoint to markdown (containing basic syntax), CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab, and 17 other markdown flavors.
 
@@ -104,3 +128,17 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**Do hyperlinks survive the export to Markdown?**
+
+Yes. Text [hyperlinks](/slides/nodejs-java/manage-hyperlinks/) are preserved as standard Markdown links. Slide [transitions](/slides/nodejs-java/slide-transition/) and [animations](/slides/nodejs-java/powerpoint-animation/) are not converted.
+
+**Can I speed up conversion by running it in multiple threads?**
+
+You can parallelize across files, but [don’t share](/slides/nodejs-java/multithreading/) the same [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) instance across threads. Use separate instances/processes per file to avoid contention.
+
+**What happens to images—where are they saved, and are the paths relative?**
+
+[Images](/slides/nodejs-java/image/) are exported to a dedicated folder, and the Markdown file references them with relative paths by default. You can configure the base output path and asset folder name to keep a predictable repository structure.

@@ -1,7 +1,17 @@
 ---
-title: 3D Chart
+title: Customize 3D Charts in Presentations Using PHP
+linktitle: 3D Chart
 type: docs
 url: /php-java/3d-chart/
+keywords:
+- 3D chart
+- rotation
+- depth
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Learn how to create and customize 3-D charts in Aspose.Slides for PHP via Java, with support for PPT and PPTX files — boost your presentations today."
 ---
 
 ## **Set RotationX, RotationY and DepthPercents properties of 3D Chart**

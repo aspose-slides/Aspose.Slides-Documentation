@@ -1,10 +1,20 @@
 ---
-title: Font Replacement
+title: Streamline Font Replacement in Presentations Using С++
+linktitle: Font Replacement
 type: docs
 weight: 60
 url: /cpp/font-replacement/
-keywords: "Font, replace font, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
-description: "Replace fonts explicitly in PowerPoint in C++"
+keywords:
+- font
+- replace font
+- font replacement
+- change font
+- PowerPoint
+- OpenDocument
+- presentation
+- С++
+- Aspose.Slides
+description: "Seamlessly replace fonts in Aspose.Slides for С++ to ensure consistent typography in PowerPoint and OpenDocument presentations."
 ---
 
 If you change your mind about using a font, you can replace that font with another font. All instances of the old font will be replaced by the new font. 

@@ -1,10 +1,23 @@
 ---
-title: Access Slide in Presentation
+title: Access Presentation Slides in C++
+linktitle: Access Slide
 type: docs
 weight: 20
 url: /cpp/access-slide-in-presentation/
-keywords: "Access PowerPoint Presentation, Access slide, Edit slide properties, Change slide position, Set slide number, index, ID, position  C++, CPP, Aspose.Slides"
-description: "Access PowerPoint slide by index, ID, or position in C++. Edit slide properties"
+keywords:
+- access slide
+- slide index
+- slide id
+- slide position
+- change position
+- slide properties
+- slide number
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Learn how to access and manage slides in PowerPoint and OpenDocument presentations with Aspose.Slides for C++. Boost productivity with code examples."
 ---
 
 Aspose.Slides allows you to access slides in two ways: by index and by ID.

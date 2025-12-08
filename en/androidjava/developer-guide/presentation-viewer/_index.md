@@ -1,20 +1,23 @@
 ---
-title: Presentation Viewer
+title: Create a Presentation Viewer on Android
+linktitle: Presentation Viewer
 type: docs
 weight: 50
 url: /androidjava/presentation-viewer/
 keywords: 
 - view presentation
 - presentation viewer
+- create presentation viewer
 - view PPT
 - view PPTX
 - view ODP
 - PowerPoint
 - OpenDocument
+- presentation
 - Android
 - Java
-- Aspose.Slides for Android via Java
-description: "PowerPoint presentation viewer in Java"
+- Aspose.Slides
+description: "Create a custom presentation viewer in Java using Aspose.Slides for Android. Easily display PowerPoint and OpenDocument files without Microsoft PowerPoint."
 ---
 
 Aspose.Slides for Android via Java is used to create presentation files with slides. These slides can be viewed by opening presentations in Microsoft PowerPoint, for example. However, sometimes developers may need to view slides as images in their preferred image viewer or create their own presentation viewer. In such cases, Aspose.Slides allows you to export an individual slide as an image. This article describes how to do it.

@@ -1,15 +1,33 @@
 ---
-title: Presentation Comments
+title: Manage Presentation Comments in JavaScript
+linktitle: Presentation Comments
 type: docs
 weight: 100
 url: /nodejs-java/presentation-comments/
-keywords: "Comments, PowerPoint comments, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Add comments and replies in PowerPoint presentation in JavaScript"
+keywords:
+- comment
+- modern comment
+- PowerPoint comments
+- presentation comments
+- slide comments
+- add comment
+- access comment
+- edit comment
+- reply comment
+- remove comment
+- delete comment
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Master presentation comments with Aspose.Slides for Node.js: add, read, edit, and delete comments in PowerPoint files using JavaScript fast and easily."
 ---
 
 In PowerPoint, a comment appears as a note or annotation on a slide. When a comment is clicked, its contents or messages are revealed. 
 
-### **Why Add Comments to Presentations?**
+## **Why Add Comments to Presentations?**
 
 You may want to use comments to provide feedback or communicate with your colleagues when you review presentations.
 
@@ -214,3 +232,16 @@ try {
 }
 ```
 
+## **FAQ**
+
+**Does Aspose.Slides support a status like 'resolved' for modern comments?**
+
+Yes. [Modern comments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/) expose a [getStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/getstatus/) and [setStatus](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncomment/setStatus/) methods; you can read and set a [comment’s state](https://reference.aspose.com/slides/nodejs-java/aspose.slides/moderncommentstatus/) (for example, mark it as resolved), and this state is saved in the file and recognized by PowerPoint.
+
+**Are threaded discussions (reply chains) supported, and is there a nesting limit?**
+
+Yes. Each comment can reference its [parent comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/comment/getparentcomment/), enabling arbitrary reply chains. The API does not declare a specific nesting depth limit.
+
+**In what coordinate system is a comment marker’s position defined on a slide?**
+
+The position is stored as a floating-point point in the slide’s coordinate system. This lets you place the comment marker precisely where you need it.

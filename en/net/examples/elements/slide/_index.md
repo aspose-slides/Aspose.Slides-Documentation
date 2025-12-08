@@ -2,14 +2,29 @@
 title: Slide
 type: docs
 weight: 10
-url: /net/examples/elements/slide
+url: /net/examples/elements/slide/
+keywords:
+- slide example
+- add slide
+- access slide
+- slide index
+- clone slide
+- reorder slides
+- remove slide
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Manage slides in C# with Aspose.Slides: create, clone, reorder, hide, set backgrounds and size, apply transitions, and export for PowerPoint and OpenDocument."
 ---
 
 This article provides a series of examples that demonstrate how to work with slides using **Aspose.Slides for .NET**. You’ll learn how to add, access, clone, reorder, and remove slides using the `Presentation` class.
 
 Each example below includes a brief explanation followed by a code snippet in C#.
 
-## Add a Slide
+## **Add a Slide**
 
 To add a new slide, you must first select a layout. In this example, we use the `Blank` layout and add an empty slide to the presentation.
 
@@ -31,7 +46,7 @@ static void Add_Slide()
 
 ![Master and Layout Relationship](master-layout-slide.png)
 
-## Access Slides by Index
+## **Access Slides by Index**
 
 You can access slides using their index, or find a slide’s index based on a reference. This is useful for iterating through or modifying specific slides.
 
@@ -54,7 +69,7 @@ static void Access_Slide()
 }
 ```
 
-## Clone a Slide
+## **Clone a Slide**
 
 This example demonstrates how to clone an existing slide. The cloned slide is automatically added to the end of the slide collection.
 
@@ -72,7 +87,7 @@ static void Clone_Slide()
 }
 ```
 
-## Reorder Slides
+## **Reorder Slides**
 
 You can change the order of slides by moving one to a new index. In this case, we move a cloned slide to the first position.
 
@@ -89,7 +104,7 @@ static void ReOrder_Slide()
 }
 ```
 
-## Remove a Slide
+## **Remove a Slide**
 
 To remove a slide, simply reference it and call `Remove`. This example adds a second slide and then removes the original, leaving only the new one.
 

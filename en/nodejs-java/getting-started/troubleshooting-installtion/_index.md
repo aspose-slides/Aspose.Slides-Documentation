@@ -1,18 +1,24 @@
 ---
-title: Troubleshooting installing Aspose.Slides for Node.js via Java
+title: Troubleshooting Installation of Aspose.Slides for Node.js via Java
+linktitle: Troubleshooting Installation
 type: docs
 weight: 75
 url: /nodejs-java/troubleshooting-installation/
 keywords:
 - download Aspose.Slides
 - install Aspose.Slides
-- Aspose.Slides troubleshooting installing
+- troubleshooting installation
+- version requirements
 - Windows
 - macOS
 - Linux
-- JavaScript
+- PowerPoint
+- OpenDocument
+- presentation
 - Node.js
-description: "Troubleshooting installing Aspose.Slides for Node.js via Java in Windows, Linux or macOS"
+- JavaScript
+- Aspose.Slides
+description: "Troubleshoot Aspose.Slides for Node.js via Java installation issues, fix common errors and dependencies, and ensure smooth work with PPT, PPTX and ODP."
 ---
 
 When [installing](/nodejs-java/installation/) `aspose.slides.via.java` using `npm`, there are cases where errors occur during the compilation of `java` and `node-gyp` modules. We have investigated these errors in more detail and identified specific requirements for the versions of installed programs and packages. 

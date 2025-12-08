@@ -3,6 +3,21 @@ title: Why Not Automation
 type: docs
 weight: 40
 url: /net/why-not-automation/
+keywords:
+- automation
+- Microsoft Office
+- comparing
+- security
+- stability
+- scalability
+- features
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Discover why Office automation is risky for servers and services, and see how Aspose.Slides offers safer, faster presentation processing for PowerPoint and OpenDocument."
 ---
 
 ## **Important Questions**

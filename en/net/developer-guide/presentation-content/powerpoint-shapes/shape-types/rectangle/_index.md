@@ -1,14 +1,25 @@
 ---
-title: Rectangle
+title: Add Rectangles to Presentations in .NET
+linktitle: Rectangle
 type: docs
 weight: 80
 url: /net/rectangle/
-keywords: "Create rectangle, PowerPoint shape, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Create rectangle in PowerPoint presentation in C# or .NET"
+keywords:
+- add rectangle
+- create rectangle
+- rectangle shape
+- simple rectangle
+- formatted rectangle
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Boost your PowerPoint presentations by adding rectangles with Aspose.Slides for .NET—easily design and modify shapes programmatically."
 ---
 
 
-## **Create Simple Rectangle**
+## **Create a Simple Rectangle**
 Like previous topics, this one is also about adding a shape and this time the shape we will discuss about is Rectangle. In this topic, we have described that how developers can add simple or formatted rectangles to their slides using Aspose.Slides for .NET . To add a simple rectangle to a selected slide of the presentation, please follow the steps below:
 
 1. Create an instance of [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
@@ -35,7 +46,7 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Create Formatted Rectangle**
+## **Create a Formatted Rectangle**
 To add a formatted rectangle to a slide, please follow the steps below:
 
 1. Create an instance of [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
@@ -73,3 +84,32 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+## **FAQ**
+
+**How do I add a rectangle with rounded corners?**
+
+Use the rounded-corner [shape type](https://reference.aspose.com/slides/net/aspose.slides/shapetype/) and adjust the corner radius in the shape’s properties; rounding can also be applied per corner via geometry adjustments.
+
+**How do I fill a rectangle with an image (texture)?**
+
+Select the picture [fill type](https://reference.aspose.com/slides/net/aspose.slides/filltype/), provide the image source, and configure [stretching/tiling modes](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/).
+
+**Can a rectangle have shadow and glow?**
+
+Yes. [Outer/inner shadow, glow, and soft edges](/slides/net/shape-effect/) are available with adjustable parameters.
+
+**Can I turn a rectangle into a button with a hyperlink?**
+
+Yes. [Assign a hyperlink](/slides/net/manage-hyperlinks/) to the shape click (jump to a slide, file, web address, or e-mail).
+
+**How can I protect a rectangle from moving and changes?**
+
+[Use shape locks](/slides/net/applying-protection-to-presentation/): you can forbid moving, resizing, selection, or text editing to preserve the layout.
+
+**Can I convert a rectangle to a raster image or SVG?**
+
+Yes. You can [render the shape](http://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) to an image with a specified size/scale or [export it as SVG](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/) for vector use.
+
+**How do I quickly get the actual (effective) properties of a rectangle considering theme and inheritance?**
+
+[Use the shape’s effective properties](/slides/net/shape-effective-properties/): the API returns computed values that account for theme styles, layout, and local settings, simplifying formatting analysis.

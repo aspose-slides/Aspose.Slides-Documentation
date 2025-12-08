@@ -1,10 +1,25 @@
 ---
-title: Chart Data Marker
+title: Manage Chart Data Markers in Presentations Using JavaScript
+linktitle: Data Marker
 type: docs
 url: /nodejs-java/chart-data-marker/
+keywords:
+- chart
+- data point
+- marker
+- marker options
+- marker size
+- fill type
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn how to customize chart data markers in Aspose.Slides for Node.js, boosting presentation impact across PPT and PPTX formats with clear code examples."
 ---
 
 ## **Set Chart Marker Options**
+
 The markers can be set on chart data points inside particular series. In order to set chart marker options. Please follow the steps below:
 
 - Instantiate [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
@@ -62,3 +77,13 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**Which marker shapes are available out of the box?**
+
+Standard shapes are available (circle, square, diamond, triangle, etc.); the list is defined by the [MarkerStyleType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/markerstyletype/) enumeration. If you need a non-standard shape, use a marker with a picture fill to emulate custom visuals.
+
+**Are markers preserved when exporting a chart to an image or SVG?**
+
+Yes. When rendering charts to [raster formats](/slides/nodejs-java/convert-powerpoint-to-png/) or saving [shapes as SVG](/slides/nodejs-java/render-a-slide-as-an-svg-image/), markers retain their appearance and settings, including size, fill, and outline.

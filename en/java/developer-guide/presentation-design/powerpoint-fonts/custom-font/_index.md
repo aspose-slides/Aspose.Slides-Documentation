@@ -1,11 +1,22 @@
 ---
-title: Custom PowerPoint Font in Java
+title: Customize PowerPoint Fonts in Java
 linktitle: Custom Font
 type: docs
 weight: 20
 url: /java/custom-font/
-keywords: "Fonts, custom fonts, PowerPoint presentation, Java, Aspose.Slides for Java"
-description: "PowerPoint custom fonts in Java"
+keywords:
+- font
+- custom font
+- external font
+- load font
+- manage fonts
+- font folder
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Customize fonts in PowerPoint slides with Aspose.Slides for Java to keep your presentations sharp and consistent across any device."
 ---
 
 {{% alert color="primary" %}} 
@@ -47,7 +58,7 @@ try {
 }
 ```
 
-## **Get Custom Fonts Folder**
+## **Get Custom Font Folders**
 Aspose.Slides provides the [getFontFolders](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#getFontFolders--) method to allow you to find font folders. This method returns folders added through the `LoadExternalFonts` method and system font folders.
 
 This Java code shows you how to use [getFontFolders](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#getFontFolders--):
@@ -58,7 +69,7 @@ This Java code shows you how to use [getFontFolders](https://reference.aspose.co
 String[] fontFolders = FontsLoader.getFontFolders();
 ```
 
-## **Specify Custom Fonts Used With Presentation**
+## **Specify Custom Fonts Used with a Presentation**
 Aspose.Slides provides the [setDocumentLevelFontSources](https://reference.aspose.com/slides/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) property to allow you to specify external fonts that will be used with the presentation. 
 
 This Java code shows you how to use the [setDocumentLevelFontSources](https://reference.aspose.com/slides/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) property:
@@ -106,3 +117,24 @@ finally
 }
 ```
 
+## **FAQ**
+
+**Do custom fonts affect export to all formats (PDF, PNG, SVG, HTML)?**
+
+Yes. Connected fonts are used by the renderer across all export formats.
+
+**Are custom fonts automatically embedded into the resulting PPTX?**
+
+No. Registering a font for rendering is not the same as embedding it into a PPTX. If you need the font carried inside the presentation file, you must use the explicit [embedding features](/slides/java/embedded-font/).
+
+**Can I control fallback behavior when a custom font lacks certain glyphs?**
+
+Yes. Configure [font substitution](/slides/java/font-substitution/), [replacement rules](/slides/java/font-replacement/), and [fallback sets](/slides/java/fallback-font/) to define exactly which font is used when the requested glyph is missing.
+
+**Can I use fonts in Linux/Docker containers without installing them system-wide?**
+
+Yes. Point to your own font folders or load fonts from byte arrays. This removes any dependency on system font directories in the container image.
+
+**What about licensing—can I embed any custom font without restrictions?**
+
+You are responsible for font licensing compliance. Terms vary; some licenses prohibit embedding or commercial use. Always review the font’s EULA before distributing outputs.

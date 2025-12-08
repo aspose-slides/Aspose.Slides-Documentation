@@ -1,5 +1,5 @@
 ---
-title: Manage OLE in Presentations Using C#
+title: Manage OLE Objects in Presentations in .NET
 linktitle: Manage OLE
 type: docs
 weight: 40
@@ -42,7 +42,7 @@ Consider a chart created in MS Excel. The chart is then placed inside a PowerPoi
 
 [Aspose.Slides for .NET](https://products.aspose.com/slides/net/) allows you to insert OLE Objects into slides as OLE object frames ([OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)).
 
-## **Adding OLE Object Frames to Slides**
+## **Add OLE Object Frames to Slides**
 
 Assuming you have already created a chart in Microsoft Excel and want to embed it in a slide as an OLE object frame using Aspose.Slides for .NET, you can do it this way:
 
@@ -72,7 +72,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Adding Linked OLE Object Frames**
+### **Add Linked OLE Object Frames**
 
 Aspose.Slides for .NET allows you to add an [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) without embedding data but only with a link to the file.
 
@@ -90,7 +90,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Accessing OLE Object Frames**
+## **Access OLE Object Frames**
 
 If an OLE object is already embedded in a slide, you can easily find or access it this way:
 
@@ -123,7 +123,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-### **Accessing Linked OLE Object Frame Properties**
+### **Access Linked OLE Object Frame Properties**
 
 Aspose.Slides allows you to access linked OLE object frame properties.
 
@@ -153,7 +153,7 @@ using (Presentation presentation = new Presentation("sample.ppt"))
 }
 ```
 
-## **Changing OLE Object Data**
+## **Change OLE Object Data**
 
 {{% alert color="primary" %}} 
 
@@ -212,7 +212,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Embedding Other File Types in Slides**
+## **Embed Other File Types in Slides**
 
 Besides Excel charts, Aspose.Slides for .NET allows you to embed other types of files into slides. For example, you can insert HTML, PDF, and ZIP files as objects. When a user double-clicks the inserted object, it automatically opens in the relevant program, or the user is prompted to select an appropriate program to open it.
 
@@ -237,7 +237,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Setting File Types for Embedded Objects**
+## **Set File Types for Embedded Objects**
 
 When working with presentations, you may need to replace old OLE objects with new ones or replace an unsupported OLE object with a supported one. Aspose.Slides for .NET allows you to set the file type for an embedded object, enabling you to update the OLE frame data or its extension.
 
@@ -261,7 +261,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Setting Icon Images and Titles for Embedded Objects**
+## **Set Icon Images and Titles for Embedded Objects**
 
 After embedding an OLE object, a preview consisting of an icon image is added automatically. This preview is what users see before accessing or opening the OLE object. If you want to use a specific image and text as elements in the preview, you can set the icon image and title using Aspose.Slides for .NET.
 
@@ -294,7 +294,7 @@ After you add a linked OLE object to a presentation slide, when you open the pre
 oleFrame.UpdateAutomatic = false;
 ```
 
-## **Extracting Embedded Files**
+## **Extract Embedded Files**
 
 Aspose.Slides for .NET allows you to extract the files embedded in slides as OLE objects this way:
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class containing the OLE objects you intend to extract.
@@ -324,3 +324,21 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     }
 }
 ```
+
+## **FAQ**
+
+**Will the OLE content be rendered when exporting slides to PDF/images?**
+
+What is visible on the slide is rendered—the icon/substitute image (preview). The "live" OLE content is not executed during rendering. If needed, set your own preview image to ensure the expected appearance in the exported PDF.
+
+**How can I lock an OLE object on a slide so users cannot move/edit it in PowerPoint?**
+
+Lock the shape: Aspose.Slides provides [shape-level locks](/slides/net/applying-protection-to-presentation/). This is not encryption, but it effectively prevents accidental edits and movement.
+
+**Why does a linked Excel object "jump" or change size when I open the presentation?**
+
+PowerPoint may refresh the preview of the linked OLE. For a stable appearance, follow the [Working Solution for Worksheet Resizing](/slides/net/working-solution-for-worksheet-resizing/) practices—either fit the frame to the range, or scale the range to a fixed frame and set an appropriate substitute image.
+
+**Will relative paths for linked OLE objects be preserved in the PPTX format?**
+
+In PPTX, "relative path" information is not available—only the full path. Relative paths are found in the older PPT format. For portability, prefer reliable absolute paths/accessible URIs or embedding.

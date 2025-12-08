@@ -1,8 +1,27 @@
 ---
-title: WordArt
+title: Create and Apply WordArt Effects on Android
+linktitle: WordArt
 type: docs
 weight: 110
 url: /androidjava/wordart/
+keywords:
+- WordArt
+- create WordArt
+- WordArt template
+- WordArt effect
+- shadow effect
+- display effect
+- glow effect
+- WordArt transformation
+- 3D effect
+- outer shadow effect
+- inner Shadow effect
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Create and customize WordArt effects in Aspose.Slides for Android. This step-by-step guide helps developers enhance presentations with professional text in Java."
 ---
 
 

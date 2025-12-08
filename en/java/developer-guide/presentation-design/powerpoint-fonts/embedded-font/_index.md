@@ -1,19 +1,30 @@
 ---
-title: Embedded Font - PowerPoint Java API
-linktitle: Embedded Font
+title: Embed Fonts in Presentations Using Java
+linktitle: Embedding Font
 type: docs
 weight: 40
 url: /java/embedded-font/
-keywords: "Fonts, embedded fonts, add fonts, PowerPoint presentation, Java, Aspose.Slides for Java"
-description: "Use embedded fonts in PowerPoint presentation in Java"
-
+keywords:
+- add font
+- embed font
+- font embedding
+- get embedded font
+- add embedded font
+- remove embedded font
+- compress embedded font
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Embed TrueType fonts in PowerPoint and OpenDocument presentations with Aspose.Slides for Java, ensuring accurate rendering across all platforms."
 ---
 
 **Embedded fonts in PowerPoint** are useful when you want your presentation to appear correctly when opened on any system or device. If you used a third-party or non-standard font because you got creative with your work, then you have even more reasons to embed your font. Otherwise (without embedded fonts), the texts or numbers on your slides, the layout, styling, etc. may change or turn into confusing rectangles. 
 
 The [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager) class, [FontData](https://reference.aspose.com/slides/java/com.aspose.slides/fontdata/) class, [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) class, and their interfaces contain most of the properties and methods you need to work with embedded fonts in PowerPoint presentations. 
 
-## **Get or Remove Embedded Fonts from Presentation**
+## **Get and Remove Embedded Fonts**
 
 Aspose.Slides provides the [getEmbeddedFonts](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) method (exposed by the [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager) class) to allow you to get (or find out) the fonts embedded in a presentation. To remove fonts, the [removeEmbeddedFont](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) method (exposed by the same class) is used.
 
@@ -68,7 +79,7 @@ try {
 }
 ```
 
-## **Add Embedded Fonts to Presentation**
+## **Add Embedded Fonts**
 
 Using the [EmbedFontCharacters](https://reference.aspose.com/slides/java/com.aspose.slides/embedfontcharacters/) enum and two overloads of the [addEmbeddedFont](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) method, you can select your preferred (embedding) rule to embed the fonts in a presentation. This Java code shows you how to embed and add fonts to a presentation:
 
@@ -121,3 +132,12 @@ try {
 }
 ```
 
+## **FAQ**
+
+**How can I tell that a specific font in the presentation will still be substituted during rendering despite embedding?**
+
+Check the [substitution information](/slides/java/font-substitution/) in the font manager and the [fallback/substitution rules](/slides/java/fallback-font/): if the font is unavailable or restricted, a fallback will be used.
+
+**Is it worth embedding "system" fonts like Arial/Calibri?**
+
+Usually no—they are almost always available. But for full portability in "thin" environments (Docker, a Linux server without preinstalled fonts), embedding system fonts can eliminate the risk of unexpected substitutions.

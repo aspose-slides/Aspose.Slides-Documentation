@@ -3,6 +3,14 @@ title: API Reference
 type: docs
 weight: 50
 url: /java/api-reference/
+keywords:
+- API reference
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Create, edit, and convert presentations in Java—no PowerPoint needed. Aspose.Slides supports PPT, PPTX, and ODP with fast SVG/PDF export."
 ---
 
 {{% alert color="primary" %}} 

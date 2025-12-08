@@ -1,77 +1,96 @@
 ---
-title: Группа
+title: Групповые фигуры презентаций с помощью Python
+linktitle: Группа фигур
 type: docs
 weight: 40
 url: /ru/python-net/group/
-keywords: "Группа фигур, Фигура PowerPoint, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Добавление группы фигур в презентацию PowerPoint на Python"
+keywords:
+- групповая фигура
+- группа фигур
+- добавить группу
+- альтернативный текст
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Узнайте, как группировать и разгруппировать фигуры в PowerPoint и наборах OpenDocument с помощью Aspose.Slides для Python - быстрый пошаговый руководствo с бесплатным кодом."
 ---
 
-## **Добавить Группу Фигур**
-Aspose.Slides поддерживает работу с группами фигур на слайдах. Эта функция помогает разработчикам поддерживать более богатые презентации. Aspose.Slides для Python через .NET поддерживает добавление или доступ к группам фигур. Можно добавлять фигуры в добавленную группу фигур для ее заполнения или получать доступ к любому свойству группы фигур. Чтобы добавить группу фигур на слайд, используя Aspose.Slides для Python через .NET:
+## **Обзор**
+
+Группировка фигур позволяет рассматривать несколько графических объектов как единое целое, чтобы перемещать, изменять размер, форматировать и преобразовывать их вместе. С Aspose.Slides for Python вы можете создать [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), добавить и расположить дочерние фигуры внутри нее и сохранить результат в формате PPTX. В этой статье показано, как добавить групповую фигуру на слайд и как получить доступ к метаданным доступности, таким как Alt Text, из фигур внутри группы, обеспечивая более чистую структуру и более богатые, поддерживаемые презентации.
+
+## **Добавление групповых фигур**
+
+Aspose.Slides поддерживает работу с групповыми фигурами на слайде. Эта возможность позволяет создавать более насыщенные презентации, рассматривая несколько фигур как один объект. Вы можете добавлять новые групповые фигуры, получать доступ к существующим, заполнять их дочерними фигурами и читать или изменять любые их свойства. Чтобы добавить групповую фигуру на слайд:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте группу фигур на слайд.
-1. Добавьте фигуры в добавленную группу фигур.
-1. Сохраните измененную презентацию в формате PPTX.
+2. Получите ссылку на слайд по индексу.
+3. Добавьте [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) на слайд.
+4. Добавьте фигуры в новую групповую фигуру.
+5. Сохраните изменённую презентацию в файл PPTX.
 
-В примере ниже добавляется группа фигур на слайд.
-
+Пример ниже показывает, как добавить групповую фигуру на слайд.
 ```py
 import aspose.slides as slides
 
-# Создаем экземпляр класса Presentation
-with slides.Presentation() as pres:
-    # Получаем первый слайд
-    sld = pres.slides[0]
+# Создать экземпляр класса Presentation.
+with slides.Presentation() as presentation:
+    # Получить первый слайд.
+    slide = presentation.slides[0]
 
-    # Получение коллекции фигур слайдов
-    slideShapes = sld.shapes
+    # Добавить групповую фигуру на слайд.
+    group_shape = slide.shapes.add_group_shape()
 
-    # Добавление группы фигур на слайд
-    groupShape = slideShapes.add_group_shape()
+    # Добавить фигуры внутрь групповой фигуры.
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 100, 100, 100)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 100, 100)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 300, 100, 100)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 300, 100, 100)
 
-    # Добавление фигур внутри добавленной группы фигур
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 100, 100, 100)
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 100, 100)
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 300, 100, 100)
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 300, 100, 100)
-
-    # Добавление рамки группы фигур
-    groupShape.frame = slides.ShapeFrame(100, 300, 500, 40, -1, -1, 0)
-
-    # Запись файла PPTX на диск
-    pres.save("GroupShape_out.pptx", slides.export.SaveFormat.PPTX)
+    # Записать файл PPTX на диск.
+    presentation.save("group_shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Доступ к Свойству AltText**
-Эта тема показывает простые шаги, включая примеры кода, для добавления группы фигур и доступа к свойству AltText групп фигур на слайдах. Для доступа к AltText группы фигур на слайде, используя Aspose.Slides для Python через .NET:
 
-1. Создайте экземпляр класса `Presentation`, который представляет файл PPTX.
-1. Получите ссылку на слайд, используя его индекс.
-1. Получение коллекции фигур слайдов.
-1. Доступ к группе фигур.
-1. Доступ к свойству AltText.
+## **Доступ к свойству Alt Text**
 
-В примере ниже осуществляется доступ к альтернативному тексту группы фигур.
+В этом разделе объясняется, как прочитать Alt Text фигур, содержащихся в групповой фигуре на слайде, используя Aspose.Slides. Чтобы получить доступ к Alt Text фигур:
 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) для представления файла PPTX.
+2. Получите ссылку на слайд по его индексу.
+3. Получите доступ к коллекции фигур слайда.
+4. Получите доступ к [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/).
+5. Считайте свойство Alt Text.
+
+Пример ниже извлекает Alt Text фигур, содержащихся в групповых фигурах.
 ```py
 import aspose.slides as slides
 
-# Создаем экземпляр класса Presentation, который представляет файл PPTX
-with slides.Presentation(path + "AltText.pptx") as pres:
+# Создать экземпляр класса Presentation для открытия файла PPTX.
+with slides.Presentation("group_shape.pptx") as presentation:
+    # Получить первый слайд.
+    slide = presentation.slides[0]
 
-    # Получаем первый слайд
-    sld = pres.slides[0]
-
-    for i in range(len(sld.shapes)):
-        # Получение коллекции фигур слайдов
-        shape = sld.shapes[i]
-
-        if type(shape) is slides.GroupShape:
-            # Доступ к группе фигур.
-            for j in range(len(shape.shapes)):
-                # Доступ к свойству AltText
-                print(shape.shapes[j].alternative_text)
+    for shape in slide.shapes:
+        if isinstance(shape, slides.GroupShape):
+            # Доступ к групповой фигуре.
+            for child_shape in shape.shapes:
+                # Доступ к свойству Alt Text.
+                print(child_shape.alternative_text)
 ```
+
+
+## **FAQ**
+
+**Поддерживается ли вложенная группировка (группа внутри группы)?**
+
+Да. У [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) есть свойство [parent_group](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/parent_group/), которое напрямую указывает поддержку иерархии (группа может быть дочерней по отношению к другой группе).
+
+**Как контролировать Z‑порядок группы относительно других объектов на слайде?**
+
+Используйте свойство [z_order_position](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/z_order_position/) группы [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), чтобы просмотреть или изменить её позицию в стеке отображения.
+
+**Могу ли я запретить перемещение/редактирование/разгруппировку?**
+
+Да. Раздел блокировки группы доступен через [group_shape_lock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/group_shape_lock/), что позволяет ограничить операции над объектом.

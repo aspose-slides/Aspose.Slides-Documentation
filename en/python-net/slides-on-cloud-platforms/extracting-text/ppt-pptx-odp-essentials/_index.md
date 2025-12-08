@@ -4,6 +4,8 @@ type: docs
 weight: 10
 url: /python-net/slide-text-extraction-ppt-pptx-odp-essentials/
 keywords:
+- cloud platforms
+- cloud integration
 - presentation text extraction
 - slide text extraction
 - extract text from PPT

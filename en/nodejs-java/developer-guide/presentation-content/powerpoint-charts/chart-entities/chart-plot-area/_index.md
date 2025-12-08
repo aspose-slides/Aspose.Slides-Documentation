@@ -1,11 +1,26 @@
 ---
-title: Chart Plot Area
+title: Customize Plot Areas of Presentation Charts in JavaScript
+linktitle: Plot Area
 type: docs
 url: /nodejs-java/chart-plot-area/
+keywords:
+- chart
+- plot area
+- plot area width
+- plot area height
+- plot area size
+- layout mode
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Discover how to customize chart plot areas in PowerPoint presentations with JavaScript and Aspose.Slides for Node.js. Improve your slide visuals effortlessly."
 ---
 
 
 ## **Get Width, Height of Chart Plot Area**
+
 Aspose.Slides for Node.js via Java provides a simple API for . 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
@@ -35,6 +50,7 @@ try {
 ```
 
 ## **Set Layout Mode of Chart Plot Area**
+
 Aspose.Slides for Node.js via Java provides a simple API to set the layout mode of the chart plot area. Methods [**setLayoutTargetType**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartPlotArea#setLayoutTargetType-int-) and [**getLayoutTargetType**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartPlotArea#getLayoutTargetType--) have been added to [**ChartPlotArea**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartPlotArea) class and [**ChartPlotArea**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartPlotArea) class. If the layout of the plot area defined manually this property specifies whether to layout the plot area by its inside (not including axis and axis labels) or outside (including axis and axis labels). There are two possible values which are defined in [**LayoutTargetType**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LayoutTargetType) enum.
 
 - [**LayoutTargetType.Inner**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LayoutTargetType#Inner) - specifies that the plot area size shall determine the size of the plot area, not including the tick marks and axis labels.
@@ -60,3 +76,21 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**In what units are actual X, actual Y, actual Width, and actual Height returned?**
+
+In points; 1 inch = 72 points. These are Aspose.Slides coordinate units.
+
+**How does the Plot Area differ from the Chart Area in terms of content?**
+
+The Plot Area is the data drawing region (series, gridlines, trendlines, etc.); the Chart Area includes the surrounding elements (title, legend, etc.). In 3D charts, the Plot Area also includes the walls/floor and the axes.
+
+**How are the Plot Area’s X, Y, Width, and Height interpreted when layout is manual?**
+
+They are fractions (0–1) of the chart’s overall size; in this mode, auto-positioning is disabled and the fractions you set are used.
+
+**Why did the Plot Area position change after adding/moving the legend?**
+
+The legend sits in the chart area outside the Plot Area but affects layout and available space, so the Plot Area may shift when auto-positioning is in effect. (This is standard behavior for PowerPoint charts.)

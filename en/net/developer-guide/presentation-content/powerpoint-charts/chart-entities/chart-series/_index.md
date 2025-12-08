@@ -1,6 +1,6 @@
 ---
-title: Manage Chart Series in C#
-linktitle: Chart Series
+title: Manage Chart Data Series in Presentations in .NET
+linktitle: Data Series
 type: docs
 url: /net/chart-series/
 keywords:
@@ -13,8 +13,8 @@ keywords:
 - series gap
 - PowerPoint
 - presentation
-- C#
 - .NET
+- C#
 - Aspose.Slides
 description: "Learn how to manage chart series in C# for PowerPoint (PPT/PPTX) with practical code examples and best practices to enhance your data presentations."
 ---
@@ -27,7 +27,7 @@ A series is a row or column of numbers plotted in a chart.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Set Chart Series Overlap**
+## **Set the Chart Series Overlap**
 
 The [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) property controls how bars and columns overlap in a 2D chart by specifying a range from -100 to 100. Since this property is associated with the series group rather than individual chart series, it is read-only at the series level. To configure overlap values, use the `ParentSeriesGroup.Overlap` read/write property, which applies the specified overlap to all series in that group.
 
@@ -59,7 +59,7 @@ The result:
 
 ![The series overlap](series_overlap.png)
 
-## **Change Series Fill Color**
+## **Change the Series Fill Color**
 
 Aspose.Slides makes it straightforward to customize the fill colors of chart series, allowing you to highlight specific data points and create visually appealing charts. This is achieved through the [IFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformat/) object, which supports various fill types, color configurations, and other advanced styling options. After adding a chart to a slide and accessing the desired series, simply get a series and apply the appropriate fill color. Beyond solid fills, you can also leverage gradient or pattern fills for enhanced design flexibility. Once you’ve set the colors according to your requirements, save the presentation to finalize the updated look.
 
@@ -89,7 +89,7 @@ The result:
 
 ![The color of the series](series_color.png)
 
-## **Change Series Name** 
+## **Change the Series Name** 
 
 Aspose.Slides offers a simple way to modify the names of chart series, making it easier to label data in a clear and meaningful way. By accessing the relevant worksheet cell in the chart data, developers can customize how the data is presented. This modification is particularly useful when series names need to be updated or clarified based on the data’s context. After renaming the series, the presentation can be saved to persist the changes. 
 
@@ -139,7 +139,7 @@ The result:
 
 ![The series name](series_name.png)
 
-## **Get Automatic Series Fill Color**
+## **Get the Automatic Series Fill Color**
 
 Aspose.Slides for .NET allows you to get the automatic fill color for chart series within a plot area. After creating an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class, you can obtain a reference to the desired slide by index, then add a chart using your preferred type (such as `ChartType.ClusteredColumn`). By accessing the series in the chart, you can get the automatic fill color.
 
@@ -169,7 +169,7 @@ Series 1 color: ffc0504d
 Series 2 color: ff9bbb59
 ```
 
-## **Set Invert Fill Color for Chart Series**
+## **Set Invert Fill Color for a Chart Series**
 
 When your data series contains both positive and negative values, simply coloring every column or bar the same can make the chart hard to read. Aspose.Slides for .NET lets you assign an invert fill color—a separate fill applied automatically to data points that fall below zero—so negative values stand out at a glance. In this section you’ll learn how to enable that option, choose an appropriate color, and save the updated presentation.
 
@@ -268,7 +268,7 @@ using (Presentation presentation = new Presentation("test_chart.pptx"))
 }
 ```
 
-## **Set Series Gap Width**
+## **Set the Series Gap Width**
 
 Gap width controls the amount of empty space between adjacent columns or bars—wider gaps emphasize individual categories, while narrower gaps create a denser, more compact look. Through Aspose.Slides for .NET you can fine‑tune this parameter for an entire series, achieving exactly the visual balance your presentation requires without altering the underlying data.
 
@@ -302,7 +302,7 @@ The result:
 
 ![The gap width](gap_width.png)
 
-## **FAQs**
+## **FAQ**
 
 **Is there a limit to how many series a single chart can contain?**
 

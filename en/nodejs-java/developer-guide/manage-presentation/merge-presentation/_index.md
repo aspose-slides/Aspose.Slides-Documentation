@@ -1,10 +1,26 @@
 ---
-title: Merge Presentation
+title: Efficiently Merge Presentations in JavaScript
+linktitle: Merge Presentations
 type: docs
 weight: 40
 url: /nodejs-java/merge-presentation/
-keywords: "Merge PowerPoint, PPTX, PPT, combine PowerPoint, merge presentation, combine presentation, Java"
-description: "Merge or combine PowerPoint Presentation in JavaScript"
+keywords:
+- merge PowerPoint
+- merge presentations
+- merge slides
+- merge PPT
+- merge PPTX
+- merge ODP
+- combine PowerPoint
+- combine presentations
+- combine slides
+- combine PPT
+- combine PPTX
+- combine ODP
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Effortlessly merge PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations in JavaScript with Aspose.Slides for Node.js, streamlining your workflow."
 ---
 
 
@@ -248,6 +264,23 @@ try {
 
 The slide is added at the end of the section. 
 
+## **FAQ**
+
+**Are speaker notes preserved during merge?**
+
+Yes. When cloning slides, Aspose.Slides carries over all slide elements, including notes, formatting, and animations.
+
+**Are comments and their authors transferred?**
+
+Comments, as part of slide content, are copied with the slide. Comment author labels are preserved as comment objects in the resulting presentation.
+
+**What if the source presentation is password-protected?**
+
+It must be [opened with the password](/slides/nodejs-java/password-protected-presentation/) via [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setpassword/); after loading, those slides can be safely cloned into an unprotected target file (or a protected one as well).
+
+**How thread-safe is the merge operation?**
+
+Do not use the same [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) instance from [multiple threads](/slides/nodejs-java/multithreading/). The recommended rule is "one document — one thread"; different files can be processed in parallel in separate threads.
 
 ## **See Also**
 

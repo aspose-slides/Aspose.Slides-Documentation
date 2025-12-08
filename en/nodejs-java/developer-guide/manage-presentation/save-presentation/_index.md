@@ -1,6 +1,6 @@
 ---
 title: Save Presentations in JavaScript
-linktitle: Save Presentations
+linktitle: Save Presentation
 type: docs
 weight: 80
 url: /nodejs-java/save-presentation/
@@ -22,7 +22,7 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Discover how to save presentations in JavaScript using Aspose.Slides—export to PowerPoint or OpenDocument while retaining layouts, fonts and effects."
+description: "Discover how to save presentations using Aspose.Slides for Node.js via Java—export to PowerPoint or OpenDocument while retaining layouts, fonts and effects."
 ---
 
 ## **Overview**
@@ -191,3 +191,21 @@ try {
 Aspose has developed a [free PowerPoint Splitter app](https://products.aspose.app/slides/splitter) using its own API. The app lets you split a presentation into multiple files by saving selected slides as new PPTX or PPT files.
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Is "fast save" (incremental save) supported so only changes are written?**
+
+No. Saving creates the full target file each time; incremental "fast save" isn’t supported.
+
+**Is it thread-safe to save the same Presentation instance from multiple threads?**
+
+No. A [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) instance [isn’t thread-safe](/slides/nodejs-java/multithreading/); save it from a single thread.
+
+**What happens to hyperlinks and externally linked files when saving?**
+
+[Hyperlinks](/slides/nodejs-java/manage-hyperlinks/) are preserved. External linked files (e.g., videos via relative paths) aren’t copied automatically—ensure the referenced paths remain accessible.
+
+**Can I set/save document metadata (Author, Title, Company, Date)?**
+
+Yes. Standard [document properties](/slides/nodejs-java/presentation-properties/) are supported and will be written to the file on save.

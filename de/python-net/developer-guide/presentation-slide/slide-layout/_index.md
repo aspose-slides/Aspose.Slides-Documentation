@@ -1,248 +1,243 @@
 ---
-title: Folienlayouts in Python anwenden oder ändern
-linktitle: Folienlayout
+title: "Folienlayouts in Python anwenden oder ändern"
+linktitle: "Folienlayout"
 type: docs
 weight: 60
 url: /de/python-net/slide-layout/
 keywords:
-- Folienlayout
-- Inhaltslayout
-- Platzhalter
-- Präsentationsdesign
-- Foliendesign
-- ungenutztes Layout
-- Sichtbarkeit der Fußzeile
-- Titelfolie
-- Titel und Inhalt
-- Abschnittsüberschrift
-- Zwei Inhalte
-- Vergleich
-- Nur Titel
-- Leeres Layout
-- Inhalt mit Beschriftung
-- Bild mit Beschriftung
-- Titel und vertikaler Text
-- Vertikaler Titel und Text
-- PowerPoint
-- OpenDocument
-- Python
-- Aspose.Slides
-description: "Erfahren Sie, wie Sie Folienlayouts in Aspose.Slides for Python via .NET verwalten und anpassen. Entdecken Sie Layouttypen, Platzhaltersteuerung, Sichtbarkeit der Fußzeile und die Bearbeitung von Layouts anhand von Codebeispielen in Python."
+- "Folienlayout"
+- "Inhaltslayout"
+- "Platzhalter"
+- "Präsentationsdesign"
+- "Foliendesign"
+- "unbenutztes Layout"
+- "Fußzeilen Sichtbarkeit"
+- "Titelfolie"
+- "Titel und Inhalt"
+- "Abschnittsüberschrift"
+- "Zwei Inhalte"
+- "Vergleich"
+- "Nur Titel"
+- "Leeres Layout"
+- "Inhalt mit Beschriftung"
+- "Bild mit Beschriftung"
+- "Titel und vertikaler Text"
+- "Vertikaler Titel und Text"
+- "PowerPoint"
+- "OpenDocument"
+- "Python"
+- "Aspose.Slides"
+description: "Erfahren Sie, wie Sie Folienlayouts in Aspose.Slides für Python via .NET verwalten und anpassen. Erkunden Sie Layout‑Typen, die Steuerung von Platzhaltern, die Sichtbarkeit von Fußzeilen und die Manipulation von Layouts anhand von Code‑Beispielen in Python."
 ---
 
-Ein Folienlayout enthält die Platzhalterkästen und Formatierungsinformationen für alle Inhalte, die auf einer Folie erscheinen. Das Layout bestimmt die verfügbaren Inhaltsplatzhalter und deren Position.
+## **Übersicht**
 
-Folienlayouts ermöglichen es Ihnen, Präsentationen schnell zu erstellen und zu gestalten (ob einfach oder komplex). Hier sind einige der beliebtesten Folienlayouts, die in PowerPoint-Präsentationen verwendet werden:
+Ein Folienlayout definiert die Anordnung von Platzhalterboxen und die Formatierung für den Inhalt einer Folie. Es steuert, welche Platzhalter verfügbar sind und wo sie angezeigt werden. Folienlayouts helfen Ihnen, Präsentationen schnell und konsistent zu gestalten – egal, ob Sie etwas Einfaches oder Komplexeres erstellen. Zu den häufigsten Folienlayouts in PowerPoint gehören:
 
-* **Titelfolienlayout**. Dieses Layout besteht aus zwei Platzhaltern für Text. Ein Platzhalter ist für den Titel und der andere für den Untertitel.
-* **Titel- und Inhaltslayout**. Dieses Layout enthält einen relativ kleinen Platzhalter oben für den Titel und einen größeren Platzhalter für den Hauptinhalt (Diagramm, Absätze, Aufzählung, nummerierte Liste, Bilder usw.).
-* **Leeres Layout**. Dieses Layout enthält keine Platzhalter, sodass Sie Elemente von Grund auf neu erstellen können.
+**Titel‑Folienlayout** – Enthält zwei Textplatzhalter: einen für den Titel und einen für den Untertitel.
 
-Da ein Masterlayout die oberste hierarchische Folie ist, die Informationen über Folienlayouts speichert, können Sie die Masterfolie verwenden, um auf Folienlayouts zuzugreifen und Änderungen daran vorzunehmen. Ein Layoutfolien kann nach Typ oder Name aufgerufen werden. Ebenso hat jede Folie eine eindeutige ID, die verwendet werden kann, um darauf zuzugreifen.
+**Titel‑und‑Inhalt‑Layout** – Enthält oben einen kleineren Titel‑Platzhalter und darunter einen größeren für den Hauptinhalt (wie Text, Aufzählungspunkte, Diagramme, Bilder und mehr).
 
-Alternativ können Sie direkt Änderungen an einem bestimmten Folienlayout in einer Präsentation vornehmen.
+**Leeres Layout** – Enthält keine Platzhalter, sodass Sie die Folie von Grund auf selbst gestalten können.
 
-* Um Ihnen die Arbeit mit Folienlayouts (einschließlich der in Masterfolien) zu ermöglichen, bietet Aspose.Slides Eigenschaften wie `layout_slides` und `masters` unter der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse an.
-* Um verwandte Aufgaben auszuführen, bietet Aspose.Slides [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/) und viele andere Typen an.
+Folienlayouts sind Teil eines Folienmasters, der die Layout‑Stile für die gesamte Präsentation definiert. Sie können Layout‑Folien über den Folienmaster anhand ihres Typs, Namens oder ihrer eindeutigen ID abrufen und ändern. Alternativ können Sie ein bestimmtes Layout‑Folie direkt in der Präsentation bearbeiten.
+
+Um mit Folienlayouts in Aspose.Slides für Python zu arbeiten, können Sie verwenden:
+
+- Eigenschaften wie [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) und [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) unter der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
+- Typen wie [LayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutplaceholdermanager/) und [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslideheaderfootermanager/)
 
 {{% alert title="Info" color="info" %}}
-
-Für weitere Informationen zur Arbeit mit Masterfolien im Speziellen siehe den Artikel [Folie Master](https://docs.aspose.com/slides/python-net/slide-master/).
-
+Um mehr über die Arbeit mit Folienmastern zu erfahren, lesen Sie den Artikel [Manage PowerPoint Slide Masters in Python](/slides/de/python-net/slide-master/).
 {{% /alert %}}
 
-## **Folie Layout zur Präsentation hinzufügen**
+## **Folienlayouts zu Präsentationen hinzufügen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-1. Greifen Sie auf die [MasterSlide-Sammlung](https://reference.aspose.com/slides/python-net/aspose.slides/imasterlayoutslidecollection/) zu.
-1. Gehen Sie die vorhandenen Layoutfolien durch, um zu bestätigen, dass die erforderliche Layoutfolie bereits in der Layoutfoliensammlung vorhanden ist. Andernfalls fügen Sie die gewünschte Layoutfolie hinzu.
-1. Fügen Sie eine leere Folie basierend auf der neuen Layoutfolie hinzu.
+Um das Aussehen und die Struktur Ihrer Folien anzupassen, müssen Sie möglicherweise neue Layout‑Folien zu einer Präsentation hinzufügen. Aspose.Slides für Python ermöglicht es Ihnen, zu prüfen, ob ein bestimmtes Layout bereits existiert, bei Bedarf ein neues hinzuzufügen und es zum Einfügen von Folien basierend auf diesem Layout zu verwenden.
+
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Greifen Sie auf die [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/) zu.
+1. Prüfen Sie, ob die gewünschte Layout‑Folie bereits in der Sammlung vorhanden ist. Falls nicht, fügen Sie das benötigte Layout hinzu.
+1. Fügen Sie eine leere Folie basierend auf dem neuen Layout hinzu.
 1. Speichern Sie die Präsentation.
 
-Dieser Python-Code zeigt Ihnen, wie Sie ein Folienlayout zu einer PowerPoint-Präsentation hinzufügen:
-
+Der folgende Python‑Code demonstriert, wie ein Folienlayout zu einer PowerPoint‑Präsentation hinzugefügt wird:
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instanziiert eine Präsentationsklasse, die die Präsentationsdatei darstellt
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Geht durch die Layoutfolientypen
-    layoutSlides = presentation.masters[0].layout_slides
-    layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)  
-    if layoutSlide is None:
-         layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.TITLE)
+# Instanziieren Sie die Presentation-Klasse, um die Präsentationsdatei zu öffnen.
+with slides.Presentation("sample.pptx") as presentation:
+    # Durchlaufen Sie die Layout-Folientypen, um eine Layout-Folie auszuwählen.
+    layout_slides = presentation.masters[0].layout_slides
+    layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
+    if layout_slide is None:
+         layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE)
 
-    if layoutSlide is None:
-        # Die Situation, in der eine Präsentation einige Layouttypen nicht enthält.
-        # Die Präsentationsdatei enthält nur leere und benutzerdefinierte Layouttypen.
-        # Aber Layoutfolien mit benutzerdefinierten Typen haben unterschiedliche Foliennamen,
-        # wie "Titel", "Titel und Inhalt" usw. Und es ist möglich, diese
-        # Namen für die Auswahl von Layoutfolien zu verwenden.
-        # Sie können auch eine Reihe von Platzhalterschablonentypen verwenden. Zum Beispiel,
-        # Titel-Folie sollte nur den Typ Platzhalter für Titel haben usw.
-        for titleAndObjectLayoutSlide in layoutSlides:
-            if titleAndObjectLayoutSlide.name == "Titel und Objekt":
-                layoutSlide = titleAndObjectLayoutSlide
+    if layout_slide is None:
+        # Eine Situation, in der die Präsentation nicht alle Layout-Typen enthält.
+        # Die Präsentationsdatei enthält nur leere und benutzerdefinierte Layout-Typen.
+        # Allerdings können Layout-Folien mit benutzerdefinierten Typen erkennbare Namen haben,
+        # wie "Titel", "Titel und Inhalt" usw., die für die Auswahl von Layout-Folien verwendet werden können.
+        # Sie können sich auch auf eine Menge von Platzhalter-Formtypen verlassen.
+        # Zum Beispiel sollte eine Titelfolie nur den Titel-Platzhaltertyp besitzen, usw.
+        for title_and_object_layout_slide in layout_slides:
+            if title_and_object_layout_slide.name == "Title and Object":
+                layout_slide = title_and_object_layout_slide
                 break
 
-        if layoutSlide is None:
-            for titleLayoutSlide in layoutSlides:
-                if titleLayoutSlide.name == "Titel":
-                    layoutSlide = titleLayoutSlide
+        if layout_slide is None:
+            for title_layout_slide in layout_slides:
+                if title_layout_slide.name == "Title":
+                    layout_slide = title_layout_slide
                     break
 
-            if layoutSlide is None:
-                layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.BLANK)
-                if layoutSlide is None:
-                    layoutSlide = layoutSlides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Titel und Objekt")
+            if layout_slide is None:
+                layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+                if layout_slide is None:
+                    layout_slide = layout_slides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
 
-    # Fügt eine leere Folie mit dem hinzugefügten Layout hinzu 
-    presentation.slides.insert_empty_slide(0, layoutSlide)
+    # Fügen Sie eine leere Folie mit der hinzugefügten Layout-Folie ein.
+    presentation.slides.insert_empty_slide(0, layout_slide)
 
-    # Speichert die Präsentation auf der Festplatte
-    presentation.save("AddLayoutSlides_out.pptx", slides.export.SaveFormat.PPTX)
+    # Speichern Sie die Präsentation auf dem Datenträger.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ungenutzte Layoutfolie entfernen**
 
-Aspose.Slides bietet die Methode `remove_unused_layout_slides` aus der [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) Klasse, um unerwünschte und ungenutzte Layoutfolien zu löschen. Dieser Python-Code zeigt Ihnen, wie Sie eine Layoutfolie aus einer PowerPoint-Präsentation entfernen:
+## **Unbenutzte Layout‑Folien entfernen**
 
+Aspose.Slides stellt die Methode [remove_unused_layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) der Klasse [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) bereit, um nicht benötigte Layout‑Folien zu löschen.
+
+Der folgende Python‑Code zeigt, wie eine Layout‑Folie aus einer PowerPoint‑Präsentation entfernt wird:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    slides.lowcode.Compress.remove_unused_layout_slides(pres)
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("sample.pptx") as presentation:
+    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Größe und Typ für Folienlayout festlegen**
 
-Um Ihnen zu ermöglichen, die Größe und den Typ für eine bestimmte Layoutfolie festzulegen, bietet Aspose.Slides die Eigenschaften `type` und `size` (aus der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse). Dieser Python-Code demonstriert den Vorgang:
+## **Platzhalter zu Folienlayouts hinzufügen**
 
-```python
+Aspose.Slides bietet die Eigenschaft [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/placeholder_manager/), mit der Sie neue Platzhalter zu einer Layout‑Folie hinzufügen können.
+
+Dieser Manager enthält Methoden für die folgenden Platzhaltertypen:
+
+| PowerPoint‑Platzhalter | [LayoutPlaceholderManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutplaceholdermanager/) Methode |
+| ---------------------- | ------------------------------------------------------------ |
+| ![Content](content.png) | add_content_placeholder(x: float, y: float, width: float, height: float) |
+| ![Content (Vertical)](contentV.png) | add_vertical_content_placeholder(x: float, y: float, width: float, height: float) |
+| ![Text](text.png) | add_text_placeholder(x: float, y: float, width: float, height: float) |
+| ![Text (Vertical)](textV.png) | add_vertical_text_placeholder(x: float, y: float, width: float, height: float) |
+| ![Picture](picture.png) | add_picture_placeholder(x: float, y: float, width: float, height: float) |
+| ![Chart](chart.png) | add_chart_placeholder(x: float, y: float, width: float, height: float) |
+| ![Table](table.png) | add_table_placeholder(x: float, y: float, width: float, height: float) |
+| ![SmartArt](smartart.png) | add_smart_art_placeholder(x: float, y: float, width: float, height: float) |
+| ![Media](media.png) | add_media_placeholder(x: float, y: float, width: float, height: float) |
+| ![Online Image](onlineimage.png) | add_online_image_placeholder(x: float, y: float, width: float, height: float) |
+
+Der folgende Python‑Code demonstriert, wie neue Platzhalterformen zur Blank‑Layout‑Folie hinzugefügt werden:
+```py
 import aspose.slides as slides
 
-# Instanziiert ein Präsentationsobjekt, das eine Präsentationsdatei repräsentiert
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    with slides.Presentation() as auxPresentation:
-        slide = presentation.slides[0]
-
-        # Setzt die Foliengröße für die generierte Präsentation auf die der Quelle
-        auxPresentation.slide_size.set_size(presentation.slide_size.type, slides.SlideSizeScaleType.ENSURE_FIT)
-
-        auxPresentation.slides.insert_clone(0, slide)
-        auxPresentation.slides.remove_at(0)
-        # Speichert die Präsentation auf der Festplatte
-        auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Fußzeilenanzeige innerhalb der Folie festlegen**
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-1. Holen Sie sich eine Referenz auf eine Folie über ihren Index.
-1. Setzen Sie den Fußzeilenplatzhalter auf sichtbar.
-1. Setzen Sie den Datums-Zeit-Platzhalter auf sichtbar.
-1. Speichern Sie die Präsentation.
-
-Dieser Python-Code zeigt Ihnen, wie Sie die Sichtbarkeit einer Folienfußzeile (und verwandte Aufgaben) festlegen:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    headerFooterManager = presentation.slides[0].header_footer_manager
-    # Eigenschaft is_footer_visible wird verwendet, um anzugeben, dass ein Platzhalter für die Folienfußzeile fehlt
-    if not headerFooterManager.is_footer_visible: 
-        # Methode set_footer_visibility wird verwendet, um einen Platzhalter für die Folienfußzeile sichtbar zu machen
-        headerFooterManager.set_footer_visibility(True) 
-        # Eigenschaft is_slide_number_visible wird verwendet, um anzugeben, dass ein Platzhalter für die Foliennummer fehlt
-    if not headerFooterManager.is_slide_number_visible:  
-        # Methode set_slide_number_visibility wird verwendet, um einen Platzhalter für die Foliennummer sichtbar zu machen
-        headerFooterManager.set_slide_number_visibility(True) 
-        # Eigenschaft is_date_time_visible wird verwendet, um anzugeben, dass ein Platzhalter für Datum und Uhrzeit fehlt
-    if not headerFooterManager.is_date_time_visible: 
-        # Methode set_date_time_visibility wird verwendet, um einen Platzhalter für Datum und Uhrzeit sichtbar zu machen 
-        headerFooterManager.set_date_time_visibility(True)
-
-    # Methode set_footer_text wird verwendet, um einen Text für einen Platzhalter der Folienfußzeile festzulegen 
-    headerFooterManager.set_footer_text("Fußzeilentext") 
-    # Methode set_date_time_text wird verwendet, um einen Text für einen Platzhalter für Datum und Uhrzeit festzulegen.
-    headerFooterManager.set_date_time_text("Datum und Uhrzeit Text") 
-
-    # Speichert die Präsentation auf der Festplatte
-    presentation.save("Presentation.ppt", slides.export.SaveFormat.PPT)
-```
-
-## **Sichtbarkeit der Kindfußzeile innerhalb der Folie festlegen**
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-1. Holen Sie sich eine Referenz für die Masterfolie über ihren Index.
-1. Setzen Sie die Masterfolie und alle Platzhalter für Kindfußzeilen auf sichtbar.
-1. Setzen Sie einen Text für die Masterfolie und alle Platzhalter für Kindfußzeilen.
-1. Setzen Sie einen Text für die Masterfolie und alle Platzhalter für das Datum und die Uhrzeit der Kinder.
-1. Speichern Sie die Präsentation.
-
-Dieser Python-Code demonstriert den Vorgang:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    manager = presentation.masters[0].header_footer_manager
-    manager.set_footer_and_child_footers_visibility(True) # Methode set_footer_and_child_footers_visibility wird verwendet, um die Masterfolie und alle Platzhalter für Kindfußzeilen sichtbar zu machen
-    manager.set_slide_number_and_child_slide_numbers_visibility(True) # Methode set_slide_number_and_child_slide_numbers_visibility wird verwendet, um die Masterfolie und alle Platzhalter für Kindseitennummern sichtbar zu machen
-    manager.set_date_time_and_child_date_times_visibility(True) # Methode set_date_time_and_child_date_times_visibility wird verwendet, um die Masterfolie und alle Platzhalter für Datum und Uhrzeit der Kinder sichtbar zu machen
-
-    manager.set_footer_and_child_footers_text("Fußzeilentext") # Methode set_footer_and_child_footers_text wird verwendet, um Texte für die Masterfolie und alle Platzhalter für Kindfußzeilen festzulegen
-    manager.set_date_time_and_child_date_times_text("Datum und Uhrzeit Text") # Methode set_date_time_and_child_date_times_text wird verwendet, um Texte für die Masterfolie und alle Platzhalter für das Datum und die Uhrzeit der Kinder festzulegen
-```
-
-## **Foliengröße in Bezug auf Inhaltsverkleinerung festlegen**
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse und laden Sie die Präsentation, die die Folie enthält, deren Größe Sie festlegen möchten.
-1. Erstellen Sie eine weitere Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse, um eine neue Präsentation zu generieren.
-1. Holen Sie sich die Referenz der Folie (aus der ersten Präsentation) über ihren Index.
-1. Setzen Sie den Fußzeilenplatzhalter auf sichtbar. 
-1. Setzen Sie den Datums-Zeit-Platzhalter auf sichtbar. 
-1. Speichern Sie die Präsentation.
-
-Dieser Python-Code demonstriert den Vorgang: 
-
-```python
-import aspose.slides as slides
-
-# Instanziiert ein Präsentationsobjekt, das eine Präsentationsdatei darstellt 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    with slides.Presentation() as auxPresentation:
-        slide = presentation.slides[0]
-
-        # Setzt die Foliengröße für die generierte Präsentationen auf die der Quelle
-        presentation.slide_size.set_size(540, 720, slides.SlideSizeScaleType.ENSURE_FIT) # Methode set_size wird verwendet, um die Foliengröße mit einer Inhaltsverkleinerung für eine Anpassung sicherzustellen
-        presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.MAXIMIZE) # Methode set_size wird verwendet, um die Foliengröße mit maximaler Größe des Inhalts festzulegen
-                
-        # Speichert die Präsentation auf der Festplatte
-        auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Seitengröße beim Generieren von PDF festlegen**
-
-Bestimmte Präsentationen (wie Poster) werden häufig in PDF-Dokumente umgewandelt. Wenn Sie Ihre PowerPoint in PDF konvertieren möchten, um die besten Druck- und Barrierefreiheitsoptionen zu nutzen, sollten Sie Ihre Folien auf Größen einstellen, die zu PDF-Dokumenten passen (z.B. A4).
-
-Aspose.Slides bietet die [SlideSize](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/) Klasse, um Ihnen zu ermöglichen, Ihre bevorzugten Einstellungen für Folien festzulegen. Dieser Python-Code zeigt Ihnen, wie Sie die `type` Eigenschaft (aus der `SlideSize` Klasse) verwenden, um eine bestimmte Papiergröße für die Folien in einer Präsentation festzulegen:
-
-```python
-import aspose.slides as slides
-
-# Instanziiert ein Präsentationsobjekt, das eine Präsentationsdatei darstellt  
 with slides.Presentation() as presentation:
-    # Setzt die Eigenschaft SlideSize.Type 
-    presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.ENSURE_FIT)
+    # Holen Sie die leere Layout-Folie.
+    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-    # Setzt verschiedene Eigenschaften für PDF-Optionen
-    opts = slides.export.PdfOptions()
-    opts.sufficient_resolution = 600
+    # Holen Sie den Platzhalter-Manager der Layout-Folie.
+    placeholder_manager = layout.placeholder_manager
 
-    # Speichert die Präsentation auf der Festplatte
-    presentation.save("SetPDFPageSize_out.pdf", slides.export.SaveFormat.PDF, opts)
+    # Fügen Sie verschiedene Platzhalter zur leeren Layout-Folie hinzu.
+    placeholder_manager.add_content_placeholder(20, 20, 310, 270)
+    placeholder_manager.add_vertical_text_placeholder(350, 20, 350, 270)
+    placeholder_manager.add_chart_placeholder(20, 310, 310, 180)
+    placeholder_manager.add_table_placeholder(350, 310, 350, 180)
+
+    # Fügen Sie eine neue Folie mit dem leeren Layout hinzu.
+    new_slide = presentation.slides.add_empty_slide(layout)
+
+    presentation.save("placeholders.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+Das Ergebnis:
+
+![The placeholders on the layout slide](add_placeholders.png)
+
+## **Fußzeilen‑Sichtbarkeit für ein Layout‑Folie festlegen**
+
+In PowerPoint‑Präsentationen können Fußzeilenelemente wie Datum, Foliennummer und benutzerdefinierter Text je nach Layout angezeigt oder ausgeblendet werden. Aspose.Slides für Python erlaubt es Ihnen, die Sichtbarkeit dieser Fußzeilen‑Platzhalter zu steuern. Das ist nützlich, wenn bestimmte Layouts Fußzeileninformationen zeigen sollen, während andere schlicht bleiben.
+
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Holen Sie sich einen Layout‑Folie‑Verweis über dessen Index.
+1. Setzen Sie den Fußzeilen‑Platzhalter der Folie auf sichtbar.
+1. Setzen Sie den Foliennummer‑Platzhalter auf sichtbar.
+1. Setzen Sie den Datum‑Zeit‑Platzhalter auf sichtbar.
+1. Speichern Sie die Präsentation.
+
+Der folgende Python‑Code zeigt, wie die Sichtbarkeit einer Folienfußzeile festgelegt wird:
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    header_footer_manager = presentation.layout_slides[0].header_footer_manager
+
+    if not header_footer_manager.is_footer_visible: 
+        header_footer_manager.set_footer_visibility(True) 
+
+    if not header_footer_manager.is_slide_number_visible:  
+        header_footer_manager.set_slide_number_visibility(True) 
+
+    if not header_footer_manager.is_date_time_visible: 
+        header_footer_manager.set_date_time_visibility(True)
+
+    header_footer_manager.set_footer_text("Footer text") 
+    header_footer_manager.set_date_time_text("Date and time text") 
+
+    presentation.save("output.ppt", slides.export.SaveFormat.PPT)
+```
+
+
+## **Kind‑Fußzeilen‑Sichtbarkeit für eine Folie festlegen**
+
+In PowerPoint‑Präsentationen können Fußzeilenelemente wie Datum, Foliennummer und benutzerdefinierter Text auf der Ebene des Folienmasters gesteuert werden, um Konsistenz über alle Layout‑Folien hinweg zu gewährleisten. Aspose.Slides für Python ermöglicht es Ihnen, die Sichtbarkeit und den Inhalt dieser Fußzeilen‑Platzhalter auf dem Master‑Folie festzulegen und diese Einstellungen an alle untergeordneten Layout‑Folien weiterzugeben. So bleibt die Fußzeileninformation in der gesamten Präsentation einheitlich.
+
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Holen Sie sich einen Verweis auf die Master‑Folie über deren Index.
+1. Setzen Sie die Fußzeilen‑Platzhalter des Masters und aller Kind‑Folien auf sichtbar.
+1. Setzen Sie die Foliennummer‑Platzhalter des Masters und aller Kind‑Folien auf sichtbar.
+1. Setzen Sie die Datum‑Zeit‑Platzhalter des Masters und aller Kind‑Folien auf sichtbar.
+1. Speichern Sie die Präsentation.
+
+Der folgende Python‑Code demonstriert diesen Vorgang:
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    header_footer_manager = presentation.masters[0].header_footer_manager
+
+    header_footer_manager.set_footer_and_child_footers_visibility(True)
+    header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
+    header_footer_manager.set_date_time_and_child_date_times_visibility(True)
+
+    header_footer_manager.set_footer_and_child_footers_text("Footer text")
+    header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+
+## **FAQ**
+
+**Was ist der Unterschied zwischen einer Master‑Folie und einer Layout‑Folie?**
+
+Eine Master‑Folie definiert das Gesamtdesign und die Standardformatierung, während Layout‑Folien spezifische Anordnungen von Platzhaltern für verschiedene Inhaltsarten festlegen.
+
+**Kann ich eine Layout‑Folie von einer Präsentation in eine andere kopieren?**
+
+Ja, Sie können eine Layout‑Folie aus der [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/)‑Sammlung einer Präsentation klonen und mit der Methode `add_clone` in eine andere einfügen.
+
+**Was passiert, wenn ich eine Layout‑Folie lösche, die noch von einer Folie verwendet wird?**
+
+Versuchen Sie, eine Layout‑Folie zu löschen, die noch von mindestens einer Folie referenziert wird, wirft Aspose.Slides eine [PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/). Verwenden Sie stattdessen [remove_unused_layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/), um nur nicht genutzte Layout‑Folien sicher zu entfernen.

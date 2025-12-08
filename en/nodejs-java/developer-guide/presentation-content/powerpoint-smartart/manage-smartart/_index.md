@@ -1,8 +1,22 @@
 ---
-title: Manage SmartArt
+title: Manage SmartArt in PowerPoint Presentations Using JavaScript
+linktitle: Manage SmartArt
 type: docs
 weight: 10
 url: /nodejs-java/manage-smartart/
+keywords:
+- SmartArt
+- SmartArt text
+- layout type
+- hidden property
+- organization chart
+- picture organization chart
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn to build and edit PowerPoint SmartArt with Aspose.Slides for Node.js using clear JavaScript code samples that speed up slide design and automation."
 ---
 
 ## **Get Text from SmartArt**
@@ -165,4 +179,20 @@ try {
 }
 ```
 
+## **FAQ**
 
+**Does SmartArt support mirroring/reversing for RTL languages?**
+
+Yes. The [setReversed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/setreversed/) method switches the diagram direction (LTR/RTL) if the selected SmartArt type supports reversal.
+
+**How can I copy SmartArt to the same slide or to another presentation while preserving formatting?**
+
+You can [clone the SmartArt shape](/slides/nodejs-java/shape-manipulations/) via the shapes collection ([ShapeCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addclone/)) or [clone the entire slide](/slides/nodejs-java/clone-slides/) containing this shape. Both approaches preserve size, position, and styling.
+
+**How do I render SmartArt to a raster image for preview or web export?**
+
+[Render the slide](/slides/nodejs-java/convert-powerpoint-to-png/) (or the whole presentation) to PNG/JPEG through the API that converts slides/presentations to images—SmartArt will be drawn as part of the slide.
+
+**How can I programmatically select a specific SmartArt on a slide if there are several?**
+
+A common practice is to use [alternative text](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/setalternativetext/) (Alt Text) or [setName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/setname/) and search for the shape by that attribute using [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes), then check the type to confirm it’s [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/). The documentation describes typical techniques for finding and working with shapes.

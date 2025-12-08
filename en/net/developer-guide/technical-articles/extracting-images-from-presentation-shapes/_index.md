@@ -1,11 +1,24 @@
 ---
-title: Extracting Images from Presentation shapes
+title: Extract Images from Presentation Shapes in .NET
+linktitle: Image from Shape
 type: docs
 weight: 90
 url: /net/extracting-images-from-presentation-shapes/
-keywords: "Extract image, PowerPoint, PPT, PPTX, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Extract images from PowerPoint presentation in C# or .NET"
+keywords:
+- extract image
+- retrieve image
+- slide background
+- shape background
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Extract images from shapes in PowerPoint and OpenDocument presentations with Aspose.Slides for .NET — quick, code-friendly solution."
 ---
+
+## **Extract Images from Shapes**
 
 {{% alert color="primary" %}} 
 
@@ -148,5 +161,20 @@ public static System.Drawing.Imaging.ImageFormat GetImageFormat(String ImageType
 }
 ```
 
+## **FAQ**
 
+**Can I extract the original image without any cropping, effects, or shape transformations?**
 
+Yes. When you access a shape’s image, you get the image object from the presentation’s [image collection](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/), meaning the original pixels without cropping or styling effects. The workflow goes through the presentation’s image collection and [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/) objects, which store the raw data.
+
+**Is there a risk of duplicating identical files when saving many images at once?**
+
+Yes, if you save everything indiscriminately. A presentation’s [image collection](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/) can contain identical binary data referenced by different shapes or slides. To avoid duplicates, compare hashes, sizes, or contents of the extracted data before writing.
+
+**How can I determine which shapes are linked to a specific image from the presentation’s collection?**
+
+Aspose.Slides does not store reverse links from [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/) to shapes. Build a mapping manually during traversal: whenever you find a reference to an [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/), record which shapes use it.
+
+**Can I extract images embedded inside OLE objects, such as attached documents?**
+
+Not directly, because an OLE object is a container. You need to extract the OLE package itself and then analyze its contents using separate tools. Presentation picture shapes work via [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/); OLE is a different object type.

@@ -1,16 +1,20 @@
 ---
-title: Render Presentation with Fallback Font
+title: Render Presentations with Fallback Fonts in С++
+linktitle: Render Presentations
 type: docs
 weight: 30
 url: /cpp/render-presentation-with-fallback-font/
-keywords: 
+keywords:
 - fallback font
 - render PowerPoint
+- render presentation
+- render slide
 - PowerPoint
+- OpenDocument
 - presentation
-- C++
-- Aspose.Slides for C++
-description: "Render PowerPoint with fallback font in C++"
+- С++
+- Aspose.Slides
+description: "Render presentations with fallback fonts in Aspose.Slides for С++ – keep text consistent across PPT, PPTX and ODP with step-by-step С++ code samples."
 ---
 
 The following example includes these steps:

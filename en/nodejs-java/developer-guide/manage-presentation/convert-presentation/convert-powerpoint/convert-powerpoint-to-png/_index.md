@@ -1,10 +1,28 @@
 ---
-title: Convert PowerPoint to PNG
+title: Convert PowerPoint Slides to PNG in JavaScript
+linktitle: PowerPoint to PNG
 type: docs
 weight: 30
 url: /nodejs-java/convert-powerpoint-to-png/
-keywords: PowerPoint to PNG, PPT to PNG, PPTX to PNG, java, Aspose.Slides for Node.js via Java
-description: Convert PowerPoint presentation to PNG
+keywords:
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- PowerPoint to PNG
+- presentation to PNG
+- slide to PNG
+- PPT to PNG
+- PPTX to PNG
+- save PPT as PNG
+- save PPTX as PNG
+- export PPT to PNG
+- export PPTX to PNG
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Convert PowerPoint presentations to high-quality PNG images in JavaScript quickly with Aspose.Slides for Node.js, ensuring precise, automated results."
 ---
 
 ## **About PowerPoint to PNG Conversion**
@@ -104,3 +122,16 @@ try {
 }
 ```
 
+## **FAQ**
+
+**How can I export only a specific shape (e.g., chart or picture) rather than the whole slide?**
+
+Aspose.Slides supports [generating thumbnails for individual shapes](/slides/nodejs-java/create-shape-thumbnails/); you can render a shape to a PNG image.
+
+**Is parallel conversion supported on a server?**
+
+Yes, but [don’t share](/slides/nodejs-java/multithreading/) a single presentation instance across threads. Use a separate instance per thread or process.
+
+**What are the trial-version limitations when exporting to PNG?**
+
+The evaluation mode adds a watermark to output images and enforces [other restrictions](/slides/nodejs-java/licensing/) until a license is applied.

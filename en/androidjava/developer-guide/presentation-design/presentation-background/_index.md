@@ -18,7 +18,7 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Learn how to set dynamic backgrounds in PowerPoint and OpenDocument files using Aspose.Slides for Android, with code tips to boost your presentations."
+description: "Learn how to set dynamic backgrounds in PowerPoint and OpenDocument files using Aspose.Slides for Android via Java, with code tips to boost your presentations."
 ---
 
 ## **Overview**

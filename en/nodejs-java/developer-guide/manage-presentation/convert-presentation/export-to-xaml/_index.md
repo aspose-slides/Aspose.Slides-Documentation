@@ -1,12 +1,35 @@
 ---
-title: Export to XAML
+title: Export Presentations to XAML in JavaScript
+linktitle: Presentation to XAML
 type: docs
 weight: 30
 url: /nodejs-java/export-to-xaml/
-
+keywords:
+- export PowerPoint
+- export OpenDocument
+- export presentation
+- convert PowerPoint
+- convert OpenDocument
+- convert presentation
+- PowerPoint to XAML
+- OpenDocument to XAML
+- presentation to XAML
+- PPT to XAML
+- PPTX to XAML
+- ODP to XAML
+- save PPT as XAML
+- save PPTX as XAML
+- save ODP as XAML
+- export PPT to XAML
+- export PPTX to XAML
+- export ODP to XAML
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Convert PowerPoint and OpenDocument slides to XAML in JavaScript using Aspose.Slides for Node.js—quick, Office-free solution that keeps your layout intact."
 ---
 
-# Exporting Presentations to XAML
+## **Exporting Presentations to XAML**
 
 {{% alert color="primary" %}} 
 
@@ -14,13 +37,13 @@ In [Aspose.Slides 21.6](https://docs.aspose.com/slides/nodejs-java/aspose-slides
 
 {{% /alert %}} 
 
-# About XAML
+## **About XAML**
 
 XAML is a descriptive programming language that allows you to build or write user classs for apps, especially those that use WPF (Windows Presentation Foundation), UWP (Universal Windows Platform), and Xamarin forms.
 
 XAML, which is an XML-based language, is Microsoft’s variant for describing a GUI. You are likely to use a designer to work on XAML files most of the time, but you can still write and edit your GUI. 
 
-## Exporting Presentations to XAML With Default Options
+## **Exporting Presentations to XAML With Default Options**
 
 This JavaScript code shows you how to export a presentation to XAML with default settings:
 
@@ -35,7 +58,7 @@ try {
 }
 ```
 
-## Exporting Presentations to XAML With Custom Options
+## **Exporting Presentations to XAML With Custom Options**
 
 You get to select options from the [XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/XamlOptions) class that control the export process and determine how Aspose.Slides exports your presentation to XAML.
 
@@ -53,3 +76,17 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**How can I ensure predictable fonts if the original font is not available on the machine?**
+
+Use [setDefaultRegularFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#setDefaultRegularFont) in [XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/) — it is used as a fallback font when the original is missing. This helps avoid unexpected substitutions.
+
+**Is the exported XAML intended only for WPF, or can it be used in other XAML stacks as well?**
+
+XAML is a general UI markup language used in WPF, UWP, and Xamarin.Forms. The export targets compatibility with Microsoft XAML stacks; the exact behavior and support for specific constructs depend on the target platform. Test the markup in your environment.
+
+**Are hidden slides supported, and how can I prevent them from being exported by default?**
+
+By default, hidden slides are not included. You can control this behavior via [setExportHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/setexporthiddenslides/) in [XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xamloptions/) — keep it disabled if you do not need to export them.

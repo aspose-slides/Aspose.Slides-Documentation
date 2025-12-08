@@ -1,9 +1,32 @@
 ---
-title: Export to XAML
+title: Export Presentations to XAML on Android
+linktitle: Presentation to XAML
 type: docs
 weight: 30
 url: /androidjava/export-to-xaml/
-
+keywords:
+- export PowerPoint
+- export OpenDocument
+- export presentation
+- convert PowerPoint
+- convert OpenDocument
+- convert presentation
+- PowerPoint to XAML
+- OpenDocument to XAML
+- presentation to XAML
+- PPT to XAML
+- PPTX to XAML
+- ODP to XAML
+- save PPT as XAML
+- save PPTX as XAML
+- save ODP as XAML
+- export PPT to XAML
+- export PPTX to XAML
+- export ODP to XAML
+- Android
+- Java
+- Aspose.Slides
+description: "Convert PowerPoint and OpenDocument slides to XAML in Java using Aspose.Slides for Android—quick, Office-free solution that keeps your layout intact."
 ---
 
 # Exporting Presentations to XAML

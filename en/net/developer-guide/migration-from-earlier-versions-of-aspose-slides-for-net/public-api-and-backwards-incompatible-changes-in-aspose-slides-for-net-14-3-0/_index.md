@@ -1,14 +1,28 @@
 ---
 title: Public API and Backwards Incompatible Changes in Aspose.Slides for .NET 14.3.0
+linktitle: Aspose.Slides for .NET 14.3.0
 type: docs
 weight: 50
 url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-3-0/
+keywords:
+- migration
+- legacy code
+- modern code
+- legacy approach
+- modern approach
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Review public API updates and breaking changes in Aspose.Slides for .NET to smoothly migrate your PowerPoint PPT, PPTX and ODP presentation solutions."
 ---
 
 ## **Public API and Backwards Incompatible Changes**
 ### **Aspose.Slides.ShapeThumbnailBounds Enumeration and Aspose.Slides.IShape.GetThumbnail() Methods Added**
 The methods GetThumbnail() and GetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY) are used to create a separate shape thumbnail. The ShapeThumbnailBounds enumeration defines the possible shape thumbnail bound types.
-### **Property UniqueId has been added to Aspose.Slides.IShape**
+### **Property UniqueId Has Been Added to Aspose.Slides.IShape**
 The Aspose.Slides.IShape.UniqueId property gets unique in a presentation scope shape identifier. These unique identifiers are stored in shape custom tags.
 ### **Signature of the SetGroupingItem Method Changed in IChartCategoryLevelsManager**
 Signature of the IChartCategoryLevelsManager method

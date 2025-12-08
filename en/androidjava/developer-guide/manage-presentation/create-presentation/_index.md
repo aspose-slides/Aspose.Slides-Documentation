@@ -1,11 +1,25 @@
 ---
-title: Create PowerPoint Presentation using Java
+title: Create Presentations on Android
 linktitle: Create Presentation
 type: docs
 weight: 10
 url: /androidjava/create-presentation/
-keywords: create ppt java, create ppt presentation, create pptx java
-description: Learn how to create PowerPoint Presentations e.g. PPT, PPTX using Java from scratch.
+keywords:
+- create presentation
+- new presentation
+- create PPT
+- new PPT
+- create PPTX
+- new PPTX
+- create ODP
+- new ODP
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Create presentations in Java with Aspose.Slides for Android—produce PPT, PPTX, and ODP files, benefit from OpenDocument support, and save them programmatically for reliable results."
 ---
 
 ## **Create PowerPoint Presentation**

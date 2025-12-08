@@ -1,11 +1,23 @@
 ---
-title: Convert PPT to PPTX in Java
-linktitle: Convert PPT to PPTX
+title: Convert PPT to PPTX on Android
+linktitle: PPT to PPTX
 type: docs
 weight: 20
 url: /androidjava/convert-ppt-to-pptx/
-keywords: "Java Convert PPT to PPTX, PowerPoint PPT to PPTX in Java"
-description: "Convert PowerPoint PPT to PPTX in Java."
+keywords:
+- convert PowerPoint
+- convert presentation
+- convert slide
+- сonvert PPT
+- PPT to PPTX
+- save PPT as PPTX
+- export PPT to PPTX
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Convert legacy PPT presentations to modern PPTX fast in Java with Aspose.Slides for Android — clear tutorial, free code samples, no Microsoft Office dependency."
 ---
 
 ## **Overview**

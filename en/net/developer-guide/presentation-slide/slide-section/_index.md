@@ -1,10 +1,22 @@
 ---
-title: Slide Section
+title: Manage Slide Sections in Presentations in .NET
+linktitle: Slide Section
 type: docs
 weight: 100
 url: /net/slide-section/
-keywords: "Create section, Add section, Edit section name, PowerPoint Presentation, C#, Csharp, .NET, Aspose.Slides"
-description: "Add and edit section in PowerPoint presentation in C# or .NET"
+keywords:
+- create section
+- add section
+- edit section
+- change section
+- section name
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Streamline slide sections in PowerPoint and OpenDocument with Aspose.Slides for .NET — split, rename, and reorder to optimize PPTX and ODP workflows."
 ---
 
 With Aspose.Slides for .NET, you can organize a PowerPoint Presentation into sections. You get to create sections that contain specific slides. 
@@ -16,7 +28,7 @@ You may want to create sections and use them to organize or divide slides in a p
 
 Ideally, you should create a section that houses similar slides—the slides have something in common or they can exist in a group based on a rule—and give the section a name that describes the slides inside it. 
 
-## Creating Sections in Presentations
+## **Create Sections in Presentations**
 
 To add a section that will house slides in a presentation, Aspose.Slides for .NET provides the AddSection method that allows you to specify the name of the section you intend to create and the slide from which the section starts. 
 
@@ -47,7 +59,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## Changing the Names of Sections
+## **Change the Names of Sections**
 
 After you create a section in a PowerPoint presentation, you may decide to change its name. 
 
@@ -61,3 +73,16 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
+## **FAQ**
+
+**Are sections preserved when saving to the PPT (PowerPoint 97–2003) format?**
+
+No. The PPT format does not support section metadata, so section grouping is lost when saving to .ppt.
+
+**Can an entire section be "hidden"?**
+
+No. Only individual slides can be hidden. A section as an entity has no "hidden" state.
+
+**Can I quickly find a section by a slide and, conversely, the first slide of a section?**
+
+Yes. A section is uniquely defined by its starting slide; given a slide you can determine which section it belongs to, and for a section you can access its first slide.

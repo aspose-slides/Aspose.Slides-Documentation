@@ -579,7 +579,7 @@ try {
 }
 ```
 
-## **FAQs**
+## **FAQ**
 
 **Does shape formatting affect the final presentation file size?**
 

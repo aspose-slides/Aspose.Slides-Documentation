@@ -2,12 +2,25 @@
 title: SlideTransition
 type: docs
 weight: 110
-url: /net/examples/elements/slidetransition
+url: /net/examples/elements/slide-transition/
+keywords:
+- slide transition example
+- add slide transition
+- access slide transition
+- remove slide transition
+- transition duration
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Control slide transitions in C# with Aspose.Slides: choose types, speed, sound, and timing to polish presentations in PPT, PPTX and ODP."
 ---
 
 Demonstrates applying slide transition effects and timings with **Aspose.Slides for .NET**.
 
-## Add a Slide Transition
+## **Add a Slide Transition**
 
 Apply a fade transition effect to the first slide.
 
@@ -22,7 +35,7 @@ static void Add_Slide_Transition()
 }
 ```
 
-## Access a Slide Transition
+## **Access a Slide Transition**
 
 Read the transition type currently assigned to a slide.
 
@@ -38,7 +51,7 @@ static void Access_Slide_Transition()
 }
 ```
 
-## Remove a Slide Transition
+## **Remove a Slide Transition**
 
 Clear any transition effect by setting the type to `None`.
 
@@ -54,7 +67,7 @@ static void Remove_Slide_Transition()
 }
 ```
 
-## Set Transition Duration
+## **Set Transition Duration**
 
 Specify how long the slide is displayed before advancing automatically.
 

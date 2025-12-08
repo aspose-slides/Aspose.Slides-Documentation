@@ -1,5 +1,5 @@
 ---
-title: Apply or Change a Slide Layout in PHP
+title: Apply or Change Slide Layouts in PHP
 linktitle: Slide Layout
 type: docs
 weight: 60
@@ -23,9 +23,12 @@ keywords:
 - picture with caption
 - title and vertical text
 - vertical title and text
+- PowerPoint
+- OpenDocument
+- presentation
 - PHP
 - Aspose.Slides
-description: "Learn how to manage and customize slide layouts in Aspose.Slides for PHP. Explore layout types, placeholder control, footer visibility, and layout manipulation through code examples in PHP."
+description: "Manage and customize slide layouts in Aspose.Slides for PHP via Java. Explore layout types, placeholder control, and footer visibility through code examples."
 ---
 
 ## **Overview**

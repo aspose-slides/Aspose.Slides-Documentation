@@ -1,11 +1,31 @@
 ---
 title: Create or Update PowerPoint Presentation Charts in Java
-linktitle: Create Chart
+linktitle: Create or Update Charts
 type: docs
 weight: 10
 url: /java/create-chart/
-keywords: "Create chart, scattered chart, pie chart, tree map chart, stock chart, box and whisker chart, histogram chart, funnel chart, sunburst chart, multicategory chart, PowerPoint presentation, Java, Aspose.Slides for Java"
-description: "Create chart in PowerPoint presentation in Java"
+keywords:
+- add chart
+- create chart
+- edit chart
+- change chart
+- update chart
+- scattered chart
+- pie chart
+- line chart
+- tree map chart
+- stock chart
+- box and whisker chart
+- funnel chart
+- sunburst chart
+- histogram chart
+- radar chart
+- multicategory chart
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Create and customize charts in PowerPoint presentations using Aspose.Slides for Java. Add, format, and edit charts with practical code examples in Java."
 ---
 
 ## Overview
@@ -100,7 +120,7 @@ To allow you create charts, Aspose.Slides provides the [ChartType](https://refer
 
 {{% /alert %}} 
 
-### **Creating Normal Charts**
+### **Create Normal Charts**
 
 _Steps: Create Chart_
 - <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Steps:</em> Create PowerPoint Chart in Java</strong></a>
@@ -208,7 +228,7 @@ try {
 }
 ```
 
-### **Creating Scattered Charts**
+### **Create Scattered Charts**
 Scattered charts (also known as scattered plots or x-y graphs) are often used to check for patterns or demonstrate correlations between two variables. 
 
 You may want to use a scattered chart when 
@@ -296,7 +316,7 @@ try {
 }
 ```
 
-### **Creating Pie Charts**
+### **Create Pie Charts**
 
 Pie charts are best used to show the part-to-whole relationship in data, especially when the data contains categorical labels with numeric values. However, if your data contains many parts or labels, you may want to consider using a bar chart instead.
 
@@ -427,7 +447,7 @@ try {
 }
 ```
 
-### **Creating Line Charts**
+### **Create Line Charts**
 
 Line charts (also known as a line graphs) are best used in situations where you want demonstrate changes in value over time. Using a line chart, you can compare lots of data at once, track changes and trends over time, highlight anomalies in data series, etc.
 
@@ -464,7 +484,7 @@ for (IChartSeries series : lineChart.getChartData().getSeries())
 }
 ```
 
-### **Creating Tree Map Charts**
+### **Create Tree Map Charts**
 
 Tree map charts are best used for sales data when you want to show the relative size of data categories and (at the same time) quickly draw attention to items that are large contributors to each category. 
 
@@ -536,7 +556,7 @@ try {
 }
 ```
 
-### **Creating Stock Charts**
+### **Create Stock Charts**
 
 <a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Steps:</em> Create Stock Chart in Java</strong></a> |
 <a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Steps:</em> Create PowerPoint Stock Chart in Java</strong></a> |
@@ -608,7 +628,7 @@ try {
 }
 ```
 
-### **Creating Box and Whisker Charts**
+### **Create Box and Whisker Charts**
 
 <a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Steps:</em> Create Box and Whisker Chart in Java</strong></a> |
 <a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Box and Whisker Chart in Java</strong></a> |
@@ -663,7 +683,7 @@ try {
 }
 ```
 
-### **Creating Funnel Charts**
+### **Create Funnel Charts**
 
 <a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Steps:</em> Create Funnel Chart in Java</strong></a> |
 <a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Funnel Chart in Java</strong></a> |
@@ -710,7 +730,7 @@ try {
 }
 ```
 
-### **Creating Sunburst Charts**
+### **Create Sunburst Charts**
 
 <a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Steps:</em> Create Sunburst Chart in Java</strong></a> |
 <a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Sunburst Chart in Java</strong></a> |
@@ -774,7 +794,7 @@ try {
 }
 ```
 
-### **Creating Histogram Charts**
+### **Create Histogram Charts**
 
 <a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Steps:</em> Create Histogram Chart in Java</strong></a> |
 <a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Histogram Chart in Java</strong></a> |
@@ -816,7 +836,7 @@ try {
 }
 ```
 
-### **Creating Radar Charts**
+### **Create Radar Charts**
 
 <a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Steps:</em> Create Radar Chart in Java</strong></a> |
 <a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Steps:</em> Create PowerPoint Radar Chart in Java</strong></a> |
@@ -839,7 +859,7 @@ try {
 }
 ```
 
-### **Creating Multi Category Charts**
+### **Create Multi-Category Charts**
 
 <a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Steps:</em> Create Multi Category Chart in Java</strong></a> |
 <a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Multi Category Chart in Java</strong></a> |
@@ -903,7 +923,7 @@ try {
 }
 ```
 
-### **Creating Map Charts**
+### **Create Map Charts**
 
 A map chart is a visualization of an area containing data. Map charts are best used to compare data or values across geographical regions.
 
@@ -923,108 +943,160 @@ try {
 }
 ```
 
-### **Creating Combination Charts**
+### **Create Combination Charts**
 
-A combination chart (or combo chart) is a chart that combines two or more charts on a single graph. Such a chart allows you to highlight, compare, or review differences between two (or more) sets of data. This way, you see the relationship (if any) between the sets of data. 
+A combination chart (or combo chart) combines two or more chart types in a single graph. This chart lets you highlight, compare, or examine differences between two or more data sets, helping you identify relationships between them.
 
-![combination-chart-ppt](combination-chart-ppt.png)
+![The combination chart](combination_chart.png)
 
-This Java code shows you how to create a combination chart in PowerPoint:
+The following Java code shows how to create the combination chart shown above in a PowerPoint presentation:
 
 ```java
-private static void createComboChart()
-{
-    Presentation pres = new Presentation();
-    {
-        IChart chart = createChart(pres.getSlides().get_Item(0));
-        addFirstSeriesToChart(chart);
+static void createComboChart() {
+    Presentation presentation = new Presentation();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    try {
+        IChart chart = createChartWithFirstSeries(slide);
+
         addSecondSeriesToChart(chart);
-        pres.save("combo-chart.pptx", SaveFormat.Pptx);
+        addThirdSeriesToChart(chart);
+
+        setPrimaryAxesFormat(chart);
+        setSecondaryAxesFormat(chart);
+
+        presentation.save("combo-chart.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
     }
 }
 
-private static IChart createChart(ISlide slide)
-{
-    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
+static IChart createChartWithFirstSeries(ISlide slide) {
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+
+    // Set the chart title.
+    chart.setTitle(true);
+    chart.getChartTitle().addTextFrameForOverriding("Chart Title");
+    chart.getChartTitle().setOverlay(false);
+    IParagraph titleParagraph = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0);
+    IPortionFormat titleFormat = titleParagraph.getParagraphFormat().getDefaultPortionFormat();
+    titleFormat.setFontBold(NullableBool.False);
+    titleFormat.setFontHeight(18f);
+
+    // Set the chart legend.
+    chart.getLegend().setPosition(LegendPositionType.Bottom);
+    chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
+
+    // Delete the default generated series and categories.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
+    int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
-    final int worksheetIndex = 0;
 
-    chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, 0, 2, "Series 2"), chart.getType());
+    // Add new categories.
+    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
+    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
+    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
+    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
 
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Caetegoty 3"));
+    // Add the first series.
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    series.getParentSeriesGroup().setOverlap((byte)-25);
+    series.getParentSeriesGroup().setGapWidth(220);
 
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 1, 30));
-
-    series = chart.getChartData().getSeries().get_Item(1);
-
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 2, 60));
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 1, 4.3));
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 1, 2.5));
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 1, 3.5));
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 4, 1, 4.5));
 
     return chart;
 }
 
-private static void addFirstSeriesToChart(IChart chart)
-{
+static void addSecondSeriesToChart(IChart chart) {
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     final int worksheetIndex = 0;
 
-    IChartSeries series = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, 0, 3, "Series 3"), ChartType.ScatterWithSmoothLines);
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 2, "Series 2");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.ClusteredColumn);
 
-    series.getDataPoints().addDataPointForScatterSeries(
-            workbook.getCell(worksheetIndex, 0, 1, 3),
-            workbook.getCell(worksheetIndex, 0, 2, 5));
+    series.getParentSeriesGroup().setOverlap((byte)-25);
+    series.getParentSeriesGroup().setGapWidth(220);
 
-    series.getDataPoints().addDataPointForScatterSeries(
-            workbook.getCell(worksheetIndex, 1, 3, 10),
-            workbook.getCell(worksheetIndex, 1, 4, 13));
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 2, 2.4));
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 2, 4.4));
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 2, 1.8));
+    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 4, 2, 2.8));
+}
 
-    series.getDataPoints().addDataPointForScatterSeries(
-            workbook.getCell(worksheetIndex, 2, 3, 20),
-            workbook.getCell(worksheetIndex, 2, 4, 15));
+static void addThirdSeriesToChart(IChart chart) {
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    final int worksheetIndex = 0;
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Series 3");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, ChartType.Line);
+
+    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 1, 3, 2.0));
+    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 2, 3, 2.0));
+    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 3, 3, 3.0));
+    series.getDataPoints().addDataPointForLineSeries(workbook.getCell(worksheetIndex, 4, 3, 5.0));
 
     series.setPlotOnSecondAxis(true);
 }
 
-private static void addSecondSeriesToChart(IChart chart)
-{
-    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
-    final int worksheetIndex = 0;
+static void setPrimaryAxesFormat(IChart chart) {
+    // Set the horizontal axis.
+    IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
+    horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
+    horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    IChartSeries series = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, 0, 5, "Series 4"),
-            ChartType.ScatterWithStraightLinesAndMarkers);
+    setAxisTitle(horizontalAxis, "X Axis");
 
-    series.getDataPoints().addDataPointForScatterSeries(
-            workbook.getCell(worksheetIndex, 1, 3, 5),
-            workbook.getCell(worksheetIndex, 1, 4, 2));
+    // Set the vertical axis.
+    IAxis verticalAxis = chart.getAxes().getVerticalAxis();
+    verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
+    verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    series.getDataPoints().addDataPointForScatterSeries(
-            workbook.getCell(worksheetIndex, 1, 5, 10),
-            workbook.getCell(worksheetIndex, 1, 6, 7));
+    setAxisTitle(verticalAxis, "Y Axis 1");
 
-    series.getDataPoints().addDataPointForScatterSeries(
-            workbook.getCell(worksheetIndex, 2, 5, 15),
-            workbook.getCell(worksheetIndex, 2, 6, 12));
+    // Set the vertical major gridlines color.
+    ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
+    majorGridLinesFormat.setFillType(FillType.Solid);
+    majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
+}
 
-    series.getDataPoints().addDataPointForScatterSeries(
-            workbook.getCell(worksheetIndex, 3, 5, 12),
-            workbook.getCell(worksheetIndex, 3, 6, 9));
+static void setSecondaryAxesFormat(IChart chart) {
+    // Set the secondary horizontal axis.
+    IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
+    secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
+    secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
+    secondaryHorizontalAxis.setVisible(false);
+    secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+    secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    series.setPlotOnSecondAxis(true);
+    // Set the secondary vertical axis.
+    IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
+    secondaryVerticalAxis.setPosition(AxisPositionType.Right);
+    secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
+    secondaryVerticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+    secondaryVerticalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+    secondaryVerticalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+
+    setAxisTitle(secondaryVerticalAxis, "Y Axis 2");
+}
+
+static void setAxisTitle(IAxis axis, String axisTitle) {
+    axis.setTitle(true);
+    axis.getTitle().setOverlay(false);
+    IParagraph titleParagraph = axis.getTitle().addTextFrameForOverriding(axisTitle).getParagraphs().get_Item(0);
+    IPortionFormat titleFormat = titleParagraph.getParagraphFormat().getDefaultPortionFormat();
+    titleFormat.setFontBold(NullableBool.False);
+    titleFormat.setFontHeight(12f);
 }
 ```
 
-## **Updating Charts**
+## **Update Charts**
 
 <a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Steps:</em> Update PowerPoint Chart in Java</strong></a> |
 <a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Steps:</em> Update Presentation Chart in Java</strong></a> |
@@ -1097,7 +1169,7 @@ try {
 }
 ```
 
-## **Setting Data Range for Charts**
+## **Set Data Range for a Chart**
 
 To set the data range for a chart, do this:
 
@@ -1123,7 +1195,7 @@ try {
 }
 ```
 
-## **Using Default Markers in Charts**
+## **Use Default Markers in Charts**
 When you use a default marker in charts, each chart series get different default marker symbols automatically.
 
 This Java code shows you how to set a chart series market automatically:
@@ -1168,3 +1240,21 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**What chart types are supported by Aspose.Slides?**
+
+Aspose.Slides supports a wide range of [chart types](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/), including bar, line, pie, area, scatter, histogram, radar, and many more. This flexibility allows you to choose the most appropriate chart type for your data visualization needs.
+
+**How do I add a new chart to a slide?**
+
+To add a chart, you first create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class, retrieve the desired slide using its index, and then call the method to add a chart, specifying the chart type and initial data. This process integrates the chart directly into your presentation.
+
+**How can I update the data displayed in a chart?**
+
+You can update a chart’s data by accessing its data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)), clearing any default series and categories, and then adding your custom data. This allows you to refresh the chart to reflect the latest data.
+
+**Is it possible to customize the appearance of the chart?**
+
+Yes, Aspose.Slides provides extensive customization options. You can modify colors, fonts, labels, legends, and other [formatting elements](/slides/java/chart-entities/) to tailor the chart’s appearance to your specific design requirements.

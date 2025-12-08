@@ -17,7 +17,7 @@ keywords:
 - presentation
 - PHP
 - Aspose.Slides
-description: "Read data from Excel workbooks in Aspose.Slides using the ExcelDataWorkbook API. Load sheets and cells and use values to generate data-driven PowerPoint presentations."
+description: "Read data from Excel workbooks using Aspose.Slides for PHP via Java. Load sheets and cells and use values to generate data-driven PowerPoint presentations."
 ---
 
 ## **Introduction**

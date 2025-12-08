@@ -1,26 +1,34 @@
 ---
-title: Manage PowerPoint Paragraph in JavaScript
+title: Manage PowerPoint Text Paragraphs in JavaScript
+linktitle: Manage Paragraph
 type: docs
 weight: 40
 url: /nodejs-java/manage-paragraph/
 keywords:
 - add text
-- add paragraphs
+- add paragraph
 - manage text
-- manage paragraphs
+- manage paragraph
+- manage bullet
 - paragraph indent
+- hanging indent
 - paragraph bullet
 - numbered list
+- bulleted list
 - paragraph properties
 - import HTML
 - text to HTML
 - paragraph to HTML
-- paragraphs to images
-- export paragraphs
-- PowerPoint presentation
+- paragraph to image
+- text to image
+- export paragraph
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
 - JavaScript
-- Aspose.Slides for Node.js via Java
-description: "Create paragraphs and manage paragraph properties in PowerPoint presentations in JavaScript"
+- Aspose.Slides
+description: "Master paragraph formatting with Aspose.Slides for Node.js via Java—optimize alignment, spacing & style in PPT, PPTX, and ODP presentations in JavaScript."
 ---
 
 Aspose.Slides provides all the classs and classes you need to work with PowerPoint texts, paragraphs, and portions in Java.
@@ -697,3 +705,21 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**Can I completely disable line wrapping inside a text frame?**
+
+Yes. Use the text frame’s wrapping setting ([setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setwraptext/)) to turn wrapping off so lines won’t break at the frame’s edges.
+
+**How can I get the exact on-slide bounds of a specific paragraph?**
+
+You can retrieve the paragraph’s (and even a single portion’s) bounding rectangle to know its precise position and size on the slide.
+
+**Where is paragraph alignment (left/right/center/justify) controlled?**
+
+[setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/setalignment/) is a method for a paragraph-level setting in [ParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/); it applies to the whole paragraph regardless of individual portion formatting.
+
+**Can I set a spell-check language for just part of a paragraph (e.g., one word)?**
+
+Yes. The language is set at the portion level ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId)), so multiple languages can coexist within a single paragraph.

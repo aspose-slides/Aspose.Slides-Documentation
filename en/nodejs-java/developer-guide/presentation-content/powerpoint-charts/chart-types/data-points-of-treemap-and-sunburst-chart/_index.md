@@ -1,10 +1,21 @@
 ---
-title: Data Points of Treemap and Sunburst Chart
+title: Customize Data Points in Treemap and Sunburst Charts Using JavaScript
+linktitle: Data Points in Treemap and Sunburst Charts
 type: docs
 url: /nodejs-java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
-keywords: "Sunburst graph in Aspose.Slides for Node.js via Java"
-description: "Sunburst Graph, Sunburst Diagram, Sunburst Chart, Radial Chart, Radial Graph or Multi Level Pie Chart with Aspose.Slides for Node.js via Java."
+keywords:
+- treemap chart
+- sunburst chart
+- data point
+- label color
+- branch color
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn how to manage data points in treemap and sunburst charts with JavaScript and Aspose.Slides for Node.js via Java, compatible with PowerPoint formats."
 ---
 
 Among other types of PowerPoint charts, there are two "hierarchical" types - **Treemap** and **Sunburst** chart (also known as Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph or Multi Level Pie Chart). These charts display hierarchical data organized as a tree - from leaves to the top of the branch. Leaves are defined by the series data points, and each subsequent nested grouping level defined by the corresponding category. Aspose.Slides for Node.js via Java allows to format data points of Sunburst Chart and Treemap in JavaScript.
@@ -92,6 +103,20 @@ try {
 
 ![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
 
+## **FAQ**
 
+**Can I change the order (sorting) of segments in Sunburst/Treemap?**
 
+No. PowerPoint sorts segments automatically (typically by descending values, clockwise). Aspose.Slides mirrors this behavior: you can’t change the order directly; you achieve it by preprocessing the data.
 
+**How does the presentation theme affect the colors of segments and labels?**
+
+Chart colors inherit the presentation’s [theme/palette](/slides/nodejs-java/presentation-theme/) unless you explicitly set fills/fonts. For consistent results, lock in solid fills and text formatting at the required levels.
+
+**Will export to PDF/PNG preserve custom branch colors and label settings?**
+
+Yes. When exporting the presentation, chart settings (fills, labels) are preserved in the output formats because Aspose.Slides renders with the chart’s formatting applied.
+
+**Can I compute the actual coordinates of a label/element for custom overlay placement on top of the chart?**
+
+Yes. After the chart layout is validated, actual X and actual Y are available for elements (for example, a [DataLabel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/)), which helps with precise positioning of overlays.

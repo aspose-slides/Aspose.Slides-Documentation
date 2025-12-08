@@ -1,8 +1,22 @@
 ---
-title: ActiveX
+title: Manage ActiveX Controls in Presentations on Android
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /androidjava/activex/
+keywords:
+- ActiveX
+- ActiveX control
+- manage ActiveX
+- add ActiveX
+- modify ActiveX
+- media player
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Learn how Aspose.Slides for Android via Java leverages ActiveX to automate and enhance PowerPoint presentations, giving developers powerful control over slides."
 ---
 
 

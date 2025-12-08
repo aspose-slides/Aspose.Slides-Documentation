@@ -1,17 +1,22 @@
 ---
-title: Multithreading in Aspose.Slides
+title: Multithreading in Aspose.Slides for Node.js via Java
+linktitle: Multithreading
 type: docs
 weight: 310
 url: /nodejs-java/multithreading/
 keywords:
-- PowerPoint
-- presentation
 - multithreading
+- multiple threads
 - parallel work
 - convert slides
 - slides to images
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
 - JavaScript
-- Aspose.Slides for Node.js via Java
+- Aspose.Slides
+description: "Aspose.Slides for Node.js via Java multithreading boosts PowerPoint and OpenDocument processing. Discover best practices for efficient presentation workflows."
 ---
 
 ## **Introduction**
@@ -65,3 +70,21 @@ const imageScale = 2;
     presentation.dispose();
 })();
 ```
+
+## **FAQ**
+
+**Do I need to call license setup in every thread?**
+
+No. It’s enough to do it once per process/app domain before threads start. If [license setup](/slides/nodejs-java/licensing/) might be invoked concurrently (for example, during lazy initialization), synchronize that call because the license setup method itself is not thread-safe.
+
+**Can I pass `Presentation` or `Slide` objects between threads?**
+
+Passing "live" presentation objects between threads is not recommended: use independent instances per thread or precreate separate presentations/slide containers for each thread. This approach follows the general recommendation not to share a single presentation instance across threads.
+
+**Is it safe to parallelize export to different formats (PDF, HTML, images) provided each thread has its own `Presentation` instance?**
+
+Yes. With independent instances and separate output paths, such tasks typically parallelize correctly; avoid any shared presentation objects and shared I/O streams.
+
+**What should I do with global font settings (folders, substitutions) in multithreading?**
+
+Initialize all global font settings before starting the threads and do not change them during parallel work. This eliminates races when accessing shared font resources.

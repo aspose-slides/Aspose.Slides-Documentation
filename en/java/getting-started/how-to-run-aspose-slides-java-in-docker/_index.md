@@ -11,12 +11,20 @@ keywords:
 - Windows
 - macOS
 - Linux
+- cross-platform compatibility
+- dependency isolation
+- simplified deployment
+- project setup
+- PowerPoint
+- OpenDocument
+- presentation
 - Java
-description: "Learn how to easily run Aspose.Slides for Java in Docker. Step-by-step guide for fast setup, reduced compatibility issues, and smooth presentation processing in containers."
+- Aspose.Slides
+description: "Run Aspose.Slides in Docker containers: configure images, dependencies, fonts, and licensing to build scalable services that process PowerPoint and OpenDocument."
 ---
 
 
-## Introduction
+## **Introduction**
 
 This guide explains how to containerize a Java application using Aspose Slides with Docker. Key benefits include:
 
@@ -24,16 +32,16 @@ This guide explains how to containerize a Java application using Aspose Slides w
 - **Dependency isolation** - No system-wide installations required
 - **Simplified deployment** - Easy sharing and execution
 
-## 1. Docker Installation
+## **1. Docker Installation**
 
-### Windows
+### **Windows**
 
-#### Requirements:
+**Requirements:**
 
 - Windows 10/11 Pro/Enterprise/Education (64-bit) with WSL 2 enabled
 - For Home edition: Requires manual WSL 2 installation
 
-#### Steps:
+**Steps:**
 
 1. Download the [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop/)
 2. Run the installer and follow the setup wizard
@@ -43,14 +51,14 @@ This guide explains how to containerize a Java application using Aspose Slides w
    docker --version
    ```
 
-### macOS
+### **macOS**
 
-#### Requirements:
+**Requirements:**
 
 - macOS 10.15 (Catalina) or newer
 - Apple Silicon or Intel processor
 
-#### Steps:
+**Steps:**
 
 1. Download the [Docker Desktop for Mac](https://www.docker.com/products/docker-desktop/)
 2. Drag the application to your `Applications` folder
@@ -60,9 +68,9 @@ This guide explains how to containerize a Java application using Aspose Slides w
    docker --version
    ```
 
-### Linux (Ubuntu/Debian)
+### **Linux (Ubuntu/Debian)**
 
-#### Installation:
+**Installation:**
 
 ```bash
 # Update package lists
@@ -93,16 +101,16 @@ newgrp docker
 docker --version
 ```
 
-## 2. Dockerfile Configuration
+## **2. Dockerfile Configuration**
 
-### Base Image
+### **Base Image**
 
 ```dockerfile
 FROM ubuntu:24.04
 ```
 > **Note**: Uses the [official Ubuntu image](https://hub.docker.com/_/ubuntu) from Docker Hub.
 
-### Dependencies
+### **Dependencies**
 
 ```dockerfile
 RUN apt-get install -y openjdk-11-jdk wget fontconfig ttf-mscorefonts-installer
@@ -110,7 +118,7 @@ RUN apt-get install -y openjdk-11-jdk wget fontconfig ttf-mscorefonts-installer
 - **OpenJDK 11**: Java runtime environment
 - **Font packages**: Includes Microsoft Core Fonts
 
-### Aspose Slides Setup
+### **Aspose.Slides Setup**
 
 ```dockerfile
 ENV ASPOSE_VERSION=25.3
@@ -120,9 +128,9 @@ ENV ASPOSE_URL=https://releases.aspose.com/java/repo/com/aspose/aspose-slides/${
 ```
 - Version-pinned download of Aspose Slides library
 
-## 3. Project Setup
+## **3. Project Setup**
 
-### File Structure
+### **File Structure**
 
 ```
 aspose-docker/
@@ -131,7 +139,7 @@ aspose-docker/
 └── output/             # Folder with generated PDFs (auto-created)
 ```
 
-### Dockerfile
+### **Dockerfile**
 
 Create a file named `Dockerfile` with:
 ```dockerfile
@@ -190,7 +198,7 @@ WORKDIR /tmp
 CMD ["sh", "-c", "/tmp/run.sh && cp /tmp/output/output.pdf /output"]
 ```
 
-### Java Application
+### **Java Application**
 
 Create `TestAspose.java` with:
 ```java
@@ -216,9 +224,9 @@ public class TestAspose {
 }
 ```
 
-## 4. Building and Running
+## **4. Building and Running**
 
-### Build the Image
+### **Build the Image**
 
    Run the following command in the directory where your Dockerfile is located to build the Docker image:
    ```powershell
@@ -228,7 +236,7 @@ public class TestAspose {
 - `-t` names the image "aspose-test"
 - `.` uses the current directory's Dockerfile
 
-### Run the Container
+### **Run the Container**
 
    Run the following command in the directory where your Dockerfile is located to run the Docker container:
    ```powershell

@@ -1,18 +1,28 @@
 ---
-title: How to Run the Examples
+title: How to Run Examples
 type: docs
 weight: 140
 url: /java/how-to-run-the-examples/
+keywords:
+- examples
+- software requirements
+- GitHub
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Run Aspose.Slides for Java examples fast: clone the repo, restore packages, then build and test features for PPT, PPTX and ODP."
 ---
 
-## **Download from GitHub**
+## **Download Aspose.Slides from GitHub**
 All examples of Aspose.Slides for Java are hosted on [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java). You can either clone the repository using your favorite Github client or download the ZIP file from [here](https://codeload.github.com/aspose-slides/Aspose.Slides-for-Java/zip/master).
 
 Extract the contents of ZIP file to any folder on your computer. All examples are located in the **Examples** folder.
 
 ![todo:image_alt_text](examples_directory.png)
 
-## **Import examples into the IDE**
+## **Import Examples into the IDE**
 The project uses Maven build system. Any modern IDE can easily open or import the project and its dependencies. Below we show you how to use popular IDEs to build and run the examples.
 
 ### **IntelliJ IDEA**
@@ -42,7 +52,7 @@ It will open the project and download the dependencies automatically. From the P
 
 ![todo:image_alt_text](netbeans_run_example.png)
 
-## **Adding Aspose.Slides Library into Maven Local Repository**
+## **Add Aspose.Slides Library into Maven Local Repository**
 When you import **Aspose.Slides Examples** project into IDE, Maven automatically downloads aspose.slides JAR file from [Aspose Maven Repository](https://releases.aspose.com/java/repo/com/aspose/). In case you do not have access to internet, you can manually add JAR in your local repository.
 
 ### **mvn install**

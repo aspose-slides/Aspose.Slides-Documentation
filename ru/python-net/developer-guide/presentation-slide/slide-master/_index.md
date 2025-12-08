@@ -1,279 +1,284 @@
+---  
+title: Управление слайд-мастерами PowerPoint в Python  
+linktitle: Слайд-мастер  
+type: docs  
+weight: 80  
+url: /ru/python-net/slide-master/  
+keywords:  
+- слайд-мастер  
+- мастер-слайд  
+- PPT-мастер-слайд  
+- несколько мастер-слайдов  
+- сравнение мастер-слайдов  
+- фон  
+- заполнитель  
+- клонирование мастер-слайда  
+- копирование мастер-слайда  
+- дублирование мастер-слайда  
+- неиспользуемый мастер-слайд  
+- Python  
+- Aspose.Slides  
+description: "Автоматизируйте работу с слайд-мастерами PowerPoint и OpenDocument с помощью Aspose.Slides для Python через .NET, чтобы максимизировать эффективность разработки. Полное руководство для начинающих и опытных пользователей."  
 ---
-title: Управляйте образцами слайдов PowerPoint в Python
-linktitle: Образец слайда
-type: docs
-weight: 80
-url: /ru/python-net/slide-master/
-keywords:
-- образец слайда
-- мастер-слайд
-- образец слайда PPT
-- несколько образцов слайдов
-- сравнение образцов слайдов
-- фон
-- заполнитель
-- клонировать образец слайда
-- копировать образец слайда
-- дублировать образец слайда
-- неиспользуемый образец слайда
-- Python
-- Aspose.Slides
-description: "Автоматизируйте работу с образцами слайдов PowerPoint и OpenDocument с помощью Aspose.Slides for Python via .NET, чтобы максимизировать эффективность разработки. Полное руководство для начинающих и продвинутых пользователей."
----
 
-## **Что такое слайд-мастер в PowerPoint**
+## **Обзор**
 
-**Слайд-Мастер** — это шаблон слайда, который определяет макет, стили, тему, шрифты, фон и другие свойства слайдов в презентации. Если вы хотите создать презентацию (или серию презентаций) с одинаковым стилем и шаблоном для вашей компании, вы можете использовать слайд-мастер.
+**Slide Master** — это шаблон слайда, который определяет макет, стили, тему, шрифты, фон и другие свойства слайдов в презентации. Если вы хотите создать презентацию (или серию презентаций) с одинаковым стилем и шаблоном для вашей компании, вы можете использовать **Slide Master**.
 
-Слайд-мастер полезен, потому что позволяет вам устанавливать и изменять внешний вид всех слайдов презентации одновременно. Aspose.Slides поддерживает механизм слайд-мастера из PowerPoint.
+**Slide Master** полезен тем, что позволяет задать и изменить внешний вид всех слайдов презентации одновременно. Aspose.Slides поддерживает механизм **Slide Master** PowerPoint.
 
-VBA также позволяет вам управлять слайд-мастером и выполнять те же операции, которые поддерживаются в PowerPoint: изменять фоны, добавлять фигуры, настраивать макет и т. д. Aspose.Slides предоставляет гибкие механизмы для использования слайд-мастера и выполнения базовых задач с ними.
+VBA также позволяет управлять **Slide Master** и выполнять те же операции, что поддерживает PowerPoint: изменять фон, добавлять фигуры, настраивать макеты и т.д. Aspose.Slides предоставляет гибкие API, которые позволяют работать с **Slide Master** и выполнять типичные задачи.
 
-Вот основные операции с слайд-мастером:
+Это базовые операции с **Slide Master**:
 
-- Создать или редактировать слайд-мастер.
-- Применить слайд-мастер к слайдам презентации.
-- Изменить фон слайд-мастера.
-- Добавить изображение, заполнитель, Smart Art и т. д. на слайд-мастер.
+- Создать **Slide Master**.
+- Применить **Slide Master** к слайдам презентации.
+- Изменить фон **Slide Master**.
+- Добавить изображение, заполнитель, SmartArt и т.п. к **Slide Master**.
 
-Вот более сложные операции с слайд-мастерами:
+Это более продвинутые операции, связанные с **Slide Master**:
 
-- Сравнить слайд-мастеры.
-- Объединить слайд-мастеры.
-- Применить несколько слайд-мастеров.
-- Скопировать слайд с слайд-мастером в другую презентацию.
-- Найти дублирующие слайд-мастеры в презентациях.
-- Установить слайд-мастер как вид по умолчанию для презентации.
+- Сравнивать **Slide Master**.
+- Объединять **Slide Master**.
+- Применять несколько **Slide Master**.
+- Копировать слайд вместе с его **Slide Master** в другую презентацию.
+- Выявлять дублирующиеся **Slide Master** в презентациях.
+- Установить **Slide Master** как представление презентации по умолчанию.
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
+Возможно, вам будет интересно посмотреть Aspose [Online PowerPoint Viewer](https://products.aspose.app/slides/viewer), так как он представляет живую реализацию некоторых из описанных здесь основных процессов.
+{{% /alert %}}
 
-Вы можете проверить Aspose [**Онлайн просмотрщик PowerPoint**](https://products.aspose.app/slides/viewer), так как это живая реализация некоторых основных процессов, описанных здесь.
+## **Как применяется Slide Master**
 
-{{% /alert %}} 
+Перед тем как работать с **Slide Master**, вам может быть полезно понять, как **Slide Master** используются в презентациях и применяются к слайдам.
 
-## **Как применяется слайд-мастер**
+- Каждая презентация имеет как минимум один **Slide Master** по умолчанию.
+- Презентация может содержать несколько **Slide Master**. Вы можете добавить несколько **Slide Master** и использовать их для стилизации разных частей презентации разными способами.
 
-Прежде чем работать со слайд-мастером, вам может быть полезно понять, как они используются в презентациях и применяются к слайдам.
+В Aspose.Slides **Slide Master** представлен типом [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/).
 
-* Каждая презентация по умолчанию имеет как минимум один слайд-мастер.
-* Презентация может содержать несколько слайд-мастеров. Вы можете добавить несколько слайд-мастеров и использовать их для стилизации различных частей презентации различными способами.
+Объект Aspose.Slides [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) содержит коллекцию [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) типа [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/), в которой хранятся все мастер‑слайды, определённые в презентации.
 
-В **Aspose.Slides** слайд-мастер представлен типом [**IMasterSlide**](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/).
+Помимо CRUD‑операций, класс [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/) предоставляет полезные методы, такие как [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/add_clone/) и [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/insert_clone/). Они расширяют базовую функциональность клонирования слайдов и, при работе с **Slide Master**, позволяют реализовать более сложные настройки.
 
-Объект [Презентация](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Aspose.Slides содержит список [**masters**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) типа [**IMasterSlideCollection**](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/), который содержит список всех мастер-слайдов, определенных в презентации.
+Когда в презентацию добавляется новый слайд, к нему автоматически применяется **Slide Master**. По умолчанию выбирается **Slide Master** предыдущего слайда.
 
-Кроме CRUD-операций интерфейс [IMasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/) содержит следующие полезные методы: [**add_clone**](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/) и [**insert_clone**](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/). Эти методы унаследованы от базовой функции клонирования слайдов. Но при работе со слайд-мастерами эти методы позволяют реализовать сложные настройки.
+**Примечание:** Слайды презентации хранятся в коллекции [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/), и каждый новый слайд добавляется в конец этой коллекции по умолчанию. Если в презентации присутствует единственный **Slide Master**, он будет выбран для всех новых слайдов. По этой причине вам не нужно указывать **Slide Master** для каждого создаваемого слайда.
 
-Когда новый слайд добавляется в презентацию, слайд-мастер автоматически применяется к нему. По умолчанию выбирается слайд-мастер предыдущего слайда.
-
-**Примечание**: Слайды презентации хранятся в списке [Слайды](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), и каждый новый слайд по умолчанию добавляется в конец коллекции. Если в презентации содержится только один слайд-мастер, этот слайд-мастер будет выбран для всех новых слайдов. Поэтому вам не нужно определять слайд-мастер для каждого нового слайда, который вы создаете.
-
-Принцип такой же для PowerPoint и Aspose.Slides. Например, в PowerPoint, когда вы добавляете новую презентацию, вы можете просто нажать на нижнюю границу под последним слайдом, и затем будет создан новый слайд (с последним слайдом-мастером):
+Тот же принцип работает в PowerPoint и Aspose.Slides. Например, в PowerPoint, когда вы добавляете новый слайд, вы можете кликнуть область под последним слайдом, и будет создан новый слайд (использующий **Slide Master** предыдущего слайда).
 
 ![todo:image_alt_text](slide-master_1.jpg)
 
-В Aspose.Slides вы можете выполнить аналогичную задачу с помощью метода [add_clone(ISlide)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) из класса [Презентация](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+В Aspose.Slides вы можете выполнить эквивалентную задачу, используя метод [add_clone(ISlide)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) класса [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/).
 
-## **Слайд-мастер в иерархии слайдов**
+## **Slide Master в иерархии Slides**
 
-Использование макетов слайдов с слайд-мастером обеспечивает максимальную гибкость. Макет слайда позволяет устанавливать все те же стили, что и слайд-мастер (фон, шрифты, фигуры и т. д.). Однако, когда несколько макетов слайдов комбинируются на слайд-мастере, создается новый стиль. Когда вы применяете макет слайда к отдельному слайду, вы можете изменить его стиль, отличая от примененного слайд-мастером.
+Использование **Slide Layouts** совместно с **Slide Master** предоставляет максимальную гибкость. **Slide Layout** может определять те же типы стилей, что и **Slide Master** (фон, шрифты, фигуры и т.д.). Когда под **Slide Master** определено несколько **Slide Layout**, они совместно образуют единую систему стилей. Применяя **Slide Layout** к отдельному слайду, вы можете корректировать его стиль относительно того, что предоставляет **Slide Master**.
 
-Слайд-мастер имеет более высокий приоритет, чем все элементы настроек: Слайд-мастер -> Макет слайда -> Слайд:
+Приоритет следующий: **Slide Master** → **Slide Layout** → **Slide**.
 
-![todo:image_alt_text](slide-master_2)
+![todo:image_alt_text](slide-master_2.jpg)
 
-Каждый [IMasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/) имеет свойство [**LayoutSlides**](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/) со списком макетов слайдов. Тип [Слайд](https://reference.aspose.com/slides/python-net/aspose.slides/slide) имеет свойство [**LayoutSlide**](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) с ссылкой на макет слайда, примененный к слайду. Взаимодействие между слайдом и слайд-мастером происходит через макет слайда.
+Каждый объект [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/) имеет свойство [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/layout_slides/), содержащее список макетов слайдов. У объекта [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) есть свойство [layout_slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/layout_slide/), которое ссылается на применённый к нему макет слайда. Взаимодействие между слайдом и **Slide Master** происходит через его **Slide Layout**.
 
-{{% alert color="info" title="Примечание" %}}
-
-* В Aspose.Slides все настройки слайдов (слайд-мастер, макет слайда и сам слайд) фактически являются объектами слайда, реализующими интерфейс [**IBaseSlide**](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseslide/).
-* Поэтому слайд-мастер и макет слайда могут реализовывать одни и те же свойства, и вам нужно понимать, как их значения будут применяться к объекту [Слайд](https://reference.aspose.com/slides/python-net/aspose.slides/slide/). Сначала слайд-мастер применяется к слайду, а затем применяется макет слайда. Например, если слайд-мастер и макет слайда оба имеют значение фона, слайд в итоге будет иметь фон от макета слайда.
-
+{{% alert color="info" title="Note" %}}
+- В Aspose.Slides все построения слайдов (Slide Master, Slide Layout и сам слайд) являются объектами слайдов, наследующими класс [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/).
+- Поскольку **Slide Master** и **Slide Layout** раскрывают многие одинаковые свойства, вам необходимо знать, как их значения применяются к объекту [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/). Сначала применяется **Slide Master**, затем **Slide Layout**. Например, если и **Slide Master**, и **Slide Layout** задают фон, слайд использует фон из **Slide Layout**.
 {{% /alert %}}
 
-## **Что включает в себя слайд-мастер**
+## **Из чего состоит Slide Master**
 
-Чтобы понять, как можно изменить слайд-мастер, необходимо знать его составные части. Вот основные свойства [MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/).
+Чтобы понять, как можно изменять **Slide Master**, необходимо знать его компоненты. Это основные свойства [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/):
 
-- `background` получить/установить фон слайда.
-- `body_style` получить/установить текстовые стили тела слайда.
-- `shapes` получить/установить все фигуры слайд-мастера (заполнители, рамки для изображений и т. д.).
-- `controls` - получить/установить элементы управления ActiveX.
-- `theme_manager` - получить менеджер тем.
-- `header_footer_manager` - получить менеджер заголовков и подвалов.
+- `background` — получает/устанавливает фон слайда.
+- `body_style` — получает/устанавливает стили текста тела слайда.
+- `shapes` — получает/устанавливает все фигуры на **Slide Master** (заполнители, рамки изображений и т.д.).
+- `controls` — получает/устанавливает элементы управления ActiveX.
+- `theme_manager` — получает менеджер темы.
+- `header_footer_manager` — получает менеджер верхнего и нижнего колонтитула.
 
-Методы слайд-мастера:
+Методы **Slide Master**:
 
-- `get_depending_slides()` - получить все слайды, зависимые от слайд-мастера.
-- `apply_external_theme_to_depending_slides(fname)` - позволяет создать новый слайд-мастер на основе текущего слайд-мастера и новой темы. Новый слайд-мастер потом будет применен ко всем зависимым слайдам.
+- `get_depending_slides()` — возвращает все слайды, зависящие от данного **Slide Master**.
+- `apply_external_theme_to_depending_slides(fname)` — создаёт новый **Slide Master** на основе текущего и внешней темы, затем применяет новый **Slide Master** ко всем зависимым слайдам.
 
-## **Получить слайд-мастер**
+## **Получить Slide Master**
 
-В PowerPoint слайд-мастер можно получить через меню Вид -> Слайд-мастер:
+В PowerPoint доступ к **Slide Master** осуществляется через **View** → **Slide Master**:
 
 ![todo:image_alt_text](slide-master_3.jpg)
 
-Используя Aspose.Slides, вы можете получить доступ к слайд-мастеру следующим образом:
-
+С помощью Aspose.Slides вы можете получить **Slide Master** следующим образом:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    # Получаем доступ к мастер-слайду презентации
-    masterSlide = pres.masters[0]
+with slides.Presentation() as presentation:
+    # Получить первый мастер‑слайд в презентации.
+    master_slide = presentation.masters[0]
 ```
 
-Интерфейс [IMasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/) представляет слайд-мастер. Свойство `masters` (связанное с типом [IMasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/) содержит список всех слайд-мастеров, определенных в презентации.
 
-## **Добавить изображение на слайд-мастер**
+Класс [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/) представляет **Slide Master**. Свойство [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) (это [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/)) содержит все **Slide Master**, определённые в презентации.
 
-Когда вы добавляете изображение на слайд-мастер, это изображение появится на всех слайдах, зависящих от этого слайд-мастера.
+## **Добавить изображение в Slide Master**
 
-Например, вы можете разместить логотип вашей компании и несколько изображений на слайд-мастере, а затем вернуться в режим редактирования слайдов. Вы должны увидеть изображение на каждом слайде.
+Когда вы добавляете изображение в **Slide Master**, оно появляется на всех слайдах, зависящих от данного мастера.
+
+Например, разместите логотип вашей компании или другие изображения на **Slide Master**, затем вернитесь в обычный режим просмотра. Вы увидите изображение на каждом зависимом слайде.
 
 ![todo:image_alt_text](slide-master_4.png)
 
-Вы можете добавлять изображения на слайд-мастер с помощью Aspose.Slides:
-
+Вы можете добавить изображения в **Slide Master** с помощью Aspose.Slides:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    image = pres.images.add_image(open("image.png", "rb").read())
-    pres.masters[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
+with slides.Presentation() as presentation:
 
-    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
+    with open("image.png", "rb") as image_stream:
+        image = presentation.images.add_image(image_stream.read())
+
+    master_slide = presentation.masters[0]
+    master_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
+
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" title="См. также" %}} 
 
-Для получения дополнительной информации о добавлении изображений на слайд, см. статью [Рамка изображения](/slides/ru/python-net/picture-frame/#create-picture-frame).
+{{% alert color="primary" title="See also" %}}
+Для получения дополнительной информации о добавлении изображений в слайд см. статью [Add Picture Frames to Presentations with Python](/slides/ru/python-net/picture-frame/).
 {{% /alert %}}
 
-## **Добавить заполнитель на слайд-мастер**
+## **Добавить заполнитель в Slide Master**
 
-Эти текстовые поля являются стандартными заполнителями на слайд-мастере:
+Эти текстовые поля — стандартные заполнители на **Slide Master**:
 
-* Нажмите для редактирования стиля заголовка мастера
+- Click to edit Master title style
+- Edit Master text styles
+- Second level
+- Third level
 
-* Редактировать стили текста мастера
+Эти заполнители также отображаются на слайдах, основанных на **Slide Master**. Вы можете редактировать их на **Slide Master**, и изменения автоматически применятся к слайдам.
 
-* Второй уровень
-
-* Третий уровень
-
-Они также появляются на слайдах, основанных на слайд-мастере. Вы можете редактировать эти заполнители на слайд-мастере, и изменения будут автоматически применены к слайдам.
-
-В PowerPoint вы можете добавить заполнитель через путь Слайд-мастер -> Вставить заполнитель:
+В PowerPoint добавить заполнитель можно через **Slide Master** → **Insert Placeholder**:
 
 ![todo:image_alt_text](slide-master_5.png)
 
-Рассмотрим более сложный пример для заполнителей с помощью Aspose.Slides. Рассмотрим слайд с заполнителями, шаблонированными с слайд-мастера:
+Рассмотрим более сложный пример заполнителей в Aspose.Slides. Предположим, есть слайд с заполнителями, унаследованными от **Slide Master**:
 
 ![todo:image_alt_text](slide-master_6.png)
 
-Мы хотим изменить форматирование заголовка и подзаголовка на слайд-мастере следующим образом:
+Нужно обновить форматирование заголовка и подзаголовка на **Slide Master** следующим образом:
 
 ![todo:image_alt_text](slide-master_7.png)
 
-Сначала мы извлекаем содержимое заполнителя заголовка из объекта слайд-мастера, а затем используем поле `PlaceHolder.FillFormat`:
-
+Сначала получаем заполнитель заголовка из **Slide Master**, затем используем свойство `PlaceHolder.fill_format`:
 ```python
-# Получаем ссылку на заполнители заголовка мастера
-titlePlaceholder = masterSlide.shapes[0]
+# Получить ссылку на заполнитель заголовка мастер‑слайда.
+title_placeholder = master_slide.shapes[0]
 
-# Устанавливаем формат заполнения как градиентное заполнение
-titlePlaceholder.fill_format.fill_type = slides.FillType.GRADIENT
-titlePlaceholder.fill_format.gradient_format.gradient_stops.add(0, draw.Color.red)
-titlePlaceholder.fill_format.gradient_format.gradient_stops.add(50, draw.Color.green)
-titlePlaceholder.fill_format.gradient_format.gradient_stops.add(100, draw.Color.blue)
+# Установить тип заливки градиентом.
+title_placeholder.fill_format.fill_type = slides.FillType.GRADIENT
+title_placeholder.fill_format.gradient_format.gradient_stops.add(0, draw.Color.red)
+title_placeholder.fill_format.gradient_format.gradient_stops.add(50, draw.Color.green)
+title_placeholder.fill_format.gradient_format.gradient_stops.add(100, draw.Color.blue)
 ```
 
-Стиль и форматирование заголовка изменятся для всех слайдов, основанных на слайд-мастере:
+
+Стиль и форматирование заголовка изменятся на всех слайдах, основанных на **Slide Master**:
 
 ![todo:image_alt_text](slide-master_8.png)
 
-{{% alert color="primary" title="См. также" %}} 
-
-* [Установить текст подсказки в заполнителе](https://docs.aspose.com/slides/python-net/manage-placeholder/)
-* [Форматирование текста](https://docs.aspose.com/slides/python-net/text-formatting/)
-
+{{% alert color="primary" title="See also" %}}
+* [Manage Placeholders in Presentations with Python](/slides/ru/python-net/manage-placeholder/)
+* [Format PowerPoint Text in Python](/slides/ru/python-net/text-formatting/)
 {{% /alert %}}
 
-## **Изменить фон на слайд-мастере**
+## **Изменить фон Slide Master**
 
-Когда вы изменяете цвет фона слайд-мастера, все обычные слайды в презентации получат новый цвет. Этот код на Python демонстрирует операцию:
-
-```python
-masterSlide.background.type = slides.BackgroundType.OWN_BACKGROUND
-masterSlide.background.fill_format.fill_type = slides.FillType.SOLID
-masterSlide.background.fill_format.solid_fill_color.color = draw.Color.gray
-```
-
-{{% alert color="primary" title="См. также" %}} 
-
-- [Фон презентации](https://docs.aspose.com/slides/python-net/presentation-background/)
-
-- [Тема презентации](https://docs.aspose.com/slides/python-net/presentation-theme/)
-
-  {{% /alert %}}
-
-## **Клонировать слайд-мастер в другую презентацию**
-
-Чтобы клонировать слайд-мастер в другую презентацию, вызовите метод `add_clone(source_slide, dest_master, allow_clone_missing_layout)` из целевой презентации рядом с переданным слайд-мастером. Этот код на Python показывает, как клонировать слайд-мастер в другую презентацию:
+Когда вы меняете цвет фона **Slide Master**, все обычные слайды в презентации наследуют новый цвет. Ниже приведён пример кода на Python:
 
 ```python
-# Добавляет новый слайд-мастер 
-pres1MasterSlide = pres.masters.add_clone(masterSlide)
+master_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+master_slide.background.fill_format.fill_type = slides.FillType.SOLID
+master_slide.background.fill_format.solid_fill_color.color = draw.Color.gray
 ```
 
-## **Добавить несколько слайд-мастеров в презентацию**
 
-Aspose.Slides позволяет добавлять несколько слайд-мастеров и макетов слайдов в любую данную презентацию. Это позволяет настраивать стили, макеты и параметры форматирования для слайдов презентации различными способами.
+{{% alert color="primary" title="See also" %}}
+- [Manage Presentation Backgrounds in Python](/slides/ru/python-net/presentation-background/)
+- [Manage PowerPoint Presentation Themes in Python](/slides/ru/python-net/presentation-theme/)
+{{% /alert %}}
 
-В PowerPoint вы можете добавить новые слайд-мастеры и макеты (из меню "Слайд-мастер") следующим образом:
+## **Добавить несколько Slide Masters в презентацию**
+
+Aspose.Slides позволяет добавлять несколько **Slide Master** и **Slide Layout** в любую презентацию. Это даёт возможность настраивать стили, макеты и параметры форматирования слайдов разными способами.
+
+В PowerPoint новые **Slide Master** и **Slide Layout** можно добавить через меню **Slide Master** следующим образом:
 
 ![todo:image_alt_text](slide-master_9.jpg)
 
-Используя Aspose.Slides, вы можете добавить новый слайд-мастер, вызвав метод `add_clone`:
-
+С помощью Aspose.Slides вы можете добавить новый **Slide Master**, вызвав метод `add_clone`:
 ```python
-# Добавляет новый слайд-мастер
-secondMasterSlide = pres.masters.add_clone(masterSlide)
+# Добавить новый мастер‑слайд.
+master_slide2 = presentation.masters.add_clone(master_slide1)
 ```
 
-## **Сравнить слайд-мастеры**
 
-Слайд-мастер реализует интерфейс [IBaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseslide/), содержащий метод `equals(slide)`, который можно использовать для сравнения слайдов. Метод возвращает `true` для слайд-мастеров, идентичных по структуре и статическому содержимому.
+## **Сравнить Slide Masters**
 
-Два слайд-мастера равны, если их фигуры, стили, тексты, анимация и другие настройки и т. д. равны. Сравнение не учитывает значения уникальных идентификаторов (например, SlideId) и динамическое содержание (например, текущее значение даты в заполнителе даты).
+**Slide Master** наследует класс [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/), который включает метод `equals(slide)` для сравнения слайдов. Этот метод возвращает **true**, когда **Slide Masters** идентичны по структуре и статическому содержимому.
 
-## **Установить слайд-мастер как вид по умолчанию для презентации**
+Два **Slide Master** считаются равными, если их фигуры, стили, тексты, анимации и другие настройки совпадают. При сравнении игнорируются уникальные идентификаторы (например, `slide_id`) и динамическое содержимое (например, текущая дата в заполнителе даты).
 
-Aspose.Slides позволяет установить слайд-мастер в качестве вида по умолчанию для презентации. Вид по умолчанию — это то, что вы видите в первую очередь, когда открываете презентацию.
+## **Установить Slide Master как представление презентации по умолчанию**
 
-Этот код показывает, как установить слайд-мастер в качестве вида по умолчанию для презентации на Python:
+Aspose.Slides позволяет установить **Slide Master** как представление презентации по умолчанию. Представление по умолчанию — это то, что пользователь видит первым при открытии презентации. Ниже пример на Python, показывающий, как установить **Slide Master** как представление по умолчанию:
 
 ```py
 import aspose.slides as slides
 
-# Создает экземпляр класса Presentation, представляющего файл презентации
+# Создать экземпляр класса Presentation, представляющего файл презентации.
 with slides.Presentation() as presentation:
-    # Устанавливает последний вид как SlideMasterView
+    # Установить представление по умолчанию как представление мастера слайдов.
     presentation.view_properties.last_view = slides.ViewType.SLIDE_MASTER_VIEW
 
-    # Сохраняет презентацию
-    presentation.save("PresView.pptx", slides.export.SaveFormat.PPTX)
+    # Сохранить презентацию.
+    presentation.save("presentation_view.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Удалить неиспользуемый слайд-мастер**
 
-Aspose.Slides предоставляет метод `remove_unused_master_slides` (из класса [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/)), который позволяет вам удалить нежелательные и неиспользуемые слайд-мастеры. Этот код на Python показывает, как удалить слайд-мастер из презентации PowerPoint:
+## **Удалить неиспользуемый Master Slide**
+
+Aspose.Slides предоставляет метод `remove_unused_master_slides` (в классе [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/)) для удаления нежелательных, неиспользуемых мастер‑слайдов. Ниже пример кода на Python, показывающий, как удалить неиспользуемые мастер‑слайды из презентации PowerPoint:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    slides.lowcode.Compress.remove_unused_master_slides(pres)
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("presentation.pptx") as presentation:
+    slides.lowcode.Compress.remove_unused_master_slides(presentation)
+    presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Что такое Slide Master в PowerPoint?**
+
+**Slide Master** — это шаблон слайда, который определяет макет, стили, темы, шрифты, фон и другие свойства слайдов в презентации. Он позволяет задать и изменить внешний вид всех слайдов презентации сразу.
+
+**Как Slide Masters связаны с Slide Layouts?**
+
+**Slide Layouts** работают совместно с **Slide Master**, обеспечивая гибкость в дизайне слайдов. Пока **Slide Master** задаёт глобальные стили и темы, [Slide Layouts](/slides/ru/python-net/slide-layout/) позволяют варьировать расположение контента. Иерархия выглядит так:
+
+- **Slide Master** → определяет глобальные стили.
+- **Slide Layout** → предоставляет различные варианты расположения контента.
+- **Slide** → наследует дизайн от своего **Slide Layout**.
+
+**Можно ли иметь несколько Slide Masters в одной презентации?**
+
+Да, презентация может содержать несколько **Slide Masters**. Это позволяет стилизовать разные секции презентации различными способами, предоставляя гибкость в дизайне.  
+
+**Как получить доступ к Slide Master и изменить его с помощью Aspose.Slides?**
+
+В Aspose.Slides **Slide Master** представлен классом [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/). Вы можете получить **Slide Master**, используя свойство [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) объекта [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).

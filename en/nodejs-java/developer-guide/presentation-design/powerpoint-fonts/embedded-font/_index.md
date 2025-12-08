@@ -1,12 +1,24 @@
 ---
-title: Embedded Font - PowerPoint JavaScript API
-linktitle: Embedded Font
+title: Embed Fonts in Presentations Using JavaScript
+linktitle: Embedding Font
 type: docs
 weight: 40
 url: /nodejs-java/embedded-font/
-keywords: "Fonts, embedded fonts, add fonts, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Use embedded fonts in PowerPoint presentation in JavaScript"
-
+keywords:
+- add font
+- embed font
+- font embedding
+- get embedded font
+- add embedded font
+- remove embedded font
+- compress embedded font
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Embed TrueType fonts in PowerPoint and OpenDocument presentations with Aspose.Slides for Node.js via Java, ensuring accurate rendering across all platforms."
 ---
 
 **Embedded fonts in PowerPoint** are useful when you want your presentation to appear correctly when opened on any system or device. If you used a third-party or non-standard font because you got creative with your work, then you have even more reasons to embed your font. Otherwise (without embedded fonts), the texts or numbers on your slides, the layout, styling, etc. may change or turn into confusing rectangles. 
@@ -116,3 +128,12 @@ try {
 }
 ```
 
+## **FAQ**
+
+**How can I tell that a specific font in the presentation will still be substituted during rendering despite embedding?**
+
+Check the [substitution information](/slides/nodejs-java/font-substitution/) in the font manager and the [fallback/substitution rules](/slides/nodejs-java/fallback-font/): if the font is unavailable or restricted, a fallback will be used.
+
+**Is it worth embedding "system" fonts like Arial/Calibri?**
+
+Usually no—they are almost always available. But for full portability in "thin" environments (Docker, a Linux server without preinstalled fonts), embedding system fonts can eliminate the risk of unexpected substitutions.

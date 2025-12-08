@@ -1,10 +1,24 @@
 ---
-title: Presentation Header and Footer
+title: Manage Presentation Headers and Footers in C++
+linktitle: Header and Footer
 type: docs
 weight: 140
 url: /cpp/presentation-header-and-footer/
-keywords: "Header and footer in PowerPoint"
-description: "Header and footer in PowerPoint with Aspose.Slides."
+keywords:
+- header
+- header text
+- footer
+- footer text
+- set header
+- set footer
+- handout
+- notes
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Use Aspose.Slides for C++ to add and customize headers and footers in PowerPoint and OpenDocument presentations for a professional look."
 ---
 
 {{% alert color="primary" %}} 

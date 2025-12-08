@@ -28,10 +28,11 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Learn how to format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for Node.js via Java. Customize fonts, colors, alignment, and more with powerful JavaScript code examples."
+description: "Format and style text in PowerPoint and OpenDocument presentations using JavaScript and Aspose.Slides for Node.js. Customize fonts, colors, alignment, and more."
 ---
 
 ## **Highlight Text**
+
 Method [highlightText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#highlightText-java.lang.String-java.awt.Color-) has been added to [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) class and [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) class.
 
 It allows to highlight text part with background color using text sample, similar to Text Highlight Color tool in PowerPoint 2019.
@@ -208,6 +209,7 @@ try {
 ```
 
 ## **Set Transparency for Text**
+
 This article demonstrates how to set transparency property to any text shape using Aspose.Slides for Node.js via Java. In order to set the transparency to text. Please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
@@ -310,6 +312,7 @@ try {
 ```
 
 ## **Manage Font Family of Text**
+
 A portion is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for Node.js via Java to create a textbox with some text and then define a particular font, and various other properties of the font family category. To create a textbox and set font properties of the text in it:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
@@ -434,6 +437,7 @@ try {
 ```
 
 ## **Set Custom Rotation Angle for TextFrame**
+
 Aspose.Slides for Node.js via Java now supports, Setting custom rotation angle for textframe. In this topic, we will see with example how to set the RotationAngle property in Aspose.Slides. The new methods [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setRotationAngle-float-) and [getRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#getRotationAngle--) have been added to [ChartTextBlockFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartTextBlockFormat) and [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) classs, allows to set the custom rotation angle for textframe. In order to set the RotationAngle, Please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
@@ -474,6 +478,7 @@ try {
 ```
 
 ## **Line Spacing of Paragraph**
+
 Aspose.Slides provides properties under [`ParagraphFormat`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ParagraphFormat)—`SpaceAfter`, `SpaceBefore` and `SpaceWithin`—that allow you to manage the line spacing for a paragraph. The three properties are used this way:
 
 * To specify the line spacing for a paragraph in percentage, use a positive value. 
@@ -516,6 +521,7 @@ try {
 ```
 
 ## **Set the AutofitType Property for TextFrame**
+
 In this topic, we will explore the different formatting properties of text frame. This article covers how to Set the AutofitType property of text frame, anchor of text and rotating the text in presentation. Aspose.Slides for Node.js via Java allows developers to set AutofitType property of any text frame. AutofitType could be set to [Normal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Normal) or [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Shape). If set to [Normal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Normal) then shape will remain the same whereas the text will be adjusted without causing the shape to change itself whereas If AutofitType is set to [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAutofitType#Shape), then shape will be modified such that only required text is contained in it. To set the AutofitType property of a text frame, please follow the steps below:
 
 1. Create an instance of [Presentation ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)class.
@@ -556,6 +562,7 @@ try {
 ```
 
 ## **Set Anchor of TextFrame**
+
 Aspose.Slides for Node.js via Java allows developers to Anchor of any TextFrame. TextAnchorType specifies that where is that text placed in the shape. AnchorType could be set to [Top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Top), [Center](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Center), [Bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Bottom), [Justified](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Justified) or [Distributed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextAnchorType#Distributed). To set Anchor of any TextFrame, please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
@@ -596,6 +603,7 @@ try {
 ```
 
 ## **Tabs and EffectiveTabs in Presentation**
+
 All text tabulations are given in pixels.
 
 |![todo:image_alt_text](http://i.imgur.com/POpc1Lw.png)|
@@ -663,3 +671,13 @@ Output:
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
+
+## **FAQ**
+
+**How to modify text in a table on a slide?**
+
+To modify text in a table on a slide, you need to use the [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) object. You can iterate through all the cells in the table and change the text in each cell by accessing its `TextFrame` and `ParagraphFormat` properties within each cell.
+
+**How to apply gradient color to text in a PowerPoint slide?**
+
+To apply gradient color to text, use the Fill Format property in [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/). Set the Fill Format to `Gradient`, where you can define the gradient's start and end colors, along with other properties such as direction and transparency to create the gradient effect on the text.

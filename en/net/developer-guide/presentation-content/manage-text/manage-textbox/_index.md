@@ -1,5 +1,6 @@
 ---
-title: Manage TextBox
+title: Manage Text Boxes in Presentations in .NET
+linktitle: Manage Text Box
 type: docs
 weight: 20
 url: /net/manage-textbox/
@@ -8,13 +9,16 @@ keywords:
 - text frame
 - add text
 - update text
-- text box with a hyperlink
+- create text box
+- check text box
+- add text column
+- add hyperlink
 - PowerPoint
 - presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Manage a text box or text frame in PowerPoint presentations using C# or .NET"
+- Aspose.Slides
+description: "Aspose.Slides for .NET makes it easy to create, edit, and clone text boxes in PowerPoint and OpenDocument files, enhancing your presentation automation."
 ---
 
 Texts on slides typically exist in text boxes or shapes. Therefore, to add text to a slide, you have to add a textbox first and then put some text inside the textbox. 
@@ -29,7 +33,7 @@ Therefore, when dealing with an existing shape to which you want to add text, yo
 
 {{% /alert %}}
 
-## **Create Text Box on Slide**
+## **Create a Text Box on a Slide**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class. 
 2. Get the first slide's reference through its index. 
@@ -70,7 +74,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Check for Text Box Shape**
+## **Check for a Text Box Shape**
 
 Aspose.Slides provides the [IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) property from the [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) interface, allowing you to examine shapes and identify text boxes.
 
@@ -120,7 +124,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Add Column in Text Box**
+## **Add Columns to a Text Box**
 
 Aspose.Slides provides the [ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount) and [ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/columnspacing) properties (from the [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat) interface and [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) class) to allow you to add columns to textboxes. You get to specify the number of columns in a text box and then specify the spacing in points between columns. 
 
@@ -156,7 +160,7 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **Add Column in Text Frame**
+## **Add Columns to a Text Frame**
 Aspose.Slides for .NET provides the [ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount) property (from the [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat) interface) that allows you to add columns in text frames. Through this property, you can specify your preferred number of columns in a text frame. 
 
  This C# code shows you how to add a column inside a text frame:
@@ -234,7 +238,7 @@ using(Presentation pres = new Presentation("text.pptx"))
 }
 ```
 
-## **Add Text Box with Hyperlink** 
+## **Add a Text Box with a Hyperlink** 
 
 You can insert a link inside a textbox. When the textbox is clicked, users are directed to open the link. 
 
@@ -276,3 +280,13 @@ HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
 // Saves the PPTX Presentation
 pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
+
+## **FAQ**
+
+**What’s the difference between a text box and a text placeholder when working with master slides?**
+
+A [placeholder](/slides/net/manage-placeholder/) inherits style/position from the [master](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) and can be overridden on [layouts](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/), whereas a regular text box is an independent object on a specific slide and doesn’t change when you switch layouts.
+
+**How can I perform a bulk text replacement across the presentation without touching text inside charts, tables, and SmartArt?**
+
+Limit your iteration to auto-shapes that have text frames and exclude embedded objects ([charts](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/)) by traversing their collections separately or skipping those object types.

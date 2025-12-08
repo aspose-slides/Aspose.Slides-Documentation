@@ -26,7 +26,7 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Optimize OLE object management in PowerPoint and OpenDocument files with Aspose.Slides for Node.js. Embed, update, and export OLE content seamlessly."
+description: "Optimize OLE object management in PowerPoint and OpenDocument files with Aspose.Slides for Node.js via Java. Embed, update, and export OLE content seamlessly."
 ---
 
 {{% alert color="primary" %}} 
@@ -318,3 +318,17 @@ for (var index = 0; index < slide.getShapes().size(); index++) {
 
 presentation.dispose();
 ```
+
+## **FAQ**
+
+**Will the OLE content be rendered when exporting slides to PDF/images?**
+
+What is visible on the slide is rendered—the icon/substitute image (preview). The "live" OLE content is not executed during rendering. If needed, set your own preview image to ensure the expected appearance in the exported PDF.
+
+**How can I lock an OLE object on a slide so users cannot move/edit it in PowerPoint?**
+
+Lock the shape: Aspose.Slides provides [shape-level locks](/slides/nodejs-java/applying-protection-to-presentation/). This is not encryption, but it effectively prevents accidental edits and movement.
+
+**Will relative paths for linked OLE objects be preserved in the PPTX format?**
+
+In PPTX, "relative path" information is not available—only the full path. Relative paths are found in the older PPT format. For portability, prefer reliable absolute paths/accessible URIs or embedding.

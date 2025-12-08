@@ -1,8 +1,24 @@
 ---
-title: How to Add Header Footer in a Presentation
+title: How to Add Headers & Footers to Presentations in .NET
+linktitle: Add Header & Footer
 type: docs
 weight: 20
 url: /net/how-to-add-header-footer-in-a-presentation/
+keywords:
+- migration
+- add header
+- add footer
+- legacy code
+- modern code
+- legacy approach
+- modern approach
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how to add headers and footers in PowerPoint PPT, PPTX and ODP presentations in .NET using both legacy and modern Aspose.Slides APIs."
 ---
 
 {{% alert color="primary" %}} 
@@ -10,9 +26,9 @@ url: /net/how-to-add-header-footer-in-a-presentation/
 A new [Aspose.Slides for .NET API](/slides/net/) has been released and now this single product supports the capability to generate PowerPoint documents from scratch and editing the existing ones.
 
 {{% /alert %}} 
-## **Support for Legacy code**
+## **Support for Legacy Code**
 In order to use the legacy code developed with Aspose.Slides for .NET versions earlier to 13.x, you need to make some minor changes in your code and the code will work as earlier. All the classes that were present in old Aspose.Slides for .NET under Aspose.Slide and Aspose.Slides.Pptx namespaces are now merged in single Aspose.Slides namespace. Please take a look over the following simple code snippet for adding header footer in presentation in legacy Aspose.Slides API and follow the steps describing how to migrate to new merged API.
-## **Legacy Aspose.Slides for .NET approach**
+## **Legacy Aspose.Slides for .NET Approach**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
 
@@ -75,7 +91,7 @@ pres.Write("HeadFoot.ppt");
 
 
 
-## **New Aspose.Slides for .NET 13.x approach**
+## **New Aspose.Slides for .NET 13.x Approach**
 ``` csharp
 using (Presentation sourcePres = new Presentation())
 {

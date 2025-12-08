@@ -1,8 +1,22 @@
 ---
 title: Public API and Backwards Incompatible Changes in Aspose.Slides for .NET 15.8.0
+linktitle: Aspose.Slides for .NET 15.8.0
 type: docs
 weight: 190
 url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/
+keywords:
+- migration
+- legacy code
+- modern code
+- legacy approach
+- modern approach
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Review public API updates and breaking changes in Aspose.Slides for .NET to smoothly migrate your PowerPoint PPT, PPTX and ODP presentation solutions."
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +25,7 @@ This page lists all [added](/slides/net/public-api-and-backwards-incompatible-ch
 
 {{% /alert %}} 
 ## **Public API Changes**
-#### **Property DoughnutHoleSize has been added to IChartSeries and ChartSeries**
+#### **Property DoughnutHoleSize Has Been Added to IChartSeries and ChartSeries**
 Specifies the size of the hole in a doughnut chart.
 
 ``` csharp

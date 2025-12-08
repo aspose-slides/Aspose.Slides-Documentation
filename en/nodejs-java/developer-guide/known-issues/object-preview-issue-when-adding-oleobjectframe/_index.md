@@ -1,19 +1,22 @@
 ---
-title: Object Preview Issue when Adding OleObjectFrame
+title: Object Preview Issue When Adding OleObjectFrame
+linktitle: OLE Object Issue
 type: docs
 weight: 10
 url: /nodejs-java/object-preview-issue-when-adding-oleobjectframe/
 keywords:
 - OLE
+- preview issue
 - embed object
 - embed file
-- embedded OLE object
 - object changed
 - object preview
-- presentation
 - PowerPoint
-- Javascript
-- Aspose.Slides for Node.js via Java
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn why EMBEDDED OLE OBJECT appears when adding OleObjectFrame in Aspose.Slides for Node.js and how to fix preview issues in PPT, PPTX and ODP presentations."
 ---
 
 ## **Introduction**

@@ -1,10 +1,25 @@
 ---
-title: Presentation Header and Footer
+title: Manage Presentation Headers and Footers in JavaScript
+linktitle: Header & Footer
 type: docs
 weight: 140
 url: /nodejs-java/presentation-header-and-footer/
-keywords: "PowerPoint header and footer in JavaScript"
-description: "PowerPoint header and footer in JavaScript"
+keywords:
+- header
+- header text
+- footer
+- footer text
+- set header
+- set footer
+- handout
+- notes
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Use JavaScript and Aspose.Slides for Node.js to add and customize headers and footers in PowerPoint and OpenDocument presentations for a professional look."
 ---
 
 {{% alert color="primary" %}} 
@@ -109,3 +124,21 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**Can I add a "header" to regular slides?**
+
+In PowerPoint, "Header" exists only for notes and handouts; on regular slides, the supported elements are the footer, date/time, and slide number. In Aspose.Slides this matches the same limitations: header only for Notes/Handout, and on slides—Footer/DateTime/SlideNumber.
+
+**What if the layout doesn’t contain a footer area—can I "turn on" its visibility?**
+
+Yes. Check the visibility via the header/footer manager and enable it if needed. These API indicators and methods are designed for cases when the placeholder is missing or hidden.
+
+**How do I make the slide number start from a value other than 1?**
+
+Set the presentation’s [first slide number](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/setfirstslidenumber/); after that, all numbering is recalculated. For example, you can start at 0 or 10, and hide the number on the title slide.
+
+**What happens to headers/footers when exporting to PDF/images/HTML?**
+
+They are rendered as regular text elements of the presentation. That is, if the elements are visible on slides/notes pages, they will also appear in the output format along with the rest of the content.

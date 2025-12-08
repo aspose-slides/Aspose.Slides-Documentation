@@ -1,5 +1,5 @@
 ---
-title: Pythonでスライドレイアウトを適用または変更する
+title: Python でスライドレイアウトを適用または変更する
 linktitle: スライドレイアウト
 type: docs
 weight: 60
@@ -11,238 +11,233 @@ keywords:
 - プレゼンテーションデザイン
 - スライドデザイン
 - 未使用レイアウト
-- フッターの表示
+- フッター表示
 - タイトルスライド
 - タイトルとコンテンツ
 - セクションヘッダー
-- 2つのコンテンツ
+- ツーコンテンツ
 - 比較
 - タイトルのみ
 - 空白レイアウト
 - キャプション付きコンテンツ
 - キャプション付き画像
-- タイトルと縦書きテキスト
-- 縦書きタイトルとテキスト
+- タイトルと縦テキスト
+- 縦タイトルとテキスト
 - PowerPoint
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET でスライドレイアウトを管理およびカスタマイズする方法を学びましょう。レイアウトの種類、プレースホルダーの制御、フッターの表示、Python のコード例によるレイアウト操作を確認できます。"
+description: "Aspose.Slides for Python（.NET 経由）でスライドレイアウトの管理とカスタマイズ方法を学びます。レイアウトの種類、プレースホルダーの制御、フッターの表示、レイアウト操作を Python のコード例で探ります。"
 ---
 
-スライドレイアウトは、スライド上に表示されるすべてのコンテンツのためのプレースホルダーボックスとフォーマット情報を含んでいます。レイアウトは、利用可能なコンテンツプレースホルダーとそれらが配置される場所を決定します。
+## **概要**
 
-スライドレイアウトを使用すると、プレゼンテーションを迅速に作成およびデザインできます（シンプルなものでも複雑なものでも）。これらは、PowerPointプレゼンテーションで使用される最も人気のあるスライドレイアウトのいくつかです：
+スライドレイアウトは、プレースホルダーボックスの配置とスライド上のコンテンツの書式設定を定義します。利用可能なプレースホルダーとその表示位置を制御します。スライドレイアウトを使用すると、シンプルなものから複雑なものまで、プレゼンテーションを迅速かつ一貫してデザインできます。PowerPoint で最も一般的なスライドレイアウトは次のとおりです。
 
-* **タイトルスライドレイアウト**。このレイアウトは、2つのテキストプレースホルダーで構成されています。1つはタイトル用、もう1つはサブタイトル用です。
-* **タイトルとコンテンツレイアウト**。このレイアウトには、上部に比較的小さなプレースホルダーがタイトル用に、コアコンテンツ（グラフ、段落、箇条書き、番号付きリスト、画像など）用に大きなプレースホルダーがあります。
-* **空白レイアウト**。このレイアウトにはプレースホルダーがないため、ゼロから要素を作成することができます。
+**Title Slide layout** – タイトル用プレースホルダーとサブタイトル用プレースホルダーの 2 つが含まれます。
 
-スライドマスターは、スライドレイアウトに関する情報を保存する最上位の階層スライドであるため、マスタースライドを使用してスライドレイアウトにアクセスし、それらを変更することができます。レイアウトスライドには、タイプまたは名前でアクセスできます。同様に、すべてのスライドには一意のIDがあり、それを使用してアクセスできます。
+**Title and Content layout** – 上部に小さなタイトルプレースホルダー、下部にテキスト、箇条書き、チャート、画像などのメインコンテンツ用の大きなプレースホルダーが配置されます。
 
-あるいは、プレゼンテーション内の特定のスライドレイアウトに直接変更を加えることもできます。
+**Blank layout** – プレースホルダーがなく、スライドをゼロからデザインするためのフルコントロールが得られます。
 
-* スライドレイアウト（マスタースライド内のものを含む）を操作できるように、Aspose.Slidesは[Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスの下で`layout_slides`や`masters`のようなプロパティを提供しています。
-* 関連タスクを実行するために、Aspose.Slidesは[MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/)、[MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/)、[SlideSize](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/)、[BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/)など、多くの他のタイプを提供しています。
+スライドレイアウトはスライドマスターの一部であり、スライドマスターはプレゼンテーション全体のレイアウトスタイルを定義する最上位スライドです。スライドマスターを介してレイアウトスライドにアクセスし、タイプ、名前、または一意の ID で変更できます。あるいは、プレゼンテーション内で特定のレイアウトスライドを直接編集することも可能です。
 
-{{% alert title="情報" color="info" %}}
+Aspose.Slides for Python でスライドレイアウトを操作するには、次のものを使用できます。
 
-特にマスタースライドの操作に関する詳細は、[スライドマスター](https://docs.aspose.com/slides/python-net/slide-master/)の記事を参照してください。
+- [Presentation] クラスの下にある [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) や [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) などのプロパティ
+- [LayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/)、[MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/)、[LayoutPlaceholderManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutplaceholdermanager/)、[LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslideheaderfootermanager/) などの型
 
+{{% alert title="Info" color="info" %}}
+マスタースライドの操作方法の詳細については、[Manage PowerPoint Slide Masters in Python](/slides/ja/python-net/slide-master/) 記事をご確認ください。
 {{% /alert %}}
 
-## **プレゼンテーションにスライドレイアウトを追加する**
+## **スライドレイアウトをプレゼンテーションに追加する**
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスのインスタンスを作成します。
-1. [MasterSlideコレクション](https://reference.aspose.com/slides/python-net/aspose.slides/imasterlayoutslidecollection/)にアクセスします。
-1. 既存のレイアウトスライドを確認して、必要なレイアウトスライドがLayout Slideコレクションにすでに存在するかどうかを確認します。そうでなければ、追加したいレイアウトスライドを追加します。
+スライドの外観や構造をカスタマイズするために、プレゼンテーションに新しいレイアウトスライドを追加する必要がある場合があります。Aspose.Slides for Python は、特定のレイアウトが既に存在するかどうかを確認し、必要に応じて新規作成し、そのレイアウトに基づいてスライドを挿入できます。
+
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/) にアクセスします。
+1. コレクション内に目的のレイアウトスライドが既に存在するか確認します。存在しない場合は、必要なレイアウトスライドを追加します。
 1. 新しいレイアウトスライドに基づいて空のスライドを追加します。
 1. プレゼンテーションを保存します。
 
-このPythonコードは、PowerPointプレゼンテーションにスライドレイアウトを追加する方法を示しています：
-
+以下の Python コードは、PowerPoint プレゼンテーションにスライドレイアウトを追加する方法を示しています:
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# プレゼンテーションファイルを表すPresentationクラスのインスタンスを作成する
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # レイアウトスライドタイプを通過する
-    layoutSlides = presentation.masters[0].layout_slides
-    layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)  
-    if layoutSlide is None:
-         layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.TITLE)
+# Presentation クラスのインスタンスを作成してプレゼンテーション ファイルを開きます。
+with slides.Presentation("sample.pptx") as presentation:
+    # レイアウトスライドの種類を順に調べて、レイアウトスライドを選択します。
+    layout_slides = presentation.masters[0].layout_slides
+    layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
+    if layout_slide is None:
+         layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE)
 
-    if layoutSlide is None:
-        # プレゼンテーションがいくつかのレイアウトタイプを含まない状況。
-        # プレゼンテーションファイルは空白とカスタムレイアウトタイプのみを含む。
-        # しかし、カスタムタイプのレイアウトスライドには異なるスライド名があり、
-        # "タイトル"、"タイトルとコンテンツ"などの名前をレイアウトスライドの選択に使用できます。
-        # プレースホルダー形状タイプのセットを使用することもできます。例えば、
-        # タイトルスライドはタイトルプレースホルダータイプのみを持つべきです、など。
-        for titleAndObjectLayoutSlide in layoutSlides:
-            if titleAndObjectLayoutSlide.name == "Title and Object":
-                layoutSlide = titleAndObjectLayoutSlide
+    if layout_slide is None:
+        # プレゼンテーションにすべてのレイアウトタイプが含まれていない状態です。
+        # プレゼンテーションファイルには Blank と Custom のレイアウトタイプだけが含まれています。
+        # ただし、カスタムタイプのレイアウトスライドは認識しやすい名前が付いている場合があります、
+        # 例えば "Title", "Title and Content" などで、レイアウトスライドの選択に使用できます。
+        # プレースホルダー シェイプの種類に基づいて判断することもできます。
+        # 例として、Title スライドは Title プレースホルダーだけを持つべきです、など。
+        for title_and_object_layout_slide in layout_slides:
+            if title_and_object_layout_slide.name == "Title and Object":
+                layout_slide = title_and_object_layout_slide
                 break
 
-        if layoutSlide is None:
-            for titleLayoutSlide in layoutSlides:
-                if titleLayoutSlide.name == "Title":
-                    layoutSlide = titleLayoutSlide
+        if layout_slide is None:
+            for title_layout_slide in layout_slides:
+                if title_layout_slide.name == "Title":
+                    layout_slide = title_layout_slide
                     break
 
-            if layoutSlide is None:
-                layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.BLANK)
-                if layoutSlide is None:
-                    layoutSlide = layoutSlides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
+            if layout_slide is None:
+                layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+                if layout_slide is None:
+                    layout_slide = layout_slides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
 
-    # 追加されたレイアウトスライドで空のスライドを追加する
-    presentation.slides.insert_empty_slide(0, layoutSlide)
+    # 追加したレイアウトスライドを使って空のスライドを追加します。
+    presentation.slides.insert_empty_slide(0, layout_slide)
 
-    # プレゼンテーションをディスクに保存する
-    presentation.save("AddLayoutSlides_out.pptx", slides.export.SaveFormat.PPTX)
+    # プレゼンテーションをディスクに保存します。
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
 
 ## **未使用のレイアウトスライドを削除する**
 
-Aspose.Slidesは、不要で未使用のレイアウトスライドを削除するための[Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/)クラスから`remove_unused_layout_slides`メソッドを提供しています。このPythonコードは、PowerPointプレゼンテーションからレイアウトスライドを削除する方法を示しています：
+Aspose.Slides は、[Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) クラスの [remove_unused_layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) メソッドを提供し、不要で未使用のレイアウトスライドを削除できます。
 
+以下の Python コードは、PowerPoint プレゼンテーションからレイアウトスライドを削除する方法を示しています:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    slides.lowcode.Compress.remove_unused_layout_slides(pres)
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("sample.pptx") as presentation:
+    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **スライドレイアウトのサイズとタイプを設定する**
 
-特定のレイアウトスライドのサイズとタイプを設定できるように、Aspose.Slidesは[Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスから`type`および`size`プロパティを提供します。このPythonは、その操作を示しています：
+## **スライドレイアウトにプレースホルダーを追加する**
 
-```python
+Aspose.Slides は、[LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/placeholder_manager/) プロパティを提供し、レイアウトスライドに新しいプレースホルダーを追加できます。
+
+このマネージャーは、次のプレースホルダータイプに対応するメソッドを含んでいます:
+
+| PowerPoint プレースホルダー | [LayoutPlaceholderManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutplaceholdermanager/) メソッド |
+| --------------------------- | ------------------------------------------------------------ |
+| ![コンテンツ](content.png) | add_content_placeholder(x: float, y: float, width: float, height: float) |
+| ![コンテンツ（縦）](contentV.png) | add_vertical_content_placeholder(x: float, y: float, width: float, height: float) |
+| ![テキスト](text.png) | add_text_placeholder(x: float, y: float, width: float, height: float) |
+| ![テキスト（縦）](textV.png) | add_vertical_text_placeholder(x: float, y: float, width: float, height: float) |
+| ![画像](picture.png) | add_picture_placeholder(x: float, y: float, width: float, height: float) |
+| ![チャート](chart.png) | add_chart_placeholder(x: float, y: float, width: float, height: float) |
+| ![表](table.png) | add_table_placeholder(x: float, y: float, width: float, height: float) |
+| ![スマートアート](smartart.png) | add_smart_art_placeholder(x: float, y: float, width: float, height: float) |
+| ![メディア](media.png) | add_media_placeholder(x: float, y: float, width: float, height: float) |
+| ![オンライン画像](onlineimage.png) | add_online_image_placeholder(x: float, y: float, width: float, height: float) |
+
+以下の Python コードは、Blank レイアウトスライドに新しいプレースホルダーシェイプを追加する方法を示しています:
+```py
 import aspose.slides as slides
 
-// プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化する 
-# プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化する 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    with slides.Presentation() as auxPresentation:
-        slide = presentation.slides[0]
-
-        # 生成されるプレゼンテーションのスライドサイズをソースのものに設定する
-        auxPresentation.slide_size.set_size(presentation.slide_size.type, slides.SlideSizeScaleType.ENSURE_FIT)
-
-        auxPresentation.slides.insert_clone(0, slide)
-        auxPresentation.slides.remove_at(0)
-        # プレゼンテーションをディスクに保存する
-        auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **スライド内のフッターの可視性を設定する**
-
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスのインスタンスを作成します。
-1. インデックスを介してスライドの参照を取得します。
-1. スライドフッタープレースホルダーを可視化します。
-1. 日付と時刻のプレースホルダーを可視化します。
-1. プレゼンテーションを保存します。
-
-このPythonコードは、スライドフッターの可視性を設定する方法を示しています（および関連するタスクを実行します）：
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    headerFooterManager = presentation.slides[0].header_footer_manager
-    # property is_footer_visible は、スライドフッタープレースホルダーが不足していることを指定するために使用されます
-    if not headerFooterManager.is_footer_visible: 
-        # メソッド set_footer_visibility は、スライドフッタープレースホルダーを可視化するために使用されます
-        headerFooterManager.set_footer_visibility(True) 
-        # property is_slide_number_visible は、スライドページ番号プレースホルダーが不足していることを指定するために使用されます
-    if not headerFooterManager.is_slide_number_visible:  
-        # メソッド set_slide_number_visibility は、スライドページ番号プレースホルダーを可視化するために使用されます
-        headerFooterManager.set_slide_number_visibility(True) 
-        # property is_date_time_visible は、スライド日付と時刻プレースホルダーが不足していることを指定するために使用されます
-    if not headerFooterManager.is_date_time_visible: 
-        # メソッド set_date_time_visibility は、スライド日付と時刻プレースホルダーを可視化するために使用されます 
-        headerFooterManager.set_date_time_visibility(True)
-
-    # メソッド set_footer_text は、スライドフッタープレースホルダーにテキストを設定するために使用されます 
-    headerFooterManager.set_footer_text("フッターテキスト") 
-    # メソッド set_date_time_text は、スライド日付と時刻プレースホルダーにテキストを設定するために使用されます。
-    headerFooterManager.set_date_time_text("日付と時刻のテキスト") 
-
-    # プレゼンテーションをディスクに保存する
-    presentation.save("Presentation.ppt", slides.export.SaveFormat.PPT)
-```
-
-## **スライド内の子フッターの可視性を設定する**
-
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスのインスタンスを作成します。
-1. インデックスを介してマスタースライドの参照を取得します。 
-1. マスタースライドとすべての子フッタープレースホルダーを可視化します。
-1. マスタースライドとすべての子フッタープレースホルダーにテキストを設定します。 
-1. マスタースライドとすべての子日時プレースホルダーにテキストを設定します。 
-1. プレゼンテーションを保存します。
-
-このPythonコードは、その操作を示しています：
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    manager = presentation.masters[0].header_footer_manager
-    manager.set_footer_and_child_footers_visibility(True) # メソッド set_footer_and_child_footers_visibility は、マスタースライドとすべての子フッタープレースホルダーを可視化するために使用されます
-    manager.set_slide_number_and_child_slide_numbers_visibility(True) # メソッド set_slide_number_and_child_slide_numbers_visibility は、マスタースライドとすべての子ページ番号プレースホルダーを可視化するために使用されます
-    manager.set_date_time_and_child_date_times_visibility(True) # メソッド set_date_time_and_child_date_times_visibility は、マスタースライドとすべての子日時プレースホルダーを可視化するために使用されます
-
-    manager.set_footer_and_child_footers_text("フッターテキスト") # メソッド set_footer_and_child_footers_text は、マスタースライドとすべての子フッタープレースホルダーのテキストを設定するために使用されます
-    manager.set_date_time_and_child_date_times_text("日付と時刻のテキスト") # メソッド set_date_time_and_child_date_times_text は、マスタースライドとすべての子日時プレースホルダーのテキストを設定するために使用されます
-```
-
-## **コンテンツスケーリングに関するスライドサイズを設定する**
-
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスのインスタンスを作成し、サイズを設定したいスライドを含むプレゼンテーションを読み込みます。
-1. 新しいプレゼンテーションを生成するために別の[Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスのインスタンスを作成します。
-1. インデックスを介して（最初のプレゼンテーションから）スライドの参照を取得します。
-1. スライドフッタープレースホルダーを可視化します。 
-1. 日付と時刻のプレースホルダーを可視化します。 
-1. プレゼンテーションを保存します。 
-
-このPythonは、その操作を示しています：
-
-```python
-import aspose.slides as slides
-
-# プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化する 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    with slides.Presentation() as auxPresentation:
-        slide = presentation.slides[0]
-
-        # 生成されるプレゼンテーションのスライドサイズをソースのものに設定する
-        presentation.slide_size.set_size(540, 720, slides.SlideSizeScaleType.ENSURE_FIT) # メソッド set_size は、コンテンツに合わせてフィットすることを保証するためにスライドサイズを設定するために使用されます
-        presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.MAXIMIZE) # メソッド set_size は、最大コンテンツサイズでスライドサイズを設定するために使用されます
-                
-        # プレゼンテーションをディスクに保存する
-        auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **PDF生成時のページサイズを設定する**
-
-特定のプレゼンテーション（ポスターのようなもの）は、しばしばPDFドキュメントに変換されます。PowerPointをPDFに変換してベストな印刷およびアクセシビリティオプションにアクセスしたい場合、PDFドキュメントに適したサイズ（たとえばA4）にスライドを設定する必要があります。
-
-Aspose.Slidesは、[SlideSize](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/)クラスを提供し、スライドの希望設定を指定できるようにします。このPythonコードは、プレゼンテーション内のスライドに特定の用紙サイズを設定するために`type`プロパティを使用する方法を示します：
-
-```python
-import aspose.slides as slides
-
-# プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化する  
 with slides.Presentation() as presentation:
-    # SlideSize.Typeプロパティを設定する 
-    presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.ENSURE_FIT)
+    # Blank レイアウトスライドを取得します。
+    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-    # PDFオプションの異なるプロパティを設定する
-    opts = slides.export.PdfOptions()
-    opts.sufficient_resolution = 600
+    # レイアウトスライドのプレースホルダーマネージャーを取得します。
+    placeholder_manager = layout.placeholder_manager
 
-    # プレゼンテーションをディスクに保存する
-    presentation.save("SetPDFPageSize_out.pdf", slides.export.SaveFormat.PDF, opts)
+    # Blank レイアウトスライドにさまざまなプレースホルダーを追加します。
+    placeholder_manager.add_content_placeholder(20, 20, 310, 270)
+    placeholder_manager.add_vertical_text_placeholder(350, 20, 350, 270)
+    placeholder_manager.add_chart_placeholder(20, 310, 310, 180)
+    placeholder_manager.add_table_placeholder(350, 310, 350, 180)
+
+    # Blank レイアウトで新しいスライドを追加します。
+    new_slide = presentation.slides.add_empty_slide(layout)
+
+    presentation.save("placeholders.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+結果:
+
+![レイアウトスライド上のプレースホルダー](add_placeholders.png)
+
+## **レイアウトスライドのフッター表示を設定する**
+
+PowerPoint プレゼンテーションでは、日付、スライド番号、カスタムテキストなどのフッター要素をレイアウトに応じて表示・非表示にできます。Aspose.Slides for Python は、これらフッタープレースホルダーの表示可否を制御できます。特定のレイアウトでフッター情報を表示し、他のレイアウトはシンプルに保ちたい場合に便利です。
+
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでレイアウトスライドの参照を取得します。
+1. スライドフッタープレースホルダーを表示に設定します。
+1. スライド番号プレースホルダーを表示に設定します。
+1. 日付時刻プレースホルダーを表示に設定します。
+1. プレゼンテーションを保存します。
+
+以下の Python コードは、スライドフッターの表示可否を設定し、関連タスクを実行する方法を示しています:
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    header_footer_manager = presentation.layout_slides[0].header_footer_manager
+
+    if not header_footer_manager.is_footer_visible: 
+        header_footer_manager.set_footer_visibility(True) 
+
+    if not header_footer_manager.is_slide_number_visible:  
+        header_footer_manager.set_slide_number_visibility(True) 
+
+    if not header_footer_manager.is_date_time_visible: 
+        header_footer_manager.set_date_time_visibility(True)
+
+    header_footer_manager.set_footer_text("Footer text") 
+    header_footer_manager.set_date_time_text("Date and time text") 
+
+    presentation.save("output.ppt", slides.export.SaveFormat.PPT)
+```
+
+
+## **子スライドのフッター表示を設定する**
+
+PowerPoint プレゼンテーションでは、日付、スライド番号、カスタムテキストなどのフッター要素をマスタースライドレベルで制御し、すべてのレイアウトスライドで一貫性を保つことができます。Aspose.Slides for Python は、マスタースライド上のフッタープレースホルダーの表示と内容を設定し、これらの設定をすべての子レイアウトスライドに伝搬させることができます。この方法により、プレゼンテーション全体で統一されたフッター情報が実現します。
+
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. インデックスでマスタースライドの参照を取得します。
+1. マスターとすべての子フッタープレースホルダーを表示に設定します。
+1. マスターとすべての子スライド番号プレースホルダーを表示に設定します。
+1. マスターとすべての子日付時刻プレースホルダーを表示に設定します。
+1. プレゼンテーションを保存します。
+
+以下の Python コードは、この操作を実演します:
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    header_footer_manager = presentation.masters[0].header_footer_manager
+
+    header_footer_manager.set_footer_and_child_footers_visibility(True)
+    header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
+    header_footer_manager.set_date_time_and_child_date_times_visibility(True)
+
+    header_footer_manager.set_footer_and_child_footers_text("Footer text")
+    header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+
+## **FAQ**
+
+**マスタースライドとレイアウトスライドの違いは何ですか？**
+
+マスタースライドは全体的なテーマとデフォルトの書式設定を定義し、レイアウトスライドは異なるコンテンツタイプ向けにプレースホルダーの具体的な配置を定義します。
+
+**レイアウトスライドを別のプレゼンテーションにコピーできますか？**
+
+はい、あるプレゼンテーションの [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) コレクションからレイアウトスライドをクローンし、`add_clone` メソッドを使用して別のプレゼンテーションに挿入できます。
+
+**使用中のスライドが参照しているレイアウトスライドを削除するとどうなりますか？**
+
+プレゼンテーション内で少なくとも 1 つのスライドがまだ参照しているレイアウトスライドを削除しようとすると、Aspose.Slides は [PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/) をスローします。これを回避するには、[remove_unused_layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) を使用して、使用されていないレイアウトスライドだけを安全に削除してください。

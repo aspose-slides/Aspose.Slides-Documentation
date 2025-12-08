@@ -1,17 +1,19 @@
 ---
-title: Export Chart
+title: Export Presentation Charts in С++
+linktitle: Export Chart
 type: docs
 weight: 90
 url: /cpp/export-chart/
 keywords:
 - chart
-- chart image
+- chart to image
+- chart as image
 - extract chart image
 - PowerPoint
 - presentation
-- C++
-- Aspose.Slides for C++
-description: "Get chart images from PowerPoint presentations in C++"
+- С++
+- Aspose.Slides
+description: "Learn how to export presentation charts with Aspose.Slides for С++, supporting PPT and PPTX formats, and streamline reporting into any workflow."
 ---
 
 ## **Get Chart Image**

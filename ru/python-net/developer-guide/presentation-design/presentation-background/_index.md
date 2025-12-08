@@ -1,5 +1,5 @@
 ---
-title: Управляйте фонами презентаций в Python
+title: Управление фонами презентаций в Python
 linktitle: Фон слайда
 type: docs
 weight: 20
@@ -9,7 +9,7 @@ keywords:
 - фон слайда
 - сплошной цвет
 - градиентный цвет
-- фоновое изображение
+- фон изображения
 - прозрачность фона
 - свойства фона
 - PowerPoint
@@ -17,173 +17,231 @@ keywords:
 - презентация
 - Python
 - Aspose.Slides
-description: "Узнайте, как задавать динамичные фоны в файлах PowerPoint и OpenDocument с помощью Aspose.Slides for Python via .NET и улучшите свои презентации с помощью советов по коду."
+description: "Узнайте, как устанавливать динамические фоны в файлах PowerPoint и OpenDocument с помощью Aspose.Slides для Python через .NET, получая советы по коду для улучшения ваших презентаций."
 ---
 
-Однотонные цвета, градиентные цвета и картинки часто используются в качестве фоновых изображений для слайдов. Вы можете установить фон либо для **обычного слайда** (один слайд), либо для **мастера слайда** (несколько слайдов сразу).
+## **Обзор**
 
-<img src="powerpoint-background.png" alt="powerpoint-background" />
+Сплошные цвета, градиенты и изображения часто используются в качестве фонов слайдов. Вы можете задать фон для **обычного слайда** (одного слайда) или для **главного слайда** (применяется сразу к нескольким слайдам).
 
-## **Установить однотонный цвет в качестве фона для обычного слайда**
+![PowerPoint background](powerpoint-background.png)
 
-Aspose.Slides позволяет установить однотонный цвет в качестве фона для конкретного слайда в презентации (даже если эта презентация содержит мастер слайда). Изменение фона затрагивает только выбранный слайд.
+## **Установить сплошной цвет фона для обычного слайда**
+
+Aspose.Slides позволяет задать сплошной цвет как фон для конкретного слайда в презентации — даже если презентация использует главный слайд. Изменение применяется только к выбранному слайду.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Установите перечисление [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) для слайда на `OwnBackground`.
-3. Установите перечисление [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) для фона слайда на `Solid`.
-4. Используйте свойство [SolidFillColor](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties), предоставляемое [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/), чтобы указать однотонный цвет для фона.
+2. Установите свойству слайда [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) значение `OWN_BACKGROUND`.
+3. Установите свойству фона слайда [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) значение `SOLID`.
+4. Используйте свойство `solid_fill_color` в [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) для указания сплошного цвета фона.
 5. Сохраните изменённую презентацию.
 
-Этот код на Python показывает, как установить однотонный цвет (синий) в качестве фона для обычного слайда:
-
+Следующий пример на Python показывает, как задать синий сплошной цвет в качестве фона обычного слайда:
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Создаёт экземпляр класса Presentation
-with slides.Presentation() as pres:
-    # Устанавливает цвет фона для первого ISlide на Синий
-    pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
-    pres.slides[0].background.fill_format.fill_type = slides.FillType.SOLID
-    pres.slides[0].background.fill_format.solid_fill_color.color = draw.Color.blue
-    # Записывает презентацию на диск
-    pres.save("ContentBG_out.pptx", slides.export.SaveFormat.PPTX)
+# Создайте экземпляр класса Presentation.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    # Установите синий цвет фона слайда.
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.blue
+
+    # Сохраните презентацию на диск.
+    presentation.save("SolidColorBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Установить однотонный цвет в качестве фона для мастера слайда**
 
-Aspose.Slides позволяет установить однотонный цвет в качестве фона для мастера слайда в презентации. Мастер слайда действует как шаблон, который содержит и контролирует настройки форматирования для всех слайдов. Поэтому, когда вы выбираете однотонный цвет в качестве фона для мастера слайда, этот новый фон будет использоваться для всех слайдов.
+## **Установить сплошной цвет фона для главного слайда**
+
+Aspose.Slides позволяет задать сплошной цвет как фон для главного слайда в презентации. Главный слайд выступает в роли шаблона, контролирующего форматирование всех слайдов, поэтому при выборе сплошного цвета фона главного слайда он применяется к каждому слайду.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Установите перечисление [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) для мастера слайда (`Masters`) на `OwnBackground`.
-3. Установите перечисление [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) для фона мастера слайда на `Solid`.
-4. Используйте свойство [SolidFillColor](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties), предоставляемое [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/), чтобы указать однотонный цвет для фона.
+2. Установите свойству главного слайда [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) (через `masters`) значение `OWN_BACKGROUND`.
+3. Установите свойству фона главного слайда [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) значение `SOLID`.
+4. Используйте свойство `solid_fill_color` в [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) для указания сплошного цвета фона.
 5. Сохраните изменённую презентацию.
 
-Этот код на Python показывает, как установить однотонный цвет (лесной зелёный) в качестве фона для мастера слайда в презентации:
-
+Следующий пример на Python показывает, как задать сплошной цвет (лесной зелёный) в качестве фона главного слайда:
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Создаёт экземпляр класса Presentation
-with slides.Presentation() as pres:
-    # Устанавливает цвет фона для мастер ISlide на Лесной Зелёный
-    pres.masters[0].background.type = slides.BackgroundType.OWN_BACKGROUND
-    pres.masters[0].background.fill_format.fill_type = slides.FillType.SOLID
-    pres.masters[0].background.fill_format.solid_fill_color.color = draw.Color.forest_green
+# Создайте экземпляр класса Presentation.
+with slides.Presentation() as presentation:
+    master_slide = presentation.masters[0]
 
-    # Записывает презентацию на диск
-    pres.save("SetSlideBackgroundMaster_out.pptx", slides.export.SaveFormat.PPTX)
+    # Установите цвет фона главного слайда в лесной зелёный.
+    master_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    master_slide.background.fill_format.fill_type = slides.FillType.SOLID
+    master_slide.background.fill_format.solid_fill_color.color = draw.Color.forest_green
+
+    # Сохраните презентацию на диск.
+    presentation.save("MasterSlideBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Установить градиентный цвет в качестве фона для слайда**
 
-Градиент — это графический эффект, основанный на постепенном изменении цвета. Градиентные цвета, когда они используются в качестве фонов для слайдов, придают презентациям художественный и профессиональный вид. Aspose.Slides позволяет установить градиентный цвет в качестве фона для слайдов в презентациях.
+## **Установить градиентный фон для слайда**
+
+Градиент — это графический эффект, создаваемый постепенным изменением цвета. При использовании в качестве фона слайда градиенты могут сделать презентацию более художественной и профессиональной. Aspose.Slides позволяет задать градиентный цвет в качестве фона слайдов.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Установите перечисление [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) для слайда на `OwnBackground`.
-3. Установите перечисление [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) для фона мастера слайда на `Gradient`.
-4. Используйте свойство [GradientFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties), предоставляемое [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/), чтобы указать ваши предпочтения по настройкам градиента.
+2. Установите свойству слайда [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) значение `OWN_BACKGROUND`.
+3. Установите свойству фона слайда [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) значение `GRADIENT`.
+4. Используйте свойство `gradient_format` в [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) для настройки желаемых параметров градиента.
 5. Сохраните изменённую презентацию.
 
-Этот код на Python показывает, как установить градиентный цвет в качестве фона для слайда:
-
+Следующий пример на Python показывает, как задать градиентный цвет в качестве фона слайда:
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Создаёт экземпляр класса Presentation
-with slides.Presentation(path + "SetBackgroundToGradient.pptx") as pres:
-    # Применяет эффект градиента к фону
-    pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
-    pres.slides[0].background.fill_format.fill_type = slides.FillType.GRADIENT
-    pres.slides[0].background.fill_format.gradient_format.tile_flip = slides.TileFlip.FLIP_BOTH
+# Создайте экземпляр класса Presentation.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Записывает презентацию на диск
-    pres.save("ContentBG_Grad_out.pptx", slides.export.SaveFormat.PPTX)
+    # Примените градиентный эффект к фону.
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.GRADIENT
+    slide.background.fill_format.gradient_format.tile_flip = slides.TileFlip.FLIP_BOTH
+
+    # Сохраните презентацию на диск.
+    presentation.save("GradientBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Установить изображение в качестве фона для слайда**
 
-Кроме однотонных и градиентных цветов, Aspose.Slides также позволяет установить изображения в качестве фона для слайдов в презентациях.
+## **Установить изображение в качестве фона слайда**
+
+Помимо сплошных и градиентных заполнений, Aspose.Slides позволяет использовать изображения в качестве фонов слайдов.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Установите перечисление [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) для слайда на `OwnBackground`.
-3. Установите перечисление [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) для фона мастера слайда на `Picture`.
-4. Загрузите изображение, которое вы хотите использовать в качестве фонового изображения для слайда.
+2. Установите свойству слайда [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) значение `OWN_BACKGROUND`.
+3. Установите свойству фона слайда [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) значение `PICTURE`.
+4. Загрузите изображение, которое хотите использовать в качестве фона слайда.
 5. Добавьте изображение в коллекцию изображений презентации.
-6. Используйте свойство [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties), предоставляемое [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/), чтобы установить изображение в качестве фона.
+6. Используйте свойство `picture_fill_format` в [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) для назначения изображения в качестве фона.
 7. Сохраните изменённую презентацию.
 
-Этот код на Python показывает, как установить изображение в качестве фона для слайда:
-
+Следующий пример на Python показывает, как установить изображение в качестве фона слайда:
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Создаёт экземпляр класса Presentation
-with slides.Presentation(path + "SetImageAsBackground.pptx") as pres:
-    # Устанавливает условия для фонового изображения
-    pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
-    pres.slides[0].background.fill_format.fill_type = slides.FillType.PICTURE
-    pres.slides[0].background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+# Создайте экземпляр класса Presentation.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Загружает изображение
-    img = draw.Bitmap(path + "Tulips.jpg")
+    # Установите свойства фонового изображения.
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.PICTURE
+    slide.background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
 
-    # Добавляет изображение в коллекцию изображений презентации
-    imgx = pres.images.add_image(img)
+    # Загрузите изображение.
+    with slides.Images.from_file("Tulips.jpg") as image:
+        # Добавьте изображение в коллекцию изображений презентации.
+        pp_image = presentation.images.add_image(image)
 
-    pres.slides[0].background.fill_format.picture_fill_format.picture.image = imgx
+    slide.background.fill_format.picture_fill_format.picture.image = pp_image
 
-    # Записывает презентацию на диск
-    pres.save("ContentBG_Img_out.pptx", slides.export.SaveFormat.PPTX)
+    # Сохраните презентацию на диск.
+    presentation.save("ImageAsBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+Следующий фрагмент кода показывает, как установить тип заполнения фона в режим «мозаика» изображения и изменить свойства мозаики:
+```py
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+
+    first_slide = presentation.slides[0]
+
+    background = first_slide.background
+
+    background.type = slides.BackgroundType.OWN_BACKGROUND
+    background.fill_format.fill_type = slides.FillType.PICTURE
+
+    with slides.Images.from_file("image.png") as new_image:
+        pp_image = presentation.images.add_image(new_image)
+
+    # Установите изображение, используемое для заполнения фона.
+    back_picture_fill_format = background.fill_format.picture_fill_format
+    back_picture_fill_format.picture.image = pp_image
+
+    # Установите режим заполнения изображения в режим Tile и настройте свойства плитки.
+    back_picture_fill_format.picture_fill_mode = slides.PictureFillMode.TILE
+    back_picture_fill_format.tile_offset_x = 15.0
+    back_picture_fill_format.tile_offset_y = 15.0
+    back_picture_fill_format.tile_scale_x = 46.0
+    back_picture_fill_format.tile_scale_y = 87.0
+    back_picture_fill_format.tile_alignment = slides.RectangleAlignment.CENTER
+    back_picture_fill_format.tile_flip = slides.TileFlip.FLIP_Y
+
+    presentation.save("TileBackground.pptx", slides.export.SaveFormat.PPTX)
+```
+
+
+{{% alert color="primary" %}}
+Читайте далее: [**Tile Picture As Texture**](/slides/ru/python-net/shape-formatting/#tile-picture-as-texture).
+{{% /alert %}}
 
 ### **Изменить прозрачность фонового изображения**
 
-Возможно, вы захотите отрегулировать прозрачность фонового изображения слайда, чтобы выделить содержимое слайда. Этот код на Python показывает, как изменить прозрачность фонового изображения слайда:
-
+Возможно, вам понадобится отрегулировать прозрачность фонового изображения слайда, чтобы выделить содержимое слайда. Следующий код на Python показывает, как изменить прозрачность фонового изображения слайда:
 ```python
-transparencyValue = 30 # например
+transparency_value = 30  # Например.
 
-# Получает коллекцию операций преобразования изображения
-imageTransform = pres.slides[0].background.fill_format.picture_fill_format.picture.image_transform
+# Получить коллекцию операций трансформации изображения.
+image_transform = slide.background.fill_format.picture_fill_format.picture.image_transform
 
-transparencyOperation = None
-# Находит эффект прозрачности с фиксированным процентом.
-for operation in imageTransform:
+transparency_operation = None
+
+# Найти существующий эффект прозрачности с фиксированным процентом.
+for operation in image_transform:
     if type(operation) is slides.AlphaModulateFixed:
-        transparencyOperation = operation
+        transparency_operation = operation
         break
 
-# Устанавливает новое значение прозрачности.
-if transparencyOperation is None:
-    imageTransform.add_alpha_modulate_fixed_effect(100 - transparencyValue)
+# Установить новое значение прозрачности.
+if transparency_operation is None:
+    image_transform.add_alpha_modulate_fixed_effect(100 - transparency_value)
 else:
-    transparencyOperation.amount = (100 - transparencyValue)
+    transparency_operation.amount = 100 - transparency_value
 ```
+
 
 ## **Получить значение фона слайда**
 
-Aspose.Slides предоставляет интерфейс [IBackgroundEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/), который позволяет получать эффективные значения фонов слайдов. Этот интерфейс содержит информацию об эффективном [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/#properties) и эффективном [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/#properties).
+Aspose.Slides предоставляет класс [IBackgroundEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/) для получения эффективных значений фона слайда. Этот класс раскрывает эффективные [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) и [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/).
 
-Используя свойство [Background](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/#properties) из класса [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/), вы можете получить эффективное значение для фона слайда.
+Используя свойство `background` класса [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/), вы можете получить эффективный фон слайда.
 
-Этот код на Python показывает, как получить эффективное значение фона слайда:
-
+Следующий пример на Python показывает, как получить эффективное значение фона слайда:
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Создаёт экземпляр класса Presentation
-with slides.Presentation(path + "SamplePresentation.pptx") as pres:
+# Создайте экземпляр класса Presentation.
+with slides.Presentation("Sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    effBackground = pres.slides[0].background.get_effective()
+    # Получите эффективный фон с учётом мастер‑слайда, макета и темы.
+    effective_background = slide.background.get_effective()
 
-    if effBackground.fill_format.fill_type == slides.FillType.SOLID:
-        print("Цвет заливки: " + str(effBackground.fill_format.solid_fill_color))
+    if effective_background.fill_format.fill_type == slides.FillType.SOLID:
+        color = effective_background.fill_format.solid_fill_color
+        print(f"Fill color: Color [A={color.a}, R={color.r}, G={color.g}, B={color.b}]")
     else:
-        print("Тип заливки: " + str(effBackground.fill_format.fill_type))
+        print("Fill type:", str(effective_background.fill_format.fill_type))
 ```
+
+
+## **FAQ**
+
+**Можно ли сбросить пользовательский фон и восстановить фон темы/макета?**
+
+Да. Удалите пользовательское заполнение слайда, и фон будет снова наследоваться от соответствующего слайда [layout](/slides/ru/python-net/slide-layout/)/[master](/slides/ru/python-net/slide-master/) (то есть от [theme background](/slides/ru/python-net/presentation-theme/)).
+
+**Что произойдёт с фоном, если позже изменить тему презентации?**
+
+Если у слайда есть собственное заполнение, оно останется без изменений. Если фон наследуется от [layout](/slides/ru/python-net/slide-layout/)/[master](/slides/ru/python-net/slide-master/), он обновится в соответствии с [новой темой](/slides/ru/python-net/presentation-theme/).

@@ -3,9 +3,21 @@ title: Why Not Open XML SDK
 type: docs
 weight: 50
 url: /net/why-not-open-xml-sdk/
+keywords:
+- Open XML SDK
+- comparing
+- presentation object model
+- high quality conversion
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "See why Aspose.Slides is a better choice than the free Open XML SDK: compare features, automation-free conversion, and broad support for PPT, PPTX and ODP."
 ---
 
-## **What is Open XML SDK?**
+## **What Is Open XML SDK?**
 Sometimes, we get this question: *Why should we use Aspose products rather than the free Open XML SDK?* 
 
 We find it easy to answer this question in terms of features and functionalities. 
@@ -14,7 +26,7 @@ According to the [MSDN Library](https://docs.microsoft.com/en-us/office/open-xml
 
 > "The Open XML SDK 2.0 simplifies the task of manipulating Open XML packages and the underlying Open XML schema elements within a package. The Open XML SDK 2.0 encapsulates many common tasks that developers perform on Open XML packages, so that you can perform complex operations with just a few lines of code. OOXML documents are essentially zipped XML files and Open XML SDK is a collection of classes that allows you to work with the content of OOXML documents in a strongly-typed way. That is instead of unzipping a file to extract XML, loading that XML into a DOM tree, and working with XML elements and attributes directly, Open XML SDK provides classes to do that."
 
-## **What is Aspose.Slides?**
+## **What Is Aspose.Slides?**
 Aspose.Slides is a class library that allows applications to perform these presentation processing tasks: 
 
 - Programming with a presentation object model.
@@ -30,7 +42,7 @@ Aspose.Slides is a class library that allows applications to perform these prese
 - Controlling (extensive control) and managing the text formatting on TextFrames, Paragraphs and Portions levels. 
 
   For more details on the available features, please see the [Aspose.Slides Features](/slides/net/product-overview/) page.
-## **Comparing Open XML SDK with Aspose.Slides**
+## **Compare Open XML SDK with Aspose.Slides**
 This table compares Open XML SDK capabilities and features with Aspose.Slides.
 
 |**Feature or Feature Category**|**Open XML SDK**|**Aspose.Slides**|

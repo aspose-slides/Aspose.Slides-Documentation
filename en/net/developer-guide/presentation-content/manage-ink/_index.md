@@ -1,17 +1,29 @@
 ---
-title: Manage Ink
+title: Manage Presentation Ink Objects in .NET
+linktitle: Manage Ink
 type: docs
 weight: 95
 url: /net/manage-ink/
-keywords: "Ink in PowerPoint, Ink tools, C# Ink, Draw in PowerPoint, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET "
-description: "Use ink tools to draw objects in PowerPoint C#"
+keywords:
+- ink
+- ink object
+- ink trace
+- manage ink
+- draw ink
+- drawing
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Manage PowerPoint ink objects—create, edit & style digital ink with Aspose.Slides for .NET. Get code samples for traces, brush color & size."
 ---
 
 PowerPoint provides the ink function to allow you to draw non-standard figures, which can be used to highlight other objects, show connections and processes, and draw attention to specific items on a slide. 
 
 Aspose.Slides provides the [Aspose.Slides.Ink](https://reference.aspose.com/slides/net/aspose.slides.ink/) interface, which contains the types you need to create and manage ink objects. 
 
-## **Differences between Regular Object and Ink Objects**
+## **Differences between Regular Objects and Ink Objects**
 
 Objects on a PowerPoint slide are typically represented by shape objects. A shape object, in its simplest form, is a container that defines the area of the object itself (its frame) alongside its properties. The latter includes the container area size, the shape of the container, the container's background, etc. For information, see [Shape Layout Format](https://docs.aspose.com/slides/net/shape-manipulations/#access-layout-formats-for-shape).
 
@@ -27,7 +39,7 @@ The simplest form of encoding specifies the X and Y coordinates of each sample p
 
 ![ink_powerpoint2](ink_powerpoint2.png)
 
-## Brush Properties For Drawing 
+## **Brush Properties for Drawing**
 
 You can use a brush to draw lines connecting trace elements' points. The brush has its own color and size, corresponding to the `Brush.Color` and `Brush.Size` properties. 
 

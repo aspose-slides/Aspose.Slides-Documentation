@@ -1,10 +1,24 @@
 ---
-title: Slide Transition
+title: Manage Slide Transitions in Presentations Using JavaScript
+linktitle: Slide Transition
 type: docs
 weight: 80
 url: /nodejs-java/slide-transition/
-keywords: "PowerPoint slide transition, morph transition in JavaScript"
-description: "PowerPoint slide transition, PowerPoint morph transition in JavaScript"
+keywords:
+- slide transition
+- add slide transition
+- apply slide transition
+- advanced slide transition
+- morph transition
+- transition type
+- transition effect
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Customize slide transitions in JavaScript with Aspose.Slides for Node.js via Java, with step-by-step guidance for PowerPoint and OpenDocument presentations."
 ---
 
 
@@ -148,3 +162,21 @@ try {
     presentation.dispose();
 }
 ```
+
+## **FAQ**
+
+**Can I control the playback speed of a slide transition?**
+
+Yes. Set the transition’s [speed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/setspeed/) using the [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) setting (e.g., slow/medium/fast).
+
+**Can I attach audio to a transition and make it loop?**
+
+Yes. You can embed a sound for the transition and control behavior via settings like sound mode and looping (e.g., [setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/setsound/), [setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/setsoundmode/), [setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/setsoundloop/), plus metadata such as [setSoundIsBuiltIn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/setsoundisbuiltin/) and [setSoundName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/setsoundname/)).
+
+**What’s the fastest way to apply the same transition to every slide?**
+
+Configure the desired transition type on each slide’s transition settings; transitions are stored per slide, so applying the same type across all slides gives a consistent result.
+
+**How can I check which transition is currently set on a slide?**
+
+Inspect the slide’s [transition settings](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) and read its [transition type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/gettype/); that value tells you exactly which effect is applied.

@@ -3,6 +3,19 @@ title: Resources
 type: docs
 weight: 20
 url: /php-java/resources/
+keywords:
+- resources
+- home page
+- blog
+- download Aspose.Slides
+- support forum
+- product documentation
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Discover key Aspose.Slides for PHP via Java resources — from downloads and docs to forums and blog updates—to improve working with PPT, PPTX and ODP."
 ---
 
 {{% alert color="primary" %}} 

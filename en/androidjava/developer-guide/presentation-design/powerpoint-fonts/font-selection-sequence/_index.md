@@ -1,18 +1,23 @@
 ---
-title: Font Selection Sequence in Java
-linktitle: Font Selection Sequence in Java
+title: Font Selection Sequence in Aspose.Slides for Android via Java
+linktitle: Font Selection
 type: docs
 weight: 80
 url: /androidjava/font-selection-sequence/
 keywords:
-- font
 - font selection
 - font substitution
 - font replacement
-- PowerPoint presentation
+- substitution rule
+- available font
+- missing font
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
 - Java
-- Aspose.Slides for Android via Java
-description: PowerPoint font selection sequence in Java
+- Aspose.Slides
+description: "Discover how Aspose.Slides for Android via Java selects fonts, ensuring crisp, consistent presentation of PPT, PPTX and ODP files—improve your slides now."
 ---
 
 ## Font Selection

@@ -1,10 +1,27 @@
 ---
-title: Manage Bullet
+title: Manage Bulleted and Numbered Lists in Presentations on Android
+linktitle: Manage Lists
 type: docs
 weight: 60
 url: /androidjava/manage-bullet/
-keywords: "Bullets, Bullet lists, Numbers, Numbered lists, Picture bullets, multilevel bullets, PowerPoint Presentation, Java, Aspose.Slides for Android via Java"
-description: "Create bullet and numbered lists in PowerPoint presentation in Java"
+keywords:
+- bullet
+- bulleted list
+- numbered list
+- symbol bullet
+- picture bullet
+- custom bullet
+- multilevel list
+- create bullet
+- add bullet
+- add list
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Learn how to manage bulleted and numbered lists in PowerPoint and OpenDocument presentations using Aspose.Slides for Android via Java. Step-by-step guide."
 ---
 
 In **Microsoft PowerPoint**, you can create bullet and numbered lists the same way you do in Word and other text editors. **Aspose.Slides for Android via Java** also allows you to use bullets and numbers in slides in your presentations.

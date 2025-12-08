@@ -5,8 +5,7 @@ weight: 10
 url: /net/assemble-slides/
 ---
 
-It covers following below features:
-## **Adding Slide to Presentation**
+## **Add a Slide to a Presentation**
 Before talking about adding slides to the presentation files, let us discuss some facts about the slides. Each PowerPoint presentation file contains Master / Layout slide and other Normal slides. It means that a presentation file contains at least one or more slides. It is important to know that presentation files without slides are not supported by Aspose.Slides for .NET. Each slide has unique Id and all the Normal Slides are arranged in an order specified by the zero based index.
 
 Aspose.Slides for .NET allows developers to add empty slides to their presentation. To add an empty slide in the presentation, please follow the steps below:
@@ -40,7 +39,7 @@ for (int i = 0; i < pres.LayoutSlides.Count; i++)
 pres.Write("EmptySlide.pptx");
 
 ``` 
-## **Accessing Slides of Presentation**
+## **Access Slides of a Presentation**
 Aspose.Slides for .NET provides Presentation class that can be used to find and access any desired slide present in the presentation.
 
 **Using Slides Collection**
@@ -58,7 +57,7 @@ PresentationEx pres = new PresentationEx("Slides Test Presentation.pptx");
 SlideEx slide = pres.Slides[0];
 
 ``` 
-## **Removing Slides**
+## **Remove Slides**
 We know that Presentation class in **Aspose.Slides for .NET** represents a presentation file. Presentation class encapsulates a **SlideCollection** that acts as a repository of all slides that are the part of the presentation. Developers can remove a slide from this Slides collection in two ways:
 
 - Using Slide Reference
@@ -92,7 +91,7 @@ pres.Slides.Remove(slide);
 pres.Write("modified.pptx");
 
 ``` 
-## **Changing Position of Slide:**
+## **Change the Position of a Slide**
 It's very simple to change the position of a slide in the presentation. Just follow the steps below:
 
 - Create an instance of Presentation class

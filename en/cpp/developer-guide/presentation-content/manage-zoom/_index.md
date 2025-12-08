@@ -1,10 +1,21 @@
 ---
-title: Manage Zoom
+title: Manage Presentation Zoom in C++
+linktitle: Manage Zoom
 type: docs
 weight: 60
 url: /cpp/manage-zoom/
-keywords: "Zoom, Zoom frame, Add zoom, Format zoom frame, Summary zoom, PowerPoint presentation, C++, Aspose.Slides for C++"
-description: "Add zoom or zoom frames to PowerPoint presentations in C++"
+keywords:
+- zoom
+- zoom frame
+- slide zoom
+- section zoom
+- summary zoom
+- add zoom
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Create and customize Zoom with Aspose.Slides for C++ — jump between sections, add thumbnails and transitions across PPT, PPTX and ODP presentations."
 ---
 
 ## **Overview**

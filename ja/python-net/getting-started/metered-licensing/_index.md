@@ -1,66 +1,88 @@
 ---
-title: 従量制ライセンス
+title: メータリング ライセンス
 type: docs
 weight: 90
 url: /ja/python-net/metered-licensing/
 keywords:
 - ライセンス
-- 従量制ライセンス
-- ライセンスキー
-- 公開鍵
-- 秘密鍵
-- 使用量
+- メータリング ライセンス
+- ライセンス キー
+- 公開キー
+- プライベートキー
+- 消費量
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET の従量制ライセンスを使用して、PowerPoint および OpenDocument ファイルを柔軟に処理し、使用した分だけ支払う方法を学びましょう。"
+description: "Aspose.Slides for Python via .NET のメータリング ライセンスを使用すると、PowerPoint と OpenDocument ファイルを柔軟に処理でき、使用した分だけ支払うことができます。"
 ---
+
+## **メータリングキーの適用**
 
 {{% alert color="primary" %}} 
 
-メーターライセンスは、既存のライセンス方式と併用できる新しいライセンスメカニズムです。Aspose.Slides API機能の使用量に基づいて請求されることを希望する場合、メーターライセンスを選択します。
+メータリング ライセンスは、既存のライセンス方式と併用できる新しいライセンス メカニズムです。Aspose.Slides API の機能使用量に基づいて課金されたい場合は、メータリング ライセンスを選択します。
 
-メーターライセンスを購入すると、キー（ライセンスファイルではなく）を受け取ります。このメーターキーは、Asposeがメーター操作のために提供した[Metered](https://reference.aspose.com/slides/python-net/aspose.slides/metered/)クラスを使用して適用できます。詳細については、[メーターライセンスに関するFAQ](https://purchase.aspose.com/faqs/licensing/metered)を参照してください。
+メータリング ライセンスを購入すると、キー（ライセンス ファイルはありません）が提供されます。このメータリング キーは、Aspose が提供するメータリング操作用の [Metered](https://reference.aspose.com/slides/python-net/aspose.slides/metered/) クラスで適用できます。詳細については、[Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered) を参照してください。
 
 {{% /alert %}} 
 
-1. [Metered](https://reference.aspose.com/slides/python-net/aspose.slides/metered/)クラスのインスタンスを作成します。
-1. `set_metered_key`メソッドに公開キーと秘密キーを渡します。
-1. 一部の処理を行います（タスクを実行します）。
-1. Meteredクラスの`get_consumption_quantity()`メソッドを呼び出します。
+1. [Metered](https://reference.aspose.com/slides/python-net/aspose.slides/metered/) クラスのインスタンスを作成します。  
+1. 公開キーと非公開キーを [set_metered_key](https://reference.aspose.com/slides/python-net/aspose.slides/metered/set_metered_key/#str-str) メソッドに渡します。  
+1. 処理（タスクの実行）を行います。  
+1. `Metered` クラスの [get_consumption_quantity](https://reference.aspose.com/slides/python-net/aspose.slides/metered/get_consumption_quantity/#) メソッドを呼び出します。  
 
-   これまでに消費したAPIリクエストの量/数量が表示されるはずです。
+これまでに消費した API リクエストの数量/量が表示されます。
 
-以下のPythonコードは、メーター公開キーと秘密キーを設定する方法を示しています：
-
+このサンプルコードは、メータリング ライセンスの使用方法を示しています：
 ```python
 import aspose.slides as slides
 
-# CAD Meteredクラスのインスタンスを作成
+# Meteredクラスのインスタンスを作成します
 metered = slides.Metered()
 
-# set_metered_keyプロパティにアクセスし、公開キーと秘密キーをパラメータとして渡す
-metered.set_metered_key("*****", "*****")
+# 公開キーと非公開キーをMeteredオブジェクトに渡します
+metered.set_metered_key("<valid public key>", "<valid private key>")
 
-# APIを呼び出す前のメーターデータ量を取得
-amountbefore = slides.metered.get_consumption_quantity()
-# 情報を表示
-print("消費量（呼び出し前）: " + str(amountbefore))
+# API呼び出し前に消費された数量の値を取得します
+amount_before = slides.Metered.get_consumption_quantity()
+print("Amount consumed before:", amount_before)
 
-# ディスクからドキュメントを読み込む。
-with slides.Presentation("Presentation.pptx") as pres:
-   # ドキュメントのページ数を取得
-   print(len(pres.slides))
-   # PDFとして保存
-   pres.save("out_pdf.pdf", slides.export.SaveFormat.PDF)
+# ここでAspose.Slides APIを使用して何か処理を行います
+# ...
 
-# APIを呼び出した後のメーターデータ量を取得
-amountafter = slides.metered.get_consumption_quantity()
-# 情報を表示
-print("消費量（呼び出し後）: " + str(amountafter))
+# API呼び出し後に消費された数量の値を取得します
+amount_after = slides.Metered.get_consumption_quantity()
+print("Amount consumed after:", amount_after)
 ```
 
-{{% alert color="warning" title="注意"  %}} 
 
-メーターライセンスを使用するには、ライセンスメカニズムがインターネットを使って常に私たちのサービスと相互作用し、計算を行うため、安定したインターネット接続が必要です。
+{{% alert color="warning" title="NOTE"  %}} 
+
+メータリング ライセンスを使用するには、インターネット接続が安定している必要があります。ライセンス メカニズムはインターネットを介して当社のサービスと継続的にやり取りし、計算を行うためです。
 
 {{% /alert %}} 
+
+## **よくある質問**
+
+**メータリング ライセンスを、通常のライセンス（永続または一時）と同じアプリケーションで同時に使用できますか？**
+
+はい。メータリングは既存の [ライセンス方式](/slides/ja/python-net/licensing/) と併用できる追加のライセンス メカニズムです。アプリケーション起動時にどのメカニズムを適用するか選択します。
+
+**メータリング ライセンスで消費としてカウントされるものは正確には何ですか：操作ですかファイルですか？**
+
+API の使用量がカウントされます。つまり、リクエスト数または操作回数です。現在の消費量は [消費量追跡メソッド](https://reference.aspose.com/slides/python-net/aspose.slides/metered/) を使用して取得できます。
+
+**インスタンスが頻繁に再起動するマイクロサービスやサーバーレス環境でもメータリングは適していますか？**
+
+はい。課金は API 呼び出し単位で行われるため、コールドスタートが頻繁に発生するシナリオでも、メータリング計算のためのネットワーク接続が安定していれば問題ありません。
+
+**メータリング ライセンスを使用した場合、永続ライセンスと比べてライブラリの機能に違いはありますか？**
+
+いいえ。これはライセンスと課金のメカニズムに関する違いであり、製品の機能は同じです。
+
+**メータリングはトライアル版や一時ライセンスとどう関係していますか？**
+
+トライアル版には機能制限と透かしがあり、[一時ライセンス](https://purchase.aspose.com/temporary-license/) は 30 日間制限を解除します。メータリングは制限を解除し、実際の使用量に基づいて課金します。
+
+**消費しきい値を超えたときに自動で予算を制御することはできますか？**
+
+はい。一般的な方法として、[追跡メソッド](https://reference.aspose.com/slides/python-net/aspose.slides/metered/) を定期的に呼び出して現在の消費量を取得し、アプリケーションまたは監視レベルで独自の制限やアラートを実装します。

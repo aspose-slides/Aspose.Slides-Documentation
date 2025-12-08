@@ -1,10 +1,23 @@
 ---
-title: Callout
+title: Manage Callouts in Presentation Charts Using JavaScript
+linktitle: Callout
 type: docs
 url: /nodejs-java/callout/
+keywords:
+- chart callout
+- use callout
+- data label
+- label format
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Create and style callouts in Aspose.Slides for Node.js via Java with concise code examples, compatible with PPT and PPTX to automate presentation workflows."
 ---
 
 ## **Using Callouts**
+
 New methods [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DataLabelFormat#getShowLabelAsDataCallout--) and [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DataLabelFormat#setShowLabelAsDataCallout-boolean-) have been added to [DataLabelFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat) class and [DataLabelFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat) class. These methods determine either specified chart's data label will be displayed as data callout or as data label.
 
 ```javascript
@@ -23,6 +36,7 @@ try {
 ```
 
 ## **Set Callout for Doughnut Chart**
+
 Aspose.Slides for Node.js via Java provides support for setting series data label callout shape for a Doughnut chart. Below sample example is given. 
 
 ```javascript
@@ -84,3 +98,13 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**Are callouts preserved when converting a presentation to PDF, HTML5, SVG, or images?**
+
+Yes. Callouts are part of the chart rendering, so when you export to [PDF](/slides/nodejs-java/convert-powerpoint-to-pdf/), [HTML5](/slides/nodejs-java/export-to-html5/), [SVG](/slides/nodejs-java/render-a-slide-as-an-svg-image/), or [raster images](/slides/nodejs-java/convert-powerpoint-to-png/), they are preserved together with the slide’s formatting.
+
+**Do custom fonts work in callouts, and can their appearance be preserved on export?**
+
+Yes. Aspose.Slides supports [embedding fonts](/slides/nodejs-java/embedded-font/) into the presentation and controls font embedding during exports such as [PDF](/slides/nodejs-java/convert-powerpoint-to-pdf/), ensuring the callouts look the same across different systems.

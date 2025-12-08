@@ -1,8 +1,19 @@
 ---
-title: Creating a Table on PowerPoint Slide
+title: Creating Tables Using VSTO and Aspose.Slides for Java
+linktitle: Creating Tables
 type: docs
 weight: 50
 url: /java/creating-a-table-on-powerpoint-slide/
+keywords:
+- create table
+- migration
+- VSTO
+- Office automation
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Migrate from Microsoft Office automation to Aspose.Slides for Java and create tables in PowerPoint (PPT, PPTX) slides in Java with flexible formatting."
 ---
 
 {{% alert color="primary" %}} 

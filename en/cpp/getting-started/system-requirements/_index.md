@@ -3,6 +3,20 @@ title: System Requirements
 type: docs
 weight: 80
 url: /cpp/system-requirements/
+keywords:
+- system requirements
+- operating system
+- installation
+- dependencies
+- Windows
+- Linux
+- macOS
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Discover Aspose.Slides for C++ system requirements. Ensure seamless PowerPoint and OpenDocument support on Windows, Linux, and macOS."
 ---
 
 ## **Supported Operating Systems**
