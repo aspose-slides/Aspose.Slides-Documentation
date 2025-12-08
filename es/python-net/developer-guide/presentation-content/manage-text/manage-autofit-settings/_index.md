@@ -1,149 +1,167 @@
 ---
-title: Administrar la Configuración de Autofit
+title: Mejora tus presentaciones con AutoFit en Python
+linktitle: Configuraciones de Autofit
 type: docs
 weight: 30
 url: /es/python-net/manage-autofit-settings/
-keywords: "Caja de texto, Autofit, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Configurar la configuración de autofit para la caja de texto en PowerPoint en Python"
+keywords:
+- cuadro de texto
+- autofit
+- no autofit
+- ajustar texto
+- reducir texto
+- envolver texto
+- redimensionar forma
+- PowerPoint
+- presentación
+- Python
+- Aspose.Slides
+description: "Aprende a gestionar la configuración AutoFit en Aspose.Slides para Python mediante .NET para optimizar la visualización del texto en tus presentaciones PowerPoint y OpenDocument y mejorar la legibilidad del contenido."
 ---
 
-Por defecto, cuando agregas una caja de texto, Microsoft PowerPoint utiliza la configuración de **Cambiar el tamaño de la forma para ajustar el texto** para la caja de texto; redimensiona automáticamente la caja de texto para asegurarse de que su texto siempre se ajuste a ella.
+Por defecto, cuando agrega un cuadro de texto, Microsoft PowerPoint usa la configuración **Resize shape to fix text** para el cuadro de texto—redimensiona automáticamente el cuadro de texto para garantizar que su texto siempre quepa en él. 
 
 ![textbox-in-powerpoint](textbox-in-powerpoint.png)
 
-* Cuando el texto en la caja de texto se vuelve más largo o grande, PowerPoint automáticamente agranda la caja de texto—incrementa su altura—para permitir que contenga más texto.
-* Cuando el texto en la caja de texto se vuelve más corto o pequeño, PowerPoint reduce automáticamente la caja de texto—disminuye su altura—para liberar espacio redundante.
+* Cuando el texto en el cuadro de texto se vuelve más largo o más grande, PowerPoint amplía automáticamente el cuadro de texto—incrementa su altura—para permitir que contenga más texto. 
+* Cuando el texto en el cuadro de texto se vuelve más corto o más pequeño, PowerPoint reduce automáticamente el cuadro de texto—disminuye su altura—para eliminar el espacio redundante. 
 
-En PowerPoint, estos son los 4 parámetros u opciones importantes que controlan el comportamiento de autofit para una caja de texto:
+En PowerPoint, estos son los 4 parámetros u opciones importantes que controlan el comportamiento de autofit para un cuadro de texto: 
 
-* **No ajustar automáticamente**
-* **Reducir texto en desbordamiento**
-* **Cambiar el tamaño de la forma para ajustar el texto**
-* **Ajustar texto en la forma.**
+* **Do not Autofit**
+* **Shrink text on overflow**
+* **Resize shape to fit text**
+* **Wrap text in shape.**
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-Aspose.Slides para Python a través de .NET proporciona opciones similares—algunas propiedades bajo la clase [text_frame_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)—que te permiten controlar el comportamiento de autofit para las cajas de texto en presentaciones.
+Aspose.Slides para Python a través de .NET ofrece opciones similares—algunas propiedades de la clase [TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)—que le permiten controlar el comportamiento de autofit para los cuadros de texto en presentaciones. 
 
-## **Cambiar el Tamaño de la Forma para Ajustar el Texto**
+## **Resize Shapes to Fit Text**
 
-Si deseas que el texto en una caja se ajuste siempre dentro de esa caja después de que se realicen cambios en el texto, debes utilizar la opción **Cambiar el tamaño de la forma para ajustar el texto**. Para especificar esta configuración, establece la propiedad [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) (de la clase [text_frame_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)) en `SHAPE`.
+Si desea que el texto en un cuadro siempre quepa en ese cuadro después de modificar el texto, debe usar la opción **Resize shape to fix text**. Para especificar esta configuración, establezca la propiedad [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) de la clase [TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) a `SHAPE`.
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
-Este código Python te muestra cómo especificar que un texto debe ajustarse siempre dentro de su caja en una presentación de PowerPoint:
-
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
 
     portion = slides.Portion("lorem ipsum...")
     portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
     portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    autoShape.text_frame.paragraphs[0].portions.add(portion)
+    auto_shape.text_frame.paragraphs[0].portions.add(portion)
 
-    textFrameFormat = autoShape.text_frame.text_frame_format
-    textFrameFormat.autofit_type = slides.TextAutofitType.SHAPE
+    text_frame_format = auto_shape.text_frame.text_frame_format
+    text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
 
-    pres.save("Output-presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Si el texto se vuelve más largo o grande, la caja de texto se redimensionará automáticamente (aumento en altura) para asegurar que todo el texto se ajuste a ella. Si el texto se vuelve más corto, ocurre lo contrario.
 
-## **No Ajustar Automáticamente**
+Si el texto se vuelve más largo o más grande, el cuadro de texto se redimensionará automáticamente (aumentará su altura) para garantizar que todo el texto quepa en él. Si el texto se vuelve más corto, ocurre lo contrario. 
 
-Si deseas que una caja de texto o forma mantenga sus dimensiones sin importar los cambios realizados en el texto que contiene, debes utilizar la opción **No ajustar automáticamente**. Para especificar esta configuración, establece la propiedad [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) (de la clase [text_frame_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)) en `NONE`.
+## **Do Not Autofit**
+
+Si desea que un cuadro de texto o una forma mantenga sus dimensiones sin importar los cambios en el texto que contiene, debe usar la opción **Do not Autofit**. Para especificar esta configuración, establezca la propiedad [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) de la clase [TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) a `NONE`. 
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
-Este código Python te muestra cómo especificar que una caja de texto debe mantener siempre sus dimensiones en una presentación de PowerPoint:
-
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
 
     portion = slides.Portion("lorem ipsum...")
     portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
     portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    autoShape.text_frame.paragraphs[0].portions.add(portion)
+    auto_shape.text_frame.paragraphs[0].portions.add(portion)
 
-    textFrameFormat = autoShape.text_frame.text_frame_format
-    textFrameFormat.autofit_type = slides.TextAutofitType.NONE
+    text_frame_format = auto_shape.text_frame.text_frame_format
+    text_frame_format.autofit_type = slides.TextAutofitType.NONE
 
-    pres.save("Output-presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Cuando el texto se vuelve demasiado largo para su caja, se desborda.
 
-## **Reducir Texto en Desbordamiento**
+Cuando el texto se vuelve demasiado largo para su cuadro, se desborda. 
 
-Si un texto se vuelve demasiado largo para su caja, a través de la opción **Reducir texto en desbordamiento**, puedes especificar que el tamaño y el espaciado del texto deben reducirse para que quepa en su caja. Para especificar esta configuración, establece la propiedad [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) (de la clase [text_frame_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)) en `NORMAL`.
+## **Shrink Text on Overflow**
+
+Si un texto se vuelve demasiado largo para su cuadro, mediante la opción **Shrink text on overflow** puede especificar que el tamaño y el espaciado del texto se reduzcan para que quepan en su cuadro. Para especificar esta configuración, establezca la propiedad [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) de la clase [TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) a `NORMAL`.
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
-Este código Python te muestra cómo especificar que un texto debe reducirse en desbordamiento en una presentación de PowerPoint:
-
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
 
     portion = slides.Portion("lorem ipsum...")
     portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
     portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    autoShape.text_frame.paragraphs[0].portions.add(portion)
+    auto_shape.text_frame.paragraphs[0].portions.add(portion)
 
-    textFrameFormat = autoShape.text_frame.text_frame_format
-    textFrameFormat.autofit_type = slides.TextAutofitType.NORMAL
+    text_frame_format = auto_shape.text_frame.text_frame_format
+    text_frame_format.autofit_type = slides.TextAutofitType.NORMAL
 
-    pres.save("Output-presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
 
 {{% alert title="Info" color="info" %}}
-
-Cuando se utiliza la opción **Reducir texto en desbordamiento**, la configuración se aplica únicamente cuando el texto se vuelve demasiado largo para su caja.
-
+Al usar la opción **Shrink text on overflow**, la configuración se aplica solo cuando el texto se vuelve demasiado largo para su cuadro. 
 {{% /alert %}}
 
-## **Ajustar Texto**
+## **Wrap Text**
 
-Si deseas que el texto en una forma se ajuste dentro de esa forma cuando el texto exceda el borde de la forma (solo ancho), debes usar el parámetro **Ajustar texto en la forma**. Para especificar esta configuración, debes establecer la propiedad [wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) (de la clase [TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)) en `1`.
-
-Este código Python te muestra cómo usar la configuración Ajustar Texto en una presentación de PowerPoint:
+Si desea que el texto dentro de una forma se ajuste dentro de esa forma cuando el texto supera el borde (solo el ancho) de la forma, debe usar el parámetro **Wrap text in shape**. Para especificar esta configuración, debe establecer la propiedad [wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) de la clase [TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) a `NullableBool.TRUE`. 
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30, 350, 100)
 
     portion = slides.Portion("lorem ipsum...")
     portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
     portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    autoShape.text_frame.paragraphs[0].portions.add(portion)
+    auto_shape.text_frame.paragraphs[0].portions.add(portion)
 
-    textFrameFormat = autoShape.text_frame.text_frame_format
-    textFrameFormat.autofit_type = slides.TextAutofitType.NONE
-    textFrameFormat.wrap_text = 1
+    text_frame_format = auto_shape.text_frame.text_frame_format
+    text_frame_format.autofit_type = slides.TextAutofitType.NONE
+    text_frame_format.wrap_text = slides.NullableBool.TRUE
 
-    pres.save("Output-presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Nota" color="warning" %}} 
 
-Si estableces la propiedad `wrap_text` en `0` para una forma, cuando el texto dentro de la forma se vuelve más largo que el ancho de la forma, el texto se extiende más allá de los bordes de la forma en una sola línea.
-
+{{% alert title="Note" color="warning" %}} 
+Si establece la propiedad `wrap_text` a `NullableBool.FALSE` para una forma, cuando el texto dentro de la forma supera el ancho de la forma, el texto se extenderá más allá de los bordes de la forma en una sola línea. 
 {{% /alert %}}
+
+## **FAQ**
+
+**¿Los márgenes internos del marco de texto afectan a AutoFit?**
+
+Sí. El relleno (márgenes internos) reduce el área usable para el texto, por lo que AutoFit se activará antes—encogiendo la fuente o redimensionando la forma más pronto. Revise y ajuste los márgenes antes de afinar AutoFit.
+
+**¿Cómo interactúa AutoFit con los saltos de línea manuales y suaves?**
+
+Los saltos forzados permanecen, y AutoFit adapta el tamaño de fuente y el espaciado alrededor de ellos. Eliminar saltos innecesarios suele reducir la agresividad con la que AutoFit necesita encoger el texto.
+
+**¿Cambiar la fuente del tema o activar la sustitución de fuentes afecta los resultados de AutoFit?**
+
+Sí. Sustituir a una fuente con métricas de glifos diferentes cambia el ancho/alto del texto, lo que puede alterar el tamaño de fuente final y el ajuste de líneas. Tras cualquier cambio o sustitución de fuente, vuelva a revisar las diapositivas.

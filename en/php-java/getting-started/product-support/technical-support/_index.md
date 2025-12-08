@@ -3,6 +3,14 @@ title: Technical Support
 type: docs
 weight: 10
 url: /php-java/technical-support/
+keywords:
+- technical support
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Get fast, free technical support for Aspose.Slides for PHP, learn how to report issues effectively, and keep your PPT, PPTX and ODP projects running smoothly."
 ---
 
 {{% alert color="primary" %}} 

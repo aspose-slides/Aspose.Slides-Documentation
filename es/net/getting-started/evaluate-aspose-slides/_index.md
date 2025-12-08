@@ -14,6 +14,16 @@ La versión de evaluación de Aspose.Slides (sin una licencia especificada) brin
 ![todo:image_alt_text](evaluate-aspose-slides_1.png)
 
 {{% alert color="primary" %}} 
+Si desea probar Aspose.Slides sin las limitaciones de la versión de evaluación, puede solicitar una **Licencia Temporal de 30 Días**. Consulte [Cómo obtener una Licencia Temporal?](https://purchase.aspose.com/temporary-license) para obtener más información.
+{{% /alert %}}
+
+## **Preguntas frecuentes**
+
+**¿Puedo probar múltiples presentaciones en paralelo en diferentes hilos en modo de evaluación?**
+Sí. Puede procesar diferentes documentos en paralelo; no debe compartir el mismo objeto de presentación [entre hilos](/slides/es/net/multithreading/). El modo de evaluación no afecta esto.
+
+**¿Necesito instalar Microsoft PowerPoint para evaluar la biblioteca en un servidor o en CI?**
+No. Aspose.Slides es un motor independiente y no requiere PowerPoint instalado, ya sea para evaluación o producción.
 
 Si desea probar Aspose.Slides sin las limitaciones de la versión de evaluación, puede solicitar una **Licencia Temporal de 30 Días**. Consulte [¿Cómo obtener una Licencia Temporal?](https://purchase.aspose.com/temporary-license) para obtener más información.
 

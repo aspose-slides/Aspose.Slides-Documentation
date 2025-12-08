@@ -1,9 +1,22 @@
 ---
-title: Chart Series
+title: Manage Chart Data Series in Presentations Using JavaScript
+linktitle: Data Series
 type: docs
 url: /nodejs-java/chart-series/
-keywords: "Chart series, series color, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Chart series in PowerPoint presentations in JavaScript"
+keywords:
+- сhart series
+- series overlap
+- series color
+- category color
+- series name
+- data point
+- series gap
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn how to manage chart series in JavaScript for PowerPoint (PPT/PPTX) with practical code examples and best practices to enhance your data presentations."
 ---
 
 A series is a row or column of numbers plotted in a chart.

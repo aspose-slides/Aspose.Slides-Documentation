@@ -1,8 +1,21 @@
 ---
 title: Public API and Backwards Incompatible Changes in Aspose.Slides for Java 15.2.0
+linktitle: Aspose.Slides for Java 15.2.0
 type: docs
 weight: 110
 url: /java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/
+keywords:
+- migration
+- legacy code
+- modern code
+- legacy approach
+- modern approach
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Review public API updates and breaking changes in Aspose.Slides for Java to smoothly migrate your PowerPoint PPT, PPTX and ODP presentation solutions."
 ---
 
 {{% alert color="primary" %}} 

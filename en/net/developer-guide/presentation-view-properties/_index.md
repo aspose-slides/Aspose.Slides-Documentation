@@ -1,5 +1,6 @@
 ---
-title: Presentation View Properties
+title: Retrieve and Update Presentation View Properties in .NET
+linktitle: View Properties
 type: docs
 weight: 80
 url: /net/presentation-view-properties/
@@ -15,11 +16,12 @@ keywords:
 - auto adjust
 - default zoom
 - PowerPoint
+- OpenDocument
 - presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Manage PowerPoint presentation view properties in C# or .NET"
+- Aspose.Slides
+description: "Discover Aspose.Slides for .NET view properties to customize formats PPT, PPTX, and ODP slides—adjust layouts, zoom levels, and display settings."
 ---
 
 {{% alert color="primary" %}} 
@@ -71,7 +73,7 @@ using (Presentation pres = new Presentation("demo.pptx"))
 }
 ```
 
-## **Set Default Zoom Value**
+## **Set the Default Zoom Value**
 
 Aspose.Slides for .NET now supports setting the default zoom value for presentation such that when the presentation is opened, zoom is set already. This could be done by setting the [ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/viewproperties) of a presentation. Slide View Properties as well as [NotesViewProperties](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/properties/notesviewproperties) could be set programmatically. In this topic, we will see with an example how to set the View Properties of Presentation in Aspose.Slides.
 

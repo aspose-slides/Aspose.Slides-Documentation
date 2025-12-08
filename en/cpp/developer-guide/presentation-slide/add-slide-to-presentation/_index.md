@@ -1,8 +1,19 @@
 ---
-title: Add Slide to Presentation
+title: Add Slides to Presentations in C++
+linktitle: Add Slide
 type: docs
 weight: 10
 url: /cpp/add-slide-to-presentation/
+keywords:
+- add slide
+- create slide
+- empty slide
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Easily add slides to your PowerPoint and OpenDocument presentations using Aspose.Slides for C++ — seamless, efficient slide insertion in seconds."
 ---
 
 ## **Add Slide to Presentation**

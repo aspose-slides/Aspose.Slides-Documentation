@@ -1,149 +1,177 @@
 ---
-title: 将 PowerPoint 转换为 JPG 的 C#
-linktitle: 将 PowerPoint PPT 转换为 JPG
+title: 在 C# 中将 PPT、PPTX 和 ODP 转换为 JPG
+linktitle: 将幻灯片转换为 JPG 图像
 type: docs
 weight: 60
 url: /zh/net/convert-powerpoint-to-jpg/
-keywords: 
-- 转换 PowerPoint 演示文稿
-- JPG
-- JPEG
+keywords:
+- 将 PowerPoint 转换为 JPG
+- 将演示文稿转换为 JPG
+- 将幻灯片转换为 JPG
+- 将 PPT 转换为 JPG
+- 将 PPTX 转换为 JPG
+- 将 ODP 转换为 JPG
 - PowerPoint 转 JPG
-- PowerPoint 转 JPEG
+- 演示文稿转 JPG
+- 幻灯片转 JPG
 - PPT 转 JPG
 - PPTX 转 JPG
+- ODP 转 JPG
+- 将 PowerPoint 转换为 JPEG
+- 将演示文稿转换为 JPEG
+- 将幻灯片转换为 JPEG
+- 将 PPT 转换为 JPEG
+- 将 PPTX 转换为 JPEG
+- 将 ODP 转换为 JPEG
+- PowerPoint 转 JPEG
+- 演示文稿转 JPEG
+- 幻灯片转 JPEG
 - PPT 转 JPEG
 - PPTX 转 JPEG
+- ODP 转 JPEG
 - C#
 - Csharp
 - .NET
 - Aspose.Slides
-description: "在 C# 或 .NET 中将 PowerPoint 转换为 JPG。将幻灯片保存为 JPG 图像"
+description: "了解如何仅用几行代码将 PowerPoint 和 OpenDocument 演示文稿转换为高质量的 JPEG 图像。优化演示文稿以用于网页、共享和存档。立即阅读完整指南！"
 ---
 
 ## **概述**
 
-本文解释了如何使用 C# 将 PowerPoint 演示文稿转换为 JPG 格式。它涵盖以下主题：
+将 PowerPoint 和 OpenDocument 演示文稿转换为 JPG 图像有助于共享幻灯片、优化性能以及将内容嵌入网站或应用程序中。Aspose.Slides for .NET 允许您将 PPTX、PPT 和 ODP 文件转换为高质量的 JPEG 图像。本指南解释了不同的转换方法。
 
-- [C# 将 PowerPoint 转换为 JPG](#convert-powerpoint-pptpptx-to-jpg)
-- [C# 将 PPT 转换为 JPG](#convert-powerpoint-pptpptx-to-jpg)
-- [C# 将 PPTX 转换为 JPG](#convert-powerpoint-pptpptx-to-jpg)
-- [C# 将 ODP 转换为 JPG](#convert-powerpoint-pptpptx-to-jpg)
-- [C# 将 PowerPoint 幻灯片转换为图像](#convert-powerpoint-pptpptx-to-jpg)
+借助这些功能，您可以轻松实现自己的演示文稿查看器并为每张幻灯片创建缩略图。如果您希望保护幻灯片不被复制或以只读模式演示演示文稿，这将非常有用。Aspose.Slides 允许您将整个演示文稿或指定的幻灯片转换为图像格式。
 
-## **C# PowerPoint 转 JPG**
+## **将演示文稿幻灯片转换为 JPG 图像**
 
-有关将 PowerPoint 转换为 JPG 的 C# 示例代码，请参见下面的部分，即 [将 PowerPoint 转换为 JPG](#convert-powerpoint-pptpptx-to-jpg)。 该代码可以加载 PPT、PPTX 和 ODP 等多种格式到演示文稿对象中，然后将其幻灯片缩略图保存为 JPG 格式。 其他类似的 PowerPoint 到图像的转换，如 PNG、BMP、TIFF 和 SVG，讨论在这些文章中。
-
-- [C# PowerPoint 转 PNG](https://docs.aspose.com/slides/net/convert-powerpoint-to-png/)
-- [C# PowerPoint 转 BMP](#convert-powerpoint-pptpptx-to-jpg)
-- [C# PowerPoint 转 TIFF](https://docs.aspose.com/slides/net/convert-powerpoint-to-tiff/)
-- [C# PowerPoint 转 SVG](https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/)
-
-## **关于 PowerPoint 转 JPG 转换**
-使用 [**Aspose.Slides .NET API**](https://products.aspose.com/slides/net/) 您可以将 PowerPoint PPT 或 PPTX 演示文稿转换为 JPG 图像。还可以将 PPT/PPTX 转换为 BMP、PNG 或 SVG。 借助此功能，您可以轻松实现自己的演示文稿查看器，创建每个幻灯片的缩略图。如果您希望保护演示幻灯片不被版权保护，或以只读模式演示演示文稿，这可能很有用。 Aspose.Slides 允许将整个演示文稿或特定幻灯片转换为图像格式。
+1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。  
+2. 从 [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) 集合中获取类型为 [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) 的幻灯片对象。  
+3. 使用 [ISlide.GetImage(float, float)](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/#getimage_5) 方法创建幻灯片的图像。  
+4. 在图像对象上调用 [IImage.Save(string, ImageFormat)](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/#save_3) 方法。将输出文件名和图像格式作为参数传递。
 
 {{% alert color="primary" %}} 
 
-要查看 Aspose.Slides 如何将 PowerPoint 转换为 JPG 图像，您可能想尝试这些免费的在线转换器：PowerPoint [PPTX 转 JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) 和 [PPT 转 JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg)。
+**注意：** 在 Aspose.Slides .NET API 中，PPT、PPTX 或 ODP 转换为 JPG 与转换为其他格式不同。对于其他格式，通常使用 [IPresentation.Save(String, SaveFormat, ISaveOptions)](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/save/#save_5) 方法。但对于 JPG 转换，需要使用 [IImage.Save(string, ImageFormat)](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/#save_3) 方法。
 
 {{% /alert %}} 
-
-![todo:image_alt_text](ppt-to-jpg.png)
-
-## **将 PowerPoint PPT/PPTX 转换为 JPG**
-以下是将 PPT/PPTX 转换为 JPG 的步骤：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-2. 从 [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) 集合中获取 [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) 类型的幻灯片对象。
-3. 创建每个幻灯片的缩略图，然后将其转换为 JPG。[**ISlide.GetImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/#getimage_5) 方法用于获取幻灯片的缩略图，它返回一个 [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=netframework-4.8) 对象作为结果。[GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/#getimage_5) 方法必须从所需的 [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) 类型的幻灯片中调用，结果缩略图的比例传递到该方法中。
-4. 获取幻灯片缩略图后，从缩略图对象中调用 [**Image.Save(string filename, ImageFormat format)**](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.image.save?view=netframework-4.8) 方法。将结果文件名和图像格式传递给该方法。
-
-{{% alert color="primary" %}} 
-**注意**: PPT/PPTX 转 JPG 的转换与 Aspose.Slides .NET API 中转换为其他类型的转换不同。对于其他类型，您通常使用 [**IPresentation.SaveMethod(String, SaveFormat, ISaveOptions)** ](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/save/methods/5)方法，但在这里您需要 [**Image.Save(string filename, ImageFormat format)**](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.image.save?view=netframework-4.8) 方法。
-{{% /alert %}} 
-
 ```c#
-const int imageScale = 1;
+int scaleX = 1;
+int scaleY = scaleX;
 
-using (Presentation pres = new Presentation("PowerPoint-Presentation.ppt"))
+using (Presentation presentation = new Presentation("PowerPoint_Presentation.ppt"))
 {
-    foreach (ISlide slide in pres.Slides)
+    foreach (ISlide slide in presentation.Slides)
     {
-        // 创建全尺度图像
-        using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
-        {
-            // 将图像以 JPEG 格式保存到磁盘
-			string imageFileName = string.Format("Slide_{0}.jpg", slide.SlideNumber);
-            thumbnail.Save(imageFileName, ImageFormat.Jpeg);
-        }
-    }
-}
-```
-
-## **使用自定义尺寸将 PowerPoint PPT/PPTX 转换为 JPG**
-要更改生成的缩略图和 JPG 图像的尺寸，可以通过将 *ScaleX* 和 *ScaleY* 值传递到 [**ISlide.GetImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/#getimage_5) 方法中来设置它们：
-
-```c#
-using (Presentation pres = new Presentation("PowerPoint-Presentation.pptx"))
-{
-    // 定义尺寸
-    int desiredX = 1200;
-    int desiredY = 800;
-
-    // 获取 X 和 Y 的缩放值
-    float scaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
-    float scaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
-
-    foreach (ISlide slide in pres.Slides)
-    {
-        // 创建全尺度图像
+        // 创建指定缩放比例的幻灯片图像。
         using (IImage thumbnail = slide.GetImage(scaleX, scaleY))
         {
-            // 将图像以 JPEG 格式保存到磁盘
-			string imageFileName = string.Format("Slide_{0}.jpg", slide.SlideNumber);
+            // 以 JPEG 格式将图像保存到磁盘。
+            string imageFileName = $"Slide_{slide.SlideNumber}.jpg";
             thumbnail.Save(imageFileName, ImageFormat.Jpeg);
         }
     }
 }
 ```
 
-## **在将演示文稿保存为图像时呈现注释**
-Aspose.Slides for .NET 提供了一种功能，让您在将演示文稿的幻灯片转换为图像时渲染注释。以下 C# 代码演示了该操作：
+
+## **使用自定义尺寸将幻灯片转换为 JPG**
+
+若要更改生成的 JPG 图像的尺寸，您可以通过将尺寸传递给 [ISlide.GetImage(Size)](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/#getimage_6) 方法来设置图像大小。这使您能够生成具有特定宽度和高度的图像，确保输出符合分辨率和宽高比的要求。这种灵活性在为 Web 应用程序、报告或文档生成图像时特别有用，因为此时需要精确的图像尺寸。
 
 ```c#
-using (Presentation presentation = new Presentation("test.pptx"))
+Size imageSize = new Size(1200, 800);
+
+using (Presentation presentation = new Presentation("PowerPoint_Presentation.pptx"))
+{
+    foreach (ISlide slide in presentation.Slides)
+    {
+        // 创建指定大小的幻灯片图像。
+        using (IImage thumbnail = slide.GetImage(imageSize))
+        {
+            // 以 JPEG 格式将图像保存到磁盘。
+            string imageFileName = $"Slide_{slide.SlideNumber}.jpg";
+            thumbnail.Save(imageFileName, ImageFormat.Jpeg);
+        }
+    }
+}
+```
+
+
+## **在将幻灯片保存为图像时渲染批注**
+
+Aspose.Slides for .NET 提供了一个功能，允许在将演示文稿的幻灯片转换为 JPG 图像时渲染批注。此功能对于保留 PowerPoint 演示文稿中协作者添加的注释、反馈或讨论特别有用。通过启用此选项，您可以确保批注在生成的图像中可见，从而更容易在无需打开原始演示文稿文件的情况下审阅和分享反馈。
+
+假设我们有一个演示文稿文件 “sample.pptx”，其中一张幻灯片包含批注：
+
+![包含批注的幻灯片](slide_with_comments.png)
+
+以下 C# 代码在保留批注的情况下将幻灯片转换为 JPG 图像：
+
+```c#
+int scaleX = 2;
+int scaleY = scaleX;
+
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
     IRenderingOptions options = new RenderingOptions
     {
+        // 设置幻灯片批注的选项。
         SlidesLayoutOptions = new NotesCommentsLayoutingOptions
         {
-            NotesPosition = NotesPositions.BottomTruncated,
-            CommentsAreaColor = Color.Red,
+            CommentsPosition = CommentsPositions.Right,
             CommentsAreaWidth = 200,
-            CommentsPosition = CommentsPositions.Right
+            CommentsAreaColor = Color.DarkOrange                  
         }
     };
 
-    using (IImage image = presentation.Slides[0].GetImage(options))
+    // 将第一张幻灯片转换为图像。
+    using (IImage image = presentation.Slides[0].GetImage(options, scaleX, scaleY))
     {
-        image.Save("OutPresBitmap.png", ImageFormat.Png);
+        image.Save("Slide_1.jpg", ImageFormat.Jpeg);
     }
-
-    System.Diagnostics.Process.Start("OutPresBitmap.png");
 }
 ```
 
-{{% alert title="提示" color="primary" %}}
 
-Aspose 提供了一个 [免费的拼贴网页应用](https://products.aspose.app/slides/collage)。使用这个在线服务，您可以合并 [JPG 到 JPG](https://products.aspose.app/slides/collage/jpg) 或 PNG 到 PNG 的图像，创建 [照片网格](https://products.aspose.app/slides/collage/photo-grid) 等。
+结果如下：
 
-使用本文中描述的相同原理，您可以将图像从一种格式转换为另一种格式。有关更多信息，请参见以下页面：转换 [图像到 JPG](https://products.aspose.com/slides/net/conversion/image-to-jpg/)；转换 [JPG 到图像](https://products.aspose.com/slides/net/conversion/jpg-to-image/)；转换 [JPG 到 PNG](https://products.aspose.com/slides/net/conversion/jpg-to-png/)，转换 [PNG 到 JPG](https://products.aspose.com/slides/net/conversion/png-to-jpg/)；转换 [PNG 到 SVG](https://products.aspose.com/slides/net/conversion/png-to-svg/)，转换 [SVG 到 PNG](https://products.aspose.com/slides/net/conversion/svg-to-png/)。
+![包含批注的 JPG 图像](image_with_comments.png)
+
+## **另请参阅**
+
+请参阅将 PPT、PPTX 或 ODP 转换为图像的其他选项，例如：
+
+- [将 PowerPoint 转换为 GIF](/slides/zh/net/convert-powerpoint-to-animated-gif/)
+- [将 PowerPoint 转换为 PNG](/slides/zh/net/convert-powerpoint-to-png/)
+- [将 PowerPoint 转换为 TIFF](/slides/zh/net/convert-powerpoint-to-tiff/)
+- [将 PowerPoint 转换为 SVG](/slides/zh/net/render-a-slide-as-an-svg-image/)
+
+{{% alert color="primary" %}} 
+
+要了解 Aspose.Slides 如何将 PowerPoint 转换为 JPG 图像，请尝试以下免费在线转换器：PowerPoint [PPTX to JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) 和 [PPT to JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg)。 
+
+{{% /alert %}} 
+
+![免费在线 PPTX 转 JPG 转换器](ppt-to-jpg.png)
+
+{{% alert title="Tip" color="primary" %}}
+
+Aspose 提供了一个 [FREE Collage web app](https://products.aspose.app/slides/collage)。使用此在线服务，您可以合并 [JPG to JPG](https://products.aspose.app/slides/collage/jpg) 或 PNG 到 PNG 的图像，创建 [photo grids](https://products.aspose.app/slides/collage/photo-grid) 等。
+
+使用本文中描述的相同原理，您可以将图像从一种格式转换为另一种格式。有关更多信息，请参阅以下页面：将 [image to JPG](https://products.aspose.com/slides/net/conversion/image-to-jpg/) 转换为 JPG；将 [JPG to image](https://products.aspose.com/slides/net/conversion/jpg-to-image/) 转换为图像；将 [JPG to PNG](https://products.aspose.com/slides/net/conversion/jpg-to-png/) 转换为 PNG，将 [PNG to JPG](https://products.aspose.com/slides/net/conversion/png-to-jpg/) 转换为 JPG；将 [PNG to SVG](https://products.aspose.com/slides/net/conversion/png-to-svg/) 转换为 SVG，将 [SVG to PNG](https://products.aspose.com/slides/net/conversion/svg-to-png/) 转换为 PNG。
 
 {{% /alert %}}
 
-## **另请参见**
+## **常见问题**
 
-查看其他将 PPT/PPTX 转换为图像的选项，例如：
+**此方法是否支持批量转换？**
 
-- [PPT/PPTX 转 SVG 转换](/slides/zh/net/render-a-slide-as-an-svg-image/)。
+是的，Aspose.Slides 允许在一次操作中批量将多个幻灯片转换为 JPG。
+
+**转换是否支持 SmartArt、图表和其他复杂对象？**
+
+是的，Aspose.Slides 渲染所有内容，包括 SmartArt、图表、表格、形状等。然而，与 PowerPoint 相比，渲染精度可能会略有差异，尤其是在使用自定义或缺失字体时。
+
+**处理的幻灯片数量是否有限制？**
+
+Aspose.Slides 本身对可处理的幻灯片数量没有严格限制。但在处理大型演示文稿或高分辨率图像时，可能会遇到内存不足错误。

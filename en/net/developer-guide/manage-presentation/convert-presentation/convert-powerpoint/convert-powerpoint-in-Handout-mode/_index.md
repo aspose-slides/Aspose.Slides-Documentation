@@ -1,21 +1,22 @@
 ---
-title: Convert Presentations in Handout Mode in C#
+title: Convert PowerPoint Presentations in Handout Mode in .NET
+linktitle: Handout Mode
 type: docs
 weight: 150
 url: /net/convert-powerpoint-in-Handout-mode/
 keywords:
 - convert PowerPoint
+- convert presentation
 - handout mode
 - handout
 - PowerPoint
+- presentation
 - PPT
 - PPTX
-- presentation
-- C#
-- Csharp
 - .NET
+- C#
 - Aspose.Slides
-description: "Convert Presentations in Handout Mode in C#"
+description: "Convert presentations to handouts in .NET. Set slides per page, keep notes, export to PDF or images with Aspose.Slides, with sample C# code. Try it free."
 ---
 
 ## **Handout Mode Export**

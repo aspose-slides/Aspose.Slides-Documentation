@@ -1,10 +1,25 @@
 ---
-title: Presentation via VBA
+title: Manage VBA Projects in Presentations Using C++
+linktitle: Presentation via VBA
 type: docs
 weight: 250
 url: /cpp/presentation-via-vba/
-keywords: "Macro, macros, VBA, VBA macro, add macro, remove macro, add VBA, remove VBA, extract macro, extract VBA, PowerPoint macro, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
-description: "Add, remove, and extract VBA macros in PowerPoint presentations in C++"
+keywords:
+- macro
+- VBA
+- VBA macro
+- add macro
+- remove macro
+- extract macro
+- add VBA
+- remove VBA
+- extract VBA
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Discover how to generate and manipulate PowerPoint and OpenDocument presentations via VBA with Aspose.Slides for C++ to streamline your workflow."
 ---
 
 The [Aspose.Slides.Vba](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.vba/) namespace contains classes and interfaces for working with macros and VBA code.

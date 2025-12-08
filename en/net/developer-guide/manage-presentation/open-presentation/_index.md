@@ -1,6 +1,6 @@
 ---
-title: Open a Presentation in C#
-linktitle: Open Presentations
+title: Open Presentations in .NET
+linktitle: Open Presentation
 type: docs
 weight: 20
 url: /net/open-presentation/
@@ -145,7 +145,7 @@ public class ImageLoadingHandler : IResourceLoadingCallback
 }
 ```
 
-## **Load Presentations Without Embedded Binary Objects**
+## **Load Presentations without Embedded Binary Objects**
 
 A PowerPoint presentation can contain the following types of embedded binary objects:
 

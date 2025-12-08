@@ -1,8 +1,20 @@
 ---
-title: Group
+title: Group Presentation Shapes in JavaScript
+linktitle: Shape Group
 type: docs
 weight: 40
 url: /nodejs-java/group/
+keywords:
+- group shape
+- shape group
+- add group
+- alternative text
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn to group and ungroup shapes in PowerPoint decks using Aspose.Slides for Node.js via Java — fast, step-by-step guide with free JavaScript code."
 ---
 
 ## **Add Group Shape**

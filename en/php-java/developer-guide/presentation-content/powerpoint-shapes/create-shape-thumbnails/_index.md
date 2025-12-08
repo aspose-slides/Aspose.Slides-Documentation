@@ -1,8 +1,19 @@
 ---
-title: Create Shape Thumbnails
+title: Create Thumbnails of Presentation Shapes in PHP
+linktitle: Shape Thumbnails
 type: docs
 weight: 70
 url: /php-java/create-shape-thumbnails/
+keywords:
+- shape thumbnail
+- shape image
+- render shape
+- shape rendering
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Generate high-quality shape thumbnails from PowerPoint slides with Aspose.Slides for PHP via Java – easily create and export presentation thumbnails."
 ---
 
 

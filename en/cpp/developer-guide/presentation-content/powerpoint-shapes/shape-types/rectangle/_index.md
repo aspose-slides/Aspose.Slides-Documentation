@@ -1,8 +1,20 @@
 ---
-title: Rectangle
+title: Add Rectangles to Presentations in C++
+linktitle: Rectangle
 type: docs
 weight: 80
 url: /cpp/rectangle/
+keywords:
+- add rectangle
+- create rectangle
+- rectangle shape
+- simple rectangle
+- formatted rectangle
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Boost your PowerPoint presentations by adding rectangles with Aspose.Slides for C++ — easily design and modify shapes programmatically."
 ---
 
 

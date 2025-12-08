@@ -3,6 +3,16 @@ title: Product Support
 type: docs
 weight: 100
 url: /nodejs-java/product-support/
+keywords:
+- technical support
+- resources
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Get fast technical support for Aspose.Slides for Node.js, learn how to report issues effectively, and keep your PPT, PPTX and ODP projects running smoothly."
 ---
 
 ## **Technical support**

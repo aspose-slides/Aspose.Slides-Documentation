@@ -1,9 +1,27 @@
 ---
-title: Manage Blob
+title: Manage Presentation BLOBs on Android for Efficient Memory Use
+linktitle: Manage BLOB
 type: docs
 weight: 10
 url: /androidjava/manage-blob/
-description: Manage Blob in PowerPoint Presentation using Java. Use Blob to reduce memory consumption in PowerPoint Presentation using Java. Add large file through Blob to PowerPoint Presentation using Java. Export large file through Blob from PowerPoint Presentation using Java. Load a large PowerPoint Presentation as Blob using Java.
+keywords:
+- large object
+- large item
+- large file
+- add BLOB
+- export BLOB
+- add image as BLOB
+- reduce memory
+- memory consumption
+- large presentation
+- temporary file
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Manage BLOB data in Aspose.Slides for Android via Java to streamline PowerPoint and OpenDocument file operations for efficient presentation handling."
 ---
 
 ## **About BLOB**

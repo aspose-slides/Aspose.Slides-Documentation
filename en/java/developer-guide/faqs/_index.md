@@ -1,11 +1,10 @@
 ---
-title: FAQs
+title: FAQ
 type: docs
 weight: 340
 url: /java/faqs/
 keywords:
 - FAQ
-- PowerPoint
 - presentation format
 - out of memory error
 - slide size
@@ -14,8 +13,12 @@ keywords:
 - paragraph size
 - formatting tables
 - font
+- PowerPoint
+- OpenDocument
+- presentation
 - Java
-- Aspose.Slides for Java
+- Aspose.Slides
+description: "Get answers to FAQ on Aspose.Slides for Java, covering PowerPoint and OpenDocument support, installation guidance, licensing, troubleshooting."
 ---
 
 ## **Supported File Formats**

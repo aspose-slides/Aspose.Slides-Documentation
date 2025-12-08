@@ -1,209 +1,256 @@
 ---
-title: 形状有效属性
+title: 从演示文稿中使用 Python 获取形状有效属性
+linktitle: 有效属性
 type: docs
 weight: 50
 url: /zh/python-net/shape-effective-properties/
-keywords: "形状属性, 相机属性, 灯光设置, 斜角形状, 文本框, 文本样式, 字体高度值, 表格填充格式, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在Python中获取PowerPoint演示文稿中的有效形状属性"
+keywords:
+- 形状属性
+- 相机属性
+- 灯光装置
+- 斜角形状
+- 文本框
+- 文本样式
+- 字体高度
+- 填充格式
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "了解 Aspose.Slides for Python via .NET 如何计算并应用有效的形状属性，以实现精确的 PowerPoint 和 OpenDocument 渲染。"
 ---
 
-在本主题中，我们将讨论**有效**和**本地**属性。当我们在这些层级直接设置值时
+## **概述**
 
-1. 在部分属性上，位于部分的幻灯片上。
-1. 在布局或母板幻灯片上的原型形状文本样式中（如果部分的文本框形状有一个）。
-1. 在演示文稿的全局文本设置中。
+在本主题中，您将学习 **有效** 和 **本地** 属性的概念。当在以下级别直接设置值时：
 
-那么这些值被称为**本地**值。在任何层级上，**本地**值都可以被定义或省略。但最终，当应用程序需要知道部分应该是什么样子时，它使用**有效**值。您可以通过使用**getEffective()**方法从本地格式中获取有效值。
+1. 幻灯片上的文本段落属性。
+2. 布局或母版幻灯片上原型形状的文本样式（如果文本框有的话）。
+3. 演示文稿的全局文本设置。
 
-以下示例展示了如何获取有效值。
+这些值称为 **本地** 值。任何级别都可以定义或省略 **本地** 值。当应用程序需要确定文本段落应如何显示时，它使用 **有效** 值。您可以通过调用本地格式的 `get_effective` 方法来获取 **有效** 值。
 
+以下示例展示了如何获取文本框格式和文本段落格式的 **有效** 值。
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "Presentation1.pptx") as pres:
-    shape = pres.slides[0].shapes[0]
+with slides.Presentation("Presentation1.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
 
-    localTextFrameFormat = shape.text_frame.text_frame_format
-    effectiveTextFrameFormat = localTextFrameFormat.get_effective()
+    local_text_frame_format = shape.text_frame.text_frame_format
+    effective_text_frame_format = local_text_frame_format.get_effective()
 
-    localPortionFormat = shape.text_frame.paragraphs[0].portions[0].portion_format
-    effectivePortionFormat = localPortionFormat.get_effective()
+    local_portion_format = shape.text_frame.paragraphs[0].portions[0].portion_format
+    effective_portion_format = local_portion_format.get_effective()
 ```
 
 
+## **获取有效相机属性**
 
-## **获取相机的有效属性**
-Aspose.Slides for Python via .NET允许开发者获取相机的有效属性。为此，Aspose.Slides中增加了**CameraEffectiveData**类。CameraEffectiveData类表示一个不可变对象，包含有效的相机属性。**CameraEffectiveData**类的一个实例作为**ThreeDFormatEffectiveData**类的一部分使用，这是ThreeDFormat类的有效值对。
+Aspose.Slides for Python via .NET 允许您检索 **有效** 相机属性。 [ICameraEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/icameraeffectivedata/) 类表示包含这些属性的不可变对象。通过 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformateffectivedata/) 暴露的 [ICameraEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/icameraeffectivedata/) 实例提供了 [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) 类的 **有效** 值。
 
-以下代码示例展示了如何获取相机的有效属性。
-
+以下示例展示了如何获取 **有效** 相机属性：
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "Presentation1.pptx") as pres:
-	threeDEffectiveData = pres.slides[0].shapes[0].three_d_format.get_effective()
+with slides.Presentation("Presentation1.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
 
-	print("= 有效相机属性 =")
-	print("类型: " + str(threeDEffectiveData.camera.camera_type))
-	print("视野: " + str(threeDEffectiveData.camera.field_of_view_angle))
-	print("缩放: " + str(threeDEffectiveData.camera.zoom))
+	three_d_effective_data = shape.three_d_format.get_effective()
+
+	print("= Effective camera properties =")
+	print("Type:", str(three_d_effective_data.camera.camera_type))
+	print("Field of view:", str(three_d_effective_data.camera.field_of_view_angle))
+	print("Zoom:", str(three_d_effective_data.camera.zoom))
 ```
 
 
-## **获取灯光设置的有效属性**
-Aspose.Slides for Python via .NET允许开发者获取灯光设置的有效属性。为此，Aspose.Slides中增加了**LightRigEffectiveData**类。LightRigEffectiveData类表示一个不可变对象，包含有效的灯光设置属性。**LightRigEffectiveData**类的一个实例作为**ThreeDFormatEffectiveData**类的一部分使用，这是ThreeDFormat类的有效值对。
+## **获取有效灯光装置属性**
 
-以下代码示例展示了如何获取灯光设置的有效属性。
+Aspose.Slides for Python via .NET 允许您检索灯光装置的 **有效** 属性。 [ILightRigEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ilightrigeffectivedata/) 类表示包含这些属性的不可变对象。通过 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformateffectivedata/) 暴露的 [ILightRigEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ilightrigeffectivedata/) 实例提供了 [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) 类的 **有效** 值。
 
+以下示例展示了如何获取 **有效** 灯光装置属性：
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "Presentation1.pptx") as pres:
-	threeDEffectiveData = pres.slides[0].shapes[0].three_d_format.get_effective()
+with slides.Presentation("Presentation1.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
 
-	print("= 有效灯光设置属性 =")
-	print("类型: " + str(threeDEffectiveData.light_rig.light_type))
-	print("方向: " + str(threeDEffectiveData.light_rig.direction))
+	three_d_effective_data = shape.three_d_format.get_effective()
+
+	print("= Effective light rig properties =")
+	print("Type:", str(three_d_effective_data.light_rig.light_type))
+	print("Direction:", str(three_d_effective_data.light_rig.direction))
 ```
 
 
-## **获取斜角形状的有效属性**
-Aspose.Slides for Python via .NET允许开发者获取斜角形状的有效属性。为此，Aspose.Slides中增加了**ShapeBevelEffectiveData**类。ShapeBevelEffectiveData类表示一个不可变对象，包含有效形状的面浮雕属性。**ShapeBevelEffectiveData**类的一个实例作为**ThreeDFormatEffectiveData**类的一部分使用，这是ThreeDFormat类的有效值对。
+## **获取有效形状斜角属性**
 
-以下代码示例展示了如何获取斜角形状的有效属性。
+Aspose.Slides for Python via .NET 允许您检索形状斜角的 **有效** 属性。 [IShapeBevelEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ishapebeveleffectivedata/) 类表示包含形状面部凹凸（斜角）属性的不可变对象。通过 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ithreedformateffectivedata/) 暴露的 [IShapeBevelEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ishapebeveleffectivedata/) 实例提供了 [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/) 类的 **有效** 值。
 
+以下示例展示了如何获取形状斜角的 **有效** 属性：
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "Presentation1.pptx") as pres:
-	threeDEffectiveData = pres.slides[0].shapes[0].three_d_format.get_effective()
+with slides.Presentation("Presentation1.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
 
-	print("= 有效形状的顶部面浮雕属性 =")
-	print("类型: " + str(threeDEffectiveData.bevel_top.bevel_type))
-	print("宽度: " + str(threeDEffectiveData.bevel_top.width))
-	print("高度: " + str(threeDEffectiveData.bevel_top.height))
+	three_d_effective_data = shape.three_d_format.get_effective()
+
+	print("= Effective shape's top face relief properties =")
+	print("Type:", str(three_d_effective_data.bevel_top.bevel_type))
+	print("Width:", str(three_d_effective_data.bevel_top.width))
+	print("Height:", str(three_d_effective_data.bevel_top.height))
 ```
 
 
+## **获取有效文本框属性**
 
-## **获取文本框的有效属性**
-使用Aspose.Slides for Python via .NET，您可以获取文本框的有效属性。为此，Aspose.Slides中增加了**TextFrameFormatEffectiveData**类，包含有效的文本框格式属性。
+使用 Aspose.Slides for Python via .NET，您可以检索文本框的 **有效** 属性。 [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/itextframeformateffectivedata/) 类包含 **有效** 文本框格式属性。
 
-以下代码示例展示了如何获取有效的文本框格式属性。
-
+以下示例展示了如何获取 **有效** 文本框格式属性：
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "Presentation1.pptx") as pres:
-	shape = pres.slides[0].shapes[0]
+with slides.Presentation("Presentation1.pptx") as presentation:
+	shape = presentation.slides[0].shapes[0]
 
-	textFrameFormat = shape.text_frame.text_frame_format
-	effectiveTextFrameFormat = textFrameFormat.get_effective()
+	text_frame_format_effective_data = shape.text_frame.text_frame_format.get_effective()
 
-
-	print("锚定类型: " + str(effectiveTextFrameFormat.anchoring_type))
-	print("自动适应类型: " + str(effectiveTextFrameFormat.autofit_type))
-	print("文本垂直类型: " + str(effectiveTextFrameFormat.text_vertical_type))
-	print("边距")
-	print("   左: " + str(effectiveTextFrameFormat.margin_left))
-	print("   上: " + str(effectiveTextFrameFormat.margin_top))
-	print("   右: " + str(effectiveTextFrameFormat.margin_right))
-	print("   下: " + str(effectiveTextFrameFormat.margin_bottom))
+	print("Anchoring type:", str(text_frame_format_effective_data.anchoring_type))
+	print("Autofit type:", str(text_frame_format_effective_data.autofit_type))
+	print("Text vertical type:", str(text_frame_format_effective_data.text_vertical_type))
+	print("Margins")
+	print("   Left:", str(text_frame_format_effective_data.margin_left))
+	print("   Top:", str(text_frame_format_effective_data.margin_top))
+	print("   Right:", str(text_frame_format_effective_data.margin_right))
+	print("   Bottom:", str(text_frame_format_effective_data.margin_bottom))
 ```
 
 
+## **获取有效文本样式属性**
 
-## **获取文本样式的有效属性**
-使用Aspose.Slides for Python via .NET，您可以获取文本样式的有效属性。为此，Aspose.Slides中增加了**TextStyleEffectiveData**类，包含有效的文本样式属性。
+使用 Aspose.Slides for Python via .NET，您可以检索文本样式的 **有效** 属性。 [ITextStyleEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/itextstyleeffectivedata/) 类包含 **有效** 文本样式属性。
 
-以下代码示例展示了如何获取有效的文本样式属性。
-
+以下示例展示了如何获取 **有效** 文本样式属性：
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "Presentation1.pptx") as pres:
-    shape = pres.slides[0].shapes[0]
+with slides.Presentation("Presentation1.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
 
-    effectiveTextStyle = shape.text_frame.text_frame_format.text_style.get_effective()
+    effective_text_style = shape.text_frame.text_frame_format.text_style.get_effective()
 
     for i in range(8):
-        effectiveStyleLevel = effectiveTextStyle.get_level(i)
-        print("= 风格级别 #" + str(i) + " 的有效段落格式 =")
+        effectiveStyleLevel = effective_text_style.get_level(i)
+        print(f"= Effective paragraph formatting for style level #{str(i)} =")
 
-        print("深度: " + str(effectiveStyleLevel.depth))
-        print("缩进: " + str(effectiveStyleLevel.indent))
-        print("对齐: " + str(effectiveStyleLevel.alignment))
-        print("字体对齐: " + str(effectiveStyleLevel.font_alignment))
-
+        print("Depth:", str(effectiveStyleLevel.depth))
+        print("Indent:", str(effectiveStyleLevel.indent))
+        print("Alignment:", str(effectiveStyleLevel.alignment))
+        print("Font alignment:", str(effectiveStyleLevel.font_alignment))
 ```
 
 
-## **获取有效字体高度值**
-使用Aspose.Slides for Python via .NET，您可以获取字体高度的有效属性。以下代码演示了在不同的演示文稿结构层级上设置本地字体高度值后，部分的有效字体高度值的变化。
+## **获取有效字体高度**
 
+使用 Aspose.Slides for Python via .NET，您可以检索 **有效** 字体高度。下面的示例演示了当您在演示文稿结构的不同级别设置本地字体高度值时，文本段落的 **有效** 字体高度是如何变化的。
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    newShape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 75, False)
-    newShape.add_text_frame("")
-    newShape.text_frame.paragraphs[0].portions.clear()
+with slides.Presentation() as presentation:
+    shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 75, False)
 
-    portion0 = slides.Portion("第一部分的示例文本")
-    portion1 = slides.Portion(" 和第二部分。")
+    shape.add_text_frame("")
+    paragraph = shape.text_frame.paragraphs[0]
 
-    newShape.text_frame.paragraphs[0].portions.add(portion0)
-    newShape.text_frame.paragraphs[0].portions.add(portion1)
+    portion0 = slides.Portion("Sample text with first portion")
+    portion1 = slides.Portion(" and second portion.")
 
-    print("创建后有效字体高度:")
-    print("部分 #0: " + str(portion0.portion_format.get_effective().font_height))
-    print("部分 #1: " + str(portion1.portion_format.get_effective().font_height))
+    paragraph.portions.add(portion0)
+    paragraph.portions.add(portion1)
 
-    pres.default_text_style.get_level(0).default_portion_format.font_height = 24
+    print("Effective font height just after creation:")
+    print("Portion #0:", portion0.portion_format.get_effective().font_height)
+    print("Portion #1:", portion1.portion_format.get_effective().font_height)
 
-    print("设置整个演示文稿的默认字体高度后有效字体高度:")
-    print("部分 #0: " + str(portion0.portion_format.get_effective().font_height))
-    print("部分 #1: " + str(portion1.portion_format.get_effective().font_height))
+    presentation.default_text_style.get_level(0).default_portion_format.font_height = 24
 
-    newShape.text_frame.paragraphs[0].paragraph_format.default_portion_format.font_height = 40
+    print("Effective font height after setting entire presentation default font height:")
+    print("Portion #0:", portion0.portion_format.get_effective().font_height)
+    print("Portion #1:", portion1.portion_format.get_effective().font_height)
 
-    print("设置段落默认字体高度后有效字体高度:")
-    print("部分 #0: " + str(portion0.portion_format.get_effective().font_height))
-    print("部分 #1: " + str(portion1.portion_format.get_effective().font_height))
+    paragraph.paragraph_format.default_portion_format.font_height = 40
 
-    newShape.text_frame.paragraphs[0].portions[0].portion_format.font_height = 55
+    print("Effective font height after setting paragraph default font height:")
+    print("Portion #0:", portion0.portion_format.get_effective().font_height)
+    print("Portion #1:", portion1.portion_format.get_effective().font_height)
 
-    print("设置部分 #0 字体高度后有效字体高度:")
-    print("部分 #0: " + str(portion0.portion_format.get_effective().font_height))
-    print("部分 #1: " + str(portion1.portion_format.get_effective().font_height))
+    paragraph.portions[0].portion_format.font_height = 55
 
-    newShape.text_frame.paragraphs[0].portions[1].portion_format.font_height = 18
+    print("Effective font height after setting portion #0 font height:")
+    print("Portion #0:", portion0.portion_format.get_effective().font_height)
+    print("Portion #1:", portion1.portion_format.get_effective().font_height)
 
-    print("设置部分 #1 字体高度后有效字体高度:")
-    print("部分 #0: " + str(portion0.portion_format.get_effective().font_height))
-    print("部分 #1: " + str(portion1.portion_format.get_effective().font_height))
+    paragraph.portions[1].portion_format.font_height = 18
 
-    pres.save("SetLocalFontHeightValues.pptx",slides.export.SaveFormat.PPTX)
+    print("Effective font height after setting portion #1 font height:")
+    print("Portion #0:", portion0.portion_format.get_effective().font_height)
+    print("Portion #1:", portion1.portion_format.get_effective().font_height)
+
+    presentation.save("SetLocalFontHeightValues.pptx",slides.export.SaveFormat.PPTX)
 ```
 
 
-## **获取表格的有效填充格式**
-使用Aspose.Slides for Python via .NET，您可以获取不同表格逻辑部分的有效填充格式。为此，Aspose.Slides中增加了**IFillFormatEffectiveData**接口，包含有效的填充格式属性。请注意，单元格格式总是优先于行格式，行格式优先于列格式，列格式优先于整个表格。
+## **获取有效表格填充格式**
 
-因此，**CellFormatEffectiveData**属性始终用于绘制表格。以下代码示例展示了如何获取不同表格逻辑部分的有效填充格式。
+使用 Aspose.Slides for Python via .NET，您可以检索表格不同逻辑部分的 **有效** 填充格式。[IFillFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ifillformateffectivedata/) 类包含 **有效** 填充格式属性。请注意，单元格格式始终优先于行格式，行格式优先于列格式，列格式优先于整个表格。
 
+因此，最终使用 [ICellFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/icellformateffectivedata/) 的属性来绘制表格。以下示例展示了如何获取不同表格层级的 **有效** 填充格式：
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "pres.pptx") as pres:
-	tbl = pres.slides[0].shapes[0]
-	tableFormatEffective = tbl.table_format.get_effective()
-	rowFormatEffective = tbl.rows[0].row_format.get_effective()
-	columnFormatEffective = tbl.columns[0].column_format.get_effective()
-	cellFormatEffective = tbl[0, 0].cell_format.get_effective()
+with slides.Presentation("presentation.pptx") as presentation:
+	table = presentation.slides[0].shapes[0]
 
-	tableFillFormatEffective = tableFormatEffective.fill_format
-	rowFillFormatEffective = rowFormatEffective.fill_format
-	columnFillFormatEffective = columnFormatEffective.fill_format
-	cellFillFormatEffective = cellFormatEffective.fill_format
+	table_format_effective = table.table_format.get_effective()
+	row_format_effective = table.rows[0].row_format.get_effective()
+	column_format_effective = table.columns[0].column_format.get_effective()
+	cell_format_effective = table[0, 0].cell_format.get_effective()
+
+	table_fill_format_effective = table_format_effective.fill_format
+	row_fill_format_effective = row_format_effective.fill_format
+	column_fill_format_effective = column_format_effective.fill_format
+	cell_fill_format_effective = cell_format_effective.fill_format
 ```
+
+
+## **常见问题解答**
+
+**如何判断获得的是“快照”而不是“实时对象”，以及何时需要重新读取 **有效** 属性？**
+
+EffectiveData 对象是调用时计算值的不可变快照。如果您更改了形状的本地或继承设置，请再次检索 **有效** 数据以获取更新后的值。
+
+**更改布局/母版幻灯片会影响已检索的 **有效** 属性吗？**
+
+会，但只有在您再次读取后才会生效。已经获取的 EffectiveData 对象不会自行更新——在更改布局或母版后请重新请求。
+
+**我可以通过 EffectiveData 修改值吗？**
+
+不能。EffectiveData 只读。请在本地格式对象（形状/文本/3D 等）中进行更改，然后再次获取 **有效** 值。
+
+**如果在形状级别、布局/母版以及全局设置中都未设置某属性，会怎样？**
+
+**有效** 值将由默认机制（PowerPoint/Aspose.Slides 默认值）决定。解析后的默认值将成为 EffectiveData 快照的一部分。
+
+**从 **有效** 字体值能否判断出是哪一级提供的大小或字体？**
+
+不能直接判断。EffectiveData 返回最终值。若要追溯来源，请检查段落/文本框/段落文本的本地值以及布局/母版/演示文稿的文本样式，以确定首次出现显式定义的级别。
+
+**为什么 **有效** 数据值有时看起来与本地值相同？**
+
+因为本地值最终成为了最终值（没有更高层级的继承）。在此情况下，**有效** 值与本地值相匹配。
+
+**什么时候应使用 **有效** 属性，什么时候仅使用本地属性？**
+
+当您需要在所有继承应用后得到“实际渲染”结果时（例如对齐颜色、缩进或尺寸），使用 EffectiveData。如果您只需在特定层级修改格式，请修改本地属性，然后在需要时重新读取 EffectiveData 以验证结果。

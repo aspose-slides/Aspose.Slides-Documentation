@@ -2,12 +2,26 @@
 title: Comment
 type: docs
 weight: 230
-url: /net/examples/elements/comment
+url: /net/examples/elements/comment/
+keywords:
+- comment example
+- modern comment
+- add comment
+- access comment
+- remove comment
+- reply to comment
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Manage slide comments in C# with Aspose.Slides: add, read, reply, edit, delete, and work with threaded comments for PowerPoint and OpenDocument."
 ---
 
 Demonstrates adding, reading, removing, and replying to modern comments using **Aspose.Slides for .NET**.
 
-## Add a Modern Comment
+## **Add a Modern Comment**
 
 Create a comment authored by a user and save the presentation.
 
@@ -24,7 +38,7 @@ static void Add_Modern_Comment()
 }
 ```
 
-## Access a Modern Comment
+## **Access a Modern Comment**
 
 Read a modern comment from an existing presentation.
 
@@ -39,7 +53,7 @@ static void Access_Modern_Comment()
 }
 ```
 
-## Remove a Modern Comment
+## **Remove a Modern Comment**
 
 Remove a comment and save the updated file.
 
@@ -56,7 +70,7 @@ static void Remove_Modern_Comment()
 }
 ```
 
-## Reply to a Modern Comment
+## **Reply to a Modern Comment**
 
 Add replies to a parent modern comment.
 

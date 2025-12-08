@@ -1,39 +1,54 @@
 ---
-title: PPT vs PPTX
+title: "了解差异：PPT vs PPTX"
+linktitle: "PPT vs PPTX"
 type: docs
 weight: 10
 url: /zh/net/ppt-vs-pptx/
-keywords: "PPT vs PPTX, PPT 或 PPTX, PowerPoint 演示文稿, 格式, C#, Csharp, .NET"
-description: "关于 PowerPoint 演示文稿格式。PPT vs PPTX。C# 或 .NET 中的差异"
+keywords: "PPT vs PPTX, PowerPoint 格式, C#, .NET, 将 PPT 转换为 PPTX, .NET 中的演示文稿"
+description: "探索 PPT 与 PPTX 格式之间的关键差异。了解它们在 C# 和 .NET 环境中的使用情况。"
 ---
 
+## **了解 PPT：传统格式**
+[**PPT**](https://docs.fileformat.com/presentation/ppt/) 是一种二进制文件格式，供 PowerPoint 97-2003 使用。由于其二进制特性，查看其内容需要专用工具。尽管在可扩展性方面有限制，PPT 格式仍在某些应用中被广泛使用。
 
-## **什么是 PPT?**
-[**PPT**](https://docs.fileformat.com/presentation/ppt/) 是一种二进制文件格式，即无法在没有特殊工具的情况下查看其内容。第一版 PowerPoint 97-2003 使用 PPT 文件格式，但其扩展性有限。
-## **什么是 PPTX?**
-[**PPTX**](https://docs.fileformat.com/presentation/pptx/) 是一种基于 Office Open XML（ISO 29500:2008-2016，ECMA-376）标准的新演示文件格式。PPTX 是一组归档的 XML 和媒体文件。PPTX 格式易于扩展。例如，可以轻松添加对新图表类型或形状类型的支持，而无需在每个新 PowerPoint 版本中更改 PPTX 格式。PPTX 格式从 PowerPoint 2007 开始使用。
+## **探索 PPTX：现代标准**
+[**PPTX**](https://docs.fileformat.com/presentation/pptx/) 基于 Office Open XML 标准（ISO 29500:2008-2016，ECMA-376）。这种基于 XML 的格式提供了更大的灵活性，并兼容 PowerPoint 2007 及更高版本。PPTX 的模块化便于轻松添加新功能，例如新的图表或形状类型，确保向后兼容且无需对格式进行重大更改。
 
-## **PPT vs PPTX**
-尽管 PPTX 提供了更广泛的功能，PPT 仍然相当受欢迎。转换 PPT 至 PPTX 及反之的需求也非常高。
+## **PPT 与 PPTX：关键差异和转换要点**
+PPTX 提供了比传统 PPT 格式更强大的功能，但这两种格式之间的转换通常是必要的。将 PPT 转换为 PPTX 会因兼容性问题而面临独特挑战。PowerPoint 可能会在 PPT 文件中创建特定组件（MetroBlob）以存储 PPTX 专有的数据，旧版本的 PowerPoint 无法显示这些组件，但在新版本中打开或转换为 PPTX 时可以恢复。
 
-然而，旧的 PPT 与新的 PPTX 格式之间的转换是其他 Microsoft Office 格式中最复杂的挑战。尽管 PPT 格式的规范是公开的，但与其合作是困难的。PowerPoint 可以在 PPT 文件中创建特殊部分（MetroBlob）来存储 PPTX 中不受 PPT 格式支持且无法在旧版本 PowerPoint 中显示的信息。当 PPT 文件在现代 PowerPoint 版本中加载或转换为 PPTX 格式时，可以恢复这些信息。
-
-Aspose.Slides 提供了一个通用接口来处理所有演示格式。它允许以非常简单的方式将 PPT 转换为 PPTX，并将 PPTX 转换为 PPT。Aspose.Slides 完全支持从 PPT 转换到 PPTX，并且在某些限制下也支持从 PPTX 转换到 PPT。我们建议在可能的情况下使用 PPTX 格式。
+Aspose.Slides 简化了 PPT 与 PPTX 格式的处理，提供无缝的转换功能。虽然完全支持从 PPT 转换为 PPTX，但将 PPTX 转换为 PPT 则存在一定限制。建议尽可能使用 PPTX，以优化功能和兼容性。
 
 {{% alert color="primary" %}} 
-
-通过在线 [**Aspose.Slides 转换应用**](https://products.aspose.app/slides/conversion/) 检查 PPT 到 PPTX 以及 PPTX 到 PPT 的转换质量。
-
-{{% /alert %}} 
-
-```c#
+体验高质量的转换，使用 [**Aspose.Slides Conversion tool**](https://products.aspose.app/slides/conversion/)。
+{{% /alert %}}
+```csharp
 // 实例化一个表示 PPTX 文件的 Presentation 对象
 Presentation pres = new Presentation("PPTtoPPTX.ppt");
 
-// 将 PPTX 演示文稿保存为 PPTX 格式
+// 以 PPTX 格式保存 PPTX 演示文稿
 pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
 ```
 
+
 {{% alert color="primary" %}} 
-阅读更多 [**如何将演示文稿从 PPT 转换为 PPTX**.](/slides/zh/net/convert-ppt-to-pptx/)
-{{% /alert %}} 
+发现更多： [**How to Convert Presentations from PPT to PPTX**](/slides/zh/net/convert-ppt-to-pptx/)
+{{% /alert %}}
+
+## **常见问题**
+
+**如果演示文稿能够正常打开且没有错误，保留旧的 PPT 有意义吗？**
+
+如果演示文稿可以可靠地打开且不需要协作或新功能，可以保持 PPT 格式。但为了未来的兼容性和可扩展性，最好 [转换为 PPTX](/slides/zh/net/convert-ppt-to-pptx/)：该格式基于开放的 OOXML 标准，且更容易被现代工具支持。
+
+**如何决定哪些文件应该首先转换为 PPTX？**
+
+先转换以下演示文稿：由多个人编辑的；包含复杂的 [charts](/slides/zh/net/create-chart/)/[shapes](/slides/zh/net/shape-manipulations/)；用于外部沟通的；或在 [opened](/slides/zh/net/open-presentation/) 时触发警告的。
+
+**在将 PPT 转换为 PPTX 再转换回 PPT 时，密码保护会被保留吗？**
+
+密码的存在仅在正确的转换且工具支持加密的情况下才会保留。更可靠的做法是先 [删除保护](/slides/zh/net/password-protected-presentation/)，然后 [转换](/slides/zh/net/convert-ppt-to-pptx/)，再根据安全策略重新应用保护。
+
+**为什么在将 PPTX 转回 PPT 时，一些效果会消失或被简化？**
+
+因为 PPT 不支持某些新对象/属性。PowerPoint 和工具可以将这些信息的“痕迹”存储在特殊块中以便以后恢复，但旧版本的 PowerPoint 无法渲染它们。

@@ -1,5 +1,5 @@
 ---
-title: Применяйте или изменяйте макеты слайдов в Python
+title: Применить или изменить макеты слайдов в Python
 linktitle: Макет слайда
 type: docs
 weight: 60
@@ -15,7 +15,7 @@ keywords:
 - титульный слайд
 - заголовок и содержимое
 - заголовок раздела
-- два объекта содержимого
+- два содержимых
 - сравнение
 - только заголовок
 - пустой макет
@@ -27,224 +27,217 @@ keywords:
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Узнайте, как управлять и настраивать макеты слайдов в Aspose.Slides for Python via .NET. Изучите типы макетов, управление заполнителями, видимость нижнего колонтитула и манипулирование макетами на основе примеров кода на Python."
+description: "Узнайте, как управлять и настраивать макеты слайдов в Aspose.Slides for Python через .NET. Изучите типы макетов, управление заполнителями, видимость нижних колонтитулов и манипулирование макетами с помощью примеров кода на Python."
 ---
 
-Макет слайда содержит заполнители и информацию о форматировании для всего содержимого, которое появляется на слайде. Макет определяет доступные заполнители содержимого и их расположение.
+## **Обзор**
 
-Макеты слайдов позволяют быстро создавать и оформлять презентации (будь они простыми или сложными). Вот некоторые из самых популярных макетов слайдов, используемых в презентациях PowerPoint:
+Макет слайда определяет расположение полей‑заменителей и форматирование содержимого на слайде. Он управляет тем, какие заменители доступны и где они находятся. Макеты слайдов помогают быстро и последовательно создавать презентации — независимо от того, создаёте ли вы что‑то простое или более сложное. Некоторые из самых распространённых макетов слайдов в PowerPoint включают:
 
-* **Макет слайда с заголовком**. Этот макет состоит из двух текстовых заполнителей. Один заполнитель предназначен для заголовка, другой — для подзаголовка.
-* **Макет заголовка и содержимого**. Этот макет содержит относительно небольшой заполнитель вверху для заголовка и более крупный заполнитель для основного содержимого (график, абзацы, маркированный или нумерованный список, изображения и т. д.).
-* **Пустой макет**. Этот макет не содержит заполнителей, поэтому позволяет создавать элементы с нуля.
+**Title Slide layout** – Включает два текстовых заменителя: один для заголовка и один для подзаголовка.
 
-Так как мастер-слайд является верхним иерархическим слайдом, который хранит информацию о макетах слайдов, вы можете использовать мастер-слайд для доступа к макетам слайдов и внесения в них изменений. Макет слайда можно получить по типу или имени. Так же каждый слайд имеет уникальный идентификатор, который можно использовать для доступа к нему.
+**Title and Content layout** – Содержит меньшее поле‑заменитель заголовка вверху и большее под ним для основного содержимого (например, текста, маркированных пунктов, диаграмм, изображений и прочего).
 
-Также вы можете вносить изменения непосредственно в конкретный макет слайда в презентации.
+**Blank layout** – Не содержит заменителей, предоставляя полный контроль над созданием слайда с нуля.
 
-* Чтобы позволить вам работать с макетами слайдов (включая те, что в мастер-слайдах), Aspose.Slides предоставляет такие свойства, как `layout_slides` и `masters` в классе [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-* Для выполнения связанных задач Aspose.Slides предоставляет [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/) и многие другие типы.
+Макеты слайдов являются частью главного слайда, который является верхнеуровневым слайдом и определяет стили макетов для презентации. Вы можете получить доступ к макетам слайдов и изменять их через главный слайд — либо по типу, имени, либо по уникальному идентификатору. Кроме того, можно редактировать конкретный макет слайда непосредственно в презентации.
 
-{{% alert title="Информация" color="info" %}}
+Для работы с макетами слайдов в Aspose.Slides for Python вы можете использовать:
 
-Для получения дополнительной информации о работе с мастер-слайдами в частности, смотрите статью [Мастер-слайд](https://docs.aspose.com/slides/python-net/slide-master/).
+- Свойства, такие как [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) и [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) в классе [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
+- Типы, такие как [LayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutplaceholdermanager/) и [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslideheaderfootermanager/)
 
+{{% alert title="Info" color="info" %}}
+Чтобы узнать больше о работе с главными слайдами, ознакомьтесь со статьёй [Manage PowerPoint Slide Masters in Python](/slides/ru/python-net/slide-master/).
 {{% /alert %}}
 
-## **Добавить макет слайда в презентацию**
+## **Добавление макетов слайдов в презентации**
+
+Для настройки внешнего вида и структуры ваших слайдов может потребоваться добавить новые макеты слайдов в презентацию. Aspose.Slides for Python позволяет проверить, существует ли уже конкретный макет, добавить новый при необходимости и использовать его для вставки слайдов на основе этого макета.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Получите доступ к [коллекции MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/imasterlayoutslidecollection/).
-1. Просмотрите существующие макеты слайдов, чтобы подтвердить, что необходимый макет слайда уже существует в коллекции макетов слайдов. В противном случае добавьте желаемый макет слайда.
+1. Получите доступ к [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/).
+1. Проверьте, существует ли желаемый макет слайда в коллекции. Если нет, добавьте нужный макет слайда.
 1. Добавьте пустой слайд на основе нового макета слайда.
 1. Сохраните презентацию.
 
-Этот код на Python показывает, как добавить макет слайда в презентацию PowerPoint:
-
+Следующий код Python демонстрирует, как добавить макет слайда в презентацию PowerPoint:
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Создает экземпляр класса Presentation, который представляет файл презентации
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Обходит типы макетов слайдов
-    layoutSlides = presentation.masters[0].layout_slides
-    layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)  
-    if layoutSlide is None:
-         layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.TITLE)
+# Создать экземпляр класса Presentation для открытия файла презентации.
+with slides.Presentation("sample.pptx") as presentation:
+    # Пройти типы макетов слайдов, чтобы выбрать макет слайда.
+    layout_slides = presentation.masters[0].layout_slides
+    layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
+    if layout_slide is None:
+         layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE)
 
-    if layoutSlide is None:
-        # Ситуация, когда презентация не содержит некоторые типы макета.
-        # Файл презентации содержит только пустые и нестандартные типы макетов.
-        # Но макеты слайдов с нестандартными типами имеют разные имена слайдов,
-        # такие как "Заголовок", "Заголовок и содержимое" и т. д. И эти
-        # названия могут быть использованы для выбора макета слайда.
-        # Вы также можете использовать набор типов форм заполнителей. Например,
-        # макет слайда заголовка должен содержать только тип заполнителя заголовка и т. д.
-        for titleAndObjectLayoutSlide in layoutSlides:
-            if titleAndObjectLayoutSlide.name == "Заголовок и объект":
-                layoutSlide = titleAndObjectLayoutSlide
+    if layout_slide is None:
+        # Ситуация, когда презентация не содержит всех типов макетов.
+        # Файл презентации содержит только макеты Blank и Custom.
+        # Однако макеты с пользовательскими типами могут иметь узнаваемые имена,
+        # такие как "Title", "Title and Content" и т.д., которые могут использоваться для выбора макета слайда.
+        # Вы также можете опираться на набор типов фигур-заполнителей.
+        # Например, титульный слайд должен содержать только тип заполнителя Title и т.д.
+        for title_and_object_layout_slide in layout_slides:
+            if title_and_object_layout_slide.name == "Title and Object":
+                layout_slide = title_and_object_layout_slide
                 break
 
-        if layoutSlide is None:
-            for titleLayoutSlide in layoutSlides:
-                if titleLayoutSlide.name == "Заголовок":
-                    layoutSlide = titleLayoutSlide
+        if layout_slide is None:
+            for title_layout_slide in layout_slides:
+                if title_layout_slide.name == "Title":
+                    layout_slide = title_layout_slide
                     break
 
-            if layoutSlide is None:
-                layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.BLANK)
-                if layoutSlide is None:
-                    layoutSlide = layoutSlides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Заголовок и объект")
+            if layout_slide is None:
+                layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+                if layout_slide is None:
+                    layout_slide = layout_slides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
 
-    # Добавляет пустой слайд с добавленным макетом слайда
-    presentation.slides.insert_empty_slide(0, layoutSlide)
+    # Добавить пустой слайд, используя добавленный макет слайда.
+    presentation.slides.insert_empty_slide(0, layout_slide)
 
-    # Сохраняет презентацию на диск
-    presentation.save("AddLayoutSlides_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Удалить неиспользуемый макет слайда**
-
-Aspose.Slides предоставляет метод `remove_unused_layout_slides` из класса [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/), который позволяет удалять нежелательные и неиспользуемые макеты слайдов. Этот код на Python показывает, как удалить макет слайда из презентации PowerPoint:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("pres.pptx") as pres:
-    slides.lowcode.Compress.remove_unused_layout_slides(pres)
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+    # Сохранить презентацию на диск.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **Установить размер и тип макета слайда**
+## **Удаление неиспользуемых макетов слайдов**
 
-Чтобы вы могли установить размер и тип для конкретного макета слайда, Aspose.Slides предоставляет свойства `type` и `size` (из класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)). Этот код на Python демонстрирует операцию:
+Aspose.Slides предоставляет метод [remove_unused_layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) из класса [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) для удаления нежелательных и неиспользуемых макетов слайдов.
 
+Следующий код Python показывает, как удалить макет слайда из презентации PowerPoint:
 ```python
 import aspose.slides as slides
 
-# Создает экземпляр объекта Presentation, который представляет файл презентации 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    with slides.Presentation() as auxPresentation:
-        slide = presentation.slides[0]
-
-        # Устанавливает размер слайда для созданной презентации в соответствии с исходным
-        auxPresentation.slide_size.set_size(presentation.slide_size.type, slides.SlideSizeScaleType.ENSURE_FIT)
-
-        auxPresentation.slides.insert_clone(0, slide)
-        auxPresentation.slides.remove_at(0)
-        # Сохраняет презентацию на диск
-        auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("sample.pptx") as presentation:
+    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **Установите видимость нижнего колонтитула внутри слайда**
+## **Добавление заменителей в макеты слайдов**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Получите ссылку на слайд через его индекс.
-1. Установите заполнитель нижнего колонтитула слайда как видимый. 
-1. Установите заполнитель даты и времени как видимый. 
-1. Сохраните презентацию. 
+Aspose.Slides предоставляет свойство [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/placeholder_manager/), которое позволяет добавлять новые заменители в макет слайда.
 
-Этот код на Python показывает, как установить видимость для нижнего колонтитула слайда (и выполнять связанные задачи):
+Этот менеджер содержит методы для следующих типов заменителей:
 
-```python
+| PowerPoint Placeholder | Метод [LayoutPlaceholderManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutplaceholdermanager/) |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| ![Содержание](content.png) | add_content_placeholder(x: float, y: float, width: float, height: float) |
+| ![Содержание (вертикальное)](contentV.png) | add_vertical_content_placeholder(x: float, y: float, width: float, height: float) |
+| ![Текст](text.png) | add_text_placeholder(x: float, y: float, width: float, height: float) |
+| ![Текст (вертикальный)](textV.png) | add_vertical_text_placeholder(x: float, y: float, width: float, height: float) |
+| ![Изображение](picture.png) | add_picture_placeholder(x: float, y: float, width: float, height: float) |
+| ![Диаграмма](chart.png) | add_chart_placeholder(x: float, y: float, width: float, height: float) |
+| ![Таблица](table.png) | add_table_placeholder(x: float, y: float, width: float, height: float) |
+| ![SmartArt](smartart.png) | add_smart_art_placeholder(x: float, y: float, width: float, height: float) |
+| ![Медиа](media.png) | add_media_placeholder(x: float, y: float, width: float, height: float) |
+| ![Онлайн‑изображение](onlineimage.png) | add_online_image_placeholder(x: float, y: float, width: float, height: float) |
+
+Следующий код Python демонстрирует, как добавить новые фигуры‑заменители к макету «Blank»:
+```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    headerFooterManager = presentation.slides[0].header_footer_manager
-    # Свойство is_footer_visible используется для указания, что заполнитель нижнего колонтитула слайда отсутствует
-    if not headerFooterManager.is_footer_visible: 
-        # Метод set_footer_visibility используется для установки видимости заполняющего нижнего колонтитула слайда
-        headerFooterManager.set_footer_visibility(True) 
-        # Свойство is_slide_number_visible используется для указания, что заполнитель номера страницы слайда отсутствует
-    if not headerFooterManager.is_slide_number_visible:  
-        # Метод set_slide_number_visibility используется для установки видимости заполнителя номера страницы слайда
-        headerFooterManager.set_slide_number_visibility(True) 
-        # Свойство is_date_time_visible используется для указания, что заполнитель даты и времени слайда отсутствует
-    if not headerFooterManager.is_date_time_visible: 
-        # Метод set_date_time_visibility используется для установки видимости заполнителя даты и времени слайда 
-        headerFooterManager.set_date_time_visibility(True)
-
-    # Метод set_footer_text используется для установки текста для заполнителя нижнего колонтитула слайда 
-    headerFooterManager.set_footer_text("Текст нижнего колонтитула") 
-    # Метод set_date_time_text используется для установки текста для заполнителя даты и времени на слайде.
-    headerFooterManager.set_date_time_text("Текст даты и времени") 
-
-    # Сохраняет презентацию на диск
-    presentation.save("Presentation.ppt", slides.export.SaveFormat.PPT)
-```
-
-## **Установите видимость нижнего колонтитула внутри слайда**
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Получите ссылку на мастер-слайд через его индекс. 
-1. Установите видимость нижнего колонтитула мастер-слайда и всех нижних колонтитулов. 
-1. Установите текст для мастер-слайда и всех нижних колонтитулов. 
-1. Установите текст для мастер-слайда и всех заполнителей даты и времени. 
-1. Сохраните презентацию. 
-
-Этот код на Python демонстрирует операцию:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    manager = presentation.masters[0].header_footer_manager
-    manager.set_footer_and_child_footers_visibility(True) # Метод set_footer_and_child_footers_visibility используется для установки видимости нижнего колонтитула мастер-слайда и всех нижних колонтитулов
-    manager.set_slide_number_and_child_slide_numbers_visibility(True) # Метод set_slide_number_and_child_slide_numbers_visibility используется для установки видимости номера страницы мастер-слайда и всех нижних номеров страниц
-    manager.set_date_time_and_child_date_times_visibility(True) # Метод set_date_time_and_child_date_times_visibility используется для установки видимости дат и времени мастер-слайда и всех нижних заполнителей дат и времени
-
-    manager.set_footer_and_child_footers_text("Текст нижнего колонтитула") # Метод set_footer_and_child_footers_text используется для установки текста для мастер-слайда и всех нижних колонтитулов
-    manager.set_date_time_and_child_date_times_text("Текст даты и времени") # Метод set_date_time_and_child_date_times_text используется для установки текста для мастер-слайда и всех заполнителей даты и времени
-```
-
-## **Установите размер слайда с учетом масштабирования содержимого**
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) и загрузите презентацию, содержащую слайд, размер которого вы хотите установить. 
-1. Создайте другой экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) для создания новой презентации. 
-1. Получите ссылку на слайд (из первой презентации) через его индекс.
-1. Установите заполнитель нижнего колонтитула как видимый. 
-1. Установите заполнитель даты и времени как видимый. 
-1. Сохраните презентацию. 
-
-Этот код на Python демонстрирует операцию: 
-
-```python
-import aspose.slides as slides
-
-# Создает экземпляр объекта Presentation, который представляет файл презентации 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    with slides.Presentation() as auxPresentation:
-        slide = presentation.slides[0]
-
-        # Устанавливает размер слайда для созданной презентации в соответствии с исходным
-        presentation.slide_size.set_size(540, 720, slides.SlideSizeScaleType.ENSURE_FIT) # Метод set_size используется для установки размера слайда с масштабированием содержимого для обеспечения соответствия
-        presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.MAXIMIZE) # Метод set_size используется для установки размера слайда с максимальным размером содержимого
-                
-        # Сохраняет презентацию на диск
-        auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Установить размер страницы при генерации PDF**
-
-Некоторые презентации (например, постеры) часто преобразуются в PDF документы. Если вы хотите преобразовать свою PowerPoint в PDF, чтобы получить наилучшие параметры печати и доступности, вы хотите установить свои слайды на размеры, подходящие для PDF документов (например, A4).
-
-Aspose.Slides предоставляет класс [SlideSize](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/), чтобы позволить вам указать предпочитаемые настройки для слайдов. Этот код на Python показывает, как использовать свойство `type` (из класса `SlideSize`), чтобы установить конкретный размер бумаги для слайдов в презентации:
-
-```python
-import aspose.slides as slides
-
-# Создает экземпляр объекта Presentation, который представляет файл презентации  
 with slides.Presentation() as presentation:
-    # Устанавливает свойство SlideSize.Type 
-    presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.ENSURE_FIT)
+    # Получить пустой макет слайда.
+    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-    # Устанавливает различные параметры для опций PDF
-    opts = slides.export.PdfOptions()
-    opts.sufficient_resolution = 600
+    # Получить менеджер заполнителей макета слайда.
+    placeholder_manager = layout.placeholder_manager
 
-    # Сохраняет презентацию на диск
-    presentation.save("SetPDFPageSize_out.pdf", slides.export.SaveFormat.PDF, opts)
+    # Добавить различные заполнители к пустому макету слайда.
+    placeholder_manager.add_content_placeholder(20, 20, 310, 270)
+    placeholder_manager.add_vertical_text_placeholder(350, 20, 350, 270)
+    placeholder_manager.add_chart_placeholder(20, 310, 310, 180)
+    placeholder_manager.add_table_placeholder(350, 310, 350, 180)
+
+    # Добавить новый слайд с пустым макетом.
+    new_slide = presentation.slides.add_empty_slide(layout)
+
+    presentation.save("placeholders.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+Результат:
+
+![Заполнители на макете слайда](add_placeholders.png)
+
+## **Установка видимости нижнего колонтитула для макета слайда**
+
+В презентациях PowerPoint элементы нижнего колонтитула, такие как дата, номер слайда и пользовательский текст, могут отображаться или скрываться в зависимости от макета слайда. Aspose.Slides for Python позволяет управлять видимостью этих заменителей нижнего колонтитула. Это полезно, когда требуется, чтобы некоторые макеты отображали информацию нижнего колонтитула, а другие оставались чистыми и минимальными.
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Получите ссылку на макет слайда по его индексу.
+1. Установите видимость заменителя нижнего колонтитула слайда.
+1. Установите видимость заменителя номера слайда.
+1. Установите видимость заменителя даты‑времени.
+1. Сохраните презентацию.
+
+Следующий код Python показывает, как установить видимость нижнего колонтитула слайда и выполнить связанные действия:
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    header_footer_manager = presentation.layout_slides[0].header_footer_manager
+
+    if not header_footer_manager.is_footer_visible: 
+        header_footer_manager.set_footer_visibility(True) 
+
+    if not header_footer_manager.is_slide_number_visible:  
+        header_footer_manager.set_slide_number_visibility(True) 
+
+    if not header_footer_manager.is_date_time_visible: 
+        header_footer_manager.set_date_time_visibility(True)
+
+    header_footer_manager.set_footer_text("Footer text") 
+    header_footer_manager.set_date_time_text("Date and time text") 
+
+    presentation.save("output.ppt", slides.export.SaveFormat.PPT)
+```
+
+
+## **Установка видимости нижнего колонтитула для дочерних слайдов**
+
+В презентациях PowerPoint элементы нижнего колонтитула, такие как дата, номер слайда и пользовательский текст, могут управляться на уровне главного слайда для обеспечения согласованности во всех макетах слайдов. Aspose.Slides for Python позволяет задавать видимость и содержимое этих заменителей нижнего колонтитула на главном слайде и распространять эти настройки на все дочерние макеты слайдов. Такой подход обеспечивает единообразную информацию нижнего колонтитула по всей презентации.
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Получите ссылку на главный слайд по его индексу.
+1. Установите видимость всех дочерних заменителей нижнего колонтитула вместе с главным.
+1. Установите видимость всех дочерних заменителей номера слайда вместе с главным.
+1. Установите видимость всех дочерних заменителей даты‑времени вместе с главным.
+1. Сохраните презентацию.
+
+Следующий код Python демонстрирует эту операцию:
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    header_footer_manager = presentation.masters[0].header_footer_manager
+
+    header_footer_manager.set_footer_and_child_footers_visibility(True)
+    header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
+    header_footer_manager.set_date_time_and_child_date_times_visibility(True)
+
+    header_footer_manager.set_footer_and_child_footers_text("Footer text")
+    header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+
+## **FAQ**
+
+**В чём разница между главным слайдом и макетом слайда?**
+
+Главный слайд определяет общую тему и форматирование по умолчанию, тогда как макеты слайдов задают конкретные расстановки заменителей для разных типов содержимого.
+
+**Могу ли я скопировать макет слайда из одной презентации в другую?**
+
+Да, вы можете клонировать макет слайда из коллекции [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) одной презентации и вставить его в другую с помощью метода `add_clone`.
+
+**Что происходит, если я удалю макет слайда, который всё ещё используется каким‑то слайдом?**
+
+Если попытаться удалить макет слайда, который всё ещё referenced хотя бы одним слайдом в презентации, Aspose.Slides выдаст [PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/). Чтобы избежать этого, используйте [remove_unused_layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/), который безопасно удаляет только неиспользуемые макеты слайдов.

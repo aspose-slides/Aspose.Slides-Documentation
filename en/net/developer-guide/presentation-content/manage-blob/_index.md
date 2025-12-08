@@ -1,10 +1,27 @@
 ---
-title: Manage Blob
+title: Manage Presentation BLOBs in .NET for Efficient Memory Use
+linktitle: Manage BLOB
 type: docs
 weight: 10
 url: /net/manage-blob/
-keywords: "Add blob, Export blob, Add image as blob, PowerPoint Presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Add blob to PowerPoint presentation in C# or .NET. Export blob. Add Image as blob"
+keywords:
+- large object
+- large item
+- large file
+- add BLOB
+- export BLOB
+- add image as BLOB
+- reduce memory
+- memory consumption
+- large presentation
+- temporary file
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Manage BLOB data in Aspose.Slides for .NET to streamline PowerPoint and OpenDocument file operations for efficient presentation handling."
 ---
 
 ## **About BLOB**
@@ -15,7 +32,7 @@ Aspose.Slides for .NET allows you to use BLOBs for objects in a way that reduces
 
 ## **Use BLOB to Reduce Memory Consumption**
 
-### **Add Large File through BLOB to a Presentation**
+### **Add a Large File through BLOB to a Presentation**
 
 [Aspose.Slides](/slides/net/) for .NET allows you to add large files (in this case, a large video file) through a process involving BLOBs to reduce memory consumption.
 
@@ -42,7 +59,7 @@ using (Presentation pres = new Presentation())
 ```
 
 
-### **Export Large File Through BLOB from Presentation**
+### **Export a Large File through BLOB from Presentation**
 Aspose.Slides for .NET allows you to export large files (in this case, an audio or video file) through a process involving BLOBs from presentations. For example, you may need to extract a large media file from a presentation but do not want the file to be loaded into your computer's memory. By exporting the file through the BLOB process, you get to keep memory consumption low. 
 
 This code in C# demonstrates the described operation:
@@ -93,7 +110,7 @@ using (Presentation pres = new Presentation(hugePresentationWithAudiosAndVideosF
 }
 ```
 
-### **Add Image as BLOB in Presentation**
+### **Add an Image as BLOB to a Presentation**
 With methods from the [**IImageCollection**](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection) interface and [**ImageCollection** ](https://reference.aspose.com/slides/net/aspose.slides/imagecollection)class, you can add a large image as a stream to get it treated as a BLOB. 
 
 This C# code shows you how to add a large image through the BLOB process:

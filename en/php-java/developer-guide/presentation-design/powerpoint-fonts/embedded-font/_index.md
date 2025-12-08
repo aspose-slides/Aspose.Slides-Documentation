@@ -1,12 +1,23 @@
 ---
-title: Embedded Font - PowerPoint Java API
-linktitle: Embedded Font
+title: Embed Fonts in Presentations Using PHP
+linktitle: Embedding Font
 type: docs
 weight: 40
 url: /php-java/embedded-font/
-keywords: "Fonts, embedded fonts, add fonts, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Use embedded fonts in PowerPoint presentation "
-
+keywords:
+- add font
+- embed font
+- font embedding
+- get embedded font
+- add embedded font
+- remove embedded font
+- compress embedded font
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Embed TrueType fonts in PowerPoint and OpenDocument presentations with Aspose.Slides for PHP via Java, ensuring accurate rendering across all platforms."
 ---
 
 **Embedded fonts in PowerPoint** are useful when you want your presentation to appear correctly when opened on any system or device. If you used a third-party or non-standard font because you got creative with your work, then you have even more reasons to embed your font. Otherwise (without embedded fonts), the texts or numbers on your slides, the layout, styling, etc. may change or turn into confusing rectangles. 

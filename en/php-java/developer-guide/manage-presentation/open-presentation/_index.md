@@ -1,11 +1,12 @@
 ---
-title: Open a Presentation in PHP
-linktitle: Open Presentations
+title: Open Presentations in PHP
+linktitle: Open Presentation
 type: docs
 weight: 20
 url: /php-java/open-presentation/
 keywords:
 - open PowerPoint
+- open OpenDocument
 - open presentation
 - open PPTX
 - open PPT
@@ -20,7 +21,7 @@ keywords:
 - binary object
 - PHP
 - Aspose.Slides
-description: "Open PowerPoint (.pptx, .ppt) and OpenDocument (.odp) presentations effortlessly with Aspose.Slides for PHP—fast, reliable, fully featured."
+description: "Open PowerPoint (.pptx, .ppt) and OpenDocument (.odp) presentations effortlessly with Aspose.Slides for PHP via Java — fast, reliable, fully featured."
 ---
 
 ## **Overview**

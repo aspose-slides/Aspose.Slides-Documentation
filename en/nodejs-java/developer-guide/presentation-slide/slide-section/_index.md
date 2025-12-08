@@ -1,8 +1,22 @@
 ---
-title: Slide Section
+title: Manage Slide Sections in Presentations Using JavaScript
+linktitle: Slide Section
 type: docs
 weight: 90
 url: /nodejs-java/slide-section/
+keywords:
+- create section
+- add section
+- edit section
+- change section
+- section name
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Streamline slide sections in PowerPoint and OpenDocument with Aspose.Slides for Node.js — split, rename, and reorder to optimize PPTX and ODP workflows."
 ---
 
 With Aspose.Slides for Node.js via Java, you can organize a PowerPoint Presentation into sections. You get to create sections that contain specific slides.

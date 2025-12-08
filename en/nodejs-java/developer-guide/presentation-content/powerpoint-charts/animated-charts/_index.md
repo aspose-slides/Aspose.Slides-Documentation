@@ -1,8 +1,25 @@
 ---
-title: Animated Charts
+title: Animate PowerPoint Charts in JavaScript
+linktitle: Animated Charts
 type: docs
 weight: 80
 url: /nodejs-java/animated-charts/
+keywords:
+- chart
+- animated chart
+- chart animation
+- chart series
+- chart category
+- series element
+- category element
+- add effect
+- effect type
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Create stunning animated charts in JavaScript with Aspose.Slides for Node.js. Boost presentations with dynamic visuals in PPT and PPTX files—get started now."
 ---
 
 

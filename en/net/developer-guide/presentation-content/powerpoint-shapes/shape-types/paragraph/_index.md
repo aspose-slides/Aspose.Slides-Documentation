@@ -1,16 +1,29 @@
 ---
-title: Paragraph
+title: Get Paragraph Bounds from Presentations in .NET
+linktitle: Paragraph
 type: docs
 weight: 60
 url: /net/paragraph/
-keywords: "Paragraph, portion, paragraph coordinate, portion coordinate, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Paragraph and portion in PowerPoint presentation in C# or .NET"
+keywords:
+- paragraph bounds
+- text portion bounds
+- paragraph coordinate
+- portion coordinate
+- paragraph size
+- text portion size
+- text frame
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how to retrieve paragraph and text-portion bounds in Aspose.Slides for .NET to optimize text positioning in PowerPoint presentations."
 ---
 
-## **Get Paragraph and Portion Coordinates in TextFrame**
+## **Get Paragraph and Portion Coordinates in a TextFrame**
 Using Aspose.Slides for .NET, developers can now get the rectangular coordinates for Paragraph inside paragraphs collection of TextFrame. It also allows you to get the coordinates of portion inside portion collection of a paragraph. In this topic, we are going to demonstrate with the help of an example that how to get the rectangular coordinates for paragraph along with position of portion inside a paragraph.
 
-## **Get Rectangular Coordinates of Paragraph**
+## **Get Rectangular Coordinates of a Paragraph**
 The new method **GetRect()** has been added. It allows to get paragraph bounds rectangle.
 
 ```c#
@@ -23,7 +36,7 @@ using (Presentation presentation = new Presentation("Shapes.pptx"))
 }
 ```
 
-## **Get size of paragraph and portion inside table cell text frame**
+## **Get the Size of a Paragraph and Portion Inside a Table Cell TextFrame**
 
 To get the [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion) or [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph) size and coordinates in a table cell text frame, you can use the [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/methods/getrect) and [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/methods/getrect) methods.
 

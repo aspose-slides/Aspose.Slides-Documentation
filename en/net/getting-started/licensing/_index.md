@@ -3,6 +3,21 @@ title: Licensing
 type: docs
 weight: 80
 url: /net/licensing/
+keywords:
+- license
+- temporary license
+- set license
+- use license
+- validate license
+- license file
+- evaluation version
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Apply, manage, and troubleshoot licenses in Aspose.Slides for .NET. Ensure uninterrupted access to full features with our step-by-step licensing guide."
 ---
 
 ## **Evaluate Aspose.Slides**
@@ -47,7 +62,7 @@ You may want to see [Metered Licensing](https://docs.aspose.com/slides/net/meter
 {{% /alert %}} 
 
 
-## **Applying a License**
+## **Apply a License**
 A license can be loaded from a **file**, **stream**, or **embedded resource**. 
 
 {{% alert color="primary" %}}
@@ -117,7 +132,7 @@ Aspose.Slides.License license = new Aspose.Slides.License();
 license.SetLicense("Aspose.Slides.lic");
 ```
 
-## **Validating a License**
+## **Validate a License**
 
 To check whether a license has been set properly, you can validate it. This C# code shows you how to validate a license:
 

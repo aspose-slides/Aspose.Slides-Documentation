@@ -1,5 +1,5 @@
 ---
-title: Apply or Change a Slide Layout in C#
+title: Apply or Change Slide Layouts in .NET
 linktitle: Slide Layout
 type: docs
 weight: 60
@@ -23,10 +23,13 @@ keywords:
 - picture with caption
 - title and vertical text
 - vertical title and text
+- PowerPoint
+- OpenDocument
+- presentation
 - C#
 - .NET
 - Aspose.Slides
-description: "Learn how to manage and customize slide layouts in Aspose.Slides for .NET. Explore layout types, placeholder control, footer visibility, and layout manipulation through code examples in C#."
+description: "Manage and customize slide layouts in Aspose.Slides for .NET. Explore layout types, placeholder control, and footer visibility through C# code examples."
 ---
 
 ## **Overview**

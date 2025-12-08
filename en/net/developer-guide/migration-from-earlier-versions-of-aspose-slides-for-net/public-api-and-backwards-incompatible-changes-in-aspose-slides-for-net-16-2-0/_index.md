@@ -1,8 +1,22 @@
 ---
 title: Public API and Backwards Incompatible Changes in Aspose.Slides for .NET 16.2.0
+linktitle: Aspose.Slides for .NET 16.2.0
 type: docs
 weight: 230
 url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-2-0/
+keywords:
+- migration
+- legacy code
+- modern code
+- legacy approach
+- modern approach
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Review public API updates and breaking changes in Aspose.Slides for .NET to smoothly migrate your PowerPoint PPT, PPTX and ODP presentation solutions."
 ---
 
 {{% alert color="primary" %}} 
@@ -11,16 +25,16 @@ This page lists all [added](/slides/net/public-api-and-backwards-incompatible-ch
 
 {{% /alert %}} 
 ## **Public API Changes**
-#### **Properties UpdateDateTimeFields and UpdateSlideNumberFields have been removed**
+#### **Properties UpdateDateTimeFields and UpdateSlideNumberFields Have Been Removed**
 Properties UpdateDateTimeFields and UpdateSlideNumberFields have been removed from Aspose.Slides.Presentation class and from Aspose.Slides.IPresentation interface.
 The Text property of Aspose.Slides.TextFrame, Paragraph, Portion classes and Aspose.Slides.ITextFrame, IParagraph, IPortion interfaces returns text with updated "datetime" fields.
 Also properties Presentation.DocumentProperties.CreatedTime, LastSavedTime and LastPrinted became read-only.
-#### **Enum Slides.Charts.CategoryAxisType has been switched to public**
+#### **Enum Slides.Charts.CategoryAxisType Has Been Switched to Public**
 Used in IAxis.CategoryAxisType and Axis.CategoryAxisType properties to determine category axis type.
 CategoryAxisType.Auto - category axis type will be determined automatically during serialization (this behavior is not implemented now)
 CategoryAxisType.Text - category axis type is Text
 CategoryAxisType.Date - category axis type is DateTime
-#### **Fast text extraction**
+#### **Fast Text Extraction**
 The new static method GetPresentationText has been added to Presentation class. There're two overloads for this method:
 
 ``` csharp
@@ -63,18 +77,18 @@ Console.WriteLine(text1.SlidesText[0].NotesText);
 PresentationText text2 = Presentation.GetPresentationText("presentation.pptx", ExtractionMode.Unarranged)
 
 ``` 
-#### **ILegacyDiagram interface and LegacyDiagram class have been added**
+#### **ILegacyDiagram Interface and LegacyDiagram Class Have Been Added**
 Interface Aspose.Slides.ILegacyDiagram and class Aspose.Slides.LegacyDiagram have added to represent legacy diagram object. Legacy diagram object is an old format of diagrams from PowerPoint 97-2003.
 New class provides methods to convert legacy diagram to modern editable SmartArt object or to editable GroupShape.
-#### **New Aspose.Slides.TextAlignment enum membed added (JustifyLow)**
+#### **New Aspose.Slides.TextAlignment Enum Member Added (JustifyLow)**
 A new member of TextAlignment enum member has been added:
 JustifyLow - Kashida justify low.
-#### **New properties for Aspose.Slides.IOleObjectFrame and OleObjectFrame**
+#### **New Properties for Aspose.Slides.IOleObjectFrame and OleObjectFrame**
 A new properties has been added to IOleObjectFrame interface and OleObjectFrame class implementing this interface. These properties using to provide information about an object embedded into the presentation:
 EmbeddedFileExtension - Returns the file extension for the current embedded object or empty string if object is not a link
 EmbeddedFileLabel - Returns the file name of embedded OLE object
 EmbeddedFileName - Returns the path of embedded OLE object
-#### **New property CategoryAxisType has been added to IAxis and Axis classes**
+#### **New Property CategoryAxisType Has Been Added to IAxis and Axis Classes**
 Property CategoryAxisType specifies type of category axis.
 
 ``` csharp
@@ -98,7 +112,7 @@ Property CategoryAxisType specifies type of category axis.
 }
 
 ``` 
-#### **New property ShowLabelAsDataCallout has been added to DataLabelFormat class and IDataLabelFormat interface**
+#### **New Property ShowLabelAsDataCallout Has Been Added to DataLabelFormat Class and IDataLabelFormat Interface**
 Property ShowLabelAsDataCallout determines either specified chart's data label will be displayed as data callout or as data label.
 
 ``` csharp
@@ -120,7 +134,7 @@ Property ShowLabelAsDataCallout determines either specified chart's data label w
 }
 
 ``` 
-#### **Property DrawSlidesFrame has been added to PdfOptions and XpsOptions**
+#### **Property DrawSlidesFrame Has Been Added to PdfOptions and XpsOptions**
 Boolean property DrawSlidesFrame has been added to interfaces Aspose.Slides.Export.IPdfOptions, Aspose.Slides.Export.IXpsOptions and to related classes Aspose.Slides.Export.PdfOptions, Aspose.Slides.Export.XpsOptions.
 The black frame around each slide will be drawn if this property set 'true'.
 

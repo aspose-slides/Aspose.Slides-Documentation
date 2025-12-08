@@ -1,89 +1,132 @@
 ---
-title: Python でプレゼンテーション シェイプのサムネイルを作成する
-linktitle: シェイプのサムネイル
+title: Pythonでプレゼンテーション形状のサムネイルを作成
+linktitle: 形状サムネイル
 type: docs
 weight: 70
 url: /ja/python-net/create-shape-thumbnails/
 keywords:
-- シェイプ サムネイル
-- シェイプ 画像
-- シェイプをレンダリング
-- シェイプ レンダリング
+- 形状サムネイル
+- 形状画像
+- 形状のレンダリング
+- 形状レンダリング
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して PowerPoint と OpenDocument のスライドから高品質なシェイプのサムネイルを生成し、プレゼンテーションのサムネイルを簡単に作成およびエクスポートします。"
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument スライドから高品質な形状サムネイルを生成し、簡単にプレゼンテーションのサムネイルを作成・エクスポートできます。"
 ---
 
-Aspose.Slides for Python via .NETは、各ページがスライドであるプレゼンテーションファイルを作成するために使用されます。これらのスライドは、Microsoft PowerPointを使用してプレゼンテーションファイルを開くことで表示できます。しかし、時には開発者が画像ビューワーでシェイプの画像を別々に表示する必要がある場合があります。そのような場合、Aspose.Slides for Python via .NETはスライドシェイプのサムネイル画像を生成するのに役立ちます。この機能の使い方についてはこの記事で説明します。
-この記事では、さまざまな方法でスライドのサムネイルを生成する方法を説明します。
+## **導入**
 
-- スライド内のシェイプサムネイルを生成する。
-- ユーザー定義の寸法を持つスライドシェイプのシェイプサムネイルを生成する。
-- シェイプの外観の境界内にシェイプサムネイルを生成する。
-- SmartArtの子ノードのサムネイルを生成する。
-## **スライドからシェイプサムネイルを生成する**
-Aspose.Slides for Python via .NETを使用して任意のスライドからシェイプサムネイルを生成するには：
+Aspose.Slides for Python via .NET は、各ページがスライドとなるプレゼンテーション ファイルを作成するために使用されます。プレゼンテーション ファイルを開くことで、Microsoft PowerPoint でこれらのスライドを表示できます。ただし、開発者が形状の画像を別々に画像ビューアで確認したい場合があります。そのようなケースでは、Aspose.Slides がスライド形状のサムネイル画像を生成できます。本記事では、この機能の使用方法を説明します。
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスのインスタンスを作成します。
-1. IDまたはインデックスを使用して任意のスライドの参照を取得します。
-1. 参照されたスライドのシェイプサムネイル画像をデフォルトスケールで取得します。
-1. 目的の画像形式でサムネイル画像を保存します。
+## **スライドから形状サムネイルを生成する**
 
-以下の例は、シェイプサムネイルを生成します。
+スライド全体ではなく、特定のオブジェクトのプレビューが必要なときは、個々の形状のサムネイルをレンダリングできます。Aspose.Slides は任意の形状を画像としてエクスポートできるため、軽量プレビューやアイコン、下流処理用のアセット作成が容易です。
 
+任意の形状からサムネイルを生成する手順:
+
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. ID またはインデックスでスライドへの参照を取得します。
+1. そのスライド上の形状への参照を取得します。
+1. 形状のサムネイル画像をレンダリングします。
+1. サムネイル画像を希望のフォーマットで保存します。
+
+以下の例は形状サムネイルを生成します。
 ```py
 import aspose.slides as slides
 
-# プレゼンテーションファイルを表すPresentationクラスのインスタンスを作成
-with slides.Presentation(path + "HelloWorld.pptx") as presentation:
-    # フルスケール画像を作成
-    with presentation.slides[0].shapes[0].get_image() as bitmap:
-        # PNG形式でディスクに画像を保存
-        bitmap.save("Shape_thumbnail_out.png", slides.ImageFormat.PNG)
+# プレゼンテーション ファイルを開くために Presentation クラスのインスタンスを作成します。
+with slides.Presentation("hello_world.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+    
+    # デフォルトのスケールで画像を作成します。
+    with shape.get_image() as thumbnail:
+        # PNG 形式で画像をディスクに保存します。
+        thumbnail.save("shape_thumbnail.png", slides.ImageFormat.PNG)
 ```
 
 
-## **ユーザー定義スケーリングファクターサムネイルを生成する**
-Aspose.Slides for Python via .NETを使用して任意のスライドシェイプのシェイプサムネイルを生成するには：
+## **カスタム拡大縮小率でサムネイルを生成する**
 
-1. `Presentation`クラスのインスタンスを作成します。
-1. IDまたはインデックスを使用して任意のスライドの参照を取得します。
-1. シェイプの境界を持つ参照されたスライドのサムネイル画像を取得します。
-1. 目的の画像形式でサムネイル画像を保存します。
+このセクションでは、Aspose.Slides でユーザー定義の拡大縮小率を使用して形状サムネイルを生成する方法を示します。スケールを制御することで、プレビューやエクスポート、高 DPI ディスプレイに最適なサムネイルサイズを微調整できます。
 
-以下の例は、ユーザー定義のスケーリングファクターを持つサムネイルを生成します。
+スライド上の任意の形状のサムネイルを生成する手順:
 
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. ID またはインデックスでスライドを取得します。
+1. そのスライド上の対象形状を取得します。
+1. 指定した拡大縮小率で形状のサムネイル画像をレンダリングします。
+1. サムネイル画像を希望のフォーマットで保存します。
+
+以下の例はユーザー定義の拡大縮小率でサムネイルを生成します。
 ```py
 import aspose.slides as slides
 
-# プレゼンテーションファイルを表すPresentationクラスのインスタンスを作成
-with slides.Presentation(path + "HelloWorld.pptx") as p:
-    # フルスケール画像を作成
-    with p.slides[0].shapes[0].get_image(slides.ShapeThumbnailBounds.SHAPE, 1, 1) as bitmap:
-        # PNG形式でディスクに画像を保存
-        bitmap.save("Scaling Factor Thumbnail_out.png", slides.ImageFormat.PNG)
+scale_x = 2.0
+scale_y = scale_x
+
+# プレゼンテーション ファイルを開くために Presentation クラスのインスタンスを作成します。
+with slides.Presentation("hello_world.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+    
+    # 定義されたスケールで画像を作成します。
+    with shape.get_image(slides.ShapeThumbnailBounds.SHAPE, scale_x, scale_y) as thumbnail:
+        # PNG 形式で画像をディスクに保存します。
+        thumbnail.save("scaling_factor.png", slides.ImageFormat.PNG)
 ```
 
 
-## **外観の境界にシェイプサムネイルを作成する**
-このシェイプのサムネイルを作成する方法は、開発者がシェイプの外観の境界内にサムネイルを生成できるようにします。これはすべてのシェイプ効果を考慮に入れています。生成されたシェイプサムネイルは、スライドの境界によって制限されます。シェイプの外観の境界内にある任意のスライドシェイプのサムネイルを生成するには、次のサンプルコードを使用します。
+## **形状の表示境界を使用してサムネイルを生成する**
 
-1. `Presentation`クラスのインスタンスを作成します。
-1. IDまたはインデックスを使用して任意のスライドの参照を取得します。
-1. 外観としてのシェイプ境界を持つ参照されたスライドのサムネイル画像を取得します。
-1. 目的の画像形式でサムネイル画像を保存します。
+このセクションでは、形状の表示境界内でサムネイルを生成する方法を示します。すべての形状エフェクトを考慮し、生成されたサムネイルはスライド境界で制限されます。
 
-以下の例は、ユーザー定義のスケーリングファクターを持つサムネイルを生成します。
+表示境界内で任意のスライド形状のサムネイルを生成する手順:
 
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. ID またはインデックスでスライドを取得します。
+1. そのスライド上の対象形状を取得します。
+1. 指定した境界で形状のサムネイル画像をレンダリングします。
+1. サムネイル画像を希望の画像フォーマットで保存します。
+
+以下の例はユーザー定義の境界でサムネイルを作成します。
 ```py
 import aspose.slides as slides
 
-# プレゼンテーションファイルを表すPresentationクラスのインスタンスを作成
-with slides.Presentation(path + "HelloWorld.pptx") as presentation:
-    # 外観境界シェイプ画像を作成
-    with presentation.slides[0].shapes[0].get_image(slides.ShapeThumbnailBounds.APPEARANCE, 1, 1) as bitmap:
-        # PNG形式でディスクに画像を保存
-        bitmap.save("Shape_thumbnail_Bound_Shape_out.png", slides.ImageFormat.PNG)
+image_bounds = slides.ShapeThumbnailBounds.APPEARANCE
+
+# プレゼンテーション ファイルを開くために Presentation クラスのインスタンスを作成します。
+with slides.Presentation("hello_world.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+
+    # 表示境界で形状画像を作成します。
+    with shape.get_image(image_bounds, 1.0, 1.0) as thumbnail:
+        # PNG 形式で画像をディスクに保存します。
+        thumbnail.save("apperance_bounds.png", slides.ImageFormat.PNG)
 ```
+
+
+## **FAQ**
+
+**形状サムネイルの保存に使用できる画像フォーマットは何ですか？**
+
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/) など。形状は [SVG 形式でベクタとしてエクスポート](/slides/ja/python-net/shape/write_as_svg/) することもできます。
+
+**サムネイルをレンダリングする際の SHAPE 境界と APPEARANCE 境界の違いは何ですか？**
+
+`SHAPE` は形状のジオメトリを使用し、`APPEARANCE` は [視覚エフェクト](/slides/ja/python-net/shape-effect/)（影、光彩など）を考慮します。
+
+**形状が非表示としてマークされている場合、サムネイルは生成されますか？**
+
+非表示の形状はモデルの一部として残り、レンダリング可能です。非表示フラグはスライドショー表示に影響しますが、形状画像の生成を妨げません。
+
+**グループ形状、チャート、SmartArt、その他の複合オブジェクトはサポートされていますか？**
+
+はい。`Shape` として表現できるすべてのオブジェクト（`GroupShape`、`Chart`、`SmartArt` など）をサムネイルまたは SVG として保存できます。
+
+**システムにインストールされたフォントはテキスト形状のサムネイル品質に影響しますか？**
+
+はい。不要なフォント置き換えやテキストの再フローを防ぐために、[必要なフォントを提供](/slides/ja/python-net/custom-font/)（または [フォント置換を構成](/slides/ja/python-net/font-substitution/)）する必要があります。

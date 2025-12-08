@@ -1,8 +1,21 @@
 ---
-title: Ellipse
+title: Add Ellipses to Presentations in Java
+linktitle: Ellipse
 type: docs
 weight: 30
 url: /java/ellipse/
+keywords:
+- ellipse
+- shape
+- add ellipse
+- create ellipse
+- draw ellipse
+- formatted ellipse
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn how to create, format, and manipulate ellipse shapes in Aspose.Slides for Java across PPT and PPTX presentations—Java code examples included."
 ---
 
 
@@ -12,7 +25,7 @@ In this topic, we will introduce developers about adding ellipse shapes to their
 
 {{% /alert %}} 
 
-## **Create Ellipse**
+## **Create an Ellipse**
 To add a simple ellipse to a selected slide of the presentation, please follow the steps below:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
@@ -39,7 +52,7 @@ try {
 }
 ```
 
-## **Create Formatted Ellipse**
+## **Create a Formatted Ellipse**
 To add a better formatted ellipse to a slide, please follow the steps below:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
@@ -78,3 +91,17 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**How do I set the exact position and size of an ellipse with respect to the slide's units?**
+
+Coordinates and sizes are typically specified **in points**. For predictable results, base your calculations on the slide size and convert required millimeters or inches to points before assigning values.
+
+**How can I place an ellipse above or below other objects (control stacking order)?**
+
+Adjust the drawing order of the object by bringing it to front or sending it to back. This lets the ellipse overlap other objects or reveal those beneath it.
+
+**How do I animate the appearance or emphasis of an ellipse?**
+
+[Apply](/slides/java/shape-animation/) entrance, emphasis, or exit effects to the shape, and configure triggers and timing to orchestrate when and how the animation plays.

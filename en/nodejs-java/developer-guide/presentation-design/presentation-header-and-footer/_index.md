@@ -1,10 +1,25 @@
 ---
-title: Presentation Header and Footer
+title: Manage Presentation Headers and Footers in JavaScript
+linktitle: Header & Footer
 type: docs
 weight: 140
 url: /nodejs-java/presentation-header-and-footer/
-keywords: "PowerPoint header and footer in JavaScript"
-description: "PowerPoint header and footer in JavaScript"
+keywords:
+- header
+- header text
+- footer
+- footer text
+- set header
+- set footer
+- handout
+- notes
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Use JavaScript and Aspose.Slides for Node.js to add and customize headers and footers in PowerPoint and OpenDocument presentations for a professional look."
 ---
 
 {{% alert color="primary" %}} 

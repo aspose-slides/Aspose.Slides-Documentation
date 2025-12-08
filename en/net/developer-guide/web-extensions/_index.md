@@ -3,12 +3,31 @@ title: New HTML Export System - Aspose.Slides.WebExtensions
 type: docs
 weight: 240
 url: /net/web-extensions/
-keywords: "Export PowerPoint HTML, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "PowerPoint HTML export in C# or .NET"
+keywords:
+- web extension
+- template engine
+- export PowerPoint
+- export OpenDocument
+- export presentation
+- export slide
+- export PPT
+- export PPTX
+- export ODP
+- PowerPoint to HTML
+- OpenDocument to HTML
+- presentation to HTML
+- slide to HTML
+- PPT to HTML
+- PPTX to HTML
+- ODP to HTML
+- .NET
+- C#
+- Aspose.Slides
+description: "Export presentations to HTML with templates, CSS and JS—no SVG. Learn single or multi-page output, resource control, and customization for PPT, PPTX and ODP."
 ---
 
 
-## Introduction
+## **Introduction**
 
 * In old Aspose.Slides API builds, when you export PowerPoint to HTML, the resulting HTML got represented as an SVG markup combined with HTML. Each slide got exported as an SVG container. 
 * In new Aspose.Slides versions, when you use the WebExtensions system for exporting PowerPoint presentations to HTML, you get to customize the HTML export settings to deliver the best results. 
@@ -327,7 +346,7 @@ You can also use index.html to include the reference on custom table CSS styles 
 </html>
 ```
 
-## **Create Project from Scratch: Animated Slides Transitions**
+## **Create a Project from Scratch: Animated Slides Transitions**
 
 WebExtensions allows you to export presentations with animated slide transitions—you just need to set the `AnimateTransitions` property in `WebDocumentOptions` to `true`:
 

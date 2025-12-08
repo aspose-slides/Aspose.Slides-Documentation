@@ -5,10 +5,18 @@ weight: 100
 url: /nodejs-java/metered-licensing/
 keywords:
 - license
-- metered licensing
+- metered license
+- license keys
+- public key
+- private key
+- consumption quantity
+- PowerPoint
+- OpenDocument
+- presentation
 - Node.js
-- Java
-- Aspose.Slides for Node.js via Java
+- JavaScript
+- Aspose.Slides
+description: "Learn how Aspose.Slides for Node.js via Java metered licensing lets you process PowerPoint and OpenDocument files flexibly, paying only for what you use."
 ---
 
 ## **Apply Metered Keys**

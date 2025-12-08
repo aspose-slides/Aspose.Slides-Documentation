@@ -1,49 +1,48 @@
 ---
-title: تنسيق المخططات
+title: تنسيق المخطط
 type: docs
 weight: 60
 url: /ar/net/chart-formatting/
-keywords: "كيانات المخطط، خصائص المخطط، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
-description: "تنسيق كيانات المخطط في عروض PowerPoint باستخدام C# أو .NET"
+keywords: "كيانات المخطط، خصائص المخطط، عرض PowerPoint، C#، Csharp، Aspose.Slides for .NET"
+description: "تنسيق كائنات المخطط في عروض PowerPoint بلغة C# أو .NET"
 ---
 
-## **تنسيق كيانات المخطط**
-Aspose.Slides لـ .NET يتيح للمطورين إضافة مخططات مخصصة إلى الشرائح من البداية. تشرح هذه المقالة كيفية تنسيق كيانات المخطط المختلفة بما في ذلك محور الفئة ومحور القيم.
+## **تنسيق كائنات المخطط**
+Aspose.Slides for .NET يسمح للمطورين بإضافة مخططات مخصصة إلى شرائحهم من الصفر. يشرح هذا المقال كيفية تنسيق كائنات المخطط المختلفة بما في ذلك محور الفئة ومحور القيم.
 
-يوفر Aspose.Slides لـ .NET واجهة برمجة تطبيقات بسيطة لإدارة كيانات المخطط المختلفة وتنسيقها باستخدام قيم مخصصة:
+Aspose.Slides for .NET يوفر API بسيط لإدارة كائنات المخطط المختلفة وتنسيقها باستخدام قيم مخصصة:
 
-1. إنشاء مثيل من فئة **Presentation**.
-1. الحصول على مرجع الشريحة من خلال فهرسها.
-1. إضافة مخطط مع بيانات افتراضية إلى جانب أي نوع مرغوب (في هذا المثال، سنستخدم ChartType.LineWithMarkers).
-1. الوصول إلى محور القيم في المخطط وتعيين الخصائص التالية:
-   1. تعيين **تنسيق الخط** لخطوط الشبكة الرئيسية لمحور القيم
-   1. تعيين **تنسيق الخط** لخطوط الشبكة الثانوية لمحور القيم
-   1. تعيين **تنسيق الرقم** لمحور القيم
-   1. تعيين **الوحدات الدنيا والقصوى والرئيسية والثانوية** لمحور القيم
-   1. تعيين **خصائص النص** لبيانات محور القيم
-   1. تعيين **العنوان** لمحور القيم
-   1. تعيين **تنسيق الخط** لمحور القيم
-1. الوصول إلى محور الفئة في المخطط وتعيين الخصائص التالية:
-   1. تعيين **تنسيق الخط** لخطوط الشبكة الرئيسية لمحور الفئة
-   1. تعيين **تنسيق الخط** لخطوط الشبكة الثانوية لمحور الفئة
-   1. تعيين **خصائص النص** لبيانات محور الفئة
-   1. تعيين **العنوان** لمحور الفئة
-   1. تعيين **موضع الملصق** لمحور الفئة
-   1. تعيين **زاوية الدوران** لملصقات محور الفئة
-1. الوصول إلى أسطورة المخطط وتعيين **خصائص النص** لها
-1. عرض أساطير المخطط دون تداخل المخطط
-1. الوصول إلى **محور القيم الثانوي** للمخطط وتعيين الخصائص التالية:
-   1. تفعيل **محور القيم الثانوي**
-   1. تعيين **تنسيق الخط** لمحور القيم الثانوي
-   1. تعيين **تنسيق الرقم** لمحور القيم الثانوي
-   1. تعيين **الوحدات الدنيا والقصوى والرئيسية والثانوية** لمحور القيم الثانوي
-1. الآن رسم السلسلة الأولى من المخطط على محور القيم الثانوي
-1. تعيين لون ملء الجدار الخلفي للمخطط
-1. تعيين لون ملء منطقة الرسم للمخطط
+1. إنشاء نسخة من الفئة **Presentation** class.
+1. الحصول على مرجع الشريحة عبر فهرستها.
+1. إضافة مخطط ببيانات افتراضية وإحدى الأنواع المطلوبة (في هذا المثال سنستخدم ChartType.LineWithMarkers).
+1. الوصول إلى محور القيم للمخطط وتعيين الخصائص التالية:
+   1. تعيين **Line format** لخطوط الشبكة الرئيسية لمحور القيم.
+   1. تعيين **Line format** لخطوط الشبكة الثانوية لمحور القيم.
+   1. تعيين **Number Format** لمحور القيم.
+   1. تعيين **Min, Max, Major and Minor units** لمحور القيم.
+   1. تعيين **Text Properties** لبيانات محور القيم.
+   1. تعيين **Title** لمحور القيم.
+   1. تعيين **Line Format** لمحور القيم.
+1. الوصول إلى محور الفئة للمخطط وتعيين الخصائص التالية:
+   1. تعيين **Line format** لخطوط الشبكة الرئيسية لمحور الفئة.
+   1. تعيين **Line format** لخطوط الشبكة الثانوية لمحور الفئة.
+   1. تعيين **Text Properties** لبيانات محور الفئة.
+   1. تعيين **Title** لمحور الفئة.
+   1. تعيين **Label Positioning** لمحور الفئة.
+   1. تعيين **Rotation Angle** لتسميات محور الفئة.
+1. الوصول إلى وسيلة إيضاح المخطط وتعيين **Text Properties** لها
+1. ضبط إظهار وسائط إيضاح المخطط دون تداخل مع المخطط
+1. الوصول إلى **Secondary Value Axis** للمخطط وتعيين الخصائص التالية:
+   1. تفعيل **Value Axis** الثانوي.
+   1. تعيين **Line Format** لمحور القيم الثانوي.
+   1. تعيين **Number Format** لمحور القيم الثانوي.
+   1. تعيين **Min, Max, Major and Minor units** لمحور القيم الثانوي.
+1. الآن ارسم السلسلة الأولى للمخطط على محور القيم الثانوي
+1. تعيين لون تعبئة الجدار الخلفي للمخطط
+1. تعيين لون تعبئة مساحة الرسم للمخطط
 1. كتابة العرض المعدل إلى ملف PPTX
-
 ```c#
-// Instantiating presentation// Instantiating presentation
+// إنشاء عرض تقديمي// إنشاء عرض تقديمي
 Presentation pres = new Presentation();
 
 // Accessing the first slide
@@ -56,7 +55,7 @@ IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400
 chart.HasTitle = true;
 chart.ChartTitle.AddTextFrameForOverriding("");
 IPortion chartTitle = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0];
-chartTitle.Text = "مخطط عينة";
+chartTitle.Text = "Sample Chart";
 chartTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
 chartTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
 chartTitle.PortionFormat.FontHeight = 20;
@@ -103,7 +102,7 @@ txtVal.LatinFont = new FontData("Times New Roman");
 chart.Axes.VerticalAxis.HasTitle = true;
 chart.Axes.VerticalAxis.Title.AddTextFrameForOverriding("");
 IPortion valtitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
-valtitle.Text = "المحور الأساسي";
+valtitle.Text = "Primary Axis";
 valtitle.PortionFormat.FillFormat.FillType = FillType.Solid;
 valtitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
 valtitle.PortionFormat.FontHeight = 20;
@@ -139,7 +138,7 @@ chart.Axes.HorizontalAxis.HasTitle = true;
 chart.Axes.HorizontalAxis.Title.AddTextFrameForOverriding("");
 
 IPortion catTitle = chart.Axes.HorizontalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
-catTitle.Text = "فئة عينة";
+catTitle.Text = "Sample Category";
 catTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
 catTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
 catTitle.PortionFormat.FontHeight = 20;
@@ -183,17 +182,15 @@ pres.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
 
+## **ضبط خصائص الخط للمخطط**
+Aspose.Slides for .NET يوفر دعمًا لضبط خصائص الخط المتعلقة بالمخطط. يرجى اتباع الخطوات أدناه لضبط خصائص الخط للمخطط.
 
-## **تعيين خصائص الخط للمخطط**
-Aspose.Slides لـ .NET يوفر دعمًا لتعيين خصائص الخط المرتبطة بالمخطط. يرجى اتباع الخطوات أدناه لتعيين خصائص الخط للمخطط.
-
-- إنشاء كائن فئة Presentation.
-- إضافة المخطط على الشريحة.
+- إنشاء كائن من فئة Presentation.
+- إضافة مخطط إلى الشريحة.
 - تعيين ارتفاع الخط.
 - حفظ العرض المعدل.
 
-مثال عينة أدناه.
-
+المثال النموذجي التالي موضح.
 ```c#
 using (Presentation pres = new Presentation())
 {               
@@ -205,53 +202,51 @@ using (Presentation pres = new Presentation())
 ```
 
 
+## **ضبط تنسيق الأعداد**
+Aspose.Slides for .NET يوفر API بسيط لإدارة تنسيق بيانات المخطط:
 
-
-## **تعيين تنسيق الأرقام**
-Aspose.Slides لـ .NET يوفر واجهة برمجة تطبيقات بسيطة لإدارة تنسيقات بيانات المخططات:
-
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. الحصول على مرجع الشريحة من خلال فهرسها.
-1. إضافة مخطط مع بيانات افتراضية إلى جانب أي نوع مرغوب (هذا المثال يستخدم **ChartType.ClusteredColumn**).
-1. تعيين تنسيق الرقم المسبق من القيم الممكنة.
-1. التجول عبر خلية بيانات المخطط في كل سلسلة مخطط وتعيين تنسيق الرقم لبيانات المخطط.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. الحصول على مرجع الشريحة عبر فهرستها.
+1. إضافة مخطط ببيانات افتراضية وإحدى الأنواع المطلوبة (هذا المثال يستخدم **ChartType.ClusteredColumn**).
+1. تعيين تنسيق الرقم المسبق من القيم المسبقة المتاحة.
+1. استعراض خلايا البيانات في كل سلسلة مخطط وتعيين تنسيق رقم البيانات.
 1. حفظ العرض.
-1. تعيين تنسيق الرقم المخصص.
-1. التجول عبر خلية بيانات المخطط داخل كل سلسلة مخطط وتعيين تنسيق رقم مختلف لبيانات المخطط.
+1. تعيين تنسيق رقم مخصص.
+1. استعراض خلايا البيانات داخل كل سلسلة مخطط وتعيين تنسيق رقم مختلف.
 1. حفظ العرض.
-
 ```c#
-// Instantiate the presentation// Instantiate the presentation
+// إنشاء العرض التقديمي// إنشاء العرض التقديمي
 Presentation pres = new Presentation();
 
-// Access the first presentation slide
+// الوصول إلى شريحة العرض الأولى
 ISlide slide = pres.Slides[0];
 
-// Adding a defautlt clustered column chart
+// إضافة مخطط عمود متجمع افتراضي
 IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
 
-// Accessing the chart series collection
+// الوصول إلى مجموعة سلسلة المخطط
 IChartSeriesCollection series = chart.ChartData.Series;
 
-// Setting the preset number format
-// Traverse through every chart series
+// تعيين تنسيق الرقم المسبق
+// التجول عبر كل سلسلة مخطط
 foreach (ChartSeries ser in series)
 {
-    // Traverse through every data cell in series
+    // التجول عبر كل خلية بيانات في السلسلة
     foreach (IChartDataPoint cell in ser.DataPoints)
     {
-        // Setting the number format
+        // تعيين تنسيق الرقم
         cell.Value.AsCell.PresetNumberFormat = 10; //0.00%
     }
 }
 
-// Saving presentation
+// حفظ العرض
 pres.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-القيم الممكنة لتنسيق الأرقام المسبقة جنبًا إلى جنب مع فهرسها والتي يمكن استخدامها موضحة أدناه:
 
-|**0**|عام|
+القيم المسبقة لتنسيق الأعداد الممكنة مع فهرسها المسبق والتي يمكن استخدامها موضحة أدناه:
+
+|**0**|General|
 | :- | :- |
 |**1**|0|
 |**2**|0.00|
@@ -289,17 +284,16 @@ pres.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 |**48**|##0.0E+00|
 |**49**|@|
 
-## **تعيين حدود مستديرة لمنطقة المخطط**
-Aspose.Slides لـ .NET يوفر دعمًا لتعيين منطقة المخطط. تم إضافة الخصائص **IChart.HasRoundedCorners** و **Chart.HasRoundedCorners** في Aspose.Slides.
+## **ضبط زوايا مساحه المخطط المدورة**
+Aspose.Slides for .NET يوفر دعمًا لضبط مساحة المخطط. تم إضافة الخصائص **IChart.HasRoundedCorners** و **Chart.HasRoundedCorners** في Aspose.Slides.
 
-1. إنشاء كائن فئة `Presentation`.
-1. إضافة المخطط على الشريحة.
-1. تعيين نوع الملء ولون الملء للمخطط
-1. تعيين خاصية الزاوية المستديرة إلى True.
+1. إنشاء كائن من الفئة `Presentation` class.
+1. إضافة مخطط إلى الشريحة.
+1. تعيين نوع التعبئة ولون التعبئة للمخطط
+1. تعيين خاصية الزوايا المدورة إلى True.
 1. حفظ العرض المعدل.
 
-مثال عينة أدناه.
-
+المثال النموذجي التالي موضح. 
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -312,3 +306,18 @@ using (Presentation presentation = new Presentation())
 	presentation.Save("out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني تعيين تعبئة شبه شفافة للأعمدة/المناطق مع الحفاظ على الحدود غير شفافة؟**
+
+نعم. يتم تكوين شفافية التعبئة والحدود بشكل منفصل. هذا مفيد لتحسين قابلية القراءة للشبكة والبيانات في التصويرات الكثيفة.
+
+**كيف يمكنني التعامل مع تسميات البيانات عندما تتداخل؟**
+
+قلل حجم الخط، عطل مكونات التسمية غير الضرورية (مثل الفئات)، اضبط إزاحة/موضع التسمية، أظهر التسميات فقط للنقاط المختارة إذا لزم الأمر، أو غيّر الصيغة إلى "القيمة + الأسطورة".
+
+**هل يمكنني تطبيق تعبئة تدرجية أو نمطية للسلسلة؟**
+
+نعم. تتوفر عادةً كل من التعبئات الصلبة والتدرجات/الأنماط. عمليًا، استخدم التدرجات باعتدال وتجنب الجمع بينهما بطريقة تقلل التباين مع الشبكة والنص.

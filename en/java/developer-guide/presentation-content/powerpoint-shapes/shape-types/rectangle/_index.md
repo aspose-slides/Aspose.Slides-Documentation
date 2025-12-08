@@ -1,8 +1,20 @@
 ---
-title: Rectangle
+title: Add Rectangles to Presentations in Java
+linktitle: Rectangle
 type: docs
 weight: 80
 url: /java/rectangle/
+keywords:
+- add rectangle
+- create rectangle
+- rectangle shape
+- simple rectangle
+- formatted rectangle
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Boost your PowerPoint presentations by adding rectangles with Aspose.Slides for Java—easily design and modify shapes programmatically."
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +23,7 @@ Like previous topics, this one is also about adding a shape and this time the sh
 
 {{% /alert %}} 
 
-## **Add Rectangle to Slide**
+## **Add a Rectangle to a Slide**
 To add a simple rectangle to a selected slide of the presentation, please follow the steps below:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
@@ -38,7 +50,7 @@ try {
 }
 ```
 
-## **Add Formatted Rectangle to Slide**
+## **Add a Formatted Rectangle to a Slide**
 To add a formatted rectangle to a slide, please follow the steps below:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
@@ -77,3 +89,33 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**How do I add a rectangle with rounded corners?**
+
+Use the rounded-corner [shape type](https://reference.aspose.com/slides/java/com.aspose.slides/shapetype/) and adjust the corner radius in the shape’s properties; rounding can also be applied per corner via geometry adjustments.
+
+**How do I fill a rectangle with an image (texture)?**
+
+Select the picture [fill type](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/), provide the image source, and configure [stretching/tiling modes](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/).
+
+**Can a rectangle have shadow and glow?**
+
+Yes. [Outer/inner shadow, glow, and soft edges](/slides/java/shape-effect/) are available with adjustable parameters.
+
+**Can I turn a rectangle into a button with a hyperlink?**
+
+Yes. [Assign a hyperlink](/slides/java/manage-hyperlinks/) to the shape click (jump to a slide, file, web address, or e-mail).
+
+**How can I protect a rectangle from moving and changes?**
+
+[Use shape locks](/slides/java/applying-protection-to-presentation/): you can forbid moving, resizing, selection, or text editing to preserve the layout.
+
+**Can I convert a rectangle to a raster image or SVG?**
+
+Yes. You can [render the shape](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage-int-float-float-) to an image with a specified size/scale or [export it as SVG](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) for vector use.
+
+**How do I quickly get the actual (effective) properties of a rectangle considering theme and inheritance?**
+
+[Use the shape’s effective properties](/slides/java/shape-effective-properties/): the API returns computed values that account for theme styles, layout, and local settings, simplifying formatting analysis.

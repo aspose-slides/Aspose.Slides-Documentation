@@ -1,10 +1,18 @@
 ---
 title: Aspose.Slides for PHP via Java
 second_title: "Aspose.Slides for PHP Documentation"
-description: Aspose.Slides for PHP via Java provides a lot of key features such as managing text, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF format and more.
 type: docs
 weight: 45
 url: /php-java/
+keywords:
+- documentation
+- presentation processing
+- presentation conversion
+- PowerPoint
+- OpenDocument
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides is a Microsoft PowerPoint® management API that enables PHP applications to read and write PowerPoint® documents without using Microsoft PowerPoint®."
 is_root: true
 ---
 

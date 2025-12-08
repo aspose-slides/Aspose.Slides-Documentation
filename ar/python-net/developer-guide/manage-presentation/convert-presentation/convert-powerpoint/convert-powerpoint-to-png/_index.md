@@ -1,77 +1,101 @@
 ---
-title: تحويل PowerPoint إلى PNG
+title: تحويل شرائح PowerPoint إلى PNG في Python
+linktitle: شريحة إلى PNG
 type: docs
 weight: 30
 url: /ar/python-net/convert-powerpoint-to-png/
-keywords: PowerPoint إلى PNG, PPT إلى PNG, PPTX إلى PNG, Python, Aspose.Slides لـ Python عبر .NET
-description: تحويل عرض PowerPoint إلى PNG
+keywords:
+- تحويل PowerPoint إلى PNG
+- تحويل العرض التقديمي إلى PNG
+- تحويل الشريحة إلى PNG
+- تحويل PPT إلى PNG
+- تحويل PPTX إلى PNG
+- تحويل ODP إلى PNG
+- PowerPoint إلى PNG
+- العرض التقديمي إلى PNG
+- الشريحة إلى PNG
+- PPT إلى PNG
+- PPTX إلى PNG
+- ODP إلى PNG
+- Python
+- Aspose.Slides
+description: "تحويل عروض PowerPoint و OpenDocument إلى صور PNG عالية الجودة بسرعة باستخدام Aspose.Slides للـ Python عبر .NET، لضمان نتائج دقيقة ومؤتمتة."
 ---
 
-## **حول تحويل PowerPoint إلى PNG**
+## **نظرة عامة**
 
-صيغة PNG (رسومات الشبكة المحمولة) ليست شائعة مثل JPEG (مجموعة الخبراء في التصوير الفوتوغرافي)، لكنها لا تزال شائعة جدًا.
+يُسّهل Aspose.Slides للـ Python عبر .NET تحويل عروض PowerPoint إلى PNG. تقوم بتحميل عرض تقديمي، وتكرار شرائحه، وتصيير كل شريحة إلى صورة نقطية، ثم حفظ النتيجة كملفات PNG. هذا مثالي لإنشاء معاينات للشرائح، أو تضمين الشرائح في صفحات الويب، أو إنتاج أصول ثابتة للمعالجة اللاحقة.
 
-**حالة الاستخدام:** عندما يكون لديك صورة معقدة والحجم ليس مشكلة، فإن PNG هو تنسيق صورة أفضل من JPEG.
+## **تحويل الشرائح إلى PNG**
 
-{{% alert title="نصيحة" color="primary" %}} قد ترغب في الاطلاع على **محولات PowerPoint إلى PNG** المجانية من Aspose: [PPTX إلى PNG](https://products.aspose.app/slides/conversion/pptx-to-png) و [PPT إلى PNG](https://products.aspose.app/slides/conversion/ppt-to-png). إنها تنفيذ حي للعملية الموصوفة في هذه الصفحة. {{% /alert %}}
+هذا القسم يوضح أبسط مثال ممكن لتحويل عرض PowerPoint إلى صور PNG باستخدام Aspose.Slides للـ Python عبر .NET.
 
-## **تحويل PowerPoint إلى PNG**
+اتبع الخطوات التالية:
 
-تابع هذه الخطوات:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+1. احصل على شريحة من مجموعة `Presentation.slides` (انظر الفئة [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) ).
+1. استخدم الطريقة `Slide.get_image` لإنشاء صورة مصغرة للشريحة.
+1. استخدم الطريقة `Presentation.save` لحفظ الصورة المصغرة للشريحة بتنسيق PNG.
 
-1. قم بإنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. احصل على كائن الشريحة من مجموعة [Presentation.Slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) تحت واجهة [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/).
-3. استخدم طريقة [ISlide.GetImage](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) للحصول على الصورة المصغرة لكل شريحة.
-4. استخدم طريقة [IPresentation.SaveMethod(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentation/) لحفظ الصورة المصغرة للشريحة بتنسيق PNG.
-
-يوضح كود Python هذا كيفية تحويل عرض PowerPoint إلى PNG:
-
+هذا الكود Python يوضح كيفية تحويل عرض PowerPoint إلى PNG:
 ```py
 import aspose.slides as slides
 
-pres = slides.Presentation("pres.pptx")
-
-for index in range(pres.slides.length):
-    slide = pres.slides[index]
-    with slide.get_image() as image:
-        image.save("slide_{i}.png".format(i = index), slides.ImageFormat.PNG)
+with slides.Presentation("presentation.pptx") as presentation:
+    for index, slide in enumerate(presentation.slides):
+        with slide.get_image() as image:
+            image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-## **تحويل PowerPoint إلى PNG بأبعاد مخصصة**
 
-إذا كنت ترغب في الحصول على ملفات PNG حول نطاق معين، يمكنك تعيين القيم لـ `desiredX` و `desiredY`، والتي تحدد أبعاد الصورة المصغرة الناتجة.
+## **تحويل الشرائح إلى PNG بأبعاد مخصصة**
 
-يوضح هذا الكود في Python العملية الموصوفة:
+لتصدير الشرائح إلى PNG بمقياس مخصص، استدعِ `Slide.get_image` مع عوامل المقياس الأفقي والرأسي. تُعيد هذه المضاعفات تحجيم الناتج نسبةً إلى أبعاد الشريحة الأصلية—على سبيل المثال، `2.0` يضاعف كل من العرض والارتفاع. استخدم قيمًا متساوية لـ `scale_x` و `scale_y` للحفاظ على نسبة الأبعاد.
 
+هذا الكود Python يوضح العملية الموصوفة:
 ```py
 import aspose.slides as slides
 
-pres = slides.Presentation("pres.pptx")
+scale_x = 2
+scale_y = scale_x
 
-scaleX = 2
-scaleY = 2
-for index in range(pres.slides.length):
-    slide = pres.slides[index]
-    with slide.get_image(scaleX, scaleY) as image:
-        image.save("slide_{index}.png".format(index=index), slides.ImageFormat.PNG)
+with slides.Presentation("presentation.pptx") as presentation:
+    for index, slide in enumerate(presentation.slides):
+        with slide.get_image(scale_x, scale_y) as image:
+            image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-## **تحويل PowerPoint إلى PNG بحجم مخصص**
 
-إذا كنت تريد الحصول على ملفات PNG حول حجم معين، يمكنك تمرير القيم المفضلة لديك لـ `width` و `height` كوسائط لـ `ImageSize`.
+## **تحويل الشرائح إلى PNG بحجم مخصص**
 
-يظهر هذا الكود كيفية تحويل PowerPoint إلى PNG مع تحديد الحجم للصور:
-
+إذا أردت إنشاء ملفات PNG بحجم محدد، مرّر قيم `width` و `height` المطلوبة. يُظهر الكود أدناه كيفية تحويل عرض PowerPoint إلى PNG مع تحديد حجم الصورة:
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as drawing
 
-pres = slides.Presentation(path + "pres.pptx")
-
 size = drawing.Size(960, 720)
 
-for index in range(pres.slides.length):
-    slide = pres.slides[index]
-    with slide.get_image(size) as image:
-        image.save("slide_{index}.png".format(index=index), slides.ImageFormat.PNG)
+with slides.Presentation("presentation.pptx") as presentation:
+    for index, slide in enumerate(presentation.slides):
+        with slide.get_image(size) as image:
+            image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
+
+
+{{% alert title="Tip" color="primary" %}}
+قد ترغب في تجربة محولات **PowerPoint-to-PNG** المجانية من Aspose — [PPTX إلى PNG](https://products.aspose.app/slides/conversion/pptx-to-png) و [PPT إلى PNG](https://products.aspose.app/slides/conversion/ppt-to-png). توفر هذه أدوات تنفيذًا مباشرًا للعملية الموضحة في هذه الصفحة.
+{{% /alert %}}
+
+## **الأسئلة الشائعة**
+
+**كيف يمكنني تصدير شكل محدد فقط (مثل مخطط أو صورة) بدلاً من الشريحة بالكامل؟**
+
+يدعم Aspose.Slides [إنشاء صور مصغرة للأشكال الفردية](/slides/ar/python-net/create-shape-thumbnails/); يمكنك تصيير الشكل إلى صورة PNG.
+
+**هل يتم دعم التحويل المتوازي على الخادم؟**
+
+نعم، ولكن [لا تشارك](/slides/ar/python-net/multithreading/) نسخة عرض تقديمي واحدة عبر خيوط التنفيذ. استخدم نسخة منفصلة لكل خيط أو عملية.
+
+**ما هي قيود النسخة التجريبية عند التصدير إلى PNG؟**
+
+يضيف وضع التقييم علامة مائية على الصور المُخرجة ويفرض [قيودًا أخرى](/slides/ar/python-net/licensing/) حتى يتم تطبيق ترخيص.

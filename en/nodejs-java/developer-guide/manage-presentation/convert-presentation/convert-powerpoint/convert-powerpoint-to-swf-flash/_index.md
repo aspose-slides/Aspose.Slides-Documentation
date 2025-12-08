@@ -1,10 +1,35 @@
 ---
-title: Convert PowerPoint to SWF Flash
+title: Convert PowerPoint Presentations to SWF Flash in JavaScript
+linktitle: PowerPoint to SWF
 type: docs
 weight: 80
 url: /nodejs-java/convert-powerpoint-to-swf-flash/
-keywords: "PPT, PPTX to SWF"
-description: "Convert PowerPoint PPT, PPTX to SWF in JavaScript"
+keywords:
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- PowerPoint to SWF
+- presentation to SWF
+- slide to SWF
+- PPT to SWF
+- PPTX to SWF
+- PowerPoint to Flash
+- presentation to Flash
+- slide to Flash
+- PPT to Flash
+- PPTX to Flash
+- save PPT as SWF
+- save PPTX as SWF
+- export PPT to SWF
+- export PPTX to SWF
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Convert PowerPoint (PPT/PPTX) to SWF Flash with Aspose.Slides for Node.js. Step‑by‑step code samples, fast quality output, no PowerPoint automation."
 ---
 
 ## **Convert PPT(X) to SWF**

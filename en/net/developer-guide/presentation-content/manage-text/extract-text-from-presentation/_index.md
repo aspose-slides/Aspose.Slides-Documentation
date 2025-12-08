@@ -1,5 +1,5 @@
 ---
-title: Advanced Text Extraction from Presentations in C#
+title: Advanced Text Extraction from Presentations in .NET
 linktitle: Extract Text
 type: docs
 weight: 90
@@ -9,13 +9,25 @@ keywords:
 - extract text from slide
 - extract text from presentation
 - extract text from PowerPoint
+- extract text from OpenDocument
 - extract text from PPT
 - extract text from PPTX
 - extract text from ODP
-- C#
+- retrieve text
+- retrieve text from slide
+- retrieve text from presentation
+- retrieve text from PowerPoint
+- retrieve text from OpenDocument
+- retrieve text from PPT
+- retrieve text from PPTX
+- retrieve text from ODP
+- PowerPoint
+- OpenDocument
+- presentation
 - .NET
+- C#
 - Aspose.Slides
-description: "Learn how to quickly and easily extract text from PowerPoint presentations using Aspose.Slides for .NET. Follow our simple, step-by-step guide to save time and efficiently access slide content in your applications."
+description: "Quickly extract text from PowerPoint and OpenDocument presentations using Aspose.Slides for .NET. Follow our simple, step-by-step guide to save time."
 ---
 
 ## **Overview**

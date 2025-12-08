@@ -1,9 +1,18 @@
 ---
-title: Flash
+title: Extract Flash Objects from Presentations in PHP
+linktitle: Flash
 type: docs
 weight: 10
 url: /php-java/flash/
-description: Extract Flash Objects from PowerPoint Presentation using PHP
+keywords:
+- extract flash
+- flash object
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Learn how to extract Flash objects from PowerPoint and OpenDocument slides with Aspose.Slides for PHP via Java, complete code samples and best practices."
 ---
 
 ## **Extract Flash Objects from Presentation**

@@ -1,9 +1,20 @@
 ---
-title: Read Only Presentation
+title: Save Presentations in Read-Only Mode Using JavaScript
+linktitle: Read-Only Presentation
 type: docs
 weight: 30
 url: /nodejs-java/read-only-presentation/
-
+keywords:
+- read only
+- protect presentation
+- prevent editing
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Load and save PowerPoint files in read-only mode with Aspose.Slides for Node.js via Java, offering precise slide previews without altering your presentations."
 ---
 
 ## **Apply Read-Only Mode**

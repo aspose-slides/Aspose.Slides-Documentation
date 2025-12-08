@@ -1,371 +1,483 @@
 ---
-title: Форматирование фигур
+title: Форматирование фигур PowerPoint на C#
+linktitle: Форматирование фигур
 type: docs
 weight: 20
 url: /ru/net/shape-formatting/
-keywords: "Формат фигуры, формат линий, стили соединений, градиентная заливка, заливка узором, заливка изображением, заливка сплошным цветом, поворот фигур, 3D эффекты фаски, 3D эффект вращения, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
-description: "Форматирование фигуры в презентации PowerPoint на C# или .NET"
+keywords:
+- формат фигуры
+- формат линии
+- формат стиля соединения
+- градиентная заливка
+- заливка узором
+- заливка изображением
+- заливка текстурой
+- сплошная заливка цветом
+- прозрачность фигуры
+- повернуть фигуру
+- 3D-скошенный эффект
+- 3D-вращение
+- сброс форматирования
+- PowerPoint
+- презентация
+- C#
+- Csharp
+- .NET
+- Aspose.Slides
+description: "Узнайте, как форматировать фигуры PowerPoint на C# с помощью Aspose.Slides — задавать стили заливки, линий и эффектов для файлов PPT, PPTX и ODP с точностью и полным контролем."
 ---
 
-В PowerPoint вы можете добавлять фигуры на слайды. Поскольку фигуры состоят из линий, вы можете форматировать фигуры, изменяя или применяя определенные эффекты к их составным линиям. Кроме того, вы можете форматировать фигуры, указывая настройки, которые определяют, как они (их области) заливаются.
+## **Обзор**
+
+В PowerPoint вы можете добавлять фигуры на слайды. Поскольку фигуры состоят из линий, их можно форматировать, изменяя или применяя эффекты к контуру. Кроме того, вы можете форматировать фигуры, указывая параметры, контролирующие заполнение их внутренней части.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-**Aspose.Slides для .NET** предоставляет интерфейсы и свойства, которые позволяют вам форматировать фигуры на основе известных параметров в PowerPoint.
+Aspose.Slides для .NET предоставляет интерфейсы и свойства, позволяющие форматировать фигуры, используя те же параметры, что доступны в PowerPoint.
 
-## **Формат линий**
+## **Форматирование линий**
 
-С помощью Aspose.Slides вы можете определить свой предпочитаемый стиль линии для фигуры. Эти шаги описывают такую процедуру:
+С помощью Aspose.Slides вы можете задать пользовательский стиль линии для фигуры. Ниже перечислены шаги процедуры:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Получите ссылку на слайд через его индекс. 
-3. Добавьте [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) на слайд.
-4. Установите цвет для линий фигуры.
-5. Установите ширину для линий фигуры.
-6. Установите [стиль линии](https://reference.aspose.com/slides/net/aspose.slides/linestyle) для линии фигуры.
-7. Установите [стиль штриха](http://aspose.com/api/net/slides/aspose.slides/linedashstyle) для линии фигуры. 
-8. Запишите измененную презентацию в файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) на слайд.
+1. Задайте [line style](https://reference.aspose.com/slides/net/aspose.slides/linestyle/) фигуры.
+1. Установите толщину линии.
+1. Задайте [dash style](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) линии.
+1. Установите цвет линии для фигуры.
+1. Сохраните изменённую презентацию как файл PPTX.
 
-Этот код на C# демонстрирует операцию, в которой мы форматируем прямоугольник `AutoShape`:
-
+Следующий код C# демонстрирует, как отформатировать прямоугольный `AutoShape`:
 ```c#
-// Создает экземпляр класса презентации, который представляет файл презентации
-using (Presentation pres = new Presentation())
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+using (Presentation presentation = new Presentation())
 {
-    // Получает первый слайд
-    ISlide sld = pres.Slides[0];
+    // Получите первый слайд.
+    ISlide slide = presentation.Slides[0];
 
-    // Добавляет автопформу прямоугольной формы
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
+    // Добавьте автофигуру типа Rectangle.
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Устанавливает цвет заливки для фигуры прямоугольника
-    shp.FillFormat.FillType = FillType.Solid;
-    shp.FillFormat.SolidFillColor.Color = Color.White;
+    // Установите цвет заливки для фигуры прямоугольника.
+    shape.FillFormat.FillType = FillType.NoFill;
 
-    // Применяет некоторые настройки к линиям прямоугольника
-    shp.LineFormat.Style = LineStyle.ThickThin;
-    shp.LineFormat.Width = 7;
-    shp.LineFormat.DashStyle = LineDashStyle.Dash;
+    // Примените форматирование к линиям прямоугольника.
+    shape.LineFormat.Style = LineStyle.ThickThin;
+    shape.LineFormat.Width = 7;
+    shape.LineFormat.DashStyle = LineDashStyle.Dash;
 
-    // Устанавливает цвет для линии прямоугольника
-    shp.LineFormat.FillFormat.FillType = FillType.Solid;
-    shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    // Установите цвет линии прямоугольника.
+    shape.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
-    // Записывает файл PPTX на диск
-    pres.Save("RectShpLn_out.pptx", SaveFormat.Pptx);
+    // Сохраните файл PPTX на диск.
+    presentation.Save("formatted_lines.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Формат стилей соединений**
-Это три варианта типа соединения:
 
-* Закругленный
-* Скошенный
+Результат:
+
+![The formatted lines in the presentation](formatted-lines.png)
+
+## **Форматирование стилей соединения**
+
+Вот три варианта типа соединения:
+
+* Круглый
+* Срез
 * Фаска
 
-По умолчанию, когда PowerPoint соединяет две линии под углом (или угол фигуры), используется настройка **Закругленный**. Однако, если вы хотите нарисовать фигуру с очень острыми углами, вам может понадобиться выбрать **Скошенный**.
+По умолчанию, когда PowerPoint соединяет две линии под углом (например, в углу фигуры), используется параметр **Круглый**. Однако, если вы рисуете фигуру с острыми углами, вам может подойти вариант **Срез**.
 
-![join-style-powerpoint](join-style-powerpoint.png)
+![The join style in the presentation](join-style-powerpoint.png)
 
-Этот код на C# демонстрирует операцию, в которой были созданы 3 прямоугольника (на изображении выше) с настройками типа соединения Скошенный, Фаска и Закругленный:
-
+Следующий код C# демонстрирует, как три прямоугольника (как показано на изображении выше) были созданы с использованием настроек типа соединения Miter, Bevel и Round:
 ```c#
-// Создает экземпляр класса презентации, который представляет файл презентации
-using (Presentation pres = new Presentation())
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+using (Presentation presentation = new Presentation())
 {
-    // Получает первый слайд
-    ISlide sld = pres.Slides[0];
+    // Получите первый слайд.
+    ISlide slide = presentation.Slides[0];
 
-    // Добавляет 3 прямоугольные автопформы
-    IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 100, 150, 75);
-    IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 100, 150, 75);
-    IShape shp3 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 250, 150, 75);
+    // Добавьте три автофигуры типа Rectangle.
+    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
+    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
+    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Устанавливает цвет заливки для фигуры прямоугольника
-    shp1.FillFormat.FillType = FillType.Solid;
-    shp1.FillFormat.SolidFillColor.Color = Color.Black;
-    shp2.FillFormat.FillType = FillType.Solid;
-    shp2.FillFormat.SolidFillColor.Color = Color.Black;
-    shp3.FillFormat.FillType = FillType.Solid;
-    shp3.FillFormat.SolidFillColor.Color = Color.Black;
+    // Установите цвет заливки для каждой фигуры прямоугольника.
+    shape1.FillFormat.FillType = FillType.Solid;
+    shape1.FillFormat.SolidFillColor.Color = Color.Black;
+    shape2.FillFormat.FillType = FillType.Solid;
+    shape2.FillFormat.SolidFillColor.Color = Color.Black;
+    shape3.FillFormat.FillType = FillType.Solid;
+    shape3.FillFormat.SolidFillColor.Color = Color.Black;
 
-    // Устанавливает ширину линии
-    shp1.LineFormat.Width = 15;
-    shp2.LineFormat.Width = 15;
-    shp3.LineFormat.Width = 15;
+    // Установите ширину линии.
+    shape1.LineFormat.Width = 15;
+    shape2.LineFormat.Width = 15;
+    shape3.LineFormat.Width = 15;
 
-    // Устанавливает цвет линии для фигуры прямоугольника
-    shp1.LineFormat.FillFormat.FillType = FillType.Solid;
-    shp1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    shp2.LineFormat.FillFormat.FillType = FillType.Solid;
-    shp2.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    shp3.LineFormat.FillFormat.FillType = FillType.Solid;
-    shp3.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    // Установите цвет линии для каждого прямоугольника.
+    shape1.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    shape2.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape2.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    shape3.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape3.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
-    // Устанавливает стиль соединения
-    shp1.LineFormat.JoinStyle = LineJoinStyle.Miter;
-    shp2.LineFormat.JoinStyle = LineJoinStyle.Bevel;
-    shp3.LineFormat.JoinStyle = LineJoinStyle.Round;
+    // Установите стиль соединения.
+    shape1.LineFormat.JoinStyle = LineJoinStyle.Miter;
+    shape2.LineFormat.JoinStyle = LineJoinStyle.Bevel;
+    shape3.LineFormat.JoinStyle = LineJoinStyle.Round;
 
-    // Добавляет текст к каждому прямоугольнику
-    ((IAutoShape)shp1).TextFrame.Text = "Скошенный стиль соединения";
-    ((IAutoShape)shp2).TextFrame.Text = "Фаска стиль соединения";
-    ((IAutoShape)shp3).TextFrame.Text = "Закругленный стиль соединения";
+    // Добавьте текст к каждому прямоугольнику.
+    shape1.TextFrame.Text = "Miter Join Style";
+    shape2.TextFrame.Text = "Bevel Join Style";
+    shape3.TextFrame.Text = "Round Join Style";
 
-    // Записывает файл PPTX на диск
-    pres.Save("RectShpLnJoin_out.pptx", SaveFormat.Pptx);
+    // Сохраните файл PPTX на диск.
+    presentation.Save("join_styles.pptx", SaveFormat.Pptx);
 }
 ```
+
 
 ## **Градиентная заливка**
-В PowerPoint Градиентная заливка – это опция форматирования, которая позволяет применять непрерывный переход цветов к фигуре. Например, вы можете применить два или более цвета в настройке, где один цвет постепенно затухает и изменяется на другой цвет.
 
-Вот как вы используете Aspose.Slides для применения градиентной заливки к фигуре:
+В PowerPoint градиентная заливка — это параметр форматирования, позволяющий применить к фигуре непрерывный переход цветов. Например, можно задать два или более цветов так, чтобы один плавно переходил в другой.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Получите ссылку на слайд через его индекс. 
-3. Добавьте [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) на слайд.
-4. Установите [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) фигуры на `Gradient`.
-5. Добавьте ваши 2 предпочитаемых цвета с определенными позициями, используя методы `Add`, предоставленные коллекцией `GradientStops`, связанной с классом `GradientFormat`.
-6. Запишите измененную презентацию в файл PPTX.
+Вот как применить градиентную заливку к фигуре с помощью Aspose.Slides:
 
-Этот код на C# демонстрирует операцию, когда эффект градиентной заливки был применен к эллипсу:
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) на слайд.
+1. Задайте [FillType] фигуры значение `Gradient`.
+1. Добавьте два выбранных вами цвета с определёнными позициями, используя методы `Add` коллекции остановок градиента, доступные через интерфейс [IGradientFormat](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/).
+1. Сохраните изменённую презентацию как файл PPTX.
 
 ```c#
-// Создает экземпляр класса презентации, который представляет файл презентации
-using (Presentation pres = new Presentation())
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+using (Presentation presentation = new Presentation())
 {
-    // Получает первый слайд
-    ISlide sld = pres.Slides[0];
+    // Получите первый слайд.
+    ISlide slide = presentation.Slides[0];
 
-    // Добавляет эллипсоидную автоп форму
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 150, 75, 150);
+    // Добавьте автофигуру типа Ellipse.
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Применяет градиентное форматирование к эллипсу
-    shp.FillFormat.FillType = FillType.Gradient;
-    shp.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
+    // Примените градиентное форматирование к эллипсу.
+    shape.FillFormat.FillType = FillType.Gradient;
+    shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
 
-    // Устанавливает направление градиента
-    shp.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
+    // Установите направление градиента.
+    shape.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
 
-    // Добавляет 2 градиентные точки
-    shp.FillFormat.GradientFormat.GradientStops.Add((float)1.0, PresetColor.Purple);
-    shp.FillFormat.GradientFormat.GradientStops.Add((float)0, PresetColor.Red);
+    // Добавьте две остановки градиента.
+    shape.FillFormat.GradientFormat.GradientStops.Add(1.0f, PresetColor.Purple);
+    shape.FillFormat.GradientFormat.GradientStops.Add(0.0f, PresetColor.Red);
 
-    // Записывает файл PPTX на диск
-    pres.Save("EllipseShpGrad_out.pptx", SaveFormat.Pptx);
+    // Сохраните файл PPTX на диск.
+    presentation.Save("gradient_fill.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+Результат:
+
+![The ellipse with gradient fill](gradient-fill.png)
 
 ## **Заливка узором**
-В PowerPoint Заливка узором – это опция форматирования, которая позволяет применить двухцветный дизайн, состоящий из точек, полос, крестиков или клеток, к фигуре. Кроме того, вы можете выбрать предпочитаемые цвета для переднего и заднего плана вашего узора.
 
-Aspose.Slides предоставляет более 45 предустановленных стилей, которые можно использовать для форматирования фигур и обогащения презентаций. Даже после того, как вы выбрали предустановленный узор, вы все равно можете указать цвета, которые должен содержать узор.
+В PowerPoint заливка узором — это параметр форматирования, позволяющий применить к фигуре двухцветный рисунок, такой как точки, полосы, перекрестные штрихи или клетки. Вы можете выбрать пользовательские цвета для переднего и заднего плана узора.
 
-Вот как вы используете Aspose.Slides для применения заливки узором к фигуре:
+Aspose.Slides предоставляет более 45 предопределённых стилей узоров, которые можно применять к фигурам для улучшения визуального оформления презентаций. После выбора предопределённого узора вы всё равно можете указать точные цвета, которые он будет использовать.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Получите ссылку на слайд через его индекс. 
-3. Добавьте [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) на слайд.
-4. Установите [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) фигуры на `Pattern`.
-5. Установите стиль узора, который вам нужен для фигуры. 
-6. Установите [Цвет фона](http://www.aspose.com/api/net/slides/aspose.slides/patternformat/properties/backcolor) для [PatternFormat](http://www.aspose.com/api/net/slides/aspose.slides/patternformat).
-7. Установите [Цвет переднего плана](http://www.aspose.com/api/net/slides/aspose.slides/patternformat/properties/forecolor) для [PatternFormat](http://www.aspose.com/api/net/slides/aspose.slides/patternformat).
-8. Запишите измененную презентацию в файл PPTX.
-
-Этот код на C# демонстрирует операцию, в которой заливка узором была использована для улучшения внешнего вида прямоугольника:
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) на слайд.
+1. Задайте [FillType] фигуры значение `Pattern`.
+1. Выберите стиль узора из предопределённых вариантов.
+1. Задайте [Background Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) узора.
+1. Задайте [Foreground Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) узора.
+1. Сохраните изменённую презентацию как файл PPTX.
 
 ```c#
-// Создает экземпляр класса презентации, который представляет файл презентации
-using (Presentation pres = new Presentation())
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+using (Presentation presentation = new Presentation())
 {
-    // Получает первый слайд
-    ISlide sld = pres.Slides[0];
+    // Получите первый слайд.
+    ISlide slide = presentation.Slides[0];
 
-    // Добавляет прямоугольную автоп форму
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // Добавьте автофигуру типа Rectangle.
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Устанавливает тип заливки на узор
-    shp.FillFormat.FillType = FillType.Pattern;
+    // Установите тип заливки в Pattern.
+    shape.FillFormat.FillType = FillType.Pattern;
 
-    // Устанавливает стиль узора
-    shp.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
+    // Установите стиль узора.
+    shape.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
 
-    // Устанавливает цвета узора
-    shp.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
-    shp.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
+    // Установите фоновые и передние цвета узора.
+    shape.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
+    shape.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
 
-    // Записывает файл PPTX на диск
-    pres.Save("RectShpPatt_out.pptx", SaveFormat.Pptx);
+    // Сохраните файл PPTX на диск.
+    presentation.Save("pattern_fill.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+Результат:
+
+![The rectangle with pattern fill](pattern-fill.png)
 
 ## **Заливка изображением**
-В PowerPoint Заливка изображением – это опция форматирования, которая позволяет вставить изображение внутрь фигуры. Фактически, вы можете использовать изображение в качестве фона фигуры.
 
-Вот как вы используете Aspose.Slides для заливки фигуры изображением:
+В PowerPoint заливка изображением — это параметр форматирования, позволяющий вставить изображение внутрь фигуры, эффективно используя его в качестве фона фигуры.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
-2. Получите ссылку на слайд через его индекс. 
-3. Добавьте [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) на слайд.
-4. Установите [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) фигуры на `Picture`.
-5. Установите режим заливки картинки на Мозаика.
-6. Создайте объект `IPPImage` с использованием изображения, которое будет использоваться для заливки фигуры.
-7. Установите свойство `Picture.Image` объекта `PictureFillFormat` на недавно созданный `IPPImage`.
-8. Запишите измененную презентацию в файл PPTX.
+Вот как использовать Aspose.Slides для применения заливки изображением к фигуре:
 
-Этот код на C# показывает, как заполнить фигуру изображением:
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) на слайд.
+1. Задайте [FillType] фигуры значение `Picture`.
+1. Установите режим заливки изображением в `Tile` (или другой предпочтительный режим).
+1. Создайте объект [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) из изображения, которое хотите использовать.
+1. Назначьте это изображение свойству `Picture.Image` объекта `PictureFillFormat` фигуры.
+1. Сохраните изменённую презентацию как файл PPTX.
+
+![The lotus picture](lotus.png)
 
 ```c#
-// Создает экземпляр класса презентации, который представляет файл презентации
-using (Presentation pres = new Presentation())
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+using (Presentation presentation = new Presentation())
 {
-    // Получает первый слайд
-    ISlide sld = pres.Slides[0];
+    // Получите первый слайд.
+    ISlide slide = presentation.Slides[0];
 
-    // Добавляет прямоугольную автоп форму
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // Добавьте автофигуру типа Rectangle.
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
 
-    // Устанавливает тип заливки на изображение
-    shp.FillFormat.FillType = FillType.Picture;
+    // Установите тип заливки в Picture.
+    shape.FillFormat.FillType = FillType.Picture;
 
-    // Устанавливает режим заливки картинки
-    shp.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
+    // Установите режим заливки изображением.
+    shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
 
-    // Устанавливает изображение
-    System.Drawing.Image img = (System.Drawing.Image)new Bitmap("Tulips.jpg");
-    IPPImage imgx = pres.Images.AddImage(img);
-    shp.FillFormat.PictureFillFormat.Picture.Image = imgx;
+    // Загрузите изображение и добавьте его в ресурсы презентации.
+    IImage image = Images.FromFile("lotus.png");
+    IPPImage presentationImage = presentation.Images.AddImage(image);
+    image.Dispose();
 
-    // Записывает файл PPTX на диск
-    pres.Save("RectShpPic_out.pptx", SaveFormat.Pptx);
+    // Установите изображение.
+    shape.FillFormat.PictureFillFormat.Picture.Image = presentationImage;
+
+    // Сохраните файл PPTX на диск.
+    presentation.Save("picture_fill.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Сплошная заливка цвета**
-В PowerPoint Сплошная заливка цвета – это опция форматирования, которая позволяет заполнить фигуру одним цветом. Выбранный цвет, как правило, является простым цветом. Цвет применяется к фону фигуры с любыми специальными эффектами или изменениями.
 
-Вот как вы используете Aspose.Slides для применения сплошной заливки цвета к фигуре:
+Результат:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Получите ссылку на слайд через его индекс. 
-3. Добавьте [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) на слайд.
-4. Установите [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) фигуры на `Solid`.
-5. Установите свой предпочитаемый цвет для фигуры.
-6. Запишите измененную презентацию в файл PPTX.
+![The shape with picture fill](picture-fill.png)
 
-Этот код на C# показывает, как применить сплошную заливку цвета к фигуре в PowerPoint:
+### **Повторяющееся изображение в качестве текстуры**
+
+Если вы хотите задать повторяющееся изображение в качестве текстуры и настроить поведение повторения, вы можете использовать следующие свойства интерфейса [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) и класса [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/):
+
+- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): Устанавливает режим заливки изображения — `Tile` или `Stretch`.
+- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): Задает выравнивание плиток внутри фигуры.
+- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): Определяет, будет ли плитка отражена по горизонтали, вертикали или обеим осям.
+- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): Устанавливает горизонтальное смещение плитки (в пунктах) от начала координат фигуры.
+- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): Устанавливает вертикальное смещение плитки (в пунктах) от начала координат фигуры.
+- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): Определяет горизонтальный масштаб плитки в процентах.
+- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): Определяет вертикальный масштаб плитки в процентах.
+
+Следующий пример кода показывает, как добавить прямоугольную фигуру с повторяющейся заливкой изображением и настроить параметры плитки:
+```c#
+    // Создайте экземпляр класса Presentation, представляющего файл презентации.
+    using (Presentation presentation = new Presentation())
+    {
+        // Получите первый слайд.
+        ISlide firstSlide = presentation.Slides[0];
+
+        // Добавьте автофигуру прямоугольника.
+        IAutoShape shape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
+
+        // Установите тип заливки фигуры в Picture.
+        shape.FillFormat.FillType = FillType.Picture;
+
+        // Загрузите изображение и добавьте его в ресурсы презентации.
+        IPPImage presentationImage;
+        using (IImage sourceImage = Images.FromFile("lotus.png"))
+            presentationImage = presentation.Images.AddImage(sourceImage);
+
+        // Присвойте изображение фигуре.
+        IPictureFillFormat pictureFillFormat = shape.FillFormat.PictureFillFormat;
+        pictureFillFormat.Picture.Image = presentationImage;
+
+        // Настройте режим заливки изображением и свойства замощения.
+        pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
+        pictureFillFormat.TileOffsetX = -32;
+        pictureFillFormat.TileOffsetY = -32;
+        pictureFillFormat.TileScaleX = 50;
+        pictureFillFormat.TileScaleY = 50;
+        pictureFillFormat.TileAlignment = RectangleAlignment.BottomRight;
+        pictureFillFormat.TileFlip = TileFlip.FlipBoth;
+
+        // Сохраните файл PPTX на диск.
+        presentation.Save("tile.pptx", SaveFormat.Pptx);
+    }
+```
+
+
+Результат:
+
+![The tile options](tile-options.png)
+
+## **Сплошная заливка цветом**
+
+В PowerPoint сплошная заливка цветом — это параметр форматирования, заполняющий фигуру одним равномерным цветом. Этот простой фон применяется без градиентов, текстур или узоров.
+
+Чтобы применить сплошную заливку цветом к фигуре с помощью Aspose.Slides, выполните следующие действия:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) на слайд.
+1. Задайте [FillType] фигуры значение `Solid`.
+1. Назначьте фигуре желаемый цвет заливки.
+1. Сохраните изменённую презентацию как файл PPTX.
 
 ```c#
-// Создает экземпляр класса презентации, который представляет файл презентации
+ // Создайте экземпляр класса Presentation, представляющего файл презентации.
 using (Presentation presentation = new Presentation())
 {
-    // Получает первый слайд
+    // Получите первый слайд.
     ISlide slide = presentation.Slides[0];
 
-    // Добавляет прямоугольную автоп форму
-    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // Добавьте автофигуру типа Rectangle.
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Устанавливает тип заливки на Сплошной
+    // Установите тип заливки в Solid.
     shape.FillFormat.FillType = FillType.Solid;
 
-    // Устанавливает цвет для прямоугольника
+    // Установите цвет заливки.
     shape.FillFormat.SolidFillColor.Color = Color.Yellow;
 
-    // Записывает файл PPTX на диск
-    presentation.Save("RectShpSolid_out.pptx", SaveFormat.Pptx);
+    // Сохраните файл PPTX на диск.
+    presentation.Save("solid_color_fill.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Установить прозрачность**
 
-В PowerPoint, когда вы заполняете фигуры сплошными цветами, градиентами, изображениями или текстурами, вы можете задать уровень прозрачности, который определяет непрозрачность заливки. Таким образом, например, если вы установите низкий уровень прозрачности, объект слайда или фон позади (фигуры) будет просвечиваться.
+Результат:
 
-Aspose.Slides позволяет установить уровень прозрачности для фигуры следующим образом:
+![The shape with solid color fill](solid-color-fill.png)
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Получите ссылку на слайд через его индекс. 
-3. Добавьте [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) на слайд.
-4. Используйте `Color.FromArgb` с установленным компонентом альфа.
-5. Сохраните объект как файл PowerPoint.
+## **Установка прозрачности**
 
-Этот код на C# демонстрирует процесс:
+В PowerPoint, когда вы применяете сплошную заливку, градиент, изображение или текстуру к фигурам, вы также можете задать уровень прозрачности, чтобы контролировать непрозрачность заливки. Более высокий уровень прозрачности делает фигуру более полупрозрачной, позволяя видеть фон или находящиеся под ней объекты.
+
+Aspose.Slides позволяет установить уровень прозрачности, изменяя альфа‑компонент цвета, используемого для заливки. Вот как это сделать:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) на слайд.
+1. Задайте [FillType] фигуры значение `Solid`.
+1. Используйте `Color.FromArgb(alpha, baseColor)`, чтобы задать цвет с прозрачностью (компонент `alpha` управляет прозрачностью).
+1. Сохраните презентацию.
 
 ```c#
-// Создает экземпляр класса презентации, который представляет файл презентации
+const int alpha = 128;
+
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+using (Presentation presentation = new Presentation())
+{
+    // Получите первый слайд.
+    ISlide slide = presentation.Slides[0];
+
+    // Добавьте сплошную прямоугольную автофигуру.
+    IAutoShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+
+    // Добавьте прозрачную прямоугольную автофигуру поверх сплошной фигуры.
+    IAutoShape transparentShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
+    transparentShape.FillFormat.FillType = FillType.Solid;
+    transparentShape.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Yellow);
+
+    // Сохраните файл PPTX на диск.
+    presentation.Save("shape_transparency.pptx", SaveFormat.Pptx);
+}
+```
+
+
+Результат:
+
+![The transparent shape](shape-transparency.png)
+
+## **Поворот фигур**
+
+Aspose.Slides позволяет вращать фигуры в презентациях PowerPoint. Это может быть полезно при размещении визуальных элементов с определённым выравниванием или дизайнерскими требованиями.
+
+Чтобы повернуть фигуру на слайде, выполните следующие действия:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) на слайд.
+1. Установите свойство `Rotation` фигуры на нужный угол.
+1. Сохраните презентацию.
+
+```c#
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+using (Presentation presentation = new Presentation())
+{
+    // Получите первый слайд.
+    ISlide slide = presentation.Slides[0];
+
+    // Добавьте автофигуру типа Rectangle.
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+
+    // Поверните фигуру на 5 градусов.
+    shape.Rotation = 5;
+
+    // Сохраните файл PPTX на диск.
+    presentation.Save("shape_rotation.pptx", SaveFormat.Pptx);
+}
+```
+
+
+Результат:
+
+![The shape rotation](shape-rotation.png)
+
+## **Добавление 3D‑скошенных эффектов**
+
+Aspose.Slides позволяет применять 3D‑скошенные эффекты к фигурам, настраивая их свойства [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/).
+
+Чтобы добавить 3D‑скошенные эффекты к фигуре, выполните следующие действия:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) на слайд.
+1. Настройте [ThreeDFormat] фигуры, чтобы определить параметры скосов.
+1. Сохраните презентацию.
+
+```c#
+// Создайте экземпляр класса Presentation.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
-    
-    // Добавляет сплошную фигуру
-    IShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 75, 175, 75, 150);
 
-    // Добавляет прозрачную фигуру поверх сплошной фигуры
-    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
-    shape.FillFormat.FillType = FillType.Solid;
-    shape.FillFormat.SolidFillColor.Color = Color.FromArgb(128, 204, 102, 0);
-    
-    // Записывает файл PPTX на диск
-    presentation.Save("ShapeTransparentOverSolid_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Повернуть фигуры**
-Aspose.Slides позволяет вам поворачивать фигуру, добавленную на слайд, следующим образом:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Получите ссылку на слайд через его индекс. 
-3. Добавьте [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) на слайд.
-4. Поверните фигуру на необходимое количество градусов. 
-5. Запишите измененную презентацию в файл PPTX.
-
-Этот код на C# показывает, как повернуть фигуру на 90 градусов:
-
-```c#
-// Создает экземпляр класса презентации, который представляет файл презентации
-using (Presentation pres = new Presentation())
-{
-    // Получает первый слайд
-    ISlide sld = pres.Slides[0];
-
-    // Добавляет прямоугольную автоп форму
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
-
-    // Поворачивает фигуру на 90 градусов
-    shp.Rotation = 90;
-
-    // Записывает файл PPTX на диск
-    pres.Save("RectShpRot_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Добавить 3D эффекты фаски**
-Aspose.Slides позволяет добавлять 3D эффекты фаски к фигуре, изменяя свойства [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ThreeDFormat) следующим образом:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Получите ссылку на слайд через его индекс. 
-3. Добавьте [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) на слайд.
-3. Установите предпочтительные параметры для свойств [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ThreeDFormat) фигуры. 
-4. Запишите презентацию на диск.
-
-Этот код на C# показывает, как добавить эффекты 3D фаски к фигуре:
-
-```c#
-// Создает экземпляр класса презентации
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    
-    // Добавляет фигуру на слайд
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 30, 30, 100, 100);
+    // Добавьте фигуру на слайд.
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.FillFormat.FillType = FillType.Solid;
     shape.FillFormat.SolidFillColor.Color = Color.Green;
-    ILineFillFormat format = shape.LineFormat.FillFormat;
-    format.FillType = FillType.Solid;
-    format.SolidFillColor.Color = Color.Orange;
+    shape.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Orange;
     shape.LineFormat.Width = 2.0;
-    
-    // Устанавливает свойства Shape's ThreeDFormat
+
+    // Установите свойства ThreeDFormat фигуры.
     shape.ThreeDFormat.Depth = 4;
     shape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
     shape.ThreeDFormat.BevelTop.Height = 6;
@@ -373,56 +485,80 @@ using (Presentation pres = new Presentation())
     shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
     shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
     shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    
-    // Записывает презентацию в файл PPTX
-    pres.Save("Bavel_out.pptx", SaveFormat.Pptx);
+
+    // Сохраните презентацию в файл PPTX.
+    presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Добавить 3D эффект вращения**
-Aspose.Slides позволяет применять 3D эффекты вращения к фигуре, изменяя свойства [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ThreeDFormat) следующим образом:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Получите ссылку на слайд через его индекс. 
-3. Добавьте [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) на слайд.
-3. Укажите предпочитаемые параметры для [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/properties/cameratype) и [LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/properties/lighttype).
-4. Запишите презентацию на диск. 
+Результат:
 
-Этот код на C# показывает, как применять 3D эффекты вращения к фигуре:
+![The 3D bevel effect](3D-bevel-effect.png)
+
+## **Добавление 3D‑вращения**
+
+Aspose.Slides позволяет применять 3D‑вращения к фигурам, настраивая их свойства [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/).
+
+Чтобы применить 3D‑вращение к фигуре:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) на слайд.
+1. Задайте [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) и [LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/) фигуры, чтобы определить 3D‑вращение.
+1. Сохраните презентацию.
 
 ```c#
-// Создает экземпляр класса презентации
-using (Presentation pres = new Presentation())
+// Создайте экземпляр класса Presentation.
+using (Presentation presentation = new Presentation())
 {
-    IShape autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 200, 200);
-    
+    ISlide slide = presentation.Slides[0];
+
+    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+    autoShape.TextFrame.Text = "Hello, Aspose!";
+
     autoShape.ThreeDFormat.Depth = 6;
     autoShape.ThreeDFormat.Camera.SetRotation(40, 35, 20);
     autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
     autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    
-    autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Line, 30, 300, 200, 200);
-    autoShape.ThreeDFormat.Depth = 6;
-    autoShape.ThreeDFormat.Camera.SetRotation(0, 35, 20);
-    autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
-    autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    
-    // Записывает презентацию в файл PPTX
-    pres.Save("Rotation_out.pptx", SaveFormat.Pptx);
+
+    // Сохраните презентацию в файл PPTX.
+    presentation.Save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+Результат:
+
+![The 3D rotation effect](3D-rotation-effect.png)
 
 ## **Сброс форматирования**
 
-Этот код на C# показывает, как сбросить форматирование на слайде и вернуть позицию, размер и форматирование каждой фигуры, имеющей заполнение на [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/), к их значениям по умолчанию:
-
+Следующий код C# показывает, как сбросить форматирование слайда и вернуть позицию, размер и форматирование всех фигур с заполнителями на [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) к их значениям по умолчанию:
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    foreach (ISlide slide in pres.Slides)
+    foreach (ISlide slide in presentation.Slides)
     {
-        // каждая фигура на слайде, которая имеет заполнение на макете, будет возвращена
+        // Сбросьте каждую фигуру на слайде, которая имеет заполнитель в макете.
         slide.Reset();
     }
+
+    presentation.Save("reset_formatting.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**Влияет ли форматирование фигур на конечный размер файла презентации?**
+
+Только незначительно. Встроенные изображения и медиа‑файлы занимают большую часть пространства файла, а параметры фигур, такие как цвета, эффекты и градиенты, хранятся как метаданные и практически не увеличивают размер.
+
+**Как определить фигуры на слайде с одинаковым форматированием, чтобы их сгруппировать?**
+
+Сравните ключевые свойства форматирования каждой фигуры — параметры заполнения, линии и эффекты. Если все соответствующие значения совпадают, считайте их стили одинаковыми и логически группируйте такие фигуры, что упрощает последующее управление стилями.
+
+**Могу ли я сохранить набор пользовательских стилей фигур в отдельный файл для повторного использования в других презентациях?**
+
+Да. Сохраните примеры фигур с нужными стилями в наборе шаблонных слайдов или в файле шаблона .POTX. При создании новой презентации откройте шаблон, клонируйте необходимые стилизованные фигуры и повторно примените их форматирование там, где это требуется.

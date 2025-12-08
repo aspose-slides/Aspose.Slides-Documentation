@@ -3,15 +3,15 @@ title: Benutzerdefinierte Form
 type: docs
 weight: 20
 url: /de/net/custom-shape/
-keywords: 
+keywords:
 - Form
 - benutzerdefinierte Form
 - Form erstellen
 - Geometrie
 - Formgeometrie
-- Geometriepunkte
+- Geometriepfad
 - Pfadpunkte
-- Punkte bearbeiten
+- Bearbeitungspunkte
 - PowerPoint
 - Präsentation
 - C#
@@ -19,115 +19,114 @@ keywords:
 description: "Fügen Sie einer PowerPoint-Präsentation in .NET eine benutzerdefinierte Form hinzu"
 ---
 
-## Ändern einer Form mit Bearbeitungspunkten
+## **Form mit Bearbeitungspunkten ändern**
 
 Betrachten Sie ein Quadrat. In PowerPoint können Sie mit **Bearbeitungspunkten** 
 
-* die Ecke des Quadrats nach innen oder außen bewegen
-* die Krümmung für eine Ecke oder einen Punkt festlegen
+* die Ecke des Quadrats nach innen oder außen verschieben
+* die Krümmung einer Ecke oder eines Punkts festlegen
 * neue Punkte zum Quadrat hinzufügen
-* Punkte auf dem Quadrat manipulieren usw. 
+* Punkte des Quadrats manipulieren usw. 
 
-Im Wesentlichen können Sie die beschriebenen Aufgaben an jeder Form ausführen. Mit Bearbeitungspunkten können Sie eine Form ändern oder eine neue Form aus einer vorhandenen Form erstellen. 
+Im Wesentlichen können Sie die beschriebenen Aufgaben bei jeder Form ausführen. Mit Bearbeitungspunkten können Sie eine Form ändern oder aus einer bestehenden Form eine neue Form erstellen. 
 
-## **Tipps zum Bearbeiten von Formen**
+## **Tipps zur Formbearbeitung**
 
 ![overview_image](custom_shape_0.png)
 
-Bevor Sie beginnen, PowerPoint-Formen über Bearbeitungspunkte zu bearbeiten, sollten Sie diese Punkte zu Formen in Betracht ziehen:
+Bevor Sie mit der Bearbeitung von PowerPoint‑Formen über Bearbeitungspunkte beginnen, sollten Sie diese Punkte zu Formen berücksichtigen:
 
-* Eine Form (oder ihr Pfad) kann entweder geschlossen oder offen sein.
+* Eine Form (oder ihr Pfad) kann geschlossen oder offen sein.
 * Alle Formen bestehen aus mindestens 2 Ankerpunkten, die durch Linien miteinander verbunden sind.
-* Eine Linie ist entweder gerade oder gekrümmt. Ankerpunkte bestimmen die Natur der Linie. 
-* Ankerpunkte gibt es als Eckenpunkte, gerade Punkte oder glatte Punkte:
-  * Ein Eckpunkt ist ein Punkt, an dem sich 2 gerade Linien in einem Winkel treffen. 
-  * Ein glatter Punkt ist ein Punkt, an dem 2 Griffe in einer geraden Linie vorhanden sind und die Liniensegmente in einer glatten Kurve zusammenlaufen. In diesem Fall sind alle Griffe von dem Ankerpunkt durch einen gleichen Abstand getrennt. 
-  * Ein gerader Punkt ist ein Punkt, an dem 2 Griffe in einer geraden Linie vorhanden sind und die Liniensegmente dieser Linie in einer glatten Kurve zusammenlaufen. In diesem Fall müssen die Griffe nicht durch einen gleichen Abstand vom Ankerpunkt getrennt sein. 
+* Eine Linie ist gerade oder kurvig. Ankerpunkte bestimmen die Art der Linie. 
+* Ankerpunkte existieren als Eckpunkte, gerade Punkte oder glatte Punkte:
+  * Ein Eckpunkt ist ein Punkt, an dem 2 gerade Linien unter einem Winkel zusammenlaufen. 
+  * Ein glatter Punkt ist ein Punkt, an dem 2 Griffe in einer geraden Linie liegen und die Segmente der Linie in einer glatten Kurve zusammenlaufen. In diesem Fall sind alle Griffe vom Ankerpunkt aus in gleichem Abstand getrennt. 
+  * Ein gerader Punkt ist ein Punkt, an dem 2 Griffe in einer geraden Linie liegen und die Segmente der Linie in einer glatten Kurve zusammenlaufen. In diesem Fall müssen die Griffe nicht in gleichem Abstand vom Ankerpunkt getrennt sein. 
 * Durch Verschieben oder Bearbeiten von Ankerpunkten (was den Winkel der Linien ändert) können Sie das Aussehen einer Form ändern. 
 
-Um PowerPoint-Formen über Bearbeitungspunkte zu bearbeiten, stellt **Aspose.Slides** die [**GeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) Klasse und das [**IGeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath) Interface bereit. 
+Um PowerPoint‑Formen über Bearbeitungspunkte zu bearbeiten, stellt **Aspose.Slides** die Klasse [**GeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) und das Interface [**IGeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath) bereit. 
 
-* Eine [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) Instanz repräsentiert einen Geometriep path des [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape) Objekts. 
-* Um den `GeometryPath` von der `IGeometryShape` Instanz abzurufen, können Sie die [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/getgeometrypaths) Methode verwenden. 
-* Um den `GeometryPath` für eine Form festzulegen, können Sie diese Methoden verwenden: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypath) für *feste Formen* und [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypaths) für *komplexe Formen*.
+* Eine [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath)-Instanz repräsentiert den Geometriepfad des Objekts [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape). 
+* Um das `GeometryPath` aus der `IGeometryShape`‑Instanz abzurufen, können Sie die Methode [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/getgeometrypaths) verwenden. 
+* Um das `GeometryPath` für eine Form festzulegen, können Sie diese Methoden verwenden: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypath) für *solide Formen* und [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypaths) für *zusammengesetzte Formen*.
 * Um Segmente hinzuzufügen, können Sie die Methoden unter [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath) verwenden. 
-* Mit den [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/stroke) und [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/fillmode) Eigenschaften können Sie das Aussehen für einen Geometriep path festlegen.
-* Mit der [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/pathdata) Eigenschaft können Sie den Geometriep path einer `GeometryShape` als Array von P 测段en abrufen. 
-* Um auf zusätzliche Anpassungsoptionen für die Formgeometrie zuzugreifen, können Sie [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) in [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) umwandeln.
-* Verwenden Sie die Methoden [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/geometrypathtographicspath) und [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/graphicspathtogeometrypath) (aus der [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil) Klasse), um [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) in [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) und umgekehrt umzuwandeln. 
+* Mit den Eigenschaften [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/stroke) und [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/fillmode) können Sie das Erscheinungsbild eines Geometriepfads festlegen.
+* Mit der Eigenschaft [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/pathdata) können Sie den Geometriepfad einer `GeometryShape` als Array von Pfadsegmenten abrufen. 
+* Für zusätzliche Anpassungsoptionen zur Formgeometrie können Sie [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) in [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) konvertieren.
+* Verwenden Sie die Methoden [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/geometrypathtographicspath) und [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/graphicspathtogeometrypath) (aus der Klasse [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil)), um [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) in [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) hin und her zu konvertieren. 
 
 ## **Einfache Bearbeitungsoperationen**
 
-Dieser C# Code zeigt Ihnen, wie man
+Dieser C#‑Code zeigt, wie man
 
-**Eine Linie** an das Ende eines Pfades hinzufügen kann
-
+**Eine Linie** am Ende eines Pfads hinzufügt
 ``` csharp
 void LineTo(PointF point);
 void LineTo(float x, float y);
 ```
-**Eine Linie** an einer bestimmten Position auf einem Pfad hinzufügen:
 
+**Eine Linie** an einer angegebenen Position im Pfad hinzufügt:
 ``` csharp    
 void LineTo(PointF point, uint index);
 void LineTo(float x, float y, uint index);
 ```
-**Eine kubische Bezierkurve** am Ende eines Pfades hinzufügen:
 
+**Eine kubische Bézier‑Kurve** am Ende eines Pfads hinzufügt:
 ``` csharp
 void CubicBezierTo(PointF point1, PointF point2, PointF point3);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
 ```
-**Eine kubische Bezierkurve** an der angegebenen Position auf einem Pfad hinzufügen:
 
+**Eine kubische Bézier‑Kurve** an einer angegebenen Position im Pfad hinzufügt:
 ``` csharp
 void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint index);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint index);
 ```
-**Eine quadratische Bezierkurve** am Ende eines Pfades hinzufügen:
 
+**Eine quadratische Bézier‑Kurve** am Ende eines Pfads hinzufügt:
 ``` csharp
 void QuadraticBezierTo(PointF point1, PointF point2);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2);
 ```
-**Eine quadratische Bezierkurve** an einer bestimmten Position auf einem Pfad hinzufügen:
 
+**Eine quadratische Bézier‑Kurve** an einer angegebenen Position im Pfad hinzufügt:
 ``` csharp
 void QuadraticBezierTo(PointF point1, PointF point2, uint index);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint index);
 ```
-**Einen bestimmten Bogen** zu einem Pfad hinzufügen:
 
+**Einen angegebenen Bogen** an einen Pfad anhängen:
 ``` csharp
 void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
 ```
-**Die aktuelle Figur** eines Pfades schließen:
 
+**Die aktuelle Figur** eines Pfads schließen:
 ``` csharp
 void CloseFigure();
 ```
-**Die Position für den nächsten Punkt** festlegen:
 
+**Die Position für den nächsten Punkt** festlegen:
 ``` csharp
 void MoveTo(PointF point);
 void MoveTo(float x, float y);
 ```
-**Das Pfadsegment** an einem bestimmten Index entfernen:
 
+**Das Pfadsegment** an einem angegebenen Index entfernen:
 ``` csharp
 void RemoveAt(int index);
 ```
 
-## **Benutzerdefinierte Punkte zur Form hinzufügen**
 
-1. Erstellen Sie eine Instanz der [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) Klasse und setzen Sie den [ShapeType.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/shapetype) Typ.
-2. Holen Sie sich eine Instanz der [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) Klasse von der Form.
-3. Fügen Sie einen neuen Punkt zwischen den beiden oberen Punkten auf dem Pfad hinzu.
-4. Fügen Sie einen neuen Punkt zwischen den beiden unteren Punkten auf dem Pfad hinzu.
+## **Benutzerdefinierte Punkte zu einer Form hinzufügen**
+
+1. Erstellen Sie eine Instanz der Klasse [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) und setzen Sie den Typ [ShapeType.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/shapetype).
+2. Holen Sie sich eine Instanz der Klasse [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) aus der Form.
+3. Fügen Sie einen neuen Punkt zwischen den beiden oberen Punkten im Pfad hinzu.
+4. Fügen Sie einen neuen Punkt zwischen den beiden unteren Punkten im Pfad hinzu.
 5. Wenden Sie den Pfad auf die Form an.
 
-Dieser C# Code zeigt Ihnen, wie Sie benutzerdefinierte Punkte zu einer Form hinzufügen können:
-
+Dieser C#‑Code zeigt, wie man benutzerdefinierte Punkte zu einer Form hinzufügt:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -140,17 +139,17 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+
 ![example1_image](custom_shape_1.png)
 
-##  **Punkte von der Form entfernen**
+## **Punkte aus einer Form entfernen**
 
-1. Erstellen Sie eine Instanz der [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) Klasse und setzen Sie den [ShapeType.Heart](https://reference.aspose.com/slides/net/aspose.slides/shapetype) Typ. 
-2. Holen Sie sich eine Instanz der [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) Klasse von der Form.
-3. Entfernen Sie das Segment für den Pfad.
+1. Erstellen Sie eine Instanz der Klasse [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) und setzen Sie den Typ [ShapeType.Heart](https://reference.aspose.com/slides/net/aspose.slides/shapetype).
+2. Holen Sie sich eine Instanz der Klasse [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) aus der Form.
+3. Entfernen Sie das Segment aus dem Pfad.
 4. Wenden Sie den Pfad auf die Form an.
 
-Dieser C# Code zeigt Ihnen, wie Sie Punkte von einer Form entfernen können:
-
+Dieser C#‑Code zeigt, wie man Punkte aus einer Form entfernt:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -161,18 +160,18 @@ using (Presentation pres = new Presentation())
 	shape.SetGeometryPath(path);
 }
 ```
+
 ![example2_image](custom_shape_2.png)
 
-##  **Benutzerdefinierte Form erstellen**
+## **Benutzerdefinierte Form erstellen**
 
 1. Berechnen Sie die Punkte für die Form.
-2. Erstellen Sie eine Instanz der [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) Klasse. 
+2. Erstellen Sie eine Instanz der Klasse [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath).
 3. Füllen Sie den Pfad mit den Punkten.
-4. Erstellen Sie eine Instanz der [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) Klasse. 
+4. Erstellen Sie eine Instanz der Klasse [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape).
 5. Wenden Sie den Pfad auf die Form an.
 
-Dieser C# zeigt Ihnen, wie Sie eine benutzerdefinierte Form erstellen können:
-
+Dieser C#‑Code zeigt, wie man eine benutzerdefinierte Form erstellt:
 ``` csharp
 List<PointF> points = new List<PointF>();
 
@@ -209,17 +208,17 @@ using (Presentation pres = new Presentation())
     shape.SetGeometryPath(starPath);
 }
 ```
+
 ![example3_image](custom_shape_3.png)
 
-## **Erstellen Sie eine komplexe benutzerdefinierte Form**
+## **Zusammengesetzte benutzerdefinierte Form erstellen**
 
-  1. Erstellen Sie eine Instanz der [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) Klasse.
-  2. Erstellen Sie eine erste Instanz der [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) Klasse.
-  3. Erstellen Sie eine zweite Instanz der [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) Klasse.
-  4. Wenden Sie die Pfade auf die Form an.
+1. Erstellen Sie eine Instanz der Klasse [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape).
+2. Erstellen Sie eine erste Instanz der Klasse [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath).
+3. Erstellen Sie eine zweite Instanz der Klasse [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath).
+4. Wenden Sie die Pfade auf die Form an.
 
-Dieser C# Code zeigt Ihnen, wie Sie eine komplexe benutzerdefinierte Form erstellen:
-
+Dieser C#‑Code zeigt, wie man eine zusammengesetzte benutzerdefinierte Form erstellt:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -242,12 +241,12 @@ using (Presentation pres = new Presentation())
     shape.SetGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
 }
 ```
+
 ![example4_image](custom_shape_4.png)
 
-## **Erstellen Sie eine benutzerdefinierte Form mit abgerundeten Ecken**
+## **Benutzerdefinierte Form mit abgerundeten Ecken erstellen**
 
-Dieser C# Code zeigt Ihnen, wie Sie eine benutzerdefinierte Form mit abgerundeten Ecken (nach innen) erstellen können:
-
+Dieser C#‑Code zeigt, wie man eine benutzerdefinierte Form mit abgerundeten Ecken (nach innen) erstellt:
 ```c#
 var shapeX = 20f;
 var shapeY = 20f;
@@ -290,46 +289,41 @@ using (var presentation = new Presentation())
 }
 ```
 
-## **Feststellen, ob die Geometrie einer Form geschlossen ist**
 
-Zu überprüfen, ob eine Form in einer PowerPoint-Präsentation geschlossen ist, kann entscheidend für die korrekte Anzeige und Bearbeitung von Objekten in Folien sein. Eine geschlossene Form ist definiert als eine, bei der alle ihre Seiten verbunden sind, um eine einzelne Grenze ohne Lücken zu bilden. Eine solche Form kann eine einfache geometrische Form oder eine komplexe benutzerdefinierte Kontur sein.
+## **Überprüfen, ob eine Formgeometrie geschlossen ist**
 
-Die Geschlossenheit einer Form ist wichtig für das Ausführen verschiedener Operationen, wie das Füllen mit Farbe oder Verlauf, das Anwenden von Effekten und Transformationen sowie das Sicherstellen der ordnungsgemäßen Interaktion mit anderen Folienelementen.
-
-Um zu überprüfen, ob die Geometrie einer Form geschlossen ist, müssen Sie Folgendes tun:
-1. Zugriff auf die Geometrie der Form erhalten.
-2. Die Geometriep paths in der Form auflisten.
-    2.1. Holen Sie sich das letzte Segment des nächsten Pfades.
-    2.2. Überprüfen, ob das letzte Segment der `CLOSE` Befehl ist.
-
-Das folgende Codebeispiel zeigt, wie dies geht:
-
+Eine geschlossene Form ist definiert als eine, bei der alle Seiten miteinander verbunden sind und eine einzige Grenze ohne Lücken bilden. Eine solche Form kann eine einfache geometrische Form oder ein komplexes benutzerdefiniertes Umriss sein. Der folgende Beispielcode zeigt, wie man prüft, ob eine Formgeometrie geschlossen ist:
 ```cs
-if (shape is GeometryShape geometryShape)
+bool IsGeometryClosed(IGeometryShape geometryShape)
 {
-    for (int i = 0; i < geometryShape.GetGeometryPaths().Length; i++)
+    bool? isClosed = null;
+
+    foreach (var geometryPath in geometryShape.GetGeometryPaths())
     {
-        IGeometryPath path = geometryShape.GetGeometryPaths()[i];
+        var dataLength = geometryPath.PathData.Length;
+        if (dataLength == 0)
+            continue;
 
-        if (path.PathData.Length == 0) continue;
+        var lastSegment = geometryPath.PathData[dataLength - 1];
+        isClosed = lastSegment.PathCommand == PathCommandType.Close;
 
-        IPathSegment lastSegment = path.PathData[path.PathData.Length - 1];
-        bool isClosed = lastSegment.PathCommand == PathCommandType.Close;
-        
-        Console.WriteLine($"Pfad {i} ist geschlossen: {isClosed}");
+        if (isClosed == false)
+            return false;
     }
+    
+    return isClosed == true;
 }
 ```
 
-## **GeometryPath in GraphicsPath (System.Drawing.Drawing2D) umwandeln** 
 
-1. Erstellen Sie eine Instanz der [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) Klasse.
-2. Erstellen Sie eine Instanz der [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) Klasse des [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) Namensraums.
-3. Wandeln Sie die Instanz von [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) in die Instanz von [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) unter Verwendung von [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil) um.
+## **GeometryPath in GraphicsPath (System.Drawing.Drawing2D) konvertieren**
+
+1. Erstellen Sie eine Instanz der Klasse [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape).
+2. Erstellen Sie eine Instanz der Klasse [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) aus dem Namespace [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0).
+3. Konvertieren Sie die [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0)-Instanz mithilfe von [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil) in eine [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath)-Instanz.
 4. Wenden Sie die Pfade auf die Form an.
 
-Dieser C# Code—eine Implementierung der oben beschriebenen Schritte—zeigt den **GeometryPath** zu **GraphicsPath** Umwandlungsprozess:
-
+Dieser C#‑Code – eine Implementierung der obigen Schritte – demonstriert den Konvertierungsprozess **GeometryPath** zu **GraphicsPath**:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -348,4 +342,19 @@ using (Presentation pres = new Presentation())
     shape.SetGeometryPaths(new[] {originalPath, textPath}) ;
 }
 ```
+
 ![example5_image](custom_shape_5.png)
+
+## **FAQ**
+
+**Was passiert mit der Füllung und Kontur, nachdem die Geometrie ersetzt wurde?**
+
+Der Stil bleibt an der Form erhalten; nur die Kontur ändert sich. Füllung und Kontur werden automatisch auf die neue Geometrie angewendet.
+
+**Wie drehe ich eine benutzerdefinierte Form zusammen mit ihrer Geometrie korrekt?**
+
+Verwenden Sie die [rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/)‑Eigenschaft der Form; die Geometrie rotiert mit der Form, weil sie an das Koordinatensystem der Form gebunden ist.
+
+**Kann ich eine benutzerdefinierte Form in ein Bild konvertieren, um das Ergebnis „einzusperren“?**
+
+Ja. Exportieren Sie den gewünschten [slide](/slides/de/net/convert-powerpoint-to-png/)-Abschnitt oder die [shape](/slides/de/net/create-shape-thumbnails/)-Selbst in ein Rasterformat; das vereinfacht die weitere Arbeit mit komplexen Geometrien.

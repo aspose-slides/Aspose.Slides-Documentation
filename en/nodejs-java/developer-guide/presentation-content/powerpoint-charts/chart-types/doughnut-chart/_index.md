@@ -1,8 +1,19 @@
 ---
-title: Doughnut Chart
+title: Customize Doughnut Charts in Presentations Using JavaScript
+linktitle: Doughnut Chart
 type: docs
 weight: 30
 url: /nodejs-java/doughnut-chart/
+keywords:
+- doughnut chart
+- center gap
+- hole size
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Discover how to create and customize doughnut charts with JavaScript and Aspose.Slides for Node.js, supporting PowerPoint formats for dynamic presentations."
 ---
 
 ## **Change Center Gap in Doughnut Chart**

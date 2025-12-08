@@ -2,14 +2,25 @@
 title: Ink
 type: docs
 weight: 180
-url: /net/examples/elements/ink
+url: /net/examples/elements/ink/
+keywords:
+- ink example
+- access ink
+- remove ink
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Handle digital ink on slides in C# with Aspose.Slides: add pen strokes, edit paths, set color and width, and export results for PowerPoint and OpenDocument."
 ---
 
 Provides examples of accessing existing ink shapes and removing them using **Aspose.Slides for .NET**.
 
 > ❗ **Note:** Ink shapes represent user input from specialized devices. Aspose.Slides cannot create new ink strokes programmatically, but you can read and modify existing ink.
 
-## Access Ink
+## **Access Ink**
 
 Read the tags from the first ink shape on a slide.
 
@@ -31,7 +42,7 @@ static void Access_Ink()
 }
 ```
 
-## Remove Ink
+## **Remove Ink**
 
 Delete an ink shape from the slide if one exists.
 

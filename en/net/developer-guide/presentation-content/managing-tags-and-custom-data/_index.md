@@ -1,10 +1,21 @@
 ---
-title: Managing Tags and Custom Data
+title: Manage Tags and Custom Data in Presentations in .NET
+linktitle: Tags and Custom Data
 type: docs
 weight: 300
-url: /net/managing-tags-and-custom-data
-keywords: "Tags, Custom data, Value for tags, Add tags, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Add tags and custom data to PowerPoint presentations in C# or .NET"
+url: /net/managing-tags-and-custom-data/
+keywords:
+- document properties
+- tag
+- custom data
+- add tag
+- pair values
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how to add, read, update, and remove tags & custom data in Aspose.Slides for .NET, with examples for PowerPoint and OpenDocument presentations."
 ---
 
 ## **Data Storage in Presentation Files**
@@ -21,7 +32,7 @@ Tags are essentially string-key pair values.
 
 {{% /alert %}} 
 
-## **Getting the Values for Tags**
+## **Get Values of Tags**
 
 In slides, a tag corresponds to the IDocumentProperties.Keywords property. This sample code shows you how to get a tag’s value with Aspose.Slides for .NET for [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation):
 
@@ -32,7 +43,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## **Adding Tags to Presentations**
+## **Add Tags to Presentations**
 
 Aspose.Slides allows you to add tags to presentations. A tag typically consists of two items: 
 

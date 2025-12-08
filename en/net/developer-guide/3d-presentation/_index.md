@@ -1,10 +1,10 @@
 ---
-title: 3D Presentation
+title: Create 3D Presentations in .NET
+linktitle: 3D Presentation
 type: docs
 weight: 232
 url: /net/3d-presentation/
 keywords:
-- 3D
 - 3D PowerPoint
 - 3D presentation
 - 3D rotation
@@ -12,11 +12,13 @@ keywords:
 - 3D extrusion
 - 3D gradient
 - 3D text
-- PowerPoint presentation
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "3D PowerPoint presentation in C# or .NET"
+- Aspose.Slides
+description: "Generate interactive 3D presentations in .NET with Aspose.Slides effortlessly. Export quickly to PowerPoint and OpenDocument formats for versatile use."
 ---
 
 

@@ -3,6 +3,12 @@ title: Known Issues in Aspose.Slides for .NET 14.1.0
 type: docs
 weight: 20
 url: /net/known-issues-in-aspose-slides-for-net-14-1-0/
+keywords:
+- known issue
+- .NET
+- C#
+- Aspose.Slides
+description: "Review known issues in Aspose.Slides for .NET 14.1.0 to ensure accurate work with PowerPoint and OpenDocument files and avoid surprises in your presentations."
 ---
 
 The following are the Known Issues and Limitations in Aspose.Slides for .NET 14.1.0.

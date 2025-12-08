@@ -1,20 +1,22 @@
 ---
-title: Convert Presentations in Handout Mode in JavaScript
+title: Convert PowerPoint Presentations in Handout Mode Using JavaScript
+linktitle: Handout Mode
 type: docs
 weight: 150
 url: /nodejs-java/convert-powerpoint-in-Handout-mode/
 keywords:
 - convert PowerPoint
+- convert presentation
 - handout mode
 - handout
-- PowerPoint
 - PPT
 - PPTX
+- PowerPoint
 - presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Convert Presentations in Handout Mode in JavaScript"
+description: "Convert presentations to handouts. Set slides per page, keep notes, export to PDF or images with Aspose.Slides for Node.js, with sample code. Try it free."
 ---
 
 ## **Handout Mode Export**

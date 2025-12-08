@@ -1,18 +1,22 @@
 ---
-title: Font Selection Sequence in C++
-linktitle: Font Selection Sequence in C++
+title: Font Selection Sequence in Aspose.Slides for С++
+linktitle: Font Selection
 type: docs
 weight: 80
 url: /cpp/font-selection-sequence/
 keywords:
-- font
 - font selection
 - font substitution
 - font replacement
-- PowerPoint presentation
-- C++
-- Aspose.Slides for C++
-description: "PowerPoint font selection sequence in C++"
+- substitution rule
+- available font
+- missing font
+- PowerPoint
+- OpenDocument
+- presentation
+- С++
+- Aspose.Slides
+description: "Discover how Aspose.Slides for С++ selects fonts, ensuring crisp, consistent presentation of PPT, PPTX and ODP files—improve your slides now."
 ---
 
 ## Font Selection

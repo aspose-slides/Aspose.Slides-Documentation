@@ -3,6 +3,24 @@ title: Product Overview
 type: docs
 weight: 10
 url: /php-java/product-overview/
+keywords:
+- product overview
+- document processing
+- key features
+- presentation features
+- slide features
+- graphic features
+- multimedia features
+- table features
+- text features
+- advanced features
+- technical support
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP via Java lets you create, edit and convert PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations without Microsoft Office."
 ---
 
 ![todo:image_alt_text](aspose_slides-for-php-via-java.png)

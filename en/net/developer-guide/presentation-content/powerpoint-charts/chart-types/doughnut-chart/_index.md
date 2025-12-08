@@ -1,13 +1,22 @@
 ---
-title: Doughnut Chart
+title: Customize Doughnut Charts in Presentations in .NET
+linktitle: Doughnut Chart
 type: docs
 weight: 30
 url: /net/doughnut-chart/
-keywords: "Doughnut chart, center gap, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Specify center gap in doughnut chart in PowerPoint presentation in C# or .NET"
+keywords:
+- doughnut chart
+- center gap
+- hole size
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Discover how to create and customize doughnut charts in Aspose.Slides for .NET, supporting PowerPoint formats for dynamic presentations."
 ---
 
-## **Specify Center Gap in Doughnut Chart**
+## **Specify the Center Gap in a Doughnut Chart**
 In order to specify the size of the hole in a doughnut chart. Please follow the steps below:
 
 - Instantiate [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.

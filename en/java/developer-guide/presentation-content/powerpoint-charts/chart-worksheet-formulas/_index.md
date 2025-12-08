@@ -1,14 +1,34 @@
 ---
-title: Chart Worksheet Formulas
+title: Apply Chart Worksheet Formulas in Presentations Using Java
+linktitle: Worksheet Formulas
 type: docs
 weight: 70
 url: /java/chart-worksheet-formulas/
-keywords: "powerpoint equations, powerpoint spreadsheet formulas"
-description: "PowerPoint Equations and Spreadsheet Formulas"
+keywords:
+- chart spreadsheet
+- chart worksheet
+- chart formula
+- worksheet formula
+- spreadsheet formula
+- data source
+- logical constant
+- numerical constant
+- string constant
+- error constant
+- arithmetic constant
+- comparison operator
+- A1 style
+- R1C1 style
+- predefined function
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Apply Excel-style formulas in Aspose.Slides for Java chart worksheets and automate reports across PPT and PPTX files."
 ---
 
 
-## **About Chart Spreadsheet Formula in Presentation**
+## **About Chart Spreadsheet Formulas in Presentations**
 **Chart spreadsheet** (or chart worksheet) in presentation is the data source of the chart. Chart spreadsheet contains data, which are represented on the chart in a graphic way. When you create a chart in PowerPoint, the worksheet associated with this chart is automatically created too. Chart worksheet is created for all types of charts: line chart, bar chart, sunburst chart, pie chart, etc. To see chart spreadsheet in PowerPoint you should double-click on the chart:
 
 ![todo:image_alt_text](chart-worksheet-formulas_1.png)
@@ -40,7 +60,7 @@ The following functionality is supported for formulas in Aspose.Slides:
 
 Typically, spreadsheets store the last calculated formula values. If after presentation loading, the chart data were not changed - [**IChartDataCell.getValue**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#getValue--) method it returns those values while reading. But, if spreadsheet data had been changed, while reading **ChartDataCell.Value** property it throws the [**CellUnsupportedDataException**](https://reference.aspose.com/slides/java/com.aspose.slides/CellUnsupportedDataException) for the unsupported formulas. This is because when formulas are successfully parsed, the cell dependencies are determined and the correctness of the last values is determined. But, if the formula can not be parsed, the correctness of cell value cannot be guaranteed.
 
-## **Add Chart Spreadsheet Formula to Presentation**
+## **Add a Chart Spreadsheet Formula to a Presentation**
 First, add a chart to the first slide of a new presentation with 
 [IShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addChart-int-float-float-float-float-). 
 The worksheet of the chart is automatically created and can be accessed with 
@@ -215,3 +235,12 @@ There are predefined functions, that can be used in the formulas to simplify the
 - SUM
 - VLOOKUP
 
+## **FAQ**
+
+**Are external Excel files supported as a data source for a chart with formulas?**
+
+Yes. Aspose.Slides supports external workbooks as a [chart's data source](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatasourcetype/), which lets you use formulas from an XLSX outside the presentation.
+
+**Can chart formulas reference sheets within the same workbook by sheet name?**
+
+Yes. Formulas follow the standard Excel reference model, so you can reference other sheets within the same workbook or an external workbook. For external references, include the path and workbook name using Excel syntax.

@@ -1,17 +1,20 @@
 ---
-title: Create Shape Thumbnails
+title: Create Thumbnails of Presentation Shapes in .NET
+linktitle: Shape Thumbnails
 type: docs
 weight: 70
 url: /net/create-shape-thumbnails/
-keywords: 
+keywords:
 - shape thumbnail
 - shape image
+- render shape
+- shape rendering
 - PowerPoint
 - presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Extract shape thumbnails from PowerPoint presentations in C# or .NET"
+- Aspose.Slides
+description: "Generate high-quality shape thumbnails from PowerPoint slides with Aspose.Slides for .NET – easily create and export presentation thumbnails."
 ---
 
 Aspose.Slides for .NET is used to create presentation files where each page is a slides. These slides can be viewed by opening the presentation files using Microsoft PowerPoint. But sometimes, developers may need to view the images of the shapes separately in an image viewer. In such cases, Aspose.Slides for .NET helps you generate thumbnail images of the slide shapes. How to use this feature is described in this article.
@@ -23,7 +26,7 @@ This article explains how to generate slide thumbnails in different ways:
 - Generating a thumbnail of SmartArt child node.
 
 
-## **Generate Shape Thumbnail from Slide**
+## **Generate a Shape Thumbnail from a Slide**
 To generate a shape thumbnail from any slide using Aspose.Slides for .NET:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
@@ -45,7 +48,7 @@ using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 ```
 
 
-## **Generate User Defined Scaling Factor Thumbnail**
+## **Generate a User-Defined Scaling Factor Thumbnail**
 To generate the shape thumbnail of any slide shape using Aspose.Slides for .NET:
 
 1. Create an instance of the `Presentation` class.
@@ -70,7 +73,7 @@ using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 ```
 
 
-## **Create Bounds Shape's Appearance Thumbnail**
+## **Create a Bounds-Based Shape Appearance Thumbnail**
 This method for creating thumbnails of shapes allows developers to generate a thumbnail in the bounds of the shape's appearance. It takes into account all the shape effects. The generated shape thumbnail is restricted by the slide bounds. To generate a thumbnail of any slide shape in bound of its appearance, use following sample code:
 
 1. Create an instance of the `Presentation` class.

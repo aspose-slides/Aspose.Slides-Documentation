@@ -1,18 +1,32 @@
 ---
-title: Watermark
+title: Add Watermarks to Presentations in C++
+linktitle: Watermark
 type: docs
 weight: 40
 url: /cpp/watermark/
 keywords:
 - watermark
-- add watermark
 - text watermark
 - image watermark
+- add watermark
+- change watermark
+- remove watermark
+- delete watermark
+- add watermark to PPT
+- add watermark to PPTX
+- add watermark to ODP
+- remove watermark from PPT
+- remove watermark from PPTX
+- remove watermark from ODP
+- delete watermark from PPT
+- delete watermark from PPTX
+- delete watermark from ODP
 - PowerPoint
+- OpenDocument
 - presentation
 - C++
-- Aspose.Slides for C++
-description: "Add text and image watermarks to PowerPoint presentations in C++"
+- Aspose.Slides
+description: "Manage text and image watermarks in PowerPoint and OpenDocument presentations in C++ to indicate a draft, confidential information, copyright, and more."
 ---
 
 ## **About Watermarks**

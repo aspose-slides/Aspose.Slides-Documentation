@@ -1,5 +1,5 @@
 ---
-title: Prevent Presentation Edits with Shape Locks
+title: Prevent Presentation Edits with Shape Locks in .NET
 linktitle: Prevent Presentation Edits
 type: docs
 weight: 70
@@ -18,7 +18,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Discover how Aspose.Slides for .NET locks or unlocks shapes in PPT, PPTX and ODP files, securing presentations while allowing controlled edits and faster delivery."
+description: "Discover how Aspose.Slides for .NET locks or unlocks shapes in PPT, PPTX and ODP files, securing presentations while allowing controlled edits."
 ---
 
 ## **Background**

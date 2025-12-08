@@ -1,14 +1,26 @@
 ---
-title: Chart Data Label
+title: Manage Chart Data Labels in Presentations in .NET
+linktitle: Data Label
 type: docs
 url: /net/chart-data-label/
-keywords: "Chart data label,label distance, C#, Csharp, Aspose.Slides for .NET"
-description: "Set PowerPoint chart data label and distance in C# or .NET"
+keywords:
+- chart
+- data label
+- data precision
+- percentage
+- label distance
+- label location
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn to add and format chart data labels in PowerPoint presentations using Aspose.Slides for .NET for more engaging slides."
 ---
 
 Data labels on a chart show details about the chart data series or individual data points. They allow readers to quickly identify data series and they also make charts easier to understand.
 
-## **Set Precision of Data in Chart Data Labels**
+## **Set Data Precision in Chart Data Labels**
 
 This C# code shows you how to set the data precision in a chart data label:
 
@@ -140,7 +152,7 @@ series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidF
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Set Label Distance From Axis**
+## **Set Label Distance from an Axis**
 This C# code shows you how to set the label distance from a category axis when you are dealing with a chart plotted from axes:
 
 ```c#

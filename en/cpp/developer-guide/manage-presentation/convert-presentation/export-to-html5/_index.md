@@ -1,19 +1,26 @@
 ---
-title: Export to HTML5
+title: Convert Presentations to HTML5 in C++
+linktitle: Presentation to HTML5
 type: docs
 weight: 40
 url: /cpp/export-to-html5/
 keywords:
-- PowerPoint to HTML
-- slides to HTML
-- HTML5
-- HTML export
-- export presentation
-- convert presentation
-- convert slides
+- PowerPoint to HTML5
+- OpenDocument to HTML5
+- presentation to HTML5
+- slide to HTML5
+- PPT to HTML5
+- PPTX to HTML5
+- ODP to HTML5
+- save PPT as HTML5
+- save PPTX as HTML5
+- save ODP as HTML5
+- export PPT to HTML5
+- export PPTX to HTML5
+- export ODP to HTML5
 - C++
-- Aspose.Slides for C++
-description: "Export PowerPoint to HTML5 in C++" 
+- Aspose.Slides
+description: "Export PowerPoint & OpenDocument presentations to responsive HTML5 with Aspose.Slides for C++. Preserve formatting, animations, and interactivity."
 ---
 
 {{% alert title="Info" color="info" %}}
@@ -99,7 +106,7 @@ html5Options->set_AnimateTransitions(true);
 pres->Save(u"HTML5-slide-view.html", SaveFormat::Html5, html5Options);
 ```
 
-## Convert a Presentation to an HTML5 Document with Comments
+## **Convert a Presentation to an HTML5 Document with Comments**
 
 Comments in PowerPoint are a tool that allows users to leave notes or feedback on presentation slides. They are especially useful in collaborative projects, where multiple people can add their suggestions or remarks to specific slide elements without altering the main content. Each comment shows the author's name, making it easy to track who left the remark.
 
@@ -122,3 +129,17 @@ presentation->Dispose();
 The "output.html" document is shown in the image below.
 
 ![The comments in the output HTML5 document](two_comments_html5.png)
+
+## **FAQ**
+
+**Can I control whether object animations and slide transitions will play in HTML5?**
+
+Yes, HTML5 provides separate options to enable or disable [shape animations](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animateshapes/) and [slide transitions](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animatetransitions/).
+
+**Is the output of comments supported, and where can they be placed relative to the slide?**
+
+Yes, comments can be added in HTML5 and positioned (for example, to the right of the slide) through layout settings for notes and comments.
+
+**Can I skip links that invoke JavaScript for security or CSP reasons?**
+
+Yes, there is a [setting](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_skipjavascriptlinks/) that allows you to skip hyperlinks with JavaScript calls during saving. This helps comply with strict security policies.

@@ -1,20 +1,25 @@
 ---
-title: Manage Cells
+title: Manage Table Cells in Presentations in .NET
+linktitle: Manage Cells
 type: docs
 weight: 30
 url: /net/manage-cells/
 keywords:
-- table
-- merged cells
-- split cells
-- image in table cell
+- table cell
+- merge cells
+- remove border
+- split cell
+- image in cell
+- background color
+- PowerPoint
+- presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Table cells in PowerPoint presentations in C# or .NET"
+- Aspose.Slides
+description: "Effortlessly manage table cells in PowerPoint with Aspose.Slides for .NET. Master accessing, modifying, and styling cells quickly for seamless slide automation."
 ---
 
-## **Identify Merged Table Cell**
+## **Identify a Merged Table Cell**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 2. Get the table from the first slide. 
@@ -44,7 +49,7 @@ using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
 }
 ```
 
-## **Remove Table Cells Border**
+## **Remove Table Cell Borders**
 1. Create an instance of the `Presentation` class.
 2. Get a slide's reference through its index. 
 3. Define an array of columns with width.
@@ -189,7 +194,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Numbering in Splitted Cell**
+## **Numbering in a Splitted Cell**
 In previous examples, when table cells got merged, the numeration or number system in other cells did not change. 
 
 This time, we take a regular table (a table without merged cells) and then try to split cell (1,1) to get a special table. You may want to pay attention to this table's numbering, which may be considered strange. However, that is the way Microsoft PowerPoint numerates table cells and Aspose.Slides does the same thing. 
@@ -248,7 +253,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Change Table Cell Background Color**
+## **Change the Table Cell Background Color**
 
 This C# code shows you how to change a table cell's background color:
 
@@ -272,7 +277,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Add Image Inside Table Cell**
+## **Add an Image Inside a Table Cell**
 
 1. Create an instance of the`Presentation` class.
 2. Get a slide's reference through its index.

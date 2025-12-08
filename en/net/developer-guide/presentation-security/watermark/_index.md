@@ -1,5 +1,5 @@
 ---
-title: Add a Watermark to a Presentation in C#
+title: Add Watermarks to Presentations in .NET
 linktitle: Watermark
 type: docs
 weight: 40
@@ -12,25 +12,22 @@ keywords:
 - change watermark
 - remove watermark
 - delete watermark
-- add watermark to presentation
 - add watermark to PPT
 - add watermark to PPTX
 - add watermark to ODP
-- remove watermark from presentation
 - remove watermark from PPT
 - remove watermark from PPTX
 - remove watermark from ODP
-- delete watermark from presentation
 - delete watermark from PPT
 - delete watermark from PPTX
 - delete watermark from ODP
 - PowerPoint
 - OpenDocument
 - presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Learn how to manage text and image watermarks in PowerPoint and OpenDocument presentations in C# to indicate a draft, confidential information, copyright, and more."
+- Aspose.Slides
+description: "Manage text and image watermarks in PowerPoint and OpenDocument presentations in .NET to indicate a draft, confidential information, copyright, and more."
 ---
 
 ## **Overview**

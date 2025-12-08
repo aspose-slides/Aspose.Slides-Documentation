@@ -1,8 +1,20 @@
 ---
-title: Presentation Localization
+title: Automate Presentation Localization on Android
+linktitle: Presentation Localization
 type: docs
 weight: 100
 url: /androidjava/presentation-localization/
+keywords:
+- change language
+- spell check
+- language id
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Automate PowerPoint and OpenDocument slide localization in Java with Aspose.Slides for Android, using practical code samples and tips for faster global rollout."
 ---
 
 ## **Change Language for Presentation and Shape's Text**

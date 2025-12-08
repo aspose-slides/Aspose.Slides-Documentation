@@ -1,8 +1,22 @@
 ---
 title: Public API and Backwards Incompatible Changes in Aspose.Slides for .NET 15.11.0
+linktitle: Aspose.Slides for .NET 15.11.0
 type: docs
 weight: 210
 url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/
+keywords:
+- migration
+- legacy code
+- modern code
+- legacy approach
+- modern approach
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Review public API updates and breaking changes in Aspose.Slides for .NET to smoothly migrate your PowerPoint PPT, PPTX and ODP presentation solutions."
 ---
 
 {{% alert color="primary" %}} 
@@ -12,7 +26,7 @@ This page lists all [added](/slides/net/public-api-and-backwards-incompatible-ch
 {{% /alert %}} 
 ## **Public API Changes**
 
-#### **Obsolete properties in DataLabelCollection class have been deleted**
+#### **Obsolete Properties in DataLabelCollection Class Have Been Deleted**
 Obsolete properties in DataLabelCollection class have been deleted:
 Aspose.Slides.Charts.DataLabelCollection.Delete
 Aspose.Slides.Charts.DataLabelCollection.Format
@@ -28,7 +42,7 @@ Aspose.Slides.Charts.DataLabelCollection.ShowPercentage
 Aspose.Slides.Charts.DataLabelCollection.ShowSeriesName
 Aspose.Slides.Charts.DataLabelCollection.ShowValue
 
-#### **The new property FirstSlideNumber has been added to the Presentation class**
+#### **The New Property FirstSlideNumber Has Been Added to the Presentation Class**
 The new property FirstSlideNumber added to Presentation allows to get or to set the number of first slide in a presentation.
 
 When a new FirstSlideNumber value is specified all slide numbers are recalculated.

@@ -1,10 +1,23 @@
 ---
-title: Modern API
+title: Enhance Image Processing with the Modern API
+linktitle: Modern API
 type: docs
 weight: 237
 url: /php-java/modern-api/
-keywords: "CrossPlatform Modern API"
-description: "Modern API"
+keywords:
+- modern API
+- drawing
+- slide thumbnail
+- slide to image
+- shape thumbnail
+- shape to image
+- presentation thumbnail
+- presentation to images
+- add image
+- add picture
+- PHP
+- Aspose.Slides
+description: "Modernize slide image processing by replacing deprecated imaging APIs with the PHP Modern API for seamless PowerPoint and OpenDocument automation."
 ---
 
 ## Introduction

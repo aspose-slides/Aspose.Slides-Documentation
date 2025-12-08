@@ -1,5 +1,5 @@
 ---
-title: Font Selection Sequence in Presentations with Python
+title: Font Selection Sequence in Aspose.Slides for Python
 linktitle: Font Selection
 type: docs
 weight: 80

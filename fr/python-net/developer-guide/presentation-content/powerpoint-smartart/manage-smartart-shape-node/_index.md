@@ -1,218 +1,217 @@
 ---
-title: Gérer le nœud de forme SmartArt
+title: Gérer les nœuds de forme SmartArt dans les présentations avec Python
+linktitle: Nœud de forme SmartArt
 type: docs
 weight: 30
 url: /fr/python-net/manage-smartart-shape-node/
-keywords: "nœud SmartArt, nœud enfant SmartArt, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Nœud intelligent et nœud enfant dans les présentations PowerPoint en Python"
+keywords:
+- Nœud SmartArt
+- Nœud enfant
+- Ajouter un nœud
+- Position du nœud
+- Accéder au nœud
+- Supprimer le nœud
+- Position personnalisée
+- Nœud assistant
+- Format de remplissage
+- Rendu du nœud
+- PowerPoint
+- présentation
+- Python
+- Aspose.Slides
+description: "Gérez les nœuds de forme SmartArt dans PPT, PPTX et ODP avec Aspose.Slides pour Python via .NET. Obtenez des exemples de code clairs et des astuces pour rationaliser vos présentations."
 ---
 
-
 ## **Ajouter un nœud SmartArt**
-Aspose.Slides pour Python via .NET a fourni l'API la plus simple pour gérer les formes SmartArt de la manière la plus facile. Le code d'exemple suivant vous aidera à ajouter un nœud et un nœud enfant à l'intérieur de la forme SmartArt.
+Aspose.Slides for Python via .NET a fourni l’API la plus simple pour gérer les formes SmartArt de la façon la plus facile. Le code d’exemple ci‑ci vous aidera à ajouter un nœud et un nœud enfant dans une forme SmartArt.
 
-- Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) et chargez la présentation avec la forme SmartArt.
-- Obtenez la référence de la première diapositive en utilisant son index.
-- Parcourez chaque forme à l'intérieur de la première diapositive.
-- Vérifiez si la forme est de type SmartArt et effectuez un typage de la forme sélectionnée en SmartArt si c'est du SmartArt.
-- Ajoutez un nouveau nœud dans la collection NodeCollection de la forme SmartArt et définissez le texte dans le TextFrame.
-- Maintenant, ajoutez un nœud enfant dans le nœud SmartArt nouvellement ajouté et définissez le texte dans le TextFrame.
+- Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) et chargez la présentation contenant une forme SmartArt.
+- Obtenez la référence de la première diapositive en utilisant son indice.
+- Parcourez chaque forme de la première diapositive.
+- Vérifiez si la forme est de type SmartArt et casterez la forme sélectionnée en SmartArt si c’est le cas.
+- Ajoutez un nouveau nœud dans la NodeCollection de la forme SmartArt et définissez le texte dans le TextFrame.
+- Ensuite, ajoutez un nœud enfant au nœud SmartArt nouvellement ajouté et définissez le texte dans le TextFrame.
 - Enregistrez la présentation.
-
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# Charger la présentation désirée
+# Charger la présentation souhaitée
 with slides.Presentation(path + "AddNodes.pptx") as pres:
-    # Parcourez chaque forme à l'intérieur de la première diapositive
+    # Parcourir chaque forme de la première diapositive
     for shape in pres.slides[0].shapes:
 
-        # Vérifiez si la forme est de type SmartArt
+        # Vérifier si la forme est de type SmartArt
         if type(shape) is art.SmartArt:
-            # Ajout d'un nouveau nœud SmartArt
+            # Ajouter un nouveau nœud SmartArt
             node1 = shape.all_nodes.add_node()
-            # Ajout de texte
+            # Ajouter du texte
             node1.text_frame.text = "Test"
 
-            # Ajout d'un nouveau nœud enfant dans le nœud parent. Il sera ajouté à la fin de la collection
+            # Ajouter un nouveau nœud enfant dans le nœud parent. Il sera ajouté à la fin de la collection
             new_node = node1.child_nodes.add_node()
 
-            # Ajout de texte
-            new_node.text_frame.text = "Nouveau nœud ajouté"
+            # Ajouter du texte
+            new_node.text_frame.text = "New Node Added"
 
-    # Enregistrement de la présentation
+    # Enregistrer la présentation
     pres.save("AddSmartArtNode_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-
 ## **Ajouter un nœud SmartArt à une position spécifique**
-Dans le code d'exemple suivant, nous avons expliqué comment ajouter les nœuds enfants appartenant aux nœuds respectifs de la forme SmartArt à une position particulière.
+Dans le code d’exemple suivant, nous expliquons comment ajouter les nœuds enfants appartenant aux nœuds respectifs d’une forme SmartArt à une position particulière.
 
 - Créez une instance de la classe `Presentation`.
-- Obtenez la référence de la première diapositive en utilisant son index.
-- Ajoutez une forme SmartArt de type StackedList dans la diapositive accédée.
-- Accédez au premier nœud dans la forme SmartArt ajoutée.
-- Maintenant, ajoutez le nœud enfant pour le nœud sélectionné à la position 2 et définissez son texte.
+- Obtenez la référence de la première diapositive en utilisant son indice.
+- Ajoutez une forme SmartArt de type StackedList sur la diapositive sélectionnée.
+- Accédez au premier nœud de la forme SmartArt ajoutée.
+- Ensuite, ajoutez le nœud enfant du nœud sélectionné à la position 2 et définissez son texte.
 - Enregistrez la présentation.
-
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# Création d'une instance de présentation
+# Créer une instance de présentation
 with slides.Presentation() as pres:
-    # Accéder à la diapositive de présentation
+    # Accéder à la diapositive de la présentation
     slide = pres.slides[0]
 
-    # Ajouter une forme SmartArt IShape
+    # Ajouter une forme Smart Art IShape
     smart = slide.shapes.add_smart_art(0, 0, 400, 400, art.SmartArtLayoutType.STACKED_LIST)
 
-    # Accéder au premier nœud dans la forme SmartArt ajoutée
+    # Accéder au nœud SmartArt à l'index 0
     node = smart.all_nodes[0]
 
-    # Ajout d'un nouveau nœud enfant à la position 2 dans le nœud parent
+    # Ajouter un nouveau nœud enfant à la position 2 dans le nœud parent
     chNode = node.child_nodes.add_node_by_position(2)
 
     # Ajouter du texte
-    chNode.text_frame.text = "Texte d'exemple ajouté"
+    chNode.text_frame.text = "Sample text Added"
 
     # Enregistrer la présentation
     pres.save("AddSmartArtNodeByPosition_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-
-
 ## **Accéder au nœud SmartArt**
-Le code d'exemple suivant vous aidera à accéder aux nœuds à l'intérieur de la forme SmartArt. Veuillez noter que vous ne pouvez pas changer le LayoutType du SmartArt car il est en lecture seule et est défini uniquement lorsque la forme SmartArt est ajoutée.
+Le code d’exemple ci‑ci vous aidera à accéder aux nœuds d’une forme SmartArt. Veuillez noter que vous ne pouvez pas modifier le LayoutType du SmartArt car il est en lecture seule et n’est défini que lors de l’ajout de la forme SmartArt.
 
-- Créez une instance de la classe `Presentation` et chargez la présentation avec la forme SmartArt.
-- Obtenez la référence de la première diapositive en utilisant son index.
-- Parcourez chaque forme à l'intérieur de la première diapositive.
-- Vérifiez si la forme est de type SmartArt et effectuez un typage de la forme sélectionnée en SmartArt si c'est du SmartArt.
-- Parcourez tous les nœuds à l'intérieur de la forme SmartArt.
+- Créez une instance de la classe `Presentation` et chargez la présentation contenant une forme SmartArt.
+- Obtenez la référence de la première diapositive en utilisant son indice.
+- Parcourez chaque forme de la première diapositive.
+- Vérifiez si la forme est de type SmartArt et casterez la forme sélectionnée en SmartArt si c’est le cas.
+- Parcourez tous les nœuds à l’intérieur de la forme SmartArt.
 - Accédez et affichez des informations telles que la position du nœud SmartArt, le niveau et le texte.
-
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# Charger la présentation désirée
+# Charger la présentation souhaitée
 with slides.Presentation(path + "AccessSmartArt.pptx") as pres:
-    # Parcourez chaque forme à l'intérieur de la première diapositive
+    # Parcourir chaque forme de la première diapositive
     for shape in pres.slides[0].shapes:
-        # Vérifiez si la forme est de type SmartArt
+        # Vérifier si la forme est de type SmartArt
         if type(shape) is art.SmartArt:
-            # Parcourez tous les nœuds à l'intérieur de SmartArt
+            # Parcourir tous les nœuds du SmartArt
             for i in range(len(shape.all_nodes)):
                 # Accéder au nœud SmartArt à l'index i
                 node = shape.all_nodes[i]
 
-                # Imprimer les paramètres du nœud SmartArt
-                print("i = {0}, texte = {1},  niveau = {2}, position = {3}".format(i, node.text_frame.text, node.level, node.position))
-  ```
-
-  
+                # Afficher les paramètres du nœud SmartArt
+                print("i = {0}, text = {1},  level = {2}, position = {3}".format(i, node.text_frame.text, node.level, node.position))
+```
 
 
-## **Accéder aux nœuds enfants SmartArt**
-Le code d'exemple suivant vous aidera à accéder aux nœuds enfants appartenant aux nœuds respectifs de la forme SmartArt.
+## **Accéder au nœud enfant SmartArt**
+Le code d’exemple ci‑ci vous aidera à accéder aux nœuds enfants appartenant aux nœuds respectifs d’une forme SmartArt.
 
-- Créez une instance de la classe PresentationEx et chargez la présentation avec la forme SmartArt.
-- Obtenez la référence de la première diapositive en utilisant son index.
-- Parcourez chaque forme à l'intérieur de la première diapositive.
-- Vérifiez si la forme est de type SmartArt et effectuez un typage de la forme sélectionnée en SmartArtEx si c'est du SmartArt.
-- Parcourez tous les nœuds à l'intérieur de la forme SmartArt.
-- Pour chaque nœud de forme SmartArt sélectionné, parcourez tous les nœuds enfants à l'intérieur du nœud particulier.
+- Créez une instance de la classe PresentationEx et chargez la présentation contenant une forme SmartArt.
+- Obtenez la référence de la première diapositive en utilisant son indice.
+- Parcourez chaque forme de la première diapositive.
+- Vérifiez si la forme est de type SmartArt et casterez la forme sélectionnée en SmartArtEx si c’est le cas.
+- Parcourez tous les nœuds à l’intérieur de la forme SmartArt.
+- Pour chaque nœud de forme SmartArt sélectionné, parcourez tous les nœuds enfants à l’intérieur du nœud particulier.
 - Accédez et affichez des informations telles que la position du nœud enfant, le niveau et le texte.
-
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# Charger la présentation désirée
+# Charger la présentation souhaitée
 with slides.Presentation(path + "AccessChildNodes.pptx") as pres:
-    # Parcourez chaque forme à l'intérieur de la première diapositive
+    # Parcourir chaque forme de la première diapositive
     for shape in pres.slides[0].shapes:
-        # Vérifiez si la forme est de type SmartArt
+        # Vérifier si la forme est de type SmartArt
         if type(shape) is art.SmartArt:
-            # Parcourez tous les nœuds à l'intérieur de SmartArt
+            # Parcourir tous les nœuds du SmartArt
             for node0 in shape.all_nodes:
-                # Parcours des nœuds enfants
+                # Parcourir les nœuds enfants
                 for j in range(len(node0.child_nodes)):
-                    # Accéder au nœud enfant dans le nœud SmartArt
+                    # Accéder au nœud enfant du nœud SmartArt
                     node = node0.child_nodes[j]
 
-                    # Imprimer les paramètres du nœud enfant SmartArt
-                    print("j = {0}, texte = {1},  niveau = {2}, position = {3}".format(j, node.text_frame.text, node.level, node.position))
-
+                    # Afficher les paramètres du nœud enfant SmartArt
+                    print("j = {0}, text = {1},  level = {2}, position = {3}".format(j, node.text_frame.text, node.level, node.position))
 ```
-
 
 
 ## **Accéder au nœud enfant SmartArt à une position spécifique**
-Dans cet exemple, nous allons apprendre à accéder aux nœuds enfants à une position particulière appartenant aux nœuds respectifs de la forme SmartArt.
+Dans cet exemple, nous apprendrons à accéder aux nœuds enfants à une position particulière appartenant aux nœuds respectifs d’une forme SmartArt.
 
 - Créez une instance de la classe `Presentation`.
-- Obtenez la référence de la première diapositive en utilisant son index.
+- Obtenez la référence de la première diapositive en utilisant son indice.
 - Ajoutez une forme SmartArt de type StackedList.
 - Accédez à la forme SmartArt ajoutée.
-- Accédez au nœud à l'index 0 pour la forme SmartArt accédée.
-- Maintenant, accédez au nœud enfant à la position 1 pour le nœud SmartArt accédé en utilisant la méthode GetNodeByPosition().
+- Accédez au nœud d’index 0 de la forme SmartArt sélectionnée.
+- Ensuite, accédez au nœud enfant à la position 1 du nœud SmartArt sélectionné en utilisant la méthode GetNodeByPosition().
 - Accédez et affichez des informations telles que la position du nœud enfant, le niveau et le texte.
-
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# Instancier la présentation
-with slides.Presentation() as pres:
-    # Accéder à la première diapositive
-    slide = pres.slides[0]
-    # Ajouter la forme SmartArt dans la première diapositive
-    smart = slide.shapes.add_smart_art(0, 0, 400, 400, art.SmartArtLayoutType.STACKED_LIST)
-    # Accéder au nœud SmartArt à l'index 0
-    node = smart.all_nodes[0]
-    # Accéder au nœud enfant à la position 1 dans le nœud parent
-    position = 1
-    chNode = node.child_nodes[position] 
-    # Imprimer les paramètres du nœud enfant SmartArt
-    print("j = {0}, texte = {1},  niveau = {2}, position = {3}".format(position, chNode.text_frame.text, chNode.level, chNode.position))
-
+    # Instancier la présentation
+    with slides.Presentation() as pres:
+        # Accéder à la première diapositive
+        slide = pres.slides[0]
+        # Ajouter la forme SmartArt dans la première diapositive
+        smart = slide.shapes.add_smart_art(0, 0, 400, 400, art.SmartArtLayoutType.STACKED_LIST)
+        # Accéder au nœud SmartArt à l'index 0
+        node = smart.all_nodes[0]
+        # Accéder au nœud enfant à la position 1 dans le nœud parent
+        position = 1
+        chNode = node.child_nodes[position] 
+        # Afficher les paramètres du nœud enfant SmartArt
+        print("j = {0}, text = {1},  level = {2}, position = {3}".format(position, chNode.text_frame.text, chNode.level, chNode.position))
 ```
 
 
-
 ## **Supprimer un nœud SmartArt**
-Dans cet exemple, nous allons apprendre à supprimer les nœuds à l'intérieur de la forme SmartArt.
+Dans cet exemple, nous apprendrons à supprimer les nœuds à l’intérieur d’une forme SmartArt.
 
-- Créez une instance de la classe `Presentation` et chargez la présentation avec la forme SmartArt.
-- Obtenez la référence de la première diapositive en utilisant son index.
-- Parcourez chaque forme à l'intérieur de la première diapositive.
-- Vérifiez si la forme est de type SmartArt et effectuez un typage de la forme sélectionnée en SmartArt si c'est du SmartArt.
-- Vérifiez si le SmartArt a plus de 0 nœuds.
+- Créez une instance de la classe `Presentation` et chargez la présentation contenant une forme SmartArt.
+- Obtenez la référence de la première diapositive en utilisant son indice.
+- Parcourez chaque forme de la première diapositive.
+- Vérifiez si la forme est de type SmartArt et casterez la forme sélectionnée en SmartArt si c’est le cas.
+- Vérifiez si le SmartArt possède plus de 0 nœud.
 - Sélectionnez le nœud SmartArt à supprimer.
-- Maintenant, supprimez le nœud sélectionné en utilisant la méthode RemoveNode() et enregistrez la présentation.
-
+- Ensuite, supprimez le nœud sélectionné en utilisant la méthode RemoveNode() * Enregistrez la présentation.
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# Charger la présentation désirée
+# Charger la présentation souhaitée
 with slides.Presentation(path + "RemoveNode.pptx") as pres:
-    # Parcourez chaque forme à l'intérieur de la première diapositive
+    # Parcourir chaque forme de la première diapositive
     for shape in pres.slides[0].shapes:
-        # Vérifiez si la forme est de type SmartArt
+        # Vérifier si la forme est de type SmartArt
         if type(shape) is art.SmartArt:
-            # Typecast la forme en SmartArtEx
+            # Caster la forme en SmartArtEx
             if len(shape.all_nodes) > 0:
                 # Accéder au nœud SmartArt à l'index 0
                 node = shape.all_nodes[0]
@@ -225,31 +224,29 @@ with slides.Presentation(path + "RemoveNode.pptx") as pres:
 ```
 
 
-
 ## **Supprimer un nœud SmartArt à une position spécifique**
-Dans cet exemple, nous allons apprendre à supprimer les nœuds à l'intérieur de la forme SmartArt à une position particulière.
+Dans cet exemple, nous apprendrons à supprimer les nœuds à l’intérieur d’une forme SmartArt à une position particulière.
 
-- Créez une instance de la classe `Presentation` et chargez la présentation avec la forme SmartArt.
-- Obtenez la référence de la première diapositive en utilisant son index.
-- Parcourez chaque forme à l'intérieur de la première diapositive.
-- Vérifiez si la forme est de type SmartArt et effectuez un typage de la forme sélectionnée en SmartArt si c'est du SmartArt.
-- Sélectionnez le nœud de forme SmartArt à l'index 0.
-- Maintenant, vérifiez si le nœud SmartArt sélectionné a plus de 2 nœuds enfants.
-- Maintenant, supprimez le nœud à la position 1 en utilisant la méthode RemoveNodeByPosition().
+- Créez une instance de la classe `Presentation` et chargez la présentation contenant une forme SmartArt.
+- Obtenez la référence de la première diapositive en utilisant son indice.
+- Parcourez chaque forme de la première diapositive.
+- Vérifiez si la forme est de type SmartArt et casterez la forme sélectionnée en SmartArt si c’est le cas.
+- Sélectionnez le nœud de forme SmartArt d’index 0.
+- Ensuite, vérifiez si le nœud SmartArt sélectionné possède plus de 2 nœuds enfants.
+- Ensuite, supprimez le nœud à la position 1 en utilisant la méthode RemoveNodeByPosition().
 - Enregistrez la présentation.
-
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# Charger la présentation désirée
+# Charger la présentation souhaitée
 with slides.Presentation(path + "RemoveNodeSpecificPosition.pptx") as pres:             
-    # Parcourez chaque forme à l'intérieur de la première diapositive
+    # Parcourir chaque forme de la première diapositive
     for shape in pres.slides[0].shapes:
-        # Vérifiez si la forme est de type SmartArt
+        # Vérifier si la forme est de type SmartArt
         if type(shape) is art.SmartArt:
-            # Typecast la forme en SmartArt
+            # Caster la forme en SmartArt
             if len(shape.all_nodes) > 0:
                 # Accéder au nœud SmartArt à l'index 0
                 node = shape.all_nodes[0]
@@ -262,91 +259,85 @@ with slides.Presentation(path + "RemoveNodeSpecificPosition.pptx") as pres:
 ```
 
 
-
-## **Définir une position personnalisée pour un nœud enfant dans SmartArt**
-Maintenant, Aspose.Slides pour Python via .NET prend en charge la définition des propriétés X et Y de SmartArtShape. Le code ci-dessous montre comment définir la position, la taille et la rotation de SmartArtShape, et veuillez noter que l'ajout de nouveaux nœuds entraîne un recalcul des positions et des tailles de tous les nœuds.
-
+## **Définir une position personnalisée pour le nœud enfant dans SmartArt**
+Aspose.Slides for Python via .NET prend désormais en charge la définition des propriétés X et Y de SmartArtShape. Le fragment de code ci‑dessous montre comment définir la position, la taille et la rotation personnalisées de SmartArtShape ; veuillez noter que l’ajout de nouveaux nœuds entraîne un recalcul des positions et des tailles de tous les nœuds.
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# Charger la présentation désirée
+# Charger la présentation souhaitée
 with slides.Presentation(path + "AccessChildNodes.pptx") as pres: 
-    smart = pres.slides[0].shapes.add_smart_art(20, 20, 600, 500, art.SmartArtLayoutType.ORGANIZATION_CHART)
+	smart = pres.slides[0].shapes.add_smart_art(20, 20, 600, 500, art.SmartArtLayoutType.ORGANIZATION_CHART)
 
-    # Déplacer la forme SmartArt à une nouvelle position
-    node = smart.all_nodes[1]
-    shape = node.shapes[1]
-    shape.x += (shape.width * 2)
-    shape.y -= (shape.height / 2)
+	# Déplacer la forme SmartArt vers une nouvelle position
+	node = smart.all_nodes[1]
+	shape = node.shapes[1]
+	shape.x += (shape.width * 2)
+	shape.y -= (shape.height / 2)
 
-    # Changer les largeurs de la forme SmartArt
-    node = smart.all_nodes[2]
-    shape = node.shapes[1]
-    shape.width += (shape.width / 2)
+	# Modifier la largeur de la forme SmartArt
+	node = smart.all_nodes[2]
+	shape = node.shapes[1]
+	shape.width += (shape.width / 2)
 
-    # Changer la hauteur de la forme SmartArt
-    node = smart.all_nodes[3]
-    shape = node.shapes[1]
-    shape.height += (shape.height / 2)
+	# Modifier la hauteur de la forme SmartArt
+	node = smart.all_nodes[3]
+	shape = node.shapes[1]
+	shape.height += (shape.height / 2)
 
-    # Changer la rotation de la forme SmartArt
-    node = smart.all_nodes[4]
-    shape = node.shapes[1]
-    shape.rotation = 90
+	# Modifier la rotation de la forme SmartArt
+	node = smart.all_nodes[4]
+	shape = node.shapes[1]
+	shape.rotation = 90
 
-    pres.save("SmartArt.pptx", slides.export.SaveFormat.PPTX)
+	pres.save("SmartArt.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-
 ## **Vérifier le nœud assistant**
-Dans le code d'exemple suivant, nous allons enquêter sur la façon d'identifier les nœuds assistants dans la collection de nœuds SmartArt et de les modifier.
+Dans le code d’exemple suivant, nous examinerons comment identifier les nœuds Assistant dans la collection de nœuds SmartArt et les modifier.
 
-- Créez une instance de la classe PresentationEx et chargez la présentation avec la forme SmartArt.
-- Obtenez la référence de la seconde diapositive en utilisant son index.
-- Parcourez chaque forme à l'intérieur de la première diapositive.
-- Vérifiez si la forme est de type SmartArt et effectuez un typage de la forme sélectionnée en SmartArtEx si c'est du SmartArt.
-- Parcourez tous les nœuds à l'intérieur de la forme SmartArt et vérifiez s'ils sont des nœuds assistants.
-- Changez le statut du nœud assistant en nœud normal.
+- Créez une instance de la classe PresentationEx et chargez la présentation contenant une forme SmartArt.
+- Obtenez la référence de la deuxième diapositive en utilisant son indice.
+- Parcourez chaque forme de la première diapositive.
+- Vérifiez si la forme est de type SmartArt et casterez la forme sélectionnée en SmartArtEx si c’est le cas.
+- Parcourez tous les nœuds de la forme SmartArt et vérifiez s’ils sont des nœuds Assistant.
+- Modifiez le statut du nœud Assistant pour le rendre nœud normal.
 - Enregistrez la présentation.
-
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# Création d'une instance de présentation
+# Créer une instance de présentation
 with slides.Presentation(path + "AssistantNode.pptx") as pres: 
-    # Parcourez chaque forme à l'intérieur de la première diapositive
+    # Parcourir chaque forme de la première diapositive
     for shape in pres.slides[0].shapes:
-        # Vérifiez si la forme est de type SmartArt
+        # Vérifier si la forme est de type SmartArt
         if type(shape) is art.SmartArt:
             # Parcourir tous les nœuds de la forme SmartArt
             for node in shape.all_nodes:
                 tc = node.text_frame.text
-                # Vérifiez si le nœud est un nœud assistant
+                # Vérifier si le nœud est un nœud Assistant
                 if node.is_assistant:
-                    # Définir le nœud assistant sur false et le rendre nœud normal
+                    # Définir le nœud Assistant à false et le transformer en nœud normal
                     node.is_assistant = False
     # Enregistrer la présentation
     pres.save("ChangeAssitantNode_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **Définir le format de remplissage du nœud**
+Aspose.Slides for Python via .NET permet d’ajouter des formes SmartArt personnalisées et de définir leurs formats de remplissage. Cet article explique comment créer et accéder aux formes SmartArt et définir leur format de remplissage à l’aide d’Aspose.Slides for Python via .NET.
 
-## **Définir le format de remplissage d'un nœud**
-Aspose.Slides pour Python via .NET permet d'ajouter des formes SmartArt personnalisées et de définir leurs formats de remplissage. Cet article explique comment créer et accéder aux formes SmartArt et définir leur format de remplissage à l'aide d'Aspose.Slides pour Python via .NET.
-
-Veuillez suivre les étapes ci-dessous :
+Veuillez suivre les étapes ci‑dessous :
 
 - Créez une instance de la classe `Presentation`.
-- Obtenez la référence d'une diapositive en utilisant son index.
+- Obtenez la référence d’une diapositive en utilisant son indice.
 - Ajoutez une forme SmartArt en définissant son LayoutType.
-- Définissez le format de remplissage pour les nœuds de la forme SmartArt.
-- Écrivez la présentation modifiée sous forme de fichier PPTX.
-
+- Définissez le FillFormat pour les nœuds de la forme SmartArt.
+- Enregistrez la présentation modifiée au format PPTX.
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -356,43 +347,41 @@ with slides.Presentation() as presentation:
     # Accéder à la diapositive
     slide = presentation.slides[0]
 
-    # Ajouter une forme SmartArt et des nœuds
+    # Ajouter la forme SmartArt et les nœuds
     chevron = slide.shapes.add_smart_art(10, 10, 800, 60, art.SmartArtLayoutType.CLOSED_CHEVRON_PROCESS)
     node = chevron.all_nodes.add_node()
-    node.text_frame.text = "Du texte"
+    node.text_frame.text = "Some text"
 
     # Définir la couleur de remplissage du nœud
     for item in node.shapes:
         item.fill_format.fill_type = slides.FillType.SOLID
         item.fill_format.solid_fill_color.color = draw.Color.red
 
-    # Enregistrement de la présentation
+    # Enregistrer la présentation
     presentation.save("FillFormat_SmartArt_ShapeNode_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-
 ## **Générer une miniature du nœud enfant SmartArt**
-Les développeurs peuvent générer une miniature du nœud enfant d'un SmartArt en suivant les étapes ci-dessous :
+Les développeurs peuvent générer une miniature du nœud enfant d’un SmartArt en suivant les étapes ci‑dessous :
 
 1. Instanciez la classe `Presentation` qui représente le fichier PPTX.
-1. Ajoutez du SmartArt.
-1. Obtenez la référence d'un nœud en utilisant son index.
-1. Obtenez l'image miniature.
-1. Enregistrez l'image miniature dans le format d'image souhaité.
+1. Ajoutez un SmartArt.
+1. Obtenez la référence d’un nœud en utilisant son indice.
+1. Récupérez l’image miniature.
+1. Enregistrez l’image miniature dans le format d’image souhaité.
 
-L'exemple ci-dessous génère une miniature du nœud enfant SmartArt.
-
+L’exemple ci‑dessous génère une miniature du nœud enfant SmartArt.
 ```py
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# Instancier la classe Presentation qui représente le fichier PPTX 
+# Instancier la classe Presentation qui représente le fichier PPTX
 with slides.Presentation() as presentation: 
-    # Ajouter du SmartArt 
+    # Ajouter SmartArt
     smart = pres.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.BASIC_CYCLE)
 
-    # Obtenez la référence d'un nœud en utilisant son index  
+    # Obtenir la référence d'un nœud en utilisant son indice
     node = smart.nodes[1]
 
     # Obtenir la miniature
@@ -400,3 +389,22 @@ with slides.Presentation() as presentation:
         # enregistrer la miniature
         bmp.save("SmartArt_ChildNote_Thumbnail_out.jpeg", slides.ImageFormat.JPEG)
 ```
+
+
+## **FAQ**
+
+**L’animation SmartArt est‑elle prise en charge ?**
+
+Oui. SmartArt est traité comme une forme ordinaire, vous pouvez donc [appliquer des animations standard](/slides/fr/python-net/shape-animation/) (entrée, sortie, mise en emphase, trajectoires) et ajuster le minutage. Vous pouvez également animer les formes à l’intérieur des nœuds SmartArt si nécessaire.
+
+**Comment localiser de manière fiable un SmartArt spécifique sur une diapositive si son ID interne est inconnu ?**
+
+Attribuez et recherchez par [texte alternatif](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/alternative_text/). En définissant un AltText distinctif sur le SmartArt, vous pouvez le retrouver programmatiquement sans vous fier aux identifiants internes.
+
+**L’apparence du SmartArt sera‑t‑elle conservée lors de la conversion de la présentation en PDF ?**
+
+Oui. Aspose.Slides rend le SmartArt avec une grande fidélité visuelle lors de l’[export PDF](/slides/fr/python-net/convert-powerpoint-to-pdf/), en conservant la mise en page, les couleurs et les effets.
+
+**Puis‑je extraire une image de l’ensemble du SmartArt (pour des aperçus ou rapports) ?**
+
+Oui. Vous pouvez rendre une forme SmartArt vers des [formats raster](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/get_image/) ou vers [SVG](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/write_as_svg/) pour une sortie vectorielle évolutive, ce qui convient aux miniatures, rapports ou utilisations web.

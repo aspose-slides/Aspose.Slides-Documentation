@@ -2,12 +2,25 @@
 title: Chart
 type: docs
 weight: 60
-url: /net/examples/elements/chart
+url: /net/examples/elements/chart/
+keywords:
+- chart example
+- add chart
+- access chart
+- remove chart
+- update chart
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Create and customize charts in C# with Aspose.Slides: add data, format series, axes and labels, change types, and export—works with PPT, PPTX and ODP."
 ---
 
 Examples for adding, accessing, removing, and updating different chart types with **Aspose.Slides for .NET**. The snippets below demonstrate basic chart operations.
 
-## Add a Chart
+## **Add a Chart**
 
 This method adds a simple area chart to the first slide.
 
@@ -22,7 +35,7 @@ static void Add_Chart()
 }
 ```
 
-## Access a Chart
+## **Access a Chart**
 
 After creating a chart, you can retrieve it through the shape collection.
 
@@ -38,7 +51,7 @@ static void Access_Chart()
 }
 ```
 
-## Remove a Chart
+## **Remove a Chart**
 
 The following code removes a chart from a slide.
 
@@ -54,7 +67,7 @@ static void Remove_Chart()
 }
 ```
 
-## Update Chart Data
+## **Update Chart Data**
 
 You can change chart properties such as the title.
 

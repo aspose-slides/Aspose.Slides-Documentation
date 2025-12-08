@@ -1,18 +1,32 @@
 ---
-title: Watermark
+title: Add Watermarks to Presentations in Java
+linktitle: Watermark
 type: docs
 weight: 40
 url: /java/watermark/
 keywords:
 - watermark
-- add watermark
 - text watermark
 - image watermark
+- add watermark
+- change watermark
+- remove watermark
+- delete watermark
+- add watermark to PPT
+- add watermark to PPTX
+- add watermark to ODP
+- remove watermark from PPT
+- remove watermark from PPTX
+- remove watermark from ODP
+- delete watermark from PPT
+- delete watermark from PPTX
+- delete watermark from ODP
 - PowerPoint
+- OpenDocument
 - presentation
 - Java
-- Aspose.Slides for Java
-description: "Add text and image watermarks to PowerPoint presentations in Java"
+- Aspose.Slides
+description: "Manage text and image watermarks in PowerPoint and OpenDocument presentations in Java to indicate a draft, confidential information, copyright, and more."
 ---
 
 ## **About Watermarks**
@@ -192,3 +206,29 @@ for (IShape shape : slideShapes) {
     }
 }
 ```
+
+## **FAQ**
+
+**What is a watermark and why should I use it?**
+
+A watermark is a text or image overlay applied to slides that helps protect intellectual property, enhance brand recognition, or prevent unauthorized use of presentations.
+
+**Can I add a watermark to all slides in a presentation?**
+
+Yes, Aspose.Slides allows you to programmatically add a watermark to every slide in a presentation. You can iterate through all the slides and apply the watermark settings individually.
+
+**How can I adjust the transparency of the watermark?**
+
+You can adjust the transparency of the watermark by modifying the fill settings ([getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getFillFormat--)) of the shape. This ensures that the watermark is subtle and does not distract from the slide content.
+
+**What image formats are supported for watermarks?**
+
+Aspose.Slides supports various image formats such as PNG, JPEG, GIF, BMP, SVG, and more.
+
+**Can I customize the font and style of a text watermark?**
+
+Yes, you can choose any font, size, and style to match the design of your presentation and maintain brand consistency.
+
+**How do I change the position or orientation of a watermark?**
+
+You can adjust the position and orientation of the watermark programmatically by modifying the shape's coordinates, size, and rotation properties.

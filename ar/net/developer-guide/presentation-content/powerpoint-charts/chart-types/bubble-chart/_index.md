@@ -2,13 +2,12 @@
 title: مخطط الفقاعات
 type: docs
 url: /ar/net/bubble-chart/
-keywords: "مخطط الفقاعات، حجم المخطط، عرض باوربوينت، C#، Csharp، Aspose.Slides for .NET"
-description: "حجم مخطط الفقاعات في عروض باوربوينت في C# أو .NET"
+keywords: "مخطط الفقاعات، حجم المخطط، عرض تقديمي PowerPoint، C#، Csharp، Aspose.Slides for .NET"
+description: "حجم مخطط الفقاعات في عروض PowerPoint بلغة C# أو .NET"
 ---
 
-## **تعديل حجم مخطط الفقاعات**
-توفر Aspose.Slides for .NET دعمًا لتعديل حجم مخطط الفقاعات. تمت إضافة خصائص **IChartSeries.BubbleSizeScale** و **IChartSeriesGroup.BubbleSizeScale** في Aspose.Slides for .NET. يُعطى أدناه مثال نموذجي.
-
+## **تحجيم حجم مخطط الفقاعات**
+توفر Aspose.Slides للـ .NET دعمًا لتحجيم حجم مخطط الفقاعات. تمّت إضافة خصائص **IChartSeries.BubbleSizeScale** و **IChartSeriesGroup.BubbleSizeScale** في Aspose.Slides للـ .NET. في ما يلي مثال نموذجي.  
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -18,9 +17,9 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **تمثيل البيانات كأحجام لمخطط الفقاعات**
-تمت إضافة خاصية **BubbleSizeRepresentation** إلى واجهات IChartSeries و IChartSeriesGroup والفئات ذات الصلة. تُحدد **BubbleSizeRepresentation** كيف يتم تمثيل قيم حجم الفقاعات في مخطط الفقاعات. القيم الممكنة هي: **BubbleSizeRepresentationType.Area** و **BubbleSizeRepresentationType.Width**. وبناءً عليه، تمت إضافة تعداد **BubbleSizeRepresentationType** لتحديد الطرق الممكنة لتمثيل البيانات كأحجام لمخطط الفقاعات. يُعطى أدناه كود نموذجي.
 
+## **تمثيل البيانات بأحجام مخطط الفقاعات**
+تمّت إضافة الخاصية **BubbleSizeRepresentation** إلى واجهات IChartSeries و IChartSeriesGroup والفئات ذات الصلة. **BubbleSizeRepresentation** تحدد كيفية تمثيل قيم حجم الفقاعات في مخطط الفقاعات. القيم الممكنة هي: **BubbleSizeRepresentationType.Area** و **BubbleSizeRepresentationType.Width**. وبناءً على ذلك، تمّت إضافة تعداد **BubbleSizeRepresentationType** لتحديد الطرق الممكنة لتمثيل البيانات بأحجام مخطط الفقاعات. في ما يلي عينة من الشيفرة.  
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -29,3 +28,15 @@ using (Presentation pres = new Presentation())
     pres.Save("Presentation_BubbleSizeRepresentation.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يتم دعم "مخطط الفقاعات مع تأثير ثلاثي الأبعاد"، وكيف يختلف عن المخطط العادي؟**  
+نعم. هناك نوع مخطط منفصل، "Bubble with 3-D". يطبق نمطًا ثلاثي الأبعاد على الفقاعات دون إضافة محور إضافي؛ تظل البيانات X-Y-S (الحجم). النوع متاح في تعداد [chart type](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/).
+
+**هل هناك حد لعدد السلاسل والنقاط في مخطط الفقاعات؟**  
+ليس هناك حد ثابت على مستوى API؛ تتحدد القيود بالأداء وإصدار PowerPoint المستهدف. يُنصح بالحفاظ على عدد النقاط في حدود معقولة لضمان قابلية القراءة وسرعة العرض.
+
+**كيف سيؤثر التصدير على مظهر مخطط الفقاعات (PDF، صور)؟**  
+يحافظ التصدير إلى الصيغ المدعومة على مظهر المخطط؛ يتم تنفيذ التصيير بواسطة محرك Aspose.Slides. بالنسبة إلى صيغ الرستر/الفيكتور، تُطبق قواعد التصيير العامة (الدقة، مضاد التسنين)، لذا يُنصح باختيار DPI كافٍ للطباعة.

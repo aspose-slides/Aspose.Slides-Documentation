@@ -1,10 +1,24 @@
 ---
-title: Create Fallback Font
+title: Specify Fallback Fonts for Presentations in .NET
+linktitle: Fallback Font
 type: docs
 weight: 10
 url: /net/create-fallback-font/
-keywords: "Fonts, fallback font, PowerPoint presentation C#, Csharp, Aspose.Slides for .NET"
-description: "Fallback font in PowerPoint in C# or .NET"
+keywords:
+- fallback font
+- fallback rule
+- apply font
+- replace font
+- Unicode range
+- missed glyph
+- proper glyph
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Master Aspose.Slides for .NET to set fallback fonts in PPT, PPTX and ODP files, safeguarding consistent text display on any device or OS."
 ---
 
 ## **Fallback Rules**

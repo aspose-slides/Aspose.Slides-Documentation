@@ -13,7 +13,7 @@ Aspose.Slides for .NET is a unique PowerPoint® management API that enables .NET
 Aspose.Slides for .NET is the first and only .NET PowerPoint API that provides functionality to manage PowerPoint documents within your own applications. As with all Aspose .NET components, Aspose.Slides is written in managed C#, incredibly priced and lightning fast.
 
 For more details about [Aspose.Slides for .NET API](http://www.aspose.com/.net/powerpoint-component.aspx)
-### **Explore Aspose.Slides for .NET Examples using Visual Studio**
+### **Explore Aspose.Slides for .NET Examples Using Visual Studio**
 Aspose Visual Studio Plugin - **Explore Aspose.Slides for .NET Examples** is a great tool to quickly download and explore Aspose.Slides for .NET API examples. It saves lots of time and efforts by providing a very simple option to seamlessly select, download and open the latest example projects without having to leave your Visual Studio.
 
 This version provides the following features:
@@ -92,7 +92,7 @@ You can get the latest source code from one of the following locations
 - [CodePlex ](https://asposeSlidesvs.codeplex.com/SourceControl/latest)
 - [Github ](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
 - [Microsoft Developer Network ](https://code.msdn.microsoft.com/Explore-AsposeSlides-for-NET-58ac45ed)
-#### **How to configure the source code**
+#### **How to Configure the Source Code**
 You need to have the following installed in order to open and extend the source code
 
 - Visual Studio 2010

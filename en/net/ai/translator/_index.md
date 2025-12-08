@@ -29,7 +29,7 @@ description: "Translate PowerPoint slides with AI using Aspose.Slides for .NET. 
 
 Aspose.Slides is a powerful API for programmatically managing PowerPoint presentations. In addition to creating, editing, and converting slides, it offers AI-driven features - such as the [Presentation Translation API](https://reference.aspose.com/slides/net/aspose.slides.ai/) for multilingual slide content.
 
-## **How it Works**
+## **How It Works**
 
 Aspose.Slides does not include built-in AI capabilities but integrates with external AI models over the internet. This functionality is exposed via the [SlidesAIAgent](https://reference.aspose.com/slides/net/aspose.slides.ai/slidesaiagent) class, which uses an implementation of the [IAIWebClient](https://reference.aspose.com/slides/net/aspose.slides.ai/iaiwebclient/) interface to communicate with AI services.
 

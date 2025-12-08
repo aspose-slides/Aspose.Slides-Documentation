@@ -8,12 +8,30 @@ description: "Agregar diapositiva a la presentación en C# o .NET"
 ---
 
 ## **Agregar diapositiva a la presentación**
-Antes de hablar sobre cómo agregar diapositivas a los archivos de presentación, discutamos algunos hechos sobre las diapositivas. Cada archivo de presentación de PowerPoint contiene diapositivas de Maestro / Diseño y otras diapositivas Normales. Esto significa que un archivo de presentación contiene al menos una o más diapositivas. Es importante saber que los archivos de presentación sin diapositivas no son compatibles con Aspose.Slides para .NET. Cada diapositiva tiene un Id único y todas las Diapositivas Normales están organizadas en un orden especificado por el índice basado en cero. Aspose.Slides para .NET permite a los desarrolladores agregar diapositivas vacías a su presentación. Para agregar una diapositiva vacía a la presentación, siga los pasos a continuación:
+Antes de hablar sobre cómo agregar diapositivas a los archivos de presentación, discutamos algunos hechos sobre las diapositivas. Cada archivo de presentación de PowerPoint contiene una diapositiva Maestro / Diseño y otras diapositivas Normales. Esto significa que un archivo de presentación contiene al menos una o más diapositivas. Es importante saber que los archivos de presentación sin diapositivas no son compatibles con Aspose.Slides for .NET. Cada diapositiva tiene un Id único y todas las Diapositivas Normal se organizan en un orden especificado por el índice base cero. Aspose.Slides for .NET permite a los desarrolladores agregar diapositivas vacías a su presentación. Para agregar una diapositiva vacía en la presentación, siga los pasos a continuación:
 
 - Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 - Instancie la clase [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) estableciendo una referencia a la propiedad Slides (colección de objetos Slide de contenido) expuesta por el objeto Presentation.
 - Agregue una diapositiva vacía a la presentación al final de la colección de diapositivas de contenido llamando a los métodos AddEmptySlide expuestos por el objeto ISlideCollection.
-- Realice alguna operación con la nueva diapositiva vacía agregada.
-- Finalmente, escriba el archivo de presentación utilizando el objeto [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+- Realice alguna operación con la diapositiva vacía recién agregada.
+- Finalmente, escriba el archivo de presentación usando el objeto [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Slides-AddSlides-AddSlides.cs" >}}
+
+## **Preguntas frecuentes**
+
+**¿Puedo insertar una nueva diapositiva en una posición específica, no solo al final?**
+
+Sí. La biblioteca admite colecciones de diapositivas y operaciones de [insert](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/insertemptyslide/)/[clone](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/insertclone/), por lo que puede agregar una diapositiva en el índice requerido en lugar de solo al final.
+
+**¿Se conservan los temas/estilos al agregar una diapositiva basada en un diseño?**
+
+Sí. Un diseño hereda el formato de su maestro, y la nueva diapositiva hereda del diseño seleccionado y su maestro asociado.
+
+**¿Qué diapositiva está presente en una nueva presentación "vacía" antes de agregar diapositivas?**
+
+Una presentación recién creada ya contiene una diapositiva en blanco con índice cero. Esto es importante considerar al calcular los índices de inserción.
+
+**¿Cómo elijo el diseño "correcto" para una nueva diapositiva si el maestro tiene muchas opciones?**
+
+Generalmente elija el [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) que coincida con la estructura requerida ([Title and Content, Two Content, etc.](https://reference.aspose.com/slides/net/aspose.slides/slidelayouttype/)). Si falta dicho diseño, puede [agregarlo al maestro](/slides/es/net/slide-layout/) y luego usarlo.

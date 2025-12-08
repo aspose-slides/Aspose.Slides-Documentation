@@ -1,10 +1,25 @@
 ---
-title: Merge Presentation
+title: Efficiently Merge Presentations in PHP
+linktitle: Merge Presentations
 type: docs
 weight: 40
 url: /php-java/merge-presentation/
-keywords: "Merge PowerPoint, PPTX, PPT, combine PowerPoint, merge presentation, combine presentation, Java"
-description: "Merge or combine PowerPoint Presentation "
+keywords:
+- merge PowerPoint
+- merge presentations
+- merge slides
+- merge PPT
+- merge PPTX
+- merge ODP
+- combine PowerPoint
+- combine presentations
+- combine slides
+- combine PPT
+- combine PPTX
+- combine ODP
+- PHP
+- Aspose.Slides
+description: "Effortlessly merge PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations with Aspose.Slides for PHP via Java, streamlining your workflow."
 ---
 
 

@@ -1,14 +1,20 @@
 ---
-title: Callout
+title: 使用 Python 管理演示文稿图表中的标注
+linktitle: 标注
 type: docs
 url: /zh/python-net/callout/
-keywords: "图表调用, 图表数据标签, Python, Aspose.Slides for Python via .NET"
-description: "Python中的PowerPoint图表调用和数据标签"
+keywords:
+- 图表 标注
+- 使用 标注
+- 数据 标签
+- 标签 格式
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python .NET 创建和样式化标注，提供简洁的代码示例，兼容 PPT、PPTX 和 ODP，自动化演示工作流。"
 ---
 
-## **使用调用**
-新的属性**ShowLabelAsDataCallout**已添加到**DataLabelFormat**类和**IDataLabelFormat**接口中，该属性决定指定图表的数据标签是作为数据调用显示还是作为数据标签显示。在下面给出的示例中，我们设置了调用。
-
+## **使用标注**
+已向 **DataLabelFormat** 类和 **IDataLabelFormat** 接口添加了新属性 **ShowLabelAsDataCallout**，该属性决定指定图表的数据标签是显示为数据标注还是显示为数据标签。在下面的示例中，我们已设置标注。
 ```py
 import aspose.slides as slides
 
@@ -21,10 +27,8 @@ with slides.Presentation() as presentation:
 ```
 
 
-
-## **为甜甜圈图设置调用**
-Aspose.Slides for Python via .NET支持为甜甜圈图设置系列数据标签调用形状。下面给出样本示例。
-
+## **为环形图设置标注**
+Aspose.Slides for Python via .NET 提供了为环形图设置系列数据标签标注形状的支持。下面给出示例。
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -39,14 +43,14 @@ with slides.Presentation() as pres:
     chart.has_legend = False
     seriesIndex = 0
     while seriesIndex < 15:
-        series = chart.chart_data.series.add(workBook.get_cell(0, 0, seriesIndex + 1, "系列 " + str(seriesIndex)), chart.type)
+        series = chart.chart_data.series.add(workBook.get_cell(0, 0, seriesIndex + 1, "SERIES " + str(seriesIndex)), chart.type)
         series.explosion = 0
         series.parent_series_group.doughnut_hole_size = 20
         series.parent_series_group.first_slice_angle = 351
         seriesIndex += 1
     categoryIndex = 0
     while categoryIndex < 15:
-        chart.chart_data.categories.add(workBook.get_cell(0, categoryIndex + 1, 0, "类别 " + str(categoryIndex)))
+        chart.chart_data.categories.add(workBook.get_cell(0, categoryIndex + 1, 0, "CATEGORY " + str(categoryIndex)))
         i = 0
         while i < len(chart.chart_data.series):
             iCS = chart.chart_data.series[i]
@@ -75,6 +79,17 @@ with slides.Presentation() as pres:
                 lbl.as_i_layoutable.x += 0.5
                 lbl.as_i_layoutable.y += 0.5
             i += 1
-        categoryIndex += 1 
+        categoryIndex +=1 
     pres.save("chart.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **常见问题**
+
+**将演示文稿转换为 PDF、HTML5、SVG 或图像时，标注会被保留吗？**
+
+是的。标注是图表渲染的一部分，因此在导出为 [PDF](/slides/zh/python-net/convert-powerpoint-to-pdf/)、[HTML5](/slides/zh/python-net/export-to-html5/)、[SVG](/slides/zh/python-net/render-a-slide-as-an-svg-image/) 或 [光栅图像](/slides/zh/python-net/convert-powerpoint-to-png/) 时，它们会与幻灯片的格式一起被保留。
+
+**自定义字体在标注中能使用吗？导出时能保留其外观吗？**
+
+是的。Aspose.Slides 支持将 [嵌入字体](/slides/zh/python-net/embedded-font/)嵌入到演示文稿中，并在导出（如 [PDF](/slides/zh/python-net/convert-powerpoint-to-pdf/)）时控制字体嵌入，确保标注在不同系统上保持相同的外观。

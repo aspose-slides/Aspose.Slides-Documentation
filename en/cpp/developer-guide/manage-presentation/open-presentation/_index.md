@@ -1,11 +1,12 @@
 ---
-title: Open a Presentation in C++
-linktitle: Open Presentations
+title: Open Presentations in C++
+linktitle: Open Presentation
 type: docs
 weight: 20
 url: /cpp/open-presentation/
 keywords:
 - open PowerPoint
+- open OpenDocument
 - open presentation
 - open PPTX
 - open PPT

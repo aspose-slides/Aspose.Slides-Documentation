@@ -1,5 +1,5 @@
 ---
-title: Appliquer ou modifier la mise en page des diapositives en Python
+title: Appliquer ou modifier les dispositions de diapositives en Python
 linktitle: Disposition de diapositive
 type: docs
 weight: 60
@@ -12,12 +12,12 @@ keywords:
 - conception de diapositive
 - disposition inutilisée
 - visibilité du pied de page
-- diapositive de titre
+- diapositive titre
 - titre et contenu
-- en‑tête de section
+- en-tête de section
 - deux contenus
 - comparaison
-- titre seulement
+- titre seul
 - disposition vierge
 - contenu avec légende
 - image avec légende
@@ -27,222 +27,217 @@ keywords:
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Apprenez à gérer et à personnaliser les dispositions de diapositives dans Aspose.Slides for Python via .NET. Découvrez les types de dispositions, le contrôle des espaces réservés, la visibilité du pied de page et la manipulation des dispositions grâce à des exemples de code en Python."
+description: "Apprenez à gérer et personnaliser les dispositions de diapositives dans Aspose.Slides for Python via .NET. Explorez les types de dispositions, le contrôle des espaces réservés, la visibilité du pied de page et la manipulation des dispositions à l'aide d'exemples de code en Python."
 ---
 
-Une mise en page de diapositive contient les zones de texte réservées et les informations de formatage pour tout le contenu qui apparaît sur une diapositive. La mise en page détermine les zones de contenu réservées disponibles et où elles sont placées.
+## **Vue d'ensemble**
 
-Les mises en page de diapositives vous permettent de créer et de concevoir rapidement des présentations (qu'elles soient simples ou complexes). Voici quelques-unes des mises en page de diapositives les plus populaires utilisées dans les présentations PowerPoint :
+Une disposition de diapositive définit l'agencement des zones réservées et le formatage du contenu d'une diapositive. Elle contrôle quelles zones réservées sont disponibles et où elles apparaissent. Les dispositions de diapositive vous aident à créer des présentations rapidement et de manière cohérente—que vous conceviez quelque chose de simple ou de plus complexe. Parmi les dispositions de diapositive les plus courantes dans PowerPoint figurent :
 
-* **Mise en page de Diapositive Titre**. Cette mise en page se compose de deux zones de texte réservées. Une zone est pour le titre et l'autre est pour le sous-titre.
-* **Mise en page Titre et Contenu**. Cette mise en page contient une zone réservée relativement petite en haut pour le titre et une plus grande zone réservée pour le contenu principal (graphique, paragraphes, liste à puces, liste numérotée, images, etc).
-* **Mise en page Vide**. Cette mise en page ne contient pas de zones réservées, vous permettant de créer des éléments à partir de zéro.
+**Title Slide layout** – Comprend deux zones réservées de texte : une pour le titre et une pour le sous-titre.
 
-Puisqu'un modèle de diapositive est la diapositive hiérarchiquement supérieure qui stocke des informations sur les mises en page de diapositives, vous pouvez utiliser la diapositive maître pour accéder aux mises en page de diapositives et y effectuer des modifications. Une diapositive de mise en page peut être accédée par type ou par nom. De même, chaque diapositive a un id unique, qui peut être utilisé pour y accéder.
+**Title and Content layout** – Propose une petite zone réservée de titre en haut et une plus grande en dessous pour le contenu principal (texte, puces, graphiques, images, etc.).
 
-Alternativement, vous pouvez apporter des modifications directement à une mise en page de diapositive spécifique dans une présentation.
+**Blank layout** – Ne contient aucune zone réservée, vous offrant un contrôle total pour concevoir la diapositive à partir de zéro.
 
-* Pour vous permettre de travailler avec des mises en page de diapositives (y compris celles dans des diapositives maîtres), Aspose.Slides fournit des propriétés telles que `layout_slides` et `masters` sous la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-* Pour effectuer des tâches liées, Aspose.Slides fournit [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/), et de nombreux autres types.
+Les dispositions de diapositive font partie d'un maître de diapositive, qui est la diapositive de niveau supérieur définissant les styles de disposition pour la présentation. Vous pouvez accéder aux dispositions et les modifier via le maître de diapositive—soit par type, nom ou identifiant unique. Vous pouvez également modifier directement une disposition spécifique au sein de la présentation.
+
+Pour travailler avec les dispositions de diapositive dans Aspose.Slides for Python, utilisez :
+
+- Propriétés telles que [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) et [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) sous la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
+- Types comme [LayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutplaceholdermanager/), et [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslideheaderfootermanager/)
 
 {{% alert title="Info" color="info" %}}
-
-Pour plus d'informations sur le travail avec les Diapositives Maîtres en particulier, voir l'article [Diapositive Maître](https://docs.aspose.com/slides/python-net/slide-master/).
-
+Pour en savoir plus sur la gestion des maîtres de diapositives, consultez l'article [Gérer les maîtres de diapositives PowerPoint en Python](/slides/fr/python-net/slide-master/).
 {{% /alert %}}
 
-## **Ajouter une Mise en Page de Diapositive à la Présentation**
+## **Ajouter des dispositions de diapositive aux présentations**
+
+Pour personnaliser l'apparence et la structure de vos diapositives, il peut être nécessaire d'ajouter de nouvelles dispositions à une présentation. Aspose.Slides for Python vous permet de vérifier si une disposition spécifique existe déjà, d'en ajouter une nouvelle si besoin, et de l'utiliser pour insérer des diapositives basées sur cette disposition.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Accédez à la [collection MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/imasterlayoutslidecollection/).
-1. Parcourez les diapositives de mise en page existantes pour confirmer que la diapositive de mise en page requise existe déjà dans la collection de mises en page de diapositives. Sinon, ajoutez la diapositive de mise en page que vous souhaitez.
-1. Ajoutez une diapositive vide basée sur la nouvelle diapositive de mise en page.
+1. Accédez à la [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/).
+1. Vérifiez si la disposition souhaitée existe déjà dans la collection. Sinon, ajoutez la disposition dont vous avez besoin.
+1. Ajoutez une diapositive vide basée sur la nouvelle disposition.
 1. Enregistrez la présentation.
 
-Ce code Python vous montre comment ajouter une mise en page de diapositive à une présentation PowerPoint :
-
+Le code Python suivant montre comment ajouter une disposition de diapositive à une présentation PowerPoint :
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instancie une classe Presentation qui représente le fichier de présentation
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # Parcourt les types de diapositives de mise en page
-    layoutSlides = presentation.masters[0].layout_slides
-    layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)  
-    if layoutSlide is None:
-         layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.TITLE)
+# Instancier la classe Presentation pour ouvrir le fichier de présentation.
+with slides.Presentation("sample.pptx") as presentation:
+    # Parcourir les types de diapositives de mise en page pour sélectionner une diapositive de mise en page.
+    layout_slides = presentation.masters[0].layout_slides
+    layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
+    if layout_slide is None:
+         layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE)
 
-    if layoutSlide is None:
-        # La situation où une présentation ne contient pas certains types de mise en page.
-        # Le fichier de présentation contient seulement des types de mise en page Vides et Personnalisés.
-        # Mais les diapositives de mise en page de types Personnalisés ont des noms de diapositives différents,
-        # comme "Titre", "Titre et Contenu", etc. Et il est possible d'utiliser ces
-        # noms pour la sélection de la diapositive de mise en page.
-        # Vous pouvez également utiliser un ensemble de types de formes de zones réservées. Par exemple,
-        # La diapositive de titre devrait avoir uniquement le type de zone réservée Titre, etc.
-        for titleAndObjectLayoutSlide in layoutSlides:
-            if titleAndObjectLayoutSlide.name == "Titre et Objet":
-                layoutSlide = titleAndObjectLayoutSlide
+    if layout_slide is None:
+        # Une situation où la présentation ne contient pas tous les types de mise en page.
+        # Le fichier de présentation ne contient que les types de mise en page Blank et Custom.
+        # Cependant, les diapositives de mise en page avec des types personnalisés peuvent avoir des noms reconnaissables,
+        # comme "Title", "Title and Content", etc., qui peuvent être utilisés pour la sélection de la diapositive de mise en page.
+        # Vous pouvez également vous baser sur un ensemble de types de formes d'espace réservé.
+        # Par exemple, une diapositive Title doit contenir uniquement le type d'espace réservé Title, etc.
+        for title_and_object_layout_slide in layout_slides:
+            if title_and_object_layout_slide.name == "Title and Object":
+                layout_slide = title_and_object_layout_slide
                 break
 
-        if layoutSlide is None:
-            for titleLayoutSlide in layoutSlides:
-                if titleLayoutSlide.name == "Titre":
-                    layoutSlide = titleLayoutSlide
+        if layout_slide is None:
+            for title_layout_slide in layout_slides:
+                if title_layout_slide.name == "Title":
+                    layout_slide = title_layout_slide
                     break
 
-            if layoutSlide is None:
-                layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.BLANK)
-                if layoutSlide is None:
-                    layoutSlide = layoutSlides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Titre et Objet")
+            if layout_slide is None:
+                layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+                if layout_slide is None:
+                    layout_slide = layout_slides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
 
-    # Ajoute une diapositive vide avec la diapositive de mise en page ajoutée 
-    presentation.slides.insert_empty_slide(0, layoutSlide)
+    # Ajouter une diapositive vide en utilisant la diapositive de mise en page ajoutée.
+    presentation.slides.insert_empty_slide(0, layout_slide)
 
-    # Enregistre la présentation sur le disque
-    presentation.save("AddLayoutSlides_out.pptx", slides.export.SaveFormat.PPTX)
+    # Enregistrer la présentation sur le disque.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Supprimer une Diapositive de Mise en Page Inutilisée**
 
-Aspose.Slides fournit la méthode `remove_unused_layout_slides` de la classe [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) pour vous permettre de supprimer les diapositives de mise en page indésirables et inutilisées. Ce code Python vous montre comment supprimer une diapositive de mise en page d'une présentation PowerPoint :
+## **Supprimer les dispositions de diapositive inutilisées**
 
+Aspose.Slides fournit la méthode [remove_unused_layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) de la classe [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) pour supprimer les dispositions de diapositive indésirables et inutilisées.
+
+Le code Python suivant montre comment supprimer une disposition de diapositive d'une présentation PowerPoint :
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    slides.lowcode.Compress.remove_unused_layout_slides(pres)
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("sample.pptx") as presentation:
+    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Définir la Taille et le Type pour la Mise en Page de Diapositive**
 
-Pour vous permettre de définir la taille et le type d'une diapositive de mise en page spécifique, Aspose.Slides fournit les propriétés `type` et `size` (de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)). Ce Python démontre l'opération :
+## **Ajouter des zones réservées aux dispositions de diapositive**
 
-```python
+Aspose.Slides propose la propriété [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/placeholder_manager/), qui permet d'ajouter de nouvelles zones réservées à une disposition.
+
+Ce gestionnaire contient des méthodes pour les types de zones réservées suivants :
+
+| PowerPoint Placeholder              | [LayoutPlaceholderManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutplaceholdermanager/) Method |
+| ----------------------------------- | ------------------------------------------------------------ |
+| ![Content](content.png)             | add_content_placeholder(x: float, y: float, width: float, height: float) |
+| ![Content (Vertical)](contentV.png) | add_vertical_content_placeholder(x: float, y: float, width: float, height: float) |
+| ![Text](text.png)                   | add_text_placeholder(x: float, y: float, width: float, height: float) |
+| ![Text (Vertical)](textV.png)       | add_vertical_text_placeholder(x: float, y: float, width: float, height: float) |
+| ![Picture](picture.png)             | add_picture_placeholder(x: float, y: float, width: float, height: float) |
+| ![Chart](chart.png)                 | add_chart_placeholder(x: float, y: float, width: float, height: float) |
+| ![Table](table.png)                 | add_table_placeholder(x: float, y: float, width: float, height: float) |
+| ![SmartArt](smartart.png)           | add_smart_art_placeholder(x: float, y: float, width: float, height: float) |
+| ![Media](media.png)                 | add_media_placeholder(x: float, y: float, width: float, height: float) |
+| ![Online Image](onlineimage.png)    | add_online_image_placeholder(x: float, y: float, width: float, height: float) |
+
+Le code Python suivant montre comment ajouter de nouvelles formes de zone réservée à la disposition Blank :
+```py
 import aspose.slides as slides
 
-# Instancie un objet Presentation qui représente un fichier de présentation 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    with slides.Presentation() as auxPresentation:
-        slide = presentation.slides[0]
-
-        # Définit la taille de la diapositive pour la présentation générée à celle de la source
-        auxPresentation.slide_size.set_size(presentation.slide_size.type, slides.SlideSizeScaleType.ENSURE_FIT)
-
-        auxPresentation.slides.insert_clone(0, slide)
-        auxPresentation.slides.remove_at(0)
-        # Enregistre la présentation sur le disque
-        auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Définir la Visibilité du Pied de Page à l'Intérieur de la Diapositive**
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Obtenez une référence à une diapositive par son index.
-1. Réglez la zone réservée pour le pied de page de la diapositive sur visible.
-1. Réglez la zone réservée de date-heure sur visible.
-1. Enregistrez la présentation.
-
-Ce code Python vous montre comment définir la visibilité d'un pied de page de diapositive (et effectuer des tâches liées) :
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    headerFooterManager = presentation.slides[0].header_footer_manager
-    # La propriété is_footer_visible est utilisée pour spécifier qu'une zone réservée de pied de page de diapositive est manquante
-    if not headerFooterManager.is_footer_visible: 
-        # La méthode set_footer_visibility est utilisée pour définir une zone réservée de pied de page de diapositive sur visible
-        headerFooterManager.set_footer_visibility(True) 
-        # La propriété is_slide_number_visible est utilisée pour spécifier qu'une zone réservée de numéro de diapositive est manquante
-    if not headerFooterManager.is_slide_number_visible:  
-        # La méthode set_slide_number_visibility est utilisée pour définir une zone réservée de numéro de diapositive sur visible
-        headerFooterManager.set_slide_number_visibility(True) 
-        # La propriété is_date_time_visible est utilisée pour spécifier qu'une zone réservée de date-heure de diapositive est manquante
-    if not headerFooterManager.is_date_time_visible: 
-        # La méthode set_date_time_visibility est utilisée pour définir une zone réservée de date-heure de diapositive sur visible 
-        headerFooterManager.set_date_time_visibility(True)
-
-    # La méthode set_footer_text est utilisée pour définir un texte pour une zone réservée de pied de page de diapositive 
-    headerFooterManager.set_footer_text("Texte du pied de page") 
-    # La méthode set_date_time_text est utilisée pour définir un texte pour une zone réservée de date-heure de diapositive.
-    headerFooterManager.set_date_time_text("Texte de la date et de l'heure") 
-
-    # Enregistre la présentation sur le disque
-    presentation.save("Presentation.ppt", slides.export.SaveFormat.PPT)
-```
-
-## **Définir la Visibilité du Pied de Page Enfant à l'Intérieur de la Diapositive**
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Obtenez une référence pour la diapositive maître par son index.
-1. Réglez la diapositive maître et toutes les zones réservées du pied de page enfant sur visible.
-1. Définissez un texte pour la diapositive maître et toutes les zones réservées du pied de page enfant.
-1. Définissez un texte pour la diapositive maître et toutes les zones réservées de date-heure enfant.
-1. Enregistrez la présentation.
-
-Ce code Python démontre l'opération :
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    manager = presentation.masters[0].header_footer_manager
-    manager.set_footer_and_child_footers_visibility(True) # La méthode set_footer_and_child_footers_visibility est utilisée pour régler la diapositive maître et toutes les zones réservées du pied de page enfant sur visible
-    manager.set_slide_number_and_child_slide_numbers_visibility(True) # La méthode set_slide_number_and_child_slide_numbers_visibility est utilisée pour régler la diapositive maître et toutes les zones réservées de numéro de page enfant sur visible
-    manager.set_date_time_and_child_date_times_visibility(True) # La méthode set_date_time_and_child_date_times_visibility est utilisée pour régler une diapositive maître et toutes les zones réservées de date-heure enfant sur visible
-
-    manager.set_footer_and_child_footers_text("Texte du pied de page") # La méthode set_footer_and_child_footers_text est utilisée pour définir des textes pour la diapositive maître et toutes les zones réservées du pied de page enfant
-    manager.set_date_time_and_child_date_times_text("Texte de la date et de l'heure") # La méthode set_date_time_and_child_date_times_text est utilisée pour définir un texte pour la diapositive maître et toutes les zones réservées de date-heure enfant
-```
-
-## **Définir la Taille de la Diapositive en Fonction de la Mise à l'Échelle du Contenu**
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) et chargez la présentation contenant la diapositive dont vous voulez définir la taille.
-1. Créez une autre instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) pour générer une nouvelle présentation.
-1. Obtenez la référence de la diapositive (de la première présentation) par son index.
-1. Réglez la zone réservée pour le pied de page de la diapositive sur visible.
-1. Réglez la zone réservée de date-heure sur visible.
-1. Enregistrez la présentation.
-
-Ce Python démontre l'opération :
-
-```python
-import aspose.slides as slides
-
-# Instancie un objet Presentation qui représente un fichier de présentation 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    with slides.Presentation() as auxPresentation:
-        slide = presentation.slides[0]
-
-        # Définit la taille de la diapositive pour les présentations générées à celle de la source
-        presentation.slide_size.set_size(540, 720, slides.SlideSizeScaleType.ENSURE_FIT) # La méthode set_size est utilisée pour définir la taille de la diapositive avec mise à l'échelle du contenu pour assurer l'ajustement
-        presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.MAXIMIZE) # La méthode set_size est utilisée pour définir la taille de la diapositive avec la taille maximale du contenu
-                
-        # Enregistre la présentation sur le disque
-        auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Définir la Taille de Page lors de la Génération d'un PDF**
-
-Certaines présentations (comme des affiches) sont souvent converties en documents PDF. Si vous souhaitez convertir votre PowerPoint en PDF pour accéder aux meilleures options d'impression et d'accessibilité, vous devez définir vos diapositives sur des tailles adaptées aux documents PDF (A4, par exemple).
-
-Aspose.Slides fournit la classe [SlideSize](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/) pour vous permettre de spécifier vos paramètres préférés pour les diapositives. Ce code Python vous montre comment utiliser la propriété `type` (de la classe `SlideSize`) pour définir une taille de papier spécifique pour les diapositives d'une présentation :
-
-```python
-import aspose.slides as slides
-
-# Instancie un objet Presentation qui représente un fichier de présentation  
 with slides.Presentation() as presentation:
-    # Définit la propriété SlideSize.Type 
-    presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.ENSURE_FIT)
+    # Obtenir la diapositive de mise en page vierge.
+    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-    # Définit différentes propriétés pour les Options PDF
-    opts = slides.export.PdfOptions()
-    opts.sufficient_resolution = 600
+    # Obtenir le gestionnaire de zones réservées de la diapositive de mise en page.
+    placeholder_manager = layout.placeholder_manager
 
-    # Enregistre la présentation sur le disque
-    presentation.save("SetPDFPageSize_out.pdf", slides.export.SaveFormat.PDF, opts)
+    # Ajouter différentes zones réservées à la diapositive de mise en page vierge.
+    placeholder_manager.add_content_placeholder(20, 20, 310, 270)
+    placeholder_manager.add_vertical_text_placeholder(350, 20, 350, 270)
+    placeholder_manager.add_chart_placeholder(20, 310, 310, 180)
+    placeholder_manager.add_table_placeholder(350, 310, 350, 180)
+
+    # Ajouter une nouvelle diapositive avec la mise en page vierge.
+    new_slide = presentation.slides.add_empty_slide(layout)
+
+    presentation.save("placeholders.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+Le résultat :
+
+![The placeholders on the layout slide](add_placeholders.png)
+
+## **Définir la visibilité du pied de page pour une disposition de diapositive**
+
+Dans les présentations PowerPoint, les éléments du pied de page comme la date, le numéro de diapositive et le texte personnalisé peuvent être affichés ou masqués selon la disposition. Aspose.Slides for Python vous permet de contrôler la visibilité de ces zones réservées du pied de page. Ceci est utile lorsque vous souhaitez que certaines dispositions affichent les informations du pied de page tandis que d'autres restent épurées.
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Obtenez une référence à une disposition de diapositive par son indice.
+1. Passez la zone réservée du pied de page de la diapositive à visible.
+1. Passez la zone réservée du numéro de diapositive à visible.
+1. Passez la zone réservée de la date/heure à visible.
+1. Enregistrez la présentation.
+
+Le code Python suivant montre comment définir la visibilité du pied de page d'une diapositive et effectuer les tâches associées :
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    header_footer_manager = presentation.layout_slides[0].header_footer_manager
+
+    if not header_footer_manager.is_footer_visible: 
+        header_footer_manager.set_footer_visibility(True) 
+
+    if not header_footer_manager.is_slide_number_visible:  
+        header_footer_manager.set_slide_number_visibility(True) 
+
+    if not header_footer_manager.is_date_time_visible: 
+        header_footer_manager.set_date_time_visibility(True)
+
+    header_footer_manager.set_footer_text("Footer text") 
+    header_footer_manager.set_date_time_text("Date and time text") 
+
+    presentation.save("output.ppt", slides.export.SaveFormat.PPT)
+```
+
+
+## **Définir la visibilité du pied de page enfant pour une diapositive**
+
+​Dans les présentations PowerPoint, les éléments du pied de page tels que la date, le numéro de diapositive et le texte personnalisé peuvent être contrôlés au niveau du maître de diapositive afin d'assurer la cohérence sur toutes les dispositions. Aspose.Slides for Python permet de définir la visibilité et le contenu de ces zones réservées du pied de page sur le maître de diapositive et de propager ces paramètres à toutes les dispositions enfants. Cette approche garantit une information de pied de page uniforme dans l’ensemble de la présentation.​
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Obtenez une référence au maître de diapositive par son indice.
+1. Passez les zones réservées du pied de page du maître et de toutes les dispositions enfants à visibles.
+1. Passez les zones réservées du numéro de diapositive du maître et de toutes les dispositions enfants à visibles.
+1. Passez les zones réservées de la date/heure du maître et de toutes les dispositions enfants à visibles.
+1. Enregistrez la présentation.
+
+Le code Python suivant montre cette opération :
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    header_footer_manager = presentation.masters[0].header_footer_manager
+
+    header_footer_manager.set_footer_and_child_footers_visibility(True)
+    header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
+    header_footer_manager.set_date_time_and_child_date_times_visibility(True)
+
+    header_footer_manager.set_footer_and_child_footers_text("Footer text")
+    header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+
+## **FAQ**
+
+**Quelle est la différence entre un maître de diapositive et une disposition de diapositive ?**
+
+Un maître de diapositive définit le thème global et le formatage par défaut, tandis que les dispositions de diapositive définissent des agencements spécifiques de zones réservées pour différents types de contenu.
+
+**Puis-je copier une disposition de diapositive d’une présentation à une autre ?**
+
+Oui, vous pouvez cloner une disposition de diapositive depuis la collection [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) d’une présentation et l’insérer dans une autre à l’aide de la méthode `add_clone`.
+
+**Que se passe-t-il si je supprime une disposition de diapositive encore utilisée par une diapositive ?**
+
+Si vous essayez de supprimer une disposition de diapositive qui est toujours référencée par au moins une diapositive de la présentation, Aspose.Slides lèvera une [PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/). Pour éviter cela, utilisez [remove_unused_layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) qui supprime en toute sécurité uniquement les dispositions inutilisées.

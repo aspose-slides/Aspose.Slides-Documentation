@@ -1,8 +1,21 @@
 ---
-title: ActiveX
+title: Manage ActiveX Controls in Presentations Using C++
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /cpp/activex/
+keywords:
+- ActiveX
+- ActiveX control
+- manage ActiveX
+- add ActiveX
+- modify ActiveX
+- media player
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Learn how Aspose.Slides for C++ leverages ActiveX to automate and enhance PowerPoint presentations, giving developers powerful control over slides."
 ---
 
 

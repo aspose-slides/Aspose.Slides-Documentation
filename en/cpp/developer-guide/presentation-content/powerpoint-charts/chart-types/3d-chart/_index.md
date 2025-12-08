@@ -1,7 +1,17 @@
 ---
-title: 3D Chart
+title: Customize 3D Charts in Presentations Using С++
+linktitle: 3D Chart
 type: docs
 url: /cpp/3d-chart/
+keywords:
+- 3D chart
+- rotation
+- depth
+- PowerPoint
+- presentation
+- С++
+- Aspose.Slides
+description: "Learn how to create and customize 3-D charts in Aspose.Slides for С++, with support for PPT and PPTX files—boost your presentations today."
 ---
 
 ## **Set RotationX, RotationY and DepthPercents properties of 3D Chart**

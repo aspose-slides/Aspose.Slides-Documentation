@@ -1,7 +1,18 @@
 ---
-title: Callout
+title: Manage Callouts in Presentation Charts Using Java
+linktitle: Callout
 type: docs
 url: /java/callout/
+keywords:
+- chart callout
+- use callout
+- data label
+- label format
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Create and style callouts in Aspose.Slides for Java with concise code examples, compatible with PPT and PPTX to automate presentation workflows."
 ---
 
 ## **Using Callouts**
@@ -22,7 +33,7 @@ try {
 }
 ```
 
-## **Set Callout for Doughnut Chart**
+## **Set a Callout for a Doughnut Chart**
 Aspose.Slides for Java provides support for setting series data label callout shape for a Doughnut chart. Below sample example is given. 
 
 ```java
@@ -86,3 +97,13 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**Are callouts preserved when converting a presentation to PDF, HTML5, SVG, or images?**
+
+Yes. Callouts are part of the chart rendering, so when you export to [PDF](/slides/java/convert-powerpoint-to-pdf/), [HTML5](/slides/java/export-to-html5/), [SVG](/slides/java/render-a-slide-as-an-svg-image/), or [raster images](/slides/java/convert-powerpoint-to-png/), they are preserved together with the slide’s formatting.
+
+**Do custom fonts work in callouts, and can their appearance be preserved on export?**
+
+Yes. Aspose.Slides supports [embedding fonts](/slides/java/embedded-font/) into the presentation and controls font embedding during exports such as [PDF](/slides/java/convert-powerpoint-to-pdf/), ensuring the callouts look the same across different systems.

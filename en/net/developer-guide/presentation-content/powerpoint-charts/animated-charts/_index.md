@@ -1,10 +1,25 @@
 ---
-title: Animated Charts
+title: Animate PowerPoint Charts in .NET
+linktitle: Animated Charts
 type: docs
 weight: 80
 url: /net/animated-charts/
-keywords: "Charts, Chart Series, Animation PowerPoint Presentation, PPTX, PPT, C#, Csharp, Aspose.Slides for .NET"
-description: "PowerPoint charts series and animations in C# or .NET"
+keywords:
+- chart
+- animated chart
+- chart animation
+- chart series
+- chart category
+- series element
+- category element
+- add effect
+- effect type
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Create stunning animated charts in .NET with Aspose.Slides. Boost presentations with dynamic visuals in PPT and PPTX files—get started now."
 ---
 
 Aspose.Slides for .NET supports animating the chart elements. **Series**, **Categories**, **Series Elements**, **Categories Elements** can be animated with [**ISequence**.**AddEffect** ](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence/methods/addeffect)method and two enums [**EffectChartMajorGroupingType** ](https://reference.aspose.com/slides/net/aspose.slides.animation/effectchartmajorgroupingtype)and [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/net/aspose.slides.animation/effectchartminorgroupingtype).
@@ -94,7 +109,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 ```
 
 
-## **Animation in Series Element**
+## **Animation in a Series Element**
 If you want to animate series elements, write the code according to the steps listed below:
 
 1. Load a presentation.
@@ -136,7 +151,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 ```
 
 
-## **Animation in Category Element**
+## **Animation in a Category Element**
 If you want to animate categories elements, write the code according to the steps listed below:
 
 1. Load a presentation.

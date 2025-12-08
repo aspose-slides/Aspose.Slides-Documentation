@@ -1,10 +1,21 @@
 ---
-title: Manage Placeholder
+title: Manage Presentation Placeholders in C++
+linktitle: Manage Placeholders
 type: docs
 weight: 10
 url: /cpp/manage-placeholder/
-keywords: "Placeholder, Placeholder text, Prompt text, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
-description: "Change Placeholder text and prompt text in PowerPoint presentations in C++"
+keywords:
+- placeholder
+- text placeholder 
+- image placeholder
+- chart placeholder
+- prompt text
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Effortlessly manage placeholders in Aspose.Slides for C++: replace text, customize prompts & set image transparency in PowerPoint and OpenDocument."
 ---
 
 ## **Change Text in Placeholder**

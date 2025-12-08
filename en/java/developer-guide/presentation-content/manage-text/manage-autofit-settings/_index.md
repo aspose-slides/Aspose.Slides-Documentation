@@ -1,10 +1,23 @@
 ---
-title: Manage Autofit Settings
+title: Enhance Your Presentations with AutoFit in Java
+linktitle: Autofit Settings
 type: docs
 weight: 30
 url: /java/manage-autofit-settings/
-keywords: "Textbox, Autofit, PowerPoint presentation, Java, Aspose.Slides for Java"
-description: "Set the autofit settings for textbox in PowerPoint in Java"
+keywords:
+- textbox
+- autofit
+- do not autofit
+- fit text
+- shrink text
+- wrap text
+- resize shape
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn how to manage AutoFit settings in Aspose.Slides for Java to optimize text display in your PowerPoint and OpenDocument presentations and improve content readability."
 ---
 
 By default, when you add a textbox, Microsoft PowerPoint uses the **Resize shape to fix text** setting for the textbox—it automatically resizes the textbox to ensure its text always fits into it. 
@@ -25,7 +38,7 @@ In PowerPoint, these are the 4 important parameters or options that control the 
 
 Aspose.Slides for Java provides similar options—some properties under the [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) class—that allow you to control the autofit behavior for textboxes in presentations. 
 
-## **Resize Shape to Fit Text**
+## **Resize a Shape to Fit Text**
 
 If you want the text in a box to always fit into that box after changes are made to the text, you have to use the **Resize shape to fix text** option. To specify this setting, set the [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) class) to `Shape`.
 
@@ -151,7 +164,16 @@ If you set the `WrapText` property to `False` for a shape, when the text inside 
 
 {{% /alert %}}
 
+## **FAQ**
 
+**Do the text frame’s internal margins affect AutoFit?**
 
+Yes. Padding (internal margins) reduces the usable area for text, so AutoFit will kick in earlier—shrinking the font or resizing the shape sooner. Check and adjust margins before tuning AutoFit.
 
+**How does AutoFit interact with manual and soft line breaks?**
 
+Forced breaks remain in place, and AutoFit adapts font size and spacing around them. Removing unnecessary breaks often reduces how aggressively AutoFit needs to shrink the text.
+
+**Does changing the theme font or triggering font substitution affect AutoFit results?**
+
+Yes. Substituting to a font with different glyph metrics changes text width/height, which can alter final font size and line wrapping. After any font change or substitution, re-check the slides.

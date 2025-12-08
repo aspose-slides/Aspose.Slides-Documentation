@@ -1,8 +1,27 @@
 ---
-title: WordArt
+title: Create and Apply WordArt Effects in JavaScript
+linktitle: WordArt
 type: docs
 weight: 110
 url: /nodejs-java/wordart/
+keywords:
+- WordArt
+- create WordArt
+- WordArt template
+- WordArt effect
+- shadow effect
+- display effect
+- glow effect
+- WordArt transformation
+- 3D effect
+- outer shadow effect
+- inner Shadow effect
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Create and customize WordArt effects in Aspose.Slides for Node.js. This step-by-step guide helps developers enhance presentations with professional text."
 ---
 
 ## **About WordArt?**

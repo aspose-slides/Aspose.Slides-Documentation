@@ -1,65 +1,88 @@
 ---
-title: Präsentationsthema
+title: PowerPoint-Präsentationsthemen in Python verwalten
+linktitle: Präsentationsthema
 type: docs
 weight: 10
 url: /de/python-net/presentation-theme/
-keywords: "Thema, PowerPoint-Thema, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "PowerPoint-Präsentationsthema in Python"
+keywords:
+- PowerPoint-Thema
+- Präsentationsthema
+- Folienthema
+- Thema festlegen
+- Thema ändern
+- Thema verwalten
+- Themenfarbe
+- zusätzliche Palette
+- Themen-Schriftart
+- Themenstil
+- Themen-Effekt
+- PowerPoint
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Verwalten Sie Präsentationsthemen in Aspose.Slides für Python über .NET, um PowerPoint-Dateien mit einheitlicher Markenidentität zu erstellen, anzupassen und zu konvertieren."
 ---
 
-Ein Präsentationsthema definiert die Eigenschaften von Designelementen. Wenn Sie ein Präsentationsthema auswählen, wählen Sie im Wesentlichen einen bestimmten Satz von visuellen Elementen und deren Eigenschaften aus.
+## **Übersicht**
 
-In PowerPoint umfasst ein Thema Farben, [Schriften](/slides/de/python-net/powerpoint-fonts/), [Hintergrundstile](/slides/de/python-net/presentation-background/) und Effekte.
+Ein Präsentationsthema definiert die Eigenschaften seiner Designelemente. Wenn Sie ein Thema auswählen, wählen Sie ein abgestimmtes Set visueller Elemente und deren Eigenschaften.
+
+In PowerPoint umfasst ein Thema Farben, [Schriftarten](/slides/de/python-net/powerpoint-fonts/), [Hintergrundstile](/slides/de/python-net/presentation-background/) und Effekte.
 
 ![theme-constituents](theme-constituents.png)
 
-## **Theme-Farbe ändern**
+## **Ändern der Themenfarbe**
 
-Ein PowerPoint-Thema verwendet eine spezifische Farbpalette für verschiedene Elemente auf einer Folie. Wenn Ihnen die Farben nicht gefallen, können Sie sie ändern, indem Sie neue Farben für das Thema anwenden. Um Ihnen die Auswahl einer neuen Themenfarbe zu ermöglichen, stellt Aspose.Slides Werte unter der [SchemeColor](https://reference.aspose.com/slides/python-net/aspose.slides/schemecolor/) Aufzählung bereit.
+Ein PowerPoint‑Thema verwendet ein bestimmtes Farbschema für verschiedene Elemente einer Folie. Wenn Ihnen die Vorgaben nicht gefallen, können Sie sie ändern, indem Sie neue Themenfarben anwenden. Damit Sie eine neue Themenfarbe auswählen können, stellt Aspose.Slides Werte in der [SchemeColor](https://reference.aspose.com/slides/python-net/aspose.slides/schemecolor/)‑Aufzählung bereit.
 
-Dieser Python-Code zeigt Ihnen, wie Sie die Akzentfarbe für ein Thema ändern:
-
+Dieser Python‑Code zeigt, wie man die Akzentfarbe eines Themas ändert:
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
     shape.fill_format.fill_type = slides.FillType.SOLID
     shape.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
 ```
 
-Sie können den effektiven Wert der resultierenden Farbe auf diese Weise bestimmen:
 
+Sie können den effektiven Wert der resultierenden Farbe wie folgt bestimmen:
 ```python
-fillEffective = shape.fill_format.get_effective()
-print("{0} ({1})".format(fillEffective.solid_fill_color.name, fillEffective.solid_fill_color)) # ff8064a2 (Farbe [A=255, R=128, G=100, B=162])
+fill_effective = shape.fill_format.get_effective()
+print("{0} ({1})".format(fill_effective.solid_fill_color.name, fill_effective.solid_fill_color))
+
+# Beispielausgabe:
+#
+# ff8064a2 (Farbe [A=255, R=128, G=100, B=162])
 ```
 
-Um den Farbänderungsvorgang weiter zu demonstrieren, erstellen wir ein weiteres Element und weisen ihm die Akzentfarbe (aus dem anfänglichen Vorgang) zu. Dann ändern wir die Farbe im Thema:
 
+Um die Farbänderung weiter zu demonstrieren, erstellen wir ein weiteres Element, weisen ihm die Akzentfarbe aus dem ersten Schritt zu und aktualisieren anschließend die Themenfarbe.
 ```python
-otherShape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 120, 100, 100)
-otherShape.fill_format.fill_type = slides.FillType.SOLID
-otherShape.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+other_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 120, 100, 100)
+other_shape.fill_format.fill_type = slides.FillType.SOLID
+other_shape.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
 
-pres.master_theme.color_scheme.accent4.color = draw.Color.red
+presentation.master_theme.color_scheme.accent4.color = draw.Color.red
 ```
 
-Die neue Farbe wird automatisch auf beiden Elementen angewendet.
 
-### **Themenfarbe aus zusätzlicher Palette festlegen**
+Die neue Farbe wird automatisch auf beide Elemente angewendet.
 
-Wenn Sie Helligkeitstransformationen auf die Hauptfarben des Themas(1) anwenden, entstehen Farben aus der zusätzlichen Palette(2). Sie können diese Themenfarben dann festlegen und abrufen.
+### **Festlegen einer Themenfarbe aus der zusätzlichen Palette**
+
+Wenn Sie Luminanz‑Transformationen auf die Hauptthemenfarbe (1) anwenden, werden Farben aus der zusätzlichen Palette (2) erzeugt. Sie können diese Themenfarben anschließend setzen und abrufen.
 
 ![additional-palette-colors](additional-palette-colors.png)
 
-**1**- Hauptfarbthemen
+**1** — Hauptthemenfarben
 
-**2** - Farben aus der zusätzlichen Palette.
+**2** — Farben aus der zusätzlichen Palette
 
-Dieser Python-Code demonstriert einen Vorgang, bei dem zusätzliche Palettenfarben aus der Hauptfarbe des Themas abgeleitet und dann in Shapes verwendet werden:
-
+Dieser Python‑Code demonstriert, wie zusätzliche Palettenfarben aus der Hauptthemenfarbe abgeleitet und anschließend in Formen verwendet werden:
 ```python
 import aspose.slides as slides
 
@@ -72,7 +95,7 @@ with slides.Presentation() as presentation:
     shape1.fill_format.fill_type = slides.FillType.SOLID
     shape1.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
 
-    # Akzent 4, Heller 80%
+    # Akzent 4, Aufgehellt 80%
     shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 70, 50, 50)
 
     shape2.fill_format.fill_type = slides.FillType.SOLID
@@ -80,7 +103,7 @@ with slides.Presentation() as presentation:
     shape2.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.2)
     shape2.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.8)
 
-    # Akzent 4, Heller 60%
+    # Akzent 4, Aufgehellt 60%
     shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 130, 50, 50)
 
     shape3.fill_format.fill_type = slides.FillType.SOLID
@@ -88,7 +111,7 @@ with slides.Presentation() as presentation:
     shape3.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.4)
     shape3.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.6)
 
-    # Akzent 4, Heller 40%
+    # Akzent 4, Aufgehellt 40%
     shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 190, 50, 50)
 
     shape4.fill_format.fill_type = slides.FillType.SOLID
@@ -113,95 +136,102 @@ with slides.Presentation() as presentation:
     presentation.save("example.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Themen-Schrift ändern**
 
-Um Ihnen die Auswahl von Schriften für Themen und andere Zwecke zu ermöglichen, verwendet Aspose.Slides diese speziellen Identifier (ähnlich denen in PowerPoint):
+## **Ändern der Themen‑schriftart**
 
-* **+mn-lt** - Schrift für den Haupttext Latein (Minor Latin Font)
-* **+mj-lt** - Schrift für Überschriften Latein (Major Latin Font)
-* **+mn-ea** - Schrift für den Haupttext Ostasiatisch (Minor East Asian Font)
-* **+mj-ea** - Schrift für Überschriften Ostasiatisch (Major East Asian Font)
+Damit Sie Schriftarten für Themen und andere Zwecke auswählen können, verwendet Aspose.Slides diese speziellen Bezeichner (ähnlich wie in PowerPoint):
 
-Dieser Python-Code zeigt Ihnen, wie Sie die lateinische Schrift einem Themenelement zuweisen:
+- **+mn-lt** — Body‑Schriftart Latin (Minor Latin Font)
+- **+mj-lt** — Überschrift‑Schriftart Latin (Major Latin Font)
+- **+mn-ea** — Body‑Schriftart Ostasiatisch (Minor East Asian Font)
+- **+mj-ea** — Überschrift‑Schriftart Ostasiatisch (Major East Asian Font)
 
+Dieser Python‑Code zeigt, wie man die Latin‑Schriftart einem Themen‑Element zuweist:
 ```python
-shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
+portion = slides.Portion("Theme text format")
+portion.portion_format.latin_font = slides.FontData("+mn-lt")
 
 paragraph = slides.Paragraph()
-portion = slides.Portion("Themen-Textformat")
 paragraph.portions.add(portion)
+
+shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
 shape.text_frame.paragraphs.add(paragraph)
-portion.portion_format.latin_font = slides.FontData("+mn-lt")
 ```
 
-Dieser Python-Code zeigt Ihnen, wie Sie die Schriftart des Präsentationsthemas ändern:
 
+Dieses Python‑Beispiel zeigt, wie man die Themen‑Schriftart der Präsentation ändert:
 ```python
-pres.master_theme.font_scheme.minor.latin_font = slides.FontData("Arial")
+presentation.master_theme.font_scheme.minor.latin_font = slides.FontData("Arial")
 ```
 
-Die Schriftart in allen Textfeldern wird aktualisiert.
 
-{{% alert color="primary" title="TIPP" %}} 
+Alle Textfelder werden auf die neue Schriftart aktualisiert.
 
-Sie möchten möglicherweise die [PowerPoint-Schriften](/slides/de/python-net/powerpoint-fonts/) ansehen.
-
+{{% alert color="primary" title="TIP" %}}
+Weitere Informationen finden Sie unter [Master PowerPoint-Schriftarten mit Python](/slides/de/python-net/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Themen-Hintergrundstil ändern**
+## **Ändern des Themen‑Hintergrundstils**
 
-Standardmäßig bietet die PowerPoint-App 12 vordefinierte Hintergründe, aber nur 3 von diesen 12 Hintergründen werden in einer typischen Präsentation gespeichert.
+Standardmäßig stellt PowerPoint 12 vordefinierte Hintergründe bereit, aber eine typische Präsentation speichert nur 3 davon.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Nachdem Sie beispielsweise eine Präsentation in der PowerPoint-App gespeichert haben, können Sie diesen Python-Code ausführen, um die Anzahl der vordefinierten Hintergründe in der Präsentation herauszufinden:
-
+Zum Beispiel können Sie nach dem Speichern einer Präsentation in PowerPoint den folgenden Python‑Code ausführen, um zu ermitteln, wie viele vordefinierte Hintergründe sie enthält:
 ```python
-with slides.Presentation() as pres:
-    numberOfBackgroundFills = len(pres.master_theme.format_scheme.background_fill_styles)
-    print("Anzahl der Hintergrundfüllstile für das Thema beträgt {0}".format(numberOfBackgroundFills))
+with slides.Presentation() as presentation:
+    number_of_background_fills = len(presentation.master_theme.format_scheme.background_fill_styles)
+    print(f"Number of theme background fill styles: {number_of_background_fills}")
 ```
 
-{{% alert color="warning" %}} 
 
-Mit der `BackgroundFillStyles`-Eigenschaft der [FormatScheme](https://reference.aspose.com/slides/python-net/aspose.slides.theme/formatscheme/) Klasse können Sie den Hintergrundstil in einem PowerPoint-Thema hinzufügen oder darauf zugreifen. 
-
+{{% alert color="warning" %}}
+Mit der Eigenschaft `background_fill_styles` der Klasse [FormatScheme](https://reference.aspose.com/slides/python-net/aspose.slides.theme/formatscheme/) können Sie Hintergrundstile in einem PowerPoint‑Thema hinzufügen oder darauf zugreifen.
 {{% /alert %}}
 
-Dieser Python-Code zeigt Ihnen, wie Sie den Hintergrund für eine Präsentation festlegen:
-
+Dieses Python‑Beispiel zeigt, wie man den Präsentations‑Hintergrund festlegt:
 ```python
-pres.masters[0].background.style_index = 2
+presentation.masters[0].background.style_index = 2  # 0 bedeutet keine Füllung; die Indizierung beginnt bei 1.
 ```
 
-**Index-Leitfaden**: 0 wird für keine Füllung verwendet. Der Index beginnt bei 1.
 
-{{% alert color="primary" title="TIPP" %}} 
-
-Sie möchten möglicherweise den [PowerPoint-Hintergrund](/slides/de/python-net/presentation-background/) ansehen.
-
+{{% alert color="primary" title="TIP" %}}
+Weitere Informationen finden Sie unter [Verwalten von Präsentationshintergründen in Python](/slides/de/python-net/presentation-background/).
 {{% /alert %}}
 
-## **Themen-Effekt ändern**
+## **Ändern der Themen‑effekte**
 
-Ein PowerPoint-Thema enthält normalerweise 3 Werte für jedes Stil-Array. Diese Arrays werden in diese 3 Effekte kombiniert: subtil, moderat und intensiv. Zum Beispiel ist dies das Ergebnis, wenn die Effekte auf ein bestimmtes Shape angewendet werden:
+Ein PowerPoint‑Thema enthält typischerweise drei Werte in jedem Stil‑Array. Diese Arrays werden zu drei Effektstufen kombiniert: dezent, moderat und intensiv. Zum Beispiel ist hier das Ergebnis, wenn diese Effekte auf eine bestimmte Form angewendet werden:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-Anhand von 3 Eigenschaften (`FillStyles`, `LineStyles`, `EffectStyles`) der  [FormatScheme](https://reference.aspose.com/slides/python-net/aspose.slides.theme/formatscheme/) Klasse können Sie die Elemente in einem Thema ändern (sogar flexibler als die Optionen in PowerPoint).
+Mit den drei Eigenschaften — `FillStyles`, `LineStyles` und `EffectStyles` — der Klasse [FormatScheme](https://reference.aspose.com/slides/python-net/aspose.slides.theme/formatscheme/) können Sie Thema‑Elemente verändern (noch flexibler als in PowerPoint).
 
-Dieser Python-Code zeigt Ihnen, wie Sie einen Themaeffekt ändern, indem Sie Teile von Elementen ändern:
-
+Dieser Python‑Code zeigt, wie man einen Themen‑Effekt ändert, indem man Teile dieser Elemente anpasst:
 ```python
-with slides.Presentation("combined_with_master.pptx") as pres:
-    pres.master_theme.format_scheme.line_styles[0].fill_format.solid_fill_color.color = draw.Color.red
-    pres.master_theme.format_scheme.fill_styles[2].fill_type = slides.FillType.SOLID
-    pres.master_theme.format_scheme.fill_styles[2].solid_fill_color.color = draw.Color.forest_green
-    pres.master_theme.format_scheme.effect_styles[2].effect_format.outer_shadow_effect.distance = 10
+with slides.Presentation("sample.pptx") as presentation:
+    presentation.master_theme.format_scheme.line_styles[0].fill_format.solid_fill_color.color = draw.Color.red
+    presentation.master_theme.format_scheme.fill_styles[2].fill_type = slides.FillType.SOLID
+    presentation.master_theme.format_scheme.fill_styles[2].solid_fill_color.color = draw.Color.forest_green
+    presentation.master_theme.format_scheme.effect_styles[2].effect_format.outer_shadow_effect.distance = 10
 
-    pres.save("Design_04_Subtle_Moderate_Intense-out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Die resultierenden Änderungen in der Füllfarbe, dem Fülltyp, dem Schattierungseffekt usw.:
 
+Die resultierenden Änderungen umfassen Aktualisierungen der Füllfarbe, des Fülltyps, des Schattens und weiterer Eigenschaften:
 ![todo:image_alt_text](presentation-design_11.png)
+
+## **FAQ**
+
+**Kann ich ein Thema auf eine einzelne Folie anwenden, ohne den Master zu ändern?**
+
+Ja. Aspose.Slides unterstützt thema‑Overrides auf Folienebene, sodass Sie ein lokales Thema nur auf diese Folie anwenden können, während das Master‑Thema unverändert bleibt (über den [SlideThemeManager](https://reference.aspose.com/slides/python-net/aspose.slides.theme/slidethememanager/)).
+
+**Was ist der sicherste Weg, ein Thema von einer Präsentation zur anderen zu übertragen?**
+
+[Clone slides](/slides/de/python-net/clone-slides/) zusammen mit ihrem Master in die Zielpräsentation. Dadurch bleiben der ursprüngliche Master, die Layouts und das zugehörige Thema erhalten, sodass das Aussehen konsistent bleibt.
+
+**Wie kann ich die „effektiven“ Werte nach allen Vererbungen und Overrides sehen?**
+
+Verwenden Sie die ["effective"-Ansichten](/slides/de/python-net/shape-effective-properties/) der API für Thema/Farbe/Schriftart/Effekt. Diese geben die aufgelösten, endgültigen Eigenschaften zurück, nachdem der Master sowie etwaige lokale Overrides angewendet wurden.

@@ -1,20 +1,25 @@
 ---
-title: Get the Entire Presentation Slide Background as an Image
+title: Get the Entire Slide Background from a Presentation as an Image
+linktitle: Entire Slide Background
 type: docs
 weight: 95
 url: /nodejs-java/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
-- slide
-- background
 - slide background
-- background to an image
+- final background
+- extract background
+- entire background
+- background to image
+- PPT background
+- PPTX background
+- ODP background
 - PowerPoint
-- PPT
-- PPTX
-- PowerPoint presentation
-- Node
+- OpenDocument
+- presentation
+- Node.js
 - JavaScript
-- Aspose.Slides for Node.js via Java
+- Aspose.Slides
+description: "Extract full slide backgrounds as images from PowerPoint and OpenDocument presentations using Aspose.Slides for Node.js via Java, streamlining visual workflows."
 ---
 
 ## **Get the Entire Slide Background**

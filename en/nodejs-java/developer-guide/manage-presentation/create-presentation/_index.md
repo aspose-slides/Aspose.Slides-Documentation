@@ -1,11 +1,25 @@
 ---
-title: Create PowerPoint Presentation in JavaScript
+title: Create Presentations in JavaScript
 linktitle: Create Presentation
 type: docs
 weight: 10
 url: /nodejs-java/create-presentation/
-keywords: create ppt java, create ppt presentation, create pptx java
-description: Learn how to create PowerPoint Presentations e.g. PPT, PPTX using JavaScript from scratch.
+keywords:
+- create presentation
+- new presentation
+- create PPT
+- new PPT
+- create PPTX
+- new PPTX
+- create ODP
+- new ODP
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Create presentations with Aspose.Slides—produce PPT, PPTX, and ODP files, benefit from OpenDocument support, and save them programmatically for reliable results."
 ---
 
 ## **Create PowerPoint Presentation**

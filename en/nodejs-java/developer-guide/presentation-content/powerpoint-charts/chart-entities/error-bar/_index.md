@@ -1,7 +1,17 @@
 ---
-title: Error Bar
+title: Customize Error Bars in Presentation Charts Using JavaScript
+linktitle: Error Bar
 type: docs
 url: /nodejs-java/error-bar/
+keywords:
+- error bar
+- custom value
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn how to add and customize error bars in charts with JavaScript and Aspose.Slides for Node.js via Java—optimize data visuals in PowerPoint presentations."
 ---
 
 ## **Add Error Bar**

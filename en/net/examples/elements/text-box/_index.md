@@ -2,14 +2,26 @@
 title: Text Box
 type: docs
 weight: 40
-url: /net/examples/elements/text-box
+url: /net/examples/elements/text-box/
+keywords:
+- text box example
+- add text box
+- access text box
+- remove text box
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Create and format text boxes in C# with Aspose.Slides: set fonts, alignment, wrapping, autofit, and links to polish slides for PowerPoint and OpenDocument."
 ---
 
 In Aspose.Slides, a **text box** is represented by an `AutoShape`. Nearly any shape can contain text, but a typical text box has no fill or border and displays only text.
 
 This guide explains how to add, access, and remove text boxes programmatically.
 
-## Add a Text Box
+## **Add a Text Box**
 
 A text box is simply an `AutoShape` with no fill or border and some formatted text. Here's how to create one:
 
@@ -36,7 +48,7 @@ public static void Add_TextBox()
 
 > 💡 **Note:** Any `AutoShape` that contains a non-empty `TextFrame` can function as a text box.
 
-## Access Text Boxes by Content
+## **Access Text Boxes by Content**
 
 To find all text boxes containing a specific keyword (e.g. "Slide"), iterate through the shapes and check their text:
 
@@ -59,7 +71,7 @@ public static void Access_TextBox()
 }
 ```
 
-## Remove Text Boxes by Content
+## **Remove Text Boxes by Content**
 
 This example finds and deletes all text boxes on the first slide that contain a specific keyword:
 

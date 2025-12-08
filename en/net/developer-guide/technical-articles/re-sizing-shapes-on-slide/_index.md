@@ -1,5 +1,5 @@
 ---
-title: Resize Shapes on Presentation Slides
+title: Resize Shapes on Presentation Slides in .NET
 type: docs
 weight: 130
 url: /net/re-sizing-shapes-on-slide/

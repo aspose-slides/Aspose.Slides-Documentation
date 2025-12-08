@@ -1,10 +1,27 @@
 ---
-title: Manage Bullet and Numbered Lists
+title: Manage Bulleted and Numbered Lists in Presentations in .NET
+linktitle: Manage Lists
 type: docs
 weight: 70
 url: /net/manage-bullet-and-numbered-lists
-keywords: "Bullets, Bullet lists, Numbers, Numbered lists, Picture bullets, multilevel bullets, PowerPoint Presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Create bullet and numbered lists in PowerPoint presentation in C# or .NET"
+keywords:
+- bullet
+- bulleted list
+- numbered list
+- symbol bullet
+- picture bullet
+- custom bullet
+- multilevel list
+- create bullet
+- add bullet
+- add list
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how to manage bulleted and numbered lists in PowerPoint and OpenDocument presentations using Aspose.Slides for .NET. Step-by-step guide."
 ---
 
 In **Microsoft PowerPoint**, you can create bullet and numbered lists the same way you do in Word and other text editors. **Aspose.Slides for .NET** also allows you to use bullets and numbers in slides in your presentations. 
@@ -33,7 +50,7 @@ This is a summary of the steps (step 1 to step 15) in the **Creating Bullets** p
 2. Perform several tasks (step 3 to step 14).
 3. Save the presentation. 
 
-## **Creating Bullets**
+## **Create Bullets**
 
 To create a bullet list, through these steps:
 
@@ -81,7 +98,7 @@ using (Presentation pres = new Presentation())
 
  
 
-## **Creating Picture Bullets**
+## **Create Picture Bullets**
 
 Aspose.Slides for .NET allows you to change the bullets on bullet lists. You get to replace the bullets with custom symbols or images. If you want to add visual interest to a list or draw even more attention to entries on a list, you can use your own image as the bullet. 
 
@@ -140,7 +157,7 @@ using (Presentation pres = new Presentation())
 
  
 
-## **Creating Multilevel Bullets**
+## **Create Multilevel Bullets**
 
 To create a bullet list that contains items on different levels—additional lists under the main bullet list—go through these steps:
 
@@ -192,7 +209,7 @@ using (Presentation pres = new Presentation())
 
  
 
-## **Creating Numbers**
+## **Create Numbers**
 
  This C# code shows you how to create a numbered list in a slide:
 

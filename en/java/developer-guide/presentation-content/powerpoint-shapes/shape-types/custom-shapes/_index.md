@@ -1,22 +1,27 @@
 ---
-title: Custom Shape
+title: Customize Presentation Shapes in Java
+linktitle: Custom Shape
 type: docs
 weight: 20
 url: /java/custom-shape/
 keywords: 
-- shape
 - custom shape
+- add shape
 - create shape
-- geometry
+- change shape
 - shape geometry
 - geometry path
 - path points
 - edit points
+- add point
+- remove point
+- editing operation
+- curved corner
 - PowerPoint
 - presentation
 - Java
-- Aspose.Slides for Java
-description: "Add a custom shape to a PowerPoint presentation in Java"
+- Aspose.Slides
+description: "Create and customize shapes in PowerPoint presentations with Aspose.Slides for Java: geometry paths, curved corners, composite shapes."
 ---
 
 # Change a Shape Using Edit Points
@@ -118,7 +123,7 @@ public void moveTo(float x, float y);
 public void removeAt(int index);
 ```
 
-## **Add Custom Points to Shape**
+## **Add Custom Points to a Shape**
 1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class and set the [ShapeType.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType) type.
 2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class from the shape.
 3. Add a new point between the two top points on the path.
@@ -143,7 +148,7 @@ try {
 ```
 ![example1_image](custom_shape_1.png)
 
-##  Remove Points From Shape
+## **Remove Points from a Shape**
 
 1. Create an instance of [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class and set the [ShapeType.Heart](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType) type. 
 2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class from the shape.
@@ -167,7 +172,7 @@ try {
 ```
 ![example2_image](custom_shape_2.png)
 
-##  **Create Custom Shape**
+##  **Create a Custom Shape**
 
 1. Calculate the points for the shape.
 2. Create an instance of the [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class. 
@@ -220,7 +225,7 @@ try {
 ![example3_image](custom_shape_3.png)
 
 
-## **Create Composite Custom Shape**
+## **Create a Composite Custom Shape**
 
   1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class.
   2. Create a first instance of the [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) class.
@@ -256,7 +261,7 @@ try {
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Create Custom Shape With Curved Corners**
+## **Create a Custom Shape with Curved Corners**
 
 This Java code shows you how to create a custom shape with curved corners (inwards);
 
@@ -376,3 +381,17 @@ try {
 }
 ```
 ![example5_image](custom_shape_5.png)
+
+## **FAQ**
+
+**What will happen to the fill and outline after replacing the geometry?**
+
+The style remains with the shape; only the contour changes. The fill and outline are automatically applied to the new geometry.
+
+**How do I correctly rotate a custom shape along with its geometry?**
+
+Use the shape’s [setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setRotation-float-) method; the geometry rotates with the shape because it’s bound to the shape’s own coordinate system.
+
+**Can I convert a custom shape to an image to "lock in" the result?**
+
+Yes. Export the required [slide](/slides/java/convert-powerpoint-to-png/) area or the [shape](/slides/java/create-shape-thumbnails/) itself to a raster format; this simplifies further work with heavy geometries.

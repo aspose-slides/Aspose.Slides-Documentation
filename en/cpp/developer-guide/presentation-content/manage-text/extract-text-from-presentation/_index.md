@@ -1,8 +1,32 @@
 ---
-title: Extract Text from Presentation
+title: Advanced Text Extraction from Presentations in C++
+linktitle: Extract Text
 type: docs
 weight: 90
 url: /cpp/extract-text-from-presentation/
+keywords:
+- extract text
+- extract text from slide
+- extract text from presentation
+- extract text from PowerPoint
+- extract text from OpenDocument
+- extract text from PPT
+- extract text from PPTX
+- extract text from ODP
+- retrieve text
+- retrieve text from slide
+- retrieve text from presentation
+- retrieve text from PowerPoint
+- retrieve text from OpenDocument
+- retrieve text from PPT
+- retrieve text from PPTX
+- retrieve text from ODP
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Quickly extract text from PowerPoint and OpenDocument presentations using Aspose.Slides for C++. Follow our simple, step-by-step guide to save time."
 ---
 
 {{% alert color="primary" %}} 

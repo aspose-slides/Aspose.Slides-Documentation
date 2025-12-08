@@ -1,226 +1,243 @@
 ---
-title: تخطيط الشريحة
+title: تطبيق أو تغيير تخطيطات الشرائح في Python
+linktitle: تخطيط الشريحة
 type: docs
 weight: 60
 url: /ar/python-net/slide-layout/
-keyword: "تعيين حجم الشريحة، تعيين خيارات الشريحة، تحديد حجم الشريحة، رؤية التذييل، تذييل فرعي، توسيع المحتوى، حجم الصفحة، بايثون، Aspose.Slides"
-description: "تعيين حجم الشريحة وخياراتها في PowerPoint باستخدام بايثون"
+keywords:
+- تخطيط الشريحة
+- تخطيط المحتوى
+- عنصر نائب
+- تصميم العرض التقديمي
+- تصميم الشريحة
+- تخطيط غير مستخدم
+- رؤية التذييل
+- شريحة عنوان
+- عنوان ومحتوى
+- رأس القسم
+- محتويان
+- مقارنة
+- عنوان فقط
+- تخطيط فارغ
+- محتوى مع توضيح
+- صورة مع توضيح
+- عنوان ونص عمودي
+- عنوان عمودي ونص
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "تعلم كيفية إدارة وتخصيص تخطيطات الشرائح في Aspose.Slides for Python عبر .NET. استكشف أنواع التخطيطات، التحكم في العناصر النائبة، رؤية التذييل، وتعديل التخطيطات من خلال أمثلة الشيفرة بلغة Python."
 ---
 
-يتضمن تخطيط الشريحة مربعات النماذج ومعلومات التنسيق لجميع المحتويات التي تظهر في الشريحة. يحدد التخطيط أماكن النماذج المتاحة وأماكن وضعها.
+## **نظرة عامة**
 
-تسمح تخطيطات الشرائح لك بإنشاء وتصميم العروض التقديمية بسرعة (سواء كانت بسيطة أو معقدة). هذه بعض من أكثر تخطيطات الشرائح شيوعاً المستخدمة في عروض PowerPoint:
+تحدد تخطيط الشريحة ترتيب صناديق العنصر النائب وتنسيق المحتوى على الشريحة. يتحكم في العناصر النائبة المتاحة ومكان ظهورها. تساعد تخطيطات الشرائح في تصميم العروض التقديمية بسرعة وبشكل متسق—سواء كنت تنشئ شيئًا بسيطًا أو أكثر تعقيدًا. من بين أكثر تخطيطات الشرائح شيوعًا في PowerPoint:
 
-* **تخطيط شريحة العنوان**. يتكون هذا التخطيط من نموذجين نصيين. نموذج واحد للعنوان والآخر للرئيسية.
-* **تخطيط العنوان والمحتوى**. يحتوي هذا التخطيط على نموذج صغير نسبيًا في الأعلى للعنوان ونموذج أكبر للمحتوى الأساسي (مخطط، فقرات، قائمة نقطية، قائمة مرقمة، صور، إلخ).
-* **تخطيط فارغ**. يفتقر هذا التخطيط للنماذج، لذا فإنه يسمح لك بإنشاء العناصر من الصفر.
+**تخطيط شريحة العنوان** – يتضمن عنصرين نصيين نائين: واحد للعنوان وآخر للعنوان الفرعي.
 
-نظرًا لأن الشريحة الرئيسية هي أعلى شريحة هرمية تخزن معلومات حول تخطيطات الشرائح، يمكنك استخدام الشريحة الرئيسية للوصول إلى تخطيطات الشرائح وإجراء تغييرات عليها. يمكن الوصول إلى شريحة التخطيط عن طريق النوع أو الاسم. وبالمثل، تحتوي كل شريحة على معرف فريد، يمكن استخدامه للوصول إليها.
+**تخطيط العنوان والمحتوى** – يحتوي على عنصر عنوان أصغر في الأعلى وعنصر أكبر أسفله للمحتوى الرئيسي (مثل النص، النقاط المرتبة، المخططات، الصور، والمزيد).
 
-بدلاً من ذلك، يمكنك إجراء تغييرات مباشرة على تخطيط شريحة معينة في عرض تقديمي.
+**تخطيط فارغ** – لا يحتوي على أي عناصر نائبة، مما يمنحك تحكمًا كاملًا لتصميم الشريحة من الصفر.
 
-* للسماح لك بالعمل مع تخطيطات الشرائح (بما في ذلك تلك الموجودة في الشرائح الرئيسية)، توفر Aspose.Slides خصائص مثل `layout_slides` و `masters` تحت class [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-* لأداء المهام ذات الصلة، توفر Aspose.Slides [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/)، [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/)، [SlideSize](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/)، [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/)، والعديد من الأنواع الأخرى.
+تعد تخطيطات الشرائح جزءًا من ماستر الشريحة، وهو الشريحة العليا التي تحدد أنماط التخطيط للعرض التقديمي. يمكنك الوصول إلى تخطيطات الشرائح وتعديلها من خلال ماستر الشريحة—إما حسب النوع أو الاسم أو المعرف الفريد. بدلاً من ذلك، يمكنك تعديل تخطيط شريحة معين مباشرة داخل العرض التقديمي.
 
-{{% alert title="معلومات" color="info" %}}
+للعمل مع تخطيطات الشرائح في Aspose.Slides for Python، يمكنك استخدام:
 
-للحصول على مزيد من المعلومات حول العمل مع الشرائح الرئيسية بشكل خاص، راجع المقالة [Slide Master](https://docs.aspose.com/slides/python-net/slide-master/).
+- خصائص مثل [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) و[masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) ضمن الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
+- أنواع مثل [LayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/)، [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/)، [LayoutPlaceholderManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutplaceholdermanager/)، و[LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslideheaderfootermanager/)
 
+{{% alert title="Info" color="info" %}}
+لتعلم المزيد حول العمل مع ماسترات الشرائح، اطلع على مقال [Manage PowerPoint Slide Masters in Python](/slides/ar/python-net/slide-master/).
 {{% /alert %}}
 
-## **إضافة تخطيط شريحة إلى العرض التقديمي**
+## **إضافة تخطيطات شرائح إلى العروض التقديمية**
 
-1. قم بإنشاء مثيل class [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. الوصول إلى [مجموعة MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/imasterlayoutslidecollection/).
-1. مرور عبر شرائح التخطيط الموجودة للتأكد من أن شريحة التخطيط المطلوبة موجودة في مجموعة تخطيطات الشرائح. خلاف ذلك، أضف شريحة التخطيط التي تريدها.
-1. أضف شريحة فارغة بناءً على شريحة التخطيط الجديدة.
-1. احفظ العرض التقديمي.
+لتخصيص مظهر وهيكل الشرائح الخاصة بك، قد تحتاج إلى إضافة تخطيطات شرائح جديدة إلى عرض تقديمي. يتيح لك Aspose.Slides for Python التحقق مما إذا كان تخطيط معين موجودًا بالفعل، وإضافة واحد جديد إذا لزم الأمر، واستخدامه لإدراج شرائح بناءً على ذلك التخطيط.
 
-يوضح كود بايثون هذا كيفية إضافة تخطيط شريحة إلى عرض PowerPoint:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. الوصول إلى [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/).
+1. التحقق مما إذا كان تخطيط الشريحة المطلوب موجودًا بالفعل في المجموعة. إذا لم يكن موجودًا، أضف تخطيط الشريحة الذي تحتاجه.
+1. إضافة شريحة فارغة بناءً على تخطيط الشريحة الجديد.
+1. حفظ العرض التقديمي.
 
+يظهر الكود التالي بلغة Python كيفية إضافة تخطيط شريحة إلى عرض PowerPoint:
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# يتم إنشاء مثيل من class Presentation الذي يمثل ملف العرض التقديمي
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # يمر عبر أنواع تخطيط الشرائح
-    layoutSlides = presentation.masters[0].layout_slides
-    layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)  
-    if layoutSlide is None:
-         layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.TITLE)
+# إنشاء كائن من فئة Presentation لفتح ملف العرض التقديمي.
+with slides.Presentation("sample.pptx") as presentation:
+    # المرور عبر أنواع تخطيطات الشرائح لاختيار تخطيط شريحة.
+    layout_slides = presentation.masters[0].layout_slides
+    layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
+    if layout_slide is None:
+         layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE)
 
-    if layoutSlide is None:
-        # الحالة التي لا يحتوي فيها العرض التقديمي على بعض أنواع التخطيطات.
-        # يحتوي ملف العرض التقديمي فقط على أنواع تخطيطات فارغة ومخصصة.
-        # ولكن الشرائح التخطيطية من أنواع مخصصة لها أسماء شرائح مختلفة،
-        # مثل "عنوان"، "عنوان ومحتوى"، إلخ. ومن الممكن استخدام هذه
-        # الأسماء لاختيار شريحة التخطيط.
-        # يمكنك أيضًا استخدام مجموعة من أنواع شكلي النماذج. على سبيل المثال،
-        # يجب أن تحتوي شريحة العنوان على نوع نموذج عنوان فقط، إلخ.
-        for titleAndObjectLayoutSlide in layoutSlides:
-            if titleAndObjectLayoutSlide.name == "Title and Object":
-                layoutSlide = titleAndObjectLayoutSlide
+    if layout_slide is None:
+        # حالة لا يحتوي فيها العرض التقديمي على جميع أنواع التخطيطات.
+        # ملف العرض التقديمي يحتوي فقط على أنواع التخطيط فارغ ومخصص.
+        # ومع ذلك، قد تحتوي تخطيطات الشرائح ذات الأنواع المخصصة على أسماء يمكن التعرف عليها،
+        # مثل "Title"، "Title and Content"، إلخ، والتي يمكن استخدامها لاختيار تخطيط الشريحة.
+        # يمكنك أيضًا الاعتماد على مجموعة من أنواع أشكال العناصر النائبة.
+        # على سبيل المثال، يجب أن تحتوي شريحة العنوان على نوع عنصر النائب Title فقط، وهكذا.
+        for title_and_object_layout_slide in layout_slides:
+            if title_and_object_layout_slide.name == "Title and Object":
+                layout_slide = title_and_object_layout_slide
                 break
 
-        if layoutSlide is None:
-            for titleLayoutSlide in layoutSlides:
-                if titleLayoutSlide.name == "Title":
-                    layoutSlide = titleLayoutSlide
+        if layout_slide is None:
+            for title_layout_slide in layout_slides:
+                if title_layout_slide.name == "Title":
+                    layout_slide = title_layout_slide
                     break
 
-            if layoutSlide is None:
-                layoutSlide = layoutSlides.get_by_type(slides.SlideLayoutType.BLANK)
-                if layoutSlide is None:
-                    layoutSlide = layoutSlides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
+            if layout_slide is None:
+                layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+                if layout_slide is None:
+                    layout_slide = layout_slides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
 
-    # يضيف شريحة فارغة مع إضافة شريحة التخطيط
-    presentation.slides.insert_empty_slide(0, layoutSlide)
+    # إضافة شريحة فارغة باستخدام تخطيط الشريحة المضاف.
+    presentation.slides.insert_empty_slide(0, layout_slide)
 
-    # يحفظ العرض التقديمي على القرص
-    presentation.save("AddLayoutSlides_out.pptx", slides.export.SaveFormat.PPTX)
+    # حفظ العرض التقديمي إلى القرص.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **إزالة شريحة التخطيط غير المستخدمة**
 
-توفر Aspose.Slides طريقة `remove_unused_layout_slides` من class [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) للسماح لك بحذف الشرائح التخطيطية غير المرغوب فيها وغير المستخدمة. يوضح كود بايثون هذا كيفية إزالة شريحة التخطيط من عرض PowerPoint:
+## **إزالة تخطيطات الشرائح غير المستخدمة**
 
+توفر Aspose.Slides الطريقة [remove_unused_layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) من الفئة [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) لتسمح لك بحذف تخطيطات الشرائح غير المرغوبة وغير المستخدمة.
+
+يظهر الكود التالي بلغة Python كيفية إزالة تخطيط شريحة من عرض PowerPoint:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    slides.lowcode.Compress.remove_unused_layout_slides(pres)
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("sample.pptx") as presentation:
+    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تعيين الحجم والنوع لتخطيط الشريحة**
 
-للسماح لك بتعيين الحجم والنوع لشريحة تخطيط معينة، توفر Aspose.Slides خصائص `type` و `size` (من class [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)). يوضح هذا الكود في بايثون العملية:
+## **إضافة عناصر نائبة إلى تخطيطات الشرائح**
 
-```python
+توفر Aspose.Slides الخاصية [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/placeholder_manager/)، والتي تتيح لك إضافة عناصر نائبة جديدة إلى تخطيط شريحة.
+
+يحتوي هذا المدير على طرق للأنواع التالية من العناصر النائبة:
+
+| عنصر نائب في PowerPoint | طريقة [LayoutPlaceholderManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutplaceholdermanager/) |
+| --- | --- |
+| ![Content](content.png) | add_content_placeholder(x: float, y: float, width: float, height: float) |
+| ![Content (Vertical)](contentV.png) | add_vertical_content_placeholder(x: float, y: float, width: float, height: float) |
+| ![Text](text.png) | add_text_placeholder(x: float, y: float, width: float, height: float) |
+| ![Text (Vertical)](textV.png) | add_vertical_text_placeholder(x: float, y: float, width: float, height: float) |
+| ![Picture](picture.png) | add_picture_placeholder(x: float, y: float, width: float, height: float) |
+| ![Chart](chart.png) | add_chart_placeholder(x: float, y: float, width: float, height: float) |
+| ![Table](table.png) | add_table_placeholder(x: float, y: float, width: float, height: float) |
+| ![SmartArt](smartart.png) | add_smart_art_placeholder(x: float, y: float, width: float, height: float) |
+| ![Media](media.png) | add_media_placeholder(x: float, y: float, width: float, height: float) |
+| ![Online Image](onlineimage.png) | add_online_image_placeholder(x: float, y: float, width: float, height: float) |
+
+يظهر الكود التالي بلغة Python كيفية إضافة أشكال عناصر نائبة جديدة إلى تخطيط الشريحة الفارغة:
+```py
 import aspose.slides as slides
 
-// قم بإنشاء كائن Presentation يمثل ملف عرض تقديمي 
-# يتم إنشاء كائن Presentation يمثل ملف عرض تقديمي 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    with slides.Presentation() as auxPresentation:
-        slide = presentation.slides[0]
-
-        # تعيين حجم الشريحة للعرض التقديمي الناتج إلى ما يخص المصدر
-        auxPresentation.slide_size.set_size(presentation.slide_size.type, slides.SlideSizeScaleType.ENSURE_FIT)
-
-        auxPresentation.slides.insert_clone(0, slide)
-        auxPresentation.slides.remove_at(0)
-        # يحفظ العرض التقديمي على القرص
-        auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **تعيين رؤية التذييل داخل الشريحة**
-
-1. قم بإنشاء مثيل من class [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. اجعل نموذج تذييل الشريحة مرئيًا.
-1. اجعل نموذج التاريخ والوقت مرئيًا.
-1. احفظ العرض التقديمي.
-
-يوضح كود بايثون هذا كيفية تعيين الرؤية لتذييل الشريحة (وأداء المهام ذات الصلة):
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    headerFooterManager = presentation.slides[0].header_footer_manager
-    # يتم استخدام الخاصية is_footer_visible لتحديد ما إذا كان نموذج تذييل الشريحة مفقودًا
-    if not headerFooterManager.is_footer_visible: 
-        # يتم استخدام الطريقة set_footer_visibility لتعيين نموذج تذييل الشريحة ليكون مرئيًا
-        headerFooterManager.set_footer_visibility(True) 
-        # يتم استخدام الخاصية is_slide_number_visible لتحديد ما إذا كان نموذج رقم الشريحة مفقودًا
-    if not headerFooterManager.is_slide_number_visible:  
-        # يتم استخدام الطريقة set_slide_number_visibility لتعيين نموذج رقم الشريحة ليكون مرئيًا
-        headerFooterManager.set_slide_number_visibility(True) 
-        # يتم استخدام الخاصية is_date_time_visible لتحديد ما إذا كان نموذج التاريخ والوقت مفقودًا
-    if not headerFooterManager.is_date_time_visible: 
-        # يتم استخدام الطريقة set_date_time_visibility لتعيين نموذج التاريخ والوقت ليكون مرئيًا 
-        headerFooterManager.set_date_time_visibility(True)
-
-    # يتم استخدام الطريقة set_footer_text لتعيين نص لنموذج تذييل الشريحة 
-    headerFooterManager.set_footer_text("نص التذييل") 
-    # يتم استخدام الطريقة set_date_time_text لتعيين نص لنموذج التاريخ والوقت.
-    headerFooterManager.set_date_time_text("نص التاريخ والوقت") 
-
-    # يحفظ العرض التقديمي على القرص
-    presentation.save("Presentation.ppt", slides.export.SaveFormat.PPT)
-```
-
-## **تعيين رؤية تذييل الفرع داخل الشريحة**
-
-1. قم بإنشاء مثيل من class [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. احصل على مرجع للشريحة الرئيسية من خلال فهرسها. 
-1. اجعل الشريحة الرئيسية وجميع نماذج تذييل الفرع مرئية.
-1. قم بتعيين نص للشريحة الرئيسية وجميع نماذج تذييل الفرع. 
-1. قم بتعيين نص للشريحة الرئيسية وجميع نماذج التاريخ والوقت للفرع. 
-1. احفظ العرض التقديمي.
-
-يوضح كود بايثون هذا العملية:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    manager = presentation.masters[0].header_footer_manager
-    manager.set_footer_and_child_footers_visibility(True) # يتم استخدام الطريقة set_footer_and_child_footers_visibility لتعيين الشريحة الرئيسية وجميع نماذج تذييل الفرع لتكون مرئية
-    manager.set_slide_number_and_child_slide_numbers_visibility(True) # يتم استخدام الطريقة set_slide_number_and_child_slide_numbers_visibility لتعيين الشريحة الرئيسية وجميع نماذج أرقام الصفحات الفرعية لتكون مرئية
-    manager.set_date_time_and_child_date_times_visibility(True) # يتم استخدام الطريقة set_date_time_and_child_date_times_visibility لتعيين الشريحة الرئيسية وجميع نماذج التاريخ والوقت للفرع لتكون مرئية
-
-    manager.set_footer_and_child_footers_text("نص التذييل") # يتم استخدام الطريقة set_footer_and_child_footers_text لتعيين النصوص للشريحة الرئيسية وجميع نماذج تذييل الفرع
-    manager.set_date_time_and_child_date_times_text("نص التاريخ والوقت") # يتم استخدام الطريقة set_date_time_and_child_date_times_text لتعيين النص للشريحة الرئيسية وجميع نماذج التاريخ والوقت للفرع
-```
-
-## **تعيين حجم الشريحة بالنسبة لتوسيع المحتوى**
-
-1. قم بإنشاء مثيل من class [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) وتحميل العرض التقديمي الذي يحتوي على الشريحة التي تريد تعيين حجمها. 
-1. قم بإنشاء مثيل آخر من class [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) لإنشاء عرض تقديمي جديد. 
-1. احصل على مرجع الشريحة (من العرض التقديمي الأول) من خلال فهرسها.
-1. اجعل نموذج تذييل الشريحة مرئيًا. 
-1. اجعل نموذج التاريخ والوقت مرئيًا. 
-1. احفظ العرض التقديمي.
-
-هذا الكود في بايثون يوضح العملية: 
-
-```python
-import aspose.slides as slides
-
-# يتم إنشاء كائن Presentation الذي يمثل ملف عرض تقديمي 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    with slides.Presentation() as auxPresentation:
-        slide = presentation.slides[0]
-
-        # تعيين حجم الشريحة للعروض التقديمية الناتجة إلى ما يخص المصدر
-        presentation.slide_size.set_size(540, 720, slides.SlideSizeScaleType.ENSURE_FIT) # يتم استخدام الطريقة set_size لتعيين حجم الشريحة مع توسيع المحتوى لضمان الملاءمة
-        presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.MAXIMIZE) # يتم استخدام الطريقة set_size لتعيين حجم الشريحة بأقصى حجم للمحتوى
-                
-        # يحفظ العرض التقديمي على القرص
-        auxPresentation.save("Set_Size&Type_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **تعيين حجم الصفحة عند إنشاء PDF**
-
-تُحوَّل بعض العروض التقديمية (مثل الملصقات) غالبًا إلى ملفات PDF. إذا كنت ترغب في تحويل PowerPoint إلى PDF للحصول على أفضل خيارات الطباعة والوصول، فيجب عليك تعيين شرائحك على أحجام تناسب مستندات PDF (A4، على سبيل المثالي).
-
-توفر Aspose.Slides class [SlideSize](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/) للسماح لك بتحديد إعداداتك المفضلة للشرائح. يوضح كود بايثون هذا كيفية استخدام خاصية `type` (من class `SlideSize`) لتعيين حجم ورق معين للشرائح في عرض تقديمي:
-
-```python
-import aspose.slides as slides
-
-# يتم إنشاء كائن Presentation الذي يمثل ملف عرض تقديمي  
 with slides.Presentation() as presentation:
-    # تعيين خصائص SlideSize.Type 
-    presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.ENSURE_FIT)
+    # الحصول على شريحة التخطيط الفارغ.
+    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-    # تعيين خصائص مختلفة لخيارات PDF
-    opts = slides.export.PdfOptions()
-    opts.sufficient_resolution = 600
+    # الحصول على مدير العناصر النائبة لشريحة التخطيط.
+    placeholder_manager = layout.placeholder_manager
 
-    # يحفظ العرض التقديمي على القرص
-    presentation.save("SetPDFPageSize_out.pdf", slides.export.SaveFormat.PDF, opts)
+    # إضافة عناصر نائبة مختلفة إلى شريحة التخطيط الفارغ.
+    placeholder_manager.add_content_placeholder(20, 20, 310, 270)
+    placeholder_manager.add_vertical_text_placeholder(350, 20, 350, 270)
+    placeholder_manager.add_chart_placeholder(20, 310, 310, 180)
+    placeholder_manager.add_table_placeholder(350, 310, 350, 180)
+
+    # إضافة شريحة جديدة باستخدام التخطيط الفارغ.
+    new_slide = presentation.slides.add_empty_slide(layout)
+
+    presentation.save("placeholders.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+النتيجة:
+
+![The placeholders on the layout slide](add_placeholders.png)
+
+## **تحديد رؤية تذييل الشريحة لتخطيط معين**
+
+في عروض PowerPoint، يمكن إظهار أو إخفاء عناصر التذييل مثل التاريخ، رقم الشريحة، والنص المخصص بحسب تخطيط الشريحة. يتيح لك Aspose.Slides for Python التحكم في رؤية هذه العناصر النائبة للتذييل. هذا مفيد عندما تريد أن تعرض بعض التخطيطات معلومات التذييل بينما تبقى أخرى نظيفة ومبسطة.
+
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. الحصول على مرجع لتخطيط الشريحة حسب الفهرس.
+1. تعيين عنصر تذييل الشريحة إلى مرئي.
+1. تعيين عنصر رقم الشريحة إلى مرئي.
+1. تعيين عنصر التاريخ/الوقت إلى مرئي.
+1. حفظ العرض التقديمي.
+
+يظهر الكود التالي بلغة Python كيفية تعيين رؤية تذييل الشريحة وأداء المهام ذات الصلة:
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    header_footer_manager = presentation.layout_slides[0].header_footer_manager
+
+    if not header_footer_manager.is_footer_visible: 
+        header_footer_manager.set_footer_visibility(True) 
+
+    if not header_footer_manager.is_slide_number_visible:  
+        header_footer_manager.set_slide_number_visibility(True) 
+
+    if not header_footer_manager.is_date_time_visible: 
+        header_footer_manager.set_date_time_visibility(True)
+
+    header_footer_manager.set_footer_text("Footer text") 
+    header_footer_manager.set_date_time_text("Date and time text") 
+
+    presentation.save("output.ppt", slides.export.SaveFormat.PPT)
+```
+
+
+## **تحديد رؤية تذييل الأطفال لشريحة**
+
+​في عروض PowerPoint، يمكن التحكم في عناصر التذييل مثل التاريخ، رقم الشريحة، والنص المخصص على مستوى ماستر الشريحة لضمان الاتساق عبر جميع تخطيطات الشرائح. يتيح لك Aspose.Slides for Python تعيين رؤية ومحتوى هذه العناصر النائبة للتذييل على ماستر الشريحة ونشر هذه الإعدادات إلى جميع تخطيطات الشرائح التابعة. يضمن هذا النهج توحيد معلومات التذييل طوال العرض التقديمي.​
+
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. الحصول على مرجع للماستر شريحة حسب الفهرس.
+1. تعيين جميع عناصر تذييل الماستر وتذييلات الأطفال إلى مرئية.
+1. تعيين جميع عناصر رقم الشريحة للماستر والأطفال إلى مرئية.
+1. تعيين جميع عناصر التاريخ/الوقت للماستر والأطفال إلى مرئية.
+1. حفظ العرض التقديمي.
+
+يظهر الكود التالي بلغة Python هذا الإجراء:
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    header_footer_manager = presentation.masters[0].header_footer_manager
+
+    header_footer_manager.set_footer_and_child_footers_visibility(True)
+    header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
+    header_footer_manager.set_date_time_and_child_date_times_visibility(True)
+
+    header_footer_manager.set_footer_and_child_footers_text("Footer text")
+    header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+
+## **الأسئلة المتكررة**
+
+**ما الفرق بين ماستر الشريحة وتخطيط الشريحة؟**
+
+ماستر الشريحة يحدد الهوية العامة والتهيئة الافتراضية، بينما يحدد تخطيط الشريحة ترتيبات محددة للعناصر النائبة لأنواع مختلفة من المحتوى.
+
+**هل يمكنني نسخ تخطيط شريحة من عرض تقديمي إلى آخر؟**
+
+نعم، يمكنك استنساخ تخطيط شريحة من مجموعة [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) لعرض تقديمي وإدراجه في عرض آخر باستخدام طريقة `add_clone`.
+
+**ماذا يحدث إذا حذفت تخطيط شريحة ما زال مستخدمًا من قبل شريحة؟**
+
+إذا حاولت حذف تخطيط شريحة لا يزال مُشارًا إليه من قبل شريحة واحدة على الأقل في العرض، سيتسبب Aspose.Slides في إلقاء استثناء [PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/). لتجنب ذلك، استخدم طريقة [remove_unused_layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) التي تحذف بأمان فقط تخطيطات الشرائح غير المستخدمة.

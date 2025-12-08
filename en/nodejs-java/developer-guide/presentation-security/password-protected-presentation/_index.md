@@ -1,10 +1,38 @@
 ---
-title: Password Protected Presentation
+title: Secure Presentations with Passwords in JavaScript
+linktitle: Password Protection
 type: docs
 weight: 20
 url: /nodejs-java/password-protected-presentation/
-keywords: "Lock PowerPoint presentation in JavaScript"
-description: "Lock PowerPoint presentation. Password protected PowerPoint in JavaScript"
+keywords:
+- lock PowerPoint
+- lock presentation
+- unlock PowerPoint
+- unlock presentation
+- protect PowerPoint
+- protect presentation
+- set password
+- add password
+- encrypt PowerPoint
+- encrypt presentation
+- decrypt PowerPoint
+- decrypt presentation
+- write protection
+- PowerPoint security
+- presentation security
+- remove password
+- remove protection
+- remove encryption
+- disable password
+- disable protection
+- remove write protection
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Effortlessly lock and unlock password-protected PowerPoint and OpenDocument presentations with Aspose.Slides for Node.js via Java. Secure your presentations."
 ---
 
 ## **About Password Protection**

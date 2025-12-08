@@ -1,23 +1,25 @@
 ---
-title: Convert PowerPoint Slides to Images in C#
+title: Convert Presentation Slides to Images in .NET
 linktitle: Slide to Image
 type: docs
 weight: 41
 url: /net/convert-slide/
 keywords: 
 - convert slide
-- convert slide to image
-- export slide as image
-- save slide as image
+- export slide
 - slide to image
+- save slide as image
 - slide to PNG
 - slide to JPEG
 - slide to bitmap
-- C#
-- Csharp
+- slide to TIFF
+- PowerPoint
+- OpenDocument
+- presentation
 - .NET
+- C#
 - Aspose.Slides
-description: "Learn how to convert PowerPoint and OpenDocument slides into various formats using Aspose.Slides for .NET. Easily export PPTX and ODP slides to BMP, PNG, JPEG, TIFF, and more with high-quality results."
+description: "Convert slides from PPT, PPTX and ODP to images in C# using Aspose.Slides for .NET—fast, high-quality rendering with clear code examples."
 ---
 
 ## **Overview**
@@ -33,7 +35,7 @@ To convert a slide into an image, follow these steps:
 
 In .NET, a [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) is an object that allows you to work with images defined by pixel data. You can use an instance of this class to save images in a wide range of formats (BMP, JPG, PNG, etc.).
 
-## **Convert Slides to Bitmap and Save the Images in PNG**
+## **Convert Slides to Bitmaps and Save the Images in PNG**
 
 You can convert a slide to a bitmap object and use it directly in your application. Alternatively, you can convert a slide to a bitmap and then save the image in JPEG or any other preferred format.
 

@@ -1,19 +1,23 @@
 ---
-title: Font Selection Sequence in C#
-linktitle: Font Selection Sequence in C#
+title: Font Selection Sequence in Aspose.Slides for .NET
+linktitle: Font Selection
 type: docs
 weight: 80
 url: /net/font-selection-sequence/
 keywords:
-- font
 - font selection
 - font substitution
 - font replacement
-- PowerPoint presentation
+- substitution rule
+- available font
+- missing font
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: PowerPoint font selection sequence in C#
+- Aspose.Slides
+description: "Discover how Aspose.Slides for .NET selects fonts, ensuring crisp, consistent presentation of PPT, PPTX and ODP files—improve your slides now."
 ---
 
 ## **Font Selection**

@@ -1,8 +1,22 @@
 ---
-title: Manage SmartArt
+title: Manage SmartArt in PowerPoint Presentations Using JavaScript
+linktitle: Manage SmartArt
 type: docs
 weight: 10
 url: /nodejs-java/manage-smartart/
+keywords:
+- SmartArt
+- SmartArt text
+- layout type
+- hidden property
+- organization chart
+- picture organization chart
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Learn to build and edit PowerPoint SmartArt with Aspose.Slides for Node.js using clear JavaScript code samples that speed up slide design and automation."
 ---
 
 ## **Get Text from SmartArt**

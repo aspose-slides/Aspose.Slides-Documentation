@@ -1,10 +1,25 @@
 ---
-title: Modern API
+title: Enhance Image Processing with the Modern API
+linktitle: Modern API
 type: docs
 weight: 237
 url: /net/modern-api/
-keywords: "CrossPlatform Modern API System.Drawing"
-description: "Modern API"
+keywords:
+- System.Drawing
+- modern API
+- drawing
+- slide thumbnail
+- slide to image
+- shape thumbnail
+- shape to image
+- presentation thumbnail
+- presentation to images
+- add image
+- add picture
+- .NET
+- C#
+- Aspose.Slides
+description: "Modernize slide image processing by replacing deprecated imaging APIs with the .NET Modern API for seamless PowerPoint and OpenDocument automation."
 ---
 
 ## **Introduction**
@@ -63,11 +78,11 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Replacing old code with Modern API**
+## **Replacing Old Code with Modern API**
 
 For ease of transition, the interface of the new IImage repeats the separate signatures of the Image and Bitmap classes. In general, you will just need to replace the call to the old method using System.Drawing with the new one.
 
-### **Getting a slide thumbnail**
+### **Getting a Slide Thumbnail**
 
 Code using a deprecated API:
 
@@ -87,7 +102,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-### **Getting a shape thumbnail**
+### **Getting a Shape Thumbnail**
 
 Code using a deprecated API:
 
@@ -107,7 +122,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-### **Getting a presentation thumbnail**
+### **Getting a Presentation Thumbnail**
 
 Code using a deprecated API:
 
@@ -157,7 +172,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-### **Adding a picture to a presentation**
+### **Adding a Picture to a Presentation**
 
 Code using a deprecated API:
 
@@ -188,7 +203,7 @@ using (Presentation pres = new Presentation())
     pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 }
 ```
-## **Methods/properties to be removed and their replacement in Modern API**
+## **Methods/Properties to Be Removed and Their Replacement in Modern API**
 
 ### **Presentation**
 | Method Signature                               | Replacement Method Signature                             |
@@ -258,7 +273,7 @@ using (Presentation pres = new Presentation())
 |-----------------------------------------------------------|-----------------------------------------------------|
 | Bitmap GetTileImage(Color background, Color foreground)   | [GetTileIImage(SlidesImage image)](https://reference.aspose.com/slides/net/aspose.slides/ipatternformateffectivedata/gettileiimage)                    |
 
-## **API support for Graphics and PrinterSettings will be discontinued**
+## **API Support for Graphics and PrinterSettings Will Be Discontinued**
 
 The [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) class is not supported for cross-platform versions of .NET6 and higher. In Aspose Slides, the part of the API that uses it will be removed:
 [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide/)
@@ -274,7 +289,7 @@ Also, the part of the API that is related to printing will be removed:
 - [public void Print(string printerName)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_3)
 - [public void Print(PrinterSettings printerSettings, string presName)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_2)
 
-# **FAQ**
+## **FAQ**
 
 **Why was System.Drawing.Graphics dropped?**
 

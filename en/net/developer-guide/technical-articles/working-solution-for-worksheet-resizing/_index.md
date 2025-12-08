@@ -11,9 +11,10 @@ keywords:
 - worksheet
 - PowerPoint
 - presentation
+- .NET
 - C#
-- Aspose.Slides for .NET
-description: "Working solution for worksheet resizing in PowerPoint presentations using C#"
+- Aspose.Slides
+description: "Fix Excel worksheet OLE resizing in presentations: two ways to keep object frames consistent—scale the frame or the sheet—across the PPT and PPTX formats."
 ---
 
 {{% alert color="primary" %}} 
@@ -231,24 +232,24 @@ There are two approaches to fix the worksheet resizing issue. The selection of t
 
 {{% /alert %}}
 
-## FAQ
+## **FAQ**
 
-**Q: Why does an embedded Excel worksheet change size when first activated in PowerPoint?**
+**Why does an embedded Excel worksheet change size when first activated in PowerPoint?**
 This happens because Excel tries to maintain the original window size when activated, while the OLE object frame in PowerPoint has its own dimensions. PowerPoint and Excel negotiate the size to maintain aspect ratio, which can cause the resizing.
 
-**Q: Is it possible to prevent this resizing issue entirely?**
+**Is it possible to prevent this resizing issue entirely?**
 Yes. By scaling the OLE frame to fit the Excel cell range size or scaling the cell range to fit the desired OLE frame size, you can prevent unwanted resizing.
 
-**Q: Which scaling method should I use, OLE frame scaling or cell range scaling?**
+**Which scaling method should I use, OLE frame scaling or cell range scaling?**
 Select **OLE frame scaling** if you want to maintain the original Excel row and column sizes. Select **cell range scaling** if you want a fixed size for the OLE frame in your presentation.
 
-**Q: Will these solutions work if my presentation is based on a template?**
+**Will these solutions work if my presentation is based on a template?**
 Yes. Both solutions work for presentations created from templates and from scratch.
 
-**Q: Is there a limit to the size of the OLE frame when using these methods?**
+**Is there a limit to the size of the OLE frame when using these methods?**
 No. You can make the OLE object frame any size as long as you set the scale appropriately.
 
-**Q: Is there a way to avoid the "EMBEDDED OLE OBJECT" placeholder text in PowerPoint?**
+**Is there a way to avoid the "EMBEDDED OLE OBJECT" placeholder text in PowerPoint?**
 Yes. By taking a snapshot of the target Excel cell range and setting it as the OLE frame's placeholder image, you can display a custom preview image in place of the default placeholder.
 
 ## **Related Articles**

@@ -1,8 +1,29 @@
 ---
-title: Shape Manipulations
+title: Manage Presentation Shapes in C++
+linktitle: Shape Manipulation
 type: docs
 weight: 40
 url: /cpp/shape-manipulations/
+keywords:
+- PowerPoint shape
+- presentation shape
+- shape on slide
+- find shape
+- clone shape
+- remove shape
+- hide shape
+- change shape order
+- get interop shape ID
+- shape alternative text
+- shape layout formats
+- shape as SVG
+- shape to SVG
+- align shape
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Learn to create, edit and optimize shapes in Aspose.Slides for C++ and deliver high-performance PowerPoint presentations."
 ---
 
 ## **Find Shape in Slide**

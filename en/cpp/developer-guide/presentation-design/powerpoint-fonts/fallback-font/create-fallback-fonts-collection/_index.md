@@ -1,8 +1,21 @@
 ---
-title: Create Fallback Fonts Collection
+title: Configure Fallback Font Collections in С++
+linktitle: Fallback Font Collection
 type: docs
 weight: 20
 url: /cpp/create-fallback-fonts-collection/
+keywords:
+- fallback font
+- fallback rule
+- font collection
+- configure font
+- set up font
+- PowerPoint
+- OpenDocument
+- presentation
+- С++
+- Aspose.Slides
+description: "Set up a fallback fonts collection in Aspose.Slides for С++ to keep text consistent and crisp in PowerPoint and OpenDocument presentations."
 ---
 
 Instances of [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rules_collection), that implements [IFontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rules_collection) interface. It is possible to add or remove rules from the collection.

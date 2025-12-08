@@ -29,7 +29,7 @@ Currently, the AI Presentation Generator structures content using text blocks, b
 
 The output is a complete PowerPoint presentation that can be used as-is or exported to any format supported by the Aspose.Slides API. While the generator produces high-quality results, minor post-editing may be required to meet specific requirements.
 
-## **How it Works**
+## **How It Works**
 
 Aspose.Slides does not include built-in AI models; instead, it integrates with external AI services over the internet. This integration is handled by the [SlidesAIAgent](https://reference.aspose.com/slides/java/com.aspose.slides/slidesaiagent/) class, which uses an implementation of the [IAIWebClient](https://reference.aspose.com/slides/java/com.aspose.slides/iaiwebclient/) interface to communicate with the AI model.
 

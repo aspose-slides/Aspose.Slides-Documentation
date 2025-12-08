@@ -13,7 +13,7 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Discover how Aspose.Slides for Node.js helps automate presentation accessibility checks in PPT, PPTX and ODP files—enhance screen reader experience and boost compliance."
+description: "Automate presentation accessibility checks in PPT, PPTX and ODP files with Aspose.Slides for Node.js—enhance screen reader experience and boost compliance."
 ---
 
 ## **Overview**

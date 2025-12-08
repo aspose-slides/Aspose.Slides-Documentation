@@ -1,6 +1,6 @@
 ---
-title: Create or Update PowerPoint Presentation Charts in C#
-linktitle: Create or Update a Chart
+title: Create or Update PowerPoint Presentation Charts in .NET
+linktitle: Create or Update Charts
 type: docs
 weight: 10
 url: /net/create-chart/
@@ -21,10 +21,12 @@ keywords:
 - histogram chart
 - radar chart
 - multicategory chart
-- PowerPoint presentation
+- PowerPoint
+- presentation
+- .NET
 - C#
 - Aspose.Slides
-description: "Learn how to create and customize charts in PowerPoint and OpenDocument presentations using Aspose.Slides for .NET. It covers adding, formatting, and editing charts in presentations with practical code examples in C#."
+description: "Create and customize charts in PowerPoint presentations using Aspose.Slides for .NET. Add, format, and edit charts with practical code examples in C#."
 ---
 
 ## **Overview**
@@ -763,7 +765,7 @@ The result:
 
 ![The Radar chart](radar_chart.png)
 
-### **Create Multi Category Charts**
+### **Create Multi-Category Charts**
 
 Multi Category charts are used to display data that involves more than one categorical grouping, allowing you to compare values across multiple dimensions simultaneously. They are particularly helpful when you need to analyze trends and relationships within complex, multi-layered datasets.
 
@@ -1076,7 +1078,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 }
 ```
 
-## **Set Data Range for Charts**
+## **Set Data Range for a Chart**
 
 Aspose.Slides for .NET provides the flexibility to define a specific data range from a worksheet as the source for your chart’s data. This means you can directly map a portion of your worksheet to the chart, allowing you to control which cells contribute to the chart's series and categories. As a result, you can easily update and synchronize your charts with the latest data changes in your worksheet, ensuring that your PowerPoint presentations reflect current and accurate information.
 

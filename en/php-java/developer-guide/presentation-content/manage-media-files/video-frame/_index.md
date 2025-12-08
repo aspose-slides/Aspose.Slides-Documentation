@@ -1,10 +1,23 @@
 ---
-title: Video Frame
+title: Manage Video Frames in Presentations Using PHP
+linktitle: Video Frame
 type: docs
 weight: 10
 url: /php-java/video-frame/
-keywords: "Add video, create video frame, extract video, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Add Video frame to PowerPoint presentation "
+keywords:
+- add video
+- create video
+- embed video
+- extract video
+- retrive video
+- video frame
+- web source
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Learn to programmatically add and extract video frames in PowerPoint and OpenDocument slides using Aspose.Slides for PHP via Java. Fast how-to guide."
 ---
 
 A well-placed video in a presentation can make your message more compelling and increase engagement levels with your audience. 

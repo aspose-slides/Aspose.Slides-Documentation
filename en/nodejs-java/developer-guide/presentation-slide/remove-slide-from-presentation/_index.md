@@ -1,11 +1,20 @@
 ---
-title: Remove Slide from Presentation
+title: Remove Slides from Presentations in JavaScript
+linktitle: Remove Slide
 type: docs
 weight: 30
 url: /nodejs-java/remove-slide-from-presentation/
-keywords: "Remove slide, Delete slide, PowerPoint, Presentation, Java, Aspose.Slides"
-description: "Remove slide from PowerPoint by reference or index in JavaScript"
-
+keywords:
+- remove slide
+- delete slide
+- remove unused slide
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Effortlessly remove slides from PowerPoint and OpenDocument presentations with Aspose.Slides for Node.js. Get clear code examples and boost your workflow."
 ---
 
 If a slide (or its contents) becomes redundant, you can delete it. Aspose.Slides provides the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class that encapsulates [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/), which is a repository for all slides in a presentation. Using pointers (reference or index) for a known [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/) object, you can specify the slide you want to remove.

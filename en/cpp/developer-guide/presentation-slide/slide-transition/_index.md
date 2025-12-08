@@ -1,10 +1,23 @@
 ---
-title: Slide Transition
+title: Manage Slide Transitions in Presentations Using C++
+linktitle: Slide Transition
 type: docs
 weight: 80
 url: /cpp/slide-transition/
-keywords: "PowerPoint slide transition, morph transition"
-description: "PowerPoint slide transition, PowerPoint morph transition with Aspose.Slides."
+keywords:
+- slide transition
+- add slide transition
+- apply slide transition
+- advanced slide transition
+- morph transition
+- transition type
+- transition effect
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Discover how to customize slide transitions in Aspose.Slides for C++, with step-by-step guidance for PowerPoint and OpenDocument presentations."
 ---
 
 
