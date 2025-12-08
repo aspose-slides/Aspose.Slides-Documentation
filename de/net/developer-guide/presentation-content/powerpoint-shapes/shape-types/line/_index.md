@@ -3,31 +3,32 @@ title: Linie
 type: docs
 weight: 50
 url: /de/net/Line/
-keywords: "Linie, PowerPoint-Form, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides for .NET"
+keywords: "Linie, PowerPoint-Form, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Linie in PowerPoint-Präsentation in C# oder .NET hinzufügen"
 ---
 
-Aspose.Slides for .NET unterstützt das Hinzufügen verschiedener Shape‑Typen zu den Folien. In diesem Thema beginnen wir damit, Linien zu den Folien hinzuzufügen. Mit Aspose.Slides for .NET können Entwickler nicht nur einfache Linien erstellen, sondern auch ausgefallene Linien auf den Folien zeichnen.
-## **Einfache Linie erstellen**
-Um eine einfache gerade Linie zu einer ausgewählten Folie der Präsentation hinzuzufügen, gehen Sie wie folgt vor:
+Aspose.Slides für .NET unterstützt das Hinzufügen verschiedener Formen zu den Folien. In diesem Thema beginnen wir damit, Linien zu den Folien hinzuzufügen. Mit Aspose.Slides für .NET können Entwickler nicht nur einfache Linien erstellen, sondern auch ausgefallene Linien auf den Folien zeichnen.
 
-- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
+## **Einfache Linie erstellen**
+Um eine einfache Linie zu einer ausgewählten Folie der Präsentation hinzuzufügen, gehen Sie wie folgt vor:
+
+- Erstellen Sie eine Instanz der [Präsentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑Klasse.
 - Holen Sie sich die Referenz einer Folie, indem Sie deren Index verwenden.
-- Fügen Sie mit der vom Shapes‑Objekt bereitgestellten Methode [AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/methods/addautoshape/index) eine AutoShape vom Typ Line hinzu.
+- Fügen Sie mit der Methode [AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/methods/addautoshape/index), die vom Shapes‑Objekt bereitgestellt wird, eine AutoShape vom Typ Linie hinzu.
 - Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Im nachstehenden Beispiel haben wir der ersten Folie der Präsentation eine Linie hinzugefügt.
+Im nachfolgenden Beispiel haben wir eine Linie zur ersten Folie der Präsentation hinzugefügt.
 ```c#
- // Instanziieren Sie die PresentationEx-Klasse, die die PPTX-Datei darstellt
+// Instanziieren Sie die PresentationEx-Klasse, die die PPTX-Datei darstellt
 using (Presentation pres = new Presentation())
 {
-    // Holen Sie die erste Folie
+    // Erste Folie holen
     ISlide sld = pres.Slides[0];
 
-    // Fügen Sie eine AutoShape vom Typ Linie hinzu
+    // AutoShape vom Typ Linie hinzufügen
     sld.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
-    //Schreiben Sie die PPTX auf die Festplatte
+    //PPTX auf Festplatte schreiben
     pres.Save("LineShape1_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -35,29 +36,29 @@ using (Presentation pres = new Presentation())
 
 
 ## **Pfeilförmige Linie erstellen**
-Aspose.Slides for .NET ermöglicht es Entwicklern außerdem, einige Eigenschaften der Linie zu konfigurieren, damit sie ansprechender wirkt. Versuchen wir, einige Eigenschaften einer Linie so zu konfigurieren, dass sie wie ein Pfeil aussieht. Befolgen Sie dazu die folgenden Schritte:
+Aspose.Slides für .NET ermöglicht es Entwicklern außerdem, einige Eigenschaften der Linie zu konfigurieren, um sie ansprechender zu gestalten. Versuchen wir, einige Eigenschaften einer Linie so einzustellen, dass sie wie ein Pfeil aussieht. Befolgen Sie dazu die folgenden Schritte:
 
-- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)class[](http://www.aspose.com/api/net/slides/aspose.slides/)[](http://www.aspose.com/api/net/slides/aspose.slides/).
+- Erstellen Sie eine Instanz der [Präsentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)class[](http://www.aspose.com/api/net/slides/aspose.slides/)[](http://www.aspose.com/api/net/slides/aspose.slides/).
 - Holen Sie sich die Referenz einer Folie, indem Sie deren Index verwenden.
-- Fügen Sie mit der vom Shapes‑Objekt bereitgestellten AddAutoShape‑Methode eine AutoShape vom Typ Line hinzu.
-- Setzen Sie den Linienstil auf einen der von Aspose.Slides for .NET angebotenen Stile.
+- Fügen Sie mit der Methode AddAutoShape, die vom Shapes‑Objekt bereitgestellt wird, eine AutoShape vom Typ Linie hinzu.
+- Setzen Sie den Linienstil auf einen der von Aspose.Slides für .NET angebotenen Stile.
 - Setzen Sie die Breite der Linie.
-- Setzen Sie den [Dash Style](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle) der Linie auf einen der von Aspose.Slides for .NET angebotenen Stile.
+- Setzen Sie den [Dash Style](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle) der Linie auf einen der von Aspose.Slides für .NET angebotenen Stile.
 - Setzen Sie den [Arrow Head Style](https://reference.aspose.com/slides/net/aspose.slides/linearrowheadstyle) und die Länge des Startpunkts der Linie.
 - Setzen Sie den Arrow Head Style und die Länge des Endpunkts der Linie.
 - Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 ```c#
- // Instanziieren Sie die PresentationEx-Klasse, die die PPTX-Datei darstellt
+// Instanziieren Sie die PresentationEx-Klasse, die die PPTX-Datei darstellt
 using (Presentation pres = new Presentation())
 {
 
-    // Holen Sie die erste Folie
+    // Erste Folie holen
     ISlide sld = pres.Slides[0];
 
-    // Fügen Sie eine AutoShape vom Typ Linie hinzu
+    // AutoShape vom Typ Linie hinzufügen
     IAutoShape shp = sld.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
-    // Wenden Sie einige Formatierungen auf die Linie an
+    // Einige Formatierungen auf die Linie anwenden
     shp.LineFormat.Style = LineStyle.ThickBetweenThin;
     shp.LineFormat.Width = 10;
 
@@ -72,7 +73,7 @@ using (Presentation pres = new Presentation())
     shp.LineFormat.FillFormat.FillType = FillType.Solid;
     shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Maroon;
 
-    //Write die PPTX auf die Festplatte
+    //PPTX auf Festplatte schreiben
     pres.Save("LineShape2_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -80,14 +81,14 @@ using (Presentation pres = new Presentation())
 
 ## **FAQ**
 
-**Kann ich eine normale Linie in einen Connector umwandeln, damit sie „einrastet“?**
+**Kann ich eine normale Linie in einen Verbinder umwandeln, sodass sie „einrastet“?**
 
-Nein. Eine normale Linie (eine [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) vom Typ [Line](https://reference.aspose.com/slides/net/aspose.slides/shapetype/)) wird nicht automatisch zu einem Connector. Verwenden Sie den dedizierten [Connector](https://reference.aspose.com/slides/net/aspose.slides/connector/)-Typ und die [entsprechenden APIs](/slides/de/net/connector/) für Verbindungen.
+Nein. Eine normale Linie (ein [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) vom Typ [Line](https://reference.aspose.com/slides/net/aspose.slides/shapetype/)) wird nicht automatisch zu einem Verbinder. Verwenden Sie den dedizierten [Connector](https://reference.aspose.com/slides/net/aspose.slides/connector/)-Typ und die [corresponding APIs](/slides/de/net/connector/) für Verbindungen.
 
-**Was soll ich tun, wenn die Eigenschaften einer Linie vom Thema geerbt werden und die endgültigen Werte schwer zu ermitteln sind?**
+**Wie gehe ich vor, wenn die Eigenschaften einer Linie vom Design geerbt werden und die endgültigen Werte schwer zu bestimmen sind?**
 
-[Lesen Sie die effektiven Eigenschaften](/slides/de/net/shape-effective-properties/) über die Klassen [ILineFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilinefillformateffectivedata/) – diese berücksichtigen bereits Vererbung und Themenstile.
+Lesen Sie die [effective properties](/slides/de/net/shape-effective-properties/) über die Schnittstellen [ILineFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilinefillformateffectivedata/) – diese berücksichtigen bereits Vererbung und Designstile.
 
 **Kann ich eine Linie gegen Bearbeitung (Verschieben, Größenänderung) sperren?**
 
-Ja. Shapes bieten [Lock‑Objekte](https://reference.aspose.com/slides/net/aspose.slides/autoshape/autoshapelock/), mit denen Sie [Bearbeitungsvorgänge verhindern](/slides/de/net/applying-protection-to-presentation/).
+Ja. Shapes bieten [lock objects](https://reference.aspose.com/slides/net/aspose.slides/autoshape/autoshapelock/), mit denen Sie [disallow editing operations](/slides/de/net/applying-protection-to-presentation/) unterbinden können.

@@ -3,65 +3,65 @@ title: Gruppe
 type: docs
 weight: 40
 url: /de/net/group/
-keywords: "Gruppenshape, PowerPoint-Form, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Gruppenshape zur PowerPoint-Präsentation in C# oder .NET hinzufügen"
+keywords: "Gruppenform, PowerPoint-Form, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
+description: "Gruppenform zu PowerPoint-Präsentation in C# oder .NET hinzufügen"
 ---
 
-## **Gruppenshape hinzufügen**
-Aspose.Slides unterstützt die Arbeit mit Gruppenshapes auf Folien. Diese Funktion hilft Entwicklern, reichere Präsentationen zu unterstützen. Aspose.Slides für .NET unterstützt das Hinzufügen oder den Zugriff auf Gruppenshapes. Es ist möglich, Formen zu einer hinzugefügten Gruppenshape hinzuzufügen, um sie zu füllen oder auf jede Eigenschaft der Gruppenshape zuzugreifen. Um mit Aspose.Slides für .NET eine Gruppenshape zu einer Folie hinzuzufügen:
+## **Gruppenform hinzufügen**
+Aspose.Slides unterstützt die Arbeit mit Gruppenformen auf Folien. Diese Funktion hilft Entwicklern, reichhaltigere Präsentationen zu erstellen. Aspose.Slides für .NET unterstützt das Hinzufügen oder den Zugriff auf Gruppenformen. Es ist möglich, Formen zu einer hinzugefügten Gruppenform hinzuzufügen, um sie zu befüllen, oder irgendeine Eigenschaft der Gruppenform zuzugreifen. So fügen Sie einer Folie eine Gruppenform mit Aspose.Slides für .NET hinzu:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑Klasse.
-1. Holen Sie sich die Referenz einer Folie, indem Sie deren Index verwenden.
-1. Fügen Sie der Folie eine Gruppenshape hinzu.
-1. Fügen Sie der hinzugefügten Gruppenshape Formen hinzu.
-1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Holen Sie die Referenz einer Folie, indem Sie ihren Index verwenden
+1. Fügen Sie der Folie eine Gruppenform hinzu.
+1. Fügen Sie die Formen zur hinzugefügten Gruppenform hinzu.
+1. Speichern Sie die geänderte Präsentation als PPTX-Datei.
 
-Das Beispiel unten fügt einer Folie eine Gruppenshape hinzu.
+Das folgende Beispiel fügt einer Folie eine Gruppenform hinzu.
 ```c#
-// Instanzieren der Presentation-Klasse 
-using (Presentation pres = new Presentation())
-{
-    // Erste Folie abrufen 
-    ISlide sld = pres.Slides[0];
+ // Instanziieren der Presentation-Klasse 
+ using (Presentation pres = new Presentation())
+ {
+     // Die erste Folie holen 
+     ISlide sld = pres.Slides[0];
 
-    // Zugriff auf die Formensammlung der Folien 
-    IShapeCollection slideShapes = sld.Shapes;
+     // Zugriff auf die Formensammlung der Folien 
+     IShapeCollection slideShapes = sld.Shapes;
 
-    // Hinzufügen einer Gruppenshape zur Folie 
-    IGroupShape groupShape = slideShapes.AddGroupShape();
+     // Hinzufügen einer Gruppenform zur Folie 
+     IGroupShape groupShape = slideShapes.AddGroupShape();
 
-    // Hinzufügen von Formen in die hinzugefügte Gruppenshape 
-    groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 100, 100, 100);
-    groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 100, 100);
-    groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 300, 100, 100);
-    groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 300, 100, 100);
+     // Hinzufügen von Formen innerhalb der hinzugefügten Gruppenform 
+     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 100, 100, 100);
+     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 100, 100);
+     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 300, 100, 100);
+     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 300, 100, 100);
 
-    // Hinzufügen des Gruppenshape-Rahmens 
-    groupShape.Frame = new ShapeFrame(100, 300, 500, 40, NullableBool.False, NullableBool.False, 0);
+     // Hinzufügen des Gruppenform-Rahmens 
+     groupShape.Frame = new ShapeFrame(100, 300, 500, 40, NullableBool.False, NullableBool.False, 0);
 
-    // Schreibe die PPTX-Datei auf die Festplatte 
-    pres.Save("GroupShape_out.pptx", SaveFormat.Pptx);
-}
+     // Schreiben der PPTX-Datei auf die Festplatte 
+     pres.Save("GroupShape_out.pptx", SaveFormat.Pptx);
+ }
 ```
 
 
 
 
-## **AltText‑Eigenschaft zugreifen**
-Dieses Thema zeigt einfache Schritte, inklusive Codebeispielen, zum Hinzufügen einer Gruppenshape und zum Zugreifen auf die AltText‑Eigenschaft von Gruppenshapes auf Folien. Um mit Aspose.Slides für .NET den AltText einer Gruppenshape auf einer Folie zuzugreifen:
+## **Zugriff auf die AltText-Eigenschaft**
+Dieses Thema zeigt einfache Schritte, einschließlich Codebeispielen, zum Hinzufügen einer Gruppenform und zum Zugriff auf die AltText-Eigenschaft von Gruppenformen auf Folien. So greifen Sie auf den AltText einer Gruppenform in einer Folie mit Aspose.Slides für .NET zu:
 
-1. Instanziieren Sie die `Presentation`‑Klasse, die die PPTX‑Datei darstellt.
-1. Holen Sie sich die Referenz einer Folie, indem Sie deren Index verwenden.
-1. Greifen Sie auf die Formensammlung der Folien zu.
-1. Greifen Sie auf die Gruppenshape zu.
-1. Greifen Sie auf die AltText‑Eigenschaft zu.
+1. Instanziieren Sie die Klasse `Presentation`, die eine PPTX-Datei repräsentiert.
+1. Holen Sie die Referenz einer Folie, indem Sie ihren Index verwenden.
+1. Zugriff auf die Formensammlung der Folien.
+1. Zugriff auf die Gruppenform.
+1. Zugriff auf die AltText-Eigenschaft.
 
-Das Beispiel unten greift auf den alternativen Text der Gruppenshape zu.
+Das folgende Beispiel greift auf den alternativen Text einer Gruppenform zu.
 ```c#
-// Instanziieren der Presentation-Klasse, die die PPTX-Datei darstellt
+// Instanziieren der Presentation-Klasse, die eine PPTX-Datei darstellt
 Presentation pres = new Presentation("AltText.pptx");
 
-// Erste Folie abrufen
+// Erste Folie holen
 ISlide sld = pres.Slides[0];
 
 for (int i = 0; i < sld.Shapes.Count; i++)
@@ -71,7 +71,7 @@ for (int i = 0; i < sld.Shapes.Count; i++)
 
     if (shape is GroupShape)
     {
-        // Zugriff auf die Gruppenshape.
+        // Zugriff auf die Gruppenform.
         IGroupShape grphShape = (IGroupShape)shape;
         for (int j = 0; j < grphShape.Shapes.Count; j++)
         {
@@ -86,14 +86,14 @@ for (int i = 0; i < sld.Shapes.Count; i++)
 
 ## **FAQ**
 
-**Wird verschachteltes Gruppieren (eine Gruppe innerhalb einer Gruppe) unterstützt?**
+**Unterstützt verschachtelte Gruppierung (eine Gruppe innerhalb einer Gruppe)?**
 
-Ja. [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/) hat eine [ParentGroup](https://reference.aspose.com/slides/net/aspose.slides/shape/parentgroup/)‑Eigenschaft, die direkt die Hierarchiesunterstützung anzeigt (eine Gruppe kann Kind einer anderen Gruppe sein).
+Ja. [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/) verfügt über die Eigenschaft [ParentGroup](https://reference.aspose.com/slides/net/aspose.slides/shape/parentgroup/), die direkt die Hierarchieunterstützung anzeigt (eine Gruppe kann ein Kind einer anderen Gruppe sein).
 
-**Wie steuere ich die Z‑Reihenfolge der Gruppe im Verhältnis zu anderen Objekten auf der Folie?**
+**Wie kann ich die Z‑Reihenfolge der Gruppe relativ zu anderen Objekten auf der Folie steuern?**
 
-Verwenden Sie die [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/)‑[ZOrderPosition](https://reference.aspose.com/slides/net/aspose.slides/shape/zorderposition/)‑Eigenschaft, um ihre Position im Anzeigestapel zu prüfen oder zu ändern.
+Verwenden Sie die Eigenschaft [ZOrderPosition](https://reference.aspose.com/slides/net/aspose.slides/shape/zorderposition/) der [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/), um ihre Position im Anzeigestapel zu prüfen.
 
 **Kann ich das Verschieben/Bearbeiten/Entgruppieren verhindern?**
 
-Ja. Der Sperrabschnitt der Gruppe wird über [GroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/groupshape/groupshapelock/) bereitgestellt, mit dem Sie Vorgänge an dem Objekt einschränken können.
+Ja. Der Sperrbereich der Gruppe wird über [GroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/groupshape/groupshapelock/) bereitgestellt, wodurch Sie Vorgänge an dem Objekt einschränken können.

@@ -3,22 +3,22 @@ title: Группа
 type: docs
 weight: 40
 url: /ru/net/group/
-keywords: "Групповая форма, форма PowerPoint, презентация PowerPoint, C#, Csharp, Aspose.Slides for .NET"
+keywords: "Групповая форма, Фигура PowerPoint, Презентация PowerPoint, C#, Csharp, Aspose.Slides for .NET"
 description: "Добавить групповую форму в презентацию PowerPoint на C# или .NET"
 ---
 
-## **Добавить групповую форму**
-Aspose.Slides поддерживает работу с групповыми формами на слайдах. Эта возможность помогает разработчикам создавать более насыщенные презентации. Aspose.Slides для .NET поддерживает добавление и доступ к групповым формам. Можно добавить формы в уже созданную групповую форму, чтобы заполнить её или получить доступ к любому свойству групповой формы. Чтобы добавить групповую форму на слайд с помощью Aspose.Slides для .NET:
+## **Добавить группу фигур**
+Aspose.Slides поддерживает работу с группами фигур на слайдах. Эта возможность помогает разработчикам создавать более насыщенные презентации. Aspose.Slides for .NET поддерживает добавление и доступ к группам фигур. Можно добавить фигуры в созданную группу, чтобы заполнить её или получить доступ к любому свойству группы фигур. Чтобы добавить группу фигур на слайд с помощью Aspose.Slides for .NET:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 1. Получите ссылку на слайд, используя его Index.
-1. Добавьте групповую форму на слайд.
-1. Добавьте формы в созданную групповую форму.
+1. Добавьте группу фигур на слайд.
+1. Добавьте фигуры в созданную группу фигур.
 1. Сохраните изменённую презентацию в файл PPTX.
 
-Пример ниже добавляет групповую форму на слайд.
+Пример ниже добавляет группу фигур на слайд.
 ```c#
- // Создать экземпляр класса Presentation 
+// Создать экземпляр класса Presentation 
 using (Presentation pres = new Presentation())
 {
     // Получить первый слайд 
@@ -45,16 +45,18 @@ using (Presentation pres = new Presentation())
 ```
 
 
+
+
 ## **Доступ к свойству AltText**
-В этой статье показаны простые шаги с примерами кода для добавления групповой формы и доступа к свойству AltText групповых форм на слайдах. Чтобы получить AltText групповой формы на слайде с помощью Aspose.Slides для .NET:
+В этой теме показаны простые шаги с примерами кода для добавления группы фигур и доступа к свойству AltText групп фигур на слайдах. Чтобы получить доступ к AltText группы фигур на слайде с помощью Aspose.Slides for .NET:
 
 1. Создайте экземпляр класса `Presentation`, представляющего файл PPTX.
 1. Получите ссылку на слайд, используя его Index.
-1. Получите доступ к коллекции форм слайда.
-1. Получите доступ к групповой форме.
-1. Получите доступ к свойству AltText.
+1. Доступ к коллекции фигур слайдов.
+1. Доступ к группе фигур.
+1. Доступ к свойству AltText.
 
-Пример ниже получает альтернативный текст групповой формы.
+Пример ниже получает альтернативный текст группы фигур.
 ```c#
 // Создать экземпляр класса Presentation, представляющего файл PPTX
 Presentation pres = new Presentation("AltText.pptx");
@@ -69,7 +71,7 @@ for (int i = 0; i < sld.Shapes.Count; i++)
 
     if (shape is GroupShape)
     {
-        // Доступ к групповой фигуре.
+        // Доступ к группе фигур.
         IGroupShape grphShape = (IGroupShape)shape;
         for (int j = 0; j < grphShape.Shapes.Count; j++)
         {
@@ -84,14 +86,14 @@ for (int i = 0; i < sld.Shapes.Count; i++)
 
 ## **FAQ**
 
-**Поддерживается ли вложенное групповое объединение (группа внутри группы)?**
+**Поддерживается ли вложенное группирование (группа внутри группы)?**
 
 Да. [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/) имеет свойство [ParentGroup](https://reference.aspose.com/slides/net/aspose.slides/shape/parentgroup/), которое напрямую указывает на поддержку иерархии (группа может быть дочерней по отношению к другой группе).
 
-**Как управлять порядком z‑groupы относительно других объектов на слайде?**
+**Как контролировать порядок Z группы относительно других объектов на слайде?**
 
-Используйте свойство [ZOrderPosition](https://reference.aspose.com/slides/net/aspose.slides/shape/zorderposition/) класса [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/) для просмотра или изменения её позиции в стеке отображения.
+Используйте свойство [ZOrderPosition](https://reference.aspose.com/slides/net/aspose.slides/shape/zorderposition/) у [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/), чтобы проверить её положение в стеке отображения.
 
 **Можно ли запретить перемещение/редактирование/разгруппировку?**
 
-Да. Раздел блокировки группы доступен через [GroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/groupshape/groupshapelock/), который позволяет ограничить операции над объектом.
+Да. Раздел блокировки группы доступен через [GroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/groupshape/groupshapelock/), что позволяет ограничить операции над объектом.
