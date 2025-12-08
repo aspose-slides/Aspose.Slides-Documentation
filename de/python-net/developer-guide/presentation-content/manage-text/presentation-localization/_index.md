@@ -1,5 +1,5 @@
 ---
-title: Automatisieren Sie die Lokalisierung von Präsentationen mit Python
+title: Automatisiere Präsentationslokalisierung mit Python
 linktitle: Präsentationslokalisierung
 type: docs
 weight: 100
@@ -12,15 +12,15 @@ keywords:
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Automatisieren Sie die Lokalisierung von PowerPoint- und OpenDocument‑Folien in Python mit Aspose.Slides, mithilfe praktischer Code‑Beispiele und Tipps für eine schnellere globale Einführung."
+description: "Automatisiere die Lokalisierung von PowerPoint- und OpenDocument-Folien in Python mit Aspose.Slides, indem du praktische Codebeispiele und Tipps für eine schnellere globale Einführung nutzt."
 ---
 
 ## **Sprache für Präsentation und Text von Formen ändern**
-- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-- Rufen Sie die Referenz einer Folie ab, indem Sie deren Index verwenden.
-- Fügen Sie der Folie eine AutoShape vom Typ Rechteck hinzu.
+- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-Klasse.
+- Holen Sie die Referenz einer Folie, indem Sie ihren Index verwenden.
+- Fügen Sie der Folie eine AutoShape vom Typ Rectangle hinzu.
 - Fügen Sie dem TextFrame etwas Text hinzu.
-- Legen Sie die Language Id für den Text fest.
+- Setzen der Language Id für den Text.
 - Schreiben Sie die Präsentation als PPTX-Datei.
 
 Die Implementierung der obigen Schritte wird unten in einem Beispiel gezeigt.
@@ -38,14 +38,14 @@ with slides.Presentation("pres.pptx") as pres:
 
 ## **FAQ**
 
-**Löst language_id eine automatische Textübersetzung aus?**
+**Löst die Language ID eine automatische Textübersetzung aus?**
 
-Nein. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) in Aspose.Slides speichert die Sprache für Rechtschreib‑ und Grammatikprüfung, führt jedoch keine Übersetzung oder Änderung des Textinhalts durch. Es handelt sich um Metadaten, die PowerPoint für die Prüfung versteht.
+Nein. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) in Aspose.Slides speichert die Sprache für Rechtschreib‑ und Grammatikprüfung, jedoch übersetzt sie nicht und ändert den Textinhalt nicht. Es handelt sich um Metadaten, die PowerPoint für die Korrektur versteht.
 
-**Beeinflusst language_id die Silbentrennung und Zeilenumbrüche beim Rendern?**
+**Beeinflusst die Language ID Silbentrennung und Zeilenumbrüche beim Rendern?**
 
-In Aspose.Slides dient [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) der Prüfung. Die Qualität der Silbentrennung und des Zeilenumbruchs hängt hauptsächlich von der Verfügbarkeit geeigneter [Fonts](/slides/de/python-net/powerpoint-fonts/) und den Layout‑/Zeilenumbruch‑Einstellungen für das Schriftsystem ab. Um ein korrektes Rendern sicherzustellen, stellen Sie die erforderlichen Fonts bereit, konfigurieren Sie [Font‑Ersetzungsregeln](/slides/de/python-net/font-substitution/) und/oder [betten Sie Fonts ein](/slides/de/python-net/embedded-font/) in die Präsentation ein.
+In Aspose.Slides wird [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) für die Korrektur verwendet. Die Qualität der Silbentrennung und des Zeilenumbruchs hängt hauptsächlich von der Verfügbarkeit geeigneter Schriften ([proper fonts](/slides/de/python-net/powerpoint-fonts/)) und den Layout‑/Zeilenumbruch‑Einstellungen für das Schriftsystem ab. Um ein korrektes Rendern sicherzustellen, stellen Sie die erforderlichen Schriften bereit, konfigurieren Sie [font substitution rules](/slides/de/python-net/font-substitution/) und/oder betten Sie Schriften ([embed fonts](/slides/de/python-net/embedded-font/)) in die Präsentation ein.
 
-**Kann ich unterschiedliche Sprachen innerhalb eines einzelnen Absatzes festlegen?**
+**Kann ich verschiedene Sprachen innerhalb eines einzelnen Absatzes festlegen?**
 
-Ja. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) wird auf Ebene des Textabschnitts angewendet, sodass ein einzelner Absatz mehrere Sprachen mit unterschiedlichen Prüfungseinstellungen mischen kann.
+Ja. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) wird auf Ebene des Textabschnitts angewendet, sodass ein einzelner Absatz mehrere Sprachen mit unterschiedlichen Korrektureinstellungen mischen kann.

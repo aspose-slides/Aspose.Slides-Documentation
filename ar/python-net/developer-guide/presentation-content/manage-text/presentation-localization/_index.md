@@ -1,26 +1,26 @@
 ---
-title: أتمتة تعريب العروض التقديمية باستخدام Python
-linktitle: تعريب العرض التقديمي
+title: أتمتة توطين العروض التقديمية باستخدام بايثون
+linktitle: توطين العروض التقديمية
 type: docs
 weight: 100
 url: /ar/python-net/presentation-localization/
 keywords:
 - تغيير اللغة
-- تدقيق إملائي
+- التدقيق الإملائي
 - معرف اللغة
 - PowerPoint
-- عرض تقديمي
+- العرض التقديمي
 - Python
 - Aspose.Slides
-description: "أتمتة تعريب شرائح PowerPoint وOpenDocument في Python باستخدام Aspose.Slides، مع أمثلة عملية على الشيفرة ونصائح لتسريع الإطلاق العالمي."
+description: "أتمتة توطين شرائح PowerPoint وOpenDocument في بايثون باستخدام Aspose.Slides، مع أمثلة شيفرة عملية ونصائح لتسريع النشر العالمي."
 ---
 
-## **تغيير اللغة لعرض الشرائح ونص الشكل**
-- إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-- الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها.
+## **تغيير اللغة للعرض ونص الشكل**
+- إنشاء مثيل من فئة [عرض](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+- الحصول على مرجع شريحة باستخدام فهرستها.
 - إضافة AutoShape من نوع مستطيل إلى الشريحة.
 - إضافة بعض النص إلى TextFrame.
-- تعيين معرف اللغة (Language Id) للنص.
+- تعيين معرف اللغة للنص.
 - حفظ العرض كملف PPTX.
 
 يتم توضيح تنفيذ الخطوات السابقة في المثال أدناه.
@@ -36,16 +36,16 @@ with slides.Presentation("pres.pptx") as pres:
 ```
 
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل language_id يُفضي إلى ترجمة تلقائية للنص؟**
+**هل يُؤدي معرف اللغة إلى ترجمة النص تلقائيًا؟**
 
-لا. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) في Aspose.Slides يخزن اللغة لتدقيق الإملائي وإثبات القواعد، لكنه لا يترجم أو يغيّر محتوى النص. إنه بيانات وصفية تفهمها PowerPoint لأغراض التدقيق.
+لا. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) في Aspose.Slides يخزن اللغة للتدقيق الإملائي والنحوي، ولكنه لا يترجم أو يغيّر محتوى النص. إنها بيانات وصفية تفهمها PowerPoint للتدقيق.
 
-**هل language_id يؤثر على التجزئة واستخدام الفواصل السطرية أثناء العرض؟**
+**هل يؤثر معرف اللغة على التجزيء إلى مقاطع والسطور أثناء العرض؟**
 
-في Aspose.Slides، يُستخدم language_id لأغراض التدقيق. جودة التجزئة وتغليف الأسطر تعتمد أساساً على توفر [proper fonts](/slides/ar/python-net/powerpoint-fonts/) وإعدادات التخطيط/فواصل السطر للنظام الكتابي. لضمان عرض صحيح، احرص على توفير الخطوط المطلوبة، وعيّن [font substitution rules](/slides/ar/python-net/font-substitution/)، و/أو [embed fonts](/slides/ar/python-net/embedded-font/) في العرض.
+في Aspose.Slides، [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) مخصص للتدقيق. تعتمد جودة التجزيء إلى مقاطع وتغليف الأسطر أساسًا على توفر [الخطوط المناسبة](/slides/ar/python-net/powerpoint-fonts/) وإعدادات التخطيط/فواصل الأسطر لنظام الكتابة. لضمان عرض صحيح، اجعل الخطوط المطلوبة متاحة، وضبط [قواعد استبدال الخطوط](/slides/ar/python-net/font-substitution/)، و/أو [تضمين الخطوط](/slides/ar/python-net/embedded-font/) في العرض.
 
 **هل يمكنني تعيين لغات مختلفة داخل فقرة واحدة؟**
 
-نعم. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) يُطبق على مستوى جزء النص، لذا يمكن لفقرة واحدة أن تمزج بين عدة لغات بإعدادات تدقيق مختلفة.
+نعم. يُطبّق [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) على مستوى جزء النص، لذا يمكن لفقرة واحدة أن تحتوي على لغات متعددة مع إعدادات تدقيق متميزة.

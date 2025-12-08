@@ -6,22 +6,22 @@ weight: 100
 url: /es/python-net/presentation-localization/
 keywords:
 - cambiar idioma
-- revisión ortográfica
+- corrector ortográfico
 - identificador de idioma
 - PowerPoint
 - presentación
 - Python
 - Aspose.Slides
-description: "Automatiza la localización de diapositivas de PowerPoint y OpenDocument en Python con Aspose.Slides, utilizando ejemplos de código prácticos y consejos para un despliegue global más rápido."
+description: "Automatiza la localización de diapositivas PowerPoint y OpenDocument en Python con Aspose.Slides, utilizando ejemplos de código prácticos y consejos para un despliegue global más rápido."
 ---
 
-## **Cambiar el idioma para la presentación y el texto de la forma**
+## **Cambiar el idioma del texto de la presentación y de la forma**
 - Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-- Obtener la referencia de una diapositiva usando su índice.
-- Agregar una AutoShape de tipo Rectángulo a la diapositiva.
-- Agregar texto al TextFrame.
-- Establecer Language Id en el texto.
-- Guardar la presentación como un archivo PPTX.
+- Obtener la referencia de una diapositiva usando su Índice.
+- Añadir un AutoShape de tipo Rectángulo a la diapositiva.
+- Añadir texto al TextFrame.
+- Establecer el Language Id en el texto.
+- Guardar la presentación como archivo PPTX.
 
 La implementación de los pasos anteriores se muestra a continuación en un ejemplo.
 ```py
@@ -38,14 +38,14 @@ with slides.Presentation("pres.pptx") as pres:
 
 ## **Preguntas frecuentes**
 
-**¿language_id activa la traducción automática del texto?**
+**¿El Language ID activa la traducción automática del texto?**
 
-No. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) en Aspose.Slides almacena el idioma para la corrección ortográfica y gramatical, pero no traduce ni cambia el contenido del texto. Es metadatos que PowerPoint entiende para la revisión.
+No. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) en Aspose.Slides almacena el idioma para la corrección ortográfica y la prueba gramatical, pero no traduce ni modifica el contenido del texto. Es metadatos que PowerPoint entiende para la revisión.
 
-**¿language_id afecta la separación silábica y los saltos de línea durante la renderización?**
+**¿Afecta el Language ID a la separación silábica y los saltos de línea durante el renderizado?**
 
-En Aspose.Slides, [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) se utiliza para la revisión. La calidad de la separación silábica y el ajuste de línea dependen principalmente de la disponibilidad de [proper fonts](/slides/es/python-net/powerpoint-fonts/) y de la configuración de diseño/salto de línea para el sistema de escritura. Para garantizar una renderización correcta, haga que las fuentes necesarias estén disponibles, configure [font substitution rules](/slides/es/python-net/font-substitution/) y/o [embed fonts](/slides/es/python-net/embedded-font/) en la presentación.
+En Aspose.Slides, [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) se utiliza para la revisión. La calidad de la separación silábica y el ajuste de líneas dependen principalmente de la disponibilidad de [fuentes adecuadas](/slides/es/python-net/powerpoint-fonts/) y de la configuración de diseño/saltos de línea para el sistema de escritura. Para garantizar un renderizado correcto, asegúrese de que las fuentes necesarias estén disponibles, configure [reglas de sustitución de fuentes](/slides/es/python-net/font-substitution/) y/o [incorpore fuentes](/slides/es/python-net/embedded-font/) en la presentación.
 
-**¿Puedo establecer diferentes idiomas dentro de un solo párrafo?**
+**¿Puedo establecer diferentes idiomas dentro de un mismo párrafo?**
 
-Sí. [language_id] se aplica a nivel de porción de texto, por lo que un solo párrafo puede mezclar varios idiomas con distintas configuraciones de revisión.
+Sí. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) se aplica a nivel de porción de texto, por lo que un solo párrafo puede combinar varios idiomas con configuraciones de revisión distintas.

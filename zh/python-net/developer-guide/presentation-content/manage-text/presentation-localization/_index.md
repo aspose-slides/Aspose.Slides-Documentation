@@ -12,7 +12,7 @@ keywords:
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides 在 Python 中自动化 PowerPoint 和 OpenDocument 幻灯片本地化，提供实用代码示例和技巧，加速全球部署。"
+description: "使用 Aspose.Slides 在 Python 中自动化 PowerPoint 和 OpenDocument 幻灯片的本地化，提供实用的代码示例和技巧，以加快全球部署。"
 ---
 
 ## **更改演示文稿和形状文本的语言**
@@ -20,10 +20,10 @@ description: "使用 Aspose.Slides 在 Python 中自动化 PowerPoint 和 OpenDo
 - 通过使用索引获取幻灯片的引用。
 - 向幻灯片添加矩形类型的 AutoShape。
 - 向 TextFrame 添加一些文本。
-- 设置文本的 Language Id。
-- 将演示文稿写入为 PPTX 文件。
+- 为文本设置 Language Id。
+- 将演示文稿写入 PPTX 文件。
 
-以下示例演示了上述步骤的实现。
+下面的示例演示了上述步骤的实现。
 ```py
 import aspose.slides as slides
 
@@ -37,14 +37,15 @@ with slides.Presentation("pres.pptx") as pres:
 
 
 ## **常见问题**
-**language_id 会触发自动文本翻译吗？**
 
-否。Aspose.Slides 中的 [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) 用于存储拼写检查和语法校对的语言，但它不会翻译或更改文本内容。它是 PowerPoint 用于校对的元数据。
+**语言 ID 会触发自动文本翻译吗？**
 
-**language_id 会影响渲染时的连字符和换行吗？**
+不会。Aspose.Slides 中的 [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) 用于存储拼写检查和语法校对的语言，但它不会翻译或更改文本内容。这是 PowerPoint 用于校对的元数据。
 
-In Aspose.Slides 中，[language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) 用于校对。连字符质量和换行主要取决于[适当的字体](/slides/zh/python-net/powerpoint-fonts/)的可用性以及书写系统的布局/换行设置。为了确保正确渲染，请提供所需字体，配置[字体替换规则](/slides/zh/python-net/font-substitution/)，并/或将[嵌入字体](/slides/zh/python-net/embedded-font/)嵌入演示文稿。
+**语言 ID 会影响渲染时的连字符和换行吗？**
 
-**我可以在同一段落中设置不同的语言吗？**
+在 Aspose.Slides 中，[language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) 用于校对。连字符质量和换行主要取决于[适当的字体](/slides/zh/python-net/powerpoint-fonts/)以及书写系统的布局/换行设置。要确保正确渲染，请提供所需字体，配置[字体替代规则](/slides/zh/python-net/font-substitution/)，并/或[嵌入字体](/slides/zh/python-net/embedded-font/)到演示文稿。
 
-是的。[language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) 在文本片段级别应用，因此单个段落可以混合多种语言并具有不同的校对设置。
+**我可以在单个段落中设置不同的语言吗？**
+
+可以。[language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) 应用于文本段落级别，因此单个段落可以混合多种语言并使用不同的校对设置。

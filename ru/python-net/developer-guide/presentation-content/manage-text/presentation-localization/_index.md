@@ -1,5 +1,5 @@
 ---
-title: Автоматизация локализации презентаций с Python
+title: Автоматизировать локализацию презентаций с помощью Python
 linktitle: Локализация презентаций
 type: docs
 weight: 100
@@ -12,18 +12,18 @@ keywords:
 - презентация
 - Python
 - Aspose.Slides
-description: "Автоматизируйте локализацию слайдов PowerPoint и OpenDocument в Python с помощью Aspose.Slides, используя практические примеры кода и советы для более быстрого глобального развертывания."
+description: "Автоматизировать локализацию слайдов PowerPoint и OpenDocument в Python с помощью Aspose.Slides, используя практические примеры кода и советы для более быстрого глобального развертывания."
 ---
 
-## **Изменение языка для презентации и текста фигур**
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-- Получите ссылку на слайд, используя его Index.
+## **Изменение языка для текста в презентации и фигуре**
+- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+- Получите ссылку на слайд, используя его индекс.
 - Добавьте AutoShape типа Rectangle на слайд.
 - Добавьте некоторый текст в TextFrame.
 - Установите Language Id для текста.
 - Сохраните презентацию в файл PPTX.
 
-Реализация вышеуказанных шагов показана ниже в примере.
+Реализация вышеуказанных шагов продемонстрирована ниже в примере.
 ```py
 import aspose.slides as slides
 
@@ -38,14 +38,14 @@ with slides.Presentation("pres.pptx") as pres:
 
 ## **FAQ**
 
-**Вызывает ли language_id автоматический перевод текста?**
+**Включает ли идентификатор языка автоматический перевод текста?**
 
-Нет. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) в Aspose.Slides хранит язык для проверки орфографии и грамматики, но не переводит и не изменяет содержание текста. Это метаданные, которые PowerPoint понимает для проверки.
+Нет. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) в Aspose.Slides хранит язык для проверки орфографии и грамматики, но не переводит и не изменяет содержимое текста. Это метаданные, которые PowerPoint понимает для корректуры.
 
-**Влияет ли language_id на переносы слов и разрывы строк при рендеринге?**
+**Влияет ли идентификатор языка на переносы и разрывы строк при рендеринге?**
 
-В Aspose.Slides [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) используется для проверки. Качество переноса и перенос строк в основном зависит от наличия [соответствующих шрифтов](/slides/ru/python-net/powerpoint-fonts/) и настроек макета/переноса строк для системы письма. Чтобы обеспечить правильный рендеринг, сделайте необходимые шрифты доступными, настройте [правила замены шрифтов](/slides/ru/python-net/font-substitution/) и/или [встраивание шрифтов](/slides/ru/python-net/embedded-font/) в презентацию.
+В Aspose.Slides [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) используется для корректуры. Качество переноса слов и переносов строк в первую очередь зависит от наличия [proper fonts](/slides/ru/python-net/powerpoint-fonts/) и настроек раскладки/переноса для системы письма. Чтобы обеспечить правильный рендеринг, сделайте необходимые шрифты доступными, настройте [font substitution rules](/slides/ru/python-net/font-substitution/), и/или [embed fonts](/slides/ru/python-net/embedded-font/) в презентацию.
 
-**Могу ли я установить разные языки в одном абзаце?**
+**Можно ли установить разные языки в одном абзаце?**
 
-Да. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) применяется на уровне части текста, поэтому один абзац может смешивать несколько языков с отдельными настройками проверки.
+Да. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) применяется на уровне части текста, поэтому один абзац может содержать несколько языков с разными настройками корректуры.

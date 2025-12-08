@@ -1,6 +1,6 @@
 ---
 title: Pythonでプレゼンテーションのローカリゼーションを自動化
-linktitle: プレゼンテーションローカリゼーション
+linktitle: プレゼンテーション ローカリゼーション
 type: docs
 weight: 100
 url: /ja/python-net/presentation-localization/
@@ -16,14 +16,14 @@ description: "Python と Aspose.Slides を使用して、PowerPoint および Op
 ---
 
 ## **プレゼンテーションとシェイプのテキストの言語を変更する**
-- [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+- Presentation クラスのインスタンスを作成します。
 - インデックスを使用してスライドの参照を取得します。
 - スライドに矩形タイプの AutoShape を追加します。
 - TextFrame にテキストを追加します。
 - テキストに Language Id を設定します。
-- プレゼンテーションを PPTX ファイルとして保存します。
+- プレゼンテーションを PPTX ファイルとして書き出します。
 
-The implementation of the above steps is demonstrated below in an example.
+上記の手順の実装例は以下のサンプルで示しています。
 ```py
 import aspose.slides as slides
 
@@ -38,14 +38,14 @@ with slides.Presentation("pres.pptx") as pres:
 
 ## **FAQ**
 
-**language_id は自動テキスト翻訳をトリガーしますか？**
+**Does language ID trigger automatic text translation?**
 
-No. Aspose.Slides の language_id はスペルチェックと文法校正のための言語情報を保持しますが、テキストを翻訳したり内容を変更したりはしません。これは PowerPoint が校正のために理解するメタデータです。
+いいえ。Aspose.Slides の [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) はスペルチェックや文法校正のための言語情報を保持しますが、テキストの内容を翻訳したり変更したりはしません。これは PowerPoint が校正用に理解するメタデータです。
 
-**language_id はレンダリング時のハイフネーションや改行に影響しますか？**
+**Does language ID affect hyphenation and line breaks during rendering?**
 
-Aspose.Slides では language_id は校正用です。ハイフネーションの品質や改行は主に適切なフォントの有無や、文字体系に応じたレイアウト/改行設定に依存します。正しくレンダリングするには、必要なフォントを利用可能にし、[font substitution rules](/slides/ja/python-net/font-substitution/) を構成するか、[embed fonts](/slides/ja/python-net/embedded-font/) をプレゼンテーションに埋め込んでください。
+Aspose.Slides では、[language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) は校正のために使用されます。ハイフネーションの品質や改行は主に、[proper fonts](/slides/ja/python-net/powerpoint-fonts/) の有無や、書記体系に応じたレイアウト/改行設定に依存します。正しいレンダリングを確保するには、必要なフォントを利用可能にし、[font substitution rules](/slides/ja/python-net/font-substitution/) を構成するか、またはプレゼンテーションに[embed fonts](/slides/ja/python-net/embedded-font/) を埋め込んでください。
 
-**単一の段落内で異なる言語を設定できますか？**
+**Can I set different languages within a single paragraph?**
 
-はい。language_id はテキストの段落レベルで適用されるため、単一の段落内で複数の言語を混在させ、それぞれ異なる校正設定を持たせることができます。
+はい。[language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) はテキスト部分レベルで適用されるため、単一の段落内で複数の言語を異なる校正設定で混在させることができます。

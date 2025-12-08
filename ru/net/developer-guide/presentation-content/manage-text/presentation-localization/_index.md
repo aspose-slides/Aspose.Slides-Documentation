@@ -1,21 +1,21 @@
 ---
-title: Локализация презентации
+title: Локализация презентаций
 type: docs
 weight: 100
 url: /ru/net/presentation-localization/
-keywords: "Изменить язык, Проверка орфографии, Проверка орфографии, Проверка орфографии, Презентация PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "Изменить или проверить язык в презентации PowerPoint. Проверка орфографии текста в C# или .NET"
+keywords: "Смена языка, Проверка орфографии, Проверка правописания, Орфографический проверщик, Презентация PowerPoint, C#, Csharp, Aspose.Slides for .NET"
+description: "Смена или проверка языка в презентации PowerPoint. Проверка орфографии текста на C# или .NET"
 ---
 
-## **Изменить язык текста презентации и фигуры**
-- Создать экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-- Получить ссылку на слайд, используя его Index.
-- Добавить AutoShape типа Rectangle на слайд.
-- Добавить некоторый текст в TextFrame.
-- Установить LanguageId для текста.
-- Записать презентацию в файл PPTX.
+## **Изменение языка текста в презентации и форме**
+- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+- Получите ссылку на слайд, используя его индекс.
+- Добавьте AutoShape типа Rectangle на слайд.
+- Добавьте текст в TextFrame.
+- Установите Language Id для текста.
+- Сохраните презентацию в файл PPTX.
 
-Реализация вышеуказанных шагов демонстрируется ниже в примере.
+Реализация указанных шагов продемонстрирована ниже в примере.
 ```c#
 using (Presentation pres = new Presentation("test0.pptx"))
 {
@@ -28,16 +28,16 @@ using (Presentation pres = new Presentation("test0.pptx"))
 ```
 
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Вызывает ли language_id автоматический перевод текста?**
+**Влияет ли Language ID на автоматический перевод текста?**
 
-Нет. [language_id](https://reference.aspose.com/slides/net/aspose.slides/portionformat/languageid/) в Aspose.Slides хранит язык для проверки орфографии и грамматики, но не переводит и не изменяет содержимое текста. Это метаданные, которые PowerPoint понимает для проверки.
+Нет. [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) в Aspose.Slides хранит язык для проверки орфографии и грамматики, но не переводит и не изменяет содержимое текста. Это метаданные, которые PowerPoint понимает для проверки.
 
-**Влияет ли language_id на переносы слов и разрывы строк при рендеринге?**
+**Влияет ли Language ID на переносы и разбиение строк при рендеринге?**
 
-В Aspose.Slides [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) используется для проверки правописания. Качество переноса слов и разрыва строк в основном зависит от наличия [соответствующих шрифтов](/slides/ru/net/powerpoint-fonts/) и настроек разметки/переноса строк для системы письма. Чтобы обеспечить корректный рендеринг, сделайте необходимые шрифты доступными, настройте [правила замены шрифтов](/slides/ru/net/font-substitution/) и/или [встроить шрифты](/slides/ru/net/embedded-font/) в презентацию.
+В Aspose.Slides [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) используется для проверки. Качество переносов и разбиения строк в основном зависит от наличия подходящих шрифтов и параметров разметки/разбиения строк для системы письма. Чтобы обеспечить правильный рендеринг, обеспечьте доступность необходимых шрифтов, настройте [font substitution rules](/slides/ru/net/font-substitution/), и/или [embed fonts](/slides/ru/net/embedded-font/) в презентацию.
 
-**Могу ли я задать разные языки в одном абзаце?**
+**Можно ли задать разные языки в пределах одного абзаца?**
 
-Да. [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) применяется на уровне части текста, поэтому в одном абзаце можно смешивать несколько языков с различными настройками проверки.
+Да. [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) применяется на уровне части текста, поэтому в одном абзаце можно смешивать несколько языков с разными настройками проверки.

@@ -1,19 +1,19 @@
 ---
-title: Localización de la presentación
+title: Localización de presentaciones
 type: docs
 weight: 100
 url: /es/net/presentation-localization/
-keywords: "Cambiar idioma, Corrector ortográfico, Revisión ortográfica, Corrector de ortografía, Presentación PowerPoint, C#, Csharp, Aspose.Slides para .NET"
-description: "Cambiar o comprobar el idioma en una presentación PowerPoint. Corrector ortográfico de texto en C# o .NET"
+keywords: "Cambiar idioma, Corrector ortográfico, Spell check, Spellchecker, Presentación de PowerPoint, C#, Csharp, Aspose.Slides for .NET"
+description: "Cambiar o comprobar el idioma en una presentación de PowerPoint. Corrector ortográfico del texto en C# o .NET"
 ---
 
 ## **Cambiar el idioma del texto de la presentación y de la forma**
-- Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-- Obtenga la referencia de una diapositiva usando su índice.
-- Agregue una AutoShape de tipo Rectángulo a la diapositiva.
-- Añada texto al TextFrame.
-- Establezca el Language Id al texto.
-- Guarde la presentación como un archivo PPTX.
+- Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+- Obtener la referencia de una diapositiva usando su índice.
+- Añadir una AutoShape de tipo Rectángulo a la diapositiva.
+- Añadir texto al TextFrame.
+- Establecer Language Id al texto.
+- Guardar la presentación como un archivo PPTX.
 
 La implementación de los pasos anteriores se muestra a continuación en un ejemplo.
 ```c#
@@ -30,13 +30,13 @@ using (Presentation pres = new Presentation("test0.pptx"))
 
 ## **Preguntas frecuentes**
 
-**¿language_id activa la traducción automática de texto?**
+**¿El ID de idioma activa la traducción automática del texto?**
 
-No. [language_id](https://reference.aspose.com/slides/net/aspose.slides/portionformat/languageid/) en Aspose.Slides almacena el idioma para la corrección ortográfica y la revisión gramatical, pero no traduce ni cambia el contenido del texto. Es metadatos que PowerPoint reconoce para la revisión.
+No. [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) en Aspose.Slides almacena el idioma para la corrección ortográfica y la revisión gramatical, pero no traduce ni cambia el contenido del texto. Es metadatos que PowerPoint entiende para la revisión.
 
-**¿language_id afecta la hyphenation y los saltos de línea durante la renderización?**
+**¿Afecta el ID de idioma la guionización y los saltos de línea durante el renderizado?**
 
-En Aspose.Slides, [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) se utiliza para la revisión. La calidad de la hyphenation y el ajuste de líneas dependen principalmente de la disponibilidad de [proper fonts](/slides/es/net/powerpoint-fonts/) y de la configuración de diseño/saltos de línea para el sistema de escritura. Para garantizar una renderización correcta, haga que las fuentes requeridas estén disponibles, configure las [font substitution rules](/slides/es/net/font-substitution/) y/o [embed fonts](/slides/es/net/embedded-font/) en la presentación.
+En Aspose.Slides, [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) es para la revisión. La calidad de la guionización y el ajuste de línea dependen principalmente de la disponibilidad de [fuentes adecuadas](/slides/es/net/powerpoint-fonts/) y de la configuración de diseño/ruptura de línea para el sistema de escritura. Para garantizar un renderizado correcto, haga que las fuentes necesarias estén disponibles, configure [reglas de sustitución de fuentes](/slides/es/net/font-substitution/) y/o [incorpore fuentes](/slides/es/net/embedded-font/) en la presentación.
 
 **¿Puedo establecer diferentes idiomas dentro de un solo párrafo?**
 
