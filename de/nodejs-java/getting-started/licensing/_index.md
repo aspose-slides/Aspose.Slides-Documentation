@@ -1,78 +1,70 @@
 ---
 title: Lizenzierung
-description: "Aspose.Slides für Node.js über Java bietet verschiedene Kaufpläne an oder bietet eine kostenlose Testversion und eine 30-tägige temporäre Lizenz zur evaluierung unter Verwendung von Lizenzierungs- und Abonnementrichtlinien."
+description: "Aspose.Slides für Node.js via Java bietet verschiedene Kaufpläne oder stellt eine kostenlose Testversion und eine 30-tägige temporäre Lizenz zur Evaluierung gemäß Lizenz- und Abonnementrichtlinien bereit."
 type: docs
 weight: 80
 url: /de/nodejs-java/licensing/
 ---
 
-Manchmal ist für die besten Evaluierungsergebnisse ein praktischer Ansatz erforderlich. Aus diesem Grund bietet Aspose.Slides verschiedene Kaufpläne an und bietet auch eine kostenlose Testversion sowie eine 30-tägige temporäre Lizenz zur Evaluierung an.
+Manchmal ist für die besten Evaluierungsergebnisse ein praktischer Ansatz erforderlich. Aus diesem Grund bietet Aspose.Slides verschiedene Kaufpläne sowie eine kostenlose Testversion und eine 30‑tägige Temporäre Lizenz zur Evaluierung an.
 
 {{% alert color="primary" %}}
-
-Bitte beachten Sie, dass es eine Reihe von allgemeinen Richtlinien und Praktiken gibt, die Sie anleiten, wie Sie unsere Produkte evaluieren, korrekt lizenzieren und kaufen. Sie finden diese im Abschnitt ["Kaufrichtlinien und FAQ"](https://purchase.aspose.com/policies).
-
+Beachten Sie, dass es eine Reihe von allgemeinen Richtlinien und Praktiken gibt, die Sie dabei unterstützen, unsere Produkte zu evaluieren, korrekt zu lizenzieren und zu kaufen. Sie finden sie im Abschnitt ["Kaufrichtlinien und FAQ"](https://purchase.aspose.com/policies).
 {{% /alert %}}
 
 ## **Aspose.Slides evaluieren**
-Sie können Aspose.Slides problemlos zum Testen herunterladen. Das Evaluierungspaket ist identisch mit dem gekauften Paket. Die Evaluierungsversion wird einfach lizenziert, nachdem Sie einige Codezeilen hinzugefügt haben, um die Lizenz anzuwenden.
+Sie können Aspose.Slides ganz einfach zur Evaluierung herunterladen. Das Evaluierungspaket ist identisch mit dem gekauften Paket. Die Evaluierungsversion wird einfach lizenziert, sobald Sie ein paar Codezeilen hinzufügen, um die Lizenz anzuwenden. 
 
-## **Einschränkung der Evaluierungsversion**
-Die Evaluierungsversion von Aspose.Slides (ohne angegebene Lizenz) bietet die volle Produktfunktionalität, aber sie fügt beim Öffnen und Speichern ein Evaluierungs-Wasserzeichen an den oberen Rand des Dokuments ein. Sie sind auch auf eine Folie beschränkt, wenn Sie Texte aus Präsentationsfolien extrahieren.
+## **Einschränkungen der Evaluierungsversion**
+Die Evaluierungsversion von Aspose.Slides (ohne angegebene Lizenz) bietet die gesamte Produktfunktionalität, fügt jedoch beim Öffnen und Speichern ein Evaluierungswasserzeichen oben im Dokument ein. Außerdem sind Sie beim Extrahieren von Texten aus Präsentationsfolien auf eine Folie beschränkt.
 
 {{% alert color="primary" %}} 
-
-Wenn Sie Aspose.Slides ohne die Einschränkungen der Evaluierungsversion testen möchten, können Sie eine **30-tägige temporäre Lizenz** anfordern. Bitte beziehen Sie sich auf [Wie man eine temporäre Lizenz erhält?](https://purchase.aspose.com/temporary-license) für weitere Informationen.
-
+Wenn Sie Aspose.Slides ohne die Einschränkungen der Evaluierungsversion testen möchten, können Sie eine **30‑tägige Temporäre Lizenz** anfordern. Weitere Informationen finden Sie unter [How to get a Temporary License?](https://purchase.aspose.com/temporary-license).
 {{% /alert %}} 
 
-## **Über die Lizenz**
-Sie können eine Evaluierungsversion von Aspose.Slides für Node.js über Java ganz einfach von der [Download-Seite](https://releases.aspose.com/slides/nodejs-java/) herunterladen. Die Evaluierungsversion bietet absolut **die gleichen Funktionen** wie die lizenzierte Version von Aspose.Slides. Darüber hinaus wird die Evaluierungsversion einfach lizenziert, nachdem Sie eine Lizenz erworben und ein paar Codezeilen hinzugefügt haben, um die Lizenz anzuwenden.
+## **Zur Lizenz**
+Sie können ganz einfach eine Evaluierungsversion von Aspose.Slides für Node.js via Java von seiner [download page](https://releases.aspose.com/slides/nodejs-java/) herunterladen. Die Evaluierungsversion bietet exakt **die gleichen Fähigkeiten** wie die lizenzierte Version von Aspose.Slides. Darüber hinaus wird die Evaluierungsversion einfach lizenziert, sobald Sie eine Lizenz erwerben und ein paar Codezeilen hinzufügen, um die Lizenz anzuwenden.
 
-Die Lizenz ist eine XML-Datei im Klartext, die Details wie den Produktnamen, die Anzahl der Entwickler, für die sie lizenziert ist, das Ablaufdatum des Abonnements usw. enthält. Die Datei ist digital signiert, daher sollten Sie die Datei nicht ändern. Bereits eine unbeabsichtigte Hinzufügung eines zusätzlichen Zeilenumbruchs zu den Inhalten der Datei macht sie ungültig.
+Die Lizenz ist eine reine Text‑XML‑Datei, die Details wie Produktname, Anzahl der lizenzierten Entwickler, Ablaufdatum des Abonnements usw. enthält. Die Datei ist digital signiert, daher darf sie nicht geändert werden. Selbst das versehentliche Hinzufügen eines zusätzlichen Zeilenumbruchs zum Inhalt der Datei macht sie ungültig.
 
-Um die mit der Evaluierungsversion verbundenen Einschränkungen zu vermeiden, müssen Sie eine Lizenz festlegen, bevor Sie **Aspose.Slides** verwenden. Sie müssen eine Lizenz nur einmal pro Anwendung oder Prozess festlegen.
+Um die mit der Evaluierungsversion verbundenen Einschränkungen zu vermeiden, müssen Sie vor der Verwendung von **Aspose.Slides** eine Lizenz setzen. Sie müssen die Lizenz nur einmal pro Anwendung oder Prozess setzen.
 
-## Gekaufte Lizenz
+{{% alert color="primary" %}} 
+Möglicherweise möchten Sie sich [Metered Licensing](https://docs.aspose.com/slides/nodejs-java/metered-licensing/) ansehen.
+{{% /alert %}} 
 
-Nach dem Kauf müssen Sie die Lizenzdatei oder den Stream anwenden. 
+## **Gekaufte Lizenz**
+Nach dem Kauf müssen Sie die Lizenzdatei oder den Lizenz‑Stream anwenden. 
 
 {{% alert color="primary" %}}
-
-Sie müssen die Lizenz festlegen:
-* nur einmal pro Anwendungsbereich
-* bevor Sie andere Aspose.Slides-Klassen verwenden
-
+Sie müssen die Lizenz setzen:
+* nur einmal pro Anwendungsdomäne
+* bevor Sie irgendeine andere Aspose.Slides‑Klasse verwenden
 {{% /alert %}}
 
 {{% alert color="primary" %}}
-
-Preisinformationen finden Sie auf der Seite [„Preisinformationen“](https://purchase.aspose.com/pricing/slides/family).
-
+Preis‑Informationen finden Sie auf der Seite [“Pricing Information”](https://purchase.aspose.com/pricing/slides/family).
 {{% /alert %}}
 
-### **Festlegen einer Lizenz in Aspose.Slides für Node.js über Java**
-
-Lizenzen können von diesen Standorten angewendet werden:
+### **Lizenz setzen in Aspose.Slides für Node.js via Java**
+Lizenzen können aus folgenden Quellen angewendet werden:
 
 * Expliziter Pfad
 * Stream
-* Als gemessene Lizenz – ein neues Lizenzierungssystem
+* Als Metered License – ein neuer Lizenzierungsmechanismus
 
 {{% alert color="primary" %}}
-
-Verwenden Sie die Methode **setLicense**, um eine Komponente zu lizenzieren.
-
-Obwohl mehrere Aufrufe von **setLicense** nicht schädlich sind, sind sie eine Verschwendung von Ressourcen (Prozessor).
-
+Verwenden Sie die Methode **setLicense**, um eine Komponente zu lizenzieren. Mehrfache Aufrufe von **setLicense** sind zwar nicht schädlich, verschwenden jedoch Ressourcen (Prozessor).
 {{% /alert %}}
 
-#### **Anwenden einer Lizenz mit einer Datei**
+{{% alert color="warning" %}}
+Neue Lizenzen können Aspose.Slides nur mit Version 21.4 oder höher aktivieren. Ältere Versionen verwenden ein anderes Lizenzsystem und erkennen diese Lizenzen nicht.
+{{% /alert %}}
 
-Dieser Codeausschnitt wird verwendet, um eine Lizenzdatei festzulegen:
+#### **Lizenz mittels Datei anwenden**
+Dieses Code‑Snippet wird verwendet, um eine Lizenzdatei zu setzen:
 
 **Node.js**
-
 ```javascript
 var aspose = aspose || {};
 
@@ -82,14 +74,13 @@ var license = new aspose.slides.License();
 license.setLicense("Aspose.Slides.lic");
 ```
 
-Bei der Aufruf der setLicense-Methode sollte der Lizenzname der Bezeichnung Ihrer Lizenzdatei entsprechen. Zum Beispiel können Sie den Lizenzdateinamen in "Aspose.Slides.lic.xml" ändern. Dann müssen Sie in Ihrem Code den neuen Lizenznamen (Aspose.Slides.lic.xml) an die setLicense-Methode übergeben.
 
-#### **Anwenden einer Lizenz aus einem Stream**
+Beim Aufruf der Methode setLicense sollte der Lizenzname dem Namen Ihrer Lizenzdatei entsprechen. Zum Beispiel können Sie den Dateinamen in "Aspose.Slides.lic.xml" ändern. Dann müssen Sie in Ihrem Code den neuen Lizenznamen (Aspose.Slides.lic.xml) an die Methode setLicense übergeben.
 
-Dieser Codeausschnitt wird verwendet, um eine Lizenz aus einem Stream anzuwenden:
+#### **Lizenz aus einem Stream anwenden**
+Dieses Code‑Snippet wird verwendet, um eine Lizenz aus einem Stream anzuwenden:
 
 **Node.js**
-
 ```javascript
 var aspose = aspose || {};
 
@@ -107,47 +98,11 @@ license.setLicense(readStream, function(err, list) {
     }});
 ```
 
-#### Anwenden der gemessenen Lizenz
 
-Aspose.Slides ermöglicht Entwicklern, einen gemessenen Schlüssel anzuwenden. Dies ist ein neues Lizenzierungssystem.
+## **FAQ**
 
-Das neue Lizenzierungssystem wird zusammen mit der bestehenden Lizenzierungsmethode verwendet. Kunden, die basierend auf der Nutzung von API-Funktionen abgerechnet werden möchten, können die gemessene Lizenzierung verwenden.
+**Kann ich die Lizenz in einer vollständig offline Umgebung (kein Internetzugang) anwenden?**
+Ja. Die Lizenzvalidierung erfolgt lokal mit der Lizenzdatei; eine Internetverbindung ist nicht erforderlich.
 
-Nachdem Sie alle notwendigen Schritte zur Erlangung dieser Art von Lizenz abgeschlossen haben, erhalten Sie die Schlüssel, nicht die Lizenzdatei. Dieser gemessene Schlüssel kann mit der speziell zu diesem Zweck eingeführten **Metered**-Klasse angewendet werden.
-
-Im folgenden Codebeispiel wird gezeigt, wie Sie die gemessenen öffentlichen und privaten Schlüssel festlegen:
-
-```javascript
-var aspose = aspose || {};
-
-aspose.slides = require("aspose.slides.via.java");
-
-# Erstellen Sie eine Instanz der CAD Metered-Klasse
-var metered = new aspose.slides.Metered();
-
-# Greifen Sie auf die set_metered_key-Eigenschaft zu und übergeben Sie öffentliche und private Schlüssel als Parameter
-metered.setMeteredKey("*****", "*****");
-
-# Holen Sie sich die Menge an gemessenen Daten, bevor Sie die API aufrufen
-var amountbefore = aspose.slides.Metered.getConsumptionQuantity();
-# Information anzeigen
-console.log('Vorher verbrauchter Betrag: " + amountbefore + "' );
-
-# Dokument von der Festplatte laden.
-var pres = new aspose.slides.Presentation();
-# Seitenanzahl des Dokuments abrufen
-console.log('Nachher verbrauchter Betrag: " +  pres.getSlides().size()) + "' );
-# als PDF speichern
-pres.save("out_pdf.pdf", aspose.slides.SaveFormat.Pdf);
-
-# Holen Sie sich die Menge an gemessenen Daten nach dem API-Aufruf
-var amountafter = aspose.slides.Metered.getConsumptionQuantity();
-# Information anzeigen
-console.log('Nachher verbrauchter Betrag: " + amountafter + "' );
-```
-
-{{% alert color="primary" %}}
-
-Bitte beachten Sie, dass Sie eine stabile Internetverbindung benötigen, um die gemessene Lizenz korrekt zu verwenden, da der gemessene Mechanismus eine ständige Interaktion mit unseren Diensten für korrekte Berechnungen erfordert. Für weitere Einzelheiten siehe den Abschnitt [„Häufige Fragen zur gemessenen Lizenzierung“](https://purchase.aspose.com/faqs/licensing/metered).
-
-{{% /alert %}}
+**Was passiert, wenn das einjährige Abonnement abläuft? Hört die Bibliothek auf zu funktionieren?**
+Nein. Die Lizenz ist unbefristet: Sie können weiterhin Versionen verwenden, die vor Ablauf Ihres Abonnements veröffentlicht wurden; Sie können jedoch neuere Releases nur mit einer Verlängerung nutzen.
