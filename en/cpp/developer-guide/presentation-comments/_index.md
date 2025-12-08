@@ -37,7 +37,7 @@ To allow you to use comments in PowerPoint presentations, Aspose.Slides for C++ 
 * The  [IComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment) class, which contains information on authors and their comments: who added the comment, the time the comment was added, the comment's position, etc. 
 * The [CommentAuthor](https://reference.aspose.com/slides/cpp/class/aspose.slides.comment_author) class, which contains information on individual authors: the author's name, his initials, comments associated with the author's name, etc. 
 
-## **Add Slide Comment**
+## **Add a Slide Comment**
 This C++ code shows you how to add a comment to a slide in a PowerPoint presentation:
 
 ```cpp
@@ -168,7 +168,7 @@ pres->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 
 {{% /alert %}}
 
-## **Add Modern Comment**
+## **Add a Modern Comment**
 
 In 2021, Microsoft introduced *modern comments* in PowerPoint. The modern comments feature significantly improves collaboration in PowerPoint. Through modern comments, PowerPoint users get to resolve comments, anchor comments to objects and texts, and engage in interactions a lot more easily than before. 
 
@@ -187,7 +187,7 @@ auto modernComment = newAuthor->get_Comments()->AddModernComment(u"This is a mod
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Remove Comment**
+## **Remove a Comment**
 
 ### **Delete All Comments and Authors**
 
@@ -250,3 +250,16 @@ presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ```
 
+## **FAQ**
+
+**Does Aspose.Slides support a status like 'resolved' for modern comments?**
+
+Yes. [Modern comments](https://reference.aspose.com/slides/cpp/aspose.slides/moderncomment/) expose a [get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/moderncomment/get_status/) and [set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/moderncomment/set_status/) methods; you can read and set a [comment’s state](https://reference.aspose.com/slides/cpp/aspose.slides/moderncommentstatus/) (for example, mark it as resolved), and this state is saved in the file and recognized by PowerPoint.
+
+**Are threaded discussions (reply chains) supported, and is there a nesting limit?**
+
+Yes. Each comment can reference its [parent comment](https://reference.aspose.com/slides/cpp/aspose.slides/comment/set_parentcomment/), enabling arbitrary reply chains. The API does not declare a specific nesting depth limit.
+
+**In what coordinate system is a comment marker’s position defined on a slide?**
+
+The position is stored as a floating-point point in the slide’s coordinate system. This lets you place the comment marker precisely where you need it.

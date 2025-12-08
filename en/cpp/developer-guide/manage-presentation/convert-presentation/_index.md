@@ -51,7 +51,7 @@ Read more [**How to Convert Presentation to PDF**](/slides/cpp/convert-powerpoi
 ## **Presentation to XPS Conversion**
 ### **About XPS**
 The [XML Parser Specification](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) is a page description language and a fixed-document format originally developed by Microsoft. Like PDF, XPS is a fixed-layout document format designed to preserve document fidelity and provide device-independent document appearance.
-### **Convert Presentation to XPS with Aspose.Slides**
+### **Convert a Presentation to XPS with Aspose.Slides**
 Any presentation document that can be loaded by Aspose.Slides for C++ can be converted to XPS format. Aspose.Slides for C++ uses the high-fidelity page layout and rendering engine to produce output in fixed-layout XPS document format. It is worth-mentioning that Aspose.Slides for C++ directly generates XPS without depending upon the Windows Presentation Foundation (WPF) classes that are packaged with C++ Framework 3.5 hence allowing Aspose.Slides for C++ to produce XPS documents on machines running C++ Framework versions earlier than version 3.5. You can learn about exporting the presentation documents to XPS documents through Aspose.Slides for C++ in [this topic](/slides/cpp/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/).
 {{% alert color="primary" %}} 
 Read more [**How to Convert Presentation to XPS**.](/slides/cpp/convert-powerpoint-to-xps/)
@@ -59,8 +59,38 @@ Read more [**How to Convert Presentation to XPS**.](/slides/cpp/convert-powerpo
 ## **Presentation to TIFF Conversion**
 ### **About TIFF**
 The [Tagged Image File Format](https://en.wikipedia.org/wiki/TIFF) which is known for storing multiple images in one document was originally created by Aldus. This format is widely supported by scanning, faxing and other image manipulation applications.
-### **Convert Presentation to TIFF with Aspose.Slides**
+### **Convert a Presentation to TIFF with Aspose.Slides**
 Any document that can be loaded in Aspose.Slide for C++ can also be converted to TIFF document directly by Aspose.Slides for C++ eliminating requirement of any third party component. Further, you can optionally define the size of the images in the resulting TIFF document. You can find information about exporting the presentation documents to TIFF documents through Aspose.Slides for C++ in [this topic](/slides/cpp/convert-powerpoint-ppt-and-pptx-to-tiff/).
 {{% alert color="primary" %}} 
 Read more [**How to Convert Presentation to TIFF**.](/slides/cpp/convert-powerpoint-ppt-and-pptx-to-tiff/)
 {{% /alert %}}
+
+## **FAQ**
+
+**Can I include hidden slides when exporting to PDF/XPS?**
+
+Yes. Export supports including hidden slides via the corresponding option in the [PDF](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/)/[XPS](https://reference.aspose.com/slides/cpp/aspose.slides.export/xpsoptions/set_showhiddenslides/) settings.
+
+**Is saving to the PDF/A format (for archival storage) supported?**
+
+Yes, PDF/A compliance levels [are available](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfcompliance/) (including A-2a/A-2b/A-2u and A-3a/A-3b) during export.
+
+**What happens to fonts during conversion: are they embedded or substituted?**
+
+There are flexible options: you can [embed all glyphs or only used subsets](/slides/cpp/embedded-font/), specify a [fallback font](/slides/cpp/fallback-font/), and [control behavior](/slides/cpp/font-substitution/) when a font lacks certain styles.
+
+**How can I control the quality and size of the resulting PDF?**
+
+Options are available for [JPEG quality](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_jpegquality/), [text compression](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_textcompression/), and a [sufficient resolution](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_sufficientresolution/) threshold for images, plus a mode that selects the [best compression for pictures](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_bestimagescompressionratio/).
+
+**Can I export only a range of slides (for example, 5–12)?**
+
+Yes, export supports selecting a subset of slides.
+
+**Is multi-core processing of several files at the same time supported?**
+
+It is acceptable to process different presentations in parallel in separate processes. Important: the same [presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) object must not be loaded or saved from [multiple threads](/slides/cpp/multithreading/).
+
+**Are there risks when applying the license from different threads?**
+
+Yes, [license-setting](/slides/cpp/licensing/) calls are not thread-safe and require synchronization.

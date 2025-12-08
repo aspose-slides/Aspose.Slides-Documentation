@@ -38,7 +38,7 @@ It's not uncommon that developers need to extract the text from a presentation. 
 - [Categorized and fast extraction of text](/slides/cpp/extracting-text-from-the-presentation/)
 
 {{% /alert %}} 
-## **Extract Text from Slide**
+## **Extract Text from a Slide**
 Aspose.Slides for C++ provides the Aspose.Slides.Util namespace which includes the SlideUtil class. This class exposes a number of overloaded static methods for extracting the entire text from a presentation or slide. To extract the text from a slide in a PPTX presentation, 
 use the [GetAllTextBoxes](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a97da94e3fc5230cdfc0e30b444c127df) overloaded static method exposed by the SlideUtil class. This method accepts the Slide object as a parameter.
 Upon execution, the Slide method scans the entire text from the slide passed as parameter and returns an array of TextFrame objects. This means that any text formatting associated with the text is available. The following piece of code extracts all the text on the first slide of the presentation:
@@ -78,7 +78,7 @@ for (int32_t i = 0; i < textFramesPPTX->get_Length(); i++)
 }
 ```
 
-## **Extract Text from Presentation**
+## **Extract Text from a Presentation**
 To scan the text from the whole presentation, use the
  [GetAllTextFrames](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a5a0aebdc520e5258c8a1f665fdb8be12) static method exposed by the SlideUtil class. It takes two parameters:
 
@@ -154,3 +154,17 @@ Console::WriteLine(text->get_SlidesText()[0]->get_LayoutText());
 Console::WriteLine(text->get_SlidesText()[0]->get_MasterText());
 Console::WriteLine(text->get_SlidesText()[0]->get_NotesText());
 ```
+
+## **FAQ**
+
+**How fast does Aspose.Slides process large presentations during text extraction?**
+
+Aspose.Slides is optimized for high performance and efficiently processes even large presentations, making it suitable for real-time or bulk processing scenarios.
+
+**Can Aspose.Slides extract text from tables and charts within presentations?**
+
+Yes, Aspose.Slides fully supports extracting text from tables, charts, and other complex slide elements, allowing you to access and analyze all textual content easily.
+
+**Do I need a special Aspose.Slides license to extract text from presentations?**
+
+You can extract text using the free trial version of Aspose.Slides, although it will have certain limitations, such as processing only a limited number of slides. For unrestricted use and to handle larger presentations, purchasing a full license is recommended.

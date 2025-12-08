@@ -146,7 +146,7 @@ loadOptions->set_ResourceLoadingCallback(MakeObject<ImageLoadingHandler>());
 auto presentation = MakeObject<Presentation>(u"Sample.pptx", loadOptions);
 ```
 
-## **Load Presentations Without Embedded Binary Objects**
+## **Load Presentations without Embedded Binary Objects**
 
 A PowerPoint presentation can contain the following types of embedded binary objects:
 
@@ -168,3 +168,17 @@ auto presentation = MakeObject<Presentation>(u"malware.ppt", loadOptions);
 
 presentation->Dispose();
 ```
+
+## **FAQ**
+
+**How can I tell that a file is corrupted and can’t be opened?**
+
+You’ll get a parsing/format validation exception during load. Such errors often mention an invalid ZIP structure or broken PowerPoint records.
+
+**What happens if required fonts are missing when opening?**
+
+The file will open, but later [rendering/export](/slides/cpp/convert-presentation/) may substitute fonts. [Configure font substitutions](/slides/cpp/font-substitution/) or [add the required fonts](/slides/cpp/custom-font/) to the runtime environment.
+
+**What about embedded media (video/audio) when opening?**
+
+They become available as presentation resources. If media are referenced via external paths, ensure those paths are accessible in your environment; otherwise [rendering/export](/slides/cpp/convert-presentation/) may omit the media.
