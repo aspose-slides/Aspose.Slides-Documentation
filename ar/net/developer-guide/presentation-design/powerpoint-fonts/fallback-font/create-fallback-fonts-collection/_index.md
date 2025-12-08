@@ -1,20 +1,21 @@
 ---
-title: إنشاء مجموعة خطوط احتياطية
+title: "إنشاء مجموعة خطوط بديلة"
 type: docs
 weight: 20
 url: /ar/net/create-fallback-fonts-collection/
-keywords: "مجموعة خطوط احتياطية، عرض باوربوينت، C#، Csharp، Aspose.Slides لـ .NET"
-description: "مجموعة خطوط احتياطية في باوربوينت بلغة C# أو .NET"
+keywords: "مجموعة خطوط بديلة، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
+description: "مجموعة خطوط بديلة في PowerPoint باستخدام C# أو .NET"
 ---
 
-يمكن تنظيم حالات [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule) في [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection)، التي تنفذ [IFontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontfallbackrulescollection) واجهة. من الممكن إضافة أو إزالة القواعد من المجموعة.
+## **تطبيق قواعد البديل**
 
-ثم يمكن تعيين هذه المجموعة إلى خاصية [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) من فئة [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager). يتحكم FontsManager في الخطوط عبر العرض التقديمي. اقرأ المزيد عن [FontsManager و FontsLoader](/slides/ar/net/about-fontsmanager-and-fontsloader/).
+يمكن تنظيم كائنات فئة [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule) في [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) التي تنفذ واجهة [IFontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontfallbackrulescollection). يمكن إضافة القواعد أو إزالتها من المجموعة.
 
-كل [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) يمتلك خاصية [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/fontsmanager) مع مثيل خاص به من فئة FontsManager.
+بعد ذلك يمكن تعيين هذه المجموعة إلى الخاصية [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) في فئة [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager). يتحكم FontsManager في الخطوط عبر العرض التقديمي. اقرأ المزيد حول [About FontsManager and FontsLoader](/slides/ar/net/about-fontsmanager-and-fontsloader/).
 
-إليك مثال على كيفية إنشاء مجموعة قواعد الخطوط الاحتياطية وتعيينها إلى FontsManager لعرض تقديمي معين:  
+يحتوي كل [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) على خاصية [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/fontsmanager) مع نسخة خاصة من فئة FontsManager.
 
+فيما يلي مثال لإنشاء مجموعة قواعد الخطوط الاحتياطية وتعيينها إلى FontsManager في عرض تقديمي معين:  
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -27,8 +28,27 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-بعد تهيئة FontsManager مع مجموعة الخطوط الاحتياطية، يتم تطبيق الخطوط الاحتياطية أثناء عرض العرض التقديمي.
+
+بعد تهيئة FontsManager بمجموعة الخطوط الاحتياطية، تُطبق الخطوط الاحتياطية أثناء عرض تقديم العرض التقديمي.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد عن كيفية [عرض العرض التقديمي باستخدام خط احتياطي](/slides/ar/net/render-presentation-with-fallback-font/).
+اقرأ المزيد حول كيفية [Render Presentation with Fallback Font](/slides/ar/net/render-presentation-with-fallback-font/).
 {{% /alert %}}
+
+## **الأسئلة الشائعة**
+
+**هل سيتم تضمين قواعد الاحتياطي الخاصة بي في ملف PPTX وستظهر في PowerPoint بعد الحفظ؟**
+
+لا. قواعد الاحتياطي هي إعدادات عرض وقت التشغيل؛ لا تُسجل في ملف PPTX ولن تظهر في واجهة PowerPoint.
+
+**هل ينطبق الاحتياطي على النص داخل SmartArt و WordArt والرسوم البيانية والجداول؟**
+
+نعم. يتم استخدام نفس آلية استبدال الحروف لأي نص في هذه الكائنات.
+
+**هل تقوم Aspose بتوزيع أي خطوط مع المكتبة؟**
+
+لا. تقوم بإضافة واستخدام الخطوط من جانبك وتتحمل المسؤولية.
+
+**هل يمكن استخدام استبدال/استبدال الخطوط المفقودة والبديل للرموز المفقودة معًا؟**
+
+نعم. هما مرحلتان مستقلتان في نفس خط أنابيب حل الخطوط: أولاً تقوم المحرك بحل توفر الخط (الاستبدال/الاستبدال)، ثم يملأ الاحتياطي الفجوات للرموز المفقودة في الخطوط المتاحة.

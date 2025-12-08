@@ -1,6 +1,6 @@
 ---
-title: Создать или обновить диаграммы PowerPoint в C#
-linktitle: Создать или обновить диаграмму
+title: Создание или обновление диаграмм презентаций PowerPoint в C#
+linktitle: Создание или обновление диаграммы
 type: docs
 weight: 10
 url: /ru/net/create-chart/
@@ -13,219 +13,214 @@ keywords:
 - точечная диаграмма
 - круговая диаграмма
 - линейная диаграмма
-- диаграмма «дерево»
+- диаграмма Tree Map
 - фондовая диаграмма
-- диаграмма «ящик с усами»
+- коробчатая диаграмма
 - воронкообразная диаграмма
-- лучевая диаграмма
+- диаграмма Sunburst
 - гистограмма
 - радиальная диаграмма
 - многокатегориальная диаграмма
 - презентация PowerPoint
 - C#
 - Aspose.Slides
-description: "Узнайте, как создавать и настраивать диаграммы в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для .NET. Рассмотрено добавление, форматирование и редактирование диаграмм в презентациях с практическими примерами кода на C#."
+description: "Узнайте, как создавать и настраивать диаграммы в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для .NET. Описывается добавление, форматирование и редактирование диаграмм в презентациях с практическими примерами кода на C#."
 ---
 
 ## **Обзор**
 
-Эта статья предоставляет всестороннее руководство по созданию и настройке диаграмм с использованием Aspose.Slides for .NET. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные параметры форматирования, соответствующие вашим требованиям к дизайну. В статье приведены подробные примеры кода, иллюстрирующие каждый шаг—from инициализации презентации и объекта диаграммы до настройки рядов, осей и легенд. Следуя этому руководству, вы получите прочное понимание того, как интегрировать динамическое построение диаграмм в свои .NET‑приложения, упрощая процесс создания презентаций, основанных на данных.
+В этой статье представлено полное руководство по созданию и настройке диаграмм с помощью Aspose.Slides для .NET. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные параметры форматирования, соответствующие вашим конкретным требованиям к дизайну. На протяжении всей статьи подробные примеры кода иллюстрируют каждый шаг, от инициализации презентации и объекта диаграммы до настройки серий, осей и легенд. Следуя этому руководству, вы получите твердое понимание того, как интегрировать динамическое создание диаграмм в ваши .NET‑приложения, упростив процесс создания презентаций, основанных на данных.
 
-## **Создание диаграмм**
+## **Создание диаграммы**
 
-Диаграммы помогают людям быстро визуализировать данные и получать инсайты, которые не сразу заметны в таблице или электронных таблицах.
+Диаграммы помогают людям быстро визуализировать данные и получать инсайты, которые могут быть не очевидны из таблицы или электронной таблицы.
 
-**Зачем создавать диаграммы?**
+**Почему создавать диаграммы?**
 
-С помощью диаграмм вы можете:
-
-* агрегировать, конденсировать или суммировать большие объёмы данных на одном слайде презентации;
+* агрегировать, сжимать или суммировать большие объёмы данных на одном слайде презентации;
 * выявлять шаблоны и тенденции в данных;
 * определять направление и динамику данных во времени или относительно конкретной единицы измерения;
-* обнаруживать выбросы, аномалии, отклонения, ошибки и бессмысленные данные;
-* сообщать или представлять сложные данные.
+* выявлять выбросы, аномалии, отклонения, ошибки и бессмысленные данные;
+* коммуницировать или представлять сложные данные.
 
-В PowerPoint диаграммы можно создавать через функцию *Insert*, которая предоставляет шаблоны для проектирования множества типов диаграмм. С помощью Aspose.Slides можно создавать как обычные диаграммы (на основе популярных типов), так и пользовательские диаграммы.
+В PowerPoint вы можете создавать диаграммы через функцию *Insert*, которая предоставляет шаблоны для проектирования множества типов диаграмм. С помощью Aspose.Slides можно создавать как обычные диаграммы (на основе популярных типов) так и пользовательские диаграммы.
 
 {{% alert color="primary" %}} 
-Используйте перечисление [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) из пространства имён [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Значения этого перечисления соответствуют различным типам диаграмм.
-{{% /alert %}} 
+Используйте перечисление [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) в пространстве имён [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Значения в этом перечислении соответствуют различным типам диаграмм.
+{{% /alert %}}
 
-### **Создание группированных столбчатых диаграмм**
+### **Создание сгруппированных столбчатых диаграмм**
 
-Этот раздел объясняет, как создавать группированные столбчатые диаграммы с помощью Aspose.Slides for .NET. Вы узнаете, как инициализировать презентацию, добавить диаграмму и настроить её элементы, такие как заголовок, данные, ряды, категории и оформление. Выполните шаги ниже, чтобы увидеть, как генерируется стандартная группированная столбчатая диаграмма:
+В этом разделе объясняется, как создавать сгруппированные столбчатые диаграммы с помощью Aspose.Slides для .NET. Вы научитесь инициализировать презентацию, добавлять диаграмму и настраивать её элементы, такие как заголовок, данные, серии, категории и стиль. Следуйте нижеприведённым шагам, чтобы увидеть, как генерируется стандартная сгруппированная столбчатая диаграмма:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте диаграмму с некоторыми данными и укажите тип `ChartType.ClusteredColumn`.
-1. Добавьте заголовок к диаграмме.
-1. Получите доступ к рабочему листу данных диаграммы.
-1. Очистите все рядовые и категориальные данные по умолчанию.
-1. Добавьте новые ряды и категории.
-1. Добавьте новые данные для рядов диаграммы.
-1. Примените цвет заливки к рядам диаграммы.
-1. Добавьте подписи к рядам диаграммы.
-1. Сохраните изменённую презентацию как файл PPTX.
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с некоторыми данными и укажите тип `ChartType.ClusteredColumn`.
+4. Добавьте заголовок к диаграмме.
+5. Получите доступ к листу данных диаграммы.
+6. Очистите все серии и категории по умолчанию.
+7. Добавьте новые серии и категории.
+8. Добавьте новые данные диаграммы для серий.
+9. Примените цвет заливки к серии диаграммы.
+10. Добавьте подписи к серии диаграммы.
+11. Сохраните изменённую презентацию в формате PPTX.
 
-Этот C# код демонстрирует, как создать группированную столбчатую диаграмму:
 ```c#
-    // Создать экземпляр класса Presentation.
-    using (Presentation presentation = new Presentation())
-    {
-        // Получить первый слайд.
-        ISlide slide = presentation.Slides[0];
+// Создать экземпляр класса Presentation.
+using (Presentation presentation = new Presentation())
+{
+    // Получить первый слайд.
+    ISlide slide = presentation.Slides[0];
 
-        // Добавить кластеризованную столбчатую диаграмму с её данными по умолчанию.
-        IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+    // Добавить сгруппированную столбчатую диаграмму с набором данных по умолчанию.
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-        // Установить заголовок диаграммы.
-        chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-        chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-        chart.ChartTitle.Height = 20;
-        chart.HasTitle = true;
+    // Установить заголовок диаграммы.
+    chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+    chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+    chart.ChartTitle.Height = 20;
+    chart.HasTitle = true;
 
-        // Установить отображение значений для первого ряда.
-        chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+    // Установить отображение значений для первой серии.
+    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-        // Задать индекс листа данных диаграммы.
-        int worksheetIndex = 0;
+    // Установить индекс листа данных диаграммы.
+    int worksheetIndex = 0;
 
-        // Получить рабочую книгу данных диаграммы.
-        IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    // Получить рабочую книгу данных диаграммы.
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-        // Удалить автоматически сгенерированные ряд и категории.
-        chart.ChartData.Series.Clear();
-        chart.ChartData.Categories.Clear();
+    // Удалить автоматически сгенерированные серии и категории.
+    chart.ChartData.Series.Clear();
+    chart.ChartData.Categories.Clear();
 
-        // Добавить новые ряды.
-        chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
-        chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), chart.Type);
+    // Добавить новые серии.
+    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
+    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), chart.Type);
 
-        // Добавить новые категории.
-        chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
-        chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
-        chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
+    // Добавить новые категории.
+    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
+    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
+    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
 
-        // Получить первый ряд диаграммы.
-        IChartSeries series = chart.ChartData.Series[0];
+    // Получить первую серию диаграммы.
+    IChartSeries series = chart.ChartData.Series[0];
 
-        // Заполнить данные ряда.
-        series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
-        series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
-        series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
+    // Заполнить данные серии.
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-        // Установить цвет заливки для ряда.
-        series.Format.Fill.FillType = FillType.Solid;
-        series.Format.Fill.SolidFillColor.Color = Color.Red;
+    // Установить цвет заливки для серии.
+    series.Format.Fill.FillType = FillType.Solid;
+    series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-        // Получить второй ряд диаграммы.
-        series = chart.ChartData.Series[1];
+    // Получить вторую серию диаграммы.
+    series = chart.ChartData.Series[1];
 
-        // Заполнить данные ряда.
-        series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
-        series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
-        series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
+    // Заполнить данные серии.
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
 
-        // Установить цвет заливки для ряда.
-        series.Format.Fill.FillType = FillType.Solid;
-        series.Format.Fill.SolidFillColor.Color = Color.Green;
+    // Установить цвет заливки для серии.
+    series.Format.Fill.FillType = FillType.Solid;
+    series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-        // Установить первую подпись, чтобы показывать имя категории.
-        IDataLabel label = series.DataPoints[0].Label;
-        label.DataLabelFormat.ShowCategoryName = true;
+    // Установить первую метку для отображения имени категории.
+    IDataLabel label = series.DataPoints[0].Label;
+    label.DataLabelFormat.ShowCategoryName = true;
 
-        label = series.DataPoints[1].Label;
-        label.DataLabelFormat.ShowSeriesName = true;
+    label = series.DataPoints[1].Label;
+    label.DataLabelFormat.ShowSeriesName = true;
 
-        // Установить отображение значения для третьей подписи ряда.
-        label = series.DataPoints[2].Label;
-        label.DataLabelFormat.ShowValue = true;
-        label.DataLabelFormat.ShowSeriesName = true;
-        label.DataLabelFormat.Separator = "/";
+    // Установить отображение значения для третьей метки серии.
+    label = series.DataPoints[2].Label;
+    label.DataLabelFormat.ShowValue = true;
+    label.DataLabelFormat.ShowSeriesName = true;
+    label.DataLabelFormat.Separator = "/";
 
-        // Сохранить презентацию на диск в виде файла PPTX.
-        presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
-    }
+    // Сохранить презентацию на диск в формате PPTX файл.
+    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
+}
 ```
 
 
 Результат:
 
-![Группированная столбчатая диаграмма](clustered_column_chart.png)
+![Сгруппированная столбчатая диаграмма](clustered_column_chart.png)
 
 ### **Создание точечных диаграмм**
 
 Точечные диаграммы (также известные как scatter plot или графики x‑y) часто используют для проверки шаблонов или демонстрации корреляций между двумя переменными.
 
 Используйте точечную диаграмму, когда:
-
 * У вас есть парные числовые данные.
-* У вас есть две переменные, которые логически связаны.
+* У вас есть две переменные, которые хорошо сочетаются.
 * Вы хотите определить, связаны ли две переменные.
 * У вас есть независимая переменная, имеющая несколько значений для зависимой переменной.
 
-Этот C# код показывает, как создать точечную диаграмму с различными маркерами рядов:
 ```c#
- // Создать экземпляр класса Presentation.
- using (Presentation presentation = new Presentation())
- {
-     // Получить первый слайд.
-     ISlide slide = presentation.Slides[0];
+// Создать экземпляр класса Presentation.
+using (Presentation presentation = new Presentation())
+{
+    // Получить первый слайд.
+    ISlide slide = presentation.Slides[0];
 
-     // Создать диаграмму рассеяния по умолчанию.
-     IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
+    // Создать стандартную точечную диаграмму.
+    IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-     // Задать индекс листа данных диаграммы.
-     int worksheetIndex = 0;
+    // Установить индекс листа данных диаграммы.
+    int worksheetIndex = 0;
 
-     // Получить рабочую книгу данных диаграммы.
-     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    // Получить рабочую книгу данных диаграммы.
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-     // Удалить ряд по умолчанию.
-     chart.ChartData.Series.Clear();
+    // Удалить серии по умолчанию.
+    chart.ChartData.Series.Clear();
 
-     // Добавить новые ряды.
-     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 1, "Series 1"), chart.Type);
-     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 3, "Series 2"), chart.Type);
+    // Добавить новые серии.
+    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 1, "Series 1"), chart.Type);
+    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 3, "Series 2"), chart.Type);
 
-     // Получить первый ряд диаграммы.
-     IChartSeries series = chart.ChartData.Series[0];
+    // Получить первую серию диаграммы.
+    IChartSeries series = chart.ChartData.Series[0];
 
-     // Добавить новую точку (1:3) в ряд.
-     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 1, 1), workbook.GetCell(worksheetIndex, 2, 2, 3));
+    // Добавить новую точку (1:3) в серию.
+    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 1, 1), workbook.GetCell(worksheetIndex, 2, 2, 3));
 
-     // Добавить новую точку (2:10).
-     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
+    // Добавить новую точку (2:10).
+    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
 
-     // Изменить тип ряда.
-     series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
+    // Изменить тип серии.
+    series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
-     // Изменить маркер ряда диаграммы.
-     series.Marker.Size = 10;
-     series.Marker.Symbol = MarkerStyleType.Star;
+    // Изменить маркер серии диаграммы.
+    series.Marker.Size = 10;
+    series.Marker.Symbol = MarkerStyleType.Star;
 
-     // Получить второй ряд диаграммы.
-     series = chart.ChartData.Series[1];
+    // Получить вторую серию диаграммы.
+    series = chart.ChartData.Series[1];
 
-     // Добавить новую точку (5:2) в ряд диаграммы.
-     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 3, 5), workbook.GetCell(worksheetIndex, 2, 4, 2));
+    // Добавить новую точку (5:2) в серию диаграммы.
+    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 3, 5), workbook.GetCell(worksheetIndex, 2, 4, 2));
 
-     // Добавить новую точку (3:1).
-     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 3, 3), workbook.GetCell(worksheetIndex, 3, 4, 1));
+    // Добавить новую точку (3:1).
+    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 3, 3), workbook.GetCell(worksheetIndex, 3, 4, 1));
 
-     // Добавить новую точку (2:2).
-     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 4, 3, 2), workbook.GetCell(worksheetIndex, 4, 4, 2));
+    // Добавить новую точку (2:2).
+    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 4, 3, 2), workbook.GetCell(worksheetIndex, 4, 4, 2));
 
-     // Добавить новую точку (5:1).
-     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 5, 3, 5), workbook.GetCell(worksheetIndex, 5, 4, 1));
+    // Добавить новую точку (5:1).
+    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 5, 3, 5), workbook.GetCell(worksheetIndex, 5, 4, 1));
 
-     // Изменить маркер ряда диаграммы.
-     series.Marker.Size = 10;
-     series.Marker.Symbol = MarkerStyleType.Circle;
+    // Изменить маркер серии диаграммы.
+    series.Marker.Size = 10;
+    series.Marker.Symbol = MarkerStyleType.Circle;
 
-     // Сохранить презентацию на диск в виде файла PPTX.
-     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
- }
+    // Сохранить презентацию на диск в формате PPTX.
+    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
+}
 ```
 
 
@@ -235,123 +230,122 @@ description: "Узнайте, как создавать и настраиват�
 
 ### **Создание круговых диаграмм**
 
-Круговые диаграммы лучше всего использовать для отображения отношений часть‑к‑целому в данных, особенно когда данные содержат категориальные метки с числовыми значениями. Однако если в ваших данных много частей или меток, рассмотрите возможность использования столбчатой диаграммы.
+Круговые диаграммы лучше всего использовать для отображения соотношения часть‑целое в данных, особенно когда данные содержат категориальные метки с числовыми значениями. Однако если ваши данные содержат много частей или меток, возможно, стоит рассмотреть использование столбчатой диаграммы.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.Pie`.
-1. Получите доступ к рабочей книге данных диаграммы ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Очистите рядовые и категориальные данные по умолчанию.
-1. Добавьте новые ряды и категории.
-1. Добавьте новые данные для рядов диаграммы.
-1. Добавьте новые точки в диаграмму и задайте пользовательские цвета секций круговой диаграммы.
-1. Установите подписи для рядов.
-1. Включите линии‑указатели для подписи рядов.
-1. Задайте угол поворота круговой диаграммы.
-1. Сохраните изменённую презентацию как файл PPTX.
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.Pie`.
+4. Получите доступ к рабочей книге данных диаграммы ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+5. Очистите серии и категории по умолчанию.
+6. Добавьте новые серии и категории.
+7. Добавьте новые данные диаграммы для серии.
+8. Добавьте новые точки к диаграмме и примените пользовательские цвета к секторам круговой диаграммы.
+9. Установите подписи для серии.
+10. Включите направляющие линии для подписей серии.
+11. Установите угол вращения для круговой диаграммы.
+12. Сохраните изменённую презентацию в формате PPTX.
 
-Этот C# код показывает, как создать круговую диаграмму:
 ```c#
- // Создать экземпляр класса Presentation.
- using (Presentation presentation = new Presentation())
- {
-     // Получить первый слайд.
-     ISlide slide = presentation.Slides[0];
+// Создать экземпляр класса Presentation.
+using (Presentation presentation = new Presentation())
+{
+    // Получить первый слайд.
+    ISlide slide = presentation.Slides[0];
 
-     // Добавить диаграмму с данными по умолчанию.
-     IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
+    // Добавить диаграмму с данными по умолчанию.
+    IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
 
-     // Установить заголовок диаграммы.
-     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-     chart.ChartTitle.Height = 20;
-     chart.HasTitle = true;
+    // Установить заголовок диаграммы.
+    chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+    chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+    chart.ChartTitle.Height = 20;
+    chart.HasTitle = true;
 
-     // Установить отображение значений для первого ряда.
-     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+    // Отобразить значения в первой серии.
+    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-     // Задать индекс листа данных диаграммы.
-     int worksheetIndex = 0;
+    // Установить индекс листа данных диаграммы.
+    int worksheetIndex = 0;
 
-     // Получить рабочую книгу данных диаграммы.
-     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    // Получить рабочую книгу данных диаграммы.
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-     // Удалить автоматически сгенерированные ряд и категории.
-     chart.ChartData.Series.Clear();
-     chart.ChartData.Categories.Clear();
+    // Удалить автоматически сгенерированные серии и категории.
+    chart.ChartData.Series.Clear();
+    chart.ChartData.Categories.Clear();
 
-     // Добавить новые категории.
-     chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "1st Qtr"));
-     chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
-     chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
+    // Добавить новые категории.
+    chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "1st Qtr"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
 
-     // Добавить новый ряд.
-     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
+    // Добавить новую серию.
+    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-     // Заполнить данные ряда.
-     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
-     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
-     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
+    // Заполнить данные серии.
+    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
+    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
+    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-     // Установить цвет сектора.
-     chart.ChartData.SeriesGroups[0].IsColorVaried = true;
+    // Установить цвет сектора.
+    chart.ChartData.SeriesGroups[0].IsColorVaried = true;
 
-     IChartDataPoint point = series.DataPoints[0];
-     point.Format.Fill.FillType = FillType.Solid;
-     point.Format.Fill.SolidFillColor.Color = Color.Cyan;
+    IChartDataPoint point = series.DataPoints[0];
+    point.Format.Fill.FillType = FillType.Solid;
+    point.Format.Fill.SolidFillColor.Color = Color.Cyan;
 
-     // Установить границу сектора.
-     point.Format.Line.FillFormat.FillType = FillType.Solid;
-     point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
-     point.Format.Line.Width = 3.0;
-     point.Format.Line.Style = LineStyle.ThinThick;
-     point.Format.Line.DashStyle = LineDashStyle.LargeDash;
+    // Установить границу сектора.
+    point.Format.Line.FillFormat.FillType = FillType.Solid;
+    point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
+    point.Format.Line.Width = 3.0;
+    point.Format.Line.Style = LineStyle.ThinThick;
+    point.Format.Line.DashStyle = LineDashStyle.LargeDash;
 
-     IChartDataPoint point1 = series.DataPoints[1];
-     point1.Format.Fill.FillType = FillType.Solid;
-     point1.Format.Fill.SolidFillColor.Color = Color.Brown;
+    IChartDataPoint point1 = series.DataPoints[1];
+    point1.Format.Fill.FillType = FillType.Solid;
+    point1.Format.Fill.SolidFillColor.Color = Color.Brown;
 
-     // Установить границу сектора.
-     point1.Format.Line.FillFormat.FillType = FillType.Solid;
-     point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
-     point1.Format.Line.Width = 3.0;
-     point1.Format.Line.Style = LineStyle.Single;
-     point1.Format.Line.DashStyle = LineDashStyle.LargeDashDot;
+    // Установить границу сектора.
+    point1.Format.Line.FillFormat.FillType = FillType.Solid;
+    point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
+    point1.Format.Line.Width = 3.0;
+    point1.Format.Line.Style = LineStyle.Single;
+    point1.Format.Line.DashStyle = LineDashStyle.LargeDashDot;
 
-     IChartDataPoint point2 = series.DataPoints[2];
-     point2.Format.Fill.FillType = FillType.Solid;
-     point2.Format.Fill.SolidFillColor.Color = Color.Coral;
+    IChartDataPoint point2 = series.DataPoints[2];
+    point2.Format.Fill.FillType = FillType.Solid;
+    point2.Format.Fill.SolidFillColor.Color = Color.Coral;
 
-     // Установить границу сектора.
-     point2.Format.Line.FillFormat.FillType = FillType.Solid;
-     point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
-     point2.Format.Line.Width = 2.0;
-     point2.Format.Line.Style = LineStyle.ThinThin;
-     point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
+    // Установить границу сектора.
+    point2.Format.Line.FillFormat.FillType = FillType.Solid;
+    point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
+    point2.Format.Line.Width = 2.0;
+    point2.Format.Line.Style = LineStyle.ThinThin;
+    point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
 
-     // Создать пользовательские подписи для каждой категории в новом ряду.
-     IDataLabel label1 = series.DataPoints[0].Label;
+    // Создать пользовательские подписи для каждой категории в новой серии.
+    IDataLabel label1 = series.DataPoints[0].Label;
 
-     label1.DataLabelFormat.ShowValue = true;
+    label1.DataLabelFormat.ShowValue = true;
 
-     IDataLabel label2 = series.DataPoints[1].Label;
-     label2.DataLabelFormat.ShowValue = true;
-     label2.DataLabelFormat.ShowLegendKey = true;
-     label2.DataLabelFormat.ShowPercentage = true;
+    IDataLabel label2 = series.DataPoints[1].Label;
+    label2.DataLabelFormat.ShowValue = true;
+    label2.DataLabelFormat.ShowLegendKey = true;
+    label2.DataLabelFormat.ShowPercentage = true;
 
-     IDataLabel label3 = series.DataPoints[2].Label;
-     label3.DataLabelFormat.ShowSeriesName = true;
-     label3.DataLabelFormat.ShowPercentage = true;
+    IDataLabel label3 = series.DataPoints[2].Label;
+    label3.DataLabelFormat.ShowSeriesName = true;
+    label3.DataLabelFormat.ShowPercentage = true;
 
-     // Установить отображение линий‑указателей для ряда диаграммы.
-     series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
+    // Отобразить линии‑указатели для серии на диаграмме.
+    series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
 
-     // Установить угол поворота секторов круговой диаграммы.
-     chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
+    // Установить угол вращения секторов круговой диаграммы.
+    chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
 
-     // Сохранить презентацию на диск в виде файла PPTX.
-     presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
- }
+    // Сохранить презентацию на диск в формате PPTX.
+    presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
+}
 ```
 
 
@@ -361,16 +355,16 @@ description: "Узнайте, как создавать и настраиват�
 
 ### **Создание линейных диаграмм**
 
-Линейные диаграммы (также известные как line graphs) лучше всего использовать, когда необходимо продемонстрировать изменения значения во времени. С помощью линейной диаграммы можно одновременно сравнивать большой объём данных, отслеживать изменения и тенденции, выделять аномалии в рядах данных и многое другое.
+Линейные диаграммы (также известные как линейные графики) лучше всего подходят для демонстрации изменений значений во времени. С помощью линейной диаграммы можно сравнивать большое количество данных одновременно, отслеживать изменения и тенденции во времени, выделять аномалии в сериях данных и многое другое.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.Line`.
-1. Получите доступ к рабочей книге данных диаграммы ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Очистите рядовые и категориальные данные по умолчанию.
-1. Добавьте новые ряды и категории.
-1. Добавьте новые данные для рядов диаграммы.
-1. Сохраните изменённую презентацию как файл PPTX.
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.Line`.
+4. Получите доступ к рабочей книге данных диаграммы ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+5. Очистите серии и категории по умолчанию.
+6. Добавьте новые серии и категории.
+7. Добавьте новые данные диаграммы для серии.
+8. Сохраните изменённую презентацию в формате PPTX.
 
 Этот C# код показывает, как создать линейную диаграмму:
 ```c#
@@ -383,7 +377,8 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-По умолчанию точки на линейной диаграмме соединяются сплошными прямыми линиями. Если вы хотите, чтобы точки соединялись пунктиром, укажите желаемый тип штриха следующим образом:
+По умолчанию точки на линейной диаграмме соединяются прямыми непрерывными линиями. Если вы хотите, чтобы точки соединялись пунктиром, вы можете указать желаемый тип пунктиров следующим образом:
+
 ```c#
 foreach (IChartSeries series in lineChart.ChartData.Series)
 {
@@ -396,18 +391,18 @@ foreach (IChartSeries series in lineChart.ChartData.Series)
 
 ![Линейная диаграмма](line_chart.png)
 
-### **Создание диаграмм «дерево» (Tree Map)**
+### **Создание диаграмм Tree Map**
 
-Диаграммы «дерево» лучше всего подходят для данных о продажах, когда требуется показать относительный размер категорий и быстро привлечь внимание к крупным вкладам внутри каждой категории.
+Диаграммы Tree Map лучше всего подходят для данных о продажах, когда нужно показать относительный размер категорий данных и быстро привлечь внимание к элементам, являющимся крупными вкладами внутри каждой категории.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.Treemap`.
-1. Получите доступ к рабочей книге данных диаграммы ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Очистите рядовые и категориальные данные по умолчанию.
-1. Добавьте новые ряды и категории.
-1. Добавьте новые данные для рядов диаграммы.
-1. Сохраните изменённую презентацию как файл PPTX.
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.Treemap`.
+4. Получите доступ к рабочей книге данных диаграммы ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+5. Очистите серии и категории по умолчанию.
+6. Добавьте новые серии и категории.
+7. Добавьте новые данные диаграммы для серии.
+8. Сохраните изменённую презентацию в формате PPTX.
 
 Этот C# код показывает, как создать диаграмму «дерево»:
 ```c#
@@ -464,21 +459,21 @@ using (Presentation presentation = new Presentation())
 
 Результат:
 
-![Диаграмма «дерево»](treemap_chart.png)
+![Диаграмма Treemap](treemap_chart.png)
 
 ### **Создание фондовых диаграмм**
 
-Фондовые диаграммы используются для отображения финансовых данных, таких как цены открытия, максимумы, минимумы и закрытия, помогая анализировать рыночные тенденции и волатильность. Они предоставляют ключевые инсайты о динамике акций, помогая инвесторам и аналитикам принимать обоснованные решения.
+Фондовые диаграммы используются для отображения финансовых данных, таких как цены открытия, максимума, минимума и закрытия, помогая анализировать рыночные тенденции и волатильность. Они предоставляют важные сведения о динамике акций, помогают инвесторам и аналитикам принимать обоснованные решения.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.OpenHighLowClose`.
-1. Получите доступ к рабочей книге данных диаграммы ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Очистите рядовые и категориальные данные по умолчанию.
-1. Добавьте новые ряды и категории.
-1. Добавьте новые данные для рядов диаграммы.
-1. Укажите формат HiLowLines.
-1. Сохраните изменённую презентацию как файл PPTX.
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.OpenHighLowClose`.
+4. Получите доступ к рабочей книге данных диаграммы ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+5. Очистите серии и категории по умолчанию.
+6. Добавьте новые серии и категории.
+7. Добавьте новые данные диаграммы для серии.
+8. Укажите формат HiLowLines.
+9. Сохраните изменённую презентацию в формате PPTX.
 
 Этот C# код показывает, как создать фондовую диаграмму:
 ```c#
@@ -536,18 +531,18 @@ using (Presentation presentation = new Presentation())
 
 ![Фондовая диаграмма](stock_chart.png)
 
-### **Создание диаграмм «ящик с усами» (Box and Whisker)**
+### **Создание коробчатых и усовых диаграмм**
 
-Диаграммы «ящик с усами» используются для отображения распределения данных, суммируя ключевые статистические показатели, такие как медиана, квартили и потенциальные выбросы. Они особенно полезны в исследовательском анализе данных и статистических исследованиях для быстрой оценки изменчивости данных и выявления аномалий.
+Box and Whisker диаграммы используются для отображения распределения данных, суммируя ключевые статистические показатели, такие как медиана, квартиль и потенциальные выбросы. Они особенно полезны в исследовательском анализе данных и статистических исследованиях для быстрого понимания изменчивости данных и выявления аномалий.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.BoxAndWhisker`.
-1. Получите доступ к рабочей книге данных диаграммы ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Очистите рядовые и категориальные данные по умолчанию.
-1. Добавьте новые ряды и категории.
-1. Добавьте новые данные для рядов диаграммы.
-1. Сохраните изменённую презентацию как файл PPTX.
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.BoxAndWhisker`.
+4. Получите доступ к рабочей книге данных диаграммы ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+5. Очистите серии и категории по умолчанию.
+6. Добавьте новые серии и категории.
+7. Добавьте новые данные диаграммы для серии.
+8. Сохраните изменённую презентацию в формате PPTX.
 
 Этот C# код показывает, как создать диаграмму «ящик с усами»:
 ```c#
@@ -589,14 +584,13 @@ using (Presentation presentation = new Presentation())
 
 ### **Создание воронкообразных диаграмм**
 
-Воронкообразные диаграммы используются для визуализации процессов, состоящих из последовательных этапов, где объём данных уменьшается от одного шага к следующему. Они особенно полезны для анализа коэффициентов конверсии, выявления узких мест и отслеживания эффективности процессов продаж или маркетинга.
+Воронкообразные диаграммы используются для визуализации процессов, включающих последовательные стадии, где объём данных уменьшается по мере перехода от одного шага к другому. Они особенно полезны для анализа коэффициентов конверсии, выявления узких мест и отслеживания эффективности продаж или маркетинговых процессов.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.Funnel`.
-1. Сохраните изменённую презентацию как файл PPTX.
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.Funnel`.
+4. Сохраните изменённую презентацию в формате PPTX.
 
-Этот C# код показывает, как создать воронкообразную диаграмму:
 ```c#
 using (Presentation presentation = new Presentation("test.pptx"))
 {
@@ -632,14 +626,14 @@ using (Presentation presentation = new Presentation("test.pptx"))
 
 ![Воронкообразная диаграмма](funnel_chart.png)
 
-### **Создание лучевых диаграмм (Sunburst)**
+### **Создание диаграмм Sunburst**
 
-Лучевые диаграммы используются для визуализации иерархических данных, отображая уровни в виде концентрических колец. Они помогают иллюстрировать отношения часть‑к‑целому и идеально подходят для представления вложенных категорий и подкатегорий в компактном виде.
+Sunburst диаграммы используются для визуализации иерархических данных, отображая уровни в виде концентрических колец. Они помогают проиллюстрировать отношения часть‑целое и идеально подходят для представления вложенных категорий и подкатегорий в компактном виде.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.Sunburst`.
-1. Сохраните изменённую презентацию как файл PPTX.
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.Sunburst`.
+4. Сохраните изменённую презентацию в формате PPTX.
 
 Этот C# код показывает, как создать лучевую диаграмму:
 ```c#
@@ -694,19 +688,19 @@ using (Presentation presentation = new Presentation())
 
 Результат:
 
-![Лучевая диаграмма](sunburst_chart.png)
+![Диаграмма Sunburst](sunburst_chart.png)
 
 ### **Создание гистограмм**
 
-Гистограммы используются для представления распределения числовых данных путем группировки значений в диапазоны (бинки). Они особенно полезны для выявления закономерностей, таких как частота, асимметрия и разброс, а также для обнаружения выбросов в наборе данных.
+Гистограммы используются для представления распределения числовых данных, группируя значения в диапазоны (корзины). Они особенно полезны для выявления паттернов, таких как частота, ассиметрия и разброс, а также для обнаружения выбросов в наборе данных.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте диаграмму с некоторыми данными и укажите тип `ChartType.Histogram`.
-1. Получите доступ к рабочей книге данных диаграммы ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Очистите рядовые и категориальные данные по умолчанию.
-1. Добавьте новые ряды и категории.
-1. Сохраните изменённую презентацию как файл PPTX.
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с некоторыми данными и укажите тип `ChartType.Histogram`.
+4. Получите доступ к рабочей книге данных диаграммы ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Очистите серии и категории по умолчанию.
+6. Добавьте новые серии и категории.
+7. Сохраните изменённую презентацию в формате PPTX.
 
 Этот C# код показывает, как создать гистограмму:
 ```c#
@@ -738,14 +732,14 @@ using (Presentation presentation = new Presentation())
 
 ![Гистограмма](histogram_chart.png)
 
-### **Создание радиальных диаграмм (Radar)**
+### **Создание радиальных диаграмм**
 
-Радиальные диаграммы используются для отображения многомерных данных в двумерном формате, позволяя легко сравнивать несколько переменных одновременно. Они особенно полезны для выявления шаблонов, сильных и слабых сторон по множеству метрик производительности или характеристик.
+Радиальные диаграммы используются для отображения многомерных данных в двумерном формате, позволяя легко сравнивать несколько переменных одновременно. Они особенно полезны для выявления паттернов, сильных и слабых сторон по множеству метрик производительности или атрибутов.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте диаграмму с некоторыми данными и укажите тип `ChartType.Radar`.
-1. Сохраните изменённую презентацию как файл PPTX.
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с некоторыми данными и укажите тип `ChartType.Radar`.
+4. Сохраните изменённую презентацию в формате PPTX.
 
 Этот C# код показывает, как создать радиальную диаграмму:
 ```c#
@@ -763,16 +757,16 @@ using (Presentation presentation = new Presentation())
 
 ### **Создание многокатегориальных диаграмм**
 
-Многокатегориальные диаграммы используются для отображения данных, включающих более одной группировки категорий, позволяя сравнивать значения по нескольким измерениям одновременно. Они особенно полезны, когда необходимо анализировать тенденции и взаимосвязи в сложных, многослойных наборах данных.
+Многокатегориальные диаграммы используются для отображения данных, включающих более одной группировки категорий, позволяя сравнивать значения по нескольким измерениям одновременно. Они особенно полезны при анализе тенденций и взаимосвязей в сложных, многослойных наборах данных.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на слайд, используя его индекс.
-1. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.ClusteredColumn`.
-1. Получите доступ к рабочей книге данных диаграммы ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Очистите рядовые и категориальные данные по умолчанию.
-1. Добавьте новые ряды и категории.
-1. Добавьте новые данные для рядов диаграммы.
-1. Сохраните изменённую презентацию как файл PPTX.
+2. Получите ссылку на слайд, используя его индекс.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип `ChartType.ClusteredColumn`.
+4. Получите доступ к рабочей книге данных диаграммы ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+5. Очистите серии и категории по умолчанию.
+6. Добавьте новые серии и категории.
+7. Добавьте новые данные диаграммы для серии.
+8. Сохраните изменённую презентацию в формате PPTX.
 
 Этот C# код показывает, как создать многокатегориальную диаграмму:
 ```c#
@@ -829,7 +823,7 @@ using (Presentation presentation = new Presentation())
 
 ### **Создание картографических диаграмм**
 
-Картографические диаграммы используют для визуализации географических данных, сопоставляя информацию с конкретными локациями, такими как страны, регионы или города. Они особенно полезны для анализа региональных тенденций, демографических данных и пространственного распределения в наглядной форме.
+Картографические диаграммы используются для визуализации географических данных, сопоставляя информацию с конкретными локациями, такими как страны, штаты или города. Они особенно полезны для анализа региональных тенденций, демографических данных и пространственного распределения в наглядном виде.
 
 Этот C# код показывает, как создать картографическую диаграмму:
 ```c#
@@ -843,11 +837,11 @@ using (Presentation presentation = new Presentation())
 
 Результат:
 
-![Картографическая диаграмма](map_chart.png)
+![Карта](map_chart.png)
 
 ### **Создание комбинированных диаграмм**
 
-Комбинированная диаграмма (combo chart) объединяет два или более типов диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или исследовать различия между наборами данных, помогая выявлять взаимосвязи.
+Комбинированная диаграмма (или combo chart) объединяет два и более типов диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или изучать различия между двумя и более наборами данных, помогая выявлять взаимосвязи между ними.
 
 ![Комбинированная диаграмма](combination_chart.png)
 
@@ -899,7 +893,7 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // Добавляет первый ряд
+    // Добавляет первую серию
     IChartSeries series = chart.ChartData.Series.Add(
         workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
 
@@ -963,7 +957,7 @@ private static void SetPrimaryAxesFormat(IChart chart)
 
     SetAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Устанавливает цвет основных вертикальных линий сетки
+    // Устанавливает цвет основных линий сетки по вертикали
     ILineFillFormat majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
     majorGridLinesFormat.FillType = FillType.Solid;
     majorGridLinesFormat.SolidFillColor.Color = Color.FromArgb(217, 217, 217);
@@ -1004,17 +998,16 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **Обновление диаграмм**
 
-Aspose.Slides for .NET позволяет обновлять диаграммы PowerPoint, изменяя данные диаграммы, форматирование и стили. Эта возможность упрощает поддержание презентаций в актуальном состоянии с динамическим контентом и обеспечивает точное отражение текущих данных и визуальных стандартов.
+Aspose.Slides для .NET позволяет обновлять диаграммы PowerPoint, изменяя их данные, форматирование и стили. Эта возможность упрощает поддержание презентаций в актуальном состоянии с динамичным содержимым и гарантирует, что диаграммы точно отражают текущие данные и визуальные стандарты.
 
-1. Создайте объект класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), представляющий презентацию с диаграммой.
-1. Получите ссылку на слайд, используя его индекс.
-1. Пройдитесь по всем фигурам, чтобы найти диаграмму.
-1. Получите доступ к рабочему листу данных диаграммы.
-1. Измените ряд данных диаграммы, изменив значения рядов.
-1. Добавьте новый ряд и заполните его данными.
-1. Сохраните изменённую презентацию как файл PPTX.
+1. Инстанцируйте класс [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), представляющий презентацию, содержащую диаграмму.
+2. Получите ссылку на слайд, используя его индекс.
+3. Пройдите по всем фигурам, чтобы найти диаграмму.
+4. Получите доступ к листу данных диаграммы.
+5. Измените серию данных диаграммы, изменив значения серии.
+6. Добавьте новую серию и заполните её данными.
+7. Сохраните изменённую презентацию в формате PPTX.
 
-Этот C# код показывает, как обновить диаграмму:
 ```c#
 const string chartName = "My chart";
 
@@ -1034,32 +1027,32 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
             // Получить рабочую книгу данных диаграммы.
             IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-            // Изменить имена категорий диаграммы.
+            // Изменить названия категорий диаграммы.
             workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
             workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
 
-            // Получить первый ряд диаграммы.
+            // Получить первую серию диаграммы.
             IChartSeries series = chart.ChartData.Series[0];
 
-            // Обновить данные ряда.
-            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Изменение имени ряда.
+            // Обновить данные серии.
+            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Изменение названия серии.
             series.DataPoints[0].Value.Data = 90;
             series.DataPoints[1].Value.Data = 123;
             series.DataPoints[2].Value.Data = 44;
 
-            // Получить второй ряд диаграммы.
+            // Получить вторую серию диаграммы.
             series = chart.ChartData.Series[1];
 
-            // Обновить данные ряда.
-            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Изменение имени ряда.
+            // Обновить данные серии.
+            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Изменение названия серии.
             series.DataPoints[0].Value.Data = 23;
             series.DataPoints[1].Value.Data = 67;
             series.DataPoints[2].Value.Data = 99;
 
-            // Добавить новый ряд.
+            // Добавить новую серию.
             series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), chart.Type);
 
-            // Заполнить данные ряда.
+            // Заполнить данные серии.
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 3, 20));
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 3, 50));
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 3, 30));
@@ -1076,13 +1069,13 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 ## **Установка диапазона данных для диаграмм**
 
-Aspose.Slides for .NET предоставляет возможность задать конкретный диапазон данных из рабочего листа в качестве источника данных для вашей диаграммы. Это позволяет напрямую сопоставлять часть листа с диаграммой, контролируя, какие ячейки участвуют в серииях и категориях. В результате вы можете легко обновлять и синхронизировать диаграммы с последними изменениями данных, гарантируя актуальность и точность информации в презентации.
+Aspose.Slides для .NET предоставляет гибкость определения конкретного диапазона данных из листа как источника данных для вашей диаграммы. Это означает, что вы можете напрямую сопоставлять часть листа с диаграммой, контролируя, какие ячейки участвуют в сериях и категориях диаграммы. В результате вы сможете легко обновлять и синхронизировать диаграммы с последними изменениями данных в листе, обеспечивая актуальность и точность информации в ваших презентациях PowerPoint.
 
-1. Создайте объект класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), представляющий презентацию с диаграммой.
-1. Получите ссылку на слайд, используя его индекс.
-1. Пройдитесь по всем фигурам, чтобы найти диаграмму.
-1. Получите доступ к данным диаграммы и задайте диапазон.
-1. Сохраните изменённую презентацию как файл PPTX.
+1. Инстанцируйте класс [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), представляющий презентацию, содержащую диаграмму.
+2. Получите ссылку на слайд, используя его индекс.
+3. Пройдите по всем фигурам, чтобы найти диаграмму.
+4. Получите доступ к данным диаграммы и задайте диапазон.
+5. Сохраните изменённую презентацию в формате PPTX.
 
 Этот C# код показывает, как задать диапазон данных для диаграммы:
 ```c#
@@ -1107,9 +1100,9 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 ```
 
 
-## **Использование стандартных маркеров в диаграммах**
+## **Использовать маркеры по умолчанию в диаграммах**
 
-При использовании стандартных маркеров в диаграммах каждый ряд автоматически получает различный маркер по умолчанию.
+При использовании маркеров по умолчанию в диаграммах каждому ряду диаграммы автоматически присваивается различный маркер.
 
 Этот C# код показывает, как автоматически задать маркер для ряда диаграммы:
 ```c#
@@ -1153,20 +1146,20 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **ЧаВо**
+## **Вопросы и ответы**
 
-**Какие типы диаграмм поддерживает Aspose.Slides for .NET?**
+**Какие типы диаграмм поддерживает Aspose.Slides для .NET?**
 
-Aspose.Slides for .NET поддерживает широкий набор типов диаграмм, включая столбчатые, линейные, круговые, областные, точечные, гистограммы, радиальные и многие другие. Эта гибкость позволяет выбрать наиболее подходящий тип диаграммы для ваших задач визуализации данных.
+Aspose.Slides для .NET поддерживает широкий спектр типов диаграмм, включая гистограммы, линейные, круговые, областные, точечные, гистограммы, радиальные и многие другие. Эта гибкость позволяет выбрать наиболее подходящий тип диаграммы для ваших нужд в визуализации данных.
 
 **Как добавить новую диаграмму на слайд?**
 
-Чтобы добавить диаграмму, сначала создайте объект класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), получите нужный слайд по его индексу, а затем вызовите метод добавления диаграммы, указав тип диаграммы и исходные данные. Этот процесс интегрирует диаграмму непосредственно в вашу презентацию.
+Чтобы добавить диаграмму, сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), получите нужный слайд по его индексу, а затем вызовите метод добавления диаграммы, указав тип диаграммы и начальные данные. Этот процесс интегрирует диаграмму непосредственно в вашу презентацию.
 
 **Как обновить данные, отображаемые в диаграмме?**
 
-Вы можете обновить данные диаграммы, получив доступ к её рабочей книге данных ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), очистив любые ряды и категории по умолчанию и затем добавив свои пользовательские данные. Это позволяет программно обновлять диаграмму в соответствии с последними данными.
+Вы можете обновить данные диаграммы, получив доступ к её рабочей книге данных ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), очистив любые серии и категории по умолчанию, а затем добавив свои собственные данные. Это позволяет программно обновлять диаграмму, отражая последние данные.
 
 **Можно ли настроить внешний вид диаграммы?**
 
-Да, Aspose.Slides for .NET предоставляет обширные возможности настройки. Вы можете изменять цвета, шрифты, подписи, легенды и другие элементы форматирования, чтобы адаптировать внешний вид диаграммы к вашим конкретным требованиям дизайна.
+Да, Aspose.Slides для .NET предоставляет обширные возможности настройки. Вы можете изменять цвета, шрифты, подписи, легенды и другие элементы форматирования, чтобы адаптировать внешний вид диаграммы под конкретные требования дизайна.

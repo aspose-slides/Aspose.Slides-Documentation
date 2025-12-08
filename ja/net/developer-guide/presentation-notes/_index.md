@@ -1,74 +1,81 @@
 ---
-title: プレゼンテーションノート
+title: プレゼンテーション ノート
 type: docs
 weight: 110
 url: /ja/net/presentation-notes/
-keywords: "ノート, PowerPointノート, ノートを追加, ノートを削除, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
-description: "C#または.NETでPowerPointプレゼンテーションにノートを追加および削除する"
+keywords: "ノート、PowerPoint ノート、ノートを追加、ノートを削除、PowerPoint プレゼンテーション、C#、Csharp、Aspose.Slides for .NET"
+description: "C# または .NET で PowerPoint プレゼンテーションのノートを追加および削除します"
 ---
 
+Aspose.Slides はプレゼンテーションからノート スライドを削除することをサポートします。このトピックでは、ノートを削除する新機能と、任意のプレゼンテーションにノート スタイル スライドを追加する方法をご紹介します。Aspose.Slides for .NET は、任意のスライドのノートを削除し、既存のノートにスタイルを追加する機能を提供します。開発者は次の方法でノートを削除できます。
 
+- プレゼンテーション内の特定のスライドのノートを削除する。
+- プレゼンテーション内のすべてのスライドのノートを削除する。
 
-Aspose.Slidesは、プレゼンテーションからノートスライドを削除することをサポートしています。このトピックでは、ノートを削除する際の新しい機能と、任意のプレゼンテーションからノートスタイルスライドを追加する機能を紹介します。Aspose.Slides for .NETは、任意のスライドのノートを削除する機能と、既存のノートにスタイルを追加する機能を提供します。開発者は以下の方法でノートを削除できます：
-
-- プレゼンテーションの特定のスライドのノートを削除します。
-- プレゼンテーションのすべてのスライドのノートを削除します。
-## **スライドからノートを削除**
-特定のスライドのノートは、以下の例に示すように削除できます：
-
+## **Remove Notes from Slide**
+特定のスライドのノートは、以下の例のように削除できます。
 ```c#
-// プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化
+// プレゼンテーション ファイルを表す Presentation オブジェクトをインスタンス化します
 Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx");
 
-// 最初のスライドのノートを削除
+// 最初のスライドのノートを削除します
 INotesSlideManager mgr = presentation.Slides[0].NotesSlideManager;
 mgr.RemoveNotesSlide();
 
-// プレゼンテーションをディスクに保存
+// プレゼンテーションをディスクに保存します
 presentation.Save(dataDir + "RemoveNotesAtSpecificSlide_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **すべてのスライドからノートを削除**
-プレゼンテーションのすべてのスライドのノートは、以下の例に示すように削除できます：
-
+## **Remove Notes from All Slides**
+プレゼンテーション内のすべてのスライドのノートは、以下の例のように削除できます。
 ```c#
-// プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化
-Presentation presentation = new Presentation("AccessSlides.pptx");
+ // Instantiate a Presentation object that represents a presentation file 
+ Presentation presentation = new Presentation("AccessSlides.pptx");
 
-// すべてのスライドのノートを削除
+// Removing notes of all slides
 INotesSlideManager mgr = null;
 for (int i = 0; i < presentation.Slides.Count; i++)
 {
     mgr = presentation.Slides[i].NotesSlideManager;
     mgr.RemoveNotesSlide();
 }
-// プレゼンテーションをディスクに保存
+// Save presentation to disk
 presentation.Save("RemoveNotesFromAllSlides_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **ノートスタイルの追加**
-NotesStyleプロパティは、[IMasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/imasternotesslide)インターフェースおよび[MasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/masternotesslide)クラスに追加されました。このプロパティは、ノートテキストのスタイルを指定します。実装は以下の例に示されています。
-
+## **Add NotesStyle**
+NotesStyle プロパティが [IMasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/imasternotesslide) インターフェイスおよび [MasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/masternotesslide) クラスにそれぞれ追加されました。このプロパティはノート テキストのスタイルを指定します。実装は以下の例で示されています。
 ```c#
-// プレゼンテーションファイルを表すPresentationクラスをインスタンス化
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します
 using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 {
     IMasterNotesSlide notesMaster = presentation.MasterNotesSlideManager.MasterNotesSlide;
 
     if (notesMaster != null)
     {
-        // MasterNotesSlideテキストスタイルを取得
+        // MasterNotesSlide のテキストスタイルを取得します
         ITextStyle notesStyle = notesMaster.NotesStyle;
 
-        // 最初のレベルの段落にシンボルバレットを設定
+        // 最初のレベルの段落にシンボル箇条書き設定します
         IParagraphFormat paragraphFormat = notesStyle.GetLevel(0);
         paragraphFormat.Bullet.Type = BulletType.Symbol;
     }
 
-    // PPTXファイルをディスクに保存
+    // PPTX ファイルをディスクに保存します
     presentation.Save("AddNotesSlideWithNotesStyle_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 }
 ```
+
+
+## **FAQ**
+
+**Which API entity provides access to the notes of a specific slide?**
+
+ノートはスライドのノート マネージャーを介してアクセスできます。スライドには [NotesSlideManager](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/) があり、ノート オブジェクトを返す [property](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/notesslide/) が提供されます。ノートが存在しない場合は `null` が返されます。
+
+**Are there differences in notes support across the PowerPoint versions the library works with?**
+
+このライブラリは Microsoft PowerPoint の広範なフォーマット（97 以降）および ODP を対象としており、インストールされた PowerPoint に依存せずにこれらのフォーマット内でノートがサポートされます。

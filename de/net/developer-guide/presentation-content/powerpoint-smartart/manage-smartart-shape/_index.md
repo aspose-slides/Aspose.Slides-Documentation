@@ -4,53 +4,50 @@ type: docs
 weight: 20
 url: /de/net/manage-smartart-shape/
 keywords: "SmartArt-Form, SmartArt-Formstil, SmartArt-Formfarbstil, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "Verwalten Sie SmartArt in PowerPoint-Präsentationen in C# oder .NET"
+description: "SmartArt in PowerPoint-Präsentationen in C# oder .NET verwalten"
 ---
 
 ## **SmartArt-Form erstellen**
-Aspose.Slides für .NET erleichtert nun das Hinzufügen benutzerdefinierter SmartArt-Formen in ihren Folien von Grund auf. Aspose.Slides für .NET hat die einfachste API bereitgestellt, um SmartArt-Formen auf die einfachste Weise zu erstellen. Um eine SmartArt-Form in einer Folie zu erstellen, befolgen Sie bitte die folgenden Schritte:
+Aspose.Slides for .NET ermöglicht nun das Hinzufügen benutzerdefinierter SmartArt‑Formen zu Folien von Grund auf. Aspose.Slides for .NET stellt die einfachste API bereit, um SmartArt‑Formen auf einfachste Weise zu erstellen. Um eine SmartArt‑Form in einer Folie zu erstellen, befolgen Sie bitte die folgenden Schritte:
 
-- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
-- Erhalten Sie die Referenz auf eine Folie, indem Sie ihren Index verwenden.
-- Fügen Sie eine SmartArt-Form hinzu, indem Sie den LayoutType festlegen.
-- Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
-
+- Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
+- Rufen Sie die Referenz einer Folie über deren Index ab.
+- Fügen Sie eine SmartArt‑Form hinzu, indem Sie deren LayoutType festlegen.
+- Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 ```c#
-// Stellen Sie die Präsentation bereit
-using (Presentation pres = new Presentation())
-{
-
-    // Greifen Sie auf die Präsentationsfolie zu
-    ISlide slide = pres.Slides[0];
-
-    // Fügen Sie eine Smart Art Form hinzu
-    ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.BasicBlockList);
-
-    // Präsentation speichern
-    pres.Save("SimpleSmartArt_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+ // Präsentation instanziieren
+ using (Presentation pres = new Presentation())
+ {
+ 
+     // Auf die Folie der Präsentation zugreifen
+     ISlide slide = pres.Slides[0];
+ 
+     // SmartArt-Form hinzufügen
+     ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.BasicBlockList);
+ 
+     // Präsentation speichern
+     pres.Save("SimpleSmartArt_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+ }
 ```
 
 
 
-## **Zugriff auf SmartArt-Form in der Folie**
-Der folgende Code wird verwendet, um auf die in der Präsentationsfolie hinzugefügten SmartArt-Formen zuzugreifen. Im Beispielcode durchlaufen wir jede Form innerhalb der Folie und prüfen, ob es sich um eine SmartArt-Form handelt. Wenn die Form vom Typ SmartArt ist, casten wir sie in eine SmartArt-Instanz.
 
+## **Zugriff auf SmartArt-Form in Folie**
+Der folgende Code wird verwendet, um auf die in einer Präsentationsfolie hinzugefügten SmartArt‑Formen zuzugreifen. Im Beispielcode traversieren wir jede Form auf der Folie und prüfen, ob es sich um eine SmartArt‑Form handelt. Ist die Form vom Typ SmartArt, casting wir sie in eine SmartArt‑Instanz.
 ```c#
-// Laden Sie die gewünschte Präsentation
+ // Laden der gewünschten Präsentation
 using (Presentation pres = new Presentation("AccessSmartArtShape.pptx"))
 {
-
-    // Durchlaufen Sie jede Form innerhalb der ersten Folie
+    // Durchlaufen aller Formen in der ersten Folie
     foreach (IShape shape in pres.Slides[0].Shapes)
     {
-        // Überprüfen, ob die Form vom Typ SmartArt ist
+        // Prüfen, ob die Form vom Typ SmartArt ist
         if (shape is ISmartArt)
         {
-            // Form in SmartArtEx casten
+            // Typumwandlung der Form zu SmartArtEx
             ISmartArt smart = (ISmartArt)shape;
-            System.Console.WriteLine("Formname:" + smart.Name);
-
+            System.Console.WriteLine("Shape Name:" + smart.Name);
         }
     }
 }
@@ -58,31 +55,31 @@ using (Presentation pres = new Presentation("AccessSmartArtShape.pptx"))
 
 
 
-## **Zugriff auf SmartArt-Form mit bestimmtem Layout-Typ**
-Der folgende Beispielcode hilft dabei, auf die SmartArt-Form mit einem bestimmten LayoutType zuzugreifen. Bitte beachten Sie, dass Sie den LayoutType der SmartArt nicht ändern können, da er schreibgeschützt ist und nur beim Hinzufügen der SmartArt-Form festgelegt wird.
 
-- Erstellen Sie eine Instanz der `Presentation`-Klasse und laden Sie die Präsentation mit SmartArt-Form.
-- Erhalten Sie die Referenz auf die erste Folie, indem Sie ihren Index verwenden.
-- Durchlaufen Sie jede Form innerhalb der ersten Folie.
-- Überprüfen Sie, ob die Form vom Typ SmartArt ist, und casten Sie die ausgewählte Form zu SmartArt, wenn es sich um SmartArt handelt.
-- Überprüfen Sie die SmartArt-Form mit dem bestimmten LayoutType und führen Sie aus, was anschließend erforderlich ist.
+## **Zugriff auf SmartArt-Form mit bestimmtem Layouttyp**
+Der folgende Beispielcode hilft beim Zugriff auf die SmartArt‑Form mit einem bestimmten LayoutType. Bitte beachten Sie, dass Sie den LayoutType von SmartArt nicht ändern können, da er schreibgeschützt ist und nur beim Hinzufügen der SmartArt‑Form festgelegt wird.
 
+- Erstellen Sie eine Instanz der Klasse `Presentation` und laden Sie die Präsentation mit SmartArt Shape.
+- Rufen Sie die Referenz der ersten Folie über deren Index ab.
+- Durchlaufen Sie jede Form in der ersten Folie.
+- Prüfen Sie, ob die Form vom Typ SmartArt ist, und casten Sie die ausgewählte Form zu SmartArt, falls sie SmartArt ist.
+- Prüfen Sie die SmartArt‑Form mit dem bestimmten LayoutType und führen Sie anschließend das erforderliche Vorgehen aus.
 ```c#
 using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 {
-    // Durchlaufen Sie jede Form innerhalb der ersten Folie
+    // Durchlaufen aller Formen in der ersten Folie
     foreach (IShape shape in presentation.Slides[0].Shapes)
     {
-        // Überprüfen, ob die Form vom Typ SmartArt ist
+        // Prüfen, ob die Form vom Typ SmartArt ist
         if (shape is ISmartArt)
         {
-            // Form in SmartArtEx casten
+            // Typumwandlung der Form zu SmartArtEx
             ISmartArt smart = (ISmartArt) shape;
 
-            // Überprüfen des SmartArt-Layouts
+            // Prüfen des SmartArt-Layouts
             if (smart.Layout == SmartArtLayoutType.BasicBlockList)
             {
-                Console.WriteLine("Führen Sie hier etwas aus....");
+                Console.WriteLine("Do some thing here....");
             }
         }
     }
@@ -91,30 +88,30 @@ using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 
 
 
+
 ## **SmartArt-Formstil ändern**
-Der folgende Beispielcode hilft, auf die SmartArt-Form mit einem bestimmten LayoutType zuzugreifen.
+Der folgende Beispielcode hilft beim Zugriff auf die SmartArt‑Form mit einem bestimmten LayoutType.
 
-- Erstellen Sie eine Instanz der `Presentation`-Klasse und laden Sie die Präsentation mit SmartArt-Form.
-- Erhalten Sie die Referenz auf die erste Folie, indem Sie ihren Index verwenden.
-- Durchlaufen Sie jede Form innerhalb der ersten Folie.
-- Überprüfen Sie, ob die Form vom Typ SmartArt ist, und casten Sie die ausgewählte Form zu SmartArt, wenn es sich um SmartArt handelt.
-- Finden Sie die SmartArt-Form mit einem bestimmten Stil.
-- Legen Sie den neuen Stil für die SmartArt-Form fest.
+- Erstellen Sie eine Instanz der Klasse `Presentation` und laden Sie die Präsentation mit SmartArt Shape.
+- Rufen Sie die Referenz der ersten Folie über deren Index ab.
+- Durchlaufen Sie jede Form in der ersten Folie.
+- Prüfen Sie, ob die Form vom Typ SmartArt ist, und casten Sie die ausgewählte Form zu SmartArt, falls sie SmartArt ist.
+- Finden Sie die SmartArt‑Form mit einem bestimmten Stil.
+- Setzen Sie den neuen Stil für die SmartArt‑Form.
 - Speichern Sie die Präsentation.
-
 ```c#
 using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 {
-    // Durchlaufen Sie jede Form innerhalb der ersten Folie
+    // Durchlaufen aller Formen in der ersten Folie
     foreach (IShape shape in presentation.Slides[0].Shapes)
     {
-        // Überprüfen, ob die Form vom Typ SmartArt ist
+        // Prüfen, ob die Form vom Typ SmartArt ist
         if (shape is ISmartArt)
         {
-            // Form in SmartArtEx casten
+            // Typumwandlung der Form zu SmartArtEx
             ISmartArt smart = (ISmartArt)shape;
 
-            // Überprüfen des SmartArt-Stils
+            // Prüfen des SmartArt-Stils
             if (smart.QuickStyle == SmartArtQuickStyleType.SimpleFill)
             {
                 // Ändern des SmartArt-Stils
@@ -130,33 +127,33 @@ using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 
 
 
+
 ## **SmartArt-Formfarbstil ändern**
-In diesem Beispiel lernen wir, den Farbstil für eine beliebige SmartArt-Form zu ändern. Im folgenden Beispielcode greifen wir auf die SmartArt-Form mit einem bestimmten Farbstil zu und ändern ihren Stil.
+In diesem Beispiel lernen wir, den Farbstil einer beliebigen SmartArt‑Form zu ändern. Im folgenden Beispielcode wird auf die SmartArt‑Form mit einem bestimmten Farbstil zugegriffen und ihr Stil geändert.
 
-- Erstellen Sie eine Instanz der `Presentation`-Klasse und laden Sie die Präsentation mit SmartArt-Form.
-- Erhalten Sie die Referenz auf die erste Folie, indem Sie ihren Index verwenden.
-- Durchlaufen Sie jede Form innerhalb der ersten Folie.
-- Überprüfen Sie, ob die Form vom Typ SmartArt ist, und casten Sie die ausgewählte Form zu SmartArt, wenn es sich um SmartArt handelt.
-- Finden Sie die SmartArt-Form mit einem bestimmten Farbstil.
-- Legen Sie den neuen Farbstil für die SmartArt-Form fest.
+- Erstellen Sie eine Instanz der Klasse `Presentation` und laden Sie die Präsentation mit SmartArt Shape.
+- Rufen Sie die Referenz der ersten Folie über deren Index ab.
+- Durchlaufen Sie jede Form in der ersten Folie.
+- Prüfen Sie, ob die Form vom Typ SmartArt ist, und casten Sie die ausgewählte Form zu SmartArt, falls sie SmartArt ist.
+- Finden Sie die SmartArt‑Form mit einem bestimmten Farbstil.
+- Setzen Sie den neuen Farbstil für die SmartArt‑Form.
 - Speichern Sie die Präsentation.
-
 ```c#
 using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 {
-    // Durchlaufen Sie jede Form innerhalb der ersten Folie
+    // Durchlaufen aller Formen in der ersten Folie
     foreach (IShape shape in presentation.Slides[0].Shapes)
     {
-        // Überprüfen, ob die Form vom Typ SmartArt ist
+        // Prüfen, ob die Form vom Typ SmartArt ist
         if (shape is ISmartArt)
         {
-            // Form in SmartArtEx casten
+            // Typumwandlung der Form zu SmartArtEx
             ISmartArt smart = (ISmartArt)shape;
 
-            // Überprüfen des SmartArt-Farbstils
+            // Prüfen des SmartArt-Farbtyps
             if (smart.ColorStyle == SmartArtColorType.ColoredFillAccent1)
             {
-                // Ändern des SmartArt-Farbstils
+                // Ändern des SmartArt-Farbtyps
                 smart.ColorStyle = SmartArtColorType.ColorfulAccentColors;
             }
         }
@@ -166,3 +163,26 @@ using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
     presentation.Save("ChangeSmartArtColorStyle_out.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**Kann ich SmartArt als einzelnes Objekt animieren?**
+
+Ja. SmartArt ist eine Form, sodass Sie über die Animations‑API [Standardanimationen](/slides/de/net/powerpoint-animation/) (Eingang, Ausgang, Hervorhebung, Bewegungspfade) wie bei anderen Formen anwenden können.
+
+**Wie kann ich ein bestimmtes SmartArt auf einer Folie finden, wenn ich seine interne ID nicht kenne?**
+
+Setzen und verwenden Sie den Alternativtext (AltText) und suchen Sie die Form nach diesem Wert – dies ist ein empfohlener Weg, um die Ziel‑Form zu finden.
+
+**Kann ich SmartArt mit anderen Formen gruppieren?**
+
+Ja. Sie können SmartArt mit anderen Formen (Bildern, Tabellen usw.) gruppieren und dann die [Gruppe manipulieren](/slides/de/net/group/).
+
+**Wie erhalte ich ein Bild eines bestimmten SmartArt (z. B. für eine Vorschau oder einen Bericht)?**
+
+Exportieren Sie ein Miniatur‑/Bild der Form; die Bibliothek kann [einzelne Formen rendern](/slides/de/net/create-shape-thumbnails/) zu Rasterdateien (PNG/JPG/TIFF).
+
+**Wird das Aussehen von SmartArt beim Konvertieren der gesamten Präsentation nach PDF erhalten bleiben?**
+
+Ja. Die Rendering‑Engine strebt hohe Treue beim [PDF‑Export](/slides/de/net/convert-powerpoint-to-pdf/) an, mit einer Reihe von Qualitäts‑ und Kompatibilitäts‑Optionen.

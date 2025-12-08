@@ -1,60 +1,81 @@
 ---
-title: Макет слайдов
+title: Применить или изменить макет слайда в C#
+linktitle: Макет слайда
 type: docs
 weight: 60
 url: /ru/net/slide-layout/
-keyword: "Установить размер слайда, установить параметры слайда, указать размер слайда, Видимость нижнего колонтитула, Нижний колонтитул для дочернего слайда, Масштабирование содержимого, размер страницы, C#, Csharp, .NET, Aspose.Slides"
-description: "Установите размер и параметры слайда PowerPoint на C# или .NET"
+keywords:
+- макет слайда
+- макет содержимого
+- заполнитель
+- дизайн презентации
+- дизайн слайда
+- неиспользуемый макет
+- видимость нижнего колонтитула
+- титульный слайд
+- заголовок и содержимое
+- заголовок раздела
+- два содержимого
+- сравнение
+- только заголовок
+- пустой макет
+- содержимое с подписью
+- изображение с подписью
+- заголовок и вертикальный текст
+- вертикальный заголовок и текст
+- C#
+- .NET
+- Aspose.Slides
+description: "Узнайте, как управлять и настраивать макеты слайдов в Aspose.Slides для .NET. Исследуйте типы макетов, управление заполнителями, видимость нижнего колонтитула и манипуляцию макетами с помощью примеров кода на C#."
 ---
 
-Макет слайда содержит заполнители и информацию о форматировании для всего содержимого, которое появляется на слайде. Макет определяет доступные заполнители содержимого и их расположение.
+## **Обзор**
 
-Макеты слайдов позволяют быстро создавать и разрабатывать презентации (будь то простые или сложные). Вот некоторые из самых популярных макетов слайдов, используемых в презентациях PowerPoint:
+Макет слайда определяет расположение рамок заполнителей и форматирование содержимого на слайде. Он контролирует, какие заполнители доступны и где они располагаются. Макеты слайдов помогают быстро и последовательно создавать презентации — независимо от того, создаёте ли вы простой или более сложный материал. Некоторые из самых распространённых макетов слайдов в PowerPoint включают:
 
-* **Макет титульного слайда**. Этот макет состоит из двух текстовых заполнителей. Один заполнитель предназначен для заголовка, а другой — для подзаголовка.
-* **Макет заголовка и содержимого**. Этот макет содержит относительно небольшой заполнитель вверху для заголовка и больший заполнитель для основного содержимого (график, абзацы, маркированный список, нумерованный список, изображения и т. д.).
-* **Пустой макет**. Этот макет не содержит заполнителей, поэтому позволяет создавать элементы с нуля.
+**Макет титульного слайда** – Содержит два текстовых заполнителя: один для заголовка и один для подзаголовка.
 
-Поскольку мастер-слайд является верхним по иерархии слайдом, который хранит информацию о макетах слайдов, вы можете использовать мастер-слайд для доступа к макетам слайдов и внесения изменений в них. К макету слайда можно получить доступ по типу или имени. Аналогично, каждый слайд имеет уникальный идентификатор, который можно использовать для доступа к нему.
+**Макет «Заголовок и содержимое»** – Содержит меньший заполнитель заголовка вверху и более крупный ниже для основного содержимого (текст, маркеры, диаграммы, изображения и т.д.).
 
-В качестве альтернативы вы можете вносить изменения непосредственно в конкретный макет слайда в презентации.
+**Пустой макет** – Не содержит заполнителей, предоставляя полный контроль над созданием слайда с нуля.
 
-* Чтобы работать с макетами слайдов (включая те, что находятся на мастер-слайдах), Aspose.Slides предоставляет такие свойства, как [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) и [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) в классе [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-* Для выполнения связанных задач Aspose.Slides предоставляет [MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/baseslideheaderfootermanager/) и многие другие типы.
+Макеты слайдов являются частью шаблона слайда, который представляет собой верхний уровень слайда, определяющий стили макетов для презентации. Вы можете получить доступ к макетам слайдов и изменять их через шаблон слайда — по типу, имени или уникальному идентификатору. Кроме того, можно редактировать конкретный макет слайда непосредственно в презентации.
 
-{{% alert title="Информация" color="info" %}}
+Для работы с макетами слайдов в Aspose.Slides для .NET вы можете использовать:
+- Свойства, такие как [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) и [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) в классе [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+- Типы, такие как [ILayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/), и [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslideheaderfootermanager/)
 
-Для получения дополнительной информации о работе с мастер-слайдами, смотрите статью [Slide Master](https://docs.aspose.com/slides/net/slide-master/).
-
+{{% alert title="Info" color="info" %}}
+Чтобы узнать больше о работе с шаблонами слайдов, ознакомьтесь со статьёй [Slide Master](/slides/ru/net/slide-master/).
 {{% /alert %}}
 
-## **Добавить макет слайда в презентацию**
+## **Добавление макетов слайдов в презентации**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Получите доступ к коллекции [MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/).
-1. Просмотрите существующие макеты слайдов, чтобы подтвердить, что необходимый макет слайда уже существует в коллекции макетов слайдов. Если нет, добавьте нужный макет слайда.
-1. Добавьте пустой слайд на основе нового макета слайда.
-1. Сохраните презентацию.
+Чтобы настроить внешний вид и структуру слайдов, возможно, потребуется добавить новые макеты слайдов в презентацию. Aspose.Slides для .NET позволяет проверить, существует ли конкретный макет, при необходимости добавить новый и использовать его для вставки слайдов на основе этого макета.
 
-Этот код C# показывает, как добавить макет слайда в презентацию PowerPoint:
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. Получите доступ к [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/) .
+3. Проверьте, существует ли требуемый макет слайда в коллекции. Если нет, добавьте нужный макет слайда.
+4. Добавьте пустой слайд на основе нового макета слайда.
+5. Сохраните презентацию.
 
-```c#
-// Создает экземпляр класса Presentation, представляющий файл презентации
-using (Presentation presentation = new Presentation("AccessSlides.pptx"))
+Следующий код C# демонстрирует, как добавить макет слайда в презентацию PowerPoint:
+```cs
+// Создайте экземпляр класса Presentation, представляющего файл PowerPoint.
+using (Presentation presentation = new Presentation("Sample.pptx"))
 {
-    // Проходит по типам макетов слайдов
+    // Пройдитесь по типам макетов слайдов, чтобы выбрать макет слайда.
     IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
     ILayoutSlide layoutSlide = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Title);
 
     if (layoutSlide == null)
     {
-        // Ситуация, когда презентация не содержит некоторые типы макетов.
-        // Файл презентации содержит только пустые и пользовательские типы макетов.
-        // Но макеты слайдов с пользовательскими типами имеют разные имена слайдов,
-        // такие как "Title", "Title and Content" и т. д. И можно использовать эти
-        // имена для выбора макета слайда.
-        // Вы также можете использовать набор типов форм заполнителей. Например,
-        // титульный слайд должен иметь только тип заполнителя заголовка и т. д.
+        // Ситуация, когда презентация не содержит все типы макетов.
+        // Файл презентации содержит только типы макетов Blank и Custom.
+        // Однако макеты слайдов с пользовательскими типами могут иметь узнаваемые имена,
+        // такие как "Title", "Title and Content", etc., которые можно использовать для выбора макета слайда.
+        // Вы также можете полагаться на набор типов фигур-заполнителей.
+        // Например, слайд Title должен содержать только тип заполнителя Title, и т.д.
         foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
         {
             if (titleAndObjectLayoutSlide.Name == "Title and Object")
@@ -86,147 +107,157 @@ using (Presentation presentation = new Presentation("AccessSlides.pptx"))
         }
     }
 
-    // Добавляет пустой слайд с добавленным макетом
+    // Добавьте пустой слайд, используя добавленный макет слайда.
     presentation.Slides.InsertEmptySlide(0, layoutSlide);
 
-    // Сохраняет презентацию на диск
-    presentation.Save("AddLayoutSlides_out.pptx", SaveFormat.Pptx);
+    // Сохраните презентацию на диск.  
+    presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Удалить неиспользуемый макет слайда**
 
-Aspose.Slides предоставляет метод [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) из класса [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/), чтобы позволить вам удалить нежелательные и неиспользуемые макеты слайдов. Этот код C# показывает, как удалить макет слайда из презентации PowerPoint:
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+## **Удаление неиспользуемых макетов слайдов**
+
+Aspose.Slides предоставляет метод [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) из класса [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) , позволяющий удалять нежелательные и неиспользуемые макеты слайдов.
+
+Следующий код C# показывает, как удалить макет слайда из презентации PowerPoint:
+```cs
+using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(pres);
+    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(presentation);
     
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
+    presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Установить размер и тип для макета слайда**
 
-Чтобы позволить вам установить размер и тип для конкретного макета слайда, Aspose.Slides предоставляет свойства [Type](https://reference.aspose.com/slides/net/aspose.slides/slidesize/properties/type) и [Size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/properties/size) (из класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)). Этот C# демонстрирует операцию:
+## **Добавление заполнителей в макеты слайдов**
 
-```c#
-// Создает экземпляр объекта Presentation, представляющего файл презентации
-Presentation presentation = new Presentation("AccessSlides.pptx");
-Presentation auxPresentation = new Presentation();
+Aspose.Slides предоставляет свойство [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/placeholdermanager/) , которое позволяет добавлять новые заполнители в макет слайда.
 
-ISlide slide = presentation.Slides[0];
+Этот менеджер содержит методы для следующих типов заполнителей:
 
-// Устанавливает размер слайда для созданной презентации на размер источника
-auxPresentation.SlideSize.SetSize(presentation.SlideSize.Type, SlideSizeScaleType.EnsureFit);
+| Заполнитель PowerPoint              | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/) Method |
+| ----------------------------------- | ------------------------------------------------------------ |
+| Содержимое                          | AddContentPlaceholder(float x, float y, float width, float height) |
+| Содержимое (Вертикальное)           | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
+| Текст                               | AddTextPlaceholder(float x, float y, float width, float height) |
+| Текст (Вертикальный)                | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
+| Изображение                         | AddPicturePlaceholder(float x, float y, float width, float height) |
+| Диаграмма                           | AddChartPlaceholder(float x, float y, float width, float height) |
+| Таблица                             | AddTablePlaceholder(float x, float y, float width, float height) |
+| SmartArt                            | AddSmartArtPlaceholder(float x, float y, float width, float height) |
+| Медиа                               | AddMediaPlaceholder(float x, float y, float width, float height) |
+| Онлайн‑изображение                  | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
 
-auxPresentation.Slides.InsertClone(0, slide);
-auxPresentation.Slides.RemoveAt(0);
-// Сохраняет презентацию на диск
-auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
-```
-
-## **Установить видимость нижнего колонтитула внутри слайда**
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на слайд через его индекс.
-1. Установите видимость заполнителя нижнего колонтитула слайда.
-1. Установите видимость заполнителя даты и времени.
-1. Сохраните презентацию.
-
-Этот код C# показывает, как установить видимость нижнего колонтитула слайда (и выполнить связанные задачи):
-
-```c#
-using (Presentation presentation = new Presentation("presentation.ppt"))
+Следующий код C# демонстрирует, как добавить новые формы‑заполнители к пустому макету слайда:
+```cs
+using (var presentation = new Presentation())
 {
-    IBaseSlideHeaderFooterManager headerFooterManager = presentation.Slides[0].HeaderFooterManager;
-    if (!headerFooterManager.IsFooterVisible) // Свойство IsFooterVisible используется для указания на отсутствие заполнителя нижнего колонтитула слайда
-    {
-        headerFooterManager.SetFooterVisibility(true); // Метод SetFooterVisibility используется для установки видимости заполнителя нижнего колонтитула слайда
-    }
-    if (!headerFooterManager.IsSlideNumberVisible) // Свойство IsSlideNumberVisible используется для указания на отсутствие заполнителя номера страницы слайда
-    {
-        headerFooterManager.SetSlideNumberVisibility(true); // Метод SetSlideNumberVisibility используется для установки видимости заполнителя номера страницы слайда
-    }
-    if (!headerFooterManager.IsDateTimeVisible) // Свойство IsDateTimeVisible используется для указания на отсутствие заполнителя даты и времени слайда
-    {
-        headerFooterManager.SetDateTimeVisibility(true); // Метод SetFooterVisibility используется для установки видимости заполнителя даты и времени слайда
-    }
-    headerFooterManager.SetFooterText("Текст нижнего колонтитула"); // Метод SetFooterText используется для установки текста для заполнителя нижнего колонтитула слайда
-    headerFooterManager.SetDateTimeText("Текст даты и времени"); // Метод SetDateTimeText используется для установки текста для заполнителя даты и времени слайда.
+    // Получить пустой макет слайда.
+    ILayoutSlide layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 
-	presentation.Save("Presentation.ppt", SaveFormat.ppt);
+    // Получить менеджер заполнителей макета слайда.
+    ILayoutPlaceholderManager placeholderManager = layout.PlaceholderManager;
+
+    // Добавить различные заполнители к пустому макету слайда.
+    placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
+    placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
+    placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
+    placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
+
+    // Добавить новый слайд с пустым макетом.
+    ISlide newSlide = presentation.Slides.AddEmptySlide(layout);
+
+    presentation.Save("Placeholders.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Установить видимость нижнего колонтитула дочерних слайдов**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на мастер-слайд через его индекс.
-1. Установите видимость мастер-слайда и всех заполнителей нижнего колонтитула дочерних слайдов.
-1. Установите текст для мастер-слайда и всех заполнителей нижнего колонтитула дочерних слайдов.
-1. Установите текст для мастер-слайда и всех заполнителей даты и времени дочерних слайдов.
-1. Сохраните презентацию.
+Результат:
 
-Этот код C# демонстрирует операцию:
+![Заполнители на макете слайда](add_placeholders.png)
 
-```c#
-using (Presentation presentation = new Presentation("presentation.ppt"))
+## **Установка видимости нижнего колонтитула для макета слайда**
+
+В презентациях PowerPoint элементы нижнего колонтитула, такие как дата, номер слайда и пользовательский текст, могут отображаться или скрываться в зависимости от макета слайда. Aspose.Slides для .NET позволяет управлять видимостью этих заполнителей нижнего колонтитула. Это полезно, когда нужно, чтобы некоторые макеты показывали информацию нижнего колонтитула, а остальные оставались чистыми и минимальными.
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. Получите ссылку на макет слайда по его индексу.
+3. Установите видимость заполнителя нижнего колонтитула слайда.
+4. Установите видимость заполнителя номера слайда.
+5. Установите видимость заполнителя даты и времени.
+Сохраните презентацию.
+
+Следующий код C# показывает, как установить видимость нижнего колонтитула слайда и выполнить связанные задачи:
+```cs
+using (Presentation presentation = new Presentation("Presentation.ppt"))
+{
+    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.LayoutSlides[0].HeaderFooterManager;
+
+    if (!headerFooterManager.IsFooterVisible)
+    {
+        headerFooterManager.SetFooterVisibility(true);
+    }
+
+    if (!headerFooterManager.IsSlideNumberVisible)
+    {
+        headerFooterManager.SetSlideNumberVisibility(true);
+    }
+
+    if (!headerFooterManager.IsDateTimeVisible)
+    {
+        headerFooterManager.SetDateTimeVisibility(true);
+    }
+
+    headerFooterManager.SetFooterText("Footer text");
+    headerFooterManager.SetDateTimeText("Date and time text");
+
+    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
+}
+```
+
+
+## **Установка видимости нижнего колонтитула у дочерних слайдов**
+
+В презентациях PowerPoint элементы нижнего колонтитула, такие как дата, номер слайда и пользовательский текст, могут контролироваться на уровне шаблона слайда, чтобы обеспечить согласованность во всех макетах слайдов. Aspose.Slides для .NET позволяет задать видимость и содержание этих заполнителей нижнего колонтитула на шаблоне слайда и распространить эти настройки на все дочерние макеты слайдов. Такой подход обеспечивает единообразную информацию нижнего колонтитула по всей презентации.
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. Получите ссылку на шаблон слайда по его индексу.
+3. Установите видимость заполнителей нижнего колонтитула шаблона и всех дочерних макетов.
+4. Установите видимость заполнителей номеров слайдов шаблона и всех дочерних макетов.
+5. Установите видимость заполнителей даты и времени шаблона и всех дочерних макетов.
+6. Сохраните презентацию.
+
+Следующий код C# демонстрирует эту операцию:
+```cs
+using (Presentation presentation = new Presentation("Presentation.ppt"))
 {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
-    headerFooterManager.SetFooterAndChildFootersVisibility(true); // Метод SetFooterAndChildFootersVisibility используется для установки видимости мастер-слайда и всех заполнителей нижнего колонтитула дочерних слайдов
-    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // Метод SetSlideNumberAndChildSlideNumbersVisibility используется для установки видимости мастер-слайда и всех заполнителей номеров страниц дочерних слайдов
-    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // Метод SetDateTimeAndChildDateTimesVisibility используется для установки видимости мастер-слайда и всех заполнителей даты и времени дочерних слайдов
 
-    headerFooterManager.SetFooterAndChildFootersText("Текст нижнего колонтитула"); // Метод SetFooterAndChildFootersText используется для установки текстов для мастер-слайда и всех заполнителей нижнего колонтитула дочерних слайдов
-    headerFooterManager.SetDateTimeAndChildDateTimesText("Текст даты и времени"); // Метод SetDateTimeAndChildDateTimesText используется для установки текста для мастер-слайда и всех заполнителей даты и времени дочерних слайдов
+    headerFooterManager.SetFooterAndChildFootersVisibility(true);
+    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager.SetFooterAndChildFootersText("Footer text");
+    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+
+    presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Установить размер слайда с учетом масштабирования содержимого**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) и загрузите презентацию, содержащую слайд, размер которого вы хотите установить.
-1. Создайте еще один экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), чтобы создать новую презентацию.
-1. Получите ссылку на слайд (из первой презентации) через его индекс.
-1. Установите видимость заполнителя нижнего колонтитула слайда.
-1. Установите видимость заполнителя даты и времени.
-1. Сохраните презентацию.
+## **FAQ**
 
-Этот C# демонстрирует операцию:
+**В чём разница между шаблоном слайда и макетом слайда?**
 
-```c#
-// Создает экземпляр объекта Presentation, представляющего файл презентации
-Presentation presentation = new Presentation("AccessSlides.pptx");
-Presentation auxPresentation = new Presentation();
+Шаблон слайда определяет общую тему и форматирование по умолчанию, тогда как макеты слайдов задают конкретные расположения заполнителей для различных типов содержимого.
 
-ISlide slide = presentation.Slides[0];
+**Могу ли я скопировать макет слайда из одной презентации в другую?**
 
-// Устанавливает размер слайда для созданных презентаций на размер источника
-presentation.SlideSize.SetSize(540, 720, SlideSizeScaleType.EnsureFit); // Метод SetSize используется для установки размера слайда с масштабированием содержимого для обеспечения соответствия
-presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize); // Метод SetSize используется для установки размера слайда с максимальным размером содержимого
+Да, вы можете клонировать макет слайда из коллекции [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) одной презентации и вставить его в другую с помощью метода `AddClone`.
 
-// Сохраняет презентацию на диск
-auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
-```
+**Что происходит, если я удалю макет слайда, который всё ещё используется другим слайдом?**
 
-## **Установить размер страницы при генерации PDF**
-
-Некоторые презентации (например, постеры) часто конвертируются в PDF-документы. Если вы хотите конвертировать вашу PowerPoint-презентацию в PDF, чтобы получить лучшие параметры печати и доступности, вы хотите установить размеры слайдов, которые подходят для PDF-документов (например, A4).
-
-Aspose.Slides предоставляет класс [SlideSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/), чтобы позволить вам указать предпочитаемые настройки для слайдов. Этот код C# показывает, как использовать свойство [Type](https://reference.aspose.com/slides/net/aspose.slides/slidesize/type/) (из класса `SlideSize`), чтобы установить конкретный размер бумаги для слайдов в презентации:
-
-```c#
-// Создает экземпляр объекта Presentation, представляющего файл презентации
-Presentation presentation = new Presentation();
-
-// Устанавливает свойство SlideSize.Type 
-presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.EnsureFit);
-
-// Устанавливает различные свойства для параметров PDF
-PdfOptions opts = new PdfOptions();
-opts.SufficientResolution = 600;
-
-// Сохраняет презентацию на диск
-presentation.Save("SetPDFPageSize_out.pdf", SaveFormat.Pdf, opts);
-```
+Если попытаться удалить макет слайда, который всё ещё присутствует в качестве ссылки у хотя бы одного слайда презентации, Aspose.Slides выдаст исключение [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception/). Чтобы избежать этого, используйте [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/)…, которое безопасно удаляет только неиспользуемые макеты слайдов.

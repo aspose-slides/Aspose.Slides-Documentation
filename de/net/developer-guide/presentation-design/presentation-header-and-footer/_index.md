@@ -1,31 +1,30 @@
 ---
-title: Präsentationskopf und -fußzeile
+title: Präsentationskopf- und Fußzeile
 type: docs
 weight: 140
 url: /de/net/presentation-header-and-footer/
 keywords: "Kopfzeile, Fußzeile, Kopfzeile festlegen, Fußzeile festlegen, Kopf- und Fußzeile festlegen, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "PowerPoint Kopf- und Fußzeile in C# oder .NET"
+description: "PowerPoint-Kopf- und Fußzeile in C# oder .NET"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/de/net/) bietet Unterstützung für die Arbeit mit Kopf- und Fußzeilentexten, die tatsächlich auf der Folienmaster-Ebene verwaltet werden.
+[Aspose.Slides](/slides/de/net/) bietet Unterstützung für die Arbeit mit Kopf- und Fußzeilentexten von Folien, die tatsächlich auf Ebene des Folienmasters verwaltet werden.
 
 {{% /alert %}} 
 
-[Aspose.Slides für .NET](/slides/de/net/) bietet die Funktion zur Verwaltung von Kopf- und Fußzeilen in Präsentationsfolien. Diese werden tatsächlich auf der Präsentationsmaster-Ebene verwaltet.
+[Aspose.Slides for .NET](/slides/de/net/) bietet die Möglichkeit, Kopf- und Fußzeilen innerhalb von Präsentationsfolien zu verwalten. Diese werden tatsächlich auf Ebene des Präsentationsmasters verwaltet.
 ## **Kopf- und Fußzeilentext verwalten**
 Notizen einer bestimmten Folie können wie im folgenden Beispiel aktualisiert werden:
-
 ```c#
 // Präsentation laden
 Presentation pres = new Presentation("headerTest.pptx");
 
 // Fußzeile festlegen
-pres.HeaderFooterManager.SetAllFootersText("Mein Fußzeilentext");
+pres.HeaderFooterManager.SetAllFootersText("My Footer text");
 pres.HeaderFooterManager.SetAllFootersVisibility(true);
 
-// Kopfzeile abrufen und aktualisieren
+// Header zugreifen und aktualisieren
 IMasterNotesSlide masterNotesSlide = pres.MasterNotesSlideManager.MasterNotesSlide;
 if (null != masterNotesSlide)
 {
@@ -35,8 +34,6 @@ if (null != masterNotesSlide)
 // Präsentation speichern
 pres.Save("HeaderFooterJava.pptx", SaveFormat.Pptx);
 ```
-
-
 
 ```c#
 // Methode zum Festlegen von Kopf-/Fußzeilentext
@@ -48,7 +45,7 @@ public static void UpdateHeaderFooterText(IBaseSlide master)
         {
             if (shape.Placeholder.Type == PlaceholderType.Header)
             {
-                ((IAutoShape)shape).TextFrame.Text = "HI dort neuer Kopf";
+                ((IAutoShape)shape).TextFrame.Text = "HI there new header";
             }
         }
     }
@@ -58,63 +55,82 @@ public static void UpdateHeaderFooterText(IBaseSlide master)
 
 
 
-## **Kopf- und Fußzeilen in Handouts und Notizenfolien verwalten**
-Aspose.Slides für .NET unterstützt Kopf- und Fußzeilen in Handouts und Notizenfolien. Bitte folgen Sie den nachstehenden Schritten:
 
-- Laden Sie eine [Präsentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), die ein Video enthält.
-- Ändern Sie die Kopf- und Fußzeileneinstellungen für das Notizenmaster und alle Notizenfolien.
-- Setzen Sie die Sichtbarkeit der Master-Notizenfolie und aller untergeordneten Fußzeilenplatzhalter auf sichtbar.
-- Setzen Sie die Sichtbarkeit der Master-Notizenfolie und aller untergeordneten Datums- und Uhrzeitplatzhalter auf sichtbar.
-- Ändern Sie die Kopf- und Fußzeileneinstellungen nur für die erste Notizenfolie.
-- Stellen Sie den Platzhalter für die Kopfzeile der Notizenfolie sichtbar.
-- Setzen Sie den Text für den Platzhalter der Kopfzeile der Notizenfolie.
-- Setzen Sie den Text für den Platzhalter für Datum und Uhrzeit der Notizenfolie.
-- Schreiben Sie die modifizierte Präsentationsdatei.
+## **Kopf- und Fußzeilen in Handout- und Notizfolien verwalten**
+Aspose.Slides for .NET unterstützt Kopf- und Fußzeilen in Handout- und Notizfolien. Bitte folgen Sie den nachstehenden Schritten:
 
-Der Codeausschnitt ist im folgenden Beispiel enthalten.
+- Laden Sie eine [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)mit einem Video.
+- Ändern Sie die Kopf- und Fußzeileneinstellungen für den Notizen-Master und alle Notizfolien.
+- Machen Sie den Master-Notizfolien- und alle untergeordneten Fußzeilen-Platzhalter sichtbar.
+- Machen Sie den Master-Notizfolien- und alle untergeordneten Datum- und Zeit-Platzhalter sichtbar.
+- Ändern Sie die Kopf- und Fußzeileneinstellungen nur für die erste Notizfolie.
+- Machen Sie den Kopf-Platzhalter der Notizfolie sichtbar.
+- Setzen Sie den Text für den Kopf-Platzhalter der Notizfolie.
+- Setzen Sie den Text für den Datum-Zeit-Platzhalter der Notizfolie.
+- Speichern Sie die geänderte Präsentationsdatei.
 
+Code‑Snippet im nachstehenden Beispiel bereitgestellt.
 ```c#
 using (Presentation presentation = new Presentation("presentation.pptx"))
 {
-	// Ändern Sie die Kopf- und Fußzeileneinstellungen für das Notizenmaster und alle Notizenfolien
+	// Header- und Fußzeileneinstellungen für den Notizen-Master und alle Notizfolien ändern
 	IMasterNotesSlide masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
 	if (masterNotesSlide != null)
 	{
 		IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.HeaderFooterManager;
 
-		headerFooterManager.SetHeaderAndChildHeadersVisibility(true); // machen Sie die Master-Notizenfolie und alle untergeordneten Fußzeilenplatzhalter sichtbar
-		headerFooterManager.SetFooterAndChildFootersVisibility(true); // machen Sie die Master-Notizenfolie und alle untergeordneten Kopfzeilenplatzhalter sichtbar
-		headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // machen Sie die Master-Notizenfolie und alle untergeordneten Foliennummernplatzhalter sichtbar
-		headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // machen Sie die Master-Notizenfolie und alle untergeordneten Datums- und Uhrzeitplatzhalter sichtbar
+		headerFooterManager.SetHeaderAndChildHeadersVisibility(true); // den Master-Notizenfolien- und alle untergeordneten Fußzeilen-Platzhalter sichtbar machen
+		headerFooterManager.SetFooterAndChildFootersVisibility(true); // den Master-Notizenfolien- und alle untergeordneten Kopfzeilen-Platzhalter sichtbar machen
+		headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // den Master-Notizenfolien- und alle untergeordneten Foliennummer-Platzhalter sichtbar machen
+		headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // den Master-Notizenfolien- und alle untergeordneten Datum- und Zeit-Platzhalter sichtbar machen
 
-		headerFooterManager.SetHeaderAndChildHeadersText("Kopfzeilentext"); // setzen Sie den Text für die Master-Notizenfolie und alle untergeordneten Kopfzeilenplatzhalter
-		headerFooterManager.SetFooterAndChildFootersText("Fußzeilentext"); // setzen Sie den Text für die Master-Notizenfolie und alle untergeordneten Fußzeilenplatzhalter
-		headerFooterManager.SetDateTimeAndChildDateTimesText("Datum- und Uhrzeittext"); // setzen Sie den Text für die Master-Notizenfolie und alle untergeordneten Datums- und Uhrzeitplatzhalter
+		headerFooterManager.SetHeaderAndChildHeadersText("Header text"); // Text für die Master-Notizenfolie und alle untergeordneten Kopfzeilen-Platzhalter festlegen
+		headerFooterManager.SetFooterAndChildFootersText("Footer text"); // Text für die Master-Notizenfolie und alle untergeordneten Fußzeilen-Platzhalter festlegen
+		headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text"); // Text für die Master-Notizenfolie und alle untergeordneten Datum- und Zeit-Platzhalter festlegen
 	}
 
-	// Ändern Sie die Kopf- und Fußzeileneinstellungen nur für die erste Notizenfolie
+	// Header- und Fußzeileneinstellungen nur für die erste Notizfolie ändern
 	INotesSlide notesSlide = presentation.Slides[0].NotesSlideManager.NotesSlide;
 	if (notesSlide != null)
 	{
 		INotesSlideHeaderFooterManager headerFooterManager = notesSlide.HeaderFooterManager;
 		if (!headerFooterManager.IsHeaderVisible)
-			headerFooterManager.SetHeaderVisibility(true); // machen Sie diesen Kopfzeilenplatzhalter der Notizenfolie sichtbar
+			headerFooterManager.SetHeaderVisibility(true); // diesen Notizfolien-Kopfzeilen-Platzhalter sichtbar machen
 
 		if (!headerFooterManager.IsFooterVisible)
-			headerFooterManager.SetFooterVisibility(true); // machen Sie diesen Fußzeilenplatzhalter der Notizenfolie sichtbar
+			headerFooterManager.SetFooterVisibility(true); // diesen Notizfolien-Fußzeilen-Platzhalter sichtbar machen
 
 		if (!headerFooterManager.IsSlideNumberVisible)
-			headerFooterManager.SetSlideNumberVisibility(true); // machen Sie diesen Foliennummernplatzhalter der Notizenfolie sichtbar
+			headerFooterManager.SetSlideNumberVisibility(true); // diesen Notizfolien-Foliennummer-Platzhalter sichtbar machen
 
 		if (!headerFooterManager.IsDateTimeVisible)
-			headerFooterManager.SetDateTimeVisibility(true); // machen Sie diesen Datums- und Uhrzeitplatzhalter der Notizenfolie sichtbar
+			headerFooterManager.SetDateTimeVisibility(true); // diesen Notizfolien-Datum-Uhrzeit-Platzhalter sichtbar machen
 
-		headerFooterManager.SetHeaderText("Neuer Kopfzeilentext"); // setzen Sie den Text für den Platzhalter der Kopfzeile der Notizenfolie
-		headerFooterManager.SetFooterText("Neuer Fußzeilentext"); // setzen Sie den Text für den Platzhalter der Fußzeile der Notizenfolie
-		headerFooterManager.SetDateTimeText("Neuer Datum- und Uhrzeittext"); // setzen Sie den Text für den Platzhalter für Datum und Uhrzeit der Notizenfolie
+		headerFooterManager.SetHeaderText("New header text"); // Text für den Notizfolien-Kopfzeilen-Platzhalter festlegen
+		headerFooterManager.SetFooterText("New footer text"); // Text für den Notizfolien-Fußzeilen-Platzhalter festlegen
+		headerFooterManager.SetDateTimeText("New date and time text"); // Text für den Notizfolien-Datum-Uhrzeit-Platzhalter festlegen
 	}
 	presentation.Save("testresult.pptx",SaveFormat.Pptx);
 }
 		
  }
 ```
+
+
+## **FAQ**
+
+**Kann ich einen „Header“ zu normalen Folien hinzufügen?**
+
+In PowerPoint gibt es „Header“ nur für Notizen und Handouts; auf normalen Folien sind die unterstützten Elemente Fußzeile, Datum/Uhrzeit und Foliennummer. In Aspose.Slides gelten dieselben Beschränkungen: Header nur für Notes/Handout und auf Folien — Footer/DateTime/SlideNumber.
+
+**Was ist, wenn das Layout keinen Fußzeilenbereich enthält — kann ich dessen Sichtbarkeit „aktivieren“?**
+
+Ja. Prüfen Sie die Sichtbarkeit über den Kopf-/Fußzeilen-Manager und aktivieren Sie sie bei Bedarf. Diese API-Indikatoren und Methoden sind für Fälle vorgesehen, in denen der Platzhalter fehlt oder ausgeblendet ist.
+
+**Wie kann ich die Foliennummer von einem anderen Wert als 1 beginnen lassen?**
+
+Setzen Sie die [erste Foliennummer](https://reference.aspose.com/slides/net/aspose.slides/presentation/firstslidenumber/) der Präsentation; danach wird die gesamte Nummerierung neu berechnet. Sie können beispielsweise bei 0 oder 10 beginnen und die Nummer auf der Titelfolie ausblenden.
+
+**Was passiert mit Headern/Fußzeilen beim Exportieren zu PDF/Bildern/HTML?**
+
+Sie werden als reguläre Textelemente der Präsentation gerendert. Das bedeutet, wenn die Elemente auf Folien/Notizseiten sichtbar sind, erscheinen sie auch im Ausgabformat zusammen mit dem restlichen Inhalt.

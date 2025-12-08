@@ -2,20 +2,19 @@
 title: 饼图
 type: docs
 url: /zh/net/pie-chart/
-keywords: "饼图，绘图选项，切片颜色，PowerPoint演示，C#，Csharp，Aspose.Slides for .NET"
-description: "饼图绘图选项和PowerPoint演示中的切片颜色，使用C#或.NET"
+keywords: "饼图, 绘图选项, 切片颜色, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
+description: "在 PowerPoint 演示文稿中使用 C# 或 .NET 的饼图绘图选项和切片颜色"
 ---
 
-## **饼图和棱柱图的第二绘图选项**
-Aspose.Slides for .NET 现在支持饼图或棱柱图的第二绘图选项。在本主题中，我们将通过示例来说明如何使用 Aspose.Slides 来指定这些选项。为了指定属性，请按照以下步骤操作：
+## **饼图的饼图和条形饼图的第二绘图选项**
+Aspose.Slides for .NET 现在支持饼图的饼图或条形饼图的第二绘图选项。在本主题中，我们将通过示例展示如何使用 Aspose.Slides 指定这些选项。为指定这些属性，请按照以下步骤操作：
 
 1. 实例化 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类对象。
 1. 在幻灯片上添加图表。
 1. 指定图表的第二绘图选项。
 1. 将演示文稿写入磁盘。
 
-在下面给出的示例中，我们设置了饼图的不同属性。
-
+在下面的示例中，我们已设置饼图的饼图的不同属性。
 ```c#
 // 创建 Presentation 类的实例
 Presentation presentation = new Presentation();
@@ -34,24 +33,21 @@ presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
 ```
 
 
-
-
 ## **设置自动饼图切片颜色**
-Aspose.Slides for .NET 提供了一个简单的API来设置自动饼图切片颜色。示例代码应用了上述属性设置。
+Aspose.Slides for .NET 提供了一个简单的 API 用于设置自动饼图切片颜色。示例代码演示了上述属性的设置。
 
 1. 创建 Presentation 类的实例。
 1. 访问第一张幻灯片。
 1. 添加带有默认数据的图表。
 1. 设置图表标题。
-1. 将第一系列设置为显示值。
-1. 设置图表数据表的索引。
+1. 将第一系列设置为显示数值。
+1. 设置图表数据工作表的索引。
 1. 获取图表数据工作表。
 1. 删除默认生成的系列和类别。
 1. 添加新类别。
 1. 添加新系列。
 
 将修改后的演示文稿写入 PPTX 文件。
-
 ```c#
 // 实例化表示 PPTX 文件的 Presentation 类
 using (Presentation presentation = new Presentation())
@@ -62,19 +58,19 @@ using (Presentation presentation = new Presentation())
 	// 访问第一张幻灯片
 	ISlide slides = presentation.Slides[0];
 
-	// 添加带有默认数据的图表
+	// 添加默认数据的图表
 	IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
 
 	// 设置图表标题
-	chart.ChartTitle.AddTextFrameForOverriding("示例标题");
+	chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
 	chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
 	chart.ChartTitle.Height = 20;
 	chart.HasTitle = true;
 
-	// 将第一系列设置为显示值
+	// 将第一系列设置为显示数值
 	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-	// 设置图表数据表的索引
+	// 设置图表数据工作表的索引
 	int defaultWorksheetIndex = 0;
 
 	// 获取图表数据工作表
@@ -85,12 +81,12 @@ using (Presentation presentation = new Presentation())
 	chart.ChartData.Categories.Clear();
 
 	// 添加新类别
-	chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "第一季度"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "第二季度"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "第三季度"));
+	chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "First Qtr"));
+	chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "2nd Qtr"));
+	chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "3rd Qtr"));
 
 	// 添加新系列
-	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "系列 1"), chart.Type);
+	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
 	// 现在填充系列数据
 	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
@@ -101,3 +97,14 @@ using (Presentation presentation = new Presentation())
 	presentation.Save("C:\\Aspose Data\\Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
+
+
+## **常见问题**
+
+**是否支持“饼图的饼图”和“条形饼图”变体？**
+
+是的，库 [supports](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) 支持饼图的第二绘图选项，包括 “Pie of Pie” 和 “Bar of Pie” 类型。
+
+**我可以仅将图表导出为图像（例如 PNG）吗？**
+
+是的，您可以 [export the chart itself as an image](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/)（例如 PNG），而无需整个演示文稿。

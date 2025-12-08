@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides中的多线程
+title: Aspose.Slides 中的多线程
 type: docs
 weight: 310
 url: /zh/net/multithreading/
@@ -9,24 +9,23 @@ keywords:
 - 多线程
 - 并行工作
 - 转换幻灯片
-- 幻灯片到图像
+- 幻灯片转图片
 - C#
 - .NET
 - Aspose.Slides for .NET
 ---
 
-## **介绍**
+## **简介**
 
-尽管在处理演示文稿时可以进行并行工作（除了解析/加载/克隆），并且大多数时候一切都很顺利，但在多线程环境中使用库时，您可能会遇到小概率的错误结果。
+虽然在并行工作时（除了解析/加载/克隆）大多数情况下都能正常运行，但在多线程使用库时仍有小概率出现错误结果。
 
-我们强烈建议您**不要**在多线程环境中使用单个[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)实例，因为这可能会导致不可预测的错误或故障，这些问题不容易被检测到。
+我们强烈建议**不要**在多线程环境中使用单个[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)实例，因为这可能导致难以检测的不可预测错误或失败。
 
-在多个线程中加载、保存和/或克隆[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类的实例是**不安全的**。此类操作**不受支持**。如果您需要执行此类任务，您必须使用多个单线程进程来并行操作——而且这些进程中的每一个都应该使用自己的演示文稿实例。
+在多个线程中加载、保存和/或克隆[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)类的实例是**不安全**的，此类操作**不受支持**。如果需要执行此类任务，必须使用多个单线程进程并行处理——每个进程使用其自己的演示文稿实例。
 
-## **并行转换演示文稿幻灯片为图像**
+## **并行将演示文稿幻灯片转换为图像**
 
-假设我们想要将PowerPoint演示文稿中的所有幻灯片并行转换为PNG图像。由于在多个线程中使用单个`Presentation`实例是不安全的，因此我们将演示文稿幻灯片拆分为单独的演示文稿，并在每个线程中使用每个演示文稿并行转换幻灯片为图像。以下代码示例展示了如何做到这一点。
-
+假设我们想并行将 PowerPoint 演示文稿的所有幻灯片转换为 PNG 图像。由于在多个线程中使用单个 `Presentation` 实例不安全，我们将演示文稿的幻灯片拆分为多个独立的演示文稿，并在每个线程中使用各自的演示文稿并行转换为图像。下面的代码示例演示了如何实现此操作。
 ```cs
 var inputFilePath = "sample.pptx";
 var outputFilePathTemplate = "slide_{0}.png";
@@ -41,13 +40,13 @@ var conversionTasks = new List<Task>(slideCount);
 
 for (var slideIndex = 0; slideIndex < slideCount; slideIndex++)
 {
-    // 将幻灯片i提取到一个单独的演示文稿中。
+    // 提取第 i 张幻灯片到独立的演示文稿。
     var slidePresentation = new Presentation();
     slidePresentation.SlideSize.SetSize(slideSize.Width, slideSize.Height, SlideSizeScaleType.DoNotScale);
     slidePresentation.Slides.RemoveAt(0);
     slidePresentation.Slides.AddClone(presentation.Slides[slideIndex]);
 
-    // 在一个单独的任务中将幻灯片转换为图像。
+    // 在独立任务中将幻灯片转换为图像。
     var slideNumber = slideIndex + 1;
     conversionTasks.Add(Task.Run(() =>
     {
@@ -68,3 +67,22 @@ for (var slideIndex = 0; slideIndex < slideCount; slideIndex++)
 
 await Task.WhenAll(conversionTasks);
 ```
+
+
+## **常见问题**
+
+**我需要在每个线程中调用许可证设置吗？**
+
+不需要。只需在启动线程之前在每个进程/应用域中调用一次即可。如果[license setup](/slides/zh/net/licensing/)可能会并发调用（例如在延迟初始化期间），请同步该调用，因为许可证设置方法本身不是线程安全的。
+
+**我可以在线程之间传递 `Presentation` 或 `Slide` 对象吗？**
+
+不建议在线程之间传递“活动”演示文稿对象：请为每个线程使用独立实例，或为每个线程预先创建单独的演示文稿/幻灯片容器。这一做法遵循不在多个线程间共享单个演示文稿实例的一般建议。
+
+**如果每个线程都有自己的 `Presentation` 实例，是否安全并行导出为不同格式（PDF、HTML、图像）？**
+
+是的。只要使用独立实例并指定不同的输出路径，此类任务通常可以正确并行化；请避免共享演示文稿对象和共享 I/O 流。
+
+**在多线程环境中全局字体设置（文件夹、替换）该怎么办？**
+
+在启动线程之前初始化所有全局字体设置，并且在并行工作期间不要更改它们。这可以消除访问共享字体资源时的竞争。
