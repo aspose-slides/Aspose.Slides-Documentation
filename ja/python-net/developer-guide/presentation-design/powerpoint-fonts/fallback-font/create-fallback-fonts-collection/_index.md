@@ -1,6 +1,6 @@
 ---
-title: Python でフォールバックフォントを設定する
-linktitle: フォールバックフォントを設定する
+title: Pythonでフォールバックフォントを設定する
+linktitle: フォールバックフォントの設定
 type: docs
 weight: 20
 url: /ja/python-net/create-fallback-fonts-collection/
@@ -8,24 +8,25 @@ keywords:
 - フォールバックフォント
 - フォールバックルール
 - フォントコレクション
-- フォントを設定
-- フォントのセットアップ
+- フォントの構成
+- フォントの設定
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "PowerPoint および OpenDocument プレゼンテーションでテキストの一貫性と鮮明さを維持するため、Aspose.Slides for Python via .NET でフォールバックフォントコレクションを設定します."
+description: "Aspose.Slides for Python via .NET でフォールバックフォントコレクションを設定し、PowerPoint および OpenDocument のプレゼンテーションでテキストを一貫性があり鮮明に保ちます。"
 ---
 
-[FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/)クラスのインスタンスは、[FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/)に整理され、このコレクションは[IFontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrulescollection/)インターフェイスを実装しています。コレクションからルールを追加または削除することが可能です。
+## **フォールバック ルールの適用**
 
-その後、このコレクションは[FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)クラスの[FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)プロパティに割り当てることができます。FontsManagerはプレゼンテーション全体のフォントを管理します。詳細は[FontsManagerとFontsLoaderについて](/slides/ja/python-net/about-fontsmanager-and-fontsloader/)をお読みください。
+Instances of [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/), that implements [IFontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrulescollection/) interface. It is possible to add or remove rules from the collection.
 
-各[Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)には、独自のFontsManagerインスタンスを持つ[FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)プロパティがあります。
+Then this collection may be assigned to [FontFallBackRulesCollection ](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)property of the [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) class. FontsManager controls fonts across the presentation. Read more [About FontsManager and FontsLoader](/slides/ja/python-net/about-fontsmanager-and-fontsloader/).
 
-以下は、フォールバックフォントルールのコレクションを作成し、特定のプレゼンテーションのFontsManagerに割り当てる方法の例です：
+Each [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)has a [FontsManager ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)property with its own instance of the FontsManager class.
 
+Here is an examples how to create fallback fonts rules collection and assign in into the FontsManager of a certain presentation:  
 ```py
 import aspose.slides as slides
 
@@ -38,8 +39,27 @@ with slides.Presentation() as presentation:
 	presentation.fonts_manager.font_fall_back_rules_collection = userRulesList
 ```
 
-FontsManagerがフォールバックフォントコレクションで初期化された後、フォールバックフォントはプレゼンテーションのレンダリング中に適用されます。
+
+After FontsManager is initialised with fallback fonts collection, the fallback fonts are applied during presentation rendering.
 
 {{% alert color="primary" %}} 
-フォールバックフォントでプレゼンテーションを[レンダリングする方法](/slides/ja/python-net/render-presentation-with-fallback-font/)についてさらにお読みください。
+Read more how to [Render Presentation with Fallback Font](/slides/ja/python-net/render-presentation-with-fallback-font/).
 {{% /alert %}}
+
+## **FAQ**
+
+**Will my fallback rules be embedded into the PPTX file and visible in PowerPoint after saving?**
+
+No. Fallback rules are runtime rendering settings; they are not serialized into PPTX and will not appear in PowerPoint's UI.
+
+**Does fallback apply to text inside SmartArt, WordArt, charts, and tables?**
+
+Yes. The same glyph-substitution mechanism is used for any text in these objects.
+
+**Does Aspose distribute any fonts with the library?**
+
+No. You add and use fonts on your side and under your own responsibility.
+
+**Can replacement/substitution for missing fonts and fallback for missing glyphs be used together?**
+
+Yes. They are independent stages of the same font-resolution pipeline: first the engine resolves font availability ([replacement](/slides/ja/python-net/font-replacement/)/[substitution](/slides/ja/python-net/font-substitution/)), then fallback fills gaps for missing glyphs in available fonts.

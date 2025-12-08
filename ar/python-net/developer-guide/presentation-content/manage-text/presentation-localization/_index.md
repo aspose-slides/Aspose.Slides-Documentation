@@ -23,6 +23,7 @@ description: "أتمتة توطين شرائح PowerPoint وOpenDocument في ب
 - تعيين معرف اللغة للنص.
 - حفظ العرض كملف PPTX.
 
+يتم توضيح تنفيذ الخطوات السابقة في المثال أدناه.
 ```py
 import aspose.slides as slides
 

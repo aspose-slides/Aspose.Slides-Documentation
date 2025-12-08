@@ -1,96 +1,120 @@
 ---
-title: Marca de Agua
+title: Agregar una marca de agua a una presentación en C#
+linktitle: Marca de agua
 type: docs
 weight: 40
 url: /es/net/watermark/
 keywords:
 - marca de agua
-- agregar marca de agua
 - marca de agua de texto
 - marca de agua de imagen
+- agregar marca de agua
+- cambiar marca de agua
+- eliminar marca de agua
+- borrar marca de agua
+- agregar marca de agua a la presentación
+- agregar marca de agua a PPT
+- agregar marca de agua a PPTX
+- agregar marca de agua a ODP
+- eliminar marca de agua de la presentación
+- eliminar marca de agua de PPT
+- eliminar marca de agua de PPTX
+- eliminar marca de agua de ODP
+- borrar marca de agua de la presentación
+- borrar marca de agua de PPT
+- borrar marca de agua de PPTX
+- borrar marca de agua de ODP
 - PowerPoint
+- OpenDocument
 - presentación
 - C#
 - Csharp
 - Aspose.Slides para .NET
-description: "Agregar marcas de agua de texto e imagen a presentaciones de PowerPoint en C# o .NET"
+description: "Aprenda a gestionar marcas de agua de texto y de imagen en presentaciones de PowerPoint y OpenDocument en C# para indicar un borrador, información confidencial, derechos de autor y más."
 ---
 
-## **Acerca de las Marcas de Agua**
+## **Descripción general**
 
-**Una marca de agua** en una presentación es un sello de texto o imagen utilizado en una diapositiva o en todas las diapositivas de la presentación. Por lo general, se utiliza una marca de agua para indicar que la presentación es un borrador (por ejemplo, una marca de agua "Borrador"), que contiene información confidencial (por ejemplo, una marca de agua "Confidencial"), para especificar a qué empresa pertenece (por ejemplo, una marca de agua "Nombre de la Empresa"), para identificar al autor de la presentación, etc. Una marca de agua ayuda a prevenir violaciones de derechos de autor al indicar que la presentación no debe ser copiada. Las marcas de agua se utilizan tanto en formatos de presentación de PowerPoint como de OpenOffice. En Aspose.Slides, puede agregar una marca de agua a los formatos de archivo PPT, PPTX y ODP de PowerPoint.
+**Una marca de agua** en una presentación es un sello de texto o imagen que se utiliza en una diapositiva o en todas las diapositivas de una presentación. Normalmente, una marca de agua se utiliza para indicar que la presentación es un borrador (p. ej., una marca de agua “Borrador”), que contiene información confidencial (p. ej., una marca de agua “Confidencial”), para especificar a qué empresa pertenece (p. ej., una marca de agua “Nombre de la empresa”), para identificar al autor de la presentación, etc. Una marca de agua ayuda a prevenir violaciones de derechos de autor al indicar que la presentación no debe copiarse. Las marcas de agua se usan tanto en los formatos de presentación PowerPoint como OpenDocument. En Aspose.Slides, puedes agregar una marca de agua a los formatos de archivo PowerPoint PPT, PPTX y OpenDocument ODP.
 
-En [**Aspose.Slides**](https://products.aspose.com/slides/net/), hay varias formas de crear marcas de agua en documentos de PowerPoint o OpenOffice y modificar su diseño y comportamiento. El aspecto común es que para agregar marcas de agua de texto, debe utilizar la interfaz [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/), y para agregar marcas de agua de imagen, use la clase [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/) o llene una forma de marca de agua con una imagen. `PictureFrame` implementa la interfaz [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape), lo que le permite utilizar todas las configuraciones flexibles del objeto de forma. Dado que `ITextFrame` no es una forma y sus configuraciones son limitadas, se envuelve en un objeto [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape).
+En [**Aspose.Slides**](https://products.aspose.com/slides/net/), existen varias formas de crear marcas de agua en documentos PowerPoint u OpenDocument y modificar su diseño y comportamiento. El aspecto común es que, para agregar marcas de agua de texto, debes usar la interfaz [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/), y para agregar marcas de agua de imagen, usar la clase [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/) o rellenar una forma de marca de agua con una imagen. `PictureFrame` implementa la interfaz [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) , lo que permite utilizar todas las configuraciones flexibles del objeto forma. Dado que `ITextFrame` no es una forma y sus configuraciones son limitadas, se envuelve en un objeto [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape).
 
-Hay dos formas en que se puede aplicar una marca de agua: a una sola diapositiva o a todas las diapositivas de la presentación. Se utiliza el Master Slide para aplicar una marca de agua a todas las diapositivas de la presentación: la marca de agua se agrega al Master Slide, se diseña completamente allí y se aplica a todas las diapositivas sin afectar el permiso para modificar la marca de agua en diapositivas individuales.
+Hay dos formas de aplicar una marca de agua: a una sola diapositiva o a todas las diapositivas de la presentación. El Maestro de diapositivas se usa para aplicar una marca de agua a todas las diapositivas: la marca de agua se agrega al Maestro de diapositivas, se diseña completamente allí y se aplica a todas las diapositivas sin afectar el permiso de modificar la marca de agua en diapositivas individuales.
 
-Se considera que una marca de agua no está disponible para su edición por otros usuarios. Para evitar que la marca de agua (o más bien la forma padre de la marca de agua) se edite, Aspose.Slides proporciona funcionalidad de bloqueo de formas. Se puede bloquear una forma específica en una diapositiva normal o en un Master Slide. Cuando la forma de marca de agua está bloqueada en el Master Slide, estará bloqueada en todas las diapositivas de la presentación.
+Una marca de agua suele considerarse no editable por otros usuarios. Para evitar que la marca de agua (o más bien la forma padre de la marca de agua) sea editada, Aspose.Slides proporciona la funcionalidad de bloqueo de forma. Una forma específica puede bloquearse en una diapositiva normal o en un Maestro de diapositivas. Cuando la forma de la marca de agua está bloqueada en el Maestro de diapositivas, quedará bloqueada en todas las diapositivas de la presentación.
 
-Puede asignar un nombre a la marca de agua para que en el futuro, si desea eliminarla, pueda encontrarla en las formas de la diapositiva por nombre.
+Puedes asignar un nombre a la marca de agua para que, en el futuro, si deseas eliminarla, la encuentres entre las formas de la diapositiva por su nombre.
 
-Puede diseñar la marca de agua de cualquier manera; sin embargo, generalmente hay características comunes en las marcas de agua, como la alineación centrada, rotación, posición frontal, etc. A continuación, consideraremos cómo utilizar estos aspectos en los ejemplos.
+Puedes diseñar la marca de agua de cualquier manera; sin embargo, suelen existir características comunes en las marcas de agua, como alineación centrada, rotación, posición al frente, etc. Consideraremos cómo usar estas características en los ejemplos siguientes.
 
-## **Marca de Agua de Texto**
+## **Marca de agua de texto**
 
-### **Agregar una Marca de Agua de Texto a una Diapositiva**
+### **Agregar una marca de agua de texto a una diapositiva**
 
-Para agregar una marca de agua de texto en PPT, PPTX o ODP, primero puede agregar una forma a la diapositiva y luego agregar un marco de texto a esta forma. El marco de texto está representado por la interfaz [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe). Este tipo no se hereda de [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), que tiene un amplio conjunto de propiedades para posicionar la marca de agua de manera flexible. Por lo tanto, el objeto [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe) se envuelve en un objeto [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/). Para agregar texto de marca de agua a la forma, use el método [AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/methods/addtextframe) como se muestra a continuación.
-
+Para agregar una marca de agua de texto en PPT, PPTX o ODP, puedes primero agregar una forma a la diapositiva y luego agregar un marco de texto a esa forma. El marco de texto está representado por la interfaz [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe). Este tipo no hereda de [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), que posee un amplio conjunto de propiedades para posicionar la marca de agua de forma flexible. Por ello, el objeto [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe) se envuelve en un objeto [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/). Para agregar texto de marca de agua a la forma, usa el método [AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/methods/addtextframe) como se muestra a continuación.
 ```cs
-string watermarkText = "CONFIDENCIAL";
+string watermarkText = "CONFIDENTIAL";
 
 using Presentation presentation = new Presentation();
 ISlide slide = presentation.Slides[0];
 
+// Agregar la marca de agua a la diapositiva.
 IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
 ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
+
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar la clase TextFrame](/slides/es/net/text-formatting/)
+- [Cómo usar la clase TextFrame?](/slides/es/net/text-formatting/)
 {{% /alert %}}
 
-### **Agregar una Marca de Agua de Texto a una Presentación**
+### **Agregar una marca de agua de texto a una presentación**
 
-Si desea agregar una marca de agua de texto a toda la presentación (es decir, a todas las diapositivas a la vez), agréguela al [MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/). El resto de la lógica es la misma que al agregar una marca de agua a una sola diapositiva: cree un objeto [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) y luego agregue la marca de agua usando el método [AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/methods/addtextframe).
-
+Si deseas agregar una marca de agua de texto a toda la presentación (es decir, a todas las diapositivas a la vez), añádela al [MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/). El resto de la lógica es igual que al agregar una marca de agua a una sola diapositiva: crea un objeto [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) y luego agrega la marca de agua usando el método [AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/methods/addtextframe).
 ```cs
-string watermarkText = "CONFIDENCIAL";
+string watermarkText = "CONFIDENTIAL";
 
 using Presentation presentation = new Presentation();
 IMasterSlide masterSlide = presentation.Masters[0];
 
+// Agregar la marca de agua a la diapositiva maestra.
 IAutoShape watermarkShape = masterSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
 ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
+
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar el Slide Master](/slides/es/net/slide-master/)
+- [Cómo usar el Maestro de diapositivas?](/slides/es/net/slide-master/)
 {{% /alert %}}
 
-### **Establecer la Transparencia de la Forma de Marca de Agua**
+### **Establecer la transparencia de la forma de la marca de agua**
 
-Por defecto, la forma rectangular está estilizada con colores de relleno y línea. Las siguientes líneas de código hacen que la forma sea transparente.
+De forma predeterminada, la forma rectangular tiene estilos de relleno y línea. Esto significa que al agregar la marca de agua, puede aparecer con un fondo sólido o un borde que distraiga del contenido de la diapositiva. Para garantizar que la marca de agua siga siendo sutil y no interfiera con el diseño visual de la presentación, puedes hacer que la forma sea completamente transparente.
 
+Las siguientes líneas de código hacen la forma transparente al eliminar tanto su color de relleno como su color de borde:
 ```cs
 watermarkShape.FillFormat.FillType = FillType.NoFill;
 watermarkShape.LineFormat.FillFormat.FillType = FillType.NoFill;
 ```
 
-### **Establecer la Fuente para una Marca de Agua de Texto**
 
-Puede cambiar la fuente de la marca de agua de texto como se muestra a continuación.
+### **Establecer la fuente para una marca de agua de texto**
 
+Antes de aplicar la marca de agua de texto a tu diapositiva, es importante personalizar su apariencia para que armonice con el diseño general. Puedes cambiar el tipo y el tamaño de la fuente para asegurarte de que la marca de agua sea legible y estéticamente agradable. Personalizar la fuente también ayuda a reforzar la identidad de la marca o simplemente a combinar con el estilo de la presentación.
+
+El fragmento de código a continuación muestra cómo ajustar la configuración de fuente de la marca de agua seleccionando una fuente latina específica y estableciendo una altura de fuente adecuada:
 ```cs
 IPortionFormat textFormat = watermarkFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
 textFormat.LatinFont = new FontData("Arial");
 textFormat.FontHeight = 50;
 ```
 
-### **Establecer el Color del Texto de la Marca de Agua**
 
-Para establecer el color del texto de la marca de agua, use este código:
+### **Establecer el color del texto de la marca de agua**
 
+Antes de aplicar tu marca de agua, es fundamental asegurarse de que el color del texto esté configurado adecuadamente para que se mezcle bien con el contenido de la diapositiva sin sobresalir. Ajustar la transparencia (alfa) del color junto con los componentes rojo, verde y azul permite crear una marca de agua sutil y semitransparente que sea visible pero discreta. Este enfoque ayuda a mantener la atención en la presentación principal mientras se protege el contenido.
+
+Para establecer el color del texto de la marca de agua, usa el siguiente código:
 ```cs
 int alpha = 150, red = 200, green = 200, blue = 200;
 
@@ -99,10 +123,12 @@ fillFormat.FillType = FillType.Solid;
 fillFormat.SolidFillColor.Color = Color.FromArgb(alpha, red, green, blue);
 ```
 
-### **Centrar una Marca de Agua de Texto**
 
-Es posible centrar la marca de agua en una diapositiva, y para eso, puede hacer lo siguiente:
+### **Centrar una marca de agua de texto**
 
+Centrar correctamente tu marca de agua de texto puede mejorar significativamente la estética general de tu presentación al garantizar que la marca de agua esté posicionada de forma simétrica, independientemente de las dimensiones de la diapositiva. Este enfoque no solo aporta un aspecto profesional, sino que también asegura que la marca de agua no interfiera con el contenido principal de la diapositiva.
+
+El fragmento de código a continuación muestra cómo calcular la posición central de una diapositiva y colocar la marca de agua de texto en esa posición:
 ```cs
 SizeF slideSize = presentation.SlideSize.Size;
 
@@ -117,16 +143,16 @@ IAutoShape watermarkShape = slide.Shapes.AddAutoShape(
 ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
+
 La imagen a continuación muestra el resultado final.
 
 ![La marca de agua de texto](text_watermark.png)
 
-## **Marca de Agua de Imagen**
+## **Marca de agua de imagen**
 
-### **Agregar una Marca de Agua de Imagen a una Presentación**
+### **Agregar una marca de agua de imagen a una presentación**
 
-Para agregar una marca de agua de imagen a una diapositiva de presentación, puede hacer lo siguiente:
-
+En muchos casos, una marca de agua de imagen puede proporcionar un elemento de marca único o una alternativa visualmente más atractiva a una marca de agua de texto. Antes de agregar la marca de agua, asegúrate de que el archivo de imagen esté disponible (p. ej., PNG para transparencia). El siguiente ejemplo muestra cómo cargar una imagen desde el sistema de archivos, agregarla a la presentación y luego aplicarla como marca de agua mediante las propiedades de relleno de la forma.
 ```cs
 using FileStream imageStream = File.OpenRead("watermark.png");
 IPPImage image = presentation.Images.AddImage(imageStream);
@@ -136,12 +162,12 @@ watermarkShape.FillFormat.PictureFillFormat.Picture.Image = image;
 watermarkShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
 ```
 
-## **Bloquear una Marca de Agua de la Edición**
 
-Si es necesario evitar que se edite una marca de agua, use la propiedad [IAutoShape.ShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/properties/shapelock) en la forma. Con esta propiedad, puede proteger la forma de ser seleccionada, redimensionada, reposicionada, agrupada con otros elementos, bloquear su texto de edición y mucho más:
+## **Bloquear una marca de agua para que no se edite**
 
+Si es necesario evitar que una marca de agua sea editada, usa la propiedad [IAutoShape.ShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/properties/shapelock) de la forma. Con esta propiedad puedes proteger la forma de ser seleccionada, redimensionada, reposicionada, agrupada con otros elementos, bloquear su texto contra la edición y mucho más:
 ```cs
-// Bloquear la forma de marca de agua para modificaciones
+// Bloquear la forma de marca de agua para que no se modifique.
 watermarkShape.ShapeLock.SelectLocked = true;
 watermarkShape.ShapeLock.SizeLocked = true;
 watermarkShape.ShapeLock.TextLocked = true;
@@ -149,50 +175,77 @@ watermarkShape.ShapeLock.PositionLocked = true;
 watermarkShape.ShapeLock.GroupingLocked = true;
 ```
 
-## **Traer una Marca de Agua al Frente**
 
-En Aspose.Slides, el orden Z de las formas se puede establecer a través del método [IShapeCollection.Reorder](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/reorder/#reorder). Para hacerlo, necesita llamar a este método desde la lista de diapositivas de la presentación y pasar la referencia de la forma y su número de orden al método. De esta manera, es posible traer una forma al frente o enviarla detrás de la diapositiva. Esta función es especialmente útil si necesita colocar una marca de agua frente a la presentación:
+## **Traer una marca de agua al frente**
 
+En Aspose.Slides, el orden Z de las formas puede establecerse mediante el método [IShapeCollection.Reorder](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/reorder/#reorder). Para ello, debes llamar a este método desde la lista de diapositivas de la presentación y pasar la referencia de la forma y su número de orden. De esta manera, es posible traer una forma al frente o enviarla al fondo de la diapositiva. Esta característica es especialmente útil si necesitas colocar una marca de agua delante del contenido de la presentación:
 ```cs
 int shapeCount = slide.Shapes.Count;
 slide.Shapes.Reorder(shapeCount - 1, watermarkShape);
 ```
 
-## **Establecer la Rotación de la Marca de Agua**
 
-Aquí hay un ejemplo de código de cómo ajustar la rotación de la marca de agua para que esté posicionada diagonalmente a través de la diapositiva:
+## **Establecer la rotación de la marca de agua**
 
+Ajustar la rotación de tu marca de agua puede mejorar significativamente el impacto visual y la sutileza de tu presentación. Una marca de agua diagonal, por ejemplo, puede ser menos intrusiva mientras sigue proporcionando una protección robusta contra el uso no autorizado. El siguiente ejemplo calcula el ángulo adecuado basado en las dimensiones de la diapositiva para que la marca de agua quede diagonalmente a través de la diapositiva. Este cálculo dinámico garantiza que la marca de agua siga siendo eficaz independientemente del tamaño de la diapositiva.
 ```cs
 double diagonalAngle = Math.Atan((slideSize.Height / slideSize.Width)) * 180 / Math.PI;
 
 watermarkShape.Rotation = (float)diagonalAngle;
 ```
 
-## **Establecer un Nombre para una Marca de Agua**
 
-Aspose.Slides permite establecer el nombre de una forma. Al usar el nombre de la forma, puede acceder a ella en el futuro para modificarla o eliminarla. Para establecer el nombre de la forma de marca de agua, asígnele la propiedad [IAutoShape.Name](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/name):
+## **Asignar un nombre a una marca de agua**
 
+Aspose.Slides permite establecer el nombre de una forma. Mediante el nombre de la forma, puedes acceder a ella en el futuro para modificarla o eliminarla. Para asignar el nombre a la forma de la marca de agua, establézcalo en la propiedad [IAutoShape.Name](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/name):
 ```cs
-watermarkShape.Name = "marca de agua";
+watermarkShape.Name = "watermark";
 ```
 
-## **Eliminar una Marca de Agua**
 
-Para eliminar la forma de marca de agua, use la propiedad [IAutoShape.Name](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/name) para encontrarla en las formas de la diapositiva. Luego, pase la forma de marca de agua al método [IShapeCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/remove/):
+## **Eliminar una marca de agua**
 
+Para eliminar la forma de la marca de agua, usa la propiedad [IAutoShape.Name](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/name) para encontrarla entre las formas de la diapositiva. Luego, pasa la forma de la marca de agua al método [IShapeCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/remove/) :
 ```cs
 List<IShape> slideShapes = slide.Shapes.ToList();
 foreach (IShape shape in slideShapes)
 {
-    if (string.Compare(shape.Name, "marca de agua", StringComparison.Ordinal) == 0)
+    if (string.Compare(shape.Name, "watermark", StringComparison.Ordinal) == 0)
     {
         slide.Shapes.Remove(watermarkShape);
     }
 }
 ```
 
-## **Un Ejemplo en Vivo**
 
-Puede que desee probar las herramientas en línea **Aspose.Slides gratis** [Agregar Marca de Agua](https://products.aspose.app/slides/watermark) y [Eliminar Marca de Agua](https://products.aspose.app/slides/watermark/remove-watermark).
+## **Ejemplo en vivo**
+
+Puedes probar las herramientas en línea gratuitas de **Aspose.Slides** [Agregar marca de agua](https://products.aspose.app/slides/watermark) y [Eliminar marca de agua](https://products.aspose.app/slides/watermark/remove-watermark).
 
 ![Herramientas en línea para agregar y eliminar marcas de agua](online_tools.png)
+
+## **Preguntas frecuentes**
+
+**¿Qué es una marca de agua y por qué debería usarla?**
+
+Una marca de agua es una superposición de texto o imagen aplicada a las diapositivas que ayuda a proteger la propiedad intelectual, mejorar el reconocimiento de marca o prevenir el uso no autorizado de presentaciones.
+
+**¿Puedo agregar una marca de agua a todas las diapositivas de una presentación?**
+
+Sí, Aspose.Slides permite agregar programáticamente una marca de agua a cada diapositiva de una presentación. Puedes iterar sobre todas las diapositivas y aplicar la configuración de la marca de agua individualmente.
+
+**¿Cómo puedo ajustar la transparencia de la marca de agua?**
+
+Puedes ajustar la transparencia de la marca de agua modificando la configuración de relleno ([FillFormat](https://reference.aspose.com/slides/net/aspose.slides/shape/fillformat/)) de la forma. Esto asegura que la marca de agua sea sutil y no distraiga del contenido de la diapositiva.
+
+**¿Qué formatos de imagen son compatibles con las marcas de agua?**
+
+Aspose.Slides admite varios formatos de imagen como PNG, JPEG, GIF, BMP, SVG y más.
+
+**¿Puedo personalizar la fuente y el estilo de una marca de agua de texto?**
+
+Sí, puedes elegir cualquier fuente, tamaño y estilo para que coincida con el diseño de tu presentación y mantenga la coherencia de la marca.
+
+**¿Cómo cambio la posición o orientación de una marca de agua?**
+
+Puedes ajustar la posición y orientación de la marca de agua programáticamente modificando las coordenadas, el tamaño y las propiedades de rotación de la forma.

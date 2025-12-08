@@ -1,11 +1,31 @@
 ---
 title: Create or Update PowerPoint Presentation Charts in PHP
-linktitle: Create Chart
+linktitle: Create or Update Charts
 type: docs
 weight: 10
 url: /php-java/create-chart/
-keywords: "Create chart, scattered chart, pie chart, tree map chart, stock chart, box and whisker chart, histogram chart, funnel chart, sunburst chart, multicategory chart, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Create chart in PowerPoint presentation "
+keywords:
+- add chart
+- create chart
+- edit chart
+- change chart
+- update chart
+- scattered chart
+- pie chart
+- line chart
+- tree map chart
+- stock chart
+- box and whisker chart
+- funnel chart
+- sunburst chart
+- histogram chart
+- radar chart
+- multicategory chart
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Create and customize charts in PowerPoint presentations using Aspose.Slides for PHP via Java. Add, format, and edit charts with practical code examples."
 ---
 
 ## Overview

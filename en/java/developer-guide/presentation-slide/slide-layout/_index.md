@@ -1,5 +1,5 @@
 ---
-title: Apply or Change a Slide Layout in Java
+title: Apply or Change Slide Layouts in Java
 linktitle: Slide Layout
 type: docs
 weight: 60
@@ -23,9 +23,12 @@ keywords:
 - picture with caption
 - title and vertical text
 - vertical title and text
+- PowerPoint
+- OpenDocument
+- presentation
 - Java
 - Aspose.Slides
-description: "Learn how to manage and customize slide layouts in Aspose.Slides for Java. Explore layout types, placeholder control, footer visibility, and layout manipulation through code examples in Java."
+description: "Manage and customize slide layouts in Aspose.Slides for Java. Explore layout types, placeholder control, and footer visibility through Java code examples."
 ---
 
 ## **Overview**
@@ -252,7 +255,7 @@ try {
 }
 ```
 
-## **FAQs**
+## **FAQ**
 
 **What’s the difference between a master slide and a layout slide?**
 

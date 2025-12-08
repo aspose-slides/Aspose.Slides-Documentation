@@ -1,19 +1,22 @@
 ---
-title: Manage Zoom
+title: Manage Presentation Zoom in .NET
+linktitle: Manage Zoom
 type: docs
 weight: 60
 url: /net/manage-zoom/
-keywords: 
+keywords:
 - zoom
 - zoom frame
-- add zoom
-- format zoom frame
+- slide zoom
+- section zoom
 - summary zoom
-- PowerPoint presentation
+- add zoom
+- PowerPoint
+- presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Add zoom or zoom frames to PowerPoint presentations in C# or .NET"
+- Aspose.Slides
+description: "Create and customize Zoom with Aspose.Slides for .NET — jump between sections, add thumbnails and transitions across PPT, PPTX and ODP presentations."
 ---
 
 ## **Overview**
@@ -34,7 +37,7 @@ Slide zooms help you drill into multiple pieces of information while you feel li
 
 For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://reference.aspose.com/slides/net/aspose.slides/zoomimagetype) enumeration, the [IZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/izoomframe) interface, and some methods under the [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) interface.
 
-### **Creating Zoom Frames**
+### **Create Zoom Frames**
 
 You can add a zoom frame on a slide this way:
 
@@ -79,7 +82,7 @@ using (Presentation pres = new Presentation())
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
-### **Creating Zoom Frames with Custom Images**
+### **Create Zoom Frames with Custom Images**
 With Aspose.Slides for .NET, you can create a zoom frame with a different slide preview image this way: 
 1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 2.	Create a new slide to which you intend to link the zoom frame. 
@@ -117,7 +120,7 @@ using (Presentation pres = new Presentation())
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
-### **Formatting Zoom Frames**
+### **Format Zoom Frames**
 In the previous sections, we showed you how to create simple zoom frames. To create more complicated zoom frames, you have to alter a simple frame's formatting. There are several formatting options you can apply to a zoom frame. 
 
 You can control a zoom frame's formatting on a slide this way:
@@ -193,7 +196,7 @@ A section zoom is a link to a section in your presentation. You can use section 
 
 For section zoom objects, Aspose.Slides provides the [ISectionZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isectionzoomframe) interface and some methods under the [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) interface.
 
-### **Creating Section Zoom Frames**
+### **Create Section Zoom Frames**
 
 You can add a section zoom frame to a slide this way:
 
@@ -225,7 +228,7 @@ using (Presentation pres = new Presentation())
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
-### **Creating Section Zoom Frames with Custom Images**
+### **Create Section Zoom Frames with Custom Images**
 
 Using Aspose.Slides for .NET, you can create a section zoom frame with a different slide preview image this way: 
 
@@ -263,7 +266,7 @@ using (Presentation pres = new Presentation())
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
-### **Formatting Section Zoom Frames**
+### **Format Section Zoom Frames**
 
 To create more complicated section zoom frames, you have to alter a simple frame's formatting. There are several formatting options you can apply to a section zoom frame. 
 
@@ -336,7 +339,7 @@ A summary zoom is like a landing page where all the pieces of your presentation 
 
 For summary zoom objects, Aspose.Slides provides the [ISummaryZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomframe), [ISummaryZoomFrameSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection), and [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection) interfaces and some methods under the [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) interface.
 
-### **Creating Summary Zoom**
+### **Create a Summary Zoom**
 
 You can add a summary zoom frame to a slide this way:
 
@@ -394,7 +397,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Adding and Removing Summary Zoom Section**
+### **Add and Remove a Summary Zoom Section**
 
 All sections in a summary zoom frame are represented by [ISummaryZoomFrameSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection) objects, which are stored in the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection) object. You can add or remove a summary zoom section object through the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection) interface this way:
 
@@ -452,7 +455,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Formatting Summary Zoom Sections**
+### **Format Summary Zoom Sections**
 
 To create more complicated summary zoom section objects, you have to alter a simple frame's formatting. There are several formatting options you can apply to a summary zoom section object. 
 

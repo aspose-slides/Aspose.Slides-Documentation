@@ -1,10 +1,30 @@
 ---
-title: Convert OpenOffice ODP
+title: Convert OpenDocument Presentations in JavaScript
+linktitle: Convert OpenDocument
 type: docs
 weight: 10
 url: /nodejs-java/convert-openoffice-odp/
-keywords: "Convert ODP to PDF, ODP to HTML, ODP to TIFF in JavaScript"
-description: "Convert ODP to PDF, ODP to PPT, ODP to PPTX, ODP to HTML in JavaScript"
+keywords:
+- convert ODP
+- ODP to image
+- ODP to GIF
+- ODP to HTML
+- ODP to JPG
+- ODP to MD
+- ODP to PDF
+- ODP to PNG
+- ODP to PPT
+- ODP to PPTX
+- ODP to TIFF
+- ODP to video
+- ODP to Word
+- ODP to XPS
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Aspose.Slides for Node.js lets you convert ODP to PDF, HTML, and image formats with ease. Boost your apps with fast and accurate presentation conversion."
 ---
 
 [**Aspose.Slides API**](https://products.aspose.com/slides/nodejs-java/) allows to convert OpenOffice ODP presentation to many types. The API to convert ODP to other types is the same as for PowerPoint types. You may use the following examples to convert ODP, just changing the source file on the ODP presentation file:

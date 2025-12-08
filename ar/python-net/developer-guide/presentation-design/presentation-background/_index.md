@@ -7,7 +7,7 @@ url: /ar/python-net/presentation-background/
 keywords:
 - خلفية العرض التقديمي
 - خلفية الشريحة
-- لون مصمت
+- لون صلب
 - لون متدرج
 - خلفية صورة
 - شفافية الخلفية
@@ -17,173 +17,233 @@ keywords:
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تعرف على كيفية تعيين خلفيات ديناميكية في ملفات PowerPoint وOpenDocument باستخدام Aspose.Slides for Python via .NET، مع نصائح برمجية لتعزيز عروضك التقديمية."
+description: "تعلم كيفية تعيين خلفيات ديناميكية في ملفات PowerPoint وOpenDocument باستخدام Aspose.Slides لبايثون عبر .NET، مع نصائح برمجية لتعزيز عروضك التقديمية."
 ---
 
-الألوان الصلبة، والألوان التدرج، والصور تُستخدم غالبًا كصور خلفية للشرائح. يمكنك تعيين الخلفية سواء لشريحة **عادية** (شريحة واحدة) أو **شريحة رئيسية** (عدة شرائح دفعة واحدة).
+## **نظرة عامة**
 
-<img src="powerpoint-background.png" alt="powerpoint-background"  />
+الألوان الصلبة، التدرجات، والصور تُستخدم عادةً كخلفيات للشرائح. يمكنك تعيين الخلفية لشريحة **عادية** (شريحة واحدة) أو لشريحة **رئيسية** (تُطبّق على عدة شرائح مرة واحدة).
 
-## **تعيين لون صلب كخلفية لشريحة عادية**
+![PowerPoint background](powerpoint-background.png)
 
-تسمح لك Aspose.Slides بتعيين لون صلب كخلفية لشريحة معينة في عرض تقديمي (حتى إذا كان يحتوي على شريحة رئيسية). يؤثر تغيير الخلفية فقط على الشريحة المحددة.
+## **تعيين خلفية بلون صلب لشريحة عادية**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-2. عيّن قيمة [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) للشرائح إلى `OwnBackground` .
-3. عيّن قيمة [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) لخلفية الشريحة إلى `Solid` .
-4. استخدم خاصية [SolidFillColor](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties) المعروضة بواسطة [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) لتحديد لون صلب للخلفية.
-5. احفظ العرض التقديمي المعدل.
+Aspose.Slides يسمح لك بتعيين لون صلب كخلفية لشريحة محددة في عرض تقديمي — حتى إذا كان العرض يستخدم شريحة رئيسية. التطوير يطبّق فقط على الشريحة المحددة.
 
-يعرض لك هذا الكود بلغة Python كيفية تعيين لون صلب (أزرق) كخلفية لشريحة عادية:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. تعيين خاصية الشريحة [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) إلى `OWN_BACKGROUND`.
+3. تعيين خاصية خلفية الشريحة [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) إلى `SOLID`.
+4. استخدام خاصية `solid_fill_color` على الفئة [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) لتحديد لون الخلفية الصلب.
+5. حفظ العرض التقديمي المعدل.
 
+المثال التالي بلغة Python يوضح كيفية تعيين لون أزرق صلب كخلفية لشريحة عادية:
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Creates an instance of the Presentation class
-with slides.Presentation() as pres:
-    # Sets the background color for the first ISlide to Blue
-    pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
-    pres.slides[0].background.fill_format.fill_type = slides.FillType.SOLID
-    pres.slides[0].background.fill_format.solid_fill_color.color = draw.Color.blue
-    # Writes the presentation to disk
-    pres.save("ContentBG_out.pptx", slides.export.SaveFormat.PPTX)
+# إنشاء مثيل من فئة Presentation.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    # ضبط لون خلفية الشريحة إلى اللون الأزرق.
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.color = draw.Color.blue
+
+    # حفظ العرض التقديمي إلى القرص.
+    presentation.save("SolidColorBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تعيين لون صلب كخلفية لشريحة رئيسية**
 
-تسمح لك Aspose.Slides بتعيين لون صلب كخلفية للشريحة الرئيسية في عرض تقديمي. تعمل الشريحة الرئيسية كقالب يحتوي على إعدادات التنسيق لجميع الشرائح. لذلك، عند اختيار لون صلب كخلفية للشريحة الرئيسية، ستُستخدم تلك الخلفية الجديدة لجميع الشرائح.
+## **تعيين خلفية بلون صلب للشريحة الرئيسية**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-2. عيّن قيمة [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) للشريحة الرئيسية (`Masters`) إلى `OwnBackground` .
-3. عيّن قيمة [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) لخلفية الشريحة الرئيسية إلى `Solid` .
-4. استخدم خاصية [SolidFillColor](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties) المعروضة بواسطة [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) لتحديد لون صلب للخلفية.
-5. احفظ العرض التقديمي المعدل.
+Aspose.Slides يسمح لك بتعيين لون صلب كخلفية للشريحة الرئيسية في عرض تقديمي. الشريحة الرئيسية تعمل كقالب يتحكم في تنسيق جميع الشرائح، لذا عند اختيار لون صلب لخلفية الشريحة الرئيسية، يُطبّق على كل الشريحة.
 
-يعرض لك هذا الكود بلغة Python كيفية تعيين لون صلب (أخضر غابة) كخلفية لشريحة رئيسية في عرض تقديمي:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. تعيين خاصية الشريحة الرئيسية [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) (عبر `masters`) إلى `OWN_BACKGROUND`.
+3. تعيين خاصية خلفية الشريحة الرئيسية [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) إلى `SOLID`.
+4. استخدام خاصية `solid_fill_color` على الفئة [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) لتحديد لون الخلفية الصلب.
+5. حفظ العرض التقديمي المعدل.
 
+المثال التالي بلغة Python يوضح كيفية تعيين لون صلب (أخضر غابات) كخلفية للشريحة الرئيسية:
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Creates an instance of the Presentation class
-with slides.Presentation() as pres:
-    # Sets the background color for the Master ISlide to Forest Green
-    pres.masters[0].background.type = slides.BackgroundType.OWN_BACKGROUND
-    pres.masters[0].background.fill_format.fill_type = slides.FillType.SOLID
-    pres.masters[0].background.fill_format.solid_fill_color.color = draw.Color.forest_green
+# إنشاء مثيل من فئة Presentation.
+with slides.Presentation() as presentation:
+    master_slide = presentation.masters[0]
 
-    # Writes the presentation to disk
-    pres.save("SetSlideBackgroundMaster_out.pptx", slides.export.SaveFormat.PPTX)
+    # تعيين لون خلفية الشريحة الرئيسية إلى الأخضر الغابي.
+    master_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    master_slide.background.fill_format.fill_type = slides.FillType.SOLID
+    master_slide.background.fill_format.solid_fill_color.color = draw.Color.forest_green
+
+    # حفظ العرض التقديمي إلى القرص.
+    presentation.save("MasterSlideBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تعيين لون تدرجي كخلفية لشريحة**
 
-التدرج هو تأثير رسومي يعتمد على تغيير تدريجي في اللون. الألوان التدريجية، عند استخدامها كخلفيات للشرائح، تجعل العروض التقديمية تبدو فنية ومهنية. تسمح لك Aspose.Slides بتعيين لون تدرجي كخلفية للشرائح في العروض التقديمية.
+## **تعيين خلفية متدرجة لشريحة**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-2. عيّن قيمة [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) للشريحة إلى `OwnBackground` .
-3. عيّن قيمة [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) لخلفية الشريحة الرئيسية إلى `Gradient` .
-4. استخدم خاصية [GradientFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties) المعروضة بواسطة [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) لتحديد إعدادات التدرج المفضلة لديك.
-5. احفظ العرض التقديمي المعدل.
+التدرج هو تأثير رسومي يُنشأ بتغيير اللون تدريجياً. عند استخدامه كخلفية لشريحة، يمكن للتدرجات أن تجعل العروض التقديمية تبدو أكثر فنية واحترافية. Aspose.Slides يسمح لك بتعيين لون متدرج كخلفية للشرائح.
 
-يعرض لك هذا الكود بلغة Python كيفية تعيين لون تدرجي كخلفية لشريحة:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. تعيين خاصية الشريحة [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) إلى `OWN_BACKGROUND`.
+3. تعيين خاصية خلفية الشريحة [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) إلى `GRADIENT`.
+4. استخدام خاصية `gradient_format` على الفئة [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) لتكوين إعدادات التدرج المفضلة لديك.
+5. حفظ العرض التقديمي المعدل.
 
+المثال التالي بلغة Python يوضح كيفية تعيين لون متدرج كخلفية لشريحة:
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Creates an instance of the Presentation class
-with slides.Presentation(path + "SetBackgroundToGradient.pptx") as pres:
-    # Apply Gradient effect to the Background
-    pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
-    pres.slides[0].background.fill_format.fill_type = slides.FillType.GRADIENT
-    pres.slides[0].background.fill_format.gradient_format.tile_flip = slides.TileFlip.FLIP_BOTH
+# إنشاء مثيل من فئة Presentation.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    #Writes the presentation to disk
-    pres.save("ContentBG_Grad_out.pptx", slides.export.SaveFormat.PPTX)
+    # تطبيق تأثير تدرج على الخلفية.
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.GRADIENT
+    slide.background.fill_format.gradient_format.tile_flip = slides.TileFlip.FLIP_BOTH
+
+    # حفظ العرض التقديمي إلى القرص.
+    presentation.save("GradientBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
+
 
 ## **تعيين صورة كخلفية لشريحة**
 
-بجانب الألوان الصلبة والألوان التدريجية، تتيح لك Aspose.Slides أيضًا تعيين صور كخلفية للشرائح في العروض التقديمية.
+بالإضافة إلى التعبئات الصلبة والمتدرجة، Aspose.Slides يسمح لك باستخدام الصور كخلفيات للشرائح.
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-2. عيّن قيمة [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) للشريحة إلى `OwnBackground` .
-3. عيّن قيمة [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) لخلفية الشريحة الرئيسية إلى `Picture` .
-4. قم بتحميل الصورة التي ترغب في استخدامها كخلفية للشريحة.
-5. أضف الصورة إلى مجموعة الصور في العرض التقديمي.
-6. استخدم خاصية [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/#properties) المعروضة بواسطة [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) لتعيين الصورة كخلفية.
-7. احفظ العرض التقديمي المعدل.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. تعيين خاصية الشريحة [BackgroundType](https://reference.aspose.com/slides/python-net/aspose.slides/backgroundtype/) إلى `OWN_BACKGROUND`.
+3. تعيين خاصية خلفية الشريحة [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) إلى `PICTURE`.
+4. تحميل الصورة التي تريد استخدامها كخلفية للشريحة.
+5. إضافة الصورة إلى مجموعة الصور في العرض التقديمي.
+6. استخدام خاصية `picture_fill_format` على الفئة [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) لتعيين الصورة كخلفية.
+7. حفظ العرض التقديمي المعدل.
 
-يعرض لك هذا الكود بلغة Python كيفية تعيين صورة كخلفية لشريحة:
-
+المثال التالي بلغة Python يوضح كيفية تعيين صورة كخلفية لشريحة:
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Creates an instance of the Presentation class
-with slides.Presentation(path + "SetImageAsBackground.pptx") as pres:
-    # Sets conditions for background image
-    pres.slides[0].background.type = slides.BackgroundType.OWN_BACKGROUND
-    pres.slides[0].background.fill_format.fill_type = slides.FillType.PICTURE
-    pres.slides[0].background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+# إنشاء مثيل من فئة Presentation.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Loads the image
-    img = draw.Bitmap(path + "Tulips.jpg")
+    # تعيين خصائص صورة الخلفية.
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.PICTURE
+    slide.background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
 
-    # Adds image to presentation's images collection
-    imgx = pres.images.add_image(img)
+    # تحميل الصورة.
+    with slides.Images.from_file("Tulips.jpg") as image:
+        # إضافة الصورة إلى مجموعة صور العرض التقديمي.
+        pp_image = presentation.images.add_image(image)
 
-    pres.slides[0].background.fill_format.picture_fill_format.picture.image = imgx
+    slide.background.fill_format.picture_fill_format.picture.image = pp_image
 
-    # Writes the presentation to disk
-    pres.save("ContentBG_Img_out.pptx", slides.export.SaveFormat.PPTX)
+    # حفظ العرض التقديمي إلى القرص.
+    presentation.save("ImageAsBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+العينة البرمجية التالية توضح كيفية تعيين نوع تعبئة الخلفية إلى صورة بلاط وتعديل خصائص التبليط:
+```py
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+
+    first_slide = presentation.slides[0]
+
+    background = first_slide.background
+
+    background.type = slides.BackgroundType.OWN_BACKGROUND
+    background.fill_format.fill_type = slides.FillType.PICTURE
+
+    with slides.Images.from_file("image.png") as new_image:
+        pp_image = presentation.images.add_image(new_image)
+
+    # تعيين الصورة المستخدمة لتعبئة الخلفية.
+    back_picture_fill_format = background.fill_format.picture_fill_format
+    back_picture_fill_format.picture.image = pp_image
+
+    # تعيين وضع تعبئة الصورة إلى بلاط وتعديل خصائص البلاط.
+    back_picture_fill_format.picture_fill_mode = slides.PictureFillMode.TILE
+    back_picture_fill_format.tile_offset_x = 15.0
+    back_picture_fill_format.tile_offset_y = 15.0
+    back_picture_fill_format.tile_scale_x = 46.0
+    back_picture_fill_format.tile_scale_y = 87.0
+    back_picture_fill_format.tile_alignment = slides.RectangleAlignment.CENTER
+    back_picture_fill_format.tile_flip = slides.TileFlip.FLIP_Y
+
+    presentation.save("TileBackground.pptx", slides.export.SaveFormat.PPTX)
+```
+
+
+{{% alert color="primary" %}}
+
+اقرأ المزيد: [**صورة بلاط كقماش**](/slides/ar/python-net/shape-formatting/#tile-picture-as-texture).
+
+{{% /alert %}}
 
 ### **تغيير شفافية صورة الخلفية**
 
-قد ترغب في ضبط شفافية صورة خلفية الشريحة لجعل محتويات الشريحة بارزة. هذا الكود بلغة Python يوضح لك كيفية تغيير شفافية صورة الخلفية لشريحة:
-
+قد ترغب في تعديل شفافية صورة خلفية الشريحة لجعل محتوى الشريحة يبرز. الكود التالي بلغة Python يوضح كيفية تغيير شفافية صورة خلفية الشريحة:
 ```python
-transparencyValue = 30 # على سبيل المثال
+transparency_value = 30  # على سبيل المثال.
 
-# Gets a collection of picture transform operations
-imageTransform = pres.slides[0].background.fill_format.picture_fill_format.picture.image_transform
+# احصل على مجموعة عمليات تحويل الصورة.
+image_transform = slide.background.fill_format.picture_fill_format.picture.image_transform
 
-transparencyOperation = None
-# Finds a transparency effect with fixed percentage.
-for operation in imageTransform:
+transparency_operation = None
+
+# العثور على تأثير شفافية ثابت النسبة المئوية موجود.
+for operation in image_transform:
     if type(operation) is slides.AlphaModulateFixed:
-        transparencyOperation = operation
+        transparency_operation = operation
         break
 
-# Sets the new transparency value.
-if transparencyOperation is None:
-    imageTransform.add_alpha_modulate_fixed_effect(100 - transparencyValue)
+# تعيين قيمة الشفافية الجديدة.
+if transparency_operation is None:
+    image_transform.add_alpha_modulate_fixed_effect(100 - transparency_value)
 else:
-    transparencyOperation.amount = (100 - transparencyValue)
+    transparency_operation.amount = 100 - transparency_value
 ```
+
 
 ## **الحصول على قيمة خلفية الشريحة**
 
-تقدم Aspose.Slides واجهة [IBackgroundEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/) للسماح لك بالحصول على القيم الفعالة لخلفيات الشرائح. تحتوي هذه الواجهة على معلومات حول [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/#properties) الفعالة و [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/#properties) الفعالة.
+Aspose.Slides توفر الفئة [IBackgroundEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/) لاسترجاع القيم الفعّالة لخلفية الشريحة. هذه الفئة تكشف عن الـ [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) و [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) الفعّالين.
 
-باستخدام خاصية [Background](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/#properties) من فئة [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/) ، يمكنك الحصول على القيمة الفعالة لخلفية الشريحة.
+باستخدام خاصية `background` في الفئة [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/)، يمكنك الحصول على الخلفية الفعّالة لشريحة.
 
-يعرض لك هذا الكود بلغة Python كيفية الحصول على قيمة الخلفية الفعالة لشريحة:
-
+المثال التالي بلغة Python يوضح كيفية الحصول على قيمة الخلفية الفعّالة لشريحة:
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Creates an instance of the Presentation class
-with slides.Presentation(path + "SamplePresentation.pptx") as pres:
+# إنشاء مثيل من فئة Presentation.
+with slides.Presentation("Sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    effBackground = pres.slides[0].background.get_effective()
+    # استخراج الخلفية الفعّالة مع مراعاة الشريحة الرئيسية وتخطيط الشريحة والسمة.
+    effective_background = slide.background.get_effective()
 
-    if effBackground.fill_format.fill_type == slides.FillType.SOLID:
-        print("لون التعبئة: " + str(effBackground.fill_format.solid_fill_color))
+    if effective_background.fill_format.fill_type == slides.FillType.SOLID:
+        color = effective_background.fill_format.solid_fill_color
+        print(f"Fill color: Color [A={color.a}, R={color.r}, G={color.g}, B={color.b}]")
     else:
-        print("نوع التعبئة: " + str(effBackground.fill_format.fill_type))
+        print("Fill type:", str(effective_background.fill_format.fill_type))
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني إعادة تعيين خلفية مخصصة واستعادة خلفية القالب/التخطيط؟**
+
+نعم. احذف التعبئة المخصصة للشفرة، وستتم وراثة الخلفية مرة أخرى من شريحة [التخطيط](/slides/ar/python-net/slide-layout/)/[الرئيسية](/slides/ar/python-net/slide-master/) المقابلة (أي خلفية [السمة](/slides/ar/python-net/presentation-theme/)).
+
+**ماذا يحدث للخلفية إذا غيرت سمة العرض التقديمي لاحقاً؟**
+
+إذا كانت الشريحة تحتوي على تعبئتها الخاصة، فستظل دون تغيير. إذا كانت الخلفية موروثة من شريحة [التخطيط](/slides/ar/python-net/slide-layout/)/[الرئيسية](/slides/ar/python-net/slide-master/)، فستُحدّث لتطابق [السمة الجديدة](/slides/ar/python-net/presentation-theme/).

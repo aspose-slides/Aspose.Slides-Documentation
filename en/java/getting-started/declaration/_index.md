@@ -3,6 +3,18 @@ title: Declaration
 type: docs
 weight: 60
 url: /java/declaration/
+keywords:
+- declaration
+- components
+- Full Trust permission
+- registry settings
+- system files
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn about Aspose.Slides for Java trust requirements, permissions, and hosting limitations so you can safely deploy apps that process PPT, PPTX and ODP on servers."
 ---
 
 {{% alert color="primary" %}} 

@@ -1,7 +1,18 @@
 ---
-title: Bubble Chart
+title: Customize Bubble Charts in Presentations Using С++
+linktitle: Bubble Chart
 type: docs
 url: /cpp/bubble-chart/
+keywords:
+- bubble chart
+- bubble size
+- size scaling
+- size representation
+- PowerPoint
+- presentation
+- С++
+- Aspose.Slides
+description: "Create and customize powerful bubble charts in PowerPoint with Aspose.Slides for С++ to enhance your data visualization easily."
 ---
 
 ## **Bubble Chart Size Scaling**

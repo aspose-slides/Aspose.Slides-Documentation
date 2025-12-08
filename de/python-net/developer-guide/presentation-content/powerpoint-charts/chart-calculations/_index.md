@@ -1,15 +1,28 @@
 ---
-title: Diagramm-Berechnungen
+title: Chart-Berechnungen für Präsentationen in Python optimieren
+linktitle: Chart-Berechnungen
 type: docs
 weight: 50
 url: /de/python-net/chart-calculations/
-keywords: "Diagramm Berechnungen, Diagramm Elemente, Elementposition, Diagramm Werte Python, Aspose.Slides für Python über .NET"
-description: "PowerPoint Diagramm Berechnungen und Werte in Python"
+keywords:
+- Chart-Berechnungen
+- Chart-Elemente
+- Elementposition
+- tatsächliche Position
+- untergeordnetes Element
+- übergeordnetes Element
+- Chart-Werte
+- tatsächlicher Wert
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Verstehen Sie Chart-Berechnungen, Datenaktualisierungen und Präzisionssteuerung in Aspose.Slides für Python via .NET für PPT, PPTX und ODP, mit praktischen Codebeispielen."
 ---
 
-## **Berechnung der tatsächlichen Werte von Diagrammelementen**
-Aspose.Slides für Python über .NET bietet eine einfache API, um diese Eigenschaften abzurufen. Dies hilft Ihnen, die tatsächlichen Werte der Diagrammelemente zu berechnen. Die tatsächlichen Werte umfassen die Position von Elementen, die das IActualLayout-Interface implementieren (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight) und die tatsächlichen Achsenwerte (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale).
-
+## **Tatsächliche Werte von Diagrammelementen berechnen**
+Aspose.Slides for Python via .NET bietet eine einfache API zum Abrufen dieser Eigenschaften. Dies hilft Ihnen, die tatsächlichen Werte von Diagrammelementen zu berechnen. Die tatsächlichen Werte umfassen die Position von Elementen, die das IActualLayout‑Interface implementieren (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight) und die tatsächlichen Achsenwerte (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale).
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -25,10 +38,8 @@ with slides.Presentation("pres.pptx") as pres:
 ```
 
 
-
-## **Berechnung der tatsächlichen Position von Eltern-Diagrammelementen**
-Aspose.Slides für Python über .NET bietet eine einfache API, um diese Eigenschaften abzurufen. Die Eigenschaften von IActualLayout liefern Informationen über die tatsächliche Position des übergeordneten Diagrammelements. Es ist erforderlich, die Methode IChart.ValidateChartLayout() vorher aufzurufen, um die Eigenschaften mit tatsächlichen Werten zu füllen.
-
+## **Tatsächliche Position von übergeordneten Diagrammelementen berechnen**
+Aspose.Slides for Python via .NET bietet eine einfache API zum Abrufen dieser Eigenschaften. Die Eigenschaften von IActualLayout liefern Informationen über die tatsächliche Position des übergeordneten Diagrammelements. Es ist erforderlich, vorher die Methode IChart.ValidateChartLayout() aufzurufen, um die Eigenschaften mit tatsächlichen Werten zu füllen.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -44,10 +55,8 @@ with slides.Presentation("pres.pptx") as pres:
 ```
 
 
-
-## **Informationen aus dem Diagramm ausblenden**
-Dieses Thema hilft Ihnen zu verstehen, wie man Informationen aus dem Diagramm ausblendet. Mit Aspose.Slides für Python über .NET können Sie **Titel, Vertikale Achse, Horizontale Achse** und **Gitternetzlinien** aus dem Diagramm ausblenden. Der folgende Code zeigt, wie man diese Eigenschaften verwendet.
-
+## **Informationen im Diagramm ausblenden**
+Dieses Thema erklärt, wie Sie Informationen im Diagramm ausblenden können. Mit Aspose.Slides for Python via .NET können Sie **Titel, Vertikale Achse, Horizontale Achse** und **Gitternetzlinien** im Diagramm ausblenden. Das nachstehende Code‑Beispiel zeigt, wie diese Eigenschaften verwendet werden.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -81,10 +90,25 @@ with slides.Presentation() as pres:
     series.labels.default_data_label_format.position = charts.LegendDataLabelPosition.TOP
     series.marker.size = 15
 
-    # Linie Farbe der Serie festlegen
+    # Festlegen der Serienlinienfarbe
     series.format.line.fill_format.fill_type = slides.FillType.SOLID
     series.format.line.fill_format.solid_fill_color.color = draw.Color.purple
     series.format.line.dash_style = slides.LineDashStyle.SOLID
 
     pres.save("HideInformationFromChart.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Funktionieren externe Excel‑Arbeitsmappen als Datenquelle und wie wirkt sich das auf die Neuberechnung aus?**
+
+Ja. Ein Diagramm kann eine externe Arbeitsmappe referenzieren: Wenn Sie die externe Quelle verbinden oder aktualisieren, werden Formeln und Werte aus dieser Arbeitsmappe übernommen, und das Diagramm spiegelt die Änderungen während Öffnen/Bearbeiten wider. Die API ermöglicht das[Angeben des Pfads zur externen Arbeitsmappe](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) und die Verwaltung der verknüpften Daten.
+
+**Kann ich Trendlinien berechnen und anzeigen, ohne die Regression selbst zu implementieren?**
+
+Ja. [Trendlinien](/slides/de/python-net/trend-line/) (linear, exponentiell und weitere) werden von Aspose.Slides hinzugefügt und aktualisiert; ihre Parameter werden automatisch aus den Seriendaten neu berechnet, sodass Sie keine eigenen Berechnungen durchführen müssen.
+
+**Wenn eine Präsentation mehrere Diagramme mit externen Verknüpfungen enthält, kann ich steuern, welche Arbeitsmappe jedes Diagramm für berechnete Werte verwendet?**
+
+Ja. Jedes Diagramm kann auf seine eigene[externe Arbeitsmappe](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) verweisen, oder Sie können pro Diagramm unabhängig von den anderen eine externe Arbeitsmappe erstellen/ersetzen.

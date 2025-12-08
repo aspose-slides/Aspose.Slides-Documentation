@@ -1,10 +1,34 @@
 ---
-title: Convert PowerPoint to Markdown in C#
+title: Convert PowerPoint Presentations to Markdown in .NET
+linktitle: PowerPoint to Markdown
 type: docs
 weight: 140
 url: /net/convert-powerpoint-to-markdown/
-keywords: "Convert PowerPoint to Markdown, Convert ppt to md, PowerPoint, PPT, PPTX, Presentation, Markdown, C#, Csharp, .NET, Aspose.Slides"
-description: "Convert PowerPoint to Markdown in C#"
+keywords:
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- PowerPoint to MD
+- presentation to MD
+- slide to MD
+- PPT to MD
+- PPTX to MD
+- save PowerPoint as Markdown
+- save presentation as Markdown
+- save slide as Markdown
+- save PPT as MD
+- save PPTX as MD
+- export PPT to MD
+- exportPPTX to MD
+- PowerPoint
+- presentation
+- Markdown
+- .NET
+- C#
+- Aspose.Slides
+description: "Convert PowerPoint slides—PPT, PPTX—to clean Markdown with Aspose.Slides for .NET, automate documentation and keep formatting."
 ---
 
 {{% alert color="info" %}} 
@@ -51,7 +75,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 The 23 supported markdown flavors are [listed under the Flavor enumeration](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/flavor/) from the [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) class.
 
-## **Convert Presentation Containing Images to Markdown**
+## **Convert a Presentation Containing Images to Markdown**
 
 The [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) class provides properties and enumerations that allow you to use certain options or settings for the resulting markdown file. The [MarkdownExportType](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) enum, for example, can be set to values that determine how images are rendered or handled: `Sequential`, `TextOnly`, `Visual`.
 

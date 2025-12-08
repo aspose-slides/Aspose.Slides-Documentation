@@ -1,10 +1,10 @@
 ---
-title: 3D Presentation
+title: Create 3D Presentations in PHP
+linktitle: 3D Presentation
 type: docs
 weight: 232
 url: /php-java/3d-presentation/
 keywords:
-- 3D
 - 3D PowerPoint
 - 3D presentation
 - 3D rotation
@@ -12,10 +12,12 @@ keywords:
 - 3D extrusion
 - 3D gradient
 - 3D text
-- PowerPoint presentation
+- PowerPoint
+- OpenDocument
+- presentation
 - PHP
-- Aspose.Slides for PHP via Java
-description: "3D PowerPoint presentation in PHP"
+- Aspose.Slides
+description: "Generate interactive 3D presentations in PHP with Aspose.Slides effortlessly. Export quickly to PowerPoint and OpenDocument formats for versatile use."
 ---
 
 ## Overview

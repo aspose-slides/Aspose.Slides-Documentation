@@ -1,5 +1,5 @@
 ---
-title: 在 Python 中管理演示文稿中的上标和下标
+title: 在 Python 中管理上标和下标
 linktitle: 上标和下标
 type: docs
 weight: 80
@@ -14,74 +14,85 @@ keywords:
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "掌握适用于 .NET 的 Aspose.Slides for Python 中的上标和下标功能，通过专业文本格式提升演示文稿的影响力。"
+description: "通过 .NET 在 Aspose.Slides for Python 中掌握上标和下标，提升演示文稿的专业文本格式，实现最大影响力。"
 ---
 
-## **管理上标和下标文本**
-您可以在任何段落部分内添加上标和下标文本。要在 Aspose.Slides 文本框中添加上标或下标文本，必须使用 **Escapement** 属性的 PortionFormat 类。
+## **添加上标和下标文本**
 
-该属性返回或设置上标或下标文本（值范围从 -100%（下标）到 100%（上标）。例如：
+您可以向任何段落部分添加上标和下标文本。在 Aspose.Slides 中，使用 `escapement` 属性来控制此行为，属性位于 [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) 类。
 
-- 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-- 通过使用其索引获取幻灯片的引用。
-- 向幻灯片添加一个矩形类型的 IAutoShape。
-- 访问与 IAutoShape 关联的 ITextFrame。
-- 清除现有段落
-- 创建一个新的段落对象以保存上标文本，并将其添加到 ITextFrame 的 IParagraphs 集合中。
-- 创建一个新的部分对象
-- 设置部分的 Escapement 属性在 0 到 100 之间以添加上标。（0 表示没有上标）
-- 为部分设置一些文本，然后将其添加到段落的部分集合中。
-- 创建一个新的段落对象以保存下标文本，并将其添加到 ITextFrame 的 IParagraphs 集合中。
-- 创建一个新的部分对象
-- 设置部分的 Escapement 属性在 0 到 -100 之间以添加下标。（0 表示没有下标）
-- 为部分设置一些文本，然后将其添加到段落的部分集合中。
-- 将演示文稿保存为 PPTX 文件。
+`escapement` 是一个百分比，范围从 **-100% 到 100%**：
 
-上述步骤的实现如下所示。
+- **> 0** → 上标（例如，25% = 稍微上移；100% = 完全上标）
+- **0** → 基线（无上标/下标）
+- **< 0** → 下标（例如，-25% = 稍微下移；-100% = 完全下标）
+
+步骤：
+
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 并获取幻灯片。
+1. 添加一个矩形 [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) 并访问其 [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/)。
+1. 清除已有的段落。
+1. 对于上标：创建一个段落和一个文本段，设置 `portion.portion_format.escapement` 为 **0 到 100** 之间的值，设置文本，然后添加该文本段。
+1. 对于下标：创建另一个段落和文本段，设置 `escapement` 为 **-100 到 0** 之间的值，设置文本，然后添加该文本段。
+1. 将演示文稿保存为 PPTX。
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("pres.pptx") as presentation:
-    # 获取幻灯片
+    # 获取幻灯片。
     slide = presentation.slides[0]
 
-    # 创建文本框
+    # 创建文本框。
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
-    textFrame = shape.text_frame
-    textFrame.paragraphs.clear()
+    shape.text_frame.paragraphs.clear()
 
-    # 为上标文本创建段落
-    superPar = slides.Paragraph()
+    # 创建上标文本的段落。
+    superscript_paragraph = slides.Paragraph()
 
-    # 创建常规文本的部分
+    # 创建常规文本的文本段。
     portion1 = slides.Portion()
     portion1.text = "SlideTitle"
-    superPar.portions.add(portion1)
+    superscript_paragraph.portions.add(portion1)
 
-    # 创建上标文本的部分
-    superPortion = slides.Portion()
-    superPortion.portion_format.escapement = 30
-    superPortion.text = "TM"
-    superPar.portions.add(superPortion)
+    # 创建上标文本的文本段。
+    superscript_portion = slides.Portion()
+    superscript_portion.portion_format.escapement = 30
+    superscript_portion.text = "TM"
+    superscript_paragraph.portions.add(superscript_portion)
 
-    # 为下标文本创建段落
-    paragraph2 = slides.Paragraph()
+    # 创建下标文本的段落。
+    subscript_paragraph = slides.Paragraph()
 
-    # 创建常规文本的部分
+    # 创建常规文本的文本段。
     portion2 = slides.Portion()
     portion2.text = "a"
-    paragraph2.portions.add(portion2)
+    subscript_paragraph.portions.add(portion2)
 
-    # 创建下标文本的部分
-    subPortion = slides.Portion()
-    subPortion.portion_format.escapement = -25
-    subPortion.text = "i"
-    paragraph2.portions.add(subPortion)
+    # 创建下标文本的文本段。
+    subscript_portion = slides.Portion()
+    subscript_portion.portion_format.escapement = -25
+    subscript_portion.text = "i"
+    subscript_paragraph.portions.add(subscript_portion)
 
-    # 将段落添加到文本框
-    textFrame.paragraphs.add(superPar)
-    textFrame.paragraphs.add(paragraph2)
+    # 将段落添加到文本框。
+    shape.text_frame.paragraphs.add(superscript_paragraph)
+    shape.text_frame.paragraphs.add(subscript_paragraph)
 
     presentation.save("TestOut.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **常见问题**
+
+**我能在表格和其他容器中使用上标/下标，而不仅限于普通文本框吗？**
+
+是的。您可以在任何暴露 [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) 的对象（包括表格单元格）内部将文本格式化为上标或下标。该格式会应用于该框架内的文本段。
+
+**导出为 PDF、HTML 或图片时，上标/下标会被保留吗？**
+
+是的。Aspose.Slides 在导出到常见格式（如 [PDF](/slides/zh/python-net/convert-powerpoint-to-pdf/)、[HTML](/slides/zh/python-net/convert-powerpoint-to-html/)、以及 [raster images](/slides/zh/python-net/convert-powerpoint-to-png/)）时会保留上标/下标格式，因为渲染管线会遵循文本段级别的格式设置。
+
+**我能在同一文本片段中将上标/下标与超链接组合使用吗？**
+
+是的。[Hyperlinks](/slides/zh/python-net/manage-hyperlinks/) 在文本段（片段）级别分配，因此同一个文本段可以同时包含超链接并设置为上标或下标。

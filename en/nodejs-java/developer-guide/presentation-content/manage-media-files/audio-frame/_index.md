@@ -15,7 +15,7 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Create and control audio frames in Aspose.Slides for Node.js—JavaScript examples to embed, trim, loop, and configure playback across PPT, PPTX, and ODP presentations."
+description: "Create and control audio frames in Aspose.Slides for Node.js—examples to embed, trim, loop, and configure playback across PPT, PPTX, and ODP presentations."
 ---
 
 ## **Create Audio Frames**

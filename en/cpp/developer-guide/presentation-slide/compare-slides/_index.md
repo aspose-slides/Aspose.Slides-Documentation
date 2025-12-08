@@ -1,8 +1,18 @@
 ---
-title: Compare Slides
+title: Compare Presentation Slides in C++
+linktitle: Compare Slides
 type: docs
 weight: 50
 url: /cpp/compare-slides/
+keywords:
+- compare slides
+- slide comparison
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Compare PowerPoint and OpenDocument presentations programmatically with Aspose.Slides for C++. Identify slide differences in code quickly."
 ---
 
 ## **Compare Two Slides**

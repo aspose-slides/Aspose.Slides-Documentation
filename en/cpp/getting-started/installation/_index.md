@@ -3,8 +3,20 @@ title: Installation
 type: docs
 weight: 70
 url: /cpp/installation/
-keywords: "Download Aspose.Slides, Install Aspose.Slides, Aspose.Slides Installation, Windows, C++"
-description: "Install Aspose.Slides for C++ in Windows"
+keywords:
+- install Aspose.Slides
+- download Aspose.Slides
+- use Aspose.Slides
+- Aspose.Slides installation
+- Windows
+- Linux
+- macOS
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Learn how to quickly install Aspose.Slides for C++. Step-by-step guide, system requirements, and code samples — start working with PowerPoint presentations today!"
 ---
 
 ## **Windows**

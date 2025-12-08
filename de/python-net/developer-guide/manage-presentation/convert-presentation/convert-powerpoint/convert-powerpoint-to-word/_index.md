@@ -1,31 +1,31 @@
 ---
-title: PowerPoint‑Präsentationen in Word‑Dokumente mit Python umwandeln
+title: PowerPoint-Präsentationen in Word-Dokumente mit Python konvertieren
 linktitle: PowerPoint zu Word
 type: docs
 weight: 110
 url: /de/python-net/convert-powerpoint-to-word/
 keywords:
-- PowerPoint in DOCX
-- OpenDocument in DOCX
-- Präsentation in DOCX
-- Folie in DOCX
-- PPT in DOCX
-- PPTX in DOCX
-- ODP in DOCX
-- PowerPoint in DOC
-- OpenDocument in DOC
-- Präsentation in DOC
-- Folie in DOC
-- PPT in DOC
-- PPTX in DOC
-- ODP in DOC
-- PowerPoint in Word
-- OpenDocument in Word
-- Präsentation in Word
-- Folie in Word
-- PPT in Word
-- PPTX in Word
-- ODP in Word
+- PowerPoint zu DOCX
+- OpenDocument zu DOCX
+- Präsentation zu DOCX
+- Folie zu DOCX
+- PPT zu DOCX
+- PPTX zu DOCX
+- ODP zu DOCX
+- PowerPoint zu DOC
+- OpenDocument zu DOC
+- Präsentation zu DOC
+- Folie zu DOC
+- PPT zu DOC
+- PPTX zu DOC
+- ODP zu DOC
+- PowerPoint zu Word
+- OpenDocument zu Word
+- Präsentation zu Word
+- Folie zu Word
+- PPT zu Word
+- PPTX zu Word
+- ODP zu Word
 - PowerPoint konvertieren
 - OpenDocument konvertieren
 - Präsentation konvertieren
@@ -35,60 +35,91 @@ keywords:
 - ODP konvertieren
 - Python
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie PowerPoint‑ und OpenDocument‑Präsentationen mithilfe von Aspose.Slides for Python via .NET mühelos in Word‑Dokumente umwandeln. Unsere Schritt‑für‑Schritt‑Anleitung mit Beispiel‑Python‑Code bietet Entwicklern eine Lösung, um ihre Dokument‑Workflows zu optimieren."
+description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument-Präsentationen mühelos in Word-Dokumente mit Aspose.Slides für Python via .NET konvertieren können. Unser schritt‑für‑schritt Leitfaden mit Beispiel‑Python‑Code bietet die Lösung für Entwickler, die ihre Dokumenten‑Workflows optimieren möchten."
 ---
 
-Wenn Sie planen, textuelle Inhalte oder Informationen aus einer Präsentation (PPT oder PPTX) auf neue Weise zu verwenden, können Sie davon profitieren, die Präsentation in Word (DOC oder DOCX) umzuwandeln.
+## **Übersicht**
 
-* Im Vergleich zu Microsoft PowerPoint ist die Microsoft Word-App besser mit Tools oder Funktionalitäten für Inhalte ausgestattet.
-* Abgesehen von den Bearbeitungsfunktionen in Word können Sie auch von verbesserten Funktionen für Zusammenarbeit, Drucken und Teilen profitieren.
+Dieser Artikel bietet Entwicklern eine Lösung zum Konvertieren von PowerPoint- und OpenDocument-Präsentationen in Word-Dokumente mithilfe von Aspose.Slides für Python via .NET und Aspose.Words für Python via .NET. Die Schritt-für-Schritt-Anleitung führt Sie durch jede Phase des Konvertierungsprozesses.
 
-{{% alert color="primary" %}}
+## **Eine Präsentation in ein Word‑Dokument konvertieren**
 
-Sie möchten vielleicht unseren [**Online-Converter für Präsentationen in Word**](https://products.aspose.app/slides/conversion/ppt-to-word) ausprobieren, um zu sehen, was Sie aus der Bearbeitung textueller Inhalte von Folien gewinnen können.
+Folgen Sie den nachstehenden Anweisungen, um eine PowerPoint‑ oder OpenDocument‑Präsentation in ein Word‑Dokument zu konvertieren:
 
-{{% /alert %}}
+1. Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse und laden Sie eine Präsentationsdatei.
+2. Instanziieren Sie die Klassen [Document](https://reference.aspose.com/words/python-net/aspose.words/document/) und [DocumentBuilder](https://reference.aspose.com/words/python-net/aspose.words/documentbuilder/), um ein Word‑Dokument zu erzeugen.
+3. Legen Sie die Seitengröße für das Word‑Dokument fest, damit sie der der Präsentation entspricht, indem Sie die Eigenschaft [DocumentBuilder.page_setup](https://reference.aspose.com/words/python-net/aspose.words/documentbuilder/page_setup/) verwenden.
+4. Setzen Sie die Ränder im Word‑Dokument mithilfe der Eigenschaft [DocumentBuilder.page_setup](https://reference.aspose.com/words/python-net/aspose.words/documentbuilder/page_setup/).
+5. Durchlaufen Sie alle Folien der Präsentation mit der Eigenschaft [Presentation.slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/):
+    - Erzeugen Sie ein Folienbild mithilfe der Methode `get_image` der Klasse [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) und speichern Sie es in einen Speicher‑Stream.
+    - Fügen Sie das Folienbild dem Word‑Dokument mit der Methode `insert_image` der Klasse [DocumentBuilder](https://reference.aspose.com/words/python-net/aspose.words/documentbuilder/) hinzu.
+6. Speichern Sie das Word‑Dokument in einer Datei.
 
-## **Aspose.Slides und Aspose.Words**
+Angenommen, wir haben eine Präsentation "sample.pptx", die folgendermaßen aussieht:
 
-Um eine PowerPoint-Datei (PPTX oder PPT) in Word (DOCX oder DOCX) umzuwandeln, benötigen Sie sowohl [Aspose.Slides für Python über .NET](https://products.aspose.com/slides/python-net/) als auch [Aspose.Words für Python über .NET](https://products.aspose.com/words/python-net/).
+![PowerPoint-Präsentation](PowerPoint.png)
 
-Als eigenständige API bietet [Aspose.Slides](https://products.aspose.com/slides/python-net/) für Python über .NET Funktionen, mit denen Sie Texte aus Präsentationen extrahieren können.
-
-[Aspose.Words](https://products.aspose.com/words/python-net/) ist eine fortschrittliche API zur Dokumentenverarbeitung, die es Anwendungen ermöglicht, Dateien zu generieren, zu modifizieren, zu konvertieren, zu rendern, zu drucken und andere Aufgaben mit Dokumenten ohne die Nutzung von Microsoft Word durchzuführen.
-
-## **PowerPoint in Word in Python umwandeln**
-
-1. Fügen Sie diese Namensräume zu Ihrer program.py-Datei hinzu:
-
+Das folgende Python‑Codebeispiel zeigt, wie man die PowerPoint‑Präsentation in ein Word‑Dokument konvertiert:
 ```py
 import aspose.slides as slides
 import aspose.words as words
-```
 
-2. Verwenden Sie diesen Codeausschnitt, um die PowerPoint in Word umzuwandeln:
-
-```py
+# Präsentationsdatei laden.
 with slides.Presentation("sample.pptx") as presentation:
-    doc = words.Document()
-    builder = words.DocumentBuilder(doc)
 
-    for index in range(presentation.slides.length):
-        slide = presentation.slides[index]
+    # Document- und DocumentBuilder-Objekte erstellen.
+    document = words.Document()
+    builder = words.DocumentBuilder(document)
 
-        file_name = "slide_{i}.png".format(i=index)
+    # Seitengröße im Word-Dokument festlegen.
+    slide_size = presentation.slide_size.size
+    builder.page_setup.page_width = slide_size.width
+    builder.page_setup.page_height = slide_size.height
 
-        # generiert ein Folienbild
-        with slide.get_image(1, 1) as image:
-            image.save(file_name, slides.ImageFormat.PNG)
+    # Ränder im Word-Dokument festlegen.
+    builder.page_setup.left_margin = 0
+    builder.page_setup.right_margin = 0
+    builder.page_setup.top_margin = 0
+    builder.page_setup.bottom_margin = 0
 
-        builder.insert_image(file_name)
+    scale_x = 2
+    scale_y = 2
 
-        for shape in slide.shapes:
-            # fügt die Texte der Folie ein
-            if type(shape) is slides.AutoShape:
-                builder.writeln(shape.text_frame.text)
+    # Durch alle Folien der Präsentation iterieren.
+    for slide in presentation.slides:
+
+        # Folienbild erzeugen und in einen Speicher-Stream speichern.
+        with slide.get_image(scale_x, scale_y) as image:
+            image_stream = BytesIO()
+            image.save(image_stream, slides.ImageFormat.PNG)
+
+        # Folienbild zum Word-Dokument hinzufügen.
+        image_stream.seek(0)
+        image_width = builder.page_setup.page_width
+        image_height = builder.page_setup.page_height
+        builder.insert_image(image_stream.read(), image_width, image_height)
 
         builder.insert_break(words.BreakType.PAGE_BREAK)
-    doc.save("output.docx")
+
+    # Word-Dokument in einer Datei speichern.
+    document.save("output.docx")
 ```
+
+
+Das Ergebnis:
+
+![Word‑Dokument](Word.png)
+
+{{% alert color="primary" %}} 
+Probieren Sie unseren [**Online PPT‑zu‑Word‑Konverter**](https://products.aspose.app/slides/conversion/ppt-to-word) aus, um zu sehen, welchen Nutzen Sie aus der Konvertierung von PowerPoint‑ und OpenDocument‑Präsentationen in Word‑Dokumente ziehen können. 
+{{% /alert %}}
+
+## **FAQ**
+
+**Welche Komponenten müssen installiert werden, um PowerPoint‑ und OpenDocument‑Präsentationen in Word‑Dokumente zu konvertieren?**
+
+Sie müssen lediglich die jeweiligen Pakete für [Aspose.Slides for Python via .NET](https://pypi.org/project/Aspose.Slides/) und [Aspose.Words for Python .NET](https://pypi.org/project/aspose-words/) zu Ihrem Python‑Projekt hinzufügen. Beide Pakete funktionieren als eigenständige APIs, und es ist keine Installation von Microsoft Office erforderlich.
+
+**Werden alle PowerPoint‑ und OpenDocument‑Präsentationsformate unterstützt?**
+
+Aspose.Slides für Python .NET [unterstützt alle Präsentationsformate](/slides/de/python-net/supported-file-formats/), einschließlich PPT, PPTX, ODP und anderer gängiger Dateitypen. Dadurch können Sie mit Präsentationen arbeiten, die in verschiedenen Versionen von Microsoft PowerPoint erstellt wurden.

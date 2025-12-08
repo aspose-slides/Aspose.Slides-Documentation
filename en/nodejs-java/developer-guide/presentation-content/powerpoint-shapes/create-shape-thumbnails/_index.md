@@ -1,8 +1,20 @@
 ---
-title: Create Shape Thumbnails
+title: Create Thumbnails of Presentation Shapes in JavaScript
+linktitle: Shape Thumbnails
 type: docs
 weight: 70
 url: /nodejs-java/create-shape-thumbnails/
+keywords:
+- shape thumbnail
+- shape image
+- render shape
+- shape rendering
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Generate high-quality shape thumbnails from PowerPoint slides with JavaScript and Aspose.Slides for Node.js – easily create and export presentation thumbnails."
 ---
 
 
@@ -111,3 +123,25 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**What image formats can be used when saving shape thumbnails?**
+
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imageformat/), and others. Shapes can also be [exported as vector SVG](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/writeassvg/) by saving the shape’s content as SVG.
+
+**What is the difference between Shape and Appearance bounds when rendering a thumbnail?**
+
+`Shape` uses the shape’s geometry; `Appearance` takes [visual effects](/slides/nodejs-java/shape-effect/) (shadows, glows, etc.) into account.
+
+**What happens if a shape is marked as hidden? Will it still render as a thumbnail?**
+
+A hidden shape remains part of the model and can be rendered; the hidden flag affects slideshow display but does not prevent generating the shape’s image.
+
+**Are group shapes, charts, SmartArt, and other complex objects supported?**
+
+Yes. Any object represented as [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) (including [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/), and [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/)) can be saved as a thumbnail or as SVG.
+
+**Do system-installed fonts affect the quality of thumbnails for text shapes?**
+
+Yes. You should [provide the required fonts](/slides/nodejs-java/custom-font/) (or [configure font substitutions](/slides/nodejs-java/font-substitution/)) to avoid unwanted fallbacks and text reflow.

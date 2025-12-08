@@ -1,8 +1,23 @@
 ---
-title: Chart Calculations
+title: Optimize Chart Calculations for Presentations in PHP
+linktitle: Chart Calculations
 type: docs
 weight: 50
 url: /php-java/chart-calculations/
+keywords:
+- chart calculations
+- chart elements
+- element position
+- actual position
+- child element
+- parent element
+- chart values
+- actual value
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Understand chart calculations, data updates, and precision control in Aspose.Slides for PHP via Java for PPT and PPTX, with practical code examples."
 ---
 
 ## **Calculate Actual Values of Chart Elements**

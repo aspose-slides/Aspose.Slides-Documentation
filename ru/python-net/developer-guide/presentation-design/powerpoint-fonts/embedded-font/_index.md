@@ -1,5 +1,5 @@
 ---
-title: Встраивайте шрифты в презентации на Python
+title: Встраивание шрифтов в презентации с помощью Python
 linktitle: Встраивание шрифта
 type: docs
 weight: 40
@@ -8,92 +8,103 @@ keywords:
 - добавить шрифт
 - встроить шрифт
 - встраивание шрифтов
-- получить встроенный шрифт
-- добавить встроенный шрифт
-- удалить встроенный шрифт
-- сжать встроенный шрифт
+- получить встраиваемый шрифт
+- добавить встраиваемый шрифт
+- удалить встраиваемый шрифт
+- сжать встраиваемый шрифт
 - PowerPoint
 - OpenDocument
 - презентация
 - Python
 - Aspose.Slides
-description: "Встраивайте шрифты TrueType в презентации PowerPoint и OpenDocument с помощью Aspose.Slides for Python via .NET, обеспечивая корректное отображение на всех платформах."
+description: "Встраивание TrueType шрифтов в презентации PowerPoint и OpenDocument с помощью Aspose.Slides для Python через .NET, обеспечивая точный рендеринг на всех платформах."
 ---
 
-**Встроенные шрифты в PowerPoint** полезны, когда вы хотите, чтобы ваша презентация отображалась корректно при открытии на любой системе или устройстве. Если вы использовали сторонний или нестандартный шрифт, потому что проявили креативность в своей работе, то у вас есть еще больше причин встроить свой шрифт. В противном случае (без встроенных шрифтов) текст или числа на ваших слайдах, оформление, стилизация и т. д. могут измениться или превратиться в запутанные прямоугольники.
+## **Обзор**
 
-Класс [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/), класс [FontData](https://reference.aspose.com/slides/python-net/aspose.slides/fontdata/), класс [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) и их интерфейсы содержат большинство свойств и методов, необходимых для работы с встроенными шрифтами в презентациях PowerPoint.
+**Встраивание шрифтов в PowerPoint** обеспечивает сохранение задуманного внешнего вида вашей презентации на разных системах. Независимо от того, используете ли вы уникальные шрифты для креативности или стандартные, встраивание шрифтов предотвращает нарушения текста и макета.
 
-## **Получить или удалить встроенные шрифты из презентации**
+Если вы использовали сторонний или нестандартный шрифт, потому что проявили креативность в работе, у вас есть ещё больше причин встраивать шрифт. В противном случае (без встраиваемых шрифтов) тексты или цифры на слайдах, макет, стиль и т.п. могут измениться или превратиться в запутанные прямоугольники. 
 
-Aspose.Slides предоставляет метод `get_embedded_fonts()` (предоставляемый классом [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)), который позволяет получить (или определить) шрифты, встроенные в презентацию. Для удаления шрифтов используется метод `remove_embedded_font(font_data)` (предоставляемый тем же классом).
+Используйте классы [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/), [FontData](https://reference.aspose.com/slides/python-net/aspose.slides/fontdata/), и [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) для управления встраиваемыми шрифтами.
 
-Этот код на Python показывает, как получить и удалить встроенные шрифты из презентации:
+## **Получение и удаление встраиваемых шрифтов**
 
+Легко извлекайте или удаляйте встраиваемые шрифты из презентации с помощью методов [get_embedded_fonts](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) и [remove_embedded_font](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/remove_embedded_font/).
+
+Этот Python-код показывает, как получить и удалить встраиваемые шрифты из презентации:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Создает объект Presentation, представляющий файл презентации
-with slides.Presentation(path + "EmbeddedFonts.pptx") as presentation:
-    # Отрисовывает слайд, содержащий текстовый фрейм, который использует встроенный "FunSized"
-    with presentation.slides[0].get_image(draw.Size(960, 720)) as img:
-        img.save("picture1_out.png", slides.ImageFormat.PNG)
+# Создайте объект класса Presentation, представляющий файл презентации.
+with slides.Presentation("EmbeddedFonts.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    fontsManager = presentation.fonts_manager
+    # Отобразите слайд, содержащий текстовый фрейм, использующий встроенный шрифт 'FunSized'.
+    with slide.get_image(draw.Size(960, 720)) as image:
+        image.save("picture1_out.png", slides.ImageFormat.PNG)
 
-    # Получает все встроенные шрифты
-    embeddedFonts = fontsManager.get_embedded_fonts()
+    fonts_manager = presentation.fonts_manager
 
-    # Ищет шрифт "Calibri"
-    
-    funSizedEmbeddedFont = list(filter(lambda data : data.font_name == "Calibri", embeddedFonts))[0]
+    # Получить все встроенные шрифты.
+    embedded_fonts = fonts_manager.get_embedded_fonts()
 
-    # Удаляет шрифт "Calibri"
-    fontsManager.remove_embedded_font(funSizedEmbeddedFont)
+    # Найти шрифт 'Calibri'.
+    font_data = list(filter(lambda data : data.font_name == "Calibri", embedded_fonts))[0]
 
-    # Отрисовывает презентацию; шрифт "Calibri" заменяется на существующий
-    with presentation.slides[0].get_image(draw.Size(960, 720)) as img:
-        img.save("picture2_out.png", slides.ImageFormat.PNG)
+    # Удалить шрифт 'Calibri'.
+    fonts_manager.remove_embedded_font(font_data)
 
-    # Сохраняет презентацию без встроенного шрифта "Calibri" на диск
-    presentation.save("WithoutManageEmbeddedFonts_out.ppt", slides.export.SaveFormat.PPT)
+    # Отобразить слайд; шрифт 'Calibri' будет заменён существующим.
+    with slide.get_image(draw.Size(960, 720)) as image:
+        image.save("picture2_out.png", slides.ImageFormat.PNG)
+
+    # Сохранить презентацию без встроенного шрифта 'Calibri' на диск.
+    presentation.save("WithoutEmbeddedFonts.ppt", slides.export.SaveFormat.PPT)
 ```
 
-## **Добавить встроенные шрифты в презентацию**
 
-Используя перечисление [EmbedFontCharacters](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedfontcharacters/) и две перегрузки метода `add_embedded_font(font_data, embed_font_rule)`, вы можете выбрать желаемое (встраиваемое) правило для встраивания шрифтов в презентацию. Этот код на Python показывает, как встроить и добавить шрифты в презентацию:
+## **Добавление встраиваемых шрифтов**
 
+Используя перечисление [EmbedFontCharacters](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedfontcharacters/), а также две перегрузки метода [add_embedded_font](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/add_embedded_font/), вы можете выбрать предпочитаемое (встраиваемое) правило для встраивания шрифтов в презентацию. Этот Python-код демонстрирует, как встраивать и добавлять шрифты в презентацию:
 ```python
 import aspose.slides as slides
 
-# Загружает презентацию
-with slides.Presentation(path + "Fonts.pptx") as presentation:
-    # Загружает исходный шрифт для замены
-    sourceFont = slides.FontData("Arial")
+# Загрузить презентацию.
+with slides.Presentation("Fonts.pptx") as presentation:
+    all_fonts = presentation.fonts_manager.get_fonts()
+    embedded_fonts = presentation.fonts_manager.get_embedded_fonts()
 
-
-    allFonts = presentation.fonts_manager.get_fonts()
-    embeddedFonts = presentation.fonts_manager.get_embedded_fonts()
-    for font in allFonts:
-        if font not in embeddedFonts:
+    for font in all_fonts:
+        if font not in embedded_fonts:
             presentation.fonts_manager.add_embedded_font(font, slides.export.EmbedFontCharacters.ALL)
 
-    # Сохраняет презентацию на диск
-    presentation.save("AddEmbeddedFont_out.pptx", slides.export.SaveFormat.PPTX)
+    # Сохранить презентацию на диск.
+    presentation.save("AddEmbeddedFont.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Сжать встроенные шрифты**
 
-Чтобы позволить вам сжать шрифты, встроенные в презентацию, и уменьшить её размер файла, Aspose.Slides предоставляет метод `compress_embedded_fonts` (предоставляемый классом [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/)).
+## **Сжатие встраиваемых шрифтов**
 
-Этот код на Python показывает, как сжать встроенные шрифты PowerPoint:
+Оптимизируйте размер файла, сжимая встраиваемые шрифты с помощью [compress_embedded_fonts](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/compress_embedded_fonts/).
 
+Пример кода для сжатия:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-
-    slides.lowcode.Compress.compress_embedded_fonts(pres)
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("sample.pptx") as presentation:
+    slides.lowcode.Compress.compress_embedded_fonts(presentation)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Как узнать, что конкретный шрифт в презентации всё равно будет заменён при рендеринге, несмотря на встраивание?**
+
+Проверьте [информацию о замене](/slides/ru/python-net/font-substitution/) в менеджере шрифтов и [правила fallback/замены](/slides/ru/python-net/fallback-font/): если шрифт недоступен или ограничен, будет использован резервный вариант.
+
+**Стоит ли встраивать системные шрифты, такие как Arial/Calibri?**
+
+Обычно нет — они почти всегда доступны. Но для полной переносимости в «тонких» средах (Docker, Linux-сервер без предустановленных шрифтов) встраивание системных шрифтов может устранить риск неожиданных замен.

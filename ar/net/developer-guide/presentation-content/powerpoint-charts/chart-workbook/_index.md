@@ -1,17 +1,16 @@
 ---
-title: دفتر العمل للرسم البياني
+title: دفتر عمل المخطط
 type: docs
 weight: 70
 url: /ar/net/chart-workbook/
-keywords: "دفتر عمل الرسم البياني، بيانات الرسم البياني، عرض PowerPoint، C#، Csharp، Aspose.Slides ل .NET"
-description: "دفتر العمل للرسم البياني في عرض PowerPoint في C# أو .NET"
+keywords: "دفتر عمل المخطط، بيانات المخطط، عرض تقديمي PowerPoint، C#، Csharp، Aspose.Slides for .NET"
+description: "دفتر عمل المخطط في عرض تقديمي PowerPoint بلغة C# أو .NET"
 ---
 
-## **تعيين بيانات الرسم البياني من دفتر العمل**
-توفر Aspose.Slides طرق [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) و [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) التي تتيح لك قراءة وكتابة دفاتر عمل بيانات الرسم البياني (التي تحتوي على بيانات رسم بياني تم تحريرها باستخدام Aspose.Cells). **ملاحظة** أن بيانات الرسم البياني يجب أن تكون منظمة بنفس الطريقة أو يجب أن تحتوي على هيكل مشابه للمصدر.
+## **تعيين بيانات المخطط من دفتر العمل**
+توفر Aspose.Slides طرق [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) و [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) التي تسمح لك بقراءة وكتابة دفاتر عمل بيانات المخطط (التي تحتوي على بيانات مخطط تم تعديلها باستخدام Aspose.Cells). **ملاحظة** أن بيانات المخطط يجب أن تُنظَّم بنفس الطريقة أو أن يكون لها هيكل مشابه للمصدر.
 
-توضح هذه الشيفرة C# عملية نموذجية:
-
+يعرض هذا الكود C# عملية مثال:
 ```c#
 using (Presentation pres = new Presentation("chart.pptx"))
 {
@@ -29,22 +28,21 @@ using (Presentation pres = new Presentation("chart.pptx"))
 ```
 
 
-## **تعيين خلية دفتر العمل كـ DataLabel للرسم البياني**
-1. انشئ مثيلًا من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. أضف رسمًا بيانيًا فقاعيًّا مع بعض البيانات.
-1. الوصول إلى سلسلة الرسم البياني.
-1. تعيين خلية دفتر العمل كـ DataLabel.
-1. احفظ العرض التقديمي.
+## **تعيين خلية دفتر العمل كعلامة بيانات المخطط**
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. الحصول على مرجع الشريحة عبر فهرسها.
+3. إضافة مخطط فقاعة ببعض البيانات.
+4. الوصول إلى سلسلة المخطط.
+5. تعيين خلية دفتر العمل كعلامة بيانات.
+6. حفظ العرض.
 
-توضح هذه الشيفرة C# كيفية تعيين خلية دفتر العمل كـ DataLabel للرسم البياني:
-
+يعرض هذا الكود C# كيفية تعيين خلية دفتر العمل كعلامة بيانات المخطط:
 ```c#
-string lbl0 = "قيمة خلية التسمية 0";
-string lbl1 = "قيمة خلية التسمية 1";
-string lbl2 = "قيمة خلية التسمية 2";
+string lbl0 = "Label 0 cell value";
+string lbl1 = "Label 1 cell value";
+string lbl2 = "Label 2 cell value";
 
-// ينشئ مثيلًا من فئة التقديم التي تمثل ملف عرض تقديمي 
+// ينشئ فئة عرض تقديمي تمثل ملف عرض تقديمي 
 
 using (Presentation pres = new Presentation("chart2.pptx"))
 {
@@ -67,10 +65,9 @@ using (Presentation pres = new Presentation("chart2.pptx"))
 }
 ```
 
+
 ## **إدارة أوراق العمل**
-
-توضح هذه الشيفرة C# عملية حيث يتم استخدام خاصية [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) للوصول إلى مجموعة ورقة العمل:
-
+يعرض هذا الكود C# عملية حيث يتم استخدام خاصية [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) للوصول إلى مجموعة أوراق العمل:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -81,10 +78,9 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+
 ## **تحديد نوع مصدر البيانات**
-
-تظهر هذه الشيفرة C# كيفية تحديد نوع لمصدر البيانات:
-
+يوضح هذا الكود C# كيفية تحديد نوع لمصدر البيانات:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -101,17 +97,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **دفتر العمل الخارجي**
 
+## **دفتر عمل خارجي**
 {{% alert color="primary" %}} 
-في [Aspose.Slides 19.4](https://docs.aspose.com/slides/net/aspose-slides-for-net-19-4-release-notes/)، طبقنا دعم دفاتر العمل الخارجية كمصدر بيانات للرسم البياني.
+في [Aspose.Slides 19.4](https://docs.aspose.com/slides/net/aspose-slides-for-net-19-4-release-notes/)، قمنا بتنفيذ دعم دفاتر العمل الخارجية كمصدر بيانات للمخططات.
 {{% /alert %}} 
 
-### **إنشاء دفتر العمل الخارجي**
-باستخدام طرق **`ReadWorkbookStream`** و **`SetExternalWorkbook`**، يمكنك إما إنشاء دفتر العمل الخارجي من الصفر أو جعل دفتر العمل الداخلي خارجيًا.
+### **إنشاء دفتر عمل خارجي**
+باستخدام طريقتي **`ReadWorkbookStream`** و **`SetExternalWorkbook`** يمكنك إما إنشاء دفتر عمل خارجي من الصفر أو تحويل دفتر عمل داخلي إلى خارجي.
 
-توضح هذه الشيفرة C# عملية إنشاء دفتر العمل الخارجي:
-
+يوضح هذا الكود C# عملية إنشاء دفتر العمل الخارجي:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -131,15 +126,14 @@ using (Presentation pres = new Presentation())
 ```
 
 
-### **تعيين دفتر العمل الخارجي**
-باستخدام طريقة **`SetExternalWorkbook`**، يمكنك تعيين دفتر العمل الخارجي لرسم بياني كمصدر بيانات له. يمكن استخدام هذه الطريقة أيضًا لتحديث المسار لدفتر العمل الخارجي (إذا تم نقل الأخير).
+### **تعيين دفتر عمل خارجي**
+باستخدام طريقة **`SetExternalWorkbook`** يمكنك تعيين دفتر عمل خارجي لمخطط كمصدر بيانات له. يمكن أيضاً استخدام هذه الطريقة لتحديث مسار دفتر العمل الخارجي (إذا تم نقل الأخير).
 
-بينما لا يمكنك تعديل البيانات في دفاتر العمل المخزنة في مواقع أو موارد عن بُعد، يمكنك استخدام مثل هذه دفاتر العمل كمصدر بيانات خارجي. إذا تم توفير المسار النسبي لدفتر العمل الخارجي، فسيتم تحويله تلقائيًا إلى مسار كامل.
+على الرغم من أنه لا يمكنك تحرير البيانات في دفاتر العمل المخزنة في مواقع أو موارد بعيدة، إلا أنه لا يزال بإمكانك استخدام مثل هذه الدفاتر كمصدر بيانات خارجي. إذا تم توفير مسار نسبي لدفتر عمل خارجي، يتم تحويله إلى مسار كامل تلقائيًا.
 
-توضح هذه الشيفرة C# كيفية تعيين دفتر العمل الخارجي:
-
+يوضح هذا الكود C# كيفية تعيين دفتر عمل خارجي:
 ```c#
-// المسار إلى الدليل الخاص بالمستندات.
+ // مسار دليل المستندات.
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, false);
@@ -160,11 +154,11 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-بارامتر `ChartData` (تحت طريقة `SetExternalWorkbook`) يُستخدم لتحديد ما إذا كان سيتم تحميل دفتر العمل Excel أم لا. 
 
-* عندما يتم تعيين قيمة `ChartData` إلى `false`، يتم تحديث مسار دفتر العمل فقط—لن يتم تحميل أو تحديث بيانات الرسم البياني من دفتر العمل المستهدف. قد ترغب في استخدام هذا الإعداد في حالة وجود دفتر العمل المستهدف غير موجود أو غير متاح.
-* عندما يتم تعيين قيمة `ChartData` إلى `true`، يتم تحديث بيانات الرسم البياني من دفتر العمل المستهدف.
+معامل `ChartData` (تحت طريقة `SetExternalWorkbook`) يُستخدم لتحديد ما إذا كان سيتم تحميل دفتر عمل إكسل أم لا.
 
+* عندما يتم ضبط قيمة `ChartData` إلى `false`، يتم فقط تحديث مسار دفتر العمل — لن يتم تحميل أو تحديث بيانات المخطط من دفتر العمل المستهدف. قد تحتاج إلى استخدام هذا الإعداد عندما يكون دفتر العمل المستهدف غير موجود أو غير متاح. 
+* عندما يتم ضبط قيمة `ChartData` إلى `true`، يتم تحديث بيانات المخطط من دفتر العمل المستهدف.
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -177,16 +171,15 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **الحصول على مسار مصدر البيانات الخارجي للرسم البياني**
 
-1. انشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. أنشئ كائنًا لشكل الرسم البياني.
-1. أنشئ كائنًا لنوع المصدر (`ChartDataSourceType`) الذي يمثل مصدر بيانات الرسم البياني.
-1. حدد الشرط ذي الصلة بناءً على كون نوع المصدر هو نفسه نوع مصدر دفتر العمل الخارجي.
+### **الحصول على مسار دفتر عمل مصدر البيانات الخارجي للمخطط**
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. الحصول على مرجع الشريحة عبر فهرسها.
+3. إنشاء كائن لشكل المخطط.
+4. إنشاء كائن لنوع المصدر (`ChartDataSourceType`) الذي يمثل مصدر بيانات المخطط.
+5. تحديد الشرط المناسب بناءً على أن نوع المصدر هو نفسه نوع مصدر البيانات لدفتر العمل الخارجي.
 
-توضح هذه الشيفرة C# العملية:
-
+يوضح هذا الكود C# العملية:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -203,12 +196,11 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-### **تحرير بيانات الرسم البياني**
 
-يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تجري بها تغييرات على محتويات دفاتر العمل الداخلية. عندما يتعذر تحميل دفتر العمل الخارجي، يتم إصدار استثناء.
+### **تحرير بيانات المخطط**
+يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تجري بها تغييرات على محتويات دفاتر العمل الداخلية. عندما لا يمكن تحميل دفتر عمل خارجي، يتم رمي استثناء.
 
-تظهر هذه الشيفرة C# تنفيذ العملية الموصوفة:
-
+هذا الكود C# هو تنفيذ للعملية الموصوفة:
 ```c#
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
@@ -220,3 +212,30 @@ using (Presentation pres = new Presentation("presentation.pptx"))
     pres.Save("presentation_out.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني تحديد ما إذا كان مخطط معين مرتبطًا بدفتر عمل خارجي أم مدمج؟**
+
+نعم. يحتوي المخطط على [نوع مصدر البيانات](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) و[مسار دفتر عمل خارجي](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/)؛ إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
+
+**هل تدعم المسارات النسبية لدفاتر العمل الخارجية، وكيف يتم تخزينها؟**
+
+نعم. إذا قمت بتحديد مسار نسبي، يتم تحويله تلقائيًا إلى مسار مطلق. هذا مفيد لسهولة نقل المشروع؛ ومع ذلك، يجب أن تكون على علم بأن العرض سيخزن المسار المطلق في ملف PPTX.
+
+**هل يمكنني استخدام دفاتر عمل موجودة على موارد/مشاركات شبكية؟**
+
+نعم، يمكن استخدام مثل هذه الدفاتر كمصدر بيانات خارجي. ومع ذلك، لا يدعم Aspose.Slides تحرير دفاتر العمل البعيدة مباشرةً—فيمكن استخدامها فقط كمصدر.
+
+**هل يقوم Aspose.Slides بالكتابة فوق ملف XLSX الخارجي عند حفظ العرض؟**
+
+لا. يخزن العرض [رابطًا إلى الملف الخارجي](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) ويستخدمه لقراءة البيانات. لا يتم تعديل الملف الخارجي عند حفظ العرض.
+
+**ماذا أفعل إذا كان الملف الخارجي محميًا بكلمة مرور؟**
+
+Aspose.Slides لا يقبل كلمة مرور عند الربط. المنهج الشائع هو إزالة الحماية مسبقًا أو إعداد نسخة غير مشفرة (على سبيل المثال باستخدام [Aspose.Cells](/cells/net/)) والربط بتلك النسخة.
+
+**هل يمكن لعدة مخططات الإشارة إلى نفس دفتر العمل الخارجي؟**
+
+نعم. كل مخطط يخزن رابطًا خاصًا به. إذا أشاروا جميعًا إلى نفس الملف، فإن تحديث ذلك الملف سينعكس في كل مخطط في المرة التالية التي يتم فيها تحميل البيانات.

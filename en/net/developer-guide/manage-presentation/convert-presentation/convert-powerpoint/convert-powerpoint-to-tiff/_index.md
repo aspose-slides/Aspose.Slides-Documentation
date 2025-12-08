@@ -1,5 +1,5 @@
 ---
-title: Convert PowerPoint Presentations to TIFF in C#
+title: Convert PowerPoint Presentations to TIFF in .NET
 titlelink: PowerPoint to TIFF
 type: docs
 weight: 90
@@ -9,17 +9,21 @@ keywords:
 - convert OpenDocument
 - convert presentation
 - convert slide
+- convert PPT
+- convert PPTX
 - PowerPoint to TIFF
-- OpenDocument to TIFF
 - presentation to TIFF
 - slide to TIFF
 - PPT to TIFF
 - PPTX to TIFF
-- ODP to TIFF
-- C#
+- save PPT as TIFF
+- save PPTX as TIFF
+- export PPT to TIFF
+- export PPTX to TIFF
 - .NET
+- C#
 - Aspose.Slides
-description: "Learn how to easily convert PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations to high-quality TIFF images using Aspose.Slides for .NET. Step-by-step guide with code examples included."
+description: "Learn how to easily convert PowerPoint (PPT, PPTX) presentations to high-quality TIFF images using Aspose.Slides for .NET. C# code examples."
 ---
 
 ## **Overview**

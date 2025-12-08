@@ -3,6 +3,20 @@ title: Evaluate Aspose.Slides
 type: docs
 weight: 120
 url: /php-java/evaluate-aspose-slides/
+keywords:
+- evaluate Aspose.Slides
+- Aspose.Slides evaluation
+- evaluation version
+- full functionality
+- evaluation watermark
+- purchase Aspose.Slides
+- limitation
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Evaluate Aspose.Slides for PHP via Java and explore API features for PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations—start your free trial."
 ---
 
 

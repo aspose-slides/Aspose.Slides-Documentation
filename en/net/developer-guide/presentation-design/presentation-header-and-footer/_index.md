@@ -1,10 +1,25 @@
 ---
-title: Presentation Header and Footer
+title: Manage Presentation Headers and Footers in .NET
+linktitle: Header and Footer
 type: docs
 weight: 140
 url: /net/presentation-header-and-footer/
-keywords: "Header, footer, set header, set footer, set headed and footer, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "PowerPoint header and footer in C# or .NET"
+keywords:
+- header
+- header text
+- footer
+- footer text
+- set header
+- set footer
+- handout
+- notes
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Use Aspose.Slides for .NET to add and customize headers and footers in PowerPoint and OpenDocument presentations for a professional look."
 ---
 
 {{% alert color="primary" %}} 
@@ -58,7 +73,7 @@ public static void UpdateHeaderFooterText(IBaseSlide master)
 
 
 
-## **Manage Header and Footer in Handout and Notes Slides**
+## **Manage Headers and Footers on Handout and Notes Slides**
 Aspose.Slides for .NET supports Header and Footer in Handout and notes slides. Please follow the steps below:
 
 - Load a [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)containing a video.

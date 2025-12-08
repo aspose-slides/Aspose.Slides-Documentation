@@ -1,8 +1,20 @@
 ---
-title: Clone Slides
+title: Clone Presentation Slides on Android
+linktitle: Clone Slides
 type: docs
 weight: 35
 url: /androidjava/clone-slides/
+keywords:
+- clone slide
+- copy slide
+- save slide
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Duplicate PowerPoint slides with Aspose.Slides for Android. Follow our clear Java code examples to automate PPT creation in seconds and eliminate manual work."
 ---
 
 

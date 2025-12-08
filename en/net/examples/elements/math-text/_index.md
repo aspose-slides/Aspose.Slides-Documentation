@@ -2,12 +2,25 @@
 title: MathText
 type: docs
 weight: 160
-url: /net/examples/elements/mathtext
+url: /net/examples/elements/math-text/
+keywords:
+- math text example
+- add math text
+- access math text
+- remove math text
+- format math text
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Work with math text in C# using Aspose.Slides: create and edit equations, fractions, radicals, scripts, formatting, and render results for PPT and PPTX."
 ---
 
 Illustrates working with mathematical text shapes and formatting equations using **Aspose.Slides for .NET**.
 
-## Add Math Text
+## **Add Math Text**
 
 Create a math shape containing a fraction and the Pythagorean formula.
 
@@ -39,7 +52,7 @@ static void Add_Math_Text()
 }
 ```
 
-## Access Math Text
+## **Access Math Text**
 
 Locate a shape that contains a math paragraph on the slide.
 
@@ -69,7 +82,7 @@ static void Access_Math_Text()
 }
 ```
 
-## Remove Math Text
+## **Remove Math Text**
 
 Delete a math shape from the slide.
 
@@ -88,7 +101,7 @@ static void Remove_Math_Text()
 }
 ```
 
-## Format Math Text
+## **Format Math Text**
 
 Set font properties for a math portion.
 

@@ -1,10 +1,24 @@
 ---
-title: PowerPoint Math Equations
+title: Add Math Equations to PowerPoint Presentations in JavaScript
+linktitle: PowerPoint Math Equations
 type: docs
 weight: 80
 url: /nodejs-java/powerpoint-math-equations/
-keywords: " PowerPoint Math Equations, PowerPoint Math Symbols, PowerPoint Formula, PowerPoint Math Text"
-description: "PowerPoint Math Equations, PowerPoint Math Symbols, PowerPoint Formula, PowerPoint Math Text"
+keywords:
+- math equation
+- math symbol
+- math formula
+- math text
+- add math equation
+- add math symbol
+- add math formula
+- add math text
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Insert and edit math equations in PowerPoint PPT and PPTX with Aspose.Slides for Node.js, supporting OMML, formatting controls, and clear code samples."
 ---
 
 ## **Overview**
@@ -387,3 +401,17 @@ var groupChr = new aspose.slides.MathematicalText("x").join("y").join("z").group
 var borderBox = new aspose.slides.MathematicalText("x+y+z").toBorderBox();
 var boxedOperator = new aspose.slides.MathematicalText(":=").toBox();
 ``` 
+
+## **FAQ**
+
+**How can I add a mathematical equation to a PowerPoint slide?**
+
+To add a mathematical equation, you need to create a `MathShape` object, which automatically contains a mathematical portion. Then, you retrieve the `MathParagraph` from the `MathPortion` and add `MathBlock` objects to it.
+
+**Is it possible to create complex nested mathematical expressions?**
+
+Yes, Aspose.Slides allows you to create complex mathematical expressions by nesting MathBlocks. Each mathematical element implements the `IMathElement` class, which allows you to apply operations (Join, Divide, Enclose, etc.) to combine elements into more complex structures.
+
+**How can I update or modify an existing mathematical equation?**
+
+To update an equation, you need to access the existing MathBlocks through the `MathParagraph`. Then, by using methods such as Join, Divide, Enclose, and others, you can modify individual elements of the equation. After editing, save the presentation to apply the changes.

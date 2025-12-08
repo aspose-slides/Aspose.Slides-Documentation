@@ -1,10 +1,20 @@
 ---
-title: Digital Signature in PowerPoint
+title: Add Digital Signatures to Presentations in C++
+linktitle: Digital Signature
 type: docs
 weight: 10
 url: /cpp/digital-signature-in-powerpoint/
-keywords: "Digital signature certificate, certificate authority"
-description: "Add digital signature certificate, certificate authority into PowerPoint presentation with Aspose.Slides."
+keywords:
+- digital signature
+- digital certificate
+- certificate authority
+- PFX certificate
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Learn how to digitally sign PowerPoint & OpenDocument files with Aspose.Slides for C++. Secure your slides in seconds with clear code examples."
 ---
 
 

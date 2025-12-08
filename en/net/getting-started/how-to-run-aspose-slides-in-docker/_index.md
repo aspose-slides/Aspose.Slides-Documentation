@@ -1,10 +1,27 @@
 ---
 title: How to Run Aspose.Slides in Docker
+linktitle: Aspose.Slides in Docker
 type: docs
 weight: 140
 url: /net/how-to-run-aspose-slides-in-docker/
-keywords: "Running Aspose.Slides in Docker container, Aspose Docker, Aspose.Slides in a Docker"
-description: "Run Aspose.Slides in a Docker container for Linux, Windows Server and any OS. "
+keywords:
+- supported OS
+- Aspose.Slides in Docker
+- Docker container
+- Aspose Docker
+- GDI
+- libgdiplus
+- System.Drawing.Common
+- Linux
+- image repository
+- Windows Server Core
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Run Aspose.Slides in Docker containers: configure images, dependencies, fonts, and licensing to build scalable services that process PowerPoint and OpenDocument."
 ---
 
 ## **Supported OS**
@@ -27,7 +44,7 @@ You can also run Docker on Linux and Windows Server by following instructions on
 
 While it is possible to run Linux containers in Windows, we recommend you run them natively on Linux (even on a Linux installed manually on a VM using VirtualBox).
 
-## **Installing and Configuring Docker on Linux (apt-get libgdiplus)**
+## **Install and Configure Docker on Linux (apt-get libgdiplus)**
 - OS: Ubuntu 18.04.
 - Dockerfile: Dockerfile-Ubuntu18_04_apt_get_libgdiplus
 
@@ -214,7 +231,7 @@ To override the default command of the container on a run, we could use this com
 ```
 
 So, instead of netcore.linux.tests.sh, the /bin/bash will be executed and it will provide an active terminal session of a container from which it can be run (./build/netcore.linux.tests.sh). This approach can be useful in troubleshooting scenarios.
-## **Installing and Configuring Docker on Linux (make install libgdiplus)**
+## **Install and Configure Docker on Linux (make install libgdiplus)**
 - OS: Ubuntu 18.04.
 - Dockerfile: Dockerfile-Ubuntu18_04_make_libgdiplus
 
@@ -271,7 +288,7 @@ $ docker run \-it \-v pwd/../../:/slides-src \--add-host dev.slides.external.too
 ```
 
 
-## **Install and configure Docker on Windows Server Core**
+## **Install and Configure Docker on Windows Server Core**
 - OS: Ubuntu 18.04.
 - Dockerfile: Dockerfile*WinServerCore*
 

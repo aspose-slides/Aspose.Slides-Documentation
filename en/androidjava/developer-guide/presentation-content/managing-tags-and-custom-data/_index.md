@@ -1,9 +1,21 @@
 ---
-title: Managing Tags and Custom Data
+title: Manage Tags and Custom Data in Presentations on Android
+linktitle: Tags and Custom Data
 type: docs
 weight: 300
 url: /androidjava/managing-tags-and-custom-data
-
+keywords:
+- document properties
+- tag
+- custom data
+- add tag
+- pair values
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Add, read, update, and remove tags & custom data in Aspose.Slides for Android, with Java examples for PowerPoint and OpenDocument presentations."
 ---
 
 ## Data Storage in Presentation Files

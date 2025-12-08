@@ -3,6 +3,23 @@ title: Product Support
 type: docs
 weight: 100
 url: /net/product-support/
+keywords:
+- product
+- support
+- technical
+- free
+- unlimited
+- issue
+- documentation
+- API reference
+- resources
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Get free, fast Aspose.Slides for .NET product support: forums, docs, updates, code help to fix issues across PowerPoint and OpenDocument workflows."
 ---
 
 ## **Technical support**

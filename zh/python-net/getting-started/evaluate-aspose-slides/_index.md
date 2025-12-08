@@ -3,16 +3,50 @@ title: 评估 Aspose.Slides
 type: docs
 weight: 120
 url: /zh/python-net/evaluate-aspose-slides/
+keywords:
+- 评估 Aspose.Slides
+- Aspose.Slides 评估
+- 评估版
+- 完整功能
+- 评估水印
+- 购买 Aspose.Slides
+- 限制
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "通过 .NET 评估适用于 Python 的 Aspose.Slides，并探索针对 PowerPoint (PPT, PPTX) 和 OpenDocument (ODP) 演示文稿的 API 功能——开始您的免费试用。"
 ---
 
-您可以轻松下载 Aspose.Slides 以进行评估。评估包与购买的包相同。评估版本只需在代码中添加几行来应用许可证即可变为授权。
+## **Aspose.Slides 评估**
 
-Aspose.Slides 的评估版本（没有指定许可证）提供完整的产品功能，但在打开和保存文档时会在文档顶部插入评估水印。您在从演示文稿幻灯片中提取文本时也限制为一张幻灯片。
+您可以轻松下载 Aspose.Slides 进行评估。评估包与购买的包相同。只需添加几行代码来应用许可，评估版即可转为正式授权。
+
+Aspose.Slides 的评估版本（未指定许可）提供完整的产品功能，但在打开和保存文档时会在文档顶部插入评估水印。对演示文稿幻灯片的文本提取也仅限于单张幻灯片。
 
 ![todo:image_alt_text](evaluate-aspose-slides_1.png)
 
 {{% alert color="primary" %}} 
 
-如果您希望测试 Aspose.Slides 而不受评估版本限制，您可以申请**30天临时许可证**。有关更多信息，请参阅 [如何获得临时许可证？](https://purchase.aspose.com/temporary-license)。
+如果您想在没有评估版限制的情况下测试 Aspose.Slides，可以请求 **30 天临时许可证**。有关详细信息，请参阅[如何获取临时许可证？](https://purchase.aspose.com/temporary-license)。
 
 {{% /alert %}}
+
+## **FAQ**
+
+**在评估模式下，我可以在不同线程中并行测试多个演示文稿吗？**
+
+可以。您可以并行处理不同的文档；但不应在不同线程之间共享同一个演示文稿对象[跨线程](/slides/zh/python-net/multithreading/)。评估模式不会影响这一点。
+
+**在服务器或 CI 环境中评估该库，我是否需要安装 Microsoft PowerPoint？**
+
+不需要。Aspose.Slides 是独立的引擎，无论是评估还是生产都不需要安装 PowerPoint。
+
+**在评估模式下，我能完整测试 PPT/PPTX 到 PDF 和图像的转换吗？**
+
+可以。[转换器](/slides/zh/python-net/convert-presentation/)可以正常工作；输出中会包含水印。
+
+**我能使用临时许可证进行负载测试且不出现水印吗？**
+
+可以。30 天临时许可证可去除评估模式限制，并允许在不出现水印的情况下进行测试。

@@ -1,10 +1,34 @@
 ---
-title: Convert PowerPoint to Markdown in JavaScript
+title: Convert PowerPoint Presentations to Markdown in JavaScript
+linktitle: PowerPoint to Markdown
 type: docs
 weight: 140
 url: /nodejs-java/convert-powerpoint-to-markdown/
-keywords: "Convert PowerPoint to Markdown, Convert ppt to md, PowerPoint, PPT, PPTX, Presentation, Markdown, Java, Aspose.Slides for Node.js via Java"
-description: "Convert PowerPoint to Markdown in JavaScript"
+keywords:
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- PowerPoint to MD
+- presentation to MD
+- slide to MD
+- PPT to MD
+- PPTX to MD
+- save PowerPoint as Markdown
+- save presentation as Markdown
+- save slide as Markdown
+- save PPT as MD
+- save PPTX as MD
+- export PPT to MD
+- exportPPTX to MD
+- PowerPoint
+- presentation
+- Markdown
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Convert PowerPoint slides in JavaScript—PPT, PPTX—to clean Markdown with Aspose.Slides for Node.js via Java, automate documentation and keep formatting."
 ---
 
 {{% alert color="info" %}} 

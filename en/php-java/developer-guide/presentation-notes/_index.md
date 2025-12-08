@@ -1,10 +1,22 @@
 ---
-title: Presentation Notes
+title: Manage Presentation Notes in PHP
+linktitle: Presentation Notes
 type: docs
 weight: 110
 url: /php-java/presentation-notes/
-keywords: "PowerPoint speaker notes "
-description: "Presentation notes, speaker notes "
+keywords:
+- notes
+- notes slide
+- add notes
+- remove notes
+- notes style
+- master notes
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Customize presentation notes with Aspose.Slides for PHP via Java. Seamlessly work with PowerPoint and OpenDocument notes to boost your productivity."
 ---
 
 

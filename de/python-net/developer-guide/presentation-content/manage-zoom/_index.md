@@ -1,41 +1,52 @@
 ---
-title: Zoom verwalten
+title: Zooms in Präsentationen mit Python verwalten
+linktitle: Zoom
 type: docs
 weight: 60
 url: /de/python-net/manage-zoom/
-keywords: "Zoom, Zoomrahmen, Zoom hinzufügen, Zoomrahmen formatieren, Zusammenfassungszoom, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Fügen Sie Zoom oder Zoomrahmen zu PowerPoint-Präsentationen in Python hinzu"
+keywords:
+- Zoom
+- Zoom-Frame
+- Folienzoom
+- Abschnittszoom
+- Übersichtszoom
+- Zoom hinzufügen
+- PowerPoint
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Erstellen und anpassen von Zooms mit Aspose.Slides für Python via .NET – springen Sie zwischen Abschnitten, fügen Sie Miniaturansichten und Übergänge in PPT-, PPTX- und ODP-Präsentationen hinzu."
 ---
 
-## **Überblick**
-Zooms in PowerPoint ermöglichen es Ihnen, zwischen bestimmten Folien, Abschnitten und Teilen einer Präsentation zu springen. Diese Fähigkeit, während einer Präsentation schnell durch den Inhalt zu navigieren, kann sehr nützlich sein.
+## **Übersicht**
+Zooms in PowerPoint ermöglichen das Springen zu und von bestimmten Folien, Abschnitten und Teilen einer Präsentation. Beim Präsentieren kann diese schnelle Navigation sehr nützlich sein. 
 
-![overview](overview.png)
+![Übersicht](overview.png)
 
-* Um eine gesamte Präsentation auf einer einzigen Folie zusammenzufassen, verwenden Sie einen [Zusammenfassungszoom](#Zusammenfassungszoom).
-* Um nur ausgewählte Folien anzuzeigen, verwenden Sie einen [Folienzoom](#Folienzoom).
-* Um nur einen einzelnen Abschnitt anzuzeigen, verwenden Sie einen [Abschnittszoom](#Abschnittszoom).
+* Um die gesamte Präsentation auf einer einzigen Folie zusammenzufassen, verwenden Sie einen [Übersichtszoom](#Summary-Zoom).
+* Um nur ausgewählte Folien anzuzeigen, verwenden Sie einen [Folienzoom](#Slide-Zoom).
+* Um nur einen einzelnen Abschnitt anzuzeigen, verwenden Sie einen [Abschnittszoom](#Section-Zoom).
 
 ## **Folienzoom**
 
-Ein Folienzoom kann Ihre Präsentation dynamischer gestalten, indem er es Ihnen ermöglicht, frei zwischen Folien in beliebiger Reihenfolge zu navigieren, ohne den Fluss Ihrer Präsentation zu unterbrechen. Folienzooms eignen sich hervorragend für kurze Präsentationen ohne viele Abschnitte, können aber auch in verschiedenen Präsentationsszenarien genutzt werden.
+Ein Folienzoom kann Ihre Präsentation dynamischer machen, indem Sie frei zwischen Folien in beliebiger Reihenfolge navigieren können, ohne den Fluss Ihrer Präsentation zu unterbrechen. Folienzooms eignen sich gut für kurze Präsentationen ohne viele Abschnitte, können aber dennoch in verschiedenen Präsentationsszenarien verwendet werden.
 
-Folienzooms helfen Ihnen, mehrere Informationsstücke zu vertiefen, während Sie das Gefühl haben, sich auf einer einzigen Leinwand zu befinden.
+Folienzooms helfen Ihnen, in mehrere Informationsstücke zu vertiefen, während Sie das Gefühl haben, sich auf einer einzigen Leinwand zu befinden. 
 
 ![slidezoomsel](slidezoomsel.png)
 
-Für Folienzoom-Objekte bietet Aspose.Slides die [ZoomImageType](https://reference.aspose.com/slides/python-net/aspose.slides/zoomimagetype/) Aufzählung, das [IZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/izoomframe/) Interface und einige Methoden im [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) Interface.
+Für Folienzoom‑Objekte stellt Aspose.Slides die Aufzählung [ZoomImageType](https://reference.aspose.com/slides/python-net/aspose.slides/zoomimagetype/), das Interface [IZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/izoomframe/) und einige Methoden im Interface [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) bereit.
 
-### **Erstellen von Zoomrahmen**
-Sie können einen Zoomrahmen auf einer Folie folgendermaßen hinzufügen:
+### **Erstellen von Zoom‑Frames**
+Sie können einen Zoom‑Frame auf einer Folie folgendermaßen hinzufügen:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-2. Erstellen Sie neue Folien, mit denen Sie verknüpfen möchten.
-3. Fügen Sie den erstellten Folien einen Identifikationstext und einen Hintergrund hinzu.
-4. Fügen Sie Zoomrahmen (die Verweise zu den erstellten Folien enthalten) zur ersten Folie hinzu.
-5. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+1.	Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.
+2.	Erstellen Sie neue Folien, zu denen Sie verlinken möchten. 
+3.	Fügen Sie den erstellten Folien einen Identifikationstext und einen Hintergrund hinzu.
+4.	Fügen Sie Zoom‑Frames (die Referenzen zu den erstellten Folien enthalten) in die erste Folie ein.
+5.	Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser Beispielcode zeigt Ihnen, wie Sie einen Zoomrahmen auf einer Folie erstellen:
+Dieses Beispiel zeigt, wie Sie einen Zoom‑Frame in einer Folie erstellen:
 ```py 
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -45,86 +56,86 @@ with slides.Presentation() as pres:
     slide2 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide3 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
-    # Erstellen Sie einen Hintergrund für die zweite Folie
+    # Hintergrund für die zweite Folie erstellen
     slide2.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide2.background.fill_format.fill_type = slides.FillType.SOLID
     slide2.background.fill_format.solid_fill_color.color = draw.Color.cyan
 
-    # Erstellen Sie ein Textfeld für die zweite Folie
+    # Textfeld für die zweite Folie erstellen
     autoshape = slide2.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "Zweite Folie"
+    autoshape.text_frame.text = "Second Slide"
 
-    # Erstellen Sie einen Hintergrund für die dritte Folie
+    # Hintergrund für die dritte Folie erstellen
     slide3.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide3.background.fill_format.fill_type = slides.FillType.SOLID
     slide3.background.fill_format.solid_fill_color.color = draw.Color.dark_khaki
 
-    # Erstellen Sie ein Textfeld für die dritte Folie
+    # Textfeld für die dritte Folie erstellen
     autoshape = slide3.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "Dritte Folie"
+    autoshape.text_frame.text = "Trird Slide"
 
     #ZoomFrame-Objekte hinzufügen
     pres.slides[0].shapes.add_zoom_frame(20, 20, 250, 200, slide2)
     pres.slides[0].shapes.add_zoom_frame(200, 250, 250, 200, slide3)
 
-    # Die Präsentation speichern
+    # Präsentation speichern
     pres.save("presentation-zoom.pptx", slides.export.SaveFormat.PPTX)
 ```
-### **Erstellen von Zoomrahmen mit benutzerdefinierten Bildern**
-Mit Aspose.Slides für Python über .NET können Sie einen Zoomrahmen mit einem anderen Bild als dem Folienvorschau-Bild folgendermaßen erstellen: 
-1. Erstellen Sie eine Instanz der `Presentation`-Klasse.
-2. Erstellen Sie eine neue Folie, mit der Sie verknüpfen möchten. 
-3. Fügen Sie der erstellten Folie einen Identifikationstext und einen Hintergrund hinzu.
-4. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) Objekt, indem Sie ein Bild zur Bildersammlung hinzufügen, die mit dem Präsentationsobjekt verknüpft ist und verwendet wird, um den Rahmen zu füllen.
-5. Fügen Sie Zoomrahmen (die den Verweis zur erstellten Folie enthalten) zur ersten Folie hinzu.
-6. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
 
-Dieser Python-Code zeigt Ihnen, wie Sie einen Zoomrahmen mit einem anderen Bild erstellen:
+### **Erstellen von Zoom‑Frames mit benutzerdefinierten Bildern**
+Mit Aspose.Slides for Python via .NET können Sie einen Zoom‑Frame mit einem anderen Bild als dem Folienvorschau‑Bild folgendermaßen erstellen: 
+1.	Erstellen Sie eine Instanz der `Presentation`‑Klasse.
+2.	Erstellen Sie eine neue Folie, zu der Sie verlinken möchten. 
+3.	Fügen Sie der erstellten Folie einen Identifikationstext und einen Hintergrund hinzu.
+4.	Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/)‑Objekt, indem Sie ein Bild zur Images‑Sammlung des Presentation‑Objekts hinzufügen, das zum Füllen des Frames verwendet wird.
+5.	Fügen Sie Zoom‑Frames (die die Referenz zur erstellten Folie enthalten) in die erste Folie ein.
+6.	Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
+Dieser Python‑Code zeigt, wie Sie einen Zoom‑Frame mit einem anderen Bild erstellen:
 ```py 
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    #Fügen Sie eine neue Folie zur Präsentation hinzu
+    #Eine neue Folie zur Präsentation hinzufügen
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
-    # Erstellen Sie einen Hintergrund für die zweite Folie
+    # Hintergrund für die zweite Folie erstellen
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.cyan
 
-    # Erstellen Sie ein Textfeld für die dritte Folie
+    # Textfeld für die dritte Folie erstellen
     autoshape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "Zweite Folie"
+    autoshape.text_frame.text = "Second Slide"
 
-    # Erstellen Sie ein neues Bild für das Zoomobjekt
+    # Neues Bild für das Zoom-Objekt erstellen
     image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
 
-    # Fügen Sie das ZoomFrame-Objekt hinzu
+    #ZoomFrame-Objekt hinzufügen
     pres.slides[0].shapes.add_zoom_frame(20, 20, 300, 200, slide, image)
 
-    # Die Präsentation speichern
+    # Präsentation speichern
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Formatieren von Zoomrahmen**
-In den vorherigen Abschnitten (oben) haben wir Ihnen gezeigt, wie Sie einfache Zoomrahmen erstellen. Um kompliziertere Zoomrahmen zu erstellen, müssen Sie die Formatierung der Rahmen ändern. Sie können mehrere Formatierungseinstellungen auf einen Zoomrahmen anwenden. 
 
-Sie können die Formatierung eines Zoomrahmens auf einer Folie folgendermaßen steuern:
+### **Formatieren von Zoom‑Frames**
+In den vorherigen Abschnitten (oben) haben wir gezeigt, wie Sie einfache Zoom‑Frames erstellen. Um komplexere Zoom‑Frames zu erstellen, müssen Sie die Formatierung der Frames ändern. Es gibt mehrere Formatierungseinstellungen, die Sie auf einen Zoom‑Frame anwenden können. 
 
-1. Erstellen Sie eine Instanz der `Presentation`-Klasse.
-2. Erstellen Sie neue Folien, um darauf zu verlinken.
-3. Fügen Sie der erstellten Folie Identifikationstext und Hintergrund hinzu.
-4. Fügen Sie Zoomrahmen (die Verweise zu den erstellten Folien enthalten) zur ersten Folie hinzu.
-5. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) Objekt, indem Sie ein Bild zur Bildersammlung hinzufügen, die mit dem Präsentationsobjekt verknüpft ist und benutzt wird, um den Rahmen zu füllen.
-6. Stellen Sie ein benutzerdefiniertes Bild für das erste Zoomrahmenobjekt ein.
-7. Ändern Sie die Linienformatierung für das zweite Zoomrahmenobjekt.
-8. Entfernen Sie den Hintergrund von einem Bild des zweiten Zoomrahmenobjekts.
-9. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+Sie können die Formatierung eines Zoom‑Frames in einer Folie folgendermaßen steuern:
 
-Dieser Python-Beispielcode zeigt Ihnen, wie Sie die Formatierung eines Zoomrahmens ändern: 
+1.	Erstellen Sie eine Instanz der `Presentation`‑Klasse.
+2.	Erstellen Sie neue Folien, zu denen Sie verlinken.
+3.	Fügen Sie den erstellten Folien einen Identifikationstext und einen Hintergrund hinzu.
+4.	Fügen Sie Zoom‑Frames (die Referenzen zu den erstellten Folien enthalten) in die erste Folie ein.
+5.	Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/)‑Objekt, indem Sie ein Bild zur Images‑Sammlung des Presentation‑Objekts hinzufügen, das zum Füllen des Frames verwendet wird.
+6.	Weisen Sie dem ersten Zoom‑Frame‑Objekt ein benutzerdefiniertes Bild zu.
+7.	Ändern Sie das Linienformat des zweiten Zoom‑Frame‑Objekts.
+8.	Entfernen Sie den Hintergrund eines Bildes des zweiten Zoom‑Frame‑Objekts.
+5.	Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
+Dieser Python‑Beispielcode zeigt, wie Sie die Formatierung eines Zoom‑Frames ändern: 
 ```py 
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -134,67 +145,67 @@ with slides.Presentation() as pres:
     slide2 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide3 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
-    # Erstellen Sie einen Hintergrund für die zweite Folie
+    # Hintergrund für die zweite Folie erstellen
     slide2.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide2.background.fill_format.fill_type = slides.FillType.SOLID
     slide2.background.fill_format.solid_fill_color.color = draw.Color.cyan
 
-    # Erstellen Sie ein Textfeld für die zweite Folie
+    # Textfeld für die zweite Folie erstellen
     autoshape = slide2.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "Zweite Folie"
+    autoshape.text_frame.text = "Second Slide"
 
-    # Erstellen Sie einen Hintergrund für die dritte Folie
+    # Hintergrund für die dritte Folie erstellen
     slide3.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide3.background.fill_format.fill_type = slides.FillType.SOLID
     slide3.background.fill_format.solid_fill_color.color = draw.Color.dark_khaki
 
-    # Erstellen Sie ein Textfeld für die dritte Folie
+    # Textfeld für die dritte Folie erstellen
     autoshape = slide3.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "Dritte Folie"
+    autoshape.text_frame.text = "Trird Slide"
 
     #ZoomFrame-Objekte hinzufügen
     zoomFrame1 = pres.slides[0].shapes.add_zoom_frame(20, 20, 250, 200, slide2)
     zoomFrame2 = pres.slides[0].shapes.add_zoom_frame(200, 250, 250, 200, slide3)
 
-    # Erstellen Sie ein neues Bild für das Zoomobjekt
+    # Neues Bild für das Zoom-Objekt erstellen
     image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
-    # Setzen Sie das benutzerdefinierte Bild für das zoomFrame1-Objekt
+    # Benutzerdefiniertes Bild für zoomFrame1-Objekt festlegen
     zoomFrame1.image = image
 
-    # Setzen Sie ein Zoomrahmenformat für das zoomFrame2-Objekt
+    # Zoom-Frame-Format für zoomFrame2-Objekt festlegen
     zoomFrame2.line_format.width = 5
     zoomFrame2.line_format.fill_format.fill_type = slides.FillType.SOLID
     zoomFrame2.line_format.fill_format.solid_fill_color.color = draw.Color.hot_pink
     zoomFrame2.line_format.dash_style = slides.LineDashStyle.DASH_DOT
 
-    # Hintergrund für das zoomFrame2-Objekt nicht anzeigen
+    # Hintergrund für zoomFrame2-Objekt nicht anzeigen
     zoomFrame2.show_background = False
 
-    # Die Präsentation speichern
+    # Präsentation speichern
     pres.save("presentation-zoom2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+
 ## **Abschnittszoom**
 
-Ein Abschnittszoom ist ein Link zu einem Abschnitt in Ihrer Präsentation. Sie können Abschnittszooms verwenden, um zu Abschnitten zurückzukehren, die Sie wirklich betonen möchten. Oder Sie können sie verwenden, um hervorzuheben, wie bestimmte Teile Ihrer Präsentation zusammenhängen.
+Ein Abschnittszoom ist ein Link zu einem Abschnitt Ihrer Präsentation. Sie können Abschnittszooms verwenden, um zu Abschnitten zurückzukehren, die Sie besonders hervorheben möchten. Oder Sie nutzen sie, um zu verdeutlichen, wie bestimmte Teile Ihrer Präsentation miteinander verbunden sind. 
 
 ![seczoomsel](seczoomsel.png)
 
-Für Abschnittszoom-Objekte bietet Aspose.Slides das [ISectionZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/isectionzoomframe/) Interface und einige Methoden im [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) Interface.
+Für Abschnittszoom‑Objekte stellt Aspose.Slides das Interface [ISectionZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/isectionzoomframe/) und einige Methoden im Interface [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) bereit.
 
-### **Erstellen von Abschnittszoomrahmen**
+### **Erstellen von Abschnittszoom‑Frames**
 
-Sie können einen Abschnittszoomrahmen folgendermaßen zu einer Folie hinzufügen:
+Sie können einen Abschnittszoom‑Frame zu einer Folie folgendermaßen hinzufügen:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-2. Erstellen Sie eine neue Folie. 
-3. Fügen Sie der erstellten Folie einen Identifikationshintergrund hinzu.
-4. Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoomrahmen hinzufügen möchten. 
-5. Fügen Sie eine Abschnittszoomrahmen (der Referenzen zum erstellten Abschnitt enthält) zur ersten Folie hinzu.
-6. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+1.	Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.
+2.	Erstellen Sie eine neue Folie. 
+3.	Fügen Sie der erstellten Folie einen Identifikations‑Hintergrund hinzu.
+4.	Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
+5.	Fügen Sie einen Abschnittszoom‑Frame (der Referenzen zum erstellten Abschnitt enthält) zur ersten Folie hinzu.
+6.	Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser Python-Code zeigt Ihnen, wie Sie einen Zoomrahmen auf einer Folie erstellen:
-
+Dieser Python‑Code zeigt, wie Sie einen Zoom‑Frame auf einer Folie erstellen:
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -209,7 +220,7 @@ with slides.Presentation() as pres:
 
 
     # Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.sections.add_section("Abschnitt 1", slide)
+    pres.sections.add_section("Section 1", slide)
 
     # Fügt ein SectionZoomFrame-Objekt hinzu
     sectionZoomFrame = pres.slides[0].shapes.add_section_zoom_frame(20, 20, 300, 200, pres.sections[1])
@@ -218,20 +229,20 @@ with slides.Presentation() as pres:
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Erstellen von Abschnittszoomrahmen mit benutzerdefinierten Bildern**
 
-Mit Aspose.Slides für Python können Sie einen Abschnittszoomrahmen mit einem anderen Folienvorschau-Bild folgendermaßen erstellen: 
+### **Erstellen von Abschnittszoom‑Frames mit benutzerdefinierten Bildern**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-2. Erstellen Sie eine neue Folie.
-3. Fügen Sie einen Identifikationshintergrund zur erstellten Folie hinzu.
-4. Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoomrahmen hinzufügen möchten. 
-5. Erstellen Sie ein `IPPImage` Objekt, indem Sie ein Bild zur Bildersammlung hinzufügen, die mit dem [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Objekt verknüpft ist und verwendet wird, um den Rahmen zu füllen.
-6. Fügen Sie einen Abschnittszoomrahmen hinzu (der einen Verweis auf den erstellten Abschnitt enthält) zur ersten Folie.
-7. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+Mit Aspose.Slides for Python können Sie einen Abschnittszoom‑Frame mit einem anderen Folienvorschau‑Bild folgendermaßen erstellen: 
 
-Dieser Python-Code zeigt Ihnen, wie Sie einen Zoomrahmen mit einem anderen Bild erstellen:
+1.	Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.
+2.	Erstellen Sie eine neue Folie.
+3.	Fügen Sie der erstellten Folie einen Identifikations‑Hintergrund hinzu.
+4.	Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
+5.	Erstellen Sie ein `IPPImage`‑Objekt, indem Sie ein Bild zur Images‑Sammlung des [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Objekts hinzufügen, das zum Füllen des Frames verwendet wird.
+6.	Fügen Sie einen Abschnittszoom‑Frame (der eine Referenz zum erstellten Abschnitt enthält) zur ersten Folie hinzu.
+7.	Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
+Dieser Python‑Code zeigt, wie Sie einen Zoom‑Frame mit einem anderen Bild erstellen:
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -246,9 +257,9 @@ with slides.Presentation() as pres:
 
 
     # Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.sections.add_section("Abschnitt 1", slide)
+    pres.sections.add_section("Section 1", slide)
 
-    # Erstellt ein neues Bild für das Zoomobjekt
+    # Erstellt ein neues Bild für das Zoom-Objekt
     image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
 
     # Fügt ein SectionZoomFrame-Objekt hinzu
@@ -258,28 +269,28 @@ with slides.Presentation() as pres:
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Formatieren von Abschnittszoomrahmen**
 
-Um kompliziertere Abschnittszoomrahmen zu erstellen, müssen Sie die Formatierung eines einfachen Rahmens ändern. Es gibt mehrere Formatierungsoptionen, die Sie auf einen Abschnittszoomrahmen anwenden können. 
+### **Formatieren von Abschnittszoom‑Frames**
 
-Sie können die Formatierung eines Abschnittszoomrahmens auf einer Folie folgendermaßen steuern:
+Um komplexere Abschnittszoom‑Frames zu erstellen, müssen Sie die Formatierung eines einfachen Frames ändern. Es gibt mehrere Formatierungsoptionen, die Sie auf einen Abschnittszoom‑Frame anwenden können. 
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-2. Erstellen Sie eine neue Folie.
-3. Fügen Sie der erstellten Folie einen Identifikationshintergrund hinzu.
-4. Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoomrahmen hinzufügen möchten. 
-5. Fügen Sie eine Abschnittszoomrahmen (die Referenzen zum erstellten Abschnitt enthält) zur ersten Folie hinzu.
-6. Ändern Sie die Größe und Position des erstellten Abschnittszoomobjekts.
-7. Erstellen Sie ein `IPPImage` Objekt, indem Sie ein Bild zur Bildersammlung hinzufügen, die mit dem [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Objekt verknüpft ist und verwendet wird, um den Rahmen zu füllen.
-8. Setzen Sie ein benutzerdefiniertes Bild für das erstellte Abschnittszoomrahmenobjekt.
-9. Aktivieren Sie die Fähigkeit, *zur ursprünglichen Folie aus dem verknüpften Abschnitt zurückzukehren*. 
-10. Entfernen Sie den Hintergrund von einem Bild des Abschnittszoomrahmenobjekts.
-11. Ändern Sie die Linienformatierung für das zweite Zoomrahmenobjekt.
-12. Ändern Sie die Übergangsdauer.
-13. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+Sie können die Formatierung eines Abschnittszoom‑Frames auf einer Folie folgendermaßen steuern:
 
-Dieser Python-Code zeigt Ihnen, wie Sie die Formatierung eines Abschnittszoomrahmens ändern:
+1.	Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.
+2.	Erstellen Sie eine neue Folie.
+3.	Fügen Sie der erstellten Folie einen Identifikations‑Hintergrund hinzu.
+4.	Erstellen Sie einen neuen Abschnitt, zu dem Sie den Zoom‑Frame verlinken möchten. 
+5.	Fügen Sie einen Abschnittszoom‑Frame (der Referenzen zum erstellten Abschnitt enthält) zur ersten Folie hinzu.
+6.	Ändern Sie Größe und Position des erstellten Abschnittszoom‑Objekts.
+7.	Erstellen Sie ein `IPPImage`‑Objekt, indem Sie ein Bild zur Images‑Sammlung des [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Objekts hinzufügen, das zum Füllen des Frames verwendet wird.
+8.	Weisen Sie dem erstellten Abschnittszoom‑Frame‑Objekt ein benutzerdefiniertes Bild zu.
+9.	Stellen Sie die *Zurück‑zur‑Originalfolie‑aus‑dem‑verlinkten‑Abschnitt*-Funktion ein. 
+10.	Entfernen Sie den Hintergrund eines Bildes des Abschnittszoom‑Frame‑Objekts.
+11.	Ändern Sie das Linienformat des zweiten Zoom‑Frame‑Objekts.
+12.	Ändern Sie die Übergangsdauer.
+13.	Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
+Dieser Python‑Code zeigt, wie Sie die Formatierung eines Abschnittszoom‑Frames ändern:
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -293,9 +304,9 @@ with slides.Presentation() as pres:
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
     # Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.sections.add_section("Abschnitt 1", slide)
+    pres.sections.add_section("Section 1", slide)
 
-    # Fügen Sie ein SectionZoomFrame-Objekt hinzu
+    # Fügt ein SectionZoomFrame-Objekt hinzu
     sectionZoomFrame = pres.slides[0].shapes.add_section_zoom_frame(20, 20, 300, 200, pres.sections[1])
 
     # Formatierung für SectionZoomFrame
@@ -321,71 +332,71 @@ with slides.Presentation() as pres:
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Zusammenfassungszoom**
 
-Ein Zusammenfassungszoom ist wie eine Landing Page, auf der alle Teile Ihrer Präsentation auf einmal angezeigt werden. Wenn Sie präsentieren, können Sie den Zoom verwenden, um von einem Ort in Ihrer Präsentation an einen anderen an beliebiger Stelle zu springen. Sie können kreativ werden, vorspringen oder Teile Ihrer Diashow erneut besuchen, ohne den Fluss Ihrer Präsentation zu unterbrechen.
+## **Übersichtszoom**
 
-![overview_image](summaryzoom.png)
+Ein Übersichtszoom ist wie eine Landing‑Page, auf der alle Teile Ihrer Präsentation auf einmal angezeigt werden. Beim Präsentieren können Sie den Zoom verwenden, um von einer Stelle der Präsentation zu einer anderen in beliebiger Reihenfolge zu springen. Sie können kreativ sein, Vorsprünge machen oder Teile Ihrer Bildschirmpräsentation erneut besuchen, ohne den Fluss Ihrer Präsentation zu unterbrechen.
 
-Für Zusammenfassungszoom-Objekte bietet Aspose.Slides das [ISummaryZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomframe/), [ISummaryZoomFrameSection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsection/) und [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) Interfaces sowie einige Methoden im [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) Interface.
+![summaryzoom](summaryzoom.png)
 
-### **Erstellen von Zusammenfassungszoom**
+Für Übersichtszoom‑Objekte stellt Aspose.Slides die Interfaces [ISummaryZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomframe/), [ISummaryZoomFrameSection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsection/) und [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) sowie einige Methoden im Interface [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) bereit.
 
-Sie können einen Zusammenfassungszoomrahmen folgendermaßen zu einer Folie hinzufügen:
+### **Erstellen von Übersichtszoom**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-2. Erstellen Sie neue Folien mit Identifikationshintergrund und neuen Abschnitten für die erstellten Folien.
-3. Fügen Sie den Zusammenfassungszoomrahmen zur ersten Folie hinzu.
-4. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+Sie können einen Übersichtszoom‑Frame zu einer Folie folgendermaßen hinzufügen:
 
-Dieser Python-Code zeigt Ihnen, wie Sie einen Zusammenfassungszoomrahmen auf einer Folie erstellen:
+1.	Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.
+2.	Erstellen Sie neue Folien mit Identifikations‑Hintergrund und neuen Abschnitten für die erstellten Folien.
+3.	Fügen Sie den Übersichtszoom‑Frame zur ersten Folie hinzu.
+4.	Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
+Dieser Python‑Code zeigt, wie Sie einen Übersichtszoom‑Frame auf einer Folie erstellen:
 ```py 
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    # Erstellen Sie ein Array von Folien
+    # Folien-Array erstellen
     for slideNumber in range(5):
-        #Neue Folien zur Präsentation hinzufügen
+        # Neue Folien zur Präsentation hinzufügen
         slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
-        # Erstellen Sie einen Hintergrund für die Folie
+        # Hintergrund für die Folie erstellen
         slide.background.type = slides.BackgroundType.OWN_BACKGROUND
         slide.background.fill_format.fill_type = slides.FillType.SOLID
         slide.background.fill_format.solid_fill_color.color = draw.Color.dark_khaki
 
-        # Erstellen Sie ein Textfeld für die Folie
+        # Textfeld für die Folie erstellen
         autoshape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-        autoshape.text_frame.text = "Folien - {num}".format(num = (slideNumber + 2))
+        autoshape.text_frame.text = "Slide - {num}".format(num = (slideNumber + 2))
 
-    # Erstellen Sie Zoomobjekte für alle Folien in der ersten Folie
+    # Zoom-Objekte für alle Folien in der ersten Folie erstellen
     for slideNumber in range(1, len(pres.slides)):
         x = (slideNumber - 1) * 100
         y = (slideNumber - 1) * 100
         zoomFrame = pres.slides[0].shapes.add_zoom_frame(x, y, 150, 120, pres.slides[slideNumber])
 
-        # Setzen Sie die ReturnToParent-Eigenschaft, um zur ersten Folie zurückzukehren
+        # Setze die ReturnToParent-Eigenschaft, um zur ersten Folie zurückzukehren
         zoomFrame.return_to_parent = True
 
     # Präsentation speichern
     pres.save("presentation-zoom3.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Hinzufügen und Entfernen von Zusammenfassungszoomabschnitten**
 
-Alle Abschnitte in einem Zusammenfassungszoomrahmen werden durch [ISummaryZoomFrameSection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsection/) Objekte dargestellt, die in dem [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) Objekt gespeichert sind. Sie können ein Zusammenfassungszoomabschnittsobjekt durch das [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) Interface folgendermaßen hinzufügen oder entfernen:
+### **Hinzufügen und Entfernen von Übersichtszoom‑Abschnitten**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-2. Erstellen Sie neue Folien mit Identifikationshintergrund und neuen Abschnitten für die erstellten Folien.
-3. Fügen Sie einen Zusammenfassungszoomrahmen in die erste Folie ein.
-4. Fügen Sie eine neue Folie und einen Abschnitt zur Präsentation hinzu.
-5. Fügen Sie den erstellten Abschnitt zum Zusammenfassungszoomrahmen hinzu.
-6. Entfernen Sie den ersten Abschnitt aus dem Zusammenfassungszoomrahmen.
-7. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+Alle Abschnitte in einem Übersichtszoom‑Frame werden durch [ISummaryZoomFrameSection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsection/)‑Objekte repräsentiert, die im [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/)‑Objekt gespeichert sind. Sie können ein Übersichtszoom‑Abschnitts‑Objekt über das [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/)‑Interface folgendermaßen hinzufügen oder entfernen:
 
-Dieser Python-Code zeigt Ihnen, wie Sie Abschnitte in einem Zusammenfassungszoomrahmen hinzufügen und entfernen:
+1.	Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.
+2.	Erstellen Sie neue Folien mit Identifikations‑Hintergrund und neuen Abschnitten für die erstellten Folien.
+3.	Fügen Sie einen Übersichtszoom‑Frame in die erste Folie ein.
+4.	Fügen Sie der Präsentation eine neue Folie und einen neuen Abschnitt hinzu.
+5.	Fügen Sie den erstellten Abschnitt zum Übersichtszoom‑Frame hinzu.
+6.	Entfernen Sie den ersten Abschnitt aus dem Übersichtszoom‑Frame.
+7.	Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
+Dieser Python‑Code zeigt, wie Sie Abschnitte in einem Übersichtszoom‑Frame hinzufügen und entfernen:
 ``` python
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -399,7 +410,7 @@ with slides.Presentation() as pres:
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
     # Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.sections.add_section("Abschnitt 1", slide)
+    pres.sections.add_section("Section 1", slide)
 
     #Fügt eine neue Folie zur Präsentation hinzu
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
@@ -408,7 +419,7 @@ with slides.Presentation() as pres:
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
     # Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.sections.add_section("Abschnitt 2", slide)
+    pres.sections.add_section("Section 2", slide)
 
     # Fügt ein SummaryZoomFrame-Objekt hinzu
     summaryZoomFrame = pres.slides[0].shapes.add_summary_zoom_frame(150, 50, 300, 200)
@@ -420,37 +431,37 @@ with slides.Presentation() as pres:
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
     # Fügt einen neuen Abschnitt zur Präsentation hinzu
-    section3 = pres.sections.add_section("Abschnitt 3", slide)
+    section3 = pres.sections.add_section("Section 3", slide)
 
-    # Fügt einen Abschnitt zum Zusammenfassungszoom hinzu
+    # Fügt einen Abschnitt zum Summary Zoom hinzu
     summaryZoomFrame.summary_zoom_collection.add_summary_zoom_section(section3)
 
-    # Entfernt einen Abschnitt aus dem Zusammenfassungszoom
+    # Entfernt einen Abschnitt aus dem Summary Zoom
     summaryZoomFrame.summary_zoom_collection.remove_summary_zoom_section(pres.sections[1])
 
     # Speichert die Präsentation
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Formatieren von Zusammenfassungszoomabschnitten**
 
-Um kompliziertere Zusammenfassungszoomabschnittobjekte zu erstellen, müssen Sie die Formatierung eines einfachen Rahmens ändern. Es gibt mehrere Formatierungsoptionen, die Sie auf ein Zusammenfassungszoomabschnittobjekt anwenden können. 
+### **Formatieren von Übersichtszoom‑Abschnitten**
 
-Sie können die Formatierung für ein Zusammenfassungszoomabschnittobjekt in einem Zusammenfassungszoomrahmen folgendermaßen steuern:
+Um komplexere Übersichtszoom‑Abschnitts‑Objekte zu erstellen, müssen Sie die Formatierung eines einfachen Frames ändern. Es gibt mehrere Formatierungsoptionen, die Sie auf ein Übersichtszoom‑Abschnitts‑Objekt anwenden können. 
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-2. Erstellen Sie neue Folien mit Identifikationshintergrund und neuen Abschnitten für die erstellten Folien.
-3. Fügen Sie einen Zusammenfassungszoomrahmen zur ersten Folie hinzu.
-4. Erhalten Sie ein Zusammenfassungszoomabschnittobjekt für das erste Objekt aus der `ISummaryZoomSectionCollection`.
-5. Erstellen Sie ein `IPPImage`-Objekt, indem Sie ein Bild zur Bildersammlung hinzufügen, die mit dem [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Objekt verknüpft ist und verwendet wird, um den Rahmen zu füllen.
-6. Setzen Sie ein benutzerdefiniertes Bild für das erstellte Abschnittszoomrahmenobjekt.
-7. Aktivieren Sie die Fähigkeit, *zur ursprünglichen Folie aus dem verknüpften Abschnitt zurückzukehren*. 
-8. Ändern Sie die Linienformatierung für das zweite Zoomrahmenobjekt.
-9. Ändern Sie die Übergangsdauer.
-10. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+Sie können die Formatierung eines Übersichtszoom‑Abschnitts‑Objekts in einem Übersichtszoom‑Frame folgendermaßen steuern:
 
-Dieser Python-Code zeigt Ihnen, wie Sie die Formatierung für ein Zusammenfassungszoomabschnittobjekt ändern:
+1.	Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse.
+2.	Erstellen Sie neue Folien mit Identifikations‑Hintergrund und neuen Abschnitten für die erstellten Folien.
+3.	Fügen Sie einen Übersichtszoom‑Frame zur ersten Folie hinzu.
+4.	Holen Sie ein Übersichtszoom‑Abschnitts‑Objekt für das erste Objekt aus der `ISummaryZoomSectionCollection`.
+5.	Erstellen Sie ein `IPPImage`‑Objekt, indem Sie ein Bild zur Images‑Sammlung des [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Objekts hinzufügen, das zum Füllen des Frames verwendet wird.
+6.	Weisen Sie dem erstellten Abschnittszoom‑Frame‑Objekt ein benutzerdefiniertes Bild zu.
+7.	Stellen Sie die *Zurück‑zur‑Originalfolie‑aus‑dem‑verlinkten‑Abschnitt*-Funktion ein. 
+8.	Ändern Sie das Linienformat des zweiten Zoom‑Frame‑Objekts.
+9.	Ändern Sie die Übergangsdauer.
+10.	Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
+Dieser Python‑Code zeigt, wie Sie die Formatierung eines Übersichtszoom‑Abschnitts‑Objekts ändern:
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -463,7 +474,7 @@ with slides.Presentation() as pres:
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
     # Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.sections.add_section("Abschnitt 1", slide)
+    pres.sections.add_section("Section 1", slide)
 
     #Fügt eine neue Folie zur Präsentation hinzu
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
@@ -472,15 +483,15 @@ with slides.Presentation() as pres:
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
     # Fügt einen neuen Abschnitt zur Präsentation hinzu
-    pres.sections.add_section("Abschnitt 2", slide)
+    pres.sections.add_section("Section 2", slide)
 
     # Fügt ein SummaryZoomFrame-Objekt hinzu
     summaryZoomFrame = pres.slides[0].shapes.add_summary_zoom_frame(150, 50, 300, 200)
 
-    # Erhält das erste SummaryZoomSection-Objekt
+    # Holt das erste SummaryZoomSection-Objekt
     summarySection = summaryZoomFrame.summary_zoom_collection[0]
 
-    # Formatierung für das SummaryZoomSection-Objekt
+    # Formatierung für SummaryZoomSection-Objekt
     image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
     summarySection.image = image
 
@@ -496,3 +507,19 @@ with slides.Presentation() as pres:
     # Speichert die Präsentation
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+
+## **FAQ**
+
+**Kann ich das Zurückkehren zur „Eltern“-Folie nach dem Anzeigen des Ziels steuern?**
+
+Ja. Der [Zoom frame](https://reference.aspose.com/slides/python-net/aspose.slides/zoomframe/) oder [section](https://reference.aspose.com/slides/python-net/aspose.slides/sectionzoomframe/) verfügt über ein `return_to_parent`‑Verhalten, das, wenn aktiviert, die Betrachter nach dem Besuch des Zielinhalts zur Ausgangsfolie zurücksendet.
+
+**Kann ich die „Geschwindigkeit“ oder Dauer des Zoom‑Übergangs anpassen?**
+
+Ja. Zoom unterstützt das Setzen einer `transition_duration`, sodass Sie steuern können, wie lange die Sprunganimation dauert.
+
+**Gibt es Beschränkungen, wie viele Zoom‑Objekte eine Präsentation enthalten kann?**
+
+Es gibt keine harte API‑Grenze laut Dokumentation. Praktische Grenzen hängen von der Gesamtkomplexität der Präsentation und der Leistung des Viewers ab. Sie können viele Zoom‑Frames hinzufügen, sollten jedoch Dateigröße und Renderzeit berücksichtigen.

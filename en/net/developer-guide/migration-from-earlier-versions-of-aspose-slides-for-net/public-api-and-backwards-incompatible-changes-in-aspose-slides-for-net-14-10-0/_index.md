@@ -1,8 +1,22 @@
 ---
 title: Public API and Backwards Incompatible Changes in Aspose.Slides for .NET 14.10.0
+linktitle: Aspose.Slides for .NET 14.10.0
 type: docs
 weight: 120
 url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/
+keywords:
+- migration
+- legacy code
+- modern code
+- legacy approach
+- modern approach
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Review public API updates and breaking changes in Aspose.Slides for .NET to smoothly migrate your PowerPoint PPT, PPTX and ODP presentation solutions."
 ---
 
 {{% alert color="primary" %}} 
@@ -11,11 +25,11 @@ This page lists all [added](/slides/net/public-api-and-backwards-incompatible-ch
 
 {{% /alert %}} 
 ## **Public API Chages**
-#### **Aspose.Slides.FieldType.Footer field type has been added**
+#### **Aspose.Slides.FieldType.Footer Field Type Has Been Added**
 The Footer field type has been added for the implementation of the possibility to create fields of this type and for valid presentation serialization.
-#### **Enum element ShapeElementFillSource.Own has been deleted**
+#### **Enum Element ShapeElementFillSource.Own Has Been Deleted**
 Enum element ShapeElementFillSource.Own has been deleted as duplicated. Use ShapeElementFillSource.Shape instead of ShapeElementFillSource.Own.
-#### **Methods for chart data points, categories removing have been added**
+#### **Methods for Chart Data Points, Categories Removing Have Been Added**
 The following methods, which allow to remove chart data point from a chart data point collection have been added:
 
 IChartDataPointCollection.Remove(IChartDataPoint)
@@ -52,9 +66,9 @@ IChartCategory.Remove()
 }
 
 ``` 
-#### **Obsolete Aspose.Slides.ParagraphFormat propertyies have been removed**
+#### **Obsolete Aspose.Slides.ParagraphFormat Properties Have Been Removed**
 The properties BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle have been removed. They were marked as obsolete long time ago.
-#### **Unuseful and obsolete constructors have been removed**
+#### **Unuseful and Obsolete Constructors Have Been Removed**
 The following constructors have been removed:
 
 - Aspose.Slides.Effects.AlphaBiLevel(System.Single)

@@ -1,26 +1,25 @@
 ---
-title: الرسم البياني الدائري
+title: مخطط الفطيرة
 type: docs
 url: /ar/net/pie-chart/
-keywords: "رسم بياني دائري، خيارات الرسم، ألوان الشرائح، عرض باوربوينت، C#، Csharp، Aspose.Slides لـ .NET"
-description: "خيارات رسم الرسم البياني الدائري وألوان الشرائح في عرض باوربوينت باستخدام C# أو .NET"
+keywords: "مخطط الفطيرة, خيارات الرسم, ألوان الشرائح, عرض تقديمي PowerPoint, C#, Csharp, Aspose.Slides for .NET"
+description: "خيارات رسم مخطط الفطيرة وألوان الشرائح في عرض تقديمي PowerPoint بلغة C# أو .NET"
 ---
 
-## **خيارات الرسم الثانية للرسم البياني الدائري من الدائري والرسم البياني الشريطي من الدائري**
-يدعم Aspose.Slides لـ .NET الآن خيارات الرسم الثانية للرسم البياني الدائري من الدائري أو الرسم البياني الشريطي من الدائري. في هذا الموضوع، سنرى مع مثال كيفية تحديد هذه الخيارات باستخدام Aspose.Slides. من أجل تحديد الخصائص. يرجى اتباع الخطوات أدناه:
+## **خيارات المخطط الثانوي لفطيرة داخل فطيرة وشريط فطيرة**
+Aspose.Slides for .NET الآن تدعم خيارات المخطط الثانوي لفطيرة داخل فطيرة أو شريط فطيرة. في هذا الموضوع سنرى من خلال مثال كيفية تحديد هذه الخيارات باستخدام Aspose.Slides. لتحديد الخصائص يرجى اتباع الخطوات التالية:
 
-1. قم بإنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. أضف رسمًا بيانيًا على الشريحة.
-1. حدد خيارات الرسم الثانية للرسم البياني.
-1. اكتب العرض التقديمي على القرص.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. إضافة مخطط إلى الشريحة.
+1. تحديد خيارات المخطط الثانوي للمخطط.
+1. كتابة العرض التقديمي إلى القرص.
 
-في المثال المذكور أدناه، قمنا بتعيين خصائص مختلفة للرسم البياني الدائري من الدائري.
-
+في المثال الموضح أدناه قمنا بتعيين خصائص مختلفة لمخطط فطيرة داخل فطيرة.
 ```c#
-// إنشاء كائن من فئة Presentation
+// إنشاء كائن من الفئة Presentation
 Presentation presentation = new Presentation();
 
-// إضافة رسم بياني على الشريحة
+// إضافة مخطط إلى الشريحة
 IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.PieOfPie, 50, 50, 500, 400);
      
 // تعيين خصائص مختلفة
@@ -29,70 +28,67 @@ chart.ChartData.Series[0].ParentSeriesGroup.SecondPieSize = 149;
 chart.ChartData.Series[0].ParentSeriesGroup.PieSplitBy = Aspose.Slides.Charts.PieSplitType.ByPercentage;
 chart.ChartData.Series[0].ParentSeriesGroup.PieSplitPosition = 53;
 
-// كتابة العرض التقديمي على القرص
+// كتابة العرض التقديمي إلى القرص
 presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
 ```
 
 
+## **تعيين ألوان شرائح مخطط الفطيرة التلقائية**
+Aspose.Slides for .NET توفر واجهة برمجة تطبيقات بسيطة لتعيين ألوان شرائح مخطط الفطيرة تلقائيًا. يطبق كود العينة تعيين الخصائص المذكورة أعلاه.
 
-
-## **تعيين ألوان الشرائح تلقائيًا للرسم البياني الدائري**
-يقدم Aspose.Slides لـ .NET واجهة برمجة تطبيقات بسيطة لتعيين ألوان الشرائح التلقائية للرسم البياني الدائري. يطبق نموذج الشيفرة تعيين الخصائص المذكورة أعلاه.
-
-1. قم بإنشاء كائن من فئة Presentation.
+1. إنشاء مثال من فئة Presentation.
 1. الوصول إلى الشريحة الأولى.
-1. إضافة رسم بياني ببيانات افتراضية.
-1. تعيين عنوان الرسم البياني.
-1. تعيين السلسلة الأولى لعرض القيم.
-1. تعيين فهرس ورقة بيانات الرسم البياني.
-1. الحصول على ورقة العمل لبيانات الرسم البياني.
-1. حذف السلاسل والفئات المتولدة افتراضيًا.
+1. إضافة مخطط بالبيانات الافتراضية.
+1. تعيين عنوان المخطط.
+1. تعيين السلسلة الأولى لإظهار القيم.
+1. تعيين فهرس ورقة بيانات المخطط.
+1. الحصول على ورقة عمل بيانات المخطط.
+1. حذف السلاسل والفئات المولدة افتراضيًا.
 1. إضافة فئات جديدة.
 1. إضافة سلاسل جديدة.
 
-قم بكتابة العرض التقديمي المعدل إلى ملف PPTX.
-
+اكتب العرض التقديمي المعدل إلى ملف PPTX.
 ```c#
-// إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
+// إنشاء كائن من الفئة Presentation التي تمثل ملف PPTX
 using (Presentation presentation = new Presentation())
 {
-	// إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
+	// إنشاء كائن من الفئة Presentation التي تمثل ملف PPTX
 	Presentation presentation = new Presentation();
 
 	// الوصول إلى الشريحة الأولى
 	ISlide slides = presentation.Slides[0];
 
-	// إضافة رسم بياني ببيانات افتراضية
+	// إضافة مخطط بالبيانات الافتراضية
 	IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
 
-	// تعيين عنوان الرسم البياني
-	chart.ChartTitle.AddTextFrameForOverriding("عنوان نموذج");
+	// تعيين عنوان المخطط
+	chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
 	chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
 	chart.ChartTitle.Height = 20;
 	chart.HasTitle = true;
 
-	// تعيين السلسلة الأولى لعرض القيم
+	// تعيين السلسلة الأولى لإظهار القيم
 	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-	// تعيين فهرس ورقة بيانات الرسم البياني
+	// تعيين فهرس ورقة بيانات المخطط
 	int defaultWorksheetIndex = 0;
 
-	// الحصول على ورقة العمل لبيانات الرسم البياني
+	// الحصول على ورقة عمل بيانات المخطط
 	IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
-	// حذف السلاسل والفئات المتولدة افتراضيًا
+	// حذف السلاسل والفئات التي تم إنشاؤها افتراضيًا
 	chart.ChartData.Series.Clear();
 	chart.ChartData.Categories.Clear();
 
 	// إضافة فئات جديدة
-	chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "الربع الأول"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "الربع الثاني"));
-	chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "الربع الثالث"));
+	chart.ChartData.Categories.Add(fact.GetCell(0, 1, 0, "First Qtr"));
+	chart.ChartData.Categories.Add(fact.GetCell(0, 2, 0, "2nd Qtr"));
+	chart.ChartData.Categories.Add(fact.GetCell(0, 3, 0, "3rd Qtr"));
 
-	// إضافة سلاسل جديدة
-	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "السلسلة 1"), chart.Type);
+	// إضافة سلسلة جديدة
+	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-	// الآن تعبئة بيانات السلسلة
+	// الآن يتم تعبئة بيانات السلسلة
 	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
 	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
 	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
@@ -101,3 +97,14 @@ using (Presentation presentation = new Presentation())
 	presentation.Save("C:\\Aspose Data\\Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**هل يتم دعم تنويعات 'فطيرة داخل فطيرة' و'شريط فطيرة'؟**
+
+نعم، المكتبة [تدعم](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) مخططًا ثانويًا لمخططات الفطيرة، بما في ذلك الأنواع 'فطيرة داخل فطيرة' و'شريط فطيرة'.
+
+**هل يمكنني تصدير المخطط فقط كصورة (على سبيل المثال، PNG)؟**
+
+نعم، يمكنك [تصدير المخطط نفسه كصورة](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (مثل PNG) دون العرض التقديمي كاملًا.

@@ -1,7 +1,19 @@
 ---
-title: Callout
+title: Manage Callouts in Presentation Charts Using JavaScript
+linktitle: Callout
 type: docs
 url: /nodejs-java/callout/
+keywords:
+- chart callout
+- use callout
+- data label
+- label format
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Create and style callouts in Aspose.Slides for Node.js via Java with concise code examples, compatible with PPT and PPTX to automate presentation workflows."
 ---
 
 ## **Using Callouts**

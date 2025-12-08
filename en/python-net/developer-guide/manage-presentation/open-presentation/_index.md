@@ -1,5 +1,5 @@
 ---
-title: Open a Presentation in Python
+title: Open Presentations in Python
 linktitle: Open Presentations
 type: docs
 weight: 20

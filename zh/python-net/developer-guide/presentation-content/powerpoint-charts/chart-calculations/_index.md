@@ -1,5 +1,5 @@
 ---
-title: 在 Python 中优化演示文稿图表计算
+title: 在 Python 中优化演示文稿的图表计算
 linktitle: 图表计算
 type: docs
 weight: 50
@@ -11,19 +11,18 @@ keywords:
 - 实际位置
 - 子元素
 - 父元素
-- 图表数值
+- 图表值
 - 实际值
 - PowerPoint
 - OpenDocument
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "通过实际代码示例，了解在 Aspose.Slides for Python via .NET 中针对 PPT、PPTX 和 ODP 的图表计算、数据更新以及精度控制。"
+description: "了解 Aspose.Slides for Python via .NET 在 PPT、PPTX 和 ODP 中的图表计算、数据更新和精度控制，并包含实用代码示例。"
 ---
 
 ## **计算图表元素的实际值**
-Aspose.Slides for Python via .NET 提供了一个简单的 API 用于获取这些属性。这将帮助您计算图表元素的实际值。实际值包括实现 IActualLayout 接口的元素的位置 (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight) 和实际轴值 (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale)。
-
+Aspose.Slides for Python via .NET 提供了一个简易的 API 用于获取这些属性。这将帮助您计算图表元素的实际值。实际值包括实现 IActualLayout 接口的元素的位置（IActualLayout.ActualX、IActualLayout.ActualY、IActualLayout.ActualWidth、IActualLayout.ActualHeight）以及实际轴值（IAxis.ActualMaxValue、IAxis.ActualMinValue、IAxis.ActualMajorUnit、IAxis.ActualMinorUnit、IAxis.ActualMajorUnitScale、IAxis.ActualMinorUnitScale）。
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -40,9 +39,9 @@ with slides.Presentation("pres.pptx") as pres:
 
 
 
-## **计算父图表元素的实际位置**
-Aspose.Slides for Python via .NET 提供了一个简单的 API 用于获取这些属性。IActualLayout 的属性提供有关父图表元素实际位置的信息。必须之前调用方法 IChart.ValidateChartLayout() 以填充属性为实际值。
 
+## **计算父图表元素的实际位置**
+Aspose.Slides for Python via .NET 提供了一个简易的 API 用于获取这些属性。IActualLayout 的属性提供了父图表元素实际位置的信息。必须先调用 IChart.ValidateChartLayout() 方法以用实际值填充这些属性。
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -59,9 +58,9 @@ with slides.Presentation("pres.pptx") as pres:
 
 
 
-## **隐藏图表信息**
-该主题帮助您理解如何从图表中隐藏信息。使用 Aspose.Slides for Python via .NET，您可以隐藏**标题、竖轴、横轴**和**网格线**。以下代码示例显示如何使用这些属性。
 
+## **隐藏图表信息**
+本主题帮助您了解如何隐藏图表信息。使用 Aspose.Slides for Python via .NET，您可以隐藏图表中的 **标题、垂直轴、水平轴** 和 **网格线**。下面的代码示例展示了如何使用这些属性。
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -73,10 +72,10 @@ with slides.Presentation() as pres:
     # 隐藏图表标题
     chart.has_title = False
 
-    # 隐藏值轴
+    # 隐藏数值轴
     chart.axes.vertical_axis.is_visible = False
 
-    # 类别轴可见性
+    # 分类轴可见性
     chart.axes.horizontal_axis.is_visible = False
 
     # 隐藏图例
@@ -102,3 +101,18 @@ with slides.Presentation() as pres:
 
     pres.save("HideInformationFromChart.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **常见问题**
+
+**外部 Excel 工作簿可以作为数据源吗？这会如何影响重新计算？**
+
+是的。图表可以引用外部工作簿：当您连接或刷新外部来源时，公式和数值会从该工作簿中获取，图表在打开/编辑操作期间会反映这些更新。API 允许您[指定外部工作簿](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/)路径并管理链接的数据。
+
+**我可以在不自行实现回归的情况下计算并显示趋势线吗？**
+
+是的。[趋势线](/slides/zh/python-net/trend-line/)(线性、指数等)由 Aspose.Slides 添加并自动更新；其参数会根据系列数据自动重新计算，因此您无需自行实现计算。
+
+**如果演示文稿中有多个带外部链接的图表，我能控制每个图表使用哪个工作簿来计算数值吗？**
+
+是的。每个图表可以指向其自己的[外部工作簿](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/)，或者您可以为每个图表独立创建/替换外部工作簿，而不受其他图表影响。

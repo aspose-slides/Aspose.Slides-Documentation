@@ -11,34 +11,43 @@ keywords:
 - 转换演示文稿
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python 轻松将 PPTX 转换为 PPT——在保留演示文稿布局和质量的同时，确保与 PowerPoint 格式的无缝兼容。"
+description: "使用 Aspose.Slides for Python via .NET轻松将 PPTX 转换为 PPT——确保与 PowerPoint 格式的无缝兼容，同时保留演示文稿的布局和质量。"
 ---
 
 ## **概述**
 
-本文解释了如何使用Python将PPTX格式的PowerPoint演示文稿转换为PPT格式。以下主题将被涵盖。
+Aspose.Slides for Python 让您可以在代码中将现代 PPTX 演示文稿转换为传统 PPT 格式。打开 PPTX 并将其导出为 PPT，同时保持演示文稿的内容和布局，使结果兼容旧版 PowerPoint。相同的工作流还可以生成其他输出——如 PDF、XPS、ODP、HTML 或图像——因此能够平滑地集成到脚本、CI 管道和批处理任务中。
 
-- 在Python中将PPTX转换为PPT
+## **将 PPTX 转换为 PPT**
 
-## **Python 将PPTX转换为PPT**
-
-有关将PPTX转换为PPT的Python示例代码，请参见下面的部分，即[将PPTX转换为PPT](#convert-pptx-to-ppt)。它只需加载PPTX文件并以PPT格式保存。通过指定不同的保存格式，您还可以将PPTX文件保存为许多其他格式，如PDF、XPS、ODP、HTML等，如这些文章中所讨论的。
-
-- [Python 将PPTX转换为PDF](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-pdf/)
-- [Python 将PPTX转换为XPS](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-xps/)
-- [Python 将PPTX转换为HTML](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-html/)
-- [Python 将PPTX转换为ODP](https://docs.aspose.com/slides/python-net/save-presentation/)
-- [Python 将PPTX转换为图像](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-png/)
-
-## **将PPTX转换为PPT**
-要将PPTX转换为PPT，只需将文件名和保存格式传递给[**保存**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)方法的[**演示文稿**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)类。下面的Python代码示例使用默认选项将演示文稿从PPTX转换为PPT。
-
+要将 PPTX 转换为 PPT，只需将文件名和保存格式传递给 [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) 方法的 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类。下面的 Python 示例使用默认选项将演示文稿从 PPTX 转换为 PPT。
 ```py
 import aspose.slides as slides
 
-# 实例化一个表示PPTX文件的Presentation对象
-pres = slides.Presentation("presentation.pptx")
+# 实例化表示 PPTX 文件的 Presentation 类。
+presentation = slides.Presentation("presentation.pptx")
 
-# 将PPTX演示文稿保存为PPT格式
-pres.save("presentation.ppt", slides.export.SaveFormat.PPT)
+# 将演示文稿保存为 PPT 文件。
+presentation.save("presentation.ppt", slides.export.SaveFormat.PPT)
 ```
+
+
+## **常见问题**
+
+**将 PPTX 保存为传统 PPT（97–2003）格式时，所有效果和功能都会保留吗？**
+
+并非总是。PPT 格式缺少某些新功能（例如特定的效果、对象和行为），因此在转换过程中可能会对功能进行简化或光栅化。
+
+**我可以只将选定的幻灯片转换为 PPT，而不是整个演示文稿吗？**
+
+直接保存会针对整个演示文稿。若要转换特定幻灯片，请创建仅包含这些幻灯片的新演示文稿并将其保存为 PPT；或者使用支持按幻灯片转换参数的服务/API。
+
+**是否支持受密码保护的演示文稿？**
+
+支持。您可以检测文件是否受保护，使用密码打开，并且还能为保存的 PPT [configure protection/encryption settings](/slides/zh/python-net/password-protected-presentation/)。
+
+**另请参阅:**
+- [将 PPT & PPTX 转换为 PDF（Python）| 高级选项](/slides/zh/python-net/convert-powerpoint-to-pdf/)
+- [将 PowerPoint 演示文稿转换为 XPS（Python）](/slides/zh/python-net/convert-powerpoint-to-xps/)
+- [将 PowerPoint 演示文稿转换为 HTML（Python）](/slides/zh/python-net/convert-powerpoint-to-html/)
+- [将 PowerPoint 幻灯片转换为 PNG（Python）](/slides/zh/python-net/convert-powerpoint-to-png/)

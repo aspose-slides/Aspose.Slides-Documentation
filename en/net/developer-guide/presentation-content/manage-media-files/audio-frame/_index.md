@@ -1,5 +1,5 @@
 ---
-title: Manage Audio in Presentations Using C#
+title: Manage Audio Frames in Presentations in .NET
 linktitle: Audio Frame
 type: docs
 weight: 10
@@ -53,7 +53,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Change Audio Frame Thumbnail**
+## **Change the Audio Frame Thumbnail**
 
 When you add an audio file to a presentation, the audio appears as a frame with a standard default image (see the image in the section below). You change the audio frame's thumbnail (set your preferred image).
 

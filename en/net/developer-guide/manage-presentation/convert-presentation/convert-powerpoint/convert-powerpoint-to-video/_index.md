@@ -1,39 +1,32 @@
 ---
-title: Convert PowerPoint Presentations to Video in C#
+title: Convert PowerPoint Presentations to Video in .NET
 linktitle: PowerPoint to Video
 type: docs
 weight: 130
 url: /net/convert-powerpoint-to-video/
 keywords:
+- convert PowerPoint
+- convert presentation
+- convert PPT
+- convert PPTX
 - PowerPoint to video
-- convert PowerPoint to video
 - presentation to video
-- convert presentation to video
 - PPT to video
-- convert PPT to video
 - PPTX to video
-- convert PPTX to video
-- ODP to video
-- convert ODP to video
 - PowerPoint to MP4
-- convert PowerPoint to MP4
 - presentation to MP4
-- convert presentation to MP4
 - PPT to MP4
-- convert PPT to MP4
 - PPTX to MP4
-- convert PPTX to MP4
-- PowerPoint to video conversion
-- presentation to video conversion
-- PPT to video conversion
-- PPTX to video conversion
-- ODP to video conversion
-- C# video conversion
+- save PPT as MP4
+- save PPTX as MP4
+- export PPT to MP4
+- export PPTX to MP4
+- video conversion
 - PowerPoint
 - .NET
 - C#
 - Aspose.Slides
-description: "Learn how to convert PowerPoint and OpenDocument presentations to video using C#. Discover sample code and automation techniques to streamline your workflow."
+description: "Learn how to convert PowerPoint presentations to video in .NET. Discover sample C# code and automation techniques to streamline your workflow."
 ---
 
 ## **Overview**

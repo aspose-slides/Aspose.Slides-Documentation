@@ -1,10 +1,21 @@
 ---
-title: Manage Cells
+title: Manage Table Cells in Presentations Using C++
+linktitle: Manage Cells
 type: docs
 weight: 30
 url: /cpp/manage-cells/
-keywords: "Table, merged cells, split cells, image in table cell, C++, CPP, Aspose.Slides for C++"
-description: "Table cells in PowerPoint presentations in C++"
+keywords:
+- table cell
+- merge cells
+- remove border
+- split cell
+- image in cell
+- background color
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Effortlessly manage table cells in PowerPoint with Aspose.Slides for C++. Master accessing, modifying, and styling cells quickly for seamless slide automation."
 ---
 
 ## **Identify Merged Cell**

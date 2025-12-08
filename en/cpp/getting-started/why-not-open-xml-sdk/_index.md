@@ -3,6 +3,17 @@ title: Why Not Open XML SDK
 type: docs
 weight: 100
 url: /cpp/why-not-open-xml-sdk/
+keywords:
+- Open XML SDK
+- comparing
+- presentation object model
+- high quality conversion
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "See why Aspose.Slides is a better choice than the free Open XML SDK: compare features, automation-free conversion, and broad support for PPT, PPTX and ODP."
 ---
 
 ## **What is Open XML SDK?**

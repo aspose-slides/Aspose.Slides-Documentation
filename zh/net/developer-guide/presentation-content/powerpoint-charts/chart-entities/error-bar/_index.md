@@ -1,29 +1,28 @@
 ---
-title: 错误条
+title: 误差线
 type: docs
 url: /zh/net/error-bar/
-keywords: "错误条, 错误条值 PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
-description: "在 C# 或 .NET 中向 PowerPoint 演示文稿添加错误条"
+keywords: "误差线, 误差线值 PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
+description: "在 C# 或 .NET 中向 PowerPoint 演示文稿添加误差线"
 ---
 
-## **添加错误条**
-Aspose.Slides for .NET 提供了一个简单的 API 用于管理错误条值。本示例代码适用于使用自定义值类型的情况。要指定一个值，请使用特定数据点在系列的 **DataPoints** 集合中的 **ErrorBarCustomValues** 属性：
+## **添加误差线**
+Aspose.Slides for .NET 提供了用于管理误差线值的简易 API。示例代码适用于使用自定义值类型的情况。要指定值，请使用系列 **DataPoints** 集合中特定数据点的 **ErrorBarCustomValues** 属性：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-1. 在所需幻灯片上添加气泡图表。
-1. 访问第一个图表系列并设置错误条 X 格式。
-1. 访问第一个图表系列并设置错误条 Y 格式。
-1. 设置条形值和格式。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 在所需幻灯片上添加气泡图。
+1. 访问第一个图表系列并设置误差线 X 格式。
+1. 访问第一个图表系列并设置误差线 Y 格式。
+1. 设置误差线的值和格式。
 1. 将修改后的演示文稿写入 PPTX 文件。
-
 ```c#
 // 创建空演示文稿
 using (Presentation presentation = new Presentation())
 {
-    // 创建气泡图表
+    // 创建气泡图
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Bubble, 50, 50, 400, 300, true);
 
-    // 添加错误条并设置其格式
+    // 添加误差线并设置其格式
     IErrorBarsFormat errBarX = chart.ChartData.Series[0].ErrorBarsXFormat;
     IErrorBarsFormat errBarY = chart.ChartData.Series[0].ErrorBarsYFormat;
     errBarX.IsVisible = true;
@@ -42,26 +41,24 @@ using (Presentation presentation = new Presentation())
 ```
 
 
+## **添加自定义误差线值**
+Aspose.Slides for .NET 提供了用于管理自定义误差线值的简易 API。当 **IErrorBarsFormat.ValueType** 属性等于 **Custom** 时，示例代码适用。要指定值，请使用系列 **DataPoints** 集合中特定数据点的 **ErrorBarCustomValues** 属性：
 
-## **添加自定义错误条值**
-Aspose.Slides for .NET 提供了一个简单的 API 用于管理自定义错误条值。本示例代码适用于 **IErrorBarsFormat.ValueType** 属性等于 **Custom** 的情况。要指定一个值，请使用特定数据点在系列的 **DataPoints** 集合中的 **ErrorBarCustomValues** 属性：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-1. 在所需幻灯片上添加气泡图表。
-1. 访问第一个图表系列并设置错误条 X 格式。
-1. 访问第一个图表系列并设置错误条 Y 格式。
-1. 访问图表系列的各个数据点，并为各个系列数据点设置错误条值。
-1. 设置条形值和格式。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 在所需幻灯片上添加气泡图。
+1. 访问第一个图表系列并设置误差线 X 格式。
+1. 访问第一个图表系列并设置误差线 Y 格式。
+1. 访问图表系列的各个数据点，为单个系列数据点设置误差线值。
+1. 设置误差线的值和格式。
 1. 将修改后的演示文稿写入 PPTX 文件。
-
 ```c#
 // 创建空演示文稿
 using (Presentation presentation = new Presentation())
 {
-    // 创建气泡图表
+    // 创建气泡图
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Bubble, 50, 50, 400, 300, true);
 
-    // 添加自定义错误条并设置其格式
+    // 添加自定义误差线并设置其格式
     IChartSeries series = chart.ChartData.Series[0];
     IErrorBarsFormat errBarX = series.ErrorBarsXFormat;
     IErrorBarsFormat errBarY = series.ErrorBarsYFormat;
@@ -70,14 +67,14 @@ using (Presentation presentation = new Presentation())
     errBarX.ValueType = ErrorBarValueType.Custom;
     errBarY.ValueType = ErrorBarValueType.Custom;
 
-    // 访问图表系列数据点并为各个点设置错误条值
+    // 访问图表系列数据点并为单个点设置误差线值
     IChartDataPointCollection points = series.DataPoints;
     points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForXPlusValues = DataSourceType.DoubleLiterals;
     points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForXMinusValues = DataSourceType.DoubleLiterals;
     points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForYPlusValues = DataSourceType.DoubleLiterals;
     points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForYMinusValues = DataSourceType.DoubleLiterals;
 
-    // 为图表系列点设置错误条
+    // 为图表系列点设置误差线
     for (int i = 0; i < points.Count; i++)
     {
         points[i].ErrorBarsCustomValues.XMinus.AsLiteralDouble = i + 1;
@@ -90,3 +87,18 @@ using (Presentation presentation = new Presentation())
     presentation.Save("ErrorBarsCustomValues_out.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**将演示文稿导出为 PDF 或图像时，误差线会怎样？**
+
+它们作为图表的一部分渲染，并在转换过程中与图表的其他格式一起保留下来，前提是使用兼容的版本或渲染器。
+
+**误差线可以与标记和数据标签一起使用吗？**
+
+可以。误差线是独立的元素，能够与标记和数据标签共存；如果元素重叠，可能需要调整格式。
+
+**在哪里可以找到 API 中用于处理误差线的属性和枚举列表？**
+
+在 API 参考中：[ErrorBarsFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbarsformat/) 类以及相关枚举 [ErrorBarType](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbartype/) 和 [ErrorBarValueType](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbarvaluetype/)。

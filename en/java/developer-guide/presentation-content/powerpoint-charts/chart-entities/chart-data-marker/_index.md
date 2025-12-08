@@ -1,7 +1,20 @@
 ---
-title: Chart Data Marker
+title: Manage Chart Data Markers in Presentations Using Java
+linktitle: Data Marker
 type: docs
 url: /java/chart-data-marker/
+keywords:
+- chart
+- data point
+- marker
+- marker options
+- marker size
+- fill type
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn how to customize chart data markers in Aspose.Slides for Java, boosting presentation impact across PPT and PPTX formats with clear Java code examples."
 ---
 
 ## **Set Chart Marker Options**
@@ -74,3 +87,13 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**Which marker shapes are available out of the box?**
+
+Standard shapes are available (circle, square, diamond, triangle, etc.); the list is defined by the [MarkerStyleType](https://reference.aspose.com/slides/java/com.aspose.slides/markerstyletype/) class. If you need a non-standard shape, use a marker with a picture fill to emulate custom visuals.
+
+**Are markers preserved when exporting a chart to an image or SVG?**
+
+Yes. When rendering charts to [raster formats](/slides/java/convert-powerpoint-to-png/) or saving [shapes as SVG](/slides/java/render-a-slide-as-an-svg-image/), markers retain their appearance and settings, including size, fill, and outline.

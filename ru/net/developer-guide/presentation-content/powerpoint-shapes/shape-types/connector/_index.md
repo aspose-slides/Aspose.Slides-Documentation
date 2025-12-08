@@ -3,68 +3,67 @@ title: Коннектор
 type: docs
 weight: 10
 url: /ru/net/connector/
-keywords: "Соединить фигуры, коннекторы, фигуры PowerPoint, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
-description: "Соедините фигуры PowerPoint на C# или .NET"
+keywords: "Соединять фигуры, коннекторы, фигуры PowerPoint, презентацию PowerPoint, C#, Csharp, Aspose.Slides для .NET"
+description: "Соединять фигуры PowerPoint на C# или .NET"
 ---
 
-Коннектор PowerPoint — это специальная линия, которая соединяет или связывает две фигуры и остается прикрепленной к фигурам, даже когда они перемещаются или изменяются на данном слайде.
+Коннектор PowerPoint — это специальная линия, которая соединяет или связывает две фигуры и остаётся прикреплённой к фигурам даже при их перемещении или переустановке на данном слайде. 
 
-Коннекторы обычно подключаются к *точкам подключения* (зелёные точки), которые по умолчанию существуют на всех фигурах. Точки подключения появляются, когда курсор приближается к ним.
+Коннекторы обычно подключаются к *точкам соединения* (зеленые точки), которые по умолчанию присутствуют на всех фигурах. Точки соединения появляются, когда курсор приближается к ним.
 
-*Регулировочные точки* (оранжевые точки), которые существуют только у определенных коннекторов, используются для изменения положения и формы коннекторов.
+*Точки регулировки* (оранжевые точки), которые существуют только у некоторых коннекторов, используются для изменения положения и формы коннекторов.
 
-## **Типы Коннекторов**
+## **Типы коннекторов**
 
-В PowerPoint вы можете использовать прямые, угловые и изогнутые коннекторы.
+В PowerPoint можно использовать прямые, отрезные (угловые) и изогнутые коннекторы. 
 
-Aspose.Slides предоставляет эти коннекторы:
+Aspose.Slides предоставляет следующие коннекторы:
 
-| Коннектор                      | Изображение                                                   | Количество регулировочных точек |
-| ------------------------------- | ------------------------------------------------------------- | ------------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                               |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                               |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                               |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                               |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                               |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                               |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                               |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                               |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                               |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                               |
+| Коннектор                      | Изображение                                                        | Количество точек регулировки |
+| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
+| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
+| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
+| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
+| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
+| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
+| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
+| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
+| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
+| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
 
-## **Соединение Фигур С Помощью Коннекторов**
+## **Соединение фигур с помощью коннекторов**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Получите ссылку на слайд через его индекс.
-1. Добавьте две [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) на слайд, используя метод `AddAutoShape`, предоставленный объектом `Shapes`.
-1. Добавьте коннектор, используя метод `AddConnector`, предоставленный объектом `Shapes`, определив тип коннектора.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте два [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) на слайд, используя метод `AddAutoShape`, предоставляемый объектом `Shapes`.
+1. Добавьте коннектор, используя метод `AddConnector`, предоставляемый объектом `Shapes`, указав тип коннектора.
 1. Соедините фигуры с помощью коннектора.
 1. Вызовите метод `Reroute`, чтобы применить кратчайший путь соединения.
-1. Сохраните презентацию.
+1. Сохраните презентацию. 
 
-Этот код на C# показывает, как добавить коннектор (изогнутый коннектор) между двумя фигурами (эллипс и прямоугольник):
-
+Этот код C# показывает, как добавить коннектор (изогнутый коннектор) между двумя фигурами (эллипсом и прямоугольником):
 ```c#
-// Создает экземпляр класса презентации, представляющий файл PPTX
+// Создаёт экземпляр класса Presentation, представляющего файл PPTX
 using (Presentation input = new Presentation())
 {                
     // Получает коллекцию фигур для конкретного слайда
     IShapeCollection shapes = input.Slides[0].Shapes;
 
-    // Добавляет эллипс
+    // Добавляет автоматическую форму Эллипс
     IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
 
-    // Добавляет прямоугольник
+    // Добавляет автоматическую форму Прямоугольник
     IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
 
-    // Добавляет коннектор в коллекцию фигур слайда
+    // Добавляет форму‑коннектор в коллекцию фигур слайда
     IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // Подключает фигуры с помощью коннектора
+    // Соединяет фигуры с помощью коннектора
     connector.StartShapeConnectedTo = ellipse;
     connector.EndShapeConnectedTo = rectangle;
 
-    // Вызывает reroute, который устанавливает автоматический кратчайший путь между фигурами
+    // Вызывает Reroute, который задаёт автоматический кратчайший путь между фигурами
     connector.Reroute();
 
     // Сохраняет презентацию
@@ -72,52 +71,52 @@ using (Presentation input = new Presentation())
 }
 ```
 
-{{%  alert title="ПРИМЕЧАНИЕ"  color="warning"   %}} 
 
-Метод `Connector.Reroute` перенаправляет коннектор и заставляет его принять кратчайший возможный путь между фигурами. Чтобы достичь этой цели, метод может изменить индексы точек `StartShapeConnectionSiteIndex` и `EndShapeConnectionSiteIndex`. 
+{{%  alert title="NOTE"  color="warning"   %}} 
+
+Метод `Connector.Reroute` переурезает коннектор и заставляет его пройти по самому короткому возможному пути между фигурами. Для достижения цели метод может изменить точки `StartShapeConnectionSiteIndex` и `EndShapeConnectionSiteIndex`. 
 
 {{% /alert %}} 
 
-## **Указать Точку Соединения**
-Если вы хотите, чтобы коннектор соединял две фигуры с использованием конкретных точек на фигурах, вы должны указать свои предпочтительные точки соединения следующим образом:
+## **Указание точки соединения**
+Если вы хотите, чтобы коннектор связывал две фигуры, используя конкретные точки на фигурах, необходимо указать предпочтительные точки соединения следующим способом:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Получите ссылку на слайд через его индекс.
-1. Добавьте две [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) на слайд с использованием метода `AddAutoShape`, предоставленного объектом `Shapes`.
-1. Добавьте коннектор, используя метод `AddConnector`, предоставленный объектом `Shapes`, определив тип коннектора.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте два [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) на слайд, используя метод `AddAutoShape`, предоставляемый объектом `Shapes`.
+1. Добавьте коннектор, используя метод `AddConnector`, предоставляемый объектом `Shapes`, указав тип коннектора.
 1. Соедините фигуры с помощью коннектора.
-1. Установите свои предпочтительные точки соединения на фигурах.
+1. Установите предпочтительные точки соединения на фигурах.
 1. Сохраните презентацию.
 
-Этот код на C# демонстрирует операцию, в которой указывается предпочитаемая точка соединения:
-
+Этот код C# демонстрирует операцию, где указана предпочтительная точка соединения:
 ```c#
-// Создает экземпляр класса презентации, представляющий файл PPTX
+// Создаёт экземпляр класса Presentation, представляющего файл PPTX
 using (Presentation presentation = new Presentation())
 {
     // Получает коллекцию фигур для конкретного слайда
     IShapeCollection shapes = presentation.Slides[0].Shapes;
 
-    // Добавляет коннектор в коллекцию фигур слайда
+    // Добавляет форму‑коннектор в коллекцию фигур слайда
     IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
 
-    // Добавляет эллипс
+    // Добавляет автоматическую форму Эллипс
     IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
 
-    // Добавляет прямоугольник
+    // Добавляет автоматическую форму Прямоугольник
     IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
 
     // Соединяет фигуры с помощью коннектора
     connector.StartShapeConnectedTo = ellipse;
     connector.EndShapeConnectedTo = rectangle;
 
-    // Устанавливает индекс предпочитаемой точки соединения на фигуре Эллипс
+    // Устанавливает индекс предпочтительной точки соединения для фигуры Эллипс
     uint wantedIndex = 6;
 
-    // Проверяет, меньше ли предпочитаемый индекс максимального количества индексов точек
+    // Проверяет, меньше ли предпочтительный индекс максимального количества точек соединения
     if (ellipse.ConnectionSiteCount > wantedIndex)
     {
-        // Устанавливает предпочитаемую точку соединения на Эллипсе
+        // Устанавливает предпочтительную точку соединения для автоматической формы Эллипс
         connector.StartShapeConnectionSiteIndex = wantedIndex;
     }
 
@@ -126,9 +125,9 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Регулировка Точки Коннектора**
 
-Вы можете отрегулировать существующий коннектор через его регулировочные точки. Только коннекторы с регулировочными точками могут быть изменены таким образом. Смотрите таблицу в разделе **[Типы коннекторов.](/slides/ru/net/connector/#types-of-connectors)** 
+## **Настройка точки коннектора**
+Вы можете настроить существующий коннектор через его точки регулировки. Только коннекторы с точками регулировки могут быть изменены таким способом. См. таблицу в разделе **[Типы коннекторов.](/slides/ru/net/connector/#types-of-connectors)** 
 
 #### **Простой случай**
 
@@ -137,7 +136,6 @@ using (Presentation presentation = new Presentation())
 ![connector-obstruction](connector-obstruction.png)
 
 Код:
-
 ```c#
 Presentation pres = new Presentation();
 ISlide sld = pres.Slides[0];
@@ -156,89 +154,89 @@ connector.EndShapeConnectedTo = shapeTo;
 connector.StartShapeConnectionSiteIndex = 2;
 ```
 
+
 Чтобы избежать или обойти третью фигуру, мы можем отрегулировать коннектор, переместив его вертикальную линию влево следующим образом:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
-
 ```c#
 IAdjustValue adj2 = connector.Adjustments[1];
 adj2.RawValue += 10000;
 ```
 
+
 ### **Сложные случаи** 
 
-Для выполнения более сложных корректировок вам необходимо учитывать следующие моменты:
+Для выполнения более сложных настроек необходимо учитывать следующие моменты:
 
-* Регулируемая точка коннектора сильно связана с формулой, которая вычисляет и определяет ее положение. Поэтому изменения в расположении точки могут изменить форму коннектора.
-* Регулирующие точки коннектора определены в строгом порядке в массиве. Регулирующие точки нумеруются от начальной точки коннектора к его конечной точке.
-* Значения регулировочных точек отражают процент ширины/высоты формы коннектора.
-  * Форма ограничена начальной и конечной точками коннектора, умноженными на 1000.
-  * Первая точка, вторая точка и третья точка определяют процент от ширины, процент от высоты и процент от ширины (снова) соответственно.
-* Для расчетов, которые определяют координаты регулировочных точек коннектора, вам необходимо учитывать вращение коннектора и его отражение. **Обратите внимание**, что угол поворота для всех коннекторов, показанных в разделе **[Типы коннекторов](/slides/ru/net/connector/#types-of-connectors)**, равен 0.
+* Точка регулировки коннектора тесно связана с формулой, которая вычисляет и определяет её позицию. Поэтому изменения положения точки могут изменить форму коннектора.
+* Точки регулировки коннектора определены в строгом порядке в массиве. Точки регулировки нумеруются от начальной точки коннектора до конечной.
+* Значения точек регулировки отражают процент ширины/высоты формы коннектора.
+  * Фигура ограничена начальной и конечной точками коннектора, умноженными на 1000.
+  * Первый, второй и третий пункт определяют процент от ширины, процент от высоты и снова процент от ширины соответственно.
+* Для вычисления координат точек регулировки коннектора необходимо учитывать его поворот и отражение. **Примечание**: угол поворота всех коннекторов, показанных в разделе **[Типы коннекторов](/slides/ru/net/connector/#types-of-connectors)**, равен 0.
 
 #### **Случай 1**
 
-Рассмотрим случай, когда два объекта текстовой рамки соединены вместе через коннектор:
+Рассмотрим случай, когда два объекта текстового фрейма соединены друг с другом через коннектор:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
 Код:
-
 ```c#
-// Создает экземпляр класса презентации, представляющий файл PPTX
+// Создаёт экземпляр класса Presentation, представляющего файл PPTX
 Presentation pres = new Presentation();
 // Получает первый слайд в презентации
 ISlide sld = pres.Slides[0];
 // Добавляет фигуры, которые будут соединены через коннектор
 IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-shapeFrom.TextFrame.Text = "От";
+shapeFrom.TextFrame.Text = "From";
 IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-shapeTo.TextFrame.Text = "К";
+shapeTo.TextFrame.Text = "To";
 // Добавляет коннектор
 IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-// Указывает направление коннектора
+// Устанавливает направление коннектора
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
-// Указывает цвет коннектора
+// Устанавливает цвет коннектора
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
 // Указывает толщину линии коннектора
 connector.LineFormat.Width = 3;
 
-// Соединяет фигуры с помощью коннектора
+// Связывает фигуры коннектором
 connector.StartShapeConnectedTo = shapeFrom;
 connector.StartShapeConnectionSiteIndex = 3;
 connector.EndShapeConnectedTo = shapeTo;
 connector.EndShapeConnectionSiteIndex = 2;
 
-// Получает регулировочные точки для коннектора
+// Получает точки регулировки коннектора
 IAdjustValue adjValue_0 = connector.Adjustments[0];
 IAdjustValue adjValue_1 = connector.Adjustments[1];
 ```
 
-**Регулировка**
 
-Мы можем изменить значения регулировочных точек коннектора, увеличив соответствующий процент ширины и высоты на 20% и 200%, соответственно:
+**Настройка**
 
+Мы можем изменить значения точек регулировки коннектора, увеличив соответствующий процент ширины и высоты на 20% и 200% соответственно:
 ```c#
-// Изменяет значения регулировочных точек
+// Изменяет значения точек регулировки
 adjValue_0.RawValue += 20000;
 adjValue_1.RawValue += 200000;
 ```
+
 
 Результат:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Чтобы определить модель, которая позволит нам определить координаты и форму отдельных частей коннектора, создадим фигуру, которая соответствует горизонтальному компоненту коннектора в точке connector.Adjustments[0]:
-
+Чтобы определить модель, позволяющую вычислять координаты и форму отдельных частей коннектора, создадим фигуру, соответствующую горизонтальному компоненту коннектора в точке connector.Adjustments[0]:
 ```c#
-// Рисует вертикальный компонент коннектора
-
+// Отрисовать вертикальный компонент коннектора
 float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
 float y = connector.Y;
 float height = connector.Height * adjValue_1.RawValue / 100000;
 sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
 ```
+
 
 Результат:
 
@@ -246,50 +244,49 @@ sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
 
 #### **Случай 2**
 
-В **Случае 1** мы продемонстрировали простую операцию регулировки коннектора с использованием основных принципов. В обычных условиях вам нужно учитывать вращение коннектора и его отображение (которые устанавливаются через `connector.Rotation`, `connector.Frame.FlipH` и `connector.Frame.FlipV`). Теперь мы продемонстрируем этот процесс.
+В **Случае 1** мы продемонстрировали простую операцию настройки коннектора, используя базовые принципы. В обычных ситуациях необходимо учитывать поворот коннектора и его отображение (которые задаются свойствами connector.Rotation, connector.Frame.FlipH и connector.Frame.FlipV). Сейчас мы покажем процесс.
 
-Сначала давайте добавим новый объект текстовой рамки (**К 1**) на слайд (для соединительных целей) и создадим новый (зеленый) коннектор, который соединит его с уже созданными объектами.
-
+Сначала добавим новый объект текстового фрейма (**To 1**) на слайд (для целей соединения) и создадим новый (зеленый) коннектор, который соединит его с уже созданными объектами.
 ```c#
-// Создает новый объект привязки
+// Создаёт новый объект привязки
 IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.TextFrame.Text = "К 1";
-// Создает новый коннектор
+shapeTo_1.TextFrame.Text = "To 1";
+// Создаёт новый коннектор
 connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
 connector.LineFormat.Width = 3;
-// Соединяет объекты с помощью вновь созданного коннектора
+// Связывает объекты с помощью нового коннектора
 connector.StartShapeConnectedTo = shapeFrom;
 connector.StartShapeConnectionSiteIndex = 2;
 connector.EndShapeConnectedTo = shapeTo_1;
 connector.EndShapeConnectionSiteIndex = 3;
-// Получает регулировочные точки коннектора
+// Получает точки регулировки коннектора
 adjValue_0 = connector.Adjustments[0];
 adjValue_1 = connector.Adjustments[1];
-// Изменяет значения регулировочных точек 
+// Изменяет значения точек регулировки
 adjValue_0.RawValue += 20000;
 adjValue_1.RawValue += 200000;
 ```
+
 
 Результат:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Затем давайте создадим фигуру, которая будет соответствовать горизонтальному компоненту коннектора, который проходит через новую регулировочную точку коннектора `connector.Adjustments[0]`. Мы будем использовать значения из данных коннектора для `connector.Rotation`, `connector.Frame.FlipH` и `connector.Frame.FlipV` и применим популярную формулу преобразования координат для вращения вокруг данной точки `x0`:
+Во‑вторых, создадим фигуру, соответствующую горизонтальному компоненту коннектора, проходящему через новую точку регулировки connector.Adjustments[0]. Мы используем значения из данных коннектора для connector.Rotation, connector.Frame.FlipH и connector.Frame.FlipV и применим известную формулу преобразования координат для вращения вокруг заданной точки x0:
 
 X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
 
 Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
 
-В нашем случае угол вращения объекта составляет 90 градусов, и коннектор отображается вертикально, поэтому соответствующий код такой:
-
+В нашем случае угол поворота объекта равен 90 градусам, и коннектор отображается вертикально, поэтому соответствующий код выглядит так:
 ```c#
 // Сохраняет координаты коннектора
 x = connector.X;
 y = connector.Y;
-// Корректирует координаты коннектора в случае, если он появляется
+// Корректирует координаты коннектора, если это необходимо
 if (connector.Frame.FlipH == NullableBool.True)
 {
     x += connector.Width;
@@ -298,12 +295,12 @@ if (connector.Frame.FlipV == NullableBool.True)
 {
     y += connector.Height;
 }
-// Принимает значение регулировочной точки как координату
+// Принимает значение точки регулировки как координату
 x += connector.Width * adjValue_0.RawValue / 100000;
 //  Преобразует координаты, так как Sin(90) = 1 и Cos(90) = 0
 float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
 float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
-// Определяет ширину горизонтального компонента, используя значение второй регулировочной точки
+// Определяет ширину горизонтального компонента, используя значение второй точки регулировки
 float width = connector.Height * adjValue_1.RawValue / 100000;
 IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
 shape.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -311,20 +308,20 @@ shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
 
 ```
 
+
 Результат:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Мы продемонстрировали вычисления, связанные с простыми корректировками и сложными регулировочными точками (регулировочные точки с углом вращения). Используя полученные знания, вы можете разработать свою собственную модель (или написать код), чтобы получить объект `GraphicsPath` или даже установить значения регулировочной точки коннектора на основе конкретных координат слайда.
+Мы продемонстрировали расчёты, включающие простые настройки и сложные точки регулировки (точки регулировки с углами поворота). Используя полученные знания, вы можете разработать собственную модель (или написать код), чтобы получить объект `GraphicsPath` или даже установить значения точек регулировки коннектора на основе конкретных координат слайда.
 
-## **Найдите Угол Линий Коннектора**
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Получите ссылку на слайд через его индекс.
-1. Получите доступ к форме линии коннектора. 
-1. Используйте ширину линии, высоту, высоту рамки фигуры и ширину рамки фигуры, чтобы рассчитать угол.
+## **Определение угла линий коннектора**
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+1. Получите ссылку на слайд по его индексу.
+1. Получите доступ к фигуре линии коннектора.
+1. Используйте ширину и высоту линии, высоту и ширину кадра фигуры, чтобы вычислить угол.
 
-Этот код на C# демонстрирует операцию, в которой мы рассчитали угол для формы линии коннектора:
-
+Этот код C# демонстрирует операцию, в которой мы вычислили угол для фигуры линии коннектора:
 ```c#
 public static void Run()
 {
@@ -364,3 +361,18 @@ public static double getDirection(float w, float h, bool flipH, bool flipV)
     return angle * 180.0 / Math.PI;
 }
 ```
+
+
+## **FAQ**
+
+**Как определить, может ли коннектор «приклеиваться» к конкретной фигуре?**
+
+Проверьте, предоставляет ли фигура [точки соединения](https://reference.aspose.com/slides/net/aspose.slides/shape/connectionsitecount/). Если их нет или их количество равно нулю, приклеивание недоступно; в этом случае используйте свободные конечные точки и позиционируйте их вручную. Рекомендуется проверять количество точек перед прикреплением.
+
+**Что происходит с коннектором, если я удаляю одну из соединённых фигур?**
+
+Его концы будут отсоединены; коннектор останется на слайде как обычная линия с свободным началом/концом. Вы можете либо удалить его, либо переустановить соединения и, при необходимости, [перепроложить](https://reference.aspose.com/slides/net/aspose.slides/connector/reroute/).
+
+**Сохраняются ли привязки коннектора при копировании слайда в другую презентацию?**
+
+Как правило, да, при условии, что целевые фигуры также копируются. Если слайд вставляется в другой файл без связанных фигур, концы становятся свободными, и их нужно будет повторно прикрепить.

@@ -1,8 +1,23 @@
 ---
-title: Paragraph
+title: Get Paragraph Bounds from Presentations on Android
+linktitle: Paragraph
 type: docs
 weight: 60
 url: /androidjava/paragraph/
+keywords:
+- paragraph bounds
+- text portion bounds
+- paragraph coordinate
+- portion coordinate
+- paragraph size
+- text portion size
+- text frame
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Learn how to retrieve paragraph and text-portion bounds in Aspose.Slides for Android via Java to optimize text positioning in PowerPoint presentations."
 ---
 
 

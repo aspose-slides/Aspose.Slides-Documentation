@@ -1,17 +1,30 @@
 ---
-title: Manage Table
+title: Manage Presentation Tables in .NET
+linktitle: Manage Table
 type: docs
 weight: 10
 url: /net/manage-table/
-keywords: "Table, create table, access table, table aspect ratio, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Create and manage table in PowerPoint presentations in C# or .NET"
+keywords:
+- add table
+- create table
+- access table
+- aspect ratio
+- align text
+- text formatting
+- table style
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Create & edit tables in PowerPoint slides with Aspose.Slides for .NET. Discover simple C# code examples to streamline your table workflows."
 ---
 
 A table in PowerPoint is an efficient way of displaying and portraying information. The information in a grid of cells (arranged in rows and columns) is straightforward and easy to understand.
 
 Aspose.Slides provides the [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) class, [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) interface, [Cell](https://reference.aspose.com/slides/net/aspose.slides/cell/) class, [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) interface, and other types to allow you to create, update, and manage tables in all kinds of presentations. 
 
-## **Create Table from Scratch**
+## **Create a Table from Scratch**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 2. Get a slide's reference through its index. 
@@ -72,7 +85,7 @@ tbl.Rows[0][0].TextFrame.Text = "Merged Cells";
 pres.Save("table.pptx", SaveFormat.Pptx);
 ```
 
-## **Numbering in Standard Table**
+## **Numbering in a Standard Table**
 
 In a standard table, the numeration of cells is straightforward and zero-based. The first cell in a table is indexed as 0,0 (column 0, row 0). 
 
@@ -129,7 +142,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Access Existing Table**
+## **Access an Existing Table**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 
@@ -172,7 +185,7 @@ using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 ```
 
 
-## **Align Text in Table**
+## **Align Text in a Table**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 2. Get a slide's reference through its index. 
@@ -222,7 +235,7 @@ cell.TextVerticalType = TextVerticalType.Vertical270;
 presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Set Text Formatting on Table Level**
+## **Set Text Formatting on the Table Level**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
 2. Get a slide's reference through its index. 
@@ -274,7 +287,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Lock Aspect Ratio of Table**
+## **Lock Aspect Ratio of a Table**
 
 The aspect ratio of a geometric shape is the ratio of its sizes in different dimensions. Aspose.Slides provided the `AspectRatioLocked` property to allow you to lock the aspect ratio setting for tables and other shapes. 
 

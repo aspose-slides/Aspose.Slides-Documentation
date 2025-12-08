@@ -1,7 +1,17 @@
 ---
-title: Chart Legend
+title: Customize Chart Legends in Presentations Using С++
+linktitle: Chart Legend
 type: docs
 url: /cpp/chart-legend/
+keywords:
+- chart legend
+- legend position
+- font size
+- PowerPoint
+- presentation
+- С++
+- Aspose.Slides
+description: "Customize chart legends with Aspose.Slides for С++ to optimize PowerPoint presentations with tailored legend formatting."
 ---
 
 ## **Legend Positioning**

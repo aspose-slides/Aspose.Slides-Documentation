@@ -1,30 +1,31 @@
 ---
-title: Convert PowerPoint Presentations to HTML in C#
-linktitle: Convert PowerPoint to HTML
+title: Convert PowerPoint Presentations to HTML in .NET
+linktitle: PowerPoint to HTML
 type: docs
 weight: 30
 url: /net/convert-powerpoint-to-html/
 keywords:
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
 - PowerPoint to HTML
 - presentation to HTML
 - slide to HTML
 - PPT to HTML
 - PPTX to HTML
-- ODP to HTML
-- convert PowerPoint Presentation
-- PowerPoint conversion
-- presentation conversion
-- HTML conversion
 - save PowerPoint as HTML
 - save presentation as HTML
 - save slide as HTML
 - save PPT as HTML
 - save PPTX as HTML
-- HTML export
-- C#
+- export PPT to HTML
+- export PPTX to HTML
 - .NET
+- C#
 - Aspose.Slides
-description: "Learn how to convert PowerPoint and OpenDocument presentations to HTML using Aspose.Slides for .NET. This guide provides instructions, code samples, and best practices for converting slides to a web-friendly format."
+description: "Convert PowerPoint presentations to responsive HTML in .NET. Preserve layout, links, and images with Aspose.Slides conversion guide for fast, flawless results."
 ---
 
 ## **Overview**
@@ -233,7 +234,7 @@ public class CustomFormattingController : IHtmlFormattingController
 }
 ```
 
-## **Save CSS and Images when Exporting to HTML**
+## **Save CSS and Images When Exporting to HTML**
 
 Using new CSS style files, you can easily change the appearance of the HTML file generated from the PowerPoint-to-HTML conversion process.
 
@@ -285,7 +286,7 @@ public class CustomHeaderAndFontsController : EmbedAllFontsHtmlController
 }
 ```
 
-## **Link All Fonts when Converting a Presentation to HTML**
+## **Link All Fonts When Converting a Presentation to HTML**
 
 If you do not want to embed fonts (to avoid increasing the size of the resulting HTML), you can link all fonts by implementing your own `LinkAllFontsHtmlController` version.
 

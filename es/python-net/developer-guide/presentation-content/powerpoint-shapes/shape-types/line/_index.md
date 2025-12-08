@@ -1,79 +1,113 @@
 ---
-title: Línea
+title: Crear formas de línea en presentaciones con Python
+linktitle: Línea
 type: docs
 weight: 50
 url: /es/python-net/line/
-keywords: "Línea, forma de PowerPoint, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Agregar línea en presentación de PowerPoint en Python"
+keywords:
+- línea
+- crear línea
+- añadir línea
+- línea simple
+- configurar línea
+- personalizar línea
+- estilo de guión
+- cabeza de flecha
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Aprenda a manipular el formato de líneas en presentaciones PowerPoint y OpenDocument con Aspose.Slides para Python mediante .NET. Descubra propiedades, métodos y ejemplos."
 ---
 
-Aspose.Slides para Python a través de .NET admite agregar diferentes tipos de formas a las diapositivas. En este tema, comenzaremos a trabajar con formas agregando líneas a las diapositivas. Usando Aspose.Slides para Python a través de .NET, los desarrolladores no solo pueden crear líneas simples, sino que también se pueden dibujar algunas líneas elegantes en las diapositivas.
-## **Crear Línea Simple**
-Para agregar una línea simple a una diapositiva seleccionada de la presentación, siga los pasos a continuación:
+## **Descripción general**
 
-- Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-- Obtenga la referencia de una diapositiva utilizando su índice.
-- Agregue una AutoShape de tipo Línea usando el método [add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) expuesto por el objeto Shapes.
-- Escriba la presentación modificada como un archivo PPTX.
+Aspose.Slides para Python mediante .NET admite la incorporación de diferentes tipos de formas a las diapositivas. En este tema, comenzaremos a trabajar con formas añadiendo líneas a las diapositivas. Con Aspose.Slides, los desarrolladores pueden no solo crear líneas simples, sino también dibujar líneas más elaboradas en las diapositivas.
 
-En el ejemplo dado a continuación, hemos agregado una línea a la primera diapositiva de la presentación.
+## **Crear líneas simples**
 
+Utilice Aspose.Slides para añadir una línea simple a una diapositiva como separador o conector sencillo. Para añadir una línea simple a una diapositiva seleccionada en una presentación, siga estos pasos:
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Obtenga una referencia a la diapositiva por índice.
+1. Añada un [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) de tipo `LINE` usando el método `add_auto_shape` en el objeto [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/).
+1. Guarde la presentación como un archivo PPTX.
+
+En el ejemplo siguiente, se añade una línea a la primera diapositiva de la presentación.
 ```py
 import aspose.slides as slides
 
-# Instanciar la clase PresentationEx que representa el archivo PPTX
-with slides.Presentation() as pres:
-    # Obtener la primera diapositiva
-    sld = pres.slides[0]
+# Instanciar la clase Presentation.
+with slides.Presentation() as presentation:
 
-    # Agregar una autoshape de tipo línea
-    sld.shapes.add_auto_shape(slides.ShapeType.LINE, 50, 150, 300, 0)
+    # Obtener la primera diapositiva.
+    slide = presentation.slides[0]
 
-    # Escribir el PPTX en el disco
-    pres.save("LineShape1_out.pptx", slides.export.SaveFormat.PPTX)
+    # Añadir una autoforma de tipo LINE.
+    slide.shapes.add_auto_shape(slides.ShapeType.LINE, 50, 150, 300, 0)
+
+    # Guardar la presentación como archivo PPTX.
+    presentation.save("line_shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **Crear Línea con Forma de Flecha**
-Aspose.Slides para Python a través de .NET también permite a los desarrolladores configurar algunas propiedades de la línea para hacerla más atractiva. Intentemos configurar algunas propiedades de una línea para que parezca una flecha. Siga los pasos a continuación para hacerlo:
+## **Crear líneas en forma de flecha**
 
-- Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-- Obtenga la referencia de una diapositiva utilizando su índice.
-- Agregue una AutoShape de tipo Línea usando el método AddAutoShape expuesto por el objeto Shapes.
-- Establezca el estilo de línea en uno de los estilos ofrecidos por Aspose.Slides para Python a través de .NET.
-- Establezca el ancho de la línea.
-- Establezca el [Estilo de Guion](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) de la línea en uno de los estilos ofrecidos por Aspose.Slides para Python a través de .NET.
-- Establezca el [Estilo de Cabeza de Flecha](https://reference.aspose.com/slides/python-net/aspose.slides/linearrowheadstyle/) y la longitud del punto de inicio de la línea.
-- Establezca el estilo de la cabeza de flecha y la longitud del punto final de la línea.
-- Escriba la presentación modificada como un archivo PPTX.
+Aspose.Slides le permite configurar las propiedades de la línea para que resulten más atractivas visualmente. A continuación, configuramos algunas propiedades de una línea para que tenga forma de flecha. Siga estos pasos:
 
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Obtenga una referencia a una diapositiva por índice.
+1. Añada un [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) de tipo `LINE` usando el método `add_auto_shape` en el objeto [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/).
+1. Establezca el [estilo de línea](https://reference.aspose.com/slides/python-net/aspose.slides/linestyle/).
+1. Establezca el ancho de la línea.
+1. Establezca el [estilo de guión](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/).
+1. Establezca el [estilo de cabeza de flecha](https://reference.aspose.com/slides/python-net/aspose.slides/linearrowheadstyle/) y la longitud para el punto de inicio de la línea.
+1. Establezca el estilo de cabeza de flecha y la longitud para el punto final de la línea.
+1. Guarde la presentación como un archivo PPTX.
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Instanciar la clase PresentationEx que representa el archivo PPTX
-with slides.Presentation() as pres:
-    # Obtener la primera diapositiva
-    sld = pres.slides[0]
+# Instanciar la clase Presentation que representa el archivo PPTX.
+with slides.Presentation() as presentation:
+    # Obtener la primera diapositiva.
+    slide = presentation.slides[0]
 
-    # Agregar una autoshape de tipo línea
-    shp = sld.shapes.add_auto_shape(slides.ShapeType.LINE, 50, 150, 300, 0)
+    # Añadir una autoforma de tipo LINE.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.LINE, 50, 150, 300, 0)
 
-    # Aplicar algún formato en la línea
-    shp.line_format.style = slides.LineStyle.THICK_BETWEEN_THIN
-    shp.line_format.width = 10
+    # Aplicar formato a la línea.
+    shape.line_format.style = slides.LineStyle.THICK_BETWEEN_THIN
+    shape.line_format.width = 10
 
-    shp.line_format.dash_style = slides.LineDashStyle.DASH_DOT
+    shape.line_format.dash_style = slides.LineDashStyle.DASH_DOT
 
-    shp.line_format.begin_arrowhead_length = slides.LineArrowheadLength.SHORT
-    shp.line_format.begin_arrowhead_style = slides.LineArrowheadStyle.OVAL
+    shape.line_format.begin_arrowhead_length = slides.LineArrowheadLength.SHORT
+    shape.line_format.begin_arrowhead_style = slides.LineArrowheadStyle.OVAL
 
-    shp.line_format.end_arrowhead_length = slides.LineArrowheadLength.LONG
-    shp.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
+    shape.line_format.end_arrowhead_length = slides.LineArrowheadLength.LONG
+    shape.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
 
-    shp.line_format.fill_format.fill_type = slides.FillType.SOLID
-    shp.line_format.fill_format.solid_fill_color.color = draw.Color.maroon
+    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shape.line_format.fill_format.solid_fill_color.color = draw.Color.maroon
 
-    # Escribir el PPTX en el disco
-    pres.save("LineShape2_out.pptx", slides.export.SaveFormat.PPTX)
+    # Guardar la presentación como archivo PPTX.
+    presentation.save("line_shape_2.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+
+## **Preguntas frecuentes**
+
+**¿Puedo convertir una línea regular en un conector para que se "ajuste" a las formas?**
+
+No. Una línea regular (un [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) de tipo [LINE](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/)) no se convierte automáticamente en un conector. Para que se ajuste a las formas, utilice el tipo [Connector](https://reference.aspose.com/slides/python-net/aspose.slides/connector/) dedicado y las [APIs correspondientes](/slides/es/python-net/connector/) para conexiones.
+
+**¿Qué debo hacer si las propiedades de una línea se heredan del tema y es difícil determinar los valores finales?**
+
+Lea las [propiedades efectivas](/slides/es/python-net/shape-effective-properties/) a través de las clases [ILineFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ilinefillformateffectivedata/) —estas ya tienen en cuenta la herencia y los estilos del tema.
+
+**¿Puedo bloquear una línea contra la edición (movimiento, cambio de tamaño)?**
+
+Sí. Las formas proporcionan [objetos de bloqueo](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/auto_shape_lock/) que le permiten [denegar operaciones de edición](/slides/es/python-net/applying-protection-to-presentation/).

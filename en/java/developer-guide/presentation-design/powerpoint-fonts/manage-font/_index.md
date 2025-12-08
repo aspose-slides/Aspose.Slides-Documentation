@@ -1,10 +1,20 @@
 ---
-title: Manage Fonts - PowerPoint Java API
+title: Manage Fonts in Presentations Using Java
 linktitle: Manage Fonts
 type: docs
 weight: 10
 url: /java/manage-fonts/
-description: Presentations usually contain both text and images. This article shows how to use PowerPoint Java API to configure the font properties of paragraphs of text on slides.
+keywords:
+- manage fonts
+- font properties
+- paragraph
+- text formatting
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Control fonts in Java with Aspose.Slides: embed, substitute, and load custom fonts to keep PPT, PPTX and ODP presentations clear, brand-safe, and consistent."
 ---
 
 ## **Manage Font Related Properties**

@@ -1,10 +1,24 @@
 ---
-title: Manage Autofit Settings
+title: Enhance Your Presentations with AutoFit in JavaScript
+linktitle: Autofit Settings
 type: docs
 weight: 30
 url: /nodejs-java/manage-autofit-settings/
-keywords: "Textbox, Autofit, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Set the autofit settings for textbox in PowerPoint in JavaScript"
+keywords:
+- textbox
+- autofit
+- do not autofit
+- fit text
+- shrink text
+- wrap text
+- resize shape
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Manage AutoFit settings in Aspose.Slides for Node.js to optimize text display in your PowerPoint and OpenDocument presentations and improve content readability."
 ---
 
 By default, when you add a textbox, Microsoft PowerPoint uses the **Resize shape to fix text** setting for the textbox—it automatically resizes the textbox to ensure its text always fits into it. 

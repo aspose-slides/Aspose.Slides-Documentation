@@ -1,8 +1,28 @@
 ---
-title: Render a Slide as an SVG Image
+title: Render Presentation Slides as SVG Images in PHP
+linktitle: Slide to SVG
 type: docs
 weight: 50
 url: /php-java/render-a-slide-as-an-svg-image/
+keywords:
+- PowerPoint to SVG
+- presentation to SVG
+- slide to SVG
+- PPT to SVG
+- PPTX to SVG
+- save PPT as SVG
+- save PPTX as SVG
+- export PPT to SVG
+- export PPTX to SVG
+- render slide
+- convert slide
+- export slide
+- vector image
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Learn how to render PowerPoint slides as SVG images using Aspose.Slides for PHP via Java. High-quality visuals with simple code examples."
 ---
 
 SVG—an acronym for Scalable Vector Graphics—is a standard graphics type or format used to render two-dimensional images. SVG stores images as vectors in XML with details that define their behavior or appearance. 

@@ -1,14 +1,35 @@
 ---
 title: Create or Update PowerPoint Presentation Charts in JavaScript
-linktitle: Create Chart
+linktitle: Create or Update Charts
 type: docs
 weight: 10
 url: /nodejs-java/create-chart/
-keywords: "Create chart, scattered chart, pie chart, tree map chart, stock chart, box and whisker chart, histogram chart, funnel chart, sunburst chart, multicategory chart, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Create chart in PowerPoint presentation in JavaScript"
+keywords:
+- add chart
+- create chart
+- edit chart
+- change chart
+- update chart
+- scattered chart
+- pie chart
+- line chart
+- tree map chart
+- stock chart
+- box and whisker chart
+- funnel chart
+- sunburst chart
+- histogram chart
+- radar chart
+- multicategory chart
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Create and customize charts in PowerPoint presentations with Aspose.Slides for Node.js. Add, format, and edit charts with practical code examples in JavaScript."
 ---
 
-## Overview
+## **Overview**
 
 This article describes how to **create PowerPoint Presentation Charts in the Java**. You can also **update the charts in JavaScript**. It covers these topics.
 
@@ -1102,3 +1123,21 @@ try {
     }
 }
 ```
+
+## **FAQ**
+
+**What chart types are supported by Aspose.Slides?**
+
+Aspose.Slides supports a wide range of chart types, including bar, line, pie, area, scatter, histogram, radar, and many more. This flexibility allows you to choose the most appropriate chart type for your data visualization needs.
+
+**How do I add a new chart to a slide?**
+
+To add a chart, you first create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class, retrieve the desired slide using its index, and then call the method to add a chart, specifying the chart type and initial data. This process integrates the chart directly into your presentation.
+
+**How can I update the data displayed in a chart?**
+
+You can update a chart’s data by accessing its data workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)), clearing any default series and categories, and then adding your custom data. This allows you to programmatically refresh the chart to reflect the latest data.
+
+**Is it possible to customize the appearance of the chart?**
+
+Yes, Aspose.Slides provides extensive customization options. You can modify colors, fonts, labels, legends, and other formatting elements to tailor the chart’s appearance to your specific design requirements.

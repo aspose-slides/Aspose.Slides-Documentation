@@ -1,9 +1,19 @@
 ---
-title: Callout
+title: Manage Callouts in Presentation Charts in .NET
+linktitle: Callout
 type: docs
 url: /net/callout/
-keywords: "Chart callout, chart data label, C#, Csharp, Aspose.Slides for .NET"
-description: "PowerPoint chart callouts and data labels in C# or .NET"
+keywords:
+- chart callout
+- use callout
+- data label
+- label format
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Create and style callouts in Aspose.Slides for .NET with concise C# code examples, compatible with PPT and PPTX to automate presentation workflows."
 ---
 
 ## **Using Callouts**
@@ -22,7 +32,7 @@ using (Presentation presentation = new Presentation())
 
 
 
-## **Set Callout for Doughnut Chart**
+## **Set a Callout for a Doughnut Chart**
 Aspose.Slides for .NET provides support for setting series data label callout shape for a Doughnut chart. Below sample example is given. 
 
 ```c#

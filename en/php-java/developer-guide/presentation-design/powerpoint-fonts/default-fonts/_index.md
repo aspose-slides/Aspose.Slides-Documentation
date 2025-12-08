@@ -1,10 +1,23 @@
 ---
-title: Default Fonts - PowerPoint Java API
-linktitle: Default Fonts
+title: Specify Default Presentation Fonts in PHP
+linktitle: Default Font
 type: docs
 weight: 30
 url: /php-java/default-font/
-description: PowerPoint Java API lets you set the default font for rendering the presentation to PDF, XPS or thumbnails. This article shows how to define DefaultRegular Font and DefaultAsian Font for use as default fonts.
+keywords:
+- default font
+- regular font
+- normal font
+- asian font
+- PDF export
+- XPS export
+- image export
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Set default fonts in Aspose.Slides for PHP via Java to ensure proper PowerPoint (PPT, PPTX) and OpenDocument (ODP) conversion to PDF, XPS and images."
 ---
 
 

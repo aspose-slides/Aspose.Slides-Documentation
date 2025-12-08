@@ -1,10 +1,24 @@
 ---
-title: Modern API
+title: Enhance Image Processing with the Modern API
+linktitle: Modern API
 type: docs
 weight: 280
 url: /cpp/modern-api/
-keywords: "Modern API, Drawing"
-description: "Modern API"
+keywords:
+- System.Drawing
+- modern API
+- drawing
+- slide thumbnail
+- slide to image
+- shape thumbnail
+- shape to image
+- presentation thumbnail
+- presentation to images
+- add image
+- add picture
+- C++
+- Aspose.Slides
+description: "Modernize slide image processing by replacing deprecated imaging APIs with the C++ Modern API for seamless PowerPoint and OpenDocument automation."
 ---
 
 ## Introduction

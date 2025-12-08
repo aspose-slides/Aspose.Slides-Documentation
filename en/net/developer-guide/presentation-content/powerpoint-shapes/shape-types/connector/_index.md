@@ -1,10 +1,22 @@
 ---
-title: Connector
+title: Manage Connectors in Presentations in .NET
+linktitle: Connector
 type: docs
 weight: 10
 url: /net/connector/
-keywords: "Connect shapes, connectors, PowerPoint shapes, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Connect PowerPoint shapes in C# or .NET"
+keywords:
+- connector
+- connector type
+- connector point
+- connector line
+- connector angle
+- connect shapes
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Empower .NET apps to draw, connect and auto-route lines in PowerPoint slides—gain full control over straight, elbow and curved connectors."
 ---
 
 A PowerPoint connector is a special line that connects or links two shapes together and stays attached to shapes even when they are moved or repositioned on a given slide. 
@@ -78,7 +90,7 @@ The `Connector.Reroute` method reroutes a connector and forces it to take the sh
 
 {{% /alert %}} 
 
-## **Specify Connection Dot**
+## **Specify a Connection Dot**
 If you want a connector to link two shapes using specific dots on the shapes, you have to specify your preferred connection dots this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
@@ -126,11 +138,11 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Adjust Connector Point**
+## **Adjust a Connector Point**
 
 You can adjust an existing connector through its adjustment points. Only connectors with adjustment points can be altered in this manner. See the table under **[Types of connectors.](/slides/net/connector/#types-of-connectors)** 
 
-#### **Simple Case**
+### **Simple Case**
 
 Consider a case where a connector between two shapes (A and B) passes through a third shape (C):
 
@@ -317,7 +329,7 @@ The result:
 
 We demonstrated calculations involving simple adjustments and complicated adjustment points (adjustment points with rotation angles). Using the knowledge acquired, you can develop your own model (or write a code) to get a `GraphicsPath` object or even set a connector's adjustment point values based on specific slide coordinates.
 
-## **Find Angle of Connector Lines**
+## **Find the Angle of Connector Lines**
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
 1. Get a slide's reference through its index.
 1. Access the connector line shape. 

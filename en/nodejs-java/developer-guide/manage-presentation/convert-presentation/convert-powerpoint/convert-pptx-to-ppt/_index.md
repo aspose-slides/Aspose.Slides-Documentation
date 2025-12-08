@@ -1,11 +1,23 @@
 ---
 title: Convert PPTX to PPT in JavaScript
-linktitle: Convert PPTX to PPT
+linktitle: PPTX to PPT
 type: docs
 weight: 21
 url: /nodejs-java/convert-pptx-to-ppt/
-keywords: "Java Convert PPTX to PPT, Convert PowerPoint Presentation, PPTX to PPT, Java, Aspose.Slides"
-description: "Convert PowerPoint PPTX to PPT in JavaScript"
+keywords:
+- convert PowerPoint
+- convert presentation
+- convert slide
+- convert PPTX
+- PPTX to PPT
+- save PPTX as PPT
+- export PPTX to PPT 
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Easily convert PPTX to PPT with Aspose.Slides—ensure seamless compatibility with PowerPoint formats while preserving your presentation’s layout and quality."
 ---
 
 ## **Overview**

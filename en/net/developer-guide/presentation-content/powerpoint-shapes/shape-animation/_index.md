@@ -1,5 +1,6 @@
 ---
-title: Shape Animation
+title: Apply Shape Animations in Presentations in .NET
+linktitle: Shape Animation
 type: docs
 weight: 60
 url: /net/shape-animation/
@@ -7,16 +8,22 @@ keywords:
 - shape
 - animation
 - effect
-- add effects
-- get effects
-- extract effects
+- animated shape
+- animated text
+- add animation
+- get animation
+- extract animation
+- add effect
+- get effect
+- extract effect
+- effect sound
 - apply animation
 - PowerPoint
 - presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Apply PowerPoint animation in C# or .NET"
+- Aspose.Slides
+description: "Discover how to create and customize shape animations in PowerPoint presentations with Aspose.Slides for .NET. Stand out!"
 ---
 
 Animations are visual effects that can be applied to texts, images, shapes, or [charts](/slides/net/animated-charts/). They give life to presentations or its constituents. 
@@ -38,7 +45,7 @@ PowerPoint provides many options and tools for animations and animation effects 
 * Aspose.Slides provides the classes and types you need to work with animations under the [Aspose.Slides.Animation](https://reference.aspose.com/slides/net/aspose.slides.animation/) namespace,
 * Aspose.Slides provides over **150 animation effects** under the [EffectType](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttype) enumeration. These effects are essentially the same (or equivalent) effects used in PowerPoint.
 
-## **Apply Animation to TextBox**
+## **Apply Animation to a TextBox**
 
 Aspose.Slides for .NET allows you to apply animation to the text in a shape. 
 
@@ -85,7 +92,7 @@ Besides applying animations to text, you can also apply animations to a single [
 
 {{% /alert %}} 
 
-## **Apply Animation to PictureFrame**
+## **Apply Animation to a PictureFrame**
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class.
 2. Get a slide's reference through its index.
@@ -119,7 +126,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Apply Animation to Shape**
+## **Apply Animation to a Shape**
 
 1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class.
 2. Get a slide's reference through its index.
@@ -171,7 +178,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Get the Animation Effects Applied to Shape**
+## **Get the Animation Effects Applied to a Shape**
 
 The following examples show you how to use the `GetEffectsByShape` method from the [ISequence](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence/) interface to get all animation effects applied to a shape.
 
@@ -328,7 +335,7 @@ Aspose.Slides provides these properties to allow you to work with sounds in anim
 - [IEffect.Sound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/sound/) 
 - [IEffect.StopPreviousSound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/stopprevioussound/) 
 
-### **Add Animation Effect Sound**
+### **Add an Animation Effect Sound**
 
 This C# code shows you how to add an animation effect sound and stop it when the next effect starts:
 
@@ -364,7 +371,7 @@ using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 }
 ```
 
-### **Extract Animation Effect Sound**
+### **Extract an Animation Effect Sound**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
 2. Get a slide’s reference through its index. 

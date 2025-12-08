@@ -2,12 +2,25 @@
 title: Hyperlink
 type: docs
 weight: 130
-url: /net/examples/elements/hyperlink
+url: /net/examples/elements/hyperlink/
+keywords:
+- hyperlink example
+- add hyperlink
+- access hyperlink
+- remove hyperlink
+- update hyperlink
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Add, edit, and remove hyperlinks in C# with Aspose.Slides: link text, shapes, slides, URLs and email; set targets and actions for PPT, PPTX and ODP."
 ---
 
 Demonstrates adding, accessing, removing, and updating hyperlinks on shapes using **Aspose.Slides for .NET**.
 
-## Add a Hyperlink
+## **Add a Hyperlink**
 
 Create a rectangle shape with a hyperlink pointing to an external website.
 
@@ -22,7 +35,7 @@ static void Add_Hyperlink()
 }
 ```
 
-## Access a Hyperlink
+## **Access a Hyperlink**
 
 Read hyperlink information from a shape's text portion.
 
@@ -39,7 +52,7 @@ static void Access_Hyperlink()
 }
 ```
 
-## Remove a Hyperlink
+## **Remove a Hyperlink**
 
 Clear the hyperlink from a shape's text.
 
@@ -56,7 +69,7 @@ static void Remove_Hyperlink()
 }
 ```
 
-## Update a Hyperlink
+## **Update a Hyperlink**
 
 Change the target of an existing hyperlink. Use `HyperlinkManager` to modify text that already contains a hyperlink, which mimics how PowerPoint updates hyperlinks safely.
 

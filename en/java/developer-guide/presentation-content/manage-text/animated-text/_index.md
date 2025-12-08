@@ -1,13 +1,24 @@
 ---
-title: Animated Text
+title: Animate PowerPoint Text in Java
+linktitle: Animated Text
 type: docs
 weight: 60
 url: /java/animated-text/
-keywords: "Animated text in PowerPoint"
-description: "Animated text in PowerPoint with Java"
+keywords:
+- animated text
+- text animation
+- animated paragraph
+- paragraph animation
+- animation effect
+- PowerPoint
+- OpenDocument
+- presentation
+- Java
+- Aspose.Slides
+description: "Create dynamic animated text in PowerPoint and OpenDocument presentations using Aspose.Slides for Java, with easy-to-follow, optimized Java code examples."
 ---
 
-## Adding Animation Effects to Paragraphs
+## **Add Animation Effects to Paragraphs**
 
 We added the [**addEffect()**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) method to the [**Sequence**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence) and [**ISequence**](https://reference.aspose.com/slides/java/com.aspose.slides/ISequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
 
@@ -28,7 +39,7 @@ try {
 }
 ```
 
-## Getting the Animation Effects in Paragraphs
+## **Get Animation Effects of Paragraphs**
 
 You may decide to find out the animation effects added to a paragraph—for example, in one scenario, you want to get the animation effects in a paragraph because you plan to apply those effects to another paragraph or shape.
 
@@ -51,3 +62,17 @@ try {
     pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**How do text animations differ from slide transitions, and can they be combined?**
+
+Text animations control object behavior over time on a slide, while [transitions](/slides/java/slide-transition/) control how slides change. They’re independent and can be used together; playback order is governed by the animation timeline and the transition settings.
+
+**Are text animations preserved when exporting to PDF or images?**
+
+No. PDF and raster images are static, so you’ll see a single state of the slide without motion. To keep movement, use [video](/slides/java/convert-powerpoint-to-video/) or [HTML](/slides/java/export-to-html5/) export.
+
+**Do text animations work in layouts and the slide master?**
+
+Effects applied to layout/master objects are inherited by slides, but their timing and interaction with slide-level animations depend on the final sequence on the slide.

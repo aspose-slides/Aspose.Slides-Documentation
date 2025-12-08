@@ -1,10 +1,23 @@
 ---
-title: Chart Workbook
+title: Manage Chart Workbooks in Presentations Using С++
+linktitle: Chart Workbook
 type: docs
 weight: 70
 url: /cpp/chart-workbook/
-keywords: "Chart workbook, chart data, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
-description: "Chart workbook in PowerPoint presentation in C++"
+keywords:
+- chart workbook
+- chart data
+- workbook cell
+- data label
+- worksheet
+- data source
+- external workbook
+- external data
+- PowerPoint
+- presentation
+- С++
+- Aspose.Slides
+description: "Discover Aspose.Slides for С++: effortlessly manage chart workbooks in PowerPoint and OpenDocument formats to streamline your presentation data."
 ---
 
 ## **Set Chart Data from Workbook**

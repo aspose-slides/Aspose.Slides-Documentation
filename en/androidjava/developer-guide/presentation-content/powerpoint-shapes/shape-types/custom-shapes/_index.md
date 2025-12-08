@@ -1,23 +1,28 @@
 ---
-title: Custom Shape
+title: Customize Presentation Shapes on Android
+linktitle: Custom Shape
 type: docs
 weight: 20
 url: /androidjava/custom-shape/
 keywords: 
-- shape
 - custom shape
+- add shape
 - create shape
-- geometry
+- change shape
 - shape geometry
 - geometry path
 - path points
 - edit points
+- add point
+- remove point
+- editing operation
+- curved corner
 - PowerPoint
 - presentation
 - Android
 - Java
-- Aspose.Slides for Java
-description: "Add a custom shape to a PowerPoint presentation in Java"
+- Aspose.Slides
+description: "Create and customize shapes in PowerPoint presentations with Aspose.Slides for Android via Java: geometry paths, curved corners, composite shapes."
 ---
 
 # Change a Shape Using Edit Points

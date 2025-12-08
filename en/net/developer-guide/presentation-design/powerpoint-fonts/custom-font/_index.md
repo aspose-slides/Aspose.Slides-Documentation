@@ -1,11 +1,23 @@
 ---
-title: Custom PowerPoint Font in C#
+title: Customize PowerPoint Fonts in .NET
 linktitle: Custom Font
 type: docs
 weight: 20
 url: /net/custom-font/
-keywords: "Fonts, custom fonts, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "PowerPoint custom fonts in C#"
+keywords:
+- font
+- custom font
+- external font
+- load font
+- manage fonts
+- font folder
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Customize fonts in PowerPoint slides with Aspose.Slides for .NET to keep your presentations sharp and consistent across any device."
 ---
 
 {{% alert color="primary" %}} 
@@ -46,7 +58,7 @@ using (Presentation presentation = new Presentation(dataDir + "DefaultFonts.pptx
 FontsLoader.ClearCache();
 ```
 
-## **Get Custom Fonts Folder**
+## **Get Custom Font Folders**
 Aspose.Slides provides the [GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/) method to allow you to find font folders. This method returns folders added through the `LoadExternalFonts` method and system font folders.
 
 This C# code shows you how to use [GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/):
@@ -58,7 +70,7 @@ string[] fontFolders = FontsLoader.GetFontFolders();
 ```
 
 
-## **Specify Custom Fonts Used With Presentation**
+## **Specify Custom Fonts Used with a Presentation**
 Aspose.Slides provides the [DocumentLevelFontSources](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/documentlevelfontsources/) property to allow you to specify external fonts that will be used with the presentation.
 
 This C# code shows you how to use the [DocumentLevelFontSources](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/documentlevelfontsources/) property:

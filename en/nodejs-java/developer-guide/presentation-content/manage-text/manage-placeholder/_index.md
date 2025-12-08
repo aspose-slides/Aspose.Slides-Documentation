@@ -1,9 +1,22 @@
 ---
-title: Manage Placeholder
+title: Manage Presentation Placeholders in JavaScript
+linktitle: Manage Placeholders
 type: docs
 weight: 10
 url: /nodejs-java/manage-placeholder/
-description: Change Text in a Placeholder in PowerPoint Slides using JavaScript. Set Prompt Text in a Placeholder in PowerPoint Slides using JavaScript.
+keywords:
+- placeholder
+- text placeholder 
+- image placeholder
+- chart placeholder
+- prompt text
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Effortlessly manage placeholders in Aspose.Slides for Node.js via Java: replace text, customize prompts & set image transparency in PowerPoint and OpenDocument."
 ---
 
 ## **Change Text in Placeholder**

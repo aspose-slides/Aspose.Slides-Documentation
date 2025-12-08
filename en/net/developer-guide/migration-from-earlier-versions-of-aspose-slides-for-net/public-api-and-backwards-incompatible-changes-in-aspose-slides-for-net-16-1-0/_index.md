@@ -1,8 +1,22 @@
 ---
 title: Public API and Backwards Incompatible Changes in Aspose.Slides for .NET 16.1.0
+linktitle: Aspose.Slides for .NET 16.1.0
 type: docs
 weight: 220
 url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/
+keywords:
+- migration
+- legacy code
+- modern code
+- legacy approach
+- modern approach
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Review public API updates and breaking changes in Aspose.Slides for .NET to smoothly migrate your PowerPoint PPT, PPTX and ODP presentation solutions."
 ---
 
 {{% alert color="primary" %}} 
@@ -13,7 +27,7 @@ This page lists all [added](/slides/net/public-api-and-backwards-incompatible-ch
 ## **Public API Changes**
 
 
-#### **Property RotationAngle has been added to IChartTextBlockFormat and ITextFrameFormat interfaces**
+#### **Property RotationAngle Has Been Added to IChartTextBlockFormat and ITextFrameFormat Interfaces**
 Property RotationAngle has been added to interfaces Aspose.Slides.Charts.IChartTextBlockFormat and Aspose.Slides.ITextFrameFormat.
 It specifies the custom rotation that is being applied to the text within the bounding box.
 
@@ -41,4 +55,4 @@ pres.Save("out.pptx", SaveFormat.Pptx);
 
 
 ``` 
-#### **OdpException moved from Aspose.Slides.Odp to Aspose.Slides namespace**
+#### **OdpException Moved from Aspose.Slides.Odp to Aspose.Slides Namespace**

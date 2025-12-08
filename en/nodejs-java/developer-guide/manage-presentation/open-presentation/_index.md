@@ -1,11 +1,12 @@
 ---
-title: Open a Presentation in JavaScript
-linktitle: Open Presentations
+title: Open Presentations in JavaScript
+linktitle: Open Presentation
 type: docs
 weight: 20
 url: /nodejs-java/open-presentation/
 keywords:
 - open PowerPoint
+- open OpenDocument
 - open presentation
 - open PPTX
 - open PPT
@@ -21,7 +22,7 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Open PowerPoint (.pptx, .ppt) and OpenDocument (.odp) presentations effortlessly with Aspose.Slides for Node.js—fast, reliable, fully featured."
+description: "Open PowerPoint (.pptx, .ppt) and OpenDocument (.odp) presentations effortlessly with Aspose.Slides for Node.js via Java—fast, reliable, fully featured."
 ---
 
 ## **Overview**

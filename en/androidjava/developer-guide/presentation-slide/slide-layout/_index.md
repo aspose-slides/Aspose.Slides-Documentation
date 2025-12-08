@@ -1,5 +1,5 @@
 ---
-title: Apply or Change a Slide Layout on Android
+title: Apply or Change Slide Layouts on Android
 linktitle: Slide Layout
 type: docs
 weight: 60
@@ -23,10 +23,13 @@ keywords:
 - picture with caption
 - title and vertical text
 - vertical title and text
+- PowerPoint
+- OpenDocument
+- presentation
 - Android
 - Java
 - Aspose.Slides
-description: "Learn how to manage and customize slide layouts in Aspose.Slides for Android. Explore layout types, placeholder control, footer visibility, and layout manipulation through code examples in Java."
+description: "Manage and customize slide layouts in Aspose.Slides for Android. Explore layout types, placeholder control, and footer visibility through Java code examples."
 ---
 
 ## **Overview**

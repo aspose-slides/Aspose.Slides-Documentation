@@ -1,20 +1,21 @@
 ---
-title: Convert Presentations in Handout Mode in PHP
+title: Convert PowerPoint Presentations in Handout Mode Using PHP
+linktitle: Handout Mode
 type: docs
 weight: 150
 url: /php-java/convert-powerpoint-in-Handout-mode/
 keywords:
 - convert PowerPoint
+- convert presentation
 - handout mode
 - handout
-- PowerPoint
 - PPT
 - PPTX
+- PowerPoint
 - presentation
 - PHP
-- Java
 - Aspose.Slides
-description: "Convert Presentations in Handout Mode in PHP"
+description: "Convert presentations to handouts in PHP. Set slides per page, keep notes, export to PDF or images with Aspose.Slides for PHP, with sample code. Try it free."
 ---
 
 Aspose.Slides provides the ability to convert presentations into various formats, including creating handouts for printing in Handout mode. This mode allows you to configure how multiple slides appear on a single page, making it useful for conferences, seminars, and other events. You can enable this mode by setting the `setSlidesLayoutOptions` method in the [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/htmloptions/), and [TiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/) classes.

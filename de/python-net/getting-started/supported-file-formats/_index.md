@@ -1,11 +1,49 @@
 ---
 title: Unterstützte Dateiformate
+linktitle: Dateiformate
 type: docs
 weight: 30
 url: /de/python-net/supported-file-formats/
+keywords:
+- Dateiformat
+- unterstütztes Format
+- PowerPoint-Datei
+- OpenDocument-Datei
+- PPT
+- POT
+- PPS
+- PPTX
+- POTX
+- PPSX
+- PPTM
+- PPSM
+- POTM
+- ODP
+- FODP
+- OTP
+- TIFF
+- EMF
+- PDF
+- XPS
+- JPEG
+- PNG
+- GIF
+- BMP
+- SVG
+- SWF
+- HTML
+- XAML
+- MD
+- XML
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Entdecken Sie alle Dateiformate, die Aspose.Slides für Python über .NET öffnen, speichern und konvertieren kann – einschließlich PPT, PPTX und ODP – mit klaren Hinweisen zu Import/Export-Unterstützung."
 ---
 
-## **Unterstützte Microsoft PowerPoint-Versionen**
+## **Unterstützte Microsoft PowerPoint‑Versionen**
 - Microsoft PowerPoint 97
 - Microsoft PowerPoint 2000
 - Microsoft PowerPoint XP
@@ -15,7 +53,7 @@ url: /de/python-net/supported-file-formats/
 - Microsoft PowerPoint 2013
 - Microsoft PowerPoint 2016
 - Microsoft PowerPoint 2019
-- Microsoft PowerPoint für MAC
+- Microsoft PowerPoint for MAC
 - Office 365
 
 ## **Unterstützte Dateiformate**
@@ -23,28 +61,50 @@ Diese Tabelle enthält die Dateiformate, die Aspose.Slides für Python über .NE
 
 |**Format**|**Beschreibung**|**Laden**|**Speichern**|**Bemerkungen**|
 | :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint 97-2003 Präsentation|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POT](https://docs.fileformat.com/presentation/pot/)|PowerPoint 97-2003 Vorlage|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint 97-2003 Show|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint Präsentation|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POTX](https://docs.fileformat.com/presentation/potx/)|PowerPoint Vorlage|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|PowerPoint Show|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTM](https://docs.fileformat.com/presentation/pptm/)|PowerPoint Makrofähige Präsentation|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|PowerPoint Makrofähiges Show|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POTM](https://docs.fileformat.com/presentation/potm/)|PowerPoint Makrofähige Vorlage|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[ODP/FODP](https://docs.fileformat.com/presentation/odp/)|OpenDocument Präsentation|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[OTP](https://docs.fileformat.com/presentation/otp/)|OpenDocument Präsentationsvorlage|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[TIFF](https://docs.fileformat.com/image/tiff/)|Tag Image File Format| |{{< emoticons/tick >}}| |
-|[EMF](https://docs.fileformat.com/image/emf/)|Erweitertes Metadatenformat| |{{< emoticons/tick >}}| |
-|[PDF](https://docs.fileformat.com/pdf/)|Portables Dokumentenformat|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[XPS](https://docs.fileformat.com/page-description-language/xps/)|XML-Papierdokumentenspezifikation| |{{< emoticons/tick >}}| |
-|[JPEG](https://docs.fileformat.com/image/jpeg/)|Gemeinsame Fotografische Experten-Gruppe| |{{< emoticons/tick >}}| |
-|[PNG](https://docs.fileformat.com/image/png/)|Portables Netzwerkbild| |{{< emoticons/tick >}}| |
-|[GIF](https://docs.fileformat.com/image/gif/)|Grafikwechsel-Format| |{{< emoticons/tick >}}| |
-|[BMP](https://docs.fileformat.com/image/bmp/)|Geräteunabhängiges Bitmap| |{{< emoticons/tick >}}| |
-|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Skalierbare Vektorgrafiken| |{{< emoticons/tick >}}| |
-|[SWF](https://docs.fileformat.com/page-description-language/swf/)|Kleines Webformat| |{{< emoticons/tick >}}| |
-|[HTML](https://docs.fileformat.com/web/html/)|Hypertext Markup Language|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[XAML](https://docs.fileformat.com/web/xaml/)|Erweiterbare Anwendungs-Auszeichnungssprache| |{{< emoticons/tick >}}| |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint 97-2003 Präsentation|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POT](https://docs.fileformat.com/presentation/pot/)|PowerPoint 97-2003 Vorlage|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint 97-2003 Show|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint‑Präsentation|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POTX](https://docs.fileformat.com/presentation/potx/)|PowerPoint‑Vorlage|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPSX](https://docs.fileformat.com/presentation/ppsx/)|PowerPoint‑Show|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPTM](https://docs.fileformat.com/presentation/pptm/)|PowerPoint‑Makroaktivierte Präsentation|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|PowerPoint‑Makroaktivierte Show|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POTM](https://docs.fileformat.com/presentation/potm/)|PowerPoint‑Makroaktivierte Vorlage|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[ODP/FODP](https://docs.fileformat.com/presentation/odp/)|OpenDocument‑Präsentation|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[OTP](https://docs.fileformat.com/presentation/otp/)|OpenDocument‑Präsentationsvorlage|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[TIFF](https://docs.fileformat.com/image/tiff/)|Tag Image File Format| |{{< emoticons/tick >}}| |
+|[EMF](https://docs.fileformat.com/image/emf/)|Erweitertes Metafile‑Format| |{{< emoticons/tick >}}| |
+|[PDF](https://docs.fileformat.com/pdf/)|Portable Dokumentformat|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[XPS](https://docs.fileformat.com/page-description-language/xps/)|XML Paper Specification| |{{< emoticons/tick >}}| |
+|[JPEG](https://docs.fileformat.com/image/jpeg/)|Joint Photographic Experts Group| |{{< emoticons/tick >}}| |
+|[PNG](https://docs.fileformat.com/image/png/)|Portable Network Graphics| |{{< emoticons/tick >}}| |
+|[GIF](https://docs.fileformat.com/image/gif/)|Graphics Interchange Format| |{{< emoticons/tick >}}| |
+|[BMP](https://docs.fileformat.com/image/bmp/)|Geräteunabhängiges Bitmap| |{{< emoticons/tick >}}| |
+|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Skalierbare Vektorgrafiken| |{{< emoticons/tick >}}| |
+|[SWF](https://docs.fileformat.com/page-description-language/swf/)|Small Web Format| |{{< emoticons/tick >}}| |
+|[HTML](https://docs.fileformat.com/web/html/)|Hypertext Markup Language|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[XAML](https://docs.fileformat.com/web/xaml/)|Extensible Application Markup Language| |{{< emoticons/tick >}}| |
 |[MD](https://docs.fileformat.com/word-processing/md/)|Markdown| |{{< emoticons/tick >}}| |
-|[XML](https://docs.fileformat.com/web/xml/)|PowerPoint XML-Präsentation| |{{< emoticons/tick >}}| |
+|[XML](https://docs.fileformat.com/web/xml/)|PowerPoint XML‑Präsentation| |{{< emoticons/tick >}}| |
+
+## **FAQ**
+
+**Kann ich Präsentationen in PDF speichern, die Archivierungs‑ und Barrierefreiheitsstandards (PDF/A und PDF/UA) erfüllen?**
+
+Ja. Aspose.Slides für Python über .NET unterstützt den Export nach PDF mit Konformitätsstufen wie PDF/A-2a, PDF/A-2b, PDF/A-2u, PDF/A-3a, PDF/A-3b sowie PDF/UA über die Einstellung [compliance](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/compliance/) in den [PDF export options](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/).
+
+**Unterstützt die Bibliothek das Einbetten von Schriftarten beim Export nach PDF, mit feiner Kontrolle darüber, was eingebettet wird?**
+
+Ja. Sie können steuern, ob Schriftarten vollständig eingebettet oder unterteilt (nur verwendete Glyphen) werden, festlegen, wie gängige Systemschriftarten behandelt werden, und das Verhalten für ASCII‑Text über die [PDF export options](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/) konfigurieren.
+
+**Kann ich feststellen, ob eine Datei passwortgeschützt ist, bevor sie tatsächlich geladen wird?**
+
+Ja. Mit der [factory-based inspection API](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/) können Sie eine Präsentationsdatei abfragen, um festzustellen, ob sie passwortgeschützt ist, ohne sie vollständig zu öffnen.
+
+**Gibt es Mechanismen für Schriftarten‑Fallback und Unterstützung für benutzerdefinierte Schriftarten?**
+
+Ja. Die Bibliothek unterstützt das [Laden](/slides/de/python-net/custom-font/) und [Einbetten](/slides/de/python-net/embedded-font/) benutzerdefinierter Schriftarten und bietet Schriftarten‑[Fallback‑Regeln](/slides/de/python-net/fallback-font/) an, um fehlende Glyphen bei der Darstellung und Konvertierung zu verhindern.
+
+**Kann ich Folien nach XPS exportieren und gibt es Optionen zur Feinabstimmung der XPS‑Ausgabe?**
+
+Ja. Der [Export nach XPS](/slides/de/python-net/convert-powerpoint-to-xps/) wird unterstützt, und Sie können die entsprechenden [save options](https://reference.aspose.com/slides/python-net/aspose.slides.export/xpsoptions/) anpassen, um die Ausgabequalität und den Inhalt des XPS‑Dokuments zu steuern.

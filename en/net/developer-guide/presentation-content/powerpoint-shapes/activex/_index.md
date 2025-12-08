@@ -1,10 +1,22 @@
 ---
-title: ActiveX
+title: Manage ActiveX Controls in Presentations in .NET
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /net/activex/
-keywords: "ActiveX, ActiveX controls, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Manage ActiveX controls in PowerPoint presentation in C# or .NET"
+keywords:
+- ActiveX
+- ActiveX control
+- manage ActiveX
+- add ActiveX
+- modify ActiveX
+- media player
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Learn how Aspose.Slides for .NET leverages ActiveX to automate and enhance PowerPoint presentations, giving developers powerful control over slides."
 ---
 
 ActiveX controls are used in presentations. Aspose.Slides for .NET lets you manage ActiveX controls, but managing them is bit trickier and different from normal presentation shapes. From Aspose.Slides for .NET 6.9.0, the component supports managing ActiveX controls. At the moment, you can access already added ActiveX control in your presentation and modify or delete it by using its various properties. Remember, ActiveX controls are not shapes and are not part of the presentation's IShapeCollection but the separate IControlCollection. This article shows how to work with them.
@@ -131,7 +143,7 @@ presentation.Save("withActiveX.cleared_out.pptm", Aspose.Slides.Export.SaveForma
 ```
 
 
-## **Add ActiveX Media Player Control**
+## **Add an ActiveX Media Player Control**
 To add ActiveX Media Player control, please perform following steps:
 
 1. Create an instance of the Presentation class and load the sample presentation with Media Player ActiveX controls in it.
@@ -164,7 +176,7 @@ newPresentation.Save("LinkingVideoActiveXControl_out.pptx", Aspose.Slides.Export
 
 ## **FAQ**
 
-**Does Aspose.Slides preserve ActiveX controls when reading and re-saving if they cannot be executed in the Python runtime?**
+**Does Aspose.Slides preserve ActiveX controls when reading and re-saving if they cannot be executed in the .NET runtime?**
 
 Yes. Aspose.Slides treats them as part of the presentation and can read/modify their properties and frames; executing the controls themselves is not required to preserve them.
 

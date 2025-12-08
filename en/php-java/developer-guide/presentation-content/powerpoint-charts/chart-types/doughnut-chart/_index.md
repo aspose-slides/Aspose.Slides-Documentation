@@ -1,8 +1,18 @@
 ---
-title: Doughnut Chart
+title: Customize Doughnut Charts in Presentations Using PHP
+linktitle: Doughnut Chart
 type: docs
 weight: 30
 url: /php-java/doughnut-chart/
+keywords:
+- doughnut chart
+- center gap
+- hole size
+- PowerPoint
+- presentation
+- PHP
+- Aspose.Slides
+description: "Discover how to create and customize doughnut charts in Aspose.Slides for PHP via Java, supporting PowerPoint formats for dynamic presentations."
 ---
 
 ## **Change Center Gap in Doughnut Chart**

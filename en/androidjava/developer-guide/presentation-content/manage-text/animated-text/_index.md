@@ -1,10 +1,22 @@
 ---
-title: Animated Text
+title: Animate PowerPoint Text on Android
+linktitle: Animated Text
 type: docs
 weight: 60
 url: /androidjava/animated-text/
-keywords: "Animated text in PowerPoint"
-description: "Animated text in PowerPoint with Java"
+keywords:
+- animated text
+- text animation
+- animated paragraph
+- paragraph animation
+- animation effect
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Create dynamic animated text in PowerPoint and OpenDocument presentations using Aspose.Slides for Android, with easy-to-follow, optimized Java code examples."
 ---
 
 ## Adding Animation Effects to Paragraphs

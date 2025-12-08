@@ -1,8 +1,19 @@
 ---
-title: Extracting Text from the Presentation
+title: Extract Text from Presentations
 type: docs
 weight: 60
 url: /cpp/extracting-text-from-the-presentation/
+keywords:
+- extract text
+- retrieve text
+- slide
+- text box
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Learn how to extract text from slides or entire presentations in Aspose.Slides for C++ and process content from PPT, PPTX and ODP programmatically."
 ---
 
 {{% alert color="primary" %}} 

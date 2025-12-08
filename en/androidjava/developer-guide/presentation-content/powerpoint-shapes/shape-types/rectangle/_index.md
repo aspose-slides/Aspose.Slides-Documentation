@@ -1,8 +1,21 @@
 ---
-title: Rectangle
+title: Add Rectangles to Presentations on Android
+linktitle: Rectangle
 type: docs
 weight: 80
 url: /androidjava/rectangle/
+keywords:
+- add rectangle
+- create rectangle
+- rectangle shape
+- simple rectangle
+- formatted rectangle
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Boost your PowerPoint presentations by adding rectangles with Aspose.Slides for Android via Java—easily design and modify shapes programmatically."
 ---
 
 {{% alert color="primary" %}} 

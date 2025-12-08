@@ -2,12 +2,26 @@
 title: Video
 type: docs
 weight: 80
-url: /net/examples/elements/video
+url: /net/examples/elements/video/
+keywords:
+- video example
+- video frame
+- add video
+- access video
+- remove video
+- video playback
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Work with video in C# using Aspose.Slides: insert, replace, trim, set poster frames and playback options, and export presentations for PPT, PPTX and ODP."
 ---
 
 Shows how to embed video frames and set playback options using **Aspose.Slides for .NET**.
 
-## Add a Video Frame
+## **Add a Video Frame**
 
 Insert an empty video frame onto a slide.
 
@@ -22,7 +36,7 @@ static void Add_Video()
 }
 ```
 
-## Access a Video Frame
+## **Access a Video Frame**
 
 Retrieve the first video frame added to a slide.
 
@@ -38,7 +52,7 @@ static void Access_Video()
 }
 ```
 
-## Remove a Video Frame
+## **Remove a Video Frame**
 
 Delete a video frame from the slide.
 
@@ -54,7 +68,7 @@ static void Remove_Video()
 }
 ```
 
-## Set Video Playback
+## **Set Video Playback**
 
 Configure the video to play automatically when the slide is displayed.
 

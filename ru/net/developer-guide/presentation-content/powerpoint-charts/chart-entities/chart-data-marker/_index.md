@@ -1,56 +1,61 @@
 ---
-title: Параметры маркеров данных диаграммы
+title: Маркер данных диаграммы
 type: docs
 url: /ru/net/chart-data-marker/
-keywords: "Опции маркеров диаграммы, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
+keywords:
+- параметры маркеров диаграммы
+- PowerPoint
+- презентация
+- C#
+- Csharp
+- Aspose.Slides for .NET
 description: "Установите параметры маркеров диаграммы в презентациях PowerPoint на C# или .NET"
 ---
 
 ## **Настройка параметров маркеров диаграммы**
-Маркеры могут быть установлены на точки данных диаграммы внутри конкретных рядов. Чтобы установить параметры маркеров диаграммы, следуйте приведенным ниже шагам:
+Маркеры можно установить на точках данных диаграммы в конкретных сериях. Чтобы настроить параметры маркеров диаграммы, выполните следующие шаги:
 
 - Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-- Создайте стандартную диаграмму.
+- Создайте диаграмму по умолчанию.
 - Установите изображение.
-- Получите первый ряд диаграммы.
+- Получите первую серию диаграммы.
 - Добавьте новую точку данных.
 - Сохраните презентацию на диск.
 
-В приведенном ниже примере мы установили параметры маркеров диаграммы на уровне точек данных.
-
+В приведенном ниже примере мы настроили параметры маркеров диаграммы на уровне точек данных.
 ```c#
-// Создайте экземпляр класса Presentation
-Presentation presentation = new Presentation();
+// Создать экземпляр класса Presentation
+using Presentation presentation = new Presentation();
 
 ISlide slide = presentation.Slides[0];
 
-// Создание стандартной диаграммы
+// Creating the default chart
 IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 0, 0, 400, 400);
 
-// Получаем индекс рабочего листа данных диаграммы
+// Getting the default chart data worksheet index
 int defaultWorksheetIndex = 0;
 
-// Получаем рабочий лист данных диаграммы
+// Getting the chart data worksheet
 IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
-// Удаляем демонстрационные ряды
+// Delete demo series
 chart.ChartData.Series.Clear();
 
-// Добавляем новые ряды
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, "Ряд 1"), chart.Type);
-            
-// Установите изображение
-System.Drawing.Image image1 = (System.Drawing.Image)new Bitmap("aspose-logo.jpg");
+// Add new series
+chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.Type);
+
+// Set the picture
+using IImage image1 = Images.FromFile("aspose-logo.jpg");
 IPPImage imgx1 = presentation.Images.AddImage(image1);
 
-// Установите изображение
-System.Drawing.Image image2 = (System.Drawing.Image)new Bitmap("Tulips.jpg");
+// Set the picture
+using IImage image2 = Images.FromFile("Tulips.jpg");
 IPPImage imgx2 = presentation.Images.AddImage(image2);
 
-// Получите первый ряд диаграммы
+// Take first chart series
 IChartSeries series = chart.ChartData.Series[0];
 
-// Добавляем новую точку (1:3) туда.
+// Add new point (1:3) there.
 IChartDataPoint point = series.DataPoints.AddDataPointForLineSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, (double)4.5));
 point.Marker.Format.Fill.FillType = FillType.Picture;
 point.Marker.Format.Fill.PictureFillFormat.Picture.Image = imgx1;
@@ -67,9 +72,20 @@ point = series.DataPoints.AddDataPointForLineSeries(fact.GetCell(defaultWorkshee
 point.Marker.Format.Fill.FillType = FillType.Picture;
 point.Marker.Format.Fill.PictureFillFormat.Picture.Image = imgx2;
 
-// Изменение маркера ряда диаграммы
+// Changing the chart series marker
 series.Marker.Size = 15;
 
-// Сохраняем презентацию на диск
+// Write presentation to disk
 presentation.Save("MarkOptions_out.pptx", SaveFormat.Pptx);
 ```
+
+
+## **FAQ**
+
+**Какие формы маркеров доступны из коробки?**
+
+Доступны стандартные формы (круг, квадрат, ромб, треугольник и т.д.); список определяется перечислением [MarkerStyleType](https://reference.aspose.com/slides/net/aspose.slides.charts/markerstyletype/). Если нужна нестандартная форма, используйте маркер с заполнением изображением, чтобы имитировать пользовательскую визуализацию.
+
+**Сохраняются ли маркеры при экспорте диаграммы в изображение или SVG?**
+
+Да. При рендеринге диаграмм в [растровые форматы](/slides/ru/net/convert-powerpoint-to-png/) или сохранении [форм в SVG](/slides/ru/net/render-a-slide-as-an-svg-image/), маркеры сохраняют свой внешний вид и настройки, включая размер, заливку и контур.

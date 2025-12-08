@@ -1,8 +1,22 @@
 ---
-title: Manage SmartArt
+title: Manage SmartArt in PowerPoint Presentations on Android
+linktitle: Manage SmartArt
 type: docs
 weight: 10
 url: /androidjava/manage-smartart/
+keywords:
+- SmartArt
+- SmartArt text
+- layout type
+- hidden property
+- organization chart
+- picture organization chart
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Learn to build and edit PowerPoint SmartArt with Aspose.Slides for Android using clear Java code samples that speed up slide design and automation."
 ---
 
 ## **Get Text from SmartArt**

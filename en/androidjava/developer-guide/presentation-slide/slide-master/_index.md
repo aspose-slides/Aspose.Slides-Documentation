@@ -1,10 +1,28 @@
 ---
-title: Slide Master
+title: Manage Presentation Slide Masters on Android
+linktitle: Slide Master
 type: docs
 weight: 70
 url: /androidjava/slide-master/
-keywords: "Add Slide Master, PPT master slide, slide master PowerPoint, Image to Slide Master, Placeholder, Multiple Slide Masters, Compare Slide Masters, Java, Aspose.Slides for Android via Java"
-description: "Add or edit slide master in PowerPoint presentation in Java"
+keywords:
+- slide master
+- master slide
+- PPT master slide
+- multiple master slides
+- compare master slides
+- background
+- placeholder
+- clone master slide
+- copy master slide
+- duplicate master slide
+- unused master slide
+- PowerPoint
+- OpenDocument
+- presentation
+- Android
+- Java
+- Aspose.Slides
+description: "Manage Slide Masters in Aspose.Slides for Android: create, edit and apply layouts, themes and placeholders to PPT, PPTX and ODP with concise Java examples."
 ---
 
 ## **What is a Slide Master in PowerPoint**

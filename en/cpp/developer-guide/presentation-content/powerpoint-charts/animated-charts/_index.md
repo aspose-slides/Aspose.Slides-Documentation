@@ -1,8 +1,24 @@
 ---
-title: Animated Charts
+title: Animate PowerPoint Charts in C++
+linktitle: Animated Charts
 type: docs
 weight: 80
 url: /cpp/animated-charts/
+keywords:
+- chart
+- animated chart
+- chart animation
+- chart series
+- chart category
+- series element
+- category element
+- add effect
+- effect type
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Create stunning animated charts in C++ with Aspose.Slides. Boost presentations with dynamic visuals in PPT and PPTX files—get started now."
 ---
 
 

@@ -1,8 +1,22 @@
 ---
 title: Public API and Backwards Incompatible Changes in Aspose.Slides for .NET 14.6.0
+linktitle: Aspose.Slides for .NET 14.6.0
 type: docs
 weight: 80
 url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/
+keywords:
+- migration
+- legacy code
+- modern code
+- legacy approach
+- modern approach
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Review public API updates and breaking changes in Aspose.Slides for .NET to smoothly migrate your PowerPoint PPT, PPTX and ODP presentation solutions."
 ---
 
 {{% alert color="primary" %}} 
@@ -199,7 +213,7 @@ The following methods add/insert a copy of a specified shape into the collection
 }
 
 ``` 
-#### **Added the ViewType enum, IViewProperties interface, ViewProperties class and IPresentation.ViewProperties Properties**
+#### **Added the ViewType Enum, IViewProperties Interface, ViewProperties Class and IPresentation.ViewProperties Properties**
 The IPresentation.ViewProperty allows developers to change the presentation view type and notes visibility when a presentation is opened in PowerPoint.
 
 ``` csharp

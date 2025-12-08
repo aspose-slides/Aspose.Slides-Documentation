@@ -1,21 +1,24 @@
 ---
-title: FAQs
+title: FAQ
 type: docs
 weight: 340
 url: /cpp/faqs/
 keywords:
 - FAQ
-- PowerPoint
 - presentation format
-- out of memory exception
+- out of memory error
 - slide size
 - extract text
 - retrieve text
 - paragraph size
 - formatting tables
 - font
-- С++
-- Aspose.Slides for С++
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Get answers to FAQ on Aspose.Slides for C++, covering PowerPoint and OpenDocument support, installation guidance, licensing, troubleshooting."
 ---
 
 ## **Supported File Formats**

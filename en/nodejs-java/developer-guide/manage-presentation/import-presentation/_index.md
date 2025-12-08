@@ -1,10 +1,28 @@
 ---
-title: Import Presentation
+title: Import Presentations from PDF or HTML in JavaScript
+linktitle: Import Presentation
 type: docs
 weight: 60
 url: /nodejs-java/import-presentation/
-keywords: "Import PowerPoint, PDF to Presentation, PDF to PPTX, PDF to PPT, Java, Aspose.Slides for Node.js via Java"
-description: "Import PowerPoint presentation from PDF. Convert PDF to PowerPoint"
+keywords:
+- import presentation
+- import slide
+- import PDF
+- import HTML
+- PDF to presentation
+- PDF to PPT
+- PDF to PPTX
+- PDF to ODP
+- HTML to presentation
+- HTML to PPT
+- HTML to PPTX
+- HTML to ODP
+- PowerPoint
+- OpenDocument
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Import PDF and HTML documents into PowerPoint and OpenDocument presentations with Aspose.Slides for Node.js for seamless, high-performance slide processing."
 ---
 
 Using [**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/), you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/) class to allow you to import presentations from PDFs, HTML documents, etc.

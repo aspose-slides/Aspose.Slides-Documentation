@@ -1,19 +1,33 @@
 ---
-title: Watermark
+title: Add Watermarks to Presentations on Android
+linktitle: Watermark
 type: docs
 weight: 40
 url: /androidjava/watermark/
 keywords:
 - watermark
-- add watermark
 - text watermark
 - image watermark
+- add watermark
+- change watermark
+- remove watermark
+- delete watermark
+- add watermark to PPT
+- add watermark to PPTX
+- add watermark to ODP
+- remove watermark from PPT
+- remove watermark from PPTX
+- remove watermark from ODP
+- delete watermark from PPT
+- delete watermark from PPTX
+- delete watermark from ODP
 - PowerPoint
+- OpenDocument
 - presentation
 - Android
 - Java
-- Aspose.Slides for Android via Java
-description: "Add text and image watermarks to PowerPoint presentations in Java"
+- Aspose.Slides
+description: "Manage text and image watermarks in PowerPoint and OpenDocument presentations on Android in Java to indicate a draft, confidential information, and more."
 ---
 
 ## **About Watermarks**

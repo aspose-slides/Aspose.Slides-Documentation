@@ -1,11 +1,24 @@
 ---
-title: Chart Formatting
+title: Format Presentation Charts in С++
+linktitle: Chart Formatting
 type: docs
 weight: 60
 url: /cpp/chart-formatting/
+keywords:
+- format chart
+- chart formatting
+- chart entity
+- chart properties
+- chart settings
+- chart options
+- font properties
+- rounded border
+- PowerPoint
+- presentation
+- С++
+- Aspose.Slides
+description: "Learn chart formatting in Aspose.Slides for С++ and elevate your PowerPoint presentation with professional, eye-catching styling."
 ---
-
-
 
 ## **Format Chart Entities**
 Aspose.Slides for C++ lets developers add custom charts to their slides from scratch. This article explains how to format different chart entities including chart category and value axis.

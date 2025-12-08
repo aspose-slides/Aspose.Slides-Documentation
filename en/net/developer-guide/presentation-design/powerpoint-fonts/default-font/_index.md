@@ -1,22 +1,27 @@
 ---
-title: Default Font - PowerPoint C# API
+title: Specify Default Presentation Fonts in .NET
 linktitle: Default Font
 type: docs
 weight: 30
 url: /net/default-font/
-keywords: 
-- font
+keywords:
 - default font
-- render presentation
+- regular font
+- normal font
+- asian font
+- PDF export
+- XPS export
+- image export
 - PowerPoint
+- OpenDocument
 - presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: PowerPoint C# API lets you set the default font for rendering presentations to PDF, XPS or thumbnails
+- Aspose.Slides
+description: "Set default fonts in Aspose.Slides for .NET to ensure proper PowerPoint (PPT, PPTX) and OpenDocument (ODP) conversion to PDF, XPS and images."
 ---
 
-## **Using Default Fonts for Rendering Presentation**
+## **Use Default Fonts for Rendering a Presentation**
 Aspose.Slides lets you set the default font for rendering the presentation to PDF, XPS or thumbnails. This article shows how to define DefaultRegular
 Font and DefaultAsian Font for use as default fonts. Please follow the steps below to loading fonts from external directories by using Aspose.Slides for .NET API:
 
