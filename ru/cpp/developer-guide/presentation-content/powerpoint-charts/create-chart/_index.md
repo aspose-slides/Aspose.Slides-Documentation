@@ -1,55 +1,54 @@
 ---
-title: Создание диаграмм для презентаций PowerPoint на C++
+title: Создание или обновление диаграмм презентаций PowerPoint на C++
 linktitle: Создать диаграмму
 type: docs
 weight: 10
 url: /ru/cpp/create-chart/
-keywords: "Создание диаграммы, разбросанная диаграмма, круговая диаграмма, диаграмма с деревом, фондовая диаграмма, диаграмма box and whisker, гистограмма, воронка, солнечная диаграмма, многокатегорийная диаграмма, презентация PowerPoint, C++, CPP, Aspose.Slides для C++"
-description: "Создайте диаграмму в презентации PowerPoint на C++"
+keywords: "Создание диаграммы, разбросанная диаграмма, круговая диаграмма, диаграмма дерева, биржевая диаграмма, коробчатая и усовая диаграмма, гистограмма, воронкообразная диаграмма, лучевая диаграмма, многокатегорийная диаграмма, презентация PowerPoint, C++, CPP, Aspose.Slides for C++"
+description: "Создать диаграмму в презентации PowerPoint на C++"
 ---
 
 ## **Создание диаграммы**
 
-Диаграммы помогают быстро визуализировать данные и извлекать информацию, которая может быть неочевидна из таблицы или электронной таблицы.
+Диаграммы помогают людям быстро визуализировать данные и получать инсайты, которые могут быть не сразу очевидны из таблицы или электронных таблиц. 
 
-**Почему нужно создавать диаграммы?**
+**Зачем создавать диаграммы?**
 
-С помощью диаграмм вы можете
+Используя диаграммы, вы можете
 
-* аггрегировать, сокращать или подводить итоги больших объемов данных на одном слайде презентации
+* агрегировать, конденсировать или суммировать большие объёмы данных на одном слайде презентации
 * выявлять шаблоны и тенденции в данных
-* делать выводы о направлении и динамике данных с течением времени или по отношению к определенной единице измерения
-* обнаруживать выбросы, аномалии, отклонения, ошибки, нелепые данные и т. д.
-* сообщать или представлять сложные данные
+* определять направление и динамику данных во времени или относительно конкретной единицы измерения 
+* выявлять выбросы, аномалии, отклонения, ошибки, бессмысленные данные и т.д. 
+* коммуницировать или представлять сложные данные
 
-В PowerPoint вы можете создавать диаграммы с помощью функции вставки, которая предоставляет шаблоны, используемые для проектирования различных типов диаграмм. С помощью Aspose.Slides вы можете создавать обычные диаграммы (на основе популярных типов диаграмм) и настраиваемые диаграммы.
+В PowerPoint вы можете создавать диаграммы через функцию вставки, которая предоставляет шаблоны для построения множества типов диаграмм. С помощью Aspose.Slides вы можете создавать обычные диаграммы (на основе популярных типов) и пользовательские диаграммы. 
 
 {{% alert color="primary" %}} 
 
-Чтобы позволить вам создавать диаграммы, Aspose.Slides предоставляет класс перечисления [ChartType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) в пространстве имен [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts/). Значения этого класса перечисления соответствуют различным типам диаграмм.
+Чтобы вы могли создавать диаграммы, Aspose.Slides предоставляет перечисление [ChartType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) в пространстве имён [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts/). Значения этого перечисления соответствуют различным типам диаграмм. 
 
 {{% /alert %}} 
 
 ### **Создание обычных диаграмм**
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте диаграмму с какими-то данными и укажите предпочтительный тип диаграммы. 
-1. Добавьте заголовок для диаграммы.
-1. Получите доступ к рабочему листу данных диаграммы.
-1. Очистите все стандартные серии и категории.
+1. Добавьте диаграмму с некоторыми данными и укажите предпочитаемый тип диаграммы. 
+1. Добавьте заголовок к диаграмме. 
+1. Получите доступ к листу данных диаграммы.
+1. Очистите все серии и категории по умолчанию.
 1. Добавьте новые серии и категории.
-1. Добавьте новые данные диаграммы для серий диаграммы.
-1. Добавьте цвет заливки для серий диаграммы.
-1. Добавьте метки для серий диаграммы. 
-1. Напишите измененную презентацию в файл PPTX.
+1. Добавьте новые данные в серии диаграммы.
+1. Установите цвет заливки для серии диаграммы.
+1. Добавьте подписи для серии диаграммы. 
+1. Сохраните изменённую презентацию в файл PPTX.
 
-Этот код на C++ показывает, как создать обычную диаграмму:
-
+Этот код C++ показывает, как создать обычную диаграмму:
 ```c++
-// Путь к каталогу документов.
+// Путь к директории документов.
 	const String outPath = u"../out/NormalCharts_out.pptx";
 
-	//Создает класс презентации, который представляет файл PPTX
+	//Создает экземпляр класса презентации, представляющего файл PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	//Получает первый слайд
@@ -59,62 +58,62 @@ description: "Создайте диаграмму в презентации Powe
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// Устанавливает индекс рабочего листа данных диаграммы
+	// Устанавливает индекс листа данных диаграммы
 	int defaultWorksheetIndex = 0;
 
-	// Получает рабочий лист данных диаграммы
+	// Получает лист данных диаграммы
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 	// Устанавливает заголовок диаграммы
-	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Пример ЗАГОЛОВКА");
+	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText ( NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle( true);
 
-	// Удаляет стандартные сгенерированные серии и категории
+	// Удаляет автоматически сгенерированные серии и категории
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 	int s = chart->get_ChartData()->get_Series()->get_Count();
 	s = chart->get_ChartData()->get_Categories()->get_Count();
 
 
-	// Добавляем новую серию
-	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Серия 1")), chart->get_Type());
-	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Серия 2")), chart->get_Type());
+	// Добавляет новую серию
+	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
+	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// Добавляем категории
-	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"Категория 1")));
-	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"Категория 2")));
-	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"Категория 3")));
+	// Добавляет категории
+	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"Caetegoty 1")));
+	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"Caetegoty 2")));
+	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"Caetegoty 3")));
 
 	
-	// Получаем первую серию диаграммы
+	// Получает первую серию диаграммы
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// Заполняем данные серии
+	// Заполняет данные серии
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
 
-	// Устанавливаем цвет заливки для серии
+	// Устанавливает цвет заливки для серии
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
 
-	// Получаем вторую серию диаграммы
+	// Получает вторую серию диаграммы
 	 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// Заполняем данные серии
+	// Заполняет данные серии
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(30)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(10)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(60)));
 
-	// Устанавливаем цвет заливки для серии
+	// Устанавливает цвет заливки для серии
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
 
 
-	// Первая метка устанавливается для показа имени категории
+	// Первая метка устанавливается для отображения названия категории
 	SharedPtr<IDataLabel> lbl = series->get_DataPoints()->idx_get(0)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowCategoryName(true);
 
@@ -127,46 +126,46 @@ description: "Создайте диаграмму в презентации Powe
 	lbl->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl->get_DataLabelFormat()->set_Separator (u"/");
 
-	// Сохраняем презентацию
+	// Сохраняет презентацию
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ```
 
-### **Создание разбросанных диаграмм**
-Разбросанные диаграммы (также известные как диаграммы разброса или x-y графики) часто используются для проверки шаблонов или демонстрации корреляций между двумя переменными.
 
-Вам может понадобиться использовать разбросанную диаграмму, когда 
+### **Создание разбросанных диаграмм**
+Разбросанные диаграммы (также известные как рассеянные графики или графики x‑y) часто используются для проверки шаблонов или демонстрации корреляций между двумя переменными. 
+
+Вы можете захотеть использовать разбросанную диаграмму, когда 
 
 * у вас есть парные числовые данные
 * у вас есть 2 переменные, которые хорошо сочетаются
-* вы хотите определить, связаны ли 2 переменные
-* у вас есть независимая переменная, которая имеет несколько значений для зависимой переменной
+* вы хотите определить, связаны ли две переменные
+* у вас есть независимая переменная, имеющая несколько значений для зависимой переменной 
 
-Этот код на C++ показывает, как создать разбросанную диаграмму с различными маркерами:
-
+Этот код C++ показывает, как создать разбросанную диаграмму с разными маркерами в серии: 
 ```c++
-// Путь к каталогу документов.
+// Путь к директории документов.
 	const String outPath = u"../out/ScatteredChart_out.pptx";
 
-	//Создает класс презентации, который представляет файл PPTX
+	// Создаёт экземпляр класса презентации, представляющего файл PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Получает первый слайд
+	// Получает первый слайд
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Добавляет диаграмму с данными по умолчанию
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ScatterWithSmoothLines, 0, 0, 500, 500);
 
 	// Устанавливает заголовок диаграммы
-	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Пример ЗАГОЛОВКА");
+	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// Удаляет стандартные сгенерированные серии 
+	// Удаляет автоматически сгенерированные серии 
 	chart->get_ChartData()->get_Series()->Clear();
 	
-	// Устанавливает индекс рабочего листа данных диаграммы
+	// Устанавливает индекс листа данных диаграммы
 	int defaultWorksheetIndex = 0;
 
 	// Получает рабочий лист данных диаграммы
@@ -174,43 +173,43 @@ description: "Создайте диаграмму в презентации Powe
 
 
 	// Добавляет новую серию
-	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<System::String>(u"Серия 1")), chart->get_Type());
-	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<System::String>(u"Серия 2")), chart->get_Type());
+	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
+	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// Получаем первую серию диаграммы
+	// Получает первую серию диаграммы
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// Добавляем новую точку (1:3)
+	// Добавляет новую точку (1:3)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(1)), fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(3)));
 
-	// Добавляем новую точку (2:10)
+	// Добавляет новую точку (2:10)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(2)), fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(10)));
 
-	// Редактируем тип серии
+	// Изменяет тип серии
 	series->set_Type (ChartType::ScatterWithStraightLinesAndMarkers);
 
-	// Меняет маркер серии диаграммы
+	// Изменяет маркер серии диаграммы
 	series->get_Marker()->set_Size  (10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Star);
 
 
 
-	// Получаем вторую серию диаграммы
+	// Получает вторую серию диаграммы
 	series  = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// Добавляем новую точку (5:2)
+	// Добавляет новую точку (5:2)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(5)), fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(2)));
 
-	// Добавляем новую точку (3:1)
+	// Добавляет новую точку (3:1)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, ObjectExt::Box<double>(3)), fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(1)));
 
-	// Добавляем новую точку (2:2)
+	// Добавляет новую точку (2:2)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 4, 3, ObjectExt::Box<double>(2)), fact->GetCell(defaultWorksheetIndex, 4, 4, ObjectExt::Box<double>(2)));
 
-	// Добавляем новую точку (5:1)
+	// Добавляет новую точку (5:1)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 5, 3, ObjectExt::Box<double>(5)), fact->GetCell(defaultWorksheetIndex, 5, 4, ObjectExt::Box<double>(1)));
 
-	// Меняет маркер серии диаграммы
+	// Изменяет маркер серии диаграммы
 	series->get_Marker()->set_Size ( 10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Circle);
 
@@ -252,7 +251,7 @@ description: "Создайте диаграмму в презентации Powe
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// Создает пользовательские метки для каждой категории новой серии
+	// Создаёт пользовательские метки для каждой категории новой серии
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -269,76 +268,76 @@ description: "Создайте диаграмму в презентации Powe
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Показывает направляющие линии для диаграммы
+	// Отображает линии‑выноски для диаграммы
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines(true);
 
-	// Устанавливает угол поворота для секторов круговой диаграммы
+	// Устанавливает угол поворота секторов круговой диаграммы
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle(180);
 
 
-	// Сохраняем презентацию
+	// Сохраняет презентацию
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+
 ### **Создание круговых диаграмм**
-Круговые диаграммы лучше всего использовать для отображения отношения частей к целому в данных, особенно когда данные содержат категориальные метки с числовыми значениями. Однако если в ваших данных много частей или меток, вам может понадобиться рассмотреть возможность использования столбчатой диаграммы вместо этого. 
+Круговые диаграммы лучше всего использовать для отображения соотношения часть‑к‑целому в данных, особенно когда данные содержат категориальные метки с числовыми значениями. Однако, если ваши данные содержат много частей или меток, возможно, стоит использовать гистограмму. 
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте диаграмму с данными по умолчанию вместе с желаемым типом (в данном случае `ChartType.Pie`).
-1. Получите доступ к рабочему листу IChartDataWorkbook диаграммы.
-1. Очистите стандартные серии и категории.
+1. Добавьте диаграмму с данными по умолчанию и укажите желаемый тип (в данном случае `ChartType.Pie`).
+1. Получите доступ к данным диаграммы IChartDataWorkbook.
+1. Очистите серии и категории по умолчанию.
 1. Добавьте новые серии и категории.
-1. Добавьте новые данные диаграммы для серий диаграмы.
-1. Добавьте новые точки для диаграмм и добавьте пользовательские цвета для секторов круговой диаграммы.
-1. Установите метки для серий.
-1. Установите направляющие линии для меток серий.
-1. Установите угол поворота для секторов круговой диаграммы.
-1. Запишите измененную презентацию в файл PPTX
+1. Добавьте новые данные в серии диаграммы.
+1. Добавьте новые точки в диаграмму и задайте пользовательские цвета для секторов круговой диаграммы.
+1. Установите подписи для серии.
+1. Установите выноски для подписей серии.
+1. Установите угол поворота для слайдов с круговой диаграммой.
+1. Сохраните изменённую презентацию в файл PPTX
 
-Этот код на C++ показывает, как создать круговую диаграмму:
-
+Этот код C++ показывает, как создать круговую диаграмму:
 ```c++
-	// Путь к каталогу документов.
+	// Путь к директории документов.
 	const String outPath = u"../out/PieChart_out.pptx";
 
-	//Создает класс презентации, который представляет файл PPTX
+	// Создаёт экземпляр класса Presentation, представляющего файл PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Получает первый слайд
+	// Получает первый слайд
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Добавляет диаграмму с данными по умолчанию
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Pie, 0, 0, 500, 500);
 
 	// Устанавливает заголовок диаграммы
-	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Пример ЗАГОЛОВКА");
+	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// Удаляет стандартные сгенерированные серии и категории
+	// Удаляет автоматически сгенерированные серии и категории
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
-	// Устанавливает индекс рабочего листа данных диаграммы
+	// Устанавливает индекс листа данных диаграммы
 	int defaultWorksheetIndex = 0;
 
-	// Получает рабочий лист данных диаграммы
+	// Получает лист данных диаграммы
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 	// Добавляет категории
-	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"Первый квартал")));
-	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"Второй квартал")));
-	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"Третий квартал")));
+	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"First Qtr")));
+	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"2nd Qtr")));
+	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"3ed Qtr")));
 
 	// Добавляет новую серию
-	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Серия 1")), chart->get_Type());
+	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	
-	// Получаем первую серию диаграммы
+	// Получает первую серию диаграммы
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// Заполняем данные серии
+	// Заполняет данные серии
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
@@ -379,7 +378,7 @@ description: "Создайте диаграмму в презентации Powe
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// Создает пользовательские метки для каждой категории новой серии
+	// Создаёт пользовательские метки для каждой категории новой серии
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -396,32 +395,32 @@ description: "Создайте диаграмму в презентации Powe
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Устанавливает метки серий для показа направляющих линий
+	// Устанавливает отображение линий‑выноски для серии в диаграмме
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines ( true);
 
-	// Устанавливает угол поворота для секторов круговой диаграммы
+	// Устанавливает угол поворота секторов круговой диаграммы
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle ( 180);
 
 
-	// Сохраняем презентацию
+	// Сохраняет презентацию
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+
 ### **Создание линейных диаграмм**
 
-Линейные диаграммы (также известные как линейные графики) лучше всего использовать в ситуациях, когда вы хотите продемонстрировать изменения значения с течением времени. Используя линейную диаграмму, вы можете одновременно сравнивать большое количество данных, отслеживать изменения и тенденции с течением времени, подчеркивать аномалии в рядах данных и т. д.
+Линейные диаграммы (также известные как линейные графики) лучше всего использовать в ситуациях, когда вы хотите демонстрировать изменения значения во времени. С помощью линейной диаграммы вы можете сравнивать множество данных одновременно, отслеживать изменения и тенденции во времени, выделять аномалии в серии данных и т.д.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте диаграмму с данными по умолчанию вместе с желаемым типом (в данном случае `ChartType::Line`).
-1. Получите доступ к рабочему листу IChartDataWorkbook диаграммы.
-1. Очистите стандартные серии и категории.
+1. Добавьте диаграмму с данными по умолчанию и укажите желаемый тип (в данном случае `ChartType::Line`).
+1. Получите доступ к данным диаграммы IChartDataWorkbook.
+1. Очистите серии и категории по умолчанию.
 1. Добавьте новые серии и категории.
-1. Добавьте новые данные диаграммы для серий диаграммы.
-1. Запишите измененную презентацию в файл PPTX
+1. Добавьте новые данные в серии диаграммы.
+1. Сохраните изменённую презентацию в файл PPTX
 
-Этот код на C++ показывает, как создать линейную диаграмму:
-
+Этот код C++ показывает, как создать линейную диаграмму:
 ```c++
 auto pres = System::MakeObject<Presentation>();
 
@@ -429,8 +428,8 @@ System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes
 pres->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-По умолчанию точки на линейной диаграмме соединяются сплошными прямыми линиями. Если вы хотите, чтобы точки соединялись линиями с перерывами, вы можете указать свой предпочитаемый тип линии таким образом:
 
+По умолчанию точки на линейной диаграмме соединяются прямыми сплошными линиями. Если вы хотите, чтобы точки соединялись пунктиром, вы можете указать желаемый тип пунктирной линии следующим образом:
 ```c++
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
 for (auto&& series : lineChart->get_ChartData()->get_Series())
@@ -439,12 +438,478 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 }
 ```
 
-### **Создание диаграмм карты**
 
-Диаграммы карты являются визуализацией области, содержащей данные. Диаграммы карты лучше всего использовать для сравнения данных или значений по географическим регионам.
+### **Создание диаграмм Tree Map**
+Диаграммы Tree Map лучше всего использовать для данных о продажах, когда вы хотите показать относительный размер категорий данных и (одновременно) быстро привлечь внимание к элементам, которые являются крупными вкладчиками в каждую категорию. 
 
-Этот код на C++ показывает, как создать диаграмму карты:
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с данными по умолчанию и укажите желаемый тип (в данном случае `ChartType.TreeMap`).
+1. Получите доступ к данным диаграммы IChartDataWorkbook.
+1. Очистите серии и категории по умолчанию.
+1. Добавьте новые серии и категории.
+1. Добавьте новые данные в серии диаграммы.
+1. Сохраните изменённую презентацию в файл PPTX
 
+Этот код C++ показывает, как создать диаграмму Tree Map:
+```c++
+// Путь к директории документов.
+	const String outPath = u"../out/TreemapChart_out.pptx";
+
+	//Создаёт экземпляр класса Presentation, представляющего файл PPTX
+	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+
+	// Получает первый слайд
+	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+
+	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Treemap, 50, 50, 500, 400);
+	chart->get_ChartData()->get_Categories()->Clear();
+	chart->get_ChartData()->get_Series()->Clear();
+
+	System::SharedPtr<IChartDataWorkbook> wb = chart->get_ChartData()->get_ChartDataWorkbook();
+
+	wb->Clear(0);
+
+	// Ветка 1
+	System::SharedPtr<IChartCategory> leaf = chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C1", System::ObjectExt::Box<System::String>(u"Leaf1")));
+	leaf->get_GroupingLevels()->SetGroupingItem(1, System::ObjectExt::Box<System::String>(u"Stem1"));
+	leaf->get_GroupingLevels()->SetGroupingItem(2, System::ObjectExt::Box<System::String>(u"Branch1"));
+
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C2", System::ObjectExt::Box<System::String>(u"Leaf2")));
+
+	leaf = chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C3", System::ObjectExt::Box<System::String>(u"Leaf3")));
+	leaf->get_GroupingLevels()->SetGroupingItem(1, System::ObjectExt::Box<System::String>(u"Stem2"));
+
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C4", System::ObjectExt::Box<System::String>(u"Leaf4")));
+
+
+	// Ветка 2
+	leaf = chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C5", System::ObjectExt::Box<System::String>(u"Leaf5")));
+	leaf->get_GroupingLevels()->SetGroupingItem(1, System::ObjectExt::Box<System::String>(u"Stem3"));
+	leaf->get_GroupingLevels()->SetGroupingItem(2, System::ObjectExt::Box<System::String>(u"Branch2"));
+
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C6", System::ObjectExt::Box<System::String>(u"Leaf6")));
+
+	leaf = chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C7", System::ObjectExt::Box<System::String>(u"Leaf7")));
+	leaf->get_GroupingLevels()->SetGroupingItem(1, System::ObjectExt::Box<System::String>(u"Stem4"));
+
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C8", System::ObjectExt::Box<System::String>(u"Leaf8")));
+
+	System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->Add(Aspose::Slides::Charts::ChartType::Treemap);
+	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowCategoryName(true);
+	series->get_DataPoints()->AddDataPointForTreemapSeries(wb->GetCell(0, u"D1", System::ObjectExt::Box<int32_t>(4)));
+	series->get_DataPoints()->AddDataPointForTreemapSeries(wb->GetCell(0, u"D2", System::ObjectExt::Box<int32_t>(5)));
+	series->get_DataPoints()->AddDataPointForTreemapSeries(wb->GetCell(0, u"D3", System::ObjectExt::Box<int32_t>(3)));
+	series->get_DataPoints()->AddDataPointForTreemapSeries(wb->GetCell(0, u"D4", System::ObjectExt::Box<int32_t>(6)));
+	series->get_DataPoints()->AddDataPointForTreemapSeries(wb->GetCell(0, u"D5", System::ObjectExt::Box<int32_t>(9)));
+	series->get_DataPoints()->AddDataPointForTreemapSeries(wb->GetCell(0, u"D6", System::ObjectExt::Box<int32_t>(9)));
+	series->get_DataPoints()->AddDataPointForTreemapSeries(wb->GetCell(0, u"D7", System::ObjectExt::Box<int32_t>(4)));
+	series->get_DataPoints()->AddDataPointForTreemapSeries(wb->GetCell(0, u"D8", System::ObjectExt::Box<int32_t>(3)));
+
+	series->set_ParentLabelLayout(Aspose::Slides::Charts::ParentLabelLayoutType::Overlapping);
+
+	// Сохраняет презентацию
+	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+```
+
+
+### **Создание биржевых диаграмм**
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с данными по умолчанию и укажите желаемый тип (ChartType.OpenHighLowClose).
+1. Получите доступ к данным диаграммы IChartDataWorkbook.
+1. Очистите серии и категории по умолчанию.
+1. Добавьте новые серии и категории.
+1. Добавьте новые данные в серии диаграммы.
+1. Укажите формат HiLowLines.
+1. Сохраните изменённую презентацию в файл PPTX
+
+Пример кода C++ для создания биржевой диаграммы:
+```c++
+	// Путь к директории документов.
+	const String outPath = u"../out/AddStockChart_out.pptx";
+
+	//Создаёт экземпляр класса Presentation, представляющего файл PPTX
+	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+
+	//Получает первый слайд
+	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+
+	// Добавляет диаграмму с данными по умолчанию
+	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::OpenHighLowClose, 0, 0, 500, 500);
+
+
+	// Устанавливает индекс листа данных диаграммы
+	int defaultWorksheetIndex = 0;
+
+	// Получает лист данных диаграммы
+	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
+
+
+	// Удаляет автоматически сгенерированные серии и категории
+	chart->get_ChartData()->get_Series()->Clear();
+	chart->get_ChartData()->get_Categories()->Clear();
+
+	// Добавляет категории
+	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"A")));
+	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"B")));
+	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"C")));
+
+	// Добавляет новую серию
+	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Open")), chart->get_Type());
+	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"High")), chart->get_Type());
+	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, ObjectExt::Box<System::String>(u"Low")), chart->get_Type());
+	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 4, ObjectExt::Box<System::String>(u"Close")), chart->get_Type());
+
+
+	// Получает первую серию диаграммы
+	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
+	// Заполняет данные первой серии
+	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(72)));
+	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(25)));
+	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(38)));
+
+
+	series = chart->get_ChartData()->get_Series()->idx_get(1);
+	// Заполняет данные второй серии
+	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(172)));
+	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(57)));
+	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(57)));
+
+	series = chart->get_ChartData()->get_Series()->idx_get(2);
+	// Заполняет данные второй серии
+	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<double>(12)));
+	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(12)));
+	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, ObjectExt::Box<double>(13)));
+
+
+	series = chart->get_ChartData()->get_Series()->idx_get(3);
+	// Заполняет данные второй серии
+	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 4, ObjectExt::Box<double>(25)));
+	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(38)));
+	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(50)));
+
+	// Устанавливает группу серий
+	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_UpDownBars()->set_HasUpDownBars (true);
+	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_HiLowLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
+
+
+	for(int i=0;i<chart->get_ChartData()->get_Series()->get_Count();i++)
+	{
+		series = chart->get_ChartData()->get_Series()->idx_get(i);
+		series->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
+	}
+
+	// Сохраняет презентацию
+	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+```
+
+
+### **Создание коробчатых (Box and Whisker) диаграмм**
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с данными по умолчанию и укажите желаемый тип (ChartType.BoxAndWhisker).
+1. Получите доступ к данным диаграммы IChartDataWorkbook.
+1. Очистите серии и категории по умолчанию.
+1. Добавьте новые серии и категории.
+1. Добавьте новые данные в серии диаграммы.
+1. Сохраните изменённую презентацию в файл PPTX
+
+Этот код C++ показывает, как создать коробчатую диаграмму:
+```c++
+	// Путь к директории документов.
+	const String outPath = u"../out/BoxAndWhisker_out.pptx";
+
+	//Создаёт экземпляр класса Presentation, представляющего файл PPTX
+	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+
+	//Получает первый слайд
+	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+
+	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::BoxAndWhisker, 50, 50, 500, 400);
+	chart->get_ChartData()->get_Categories()->Clear();
+	chart->get_ChartData()->get_Series()->Clear();
+
+	System::SharedPtr<IChartDataWorkbook> wb = chart->get_ChartData()->get_ChartDataWorkbook();
+
+	wb->Clear(0);
+
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A1", System::ObjectExt::Box<System::String>(u"Category 1")));
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A2", System::ObjectExt::Box<System::String>(u"Category 1")));
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A3", System::ObjectExt::Box<System::String>(u"Category 1")));
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A4", System::ObjectExt::Box<System::String>(u"Category 1")));
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A5", System::ObjectExt::Box<System::String>(u"Category 1")));
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A6", System::ObjectExt::Box<System::String>(u"Category 1")));
+
+	System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->Add(Aspose::Slides::Charts::ChartType::BoxAndWhisker);
+
+	series->set_QuartileMethod(Aspose::Slides::Charts::QuartileMethodType::Exclusive);
+	series->set_ShowMeanLine(true);
+	series->set_ShowMeanMarkers(true);
+	series->set_ShowInnerPoints(true);
+	series->set_ShowOutlierPoints(true);
+
+	series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B1", System::ObjectExt::Box<int32_t>(15)));
+	series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B2", System::ObjectExt::Box<int32_t>(41)));
+	series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B3", System::ObjectExt::Box<int32_t>(16)));
+	series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B4", System::ObjectExt::Box<int32_t>(10)));
+	series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B5", System::ObjectExt::Box<int32_t>(23)));
+	series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B6", System::ObjectExt::Box<int32_t>(16)));
+
+
+	// Сохраняет презентацию
+	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+```
+
+
+### **Создание воронкообразных диаграмм**
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с данными по умолчанию и укажите желаемый тип (ChartType.Funnel).
+1. Сохраните изменённую презентацию в файл PPTX
+
+Этот код C++ показывает, как создать воронкообразную диаграмму:
+```c++
+	// Путь к директории документов.
+	const String outPath = u"../out/FunnelChart_out.pptx";
+
+	//Создаёт экземпляр класса Presentation, представляющего файл PPTX
+	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+
+	//Получает первый слайд
+	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+
+	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Funnel, 50, 50, 500, 400);
+	chart->get_ChartData()->get_Categories()->Clear();
+	chart->get_ChartData()->get_Series()->Clear();
+
+	System::SharedPtr<IChartDataWorkbook> wb = chart->get_ChartData()->get_ChartDataWorkbook();
+
+	wb->Clear(0);
+
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A1", System::ObjectExt::Box<System::String>(u"Category 1")));
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A2", System::ObjectExt::Box<System::String>(u"Category 2")));
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A3", System::ObjectExt::Box<System::String>(u"Category 3")));
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A4", System::ObjectExt::Box<System::String>(u"Category 4")));
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A5", System::ObjectExt::Box<System::String>(u"Category 5")));
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A6", System::ObjectExt::Box<System::String>(u"Category 6")));
+
+	System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->Add(Aspose::Slides::Charts::ChartType::Funnel);
+
+	series->get_DataPoints()->AddDataPointForFunnelSeries(wb->GetCell(0, u"B1", System::ObjectExt::Box<int32_t>(50)));
+	series->get_DataPoints()->AddDataPointForFunnelSeries(wb->GetCell(0, u"B2", System::ObjectExt::Box<int32_t>(100)));
+	series->get_DataPoints()->AddDataPointForFunnelSeries(wb->GetCell(0, u"B3", System::ObjectExt::Box<int32_t>(200)));
+	series->get_DataPoints()->AddDataPointForFunnelSeries(wb->GetCell(0, u"B4", System::ObjectExt::Box<int32_t>(300)));
+	series->get_DataPoints()->AddDataPointForFunnelSeries(wb->GetCell(0, u"B5", System::ObjectExt::Box<int32_t>(400)));
+	series->get_DataPoints()->AddDataPointForFunnelSeries(wb->GetCell(0, u"B6", System::ObjectExt::Box<int32_t>(500)));
+
+
+	// Сохраняет презентацию
+	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+```
+
+
+### **Создание лучевых (Sunburst) диаграмм**
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с данными по умолчанию и укажите желаемый тип (в данном случае `ChartType.sunburst`).
+1. Сохраните изменённую презентацию в файл PPTX
+
+Этот код C++ показывает, как создать лучевую диаграмму:
+```c++
+	// Путь к директории документов.
+	const String outPath = u"../out/SunburstChart_out.pptx";
+
+	// Создаёт экземпляр класса Presentation, представляющего файл PPTX
+	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+
+	// Получает первый слайд
+	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+
+	System::SharedPtr<IChart> chart=slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Sunburst, 50, 50, 500, 400);
+	chart->get_ChartData()->get_Categories()->Clear();
+	chart->get_ChartData()->get_Series()->Clear();
+
+	System::SharedPtr<IChartDataWorkbook> wb = chart->get_ChartData()->get_ChartDataWorkbook();
+
+	wb->Clear(0);
+
+	// Ветка 1
+	System::SharedPtr<IChartCategory> leaf = chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C1", System::ObjectExt::Box<System::String>(u"Leaf1")));
+	leaf->get_GroupingLevels()->SetGroupingItem(1, System::ObjectExt::Box<System::String>(u"Stem1"));
+	leaf->get_GroupingLevels()->SetGroupingItem(2, System::ObjectExt::Box<System::String>(u"Branch1"));
+
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C2", System::ObjectExt::Box<System::String>(u"Leaf2")));
+
+	leaf = chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C3", System::ObjectExt::Box<System::String>(u"Leaf3")));
+	leaf->get_GroupingLevels()->SetGroupingItem(1, System::ObjectExt::Box<System::String>(u"Stem2"));
+
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C4", System::ObjectExt::Box<System::String>(u"Leaf4")));
+
+	// Ветка 2
+	leaf = chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C5", System::ObjectExt::Box<System::String>(u"Leaf5")));
+	leaf->get_GroupingLevels()->SetGroupingItem(1, System::ObjectExt::Box<System::String>(u"Stem3"));
+	leaf->get_GroupingLevels()->SetGroupingItem(2, System::ObjectExt::Box<System::String>(u"Branch2"));
+
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C6", System::ObjectExt::Box<System::String>(u"Leaf6")));
+
+	leaf = chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C7", System::ObjectExt::Box<System::String>(u"Leaf7")));
+	leaf->get_GroupingLevels()->SetGroupingItem(1, System::ObjectExt::Box<System::String>(u"Stem4"));
+
+	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C8", System::ObjectExt::Box<System::String>(u"Leaf8")));
+
+	System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->Add(Aspose::Slides::Charts::ChartType::Sunburst);
+	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowCategoryName(true);
+	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D1", System::ObjectExt::Box<int32_t>(4)));
+	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D2", System::ObjectExt::Box<int32_t>(5)));
+	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D3", System::ObjectExt::Box<int32_t>(3)));
+	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D4", System::ObjectExt::Box<int32_t>(6)));
+	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D5", System::ObjectExt::Box<int32_t>(9)));
+	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D6", System::ObjectExt::Box<int32_t>(9)));
+	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D7", System::ObjectExt::Box<int32_t>(4)));
+	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D8", System::ObjectExt::Box<int32_t>(3)));
+
+	// Записывает файл презентации на диск
+	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+```
+
+
+### **Создание гистограмм**
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу. 
+1. Добавьте диаграмму с некоторыми данными и укажите предпочитаемый тип (`ChartType.Histogram` в данном случае).
+1. Получите доступ к данным `IChartDataWorkbook`.
+1. Очистите серии и категории по умолчанию.
+1. Добавьте новые серии и категории.
+1. Сохраните изменённую презентацию в файл PPTX.
+
+Этот код C++ показывает, как создать гистограмму:
+```c++
+	// Путь к директории документов.
+	const String outPath = u"../out/HistogramChart_out.pptx";
+
+	// Создаёт экземпляр класса Presentation, представляющего файл PPTX
+	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+
+	// Получает первый слайд
+	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+
+	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Histogram, 50, 50, 500, 400);
+	chart->get_ChartData()->get_Categories()->Clear();
+	chart->get_ChartData()->get_Series()->Clear();
+
+	System::SharedPtr<IChartDataWorkbook> wb = chart->get_ChartData()->get_ChartDataWorkbook();
+
+	wb->Clear(0);
+
+	System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->Add(Aspose::Slides::Charts::ChartType::Histogram);
+	series->get_DataPoints()->AddDataPointForHistogramSeries(wb->GetCell(0, u"A1", System::ObjectExt::Box<int32_t>(15)));
+	series->get_DataPoints()->AddDataPointForHistogramSeries(wb->GetCell(0, u"A2", System::ObjectExt::Box<int32_t>(-41)));
+	series->get_DataPoints()->AddDataPointForHistogramSeries(wb->GetCell(0, u"A3", System::ObjectExt::Box<int32_t>(16)));
+	series->get_DataPoints()->AddDataPointForHistogramSeries(wb->GetCell(0, u"A4", System::ObjectExt::Box<int32_t>(10)));
+	series->get_DataPoints()->AddDataPointForHistogramSeries(wb->GetCell(0, u"A5", System::ObjectExt::Box<int32_t>(-23)));
+	series->get_DataPoints()->AddDataPointForHistogramSeries(wb->GetCell(0, u"A6", System::ObjectExt::Box<int32_t>(16)));
+
+	chart->get_Axes()->get_HorizontalAxis()->set_AggregationType(Aspose::Slides::Charts::AxisAggregationType::Automatic);
+
+	// Сохраняет презентацию
+	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+```
+
+
+### **Создание радиальных (Radar) диаграмм**
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу. 
+1. Добавьте диаграмму с некоторыми данными и укажите предпочитаемый тип (`ChartType.Radar` в данном случае).
+1. Сохраните изменённую презентацию в файл PPTX
+
+Этот код C++ показывает, как создать радиальную диаграмму:
+```c++
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+
+presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Radar, 20.0f, 20.0f, 400.0f, 300.0f);
+presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+```
+
+
+### **Создание диаграмм с несколькими категориями**
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте диаграмму с данными по умолчанию и укажите желаемый тип (ChartType.ClusteredColumn).
+1. Получите доступ к данным диаграммы IChartDataWorkbook.
+1. Очистите серии и категории по умолчанию.
+1. Добавьте новые серии и категории.
+1. Добавьте новые данные в серии диаграммы.
+1. Сохраните изменённую презентацию в файл PPTX.
+
+Этот код C++ показывает, как создать диаграмму с несколькими категориями:
+```c++
+	// Путь к директории документов.
+	const String outPath = u"../out/MultiCategoryChart_out.pptx";
+
+	//Создаёт экземпляр класса Presentation, представляющего файл PPTX
+	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+
+	//Получает первый слайд
+	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+
+	// Добавляет диаграмму с данными по умолчанию
+	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
+
+	// Устанавливает индекс листа данных диаграммы
+	int defaultWorksheetIndex = 0;
+
+	// Получает лист данных диаграммы
+	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
+
+	// Очищает рабочую книгу
+	fact->Clear(defaultWorksheetIndex);
+
+	chart->get_ChartData()->get_Series()->Clear();
+	chart->get_ChartData()->get_Categories()->Clear();
+
+
+	// Добавляет категории
+	SharedPtr<IChartCategory> category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c2", ObjectExt::Box<System::String>(u"A")));
+	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group1"));
+	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c3", ObjectExt::Box<System::String>(u"B")));
+	
+	category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c4", ObjectExt::Box<System::String>(u"C")));
+	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group2"));
+	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c5", ObjectExt::Box<System::String>(u"D")));
+
+	category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c6", ObjectExt::Box<System::String>(u"E")));
+	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group3"));
+	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c7", ObjectExt::Box<System::String>(u"F")));
+
+
+	category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c8", ObjectExt::Box<System::String>(u"G")));
+	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group4"));
+	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c9", ObjectExt::Box<System::String>(u"H")));
+
+	// Добавляет новую серию
+	SharedPtr<IChartSeries>  series = chart->get_ChartData()->get_Series()->Add(fact->GetCell(0, u"D1", ObjectExt::Box<System::String>(u"Series 1")),
+		ChartType::ClusteredColumn);
+
+	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D2", ObjectExt::Box<double>(10)));
+	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D3", ObjectExt::Box<double>(20)));
+	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D4", ObjectExt::Box<double>(30)));
+	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D5", ObjectExt::Box<double>(40)));
+	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D6", ObjectExt::Box<double>(50)));
+	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D7", ObjectExt::Box<double>(60)));
+	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D8", ObjectExt::Box<double>(70)));
+	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D9", ObjectExt::Box<double>(80)));
+
+	// Сохраняет презентацию
+	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+```
+
+
+### **Создание картографических диаграмм**
+Картографическая диаграмма визуализирует область, содержащую данные. Картографические диаграммы лучше всего использовать для сравнения данных или значений по географическим регионам.
+
+Этот код C++ показывает, как создать картографическую диаграмму:
 ```c++
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
@@ -452,199 +917,265 @@ auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 50.0f, 50.0f, 500.0f,
 pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 ```
 
-### **Создание сводных диаграмм**
 
-Сводная диаграмма (или комбинированная диаграмма) – это диаграмма, которая объединяет две или несколько диаграмм на одном графике. Такая диаграмма позволяет выделить, сравнить или просмотреть разницу между двумя (или более) наборами данных. Таким образом, вы видите взаимосвязь (если таковая имеется) между наборами данных. 
+### **Создание комбинированных диаграмм**
+Комбинированная диаграмма (или combo chart) объединяет два или более типов диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или исследовать различия между двумя и более наборами данных, помогая выявлять взаимосвязи между ними.
 
-![combination-chart-ppt](combination-chart-ppt.png)
+![Комбинированная диаграмма](combination_chart.png)
 
-Этот код на C++ показывает, как создать комбинированную диаграмму в PowerPoint:
-
-```c++
-void CreateComboChart()
+Следующий код C++ показывает, как создать комбинированную диаграмму, показанную выше, в презентации PowerPoint:
+```cpp
+static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
 {
-    System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-    System::SharedPtr<IChart> chart = CreateChart(pres->get_Slide(0));
-    AddFirstSeriesToChart(chart);
-    AddSecondSeriesToChart(chart);
-    pres->Save(u"combo-chart.pptx", SaveFormat::Pptx);
-}
+    auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
 
-System::SharedPtr<IChart> CreateChart(System::SharedPtr<ISlide> slide)
-{
-    System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 400.0f);
-    System::SharedPtr<IChartData> chartData = chart->get_ChartData();
-    System::SharedPtr<IChartSeriesCollection> seriesCollection = chartData->get_Series();
-    System::SharedPtr<IChartCategoryCollection> categories = chartData->get_Categories();
+    // Установить заголовок диаграммы.
+    chart->set_HasTitle(true);
+    chart->get_ChartTitle()->AddTextFrameForOverriding(u"Chart Title");
+    chart->get_ChartTitle()->set_Overlay(false);
+    auto titleParagraph = chart->get_ChartTitle()->get_TextFrameForOverriding()->get_Paragraph(0);
+    auto titleFormat = titleParagraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+    titleFormat->set_FontBold(NullableBool::False);
+    titleFormat->set_FontHeight(18.0);
 
-    seriesCollection->Clear();
-    categories->Clear();
+    // Установить легенду диаграммы.
+    chart->get_Legend()->set_Position(LegendPositionType::Bottom);
+    chart->get_Legend()->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
 
-    System::SharedPtr<IChartDataWorkbook> workbook = chartData->get_ChartDataWorkbook();
-    const int32_t worksheetIndex = 0;
+    // Удалить автоматически сгенерированные серии и категории.
+    chart->get_ChartData()->get_Series()->Clear();
+    chart->get_ChartData()->get_Categories()->Clear();
 
-    seriesCollection->Add(workbook->GetCell(worksheetIndex, 0, 1, System::ExplicitCast<System::Object>(u"Серия 1")), chart->get_Type());
-    seriesCollection->Add(workbook->GetCell(worksheetIndex, 0, 2, System::ExplicitCast<System::Object>(u"Серия 2")), chart->get_Type());
+    const int worksheetIndex = 0;
+    auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-    categories->Add(workbook->GetCell(worksheetIndex, 1, 0, System::ExplicitCast<System::Object>(u"Категория 1")));
-    categories->Add(workbook->GetCell(worksheetIndex, 2, 0, System::ExplicitCast<System::Object>(u"Категория 2")));
-    categories->Add(workbook->GetCell(worksheetIndex, 3, 0, System::ExplicitCast<System::Object>(u"Категория 3")));
+    // Добавить новые категории.
+    chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 1, 0, ObjectExt::Box<String>(u"Category 1")));
+    chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"Category 2")));
+    chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
+    chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 4, 0, ObjectExt::Box<String>(u"Category 4")));
 
-    System::SharedPtr<IChartDataPointCollection> dataPoints = chartData->get_ChartSeries(0)->get_DataPoints();
+    // Добавить первую серию.
+    auto seriesNameCell = workbook->GetCell(worksheetIndex, 0, 1, ObjectExt::Box<String>(u"Series 1"));
+    auto series = chart->get_ChartData()->get_Series()->Add(seriesNameCell, chart->get_Type());
 
-    dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 1, System::ExplicitCast<System::Object>(20)));
-    dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 1, System::ExplicitCast<System::Object>(50)));
-    dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 1, System::ExplicitCast<System::Object>(30)));
+    series->get_ParentSeriesGroup()->set_Overlap(-25);
+    series->get_ParentSeriesGroup()->set_GapWidth(220);
 
-    dataPoints = chartData->get_ChartSeries(1)->get_DataPoints();
-
-    dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 2, System::ExplicitCast<System::Object>(30)));
-    dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 2, System::ExplicitCast<System::Object>(10)));
-    dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 2, System::ExplicitCast<System::Object>(60)));
+    series->get_DataPoints()->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 1, ObjectExt::Box<double>(4.3)));
+    series->get_DataPoints()->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 1, ObjectExt::Box<double>(2.5)));
+    series->get_DataPoints()->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 1, ObjectExt::Box<double>(3.5)));
+    series->get_DataPoints()->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 4, 1, ObjectExt::Box<double>(4.5)));
 
     return chart;
 }
 
-void AddFirstSeriesToChart(System::SharedPtr<IChart> chart)
+static void AddSecondSeriesToChart(SharedPtr<IChart> chart)
 {
-    System::SharedPtr<IChartData> chartData = chart->get_ChartData();
-    System::SharedPtr<IChartDataWorkbook> workbook = chartData->get_ChartDataWorkbook();
-    const int32_t worksheetIndex = 0;
+    auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+    const int worksheetIndex = 0;
 
-    System::SharedPtr<IChartSeries> series = chartData->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 3, System::ExplicitCast<System::Object>(u"Серия 3")), ChartType::ScatterWithSmoothLines);
-    System::SharedPtr<IChartDataPointCollection> dataPoints = series->get_DataPoints();
+    auto seriesNameCell = workbook->GetCell(worksheetIndex, 0, 2, ObjectExt::Box<String>(u"Series 2"));
+    auto series = chart->get_ChartData()->get_Series()->Add(seriesNameCell, ChartType::ClusteredColumn);
 
-    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 0, 1, System::ExplicitCast<System::Object>(3)), workbook->GetCell(worksheetIndex, 0, 2, System::ExplicitCast<System::Object>(5)));
+    series->get_ParentSeriesGroup()->set_Overlap(-25);
+    series->get_ParentSeriesGroup()->set_GapWidth(220);
 
-    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 1, 3, System::ExplicitCast<System::Object>(10)), workbook->GetCell(worksheetIndex, 1, 4, System::ExplicitCast<System::Object>(13)));
+    series->get_DataPoints()->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 2, ObjectExt::Box<double>(2.4)));
+    series->get_DataPoints()->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 2, ObjectExt::Box<double>(4.4)));
+    series->get_DataPoints()->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 2, ObjectExt::Box<double>(1.8)));
+    series->get_DataPoints()->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 4, 2, ObjectExt::Box<double>(2.8)));
+}
 
-    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 2, 3, System::ExplicitCast<System::Object>(20)), workbook->GetCell(worksheetIndex, 2, 4, System::ExplicitCast<System::Object>(15)));
+static void AddThirdSeriesToChart(SharedPtr<IChart> chart)
+{
+    auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+    const int worksheetIndex = 0;
+
+    auto seriesNameCell = workbook->GetCell(worksheetIndex, 0, 3, ObjectExt::Box<String>(u"Series 3"));
+    auto series = chart->get_ChartData()->get_Series()->Add(seriesNameCell, ChartType::Line);
+
+    series->get_DataPoints()->AddDataPointForLineSeries(workbook->GetCell(worksheetIndex, 1, 3, ObjectExt::Box<double>(2.0)));
+    series->get_DataPoints()->AddDataPointForLineSeries(workbook->GetCell(worksheetIndex, 2, 3, ObjectExt::Box<double>(2.0)));
+    series->get_DataPoints()->AddDataPointForLineSeries(workbook->GetCell(worksheetIndex, 3, 3, ObjectExt::Box<double>(3.0)));
+    series->get_DataPoints()->AddDataPointForLineSeries(workbook->GetCell(worksheetIndex, 4, 3, ObjectExt::Box<double>(5.0)));
 
     series->set_PlotOnSecondAxis(true);
 }
 
-void AddSecondSeriesToChart(System::SharedPtr<IChart> chart)
+static void SetAxisTitle(SharedPtr<IAxis> axis, String axisTitle)
 {
-    System::SharedPtr<IChartData> chartData = chart->get_ChartData();
-    System::SharedPtr<IChartDataWorkbook> workbook = chartData->get_ChartDataWorkbook();
-    const int32_t worksheetIndex = 0;
+    axis->set_HasTitle(true);
+    axis->get_Title()->set_Overlay(false);
+    auto titleParagraph = axis->get_Title()->AddTextFrameForOverriding(axisTitle)->get_Paragraph(0);
+    auto titleFormat = titleParagraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+    titleFormat->set_FontBold(NullableBool::False);
+    titleFormat->set_FontHeight(12.0);
+}
 
-    System::SharedPtr<IChartSeries> series = chartData->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 5, System::ExplicitCast<System::Object>(u"Серия 4")), ChartType::ScatterWithStraightLinesAndMarkers);
-    System::SharedPtr<IChartDataPointCollection> dataPoints = series->get_DataPoints();
+static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
+{
+    // Установить горизонтальную ось.
+    auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
+    horizontalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
+    horizontalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
-    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 1, 3, System::ExplicitCast<System::Object>(5)), workbook->GetCell(worksheetIndex, 1, 4, System::ExplicitCast<System::Object>(2)));
+    SetAxisTitle(horizontalAxis, u"X Axis");
 
-    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 1, 5, System::ExplicitCast<System::Object>(10)), workbook->GetCell(worksheetIndex, 1, 6, System::ExplicitCast<System::Object>(7)));
+    // Установить вертикальную ось.
+    auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
+    verticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
+    verticalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
-    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 2, 5, System::ExplicitCast<System::Object>(15)), workbook->GetCell(worksheetIndex, 2, 6, System::ExplicitCast<System::Object>(12)));
+    SetAxisTitle(verticalAxis, u"Y Axis 1");
 
-    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 3, 5, System::ExplicitCast<System::Object>(12)), workbook->GetCell(worksheetIndex, 3, 6, System::ExplicitCast<System::Object>(9)));
+    // Установить цвет основных линий сетки по вертикали.
+    auto majorGridLinesFormat = verticalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat();
+    majorGridLinesFormat->set_FillType(FillType::Solid);
+    majorGridLinesFormat->get_SolidFillColor()->set_Color(Color::FromArgb(217, 217, 217));
+}
 
-    series->set_PlotOnSecondAxis(true);
+static void SetSecondaryAxesFormat(SharedPtr<IChart> chart)
+{
+    // Установить вторичную горизонтальную ось.
+    auto secondaryHorizontalAxis = chart->get_Axes()->get_SecondaryHorizontalAxis();
+    secondaryHorizontalAxis->set_Position(AxisPositionType::Bottom);
+    secondaryHorizontalAxis->set_CrossType(CrossesType::Maximum);
+    secondaryHorizontalAxis->set_IsVisible(false);
+    secondaryHorizontalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
+    secondaryHorizontalAxis->get_MinorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+    // Установить вторичную вертикальную ось.
+    auto secondaryVerticalAxis = chart->get_Axes()->get_SecondaryVerticalAxis();
+    secondaryVerticalAxis->set_Position(AxisPositionType::Right);
+    secondaryVerticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
+    secondaryVerticalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
+    secondaryVerticalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
+    secondaryVerticalAxis->get_MinorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+    SetAxisTitle(secondaryVerticalAxis, u"Y Axis 2");
+}
+
+static void CreateComboChart()
+{
+    auto presentation = MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+
+    auto chart = CreateChartWithFirstSeries(slide);
+
+    AddSecondSeriesToChart(chart);
+    AddThirdSeriesToChart(chart);
+
+    SetPrimaryAxesFormat(chart);
+    SetSecondaryAxesFormat(chart);
+
+    presentation->Save(u"combo-chart.pptx", SaveFormat::Pptx);
+    presentation->Dispose();
 }
 ```
 
+
 ## **Обновление диаграмм**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation), который представляет презентацию, содержащую диаграмму.
+1. Создайте экземпляр класса [Presentation], представляющего презентацию, содержащую диаграмму.
 2. Получите ссылку на слайд по его индексу.
-3. Переберите все формы, чтобы найти нужную диаграмму.
-4. Получите доступ к рабочему листу данных и измените данные диаграммы.
-5. Сохраните измененную презентацию в файл PPTX.
+3. Просмотрите все фигуры, чтобы найти нужную диаграмму.
+4. Получите доступ к листу данных диаграммы.
+5. Измените данные серии диаграммы, изменив значения серии.
+6. Добавьте новую серию и заполните её данными.
+7. Сохраните изменённую презентацию в файл PPTX.
 
-Этот код на C++ показывает, как обновить диаграмму:
-
+Этот код C++ показывает, как обновить диаграмму:
 ```c++
-// Создает класс Presentation, который представляет файл PPTX
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"СуществующаяДиаграмма.pptx");
+// Создаёт экземпляр класса Presentation, представляющего файл PPTX
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 
-// Получает первый слайдMarker
+// Получает первый слайд
 System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
 // Добавляет диаграмму с данными по умолчанию
 System::SharedPtr<IChart> chart = System::ExplicitCast<Aspose::Slides::Charts::IChart>(sld->get_Shapes()->idx_get(0));
 
-// Устанавливает индекс рабочего листа для данных диаграммы
+// Устанавливает индекс листа данных диаграммы
 int32_t defaultWorksheetIndex = 0;
 
-// Получает рабочий лист данных диаграммы
+// Получает лист данных диаграммы
 System::SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
 // Изменяет название категории диаграммы
-fact->GetCell(defaultWorksheetIndex, 1, 0, System::ObjectExt::Box<System::String>(u"Измененная категория 1"));
-fact->GetCell(defaultWorksheetIndex, 2, 0, System::ObjectExt::Box<System::String>(u"Измененная категория 2"));
+fact->GetCell(defaultWorksheetIndex, 1, 0, System::ObjectExt::Box<System::String>(u"Modified Category 1"));
+fact->GetCell(defaultWorksheetIndex, 2, 0, System::ObjectExt::Box<System::String>(u"Modified Category 2"));
 
-// Получаем первую серию диаграммы
+// Получает первую серию диаграммы
 System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-// Обновляем данные серии
-fact->GetCell(defaultWorksheetIndex, 0, 1, System::ObjectExt::Box<System::String>(u"Новая_Серия1"));
-// Изменяем название серии
+// Обновляет данные серии
+fact->GetCell(defaultWorksheetIndex, 0, 1, System::ObjectExt::Box<System::String>(u"New_Series1"));
+// Изменение имени серии
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(90));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(123));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(44));
 
-// Получаем вторую серию диаграммы
+// Получает вторую серию диаграммы
 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// Теперь обновляем данные серии
-fact->GetCell(defaultWorksheetIndex, 0, 2, System::ObjectExt::Box<System::String>(u"Новая_Серия2"));
-// Изменяем название серии
+// Сейчас обновляются данные серии
+fact->GetCell(defaultWorksheetIndex, 0, 2, System::ObjectExt::Box<System::String>(u"New_Series2"));
+// Изменение имени серии
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(23));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(67));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(99));
 
-// Теперь добавляем новую серию
-chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, System::ObjectExt::Box<System::String>(u"Серия 3")), chart->get_Type());
 
-// Получаем 3-ю серию диаграммы
+// Теперь добавляем новую серию
+chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, System::ObjectExt::Box<System::String>(u"Series 3")), chart->get_Type());
+
+// Получает третью серию диаграммы
 series = chart->get_ChartData()->get_Series()->idx_get(2);
 
-// Теперь заполняем данные серии
+// Сейчас заполняются данные серии
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, System::ObjectExt::Box<int32_t>(20)));
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, System::ObjectExt::Box<int32_t>(50)));
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, System::ObjectExt::Box<int32_t>(30)));
 
 chart->set_Type(Aspose::Slides::Charts::ChartType::ClusteredCylinder);
 
-// Сохраняем презентацию с диаграммой
-pres->Save(u"ИзмененнаяДиаграммаAspose_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+// Сохраняет презентацию с диаграммой
+pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 
 ## **Установка диапазона данных для диаграмм**
 
-1. Откройте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation), содержащую диаграмму.
+1. Откройте экземпляр класса [Presentation], содержащий диаграмму.
 2. Получите ссылку на слайд по его индексу.
-3. Переберите все формы, чтобы найти нужную диаграмму.
-4. Получите доступ к данным диаграммы и установите диапазон.
-5. Сохраните измененную презентацию как файл PPTX.
+3. Просмотрите все фигуры, чтобы найти нужную диаграмму.
+4. Получите доступ к данным диаграммы и задайте диапазон.
+5. Сохраните изменённую презентацию в файл PPTX.
 
-Этот код на C++ показывает, как установить диапазон данных для диаграммы:
-
-``` cpp
-// Путь к каталогу документов.
+Этот код C++ показывает, как установить диапазон данных для диаграммы:
+```cpp
+// Путь к директории документов.
 String dataDir = GetDataPath();
 
-// Создает класс Presentation, который представляет файл PPTX
-auto presentation = System::MakeObject<Presentation>(dataDir + u"СуществующаяДиаграмма.pptx");
+// Создаёт экземпляр класса Presentation, представляющего файл PPTX
+auto presentation = System::MakeObject<Presentation>(dataDir + u"ExistingChart.pptx");
 
-// Получает первый слайдMarker и добавляет диаграмму с данными по умолчанию
+// Получает первый слайд и добавляет диаграмму с данными по умолчанию
 auto slide = presentation->get_Slides()->idx_get(0);
 auto chart = System::ExplicitCast<IChart>(slide->get_Shapes()->idx_get(0));
 chart->get_ChartData()->SetRange(u"Sheet1!A1:B4");
-presentation->Save(dataDir + u"УстановитьДиапазонДанных_out.pptx", SaveFormat::Pptx);
+presentation->Save(dataDir + u"SetDataRange_out.pptx", SaveFormat::Pptx);
 ```
 
 
-## **Использование стандартных маркеров в диаграммах**
-Когда вы используете стандартный маркер в диаграммах, каждая серия диаграмм получает разные стандартные символы маркеров автоматически.
+## **Использование маркеров по умолчанию в диаграммах**
+При использовании маркера по умолчанию в диаграммах каждая серия получает разные символы маркера автоматически.
 
-Этот код на C++ показывает, как установить маркер серии диаграммы автоматически:
-
-``` cpp
-// Путь к каталогу документов.
+Этот код C++ показывает, как автоматически задать маркер серии диаграммы:
+```cpp
+// Путь к директории документов.
 String dataDir = GetDataPath();
 
 auto pres = System::MakeObject<Presentation>();
@@ -656,7 +1187,7 @@ chart->get_ChartData()->get_Series()->Clear();
 chart->get_ChartData()->get_Categories()->Clear();
 
 auto wb = chart->get_ChartData()->get_ChartDataWorkbook();
-chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Серия 1")), chart->get_Type());
+chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
 auto series = chart->get_ChartData()->get_Series()->idx_get(0);
 
 chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, 1, 0, ObjectExt::Box<String>(u"C1")));
@@ -668,12 +1199,12 @@ series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 1, ObjectE
 chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, 4, 0, ObjectExt::Box<String>(u"C4")));
 series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 4, 1, nullptr));
 
-chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Серия 2")), chart->get_Type());
+chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
 
-// Получаем вторую серию диаграммы
+// Получает вторую серию диаграммы
 auto series2 = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// Заполняем данные серии
+// Заполняет данные серии
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 2, ObjectExt::Box<int32_t>(30)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 2, ObjectExt::Box<int32_t>(10)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 2, ObjectExt::Box<int32_t>(60)));
@@ -682,5 +1213,5 @@ series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 4, 2, Object
 chart->set_HasLegend(true);
 chart->get_Legend()->set_Overlay(false);
 
-pres->Save(dataDir + u"СтандартныеМаркерынДиаграмме.pptx", SaveFormat::Pptx);
+pres->Save(dataDir + u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 ```
