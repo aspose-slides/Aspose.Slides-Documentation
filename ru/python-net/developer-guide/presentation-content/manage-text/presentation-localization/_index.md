@@ -40,7 +40,7 @@ with slides.Presentation("pres.pptx") as pres:
 
 **Вызывает ли language_id автоматический перевод текста?**
 
-No. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) в Aspose.Slides хранит язык для проверки орфографии и грамматики, но не переводит и не изменяет содержание текста. Это метаданные, которые PowerPoint понимает для проверки.
+Нет. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) в Aspose.Slides хранит язык для проверки орфографии и грамматики, но не переводит и не изменяет содержание текста. Это метаданные, которые PowerPoint понимает для проверки.
 
 **Влияет ли language_id на переносы слов и разрывы строк при рендеринге?**
 
@@ -48,4 +48,4 @@ No. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/p
 
 **Могу ли я установить разные языки в одном абзаце?**
 
-Yes. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) применяется на уровне части текста, поэтому один абзац может смешивать несколько языков с отдельными настройками проверки.
+Да. [language_id](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/language_id/) применяется на уровне части текста, поэтому один абзац может смешивать несколько языков с отдельными настройками проверки.
