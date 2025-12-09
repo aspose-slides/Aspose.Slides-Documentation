@@ -1,32 +1,32 @@
 ---
-title: تكوين خطوط الفولباك في بايثون
-linktitle: تكوين خطوط الفولباك
+title: تكوين مجموعات خطوط الاحتياطي في بايثون
+linktitle: مجموعة خطوط الاحتياطي
 type: docs
 weight: 20
 url: /ar/python-net/create-fallback-fonts-collection/
 keywords:
 - خط احتياطي
-- قاعدة الفولباك
-- مجموعة الخطوط
+- قاعدة احتياطي
+- مجموعة خطوط
 - إعداد الخط
-- تهيئة الخط
+- تكوين الخط
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
-- بايثون
+- Python
 - Aspose.Slides
-description: "إعداد مجموعة خطوط الفولباك في Aspose.Slides للبايثون عبر .NET للحفاظ على تناسق النص ووضوحه في عروض PowerPoint و OpenDocument."
+description: "قم بإعداد مجموعة خطوط احتياطي في Aspose.Slides لبايثون عبر .NET للحفاظ على نص ثابت وواضح في عروض PowerPoint و OpenDocument."
 ---
 
-## **تطبيق قواعد الفولباك**
+## **تطبيق قواعد الاحتياطي**
 
-يمكن تنظيم مثيلات فئة [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) في [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/)، التي تقوم بتنفيذ واجهة [IFontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrulescollection/). يمكن إضافة أو إزالة القواعد من المجموعة.
+يمكن تنظيم كائنات من الفئة [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) في مجموعة [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/)، التي تنفذ واجهة [IFontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrulescollection/). يمكن إضافة أو إزالة القواعد من المجموعة.
 
-بعد ذلك يمكن تعيين هذه المجموعة إلى خاصية [FontFallBackRulesCollection ](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) في فئة [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/). يتحكم FontsManager في الخطوط عبر العرض التقديمي. اقرأ المزيد [About FontsManager and FontsLoader](/slides/ar/python-net/about-fontsmanager-and-fontsloader/).
+بعد ذلك يمكن تعيين هذه المجموعة إلى خاصية [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) في الفئة [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/). يتحكم FontsManager في الخطوط عبر العرض التقديمي. اقرأ المزيد [حول FontsManager و FontsLoader](/slides/ar/python-net/about-fontsmanager-and-fontsloader/).
 
-كل [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) لديه خاصية [FontsManager ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) مع نسخة خاصة من فئة FontsManager.
+كل [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) يحتوي على خاصية [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) بمثابة مثيل خاص به من فئة FontsManager.
 
-فيما يلي مثال على كيفية إنشاء مجموعة قواعد الخطوط الاحتياطية وتعيينها في FontsManager لعرض تقديمي معين:  
+فيما يلي مثال على كيفية إنشاء مجموعة قواعد الخطوط الاحتياطية وتعيينها في FontsManager لعرض تقديمي معين:
 ```py
 import aspose.slides as slides
 
@@ -43,23 +43,23 @@ with slides.Presentation() as presentation:
 بعد تهيئة FontsManager بمجموعة الخطوط الاحتياطية، يتم تطبيق الخطوط الاحتياطية أثناء عرض التقديم.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد حول كيفية [Render Presentation with Fallback Font](/slides/ar/python-net/render-presentation-with-fallback-font/).
+اقرأ المزيد حول كيفية [عرض التقديمي مع خط احتياطي](/slides/ar/python-net/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل سيتم تضمين قواعد الفولباك الخاصة بي في ملف PPTX وستكون مرئية في PowerPoint بعد الحفظ؟**
+**هل سيتم تضمين قواعد الاحتياطي في ملف PPTX وستكون مرئية في PowerPoint بعد الحفظ؟**
 
-لا. قواعد الفولباك هي إعدادات عرض وقت التشغيل؛ لا يتم تسلسلها إلى ملف PPTX ولن تظهر في واجهة PowerPoint.
+لا. قواعد الاحتياطي هي إعدادات عرض في وقت التشغيل؛ لا يتم تسلسلها إلى ملف PPTX ولن تظهر في واجهة PowerPoint.
 
-**هل ينطبق الفولباك على النص داخل SmartArt وWordArt والرسوم البيانية والجداول؟**
+**هل ينطبق الاحتياطي على النص داخل SmartArt و WordArt والرسوم البيانية والجداول؟**
 
 نعم. يتم استخدام نفس آلية استبدال الحروف لأي نص في هذه الكائنات.
 
-**هل تقوم Aspose بتوزيع أي خطوط مع المكتبة؟**
+**هل توزع Aspose أي خطوط مع المكتبة؟**
 
-لا. تقوم بإضافة واستخدام الخطوط من جانبك وتكون مسؤولًا عنها.
+لا. تقوم أنت بإضافة واستخدام الخطوط من جانبك وتتحمل المسؤولية عنها.
 
-**هل يمكن استخدام الاستبدال/البديل للخطوط المفقودة والفولباك للرموز المفقودة معًا؟**
+**هل يمكن استخدام الاستبدال/الإحلال للخطوط المفقودة والاحتياطي للرموز المفقودة معًا؟**
 
-نعم. هما مرحلتان مستقلتان في نفس خط أنابيب حل الخطوط: أولاً يقوم المحرك بحل توافر الخطوط ([replacement](/slides/ar/python-net/font-replacement/)/[substitution](/slides/ar/python-net/font-substitution/))، ثم يقوم الفولباك بملء الفجوات للرموز المفقودة في الخطوط المتاحة.
+نعم. هما مرحلتان مستقلتان في نفس خط أنابيب حل الخطوط: أولاً يقوم المحرك بحل توفر الخطوط ([replacement](/slides/ar/python-net/font-replacement/)/[substitution](/slides/ar/python-net/font-substitution/))، ثم يملأ الاحتياطي الفجوات للرموز المفقودة في الخطوط المتاحة.

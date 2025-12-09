@@ -1,32 +1,32 @@
 ---
-title: Fallback-Schriftarten in Python konfigurieren
-linktitle: Fallback-Schriftarten konfigurieren
+title: "Fallback-Schriftartensammlungen in Python konfigurieren"
+linktitle: "Fallback-Schriftartensammlung"
 type: docs
 weight: 20
 url: /de/python-net/create-fallback-fonts-collection/
 keywords:
-- Fallback-Schriftart
-- Fallback-Regel
-- Schriftartensammlung
-- Schriftart konfigurieren
-- Schriftart einrichten
+- "Fallback-Schriftart"
+- "Fallback-Regel"
+- "Schriftartensammlung"
+- "Schriftart konfigurieren"
+- "Schriftart einrichten"
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Einrichten einer Fallback-Schriftartensammlung in Aspose.Slides für Python via .NET, um Text in PowerPoint- und OpenDocument-Präsentationen konsistent und klar darzustellen."
+description: "Richten Sie eine Sammlung von Fallback-Schriftarten in Aspose.Slides für Python via .NET ein, um Text in PowerPoint- und OpenDocument-Präsentationen konsistent und scharf darzustellen."
 ---
 
 ## **Fallback-Regeln anwenden**
 
-Instanzen der [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) Klasse können in einer [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/) organisiert werden, die das [IFontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrulescollection/) Interface implementiert. Es ist möglich, Regeln zur Sammlung hinzuzufügen oder zu entfernen.
+Instanzen der Klasse [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) können in [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/) organisiert werden, die das [IFontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrulescollection/) Interface implementiert. Es ist möglich, Regeln zur Sammlung hinzuzufügen oder zu entfernen.
 
-Dann kann diese Sammlung der [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) Eigenschaft der [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) Klasse zugewiesen werden. FontsManager steuert die Schriftarten in der gesamten Präsentation. Mehr dazu siehe [Über FontsManager und FontsLoader](/slides/de/python-net/about-fontsmanager-and-fontsloader/)​.
+Dann kann diese Sammlung der Eigenschaft [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) der Klasse [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) zugewiesen werden. FontsManager steuert die Schriften über die gesamte Präsentation. Mehr erfahren [Über FontsManager und FontsLoader](/slides/de/python-net/about-fontsmanager-and-fontsloader/).
 
-Jede [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) verfügt über eine [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Eigenschaft mit ihrer eigenen Instanz der Klasse FontsManager.
+Jede [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) hat eine [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Eigenschaft mit ihrer eigenen Instanz der FontsManager‑Klasse.
 
-Hier ist ein Beispiel, wie man eine Sammlung von Fallback‑Schriftartregeln erstellt und sie dem FontsManager einer bestimmten Präsentation zuweist:  
+Hier ein Beispiel, wie man eine Sammlung von Fallback‑Schriftartenregeln erstellt und sie dem FontsManager einer bestimmten Präsentation zuweist:  
 ```py
 import aspose.slides as slides
 
@@ -40,19 +40,19 @@ with slides.Presentation() as presentation:
 ```
 
 
-Nachdem FontsManager mit der Fallback‑Schriftartsammlung initialisiert wurde, werden die Fallback‑Schriftarten während der Rendering der Präsentation angewendet.
+Nachdem der FontsManager mit einer Fallback‑Schriftartensammlung initialisiert wurde, werden die Fallback‑Schriften während der Präsentationsrenderung angewendet.
 
 {{% alert color="primary" %}} 
-Mehr dazu, wie man eine [Präsentation mit Fallback‑Schriftart rendert](/slides/de/python-net/render-presentation-with-fallback-font/)​.
+Mehr erfahren, wie man [Präsentation mit Fallback‑Schrift rendern](/slides/de/python-net/render-presentation-with-fallback-font/) kann. 
 {{% /alert %}}
 
 ## **FAQ**
 
 **Werden meine Fallback‑Regeln in die PPTX‑Datei eingebettet und nach dem Speichern in PowerPoint sichtbar sein?**
 
-Nein. Fallback‑Regeln sind Runtime‑Rendering‑Einstellungen; sie werden nicht in die PPTX serialisiert und erscheinen nicht in der PowerPoint‑Benutzeroberfläche.
+Nein. Fallback‑Regeln sind Laufzeit‑Render‑Einstellungen; sie werden nicht in die PPTX‑Datei serialisiert und erscheinen nicht in der Benutzeroberfläche von PowerPoint.
 
-**Wird Fallback auf Text in SmartArt, WordArt, Diagrammen und Tabellen angewendet?**
+**Gilt Fallback für Text in SmartArt, WordArt, Diagrammen und Tabellen?**
 
 Ja. Der gleiche Glyph‑Substitutions‑Mechanismus wird für jeden Text in diesen Objekten verwendet.
 
@@ -60,6 +60,6 @@ Ja. Der gleiche Glyph‑Substitutions‑Mechanismus wird für jeden Text in dies
 
 Nein. Sie fügen Schriftarten selbst hinzu und verwenden sie auf eigene Verantwortung.
 
-**Können Ersatz/Substitution fehlender Schriftarten und Fallback für fehlende Glyphen zusammen verwendet werden?**
+**Können Ersatz‑/Substitution für fehlende Schriftarten und Fallback für fehlende Glyphen zusammen verwendet werden?**
 
-Ja. Sie sind unabhängige Stufen derselben Font‑Auflösungspipeline: zuerst ermittelt die Engine die Verfügbarkeit von Schriftarten (Ersatz/Substitution), dann füllt Fallback Lücken für fehlende Glyphen in verfügbaren Schriftarten.
+Ja. Sie sind unabhängige Schritte derselben Schriftauflösungs‑Pipeline: Zuerst löst die Engine die Verfügbarkeit von Schriftarten ([Ersatz](/slides/de/python-net/font-replacement/)/[Substitution](/slides/de/python-net/font-substitution/)) auf, dann füllt Fallback Lücken für fehlende Glyphen in verfügbaren Schriften.

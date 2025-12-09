@@ -1,6 +1,6 @@
 ---
-title: Diagrammserien in Python verwalten
-linktitle: Diagrammserien
+title: Diagrammdatenserien in Python verwalten
+linktitle: Datenserien
 type: docs
 url: /de/python-net/chart-series/
 keywords:
@@ -15,22 +15,22 @@ keywords:
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagrammserien in Python für PowerPoint (PPT/PPTX) verwalten, mit praktischen Codebeispielen und bewährten Methoden, um Ihre Datenpräsentationen zu verbessern."
+description: "Erfahren Sie, wie Sie Diagrammdatenserien in Python für PowerPoint (PPT/PPTX) mit praktischen Codebeispielen und bewährten Methoden verwalten, um Ihre Datenpräsentationen zu verbessern."
 ---
 
 ## **Übersicht**
 
-Dieser Artikel beschreibt die Rolle von [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) in Aspose.Slides für Python und fokussiert darauf, wie Daten innerhalb von Präsentationen strukturiert und visualisiert werden. Diese Objekte bilden die grundlegenden Elemente, die einzelne Sätze von Datenpunkten, Kategorien und Anzeigeparametern in einem Diagramm definieren. Durch die Arbeit mit [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) können Entwickler Datenquellen nahtlos integrieren und die vollständige Kontrolle darüber behalten, wie Informationen angezeigt werden, was zu dynamischen, datengetriebenen Präsentationen führt, die Erkenntnisse und Analysen klar vermitteln.
+Dieser Artikel beschreibt die Rolle von [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) in Aspose.Slides für Python und konzentriert sich darauf, wie Daten in Präsentationen strukturiert und visualisiert werden. Diese Objekte liefern die Grundelemente, die einzelne Datensätze, Kategorien und Erscheinungsparameter in einem Diagramm definieren. Durch die Arbeit mit [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) können Entwickler Datenquellen nahtlos integrieren und die Darstellung vollständig steuern, was zu dynamischen, datengetriebenen Präsentationen führt, die Erkenntnisse und Analysen klar vermitteln.
 
 Eine Serie ist eine Zeile oder Spalte von Zahlen, die in einem Diagramm dargestellt werden.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![Diagrammserie PowerPoint](chart-series-powerpoint.png)
 
 ## **Serienüberlappung festlegen**
 
-Die [ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) Eigenschaft steuert, wie Balken und Säulen in einem 2D‑Diagramm überlappen, indem ein Bereich von -100 bis 100 angegeben wird. Da diese Eigenschaft der Seriengruppe und nicht den einzelnen Diagrammserien zugeordnet ist, ist sie auf Serienebene schreibgeschützt. Um Überlappungswerte zu konfigurieren, verwenden Sie die `parent_series_group.overlap` Lese‑/Schreib‑Eigenschaft, die die angegebene Überlappung auf alle Serien in dieser Gruppe anwendet.
+Die [ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) Eigenschaft steuert, wie Balken und Säulen in einem 2D‑Diagramm überlappen, indem sie einen Wertebereich von -100 bis 100 angibt. Da diese Eigenschaft der Seriengruppe und nicht einzelnen Diagrammserien zugeordnet ist, ist sie auf Serienebene read‑only. Um Überlappungswerte zu konfigurieren, verwenden Sie die schreibbare Eigenschaft `parent_series_group.overlap`, die die angegebene Überlappung auf alle Serien in dieser Gruppe anwendet.
 
-Unten finden Sie ein Python‑Beispiel, das zeigt, wie eine Präsentation erstellt, ein gruppiertes Säulendiagramm hinzugefügt, die erste Diagrammserie abgerufen, die Überlappungseinstellung konfiguriert und das Ergebnis als PPTX‑Datei gespeichert wird:
+Unten steht ein Python‑Beispiel, das zeigt, wie man eine Präsentation erstellt, ein gruppiertes Säulendiagramm hinzufügt, die erste Diagrammserie abruft, die Überlappung einstellt und das Ergebnis als PPTX speichert:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -40,28 +40,28 @@ series_overlap = 30
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Fügt ein gruppiertes Säulendiagramm mit Standarddaten hinzu.
+    # Füge ein gruppiertes Säulendiagramm mit Standarddaten hinzu.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     series = chart.chart_data.series[0]
     if series.overlap == 0:
-        # Setzt die Serienüberlappung.
+        # Setze die Serienüberlappung.
         series.parent_series_group.overlap = series_overlap
 
-    # Speichert die Präsentationsdatei auf dem Datenträger.
+    # Speichere die Präsentationsdatei auf der Festplatte.
     presentation.save("series_overlap.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
 Das Ergebnis:
 
-![The series overlap](series_overlap.png)
+![Die Serienüberlappung](series_overlap.png)
 
 ## **Füllfarbe der Serie ändern**
 
-Aspose.Slides erleichtert das Anpassen der Füllfarben von Diagrammserien, sodass Sie bestimmte Datenpunkte hervorheben und optisch ansprechende Diagramme erstellen können. Dies wird über das [Format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/) Objekt erreicht, das verschiedene Fülltypen, Farbkonfigurationen und weitere erweiterte Stiloptionen unterstützt. Nachdem Sie ein Diagramm zu einer Folie hinzugefügt und die gewünschte Serie abgerufen haben, erhalten Sie die Serie und wenden die passende Füllfarbe an. Neben einfarbigen Füllungen können Sie auch Verlauf‑ oder Muster‑Füllungen für mehr gestalterische Flexibilität nutzen. Sobald Sie die Farben nach Ihren Anforderungen festgelegt haben, speichern Sie die Präsentation, um das aktualisierte Aussehen zu finalisieren.
+Aspose.Slides macht es einfach, die Füllfarben von Diagrammserien anzupassen, sodass Sie bestimmte Datenpunkte hervorheben und optisch ansprechende Diagramme erstellen können. Dies geschieht über das [Format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/) Objekt, das verschiedene Fülltypen, Farbkonfigurationen und weitere erweiterte Styling‑Optionen unterstützt. Nachdem Sie ein Diagramm zu einer Folie hinzugefügt und die gewünschte Serie abgerufen haben, erhalten Sie die Serie und wenden die passende Füllfarbe an. Neben einfarbigen Füllungen können Sie auch Verlaufs‑ oder Musterfüllungen für mehr Design‑Flexibilität nutzen. Sobald Sie die Farben nach Ihren Anforderungen festgelegt haben, speichern Sie die Präsentation, um das aktualisierte Aussehen abzuschließen.
 
-Das folgende Python‑Codebeispiel zeigt, wie Sie die Farbe der ersten Serie ändern:
+Der folgende Python‑Code zeigt, wie die Farbe der ersten Serie geändert wird:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -72,28 +72,28 @@ series_color = draw.Color.blue
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Fügt ein gruppiertes Säulendiagramm mit Standarddaten hinzu.
+    # Füge ein gruppiertes Säulendiagramm mit Standarddaten hinzu.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
-    # Setzt die Farbe der ersten Serie.
+    # Setze die Farbe der ersten Serie.
     series = chart.chart_data.series[0]
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = series_color
 
-    # Speichert die Präsentationsdatei auf dem Datenträger.
+    # Speichere die Präsentationsdatei auf der Festplatte.
     presentation.save("series_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
 Das Ergebnis:
 
-![The color of the series](series_color.png)
+![Die Farbe der Serie](series_color.png)
 
-## **Eine Serie umbenennen**
+## **Serie umbenennen**
 
-Aspose.Slides bietet einen einfachen Weg, die Namen von Diagrammserien zu ändern, sodass Daten klar und sinnvoll beschriftet werden können. Durch den Zugriff auf die entsprechende Arbeitsblattzelle in den Diagrammdaten können Entwickler anpassen, wie die Daten dargestellt werden. Diese Anpassung ist besonders nützlich, wenn Seriennamen basierend auf dem Kontext der Daten aktualisiert oder geklärt werden müssen. Nach dem Umbenennen der Serie kann die Präsentation gespeichert werden, um die Änderungen zu übernehmen.
+Aspose.Slides bietet eine einfache Möglichkeit, die Namen von Diagrammserien zu ändern, sodass Daten klar und sinnvoll beschriftet werden können. Durch den Zugriff auf die entsprechende Arbeitsblattzelle in den Diagrammdaten können Entwickler festlegen, wie die Daten präsentiert werden. Diese Anpassung ist besonders nützlich, wenn Seriennamen basierend auf dem Kontext der Daten aktualisiert oder präzisiert werden müssen. Nach dem Umbenennen der Serie kann die Präsentation gespeichert werden, um die Änderungen zu übernehmen.
 
-Unten finden Sie einen Python‑Code‑Ausschnitt, der diesen Vorgang demonstriert.
+Unten steht ein Python‑Code‑Snippet, das diesen Prozess demonstriert.
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -103,19 +103,19 @@ series_name = "New name"
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Fügt ein gruppiertes Säulendiagramm mit Standarddaten hinzu.
+    # Füge ein gruppiertes Säulendiagramm mit Standarddaten hinzu.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
     
-    # Setzt den Namen der ersten Serie.
+    # Setze den Namen der ersten Serie.
     series_cell = chart.chart_data.chart_data_workbook.get_cell(0, 0, 1)
     series_cell.value = series_name
     
-    # Speichert die Präsentationsdatei auf dem Datenträger.
+    # Speichere die Präsentationsdatei auf der Festplatte.
     presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-Das folgende Python‑Code zeigt eine alternative Methode, den Seriennamen zu ändern:
+Der folgende Python‑Code zeigt eine alternative Möglichkeit, den Seriennamen zu ändern:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -125,27 +125,27 @@ series_name = "New name"
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Fügt ein gruppiertes Säulendiagramm mit Standarddaten hinzu.
+    # Füge ein gruppiertes Säulendiagramm mit Standarddaten hinzu.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
     series = chart.chart_data.series[0]
     
-    # Setzt den Namen der ersten Serie.
+    # Setze den Namen der ersten Serie.
     series.name.as_cells[0].value = series_name
 
-    # Speichert die Präsentationsdatei auf dem Datenträger.
+    # Speichere die Präsentationsdatei auf der Festplatte.
     presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX) 
 ```
 
 
 Das Ergebnis:
 
-![The series name](series_name.png)
+![Der Serienname](series_name.png)
 
-## **Automatische Füllfarbe der Serie abrufen**
+## **Automatische Serien‑Füllfarbe erhalten**
 
-Aspose.Slides für Python ermöglicht das Abrufen der automatischen Füllfarbe für Diagrammserien innerhalb eines Diagrammbereichs. Nachdem Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse erstellt haben, können Sie über den Index auf die gewünschte Folie zugreifen und dann ein Diagramm Ihres bevorzugten Typs (z. B. `ChartType.CLUSTERED_COLUMN`) hinzufügen. Durch den Zugriff auf die Serien im Diagramm können Sie die automatische Füllfarbe erhalten.
+Aspose.Slides für Python ermöglicht es, die automatische Füllfarbe für Diagrammserien im Plot‑Bereich abzurufen. Nachdem Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse erstellt haben, können Sie über den Index auf die gewünschte Folie zugreifen und ein Diagramm mit Ihrem bevorzugten Typ hinzufügen (z. B. `ChartType.CLUSTERED_COLUMN`). Durch den Zugriff auf die Serien im Diagramm erhalten Sie die automatische Füllfarbe.
 
-Der untenstehende Python‑Code demonstriert diesen Vorgang im Detail.
+Der nachfolgende Python‑Code demonstriert diesen Vorgang im Detail.
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -153,11 +153,11 @@ import aspose.slides.charts as charts
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Fügt ein gruppiertes Säulendiagramm mit Standarddaten hinzu.
+    # Füge ein gruppiertes Säulendiagramm mit Standarddaten hinzu.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     for i in range(len(chart.chart_data.series)):
-        # Holt die Füllfarbe der Serie.
+        # Erhalte die Füllfarbe der Serie.
         color = chart.chart_data.series[i].get_automatic_series_color()
         print(f"Series {i} color: {color.name}")
 ```
@@ -173,9 +173,9 @@ Series 2 color: ff9bbb59
 
 ## **Invertierte Füllfarben für eine Serie festlegen**
 
-Wenn Ihre Datenserie sowohl positive als auch negative Werte enthält, kann das einheitliche Einfärben jeder Säule oder jedes Balkens das Diagramm schwer lesbar machen. Aspose.Slides für Python ermöglicht das Zuweisen einer invertierten Füllfarbe – einer separaten Füllung, die automatisch auf Datenpunkte unter Null angewendet wird – sodass negative Werte sofort hervorstechen. In diesem Abschnitt erfahren Sie, wie Sie diese Option aktivieren, eine passende Farbe wählen und die aktualisierte Präsentation speichern.
+Wenn Ihre Datenserie sowohl positive als auch negative Werte enthält, führt eine einheitliche Farbe für alle Säulen oder Balken häufig zu einer schwer lesbaren Darstellung. Aspose.Slides für Python ermöglicht das Zuweisen einer invertierten Füllfarbe – einer separaten Füllung, die automatisch auf Datenpunkte unterhalb der Null angewendet wird – sodass negative Werte sofort erkennbar sind. In diesem Abschnitt lernen Sie, wie Sie diese Option aktivieren, eine passende Farbe wählen und die aktualisierte Präsentation speichern.
 
-Das folgende Codebeispiel demonstriert die Operation:
+Der folgende Code demonstriert die Vorgehensweise:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -200,7 +200,7 @@ with slides.Presentation() as presentation:
     # Neue Serie hinzufügen.
     series = chart.chart_data.series.add(workBook.get_cell(0, 0, 1, "Series 1"), chart.type)
 
-    # Serien-Daten befüllen.
+    # Seriendaten befüllen.
     series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 1, 1, -20))
     series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 2, 1, 50))
     series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 3, 1, -30))
@@ -217,11 +217,11 @@ with slides.Presentation() as presentation:
 
 Das Ergebnis:
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![Die invertierte einfarbige Füllfarbe](inverted_solid_fill_color.png)
 
-Sie können die Füllfarbe für einen einzelnen Datenpunkt anstelle der gesamten Serie invertieren. Greifen Sie einfach auf den gewünschten `ChartDataPoint` zu und setzen Sie dessen `invert_if_negative` Eigenschaft auf `True`.
+Sie können die invertierte Füllfarbe auch nur für einen einzelnen Datenpunkt und nicht für die gesamte Serie einstellen. Greifen Sie einfach auf den gewünschten `ChartDataPoint` zu und setzen Sie dessen `invert_if_negative` Eigenschaft auf `True`.
 
-Das folgende Codebeispiel zeigt, wie Sie dies umsetzen:
+Der folgende Code zeigt, wie das funktioniert:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -249,9 +249,9 @@ with slides.Presentation() as presentation:
 
 ## **Daten für bestimmte Datenpunkte löschen**
 
-Manchmal enthält ein Diagramm Testwerte, Ausreißer oder veraltete Einträge, die Sie entfernen möchten, ohne die gesamte Serie neu aufzubauen. Aspose.Slides für Python ermöglicht es Ihnen, einen beliebigen Datenpunkt anhand seines Index zu adressieren, dessen Inhalt zu löschen und das Diagramm sofort zu aktualisieren, sodass die verbleibenden Punkte verschoben und die Achsen automatisch neu skaliert werden.
+Manchmal enthält ein Diagramm Testwerte, Ausreißer oder veraltete Einträge, die Sie entfernen müssen, ohne die gesamte Serie neu aufzubauen. Aspose.Slides für Python ermöglicht Ihnen, einen beliebigen Datenpunkt per Index anzusprechen, seinen Inhalt zu löschen und das Diagramm sofort zu aktualisieren, sodass die verbleibenden Punkte nachrücken und die Achsen automatisch neu skaliert werden.
 
-Das folgende Codebeispiel demonstriert die Vorgehensweise:
+Der folgende Code demonstriert diesen Vorgang:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -271,11 +271,11 @@ with slides.Presentation("test_chart.pptx") as presentation:
 ```
 
 
-## **Lückenbreite der Serie festlegen**
+## **Serien‑Lückenbreite festlegen**
 
-Die Lückenbreite steuert den Abstand zwischen benachbarten Säulen oder Balken – breitere Lücken betonen einzelne Kategorien, während engere Lücken ein dichteres, kompakteres Aussehen erzeugen. Mit Aspose.Slides für Python können Sie diesen Parameter für eine gesamte Serie feinjustieren und so genau das visuelle Gleichgewicht Ihrer Präsentation erreichen, ohne die zugrunde liegenden Daten zu verändern.
+Die Lückenbreite steuert den Abstand zwischen benachbarten Säulen oder Balken – breitere Lücken betonen einzelne Kategorien, während engere Lücken ein dichteres, kompakteres Erscheinungsbild erzeugen. Mit Aspose.Slides für Python können Sie diesen Parameter für eine ganze Serie feinjustieren und so das gewünschte visuelle Gleichgewicht erreichen, ohne die zugrunde liegenden Daten zu verändern.
 
-Das folgende Codebeispiel zeigt, wie Sie die Lückenbreite für eine Serie festlegen:
+Der folgende Code zeigt, wie Sie die Lückenbreite für eine Serie festlegen:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -291,28 +291,28 @@ with slides.Presentation() as presentation:
     # Diagramm mit Standarddaten hinzufügen.
     chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 500, 200)
 
-    # Präsentation auf dem Datenträger speichern.
+    # Präsentation auf Festplatte speichern.
     presentation.save("default_gap_width.pptx", slides.export.SaveFormat.PPTX)
 
     # gap_width-Wert festlegen.
     series = chart.chart_data.series[0]
     series.parent_series_group.gap_width = gap_width
 
-    # Präsentation auf dem Datenträger speichern.
+    # Präsentation auf Festplatte speichern.
     presentation.save("gap_width_30.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
 Das Ergebnis:
 
-![The gap width](gap_width.png)
+![Die Lückenbreite](gap_width.png)
 
 ## **FAQ**
 
-**Gibt es eine Obergrenze für die Anzahl der Serien, die ein einzelnes Diagramm enthalten kann?**
+**Gibt es ein Limit, wie viele Serien ein einzelnes Diagramm enthalten kann?**
 
-Aspose.Slides legt keine feste Obergrenze für die Anzahl der hinzuzufügenden Serien fest. Die praktische Grenze wird durch die Lesbarkeit des Diagramms und den verfügbaren Arbeitsspeicher Ihrer Anwendung bestimmt.
+Aspose.Slides setzt keine feste Obergrenze für die Anzahl der Serien, die Sie hinzufügen können. Die praktische Grenze wird durch die Lesbarkeit des Diagramms und den verfügbaren Speicher Ihrer Anwendung bestimmt.
 
-**Was tun, wenn die Säulen innerhalb eines Clusters zu eng oder zu weit voneinander entfernt sind?**
+**Was, wenn die Spalten innerhalb eines Clusters zu eng beieinander oder zu weit auseinander liegen?**
 
-Passen Sie die [gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/gap_width/) Einstellung für diese Serie (oder deren übergeordnete Seriengruppe) an. Ein größerer Wert vergrößert den Abstand zwischen den Säulen, ein kleinerer Wert bringt sie näher zusammen.
+Passen Sie die [gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/gap_width/) Einstellung für diese Serie (oder deren übergeordnete Seriengruppe) an. Ein höherer Wert vergrößert den Abstand zwischen den Spalten, ein niedrigerer Wert bringt sie näher zusammen.
