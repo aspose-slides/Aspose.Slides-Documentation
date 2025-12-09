@@ -39,7 +39,7 @@ pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
 
-## **Calculate Actual Position of Parent Chart Elements**
+## **Calculate the Actual Position of Parent Chart Elements**
 Aspose.Slides for C++ provides a simple API for getting these properties. Methods of IActualLayout provide information about actual position of parent chart element. It is necessary to call method IChart::ValidateChartLayout() previously to fill properties with actual values.
 
 ``` cpp
@@ -55,12 +55,12 @@ double w = chart->get_PlotArea()->get_ActualWidth();
 double h = chart->get_PlotArea()->get_ActualHeight();
 ```
 
-## **Hide Information from Chart**
+## **Hide Chart Elements**
 This topic helps you to understand how to hide information from chart. Using Aspose.Slides for C++ you can hide **Title, Vertical Axis, Horizontal Axis** and **Grid Lines** from chart. Below code example shows how to use these properties.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-HideInformationFromChart-HideInformationFromChart.cpp" >}}
 
-## **Set Data Range for Chart**
+## **Set a Data Range for a Chart**
 Aspose.Slides for C++ has provided the simplest API to set the data range for chart in an easiest way. To set the data range for chart:
 
 - Open an instance of Presentation class containing chart.
@@ -73,3 +73,16 @@ The code examples that follow how to update a chart.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetDataRange-SetDataRange.cpp" >}}
 
+## **FAQ**
+
+**Do external Excel workbooks work as a data source, and how does that affect recalculation?**
+
+Yes. A chart can reference an external workbook: when you connect or refresh the external source, formulas and values are taken from that workbook, and the chart reflects the updates during open/edit operations. The API lets you [specify the external workbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/setexternalworkbook/) path and manage the linked data.
+
+**Can I compute and display trendlines without implementing regression myself?**
+
+Yes. [Trendlines](/slides/cpp/trend-line/) (linear, exponential, and others) are added and updated by Aspose.Slides; their parameters are recalculated from the series data automatically, so you don’t need to implement your own calculations.
+
+**If a presentation has multiple charts with external links, can I control which workbook each chart uses for computed values?**
+
+Yes. Each chart can point to its own [external workbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/setexternalworkbook/), or you can create/replace an external workbook per chart independently of the others.

@@ -28,7 +28,7 @@ keywords:
 description: "Create and customize charts in PowerPoint presentations using Aspose.Slides for С++. Add, format, and edit charts with practical code examples in С++."
 ---
 
-## **Create Chart**
+## **Create a Chart**
 
 Charts help people to quickly visualize data and gain insights, which may not be immediately obvious from a table or spreadsheet. 
 
@@ -50,7 +50,7 @@ To allow you create charts, Aspose.Slides provides the [ChartType](https://refer
 
 {{% /alert %}} 
 
-### **Creating Normal Charts**
+### **Create Normal Charts**
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 1. Get a slide's reference through its index.
 1. Add a chart with some data and specify your preferred chart type. 
@@ -152,7 +152,7 @@ This C++ code shows you how to create a normal chart:
 
 ```
 
-### **Creating Scattered Charts**
+### **Create Scattered Charts**
 Scattered charts (also known as scattered plots or x-y graphs) are often used to check for patterns or demonstrate correlations between two variables. 
 
 You may want to use a scattered chart when 
@@ -300,7 +300,7 @@ This C++ code shows you how to create a scattered charts with a different series
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Creating Pie Charts**
+### **Create Pie Charts**
 Pie charts are best used to show the part-to-whole relationship in data, especially when the data contains categorical labels with numeric values. However, if your data contains many parts or labels, you may want to consider using a bar chart instead. 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
@@ -427,7 +427,7 @@ This C++ code shows you how to create a pie chart:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Creating Line Charts**
+### **Create Line Charts**
 
 Line charts (also known as a line graphs) are best used in situations where you want demonstrate changes in value over time. Using a line chart, you can compare lots of data at once, track changes and trends over time, highlight anomalies in data series, etc.
 
@@ -459,7 +459,7 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 }
 ```
 
-### **Creating Tree Map Charts**
+### **Create Tree Map Charts**
 
 Tree map charts are best used for sales data when you want to show the relative size of data categories and (at the same time) quickly draw attention to items that are large contributors to each category. 
 
@@ -534,7 +534,7 @@ This C++ code shows you how to create a tree map chart:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Creating Stock Charts**
+### **Create Stock Charts**
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (ChartType.OpenHighLowClose).
@@ -626,7 +626,7 @@ Sample C++ code used to create a stock chart:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Creating Box and Whisker Charts**
+### **Create Box and Whisker Charts**
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (ChartType.BoxAndWhisker).
@@ -683,7 +683,7 @@ This C++ code shows you how to create a box and whisker chart:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Creating Funnel Charts**
+### **Create Funnel Charts**
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (ChartType.Funnel).
@@ -730,7 +730,7 @@ This C++ code shows you how to create a funnel chart:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Creating Sunburst Charts**
+### **Create Sunburst Charts**
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (in this case, `ChartType.sunburst`).
@@ -796,7 +796,7 @@ This C++ code shows you how to create a sunburst chart:
 
 ```
 
-### **Creating Histogram Charts**
+### **Create Histogram Charts**
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 1. Get a slide's reference through its index. 
 1. Add some chart with some data and specify your preferred chart type (`ChartType.Histogram` in this case).
@@ -839,7 +839,7 @@ This C++ code shows you how to create an histogram chart:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Creating Radar Charts**
+### **Create Radar Charts**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 1. Get a slide's reference through its index. 
@@ -855,7 +855,7 @@ presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::C
 presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Creating Multi Category Charts**
+### **Create Multi-Category Charts**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 1. Obtain a slide's reference by its index.
@@ -929,7 +929,7 @@ This C++ code shows you how to create a multicategory chart:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Creating Map Charts**
+### **Create Map Charts**
 
 A map chart is a visualization of an area containing data. Map charts are best used to compare data or values across geographical regions.
 
@@ -942,7 +942,7 @@ auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 50.0f, 50.0f, 500.0f,
 pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 ```
 
-### **Creating Combination Charts**
+### **Create Combination Charts**
 
 A combination chart (or combo chart) combines two or more chart types in a single graph. This chart lets you highlight, compare, or examine differences between two or more data sets, helping you identify relationships between them.
 
@@ -1100,7 +1100,7 @@ static void CreateComboChart()
 }
 ```
 
-## **Updating Charts**
+## **Update Charts**
 
 1. Instantiate a [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class that represents the presentation containing the chart.
 2. Get a slide's reference through its index.
@@ -1172,7 +1172,7 @@ pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::
 ```
 
 
-## **Setting Data Range for Charts**
+## **Set the Data Range for Charts**
 
 1. Open an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class containing the chart.
 2. Get a slide's reference through its index.
@@ -1197,7 +1197,7 @@ presentation->Save(dataDir + u"SetDataRange_out.pptx", SaveFormat::Pptx);
 ```
 
 
-## **Using Default Markers in Charts**
+## **Use Default Markers in Charts**
 When you use a default marker in charts, each chart series get different default marker symbols automatically.
 
 This C++ code shows you how to set a chart series market automatically:
@@ -1243,3 +1243,21 @@ chart->get_Legend()->set_Overlay(false);
 
 pres->Save(dataDir + u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 ```
+
+## **FAQ**
+
+**What chart types are supported by Aspose.Slides?**
+
+Aspose.Slides supports a wide range of chart types, including bar, line, pie, area, scatter, histogram, radar, and many more. This flexibility allows you to choose the most appropriate chart type for your data visualization needs.
+
+**How do I add a new chart to a slide?**
+
+To add a chart, you first create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class, retrieve the desired slide using its index, and then call the method to add a chart, specifying the chart type and initial data. This process integrates the chart directly into your presentation.
+
+**How can I update the data displayed in a chart?**
+
+You can update a chart’s data by accessing its data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), clearing any default series and categories, and then adding your custom data. This allows you to programmatically refresh the chart to reflect the latest data.
+
+**Is it possible to customize the appearance of the chart?**
+
+Yes, Aspose.Slides provides extensive customization options. You can modify colors, fonts, labels, legends, and other formatting elements to tailor the chart’s appearance to your specific design requirements.

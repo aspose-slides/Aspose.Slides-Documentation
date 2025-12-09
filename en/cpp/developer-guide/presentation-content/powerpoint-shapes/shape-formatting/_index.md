@@ -557,7 +557,7 @@ presentation->Save(u"reset_formatting.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **FAQs**
+## **FAQ**
 
 **Does shape formatting affect the final presentation file size?**
 
