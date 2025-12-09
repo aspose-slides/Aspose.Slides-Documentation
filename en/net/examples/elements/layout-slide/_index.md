@@ -21,7 +21,7 @@ description: "Use C# to manage layout slides with Aspose.Slides: create, apply, 
 
 This article demonstrates how to work with **Layout Slides** in Aspose.Slides for .NET. A layout slide defines the design and formatting inherited by normal slides. You can add, access, clone, and remove layout slides, as well as clean up unused ones to reduce presentation size.
 
-## Add a Layout Slide
+## **Add a Layout Slide**
 
 You can create a custom layout slide to define reusable formatting. For example, you might add a text box that appears on all slides using this layout.
 
@@ -51,7 +51,7 @@ static void Add_Layout_Slide()
 ![Slides Inheriting Layout Content](layout-slide-result.png)
 
 
-## Access a Layout Slide
+## **Access a Layout Slide**
 
 Layout slides can be accessed by index or by layout type (e.g., `Blank`, `Title`, `SectionHeader`, etc.).
 
@@ -68,7 +68,7 @@ static void Access_Layout_Slide()
 }
 ```
 
-## Remove a Layout Slide
+## **Remove a Layout Slide**
 
 You can remove a specific layout slide if it's no longer needed.
 
@@ -83,7 +83,7 @@ static void Remove_Layout_Slide()
 }
 ```
 
-## Remove Unused Layout Slides
+## **Remove Unused Layout Slides**
 
 To reduce the presentation size, you may want to remove layout slides that are not used by any normal slides.
 
@@ -97,7 +97,7 @@ static void RemoveUnused_Layout_Slides()
 }
 ```
 
-## Clone a Layout Slide
+## **Clone a Layout Slide**
 
 You can duplicate a layout slide using the `AddClone` method.
 

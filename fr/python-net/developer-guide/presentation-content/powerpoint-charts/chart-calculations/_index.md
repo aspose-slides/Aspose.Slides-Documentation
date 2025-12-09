@@ -1,15 +1,28 @@
 ---
-title: Calculs de Graphiques
+title: Optimiser les calculs de graphiques pour les présentations en Python
+linktitle: Calculs de graphiques
 type: docs
 weight: 50
 url: /fr/python-net/chart-calculations/
-keywords: "Calculs de graphiques, éléments de graphique, position des éléments, valeurs de graphique Python, Aspose.Slides pour Python via .NET"
-description: "Calculs et valeurs de graphiques PowerPoint en Python"
+keywords:
+- calculs de graphiques
+- éléments de graphique
+- position de l'élément
+- position réelle
+- élément enfant
+- élément parent
+- valeurs du graphique
+- valeur réelle
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Comprendre les calculs de graphiques, les mises à jour de données et le contrôle de précision dans Aspose.Slides pour Python via .NET pour PPT, PPTX et ODP, avec des exemples de code pratiques."
 ---
 
-## **Calculer les Valeurs Réelles des Éléments de Graphique**
-Aspose.Slides pour Python via .NET fournit une API simple pour obtenir ces propriétés. Cela vous aidera à calculer les valeurs réelles des éléments de graphique. Les valeurs réelles comprennent la position des éléments qui implémentent l'interface IActualLayout (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight) et les valeurs réelles des axes (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale).
-
+## **Calculer les valeurs réelles des éléments du graphique**
+Aspose.Slides for Python via .NET fournit une API simple pour obtenir ces propriétés. Cela vous aidera à calculer les valeurs réelles des éléments du graphique. Les valeurs réelles comprennent la position des éléments qui implémentent l'interface IActualLayout (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight) et les valeurs réelles des axes (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale).
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -25,10 +38,8 @@ with slides.Presentation("pres.pptx") as pres:
 ```
 
 
-
-## **Calculer la Position Réelle des Éléments de Graphique Parent**
-Aspose.Slides pour Python via .NET fournit une API simple pour obtenir ces propriétés. Les propriétés de IActualLayout fournissent des informations sur la position réelle de l'élément de graphique parent. Il est nécessaire d'appeler la méthode IChart.ValidateChartLayout() au préalable pour remplir les propriétés avec les valeurs réelles.
-
+## **Calculer la position réelle des éléments parents du graphique**
+Aspose.Slides for Python via .NET fournit une API simple pour obtenir ces propriétés. Les propriétés de IActualLayout fournissent des informations sur la position réelle de l'élément parent du graphique. Il faut appeler la méthode IChart.ValidateChartLayout() au préalable pour remplir les propriétés avec les valeurs réelles.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -44,10 +55,8 @@ with slides.Presentation("pres.pptx") as pres:
 ```
 
 
-
-## **Masquer les Informations d'un Graphique**
-Ce sujet vous aide à comprendre comment masquer des informations d'un graphique. En utilisant Aspose.Slides pour Python via .NET, vous pouvez masquer **Titre, Axe Vertical, Axe Horizontal** et **Lignes de Grille** d'un graphique. L'exemple de code ci-dessous montre comment utiliser ces propriétés.
-
+## **Masquer des informations du graphique**
+Ce sujet vous aide à comprendre comment masquer des informations du graphique. En utilisant Aspose.Slides for Python via .NET, vous pouvez masquer le **Titre, Axe vertical, Axe horizontal** et les **Lignes de la grille** du graphique. L'exemple de code ci‑dessous montre comment utiliser ces propriétés.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -56,19 +65,19 @@ with slides.Presentation() as pres:
     slide = pres.slides[0]
     chart = slide.shapes.add_chart(charts.ChartType.LINE_WITH_MARKERS, 140, 118, 320, 370)
 
-    # Masquer le Titre du graphique
+    # Masquer le titre du graphique
     chart.has_title = False
 
     # Masquer l'axe des valeurs
     chart.axes.vertical_axis.is_visible = False
 
-    # Visibilité de l'Axe des Catégories
+    # Visibilité de l'axe des catégories
     chart.axes.horizontal_axis.is_visible = False
 
-    # Masquer la Légende
+    # Masquer la légende
     chart.has_legend = False
 
-    # Masquer les Lignes de Grille Principales
+    # Masquer les lignes principales de la grille
     chart.axes.horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
     #for i in range(len(chart.chart_data.series)):
@@ -88,3 +97,18 @@ with slides.Presentation() as pres:
 
     pres.save("HideInformationFromChart.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Les classeurs Excel externes fonctionnent-ils comme source de données, et comment cela affecte-t-il le recalcul ?**
+
+Oui. Un graphique peut référencer un classeur externe : lorsque vous connectez ou actualisez la source externe, les formules et les valeurs sont prises dans ce classeur, et le graphique reflète les mises à jour lors des opérations d'ouverture/modification. L'API vous permet de [spécifier le classeur externe](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) et de gérer les données liées.
+
+**Puis-je calculer et afficher les lignes de tendance sans implémenter moi‑même la régression ?**
+
+Oui. Les [lignes de tendance](/slides/fr/python-net/trend-line/) (linéaires, exponentielles et autres) sont ajoutées et mises à jour par Aspose.Slides ; leurs paramètres sont recalculés à partir des données de séries automatiquement, vous n'avez donc pas besoin d'implémenter vos propres calculs.
+
+**Si une présentation contient plusieurs graphiques avec des liens externes, puis‑je contrôler quel classeur chaque graphique utilise pour les valeurs calculées ?**
+
+Oui. Chaque graphique peut pointer vers son propre [classeur externe](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/), ou vous pouvez créer/remplacer un classeur externe par graphique de façon indépendante des autres.

@@ -234,7 +234,7 @@ public class CustomFormattingController : IHtmlFormattingController
 }
 ```
 
-## **Save CSS and Images when Exporting to HTML**
+## **Save CSS and Images When Exporting to HTML**
 
 Using new CSS style files, you can easily change the appearance of the HTML file generated from the PowerPoint-to-HTML conversion process.
 
@@ -286,7 +286,7 @@ public class CustomHeaderAndFontsController : EmbedAllFontsHtmlController
 }
 ```
 
-## **Link All Fonts when Converting a Presentation to HTML**
+## **Link All Fonts When Converting a Presentation to HTML**
 
 If you do not want to embed fonts (to avoid increasing the size of the resulting HTML), you can link all fonts by implementing your own `LinkAllFontsHtmlController` version.
 

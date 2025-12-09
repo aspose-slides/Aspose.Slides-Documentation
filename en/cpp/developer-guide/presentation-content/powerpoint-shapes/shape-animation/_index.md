@@ -44,7 +44,7 @@ PowerPoint provides many options and tools for animations and animation effects 
 * Aspose.Slides provides the classes and types you need to work with animations under the [Aspose.Slides.Animation](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.animation) namespace,
 * Aspose.Slides provides over **150 animation effects** under the [EffectType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31) enumeration. These effects are essentially the same (or equivalent) effects used in PowerPoint.
 
-## **Apply Animation to TextBox**
+## **Apply Animation to a TextBox**
 
 Aspose.Slides for C++ allows you to apply animation to the text in a shape. 
 
@@ -92,7 +92,7 @@ Besides applying animations to text, you can also apply animations to a single [
 
 {{% /alert %}} 
 
-## **Apply Animation to PictureFrame**
+## **Apply Animation to a PictureFrame**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) class.
 2. Get a slide's reference through its index.
@@ -126,7 +126,7 @@ System::SharedPtr<IEffect> effect = sequence->AddEffect(picFrame, Aspose::Slides
 pres->Save(path + u"AnimImage_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Apply Animation to Shape**
+## **Apply Animation to a Shape**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) class.
 2. Get a slide's reference through its index.
@@ -191,7 +191,7 @@ This C++ code shows you how to apply the `PathFootball` (path football) effect t
 	 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Get the Animation Effects Applied to Shape**
+## **Get the Animation Effects Applied to a Shape**
 
 The following examples show you how to use the `GetEffectsByShape` method from the [ISequence](https://reference.aspose.com/slides/cpp/aspose.slides.animation/isequence/) interface to get all animation effects applied to a shape.
 
@@ -333,7 +333,7 @@ Aspose.Slides provides these properties to allow you to work with sounds in anim
 - [set_Sound()](https://reference.aspose.com/slides/cpp/aspose.slides.animation/effect/set_sound/) 
 - [set_StopPreviousSound()](https://reference.aspose.com/slides/cpp/aspose.slides.animation/effect/set_stopprevioussound/) 
 
-### **Add Animation Effect Sound**
+### **Add an Animation Effect Sound**
 
 This C++ code shows you how to add an animation effect sound and stop it when the next effect starts:
 
@@ -367,7 +367,7 @@ interactiveSequence->idx_get(0)->set_StopPreviousSound(true);
 pres->Save(u"AnimExample_Sound_out.pptx", SaveFormat::Pptx);
 ```
 
-### **Extract Animation Effect Sound**
+### **Extract an Animation Effect Sound**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
 2. Get a slide’s reference through its index. 
@@ -472,3 +472,16 @@ firstEffect->set_DelayBetweenTextParts(20.0f);
 pres->Save(u"AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
 ```
 
+## **FAQ**
+
+**How can I ensure animations are preserved when publishing the presentation to the web?**
+
+[Export to HTML5](/slides/cpp/export-to-html5/) and enable the [options](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/) responsible for [shape](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animateshapes/) and [transition](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animatetransitions/) animations. Plain HTML does not play slide animations, whereas HTML5 does.
+
+**How does changing the z-order (layer order) of shapes affect animation?**
+
+Animation and drawing order are independent: an effect controls the timing and type of appearing/disappearing, while [z-order](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_zorderposition/) determines what covers what. The visible result is defined by their combination. (This is the general PowerPoint behavior; the Aspose.Slides effects-and-shapes model follows the same logic.)
+
+**Are there limitations when converting animations to video for certain effects?**
+
+In general, [animations are supported](/slides/cpp/convert-powerpoint-to-video/), but rare cases or specific effects may be rendered differently. It is recommended to test with the effects you use and with the library version.

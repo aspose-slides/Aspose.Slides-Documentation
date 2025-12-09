@@ -29,7 +29,7 @@ keywords:
 description: "Convert PowerPoint and OpenDocument slides to XAML in .NET using Aspose.Slides—quick, Office-free solution that keeps your layout intact."
 ---
 
-# **Exporting Presentations to XAML**
+## **Export Presentations to XAML**
 
 {{% alert title="Info" color="info" %}} 
 
@@ -37,13 +37,13 @@ In [Aspose.Slides 21.6](https://docs.aspose.com/slides/net/aspose-slides-for-net
 
 {{% /alert %}} 
 
-# **About XAML**
+## **About XAML**
 
 XAML is a descriptive programming language that allows you to build or write user interfaces for apps, especially those that use WPF (Windows Presentation Foundation), UWP (Universal Windows Platform), and Xamarin forms.  
 
 XAML, which is an XML-based language, is Microsoft’s variant for describing a GUI. You are likely to use a designer to work on XAML files most of the time, but you can still write and edit your GUI. 
 
-## **Exporting Presentations to XAML With Default Options**
+## **Export Presentations to XAML With Default Options**
 
 This C# code shows you how to export a presentation to XAML with default settings:
 
@@ -54,7 +54,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## **Exporting Presentations to XAML With Custom Options**
+## **Export Presentations to XAML With Custom Options**
 
 You get to select options from the [IXamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions) interface that control the export process and determine how Aspose.Slides exports your presentation to XAML. 
 

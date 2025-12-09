@@ -1,21 +1,29 @@
 ---
-title: Problèmes connus dans Aspose.Slides pour Java 14.3.0
+title: Problèmes connus dans Aspose.Slides for Java 14.3.0
 type: docs
 weight: 20
 url: /fr/java/known-issues-in-aspose-slides-for-java-14-3-0/
+keywords:
+- problème connu
+- PowerPoint
+- OpenDocument
+- présentation
+- Java
+- Aspose.Slides
+description: "Examinez les problèmes connus dans Aspose.Slides for Java 14.3.0 pour garantir un travail précis avec les fichiers PowerPoint et OpenDocument et éviter les mauvaises surprises dans vos présentations."
 ---
 
-Aspose.Slides pour Java 14.3.0 (14.4.0) fournit une toute nouvelle implémentation du traitement de PPT. Il y a beaucoup d'améliorations, conversion partielle de PPTX à PPT. Mais il y a certaines fonctionnalités non mises en œuvre :
+Aspose.Slides for Java 14.3.0 (14.4.0) fournit une implémentation complètement nouvelle du traitement PPT. Il y a de nombreuses améliorations, une conversion partielle PPTX vers PPT. Mais certaines fonctionnalites ne sont pas encore implementees :
 
-- Certaines formes ont une mauvaise géométrie dans les documents PPT sérialisés (Call outs)
-- Toutes les fonctionnalités de mise en forme du texte PPTX ne sont pas prises en charge dans la sérialisation PPT
-- Les informations sur la langue du texte et les paramètres de vérification orthographique ne sont pas présentes dans les documents PPT sérialisés
-- Toutes les fonctionnalités des thèmes PPTX ne sont pas prises en charge dans la sérialisation PPT
+- Certaines formes ont une geometrie incorrecte dans les documents PPT serializés (Call outs)
+- Toutes les fonctionnalites de mise en forme du texte PPTX ne sont pas prises en charge lors de la serializétion PPT
+- Les informations sur la langue du texte et les parametres d'orthographe ne sont pas presentes dans les documents PPT serializés
+- Toutes les fonctionnalites des themes PPTX ne sont pas prises en charge lors de la serializétion PPT
 
-**Il y a quelques différences par rapport à Aspose.Slides pour Java 8.6.0 :**
+**Il y a quelques differences comparees a Aspose.Slides for Java 8.6.0 :**
 
-- Il y a des problèmes connus dans la sérialisation OLE/ActiveX PPT à PPT
+- Des problemes connus existent lors de la serializétion OLE/ActiveX PPT vers PPT
 
-**Il y a quelques différences par rapport à Aspose.Slides pour .NET 14.3.0 :**
+**Il y a quelques differences comparees a Aspose.Slides for .NET 14.3.0 :**
 
-- Le support de l'impression des présentations n'est pas actuellement disponible dans Aspose.Slides pour Java
+- Le support de l'impression de presentations n'est actuellement pas disponible dans Aspose.Slides for Java

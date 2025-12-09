@@ -1,21 +1,40 @@
 ---
-title: Manipulations de Formes
+title: Gérer les formes de présentation en .NET
+linktitle: Manipulation de formes
 type: docs
 weight: 40
-url: /fr/net/manipulations-de-formes/
-keywords: "forme PowerPoint, forme sur une diapositive, trouver forme, cloner forme, supprimer forme, cacher forme, changer ordre de forme, obtenir ID forme interop, texte alternatif de forme, formats de mise en page de forme, forme en tant que SVG, aligner forme, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
-description: "Manipuler les formes PowerPoint en C# ou .NET"
+url: /fr/net/shape-manipulations/
+keywords:
+- forme PowerPoint
+- forme de présentation
+- forme sur diapositive
+- rechercher une forme
+- cloner forme
+- supprimer forme
+- masquer forme
+- modifier l'ordre des formes
+- obtenir l'ID de forme Interop
+- texte alternatif de forme
+- formats de mise en page de forme
+- forme en SVG
+- convertir forme en SVG
+- aligner forme
+- PowerPoint
+- présentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Apprenez à créer, modifier et optimiser les formes dans Aspose.Slides pour .NET et à fournir des présentations PowerPoint haute performance."
 ---
 
-## **Trouver une Forme dans la Diapositive**
-Ce sujet décrira une technique simple pour faciliter la tâche des développeurs qui souhaitent trouver une forme spécifique sur une diapositive sans utiliser son Id interne. Il est important de savoir que les fichiers de présentation PowerPoint n'ont aucun moyen d'identifier des formes sur une diapositive, sauf par un Id unique interne. Il semble difficile pour les développeurs de trouver une forme en utilisant son Id unique interne. Toutes les formes ajoutées aux diapositives ont un texte alternatif. Nous suggérons aux développeurs d'utiliser le texte alternatif pour trouver une forme spécifique. Vous pouvez utiliser MS PowerPoint pour définir le texte alternatif des objets que vous prévoyez de modifier à l'avenir.
+## **Trouver une forme dans la diapositive**
+Cet article décrit une technique simple pour faciliter les développeurs à trouver une forme spécifique sur une diapositive sans utiliser son Id interne. Il est important de savoir que les fichiers de présentation PowerPoint ne possèdent aucun moyen d’identifier les formes sur une diapositive autre qu’un Id unique interne. Il semble difficile pour les développeurs de trouver une forme en utilisant son Id unique interne. Toutes les formes ajoutées aux diapositives possèdent un texte alternatif. Nous suggérons aux développeurs d’utiliser le texte alternatif pour trouver une forme spécifique. Vous pouvez utiliser MS PowerPoint pour définir le texte alternatif des objets que vous prévoyez de modifier ultérieurement.
 
-Après avoir défini le texte alternatif de toute forme désirée, vous pouvez ensuite ouvrir cette présentation en utilisant Aspose.Slides pour .NET et itérer à travers toutes les formes ajoutées à une diapositive. À chaque itération, vous pouvez vérifier le texte alternatif de la forme et la forme avec le texte alternatif correspondant serait celle requise par vous. Pour démontrer cette technique de manière plus efficace, nous avons créé une méthode, [FindShape](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/findshape/#findshape_1) qui effectue le tour nécessaire pour trouver une forme spécifique dans une diapositive et retourne simplement cette forme.
-
+Après avoir défini le texte alternatif d’une forme souhaitée, vous pouvez ouvrir cette présentation avec Aspose.Slides for .NET et parcourir toutes les formes ajoutées à une diapositive. À chaque itération, vous pouvez vérifier le texte alternatif de la forme et la forme dont le texte alternatif correspond sera celle dont vous avez besoin. Pour démontrer cette technique de manière plus claire, nous avons créé une méthode, [FindShape](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/findshape/#findshape_1) qui permet de trouver une forme spécifique dans une diapositive et retourne simplement cette forme.
 ```c#
 public static void Run()
 {
-    // Instancier une classe Presentation représentant le fichier de présentation
+    // Instancier une classe Presentation qui représente le fichier de présentation
     using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
     {
 
@@ -24,7 +43,7 @@ public static void Run()
         IShape shape = FindShape(slide, "Shape1");
         if (shape != null)
         {
-            Console.WriteLine("Nom de la forme: " + shape.Name);
+            Console.WriteLine("Shape Name: " + shape.Name);
         }
     }
 }
@@ -35,7 +54,7 @@ public static IShape FindShape(ISlide slide, string alttext)
     // Itération à travers toutes les formes de la diapositive
     for (int i = 0; i < slide.Shapes.Count; i++)
     {
-        // Si le texte alternatif de la diapositive correspond à celui requis alors
+        // Si le texte alternatif de la forme correspond à celui requis alors
         // Retourner la forme
         if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
             return slide.Shapes[i];
@@ -46,18 +65,18 @@ public static IShape FindShape(ISlide slide, string alttext)
 
 
 
-## **Cloner une Forme**
-Pour cloner une forme dans une diapositive en utilisant Aspose.Slides pour .NET :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Obtenez la référence d'une diapositive en utilisant son index.
-1. Accédez à la collection de formes de la diapositive source.
-1. Ajoutez une nouvelle diapositive à la présentation.
-1. Clonez les formes de la collection de formes de la diapositive source vers la nouvelle diapositive.
-1. Enregistrez la présentation modifiée sous forme de fichier PPTX.
+## **Cloner une forme**
+Pour cloner une forme sur une diapositive en utilisant Aspose.Slides for .NET :
+
+1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Obtenir la référence d’une diapositive en utilisant son indice.
+1. Accéder à la collection de formes de la diapositive source.
+1. Ajouter une nouvelle diapositive à la présentation.
+1. Cloner les formes de la collection de formes de la diapositive source vers la nouvelle diapositive.
+1. Enregistrer la présentation modifiée au format PPTX.
 
 L'exemple ci-dessous ajoute une forme groupée à une diapositive.
-
 ```c#
 // Instancier la classe Presentation
 using (Presentation srcPres = new Presentation("Source Frame.pptx"))
@@ -77,26 +96,26 @@ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 
 
 
-## **Supprimer une Forme**
-Aspose.Slides pour .NET permet aux développeurs de supprimer toute forme. Pour supprimer la forme d'une diapositive, veuillez suivre les étapes ci-dessous :
 
-1. Créez une instance de la classe `Presentation`.
-1. Accédez à la première diapositive.
-1. Trouvez la forme avec un texte alternatif spécifique.
-1. Supprimez la forme.
-1. Enregistrez le fichier sur le disque.
+## **Supprimer une forme**
+Aspose.Slides for .NET permet aux développeurs de supprimer n’importe quelle forme. Pour supprimer la forme d’une diapositive, veuillez suivre les étapes ci‑dessous :
 
+1. Créer une instance de la classe `Presentation`.
+1. Accéder à la première diapositive.
+1. Trouver la forme avec un AlternativeText spécifique.
+1. Supprimer la forme.
+1. Enregistrer le fichier sur le disque.
 ```c#
-// Créer un objet Presentation
+// Créer l'objet Presentation
 Presentation pres = new Presentation();
 
-// Obtenez la première diapositive
+// Obtenir la première diapositive
 ISlide sld = pres.Slides[0];
 
-// Ajoutez une forme automatique de type rectangle
+// Ajouter une forme auto de type rectangle
 IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
 IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "Défini par l'utilisateur";
+String alttext = "User Defined";
 int iCount = sld.Shapes.Count;
 for (int i = 0; i < iCount; i++)
 {
@@ -113,26 +132,26 @@ pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
 
 
 
-## **Cacher une Forme**
-Aspose.Slides pour .NET permet aux développeurs de cacher toute forme. Pour cacher la forme d'une diapositive, veuillez suivre les étapes ci-dessous :
 
-1. Créez une instance de la classe `Presentation`.
-1. Accédez à la première diapositive.
-1. Trouvez la forme avec un texte alternatif spécifique.
-1. Cachez la forme.
-1. Enregistrez le fichier sur le disque.
+## **Masquer une forme**
+Aspose.Slides for .NET permet aux développeurs de masquer n’importe quelle forme. Pour masquer la forme d’une diapositive, veuillez suivre les étapes ci‑dessous :
 
+1. Créer une instance de la classe `Presentation`.
+1. Accéder à la première diapositive.
+1. Trouver la forme avec un AlternativeText spécifique.
+1. Masquer la forme.
+1. Enregistrer le fichier sur le disque.
 ```c#
-// Instancier la classe Presentation représentant le PPTX
+// Instancier la classe Presentation qui représente le PPTX
 Presentation pres = new Presentation();
 
-// Obtenez la première diapositive
+// Get the first slide
 ISlide sld = pres.Slides[0];
 
-// Ajoutez une forme automatique de type rectangle
+// Add autoshape of rectangle type
 IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
 IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "Défini par l'utilisateur";
+String alttext = "User Defined";
 int iCount = sld.Shapes.Count;
 for (int i = 0; i < iCount; i++)
 {
@@ -149,17 +168,17 @@ pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
 
 
 
-## **Changer l'Ordre des Formes**
-Aspose.Slides pour .NET permet aux développeurs de réorganiser les formes. La réorganisation de la forme spécifie quelle forme est devant ou quelle forme est derrière. Pour réorganiser la forme d'une diapositive, veuillez suivre les étapes ci-dessous :
 
-1. Créez une instance de la classe `Presentation`.
-1. Accédez à la première diapositive.
-1. Ajoutez une forme.
-1. Ajoutez du texte dans le cadre de texte de la forme.
-1. Ajoutez une autre forme avec les mêmes coordonnées.
-1. Réorganisez les formes.
-1. Enregistrez le fichier sur le disque.
+## **Modifier l'ordre des formes**
+Aspose.Slides for .NET permet aux développeurs de réordonner les formes. Le réordonnancement détermine quelle forme est au premier plan ou à l’arrière-plan. Pour réordonner les formes d’une diapositive, veuillez suivre les étapes ci‑dessous :
 
+1. Créer une instance de la classe `Presentation`.
+1. Accéder à la première diapositive.
+1. Ajouter une forme.
+1. Ajouter du texte dans le cadre de texte de la forme.
+1. Ajouter une autre forme avec les mêmes coordonnées.
+1. Réordonner les formes.
+1. Enregistrer le fichier sur le disque.
 ```c#
 Presentation presentation1 = new Presentation("HelloWorld.pptx");
 ISlide slide = presentation1.Slides[0];
@@ -170,22 +189,22 @@ shp3.AddTextFrame(" ");
 ITextFrame txtFrame = shp3.TextFrame;
 IParagraph para = txtFrame.Paragraphs[0];
 IPortion portion = para.Portions[0];
-portion.Text="Texte de Filigrane Texte de Filigrane Texte de Filigrane";
+portion.Text="Watermark Text Watermark Text Watermark Text";
 shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
 slide.Shapes.Reorder(2, shp3);
-presentation1.Save("Reshape_out.pptx", SaveFormat.Pptx);
+presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Obtenir l'ID de Forme Interop**
-Aspose.Slides pour .NET permet aux développeurs d'obtenir un identifiant unique de forme dans le contexte d'une diapositive, contrairement à la propriété UniqueId, qui permet d'obtenir un identifiant unique dans le scope de la présentation. La propriété OfficeInteropShapeId a été ajoutée aux interfaces IShape et à la classe Shape respectivement. La valeur retournée par la propriété OfficeInteropShapeId correspond à la valeur de l'Id de l'objet Microsoft.Office.Interop.PowerPoint.Shape. Un exemple de code est donné ci-dessous.
 
+## **Obtenir l'ID de forme Interop**
+Aspose.Slides for .NET permet aux développeurs d’obtenir un identifiant de forme unique au niveau de la diapositive, contrairement à la propriété UniqueId qui fournit un identifiant unique au niveau de la présentation. La propriété OfficeInteropShapeId a été ajoutée aux interfaces IShape et à la classe Shape. La valeur renvoyée par la propriété OfficeInteropShapeId correspond à la valeur de l’Id de l’objet Microsoft.Office.Interop.PowerPoint.Shape. Un exemple de code est présenté ci‑dessous.
 ```c#
 public static void Run()
 {
 	using (Presentation presentation = new Presentation("Presentation.pptx"))
 	{
-		// Obtention de l'identifiant unique de la forme dans le cadre de la diapositive
+		// Obtention de l'identifiant unique de forme dans la portée de la diapositive
 		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
 	}
 }
@@ -193,25 +212,30 @@ public static void Run()
 
 
 
-## **Définir le Texte Alternatif pour la Forme**
-Aspose.Slides pour .NET permet aux développeurs de définir le TexteAlternatif de toute forme. Les formes dans une présentation peuvent être distinguées par la propriété TexteAlternatif ou Nom de la Forme. La propriété TexteAlternatif peut être lue ou définie en utilisant Aspose.Slides ainsi que Microsoft PowerPoint. En utilisant cette propriété, vous pouvez taguer une forme et effectuer différentes opérations telles que Supprimer une forme, Cacher une forme ou Réorganiser des formes sur une diapositive. Pour définir le TexteAlternatif d'une forme, veuillez suivre les étapes ci-dessous :
 
-1. Créez une instance de la classe `Presentation`.
-1. Accédez à la première diapositive.
-1. Ajoutez une forme à la diapositive.
-1. Faites quelques travaux avec la forme nouvellement ajoutée.
-1. Parcourez les formes pour en trouver une.
-1. Définissez le TexteAlternatif.
-1. Enregistrez le fichier sur le disque.
+## **Définir le texte alternatif pour une forme**
+Aspose.Slides for .NET permet aux développeurs de définir l’AlternateText de n’importe quelle forme. 
+Les formes d’une présentation peuvent être distinguées par la propriété AlternativeText ou le nom de la forme. 
+La propriété AlternativeText peut être lue ou définie à l’aide d’Aspose.Slides ainsi que de Microsoft PowerPoint. 
+En utilisant cette propriété, vous pouvez baliser une forme et réaliser différentes opérations telles que la suppression d’une forme, 
+le masquage d’une forme ou le réordonnancement des formes sur une diapositive.
+Pour définir l’AlternateText d’une forme, veuillez suivre les étapes ci‑dessous :
 
+1. Créer une instance de la classe `Presentation`.
+1. Accéder à la première diapositive.
+1. Ajouter n’importe quelle forme à la diapositive.
+1. Effectuer des opérations avec la forme nouvellement ajoutée.
+1. Parcourir les formes pour en trouver une.
+1. Définir l’AlternativeText.
+1. Enregistrer le fichier sur le disque.
 ```c#
-// Instancier la classe Presentation représentant le PPTX
+// Instancier la classe Presentation qui représente le PPTX
 Presentation pres = new Presentation();
 
-// Obtenez la première diapositive
+// Get the first slide
 ISlide sld = pres.Slides[0];
 
-// Ajoutez une forme automatique de type rectangle
+// Add autoshape of rectangle type
 IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
 IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
 shp2.FillFormat.FillType = FillType.Solid;
@@ -223,7 +247,7 @@ for (int i = 0; i < sld.Shapes.Count; i++)
     if (shape != null)
     {
         AutoShape ashp = shape;
-        ashp.AlternativeText = "Défini par l'utilisateur";
+        ashp.AlternativeText = "User Defined";
     }
 }
 
@@ -234,11 +258,11 @@ pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
 
 
 
-## **Accéder aux Formats de Mise en Page pour la Forme**
-Aspose.Slides pour .NET fournit une API simple pour accéder aux formats de mise en page pour une forme. Cet article démontre comment vous pouvez accéder aux formats de mise en page.
 
-Le code d'exemple ci-dessous est donné.
+## **Accéder aux formats de mise en page pour une forme**
+Aspose.Slides for .NET fournit une API simple pour accéder aux formats de mise en page d’une forme. Cet article montre comment accéder aux formats de mise en page.
 
+Le code d'exemple ci‑dessous est fourni.
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -250,9 +274,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## **Rendre une Forme en tant que SVG**
-Maintenant, Aspose.Slides pour .NET prend en charge le rendu d'une forme en tant que SVG. La méthode WriteAsSvg (et ses surcharges) a été ajoutée à la classe Shape et à l'interface IShape. Cette méthode permet d'enregistrer le contenu de la forme en tant que fichier SVG. L'extrait de code ci-dessous montre comment exporter la forme d'une diapositive vers un fichier SVG.
 
+## **Rendu d’une forme en SVG**
+Aspose.Slides for .NET supporte désormais le rendu d’une forme au format SVG. La méthode WriteAsSvg (et ses surcharges) a été ajoutée à la classe Shape et à l’interface IShape. Cette méthode permet d’enregistrer le contenu de la forme dans un fichier SVG. L’extrait de code ci‑dessous montre comment exporter la forme d’une diapositive vers un fichier SVG.
 ```c#
 public static void Run()
 {
@@ -267,20 +291,20 @@ public static void Run()
 }
 ```
 
-## Aligner la Forme
+
+## **Aligner une forme**
 
 Grâce à la méthode surchargée [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes/index), vous pouvez 
 
-* aligner les formes par rapport aux marges d'une diapositive. Voir Exemple 1. 
-* aligner les formes les unes par rapport aux autres. Voir Exemple 2. 
+* aligner les formes par rapport aux marges d’une diapositive. Voir l’exemple 1. 
+* aligner les formes les unes par rapport aux autres. Voir l’exemple 2. 
 
-L'énumération [ShapesAlignmentType](https://reference.aspose.com/slides/net/aspose.slides/shapesalignmenttype) définit les options d'alignement disponibles.
+L’enumération [ShapesAlignmentType](https://reference.aspose.com/slides/net/aspose.slides/shapesalignmenttype) définit les options d’alignement disponibles.
 
-### Exemple 1
+**Example 1**
 
-Ce code C# vous montre comment aligner les formes avec les indices 1, 2 et 4 le long de la bordure supérieure d'une diapositive :
-Le code source ci-dessous aligne les formes avec les indices 1, 2 et 4 le long de la bordure supérieure de la diapositive. 
-
+Ce code C# montre comment aligner les formes avec les indices 1,2 et 4 le long de la bordure supérieure d’une diapositive :
+Le code source ci‑dessous aligne les formes avec les indices 1,2 et 4 le long de la bordure supérieure de la diapositive. 
 ``` csharp
 using (Presentation pres = new Presentation("example.pptx"))
 {
@@ -297,13 +321,67 @@ using (Presentation pres = new Presentation("example.pptx"))
 }
 ```
 
-### Exemple 2
 
-Ce code C# vous montre comment aligner un ensemble entier de formes par rapport à la forme la plus basse de la collection :
+**Example 2**
 
+Ce code C# montre comment aligner une collection entière de formes par rapport à la forme la plus basse de la collection :
 ``` csharp
 using (Presentation pres = new Presentation("example.pptx"))
 {
     SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
 }
 ```
+
+
+## **Propriétés de retournement**
+
+Dans Aspose.Slides, la classe [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) permet de contrôler le retournement horizontal et vertical des formes via ses propriétés `FlipH` et `FlipV`. Les deux propriétés sont du type [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/), permettant les valeurs `True` pour indiquer un retournement, `False` pour aucun retournement, ou `NotDefined` pour utiliser le comportement par défaut. Ces valeurs sont accessibles depuis le [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/) d’une forme.
+
+Pour modifier les paramètres de retournement, une nouvelle instance de [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) est construite avec la position et la taille actuelles de la forme, les valeurs souhaitées pour `FlipH` et `FlipV`, ainsi que l’angle de rotation. L’affectation de cette instance au [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/) de la forme et l’enregistrement de la présentation appliquent les transformations de miroir et les enregistrent dans le fichier de sortie.
+
+Supposons que nous ayons un fichier sample.pptx dans lequel la première diapositive contient une seule forme avec les paramètres de retournement par défaut, comme illustré ci‑dessus.
+
+![The shape to be flipped](shape_to_be_flipped.png)
+
+L’exemple de code suivant récupère les propriétés de retournement actuelles de la forme et la retourne également horizontalement et verticalement.
+```cs
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    IShape shape = presentation.Slides[0].Shapes[0];
+
+    // Récupérer la propriété de retournement horizontal de la forme.
+    NullableBool horizontalFlip = shape.Frame.FlipH;
+    Console.WriteLine($"Horizontal flip: {horizontalFlip}");
+
+    // Récupérer la propriété de retournement vertical de la forme.
+    NullableBool verticalFlip = shape.Frame.FlipV;
+    Console.WriteLine($"Vertical flip: {verticalFlip}");
+
+    float x = shape.Frame.X;
+    float y = shape.Frame.Y;
+    float width = shape.Frame.Width;
+    float height = shape.Frame.Height;
+    NullableBool flipH = NullableBool.True; // Retourner horizontalement.
+    NullableBool flipV = NullableBool.True; // Retourner verticalement.
+    float rotation = shape.Frame.Rotation;
+
+    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
+```
+
+
+## **FAQ**
+
+**Puis-je combiner des formes (union/intersection/soustraction) sur une diapositive comme dans un éditeur de bureau ?**
+
+Il n’existe pas d’API intégrée pour les opérations booléennes. Vous pouvez l’approcher en construisant vous‑même le contour souhaité — par exemple en calculant la géométrie résultante (via [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/)) et en créant une nouvelle forme avec ce contour, en supprimant éventuellement les formes originales.
+
+**Comment contrôler l’ordre d’empilement (z‑order) afin qu’une forme reste toujours « au premier plan » ?**
+
+Modifiez l’ordre d’insertion/déplacement au sein de la collection de [shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) de la diapositive. Pour des résultats prévisibles, finalisez le z‑order après toutes les autres modifications de la diapositive.
+
+**Puis-je « verrouiller » une forme pour empêcher les utilisateurs de la modifier dans PowerPoint ?**
+
+Oui. Définissez les [indicateurs de protection au niveau de la forme](/slides/fr/net/applying-protection-to-presentation/) (par ex., verrouiller la sélection, le déplacement, le redimensionnement, les modifications de texte). Si nécessaire, appliquez les restrictions sur le maître ou la disposition. Notez qu’il s’agit d’une protection au niveau de l’interface utilisateur, pas d’une fonction de sécurité ; pour une protection plus forte, combinez‑la avec des restrictions au niveau du fichier, comme les [recommandations en lecture seule ou les mots de passe](/slides/fr/net/password-protected-presentation/).

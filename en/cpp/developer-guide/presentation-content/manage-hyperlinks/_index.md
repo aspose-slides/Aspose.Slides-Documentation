@@ -38,9 +38,9 @@ You may want to check out Aspose simple, [free online PowerPoint editor.](https:
 
 {{% /alert %}} 
 
-## **Adding URL Hyperlinks**
+## **Add URL Hyperlinks**
 
-### **Adding URL Hyperlinks to Texts**
+### **Add URL Hyperlinks to Text**
 
 This C++ code shows you how to add a website hyperlink to a text:
 
@@ -58,7 +58,7 @@ portionFormat->set_FontHeight(32.0f);
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **Adding URL Hyperlinks to Shapes or Frames**
+### **Add URL Hyperlinks to Shapes or Frames**
 
 This sample code in C++ shows you how to add a website hyperlink to a shape:
 
@@ -73,7 +73,7 @@ shape->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies t
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
-### **Adding URL Hyperlinks to Media**
+### **Add URL Hyperlinks to Media**
 
 Aspose.Slides allows you to add hyperlinks to images, audio, and video files. 
 
@@ -129,7 +129,7 @@ You may want to see *[Manage OLE](https://docs.aspose.com/slides/cpp/manage-ole/
 
 
 
-## **Using Hyperlinks to Create Table of Contents**
+## **Use Hyperlinks to Create a Table of Contents**
 
 Since hyperlinks allow you to add references to objects or places, you can use them to create a table of contents. 
 
@@ -160,7 +160,7 @@ contentTable->get_TextFrame()->get_Paragraphs()->Add(paragraph);
 ```
 
 
-## **Formatting Hyperlinks**
+## **Format Hyperlinks**
 
 ### **Color**
 
@@ -188,9 +188,9 @@ presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
 
 
-## **Removing Hyperlinks in Presentations**
+## **Remove Hyperlinks from Presentations**
 
-### **Removing Hyperlinks from Texts**
+### **Remove Hyperlinks from Text**
 
 This C++ code shows you how to remove the hyperlink from a text in a presentation slide:
 
@@ -216,7 +216,7 @@ for (const auto& shape : slide->get_Shapes())
 pres->Save(u"pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
 ```
 
-### **Removing Hyperlinks from Shapes or Frames**
+### **Remove Hyperlinks from Shapes or Frames**
 
 This C++ code shows you how to remove the hyperlink from a shape in a presentation slide: 
 
@@ -262,7 +262,7 @@ presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 
 
 
-## **Supported methods in IHyperlinkQueries**
+## **Supported Methods in IHyperlinkQueries**
 
 You can access IHyperlinkQueries from a presentation, slide, or text for which the hyperlink is defined. 
 
@@ -277,3 +277,16 @@ The IHyperlinkQueries class supports these methods:
 - [IHyperlinkQueries::GetAnyHyperlinks()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink_queries#acaf9ded3920056054e0e70c24129d73a)
 - [IHyperlinkQueries::RemoveAllHyperlinks()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_hyperlink_queries#a289f52c992f939fe46282536cec7222d)
 
+## **FAQ**
+
+**How can I create internal navigation not just to a slide, but to a "section" or the first slide of a section?**
+
+Sections in PowerPoint are groupings of slides; navigation technically targets a specific slide. To "navigate to a section", you typically link to its first slide.
+
+**Can I attach a hyperlink to master slide elements so it works on all slides?**
+
+Yes. Master slide and layout elements support hyperlinks. Such links appear on child slides and are clickable during the slideshow.
+
+**Will hyperlinks be preserved when exporting to PDF, HTML, images, or video?**
+
+In [PDF](/slides/cpp/convert-powerpoint-to-pdf/) and [HTML](/slides/cpp/convert-powerpoint-to-html/), yes—links are generally preserved. When exporting to [images](/slides/cpp/convert-powerpoint-to-png/) and [video](/slides/cpp/convert-powerpoint-to-video/), clickability will not carry over due to the nature of those formats (raster frames/video do not support hyperlinks).

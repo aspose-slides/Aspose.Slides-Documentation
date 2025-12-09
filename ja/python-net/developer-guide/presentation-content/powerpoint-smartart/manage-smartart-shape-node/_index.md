@@ -1,421 +1,410 @@
 ---
-title: プレゼンテーションで SmartArt 形状ノードを Python で管理する
-linktitle: SmartArt 形状ノード
+title: Python でプレゼンテーションの SmartArt シェイプ ノードを管理する
+linktitle: SmartArt シェイプ ノード
 type: docs
 weight: 30
 url: /ja/python-net/manage-smartart-shape-node/
 keywords:
 - SmartArt ノード
 - 子ノード
-- ノード追加
-- ノード位置
-- ノードアクセス
-- ノード削除
+- ノードの追加
+- ノードの位置
+- ノードへのアクセス
+- ノードの削除
 - カスタム位置
 - アシスタントノード
 - 塗りつぶし形式
-- ノードレンダリング
+- ノードのレンダリング
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して PPT、PPTX、ODP の SmartArt 形状ノードを管理します。明確なコードサンプルとヒントを入手して、プレゼンテーションを効率化しましょう。"
+description: "Aspose.Slides for Python via .NET を使用して、PPT、PPTX、ODP の SmartArt シェイプ ノードを管理します。プレゼンテーションを効率化するための明確なコードサンプルとヒントをご提供します。"
 ---
 
-## **SmartArtノードの追加**
-Aspose.Slides for Python via .NETは、SmartArt図形を最も簡単に管理するためのシンプルなAPIを提供しています。以下のサンプルコードは、SmartArt図形内にノードと子ノードを追加するのに役立ちます。
+## **SmartArt ノードの追加**
+Aspose.Slides for Python via .NET は、SmartArt シェイプを最も簡単に管理できるシンプルな API を提供しています。以下のサンプルコードは、SmartArt シェイプ内にノードおよび子ノードを追加する方法を示します。
 
-- [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスのインスタンスを作成し、SmartArt図形を含むプレゼンテーションをロードします。
-- インデックスを使用して最初のスライドの参照を取得します。
-- 最初のスライド内のすべての図形を走査します。
-- 図形がSmartArtタイプであるかどうかを確認し、SmartArtであれば選択した図形をSmartArtに型キャストします。
-- SmartArt図形のNodeCollectionに新しいノードを追加し、TextFrameにテキストを設定します。
-- 次に、新しく追加したSmartArtノードに子ノードを追加し、TextFrameにテキストを設定します。
-- プレゼンテーションを保存します。
-
+- Create an instance of [プレゼンテーション](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation with SmartArt Shape.
+- Obtain the reference of first slide by using its Index.
+- Traverse through every shape inside first slide.
+- Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.
+- Add a new Node in SmartArt shape NodeCollection and set the text in TextFrame.
+- Now, Add a Child Node in newly added SmartArt Node and set the text in TextFrame.
+- Save the Presentation.
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# プレゼンテーションの読み込み
+# 目的のプレゼンテーションをロードする
 with slides.Presentation(path + "AddNodes.pptx") as pres:
-    # 最初のスライド内のすべての図形を走査
+    # 最初のスライド内のすべてのシェイプを走査する
     for shape in pres.slides[0].shapes:
 
-        # 図形がSmartArtタイプかどうかを確認
+        # シェイプが SmartArt タイプかどうかチェックする
         if type(shape) is art.SmartArt:
-            # 新しいSmartArtノードを追加
+            # 新しい SmartArt ノードを追加する
             node1 = shape.all_nodes.add_node()
-            # テキストを追加
-            node1.text_frame.text = "テスト"
+            # テキストを追加する
+            node1.text_frame.text = "Test"
 
-            # 親ノードに新しい子ノードを追加します。これはコレクションの最後に追加されます
+            # 親ノードに新しい子ノードを追加する。コレクションの末尾に追加される
             new_node = node1.child_nodes.add_node()
 
-            # テキストを追加
-            new_node.text_frame.text = "新しいノードが追加されました"
+            # テキストを追加する
+            new_node.text_frame.text = "New Node Added"
 
-    # プレゼンテーションを保存
+    # プレゼンテーションを保存する
     pres.save("AddSmartArtNode_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **特定の位置に SmartArt ノードを追加**
+In the following sample code we have explained how to add the child nodes belonging to respective nodes of SmartArt shape at particular position.
 
-## **特定の位置にSmartArtノードを追加**
-以下のサンプルコードでは、特定の位置に各SmartArt図形に属する子ノードを追加する方法を説明しています。
-
-- `Presentation`クラスのインスタンスを作成する。
-- インデックスを使用して最初のスライドの参照を取得します。
-- アクセスしたスライドにスタックリストタイプのSmartArt図形を追加します。
-- 追加したSmartArt図形の最初のノードにアクセスします。
-- 次に、選択したノードの位置2に子ノードを追加し、そのテキストを設定します。
-- プレゼンテーションを保存します。
-
+- Create an instance of `Presentation` class.
+- Obtain the reference of first slide by using its Index.
+- Add a StackedList type SmartArt shape in accessed slide.
+- Access the first node in added SmartArt shape.
+- Now, add the Child Node for selected Node at position 2 and set its text.
+- Save the Presentation.
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# プレゼンテーションインスタンスの作成
+# プレゼンテーションインスタンスを作成する
 with slides.Presentation() as pres:
-    # プレゼンテーションスライドにアクセス
+    # プレゼンテーションのスライドにアクセスする
     slide = pres.slides[0]
 
-    # SmartArt IShapeを追加
+    # Smart Art IShape を追加する
     smart = slide.shapes.add_smart_art(0, 0, 400, 400, art.SmartArtLayoutType.STACKED_LIST)
 
-    # 追加したSmartArtのノードにアクセス
+    # インデックス 0 の SmartArt ノードにアクセスする
     node = smart.all_nodes[0]
 
-    # 親ノードの位置2に新しい子ノードを追加
+    # 親ノードの位置 2 に新しい子ノードを追加する
     chNode = node.child_nodes.add_node_by_position(2)
 
-    # テキストを追加
-    chNode.text_frame.text = "サンプルテキストが追加されました"
+    # テキストを追加する
+    chNode.text_frame.text = "Sample text Added"
 
-    # プレゼンテーションを保存
+    # プレゼンテーションを保存する
     pres.save("AddSmartArtNodeByPosition_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **SmartArt ノードへのアクセス**
+The following sample code will help to access nodes inside SmartArt shape. Please note that you cannot change the LayoutType of the SmartArt as it is read only and is set only when the SmartArt shape is added.
 
-
-## **SmartArtノードにアクセス**
-以下のサンプルコードは、SmartArt図形内のノードにアクセスするのに役立ちます。SmartArtのLayoutTypeは読み取り専用であり、SmartArt図形が追加されたときにのみ設定されることに注意してください。
-
-- `Presentation`クラスのインスタンスを作成し、SmartArt図形を含むプレゼンテーションをロードします。
-
-- インデックスを使用して最初のスライドの参照を取得します。
-
-- 最初のスライド内のすべての図形を走査します。
-
-- 図形がSmartArtタイプであるかどうかを確認し、SmartArtであれば選択した図形をSmartArtに型キャストします。
-
-- SmartArt図形内のすべてのノードを走査します。
-
-- SmartArtノードの位置、レベル、およびテキストなどの情報にアクセスして表示します。
-
+- Create an instance of `Presentation` class and load the presentation with SmartArt Shape.
+- Obtain the reference of first slide by using its Index.
+- Traverse through every shape inside first slide.
+- Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.
+- Traverse through all Nodes inside SmartArt Shape.
+- Access and display information like SmartArt Node position, level and Text.
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# プレゼンテーションの読み込み
+# 必要なプレゼンテーションをロードする
 with slides.Presentation(path + "AccessSmartArt.pptx") as pres:
-    # 最初のスライド内のすべての図形を走査
+    # 最初のスライド内のすべてのシェイプを走査する
     for shape in pres.slides[0].shapes:
-        # 図形がSmartArtタイプかどうかを確認
+        # シェイプが SmartArt タイプかどうか確認する
         if type(shape) is art.SmartArt:
-            # SmartArt内のすべてのノードを走査
+            # SmartArt 内のすべてのノードを走査する
             for i in range(len(shape.all_nodes)):
-                # インデックスiのSmartArtノードにアクセス
+                # インデックス i の SmartArt ノードにアクセスする
                 node = shape.all_nodes[i]
 
-                # SmartArtノードのパラメータを印刷
+                # SmartArt ノードのパラメータを出力する
                 print("i = {0}, text = {1},  level = {2}, position = {3}".format(i, node.text_frame.text, node.level, node.position))
-  ```
-
-  
+```
 
 
-## **SmartArt子ノードにアクセス**
-以下のサンプルコードは、SmartArt図形の各ノードに属する子ノードにアクセスするのに役立ちます。
+## **SmartArt 子ノードへのアクセス**
+The following sample code will help to access the child nodes belonging to respective nodes of SmartArt shape.
 
-- PresentationExクラスのインスタンスを作成し、SmartArt図形を含むプレゼンテーションをロードします。
-- インデックスを使用して最初のスライドの参照を取得します。
-- 最初のスライド内のすべての図形を走査します。
-- 図形がSmartArtタイプであるかどうかを確認し、SmartArtであれば選択した図形をSmartArtExに型キャストします。
-- SmartArt図形内のすべてのノードを走査します。
-- 選択したSmartArt図形のノードごとに、特定のノード内のすべての子ノードを走査します。
-- 子ノードの位置、レベル、およびテキストなどの情報にアクセスして表示します。
-
+- Create an instance of PresentationEx class and load the presentation with SmartArt Shape.
+- Obtain the reference of first slide by using its Index.
+- Traverse through every shape inside first slide.
+- Check if shape is of SmartArt type and Typecast selected shape to SmartArtEx if it is SmartArt.
+- Traverse through all Nodes inside SmartArt Shape.
+- For every selected SmartArt shape Node, traverse through all Child Nodes inside particular node.
+- Access and display information like Child Node position, level and Text.
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# プレゼンテーションの読み込み
+# 対象のプレゼンテーションをロードする
 with slides.Presentation(path + "AccessChildNodes.pptx") as pres:
-    # 最初のスライド内のすべての図形を走査
+    # 最初のスライド内のすべてのシェイプを走査する
     for shape in pres.slides[0].shapes:
-        # 図形がSmartArtタイプかどうかを確認
+        # シェイプが SmartArt タイプかどうか確認する
         if type(shape) is art.SmartArt:
-            # SmartArt内のすべてのノードを走査
+            # SmartArt 内のすべてのノードを走査する
             for node0 in shape.all_nodes:
-                # 子ノードを走査
+                # 子ノードを走査する
                 for j in range(len(node0.child_nodes)):
-                    # SmartArtノード内の子ノードにアクセス
+                    # SmartArt ノード内の子ノードにアクセスする
                     node = node0.child_nodes[j]
 
-                    # SmartArt子ノードのパラメータを印刷
+                    # SmartArt 子ノードのパラメータを出力する
                     print("j = {0}, text = {1},  level = {2}, position = {3}".format(j, node.text_frame.text, node.level, node.position))
-
 ```
 
 
+## **特定の位置にある SmartArt 子ノードへのアクセス**
+In this example, we will learn to access the child nodes at some particular position belonging to respective nodes of SmartArt shape.
 
-## **特定の位置のSmartArt子ノードにアクセス**
-この例では、SmartArt図形のそれぞれのノードに属する特定の位置にある子ノードにアクセスする方法を学びます。
-
-- `Presentation`クラスのインスタンスを作成する。
-- インデックスを使用して最初のスライドの参照を取得します。
-- スタックリストタイプのSmartArt図形を追加します。
-- 追加されたSmartArt図形にアクセスします。
-- アクセスしたSmartArt図形のインデックス0のノードにアクセスします。
-- 次に、GetNodeByPosition()メソッドを使用してアクセスしたSmartArtノードの位置1の子ノードにアクセスします。
-- 子ノードの位置、レベル、およびテキストなどの情報にアクセスして表示します。
-
+- Create an instance of `Presentation` class.
+- Obtain the reference of first slide by using its Index.
+- Add a StackedList type SmartArt shape.
+- Access the added SmartArt shape.
+- Access the node at index 0 for accessed SmartArt shape.
+- Now, access the Child Node at position 1 for accessed SmartArt node using GetNodeByPosition() method.
+- Access and display information like Child Node position, level and Text.
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# プレゼンテーションのインスタンス化
+# プレゼンテーションをインスタンス化する
 with slides.Presentation() as pres:
-    # 最初のスライドにアクセス
+    # 最初のスライドにアクセスする
     slide = pres.slides[0]
-    # 最初のスライドにSmartArt図形を追加
+    # 最初のスライドに SmartArt シェイプを追加する
     smart = slide.shapes.add_smart_art(0, 0, 400, 400, art.SmartArtLayoutType.STACKED_LIST)
-    # アクセスしたSmartArtノードのインデックス0にアクセス
+    # インデックス 0 の SmartArt ノードにアクセスする
     node = smart.all_nodes[0]
-    # アクセスしたSmartArtノードの親ノードの位置1の子ノードにアクセス
+    # 親ノードの位置 1 にある子ノードにアクセスする
     position = 1
     chNode = node.child_nodes[position] 
-    # SmartArt子ノードのパラメータを印刷
+    # SmartArt 子ノードのパラメータを出力する
     print("j = {0}, text = {1},  level = {2}, position = {3}".format(position, chNode.text_frame.text, chNode.level, chNode.position))
-
 ```
 
 
+## **SmartArt ノードの削除**
+In this example, we will learn to remove the nodes inside SmartArt shape.
 
-## **SmartArtノードを削除**
-この例では、SmartArt図形内のノードを削除する方法を学びます。
-
-- `Presentation`クラスのインスタンスを作成し、SmartArt図形を含むプレゼンテーションをロードします。
-- インデックスを使用して最初のスライドの参照を取得します。
-- 最初のスライド内のすべての図形を走査します。
-- 図形がSmartArtタイプであるかどうかを確認し、SmartArtであれば選択した図形をSmartArtに型キャストします。
-- SmartArtが0以上のノードを持っているかどうかを確認します。
-- 削除するSmartArtノードを選択します。
-- 次に、RemoveNode()メソッドを使用して選択したノードを削除します。プレゼンテーションを保存します。
-
+- Create an instance of `Presentation` class and load the presentation with SmartArt Shape.
+- Obtain the reference of first slide by using its Index.
+- Traverse through every shape inside first slide.
+- Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.
+- Check if the SmartArt has more than 0 nodes.
+- Select the SmartArt node to be deleted.
+- Now, remove the selected node using RemoveNode() method* Save the Presentation.
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# プレゼンテーションの読み込み
+# 目的のプレゼンテーションをロードする
 with slides.Presentation(path + "RemoveNode.pptx") as pres:
-    # 最初のスライド内のすべての図形を走査
+    # 最初のスライド内のすべてのシェイプを走査する
     for shape in pres.slides[0].shapes:
-        # 図形がSmartArtタイプかどうかを確認
+        # シェイプが SmartArt タイプかどうか確認する
         if type(shape) is art.SmartArt:
-            # SmartArtExに型キャスト
+            # シェイプを SmartArtEx に型キャストする
             if len(shape.all_nodes) > 0:
-                # インデックス0のSmartArtノードにアクセス
+                # インデックス 0 の SmartArt ノードにアクセスする
                 node = shape.all_nodes[0]
 
-                # 選択したノードを削除
+                # 選択したノードを削除する
                 shape.all_nodes.remove_node(node)
 
-    # プレゼンテーションを保存
+    # プレゼンテーションを保存する
     pres.save("RemoveSmartArtNode_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **特定の位置にある SmartArt ノードの削除**
+In this example, we will learn to remove the nodes inside SmartArt shape at particular position.
 
-## **特定の位置のSmartArtノードを削除**
-この例では、特定の位置でSmartArt図形内のノードを削除する方法を学びます。
-
-- `Presentation`クラスのインスタンスを作成し、SmartArt図形を含むプレゼンテーションをロードします。
-- インデックスを使用して最初のスライドの参照を取得します。
-- 最初のスライド内のすべての図形を走査します。
-- 図形がSmartArtタイプであるかどうかを確認し、SmartArtであれば選択した図形をSmartArtに型キャストします。
-- インデックス0のSmartArt図形ノードを選択します。
-- 次に、選択したSmartArtノードに2つ以上の子ノードがあるかどうかを確認します。
-- 次に、RemoveNodeByPosition()メソッドを使用して位置1のノードを削除します。
-- プレゼンテーションを保存します。
-
+- Create an instance of `Presentation` class and load the presentation with SmartArt Shape.
+- Obtain the reference of first slide by using its Index.
+- Traverse through every shape inside first slide.
+- Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.
+- Select the SmartArt shape node at index 0.
+- Now, check if the selected SmartArt node has more than 2 child nodes.
+- Now, remove the node at Position 1 using RemoveNodeByPosition() method.
+- Save the Presentation.
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# プレゼンテーションの読み込み
+# 目的のプレゼンテーションをロードする
 with slides.Presentation(path + "RemoveNodeSpecificPosition.pptx") as pres:             
-    # 最初のスライド内のすべての図形を走査
+    # 最初のスライド内のすべてのシェイプを走査する
     for shape in pres.slides[0].shapes:
-        # 図形がSmartArtタイプかどうかを確認
+        # シェイプが SmartArt タイプかどうか確認する
         if type(shape) is art.SmartArt:
-            # SmartArtに型キャスト
+            # シェイプを SmartArt に型キャストする
             if len(shape.all_nodes) > 0:
-                # インデックス0のSmartArtノードにアクセス
+                # インデックス 0 の SmartArt ノードにアクセスする
                 node = shape.all_nodes[0]
                 if len(node.child_nodes) >= 2:
-                    # 位置1の子ノードを削除
+                    # 位置 1 の子ノードを削除する
                     node.child_nodes.remove_node(1)
 
-    # プレゼンテーションを保存
+    # プレゼンテーションを保存する
     pres.save("RemoveSmartArtNodeByPosition_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-
-## **SmartArt内の子ノードのカスタム位置を設定**
-Aspose.Slides for Python via .NETでは、SmartArtShapeのXおよびYプロパティを設定できます。以下のコードスニペットは、カスタムSmartArtShapeの位置、サイズ、回転を設定する方法を示しています。また、新しいノードを追加すると、すべてのノードの位置とサイズが再計算されることに注意してください。
-
+## **SmartArt の子ノードにカスタム位置を設定**
+Now Aspose.Slides for Python via .NET support for setting SmartArtShape X and Y properties. The code snippet below shows how to set custom SmartArtShape position, size and rotation also please note that adding new nodes causes a recalculation of the positions and sizes of all nodes.
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# プレゼンテーションの読み込み
+# 目的のプレゼンテーションをロードする
 with slides.Presentation(path + "AccessChildNodes.pptx") as pres: 
-    smart = pres.slides[0].shapes.add_smart_art(20, 20, 600, 500, art.SmartArtLayoutType.ORGANIZATION_CHART)
+	smart = pres.slides[0].shapes.add_smart_art(20, 20, 600, 500, art.SmartArtLayoutType.ORGANIZATION_CHART)
 
-    # SmartArt図形を新しい位置に移動
-    node = smart.all_nodes[1]
-    shape = node.shapes[1]
-    shape.x += (shape.width * 2)
-    shape.y -= (shape.height / 2)
+	# SmartArt シェイプを新しい位置に移動する
+	node = smart.all_nodes[1]
+	shape = node.shapes[1]
+	shape.x += (shape.width * 2)
+	shape.y -= (shape.height / 2)
 
-    # SmartArt図形の幅を変更
-    node = smart.all_nodes[2]
-    shape = node.shapes[1]
-    shape.width += (shape.width / 2)
+	# SmartArt シェイプの幅を変更する
+	node = smart.all_nodes[2]
+	shape = node.shapes[1]
+	shape.width += (shape.width / 2)
 
-    # SmartArt図形の高さを変更
-    node = smart.all_nodes[3]
-    shape = node.shapes[1]
-    shape.height += (shape.height / 2)
+	# SmartArt シェイプの高さを変更する
+	node = smart.all_nodes[3]
+	shape = node.shapes[1]
+	shape.height += (shape.height / 2)
 
-    # SmartArt図形の回転を変更
-    node = smart.all_nodes[4]
-    shape = node.shapes[1]
-    shape.rotation = 90
+	# SmartArt シェイプの回転を変更する
+	node = smart.all_nodes[4]
+	shape = node.shapes[1]
+	shape.rotation = 90
 
-    pres.save("SmartArt.pptx", slides.export.SaveFormat.PPTX)
+	pres.save("SmartArt.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **アシスタント ノードの確認**
+In the following sample code we will investigate how to identify Assistant Nodes in the SmartArt nodes collection and changing them.
 
-## **アシスタントノードの確認**
-以下のサンプルコードでは、SmartArtノードコレクション内のアシスタントノードを特定し、変更する方法を調査します。
-
-- PresentationExクラスのインスタンスを作成し、SmartArt図形を含むプレゼンテーションをロードします。
-- インデックスを使用して2番目のスライドの参照を取得します。
-- 最初のスライド内のすべての図形を走査します。
-- 図形がSmartArtタイプであるかどうかを確認し、SmartArtであれば選択した図形をSmartArtExに型キャストします。
-- SmartArt図形内のすべてのノードを走査し、それらがアシスタントノードであるかどうかを確認します。
-- アシスタントノードのステータスを通常のノードに変更します。
-- プレゼンテーションを保存します。
-
+- Create an instance of PresentationEx class and load the presentation with SmartArt Shape.
+- Obtain the reference of second slide by using its Index.
+- Traverse through every shape inside first slide.
+- Check if shape is of SmartArt type and Typecast selected shape to SmartArtEx if it is SmartArt.
+- Traverse through all nodes inside SmartArt shape and check if they are Assistant Nodes.
+- Change the status of Assistant Node to normal node.
+- Save the Presentation.
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# プレゼンテーションインスタンスの作成
+# プレゼンテーションインスタンスを作成する
 with slides.Presentation(path + "AssistantNode.pptx") as pres: 
-    # 最初のスライド内のすべての図形を走査
+    # 最初のスライド内のすべてのシェイプを走査する
     for shape in pres.slides[0].shapes:
-        # 図形がSmartArtタイプかどうかを確認
+        # シェイプが SmartArt タイプかどうか確認する
         if type(shape) is art.SmartArt:
-            # SmartArt形状のすべてのノードを走査
+            # SmartArt シェイプのすべてのノードを走査する
             for node in shape.all_nodes:
                 tc = node.text_frame.text
-                # ノードがアシスタントノードかどうかを確認
+                # ノードがアシスタントノードかどうか確認する
                 if node.is_assistant:
-                    # アシスタントノードをfalseに設定し、通常のノードにします
+                    # アシスタントノードを false に設定し、通常のノードにする
                     node.is_assistant = False
-    # プレゼンテーションを保存
+    # プレゼンテーションを保存する
     pres.save("ChangeAssitantNode_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **ノードの塗りつぶし形式の設定**
+Aspose.Slides for Python via .NET makes it possible to add custom SmartArt shapes and set their fill formats. This article explains how to create and access SmartArt shapes and set their fill format using Aspose.Slides for Python via .NET.
 
-## **ノードの塗りつぶしフォーマットを設定**
-Aspose.Slides for Python via .NETでは、カスタムSmartArt図形を追加し、その塗りつぶしフォーマットを設定することができます。この記事では、Aspose.Slides for Python via .NETを使用してSmartArt図形を作成およびアクセスし、それらの塗りつぶしフォーマットを設定する方法を説明します。
+Please follow the steps below:
 
-以下の手順に従ってください：
-
-- `Presentation`クラスのインスタンスを作成します。
-- インデックスを使用してスライドの参照を取得します。
-- LayoutTypeを設定してSmartArt図形を追加します。
-- SmartArt図形ノードのFillFormatを設定します。
-- 修正されたプレゼンテーションをPPTXファイルに書き込みます。
-
+- Create an instance of the `Presentation` class.
+- Obtain the reference of a slide using its index.
+- Add a SmartArt shape by setting its LayoutType.
+- Set the FillFormat for the SmartArt shape nodes.
+- Write the modified presentation as a PPTX file.
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
 with slides.Presentation() as presentation: 
-    # スライドにアクセス
+    # スライドにアクセスする
     slide = presentation.slides[0]
 
-    # SmartArt図形とノードを追加
+    # SmartArt シェイプとノードを追加する
     chevron = slide.shapes.add_smart_art(10, 10, 800, 60, art.SmartArtLayoutType.CLOSED_CHEVRON_PROCESS)
     node = chevron.all_nodes.add_node()
-    node.text_frame.text = "いくつかのテキスト"
+    node.text_frame.text = "Some text"
 
-    # ノードの塗りつぶし色を設定
+    # ノードの塗りつぶし色を設定する
     for item in node.shapes:
         item.fill_format.fill_type = slides.FillType.SOLID
         item.fill_format.solid_fill_color.color = draw.Color.red
 
-    # プレゼンテーションを保存
+    # プレゼンテーションを保存する
     presentation.save("FillFormat_SmartArt_ShapeNode_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
+## **SmartArt 子ノードのサムネイル生成**
+Developers can generate a thumbnail of Child node of a SmartArt by following the steps below:
 
-## **SmartArt子ノードのサムネイルを生成**
-開発者は以下の手順に従ってSmartArtの子ノードのサムネイルを生成できます。
+1. Instantiate `Presentation` class that represents the PPTX file.
+2. Add SmartArt.
+3. Obtain the reference of a node by using its Index
+4. Get the thumbnail image.
+5. Save the thumbnail image in any desired image format.
 
-1. PPTXファイルを表す`Presentation`クラスをインスタンス化します。
-1. SmartArtを追加します。
-1. インデックスを使用してノードの参照を取得します。
-1. サムネイル画像を取得します。
-1. 任意の画像形式でサムネイル画像を保存します。
-
-以下の例は、SmartArt子ノードのサムネイルを生成しています。
-
+The example below generating a thumbnail of SmartArt child node
 ```py
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# PPTXファイルを表すPresentationクラスをインスタンス化 
+# PPTX ファイルを表す Presentation クラスをインスタンス化する
 with slides.Presentation() as presentation: 
-    # SmartArtを追加 
-    smart = presentation.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.BASIC_CYCLE)
+    # SmartArt を追加する
+    smart = pres.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.BASIC_CYCLE)
 
-    # インデックスを使用してノードの参照を取得  
+    # インデックスを使用してノードの参照を取得する
     node = smart.nodes[1]
 
-    # サムネイルを取得
+    # サムネイルを取得する
     with node.shapes[0].get_image() as bmp:
-        # サムネイルを保存
+        # サムネイルを保存する
         bmp.save("SmartArt_ChildNote_Thumbnail_out.jpeg", slides.ImageFormat.JPEG)
 ```
+
+
+## **FAQ**
+
+**SmartArt のアニメーションはサポートされていますか？**
+
+Yes. SmartArt is treated as a regular shape, so you can [apply standard animations](/slides/ja/python-net/shape-animation/) (entrance, exit, emphasis, motion paths) and adjust timing. You can also animate shapes inside SmartArt nodes when needed.
+
+**内部 ID が不明な場合、スライド上の特定の SmartArt を確実に見つける方法はありますか？**
+
+Assign and search by [alternative text](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/alternative_text/). Setting a distinctive AltText on the SmartArt lets you find it programmatically without relying on internal identifiers.
+
+**プレゼンテーションを PDF に変換するとき、SmartArt の外観は保持されますか？**
+
+Yes. Aspose.Slides renders SmartArt with high visual fidelity during [PDF export](/slides/ja/python-net/convert-powerpoint-to-pdf/), preserving layout, colors, and effects.
+
+**SmartArt 全体の画像（プレビューやレポート用）を抽出できますか？**
+
+Yes. You can render a SmartArt shape to [raster formats](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/get_image/) or to [SVG](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/write_as_svg/) for scalable vector output, making it suitable for thumbnails, reports, or web use.

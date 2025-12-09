@@ -1,60 +1,71 @@
 ---
-title: الموصل
+title: إدارة الموصلات في العروض التقديمية في .NET
+linktitle: الموصل
 type: docs
 weight: 10
 url: /ar/net/connector/
-keywords: "ربط الأشكال، الموصلات، أشكال PowerPoint، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
-description: "ربط أشكال PowerPoint في C# أو .NET"
+keywords:
+- موصل
+- نوع الموصل
+- نقطة الموصل
+- خط الموصل
+- زاوية الموصل
+- ربط الأشكال
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "مكن تطبيقات .NET من رسم وربط وتوجيه خطوط تلقائيًا في شرائح PowerPoint — احصل على تحكم كامل في الموصلات المستقيمة والزاوية والمنحنية."
 ---
 
-موصل PowerPoint هو خط خاص يربط شكلين معًا ويظل متصلًا بالأشكال حتى عند تحريكها أو إعادة وضعها على شريحة معينة.
+موصل PowerPoint هو خط خاص يربط أو يلتصق بشكليْن معًا ويظل مرتبطًا بالشكلين حتى عند تحريكهما أو إعادة وضعهما على الشريحة المحددة.
 
-عادةً ما تكون الموصلات متصلة بـ *نقاط الاتصال* (نقاط خضراء) التي توجد على جميع الأشكال افتراضيًا. تظهر نقاط الاتصال عندما يقترب المؤشر منها.
+عادةً ما يتم ربط الموصلات بـ *نقاط الاتصال* (نقاط خضراء)، والتي تتوفر على جميع الأشكال افتراضيًا. تظهر نقاط الاتصال عندما يقترب المؤشر منها.
 
-تستخدم *نقاط التعديل* (نقاط برتقالية)، التي توجد فقط على موصلات معينة، لتعديل مواضع وأشكال الموصلات.
+*نقاط الضبط* (نقاط برتقالية)، التي تتوفر فقط على بعض الموصلات، تُستخدم لتعديل موضع وشكل الموصلات.
 
 ## **أنواع الموصلات**
 
-في PowerPoint، يمكنك استخدام موصلات مستقيمة، وزاوية (مائلة)، ومنحنية.
+في PowerPoint يمكنك استخدام الموصلات المستقيمة، ذات الكوع (المائلة)، والمنحنية.
 
-تقدم Aspose.Slides هذه الموصلات:
+توفر Aspose.Slides هذه الموصلات:
 
-| الموصل                            | الصورة                                                       | عدد نقاط التعديل |
-| ---------------------------------- | ---------------------------------------------------------- | ----------------- |
-| `ShapeType.Line`                  | ![shapetype-lineconnector](shapetype-lineconnector.png)    | 0                 |
-| `ShapeType.StraightConnector1`    | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                 |
-| `ShapeType.BentConnector2`        | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0                 |
-| `ShapeType.BentConnector3`        | ![shapetype-bentconnector3](shapetype-bentconnector3.png)  | 1                 |
-| `ShapeType.BentConnector4`        | ![shapetype-bentconnector4](shapetype-bentconnector4.png)  | 2                 |
-| `ShapeType.BentConnector5`        | ![shapetype-bentconnector5](shapetype-bentconnector5.png)  | 3                 |
-| `ShapeType.CurvedConnector2`      | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                 |
-| `ShapeType.CurvedConnector3`      | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                 |
-| `ShapeType.CurvedConnector4`      | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                 |
-| `ShapeType.CurvedConnector5`      | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                 |
+| الموصل | الصورة | عدد نقاط الضبط |
+| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
+| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0 |
+| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1 |
+| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2 |
+| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3 |
+| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
 ## **ربط الأشكال باستخدام الموصلات**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. أضف شكلين [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) إلى الشريحة باستخدام طريقة `AddAutoShape` المعلنة بواسطة كائن `Shapes`.
-1. أضف موصلًا باستخدام طريقة `AddConnector` المعلنة بواسطة كائن `Shapes` من خلال تحديد نوع الموصل.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. الحصول على مرجع الشريحة عبر فهرسها.
+1. إضافة شكلين AutoShape عبر طريقة `AddAutoShape` المعروضة في كائن `Shapes`.
+1. إضافة موصل باستخدام طريقة `AddConnector` المعروضة في كائن `Shapes` مع تحديد نوع الموصل.
 1. ربط الأشكال باستخدام الموصل.
-1. استدعِ طريقة `Reroute` لتطبيق أقصر مسار اتصال.
-1. احفظ العرض التقديمي.
+1. استدعاء طريقة `Reroute` لتطبيق أقصر مسار اتصال.
+1. حفظ العرض.
 
-هذا الكود C# يوضح لك كيفية إضافة موصل (موصل معقوق) بين شكلين (بيضاوي ومستطيل):
-
+هذا كود C# يوضح كيفية إضافة موصل (موصل معكوف) بين شكلين (بيضاوي ومستطيل):
 ```c#
-// ينشئ مثيلًا من فئة العرض التقديمي التي تمثل ملف PPTX
+// ينشئ كلاس عرض تقديمي يمثل ملف PPTX
 using (Presentation input = new Presentation())
 {                
-    // يصل إلى مجموعة الأشكال لشريحة معينة
+    // الوصول إلى مجموعة الأشكال لشريحة معينة
     IShapeCollection shapes = input.Slides[0].Shapes;
 
-    // يضيف شكل بيضاوي
+    // يضيف شكل أوتوشيب إهليلجي
     IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
 
-    // يضيف شكل مستطيل
+    // يضيف شكل أوتوشيب مستطيل
     IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
 
     // يضيف شكل موصل إلى مجموعة أشكال الشريحة
@@ -64,7 +75,7 @@ using (Presentation input = new Presentation())
     connector.StartShapeConnectedTo = ellipse;
     connector.EndShapeConnectedTo = rectangle;
 
-    // يستدعي إعادة التوجيه التي تضبط المسار التلقائي الأقصر بين الأشكال
+    // ينادي دالة Reroute التي تحدد أقصر مسار تلقائي بين الأشكال
     connector.Reroute();
 
     // يحفظ العرض التقديمي
@@ -72,52 +83,53 @@ using (Presentation input = new Presentation())
 }
 ```
 
-{{%  alert title="ملاحظة"  color="warning"   %}} 
 
-تقوم طريقة `Connector.Reroute` بإعادة توجيه الموصل وتفرض عليه أن يأخذ أقصر مسار ممكن بين الأشكال. لتحقيق هدفها، قد تقوم الطريقة بتغيير نقاط `StartShapeConnectionSiteIndex` و`EndShapeConnectionSiteIndex`. 
+{{%  alert title="NOTE"  color="warning"   %}} 
+
+طريقة `Connector.Reroute` تُعيد توجيه الموصل وتُجبره على اتخاذ أقصر مسار ممكن بين الأشكال. لتحقيق ذلك، قد تقوم الطريقة بتغيير نقطتي `StartShapeConnectionSiteIndex` و`EndShapeConnectionSiteIndex`. 
 
 {{% /alert %}} 
 
 ## **تحديد نقطة الاتصال**
-إذا كنت ترغب في ربط موصل بين شكلين باستخدام نقاط محددة على الأشكال، عليك تحديد نقاط الاتصال المفضلة لديك بهذه الطريقة:
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. أضف شكلين [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) إلى الشريحة باستخدام طريقة `AddAutoShape` المعلنة بواسطة كائن `Shapes`.
-1. أضف موصلًا باستخدام طريقة `AddConnector` المعلنة بواسطة كائن `Shapes` عبر تحديد نوع الموصل.
+إذا كنت تريد أن يربط موصل شكلين باستخدام نقاط معينة على الأشكال، عليك تحديد نقاط الاتصال المفضلة بهذه الطريقة:
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. الحصول على مرجع الشريحة عبر فهرسها.
+1. إضافة شكلين AutoShape عبر طريقة `AddAutoShape` المعروضة في كائن `Shapes`.
+1. إضافة موصل باستخدام طريقة `AddConnector` المعروضة في كائن `Shapes` مع تحديد نوع الموصل.
 1. ربط الأشكال باستخدام الموصل.
-1. حدد نقاط الاتصال المفضلة لديك على الأشكال.
-1. احفظ العرض التقديمي.
+1. تعيين نقاط الاتصال المفضلة على الأشكال.
+1. حفظ العرض.
 
-هذا الكود C# يوضح عملية حيث يتم تحديد نقطة الاتصال المفضلة:
-
+هذا كود C# يوضح عملية تحديد نقطة اتصال مفضلة:
 ```c#
-// ينشئ مثيلًا من فئة العرض التقديمي التي تمثل ملف PPTX
+// ينشئ كلاس عرض تقديمي يمثل ملف PPTX
 using (Presentation presentation = new Presentation())
 {
-    // يصل إلى مجموعة الأشكال لشريحة معينة
+    // يصل إلى مجموعة الأشكال لشريحة محددة
     IShapeCollection shapes = presentation.Slides[0].Shapes;
 
     // يضيف شكل موصل إلى مجموعة أشكال الشريحة
     IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
 
-    // يضيف شكل بيضاوي
+    // يضيف شكل أوتوشيب إهليلجي
     IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
 
-    // يضيف شكل مستطيل
+    // يضيف شكل أوتوشيب مستطيل
     IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
 
     // يربط الأشكال باستخدام الموصل
     connector.StartShapeConnectedTo = ellipse;
     connector.EndShapeConnectedTo = rectangle;
 
-    // يحدد مؤشر نقطة الاتصال المفضلة على الشكل البيضاوي
+    // يحدد فهرس نقطة الاتصال المفضلة على شكل الإهليلج
     uint wantedIndex = 6;
 
-    // يتحقق مما إذا كان المؤشر المفضل أقل من الحد الأقصى لعدد مواقع الاتصال
+    // يتحقق مما إذا كان الفهرس المفضلة أقل من العدد الأقصى لنقاط الاتصال
     if (ellipse.ConnectionSiteCount > wantedIndex)
     {
-        // يشترط النقطة المفضلة على الشكل البيضاوي
+        // يحدد نقطة الاتصال المفضلة على شكل الإهليلج
         connector.StartShapeConnectionSiteIndex = wantedIndex;
     }
 
@@ -126,18 +138,18 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **تعديل نقطة الموصل**
 
-يمكنك تعديل موصل موجود من خلال نقاط التعديل الخاصة به. فقط الموصلات ذات نقاط التعديل يمكن تعديلها بهذه الطريقة. انظر الجدول تحت **[أنواع الموصلات.](/slides/ar/net/connector/#types-of-connectors)** 
+## **ضبط نقطة الموصل**
+
+يمكنك ضبط موصل موجود عبر نقاط الضبط الخاصة به. يمكن تعديل فقط الموصلات التي تحتوي على نقاط ضبط بهذه الطريقة. راجع الجدول تحت **[أنواع الموصلات](/slides/ar/net/connector/#types-of-connectors)**.
 
 #### **حالة بسيطة**
 
-افترض حالة حيث يمر موصل بين شكلين (A و B) عبر شكل ثالث (C):
+تخيل وجود موصل بين شكلين (A وB) يمر عبر شكل ثالث (C):
 
 ![connector-obstruction](connector-obstruction.png)
 
 الكود:
-
 ```c#
 Presentation pres = new Presentation();
 ISlide sld = pres.Slides[0];
@@ -156,45 +168,45 @@ connector.EndShapeConnectedTo = shapeTo;
 connector.StartShapeConnectionSiteIndex = 2;
 ```
 
-لتجنب أو تجاوز الشكل الثالث، يمكننا تعديل الموصل عن طريق تحريك خطه العمودي إلى اليسار بهذه الطريقة:
+
+لتجنب أو تجاوز الشكل الثالث، يمكننا ضبط الموصل بتحريك خطه العمودي إلى اليسار بهذه الطريقة:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
-
 ```c#
 IAdjustValue adj2 = connector.Adjustments[1];
 adj2.RawValue += 10000;
 ```
 
+
 ### **حالات معقدة** 
 
-لإجراء تعديلات أكثر تعقيدًا، عليك أن تأخذ هذه الأمور في الاعتبار:
+للقيام بتعديلات أكثر تعقيدًا، عليك مراعاة ما يلي:
 
-* نقطة تعديل الموصل مرتبطة ارتباطًا وثيقًا بصيغة تحسب وتحدد موضعها. لذا قد تؤدي التغييرات على موقع النقطة إلى تغيير شكل الموصل.
-* يتم تعريف نقاط تعديل الموصل بترتيب صارم في مصفوفة. يتم ترقيم نقاط التعديل من نقطة بداية الموصل إلى نقطة نهايته.
-* تعكس قيم نقطة التعديل نسبة عرض/ارتفاع شكل الموصل. 
-  * الشكل مقيد بواسطة نقاط بداية ونهاية الموصل مضروبة في 1000. 
-  * النقطة الأولى، النقطة الثانية، والنقطة الثالثة تحدد النسبة من العرض، النسبة من الارتفاع، والنسبة من العرض (مرة أخرى) على التوالي.
-* لحسابات تحدد إحداثيات نقاط تعديل الموصل، يجب أن تأخذ في الاعتبار دوران الموصل وانعكاسه. **ملاحظات** أن زاوية الدوران لجميع الموصلات المعروضة تحت **[أنواع الموصلات](/slides/ar/net/connector/#types-of-connectors)** هي 0.
+* نقطة الضبط للموصل مرتبطة ارتباطًا وثيقًا بصيغة تحسب وتحدد موقعها. لذا قد يؤدي تغيير موقع النقطة إلى تغيير شكل الموصل.
+* نقاط الضبط للموصل معرفة بترتيب صارم في مصفوفة. تُرقم النقاط من نقطة بدء الموصل إلى نقطة نهايته.
+* قيم نقاط الضبط تعكس النسبة المئوية لعرض/ارتفاع شكل الموصل.  
+  * الشكل محاط بنقطة بدء ونقطة انتهاء الموصل مضروبة في 1000.  
+  * النقطة الأولى، الثانية، والثالثة تحدد النسبة من العرض، ثم النسبة من الارتفاع، ثم النسبة من العرض مرة أخرى.
+* عند حساب إحداثيات نقاط الضبط، يجب أخذ دوران الموصل وانعكاسه في الاعتبار. **ملاحظة** أن زاوية الدوران لجميع الموصلات المعروضة تحت **[أنواع الموصلات](/slides/ar/net/connector/#types-of-connectors)** هي 0.
 
 #### **الحالة 1**
 
-افترض حالة حيث يتم ربط كائنين إطار نص معًا من خلال موصل:
+تخيل وجود كائنين إطار نصي مرتبطين معًا عبر موصل:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
 الكود:
-
 ```c#
-// ينشئ مثيلًا من فئة العرض التقديمي التي تمثل ملف PPTX
+// ينشئ كائن عرض تقديمي يمثل ملف PPTX
 Presentation pres = new Presentation();
 // يحصل على الشريحة الأولى في العرض التقديمي
 ISlide sld = pres.Slides[0];
-// يضيف أشكالًا سيتم ربطها معًا من خلال موصل
+// يضيف أشكالًا سيتم ربطها معًا عبر موصل
 IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-shapeFrom.TextFrame.Text = "من";
+shapeFrom.TextFrame.Text = "From";
 IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-shapeTo.TextFrame.Text = "إلى";
-// يضيف موصل
+shapeTo.TextFrame.Text = "To";
+// يضيف موصلًا
 IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
 // يحدد اتجاه الموصل
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
@@ -210,29 +222,29 @@ connector.StartShapeConnectionSiteIndex = 3;
 connector.EndShapeConnectedTo = shapeTo;
 connector.EndShapeConnectionSiteIndex = 2;
 
-// يحصل على نقاط التعديل للموصل
+// يحصل على نقاط الضبط للموصل
 IAdjustValue adjValue_0 = connector.Adjustments[0];
 IAdjustValue adjValue_1 = connector.Adjustments[1];
 ```
 
-**التعديل**
 
-يمكننا تغيير قيم نقاط تعديل الموصل عن طريق زيادة نسبة العرض والارتفاع المقابلة بنسبة 20% و200% على التوالي:
+**الضبط**
 
+يمكننا تغيير قيم نقاط الضبط للموصل بزيادة النسبة المئوية للعرض والارتفاع بما يصل إلى 20% و200% على التوالي:
 ```c#
-// يغير قيم نقاط التعديل
+// يغيّر قيم نقاط الضبط
 adjValue_0.RawValue += 20000;
 adjValue_1.RawValue += 200000;
 ```
+
 
 النتيجة:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-لتحديد نموذج يسمح لنا بتحديد إحداثيات وشكل أجزاء الموصل الفردية، دعنا ننشئ شكلًا يتوافق مع المكون الأفقي للموصل عند النقطة connector.Adjustments[0]:
-
+لتعريف نموذج يُمكّننا من تحديد إحداثيات وشكل الأجزاء الفردية للموصل، لننشئ شكلًا يمثل المكوّن الأفقي للموصل عند نقطة `connector.Adjustments[0]`:
 ```c#
-// رسم المكون العمودي للموصل
+// ارسم المكوّن العمودي للموصل
 
 float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
 float y = connector.Y;
@@ -240,20 +252,20 @@ float height = connector.Height * adjValue_1.RawValue / 100000;
 sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
 ```
 
+
 النتيجة:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
 #### **الحالة 2**
 
-في **الحالة 1**، أظهرنا عملية تعديل موصل بسيطة باستخدام مبادئ أساسية. في الظروف العادية، يتعين عليك أخذ دوران الموصل وعرضه (الذي يتم تعيينه بواسطة connector.Rotation وconnector.Frame.FlipH وconnector.Frame.FlipV) في الاعتبار. سنوضح الآن العملية.
+في **الحالة 1**، قدمنا عملية ضبط بسيطة للموصل باستخدام المبادئ الأساسية. في الحالات العادية، يجب مراعاة دوران الموصل وعرضه (التي تُحدد بواسطة `connector.Rotation`، `connector.Frame.FlipH` و`connector.Frame.FlipV`). سنوضح الآن العملية.
 
-أولاً، دعنا نضيف كائن إطار نص جديد (**إلى 1**) إلى الشريحة (لأغراض الاتصال) وننشئ موصلًا جديدًا (أخضر) يربطه بالأشياء التي أنشأناها بالفعل.
-
+أولًا، نضيف كائن إطار نصي جديد (**To 1**) إلى الشريحة (لأغراض الربط) وننشئ موصلًا أخضرًا يربطه بالأشكال التي أنشأناها مسبقًا.
 ```c#
 // ينشئ كائن ربط جديد
 IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.TextFrame.Text = "إلى 1";
+shapeTo_1.TextFrame.Text = "To 1";
 // ينشئ موصلًا جديدًا
 connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
@@ -265,31 +277,31 @@ connector.StartShapeConnectedTo = shapeFrom;
 connector.StartShapeConnectionSiteIndex = 2;
 connector.EndShapeConnectedTo = shapeTo_1;
 connector.EndShapeConnectionSiteIndex = 3;
-// يحصل على نقاط تعديل الموصل
+// يحصل على نقاط الضبط للموصل
 adjValue_0 = connector.Adjustments[0];
 adjValue_1 = connector.Adjustments[1];
-// يغير قيم نقاط التعديل 
+// يغيّر قيم نقاط الضبط 
 adjValue_0.RawValue += 20000;
 adjValue_1.RawValue += 200000;
 ```
+
 
 النتيجة:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-ثانيًا، دعنا ننشئ شكلًا يتوافق مع المكون الأفقي للموصل الذي يمر عبر نقطة تعديل الموصل الجديدة connector.Adjustments[0]. سنستخدم القيم من بيانات الموصل الخاصة بـ connector.Rotation وconnector.Frame.FlipH وconnector.Frame.FlipV ونطبق صيغة تحويل الإحداثيات الشهيرة للدوران حول نقطة معينة x0:
+ثانيًا، ننشئ شكلًا يُطابق المكوّن الأفقي للموصل الذي يمر عبر نقطة الضبط `connector.Adjustments[0]`. سنستخدم القيم من بيانات الموصل لـ `connector.Rotation`، `connector.Frame.FlipH` و`connector.Frame.FlipV` ونطبق صيغة تحويل الإحداثيات للدوران حول نقطة معينة x0:
 
 X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
 
 Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
 
-في حالتنا، زاوية دوران الكائن هي 90 درجة والموصل معروض عموديًا، لذلك هذا هو الكود المقابل:
-
+في حالتنا، زاوية دوران الكائن هي 90 درجة والموصل معروض عموديًا، لذا يكون الكود المقابل كالتالي:
 ```c#
 // يحفظ إحداثيات الموصل
 x = connector.X;
 y = connector.Y;
-// يصحح إحداثيات الموصل في حال ظهوره
+// يصحّح إحداثيات الموصل في حال ظهوره
 if (connector.Frame.FlipH == NullableBool.True)
 {
     x += connector.Width;
@@ -298,12 +310,12 @@ if (connector.Frame.FlipV == NullableBool.True)
 {
     y += connector.Height;
 }
-// يأخذ في قيمة نقطة التعديل كإحداثيات
+// يُدخل قيمة نقطة الضبط كإحداثي
 x += connector.Width * adjValue_0.RawValue / 100000;
-//  يحول الإحداثيات نظرًا لأن Sin(90) = 1 وCos(90) = 0
+//  يحوّل الإحداثيات لأن Sin(90) = 1 و Cos(90) = 0
 float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
 float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
-// يحدد عرض المكون الأفقي باستخدام قيمة نقطة التعديل الثانية
+// يحدد عرض المكوّن الأفقي باستخدام قيمة نقطة الضبط الثانية
 float width = connector.Height * adjValue_1.RawValue / 100000;
 IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
 shape.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -311,20 +323,21 @@ shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
 
 ```
 
+
 النتيجة:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-لقد أوضحنا الحسابات المتعلقة بالتعديلات البسيطة ونقاط التعديل المعقدة (نقاط التعديل مع زوايا الدوران). باستخدام المعرفة المكتسبة، يمكنك تطوير نموذجك الخاص (أو كتابة كود) للحصول على كائن `GraphicsPath` أو حتى تعيين قيم نقاط تعديل الموصل استنادًا إلى إحداثيات شريحة محددة.
+لقد عرضنا حسابات تشمل الضبط البسيط ونقاط ضبط معقدة (نقاط ضبط بزاوية دوران). باستخدام المعرفة المكتسبة، يمكنك تطوير نموذجك الخاص (أو كتابة كود) للحصول على كائن `GraphicsPath` أو حتى ضبط قيم نقاط الضبط للموصل بناءً على إحداثيات شريحة معينة.
 
-## **العثور على زاوية خطوط الموصل**
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة من خلال فهرسها.
-1. قم بالوصول إلى شكل خط الموصل. 
-1. استخدم عرض الخط وارتفاعه وارتفاع إطار الشكل وعرض إطار الشكل لحساب الزاوية.
+## **إيجاد زاوية خطوط الموصل**
 
-هذا الكود C# يظهر عملية حيث قمنا بحساب الزاوية لشكل خط موصل:
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. الحصول على مرجع الشريحة عبر فهرسها.
+1. الوصول إلى شكل خط الموصل.
+1. استخدام عرض الخط، ارتفاعه، ارتفاع إطار الشكل، وعرض إطار الشكل لحساب الزاوية.
 
+هذا كود C# يوضح عملية حساب زاوية شكل خط الموصل:
 ```c#
 public static void Run()
 {
@@ -364,3 +377,18 @@ public static double getDirection(float w, float h, bool flipH, bool flipV)
     return angle * 180.0 / Math.PI;
 }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**كيف يمكنني معرفة ما إذا كان يمكن "لصق" موصل على شكل معين؟**
+
+تحقق مما إذا كان الشكل يعرض [نقاط الاتصال](https://reference.aspose.com/slides/net/aspose.slides/shape/connectionsitecount/). إذا لم تكن موجودة أو كان العدد صفرًا، فإن اللصق غير متاح؛ في هذه الحالة استخدم نقاط نهاية حرة وضعها يدويًا. من المنطقي فحص عدد النقاط قبل الإرفاق.
+
+**ماذا يحدث للموصل إذا حذفت أحد الأشكال المرتبطة؟**
+
+ستُنزع نهاياه؛ سيبقى الموصل على الشريحة كخط عادي بنقطة بداية/نهاية حرة. يمكنك إما حذفه أو إعادة تعيين الاتصالات، وإذا لزم الأمر، استخدم [إعادة التوجيه](https://reference.aspose.com/slides/net/aspose.slides/connector/reroute/).
+
+**هل تُحافظ روابط الموصل عند نسخ شريحة إلى عرض تقديمي آخر؟**
+
+بشكل عام نعم، بشرط نسخ الأشكال الهدف أيضًا. إذا تم إدراج الشريحة في ملف آخر دون الأشكال المرتبطة، تصبح النهايتان حرّتين وستحتاج إلى إرفاقهما مرة أخرى.

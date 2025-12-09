@@ -1,21 +1,35 @@
 ---
-title: Aspose.Slides for .NET 14.6.0における公開APIおよび後方互換性のない変更
+title: Aspose.Slides for .NET 14.6.0 の公開 API と後方互換性のない変更
+linktitle: Aspose.Slides for .NET 14.6.0
 type: docs
 weight: 80
 url: /ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/
+keywords:
+- 移行
+- レガシーコード
+- モダンコード
+- レガシーアプローチ
+- モダンアプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET の公開 API 更新と破壊的変更を確認し、PowerPoint PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
 ---
 
 {{% alert color="primary" %}} 
 
-このページでは、Aspose.Slides for .NET 14.6.0 APIで追加されたすべての[クラス](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)、[メソッド](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)および[プロパティ](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)や、新たに導入された[制約](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)および他の[変更](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)をリストしています。
+このページには、Aspose.Slides for .NET 14.6.0 APIで導入されたすべての[追加された](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) クラス、メソッド、プロパティ等、また新しい[制限](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) とその他の[変更](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) が一覧表示されています。
 
 {{% /alert %}} 
 ## **公開APIの変更**
-### **追加されたインターフェース、メソッド、およびプロパティ**
-#### **Aspose.Slides.Charts.IErrorBarsFormatインターフェースの追加**
-これは、チャート系列のエラーバーを表します。
+### **追加されたインターフェイス、メソッド、プロパティ**
+#### **Aspose.Slides.Charts.IErrorBarsFormat インターフェイスの追加**
+これはチャート系列のエラーバーを表します。
 
-カスタム値タイプの場合は、系列のDataPointsコレクション内の特定のデータポイントのErrorBarCustomValuesプロパティを使用して値を指定します。
+カスタム値タイプの場合、値を指定するには、系列の DataPoints コレクション内の特定のデータポイントの ErrorBarCustomValues プロパティを使用します。
 
 ``` csharp
 
@@ -52,8 +66,8 @@ url: /ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 }
 
 ``` 
-#### **Aspose.Slides.Charts.IErrorBarsCustomValuesインターフェースの追加**
-IErrorBarsFormat.ValueTypeプロパティがCustomに等しい場合、値を指定するには、DataPointsコレクション内の特定のデータポイントのErrorBarCustomValuesプロパティを使用します。
+#### **Aspose.Slides.Charts.IErrorBarsCustomValues インターフェイスの追加**
+IErrorBarsFormat.ValueType プロパティが Custom に設定されている場合、値を指定するには DataPoints コレクション内の特定のデータポイントの ErrorBarCustomValues プロパティを使用します。
 
 ``` csharp
 
@@ -106,8 +120,8 @@ IErrorBarsFormat.ValueTypeプロパティがCustomに等しい場合、値を指
 }
 
 ``` 
-#### **Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValuesインターフェースの追加**
-ChartDataPoint.ErrorBarsCustomValuesプロパティリスト内の値のタイプを指定します。
+#### **Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues インターフェイスの追加**
+ChartDataPoint.ErrorBarsCustomValues プロパティのリストに含まれる値の型を指定します。
 
 ``` csharp
 
@@ -160,8 +174,8 @@ ChartDataPoint.ErrorBarsCustomValuesプロパティリスト内の値のタイ�
 }
 
 ``` 
-#### **Aspose.Slides.IShapeCollection.AddClone(...)および.InsertClone(...)メソッドの追加**
-次のメソッドは、指定された形状のコピーをコレクションに追加または挿入します。
+#### **Aspose.Slides.IShapeCollection.AddClone(...), および .InsertClone(...) メソッドの追加**
+次のメソッドは、指定されたシェイプのコピーをコレクションに追加/挿入します。
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape, float x, float y)
@@ -199,8 +213,8 @@ ChartDataPoint.ErrorBarsCustomValuesプロパティリスト内の値のタイ�
 }
 
 ``` 
-#### **ViewType列挙型、IViewPropertiesインターフェース、ViewPropertiesクラス、IPresentation.ViewPropertiesプロパティの追加**
-IPresentation.ViewPropertyは、プレゼンテーションがPowerPointで開かれた時のプレゼンテーションの表示タイプとノートの可視性を変更することを許可します。
+#### **ViewType 列挙体、IViewProperties インターフェイス、ViewProperties クラス、および IPresentation.ViewProperties プロパティの追加**
+IPresentation.ViewProperties は、PowerPoint でプレゼンテーションを開く際に、表示タイプやノートの表示状態を変更できるようにします。
 
 ``` csharp
 
@@ -212,4 +226,4 @@ IPresentation.ViewPropertyは、プレゼンテーションがPowerPointで開�
 
 }
 
-``` 
+```

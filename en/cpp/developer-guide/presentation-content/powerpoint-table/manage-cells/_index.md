@@ -18,7 +18,7 @@ keywords:
 description: "Effortlessly manage table cells in PowerPoint with Aspose.Slides for C++. Master accessing, modifying, and styling cells quickly for seamless slide automation."
 ---
 
-## **Identify Merged Cell**
+## **Identify a Merged Cell**
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get the table from the first slide. 
 3. Iterate through the table's rows and columns to find merge cells.
@@ -45,7 +45,7 @@ for (int32_t i = 0; i < table->get_Rows()->get_Count(); i++)
 }
 ```
 
-## **Remove Table Cells Border**
+## **Remove Table Cell Borders**
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get a slide's reference through its index. 
 3. Define an array of columns with width.
@@ -202,7 +202,7 @@ table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Numbering in Splitted Cell**
+## **Numbering in a Splitted Cell**
 In previous examples, when table cells got merged, the numeration or number system in other cells did not change. 
 
 This time, we take a regular table (a table without merged cells) and then try to split cell (1,1) to get a special table. You may want to pay attention to this table's numbering, which may be considered strange. However, that is the way Microsoft PowerPoint numerates table cells and Aspose.Slides does the same thing. 
@@ -268,7 +268,7 @@ table->idx_get(1, 1)->SplitByWidth(table->idx_get(2, 1)->get_Width() / 2);
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Change Table Cell Background Color**
+## **Change the Table Cell Background Color**
 
 This C++ code shows you how to change a table cell's background color:
 
@@ -296,7 +296,7 @@ presentation->Save(u"cell_background_color.pptx", Aspose::Slides::Export::SaveFo
 
 ```
 
-## **Add Image inside Table Cell**
+## **Add an Image Inside a Table Cell**
 1. Create an instance of the`Presentation` class.
 2. Get a slide's reference through its index.
 3. Define an array of columns with width.
@@ -344,3 +344,21 @@ tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->get_Picture()->se
 // Save the PPTX file to disk
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
+
+## **FAQ**
+
+**Can I set different line thicknesses and styles for different sides of a single cell?**
+
+Yes. The [top](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)/[bottom](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)/[left](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)/[right](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/) borders have separate properties, so the thickness and style of each side can differ. This logically follows from the per-side border control for a cell demonstrated in the article.
+
+**What happens to the image if I change the column/row size after setting a picture as the cell’s background?**
+
+The behavior depends on the [fill mode](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) (stretch/tile). With stretching, the image adjusts to the new cell; with tiling, the tiles are recalculated. The article mentions the image display modes in a cell.
+
+**Can I assign a hyperlink to all the content of a cell?**
+
+[Hyperlinks](/slides/cpp/manage-hyperlinks/) are set at the text (portion) level inside the cell’s text frame or at the level of the entire table/shape. In practice, you assign the link to a portion or to all the text in the cell.
+
+**Can I set different fonts within a single cell?**
+
+Yes. A cell’s text frame supports [portions](https://reference.aspose.com/slides/cpp/aspose.slides/portion/) (runs) with independent formatting—font family, style, size, and color.

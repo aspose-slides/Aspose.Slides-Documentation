@@ -1,24 +1,39 @@
 ---
-title: API pública y cambios incompatibles hacia atrás en Aspose.Slides para .NET 15.10.0
+title: Cambios de API pública y incompatibles hacia atrás en Aspose.Slides para .NET 15.10.0
+linktitle: Aspose.Slides para .NET 15.10.0
 type: docs
 weight: 200
 url: /es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/
+keywords:
+- migración
+- código heredado
+- código moderno
+- enfoque heredado
+- enfoque moderno
+- PowerPoint
+- OpenDocument
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Revisa las actualizaciones de la API pública y los cambios críticos en Aspose.Slides para .NET para migrar sin problemas tus soluciones de presentaciones PowerPoint PPT, PPTX y ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Esta página enumera todas las clases, métodos, propiedades, etc., [agregados](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) o [eliminados](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/), y otros cambios introducidos con el API de Aspose.Slides para .NET 15.10.0.
+Esta página enumera todas las clases, métodos, propiedades, etc., [added](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) o [removed](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) introducidos con la API de Aspose.Slides for .NET 15.10.0.
 
 {{% /alert %}} 
-## **Cambios en la API pública**
-#### **Se ha agregado un nuevo VideoPlayerHtmlController para soportar la exportación de archivos multimedia a HTML**
-La nueva clase pública VideoPlayerHtmlController ha sido agregada al espacio de nombres Aspose.Slides.Export. Usando la instancia de esta clase, el usuario puede exportar archivos de video y audio a HTML.
+## **Cambios de API Públicos**
+#### **Se ha añadido un nuevo VideoPlayerHtmlController para soportar la exportación de archivos multimedia a HTML**
+La nueva clase pública VideoPlayerHtmlController se ha añadido al espacio de nombres Aspose.Slides.Export. Usando una instancia de esta clase el usuario puede exportar archivos de video y audio a HTML.  
 Los constructores de VideoPlayerHtmlController aceptan los siguientes parámetros:
 
-path: La ruta donde se generarán los archivos de video y audio
-fileName: El nombre del archivo HTML
+**path**: La ruta donde se generarán los archivos de video y audio  
+**fileName**: El nombre del archivo HTML  
 
-baseUri: La URI base que se utilizará para generar enlaces
+**baseUri**: La URI base que se usará para generar los enlaces  
+
 Ejemplo de uso:
 
 ``` csharp
@@ -49,7 +64,7 @@ Ejemplo de uso:
 
 ``` 
 #### **Se ha añadido la API de animación de series de gráficos**
-Se han agregado 2 nuevos métodos a la interfaz Aspose.Slides.Animation.ISequence.
+Se han añadido 2 nuevos métodos a la interfaz Aspose.Slides.Animation.ISequence.
 
 ``` csharp
 
@@ -59,15 +74,15 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-Estos métodos están destinados a soportar las animaciones de los elementos del gráfico:
-por series
-por categorías
-por elementos de series
-por elementos de categorías
+Estos métodos están diseñados para soportar las animaciones de los elementos del gráfico:
+por series  
+por categorías  
+por elementos de series  
+por elementos de categorías  
 
-Se introdujeron los dos nuevos enums EffectChartMajorGroupingType y EffectChartMinorGroupingType relacionados con la animación de los elementos del gráfico.
+Se introdujeron los dos nuevos enumeradores EffectChartMajorGroupingType y EffectChartMinorGroupingType relacionados con la animación de los elementos del gráfico.
 
-Para agregar una animación de serie al gráfico, se puede usar el siguiente código:
+Para agregar una animación de serie al gráfico se puede usar el siguiente código:
 
 ``` csharp
 
@@ -353,4 +368,4 @@ Animación de elementos de categorías:
 
 }
 
-``` 
+```

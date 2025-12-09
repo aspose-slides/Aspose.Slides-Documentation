@@ -3,54 +3,86 @@ title: Licenciamiento Medido
 type: docs
 weight: 90
 url: /es/python-net/metered-licensing/
+keywords:
+- licencia
+- licencia medida
+- claves de licencia
+- clave pública
+- clave privada
+- cantidad de consumo
+- Python
+- Aspose.Slides
+description: "Aprenda cómo el licenciamiento medido de Aspose.Slides para Python a través de .NET le permite procesar archivos PowerPoint y OpenDocument de forma flexible, pagando solo por lo que usa."
 ---
+
+## **Aplicar claves medidoras**
 
 {{% alert color="primary" %}} 
 
-El licenciamiento medido es un nuevo mecanismo de licenciamiento que puede ser utilizado junto con los métodos de licenciamiento existentes. Si deseas ser facturado en función de tu uso de las características de la API Aspose.Slides, elige el licenciamiento medido.
+La licencia con medición es un nuevo mecanismo de licenciamiento que puede usarse junto a los métodos de licenciamiento existentes. Si desea que se le facture según su uso de las funciones de la API Aspose.Slides, elija la licencia con medición.
 
-Cuando compras una licencia medida, obtienes claves (y no un archivo de licencia). Esta clave medida puede aplicarse utilizando la clase [Metered](https://reference.aspose.com/slides/python-net/aspose.slides/metered/) que Aspose proporcionó para operaciones de medición. Para más detalles, consulta [Preguntas Frecuentes sobre Licenciamiento Medido](https://purchase.aspose.com/faqs/licensing/metered).
+Al comprar una licencia con medición, recibe claves (y no un archivo de licencia). Esta clave medidora puede aplicarse usando la clase [Metered](https://reference.aspose.com/slides/python-net/aspose.slides/metered/) que Aspose proporciona para operaciones de medición. Para más detalles, vea las [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered).
 
 {{% /alert %}} 
 
-1. Crea una instancia de la clase [Metered](https://reference.aspose.com/slides/python-net/aspose.slides/metered/).
-1. Pasa tus claves públicas y privadas al método `set_metered_key`.
-1. Realiza algunos procesos (ejecuta tareas).
-1. Llama al método `get_consumption_quantity()` de la clase Metered.
+1. Crear una instancia de la clase [Metered](https://reference.aspose.com/slides/python-net/aspose.slides/metered/).
+1. Pasar sus claves pública y privada al método [set_metered_key](https://reference.aspose.com/slides/python-net/aspose.slides/metered/set_metered_key/#str-str).
+1. Realizar algún procesamiento (ejecutar tareas).
+1. Llamar al método [get_consumption_quantity](https://reference.aspose.com/slides/python-net/aspose.slides/metered/get_consumption_quantity/#) de la clase `Metered`.
 
-   Deberías ver la cantidad/total de solicitudes de API que has consumido hasta ahora.
+Debería ver la cantidad de solicitudes API que ha consumido hasta el momento.
 
-Este código Python te muestra cómo establecer claves públicas y privadas medidas:
-
+Este código de ejemplo le muestra cómo usar la licencia con medición:
 ```python
 import aspose.slides as slides
 
-# Crea una instancia de la clase CAD Metered
+# Crea una instancia de la clase Metered
 metered = slides.Metered()
 
-# Accede a la propiedad set_metered_key y pasa las claves públicas y privadas como parámetros
-metered.set_metered_key("*****", "*****")
+# Pasa las claves pública y privada al objeto Metered
+metered.set_metered_key("<valid public key>", "<valid private key>")
 
-# Obtiene la cantidad de datos medidos antes de llamar a la API
-amountbefore = slides.metered.get_consumption_quantity()
-# Muestra la información
-print("Cantidad Consumida Antes: " + str(amountbefore))
+# Obtiene el valor de cantidad consumida antes de las llamadas a la API
+amount_before = slides.Metered.get_consumption_quantity()
+print("Amount consumed before:", amount_before)
 
-# Carga el documento desde el disco.
-with slides.Presentation("Presentation.pptx") as pres:
-   # Obtiene la cantidad de páginas del documento
-   print(len(pres.slides))
-   # Guarda como PDF
-   pres.save("out_pdf.pdf", slides.export.SaveFormat.PDF)
+# Haz algo con la API de Aspose.Slides aquí
+# ...
 
-# Obtiene la cantidad de datos medidos después de llamar a la API
-amountafter = slides.metered.get_consumption_quantity()
-# Muestra la información
-print("Cantidad Consumida Después: " + str(amountafter))
+# Obtiene el valor de cantidad consumida después de las llamadas a la API
+amount_after = slides.Metered.get_consumption_quantity()
+print("Amount consumed after:", amount_after)
 ```
 
-{{% alert color="warning" title="NOTA"  %}} 
 
-Para usar el licenciamiento medido, necesitas una conexión a internet estable porque el mecanismo de licenciamiento utiliza internet para interactuar constantemente con nuestros servicios y realizar cálculos.
+{{% alert color="warning" title="NOTE"  %}} 
+
+Para usar la licencia con medición, necesita una conexión a Internet estable porque el mecanismo de licenciamiento usa Internet para interactuar constantemente con nuestros servicios y realizar cálculos.
 
 {{% /alert %}} 
+
+## **FAQ**
+
+**¿Puedo usar una licencia con medición junto con una licencia regular (perpetua o temporal) en la misma aplicación?**
+
+Sí. La licencia con medición es un mecanismo adicional que puede usarse junto a los [métodos de licenciamiento](/slides/es/python-net/licensing/) existentes. Usted elige qué mecanismo aplicar cuando la aplicación inicia.
+
+**¿Qué se cuenta exactamente como consumo bajo una licencia con medición: ¿operaciones o archivos?**
+
+Se contabiliza el uso de la API, es decir, el número de solicitudes u operaciones. Puede obtener el consumo actual mediante los [consumption-tracking methods](https://reference.aspose.com/slides/python-net/aspose.slides/metered/).
+
+**¿Es la licencia con medición adecuada para microservicios y entornos serverless donde las instancias se reinician con frecuencia?**
+
+Sí. Como la contabilización se realiza a nivel de llamada a la API, los escenarios con arranques en frío frecuentes son compatibles, siempre que haya acceso de red estable para los cálculos de medición.
+
+**¿La funcionalidad de la biblioteca difiere al usar una licencia con medición comparada con una licencia perpetua?**
+
+No. Esto solo afecta al mecanismo de licenciamiento y facturación; las capacidades del producto son las mismas.
+
+**¿Cómo se relaciona la licencia con medición con la versión de prueba y la licencia temporal?**
+
+La versión de prueba tiene limitaciones y marcas de agua, la [temporary license](https://purchase.aspose.com/temporary-license/) elimina las limitaciones durante 30 días, y la licencia con medición elimina las limitaciones y cobra según el uso real.
+
+**¿Puedo controlar el presupuesto reaccionando automáticamente cuando se supera un umbral de consumo?**
+
+Sí. Una práctica común es leer periódicamente el consumo actual mediante los [tracking methods](https://reference.aspose.com/slides/python-net/aspose.slides/metered/) e implementar sus propios límites o alertas a nivel de aplicación o monitoreo.

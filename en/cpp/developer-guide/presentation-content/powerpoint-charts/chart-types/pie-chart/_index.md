@@ -18,10 +18,10 @@ keywords:
 description: "Learn how to create and customize pie charts in С++ with Aspose.Slides, exportable to PowerPoint, boosting your data storytelling in seconds."
 ---
 
-## **Second Plot Options for Pie of Pie and Bar of Pie Chart**
+## **Second Plot Options for Pie of Pie and Bar of Pie Charts**
 Aspose.Slides for C++ now supports, second plot options for Pie of Pie or Bar of Pie chart. In this topic, we will see with example how to Specify these options using Aspose.Slides. In order to specify the properties. Please follow the steps below:
 
-1. Instantiate [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class object.
+1. Instantiate [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class object.
 1. Add chart on the slide.
 1. Specify the second plot options of chart.
 1. Write presentation to disk.
@@ -50,4 +50,12 @@ Write the modified presentation to a PPTX file.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SettingAutomicPieChartSliceColors-SettingAutomicPieChartSliceColors.cpp" >}}
 
+## **FAQ**
 
+**Are the 'Pie of Pie' and 'Bar of Pie' variations supported?**
+
+Yes, the library [supports](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) a secondary plot for pie charts, including the 'Pie of Pie' and 'Bar of Pie' types.
+
+**Can I export just the chart as an image (for example, PNG)?**
+
+Yes, you can [export the chart itself as an image](https://reference.aspose.com/slides/cpp/aspose.slides/shape/getimage/) (such as PNG) without the entire presentation.

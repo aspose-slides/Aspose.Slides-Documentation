@@ -249,7 +249,7 @@ public class CustomFormattingController implements IHtmlFormattingController
 ```
 
 
-## **Save CSS and Images When Exporting To HTML**
+## **Save CSS and Images When Exporting to HTML**
 Using new CSS style files, you can easily change the style of the HTML file resulting from the PowerPoint to HTML conversion process. 
 
 The Java code in this example shows you how to use overridable methods to create a custom HTML document with a link to a CSS file:
@@ -302,7 +302,7 @@ public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
 }
 ```
 
-## **Link All Fonts When Converting Presentation to HTML**
+## **Link All Fonts When Converting a Presentation to HTML**
 
 If you do not want to embed fonts (to avoid increasing the size of the resulting HTML), you can link all fonts by implementing your own  `LinkAllFontsHtmlController` version. 
 
@@ -421,3 +421,17 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+## **FAQ**
+
+**What is the performance of Aspose.Slides when converting multiple presentations to HTML?**
+
+Performance depends on the size and complexity of presentations. Aspose.Slides is highly efficient and scalable for batch operations. To achieve optimal performance when converting many presentations, it’s recommended to use multithreading or parallel processing whenever possible.
+
+**Does Aspose.Slides support exporting hyperlinks to HTML?**
+
+Yes, Aspose.Slides fully supports exporting embedded hyperlinks to HTML. When you convert presentations to HTML format, hyperlinks are preserved automatically and remain clickable.
+
+**Is there any limit on the number of slides when converting presentations to HTML?**
+
+There is no limit on the number of slides when using Aspose.Slides. You can convert presentations of any size. However, for presentations containing a very large number of slides, performance may depend on the available resources of your server or system.

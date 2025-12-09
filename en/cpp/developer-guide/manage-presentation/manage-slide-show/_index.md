@@ -108,3 +108,17 @@ presentation->get_SlideShowSettings()->set_ShowMediaControls(true);
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
+
+## **FAQ**
+
+**Can I save a presentation so it opens directly in slide show mode?**
+
+Yes. Save the file as PPSX or PPSM; these formats launch directly in slide show when opened in PowerPoint. In Aspose.Slides, choose the corresponding save format [during export](/slides/cpp/save-presentation/).
+
+**Can I exclude individual slides from the show without deleting them from the file?**
+
+Yes. Mark a slide as [hidden](https://reference.aspose.com/slides/cpp/aspose.slides/slide/set_hidden/). Hidden slides remain in the presentation but are not displayed during the slide show.
+
+**Can Aspose.Slides play a slide show or control a live presentation on screen?**
+
+No. Aspose.Slides edits, analyzes, and converts presentation files; the actual playback is handled by a viewer application such as PowerPoint.

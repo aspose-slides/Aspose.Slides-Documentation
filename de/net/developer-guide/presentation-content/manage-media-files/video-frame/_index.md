@@ -1,33 +1,46 @@
 ---
-title: Video-Rahmen
+title: Verwalten von Video-Frames in Präsentationen in .NET
+linktitle: Video-Frame
 type: docs
 weight: 10
 url: /de/net/video-frame/
-keywords: "Video hinzufügen, Video-Rahmen erstellen, Video extrahieren, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "Fügen Sie einen Video-Rahmen zu einer PowerPoint-Präsentation in C# oder .NET hinzu"
+keywords:
+- Video hinzufügen
+- Video erstellen
+- Video einbetten
+- Video extrahieren
+- Video abrufen
+- Video-Frame
+- Webquelle
+- PowerPoint
+- OpenDocument
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie programmgesteuert Video-Frames in PowerPoint- und OpenDocument-Folien mit Aspose.Slides für .NET hinzufügen und extrahieren. Schneller Leitfaden."
 ---
 
-Ein gut platzierter Video in einer Präsentation kann Ihre Botschaft überzeugender machen und das Engagement Ihres Publikums erhöhen.
+Ein gut platziertes Video in einer Präsentation kann Ihre Botschaft überzeugender machen und das Engagement‑Level Ihres Publikums erhöhen.  
 
-PowerPoint ermöglicht es Ihnen, Videos auf zwei Arten zu einer Folie in einer Präsentation hinzuzufügen:
+PowerPoint ermöglicht das Hinzufügen von Videos zu einer Folie in einer Präsentation auf zwei Arten:
 
-* Fügen Sie ein lokales Video hinzu oder betten Sie es ein (auf Ihrem Rechner gespeichert)
-* Fügen Sie ein Online-Video hinzu (aus einer Webquelle wie YouTube).
+* Ein lokales Video hinzufügen oder einbetten (auf Ihrem Rechner gespeichert)
+* Ein Online‑Video hinzufügen (von einer Webquelle wie YouTube).
 
-Um Ihnen das Hinzufügen von Videos (Videoobjekten) zu einer Präsentation zu ermöglichen, bietet Aspose.Slides die [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) Schnittstelle, die [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) Schnittstelle und andere relevante Typen.
+Um Ihnen das Hinzufügen von Videos (Video‑Objekten) zu einer Präsentation zu ermöglichen, stellt Aspose.Slides die Schnittstellen [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) und [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) sowie weitere relevante Typen bereit. 
 
-## **Embedded Video-Rahmen erstellen**
+## **Eingebetteten Videorahmen erstellen**
 
-Wenn die Videodatei, die Sie zu Ihrer Folie hinzufügen möchten, lokal gespeichert ist, können Sie einen Video-Rahmen erstellen, um das Video in Ihrer Präsentation einzubetten.
+Wenn die Videodatei, die Sie zu Ihrer Folie hinzufügen möchten, lokal gespeichert ist, können Sie einen Videorahmen erstellen, um das Video in Ihre Präsentation einzubetten. 
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-1. Holen Sie sich eine Referenz auf die Folie über ihren Index.
-1. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) Objekt hinzu und übergeben Sie den Pfad zur Videodatei, um das Video mit der Präsentation einzubetten.
-1. Fügen Sie ein [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) Objekt hinzu, um einen Rahmen für das Video zu erstellen.
-1. Speichern Sie die modifizierte Präsentation.
+1. Erstellen Sie eine Instanz der [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.  
+2. Holen Sie sich über den Index eine Referenz auf eine Folie.  
+3. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/)‑Objekt hinzu und übergeben Sie den Pfad zur Videodatei, um das Video in die Präsentation einzubetten.  
+4. Fügen Sie ein [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/)‑Objekt hinzu, um einen Rahmen für das Video zu erstellen.  
+5. Speichern Sie die geänderte Präsentation.  
 
-Dieser C#-Code zeigt Ihnen, wie Sie ein lokal gespeichertes Video zu einer Präsentation hinzufügen:
-
+Dieser C#‑Code zeigt, wie ein lokal gespeichertes Video zu einer Präsentation hinzugefügt wird:
 ```c#
 // Instanziiert die Presentation-Klasse
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -37,7 +50,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
     {
         IVideo video = pres.Videos.AddVideo(fileStream, LoadingStreamBehavior.KeepLocked);
         
-        // Holt die erste Folie und fügt einen Video-Rahmen hinzu
+        // Holt die erste Folie und fügt einen VideoFrame hinzu
         pres.Slides[0].Shapes.AddVideoFrame(10, 10, 150, 250, video);
         
         // Speichert die Präsentation auf der Festplatte
@@ -45,9 +58,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
     }
 }
 ```
-Alternativ können Sie ein Video hinzufügen, indem Sie den Pfad zur Datei direkt an die [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/) Methode übergeben:
 
-```csharp
+Alternativ können Sie ein Video hinzufügen, indem Sie seinen Dateipfad direkt an die Methode [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/) übergeben:
+``` csharp
 using (Presentation pres = new Presentation())
 {
     ISlide sld = pres.Slides[0];
@@ -55,21 +68,21 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Video-Rahmen mit Video aus einer Webquelle erstellen**
-Microsoft [PowerPoint 2013 und neuer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) unterstützt YouTube-Videos in Präsentationen. Wenn das Video, das Sie verwenden möchten, online verfügbar ist (z.B. auf YouTube), können Sie es über seinen Weblink zu Ihrer Präsentation hinzufügen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse
-1. Holen Sie sich eine Referenz auf die Folie über ihren Index.
-1. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) Objekt hinzu und übergeben Sie den Link zum Video.
-1. Setzen Sie ein Miniaturbild für den Video-Rahmen.
-1. Speichern Sie die Präsentation.
+## **Videorahmen mit Video aus Web‑Quelle erstellen**
+Microsoft [PowerPoint 2013 und neuer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) unterstützt YouTube‑Videos in Präsentationen. Wenn das Video, das Sie verwenden möchten, online verfügbar ist (z. B. auf YouTube), können Sie es über seinen Web‑Link zur Präsentation hinzufügen. 
 
-Dieser C#-Code zeigt Ihnen, wie Sie ein Video aus dem Web zu einer Folie in einer PowerPoint-Präsentation hinzufügen:
+1. Erstellen Sie eine Instanz der [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.  
+2. Holen Sie sich über den Index eine Referenz auf eine Folie.  
+3. Fügen Sie ein [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/)‑Objekt hinzu und übergeben Sie den Link zum Video.  
+4. Legen Sie ein Thumbnail für den Videorahmen fest.  
+5. Speichern Sie die Präsentation.  
 
+Dieser C#‑Code zeigt, wie ein Video aus dem Web zu einer Folie in einer PowerPoint‑Präsentation hinzugefügt wird:
 ```c#
 public static void Run()
 {
-    // Instanziiert ein Presentation-Objekt, das eine Präsentationsdatei darstellt 
+    // Instanziiert ein Presentation-Objekt, das eine Präsentationsdatei darstellt
     using (Presentation pres = new Presentation())
     {
         AddVideoFromYouTube(pres, "Tj75Arhq5ho");
@@ -79,11 +92,11 @@ public static void Run()
 
 private static void AddVideoFromYouTube(Presentation pres, string videoId)
 {
-    // Fügt einen Video-Rahmen hinzu
+    // Fügt einen VideoFrame hinzu
     IVideoFrame videoFrame = pres.Slides[0].Shapes.AddVideoFrame(10, 10, 427, 240, "https://www.youtube.com/embed/" + videoId);
     videoFrame.PlayMode = VideoPlayModePreset.Auto;
 
-    // Lädt das Miniaturbild
+    // Lädt das Thumbnail
     using (WebClient client = new WebClient())
     {
         string thumbnailUri = "http://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
@@ -92,19 +105,19 @@ private static void AddVideoFromYouTube(Presentation pres, string videoId)
 }
 ```
 
-## **Video von Folie extrahieren**
-Neben dem Hinzufügen von Videos zu Folien ermöglicht es Aspose.Slides Ihnen auch, Videos, die in Präsentationen eingebettet sind, zu extrahieren.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse, um die Präsentation zu laden, die das Video enthält.
-2. Durchlaufen Sie alle [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) Objekte.
-3. Durchlaufen Sie alle [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) Objekte, um einen [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe) zu finden.
-4. Speichern Sie das Video auf der Festplatte.
+## **Video aus Folie extrahieren**
+Neben dem Hinzufügen von Videos zu Folien ermöglicht Aspose.Slides das Extrahieren von in Präsentationen eingebetteten Videos.
 
-Dieser C#-Code zeigt Ihnen, wie Sie das Video auf einer Präsentationsfolie extrahieren:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑Klasse, um die Präsentation zu laden, die das Video enthält.  
+2. Durchlaufen Sie alle [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide)‑Objekte.  
+3. Durchlaufen Sie alle [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape)‑Objekte, um ein [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe) zu finden.  
+4. Speichern Sie das Video auf der Festplatte.  
 
+Dieser C#‑Code zeigt, wie das Video aus einer Präsentationsfolie extrahiert wird:
 ```c#
-// Instanziiert ein Presentation-Objekt, das eine Präsentationsdatei darstellt 
-Presentation presentation = new Presentation("Video.pptx");
+ // Instanziert ein Presentation-Objekt, das eine Präsentationsdatei darstellt 
+ Presentation presentation = new Presentation("Video.pptx");
 
 // Durchläuft die Folien
 foreach (ISlide slide in presentation.Slides)
@@ -112,7 +125,7 @@ foreach (ISlide slide in presentation.Slides)
     // Durchläuft die Formen
     foreach (IShape shape in presentation.Slides[0].Shapes)
     {
-        // Speichert das Video auf der Festplatte, sobald der Video-Rahmen mit dem Video gefunden wird
+        // Speichert das Video auf die Festplatte, sobald ein VideoFrame mit Video gefunden wird
         if (shape is VideoFrame)
         {
             IVideoFrame vf = shape as IVideoFrame;
@@ -128,3 +141,22 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 ```
+
+
+## **FAQ**
+
+**Welche Wiedergabeparameter können für einen VideoFrame geändert werden?**
+
+Sie können den [Wiedergabemodus](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (automatisch oder bei Klick) und das [Looping](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) steuern. Diese Optionen stehen über die Eigenschaften des [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/)‑Objekts zur Verfügung.
+
+**Beeinflusst das Hinzufügen eines Videos die PPTX‑Dateigröße?**
+
+Ja. Wenn Sie ein lokales Video einbetten, werden die Binärdaten in das Dokument aufgenommen, sodass die Präsentationsgröße proportional zur Dateigröße wächst. Beim Hinzufügen eines Online‑Videos werden lediglich ein Link und ein Thumbnail eingebettet, sodass die Größensteigerung geringer ist.
+
+**Kann ich das Video in einem bestehenden VideoFrame ersetzen, ohne Position und Größe zu ändern?**
+
+Ja. Sie können den [Video‑Inhalt](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) innerhalb des Rahmens austauschen und dabei die Geometrie der Form beibehalten; dies ist ein übliches Szenario zum Aktualisieren von Medien in einem bestehenden Layout.
+
+**Kann der MIME‑Typ eines eingebetteten Videos ermittelt werden?**
+
+Ja. Ein eingebettetes Video besitzt einen [Content‑Type](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/), den Sie auslesen und beispielsweise beim Speichern auf der Festplatte verwenden können.

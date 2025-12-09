@@ -1,53 +1,58 @@
 ---
-title: Преобразование PowerPoint в PDF с заметками
+title: Конвертировать презентации PowerPoint в PDF с примечаниями на Java
+linktitle: PowerPoint в PDF с примечаниями
 type: docs
 weight: 50
 url: /ru/java/convert-powerpoint-to-pdf-with-notes/
-keywords: "преобразование powerpoint в pdf с заметками на java"
-description: "Преобразование PowerPoint в PDF с заметками на Java"
+keywords:
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPT
+- конвертировать PPTX
+- PowerPoint в PDF
+- презентация в PDF
+- слайд в PDF
+- PPT в PDF
+- PPTX в PDF
+- сохранить презентацию как PDF
+- сохранить PPT как PDF
+- сохранить PPTX как PDF
+- экспортировать PPT в PDF
+- экспортировать PPTX в PDF
+- примечания выступающего
+- PDF с примечаниями
+- Java
+- Aspose.Slides
+description: "Конвертировать форматы PPT и PPTX в PDF с примечаниями с помощью Aspose.Slides для Java. Сохранять макеты и примечания выступающего для профессиональных презентаций."
 ---
 
-## **Преобразование PowerPoint в PDF с пользовательским размером слайдов**
-Следующий пример показывает, как преобразовать презентацию в документ PDF с заметками с пользовательским размером слайдов. Где каждый дюйм равен 72.
+## **Обзор**
 
+В этой статье вы узнаете, как конвертировать презентации PowerPoint в формат PDF с примечаниями выступающего, используя Aspose.Slides. Это руководство охватит необходимые шаги и предоставит примеры кода, чтобы вы смогли эффективно выполнить эту задачу. К концу статьи вы сможете:
+
+- Реализовать процесс конвертации, преобразующий слайды PowerPoint в документы PDF, сохраняя при этом примечания выступающего.
+- Настроить выходной PDF так, чтобы примечания выступающего были включены и отформатированы согласно вашим требованиям.
+
+## **Конвертировать PowerPoint в PDF с примечаниями**
+
+Метод `save` в классе [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) можно использовать для конвертации презентации PPT или PPTX в PDF с примечаниями выступающего. С помощью Aspose.Slides вы просто загружаете презентацию, настраиваете параметры компоновки, используя класс [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/notescommentslayoutingoptions/), чтобы включить примечания выступающего, а затем сохраняете файл как PDF. Ниже приведён фрагмент кода, демонстрирующий, как конвертировать пример презентации в PDF в виде слайдов с примечаниями.
 ```java
-// Создание объекта Presentation, представляющего файл презентации
-Presentation presIn = new Presentation("SelectedSlides.pptx");
-Presentation presOut = new Presentation();
-try {
-    ISlide slide = presIn.getSlides().get_Item(0);
-    presOut.getSlides().insertClone(0, slide);
-    
-    // Установка типа и размера слайда
-    presOut.getSlideSize().setSize(612F, 792F, SlideSizeScaleType.EnsureFit);
-        
-    PdfOptions pdfOptions = new PdfOptions();
-    pdfOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
+Presentation presentation = new Presentation("sample.pptx");
 
-    presOut.save("PDF-SelectedSlide.pdf", SaveFormat.Pdf, pdfOptions);
-} finally {
-    if (presIn != null) presIn.dispose();
-    if (presOut != null) presOut.dispose();
-}
+// Настройте параметры PDF для отображения примечаний выступающего.
+NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
+notesOptions.setNotesPosition(NotesPositions.BottomFull); // Отображать примечания выступающего под слайдом.
+
+PdfOptions pdfOptions = new PdfOptions();
+pdfOptions.setSlidesLayoutOptions(notesOptions);
+
+// Сохраните презентацию в PDF с примечаниями выступающего.
+presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
+presentation.dispose();
 ```
 
-## **Преобразование PowerPoint в PDF в режиме просмотра слайдов с заметками**
-Метод [**Save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) класса [**Presentation**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) может быть использован для преобразования всей презентации в режиме просмотра слайдов с заметками в PDF. Примеры кода ниже обновляют выбранную презентацию в PDF в режиме просмотра слайдов с заметками.
-
-```java
-Presentation pres = new Presentation("presentation.pptx");
-try {
-    PdfOptions pdfOptions = new PdfOptions();
-    pdfOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
-
-    pres.save(resourcesOutputPath+"PDF-Notes.pdf", SaveFormat.Pdf, pdfOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
 
 {{% alert color="primary" %}} 
-
-Вы можете ознакомиться с конвертером Aspose [PowerPoint в PDF](https://products.aspose.app/slides/conversion/powerpoint-to-pdf) или [PPT в PDF](https://products.aspose.app/slides/conversion/ppt-to-pdf). 
-
-{{% /alert %}} 
+Возможно, вы захотите ознакомиться с Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/conversion). 
+{{% /alert %}}

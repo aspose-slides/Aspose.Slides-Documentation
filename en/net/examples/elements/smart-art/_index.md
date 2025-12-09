@@ -20,7 +20,7 @@ description: "Build and edit SmartArt in C# with Aspose.Slides: add nodes, chang
 
 Shows how to add SmartArt graphics, access them, remove them, and change layouts using **Aspose.Slides for .NET**.
 
-## Add SmartArt
+## **Add SmartArt**
 
 Insert a SmartArt graphic using one of the built-in layouts.
 
@@ -34,7 +34,7 @@ static void Add_SmartArt()
 }
 ```
 
-## Access SmartArt
+## **Access SmartArt**
 
 Retrieve the first SmartArt object on a slide.
 
@@ -49,7 +49,7 @@ static void Access_SmartArt()
 }
 ```
 
-## Remove SmartArt
+## **Remove SmartArt**
 
 Delete a SmartArt shape from the slide.
 
@@ -64,7 +64,7 @@ static void Remove_SmartArt()
 }
 ```
 
-## Change SmartArt Layout
+## **Change SmartArt Layout**
 
 Update the layout type of an existing SmartArt graphic.
 

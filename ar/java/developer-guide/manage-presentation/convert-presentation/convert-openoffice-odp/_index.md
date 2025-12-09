@@ -1,13 +1,32 @@
 ---
-title: تحويل OpenOffice ODP
+title: تحويل عروض OpenDocument في Java
+linktitle: تحويل OpenDocument
 type: docs
 weight: 10
 url: /ar/java/convert-openoffice-odp/
-keywords: "تحويل ODP إلى PDF، ODP إلى HTML، ODP إلى TIFF في Java"
-description: "تحويل ODP إلى PDF، ODP إلى PPT، ODP إلى PPTX، ODP إلى HTML في Java"
+keywords:
+- تحويل ODP
+- ODP إلى صورة
+- ODP إلى GIF
+- ODP إلى HTML
+- ODP إلى JPG
+- ODP إلى MD
+- ODP إلى PDF
+- ODP إلى PNG
+- ODP إلى PPT
+- ODP إلى PPTX
+- ODP إلى TIFF
+- ODP إلى فيديو
+- ODP إلى Word
+- ODP إلى XPS
+- OpenDocument
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "يتيح Aspose.Slides for Java تحويل ODP إلى PDF وHTML وتنسيقات الصور بسهولة. عزز تطبيقات Java الخاصة بك بتحويل عروض تقديمية سريع ودقيق."
 ---
 
-[**Aspose.Slides API**](https://products.aspose.com/slides/java/) تتيح تحويل عرض تقديمي OpenOffice ODP إلى العديد من الأنواع. واجهة برمجة التطبيقات لتحويل ODP إلى أنواع أخرى هي نفسها المستخدمة لأنواع PowerPoint. يمكنك استخدام الأمثلة التالية لتحويل ODP، مع تغيير ملف المصدر إلى ملف عرض ODP:
+[**Aspose.Slides API**](https://products.aspose.com/slides/java/) يتيح تحويل عروض تقديمية OpenOffice ODP إلى العديد من الأنواع. API لتحويل ODP إلى أنواع أخرى هو نفسه بالنسبة لأنواع PowerPoint. يمكنك استخدام الأمثلة التالية لتحويل ODP، فقط بتغيير ملف المصدر إلى ملف عرض ODP:
 
 - [تحويل ODP إلى HTML](/slides/ar/java/convert-powerpoint-ppt-and-pptx-to-html/)
 - [تحويل ODP إلى PDF](/slides/ar/java/convert-powerpoint-ppt-and-pptx-to-pdf/)

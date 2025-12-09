@@ -22,7 +22,7 @@ Master slides form the top level of the slide inheritance hierarchy in PowerPoin
 
 This article demonstrates how to create, modify, and manage master slides using Aspose.Slides for .NET.
 
-## Add a Master Slide
+## **Add a Master Slide**
 
 This example shows how to create a new master slide by cloning the default one. It then adds a company name banner to all slides through layout inheritance.
 
@@ -58,7 +58,7 @@ static void Add_Master_Slide()
 
 ![Master Inheritance Example](master-slide-banner.png)
 
-## Access a Master Slide
+## **Access a Master Slide**
 
 You can access master slides using the `Presentation.Masters` collection. Here’s how to retrieve and work with them:
 
@@ -75,7 +75,7 @@ static void Access_Master_Slide()
 }
 ```
 
-## Remove a Master Slide
+## **Remove a Master Slide**
 
 Master slides can be removed either by index or by reference.
 
@@ -93,7 +93,7 @@ static void Remove_Master_Slide()
 }
 ```
 
-## Remove Unused Master Slides
+## **Remove Unused Master Slides**
 
 Some presentations contain master slides that are not in use. Removing these slides can help reduce file size.
 

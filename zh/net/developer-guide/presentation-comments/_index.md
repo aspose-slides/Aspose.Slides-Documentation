@@ -1,74 +1,90 @@
 ---
-title: 演示文稿评论
+title: 在 .NET 中管理演示文稿批注
+linktitle: 演示文稿批注
 type: docs
 weight: 100
 url: /zh/net/presentation-comments/
-keywords: "评论, PowerPoint评论, PowerPoint演示文稿, C#, Csharp, Aspose.Slides for .NET"
-description: "在C#或.NET中向PowerPoint演示文稿添加评论和回复"
+keywords:
+- 批注
+- 现代批注
+- PowerPoint 批注
+- 演示文稿批注
+- 幻灯片批注
+- 添加批注
+- 访问批注
+- 编辑批注
+- 回复批注
+- 删除批注
+- 删除批注
+- PowerPoint
+- 演示文稿
+- .NET
+- C#
+- Aspose.Slides
+description: "使用 Aspose.Slides for .NET 完全掌握演示文稿批注：在 PowerPoint 文件中快速轻松地添加、读取、编辑和删除批注。"
 ---
 
-在PowerPoint中，评论作为幻灯片上的注释或注解出现。当单击评论时，将显示其内容或消息。
+在 PowerPoint 中，批注显示为幻灯片上的备注或注释。单击批注后，其内容或信息会显示出来。 
 
-## **为什么要在演示文稿中添加评论？**
+## **为什么要向演示文稿添加批注？**
 
-您可能希望在审核演示文稿时使用评论来提供反馈或与同事沟通。
+在审阅演示文稿时，您可能希望使用批注来提供反馈或与同事沟通。
 
-为了让您能够在PowerPoint演示文稿中使用评论，Aspose.Slides for .NET提供了
+为使您能够在 PowerPoint 演示文稿中使用批注，Aspose.Slides for .NET 提供
 
-* [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类，该类包含作者的集合（来自 [CommentAuthorCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/properties/index) 属性）。作者将评论添加到幻灯片上。
-* [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) 接口，该接口包含每个作者的评论集合。
-* [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) 类，该类包含有关作者及其评论的信息：谁添加了评论，评论添加的时间，评论的位置等。
-* [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) 类，该类包含有关单个作者的信息：作者的姓名、他的首字母、与作者姓名相关的评论等。
+* The [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类，包含作者集合（来自 [CommentAuthorCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/properties/index) 属性）。作者向幻灯片添加批注。 
+* The  [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) 接口，包含各作者的批注集合。 
+* The  [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) 类，包含作者及其批注的信息：谁添加了批注、批注添加的时间、批注的位置等。 
+* The [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) 类，包含单个作者的信息：作者姓名、缩写、与该作者姓名关联的批注等。 
 
-## **添加幻灯片评论**
-以下C#代码向您展示如何在PowerPoint演示文稿中向幻灯片添加评论：
-
+## **添加幻灯片批注**
+以下 C# 代码演示如何向 PowerPoint 演示文稿的幻灯片添加批注：
 ```c#
-// 实例化Presentation类
+// 实例化 Presentation 类
 using (Presentation presentation = new Presentation())
 {
-    // 添加一个空幻灯片
+    // 添加空幻灯片
     presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
 
     // 添加作者
     ICommentAuthor author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
 
-    // 设置评论的位置
+    // 设置批注的位置
     PointF point = new PointF();
     point.X = 0.2f;
     point.Y = 0.2f;
 
-    // 为作者在幻灯片1上添加幻灯片评论
-    author.Comments.AddComment("你好Jawad，这是幻灯片评论", presentation.Slides[0], point, DateTime.Now);
+    // 为作者在幻灯片 1 上添加幻灯片批注
+    author.Comments.AddComment("Hello Jawad, this is slide comment", presentation.Slides[0], point, DateTime.Now);
 
-    // 为作者在幻灯片2上添加幻灯片评论
-    author.Comments.AddComment("你好Jawad，这是第二个幻灯片评论", presentation.Slides[1], point, DateTime.Now);
+    // 为作者在幻灯片 2 上添加幻灯片批注
+    author.Comments.AddComment("Hello Jawad, this is second slide comment", presentation.Slides[1], point, DateTime.Now);
 
-    // 访问ISlide 1
+    // 访问 ISlide 1
     ISlide slide = presentation.Slides[0];
 
-    // 当传入null作为参数时，将所有作者的评论带到所选幻灯片
+    // 当参数为 null 时，来自所有作者的批注会被带到所选幻灯片
     IComment[] Comments = slide.GetSlideComments(author);
 
-    // 访问幻灯片1的索引0处的评论
+    // 访问幻灯片 1 上索引 0 处的批注
     String str = Comments[0].Text;
 
     presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 
     if (Comments.GetLength(0) > 0)
     {
-        // 选择索引0处的作者评论集合
+        // 选择索引 0 处的作者批注集合
         ICommentCollection commentCollection = Comments[0].Author.Comments;
         String Comment = commentCollection[0].Text;
     }
 }
 ```
 
-## **访问幻灯片评论**
-以下C#代码向您展示如何访问PowerPoint演示文稿中的现有评论：
 
+## **访问幻灯片批注**
+以下 C# 代码演示如何访问 PowerPoint 演示文稿中幻灯片的现有批注：
 ```c#
-// 实例化Presentation类
+// 实例化 Presentation 类
 using (Presentation presentation = new Presentation("Comments1.pptx"))
 {
     foreach (var commentAuthor in presentation.CommentAuthors)
@@ -77,44 +93,44 @@ using (Presentation presentation = new Presentation("Comments1.pptx"))
         foreach (var comment1 in author.Comments)
         {
             var comment = (Comment) comment1;
-            Console.WriteLine("ISlide :" + comment.Slide.SlideNumber + " 有评论: " + comment.Text + " 来自作者: " + comment.Author.Name + " 发表时间 :" + comment.CreatedTime + "\n");
+            Console.WriteLine("ISlide :" + comment.Slide.SlideNumber + " has comment: " + comment.Text + " with Author: " + comment.Author.Name + " posted on time :" + comment.CreatedTime + "\n");
         }
     }
 }
 ```
 
-## **回复评论**
-父评论是评论或回复层次结构中的顶层或原始评论。使用 [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) 属性（来自 [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) 接口），可以设置或获取父评论。
 
-以下C#代码向您展示如何添加评论并获取对其的回复：
+## **回复批注**
+父批注是批注或回复层级中的顶层或原始批注。使用 [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) 属性（来自 [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) 接口），您可以设置或获取父批注。 
 
+以下 C# 代码演示如何添加批注并获取其回复：
 ```c#
 using (Presentation pres = new Presentation())
 {
-    // 添加评论
+    // 添加批注
     ICommentAuthor author1 = pres.CommentAuthors.AddAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.Comments.AddComment("评论1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
+    IComment comment1 = author1.Comments.AddComment("comment1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
 
-    // 为评论1添加回复
+    // 为 comment1 添加回复
     ICommentAuthor author2 = pres.CommentAuthors.AddAuthor("Autror_2", "B.B.");
-    IComment reply1 = author2.Comments.AddComment("回复1关于评论1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
+    IComment reply1 = author2.Comments.AddComment("reply 1 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply1.ParentComment = comment1;
 
-    // 为评论1添加另一个回复
-    IComment reply2 = author2.Comments.AddComment("回复2关于评论1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
+    // 为 comment1 添加另一个回复
+    IComment reply2 = author2.Comments.AddComment("reply 2 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply2.ParentComment = comment1;
 
-    // 为现有回复添加回复
-    IComment subReply = author1.Comments.AddComment("子回复3关于回复2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
+    // 为已有回复添加回复
+    IComment subReply = author1.Comments.AddComment("subreply 3 for reply 2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     subReply.ParentComment = reply2;
 
-    IComment comment2 = author2.Comments.AddComment("评论2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    IComment comment3 = author2.Comments.AddComment("评论3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
+    IComment comment2 = author2.Comments.AddComment("comment 2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
+    IComment comment3 = author2.Comments.AddComment("comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
 
-    IComment reply3 = author1.Comments.AddComment("回复4关于评论3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
+    IComment reply3 = author1.Comments.AddComment("reply 4 for comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply3.ParentComment = comment3;
 
-    // 在控制台上显示评论层级
+    // 在控制台显示批注层级结构
     ISlide slide = pres.Slides[0];
     var comments = slide.GetSlideComments(null);
     for (int i = 0; i < comments.Length; i++)
@@ -132,48 +148,48 @@ using (Presentation pres = new Presentation())
 
     pres.Save("parent_comment.pptx",SaveFormat.Pptx);
 
-    // 删除评论1及其所有回复
+    // 删除 comment1 及其所有回复
     comment1.Remove();
 
     pres.Save("remove_comment.pptx", SaveFormat.Pptx);
 }
 ```
 
-{{% alert color="warning" title="注意" %}} 
 
-* 当使用 [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) 方法（来自 [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) 接口）删除评论时，该评论的回复也将被删除。 
-* 如果 [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) 设置导致循环引用，将抛出 [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception)。
+{{% alert color="warning" title="Attention" %}} 
+
+* 当使用来自 [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) 接口的 [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) 方法删除批注时，批注的回复也会被删除。 
+* 如果 [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) 设置导致循环引用，将抛出 [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception)。 
 
 {{% /alert %}}
 
-## **添加现代评论**
+## **添加现代批注**
 
-2021年，微软在PowerPoint中引入了*现代评论*。现代评论特性显著改善了PowerPoint中的协作。通过现代评论，PowerPoint用户可以更方便地解决评论、将评论锚定到对象和文本上，并进行互动。
+2021 年，Microsoft 在 PowerPoint 中引入了*现代批注*。现代批注功能显著提升了 PowerPoint 的协作能力。通过现代批注，PowerPoint 用户可以解决批注、将批注锚定到对象和文本，并且比以前更轻松地进行交互。 
 
-在 [Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-11-release-notes/) 中，我们通过添加 [ModernComment](https://reference.aspose.com/slides/net/aspose.slides/moderncomment) 类实现了对现代评论的支持。 [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) 和 [InsertModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) 方法被添加到 [CommentCollection](https://reference.aspose.com/slides/net/aspose.slides/commentcollection) 类中。
+在 [Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-11-release-notes/) 中，我们通过添加 [ModernComment](https://reference.aspose.com/slides/net/aspose.slides/moderncomment) 类实现了对现代批注的支持。向 [CommentCollection](https://reference.aspose.com/slides/net/aspose.slides/commentcollection) 类添加了 [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) 和 [InsertModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) 方法。 
 
-以下C#代码向您展示如何向PowerPoint演示文稿中的幻灯片添加现代评论：
-
+以下 C# 代码演示如何向 PowerPoint 演示文稿的幻灯片添加现代批注： 
 ```c#
 using (Presentation pres = new Presentation())
 {
-     ICommentAuthor newAuthor = pres.CommentAuthors.AddAuthor("某些作者", "SA");
-     IModernComment modernComment = newAuthor.Comments.AddModernComment("这是一条现代评论", pres.Slides[0], null, new PointF(100, 100), DateTime.Now);
+     ICommentAuthor newAuthor = pres.CommentAuthors.AddAuthor("Some Author", "SA");
+     IModernComment modernComment = newAuthor.Comments.AddModernComment("This is a modern comment", pres.Slides[0], null, new PointF(100, 100), DateTime.Now);
  
      pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **删除评论**
 
-### **删除所有评论和作者**
+## **删除批注**
 
-以下C#代码向您展示如何删除演示文稿中的所有评论和作者：
+### **删除所有批注和作者**
 
+以下 C# 代码演示如何在演示文稿中删除所有批注和作者：
 ```c#
 using (var presentation = new Presentation("example.pptx"))
 {
-    // 删除演示文稿中的所有评论
+    // 删除演示文稿中的所有批注
     foreach (var author in presentation.CommentAuthors)
     {
         author.Comments.Clear();
@@ -186,27 +202,27 @@ using (var presentation = new Presentation("example.pptx"))
 }
 ```
 
-### **删除特定评论**
 
-以下C#代码向您展示如何删除幻灯片上的特定评论：
+### **删除特定批注**
 
+以下 C# 代码演示如何删除幻灯片上的特定批注：
 ```c#
 using (var presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
     
-    // 添加评论...
-    ICommentAuthor author = presentation.CommentAuthors.AddAuthor("作者", "A");
-    author.Comments.AddComment("评论1", slide, new PointF(0.2f, 0.2f), DateTime.Now);
-    author.Comments.AddComment("评论2", slide, new PointF(0.3f, 0.2f), DateTime.Now);
+    // 添加批注...
+    ICommentAuthor author = presentation.CommentAuthors.AddAuthor("Author", "A");
+    author.Comments.AddComment("comment 1", slide, new PointF(0.2f, 0.2f), DateTime.Now);
+    author.Comments.AddComment("comment 2", slide, new PointF(0.3f, 0.2f), DateTime.Now);
     
-    // 删除所有包含“评论1”文本的评论
+    // 删除所有包含 "comment 1" 文本的批注
     foreach (ICommentAuthor commentAuthor in presentation.CommentAuthors)
     {
         List<IComment> toRemove = new List<IComment>();
         foreach (IComment comment in slide.GetSlideComments(commentAuthor))
         {
-            if (comment.Text == "评论1")
+            if (comment.Text == "comment 1")
             {
                 toRemove.Add(comment);
             }
@@ -221,3 +237,18 @@ using (var presentation = new Presentation())
     presentation.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **常见问题**
+
+**Aspose.Slides 是否支持现代批注的“已解决”状态？**
+
+是的。[Modern comments](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/) 提供了一个 [Status](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/status/) 属性；您可以读取和设置 [批注的状态](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/)（例如将其标记为已解决），该状态会保存在文件中并被 PowerPoint 识别。
+
+**是否支持线程式讨论（回复链），并且是否有限制嵌套深度？**
+
+是的。每个批注都可以引用其 [parent comment](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/)，从而实现任意长度的回复链。API 并未声明具体的嵌套深度限制。
+
+**批注标记在幻灯片上的位置采用何种坐标系定义？**
+
+该位置以浮点坐标点存储在幻灯片的坐标系中，使您能够将批注标记精确放置在所需位置。

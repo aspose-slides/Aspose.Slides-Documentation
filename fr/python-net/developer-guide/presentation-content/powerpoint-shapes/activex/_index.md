@@ -1,47 +1,55 @@
 ---
-title: ActiveX
+title: Gérer les contrôles ActiveX dans les présentations avec Python
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /fr/python-net/activex/
-keywords: "ActiveX, contrôles ActiveX, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Gérer les contrôles ActiveX dans une présentation PowerPoint en Python"
+keywords:
+- ActiveX
+- contrôle ActiveX
+- gérer ActiveX
+- ajouter ActiveX
+- modifier ActiveX
+- lecteur multimédia
+- PowerPoint
+- présentation
+- Python
+- Aspose.Slides
+description: "Découvrez comment Aspose.Slides for Python via .NET exploite ActiveX pour automatiser et améliorer les présentations PowerPoint, offrant aux développeurs un contrôle puissant sur les diapositives."
 ---
 
-Les contrôles ActiveX sont utilisés dans les présentations. Aspose.Slides pour Python via .NET vous permet de gérer les contrôles ActiveX, mais leur gestion est un peu plus délicate et différente des formes de présentation normales. À partir de Aspose.Slides pour Python via .NET 6.9.0, le composant prend en charge la gestion des contrôles ActiveX. Pour le moment, vous pouvez accéder aux contrôles ActiveX déjà ajoutés dans votre présentation et les modifier ou les supprimer en utilisant leurs différentes propriétés. N'oubliez pas que les contrôles ActiveX ne sont pas des formes et ne font pas partie de l'IShapeCollection de la présentation, mais de la collection distincte IControlCollection. Cet article montre comment travailler avec eux.
+Les contrôles ActiveX sont utilisés dans les présentations. Aspose.Slides for Python via .NET vous permet de gérer les contrôles ActiveX, mais leur gestion est un peu plus délicate et différente des formes classiques des présentations. À partir d'Aspose.Slides for Python via .NET 6.9.0, le composant prend en charge la gestion des contrôles ActiveX. Pour l’instant, vous pouvez accéder aux contrôles ActiveX déjà ajoutés dans votre présentation et les modifier ou les supprimer en utilisant leurs différentes propriétés. Rappelez vous, les contrôles ActiveX ne sont pas des formes et ne font pas partie de IShapeCollection de la présentation, mais du IControlCollection séparé. Cet article montre comment les utiliser.
 ## **Modifier les contrôles ActiveX**
-Pour gérer un simple contrôle ActiveX comme une zone de texte et un bouton de commande simple sur une diapositive :
+1. Créez une instance de la classe Presentation et chargez la présentation contenant des contrôles ActiveX.  
+2. Obtenez une référence à la diapositive par son indice.  
+3. Accédez aux contrôles ActiveX de la diapositive en accédant à IControlCollection.  
+4. Accédez au contrôle ActiveX TextBox1 en utilisant l’objet ControlEx.  
+5. Modifiez les différentes propriétés du contrôle ActiveX TextBox1, y compris le texte, la police, la hauteur de police et la position du cadre.  
+6. Accédez au deuxième contrôle d’accès nommé CommandButton1.  
+7. Modifiez la légende du bouton, la police et la position.  
+8. Déplacez la position des cadres des contrôles ActiveX.  
+9. Enregistrez la présentation modifiée dans un fichier PPTX.  
 
-1. Créez une instance de la classe Presentation et chargez la présentation avec les contrôles ActiveX.
-1. Obtenez une référence à la diapositive par son index.
-1. Accédez aux contrôles ActiveX dans la diapositive en accédant à l'IControlCollection.
-1. Accédez au contrôle ActiveX TextBox1 en utilisant l'objet ControlEx.
-1. Modifiez les différentes propriétés du contrôle ActiveX TextBox1, y compris le texte, la police, la hauteur de la police et la position du cadre.
-1. Accédez au deuxième contrôle d'accès appelé CommandButton1.
-1. Changez la légende du bouton, la police et la position.
-1. Déplacez la position des cadres des contrôles ActiveX.
-1. Écrivez la présentation modifiée dans un fichier PPTX.
-
-L'extrait de code ci-dessous met à jour les contrôles ActiveX sur les diapositives de présentation comme indiqué ci-dessous.
-
+L'extrait de code ci-dessous met à jour les contrôles ActiveX des diapositives de la présentation comme illustré ci-dessous.
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 import io
 
-# Accès à la présentation avec les contrôles ActiveX
+# Accès à la présentation avec des contrôles ActiveX
 with slides.Presentation(path + "ActiveX.pptm") as presentation:
-    # Accéder à la première diapositive de la présentation
+    # Accès à la première diapositive de la présentation
     slide = presentation.slides[0]
 
-    # changer le texte de la TextBox
+    # modification du texte de la zone de texte
     control = slide.controls[0]
 
     if control.name == "TextBox1" and control.properties != None:
-        newText = "Texte modifié"
+        newText = "Changed text"
         control.properties.remove("Value")
         control.properties.add("Value", newText)
 
-        # changer l'image de substitution. PowerPoint remplacera cette image lors de l'activation d'ActiveX, donc parfois il est acceptable de laisser l'image inchangée.
+        # modification de l'image de substitution. PowerPoint remplacera cette image lors de l'activation ActiveX, donc il est parfois acceptable de laisser l'image inchangée.
 
         bmp = draw.Bitmap(control.frame.width, control.frame.height)
         with draw.Graphics.from_image(bmp) as graphics:
@@ -83,7 +91,7 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
         bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
         control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
 
-    # changer la légende du bouton
+    # modification de la légende du bouton
     control = slide.controls[1]
 
     if control.name == "CommandButton1" and control.properties != None:
@@ -91,7 +99,7 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
         control.properties.remove("Caption")
         control.properties.add("Caption", newCaption)
 
-        # changer l'image de substitution
+        # modification de la substitution
         bmp = draw.Bitmap(control.frame.width, control.frame.height)
         with draw.Graphics.from_image(bmp) as graphics:
             with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.CONTROL)) as brush:
@@ -136,7 +144,7 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
         bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
         control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
     
-    # Déplacer les cadres ActiveX de 100 points vers le bas
+    # Déplacement des cadres ActiveX de 100 points vers le bas
     for ctl in slide.controls:
         frame = control.frame
         control.frame = slides.ShapeFrame(
@@ -148,11 +156,11 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
             frame.flip_v, 
             frame.rotation)
 
-    # Enregistrer la présentation avec les contrôles ActiveX modifiés
+    # Enregistrement de la présentation avec les contrôles ActiveX modifiés
     presentation.save("withActiveX-edited_out.pptm", slides.export.SaveFormat.PPTM)
 
 
-    # Maintenant, supprimer les contrôles
+    # Suppression des contrôles
     slide.controls.clear()
 
     # Enregistrement de la présentation avec les contrôles ActiveX supprimés
@@ -160,17 +168,14 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
 ```
 
 
-## **Ajouter un contrôle ActiveX lecteur multimédia**
-Pour ajouter un contrôle ActiveX lecteur multimédia, veuillez effectuer les étapes suivantes :
-
-1. Créez une instance de la classe Presentation et chargez la présentation d'exemple contenant des contrôles ActiveX lecteur multimédia.
-1. Créez une instance de la classe Presentation cible et générez une instance de présentation vide.
-1. Clonez la diapositive avec le contrôle ActiveX lecteur multimédia dans la présentation modèle vers la présentation cible.
-1. Accédez à la diapositive clonée dans la présentation cible.
-1. Accédez aux contrôles ActiveX dans la diapositive en accédant à l'IControlCollection.
-1. Accédez au contrôle ActiveX lecteur multimédia et définissez le chemin de la vidéo en utilisant ses propriétés.
-1. Enregistrez la présentation dans un fichier PPTX.
-
+## **Ajouter le contrôle ActiveX Media Player**
+1. Créez une instance de la classe Presentation et chargez la présentation d'exemple contenant des contrôles ActiveX Media Player.  
+2. Créez une instance de la classe Presentation cible et générez une instance de présentation vide.  
+3. Clonez la diapositive contenant le contrôle ActiveX Media Player de la présentation modèle vers la présentation cible.  
+4. Accédez à la diapositive clonée dans la présentation cible.  
+5. Accédez aux contrôles ActiveX de la diapositive en accédant à IControlCollection.  
+6. Accédez au contrôle ActiveX Media Player et définissez le chemin vidéo en utilisant ses propriétés.  
+7. Enregistrez la présentation dans un fichier PPTX.  
 ```py
 import aspose.slides as slides
 
@@ -183,10 +188,10 @@ with slides.Presentation(path + "template.pptx") as presentation:
         # Supprimer la diapositive par défaut
         newPresentation.slides.remove_at(0)
 
-        # Cloner la diapositive avec le contrôle ActiveX lecteur multimédia
+        # Cloner la diapositive avec le contrôle ActiveX Media Player
         newPresentation.slides.insert_clone(0, presentation.slides[0])
 
-        # Accéder au contrôle ActiveX lecteur multimédia et définir le chemin de la vidéo
+        # Accéder au contrôle ActiveX Media Player et définir le chemin vidéo
         prop = newPresentation.slides[0].controls[0].properties
 
         prop.remove("URL")
@@ -195,3 +200,15 @@ with slides.Presentation(path + "template.pptx") as presentation:
         # Enregistrer la présentation
         newPresentation.save("LinkingVideoActiveXControl_out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **FAQ**
+
+**Aspose.Slides conserve-t-il les contrôles ActiveX lors de la lecture et du réenregistrement s'ils ne peuvent pas être exécutés dans l'environnement Python ?**  
+Oui. Aspose.Slides les considère comme faisant partie de la présentation et peut lire/modifier leurs propriétés et leurs cadres ; il n’est pas nécessaire d’exécuter les contrôles eux‑mêmes pour les conserver.
+
+**Comment les contrôles ActiveX diffèrent-ils des objets OLE dans une présentation ?**  
+Les contrôles ActiveX sont des contrôles interactifs gérés (boutons, zones de texte, lecteur multimédia), tandis que [OLE](/slides/fr/python-net/manage-ole/) désigne des objets d’application intégrés (par exemple, une feuille de calcul Excel). Ils sont stockés et traités différemment et possèdent des modèles de propriétés distincts.
+
+**Les événements ActiveX et les macros VBA fonctionnent‑ils si le fichier a été modifié par Aspose.Slides ?**  
+Aspose.Slides conserve le balisage et les métadonnées existants ; cependant, les événements et les macros ne s’exécutent que dans PowerPoint sous Windows lorsque la sécurité le permet. La bibliothèque n’exécute pas VBA.

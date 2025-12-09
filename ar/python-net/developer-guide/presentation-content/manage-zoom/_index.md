@@ -1,106 +1,117 @@
 ---
-title: إدارة التكبير
+title: إدارة التكبير في العروض التقديمية باستخدام Python
+linktitle: تكبير
 type: docs
 weight: 60
 url: /ar/python-net/manage-zoom/
-keywords: "تكبير، إطار التكبير، إضافة تكبير، تنسيق إطار التكبير، تكبير ملخص، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
-description: "إضافة تكبير أو إطارات تكبير لعرض PowerPoint في بايثون"
+keywords:
+- تكبير
+- إطار التكبير
+- تكبير الشريحة
+- تكبير القسم
+- تكبير الملخص
+- إضافة تكبير
+- PowerPoint
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "إنشاء وتخصيص التكبير باستخدام Aspose.Slides لبايثون عبر .NET — الانتقال بين الأقسام، إضافة الصور المصغرة والانتقالات عبر عروض PPT و PPTX و ODP."
 ---
 
 ## **نظرة عامة**
-تسمح لك التكبيرات في PowerPoint بالانتقال إلى من slides معينة، أقسام، وأجزاء من عرض تقديمي. عندما تقدم، قد تكون هذه القدرة على التنقل بسرعة عبر المحتوى مفيدة جدًا.
+تسمح لك ميزة التكبير في PowerPoint بالتنقل إلى ومن شرائح أو أقسام أو أجزاء محددة من العرض التقديمي. عند تقديم العرض، قد تكون هذه القدرة على التنقل السريع عبر المحتوى مفيدة جدًا.
 
-![overview](overview.png)
+![نظرة عامة](overview.png)
 
-* لتلخيص عرض تقديمي كامل في شريحة واحدة، استخدم [تكبير الملخص](#Summary-Zoom).
-* لإظهار الشرائح المحددة فقط، استخدم [تكبير الشريحة](#Slide-Zoom).
-* لإظهار قسم واحد فقط، استخدم [تكبير القسم](#Section-Zoom).
+* لتلخيص عرض تقديمي كامل على شريحة واحدة، استخدم [ملخص التكبير](#Summary-Zoom).
+* لعرض الشرائح المحددة فقط، استخدم [تكبير الشريحة](#Slide-Zoom).
+* لعرض قسم واحد فقط، استخدم [تكبير القسم](#Section-Zoom).
 
 ## **تكبير الشريحة**
 
-يمكن أن يجعل تكبير الشريحة عرضك أكثر ديناميكية، مما يسمح لك بالتنقل بحرية بين الشرائح بأي ترتيب تختاره دون مقاطعة تدفق عرضك التقديمي. تعد التكبيرات رائعة للعروض التقديمية القصيرة التي لا تحتوي على العديد من الأقسام، ولكن يمكنك استخدامها أيضًا في سيناريوهات تقديم مختلفة.
+يمكن لتكبير الشريحة جعل عرضك التقديمي أكثر ديناميكية، مما يسمح لك بالتنقل بحرية بين الشرائح بأي ترتيب تختاره دون مقاطعة تدفق العرض. تكبير الشرائح مفيد للعروض القصيرة التي لا تحتوي على أقسام كثيرة، لكن لا يزال بإمكانك استخدامه في سيناريوهات عرض مختلفة.
 
-تساعدك تكبيرات الشريحة على الغوص في عدة معلومات بينما تشعر أنك على قماش واحد.
+يساعدك تكبير الشرائح على الغوص في قطع متعددة من المعلومات بينما تشعر أنك على لوحة واحدة.
 
-![slidezoomsel](slidezoomsel.png)
+![تكبير الشريحة المختارة](slidezoomsel.png)
 
-بالنسبة لكائنات تكبير الشريحة، توفر Aspose.Slides [ZoomImageType](https://reference.aspose.com/slides/python-net/aspose.slides/zoomimagetype/) التعداد، [IZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/izoomframe/) الواجهة، وبعض الطرق في [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) الواجهة.
+بالنسبة لكائنات تكبير الشريحة، توفر Aspose.Slides تعداد [ZoomImageType](https://reference.aspose.com/slides/python-net/aspose.slides/zoomimagetype/)، واجهة [IZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/izoomframe/)، وبعض الأساليب في واجهة [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/).
 
 ### **إنشاء إطارات التكبير**
-يمكنك إضافة إطار تكبير على شريحة بهذه الطريقة:
+يمكنك إضافة إطار تكبير إلى شريحة بهذه الطريقة:
 
-1. قم بإنشاء مثيل من [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. قم بإنشاء شرائح جديدة ترغب في الارتباط بها.
-3. أضف نص تعريف وخلفية للشرائح التي تم إنشاؤها.
-4. أضف إطارات تكبير (تحتوي على مراجع إلى الشرائح التي تم إنشاؤها) إلى الشريحة الأولى.
-5. اكتب العرض التقديمي المعدل كملف PPTX.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. إنشاء شرائح جديدة للربط بها.
+3. إضافة نص تعريف وخلفية إلى الشرائح التي تم إنشاؤها.
+4. إضافة إطارات تكبير (تحتوي على مراجع الشرائح التي تم إنشاؤها) إلى الشريحة الأولى.
+5. حفظ العرض المعدل كملف PPTX.
 
-هذا الرمز النموذجي يوضح لك كيفية إنشاء إطار تكبير في شريحة:
 ```py 
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    # أضف شرائح جديدة إلى العرض التقديمي
+    #إضافة شرائح جديدة إلى العرض التقديمي
     slide2 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide3 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
-    # قم بإنشاء خلفية للشريحة الثانية
+    # إنشاء خلفية للشريحة الثانية
     slide2.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide2.background.fill_format.fill_type = slides.FillType.SOLID
     slide2.background.fill_format.solid_fill_color.color = draw.Color.cyan
 
-    # قم بإنشاء صندوق نص للشريحة الثانية
+    # إنشاء مربع نص للشريحة الثانية
     autoshape = slide2.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "الشريحة الثانية"
+    autoshape.text_frame.text = "Second Slide"
 
-    # قم بإنشاء خلفية للشريحة الثالثة
+    # إنشاء خلفية للشريحة الثالثة
     slide3.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide3.background.fill_format.fill_type = slides.FillType.SOLID
     slide3.background.fill_format.solid_fill_color.color = draw.Color.dark_khaki
 
-    # قم بإنشاء صندوق نص للشريحة الثالثة
+    # إنشاء مربع نص للشريحة الثالثة
     autoshape = slide3.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "الشريحة الثالثة"
+    autoshape.text_frame.text = "Trird Slide"
 
-    # أضف كائنات ZoomFrame
+    #إضافة كائنات ZoomFrame
     pres.slides[0].shapes.add_zoom_frame(20, 20, 250, 200, slide2)
     pres.slides[0].shapes.add_zoom_frame(200, 250, 250, 200, slide3)
 
     # حفظ العرض التقديمي
     pres.save("presentation-zoom.pptx", slides.export.SaveFormat.PPTX)
 ```
-### **إنشاء إطارات التكبير باستخدام صور مخصصة**
-مع Aspose.Slides لبايثون عبر .NET، يمكنك إنشاء إطار تكبير بصورة غير صورة معاينة الشريحة بهذه الطريقة:
-1. قم بإنشاء مثيل من فئة `Presentation`.
-2. قم بإنشاء شريحة جديدة ترغب في الارتباط بها.
-3. أضف نص تعريف وخلفية للشريحة التي تم إنشاؤها.
-4. قم بإنشاء [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) كائن عن طريق إضافة صورة إلى مجموعة الصور المرتبطة بكائن العرض التقديمي الذي سيتم استخدامه لملء الإطار.
-5. أضف إطارات تكبير (تحتوي على مرجع إلى الشريحة التي تم إنشاؤها) إلى الشريحة الأولى.
-6. اكتب العرض التقديمي المعدل كملف PPTX.
 
-هذا الرمز النمطي يوضح لك كيفية إنشاء إطار تكبير بصورة مختلفة:
+### **إنشاء إطارات تكبير بصور مخصصة**
+باستخدام Aspose.Slides لـ Python عبر .NET، يمكنك إنشاء إطار تكبير بصورة غير صورة معاينة الشريحة بهذه الطريقة:
+
+1. إنشاء كائن من الفئة `Presentation` .
+2. إنشاء شريحة جديدة للربط بها.
+3. إضافة نص تعريف وخلفية إلى الشريحة التي تم إنشاؤها.
+4. إنشاء كائن [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) بإضافة صورة إلى مجموعة Images المرتبطة بكائن Presentation والذي سيُستخدم لملء الإطار.
+5. إضافة إطارات تكبير (تحتوي على مرجع إلى الشريحة التي تم إنشاؤها) إلى الشريحة الأولى.
+6. حفظ العرض المعدل كملف PPTX.
+
 ```py 
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    # أضف شريحة جديدة إلى العرض التقديمي
+    #إضافة شريحة جديدة إلى العرض التقديمي
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
-    # قم بإنشاء خلفية للشريحة الثانية
+    # إنشاء خلفية للشريحة الثانية
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.cyan
 
-    # قم بإنشاء صندوق نص للشريحة الثالثة
+    # إنشاء مربع نص للشريحة الثالثة
     autoshape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "الشريحة الثانية"
+    autoshape.text_frame.text = "Second Slide"
 
-    # قم بإنشاء صورة جديدة لكائن التكبير
+    # إنشاء صورة جديدة لكائن التكبير
     image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
 
-    # أضف كائن ZoomFrame
+    #إضافة كائن ZoomFrame
     pres.slides[0].shapes.add_zoom_frame(20, 20, 300, 200, slide, image)
 
     # حفظ العرض التقديمي
@@ -108,54 +119,52 @@ with slides.Presentation() as pres:
 ```
 
 ### **تنسيق إطارات التكبير**
-في الأقسام السابقة (أعلاه)، أظهرنا لك كيفية إنشاء إطارات تكبير بسيطة. لإنشاء إطارات تكبير أكثر تعقيدًا، تحتاج إلى تعديل تنسيق الإطارات. هناك العديد من إعدادات التنسيق التي يمكنك تطبيقها على إطار التكبير.
+في الأقسام السابقة (أعلاه)، شرحنا لك كيفية إنشاء إطارات تكبير بسيطة. لإنشاء إطارات تكبير أكثر تعقيدًا، عليك تعديل تنسيق الإطارات. هناك عدة إعدادات تنسيق يمكنك تطبيقها على إطار التكبير.
 
 يمكنك التحكم في تنسيق إطار التكبير في شريحة بهذه الطريقة:
 
-1. قم بإنشاء مثيل من فئة `Presentation`.
-2. قم بإنشاء شرائح جديدة للارتباط بها.
-3. أضف نص تعريف وخلفية للشرائح التي تم إنشاؤها.
-4. أضف إطارات تكبير (تحتوي على المراجع إلى الشرائح التي تم إنشاؤها) إلى الشريحة الأولى.
-5. قم بإنشاء [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) كائن عن طريق إضافة صورة إلى مجموعة الصور المرتبطة بكائن العرض التقديمي الذي سيتم استخدامه لملء الإطار.
-6. قم بتعيين صورة مخصصة لكائن إطار التكبير الأول.
-7. قم بتغيير تنسيق الخط للكائن الثاني لإطار التكبير.
-8. قم بإزالة الخلفية من صورة الكائن الثاني لإطار التكبير.
-5. اكتب العرض التقديمي المعدل كملف PPTX.
+1. إنشاء كائن من الفئة `Presentation` .
+2. إنشاء شرائح جديدة للربط بها.
+3. إضافة نص تعريف وخلفية إلى الشرائح التي تم إنشاؤها.
+4. إضافة إطارات تكبير (تحتوي على مراجع إلى الشرائح التي تم إنشاؤها) إلى الشريحة الأولى.
+5. إنشاء كائن [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) بإضافة صورة إلى مجموعة Images المرتبطة بكائن Presentation والذي سيُستخدم لملء الإطار.
+6. تعيين صورة مخصصة لكائن إطار التكبير الأول.
+7. تغيير تنسيق الخط لكائن إطار التكبير الثاني.
+8. إزالة الخلفية من صورة كائن إطار التكبير الثاني.
+9. حفظ العرض المعدل كملف PPTX.
 
-هذا الرمز النمطي يوضح لك كيفية تغيير تنسيق إطار التكبير:
-
-```py 
+```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    # أضف شرائح جديدة إلى العرض التقديمي
+    #إضافة شرائح جديدة إلى العرض التقديمي
     slide2 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide3 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
-    # قم بإنشاء خلفية للشريحة الثانية
+    # إنشاء خلفية للشريحة الثانية
     slide2.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide2.background.fill_format.fill_type = slides.FillType.SOLID
     slide2.background.fill_format.solid_fill_color.color = draw.Color.cyan
 
-    # قم بإنشاء صندوق نص للشريحة الثانية
+    # إنشاء مربع نص للشريحة الثانية
     autoshape = slide2.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "الشريحة الثانية"
+    autoshape.text_frame.text = "Second Slide"
 
-    # قم بإنشاء خلفية للشريحة الثالثة
+    # إنشاء خلفية للشريحة الثالثة
     slide3.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide3.background.fill_format.fill_type = slides.FillType.SOLID
     slide3.background.fill_format.solid_fill_color.color = draw.Color.dark_khaki
 
-    # قم بإنشاء صندوق نص للشريحة الثالثة
+    # إنشاء مربع نص للشريحة الثالثة
     autoshape = slide3.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-    autoshape.text_frame.text = "الشريحة الثالثة"
+    autoshape.text_frame.text = "Trird Slide"
 
-    # أضف كائنات ZoomFrame
+    #Add ZoomFrame objects
     zoomFrame1 = pres.slides[0].shapes.add_zoom_frame(20, 20, 250, 200, slide2)
     zoomFrame2 = pres.slides[0].shapes.add_zoom_frame(200, 250, 250, 200, slide3)
 
-    # قم بإنشاء صورة جديدة لكائن التكبير
+    # إنشاء صورة جديدة لكائن التكبير
     image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
     # تعيين صورة مخصصة لكائن zoomFrame1
     zoomFrame1.image = image
@@ -173,33 +182,32 @@ with slides.Presentation() as pres:
     pres.save("presentation-zoom2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+
 ## **تكبير القسم**
 
-تكبير القسم هو رابط إلى قسم في عرضك التقديمي. يمكنك استخدام تكبير الأقسام للعودة إلى الأقسام التي تريد التأكيد عليها حقًا. أو يمكنك استخدامها لتسليط الضوء على كيفية ارتباط بعض أجزاء عرضك التقديمي.
+تكبير القسم هو رابط إلى قسم في عرضك التقديمي. يمكنك استخدام تكبير الأقسام للعودة إلى الأقسام التي تريد التأكيد عليها بشدة. أو يمكنك استخدامها لتسليط الضوء على كيفية ربط أجزاء معينة من عرضك.
 
-![seczoomsel](seczoomsel.png)
+![تكبير القسم المختار](seczoomsel.png)
 
-بالنسبة لكائنات تكبير القسم، توفر Aspose.Slides [ISectionZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/isectionzoomframe/) الواجهة وبعض الطرق تحت [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) الواجهة.
+بالنسبة لكائنات تكبير القسم، توفر Aspose.Slides واجهة [ISectionZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/isectionzoomframe/) وبعض الأساليب تحت واجهة [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/).
 
 ### **إنشاء إطارات تكبير القسم**
 
 يمكنك إضافة إطار تكبير قسم إلى شريحة بهذه الطريقة:
 
-1. قم بإنشاء مثيل من [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. قم بإنشاء شريحة جديدة.
-3. أضف خلفية تعريف إلى الشريحة التي تم إنشاؤها.
-4. قم بإنشاء قسم جديد ترغب في الارتباط بإطار التكبير.
-5. أضف إطار تكبير قسم (يحتوي على مراجع إلى القسم الذي تم إنشاؤه) إلى الشريحة الأولى.
-6. اكتب العرض التقديمي المعدل كملف PPTX.
-
-هذا الرمز النمطي يوضح لك كيفية إنشاء إطار تكبير على شريحة:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. إنشاء شريحة جديدة.
+3. إضافة خلفية تعريف إلى الشريحة التي تم إنشاؤها.
+4. إنشاء قسم جديد للربط به إطار التكبير.
+5. إضافة إطار تكبير قسم (يحتوي على مراجع إلى القسم الذي تم إنشاؤه) إلى الشريحة الأولى.
+6. حفظ العرض المعدل كملف PPTX.
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    # أضف شريحة جديدة إلى العرض التقديمي
+    #إضافة شريحة جديدة إلى العرض التقديمي
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
@@ -207,36 +215,34 @@ with slides.Presentation() as pres:
     slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
 
 
-    # أضف قسم جديد إلى العرض التقديمي
-    pres.sections.add_section("القسم 1", slide)
+    # إضافة قسم جديد إلى العرض التقديمي
+    pres.sections.add_section("Section 1", slide)
 
-    # أضف كائن SectionZoomFrame
+    # إضافة كائن SectionZoomFrame
     sectionZoomFrame = pres.slides[0].shapes.add_section_zoom_frame(20, 20, 300, 200, pres.sections[1])
 
-    # احفظ العرض التقديمي
+    # حفظ العرض التقديمي
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **إنشاء إطارات تكبير القسم باستخدام صور مخصصة**
+### **إنشاء إطارات تكبير القسم بصور مخصصة**
 
-باستخدام Aspose.Slides لبايثون، يمكنك إنشاء إطار تكبير قسم بصورة مختلفة عن صورة معاينة الشريحة بهذه الطريقة:
+باستخدام Aspose.Slides لـ Python، يمكنك إنشاء إطار تكبير قسم بصورة معاينة شريحة مختلفة بهذه الطريقة:
 
-1. قم بإنشاء مثيل من [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. قم بإنشاء شريحة جديدة.
-3. أضف خلفية تعريف إلى الشريحة التي تم إنشاؤها.
-4. قم بإنشاء قسم جديد ترغب في الارتباط بإطار التكبير.
-5. قم بإنشاء كائن `IPPImage` عن طريق إضافة صورة إلى مجموعة الصور المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) والتي سيتم استخدامها لملء الإطار.
-6. أضف إطار تكبير قسم (يحتوي على مرجع إلى القسم الذي تم إنشاؤه) إلى الشريحة الأولى.
-7. اكتب العرض التقديمي المعدل كملف PPTX.
-
-هذا الرمز النمطي يوضح لك كيفية إنشاء إطار تكبير بصورة مختلفة:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. إنشاء شريحة جديدة.
+3. إضافة خلفية تعريف إلى الشريحة التي تم إنشاؤها.
+4. إنشاء قسم جديد للربط به إطار التكبير.
+5. إنشاء كائن `IPPImage` بإضافة صورة إلى مجموعة Images المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) الذي سيُستخدم لملء الإطار.
+6. إضافة إطار تكبير قسم (يحتوي على مرجع إلى القسم الذي تم إنشاؤه) إلى الشريحة الأولى.
+7. حفظ العرض المعدل كملف PPTX.
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    # أضف شريحة جديدة إلى العرض التقديمي
+    #إضافة شريحة جديدة إلى العرض التقديمي
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
@@ -244,40 +250,38 @@ with slides.Presentation() as pres:
     slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
 
 
-    # أضف قسم جديد إلى العرض التقديمي
-    pres.sections.add_section("القسم 1", slide)
+    # إضافة قسم جديد إلى العرض التقديمي
+    pres.sections.add_section("Section 1", slide)
 
-    # قم بإنشاء صورة جديدة لكائن التكبير
+    #إنشاء صورة جديدة لكائن التكبير
     image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
 
-    # أضف كائن SectionZoomFrame
+    # إضافة كائن SectionZoomFrame
     sectionZoomFrame = pres.slides[0].shapes.add_section_zoom_frame(20, 20, 300, 200, pres.sections[1], image)
 
-    # احفظ العرض التقديمي
+    #حفظ العرض التقديمي
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **تنسيق إطارات تكبير القسم**
 
-لإنشاء إطارات تكبير القسم الأكثر تعقيدًا، تحتاج إلى تعديل تنسيق إطار بسيط. هناك العديد من خيارات التنسيق التي يمكنك تطبيقها على إطار تكبير القسم.
+لإنشاء إطارات تكبير قسم أكثر تعقيدًا، عليك تعديل تنسيق الإطار البسيط. هناك عدة خيارات تنسيق يمكنك تطبيقها على إطار تكبير القسم.
 
-يمكنك التحكم في تنسيق إطار تكبير القسم في شريحة بهذه الطريقة:
+يمكنك التحكم في تنسيق إطار تكبير القسم على شريحة بهذه الطريقة:
 
-1. قم بإنشاء مثيل من [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. قم بإنشاء شريحة جديدة.
-3. أضف خلفية تعريف إلى الشريحة التي تم إنشاؤها.
-4. قم بإنشاء قسم جديد ترغب في الارتباط بإطار التكبير.
-5. أضف إطار تكبير قسم (يحتوي على مراجع إلى القسم الذي تم إنشاؤه) إلى الشريحة الأولى.
-6. غير الحجم والموضع لكائن تكبير القسم الذي تم إنشاؤه.
-7. قم بإنشاء كائن `IPPImage` عن طريق إضافة صورة إلى مجموعة الصور المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) والتي سيتم استخدامها لملء الإطار.
-8. قم بتعيين صورة مخصصة لكائن إطار تكبير القسم الذي تم إنشاؤه.
-9. قم بتعيين القدرة على *العودة إلى الشريحة الأصلية من القسم المرتبط*.
-10. قم بإزالة الخلفية من صورة إطار تكبير القسم.
-11. قم بتغيير تنسيق الخط لكائن إطار التكبير الثاني.
-12. قم بتغيير مدة الانتقال.
-13. اكتب العرض التقديمي المعدل كملف PPTX.
-
-هذا الرمز النمطي يوضح لك كيفية تغيير تنسيق إطار تكبير القسم:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. إنشاء شريحة جديدة.
+3. إضافة خلفية تعريف إلى الشريحة التي تم إنشاؤها.
+4. إنشاء قسم جديد للربط به إطار التكبير.
+5. إضافة إطار تكبير قسم (يحتوي على مراجع إلى القسم الذي تم إنشاؤه) إلى الشريحة الأولى.
+6. تغيير الحجم والموضع لكائن تكبير القسم الذي تم إنشاؤه.
+7. إنشاء كائن `IPPImage` بإضافة صورة إلى مجموعة Images المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) الذي سيُستخدم لملء الإطار.
+8. تعيين صورة مخصصة لكائن إطار تكبير القسم الذي تم إنشاؤه.
+9. تفعيل القدرة على *العودة إلى الشريحة الأصلية من القسم المرتبط*.
+10. إزالة الخلفية من صورة كائن إطار تكبير القسم.
+11. تغيير تنسيق الخط لكائن إطار التكبير الثاني.
+12. تغيير مدة الانتقال.
+13. حفظ العرض المعدل كملف PPTX.
 
 ```py
 import aspose.slides as slides
@@ -285,19 +289,19 @@ import aspose.pydrawing as draw
 
 
 with slides.Presentation() as pres:
-    # أضف شريحة جديدة إلى العرض التقديمي
+    #إضافة شريحة جديدة إلى العرض التقديمي
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # أضف قسم جديد إلى العرض التقديمي
-    pres.sections.add_section("القسم 1", slide)
+    # إضافة قسم جديد إلى العرض التقديمي
+    pres.sections.add_section("Section 1", slide)
 
     # إضافة كائن SectionZoomFrame
     sectionZoomFrame = pres.slides[0].shapes.add_section_zoom_frame(20, 20, 300, 200, pres.sections[1])
 
-    # التنسيق لإطار SectionZoomFrame
+    # تنسيق كائن SectionZoomFrame
     sectionZoomFrame.x = 100
     sectionZoomFrame.y = 300
     sectionZoomFrame.width = 100
@@ -320,51 +324,50 @@ with slides.Presentation() as pres:
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+
 ## **تكبير الملخص**
 
-تكبير الملخص يشبه صفحة الهبوط حيث يتم عرض جميع أجزاء عرضك التقديمي دفعة واحدة. عندما تقدم، يمكنك استخدام التكبير للانتقال من مكان في عرضك التقديمي إلى آخر بأي ترتيب تريده. يمكنك أن تكون مبتكرًا، وتتخطى، أو تعيد زيارة أجزاء من عرض الشرائح الخاص بك دون مقاطعة تدفق عرضك التقديمي.
+تكبير الملخص يشبه صفحة هبوط حيث يتم عرض جميع أجزاء عرضك التقديمي مرة واحدة. عند تقديمك، يمكنك استخدام التكبير للانتقال من مكان إلى آخر في عرضك بأي ترتيب تريد. يمكنك الإبداع، القفز إلى الأمام، أو إعادة زيارة أجزاء عرض الشرائح دون مقاطعة تدفق العرض.
 
-![overview_image](summaryzoom.png)
+![تكبير الملخص](summaryzoom.png)
 
-بالنسبة لكائنات تكبير الملخص، توفر Aspose.Slides [ISummaryZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomframe/) و [ISummaryZoomFrameSection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsection/) و [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) الواجهات وبعض الطرق في [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) الواجهة.
+بالنسبة لكائنات تكبير الملخص، توفر Aspose.Slides واجهات [ISummaryZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomframe/)، [ISummaryZoomFrameSection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsection/)، و[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) وبعض الأساليب تحت واجهة [IShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/).
 
-### **إنشاء تكبير ملخص**
+### **إنشاء تكبير الملخص**
 
 يمكنك إضافة إطار تكبير ملخص إلى شريحة بهذه الطريقة:
 
-1. قم بإنشاء مثيل من [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. قم بإنشاء شرائح جديدة مع خلفية تعريف وأقسام جديدة للشرائح التي تم إنشاؤها.
-3. أضف إطار تكبير ملخص إلى الشريحة الأولى.
-4. اكتب العرض التقديمي المعدل كملف PPTX.
-
-هذا الرمز النمطي يوضح لك كيفية إنشاء إطار تكبير ملخص على شريحة:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. إنشاء شرائح جديدة مع خلفية تعريف وأقسام جديدة للشرائح التي تم إنشاؤها.
+3. إضافة إطار تكبير الملخص إلى الشريحة الأولى.
+4. حفظ العرض المعدل كملف PPTX.
 
 ```py 
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    # أنشئ مصفوفة من الشرائح
+    # إنشاء مصفوفة الشرائح
     for slideNumber in range(5):
-        # أضف شرائح جديدة إلى العرض التقديمي
+        # إضافة شرائح جديدة إلى العرض التقديمي
         slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
-        # قم بإنشاء خلفية للشريحة
+        # إنشاء خلفية للشريحة
         slide.background.type = slides.BackgroundType.OWN_BACKGROUND
         slide.background.fill_format.fill_type = slides.FillType.SOLID
         slide.background.fill_format.solid_fill_color.color = draw.Color.dark_khaki
 
-        # قم بإنشاء صندوق نص للشريحة
+        # إنشاء مربع نص للشريحة
         autoshape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-        autoshape.text_frame.text = "شريحة - {num}".format(num = (slideNumber + 2))
+        autoshape.text_frame.text = "Slide - {num}".format(num = (slideNumber + 2))
 
-    # قم بإنشاء كائنات تكبير لجميع الشرائح في الشريحة الأولى
+    # إنشاء كائنات تكبير لجميع الشرائح في الشريحة الأولى
     for slideNumber in range(1, len(pres.slides)):
         x = (slideNumber - 1) * 100
         y = (slideNumber - 1) * 100
         zoomFrame = pres.slides[0].shapes.add_zoom_frame(x, y, 150, 120, pres.slides[slideNumber])
 
-        # تعيين خاصية ReturnToParent للعودة إلى الشريحة الأولى
+        # ضبط خاصية ReturnToParent للعودة إلى الشريحة الأولى
         zoomFrame.return_to_parent = True
 
     # حفظ العرض التقديمي
@@ -373,17 +376,15 @@ with slides.Presentation() as pres:
 
 ### **إضافة وإزالة قسم تكبير الملخص**
 
-تُRepresent جميع الأقسام في إطار تكبير الملخص بواسطة كائنات [ISummaryZoomFrameSection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsection/)، التي يتم تخزينها في كائن [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/). يمكنك إضافة أو إزالة كائن قسم تكبير الملخص من خلال واجهة [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) بهذه الطريقة:
+جميع الأقسام في إطار تكبير الملخص ممثلة بكائنات [ISummaryZoomFrameSection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsection/) المخزنة في كائن [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/). يمكنك إضافة أو إزالة كائن قسم تكبير الملخص عبر واجهة [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/python-net/aspose.slides/isummaryzoomsectioncollection/) بهذه الطريقة:
 
-1. قم بإنشاء مثيل من [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. قم بإنشاء شرائح جديدة مع خلفية تعريف وأقسام جديدة للشرائح التي تم إنشاؤها.
-3. أضف إطار تكبير ملخص إلى الشريحة الأولى.
-4. أضف شريحة جديدة وقسمًا إلى العرض التقديمي.
-5. أضف القسم الذي تم إنشاؤه إلى إطار تكبير الملخص.
-6. أزل القسم الأول من إطار تكبير الملخص.
-7. اكتب العرض التقديمي المعدل كملف PPTX.
-
-هذا الرمز النمطي يوضح لك كيفية إضافة وإزالة الأقسام في إطار تكبير الملخص:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. إنشاء شرائح جديدة مع خلفية تعريف وأقسام جديدة للشرائح التي تم إنشاؤها.
+3. إضافة إطار تكبير الملخص إلى الشريحة الأولى.
+4. إضافة شريحة وقسم جديدين إلى العرض.
+5. إضافة القسم الذي تم إنشاؤه إلى إطار تكبير الملخص.
+6. إزالة القسم الأول من إطار تكبير الملخص.
+7. حفظ العرض المعدل كملف PPTX.
 
 ``` python
 import aspose.slides as slides
@@ -391,40 +392,40 @@ import aspose.pydrawing as draw
 
 
 with slides.Presentation() as pres:
-    # أضف شريحة جديدة إلى العرض التقديمي
+    #إضافة شريحة جديدة إلى العرض التقديمي
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.yellow_green
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # أضف قسم جديد إلى العرض التقديمي
-    pres.sections.add_section("القسم 1", slide)
+    # إضافة قسم جديد إلى العرض التقديمي
+    pres.sections.add_section("Section 1", slide)
 
-    # أضف شريحة جديدة إلى العرض التقديمي
+    #إضافة شريحة جديدة إلى العرض التقديمي
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.aqua
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # أضف قسم جديد إلى العرض التقديمي
-    pres.sections.add_section("القسم 2", slide)
+    # إضافة قسم جديد إلى العرض التقديمي
+    pres.sections.add_section("Section 2", slide)
 
-    # أضف كائن SummaryZoomFrame
+    # إضافة كائن SummaryZoomFrame
     summaryZoomFrame = pres.slides[0].shapes.add_summary_zoom_frame(150, 50, 300, 200)
 
-    # أضف شريحة جديدة إلى العرض التقديمي
+    #إضافة شريحة جديدة إلى العرض التقديمي
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.chartreuse
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # أضف قسم جديد إلى العرض التقديمي
-    section3 = pres.sections.add_section("القسم 3", slide)
+    # إضافة قسم جديد إلى العرض التقديمي
+    section3 = pres.sections.add_section("Section 3", slide)
 
-    # أضف قسم إلى تكبير الملخص
+    # إضافة قسم إلى تكبير الملخص
     summaryZoomFrame.summary_zoom_collection.add_summary_zoom_section(section3)
 
-    # ازالة القسم من تكبير الملخص
+    # إزالة قسم من تكبير الملخص
     summaryZoomFrame.summary_zoom_collection.remove_summary_zoom_section(pres.sections[1])
 
     # حفظ العرض التقديمي
@@ -433,53 +434,51 @@ with slides.Presentation() as pres:
 
 ### **تنسيق أقسام تكبير الملخص**
 
-لإنشاء كائنات أقسام تكبير ملخص أكثر تعقيدًا، تحتاج إلى تعديل تنسيق إطار بسيط. هناك العديد من خيارات التنسيق التي يمكنك تطبيقها على كائن قسم تكبير الملخص.
+لإنشاء كائنات أقسام تكبير الملخص أكثر تعقيدًا، عليك تعديل تنسيق الإطار البسيط. هناك عدة خيارات تنسيق يمكنك تطبيقها على كائن قسم تكبير الملخص.
 
-يمكنك التحكم في التنسيق لكائن قسم تكبير الملخص في إطار تكبير الملخص بهذه الطريقة:
+يمكنك التحكم في تنسيق كائن قسم تكبير الملخص داخل إطار تكبير الملخص بهذه الطريقة:
 
-1. قم بإنشاء مثيل من [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. قم بإنشاء شرائح جديدة مع خلفية تعريف وأقسام جديدة للشرائح التي تم إنشاؤها.
-3. أضف إطار تكبير ملخص إلى الشريحة الأولى.
-4. احصل على كائن قسم تكبير الملخص الأول من `ISummaryZoomSectionCollection`.
-5. قم بإنشاء كائن `IPPImage` عن طريق إضافة صورة إلى مجموعة الصور المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) والتي سيتم استخدامها لملء الإطار.
-6. قم بتعيين صورة مخصصة لكائن قسم تكبير الملخص الذي تم إنشاؤه.
-7. قم بتعيين القدرة على *العودة إلى الشريحة الأصلية من القسم المرتبط*.
-8. قم بتغيير تنسيق الخط لكائن إطار التكبير الثاني.
-9. قم بتغيير مدة الانتقال.
-10. اكتب العرض التقديمي المعدل كملف PPTX.
-
-هذا الرمز النمطي يوضح لك كيفية تغيير التنسيق لكائن قسم تكبير الملخص:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
+2. إنشاء شرائح جديدة مع خلفية تعريف وأقسام جديدة للشرائح التي تم إنشاؤها.
+3. إضافة إطار تكبير الملخص إلى الشريحة الأولى.
+4. الحصول على كائن قسم تكبير الملخص الأول من `ISummaryZoomSectionCollection` .
+5. إنشاء كائن `IPPImage` بإضافة صورة إلى مجموعة images المرتبطة بكائن [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) الذي سيُستخدم لملء الإطار.
+6. تعيين صورة مخصصة لكائن إطار تكبير القسم الذي تم إنشاؤه.
+7. تفعيل القدرة على *العودة إلى الشريحة الأصلية من القسم المرتبط*.
+8. تغيير تنسيق الخط لكائن إطار التكبير الثاني.
+9. تغيير مدة الانتقال.
+10. حفظ العرض المعدل كملف PPTX.
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 with slides.Presentation() as pres:
-    # أضف شريحة جديدة إلى العرض التقديمي
+    #إضافة شريحة جديدة إلى العرض التقديمي
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.brown
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # أضف قسم جديد إلى العرض التقديمي
-    pres.sections.add_section("القسم 1", slide)
+    # إضافة قسم جديد إلى العرض التقديمي
+    pres.sections.add_section("Section 1", slide)
 
-    # أضف شريحة جديدة إلى العرض التقديمي
+    #إضافة شريحة جديدة إلى العرض التقديمي
     slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
     slide.background.fill_format.fill_type = slides.FillType.SOLID
     slide.background.fill_format.solid_fill_color.color = draw.Color.aqua
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
 
-    # أضف قسم جديد إلى العرض التقديمي
-    pres.sections.add_section("القسم 2", slide)
+    # إضافة قسم جديد إلى العرض التقديمي
+    pres.sections.add_section("Section 2", slide)
 
-    # أضف كائن SummaryZoomFrame
+    # إضافة كائن SummaryZoomFrame
     summaryZoomFrame = pres.slides[0].shapes.add_summary_zoom_frame(150, 50, 300, 200)
 
-    # الحصول على كائن First SummaryZoomSection
+    # الحصول على أول كائن SummaryZoomSection
     summarySection = summaryZoomFrame.summary_zoom_collection[0]
 
-    # التنسيق لكائن SummaryZoomSection
+    # تنسيق كائن SummaryZoomSection
     image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
     summarySection.image = image
 
@@ -495,3 +494,18 @@ with slides.Presentation() as pres:
     # حفظ العرض التقديمي
     pres.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **التعليمات المتكررة**
+
+**هل يمكنني التحكم في العودة إلى الشريحة 'الأصلية' بعد عرض الهدف؟**
+
+نعم. يحتوي إطار [Zoom frame](https://reference.aspose.com/slides/python-net/aspose.slides/zoomframe/) أو [section](https://reference.aspose.com/slides/python-net/aspose.slides/sectionzoomframe/) على سلوك `return_to_parent` الذي، عند تمكينه، يعيد المشاهدين إلى الشريحة الأصلية بعد زيارة المحتوى الهدف.
+
+**هل يمكنني تعديل 'السرعة' أو مدة انتقال التكبير؟**
+
+نعم. يدعم Zoom ضبط `transition_duration` بحيث يمكنك التحكم في مدة حركة القفز.
+
+**هل هناك حدود لعدد كائنات التكبير التي يمكن أن يحتويها العرض التقديمي؟**
+
+لا يوجد حد صريح موثق في واجهة برمجة التطبيقات. تعتمد الحدود العملية على تعقيد العرض الإجمالي وأداء المشاهد. يمكنك إضافة العديد من إطارات التكبير، لكن يجب مراعاة حجم الملف وزمن التجسيد.

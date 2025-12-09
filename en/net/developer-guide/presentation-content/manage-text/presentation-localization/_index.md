@@ -16,7 +16,7 @@ keywords:
 description: "Automate PowerPoint and OpenDocument slide localization in .NET with Aspose.Slides, using practical C# code samples and tips for faster global rollout."
 ---
 
-## **Change Language for Presentation and Shape's Text**
+## **Change Language for a Presentation and Shape Text**
 - Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Add an AutoShape of Rectangle type to the slide.

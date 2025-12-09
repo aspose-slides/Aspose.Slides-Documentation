@@ -1,34 +1,45 @@
 ---
-title: Создание и встраивание диаграммы Excel в виде OLE-объекта на слайд Microsoft PowerPoint
+title: Создание и встраивание диаграмм Excel в виде OLE‑объектов с VSTO и Aspose.Slides для .NET
+linktitle: Создание и встраивание диаграмм Excel в виде OLE‑объектов
 type: docs
 weight: 70
 url: /ru/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+keywords:
+- создать диаграмму
+- встраивание диаграммы Excel
+- OLE‑объект
+- миграция
+- VSTO
+- автоматизация Office
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Мигрировать с автоматизации Microsoft Office на Aspose.Slides для .NET и встраивать диаграммы Excel в виде OLE‑объектов в слайды PowerPoint (PPT, PPTX) на C#."
 ---
 
 {{% alert color="primary" %}} 
-
- Диаграммы являются визуальными представлениями ваших данных и широко используются в слайдах презентаций. В этой статье мы покажем вам код для создания и встраивания диаграммы Excel в виде OLE-объекта в слайд PowerPoint программно, используя [VSTO](/slides/ru/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) и [Aspose.Slides для .NET](/slides/ru/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
-
+Диаграммы являются визуальными представлениями ваших данных и широко используются в презентационных слайдах. В этой статье показан код для создания и встраивания диаграммы Excel в виде OLE‑объекта в слайд PowerPoint программно с помощью [VSTO](/slides/ru/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) и [Aspose.Slides for .NET](/slides/ru/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 {{% /alert %}} 
 ## **Создание и встраивание диаграммы Excel**
-Два примера кода ниже длинные и подробные, поскольку задача, которую они описывают, связана с множеством шагов. Вы создаете рабочую книгу Microsoft Excel, создаете диаграмму, а затем создаете презентацию Microsoft PowerPoint, в которую вы встроите диаграмму. OLE-объекты содержат ссылки на оригинальный документ, поэтому пользователь, дважды щелкнув на встроенном файле, запустит файл и его приложение.
+Два примера кода ниже длинные и подробные, потому что описываемая задача сложна. Вы создаете книгу Microsoft Excel, создаете диаграмму, а затем создаете презентацию Microsoft PowerPoint, в которую вставляете диаграмму. OLE‑объекты содержат ссылки на исходный документ, поэтому пользователь, дважды щёлкнув встраиваемый файл, запустит файл и его приложение.
 ## **Пример VSTO**
-С использованием VSTO выполняются следующие шаги:
+Using VSTO, the following steps are performed:
 
 1. Создайте экземпляр объекта Microsoft Excel ApplicationClass.
 1. Создайте новую книгу с одним листом.
 1. Добавьте диаграмму на лист.
 1. Сохраните книгу.
-1. Откройте рабочую книгу Excel, содержащую лист с данными диаграммы.
+1. Откройте книгу Excel, содержащую лист с данными диаграммы.
 1. Получите коллекцию ChartObjects для листа.
 1. Получите диаграмму для копирования.
 1. Создайте презентацию Microsoft PowerPoint.
 1. Добавьте пустой слайд в презентацию.
-1. Скопируйте диаграмму из рабочей книги Excel в буфер обмена.
+1. Скопируйте диаграмму с листа Excel в буфер обмена.
 1. Вставьте диаграмму в презентацию PowerPoint.
-1. Расположите диаграмму на слайде.
+1. Разместите диаграмму на слайде.
 1. Сохраните презентацию.
-
 ```c#
 CreateNewChartInExcel();
 UseCopyPaste();
@@ -44,46 +55,46 @@ static void SetCellValue(xlNS.Worksheet targetSheet, string Cell, object Value)
 ```c#
 static void CreateNewChartInExcel()
 {
-    // Объявите переменную для экземпляра Excel ApplicationClass.
+    // Объявить переменную для экземпляра Excel ApplicationClass.
     Microsoft.Office.Interop.Excel.ApplicationClass excelApplication = null;
 
-    // Объявите переменные для параметров метода Workbooks.Open.
+    // Объявить переменные для параметров метода Workbooks.Open.
     string paramWorkbookPath = Application.StartupPath + @"\ChartData.xlsx";
     object paramMissing = Type.Missing;
 
-    // Объявите переменные для метода Chart.ChartWizard.
+    // Объявить переменные для метода Chart.ChartWizard.
     object paramChartFormat = 1;
     object paramCategoryLabels = 0;
     object paramSeriesLabels = 0;
     bool paramHasLegend = true;
-    object paramTitle = "Продажи по кварталам";
-    object paramCategoryTitle = "Финансовый квартал";
-    object paramValueTitle = "Миллиарды";
+    object paramTitle = "Sales by Quarter";
+    object paramCategoryTitle = "Fiscal Quarter";
+    object paramValueTitle = "Billions";
 
     try
     {
-        // Создайте экземпляр объекта Excel ApplicationClass.
+        // Создать экземпляр объекта Excel ApplicationClass.
         excelApplication = new Microsoft.Office.Interop.Excel.ApplicationClass();
 
-        // Создайте новую книгу с 1 листом в ней.
+        // Создать новую книгу с 1 листом.
         xlNS.Workbook newWorkbook = excelApplication.Workbooks.Add(xlNS.XlWBATemplate.xlWBATWorksheet);
 
-        // Измените имя листа.
+        // Переименовать лист.
         xlNS.Worksheet targetSheet = (xlNS.Worksheet)(newWorkbook.Worksheets[1]);
-        targetSheet.Name = "Квартальные продажи";
+        targetSheet.Name = "Quarterly Sales";
 
-        // Вставьте некоторые данные для диаграммы на лист.
+        // Вставить данные для диаграммы в лист.
         //              A       B       C       D       E
         //     1                Q1      Q2      Q3      Q4
-        //     2    С. Америка  1.5     2       1.5     2.5
-        //     3    Ю. Америка  2       1.75    2       2
-        //     4    Европа      2.25    2       2.5     2
-        //     5    Азия        2.5     2.5     2       2.75
+        //     2    N. America  1.5     2       1.5     2.5
+        //     3    S. America  2       1.75    2       2
+        //     4    Europe      2.25    2       2.5     2
+        //     5    Asia        2.5     2.5     2       2.75
 
-        SetCellValue(targetSheet, "A2", "С. Америка");
-        SetCellValue(targetSheet, "A3", "Ю. Америка");
-        SetCellValue(targetSheet, "A4", "Европа");
-        SetCellValue(targetSheet, "A5", "Азия");
+        SetCellValue(targetSheet, "A2", "N. America");
+        SetCellValue(targetSheet, "A3", "S. America");
+        SetCellValue(targetSheet, "A4", "Europe");
+        SetCellValue(targetSheet, "A5", "Asia");
 
         SetCellValue(targetSheet, "B1", "Q1");
         SetCellValue(targetSheet, "B2", 1.5);
@@ -109,21 +120,21 @@ static void CreateNewChartInExcel()
         SetCellValue(targetSheet, "E4", 2);
         SetCellValue(targetSheet, "E5", 2.75);
 
-        // Получите диапазон, содержащий данные диаграммы.
+        // Получить диапазон, содержащий данные диаграммы.
         xlNS.Range dataRange = targetSheet.get_Range("A1", "E5");
 
-        // Получите коллекцию ChartObjects для листа.
+        // Получить коллекцию ChartObjects для листа.
         xlNS.ChartObjects chartObjects = (xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));
 
-        // Добавьте диаграмму в коллекцию.
+        // Добавить диаграмму в коллекцию.
         xlNS.ChartObject newChartObject = chartObjects.Add(0, 100, 600, 300);
-        newChartObject.Name = "Диаграмма продаж";
+        newChartObject.Name = "Sales Chart";
 
-        // Создайте новую диаграмму данных.
+        // Создать новую диаграмму на основе данных.
         newChartObject.Chart.ChartWizard(dataRange, xlNS.XlChartType.xl3DColumn, paramChartFormat, xlNS.XlRowCol.xlRows,
             paramCategoryLabels, paramSeriesLabels, paramHasLegend, paramTitle, paramCategoryTitle, paramValueTitle, paramMissing);
 
-        // Сохраните книгу.
+        // Сохранить книгу.
         newWorkbook.SaveAs(paramWorkbookPath, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, xlNS.XlSaveAsAccessMode.xlNoChange, paramMissing, paramMissing, paramMissing, paramMissing, paramMissing);
     }
@@ -135,7 +146,7 @@ static void CreateNewChartInExcel()
     {
         if (excelApplication != null)
         {
-            // Закройте Excel.
+            // Закрыть Excel.
             excelApplication.Quit();
         }
     }
@@ -145,13 +156,13 @@ static void CreateNewChartInExcel()
 ```c#
 static void UseCopyPaste()
 {
-    // Объявите переменные для хранения ссылок на объекты PowerPoint.
+    // Объявить переменные, содержащие ссылки на объекты PowerPoint.
     pptNS.ApplicationClass powerpointApplication = null;
     pptNS.Presentation pptPresentation = null;
     pptNS.Slide pptSlide = null;
     pptNS.ShapeRange shapeRange = null;
 
-    // Объявите переменные для хранения ссылок на объекты Excel.
+    // Объявить переменные, содержащие ссылки на объекты Excel.
     xlNS.ApplicationClass excelApplication = null;
     xlNS.Workbook excelWorkBook = null;
     xlNS.Worksheet targetSheet = null;
@@ -164,50 +175,50 @@ static void UseCopyPaste()
 
     try
     {
-        // Создайте экземпляр PowerPoint.
+        // Создать экземпляр PowerPoint.
         powerpointApplication = new pptNS.ApplicationClass();
 
-        // Создайте экземпляр Excel.
+        // Создать экземпляр Excel.
         excelApplication = new xlNS.ApplicationClass();
 
-        // Откройте рабочую книгу Excel, содержащую лист с данными диаграммы.
+        // Открыть книгу Excel, содержащую лист с данными диаграммы.
         excelWorkBook = excelApplication.Workbooks.Open(paramWorkbookPath,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, paramMissing, paramMissing, paramMissing);
 
-        // Получите рабочий лист, который содержит диаграмму.
+        // Получить лист, содержащий диаграмму.
         targetSheet =
-            (xlNS.Worksheet)(excelWorkBook.Worksheets["Квартальные продажи"]);
+            (xlNS.Worksheet)(excelWorkBook.Worksheets["Quarterly Sales"]);
 
-        // Получите коллекцию ChartObjects для листа.
+        // Получить коллекцию ChartObjects для листа.
         chartObjects =
             (xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));
 
-        // Получите диаграмму для копирования.
+        // Получить диаграмму для копирования.
         existingChartObject =
-            (xlNS.ChartObject)(chartObjects.Item("Диаграмма продаж"));
+            (xlNS.ChartObject)(chartObjects.Item("Sales Chart"));
 
-        // Создайте презентацию PowerPoint.
+        // Создать презентацию PowerPoint.
         pptPresentation =
             powerpointApplication.Presentations.Add(
             Microsoft.Office.Core.MsoTriState.msoTrue);
 
-        // Добавьте пустой слайд в презентацию.
+        // Добавить пустой слайд в презентацию.
         pptSlide =
             pptPresentation.Slides.Add(1, pptNS.PpSlideLayout.ppLayoutBlank);
 
-        // Скопируйте диаграмму из рабочей книги Excel в буфер обмена.
+        // Скопировать диаграмму с листа Excel в буфер обмена.
         existingChartObject.Copy();
 
-        // Вставьте диаграмму в презентацию PowerPoint.
+        // Вставить диаграмму в презентацию PowerPoint.
         shapeRange = pptSlide.Shapes.Paste();
 
-        // Расположите диаграмму на слайде.
+        // Разместить диаграмму на слайде.
         shapeRange.Left = 60;
         shapeRange.Top = 100;
 
-        // Сохраните презентацию.
+        // Сохранить презентацию.
         pptPresentation.SaveAs(paramPresentationPath, pptNS.PpSaveAsFileType.ppSaveAsOpenXMLPresentation, Microsoft.Office.Core.MsoTriState.msoTrue);
     }
     catch (Exception ex)
@@ -216,37 +227,37 @@ static void UseCopyPaste()
     }
     finally
     {
-        // Освободите объект слайда PowerPoint.
+        // Освободить объект слайда PowerPoint.
         shapeRange = null;
         pptSlide = null;
 
-        // Закройте и освободите объект Презентации.
+        // Закрыть и освободить объект презентации.
         if (pptPresentation != null)
         {
             pptPresentation.Close();
             pptPresentation = null;
         }
 
-        // Закройте PowerPoint и освободите объект ApplicationClass.
+        // Выйти из PowerPoint и освободить объект ApplicationClass.
         if (powerpointApplication != null)
         {
             powerpointApplication.Quit();
             powerpointApplication = null;
         }
 
-        // Освободите Excel-объекты.
+        // Освободить объекты Excel.
         targetSheet = null;
         chartObjects = null;
         existingChartObject = null;
 
-        // Закройте и освободите объект рабочей книги Excel.
+        // Закрыть и освободить объект книги Excel.
         if (excelWorkBook != null)
         {
             excelWorkBook.Close(false, paramMissing, paramMissing);
             excelWorkBook = null;
         }
 
-        // Закройте Excel и освободите объект ApplicationClass.
+        // Выйти из Excel и освободить объект ApplicationClass.
         if (excelApplication != null)
         {
             excelApplication.Quit();
@@ -264,66 +275,72 @@ static void UseCopyPaste()
 
 
 
-## **Пример Aspose.Slides для .NET**
-С использованием Aspose.Slides для .NET выполняются следующие шаги:
 
-1. Создайте книгу, используя Aspose.Cells для .NET.
+## **Пример Aspose.Slides for .NET**
+Using Aspose.Slides for .NET, the following steps are performed:
+
+1. Создайте книгу с помощью Aspose.Cells for .NET.
 1. Создайте диаграмму Microsoft Excel.
 1. Установите размер OLE диаграммы Excel.
 1. Получите изображение диаграммы.
-1. Встроить диаграмму Excel в виде OLE-объекта в презентацию PPTX с использованием Aspose.Slides для .NET.
-1. Замените изображение измененного объекта на изображение, полученное на шаге 3, чтобы решить проблему изменения объекта.
-1. Запишите выходную презентацию на диск в формате PPTX.
-
-
-
+1. Встроьте диаграмму Excel в виде OLE‑объекта в презентацию PPTX с помощью Aspose.Slides for .NET.
+1. Замените изображение изменённого объекта изображением, полученным на шаге 3, чтобы решить проблему изменения объекта.
+1. Запишите полученную презентацию на диск в формате PPTX.
 ```c#
-//Шаг 1: Создайте диаграмму Excel с использованием Aspose.Cells
+//Шаг - 1: Создать диаграмму Excel с помощью Aspose.Cells
 //--------------------------------------------------
-//Создайте книгу
+//Создать книгу
 Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
-//Добавьте диаграмму Excel
+//Add an excel chart
 int chartRows = 55;
 int chartCols = 25;
 int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
-//Шаг 2: Установите размер OLE для диаграммы, используя Aspose.Cells
+//Шаг - 2: Установить размер OLE диаграммы. using Aspose.Cells
 //-----------------------------------------------------------
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
-//Шаг 3: Получите изображение диаграммы с помощью Aspose.Cells
+//Шаг - 3: Получить изображение диаграммы с помощью Aspose.Cells
 //-----------------------------------------------------------
 Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
-//Сохраните книгу в поток
+//Save the workbook to stream
 MemoryStream wbStream = wb.SaveToStream();
-//Шаги 4 И 5
+//Шаг - 4  AND 5
 //-----------------------------------------------------------
-//Шаг 4: Внедрите диаграмму в виде OLE-объекта в презентацию .ppt с использованием Aspose.Slides
+//Шаг - 4: Встроить диаграмму как OLE объект внутри .ppt презентации используя Aspose.Slides
 //-----------------------------------------------------------
-//Шаг 5: Замените изображение измененного объекта на изображение, полученное на шаге 3, чтобы решить проблему изменения объекта
+//Шаг - 5: Заменить изменённое изображение объекта изображением, полученным в шаге 3, чтобы решить проблему Object Changed Issue
 //-----------------------------------------------------------
-//Создайте презентацию
+//Create a presentation
 Presentation pres = new Presentation();
 ISlide sld = pres.Slides[0];
-//Добавьте книгу на слайд
+//Add the workbook on slide
 AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
-//Шаг 6: Запишите выходную презентацию на диск
+//Шаг - 6: Записать полученную презентацию на диск
 //-----------------------------------------------------------
 pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ```c#
-static void AddExcelChartInPresentation(Presentation pres, ISlide sld, Stream wbStream, Bitmap imgChart)
+static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
-    float oleWidth = pres.SlideSize.Size.Width;
-    float oleHeight = pres.SlideSize.Size.Height;
-    int x = 0;
-    byte[] chartOleData = new byte[wbStream.Length];
-    wbStream.Position = 0;
-    wbStream.Read(chartOleData, 0, chartOleData.Length);
-    
+    float oleWidth = presentation.SlideSize.Size.Width;
+    float oleHeight = presentation.SlideSize.Size.Height;
+
+    byte[] chartOleData = new byte[workbookStream.Length];
+    workbookStream.Position = 0;
+    workbookStream.Read(chartOleData, 0, chartOleData.Length);
+
     OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(chartOleData, "xls");
-    IOleObjectFrame oof = null;
-    oof = sld.Shapes.AddOleObjectFrame(x, 0, oleWidth, oleHeight, dataInfo);
-    oof.SubstitutePictureFormat.Picture.Image = pres.Images.AddImage((System.Drawing.Image)imgChart);
+    IOleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(0, 0, oleWidth, oleHeight, dataInfo);
+
+    using (MemoryStream imageStream = new MemoryStream())
+    {
+        chartImage.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
+
+	imageStream.Position = 0;
+        IPPImage image = presentation.Images.AddImage(imageStream);
+
+        oleFrame.SubstitutePictureFormat.Picture.Image = image;
+    }
 }
 ```
 
@@ -340,7 +357,7 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
   "E1", "E2", "E3", "E4"
       };
 
-    //Массив данных ячеек
+    //Массив значений ячеек
     int[] cellsValue = new int[]
       {
  67,86,68,91,
@@ -349,30 +366,30 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
  43,29,69,26,
  24,40,38,25
       };
-    //Добавьте новый рабочий лист, чтобы заполнить ячейки данными
+    //Добавить новый лист для заполнения ячеек данными
     int dataSheetIdx = wb.Worksheets.Add();
     Aspose.Cells.Worksheet dataSheet = wb.Worksheets[dataSheetIdx];
     string sheetName = "DataSheet";
     dataSheet.Name = sheetName;
-    //Заполните DataSheet данными
+    //Заполнить DataSheet данными
     for (int i = 0; i < cellsName.Length; i++)
     {
         string cellName = cellsName[i];
         int cellValue = cellsValue[i];
         dataSheet.Cells[cellName].PutValue(cellValue);
     }
-    //Добавьте лист диаграммы
+    //Добавить лист диаграммы
     int chartSheetIdx = wb.Worksheets.Add(Aspose.Cells.SheetType.Chart);
     Aspose.Cells.Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
     chartSheet.Name = "ChartSheet";
-    //Добавьте диаграмму на ChartSheet с серией данных из DataSheet
+    //Добавить диаграмму на ChartSheet с данными из DataSheet
     int chartIdx = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
     Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIdx];
     chart.NSeries.Add(sheetName + "!A1:E1", false);
     chart.NSeries.Add(sheetName + "!A2:E2", false);
     chart.NSeries.Add(sheetName + "!A3:E3", false);
     chart.NSeries.Add(sheetName + "!A4:E4", false);
-    //Установите ChartSheet как активный лист
+    //Установить ChartSheet активным листом
     wb.Worksheets.ActiveSheetIndex = chartSheetIdx;
     return chartSheetIdx;
 }

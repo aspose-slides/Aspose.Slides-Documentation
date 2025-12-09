@@ -1,78 +1,114 @@
 ---
-title: Вверхний индекс и нижний индекс
+title: У��авление надстрочным и подстрочным текстом в презентациях на .NET
+linktitle: Надстрочный и подстрочный
 type: docs
 weight: 80
 url: /ru/net/superscript-and-subscript/
-keywords: "Вверхний индекс, Нижний индекс, Добавить текст вверхнего индекса, Добавить текст нижнего индекса, Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
-description: "Добавьте текст верхнего и нижнего индексов в презентации PowerPoint на C# или .NET"
+keywords:
+- надстрочный
+- подстрочный
+- добавить надстрочный
+- добавить подстрочный
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Освойте надстрочный и подстрочный текст в Aspose.Slides для .NET и улучшите свои презентации с помощью профессионального форматирования текста для максимального воздействия."
 ---
 
-## **Управление текстом верхнего и нижнего индексов**
-Вы можете добавить текст верхнего и нижнего индексов в любой фрагмент абзаца. Для добавления текста верхнего или нижнего индекса в текстовом фрейме Aspose.Slides необходимо использовать **свойство Escapement** класса PortionFormat.
+## **Обзор**
 
-Это свойство возвращает или задает текст верхнего или нижнего индекса (значение от -100% (нижний индекс) до 100% (верхний индекс). Например:
+Aspose.Slides for .NET предоставляет функции для интеграции текста в верхнем и нижнем индексе в ваши презентации PowerPoint (PPT, PPTX) и OpenDocument (ODP). Независимо от того, нужно ли вам выделять химические формулы, математические уравнения или добавлять сноски, эти специализированные параметры форматирования помогают сохранять ясность и точность. В этой статье вы узнаете, как без усилий применять стили верхнего и нижнего индекса и обеспечивать профессиональный результат на каждом слайде.
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-- Получите ссылку на слайд, используя его индекс.
-- Добавьте автофигуру типа Прямоугольник на слайд.
-- Получите доступ к текстовому фрейму, связанному с автофигурой.
-- Очистите существующие абзацы.
-- Создайте новый объект абзаца для хранения текста верхнего индекса и добавьте его в коллекцию IParagraphs текстового фрейма.
-- Создайте новый объект порции.
-- Установите свойство Escapement для порции от 0 до 100 для добавления верхнего индекса. (0 означает отсутствие верхнего индекса)
-- Установите некоторый текст для порции, а затем добавьте его в коллекцию порций абзаца.
-- Создайте новый объект абзаца для хранения текста нижнего индекса и добавьте его в коллекцию IParagraphs текстового фрейма.
-- Создайте новый объект порции.
-- Установите свойство Escapement для порции от 0 до -100 для добавления нижнего индекса. (0 означает отсутствие нижнего индекса)
-- Установите некоторый текст для порции, а затем добавьте его в коллекцию порций абзаца.
-- Сохраните презентацию в виде файла PPTX.
+## **Добавление верхнего и нижнего индекса**
 
-Реализация вышеуказанных шагов приведена ниже.
+Вы можете добавить текст в верхнем и нижнем индексе внутри любого абзаца в презентации. Чтобы достичь этого с помощью Aspose.Slides, необходимо использовать свойство `Escapement` класса [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/).
 
+Это свойство позволяет задавать текст в верхнем или нижнем индексе, значения варьируются от -100% (нижний индекс) до 100% (верхний индекс).
+
+Implementation steps:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Получите ссылку на слайд, используя его индекс.
+1. Добавьте к слайду объект [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) типа `Rectangle`.
+1. Получите доступ к [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/), связанному с [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
+1. Очистите существующие абзацы.
+1. Создайте новый [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) для текста в верхнем индексе и добавьте его в коллекцию абзацев [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).
+1. Создайте новый объект текстовой части.
+1. Установите свойство `Escapement` для текстовой части в диапазоне от 0 до 100, чтобы применить верхний индекс (0 означает отсутствие верхнего индекса).
+1. Задайте текст для [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/) и добавьте его в коллекцию частей абзаца.
+1. Создайте еще один [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) для текста в нижнем индексе и добавьте его в коллекцию абзацев.
+1. Создайте новый объект текстовой части.
+1. Установите свойство `Escapement` для текстовой части в диапазоне от 0 до -100, чтобы применить нижний индекс (0 означает отсутствие нижнего индекса).
+1. Задайте текст для [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/) и добавьте его в коллекцию частей абзаца.
+1. Сохраните презентацию в файл PPTX.
+
+The following C# code implements these steps:
 ```c#
-using (Presentation presentation = new Presentation("test.pptx"))
+using (Presentation presentation = new Presentation())
 {
-    // Получить слайд
+    // Получить первый слайд.
     ISlide slide = presentation.Slides[0];
 
-    // Создать текстовое поле
+    // Создать текстовое поле.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
     ITextFrame textFrame = shape.TextFrame;
+
     textFrame.Paragraphs.Clear();
 
-    // Создать абзац для текста верхнего индекса
+    // Создать абзац для надстрочного текста.
     IParagraph superPar = new Paragraph();
 
-    // Создать порцию с обычным текстом
+    // Создать часть текста с обычным текстом.
     IPortion portion1 = new Portion();
-    portion1.Text = "SlideTitle";
+    portion1.Text = "MyProduct";
     superPar.Portions.Add(portion1);
 
-    // Создать порцию с текстом верхнего индекса
+    // Создать часть текста с надстрочным текстом.
     IPortion superPortion = new Portion();
     superPortion.PortionFormat.Escapement = 30;
     superPortion.Text = "TM";
     superPar.Portions.Add(superPortion);
 
-    // Создать абзац для текста нижнего индекса
+    // Создать абзац для нижнего индекса.
     IParagraph paragraph2 = new Paragraph();
 
-    // Создать порцию с обычным текстом
+    // Создать часть текста с обычным текстом.
     IPortion portion2 = new Portion();
     portion2.Text = "a";
     paragraph2.Portions.Add(portion2);
 
-    // Создать порцию с текстом нижнего индекса
+    // Создать часть текста с нижним индексом.
     IPortion subPortion = new Portion();
     subPortion.PortionFormat.Escapement = -25;
     subPortion.Text = "i";
     paragraph2.Portions.Add(subPortion);
 
-    // Добавить абзацы в текстовое поле
+    // Добавить абзацы в текстовое поле.
     textFrame.Paragraphs.Add(superPar);
     textFrame.Paragraphs.Add(paragraph2);
 
-    presentation.Save("TestOut.pptx", SaveFormat.Pptx);
-    System.Diagnostics.Process.Start("TestOut.pptx");
- } 
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
 ```
+
+
+Результат:
+
+![Верхний и нижний индекс](superscript_and_subscript.png)
+
+## **Часто задаваемые вопросы**
+
+**Будут ли верхний и нижний индекс сохранены при экспорте в PDF или другие форматы?**
+
+Да, Aspose.Slides for .NET корректно сохраняет форматирование верхнего и нижнего индекса при экспорте презентаций в PDF, PPT/PPTX, изображения и другие поддерживаемые форматы. Специализированное форматирование остается неизменным во всех выходных файлах.
+
+**Можно ли комбинировать верхний и нижний индекс с другими стилями форматирования, например жирным или курсивом?**
+
+Да, Aspose.Slides позволяет смешивать различные стили текста внутри одной части текста. Вы можете включить жирный, курсив, подчёркивание и одновременно применить верхний или нижний индекс, настроив соответствующие свойства в [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/).
+
+**Работает ли форматирование верхнего и нижнего индекса для текста внутри таблиц, диаграмм или SmartArt?**
+
+Да, Aspose.Slides for .NET поддерживает форматирование в большинстве объектов, включая таблицы и элементы диаграмм. При работе с SmartArt необходимо получить доступ к соответствующим элементам (например, к [SmartArtNode](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartartnode/)) и их текстовым контейнерам, а затем настроить свойства [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) аналогичным образом.

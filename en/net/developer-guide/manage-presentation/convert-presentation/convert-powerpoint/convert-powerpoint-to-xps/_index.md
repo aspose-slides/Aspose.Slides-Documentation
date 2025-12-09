@@ -66,7 +66,7 @@ When converting a presentation to XPS, you have to save the presentation using e
 - Default settings (without [**XPSOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions))
 - Custom settings (with [**XPSOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions))
 
-### **Converting Presentations to XPS Using Default Settings**
+### **Convert Presentations to XPS Using Default Settings**
 
 This sample code in C# shows you how to convert a presentation to an XPS document using standard settings:
 
@@ -80,7 +80,7 @@ using (Presentation pres = new Presentation("Convert_XPS.pptx"))
 ```
 
 
-### **Converting Presentations to XPS Using Custom Settings**
+### **Convert Presentations to XPS Using Custom Settings**
 This sample code shows you how to convert a presentation to an XPS document using custom settings in C#:
 
 ```c#

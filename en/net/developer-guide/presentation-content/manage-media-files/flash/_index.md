@@ -16,7 +16,7 @@ keywords:
 description: "Learn how to extract Flash objects from PowerPoint and OpenDocument slides in .NET with Aspose.Slides, complete C# code samples and best practices."
 ---
 
-## **Extract Flash Objects from Presentation**
+## **Extract Flash Objects from Presentations**
 Aspose.Slides for .NET provides a facility for extracting flash objects from presentation. You can access the flash control by name and extract it from presentation and including store SWF object data.
 
 ```c#

@@ -41,7 +41,7 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 
 {{% /alert %}} 
 
-## **Create Picture Frame**
+## **Create a Picture Frame**
 
 1. Create an instance of the [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class. 
 2. Get a slide's reference through its index. 
@@ -85,7 +85,7 @@ Picture frames allow you to quickly create presentation slides based on images. 
 
 {{% /alert %}}
 
-## **Create Picture Frame with Relative Scale**
+## **Create a Picture Frame with Relative Scale**
 
 By altering an image's relative scaling, you can create a more complicated picture frame. 
 
@@ -159,7 +159,7 @@ if (shape is IPictureFrame pictureFrame)
 }
 ```
 
-## **Get Transparency of Image**
+## **Get Transparency of an Image**
 
 Aspose.Slides allows you to get the transparency effect applied to an image. This C# code demonstrates the operation:
 
@@ -235,7 +235,7 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 
 {{% /alert %}}
 
-## **Add Image as Link**
+## **Add an Image as a Link**
 
 To avoid large presentation sizes, you can add images (or videos) through links instead of embedding the files directly into presentations. This C# code shows you how to add an image and video into a placeholder:
 
@@ -289,7 +289,7 @@ using (var presentation = new Presentation("input.pptx"))
 }
 ```
 
-## **Crop Image**
+## **Crop Images**
 
 This C# code shows you how to crop an existing image on a slide:
 
@@ -316,7 +316,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Delete Cropped Areas of Picture**
+## **Delete Cropped Areas of a Picture**
 
 If you want to delete the cropped areas of an image contained in a frame, you can use the [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) method. This method returns the cropped image or the origin image if cropping is unnecessary.
 
@@ -346,7 +346,7 @@ This method converts WMF/EMF metafiles to raster PNG image in the cropping opera
 
 {{% /alert %}}
 
-## **Compress Image**
+## **Compress Images**
 
 You can compress a picture in a presentation using the [`IPictureFillFormat.CompressImage`](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/compressimage/) method. 
 This method compresses an image by reducing its size based on the shape size and specified resolution, with the option to delete cropped areas. 
@@ -428,7 +428,7 @@ This *Lock Aspect Ratio* setting preserves only the aspect ratio of the shape an
 
 {{% /alert %}}
 
-## **Use StretchOff Property**
+## **Use the StretchOff Property**
 
 Using the [StretchOffsetLeft](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight,](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetright) and [StretchOffsetBottom](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) properties from the [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat) interface and [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat) class, you can specify a fill rectangle. 
 

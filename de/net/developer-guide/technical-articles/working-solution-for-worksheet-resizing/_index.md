@@ -1,288 +1,259 @@
 ---
-title: Funktionale Lösung für die Größenänderung von Arbeitsblättern
+title: Lösungsansatz für die Größenanpassung von Arbeitsblättern
 type: docs
 weight: 40
 url: /de/net/working-solution-for-worksheet-resizing/
+keywords:
+- OLE
+- Vorschaubild
+- Bildskalierung
+- Excel
+- Arbeitsblatt
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Beheben Sie die OLE-Größenänderung von Excel-Arbeitsblättern in Präsentationen: zwei Möglichkeiten, Objekt-Frames konsistent zu halten – entweder den Frame oder das Blatt skalieren – in den PPT- und PPTX-Formaten."
 ---
 
 {{% alert color="primary" %}} 
 
-Es wurde beobachtet, dass in eine PowerPoint-Präsentation eingebettete Excel-Arbeitsblätter als OLE über Aspose-Komponenten nach der ersten Aktivierung auf einem unbekannten Maßstab skaliert werden. Dieses Verhalten erzeugt einen erheblichen visuellen Unterschied der Präsentation zwischen dem Zustand vor und nach der Diagrammaktivierung. Wir haben dieses Problem im Detail untersucht und die Lösung für dieses Problem gefunden, die in diesem Artikel behandelt wird.
+Es wurde beobachtet, dass in einer PowerPoint‑Präsentation über Aspose‑Komponenten eingebettete Excel‑Arbeitsblätter als OLE‑Objekte nach der ersten Aktivierung auf einen nicht ermittelten Maßstab skaliert werden. Dieses Verhalten führt zu einem sichtbaren Unterschied in der Präsentation zwischen dem Zustand des OLE‑Objekts vor und nach der Aktivierung. Wir haben dieses Problem ausführlich untersucht und eine Lösung bereitgestellt, die in diesem Artikel beschrieben wird.
 
 {{% /alert %}} 
+
 ## **Hintergrund**
-Im [Artikel „Ole-Frames hinzufügen“]() haben wir erklärt, wie man ein Ole-Frame in einer PowerPoint-Präsentation mit Aspose.Slides für .NET hinzufügt. Um das [Problem „Objekt geändert“](/slides/de/net/object-changed-issue-when-adding-oleobjectframe/) zu berücksichtigen, haben wir das Arbeitsblattbild des ausgewählten Bereichs dem Chart OLE-Objekt-Frame zugewiesen. In der Ausgangspräsentation wird das Excel-Diagramm aktiviert, wenn wir doppelt auf den OLE-Objekt-Frame klicken, der das Arbeitsblattbild zeigt. Die Endbenutzer können alle gewünschten Änderungen in der tatsächlichen Excel-Arbeitsmappe vornehmen und dann zur betreffenden Folie zurückkehren, indem sie außerhalb der aktivierten Excel-Arbeitsmappe klicken. Die Größe des OLE-Objekt-Frames ändert sich, wenn der Benutzer zur Folie zurückkehrt. Der Skalierungsfaktor wird für unterschiedliche Größen von OLE-Objekt-Frames und eingebetteten Excel-Arbeitsmappen unterschiedlich sein.
 
-## **Ursache der Größenänderung**
-Da die Excel-Arbeitsmappe ihre eigene Fenstergröße hat, versucht sie, ihre ursprüngliche Größe bei der ersten Aktivierung beizubehalten. Andererseits hat der OLE-Objekt-Frame seine eigene Größe. Laut Microsoft verhandeln Excel und PowerPoint bei der Aktivierung der Excel-Arbeitsmappe die Größe und stellen sicher, dass sie im richtigen Verhältnis als Teil des Einbettungsprozesses ist. Basierend auf den Unterschieden in der Fenstergröße von Excel und der Größe / Position des OLE-Objekt-Frames erfolgt die Größenänderung. 
+Im Artikel [Manage OLE](/slides/de/net/manage-ole/) haben wir erklärt, wie man mit Aspose.Slides für .NET einen OLE‑Frame zu einer PowerPoint‑Präsentation hinzufügt. Um das [object preview issue](/slides/de/net/object-preview-issue-when-adding-oleobjectframe/) zu beheben, haben wir dem OLE‑Objekt‑Frame ein Bild des ausgewählten Arbeitsblattbereichs zugewiesen. In der Ergebnispräsentation wird das Excel‑Arbeitsbuch aktiviert, wenn Sie das OLE‑Objekt‑Frame, das das Arbeitsblatt‑Bild anzeigt, doppelklicken. Endbenutzer können beliebige Änderungen am eigentlichen Excel‑Arbeitsbuch vornehmen und dann zur Folie zurückkehren, indem sie außerhalb des aktivierten Excel‑Arbeitsbuchs klicken. Die Größe des OLE‑Objekt‑Frames ändert sich, wenn der Benutzer zur Folie zurückkehrt. Der Skalierungsfaktor variiert je nach Größe des OLE‑Objekt‑Frames und des eingebetteten Excel‑Arbeitsbuchs.
 
-## **Funktionale Lösung**
-Es gibt zwei mögliche Lösungen, um den Größenänderungseffekt zu vermeiden.
+## **Ursache der Skalierung**
 
-- Die Größe des Ole-Frames in PPT anpassen, um die Größe in Bezug auf die Höhe/Breite der gewünschten Anzahl von Zeilen/Spalten im Ole-Frame zu entsprechen.
-- Die Größe des Ole-Frames konstant halten und die Größe der beteiligten Zeilen/Spalten anpassen, um in die ausgewählte Ole-Frame-Größe zu passen.
+Da das Excel‑Arbeitsbuch über eine eigene Fenstergröße verfügt, versucht es, bei der ersten Aktivierung seine ursprüngliche Größe beizubehalten. Andererseits hat der OLE‑Objekt‑Frame seine eigene Größe. Laut Microsoft verhandeln Excel und PowerPoint bei der Aktivierung des Excel‑Arbeitsbuchs die Größe, um sicherzustellen, dass die korrekten Proportionen im Einbettungsprozess erhalten bleiben. Die Größenänderung entsteht aufgrund der Unterschiede zwischen der Fenstergröße von Excel und der Größe sowie Position des OLE‑Objekt‑Frames.
 
-## **Ole-Frame-Größe an die ausgewählten Zeilen/Spalten der Arbeitsmappe anpassen**
-In diesem Ansatz lernen wir, wie man die Ole-Frame-Größe der eingebetteten Excel-Arbeitsmappe entsprechend der kumulierten Größe der Anzahl der beteiligten Zeilen und Spalten im Excel-Arbeitsblatt festlegt.
+## **Lösungsansatz**
 
-## **Beispiel**
-Angenommen, wir haben ein Excel-Vorlagendokument definiert und möchten dieses als Ole-Frame in die Präsentation einfügen. In diesem Fall wird die Größe des OLE-Objekt-Frames zuerst basierend auf der kumulierten Höhe der Zeilen und der Breite der Spalten der beteiligten Arbeitsbuchzeilen und -spalten berechnet. Anschließend setzen wir die Größe des Ole-Frames auf den berechneten Wert. Um die rote **Eingebettetes Objekt**-Meldung für den Ole-Frame in PowerPoint zu vermeiden, werden wir auch das Bild der gewünschten Teile der Zeilen und Spalten in der Arbeitsmappe abrufen und dieses als Ole-Frame-Bild festlegen.
+Es gibt zwei mögliche Lösungen, um den Skalierungseffekt zu vermeiden.
 
-```csharp
-WorkbookDesigner workbookDesigner = new WorkbookDesigner();
-workbookDesigner.Workbook = new Workbook("AsposeTest.xls");
+- Skalieren Sie die Größe des OLE‑Frames in der PowerPoint‑Präsentation, sodass Höhe und Breite der gewünschten Anzahl von Zeilen und Spalten im OLE‑Frame entsprechen.
+- Behalten Sie die Größe des OLE‑Frames konstant und skalieren Sie die Größe der beteiligten Zeilen und Spalten, damit sie in die gewählte OLE‑Frame‑Größe passen.
 
-Presentation presentation = new Presentation("AsposeTest.ppt");
+### **Skalieren der OLE‑Frame‑Größe**
 
-Slide slide = (Slide)presentation.Slides[0];
+In diesem Ansatz lernen wir, wie man die OLE‑Frame‑Größe des eingebetteten Excel‑Arbeitsbuchs so festlegt, dass sie der kumulierten Größe der beteiligten Zeilen und Spalten im Excel‑Arbeitsblatt entspricht.
 
-AddOleFrame(slide, 0, 15, 0, 3, 0, 300, 1100, 0, 0, presentation, workbookDesigner, true, 0, 0);
+Angenommen, wir haben ein Excel‑Vorlagenblatt und möchten es als OLE‑Frame zu einer Präsentation hinzufügen. In diesem Szenario wird die Größe des OLE‑Objekt‑Frames zunächst anhand der kumulierten Zeilenhöhen und Spaltenbreiten der beteiligten Zeilen und Spalten im Arbeitsbuch berechnet. Anschließend setzen wir die Größe des OLE‑Frames auf diesen berechneten Wert. Um die rote Meldung „EMBEDDED OLE OBJECT“ für den OLE‑Frame in PowerPoint zu vermeiden, erfassen wir außerdem ein Bild der gewünschten Zeilen‑ und Spaltenbereiche im Arbeitsbuch und verwenden es als OLE‑Frame‑Bild.
+```cs
+int startRow = 0, rowCount = 10;
+int startColumn = 0, columnCount = 13;
+int worksheetIndex = 0;
 
-String fileName = "AsposeTest_Ole.ppt";
-presentation.Save(fileName, Aspose.Slides.Export.SaveFormat.Ppt);
+int imageResolution = 96;
+
+using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
+var worksheet = workbook.Worksheets[worksheetIndex];
+
+// Set the displayed size when the workbook file is used as an OLE object in PowerPoint.
+var lastRow = startRow + rowCount - 1;
+var lastColumn = startColumn + columnCount - 1;
+workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
+
+var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
+var imageStream = CreateOleImage(cellRange, imageResolution);
+
+// Get the width and height of the OLE image in points.
+using var image = Image.FromStream(imageStream);
+var imageWidth = image.Width * 72 / imageResolution;
+var imageHeight = image.Height * 72 / imageResolution;
+
+// We need to use the modified workbook.
+using var oleStream = new MemoryStream();
+workbook.Save(oleStream, Aspose.Cells.SaveFormat.Xlsx);
+
+using var presentation = new Presentation();
+var slide = presentation.Slides.First();
+
+// Add the OLE image to the presentation resources.
+imageStream.Seek(0, SeekOrigin.Begin);
+var oleImage = presentation.Images.AddImage(imageStream);
+
+// Create the OLE object frame.
+var dataInfo = new OleEmbeddedDataInfo(oleStream.ToArray(), "xlsx");
+var oleFrame = slide.Shapes.AddOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
+oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
+oleFrame.IsObjectIcon = false;
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-```csharp
-private static Size SetOleAccordingToSelectedRowsCloumns(Workbook workbook, Int32 startRow, Int32 endRow, Int32 startCol,Int32 endCol, Int32 dataSheetIdx)
+```cs
+static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 {
-    Worksheet work = workbook.Worksheets[dataSheetIdx];
+    var pageSetup = cellRange.Worksheet.PageSetup;
+    pageSetup.PrintArea = cellRange.Address;
+    pageSetup.LeftMargin = 0;
+    pageSetup.RightMargin = 0;
+    pageSetup.TopMargin = 0;
+    pageSetup.BottomMargin = 0;
+    pageSetup.ClearHeaderFooter();
 
-    double actualHeight = 0, actualWidth = 0;
-
-    for (int i = startRow; i <= endRow; i++)
-        actualHeight += work.Cells.GetRowHeightInch(i);
-
-    for (int i = startCol; i <= endCol; i++)
-        actualWidth += work.Cells.GetColumnWidthInch(i);
-    //Neue Zeilen- und Spaltenhöhe setzen
-
-    return new Size((int)(Math.Round(actualWidth, 2) * 576), (int)(Math.Round(actualHeight, 2) * 576));
-}
-```
-```csharp
-private static void AddOleFrame(Slide slide, Int32 startRow, Int32 endRow, Int32 startCol, Int32 endCol,
-    Int32 dataSheetIdx, Int32 x, Int32 y, Double OleWidth, Double OleHeight,
-    Presentation presentation, WorkbookDesigner workbookDesigner,
-    Boolean onePagePerSheet, Int32 outputWidth, Int32 outputHeight)
-{
-    String tempFileName = Path.GetTempFileName();
-    if (startRow == 0)
+    var imageOptions = new Aspose.Cells.Rendering.ImageOrPrintOptions
     {
-        startRow++;
-        endRow++;
-    }
+        ImageType = Aspose.Cells.Drawing.ImageType.Png,
+        VerticalResolution = imageResolution,
+        HorizontalResolution = imageResolution,
+        OnePagePerSheet = true,
+        OnlyArea = true
+    };
 
-    //Aktiven Blattindex der Arbeitsmappe festlegen
-    workbookDesigner.Workbook.Worksheets.ActiveSheetIndex = dataSheetIdx;
+    var sheetRender = new Aspose.Cells.Rendering.SheetRender(cellRange.Worksheet, imageOptions);
+    var imageStream = new MemoryStream();
 
-    //Arbeitsmappe und ausgewähltes Arbeitsblatt abrufen  
-    Workbook workbook = workbookDesigner.Workbook;
-    Worksheet work = workbook.Worksheets[dataSheetIdx];
+    sheetRender.ToImage(0, imageStream);
+    imageStream.Seek(0, SeekOrigin.Begin);
 
-    //OLE-Größe basierend auf den ausgewählten Zeilen und Spalten festlegen
-    Size SlideOleSize = SetOleAccordingToSelectedRowsCloumns(workbook, startRow, endRow, startCol, endCol, dataSheetIdx);
-    OleWidth = SlideOleSize.Width;
-    OleHeight = SlideOleSize.Height;
-
-    //OLE-Größe in der Arbeitsmappe festlegen
-    workbook.Worksheets.SetOleSize(startRow, endRow, startCol, endCol);
-
-    workbook.Worksheets[0].IsGridlinesVisible = false;
-
-    //Bildeinstellungen festlegen, um das Arbeitsblattbild zu erfassen
-    ImageOrPrintOptions imageOrPrintOptions = new ImageOrPrintOptions();
-    imageOrPrintOptions.ImageFormat = System.Drawing.Imaging.ImageFormat.Bmp;
-    imageOrPrintOptions.OnePagePerSheet = onePagePerSheet;
-
-    SheetRender render = new SheetRender(workbookDesigner.Workbook.Worksheets[dataSheetIdx], imageOrPrintOptions);
-    String ext = ".bmp";
-    render.ToImage(0, tempFileName + ext);
-    Image image = ScaleImage(Image.FromFile(tempFileName + ext), outputWidth, outputHeight);
-    String newTempFileName = tempFileName.Replace(".tmp", ".tmp1") + ext;
-    image.Save(newTempFileName, System.Drawing.Imaging.ImageFormat.Bmp);
-
-    //Bild zur Folienbildersammlung hinzufügen
-    var ppImage = presentation.Images.AddImage(File.ReadAllBytes(newTempFileName));
-
-    //Arbeitsmappe in einen Stream speichern und in ein Byte-Array kopieren
-    Stream mstream = workbook.SaveToStream();
-    byte[] chartOleData = new byte[mstream.Length];
-    mstream.Position = 0;
-    mstream.Read(chartOleData, 0, chartOleData.Length);
-
-    //OLE-Objekt-Frame hinzufügen
-    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(chartOleData, "xls");
-    IOleObjectFrame oleObjectFrame = slide.Shapes.AddOleObjectFrame(x, y, Convert.ToInt32(OleWidth),
-        Convert.ToInt32(OleHeight), dataInfo);
-
-    //OLE-Frame-Bild und Alternativtext-Eigenschaft festlegen    
-    oleObjectFrame.SubstitutePictureFormat.Picture.Image = ppImage;
-    oleObjectFrame.AlternativeText = "image" + ppImage;
+    return imageStream;
 }
 ```
 
-```csharp
-private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeight)
-{
-    if (outputWidth == 0 && outputHeight == 0)
-    {
-        outputWidth = image.Width;
-        outputHeight = image.Height;
-    }
-    Bitmap outputImage = new Bitmap(outputWidth, outputHeight, image.PixelFormat);
-    outputImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
-    Graphics graphics = Graphics.FromImage(outputImage);
-    graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-    System.Drawing.Rectangle srcDestRect = new System.Drawing.Rectangle(0, 0, outputWidth, outputHeight);
-    graphics.DrawImage(image, srcDestRect, srcDestRect, GraphicsUnit.Pixel);
-    graphics.Dispose();
 
-    return outputImage;
-}
+### **Skalieren der Zellbereichsgröße**
+
+In diesem Ansatz lernen wir, wie man die Höhen der beteiligten Zeilen und die Breite der beteiligten Spalten skaliert, um eine benutzerdefinierte OLE‑Frame‑Größe zu erreichen.
+
+Angenommen, wir haben ein Excel‑Vorlagenblatt und möchten es als OLE‑Frame zu einer Präsentation hinzufügen. In diesem Szenario setzen wir die Größe des OLE‑Frames und skalieren die Größe der Zeilen und Spalten, die im OLE‑Frame‑Bereich beteiligt sind. Anschließend speichern wir das Arbeitsbuch in einen Stream, um die Änderungen anzuwenden, und konvertieren es in ein Byte‑Array, das dem OLE‑Frame hinzugefügt wird. Um die rote Meldung „EMBEDDED OLE OBJECT“ für den OLE‑Frame in PowerPoint zu vermeiden, erfassen wir außerdem ein Bild der gewünschten Zeilen‑ und Spaltenbereiche im Arbeitsbuch und verwenden es als OLE‑Frame‑Bild.
+```cs
+int startRow = 0, rowCount = 10;
+int startColumn = 0, columnCount = 13;
+int worksheetIndex = 0;
+
+int imageResolution = 96;
+float frameWidth = 400, frameHeight = 100;
+
+using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
+var worksheet = workbook.Worksheets[worksheetIndex];
+
+// Legt die angezeigte Größe fest, wenn die Arbeitsbuchdatei als OLE-Objekt in PowerPoint verwendet wird.
+var lastRow = startRow + rowCount - 1;
+var lastColumn = startColumn + columnCount - 1;
+workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
+
+// Skaliert den Zellbereich, um zur Rahmengröße zu passen.
+var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
+ScaleCellRange(cellRange, frameWidth, frameHeight);
+
+var imageStream = CreateOleImage(cellRange, imageResolution);
+
+// Wir müssen das modifizierte Arbeitsbuch verwenden.
+using var oleStream = new MemoryStream();
+workbook.Save(oleStream, Aspose.Cells.SaveFormat.Xlsx);
+
+using var presentation = new Presentation();
+var slide = presentation.Slides.First();
+
+// Fügt das OLE-Bild zu den Präsentationsressourcen hinzu.
+var oleImage = presentation.Images.AddImage(imageStream);
+
+// Erzeugt den OLE-Objekt-Frame.
+var dataInfo = new OleEmbeddedDataInfo(oleStream.ToArray(), "xlsx");
+var oleFrame = slide.Shapes.AddOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
+oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
+oleFrame.IsObjectIcon = false;
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-## **Größenänderung der Zeilenhöhe und Spaltenbreite des Arbeitsblatts entsprechend der Ole-Frame-Größe**
-In diesem Ansatz lernen wir, wie man die Höhen der beteiligten Zeilen und die Breite der beteiligten Spalten gemäß der benutzerdefinierten Ole-Frame-Größe ändert.
-
-## **Beispiel**
-Angenommen, wir haben ein Excel-Vorlagendokument definiert und möchten dieses als Ole-Frame in die Präsentation einfügen. In diesem Fall setzen wir die Größe des Ole-Frames und skalieren die Größe der Zeilen und Spalten, die im Ole-Frame-Bereich beteiligt sind. Wir speichern dann die Arbeitsmappe im Stream, um Änderungen zu speichern, und konvertieren sie in ein Byte-Array, um sie im Ole-Frame hinzuzufügen. Um die rote **Eingebettetes Objekt**-Meldung für den Ole-Frame in PowerPoint zu vermeiden, werden wir auch das Bild der gewünschten Teile der Zeilen und Spalten in der Arbeitsmappe abrufen und dieses als Ole-Frame-Bild festlegen.
-
-```csharp
-WorkbookDesigner workbookDesigner = new WorkbookDesigner();
-workbookDesigner.Workbook = new Workbook("AsposeTest.xls");
-
-Presentation presentation = new Presentation("AsposeTest.ppt");
-
-Slide slide = (Slide)presentation.Slides[0];
-
-AddOleFrame(slide, 0, 15, 0, 3, 0, 300, 1100, 0, 0, presentation, workbookDesigner, true, 0, 0);
-
-String fileName = "AsposeTest_Ole.ppt";
-presentation.Save(fileName, Aspose.Slides.Export.SaveFormat.Ppt);
-```
-
-```csharp
-private static void SetOleAccordingToCustomHeighWidth(Workbook workbook, Int32 startRow,
-    Int32 endRow, Int32 startCol, Int32 endCol, double slideWidth, double slideHeight, Int32 dataSheetIdx)
+```cs
+/// <param name="width">Die erwartete Breite des Zellbereichs in Punkten.</param>
+/// <param name="height">Die erwartete Höhe des Zellbereichs in Punkten.</param>
+static void ScaleCellRange(Aspose.Cells.Range cellRange, float width, float height)
 {
-    Worksheet work = workbook.Worksheets[dataSheetIdx];
+    var rangeWidth = cellRange.Width;
+    var rangeHeight = cellRange.Height;
 
-    double actualHeight = 0, actualWidth = 0;
-
-    double newHeight = slideHeight;
-    double newWidth = slideWidth;
-    double tem = 0;
-    double newTem = 0;
-
-    for (int i = startRow; i <= endRow; i++)
-        actualHeight += work.Cells.GetRowHeightInch(i);
-
-    for (int i = startCol; i <= endCol; i++)
-        actualWidth += work.Cells.GetColumnWidthInch(i);
-    //Neue Zeilen- und Spaltenhöhe setzen
-
-    for (int i = startRow; i <= endRow; i++)
+    for (int i = 0; i < cellRange.ColumnCount; i++)
     {
-        tem = work.Cells.GetRowHeightInch(i);
-        newTem = (tem / actualHeight) * newHeight;
-        work.Cells.SetRowHeightInch(i, newTem);
+        var columnIndex = cellRange.FirstColumn + i;
+        var columnWidth = cellRange.Worksheet.Cells.GetColumnWidth(columnIndex, false, Aspose.Cells.CellsUnitType.Point);
+
+        var newColumnWidth = columnWidth * width / rangeWidth;
+        var widthInInches = newColumnWidth / 72;
+        cellRange.Worksheet.Cells.SetColumnWidthInch(columnIndex, widthInInches);
     }
 
-    for (int i = startCol; i <= endCol; i++)
+    for (int i = 0; i < cellRange.RowCount; i++)
     {
-        tem = work.Cells.GetColumnWidthInch(i);
-        newTem = (tem / actualWidth) * newWidth;
-        work.Cells.SetColumnWidthInch(i, newTem);
+        var rowIndex = cellRange.FirstRow + i;
+        var rowHeight = cellRange.Worksheet.Cells.GetRowHeight(rowIndex, false, Aspose.Cells.CellsUnitType.Point);
+
+        var newRowHeight = rowHeight * height / rangeHeight;
+        var heightInInches = newRowHeight / 72;
+        cellRange.Worksheet.Cells.SetRowHeightInch(rowIndex, heightInInches);
     }
 }
 ```
 
-```csharp
-private static void AddOleFrame(Slide slide, Int32 startRow, Int32 endRow, Int32 startCol, Int32 endCol,
-    Int32 dataSheetIdx, Int32 x, Int32 y, Double OleWidth, Double OleHeight,
-    Presentation presentation, WorkbookDesigner workbookDesigner,
-    Boolean onePagePerSheet, Int32 outputWidth, Int32 outputHeight)
+```cs
+static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 {
-    String tempFileName = Path.GetTempFileName();
-    if (startRow == 0)
+    var pageSetup = cellRange.Worksheet.PageSetup;
+    pageSetup.PrintArea = cellRange.Address;
+    pageSetup.LeftMargin = 0;
+    pageSetup.RightMargin = 0;
+    pageSetup.TopMargin = 0;
+    pageSetup.BottomMargin = 0;
+    pageSetup.ClearHeaderFooter();
+
+    var imageOptions = new Aspose.Cells.Rendering.ImageOrPrintOptions
     {
-        startRow++;
-        endRow++;
-    }
+        ImageType = Aspose.Cells.Drawing.ImageType.Png,
+        VerticalResolution = imageResolution,
+        HorizontalResolution = imageResolution,
+        OnePagePerSheet = true,
+        OnlyArea = true
+    };
 
-    //Aktiven Blattindex der Arbeitsmappe festlegen
-    workbookDesigner.Workbook.Worksheets.ActiveSheetIndex = dataSheetIdx;
+    var sheetRender = new Aspose.Cells.Rendering.SheetRender(cellRange.Worksheet, imageOptions);
+    var imageStream = new MemoryStream();
 
-    //Arbeitsmappe und ausgewähltes Arbeitsblatt abrufen  
-    Workbook workbook = workbookDesigner.Workbook;
-    Worksheet work = workbook.Worksheets[dataSheetIdx];
+    sheetRender.ToImage(0, imageStream);
+    imageStream.Seek(0, SeekOrigin.Begin);
 
-    //OLE-Größe basierend auf den ausgewählten Zeilen und Spalten festlegen
-    Size SlideOleSize = SetOleAccordingToSelectedRowsCloumns(workbook, startRow, endRow, startCol, endCol, dataSheetIdx);
-    OleWidth = SlideOleSize.Width;
-    OleHeight = SlideOleSize.Height;
-
-    //OLE-Größe in der Arbeitsmappe festlegen
-    workbook.Worksheets.SetOleSize(startRow, endRow, startCol, endCol);
-
-    workbook.Worksheets[0].IsGridlinesVisible = false;
-
-    //Bildeinstellungen festlegen, um das Arbeitsblattbild zu erfassen
-    ImageOrPrintOptions imageOrPrintOptions = new ImageOrPrintOptions();
-    imageOrPrintOptions.ImageFormat = System.Drawing.Imaging.ImageFormat.Bmp;
-    imageOrPrintOptions.OnePagePerSheet = onePagePerSheet;
-
-    SheetRender render = new SheetRender(workbookDesigner.Workbook.Worksheets[dataSheetIdx], imageOrPrintOptions);
-    String ext = ".bmp";
-    render.ToImage(0, tempFileName + ext);
-    Image image = ScaleImage(Image.FromFile(tempFileName + ext), outputWidth, outputHeight);
-    String newTempFileName = tempFileName.Replace(".tmp", ".tmp1") + ext;
-    image.Save(newTempFileName, System.Drawing.Imaging.ImageFormat.Bmp);
-
-    //Bild zur Folienbildersammlung hinzufügen
-    var ppImage = presentation.Images.AddImage(File.ReadAllBytes(newTempFileName));
-
-    //Arbeitsmappe in einen Stream speichern und in ein Byte-Array kopieren
-    Stream mstream = workbook.SaveToStream();
-    byte[] chartOleData = new byte[mstream.Length];
-    mstream.Position = 0;
-    mstream.Read(chartOleData, 0, chartOleData.Length);
-
-    //OLE-Objekt-Frame hinzufügen
-    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(chartOleData, "xls");
-    IOleObjectFrame oleObjectFrame = slide.Shapes.AddOleObjectFrame(x, y, Convert.ToInt32(OleWidth),
-        Convert.ToInt32(OleHeight), dataInfo);
-
-    //OLE-Frame-Bild und Alternativtext-Eigenschaft festlegen    
-    oleObjectFrame.SubstitutePictureFormat.Picture.Image = ppImage;
-    oleObjectFrame.AlternativeText = "image" + ppImage;
+    return imageStream;
 }
 ```
 
-```csharp
-private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeight)
-{
-    if (outputWidth == 0 && outputHeight == 0)
-    {
-        outputWidth = image.Width;
-        outputHeight = image.Height;
-    }
-    Bitmap outputImage = new Bitmap(outputWidth, outputHeight, image.PixelFormat);
-    outputImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
-    Graphics graphics = Graphics.FromImage(outputImage);
-    graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-    System.Drawing.Rectangle srcDestRect = new System.Drawing.Rectangle(0, 0, outputWidth, outputHeight);
-    graphics.DrawImage(image, srcDestRect, srcDestRect, GraphicsUnit.Pixel);
-    graphics.Dispose();
-
-    return outputImage;
-}
-```
 
 ## **Fazit**
 
-{{% alert color="primary" %}} Es gibt zwei Ansätze zur Behebung des Problems mit der Größenänderung des Arbeitsblatts. Die Auswahl des geeigneten Ansatzes hängt von den Anforderungen und dem Anwendungsfall ab. Beide Ansätze funktionieren auf dieselbe Weise, unabhängig davon, ob die Präsentationen aus einer Vorlage oder von Grund auf neu erstellt werden. Außerdem gibt es in der Lösung keine Begrenzung der Größe des OLE-Objekt-Frames. {{% /alert %}} 
-## **Verwandte Abschnitte**
-[Erstellen und Einfügen eines Excel-Diagramms als OLE-Objekt in die Präsentation](/slides/de/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+{{% alert color="primary" %}}
 
-[OLE-Objekte automatisch aktualisieren](/slides/de/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+Es gibt zwei Ansätze, um das Problem der Arbeitsblattskalierung zu beheben. Die Wahl des geeigneten Ansatzes hängt von den konkreten Anforderungen und dem Anwendungsfall ab. Beide Ansätze funktionieren identisch, egal ob die Präsentationen aus einer Vorlage oder von Grund auf erstellt werden. Darüber hinaus gibt es in dieser Lösung keine Begrenzung für die Größe des OLE‑Objekt‑Frames.
+
+{{% /alert %}}
+
+## FAQ
+
+**Q: Warum ändert ein eingebettetes Excel‑Arbeitsblatt seine Größe, wenn es in PowerPoint zum ersten Mal aktiviert wird?**  
+Dies geschieht, weil Excel bei der Aktivierung versucht, die ursprüngliche Fenstergröße beizubehalten, während der OLE‑Objekt‑Frame in PowerPoint eigene Abmessungen hat. PowerPoint und Excel verhandeln die Größe, um das Seitenverhältnis zu erhalten, was zu einer Skalierung führen kann.
+
+**Q: Ist es möglich, dieses Skalierungsproblem vollständig zu verhindern?**  
+Ja. Durch Skalieren des OLE‑Frames, sodass er der Größe des Excel‑Zellbereichs entspricht, oder durch Skalieren des Zellbereichs, sodass er der gewünschten OLE‑Frame‑Größe entspricht, kann eine unerwünschte Skalierung verhindert werden.
+
+**Q: Welche Skalierungsmethode sollte ich verwenden, OLE‑Frame‑Skalierung oder Zellbereichs‑Skalierung?**  
+Wählen Sie **OLE‑Frame‑Skalierung**, wenn Sie die ursprünglichen Excel‑Zeilen- und Spaltengrößen beibehalten möchten. Wählen Sie **Zellbereichs‑Skalierung**, wenn Sie eine feste Größe für den OLE‑Frame in Ihrer Präsentation wünschen.
+
+**Q: Funktionieren diese Lösungen, wenn meine Präsentation auf einer Vorlage basiert?**  
+Ja. Beide Lösungen funktionieren sowohl für Präsentationen, die aus Vorlagen erstellt wurden, als auch für solche, die von Grund auf neu erstellt werden.
+
+**Q: Gibt es eine Größenbeschränkung für den OLE‑Frame bei Verwendung dieser Methoden?**  
+Nein. Der OLE‑Objekt‑Frame kann beliebig groß sein, solange die Skalierung korrekt eingestellt wird.
+
+**Q: Gibt es eine Möglichkeit, den Platzhaltertext „EMBEDDED OLE OBJECT“ in PowerPoint zu vermeiden?**  
+Ja. Indem Sie einen Schnappschuss des gewünschten Excel‑Zellbereichs aufnehmen und ihn als Platzhalterbild des OLE‑Frames festlegen, können Sie ein benutzerdefiniertes Vorschaubild anstelle des Standardplatzhalters anzeigen.
+
+## **Verwandte Artikel**
+
+[Erstellen eines Excel‑Diagramms und Einbetten in eine Präsentation als OLE‑Objekt](/slides/de/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+
+[OLE‑Objekte automatisch aktualisieren mit einem MS‑PowerPoint‑Add‑In](/slides/de/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

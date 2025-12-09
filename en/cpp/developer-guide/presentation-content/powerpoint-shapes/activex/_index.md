@@ -21,7 +21,7 @@ description: "Learn how Aspose.Slides for C++ leverages ActiveX to automate and 
 
 ActiveX control are used in presentations. Aspose.Slides for C++ lets you manage ActiveX controls, but managing them is bit trickier and different from normal presentation shapes. From Aspose.Slides for C++ 18.1, the component supports managing ActiveX controls. At the moment, you can access already added ActiveX control in your presentation and modify or delete it by using its various properties. Remember, ActiveX controls are not shapes and are not part of the presentation's IShapeCollection but the separate IControlCollection. This article shows how to work with them.
 
-## **Modify ActiveX Control**
+## **Modify an ActiveX Control**
 To manage a simple ActiveX control like a text box and simple command button on a slide:
 
 1. Create an instance of the Presentation class and load the presentation with ActiveX controls in it.
@@ -134,7 +134,7 @@ slide->get_Controls()->Clear();
 presentation->Save(u"withActiveX.cleared_out.pptm", SaveFormat::Pptm);
 ```
 
-## **Add Media Player ActiveX Control**
+## **Add an Media Player ActiveX Control**
 ActiveX control are used in presentations. Aspose.Slides for C++ lets you add and manage ActiveX controls, but managing them is bit trickier and different from normal presentation shapes. From Aspose.Slides for C++ 18.1, the support for adding Media Player ActiveX control has been added in Aspose.Slides. Remember, ActiveX controls are not shapes and are not part of the presentation's IShapeCollection but the separate IControlExCollection. This article shows how to work with them. To manage a Media Player ActiveX control, please perform following steps:
 
 1. Create an instance of the Presentation class and load the sample presentation with Media Player ActiveX controls in it.
@@ -164,3 +164,17 @@ newPresentation->get_Slides()->idx_get(0)->get_Controls()->idx_get(0)->get_Prope
 // Save the Presentation
 newPresentation->Save(u"LinkingVideoActiveXControl_out.pptx", SaveFormat::Pptx);
 ```
+
+## **FAQ**
+
+**Does Aspose.Slides preserve ActiveX controls when reading and re-saving if they cannot be executed in the C++ runtime?**
+
+Yes. Aspose.Slides treats them as part of the presentation and can read/modify their properties and frames; executing the controls themselves is not required to preserve them.
+
+**How do ActiveX controls differ from OLE objects in a presentation?**
+
+ActiveX controls are interactive managed controls (buttons, text boxes, media player), whereas [OLE](/slides/cpp/manage-ole/) refers to embedded application objects (for example, an Excel worksheet). They are stored and handled differently and have different property models.
+
+**Do ActiveX events and VBA macros work if the file has been modified by Aspose.Slides?**
+
+Aspose.Slides preserves the existing markup and metadata; however, events and macros run only inside PowerPoint on Windows when security allows it. The library does not execute VBA.

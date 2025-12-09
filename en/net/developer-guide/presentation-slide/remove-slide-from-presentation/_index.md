@@ -19,7 +19,7 @@ description: "Effortlessly remove slides from PowerPoint and OpenDocument presen
 
 If a slide (or its contents) becomes redundant, you can delete it. Aspose.Slides provides the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class that encapsulates [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection), which is a repository for all slides in a presentation. Using pointers (reference or index) for a known [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/) object, you can specify the slide you want to remove. 
 
-## **Remove Slide by Reference**
+## **Remove a Slide by Reference**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get a reference of the slide you want to remove through its ID or Index.
@@ -45,7 +45,7 @@ using (Presentation pres = new Presentation("RemoveSlideUsingReference.pptx"))
 ```
 
 
-## **Remove Slide by Index**
+## **Remove a Slide by Index**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Remove the slide from the presentation through its index position.
@@ -66,7 +66,7 @@ using (Presentation pres = new Presentation("RemoveSlideUsingIndex.pptx"))
 }
 ```
 
-## **Remove Unused Layout Slide**
+## **Remove Unused Layout Slides**
 
 Aspose.Slides provides the [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) method (from the [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) class) to allow you to delete unwanted and unused layout slides. This C# code shows you how to remove a layout slide from a PowerPoint presentation:
 
@@ -79,7 +79,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## **Remove Unused Master Slide**
+## **Remove Unused Master Slides**
 
 Aspose.Slides provides the [RemoveUnusedMasterSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) method (from the [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) class) to allow you to delete unwanted and unused master slides. This C# code shows you how to remove a master slide from a PowerPoint presentation:
 

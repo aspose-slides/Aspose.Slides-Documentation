@@ -73,7 +73,7 @@ public static void UpdateHeaderFooterText(IBaseSlide master)
 
 
 
-## **Manage Header and Footer in Handout and Notes Slides**
+## **Manage Headers and Footers on Handout and Notes Slides**
 Aspose.Slides for .NET supports Header and Footer in Handout and notes slides. Please follow the steps below:
 
 - Load a [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)containing a video.

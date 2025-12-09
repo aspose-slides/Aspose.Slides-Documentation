@@ -55,7 +55,7 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Set a Solid Color Background for the Master Slide**
+## **Set a Solid Color Background for a Master Slide**
 
 Aspose.Slides allows you to set a solid color as the background for the master slide in a presentation. The master slide acts as a template that controls formatting for all slides, so when you choose a solid color for the master slide’s background, it applies to every slide.
 

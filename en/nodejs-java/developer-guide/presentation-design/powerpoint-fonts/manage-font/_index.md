@@ -4,6 +4,7 @@ linktitle: Manage Fonts
 type: docs
 weight: 10
 url: /nodejs-java/manage-fonts/
+keywords:
 - manage fonts
 - font properties
 - paragraph

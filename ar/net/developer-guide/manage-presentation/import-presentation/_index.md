@@ -1,26 +1,41 @@
 ---
-title: استيراد باوربوينت من PDF أو HTML
-linktitle: استيراد العرض التقديمي
+title: استيراد العروض التقديمية من PDF أو HTML في .NET
+linktitle: استيراد عرض تقديمي
 type: docs
 weight: 60
 url: /ar/net/import-presentation/
-keywords: "استيراد باوربوينت، PDF إلى باوربوينت، HTML إلى باوربوينت، PDF إلى PPT، HTML إلى PPT، C#، Csharp، Aspose.Slides لـ .NET"
-description: "استيراد باوربوينت من PDF أو HTML. تحويل PDF إلى باوربوينت. تحويل HTML إلى باوربوينت"
+keywords:
+- استيراد عرض تقديمي
+- استيراد شريحة
+- استيراد PDF
+- استيراد HTML
+- PDF إلى عرض تقديمي
+- PDF إلى PPT
+- PDF إلى PPTX
+- PDF إلى ODP
+- HTML إلى عرض تقديمي
+- HTML إلى PPT
+- HTML إلى PPTX
+- HTML إلى ODP
+- PowerPoint
+- OpenDocument
+- .NET
+- C#
+- Aspose.Slides
+description: "استيراد مستندات PDF و HTML بسهولة إلى عروض PowerPoint و OpenDocument في .NET باستخدام Aspose.Slides لمعالجة الشرائح بسلاسة وعالية الأداء."
 ---
 
-باستخدام [**Aspose.Slides لـ .NET**](https://products.aspose.com/slides/net/)، يمكنك استيراد العروض التقديمية من الملفات بصيغ أخرى. يوفر Aspose.Slides الفئة [SlideCollection](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/) للسماح لك باستيراد العروض التقديمية من مستندات PDF.
+Using [**Aspose.Slides for .NET**](https://products.aspose.com/slides/net/), you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/) class to allow you to import presentations from PDF documents.
 
-## **استيراد باوربوينت من PDF**
+## **استيراد PowerPoint من PDF**
 
-في هذه الحالة، ستقوم بتحويل PDF إلى عرض تقديمي باوربوينت.
+في هذه الحالة، يمكنك تحويل ملف PDF إلى عرض تقديمي PowerPoint.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom: 50%;" />
 
-1. قم بإنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-2. قم باستدعاء طريقة [AddFromPdf](https://reference.aspose.com/slides/net/aspose.slides.slidecollection/addfrompdf/methods/1) ومرر ملف PDF.
-3. استخدم طريقة [Save](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/5) لحفظ الملف بتنسيق باوربوينت.
-
-هذا هو كود C# الذي يوضح عملية تحويل PDF إلى باوربوينت:
+1. أنشئ مثيلاً للفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. استدعِ الطريقة [AddFromPdf](https://reference.aspose.com/slides/net/aspose.slides.slidecollection/addfrompdf/methods/1) ومرّر ملف PDF.
+3. استخدم الطريقة [Save](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/5) لحفظ الملف بصيغة PowerPoint.
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -30,21 +45,18 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+
 {{% alert  title="نصيحة" color="primary" %}} 
-
-يمكنك الاطلاع على تطبيق **Aspose المجاني** [PDF إلى PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) لأنه تطبيق مباشر للعملية الموصوفة هنا. 
-
+قد ترغب في تجربة تطبيق الويب **Aspose free** [PDF إلى PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) لأنه تنفيذ حي للعملية الموضحة هنا. 
 {{% /alert %}} 
 
-## **استيراد باوربوينت من HTML**
+## **استيراد PowerPoint من HTML**
 
-في هذه الحالة، ستقوم بتحويل مستند HTML إلى عرض تقديمي باوربوينت.
+في هذه الحالة، يمكنك تحويل مستند HTML إلى عرض تقديمي PowerPoint.
 
-1. قم بإنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-2. قم باستدعاء طريقة [AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addfromhtml/#addfromhtml) ومرر ملف HTML.
-3. استخدم طريقة [Save](https://apireference.aspose.com/slides/net/aspose.slides.presentation/save/methods/5) لحفظ الملف كوثيقة باوربوينت.
-
-هذا هو كود C# الذي يوضح عملية تحويل HTML إلى باوربوينت:
+1. أنشئ مثيلاً للفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. استدعِ الطريقة [AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addfromhtml/#addfromhtml) ومرّر ملف HTML.
+3. استخدم الطريقة [Save](https://apireference.aspose.com/slides/net/aspose.slides.presentation/save/methods/5) لحفظ الملف كمستند PowerPoint.
 
 ```c#
 using (var presentation = new Presentation())
@@ -58,9 +70,15 @@ using (var presentation = new Presentation())
 }
 ```
 
-{{% alert title="ملاحظة" color="warning" %}} 
 
-يمكنك أيضًا استخدام Aspose.Slides لتحويل HTML إلى صيغ ملفات شائعة أخرى:
+## **الأسئلة الشائعة**
+
+**هل يتم الحفاظ على الجداول عند استيراد PDF، وهل يمكن تحسين اكتشافها؟**
+
+يمكن اكتشاف الجداول أثناء الاستيراد؛ يتضمن [PdfImportOptions](https://reference.aspose.com/slides/net/aspose.slides.import/pdfimportoptions/) المعامل [DetectTables](https://reference.aspose.com/slides/net/aspose.slides.import/pdfimportoptions/detecttables/) الذي يتيح التعرف على الجداول. تعتمد الفعالية على بنية ملف PDF.
+
+{{% alert title="ملاحظة" color="warning" %}} 
+يمكنك أيضًا استخدام Aspose.Slides لتحويل HTML إلى صيغ ملفات شائعة أخرى: 
 
 * [HTML إلى صورة](https://products.aspose.com/slides/net/conversion/html-to-image/)
 * [HTML إلى JPG](https://products.aspose.com/slides/net/conversion/html-to-jpg/)

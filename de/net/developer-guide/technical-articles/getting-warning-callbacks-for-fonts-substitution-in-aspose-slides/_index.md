@@ -1,46 +1,101 @@
 ---
-title: Warnungs-Callbacks für Schriftartenersatz in Aspose.Slides erhalten
+title: Warnrückrufe für Schriftart-Substitution in .NET erhalten
 type: docs
 weight: 120
 url: /de/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+keywords:
+- Warnrückruf
+- Schriftart-Substitution
+- Rendervorgang
+- PowerPoint
+- OpenDocument
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Warnrückrufe für Schriftart-Substitution in Aspose.Slides für .NET erhalten und PowerPoint- sowie OpenDocument-Präsentationen genau anzeigen."
 ---
 
-{{% alert color="primary" %}} 
+## **Übersicht**
 
-Aspose.Slides für .NET ermöglicht es, Warnungs-Callbacks für den Schriftartenersatz zu erhalten, falls die verwendete Schriftart während des Renderings nicht auf dem Rechner verfügbar ist. Die Warnungs-Callbacks sind hilfreich zur Fehlersuche bei fehlenden oder nicht erreichbaren Schriftarten während des Renderings.
+Aspose.Slides for .NET ermöglicht das Empfangen von Warnungsrückrufen für die Schriftartsubstitution, wenn eine erforderliche Schriftart während der Wiedergabe nicht auf dem System verfügbar ist. Diese Rückrufe helfen, Probleme mit fehlenden oder nicht zugänglichen Schriftarten zu diagnostizieren.
 
-{{% /alert %}} 
-## **Warnungs-Callbacks für Schriftartenersatz erhalten**
-Aspose.Slides für .NET bietet einfache API-Methoden, um die Warnungs-Callbacks während des Renderings zu erhalten. Alles, was Sie tun müssen, ist, die folgenden Schritte zu befolgen, um die Warnungs-Callbacks auf Ihrer Seite zu konfigurieren:
+## **Warnungsrückrufe aktivieren**
 
-1. Erstellen Sie eine benutzerdefinierte Callback-Klasse, um die Callbacks zu empfangen.
-1. Setzen Sie die Warnungs-Callbacks mit der LoadOptions-Klasse.
-1. Laden Sie die Präsentationsdatei, die eine Schriftart für den darin enthaltenen Text verwendet, die auf Ihrem Zielrechner nicht verfügbar ist.
-1. Generieren Sie das Miniaturbild der Folie, um den Effekt zu sehen.
+Aspose.Slides for .NET bietet einfache APIs, um Warnungsrückrufe beim Rendern von Präsentationsfolien zu erhalten. Befolgen Sie diese Schritte, um Warnungsrückrufe zu konfigurieren:
 
+1. Erstellen Sie eine benutzerdefinierte Callback‑Klasse, die das [IWarningCallback](https://reference.aspose.com/slides/net/aspose.slides.warnings/iwarningcallback/) Interface implementiert, um Warnungen zu behandeln.  
+1. Setzen Sie den Warnungs‑Callback mithilfe von Optionsklassen wie [RenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/renderingoptions/), [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions/) und anderen.  
+1. Laden Sie eine Präsentation, die eine Schriftart verwendet, die auf dem Zielcomputer nicht verfügbar ist.  
+1. Erzeugen Sie ein Folien‑Miniaturbild oder exportieren Sie die Präsentation, um die Wirkung zu beobachten.
+
+**Benutzerdefinierte Warnungs‑Callback‑Klasse:**  
 ```c#
-//Einstellen der Warnungs-Callbacks
-LoadOptions lo = new LoadOptions();
-lo.WarningCallback = new HandleFontsWarnings();
-
-//Präsentation instanziieren
-Presentation presentation = new Presentation("1.ppt", lo);
-
-//Generieren des Folienminiaturbilds
-foreach (ISlide slide in presentation.Slides)
-{
-    IImage image = slide.GetImage();
-}
-```
-
-```c#
-class HandleFontsWarnings : IWarningCallback
+class FontWarningHandler : IWarningCallback
 {
     public ReturnAction Warning(IWarningInfo warning)
     {
-        Console.WriteLine(warning.WarningType); // 1 - WarningType.DataLoss
-        Console.WriteLine(warning.Description); // "Schriftart wird von X nach Y ersetzt"
+        if (warning.WarningType == WarningType.DataLoss)
+        {
+            Console.WriteLine(warning.Description);
+        }
+
         return ReturnAction.Continue;
     }
 }
+
+// Beispielausgabe:
+//
+// Schriftart wird von XYZ zu {Calibri,Cambria Math,MS Gothic,Gulim,Arial Unicode,SimSun,Segoe UI Symbol}}
+```
+
+
+**Folien‑Miniaturbild erzeugen:**  
+```c#
+// Richten Sie einen Warnungs-Callback ein, um schriftenbezogene Warnungen beim Rendern von Folien zu behandeln.
+var options = new RenderingOptions();
+options.WarningCallback = new FontWarningHandler();
+
+// Laden Sie die Präsentation vom angegebenen Dateipfad.
+using var presentation = new Presentation("sample.pptx");
+
+// Erzeugen Sie ein Miniaturbild für jede Folie in der Präsentation.
+foreach (var slide in presentation.Slides)
+{
+    // Holen Sie das Folien-Miniaturbild mit den angegebenen Renderoptionen.
+    using var image = slide.GetImage(options);
+    // ...
+}
+```
+
+
+**Exportieren in das PDF‑Format:**  
+```c#
+// Richten Sie einen Warnungs-Callback ein, um schriftenbezogene Warnungen beim PDF-Export zu behandeln.
+var options = new PdfOptions();
+options.WarningCallback = new FontWarningHandler();
+
+// Laden Sie die Präsentation vom angegebenen Dateipfad.
+using var presentation = new Presentation("sample.pptx");
+
+// Exportieren Sie die Präsentation als PDF.
+using var stream = new MemoryStream();
+presentation.Save(stream, SaveFormat.Pdf, options);
+// ...
+```
+
+
+**Exportieren in das HTML‑Format:**  
+```c#
+// Richten Sie einen Warnungs-Callback ein, um schriftenbezogene Warnungen beim HTML-Export zu behandeln.
+var options = new HtmlOptions();
+options.WarningCallback = new FontWarningHandler();
+
+// Laden Sie die Präsentation vom angegebenen Dateipfad.
+using var presentation = new Presentation("sample.pptx");
+
+// Exportieren Sie die Präsentation im HTML-Format.
+using var stream = new MemoryStream();
+presentation.Save(stream, SaveFormat.Html, options);
+// ...
 ```

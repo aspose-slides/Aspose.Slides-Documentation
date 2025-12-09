@@ -1,22 +1,32 @@
 ---
-title: استخراج الصور من أشكال العرض التقديمي
+title: استخراج الصور من أشكال العرض التقديمي في Python
+linktitle: صورة من الشكل
 type: docs
 weight: 90
 url: /ar/python-net/extracting-images-from-presentation-shapes/
-keywords: "استخراج الصورة، PowerPoint، PPT، PPTX، عرض PowerPoint، بايثون، Aspose.Slides for Python"
-description: "استخراج الصور من عرض PowerPoint في بايثون"
+keywords:
+- استخراج صورة
+- استرجاع صورة
+- خلفية الشريحة
+- خلفية الشكل
+- PowerPoint
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "استخراج الصور من الأشكال في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للـ Python عبر .NET — حل سريع وصديق للمبرمجين."
 ---
+
+## **استخراج الصور من الأشكال**
 
 {{% alert color="primary" %}} 
 
-غالبًا ما تتم إضافة الصور إلى الأشكال وتستخدم أيضًا كخلفيات للشرائح. يتم إضافة كائنات الصورة من خلال [IImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/iimagecollection/)، وهي مجموعة من كائنات [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/). 
+غالبًا ما يتم إضافة الصور إلى الأشكال وتُستخدم أيضًا بشكل متكرر كخلفيات للشرائح. يتم إضافة كائنات الصورة عبر [IImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/iimagecollection/)، وهي مجموعة من كائنات [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/). 
 
-توضح هذه المقالة كيفية استخراج الصور المضافة إلى العروض التقديمية. 
+تشرح هذه المقالة كيفية استخراج الصور المضافة إلى العروض التقديمية. 
 
 {{% /alert %}} 
 
-لاستخراج صورة من عرض تقديمي، يجب عليك تحديد موقع الصورة أولاً عن طريق المرور عبر كل شريحة ثم المرور عبر كل شكل. بمجرد العثور على الصورة أو تحديدها، يمكنك استخراجها وحفظها كملف جديد. XXX 
-
+لاسترجاع صورة من عرض تقديمي، يجب أولًا تحديد موقع الصورة عبر المرور على كل شريحة ثم المرور على كل شكل. بمجرد العثور على الصورة أو تحديدها، يمكنك استخراجها وحفظها كملف جديد. XXX 
 ```py
 import aspose.slides as slides
 
@@ -54,7 +64,7 @@ with slides.Presentation("pres.pptx") as pres:
             is_layout = True
 
         if back_image is not None:
-            #تعيين تنسيق الصورة المطلوب 
+            #ضبط تنسيق الصورة المطلوب 
             image_type = back_image.content_type.split("/")[1]
             image_format = get_image_format(image_type)
 
@@ -79,3 +89,22 @@ with slides.Presentation("pres.pptx") as pres:
                                 file_name.format("shape_"+str(i)+"_", slideIndex, image_type), 
                                 image_format)
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني استخراج الصورة الأصلية دون أي قص أو تأثيرات أو تحويلات الشكل؟**
+
+نعم. عندما تصل إلى صورة الشكل، تحصل على كائن الصورة من [مجموعة الصور](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/) الخاصة بالعرض التقديمي، وهو ما يعني البكسلات الأصلية دون قص أو تأثيرات تنسيق. تتنقل سير العمل عبر مجموعة صور العرض التقديمي وكائنات [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) التي تخزن البيانات الخام.
+
+**هل هناك خطر من تكرار ملفات متطابقة عند حفظ العديد من الصور مرة واحدة؟**
+
+نعم، إذا قمت بحفظ كل شيء دون تمييز. قد تحتوي [مجموعة الصور](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/) الخاصة بالعرض التقديمي على بيانات ثنائية متطابقة يتم الإشارة إليها من قِبل أشكال أو شرائح مختلفة. لتجنب التكرار، قارن التجزئات أو الأحجام أو محتويات البيانات المستخرجة قبل الكتابة.
+
+**كيف يمكنني تحديد الأشكال المرتبطة بصورة معينة من مجموعة صور العرض التقديمي؟**
+
+لا يحتفظ Aspose.Slides بروابط عكسية من [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) إلى الأشكال. يمكنك إنشاء خريطة يدوية أثناء التجول: كلما وجدت إشارة إلى [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/)، سجل الأشكال التي تستخدمه.
+
+**هل يمكنني استخراج الصور المضمنة داخل كائنات OLE، مثل المستندات المرفقة؟**
+
+ليس مباشرةً، لأن كائن OLE هو حاوية. تحتاج إلى استخراج حزمة OLE نفسها ثم تحليل محتوياتها باستخدام أدوات منفصلة. تعمل أشكال الصور في العروض التقديمية عبر [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/)؛ OLE هو نوع كائن مختلف.

@@ -1,10 +1,33 @@
 ---
-title: Конвертация PowerPoint в Markdown на Java
+title: Конвертация презентаций PowerPoint в Markdown на Java
+linktitle: PowerPoint в Markdown
 type: docs
 weight: 140
 url: /ru/java/convert-powerpoint-to-markdown/
-keywords: "Конвертация PowerPoint в Markdown, Конвертировать ppt в md, PowerPoint, PPT, PPTX, Презентация, Markdown, Java, Aspose.Slides для Java"
-description: "Конвертация PowerPoint в Markdown на Java"
+keywords:
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPT
+- конвертировать PPTX
+- PowerPoint в MD
+- презентация в MD
+- слайд в MD
+- PPT в MD
+- PPTX в MD
+- сохранить PowerPoint как Markdown
+- сохранить презентацию как Markdown
+- сохранить слайд как Markdown
+- сохранить PPT как MD
+- сохранить PPTX как MD
+- экспортировать PPT в MD
+- экспортировать PPTX в MD
+- PowerPoint
+- презентация
+- Markdown
+- Java
+- Aspose.Slides
+description: "Конвертируйте слайды PowerPoint — PPT, PPTX — в чистый Markdown с помощью Aspose.Slides для Java, автоматизируйте документирование и сохраняйте форматирование."
 ---
 
 {{% alert color="info" %}} 
@@ -15,17 +38,16 @@ description: "Конвертация PowerPoint в Markdown на Java"
 
 {{% alert color="warning" %}} 
 
-Экспорт PowerPoint в markdown **без изображений** по умолчанию. Если вы хотите экспортировать документ PowerPoint, содержащий изображения, вам нужно установить `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` и также установить `BasePath`, куда будут сохранены изображения, упомянутые в документе markdown.
+Экспорт PowerPoint в markdown по умолчанию **без изображений**. Если нужно экспортировать документ PowerPoint, содержащий изображения, следует установить `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` и также задать `BasePath`, куда будут сохраняться изображения, упомянутые в markdown‑документе.
 
 {{% /alert %}} 
 
 ## **Конвертация PowerPoint в Markdown**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), чтобы представить объект презентации.
-2. Используйте метод [Save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-), чтобы сохранить объект в виде файла markdown.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), представляющего объект презентации.
+2. Используйте метод [Save ](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-)для сохранения объекта в файл markdown.
 
-Этот код на Java показывает, как конвертировать PowerPoint в markdown:
-
+Этот Java‑код показывает, как конвертировать PowerPoint в markdown:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -35,12 +57,12 @@ try {
 }
 ```
 
-## Конвертация PowerPoint в Markdown Flavor
 
-Aspose.Slides позволяет вам конвертировать PowerPoint в markdown (с основным синтаксисом), CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab и 17 других вариантов markdown.
+## Конвертация PowerPoint в различные форматы Markdown
 
-Этот код на Java показывает, как конвертировать PowerPoint в CommonMark:
+Aspose.Slides позволяет конвертировать PowerPoint в markdown (базовый синтаксис), CommonMark, markdown в стиле GitHub, Trello, XWiki, GitLab и ещё 17 вариантов markdown.
 
+Этот Java‑код показывает, как конвертировать PowerPoint в CommonMark:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -52,16 +74,16 @@ try {
 }
 ```
 
-23 поддерживаемых варианта markdown [перечислены в перечислении Flavor](https://reference.aspose.com/slides/java/com.aspose.slides/flavor/) из класса [MarkdownSaveOptions](https://reference.aspose.com/slides/java/com.aspose.slides/markdownsaveoptions/).
 
-## **Конвертация Презентации, Содержащей Изображения, в Markdown**
+23 поддерживаемых варианта markdown перечислены в [перечислении Flavor](https://reference.aspose.com/slides/java/com.aspose.slides/flavor/) класса [MarkdownSaveOptions](https://reference.aspose.com/slides/java/com.aspose.slides/markdownsaveoptions/).
 
-Класс [MarkdownSaveOptions](https://reference.aspose.com/slides/java/com.aspose.slides/markdownsaveoptions/) предоставляет свойства и перечисления, которые позволяют использовать определенные параметры или настройки для результирующего файла markdown. Например, перечисление [MarkdownExportType](https://reference.aspose.com/slides/java/com.aspose.slides/markdownexporttype/) может быть установлено на значения, которые определяют, как обрабатываются или отображаются изображения: `Sequential`, `TextOnly`, `Visual`.
+## **Конвертация презентации с изображениями в Markdown**
 
-### **Конвертация Изображений Последовательно**
+Класс [MarkdownSaveOptions](https://reference.aspose.com/slides/java/com.aspose.slides/markdownsaveoptions/) предоставляет свойства и перечисления, позволяющие задавать различные параметры для итогового markdown‑файла. Перечисление [MarkdownExportType](https://reference.aspose.com/slides/java/com.aspose.slides/markdownexporttype/) может принимать значения, определяющие способ обработки изображений: `Sequential`, `TextOnly`, `Visual`.
 
-Если вы хотите, чтобы изображения отображались по одному в результирующем markdown, вам нужно выбрать последовательный вариант. Этот код на Java показывает, как конвертировать презентацию, содержащую изображения, в markdown:
+### **Последовательная конвертация изображений**
 
+Если требуется, чтобы изображения отображались последовательно одно за другим в полученном markdown, выберите опцию sequential. Этот Java‑код демонстрирует, как конвертировать презентацию с изображениями в markdown:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -77,12 +99,12 @@ try {
 }
 ```
 
-### **Конвертация Изображений Визуально**
 
-Если вы хотите, чтобы изображения отображались вместе в результирующем markdown, вам нужно выбрать визуальный вариант. В этом случае изображения будут сохранены в текущем каталоге приложения (и будет построен относительный путь для них в документе markdown), или вы можете указать предпочитаемый путь и имя папки.
+### **Визуальная конвертация изображений**
 
-Этот код на Java демонстрирует операцию:
+Если нужно, чтобы изображения отображались вместе в полученном markdown, выберите опцию visual. В этом случае изображения будут сохранены в текущий каталог приложения (и в markdown‑документе будет построен относительный путь к ним), либо вы можете указать собственный путь и имя папки.
 
+Этот Java‑код демонстрирует процесс:
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {

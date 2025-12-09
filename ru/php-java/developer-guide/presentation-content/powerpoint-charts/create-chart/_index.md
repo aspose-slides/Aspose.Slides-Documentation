@@ -1,169 +1,168 @@
 ---
-title: Создание или обновление диаграмм в презентации PowerPoint
+title: Создание или обновление диаграмм PowerPoint Presentation в PHP
 linktitle: Создать диаграмму
 type: docs
 weight: 10
 url: /ru/php-java/create-chart/
-keywords: "Создайте диаграмму, разбросанная диаграмма, круговая диаграмма, диаграмма дерева, фондовая диаграмма, диаграмма коробки и усов, диаграмма гистограммы, воронкообразная диаграмма, диаграмма солнечного всплеска, мультинормативная диаграмма, презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
-description: "Создайте диаграмму в презентации PowerPoint"
+keywords: "создание диаграммы, точечная диаграмма, круговая диаграмма, диаграмма древовидной карты, диаграмма акций, диаграмма box and whisker, гистограмма, воронка, sunburst диаграмма, мультикатегориальная диаграмма, PowerPoint презентация, Java, Aspose.Slides for PHP via Java"
+description: "Создание диаграммы в презентации PowerPoint"
 ---
 
 ## Обзор
 
-Эта статья описывает, как **создать диаграммы в презентации PowerPoint на Java**. Вы также можете **обновить диаграммы**. В ней рассматриваются следующие темы.
+Эта статья описывает, как **создавать диаграммы PowerPoint Presentation на Java**. Вы также можете **обновлять диаграммы**. В статье рассматриваются следующие темы.
 
 _Диаграмма_: **Обычная**
 - [Java Создать диаграмму PowerPoint](#java-create-powerpoint-chart)
 - [Java Создать диаграмму презентации](#java-create-presentation-chart)
-- [Java Создать диаграмму презентации PowerPoint](#java-create-powerpoint-presentation-chart)
+- [Java Создать диаграмму PowerPoint Presentation](#java-create-powerpoint-presentation-chart)
 
-_Диаграмма_: **Разбросанная**
-- [Java Создать разбросанную диаграмму](#java-create-scattered-chart)
-- [Java Создать разбросанную диаграмму PowerPoint](#java-create-powerpoint-scattered-chart)
-- [Java Создать разбросанную диаграмму презентации PowerPoint](#java-create-powerpoint-presentation-scattered-chart)
+_Диаграмма_: **Точечная**
+- [Java Создать точечную диаграмму](#java-create-scattered-chart)
+- [Java Создать точечную диаграмму PowerPoint](#java-create-powerpoint-scattered-chart)
+- [Java Создать точечную диаграмму PowerPoint Presentation](#java-create-powerpoint-presentation-scattered-chart)
 
 _Диаграмма_: **Круговая**
 - [Java Создать круговую диаграмму](#java-create-pie-chart)
 - [Java Создать круговую диаграмму PowerPoint](#java-create-powerpoint-pie-chart)
-- [Java Создать круговую диаграмму презентации PowerPoint](#java-create-powerpoint-presentation-pie-chart)
+- [Java Создать круговую диаграмму PowerPoint Presentation](#java-create-powerpoint-presentation-pie-chart)
 
-_Диаграмма_: **Карта дерева**
-- [Java Создать диаграмму карты дерева](#java-create-tree-map-chart)
-- [Java Создать диаграмму карты дерева PowerPoint](#java-create-powerpoint-tree-map-chart)
-- [Java Создать диаграмму карты дерева презентации PowerPoint](#java-create-powerpoint-presentation-tree-map-chart)
+_Диаграмма_: **Древовидная карта**
+- [Java Создать диаграмму Древовидная карта](#java-create-tree-map-chart)
+- [Java Создать диаграмму Древовидная карта PowerPoint](#java-create-powerpoint-tree-map-chart)
+- [Java Создать диаграмму Древовидная карта PowerPoint Presentation](#java-create-powerpoint-presentation-tree-map-chart)
 
-_Диаграмма_: **Фондовая**
-- [Java Создать фондовую диаграмму](#java-create-stock-chart)
-- [Java Создать фондовую диаграмму PowerPoint](#java-create-powerpoint-stock-chart)
-- [Java Создать фондовую диаграмму презентации PowerPoint](#java-create-powerpoint-presentation-stock-chart)
+_Диаграмма_: **Акции**
+- [Java Создать диаграмму акций](#java-create-stock-chart)
+- [Java Создать диаграмму акций PowerPoint](#java-create-powerpoint-stock-chart)
+- [Java Создать диаграмму акций PowerPoint Presentation](#java-create-powerpoint-presentation-stock-chart)
 
-_Диаграмма_: **Коробка и усы**
-- [Java Создать диаграмму коробки и усов](#java-create-box-and-whisker-chart)
-- [Java Создать диаграмму коробки и усов PowerPoint](#java-create-powerpoint-box-and-whisker-chart)
-- [Java Создать диаграмму коробки и усов презентации PowerPoint](#java-create-powerpoint-presentation-box-and-whisker-chart)
+_Диаграмма_: **Box and Whisker**
+- [Java Создать диаграмму Box and Whisker](#java-create-box-and-whisker-chart)
+- [Java Создать диаграмму Box and Whisker PowerPoint](#java-create-powerpoint-box-and-whisker-chart)
+- [Java Создать диаграмму Box and Whisker PowerPoint Presentation](#java-create-powerpoint-presentation-box-and-whisker-chart)
 
-_Диаграмма_: **Воронкообразная**
-- [Java Создать воронкообразную диаграмму](#java-create-funnel-chart)
-- [Java Создать воронкообразную диаграмму PowerPoint](#java-create-powerpoint-funnel-chart)
-- [Java Создать воронкообразную диаграмму презентации PowerPoint](#java-create-powerpoint-presentation-funnel-chart)
+_Диаграмма_: **Воронка**
+- [Java Создать диаграмму воронка](#java-create-funnel-chart)
+- [Java Создать диаграмму воронка PowerPoint](#java-create-powerpoint-funnel-chart)
+- [Java Создать диаграмму воронка PowerPoint Presentation](#java-create-powerpoint-presentation-funnel-chart)
 
-_Диаграмма_: **Солнечный всплеск**
-- [Java Создать диаграмму солнечного всплеска](#java-create-sunburst-chart)
-- [Java Создать диаграмму солнечного всплеска PowerPoint](#java-create-powerpoint-sunburst-chart)
-- [Java Создать диаграмму солнечного всплеска презентации PowerPoint](#java-create-powerpoint-presentation-sunburst-chart)
+_Диаграмма_: **Sunburst**
+- [Java Создать диаграмму Sunburst](#java-create-sunburst-chart)
+- [Java Создать диаграмму Sunburst PowerPoint](#java-create-powerpoint-sunburst-chart)
+- [Java Создать диаграмму Sunburst PowerPoint Presentation](#java-create-powerpoint-presentation-sunburst-chart)
 
 _Диаграмма_: **Гистограмма**
-- [Java Создать гистограммную диаграмму](#java-create-histogram-chart)
-- [Java Создать гистограммную диаграмму PowerPoint](#java-create-powerpoint-histogram-chart)
-- [Java Создать гистограммную диаграмму презентации PowerPoint](#java-create-powerpoint-presentation-histogram-chart)
+- [Java Создать гистограмму](#java-create-histogram-chart)
+- [Java Создать гистограмму PowerPoint](#java-create-powerpoint-histogram-chart)
+- [Java Создать гистограмму PowerPoint Presentation](#java-create-powerpoint-presentation-histogram-chart)
 
 _Диаграмма_: **Радар**
 - [Java Создать радарную диаграмму](#java-create-radar-chart)
 - [Java Создать радарную диаграмму PowerPoint](#java-create-powerpoint-radar-chart)
-- [Java Создать радарную диаграмму презентации PowerPoint](#java-create-powerpoint-presentation-radar-chart)
+- [Java Создать радарную диаграмму PowerPoint Presentation](#java-create-powerpoint-presentation-radar-chart)
 
 _Диаграмма_: **Мультикатегория**
-- [Java Создать мультикатегориальную диаграмму](#java-create-multi-category-chart)
-- [Java Создать мультикатегориальную диаграмму PowerPoint](#java-create-powerpoint-multi-category-chart)
-- [Java Создать мультикатегориальную диаграмму презентации PowerPoint](#java-create-powerpoint-presentation-multi-category-chart)
+- [Java Создать диаграмму мультикатегория](#java-create-multi-category-chart)
+- [Java Создать диаграмму мультикатегория PowerPoint](#java-create-powerpoint-multi-category-chart)
+- [Java Создать диаграмму мультикатегория PowerPoint Presentation](#java-create-powerpoint-presentation-multi-category-chart)
 
 _Диаграмма_: **Карта**
-- [Java Создать картографическую диаграмму](#java-create-map-chart)
-- [Java Создать картографическую диаграмму PowerPoint](#java-create-powerpoint-map-chart)
-- [Java Создать картографическую диаграмму презентации PowerPoint](#java-create-powerpoint-presentation-map-chart)
+- [Java Создать карту](#java-create-map-chart)
+- [Java Создать карту PowerPoint](#java-create-powerpoint-map-chart)
+- [Java Создать карту PowerPoint Presentation](#java-create-powerpoint-presentation-map-chart)
 
 _Действие_: **Обновить диаграмму**
 - [Java Обновить диаграмму PowerPoint](#java-update-powerpoint-chart)
 - [Java Обновить диаграмму презентации](#java-update-presentation-chart)
-- [Java Обновить диаграмму презентации PowerPoint](#java-update-powerpoint-presentation-chart)
+- [Java Обновить диаграмму PowerPoint Presentation](#java-update-powerpoint-presentation-chart)
 
 
-## **Создать диаграмму**
-Диаграммы помогают людям быстро визуализировать данные и получать insights, которые могут быть не очевидны из таблицы или электронных таблиц. 
+## **Создание диаграмм**
+Диаграммы помогают быстро визуализировать данные и получать инсайты, которые могут быть неочевидными из таблицы или электронных таблиц. 
 
 
-**Почему стоит создавать диаграммы?**
+**Почему создают диаграммы?**
 
 Используя диаграммы, вы можете
 
-* агрегировать, конденсировать или резюмировать большие объемы данных на одном слайде в презентации
-* выявлять закономерности и тренды в данных
-* определять направление и соотношение данных с течением времени или относительно конкретной единицы измерения 
-* выявлять выбросы, аномалии, отклонения, ошибки, бессмысленные данные и т.д. 
-* представлять сложные данные
+* агрегировать, конденсировать или суммировать большие объёмы данных на одном слайде презентации
+* выявлять закономерности и тенденции в данных
+* определять направление и динамику данных во времени или относительно конкретных единиц измерения 
+* обнаруживать выбросы, аномалии, отклонения, ошибки, бессмысленные данные и т.п. 
+* эффективно передавать сложные данные
 
-В PowerPoint вы можете создавать диаграммы через функцию вставки, которая предоставляет шаблоны, используемые для проектирования многих типов диаграмм. Используя Aspose.Slides, вы можете создавать обычные диаграммы (на основе популярных типов диаграмм) и настраиваемые диаграммы. 
+В PowerPoint вы можете создавать диаграммы через функцию вставки, которая предоставляет шаблоны для множества типов диаграмм. С помощью Aspose.Slides вы можете создавать обычные диаграммы (на основе популярных типов) и пользовательские диаграммы. 
 
 {{% alert color="primary" %}} 
 
-Чтобы позволить вам создавать диаграммы, Aspose.Slides предоставляет класс [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType). Поля в этом классе соответствуют различным типам диаграмм.
+Чтобы позволить вам создавать диаграммы, Aspose.Slides предоставляет класс [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType). Поля этого класса соответствуют различным типам диаграмм.
 
 {{% /alert %}} 
 
 ### **Создание обычных диаграмм**
 
-_Шаги: Создать диаграмму_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Шаги:</em> Создать диаграмму PowerPoint </strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Шаги:</em> Создать диаграмму презентации </strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Шаги:</em> Создать диаграмму презентации PowerPoint </strong></a>
+_Steps: Create Chart_
+- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Steps:</em> Create PowerPoint Chart </strong></a>
+- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Steps:</em> Create Presentation Chart </strong></a>
+- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Chart </strong></a>
 
-_Код шагов:_
+_Code Steps:_
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму с некоторыми данными и укажите предпочитаемый тип диаграммы. 
+3. Добавьте диаграмму с данными и укажите желаемый тип диаграммы. 
 4. Добавьте заголовок для диаграммы. 
-5. Получите доступ к рабочему листу данных диаграммы.
-6. Очистите все стандартные серии и категории.
-7. Добавьте новые серии и категории.
-8. Добавьте некоторые новые данные диаграммы для серии диаграммы.
-9. Добавьте цвет заливки для серий диаграммы.
-10. Добавьте метки для серий диаграммы. 
-11. Запишите изменённую презентацию в файл PPTX.
+5. Получите доступ к листу данных диаграммы. 
+6. Очистите все серии и категории по умолчанию. 
+7. Добавьте новые серии и категории. 
+8. Добавьте новые данные для серии диаграммы. 
+9. Добавьте цвет заливки для серии диаграммы. 
+10. Добавьте подписи для серии диаграммы. 
+11. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP код показывает, как создать обычную диаграмму:
-
+Этот PHP‑код показывает, как создать обычную диаграмму:
 ```php
   # Создает экземпляр класса презентации, представляющего файл PPTX
   $pres = new Presentation();
   try {
     # Получает первый слайд
     $sld = $pres->getSlides()->get_Item(0);
-    # Добавляет диаграмму с её стандартными данными
+    # Добавляет диаграмму с данными по умолчанию
     $chart = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 0, 0, 500, 500);
     # Устанавливает заголовок диаграммы
-    $chart->getChartTitle()->addTextFrameForOverriding("Пример заголовка");
+    $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->hasTitle();
-    # Устанавливает первую серию для отображения значений
+    # Устанавливает отображение значений для первой серии
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Устанавливает индекс для рабочей таблицы данных диаграммы
+    # Устанавливает индекс листа данных диаграммы
     $defaultWorksheetIndex = 0;
     # Получает рабочий лист данных диаграммы
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Удаляет стандартные сгенерированные серии и категории
+    # Удаляет серии и категории, сгенерированные по умолчанию
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     $s = $chart->getChartData()->getSeries()->size();
     $s = $chart->getChartData()->getCategories()->size();
     # Добавляет новые серии
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Серия 1"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Серия 2"), $chart->getType());
+    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
+    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
     # Добавляет новые категории
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Категория 1"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Категория 2"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Категория 3"));
-    # Берет первую серию диаграммы
+    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
+    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
+    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
+    # Получает первую серию диаграммы
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     # Заполняет данные серии
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    # Устанавливает цвет заливки для серий
+    # Устанавливает цвет заливки для серии
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Берет вторую серию диаграммы
+    # Получает вторую серию диаграммы
     $series = $chart->getChartData()->getSeries()->get_Item(1);
     # Заполняет данные серии
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
@@ -172,13 +171,13 @@ _Код шагов:_
     # Устанавливает цвет заливки для серии
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    # Создает пользовательские метки для каждой категории для новой серии
-    # Устанавливает первую метку для отображения названия категории
+    # Создает пользовательские подписи для каждой категории новой серии
+    # Устанавливает первую подпись для отображения имени категории
     $lbl = $series->getDataPoints()->get_Item(0)->getLabel();
     $lbl->getDataLabelFormat()->setShowCategoryName(true);
     $lbl = $series->getDataPoints()->get_Item(1)->getLabel();
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
-    # Отображает значение для третьей метки
+    # Отображает значение для третьей подписи
     $lbl = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl->getDataLabelFormat()->setShowValue(true);
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
@@ -192,50 +191,50 @@ _Код шагов:_
   }
 ```
 
-### **Создание разбросанных диаграмм**
-Разбросанные диаграммы (также известные как разбросанные графики или графики XY) часто используются для проверки закономерностей или демонстрации корреляции между двумя переменными. 
 
-Вы можете использовать разбросанную диаграмму, когда 
+### **Создание точечных диаграмм**
+Точечные диаграммы (также известные как точечные графики или графики x‑y) часто используют для проверки закономерностей или демонстрации корреляций между двумя переменными. 
+
+Вы можете использовать точечную диаграмму, когда 
 
 * у вас есть парные числовые данные
-* у вас есть 2 переменные, которые хорошо связываются
-* вы хотите определить, связаны ли 2 переменные
-* у вас есть независимая переменная, которая имеет несколько значений для зависимой переменной
+* две переменные хорошо коррелируют
+* нужно определить, связаны ли две переменные
+* есть независимая переменная с множеством значений зависимой переменной
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Шаги:</em> Создать разбросанную диаграмму </strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Шаги:</em> Создать разбросанную диаграмму PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Шаги:</em> Создать разбросанную диаграмму презентации PowerPoint </strong></a>
+<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Steps:</em> Create Scattered Chart </strong></a> |
+<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Scattered Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Scattered Chart </strong></a>
 
-1. Пожалуйста, следуйте шагам, указанным выше, в [Создании обычных диаграмм](#creating-normal-charts)
-2. На третьем шаге добавьте диаграмму с некоторыми данными и укажите тип диаграммы как один из следующих
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Представляет разбросанную диаграмму._
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Представляет разбросанную диаграмму, соединенную кривыми, с маркерами данных._
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Представляет разбросанную диаграмму, соединенную кривыми, без маркеров данных._
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Представляет разбросанную диаграмму, соединенную линиями, с маркерами данных._
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Представляет разбросанную диаграмму, соединенную линиями, без маркеров данных._
+1. Пожалуйста, следуйте шагам из раздела [Creating Normal Charts](#creating-normal-charts)
+2. На третьем шаге добавьте диаграмму с данными и укажите тип диаграммы одним из следующих
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Represents Scatter Chart._
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Represents Scatter Chart connected by curves, with data markers._
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Represents Scatter Chart connected by curves, without data markers._
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Represents Scatter Chart connected by lines, with data markers._
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Represents Scatter Chart connected by lines, without data markers._
 
-Этот PHP код показывает, как создать разбросанные диаграммы с различными сериями маркеров:
-
+Этот PHP‑код показывает, как создать точечные диаграммы с разными маркерами:
 ```php
   # Создает экземпляр класса презентации, представляющего файл PPTX
   $pres = new Presentation();
   try {
     # Получает первый слайд
     $slide = $pres->getSlides()->get_Item(0);
-    # Создает стандартную диаграмму
+    # Создает диаграмму по умолчанию
     $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 0, 0, 400, 400);
-    # Получает индекс рабочего листа данных диаграммы по умолчанию
+    # Получает индекс листа данных диаграммы по умолчанию
     $defaultWorksheetIndex = 0;
-    # Получает рабочий лист данных диаграммы
+    # Получает лист данных диаграммы
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Удаляет демонстрационные серии
+    # Удаляет демонстрационную серию
     $chart->getChartData()->getSeries()->clear();
     # Добавляет новые серии
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Серия 1"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 3, "Серия 2"), $chart->getType());
-    # Берет первую серию диаграммы
+    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
+    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 3, "Series 2"), $chart->getType());
+    # Берёт первую серию диаграммы
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Добавляет новую точку (1:3) к серии
+    # Добавляет новую точку (1:3) в серию
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 1), $fact->getCell($defaultWorksheetIndex, 2, 2, 3));
     # Добавляет новую точку (2:10)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 2), $fact->getCell($defaultWorksheetIndex, 3, 2, 10));
@@ -244,7 +243,7 @@ _Код шагов:_
     # Изменяет маркер серии диаграммы
     $series->getMarker()->setSize(10);
     $series->getMarker()->setSymbol(MarkerStyleType::Star);
-    # Берет вторую серию диаграммы
+    # Берёт вторую серию диаграммы
     $series = $chart->getChartData()->getSeries()->get_Item(1);
     # Добавляет новую точку (5:2) туда
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 5), $fact->getCell($defaultWorksheetIndex, 2, 4, 2));
@@ -265,63 +264,63 @@ _Код шагов:_
   }
 ```
 
+
 ### **Создание круговых диаграмм**
 
-Круговые диаграммы лучше всего показывают отношение части к целому в данных, особенно когда данные содержат категориальные метки с числовыми значениями. Однако, если ваши данные содержат много частей или меток, вам следует рассмотреть возможность использования столбчатой диаграммы вместо этого.
+Круговые диаграммы лучше всего использовать для отображения соотношения части к целому, особенно когда данные содержат категориальные подписи с числовыми значениями. Если в данных слишком много частей или меток, лучше использовать столбчатую диаграмму.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Шаги:</em> Создать круговую диаграмму </strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Шаги:</em> Создать круговую диаграмму PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Шаги:</em> Создать круговую диаграмму презентации PowerPoint </strong></a>
+<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Steps:</em> Create Pie Chart </strong></a> |
+<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Steps:</em> Create PowerPoint Pie Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Pie Chart </strong></a>
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму со стандартными данными вместе с желаемым типом (в данном случае, [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Pie).
-4. Получите доступ к данным диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook).
-5. Очистите стандартные серии и категории.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип (в данном случае [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Pie).
+4. Получите доступ к листу данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook).
+5. Очистите серии и категории по умолчанию.
 6. Добавьте новые серии и категории.
-7. Добавьте новые данные диаграммы для серий диаграммы.
-8. Добавьте новые точки для диаграмм и добавьте пользовательские цвета для секторов круговой диаграммы.
-9. Установите метки для серий.
-10. Установите линии ведущие для меток серий.
-11. Установите угол вращения для секторов круговой диаграммы.
-12. Запишите изменённую презентацию в файл PPTX
+7. Добавьте новые данные для серии диаграммы.
+8. Добавьте новые точки и задайте пользовательские цвета секторов круговой диаграммы.
+9. Установите подписи для серий.
+10. Установите линии‑выноски для подписей серий.
+11. Установите угол вращения для слайдов с круговой диаграммой.
+12. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP код показывает, как создать круговую диаграмму:
-
+Этот PHP‑код показывает, как создать круговую диаграмму:
 ```php
   # Создает экземпляр класса презентации, представляющего файл PPTX
   $pres = new Presentation();
   try {
     # Получает первый слайд
     $slides = $pres->getSlides()->get_Item(0);
-    # Добавляет диаграмму со стандартными данными
+    # Добавляет диаграмму с данными по умолчанию
     $chart = $slides->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
     # Устанавливает заголовок диаграммы
-    $chart->getChartTitle()->addTextFrameForOverriding("Пример заголовка");
+    $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->setTitle(true);
-    # Устанавливает первую серию для отображения значений
+    # Устанавливает отображение значений в первой серии
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Устанавливает индекс для рабочей таблицы данных диаграммы
+    # Устанавливает индекс листа данных диаграммы
     $defaultWorksheetIndex = 0;
     # Получает рабочий лист данных диаграммы
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Удаляет стандартные сгенерированные серии и категории
+    # Удаляет автоматически сгенерированные серии и категории
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     # Добавляет новые категории
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "Первый квт"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "2-й квт"));
-    $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3-й квт"));
-    # Добавляет новые серии
-    $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Серия 1"), $chart->getType());
+    $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "First Qtr"));
+    $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "2nd Qtr"));
+    $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3rd Qtr"));
+    # Добавляет новую серию
+    $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
     # Заполняет данные серии
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
     # Не работает в новой версии
-    # Добавление новых точек и установка цвета сектора
+    # Добавление новых точек и установка цвета секторов
     # series.IsColorVaried = true;
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
     $point = $series->getDataPoints()->get_Item(0);
@@ -351,7 +350,7 @@ _Код шагов:_
     $point2->getFormat()->getLine()->setWidth(2.0);
     $point2->getFormat()->getLine()->setStyle(LineStyle->ThinThin);
     $point2->getFormat()->getLine()->setDashStyle(LineDashStyle->LargeDashDotDot);
-    # Создает пользовательские метки для каждой категории для новой серии
+    # Создает пользовательские подписи для каждой категории новой серии
     $lbl1 = $series->getDataPoints()->get_Item(0)->getLabel();
     # lbl.ShowCategoryName = true;
     $lbl1->getDataLabelFormat()->setShowValue(true);
@@ -362,9 +361,9 @@ _Код шагов:_
     $lbl3 = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl3->getDataLabelFormat()->setShowSeriesName(true);
     $lbl3->getDataLabelFormat()->setShowPercentage(true);
-    # Отображает линии ведущие для диаграммы
+    # Отображает линии‑выноски для диаграммы
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
-    # Устанавливает угол вращения для секторов круговой диаграммы
+    # Устанавливает угол поворота секторов круговой диаграммы
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
     # Сохраняет презентацию с диаграммой
     $pres->save("PieChart_out.pptx", SaveFormat::Pptx);
@@ -375,21 +374,21 @@ _Код шагов:_
   }
 ```
 
+
 ### **Создание линейных диаграмм**
 
-Линейные диаграммы (также известные как линейные графики) лучше всего используются в ситуациях, когда вы хотите продемонстрировать изменения в значении с течением времени. Используя линейную диаграмму, вы можете сравнивать много данных одновременно, отслеживать изменения и тренды с течением времени, подчеркивать аномалии в сериях данных и т.д.
+Линейные диаграммы (также известные как линейные графики) лучше всего использовать, когда нужно показать изменение значений во времени. С помощью линейной диаграммы можно сравнивать множество данных одновременно, отслеживать изменения и тенденции, выделять аномалии в сериях и т.д.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте диаграмму с стандартными данными вместе с желаемым типом (в данном случае, `ChartType::Line`).
-1. Получите доступ к данным диаграммы IChartDataWorkbook.
-1. Очистите стандартные серии и категории.
+1. Добавьте диаграмму с данными по умолчанию и укажите тип (в данном случае `ChartType::Line`).
+1. Получите доступ к листу данных диаграммы IChartDataWorkbook.
+1. Очистите серии и категории по умолчанию.
 1. Добавьте новые серии и категории.
-1. Добавьте новые данные диаграммы для серий диаграммы.
-1. Запишите изменённую презентацию в файл PPTX
+1. Добавьте новые данные для серии диаграммы.
+1. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP код показывает, как создать линейную диаграмму:
-
+Этот PHP‑код показывает, как создать линейную диаграмму:
 ```php
   $pres = new Presentation();
   try {
@@ -402,8 +401,8 @@ _Код шагов:_
   }
 ```
 
-По умолчанию точки на линейной диаграмме соединяются сплошными линиями. Если вы хотите, чтобы точки соединялись линиями с пробелами, вы можете указать предпочитаемый тип линии следующим образом:
 
+По умолчанию точки линейной диаграммы соединяются прямыми линиями. Если хотите соединять их пунктиром, укажите желаемый тип штриха так:
 ```php
   $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
   foreach($lineChart->getChartData()->getSeries() as $series) {
@@ -411,25 +410,25 @@ _Код шагов:_
   }
 ```
 
-### **Создание диаграмм карты дерева**
 
-Диаграммы карты дерева лучше всего используют для данных о продажах, когда вы хотите показать относительный размер категорий данных и (в то же время) быстро привлечь внимание к элементам, которые являются крупными вкладчиками в каждую категорию. 
+### **Создание диаграмм Tree Map**
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Шаги:</em> Создать диаграмму карты дерева </strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Шаги:</em> Создать диаграмму карты дерева PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Шаги:</em> Создать диаграмму карты дерева презентации PowerPoint </strong></a>
+Диаграммы Tree Map лучше всего использовать для данных продаж, когда нужно показать относительный размер категорий и одновременно быстро выделить крупные вклады в каждой категории. 
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
+<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Steps:</em> Create Tree Map Chart </strong></a> |
+<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Tree Map Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Tree Map Chart </strong></a>
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму со стандартными данными вместе с желаемым типом (в данном случае, [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).TreeMap).
-4. Получите доступ к данным диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook).
-5. Очистите стандартные серии и категории.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип (в данном случае [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).TreeMap).
+4. Получите доступ к листу данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook).
+5. Очистите серии и категории по умолчанию.
 6. Добавьте новые серии и категории.
-7. Добавьте новые данные диаграммы для серий диаграммы.
-8. Запишите изменённую презентацию в файл PPTX
+7. Добавьте новые данные для серии диаграммы.
+8. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP код показывает, как создать диаграмму карты дерева:
-
+Этот PHP‑код показывает, как создать диаграмму Tree Map:
 ```php
   $pres = new Presentation();
   try {
@@ -439,21 +438,21 @@ _Код шагов:_
     $wb = $chart->getChartData()->getChartDataWorkbook();
     $wb->clear(0);
     # ветка 1
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C1", "Лист1"));
-    $leaf->getGroupingLevels()->setGroupingItem(1, "Стебель1");
-    $leaf->getGroupingLevels()->setGroupingItem(2, "Ветка1");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C2", "Лист2"));
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C3", "Лист3"));
-    $leaf->getGroupingLevels()->setGroupingItem(1, "Стебель2");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C4", "Лист4"));
+    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C1", "Leaf1"));
+    $leaf->getGroupingLevels()->setGroupingItem(1, "Stem1");
+    $leaf->getGroupingLevels()->setGroupingItem(2, "Branch1");
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C2", "Leaf2"));
+    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C3", "Leaf3"));
+    $leaf->getGroupingLevels()->setGroupingItem(1, "Stem2");
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C4", "Leaf4"));
     # ветка 2
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C5", "Лист5"));
-    $leaf->getGroupingLevels()->setGroupingItem(1, "Стебель3");
-    $leaf->getGroupingLevels()->setGroupingItem(2, "Ветка2");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C6", "Лист6"));
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C7", "Лист7"));
-    $leaf->getGroupingLevels()->setGroupingItem(1, "Стебель4");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C8", "Лист8"));
+    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C5", "Leaf5"));
+    $leaf->getGroupingLevels()->setGroupingItem(1, "Stem3");
+    $leaf->getGroupingLevels()->setGroupingItem(2, "Branch2");
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C6", "Leaf6"));
+    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C7", "Leaf7"));
+    $leaf->getGroupingLevels()->setGroupingItem(1, "Stem4");
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C8", "Leaf8"));
     $series = $chart->getChartData()->getSeries()->add(ChartType::Treemap);
     $series->getLabels()->getDefaultDataLabelFormat()->setShowCategoryName(true);
     $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D1", 4));
@@ -473,24 +472,24 @@ _Код шагов:_
   }
 ```
 
-### **Создание фондовых диаграмм**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Шаги:</em> Создать фондовую диаграмму </strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Шаги:</em> Создать фондовую диаграмму PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Шаги:</em> Создать фондовую диаграмму презентации PowerPoint </strong></a>
+### **Создание диаграмм Stock**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
+<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Steps:</em> Create Stock Chart </strong></a> |
+<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Steps:</em> Create PowerPoint Stock Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Stock Chart </strong></a>
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму со стандартными данными вместе с желаемым типом ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).OpenHighLowClose).
-4. Получите доступ к данным диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook).
-5. Очистите стандартные серии и категории.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).OpenHighLowClose).
+4. Получите доступ к листу данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook).
+5. Очистите серии и категории по умолчанию.
 6. Добавьте новые серии и категории.
-7. Добавьте новые данные диаграммы для серий диаграммы.
+7. Добавьте новые данные для серии диаграммы.
 8. Укажите формат HiLowLines.
-9. Запишите изменённую презентацию в файл PPTX
+9. Сохраните изменённую презентацию в файл PPTX.
 
-Пример PHP кода, используемого для создания фондовой диаграммы:
-
+Пример PHP‑кода для создания диаграммы Stock:
 ```php
   $pres = new Presentation();
   try {
@@ -501,10 +500,10 @@ _Код шагов:_
     $chart->getChartData()->getCategories()->add($wb->getCell(0, 1, 0, "A"));
     $chart->getChartData()->getCategories()->add($wb->getCell(0, 2, 0, "B"));
     $chart->getChartData()->getCategories()->add($wb->getCell(0, 3, 0, "C"));
-    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 1, "Открыть"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 2, "Высокий"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 3, "Низкий"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 4, "Закрыть"), $chart->getType());
+    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 1, "Open"), $chart->getType());
+    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 2, "High"), $chart->getType());
+    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 3, "Low"), $chart->getType());
+    $chart->getChartData()->getSeries()->add($wb->getCell(0, 0, 4, "Close"), $chart->getType());
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 1, 1, 72));
     $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 2, 1, 25));
@@ -534,23 +533,23 @@ _Код шагов:_
   }
 ```
 
-### **Создание диаграмм коробки и усов**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Шаги:</em> Создать диаграмму коробки и усов </strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Шаги:</em> Создать диаграмму коробки и усов PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Шаги:</em> Создать диаграмму коробки и усов презентации PowerPoint </strong></a>
+### **Создание диаграмм Box and Whisker**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
+<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Steps:</em> Create Box and Whisker Chart </strong></a> |
+<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Box and Whisker Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Box and Whisker Chart </strong></a>
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму со стандартными данными вместе с желаемым типом ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).BoxAndWhisker).
-4. Получите доступ к данным диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook).
-5. Очистите стандартные серии и категории.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).BoxAndWhisker).
+4. Получите доступ к листу данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook).
+5. Очистите серии и категории по умолчанию.
 6. Добавьте новые серии и категории.
-7. Добавьте новые данные диаграммы для серий диаграммы.
-8. Запишите изменённую презентацию в файл PPTX
+7. Добавьте новые данные для серии диаграммы.
+8. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP код показывает, как создать диаграмму коробки и усов:
-
+Этот PHP‑код показывает, как создать диаграмму Box and Whisker:
 ```php
   $pres = new Presentation();
   try {
@@ -559,12 +558,12 @@ _Код шагов:_
     $chart->getChartData()->getSeries()->clear();
     $wb = $chart->getChartData()->getChartDataWorkbook();
     $wb->clear(0);
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A1", "Категория 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A2", "Категория 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A3", "Категория 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A4", "Категория 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A5", "Категория 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A6", "Категория 1"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A1", "Category 1"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A2", "Category 1"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A3", "Category 1"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A4", "Category 1"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A5", "Category 1"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A6", "Category 1"));
     $series = $chart->getChartData()->getSeries()->add(ChartType::BoxAndWhisker);
     $series->setQuartileMethod(QuartileMethodType::Exclusive);
     $series->setShowMeanLine(true);
@@ -585,20 +584,20 @@ _Код шагов:_
   }
 ```
 
-### **Создание воронкообразных диаграмм**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Шаги:</em> Создать воронкообразную диаграмму </strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Шаги:</em> Создать воронкообразную диаграмму PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Шаги:</em> Создать воронкообразную диаграмму презентации PowerPoint </strong></a>
+### **Создание диаграмм Funnel**
+
+<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Steps:</em> Create Funnel Chart </strong></a> |
+<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Funnel Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Funnel Chart </strong></a>
 
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму со стандартными данными вместе с желаемым типом ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Funnel).
-4. Запишите изменённую презентацию в файл PPTX
+3. Добавьте диаграмму с данными по умолчанию и укажите тип ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Funnel).
+4. Сохраните изменённую презентацию в файл PPTX.
 
-PHP код показывает, как создать воронкообразную диаграмму:
-
+PHP‑код, показывающий создание диаграммы Funnel:
 ```php
   $pres = new Presentation();
   try {
@@ -607,12 +606,12 @@ PHP код показывает, как создать воронкообраз�
     $chart->getChartData()->getSeries()->clear();
     $wb = $chart->getChartData()->getChartDataWorkbook();
     $wb->clear(0);
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A1", "Категория 1"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A2", "Категория 2"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A3", "Категория 3"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A4", "Категория 4"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A5", "Категория 5"));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A6", "Категория 6"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A1", "Category 1"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A2", "Category 2"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A3", "Category 3"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A4", "Category 4"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A5", "Category 5"));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A6", "Category 6"));
     $series = $chart->getChartData()->getSeries()->add(ChartType::Funnel);
     $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B1", 50));
     $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B2", 100));
@@ -628,19 +627,19 @@ PHP код показывает, как создать воронкообраз�
   }
 ```
 
-### **Создание диаграмм солнечного всплеска**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Шаги:</em> Создать диаграмму солнечного всплеска </strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Шаги:</em> Создать диаграмму солнечного всплеска PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Шаги:</em> Создать диаграмму солнечного всплеска презентации PowerPoint </strong></a>
+### **Создание диаграмм Sunburst**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
+<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Steps:</em> Create Sunburst Chart </strong></a> |
+<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Sunburst Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Sunburst Chart </strong></a>
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму со стандартными данными вместе с желаемым типом (в данном случае,[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).sunburst).
-4. Запишите изменённую презентацию в файл PPTX
+3. Добавьте диаграмму с данными по умолчанию и укажите тип (в данном случае [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).sunburst).
+4. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP код показывает, как создать диаграмму солнечного всплеска:
-
+Этот PHP‑код показывает, как создать диаграмму Sunburst:
 ```php
   $pres = new Presentation();
   try {
@@ -650,21 +649,21 @@ PHP код показывает, как создать воронкообраз�
     $wb = $chart->getChartData()->getChartDataWorkbook();
     $wb->clear(0);
     # ветка 1
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C1", "Лист1"));
-    $leaf->getGroupingLevels()->setGroupingItem(1, "Стебель1");
-    $leaf->getGroupingLevels()->setGroupingItem(2, "Ветка1");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C2", "Лист2"));
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C3", "Лист3"));
-    $leaf->getGroupingLevels()->setGroupingItem(1, "Стебель2");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C4", "Лист4"));
+    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C1", "Leaf1"));
+    $leaf->getGroupingLevels()->setGroupingItem(1, "Stem1");
+    $leaf->getGroupingLevels()->setGroupingItem(2, "Branch1");
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C2", "Leaf2"));
+    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C3", "Leaf3"));
+    $leaf->getGroupingLevels()->setGroupingItem(1, "Stem2");
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C4", "Leaf4"));
     # ветка 2
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C5", "Лист5"));
-    $leaf->getGroupingLevels()->setGroupingItem(1, "Стебель3");
-    $leaf->getGroupingLevels()->setGroupingItem(2, "Ветка2");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C6", "Лист6"));
-    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C7", "Лист7"));
-    $leaf->getGroupingLevels()->setGroupingItem(1, "Стебель4");
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C8", "Лист8"));
+    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C5", "Leaf5"));
+    $leaf->getGroupingLevels()->setGroupingItem(1, "Stem3");
+    $leaf->getGroupingLevels()->setGroupingItem(2, "Branch2");
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C6", "Leaf6"));
+    $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C7", "Leaf7"));
+    $leaf->getGroupingLevels()->setGroupingItem(1, "Stem4");
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "C8", "Leaf8"));
     $series = $chart->getChartData()->getSeries()->add(ChartType::Sunburst);
     $series->getLabels()->getDefaultDataLabelFormat()->setShowCategoryName(true);
     $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D1", 4));
@@ -683,22 +682,22 @@ PHP код показывает, как создать воронкообраз�
   }
 ```
 
-### **Создание диаграмм гистограмм**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Шаги:</em> Создать гистограммную диаграмму </strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Шаги:</em> Создать гистограммную диаграмму PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Шаги:</em> Создать гистограммную диаграмму презентации PowerPoint </strong></a>
+### **Создание диаграмм Histogram**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
+<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Steps:</em> Create Histogram Chart </strong></a> |
+<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Histogram Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Histogram Chart </strong></a>
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
 2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму со стандартными данными вместе с желаемым типом ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Histogram).
-4. Получите доступ к данным диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook).
-5. Очистите стандартные серии и категории.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Histogram).
+4. Получите доступ к листу данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook).
+5. Очистите серии и категории по умолчанию.
 6. Добавьте новые серии и категории.
-7. Запишите изменённую презентацию в файл PPTX
+7. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP код показывает, как создать гистограммную диаграмму:
-
+Этот PHP‑код показывает, как создать гистограмму:
 ```php
   $pres = new Presentation();
   $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Histogram, 50, 50, 500, 400);
@@ -716,19 +715,19 @@ PHP код показывает, как создать воронкообраз�
   $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
 ```
 
+
 ### **Создание радарных диаграмм**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Шаги:</em> Создать радарную диаграмму </strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Шаги:</em> Создать радарную диаграмму PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Шаги:</em> Создать радарную диаграмму презентации PowerPoint </strong></a>
+<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Steps:</em> Create Radar Chart </strong></a> |
+<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Steps:</em> Create PowerPoint Radar Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Radar Chart </strong></a>
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
 2. Получите ссылку на слайд по его индексу. 
-3. Добавьте диаграмму с некоторыми данными и укажите предпочитаемый тип диаграммы (`ChartType::Radar` в данном случае).
-4. Запишите изменённую презентацию в файл PPTX
+3. Добавьте диаграмму с данными и укажите тип `ChartType::Radar`.
+4. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP код показывает, как создать радарную диаграмму:
-
+Этот PHP‑код показывает, как создать радарную диаграмму:
 ```php
   $pres = new Presentation();
   try {
@@ -741,23 +740,23 @@ PHP код показывает, как создать воронкообраз�
   }
 ```
 
+
 ### **Создание мультикатегориальных диаграмм**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Шаги:</em> Создать мультикатегориальную диаграмму </strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Шаги:</em> Создать мультикатегориальную диаграмму PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Шаги:</em> Создать мультикатегориальную диаграмму презентации PowerPoint </strong></a>
+<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Steps:</em> Create Multi Category Chart </strong></a> |
+<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Multi Category Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Multi Category Chart </strong></a>
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
 2. Получите ссылку на слайд по его индексу. 
-3. Добавьте диаграмму со стандартными данными вместе с желаемым типом ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).ClusteredColumn).
-4. Получите доступ к данным диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook).
-5. Очистите стандартные серии и категории.
+3. Добавьте диаграмму с данными по умолчанию и укажите тип ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).ClusteredColumn).
+4. Получите доступ к листу данных диаграммы [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook).
+5. Очистите серии и категории по умолчанию.
 6. Добавьте новые серии и категории.
-7. Добавьте новые данные диаграммы для серий диаграммы.
-8. Запишите изменённую презентацию в файл PPTX.
+7. Добавьте новые данные для серии диаграммы.
+8. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP код показывает, как создать мультинормативную диаграмму:
-
+Этот PHP‑код показывает, как создать мультикатегориальную диаграмму:
 ```php
   $pres = new Presentation();
   try {
@@ -768,19 +767,19 @@ PHP код показывает, как создать воронкообраз�
     $fact->clear(0);
     $defaultWorksheetIndex = 0;
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c2", "A"));
-    $category->getGroupingLevels()->setGroupingItem(1, "Группа1");
+    $category->getGroupingLevels()->setGroupingItem(1, "Group1");
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c3", "B"));
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c4", "C"));
-    $category->getGroupingLevels()->setGroupingItem(1, "Группа2");
+    $category->getGroupingLevels()->setGroupingItem(1, "Group2");
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c5", "D"));
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c6", "E"));
-    $category->getGroupingLevels()->setGroupingItem(1, "Группа3");
+    $category->getGroupingLevels()->setGroupingItem(1, "Group3");
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c7", "F"));
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c8", "G"));
-    $category->getGroupingLevels()->setGroupingItem(1, "Группа4");
+    $category->getGroupingLevels()->setGroupingItem(1, "Group4");
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c9", "H"));
-    # Добавление серий
-    $series = $ch->getChartData()->getSeries()->add($fact->getCell(0, "D1", "Серия 1"), ChartType::ClusteredColumn);
+    # Добавление серии
+    $series = $ch->getChartData()->getSeries()->add($fact->getCell(0, "D1", "Series 1"), ChartType::ClusteredColumn);
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D2", 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D3", 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D4", 30));
@@ -798,16 +797,16 @@ PHP код показывает, как создать воронкообраз�
   }
 ```
 
+
 ### **Создание картографических диаграмм**
 
-Картографическая диаграмма — это визуализация области, содержащей данные. Картографические диаграммы лучше всего использовать для сравнения данных или значений в различных географических регионах.
+Картографическая диаграмма визуализирует область, содержащую данные. Такие диаграммы лучше всего использовать для сравнения данных или значений по географическим регионам.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Шаги:</em> Создать картографическую диаграмму </strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Шаги:</em> Создать картографическую диаграмму PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Шаги:</em> Создать картографическую диаграмму презентации PowerPoint </strong></a>
+<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Steps:</em> Create Map Chart </strong></a> |
+<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Steps:</em> Create PowerPoint Map Chart </strong></a> |
+<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Map Chart </strong></a>
 
-Этот PHP код показывает, как создать картографическую диаграмму:
-
+Этот PHP‑код показывает, как создать картографическую диаграмму:
 ```php
   $pres = new Presentation();
   try {
@@ -820,74 +819,215 @@ PHP код показывает, как создать воронкообраз�
   }
 ```
 
+
 ### **Создание комбинированных диаграмм**
 
-Комбинированная диаграмма (или композитная диаграмма) — это диаграмма, которая объединяет две или более диаграмм на одном графике. Такая диаграмма позволяет вам выделять, сравнивать или просматривать различия между двумя (или более) наборами данных. Таким образом, вы видите взаимосвязь (если такая есть) между наборами данных. 
+Комбинированная диаграмма (или combo‑диаграмма) объединяет два и более типов диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или исследовать различия между несколькими наборами данных, помогая выявлять взаимосвязи.
 
-![combination-chart-ppt](combination-chart-ppt.png)
+![Комбинированная диаграмма](combination_chart.png)
 
-Этот PHP код показывает, как создать комбинированную диаграмму в PowerPoint:
-
+Следующий PHP‑код показывает, как создать комбинированную диаграмму, показанную выше, в презентации PowerPoint:
 ```php
+function createComboChart() {
+    $presentation = new Presentation();
+    $slide = $presentation->getSlides()->get_Item(0);
+    try {
+        $chart = createChartWithFirstSeries($slide);
 
+        addSecondSeriesToChart($chart);
+        addThirdSeriesToChart($chart);
+
+        setPrimaryAxesFormat($chart);
+        setSecondaryAxesFormat($chart);
+
+        $presentation->save("combo-chart.pptx", SaveFormat::Pptx);
+    } finally {
+        $presentation->dispose();
+    }
+}
+
+function createChartWithFirstSeries($slide) {
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+
+    // Установить заголовок диаграммы.
+    $chart->setTitle(true);
+    $chart->getChartTitle()->addTextFrameForOverriding("Chart Title");
+    $chart->getChartTitle()->setOverlay(false);
+    $titleParagraph = $chart->getChartTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0);
+    $titleFormat = $titleParagraph->getParagraphFormat()->getDefaultPortionFormat();
+    $titleFormat->setFontBold(NullableBool::False);
+    $titleFormat->setFontHeight(18);
+    
+    // Установить легенду диаграммы.
+    $chart->getLegend()->setPosition(LegendPositionType::Bottom);
+    $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(12);
+
+    // Удалить автоматически сгенерированные серии и категории.
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $worksheetIndex = 0;
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    // Добавить новые категории.
+    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 1, 0, "Category 1"));
+    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 2, 0, "Category 2"));
+    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 3, 0, "Category 3"));
+    $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 4, 0, "Category 4"));
+
+    // Добавить первую серию.
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 1, "Series 1");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
+
+    $series->getParentSeriesGroup()->setOverlap(-25);
+    $series->getParentSeriesGroup()->setGapWidth(220);
+
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 1, 1, 4.3));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 2, 1, 2.5));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 3, 1, 3.5));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 4, 1, 4.5));
+
+    return $chart;
+}
+
+function addSecondSeriesToChart($chart) {
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
+
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 2, "Series 2");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::ClusteredColumn);
+
+    $series->getParentSeriesGroup()->setOverlap(-25);
+    $series->getParentSeriesGroup()->setGapWidth(220);
+
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 1, 2, 2.4));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 2, 2, 4.4));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 3, 2, 1.8));
+    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 4, 2, 2.8));
+}
+
+function addThirdSeriesToChart($chart) {
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $worksheetIndex = 0;
+
+    $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 3, "Series 3");
+    $series = $chart->getChartData()->getSeries()->add($seriesNameCell, ChartType::Line);
+
+    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 1, 3, 2.0));
+    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 2, 3, 2.0));
+    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 3, 3, 3.0));
+    $series->getDataPoints()->addDataPointForLineSeries($workbook->getCell($worksheetIndex, 4, 3, 5.0));
+
+    $series->setPlotOnSecondAxis(true);
+}
+
+function setPrimaryAxesFormat($chart) {
+    // Установить горизонтальную ось.
+    $horizontalAxis = $chart->getAxes()->getHorizontalAxis();
+    $horizontalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
+    $horizontalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+
+    setAxisTitle($horizontalAxis, "X Axis");
+
+    // Установить вертикальную ось.
+    $verticalAxis = $chart->getAxes()->getVerticalAxis();
+    $verticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
+    $verticalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+
+    setAxisTitle($verticalAxis, "Y Axis 1");
+
+    // Установить цвет основных вертикальных линий сетки.
+    $majorGridLinesFormat = $verticalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat();
+    $majorGridLinesFormat->setFillType(FillType::Solid);
+    $majorGridLinesFormat->getSolidFillColor()->setColor(new java("java.awt.Color", 217, 217, 217));
+}
+
+function setSecondaryAxesFormat($chart) {
+    // Установить вторичную горизонтальную ось.
+    $secondaryHorizontalAxis = $chart->getAxes()->getSecondaryHorizontalAxis();
+    $secondaryHorizontalAxis->setPosition(AxisPositionType::Bottom);
+    $secondaryHorizontalAxis->setCrossType(CrossesType::Maximum);
+    $secondaryHorizontalAxis->setVisible(false);
+    $secondaryHorizontalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+    $secondaryHorizontalAxis->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+
+    // Установить вторичную вертикальную ось.
+    $secondaryVerticalAxis = $chart->getAxes()->getSecondaryVerticalAxis();
+    $secondaryVerticalAxis->setPosition(AxisPositionType::Right);
+    $secondaryVerticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
+    $secondaryVerticalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+    $secondaryVerticalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+    $secondaryVerticalAxis->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
+
+    setAxisTitle($secondaryVerticalAxis, "Y Axis 2");
+}
+
+function setAxisTitle($axis, $axisTitle) {
+    $axis->setTitle(true);
+    $axis->getTitle()->setOverlay(false);
+    $titleParagraph = $axis->getTitle()->addTextFrameForOverriding($axisTitle)->getParagraphs()->get_Item(0);
+    $titleFormat = $titleParagraph->getParagraphFormat()->getDefaultPortionFormat();
+    $titleFormat->setFontBold(NullableBool::False);
+    $titleFormat->setFontHeight(12);
+}
 ```
+
 
 ## **Обновление диаграмм**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Шаги:</em> Обновить диаграмму PowerPoint </strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Шаги:</em> Обновить диаграмму презентации </strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Шаги:</em> Обновить диаграмму презентации PowerPoint </strong></a>
+<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Steps:</em> Update PowerPoint Chart </strong></a> |
+<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Steps:</em> Update Presentation Chart </strong></a> |
+<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Steps:</em> Update PowerPoint Presentation Chart </strong></a>
 
-1. Инициализируйте класс [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation), который представляет презентацию, содержащую диаграмму, которую вы хотите обновить.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation), представляющего презентацию, содержащую диаграмму, которую необходимо обновить.
 2. Получите ссылку на слайд, используя его индекс.
-3. Пройдите через все фигуры, чтобы найти желаемую диаграмму.
-4. Получите доступ к рабочему листу данных диаграммы.
-5. Измените данные серии данных диаграммы, изменив значения серии.
-6. Добавьте новую серию и заполните существующие данные в ней.
-7. Запишите изменённую презентацию как файл PPTX.
+3. Пройдите по всем фигурам, чтобы найти нужную диаграмму.
+4. Получите доступ к листу данных диаграммы.
+5. Измените данные серии, заменив значения серии.
+6. Добавьте новую серию и заполните её данными.
+7. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP код показывает, как обновить диаграмму:
-
+Этот PHP‑код показывает, как обновить диаграмму:
 ```php
   $pres = new Presentation();
   try {
-    # Получает первый слайд
+    # Доступ к первому slideMarker
     $sld = $pres->getSlides()->get_Item(0);
-    # Получает диаграмму со стандартными данными
+    # Получить диаграмму с данными по умолчанию
     $chart = $sld->getShapes()->get_Item(0);
-    # Устанавливает индекс рабочей таблицы данных диаграммы
+    # Установка индекса листа данных диаграммы
     $defaultWorksheetIndex = 0;
-    # Получает рабочий лист данных диаграммы
+    # Получение листа данных диаграммы
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Изменяет название категории диаграммы
-    $fact->getCell($defaultWorksheetIndex, 1, 0, "Измененная категория 1");
-    $fact->getCell($defaultWorksheetIndex, 2, 0, "Измененная категория 2");
-    # Берет первую серию диаграммы
+    # Изменение названия категории диаграммы
+    $fact->getCell($defaultWorksheetIndex, 1, 0, "Modified Category 1");
+    $fact->getCell($defaultWorksheetIndex, 2, 0, "Modified Category 2");
+    # Взять первую серию диаграммы
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Теперь обновляет данные серии
-    $fact->getCell($defaultWorksheetIndex, 0, 1, "Новая_Серия1");// Изменяет название серии
+    # Сейчас обновляем данные серии
+    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// Изменение названия серии
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(123);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(44);
-    # Берет вторую серию диаграммы
+    # Взять вторую серию диаграммы
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Теперь обновляет данные серии
-    $fact->getCell($defaultWorksheetIndex, 0, 2, "Новая_Серия2");// Изменяет название серии
+    # Сейчас обновляем данные серии
+    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// Изменение названия серии
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(99);
-    # Теперь, добавляя новую серию
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 3, "Серия 3"), $chart->getType());
-    # Берет третью серию диаграммы
+    # Сейчас, добавляем новую серию
+    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 3, "Series 3"), $chart->getType());
+    # Взять третью серию диаграммы
     $series = $chart->getChartData()->getSeries()->get_Item(2);
-    # Теперь заполняет данные серии
+    # Сейчас заполняем данные серии
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 3, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 30));
     $chart->setType(ChartType::ClusteredCylinder);
-    # Сохраняет презентацию с диаграммой
+    # Сохранить презентацию с диаграммой
     $pres->save("AsposeChartModified_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -896,18 +1036,18 @@ PHP код показывает, как создать воронкообраз�
   }
 ```
 
+
 ## **Установка диапазона данных для диаграмм**
 
-Чтобы установить диапазон данных для диаграммы, сделайте следующее:
+Чтобы установить диапазон данных для диаграммы, выполните следующее:
 
-1. Инициализируйте класс [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation), который представляет презентацию, содержащую диаграмму.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation), представляющего презентацию, содержащую диаграмму.
 2. Получите ссылку на слайд по его индексу.
-3. Пройдите через все фигуры, чтобы найти желаемую диаграмму.
-4. Получите доступ к данным диаграммы и установите диапазон.
-5. Сохраните изменённую презентацию как файл PPTX.
+3. Пройдите по всем фигурам, чтобы найти нужную диаграмму.
+4. Получите доступ к данным диаграммы и укажите диапазон.
+5. Сохраните изменённую презентацию в файл PPTX.
 
-Этот PHP код показывает, как установить диапазон данных для диаграммы:
-
+Этот PHP‑код показывает, как установить диапазон данных для диаграммы:
 ```php
   $pres = new Presentation();
   try {
@@ -922,15 +1062,43 @@ PHP код показывает, как создать воронкообраз�
   }
 ```
 
-## **Использование стандартных маркеров в диаграммах**
-Когда вы используете стандартный маркер в диаграммах, каждая серия диаграммы получает различные стандартные символы маркеров автоматически.
 
-Этот PHP код показывает, как установить маркер серии диаграммы автоматически:
+## **Использование маркеров по умолчанию в диаграммах**
+При использовании маркеров по умолчанию в диаграммах каждая серия получает автоматически разные символы маркеров.
 
+Этот PHP‑код показывает, как автоматически установить маркер серии диаграммы:
 ```php
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
     $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 10, 10, 400, 400);
     $chart->getChartData()->getSeries()->clear();
-    $chart->
+    $chart->getChartData()->getCategories()->clear();
+    $fact = $chart->getChartData()->getChartDataWorkbook();
+    $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+    $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "C1"));
+    $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 1, 1, 24));
+    $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "C2"));
+    $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 2, 1, 23));
+    $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "C3"));
+    $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 3, 1, -10));
+    $chart->getChartData()->getCategories()->add($fact->getCell(0, 4, 0, "C4"));
+    $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 4, 1, null));
+    $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 2, "Series 2"), $chart->getType());
+    # Взять вторую серию диаграммы
+    $series2 = $chart->getChartData()->getSeries()->get_Item(1);
+    # Сейчас заполняем данные серии
+    $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 1, 2, 30));
+    $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 2, 2, 10));
+    $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 3, 2, 60));
+    $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 4, 2, 40));
+    $chart->setLegend(true);
+    $chart->getLegend()->setOverlay(false);
+    $pres->save("DefaultMarkersInChart.pptx", SaveFormat::Pptx);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
+  }
+```

@@ -1,391 +1,485 @@
 ---
-title: تنسيق الأشكال
+title: تنسيق أشكال PowerPoint في .NET
+linktitle: تنسيق الشكل
 type: docs
 weight: 20
 url: /ar/net/shape-formatting/
 keywords:
 - تنسيق الشكل
-- تنسيق الخطوط
-- أنماط الانضمام للتنسيق
-- تعبئة تدرج اللون
-- تعبئة نمط
-- تعبئة صورة
-- تعبئة بلون ثابت
-- تدوير الأشكال
-- تأثيرات الحواف الثلاثية
-- تأثير الدوران الثلاثي
-- عرض PowerPoint
+- تنسيق الخط
+- تنسيق نمط الوصل
+- ملء تدرجي
+- ملء بنمط
+- ملء صورة
+- ملء نسيج
+- ملء لون صلب
+- شفافية الشكل
+- تدوير الشكل
+- تأثير حافة ثلاثية الأبعاد
+- تأثير تدوير ثلاثي الأبعاد
+- إعادة تعيين التنسيق
+- PowerPoint
+- عرض تقديمي
+- .NET
 - C#
-- Csharp
-- Aspose.Slides لـ .NET
-description: "تنسيق الشكل في عرض PowerPoint باستخدام C# أو .NET"
+- Aspose.Slides
+description: "تعلم كيفية تنسيق أشكال PowerPoint في C# باستخدام Aspose.Slides—قم بتعيين أنماط الملء والخط والتأثير لملفات PPT و PPTX بدقة وتحكم كامل."
 ---
 
-في PowerPoint، يمكنك إضافة أشكال إلى الشرائح. حيث أن الأشكال تتكون من خطوط، يمكنك تنسيق الأشكال عن طريق تعديل أو تطبيق تأثيرات معينة على خطوطها المكونة. بالإضافة إلى ذلك، يمكنك تنسيق الأشكال عن طريق تحديد إعدادات تحدد كيفية تعبئتها (المنطقة بداخلها).
+## **نظرة عامة**
+
+في PowerPoint، يمكنك إضافة أشكال إلى الشرائح. نظرًا لأن الأشكال تتكون من خطوط، يمكنك تنسيقها عن طريق تعديل أو تطبيق تأثيرات على حدودها. بالإضافة إلى ذلك، يمكنك تنسيق الأشكال عن طريق تحديد الإعدادات التي تتحكم في كيفية ملء داخليتها.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-**Aspose.Slides لـ .NET** يوفر واجهات وخصائص تتيح لك تنسيق الأشكال بناءً على الخيارات المعروفة في PowerPoint.
+Aspose.Slides for .NET توفر الواجهات والخصائص التي تتيح لك تنسيق الأشكال باستخدام نفس الخيارات المتاحة في PowerPoint.
 
 ## **تنسيق الخطوط**
 
-باستخدام Aspose.Slides، يمكنك تحديد نمط الخط المفضل لديك لشكل ما. توضح هذه الخطوات إجراءً مثل هذا:
+باستخدام Aspose.Slides، يمكنك تحديد نمط خط مخصص للشكل. الخطوات التالية توضح الإجراء:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) إلى الشريحة.
-4. تعيين لون لخطوط الشكل.
-5. تعيين عرض لخطوط الشكل.
-6. تعيين [نمط الخط](https://reference.aspose.com/slides/net/aspose.slides/linestyle) لخط الشكل
-7. تعيين [نمط الخط المكسور](http://aspose.com/api/net/slides/aspose.slides/linedashstyle) لخط الشكل.
-8. كتابة العرض المعدل كملف PPTX.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. الحصول على إشارة إلى شريحة حسب مؤشرها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) إلى الشريحة.
+1. تعيين [نمط الخط](https://reference.aspose.com/slides/net/aspose.slides/linestyle/) للشكل.
+1. تعيين عرض الخط.
+1. تعيين [نمط الشرط](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) للخط.
+1. تعيين لون الخط للشكل.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود C# يوضح عملية حيث قمنا بتنسيق مستطيل `AutoShape`:
-
+الكود التالي بلغة C# يوضح كيفية تنسيق `AutoShape` مستطيل:
 ```c#
-// ينشئ مثيل لفئة العرض التي تمثل ملف العرض
-using (Presentation pres = new Presentation())
-{
-    // يحصل على الشريحة الأولى
-    ISlide sld = pres.Slides[0];
-
-    // يضيف شكل تلقائي من نوع مستطيل
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
-
-    // يحدد لون التعبئة لشكل المستطيل
-    shp.FillFormat.FillType = FillType.Solid;
-    shp.FillFormat.SolidFillColor.Color = Color.White;
-
-    // يطبق بعض التنسيق على خطوط المستطيل
-    shp.LineFormat.Style = LineStyle.ThickThin;
-    shp.LineFormat.Width = 7;
-    shp.LineFormat.DashStyle = LineDashStyle.Dash;
-
-    // يحدد اللون لخط المستطيل
-    shp.LineFormat.FillFormat.FillType = FillType.Solid;
-    shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-
-    // يكتب ملف PPTX إلى القرص
-    pres.Save("RectShpLn_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **تنسيق أنماط الانضمام**
-هذه هي خيارات نوع الانضمام الثلاثة:
-
-* مستدير
-* ملبس
-* حواف مرتفعة
-
-بشكل افتراضي، عندما ينضم PowerPoint إلى خطين بزاوية (أو زاوية شكل)، فإنه يستخدم إعداد **مستدير**. ومع ذلك، إذا كنت تبحث عن رسم شكل بزوايا حادة للغاية، قد ترغب في اختيار **ملبس**.
-
-![join-style-powerpoint](join-style-powerpoint.png)
-
-هذا الكود C# يوضح عملية حيث تم إنشاء 3 مستطيلات (الصورة أعلاه) مع إعدادات نوع الانضمام ملبس، حواف مرتفعة، ومستديرة:
-
-```c#
-// ينشئ مثيل لفئة العرض التي تمثل ملف العرض
-using (Presentation pres = new Presentation())
-{
-
-	// يحصل على الشريحة الأولى
-	ISlide sld = pres.Slides[0];
-
-	// يضيف 3 أشكال تلقائية من نوع مستطيل
-	IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 100, 150, 75);
-	IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 100, 150, 75);
-	IShape shp3 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 250, 150, 75);
-
-	// يحدد لون التعبئة لشكل المستطيل
-	shp1.FillFormat.FillType = FillType.Solid;
-	shp1.FillFormat.SolidFillColor.Color = Color.Black;
-	shp2.FillFormat.FillType = FillType.Solid;
-	shp2.FillFormat.SolidFillColor.Color = Color.Black;
-	shp3.FillFormat.FillType = FillType.Solid;
-	shp3.FillFormat.SolidFillColor.Color = Color.Black;
-
-	// يحدد عرض الخط
-	shp1.LineFormat.Width = 15;
-	shp2.LineFormat.Width = 15;
-	shp3.LineFormat.Width = 15;
-
-	// يحدد اللون لخط المستطيل
-	shp1.LineFormat.FillFormat.FillType = FillType.Solid;
-	shp1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-	shp2.LineFormat.FillFormat.FillType = FillType.Solid;
-	shp2.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-	shp3.LineFormat.FillFormat.FillType = FillType.Solid;
-	shp3.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-
-	// يحدد نمط الانضمام
-	shp1.LineFormat.JoinStyle = LineJoinStyle.Miter;
-	shp2.LineFormat.JoinStyle = LineJoinStyle.Bevel;
-	shp3.LineFormat.JoinStyle = LineJoinStyle.Round;
-
-	// يضيف نصًا إلى كل مستطيل
-	((IAutoShape)shp1).TextFrame.Text = "نمط الانضمام ملبس";
-	((IAutoShape)shp2).TextFrame.Text = "نمط الانضمام حواف مرتفعة";
-	((IAutoShape)shp3).TextFrame.Text = "نمط الانضمام مستدير";
-
-	// يكتب ملف PPTX إلى القرص
-	pres.Save("RectShpLnJoin_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **تعبئة تدرج اللون**
-في PowerPoint، تعبئة تدرج اللون هي خيار تنسيق يتيح لك تطبيق مزيج مستمر من الألوان على شكل. على سبيل المثال، يمكنك تطبيق لونين أو أكثر في إعداد حيث يتلاشى لون واحد تدريجياً ويتحول إلى لون آخر.
-
-هذه هي كيفية استخدام Aspose.Slides لتطبيق تعبئة تدرج اللون على شكل:
-
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) إلى الشريحة.
-4. تعيين [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) للشكل إلى `تدرج`.
-5. أضف لونين مفضلين لديك مع مواقع محددة باستخدام طرق `Add` المعروضة بواسطة مجموعة `GradientStops` المرتبطة بفئة `GradientFormat`.
-6. كتابة العرض المعدل كملف PPTX.
-
-هذا الكود C# يوضح عملية حيث استخدم تأثير تعبئة التدرج على شكل بيضاوي:
-
-```c#
-// ينشئ مثيل لفئة العرض التي تمثل ملف العرض
-using (Presentation pres = new Presentation())
-{
-    // يحصل على الشريحة الأولى
-    ISlide sld = pres.Slides[0];
-
-    // يضيف شكل بيضاوي تلقائي
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 150, 75, 150);
-
-    // يطبق التنسيق التدرجي على الشكل البيضاوي
-    shp.FillFormat.FillType = FillType.Gradient;
-    shp.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
-
-    // يحدد اتجاه التدرج
-    shp.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
-
-    // أضف 2 نغمات التدرج
-    shp.FillFormat.GradientFormat.GradientStops.Add((float)1.0, PresetColor.Purple);
-    shp.FillFormat.GradientFormat.GradientStops.Add((float)0, PresetColor.Red);
-
-    // يكتب ملف PPTX إلى القرص
-    pres.Save("EllipseShpGrad_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **تعبئة نمط**
-في PowerPoint، تعبئة النمط هي خيار تنسيق يتيح لك تطبيق تصميم مكون من لونين يتضمن نقاط أو خطوط متقاطعة أو مربعات على شكل. بالإضافة إلى ذلك، يمكنك اختيار الألوان المفضلة لديك لواجهة النموذج وخلفيته.
-
-يوفر Aspose.Slides أكثر من 45 نمطًا محددًا مسبقًا يمكن استخدامه لتنسيق الأشكال وتعزيز العروض. حتى بعد اختيار نمط محدد مسبقًا، لا يزال بإمكانك تحديد الألوان التي يجب أن يحتوي عليها النمط.
-
-هذه هي كيفية استخدام Aspose.Slides لتطبيق تعبئة نمط على شكل:
-
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) إلى الشريحة.
-4. تعيين [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) للشكل إلى `نمط`.
-5. تعيين نمط النمط المفضل لديك للشكل.
-6. تعيين [لون الخلفية](http://www.aspose.com/api/net/slides/aspose.slides/patternformat/properties/backcolor) لـ [PatternFormat](http://www.aspose.com/api/net/slides/aspose.slides/patternformat).
-7. تعيين [لون الواجهة](http://www.aspose.com/api/net/slides/aspose.slides/patternformat/properties/forecolor) لـ [PatternFormat](http://www.aspose.com/api/net/slides/aspose.slides/patternformat).
-8. كتابة العرض المعدل كملف PPTX.
-
-هذا الكود C# يوضح عملية حيث تم استخدام تعبئة نمط لتجميل مستطيل:
-
-```c#
-// ينشئ مثيل لفئة العرض التي تمثل ملف العرض
-using (Presentation pres = new Presentation())
-{
-
-    // يحصل على الشريحة الأولى
-    ISlide sld = pres.Slides[0];
-
-    // يضيف شكل مستطيل تلقائي
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
-
-    // يحدد نوع التعبئة إلى نمط
-    shp.FillFormat.FillType = FillType.Pattern;
-
-    // يحدد نمط النمط
-    shp.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
-
-    // يحدد ألوان الخلفية والواجهة للنمط
-    shp.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
-    shp.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
-
-    // يكتب ملف PPTX إلى القرص
-    pres.Save("RectShpPatt_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **تعبئة صورة**
-في PowerPoint، تعبئة الصورة هي خيار تنسيق يتيح لك وضع صورة داخل شكل. بشكل أساسي، يمكنك استخدام صورة كخلفية لشكل.
-
-هذه هي كيفية استخدام Aspose.Slides لتعبئة شكل بصورة:
-
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) إلى الشريحة.
-4. تعيين [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) للشكل إلى `صورة`.
-5. تعيين وضع تعبئة الصورة إلى بلاط.
-6. إنشاء كائن `IPPImage` باستخدام الصورة التي ستستخدم لتعبئة الشكل.
-7. تعيين خاصية `Picture.Image` لكائن `PictureFillFormat` إلى `IPPImage` الذي تم إنشاؤه مؤخرًا.
-8. كتابة العرض المعدل كملف PPTX.
-
-هذا الكود C# يوضح لك كيفية تعبئة شكل بصورة:
-
-```c#
-// ينشئ مثيل من فئة العرض التي تمثل ملف العرض
+// إنشاء كائن من الفئة Presentation التي تمثل ملف عرض تقديمي.
 using (Presentation presentation = new Presentation())
 {
-    // يحصل على الشريحة الأولى
+    // الحصول على الشريحة الأولى.
     ISlide slide = presentation.Slides[0];
 
-    // يضيف شكل مستطيل تلقائي
-    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // إضافة شكل تلقائي من النوع مستطيل.
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // يحدد نوع التعبئة إلى صورة
+    // تعيين لون التعبئة للشكل المستطيل.
+    shape.FillFormat.FillType = FillType.NoFill;
+
+    // تطبيق تنسيق على خطوط المستطيل.
+    shape.LineFormat.Style = LineStyle.ThickThin;
+    shape.LineFormat.Width = 7;
+    shape.LineFormat.DashStyle = LineDashStyle.Dash;
+
+    // تعيين اللون لخط المستطيل.
+    shape.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+
+    // حفظ ملف PPTX على القرص.
+    presentation.Save("formatted_lines.pptx", SaveFormat.Pptx);
+}
+```
+
+
+النتيجة:
+
+![The formatted lines in the presentation](formatted-lines.png)
+
+## **تنسيق أنماط الوصل**
+
+فيما يلي ثلاثة خيارات لنوع الوصل:
+
+* Round
+* Miter
+* Bevel
+
+إفتراضيًا، عندما يقوم PowerPoint بدمج خطين بزاوية (مثل زاوية شكل)، يستخدم إعداد **Round**. ومع ذلك، إذا كنت ترسم شكلًا بزاويات حادة، قد تفضل خيار **Miter**.
+
+![The join style in the presentation](join-style-powerpoint.png)
+
+الكود التالي بلغة C# يوضح كيفية إنشاء ثلاثة مستطيلات (كما هو موضح في الصورة أعلاه) باستخدام إعدادات نوع الوصل Mitter و Bevel و Round:
+```c#
+ // إنشاء كائن من الفئة Presentation التي تمثل ملف عرض تقديمي.
+ using (Presentation presentation = new Presentation())
+ {
+     // الحصول على الشريحة الأولى.
+     ISlide slide = presentation.Slides[0];
+
+     // إضافة ثلاثة أشكال تلقائية من نوع المستطيل.
+     IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
+     IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
+     IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
+
+     // تعيين لون التعبئة لكل شكل مستطيل.
+     shape1.FillFormat.FillType = FillType.Solid;
+     shape1.FillFormat.SolidFillColor.Color = Color.Black;
+     shape2.FillFormat.FillType = FillType.Solid;
+     shape2.FillFormat.SolidFillColor.Color = Color.Black;
+     shape3.FillFormat.FillType = FillType.Solid;
+     shape3.FillFormat.SolidFillColor.Color = Color.Black;
+
+     // تعيين عرض الخط.
+     shape1.LineFormat.Width = 15;
+     shape2.LineFormat.Width = 15;
+     shape3.LineFormat.Width = 15;
+
+     // تعيين اللون لكل خط من المستطيل.
+     shape1.LineFormat.FillFormat.FillType = FillType.Solid;
+     shape1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+     shape2.LineFormat.FillFormat.FillType = FillType.Solid;
+     shape2.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+     shape3.LineFormat.FillFormat.FillType = FillType.Solid;
+     shape3.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+
+     // تعيين نمط الوصل.
+     shape1.LineFormat.JoinStyle = LineJoinStyle.Miter;
+     shape2.LineFormat.JoinStyle = LineJoinStyle.Bevel;
+     shape3.LineFormat.JoinStyle = LineJoinStyle.Round;
+
+     // إضافة نص إلى كل مستطيل.
+     shape1.TextFrame.Text = "Miter Join Style";
+     shape2.TextFrame.Text = "Bevel Join Style";
+     shape3.TextFrame.Text = "Round Join Style";
+
+     // حفظ ملف PPTX على القرص.
+     presentation.Save("join_styles.pptx", SaveFormat.Pptx);
+ }
+```
+
+
+## **Gradient Fill**
+
+في PowerPoint، يُعد Gradient Fill خيار تنسيق يتيح لك تطبيق مزيج متواصل من الألوان على الشكل. على سبيل المثال، يمكنك تطبيق لونين أو أكثر بطريقة يتلاشى فيها أحدهما تدريجيًا إلى الآخر.
+
+إليك كيفية تطبيق ملء تدرجي على شكل باستخدام Aspose.Slides:
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. الحصول على إشارة إلى شريحة حسب مؤشرها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) إلى الشريحة.
+1. عيّن [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) للشكل إلى `Gradient`.
+1. أضف اللونين المفضلين لديك مع المواقع المحددة باستخدام طرق `Add` لمجموعة إيقاف التدرج التي تكشف عنها الواجهة [IGradientFormat](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/).
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+```c#
+// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+using (Presentation presentation = new Presentation())
+{
+    // الحصول على الشريحة الأولى.
+    ISlide slide = presentation.Slides[0];
+
+    // إضافة شكل تلقائي من النوع إهليلجي.
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
+
+    // تطبيق تنسيق تدرج على الإهليلج.
+    shape.FillFormat.FillType = FillType.Gradient;
+    shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
+
+    // تعيين اتجاه التدرج.
+    shape.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
+
+    // إضافة نقطتي توقف للتدرج.
+    shape.FillFormat.GradientFormat.GradientStops.Add(1.0f, PresetColor.Purple);
+    shape.FillFormat.GradientFormat.GradientStops.Add(0.0f, PresetColor.Red);
+
+    // حفظ ملف PPTX على القرص.
+    presentation.Save("gradient_fill.pptx", SaveFormat.Pptx);
+}
+```
+
+
+النتيجة:
+
+![The ellipse with gradient fill](gradient-fill.png)
+
+## **Pattern Fill**
+
+في PowerPoint، يُعد Pattern Fill خيار تنسيق يتيح لك تطبيق تصميم ذا لونين—مثل النقاط أو الخطوط أو التعرجات أو المربعات—على شكل. يمكنك اختيار ألوان مخصصة لمقدمة وخلفية النمط.
+
+توفر Aspose.Slides أكثر من 45 نمطًا مسبقًا يمكنك تطبيقها على الأشكال لتحسين جاذبية عروضك بصريًا. حتى بعد اختيار نمط مسبق، يمكنك تحديد الألوان الدقيقة التي يجب استخدامها.
+
+إليك كيفية تطبيق نمط ملء على شكل باستخدام Aspose.Slides:
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. الحصول على إشارة إلى شريحة حسب مؤشرها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) إلى الشريحة.
+1. عيّن [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) للشكل إلى `Pattern`.
+1. اختر نمطًا من الخيارات المسبقة.
+1. عيّن [Background Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) للنمط.
+1. عيّن [Foreground Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) للنمط.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+```c#
+// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+using (Presentation presentation = new Presentation())
+{
+    // الحصول على الشريحة الأولى.
+    ISlide slide = presentation.Slides[0];
+
+    // إضافة شكل تلقائي من النوع مستطيل.
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+
+    // تعيين نوع التعبئة إلى نمط.
+    shape.FillFormat.FillType = FillType.Pattern;
+
+    // تعيين نمط النمط.
+    shape.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
+
+    // تعيين ألوان خلفية ونص النمط.
+    shape.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
+    shape.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
+
+    // حفظ ملف PPTX على القرص.
+    presentation.Save("pattern_fill.pptx", SaveFormat.Pptx);
+}
+```
+
+
+النتيجة:
+
+![The rectangle with pattern fill](pattern-fill.png)
+
+## **Picture Fill**
+
+في PowerPoint، يُعد Picture Fill خيار تنسيق يتيح لك إدراج صورة داخل شكل—وبالتالي استخدام الصورة كخلفية للشكل.
+
+إليك كيفية استخدام Aspose.Slides لتطبيق ملء صورة على شكل:
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. الحصول على إشارة إلى شريحة حسب مؤشرها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) إلى الشريحة.
+1. عيّن [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) للشكل إلى `Picture`.
+1. عيّن وضع ملء الصورة إلى `Tile` (أو وضع آخر مفضل).
+1. إنشاء كائن [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) من الصورة التي تريد استخدامها.
+1. اسند هذه الصورة إلى خاصية `Picture.Image` في `PictureFillFormat` الخاص بالشكل.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+الكود التالي بلغة C# يوضح كيفية ملء شكل بالصورة:
+```c#
+// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+using (Presentation presentation = new Presentation())
+{
+    // الحصول على الشريحة الأولى.
+    ISlide slide = presentation.Slides[0];
+
+    // إضافة شكل تلقائي من النوع مستطيل.
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
+
+    // تعيين نوع التعبئة إلى صورة.
     shape.FillFormat.FillType = FillType.Picture;
 
-    // يحدد وضع تعبئة الصورة
+    // تعيين وضع ملء الصورة.
     shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
 
-    // يحمل صورة ويضيفها إلى موارد العرض
-    IImage image = Images.FromFile("Tulips.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
+    // تحميل صورة وإضافتها إلى موارد العرض التقديمي.
+    IImage image = Images.FromFile("lotus.png");
+    IPPImage presentationImage = presentation.Images.AddImage(image);
     image.Dispose();
 
-    // يحدد الصورة
-    shape.FillFormat.PictureFillFormat.Picture.Image = ppImage;
+    // تعيين الصورة.
+    shape.FillFormat.PictureFillFormat.Picture.Image = presentationImage;
 
-    // يكتب ملف PPTX إلى القرص
-    presentation.Save("RectShpPic_out.pptx", SaveFormat.Pptx);
+    // حفظ ملف PPTX على القرص.
+    presentation.Save("picture_fill.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **تعبئة بلون ثابت**
-في PowerPoint، تعبئة اللون الثابت هي خيار تنسيق يتيح لك تعبئة شكل بلون واحد. اللون المختار عادةً ما يكون لونًا عاديًا. يتم تطبيق اللون على خلفية الشكل مع أي تأثيرات أو تعديلات خاصة.
 
-هذه هي كيفية استخدام Aspose.Slides لتطبيق تعبئة اللون الثابت على شكل:
+النتيجة:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) إلى الشريحة.
-4. تعيين [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) للشكل إلى `ثابت`.
-5. تعيين اللون المفضل لديك للشكل.
-6. كتابة العرض المعدل كملف PPTX.
+![The shape with picture fill](picture-fill.png)
 
-هذا الكود C# يوضح لك كيفية تطبيق تعبئة اللون الثابت على مربع في PowerPoint:
+### **Tile Picture As Texture**
 
+إذا كنت ترغب في تعيين صورة مكررة كملمس وتخصيص سلوك التبليط، يمكنك استخدام الخصائص التالية للواجهة [IPictureFillFormat] والصف [PictureFillFormat]:
+
+- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): يحدد وضع ملء الصورة — إما `Tile` أو `Stretch`.
+- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): يبين محاذاة البلاط داخل الشكل.
+- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): يتحكم فيما إذا كان البلاط يُقلب أفقيًا أو عموديًا أو كليهما.
+- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): يحدد الإزاحة الأفقية للبلاط (بالنقاط) من أصل الشكل.
+- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): يحدد الإزاحة العمودية للبلاط (بالنقاط) من أصل الشكل.
+- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): يحدد مقياس البلاط الأفقي كنسبة مئوية.
+- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): يحدد مقياس البلاط العمودي كنسبة مئوية.
+
+الكود التالي يوضح كيفية إضافة شكل مستطيل بملء صورة مكررة وتكوين خيارات البلاط:
 ```c#
-// ينشئ مثيل من فئة العرض التي تمثل ملف العرض
+// إنشاء كائن من الفئة Presentation التي تمثل ملف عرض تقديمي.
 using (Presentation presentation = new Presentation())
 {
+    // الحصول على الشريحة الأولى.
+    ISlide firstSlide = presentation.Slides[0];
 
-// يحصل على الشريحة الأولى
-    ISlide slide = presentation.Slides[0];
+    // إضافة شكل تلقائي من نوع المستطيل.
+    IAutoShape shape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-// يضيف شكل مستطيل تلقائي
-    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // تعيين نوع التعبئة للشكل إلى صورة.
+    shape.FillFormat.FillType = FillType.Picture;
 
-// يحدد نوع التعبئة إلى ثابت
-    shape.FillFormat.FillType = FillType.Solid;
+    // تحميل الصورة وإضافتها إلى موارد العرض التقديمي.
+    IPPImage presentationImage;
+    using (IImage sourceImage = Images.FromFile("lotus.png"))
+        presentationImage = presentation.Images.AddImage(sourceImage);
 
-// يحدد اللون للمستطيل
-    shape.FillFormat.SolidFillColor.Color = Color.Yellow;
+    // تعيين الصورة إلى الشكل.
+    IPictureFillFormat pictureFillFormat = shape.FillFormat.PictureFillFormat;
+    pictureFillFormat.Picture.Image = presentationImage;
 
-// يكتب ملف PPTX إلى القرص
-    presentation.Save("RectShpSolid_out.pptx", SaveFormat.Pptx);
+    // تكوين وضع ملء الصورة وخصائص التبليط.
+    pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
+    pictureFillFormat.TileOffsetX = -32;
+    pictureFillFormat.TileOffsetY = -32;
+    pictureFillFormat.TileScaleX = 50;
+    pictureFillFormat.TileScaleY = 50;
+    pictureFillFormat.TileAlignment = RectangleAlignment.BottomRight;
+    pictureFillFormat.TileFlip = TileFlip.FlipBoth;
+
+    // حفظ ملف PPTX على القرص.
+    presentation.Save("tile.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **تعيين الشفافية**
 
-في PowerPoint، عندما تقوم بتعبئة أشكال بالألوان الثابتة أو التدرجات أو الصور أو القوام، يمكنك تحديد مستوى الشفافية الذي يحدد درجة عتمة التعبئة. بهذه الطريقة، على سبيل المثال، إذا قمت بتعيين مستوى شفافية منخفض، فإن كائن الشريحة أو الخلفية خلف (الشكل) يظهر من خلاله.
+النتيجة:
 
-تتيح لك Aspose.Slides تعيين مستوى الشفافية لشكل بهذه الطريقة:
+![The tile options](tile-options.png)
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) إلى الشريحة.
-4. استخدام `Color.FromArgb` مع ضبط مكون alpha.
-5. حفظ الكائن كملف PowerPoint.
+## **Solid Color Fill**
 
-هذا الكود C# يوضح العملية:
+في PowerPoint، يُعد Solid Color Fill خيار تنسيق يملأ الشكل بلون موحد واحد. يُطبق هذا اللون الخلفي البسيط دون أي تدرجات أو قوام أو أنماط.
+
+لتطبيق ملء بلون صلب على شكل باستخدام Aspose.Slides، اتبع هذه الخطوات:
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. الحصول على إشارة إلى شريحة حسب مؤشرها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) إلى الشريحة.
+1. عيّن [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) للشكل إلى `Solid`.
+1. اسند اللون المفضل كملء للشكل.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
 
 ```c#
-// ينشئ مثيل من فئة العرض التي تمثل ملف العرض
+ // إنشاء كائن من الفئة Presentation التي تمثل ملف عرض تقديمي.
+ using (Presentation presentation = new Presentation())
+ {
+     // الحصول على الشريحة الأولى.
+     ISlide slide = presentation.Slides[0];
+
+     // إضافة شكل تلقائي من النوع مستطيل.
+     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+
+     // تعيين نوع التعبئة إلى صلب.
+     shape.FillFormat.FillType = FillType.Solid;
+
+     // تعيين لون التعبئة.
+     shape.FillFormat.SolidFillColor.Color = Color.Yellow;
+
+     // حفظ ملف PPTX على القرص.
+     presentation.Save("solid_color_fill.pptx", SaveFormat.Pptx);
+ }
+```
+
+
+النتيجة:
+
+![The shape with solid color fill](solid-color-fill.png)
+
+## **Set Transparency**
+
+في PowerPoint، عند تطبيق ملء بلون صلب أو تدرج أو صورة أو نقش على الأشكال، يمكنك أيضًا ضبط مستوى الشفافية للتحكم في مدى شفافية الملء. قيمة شفافية أعلى تجعل الشكل أكثر شفافية، مما يسمح برؤية الخلفية أو الكائنات الأساسية جزئيًا.
+
+تمكنك Aspose.Slides من ضبط مستوى الشفافية عن طريق تعديل قيمة ألفا في اللون المستخدم للملء. إليك الطريقة:
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. الحصول على إشارة إلى شريحة حسب مؤشرها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) إلى الشريحة.
+1. عيّن [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) إلى `Solid`.
+1. استخدم `Color.FromArgb(alpha, baseColor)` لتعريف لون مع شفافية (مكوّن ألفا يتحكم في الشفافية).
+1. حفظ العرض التقديمي.
+
+```c#
+const int alpha = 128;
+
+// إنشاء كائن من الفئة Presentation التي تمثل ملف عرض تقديمي.
+using (Presentation presentation = new Presentation())
+{
+    // الحصول على الشريحة الأولى.
+    ISlide slide = presentation.Slides[0];
+
+    // إضافة شكل تلقائي مستطيل صلب.
+    IAutoShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+
+    // إضافة شكل تلقائي مستطيل شفاف فوق الشكل الصلب.
+    IAutoShape transparentShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
+    transparentShape.FillFormat.FillType = FillType.Solid;
+    transparentShape.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Yellow);
+
+    // حفظ ملف PPTX على القرص.
+    presentation.Save("shape_transparency.pptx", SaveFormat.Pptx);
+}
+```
+
+
+النتيجة:
+
+![The transparent shape](shape-transparency.png)
+
+## **Rotate Shapes**
+
+تمكنك Aspose.Slides من تدوير الأشكال في عروض PowerPoint. قد يكون ذلك مفيدًا عند وضع العناصر المرئية مع احتياجات محاذاة أو تصميم معينة.
+
+لتدوير شكل على شريحة، اتبع هذه الخطوات:
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. الحصول على إشارة إلى شريحة حسب مؤشرها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) إلى الشريحة.
+1. عيّن الخاصية `Rotation` للشكل إلى الزاوية المطلوبة.
+1. حفظ العرض التقديمي.
+
+الكود التالي بلغة C# يوضح كيفية تدوير شكل بزاوية 5 درجات:
+```c#
+// إنشاء كائن من الفئة Presentation التي تمثل ملف عرض تقديمي.
+using (Presentation presentation = new Presentation())
+{
+    // الحصول على الشريحة الأولى.
+    ISlide slide = presentation.Slides[0];
+
+    // إضافة شكل تلقائي من النوع مستطيل.
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+
+    // تدوير الشكل بزاوية 5 درجات.
+    shape.Rotation = 5;
+
+    // حفظ ملف PPTX على القرص.
+    presentation.Save("shape_rotation.pptx", SaveFormat.Pptx);
+}
+```
+
+
+النتيجة:
+
+![The shape rotation](shape-rotation.png)
+
+## **Add 3D Bevel Effects**
+
+تمكنك Aspose.Slides من تطبيق تأثيرات الحافة ثلاثية الأبعاد على الأشكال عن طريق تكوين خصائص [ThreeDFormat] الخاصة بها.
+
+لإضافة تأثيرات حافة ثلاثية الأبعاد إلى شكل، اتبع هذه الخطوات:
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. الحصول على إشارة إلى شريحة حسب مؤشرها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) إلى الشريحة.
+1. تكوين [ThreeDFormat] للشكل لتحديد إعدادات الحافة.
+1. حفظ العرض التقديمي.
+
+الكود التالي يوضح كيفية تطبيق تأثيرات حافة ثلاثية الأبعاد على شكل:
+```c#
+// إنشاء مثيل من فئة Presentation.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
-    
-    // يضيف شكل ثابت
-    IShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 75, 175, 75, 150);
 
-    // يضيف شكلًا شفافًا فوق الشكل الثابت
-    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
-    shape.FillFormat.FillType = FillType.Solid;
-    shape.FillFormat.SolidFillColor.Color = Color.FromArgb(128, 204, 102, 0);
-    
-    // يكتب ملف PPTX إلى القرص
-    presentation.Save("ShapeTransparentOverSolid_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **تدوير الأشكال**
-تتيح لك Aspose.Slides تدوير شكل تمت إضافته إلى شريحة بهذه الطريقة:
-
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) إلى الشريحة.
-4. تدوير الشكل بالدرجات المطلوبة.
-5. كتابة العرض المعدل كملف PPTX.
-
-هذا الكود C# يوضح لك كيفية تدوير شكل بمقدار 90 درجة:
-
-```c#
-// ينشئ مثيل من فئة العرض التي تمثل ملف العرض
-using (Presentation pres = new Presentation())
-{
-    // يحصل على الشريحة الأولى
-    ISlide sld = pres.Slides[0];
-
-    // يضيف شكل مستطيل تلقائي
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
-
-    // يدور الشكل بمقدار 90 درجة
-    shp.Rotation = 90;
-
-    // يكتب ملف PPTX إلى القرص
-    pres.Save("RectShpRot_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **إضافة تأثيرات الحواف الثلاثية**
-تتيح لك Aspose.Slides إضافة تأثيرات حواف ثلاثية إلى شكل عن طريق تعديل خصائص [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ThreeDFormat) بهذه الطريقة:
-
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) إلى الشريحة.
-3. تعيين المعلمات المفضلة لديك لخصائص [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ThreeDFormat) للشكل.
-4. كتابة العرض إلى القرص.
-
-هذا الكود C# يوضح لك كيفية إضافة تأثيرات حواف ثلاثية إلى شكل:
-
-```c#
-// ينشئ مثيل من فئة العرض التي تمثل ملف العرض
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    
-    // يضيف شكلاً إلى الشريحة
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 30, 30, 100, 100);
+    // إضافة شكل إلى الشريحة.
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.FillFormat.FillType = FillType.Solid;
     shape.FillFormat.SolidFillColor.Color = Color.Green;
-    ILineFillFormat format = shape.LineFormat.FillFormat;
-    format.FillType = FillType.Solid;
-    format.SolidFillColor.Color = Color.Orange;
+    shape.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Orange;
     shape.LineFormat.Width = 2.0;
-    
-    // يحدد خصائص الحواف الثلاثية للشكل
+
+    // تعيين خصائص ThreeDFormat للشكل.
     shape.ThreeDFormat.Depth = 4;
     shape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
     shape.ThreeDFormat.BevelTop.Height = 6;
@@ -393,56 +487,81 @@ using (Presentation pres = new Presentation())
     shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
     shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
     shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    
-    // يكتب العرض كملف PPTX
-    pres.Save("Bavel_out.pptx", SaveFormat.Pptx);
+
+    // حفظ العرض التقديمي كملف PPTX.
+    presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **إضافة تأثير الدوران الثلاثي**
-تتيح لك Aspose.Slides تطبيق تأثيرات الدوران الثلاثي على شكل عن طريق تعديل خصائص [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ThreeDFormat) بهذه الطريقة:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) إلى الشريحة.
-3. تحديد الأشكال المفضلة لديك لـ [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/properties/cameratype) و [LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/properties/lighttype).
-4. كتابة العرض إلى القرص.
+النتيجة:
 
-هذا الكود C# يوضح لك كيفية تطبيق تأثيرات دوران ثلاثي على شكل:
+![The 3D bevel effect](3D-bevel-effect.png)
 
+## **Add 3D Rotation Effects**
+
+تمكنك Aspose.Slides من تطبيق تأثيرات تدوير ثلاثية الأبعاد على الأشكال عن طريق تكوين خصائص [ThreeDFormat] الخاصة بها.
+
+لتطبيق تدوير ثلاثي الأبعاد على شكل:
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. الحصول على إشارة إلى شريحة حسب مؤشرها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) إلى الشريحة.
+1. عيّن [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) و[LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/) لتحديد تدوير ثلاثي الأبعاد.
+1. حفظ العرض التقديمي.
+
+الكود التالي يوضح كيفية تطبيق تأثيرات تدوير ثلاثي الأبعاد على شكل:
 ```c#
-// ينشئ مثيل من فئة العرض التي تمثل ملف العرض
-using (Presentation pres = new Presentation())
+// إنشاء مثيل من فئة Presentation.
+using (Presentation presentation = new Presentation())
 {
-    IShape autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 200, 200);
-    
+    ISlide slide = presentation.Slides[0];
+
+    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+    autoShape.TextFrame.Text = "Hello, Aspose!";
+
     autoShape.ThreeDFormat.Depth = 6;
     autoShape.ThreeDFormat.Camera.SetRotation(40, 35, 20);
     autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
     autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    
-    autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Line, 30, 300, 200, 200);
-    autoShape.ThreeDFormat.Depth = 6;
-    autoShape.ThreeDFormat.Camera.SetRotation(0, 35, 20);
-    autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
-    autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    
-    // يكتب العرض كملف PPTX
-    pres.Save("Rotation_out.pptx", SaveFormat.Pptx);
+
+    // حفظ العرض التقديمي كملف PPTX.
+    presentation.Save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **إعادة ضبط التنسيق**
 
-هذا الكود C# يوضح لك كيفية إعادة ضبط التنسيق في شريحة وإرجاع الموضع والحجم والتنسيق لكل شكل يحتوي على عنصر نائب على [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) إلى إعداداتهم الافتراضية:
+النتيجة:
 
+![The 3D rotation effect](3D-rotation-effect.png)
+
+## **Reset Formatting**
+
+الكود التالي بلغة C# يوضح كيفية إعادة تعيين تنسيق شريحة وإرجاع موضع وحجم وتنسيق جميع الأشكال ذات العناصر النائبة على [LayoutSlide] إلى إعداداتها الافتراضية:
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    foreach (ISlide slide in pres.Slides)
+    foreach (ISlide slide in presentation.Slides)
     {
-        // سيتم إرجاع كل شكل على الشريحة الذي يحتوي على عنصر نائب على التخطيط
+        // إعادة ضبط كل شكل على الشريحة الذي لديه عنصر نائب في التخطيط.
         slide.Reset();
     }
+
+    presentation.Save("reset_formatting.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل يؤثر تنسيق الشكل على حجم ملف العرض التقديمي النهائي؟**
+
+قليلًا فقط. تحتل الصور والوسائط المضمّنة معظم مساحة الملف، في حين تُخزن معلمات الشكل مثل الألوان والتأثيرات والتدرجات كبيانات وصفية ولا تضيف حجمًا إضافيًا تقريبًا.
+
+**كيف يمكنني اكتشاف الأشكال في شريحة التي تشترك في تنسيق متطابق لأتمكن من تجميعها؟**
+
+قارن خصائص التنسيق الرئيسية لكل شكل—الإعدادات الخاصة بالملء، الخط، والتأثيرات. إذا تطابقت جميع القيم المقابلة، اعتبر أن الأنماط متطابقة وقم بتجميع تلك الأشكال منطقيًا، مما يبسط إدارة الأنماط لاحقًا.
+
+**هل يمكنني حفظ مجموعة من أنماط الأشكال المخصصة في ملف منفصل لإعادة استخدامها في عروض تقديمية أخرى؟**
+
+نعم. احفظ الأشكال النموذجية ذات الأنماط المطلوبة في شريحة قالب أو ملف .POTX القالب. عند إنشاء عرض تقديمي جديد، افتح القالب، استنسخ الأشكال ذات الأنماط التي تحتاجها، وأعد تطبيق تنسيقها حيثما يلزم.

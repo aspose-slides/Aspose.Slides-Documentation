@@ -26,7 +26,7 @@ This page lists all [added](/slides/net/public-api-and-backwards-incompatible-ch
 {{% /alert %}} 
 ## **Public API Changes**
 
-#### **Obsolete properties in DataLabelCollection class have been deleted**
+#### **Obsolete Properties in DataLabelCollection Class Have Been Deleted**
 Obsolete properties in DataLabelCollection class have been deleted:
 Aspose.Slides.Charts.DataLabelCollection.Delete
 Aspose.Slides.Charts.DataLabelCollection.Format
@@ -42,7 +42,7 @@ Aspose.Slides.Charts.DataLabelCollection.ShowPercentage
 Aspose.Slides.Charts.DataLabelCollection.ShowSeriesName
 Aspose.Slides.Charts.DataLabelCollection.ShowValue
 
-#### **The new property FirstSlideNumber has been added to the Presentation class**
+#### **The New Property FirstSlideNumber Has Been Added to the Presentation Class**
 The new property FirstSlideNumber added to Presentation allows to get or to set the number of first slide in a presentation.
 
 When a new FirstSlideNumber value is specified all slide numbers are recalculated.

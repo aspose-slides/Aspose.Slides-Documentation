@@ -90,7 +90,7 @@ using (Presentation presentation = new Presentation("PowerPoint_Presentation.ppt
 }
 ```
 
-## **Render Comments when Saving Slides as Images**
+## **Render Comments When Saving Slides as Images**
 
 Aspose.Slides for .NET provides a feature that allows you to render comments on a presentation's slides when converting them into JPG images. This functionality is particularly useful for preserving annotations, feedback, or discussions added by collaborators in PowerPoint presentations. By enabling this option, you ensure that comments are visible in the generated images, making it easier to review and share feedback without needing to open the original presentation file.
 
@@ -129,7 +129,7 @@ The result:
 
 ![The JPG image with comments](image_with_comments.png)
 
-## **See also**
+## **See Also**
 
 See other options for converting PPT, PPTX, or ODP to images, such as:
 
