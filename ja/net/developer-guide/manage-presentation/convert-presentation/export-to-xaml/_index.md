@@ -1,27 +1,51 @@
 ---
-title: XAMLへのエクスポート
+title: .NET でプレゼンテーションを XAML にエクスポート
+linktitle: プレゼンテーションを XAML に変換
 type: docs
 weight: 30
 url: /ja/net/export-to-xaml/
-keywords: "PowerPoint プレゼンテーションのエクスポート, PowerPoint の変換, XAML, PowerPoint を XAML に変換, PPT を XAML に変換, PPTX を XAML に変換, C#, Csharp, .NET"
-description: "PowerPoint プレゼンテーションを XAML にエクスポートまたは変換"
+keywords:
+- PowerPoint をエクスポート
+- OpenDocument をエクスポート
+- プレゼンテーションをエクスポート
+- PowerPoint を変換
+- OpenDocument を変換
+- プレゼンテーションを変換
+- PowerPoint から XAML へ
+- OpenDocument から XAML へ
+- プレゼンテーションから XAML へ
+- PPT を XAML に変換
+- PPTX を XAML に変換
+- ODP を XAML に変換
+- PPT を XAML として保存
+- PPTX を XAML として保存
+- ODP を XAML として保存
+- PPT を XAML にエクスポート
+- PPTX を XAML にエクスポート
+- ODP を XAML にエクスポート
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides を使用して .NET で PowerPoint と OpenDocument のスライドを XAML に変換します—レイアウトをそのまま保つ、Office 不要の高速ソリューション。"
 ---
 
-# **プレゼンテーションをXAMLにエクスポート**
+# **プレゼンテーションを XAML にエクスポート**
 
 {{% alert title="Info" color="info" %}} 
-[Aspose.Slides 21.6](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-6-release-notes/)でXAMLエクスポートのサポートを実装しました。これでプレゼンテーションをXAMLにエクスポートできるようになりました。 
+
+Aspose.Slides 21.6 では、XAML エクスポートのサポートを実装しました。これでプレゼンテーションを XAML にエクスポートできるようになりました。 
+
 {{% /alert %}} 
 
-# **XAMLについて**
+# **XAML について**
 
-XAMLは、特にWPF（Windows Presentation Foundation）、UWP（Universal Windows Platform）、Xamarin Formsで使用されるアプリのユーザーインターフェイスを構築または記述できる記述型プログラミング言語です。  
+XAML は記述的なプログラミング言語で、特に WPF（Windows Presentation Foundation）、UWP（Universal Windows Platform）、Xamarin Forms を使用するアプリのユーザーインターフェイスを構築または記述できます。  
 
-XMLベースの言語であるXAMLは、MicrosoftがGUIを記述するために提供しているバリアントです。多くの場合、デザイナーを使用してXAMLファイルを操作しますが、手動でGUIを記述・編集することも可能です。 
+XAML は XML ベースの言語で、Microsoft が提供する GUI 記述用のバリアントです。ほとんどの場合、デザイナーを使用して XAML ファイルを操作しますが、GUI を直接記述・編集することも可能です。 
 
-## **デフォルトオプションでプレゼンテーションをXAMLにエクスポート**
+## **デフォルトオプションでプレゼンテーションを XAML にエクスポート**
 
-このC#コードは、デフォルト設定でプレゼンテーションをXAMLにエクスポートする方法を示しています：
+この C# コードは、デフォルト設定でプレゼンテーションを XAML にエクスポートする方法を示しています：
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -30,11 +54,11 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-## **カスタムオプションでプレゼンテーションをXAMLにエクスポート**
+## **カスタムオプションでプレゼンテーションを XAML にエクスポート**
 
-エクスポートプロセスを制御し、Aspose.SlidesがプレゼンテーションをXAMLにエクスポートする方法を決定するオプションは、[IXamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions)インターフェイスから選択できます。 
+エクスポートプロセスを制御し、Aspose.Slides がプレゼンテーションを XAML にエクスポートする方法を決定するオプションを、[IXamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions) インターフェイスから選択できます。 
 
-たとえば、エクスポート時に隠しスライドをXAMLに含めたい場合は、[ExportHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions/properties/exporthiddenslides)プロパティをtrueに設定します。以下のC#サンプルをご参照ください： 
+たとえば、XAML にエクスポートする際にプレゼンテーションの非表示スライドを追加させたい場合は、[ExportHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions/properties/exporthiddenslides) プロパティを true に設定します。このサンプル C# コードをご覧ください： 
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -45,14 +69,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **よくある質問**
 
-**元のフォントがマシンに存在しない場合、フォントの予測可能性を確保するにはどうすればよいですか？**
+**元のフォントがマシン上にない場合、フォントを予測可能にするにはどうすればよいですか？**
 
-[XamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/xamloptions/)の[DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/defaultregularfont/)を設定します。元のフォントが欠落しているときのフォールバックフォントとして使用され、予期しない置換を防止します。 
+元のフォントが存在しない場合の代替フォントとして [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/defaultregularfont/) を [XamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/xamloptions/) に設定します。これにより、予期しない置換を回避できます。
 
-**エクスポートされたXAMLはWPF専用ですか、それとも他のXAMLスタックでも使用可能ですか？**
+**エクスポートされた XAML は WPF のみを対象としていますか、それとも他の XAML スタックでも使用できますか？**
 
-XAMLはWPF、UWP、Xamarin.Formsで使用される汎用UIマークアップ言語です。エクスポートはMicrosoftのXAMLスタックとの互換性を対象としており、具体的な動作や特定構文のサポートは対象プラットフォームに依存します。実際の環境でマークアップをテストしてください。 
+XAML は WPF、UWP、Xamarin.Forms で使用される汎用 UI マークアップ言語です。エクスポートは Microsoft の XAML スタックとの互換性を対象としていますが、具体的な動作や特定構文のサポートはターゲットプラットフォームに依存します。ご自身の環境でマークアップをテストしてください。
 
-**隠しスライドはサポートされていますか？デフォルトでエクスポートされないようにするにはどうすればよいですか？**
+**非表示スライドはサポートされていますか？デフォルトでエクスポートされないようにするにはどうすればよいですか？**
 
-デフォルトでは隠しスライドは含まれません。[XamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/xamloptions/)の[ExportHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/xamloptions/exporthiddenslides/)でこの動作を制御できます。エクスポートが不要な場合は無効のままにしてください。
+デフォルトでは非表示スライドは含まれません。[ExportHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/xamloptions/exporthiddenslides/) を [XamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/xamloptions/) で制御できます。エクスポートが不要な場合は無効のままにしてください。

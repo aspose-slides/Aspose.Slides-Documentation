@@ -1,6 +1,6 @@
 ---
-title: فتح عرض تقديمي بلغة C#
-linktitle: فتح العروض التقديمية
+title: فتح العروض في .NET
+linktitle: فتح عرض
 type: docs
 weight: 20
 url: /ar/net/open-presentation/
@@ -14,53 +14,52 @@ keywords:
 - تحميل PPTX
 - تحميل PPT
 - تحميل ODP
-- عرض تقديمي محمي
-- عرض تقديمي كبير
-- مصدر خارجي
+- عرض محمي
+- عرض كبير
+- مورد خارجي
 - كائن ثنائي
 - .NET
 - C#
 - Aspose.Slides
-description: "فتح عروض PowerPoint (.pptx, .ppt) و OpenDocument (.odp) بسهولة باستخدام Aspose.Slides لـ .NET—سريع، موثوق، ومزود بجميع الميزات."
+description: "فتح عروض PowerPoint (.pptx, .ppt) وعروض OpenDocument (.odp) بسهولة باستخدام Aspose.Slides لـ .NET - سريعة، موثوقة، ومزودة بجميع المميزات."
 ---
 
 ## **نظرة عامة**
 
-بعيدًا عن إنشاء عروض PowerPoint من الصفر، Aspose.Slides يتيح لك أيضًا فتح العروض التقديمية الموجودة. بعد تحميل عرض تقديمي، يمكنك استرجاع معلومات حوله، تحرير محتوى الشرائح، إضافة شرائح جديدة، إزالة الشرائح الحالية، وأكثر من ذلك.
+بالإضافة إلى إنشاء عروض PowerPoint من الصفر، يتيح لك Aspose.Slides أيضًا فتح العروض الموجودة. بعد تحميل العرض، يمكنك استرداد معلومات عنه، تعديل محتوى الشرائح، إضافة شرائح جديدة، إزالة الشرائح الحالية، وغير ذلك.
 
-## **فتح العروض التقديمية**
+## **فتح العروض**
 
-لفتح عرض تقديمي موجود، أنشئ كائنًا من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) ومرّر مسار الملف إلى المُنشئ الخاص بها.
+لفتح عرض موجود، قم بإنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) ومرّر مسار الملف إلى مُنشئها.
 
+يعرض المثال التالي بلغة C# كيفية فتح عرض والحصول على عدد الشرائح الخاصة به:
 ```cs
-// إنشاء كائن من فئة Presentation وتمرير مسار ملف إلى المُنشئ الخاص به.
+// إنشاء كائن من فئة Presentation وتمرير مسار ملف إلى المنشئ الخاص بها.
 using (Presentation presentation = new Presentation("Sample.pptx"))
 {
-    // طباعة العدد الإجمالي للشرائح في العرض التقديمي.
+    // طباعة العدد الإجمالي للشرائح في العرض.
     System.Console.WriteLine(presentation.Slides.Count);
 }
 ```
 
 
-## **فتح العروض التقديمية المحمية بكلمة مرور**
+## **فتح العروض المحمية بكلمة مرور**
 
-عند الحاجة إلى فتح عرض تقديمي محمي بكلمة مرور، مرّر كلمة المرور عبر خاصية [Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) لكائن [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) لفك التشفير وتحميله. يُظهر مثال C# التالي هذه العملية:
-
+عند الحاجة إلى فتح عرض محمي بكلمة مرور، مرّر كلمة المرور عبر الخاصية [Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) في فئة [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) لفك التشفير وتحميله. يوضح الكود التالي بلغة C# هذه العملية:
 ```cs
 LoadOptions loadOptions = new LoadOptions {Password = "YOUR_PASSWORD"};
 using (Presentation presentation = new Presentation("Sample.pptx", loadOptions))
 {
-    // إجراء عمليات على العرض التقديمي المفكك.
+    // تنفيذ عمليات على العرض المفكك التشفير.
 }
 ```
 
 
-## **فتح العروض التقديمية الكبيرة**
+## **فتح العروض الكبيرة**
 
-Aspose.Slides يوفر خيارات—وخاصة خاصية [BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/blobmanagementoptions/) في كائن [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/)—لمساعدتك على تحميل عروض تقديمية كبيرة.
+يوفر Aspose.Slides خيارات—خاصة الخاصية [BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/blobmanagementoptions/) في فئة [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/)—لمساعدتك في تحميل العروض الكبيرة.
 
-يُظهر مثال C# التالي تحميل عرض تقديمي كبير (على سبيل المثال، 2 جيجابايت):
-
+يوضح الكود التالي بلغة C# كيفية تحميل عرض كبير (على سبيل المثال، 2 جيجابايت):
 ```cs
 const string filePath = "LargePresentation.pptx";
 
@@ -68,8 +67,8 @@ LoadOptions loadOptions = new LoadOptions
 {
     BlobManagementOptions = 
     {
-        // اختر سلوك KeepLocked — سيستمر ملف العرض مقفولًا طوال فترة 
-        // كائن Presentation، ولكن لا يلزم تحميله إلى الذاكرة أو نسخه إلى ملف مؤقت.
+        // اختر سلوك KeepLocked — سيبقى ملف العرض مقفلاً طوال عمر
+        // كائن Presentation، لكنه لا يحتاج إلى تحميله في الذاكرة أو نسخه إلى ملف مؤقت.
         PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
         IsTemporaryFilesAllowed = true,
         MaxBlobsBytesInMemory = 10 * 1024 * 1024 // 10 ميغابايت
@@ -78,33 +77,32 @@ LoadOptions loadOptions = new LoadOptions
 
 using (Presentation presentation = new Presentation(filePath, loadOptions))
 {
-    // تم تحميل العرض التقديمي الكبير ويمكن استخدامه، مع بقاء استهلاك الذاكرة منخفضًا.
+    // تم تحميل العرض الكبير ويمكن استخدامه، مع بقاء استهلاك الذاكرة منخفضًا.
 
-    // إجرِ تغييرات على العرض التقديمي.
+    // قم بإجراء تغييرات على العرض.
     presentation.Slides[0].Name = "Large presentation";
 
-    // احفظ العرض التقديمي إلى ملف آخر. يبقى استهلاك الذاكرة منخفضًا أثناء هذه العملية.
+    // احفظ العرض إلى ملف آخر. يظل استهلاك الذاكرة منخفضًا أثناء هذه العملية.
     presentation.Save("LargePresentation-copy.pptx", SaveFormat.Pptx);
 
-    // لا تفعل ذلك! سيتم إلقاء استثناء إدخال/إخراج لأن الملف مقفول حتى يتم التخلص من كائن Presentation.
+    // لا تفعل هذا! سيتم رمي استثناء I/O لأن الملف مقفل حتى يتم التخلص من كائن العرض.
     File.Delete(filePath);
 }
 
-// لا مشكلة في القيام بذلك هنا. لم يعد ملف المصدر مقفولًا بواسطة كائن Presentation.
+// من المقبول فعل ذلك هنا. لم يعد ملف المصدر مقفلاً بواسطة كائن العرض.
 File.Delete(filePath);
 ```
 
 
-{{% alert color="info" title="معلومات" %}}
-لتجاوز بعض القيود عند العمل مع التيارات، قد تقوم Aspose.Slides بنسخ محتوى التيار. تحميل عرض تقديمي كبير من تيار يؤدي إلى نسخ العرض وقد يبطئ عملية التحميل. لذلك، عندما تحتاج إلى تحميل عرض تقديمي كبير، نوصي بشدة باستخدام مسار ملف العرض بدلاً من التيار.
+{{% alert color="info" title="Info" %}}
+لتجاوز بعض القيود عند العمل مع التدفقات، قد يقوم Aspose.Slides بنسخ محتويات التدفق. يؤدي تحميل عرض كبير من تدفق إلى نسخ العرض وقد يبطئ عملية التحميل. لذلك، عندما تحتاج إلى تحميل عرض كبير، نوصي بشدة باستخدام مسار ملف العرض بدلاً من التدفق.
 
-عند إنشاء عرض تقديمي يحتوي على كائنات كبيرة (فيديو، صوت، صور عالية الدقة، إلخ)، يمكنك استخدام [BLOB management](/slides/ar/net/manage-blob/) لتقليل استهلاك الذاكرة.
+عند إنشاء عرض يحتوي على كائنات كبيرة (فيديو، صوت، صور عالية الدقة، إلخ)، يمكنك استخدام [BLOB management](/slides/ar/net/manage-blob/) لتقليل استهلاك الذاكرة.
 {{%/alert %}}
 
 ## **التحكم في الموارد الخارجية**
 
-Aspose.Slides يوفر الواجهة [IResourceLoadingCallback](https://reference.aspose.com/slides/net/aspose.slides/iresourceloadingcallback/) التي تسمح لك بإدارة الموارد الخارجية. يُظهر مثال C# التالي كيفية استخدام الواجهة `IResourceLoadingCallback`:
-
+يوفر Aspose.Slides الواجهة [IResourceLoadingCallback](https://reference.aspose.com/slides/net/aspose.slides/iresourceloadingcallback/) التي تتيح لك إدارة الموارد الخارجية. يعرض الكود التالي بلغة C# كيفية استخدام الواجهة `IResourceLoadingCallback`:
 ```cs
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.ResourceLoadingCallback = new ImageLoadingHandler();
@@ -145,27 +143,26 @@ public class ImageLoadingHandler : IResourceLoadingCallback
 ```
 
 
-## **تحميل العروض التقديمية دون كائنات ثنائية مدمجة**
+## **تحميل العروض بدون كائنات ثنائية مدمجة**
 
-يمكن أن يحتوي عرض PowerPoint التقديمي على الأنواع التالية من الكائنات الثنائية المدمجة:
+يمكن أن يحتوي عرض PowerPoint على الأنواع التالية من الكائنات الثنائية المدمجة:
 
 - مشروع VBA (يمكن الوصول إليه عبر [IPresentation.VbaProject](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/vbaproject/));
-- بيانات كائن OLE المدمجة (يمكن الوصول إليها عبر [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/));
-- بيانات ثنائية لعنصر تحكم ActiveX (يمكن الوصول إليها عبر [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/net/aspose.slides/icontrol/activexcontrolbinary/)).
+- بيانات كائن OLE مدمجة (يمكن الوصول إليها عبر [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/));
+- بيانات ثنائية للتحكم ActiveX (يمكن الوصول إليها عبر [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/net/aspose.slides/icontrol/activexcontrolbinary/)).
 
-باستخدام خاصية [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/net/aspose.slides/iloadoptions/deleteembeddedbinaryobjects/)، يمكنك تحميل عرض تقديمي دون أي كائنات ثنائية مدمجة.
+باستخدام الخاصية [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/net/aspose.slides/iloadoptions/deleteembeddedbinaryobjects/)، يمكنك تحميل عرض بدون أي كائنات ثنائية مدمجة.
 
-تُعد هذه الخاصية مفيدة لإزالة المحتوى الثنائي الذي قد يكون خبيثًا. يُظهر مثال C# التالي كيفية تحميل عرض تقديمي دون أي محتوى ثنائي مدمج:
-
+تكون هذه الخاصية مفيدة لإزالة المحتوى الثنائي المحتمل أن يكون ضارًا. يوضح الكود التالي بلغة C# كيفية تحميل عرض بدون أي محتوى ثنائي مدمج:
 ```cs
 LoadOptions loadOptions = new LoadOptions()
 {
-    DeleteEmbeddedBinaryObjects = true
+	DeleteEmbeddedBinaryObjects = true
 }
 
 using (Presentation presentation = new Presentation("malware.ppt", loadOptions))
 {
-    // إجراء عمليات على العرض التقديمي.
+    // تنفيذ عمليات على العرض.
 }
 ```
 
@@ -174,12 +171,12 @@ using (Presentation presentation = new Presentation("malware.ppt", loadOptions))
 
 **كيف يمكنني معرفة أن الملف تالف ولا يمكن فتحه؟**
 
-ستحصل على استثناء أثناء التحليل/التحقق من الصيغة عند التحميل. غالبًا ما تشير مثل هذه الأخطاء إلى بنية ZIP غير صالحة أو سجلات PowerPoint مكسورة.
+ستتلقى استثناءً يتعلق بتحليل/تحقق من صحة الصيغة أثناء التحميل. غالبًا ما تشير هذه الأخطاء إلى بنية ZIP غير صالحة أو سجلات PowerPoint معطوبة.
 
 **ماذا يحدث إذا كانت الخطوط المطلوبة مفقودة عند الفتح؟**
 
-سيتم فتح الملف، لكن قد يستبدل [التصوير/التصدير](/slides/ar/net/convert-presentation/) الخطوط لاحقًا. قم بـ[تهيئة استبدال الخطوط](/slides/ar/net/font-substitution/) أو [إضافة الخطوط المطلوبة](/slides/ar/net/custom-font/) إلى بيئة الوقت التشغيلي.
+سيتم فتح الملف، لكن عملية [rendering/export](/slides/ar/net/convert-presentation/) قد تستبدل الخطوط. يمكنك [Configure font substitutions](/slides/ar/net/font-substitution/) أو [add the required fonts](/slides/ar/net/custom-font/) إلى بيئة التشغيل.
 
 **ماذا عن الوسائط المدمجة (فيديو/صوت) عند الفتح؟**
 
-تصبح الوسائط متاحة كموارد للعرض التقديمي. إذا كانت الوسائط مُشار إليها عبر مسارات خارجية، تأكد من توفر تلك المسارات في بيئتك؛ وإلا قد تُهمل [التصوير/التصدير](/slides/ar/net/convert-presentation/) تلك الوسائط.
+تصبح متاحة كموارد للعرض. إذا كانت الوسائط مُشار إليها عبر مسارات خارجية، تأكد من أن هذه المسارات متاحة في بيئتك؛ وإلا قد تتغاضى عملية [rendering/export](/slides/ar/net/convert-presentation/) عن الوسائط.

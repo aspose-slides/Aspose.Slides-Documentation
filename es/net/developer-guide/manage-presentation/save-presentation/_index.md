@@ -1,6 +1,6 @@
 ---
 title: Guardar presentaciones en .NET
-linktitle: Guardar presentaciones
+linktitle: Guardar presentación
 type: docs
 weight: 80
 url: /es/net/save-presentation/
@@ -22,23 +22,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Descubra cómo guardar presentaciones en .NET usando Aspose.Slides—exportar a PowerPoint u OpenDocument manteniendo diseños, fuentes y efectos."
+description: "Descubra cómo guardar presentaciones en .NET usando Aspose.Slides—exporte a PowerPoint u OpenDocument manteniendo diseños, fuentes y efectos."
 ---
 
 ## **Descripción general**
 
-[Presentaciones abiertas en C#](/slides/es/net/open-presentation/) describió cómo usar la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) para abrir una presentación. Este artículo explica cómo crear y guardar presentaciones. La clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) contiene el contenido de una presentación. Ya sea que esté creando una presentación desde cero o modificando una existente, querrá guardarla cuando haya terminado. Con Aspose.Slides para .NET, puede guardar en un **archivo** o **flujo**. Este artículo explica las diferentes formas de guardar una presentación.
+[Open Presentations in C#](/slides/es/net/open-presentation/) describe cómo usar la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) para abrir una presentación. Este artículo explica cómo crear y guardar presentaciones. La clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) contiene el contenido de una presentación. Tanto si crea una presentación desde cero como si modifica una existente, querrá guardarla cuando haya terminado. Con Aspose.Slides para .NET, puede guardar en un **archivo** o **flujo**. Este artículo explica las diferentes formas de guardar una presentación.
 
 ## **Guardar presentaciones en archivos**
 
 Guarde una presentación en un archivo llamando al método `Save` de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). Pase el nombre del archivo y el formato de guardado al método. El siguiente ejemplo muestra cómo guardar una presentación con Aspose.Slides.
 ```cs
-// Instanciar la clase Presentation que representa un archivo de presentación.
+// Instancia la clase Presentation que representa un archivo de presentación.
 using (Presentation presentation = new Presentation())
 {
-    // Realizar algún trabajo aquí...
+    // Realiza algún trabajo aquí...
 
-    // Guardar la presentación en un archivo.
+    // Guarda la presentación en un archivo.
     presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
@@ -62,7 +62,7 @@ using (Presentation presentation = new Presentation())
 
 ## **Guardar presentaciones con un tipo de vista predefinido**
 
-Aspose.Slides le permite establecer la vista inicial que PowerPoint usa cuando la presentación generada se abre mediante la clase [ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/). Establezca la propiedad [LastView](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/lastview/) a un valor de la enumeración [ViewType](https://reference.aspose.com/slides/net/aspose.slides/viewtype/).
+Aspose.Slides le permite establecer la vista inicial que PowerPoint utiliza cuando se abre la presentación generada a través de la clase [ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/). Establezca la propiedad [LastView](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/lastview/) a un valor de la enumeración [ViewType](https://reference.aspose.com/slides/net/aspose.slides/viewtype/).
 ```cs
 using (Presentation presentation = new Presentation())
 {
@@ -74,7 +74,7 @@ using (Presentation presentation = new Presentation())
 
 ## **Guardar presentaciones en el formato Strict Office Open XML**
 
-Aspose.Slides permite guardar una presentación en el formato Strict Office Open XML. Use la clase [PptxOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pptxoptions/) y establezca su propiedad de conformidad al guardar. Si establece `Conformance.Iso29500_2008_Strict`, el archivo de salida se guarda en el formato Strict Office Open XML.
+Aspose.Slides le permite guardar una presentación en el formato Strict Office Open XML. Use la clase [PptxOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pptxoptions/) y establezca su propiedad de conformidad al guardar. Si establece `Conformance.Iso29500_2008_Strict`, el archivo de salida se guarda en el formato Strict Office Open XML.
 
 El ejemplo a continuación crea una presentación y la guarda en el formato Strict Office Open XML.
 ```cs
@@ -117,9 +117,7 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 
 
 {{% alert title="NOTA" color="warning" %}}
-
 Al guardar con `Zip64Mode.Never`, se lanza una [PptxException](https://reference.aspose.com/slides/net/aspose.slides/pptxexception/) si la presentación no puede guardarse en formato ZIP32.
-
 {{% /alert %}}
 
 ## **Guardar presentaciones sin actualizar la miniatura**
@@ -127,7 +125,7 @@ Al guardar con `Zip64Mode.Never`, se lanza una [PptxException](https://reference
 La propiedad [PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/net/aspose.slides.export/ipptxoptions/refreshthumbnail/) controla la generación de miniaturas al guardar una presentación en PPTX:
 
 - Si se establece en `true`, la miniatura se actualiza durante el guardado. Este es el valor predeterminado.
-- Si se establece en `false`, se conserva la miniatura actual. Si la presentación no tiene miniatura, no se generará ninguna.
+- Si se establece en `false`, se conserva la miniatura actual. Si la presentación no tiene miniatura, no se genera ninguna.
 
 En el código a continuación, la presentación se guarda en PPTX sin actualizar su miniatura.
 ```cs
@@ -142,14 +140,12 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 
 
 {{% alert title="Información" color="info" %}}
-
 Esta opción ayuda a reducir el tiempo necesario para guardar una presentación en formato PPTX.
-
 {{% /alert %}}
 
-## **Actualizaciones del progreso de guardado en porcentaje**
+## **Guardar actualizaciones de progreso en porcentaje**
 
-La interfaz [IProgressCallback](https://reference.aspose.com/slides/net/aspose.slides/iprogresscallback/) se usa a través de la propiedad `ProgressCallback` expuesta por la interfaz [ISaveOptions](https://reference.aspose.com/slides/net/aspose.slides.export/isaveoptions/) y la clase abstracta [SaveOptions](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/). Asigne una implementación de [IProgressCallback](https://reference.aspose.com/slides/net/aspose.slides/iprogresscallback/) a `ProgressCallback` para recibir actualizaciones del progreso de guardado como un porcentaje.
+La interfaz [IProgressCallback](https://reference.aspose.com/slides/net/aspose.slides/iprogresscallback/) se usa a través de la propiedad `ProgressCallback` expuesta por la interfaz [ISaveOptions](https://reference.aspose.com/slides/net/aspose.slides.export/isaveoptions/) y la clase abstracta [SaveOptions](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/). Asigne una implementación de [IProgressCallback](https://reference.aspose.com/slides/net/aspose.slides/iprogresscallback/) a `ProgressCallback` para recibir actualizaciones de progreso de guardado como porcentaje.
 
 Los fragmentos de código siguientes muestran cómo usar `IProgressCallback`.
 ```cs
@@ -167,7 +163,7 @@ class ExportProgressHandler : IProgressCallback
 {
     public void Reporting(double progressValue)
     {
-        // Use el valor del porcentaje de progreso aquí.
+        // Utilice el valor del porcentaje de progreso aquí.
         int progress = Convert.ToInt32(progressValue);
 
         Console.WriteLine(progress + "% of the file has been converted.");
@@ -177,25 +173,23 @@ class ExportProgressHandler : IProgressCallback
 
 
 {{% alert title="Información" color="info" %}}
-
-Aspose ha desarrollado una [aplicación gratuita PowerPoint Splitter](https://products.aspose.app/slides/splitter) usando su propia API. La aplicación le permite dividir una presentación en varios archivos guardando diapositivas seleccionadas como nuevos archivos PPTX o PPT.
-
+Aspose ha desarrollado una [aplicación gratuita PowerPoint Splitter](https://products.aspose.app/slides/splitter) que utiliza su propia API. La aplicación le permite dividir una presentación en varios archivos guardando diapositivas seleccionadas como nuevos archivos PPTX o PPT.
 {{% /alert %}}
 
 ## **Preguntas frecuentes**
 
 **¿Se admite el “guardado rápido” (guardado incremental) para que solo se escriban los cambios?**
 
-No. Cada guardado crea el archivo de destino completo; el “guardado rápido” incremental no está soportado.
+No. Cada guardado crea el archivo completo de destino; el “guardado rápido” incremental no está soportado.
 
-**¿Es seguro guardar la misma instancia de Presentation desde varios hilos?**
+**¿Es seguro guardar la misma instancia de Presentation desde múltiples subprocesos?**
 
-No. Una instancia de [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) **no es segura para subprocesos** (/slides/es/net/multithreading/); guárdela desde un solo hilo.
+No. Una instancia de [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) **no es segura para subprocesos** (/slides/es/net/multithreading/); guárdela desde un solo subproceso.
 
 **¿Qué ocurre con los hipervínculos y los archivos vinculados externamente al guardar?**
 
-Los [hipervínculos](/slides/es/net/manage-hyperlinks/) se preservan. Los archivos vinculados externamente (p. ej., videos mediante rutas relativas) no se copian automáticamente; asegúrese de que las rutas referenciadas sigan siendo accesibles.
+Los [hipervínculos](/slides/es/net/manage-hyperlinks/) se conservan. Los archivos vinculados externamente (p. ej., vídeos mediante rutas relativas) no se copian automáticamente; asegúrese de que las rutas referenciadas sigan siendo accesibles.
 
 **¿Puedo establecer/guardar metadatos del documento (Autor, Título, Empresa, Fecha)?**
 
-Sí. Las [propiedades estándar del documento](/slides/es/net/presentation-properties/) son compatibles y se escribirán en el archivo al guardarlo.
+Sí. Las [propiedades del documento](/slides/es/net/presentation-properties/) estándar son compatibles y se escribirán en el archivo al guardarlo.

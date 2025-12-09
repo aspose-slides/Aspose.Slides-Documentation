@@ -1,25 +1,37 @@
 ---
 title: Публичный API и несовместимые изменения в Aspose.Slides для .NET 14.8.0
+linktitle: Aspose.Slides для .NET 14.8.0
 type: docs
 weight: 100
 url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/
+keywords:
+- миграция
+- наследуемый код
+- современный код
+- устаревший подход
+- современный подход
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Обзор обновлений публичного API и изменений, разрушающих совместимость, в Aspose.Slides для .NET, чтобы плавно мигрировать ваши решения для презентаций PowerPoint PPT, PPTX и ODP."
 ---
 
 {{% alert color="primary" %}} 
-
-Эта страница перечисляет все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/) или [удаленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/) классы, методы, свойства и так далее, а также другие изменения, внесенные в API Aspose.Slides для .NET 14.8.0.
-
+Эта страница содержит список всех [добавленных](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/) или [удалённых](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/) классов, методов, свойств и т.д., а также другие изменения, внесённые в API Aspose.Slides для .NET 14.8.0.
 {{% /alert %}} 
-## **Изменения в публичном API**
-### **Измененные свойства**
+## **Изменения публичного API**
+### **Изменённые свойства**
 #### **Добавлен интерфейс IVbaProject, изменено свойство Presentation.VbaProject**
-Свойство VbaProject класса Presentation было заменено. Вместо необработанного байтового представления VBA проекта свойство VbaProject добавлено новое исполнение интерфейса IVbaProject.
+Свойство VbaProject класса Presentation было заменено. Вместо представления свойства VbaProject в виде необработанных байтов VBA‑проекта теперь добавлена реализация нового интерфейса IVbaProject.
 
-Используйте свойство IVbaProject для управления VBA проектами, встроенными в презентацию. Вы можете добавлять новые ссылки на проекты, редактировать существующие модули и создавать новые.
+Используйте свойство IVbaProject для управления VBA‑проектами, встроенными в презентацию. Вы можете добавлять новые ссылки на проекты, редактировать существующие модули и создавать новые.
 
-Также вы можете создать новый VBA проект, используя класс VbaProject, который реализует интерфейс IVbaProject.
+Также вы можете создать новый VBA‑проект, используя класс VbaProject, который реализует интерфейс IVbaProject.
 
-Следующий пример демонстрирует создание простого VBA проекта, содержащего один модуль, и добавление двух необходимых ссылок на библиотеки.
+Ниже приведён пример создания простого VBA‑проекта, содержащего один модуль, и добавления двух обязательных ссылок на библиотеки.
 
 ``` csharp
 
@@ -27,37 +39,37 @@ url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 
 {
 
-    // Создать новый VBA проект
+    // Create new VBA Project
 
     pres.VbaProject = new VbaProject();
 
-    // Добавить пустой модуль в VBA проект
+    // Add empty module to the VBA project
 
-    IVbaModule module = pres.VbaProject.Modules.AddEmptyModule("Модуль");
+    IVbaModule module = pres.VbaProject.Modules.AddEmptyModule("Module");
 
-    // Установить исходный код модуля
+    // Set module source code
 
     module.SourceCode =
 
         @"Sub Test(oShape As Shape)
 
-            MsgBox ""Тест""
+            MsgBox ""Test""
 
         End Sub";
 
-    // Создать ссылку на <stdole>
+    // Create reference to <stdole>
 
     VbaReferenceOleTypeLib stdoleReference =
 
         new VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
 
-    // Создать ссылку на Office
+    // Create reference to Office
 
     VbaReferenceOleTypeLib officeReference =
 
-        new VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Библиотека объектов Microsoft Office 14.0");
+        new VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
 
-    // Добавить ссылки в VBA проект
+    // Add references to the VBA project
 
     pres.VbaProject.References.Add(stdoleReference);
 
@@ -69,7 +81,7 @@ url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 
 ``` 
 
-Этот пример показывает, как скопировать VBA проект из существующей презентации в новую.
+Этот пример демонстрирует, как скопировать VBA‑проект из существующей презентации в новую.
 
 ``` csharp
 
@@ -82,14 +94,14 @@ url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 }
 
 ``` 
-### **Добавленные интерфейсы, свойства и варианты перечисления**
+### **Добавлены интерфейсы, свойства и варианты перечислений**
 #### **Добавлено свойство Aspose.Slides.Charts.IChartSeries.Overlap**
-Свойство Aspose.Slides.Charts.IChartSeries.Overlap определяет, насколько бары и столбцы должны перекрывать друг друга на 2D диаграммах (в диапазоне от -100 до 100).
+Свойство Aspose.Slides.Charts.IChartSeries.Overlap определяет степень перекрытия столбцов и полос на двумерных диаграммах (от -100 до 100).
 
-Это свойство не только этой серии, но и всех серий в родительской группе серий - это проекция соответствующего группового свойства. Таким образом, это свойство только для чтения.
+Это свойство относится не только к данной серии, но и ко всем сериям в родительской группе — это проекция соответствующего свойства группы. Поэтому свойство доступно только для чтения.
 
 - Используйте свойство ParentSeriesGroup, чтобы получить доступ к родительской группе серий.
-- Используйте свойство ParentSeriesGroup.Overlap для чтения/записи, чтобы изменить значение.
+- Используйте свойство ParentSeriesGroup.Overlap для записи нового значения.
 
 ``` csharp
 
@@ -113,7 +125,7 @@ url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 
 ``` 
 #### **Добавлено свойство Aspose.Slides.Charts.IChartSeriesGroup.Overlap**
-Свойство Aspose.Slides.Charts.IChartSeriesGroup.Overlap определяет, насколько бары и столбцы должны перекрывать друг друга на 2D диаграммах (от -100 до 100).
+Свойство Aspose.Slides.Charts.IChartSeriesGroup.Overlap определяет степень перекрытия столбцов и полос на двумерных диаграммах (от -100 до 100).
 
 ``` csharp
 
@@ -132,8 +144,8 @@ using (Presentation pres = new Presentation())
 }
 
 ``` 
-#### **Добавлено значение Enum ShapeThumbnailBounds.Appearance**
-Этот метод создания миниатюры формы позволяет вам генерировать миниатюру формы в рамках ее внешнего вида. Он учитывает все эффекты формы. Сгенерированная миниатюра формы ограничена границами слайда.
+#### **Добавлено значение перечисления ShapeThumbnailBounds.Appearance**
+Этот метод создания эскиза формы позволяет сформировать эскиз в границах её визуального представления. Учтены все эффекты формы. Сгенерированный эскиз ограничен границами слайда.
 
 ``` csharp
 
@@ -149,4 +161,4 @@ using (Presentation p = new Presentation("Presentation.pptx"))
 
 }
 
-``` 
+```

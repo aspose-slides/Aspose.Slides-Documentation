@@ -1,54 +1,68 @@
 ---
-title: كيفية إنشاء وثيقة عرض "Hello World"
+title: كيفية إنشاء عروض تقديمية Hello World في .NET
+linktitle: عرض تقديمي Hello World
 type: docs
 weight: 10
 url: /ar/net/how-to-create-hello-world-presentation-document/
+keywords:
+- ترحيل
+- مرحبا بالعالم
+- كود قديم
+- كود حديث
+- نهج قديم
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "إنشاء عرض تقديمي Hello World بتنسيقات PowerPoint PPT و PPTX و ODP في .NET باستخدام Aspose.Slides عبر كل من واجهات API القديمة والحديثة في دليل بسيط واحد."
 ---
 
 {{% alert color="primary" %}} 
-
-تم إصدار [Aspose.Slides for .NET API](/slides/ar/net/) جديدة والآن يدعم هذا المنتج المفرد القدرة على إنشاء مستندات PowerPoint من الصفر وتحرير المستندات الموجودة.
-
+تم إصدار واجهة برمجة تطبيقات Aspose.Slides for .NET الجديدة الآن، والآن يدعم هذا المنتج القدرة على إنشاء مستندات PowerPoint من الصفر وتعديل المستندات الموجودة.
 {{% /alert %}} 
-## **دعم الشيفرة القديمة**
-لاستخدام الشيفرة القديمة التي تم تطويرها باستخدام إصدارات Aspose.Slides for .NET السابقة لـ 13.x، تحتاج إلى إجراء بعض التغييرات الطفيفة في الشيفرة الخاصة بك وستعمل الشيفرة كما كانت سابقًا. جميع الفئات التي كانت موجودة في Aspose.Slides for .NET القديمة تحت أسماء مساحات Aspose.Slide و Aspose.Slides.Pptx قد تم دمجها الآن في مساحة أسماء Aspose.Slides واحدة. يرجى النظر إلى مقتطف الشيفرة البسيط التالي لإنشاء وثيقة عرض "Hello World" باستخدام واجهة برمجة التطبيقات القديمة لـ Aspose.Slides واتباع الخطوات التي تشرح كيفية الترحيل إلى واجهة برمجة التطبيقات المدمجة الجديدة.
+## **دعم الكود القديم**
+لاستخدام الكود legacy الذي تم تطويره باستخدام إصدارات Aspose.Slides for .NET التي تسبق 13.x، تحتاج إلى إجراء بعض الت تغييرات البسيطة في الكود الخاص بك حتى يعمل كما كان سابقًا. جميع الفئات التي كانت موجودة في Aspose.Slides for .NET القديمة تحت مساحات الأسماء Aspose.Slide و Aspose.Slides.Pptx تم دمجها الآن في مساحة اسم واحدة هي Aspose.Slides. يرجى إلقاء نظرة على مقطع الكود البسيط التالي لإنشاء مستند عرض تقديمي Hello World باستخدام API القديم لـ Aspose.Slides واتبع الخطوات التي توضح كيفية الترقي إلى API المدمج الجديد.
 ## **نهج Aspose.Slides for .NET القديم**
 ```c#
-//Instantiate a Presentation object that represents a PPT file
+//إنشاء كائن Presentation يمثل ملف PPT
 Presentation pres = new Presentation();
 
-//Create a License object
+//إنشاء كائن License
 License license = new License();
 
-//Set the license of Aspose.Slides for .NET to avoid the evaluation limitations
+//تعيين رخصة Aspose.Slides for .NET لتجنب قيود التقييم
 license.SetLicense("Aspose.Slides.lic");
 
-//Adding an empty slide to the presentation and getting the reference of
-//that empty slide
+//إضافة شريحة فارغة إلى العرض والحصول على مرجع
+//تلك الشريحة الفارغة
 Slide slide = pres.AddEmptySlide();
 
-//Adding a rectangle (X=2400, Y=1800, Width=1000 & Height=500) to the slide
+//إضافة مستطيل (X=2400, Y=1800, العرض=1000 والارتفاع=500) إلى الشريحة
 Aspose.Slides.Rectangle rect = slide.Shapes.AddRectangle(2400, 1800, 1000, 500);
 
-//Hiding the lines of rectangle
+//إخفاء خطوط المستطيل
 rect.LineFormat.ShowLines = false;
 
-//Adding a text frame to the rectangle with "Hello World" as a default text
+//إضافة إطار نص إلى المستطيل بالنص الافتراضي "Hello World"
 rect.AddTextFrame("Hello World");
 
-//Removing the first slide of the presentation which is always added by
-//Aspose.Slides for .NET by default while creating the presentation
+//إزالة الشريحة الأولى من العرض والتي يتم دائمًا إضافتها بواسطة
+//Aspose.Slides for .NET بشكل افتراضي أثناء إنشاء العرض
 pres.Slides.RemoveAt(0);
 
-//Writing the presentation as a PPT file
+//كتابة العرض كملف PPT
 pres.Write("C:\\hello.ppt");
 ```
 
 
 
+
 ## **نهج Aspose.Slides for .NET 13.x الجديد**
 ```c#
-// Instantiate Presentation
+// إنشاء عرض تقديمي
 Presentation pres = new Presentation();
 
 // Get the first slide

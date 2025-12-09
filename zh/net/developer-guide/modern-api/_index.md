@@ -1,75 +1,90 @@
 ---
-title: 现代 API
+title: 使用现代 API 加强图像处理
+linktitle: 现代 API
 type: docs
 weight: 237
 url: /zh/net/modern-api/
-keywords: "跨平台 现代 API System.Drawing"
-description: "现代 API"
+keywords:
+- System.Drawing
+- 现代 API
+- 绘图
+- 幻灯片缩略图
+- 幻灯片转图像
+- 形状缩略图
+- 形状转图像
+- 演示文稿缩略图
+- 演示文稿转图像
+- 添加图像
+- 添加图片
+- .NET
+- C#
+- Aspose.Slides
+description: "通过使用 .NET 现代 API 替换已弃用的成像 API，实现幻灯片图像处理现代化，以便无缝进行 PowerPoint 和 OpenDocument 自动化。"
 ---
 
-## **简介**
+## **介绍**
 
-历史上，Aspose Slides 依赖 System.Drawing，并在公共 API 中包含以下来自该库的类：
+Historically, Aspose Slides 对 System.Drawing 有依赖，并在公共 API 中包含以下来自该库的类：
 - [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics)
 - [Image](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.image)
 - [Bitmap](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.bitmap)
 - [PrinterSettings](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.printing.printersettings)
 
-自 24.4 版起，此公共 API 已标记为不推荐使用。
+从 24.4 版本起，此公共 API 已被声明为已弃用。
 
-由于 .NET6 及以上版本在非 Windows 平台上已移除对 System.Drawing 的支持（[breaking change](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)），Slides 实现了两库版本的方案：
-- [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET) - 支持 Windows 上的 .NET6+、Windows/Linux/MacOS 上的 .NETStandard、Windows 上的 .NETFramework 2+。  
-  - 依赖 [System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/)。
-- [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) - Windows/Linux/MacOS 版本，无任何依赖。
+Since System.Drawing support in versions .NET6 and above is removed for non-Windows versions ([breaking change](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)), Slides 已实现两库版本方案：
+- [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET) - 支持 Windows 上的 .NET6+，Windows/Linux/MacOS 上的 .NETStandard，Windows 上的 .NETFramework 2+。
+  - has a dependence on [System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/).
+- [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) - Windows/Linux/MacOS 版本，无依赖。
 
-[Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) 的不便之处在于它在同一命名空间下实现了自己的 System.Drawing 版本（以保持与公共 API 的向后兼容）。因此，当同时使用 Aspose.Slides.NET6.CrossPlatform 与来自 .NETFramework 或 System.Drawing.Common 包的 System.Drawing 时，除非使用别名，否则会出现名称冲突。
+The inconvenience of [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) is that it implements its own version of System.Drawing in the same namespace (to support backward compatibility with the public API). Thus, when Aspose.Slides.NET6.CrossPlatform and System.Drawing from .NETFramrwork or System.Drawing.Common package are used at the same time, a name conflict occurs unless alias is used.
 
-为了解除对主要 Aspose.Slides.NET 包中 System.Drawing 的依赖，我们加入了所谓的 “现代 API” —— 即应取代已不推荐使用的 API，其签名中不再包含对 System.Drawing 的 Image 和 Bitmap 类型的依赖。PrinterSettings 和 Graphics 已被标记为不推荐使用，并从公共 Slides API 中移除。
+In order to get rid of dependencies on System.Drawing in the main Aspose.Slides.NET package, we added the so-called "Modern API" - i.e. the API that should be used instead of the deprecated one, whose signatures contain dependencies on the following types from System.Drawing: Image and Bitmap. PrinterSettings and Graphics are declared deprecated and their support is removed from the public Slides API.
 
-对依赖 System.Drawing 的已不推荐使用的公共 API 的移除将在 24.8 版发布。
+Removal of the deprecated public API with dependencies on System.Drawing will be in release 24.8.
 
 ## **现代 API**
 
-向公共 API 添加了以下类和枚举：
+Added the following classes and enums to the public API：
 
 - Aspose.Slides.IImage - 表示光栅或矢量图像。
 - Aspose.Slides.ImageFormat - 表示图像的文件格式。
-- Aspose.Slides.Images - 用于实例化和操作 IImage 接口的方法。
+- Aspose.Slides.Images - 用于实例化和使用 IImage 接口的方法。
 
-请注意，IImage 实现了 IDisposable 接口，应使用 using 包裹或以其他合适方式进行释放。
+Please note that IImage is disposable (it implements the IDisposable interface and its use should be wrapped in using or dispose-it in another convenient way).
 
-使用新 API 的典型场景可能如下所示：
+A typical scenario of using the new API may look as follows:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
     IPPImage ppImage;
-    // 实例化一个可释放的 IImage 实例，来自磁盘上的文件。  
+    // 从磁盘上的文件实例化一个可释放的 IImage 实例。  
     using (IImage image = Images.FromFile("image.png"))
     {
-        // 通过将 IImage 实例添加到演示文稿的图像集合中，创建 PowerPoint 图像。
+        // 通过将 IImage 实例添加到演示文稿的图像集合中来创建 PowerPoint 图像。
         ppImage = pres.Images.AddImage(image);
     }
 
-    // 在幻灯片 #1 上添加图片形状
+    // 在第 1 张幻灯片上添加图片形状
     pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 
-    // 获取代表幻灯片 #1 的 IImage 实例。
+    // 获取代表第 1 张幻灯片的 IImage 实例。
     using (var slideImage = pres.Slides[0].GetImage(new Size(1920, 1080)))
     {
-        // 将图像保存到磁盘上。
+        // 将图像保存到磁盘。
         slideImage.Save("slide1.jpeg", ImageFormat.Jpeg);
     }
 }
 ```
 
 
-## **使用现代 API 替换旧代码**
+## **用现代 API 替换旧代码**
 
-为便于迁移，新 IImage 接口复用 Image 和 Bitmap 类的独立签名。通常，只需将使用 System.Drawing 的旧方法调用替换为新方法。
+For ease of transition, the interface of the new IImage repeats the separate signatures of the Image and Bitmap classes. In general, you will just need to replace the call to the old method using System.Drawing with the new one.
 
 ### **获取幻灯片缩略图**
 
-使用已不推荐的 API 的代码：
+Code using a deprecated API:
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -78,7 +93,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-现代 API：
+Modern API:
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -89,7 +104,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **获取形状缩略图**
 
-使用已不推荐的 API 的代码：
+Code using a deprecated API:
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -98,7 +113,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-现代 API：
+Modern API:
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -109,7 +124,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **获取演示文稿缩略图**
 
-使用已不推荐的 API 的代码：
+Code using a deprecated API:
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -133,7 +148,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-现代 API：
+Modern API:
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -159,7 +174,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **向演示文稿添加图片**
 
-使用已不推荐的 API 的代码：
+Code using a deprecated API:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -174,7 +189,7 @@ using (Presentation pres = new Presentation())
 ```
 
 
-现代 API：
+Modern API:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -189,7 +204,7 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **将被移除的方法/属性及其在现代 API 中的替代方案**
+## **将被删除的方法/属性及其在现代 API 中的替代方案**
 
 ### **Presentation**
 | 方法签名 | 替代方法签名 |
@@ -209,13 +224,13 @@ using (Presentation pres = new Presentation())
 
 ### **Shape**
 | 方法签名 | 替代方法签名 |
-|----------------------------------------------------------------------|-------------------------------------------------------------------|
+|-----------------------------------------------|-----------------------------------------------------------|
 | public Bitmap GetThumbnail() | [GetImage](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage#getimage) |
 | public Bitmap GetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY) | [GetImage(ShapeThumbnailBounds bounds, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage#getimage_1) |
 
 ### **Slide**
 | 方法签名 | 替代方法签名 |
-|----------------------------------------------------------------------|-------------------------------------------------------------------|
+|-----------------------------------------------|-----------------------------------------------------------|
 | public Bitmap GetThumbnail(float scaleX, float scaleY) | [GetImage(float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_5) |
 | public Bitmap GetThumbnail() | [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage) |
 | public Bitmap GetThumbnail(IRenderingOptions options) | [GetImage(IRenderingOptions options)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_1) |
@@ -229,62 +244,62 @@ using (Presentation pres = new Presentation())
 
 ### **Output**
 | 方法签名 | 替代方法签名 |
-|-----------------------------------------------------------------|-------------------------------------------------------------|
+|-----------------------------------------------|-----------------------------------------------------------|
 | public IOutputFile Add(string path, Image image) | [Add(string path, IImage image)](https://reference.aspose.com/slides/net/aspose.slides.export.web/output/add#add_1) |
 
 ### **ImageCollection**
 | 方法签名 | 替代方法签名 |
-|-------------------------------------------|--------------------------------------------|
+|-----------------------------------------------|--------------------------------------------------------|
 | IPPImage AddImage(Image image) | [AddImage(IImage image)](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/addimage#addimage) |
 
 ### **ImageWrapperFactory**
 | 方法签名 | 替代方法签名 |
-|----------------------------------------------------------|---------------------------------------------------------|
+|-----------------------------------------------|--------------------------------------------------------|
 | IImageWrapper CreateImageWrapper(Image image) | [CreateImageWrapper(IImage image)](https://reference.aspose.com/slides/net/aspose.slides/imagewrapperfactory/createimagewrapper#createimagewrapper) |
 
 ### **PPImage**
 | 方法/属性签名 | 替代方法签名 |
-|--------------------------------------|-----------------------------------------|
+|-----------------------------------------------|--------------------------------------------------------|
 | void ReplaceImage(Image newImage) | [ReplaceImage(IImage newImage)](https://reference.aspose.com/slides/net/aspose.slides/ppimage/replaceimage#replaceimage) |
 | Image SystemImage { get; } | [IImage Image { get; }](https://reference.aspose.com/slides/net/aspose.slides/ppimage/image) |
 
 ### **PatternFormat**
 | 方法签名 | 替代方法签名 |
-|-----------------------------------------------------------|-----------------------------------------------------|
+|-----------------------------------------------|--------------------------------------------------------|
 | Bitmap GetTileImage(Color background, Color foreground) | [GetTile(Color background, Color foreground)](https://reference.aspose.com/slides/net/aspose.slides/patternformat/gettile#gettile_1) |
 | Bitmap GetTileImage(Color styleColor) | [GetTile(Color styleColor)](https://reference.aspose.com/slides/net/aspose.slides/patternformat/gettile#gettile) |
 
 ### **IPatternFormatEffectiveData**
 | 方法签名 | 替代方法签名 |
-|-----------------------------------------------------------|-----------------------------------------------------|
+|-----------------------------------------------|--------------------------------------------------------|
 | Bitmap GetTileImage(Color background, Color foreground) | [GetTileIImage(SlidesImage image)](https://reference.aspose.com/slides/net/aspose.slides/ipatternformateffectivedata/gettileiimage) |
 
-## **Graphics 与 PrinterSettings 的 API 支持将被停止**
+## **Graphics 和 PrinterSettings 的 API 支持将停止**
 
-[Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) 类在 .NET6 及以上的跨平台版本中不受支持。在 Aspose Slides 中，使用该类的 API 将被移除：
+The [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) 类不再支持 .NET6 及更高版本的跨平台版本。在 Aspose Slides 中，使用该类的 API 部分将被移除：
 [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide/)
 - [public void RenderToGraphics(IRenderingOptions options, Graphics graphics)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_3)
 - [public void RenderToGraphics(IRenderingOptions options, Graphics graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_3)
-- [public void RenderToGraphics(IRenderingOptions options, Graphics graphics, Size renderingSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertgraphics_5)
+- [public void RenderToGraphics(IRenderingOptions options, Graphics graphics, Size renderingSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_5)
 
-同样，涉及打印的 API 将被移除：
+Also, the part of the API that is related to printing will be removed:
 
-[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)：
+[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/):
 - [public void Presentation.Print](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print)
 - [public void Print(PrinterSettings printerSettings)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_1)
 - [public void Print(string printerName)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_3)
 - [public void Print(PrinterSettings printerSettings, string presName)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_2)
 
-# **FAQ**
+# **常见问题**
 
-**为什么移除 System.Drawing.Graphics？**
+**为什么放弃 System.Drawing.Graphics？**
 
-从公共 API 中移除 `Graphics` 的支持是为了统一渲染和图像的工作方式，消除对平台特定依赖的绑定，并转向使用跨平台的 [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/)。所有渲染到 `Graphics` 的方法都将被删除。
+正在从公共 API 中移除对 `Graphics` 的支持，以统一渲染和图像的工作方式，消除对平台特定依赖的绑定，并转向使用跨平台的 [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) 的方法。所有渲染到 `Graphics` 的方法都将被删除。
 
-**IImage 相比 Image/Bitmap 有什么实际好处？**
+**IImage 与 Image/Bitmap 相比的实际好处是什么？**
 
-[IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) 统一了对光栅和矢量图像的处理，通过 [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) 简化了多种格式的保存，降低了对 `System.Drawing` 的依赖，使代码在不同环境间更加可移植。
+[IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) 统一处理光栅和矢量图像，通过 [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) 简化多种格式的保存，降低对 `System.Drawing` 的依赖，使代码在不同环境间更具可移植性。
 
 **现代 API 会影响生成缩略图的性能吗？**
 
-从 `GetThumbnail` 切换到 `GetImage` 不会导致性能下降：新方法在生成带有选项和尺寸的图像时提供相同的功能，并保持对渲染选项的支持。具体的提升或下降取决于使用场景，但在功能上两者是等价的。
+从 `GetThumbnail` 切换到 `GetImage` 并不会使场景变差：新方法提供相同的图像生成能力以及选项和尺寸支持，具体的性能提升或下降取决于使用场景，但功能上完全等价。

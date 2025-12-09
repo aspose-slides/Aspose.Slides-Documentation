@@ -1,23 +1,40 @@
 ---
-title: "PowerPoint aus PDF oder HTML importieren"
-linktitle: "Präsentation importieren"
+title: Importieren von Präsentationen aus PDF oder HTML in .NET
+linktitle: Präsentation importieren
 type: docs
 weight: 60
 url: /de/net/import-presentation/
-keywords: "PowerPoint importieren, PDF zu PowerPoint, HTML zu PowerPoint, PDF zu PPT, HTML zu PPT, C#, Csharp, Aspose.Slides für .NET"
-description: "PowerPoint aus PDF oder HTML importieren. PDF zu PowerPoint konvertieren. HTML zu PowerPoint konvertieren."
+keywords:
+- Präsentation importieren
+- Folie importieren
+- PDF importieren
+- HTML importieren
+- PDF zu Präsentation
+- PDF zu PPT
+- PDF zu PPTX
+- PDF zu ODP
+- HTML zu Präsentation
+- HTML zu PPT
+- HTML zu PPTX
+- HTML zu ODP
+- PowerPoint
+- OpenDocument
+- .NET
+- C#
+- Aspose.Slides
+description: "Importieren Sie PDF- und HTML-Dokumente mühelos in PowerPoint- und OpenDocument-Präsentationen in .NET mit Aspose.Slides für nahtlose, leistungsstarke Folienverarbeitung."
 ---
 
-Mit [**Aspose.Slides for .NET**](https://products.aspose.com/slides/net/), können Sie Präsentationen aus Dateien in anderen Formaten importieren. Aspose.Slides stellt die Klasse [SlideCollection](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/) bereit, mit der Sie Präsentationen aus PDF‑Dokumenten importieren können.
+Mit [**Aspose.Slides for .NET**](https://products.aspose.com/slides/net/) können Sie Präsentationen aus Dateien in anderen Formaten importieren. Aspose.Slides stellt die Klasse [SlideCollection](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/) zur Verfügung, um Präsentationen aus PDF‑Dokumenten zu importieren.
 
 ## **PowerPoint aus PDF importieren**
 
-Hierbei konvertieren Sie ein PDF in eine PowerPoint‑Präsentation.
+In diesem Fall können Sie ein PDF in eine PowerPoint‑Präsentation konvertieren.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom: 50%;" />
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). 
-2. Rufen Sie die Methode [AddFromPdf](https://reference.aspose.com/slides/net/aspose.slides.slidecollection/addfrompdf/methods/1) auf und übergeben die PDF‑Datei. 
+2. Rufen Sie die Methode [AddFromPdf](https://reference.aspose.com/slides/net/aspose.slides.slidecollection/addfrompdf/methods/1) auf und übergeben Sie die PDF‑Datei. 
 3. Verwenden Sie die Methode [Save](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/5), um die Datei im PowerPoint‑Format zu speichern.
 
 Dieser C#‑Code demonstriert die PDF‑zu‑PowerPoint‑Operation:
@@ -30,16 +47,16 @@ using (Presentation pres = new Presentation())
 ```
 
 
-{{% alert  title="TIP" color="primary" %}} 
-Vielleicht möchten Sie die kostenlose **Aspose** PDF‑zu‑PowerPoint‑Web‑App ausprobieren, da sie eine Live‑Implementierung des hier beschriebenen Vorgangs bietet. 
+{{% alert title="TIPP" color="primary" %}} 
+Vielleicht möchten Sie die kostenlose **Aspose**‑Webanwendung [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) ausprobieren, da sie eine Live‑Umsetzung des hier beschriebenen Vorgangs bietet. 
 {{% /alert %}} 
 
 ## **PowerPoint aus HTML importieren**
 
-Hierbei konvertieren Sie ein HTML‑Dokument in eine PowerPoint‑Präsentation.
+In diesem Fall können Sie ein HTML‑Dokument in eine PowerPoint‑Präsentation konvertieren.
 
 1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) . 
-2. Rufen Sie die Methode [AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addfromhtml/#addfromhtml) auf und übergeben die HTML‑Datei. 
+2. Rufen Sie die Methode [AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addfromhtml/#addfromhtml) auf und übergeben Sie die HTML‑Datei. 
 3. Verwenden Sie die Methode [Save](https://apireference.aspose.com/slides/net/aspose.slides.presentation/save/methods/5), um die Datei als PowerPoint‑Dokument zu speichern.
 
 Dieser C#‑Code demonstriert die HTML‑zu‑PowerPoint‑Operation: 
@@ -58,12 +75,12 @@ using (var presentation = new Presentation())
 
 ## **FAQ**
 
-**Werden Tabellen beim Importieren einer PDF erhalten und kann ihre Erkennung verbessert werden?**
+**Werden Tabellen beim Importieren eines PDFs erhalten und kann deren Erkennung verbessert werden?**
 
-Tabellen können beim Import erkannt werden; PdfImportOptions enthält einen Parameter DetectTables, der die Tabellenerkennung aktiviert. Die Wirksamkeit hängt von der Struktur der PDF ab.
+Tabellen können beim Import erkannt werden; [PdfImportOptions](https://reference.aspose.com/slides/net/aspose.slides.import/pdfimportoptions/) enthält einen Parameter [DetectTables](https://reference.aspose.com/slides/net/aspose.slides.import/pdfimportoptions/detecttables/), der die Tabellenerkennung aktiviert. Die Wirksamkeit hängt von der Struktur des PDFs ab.
 
-{{% alert title="Note" color="warning" %}} 
-Sie können Aspose.Slides außerdem verwenden, um HTML in andere gängige Dateiformate zu konvertieren: 
+{{% alert title="Hinweis" color="warning" %}} 
+Sie können Aspose.Slides auch verwenden, um HTML in andere gängige Dateiformate zu konvertieren: 
 
 * [HTML zu Bild](https://products.aspose.com/slides/net/conversion/html-to-image/)
 * [HTML zu JPG](https://products.aspose.com/slides/net/conversion/html-to-jpg/)

@@ -1,6 +1,6 @@
 ---
-title: Convertir PPT y PPTX a PDF en C# [Funciones avanzadas incluidas]
-linktitle: Convertir PPT y PPTX a PDF
+title: Convertir PPT y PPTX a PDF en .NET [Funciones avanzadas incluidas]
+linktitle: PowerPoint a PDF
 type: docs
 weight: 40
 url: /es/net/convert-powerpoint-to-pdf/
@@ -13,36 +13,37 @@ keywords:
 - convertir PPT a PDF
 - PPTX a PDF
 - convertir PPTX a PDF
-- ODP a PDF
-- convertir ODP a PDF
 - guardar PowerPoint como PDF
+- guardar PPT como PDF
+- guardar PPTX como PDF
+- exportar PPT a PDF
+- exportar PPTX a PDF
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
-- C#
-- Csharp
 - .NET
-- Aspose.Slides para .NET
-description: "Aprenda cómo convertir presentaciones PPT, PPTX y ODP a PDF en C# o .NET usando Aspose.Slides. Implemente funciones avanzadas como protección con contraseña, normas de cumplimiento y opciones personalizadas para obtener documentos PDF de alta calidad y accesibles."
+- C#
+- Aspose.Slides
+description: "Convertir PowerPoint PPT/PPTX a PDFs de alta calidad y buscables en .NET usando Aspose.Slides, con ejemplos de código C# rápidos y opciones de conversión avanzadas."
 ---
 
 ## **Visión general**
 
-Convertir presentaciones de PowerPoint (PPT, PPTX, ODP, etc.) a formato PDF en C# ofrece varias ventajas, incluida la compatibilidad entre diferentes dispositivos y la preservación del diseño y formato de su presentación. Esta guía muestra cómo convertir presentaciones a documentos PDF, usar diversas opciones para controlar la calidad de imagen, incluir diapositivas ocultas, proteger con contraseña los archivos PDF, detectar sustituciones de fuentes, seleccionar diapositivas específicas para la conversión y aplicar normas de cumplimiento a los documentos de salida.
+Convertir presentaciones de PowerPoint (PPT, PPTX, ODP, etc.) a formato PDF en C# ofrece varias ventajas, incluida la compatibilidad entre diferentes dispositivos y la preservación del diseño y formato de su presentación. Esta guía muestra cómo convertir presentaciones a documentos PDF, usar diversas opciones para controlar la calidad de imagen, incluir diapositivas ocultas, proteger con contraseña los archivos PDF, detectar sustituciones de fuentes, seleccionar diapositivas específicas para la conversión y aplicar estándares de cumplimiento a los documentos de salida.
 
 ## **Conversiones de PowerPoint a PDF**
 
-Con Aspose.Slides, puede convertir presentaciones en los siguientes formatos a PDF:
+Usando Aspose.Slides, puede convertir presentaciones en los siguientes formatos a PDF:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-Para convertir una presentación a PDF, pase el nombre del archivo como argumento a la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) y luego guarde la presentación como PDF usando un método [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). La clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) expone el método [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) que se utiliza típicamente para convertir una presentación a PDF.
+Para convertir una presentación a PDF, pase el nombre del archivo como argumento a la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) y luego guarde la presentación como PDF usando el método [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). La clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) expone el método [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) que se usa típicamente para convertir una presentación a PDF.
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-Aspose.Slides para .NET inserta la información de su API y el número de versión en los documentos de salida. Por ejemplo, al convertir una presentación a PDF, Aspose.Slides rellena el campo Application con "*Aspose.Slides*" y el campo PDF Producer con un valor en forma "*Aspose.Slides v XX.XX*". **Nota** que no puede indicarle a Aspose.Slides que cambie o elimine esta información de los documentos de salida.
+Aspose.Slides para .NET inserta la información de su API y el número de versión en los documentos de salida. Por ejemplo, al convertir una presentación a PDF, Aspose.Slides rellena el campo Application con "*Aspose.Slides*" y el campo PDF Producer con un valor en forma "*Aspose.Slides v XX.XX*". **Nota** que no puede instruir a Aspose.Slides para cambiar o eliminar esta información de los documentos de salida.
 
 {{% /alert %}}
 
@@ -51,7 +52,7 @@ Aspose.Slides le permite convertir:
 * Presentaciones completas a PDF
 * Diapositivas específicas de una presentación a PDF
 
-Aspose.Slides exporta presentaciones a PDF, garantizando que los PDFs resultantes coincidan estrechamente con las presentaciones originales. Los elementos y atributos se renderizan con precisión en la conversión, incluyendo:
+Aspose.Slides exporta presentaciones a PDF, garantizando que los PDF resultantes coincidan estrechamente con las presentaciones originales. Los elementos y atributos se renderizan con precisión en la conversión, incluyendo:
 
 * Imágenes
 * Cuadros de texto y formas
@@ -64,68 +65,68 @@ Aspose.Slides exporta presentaciones a PDF, garantizando que los PDFs resultante
 
 ## **Convertir PowerPoint a PDF**
 
-El proceso estándar de conversión de PowerPoint a PDF utiliza opciones predeterminadas. En este caso, Aspose.Slides intenta convertir la presentación proporcionada a PDF usando configuraciones óptimas al nivel máximo de calidad.
+El proceso estándar de conversión de PowerPoint a PDF utiliza opciones predeterminadas. En este caso, Aspose.Slides intenta convertir la presentación proporcionada a PDF usando configuraciones óptimas con los niveles máximos de calidad.
 
-Este código C# le muestra cómo convertir una presentación (PPT, PPTX, ODP, etc.) a PDF:
+Este código C# muestra cómo convertir una presentación (PPT, PPTX, ODP, etc.) a PDF:
 ```c#
-// Instanciar la clase Presentation que representa un archivo PowerPoint u OpenDocument.
+// Instanciar la clase Presentation que representa un archivo PowerPoint o OpenDocument.
 using var presentation = new Presentation("PowerPoint.ppt");
 
-// Guardar la presentación como PDF.
+// Save the presentation as a PDF.
 presentation.Save("PDF-result.pdf", SaveFormat.Pdf);
 ```
 
 
 {{%  alert  color="primary"  %}} 
 
-Aspose ofrece un convertidor gratuito en línea de PowerPoint a PDF [**convertidor de PowerPoint a PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) que demuestra el proceso de conversión de presentación a PDF. Puede ejecutar una prueba con este convertidor para una implementación en vivo del procedimiento descrito aquí.
+Aspose ofrece un [**convertidor gratuito en línea de PowerPoint a PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) que muestra el proceso de conversión de presentación a PDF. Puede ejecutar una prueba con este convertidor para una implementación en vivo del procedimiento descrito aquí.
 
 {{% /alert %}}
 
-## **Convertir PowerPoint a PDF con Opciones**
+## **Convertir PowerPoint a PDF con opciones**
 
-Aspose.Slides ofrece opciones personalizadas —propiedades bajo la clase [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/)— que le permiten personalizar el PDF resultante, proteger el PDF con una contraseña o especificar cómo debe proceder el proceso de conversión.
+Aspose.Slides proporciona opciones personalizadas—propiedades bajo la clase [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/)—que le permiten personalizar el PDF resultante, bloquear el PDF con una contraseña o especificar cómo debe proceder el proceso de conversión.
 
-### **Convertir PowerPoint a PDF con Opciones Personalizadas**
+### **Convertir PowerPoint a PDF con opciones personalizadas**
 
-Utilizando opciones de conversión personalizadas, puede definir su configuración de calidad preferida para imágenes rasterizadas, especificar cómo deben manejarse los metarchivos, establecer un nivel de compresión para el texto, configurar DPI para las imágenes y más.
+Usando opciones de conversión personalizadas, puede definir su configuración de calidad preferida para imágenes rasterizadas, especificar cómo deben manejarse los metafiles, establecer un nivel de compresión para el texto, configurar DPI para imágenes y más.
 
-El ejemplo de código a continuación muestra cómo convertir una presentación de PowerPoint a PDF con varias opciones personalizadas.
+El siguiente ejemplo de código muestra cómo convertir una presentación de PowerPoint a PDF con varias opciones personalizadas.
 ```c#
- // Instanciar la clase PdfOptions.
- var pdfOptions = new PdfOptions
- {
-     // Establecer la calidad para imágenes JPG.
-     JpegQuality = 90,
+// Instanciar la clase PdfOptions.
+var pdfOptions = new PdfOptions
+{
+    // Establecer la calidad para imágenes JPG.
+    JpegQuality = 90,
 
-     // Establecer DPI para imágenes.
-     SufficientResolution = 300,
+    // Establecer DPI para imágenes.
+    SufficientResolution = 300,
 
-     // Establecer el comportamiento para metafiles.
-     SaveMetafilesAsPng = true,
+    // Establecer el comportamiento para metafiles.
+    SaveMetafilesAsPng = true,
 
-     // Establecer el nivel de compresión de texto para contenido textual.
-     TextCompression = PdfTextCompression.Flate,
+    // Establecer el nivel de compresión de texto para contenido textual.
+    TextCompression = PdfTextCompression.Flate,
 
-     // Definir el modo de cumplimiento PDF.
-     Compliance = PdfCompliance.Pdf15
- };
+    // Definir el modo de cumplimiento PDF.
+    Compliance = PdfCompliance.Pdf15
+};
 
- // Instanciar la clase Presentation que representa un archivo PowerPoint u OpenDocument.
- using var presentation = new Presentation("PowerPoint.pptx");
+// Instanciar la clase Presentation que representa un archivo PowerPoint o OpenDocument.
+using var presentation = new Presentation("PowerPoint.pptx");
 
- // Guardar la presentación como documento PDF.
- presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
+// Guardar la presentación como un documento PDF.
+presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
 
-### **Convertir PowerPoint a PDF con Diapositivas Ocultas**
+### **Convertir PowerPoint a PDF con diapositivas ocultas**
 
 Si una presentación contiene diapositivas ocultas, puede usar la propiedad [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/showhiddenslides/) de la clase [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) para incluir las diapositivas ocultas como páginas en el PDF resultante.
 
-Este código C# muestra cómo convertir una presentación de PowerPoint a PDF incluyendo diapositivas ocultas:
+Este código C# muestra cómo convertir una presentación de PowerPoint a PDF incluyendo las diapositivas ocultas:
 ```c#
-// Instanciar la clase Presentation que representa un archivo PowerPoint u OpenDocument.
+// Instanciar la clase Presentation que representa un archivo PowerPoint o OpenDocument.
 using var presentation = new Presentation("PowerPoint.pptx");
 
 // Instanciar la clase PdfOptions.
@@ -139,17 +140,17 @@ presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
 
-### **Convertir PowerPoint a PDF Protegido con Contraseña**
+### **Convertir PowerPoint a PDF protegido con contraseña**
 
 Este código C# demuestra cómo convertir una presentación de PowerPoint en un PDF protegido con contraseña usando los parámetros de protección de la clase [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/):
 ```c#
-// Instanciar la clase Presentation que representa un archivo PowerPoint u OpenDocument.
+// Instanciar la clase Presentation que representa un archivo PowerPoint o OpenDocument.
 using var presentation = new Presentation("PowerPoint.pptx");
 
 // Instanciar la clase PdfOptions.
 var pdfOptions = new PdfOptions();
 
-// Establecer una contraseña PDF y permisos de acceso.
+// Establecer una contraseña PDF y los permisos de acceso.
 pdfOptions.Password = "password";
 pdfOptions.AccessPermissions = PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint;
 
@@ -158,26 +159,26 @@ presentation.Save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
 
-### **Detectar Sustituciones de Fuentes**
+### **Detectar sustituciones de fuentes**
 
-Aspose.Slides ofrece la propiedad [WarningCallback](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/warningcallback/) bajo la clase [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/), que permite detectar sustituciones de fuentes durante el proceso de conversión de presentación a PDF.
+Aspose.Slides proporciona la propiedad [WarningCallback](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/warningcallback/) bajo la clase [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/), lo que le permite detectar sustituciones de fuentes durante el proceso de conversión de presentación a PDF.
 
 Este código C# muestra cómo detectar sustituciones de fuentes:
 ```c#
 public static void Main()
 {
-    // Instanciar la clase Presentation que representa un archivo PowerPoint u OpenDocument.
+    // Instanciar la clase Presentation que representa un archivo PowerPoint o OpenDocument. 
     using var presentation = new Presentation("sample.pptx");
 
-    // Establecer el callback de advertencia en las opciones PDF.
+    // Establecer la devolución de llamada de advertencia en las opciones PDF.
     var pdfOptions = new PdfOptions();
     pdfOptions.WarningCallback = new FontSubstitutionHandler();
 
-    // Guardar la presentación como PDF.
+    // Guardar la presentación como un PDF.
     presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
 }
 
-// Implementación del callback de advertencia.
+// Implementación de la devolución de llamada de advertencia.
 private class FontSubstitutionHandler : IWarningCallback
 {
     public ReturnAction Warning(IWarningInfo warning)
@@ -196,20 +197,20 @@ private class FontSubstitutionHandler : IWarningCallback
 
 {{%  alert color="primary"  %}} 
 
-Para obtener más información sobre cómo recibir callbacks para sustituciones de fuentes durante el proceso de renderizado, consulte [Getting Warning Callbacks for Fonts Substitution](/slides/es/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
+Para obtener más información sobre la recepción de callbacks para sustituciones de fuentes durante el proceso de renderizado, consulte [Getting Warning Callbacks for Fonts Substitution](/slides/es/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
 
 Para obtener más información sobre la sustitución de fuentes, consulte el artículo [Font Substitution](/slides/es/net/font-substitution/).
 
 {{% /alert %}} 
 
-## **Convertir Diapositivas Seleccionadas de PowerPoint a PDF**
+## **Convertir diapositivas seleccionadas de PowerPoint a PDF**
 
 Este código C# demuestra cómo convertir solo diapositivas específicas de una presentación de PowerPoint a PDF:
 ```c#
 // Instanciar la clase Presentation que representa un archivo PowerPoint o OpenDocument.
 using var presentation = new Presentation("PowerPoint.pptx");
 
-// Establecer la matriz de números de diapositivas.
+// Establecer la matriz de números de diapositiva.
 int[] slides = { 1, 3 };
 
 // Guardar la presentación como PDF.
@@ -217,39 +218,39 @@ presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 ```
 
 
-## **Convertir PowerPoint a PDF con Tamaño de Diapositiva Personalizado**
+## **Convertir PowerPoint a PDF con tamaño de diapositiva personalizado**
 
 Este código C# demuestra cómo convertir una presentación de PowerPoint a PDF con un tamaño de diapositiva especificado:
 ```c#
 var slideWidth = 612;
 var slideHeight = 792;
 
-// Cargar una presentación de PowerPoint.
+// Load a PowerPoint presentation.
 using var presentation = new Presentation("SelectedSlides.pptx");
 
-// Crear una nueva presentación con un tamaño de diapositiva ajustado.
+// Create a new presentation with an adjusted slide size.
 using var resizedPresentation = new Presentation();
 
-// Establecer el tamaño de diapositiva personalizado.
+// Set the custom slide size.
 resizedPresentation.SlideSize.SetSize(slideWidth, slideHeight, SlideSizeScaleType.EnsureFit);
 
-// Clonar la primera diapositiva de la presentación original.
+// Clone the first slide from the original presentation.
 var slide = presentation.Slides[0];
 resizedPresentation.Slides.InsertClone(0, slide);
 
-// Guardar la presentación redimensionada en un PDF con notas.
+// Save the resized presentation to a PDF with notes.
 resizedPresentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf);
 ```
 
 
-## **Convertir PowerPoint a PDF en Vista de Notas**
+## **Convertir PowerPoint a PDF en vista de diapositivas de notas**
 
 Este código C# demuestra cómo convertir una presentación de PowerPoint a un PDF que incluye notas:
 ```c#
 // Cargar una presentación de PowerPoint.
 using var presentation = new Presentation("NotesFile.pptx");
 
-// Configurar las opciones PDF con diseño de notas.
+// Configure the PDF options with Notes Layout.
 var pdfOptions = new PdfOptions
 {
     SlidesLayoutOptions = new NotesCommentsLayoutingOptions
@@ -258,16 +259,16 @@ var pdfOptions = new PdfOptions
     }
 };
 
-// Guardar la presentación en un PDF con notas.
+// Save the presentation to a PDF with notes.
 presentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
 
-## **Accesibilidad y Normas de Cumplimiento para PDF**
+## **Accesibilidad y estándares de cumplimiento para PDF**
 
-Aspose.Slides le permite usar un procedimiento de conversión que cumple con las [Directrices de Accesibilidad para el Contenido Web (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Puede exportar un documento de PowerPoint a PDF usando cualquiera de estas normas de cumplimiento: **PDF/A1a**, **PDF/A1b** y **PDF/UA**.
+Aspose.Slides le permite utilizar un procedimiento de conversión que cumple con las [Directrices de Accesibilidad al Contenido Web (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Puede exportar un documento de PowerPoint a PDF usando cualquiera de estos estándares de cumplimiento: **PDF/A1a**, **PDF/A1b** y **PDF/UA**.
 
-Este código C# muestra un proceso de conversión de PowerPoint a PDF que produce varios PDFs basados en diferentes normas de cumplimiento:
+Este código C# demuestra un proceso de conversión de PowerPoint a PDF que produce varios PDFs basados en diferentes estándares de cumplimiento:
 ```c#
 using var presentation = new Presentation("pres.pptx");
 
@@ -290,7 +291,7 @@ presentation.Save("pres-ua-compliance.pdf", SaveFormat.Pdf, new PdfOptions
 
 {{% alert title="Note" color="warning" %}} 
 
-Aspose.Slides admite operaciones de conversión de PDF, permitiéndole convertir archivos PDF a formatos de archivo populares. Puede realizar conversiones de [PDF a HTML](https://products.aspose.com/slides/net/conversion/pdf-to-html/), [PDF a imagen](https://products.aspose.com/slides/net/conversion/pdf-to-image/), [PDF a JPG](https://products.aspose.com/slides/net/conversion/pdf-to-jpg/), y [PDF a PNG](https://products.aspose.com/slides/net/conversion/pdf-to-png/). Otras operaciones de conversión de PDF a formatos especializados —[PDF a SVG](https://products.aspose.com/slides/net/conversion/pdf-to-svg/), [PDF a TIFF](https://products.aspose.com/slides/net/conversion/pdf-to-tiff/), y [PDF a XML](https://products.aspose.com/slides/net/conversion/pdf-to-xml/)—también son compatibles.
+Aspose.Slides admite operaciones de conversión de PDF, lo que le permite convertir archivos PDF a formatos de archivo populares. Puede realizar conversiones de [PDF a HTML](https://products.aspose.com/slides/net/conversion/pdf-to-html/), [PDF a imagen](https://products.aspose.com/slides/net/conversion/pdf-to-image/), [PDF a JPG](https://products.aspose.com/slides/net/conversion/pdf-to-jpg/), y [PDF a PNG](https://products.aspose.com/slides/net/conversion/pdf-to-png/). Otras operaciones de conversión de PDF a formatos especializados—[PDF a SVG](https://products.aspose.com/slides/net/conversion/pdf-to-svg/), [PDF a TIFF](https://products.aspose.com/slides/net/conversion/pdf-to-tiff/), y [PDF a XML](https://products.aspose.com/slides/net/conversion/pdf-to-xml/)—también son compatibles.
 
 {{% /alert %}}
 
@@ -298,7 +299,7 @@ Aspose.Slides admite operaciones de conversión de PDF, permitiéndole convertir
 
 **¿Puedo convertir varios archivos PowerPoint a PDF en lote?**
 
-Sí, Aspose.Slides admite la conversión por lotes de varios archivos PPT o PPTX a PDF. Puede iterar a través de sus archivos y aplicar el proceso de conversión mediante programación.
+Sí, Aspose.Slides admite la conversión por lotes de varios archivos PPT o PPTX a PDF. Puede iterar a través de sus archivos y aplicar el proceso de conversión programáticamente.
 
 **¿Es posible proteger con contraseña el PDF convertido?**
 
@@ -312,9 +313,9 @@ Establezca la propiedad `ShowHiddenSlides` en la clase [PdfOptions](https://refe
 
 Sí, puede controlar la calidad de imagen estableciendo propiedades como `JpegQuality` y `SufficientResolution` en la clase [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) para garantizar imágenes de alta calidad en su PDF.
 
-**¿Aspose.Slides admite normas de cumplimiento PDF/A?**
+**¿Aspose.Slides admite estándares de cumplimiento PDF/A?**
 
-Sí, Aspose.Slides le permite exportar PDFs que cumplen con diversas normas, incluidas PDF/A1a, PDF/A1b y PDF/UA, garantizando que sus documentos cumplan con los requisitos de accesibilidad y archivo.
+Sí, Aspose.Slides le permite exportar PDFs que cumplen con varios estándares, incluidos PDF/A1a, PDF/A1b y PDF/UA, asegurando que sus documentos cumplan con los requisitos de accesibilidad y archivo.
 
 ## **Recursos adicionales**
 

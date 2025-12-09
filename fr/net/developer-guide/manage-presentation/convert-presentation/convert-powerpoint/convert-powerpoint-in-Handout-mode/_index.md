@@ -1,35 +1,36 @@
 ---
-title: Convertir des présentations en mode Handout en C#
+title: Convertir des présentations PowerPoint en mode Handout dans .NET
+linktitle: Mode Handout
 type: docs
 weight: 150
 url: /fr/net/convert-powerpoint-in-Handout-mode/
 keywords:
 - convertir PowerPoint
-- mode de distribution
-- document de distribution
+- convertir présentation
+- mode handout
+- document de travail
 - PowerPoint
+- présentation
 - PPT
 - PPTX
-- présentation
-- C#
-- Csharp
 - .NET
+- C#
 - Aspose.Slides
-description: "Convertir des présentations en mode Handout en C#"
+description: "Convertir des présentations en documents de travail dans .NET. Définir le nombre de diapositives par page, conserver les notes, exporter en PDF ou images avec Aspose.Slides, avec un exemple de code C#. Essayez gratuitement."
 ---
 
 ## **Exportation en mode Handout**
 
-Aspose.Slides offre la possibilité de convertir des présentations en différents formats, y compris la création de feuilles de travail pour l’impression en mode Handout. Ce mode vous permet de configurer la façon dont plusieurs diapositives apparaissent sur une même page, ce qui est utile pour les conférences, séminaires et autres événements. Vous pouvez activer ce mode en définissant la propriété `SlidesLayoutOptions` dans les interfaces [IPdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/ihtmloptions/) et [ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/).
+Aspose.Slides offre la possibilité de convertir des présentations en divers formats, y compris la création de documents de travail prêts à être imprimés en mode Handout. Ce mode vous permet de configurer la façon dont plusieurs diapositives apparaissent sur une seule page, ce qui le rend utile pour les conférences, séminaires et autres événements. Vous pouvez activer ce mode en définissant la propriété `SlidesLayoutOptions` dans les interfaces [IPdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/ihtmloptions/) et [ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/).
 
-Pour configurer le mode Handout, utilisez l’objet [HandoutLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/handoutlayoutingoptions/), qui détermine combien de diapositives sont placées sur une page et d’autres paramètres d’affichage.
+Pour configurer le mode Handout, utilisez l’objet [HandoutLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/handoutlayoutingoptions/), qui détermine le nombre de diapositives placées sur une page unique ainsi que d’autres paramètres d’affichage.
 
-Ci-dessous un exemple de code montrant comment convertir une présentation en PDF en mode Handout.
+Ci‑dessous, un exemple de code montrant comment convertir une présentation en PDF en mode Handout.
 ```c#
 // Charger une présentation.
 using var presentation = new Presentation("sample.pptx");
 
-// Set the export options.
+// Définir les options d'exportation.
 var pdfOptions = new PdfOptions
 {
     SlidesLayoutOptions = new HandoutLayoutingOptions
@@ -41,14 +42,14 @@ var pdfOptions = new PdfOptions
     }
 };
 
-// Export the presentation to PDF with the chosen layout.
+// Exporter la présentation en PDF avec la disposition choisie.
 presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
 
 {{% alert color="warning" %}} 
 
-Gardez à l’esprit que la propriété `SlidesLayoutOptions` n’est disponible que pour certains formats de sortie, tels que PDF, HTML, TIFF, et lors du rendu en tant qu’images.
+Gardez à l’esprit que la propriété `SlidesLayoutOptions` n’est disponible que pour certains formats de sortie, tels que PDF, HTML, TIFF, et lors du rendu en images.
 
 {{% /alert %}} 
 
@@ -56,11 +57,11 @@ Gardez à l’esprit que la propriété `SlidesLayoutOptions` n’est disponible
 
 **Quel est le nombre maximal de vignettes de diapositives par page en mode Handout ?**
 
-Aspose.Slides prend en charge les [préréglages](https://reference.aspose.com/slides/net/aspose.slides.export/handouttype/) jusqu’à 9 vignettes par page avec un ordre horizontal ou vertical : 1, 2, 3, 4 (horizontal/vertical), 6 (horizontal/vertical) et 9 (horizontal/vertical).
+Aspose.Slides prend en charge les [préréglages](https://reference.aspose.com/slides/net/aspose.slides.export/handouttype/) allant jusqu’à 9 vignettes par page avec un ordre horizontal ou vertical : 1, 2, 3, 4 (horizontal/vertical), 6 (horizontal/vertical) et 9 (horizontal/vertical).
 
 **Puis‑je définir une grille personnalisée, comme 5 ou 8 diapositives par page ?**
 
-Non. Le nombre et l’ordre des vignettes sont contrôlés strictement par l’énumération [HandoutType](https://reference.aspose.com/slides/net/aspose.slides.export/handouttype/) ; les dispositions arbitraires ne sont pas prises en charge.
+Non. Le nombre et l’ordre des vignettes sont contrôlés strictement par l’énumération [HandoutType](https://reference.aspose.com/slides/net/aspose.slides.export/handouttype/) ; les mises en page arbitraires ne sont pas prises en charge.
 
 **Puis‑je inclure des diapositives masquées dans la sortie Handout ?**
 

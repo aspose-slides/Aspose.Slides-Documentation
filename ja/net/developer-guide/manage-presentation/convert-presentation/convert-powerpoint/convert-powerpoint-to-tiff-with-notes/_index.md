@@ -1,57 +1,58 @@
 ---
-title: PowerPointをC#でノート付きTIFFに変換
-linktitle: PowerPointをノート付きTIFFに変換
+title: .NETでノート付きPowerPointプレゼンテーションをTIFFに変換
+linktitle: ノート付きPowerPointからTIFFへ
 type: docs
 weight: 100
 url: /ja/net/convert-powerpoint-to-tiff-with-notes/
 keywords:
-- PowerPointをTIFFに変換
-- プレゼンテーションをTIFFに変換
-- スライドをTIFFに変換
-- PPTをTIFFに変換
-- PPTXをTIFFに変換
-- ODPをTIFFに変換
-- PowerPointをTIFFに変換
-- プレゼンテーションをTIFFに変換
-- スライドをTIFFに変換
-- PPTをTIFFに変換
-- PPTXをTIFFに変換
-- ODPをTIFFに変換
-- ノート付きPowerPoint
+- PowerPoint を変換
+- プレゼンテーション を変換
+- スライド を変換
+- PPT を変換
+- PPTX を変換
+- PowerPoint を TIFF に
+- プレゼンテーション を TIFF に
+- スライド を TIFF に
+- PPT を TIFF に
+- PPTX を TIFF に
+- PPT を TIFF として保存
+- PPTX を TIFF として保存
+- PPT を TIFF にエクスポート
+- PPTX を TIFF にエクスポート
+- ノート付き PowerPoint
 - ノート付きプレゼンテーション
 - ノート付きスライド
-- ノート付きPPT
-- ノート付きPPTX
-- ノート付きODP
-- ノート付きTIFF
-- C#
+- ノート付き PPT
+- ノート付き PPTX
+- ノート付き TIFF
 - .NET
+- C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して、PowerPoint および OpenDocument のプレゼンテーションをノート付き TIFF に変換します。スピーカーノート付きスライドを効率的にエクスポートする方法を学びましょう。"
+description: "Aspose.Slides for .NET を使用して、ノート付き PowerPoint プレゼンテーションを TIFF に変換します。スライドとスピーカーノートを効率的にエクスポートする方法を学びます。"
 ---
 
 ## **概要**
 
-Aspose.Slides for .NET は、PowerPoint および OpenDocument プレゼンテーション (PPT、PPTX、ODP) をノート付きで TIFF 形式に変換するシンプルなソリューションを提供します。この形式は高品質な画像保存、印刷、文書アーカイブに広く利用されています。Aspose.Slides を使用すれば、スピーカーノートを含むプレゼンテーション全体をエクスポートできるだけでなく、Notes スライドビューでスライドサムネイルを生成することもできます。変換プロセスはシンプルで効率的で、`Save` メソッドと [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスを利用して、ノートとレイアウトを保持しながらプレゼンテーション全体を一連の TIFF 画像に変換します。
+Aspose.Slides for .NET は、ノート付きの PowerPoint および OpenDocument プレゼンテーション（PPT、PPTX、ODP）を TIFF 形式に変換するシンプルなソリューションを提供します。この形式は高品質な画像保存、印刷、文書アーカイブに広く利用されています。Aspose.Slides を使用すると、スピーカーノート付きのプレゼンテーション全体をエクスポートできるだけでなく、Notes Slide ビューでスライドのサムネイルを生成することも可能です。変換プロセスはシンプルで効率的で、`Save` メソッドを利用して [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラス全体のプレゼンテーションを一連の TIFF 画像に変換し、ノートとレイアウトを保持します。
 
-## **プレゼンテーションを Notes 付き TIFF に変換**
+## **プレゼンテーションをノート付きの TIFF に変換**
 
-Aspose.Slides for .NET を使用して PowerPoint または OpenDocument プレゼンテーションをノート付きで TIFF に保存する手順は次のとおりです。
+Aspose.Slides for .NET を使用して、ノート付きで PowerPoint または OpenDocument プレゼンテーションを TIFF に保存するには、次の手順が必要です。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスをインスタンス化して PowerPoint または OpenDocument ファイルをロードします。
-1. 出力レイアウトオプションを構成します。[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/) クラスを使用してノートとコメントの表示方法を指定します。
-1. プレゼンテーションを TIFF に保存します。構成したオプションを [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) メソッドに渡します。
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します: PowerPoint または OpenDocument ファイルをロードします。
+2. 出力レイアウトオプションを構成します: [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/) クラスを使用して、ノートとコメントの表示方法を指定します。
+3. プレゼンテーションを TIFF に保存します: 設定したオプションを [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) メソッドに渡します。
 
-たとえば、次のスライドを含む "speaker_notes.pptx" ファイルがあるとします。
+たとえば、"speaker_notes.pptx" ファイルに次のスライドがあるとします。
 
-![The presentation slide with speaker notes](slide_with_notes.png)
+![スピーカーノート付きのプレゼンテーションスライド](slide_with_notes.png)
 
-以下のコードスニペットは、[SlidesLayoutOptions](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/slideslayoutoptions/) プロパティを使用して Notes スライドビューでプレゼンテーションを TIFF 画像に変換する方法を示しています。
+以下のコードスニペットは、[SlidesLayoutOptions](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/slideslayoutoptions/) プロパティを使用して、Notes Slide ビューでプレゼンテーションを TIFF 画像に変換する方法を示しています。
 ```c#
- // プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
 using (Presentation presentation = new Presentation("speaker_notes.pptx"))
 {
-    // Notes レイアウトで TIFF オプションを構成します。
+    // ノートのレイアウト設定を含む TIFF オプションを構成します。
     TiffOptions tiffOptions = new TiffOptions
     {
         DpiX = 300,
@@ -71,24 +72,22 @@ using (Presentation presentation = new Presentation("speaker_notes.pptx"))
 
 結果:
 
-![The TIFF image with speaker notes](TIFF_with_notes.png)
+![スピーカーノート付きの TIFF 画像](TIFF_with_notes.png)
 
 {{% alert title="Tip" color="primary" %}}
-
-Aspose の [無料 PowerPoint からポスターへのコンバータ](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online) をお試しください。
-
+Aspose の [Free PowerPoint to Poster Converter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online) をご確認ください。
 {{% /alert %}}
 
-## **FAQ**
+## **よくある質問**
 
-**結果の TIFF でノート領域の位置を制御できますか？**
+**結果の TIFF のノート領域の位置を制御できますか？**
 
-はい。[notes layout settings](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/slideslayoutoptions/) を使用して、`None`、`BottomTruncated`、`BottomFull` のいずれかを選択できます。これらはそれぞれ、ノートを非表示にする、1 ページに収める、または複数ページにわたって表示することを意味します。
+はい。[notes layout settings](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/slideslayoutoptions/) を使用して、`None`、`BottomTruncated`、`BottomFull` などのオプションから選択できます。これらはそれぞれノートを非表示にし、単一ページに収め、または追加ページに続けて表示します。
 
-**品質の目立った低下なしにノート付き TIFF ファイルのサイズを削減する方法は？**
+**品質の目に見える損失なしで、ノート付き TIFF ファイルのサイズを削減するにはどうすればよいですか？**
 
-[efficient compression](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/compressiontype/)（例: `LZW` または `RLE`）を選び、適切な DPI を設定し、許容できる場合は低い [pixel format](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/pixelformat/)（例えば 8 bpp やモノクロ用の 1 bpp）を使用します。また、[image dimensions](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/imagesize/) を僅かに縮小することでも、可読性に大きな影響を与えずにサイズ削減が可能です。
+[efficient compression](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/compressiontype/)（例: `LZW` や `RLE`）を選択し、適切な DPI を設定します。また、許容できる場合は、[pixel format](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/pixelformat/)（例: 8 bpp や 1 bpp のモノクロ）を低く設定します。[image dimensions](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/imagesize/) をわずかに縮小することでも、可読性に大きな影響を与えずにサイズを減らすことができます。
 
-**ノートのフォントがシステムに存在しない場合、結果に影響しますか？**
+**システムに元のフォントがない場合、ノートのフォントは結果に影響しますか？**
 
-はい。フォントが見つからないと [substitution](/slides/ja/net/font-selection-sequence/) が発生し、テキストのメトリクスや外観が変わる可能性があります。これを防ぐには、[required fonts](/slides/ja/net/custom-font/) を提供するか、デフォルトの [fallback font](/slides/ja/net/fallback-font/) を設定して、意図した書体が使用されるようにしてください。
+はい。フォントが欠如すると [substitution](/slides/ja/net/font-selection-sequence/) が発生し、テキストのメトリクスや外観が変わる可能性があります。これを防ぐには、[required fonts](/slides/ja/net/custom-font/) を提供するか、デフォルトの [fallback font](/slides/ja/net/fallback-font/) を設定して、意図した書体が使用されるようにします。

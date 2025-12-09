@@ -1,53 +1,67 @@
 ---
-title: Конвертировать PPT в PPTX на C#
-linktitle: Конвертировать PPT в PPTX
+title: Конвертировать PPT в PPTX в .NET
+linktitle: PPT в PPTX
 type: docs
 weight: 20
 url: /ru/net/convert-ppt-to-pptx/
-keywords: "C# Конвертировать PPT в PPTX, Конвертировать презентацию PowerPoint, PPT в PPTX, C#, Csharp, .NET, Aspose.Slides"
-description: "Конвертировать PowerPoint PPT в PPTX на C# или .NET"
+keywords:
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPT
+- PPT в PPTX
+- сохранить PPT как PPTX
+- экспортировать PPT в PPTX
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Конвертировать устаревшие презентации PPT в современные PPTX быстро в .NET с помощью Aspose.Slides — понятный учебник, бесплатные примеры кода C#, без зависимости от Microsoft Office."
 ---
 
 ## **Обзор**
 
-Эта статья объясняет, как преобразовать презентацию PowerPoint в формате PPT в формат PPTX с помощью C# и онлайн‑приложения преобразования PPT в PPTX. Рассматривается следующая тема.
+В этой статье объясняется, как преобразовать презентацию PowerPoint в формате PPT в формат PPTX с использованием C# и онлайн‑приложения для конвертации PPT в PPTX. Рассмотрены следующие темы.
 
-- [Преобразовать PPT в PPTX на C#](#convert-ppt-to-pptx)
+- [Конвертировать PPT в PPTX на C#](#convert-ppt-to-pptx)
 
-## **C# Преобразование PPT в PPTX**
+## **C# Конвертация PPT в PPTX**
 
-Для примера кода на C# по преобразованию PPT в PPTX см. раздел ниже, то есть [Convert PPT to PPTX](#convert-ppt-to-pptx). Он просто загружает файл PPT и сохраняет его в формате PPTX. Указывая разные форматы сохранения, вы также можете сохранять файл PPT в многие другие форматы, такие как PDF, XPS, ODP, HTML и т.д., как описано в этих статьях. 
+Для примера кода C# для конвертации PPT в PPTX см. раздел ниже, а именно [Конвертировать PPT в PPTX](#convert-ppt-to-pptx). Он просто загружает файл PPT и сохраняет его в формате PPTX. Указывая различные форматы сохранения, вы также можете сохранять файл PPT в многие другие форматы, такие как PDF, XPS, ODP, HTML и т. д., как обсуждается в этих статьях. 
 
-- [C# Convert PPT to PDF](https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/)
-- [C# Convert PPT to XPS](https://docs.aspose.com/slides/net/convert-powerpoint-to-xps/)
-- [C# Convert PPT to HTML](https://docs.aspose.com/slides/net/convert-powerpoint-to-html/)
-- [C# Convert PPT to ODP](https://docs.aspose.com/slides/net/save-presentation/)
-- [C# Convert PPT to Image](https://docs.aspose.com/slides/net/convert-powerpoint-to-png/)
+- [C# Конвертировать PPT в PDF](https://docs.aspose.com/slides/net/convert-powerpoint-to-pdf/)
+- [C# Конвертировать PPT в XPS](https://docs.aspose.com/slides/net/convert-powerpoint-to-xps/)
+- [C# Конвертировать PPT в HTML](https://docs.aspose.com/slides/net/convert-powerpoint-to-html/)
+- [C# Конвертировать PPT в ODP](https://docs.aspose.com/slides/net/save-presentation/)
+- [C# Конвертировать PPT в изображение](https://docs.aspose.com/slides/net/convert-powerpoint-to-png/)
 
-## **О преобразовании PPT в PPTX**
-Преобразуйте старый формат PPT в PPTX с помощью Aspose.Slides API. Если вам нужно преобразовать тысячи презентаций PPT в формат PPTX, лучшее решение — сделать это программно. С Aspose.Slides API это возможно выполнить всего в несколько строк кода. API поддерживает полную совместимость для преобразования презентаций PPT в PPTX и позволяет:
+## **О конвертации PPT в PPTX**
 
-- Преобразовать сложные структуры мастеров, макетов и слайдов.
-- Преобразовать презентацию с диаграммами.
-- Преобразовать презентацию с групповыми фигурами, автофигурами (например, прямоугольниками и эллипсами), фигурами с пользовательской геометрией.
-- Преобразовать презентацию, содержащую текстуры и стили заполнения картинками для автофигур.
-- Преобразовать презентацию с заполнителями, текстовыми фреймами и текстовыми контейнерами.
+Преобразуйте старый формат PPT в PPTX с помощью Aspose.Slides API. Если вам требуется конвертировать тысячи презентаций PPT в формат PPTX, наилучшее решение — сделать это программно. С Aspose.Slides API это возможно выполнить всего в несколькими строками кода. API обеспечивает полную совместимость для конвертации презентаций PPT в PPTX, и возможно:
+
+- Конвертировать сложные структуры мастеров, макетов и слайдов.
+- Конвертировать презентацию с диаграммами.
+- Конвертировать презентацию с групповыми фигурами, автофигурами (например, прямоугольниками и эллипсами), фигурами с пользовательской геометрией.
+- Конвертировать презентацию, содержащую текстуры и стили заполнения изображениями для автофигур.
+- Конвертировать презентацию с заполнителями, текстовыми рамками и текстовыми объектами.
 
 {{% alert color="primary" %}} 
 
-Взгляните на [**Aspose.Slides PPT to PPTX Conversion**](https://products.aspose.app/slides/conversion/ppt-to-pptx) приложение:
+Посмотрите на приложение [**Конвертация PPT в PPTX Aspose.Slides**](https://products.aspose.app/slides/conversion/ppt-to-pptx) app:
 
 [](https://products.aspose.app/slides/conversion/ppt-to-pptx)
 
 [![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/conversion/ppt-to-pptx)
 
-Это приложение построено на **Aspose.Slides API**, поэтому вы можете увидеть живой пример базовых возможностей преобразования PPT в PPTX. Aspose.Slides Conversion — это веб‑приложение, которое позволяет загрузить файл презентации в формате PPT и скачать его уже в формате PPTX.
+Это приложение построено на основе **Aspose.Slides API**, поэтому вы можете увидеть живой пример базовых возможностей конвертации PPT в PPTX. Aspose.Slides Conversion — это веб‑приложение, которое позволяет загрузить файл презентации в формате PPT и скачать его в конвертированном виде PPTX.
 
-Найдите другие живые [**Aspose.Slides Conversion**](https://products.aspose.app/slides/conversion/) примеры.
+Найдите другие живые [**Конвертация Aspose.Slides**](https://products.aspose.app/slides/conversion/) примеры.
 {{% /alert %}} 
 
-## **Преобразовать PPT в PPTX**
-Чтобы преобразовать PPT в PPTX, просто передайте имя файла и формат сохранения методу [**Save**](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) класса [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation). Пример кода на C# ниже преобразует презентацию из PPT в PPTX, используя параметры по умолчанию.
+
+## **Конвертировать PPT в PPTX**
+Чтобы конвертировать PPT в PPTX, просто передайте имя файла и формат сохранения в метод [**Save**](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) класса [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation). Приведенный ниже пример кода C# конвертирует презентацию из PPT в PPTX, используя параметры по умолчанию.
 ```c#
 // Создать объект Presentation, представляющий файл PPTX
 Presentation pres = new Presentation("PPTtoPPTX.ppt");
@@ -57,34 +71,34 @@ pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
 ```
 
 
-Читайте подробнее о [**PPT vs PPTX**](/slides/ru/net/ppt-vs-pptx/) форматах презентаций и о том, как [**Aspose.Slides поддерживает преобразование PPT в PPTX**](/slides/ru/net/convert-ppt-to-pptx/).
+Узнайте больше о форматах презентаций [**PPT против PPTX**](/slides/ru/net/ppt-vs-pptx/) и о том, как [**Aspose.Slides поддерживает конвертацию PPT в PPTX**](/slides/ru/net/convert-ppt-to-pptx/).
 
-## **FAQ**
+## **Вопросы и ответы**
 
 **В чем разница между форматами PPT и PPTX?**
 
-PPT — это старый двоичный формат файлов, используемый Microsoft PowerPoint, тогда как PPTX — это новый XML‑основанный формат, введённый в Microsoft Office 2007. Файлы PPTX обеспечивают более высокую производительность, меньший размер и лучшую восстановляемость данных.
+PPT — это более старый двоичный формат файлов, используемый Microsoft PowerPoint, тогда как PPTX — более новый формат на основе XML, введённый в Microsoft Office 2007. Файлы PPTX обеспечивают лучшую производительность, меньший размер и улучшенное восстановление данных.
 
-**Можно ли преобразовать PPT в PPTX с помощью .NET?**
+**Можно ли конвертировать PPT в PPTX с помощью .NET?**
 
-Да, используя библиотеку Aspose.Slides for .NET, вы можете легко загрузить файл PPT и сохранить его в формате PPTX всего за несколько строк кода.
+Да, используя библиотеку Aspose.Slides для .NET, вы можете легко загрузить файл PPT и сохранить его в формате PPTX всего за несколько строк кода.
 
-**Поддерживает ли Aspose.Slides пакетное преобразование нескольких файлов PPT в PPTX?**
+**Поддерживает ли Aspose.Slides пакетную конвертацию нескольких файлов PPT в PPTX?**
 
-Да, вы можете использовать Aspose.Slides в цикле для программного преобразования множества файлов PPT в PPTX, что подходит для пакетных сценариев.
+Да, вы можете использовать Aspose.Slides в цикле для программной конвертации нескольких файлов PPT в PPTX, что делает его подходящим для сценариев пакетной конвертации.
 
-**Сохранятся ли содержание и форматирование после преобразования?**
+**Будут ли сохранены содержание и форматирование после конвертации?**
 
-Aspose.Slides обеспечивает высокую точность преобразования презентаций. Макеты слайдов, анимации, фигуры, диаграммы и другие элементы дизайна сохраняются при преобразовании PPT в PPTX.
+Aspose.Slides сохраняет высокую точность при конвертации презентаций. Макеты слайдов, анимации, фигуры, диаграммы и другие элементы дизайна сохраняются при конвертации PPT в PPTX.
 
-**Можно ли преобразовать другие форматы, такие как PDF или HTML, из файлов PPT?**
+**Можно ли конвертировать другие форматы, такие как PDF или HTML, из файлов PPT?**
 
-Да, Aspose.Slides поддерживает преобразование файлов PPT в несколько форматов, включая PDF, XPS, HTML, ODP и графические форматы, такие как PNG и JPEG.
+Да, Aspose.Slides поддерживает конвертацию файлов PPT в несколько форматов, включая PDF, XPS, HTML, ODP и форматы изображений, такие как PNG и JPEG.
 
-**Возможно ли преобразовать PPT в PPTX без установленного Microsoft PowerPoint?**
+**Можно ли конвертировать PPT в PPTX без установленного Microsoft PowerPoint?**
 
-Да, Aspose.Slides for .NET — это автономный API, не требующий Microsoft PowerPoint или стороннего программного обеспечения для выполнения преобразования.
+Да, Aspose.Slides для .NET — это автономный API, который не требует установленного Microsoft PowerPoint или какого-либо стороннего программного обеспечения для выполнения конвертации.
 
-**Существует ли онлайн‑инструмент для преобразования PPT в PPTX?**
+**Существует ли онлайн‑инструмент для конвертации PPT в PPTX?**
 
-Да, вы можете воспользоваться бесплатным веб‑приложением [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/conversion/ppt-to-pptx) для выполнения преобразования напрямую в браузере без написания кода.
+Да, вы можете использовать бесплатное веб‑приложение [Конвертер PPT в PPTX Aspose.Slides](https://products.aspose.app/slides/conversion/ppt-to-pptx) для выполнения конвертации непосредственно в браузере без написания кода.

@@ -1,34 +1,48 @@
 ---
-title: Aspose.Slides for .NET 15.1.0 中的公共 API 和不兼容的变化
+title: Aspose.Slides for .NET 15.1.0 中的公共 API 和向后不兼容的更改
+linktitle: Aspose.Slides for .NET 15.1.0
 type: docs
 weight: 130
 url: /zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/
+keywords:
+- 迁移
+- 遗留代码
+- 现代代码
+- 遗留方法
+- 现代方法
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- .NET
+- C#
+- Aspose.Slides
+description: "审阅 Aspose.Slides for .NET 中的公共 API 更新和破坏性更改，以顺利迁移您的 PowerPoint PPT、PPTX 和 ODP 演示文稿解决方案。"
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
-此页面列出了所有在 Aspose.Slides for .NET 15.1.0 API 中[添加的](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/)或[移除的](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/)类、方法、属性等，以及其他变化。
+此页面列出了所有[added](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/)或[removed](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/)的类、方法、属性等，以及 Aspose.Slides for .NET 15.1.0 API 引入的其他更改。
 
-{{% /alert %}} 
-## **公共 API 变化**
-#### **添加了字体替换功能**
-添加了在演示文稿中全局替换字体的可能性，并用于渲染的临时替代。
+{{% /alert %}}
+## **Public API Chages**
+#### **Fonts substitutions functinality has been added**
+已添加在整个演示文稿中全局替换字体以及在渲染时临时替换的功能。
 
-引入了演示文稿类的新属性 "FontsManager"。FontsManager 类具有以下成员：
+已在 Presentation 类中引入名为 "FontsManager" 的新属性。FontsManager 类包含以下成员：
 
-**IFontSubstRuleCollection FontSubstRuleList** 属性
+**IFontSubstRuleCollection FontSubstRuleList** Property
 
-此集合由 IFontSubstRule 实例组成，用于在渲染过程中替换字体。IFontSubstRule 具有 SourceFont 和 DestFont 属性，接口实现 IFontData，并具有 ReplaceFontCondition 属性允许选择替换条件（"WhenInaccessible" 或 "Always"）。
+该集合包含 IFontSubstRule 实例，用于在渲染时替换字体。IFontSubstRule 拥有实现 IFontData 接口的 SourceFont 和 DestFont 属性，以及 ReplaceFontCondition 属性，可选择替换条件（"WhenInaccessible" 或 "Always"）。
 
-**IFontData[] GetFonts()** 方法
+**IFontData[] GetFonts()** Method
 
 用于检索当前演示文稿中使用的所有字体。
 
-**ReplaceFont** 方法
+**ReplaceFont** Methods
 
-用于在演示文稿中持久性替换字体。
+用于在演示文稿中持久地替换字体。
 
-以下示例演示了如何替换演示文稿中的字体：
+以下示例演示了如何在演示文稿中替换字体：
 
 ``` csharp
 
@@ -42,9 +56,10 @@ url: /zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 
             pres.Save("PresContainsTimesNoewRomanFont.pptx", SaveFormat.Pptx);
 
+
 ``` 
 
-另一个示例演示了当字体不可访问时的渲染字体替换：
+另一个示例演示在渲染时无法访问时的字体替换：
 
 ``` csharp
 
@@ -64,8 +79,8 @@ url: /zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 
             pres.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
 
-            // 当 SomeRareFont 不可访问时，将使用 Arial 字体
+            // Arial font will be used instead of SomeRareFont when inaccessible
 
             pres.Slides[0].GetThumbnail();
 
-``` 
+```

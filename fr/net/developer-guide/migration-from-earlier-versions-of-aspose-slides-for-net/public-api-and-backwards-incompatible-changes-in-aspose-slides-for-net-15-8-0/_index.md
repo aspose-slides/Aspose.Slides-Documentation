@@ -1,16 +1,30 @@
 ---
-title: API Publique et Changements Incompatibles avec les Versions Précédentes dans Aspose.Slides pour .NET 15.8.0
+title: API publique et changements rétrocompatibles incompatibles dans Aspose.Slides pour .NET 15.8.0
+linktitle: Aspose.Slides pour .NET 15.8.0
 type: docs
 weight: 190
 url: /fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/
+keywords:
+- migration
+- code hérité
+- code moderne
+- approche héritée
+- approche moderne
+- PowerPoint
+- OpenDocument
+- présentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Examinez les mises à jour de l'API publique et les changements majeurs dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentations PowerPoint PPT, PPTX et ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Cette page liste toutes les [ajouts](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) ou [suppressions](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) de classes, méthodes, propriétés, etc., et d'autres changements introduits avec l'API Aspose.Slides pour .NET 15.8.0.
+Cette page répertorie toutes les classes, méthodes, propriétés et ainsi de suite [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) ou [supprimées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/), ainsi que les autres changements introduits avec l'API Aspose.Slides for .NET 15.8.0.
 
 {{% /alert %}} 
-## **Changements de l'API Publique**
+## **Modifications de l'API publique**
 #### **La propriété DoughnutHoleSize a été ajoutée à IChartSeries et ChartSeries**
 Spécifie la taille du trou dans un graphique en anneau.
 

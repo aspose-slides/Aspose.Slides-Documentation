@@ -1,33 +1,40 @@
 ---
-title: HTML5 にエクスポート
+title: .NET でプレゼンテーションを HTML5 に変換
+linktitle: プレゼンテーションを HTML5 に変換
 type: docs
 weight: 40
 url: /ja/net/export-to-html5/
 keywords:
-- PowerPoint を HTML に変換
-- スライドを HTML に変換
-- HTML5
-- HTML エクスポート
-- プレゼンテーションをエクスポート
-- プレゼンテーションを変換
-- スライドを変換
+- PowerPoint を HTML5 に変換
+- OpenDocument を HTML5 に変換
+- プレゼンテーションを HTML5 に変換
+- スライドを HTML5 に変換
+- PPT を HTML5 に変換
+- PPTX を HTML5 に変換
+- ODP を HTML5 に変換
+- PPT を HTML5 として保存
+- PPTX を HTML5 として保存
+- ODP を HTML5 として保存
+- PPT を HTML5 にエクスポート
+- PPTX を HTML5 にエクスポート
+- ODP を HTML5 にエクスポート
+- .NET
 - C#
-- C#
-- Aspose.Slides for .NET
-description: "C# または .NET で PowerPoint を HTML5 にエクスポート"
+- Aspose.Slides
+description: "Aspose.Slides for .NET を使用して、PowerPoint および OpenDocument プレゼンテーションをレスポンシブな HTML5 にエクスポートします。書式、アニメーション、インタラクティブ性を保持します。"
 ---
 
-{{% alert title="情報" color="info" %}}
+{{% alert title="Info" color="info" %}}
 
-[Aspose.Slides 21.9](/slides/ja/net/aspose-slides-for-net-21-9-release-notes/) では HTML5 エクスポートのサポートを実装しました。ただし、WebExtensions を使用して PowerPoint を HTML にエクスポートしたい場合は、代わりに [この記事](/slides/ja/net/web-extensions/)をご参照ください。
+[Aspose.Slides 21.9](/slides/ja/net/aspose-slides-for-net-21-9-release-notes/) では HTML5 エクスポートのサポートを実装しました。ただし、WebExtensions を使用して PowerPoint を HTML にエクスポートしたい場合は、代わりに [この記事](/slides/ja/net/web-extensions/) を参照してください。
 
-{{% /alert %}}
+{{% /alert %}} 
 
-ここでの HTML5 エクスポートプロセスは、WebExtensions や外部依存関係なしで PowerPoint を HTML に変換できます。独自のテンプレートを使用することで、エクスポートプロセスと生成される HTML、CSS、JavaScript、アニメーション属性を柔軟に定義するオプションを適用できます。
+ここでの HTML5 エクスポートプロセスにより、WebExtensions や依存関係なしで PowerPoint を HTML に変換できます。この方法では、独自のテンプレートを使用して、エクスポートプロセスと生成される HTML、CSS、JavaScript、アニメーション属性を定義する非常に柔軟なオプションを適用できます。 
 
 ## **PowerPoint を HTML5 にエクスポート**
 
-以下の C# コードは、WebExtensions や依存関係なしでプレゼンテーションを HTML5 にエクスポートする方法を示しています：
+この C# コードは、WebExtensions および依存関係なしでプレゼンテーションを HTML5 にエクスポートする方法を示します:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -38,11 +45,11 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 {{% alert color="primary" %}} 
 
-この場合、クリーンな HTML が取得できます。
+この場合、クリーンな HTML が得られます。 
 
 {{% /alert %}}
 
-このようにして、図形アニメーションやスライド遷移の設定を指定することもできます：
+このようにして、シェイプ アニメーションやスライド遷移の設定を指定したい場合があります:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -57,7 +64,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **PowerPoint を HTML にエクスポート**
 
-以下の C# は標準的な PowerPoint → HTML のプロセスを示しています：
+この C# は、標準的な PowerPoint から HTML へのプロセスを示しています:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -66,7 +73,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-この場合、プレゼンテーション内容は次のような SVG 形式で描画されます：
+この場合、プレゼンテーションの内容は SVG を介して次のような形でレンダリングされます:
 ```html
 <body>
 <div class="slide" name="slide" id="slideslideIface1">
@@ -78,17 +85,17 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-{{% alert title="注意" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-この方法で PowerPoint を HTML にエクスポートすると、SVG 描画のため、特定の要素にスタイルを適用したりアニメーションさせたりすることはできません。
+この方法で PowerPoint を HTML にエクスポートすると、SVG 渲染のため、特定の要素にスタイルを適用したりアニメーションを付けたりすることができません。 
 
 {{% /alert %}}
 
 ## **PowerPoint を HTML5 スライドビューにエクスポート**
 
-**Aspose.Slides** を使用すると、スライドがスライドビュー モードで表示される HTML5 ドキュメントに PowerPoint プレゼンテーションを変換できます。この場合、生成された HTML5 ファイルをブラウザで開くと、Web ページ上でスライドビュー モードのプレゼンテーションが表示されます。
+**Aspose.Slides** を使用すると、PowerPoint プレゼンテーションをスライドがスライドビュー モードで表示される HTML5 ドキュメントに変換できます。この場合、生成された HTML5 ファイルをブラウザで開くと、ウェブページ上でスライドビュー モードのプレゼンテーションが表示されます。 
 
-以下の C# コードは、PowerPoint を HTML5 スライドビューにエクスポートするプロセスを示しています：
+この C# コードは、PowerPoint を HTML5 スライドビューにエクスポートするプロセスを示しています:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -101,15 +108,15 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-## **コメント付き HTML5 ドキュメントへのプレゼンテーション変換**
+## **コメント付きでプレゼンテーションを HTML5 ドキュメントに変換**
 
-PowerPoint のコメントは、スライド上の特定要素に対してメモやフィードバックを残すためのツールです。特に共同作業プロジェクトで有用で、複数のユーザーがメインコンテンツを変更せずに意見を追加できます。各コメントは作成者名を表示するため、誰がコメントしたかが容易に把握できます。
+PowerPoint のコメントは、ユーザーがプレゼンテーション スライドにメモやフィードバックを残すためのツールです。特に共同プロジェクトでは、複数のユーザーがメインコンテンツを変更せずに特定のスライド要素に提案やコメントを追加できるため便利です。各コメントには作成者の名前が表示され、誰がコメントしたかを簡単に追跡できます。
 
-たとえば、"sample.pptx" ファイルに保存された次の PowerPoint プレゼンテーションがあるとします。
+例えば、次の PowerPoint プレゼンテーションが "sample.pptx" ファイルに保存されているとします。
 
-![プレゼンテーションスライドの 2 つのコメント](two_comments_pptx.png)
+![プレゼンテーション スライド上の 2 つのコメント](two_comments_pptx.png)
 
-PowerPoint プレゼンテーションを HTML5 ドキュメントに変換する際に、コメントを出力ドキュメントに含めるかどうかを簡単に指定できます。そのためには、[Html5Options](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/) クラスの `NotesCommentsLayouting` プロパティでコメントの表示パラメータを指定します。
+PowerPoint プレゼンテーションを HTML5 ドキュメントに変換する際、出力ドキュメントにコメントを含めるかどうかを簡単に指定できます。そのためには、[Html5Options](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/) クラスの `NotesCommentsLayouting` プロパティでコメントの表示パラメータを指定する必要があります。
 
 以下のコード例は、スライドの右側にコメントを表示した状態でプレゼンテーションを HTML5 ドキュメントに変換します。
 ```cs
@@ -126,20 +133,20 @@ presentation.Save("output.html", SaveFormat.Html5, html5Options);
 ```
 
 
-以下の画像は、生成された "output.html" ドキュメントです。
+"output.html" ドキュメントは以下の画像に示されています。
 
-![出力された HTML5 ドキュメント内のコメント](two_comments_html5.png)
+![出力された HTML5 ドキュメントのコメント](two_comments_html5.png)
 
-## **FAQ**
+## **よくある質問**
 
-**HTML5 でオブジェクトのアニメーションやスライド遷移の再生を制御できますか？**
+**HTML5 でオブジェクト アニメーションとスライド遷移の再生を制御できますか？**
 
-はい、HTML5 では [shape animations](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animateshapes/) と [slide transitions](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animatetransitions/) を個別に有効化または無効化するオプションが用意されています。
+はい、HTML5 では [シェイプ アニメーション](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animateshapes/) と [スライド遷移](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animatetransitions/) を有効または無効にする個別のオプションが用意されています。
 
 **コメントの出力はサポートされていますか？また、スライドに対してどこに配置できますか？**
 
-はい、HTML5 でコメントを追加でき、[layout settings](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/notescommentslayouting/) を使用してスライドの右側など任意の位置に配置できます。
+はい、HTML5 ではコメントを追加でき、[レイアウト設定](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/notescommentslayouting/) を使用して（例としてスライドの右側に）配置できます。
 
-**セキュリティまたは CSP の理由で JavaScript を呼び出すリンクをスキップできますか？**
+**セキュリティや CSP の理由で JavaScript を呼び出すリンクをスキップできますか？**
 
-はい、[setting](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/skipjavascriptlinks/) により、保存時に JavaScript 呼び出しを含むハイパーリンクをスキップできます。これにより、厳格なセキュリティポリシーへの準拠が容易になります。
+はい、保存時に JavaScript 呼び出しを含むハイパーリンクをスキップできる [設定](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/skipjavascriptlinks/) があり、厳格なセキュリティポリシーに対応するのに役立ちます。

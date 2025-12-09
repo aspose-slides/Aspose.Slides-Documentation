@@ -1,10 +1,30 @@
 ---
-title: Convertir PowerPoint a XPS
+title: Convertir presentaciones de PowerPoint a XPS en .NET
+linktitle: PowerPoint a XPS
 type: docs
 weight: 70
-url: /es/net/convert-powerpoint-to-xps
-keywords: "Convertir presentación PowerPoint, PowerPoint a XPS, PPT a XPS, PPTX a XPS, Conversión, C#, Csharp, .NET, Aspose.Slides"
-description: "Convertir una presentación PowerPoint a XPS en C# o .NET."
+url: /es/net/convert-powerpoint-to-xps/
+keywords:
+- convertir PowerPoint
+- convertir presentación
+- convertir diapositiva
+- convertir PPT
+- convertir PPTX
+- PowerPoint a XPS
+- presentación a XPS
+- diapositiva a XPS
+- PPT a XPS
+- PPTX a XPS
+- guardar PPT como XPS
+- guardar PPTX como XPS
+- exportar PPT a XPS
+- exportar PPTX a XPS
+- PowerPoint
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Convertir presentaciones PowerPoint PPT/PPTX a XPS de alta calidad e independiente de la plataforma en .NET usando Aspose.Slides. Obtén una guía paso a paso y un ejemplo de código C#."
 ---
 
 ## **Acerca de XPS**
@@ -14,19 +34,19 @@ Microsoft desarrolló [XPS](https://docs.fileformat.com/page-description-languag
 
 {{% alert color="primary" %}} 
 
-Para ver cómo Aspose.Slides convierte presentaciones PPT o PPTX al formato XPS, puedes visitar [esta aplicación gratuita de conversión en línea](https://products.aspose.app/slides/conversion). 
+Para ver cómo Aspose.Slides convierte presentaciones PPT o PPTX al formato XPS, puede visitar [esta aplicación convertidora en línea gratuita](https://products.aspose.app/slides/conversion). 
 
 {{% /alert %}} 
 
-Si deseas reducir los costos de almacenamiento, puedes convertir tu presentación de Microsoft PowerPoint al formato XPS. De esta manera, te resultará más fácil guardar, compartir e imprimir tus documentos. 
+Si desea reducir los costos de almacenamiento, puede convertir su presentación de Microsoft PowerPoint al formato XPS. De esta manera, le resultará más fácil guardar, compartir e imprimir sus documentos. 
 
-Microsoft sigue implementando un fuerte soporte para XPS en Windows (incluso en Windows 10), por lo que podrías considerar guardar archivos en este formato. Si trabajas con Windows 8.1, Windows 8, Windows 7 y Windows Vista, entonces XPS podría ser tu mejor opción para ciertas operaciones. 
+Microsoft sigue implementando un fuerte soporte para XPS en Windows (incluso en Windows 10), por lo que puede considerar guardar los archivos en este formato. Si está trabajando con Windows 8.1, Windows 8, Windows 7 y Windows Vista, XPS podría ser su mejor opción para ciertas operaciones. 
 
-- **Windows 8** utiliza el formato OXPS (Open XPS) para los archivos XPS. OXPS es una versión estandarizada del formato XPS original. Windows 8 ofrece mejor compatibilidad con archivos XPS que con archivos PDF. 
+- **Windows 8** usa el formato OXPS (Open XPS) para los archivos XPS. OXPS es una versión estandarizada del formato XPS original. Windows 8 ofrece mejor soporte para archivos XPS que para archivos PDF. 
   - **XPS:** Visor/lector XPS incorporado y función de impresión a XPS disponible. 
   - **PDF:** Lector PDF disponible pero sin función de impresión a PDF. 
 
-- **Windows 7 y Windows Vista** utilizan el formato XPS original. Estos sistemas operativos también ofrecen mejor compatibilidad con archivos XPS que con PDFs. 
+- **Windows 7 y Windows Vista** usan el formato XPS original. Estos sistemas operativos también proporcionan mejor soporte para archivos XPS que para PDFs. 
   - **XPS:** Visor XPS incorporado y función de impresión a XPS disponible. 
   - **PDF:** No hay lector PDF. No hay función de impresión a PDF. 
 
@@ -37,19 +57,19 @@ Microsoft finalmente implementó soporte para operaciones de impresión en PDF m
 
 ## **Conversión a XPS con Aspose.Slides**
 
-En [**Aspose.Slides**](https://products.aspose.com/slides/net/) para .NET, puedes usar el método [**Save**](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) expuesto por la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides.presentation) para convertir toda la presentación en un documento XPS. 
+En [**Aspose.Slides**](https://products.aspose.com/slides/net/) para .NET, puede usar el método [**Save**](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) expuesto por la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) para convertir toda la presentación en un documento XPS. 
 
-Al convertir una presentación a XPS, debes guardar la presentación usando una de estas configuraciones:
+Al convertir una presentación a XPS, debe guardar la presentación usando una de estas configuraciones:
 
 - Configuración predeterminada (sin [**XPSOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions))
 - Configuración personalizada (con [**XPSOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions))
 
-### **Convirtiendo presentaciones a XPS usando la configuración predeterminada**
+### **Convertir presentaciones a XPS usando la configuración predeterminada**
 
-Este fragmento de código en C# muestra cómo convertir una presentación a un documento XPS usando la configuración estándar:
+Este código de ejemplo en C# muestra cómo convertir una presentación a un documento XPS usando la configuración estándar:
 ```c#
 // Instanciar un objeto Presentation que representa un archivo de presentación
- using (Presentation pres = new Presentation("Convert_XPS.pptx"))
+using (Presentation pres = new Presentation("Convert_XPS.pptx"))
 {
     // Guardar la presentación en un documento XPS
     pres.Save("XPS_Output_Without_XPSOption_out.xps", SaveFormat.Xps);
@@ -57,8 +77,8 @@ Este fragmento de código en C# muestra cómo convertir una presentación a un d
 ```
 
 
-### **Convirtiendo presentaciones a XPS usando la configuración personalizada**
-Este fragmento de código muestra cómo convertir una presentación a un documento XPS usando configuraciones personalizadas en C#:
+### **Convertir presentaciones a XPS usando configuración personalizada**
+Este código de ejemplo muestra cómo convertir una presentación a un documento XPS usando configuración personalizada en C#:
 ```c#
 // Instanciar un objeto Presentation que representa un archivo de presentación
 using (Presentation pres = new Presentation("Convert_XPS_Options.pptx"))
@@ -66,7 +86,7 @@ using (Presentation pres = new Presentation("Convert_XPS_Options.pptx"))
     // Instanciar la clase TiffOptions
     XpsOptions options = new XpsOptions();
 
-    // Guardar MetaFiles como PNG
+    // Guardar Metafiles como PNG
     options.SaveMetafilesAsPng = true;
 
     // Guardar la presentación en un documento XPS
@@ -77,10 +97,10 @@ using (Presentation pres = new Presentation("Convert_XPS_Options.pptx"))
 
 ## **Preguntas frecuentes**
 
-**¿Puedo guardar XPS en un stream en lugar de un archivo?**
+**¿Puedo guardar XPS en un flujo en lugar de un archivo?**
 
-Sí—Aspose.Slides te permite exportar directamente a un stream, lo cual es ideal para API web, canalizaciones del lado del servidor o cualquier escenario donde desees enviar el XPS sin tocar el sistema de archivos.
+Sí, Aspose.Slides le permite exportar directamente a un flujo, lo que es ideal para API web, pipelines del lado del servidor o cualquier escenario en el que desee enviar el XPS sin tocar el sistema de archivos.
 
-**¿Se trasladan las diapositivas ocultas al XPS y puedo excluirlas?**
+**¿Se transfieren las diapositivas ocultas a XPS y puedo excluirlas?**
 
-De forma predeterminada, solo se renderizan las diapositivas normales (visibles). Puedes [incluir o excluir diapositivas ocultas](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/showhiddenslides/) a través de la [configuración de exportación](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) antes de guardar a XPS, garantizando que la salida contenga exactamente las páginas que deseas.
+Por defecto, solo se renderizan las diapositivas normales (visibles). Puede [incluir o excluir diapositivas ocultas](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/showhiddenslides/) a través de los [ajustes de exportación](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) antes de guardar a XPS, asegurando que la salida contenga exactamente las páginas que desea.

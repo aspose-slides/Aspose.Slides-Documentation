@@ -1,17 +1,38 @@
 ---
-title: Конвертировать PowerPoint в SWF Flash
+title: Преобразование презентаций PowerPoint в SWF Flash в .NET
+linktitle: PowerPoint в SWF
 type: docs
 weight: 80
 url: /ru/net/convert-powerpoint-to-swf-flash/
-keywords: "Конвертировать PowerPoint, Презентация, PowerPoint в SWF, SWF flash PPT в SWF, PPTX в SWF, C#, Csharp, .NET"
-description: "Конвертировать презентацию PowerPoint в SWF Flash на C# или .NET"
+keywords:
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPT
+- конвертировать PPTX
+- PowerPoint в SWF
+- презентация в SWF
+- слайд в SWF
+- PPT в SWF
+- PPTX в SWF
+- PowerPoint в Flash
+- презентация в Flash
+- слайд в Flash
+- PPT в Flash
+- PPTX в Flash
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Конвертировать PowerPoint (PPT/PPTX) в SWF Flash на .NET с помощью Aspose.Slides. Пошаговые примеры кода C#, быстрый качественный вывод, без автоматизации PowerPoint."
 ---
 
-## **Конвертировать презентации в Flash**
+## **Преобразование презентаций в Flash**
 
-Метод [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) в классе [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) может быть использован для преобразования всей презентации в документ SWF. Вы также можете включить комментарии в генерируемый SWF, используя класс [SWFOptions](https://reference.aspose.com/slides/net/aspose.slides.export/swfoptions) и интерфейс [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions). Следующий пример показывает, как преобразовать презентацию в документ SWF, используя параметры, предоставляемые классом SWFOptions.
+Метод [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index), предоставляемый классом [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), можно использовать для преобразования всей презентации в документ SWF. Вы также можете включить комментарии в создаваемый SWF, используя класс [SWFOptions](https://reference.aspose.com/slides/net/aspose.slides.export/swfoptions) и интерфейс [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions). Следующий пример показывает, как преобразовать презентацию в документ SWF, используя параметры, предоставленные классом SWFOptions.
 ```c#
-// Создать объект Presentation, представляющий файл презентации
+// Создать объект Presentation, который представляет файл презентации
 using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 {
     SwfOptions swfOptions = new SwfOptions();
@@ -29,20 +50,20 @@ using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 ```
 
 
-## **Вопросы и ответы**
+## **Часто задаваемые вопросы**
 
-**Могу ли я включить скрытые слайды в SWF?**
+**Можно ли включать скрытые слайды в SWF?**
 
 Да. Включите параметр [ShowHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export/swfoptions/showhiddenslides/) в [SwfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/swfoptions/). По умолчанию скрытые слайды не экспортируются.
 
-**Как я могу контролировать сжатие и конечный размер SWF?**
+**Как я могу контролировать сжатие и окончательный размер SWF?**
 
-Используйте флаг [Compressed](https://reference.aspose.com/slides/net/aspose.slides.export/swfoptions/compressed/) (включён по умолчанию) и отрегулируйте [JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/swfoptions/jpegquality/), чтобы сбалансировать размер файла и качество изображения.
+Используйте флаг [Compressed](https://reference.aspose.com/slides/net/aspose.slides.export/swfoptions/compressed/) (включён по умолчанию) и настройте [JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/swfoptions/jpegquality/) для балансировки размера файла и качества изображений.
 
-**Для чего предназначен параметр 'ViewerIncluded' и когда его следует отключать?**
+**Для чего нужен 'ViewerIncluded' и когда его следует отключать?**
 
-[ViewerIncluded](https://reference.aspose.com/slides/net/aspose.slides.export/swfoptions/viewerincluded/) добавляет встроенный интерфейс плеера (элементы управления навигацией, панели, поиск). Отключайте его, если планируете использовать собственный плеер или вам нужен «чистый» SWF‑фрейм без пользовательского интерфейса.
+[ViewerIncluded](https://reference.aspose.com/slides/net/aspose.slides.export/swfoptions/viewerincluded/) добавляет встроенный пользовательский интерфейс проигрывателя (элементы навигации, панели, поиск). Отключите его, если планируете использовать собственный проигрыватель или вам нужен чистый фрейм SWF без UI.
 
-**Что происходит, если исходный шрифт отсутствует на машине, где происходит экспорт?**
+**Что происходит, если исходный шрифт отсутствует на машине экспорта?**
 
-Aspose.Slides заменит шрифт, указанный через [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/defaultregularfont/) в [SwfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/), чтобы избежать непреднамеренного возврата к другому шрифту.
+Aspose.Slides заменит шрифт, указанный через [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/defaultregularfont/) в [SwfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/), чтобы избежать непреднамеренного переключения.

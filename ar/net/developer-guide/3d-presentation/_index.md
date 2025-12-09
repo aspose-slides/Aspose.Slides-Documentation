@@ -1,45 +1,43 @@
 ---
-title: "عرض تقديمي ثلاثي الأبعاد"
+title: إنشاء عروض تقديمية ثلاثية الأبعاد في .NET
+linktitle: عرض ثلاثي الأبعاد
 type: docs
 weight: 232
 url: /ar/net/3d-presentation/
 keywords:
-- 3D
 - PowerPoint ثلاثي الأبعاد
-- عرض ثلاثي الأبعاد
-- تدوير ثلاثي الأبعاد
+- عرض تقديمي ثلاثي الأبعاد
+- دوران ثلاثي الأبعاد
 - عمق ثلاثي الأبعاد
 - بثق ثلاثي الأبعاد
 - تدرج ثلاثي الأبعاد
 - نص ثلاثي الأبعاد
-- عرض PowerPoint
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
 - C#
-- Csharp
-- Aspose.Slides لـ .NET
-description: "عرض تقديمي ثلاثي الأبعاد لـ PowerPoint باستخدام C# أو .NET"
+- Aspose.Slides
+description: "إنشاء عروض تقديمية ثلاثية الأبعاد تفاعلية في .NET باستخدام Aspose.Slides بسهولة. تصدير سريع إلى صيغ PowerPoint و OpenDocument للاستخدام المتعدد."
 ---
 
 ## **نظرة عامة**
-كيف تقوم عادةً بإنشاء عرض تقديمي ثلاثي الأبعاد في PowerPoint؟
+كيف تقوم عادةً بإنشاء عرض تقديمي ثلاثي الأبعاد باستخدام PowerPoint؟  
+Microsoft PowerPoint يتيح إنشاء عروض ثلاثية الأبعاد من خلال إضافة نماذج ثلاثية الأبعاد، تطبيق مؤثرات 3D على الأشكال، إنشاء نص ثلاثي الأبعاد، تحميل رسومات ثلاثية الأبعاد إلى العرض، وإنشاء رسومات متحركة ثلاثية الأبعاد في PowerPoint.  
 
-Microsoft PowerPoint يتيح إنشاء عروض تقديمية ثلاثية الأبعاد بحيث يمكننا إضافة نماذج ثلاثية الأبعاد هناك، وتطبيق تأثيرات ثلاثية الأبعاد على الأشكال، وإنشاء نص ثلاثي الأبعاد، وتحميل رسومات ثلاثية الأبعاد إلى العرض، وإنشاء رسومات متحركة ثلاثية الأبعاد في PowerPoint.
+إضافة مؤثرات 3D يؤدي إلى تحسين كبير للعرض وتحويله إلى عرض ثلاثي الأبعاد، وقد يكون أسهل طريقة لتطبيق 3D في العروض.  
+منذ إصدار Aspose.Slides 20.9، تمت إضافة **محرك 3D متعدد المنصات** جديد. يتيح المحرك 3D الجديد تصدير وراسترزة الأشكال والنص مع مؤثرات 3D. في الإصدارات السابقة، كانت الأشكال التي تحتوي على مؤثرات 3D تُعرض بشكل مسطح. الآن أصبح بالإمكان **عرض الأشكال بشكل ثلاثي الأبعاد كامل**.  
+علاوة على ذلك، أصبح بإمكانك الآن إنشاء أشكال مع مؤثرات 3D عبر API العامة لـ Slides.  
 
-إنشاء تأثيرات ثلاثية الأبعاد يحقق تأثيرًا كبيرًا في تحسين عرضك التقديمي إلى عرض ثلاثي الأبعاد، وقد يكون أسهل طريقة لتنفيذ عرض ثلاثي الأبعاد.
+في واجهة Aspose.Slides API، لجعل شكل ما يصبح شكل PowerPoint ثلاثي الأبعاد استخدم الخاصية [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/threedformat)، التي ترث ميزات الواجهة [IThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat):
+- [BevelBottom](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/bevelbottom) و[BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/beveltop): تعيين حافة للشكل، تحديد نوع الحافة (مثل Angle، Circle، SoftRound)، وتحديد ارتفاع وعرض الحافة.
+- [Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera): تُستخدم لمحاكاة حركات الكاميرا حول الكائن. بمعنى آخر، عبر ضبط الدوران، التكبير وخصائص أخرى يمكن التحكم في الأشكال كما لو كانت نموذجًا ثلاثيًا الأبعاد في PowerPoint.
+- [ContourColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourcolor) و[ContourWidth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourwidth): تعيين خصائص الحدود لجعل الشكل يبدو كشكل PowerPoint ثلاثي الأبعاد.
+- [Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/depth)، [ExtrusionColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) و[ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight): تُستخدم لجعل الشكل ثلاثي الأبعاد، أي تحويل شكل ثنائي الأبعاد إلى شكل ثلاثي الأبعاد عبر ضبط العمق أو البثق.
+- [LightRig](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/lightrig): يمكنه إنشاء تأثير إضاءة على الشكل الثلاثي الأبعاد. منطق هذه الخاصية قريب من Camera، يمكنك ضبط دوران الضوء بالنسبة للشكل واختيار نوع الضوء.
+- [Material](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/material): ضبط نوع مادة الشكل الثلاثي الأبعاد يمكن أن يضيف تأثيرًا أكثر حيوية. توفر الخاصية مجموعة من المواد المعرفة مسبقًا مثل: Metal، Plastic، Powder، Matte، وغيرها.  
 
-منذ إصدار Aspose.Slides 20.9، تم إضافة **محرك ثلاثي الأبعاد متعدد المنصات** جديد. يتيح المحرك الثلاثي الأبعاد الجديد تصدير وتحويل الأشكال والنصوص ذات التأثيرات الثلاثية الأبعاد إلى رسومات نقطية. في الإصدارات السابقة، كانت الأشكال التي تم تطبيق تأثيرات ثلاثية الأبعاد عليها تُرسم مسطحة. الآن يمكن رسم الأشكال بـ **ثلاثية أبعاد كاملة**.
-
-علاوة على ذلك، أصبح من الممكن الآن إنشاء أشكال بتأثيرات ثلاثية الأبعاد عبر واجهة برمجة تطبيقات Slides العامة.
-
-في Aspose.Slides API، لجعل شكل يصبح شكلاً ثلاثيًا في PowerPoint استخدم خاصية [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/threedformat) التي ترث ميزات واجهة [IThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat):
-
-- [BevelBottom](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/bevelbottom) و [BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/beveltop): تعيين الحافة للشكل، تحديد نوع الحافة (مثل Angle أو Circle أو SoftRound)، وتحديد ارتفاع وعرض الحافة.
-- [Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera): تُستخدم لمحاكاة حركات الكاميرا حول الكائن. بعبارة أخرى، من خلال ضبط دوران الكاميرا، التكبير وخصائص أخرى يمكنك التلاعب بالأشكال كما لو كانت نموذجًا ثلاثيًا في PowerPoint.
-- [ContourColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourcolor) و [ContourWidth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourwidth): تعيين خصائص الحد لجعل الشكل يبدو كأنه شكل PowerPoint ثلاثي الأبعاد.
-- [Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/depth)، [ExtrusionColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) و [ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight): تُستخدم لجعل الشكل ثلاثي الأبعاد، أي تحويل شكل ثنائي الأبعاد إلى شكل ثلاثي الأبعاد عن طريق ضبط العمق أو القيام بالإخراج.
-- [LightRig](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/lightrig): يمكنه إنشاء تأثير إضاءة على الشكل الثلاثي الأبعاد. منطق هذه الخاصية قريب من Camera؛ يمكنك ضبط دوران الضوء بالنسبة للشكل واختيار نوع الضوء.
-- [Material](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/material): تحديد نوع مادة الشكل الثلاثي الأبعاد يمكن أن يضيف تأثيرًا أكثر حيوية. توفر الخاصية مجموعة من المواد المُعَرَّفة مسبقًا مثل Metal و Plastic و Powder و Matte وغيرها.
-
-يمكن تطبيق جميع الخصائص الثلاثية الأبعاد على كل من الأشكال والنص. دعنا نرى كيف نصل إلى الخصائص المذكورة أعلاه ثم نستعرضها بالتفصيل خطوة بخطوة:
+يمكن تطبيق جميع ميزات 3D على كل من الأشكال والنص. دعنا نرى كيفية الوصول إلى الخصائص المذكورة أعلاه ثم نتعمق فيها خطوة بخطوة:
 ``` csharp 
 const float imageScale = 2;
 
@@ -69,20 +67,20 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-الصورة المصغرة التي تم توليدها تبدو هكذا:
+الصورة المصغرة التي تم عرضها تبدو هكذا:
 
 ![todo:image_alt_text](img_01_01.png)
 
-## **تدوير ثلاثي الأبعاد**
-من الممكن تدوير أشكال PowerPoint الثلاثية الأبعاد في مستوى ثلاثي الأبعاد، مما يضيف تفاعلية أكبر. لتدوير شكل ثلاثي الأبعاد في PowerPoint، عادةً ما تستخدم القائمة التالية:
+## **دوران 3D**
+يمكنك تدوير أشكال PowerPoint الثلاثية الأبعاد في مساحة 3D، مما يضيف تفاعلية أكبر. لتدوير الشكل الثلاثي الأبعاد في PowerPoint، عادةً ما تستخدم القائمة التالية:
 
 ![todo:image_alt_text](img_02_01.png)
 
-في Aspose.Slides API يمكن إدارة تدوير الشكل الثلاثي الأبعاد باستخدام خاصية [IThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera):
+في Aspose.Slides API يمكن إدارة دوران الشكل الثلاثي الأبعاد باستخدام خاصية [IThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera):
 ``` csharp
 IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
-// ... تعيين معلمات مشهد ثلاثي الأبعاد الأخرى
+// ... ضبط معلمات المشهد ثلاثي الأبعاد الأخرى
 
 using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
 {
@@ -91,14 +89,14 @@ using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
 ```
 
 
-## **عمق ثلاثي الأبعاد والاستخراج**
-لإضفاء البعد الثالث على الشكل وجعله شكلًا ثلاثيًا، استخدم خصائص [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) و [IThreeDFormat.ExtrusionColor.Color](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor):
+## **عمق 3D والبثق**
+لإضفاء البُعد الثالث على الشكل وتحويله إلى شكل ثلاثي الأبعاد، استخدم خاصيتي [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) و[IThreeDFormat.ExtrusionColor.Color](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor):
 ``` csharp
 IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
 shape.ThreeDFormat.ExtrusionHeight = 100;
 shape.ThreeDFormat.ExtrusionColor.Color = Color.Purple;
-// ... تعيين معلمات مشهد ثلاثي الأبعاد أخرى
+// ... ضبط معلمات المشهد ثلاثي الأبعاد الأخرى
 
 using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
 {
@@ -107,13 +105,13 @@ using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
 ```
 
 
-عادةً ما تستخدم قائمة Depth في PowerPoint لتحديد العمق لشكل PowerPoint ثلاثي الأبعاد:
+عادةً ما تستخدم قائمة Depth في PowerPoint لضبط العمق للشكل الثلاثي الأبعاد:
 
 ![todo:image_alt_text](img_02_02.png)
 
 
-## **تدرج ثلاثي الأبعاد**
-يمكن استخدام التدرج لتعبئة لون شكل PowerPoint ثلاثي الأبعاد. لننشئ شكلًا بتعبئة تدرجية ونطبق عليه تأثير ثلاثي الأبعاد:
+## **تدرج 3D**
+يمكن استخدام التدرج لتعبئة لون الشكل الثلاثي الأبعاد. لنقم بإنشاء شكل بتعبئة تدرج لوني وتطبيق مؤثر 3D عليه:
 ``` csharp
 const float imageScale = 2;
 
@@ -148,7 +146,8 @@ using (Presentation presentation = new Presentation())
 
 ![todo:image_alt_text](img_02_03.png)
 
-إلى جانب تعبئة التدرج، يمكن تعبئة الأشكال بصورة:
+إلى جانب تدرج اللون، يمكن تعبئة الأشكال بصورة:
+
 ``` csharp
 byte[] imageData = File.ReadAllBytes("image.jpg");
 IPPImage image = presentation.Images.AddImage(imageData);
@@ -156,7 +155,7 @@ IPPImage image = presentation.Images.AddImage(imageData);
 shape.FillFormat.FillType = FillType.Picture;
 shape.FillFormat.PictureFillFormat.Picture.Image = image;
 shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-// ... إعداد ثلاثي الأبعاد: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* الخصائص
+// ... إعداد ثلاثي الأبعاد: shape.ThreeDFormat.Camera، shape.ThreeDFormat.LightRig، خصائص shape.ThreeDFormat.Extrusion*
 
 using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
 {
@@ -165,12 +164,12 @@ using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
 ```
 
 
-وهذا ما يبدو عليه:
+وهذا ما يظهر:
 
 ![todo:image_alt_text](img_02_04.png)
 
-## **نص ثلاثي الأبعاد (WordArt)**
-يسمح Aspose.Slides بتطبيق ثلاثية أبعاد على النص أيضًا. لإنشاء نص ثلاثي الأبعاد يمكن استخدام تأثير تحويل WordArt:
+## **نص 3D (WordArt)**
+يسمح Aspose.Slides بتطبيق 3D على النص أيضًا. لإنشاء نص ثلاثي الأبعاد يمكن استخدام مؤثر التحويل WordArt:
 ``` csharp
 const float imageScale = 2;
 
@@ -218,16 +217,16 @@ using (Presentation presentation = new Presentation())
 
 ![todo:image_alt_text](img_02_05.png)
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتداولة**
 
-**هل سيتم حفظ التأثيرات الثلاثية الأبعاد عند تصدير العرض إلى الصور/PDF/HTML؟**
+**هل سيتم الحفاظ على مؤثرات 3D عند تصدير العرض إلى صور/PDF/HTML؟**
 
-نعم. يقوم محرك Slides الثلاثي الأبعاد برسم التأثيرات الثلاثية الأبعاد عند التصدير إلى الصيغ المدعومة ([الصور](/slides/ar/net/convert-powerpoint-to-png/)، [PDF](/slides/ar/net/convert-powerpoint-to-pdf/)، [HTML](/slides/ar/net/convert-powerpoint-to-html/)، إلخ).
+نعم. محرك Slides 3D يقوم برندر مؤثرات 3D عند التصدير إلى الصيغ المدعومة ([images](/slides/ar/net/convert-powerpoint-to-png/)، [PDF](/slides/ar/net/convert-powerpoint-to-pdf/)، [HTML](/slides/ar/net/convert-powerpoint-to-html/)، وغيرها).
 
-**هل يمكنني استرجاع القيم "الفعّالة" (النهائية) لمعلمات ثلاثية الأبعاد التي تأخذ في الاعتبار السمات والوراثة وما إلى ذلك؟**
+**هل يمكنني استرجاع القيم "الفعالة" (النهائية) لمعلمات 3D التي تأخذ في الاعتبار السمات والوراثة وما إلى ذلك؟**
 
-نعم. توفر Slides واجهات برمجة تطبيقات لـ [قراءة القيم الفعّالة](/slides/ar/net/shape-effective-properties/) (بما في ذلك الإضاءة، الحواف الثلاثية الأبعاد، إلخ) حتى تتمكن من رؤية الإعدادات النهائية المطبقة.
+نعم. توفر Slides واجهات برمجة تطبيقات ل[قراءة القيم الفعالة](/slides/ar/net/shape-effective-properties/) (بما في ذلك 3D—الإضاءة، الحواف، إلخ) بحيث يمكنك رؤية الإعدادات النهائية المطبقة.
 
-**هل تعمل التأثيرات الثلاثية الأبعاد عند تحويل العرض إلى فيديو؟**
+**هل تعمل مؤثرات 3D عند تحويل العرض إلى فيديو؟**
 
-نعم. عند [إنشاء إطارات للفيديو](/slides/ar/net/convert-powerpoint-to-video/)، يتم رسم التأثيرات الثلاثية الأبعاد تمامًا كما هي عند [الصور المصدرة](/slides/ar/net/convert-powerpoint-to-png/).
+نعم. عند [إنشاء إطارات للفيديو](/slides/ar/net/convert-powerpoint-to-video/)، يتم رندر مؤثرات 3D تمامًا كما يتم رندرها لل[الصور المصدرة](/slides/ar/net/convert-powerpoint-to-png/).

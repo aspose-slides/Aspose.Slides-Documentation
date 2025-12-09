@@ -1,13 +1,14 @@
 ---
-title: スライドショーの管理
+title: .NETでスライドショーを管理する
+linktitle: スライドショー
 type: docs
 weight: 90
 url: /ja/net/manage-slide-show/
 keywords:
 - ショータイプ
-- スピーカーによる提示
-- 個人が閲覧
-- キオスクで閲覧
+- 発表者によるプレゼンテーション
+- 個人閲覧
+- キオスク閲覧
 - ショーオプション
 - 継続的にループ
 - ナレーションなしで表示
@@ -17,24 +18,25 @@ keywords:
 - カスタムショー
 - スライドを進める
 - 手動で
-- タイミングを使用
+- タイミングの使用
 - PowerPoint
+- OpenDocument
 - プレゼンテーション
-- C#
 - .NET
-- Aspose.Slides for .NET
-description: "C# を使用して PowerPoint プレゼンテーションのスライドショー設定を管理する"
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET でスライドショーを管理する方法を学びます。PPT、PPTX、ODP 形式のスライド遷移やタイミングなどを簡単にコントロールできます。"
 ---
 
-Microsoft PowerPoint では、**Slide Show** 設定はプロフェッショナルなプレゼンテーションの作成と実施に不可欠なツールです。このセクションの最も重要な機能のひとつが **Set Up Show** で、プレゼンテーションを特定の条件や聴衆に合わせて調整でき、柔軟性と利便性を確保します。この機能を使用すると、ショーの種類（例：スピーカーが提示、個人が閲覧、キオスクでの閲覧）を選択したり、ループの有無を設定したり、表示するスライドを指定したり、タイミングを使用したりできます。準備段階のこのステップは、プレゼンテーションをより効果的でプロフェッショナルにするために重要です。
+Microsoft PowerPoint では、**Slide Show** 設定はプロフェッショナルなプレゼンテーションを作成し、配信するための重要なツールです。このセクションで最も重要な機能のひとつは **Set Up Show** で、プレゼンテーションを特定の条件や対象に合わせて調整でき、柔軟性と利便性を確保します。この機能を使うと、ショータイプ（例: 発表者によるプレゼンテーション、個人閲覧、キオスク閲覧）を選択したり、ループの有無を設定したり、表示する特定のスライドを選んだり、タイミングを使用したりできます。この準備ステップは、プレゼンテーションをより効果的かつプロフェッショナルにするために重要です。
 
-`SlideShowSettings` は[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)クラスのプロパティで、型は[SlideShowSettings](https://reference.aspose.com/slides/net/aspose.slides/presentation/slideshowsettings/)です。これにより、PowerPoint プレゼンテーションのスライドショー設定を管理できます。本稿では、このプロパティを使用してスライドショー設定のさまざまな側面を構成・制御する方法を説明します。
+`SlideShowSettings` は [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのプロパティで、型は [SlideShowSettings](https://reference.aspose.com/slides/net/aspose.slides/presentation/slideshowsettings/) です。PowerPoint プレゼンテーションのスライドショー設定を管理できます。本稿では、このプロパティの使用方法を確認し、スライドショー設定のさまざまな側面を構成および制御する方法を紹介します。
 
-## **Select Show Type**
+## **ショータイプの選択**
 
-`SlideShowSettings.SlideShowType` はスライドショーの種類を定義し、以下のクラスのいずれかのインスタンスになります:[PresentedBySpeaker](https://reference.aspose.com/slides/net/aspose.slides/presentedbyspeaker/)、[BrowsedByIndividual](https://reference.aspose.com/slides/net/aspose.slides/browsedbyindividual/)、または[BrowsedAtKiosk](https://reference.aspose.com/slides/net/aspose.slides/browsedatkiosk/)。このプロパティを使用すると、自動キオスクや手動プレゼンテーションなど、さまざまな使用シナリオに合わせてプレゼンテーションを調整できます。
+`SlideShowSettings.SlideShowType` はスライドショーのタイプを定義し、以下のクラスのいずれかのインスタンスにできます: [PresentedBySpeaker](https://reference.aspose.com/slides/net/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/net/aspose.slides/browsedbyindividual/), または [BrowsedAtKiosk](https://reference.aspose.com/slides/net/aspose.slides/browsedatkiosk/)。このプロパティを使用すると、自動キオスクや手動プレゼンテーションなど、さまざまな利用シナリオに合わせてプレゼンテーションを調整できます。
 
-以下のコード例は新しいプレゼンテーションを作成し、スクロールバーを表示せずに「個人が閲覧」タイプに設定します。
+以下のコード例は新しいプレゼンテーションを作成し、スクロールバーを表示せずにショータイプを「個人閲覧」に設定します。
 ```cs
 using var presentation = new Presentation();
 
@@ -49,9 +51,9 @@ presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Enable Show Options**
+## **ショーオプションの有効化**
 
-`SlideShowSettings.Loop` はスライドショーを手動で停止するまでループさせるかどうかを決定します。これは、継続的に実行する必要がある自動プレゼンテーションに便利です。`SlideShowSettings.ShowNarration` はスライドショー中に音声ナレーションを再生するかどうかを決定します。聴衆向けに音声ガイダンスを含む自動プレゼンテーションに有用です。`SlideShowSettings.ShowAnimation` はスライドオブジェクトに追加されたアニメーションを再生するかどうかを決定します。プレゼンテーションの視覚効果を完全に提供するために役立ちます。
+`SlideShowSettings.Loop` はスライドショーを手動で停止するまでループさせるかどうかを決定します。これは継続的に実行する必要がある自動プレゼンテーションに便利です。`SlideShowSettings.ShowNarration` はスライドショー中に音声ナレーションを再生するかどうかを決定します。観客向けに音声ガイダンスを含む自動プレゼンテーションに有用です。`SlideShowSettings.ShowAnimation` はスライドオブジェクトに追加されたアニメーションを再生するかどうかを決定します。プレゼンテーションの視覚効果をフルに提供するために役立ちます。
 
 以下のコード例は新しいプレゼンテーションを作成し、スライドショーをループさせます。
 ```cs
@@ -63,9 +65,9 @@ presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Select Slides to Show**
+## **表示するスライドの選択**
 
-`SlideShowSettings.Slides` プロパティを使用すると、プレゼンテーション中に表示するスライドの範囲を選択できます。これにより、プレゼンテーション全体ではなく一部だけを表示したい場合に便利です。以下のコード例は新しいプレゼンテーションを作成し、スライド範囲を`2`から`9`に設定します。
+`SlideShowSettings.Slides` プロパティは、プレゼンテーション中に表示するスライドの範囲を選択できます。全スライドではなくプレゼンテーションの一部だけを表示したい場合に便利です。以下のコード例は新しいプレゼンテーションを作成し、スライド `2` から `9` までの範囲を表示するように設定します。
 ```cs
 using var presentation = new Presentation();
 
@@ -81,9 +83,9 @@ presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Use Advance Slides**
+## **スライドの自動進行を使用**
 
-`SlideShowSettings.UseTimings` プロパティは、各スライドの事前設定されたタイミングの使用を有効または無効にします。これにより、事前に定義された表示時間で自動的にスライドを切り替えることができます。以下のコード例は新しいプレゼンテーションを作成し、タイミングの使用を無効にします。
+`SlideShowSettings.UseTimings` プロパティは、各スライドの事前設定されたタイミングの使用を有効または無効にできます。事前に定義された表示時間でスライドを自動的に表示したい場合に便利です。以下のコード例は新しいプレゼンテーションを作成し、タイミングの使用を無効にします。
 ```cs
 using var presentation = new Presentation();
 
@@ -93,9 +95,9 @@ presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Show Media Controls**
+## **メディアコントロールの表示**
 
-`SlideShowSettings.ShowMediaControls` プロパティは、マルチメディア コンテンツ（例：ビデオやオーディオ）が再生される際に、スライドショー中にメディアコントロール（再生、停止、停止など）を表示するかどうかを決定します。プレゼンテーション中にメディアの再生を制御したい場合に便利です。
+`SlideShowSettings.ShowMediaControls` プロパティは、マルチメディアコンテンツ（例: ビデオやオーディオ）が再生される際に、スライドショー中に再生、停止、ポーズなどのメディアコントロールを表示するかどうかを決定します。プレゼンテーション中にプレゼンターがメディア再生を制御したい場合に有用です。
 
 以下のコード例は新しいプレゼンテーションを作成し、メディアコントロールの表示を有効にします。
 ```cs
@@ -109,14 +111,14 @@ presentation.Save("output.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Can I save a presentation so it opens directly in slide show mode?**
+**プレゼンテーションを保存して、直接スライドショーモードで開くことはできますか？**
 
-はい。ファイルをPPSXまたはPPSM形式で保存すると、PowerPointで開いたときにスライドショーモードで直接起動します。Aspose.Slidesでは、エクスポート時に対応する保存形式を選択します[エクスポート時](/slides/ja/net/save-presentation/)。
+はい。ファイルを PPSX または PPSM として保存します。これらの形式は PowerPoint で開くと直接スライドショーが開始されます。Aspose.Slides では、[エクスポート時](/slides/ja/net/save-presentation/)に対応する保存形式を選択します。
 
-**Can I exclude individual slides from the show without deleting them from the file?**
+**ファイルから削除せずに、個々のスライドをショーから除外できますか？**
 
-はい。スライドを[非表示](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/)としてマークします。非表示スライドはプレゼンテーションに残りますが、スライドショー中には表示されません。
+はい。スライドを [Hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) に設定します。非表示のスライドはプレゼンテーションに残りますが、スライドショー中には表示されません。
 
-**Can Aspose.Slides play a slide show or control a live presentation on screen?**
+**Aspose.Slides がスライドショーを再生したり、画面上でライブプレゼンテーションを制御したりできますか？**
 
-いいえ。Aspose.Slidesはプレゼンテーションファイルの編集、解析、変換を行うもので、実際の再生はPowerPointなどのビューア アプリケーションが担当します。
+いいえ。Aspose.Slides はプレゼンテーションファイルの編集、解析、変換を行うだけで、実際の再生は PowerPoint などのビューアアプリケーションが行います。

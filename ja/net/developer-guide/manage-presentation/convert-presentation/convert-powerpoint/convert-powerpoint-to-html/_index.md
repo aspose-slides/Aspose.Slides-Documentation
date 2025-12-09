@@ -1,57 +1,58 @@
 ---
-title: C# で PowerPoint プレゼンテーションを HTML に変換
+title: .NET で PowerPoint プレゼンテーションを HTML に変換
 linktitle: PowerPoint を HTML に変換
 type: docs
 weight: 30
 url: /ja/net/convert-powerpoint-to-html/
 keywords:
+- PowerPoint を変換
+- プレゼンテーションを変換
+- スライドを変換
+- PPT を変換
+- PPTX を変換
 - PowerPoint を HTML に変換
 - プレゼンテーションを HTML に変換
 - スライドを HTML に変換
 - PPT を HTML に変換
 - PPTX を HTML に変換
-- ODP を HTML に変換
-- PowerPoint プレゼンテーションを変換
-- PowerPoint 変換
-- プレゼンテーション変換
-- HTML 変換
 - PowerPoint を HTML として保存
 - プレゼンテーションを HTML として保存
 - スライドを HTML として保存
 - PPT を HTML として保存
 - PPTX を HTML として保存
-- HTML エクスポート
-- C#
+- PPT を HTML にエクスポート
+- PPTX を HTML にエクスポート
 - .NET
+- C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して PowerPoint および OpenDocument プレゼンテーションを HTML に変換する方法を学びます。このガイドでは、スライドをウェブフレンドリーな形式に変換するための手順、コードサンプル、ベストプラクティスを提供します。"
+description: ".NET で PowerPoint プレゼンテーションをレスポンシブ HTML に変換します。Aspose.Slides の変換ガイドを使用して、レイアウト、リンク、画像を保持し、高速かつ完璧な結果を実現します。"
 ---
 
 ## **概要**
 
-Aspose.Slides for .NET を使用して PowerPoint および OpenDocument プレゼンテーションを HTML に変換することで、ワークフローを向上させます。このガイドでは、詳細な手順、堅牢なコード例、検証済みの方法を提供し、Web 表示に最適化された信頼性の高い効率的な変換プロセスを実現します。
+Aspose.Slides for .NET を使用して、PowerPoint および OpenDocument のプレゼンテーションを HTML に変換し、ワークフローを強化できます。本ガイドでは、詳細な手順、堅牢なコード例、検証済みの手法を提供し、信頼性が高く効率的な変換プロセスを実現し、ウェブ表示に最適化します。
 
-Aspose.Slides は多数のオプション（主に [**HtmlOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions) クラスから）を提供し、PowerPoint（または OpenDocument）形式から HTML への変換プロセスを定義します：
+Aspose.Slides には、主に [**HtmlOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions) クラスから提供される多数のオプションがあり、PowerPoint（または OpenDocument）形式から HTML への変換プロセスを定義します。
 
-* PowerPoint プレゼンテーション全体を HTML に変換します。
-* PowerPoint プレゼンテーションの特定のスライドを HTML に変換します。
-* プレゼンテーションのメディア（画像、ビデオなど）を HTML に変換します。
-* PowerPoint プレゼンテーションをレスポンシブ HTML に変換します。
-* PowerPoint プレゼンテーションを、講演者ノートを含めるか除外するか選択して HTML に変換します。
-* PowerPoint プレゼンテーションを、コメントを含めるか除外するか選択して HTML に変換します。
-* PowerPoint プレゼンテーションを、元のフォントまたは埋め込みフォントで HTML に変換します。
-* 新しい CSS スタイルを使用して PowerPoint プレゼンテーションを HTML に変換します。
+* PowerPoint プレゼンテーション全体を HTML に変換する。  
+* PowerPoint プレゼンテーションの特定のスライドを HTML に変換する。  
+* プレゼンテーションのメディア（画像、動画など）を HTML に変換する。  
+* PowerPoint プレゼンテーションをレスポンシブ HTML に変換する。  
+* スピーカーノートを含む／除外した HTML に PowerPoint プレゼンテーションを変換する。  
+* コメントを含む／除外した HTML に PowerPoint プレゼンテーションを変換する。  
+* オリジナルフォントまたは埋め込みフォントで HTML に PowerPoint プレゼンテーションを変換する。  
+* 新しい CSS スタイルを使用して HTML に PowerPoint プレゼンテーションを変換する。
 
 ## **プレゼンテーションを HTML に変換する**
 
-Aspose.Slides を使用すると、PowerPoint または OpenDocument のプレゼンテーション全体を次の手順で HTML に変換できます。
+Aspose.Slides を使用すると、PowerPoint または OpenDocument のプレゼンテーション全体を以下の手順で HTML に変換できます。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
 1. [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save) メソッドを使用してオブジェクトを HTML ファイルとして保存します。
 
-このコードは C# で PowerPoint プレゼンテーションを HTML に変換する方法を示しています：
+以下のコードは、PowerPoint プレゼンテーションを C# で HTML に変換する方法を示しています:
 ```c#
-// プレゼンテーションファイル（例: PPT、PPTX、ODP など）を表す Presentation クラスのインスタンスを作成します。
+// プレゼンテーション ファイル (例: PPT、PPTX、ODP など) を表す Presentation クラスのインスタンスを作成します。
 using (Presentation presentation = new Presentation("presentation.pptx"))
 {
     // プレゼンテーションを HTML として保存します。
@@ -62,9 +63,9 @@ using (Presentation presentation = new Presentation("presentation.pptx"))
 
 ## **プレゼンテーションをレスポンシブ HTML に変換する**
 
-Aspose.Slides は [ResponsiveHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/responsivehtmlcontroller) クラスを提供し、レスポンシブ HTML ファイルの生成を可能にします。このコードは C# で PowerPoint プレゼンテーションをレスポンシブ HTML に変換する方法を示しています：
+Aspose.Slides は、レスポンシブ HTML ファイルの生成を可能にする [ResponsiveHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/responsivehtmlcontroller) クラスを提供しています。以下のコードは、C# で PowerPoint プレゼンテーションをレスポンシブ HTML に変換する方法を示します:
 ```c#
-// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
 using (Presentation presentation = new Presentation("presentation.pptx"))
 {
     ResponsiveHtmlController controller = new ResponsiveHtmlController();
@@ -80,19 +81,19 @@ using (Presentation presentation = new Presentation("presentation.pptx"))
 ```
 
 
-## **講演者ノート付きでプレゼンテーションを HTML に変換する**
+## **スピーカーノート付きでプレゼンテーションを HTML に変換する**
 
-PowerPoint または OpenDocument のプレゼンテーションを講演者ノート付きで HTML に変換する際は、元のドキュメントの完全な内容を捉えることが重要です。このプロセスにより、スライドのビジュアル要素が正確に表現されるだけでなく、添付された講演者ノートも保持され、コンテンツに追加の文脈と洞察が加わります。
+PowerPoint または OpenDocument のプレゼンテーションをスピーカーノート付きで HTML に変換する際は、元文書の完全な本質を捕捉することが重要です。このプロセスにより、スライドのビジュアル要素だけでなく、付随するスピーカーノートも保持され、コンテンツに追加の文脈と洞察が加わります。
 
-次のようなスライドを含む PowerPoint プレゼンテーションがあるとします：
+以下のスライドを例にします:
 
-![講演者ノート付きのプレゼンテーション スライド](slide_with_notes.png)
+![スピーカーノート付きのプレゼンテーションスライド](slide_with_notes.png)
 
-このコードは C# で PowerPoint プレゼンテーションを講演者ノート付きで HTML に変換する方法を示しています：
+このコードは、C# で PowerPoint プレゼンテーションをスピーカーノート付きの HTML に変換する方法を示します:
 ```c#
 using (Presentation presentation = new Presentation("presentation.pptx"))
 {
-    // 講演者ノートのオプションを設定します。
+    // スピーカーノートのオプションを設定します。
     NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions
     {
         NotesPosition = NotesPositions.BottomFull
@@ -104,23 +105,23 @@ using (Presentation presentation = new Presentation("presentation.pptx"))
         SlidesLayoutOptions = notesOptions
     };
 
-    // 講演者ノート付きでプレゼンテーションを HTML として保存します。
+    // スピーカーノート付きでプレゼンテーションを HTML として保存します。
     presentation.Save("slide_with_notes.html", SaveFormat.Html, htmlOptions);
 }
 ```
 
 
-結果：
+結果:
 
-![スライドと講演者ノートを含む HTML ドキュメント](HTML_with_notes.png)
+![スライドとスピーカーノートを含む HTML ドキュメント](HTML_with_notes.png)
 
-## **元のフォントでプレゼンテーションを HTML に変換する**
+## **オリジナルフォント付きでプレゼンテーションを HTML に変換する**
 
-Aspose.Slides は [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) クラスを提供し、プレゼンテーションのすべてのフォントを埋め込んだ状態で HTML に変換できます。
+Aspose.Slides は、プレゼンテーションのすべてのフォントを埋め込んで HTML に変換できる [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) クラスを提供しています。
 
-特定のフォントを埋め込みたくない場合は、[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) クラスのパラメータ付きコンストラクタにフォント名の配列を渡すことができます。Calibri や Arial などの一般的なフォントは、ほとんどのシステムに既にインストールされているため埋め込む必要はありません。埋め込むと結果の HTML ドキュメントのサイズが不要に大きくなります。
+特定のフォントを埋め込みたくない場合は、[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) のパラメータ化コンストラクタにフォント名の配列を渡すことで除外できます。Calibri や Arial などの一般的なフォントは、多くのシステムに既にインストールされているため埋め込む必要はなく、埋め込むと結果の HTML ドキュメントのサイズが不必要に増加します。
 
-[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) クラスは継承をサポートし、[WriteFont](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller/methods/writefont) メソッドがオーバーライド対象として提供されています。
+[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) クラスは継承をサポートし、オーバーライドを前提とした [WriteFont](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller/methods/writefont) メソッドを提供します。
 ```c#
 using (Presentation presentation = new Presentation("input.pptx"))
 {
@@ -139,11 +140,11 @@ using (Presentation presentation = new Presentation("input.pptx"))
 ```
 
 
-## **高品質画像でプレゼンテーションを HTML に変換する**
+## **高品質画像付きでプレゼンテーションを HTML に変換する**
 
-既定では、PowerPoint プレゼンテーションを HTML に変換すると、Aspose.Slides は 72 DPI の画像とトリミングされた領域の削除を行い、サイズの小さい HTML ファイルを出力します。より高品質な画像を含む HTML を取得するには、`HtmlOptions` クラスの `PicturesCompression` プロパティを 96（`PicturesCompression.Dpi96`）またはそれ以上に設定する必要があります。詳細は [このリファレンス](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression) を参照してください。
+デフォルトでは、PowerPoint プレゼンテーションを HTML に変換すると、Aspose.Slides は 72 DPI の小さな画像を出力し、切り取られた領域を削除します。高品質画像の HTML を取得するには、`HtmlOptions` クラスの `PicturesCompression` プロパティを 96（`PicturesCompression.Dpi96`）以上の値に設定する必要があります。詳細は [このリファレンス](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression) を参照してください。
 
-この C# コードは、画像解像度を 150 DPI（`PicturesCompression.Dpi150`）に設定して高品質画像付きの HTML に変換する方法を示しています：
+以下の C# コードは、150 DPI（`PicturesCompression.Dpi150`）の高品質画像を取得しながら PowerPoint プレゼンテーションを HTML に変換する方法を示します:
 ```c#
 using (Presentation presentation = new Presentation("input.pptx"))
 {
@@ -157,7 +158,7 @@ using (Presentation presentation = new Presentation("input.pptx"))
 ```
 
 
-この C# コードは、トリミング領域を削除せずに HTML に変換する方法を示しています：
+以下の C# コードは、切り取られた領域を削除せずに PowerPoint プレゼンテーションを HTML に変換する方法を示します:
 ```c#
 using (Presentation presentation = new Presentation("input.pptx"))
 {
@@ -173,9 +174,9 @@ using (Presentation presentation = new Presentation("input.pptx"))
 
 ## **スライドを HTML に変換する**
 
-PowerPoint プレゼンテーションの特定のスライドを HTML に変換するには、全体プレゼンテーションの変換に使用したのと同じ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成し、[Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save) メソッドで HTML として保存します。追加の変換オプションは [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions) クラスで指定できます。
+PowerPoint プレゼンテーションの特定のスライドを HTML に変換するには、全体プレゼンテーションを HTML に変換する際に使用したのと同じ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成し、[Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save) メソッドで HTML として保存します。[HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions) クラスを使用して追加の変換オプションを指定できます。
 
-この C# コードは、講演者ノート付きのスライドを HTML に変換する方法を示しています：
+この C# コードは、スピーカーノート付きスライドを HTML に変換する方法を示します:
 ```c#
 public static void Run()
 {
@@ -196,7 +197,7 @@ public static void Run()
         {
             int slideIndex = i + 1;
 
-            // スライドを HTML ファイルとして保存します。
+            // スライドをHTMLファイルとして保存します。
             string fileName = $"output_slide_{slideIndex}.html";
             presentation.Save(fileName, new[] { slideIndex }, SaveFormat.Html, htmlOptions);
         }
@@ -235,9 +236,9 @@ public class CustomFormattingController : IHtmlFormattingController
 
 ## **HTML エクスポート時に CSS と画像を保存する**
 
-新しい CSS スタイル ファイルを使用すると、PowerPoint から HTML への変換で生成された HTML の外観を簡単に変更できます。
+新しい CSS スタイルファイルを使用すると、PowerPoint から HTML への変換プロセスで生成された HTML の外観を簡単に変更できます。
 
-この例の C# コードは、CSS ファイルへのリンクを含むカスタム HTML ドキュメントを作成するためにオーバーライド可能なメソッドを使用する方法を示しています：
+この例の C# コードは、オーバーライド可能なメソッドを使用して CSS ファイルへのリンクを含むカスタム HTML ドキュメントを作成する方法を示しています:
 ```c#
 using (Presentation presentation = new Presentation("pres.pptx"))
 {
@@ -285,30 +286,30 @@ public class CustomHeaderAndFontsController : EmbedAllFontsHtmlController
 ```
 
 
-## **フォントを埋め込まずにリンクする**
+## **フォントをリンクすることでプレゼンテーションを HTML に変換する**
 
-結果の HTML のサイズを増やしたくない場合は、フォントを埋め込む代わりにすべてのフォントへのリンクを作成できます。独自の `LinkAllFontsHtmlController` 実装を作成してください。
+フォントを埋め込まず（結果の HTML のサイズ増加を回避するため）にすべてのフォントをリンクしたい場合は、独自の `LinkAllFontsHtmlController` バージョンを実装できます。
 
-この C# コードは、"Calibri" と "Arial"（システムに既にインストールされているため）を除外し、すべてのフォントをリンクする方法を示しています：
+この C# コードは、フォントをすべてリンクし、"Calibri" と "Arial" を除外して（システムに既にインストールされているため） PowerPoint プレゼンテーションを HTML に変換する方法を示します:
 ```c#
 using (Presentation presentation = new Presentation("pres.pptx"))
 {
-    // デフォルトのプレゼンテーションフォントを除外します。
-    string[] fontNameExcludeList = { "Calibri", "Arial" };
+	// デフォルトのプレゼンテーションフォントを除外します。
+	string[] fontNameExcludeList = { "Calibri", "Arial" };
 
-    LinkAllFontsHtmlController linkcont = new LinkAllFontsHtmlController(fontNameExcludeList, @"C:\Windows\Fonts\");;
+	LinkAllFontsHtmlController linkcont = new LinkAllFontsHtmlController(fontNameExcludeList, @"C:\Windows\Fonts\");;
 
-    HtmlOptions htmlOptionsEmbed = new HtmlOptions
-    {
-        HtmlFormatter = HtmlFormatter.CreateCustomFormatter(linkcont)
-    };
+	HtmlOptions htmlOptionsEmbed = new HtmlOptions
+	{
+		HtmlFormatter = HtmlFormatter.CreateCustomFormatter(linkcont)
+	};
 
-    presentation.Save("pres.html", SaveFormat.Html, htmlOptionsEmbed);
+	presentation.Save("pres.html", SaveFormat.Html, htmlOptionsEmbed);
 }
 ```
 
 
-この C# コードは、`LinkAllFontsHtmlController` の実装例を示しています：
+この C# コードは、`LinkAllFontsHtmlController` の実装例を示しています:
 ```c#
 public class LinkAllFontsHtmlController : EmbedAllFontsHtmlController
 {
@@ -352,9 +353,9 @@ public class LinkAllFontsHtmlController : EmbedAllFontsHtmlController
 ```
 
 
-## **SVG 画像を含むプレゼンテーションをレスポンシブ HTML に変換する**
+## **SVG 画像付きプレゼンテーションをレスポンシブ HTML に変換する**
 
-この C# コードは、PowerPoint プレゼンテーションをレスポンシブ HTML に変換する方法を示しています：
+この C# コードは、PowerPoint プレゼンテーションをレスポンシブ HTML に変換する方法を示します:
 ```c#
 using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
@@ -368,16 +369,16 @@ using (Presentation presentation = new Presentation("Presentation.pptx"))
 ```
 
 
-## **メディア ファイルを HTML にエクスポートする**
+## **メディアファイルを HTML にエクスポートする**
 
-Aspose.Slides for .NET を使用すると、メディア ファイルを次の手順でエクスポートできます。
+Aspose.Slides for .NET を使用すると、以下の手順でメディアファイルをエクスポートできます。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-1. スライドへの参照を取得します。
-1. スライドにビデオを追加します。
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+1. スライドへの参照を取得します。  
+1. スライドに動画を追加します。  
 1. プレゼンテーションを HTML ファイルとして書き出します。
 
-この C# コードは、プレゼンテーションにビデオを追加し、HTML として保存する方法を示しています：
+この C# コードは、プレゼンテーションに動画を追加し、HTML として保存する方法を示します:
 ```c#
 // 新しいプレゼンテーションを作成します。
 using (Presentation presentation = new Presentation())
@@ -411,21 +412,21 @@ using (Presentation presentation = new Presentation())
 
 {{% alert color="primary" %}} 
 
-Aspose は無料の [presentation to HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html) コンバータを提供しています: [PPT to HTML](https://products.aspose.app/slides/conversion/ppt-to-html)、[PPTX to HTML](https://products.aspose.app/slides/conversion/pptx-to-html)、[ODP to HTML](https://products.aspose.app/slides/conversion/odp-to-html) など。
+Aspose は無料の [presentation to HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html) コンバータを提供しています: [PPT to HTML](https://products.aspose.app/slides/conversion/ppt-to-html)、[PPTX to HTML](https://products.aspose.app/slides/conversion/pptx-to-html)、[ODP to HTML](https://products.aspose.app/slides/conversion/odp-to-html) など。 
 
 [![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
 
-他の無料コンバータについては、[Aspose の無料コンバータ](https://products.aspose.app/slides/conversion) をご確認ください。
+他の無料コンバータは [こちら](https://products.aspose.app/slides/conversion) をご確認ください。
 
 {{% /alert %}}
 
-{{% alert title="注意" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-本稿で説明した変換プロセスに加えて、Aspose.Slides は HTML 形式に関する以下の変換操作もサポートしています:
+本稿で紹介した変換プロセスに加えて、Aspose.Slides は以下の HTML 関連変換操作もサポートしています: 
 
-* [HTML to image](https://products.aspose.com/slides/net/conversion/html-to-image/)
-* [HTML to JPG](https://products.aspose.com/slides/net/conversion/html-to-jpg/)
-* [HTML to XML](https://products.aspose.com/slides/net/conversion/html-to-xml/)
+* [HTML to image](https://products.aspose.com/slides/net/conversion/html-to-image/)  
+* [HTML to JPG](https://products.aspose.com/slides/net/conversion/html-to-jpg/)  
+* [HTML to XML](https://products.aspose.com/slides/net/conversion/html-to-xml/)  
 * [HTML to TIFF](https://products.aspose.com/slides/net/conversion/html-to-tiff/)
 
 {{% /alert %}}
@@ -434,12 +435,12 @@ Aspose は無料の [presentation to HTML](https://products.aspose.app/slides/co
 
 **複数のプレゼンテーションを HTML に変換する際の Aspose.Slides のパフォーマンスは？**
 
-パフォーマンスはプレゼンテーションのサイズと複雑さに依存します。Aspose.Slides はバッチ処理において非常に効率的かつスケーラブルです。多数のプレゼンテーションを変換する際は、可能な限りマルチスレッドまたは並列処理を使用することを推奨します。
+パフォーマンスはプレゼンテーションのサイズと複雑さに依存します。Aspose.Slides はバッチ処理に対して非常に効率的かつスケーラブルです。多数のプレゼンテーションを変換する場合は、可能な限りマルチスレッドや並列処理を使用することを推奨します。
 
 **Aspose.Slides はハイパーリンクの HTML へのエクスポートをサポートしていますか？**
 
-はい、Aspose.Slides は埋め込みハイパーリンクの HTML へのエクスポートを完全にサポートしています。プレゼンテーションを HTML 形式に変換すると、ハイパーリンクは自動的に保持され、クリック可能な状態になります。
+はい、Aspose.Slides は埋め込みハイパーリンクの HTML へのエクスポートを完全にサポートしています。プレゼンテーションを HTML 形式に変換すると、ハイパーリンクは自動的に保持され、クリック可能なままです。
 
-**プレゼンテーションを HTML に変換する際のスライド数に制限はありますか？**
+**プレゼンテーションを HTML に変換する際のスライド枚数に制限はありますか？**
 
-Aspose.Slides ではスライド数に制限はありません。任意のサイズのプレゼンテーションを変換できます。ただし、スライド数が非常に多い場合は、サーバーまたはシステムのリソースに応じてパフォーマンスが変わる可能性があります。
+Aspose.Slides にはスライド枚数の上限はありません。任意のサイズのプレゼンテーションを変換できます。ただし、非常に多数のスライドを含むプレゼンテーションの場合、サーバーまたはシステムのリソースに応じてパフォーマンスが変動する可能性があります。

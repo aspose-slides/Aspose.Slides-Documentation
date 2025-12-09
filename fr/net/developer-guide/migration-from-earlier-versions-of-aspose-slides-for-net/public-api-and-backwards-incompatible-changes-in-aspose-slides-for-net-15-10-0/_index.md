@@ -1,33 +1,47 @@
 ---
-title: API public et modifications incompatibles arrière dans Aspose.Slides pour .NET 15.10.0
+title: API publique et modifications incompatibles rétroactives dans Aspose.Slides pour .NET 15.10.0
+linktitle: Aspose.Slides pour .NET 15.10.0
 type: docs
 weight: 200
 url: /fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/
+keywords:
+- migration
+- code hérité
+- code moderne
+- approche héritée
+- approche moderne
+- PowerPoint
+- OpenDocument
+- présentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Passez en revue les mises à jour de l'API publique et les changements incompatibles dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentation PowerPoint PPT, PPTX et ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Cette page liste toutes les classes, méthodes, propriétés, etc. [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) ou [supprimées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/), ainsi que d'autres changements introduits avec l'API Aspose.Slides pour .NET 15.10.0.
+Cette page répertorie toutes les classes, méthodes, propriétés, etc. [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) ou [supprimées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/), ainsi que les autres changements introduits avec l'API Aspose.Slides for .NET 15.10.0.
 
 {{% /alert %}} 
 ## **Modifications de l'API publique**
 #### **Un nouveau VideoPlayerHtmlController ajouté pour prendre en charge l'exportation de fichiers multimédias vers HTML**
-La nouvelle classe publique VideoPlayerHtmlController a été ajoutée à l'espace de noms Aspose.Slides.Export. En utilisant l'instance de cette classe, l'utilisateur peut exporter des fichiers vidéo et audio au format HTML.
+La nouvelle classe publique VideoPlayerHtmlController a été ajoutée à l'espace de noms Aspose.Slides.Export. En utilisant une instance de cette classe, l'utilisateur peut exporter des fichiers vidéo et audio vers HTML.
 Les constructeurs de VideoPlayerHtmlController acceptent les paramètres suivants :
 
-path : Le chemin où les fichiers vidéo et audio seront générés
-fileName : Le nom du fichier HTML
+path : Le chemin où les fichiers vidéo et audio seront générés  
+fileName : Le nom du fichier HTML  
 
-baseUri : L'URI de base qui sera utilisée pour générer les liens
+baseUri : L'URI de base qui sera utilisée pour générer les liens  
 Exemple d'utilisation :
 
 ``` csharp
 
- using (Presentation pres = new Presentation("exemple.pptx"))
+ using (Presentation pres = new Presentation("example.pptx"))
 
 {
 
-    const string path = "chemin";
+    const string path = "path";
 
     const string fileName = "video.html";
 
@@ -48,8 +62,8 @@ Exemple d'utilisation :
 }
 
 ``` 
-#### **API d'animation des séries de graphiques ajoutée**
-Deux nouvelles méthodes ont été ajoutées à l'interface Aspose.Slides.Animation.ISequence.
+#### **L'API d'animation des séries de graphiques a été ajoutée**
+Les 2 nouvelles méthodes ont été ajoutées à l'interface Aspose.Slides.Animation.ISequence.
 
 ``` csharp
 
@@ -60,12 +74,12 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 ``` 
 
 Ces méthodes sont destinées à prendre en charge les animations des éléments du graphique :
-par séries
-par catégories
-par éléments de séries
-par éléments de catégories
+- par séries
+- par catégories
+- par éléments de séries
+- par éléments de catégories
 
-Les deux nouvelles énumérations EffectChartMajorGroupingType et EffectChartMinorGroupingType liées à l'animation des éléments du graphique ont été introduites.
+Les deux nouveaux enums EffectChartMajorGroupingType et EffectChartMinorGroupingType liés à l'animation des éléments du graphique ont été introduits.
 
 Pour ajouter une animation de série au graphique, le code suivant peut être utilisé :
 
@@ -353,4 +367,4 @@ Animation des éléments de catégories :
 
 }
 
-``` 
+```

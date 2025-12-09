@@ -1,40 +1,42 @@
 ---
-title: Bildschirmpräsentation verwalten
+title: Slide Show in .NET verwalten
+linktitle: Slide-Show
 type: docs
 weight: 90
 url: /de/net/manage-slide-show/
 keywords:
 - Anzeigetyp
-- vom Sprecher präsentiert
-- von einer Einzelperson durchsucht
-- im Kiosk-Modus
+- präsentiert vom Redner
+- durchblättert von Einzelperson
+- durchblättert im Kiosk
 - Anzeigeoptionen
 - schleifen kontinuierlich
-- ohne Erzählung anzeigen
-- ohne Animation anzeigen
+- Anzeige ohne Erzählung
+- Anzeige ohne Animation
 - Stiftfarbe
 - Folien anzeigen
-- Benutzerdefinierte Anzeige
-- Folien vorwärts
+- Benutzerdefinierte Show
+- Folien vorwärts schalten
 - manuell
 - mit Timings
 - PowerPoint
+- OpenDocument
 - Präsentation
-- C#
 - .NET
-- Aspose.Slides für .NET
-description: "Bildschirmpräsentationseinstellungen in PowerPoint-Präsentationen mit C# verwalten"
+- C#
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Slide-Shows in Aspose.Slides für .NET verwalten. Steuern Sie Folienübergänge, Timings und mehr in PPT-, PPTX- und ODP-Formaten mühelos."
 ---
 
-In Microsoft PowerPoint sind die **Bildschirmpräsentation**‑Einstellungen ein wichtiges Werkzeug zur Vorbereitung und Durchführung professioneller Präsentationen. Eine der wichtigsten Funktionen in diesem Abschnitt ist **Set Up Show**, das Ihnen ermöglicht, Ihre Präsentation an bestimmte Bedingungen und Zielgruppen anzupassen und dabei Flexibilität und Komfort zu gewährleisten. Mit dieser Funktion können Sie den Anzeigetyp auswählen (z. B. Präsentation durch einen Sprecher, durch einen einzelnen Betrachter oder im Kiosk‑Modus), das Schleifen aktivieren oder deaktivieren, bestimmte Folien zur Anzeige auswählen und Zeitsteuerungen verwenden. Dieser Vorbereitungsschritt ist entscheidend, um Ihre Präsentation wirkungsvoller und professioneller zu gestalten.
+In Microsoft PowerPoint sind die **Slide Show**‑Einstellungen ein wichtiges Werkzeug zum Vorbereiten und Durchführen professioneller Präsentationen. Eine der wichtigsten Funktionen in diesem Abschnitt ist **Set Up Show**, die es Ihnen ermöglicht, Ihre Präsentation an bestimmte Bedingungen und Zielgruppen anzupassen und dadurch Flexibilität und Komfort zu gewährleisten. Mit dieser Funktion können Sie den Anzeigetyp auswählen (z. B. präsentiert von einem Redner, von einer Einzelperson durchblättert oder an einem Kiosk durchblättert), das Schleifen aktivieren oder deaktivieren, bestimmte Folien zur Anzeige auswählen und Timings verwenden. Dieser Vorbereitungsschritt ist entscheidend, um Ihre Präsentation wirksamer und professioneller zu machen.
 
-`SlideShowSettings` ist eine Eigenschaft der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) vom Typ [SlideShowSettings](https://reference.aspose.com/slides/net/aspose.slides/presentation/slideshowsettings/), die Ihnen ermöglicht, die Bildschirmpräsentationseinstellungen in einer PowerPoint‑Präsentation zu verwalten. In diesem Artikel zeigen wir, wie Sie diese Eigenschaft verwenden, um verschiedene Aspekte der Bildschirmpräsentationseinstellungen zu konfigurieren und zu steuern. 
+`SlideShowSettings` ist eine Eigenschaft der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) , vom Typ [SlideShowSettings](https://reference.aspose.com/slides/net/aspose.slides/presentation/slideshowsettings/) , mit der Sie die Slide‑Show‑Einstellungen in einer PowerPoint‑Präsentation verwalten können. In diesem Artikel untersuchen wir, wie man diese Eigenschaft verwendet, um verschiedene Aspekte der Slide‑Show‑Einstellungen zu konfigurieren und zu steuern. 
 
 ## **Auswahl des Anzeigetyps**
 
-`SlideShowSettings.SlideShowType` definiert den Typ der Bildschirmpräsentation, der eine Instanz einer der folgenden Klassen sein kann: [PresentedBySpeaker](https://reference.aspose.com/slides/net/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/net/aspose.slides/browsedbyindividual/), oder [BrowsedAtKiosk](https://reference.aspose.com/slides/net/aspose.slides/browsedatkiosk/). Mit dieser Eigenschaft können Sie die Präsentation an verschiedene Nutzungsszenarien anpassen, z. B. automatisierte Kioske oder manuelle Präsentationen.
+`SlideShowSettings.SlideShowType` definiert den Typ der Slide‑Show, der eine Instanz einer der folgenden Klassen sein kann: [PresentedBySpeaker](https://reference.aspose.com/slides/net/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/net/aspose.slides/browsedbyindividual/) oder [BrowsedAtKiosk](https://reference.aspose.com/slides/net/aspose.slides/browsedatkiosk/). Durch die Verwendung dieser Eigenschaft können Sie die Präsentation an unterschiedliche Nutzungsszenarien anpassen, z. B. automatisierte Kioske oder manuelle Präsentationen.
 
-Das nachstehende Codebeispiel erstellt eine neue Präsentation und setzt den Anzeigetyp auf „Durch einen einzelnen Betrachter“ ohne die Bildlaufleiste anzuzeigen.
+Das untenstehende Code‑Beispiel erstellt eine neue Präsentation und setzt den Anzeigetyp auf „Browsed by an individual“, ohne die Bildlaufleiste anzuzeigen.
 ```cs
 using var presentation = new Presentation();
 
@@ -49,11 +51,11 @@ presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Anzeigeoptionen aktivieren**
+## **Show‑Optionen aktivieren**
 
-`SlideShowSettings.Loop` bestimmt, ob die Bildschirmpräsentation in einer Schleife wiederholt werden soll, bis sie manuell gestoppt wird. Dies ist nützlich für automatisierte Präsentationen, die kontinuierlich laufen müssen. `SlideShowSettings.ShowNarration` bestimmt, ob während der Bildschirmpräsentation Sprachkommentare abgespielt werden sollen. Das ist nützlich für automatisierte Präsentationen, die eine Sprachführung für das Publikum enthalten. `SlideShowSettings.ShowAnimation` bestimmt, ob Animationen, die Folienobjekten hinzugefügt wurden, abgespielt werden sollen. Dies ist nützlich, um den vollen visuellen Effekt der Präsentation zu vermitteln.
+`SlideShowSettings.Loop` legt fest, ob die Slide‑Show in einer Schleife wiederholt wird, bis sie manuell gestoppt wird. Dies ist nützlich für automatisierte Präsentationen, die kontinuierlich laufen müssen. `SlideShowSettings.ShowNarration` bestimmt, ob während der Slide‑Show Sprach‑Narrationen abgespielt werden sollen. Das ist nützlich für automatisierte Präsentationen, die Sprach‑Anleitungen für das Publikum enthalten. `SlideShowSettings.ShowAnimation` legt fest, ob Animationen, die zu Folienobjekten hinzugefügt wurden, abgespielt werden sollen. Dies ist hilfreich, um den vollen visuellen Effekt der Präsentation zu bieten.
 
-Das folgende Codebeispiel erstellt eine neue Präsentation und lässt die Bildschirmpräsentation wiederholt ablaufen.
+Das folgende Code‑Beispiel erstellt eine neue Präsentation und lässt die Slide‑Show schleifen.
 ```cs
 using var presentation = new Presentation();
 
@@ -65,7 +67,7 @@ presentation.Save("output.pptx", SaveFormat.Pptx);
 
 ## **Auswahl der anzuzeigenden Folien**
 
-`SlideShowSettings.Slides` ermöglicht es Ihnen, einen Folienbereich auszuwählen, der während der Präsentation angezeigt werden soll. Dies ist nützlich, wenn Sie nur einen Teil der Präsentation und nicht alle Folien zeigen möchten. Das folgende Codebeispiel erstellt eine neue Präsentation und legt den Folienbereich von Folie `2` bis `9` fest.
+`SlideShowSettings.Slides` ermöglicht es Ihnen, einen Bereich von Folien auszuwählen, die während der Präsentation angezeigt werden sollen. Dies ist nützlich, wenn Sie nur einen Teil der Präsentation und nicht alle Folien zeigen möchten. Das folgende Code‑Beispiel erstellt eine neue Präsentation und legt den Folienbereich fest, der von Folie `2` bis `9` angezeigt wird.
 ```cs
 using var presentation = new Presentation();
 
@@ -81,9 +83,9 @@ presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Timings verwenden**
+## **Erweiterte Folien verwenden**
 
-`SlideShowSettings.UseTimings` ermöglicht das Aktivieren oder Deaktivieren der Verwendung vordefinierter Timings für jede Folie. Dies ist nützlich, um Folien automatisch mit vorher festgelegten Anzeigedauern zu zeigen. Das nachstehende Codebeispiel erstellt eine neue Präsentation und deaktiviert die Verwendung von Timings.
+`SlideShowSettings.UseTimings` ermöglicht es, die Verwendung vordefinierter Timings für jede Folie zu aktivieren oder zu deaktivieren. Dies ist nützlich, um Folien automatisch mit festgelegten Anzeigedauern zu präsentieren. Das untenstehende Code‑Beispiel erstellt eine neue Präsentation und deaktiviert die Verwendung von Timings.
 ```cs
 using var presentation = new Presentation();
 
@@ -93,11 +95,11 @@ presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Mediensteuerelemente anzeigen**
+## **Mediensteuerungen anzeigen**
 
-`SlideShowSettings.ShowMediaControls` bestimmt, ob Mediensteuerelemente (wie Wiedergabe, Pause und Stopp) während der Bildschirmpräsentation angezeigt werden, wenn multimediale Inhalte (z. B. Video oder Audio) abgespielt werden. Dies ist nützlich, wenn Sie dem Präsentierenden die Kontrolle über die Medienwiedergabe während der Präsentation geben möchten.
+`SlideShowSettings.ShowMediaControls` legt fest, ob Mediensteuerungen (wie Abspielen, Pause und Stoppen) während der Slide‑Show angezeigt werden sollen, wenn Multimedia‑Inhalte (z. B. Video oder Audio) abgespielt werden. Dies ist nützlich, wenn Sie dem Vortragenden die Kontrolle über die Medienwiedergabe während der Präsentation geben möchten.
 
-Das folgende Codebeispiel erstellt eine neue Präsentation und aktiviert die Anzeige von Mediensteuerelementen.
+Das folgende Code‑Beispiel erstellt eine neue Präsentation und aktiviert die Anzeige von Mediensteuerungen.
 ```cs
 using var presentation = new Presentation();
 
@@ -109,14 +111,14 @@ presentation.Save("output.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Kann ich eine Präsentation speichern, so dass sie beim Öffnen direkt im Bildschirmpräsentationsmodus startet?**
+**Kann ich eine Präsentation speichern, damit sie direkt im Folien‑Show‑Modus geöffnet wird?**
 
-Ja. Speichern Sie die Datei als PPSX oder PPSM; diese Formate starten die Bildschirmpräsentation direkt, wenn sie in PowerPoint geöffnet wird. In Aspose.Slides wählen Sie das entsprechende Speicherformat [bei der Exportierung](/slides/de/net/save-presentation/).
+Ja. Speichern Sie die Datei als PPSX oder PPSM; diese Formate starten direkt im Folien‑Show‑Modus, wenn sie in PowerPoint geöffnet werden. In Aspose.Slides wählen Sie das entsprechende Speicherformat [during export](/slides/de/net/save-presentation/).
 
-**Kann ich einzelne Folien von der Präsentation ausschließen, ohne sie aus der Datei zu löschen?**
+**Kann ich einzelne Folien aus der Show ausschließen, ohne sie aus der Datei zu löschen?**
 
-Ja. Markieren Sie eine Folie als [Hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/). Versteckte Folien bleiben in der Präsentation, werden jedoch während der Bildschirmpräsentation nicht angezeigt.
+Ja. Markieren Sie eine Folie als [Hidden](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/). Versteckte Folien bleiben in der Präsentation, werden jedoch während der Folien‑Show nicht angezeigt.
 
-**Kann Aspose.Slides eine Bildschirmpräsentation abspielen oder eine Live‑Präsentation auf dem Bildschirm steuern?**
+**Kann Aspose.Slides eine Folien‑Show abspielen oder eine Live‑Präsentation auf dem Bildschirm steuern?**
 
-Nein. Aspose.Slides bearbeitet, analysiert und konvertiert Präsentationsdateien; die eigentliche Wiedergabe wird von einer Anzeiganwendung wie PowerPoint übernommen.
+Nein. Aspose.Slides bearbeitet, analysiert und konvertiert Präsentationsdateien; die eigentliche Wiedergabe wird von einer Viewer‑Anwendung wie PowerPoint übernommen.
