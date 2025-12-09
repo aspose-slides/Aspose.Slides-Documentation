@@ -1,32 +1,43 @@
 ---
-title: Добавление рамки для изображения с анимацией
+title: Добавление рамок изображений с анимацией с использованием VSTO и Aspose.Slides for .NET
+linktitle: Рамки изображений с анимацией
 type: docs
 weight: 60
 url: /ru/net/adding-picture-frame-with-animation/
+keywords:
+- рамка изображения
+- добавить изображение
+- добавить картинку
+- изображение с анимацией
+- картинка с анимацией
+- миграция
+- VSTO
+- автоматизация Office
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Перейдите от автоматизации Microsoft Office к Aspose.Slides for .NET и анимируйте рамки изображений в слайдах PowerPoint (PPT, PPTX) с чистым кодом C#."
 ---
 
 {{% alert color="primary" %}} 
-
-Рамки для изображений применяются к фигурам или изображениям в Microsoft PowerPoint для оформления изображений в презентации. Эта статья показывает, как создать рамку для изображения и применить к ней анимацию программным образом, сначала используя [VSTO 2008](/slides/ru/net/adding-picture-frame-with-animation/), а затем [Aspose.Slides для .NET](/slides/ru/net/adding-picture-frame-with-animation/). Сначала мы покажем, как применить рамку и анимацию, используя VSTO 2008. Затем мы покажем, как выполнить те же действия с помощью Aspose.Slides для .NET.
-
+Рамки изображений применяются к фигурам или изображениям в Microsoft PowerPoint, чтобы оформить изображения в презентации. В этой статье показано, как программно создать рамку изображения и применить к ней анимацию, сначала с помощью [VSTO 2008](/slides/ru/net/adding-picture-frame-with-animation/) и затем с помощью [Aspose.Slides for .NET](/slides/ru/net/adding-picture-frame-with-animation/). Сначала мы покажем, как применить рамку и анимацию с помощью VSTO 2008. Затем мы продемонстрируем, как выполнить те же шаги с помощью Aspose.Slides for .NET.
 {{% /alert %}} 
-## **Добавление рамок для изображений с анимацией**
-Приведенные ниже примеры кода создают презентацию со слайдом, добавляют изображение с рамкой для изображения и применяют к нему анимацию.
-### **Пример VSTO 2008**
-Используя VSTO 2008, выполните следующие шаги:
+## **Adding Picture Frames with Animation**
+Приведённые ниже образцы кода создают презентацию с слайдом, добавляют изображение с рамкой и применяют к нему анимацию.
+### **VSTO 2008 Example**
+Using VSTO 2008, take the following steps:
 
-1. Создайте презентацию.
-1. Добавьте пустой слайд.
-1. Добавьте фигуру изображения на слайд.
-1. Примените анимацию к изображению.
-1. Сохраните презентацию на диск.
+1. Create a presentation.
+1. Add an empty slide.
+1. Add a picture shape to the slide.
+1. Apply animation to the picture.
+1. Write the presentation to disk.
 
-**Выходная презентация, созданная с помощью VSTO** 
+**The output presentation, created with VSTO** 
 
 ![todo:image_alt_text](adding-picture-frame-with-animation_1.png)
-
-
-
 ```c#
 //Создание пустой презентации
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
@@ -34,12 +45,12 @@ PowerPoint.Presentation pres = Globals.ThisAddIn.Application.Presentations.Add(M
 //Добавление пустого слайда
 PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);
 
-//Добавление рамки для изображения
+//Добавление рамки изображения
 PowerPoint.Shape PicFrame = sld.Shapes.AddPicture(@"D:\Aspose Data\Desert.jpg",
 Microsoft.Office.Core.MsoTriState.msoTriStateMixed,
 Microsoft.Office.Core.MsoTriState.msoTriStateMixed, 150, 100, 400, 300);
 
-//Применение анимации к рамке для изображения
+//Применение анимации к рамке изображения
 PicFrame.AnimationSettings.EntryEffect = Microsoft.Office.Interop.PowerPoint.PpEntryEffect.ppEffectBoxIn;
 
 //Сохранение презентации
@@ -48,40 +59,42 @@ Microsoft.Office.Core.MsoTriState.msoFalse);
 ```
 
 
-### **Пример Aspose.Slides для .NET**
-Используя Aspose.Slides для .NET, выполните следующие шаги:
 
-1. Создайте презентацию.
-1. Получите доступ к первому слайду.
-1. Добавьте изображение в коллекцию изображений.
-1. Добавьте фигуру изображения на слайд.
-1. Примените анимацию к изображению.
-1. Сохраните презентацию на диск.
+### **Aspose.Slides for .NET Example**
+Using Aspose.Slides for .NET, perform the following steps:
 
-**Выходная презентация, созданная с помощью Aspose.Slides** 
+1. Create a presentation.
+1. Access the first slide.
+1. Add an image to a picture collection.
+1. Add a picture shape to the slide.
+1. Apply animation to the picture.
+1. Write the presentation to disk.
+
+**The output presentation, created with Aspose.Slides** 
 
 ![todo:image_alt_text](adding-picture-frame-with-animation_2.png)
-
-
-
 ```c#
-//Создание пустой презентации
-Presentation pres = new Presentation();
+// Создать пустую презентацию
+using (Presentation pres = new Presentation())
+{
+    // Получить первый слайд
+    ISlide slide = pres.Slides[0];
 
-//Получение первого слайда
-ISlide slide = pres.Slides[0];
+    // Добавить изображение в коллекцию изображений презентации
+    IImage image = Images.FromFile("aspose.jpg");
+    IPPImage ppImage = pres.Images.AddImage(image);
+    image.Dispose();
 
-//Добавление объекта изображения в коллекцию изображений презентации
-System.Drawing.Image pic = (System.Drawing.Image)new Bitmap("C:\\Data\\aspose.jpg");
+    // Добавить рамку изображения, высота и ширина которой соответствуют высоте и ширине изображения
+    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
-IPPImage imgx = pres.Images.AddImage(pic);
+    // Получить основную анимационную последовательность слайда
+    ISequence sequence = pres.Slides[0].Timeline.MainSequence;
 
-//Добавление рамки для изображения с высотой и шириной, эквивалентной изображению
-IPictureFrame PicFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
+    // Добавить эффект анимации «Полёт слева» к рамке изображения
+    IEffect effect = sequence.AddEffect(pictureFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
-//Применение анимации к рамке для изображения
-//PicFrame.AnimationSettings.EntryEffect = ShapeEntryEffect.BoxIn;
-
-//Сохранение презентации
-pres.Save("c:\\data\\AsposeAnim.ppt", SaveFormat.Ppt);
+    // Сохранить презентацию
+    pres.Save("AsposeAnim.ppt", SaveFormat.Ppt);
+}
 ```

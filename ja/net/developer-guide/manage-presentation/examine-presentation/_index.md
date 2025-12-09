@@ -1,55 +1,58 @@
 ---
-title: プレゼンテーションの確認
+title: ".NET でプレゼンテーション情報を取得および更新"
+linktitle: "プレゼンテーション情報"
 type: docs
 weight: 30
 url: /ja/net/examine-presentation/
 keywords:
-- PowerPoint
-- プレゼンテーション
-- プレゼンテーションフォーマット
-- プレゼンテーションプロパティ
-- ドキュメントプロパティ
-- プロパティを取得
-- プロパティを読み取る
-- プロパティを変更
-- プロパティを修正
-- PPTX
-- PPT
-- C#
-- Csharp
-- .NET
-description: "C# または .NET で PowerPoint プレゼンテーションのプロパティを読み取り、修正します"
+- "プレゼンテーション形式"
+- "プレゼンテーション プロパティ"
+- "ドキュメント プロパティ"
+- "プロパティ取得"
+- "プロパティ読み取り"
+- "プロパティ変更"
+- "プロパティ修正"
+- "プロパティ更新"
+- "PPTX を検査"
+- "PPT を検査"
+- "ODP を検査"
+- "PowerPoint"
+- "OpenDocument"
+- "プレゼンテーション"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: ".NET を使用して PowerPoint および OpenDocument のプレゼンテーションのスライド、構造、メタデータを調査し、迅速な洞察と賢いコンテンツ監査を実現します。"
 ---
 
-Aspose.Slides for .NET を使用すると、プレゼンテーションを検査してそのプロパティを確認し、動作を理解することができます。
+Aspose.Slides for .NET を使用すると、プレゼンテーションを調査してプロパティを確認し、その動作を理解できます。 
 
-{{% alert title="情報" color="info" %}} 
+{{% alert title="Info" color="info" %}} 
 
-[PresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo) および [DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/) クラスには、ここでの操作に使用されるプロパティとメソッドが含まれています。
+ここで使用される操作に必要なプロパティとメソッドを含むクラスは、[PresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo) と [DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/) です。
 
 {{% /alert %}} 
 
-## **プレゼンテーションフォーマットの確認**
+## **プレゼンテーション形式の確認**
 
-プレゼンテーションに取り組む前に、現在プレゼンテーションがどのフォーマット (PPT、PPTX、ODP など) であるかを確認したい場合があります。
+プレゼンテーションを操作する前に、現在の形式（PPT、PPTX、ODP など）が何かを確認したくなることがあります。
 
-プレゼンテーションを読み込まずに、そのフォーマットを確認できます。以下の C# コードを参照してください。
-
+プレゼンテーションをロードせずに形式を確認できます。以下の C# コードをご覧ください：
 ```c#
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
-Console.WriteLine(info.LoadFormat); // PPTX
+Console.WriteLine(info.LoadFormat); // PPTX形式
 
 IPresentationInfo info2 = PresentationFactory.Instance.GetPresentationInfo("pres.ppt");
-Console.WriteLine(info2.LoadFormat); // PPT
+Console.WriteLine(info2.LoadFormat); // PPT形式
 
 IPresentationInfo info3 = PresentationFactory.Instance.GetPresentationInfo("pres.odp");
-Console.WriteLine(info3.LoadFormat); // ODP
+Console.WriteLine(info3.LoadFormat); // ODP形式
 ```
+
 
 ## **プレゼンテーションプロパティの取得**
 
-この C# コードは、プレゼンテーションのプロパティ (プレゼンテーションに関する情報) を取得する方法を示しています。
-
+この C# コードは、プレゼンテーションのプロパティ（プレゼンテーションに関する情報）を取得する方法を示しています：
 ```c#
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
 IDocumentProperties props = info.ReadDocumentProperties();
@@ -59,40 +62,63 @@ Console.WriteLine(props.Title);
 // .. 
 ```
 
-[DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/#properties) クラスの下のプロパティを確認したいかもしれません。
+
+[DocumentProperties のプロパティ](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/#properties) を確認したい場合があります。
 
 ## **プレゼンテーションプロパティの更新**
 
-Aspose.Slides では、プレゼンテーションプロパティを変更することを可能にする [PresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo/methods/updatedocumentproperties) メソッドが提供されています。
+Aspose.Slides は、プレゼンテーションのプロパティを変更できる [PresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo/methods/updatedocumentproperties) メソッドを提供します。
 
-例として、以下に示すドキュメントプロパティを持つ PowerPoint プレゼンテーションがあるとします。
+以下に、ドキュメントプロパティが示された PowerPoint プレゼンテーションがあるとします。
 
 ![PowerPoint プレゼンテーションの元のドキュメントプロパティ](input_properties.png)
 
-このコード例は、いくつかのプレゼンテーションプロパティを編集する方法を示しています。
-
+このコード例では、いくつかのプレゼンテーションプロパティを編集する方法を示しています：
 ```c#
 string fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo(fileName);
 
 IDocumentProperties properties = info.ReadDocumentProperties();
-properties.Title = "私のタイトル";
+properties.Title = "My title";
 properties.LastSavedTime = DateTime.Now;
 
 info.UpdateDocumentProperties(properties);
 info.WriteBindedPresentation(fileName);
 ```
 
-ドキュメントプロパティを変更した結果は以下に示されています。
 
-![PowerPoint プレゼンテーションの変更されたドキュメントプロパティ](output_properties.png)
+ドキュメントプロパティを変更した結果は以下の通りです。
+
+![PowerPoint プレゼンテーションの変更後ドキュメントプロパティ](output_properties.png)
 
 ## **便利なリンク**
 
-プレゼンテーションとそのセキュリティ属性に関する詳細情報を取得するには、次のリンクが役立つかもしれません。
+プレゼンテーションおよびそのセキュリティ属性に関する詳細情報は、以下のリンクが役立ちます：
 
-- [プレゼンテーションが暗号化されているかどうかの確認](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [プレゼンテーションが書き込み保護されているかどうかの確認 (読み取り専用)](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [プレゼンテーションを読み込む前にパスワード保護されているかどうかの確認](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [プレゼンテーションを保護するために使用されたパスワードの確認](https://docs.aspose.com/slides/net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation)
+- [プレゼンテーションが暗号化されているかの確認](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
+- [プレゼンテーションが書き込み保護（読み取り専用）かの確認](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
+- [ロード前にプレゼンテーションがパスワードで保護されているかの確認](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
+- [プレゼンテーションを保護するために使用されたパスワードの確認](https://docs.aspose.com/slides/net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+
+## **よくある質問**
+
+**フォントが埋め込まれているか、どのフォントかをどうやって確認できますか？**
+
+プレゼンテーションレベルで[埋め込みフォント情報](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts/) を確認し、そのエントリを[コンテンツ全体で実際に使用されているフォント](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getfonts/) の集合と比較して、レンダリングに重要なフォントを特定します。
+
+**ファイルに非表示スライドがあるか、数はどれくらいかをすぐに確認する方法は？**
+
+[スライド コレクション](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/) を反復し、各スライドの[可視性フラグ](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) を確認します。
+
+**カスタム スライド サイズと向きが使用されているか、デフォルトと異なるかどうかを検出できますか？**
+
+はい。現在の[スライド サイズ](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) と向きを標準プリセットと比較します。これにより、印刷やエクスポート時の動作を予測できます。
+
+**チャートが外部データ ソースを参照しているかどうかを素早く確認する方法はありますか？**
+
+はい。すべての[チャート](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/) を走査し、各[データ ソース](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) を確認して、データが内部かリンクベースか、壊れたリンクがあるかどうかを把握します。
+
+**レンダリングや PDF エクスポートを遅くする可能性のある「重い」スライドを評価するにはどうすればよいですか？**
+
+各スライドについてオブジェクト数を集計し、大きな画像、透過、影、アニメーション、マルチメディアなどをチェックします。概算の複雑度スコアを付けて、パフォーマンス上のボトルネックとなり得る箇所を特定します。

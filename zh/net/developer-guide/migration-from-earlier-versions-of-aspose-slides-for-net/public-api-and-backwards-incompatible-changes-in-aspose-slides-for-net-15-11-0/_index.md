@@ -1,37 +1,51 @@
 ---
-title: Aspose.Slides for .NET 15.11.0 的公共API和向后不兼容的更改
+title: Aspose.Slides for .NET 15.11.0 中的公共 API 和向后不兼容的更改
+linktitle: Aspose.Slides for .NET 15.11.0
 type: docs
 weight: 210
 url: /zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/
+keywords:
+- 迁移
+- 旧版代码
+- 现代代码
+- 旧版方法
+- 现代方法
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- .NET
+- C#
+- Aspose.Slides
+description: "回顾 Aspose.Slides for .NET 中的公共 API 更新和破坏性更改，以顺利迁移您的 PowerPoint PPT、PPTX 和 ODP 演示文稿解决方案。"
 ---
 
 {{% alert color="primary" %}} 
 
-本页面列出了所有在 Aspose.Slides for .NET 15.11.0 API 中[添加](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/)或[删除](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/)的类、方法、属性等，以及其他更改。
+此页面列出所有已[已添加](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/)或已[已删除](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/)的类、方法、属性等，以及 Aspose.Slides for .NET 15.11.0 API 引入的其他更改。
 
 {{% /alert %}} 
-## **公共API更改**
+## **公共 API 更改**
 
-#### **DataLabelCollection 类中的过时属性已被删除**
-DataLabelCollection 类中的过时属性已被删除：
-Aspose.Slides.Charts.DataLabelCollection.Delete  
-Aspose.Slides.Charts.DataLabelCollection.Format  
-Aspose.Slides.Charts.DataLabelCollection.LinkedSource  
-Aspose.Slides.Charts.DataLabelCollection.NumberFormat  
-Aspose.Slides.Charts.DataLabelCollection.Position  
-Aspose.Slides.Charts.DataLabelCollection.Separator  
-Aspose.Slides.Charts.DataLabelCollection.ShowBubbleSize  
-Aspose.Slides.Charts.DataLabelCollection.ShowCategoryName  
-Aspose.Slides.Charts.DataLabelCollection.ShowLeaderLines  
-Aspose.Slides.Charts.DataLabelCollection.ShowLegendKey  
-Aspose.Slides.Charts.DataLabelCollection.ShowPercentage  
-Aspose.Slides.Charts.DataLabelCollection.ShowSeriesName  
-Aspose.Slides.Charts.DataLabelCollection.ShowValue  
+#### **DataLabelCollection 类中已弃用的属性已被删除**
+Obsolete properties in DataLabelCollection class have been deleted:
+Aspose.Slides.Charts.DataLabelCollection.Delete
+Aspose.Slides.Charts.DataLabelCollection.Format
+Aspose.Slides.Charts.DataLabelCollection.LinkedSource
+Aspose.Slides.Charts.DataLabelCollection.NumberFormat
+Aspose.Slides.Charts.DataLabelCollection.Position
+Aspose.Slides.Charts.DataLabelCollection.Separator
+Aspose.Slides.Charts.DataLabelCollection.ShowBubbleSize
+Aspose.Slides.Charts.DataLabelCollection.ShowCategoryName
+Aspose.Slides.Charts.DataLabelCollection.ShowLeaderLines
+Aspose.Slides.Charts.DataLabelCollection.ShowLegendKey
+Aspose.Slides.Charts.DataLabelCollection.ShowPercentage
+Aspose.Slides.Charts.DataLabelCollection.ShowSeriesName
+Aspose.Slides.Charts.DataLabelCollection.ShowValue
 
-#### **Presentation 类中添加了新属性 FirstSlideNumber**
-新增属性 FirstSlideNumber 允许获取或设置演示文稿中的第一页幻灯片的编号。
+#### **在 Presentation 类中添加了新属性 FirstSlideNumber**
+在 Presentation 中添加的属性 FirstSlideNumber 允许获取或设置演示文稿中第一张幻灯片的编号。
 
-当指定新的 FirstSlideNumber 值时，所有幻灯片编号将被重新计算。
+当指定新的 FirstSlideNumber 值时，所有幻灯片的编号都会重新计算。
 
 ``` csharp
 

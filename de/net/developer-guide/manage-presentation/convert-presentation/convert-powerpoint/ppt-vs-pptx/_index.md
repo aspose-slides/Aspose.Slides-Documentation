@@ -1,24 +1,64 @@
 ---
-title: PPT vs PPTX
+title: "Verstehen des Unterschieds: PPT vs PPTX"
+linktitle: PPT vs PPTX
 type: docs
 weight: 10
 url: /de/net/ppt-vs-pptx/
-keywords: "PPT vs PPTX, PPT oder PPTX, PowerPoint-Präsentation, Format, C#, Csharp, .NET"
-description: "Über PowerPoint-Präsentationsformate. PPT vs PPTX. Unterschiede in C# oder .NET"
+keywords:
+- PPT vs PPTX
+- PPT oder PPTX
+- Legacy-Format
+- Modernes Format
+- Binäres Format
+- Moderner Standard
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Vergleichen Sie PPT und PPTX für PowerPoint mit Aspose.Slides für .NET, wobei Sie Formatunterschiede, Vorteile, Kompatibilität und Konvertierungstipps untersuchen."
 ---
 
-## **Was ist PPT?**
-[**PPT**](https://docs.fileformat.com/presentation/ppt/) ist ein binäres Dateiformat, d.h. es ist unmöglich, seinen Inhalt ohne spezielle Werkzeuge anzuzeigen. Die ersten PowerPoint-Versionen 97-2003 arbeiteten mit dem PPT-Dateiformat, dessen Erweiterbarkeit jedoch begrenzt ist.  
-## **Was ist PPTX?**
-[**PPTX**](https://docs.fileformat.com/presentation/pptx/) ist ein neues Präsentationsdateiformat, das auf dem Office Open XML (ISO 29500:2008-2016, ECMA-376) Standard basiert. PPTX ist ein archiviertes Set von XML- und Mediendateien. Das PPTX-Format ist leicht erweiterbar. Zum Beispiel ist es einfach, Unterstützung für einen neuen Diagrammtyp oder Formtyp hinzuzufügen, ohne das PPTX-Format in jeder neuen PowerPoint-Version zu ändern. Das PPTX-Format wird ab PowerPoint 2007 verwendet.
+## **Verstehen von PPT: Legacy-Format**
+[**PPT**](https://docs.fileformat.com/presentation/ppt/) ist ein binäres Dateiformat, das von PowerPoint 97-2003 verwendet wird. Aufgrund seiner binären Natur erfordert das Anzeigen des Inhalts spezialisierte Werkzeuge. Trotz seiner Einschränkungen in der Erweiterbarkeit wird das PPT-Format für bestimmte Anwendungen weiterhin häufig verwendet.
 
-## **PPT vs PPTX**
-Obwohl PPTX viel umfassendere Funktionen bietet, bleibt PPT recht beliebt. Die Notwendigkeit, von PPT zu PPTX und umgekehrt zu konvertieren, ist stark gefragt.
+## **Erkunden von PPTX: Moderner Standard**
+[**PPTX**](https://docs.fileformat.com/presentation/pptx/) basiert auf dem Office Open XML-Standard (ISO 29500:2008-2016, ECMA-376). Dieses XML-basierte Format ermöglicht größere Flexibilität und ist mit PowerPoint 2007 und neueren Versionen kompatibel. Die Modularität von PPTX erleichtert das einfache Hinzufügen von Funktionen, wie neuen Diagramm- oder Formtypen, und gewährleistet Abwärtskompatibilität ohne größere Formatänderungen.
 
-Die Konversion zwischen dem alten PPT- und dem neuen PPTX-Format ist jedoch die komplizierteste Herausforderung unter den anderen Microsoft Office-Formaten. Obwohl die Spezifikation des PPT-Formats offen ist, ist es schwierig, damit zu arbeiten. PowerPoint kann spezielle Teile (MetroBlob) in PPT-Dateien erstellen, um Informationen aus PPTX zu speichern, die vom PPT-Format nicht unterstützt werden und in alten PowerPoint-Versionen nicht angezeigt werden können. Diese Informationen können wiederhergestellt werden, wenn eine PPT-Datei in einer modernen PowerPoint-Version geladen oder in das PPTX-Format konvertiert wird.
-
-Aspose.Slides bietet eine gemeinsame Schnittstelle, um mit allen Präsentationsformaten zu arbeiten. Es ermöglicht die Konversion von PPT in PPTX und von PPTX in PPT auf sehr einfache Weise. Aspose.Slides unterstützt die Konversion von PPT in PPTX vollständig und unterstützt auch die Konversion von PPTX in PPT mit einigen Einschränkungen. Wir empfehlen die Verwendung des PPTX-Formats, wo immer möglich.
+## **PPT vs. PPTX: Wichtige Unterschiede und Konvertierungseinblicke**
+PPTX bietet im Vergleich zum Legacy-PPT-Format erweiterte Funktionalität, doch Konvertierungen zwischen diesen Formaten sind häufig erforderlich. Der Wechsel von PPT zu PPTX stellt wegen Kompatibilitätsproblemen einzigartige Herausforderungen dar. PowerPoint kann innerhalb von PPT-Dateien spezifische Komponenten (MetroBlob) erzeugen, um PPTX-exklusive Daten zu speichern, die ältere PowerPoint-Versionen nicht anzeigen können, aber beim Öffnen in neueren Versionen oder bei einer Konvertierung zu PPTX wiederhergestellt werden.  
+Aspose.Slides erleichtert die Arbeit mit sowohl PPT- als auch PPTX-Formaten und bietet nahtlose Konvertierungsfunktionen. Während die vollständige Konvertierung von PPT zu PPTX unterstützt wird, gibt es beim Konvertieren von PPTX zu PPT Einschränkungen. Die Verwendung von PPTX wird, sofern möglich, empfohlen, um Funktionalität und Kompatibilität zu optimieren.
 
 {{% alert color="primary" %}} 
+Erleben Sie hochwertige Konvertierungen mit dem [**Aspose.Slides Conversion tool**](https://products.aspose.app/slides/conversion/).
+{{% /alert %}}
+```csharp
+// Instanziiere ein Presentation-Objekt, das eine PPTX-Datei repräsentiert
+Presentation pres = new Presentation("PPTtoPPTX.ppt");
 
-Überprüfen Sie die Qualität der Konversionen von PPT zu PPTX und von PPTX zu PPT mit der Online-
+// Speichere die PPTX-Präsentation im PPTX-Format
+pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
+```
+
+
+{{% alert color="primary" %}} 
+Entdecken Sie mehr: [**Wie man Präsentationen von PPT zu PPTX konvertiert**](/slides/de/net/convert-ppt-to-pptx/)
+{{% /alert %}}
+
+## **FAQ**
+
+**Gibt es einen Sinn, alte Präsentationen im PPT-Format zu behalten, wenn sie fehlerfrei geöffnet werden?**
+
+Wenn sich eine Präsentation zuverlässig öffnen lässt und keine Zusammenarbeit oder neueren Funktionen benötigt, können Sie sie im PPT-Format belassen. Für zukünftige Kompatibilität und Erweiterbarkeit ist es jedoch besser, zu [zu PPTX konvertieren](/slides/de/net/convert-ppt-to-pptx/) zu wechseln: Das Format basiert auf dem offenen OOXML-Standard und wird von modernen Werkzeugen leichter unterstützt.
+
+**Wie kann ich entscheiden, welche Dateien zuerst kritisch zu PPTX konvertiert werden sollten?**
+
+Konvertieren Sie zuerst die Präsentationen, die: von mehreren Personen bearbeitet werden; komplexe [Diagramme](/slides/de/net/create-chart/)/[Formen](/slides/de/net/shape-manipulations/) enthalten; in externen Kommunikationen verwendet werden; oder Warnungen auslösen, wenn sie [geöffnet](/slides/de/net/open-presentation/) werden.
+
+**Bleibt der Passwortschutz erhalten, wenn von PPT zu PPTX und zurück konvertiert wird?**
+
+Das Vorhandensein eines Passwortes wird nur bei einer korrekten Konvertierung und entsprechender Verschlüsselungsunterstützung im verwendeten Tool übernommen. Es ist zuverlässiger, zuerst den [Schutz entfernen](/slides/de/net/password-protected-presentation/) zu entfernen, dann zu [konvertieren](/slides/de/net/convert-ppt-to-pptx/) und anschließend den Schutz gemäß Ihrer Sicherheitsrichtlinie wieder anzuwenden.
+
+**Warum verschwinden einige Effekte oder werden vereinfacht, wenn PPTX zurück zu PPT konvertiert wird?**
+
+Weil PPT einige neuere Objekte/Eigenschaften nicht unterstützt. PowerPoint und Werkzeuge können „Spuren“ dieser Informationen in speziellen Blöcken für eine spätere Wiederherstellung speichern, aber ältere PowerPoint-Versionen können sie nicht rendern.
