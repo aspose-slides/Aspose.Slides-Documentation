@@ -19,24 +19,6 @@ Aspose.Slides を簡単にダウンロードして評価できます。評価用
 
 ## **FAQ**
 
-**Can I test multiple presentations in parallel across different threads in evaluation mode?**
-
-はい。異なるドキュメントを並行して処理できます。ただし、同じプレゼンテーション オブジェクトを[across threads](/slides/ja/net/multithreading/)で共有しないでください。評価モードはこれに影響しません。
-
-**Do I need to install Microsoft PowerPoint to evaluate the library on a server or in CI?**
-
-いいえ。Aspose.Slides はスタンドアロン エンジンであり、評価でも本番でも PowerPoint をインストールする必要はありません。
-
-**Can I fully test conversion of PPT/PPTX to PDF and images in evaluation mode?**
-
-はい。[converters](/slides/ja/net/convert-presentation/) は動作します。出力には透かしが含まれます。
-
-評価版の制限なしに Aspose.Slides をテストしたい場合は、**30 日間の一時ライセンス**をリクエストできます。詳細は [How to get a Temporary License?](https://purchase.aspose.com/temporary-license) を参照してください。
-
-{{% /alert %}}
-
-## **FAQ**
-
 **評価モードで複数のプレゼンテーションを異なるスレッドで並行してテストできますか？**
 
 はい。異なるドキュメントを並行して処理できます。ただし、同じプレゼンテーションオブジェクトを[スレッド間で共有](/slides/ja/net/multithreading/)しないでください。評価モードはこれに影響しません。

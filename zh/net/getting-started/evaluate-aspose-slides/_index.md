@@ -19,18 +19,6 @@ Aspose.Slides 的评估版（未指定许可证）提供完整的产品功能，
 
 ## **常见问题**
 
-**我能在评估模式下跨不同线程并行测试多个演示文稿吗？**
-是的。您可以并行处理不同的文档；但不应在多个线程之间共享同一个演示对象[跨线程](/slides/zh/net/multithreading/)。评估模式不会影响此行为。
-
-**我需要在服务器或 CI 上安装 Microsoft PowerPoint 来评估该库吗？**
-不。Aspose.Slides 是一个独立的引擎，评估或生产环境均不需要安装 PowerPoint。
-
-如果您想在没有评估版限制的情况下测试 Aspose.Slides，可以申请 **30 天临时许可证**。有关详细信息，请参阅[如何获取临时许可证？](https://purchase.aspose.com/temporary-license)。
-
-{{% /alert %}}
-
-## **常见问题**
-
 **我可以在评估模式下在不同线程中并行测试多个演示文稿吗？**
 
 可以。您可以并行处理不同的文档；不应在多个线程之间共享同一演示对象[跨线程](/slides/zh/net/multithreading/)。评估模式不会影响此行为。
