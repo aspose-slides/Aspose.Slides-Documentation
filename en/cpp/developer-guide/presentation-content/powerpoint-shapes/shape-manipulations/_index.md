@@ -26,7 +26,7 @@ keywords:
 description: "Learn to create, edit and optimize shapes in Aspose.Slides for C++ and deliver high-performance PowerPoint presentations."
 ---
 
-## **Find Shape in Slide**
+## **Find a Shape on a Slide**
 This topic will describe a simple technique to make it easier for developers to find a specific shape on a slide without using its internal Id. It is important to know that PowerPoint Presentation files do not have any way to identify shapes on a slide except an internal unique Id. It seems to be difficult for developers to find a shape using its internal unique Id. All shapes added to the slides have some Alt Text. We suggest developers to use alternative text for finding a specific shape. You can use MS PowerPoint to define the alternative text for objects which you are planning to change in the future.
 
 After setting the alternative text of any desired shape, you can then open that presentation using Aspose.Slides for C++ and iterate through all shapes added to a slide. During each iteration, you can check the alternative text of the shape and the shape with the matching alternative text would be the shape required by you. To demonstrate this technique in a better way, we have created a method, [FindShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#ad6ecc982512ef758ea4d5d28672db71f) that does the trick to find a specific shape in a slide and then simply returns that shape.
@@ -34,7 +34,7 @@ After setting the alternative text of any desired shape, you can then open that 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-FindShapeInSlide-FindShapeInSlide.cpp" >}}
 
 
-## **Clone Shape**
+## **Clone a Shape**
 To clone a shape to a slide using Aspose.Slides for C++:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
@@ -49,7 +49,7 @@ The example below adds a group shape to a slide.
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CloneShapes-CloneShapes.cpp" >}}
 
 
-## **Remove Shape**
+## **Remove a Shape**
 Aspose.Slides for C++ allows developers to remove any shape. To remove the shape from any slide, please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
@@ -61,7 +61,7 @@ Aspose.Slides for C++ allows developers to remove any shape. To remove the shape
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RemoveShape-RemoveShape.cpp" >}}
 
 
-## **Hide Shape**
+## **Hide a Shape**
 Aspose.Slides for C++ allows developers to hide any shape. To hide the shape from any slide, please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
@@ -88,13 +88,13 @@ Aspose.Slides for C++ allows developers to reorder the shapes. Reordering the sh
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ChangeShapeOrder-ChangeShapeOrder.cpp" >}}
 
 
-## **Get Interop Shape ID**
+## **Get the Interop Shape ID**
 Aspose.Slides for C++ allows developers to get a unique shape identifier in slide scope in contrast to the UniqueId property, which allows obtaining a unique identifier in presentation scope. Property OfficeInteropShapeId was added to IShape interfaces and Shape class respectively. The value returned by OfficeInteropShapeId property corresponds to the value of the Id of the Microsoft.Office.Interop.PowerPoint.Shape object. Below is the sample code is given.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-InterlopShapeID-InterlopShapeID.cpp" >}}
 
 
-## **Set AlternativeText Property**
+## **Set the AlternativeText Property**
 Aspose.Slides for C++ allows developers to set AlternateText of any shape. To set the AlternateText of a shape, please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
@@ -108,14 +108,14 @@ Aspose.Slides for C++ allows developers to set AlternateText of any shape. To se
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetAlternativeText-SetAlternativeText.cpp" >}}
 
 
-## **Access Layout Formats for Shape**
+## **Access Layout Formats for a Shape**
 Aspose.Slides for C++ allows developers to access layout formats for a shape. This article demonstrates how you can access **FillFormat** and **LineFormat** properties for a shape.
 
 Below is the sample code is given.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-AccessLayoutFormats-AccessLayoutFormats.cpp" >}}
 
-## **Render Shape as SVG**
+## **Render a Shape as SVG**
 Now Aspose.Slides for C++ support for rendering a shape as svg. WriteAsSvg method (and its overload) has been added to Shape class and IShape interface. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
 
 ``` cpp
@@ -201,3 +201,17 @@ presentation->Dispose();
 The result:
 
 ![The flipped shape](flipped_shape.png)
+
+## **FAQ**
+
+**Can I combine shapes (union/intersect/subtract) on a slide like in a desktop editor?**
+
+There isn’t a built-in Boolean operation API. You can approximate it by constructing the desired outline yourself—e.g., compute the resulting geometry (via [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/)) and create a new shape with that contour, optionally removing the originals.
+
+**How can I control the stacking order (z-order) so a shape always stays "on top"?**
+
+Change the insertion/move order within the slide’s [shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/) collection. For predictable results, finalize the z-order after all other slide modifications.
+
+**Can I "lock" a shape to prevent users from editing it in PowerPoint?**
+
+Yes. Set [shape-level protection flags](/slides/cpp/applying-protection-to-presentation/) (e.g., lock selection, movement, resizing, text edits). If needed, mirror restrictions on the master or layout. Note this is UI-level protection, not a security feature; for stronger protection, combine with file-level restrictions like [read-only recommendations or passwords](/slides/cpp/password-protected-presentation/).

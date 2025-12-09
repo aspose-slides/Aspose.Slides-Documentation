@@ -14,7 +14,7 @@ keywords:
 description: "Customize chart data tables in С++ for PPT and PPTX with Aspose.Slides to boost efficiency and appeal in presentations."
 ---
 
-## **Set Font Properties for Chart Data Table**
+## **Set Font Properties for a Chart Data Table**
 Aspose.Slides for C++ allows to change font properties for a chart data table. 
 
 1. Instantiate [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class object.
@@ -37,3 +37,21 @@ chart->get_ChartDataTable()->get_TextFormat()->get_PortionFormat()->set_FontHeig
 
 pres->Save(u"output.pptx", SaveFormat::Pptx);
 ```
+
+## **FAQ**
+
+**Can I show small legend keys next to the values in the chart’s data table?**
+
+Yes. The data table supports [legend keys](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datatable/set_showlegendkey/), and you can turn them on or off.
+
+**Will the data table be preserved when exporting the presentation to PDF, HTML, or images?**
+
+Yes. Aspose.Slides renders the chart as part of the slide, so the exported [PDF](/slides/cpp/convert-powerpoint-to-pdf/)/[HTML](/slides/cpp/convert-powerpoint-to-html/)/[image](/slides/cpp/convert-powerpoint-to-png/) includes the chart with its data table.
+
+**Are data tables supported for charts that come from a template file?**
+
+Yes. For any chart loaded from an existing presentation or template, you can check and change whether a data table [is shown](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/set_hasdatatable/) using the chart’s properties.
+
+**How can I quickly find which charts in a file have the data table enabled?**
+
+Inspect each chart’s property that indicates whether the data table [is shown](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_hasdatatable/) and iterate through the slides to identify the charts where it is enabled.

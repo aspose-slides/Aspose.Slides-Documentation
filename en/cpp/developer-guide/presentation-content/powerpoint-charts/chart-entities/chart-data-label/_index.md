@@ -19,7 +19,7 @@ description: "Learn to add and format chart data labels in PowerPoint presentati
 
 Data labels on a chart show details about the chart data series or individual data points. They allow readers to quickly identify data series and they also make charts easier to understand.
 
-## **Set Precision of Data in Chart Data Label**
+## **Set Data Precision in Chart Data Labels**
 
 This C++ code shows you how to set the data precision in a chart data label:
 
@@ -45,7 +45,7 @@ This C++ code shows you how to set the data precision in a chart data label:
 ```
 
 
-## **Display Percentage as Labels**
+## **Display Percentages as Labels**
 Aspose.Slides for C++ allows you to set percentage labels on displayed charts. This C++ code demonstrates the operation:
 
 ```c++
@@ -104,7 +104,7 @@ Aspose.Slides for C++ allows you to set percentage labels on displayed charts. T
 ```
 
 
-## **Set Percentage Sign with Chart Data Label**
+## **Set the Percentage Sign with Chart Data Labels**
 This C++ code shows you to set the percentage sign for a chart data label:
 
 ```c++
@@ -188,7 +188,7 @@ This C++ code shows you to set the percentage sign for a chart data label:
 ```
 
 
-## **Set Label Distance From Axis**
+## **Set Label Distance from Axis**
 This C++ code shows you how to set the label distance from a category axis when you are dealing with a chart plotted from axes:
 
 ```c++
@@ -239,3 +239,17 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **FAQ**
+
+**How can I prevent data labels from overlapping on dense charts?**
+
+Combine automatic label placement, leader lines, and reduced font size; if necessary, hide some fields (for example, the category) or show labels only for extreme/key points.
+
+**How can I disable labels only for zero, negative, or empty values?**
+
+Filter data points before enabling labels and turn off display for values of 0, negative values, or missing values according to a defined rule.
+
+**How can I ensure a consistent label style when exporting to PDF/images?**
+
+Explicitly set fonts (family, size) and verify that the font is available on the rendering side to avoid fallback.

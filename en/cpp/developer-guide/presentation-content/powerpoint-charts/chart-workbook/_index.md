@@ -20,7 +20,7 @@ keywords:
 description: "Discover Aspose.Slides for С++: effortlessly manage chart workbooks in PowerPoint and OpenDocument formats to streamline your presentation data."
 ---
 
-## **Set Chart Data from Workbook**
+## **Read and Write Chart Data from a Workbook**
 
 Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a1bc3d9eaafc86814336b6c23bffd8e2e) and [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data#a3f42c5e16bf1fd1d4e69579bffc6ce8e) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
 
@@ -70,7 +70,7 @@ series->get_ParentSeriesGroup()->set_IsColorVaried(true);
 pres->Save(u"response2.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Set WorkBook Cell as Chart DataLabel**
+## **Set a WorkBook Cell as a Chart Data Label**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) class.
 1. Get a slide's reference through its index.
@@ -121,7 +121,7 @@ for (auto ws : System::IterateOver(worksheets))
     System::Console::WriteLine(ws->get_Name());
 ```
 
-## **Specify Data Source Type**
+## **Specify the Data Source Type**
 
 This C++ code shows you how to specify a type for a data source:
 
@@ -146,7 +146,7 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 In [Aspose.Slides](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-19-4-release-notes/) 19.4, we implemented support for external workbooks as a data source for charts.
 {{% /alert %}} 
 
-### **Create External Workbook**
+### **Create an External Workbook**
 
 Using the **`ReadWorkbookStream`** and **`SetExternalWorkbook`** methods, you can either create an external workbook from scratch or make an internal workbook external.
 
@@ -172,7 +172,7 @@ chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
 pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-### **Set External Workbook**
+### **Set an External Workbook**
 
 Using the **`IChartData.SetExternalWorkbook`** method, you can assign an external workbook to a chart as its data source. This method can also be used to update a path to the external workbook (if the latter has been moved).
 
@@ -219,7 +219,7 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-### **Get Chart External Data Source Workbook Path**
+### **Get the External Data Source Workbook Path of a Chart**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 1. Get a slide's reference through its index.
@@ -264,3 +264,28 @@ const String templatePath = u"../templates/presentation.pptx";
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+## **FAQ**
+
+**Can I determine whether a specific chart is linked to an external or an embedded workbook?**
+
+Yes. A chart has a [data source type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) and a [path to an external workbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); if the source is an external workbook, you can read the full path to make sure an external file is being used.
+
+**Are relative paths to external workbooks supported, and how are they stored?**
+
+Yes. If you specify a relative path, it is automatically converted to an absolute path. This is convenient for project portability; however, be aware that the presentation will store the absolute path in the PPTX file.
+
+**Can I use workbooks located on network resources/shares?**
+
+Yes, such workbooks can be used as an external data source. However, editing remote workbooks directly from Aspose.Slides is not supported—they can only be used as a source.
+
+**Does Aspose.Slides overwrite the external XLSX when saving the presentation?**
+
+No. The presentation stores a [link to the external file](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) and uses it for reading data. The external file itself is not modified when the presentation is saved.
+
+**What should I do if the external file is password-protected?**
+
+Aspose.Slides does not accept a password when linking. A common approach is to remove protection in advance or prepare a decrypted copy (for example, using [Aspose.Cells](/cells/cpp/)) and link to that copy.
+
+**Can multiple charts reference the same external workbook?**
+
+Yes. Each chart stores its own link. If they all point to the same file, updating that file will be reflected in each chart the next time the data is loaded.

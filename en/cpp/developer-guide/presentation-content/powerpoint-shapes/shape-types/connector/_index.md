@@ -95,7 +95,7 @@ The `connector->Reroute` method reroutes a connector and forces it to take the s
 
 {{% /alert %}} 
 
-## **Specify Connection Dot**
+## **Specify a Connection Dot**
 
 If you want a connector to link two shapes using specific dots on the shapes, you have to specify your preferred connection dots this way:
 
@@ -152,11 +152,11 @@ This C++ code demonstrates an operation where a preferred connection dot is spec
 
 ```
 
-## **Adjust Connector Point**
+## **Adjust a Connector Point**
 
 You can adjust an existing connector through its adjustment points. Only connectors with adjustment points can be altered in this manner. See the table under **[Types of connectors.](/slides/cpp/connector/#types-of-connectors)** 
 
-#### **Simple Case**
+### **Simple Case**
 
 Consider a case where a connector between two shapes (A and B) passes through a third shape (C):
 
@@ -330,7 +330,7 @@ The result:
 
 We demonstrated calculations involving simple adjustments and complicated adjustment points (adjustment points with rotation angles). Using the knowledge acquired, you can develop your own model (or write a code) to get a `GraphicsPath` object or even set a connector's adjustment point values based on specific slide coordinates.
 
-## **Find Angle of Connector Lines**
+## **Find the Angle of Connector Lines**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) class.
 1. Get a slide's reference through its index.
@@ -407,5 +407,16 @@ double getDirection(float w, float h, Aspose::Slides::NullableBool flipH, Aspose
 }
 ```
 
+## **FAQ**
 
+**How can I tell whether a connector can be "glued" to a specific shape?**
 
+Check that the shape exposes [connection sites](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_connectionsitecount/). If there are none or the count is zero, gluing isn’t available; in that case, use free endpoints and position them manually. It’s sensible to check the site count before attaching.
+
+**What happens to a connector if I delete one of the connected shapes?**
+
+Its ends will be detached; the connector remains on the slide as an ordinary line with free start/end. You can either delete it or reassign the connections and, if needed, [reroute](https://reference.aspose.com/slides/cpp/aspose.slides/connector/reroute/).
+
+**Are connector bindings preserved when copying a slide to another presentation?**
+
+Generally yes, provided the target shapes are copied as well. If the slide is inserted into another file without the connected shapes, the ends become free and you’ll need to reattach them.
