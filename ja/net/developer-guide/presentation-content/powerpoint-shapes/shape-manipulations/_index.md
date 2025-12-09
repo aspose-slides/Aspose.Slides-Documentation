@@ -1,25 +1,45 @@
 ---
-title: シェイプ操作
+title: .NET でプレゼンテーションの図形を管理する
+linktitle: 図形操作
 type: docs
 weight: 40
 url: /ja/net/shape-manipulations/
-keywords: "PowerPoint シェイプ, スライド上のシェイプ, シェイプの検索, シェイプのクローン, シェイプの削除, シェイプの非表示, シェイプの順序変更, インターロップ シェイプ ID の取得, シェイプの代替テキスト, シェイプのレイアウト形式, SVG としてのシェイプ, シェイプの配置, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
-description: "C# または .NET で PowerPoint シェイプを操作する"
+keywords:
+- PowerPoint 図形
+- プレゼンテーション図形
+- スライド上の図形
+- 図形の検索
+- 図形の複製
+- 図形の削除
+- 図形の非表示
+- 図形の順序変更
+- Interop 図形 ID の取得
+- 図形の代替テキスト
+- 図形のレイアウト形式
+- SVG としての図形
+- 図形を SVG に変換
+- 図形の配置
+- PowerPoint
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET で図形を作成、編集、最適化し、高パフォーマンスな PowerPoint プレゼンテーションを提供する方法を学びます。"
 ---
 
-## **スライド内のシェイプを検索**
-このトピックでは、開発者が内部 Id を使用せずにスライド上の特定のシェイプを簡単に見つけるためのシンプルな手法を説明します。PowerPoint プレゼンテーション ファイルでは、内部の一意 Id 以外にスライド上のシェイプを識別する方法がありません。内部の一意 Id を使ってシェイプを見つけるのは開発者にとって難しいことがあります。スライドに追加されたすべてのシェイプは何らかの代替テキスト (Alt Text) を持ちます。開発者には、特定のシェイプを検索する際に代替テキストを使用することを推奨します。将来変更する可能性のあるオブジェクトの代替テキストは、MS PowerPoint で定義できます。
+## **スライド内の図形を検索する**
+このトピックでは、開発者がスライド上の特定の図形を内部 ID を使用せずに簡単に見つけられるシンプルな手法をご紹介します。PowerPoint プレゼンテーション ファイルでは、内部の一意 ID 以外にスライド上の図形を識別する方法がないことを知っておくことが重要です。開発者が内部の一意 ID を使用して図形を見つけることは困難なようです。スライドに追加されたすべての図形には Alt テキストが設定されています。開発者には、特定の図形を見つけるために代替テキストを使用することを推奨します。将来変更する予定のオブジェクトに対して、MS PowerPoint で代替テキストを定義できます。
 
-希望するシェイプの代替テキストを設定したら、Aspose.Slides for .NET を使用してプレゼンテーションを開き、スライドに追加されたすべてのシェイプを列挙できます。各イテレーションでシェイプの代替テキストを確認し、代替テキストが一致するシェイプが目的のシェイプになります。この手法をより分かりやすく示すために、スライド内の特定のシェイプを検索し、対象シェイプを返すメソッド [FindShape](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/findshape/#findshape_1) を作成しました。
+任意の図形の代替テキストを設定した後、Aspose.Slides for .NET を使用してそのプレゼンテーションを開き、スライドに追加されたすべての図形を列挙できます。各イテレーションで図形の代替テキストを確認し、代替テキストが一致する図形が目的の図形となります。この手法をより分かりやすく示すために、スライド内の特定の図形を検索し、その図形を返すメソッド [FindShape](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/findshape/#findshape_1) を作成しました。
 ```c#
 public static void Run()
 {
-    // プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成
+    // プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します
     using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
     {
 
         ISlide slide = p.Slides[0];
-        // 見つけるシェイプの代替テキスト
+        // 検索対象の図形の代替テキスト
         IShape shape = FindShape(slide, "Shape1");
         if (shape != null)
         {
@@ -28,14 +48,14 @@ public static void Run()
     }
 }
         
-// スライド内で代替テキストを使用してシェイプを検索するメソッド実装
+// 代替テキストを使用してスライド内の図形を検索するメソッドの実装
 public static IShape FindShape(ISlide slide, string alttext)
 {
-    // スライド内のすべてのシェイプを反復処理
+    // スライド内のすべての図形を反復処理しています
     for (int i = 0; i < slide.Shapes.Count; i++)
     {
-        // スライドの代替テキストが対象と一致する場合
-        // シェイプを返す
+        // スライドの代替テキストが目的のものと一致する場合は
+        // 図形を返します
         if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
             return slide.Shapes[i];
     }
@@ -44,19 +64,19 @@ public static IShape FindShape(ISlide slide, string alttext)
 ```
 
 
-## **シェイプのクローン**
-Aspose.Slides for .NET を使用してシェイプをスライドにクローンする手順:
+## **図形の複製**
+Aspose.Slides for .NET を使用してスライドに図形を複製するには、次の手順を実行します。
 
 1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
 1. インデックスを使用してスライドの参照を取得します。
-1. ソーススライドのシェイプ コレクションにアクセスします。
+1. 元スライドの図形コレクションにアクセスします。
 1. プレゼンテーションに新しいスライドを追加します。
-1. ソーススライドのシェイプ コレクションから新しいスライドへシェイプをクローンします。
-1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
+1. 元スライドの図形コレクションから新しいスライドへ図形を複製します。
+1.変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-以下の例は、スライドにグループ シェイプを追加するものです。
+以下の例は、スライドにグループ図形を追加します。
 ```c#
- // Presentation クラスをインスタンス化
+// Presentation クラスをインスタンス化
 using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 {
 	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
@@ -73,22 +93,22 @@ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 ```
 
 
-## **シェイプの削除**
-Aspose.Slides for .NET では任意のシェイプを削除できます。スライドからシェイプを削除するには、以下の手順に従ってください:
+## **図形の削除**
+Aspose.Slides for .NET では、任意の図形を削除できます。スライドから図形を削除するには、以下の手順に従ってください。
 
 1. `Presentation` クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
-1. 特定の AlternativeText を持つシェイプを検索します。
-1. シェイプを削除します。
+1. 特定の AlternativeText を持つ図形を検索します。
+1. 図形を削除します。
 1. ファイルをディスクに保存します。
 ```c#
-// Presentation オブジェクトを作成
+// プレゼンテーション オブジェクトを作成
 Presentation pres = new Presentation();
 
 // 最初のスライドを取得
 ISlide sld = pres.Slides[0];
 
-// 矩形タイプのオートシェイプを追加
+// 四角形タイプのオートシェイプを追加
 IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
 IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
 String alttext = "User Defined";
@@ -107,22 +127,22 @@ pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **シェイプの非表示**
-Aspose.Slides for .NET では任意のシェイプを非表示にできます。スライドからシェイプを非表示にするには、以下の手順に従ってください:
+## **図形の非表示**
+Aspose.Slides for .NET では、任意の図形を非表示にできます。スライドから図形を非表示にするには、以下の手順に従ってください。
 
 1. `Presentation` クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
-1. 特定の AlternativeText を持つシェイプを検索します。
-1. シェイプを非表示にします。
+1. 特定の AlternativeText を持つ図形を検索します。
+1. 図形を非表示にします。
 1. ファイルをディスクに保存します。
 ```c#
-// PPTX を表す Presentation クラスのインスタンスを作成
+// PPTX を表す Presentation クラスのインスタンスを作成します
 Presentation pres = new Presentation();
 
 // 最初のスライドを取得
 ISlide sld = pres.Slides[0];
 
-// 長方形タイプのオートシェイプを追加
+// 矩形タイプのオートシェイプを追加
 IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
 IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
 String alttext = "User Defined";
@@ -141,15 +161,15 @@ pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **シェイプの順序変更**
-Aspose.Slides for .NET ではシェイプの順序を変更できます。順序を変更すると、どのシェイプが前面に、どのシェイプが背面にあるかが決まります。スライド上のシェイプの順序を変更するには、以下の手順に従ってください:
+## **図形の順序変更**
+Aspose.Slides for .NET では、図形の順序を変更できます。順序の変更により、どの図形が前面にあるか、どの図形が背面にあるかを指定できます。スライド上の図形の順序を変更するには、以下の手順に従ってください。
 
 1. `Presentation` クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
-1. シェイプを追加します。
-1. シェイプのテキスト フレームにテキストを追加します。
-1. 同じ座標に別のシェイプを追加します。
-1. シェイプの順序を変更します。
+1. 図形を追加します。
+1. 図形のテキストフレームにテキストを追加します。
+1. 同じ座標で別の図形を追加します。
+1. 図形の順序を変更します。
 1. ファイルをディスクに保存します。
 ```c#
 Presentation presentation1 = new Presentation("HelloWorld.pptx");
@@ -168,32 +188,32 @@ presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Interop シェイプ ID の取得**
-Aspose.Slides for .NET では、プレゼンテーション スコープの UniqueId プロパティとは対照的に、スライド スコープで一意なシェイプ識別子を取得できます。`OfficeInteropShapeId` プロパティが `IShape` インターフェイスおよび `Shape` クラスに追加されました。`OfficeInteropShapeId` プロパティが返す値は、Microsoft.Office.Interop.PowerPoint.Shape オブジェクトの Id の値に対応します。以下にサンプル コードを示します。
+## **Interop 図形 ID の取得**
+Aspose.Slides for .NET では、スライド単位の一意な図形識別子を取得できます。これは、プレゼンテーション単位の一意識別子を取得できる UniqueId プロパティとは対照的です。IShape インターフェイスと Shape クラスには OfficeInteropShapeId プロパティが追加されました。OfficeInteropShapeId プロパティが返す値は、Microsoft.Office.Interop.PowerPoint.Shape オブジェクトの Id の値に対応します。以下にサンプルコードを示します。
 ```c#
 public static void Run()
 {
 	using (Presentation presentation = new Presentation("Presentation.pptx"))
 	{
-		// スライドスコープ内で一意のシェイプ識別子を取得
+		// スライド スコープで一意の図形識別子を取得
 		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
 	}
 }
 ```
 
 
-## **シェイプの代替テキスト設定**
-Aspose.Slides for .NET では任意のシェイプの AlternateText を設定できます。プレゼンテーション内のシェイプは AlternativeText または Shape Name プロパティで区別できます。AlternativeText プロパティは Aspose.Slides と Microsoft PowerPoint の両方で取得・設定可能です。このプロパティを使用すると、シェイプにタグを付けて、シェイプの削除、非表示、スライド上での順序変更などの操作を実行できます。シェイプの AlternateText を設定する手順は以下の通りです:
+## **図形の代替テキストの設定**
+Aspose.Slides for .NET では、任意の図形の AlternateText を設定できます。プレゼンテーション内の図形は AlternativeText または Shape Name プロパティで識別できます。AlternativeText プロパティは Aspose.Slides および Microsoft PowerPoint の両方で読み取りおよび設定できます。このプロパティを使用すると、図形にタグを付けて、図形の削除、非表示、スライド上での順序変更といったさまざまな操作を実行できます。図形の AlternateText を設定するには、以下の手順に従ってください。
 
 1. `Presentation` クラスのインスタンスを作成します。
 1. 最初のスライドにアクセスします。
-1. 任意のシェイプをスライドに追加します。
-1. 新しく追加したシェイプで作業を行います。
-1. シェイプを走査して目的のシェイプを見つけます。
+1. スライドに任意の図形を追加します。
+1. 新しく追加した図形で何らかの処理を行います。
+1. 図形を走査して対象の図形を検索します。
 1. AlternativeText を設定します。
 1. ファイルをディスクに保存します。
 ```c#
-// PPTX を表す Presentation クラスのインスタンスを作成
+// PPTX を表す Presentation クラスをインスタンス化
 Presentation pres = new Presentation();
 
 // 最初のスライドを取得
@@ -220,10 +240,8 @@ pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **シェイプのレイアウト フォーマットへのアクセス**
-Aspose.Slides for .NET はシェイプのレイアウト フォーマットにアクセスするためのシンプルな API を提供します。この記事ではレイアウト フォーマットへのアクセス方法を示します。
-
-以下にサンプル コードを示します。
+## **図形のレイアウト形式へのアクセス**
+Aspose.Slides for .NET は、図形のレイアウト形式にアクセスするためのシンプルな API を提供します。本記事では、レイアウト形式へのアクセス方法を示します。
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -236,8 +254,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-## **シェイプを SVG としてレンダリング**
-現在、Aspose.Slides for .NET はシェイプを SVG としてレンダリングする機能をサポートしています。`WriteAsSvg` メソッド（およびそのオーバーロード）が `Shape` クラスと `IShape` インターフェイスに追加されました。このメソッドにより、シェイプの内容を SVG ファイルとして保存できます。以下のコード スニペットは、スライドのシェイプを SVG ファイルにエクスポートする方法を示しています。
+## **図形を SVG としてレンダリング**
+現在、Aspose.Slides for .NET は図形を SVG としてレンダリングする機能をサポートしています。Shape クラスと IShape インターフェイスに WriteAsSvg メソッド（およびそのオーバーロード）が追加されました。このメソッドを使用すると、図形の内容を SVG ファイルとして保存できます。以下のコードスニペットは、スライド上の図形を SVG ファイルにエクスポートする方法を示しています。
 ```c#
 public static void Run()
 {
@@ -253,19 +271,18 @@ public static void Run()
 ```
 
 
-## **シェイプの配置**
+## **図形の配置**
+[SlidesUtil.AlignShape()](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes/index) のオーバーロードメソッドを使用すると、以下が可能です。
 
-[SlidesUtil.AlignShape()](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes/index) のオーバーロード メソッドを使用して、以下を実行できます
+* スライドの余白に対して図形を配置できます。例 1 を参照してください。
+* 図形同士を相対的に配置できます。例 2 を参照してください。
 
-* スライドの余白に対してシェイプを配置する。例 1 を参照。
-* シェイプ同士を相対的に配置する。例 2 を参照。
+[ShapesAlignmentType](https://reference.aspose.com/slides/net/aspose.slides/shapesalignmenttype) 列挙体は、利用可能な配置オプションを定義しています。
 
-[ShapesAlignmentType](https://reference.aspose.com/slides/net/aspose.slides/shapesalignmenttype) 列挙型は利用可能な配置オプションを定義します。
+**Example 1**
 
-**例 1**
-
-この C# コードは、インデックス 1、2、4 のシェイプをスライド上部の境界に沿って配置する方法を示します:
-以下のソース コードは、インデックス 1、2、4 のシェイプをスライド上部の境界に沿って配置します。
+この C# コードは、スライド上部の境界に沿ってインデックス 1,2,4 の図形を配置する方法を示しています。  
+以下のソースコードは、スライド上部の境界にインデックス 1,2,4 の図形を配置します。
 ``` csharp
 using (Presentation pres = new Presentation("example.pptx"))
 {
@@ -283,9 +300,9 @@ using (Presentation pres = new Presentation("example.pptx"))
 ```
 
 
-**例 2**
+**Example 2**
 
-この C# コードは、コレクション内のすべてのシェイプをコレクション内の最下部シェイプに相対的に配置する方法を示します:
+この C# コードは、コレクション内の最下部の図形に対して、図形コレクション全体を配置する方法を示しています。
 ``` csharp
 using (Presentation pres = new Presentation("example.pptx"))
 {
@@ -295,26 +312,27 @@ using (Presentation pres = new Presentation("example.pptx"))
 
 
 ## **フリップ プロパティ**
+In Aspose.Slides, the [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) class provides control over horizontal and vertical mirroring of shapes via its `FlipH` and `FlipV` properties. Both properties are of type [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/), allowing values of `True` to indicate a flip, `False` for no flip, or `NotDefined` to use default behavior. These values are accessible from a shape’s [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/). 
 
-Aspose.Slides では、[ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) クラスが `FlipH` および `FlipV` プロパティを通じてシェイプの水平・垂直ミラーリングを制御します。両プロパティは [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) 型で、`True` がフリップ、`False` がフリップなし、`NotDefined` がデフォルト動作を表します。これらの値はシェイプの [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/) から取得できます。
+Aspose.Slides では、[ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) クラスが、`FlipH` および `FlipV` プロパティを通じて図形の水平・垂直ミラーリングを制御します。両プロパティは [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) 型で、`True` はフリップ、`False` はフリップなし、`NotDefined` はデフォルト動作を使用することを示します。これらの値は図形の [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/) から取得できます。
 
-フリップ設定を変更するには、シェイプの現在の位置とサイズ、希望する `FlipH` と `FlipV` の値、回転角度を指定して新しい [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) インスタンスを作成します。このインスタンスをシェイプの [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/) に割り当て、プレゼンテーションを保存するとミラー変換が適用され、出力ファイルに反映されます。
+フリップ設定を変更するには、図形の現在の位置とサイズ、希望する `FlipH` と `FlipV` の値、回転角度を使用して新しい [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) インスタンスを作成します。このインスタンスを図形の [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/) に割り当て、プレゼンテーションを保存すると、ミラー変換が適用され、出力ファイルに反映されます。
 
-例として、最初のスライドにデフォルトのフリップ設定のシェイプが 1 つだけ含まれる sample.pptx ファイルがあります。
+例として、最初のスライドにデフォルトのフリップ設定の単一図形が含まれる sample.pptx ファイルがあるとします。
 
-![The shape to be flipped](shape_to_be_flipped.png)
+![フリップ対象の図形](shape_to_be_flipped.png)
 
-以下のコード例はシェイプの現在のフリップ プロパティを取得し、水平・垂直の両方でフリップします。
+以下のコード例は、図形の現在のフリッププロパティを取得し、水平および垂直にフリップします。
 ```cs
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     IShape shape = presentation.Slides[0].Shapes[0];
 
-    // シェイプの水平フリップ プロパティを取得します。
+    // 図形の水平フリップ プロパティを取得します。
     NullableBool horizontalFlip = shape.Frame.FlipH;
     Console.WriteLine($"Horizontal flip: {horizontalFlip}");
 
-    // シェイプの垂直フリップ プロパティを取得します。
+    // 図形の垂直フリップ プロパティを取得します。
     NullableBool verticalFlip = shape.Frame.FlipV;
     Console.WriteLine($"Vertical flip: {verticalFlip}");
 
@@ -333,20 +351,18 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 ```
 
 
-結果:
-
-![The flipped shape](flipped_shape.png)
+![フリップされた図形](flipped_shape.png)
 
 ## **FAQ**
 
-**スライド上でシェイプを結合（union/intersect/subtract）できますか？**
+**スライド上でデスクトップエディタのように図形を結合（合成/交差/減算）できますか？**
 
-組み込みのブール演算 API はありません。Desiredなアウトラインを自分で構築することで近似できます。たとえば、[GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) を使用して結果のジオメトリを計算し、その輪郭で新しいシェイプを作成し、元のシェイプをオプションで削除します。
+組み込みのブール演算 API はありません。Desiredなアウトラインを自分で構築することで近似できます。たとえば、[GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) を使用して結果のジオメトリを計算し、その輪郭で新しい図形を作成し、元の図形をオプションで削除する方法があります。
 
-**シェイプのスタック順序（z-order）を常に「最前面」に保つにはどうすればよいですか？**
+**図形が常に「最前面」に表示されるようにスタック順序（z-order）を制御するにはどうすればよいですか？**
 
-スライドの [shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) コレクション内で挿入/移動順序を変更します。予測可能な結果を得るには、他のすべてのスライド変更が完了した後に z-order を最終決定してください。
+スライドの [shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) コレクション内での挿入/移動順序を変更します。予測可能な結果を得るには、すべてのスライド変更が完了した後に z-order を最終決定してください。
 
-**シェイプを「ロック」して PowerPoint でユーザーが編集できないようにできますか？**
+**PowerPoint でユーザーが図形を編集できないように「ロック」できますか？**
 
-できます。[shape-level protection flags](/slides/ja/net/applying-protection-to-presentation/)（例：選択、移動、サイズ変更、テキスト編集のロック）を設定します。必要に応じて、マスターやレイアウトでも制限を反映できます。これは UI レベルの保護であり、セキュリティ機能ではありません。より強固な保護が必要な場合は、[read-only 推奨やパスワード](/slides/ja/net/password-protected-presentation/) などのファイルレベルの制限と組み合わせてください。
+はい。[shape-level protection flags](/slides/ja/net/applying-protection-to-presentation/)（例: 選択ロック、移動ロック、サイズ変更ロック、テキスト編集ロック）を設定します。必要に応じて、マスターやレイアウトにも同様の制限を適用できます。これは UI レベルの保護であり、セキュリティ機能ではありません。より強力な保護が必要な場合は、[read-only recommendations or passwords](/slides/ja/net/password-protected-presentation/) などのファイルレベルの制限と組み合わせてください。

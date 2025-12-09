@@ -1,19 +1,25 @@
 ---
-title: Marcador de datos del gráfico
+title: Administrar marcadores de datos de gráficos en presentaciones en .NET
+linktitle: Marcador de datos
 type: docs
 url: /es/net/chart-data-marker/
 keywords:
-- opciones de marcador de gráfico
+- gráfico
+- punto de datos
+- marcador
+- opciones de marcador
+- tamaño del marcador
+- tipo de relleno
 - PowerPoint
 - presentación
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Establecer opciones de marcador de gráfico en presentaciones de PowerPoint en C# o .NET"
+- Aspose.Slides
+description: "Aprenda cómo personalizar los marcadores de datos de gráficos en Aspose.Slides para .NET, mejorando el impacto de las presentaciones en formatos PPT y PPTX con ejemplos claros de código en C#."
 ---
 
-## **Establecer opciones de marcadores del gráfico**
-Los marcadores pueden establecerse en los puntos de datos del gráfico dentro de series específicas. Para establecer opciones de marcadores del gráfico, siga los pasos a continuación:
+## **Establecer opciones de marcador de gráfico**
+Los marcadores pueden establecerse en los puntos de datos del gráfico dentro de series específicas. Para establecer opciones de marcador de gráfico, siga los pasos a continuación:
 
 - Instanciar la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 - Crear el gráfico predeterminado.
@@ -22,25 +28,23 @@ Los marcadores pueden establecerse en los puntos de datos del gráfico dentro de
 - Agregar un nuevo punto de datos.
 - Guardar la presentación en disco.
 
+En el ejemplo a continuación, hemos establecido las opciones de marcador del gráfico a nivel de puntos de datos.
 ```c#
 // Crear una instancia de la clase Presentation
 using Presentation presentation = new Presentation();
 
 ISlide slide = presentation.Slides[0];
 
-// Creating the default chart
-IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 0, 0, 400, 400);
-
-// Obtener el índice de la hoja de datos de gráfico predeterminada
+// Obtener el índice de la hoja de cálculo de datos del gráfico predeterminada
 int defaultWorksheetIndex = 0;
 
-// Obtener la hoja de datos del gráfico
+// Obtener la hoja de cálculo de datos del gráfico
 IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
-// Eliminar la serie de demostración
+// Eliminar series de demostración
 chart.ChartData.Series.Clear();
 
-// Añadir nueva serie
+// Agregar nueva serie
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.Type);
 
 // Establecer la imagen
@@ -54,7 +58,7 @@ IPPImage imgx2 = presentation.Images.AddImage(image2);
 // Tomar la primera serie del gráfico
 IChartSeries series = chart.ChartData.Series[0];
 
-// Añadir nuevo punto (1:3) allí.
+// Agregar nuevo punto (1:3) allí.
 IChartDataPoint point = series.DataPoints.AddDataPointForLineSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, (double)4.5));
 point.Marker.Format.Fill.FillType = FillType.Picture;
 point.Marker.Format.Fill.PictureFillFormat.Picture.Image = imgx1;
@@ -83,8 +87,8 @@ presentation.Save("MarkOptions_out.pptx", SaveFormat.Pptx);
 
 **¿Qué formas de marcador están disponibles de forma predeterminada?**
 
-Están disponibles formas estándar (círculo, cuadrado, rombo, triángulo, etc.); la lista está definida por la enumeración [MarkerStyleType](https://reference.aspose.com/slides/net/aspose.slides.charts/markerstyletype/). Si necesita una forma no estándar, use un marcador con relleno de imagen para emular visuales personalizados.
+Hay formas estándar disponibles (círculo, cuadrado, diamante, triángulo, etc.); la lista está definida por la enumeración [MarkerStyleType](https://reference.aspose.com/slides/net/aspose.slides.charts/markerstyletype/). Si necesita una forma no estándar, utilice un marcador con un relleno de imagen para emular visuales personalizados.
 
 **¿Se conservan los marcadores al exportar un gráfico a una imagen o SVG?**
 
-Sí. Al renderizar gráficos a [formatos raster](/slides/es/net/convert-powerpoint-to-png/) o al guardar [formas como SVG](/slides/es/net/render-a-slide-as-an-svg-image/), los marcadores conservan su apariencia y configuraciones, incluido el tamaño, el relleno y el contorno.
+Sí. Al renderizar gráficos a [formatos raster](/slides/es/net/convert-powerpoint-to-png/) o guardar [formas como SVG](/slides/es/net/render-a-slide-as-an-svg-image/), los marcadores conservan su apariencia y configuración, incluido el tamaño, el relleno y el contorno.

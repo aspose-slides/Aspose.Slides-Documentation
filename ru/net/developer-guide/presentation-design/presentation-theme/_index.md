@@ -1,23 +1,41 @@
 ---
-title: Тема презентации
+title: Управление темами презентаций в .NET
+linktitle: Тема презентации
 type: docs
 weight: 10
 url: /ru/net/presentation-theme/
-keywords: "Тема, Тема PowerPoint, Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
-description: "Тема презентации PowerPoint на C# или .NET"
+keywords:
+- Тема PowerPoint
+- Тема презентации
+- Тема слайда
+- Установить тему
+- Изменить тему
+- Управлять темой
+- Цвет темы
+- Дополнительная палитра
+- Шрифт темы
+- Стиль темы
+- Эффект темы
+- PowerPoint
+- OpenDocument
+- Презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Создавайте, настраивайте и конвертируйте файлы PowerPoint с единым брендингом, управляя темами презентаций в Aspose.Slides для .NET."
 ---
 
-Тема презентации определяет свойства элементов дизайна. Когда вы выбираете тему презентации, вы по сути выбираете конкретный набор визуальных элементов и их свойства.
+Тема презентации определяет свойства элемент​ов дизайна. При выборе темы презентации вы, по сути, выбираете конкретный набор визуальных элементов и их свойства.
 
-В PowerPoint тема включает цвета, [шрифты](/slides/ru/net/powerpoint-fonts/), [стили фона](/slides/ru/net/presentation-background/) и эффекты.
+В PowerPoint тема состоит из цветов, [шрифтов](/slides/ru/net/powerpoint-fonts/), [стилей фона](/slides/ru/net/presentation-background/), и эффектов.
 
 ![theme-constituents](theme-constituents.png)
 
 ## **Изменить цвет темы**
 
-Тема PowerPoint использует определённый набор цветов для разных элементов на слайде. Если вам не нравятся цвета, вы меняете их, применяя новые цвета к теме. Чтобы выбрать новый цвет темы, Aspose.Slides предоставляет значения в перечислении [SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/schemecolor/).
+Тема PowerPoint использует определённый набор цветов для разных элементов слайда. Если вам не нравятся цвета, вы меняете их, применяя новые цвета к теме. Чтобы выбрать новый цвет темы, Aspose.Slides предоставляет значения в перечислении [SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/schemecolor/).
 
-Этот код C# показывает, как изменить цвет акцента для темы:
+Этот пример кода C# показывает, как изменить цвет акцента для темы:
 ```c#
 using (Presentation pres = new Presentation())
     
@@ -39,7 +57,7 @@ Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFil
 ```
 
 
-Чтобы дополнительно продемонстрировать операцию изменения цвета, мы создаём ещё один элемент и назначаем ему цвет акцента (из первоначальной операции). Затем меняем цвет в теме:
+Чтобы более наглядно продемонстрировать операцию изменения цвета, мы создаём другой элемент и назначаем ему цвет акцента (из начальной операции). Затем меняем цвет в теме:
 ```c#
 IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
@@ -55,14 +73,15 @@ pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
 
 ### **Установить цвет темы из дополнительной палитры**
 
-Когда вы применяете преобразования яркости к основному цвету темы (1), формируются цвета из дополнительной палитры (2). Затем вы можете задавать и получать эти цвета темы.
+При применении трансформаций яркости к основному цвету темы (1) формируются цвета из дополнительной палитры (2). Затем эти цвета темы можно установить и получить.
 
 ![additional-palette-colors](additional-palette-colors.png)
 
-**1** - Основные цвета темы  
-**2** - Цвета из дополнительной палитры.
+**1** – Основные цвета темы  
 
-Этот код C# демонстрирует операцию, при которой цвета дополнительной палитры получаются из основного цвета темы и затем используют в фигурах:
+**2** – Цвета из дополнительной палитры.
+
+Этот пример кода C# демонстрирует операцию, при которой цвета дополнительной палитры получаются из основного цвета темы и затем используются в фигурах:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -74,7 +93,7 @@ using (Presentation presentation = new Presentation())
     shape1.FillFormat.FillType = FillType.Solid;
     shape1.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
 
-    // Акцент 4, светлее 80%
+    // Акцент 4, светлее на 80%
     IShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
 
     shape2.FillFormat.FillType = FillType.Solid;
@@ -82,7 +101,7 @@ using (Presentation presentation = new Presentation())
     shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.2f);
     shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.8f);
 
-    // Акцент 4, светлее 60%
+    // Акцент 4, светлее на 60%
     IShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
 
     shape3.FillFormat.FillType = FillType.Solid;
@@ -90,7 +109,7 @@ using (Presentation presentation = new Presentation())
     shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.4f);
     shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.6f);
 
-    // Акцент 4, светлее 40%
+    // Акцент 4, светлее на 40%
     IShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
 
     shape4.FillFormat.FillType = FillType.Solid;
@@ -98,14 +117,14 @@ using (Presentation presentation = new Presentation())
     shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.6f);
     shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.4f);
 
-    // Акцент 4, темнее 25%
+    // Акцент 4, темнее на 25%
     IShape shape5 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
 
     shape5.FillFormat.FillType = FillType.Solid;
     shape5.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
     shape5.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.75f);
 
-    // Акцент 4, темнее 50%
+    // Акцент 4, темнее на 50%
     IShape shape6 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
 
     shape6.FillFormat.FillType = FillType.Solid;
@@ -119,14 +138,14 @@ using (Presentation presentation = new Presentation())
 
 ## **Изменить шрифт темы**
 
-Чтобы вы могли выбирать шрифты для тем и других целей, Aspose.Slides использует эти специальные идентификаторы (аналогичные тем, что используются в PowerPoint):
+Чтобы позволить вам выбирать шрифты для тем и других целей, Aspose.Slides использует специальные идентификаторы (подобные тем, что применяются в PowerPoint):
 
-* **+mn-lt** - Основной шрифт Latin (Minor Latin Font)
-* **+mj-lt** - Заголовочный шрифт Latin (Major Latin Font)
-* **+mn-ea** - Основной шрифт East Asian (Minor East Asian Font)
-* **+mj-ea** - Основной шрифт East Asian (Minor East Asian Font)
+* **+mn-lt** – Основной шрифт латиницы (Minor Latin Font)
+* **+mj-lt** – Заголовочный шрифт латиницы (Major Latin Font)
+* **+mn-ea** – Основной шрифт восточно‑азиатский (Minor East Asian Font)
+* **+mj-ea** – Заголовочный шрифт восточно‑азиатский (Minor East Asian Font)
 
-Этот код C# показывает, как назначить шрифт Latin элементу темы:
+Этот пример кода C# показывает, как назначить латинский шрифт элементу темы:
 ```c#
 IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
@@ -142,7 +161,7 @@ portion.PortionFormat.LatinFont = new FontData("+mn-lt");
 ```
 
 
-Этот код C# показывает, как изменить шрифт темы презентации:
+Этот пример кода C# показывает, как изменить шрифт темы презентации:
 ```c#
 pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 ```
@@ -150,17 +169,17 @@ pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 
 Шрифт во всех текстовых полях будет обновлён.
 
-{{% alert color="primary" title="СОВЕТ" %}} 
-Возможно, вам будет интересно посмотреть [PowerPoint шрифты](/slides/ru/net/powerpoint-fonts/).
+{{% alert color="primary" title="TIP" %}} 
+Возможно, вам будет интересно посмотреть [шрифты PowerPoint](/slides/ru/net/powerpoint-fonts/). 
 {{% /alert %}}
 
 ## **Изменить стиль фона темы**
 
-По умолчанию приложение PowerPoint предоставляет 12 предопределённых фонов, но в типичной презентации сохраняются только 3 из этих 12 фонов.
+По умолчанию приложение PowerPoint предоставляет 12 предопределённых фонов, но только 3 из этих 12 фонов сохраняются в типичной презентации.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Например, после сохранения презентации в приложении PowerPoint вы можете выполнить этот код C# чтобы узнать количество предопределённых фонов в презентации:
+Например, после сохранения презентации в приложении PowerPoint вы можете выполнить этот код C#, чтобы узнать количество предопределённых фонов в презентации:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 
@@ -173,30 +192,30 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 
 {{% alert color="warning" %}} 
-С помощью свойства [BackgroundFillStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) класса [FormatScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/) вы можете добавить или получить доступ к стилю фона в теме PowerPoint. 
+Используя свойство [BackgroundFillStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) из класса [FormatScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/), вы можете добавить или получить доступ к стилю фона в теме PowerPoint. 
 {{% /alert %}}
 
-Этот код C# показывает, как установить фон для презентации:
+Этот пример кода C# показывает, как установить фон для презентации:
 ```c#
 pres.Masters[0].Background.StyleIndex = 2;
 ```
 
 
-**Справочник индексов**: 0 используется для отсутствия заливки. Индекс начинается с 1.
+**Руководство по индексам**: 0 используется для отсутствия заливки. Индексы начинаются с 1.
 
-{{% alert color="primary" title="СОВЕТ" %}} 
-Возможно, вам будет интересно посмотреть [PowerPoint фон](/slides/ru/net/presentation-background/).
+{{% alert color="primary" title="TIP" %}} 
+Возможно, вам будет интересно посмотреть [фон PowerPoint](/slides/ru/net/presentation-background/). 
 {{% /alert %}}
 
 ## **Изменить эффект темы**
 
-Тема PowerPoint обычно содержит 3 значения для каждого массива стилей. Эти массивы комбинируются в 3 эффекта: нежный, умеренный и интенсивный. Например, это результат применения эффектов к конкретной фигуре:
+Тема PowerPoint обычно содержит 3 значения для каждого массива стилей. Эти массивы комбинируются в 3 эффекта: тонкий, умеренный и интенсивный. Например, так выглядит результат, когда эффекты применяются к конкретной фигуре:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-Используя 3 свойства ([FillStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/linestyles), [EffectStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/effectstyles)) класса [FormatScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme) вы можете изменять элементы темы (даже гибче, чем опции в PowerPoint).
+Используя три свойства ([FillStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/linestyles), [EffectStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/effectstyles)) из класса [FormatScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme) вы можете изменять элементы темы (даже гибче, чем параметры в PowerPoint).
 
-Этот код C# показывает, как изменить эффект темы, изменяя части элементов:
+Этот пример кода C# показывает, как изменить эффект темы, изменяя части элементов:
 ```c#
 using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 {
@@ -213,17 +232,20 @@ using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 ```
 
 
-Получившиеся изменения в цвете заливки, типе заливки, эффекте тени и т.д.:
+Получившиеся изменения в цвете заливки, типе заливки, тени и т.д.:
 
 ![todo:image_alt_text](presentation-design_11.png)
 
 ## **Часто задаваемые вопросы**
 
-**Могу ли я применить тему к отдельному слайду без изменения мастера?**  
-Да. Aspose.Slides поддерживает переопределения темы на уровне слайда, поэтому вы можете применить локальную тему только к этому слайду, сохранив тему мастера нетронутой (через [SlideThemeManager](https://reference.aspose.com/slides/net/aspose.slides.theme/slidethememanager/)).
+**Можно ли применить тему к отдельному слайду без изменения мастера?**
 
-**Какой самый безопасный способ перенести тему из одной презентации в другую?**  
-[Клонировать слайды](/slides/ru/net/clone-slides/) вместе с их мастером в целевую презентацию. Это сохраняет оригинальный мастер, макеты и связанную тему, так что внешний вид остаётся согласованным.
+Да. Aspose.Slides поддерживает переопределения темы на уровне слайда, поэтому вы можете применить локальную тему только к этому слайду, оставив мастера тему неизменной (через [SlideThemeManager](https://reference.aspose.com/slides/net/aspose.slides.theme/slidethememanager/)).
 
-**Как я могу увидеть «эффективные» значения после всех наследований и переопределений?**  
-Используйте «эффективные» представления API [/slides/net/shape-effective-properties/] для темы/цвета/шрифта/эффекта. Они возвращают окончательные, разрешённые свойства после применения мастера и любых локальных переопределений.
+**Какой самый безопасный способ перенести тему из одной презентации в другую?**
+
+[Клонировать слайды](/slides/ru/net/clone-slides/) вместе с их мастером в целевую презентацию. Это сохраняет оригинальный мастер, макеты и связанную тему, обеспечивая постоянный внешний вид.
+
+**Как увидеть «эффективные» значения после всего наследования и переопределений?**
+
+Используйте «эффективные» представления API ([\"effective\" views](/slides/ru/net/shape-effective-properties/)) для темы/цвета/шрифта/эффекта. Они возвращают окончательные свойства после применения мастера и всех локальных переопределений.

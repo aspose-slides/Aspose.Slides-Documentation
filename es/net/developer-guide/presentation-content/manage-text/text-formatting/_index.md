@@ -1,5 +1,5 @@
 ---
-title: Formatear texto de PowerPoint en C#
+title: Formato de texto de presentación en .NET
 linktitle: Formato de texto
 type: docs
 weight: 50
@@ -11,7 +11,7 @@ keywords:
 - estilo de texto
 - fondo de texto
 - transparencia de texto
-- espaciado entre caracteres
+- espaciado de caracteres
 - propiedades de fuente
 - familia de fuente
 - rotación de texto
@@ -19,26 +19,27 @@ keywords:
 - marco de texto
 - interlineado
 - propiedad autofit
-- ancla del marco de texto
+- anclaje de marco de texto
 - tabulación de texto
 - idioma predeterminado
 - PowerPoint
 - OpenDocument
 - presentación
+- .NET
 - C#
 - Aspose.Slides
-description: "Aprenda a dar formato y estilo al texto en presentaciones PowerPoint y OpenDocument usando Aspose.Slides para .NET. Personalice fuentes, colores, alineación y más con potentes ejemplos de código en C#."
+description: "Formatee y diseñe texto en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para .NET. Personalice fuentes, colores, alineación y más."
 ---
 
-## **Descripción general**
+## **Visión general**
 
-Este artículo presenta cómo administrar y dar formato al texto en presentaciones PowerPoint y OpenDocument usando Aspose.Slides para .NET. Aprenderá a aplicar características de formato de texto como selección de fuente, tamaño, color, resaltado, color de fondo, espaciado y alineación. Además, cubre el trabajo con marcos de texto, párrafos, formato y opciones avanzadas de diseño como rotación personalizada y comportamientos de ajuste automático.
+Este artículo presenta cómo administrar y dar formato al texto en presentaciones de PowerPoint y OpenDocument utilizando Aspose.Slides para .NET. Aprenderá a aplicar características de formato de texto como la selección de fuente, tamaño, color, resaltado, color de fondo, espaciado y alineación. Además, cubre el trabajo con marcos de texto, párrafos, formato y opciones avanzadas de diseño como rotación personalizada y comportamientos de ajuste automático.
 
-Ya sea que esté generando presentaciones programáticamente o personalizando contenido existente, estos ejemplos le ayudarán a crear diseños de texto claros y profesionales que realzan sus diapositivas y mejoran la legibilidad.
+Ya sea que genere presentaciones programáticamente o personalice contenido existente, estos ejemplos le ayudarán a crear diseños de texto claros y de aspecto profesional que realzan sus diapositivas y mejoran la legibilidad.
 
-En los ejemplos a continuación, utilizaremos un archivo llamado "sample.pptx", que contiene un solo cuadro de texto en la primera diapositiva con el siguiente texto:
+En los ejemplos a continuación, utilizaremos un archivo llamado "sample.pptx", que contiene un único cuadro de texto en la primera diapositiva con el siguiente texto:
 
-![Sample text](sample_text.png)
+![Texto de muestra](sample_text.png)
 
 ## **Resaltar texto**
 
@@ -46,20 +47,20 @@ El método [ITextFrame.HighlightText](https://reference.aspose.com/slides/net/as
 
 Para usar este método, siga estos pasos:
 
-1. Instancie la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) con un archivo de entrada (PPT, PPTX, ODP, etc.).
-2. Acceda a la diapositiva deseada mediante la colección [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/).
-3. Acceda a la forma objetivo de la colección [Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) y conviértala a [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
-4. Resalte el texto deseado usando el método [ITextFrame.HighlightText](https://reference.aspose.com/slides/net/aspose.slides/itextframe/highlighttext/) proporcionando el texto de muestra y el color.
-5. Guarde la presentación en el formato de salida que desee (por ejemplo, PPT, PPTX, ODP).
+1. Instanciar la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) con un archivo de entrada (PPT, PPTX, ODP, etc.).
+2. Acceder a la diapositiva deseada usando la colección [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/).
+3. Acceder a la forma objetivo de la colección [Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) y convertirla a [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
+4. Resaltar el texto deseado usando el método [ITextFrame.HighlightText](https://reference.aspose.com/slides/net/aspose.slides/itextframe/highlighttext/) proporcionando el texto de muestra y el color.
+5. Guardar la presentación en el formato de salida deseado (p. ej., PPT, PPTX, ODP).
 
-El ejemplo de código a continuación resalta todas las apariciones de los caracteres **"try"** y la palabra completa **"to"**.
+El ejemplo de código a continuación resalta todas las apariciones de los caracteres **"try"** y de la palabra completa **"to"**.
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
-    // Obtenga la primera forma de la primera diapositiva.
+    // Obtener la primera forma de la primera diapositiva.
     var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-    // Resalte la palabra "try" en la forma.
+    // Resaltar la palabra "try" en la forma.
     shape.TextFrame.HighlightText("try", Color.LightBlue);
 
     var searchOptions = new TextSearchOptions()
@@ -67,7 +68,7 @@ using (var presentation = new Presentation("sample.pptx"))
         WholeWordsOnly = true
     };
 
-    // Resalte la palabra "to" en la forma.
+    // Resaltar la palabra "to" en la forma.
     shape.TextFrame.HighlightText("to", Color.Violet, searchOptions, null);
 
     presentation.Save("highlighted_text.pptx", SaveFormat.Pptx);
@@ -77,15 +78,15 @@ using (var presentation = new Presentation("sample.pptx"))
 
 El resultado:
 
-![The highlighted text](highlighted_text.png)
+![El texto resaltado](highlighted_text.png)
 
 {{% alert color="primary" %}} 
-Aspose ofrece un [EDITOR DE POWERPOINT EN LÍNEA GRATUITO](https://products.aspose.app/slides/editor). 
+Aspose ofrece un sencillo [Editor de PowerPoint en línea GRATUITO](https://products.aspose.app/slides/editor).
 {{% /alert %}} 
 
 ## **Resaltar texto usando expresiones regulares**
 
-Aspose.Slides para .NET le permite buscar y resaltar partes específicas de texto en diapositivas PowerPoint usando expresiones regulares. Esta característica es especialmente útil cuando necesita enfatizar dinámicamente palabras clave, patrones o contenido generado por datos. El método [ITextFrame.HighlightRegex](https://docs.aspose.com/slides/net/text-formatting/) le permite resaltar partes de texto con un color de fondo usando una expresión regular.
+Aspose.Slides para .NET le permite buscar y resaltar partes específicas del texto en diapositivas de PowerPoint usando expresiones regulares. Esta característica es especialmente útil cuando necesita enfatizar dinámicamente palabras clave, patrones o contenido basado en datos. El método [ITextFrame.HighlightRegex](https://docs.aspose.com/slides/net/text-formatting/) permite resaltar partes del texto con un color de fondo usando una expresión regular.
 
 El ejemplo de código a continuación resalta todas las palabras que contienen **siete o más caracteres**:
 ```cs
@@ -93,7 +94,7 @@ using (var presentation = new Presentation("sample.pptx"))
 {
     var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-    // Resalte todas las palabras con siete o más caracteres.
+    // Resaltar todas las palabras con siete o más caracteres.
     shape.TextFrame.HighlightRegex(@"\b[^\s]{7,}\b", Color.Yellow, null);
 
     presentation.Save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
@@ -103,11 +104,11 @@ using (var presentation = new Presentation("sample.pptx"))
 
 El resultado:
 
-![The highlighted text using the regular expression](highlighted_text_using_regex.png)
+![El texto resaltado usando la expresión regular](highlighted_text_using_regex.png)
 
 ## **Establecer color de fondo del texto**
 
-Aspose.Slides para .NET le permite aplicar colores de fondo a párrafos completos o a porciones de texto individuales en diapositivas PowerPoint. Esta funcionalidad es útil cuando desea resaltar palabras o frases específicas, llamar la atención sobre mensajes clave o mejorar el atractivo visual de sus presentaciones.
+Aspose.Slides para .NET le permite aplicar colores de fondo a párrafos completos o a porciones de texto individuales en diapositivas de PowerPoint. Esta funcionalidad es útil cuando desea resaltar palabras o frases específicas, llamar la atención sobre mensajes clave o mejorar el atractivo visual de sus presentaciones.
 
 El siguiente ejemplo de código muestra cómo establecer el color de fondo para el **párrafo completo**:
 ```cs
@@ -116,7 +117,7 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Establezca el color de resaltado para todo el párrafo.
+    // Establecer el color de resaltado para todo el párrafo.
     paragraph.ParagraphFormat.DefaultPortionFormat.HighlightColor.Color = Color.LightGray;
 
     presentation.Save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -126,9 +127,9 @@ using (var presentation = new Presentation("sample.pptx"))
 
 El resultado:
 
-![The gray paragraph](gray_paragraph.png)
+![El párrafo gris](gray_paragraph.png)
 
-El ejemplo de código a continuación demuestra cómo establecer el color de fondo para **porciones de texto con fuente en negrita**:
+El ejemplo de código a continuación demuestra cómo establecer el color de fondo para **porciones de texto con una fuente en negrita**:
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -139,7 +140,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Establezca el color de resaltado para la porción de texto.
+            // Establecer el color de resaltado para la porción de texto.
             portion.PortionFormat.HighlightColor.Color = Color.LightGray;
         }
     }
@@ -151,11 +152,11 @@ using (var presentation = new Presentation("sample.pptx"))
 
 El resultado:
 
-![The gray text portions](gray_text_portions.png)
+![Las porciones de texto gris](gray_text_portions.png)
 
 ## **Alinear párrafos de texto**
 
-La alineación del texto es un aspecto clave del formato de diapositivas que afecta tanto la legibilidad como el atractivo visual. En Aspose.Slides para .NET, puede controlar con precisión la alineación de los párrafos dentro de los marcos de texto, garantizando que su contenido se presente de forma coherente, ya sea centrado, alineado a la izquierda, a la derecha o justificado. Esta sección explica cómo aplicar y personalizar la alineación del texto en sus presentaciones PowerPoint.
+La alineación del texto es un aspecto clave del formato de diapositivas que afecta tanto a la legibilidad como al atractivo visual. En Aspose.Slides para .NET, puede controlar precisamente la alineación de los párrafos dentro de los marcos de texto, asegurando que su contenido se presente de forma consistente—ya sea centrado, alineado a la izquierda, a la derecha o justificado. Esta sección explica cómo aplicar y personalizar la alineación del texto en sus presentaciones de PowerPoint.
 
 El siguiente ejemplo de código muestra cómo alinear el párrafo al **centro**:
 ```cs
@@ -174,13 +175,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 El resultado:
 
-![The aligned paragraph](aligned_paragraph.png)
+![El párrafo alineado](aligned_paragraph.png)
 
-## **Establecer transparencia para el texto**
+## **Establecer transparencia para texto**
 
-Ajustar la transparencia del texto le permite crear efectos visuales sutiles y mejorar la estética de las diapositivas. Aspose.Slides para .NET permite establecer el nivel de transparencia de párrafos y porciones de texto, facilitando la mezcla del texto con fondos o el énfasis en elementos específicos. Esta sección muestra cómo aplicar configuraciones de transparencia al texto en sus presentaciones.
+Ajustar la transparencia del texto le permite crear efectos visuales sutiles y mejorar la estética de las diapositivas. Aspose.Slides para .NET proporciona la capacidad de establecer el nivel de transparencia de párrafos y porciones de texto, facilitando mezclar el texto con fondos o enfatizar elementos específicos. Esta sección muestra cómo aplicar configuraciones de transparencia al texto en sus presentaciones.
 
-El ejemplo de código a continuación muestra cómo aplicar transparencia al **párrafo completo**:
+El siguiente ejemplo de código muestra cómo aplicar transparencia al **párrafo completo**:
 ```cs
 int alpha = 50;
 
@@ -200,9 +201,9 @@ using (var presentation = new Presentation("sample.pptx"))
 
 El resultado:
 
-![The transparent paragraph](transparent_paragraph.png)
+![El párrafo transparente](transparent_paragraph.png)
 
-El siguiente ejemplo de código muestra cómo aplicar transparencia a **porciones de texto con fuente en negrita**:
+El siguiente ejemplo de código muestra cómo aplicar transparencia a **porciones de texto con una fuente en negrita**:
 ```cs
 int alpha = 50;
 
@@ -228,21 +229,21 @@ using (var presentation = new Presentation("sample.pptx"))
 
 El resultado:
 
-![The transparent text portions](transparent_text_portions.png)
+![Las porciones de texto transparentes](transparent_text_portions.png)
 
-## **Establecer espaciado entre caracteres para el texto**
+## **Establecer espaciado de caracteres para texto**
 
-Aspose.Slides le permite establecer el espaciado entre letras en un cuadro de texto. Esto le permite ajustar la densidad visual de una línea o bloque de texto al expandir o condensar el espacio entre caracteres.
+Aspose.Slides le permite establecer el espaciado entre letras en un cuadro de texto. Esto le permite ajustar la densidad visual de una línea o bloque de texto expandiendo o condensando el espacio entre caracteres.
 
-El siguiente código C# muestra cómo expandir el espaciado entre caracteres en el **párrafo completo**:
+El siguiente código C# muestra cómo expandir el espaciado de caracteres en el **párrafo completo**:
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Nota: Use valores negativos para comprimir el espaciado entre caracteres.
-    paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Expandir el espaciado entre caracteres.
+    // Nota: Use valores negativos para comprimir el espaciado de caracteres.
+    paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Expandir el espaciado de caracteres.
 
     presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 }
@@ -251,9 +252,9 @@ using (var presentation = new Presentation("sample.pptx"))
 
 El resultado:
 
-![The character spacing in the paragraph](character_spacing_in_paragraph.png)
+![El espaciado de caracteres en el párrafo](character_spacing_in_paragraph.png)
 
-El ejemplo de código a continuación muestra cómo expandir el espaciado entre caracteres en **porciones de texto con fuente en negrita**:
+El ejemplo de código a continuación muestra cómo expandir el espaciado de caracteres en **porciones de texto con una fuente en negrita**:
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -264,8 +265,8 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Nota: Use valores negativos para comprimir el espaciado entre caracteres.
-            portion.PortionFormat.Spacing = 3;  // Expandir el espaciado entre caracteres.
+            // Nota: Use valores negativos para comprimir el espaciado de caracteres.
+            portion.PortionFormat.Spacing = 3;  // Expandir el espaciado de caracteres.
         }
     }
 
@@ -276,11 +277,11 @@ using (var presentation = new Presentation("sample.pptx"))
 
 El resultado:
 
-![The character spacing in the text portions](character_spacing_in_text_portions.png)
+![El espaciado de caracteres en las porciones de texto](character_spacing_in_text_portions.png)
 
-## **Administrar propiedades de fuente del texto**
+## **Administrar propiedades de fuente de texto**
 
-Aspose.Slides para .NET le permite afinar la configuración de fuentes tanto a nivel de párrafo como para porciones de texto individuales, garantizando consistencia visual y cumpliendo con los requisitos de diseño de su presentación. Puede definir estilos de fuente, tamaños y otras opciones de formato para párrafos completos, lo que le brinda mayor control sobre la apariencia del texto. Esta sección demuestra cómo administrar propiedades de fuente para párrafos de texto en una diapositiva.
+Aspose.Slides para .NET le permite afinar la configuración de fuentes tanto a nivel de párrafo como para porciones de texto individuales, asegurando consistencia visual y cumpliendo con los requisitos de diseño de su presentación. Puede definir estilos de fuente, tamaños y otras opciones de formato para párrafos completos, brindándole mayor control sobre la apariencia del texto. Esta sección demuestra cómo administrar las propiedades de fuente para párrafos de texto en una diapositiva.
 
 El siguiente código establece la fuente y el estilo de texto para el párrafo completo: aplica tamaño de fuente, negrita, cursiva, subrayado punteado y la fuente Times New Roman a todas las porciones del párrafo.
 ```cs
@@ -289,7 +290,7 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Establecer las propiedades de fuente del párrafo.
+    // Establecer las propiedades de fuente para el párrafo.
     paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 12;
     paragraph.ParagraphFormat.DefaultPortionFormat.FontBold = NullableBool.True;
     paragraph.ParagraphFormat.DefaultPortionFormat.FontItalic = NullableBool.True;
@@ -303,9 +304,9 @@ using (var presentation = new Presentation("sample.pptx"))
 
 El resultado:
 
-![The font properties for the paragraph](font_properties_for_paragraph.png)
+![Las propiedades de fuente del párrafo](font_properties_for_paragraph.png)
 
-El ejemplo de código a continuación aplica propiedades similares a **porciones de texto con fuente en negrita**:
+El ejemplo de código a continuación aplica propiedades similares a **porciones de texto con una fuente en negrita**:
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -331,13 +332,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 El resultado:
 
-![The font properties for text portions](font_properties_for_text_portions.png)
+![Las propiedades de fuente de las porciones de texto](font_properties_for_text_portions.png)
 
 ## **Establecer rotación del texto**
 
-Rotar el texto puede mejorar el diseño de sus diapositivas y ayudar a enfatizar contenido específico. Con Aspose.Slides para .NET, puede aplicar fácilmente rotación al texto dentro de formas, ajustando el ángulo para que coincida con su diseño. Esta sección demuestra cómo establecer y controlar la rotación del texto para lograr el efecto visual deseado.
+Girar el texto puede mejorar la disposición de sus diapositivas y ayudar a enfatizar contenido específico. Con Aspose.Slides para .NET, puede aplicar fácilmente rotación al texto dentro de formas, ajustando el ángulo para que coincida con su diseño. Esta sección demuestra cómo establecer y controlar la rotación del texto para lograr el efecto visual deseado.
 
-El siguiente ejemplo de código establece la orientación del texto en la forma a `Vertical270`, que rota el texto **90 grados en sentido antihorario**:
+El siguiente ejemplo de código establece la orientación del texto en la forma a `Vertical270`, lo que rota el texto **90 grados en sentido antihorario**:
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -352,13 +353,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 El resultado:
 
-![The text rotation](text_rotation.png)
+![La rotación del texto](text_rotation.png)
 
 ## **Establecer rotación personalizada para marcos de texto**
 
 Establecer un ángulo de rotación personalizado para un `TextFrame` le permite posicionar el texto en ángulos precisos, habilitando diseños de diapositivas más creativos y flexibles. Aspose.Slides para .NET brinda control total sobre la rotación de los marcos de texto, facilitando alinear el texto con otros elementos de la diapositiva. Esta sección le guía para aplicar un ángulo de rotación específico a un `TextFrame`.
 
-El ejemplo de código a continuación rota el marco de texto 3 grados en el sentido de las agujas del reloj dentro de la forma:
+El ejemplo de código a continuación rota el marco de texto 3 grados en sentido horario dentro de la forma:
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -373,14 +374,14 @@ using (var presentation = new Presentation("sample.pptx"))
 
 El resultado:
 
-![The custom text rotation](custom_text_rotation.png)
+![La rotación de texto personalizada](custom_text_rotation.png)
 
 ## **Establecer interlineado de párrafos**
 
-Aspose.Slides proporciona las propiedades `SpaceAfter`, `SpaceBefore` y `SpaceWithin` bajo la clase [ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/), lo que le permite gestionar el interlineado de un párrafo. Estas propiedades se utilizan de la siguiente manera:
+Aspose.Slides ofrece las propiedades `SpaceAfter`, `SpaceBefore` y `SpaceWithin` bajo la clase [ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/), lo que permite gestionar el interlineado de un párrafo. Estas propiedades se utilizan de la siguiente manera:
 
-* Use un valor positivo para especificar el interlineado como un porcentaje de la altura de la línea.
-* Use un valor negativo para especificar el interlineado en puntos.
+* Utilice un valor positivo para especificar el interlineado como un porcentaje de la altura de la línea.
+* Utilice un valor negativo para especificar el interlineado en puntos.
 
 El siguiente ejemplo de código muestra cómo especificar el interlineado dentro del párrafo:
 ```cs
@@ -398,11 +399,11 @@ using (var presentation = new Presentation("sample.pptx"))
 
 El resultado:
 
-![The line spacing within the paragraph](line_spacing.png)
+![El interlineado dentro del párrafo](line_spacing.png)
 
 ## **Establecer tipo de ajuste automático para marcos de texto**
 
-La propiedad AutoFitType determina cómo se comporta el texto cuando supera los límites de su contenedor. Aspose.Slides para .NET le permite controlar si el texto debe encogerse para ajustarse, desbordarse o redimensionar la forma automáticamente. Esta sección demuestra cómo establecer el `AutofitType` para un `TextFrame` y gestionar eficazmente el diseño del texto dentro de las formas.
+La propiedad AutoFitType determina cómo se comporta el texto cuando supera los límites de su contenedor. Aspose.Slides para .NET le permite controlar si el texto debe encogerse para ajustarse, desbordarse o redimensionar automáticamente la forma. Esta sección demuestra cómo establecer el `AutofitType` para un `TextFrame` para gestionar eficazmente el diseño del texto dentro de las formas.
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -415,9 +416,9 @@ using (var presentation = new Presentation("sample.pptx"))
 ```
 
 
-## **Establecer ancla de los marcos de texto**
+## **Establecer anclaje de marcos de texto**
 
-El anclaje define cómo se posiciona verticalmente el texto dentro de una forma. Con Aspose.Slides para .NET, puede establecer el tipo de ancla de un `TextFrame` para alinear el texto en la parte superior, media o inferior de la forma. Esta sección muestra cómo ajustar la configuración de ancla para lograr la alineación vertical deseada del contenido de texto.
+El anclaje define cómo se posiciona el texto dentro de una forma verticalmente. Con Aspose.Slides para .NET, puede establecer el tipo de anclaje de un `TextFrame` para alinear el texto en la parte superior, media o inferior de la forma. Esta sección muestra cómo ajustar la configuración de anclaje para lograr la alineación vertical deseada del contenido de texto.
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -430,9 +431,9 @@ using (var presentation = new Presentation("sample.pptx"))
 ```
 
 
-## **Establecer tabulación del texto**
+## **Establecer tabulación de texto**
 
-La tabulación ayuda a organizar el texto en diseños bien estructurados al añadir espaciado coherente entre los elementos de contenido. Aspose.Slides para .NET admite la configuración de tabuladores personalizados dentro de los párrafos de texto, lo que permite un control preciso sobre la posición del texto. Esta sección muestra cómo configurar la tabulación del texto para mejorar la alineación y el formato.
+La tabulación ayuda a organizar el texto en diseños bien estructurados al agregar un espaciado coherente entre los elementos de contenido. Aspose.Slides para .NET soporta la configuración de tabulaciones personalizadas dentro de los párrafos de texto, permitiendo un control preciso sobre la posición del texto. Esta sección demuestra cómo configurar la tabulación de texto para mejorar la alineación y el formato.
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -449,11 +450,11 @@ using (var presentation = new Presentation("sample.pptx"))
 
 El resultado:
 
-![The paragraph tabs](paragraph_tabs.png)
+![Las tabulaciones del párrafo](paragraph_tabs.png)
 
 ## **Establecer idioma de revisión**
 
-Aspose.Slides ofrece la propiedad `LanguageId` de la clase [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/), que permite establecer el idioma de revisión para un documento PowerPoint. El idioma de revisión determina el idioma utilizado para la verificación ortográfica y gramatical en PowerPoint.
+Aspose.Slides proporciona la propiedad `LanguageId` de la clase [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/), que permite establecer el idioma de revisión para un documento de PowerPoint. El idioma de revisión determina el idioma utilizado para la corrección ortográfica y gramatical en PowerPoint.
 
 El siguiente ejemplo de código muestra cómo establecer el idioma de revisión para una porción de texto:
 ```cs
@@ -484,7 +485,7 @@ using (var presentation = new Presentation("presentation.pptx"))
 
 ## **Establecer idioma predeterminado**
 
-Especificar el idioma predeterminado para el texto garantiza la corrección ortográfica, la guionización y el comportamiento de texto a voz adecuados en PowerPoint. Aspose.Slides para .NET le permite establecer el idioma a nivel de porción de texto o de párrafo. Esta sección muestra cómo definir el idioma predeterminado para el texto de su presentación.
+Especificar el idioma predeterminado para el texto garantiza una correcta corrección ortográfica, guionado y comportamiento de texto a voz en PowerPoint. Aspose.Slides para .NET permite establecer el idioma a nivel de porción de texto o de párrafo. Esta sección muestra cómo definir el idioma predeterminado para el texto de su presentación.
 ```cs
 var loadOptions = new LoadOptions();
 loadOptions.DefaultTextLanguage = "en-US";
@@ -506,9 +507,9 @@ using (var presentation = new Presentation(loadOptions))
 
 ## **Establecer estilo de texto predeterminado**
 
-Si necesita aplicar el mismo formato de texto predeterminado a todos los elementos de texto en una presentación de una sola vez, puede usar la propiedad `DefaultTextStyle` de la interfaz [IPresentation](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/) y definir el formato que prefiera.
+Si necesita aplicar el mismo formato de texto predeterminado a todos los elementos de texto de una presentación de una sola vez, puede usar la propiedad `DefaultTextStyle` de la interfaz [IPresentation](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/) y definir el formato preferido.
 
-El siguiente ejemplo de código muestra cómo establecer una fuente negrita predeterminada con tamaño de 14 pt para todo el texto en todas las diapositivas de una nueva presentación.
+El siguiente ejemplo de código muestra cómo establecer una fuente en negrita predeterminada con un tamaño de 14 pt para todo el texto en todas las diapositivas de una nueva presentación.
 ```cs
 using (var presentation = new Presentation())
 {
@@ -528,13 +529,13 @@ using (var presentation = new Presentation())
 
 ## **Extraer texto con el efecto de mayúsculas**
 
-En PowerPoint, aplicar el efecto de fuente **All Caps** hace que el texto aparezca en mayúsculas en la diapositiva aunque originalmente se haya escrito en minúsculas. Cuando recupera una porción de texto con Aspose.Slides, la biblioteca devuelve el texto tal como se ingresó. Para manejar esto, verifique [TextCapType](https://reference.aspose.com/slides/net/aspose.slides/textcaptype/)—si indica `All`, simplemente convierta la cadena devuelta a mayúsculas para que su salida coincida con lo que los usuarios ven en la diapositiva.
+En PowerPoint, aplicar el efecto de fuente **All Caps** hace que el texto aparezca en mayúsculas en la diapositiva aunque originalmente se haya escrito en minúsculas. Cuando recupera una porción de texto de este tipo con Aspose.Slides, la biblioteca devuelve el texto tal como se ingresó. Para manejar esto, verifique [TextCapType](https://reference.aspose.com/slides/net/aspose.slides/textcaptype/)—si indica `All`, simplemente convierta la cadena devuelta a mayúsculas para que su salida coincida con lo que los usuarios ven en la diapositiva.
 
 Supongamos que tenemos el siguiente cuadro de texto en la primera diapositiva del archivo sample2.pptx.
 
-![The All Caps effect](all_caps_effect.png)
+![El efecto de mayúsculas](all_caps_effect.png)
 
- El ejemplo de código a continuación muestra cómo extraer el texto con el efecto **All Caps** aplicado:
+El siguiente ejemplo de código muestra cómo extraer el texto con el efecto **All Caps** aplicado:
 ```cs
 using (var presentation = new Presentation("sample2.pptx"))
 {
@@ -560,12 +561,12 @@ All-Caps effect: HELLO, ASPOSE!
 ```
 
 
-## **FAQ**
+## **Preguntas frecuentes**
 
 **¿Cómo modificar texto en una tabla de una diapositiva?**
 
-Para modificar texto en una tabla de una diapositiva, debe usar el objeto [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/). Puede iterar a través de todas las celdas de la tabla y cambiar el texto en cada celda accediendo a sus propiedades `TextFrame` y `ParagraphFormat`.
+Para modificar texto en una tabla de una diapositiva, debe utilizar el objeto [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/). Puede iterar todas las celdas de la tabla y cambiar el texto de cada celda accediendo a sus propiedades `TextFrame` y `ParagraphFormat` dentro de cada celda.
 
 **¿Cómo aplicar color degradado al texto en una diapositiva de PowerPoint?**
 
-Para aplicar color degradado al texto, use la propiedad `FillFormat` en [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/). Establezca `FilFormat` a `Gradient`, donde podrá definir los colores de inicio y fin del degradado, junto con otras propiedades como dirección y transparencia para crear el efecto degradado en el texto.
+Para aplicar color degradado al texto, use la propiedad `FillFormat` en [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/). Establezca `FilFormat` a `Gradient`, donde puede definir los colores de inicio y fin del degradado, junto con otras propiedades como la dirección y la transparencia para crear el efecto degradado en el texto.

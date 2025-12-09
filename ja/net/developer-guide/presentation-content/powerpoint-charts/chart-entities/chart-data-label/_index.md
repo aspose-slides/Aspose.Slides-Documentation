@@ -1,16 +1,28 @@
 ---
-title: チャート データ ラベル
+title: .NET でのプレゼンテーションにおけるチャート データ ラベルの管理
+linktitle: データ ラベル
 type: docs
 url: /ja/net/chart-data-label/
-keywords: "チャート データ ラベル,label 距離, C#, Csharp, Aspose.Slides for .NET"
-description: "C# または .NET で PowerPoint のチャート データ ラベルと距離を設定する"
+keywords:
+- チャート
+- データ ラベル
+- データ 精度
+- パーセンテージ
+- ラベル 距離
+- ラベル 位置
+- PowerPoint
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET を使用して PowerPoint プレゼンテーションにチャート データ ラベルを追加および書式設定し、スライドをより魅力的にする方法を学びます。"
 ---
 
-チャートのデータ ラベルは、チャートのデータ シリーズまたは個々のデータ ポイントに関する詳細を示します。読者はデータ シリーズをすばやく識別でき、チャートの理解もしやすくなります。
+チャートのデータラベルは、チャートのデータ系列や個々のデータポイントに関する詳細を表示します。読者がデータ系列をすばやく識別でき、チャートの理解も容易にします。
 
 ## **チャート データ ラベルのデータ精度を設定する**
 
-この C# コードは、チャート データ ラベルのデータ 精度を設定する方法を示します。
+この C# コードは、チャート データ ラベルのデータ精度を設定する方法を示します。
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -23,9 +35,9 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **ラベルとしてパーセンテージを表示**
+## **パーセンテージをラベルとして表示**
 
-Aspose.Slides for .NET は、表示されるチャートにパーセンテージ ラベルを設定できます。この C# コードはその操作を示します。
+Aspose.Slides for .NET を使用すると、表示されたチャートにパーセンテージ ラベルを設定できます。この C# コードは、その操作を示しています。
 ```c#
 // Presentation クラスのインスタンスを作成します
 Presentation presentation = new Presentation();
@@ -87,7 +99,7 @@ Presentation presentation = new Presentation();
 // インデックスでスライドの参照を取得します
 ISlide slide = presentation.Slides[0];
 
-// スライドに PercentsStackedColumn チャートを作成します
+// スライド上に PercentsStackedColumn グラフを作成します
 IChart chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
 // NumberFormatLinkedToSource を false に設定します
@@ -97,7 +109,7 @@ chart.Axes.VerticalAxis.NumberFormat = "0.00%";
 chart.ChartData.Series.Clear();
 int defaultWorksheetIndex = 0;
 
-// チャート データ ワークシートを取得します
+// グラフデータのワークシートを取得します
 IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
 // 新しい系列を追加します
@@ -111,7 +123,7 @@ series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetInde
 series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-// LabelFormat プロパティを設定します
+// ラベル書式プロパティを設定します
 series.Labels.DefaultDataLabelFormat.ShowValue = true;
 series.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
 series.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
@@ -142,9 +154,9 @@ presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **軸からラベルまでの距離を設定**
+## **軸からのラベル距離を設定**
 
-この C# コードは、軸からプロットされたチャートのカテゴリ 軸へのラベル距離を設定する方法を示します。
+この C# コードは、軸から描画されたチャートでカテゴリ軸からのラベル距離を設定する方法を示します。
 ```c#
 // Presentation クラスのインスタンスを作成します
 Presentation presentation = new Presentation();
@@ -155,7 +167,7 @@ ISlide sld = presentation.Slides[0];
 // スライド上にチャートを作成します
 IChart ch = sld.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-// 軸からラベルまでの距離を設定します
+// 軸からのラベル間隔を設定します
 ch.Axes.HorizontalAxis.LabelOffset = 500;
 
 // プレゼンテーションをディスクに保存します
@@ -165,9 +177,9 @@ presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 
 ## **ラベル位置の調整**
 
-軸に依存しないチャート（例えば円グラフ）を作成すると、チャートのデータ ラベルがエッジに近すぎることがあります。その場合、リーダー ラインが明確に表示されるようにデータ ラベルの位置を調整する必要があります。
+円グラフのように軸に依存しないチャートを作成すると、チャートのデータラベルがエッジに近すぎることがあります。そのような場合、リーダーラインが明確に表示されるようにデータラベルの位置を調整する必要があります。
 
-この C# コードは、円グラフのラベル位置を調整する方法を示します。
+この C# コードは、円グラフのラベル位置を調整する方法を示します: 
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -186,18 +198,18 @@ using (Presentation pres = new Presentation())
 ```
 
 
-![円グラフ-調整ラベル](pie-chart-adjusted-label.png)
+![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
 
-## **FAQ**
+## **よくある質問**
 
-**密集したチャートでデータ ラベルが重なるのを防ぐには？**
+**密集したチャートでデータラベルの重なりを防止するにはどうすればよいですか？**
 
-自動ラベル配置、リーダー ライン、フォント サイズの削減を組み合わせます。必要に応じて一部のフィールド（例: カテゴリ）を非表示にするか、極端または重要なポイントのみにラベルを表示します。
+自動ラベル配置、リーダーライン、フォントサイズの縮小を組み合わせます。必要に応じて、一部のフィールド（例: カテゴリ）を非表示にするか、極端なポイントや重要なポイントにのみラベルを表示します。
 
-**ゼロ、負、または空の値に対してのみラベルを無効にするには？**
+**ゼロ、負の値、または空の値に対してのみラベルを無効にするにはどうすればよいですか？**
 
-ラベルを有効にする前にデータ ポイントをフィルタリングし、0、負の値、または欠損値に対して表示をオフにするルールを適用します。
+ラベルを有効にする前にデータポイントをフィルタリングし、定義されたルールに従って 0、負の値、または欠損値の表示をオフにします。
 
-**PDF/画像にエクスポートするときにラベル スタイルを一貫させるには？**
+**PDF/画像にエクスポートする際に、ラベルスタイルを一貫させるにはどうすればよいですか？**
 
-フォント（ファミリ、サイズ）を明示的に設定し、レンダリング側でフォントが利用可能か確認してフォント フォールバックを防止します。
+フォント（ファミリ、サイズ）を明示的に設定し、フォントがレンダリング側で利用可能であることを確認してフォールバックを防ぎます。

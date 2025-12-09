@@ -1,16 +1,28 @@
 ---
-title: Étiquette de données du graphique
+title: Gérer les étiquettes de données de graphique dans les présentations .NET
+linktitle: Étiquette de données
 type: docs
 url: /fr/net/chart-data-label/
-keywords: "Étiquette de données du graphique, distance d'étiquette, C#, Csharp, Aspose.Slides for .NET"
-description: "Définir l'étiquette de données du graphique PowerPoint et la distance en C# ou .NET"
+keywords:
+- graphique
+- étiquette de données
+- précision des données
+- pourcentage
+- distance de l'étiquette
+- position de l'étiquette
+- PowerPoint
+- présentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Apprenez à ajouter et formater les étiquettes de données de graphique dans les présentations PowerPoint à l'aide d'Aspose.Slides pour .NET pour des diapositives plus attrayantes."
 ---
 
-Les étiquettes de données d’un graphique affichent des détails sur les séries de données du graphique ou sur des points de données individuels. Elles permettent aux lecteurs d’identifier rapidement les séries de données et facilitent également la compréhension des graphiques.
+Les étiquettes de données sur un graphique affichent des détails sur les séries de données du graphique ou sur des points de données individuels. Elles permettent aux lecteurs d'identifier rapidement les séries de données et facilitent également la compréhension des graphiques.
 
-## **Définir la précision des données dans les étiquettes de données du graphique**
+## **Set Precision of Data in Chart Data Labels**
 
-Ce code C# vous montre comment définir la précision des données dans une étiquette de données de graphique :
+Ce code C# montre comment définir la précision des données dans une étiquette de données de graphique :
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -23,9 +35,9 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Afficher le pourcentage en tant qu’étiquettes**
+## **Display Percentage as Labels**
 
-Aspose.Slides for .NET vous permet de définir des étiquettes de pourcentage sur les graphiques affichés. Ce code C# illustre l’opération :
+Aspose.Slides pour .NET vous permet de définir des étiquettes de pourcentage sur les graphiques affichés. Ce code C# montre l'opération :
 ```c#
 // Crée une instance de la classe Presentation
 Presentation presentation = new Presentation();
@@ -77,76 +89,76 @@ presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Définir le symbole de pourcentage avec les étiquettes de données du graphique**
+## **Set Percentage Sign with Chart Data Labels**
 
-Ce code C# vous montre comment définir le symbole de pourcentage pour une étiquette de données de graphique :
+Ce code C# montre comment définir le signe de pourcentage pour une étiquette de données de graphique :
 ```c#
  // Crée une instance de la classe Presentation
-Presentation presentation = new Presentation();
+ Presentation presentation = new Presentation();
 
- // Récupère la référence d'une diapositive via son index
-ISlide slide = presentation.Slides[0];
+ // Obtient la référence d'une diapositive via son indice
+ ISlide slide = presentation.Slides[0];
 
  // Crée le graphique PercentsStackedColumn sur une diapositive
-IChart chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
+ IChart chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
- // Définit NumberFormatLinkedToSource à false
-chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
-chart.Axes.VerticalAxis.NumberFormat = "0.00%";
+ // Définit NumberFormatLinkedToSource sur false
+ chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
+ chart.Axes.VerticalAxis.NumberFormat = "0.00%";
 
-chart.ChartData.Series.Clear();
-int defaultWorksheetIndex = 0;
+ chart.ChartData.Series.Clear();
+ int defaultWorksheetIndex = 0;
 
- // Récupère la feuille de données du graphique
-IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+ // Obtient la feuille de calcul des données du graphique
+ IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
  // Ajoute une nouvelle série
-IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.Type);
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 1, 0.30));
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 1, 0.50));
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 1, 0.80));
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 1, 0.65));
+ IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.Type);
+ series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 1, 0.30));
+ series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 1, 0.50));
+ series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 1, 0.80));
+ series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 1, 0.65));
 
  // Définit la couleur de remplissage de la série
-series.Format.Fill.FillType = FillType.Solid;
-series.Format.Fill.SolidFillColor.Color = Color.Red;
+ series.Format.Fill.FillType = FillType.Solid;
+ series.Format.Fill.SolidFillColor.Color = Color.Red;
 
  // Définit les propriétés de LabelFormat
-series.Labels.DefaultDataLabelFormat.ShowValue = true;
-series.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
-series.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
-series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
-series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
-series.Labels.DefaultDataLabelFormat.ShowValue = true;
+ series.Labels.DefaultDataLabelFormat.ShowValue = true;
+ series.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
+ series.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
+ series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
+ series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
+ series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
+ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 
  // Ajoute une nouvelle série
-IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.Type);
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 2, 0.70));
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 2, 0.50));
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 2, 0.20));
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 2, 0.35));
+ IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.Type);
+ series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 2, 0.70));
+ series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 2, 0.50));
+ series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 2, 0.20));
+ series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 2, 0.35));
 
  // Définit le type de remplissage et la couleur
-series2.Format.Fill.FillType = FillType.Solid;
-series2.Format.Fill.SolidFillColor.Color = Color.Blue;
-series2.Labels.DefaultDataLabelFormat.ShowValue = true;
-series2.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
-series2.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
-series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
-series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
+ series2.Format.Fill.FillType = FillType.Solid;
+ series2.Format.Fill.SolidFillColor.Color = Color.Blue;
+ series2.Labels.DefaultDataLabelFormat.ShowValue = true;
+ series2.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
+ series2.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
+ series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
+ series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
+ series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
 
  // Enregistre la présentation sur le disque
-presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
+ presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Définir la distance de l’étiquette par rapport à l’axe**
+## **Set Label Distance From Axis**
 
-Ce code C# vous montre comment définir la distance de l’étiquette par rapport à un axe de catégorie lorsque vous travaillez avec un graphique tracé à partir d’axes :
+Ce code C# montre comment définir la distance de l'étiquette par rapport à un axe de catégorie lorsque vous traitez d'un graphique tracé à partir d'axes :
 ```c#
- // Crée une instance de la classe Presentation
+// Crée une instance de la classe Presentation
 Presentation presentation = new Presentation();
 
 // Obtient la référence d'une diapositive
@@ -163,11 +175,11 @@ presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Ajuster la position de l’étiquette**
+## **Adjust Label Location**
 
-Lorsque vous créez un graphique qui ne dépend d’aucun axe, comme un diagramme en secteurs, les étiquettes de données du graphique peuvent se retrouver trop proches de son bord. Dans ce cas, il faut ajuster la position de l’étiquette de données afin que les traits de liaison soient affichés clairement.
+Lorsque vous créez un graphique qui ne repose pas sur un axe, comme un graphique en secteurs, les étiquettes de données du graphique peuvent se retrouver trop proches de son bord. Dans ce cas, vous devez ajuster la position de l'étiquette de données afin que les lignes de liaison soient affichées clairement.
 
-Ce code C# vous montre comment ajuster la position de l’étiquette sur un diagramme en secteurs : 
+Ce code C# montre comment ajuster la position de l'étiquette sur un graphique en secteurs : 
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -190,11 +202,14 @@ using (Presentation pres = new Presentation())
 
 ## **FAQ**
 
-**Comment puis‑je éviter que les étiquettes de données se chevauchent sur des graphiques denses ?**  
-Combinez le placement automatique des étiquettes, les traits de liaison et la réduction de la taille de police ; si nécessaire, masquez certains champs (par exemple, la catégorie) ou n’affichez les étiquettes que pour les points extrêmes/clés.
+**How can I prevent data labels from overlapping on dense charts?**
 
-**Comment puis‑je désactiver les étiquettes uniquement pour les valeurs zéro, négatives ou vides ?**  
+Combinez le placement automatique des étiquettes, les lignes de liaison et une taille de police réduite ; si nécessaire, masquez certains champs (par exemple, la catégorie) ou n’affichez les étiquettes que pour les points extrêmes/clés.
+
+**How can I disable labels only for zero, negative, or empty values?**
+
 Filtrez les points de données avant d’activer les étiquettes et désactivez l’affichage pour les valeurs égales à 0, les valeurs négatives ou les valeurs manquantes selon une règle définie.
 
-**Comment puis‑je garantir un style d’étiquette cohérent lors de l’exportation en PDF/images ?**  
-Définissez explicitement les polices (famille, taille) et vérifiez que la police est disponible du côté du rendu afin d’éviter tout remplacement.
+**How can I ensure a consistent label style when exporting to PDF/images?**
+
+Définissez explicitement les polices (famille, taille) et vérifiez que la police est disponible du côté du rendu pour éviter le recours à une police de substitution.

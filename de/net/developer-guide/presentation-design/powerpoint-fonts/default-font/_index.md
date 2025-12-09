@@ -1,33 +1,38 @@
 ---
-title: Standard-Schriftart - PowerPoint C# API
+title: Standard-Präsentationsschriftarten in .NET angeben
 linktitle: Standard-Schriftart
 type: docs
 weight: 30
 url: /de/net/default-font/
 keywords:
-- schriftart
-- standard-schriftart
-- präsentation rendern
+- Standard-Schriftart
+- Reguläre Schriftart
+- Normale Schriftart
+- Asiatische Schriftart
+- PDF-Export
+- XPS-Export
+- Bild-Export
 - PowerPoint
-- präsentation
+- OpenDocument
+- Präsentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: Die PowerPoint C# API ermöglicht das Festlegen der Standardschriftart für das Rendern von Präsentationen zu PDF, XPS oder Miniaturbildern.
+- Aspose.Slides
+description: "Legen Sie Standard-Schriftarten in Aspose.Slides für .NET fest, um eine ordnungsgemäße Konvertierung von PowerPoint (PPT, PPTX) und OpenDocument (ODP) nach PDF, XPS und Bildern zu gewährleisten."
 ---
 
-## **Standard-Schriftarten für die Darstellung von Präsentationen**
-Aspose.Slides ermöglicht das Festlegen der Standardschriftart für die Darstellung der Präsentation als PDF, XPS oder Miniaturbilder. Dieser Artikel zeigt, wie man DefaultRegularFont und DefaultAsianFont definiert, um sie als Standardschriftarten zu verwenden. Bitte folgen Sie den nachstehenden Schritten, um Schriftarten aus externen Verzeichnissen mit der Aspose.Slides für .NET API zu laden:
+## **Verwendung von Standardschriften zum Rendern von Präsentationen**
+Aspose.Slides ermöglicht das Festlegen der Standardschrift für das Rendern der Präsentation zu PDF, XPS oder Miniaturansichten. Dieser Artikel zeigt, wie man DefaultRegularFont und DefaultAsianFont definiert, um sie als Standardschriften zu verwenden. Bitte folgen Sie den untenstehenden Schritten, um Schriften aus externen Verzeichnissen mit der Aspose.Slides für .NET API zu laden:
 
 1. Erstellen Sie eine Instanz von LoadOptions.
-2. Setzen Sie DefaultRegularFont auf die gewünschte Schriftart. Im folgenden Beispiel habe ich Wingdings verwendet.
-3. Setzen Sie DefaultAsianFont auf die gewünschte Schriftart. Ich habe im folgenden Beispiel Wingdings verwendet.
-4. Laden Sie die Präsentation mit Presentation und den festgelegten Ladeoptionen.
-5. Erzeugen Sie nun das Folien-Miniaturbild, PDF und XPS, um die Ergebnisse zu überprüfen.
+1. Setzen Sie den DefaultRegularFont auf die gewünschte Schrift. Im folgenden Beispiel habe ich Wingdings verwendet.
+1. Setzen Sie den DefaultAsianFont auf die gewünschte Schrift. Im folgenden Beispiel habe ich Wingdings verwendet.
+1. Laden Sie die Präsentation mit Presentation und den festgelegten Ladeoptionen.
+1. Erzeugen Sie nun die Folien‑Miniatur, das PDF und XPS, um die Ergebnisse zu überprüfen.
 
-Die Implementierung des oben Genannten ist unten dargestellt.
+Die Implementierung des oben Genannten ist unten angegeben.
 ```c#
-// Verwenden Sie die Ladeoptionen, um Standard-Schriftarten für reguläre und asiatische Zeichen festzulegen
+// Verwenden Sie die Ladeoptionen, um die Standard‑Schriftarten für reguläre und asiatische Texte festzulegen
 LoadOptions loadOptions = new LoadOptions(LoadFormat.Auto);
 loadOptions.DefaultRegularFont = "Wingdings";
 loadOptions.DefaultAsianFont = "Wingdings";
@@ -47,22 +52,22 @@ using (Presentation pptx = new Presentation("DefaultFonts.pptx", loadOptions))
 
 ## **FAQ**
 
-**Was genau beeinflussen DefaultRegularFont und DefaultAsianFont—nur den Export oder auch Miniaturbilder, PDF, XPS, HTML und SVG?**
+**Was genau beeinflussen DefaultRegularFont und DefaultAsianFont – nur den Export oder auch Miniaturansichten, PDF, XPS, HTML und SVG?**
 
-Sie sind Teil der Rendering‑Pipeline für alle unterstützten Ausgaben. Dazu gehören Folien‑Miniaturbilder, [PDF](/slides/de/net/convert-powerpoint-to-pdf/), [XPS](/slides/de/net/convert-powerpoint-to-xps/), [Rasterbilder](/slides/de/net/convert-powerpoint-to-png/), [HTML](/slides/de/net/convert-powerpoint-to-html/), und [SVG](/slides/de/net/render-a-slide-as-an-svg-image/), da Aspose.Slides dieselbe Layout‑ und Glyph‑Auflösungslogik für diese Ziele verwendet.
+Sie nehmen an der Rendering‑Pipeline für alle unterstützten Ausgaben teil. Dies umfasst Folien‑Miniaturansichten, [PDF](/slides/de/net/convert-powerpoint-to-pdf/), [XPS](/slides/de/net/convert-powerpoint-to-xps/), [Rasterbilder](/slides/de/net/convert-powerpoint-to-png/), [HTML](/slides/de/net/convert-powerpoint-to-html/), und [SVG](/slides/de/net/render-a-slide-as-an-svg-image/), da Aspose.Slides dieselbe Layout‑ und Glyph‑Auflösungslogik für diese Ziele verwendet.
 
-**Werden Standardschriftarten angewendet, wenn man einfach ein PPTX liest und speichert, ohne zu rendern?**
+**Werden Standardschriften angewendet, wenn man einfach ein PPTX liest und speichert, ohne zu rendern?**
 
-Nein. Standardschriftarten sind relevant, wenn Text gemessen und gezeichnet werden muss. Ein einfaches Öffnen‑und‑Speichern einer Präsentation ändert weder die gespeicherten Schriftlauf‑Informationen noch die Dateistruktur. Standardschriftarten kommen bei Vorgängen zum Einsatz, die Text rendern oder umfließen.
+Nein. Standardschriften sind relevant, wenn Text gemessen und gezeichnet werden muss. Ein reines Öffnen‑und‑Speichern einer Präsentation ändert weder die gespeicherten Schriftläufe noch die Dateistruktur. Standardschriften kommen bei Vorgängen zum Tragen, die Text rendern oder neu fließen lassen.
 
-**Wenn ich eigene Schriftordner hinzufüge oder Schriftarten aus dem Speicher bereitstelle, werden sie bei der Auswahl der Standardschriftarten berücksichtigt?**
+**Wenn ich eigene Schriftordner hinzufüge oder Schriften aus dem Speicher bereitstelle, werden sie bei der Auswahl der Standardschriften berücksichtigt?**
 
-Ja. [Benutzerdefinierte Schriftquellen](/slides/de/net/custom-font/) erweitern den Katalog verfügbarer Familien und Glyphen, die die Engine nutzen kann. Standardschriftarten und alle [Fallback‑Regeln](/slides/de/net/fallback-font/) werden zunächst gegen diese Quellen aufgelöst, wodurch auf Servern und in Containern eine zuverlässigere Abdeckung gewährleistet wird.
+Ja. [Benutzerdefinierte Schriftquellen](/slides/de/net/custom-font/) erweitern den Katalog der verfügbaren Schriftfamilien und Glyphen, die die Engine nutzen kann. Standardschriften und alle [Fallback‑Regeln](/slides/de/net/fallback-font/) werden zuerst anhand dieser Quellen aufgelöst, was auf Servern und in Containern für eine zuverlässigere Abdeckung sorgt.
 
-**Werden Standardschriftarten Textmetriken (Kerning, Vorwärtswerte) und damit Zeilenumbrüche und Textumfluss beeinflussen?**
+**Beeinflussen Standardschriften Textmetriken (Kerning, Vorstufen) und damit Zeilenumbrüche und Textumbruch?**
 
-Ja. Das Ändern der Schriftart verändert die Glyphenmetriken und kann Zeilenumbrüche, Umfluss und Paginierung beim Rendern beeinflussen. Für Layout‑Stabilität sollten Sie [die Originalschriftarten einbetten](/slides/de/net/embedded-font/) oder metrisch kompatible Standard‑ und Fallback‑Familien auswählen.
+Ja. Das Ändern der Schriftart ändert die Glyphmetriken und kann während des Renderns Zeilenumbrüche, Umbrüche und die Seitennummerierung verändern. Für Layout‑Stabilität sollten Sie [die Originalschriften einbetten](/slides/de/net/embedded-font/) oder metrisch kompatible Standard‑ und Fallback‑Familien auswählen.
 
-**Gibt es irgendeinen Nutzen, Standardschriftarten festzulegen, wenn alle in der Präsentation verwendeten Schriftarten eingebettet sind?**
+**Gibt es einen Grund, Standardschriften festzulegen, wenn alle in der Präsentation verwendeten Schriften eingebettet sind?**
 
-Oft ist dies nicht nötig, da [eingebettete Schriftarten](/slides/de/net/embedded-font/) bereits ein konsistentes Erscheinungsbild gewährleisten. Standardschriftarten sind jedoch als Sicherheitsnetz für Zeichen nützlich, die nicht im eingebetteten Subset enthalten sind, oder wenn eine Datei eingebetteten und nicht eingebetteten Text kombiniert.
+Oft ist das nicht nötig, da [eingebettete Schriften](/slides/de/net/embedded-font/) bereits ein konsistentes Erscheinungsbild gewährleisten. Standardschriften sind dennoch nützlich als Sicherheitsnetz für Zeichen, die vom eingebetteten Teil nicht abgedeckt werden, oder wenn eine Datei eingebetteten und nicht eingebetteten Text mischt.

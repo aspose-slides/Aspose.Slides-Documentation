@@ -1,35 +1,43 @@
 ---
-title: Intégration de polices dans PowerPoint avec C#
-linktitle: Intégration de polices
+title: Incorporer des polices dans les présentations en .NET
+linktitle: Incorporation de police
 type: docs
 weight: 40
 url: /fr/net/embedded-font/
 keywords:
-- intégrer des polices
-- PowerPoint C#
-- ajouter des polices
+- ajouter police
+- incorporer police
+- incorporation de police
+- obtenir police incorporée
+- ajouter police incorporée
+- supprimer police incorporée
+- compresser police incorporée
+- PowerPoint
+- OpenDocument
 - présentation
-- Aspose.Slides for .NET
-description: "Apprenez à intégrer, ajouter et gérer les polices dans les présentations PowerPoint en utilisant C# et .NET"
+- .NET
+- C#
+- Aspose.Slides
+description: "Incorporez des polices TrueType dans les présentations PowerPoint et OpenDocument avec Aspose.Slides pour .NET, assurant un rendu précis sur toutes les plateformes."
 ---
 
-**Intégration de polices dans PowerPoint** garantit que votre présentation conserve son apparence prévue sur différents systèmes. Que vous utilisiez des polices uniques pour la créativité ou des polices standard, l’intégration de polices empêche les perturbations du texte et de la mise en page.
+**Incorporer des polices dans PowerPoint** garantit que votre présentation conserve son apparence prévue sur différents systèmes. Que vous utilisiez des polices uniques pour la créativité ou des polices standard, l’incorporation des polices empêche les perturbations du texte et de la mise en page.
 
-Si vous avez utilisé une police tierce ou non standard parce que vous avez fait preuve de créativité dans votre travail, vous avez encore plus de raisons d’intégrer votre police. Sinon (sans polices intégrées), les textes ou les chiffres de vos diapositives, la mise en page, le style, etc. peuvent changer ou se transformer en rectangles confus. 
+Si vous avez utilisé une police tierce ou non standard parce que vous avez fait preuve de créativité dans votre travail, vous avez alors encore plus de raisons d’incorporer votre police. Sinon (sans polices incorporées), les textes ou les nombres sur vos diapositives, la mise en page, le style, etc. peuvent changer ou se transformer en rectangles confus. 
 
-Utilisez les classes [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/), [FontData](https://reference.aspose.com/slides/net/aspose.slides/fontdata/), et [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) pour gérer les polices intégrées.
+Utilisez les classes [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/), [FontData](https://reference.aspose.com/slides/net/aspose.slides/fontdata/) et [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) pour gérer les polices incorporées.
 
-## **Obtention et suppression des polices intégrées**
+## **Obtention et suppression des polices incorporées**
 
-Récupérez ou supprimez facilement les polices intégrées d’une présentation à l’aide des méthodes [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts) et [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont).
+Récupérez ou supprimez facilement les polices incorporées d’une présentation à l’aide des méthodes [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts) et [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont).
 
-Ce code C# vous montre comment obtenir et supprimer des polices intégrées d’une présentation :
+Ce code C# montre comment obtenir et supprimer les polices incorporées d’une présentation :
 ```c#
 using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // Rendu d'une diapositive contenant un cadre de texte qui utilise la police "FunSized" intégrée
+    // Rend une diapositive contenant un cadre de texte qui utilise la police incorporée "FunSized"
     using (IImage image = slide.GetImage(new Size(960, 720)))
     {
         image.Save("picture1_out.png", ImageFormat.Png);
@@ -39,7 +47,7 @@ using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
 
     IFontData[] embeddedFonts = fontsManager.GetEmbeddedFonts();
 
-    // Trouve la police "Calibri"
+    // Recherche la police "Calibri"
     IFontData funSizedEmbeddedFont = Array.Find(embeddedFonts, delegate (IFontData data)
     {
         return data.FontName == "Calibri";
@@ -48,21 +56,21 @@ using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
     // Supprime la police "Calibri"
     fontsManager.RemoveEmbeddedFont(funSizedEmbeddedFont);
 
-    // Rendu de la présentation ; la police "Calibri" est remplacée par une police existante
+    // Rend la présentation ; la police "Calibri" est remplacée par une police existante
     using (IImage image = slide.GetImage(new Size(960, 720)))
     {
         image.Save("picture2_out.png", ImageFormat.Png);
     }
 
-    // Enregistre la présentation sans la police "Calibri" intégrée sur le disque
+    // Enregistre la présentation sans la police "Calibri" incorporée sur le disque
     presentation.Save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
 }
 ```
 
 
-## **Ajout de polices intégrées**
+## **Ajout de polices incorporées**
 
-En utilisant l’énumération [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) et les deux surcharges de la méthode [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/), vous pouvez choisir la règle d’intégration qui vous convient pour intégrer les polices dans une présentation. Ce code C# montre comment intégrer et ajouter des polices à une présentation :
+En utilisant l’énumération [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) et les deux surcharges de la méthode [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/), vous pouvez sélectionner la règle d’incorporation qui vous convient pour incorporer les polices dans une présentation. Ce code C# montre comment incorporer et ajouter des polices à une présentation :
 ```c#
 // Charge la présentation
 Presentation presentation = new Presentation("Fonts.pptx");
@@ -82,9 +90,9 @@ presentation.Save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Compression des polices intégrées**
+## **Compression des polices incorporées**
 
-Optimisez la taille du fichier en compressant les polices intégrées à l’aide de [CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/).
+Optimisez la taille du fichier en compressant les polices incorporées à l’aide de [CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/).
 
 Exemple de code pour la compression :
 ```c#
@@ -98,10 +106,10 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **FAQ**
 
-**Comment savoir si une police spécifique de la présentation sera encore substituée lors du rendu malgré l’intégration ?**
+**Comment savoir qu’une police spécifique dans la présentation sera tout de même remplacée lors du rendu malgré son incorporation ?**
 
-Vérifiez les [informations de substitution](/slides/fr/net/font-substitution/) dans le gestionnaire de polices ainsi que les [règles de secours/substitution](/slides/fr/net/fallback-font/) : si la police est indisponible ou restreinte, une police de secours sera utilisée.
+Vérifiez les [informations de substitution](/slides/fr/net/font-substitution/) dans le gestionnaire de polices et les [règles de secours/substitution](/slides/fr/net/fallback-font/) : si la police est indisponible ou restreinte, une police de secours sera utilisée.
 
-**Est‑il utile d’intégrer les polices « système » comme Arial/Calibri ?**
+**Cela vaut-il la peine d’incorporer les polices « système » comme Arial/Calibri ?**
 
-En général non — elles sont presque toujours disponibles. Mais pour une portabilité totale dans des environnements « minces » (Docker, un serveur Linux sans polices préinstallées), l’intégration des polices système peut éliminer le risque de substitutions inattendues.
+En général non — elles sont presque toujours disponibles. Mais pour une portabilité totale dans des environnements « minces » (Docker, un serveur Linux sans polices préinstallées), incorporer les polices système peut éliminer le risque de substitutions inattendues.

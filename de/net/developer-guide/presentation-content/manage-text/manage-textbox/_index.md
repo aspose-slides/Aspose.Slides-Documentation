@@ -1,5 +1,6 @@
 ---
-title: Textfeld verwalten
+title: Textfelder in Präsentationen in .NET verwalten
+linktitle: Textfeld verwalten
 type: docs
 weight: 20
 url: /de/net/manage-textbox/
@@ -8,44 +9,48 @@ keywords:
 - Textrahmen
 - Text hinzufügen
 - Text aktualisieren
-- Textfeld mit Hyperlink
+- Textfeld erstellen
+- Textfeld prüfen
+- Textspalte hinzufügen
+- Hyperlink hinzufügen
 - PowerPoint
 - Präsentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides für .NET
-description: "Verwalten Sie ein Textfeld oder einen Textrahmen in PowerPoint-Präsentationen mit C# oder .NET"
+- Aspose.Slides
+description: "Aspose.Slides für .NET erleichtert das Erstellen, Bearbeiten und Klonen von Textfeldern in PowerPoint- und OpenDocument-Dateien und verbessert die Automatisierung Ihrer Präsentationen."
 ---
 
-Texte in Folien befinden sich typischerweise in Textfeldern oder Formen. Daher müssen Sie, um Text zu einer Folie hinzuzufügen, zunächst ein Textfeld hinzufügen und dann Text in das Textfeld einfügen. 
+Texte auf Folien befinden sich typischerweise in Textfeldern oder Formen. Daher musst du, um Text zu einer Folie hinzuzufügen, zuerst ein Textfeld hinzufügen und anschließend Text in das Textfeld einfügen. 
 
-Um Ihnen das Hinzufügen einer Form zu ermöglichen, die Text enthalten kann, stellt Aspose.Slides für .NET das [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape)-Interface bereit. 
+Um dir zu ermöglichen, eine Form hinzuzufügen, die Text enthalten kann, stellt Aspose.Slides für .NET die Schnittstelle [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape) bereit. 
 
 {{% alert title="Note" color="warning" %}} 
 
-Aspose.Slides stellt auch das [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape)-Interface bereit, mit dem Sie Formen zu Folien hinzufügen können. Allerdings können nicht alle über das `IShape`-Interface hinzugefügten Formen Text enthalten. Formen, die über das [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape)-Interface hinzugefügt werden, enthalten typischerweise Text. 
+Aspose.Slides stellt außerdem die Schnittstelle [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) bereit, mit der du Formen zu Folien hinzufügen kannst. Allerdings können nicht alle über die `IShape`‑Schnittstelle hinzugefügten Formen Text enthalten. Über die [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape)‑Schnittstelle hinzugefügte Formen enthalten typischerweise Text. 
 
-Daher sollten Sie, wenn Sie mit einer vorhandenen Form arbeiten, zu der Sie Text hinzufügen möchten, prüfen und bestätigen, dass sie über das `IAutoShape`-Interface gecastet wurde. Nur dann können Sie mit [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/properties/textframe) arbeiten, das eine Eigenschaft von `IAutoShape` ist. Siehe den Abschnitt [Update Text](https://docs.aspose.com/slides/net/manage-textbox/#update-text) auf dieser Seite. 
+Daher solltest du, wenn du einer bestehenden Form Text hinzufügen möchtest, prüfen und bestätigen, dass sie über die `IAutoShape`‑Schnittstelle gecastet wurde. Nur dann kannst du mit [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/properties/textframe) arbeiten, einer Eigenschaft von `IAutoShape`. Siehe den Abschnitt [Update Text](https://docs.aspose.com/slides/net/manage-textbox/#update-text) auf dieser Seite. 
 
 {{% /alert %}}
 
 ## **Textfeld auf Folie erstellen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse. 
-2. Holen Sie die Referenz der ersten Folie über ihren Index. 
-3. Fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape)-Objekt mit [ShapeType](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/properties/shapetype) auf `Rectangle` an einer angegebenen Position auf der Folie hinzu und erhalten Sie die Referenz für das neu hinzugefügte `IAutoShape`-Objekt. 
-4. Fügen Sie dem `IAutoShape`-Objekt eine `TextFrame`-Eigenschaft hinzu, die einen Text enthält. Im nachfolgenden Beispiel haben wir diesen Text hinzugefügt: *Aspose TextBox* 
-5. Schreiben Sie schließlich die PPTX‑Datei über das `Presentation`‑Objekt. 
+1. Erstelle eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation). 
+2. Hole die Referenz der ersten Folie über deren Index. 
+3. Füge ein [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape)‑Objekt mit [ShapeType](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/properties/shapetype) auf `Rectangle` an einer angegebenen Position auf der Folie hinzu und erhalte die Referenz für das neu hinzugefügte `IAutoShape`‑Objekt. 
+4. Füge dem `IAutoShape`‑Objekt die Eigenschaft `TextFrame` hinzu, die einen Text enthält. Im nachfolgenden Beispiel haben wir diesen Text hinzugefügt: *Aspose TextBox* 
+5. Schließlich schreibe die PPTX‑Datei über das `Presentation`‑Objekt. 
 
-Dieser C#‑Code – eine Umsetzung der oben genannten Schritte – zeigt Ihnen, wie Sie Text zu einer Folie hinzufügen:
+Dieser C#‑Code – eine Umsetzung der obigen Schritte – zeigt, wie man Text zu einer Folie hinzufügt:
 ```c#
 // Instanziiert PresentationEx
 using (Presentation pres = new Presentation())
 {
-    // Ruft die erste Folie in der Präsentation ab
+
+    // Holt die erste Folie in der Präsentation
     ISlide sld = pres.Slides[0];
 
-    // Fügt eine AutoShape mit Typ Rectangle hinzu
+    // Fügt ein AutoShape mit Typ Rectangle hinzu
     IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
     // Fügt dem Rechteck ein TextFrame hinzu
@@ -69,13 +74,13 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Überprüfen, ob Form ein Textfeld ist**
+## **Überprüfen, ob es sich um ein Textfeld handelt**
 
-Aspose.Slides stellt die [IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/)-Eigenschaft des [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)-Interfaces bereit, mit der Sie Formen untersuchen und Textfelder identifizieren können.
+Aspose.Slides stellt die Eigenschaft [IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) von der [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)‑Schnittstelle bereit, mit der du Formen untersuchen und Textfelder identifizieren kannst.
 
 ![Text box and shape](istextbox.png)
 
-Dieser C#‑Code zeigt Ihnen, wie Sie prüfen können, ob eine Form als Textfeld erstellt wurde: 
+Dieser C#‑Code zeigt, wie man prüft, ob eine Form als Textfeld erstellt wurde: 
 ```c#
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
@@ -90,47 +95,47 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 ```
 
 
-Beachten Sie, dass wenn Sie einfach eine AutoShape mit der `AddAutoShape`‑Methode des [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/)-Interfaces hinzufügen, die `IsTextBox`‑Eigenschaft der AutoShape `false` zurückgibt. Nachdem Sie jedoch Text zur AutoShape mittels der `AddTextFrame`‑Methode oder der `Text`‑Eigenschaft hinzugefügt haben, gibt die `IsTextBox`‑Eigenschaft `true` zurück.
+Beachte, dass das `IsTextBox`‑Attribut einer AutoShape, die lediglich mit der Methode `AddAutoShape` aus der [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/)‑Schnittstelle hinzugefügt wird, `false` zurückgibt. Nachdem jedoch Text über die Methode `AddTextFrame` oder die Eigenschaft `Text` hinzugefügt wurde, gibt das `IsTextBox`‑Attribut `true` zurück.
 ```cs
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
     IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-    // shape1.IsTextBox ist false
+    // shape1.IsTextBox ist falsch
     shape1.AddTextFrame("shape 1");
-    // shape1.IsTextBox ist true
+    // shape1.IsTextBox ist wahr
 
     IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-    // shape2.IsTextBox ist false
+    // shape2.IsTextBox ist falsch
     shape2.TextFrame.Text = "shape 2";
-    // shape2.IsTextBox ist true
+    // shape2.IsTextBox ist wahr
 
     IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-    // shape3.IsTextBox ist false
+    // shape3.IsTextBox ist falsch
     shape3.AddTextFrame("");
-    // shape3.IsTextBox ist false
+    // shape3.IsTextBox ist falsch
 
     IAutoShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-    // shape4.IsTextBox ist false
+    // shape4.IsTextBox ist falsch
     shape4.TextFrame.Text = "";
-    // shape4.IsTextBox ist false
+    // shape4.IsTextBox ist falsch
 }
 ```
 
 
-## **Spalte in Textfeld hinzufügen**
+## **Spalte im Textfeld hinzufügen**
 
-Aspose.Slides bietet die Eigenschaften [ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount) und [ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/columnspacing) (aus dem [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat)-Interface bzw. der Klasse [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat)), mit denen Sie Spalten zu Textfeldern hinzufügen können. Sie können die Anzahl der Spalten in einem Textfeld festlegen und den Abstand in Punkten zwischen den Spalten angeben.
+Aspose.Slides stellt die Eigenschaften [ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount) und [ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/columnspacing) (aus der [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat)‑Schnittstelle und der Klasse [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat)) bereit, um Spalten zu Textfeldern hinzuzufügen. Du kannst die Anzahl der Spalten in einem Textfeld festlegen und anschließend den Abstand in Punkten zwischen den Spalten bestimmen. 
 
-Dieser C#‑Code demonstriert den beschriebenen Vorgang: 
+Dieser Code in C# demonstriert die beschriebene Vorgehensweise: 
 ```c#
 using (Presentation presentation = new Presentation())
 {
 	// Holt die erste Folie in der Präsentation
 	ISlide slide = presentation.Slides[0];
 
-	// Fügt eine AutoShape mit Typ Rectangle hinzu
+	// Fügt ein AutoShape mit Typ Rectangle hinzu
 	IAutoShape aShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
 	// Fügt dem Rechteck ein TextFrame hinzu
@@ -154,11 +159,11 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **Spalte im Textrahmen hinzufügen**
+## **Spalte im Textframe hinzufügen**
 
-Aspose.Slides für .NET stellt die [ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount)-Eigenschaft (aus dem [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat)-Interface) bereit, die es Ihnen ermöglicht, Spalten in Textrahmen hinzuzufügen. Über diese Eigenschaft können Sie die gewünschte Anzahl von Spalten in einem Textrahmen festlegen.
+Aspose.Slides für .NET stellt die Eigenschaft [ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount) (aus der [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat)‑Schnittstelle) bereit, mit der du Spalten in Textframes hinzufügen kannst. Über diese Eigenschaft kannst du die gewünschte Spaltenanzahl in einem Textframe festlegen. 
 
-Dieser C#‑Code zeigt Ihnen, wie Sie eine Spalte innerhalb eines Textrahmens hinzufügen:
+Dieser C#‑Code zeigt, wie du eine Spalte innerhalb eines Textframes hinzufügst:
 ```c#
 string outPptxFileName = "ColumnsTest.pptx";
 using (Presentation pres = new Presentation())
@@ -203,9 +208,9 @@ using (Presentation pres = new Presentation())
 
 ## **Text aktualisieren**
 
-Aspose.Slides ermöglicht es Ihnen, den in einem Textfeld enthaltenen Text oder alle Texte in einer Präsentation zu ändern bzw. zu aktualisieren.
+Aspose.Slides ermöglicht es dir, den Text in einem Textfeld oder sämtlichen Texten einer Präsentation zu ändern oder zu aktualisieren. 
 
-Dieser C#‑Code demonstriert einen Vorgang, bei dem alle Texte in einer Präsentation aktualisiert bzw. geändert werden:
+Dieser C#‑Code demonstriert einen Vorgang, bei dem alle Texte einer Präsentation aktualisiert bzw. geändert werden:
 ```c#
 using(Presentation pres = new Presentation("text.pptx"))
 {
@@ -213,11 +218,11 @@ using(Presentation pres = new Presentation("text.pptx"))
    {
        foreach (IShape shape in slide.Shapes)
        {
-           if (shape is IAutoShape autoShape) //Überprüft, ob die Form ein Textframe unterstützt (IAutoShape). 
+           if (shape is IAutoShape autoShape) //Prüft, ob die Form Textframe unterstützt (IAutoShape). 
            {
               foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) //Iteriert durch die Absätze im Textframe
                {
-                   foreach (IPortion portion in paragraph.Portions) //Iteriert durch jeden Abschnitt im Absatz
+                   foreach (IPortion portion in paragraph.Portions) //Iteriert durch jeden Portion im Absatz
                    {
                        portion.Text = portion.Text.Replace("years", "months"); //Ändert den Text
                        portion.PortionFormat.FontBold = NullableBool.True; //Ändert die Formatierung
@@ -233,27 +238,27 @@ using(Presentation pres = new Presentation("text.pptx"))
 ```
 
 
-## **Textfeld mit Hyperlink hinzufügen**
+## **Textfeld mit Hyperlink hinzufügen** 
 
-Sie können einen Link in ein Textfeld einfügen. Beim Anklicken des Textfeldes wird der Link geöffnet.
+Du kannst einen Link in ein Textfeld einfügen. Beim Klicken auf das Textfeld wird der Link geöffnet. 
 
-1. Erstellen Sie eine Instanz der `Presentation`‑Klasse. 
-2. Holen Sie die Referenz der ersten Folie über ihren Index.  
-3. Fügen Sie ein `AutoShape`‑Objekt mit `ShapeType` auf `Rectangle` an einer angegebenen Position auf der Folie hinzu und erhalten Sie eine Referenz des neu hinzugefügten AutoShape‑Objekts.
-4. Fügen Sie dem `AutoShape`‑Objekt ein `TextFrame` hinzu, das *Aspose TextBox* als Standardtext enthält. 
-5. Instanziieren Sie die `IHyperlinkManager`‑Klasse. 
-6. Weisen Sie das `IHyperlinkManager`‑Objekt der [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/shape/properties/hyperlinkclick)-Eigenschaft zu, die dem gewünschten Teil des `TextFrame` zugeordnet ist. 
-7. Schreiben Sie schließlich die PPTX‑Datei über das `Presentation`‑Objekt. 
+1. Erstelle eine Instanz der Klasse `Presentation`. 
+2. Hole die Referenz der ersten Folie über deren Index.  
+3. Füge ein `AutoShape`‑Objekt mit `ShapeType` auf `Rectangle` an einer angegebenen Position auf der Folie hinzu und erhalte eine Referenz des neu hinzugefügten AutoShape‑Objekts. 
+4. Füge dem `AutoShape`‑Objekt ein `TextFrame` hinzu, das *Aspose TextBox* als Standardtext enthält. 
+5. Instanziiere die Klasse `IHyperlinkManager`. 
+6. Weise das `IHyperlinkManager`‑Objekt der Eigenschaft [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/shape/properties/hyperlinkclick) zu, die mit dem gewünschten Teil des `TextFrame` verknüpft ist. 
+7. Schließlich schreibe die PPTX‑Datei über das `Presentation`‑Objekt. 
 
-Dieser C#‑Code – eine Umsetzung der obigen Schritte – zeigt Ihnen, wie Sie einem Slide ein Textfeld mit Hyperlink hinzufügen:
+Dieser C#‑Code – eine Umsetzung der obigen Schritte – zeigt, wie du ein Textfeld mit Hyperlink zu einer Folie hinzufügst:
 ```c#
-// Instanziert eine Presentation-Klasse, die ein PPTX darstellt
+// Instanziiert eine Presentation-Klasse, die eine PPTX darstellt
 Presentation pptxPresentation = new Presentation();
 
 // Holt die erste Folie in der Präsentation
 ISlide slide = pptxPresentation.Slides[0];
 
-// Fügt ein AutoShape-Objekt mit dem Typ Rechteck hinzu
+// Fügt ein AutoShape-Objekt mit dem Typ Rectangle hinzu
 IShape pptxShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
 
 // Wandelt die Form in AutoShape um
@@ -264,10 +269,10 @@ pptxAutoShape.AddTextFrame("");
 
 ITextFrame ITextFrame = pptxAutoShape.TextFrame;
 
-// Fügt dem Rahmen etwas Text hinzu
+// Fügt dem Frame etwas Text hinzu
 ITextFrame.Paragraphs[0].Portions[0].Text = "Aspose.Slides";
 
-// Setzt den Hyperlink für den Abschnittstext
+// Setzt den Hyperlink für den Portion-Text
 IHyperlinkManager HypMan = ITextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkManager;
 HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
 
@@ -278,10 +283,10 @@ pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx
 
 ## **FAQ**
 
-**Was ist der Unterschied zwischen einem Textfeld und einem Textplatzhalter bei der Arbeit mit Masterfolien?**
+**Was ist der Unterschied zwischen einem Textfeld und einem Textplatzhalter beim Arbeiten mit Masterfolien?**
 
-Ein [Platzhalter](/slides/de/net/manage-placeholder/) erbt Stil/Position vom [Master](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) und kann in [Layouts](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) überschrieben werden, während ein reguläres Textfeld ein unabhängiges Objekt auf einer bestimmten Folie ist und sich beim Wechseln von Layouts nicht ändert.
+Ein [Platzhalter](/slides/de/net/manage-placeholder/) übernimmt Stil/Position vom [Master](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) und kann in [Layouts](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) überschrieben werden, während ein reguläres Textfeld ein unabhängiges Objekt auf einer bestimmten Folie ist und sich nicht ändert, wenn du das Layout wechselst.
 
-**Wie kann ich einen massiven Textaustausch in der gesamten Präsentation durchführen, ohne Text in Diagrammen, Tabellen und SmartArt zu berühren?**
+**Wie kann ich einen massenhaften Textaustausch in der gesamten Präsentation durchführen, ohne den Text in Diagrammen, Tabellen und SmartArt zu verändern?**
 
-Beschränken Sie Ihre Iteration auf AutoShapes, die TextFrames besitzen, und schließen Sie eingebettete Objekte ([Diagramme](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/), [Tabellen](https://reference.aspose.com/slides/net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/)) aus, indem Sie deren Sammlungen separat durchlaufen oder diese Objekttypen überspringen.
+Beschränke deine Iteration auf Auto‑Shapes, die TextFrames besitzen, und schließe eingebettete Objekte ([Diagramme](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/), [Tabellen](https://reference.aspose.com/slides/net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/)) aus, indem du deren Sammlungen separat durchgehst oder diese Objekttypen überspringst.

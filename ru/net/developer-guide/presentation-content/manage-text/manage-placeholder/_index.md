@@ -1,35 +1,46 @@
 ---
-title: Управление заполнителем
+title: Управление заполнителями презентаций в .NET
+linktitle: Управление заполнителями
 type: docs
 weight: 10
 url: /ru/net/manage-placeholder/
-keywords: "Заполнитель, Текст заполнителя, Текст подсказки, Презентация PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "Изменение текста заполнителя и текста подсказки в презентациях PowerPoint на C# или .NET"
+keywords:
+- заполнитель
+- текстовый заполнитель
+- заполнитель изображения
+- заполнитель диаграммы
+- подсказочный текст
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Легко управляйте заполнителями в Aspose.Slides для .NET: заменяйте текст, настраивайте подсказки и задавайте прозрачность изображений в PowerPoint и OpenDocument."
 ---
 
 ## **Изменить текст в заполнителе**
-Using [Aspose.Slides для .NET](/slides/ru/net/), you can find and modify placeholders on slides in presentations. Aspose.Slides allows you to make changes to the text in a placeholder.
+С помощью [Aspose.Slides for .NET](/slides/ru/net/) вы можете находить и изменять заполнители на слайдах в презентациях. Aspose.Slides позволяет вносить изменения в текст заполнителя.
 
-**Prerequisite**: You need a presentation that contains a placeholder. You can create such a presentation in the standard Microsoft PowerPoint app.
+**Требование**: Вам нужна презентация, содержащая заполнитель. Вы можете создать такую презентацию в стандартном приложении Microsoft PowerPoint.
 
-This is how you use Aspose.Slides to replace the text in the placeholder in that presentation:
+Вот как использовать Aspose.Slides для замены текста в заполнителе в этой презентации:
 
-1. Instantiate the [`Presentation`](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and pass the presentation as an argument.
-2. Get a slide reference through its index.
-3. Iterate through the shapes to find the placeholder.
-4. Typecast the placeholder shape to an [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) and change the text using the [`TextFrame`](https://reference.aspose.com/slides/net/aspose.slides/textframe/) associated with the [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/). 
-5. Save the modified presentation.
+1. Создайте экземпляр класса [`Presentation`](https://reference.aspose.com/slides/net/aspose.slides/presentation) и передайте в него презентацию в качестве аргумента.  
+2. Получите ссылку на слайд по его индексу.  
+3. Пройдитесь по коллекции фигур, чтобы найти заполнитель.  
+4. Приведите форму заполнителя к типу [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) и измените текст с помощью [`TextFrame`](https://reference.aspose.com/slides/net/aspose.slides/textframe/), связанного с [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/).  
+5. Сохраните изменённую презентацию.
 
-This C# code shows how to change the text in a placeholder:
+Это пример кода C#, показывающий, как изменить текст в заполнителе:
 ```c#
-// Создает экземпляр класса Presentation
+// Создаёт экземпляр класса Presentation
 using (Presentation pres = new Presentation("ReplacingText.pptx"))
 {
 
     // Получает первый слайд
     ISlide sld = pres.Slides[0];
 
-    // Итерирует по фигурам, чтобы найти заполнитель
+    // Проходит по фигурам, чтобы найти заполнитель
     foreach (IShape shp in sld.Shapes)
         if (shp.Placeholder != null)
         {
@@ -43,15 +54,15 @@ using (Presentation pres = new Presentation("ReplacingText.pptx"))
 ```
 
 
-## **Установить текст подсказки в заполнителе**
-Standard and pre-built layouts contain placeholder prompt texts such as ***Click to add a title*** or ***Click to add a subtitle***. Using Aspose.Slides, you can insert your preferred prompt texts into placeholder layouts.
+## **Установить подсказочный текст в заполнителе**
+В стандартных и готовых макетах содержатся подсказки заполнителей, такие как ***Click to add a title*** или ***Click to add a subtitle***. С помощью Aspose.Slides вы можете вставить свои собственные подсказочные тексты в макеты заполнителей.
 
-This C# code shows you how to set the prompt text in a placeholder:
+Этот пример кода C# показывает, как задать подсказочный текст в заполнителе:
 ```c#
 using (Presentation pres = new Presentation("Presentation2.pptx"))
 {
     ISlide slide = pres.Slides[0];
-    foreach (IShape shape in slide.Slide.Shapes) // Итерирует по слайду
+    foreach (IShape shape in slide.Slide.Shapes) // Проходит по слайду
     {
         if (shape.Placeholder != null && shape is AutoShape)
         {
@@ -78,9 +89,9 @@ using (Presentation pres = new Presentation("Presentation2.pptx"))
 
 ## **Установить прозрачность изображения заполнителя**
 
-Aspose.Slides allows you to set the transparency of the background image in a text placeholder. By adjusting the transparency of the picture in such a frame, you can make the text or the image stand out (depending on the text's and picture's colors).
+Aspose.Slides позволяет установить прозрачность фонового изображения в текстовом заполнителе. Регулируя прозрачность картинки в таком кадре, вы можете выделить текст или изображение (в зависимости от цветов текста и картинки).
 
-This C# code shows you how to set the transparency for a picture background (inside a shape):
+Этот пример кода C# показывает, как задать прозрачность фоновой картинки (внутри фигуры):
 ```c#
 using (var presentation = new Presentation())
 {
@@ -96,14 +107,14 @@ using (var presentation = new Presentation())
 
 ## **FAQ**
 
-**What is a base placeholder, and how is it different from a local shape on a slide?**
+**Что такое базовый заполнитель и чем он отличается от локальной фигуры на слайде?**
 
-A base placeholder is the original shape on a layout or master that the slide’s shape inherits from—type, position, and some formatting come from it. A local shape is independent; if there’s no base placeholder, inheritance doesn’t apply.
+Базовый заполнитель — это исходная фигура в макете или образце, от которой наследует форма слайда — тип, позиция и часть форматирования берутся от него. Локальная фигура независима; если базового заполнителя нет, наследование не применяется.
 
-**How can I update all titles or captions across a presentation without iterating over every slide?**
+**Как можно обновить все заголовки или подписи во всей презентации без перебора каждого слайда?**
 
-Edit the corresponding placeholder on the layout or the master. Slides based on those layouts/that master will automatically inherit the change.
+Отредактируйте соответствующий заполнитель в макете или образце. Слайды, основанные на этих макетах/образце, автоматически унаследуют изменение.
 
-**How do I control the standard header/footer placeholders—date & time, slide number, and footer text?**
+**Как управлять стандартными заполнителями колонтитулов — датой и временем, номером слайда и текстом нижнего колонтитула?**
 
-Use the HeaderFooter managers at the appropriate scope (normal slides, layouts, master, notes/handouts) to turn those placeholders on or off and to set their content.
+Используйте менеджеры HeaderFooter в соответствующей области (обычные слайды, макеты, образец, примечания/раздаточные материалы), чтобы включать или отключать эти заполнители и задавать их содержимое.

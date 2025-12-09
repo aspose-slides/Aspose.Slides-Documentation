@@ -1,18 +1,29 @@
 ---
-title: Administrar marcador de posición
+title: Administrar marcadores de posición en .NET
+linktitle: Administrar marcadores de posición
 type: docs
 weight: 10
 url: /es/net/manage-placeholder/
-keywords: "Marcador de posición, Texto del marcador de posición, Texto de sugerencia, Presentación de PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "Cambiar el texto del marcador de posición y el texto de sugerencia en presentaciones de PowerPoint en C# o .NET"
+keywords:
+- marcador de posición
+- marcador de posición de texto
+- marcador de posición de imagen
+- marcador de posición de gráfico
+- texto de aviso
+- PowerPoint
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Administre fácilmente los marcadores de posición en Aspose.Slides para .NET: reemplace texto, personalice avisos y ajuste la transparencia de imágenes en PowerPoint y OpenDocument."
 ---
 
-## **Cambiar texto en marcador de posición**
-Usando [Aspose.Slides for .NET](/slides/es/net/), puede encontrar y modificar marcadores de posición en diapositivas de presentaciones. Aspose.Slides le permite hacer cambios en el texto de un marcador de posición.
+## **Cambiar texto en el marcador de posición**
+Usando [Aspose.Slides for .NET](/slides/es/net/), puedes encontrar y modificar marcadores de posición en diapositivas de presentaciones. Aspose.Slides permite realizar cambios en el texto de un marcador de posición.
 
-**Prerequisito**: necesita una presentación que contenga un marcador de posición. Puede crear dicha presentación en la aplicación estándar Microsoft PowerPoint.
+**Requisito previo**: Necesitas una presentación que contenga un marcador de posición. Puedes crear dicha presentación en la aplicación estándar Microsoft PowerPoint.
 
-Así es como usa Aspose.Slides para reemplazar el texto en el marcador de posición de esa presentación:
+Así es como utilizas Aspose.Slides para reemplazar el texto en el marcador de posición en esa presentación:
 
 1. Instanciar la clase [`Presentation`](https://reference.aspose.com/slides/net/aspose.slides/presentation) y pasar la presentación como argumento.
 2. Obtener una referencia a la diapositiva mediante su índice.
@@ -22,7 +33,7 @@ Así es como usa Aspose.Slides para reemplazar el texto en el marcador de posici
 
 Este código C# muestra cómo cambiar el texto en un marcador de posición:
 ```c#
-// Instancia la clase Presentation
+// Instancia una clase Presentation
 using (Presentation pres = new Presentation("ReplacingText.pptx"))
 {
 
@@ -43,11 +54,10 @@ using (Presentation pres = new Presentation("ReplacingText.pptx"))
 ```
 
 
+## **Establecer texto de aviso en el marcador de posición**
+Los diseños estándar y preconstruidos contienen textos de aviso en los marcadores de posición como ***Haga clic para añadir un título*** o ***Haga clic para añadir un subtítulo***. Usando Aspose.Slides, puedes insertar tus textos de aviso preferidos en los diseños de marcadores de posición.
 
-## **Establecer texto de sugerencia en marcador de posición**
-Los diseños estándar y preconstruidos contienen textos de sugerencia de marcador de posición como ***Haga clic para agregar un título*** o ***Haga clic para agregar un subtítulo***. Usando Aspose.Slides, puede insertar sus textos de sugerencia preferidos en los diseños de marcadores de posición.
-
-Este código C# le muestra cómo establecer el texto de sugerencia en un marcador de posición:
+Este código C# te muestra cómo establecer el texto de aviso en un marcador de posición:
 ```c#
 using (Presentation pres = new Presentation("Presentation2.pptx"))
 {
@@ -57,11 +67,11 @@ using (Presentation pres = new Presentation("Presentation2.pptx"))
         if (shape.Placeholder != null && shape is AutoShape)
         {
             string text = "";
-            if (shape.Placeholder.Type == PlaceholderType.CenteredTitle) // PowerPoint muestra "Haga clic para agregar título"
+            if (shape.Placeholder.Type == PlaceholderType.CenteredTitle) // PowerPoint muestra "Click to add title"
             {
                 text = "Add Title";
             }
-            else if (shape.Placeholder.Type == PlaceholderType.Subtitle) // Agrega subtítulo
+            else if (shape.Placeholder.Type == PlaceholderType.Subtitle) // Añade subtítulo
             {
                 text = "Add Subtitle";
             }
@@ -77,11 +87,11 @@ using (Presentation pres = new Presentation("Presentation2.pptx"))
 ```
 
 
-## **Establecer transparencia de imagen en marcador de posición**
+## **Establecer transparencia de la imagen del marcador de posición**
 
-Aspose.Slides le permite establecer la transparencia de la imagen de fondo en un marcador de posición de texto. Ajustando la transparencia de la imagen en dicho marco, puede hacer que el texto o la imagen resalten (según los colores del texto y de la imagen).
+Aspose.Slides permite establecer la transparencia de la imagen de fondo en un marcador de posición de texto. Al ajustar la transparencia de la imagen en dicho marco, puedes hacer que el texto o la imagen resalten (según los colores del texto y de la imagen).
 
-Este código C# le muestra cómo establecer la transparencia para el fondo de una imagen (dentro de una forma):
+Este código C# muestra cómo establecer la transparencia para un fondo de imagen (dentro de una forma):
 ```c#
 using (var presentation = new Presentation())
 {
@@ -95,16 +105,16 @@ using (var presentation = new Presentation())
 ```
 
 
-## **Preguntas frecuentes**
+## **FAQ**
 
 **¿Qué es un marcador de posición base y en qué se diferencia de una forma local en una diapositiva?**
 
-Un marcador de posición base es la forma original en un diseño o maestro del que la forma de la diapositiva hereda—el tipo, la posición y parte del formato provienen de él. Una forma local es independiente; si no hay un marcador de posición base, la herencia no se aplica.
+Un marcador de posición base es la forma original en un diseño o maestro del que hereda la forma de la diapositiva—el tipo, la posición y parte del formato provienen de él. Una forma local es independiente; si no hay un marcador de posición base, la herencia no se aplica.
 
-**¿Cómo puedo actualizar todos los títulos o subtítulos en una presentación sin iterar sobre cada diapositiva?**
+**¿Cómo puedo actualizar todos los títulos o subtítulos en toda la presentación sin iterar sobre cada diapositiva?**
 
-Edite el marcador de posición correspondiente en el diseño o el maestro. Las diapositivas basadas en esos diseños/maestro heredarán automáticamente el cambio.
+Edita el marcador de posición correspondiente en el diseño o en el maestro. Las diapositivas basadas en esos diseños/maestro heredarán automáticamente el cambio.
 
-**¿Cómo controlo los marcadores de posición estándar de encabezado/pie de página—fecha y hora, número de diapositiva y texto del pie?**
+**¿Cómo controlo los marcadores de posición estándar de encabezado/pie de página—fecha y hora, número de diapositiva y texto del pie de página?**
 
-Utilice los administradores HeaderFooter en el ámbito apropiado (diapositivas normales, diseños, maestro, notas/folletos) para activar o desactivar esos marcadores de posición y establecer su contenido.
+Utiliza los administradores HeaderFooter en el ámbito apropiado (diapositivas normales, diseños, maestro, notas/hojas de mano) para activar o desactivar esos marcadores de posición y establecer su contenido.

@@ -1,15 +1,26 @@
 ---
-title: Animierter Text
+title: PowerPoint-Text in .NET animieren
+linktitle: Animierter Text
 type: docs
 weight: 60
 url: /de/net/animated-text/
-keywords: "Animierter Text, Animationseffekte, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Animierten Text und Effekte zu einer PowerPoint-Präsentation in C# oder .NET hinzufügen"
+keywords:
+- animierter Text
+- Textanimation
+- animierter Absatz
+- Absatzanimation
+- Animationseffekt
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Erstellen Sie dynamischen animierten Text in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für .NET, anhand leicht nachvollziehbarer, optimierter C#-Codebeispiele."
 ---
 
 ## **Hinzufügen von Animationseffekten zu Absätzen**
 
-Wir haben die [**AddEffect()**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence/methods/addeffect/index) Methode zur [**Sequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence) und [**ISequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence) Klasse hinzugefügt. Mit dieser Methode können Sie einem einzelnen Absatz Animations­effekte hinzufügen. Der folgende Beispielcode zeigt, wie Sie einem einzelnen Absatz einen Animations­effekt hinzufügen:
+Wir haben die Methode [**AddEffect()**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence/methods/addeffect/index) zur Klasse [**Sequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence) und zur Klasse [**ISequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence) hinzugefügt. Diese Methode ermöglicht es, einem einzelnen Absatz Animations‑Effekte hinzuzufügen. Der Beispielcode zeigt, wie man einem einzelnen Absatz einen Animations‑Effekt hinzufügt:
 ```c#
 using (Presentation presentation = new Presentation(dataDir + "Presentation1.pptx"))
 {
@@ -26,11 +37,9 @@ using (Presentation presentation = new Presentation(dataDir + "Presentation1.ppt
 ```
 
 
-## **Abrufen der Animationseffekte in Absätzen**
+## **Abrufen der Animations‑Effekte in Absätzen**
 
-Sie möchten möglicherweise die zu einem Absatz hinzugefügten Animations­effekte herausfinden – zum Beispiel, wenn Sie die Animations­effekte eines Absatzes erhalten wollen, um sie auf einen anderen Absatz oder ein Shape anzuwenden.
-
-Aspose.Slides for .NET ermöglicht es Ihnen, alle auf Absätze in einem Textfeld (Shape) angewendeten Animations­effekte abzurufen. Der folgende Beispielcode zeigt, wie Sie die Animations­effekte in einem Absatz abrufen:
+Vielleicht möchten Sie die zu einem Absatz hinzugefügten Animations‑Effekte ermitteln – zum Beispiel, wenn Sie die Animations‑Effekte eines Absatzes erhalten wollen, um sie auf einen anderen Absatz oder eine Form anzuwenden. Aspose.Slides for .NET ermöglicht es, alle auf in einem Textfeld (Form) enthaltenen Absätzen angewendeten Animations‑Effekte abzurufen. Der Beispielcode zeigt, wie man die Animations‑Effekte in einem Absatz abruft:
 ```c#
 using (Presentation pres = new Presentation("Test.pptx"))
 {
@@ -52,12 +61,12 @@ using (Presentation pres = new Presentation("Test.pptx"))
 
 **Wie unterscheiden sich Textanimationen von Folienübergängen, und können sie kombiniert werden?**
 
-Textanimationen steuern das Verhalten von Objekten über die Zeit auf einer Folie, während [transitions](/slides/de/net/slide-transition/) kontrollieren, wie Folien wechseln. Sie sind unabhängig und können zusammen verwendet werden; die Wiedergabereihenfolge wird durch die Animations­zeitlinie und die Übergangseinstellungen bestimmt.
+Textanimationen steuern das Verhalten von Objekten im Zeitverlauf einer Folie, während [transitions](/slides/de/net/slide-transition/) festlegen, wie Folien wechseln. Sie sind unabhängig und können gemeinsam verwendet werden; die Wiedergabereihenfolge wird vom Animations‑Zeitplan und den Übergangseinstellungen bestimmt.
 
 **Werden Textanimationen beim Exportieren in PDF oder Bilder beibehalten?**
 
-Nein. PDF und Rasterbilder sind statisch, sodass Sie einen einzelnen Zustand der Folie ohne Bewegung sehen. Um die Bewegung zu erhalten, verwenden Sie den Export als [video](/slides/de/net/convert-powerpoint-to-video/) oder [HTML](/slides/de/net/export-to-html5/).
+Nein. PDF‑Dateien und Rasterbilder sind statisch, sodass Sie nur einen einzelnen Zustand der Folie ohne Bewegung sehen. Um die Animation beizubehalten, verwenden Sie den Export als [video](/slides/de/net/convert-powerpoint-to-video/) oder als [HTML](/slides/de/net/export-to-html5/).
 
 **Funktionieren Textanimationen in Layouts und im Folienmaster?**
 
-Auf Layout-/Master‑Objekte angewendete Effekte werden von den Folien geerbt, jedoch hängen ihr Timing und ihre Interaktion mit Folien‑Ebene‑Animationen von der endgültigen Reihenfolge auf der Folie ab.
+Auf Layout‑/Master‑Objekte angewendete Effekte werden von den Folien geerbt, jedoch hängen ihr Timing und ihre Interaktion mit Folien‑Animationen von der endgültigen Reihenfolge auf der Folie ab.

@@ -1,63 +1,65 @@
 ---
-title: إنشاء أو تحديث مخططات عرض PowerPoint في C#
-linktitle: إنشاء أو تحديث مخطط
+title: إنشاء أو تحديث مخططات PowerPoint في .NET
+linktitle: إنشاء أو تحديث المخططات
 type: docs
 weight: 10
 url: /ar/net/create-chart/
 keywords:
 - إضافة مخطط
 - إنشاء مخطط
-- تحرير مخطط
+- تعديل مخطط
 - تغيير مخطط
 - تحديث مخطط
 - مخطط مبعثر
 - مخطط دائري
-- مخطط خطي
-- مخطط خريطة شجرية
+- مخطط خط
+- مخطط شجرة خرائط
 - مخطط أسهم
-- مخطط الصندوق والشارب
+- مخطط صندوق ووِشَر
 - مخطط قمع
-- مخطط أشعة شمسية
-- مخطط هيستوجرام
+- مخطط شمسي
+- مخطط مدرج تكراري
 - مخطط رادار
 - مخطط متعدد الفئات
-- عرض PowerPoint
+- PowerPoint
+- عرض تقديمي
+- .NET
 - C#
 - Aspose.Slides
-description: "تعلم كيفية إنشاء وتخصيص المخططات في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ .NET. يغطي إضافة المخططات وتنسيقها وتعديلها في العروض مع أمثلة عملية على الشيفرة بلغة C#."
+description: "إنشاء وتخصيص المخططات في عروض PowerPoint باستخدام Aspose.Slides for .NET. إضافة، تنسيق، وتعديل المخططات مع أمثلة عملية للشفرة في C#."
 ---
 
 ## **نظرة عامة**
 
-توفر هذه المقالة دليلًا شاملاً حول كيفية إنشاء المخططات وتخصيصها باستخدام Aspose.Slides for .NET. سيتعلم القارئ كيفية إضافة مخطط برمجيًا إلى شريحة، تعبئته بالبيانات، وتطبيق خيارات تنسيق مختلفة لتلبية متطلبات التصميم المحددة. تتضمن المقالة أمثلة كود مفصلة توضح كل خطوة، بدءًا من تهيئة العرض وكائن المخطط إلى تكوين السلاسل والمحاور والأساطير. باتباع هذا الدليل، ستحصل على فهم قوي لكيفية دمج إنشاء المخططات الديناميكي في تطبيقات .NET الخاصة بك، مما يبسط عملية إنشاء عروض تقديمية مدفوعة بالبيانات.
+توفر هذه المقالة دليلًا شاملاً حول كيفية إنشاء المخططات وتخصيصها باستخدام Aspose.Slides for .NET. ستتعلم كيفية إضافة مخطط برمجيًا إلى شريحة، تعبئته بالبيانات، وتطبيق خيارات تنسيق مختلفة لتناسب متطلبات التصميم الخاصة بك. طوال المقالة، توضح أمثلة التعليمات البرمجية المفصلة كل خطوة، من تهيئة العرض والكائن المخطط إلى تكوين السلاسل والمحاور والأساطير. باتباع هذا الدليل، ستحصل على فهم ثابت لكيفية دمج إنشاء المخططات الديناميكية في تطبيقات .NET الخاصة بك، مما يبسط عملية إنشاء عروض تقديمية مدفوعة بالبيانات.
 
 ## **إنشاء مخطط**
 
-تساعد المخططات الأشخاص على تصور البيانات بسرعة واكتشاف رؤى قد لا تكون واضحة من جدول أو ورقة عمل.
+تساعد المخططات الأشخاص على تصور البيانات بسرعة واكتساب رؤى قد لا تكون واضحة على الفور من جدول أو جدول بيانات.
 
 **لماذا إنشاء المخططات؟**
 
 باستخدام المخططات، يمكنك:
 
-* تجميع أو تكثيف أو تلخيص كميات كبيرة من البيانات في شريحة واحدة من العرض التقديمي؛
-* إظهار الأنماط والاتجاهات في البيانات؛
-* استنتاج الاتجاه والزخم للبيانات مع مرور الوقت أو بالنسبة لوحدة قياس معينة؛
-* اكتشاف القيم الشاذة أو الأخطاء أو البيانات غير المنطقية؛
-* نقل أو تقديم بيانات معقدة.
+* تجميع أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في عرض تقديمي؛
+* كشف الأنماط والاتجاهات في البيانات؛
+* استنتاج اتجاه وزخم البيانات بمرور الوقت أو بالنسبة لوحدة قياس معينة؛
+* اكتشاف القيم الشاذة والخلل والأخطاء والبيانات غير المنطقية؛
+* توصيل أو عرض بيانات معقدة.
 
-في PowerPoint، يمكنك إنشاء المخططات عبر وظيفة *Insert* التي توفر قوالب لتصميم أنواع متعددة من المخططات. باستخدام Aspose.Slides، يمكنك إنشاء مخططات عادية (مبنية على أنواع المخططات الشائعة) ومخططات مخصصة.
+في PowerPoint، يمكنك إنشاء المخططات عبر وظيفة *Insert*، التي توفر قوالب لتصميم العديد من أنواع المخططات. باستخدام Aspose.Slides، يمكنك إنشاء مخططات عادية (استنادًا إلى الأنواع الشائعة) ومخططات مخصصة.
 
 {{% alert color="primary" %}} 
-استخدم تعداد [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) داخل مساحة الاسم [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). القيم في هذا التعداد تمثل أنواع مخططات مختلفة.
+استخدم تعداد [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) داخل مساحة الاسم [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). القيم في هذا التعداد تتطابق مع أنواع مخططات مختلفة.
 {{% /alert %}} 
 
-### **إنشاء مخططات عمودية مجموعة**
+### **إنشاء مخططات عمود مجمعة**
 
-توضح هذه الفقرة كيفية إنشاء مخططات عمودية مجموعة باستخدام Aspose.Slides for .NET. ستتعلم كيفية تهيئة عرض تقديمي، إضافة مخطط، وتخصيص عناصره مثل العنوان والبيانات والسلاسل والفئات والتنسيق. اتبع الخطوات أدناه لرؤية كيفية إنشاء مخطط عمودي مجموعة قياسي:
+تشرح هذه الفقرة كيفية إنشاء مخططات عمود مجمعة باستخدام Aspose.Slides for .NET. ستتعلم كيفية تهيئة عرض تقديمي، إضافة مخطط، وتخصيص عناصره مثل العنوان والبيانات والسلاسل والفئات والتنسيق. اتبع الخطوات أدناه لرؤية كيفية إنشاء مخطط عمود مجمع قياسي:
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
-1. إضافة مخطط مع بعض البيانات وتحديد النوع `ChartType.ClusteredColumn`.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+1. إضافة مخطط ببيانات معينة وتحديد النوع `ChartType.ClusteredColumn`.
 1. إضافة عنوان إلى المخطط.
 1. الوصول إلى ورقة بيانات المخطط.
 1. مسح جميع السلاسل والفئات الافتراضية.
@@ -65,17 +67,17 @@ description: "تعلم كيفية إنشاء وتخصيص المخططات في 
 1. إضافة بيانات مخطط جديدة لسلسلة المخطط.
 1. تطبيق لون تعبئة على سلسلة المخطط.
 1. إضافة تسميات إلى سلسلة المخطط.
-1. حفظ العرض المعدَّل كملف PPTX.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود C# يوضح كيفية إنشاء مخطط عمودي مجموعة:
+يظهر هذا الكود C# كيفية إنشاء مخطط عمود مجمع:
 ```c#
-// إنشاء كائن من الفئة Presentation.
+// إنشاء كائن من فئة Presentation.
 using (Presentation presentation = new Presentation())
 {
     // الوصول إلى الشريحة الأولى.
     ISlide slide = presentation.Slides[0];
 
-    // إضافة مخطط عمودي مجموعة مع البيانات الافتراضية.
+    // إضافة مخطط عمود مجمع مع البيانات الافتراضية.
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     // تعيين عنوان المخطط.
@@ -93,7 +95,7 @@ using (Presentation presentation = new Presentation())
     // الحصول على دفتر بيانات المخطط.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // حذف السلاسل والفئات المولدة افتراضيًا.
+    // حذف السلاسل والفئات الافتراضية التي تم إنشاؤها.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
@@ -143,7 +145,7 @@ using (Presentation presentation = new Presentation())
     label.DataLabelFormat.ShowSeriesName = true;
     label.DataLabelFormat.Separator = "/";
 
-    // حفظ العرض التقديمي إلى القرص كملف PPTX.
+    // حفظ العرض التقديمي على القرص كملف PPTX.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -153,226 +155,227 @@ using (Presentation presentation = new Presentation())
 
 ![مخطط العمود المجمع](clustered_column_chart.png)
 
-### **إنشاء مخططات مبعثرة**
+### **إنشاء مخططات التبعثر**
 
-تُستخدم المخططات المبعثرة (المعروفة أيضًا بالمخططات النقطية أو مخططات x‑y) غالبًا للتحقق من الأنماط أو توضيح الارتباط بين متغيرين.
+تُستخدم مخططات التبعثر (المعروفة أيضًا بمخططات التبعثر أو رسومات x-y) عادةً للتحقق من الأنماط أو إظهار العلاقات بين متغيرين.
 
-استخدم مخططًا مبعثراً عندما:
+استخدم مخطط التبعثر عندما:
 
-* لديك بيانات عددية موزونة.
-* لديك متغيران يتماشيان معًا.
+* لديك بيانات رقمية موزونة.
+* لديك متغيرين يتطابقان معًا.
 * ترغب في تحديد ما إذا كان المتغيران مرتبطين.
-* لديك متغير مستقل له قيم متعددة للمتغير التابع.
+* لديك متغير مستقل له قيم متعددة لمتغير تابع.
 
-هذا الكود C# يوضح كيفية إنشاء مخطط مبعثر بسلسلة مختلفة من العلامات:
+يظهر هذا الكود C# كيفية إنشاء مخطط تبعثر بسلسلة علامات مختلفة:
 ```c#
-// إنشاء كائن من الفئة Presentation.
-using (Presentation presentation = new Presentation())
-{
-    // الوصول إلى الشريحة الأولى.
-    ISlide slide = presentation.Slides[0];
+    // إنشاء كائن من فئة Presentation.
+    using (Presentation presentation = new Presentation())
+    {
+        // الوصول إلى الشريحة الأولى.
+        ISlide slide = presentation.Slides[0];
 
-    // إنشاء مخطط مبعثر افتراضي.
-    IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
+        // إنشاء مخطط تبعثر افتراضي.
+        IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-    // تعيين فهرس ورقة بيانات المخطط.
-    int worksheetIndex = 0;
+        // تعيين فهرس ورقة بيانات المخطط.
+        int worksheetIndex = 0;
 
-    // الحصول على دفتر بيانات المخطط.
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+        // الحصول على دفتر بيانات المخطط.
+        IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // حذف السلسلة الافتراضية.
-    chart.ChartData.Series.Clear();
+        // حذف السلسلة الافتراضية.
+        chart.ChartData.Series.Clear();
 
-    // إضافة سلاسل جديدة.
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 1, "Series 1"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 3, "Series 2"), chart.Type);
+        // إضافة سلسلة جديدة.
+        chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 1, "Series 1"), chart.Type);
+        chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 3, "Series 2"), chart.Type);
 
-    // الحصول على السلسلة الأولى للمخطط.
-    IChartSeries series = chart.ChartData.Series[0];
+        // الحصول على السلسلة الأولى للمخطط.
+        IChartSeries series = chart.ChartData.Series[0];
 
-    // إضافة نقطة جديدة (1:3) إلى السلسلة.
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 1, 1), workbook.GetCell(worksheetIndex, 2, 2, 3));
+        // إضافة نقطة جديدة (1:3) إلى السلسلة.
+        series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 1, 1), workbook.GetCell(worksheetIndex, 2, 2, 3));
 
-    // إضافة نقطة جديدة (2:10).
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
+        // إضافة نقطة جديدة (2:10).
+        series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
 
-    // تغيير نوع السلسلة.
-    series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
+        // تغيير نوع السلسلة.
+        series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
-    // تغيير علامة سلسلة المخطط.
-    series.Marker.Size = 10;
-    series.Marker.Symbol = MarkerStyleType.Star;
+        // تغيير علامة سلسلة المخطط.
+        series.Marker.Size = 10;
+        series.Marker.Symbol = MarkerStyleType.Star;
 
-    // الحصول على السلسلة الثانية للمخطط.
-    series = chart.ChartData.Series[1];
+        // الحصول على السلسلة الثانية للمخطط.
+        series = chart.ChartData.Series[1];
 
-    // إضافة نقطة جديدة (5:2) إلى سلسلة المخطط.
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 3, 5), workbook.GetCell(worksheetIndex, 2, 4, 2));
+        // إضافة نقطة جديدة (5:2) إلى سلسلة المخطط.
+        series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 3, 5), workbook.GetCell(worksheetIndex, 2, 4, 2));
 
-    // إضافة نقطة جديدة (3:1).
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 3, 3), workbook.GetCell(worksheetIndex, 3, 4, 1));
+        // إضافة نقطة جديدة (3:1).
+        series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 3, 3), workbook.GetCell(worksheetIndex, 3, 4, 1));
 
-    // إضافة نقطة جديدة (2:2).
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 4, 3, 2), workbook.GetCell(worksheetIndex, 4, 4, 2));
+        // إضافة نقطة جديدة (2:2).
+        series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 4, 3, 2), workbook.GetCell(worksheetIndex, 4, 4, 2));
 
-    // إضافة نقطة جديدة (5:1).
-    series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 5, 3, 5), workbook.GetCell(worksheetIndex, 5, 4, 1));
+        // إضافة نقطة جديدة (5:1).
+        series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 5, 3, 5), workbook.GetCell(worksheetIndex, 5, 4, 1));
 
-    // تغيير علامة سلسلة المخطط.
-    series.Marker.Size = 10;
-    series.Marker.Symbol = MarkerStyleType.Circle;
+        // تغيير علامة سلسلة المخطط.
+        series.Marker.Size = 10;
+        series.Marker.Symbol = MarkerStyleType.Circle;
 
-    // حفظ العرض التقديمي إلى القرص كملف PPTX.
-    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
-}
+        // حفظ العرض التقديمي على القرص كملف PPTX.
+        presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
+    }
 ```
 
 
 النتيجة:
 
-![المخطط المبعثر](scatter_chart.png)
+![مخطط التبعثر](scatter_chart.png)
 
-### **إنشاء مخططات دائرية**
+### **إنشاء مخططات الفطيرة**
 
-تُعد المخططات الدائرية مثالية لإظهار علاقة الجزء إلى الكل في البيانات، خاصةً عندما تحتوي البيانات على تصنيفات نصية مع قيم رقمية. ومع ذلك، إذا كانت بياناتك تحتوي على العديد من الأجزاء أو التسميات، قد يكون من الأفضل استخدام مخطط شريطي بدلًا من ذلك.
+تُستخدم مخططات الفطيرة لعرض علاقة الجزء إلى الكل في البيانات، خاصةً عندما تحتوي البيانات على تسميات تصنيفية مع قيم رقمية. ومع ذلك، إذا كان لديك العديد من الأجزاء أو التسميات، قد تفضل استخدام مخطط شريطي بدلاً من ذلك.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
 1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.Pie`.
 1. الوصول إلى دفتر بيانات المخطط ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. مسح السلاسل والفئات الافتراضية.
 1. إضافة سلاسل وفئات جديدة.
-1. إضافة بيانات مخطط جديدة لسلسلة المخطط.
-1. إضافة نقاط جديدة للمخطط وتطبيق ألوان مخصصة على قطاعات المخطط الدائري.
-1. تعيين تسميات للسلاسل.
-1. تمكين خطوط القائد لتسميات السلاسل.
-1. تعيين زاوية الدوران للمخطط الدائري.
-1. حفظ العرض المعدَّل كملف PPTX.
+1. إضافة بيانات مخطط جديدة للسلسلة.
+1. إضافة نقاط جديدة للمخطط وتطبيق ألوان مخصصة على قطاعات مخطط الفطيرة.
+1. ضبط التسميات للسلسلة.
+1. تمكين خطوط القادة لتسميات السلسلة.
+1. ضبط زاوية الدوران لمخطط الفطيرة.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود C# يوضح كيفية إنشاء مخطط دائري:
+يظهر هذا الكود C# كيفية إنشاء مخطط فطيرة:
 ```c#
-// إنشاء كائن من الفئة Presentation.
-using (Presentation presentation = new Presentation())
-{
-    // الوصول إلى الشريحة الأولى.
-    ISlide slide = presentation.Slides[0];
+ // إنشاء مثيل لفئة Presentation.
+ using (Presentation presentation = new Presentation())
+ {
+     // الوصول إلى الشريحة الأولى.
+     ISlide slide = presentation.Slides[0];
 
-    // إضافة مخطط بالبيانات الافتراضية.
-    IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
+     // إضافة مخطط ببياناته الافتراضية.
+     IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
 
-    // تعيين عنوان المخطط.
-    chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-    chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-    chart.ChartTitle.Height = 20;
-    chart.HasTitle = true;
+     // تعيين عنوان المخطط.
+     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+     chart.ChartTitle.Height = 20;
+     chart.HasTitle = true;
 
-    // تعيين السلسلة الأولى لعرض القيم.
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+     // تعيين السلسلة الأولى لعرض القيم.
+     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-    // تحديد فهرس ورقة بيانات المخطط.
-    int worksheetIndex = 0;
+     // تعيين فهرس ورقة بيانات المخطط.
+     int worksheetIndex = 0;
 
-    // الحصول على دفتر بيانات المخطط.
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+     // الحصول على دفتر بيانات المخطط.
+     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // حذف السلاسل والفئات المولدة افتراضيًا.
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
+     // حذف السلاسل والفئات الافتراضية التي تم إنشاؤها.
+     chart.ChartData.Series.Clear();
+     chart.ChartData.Categories.Clear();
 
-    // إضافة فئات جديدة.
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "1st Qtr"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
+     // إضافة فئات جديدة.
+     chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "1st Qtr"));
+     chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
+     chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
 
-    // إضافة سلاسل جديدة.
-    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
+     // إضافة سلاسل جديدة.
+     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-    // ملء بيانات السلسلة.
-    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
-    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
-    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
+     // ملء بيانات السلسلة.
+     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
+     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
+     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // تعيين لون القطعة.
-    chart.ChartData.SeriesGroups[0].IsColorVaried = true;
+     // تعيين لون القطاع.
+     chart.ChartData.SeriesGroups[0].IsColorVaried = true;
 
-    IChartDataPoint point = series.DataPoints[0];
-    point.Format.Fill.FillType = FillType.Solid;
-    point.Format.Fill.SolidFillColor.Color = Color.Cyan;
+     IChartDataPoint point = series.DataPoints[0];
+     point.Format.Fill.FillType = FillType.Solid;
+     point.Format.Fill.SolidFillColor.Color = Color.Cyan;
 
-    // تعيين حدود القطعة.
-    point.Format.Line.FillFormat.FillType = FillType.Solid;
-    point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
-    point.Format.Line.Width = 3.0;
-    point.Format.Line.Style = LineStyle.ThinThick;
-    point.Format.Line.DashStyle = LineDashStyle.LargeDash;
+     // تعيين حد القطاع.
+     point.Format.Line.FillFormat.FillType = FillType.Solid;
+     point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
+     point.Format.Line.Width = 3.0;
+     point.Format.Line.Style = LineStyle.ThinThick;
+     point.Format.Line.DashStyle = LineDashStyle.LargeDash;
 
-    IChartDataPoint point1 = series.DataPoints[1];
-    point1.Format.Fill.FillType = FillType.Solid;
-    point1.Format.Fill.SolidFillColor.Color = Color.Brown;
+     IChartDataPoint point1 = series.DataPoints[1];
+     point1.Format.Fill.FillType = FillType.Solid;
+     point1.Format.Fill.SolidFillColor.Color = Color.Brown;
 
-    // تعيين حدود القطعة.
-    point1.Format.Line.FillFormat.FillType = FillType.Solid;
-    point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
-    point1.Format.Line.Width = 3.0;
-    point1.Format.Line.Style = LineStyle.Single;
-    point1.Format.Line.DashStyle = LineDashStyle.LargeDashDot;
+     // تعيين حد القطاع.
+     point1.Format.Line.FillFormat.FillType = FillType.Solid;
+     point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
+     point1.Format.Line.Width = 3.0;
+     point1.Format.Line.Style = LineStyle.Single;
+     point1.Format.Line.DashStyle = LineDashStyle.LargeDashDot;
 
-    IChartDataPoint point2 = series.DataPoints[2];
-    point2.Format.Fill.FillType = FillType.Solid;
-    point2.Format.Fill.SolidFillColor.Color = Color.Coral;
+     IChartDataPoint point2 = series.DataPoints[2];
+     point2.Format.Fill.FillType = FillType.Solid;
+     point2.Format.Fill.SolidFillColor.Color = Color.Coral;
 
-    // تعيين حدود القطعة.
-    point2.Format.Line.FillFormat.FillType = FillType.Solid;
-    point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
-    point2.Format.Line.Width = 2.0;
-    point2.Format.Line.Style = LineStyle.ThinThin;
-    point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
+     // تعيين حد القطاع.
+     point2.Format.Line.FillFormat.FillType = FillType.Solid;
+     point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
+     point2.Format.Line.Width = 2.0;
+     point2.Format.Line.Style = LineStyle.ThinThin;
+     point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
 
-    // إنشاء تسميات مخصصة لكل فئة في السلسلة الجديدة.
-    IDataLabel label1 = series.DataPoints[0].Label;
+     // إنشاء تسميات مخصصة لكل فئة في السلسلة الجديدة.
+     IDataLabel label1 = series.DataPoints[0].Label;
 
-    label1.DataLabelFormat.ShowValue = true;
+     label1.DataLabelFormat.ShowValue = true;
 
-    IDataLabel label2 = series.DataPoints[1].Label;
-    label2.DataLabelFormat.ShowValue = true;
-    label2.DataLabelFormat.ShowLegendKey = true;
-    label2.DataLabelFormat.ShowPercentage = true;
+     IDataLabel label2 = series.DataPoints[1].Label;
+     label2.DataLabelFormat.ShowValue = true;
+     label2.DataLabelFormat.ShowLegendKey = true;
+     label2.DataLabelFormat.ShowPercentage = true;
 
-    IDataLabel label3 = series.DataPoints[2].Label;
-    label3.DataLabelFormat.ShowSeriesName = true;
-    label3.DataLabelFormat.ShowPercentage = true;
+     IDataLabel label3 = series.DataPoints[2].Label;
+     label3.DataLabelFormat.ShowSeriesName = true;
+     label3.DataLabelFormat.ShowPercentage = true;
 
-    // تعيين السلسلة لعرض خطوط القائد للمخطط.
-    series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
+     // تعيين السلسلة لعرض خطوط القائد للمخطط.
+     series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
 
-    // تعيين زاوية الدوران لقطاعات المخطط الدائري.
-    chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
+     // تعيين زاوية الدوران لقطاعات مخطط الفطيرة.
+     chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
 
-    // حفظ العرض التقديمي إلى القرص كملف PPTX.
-    presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
-}
+     // حفظ العرض التقديمي على القرص كملف PPTX.
+     presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
+ }
 ```
+
 
 
 النتيجة:
 
-![المخطط الدائري](pie_chart.png)
+![مخطط الفطيرة](pie_chart.png)
 
-### **إنشاء مخططات خطية**
+### **إنشاء مخططات الخطوط**
 
-تُعد المخططات الخطية (المعروفة أيضًا بمخططات الخط) مثالية للمواقف التي ترغب فيها بإظهار تغيّر القيم مع مرور الوقت. باستخدام مخطط خطي، يمكنك مقارنة كمية كبيرة من البيانات في آن واحد، تتبع التغييرات والاتجاهات عبر الزمن، إبراز الشذوذ في سلاسل البيانات، وأكثر.
+تُستخدم مخططات الخطوط (المعروفة أيضًا بمخططات الخط) في الحالات التي ترغب فيها بعرض تغيّر القيم بمرور الوقت. باستخدام مخطط الخط، يمكنك مقارنة كمية كبيرة من البيانات في وقت واحد، تتبع التغيّرات والاتجاهات بمرور الوقت، توضيح الشذوذ في سلاسل البيانات، وأكثر من ذلك.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
 1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.Line`.
 1. الوصول إلى دفتر بيانات المخطط ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. مسح السلاسل والفئات الافتراضية.
 1. إضافة سلاسل وفئات جديدة.
-1. إضافة بيانات مخطط جديدة لسلسلة المخطط.
-1. حفظ العرض المعدَّل كملف PPTX.
+1. إضافة بيانات مخطط جديدة للسلسلة.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود C# يوضح كيفية إنشاء مخطط خطي:
+يظهر هذا الكود C# كيفية إنشاء مخطط خطوط:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -383,7 +386,7 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-بشكل افتراضي، يتم ربط النقاط في المخطط الخطي بخطوط مستقيمة مستمرة. إذا أردت ربط النقاط بخطوط متقطعة، يمكنك تحديد نوع الخط المتقطع كما يلي:
+بشكل افتراضي، يتم ربط النقاط في مخطط الخط بخطوط مستمرة مستقيمة. إذا أردت ربط النقاط بخطوط متقطعة، يمكنك تحديد نوع الخط المتقطع المفضل كالتالي:
 ```c#
 foreach (IChartSeries series in lineChart.ChartData.Series)
 {
@@ -394,22 +397,22 @@ foreach (IChartSeries series in lineChart.ChartData.Series)
 
 النتيجة:
 
-![المخطط الخطي](line_chart.png)
+![مخطط الخطوط](line_chart.png)
 
-### **إنشاء مخططات خريطة شجرية**
+### **إنشاء مخططات شجرة الخرائط**
 
-تُستخدم مخططات خريطة شجرية لبيانات المبيعات عندما تريد إظهار الحجم النسبي لفئات البيانات وجذب الانتباه بسرعة إلى العناصر التي تُشكل مساهمات كبيرة ضمن كل فئة.
+تُستخدم مخططات شجرة الخرائط لعرض بيانات المبيعات عندما تريد إظهار الحجم النسبي لفئات البيانات وجذب الانتباه سريعًا إلى العناصر الكبيرة المساهمة داخل كل فئة.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
 1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.Treemap`.
 1. الوصول إلى دفتر بيانات المخطط ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. مسح السلاسل والفئات الافتراضية.
 1. إضافة سلاسل وفئات جديدة.
-1. إضافة بيانات مخطط جديدة لسلسلة المخطط.
-1. حفظ العرض المعدَّل كملف PPTX.
+1. إضافة بيانات مخطط جديدة للسلسلة.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود C# يوضح كيفية إنشاء مخطط خريطة شجرية:
+يظهر هذا الكود C# كيفية إنشاء مخطط شجرة خرائط:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -464,23 +467,23 @@ using (Presentation presentation = new Presentation())
 
 النتيجة:
 
-![مخطط خريطة شجرية](treemap_chart.png)
+![مخطط شجرة الخرائط](treemap_chart.png)
 
-### **إنشاء مخططات أسهم**
+### **إنشاء مخططات الأسهم**
 
-تُستخدم مخططات الأسهم لعرض البيانات المالية مثل أسعار الفتح، أعلى، أدنى وإغلاق، مما يساعد على تحليل توجهات السوق وتقلباته. توفر هذه المخططات رؤى أساسية حول أداء السهم، مما يساعد المستثمرين والمحللين على اتخاذ قرارات مستنيرة.
+تُستخدم مخططات الأسهم لعرض البيانات المالية مثل أسعار الفتح، الأعلى، الأدنى، والإغلاق، مما يساعد على تحليل اتجاهات السوق وتقلباته. توفر رؤى أساسية حول أداء السهم، وتساعد المستثمرين والمحللين في اتخاذ قرارات مستنيرة.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
 1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.OpenHighLowClose`.
 1. الوصول إلى دفتر بيانات المخطط ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. مسح السلاسل والفئات الافتراضية.
 1. إضافة سلاسل وفئات جديدة.
-1. إضافة بيانات مخطط جديدة لسلسلة المخطط.
+1. إضافة بيانات مخطط جديدة للسلسلة.
 1. تحديد تنسيق HiLowLines.
-1. حفظ العرض المعدَّل كملف PPTX.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود C# يوضح كيفية إنشاء مخطط أسهم:
+يظهر هذا الكود C# كيفية إنشاء مخطط أسهم:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -536,20 +539,20 @@ using (Presentation presentation = new Presentation())
 
 ![مخطط الأسهم](stock_chart.png)
 
-### **إنشاء مخططات الصندوق والشارب**
+### **إنشاء مخططات الصندوق والوشاح**
 
-تُستخدم مخططات الصندوق والشارب لعرض توزيع البيانات من خلال تلخيص مقاييس إحصائية رئيسية مثل الوسيط والرباعيات والقيم الشاذة المحتملة. تُعد هذه المخططات مفيدة في تحليل البيانات الاستكشافي والدراسات الإحصائية لفهم التباين بسرعة وتحديد أي شذوذ.
+تُستخدم مخططات الصندوق والوشاح لعرض توزيع البيانات من خلال تلخيص مقاييس إحصائية رئيسية مثل الوسيط، الأرباع، والقيم الشاذة المحتملة. هي مفيدة في التحليل الاستكشافي للبيانات ودراسات إحصائية لفهم تباين البيانات بسرعة وتحديد أي شذوذ.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
 1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.BoxAndWhisker`.
 1. الوصول إلى دفتر بيانات المخطط ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
 1. مسح السلاسل والفئات الافتراضية.
 1. إضافة سلاسل وفئات جديدة.
-1. إضافة بيانات مخطط جديدة لسلسلة المخطط.
-1. حفظ العرض المعدَّل كملف PPTX.
+1. إضافة بيانات مخطط جديدة للسلسلة.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود C# يوضح كيفية إنشاء مخطط الصندوق والشارب:
+يظهر هذا الكود C# كيفية إنشاء مخطط صندوق ووِشَر:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -587,16 +590,16 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-### **إنشاء مخططات قمع**
+### **إنشاء مخططات القمع**
 
-تُستخدم مخططات القمع لتصوير العمليات التي تشمل مراحل متسلسلة، حيث ينخفض حجم البيانات كلما انتقلت من خطوة إلى التالية. تُعد هذه المخططات مفيدة للغاية لتحليل معدلات التحويل، تحديد الاختناقات، وتتبع كفاءة عمليات المبيعات أو التسويق.
+تُستخدم مخططات القمع لتصور العمليات التي تشمل مراحل تسلسلية، حيث يقل حجم البيانات مع تقدمها من خطوة إلى أخرى. هي مفيدة خصوصًا لتحليل معدلات التحويل، تحديد الاختناقات، وتتبع كفاءة عمليات المبيعات أو التسويق.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
 1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.Funnel`.
-1. حفظ العرض المعدَّل كملف PPTX.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود C# يوضح كيفية إنشاء مخطط قمع:
+يظهر هذا الكود C# كيفية إنشاء مخطط قمع:
 ```c#
 using (Presentation presentation = new Presentation("test.pptx"))
 {
@@ -632,16 +635,16 @@ using (Presentation presentation = new Presentation("test.pptx"))
 
 ![مخطط القمع](funnel_chart.png)
 
-### **إنشاء مخططات أشعة شمسية**
+### **إنشاء مخططات الشمسية**
 
-تُستخدم مخططات الأشعة الشمسانية لتصوير البيانات الهرمية، حيث تُعرض المستويات على شكل حلقات متقاربة. تساعد هذه المخططات على توضيح علاقات الجزء إلى الكل وتعتبر مثالية لتمثيل الفئات المتداخلة والفرعية بصورة واضحة ومضغوطة.
+تُستخدم مخططات الشمسية لتصور البيانات الهرمية، حيث تُظهر المستويات كحلقات متصاعدة. تساعد في شرح علاقات الجزء إلى الكل وتعد مثالية لعرض الفئات المتداخلة والفئات الفرعية بتنسيق واضح ومضغوط.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
 1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.Sunburst`.
-1. حفظ العرض المعدَّل كملف PPTX.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود C# يوضح كيفية إنشاء مخطط أشعة شمسية:
+يظهر هذا الكود C# كيفية إنشاء مخطط شمسي:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -694,13 +697,144 @@ using (Presentation presentation = new Presentation())
 
 النتيجة:
 
-![مخطط أشعة شمسية](sunburst_chart.png)
+![مخطط شمسي](sunburst_chart.png)
 
-### **إنشاء مخططات خريطة**
+### **إنشاء مخططات المدرج التكراري**
 
-تُستخدم مخططات الخريطة لتصوير البيانات الجغرافية من خلال ربط المعلومات بمواقع محددة مثل دول أو ولايات أو مدن. تُعد هذه المخططات مفيدة لتحليل الاتجاهات الإقليمية، البيانات الديموغرافية، والتوزيعات المكانية بصورة واضحة وجذابة بصريًا.
+تُستخدم مخططات المدرج التكراري لتمثيل توزيع البيانات الرقمية عن طريق تجميع القيم في فواصل أو صناديق. هي مفيدة لتحديد أنماط البيانات مثل التكرار، الانحراف، والانتشار، واكتشاف القيم الشاذة في مجموعة البيانات.
 
-هذا الكود C# يوضح كيفية إنشاء مخطط خريطة:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+1. إضافة مخطط ببيانات معينة وتحديد النوع `ChartType.Histogram`.
+1. الوصول إلى دفتر بيانات المخطط ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+1. مسح السلاسل والفئات الافتراضية.
+1. إضافة سلاسل وفئات جديدة.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+يظهر هذا الكود C# كيفية إنشاء مخطط المدرج التكراري:
+```c#
+using (Presentation presentation = new Presentation())
+{
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
+    chart.ChartData.Categories.Clear();
+    chart.ChartData.Series.Clear();
+
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    workbook.Clear(0);
+
+    IChartSeries series = chart.ChartData.Series.Add(ChartType.Histogram);
+    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A1", 15));
+    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A2", -41));
+    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A3", 16));
+    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A4", 10));
+    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A5", -23));
+    series.DataPoints.AddDataPointForHistogramSeries(workbook.GetCell(0, "A6", 16));
+
+    chart.Axes.HorizontalAxis.AggregationType = AxisAggregationType.Automatic;
+
+    presentation.Save("Histogram.pptx", SaveFormat.Pptx);
+}
+```
+
+
+النتيجة:
+
+![مخطط المدرج التكراري](histogram_chart.png)
+
+### **إنشاء مخططات الرادار**
+
+تُستخدم مخططات الرادار لعرض بيانات متعددة المتغيرات في صيغة ثنائية الأبعاد، مما يسمح بالمقارنة السهلة بين عدة متغيرات في آنٍ واحد. هي مفيدة لتحديد الأنماط، القوة، والضعف عبر مقاييس أداء أو سمات متعددة.
+
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+1. إضافة مخطط ببيانات معينة وتحديد النوع `ChartType.Radar`.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+يظهر هذا الكود C# كيفية إنشاء مخطط رادار:
+```c#
+using (Presentation presentation = new Presentation())
+{
+    presentation.Slides[0].Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
+    presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
+}
+```
+
+
+النتيجة:
+
+![مخطط رادار](radar_chart.png)
+
+### **إنشاء مخططات متعددة الفئات**
+
+تُستخدم مخططات متعددة الفئات لعرض بيانات تشمل أكثر من تجميع تصنيفي، مما يسمح بالمقارنة عبر أبعاد متعددة في آنٍ واحد. هي مفيدة لتحليل الاتجاهات والعلاقات داخل مجموعات بيانات معقدة متعددة المستويات.
+
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.ClusteredColumn`.
+1. الوصول إلى دفتر بيانات المخطط ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)).
+1. مسح السلاسل والفئات الافتراضية.
+1. إضافة سلاسل وفئات جديدة.
+1. إضافة بيانات مخطط جديدة للسلسلة.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+يظهر هذا الكود C# كيفية إنشاء مخطط متعدد الفئات:
+```c#
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
+
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+    chart.ChartData.Series.Clear();
+    chart.ChartData.Categories.Clear();
+
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    workbook.Clear(0);
+
+    int worksheetIndex = 0;
+
+    IChartCategory category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c2", "A"));
+    category.GroupingLevels.SetGroupingItem(1, "Group1");
+    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c3", "B"));
+
+    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c4", "C"));
+    category.GroupingLevels.SetGroupingItem(1, "Group2");
+    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c5", "D"));
+
+    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c6", "E"));
+    category.GroupingLevels.SetGroupingItem(1, "Group3");
+    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c7", "F"));
+
+    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c8", "G"));
+    category.GroupingLevels.SetGroupingItem(1, "Group4");
+    category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c9", "H"));
+
+    // إضافة سلسلة.
+    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, "D1", "Series 1"), ChartType.ClusteredColumn);
+
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D2", 10));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D3", 20));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D4", 30));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D5", 40));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D6", 50));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D7", 60));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D8", 70));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D9", 80));
+
+    // حفظ العرض التقديمي مع المخطط.
+    presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
+النتيجة:
+
+![مخطط متعدد الفئات](multi_category_chart.png)
+
+### **إنشاء مخططات الخريطة**
+
+تُستخدم مخططات الخريطة لتصور البيانات الجغرافية من خلال ربط المعلومات بمواقع محددة مثل الدول أو الولايات أو المدن. هي مفيدة لتحليل الاتجاهات الإقليمية، البيانات الديموغرافية، والتوزيعات المكانية بطريقة واضحة وجذابة بصريًا.
+
+يظهر هذا الكود C# كيفية إنشاء مخطط خريطة:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -712,15 +846,15 @@ using (Presentation presentation = new Presentation())
 
 النتيجة:
 
-![مخطط الخريطة](map_chart.png)
+![مخطط خريطة](map_chart.png)
 
 ### **إنشاء مخططات مركبة**
 
-تجمع المخططات المركبة (أو مخططات المزيج) نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح هذا المخطط إبراز، مقارنة، أو فحص الاختلافات بين مجموعتين أو أكثر من البيانات، مما يساعد على تحديد العلاقات بينها.
+المخطط المركب (أو مخطط كومبو) يجمع نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح هذا المخطط إبراز أو مقارنة أو فحص الفروقات بين مجموعتين أو أكثر من البيانات، مما يساعد على تحديد العلاقات بينها.
 
 ![مخطط مركب](combination_chart.png)
 
-الكود C# التالي يوضح كيفية إنشاء المخطط المركب المعروض أعلاه في عرض PowerPoint:
+يظهر الكود C# التالي كيفية إنشاء المخطط المركب المعروض أعلاه في عرض PowerPoint:
 ```c#
 private static void CreateComboChart()
 {
@@ -742,7 +876,7 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
 {
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // يضبط عنوان المخطط
+    // يحدد عنوان المخطط
     chart.HasTitle = true;
     chart.ChartTitle.AddTextFrameForOverriding("Chart Title");
     chart.ChartTitle.Overlay = false;
@@ -751,7 +885,7 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
     portionFormat.FontBold = NullableBool.False;
     portionFormat.FontHeight = 18f;
 
-    // يضبط وسيلة إيضاح المخطط
+    // يحدد وسيلة إيضاح المخطط
     chart.Legend.Position = LegendPositionType.Bottom;
     chart.Legend.TextFormat.PortionFormat.FontHeight = 12f;
 
@@ -818,21 +952,21 @@ private static void AddThirdSeriesToChart(IChart chart)
 
 private static void SetPrimaryAxesFormat(IChart chart)
 {
-    // يضبط المحور الأفقي
+    // يحدد المحور الأفقي
     IAxis horizontalAxis = chart.Axes.HorizontalAxis;
     horizontalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     horizontalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(horizontalAxis, "X Axis");
 
-    // يضبط المحور العمودي
+    // يحدد المحور الرأسي
     IAxis verticalAxis = chart.Axes.VerticalAxis;
     verticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     verticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(verticalAxis, "Y Axis 1");
 
-    // يضبط لون خطوط الشبكة العمودية الرئيسية
+    // يحدد لون خطوط الشبكة الرأسية الرئيسية
     ILineFillFormat majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
     majorGridLinesFormat.FillType = FillType.Solid;
     majorGridLinesFormat.SolidFillColor.Color = Color.FromArgb(217, 217, 217);
@@ -840,7 +974,7 @@ private static void SetPrimaryAxesFormat(IChart chart)
 
 private static void SetSecondaryAxesFormat(IChart chart)
 {
-    // يضبط المحور الأفقي الثانوي
+    // يحدد المحور الأفقي الثانوي
     IAxis secondaryHorizontalAxis = chart.Axes.SecondaryHorizontalAxis;
     secondaryHorizontalAxis.Position = AxisPositionType.Bottom;
     secondaryHorizontalAxis.CrossType = CrossesType.Maximum;
@@ -848,7 +982,7 @@ private static void SetSecondaryAxesFormat(IChart chart)
     secondaryHorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
     secondaryHorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
 
-    // يضبط المحور العمودي الثانوي
+    // يحدد المحور الرأسي الثانوي
     IAxis secondaryVerticalAxis = chart.Axes.SecondaryVerticalAxis;
     secondaryVerticalAxis.Position = AxisPositionType.Right;
     secondaryVerticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
@@ -873,21 +1007,21 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **تحديث المخططات**
 
-تمكنك Aspose.Slides for .NET من تحديث مخططات PowerPoint عن طريق تعديل بيانات المخطط، تنسيقه، وتنسيقه البصري. تُبسط هذه الوظيفة عملية إبقاء العروض التقديمية محدثة بمحتوى ديناميكي وتضمن أن المخططات تعكس بدقة البيانات الحالية والمعايير البصرية.
+تمكنك Aspose.Slides for .NET من تحديث مخططات PowerPoint عن طريق تعديل بيانات المخطط، التنسيق، والتصميم. تُبسّط هذه الوظيفة عملية الحفاظ على عروض تقديمية محدثة بمحتوى ديناميكي وتضمن أن المخططات تعكس البيانات الحالية والمعايير البصرية بدقة.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تمثل العرض المحتوي على مخطط.
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تمثل العرض التقديمي الذي يحتوي على مخطط.
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
 1. استعراض جميع الأشكال للعثور على المخطط.
-1. الوصول إلى ورقة عمل بيانات المخطط.
+1. الوصول إلى ورقة بيانات المخطط.
 1. تعديل سلاسل بيانات المخطط بتغيير قيم السلاسل.
 1. إضافة سلسلة جديدة وتعبئة بياناتها.
-1. حفظ العرض المعدَّل كملف PPTX.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود C# يوضح كيفية تحديث مخطط:
+يظهر هذا الكود C# كيفية تحديث مخطط:
 ```c#
 const string chartName = "My chart";
 
-// إنشاء كائن Presentation الذي يمثل ملف PPTX.
+// إنشاء كائن من فئة Presentation التي تمثل ملف PPTX.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // الوصول إلى الشريحة الأولى.
@@ -943,21 +1077,21 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 ```
 
 
-## **تعيين نطاق البيانات للمخططات**
+## **تحديد نطاق البيانات للمخططات**
 
-توفر Aspose.Slides for .NET مرونة لتحديد نطاق بيانات معين من ورقة عمل كمصدر لبيانات المخطط الخاص بك. وهذا يعني أنك تستطيع ربط جزء من ورقة العمل مباشرة بالمخطط، ما يسمح لك بالتحكم في الخلايا التي تُساهم في سلاسل وفئات المخطط. نتيجة لذلك، يمكنك بسهولة تحديث ومزامنة المخططات مع أحدث تغييرات البيانات في ورقة العمل، مع ضمان أن عروض PowerPoint تعكس معلومات دقيقة ومحدثة.
+توفر Aspose.Slides for .NET القدرة على تعريف نطاق بيانات محدد من ورقة عمل كمصدر لبيانات مخططك. هذا يعني أنه يمكنك ربط جزء من ورقة العمل مباشرة بالمخطط، مما يتيح لك التحكم في الخلايا التي تساهم في سلاسل المخطط وفئاته. وبالتالي، يمكنك بسهولة تحديث ومزامنة مخططاتك مع أحدث تغييرات البيانات في ورقة العمل، وضمان أن عروض PowerPoint تعكس معلومات دقيقة ومحدثة.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تمثل العرض المحتوي على مخطط.
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تمثل العرض التقديمي الذي يحتوي على مخطط.
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
 1. استعراض جميع الأشكال للعثور على المخطط.
 1. الوصول إلى بيانات المخطط وتحديد النطاق.
-1. حفظ العرض المعدَّل كملف PPTX.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود C# يوضح كيفية تعيين نطاق البيانات لمخطط:
+يظهر هذا الكود C# كيفية تحديد نطاق البيانات لمخطط:
 ```c#
 const string chartName = "My chart";
 
-// إنشاء كائن Presentation الذي يمثل ملف PPTX.
+// إنشاء كائن من فئة Presentation التي تمثل ملف PPTX.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // الوصول إلى الشريحة الأولى.
@@ -980,7 +1114,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 عند استخدام العلامات الافتراضية في المخططات، يحصل كل سلسلة مخطط على رمز علامة افتراضي مختلف تلقائيًا.
 
-هذا الكود C# يوضح كيفية ضبط علامة سلسلة مخطط تلقائيًا:
+يظهر هذا الكود C# كيفية تعيين علامة سلسلة مخطط تلقائيًا:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -1022,20 +1156,20 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتداولة**
 
 **ما هي أنواع المخططات التي تدعمها Aspose.Slides for .NET؟**
 
-تدعم Aspose.Slides for .NET مجموعة واسعة من أنواع المخططات، بما في ذلك الأعمدة، الخطوط، الدوائر، المناطق، المبعثرة، المخططات الهيستوجرامية، الرادار، والعديد غيرها. تتيح لك هذه المرونة اختيار النوع الأنسب لتصوير البيانات وفقًا لاحتياجاتك.
+تدعم Aspose.Slides for .NET مجموعة واسعة من أنواع المخططات، بما في ذلك المخططات الشريطية، الخطية، الدائرية، المساحية، التبعثر، المدرج التكراري، الرادار، والعديد غيرها. تتيح لك هذه المرونة اختيار النوع الأنسب لتصور بياناتك.
 
 **كيف يمكنني إضافة مخطط جديد إلى شريحة؟**
 
-لإضافة مخطط، تحتاج أولاً إلى إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)، ثم الحصول على الشريحة المطلوبة باستخدام فهرستها، ومن ثم استدعاء الطريقة لإضافة مخطط مع تحديد نوع المخطط والبيانات الأولية. يدمج هذا العملية المخطط مباشرةً في العرض التقديمي.
+لإضافة مخطط، تقوم أولاً بإنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)، ثم تسترجع الشريحة المطلوبة باستخدام فهرستها، ثم تستدعي طريقة إضافة المخطط، مع تحديد نوع المخطط والبيانات الأولية. يدمج هذا الإجراء المخطط مباشرةً في عرضك التقديمي.
 
 **كيف يمكنني تحديث البيانات المعروضة في مخطط؟**
 
-يمكنك تحديث بيانات المخطط من خلال الوصول إلى دفتر بياناته ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة البيانات المخصصة الخاصة بك. يتيح لك ذلك تجديد المخطط برمجيًا لت reflects أحدث البيانات.
+يمكنك تحديث بيانات المخطط بالوصول إلى دفتر بياناته ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة بياناتك المخصصة. يتيح لك ذلك تجديد المخطط برمجيًا لت reflects أحدث البيانات.
 
 **هل يمكن تخصيص مظهر المخطط؟**
 
-نعم، توفر Aspose.Slides for .NET خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، الأساطير، وعناصر التنسيق الأخرى لتكييف مظهر المخطط وفقًا لمتطلبات التصميم المحددة.
+نعم، توفر Aspose.Slides for .NET خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، الأساطير، والعناصر التنسيقية الأخرى لتناسب المخطط وفقًا لمتطلبات التصميم الخاصة بك.

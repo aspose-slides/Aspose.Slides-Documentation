@@ -1,27 +1,32 @@
 ---
-title: Gérer les cellules
+title: Gérer les cellules de tableau dans les présentations en .NET
+linktitle: Gérer les cellules
 type: docs
 weight: 30
 url: /fr/net/manage-cells/
 keywords:
-- table
-- cellules fusionnées
-- cellules scindées
-- image dans une cellule de tableau
+- cellule de tableau
+- fusionner les cellules
+- supprimer la bordure
+- diviser la cellule
+- image dans la cellule
+- couleur d'arrière-plan
+- PowerPoint
+- présentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides pour .NET
-description: "Cellules de tableau dans les présentations PowerPoint en C# ou .NET"
+- Aspose.Slides
+description: "Gérez facilement les cellules de tableau dans PowerPoint avec Aspose.Slides pour .NET. Maîtrisez l'accès, la modification et le style des cellules rapidement pour une automatisation fluide des diapositives."
 ---
 
-## **Identifier les cellules de tableau fusionnées**
+## **Identifier la cellule de tableau fusionnée**
 
 1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 2. Obtenir le tableau de la première diapositive.
-3. Parcourir les lignes et colonnes du tableau pour trouver les cellules fusionnées.
-4. Afficher un message lorsqu'une cellule fusionnée est trouvée.
+3. Parcourir les lignes et les colonnes du tableau pour trouver les cellules fusionnées.
+4. Afficher un message lorsque des cellules fusionnées sont trouvées.
 
-Ce code C# montre comment identifier les cellules de tableau fusionnées dans une présentation:
+Ce code C# montre comment identifier les cellules de tableau fusionnées dans une présentation :
 ```c#
 using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
 {
@@ -44,18 +49,18 @@ using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
 ```
 
 
-## **Supprimer la bordure des cellules de tableau**
+## **Supprimer la bordure des cellules du tableau**
 1. Créer une instance de la classe `Presentation`.
-2. Obtenir la référence d'une diapositive via son index.
-3. Définir un tableau de colonnes avec la largeur.
-4. Définir un tableau de lignes avec la hauteur.
-5. Ajouter un tableau à la diapositive à l'aide de la méthode `AddTable`.
+2. Obtenir la référence d’une diapositive via son index.
+3. Définir un tableau de colonnes avec largeur.
+4. Définir un tableau de lignes avec hauteur.
+5. Ajouter un tableau à la diapositive avec la méthode `AddTable`.
 6. Parcourir chaque cellule pour effacer les bordures supérieure, inférieure, droite et gauche.
 7. Enregistrer la présentation modifiée au format PPTX.
 
-Ce code C# montre comment supprimer les bordures des cellules de tableau:
+Ce code C# montre comment supprimer les bordures des cellules du tableau :
 ```c#
- // Instancie la classe Presentation qui représente un fichier PPTX
+// Instancie la classe Presentation qui représente un fichier PPTX
 using (Presentation pres = new Presentation())
 {
    // Accède à la première diapositive
@@ -78,14 +83,14 @@ using (Presentation pres = new Presentation())
             cell.CellFormat.BorderRight.FillFormat.FillType = FillType.NoFill;
         }
 
-    // Écrit le fichier PPTX sur le disque
+    // Enregistre le fichier PPTX sur le disque
     pres.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
 
 ## **Numérotation dans les cellules fusionnées**
-Si nous fusionnons 2 paires de cellules (1, 1) × (2, 1) et (1, 2) × (2, 2), le tableau résultant sera numéroté. Ce code C# montre le processus :
+Si nous fusionnons 2 paires de cellules (1, 1) x (2, 1) et (1, 2) x (2, 2), le tableau résultant sera numéroté. Ce code C# démontre le processus :
 ```c#
  // Instancie la classe Presentation qui représente un fichier PPTX
 using (Presentation presentation = new Presentation())
@@ -182,18 +187,18 @@ using (Presentation presentation = new Presentation())
     // Fusionne les cellules (1, 2) x (2, 2)
     table.MergeCells(table[1, 1], table[1, 2], true);
 
-    // Écrit le fichier PPTX sur le disque
+    //Enregistre le fichier PPTX sur le disque
     presentation.Save("MergeCells1_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-## **Numérotation dans les cellules scindées**
-Dans les exemples précédents, lorsque les cellules du tableau étaient fusionnées, la numérotation ou le système de numération des autres cellules ne changeait pas.
+## **Numérotation dans les cellules séparées**
+Dans les exemples précédents, lorsque des cellules de tableau ont été fusionnées, la numérotation ou le système de numérotation des autres cellules n’a pas changé.
 
-Cette fois, nous prenons un tableau standard (un tableau sans cellules fusionnées) puis essayons de scinder la cellule (1, 1) afin d'obtenir un tableau spécial. Vous pouvez prêter attention à la numérotation de ce tableau, qui peut sembler étrange. Cependant, c’est ainsi que Microsoft PowerPoint numérote les cellules de tableau et Aspose.Slides fait de même.
+Cette fois, nous prenons un tableau normal (un tableau sans cellules fusionnées) puis essayons de séparer la cellule (1,1) pour obtenir un tableau spécial. Vous voudrez peut-être prêter attention à la numérotation de ce tableau, qui peut sembler étrange. Cependant, c’est ainsi que Microsoft PowerPoint numérote les cellules de tableau et Aspose.Slides fait de même.
 
-Ce code C# montre le processus décrit :
+Ce code C# montre le processus que nous avons décrit :
 ```c#
 // Instancie la classe Presentation qui représente un fichier PPTX
 using (Presentation presentation = new Presentation())
@@ -238,18 +243,18 @@ using (Presentation presentation = new Presentation())
     // Fusionne les cellules (1, 2) x (2, 2)
     table.MergeCells(table[1, 2], table[2, 2], false);
 
-    // Scinde la cellule (1, 1). 
+    // Sépare la cellule (1, 1). 
     table[1, 1].SplitByWidth(table[2, 1].Width / 2);
 
-    //Écrit le fichier PPTX sur le disque
+    //Writes le fichier PPTX sur le disque
     presentation.Save("CellSplit_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-## **Modifier la couleur d'arrière-plan d'une cellule de tableau**
+## **Modifier la couleur d'arrière‑plan d'une cellule de tableau**
 
-Ce code C# montre comment changer la couleur d'arrière-plan d'une cellule de tableau :
+Ce code C# montre comment modifier la couleur d’arrière‑plan d’une cellule de tableau :
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -261,7 +266,7 @@ using (Presentation presentation = new Presentation())
     // créer un nouveau tableau
     ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
 
-    // définir la couleur d'arrière-plan pour une cellule 
+    // définir la couleur d'arrière-plan d'une cellule 
     ICell cell = table[2, 3];
     cell.CellFormat.FillFormat.FillType = FillType.Solid;
     cell.CellFormat.FillFormat.SolidFillColor.Color = Color.Red;
@@ -274,17 +279,17 @@ using (Presentation presentation = new Presentation())
 ## **Ajouter une image à l'intérieur d'une cellule de tableau**
 
 1. Créer une instance de la classe `Presentation`.
-2. Obtenir la référence d'une diapositive via son index.
-3. Définir un tableau de colonnes avec la largeur.
-4. Définir un tableau de lignes avec la hauteur.
-5. Ajouter un tableau à la diapositive à l'aide de la méthode `AddTable`.
+2. Obtenir la référence d’une diapositive via son index.
+3. Définir un tableau de colonnes avec largeur.
+4. Définir un tableau de lignes avec hauteur.
+5. Ajouter un tableau à la diapositive avec la méthode `AddTable`.
 6. Créer un objet `Bitmap` pour contenir le fichier image.
-7. Ajouter l'image bitmap à l'objet `IPPImage`.
-8. Définir le `FillFormat` de la cellule de tableau sur `Picture`.
-9. Ajouter l'image à la première cellule du tableau.
-10. Enregistrer la présentation modifiée au format PPTX.
+7. Ajouter l’image bitmap à l’objet `IPPImage`.
+8. Définir le `FillFormat` de la cellule du tableau sur `Picture`.
+9. Ajouter l’image à la première cellule du tableau.
+10. Enregistrer la présentation modifiée au format PPTX
 
-Ce code C# montre comment placer une image à l'intérieur d'une cellule de tableau lors de la création d'un tableau :
+Ce code C# montre comment placer une image à l’intérieur d’une cellule de tableau lors de la création d’un tableau :
 ```c#
 // Instancie la classe Presentation qui représente un fichier PPTX
 using (Presentation presentation = new Presentation())
@@ -299,12 +304,12 @@ using (Presentation presentation = new Presentation())
     // Ajoute une forme de tableau à la diapositive
     ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
 
-    // Charge une image depuis un fichier et l'ajoute aux ressources de la présentation
+    // Charge une image depuis un fichier et l’ajoute aux ressources de la présentation
     IImage image = Images.FromFile("aspose-logo.jpg");
     IPPImage ppImage = presentation.Images.AddImage(image);
     image.Dispose();
 
-    // Ajoute l'image à la première cellule du tableau
+    // Ajoute l’image à la première cellule du tableau
     table[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
     table[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
     table[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = ppImage;
@@ -317,18 +322,18 @@ using (Presentation presentation = new Presentation())
 
 ## **FAQ**
 
-**Puis-je définir des épaisseurs et styles de ligne différents pour les différents côtés d'une même cellule ?**
+**Puis-je définir des épaisseurs et des styles de ligne différents pour les différents côtés d’une même cellule ?**
 
-Oui. Les bordures [haut](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[bas](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[gauche](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[droite](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) possèdent des propriétés distinctes, de sorte que l'épaisseur et le style de chaque côté peuvent différer. Cela découle logiquement du contrôle de bordure par côté d'une cellule démontré dans l'article.
+Oui. Les bordures [haut](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[bas](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[gauche](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[droite](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) disposent de propriétés distinctes, de sorte que l'épaisseur et le style de chaque côté peuvent différer. Ceci découle logiquement du contrôle de bordure par côté pour une cellule présenté dans l’article.
 
-**Que se passe-t-il pour l'image si je modifie la taille de la colonne/ligne après avoir défini une image comme arrière‑plan de la cellule ?**
+**Que se passe-t-il avec l’image si je modifie la taille de la colonne/ligne après avoir défini une image comme arrière‑plan de la cellule ?**
 
-Le comportement dépend du [mode de remplissage](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) (étirement/tuile). Avec l'étirement, l'image s'adapte à la nouvelle cellule ; avec le mode tuile, les carreaux sont recalculés. L'article mentionne les modes d'affichage d'image dans une cellule.
+Le comportement dépend du [mode de remplissage](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) (stretch/tile). En mode étirement, l’image s’ajuste à la nouvelle cellule ; en mode mosaïque, les tuiles sont recalculées. L’article évoque les modes d’affichage de l’image dans une cellule.
 
-**Puis-je affecter un hyperlien à l'ensemble du contenu d'une cellule ?**
+**Puis-je affecter un hyperlien à tout le contenu d’une cellule ?**
 
-[Hyperlinks](/slides/fr/net/manage-hyperlinks/) sont définis au niveau du texte (portion) à l'intérieur du cadre de texte de la cellule ou au niveau de l'ensemble du tableau/forme. En pratique, vous affectez le lien à une portion ou à tout le texte de la cellule.
+Les [Hyperliens](/slides/fr/net/manage-hyperlinks/) sont définis au niveau du texte (portion) à l’intérieur du cadre de texte de la cellule ou au niveau de l’ensemble du tableau/forme. En pratique, vous affectez le lien à une portion ou à tout le texte de la cellule.
 
-**Puis-je définir des polices différentes au sein d'une même cellule ?**
+**Puis-je définir des polices différentes au sein d’une même cellule ?**
 
-Oui. Le cadre de texte d'une cellule prend en charge les [portions](https://reference.aspose.com/slides/net/aspose.slides/portion/) (segments) avec un formatage indépendant — famille de police, style, taille et couleur.
+Oui. Le cadre de texte d’une cellule prend en charge les [portions](https://reference.aspose.com/slides/net/aspose.slides/portion/) (extraits) avec un formatage indépendant — famille de police, style, taille et couleur.

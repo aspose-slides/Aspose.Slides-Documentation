@@ -1,22 +1,34 @@
 ---
-title: Zone de tracé du graphique
+title: Personnaliser les zones de tracé des graphiques de présentation dans .NET
+linktitle: Zone de tracé
 type: docs
 url: /fr/net/chart-plot-area/
-keywords: "Zone de tracé du graphique présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
-description: "Obtenez la largeur et la hauteur de la zone de tracé du graphique. Définissez le mode de mise en page. Présentation PowerPoint en C# ou .NET"
+keywords:
+- graphique
+- zone de tracé
+- largeur de la zone de tracé
+- hauteur de la zone de tracé
+- taille de la zone de tracé
+- mode de disposition
+- PowerPoint
+- présentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Découvrez comment personnaliser les zones de tracé des graphiques dans les présentations PowerPoint avec Aspose.Slides pour .NET. Améliorez facilement l'aspect visuel de vos diapositives."
 ---
 
-## **Obtenir la largeur, la hauteur de la zone de tracé du graphique**
+## **Obtenir la largeur et la hauteur de la zone de tracé du graphique**
 Aspose.Slides for .NET fournit une API simple pour .
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Accéder à la première diapositive.
-1. Ajouter un graphique avec les données par défaut.
-1. Appeler la méthode IChart.ValidateChartLayout() au préalable pour obtenir les valeurs réelles.
-1. Obtient la position X réelle (gauche) de l'élément du graphique par rapport au coin supérieur gauche du graphique.
-1. Obtient la position verticale réelle de l'élément du graphique par rapport au coin supérieur gauche du graphique.
-1. Obtient la largeur réelle de l'élément du graphique.
-1. Obtient la hauteur réelle de l'élément du graphique.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Accédez à la première diapositive.
+3. Ajoutez un graphique avec les données par défaut.
+4. Appelez la méthode IChart.ValidateChartLayout() avant pour obtenir les valeurs réelles.
+5. Obtient la position X réelle (gauche) de l'element du graphique relative au coin superieur gauche du graphique.
+6. Obtient le haut réel de l'element du graphique relatif au coin superieur gauche du graphique.
+7. Obtient la largeur réelle de l'element du graphique.
+8. Obtient la hauteur réelle de l'element du graphique.
 ```c#
 using (Presentation pres = new Presentation("test.Pptx"))
 {
@@ -34,14 +46,13 @@ using (Presentation pres = new Presentation("test.Pptx"))
 ```
 
 
+## **Définir le mode de disposition de la zone de tracé du graphique**
+Aspose.Slides for .NET fournit une API simple pour definir le mode de disposition de la zone de tracé du graphique. La propriete **LayoutTargetType** a ete ajoutee aux classes **ChartPlotArea** et **IChartPlotArea**. Si la disposition de la zone de tracé est définie manuellement, cette propriete indique s'il faut disposer la zone de tracé par son interieur (sans inclure les axes et les etiquettes d'axe) ou par son exterieur (en incluant les axes et les etiquettes d'axe). Deux valeurs possibles sont définies dans l'enumeration **LayoutTargetType**.
 
-## **Définir le mode de mise en page de la zone de tracé du graphique**
-Aspose.Slides for .NET fournit une API simple pour définir le mode de mise en page de la zone de tracé du graphique. La propriété **LayoutTargetType** a été ajoutée aux classes **ChartPlotArea** et **IChartPlotArea**. Si la mise en page de la zone de tracé est définie manuellement, cette propriété indique s'il faut disposer la zone de tracé par son intérieur (sans les axes et les libellés d'axe) ou par son extérieur (en incluant les axes et les libellés d'axe). Il existe deux valeurs possibles qui sont définies dans l'énumération **LayoutTargetType**.
+- **LayoutTargetType.Inner** - indique que la taille de la zone de tracé determine la taille de la zone de tracé, sans inclure les marques de graduation et les etiquettes d'axe.
+- **LayoutTargetType.Outer** - indique que la taille de la zone de tracé determine la taille de la zone de tracé, les marques de graduation et les etiquettes d'axe.
 
-- **LayoutTargetType.Inner** - indique que la taille de la zone de tracé détermine la taille de la zone de tracé, sans inclure les marques de repère et les libellés d'axe.
-- **LayoutTargetType.Outer** - indique que la taille de la zone de tracé détermine la taille de la zone de tracé, les marques de repère et les libellés d'axe.
-
-Un exemple de code est fourni ci‑dessous.
+Un exemple de code est fourni ci-dessous.
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -62,16 +73,16 @@ using (Presentation presentation = new Presentation())
 
 **Dans quelles unités sont renvoyés ActualX, ActualY, ActualWidth et ActualHeight ?**
 
-En points ; 1 pouce = 72 points. Ce sont les unités de coordonnées d’Aspose.Slides.
+En points; 1 pouce = 72 points. Ce sont les unités de coordonnees d'Aspose.Slides.
 
 **En quoi la zone de tracé diffère-t-elle de la zone du graphique en termes de contenu ?**
 
-La zone de tracé est la région de dessin des données (séries, quadrillages, lignes de tendance, etc.) ; la zone du graphique comprend les éléments environnants (titre, légende, etc.). Dans les graphiques 3D, la zone de tracé comprend également les murs/plancher et les axes.
+La zone de tracé est la region de dessin des donnees (series, quadrillages, lignes de tendance, etc.); la zone du graphique comprend les elements environnants (titre, legende, etc.). Dans les graphiques 3D, la zone de tracé inclut également les parois/plancher et les axes.
 
-**Comment les X, Y, largeur et hauteur de la zone de tracé sont‑ils interprétés lorsque la mise en page est manuelle ?**
+**Comment les X, Y, Width et Height de la zone de tracé sont-ils interprétés lorsque la disposition est manuelle ?**
 
-Ce sont des fractions (0–1) de la taille globale du graphique ; dans ce mode, le positionnement automatique est désactivé et les fractions que vous définissez sont utilisées.
+Ils sont des fractions (0-1) de la taille globale du graphique; dans ce mode, le positionnement automatique est desactive et les fractions que vous définissez sont utilisees.
 
-**Pourquoi la position de la zone de tracé a‑t‑elle changé après l’ajout ou le déplacement de la légende ?**
+**Pourquoi la position de la zone de tracé a-t-elle changé après l'ajout/le déplacement de la legende ?**
 
-La légende se trouve dans la zone du graphique, à l’extérieur de la zone de tracé, mais elle influence la mise en page et l’espace disponible, de sorte que la zone de tracé peut se déplacer lorsque le positionnement automatique est actif. (C’est le comportement standard des graphiques PowerPoint.)
+La legende se trouve dans la zone du graphique a l'exterieur de la zone de tracé mais influence la disposition et l'espace disponible, de sorte que la zone de tracé peut se deplacer lorsque le positionnement automatique est actif. (Ceci est le comportement standard des graphiques PowerPoint.)

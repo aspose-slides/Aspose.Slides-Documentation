@@ -1,19 +1,30 @@
 ---
-title: Texto animado
+title: Animar texto de PowerPoint en .NET
+linktitle: Texto animado
 type: docs
 weight: 60
 url: /es/net/animated-text/
-keywords: "Texto animado, Efectos de animación, Presentación de PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "Añade texto animado y efectos a una presentación de PowerPoint en C# o .NET"
+keywords:
+- texto animado
+- animación de texto
+- párrafo animado
+- animación de párrafo
+- efecto de animación
+- PowerPoint
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Crear texto animado dinámico en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para .NET, con ejemplos de código C# optimizados y fáciles de seguir."
 ---
 
 ## **Agregar efectos de animación a los párrafos**
 
-Agregamos el método [**AddEffect()**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence/methods/addeffect/index) a las clases [**Sequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence) y [**ISequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence). Este método le permite añadir efectos de animación a un solo párrafo. El siguiente código de ejemplo muestra cómo añadir un efecto de animación a un solo párrafo:
+Agregamos el método [**AddEffect()**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence/methods/addeffect/index) a las clases [**Sequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence) e [**ISequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence). Este método le permite agregar efectos de animación a un solo párrafo. Este código de ejemplo muestra cómo agregar un efecto de animación a un solo párrafo:
 ```c#
 using (Presentation presentation = new Presentation(dataDir + "Presentation1.pptx"))
 {
-    // seleccionar párrafo para añadir efecto
+    // seleccionar párrafo para agregar efecto
     IAutoShape autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     IParagraph paragraph = autoShape.TextFrame.Paragraphs[0];
 
@@ -28,7 +39,9 @@ using (Presentation presentation = new Presentation(dataDir + "Presentation1.ppt
 
 ## **Obtener los efectos de animación en los párrafos**
 
-Puede que desee averiguar los efectos de animación añadidos a un párrafo—por ejemplo, en un caso desea obtener los efectos de animación en un párrafo porque planea aplicar esos efectos a otro párrafo o forma. Aspose.Slides para .NET le permite obtener todos los efectos de animación aplicados a los párrafos contenidos en un marco de texto (forma). El siguiente código de ejemplo muestra cómo obtener los efectos de animación en un párrafo:
+Puede que desee averiguar los efectos de animación añadidos a un párrafo; por ejemplo, en un escenario, desea obtener los efectos de animación en un párrafo porque planea aplicar esos efectos a otro párrafo o forma.
+
+Aspose.Slides for .NET le permite obtener todos los efectos de animación aplicados a los párrafos contenidos en un marco de texto (forma). Este código de ejemplo muestra cómo obtener los efectos de animación en un párrafo:
 ```c#
 using (Presentation pres = new Presentation("Test.pptx"))
 {
@@ -54,8 +67,8 @@ Las animaciones de texto controlan el comportamiento de los objetos a lo largo d
 
 **¿Se conservan las animaciones de texto al exportar a PDF o imágenes?**
 
-No. Los PDF y las imágenes rasterizadas son estáticas, por lo que verá un único estado de la diapositiva sin movimiento. Para conservar el movimiento, use la exportación a [video](/slides/es/net/convert-powerpoint-to-video/) o [HTML](/slides/es/net/export-to-html5/).
+No. Los PDF y las imágenes raster están estáticos, por lo que verá un único estado de la diapositiva sin movimiento. Para mantener el movimiento, use la exportación a [video](/slides/es/net/convert-powerpoint-to-video/) o [HTML](/slides/es/net/export-to-html5/).
 
-**¿Funcionan las animaciones de texto en los diseños y la diapositiva maestra?**
+**¿Funcionan las animaciones de texto en diseños y en la diapositiva maestra?**
 
 Los efectos aplicados a objetos de diseño/maestra se heredan en las diapositivas, pero su sincronización e interacción con las animaciones a nivel de diapositiva dependen de la secuencia final en la diapositiva.

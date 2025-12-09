@@ -1,21 +1,30 @@
 ---
-title: Diagramm-Datentabelle
+title: Diagrammdatentabellen in Präsentationen in .NET anpassen
+linktitle: Datentabelle
 type: docs
 url: /de/net/chart-data-table/
-keywords: "Schriftarteigenschaften, Diagramm-Datentabelle, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "Schriftart-Eigenschaften für die Diagramm-Datenbanktabelle in PowerPoint-Präsentationen in C# oder .NET festlegen"
+keywords:
+- Diagrammdaten
+- Datentabelle
+- Schrifteigenschaften
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Passen Sie Diagrammdatentabellen in .NET für PPT und PPTX mit Aspose.Slides an, um Effizienz und Attraktivität in Präsentationen zu steigern."
 ---
 
-## **Schriftart‑Eigenschaften für Diagrammdaten‑Tabelle festlegen**
-Aspose.Slides für .NET bietet Unterstützung zum Ändern der Farbe von Kategorien in einer Serienfarbe.
+## **Schrifteigenschaften für Diagrammdatentabelle festlegen**
+Aspose.Slides für .NET bietet Unterstützung zum Ändern der Farbe von Kategorien in einer Serienfarbe.  
 
-1. Instantiieren Sie das [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klassenobjekt.
-1. Fügen Sie dem Folie ein Diagramm hinzu.
-1. Setzen Sie die Diagrammtabelle.
-1. Legen Sie die Schriftgröße fest.
+1. Instanziieren Sie ein Objekt der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Fügen Sie ein Diagramm zur Folie hinzu.
+1. Legen Sie die Diagrammtabelle fest.
+1. Setzen Sie die Schriftgröße.
 1. Speichern Sie die geänderte Präsentation.
 
-Ein Beispiel wird unten angegeben.  
+Unten finden Sie ein Beispiel.  
 ```c#
 using (Presentation pres = new Presentation("test.pptx"))
 {
@@ -33,18 +42,18 @@ using (Presentation pres = new Presentation("test.pptx"))
 
 ## **FAQ**
 
-**Kann ich kleine Legenden‑Schlüssel neben den Werten in der Diagrammdaten‑tabelle anzeigen?**
+**Kann ich kleine Legenden‑Schlüssel neben den Werten in der Datentabelle des Diagramms anzeigen?**
 
-Ja. Die Datentabelle unterstützt [legend keys](https://reference.aspose.com/slides/net/aspose.slides.charts/datatable/showlegendkey/), und Sie können sie ein‑ oder ausschalten.
+Ja. Die Datentabelle unterstützt [legend keys](https://reference.aspose.com/slides/net/aspose.slides.charts/datatable/showlegendkey/), und Sie können sie ein- oder ausschalten.
 
-**Wird die Datentabelle beim Exportieren der Präsentation nach PDF, HTML oder Bildern beibehalten?**
+**Wird die Datentabelle beim Exportieren der Präsentation nach PDF, HTML oder Bildern erhalten bleiben?**
 
 Ja. Aspose.Slides rendert das Diagramm als Teil der Folie, sodass das exportierte [PDF](/slides/de/net/convert-powerpoint-to-pdf/)/[HTML](/slides/de/net/convert-powerpoint-to-html/)/[image](/slides/de/net/convert-powerpoint-to-png/) das Diagramm mit seiner Datentabelle enthält.
 
 **Werden Datentabellen für Diagramme unterstützt, die aus einer Vorlagendatei stammen?**
 
-Ja. Für jedes Diagramm, das aus einer vorhandenen Präsentation oder Vorlage geladen wird, können Sie prüfen und ändern, ob eine Datentabelle [is shown](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/hasdatatable/) mithilfe der Eigenschaften des Diagramms.
+Ja. Für jedes Diagramm, das aus einer vorhandenen Präsentation oder Vorlage geladen wird, können Sie mithilfe der Diagrammeigenschaften prüfen und ändern, ob eine Datentabelle [is shown](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/hasdatatable/) angezeigt wird.
 
 **Wie kann ich schnell herausfinden, welche Diagramme in einer Datei die Datentabelle aktiviert haben?**
 
-Untersuchen Sie die Eigenschaft jedes Diagramms, die angibt, ob die Datentabelle [is shown](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/hasdatatable/) und durchlaufen Sie die Folien, um die Diagramme zu identifizieren, bei denen sie aktiviert ist.
+Untersuchen Sie die Eigenschaft jedes Diagramms, die angibt, ob die Datentabelle [is shown](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/hasdatatable/) angezeigt wird, und durchlaufen Sie die Folien, um die Diagramme zu identifizieren, bei denen sie aktiviert ist.

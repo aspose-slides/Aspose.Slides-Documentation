@@ -1,12 +1,13 @@
 ---
-title: صورة
+title: تحسين إدارة الصور في العروض التقديمية باستخدام .NET
+linktitle: إدارة الصور
 type: docs
 weight: 10
 url: /ar/net/image/
 keywords:
 - إضافة صورة
 - إضافة صورة
-- إضافة بت ماب
+- إضافة Bitmap
 - استبدال صورة
 - استبدال صورة
 - من الويب
@@ -23,30 +24,30 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تبسيط إدارة الصور في PowerPoint و OpenDocument باستخدام Aspose.Slides لـ .NET، تحسين الأداء وأتمتة سير العمل الخاص بك."
+description: "تبسيط إدارة الصور في PowerPoint وOpenDocument باستخدام Aspose.Slides لـ .NET، وتحسين الأداء وأتمتة سير العمل الخاص بك."
 ---
 
 ## **الصور في الشرائح في العروض التقديمية**
 
-تجعل الصور العروض التقديمية أكثر جاذبية وإثارة للاهتمام. في Microsoft PowerPoint، يمكنك إدراج صور من ملف أو الإنترنت أو مواقع أخرى على الشرائح. وبالمثل، يتيح لك Aspose.Slides إضافة صور إلى الشرائح في عروضك التقديمية من خلال طرق مختلفة.
+تجعل الصور العروض التقديمية أكثر جاذبية وإثارة للاهتمام. في Microsoft PowerPoint، يمكنك إدراج صور من ملف أو الإنترنت أو مواقع أخرى على الشرائح. بالمثل، يتيح لك Aspose.Slides إضافة صور إلى الشرائح في عروضك التقديمية عبر إجراءات مختلفة.
 
 {{% alert  title="نصيحة" color="primary" %}} 
-توفر Aspose محولات مجانية —[JPEG إلى PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) و[PNG إلى PowerPoint](https://products.aspose.app/slides/import/png-to-ppt) — التي تمكن الأشخاص من إنشاء عروض تقديمية بسرعة من الصور. 
+توفر Aspose محولات مجانية—[JPEG إلى PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) و[PNG إلى PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—تمكن الأشخاص من إنشاء عروض تقديمية بسرعة من الصور. 
 {{% /alert %}} 
 
 {{% alert title="معلومات" color="info" %}}
-إذا كنت تريد إضافة صورة ككائن إطار — خاصةً إذا كنت تخطط لاستخدام خيارات تنسيق قياسية لتغيير حجمها، إضافة تأثيرات، وما إلى ذلك — راجع [إطار الصورة](https://docs.aspose.com/slides/net/picture-frame/). 
+إذا كنت تريد إضافة صورة ككائن إطار—خاصة إذا كنت تخطط لاستخدام خيارات تنسيق قياسية لتغيير حجمها، وإضافة التأثيرات، وما إلى ذلك—اطلع على [إطار الصورة](https://docs.aspose.com/slides/net/picture-frame/). 
 {{% /alert %}} 
 
 {{% alert title="ملاحظة" color="warning" %}}
-يمكنك معالجة عمليات الإدخال/الإخراج المتعلقة بالصور وعروض PowerPoint لتحويل صورة من تنسيق إلى آخر. راجع هذه الصفحات: تحويل [صورة إلى JPG](https://products.aspose.com/slides/net/conversion/image-to-jpg/); تحويل [JPG إلى صورة](https://products.aspose.com/slides/net/conversion/jpg-to-image/); تحويل [JPG إلى PNG](https://products.aspose.com/slides/net/conversion/jpg-to-png/), تحويل [PNG إلى JPG](https://products.aspose.com/slides/net/conversion/png-to-jpg/); تحويل [PNG إلى SVG](https://products.aspose.com/slides/net/conversion/png-to-svg/), تحويل [SVG إلى PNG](https://products.aspose.com/slides/net/conversion/svg-to-png/).
+يمكنك معالجة عمليات الإدخال/الإخراج المتعلقة بالصور وعروض PowerPoint لتحويل صورة من تنسيق إلى آخر. راجع هذه الصفحات: تحويل [صورة إلى JPG](https://products.aspose.com/slides/net/conversion/image-to-jpg/); تحويل [JPG إلى صورة](https://products.aspose.com/slides/net/conversion/jpg-to-image/); تحويل [JPG إلى PNG](https://products.aspose.com/slides/net/conversion/jpg-to-png/)، تحويل [PNG إلى JPG](https://products.aspose.com/slides/net/conversion/png-to-jpg/); تحويل [PNG إلى SVG](https://products.aspose.com/slides/net/conversion/png-to-svg/)، تحويل [SVG إلى PNG](https://products.aspose.com/slides/net/conversion/svg-to-png/).
 {{% /alert %}}
 
-يدعم Aspose.Slides العمليات مع الصور بهذه الصيغ الشائعة: JPEG, PNG, BMP, GIF، وغيرها. 
+يدعم Aspose.Slides عمليات الصور بهذه الصيغ الشائعة: JPEG, PNG, BMP, GIF، وغيرها. 
 
-## **إضافة صور مخزنة محليًا إلى الشرائح**
+## **إضافة الصور المخزنة محليًا إلى الشرائح**
 
-يمكنك إضافة صورة واحدة أو عدة صور من جهازك إلى شريحة في عرض تقديمي. يوضح لك هذا المثال البرمجي في C# كيفية إضافة صورة إلى شريحة:
+يمكنك إضافة صورة واحدة أو عدة صور من جهاز الكمبيوتر الخاص بك إلى شريحة في عرض تقديمي. يوضح لك هذا المثال البرمجي بلغة C# كيفية إضافة صورة إلى شريحة:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -59,11 +60,11 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **إضافة صور من الويب إلى الشرائح**
+## **إضافة الصور من الويب إلى الشرائح**
 
-إذا كانت الصورة التي تريد إضافتها إلى شريحة غير متوفرة على جهازك، يمكنك إضافة الصورة مباشرةً من الويب. 
+إذا كانت الصورة التي تريد إضافتها إلى شريحة غير متوفرة على جهازك، يمكنك إضافة الصورة مباشرة من الويب. 
 
-هذا المثال البرمجي يوضح كيفية إضافة صورة من الويب إلى شريحة في C#:
+يظهر لك هذا المثال البرمجي كيفية إضافة صورة من الويب إلى شريحة بلغة C#:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -83,11 +84,11 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **إضافة صور إلى القالب الرئيسي للشرائح**
+## **إضافة الصور إلى القوالب الرئيسية للشرائح**
 
-القالب الرئيسي للشرائح هو الشريحة العليا التي تخزن وتتحكم في المعلومات (السمة، التخطيط، إلخ) الخاصة بجميع الشرائح تحته. لذا، عندما تضيف صورة إلى القالب الرئيسي، تظهر تلك الصورة على كل شريحة تحت ذلك القالب. 
+قالب الشريحة الرئيسي هو الشريحة العليا التي تخزن وتتحكم بالمعلومات (السمة، التخطيط، إلخ) لجميع الشرائح تحته. لذلك، عندما تضيف صورة إلى قالب الشريحة الرئيسي، تظهر تلك الصورة على كل شريحة تحت هذا القالب. 
 
-هذا المثال البرمجي في C# يوضح كيفية إضافة صورة إلى القالب الرئيسي:
+يظهر لك هذا المثال البرمجي بلغة C# كيفية إضافة صورة إلى قالب الشريحة الرئيسي:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -102,21 +103,21 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **إضافة صور كخلفية للشرائح**
+## **إضافة الصور كخلفية للشرائح**
 
-قد تقرر استخدام صورة كخلفية لشريحة محددة أو عدة شرائح. في هذه الحالة، يجب عليك الاطلاع على *[تعيين الصور كخلفيات للشرائح](https://docs.aspose.com/slides/net/presentation-background/#setting-images-as-background-for-slides)*.
+قد تقرر استخدام صورة كخلفية لشريحة معينة أو عدة شرائح. في هذه الحالة، يجب عليك الاطلاع على *[ضبط الصور كخلفيات للشرائح](https://docs.aspose.com/slides/net/presentation-background/#setting-images-as-background-for-slides)*.
 
 ## **إضافة SVG إلى العروض التقديمية**
 
 يمكنك إضافة أو إدراج أي صورة في عرض تقديمي باستخدام طريقة [AddPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/methods/addpictureframe) التي تنتمي إلى واجهة [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection). 
 
-لإنشاء كائن صورة بناءً على صورة SVG، يمكنك القيام بذلك بهذه الطريقة:
+لإنشاء كائن صورة يعتمد على صورة SVG، يمكنك القيام بذلك بهذه الطريقة:
 
 1. إنشاء كائن SvgImage لإدراجه في ImageShapeCollection
 2. إنشاء كائن PPImage من ISvgImage
 3. إنشاء كائن PictureFrame باستخدام واجهة IPPImage
 
-هذا المثال البرمجي يوضح كيفية تنفيذ الخطوات أعلاه لإضافة صورة SVG إلى عرض تقديمي:
+يعرض لك هذا المثال البرمجي كيفية تنفيذ الخطوات أعلاه لإضافة صورة SVG إلى عرض تقديمي:
 ```csharp
 // مسار دليل المستندات
 string dataDir = @"D:\Documents\";
@@ -124,7 +125,7 @@ string dataDir = @"D:\Documents\";
 // اسم ملف SVG المصدر
 string svgFileName = dataDir + "sample.svg";
 
-// اسم ملف العرض الناتج
+// اسم ملف العرض التقديمي الناتج
 string outPptxPath = dataDir + "presentation.pptx";
 
 // إنشاء عرض تقديمي جديد
@@ -139,10 +140,10 @@ using (var p = new Presentation())
     // إنشاء كائن PPImage
     IPPImage ppImage = p.Images.AddImage(svgImage);
 
-    // إنشاء إطار صورة جديد
+    // إنشاء إطار صورة جديد 
     p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 200, 100, ppImage.Width, ppImage.Height, ppImage);
 
-    // حفظ العرض بتنسيق PPTX
+    // حفظ العرض التقديمي بتنسيق PPTX
     p.Save(outPptxPath, SaveFormat.Pptx);
 }
 ```
@@ -150,13 +151,13 @@ using (var p = new Presentation())
 
 ## **تحويل SVG إلى مجموعة من الأشكال**
 
-تحويل Aspose.Slides لـ SVG إلى مجموعة من الأشكال مشابه لوظيفة PowerPoint المستخدمة للعمل مع صور SVG:
+تحويل Aspose.Slides لـ SVG إلى مجموعة من الأشكال مشابه للوظيفة في PowerPoint المستخدمة للعمل مع صور SVG:
 
-![قائمة PowerPoint المنبثقة](img_01_01.png)
+![PowerPoint Popup Menu](img_01_01.png)
 
-توفر هذه الوظيفة أحد التحميلات المزدوجة (overloads) لطريقة [AddGroupShape](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/addgroupshape/methods/1) في واجهة [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) التي تستقبل كائن [ISvgImage](https://reference.aspose.com/slides/net/aspose.slides/isvgimage) كأول معامل.
+توفر هذه الوظيفة أحد التحميلات الزائدة لطريقة [AddGroupShape](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/addgroupshape/methods/1) في واجهة [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) التي تأخذ كائن [ISvgImage](https://reference.aspose.com/slides/net/aspose.slides/isvgimage) كمعامل أول.
 
-هذا المثال البرمجي يوضح كيفية استخدام الطريقة الموصوفة لتحويل ملف SVG إلى مجموعة من الأشكال:
+يعرض لك هذا المثال البرمجي كيفية استخدام الطريقة الموصوفة لتحويل ملف SVG إلى مجموعة من الأشكال:
 ``` csharp 
 // مسار دليل المستندات
 string dataDir = @"D:\Documents\";
@@ -164,7 +165,7 @@ string dataDir = @"D:\Documents\";
 // اسم ملف SVG المصدر
 string svgFileName = dataDir + "sample.svg";
 
-// اسم ملف العرض الناتج
+// اسم ملف العرض التقديمي الناتج
 string outPptxPath = dataDir + "presentation.pptx";
 
 // إنشاء عرض تقديمي جديد
@@ -179,20 +180,20 @@ using (IPresentation presentation = new Presentation())
     // الحصول على حجم الشريحة
     SizeF slideSize = presentation.SlideSize.Size;
 
-    // تحويل صورة SVG إلى مجموعة أشكال وتوسيعها لتناسب حجم الشريحة
+    // تحويل صورة SVG إلى مجموعة من الأشكال وتوسيعها لتتناسب مع حجم الشريحة
     presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
 
-    // حفظ العرض بتنسيق PPTX
+    // حفظ العرض التقديمي بتنسيق PPTX
     presentation.Save(outPptxPath, SaveFormat.Pptx);
 }
 ```
 
 
-## **إضافة صور كـ EMF في الشرائح**
+## **إضافة الصور كـ EMF في الشرائح**
 
-يسمح Aspose.Slides للـ .NET بإنشاء صور EMF من أوراق Excel وإضافة الصور كـ EMF في الشرائح باستخدام Aspose.Cells. 
+يتيح لك Aspose.Slides لـ .NET إنشاء صور EMF من جداول Excel وإضافة الصور كـ EMF في الشرائح باستخدام Aspose.Cells. 
 
-هذا المثال البرمجي يوضح كيفية تنفيذ المهمة الموصوفة:
+يعرض لك هذا المثال البرمجي كيفية تنفيذ المهمة الموصوفة:
 ``` csharp 
 using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
 {
@@ -202,7 +203,7 @@ using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
     options.VerticalResolution = 200;
     options.ImageFormat = System.Drawing.Imaging.ImageFormat.Emf;
 
-    // حفظ المصنف إلى التدفق
+    //احفظ دفتر العمل إلى التدفق
     SheetRender sr = new SheetRender(sheet, options);
     using (Presentation pres = new Presentation())
     {
@@ -228,17 +229,18 @@ using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
 
 ## **استبدال الصور في مجموعة الصور**
 
-Aspose.Slides يتيح لك استبدال الصور المخزنة في مجموعة الصور الخاصة بالعرض (بما في ذلك تلك المستخدمة في أشكال الشرائح). يعرض هذا القسم عدة نهج لتحديث الصور في المجموعة. توفر API طرقًا بسيطة لاستبدال صورة باستخدام بيانات بايت خام، أو كائن [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/)، أو صورة أخرى موجودة بالفعل في المجموعة.
+يتيح لك Aspose.Slides استبدال الصور المخزنة في مجموعة صور العرض التقديمي (بما في ذلك المستخدمة في أشكال الشرائح). يوضح هذا القسم عدة طرق لتحديث الصور في المجموعة. توفر واجهة برمجة التطبيقات طرقًا بسيطة لاستبدال صورة باستخدام بيانات بايت خام، أو كائن [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/)، أو صورة أخرى موجودة بالفعل في المجموعة. 
 
 اتبع الخطوات التالية:
-1. تحميل ملف العرض الذي يحتوي على الصور باستخدام الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+
+1. تحميل ملف العرض التقديمي الذي يحتوي على الصور باستخدام فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
 2. تحميل صورة جديدة من ملف إلى مصفوفة بايت.
 3. استبدال الصورة المستهدفة بالصورة الجديدة باستخدام مصفوفة البايت.
-4. في النهج الثاني، تحميل الصورة إلى كائن [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) واستبدال الصورة المستهدفة بذلك الكائن.
-5. في النهج الثالث، استبدال الصورة المستهدفة بصورة موجودة بالفعل في مجموعة صور العرض.
-6. كتابة العرض المعدل كملف PPTX.
+4. في النهج الثاني، حمّل الصورة إلى كائن [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) واستبدل الصورة المستهدفة بذلك الكائن.
+5. في النهج الثالث، استبدل الصورة المستهدفة بصورة موجودة بالفعل في مجموعة صور العرض التقديمي.
+6. احفظ العرض التقديمي المعدل كملف PPTX.
 ```cs
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+// إنشاء مثيل للفئة Presentation التي تمثل ملف عرض تقديمي.
 using Presentation presentation = new Presentation("sample.pptx");
 
 // الطريقة الأولى.
@@ -255,33 +257,33 @@ oldImage.ReplaceImage(newImage);
 oldImage = presentation.Images[2];
 oldImage.ReplaceImage(presentation.Images[3]);
 
-// حفظ العرض التقديمي إلى ملف.
+// حفظ العرض التقديمي في ملف.
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
 
 {{% alert title="معلومات" color="info" %}}
-باستخدام محول Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) يمكنك بسهولة تحريك النصوص، إنشاء GIFs من النصوص، وما إلى ذلك. 
+باستخدام محول Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) converter، يمكنك بسهولة تحريك النصوص، إنشاء GIFs من النصوص، وما إلى ذلك. 
 {{% /alert %}}
 
-## **أسئلة شائعة**
+## **الأسئلة المتكررة**
 
-**هل يبقى دقة الصورة الأصلية محفوظة بعد الإدراج؟**
+**هل يبقى دقة الصورة الأصلية دون تغيير بعد الإدراج؟**
 
-نعم. يتم الحفاظ على بكسلات المصدر، لكن المظهر النهائي يعتمد على كيفية تحجيم [الصورة](/slides/ar/net/picture-frame/) في الشريحة وأي ضغط يتم تطبيقه عند الحفظ.
+نعم. يتم الحفاظ على بكسلات المصدر، لكن المظهر النهائي يعتمد على كيفية تحجيم [الصورة](/slides/ar/net/picture-frame/) على الشريحة وأي ضغط يتم تطبيقه عند الحفظ.
 
-**ما هي أفضل طريقة لاستبدال الشعار نفسه عبر عشرات الشرائح دفعة واحدة؟**
+**ما هي أفضل طريقة لاستبدال الشعار نفسه عبر العشرات من الشرائح دفعة واحدة؟**
 
-ضع الشعار على الشريحة الرئيسية أو على تخطيط واستبدله في مجموعة صور العرض — ستنتقل التحديثات إلى جميع العناصر التي تستخدم هذا المورد.
+ضع الشعار على الشريحة الرئيسية أو على تخطيط، واستبدله في مجموعة صور العرض التقديمي—ستنتقل التحديثات إلى جميع العناصر التي تستخدم هذا المورد.
 
-**هل يمكن تحويل SVG المضمن إلى أشكال قابلة للتعديل؟**
+**هل يمكن تحويل SVG المدخل إلى أشكال قابلة للتحرير؟**
 
-نعم. يمكنك تحويل SVG إلى مجموعة من الأشكال، وبعد ذلك تصبح الأجزاء الفردية قابلة للتحرير باستخدام خصائص الشكل القياسية.
+نعم. يمكنك تحويل SVG إلى مجموعة من الأشكال، ثم تصبح الأجزاء الفردية قابلة للتحرير باستخدام خصائص الشكل القياسية.
 
-**كيف يمكنني تعيين صورة كخلفية لعدة شرائح في آن واحد؟**
+**كيف يمكنني ضبط صورة كخلفية لعدة شرائح في آن واحد؟**
 
-[تعيين الصورة كخلفية](/slides/ar/net/presentation-background/) على الشريحة الرئيسية أو التخطيط المناسب — أي شريحة تستخدم ذلك القالب/التخطيط ستورث الخلفية.
+[عيّن الصورة كخلفية](/slides/ar/net/presentation-background/) على الشريحة الرئيسية أو التخطيط المناسب—ستورث أي شرائح تستخدم ذلك القالب الخلفية.
 
-**كيف يمكنني منع تضخم حجم العرض بسبب كثرة الصور؟**
+**كيف يمكنني منع حجم العرض التقديمي من الارتفاع بشكل كبير بسبب كثرة الصور؟**
 
-أعد استخدام مصدر صورة واحد بدلاً من التكرارات، اختر دقات معقولة، طبق الضغط عند الحفظ، واحتفظ بالرسومات المتكررة على القالب الرئيسي حيثما كان ذلك مناسبًا.
+أعد استخدام مورد صورة واحد بدلاً من التكرارات، اختر دقات معقولة، طبق ضغطًا عند الحفظ، واحفظ الرسومات المتكررة على القالب الرئيسي عند الحاجة.

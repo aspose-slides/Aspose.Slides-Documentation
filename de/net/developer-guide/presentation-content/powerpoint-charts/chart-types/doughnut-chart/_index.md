@@ -1,21 +1,30 @@
 ---
-title: Donut-Diagramm
+title: Doughnut-Diagramme in Präsentationen in .NET anpassen
+linktitle: Doughnut-Diagramm
 type: docs
 weight: 30
 url: /de/net/doughnut-chart/
-keywords: "Donut-Diagramm, Lückenmitte, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "Zentralen Abstand im Donut-Diagramm in einer PowerPoint-Präsentation in C# oder .NET festlegen"
+keywords:
+- Doughnut-Diagramm
+- Zentraler Abstand
+- Lochgröße
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Doughnut-Diagramme in Aspose.Slides für .NET erstellen und anpassen können, wobei PowerPoint-Formate für dynamische Präsentationen unterstützt werden."
 ---
 
-## **Zentralen Abstand im Donut-Diagramm angeben**
-Um die Größe des Lochs in einem Donut-Diagramm anzugeben, befolgen Sie bitte die folgenden Schritte:
+## **Zentralen Abstand im Donut-Diagramm festlegen**
+Um die Größe des Lochs in einem Donut-Diagramm festzulegen, befolgen Sie bitte die folgenden Schritte:
 
 - Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-- Fügen Sie ein Donut-Diagramm zur Folie hinzu.
+- Fügen Sie der Folie ein Donut-Diagramm hinzu.
 - Geben Sie die Größe des Lochs im Donut-Diagramm an.
-- Schreiben Sie die Präsentation auf die Festplatte.
+- Speichern Sie die Präsentation auf dem Datenträger.
 
-Im untenstehenden Beispiel haben wir die Größe des Lochs im Donut-Diagramm festgelegt.
+Im nachstehenden Beispiel haben wir die Größe des Lochs im Donut-Diagramm festgelegt.
 ```c#
 // Erstelle eine Instanz der Presentation-Klasse
 Presentation presentation = new Presentation();
@@ -23,21 +32,21 @@ Presentation presentation = new Presentation();
 IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Doughnut, 50, 50, 400, 400);
 chart.ChartData.SeriesGroups[0].DoughnutHoleSize = 90;
 
-// Speichere die Präsentation auf der Festplatte
+// Speichere die Präsentation auf dem Datenträger
 presentation.Save("DoughnutHoleSize_out.pptx", SaveFormat.Pptx);
 ```
 
 
 ## **FAQ**
 
-**Kann ich einen mehrstufigen Donut mit mehreren Ringen erstellen?**
+**Kann ich ein mehrstufiges Donut-Diagramm mit mehreren Ringen erstellen?**
 
-Ja. Fügen Sie einer einzelnen Donut-Diagramm mehrere Serien hinzu – jede Serie wird zu einem separaten Ring. Die Reihenfolge der Ringe wird durch die Reihenfolge der Serien in der Sammlung bestimmt.
+Ja. Fügen Sie einer einzelnen Donut-Diagramm mehrere Reihen hinzu – jede Reihe wird zu einem eigenen Ring. Die Reihenfolge der Ringe wird durch die Reihenfolge der Reihen in der Sammlung bestimmt.
 
-**Wird ein „explodierter“ Donut (getrennte Segmente) unterstützt?**
+**Wird ein „explodiertes“ Donut (getrennte Segmente) unterstützt?**
 
-Ja. Es gibt einen Exploded Doughnut [chart type](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) sowie eine Explosions‑Eigenschaft für Datenpunkte; Sie können einzelne Segmente trennen.
+Ja. Es gibt den Diagrammtyp Exploded Doughnut [chart type](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) und eine Explosions‑Eigenschaft für Datenpunkte; Sie können einzelne Segmente trennen.
 
 **Wie kann ich ein Bild eines Donut-Diagramms (PNG/SVG) für einen Bericht erhalten?**
 
-Ein Diagramm ist eine Form; Sie können es in ein [raster image](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) rendern oder das Diagramm in ein [SVG image](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/) exportieren.
+Ein Diagramm ist ein Shape; Sie können es in ein [raster image](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) rendern oder das Diagramm in ein [SVG image](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/) exportieren.

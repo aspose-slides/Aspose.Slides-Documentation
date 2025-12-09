@@ -1,26 +1,36 @@
 ---
-title: Remplacement de police - PowerPoint C# API
+title: Simplifier le remplacement des polices dans les présentations en .NET
 linktitle: Remplacement de police
 type: docs
 weight: 60
 url: /fr/net/font-replacement/
-keywords: "Police, remplacer police, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
-description: Avec l'API PowerPoint C#, vous pouvez remplacer explicitement une police par une autre police dans la présentation.
+keywords:
+- police
+- remplacer police
+- remplacement de police
+- modifier police
+- PowerPoint
+- OpenDocument
+- présentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Remplacez parfaitement les polices dans Aspose.Slides pour .NET afin d'assurer une typographie cohérente dans les présentations PowerPoint et OpenDocument."
 ---
 
 ## **Remplacer les polices**
 
-Si vous changez d'avis concernant l'utilisation d'une police, vous pouvez remplacer cette police par une autre police. Toutes les occurrences de l'ancienne police seront remplacées par la nouvelle police.
+Si vous changez d’avis concernant l’utilisation d’une police, vous pouvez la remplacer par une autre police. Toutes les occurrences de l’ancienne police seront remplacées par la nouvelle police. 
 
-Aspose.Slides vous permet de remplacer une police de cette manière:
+Aspose.Slides vous permet de remplacer une police de cette manière :
 
 1. Chargez la présentation concernée. 
 2. Chargez la police qui sera remplacée. 
 3. Chargez la nouvelle police. 
 4. Remplacez la police. 
-5. Enregistrez la présentation modifiée sous forme de fichier PPTX.
+5. Enregistrez la présentation modifiée au format PPTX.
 
-Ce code C# illustre le remplacement de police:
+Ce code C# illustre le remplacement de police :
 ```c#
 // Charge une présentation
 Presentation presentation = new Presentation("Fonts.pptx");
@@ -41,40 +51,40 @@ presentation.Save("UpdatedFont_out.pptx", SaveFormat.Pptx);
 
 {{% alert title="Note" color="warning" %}} 
 
-Pour définir des règles déterminant ce qui se passe dans certaines conditions (par exemple si une police est inaccessible), consultez [**Substitution de police**](/slides/fr/net/font-substitution/). 
+Pour définir des règles qui déterminent ce qui se passe dans certaines conditions (par exemple si une police est inaccessible), consultez [**Font Substitution**](/slides/fr/net/font-substitution/). 
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Quelle est la différence entre "remplacement de police", "substitution de police" et les polices de secours ?**
+**Quelle est la différence entre « remplacement de police », « substitution de police » et « polices de secours » ?**
 
-Le remplacement est un changement intentionnel d’une famille à une autre sur l’ensemble du document. [Substitution](/slides/fr/net/font-substitution/) est une règle du type « si la police est indisponible, utilisez X ». [Fallback](/slides/fr/net/fallback-font/) est appliqué de manière ciblée pour les glyphes manquants individuels lorsque la police de base est installée mais ne contient pas les caractères requis.
+Le remplacement est un changement intentionnel d’une famille à une autre sur l’ensemble du document. [Substitution](/slides/fr/net/font-substitution/) est une règle du type « si la police est indisponible, utilisez X ». [Fallback](/slides/fr/net/fallback-font/) est appliqué de façon ciblée pour des glyphes manquants individuels lorsque la police de base est installée mais ne contient pas les caractères requis.
 
 **Le remplacement s’applique-t-il aux diapositives maîtres, aux mises en page, aux notes et aux commentaires ?**
 
-Oui. Le remplacement affecte tous les objets de la présentation qui utilisent la police d’origine, y compris les diapositives maîtres et les notes ; les commentaires font également partie du document et sont pris en compte par le moteur de police.
+Oui. Le remplacement affecte tous les objets de la présentation qui utilisent la police d’origine, y compris les diapositives maîtres et les notes ; les commentaires font également partie du document et sont pris en compte par le moteur de polices.
 
-**La police sera-t-elle modifiée dans les objets OLE intégrés (par exemple, Excel) ?**
+**La police change-t-elle à l’intérieur des objets OLE intégrés (par exemple Excel) ?**
 
-Non. Le [contenu OLE](/slides/fr/net/manage-ole/) est géré par son propre application. Le remplacement dans la présentation ne reformatte pas les données OLE internes ; elles peuvent être affichées sous forme d’image ou de contenu éditable à l’extérieur.
+Non. Le [contenu OLE](/slides/fr/net/manage-ole/) est contrôlé par son propre logiciel. Le remplacement dans la présentation ne re‑formate pas les données OLE internes ; elles peuvent être affichées sous forme d’image ou de contenu modifiable à l’extérieur.
 
-**Puis-je remplacer une police uniquement dans une partie de la présentation (par diapositives ou régions) ?**
+**Puis‑je remplacer une police uniquement dans une partie de la présentation (par diapositives ou zones) ?**
 
-Un remplacement ciblé est possible si vous changez la police au niveau des objets/plages requis plutôt que d’appliquer un remplacement global à l’ensemble du document. La logique globale de sélection de police lors du rendu reste la même.
+Un remplacement ciblé est possible si vous changez la police au niveau des objets ou plages concernés plutôt que d’appliquer un remplacement global à l’ensemble du document. La logique de sélection de police globale lors du rendu reste la même.
 
-**Comment déterminer à l’avance quelles polices la présentation utilise réellement ?**
+**Comment déterminer à l’avance quelles polices sont utilisées par la présentation ?**
 
-Utilisez le [gestionnaire de polices](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/) de la présentation : il fournit une liste des [familles utilisées](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getfonts/) et des informations sur les [substitutions/"polices inconnues"] (https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getsubstitutions/), ce qui aide à planifier le remplacement.
+Utilisez le [gestionnaire de polices] (https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/) de la présentation : il fournit une liste des [familles utilisées] (https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getfonts/) et des informations sur les [substitutions/« polices inconnues »] (https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getsubstitutions/), ce qui aide à planifier le remplacement.
 
-**Le remplacement de police fonctionne-t-il lors de la conversion en PDF/images ?**
+**Le remplacement de police fonctionne‑t‑il lors de la conversion en PDF ou en images ?**
 
-Oui. Lors de l’exportation, Aspose.Slides applique la même [séquence de sélection/substitution de police](/slides/fr/net/font-selection-sequence/), de sorte qu’un remplacement effectué à l’avance sera respecté lors de la conversion.
+Oui. Lors de l’exportation, Aspose.Slides applique la même [séquence de sélection/substitution de police](/slides/fr/net/font-selection-sequence/), de sorte qu’un remplacement effectué au préalable sera respecté pendant la conversion.
 
-**Dois-je installer la police cible sur le système, ou puis‑je joindre un dossier de polices ?**
+**Dois‑je installer la police cible sur le système ou puis‑je simplement ajouter un dossier de polices ?**
 
-L’installation n’est pas requise : la bibliothèque permet le [chargement de polices externes](/slides/fr/net/custom-font/) depuis les dossiers utilisateur pour une utilisation lors du [rendu et de l’exportation](/slides/fr/net/convert-powerpoint/).
+L’installation n’est pas requise : la bibliothèque permet le [chargement de polices externes](/slides/fr/net/custom-font/) depuis des dossiers utilisateurs pour une utilisation lors du [rendu et de l’exportation](/slides/fr/net/convert-powerpoint/).
 
-**Le remplacement corrigera-t-il le « tofu » (carrés) à la place des caractères ?**
+**Le remplacement corrigera‑t‑il les « tofu » (carrés) à la place des caractères ?**
 
-Seulement si la police cible contient réellement les glyphes requis. Sinon, [configurez le fallback](/slides/fr/net/fallback-font/) pour couvrir les caractères manquants.
+Oui, mais uniquement si la police cible contient réellement les glyphes requis. Sinon, [configurez une police de secours](/slides/fr/net/fallback-font/) pour couvrir les caractères manquants.

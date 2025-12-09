@@ -1,13 +1,24 @@
 ---
-title: Blasendiagramm
+title: "Anpassen von Bubble-Diagrammen in Präsentationen in .NET"
+linktitle: "Bubble-Diagramm"
 type: docs
 url: /de/net/bubble-chart/
-keywords: "Blasendiagramm, Diagrammgröße, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Diagrammgröße von Blasendiagrammen in PowerPoint-Präsentationen in C# oder .NET"
+keywords:
+- "Bubble-Diagramm"
+- "Bubble-Größe"
+- "Größen-Skalierung"
+- "Größen-Darstellung"
+- "PowerPoint"
+- "Präsentation"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Erstellen und passen Sie leistungsstarke Bubble-Diagramme in PowerPoint mithilfe von Aspose.Slides für .NET an, um Ihre Datenvisualisierung einfach zu verbessern."
 ---
 
-## **Größenanpassung von Blasendiagrammen**
-Aspose.Slides für .NET bietet Unterstützung für die Größenanpassung von Blasendiagrammen. In Aspose.Slides für .NET wurden die Eigenschaften **IChartSeries.BubbleSizeScale** und **IChartSeriesGroup.BubbleSizeScale** hinzugefügt. Unten steht ein Beispiel.  
+## **Bubble-Chart-Größenskalierung**
+Aspose.Slides für .NET bietet Unterstützung für die Skalierung der Bubble‑Chart‑Größe. In Aspose.Slides für .NET wurden die Eigenschaften **IChartSeries.BubbleSizeScale** und **IChartSeriesGroup.BubbleSizeScale** hinzugefügt. Unten ist ein Beispiel angegeben.
+
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -18,8 +29,9 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Daten als Größen von Blasendiagrammen darstellen**
-Die Eigenschaft **BubbleSizeRepresentation** wurde zu den Schnittstellen IChartSeries, IChartSeriesGroup und den zugehörigen Klassen hinzugefügt. **BubbleSizeRepresentation** gibt an, wie die Blasengrößenwerte im Blasendiagramm dargestellt werden. Mögliche Werte sind: **BubbleSizeRepresentationType.Area** und **BubbleSizeRepresentationType.Width**. Entsprechend wurde das Aufzählungselement **BubbleSizeRepresentationType** hinzugefügt, um die möglichen Darstellungs‑weisen von Daten als Größen von Blasendiagrammen anzugeben. Beispielcode ist unten angegeben.  
+## **Daten als Bubble‑Chart‑Größen darstellen**
+Der Eigenschaft **BubbleSizeRepresentation** wurde zu den Schnittstellen IChartSeries, IChartSeriesGroup und den zugehörigen Klassen hinzugefügt. **BubbleSizeRepresentation** gibt an, wie die Bubble‑Größenwerte im Bubble‑Chart dargestellt werden. Mögliche Werte sind: **BubbleSizeRepresentationType.Area** und **BubbleSizeRepresentationType.Width**. Entsprechend wurde das Aufzählungselement **BubbleSizeRepresentationType** hinzugefügt, um die möglichen Darstellungsweisen von Daten als Bubble‑Chart‑Größen zu spezifizieren. Beispielcode ist unten angegeben.
+
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -32,11 +44,14 @@ using (Presentation pres = new Presentation())
 
 ## **FAQ**
 
-**Wird ein „Blasendiagramm mit 3‑D‑Effekt“ unterstützt und wie unterscheidet es sich vom normalen Diagramm?**  
-Ja. Es gibt einen eigenen Diagrammtyp „Bubble with 3‑D“. Er wendet eine 3‑D‑Darstellung auf die Blasen an, fügt jedoch keine zusätzliche Achse hinzu; die Daten bleiben X‑Y‑S (Größe). Der Typ ist in der [chart type](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/)‑Aufzählung verfügbar.
+**Wird ein "Bubble-Chart mit 3‑D‑Effekt" unterstützt und wie unterscheidet es sich von einem normalen?**
 
-**Gibt es eine Begrenzung der Anzahl von Serien und Punkten in einem Blasendiagramm?**  
-Auf API‑Ebene gibt es keine feste Obergrenze; die Beschränkungen ergeben sich aus Leistung und der Ziel‑PowerPoint‑Version. Es wird empfohlen, die Punktzahl für Lesbarkeit und Rendergeschwindigkeit angemessen zu halten.
+Ja. Es gibt einen separaten Diagrammtyp, "Bubble mit 3‑D". Er wendet 3‑D‑Styling auf die Bubbles an, fügt jedoch keine zusätzliche Achse hinzu; die Daten bleiben X‑Y‑S (Größe). Der Typ ist in der Aufzählung [chart type](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) verfügbar.
 
-**Wie wirkt sich der Export auf das Aussehen eines Blasendiagramms aus (PDF, Bilder)?**  
-Der Export in unterstützte Formate bewahrt das Aussehen des Diagramms; das Rendern erfolgt durch die Aspose.Slides‑Engine. Für Raster‑/Vektor‑Formate gelten die allgemeinen Regeln zur Diagrammdarstellung (Auflösung, Antialiasing), daher sollten Sie für den Druck eine ausreichende DPI‑Zahl wählen.
+**Gibt es ein Limit für die Anzahl der Serien und Punkte in einem Bubble‑Chart?**
+
+Auf API‑Ebene gibt es kein hartes Limit; die Beschränkungen ergeben sich aus Leistung und der Ziel‑PowerPoint‑Version. Es wird empfohlen, die Punktzahl für Lesbarkeit und Rendergeschwindigkeit in einem vernünftigen Rahmen zu halten.
+
+**Wie wirkt sich der Export auf das Aussehen eines Bubble‑Charts aus (PDF, Bilder)?**
+
+Der Export in unterstützte Formate bewahrt das Aussehen des Diagramms; das Rendering wird von der Aspose.Slides‑Engine durchgeführt. Für Raster‑/Vektor‑Formate gelten die allgemeinen Render‑Regeln für Diagrammgrafiken (Auflösung, Anti‑Aliasing), daher sollte für den Druck ein ausreichender DPI‑Wert gewählt werden.

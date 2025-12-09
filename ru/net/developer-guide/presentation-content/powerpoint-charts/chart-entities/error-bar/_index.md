@@ -1,28 +1,36 @@
 ---
-title: Полоса ошибок
+title: Настройка линий погрешности в диаграммах презентаций в .NET
+linktitle: Линия погрешности
 type: docs
 url: /ru/net/error-bar/
-keywords: "Полоса ошибок, значения полос ошибок в презентации PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "Добавить полосу ошибок в презентации PowerPoint на C# или .NET"
+keywords:
+- линия погрешности
+- пользовательское значение
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Узнайте, как добавлять и настраивать линии погрешности в диаграммах с помощью Aspose.Slides для .NET — оптимизируйте визуализацию данных в презентациях PowerPoint."
 ---
 
-## **Добавить полосу ошибок**
-Aspose.Slides for .NET предоставляет простой API для управления значениями полос ошибок. Пример кода применяется при использовании пользовательского типа значения. Чтобы указать значение, используйте свойство **ErrorBarCustomValues** конкретной точки данных в коллекции **DataPoints** серии:
+## **Add Error Bar**
+Aspose.Slides for .NET provides a simple API for managing error bar values. The sample code applies when using a custom value type. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the **DataPoints** collection of series:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Добавьте пузырчатую диаграмму на нужный слайд.
-1. Получите первую серию диаграммы и задайте формат полосы ошибок X.
-1. Получите первую серию диаграммы и задайте формат полосы ошибок Y.
-1. Установите значения полос и их формат.
-1. Запишите изменённую презентацию в файл PPTX.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Add a bubble chart on desired slide.
+1. Access the first chart series and set the error bar X format.
+1. Access the first chart series and set the error bar Y format.
+1. Setting bars values and format.
+1. Write the modified presentation to a PPTX file.
 ```c#
-// Creating empty presentation
+// Создание пустой презентации
 using (Presentation presentation = new Presentation())
 {
-    // Creating a bubble chart
+    // Создание пузырьковой диаграммы
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Bubble, 50, 50, 400, 300, true);
 
-    // Adding Error bars and setting its format
+    // Добавление линий погрешности и настройка их формата
     IErrorBarsFormat errBarX = chart.ChartData.Series[0].ErrorBarsXFormat;
     IErrorBarsFormat errBarY = chart.ChartData.Series[0].ErrorBarsYFormat;
     errBarX.IsVisible = true;
@@ -35,7 +43,7 @@ using (Presentation presentation = new Presentation())
     errBarY.Format.Line.Width = 2;
     errBarX.HasEndCap = true;
 
-    // Saving presentation
+    // Сохранение презентации
     presentation.Save("ErrorBars_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -43,24 +51,24 @@ using (Presentation presentation = new Presentation())
 
 
 
-## **Добавить пользовательское значение полосы ошибок**
-Aspose.Slides for .NET предоставляет простой API для управления пользовательскими значениями полос ошибок. Пример кода применяется, когда свойство **IErrorBarsFormat.ValueType** равно **Custom**. Чтобы указать значение, используйте свойство **ErrorBarCustomValues** конкретной точки данных в коллекции **DataPoints** серии:
+## **Add Custom Error Bar Value**
+Aspose.Slides for .NET provides a simple API for managing custom error bar values. The sample code applies when the **IErrorBarsFormat.ValueType** property is equal to **Custom**. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the **DataPoints** collection of series:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Добавьте пузырчатую диаграмму на нужный слайд.
-1. Получите первую серию диаграммы и задайте формат полосы ошибок X.
-1. Получите первую серию диаграммы и задайте формат полосы ошибок Y.
-1. Получите отдельные точки данных серии диаграммы и задайте значения полос ошибки для каждой точки данных.
-1. Установите значения полос и их формат.
-1. Запишите изменённую презентацию в файл PPTX.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Add a bubble chart on desired slide.
+1. Access the first chart series and set the error bar X format.
+1. Access the first chart series and set the error bar Y format.
+1. Access the chart series individual data points and setting the Error Bar values for individual series data point.
+1. Setting bars values and format.
+1. Write the modified presentation to a PPTX file.
 ```c#
 // Создание пустой презентации
 using (Presentation presentation = new Presentation())
 {
-    // Создание пузырчатой диаграммы
+    // Создание пузырьковой диаграммы
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Bubble, 50, 50, 400, 300, true);
 
-    // Добавление пользовательских полос ошибок и установка их формата
+    // Добавление пользовательских линий погрешности и настройка их формата
     IChartSeries series = chart.ChartData.Series[0];
     IErrorBarsFormat errBarX = series.ErrorBarsXFormat;
     IErrorBarsFormat errBarY = series.ErrorBarsYFormat;
@@ -69,14 +77,14 @@ using (Presentation presentation = new Presentation())
     errBarX.ValueType = ErrorBarValueType.Custom;
     errBarY.ValueType = ErrorBarValueType.Custom;
 
-    // Доступ к точке данных серии диаграммы и установка значений полос ошибок для отдельной точки
+    // Доступ к точке данных серии диаграммы и установка значений линий погрешности для отдельной точки
     IChartDataPointCollection points = series.DataPoints;
     points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForXPlusValues = DataSourceType.DoubleLiterals;
     points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForXMinusValues = DataSourceType.DoubleLiterals;
     points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForYPlusValues = DataSourceType.DoubleLiterals;
     points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForYMinusValues = DataSourceType.DoubleLiterals;
 
-    // Установка полос ошибок для точек серии диаграммы
+    // Установка линий погрешности для точек серии диаграммы
     for (int i = 0; i < points.Count; i++)
     {
         points[i].ErrorBarsCustomValues.XMinus.AsLiteralDouble = i + 1;
@@ -93,14 +101,14 @@ using (Presentation presentation = new Presentation())
 
 ## **FAQ**
 
-**Что происходит с полосами ошибок при экспорте презентации в PDF или изображения?**
+**What happens to error bars when exporting a presentation to PDF or images?**
 
-Они отрисовываются как часть диаграммы и сохраняются при конвертации вместе с остальными настройками диаграммы, при условии совместимой версии или рендерера.
+They are rendered as part of the chart and preserved during conversion along with the rest of the chart formatting, assuming a compatible version or renderer.
 
-**Можно ли комбинировать полосы ошибок с маркерами и подписью данных?**
+**Can error bars be combined with markers and data labels?**
 
-Да. Полосы ошибок являются отдельным элементом и совместимы с маркерами и подписью данных; если элементы перекрываются, возможно потребуется скорректировать форматирование.
+Yes. Error bars are a separate element and are compatible with markers and data labels; if elements overlap, you may need to adjust formatting.
 
-**Где можно найти список свойств и перечислений для работы с полосами ошибок в API?**
+**Where can I find the list of properties and enums for working with error bars in the API?**
 
-В справочнике API: класс [ErrorBarsFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbarsformat/) и связанные перечисления [ErrorBarType](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbartype/) и [ErrorBarValueType](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbarvaluetype/).
+In the API reference: the [ErrorBarsFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbarsformat/) class and the related enums [ErrorBarType](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbartype/) and [ErrorBarValueType](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbarvaluetype/).

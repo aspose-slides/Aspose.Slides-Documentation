@@ -1,6 +1,6 @@
 ---
-title: "Administrar fondos de presentación en C#"
-linktitle: "Fondo de diapositiva"
+title: Gestionar fondos de presentación en .NET
+linktitle: Fondo de diapositiva
 type: docs
 weight: 20
 url: /es/net/presentation-background/
@@ -18,24 +18,24 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda a establecer fondos dinámicos en archivos PowerPoint y OpenDocument usando Aspose.Slides para .NET, con consejos de código para mejorar sus presentaciones."
+description: "Aprende a establecer fondos dinámicos en archivos PowerPoint y OpenDocument usando Aspose.Slides para .NET, con consejos de código para mejorar tus presentaciones."
 ---
 
 ## **Visión general**
 
-Los colores sólidos, los degradados y las imágenes se utilizan comúnmente como fondos de diapositiva. Puede establecer el fondo para una **diapositiva normal** (una sola diapositiva) o una **diapositiva maestra** (se aplica a varias diapositivas a la vez).
+Los colores sólidos, los degradados y las imágenes se usan comúnmente como fondos de diapositivas. Puedes establecer el fondo para una **diapositiva normal** (una sola diapositiva) o una **diapositiva maestra** (se aplica a varias diapositivas a la vez).
 
-![Fondo de PowerPoint](powerpoint-background.png)
+![PowerPoint background](powerpoint-background.png)
 
 ## **Establecer un fondo de color sólido para una diapositiva normal**
 
-Aspose.Slides le permite establecer un color sólido como fondo para una diapositiva específica en una presentación, incluso si la presentación utiliza una diapositiva maestra. El cambio se aplica solo a la diapositiva seleccionada.
+Aspose.Slides te permite establecer un color sólido como fondo para una diapositiva específica en una presentación, incluso si la presentación usa una diapositiva maestra. El cambio se aplica solo a la diapositiva seleccionada.
 
-1. Crear una instancia de la [Presentación](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
-2. Establezca el [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) de la diapositiva a `OwnBackground`.
-3. Establezca el [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) del fondo de la diapositiva a `Solid`.
-4. Utilice la [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) en [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) para especificar el color sólido del fondo.
-5. Guarde la presentación modificada.
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Establece el [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) de la diapositiva a `OwnBackground`.
+3. Establece el [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) del fondo de la diapositiva a `Solid`.
+4. Usa la propiedad [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) en [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) para especificar el color sólido del fondo.
+5. Guarda la presentación modificada.
 
 El siguiente ejemplo en C# muestra cómo establecer un color sólido azul como fondo para una diapositiva normal:
 ```cs
@@ -57,13 +57,13 @@ using (Presentation presentation = new Presentation())
 
 ## **Establecer un fondo de color sólido para la diapositiva maestra**
 
-Aspose.Slides le permite establecer un color sólido como fondo para la diapositiva maestra en una presentación. La diapositiva maestra actúa como una plantilla que controla el formato de todas las diapositivas, por lo que al elegir un color sólido para el fondo de la diapositiva maestra, se aplicará a cada diapositiva.
+Aspose.Slides te permite establecer un color sólido como fondo para la diapositiva maestra en una presentación. La diapositiva maestra actúa como una plantilla que controla el formato de todas las diapositivas, por lo que al elegir un color sólido para el fondo de la diapositiva maestra, se aplica a todas las diapositivas.
 
-1. Crear una instancia de la [Presentación](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
-2. Establezca el [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) de la diapositiva maestra (a través de `masters`) a `OwnBackground`.
-3. Establezca el [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) del fondo de la diapositiva maestra a `Solid`.
-4. Utilice la [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) para especificar el color sólido del fondo.
-5. Guarde la presentación modificada.
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Establece el [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) de la diapositiva maestra (a través de `masters`) a `OwnBackground`.
+3. Establece el [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) del fondo de la diapositiva maestra a `Solid`.
+4. Usa [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) para especificar el color sólido del fondo.
+5. Guarda la presentación modificada.
 
 El siguiente ejemplo en C# muestra cómo establecer un color sólido (verde bosque) como fondo para una diapositiva maestra:
 ```cs
@@ -72,7 +72,7 @@ using (Presentation presentation = new Presentation())
 {
     IMasterSlide masterSlide = presentation.Masters[0];
 
-    // Establecer el color de fondo de la diapositiva Master a Verde Bosque.
+    // Establecer el color de fondo para la diapositiva maestra a verde bosque.
     masterSlide.Background.Type = BackgroundType.OwnBackground;
     masterSlide.Background.FillFormat.FillType = FillType.Solid;
     masterSlide.Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
@@ -83,24 +83,24 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **Establecer un fondo de degradado para una diapositiva**
+## **Establecer un fondo degradado para una diapositiva**
 
-Un degradado es un efecto gráfico creado por un cambio gradual de color. Cuando se utiliza como fondo de diapositiva, los degradados pueden hacer que las presentaciones parezcan más artísticas y profesionales. Aspose.Slides le permite establecer un color de degradado como fondo para diapositivas.
+Un degradado es un efecto gráfico creado por un cambio gradual de color. Cuando se usa como fondo de diapositiva, los degradados pueden hacer que las presentaciones se vean más artísticas y profesionales. Aspose.Slides te permite establecer un color degradado como fondo para diapositivas.
 
-1. Crear una instancia de la [Presentación](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
-2. Establezca el [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) de la diapositiva a `OwnBackground`.
-3. Establezca el [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) del fondo de la diapositiva a `Gradient`.
-4. Utilice la [GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/gradientformat/) en [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) para configurar los ajustes de degradado deseados.
-5. Guarde la presentación modificada.
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Establece el [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) de la diapositiva a `OwnBackground`.
+3. Establece el [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) del fondo de la diapositiva a `Gradient`.
+4. Usa la propiedad [GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/gradientformat/) en [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) para configurar los ajustes de degradado que prefieras.
+5. Guarda la presentación modificada.
 
-El siguiente ejemplo en C# muestra cómo establecer un color de degradado como fondo para una diapositiva:
+El siguiente ejemplo en C# muestra cómo establecer un color degradado como fondo para una diapositiva:
 ```cs
 // Crear una instancia de la clase Presentation.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Aplicar un efecto de degradado al fondo.
+    // Aplicar un efecto degradado al fondo.
     slide.Background.Type = BackgroundType.OwnBackground;
     slide.Background.FillFormat.FillType = FillType.Gradient;
     slide.Background.FillFormat.GradientFormat.TileFlip = TileFlip.FlipBoth;
@@ -111,45 +111,45 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **Establecer una imagen como fondo de diapositiva**
+## **Establecer una imagen como fondo de la diapositiva**
 
-Además de los rellenos sólidos y de degradado, Aspose.Slides le permite utilizar imágenes como fondos de diapositiva.
+Además de los rellenos sólidos y degradados, Aspose.Slides te permite usar imágenes como fondos de diapositiva.
 
-1. Crear una instancia de la [Presentación](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
-2. Establezca el [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) de la diapositiva a `OwnBackground`.
-3. Establezca el [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) del fondo de la diapositiva a `Picture`.
-4. Cargue la imagen que desea usar como fondo de la diapositiva.
-5. Añada la imagen a la colección de imágenes de la presentación.
-6. Utilice la [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/picturefillformat/) en [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) para asignar la imagen como fondo.
-7. Guarde la presentación modificada.
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Establece el [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) de la diapositiva a `OwnBackground`.
+3. Establece el [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) del fondo de la diapositiva a `Picture`.
+4. Carga la imagen que deseas usar como fondo de la diapositiva.
+5. Añade la imagen a la colección de imágenes de la presentación.
+6. Usa la propiedad [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/picturefillformat/) en [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) para asignar la imagen como fondo.
+7. Guarda la presentación modificada.
 
-El siguiente ejemplo en C# muestra cómo establecer una imagen como fondo para una diapositiva:
+El siguiente ejemplo en C# muestra cómo establecer una imagen como fondo de una diapositiva:
 ```c#
- // Crear una instancia de la clase Presentation.
- using (Presentation presentation = new Presentation())
- {
-     ISlide slide = presentation.Slides[0];
+// Crear una instancia de la clase Presentation.
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
 
-     // Establecer propiedades de la imagen de fondo.
-     slide.Background.Type = BackgroundType.OwnBackground;
-     slide.Background.FillFormat.FillType = FillType.Picture;
-     slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+    // Establecer propiedades de la imagen de fondo.
+    slide.Background.Type = BackgroundType.OwnBackground;
+    slide.Background.FillFormat.FillType = FillType.Picture;
+    slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
 
-     // Cargar la imagen.
-     IImage image = Images.FromFile("Tulips.jpg");
-     // Añadir la imagen a la colección de imágenes de la presentación.
-     IPPImage ppImage = presentation.Images.AddImage(image);
-     image.Dispose();
+    // Cargar la imagen.
+    IImage image = Images.FromFile("Tulips.jpg");
+    // Añadir la imagen a la colección de imágenes de la presentación.
+    IPPImage ppImage = presentation.Images.AddImage(image);
+    image.Dispose();
 
-     slide.Background.FillFormat.PictureFillFormat.Picture.Image = ppImage;
+    slide.Background.FillFormat.PictureFillFormat.Picture.Image = ppImage;
 
-     // Guardar la presentación en disco.
-     presentation.Save("ImageAsBackground.pptx", SaveFormat.Pptx);
- }
+    // Guardar la presentación en disco.
+    presentation.Save("ImageAsBackground.pptx", SaveFormat.Pptx);
+}
 ```
 
 
-El siguiente fragmento de código muestra cómo establecer el tipo de relleno de fondo a una imagen en mosaico y modificar las propiedades de mosaico:
+El siguiente fragmento de código muestra cómo establecer el tipo de relleno de fondo a una imagen en mosaico y modificar las propiedades de teselado:
 ```cs
 using (Presentation presentation = new Presentation())
 {
@@ -164,11 +164,11 @@ using (Presentation presentation = new Presentation())
     using (IImage newImage = Aspose.Slides.Images.FromFile("image.png"))
         ppImage = presentation.Images.AddImage(newImage);
 
-    // Establecer la imagen utilizada para el relleno de fondo.
+    // Establecer la imagen usada para el relleno del fondo.
     IPictureFillFormat backPictureFillFormat = background.FillFormat.PictureFillFormat;
     backPictureFillFormat.Picture.Image = ppImage;
 
-    // Establecer el modo de relleno de imagen a mosaico y ajustar las propiedades del mosaico.
+    // Establecer el modo de relleno de la imagen a Mosaico y ajustar las propiedades del mosaico.
     backPictureFillFormat.PictureFillMode = PictureFillMode.Tile;
     backPictureFillFormat.TileOffsetX = 15f;
     backPictureFillFormat.TileOffsetY = 15f;
@@ -183,19 +183,19 @@ using (Presentation presentation = new Presentation())
 
 
 {{% alert color="primary" %}}
-Leer más: [**Imagen en mosaico como textura**](/slides/es/net/shape-formatting/#tile-picture-as-texture).
+Leer más: [**Imagen de mosaico como textura**](/slides/es/net/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
 ### **Cambiar la transparencia de la imagen de fondo**
 
-Puede que desee ajustar la transparencia de la imagen de fondo de una diapositiva para que el contenido de la diapositiva destaque. El siguiente código en C# le muestra cómo cambiar la transparencia de la imagen de fondo de una diapositiva:
+Es posible que desees ajustar la transparencia de la imagen de fondo de una diapositiva para que el contenido de la diapositiva destaque. El siguiente código en C# muestra cómo cambiar la transparencia de la imagen de fondo de una diapositiva:
 ```cs
 var transparencyValue = 30; // Por ejemplo.
 
-// Get the collection of picture transform operations.
+// Obtener la colección de operaciones de transformación de imagen.
 var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
 
-// Find an existing fixed-percentage transparency effect.
+// Buscar un efecto de transparencia de porcentaje fijo existente.
 var transparencyOperation = null as IAlphaModulateFixed;
 foreach (var operation in imageTransform)
 {
@@ -206,7 +206,7 @@ foreach (var operation in imageTransform)
     }
 }
 
-// Set the new transparency value.
+// Establecer el nuevo valor de transparencia.
 if (transparencyOperation == null)
 {
     imageTransform.AddAlphaModulateFixedEffect(100 - transparencyValue);
@@ -220,9 +220,9 @@ else
 
 ## **Obtener el valor del fondo de la diapositiva**
 
-Aspose.Slides proporciona la interfaz [IBackgroundEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/) para recuperar los valores efectivos del fondo de una diapositiva. Esta interfaz expone el [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/fillformat/) y el [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/effectformat/) efectivos.
+Aspose.Slides proporciona la interfaz [IBackgroundEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/) para obtener los valores efectivos del fondo de una diapositiva. Esta interfaz expone el [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/fillformat/) y el [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/effectformat/) efectivos.
 
-Utilizando la propiedad `background` de la clase [BaseSlide](https://reference.aspose.com/slides/net/aspose.slides/baseslide/), puede obtener el fondo efectivo de una diapositiva.
+Usando la propiedad `background` de la clase [BaseSlide](https://reference.aspose.com/slides/net/aspose.slides/baseslide/), puedes obtener el fondo efectivo de una diapositiva.
 
 El siguiente ejemplo en C# muestra cómo obtener el valor efectivo del fondo de una diapositiva:
 ```cs
@@ -231,7 +231,7 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];  
 
-    // Obtener el fondo efectivo, teniendo en cuenta la diapositiva maestra, el diseño y el tema.
+    // Recuperar el fondo efectivo, teniendo en cuenta la diapositiva maestra, el diseño y el tema.
     IBackgroundEffectiveData effBackground = slide.Background.GetEffective();
 
     if (effBackground.FillFormat.FillType == FillType.Solid)
@@ -246,8 +246,8 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 
 **¿Puedo restablecer un fondo personalizado y restaurar el fondo del tema/disposición?**
 
-Sí. Elimine el relleno personalizado de la diapositiva y el fondo volverá a heredarse del [layout](/slides/es/net/slide-layout/)/[master](/slides/es/net/slide-master/) correspondiente (es decir, del [fondo del tema](/slides/es/net/presentation-theme/)).
+Sí. Elimina el relleno personalizado de la diapositiva, y el fondo se heredará nuevamente del [layout](/slides/es/net/slide-layout/)/[master](/slides/es/net/slide-master/) correspondiente (es decir, del [fondo del tema](/slides/es/net/presentation-theme/)).
 
-**¿Qué ocurre con el fondo si cambiara el tema de la presentación más tarde?**
+**¿Qué ocurre con el fondo si cambio el tema de la presentación más adelante?**
 
 Si una diapositiva tiene su propio relleno, permanecerá sin cambios. Si el fondo se hereda del [layout](/slides/es/net/slide-layout/)/[master](/slides/es/net/slide-master/), se actualizará para coincidir con el [nuevo tema](/slides/es/net/presentation-theme/).

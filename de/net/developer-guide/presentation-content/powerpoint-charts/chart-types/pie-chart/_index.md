@@ -1,22 +1,35 @@
 ---
-title: Kreisdiagramm
+title: Anpassen von Tortendiagrammen in Präsentationen in .NET
+linktitle: Tortendiagramm
 type: docs
 url: /de/net/pie-chart/
-keywords: "Kreisdiagramm, Plot-Optionen, Segmentfarben, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "Plot-Optionen und Segmentfarben für Kreisdiagramme in PowerPoint-Präsentationen in C# oder .NET"
+keywords:
+- Tortendiagramm
+- Diagramm verwalten
+- Diagramm anpassen
+- Diagrammoptionen
+- Diagrammeinstellungen
+- Plot-Optionen
+- Segmentfarbe
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie in .NET mit Aspose.Slides Tortendiagramme erstellen und anpassen, exportierbar nach PowerPoint, und so Ihr Daten-Storytelling in Sekunden verbessern."
 ---
 
-## **Zweite Plot-Optionen für Pie of Pie und Bar of Pie Diagramm**
-Aspose.Slides for .NET unterstützt nun zweite Plot-Optionen für Pie of Pie‑ oder Bar of Pie‑Diagramme. In diesem Thema zeigen wir anhand eines Beispiels, wie diese Optionen mit Aspose.Slides festgelegt werden. Befolgen Sie dazu die folgenden Schritte:
+## **Optionen für das zweite Diagramm für Pie of Pie und Bar of Pie Diagramm**
+Aspose.Slides for .NET unterstützt jetzt Optionen für ein zweites Diagramm bei Pie of Pie‑ oder Bar of Pie‑Diagrammen. In diesem Thema sehen wir anhand eines Beispiels, wie diese Optionen mit Aspose.Slides angegeben werden. Bitte folgen Sie den untenstehenden Schritten, um die Eigenschaften festzulegen:
 
-1. Instanziieren Sie das Klassenobjekt [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Fügen Sie dem Folie ein Diagramm hinzu.
-3. Geben Sie die zweiten Plot-Optionen des Diagramms an.
-4. Schreiben Sie die Präsentation auf die Festplatte.
+1. Instanziieren Sie das [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klassenobjekt.
+1. Fügen Sie dem Folie ein Diagramm hinzu.
+1. Geben Sie die Optionen für das zweite Diagramm des Diagramms an.
+1. Schreiben Sie die Präsentation auf die Festplatte.
 
-Im unten stehenden Beispiel haben wir verschiedene Eigenschaften des Pie of Pie‑Diagramms festgelegt.
+Im nachstehenden Beispiel haben wir verschiedene Eigenschaften des Pie of Pie‑Diagramms festgelegt.
 ```c#
-// Instanz der Klasse Presentation erstellen
+// Instanz der Presentation-Klasse erstellen
 Presentation presentation = new Presentation();
 
 // Diagramm zur Folie hinzufügen
@@ -28,34 +41,37 @@ chart.ChartData.Series[0].ParentSeriesGroup.SecondPieSize = 149;
 chart.ChartData.Series[0].ParentSeriesGroup.PieSplitBy = Aspose.Slides.Charts.PieSplitType.ByPercentage;
 chart.ChartData.Series[0].ParentSeriesGroup.PieSplitPosition = 53;
 
-// Präsentation auf Festplatte speichern
+// Präsentation auf die Festplatte schreiben
 presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Automatische Farben für Pie‑Diagramm‑Scheiben festlegen**
-Aspose.Slides for .NET bietet eine einfache API zum Festlegen automatischer Farben für Pie‑Diagramm‑Scheiben. Der Beispielcode wendet die oben genannten Eigenschaften an.
 
-1. Erstellen Sie eine Instanz der Klasse Presentation.
-2. Greifen Sie auf die erste Folie zu.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu.
-4. Legen Sie den Diagrammtitel fest.
-5. Stellen Sie die erste Serie so ein, dass Werte angezeigt werden.
-6. Legen Sie den Index des Diagramm‑Datenblatts fest.
-7. Abrufen des Diagramm‑Datenarbeitsblatts.
-8. Löschen Sie die standardmäßig generierten Serien und Kategorien.
-9. Fügen Sie neue Kategorien hinzu.
-10. Fügen Sie neue Serien hinzu.
+
+
+## **Automatische Farben für Pie‑Diagramm‑Segmente festlegen**
+Aspose.Slides for .NET bietet eine einfache API zum Festlegen automatischer Farben für Tortenabschnitte. Der Beispielcode wendet die oben genannten Eigenschaften an.
+
+1. Erstellen Sie eine Instanz der Presentation‑Klasse.
+1. Greifen Sie auf die erste Folie zu.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu.
+1. Legen Sie den Diagrammtitel fest.
+1. Setzen Sie die erste Serie auf Werte anzeigen.
+1. Legen Sie den Index des Diagrammdatenblatts fest.
+1. Abrufen des Diagrammdaten‑Arbeitsblatts.
+1. Löschen Sie die standardmäßig generierten Serien und Kategorien.
+1. Fügen Sie neue Kategorien hinzu.
+1. Fügen Sie neue Serien hinzu.
 
 Schreiben Sie die modifizierte Präsentation in eine PPTX‑Datei.
 ```c#
-// Instanziiere Presentation-Klasse, die die PPTX-Datei repräsentiert
+ // Instanzieren Sie die Presentation‑Klasse, die die PPTX‑Datei darstellt
 using (Presentation presentation = new Presentation())
 {
-	// Instanziiere Presentation-Klasse, die die PPTX-Datei repräsentiert
+	// Instanzieren Sie die Presentation‑Klasse, die die PPTX‑Datei darstellt
 	Presentation presentation = new Presentation();
 
-	// Greife auf die erste Folie zu
+	// Zugriff auf die erste Folie
 	ISlide slides = presentation.Slides[0];
 
 	// Diagramm mit Standarddaten hinzufügen
@@ -73,10 +89,10 @@ using (Presentation presentation = new Presentation())
 	// Index des Diagrammdatenblatts festlegen
 	int defaultWorksheetIndex = 0;
 
-	// Diagrammdaten-Arbeitsblatt abrufen
+	// Diagrammdaten‑Arbeitsblatt abrufen
 	IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
-	// Standardgenerierte Serien und Kategorien löschen
+	// Standardmäßig generierte Serien und Kategorien löschen
 	chart.ChartData.Series.Clear();
 	chart.ChartData.Categories.Clear();
 
@@ -103,8 +119,8 @@ using (Presentation presentation = new Presentation())
 
 **Werden die Varianten 'Pie of Pie' und 'Bar of Pie' unterstützt?**
 
-Ja, die Bibliothek [unterstützt](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) einen sekundären Plot für Kreisdiagramme, einschließlich der Typen 'Pie of Pie' und 'Bar of Pie'.
+Ja, die Bibliothek [unterstützt](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) ein sekundäres Diagramm für Tortendiagramme, einschließlich der Typen 'Pie of Pie' und 'Bar of Pie'.
 
-**Kann ich nur das Diagramm als Bild (z. B. PNG) exportieren?**
+**Kann ich das Diagramm allein als Bild exportieren (zum Beispiel PNG)?**
 
-Ja, Sie können das Diagramm selbst als Bild [exportieren](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (z. B. PNG), ohne die gesamte Präsentation.
+Ja, Sie können das Diagramm selbst [als Bild exportieren](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (z. B. PNG), ohne die gesamte Präsentation.

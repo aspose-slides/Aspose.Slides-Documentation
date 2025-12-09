@@ -1,26 +1,40 @@
 ---
-title: "Tabelle verwalten"
+title: Tabellen in Präsentationen mit .NET verwalten
+linktitle: Tabelle verwalten
 type: docs
 weight: 10
 url: /de/net/manage-table/
-keywords: "Tabelle, Tabelle erstellen, Tabelle zugreifen, Tabellenseitenverhältnis, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Erstellen und Verwalten von Tabellen in PowerPoint-Präsentationen in C# oder .NET"
+keywords:
+- Tabelle hinzufügen
+- Tabelle erstellen
+- Zugriff auf Tabelle
+- Seitenverhältnis
+- Text ausrichten
+- Textformatierung
+- Tabellenstil
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Erstellen und bearbeiten Sie Tabellen in PowerPoint-Folien mit Aspose.Slides für .NET. Entdecken Sie einfache C#-Codebeispiele, um Ihre Tabellen-Workflows zu optimieren."
 ---
 
-Eine Tabelle in PowerPoint ist ein effizientes Mittel, um Informationen darzustellen und zu vermitteln. Die Informationen in einem Raster aus Zellen (geordnet in Zeilen und Spalten) sind übersichtlich und leicht zu verstehen.
+Eine Tabelle in PowerPoint ist ein effizientes Mittel, um Informationen darzustellen und zu präsentieren. Die Informationen in einem Raster von Zellen (angeordnet in Zeilen und Spalten) sind unkompliziert und leicht zu verstehen.
 
-Aspose.Slides stellt die [Table](https://reference.aspose.com/slides/net/aspose.slides/table/)‑Klasse, das [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/)‑Interface, die [Cell](https://reference.aspose.com/slides/net/aspose.slides/cell/)‑Klasse, das [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/)‑Interface und weitere Typen bereit, mit denen Sie Tabellen in allen Arten von Präsentationen erstellen, aktualisieren und verwalten können. 
+Aspose.Slides stellt die Klasse [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) , das Interface [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) , die Klasse [Cell](https://reference.aspose.com/slides/net/aspose.slides/cell/) , das Interface [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) und weitere Typen bereit, mit denen Sie Tabellen in allen Arten von Präsentationen erstellen, aktualisieren und verwalten können. 
 
-## **Create Table from Scratch**
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑Klasse.  
-2. Holen Sie sich eine Referenz auf die Folie über ihren Index.  
-3. Definieren Sie ein Array von `columnWidth`.  
-4. Definieren Sie ein Array von `rowHeight`.  
-5. Fügen Sie der Folie ein [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/)‑Objekt über die [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/)‑Methode hinzu.  
-6. Iterieren Sie über jedes [ICell], um die Formatierung für die oberen, unteren, rechten und linken Ränder anzuwenden.  
-7. Führen Sie die ersten beiden Zellen der ersten Zeile der Tabelle zusammen.  
-8. Greifen Sie auf das [TextFrame] eines [ICell] zu.  
-9. Fügen Sie dem [TextFrame] etwas Text hinzu.  
+## **Erstelle Tabelle von Grund auf**
+
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
+2. Holen Sie sich eine Referenz auf eine Folie über ihren Index. 
+3. Definieren Sie ein Array von `columnWidth`.
+4. Definieren Sie ein Array von `rowHeight`.
+5. Fügen Sie ein [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/)‑Objekt über die Methode [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) zur Folie hinzu.
+6. Iterieren Sie über jedes [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) , um die Formatierung der oberen, unteren, rechten und linken Rahmen anzuwenden.
+7. Fassen Sie die ersten beiden Zellen der ersten Tabellenzeile zusammen. 
+8. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) eines [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) zu. 
+9. Fügen Sie dem [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) etwas Text hinzu.
 10. Speichern Sie die geänderte Präsentation.
 
 Dieser C#‑Code zeigt, wie Sie eine Tabelle in einer Präsentation erstellen:
@@ -28,17 +42,17 @@ Dieser C#‑Code zeigt, wie Sie eine Tabelle in einer Präsentation erstellen:
 // Instanziiert eine Presentation-Klasse, die eine PPTX-Datei darstellt
 Presentation pres = new Presentation();
 
-// Accesses the first slide
+// Greift auf die erste Folie zu
 ISlide sld = pres.Slides[0];
 
-// Defines columns with widths and rows with heights
+// Definiert Spalten mit Breiten und Zeilen mit Höhen
 double[] dblCols = { 50, 50, 50 };
 double[] dblRows = { 50, 30, 30, 30, 30 };
 
-// Adds a table shape to the slide
+// Fügt der Folie ein Tabellenelement hinzu
 ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
 
-// Sets the border format for each cell
+// Setzt das Randformat für jede Zelle
 for (int row = 0; row < tbl.Rows.Count; row++)
 {
 	for (int cell = 0; cell < tbl.Rows[row].Count; cell++)
@@ -63,18 +77,19 @@ for (int row = 0; row < tbl.Rows.Count; row++)
 // Fügt die Zellen 1 und 2 der Zeile 1 zusammen
 tbl.MergeCells(tbl.Rows[0][0], tbl.Rows[1][1], false);
 
-// Fügt Text zur zusammengeführten Zelle hinzu
+// Fügt dem zusammengefügten Feld Text hinzu
 tbl.Rows[0][0].TextFrame.Text = "Merged Cells";
 
-// Speichert die Präsentation auf der Festplatte
+// Speichert die Präsentation auf dem Datenträger
 pres.Save("table.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Numbering in Standard Table**
-In einer Standardtabelle ist die Numerierung von Zellen einfach und nullbasiert. Die erste Zelle in einer Tabelle hat den Index 0,0 (Spalte 0, Zeile 0).
+## **Nummerierung in Standardtabelle**
 
-Zum Beispiel werden die Zellen in einer Tabelle mit 4 Spalten und 4 Zeilen wie folgt nummeriert:
+In einer Standardtabelle ist die Nummerierung der Zellen unkompliziert und nullbasiert. Die erste Zelle einer Tabelle hat den Index 0,0 (Spalte 0, Zeile 0). 
+
+Zum Beispiel werden die Zellen einer Tabelle mit 4 Spalten und 4 Zeilen wie folgt nummeriert:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -82,7 +97,7 @@ Zum Beispiel werden die Zellen in einer Tabelle mit 4 Spalten und 4 Zeilen wie f
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Dieser C#‑Code zeigt, wie Sie die Nummerierung von Zellen in einer Tabelle festlegen:
+Dieser C#‑Code zeigt, wie Sie die Nummerierung für Zellen in einer Tabelle festlegen:
 ```c#
 // Instanziiert eine Presentation-Klasse, die eine PPTX-Datei darstellt
 using (Presentation pres = new Presentation())
@@ -95,10 +110,10 @@ using (Presentation pres = new Presentation())
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
-    // Fügt ein Tabellenelement zur Folie hinzu
+    // Fügt der Folie ein Tabellenelement hinzu
     ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
 
-    // Setzt das Rahmenformat für jede Zelle
+    // Setzt das Randformat für jede Zelle
     foreach (IRow row in tbl.Rows)
     {
         foreach (ICell cell in row)
@@ -121,54 +136,62 @@ using (Presentation pres = new Presentation())
         }
     }
 
-    // Speichert die Präsentation auf der Festplatte
+    // Speichert die Präsentation auf dem Datenträger
     pres.Save("StandardTables_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-## **Access Existing Table**
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑Klasse.  
-2. Holen Sie sich eine Referenz auf die Folie, die die Tabelle enthält, über ihren Index.  
-3. Erstellen Sie ein [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/)‑Objekt und setzen Sie es auf null.  
-4. Iterieren Sie über alle [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/)‑Objekte, bis die Tabelle gefunden wird.  
-   Wenn Sie vermuten, dass die Folie nur eine einzige Tabelle enthält, können Sie einfach alle enthaltenen Shapes prüfen. Wird ein Shape als Tabelle identifiziert, können Sie es in ein [Table](https://reference.aspose.com/slides/net/aspose.slides/table/)‑Objekt casten. Enthält die Folie jedoch mehrere Tabellen, empfiehlt sich die Suche nach der gewünschten Tabelle über deren [AlternativeText](https://reference.aspose.com/slides/net/aspose.slides/ishape/alternativetext/).  
-5. Verwenden Sie das [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/)‑Objekt, um mit der Tabelle zu arbeiten. Im folgenden Beispiel haben wir der Tabelle eine neue Zeile hinzugefügt.  
+## **Zugriff auf vorhandene Tabelle**
+
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
+
+2. Holen Sie sich eine Referenz auf die Folie, die die Tabelle enthält, über ihren Index. 
+
+3. Erstellen Sie ein [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/)‑Objekt und setzen Sie es auf null.
+
+4. Iterieren Sie über alle [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/)‑Objekte, bis die Tabelle gefunden wird.
+
+   Wenn Sie vermuten, dass die betreffende Folie nur eine einzige Tabelle enthält, können Sie einfach alle darin enthaltenen Shapes prüfen. Wird ein Shape als Tabelle identifiziert, können Sie es in ein [Table](https://reference.aspose.com/slides/net/aspose.slides/table/)‑Objekt umwandeln. Enthält die Folie jedoch mehrere Tabellen, sollten Sie die gewünschte Tabelle über deren [AlternativeText](https://reference.aspose.com/slides/net/aspose.slides/ishape/alternativetext/) suchen.
+
+5. Verwenden Sie das [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/)‑Objekt, um mit der Tabelle zu arbeiten. Im folgenden Beispiel haben wir der Tabelle eine neue Zeile hinzugefügt.
+
 6. Speichern Sie die geänderte Präsentation.
 
 Dieser C#‑Code zeigt, wie Sie auf eine vorhandene Tabelle zugreifen und mit ihr arbeiten:
 ```c#
-// Instanziiert eine Presentation-Klasse, die eine PPTX-Datei darstellt
+ // Instanziiert eine Presentation‑Klasse, die eine PPTX‑Datei darstellt
 using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 {
-
+ 
     // Greift auf die erste Folie zu
     ISlide sld = pres.Slides[0];
-
+ 
     // Initialisiert null TableEx
     ITable tbl = null;
-
+ 
     // Durchläuft die Shapes und setzt eine Referenz auf die gefundene Tabelle
     foreach (IShape shp in sld.Shapes)
         if (shp is ITable)
             tbl = (ITable)shp;
-
+ 
     // Setzt den Text für die erste Spalte der zweiten Zeile
     tbl[0, 1].TextFrame.Text = "New";
-
-    // Speichert die geänderte Präsentation auf der Festplatte
+ 
+    // Speichert die geänderte Präsentation auf dem Datenträger
     pres.Save("table1_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
 
-## **Align Text in Table**
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑Klasse.  
-2. Holen Sie sich eine Referenz auf die Folie über ihren Index.  
-3. Fügen Sie der Folie ein [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/)‑Objekt hinzu.  
-4. Greifen Sie vom Tisch ein [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/)‑Objekt ab.  
-5. Greifen Sie auf das [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) des [ITextFrame] zu.  
-6. Richten Sie den Text vertikal aus.  
+## **Text in Tabelle ausrichten**
+
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
+2. Holen Sie sich eine Referenz auf eine Folie über ihren Index. 
+3. Fügen Sie der Folie ein [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/)‑Objekt hinzu. 
+4. Greifen Sie aus der Tabelle auf ein [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/)‑Objekt zu. 
+5. Greifen Sie auf das [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) des [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) zu.
+6. Richten Sie den Text vertikal aus.
 7. Speichern Sie die geänderte Präsentation.
 
 Dieser C#‑Code zeigt, wie Sie den Text in einer Tabelle ausrichten:
@@ -211,14 +234,15 @@ presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Set Text Formatting on Table Level**
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑Klasse.  
-2. Holen Sie sich eine Referenz auf die Folie über ihren Index.  
-3. Greifen Sie vom Slide ein [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/)‑Objekt ab.  
-4. Setzen Sie die [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) für den Text.  
-5. Setzen Sie die [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) und [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/).  
-6. Setzen Sie den [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/).  
-7. Speichern Sie die geänderte Präsentation.
+## **Textformatierung auf Tabellenebene festlegen**
+
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. Holen Sie sich eine Referenz auf eine Folie über ihren Index. 
+3. Greifen Sie vom Slide aus auf ein [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/)‑Objekt zu.
+4. Setzen Sie die [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) für den Text. 
+5. Setzen Sie die [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) und [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/). 
+6. Setzen Sie den [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/).
+7. Speichern Sie die geänderte Präsentation. 
 
 Dieser C#‑Code zeigt, wie Sie Ihre bevorzugten Formatierungsoptionen auf den Text in einer Tabelle anwenden:
 ```c#
@@ -226,7 +250,7 @@ Dieser C#‑Code zeigt, wie Sie Ihre bevorzugten Formatierungsoptionen auf den T
 Presentation presentation = new Presentation();
 ISlide slide = presentation.Slides[0];
 
-ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // Wir gehen davon aus, dass das erste Shape auf der ersten Folie eine Tabelle ist
+ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // Angenommen, das erste Shape auf der ersten Folie ist eine Tabelle
 
 // Setzt die Schriftgröße der Tabellenzellen
 PortionFormat portionFormat = new PortionFormat();
@@ -249,22 +273,24 @@ presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 
-## **Get Table Style Properties**
-Aspose.Slides ermöglicht das Abrufen der Stil‑Eigenschaften einer Tabelle, sodass Sie diese Details für eine andere Tabelle oder an anderer Stelle verwenden können. Dieser C#‑Code zeigt, wie Sie die Stil‑Eigenschaften aus einem Tabellenvorlagenstil erhalten:
+## **Tabellenstil‑Eigenschaften abrufen**
+
+Aspose.Slides ermöglicht es Ihnen, die Stil‑Eigenschaften einer Tabelle abzurufen, sodass Sie diese Details für eine andere Tabelle oder an anderer Stelle verwenden können. Dieser C#‑Code zeigt, wie Sie die Stil‑Eigenschaften aus einem vordefinierten Tabellensstil erhalten: 
 ```c#
 using (Presentation pres = new Presentation())
 {
     ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.StylePreset = TableStylePreset.DarkStyle1; // ändert das Standard‑Stil‑Preset 
+    table.StylePreset = TableStylePreset.DarkStyle1; // Ändert das Standard-Stilpreset-Theme
     pres.Save("table.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-## **Lock Aspect Ratio of Table**
-Das Seitenverhältnis einer geometrischen Form ist das Verhältnis ihrer Größen in verschiedenen Dimensionen. Aspose.Slides stellt die Eigenschaft `AspectRatioLocked` bereit, um das Seitenverhältnis von Tabellen und anderen Formen zu sperren.
+## **Seitenverhältnis einer Tabelle sperren**
 
-Dieser C#‑Code zeigt, wie Sie das Seitenverhältnis einer Tabelle sperren:
+Das Seitenverhältnis einer geometrischen Form ist das Verhältnis ihrer Größen in verschiedenen Dimensionen. Aspose.Slides stellt die Eigenschaft `AspectRatioLocked` bereit, mit der Sie die Einstellung des Seitenverhältnisses für Tabellen und andere Formen sperren können. 
+
+Dieser C#‑Code zeigt, wie Sie das Seitenverhältnis für eine Tabelle sperren:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -282,11 +308,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **FAQ**
 
-**Can I enable right-to-left (RTL) reading direction for an entire table and the text in its cells?**  
-Ja. Die Tabelle stellt die [RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/table/righttoleft/)‑Eigenschaft bereit, und Absätze besitzen [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/righttoleft/). Die Nutzung beider Eigenschaften stellt die korrekte RTL‑Reihenfolge und -Darstellung innerhalb der Zellen sicher.
+**Kann ich die Leserichtung von rechts nach links (RTL) für eine gesamte Tabelle und den Text in ihren Zellen aktivieren?**
 
-**How can I prevent users from moving or resizing a table in the final file?**  
+Ja. Die Tabelle stellt die Eigenschaft [RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/table/righttoleft/) bereit, und Absätze besitzen [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/righttoleft/). Durch die Verwendung beider wird die korrekte RTL‑Reihenfolge und das Rendering innerhalb der Zellen sichergestellt.
+
+**Wie kann ich verhindern, dass Benutzer eine Tabelle in der finalen Datei verschieben oder die Größe ändern?**
+
 Verwenden Sie [shape locks](/slides/de/net/applying-protection-to-presentation/), um das Verschieben, Ändern der Größe, Auswählen usw. zu deaktivieren. Diese Sperren gelten auch für Tabellen.
 
-**Is inserting an image inside a cell as a background supported?**  
-Ja. Sie können für eine Zelle eine [picture fill](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) festlegen; das Bild füllt die Zelle gemäß dem gewählten Modus (Strecken oder Kacheln).
+**Wird das Einfügen eines Bildes als Hintergrund in einer Zelle unterstützt?**
+
+Ja. Sie können für eine Zelle eine [picture fill](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) festlegen; das Bild füllt die Zellenfläche gemäß dem gewählten Modus (Dehnen oder Kacheln).

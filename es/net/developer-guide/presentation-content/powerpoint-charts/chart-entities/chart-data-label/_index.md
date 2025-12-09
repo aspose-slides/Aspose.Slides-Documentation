@@ -1,16 +1,28 @@
 ---
-title: Etiqueta de datos del gráfico
+title: Gestionar etiquetas de datos de gráficos en presentaciones en .NET
+linktitle: Etiqueta de datos
 type: docs
 url: /es/net/chart-data-label/
-keywords: "Etiqueta de datos del gráfico,distancia de etiqueta, C#, Csharp, Aspose.Slides for .NET"
-description: "Establecer etiqueta de datos del gráfico de PowerPoint y distancia en C# o .NET"
+keywords:
+- gráfico
+- etiqueta de datos
+- precisión de datos
+- porcentaje
+- distancia de etiqueta
+- ubicación de etiqueta
+- PowerPoint
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Aprenda a agregar y dar formato a las etiquetas de datos de gráficos en presentaciones de PowerPoint usando Aspose.Slides para .NET para obtener diapositivas más atractivas."
 ---
 
-Las etiquetas de datos en un gráfico muestran detalles sobre las series de datos del gráfico o puntos de datos individuales. Permiten a los lectores identificar rápidamente las series de datos y también hacen que los gráficos sean más fáciles de entender.
+Las etiquetas de datos en un gráfico muestran detalles sobre las series de datos del gráfico o puntos de datos individuales. Permiten a los lectores identificar rápidamente las series de datos y también facilitan la comprensión de los gráficos.
 
-## **Establecer la precisión de los datos en las etiquetas de datos del gráfico**
+## **Establecer precisión de los datos en etiquetas de datos del gráfico**
 
-Este código C# le muestra cómo establecer la precisión de los datos en una etiqueta de datos del gráfico:
+Este código C# muestra cómo establecer la precisión de los datos en una etiqueta de datos del gráfico:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -77,14 +89,14 @@ presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Establecer el signo de porcentaje en las etiquetas de datos del gráfico**
+## **Establecer signo de porcentaje con etiquetas de datos del gráfico**
 
-Este código C# le muestra cómo establecer el signo de porcentaje para una etiqueta de datos del gráfico:
+Este código C# muestra cómo establecer el signo de porcentaje para una etiqueta de datos del gráfico:
 ```c#
 // Crea una instancia de la clase Presentation
 Presentation presentation = new Presentation();
 
-// Obtiene la referencia de una diapositiva a través de su índice
+// Obtiene la referencia de una diapositiva mediante su índice
 ISlide slide = presentation.Slides[0];
 
 // Crea el gráfico PercentsStackedColumn en una diapositiva
@@ -97,10 +109,10 @@ chart.Axes.VerticalAxis.NumberFormat = "0.00%";
 chart.ChartData.Series.Clear();
 int defaultWorksheetIndex = 0;
 
-// Obtiene la hoja de cálculo de datos del gráfico
+// Obtiene la hoja de datos del gráfico
 IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-// Agrega una nueva serie
+// Añade una nueva serie
 IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.Type);
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 1, 0.30));
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 1, 0.50));
@@ -120,14 +132,14 @@ series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillTyp
 series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
 series.Labels.DefaultDataLabelFormat.ShowValue = true;
 
-// Agrega una nueva serie
+// Añade una nueva serie
 IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.Type);
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 2, 0.70));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 2, 0.50));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 2, 0.20));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 2, 0.35));
 
-// Establece el tipo de relleno y el color
+// Establece el tipo y color de relleno
 series2.Format.Fill.FillType = FillType.Solid;
 series2.Format.Fill.SolidFillColor.Color = Color.Blue;
 series2.Labels.DefaultDataLabelFormat.ShowValue = true;
@@ -137,14 +149,14 @@ series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
 series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
 series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
 
-// Escribe la presentación en disco
+// Guarda la presentación en disco
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Establecer la distancia de la etiqueta desde el eje**
+## **Establecer distancia de la etiqueta desde el eje**
 
-Este código C# le muestra cómo establecer la distancia de la etiqueta desde un eje de categorías cuando se trabaja con un gráfico trazado a partir de ejes:
+Este código C# muestra cómo establecer la distancia de la etiqueta desde un eje de categorías cuando se trabaja con un gráfico trazado a partir de ejes:
 ```c#
 // Crea una instancia de la clase Presentation
 Presentation presentation = new Presentation();
@@ -163,11 +175,11 @@ presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Ajustar la ubicación de la etiqueta**
+## **Ajustar ubicación de la etiqueta**
 
-Cuando crea un gráfico que no depende de ningún eje, como un gráfico de pastel, las etiquetas de datos del gráfico pueden quedar demasiado cerca de su borde. En tal caso, debe ajustar la ubicación de la etiqueta de datos para que las líneas de guía se muestren claramente.
+Cuando crea un gráfico que no depende de ningún eje, como un gráfico circular, las etiquetas de datos del gráfico pueden quedar demasiado cerca de su borde. En tal caso, debe ajustar la ubicación de la etiqueta de datos para que las líneas de guía se muestren claramente.
 
-Este código C# le muestra cómo ajustar la ubicación de la etiqueta en un gráfico de pastel: 
+Este código C# muestra cómo ajustar la ubicación de la etiqueta en un gráfico circular:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -186,18 +198,18 @@ using (Presentation pres = new Presentation())
 ```
 
 
-![gráfico-de-pastel-etiqueta-ajustada](pie-chart-adjusted-label.png)
+![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
 
-## **Preguntas frecuentes**
+## **FAQ**
 
 **¿Cómo puedo evitar que las etiquetas de datos se superpongan en gráficos densos?**
 
-Combine la colocación automática de etiquetas, líneas de guía y un tamaño de fuente reducido; si es necesario, oculte algunos campos (por ejemplo, la categoría) o muestre etiquetas solo para los puntos extremos/clave.
+Combine la colocación automática de etiquetas, líneas de guía y reducción del tamaño de fuente; si es necesario, oculte algunos campos (por ejemplo, la categoría) o muestre etiquetas solo para puntos extremos o clave.
 
-**¿Cómo puedo desactivar las etiquetas solo para valores cero, negativos o vacíos?**
+**¿Cómo puedo desactivar etiquetas solo para valores cero, negativos o vacíos?**
 
-Filtre los puntos de datos antes de habilitar las etiquetas y desactive la visualización para valores de 0, valores negativos o valores ausentes según una regla definida.
+Filtre los puntos de datos antes de habilitar las etiquetas y desactive la visualización para valores 0, valores negativos o valores faltantes según una regla definida.
 
-**¿Cómo puedo asegurar un estilo de etiqueta consistente al exportar a PDF/imagenes?**
+**¿Cómo puedo garantizar un estilo de etiqueta coherente al exportar a PDF/imagenes?**
 
-Establezca explícitamente las fuentes (familia, tamaño) y verifique que la fuente esté disponible en el lado de renderizado para evitar sustituciones.
+Establezca explícitamente las fuentes (familia, tamaño) y verifique que la fuente esté disponible en el lado de renderizado para evitar el uso de fuentes de reemplazo.

@@ -1,13 +1,23 @@
 ---
-title: コールアウト
+title: ".NET のプレゼンテーション チャートでコールアウトを管理する"
+linktitle: "コールアウト"
 type: docs
 url: /ja/net/callout/
-keywords: "チャート コールアウト, チャート データ ラベル, C#, Csharp, Aspose.Slides for .NET"
-description: "PowerPoint のチャートコールアウトとデータラベル（C# または .NET）"
+keywords:
+- "チャート コールアウト"
+- "コールアウトの使用"
+- "データ ラベル"
+- "ラベル形式"
+- "PowerPoint"
+- "プレゼンテーション"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides for .NET を使用して、PPT と PPTX に対応した簡潔な C# コード例でコールアウトを作成およびスタイル設定し、プレゼンテーション ワークフローを自動化します。"
 ---
 
-## **Callouts の使用**
-新しいプロパティ **ShowLabelAsDataCallout** が **DataLabelFormat** クラスおよび **IDataLabelFormat** インターフェイスに追加され、指定したチャートのデータラベルをデータコールアウトとして表示するかデータラベルとして表示するかを決定します。以下の例では、コールアウトを設定しています。
+## **Using Callouts**
+新しいプロパティ **ShowLabelAsDataCallout** が **DataLabelFormat** クラスと **IDataLabelFormat** インターフェイスに追加されました。このプロパティは、指定したチャートのデータラベルをデータコールアウトとして表示するか、データラベルとして表示するかを決定します。以下の例では、コールアウトを設定しています。
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -22,8 +32,8 @@ using (Presentation presentation = new Presentation())
 
 
 
-## **ドーナツ チャートのコールアウト設定**
-Aspose.Slides for .NET は、ドーナツ チャートの系列データラベルコールアウト形状の設定をサポートします。以下にサンプル例を示します。
+## **Set Callout for Doughnut Chart**
+Aspose.Slides for .NET は、ドーナツチャートの系列データラベルコールアウト形状の設定をサポートしています。以下にサンプル例を示します。
 ```c#
 Presentation pres = new Presentation("testc.pptx");
 ISlide slide = pres.Slides[0];
@@ -86,10 +96,10 @@ pres.Save("chart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ## **FAQ**
 
-**プレゼンテーションを PDF、HTML5、SVG、または画像に変換するときにコールアウトは保持されますか？**
+**Are callouts preserved when converting a presentation to PDF, HTML5, SVG, or images?**
 
-はい。コールアウトはチャートのレンダリングの一部であるため、[PDF](/slides/ja/net/convert-powerpoint-to-pdf/)、[HTML5](/slides/ja/net/export-to-html5/)、[SVG](/slides/ja/net/render-a-slide-as-an-svg-image/)、または[raster images](/slides/ja/net/convert-powerpoint-to-png/) にエクスポートすると、スライドの書式設定とともに保持されます。
+はい。コールアウトはチャートのレンダリングの一部であるため、[PDF](/slides/ja/net/convert-powerpoint-to-pdf/)、[HTML5](/slides/ja/net/export-to-html5/)、[SVG](/slides/ja/net/render-a-slide-as-an-svg-image/)、または[ラスタ画像](/slides/ja/net/convert-powerpoint-to-png/) にエクスポートする際、スライドの書式とともに保持されます。
 
-**カスタムフォントはコールアウトで機能しますか、エクスポート時に外観を保持できますか？**
+**Do custom fonts work in callouts, and can their appearance be preserved on export?**
 
-はい。Aspose.Slides はプレゼンテーションへの[フォントの埋め込み](/slides/ja/net/embedded-font/)をサポートし、[PDF](/slides/ja/net/convert-powerpoint-to-pdf/) などのエクスポート時にフォント埋め込みを制御するため、異なるシステム間でもコールアウトの外観が同じになります。
+はい。Aspose.Slides はプレゼンテーションへの[フォント埋め込み](/slides/ja/net/embedded-font/) をサポートしており、[PDF](/slides/ja/net/convert-powerpoint-to-pdf/) などへのエクスポート時にフォント埋め込みを制御します。その結果、コールアウトは異なるシステム間でも同じ外観が保たれます。

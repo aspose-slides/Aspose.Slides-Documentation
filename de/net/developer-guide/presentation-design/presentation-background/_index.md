@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Präsentationshintergründen in C#
+title: Präsentationshintergründe in .NET verwalten
 linktitle: Folienhintergrund
 type: docs
 weight: 20
@@ -11,45 +11,45 @@ keywords:
 - Verlaufsfarbe
 - Bildhintergrund
 - Hintergrundtransparenz
-- Hintergrundeigenschaften
+- Hintergrund-Eigenschaften
 - PowerPoint
 - OpenDocument
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie dynamische Hintergründe in PowerPoint- und OpenDocument-Dateien mit Aspose.Slides für .NET festlegen, samt Code‑Tipps zur Verbesserung Ihrer Präsentationen."
+description: "Erfahren Sie, wie Sie dynamische Hintergründe in PowerPoint- und OpenDocument-Dateien mit Aspose.Slides für .NET festlegen, inklusive Code‑Tipps zur Verbesserung Ihrer Präsentationen."
 ---
 
-## **Übersicht**
+## **Überblick**
 
-Einfarbige Farben, Verläufe und Bilder werden häufig als Folienhintergründe verwendet. Sie können den Hintergrund für eine **normale Folie** (einzelne Folie) oder eine **Masterfolie** (gilt für mehrere Folien gleichzeitig) festlegen.
+Einfarbige Farben, Verläufe und Bilder werden häufig für Folienhintergründe verwendet. Sie können den Hintergrund für eine **normale Folie** (eine einzelne Folie) oder eine **Masterfolie** (gilt für mehrere Folien gleichzeitig) festlegen.
 
 ![PowerPoint-Hintergrund](powerpoint-background.png)
 
 ## **Einfarbigen Hintergrund für eine normale Folie festlegen**
 
-Aspose.Slides ermöglicht das Festlegen einer einfarbigen Hintergrundfarbe für eine bestimmte Folie in einer Präsentation – selbst wenn die Präsentation eine Masterfolie verwendet. Die Änderung gilt nur für die ausgewählte Folie.
+Aspose.Slides ermöglicht es Ihnen, eine einfarbige Farbe als Hintergrund für eine bestimmte Folie in einer Präsentation festzulegen – selbst wenn die Präsentation eine Masterfolie verwendet. Die Änderung wirkt nur auf die ausgewählte Folie.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑Klasse.
-2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) der Folie auf `OwnBackground`.
-3. Setzen Sie den [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) des Folienhintergrunds auf `Solid`.
-4. Verwenden Sie die [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/)‑Eigenschaft von [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/), um die einfarbige Hintergrundfarbe anzugeben.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) der Folie auf `OwnBackground` .
+3. Setzen Sie den Folienhintergrund [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) auf `Solid` .
+4. Verwenden Sie die Eigenschaft [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) von [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) , um die einfarbige Hintergrundfarbe festzulegen.
 5. Speichern Sie die geänderte Präsentation.
 
-Das folgende C#‑Beispiel zeigt, wie Sie für eine normale Folie eine blaue einfarbige Hintergrundfarbe festlegen:
+Das folgende C#‑Beispiel zeigt, wie man eine blaue einfarbige Farbe als Hintergrund für eine normale Folie festlegt:
 ```cs
-// Erstelle eine Instanz der Presentation-Klasse.
+// Erstellen Sie eine Instanz der Presentation-Klasse.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Setze die Hintergrundfarbe der Folie auf Blau.
+    // Setzen Sie die Hintergrundfarbe der Folie auf Blau.
     slide.Background.Type = BackgroundType.OwnBackground;
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Blue;
 
-    // Speichere die Präsentation auf dem Datenträger.
+    // Speichern Sie die Präsentation auf dem Datenträger.
     presentation.Save("SolidColorBackground.pptx", SaveFormat.Pptx);
 }
 ```
@@ -57,27 +57,27 @@ using (Presentation presentation = new Presentation())
 
 ## **Einfarbigen Hintergrund für die Masterfolie festlegen**
 
-Aspose.Slides ermöglicht das Festlegen einer einfarbigen Hintergrundfarbe für die Masterfolie in einer Präsentation. Die Masterfolie dient als Vorlage, die die Formatierung aller Folien steuert. Wenn Sie also eine einfarbige Hintergrundfarbe für die Masterfolie festlegen, gilt sie für jede Folie.
+Aspose.Slides ermöglicht es Ihnen, eine einfarbige Farbe als Hintergrund für die Masterfolie in einer Präsentation festzulegen. Die Masterfolie fungiert als Vorlage, die die Formatierung für alle Folien steuert, sodass die Wahl einer einfarbigen Farbe für den Hintergrund der Masterfolie auf jeder Folie angewendet wird.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑Klasse.
-2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) der Masterfolie (über `masters`) auf `OwnBackground`.
-3. Setzen Sie den [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) des Masterfolienhintergrunds auf `Solid`.
-4. Verwenden Sie die [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/), um die einfarbige Hintergrundfarbe anzugeben.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) der Masterfolie (über `masters`) auf `OwnBackground` .
+3. Setzen Sie den Masterfolien‑Hintergrund [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) auf `Solid` .
+4. Verwenden Sie [SolidFillColor], um die einfarbige Hintergrundfarbe festzulegen.
 5. Speichern Sie die geänderte Präsentation.
 
-Das folgende C#‑Beispiel zeigt, wie Sie für die Masterfolie eine einfarbige Hintergrundfarbe (Waldgrün) festlegen:
+Das folgende C#‑Beispiel zeigt, wie man eine einfarbige (waldgrüne) Farbe als Hintergrund für eine Masterfolie festlegt:
 ```cs
-// Erstelle eine Instanz der Presentation-Klasse.
+// Erstellen Sie eine Instanz der Presentation-Klasse.
 using (Presentation presentation = new Presentation())
 {
     IMasterSlide masterSlide = presentation.Masters[0];
 
-    // Setze die Hintergrundfarbe der Masterfolie auf Waldgrün.
+    // Setzen Sie die Hintergrundfarbe der Masterfolie auf Waldgrün.
     masterSlide.Background.Type = BackgroundType.OwnBackground;
     masterSlide.Background.FillFormat.FillType = FillType.Solid;
     masterSlide.Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
 
-    // Speichere die Präsentation auf dem Datenträger.
+    // Speichern Sie die Präsentation auf dem Datenträger.
     presentation.Save("MasterSlideBackground.pptx", SaveFormat.Pptx);
 }
 ```
@@ -85,71 +85,71 @@ using (Presentation presentation = new Presentation())
 
 ## **Verlaufs‑Hintergrund für eine Folie festlegen**
 
-Ein Verlauf ist ein grafischer Effekt, der durch einen schrittweisen Farbwechsel entsteht. Als Folienhintergrund können Verläufe Präsentationen künstlerischer und professioneller wirken lassen. Aspose.Slides ermöglicht das Festlegen eines Verlaufs als Folienhintergrund.
+Ein Verlauf ist ein grafischer Effekt, der durch einen allmählichen Farbwechsel entsteht. Als Folienhintergrund verwendet, können Verläufe Präsentationen künstlerischer und professioneller wirken lassen. Aspose.Slides ermöglicht es Ihnen, eine Farbverlauf als Hintergrund für Folien festzulegen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑Klasse.
-2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) der Folie auf `OwnBackground`.
-3. Setzen Sie den [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) des Folienhintergrunds auf `Gradient`.
-4. Verwenden Sie die [GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/gradientformat/)-Eigenschaft von [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/), um Ihre gewünschten Verlaufeinstellungen zu konfigurieren.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) der Folie auf `OwnBackground` .
+3. Setzen Sie den Folienhintergrund [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) auf `Gradient` .
+4. Verwenden Sie die Eigenschaft [GradientFormat] von [FillFormat], um Ihre gewünschten Verlaufseinstellungen zu konfigurieren.
 5. Speichern Sie die geänderte Präsentation.
 
-Das folgende C#‑Beispiel zeigt, wie Sie für eine Folie einen Verlauf als Hintergrundfarbe festlegen:
+Das folgende C#‑Beispiel zeigt, wie man eine Verlauffarbe als Hintergrund für eine Folie festlegt:
 ```cs
-// Erstelle eine Instanz der Presentation-Klasse.
+// Erstellen Sie eine Instanz der Presentation-Klasse.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Wende einen Verlaufseffekt auf den Hintergrund an.
+    // Wenden Sie einen Verlaufseffekt auf den Hintergrund an.
     slide.Background.Type = BackgroundType.OwnBackground;
     slide.Background.FillFormat.FillType = FillType.Gradient;
     slide.Background.FillFormat.GradientFormat.TileFlip = TileFlip.FlipBoth;
 
-    // Speichere die Präsentation auf dem Datenträger.
+    // Speichern Sie die Präsentation auf dem Datenträger.
     presentation.Save("GradientBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-## **Bild als Folienhintergrund festlegen**
+## **Ein Bild als Folienhintergrund festlegen**
 
-Zusätzlich zu einfarbigen und Verlauf‑Füllungen ermöglicht Aspose.Slides die Verwendung von Bildern als Folienhintergründe.
+Zusätzlich zu einfarbigen und Verlaufs‑Füllungen ermöglicht Aspose.Slides die Verwendung von Bildern als Folienhintergründe.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑Klasse.
-2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) der Folie auf `OwnBackground`.
-3. Setzen Sie den [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) des Folienhintergrunds auf `Picture`.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) der Folie auf `OwnBackground` .
+3. Setzen Sie den Folienhintergrund [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) auf `Picture` .
 4. Laden Sie das Bild, das Sie als Folienhintergrund verwenden möchten.
-5. Fügen Sie das Bild der Bildsammlung der Präsentation hinzu.
-6. Verwenden Sie die [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/picturefillformat/)-Eigenschaft von [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/), um das Bild als Hintergrund zuzuweisen.
+5. Fügen Sie das Bild zur Bildsammlung der Präsentation hinzu.
+6. Verwenden Sie die Eigenschaft [PictureFillFormat] von [FillFormat], um das Bild als Hintergrund zuzuweisen.
 7. Speichern Sie die geänderte Präsentation.
 
-Das folgende C#‑Beispiel zeigt, wie Sie ein Bild als Hintergrund für eine Folie festlegen:
+Das folgende C#‑Beispiel zeigt, wie man ein Bild als Hintergrund für eine Folie festlegt:
 ```c#
-// Erstelle eine Instanz der Presentation-Klasse.
+// Erstellen Sie eine Instanz der Presentation-Klasse.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Setze die Eigenschaften des Hintergrundbildes.
+    // Setzen Sie die Eigenschaften des Hintergrundbilds.
     slide.Background.Type = BackgroundType.OwnBackground;
     slide.Background.FillFormat.FillType = FillType.Picture;
     slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
 
-    // Lade das Bild.
+    // Laden Sie das Bild.
     IImage image = Images.FromFile("Tulips.jpg");
-    // Füge das Bild zur Bildsammlung der Präsentation hinzu.
+    // Fügen Sie das Bild zur Bildsammlung der Präsentation hinzu.
     IPPImage ppImage = presentation.Images.AddImage(image);
     image.Dispose();
 
     slide.Background.FillFormat.PictureFillFormat.Picture.Image = ppImage;
 
-    // Speichere die Präsentation auf dem Datenträger.
+    // Speichern Sie die Präsentation auf dem Datenträger.
     presentation.Save("ImageAsBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-Das folgende Code‑Beispiel zeigt, wie Sie den Hintergrund‑Fülltyp auf ein gekacheltes Bild setzen und die Kachel‑Eigenschaften ändern:
+Das folgende Codebeispiel zeigt, wie man den Hintergrund‑Fülltyp auf ein gekacheltes Bild setzt und die Kachel‑Eigenschaften ändert:
 ```cs
 using (Presentation presentation = new Presentation())
 {
@@ -164,11 +164,11 @@ using (Presentation presentation = new Presentation())
     using (IImage newImage = Aspose.Slides.Images.FromFile("image.png"))
         ppImage = presentation.Images.AddImage(newImage);
 
-    // Setze das Bild, das für die Hintergrundfüllung verwendet wird.
+    // Setzen Sie das Bild, das für die Hintergrundfüllung verwendet wird.
     IPictureFillFormat backPictureFillFormat = background.FillFormat.PictureFillFormat;
     backPictureFillFormat.Picture.Image = ppImage;
 
-    // Setze den Bildfüllungsmodus auf Kachel und passe die Kacheleigenschaften an.
+    // Setzen Sie den Bildfüllmodus auf Kachel und passen Sie die Kacheleigenschaften an.
     backPictureFillFormat.PictureFillMode = PictureFillMode.Tile;
     backPictureFillFormat.TileOffsetX = 15f;
     backPictureFillFormat.TileOffsetY = 15f;
@@ -183,19 +183,19 @@ using (Presentation presentation = new Presentation())
 
 
 {{% alert color="primary" %}}
-Mehr lesen: [**Kachelbild als Textur**](/slides/de/net/shape-formatting/#tile-picture-as-texture).
+Mehr lesen: [**Bild als Textur kacheln**](/slides/de/net/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
 ### **Transparenz des Hintergrundbildes ändern**
 
-Möglicherweise möchten Sie die Transparenz eines Folienhintergrundbildes anpassen, damit der Inhalt der Folie besser hervorsticht. Der folgende C#‑Code zeigt, wie Sie die Transparenz für ein Folienhintergrundbild ändern:
+Möglicherweise möchten Sie die Transparenz des Hintergrundbildes einer Folie anpassen, um den Inhalt der Folie hervorzuheben. Der folgende C#‑Code zeigt, wie Sie die Transparenz eines Folien‑Hintergrundbildes ändern:
 ```cs
 var transparencyValue = 30; // Zum Beispiel.
 
-// Get the collection of picture transform operations.
+// Holen Sie die Sammlung der Bildtransformationsoperationen.
 var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
 
-// Find an existing fixed-percentage transparency effect.
+// Suchen Sie einen vorhandenen Transparenzeffekt mit festem Prozentsatz.
 var transparencyOperation = null as IAlphaModulateFixed;
 foreach (var operation in imageTransform)
 {
@@ -206,7 +206,7 @@ foreach (var operation in imageTransform)
     }
 }
 
-// Set the new transparency value.
+// Setzen Sie den neuen Transparenzwert.
 if (transparencyOperation == null)
 {
     imageTransform.AddAlphaModulateFixedEffect(100 - transparencyValue);
@@ -218,20 +218,20 @@ else
 ```
 
 
-## **Wert des Folienhintergrunds abrufen**
+## **Den Folienhintergrundwert abrufen**
 
-Aspose.Slides stellt das Interface [IBackgroundEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/) zum Abrufen der effektiven Hintergrundwerte einer Folie bereit. Dieses Interface gibt das effektive [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/fillformat/) und [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/effectformat/) frei.
+Aspose.Slides stellt die Schnittstelle [IBackgroundEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/) zur Verfügung, um die effektiven Hintergrundwerte einer Folie abzurufen. Diese Schnittstelle stellt das effektive [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/fillformat/) und [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/effectformat/) bereit.
 
-Über die `background`‑Eigenschaft der Klasse [BaseSlide](https://reference.aspose.com/slides/net/aspose.slides/baseslide/) können Sie den effektiven Hintergrund einer Folie erhalten.
+Mit der `background`‑Eigenschaft der Klasse [BaseSlide](https://reference.aspose.com/slides/net/aspose.slides/baseslide/) können Sie den effektiven Hintergrund einer Folie erhalten.
 
-Das folgende C#‑Beispiel zeigt, wie Sie den effektiven Hintergrundwert einer Folie abrufen:
+Das folgende C#‑Beispiel zeigt, wie man den effektiven Hintergrundwert einer Folie abruft:
 ```cs
-// Erstelle eine Instanz der Presentation-Klasse.
+// Erstellen Sie eine Instanz der Presentation-Klasse.
 using (Presentation presentation = new Presentation("Sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];  
 
-    // Rufe den effektiven Hintergrund ab, wobei Master, Layout und Theme berücksichtigt werden.
+    // Rufen Sie den effektiven Hintergrund ab, wobei Master-, Layout- und Theme-Einstellungen berücksichtigt werden.
     IBackgroundEffectiveData effBackground = slide.Background.GetEffective();
 
     if (effBackground.FillFormat.FillType == FillType.Solid)
@@ -244,10 +244,10 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 
 ## **FAQ**
 
-**Kann ich einen benutzerdefinierten Hintergrund zurücksetzen und den Theme-/Layout‑Hintergrund wiederherstellen?**
+**Kann ich einen benutzerdefinierten Hintergrund zurücksetzen und den Themen-/Layout‑Hintergrund wiederherstellen?**
 
-Ja. Entfernen Sie die benutzerdefinierte Füllung der Folie, und der Hintergrund wird wieder vom entsprechenden [Layout](/slides/de/net/slide-layout/)/[Master](/slides/de/net/slide-master/)-Folie (d. h. dem [Theme‑Hintergrund](/slides/de/net/presentation-theme/)) geerbt.
+Ja. Entfernen Sie die benutzerdefinierte Füllung der Folie, und der Hintergrund wird erneut vom entsprechenden [layout](/slides/de/net/slide-layout/)/[master](/slides/de/net/slide-master/)‑Slide (d. h. dem [theme background](/slides/de/net/presentation-theme/)) geerbt.
 
-**Was passiert mit dem Hintergrund, wenn ich später das Theme der Präsentation ändere?**
+**Was passiert mit dem Hintergrund, wenn ich das Design der Präsentation später ändere?**
 
-Hat eine Folie ihre eigene Füllung, bleibt diese unverändert. Wird der Hintergrund vom [Layout](/slides/de/net/slide-layout/)/[Master](/slides/de/net/slide-master/) geerbt, wird er an das [neue Theme](/slides/de/net/presentation-theme/) angepasst.
+Hat eine Folie ihre eigene Füllung, bleibt sie unverändert. Wird der Hintergrund vom [layout](/slides/de/net/slide-layout/)/[master](/slides/de/net/slide-master/)‑Slide geerbt, wird er aktualisiert, um dem [new theme](/slides/de/net/presentation-theme/) zu entsprechen.

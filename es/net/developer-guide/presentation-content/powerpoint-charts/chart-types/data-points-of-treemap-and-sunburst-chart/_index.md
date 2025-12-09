@@ -1,14 +1,25 @@
 ---
-title: Puntos de datos del gráfico Treemap y Sunburst
+title: Personalizar puntos de datos en gráficos Treemap y Sunburst en .NET
+linktitle: Puntos de datos en gráficos Treemap y Sunburst
 type: docs
 url: /es/net/data-points-of-treemap-and-sunburst-chart/
-keywords: "Gráfico Sunburst, presentación PowerPoint, C#, Csharp, Aspose.Slides para .NET"
-description: "Agregar gráfico Sunburst en una presentación PowerPoint en C# o .NET"
+keywords:
+- gráfico treemap
+- gráfico sunburst
+- punto de datos
+- color de etiqueta
+- color de rama
+- PowerPoint
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Aprenda cómo administrar los puntos de datos en gráficos treemap y sunburst con Aspose.Slides para .NET, compatible con los formatos de PowerPoint."
 ---
 
-Entre los demás tipos de gráficos de PowerPoint, existen dos tipos "jerárquicos": el gráfico **Treemap** y el gráfico **Sunburst** (también conocido como Gráfico Sunburst, Diagrama Sunburst, Gráfico radial, Gráfico radial o Gráfico circular de varios niveles). Estos gráficos muestran datos jerárquicos organizados como un árbol, desde las hojas hasta la parte superior de la rama. Las hojas se definen mediante los puntos de datos de la serie, y cada nivel de agrupación anidado posterior se define por la categoría correspondiente. Aspose.Slides for .NET permite dar formato a los puntos de datos del gráfico Sunburst y Treemap en C#.
+Entre otros tipos de gráficos de PowerPoint, existen dos tipos “jerárquicos” – **Treemap** y **Sunburst** (chart (también conocido como Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph o Multi Level Pie Chart). Estos gráficos muestran datos jerárquicos organizados como un árbol – de las hojas a la parte superior de la rama. Las hojas se definen por los puntos de datos de la serie, y cada nivel de agrupación anidado posterior se define por la categoría correspondiente. Aspose.Slides for .NET permite dar formato a los puntos de datos de los gráficos Sunburst y Treemap en C#.
 
-Aquí hay un gráfico Sunburst, donde los datos en la columna Series1 definen los nodos hoja, mientras que otras columnas definen los puntos de datos jerárquicos:
+A continuación se muestra un gráfico Sunburst, donde los datos en la columna Series1 definen los nodos hoja, mientras que las demás columnas definen puntos de datos jerárquicos:
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
 
@@ -30,11 +41,11 @@ Si es necesario dar formato a los puntos de datos del gráfico, debemos usar lo 
 
 [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/net/aspose.slides.charts/IChartDataPointLevelsManager), 
 [IChartDataPointLevel](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointlevel) clases 
-y la propiedad [**IChartDataPoint.DataPointLevels**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/properties/datapointlevels) 
-proporcionan acceso para dar formato a los puntos de datos de los gráficos Treemap y Sunburst. 
+y [**IChartDataPoint.DataPointLevels**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/properties/datapointlevels) propiedad 
+proporcionan acceso a dar formato a los puntos de datos de los gráficos Treemap y Sunburst. 
 [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/net/aspose.slides.charts/IChartDataPointLevelsManager) 
-se utiliza para acceder a categorías multinivel; representa el contenedor de objetos 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/net/aspose.slides.charts/IChartDataPointLevel). 
+se usa para acceder a categorías multinivel - representa el contenedor de 
+[**IChartDataPointLevel**](https://reference.aspose.com/slides/net/aspose.slides.charts/IChartDataPointLevel) objetos. 
 Básicamente es un contenedor para 
 [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/net/aspose.slides.charts/IChartCategoryLevelsManager) con 
 las propiedades añadidas específicas para los puntos de datos. 
@@ -44,7 +55,7 @@ dos propiedades: [**Format**](https://reference.aspose.com/slides/net/aspose.sli
 proporcionan acceso a la configuración correspondiente.
 
 ## **Mostrar valor del punto de datos**
-Mostrar el valor del punto de datos "Leaf 4":
+Mostrar el valor del punto de datos “Leaf 4”:
 ```c#
 IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
 dataPoints[3].DataPointLevels[0].Label.DataLabelFormat.ShowValue = true;
@@ -54,7 +65,7 @@ dataPoints[3].DataPointLevels[0].Label.DataLabelFormat.ShowValue = true;
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
 
 ## **Establecer etiqueta y color del punto de datos**
-Establezca la etiqueta del punto de datos "Branch 1" para que muestre el nombre de la serie ("Series1") en lugar del nombre de la categoría. Luego establezca el color del texto a amarillo:
+Establezca la etiqueta de datos de “Branch 1” para que muestre el nombre de la serie (“Series1”) en lugar del nombre de la categoría. Luego establezca el color del texto a amarillo:
 ```c#
 IDataLabel branch1Label = dataPoints[0].DataPointLevels[2].Label;
 branch1Label.DataLabelFormat.ShowCategoryName = false;
@@ -69,7 +80,7 @@ branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.
 
 ## **Establecer color de rama del punto de datos**
 
-Cambie el color de la rama "Stem 4":
+Cambiar el color de la rama “Stem 4”:
 ```csharp
 using (Presentation pres = new Presentation())
 {
@@ -93,13 +104,13 @@ using (Presentation pres = new Presentation())
 
 **¿Puedo cambiar el orden (clasificación) de los segmentos en Sunburst/Treemap?**
 
-No. PowerPoint ordena los segmentos automáticamente (normalmente por valores descendentes, en sentido horario). Aspose.Slides replica este comportamiento: no puede cambiar el orden directamente; debe hacerlo mediante el preprocesamiento de los datos.
+No. PowerPoint ordena los segmentos automáticamente (normalmente por valores descendentes, en sentido horario). Aspose.Slides replica este comportamiento: no se puede cambiar el orden directamente; se logra preprocesando los datos.
 
-**¿Cómo afecta el tema de la presentación a los colores de los segmentos y etiquetas?**
+**¿Cómo afecta el tema de la presentación a los colores de los segmentos y las etiquetas?**
 
-Los colores del gráfico heredan el [tema/paleta](/slides/es/net/presentation-theme/) de la presentación a menos que establezca explícitamente rellenos/fuentes. Para obtener resultados consistentes, fije rellenos sólidos y formato de texto en los niveles requeridos.
+Los colores del gráfico heredan el [tema/paleta](/slides/es/net/presentation-theme/) de la presentación, a menos que establezca explícitamente rellenos/fuentes. Para obtener resultados consistentes, fije rellenos sólidos y el formato de texto en los niveles necesarios.
 
-**¿La exportación a PDF/PNG preservará los colores de rama personalizados y la configuración de etiquetas?**
+**¿La exportación a PDF/PNG conservará los colores de rama personalizados y la configuración de etiquetas?**
 
 Sí. Al exportar la presentación, la configuración del gráfico (rellenos, etiquetas) se conserva en los formatos de salida porque Aspose.Slides renderiza con el formato del gráfico aplicado.
 

@@ -1,16 +1,29 @@
 ---
-title: Gráfico de pastel
+title: Personalizar gráficos de pastel en presentaciones en .NET
+linktitle: Gráfico de pastel
 type: docs
 url: /es/net/pie-chart/
-keywords: "Gráfico de pastel, opciones de trazado, colores de porciones, presentación de PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "Opciones de trazado y colores de porciones del gráfico de pastel en una presentación de PowerPoint en C# o .NET"
+keywords:
+- gráfico de pastel
+- gestionar gráfico
+- personalizar gráfico
+- opciones de gráfico
+- configuración de gráfico
+- opciones de trazado
+- color de segmento
+- PowerPoint
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Aprenda a crear y personalizar gráficos de pastel en .NET con Aspose.Slides, exportables a PowerPoint, impulsando su narración de datos en segundos."
 ---
 
 ## **Opciones de segunda trama para gráficos Pie of Pie y Bar of Pie**
-Aspose.Slides for .NET ahora admite opciones de segunda trama para los gráficos Pie of Pie o Bar of Pie. En este tema, veremos con un ejemplo cómo especificar estas opciones usando Aspose.Slides. Para especificar las propiedades, siga los pasos a continuación:
+Aspose.Slides para .NET ahora admite opciones de segunda trama para gráficos Pie of Pie o Bar of Pie. En este tema, veremos con un ejemplo cómo especificar estas opciones usando Aspose.Slides. Para especificar las propiedades, siga los pasos a continuación:
 
 1. Instanciar el objeto de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Añadir un gráfico a la diapositiva.
+1. Agregar un gráfico en la diapositiva.
 1. Especificar las opciones de segunda trama del gráfico.
 1. Guardar la presentación en disco.
 
@@ -33,26 +46,22 @@ presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
 ```
 
 
-
-
-
-## **Establecer colores automáticos de las secciones del gráfico circular**
-Aspose.Slides for .NET proporciona una API simple para establecer colores automáticos de las secciones del gráfico circular. El código de ejemplo aplica la configuración de las propiedades mencionadas.
+## **Establecer colores automáticos de las porciones del gráfico de pastel**
+Aspose.Slides para .NET ofrece una API sencilla para establecer colores automáticos en las porciones de los gráficos de pastel. El código de ejemplo aplica la configuración de las propiedades mencionadas.
 
 1. Crear una instancia de la clase Presentation.
-2. Acceder a la primera diapositiva.
-3. Añadir un gráfico con datos predeterminados.
-4. Establecer el título del gráfico.
-5. Configurar la primera serie para mostrar valores.
-6. Establecer el índice de la hoja de datos del gráfico.
-7. Obtener la hoja de trabajo de datos del gráfico.
-8. Eliminar las series y categorías generadas por defecto.
-9. Añadir nuevas categorías.
-10. Añadir una nueva serie.
+1. Acceder a la primera diapositiva.
+1. Agregar un gráfico con datos predeterminados.
+1. Establecer el título del gráfico.
+1. Configurar la primera serie para Mostrar valores.
+1. Establecer el índice de la hoja de datos del gráfico.
+1. Obtener la hoja de cálculo de datos del gráfico.
+1. Eliminar las series y categorías generadas por defecto.
+1. Agregar nuevas categorías.
+1. Agregar nuevas series.
 
 Guardar la presentación modificada en un archivo PPTX.
 ```c#
- // Instanciar la clase Presentation que representa un archivo PPTX
 using (Presentation presentation = new Presentation())
 {
 	// Instanciar la clase Presentation que representa un archivo PPTX
@@ -70,13 +79,13 @@ using (Presentation presentation = new Presentation())
 	chart.ChartTitle.Height = 20;
 	chart.HasTitle = true;
 
-	// Establecer la primera serie para mostrar valores
+	// Establecer la primera serie para Mostrar valores
 	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
 	// Configurar el índice de la hoja de datos del gráfico
 	int defaultWorksheetIndex = 0;
 
-	// Obtener la hoja de trabajo de datos del gráfico
+	// Obtener la hoja de cálculo de datos del gráfico
 	IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
 	// Eliminar series y categorías generadas por defecto
@@ -91,7 +100,7 @@ using (Presentation presentation = new Presentation())
 	// Añadir nueva serie
 	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-	// Ahora poblando los datos de la serie
+	// Poblar los datos de la serie
 	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
 	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
 	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
@@ -106,8 +115,8 @@ using (Presentation presentation = new Presentation())
 
 **¿Se admiten las variantes 'Pie of Pie' y 'Bar of Pie'?**
 
-Sí, la biblioteca [admite](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) una trama secundaria para los gráficos circulares, incluidas los tipos 'Pie of Pie' y 'Bar of Pie'.
+Sí, la biblioteca [admite](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) una trama secundaria para gráficos de pastel, incluidas las variantes 'Pie of Pie' y 'Bar of Pie'.
 
-**¿Puedo exportar solo el gráfico como una imagen (por ejemplo, PNG)?**
+**¿Puedo exportar solo el gráfico como imagen (por ejemplo, PNG)?**
 
-Sí, puede [exportar el propio gráfico como una imagen](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (por ejemplo PNG) sin necesidad de toda la presentación.
+Sí, puede [exportar el gráfico como una imagen](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (como PNG) sin toda la presentación.

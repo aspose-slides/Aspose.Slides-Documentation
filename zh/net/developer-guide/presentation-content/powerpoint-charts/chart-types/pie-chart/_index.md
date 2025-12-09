@@ -1,20 +1,33 @@
 ---
-title: 饼图
+title: 在 .NET 中自定义演示文稿的饼图
+linktitle: 饼图
 type: docs
 url: /zh/net/pie-chart/
-keywords: "饼图, 绘图选项, 切片颜色, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
-description: "在 PowerPoint 演示文稿中使用 C# 或 .NET 的饼图绘图选项和切片颜色"
+keywords:
+- 饼图
+- 管理图表
+- 自定义图表
+- 图表选项
+- 图表设置
+- 绘图区选项
+- 切片颜色
+- PowerPoint
+- 演示文稿
+- .NET
+- C#
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides 在 .NET 中创建和自定义饼图，可导出为 PowerPoint，帮助您在几秒钟内提升数据叙事。"
 ---
 
-## **饼图的饼图和条形饼图的第二绘图选项**
-Aspose.Slides for .NET 现在支持饼图的饼图或条形饼图的第二绘图选项。在本主题中，我们将通过示例展示如何使用 Aspose.Slides 指定这些选项。为指定这些属性，请按照以下步骤操作：
+## **Pie of Pie 和 Bar of Pie 图表的第二绘图区选项**
+Aspose.Slides for .NET 现已支持 Pie of Pie 或 Bar of Pie 图表的第二绘图区选项。在本节中，我们将通过示例演示如何使用 Aspose.Slides 指定这些选项。请按以下步骤操作：
 
-1. 实例化 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类对象。
-1. 在幻灯片上添加图表。
-1. 指定图表的第二绘图选项。
+1. 实例化 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类对象。  
+1. 在幻灯片上添加图表。  
+1. 指定图表的第二绘图区选项。  
 1. 将演示文稿写入磁盘。
 
-在下面的示例中，我们已设置饼图的饼图的不同属性。
+在下面的示例中，我们已设置 Pie of Pie 图表的不同属性。  
 ```c#
 // 创建 Presentation 类的实例
 Presentation presentation = new Presentation();
@@ -34,20 +47,20 @@ presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
 
 
 ## **设置自动饼图切片颜色**
-Aspose.Slides for .NET 提供了一个简单的 API 用于设置自动饼图切片颜色。示例代码演示了上述属性的设置。
+Aspose.Slides for .NET 提供了一个简易 API 用于设置自动饼图切片颜色。示例代码演示了如何设置上述属性。
 
-1. 创建 Presentation 类的实例。
-1. 访问第一张幻灯片。
-1. 添加带有默认数据的图表。
-1. 设置图表标题。
-1. 将第一系列设置为显示数值。
-1. 设置图表数据工作表的索引。
-1. 获取图表数据工作表。
-1. 删除默认生成的系列和类别。
-1. 添加新类别。
+1. 创建 Presentation 类的实例。  
+1. 访问第一张幻灯片。  
+1. 添加带有默认数据的图表。  
+1. 设置图表标题。  
+1. 将第一系列设置为显示数值。  
+1. 设置图表数据表的索引。  
+1. 获取图表数据工作表。  
+1. 删除默认生成的系列和类别。  
+1. 添加新类别。  
 1. 添加新系列。
 
-将修改后的演示文稿写入 PPTX 文件。
+将修改后的演示文稿写入 PPTX 文件。  
 ```c#
 // 实例化表示 PPTX 文件的 Presentation 类
 using (Presentation presentation = new Presentation())
@@ -58,7 +71,7 @@ using (Presentation presentation = new Presentation())
 	// 访问第一张幻灯片
 	ISlide slides = presentation.Slides[0];
 
-	// 添加默认数据的图表
+	// 使用默认数据添加图表
 	IChart chart = slides.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
 
 	// 设置图表标题
@@ -70,7 +83,7 @@ using (Presentation presentation = new Presentation())
 	// 将第一系列设置为显示数值
 	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-	// 设置图表数据工作表的索引
+	// 设置图表数据表的索引
 	int defaultWorksheetIndex = 0;
 
 	// 获取图表数据工作表
@@ -101,10 +114,8 @@ using (Presentation presentation = new Presentation())
 
 ## **常见问题**
 
-**是否支持“饼图的饼图”和“条形饼图”变体？**
+**是否支持 “Pie of Pie” 和 “Bar of Pie” 变体？**  
+是的，库[支持](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) 饼图的第二绘图区，包括 “Pie of Pie” 和 “Bar of Pie” 类型。
 
-是的，库 [supports](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) 支持饼图的第二绘图选项，包括 “Pie of Pie” 和 “Bar of Pie” 类型。
-
-**我可以仅将图表导出为图像（例如 PNG）吗？**
-
-是的，您可以 [export the chart itself as an image](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/)（例如 PNG），而无需整个演示文稿。
+**我可以仅将图表导出为图像吗（例如 PNG）？**  
+是的，您可以[将图表本身导出为图像](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/)（例如 PNG），而无需导出整个演示文稿。

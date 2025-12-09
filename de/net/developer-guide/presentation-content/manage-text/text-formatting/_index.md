@@ -1,5 +1,5 @@
 ---
-title: PowerPoint-Text formatieren in C#
+title: Formatierung von Präsentationstext in .NET
 linktitle: Textformatierung
 type: docs
 weight: 50
@@ -12,54 +12,55 @@ keywords:
 - Text-Hintergrund
 - Texttransparenz
 - Zeichenabstand
-- Schriftart-Eigenschaften
+- Schrifteigenschaften
 - Schriftfamilie
 - Textrotation
-- Drehwinkel
+- Rotationswinkel
 - Textfeld
 - Zeilenabstand
 - Autofit-Eigenschaft
 - Textfeld-Anker
-- Texttabulation
+- Text-Tabulation
 - Standardsprache
 - PowerPoint
 - OpenDocument
 - Präsentation
+- .NET
 - C#
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Text in PowerPoint- und OpenDocument-Präsentationen mithilfe von Aspose.Slides für .NET formatieren und gestalten. Passen Sie Schriftarten, Farben, Ausrichtungen und vieles mehr mit leistungsstarken C#-Codebeispielen an."
+description: "Formatieren und gestalten Sie Text in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für .NET. Passen Sie Schriftarten, Farben, Ausrichtung und mehr an."
 ---
 
 ## **Übersicht**
 
-Dieser Artikel führt ein, wie man Text in PowerPoint‑ und OpenDocument‑Präsentationen mit Aspose.Slides für .NET verwaltet und formatiert. Sie lernen, wie Sie Textformatierungsfunktionen wie Schriftartauswahl, Größe, Farbe, Hervorhebung, Hintergrundfarbe, Abstand und Ausrichtung anwenden. Zusätzlich wird die Arbeit mit Textfeldern, Absätzen, Formatierung und erweiterten Layout‑Optionen wie benutzerdefinierter Drehung und Autofit‑Verhalten behandelt.
+Dieser Artikel führt ein, wie man Text in PowerPoint‑ und OpenDocument‑Präsentationen mit Aspose.Slides für .NET verwaltet und formatiert. Sie lernen, wie Sie Textformatierungsfunktionen wie Schriftartauswahl, Größe, Farbe, Hervorhebung, Hintergrundfarbe, Abstand und Ausrichtung anwenden. Darüber hinaus wird die Arbeit mit Textfeldern, Absätzen, Formatierung und erweiterten Layout‑Optionen wie benutzerdefinierter Drehung und Autofit‑Verhalten behandelt.
 
-Egal, ob Sie Präsentationen programmgesteuert erzeugen oder vorhandene Inhalte anpassen, diese Beispiele helfen Ihnen, klare, professionell aussehende Textlayouts zu erstellen, die Ihre Folien verbessern und die Lesbarkeit erhöhen.
+Egal, ob Sie Präsentationen programmgesteuert erzeugen oder bestehende Inhalte anpassen – diese Beispiele helfen Ihnen, klare, professionell aussehende Textlayouts zu erstellen, die Ihre Folien aufwerten und die Lesbarkeit verbessern.
 
-In den folgenden Beispielen verwenden wir die Datei **sample.pptx**, die auf der ersten Folie ein einzelnes Textfeld mit folgendem Inhalt enthält:
+In den nachfolgenden Beispielen verwenden wir eine Datei namens **"sample.pptx"**, die auf der ersten Folie ein einzelnes Textfeld mit folgendem Text enthält:
 
 ![Beispieltext](sample_text.png)
 
 ## **Text hervorheben**
 
-Die [ITextFrame.HighlightText](https://reference.aspose.com/slides/net/aspose.slides/itextframe/highlighttext/)‑Methode ermöglicht es, einen Textabschnitt mit einer Hintergrundfarbe basierend auf einem passenden Textmuster zu markieren.
+Die [ITextFrame.HighlightText](https://reference.aspose.com/slides/net/aspose.slides/itextframe/highlighttext/)‑Methode ermöglicht es, einen Textabschnitt mit einer Hintergrundfarbe basierend auf einem passenden Textbeispiel hervorzuheben.
 
-So gehen Sie vor:
+So verwenden Sie die Methode:
 
-1. Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑Klasse mit einer Eingabedatei (PPT, PPTX, ODP usw.).
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑Klasse mit einer Eingabedatei (PPT, PPTX, ODP usw.).
 2. Greifen Sie über die [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/)‑Sammlung auf die gewünschte Folie zu.
-3. Greifen Sie über die [Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/)‑Sammlung auf das Ziel‑Shape zu und casten Sie es zu einem [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
-4. Markieren Sie den gewünschten Text mittels der [ITextFrame.HighlightText](https://reference.aspose.com/slides/net/aspose.slides/itextframe/highlighttext/)‑Methode, indem Sie den Beispieltext und die Farbe angeben.
+3. Greifen Sie über die [Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/)‑Sammlung auf das Ziel‑Shape zu und casten Sie es zu einer [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
+4. Hervorheben Sie den gewünschten Text mit der [ITextFrame.HighlightText](https://reference.aspose.com/slides/net/aspose.slides/itextframe/highlighttext/)‑Methode, indem Sie den Beispieltext und die Farbe angeben.
 5. Speichern Sie die Präsentation im gewünschten Ausgabeformat (z. B. PPT, PPTX, ODP).
 
-Der untenstehende Code markiert alle Vorkommen der Zeichen **"try"** und des vollständigen Wortes **"to"**.
+Der folgende Code hebt alle Vorkommen der Zeichen **"try"** und des vollständigen Wortes **"to"** hervor.
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
-    // Erhalte die erste Form von der ersten Folie.
+    // Holen Sie das erste Shape von der ersten Folie.
     var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
-    // Markiere das Wort "try" in der Form.
+    // Hervorheben des Wortes "try" im Shape.
     shape.TextFrame.HighlightText("try", Color.LightBlue);
 
     var searchOptions = new TextSearchOptions()
@@ -67,7 +68,7 @@ using (var presentation = new Presentation("sample.pptx"))
         WholeWordsOnly = true
     };
 
-    // Markiere das Wort "to" in der Form.
+    // Hervorheben des Wortes "to" im Shape.
     shape.TextFrame.HighlightText("to", Color.Violet, searchOptions, null);
 
     presentation.Save("highlighted_text.pptx", SaveFormat.Pptx);
@@ -85,9 +86,9 @@ Aspose bietet einen einfachen, [KOSTENLOSEN Online-PowerPoint-Editor](https://pr
 
 ## **Text mit regulären Ausdrücken hervorheben**
 
-Aspose.Slides für .NET ermöglicht das Suchen und Hervorheben bestimmter Textteile in PowerPoint‑Folien mithilfe regulärer Ausdrücke. Diese Funktion ist besonders nützlich, wenn Sie Schlüsselwörter, Muster oder datenbasierte Inhalte dynamisch betonen möchten. Die [ITextFrame.HighlightRegex](https://docs.aspose.com/slides/net/text-formatting/)‑Methode erlaubt das Hervorheben von Textteilen mit einer Hintergrundfarbe anhand eines regulären Ausdrucks.
+Aspose.Slides für .NET ermöglicht das Suchen und Hervorheben bestimmter Textteile in PowerPoint‑Folien mithilfe regulärer Ausdrücke. Diese Funktion ist besonders nützlich, wenn Sie Schlüsselwörter, Muster oder datenabhängige Inhalte dynamisch betonen möchten. Die [ITextFrame.HighlightRegex](https://docs.aspose.com/slides/net/text-formatting/)‑Methode ermöglicht es, Textteile mit einer Hintergrundfarbe anhand eines regulären Ausdrucks zu markieren.
 
-Der untenstehende Code markiert alle Wörter, die **sieben oder mehr Zeichen** enthalten:
+Der nachfolgende Code hebt alle Wörter hervor, die **sieben oder mehr Zeichen** enthalten:
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -107,16 +108,16 @@ Das Ergebnis:
 
 ## **Hintergrundfarbe für Text festlegen**
 
-Aspose.Slides für .NET ermöglicht es, Hintergrundfarben für ganze Absätze oder einzelne Textteile in PowerPoint‑Folien anzuwenden. Diese Funktion ist praktisch, wenn Sie bestimmte Wörter oder Phrasen hervorheben, Schlüsselbotschaften betonen oder die visuelle Attraktivität Ihrer Präsentationen steigern möchten.
+Aspose.Slides für .NET ermöglicht das Anwenden von Hintergrundfarben auf ganze Absätze oder einzelne Textabschnitte in PowerPoint‑Folien. Diese Funktion ist praktisch, wenn Sie bestimmte Wörter oder Phrasen hervorheben, Schlüsselbotschaften betonen oder die visuelle Attraktivität Ihrer Präsentationen steigern möchten.
 
-Der folgende Code zeigt, wie die Hintergrundfarbe für den **gesamten Absatz** festgelegt wird: 
+Das folgende Beispiel zeigt, wie Sie die Hintergrundfarbe für den **gesamten Absatz** festlegen: 
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Setze die Hervorhebungsfarbe für den gesamten Absatz.
+    // Legen Sie die Hervorhebungsfarbe für den gesamten Absatz fest.
     paragraph.ParagraphFormat.DefaultPortionFormat.HighlightColor.Color = Color.LightGray;
 
     presentation.Save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -128,7 +129,7 @@ Das Ergebnis:
 
 ![Der graue Absatz](gray_paragraph.png)
 
-Der untenstehende Code demonstriert, wie die Hintergrundfarbe für **Textabschnitte mit Fettschrift** festgelegt wird:
+Der folgende Code demonstriert das Festlegen der Hintergrundfarbe für **Textabschnitte mit fetter Schrift**:
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -139,7 +140,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Setze die Hervorhebungsfarbe für den Textabschnitt.
+            // Legen Sie die Hervorhebungsfarbe für den Textabschnitt fest.
             portion.PortionFormat.HighlightColor.Color = Color.LightGray;
         }
     }
@@ -155,16 +156,16 @@ Das Ergebnis:
 
 ## **Textabsätze ausrichten**
 
-Die Textausrichtung ist ein entscheidender Aspekt der Folienformatierung, der sowohl die Lesbarkeit als auch die visuelle Anziehungskraft beeinflusst. In Aspose.Slides für .NET können Sie die Absatz‑Ausrichtung innerhalb von Textfeldern präzise steuern, sodass Ihr Inhalt konsistent präsentiert wird – zentriert, linksbündig, rechtsbündig oder im Blocksatz. Dieser Abschnitt erklärt, wie Sie die Textausrichtung in Ihren PowerPoint‑Präsentationen anwenden und anpassen.
+Die Ausrichtung von Text ist ein zentraler Aspekt der Folienformatierung, der sowohl die Lesbarkeit als auch die optische Wirkung beeinflusst. In Aspose.Slides für .NET können Sie die Absatz­ausrichtung in Textfeldern präzise steuern, sodass Ihr Inhalt konsistent dargestellt wird – zentriert, linksbündig, rechtsbündig oder Blocksatz. Dieser Abschnitt erklärt, wie Sie die Textausrichtung in Ihren PowerPoint‑Präsentationen anwenden und anpassen.
 
-Der folgende Code zeigt, wie der Absatz **mittig** ausgerichtet wird:
+Das folgende Beispiel zeigt, wie Sie den Absatz **zentrieren**:
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Setze die Ausrichtung des Absatzes auf zentriert.
+    // Setzen Sie die Ausrichtung des Absatzes auf zentriert.
     paragraph.ParagraphFormat.Alignment = TextAlignment.Center;
 
     presentation.Save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -178,9 +179,9 @@ Das Ergebnis:
 
 ## **Transparenz für Text festlegen**
 
-Das Anpassen der Texttransparenz ermöglicht subtile visuelle Effekte und verbessert die Ästhetik von Folien. Aspose.Slides für .NET bietet die Möglichkeit, den Transparenzgrad von Absätzen und Textteilen festzulegen, sodass Text leicht mit Hintergründen verschmilzt oder bestimmte Elemente betont werden können. Dieser Abschnitt zeigt, wie Transparenzeinstellungen auf Text in Ihren Präsentationen angewendet werden.
+Das Anpassen der Texttransparenz ermöglicht subtile visuelle Effekte und verbessert die Ästhetik von Folien. Aspose.Slides für .NET bietet die Möglichkeit, den Transparenzgrad von Absätzen und Textabschnitten festzulegen, sodass Sie Text mühelos mit Hintergründen verschmelzen oder bestimmte Elemente betonen können. Dieser Abschnitt zeigt, wie Sie Transparenzeinstellungen für Text in Ihren Präsentationen anwenden.
 
-Der untenstehende Code zeigt, wie die Transparenz für den **gesamten Absatz** angewendet wird:
+Der folgende Code zeigt, wie Sie **den gesamten Absatz** transparent machen:
 ```cs
 int alpha = 50;
 
@@ -189,7 +190,7 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Setze die Füllfarbe des Textes auf eine transparente Farbe.
+    // Setzen Sie die Füllfarbe des Textes auf eine transparente Farbe.
     paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
 
@@ -202,7 +203,7 @@ Das Ergebnis:
 
 ![Der transparente Absatz](transparent_paragraph.png)
 
-Der folgende Code zeigt, wie die Transparenz für **Textabschnitte mit Fettschrift** angewendet wird:
+Das folgende Beispiel zeigt, wie Sie **Textabschnitte mit fetter Schrift** transparent machen:
 ```cs
 int alpha = 50;
 
@@ -215,7 +216,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Setze die Transparenz des Textabschnitts.
+            // Setzen Sie die Transparenz des Textabschnitts.
             portion.PortionFormat.FillFormat.FillType = FillType.Solid;
             portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
         }
@@ -232,16 +233,16 @@ Das Ergebnis:
 
 ## **Zeichenabstand für Text festlegen**
 
-Aspose.Slides ermöglicht das Einstellen des Abstands zwischen Buchstaben in einem Textfeld. Damit können Sie die visuelle Dichte einer Zeile oder eines Textblocks durch Vergrößern oder Verkleinern des Zeichenabstands anpassen.
+Aspose.Slides ermöglicht das Festlegen des Abstands zwischen Buchstaben in einem Textfeld. So können Sie die visuelle Dichte einer Zeile oder eines Textblocks anpassen, indem Sie den Abstand zwischen den Zeichen vergrößern oder verkleinern.
 
-Der folgende C#‑Code zeigt, wie der Zeichenabstand im **gesamten Absatz** erweitert wird:
+Der folgende C#‑Code zeigt, wie Sie den Zeichenabstand im **gesamten Absatz** erweitern:
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Hinweis: Verwenden Sie negative Werte, um den Zeichenabstand zu verkleinern.
+    // Hinweis: Verwenden Sie negative Werte, um den Zeichenabstand zu komprimieren.
     paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Zeichenabstand erweitern.
 
     presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
@@ -253,7 +254,7 @@ Das Ergebnis:
 
 ![Der Zeichenabstand im Absatz](character_spacing_in_paragraph.png)
 
-Der untenstehende Code zeigt, wie der Zeichenabstand in **Textabschnitten mit Fettschrift** erweitert wird:
+Der nachfolgende Code demonstriert die Erweiterung des Zeichenabstands in **Textabschnitten mit fetter Schrift**:
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -264,7 +265,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Hinweis: Verwenden Sie negative Werte, um den Zeichenabstand zu verkleinern.
+            // Hinweis: Verwenden Sie negative Werte, um den Zeichenabstand zu komprimieren.
             portion.PortionFormat.Spacing = 3;  // Zeichenabstand erweitern.
         }
     }
@@ -278,18 +279,18 @@ Das Ergebnis:
 
 ![Der Zeichenabstand in den Textabschnitten](character_spacing_in_text_portions.png)
 
-## **Textschriftart-Eigenschaften verwalten**
+## **Schrifteigenschaften von Text verwalten**
 
-Aspose.Slides für .NET ermöglicht das feine Abstimmen von Schriftarteinstellungen sowohl auf Absatz‑ als auch auf Textebene, um visuelle Konsistenz zu gewährleisten und Design‑Anforderungen Ihrer Präsentation zu erfüllen. Sie können Schriftstil, Größe und weitere Formatierungsoptionen für ganze Absätze definieren, was Ihnen mehr Kontrolle über das Erscheinungsbild des Textes gibt. Dieser Abschnitt demonstriert, wie Schriftarteigenschaften für Textabsätze in einer Folie verwaltet werden.
+Aspose.Slides für .NET ermöglicht das feine Abstimmen von Schriftspezifikationen sowohl auf Absatz‑ als auch auf Textabschnittsebene, wodurch visuelle Konsistenz gewährleistet und Ihre Designanforderungen erfüllt werden. Sie können Schriftstile, -größen und weitere Formatierungsoptionen für gesamte Absätze definieren, was Ihnen mehr Kontrolle über das Erscheinungsbild des Textes gibt. Dieser Abschnitt demonstriert, wie Sie die Schrifteigenschaften für Textabsätze in einer Folie verwalten.
 
-Der folgende Code legt Schriftart und Textstil für den gesamten Absatz fest: Er wendet Schriftgröße, Fettdruck, Kursiv, punktierte Unterstreichung und die Schriftart Times New Roman auf alle Textabschnitte im Absatz an.
+Der folgende Code setzt Schrift und Textstil für den gesamten Absatz: Er wendet Schriftgröße, Fett, Kursiv, gepunktete Unterstreichung und die Schriftart Times New Roman auf alle Textabschnitte im Absatz an.
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Setze die Schriftarteigenschaften für den Absatz.
+    // Setzen Sie die Schriftarteigenschaften für den Absatz.
     paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 12;
     paragraph.ParagraphFormat.DefaultPortionFormat.FontBold = NullableBool.True;
     paragraph.ParagraphFormat.DefaultPortionFormat.FontItalic = NullableBool.True;
@@ -303,9 +304,9 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Das Ergebnis:
 
-![Die Schriftarteigenschaften für den Absatz](font_properties_for_paragraph.png)
+![Die Schrifteigenschaften für den Absatz](font_properties_for_paragraph.png)
 
-Der untenstehende Code wendet ähnliche Eigenschaften auf **Textabschnitte mit Fettschrift** an:
+Der nachfolgende Code wendet ähnliche Eigenschaften auf **Textabschnitte mit fetter Schrift** an:
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -316,7 +317,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Setze die Schriftarteigenschaften für den Textabschnitt.
+            // Setzen Sie die Schriftarteigenschaften für den Textabschnitt.
             portion.PortionFormat.FontHeight = 13;
             portion.PortionFormat.FontItalic = NullableBool.True;
             portion.PortionFormat.FontUnderline = TextUnderlineType.Dotted;
@@ -331,13 +332,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Das Ergebnis:
 
-![Die Schriftarteigenschaften für Textabschnitte](font_properties_for_text_portions.png)
+![Die Schrifteigenschaften für Textabschnitte](font_properties_for_text_portions.png)
 
-## **Textdrehung festlegen**
+## **Textrotation festlegen**
 
-Das Drehen von Text kann das Layout Ihrer Folien verbessern und bestimmte Inhalte hervorheben. Mit Aspose.Slides für .NET können Sie Text in Formen einfach rotieren und den Winkel an Ihr Design anpassen. Dieser Abschnitt zeigt, wie Sie die Textdrehung festlegen und steuern, um den gewünschten visuellen Effekt zu erzielen.
+Das Rotieren von Text kann das Layout Ihrer Folien verbessern und bestimmte Inhalte hervorheben. Mit Aspose.Slides für .NET können Sie Text in Shapes problemlos rotieren und den Winkel an Ihr Design anpassen. Dieser Abschnitt zeigt, wie Sie die Textrotation einstellen und steuern, um den gewünschten visuellen Effekt zu erzielen.
 
-Der folgende Code setzt die Textausrichtung in der Form auf `Vertical270`, wodurch der Text **90 Grad gegen den Uhrzeigersinn** gedreht wird:
+Der folgende Code setzt die Textausrichtung im Shape auf `Vertical270`, wodurch der Text **90 Grad gegen den Uhrzeigersinn** gedreht wird:
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -352,13 +353,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Das Ergebnis:
 
-![Die Textdrehung](text_rotation.png)
+![Die Textrotation](text_rotation.png)
 
-## **Benutzerdefinierte Drehung für Textfelder festlegen**
+## **Benutzerdefinierte Rotation für TextFrames festlegen**
 
-Das Festlegen eines benutzerdefinierten Drehwinkels für ein `TextFrame` ermöglicht es, Text in präzisen Winkeln zu positionieren und so kreativere und flexiblere Folien‑Designs zu realisieren. Aspose.Slides für .NET bietet vollständige Kontrolle über die Drehung von Textfeldern, sodass Text leicht mit anderen Folienelementen ausgerichtet werden kann. Dieser Abschnitt zeigt, wie ein spezifischer Drehwinkel auf ein `TextFrame` angewendet wird.
+Das Festlegen eines benutzerdefinierten Rotationswinkels für ein `TextFrame` ermöglicht es, Text in präzisen Winkeln zu positionieren und somit kreativere und flexiblere Foliendesigns zu realisieren. Aspose.Slides für .NET bietet volle Kontrolle über die Rotation von TextFrames, sodass Sie Text leicht an anderen Elemente der Folie ausrichten können. Dieser Abschnitt führt Sie durch die Anwendung eines spezifischen Rotationswinkels auf ein `TextFrame`.
 
-Der folgende Code dreht das Textfeld innerhalb der Form um **3 Grad im Uhrzeigersinn**:
+Der folgende Code dreht das TextFrame um 3 Grad im Uhrzeigersinn innerhalb des Shapes: 
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -373,16 +374,16 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Das Ergebnis:
 
-![Die benutzerdefinierte Textdrehung](custom_text_rotation.png)
+![Die benutzerdefinierte Textrotation](custom_text_rotation.png)
 
-## **Zeilenabstand von Absätzen festlegen**
+## **Zeilenabstand für Absätze festlegen**
 
-Aspose.Slides stellt die Eigenschaften `SpaceAfter`, `SpaceBefore` und `SpaceWithin` der Klasse [ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/) bereit, mit denen der Zeilenabstand eines Absatzes verwaltet werden kann. Diese Eigenschaften werden wie folgt verwendet:
+Aspose.Slides stellt die Eigenschaften `SpaceAfter`, `SpaceBefore` und `SpaceWithin` in der Klasse [ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/) bereit, mit denen Sie den Zeilenabstand für einen Absatz verwalten können. Diese Eigenschaften werden wie folgt verwendet:
 
 * Verwenden Sie einen positiven Wert, um den Zeilenabstand als Prozentsatz der Zeilenhöhe anzugeben.
 * Verwenden Sie einen negativen Wert, um den Zeilenabstand in Punkten anzugeben.
 
-Der folgende Code zeigt, wie der Zeilenabstand innerhalb des Absatzes festgelegt wird:
+Der nachfolgende Code zeigt, wie Sie den Zeilenabstand innerhalb des Absatzes festlegen:
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -400,9 +401,9 @@ Das Ergebnis:
 
 ![Der Zeilenabstand im Absatz](line_spacing.png)
 
-## **Autofit‑Typ für Textfelder festlegen**
+## **Autofit‑Typ für TextFrames festlegen**
 
-Die `AutofitType`‑Eigenschaft bestimmt, wie sich Text verhält, wenn er die Grenzen seines Containers überschreitet. Aspose.Slides für .NET ermöglicht es, zu steuern, ob der Text schrumpfen, überlaufen oder die Form automatisch anpassen soll. Dieser Abschnitt demonstriert, wie der `AutofitType` für ein `TextFrame` festgelegt wird, um das Textlayout in Formen effektiv zu verwalten.
+Die Eigenschaft `AutofitType` bestimmt, wie sich Text verhält, wenn er die Grenzen seines Containers überschreitet. Aspose.Slides für .NET ermöglicht es Ihnen, zu steuern, ob der Text verkleinert, überläuft oder die Form automatisch resized. Dieser Abschnitt demonstriert, wie Sie den `AutofitType` für ein `TextFrame` festlegen, um das Textlayout in Shapes effektiv zu verwalten.
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -415,9 +416,9 @@ using (var presentation = new Presentation("sample.pptx"))
 ```
 
 
-## **Anker von Textfeldern festlegen**
+## **Anker für TextFrames festlegen**
 
-Der Anker definiert, wie Text innerhalb einer Form vertikal positioniert wird. Mit Aspose.Slides für .NET können Sie den Anker‑Typ eines `TextFrame` festlegen, um Text am oberen, mittleren oder unteren Rand der Form auszurichten. Dieser Abschnitt zeigt, wie Sie die Anker‑Einstellungen anpassen, um die gewünschte vertikale Ausrichtung des Textinhalts zu erreichen.
+Der Anker definiert, wie Text vertikal innerhalb einer Form positioniert wird. Mit Aspose.Slides für .NET können Sie den Ankertyp eines `TextFrame` setzen, um Text am oberen, mittleren oder unteren Rand der Form auszurichten. Dieser Abschnitt zeigt, wie Sie die Ankereinstellungen anpassen, um die gewünschte vertikale Ausrichtung des Textinhalts zu erreichen.
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -430,9 +431,9 @@ using (var presentation = new Presentation("sample.pptx"))
 ```
 
 
-## **Texttabulation festlegen**
+## **Tabulatoren für Text festlegen**
 
-Tabulation hilft, Text in gut strukturierten Layouts zu organisieren, indem konsistente Abstände zwischen Inhaltselementen hinzugefügt werden. Aspose.Slides für .NET unterstützt das Festlegen benutzerdefinierter Tabstopps innerhalb von Textabsätzen, was eine präzise Steuerung der Textpositionierung ermöglicht. Dieser Abschnitt demonstriert, wie Texttabulation für eine verbesserte Ausrichtung und Formatierung konfiguriert wird.
+Tabulatoren helfen, Text in gut strukturierten Layouts zu organisieren, indem sie konsistente Abstände zwischen Inhaltselementen hinzufügen. Aspose.Slides für .NET unterstützt das Festlegen benutzerdefinierter Tabstopps innerhalb von Textabsätzen, was eine präzise Kontrolle über die Textpositionierung ermöglicht. Dieser Abschnitt demonstriert, wie Sie Tabulatoren für Text konfigurieren, um die Ausrichtung und Formatierung zu verbessern.
 ```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -449,13 +450,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Das Ergebnis:
 
-![Die Absatz-Tabulatoren](paragraph_tabs.png)
+![Die Absatz‑Tabulatoren](paragraph_tabs.png)
 
-## **Rechtschreibsprache festlegen**
+## **Rechtschreifsprache festlegen**
 
-Aspose.Slides stellt die Eigenschaft `LanguageId` der Klasse [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) bereit, mit der die Korrektursprache für ein PowerPoint‑Dokument festgelegt werden kann. Die Korrektursprache bestimmt, welche Sprache für Rechtschreib‑ und Grammatikprüfungen in PowerPoint verwendet wird.
+Aspose.Slides bietet die Eigenschaft `LanguageId` der Klasse [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/), mit der Sie die Rechtschreifsprache für ein PowerPoint‑Dokument festlegen können. Die Rechtschreifsprache bestimmt, welche Sprache für Rechtschreib‑ und Grammatikprüfungen in PowerPoint verwendet wird.
 
-Der folgende Code zeigt, wie die Korrektursprache für einen Textabschnitt festgelegt wird:
+Der folgende Code zeigt, wie Sie die Rechtschreifsprache für einen Textabschnitt festlegen:
 ```cs
 using (var presentation = new Presentation("presentation.pptx"))
 {
@@ -482,9 +483,9 @@ using (var presentation = new Presentation("presentation.pptx"))
 ```
 
 
-## **Standardsprache festlegen**
+## **Standard‑Sprache festlegen**
 
-Das Festlegen einer Standardsprache für Text stellt sicher, dass Rechtschreibprüfung, Silbentrennung und Text‑zu‑Sprache‑Funktionen in PowerPoint korrekt funktionieren. Aspose.Slides für .NET ermöglicht das Setzen der Sprache auf Text‑Absatz‑ oder Portionsebene. Dieser Abschnitt zeigt, wie die Standardsprache für den Text Ihrer Präsentation definiert wird.
+Die Angabe der Standardsprache für Text stellt sicher, dass Rechtschreibprüfung, Silbentrennung und Text‑zu‑Sprache‑Verhalten in PowerPoint korrekt funktionieren. Aspose.Slides für .NET ermöglicht das Festlegen der Sprache auf Text‑Abschnitts‑ oder Absatzebene. Dieser Abschnitt zeigt, wie Sie die Standardsprache für Ihren Präsentationstext definieren.
 ```cs
 var loadOptions = new LoadOptions();
 loadOptions.DefaultTextLanguage = "en-US";
@@ -497,22 +498,22 @@ using (var presentation = new Presentation(loadOptions))
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.TextFrame.Text = "Sample text";
 
-    // Prüfen Sie die Sprache des ersten Textabschnitts.
+    // Überprüfen Sie die Sprache des ersten Textabschnitts.
     var portion = shape.TextFrame.Paragraphs[0].Portions[0];
     Console.WriteLine(portion.PortionFormat.LanguageId);
 }
 ```
 
 
-## **Standard-Textstil festlegen**
+## **Standard‑Textstil festlegen**
 
-Wenn Sie dieselbe Standard‑Textformatierung auf alle Textelemente einer Präsentation gleichzeitig anwenden möchten, können Sie die Eigenschaft `DefaultTextStyle` des Interfaces [IPresentation](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/) nutzen und Ihr bevorzugtes Format festlegen.
+Wenn Sie dieselbe Standard‑Textformatierung auf alle Textelemente einer Präsentation gleichzeitig anwenden möchten, können Sie die Eigenschaft `DefaultTextStyle` des Interfaces [IPresentation](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/) nutzen und Ihr bevorzugtes Format definieren.
 
-Der folgende Code setzt eine Standardschriftart mit Fettdruck und einer Größe von 14 pt für allen Text in allen Folien einer neuen Präsentation.
+Der folgende Code zeigt, wie Sie für alle Texte in einer neuen Präsentation eine Standardschriftart **fett** mit Größe **14 pt** festlegen.
 ```cs
 using (var presentation = new Presentation())
 {
-    // Hole das Absatzformat der obersten Ebene.
+    // Abrufen des Absatzformats der obersten Ebene.
     var paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
 
     if (paragraphFormat != null)
@@ -526,15 +527,15 @@ using (var presentation = new Presentation())
 ```
 
 
-## **Text mit dem All‑Caps‑Effekt extrahieren**
+## **Text mit All‑Caps‑Effekt extrahieren**
 
-In PowerPoint lässt der **All Caps**‑Schrifteffekt Text in Großbuchstaben auf der Folie erscheinen, selbst wenn er ursprünglich klein geschrieben wurde. Wenn Sie einen solchen Textabschnitt mit Aspose.Slides auslesen, liefert die Bibliothek den Text exakt so zurück, wie er eingegeben wurde. Um dies zu handhaben, prüfen Sie [TextCapType](https://reference.aspose.com/slides/net/aspose.slides/textcaptype/) — wenn er `All` anzeigt, konvertieren Sie den zurückgegebenen String einfach in Großbuchstaben, sodass Ihre Ausgabe dem entspricht, was Benutzer auf der Folie sehen.
+In PowerPoint bewirkt der **All Caps**‑Schrifteffekt, dass Text in Großbuchstaben angezeigt wird, obwohl er ursprünglich in Kleinbuchstaben eingegeben wurde. Wenn Sie einen solchen Textabschnitt mit Aspose.Slides auslesen, gibt die Bibliothek den Text exakt so zurück, wie er eingegeben wurde. Um dies zu handhaben, prüfen Sie [TextCapType](https://reference.aspose.com/slides/net/aspose.slides/textcaptype/) – wenn er `All` anzeigt, konvertieren Sie die zurückgegebene Zeichenkette einfach in Großbuchstaben, sodass Ihre Ausgabe dem auf der Folie sichtbaren Text entspricht.
 
-Angenommen, wir haben das folgende Textfeld auf der ersten Folie der Datei **sample2.pptx**.
+Nehmen wir an, wir haben das folgende Textfeld auf der ersten Folie der Datei **sample2.pptx**.
 
 ![Der All‑Caps‑Effekt](all_caps_effect.png)
 
-Der folgende Code zeigt, wie der Text mit dem **All Caps**‑Effekt extrahiert wird:
+Der folgende Code zeigt, wie Sie den Text mit dem **All Caps**‑Effekt extrahieren:
 ```cs
 using (var presentation = new Presentation("sample2.pptx"))
 {
@@ -562,10 +563,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Wie kann man Text in einer Tabelle auf einer Folie ändern?**
+**Wie kann ich Text in einer Tabelle auf einer Folie bearbeiten?**
 
-Um Text in einer Tabelle auf einer Folie zu ändern, verwenden Sie das [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/)-Objekt. Durchlaufen Sie alle Zellen der Tabelle und ändern Sie den Text jeder Zelle, indem Sie deren `TextFrame`‑ und `ParagraphFormat`‑Eigenschaften innerhalb jeder Zelle zugreifen.
+Um Text in einer Tabelle auf einer Folie zu bearbeiten, verwenden Sie das [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/)-Objekt. Sie können durch alle Zellen der Tabelle iterieren und den Text in jeder Zelle ändern, indem Sie auf deren `TextFrame`‑ und `ParagraphFormat`‑Eigenschaften zugreifen.
 
-**Wie kann man Farbverlauf auf Text in einer PowerPoint‑Folie anwenden?**
+**Wie kann ich Farbverläufe auf Text in einer PowerPoint‑Folien anwenden?**
 
-Um Farbverlauf auf Text anzuwenden, nutzen Sie die `FillFormat`‑Eigenschaft in [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/). Setzen Sie `FilFormat` auf `Gradient` und definieren Sie die Start‑ und Endfarben des Gradienten sowie weitere Eigenschaften wie Richtung und Transparenz, um den Farbeffekt auf den Text zu erzeugen.
+Um Farbverläufe auf Text anzuwenden, benutzen Sie die `FillFormat`‑Eigenschaft im [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/). Setzen Sie das `FilFormat` auf `Gradient` und definieren Sie die Start‑ und Endfarben des Gradienten sowie weitere Eigenschaften wie Richtung und Transparenz, um den Verlaufseffekt auf den Text zu erzeugen.

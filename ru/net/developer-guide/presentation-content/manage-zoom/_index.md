@@ -1,49 +1,142 @@
 ---
-title: Управление Zoom
+title: Управление масштабированием презентации в .NET
+linktitle: Управление масштабом
 type: docs
 weight: 60
 url: /ru/net/manage-zoom/
 keywords:
-  - zoom
-  - кадр zoom
-  - добавить zoom
-  - форматировать кадр zoom
-  - сводный zoom
-  - презентация PowerPoint
-  - C#
-  - Csharp
-  - Aspose.Slides for .NET
-description: "Добавьте zoom или кадры zoom в презентации PowerPoint на C# или .NET"
+- масштаб
+- рамка масштаба
+- масштаб слайда
+- масштаб раздела
+- обзорный масштаб
+- добавить масштаб
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Создавайте и настраивайте масштаб с помощью Aspose.Slides для .NET — переходите между разделами, добавляйте миниатюры и переходы в презентациях PPT, PPTX и ODP."
 ---
 
 ## **Обзор**
-Zoom в PowerPoint позволяет переходить к конкретным слайдам, разделам и частям презентации и возвращаться от них. При проведении презентации такая возможность быстрого перемещения по содержимому может оказаться очень полезной. 
+Масштабы в PowerPoint позволяют переходить к определённым слайдам, разделам и частям презентации и обратно. Во время презентации эта возможность быстро перемещаться по содержимому может оказаться очень полезной. 
 
-![overview_image](overview.png)
+![обзор_изображение](overview.png)
 
-* Чтобы суммировать всю презентацию на одном слайде, используйте [Сводный Zoom](#Summary-Zoom).
-* Чтобы показать только выбранные слайды, используйте [Zoom слайда](#Slide-Zoom).
-* Чтобы показать только один раздел, используйте [Zoom раздела](#Section-Zoom).
+* Чтобы суммировать всю презентацию на одном слайде, используйте [Summary Zoom](#Summary-Zoom).
+* Чтобы показывать только выбранные слайды, используйте [Slide Zoom](#Slide-Zoom).
+* Чтобы показывать только один раздел, используйте [Section Zoom](#Section-Zoom).
 
-## **Zoom слайда**
-Zoom слайда может сделать вашу презентацию более динамичной, позволяя свободно перемещаться между слайдами в любом порядке без прерывания потока презентации. Zoom слайда отлично подходит для коротких презентаций без множества разделов, но их можно использовать и в других сценариях.
+## **Масштаб слайда**
+Масштаб слайда может сделать вашу презентацию более динамичной, позволяя свободно перемещаться между слайдами в любом порядке без прерывания её потока. Масштабы слайда отлично подходят для коротких презентаций без большого количества разделов, но их также можно применять в разных сценариях.
 
-Zoom слайда помогает углубляться в несколько блоков информации, создавая ощущение, что вы работаете на едином холсте. 
+Масштабы слайда помогают подробно рассмотреть несколько частей информации, ощущая при этом, что вы работаете на едином холсте. 
 
-![overview_image](slidezoomsel.png)
+![масштаб_слайда_изображение](slidezoomsel.png)
 
-Для объектов Zoom слайда Aspose.Slides предоставляет перечисление [ZoomImageType](https://reference.aspose.com/slides/net/aspose.slides/zoomimagetype), интерфейс [IZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/izoomframe) и некоторые методы интерфейса [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection).
+Для объектов масштаба слайда Aspose.Slides предоставляет перечисление [ZoomImageType](https://reference.aspose.com/slides/net/aspose.slides/zoomimagetype), интерфейс [IZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/izoomframe) и некоторые методы интерфейса [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection).
 
-### **Создание Zoom‑кадров**
-
-Вы можете добавить Zoom‑кадр на слайд следующим образом:
+### **Создание Zoom‑рамок**
+Вы можете добавить Zoom‑рамку на слайд следующим образом:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Создайте новые слайды, к которым вы планируете привязать Zoom‑кадры. 
-3. Добавьте идентификационный текст и фон к созданным слайдам.
-4. Добавьте Zoom‑кадры (содержащие ссылки на созданные слайды) на первый слайд.
-5. Сохраните изменённую презентацию в файл PPTX.
+2. Создайте новые слайды, к которым планируете привязать Zoom‑рамки. 
+3. Добавьте текст идентификации и фон к созданным слайдам.
+4. Добавьте Zoom‑рамки (ссылающиеся на созданные слайды) на первый слайд.
+5. Запишите изменённую презентацию в файл PPTX.
 
+Этот C#‑код показывает, как создать Zoom‑рамку на слайде:
+``` csharp 
+using (Presentation pres = new Presentation())
+{
+    //Добавляет новые слайды в презентацию
+    ISlide slide2 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
+    ISlide slide3 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
+
+    // Создает фон для второго слайда
+    slide2.Background.Type = BackgroundType.OwnBackground;
+    slide2.Background.FillFormat.FillType = FillType.Solid;
+    slide2.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
+
+    // Создает текстовое поле для второго слайда
+    IAutoShape autoshape = slide2.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
+    autoshape.TextFrame.Text = "Second Slide";
+
+    // Создает фон для третьего слайда
+    slide3.Background.Type = BackgroundType.OwnBackground;
+    slide3.Background.FillFormat.FillType = FillType.Solid;
+    slide3.Background.FillFormat.SolidFillColor.Color = Color.DarkKhaki;
+
+    // Создает текстовое поле для третьего слайда
+    autoshape = slide3.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
+    autoshape.TextFrame.Text = "Trird Slide";
+
+    //Adds ZoomFrame objects
+    pres.Slides[0].Shapes.AddZoomFrame(20, 20, 250, 200, slide2);
+    pres.Slides[0].Shapes.AddZoomFrame(200, 250, 250, 200, slide3);
+
+    // Сохраняет презентацию
+    pres.Save("presentation.pptx", SaveFormat.Pptx);
+}
+```
+
+
+### **Создание Zoom‑рамок с пользовательскими изображениями**
+С помощью Aspose.Slides для .NET вы можете создать Zoom‑рамку с другим изображением‑предпросмотром слайда следующим образом: 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Создайте новый слайд, к которому планируете привязать Zoom‑рамку. 
+3. Добавьте текст идентификации и фон к слайду.
+4. Создайте объект [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage), добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), которое будет использовано для заполнения рамки.
+5. Добавьте Zoom‑рамки (ссылающиеся на созданный слайд) на первый слайд.
+6. Запишите изменённую презентацию в файл PPTX.
+
+Этот C#‑код показывает, как создать Zoom‑рамку с другим изображением:
+``` csharp 
+using (Presentation pres = new Presentation())
+{
+    //Добавляет новый слайд в презентацию
+    ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
+
+    // Создает фон для второго слайда
+    slide.Background.Type = BackgroundType.OwnBackground;
+    slide.Background.FillFormat.FillType = FillType.Solid;
+    slide.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
+
+    // Создает текстовое поле для третьего слайда
+    IAutoShape autoshape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
+    autoshape.TextFrame.Text = "Second Slide";
+
+    // Создает новое изображение для объекта Zoom
+    IImage image = Images.FromFile("image.png");
+    IPPImage ppImage = pres.Images.AddImage(image);
+    image.Dispose();
+
+    //Adds the ZoomFrame object
+    pres.Slides[0].Shapes.AddZoomFrame(20, 20, 300, 200, slide, ppImage);
+
+    // Сохраняет презентацию
+    pres.Save("presentation.pptx", SaveFormat.Pptx);
+}
+```
+
+
+### **Форматирование Zoom‑рамок**
+В предыдущих разделах мы показывали, как создавать простые Zoom‑рамки. Чтобы создать более сложные Zoom‑рамки, необходимо изменить их форматирование. Существует несколько параметров форматирования, которые можно применить к Zoom‑рамке. 
+
+Вы можете управлять форматированием Zoom‑рамки на слайде следующим образом:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. Создайте новые слайды, к которым планируете привязать Zoom‑рамку. 
+3. Добавьте текст идентификации и фон к созданным слайдам.
+4. Добавьте Zoom‑рамки (ссылающиеся на созданные слайды) на первый слайд.
+5. Создайте объект [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage), добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), которое будет использовано для заполнения рамки.
+6. Установите пользовательское изображение для первого объекта Zoom‑рамки.
+7. Измените формат линии для второго объекта Zoom‑рамки.
+8. Удалите фон изображения второго объекта Zoom‑рамки.
+9. Запишите изменённую презентацию в файл PPTX.
+
+Этот C#‑код показывает, как изменить форматирование Zoom‑рамки на слайде: 
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
@@ -69,101 +162,7 @@ using (Presentation pres = new Presentation())
     autoshape = slide3.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
     autoshape.TextFrame.Text = "Trird Slide";
 
-    //Adds ZoomFrame objects
-    // Добавляет объекты ZoomFrame
-    pres.Slides[0].Shapes.AddZoomFrame(20, 20, 250, 200, slide2);
-    pres.Slides[0].Shapes.AddZoomFrame(200, 250, 250, 200, slide3);
-
-    // Saves the presentation
-    // Сохраняет презентацию
-    pres.Save("presentation.pptx", SaveFormat.Pptx);
-}
-```
-
-### **Создание Zoom‑кадров с пользовательскими изображениями**
-С помощью Aspose.Slides для .NET вы можете создать Zoom‑кадр с другим изображением предварительного просмотра слайда следующим образом: 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Создайте новый слайд, к которому вы планируете привязать Zoom‑кадр. 
-3. Добавьте идентификационный текст и фон к слайду.
-4. Создайте объект [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage), добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), которое будет использоваться для заполнения кадра.
-5. Добавьте Zoom‑кадры (содержащие ссылку на созданный слайд) на первый слайд.
-6. Сохраните изменённую презентацию в файл PPTX.
-
-``` csharp 
-using (Presentation pres = new Presentation())
-{
-    //Adds a new slide to the presentation
-    //Добавляет новый слайд в презентацию
-    ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-
-    // Creates a background for the second slide
-    // Создаёт фон для второго слайда
-    slide.Background.Type = BackgroundType.OwnBackground;
-    slide.Background.FillFormat.FillType = FillType.Solid;
-    slide.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
-
-    // Creates a text box for the third slide
-    // Создаёт текстовое поле для третьего слайда
-    IAutoShape autoshape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "Second Slide";
-
-    // Creates a new image for the zoom object
-    // Создаёт новое изображение для объекта Zoom
-    IImage image = Images.FromFile("image.png");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    //Adds the ZoomFrame object
-    //Добавляет объект ZoomFrame
-    pres.Slides[0].Shapes.AddZoomFrame(20, 20, 300, 200, slide, ppImage);
-
-    // Saves the presentation
-    // Сохраняет презентацию
-    pres.Save("presentation.pptx", SaveFormat.Pptx);
-}
-```
-
-### **Форматирование Zoom‑кадров**
-В предыдущих разделах мы показали, как создать простые Zoom‑кадры. Чтобы создать более сложные Zoom‑кадры, необходимо изменить форматирование простого кадра. Существует несколько вариантов форматирования, которые можно применить к Zoom‑кадру. 
-
-Вы можете управлять форматированием Zoom‑кадра на слайде следующим образом:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Создайте новые слайды, к которым вы планируете привязать Zoom‑кадр. 
-3. Добавьте идентификационный текст и фон к созданным слайдам.
-4. Добавьте Zoom‑кадры (содержащие ссылки на созданные слайды) на первый слайд.
-5. Создайте объект [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage), добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) для заполнения кадра.
-6. Установите собственное изображение для первого Zoom‑кадра.
-7. Измените формат линии для второго Zoom‑кадра.
-8. Удалите фон из изображения второго Zoom‑кадра.
-5. Сохраните изменённую презентацию в файл PPTX.
-
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    // Добавляет новые слайды в презентацию
-    ISlide slide2 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    ISlide slide3 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-
-    // Создаёт фон для второго слайда
-    slide2.Background.Type = BackgroundType.OwnBackground;
-    slide2.Background.FillFormat.FillType = FillType.Solid;
-    slide2.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
-
-    // Создаёт текстовое поле для второго слайда
-    IAutoShape autoshape = slide2.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "Second Slide";
-
-    // Создаёт фон для третьего слайда
-    slide3.Background.Type = BackgroundType.OwnBackground;
-    slide3.Background.FillFormat.FillType = FillType.Solid;
-    slide3.Background.FillFormat.SolidFillColor.Color = Color.DarkKhaki;
-
-    // Создаёт текстовое поле для третьего слайда
-    autoshape = slide3.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "Trird Slide";
-
-    // Добавляет объекты ZoomFrame
+    //Добавляет объекты ZoomFrame
     IZoomFrame zoomFrame1 = pres.Slides[0].Shapes.AddZoomFrame(20, 20, 250, 200, slide2);
     IZoomFrame zoomFrame2 = pres.Slides[0].Shapes.AddZoomFrame(200, 250, 250, 200, slide3);
 
@@ -175,13 +174,13 @@ using (Presentation pres = new Presentation())
     // Устанавливает пользовательское изображение для объекта zoomFrame1
     zoomFrame1.ZoomImage = ppImage;
 
-    // Устанавливает формат zoom‑кадра для объекта zoomFrame2
+    // Устанавливает формат ZoomFrame для объекта zoomFrame2
     zoomFrame2.LineFormat.Width = 5;
     zoomFrame2.LineFormat.FillFormat.FillType = FillType.Solid;
-    zoomFrame2.LineFormat.FillFormat.SolidFillColor.Color = Color.HotPink;
+    zoomFrame2.LineFormat.SolidFillColor.Color = Color.HotPink;
     zoomFrame2.LineFormat.DashStyle = LineDashStyle.DashDot;
 
-    // Настройка отключения фонового изображения для объекта zoomFrame2
+    // Настройка: не показывать фон для объекта zoomFrame2
     zoomFrame2.ShowBackground = false;
 
     // Сохраняет презентацию
@@ -190,25 +189,24 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Zoom раздела**
+## **Масштаб раздела**
+Масштаб раздела — это ссылка на раздел вашей презентации. Вы можете использовать масштабы разделов, чтобы возвращаться к разделам, которые хотите особенно подчеркнуть, либо чтобы показать, как отдельные части вашей презентации взаимосвязаны. 
 
-Zoom раздела — это ссылка на раздел в вашей презентации. Вы можете использовать Zoom раздела, чтобы вернуться к разделам, которые хотите особенно подчеркнуть. Или использовать их для демонстрации того, как отдельные части вашей презентации связаны между собой. 
+![масштаб_раздела_изображение](seczoomsel.png)
 
-![overview_image](seczoomsel.png)
+Для объектов масштаба раздела Aspose.Slides предоставляет интерфейс [ISectionZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isectionzoomframe) и некоторые методы интерфейса [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection).
 
-Для объектов Zoom раздела Aspose.Slides предоставляет интерфейс [ISectionZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isectionzoomframe) и некоторые методы интерфейса [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection).
-
-### **Создание Zoom‑кадров раздела**
-
-Вы можете добавить Zoom‑кадр раздела на слайд следующим образом:
+### **Создание Zoom‑рамок раздела**
+Вы можете добавить Zoom‑рамку раздела на слайд следующим образом:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 2. Создайте новый слайд. 
-3. Добавьте идентификационный фон к созданному слайду.
-4. Создайте новый раздел, к которому вы планируете привязать Zoom‑кадр. 
-5. Добавьте Zoom‑кадр раздела (содержащий ссылки на созданный раздел) на первый слайд.
-6. Сохраните изменённую презентацию в файл PPTX.
+3. Добавьте фон идентификации к созданному слайду.
+4. Создайте новый раздел, к которому планируете привязать Zoom‑рамку. 
+5. Добавьте Zoom‑рамку раздела (ссылающуюся на созданный раздел) на первый слайд.
+6. Запишите изменённую презентацию в файл PPTX.
 
+Этот C#‑код показывает, как создать Zoom‑рамку на слайде:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
@@ -229,22 +227,23 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Создание Zoom‑кадров раздела с пользовательскими изображениями**
 
-Используя Aspose.Slides для .NET, вы можете создать Zoom‑кадр раздела с другим изображением предварительного просмотра слайда следующим образом: 
+### **Создание Zoom‑рамок раздела с пользовательскими изображениями**
+С помощью Aspose.Slides для .NET вы можете создать Zoom‑рамку раздела с другим изображением‑предпросмотром слайда следующим образом: 
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 2. Создайте новый слайд.
-3. Добавьте идентификационный фон к созданному слайду.
-4. Создайте новый раздел, к которому вы планируете привязать Zoom‑кадр. 
-5. Создайте объект [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage), добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) для заполнения кадра.
-5. Добавьте Zoom‑кадр раздела (содержащий ссылку на созданный раздел) на первый слайд.
-6. Сохраните изменённую презентацию в файл PPTX.
+3. Добавьте фон идентификации к созданному слайду.
+4. Создайте новый раздел, к которому планируете привязать Zoom‑рамку. 
+5. Создайте объект [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage), добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), которое будет использовано для заполнения рамки.
+6. Добавьте Zoom‑рамку раздела (ссылающуюся на созданный раздел) на первый слайд.
+7. Запишите изменённую презентацию в файл PPTX.
 
+Этот C#‑код показывает, как создать Zoom‑рамку с другим изображением:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
-    // Добавляет новый слайд в презентацию
+    //Добавляет новый слайд в презентацию
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.YellowGreen;
@@ -253,7 +252,7 @@ using (Presentation pres = new Presentation())
     // Добавляет новый раздел в презентацию
     pres.Sections.AddSection("Section 1", slide);
 
-    // Создаёт новое изображение для объекта zoom
+    // Создаёт новое изображение для объекта Zoom
     IImage image = Images.FromFile("image.png");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
@@ -266,30 +265,31 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Форматирование Zoom‑кадров раздела**
 
-Чтобы создать более сложные Zoom‑кадры раздела, необходимо изменить форматирование простого кадра. Существует несколько вариантов форматирования, которые можно применить к Zoom‑кадру раздела. 
+### **Форматирование Zoom‑рамок раздела**
+Чтобы создать более сложные Zoom‑рамки раздела, необходимо изменить их форматирование. Существует несколько параметров форматирования, которые можно применить к Zoom‑рамке раздела. 
 
-Вы можете управлять форматированием Zoom‑кадра раздела на слайде следующим образом:
+Вы можете управлять форматированием Zoom‑рамки раздела на слайде следующим образом:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 2. Создайте новый слайд.
-3. Добавьте идентификационный фон к созданному слайду.
-4. Создайте новый раздел, к которому вы планируете привязать Zoom‑кадр. 
-5. Добавьте Zoom‑кадр раздела (содержащий ссылки на созданный раздел) на первый слайд.
-6. Измените размер и позицию созданного Zoom‑кадра раздела.
-7. Создайте объект [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage), добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) для заполнения кадра.
-8. Установите собственное изображение для созданного Zoom‑кадра раздела.
-9. Установите возможность *возвращения к исходному слайду из связанного раздела*.
-10. Удалите фон из изображения Zoom‑кадра раздела.
-11. Измените формат линии для второго Zoom‑кадра.
+3. Добавьте фон идентификации к созданному слайду.
+4. Создайте новый раздел, к которому планируете привязать Zoom‑рамку. 
+5. Добавьте Zoom‑рамку раздела (ссылающуюся на созданный раздел) на первый слайд.
+6. Измените размер и положение созданного объекта Zoom‑раздела.
+7. Создайте объект [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage), добавив изображение в коллекцию Images, связанную с объектом [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), которое будет использовано для заполнения рамки.
+8. Установите пользовательское изображение для созданного объекта Zoom‑раздела.
+9. Включите возможность *возврата к оригинальному слайду из связанного раздела*. 
+10. Удалите фон изображения объекта Zoom‑раздела.
+11. Измените формат линии для второго объекта Zoom‑рамки.
 12. Измените длительность перехода.
-13. Сохраните изменённую презентацию в файл PPTX.
+13. Запишите изменённую презентацию в файл PPTX.
 
+Этот C#‑код показывает, как изменить форматирование Zoom‑рамки раздела:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
-    // Добавляет новый слайд в презентацию
+    //Добавляет новый слайд в презентацию
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.YellowGreen;
@@ -329,24 +329,22 @@ using (Presentation pres = new Presentation())
 ```
 
 
+## **Обзорный масштаб**
+Обзорный масштаб похож на целевую страницу, на которой сразу отображаются все части вашей презентации. Во время показа вы можете использовать масштаб, чтобы переходить из одной части презентации в другую в произвольном порядке. Вы можете проявлять креативность, прыгать вперёд или возвращаться к отдельным слайдам без прерывания потока презентации.
 
-## **Сводный Zoom**
+![масштаб_обзора_изображение](sumzoomsel.png)
 
-Сводный Zoom похож на целевую страницу, где все части вашей презентации отображаются одновременно. Когда вы проводите презентацию, можно использовать Zoom, чтобы перейти от одного места к другому в любом порядке. Можно проявлять креативность, пропускать части или возвращаться к любым слайдам без прерывания потока презентации.
+Для объектов обзорного масштаба Aspose.Slides предоставляет интерфейсы [ISummaryZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomframe), [ISummaryZoomFrameSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection) и [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection), а также некоторые методы интерфейса [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection).
 
-![overview_image](sumzoomsel.png)
-
-Для объектов Сводного Zoom Aspose.Slides предоставляет интерфейсы [ISummaryZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomframe), [ISummaryZoomFrameSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection) и [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection), а также некоторые методы интерфейса [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection).
-
-### **Создание Сводного Zoom**
-
-Вы можете добавить Сводный Zoom‑кадр на слайд следующим образом:
+### **Создание обзорного масштаба**
+Вы можете добавить обзорный масштаб на слайд следующим образом:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Создайте новые слайды с идентификационным фоном и новые разделы для созданных слайдов.
-3. Добавьте Сводный Zoom‑кадр на первый слайд.
-4. Сохраните изменённую презентацию в файл PPTX.
+2. Создайте новые слайды с фоном идентификации и новыми разделами для этих слайдов.
+3. Добавьте обзорный масштаб на первый слайд.
+4. Запишите изменённую презентацию в файл PPTX.
 
+Этот C#‑код показывает, как создать обзорный масштаб на слайде:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
@@ -377,7 +375,7 @@ using (Presentation pres = new Presentation())
     // Добавляет новый раздел в презентацию
     pres.Sections.AddSection("Section 3", slide);
 
-    //Добавяет новый слайд в презентацию
+    //Добавляет новый слайд в презентацию
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.DarkGreen;
@@ -395,22 +393,22 @@ using (Presentation pres = new Presentation())
 ```
 
 
-### **Добавление и удаление секций Сводного Zoom**
-
-Все секции в Сводном Zoom‑кадре представлены объектами [ISummaryZoomFrameSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection), которые хранятся в объекте [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection). Вы можете добавить или удалить объект секции Сводного Zoom через интерфейс [ISummaryZoomSectionCollection] следующим образом:
+### **Добавление и удаление разделов обзорного масштаба**
+Все разделы в объекте обзорного масштаба представлены объектами [ISummaryZoomFrameSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection), которые хранятся в объекте [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection). Вы можете добавить или удалить раздел через интерфейс [ISummaryZoomSectionCollection] следующим образом:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Создайте новые слайды с идентификационным фоном и новые разделы для созданных слайдов.
-3. Добавьте Сводный Zoom‑кадр в первый слайд.
+2. Создайте новые слайды с фоном идентификации и новыми разделами для этих слайдов.
+3. Добавьте обзорный масштаб на первый слайд.
 4. Добавьте новый слайд и раздел в презентацию.
-5. Добавьте созданный раздел в Сводный Zoom‑кадр.
-6. Удалите первый раздел из Сводного Zoom‑кадра.
-7. Сохраните изменённую презентацию в файл PPTX.
+5. Добавьте созданный раздел в объект обзорного масштаба.
+6. Удалите первый раздел из объекта обзорного масштаба.
+7. Запишите изменённую презентацию в файл PPTX.
 
+Этот C#‑код показывает, как добавить и удалить разделы в объекте обзорного масштаба:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
-    // Добавляет новый слайд в презентацию
+    //Добавляет новый слайд в презентацию
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Brown;
@@ -419,7 +417,7 @@ using (Presentation pres = new Presentation())
     // Добавляет новый раздел в презентацию
     pres.Sections.AddSection("Section 1", slide);
 
-    // Добавляет новый слайд в презентацию
+    //Добавляет новый слайд в презентацию
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Aqua;
@@ -431,7 +429,7 @@ using (Presentation pres = new Presentation())
     // Добавляет объект SummaryZoomFrame
     ISummaryZoomFrame summaryZoomFrame = pres.Slides[0].Shapes.AddSummaryZoomFrame(150, 50, 300, 200);
 
-    // Добавляет новый слайд в презентацию
+    //Добавляет новый слайд в презентацию
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Chartreuse;
@@ -452,27 +450,27 @@ using (Presentation pres = new Presentation())
 ```
 
 
-### **Форматирование секций Сводного Zoom**
+### **Форматирование разделов обзорного масштаба**
+Чтобы создать более сложные объекты разделов обзорного масштаба, необходимо изменить их форматирование. Существует несколько параметров форматирования, которые можно применить к объекту раздела обзорного масштаба. 
 
-Чтобы создать более сложные объекты секций Сводного Zoom, необходимо изменить форматирование простого кадра. Существует несколько вариантов форматирования, которые можно применить к объекту секции Сводного Zoom. 
-
-Вы можете управлять форматированием объекта секции Сводного Zoom в Сводном Zoom‑кадре следующим образом:
+Вы можете управлять форматированием раздела обзорного масштаба в объекте обзорного масштаба следующим образом:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Создайте новые слайды с идентификационным фоном и новые разделы для созданных слайдов.
-3. Добавьте Сводный Zoom‑кадр на первый слайд.
-4. Получите объект секции Сводного Zoom для первого элемента из `ISummaryZoomSectionCollection`.
-7. Создайте объект [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage), добавив изображение в коллекцию images, связанную с объектом [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) для заполнения кадра.
-8. Установите собственное изображение для созданного Zoom‑кадра секции.
-9. Установите возможность *возвращения к исходному слайду из связанного раздела*.
-11. Измените формат линии для второго Zoom‑кадра.
-12. Измените длительность перехода.
-13. Сохраните изменённую презентацию в файл PPTX.
+2. Создайте новые слайды с фоном идентификации и новыми разделами для этих слайдов.
+3. Добавьте обзорный масштаб на первый слайд.
+4. Получите объект раздела обзорного масштаба из `ISummaryZoomSectionCollection` для первого элемента.
+5. Создайте объект [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage), добавив изображение в коллекцию images, связанную с объектом [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), которое будет использовано для заполнения рамки.
+6. Установите пользовательское изображение для созданного объекта Zoom‑раздела.
+7. Включите возможность *возврата к оригинальному слайду из связанного раздела*. 
+8. Измените формат линии для второго объекта Zoom‑рамки.
+9. Измените длительность перехода.
+10. Запишите изменённую презентацию в файл PPTX.
 
+Этот C#‑код показывает, как изменить форматирование объекта раздела обзорного масштаба:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
-    // Добавляет новый слайд в презентацию
+    //Добавляет новый слайд в презентацию
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Brown;
@@ -481,7 +479,7 @@ using (Presentation pres = new Presentation())
     // Добавляет новый раздел в презентацию
     pres.Sections.AddSection("Section 1", slide);
 
-    // Добавляет новый слайд в презентацию
+    //Добавляет новый слайд в презентацию
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Aqua;
@@ -521,12 +519,12 @@ using (Presentation pres = new Presentation())
 
 **Могу ли я управлять возвратом к «родительскому» слайду после показа цели?**
 
-Да. У [Zoom frame](https://reference.aspose.com/slides/net/aspose.slides/zoomframe/) или [section](https://reference.aspose.com/slides/net/aspose.slides/sectionzoomframe/) есть свойство `ReturnToParent`, которое при включении отправляет зрителей обратно на исходный слайд после посещения целевого содержимого.
+Да. У [Zoom frame](https://reference.aspose.com/slides/net/aspose.slides/zoomframe/) или [section](https://reference.aspose.com/slides/net/aspose.slides/sectionzoomframe/) есть параметр `ReturnToParent`, который при включении отправляет зрителей обратно к исходному слайду после посещения целевого содержимого.
 
-**Могу ли я настроить «скорость» или длительность перехода Zoom?**
+**Можно ли изменить «скорость» или длительность перехода Zoom?**
 
-Да. Zoom поддерживает установку `TransitionDuration`, позволяя контролировать продолжительность анимации перехода.
+Да. Для Zoom можно задать `TransitionDuration`, что позволяет контролировать продолжительность анимации перехода.
 
-**Есть ли ограничения на количество объектов Zoom, которые может содержать презентация?**
+**Есть ли ограничения на количество объектов Zoom в презентации?**
 
-Жёстких ограничений API не задокументировано. Практические ограничения зависят от общей сложности презентации и производительности устройства просмотра. Можно добавить многие Zoom‑кадры, но следует учитывать размер файла и время рендеринга.
+Твёрдого ограничения API не документировано. Практические ограничения зависят от общей сложности презентации и производительности устройства просмотра. Вы можете добавлять множество Zoom‑рамок, но следует учитывать размер файла и время рендеринга.

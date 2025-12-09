@@ -15,49 +15,53 @@ keywords:
 - الشريحة إلى PNG
 - PPT إلى PNG
 - PPTX إلى PNG
+- حفظ PPT كـ PNG
+- حفظ PPTX كـ PNG
+- تصدير PPT إلى PNG
+- تصدير PPTX إلى PNG
 - .NET
 - C#
 - Aspose.Slides
-description: "تحويل عروض PowerPoint إلى صور PNG عالية الجودة بسرعة باستخدام Aspose.Slides لـ .NET، مع ضمان نتائج دقيقة ومؤتمتة."
+description: "تحويل عروض PowerPoint التقديمية إلى صور PNG عالية الجودة بسرعة باستخدام Aspose.Slides لـ .NET، مع ضمان نتائج دقيقة ومؤتمتة."
 ---
 
 ## **نظرة عامة**
 
-هذه المقالة توضح كيفية تحويل عرض PowerPoint إلى صيغة PNG باستخدام C#. تغطي المواضيع التالية.
+توضح هذه المقالة كيفية تحويل عرض PowerPoint التقديمي إلى صيغة PNG باستخدام C#. تغطي المواضيع التالية.
 
-- [تحويل PowerPoint إلى PNG باستخدام C#](#convert-powerpoint-to-png)
-- [تحويل PPT إلى PNG باستخدام C#](#convert-powerpoint-to-png)
-- [تحويل PPTX إلى PNG باستخدام C#](#convert-powerpoint-to-png)
-- [تحويل ODP إلى PNG باستخدام C#](#convert-powerpoint-to-png)
-- [تحويل شريحة PowerPoint إلى صورة باستخدام C#](#convert-powerpoint-to-png)
+- [تحويل PowerPoint إلى PNG في C#](#convert-powerpoint-to-png)
+- [تحويل PPT إلى PNG في C#](#convert-powerpoint-to-png)
+- [تحويل PPTX إلى PNG في C#](#convert-powerpoint-to-png)
+- [تحويل ODP إلى PNG في C#](#convert-powerpoint-to-png)
+- [تحويل شريحة PowerPoint إلى صورة في C#](#convert-powerpoint-to-png)
 
-## **PowerPoint إلى PNG باستخدام C#**
+## **C# PowerPoint to PNG**
 
-للحصول على كود عينة C# لتحويل PowerPoint إلى PNG، يرجى مراجعة القسم أدناه أي [تحويل PowerPoint إلى PNG](#convert-powerpoint-to-png). يمكن للكود تحميل عدد من الصيغ مثل PPT و PPTX و ODP في كائن Presentation ثم حفظ صورة مصغرة للشريحة بصيغة PNG. التحويلات الأخرى من PowerPoint إلى صور مثل JPG و BMP و TIFF و SVG مُناقشة في هذه المقالات.
+للحصول على مثال كود C# لتحويل PowerPoint إلى PNG، يرجى مراجعة القسم التالي أي [Convert PowerPoint to PNG](#convert-powerpoint-to-png). يمكن للشفرة تحميل عدد من الصيغ مثل PPT و PPTX و ODP في كائن Presentation ثم حفظ صورة مصغرة للشريحة بصيغة PNG. التحويلات الأخرى من PowerPoint إلى صور مثل JPG و BMP و TIFF و SVG يتم مناقشتها في هذه المقالات.
 
-- [PowerPoint إلى JPG باستخدام C#](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
-- [PowerPoint إلى BMP باستخدام C#](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
-- [PowerPoint إلى TIFF باستخدام C#](https://docs.aspose.com/slides/net/convert-powerpoint-to-tiff/)
-- [PowerPoint إلى SVG باستخدام C#](https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/)
+- [C# PowerPoint to JPG](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
+- [C# PowerPoint to BMP](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
+- [C# PowerPoint to TIFF](https://docs.aspose.com/slides/net/convert-powerpoint-to-tiff/)
+- [C# PowerPoint to SVG](https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/)
 
-## **حول تحويل PowerPoint إلى PNG**
+## **About PowerPoint to PNG Conversion**
 
-صيغة PNG (Portable Network Graphics) ليست شائعة كما JPEG (Joint Photographic Experts Group)، لكنها لا تزال شائعة جداً.
+صيغة PNG (Portable Network Graphics) ليست شائعة مثل JPEG (Joint Photographic Experts Group)، لكنها لا تزال شائعة جدا.
 
-**حالة الاستخدام:** عندما يكون لديك صورة معقدة ولا تكون حجمها مشكلة، تكون PNG صيغة صورة أفضل من JPEG.
+**حالة الاستخدام:** عندما يكون لديك صورة معقدة ولا تكون المساحة مشكلة، فإن PNG يكون تنسيق صورة أفضل من JPEG.
 
-{{% alert title="Tip" color="primary" %}} قد ترغب في تجربة أدوات Aspose المجانية **لتحويل PowerPoint إلى PNG**: [PPTX إلى PNG](https://products.aspose.app/slides/conversion/pptx-to-png) و [PPT إلى PNG](https://products.aspose.app/slides/conversion/ppt-to-png). هي تنفيذ حي للعملية الموضحة في هذه الصفحة. {{% /alert %}}
+{{% alert title="Tip" color="primary" %}} قد ترغب في تجربة أدوات Aspose المجانية **PowerPoint to PNG Converters**: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) و [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png). هذه تطبيقات حية للعملية الموضحة في هذه الصفحة. {{% /alert %}}
 
-## **تحويل PowerPoint إلى PNG**
+## **Convert PowerPoint to PNG**
 
-اتبع الخطوات التالية:
+اتبع هذه الخطوات:
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. الحصول على كائن الشريحة من مجموعة [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) عبر الواجهة [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide).
+1. أنشئ كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. احصل على كائن الشريحة من مجموعة [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) تحت واجهة [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide).
 3. استخدم طريقة [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) للحصول على الصورة المصغرة لكل شريحة.
-4. استخدم طريقة [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/save/methods/5) لحفظ الصورة المصغرة بصيغة PNG.
+4. استخدم طريقة [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/save/methods/5) لحفظ الصورة المصغرة للشريحة بصيغة PNG.
 
-يعرض هذا الكود C# كيفية تحويل عرض PowerPoint إلى PNG. يمكن لكائن Presentation تحميل PPT و PPTX و ODP وغيرها، ثم يتم تحويل كل شريحة في كائن العرض إلى صيغة PNG أو صيغ صور أخرى.
+يظهر هذا الكود C# كيفية تحويل عرض PowerPoint إلى PNG. يمكن لكائن Presentation تحميل PPT و PPTX و ODP وغيرها، ثم يتم تحويل كل شريحة في كائن العرض إلى صيغة PNG أو صيغ صور أخرى.
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -74,9 +78,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-## **تحويل PowerPoint إلى PNG بأبعاد مخصصة**
+## **Convert PowerPoint to PNG With Custom Dimensions**
 
-إذا كنت ترغب في الحصول على ملفات PNG بحجم معين، يمكنك تعيين القيم لـ `desiredX` و `desiredY` التي تحدد أبعاد الصورة المصغرة الناتجة.
+إذا كنت ترغب في الحصول على ملفات PNG بأبعاد محددة، يمكنك تعيين القيم لـ `desiredX` و `desiredY`، والتي تحدد أبعاد الصورة المصغرة الناتجة.
 
 هذا الكود في C# يوضح العملية الموصوفة:
 ```c#
@@ -97,9 +101,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-## **تحويل PowerPoint إلى PNG بحجم مخصص**
+## **Convert PowerPoint to PNG With Custom Size**
 
-إذا كنت ترغب في الحصول على ملفات PNG بحجم معين، يمكنك تمرير قيم `width` و `height` المفضلة إلى المتغير `imageSize`.
+إذا كنت ترغب في الحصول على ملفات PNG بحجم معين، يمكنك تمرير القيم المفضلة لـ `width` و `height` إلى المتغير `imageSize`.
 
 هذا الكود يوضح كيفية تحويل PowerPoint إلى PNG مع تحديد حجم الصور:
 ```c#
@@ -119,16 +123,16 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-## **الأسئلة الشائعة**
+## **FAQ**
 
-**كيف يمكنني تصدير شكل محدد فقط (مثل مخطط أو صورة) بدلاً من الشريحة كاملة؟**
+**كيف يمكنني تصدير شكل معين فقط (مثل مخطط أو صورة) بدلاً من الشريحة بأكملها؟**
 
-تدعم Aspose.Slides [إنشاء صور مصغرة لأشكال فردية](/slides/ar/net/create-shape-thumbnails/); يمكنك استخراج الشكل كصورة PNG.
+يدعم Aspose.Slides [إنشاء صور مصغرة لأشكال فردية](/slides/ar/net/create-shape-thumbnails/); يمكنك تصيير الشكل إلى صورة PNG.
 
 **هل يدعم التحويل المتوازي على الخادم؟**
 
-نعم، لكن لا يجب [مشاركة](/slides/ar/net/multithreading/) كائن Presentation واحد عبر خيوط متعددة. استخدم كائنًا منفصلاً لكل خيط أو عملية.
+نعم، ولكن [لا تشارك](/slides/ar/net/multithreading/) كائن عرض واحد عبر الخيوط. استخدم كائنًا منفصلاً لكل خيط أو عملية.
 
-**ما هي قيود النسخة التجريبية عند التصدير إلى PNG؟**
+**ما هي قيود نسخة التجربة عند التصدير إلى PNG؟**
 
-وضع التقييم يضيف علامة مائية إلى الصور الناتجة ويطبق [قيودًا أخرى](/slides/ar/net/licensing/) حتى يتم تطبيق ترخيص.
+يضيف وضع التقييم علامة مائية إلى الصور الناتجة ويطبق [قيودًا أخرى](/slides/ar/net/licensing/) حتى يتم تطبيق ترخيص.

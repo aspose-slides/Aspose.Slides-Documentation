@@ -1,5 +1,5 @@
 ---
-title: Gérer les exposants et les indices en C#
+title: Gérer les exposants et indices dans les présentations en .NET
 linktitle: Exposant et indice
 type: docs
 weight: 80
@@ -12,36 +12,36 @@ keywords:
 - PowerPoint
 - OpenDocument
 - présentation
+- .NET
 - C#
-- Csharp
 - Aspose.Slides
-description: "Maîtrisez les exposants et les indices dans Aspose.Slides pour .NET et améliorez vos présentations avec un formatage de texte professionnel pour un impact maximal."
+description: "Maîtrisez les exposants et indices dans Aspose.Slides pour .NET et améliorez vos présentations avec une mise en forme de texte professionnelle pour un impact maximal."
 ---
 
 ## **Vue d'ensemble**
 
-Aspose.Slides for .NET propose des fonctionnalités d'intégration de texte en exposant et en indice dans vos présentations PowerPoint (PPT, PPTX) et OpenDocument (ODP). Que vous ayez besoin de mettre en évidence des formules chimiques, des équations mathématiques ou d'annoter du contenu avec des notes de bas de page, ces options de formatage spécialisées aident à maintenir clarté et précision. Dans cet article, vous apprendrez comment appliquer de manière fluide les styles d'exposant et d'indice et garantir des résultats professionnels sur chaque diapositive.
+Aspose.Slides for .NET offre des fonctionnalités d'intégration de texte en exposant et indice dans vos présentations PowerPoint (PPT, PPTX) et OpenDocument (ODP). Que vous ayez besoin de mettre en valeur des formules chimiques, des équations mathématiques ou d'annoter du contenu avec des notes de bas de page, ces options de mise en forme spécialisées permettent de conserver clarté et précision. Dans cet article, vous apprendrez comment appliquer de manière fluide les styles exposant et indice et obtenir des résultats professionnels sur chaque diapositive.
 
-## **Ajouter du texte en exposant et en indice**
+## **Ajouter du texte en exposant et indice**
 
-Vous pouvez ajouter du texte en exposant et en indice dans n'importe quel paragraphe d'une présentation. Pour le faire avec Aspose.Slides, vous devez utiliser la propriété `Escapement` de la classe [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) .
+Vous pouvez ajouter du texte en exposant et indice à l'intérieur de n'importe quel paragraphe d'une présentation. Pour cela avec Aspose.Slides, vous devez utiliser la propriété `Escapement` de la classe [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) .
 
-Cette propriété vous permet de définir du texte en exposant ou en indice, avec des valeurs comprises entre -100 % (indice) et 100 % (exposant).
+Cette propriété vous permet de définir du texte en exposant ou indice, avec des valeurs allant de -100 % (indice) à 100 % (exposant).
 
 Étapes d'implémentation :
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
-1. Obtenez une référence à une diapositive en utilisant son index.
-1. Ajoutez une [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) de type `Rectangle` à la diapositive.
-1. Accédez à l'[ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) associé à l'[IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) .
+1. Obtenez une référence à une diapositive en utilisant son indice.
+1. Ajoutez un [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) de type `Rectangle` à la diapositive.
+1. Accédez au [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) associé à l'[IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) .
 1. Effacez les paragraphes existants.
-1. Créez un nouveau [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) pour le texte en exposant et ajoutez‑le à la collection de paragraphes de l'[ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) .
+1. Créez un nouveau [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) pour le texte en exposant et ajoutez‑le à la collection de paragraphes du [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) .
 1. Créez un nouvel objet de portion de texte.
-1. Définissez la propriété `Escapement` de la portion de texte entre 0 et 100 pour appliquer l'exposant (0 signifie aucun exposant).
+1. Définissez la propriété `Escapement` pour la portion de texte entre 0 et 100 afin d'appliquer l'exposant (0 signifie aucun exposant).
 1. Définissez du texte pour la [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/) et ajoutez‑le à la collection de portions du paragraphe.
 1. Créez un autre [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/) pour le texte en indice et ajoutez‑le à la collection de paragraphes.
 1. Créez un nouvel objet de portion de texte.
-1. Définissez la propriété `Escapement` de la portion de texte entre 0 et -100 pour appliquer l'indice (0 signifie aucun indice).
+1. Définissez la propriété `Escapement` pour la portion de texte entre 0 et -100 afin d'appliquer l'indice (0 signifie aucun indice).
 1. Définissez du texte pour la [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/) et ajoutez‑le à la collection de portions du paragraphe.
 1. Enregistrez la présentation au format PPTX.
 
@@ -101,14 +101,14 @@ Le résultat :
 
 ## **FAQ**
 
-**L'exposant et l'indice sont‑ils conservés lors de l'exportation vers PDF ou d'autres formats ?**
+**Le texte en exposant et indice sera-t-il conservé lors de l'exportation vers PDF ou d'autres formats ?**
 
-Oui, Aspose.Slides for .NET conserve correctement le formatage d'exposant et d'indice lors de l'exportation des présentations vers PDF, PPT/PPTX, images et autres formats pris en charge. Le formatage spécialisé reste intact dans tous les fichiers de sortie.
+Oui, Aspose.Slides for .NET conserve correctement la mise en forme en exposant et indice lors de l'exportation des présentations vers PDF, PPT/PPTX, images et autres formats pris en charge. Le formatage spécialisé reste intact dans tous les fichiers de sortie.
 
-**L'exposant et l'indice peuvent‑ils être combinés avec d'autres styles de formatage tels que gras ou italique ?**
+**L'exposant et l'indice peuvent-ils être combinés avec d'autres styles de mise en forme tels que gras ou italique ?**
 
-Oui, Aspose.Slides vous permet de mêler différents styles de texte au sein d'une même portion. Vous pouvez activer le gras, l'italique, le soulignement et appliquer simultanément l'exposant ou l'indice en configurant les propriétés correspondantes dans [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) .
+Oui, Aspose.Slides vous permet de mêler différents styles de texte au sein d'une même portion. Vous pouvez activer le gras, l'italique, le souligné et appliquer simultanément l'exposant ou l'indice en configurant les propriétés correspondantes dans [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) .
 
-**Le formatage d'exposant et d'indice fonctionne‑t‑il pour le texte à l'intérieur des tableaux, graphiques ou SmartArt ?**
+**La mise en forme en exposant et indice fonctionne‑t‑elle pour le texte à l'intérieur des tableaux, graphiques ou SmartArt ?**
 
-Oui, Aspose.Slides for .NET prend en charge le formatage dans la plupart des objets, y compris les éléments de tableaux et de graphiques. Lors du travail avec SmartArt, vous devez accéder aux éléments appropriés (tels que [SmartArtNode](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartartnode/) ) et à leurs conteneurs de texte, puis configurer les propriétés de [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) de manière similaire.
+Oui, Aspose.Slides for .NET prend en charge la mise en forme dans la plupart des objets, y compris les éléments de tableaux et de graphiques. Lors du travail avec SmartArt, vous devez accéder aux éléments appropriés (tels que [SmartArtNode](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartartnode/)) et à leurs conteneurs de texte, puis configurer les propriétés de [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) de manière similaire.

@@ -1,25 +1,44 @@
 ---
-title: Axe du graphique
+title: Personnaliser les axes de graphiques dans les présentations en .NET
+linktitle: Axe du graphique
 type: docs
 url: /fr/net/chart-axis/
-keywords: "Axe de graphique PowerPoint, Graphiques de présentation, C#, .NET, Manipuler l'axe du graphique, Données du graphique"
-description: "Modifier l'axe du graphique PowerPoint en C# ou .NET"
+keywords:
+- axe de graphique
+- axe vertical
+- axe horizontal
+- personnaliser l'axe
+- manipuler l'axe
+- gérer l'axe
+- propriétés de l'axe
+- valeur maximale
+- valeur minimale
+- ligne d'axe
+- format de date
+- titre de l'axe
+- position de l'axe
+- PowerPoint
+- présentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Découvrez comment utiliser Aspose.Slides pour .NET afin de personnaliser les axes de graphiques dans les présentations PowerPoint pour les rapports et les visualisations."
 ---
 
 ## **Obtenir les valeurs maximales sur l'axe vertical des graphiques**
-Aspose.Slides for .NET vous permet d'obtenir les valeurs minimale et maximale sur un axe vertical. Suivez ces étapes :
+Aspose.Slides pour .NET vous permet d'obtenir les valeurs minimale et maximale sur un axe vertical. Suivez ces étapes :
 
 1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 2. Accéder à la première diapositive.
 3. Ajouter un graphique avec les données par défaut.
-4. Obtenir la valeur maximale réelle de l'axe.
-5. Obtenir la valeur minimale réelle de l'axe.
+4. Obtenir la valeur maximale réelle sur l'axe.
+5. Obtenir la valeur minimale réelle sur l'axe.
 6. Obtenir l'unité principale réelle de l'axe.
 7. Obtenir l'unité secondaire réelle de l'axe.
 8. Obtenir l'échelle de l'unité principale réelle de l'axe.
 9. Obtenir l'échelle de l'unité secondaire réelle de l'axe.
 
-Ce code d'exemple — une implémentation des étapes ci‑dessus — montre comment obtenir les valeurs requises en C#:
+Ce code d'exemple — une implémentation des étapes ci‑dessus — montre comment obtenir les valeurs requises en C# :
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -39,26 +58,25 @@ using (Presentation pres = new Presentation())
 
 
 ## **Échanger les données entre les axes**
-Aspose.Slides vous permet d'échanger rapidement les données entre les axes — les données représentées sur l'axe vertical (axe y) sont déplacées vers l'axe horizontal (axe x) et inversement. 
+Aspose.Slides vous permet d'échanger rapidement les données entre les axes — les données représentées sur l'axe vertical (axe y) sont déplacées vers l'axe horizontal (axe x) et vice‑versa. 
 
-Ce code C# montre comment réaliser l'échange des données entre les axes d'un graphique :
+Ce code C# montre comment effectuer l'échange de données entre les axes d'un graphique :
 ```c#
 // Crée une présentation vide
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
 
-	//Échange les lignes et les colonnes
-	chart.ChartData.SwitchRowColumn();
+	//Inverse les lignes et les colonnes
 		   
-	// Enregistre la présentation
+	 // Enregistre la présentation
 	 pres.Save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
  }
 ```
 
 
-## **Désactiver l'axe vertical pour les graphiques en courbes**
-Ce code C# montre comment masquer l'axe vertical d'un graphique en courbes :
+## **Désactiver l'axe vertical pour les graphiques en ligne**
+Ce code C# montre comment masquer l'axe vertical d'un graphique en ligne :
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -70,8 +88,8 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Désactiver l'axe horizontal pour les graphiques en courbes**
-Ce code montre comment masquer l'axe horizontal d'un graphique en courbes :
+## **Désactiver l'axe horizontal pour les graphiques en ligne**
+Ce code montre comment masquer l'axe horizontal d'un graphique en ligne :
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -99,7 +117,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 
 ## **Définir le format de date pour la valeur de l'axe des catégories**
-Aspose.Slides for .NET vous permet de définir le format de date pour une valeur d'axe des catégories. L'opération est démontrée dans ce code C# :
+Aspose.Slides pour .NET vous permet de définir le format de date pour une valeur d'axe des catégories. L'opération est démontrée dans ce code C# :
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -130,7 +148,7 @@ using (Presentation pres = new Presentation())
 
 
 ## **Définir l'angle de rotation du titre de l'axe du graphique**
-Aspose.Slides for .NET vous permet de définir l'angle de rotation du titre d'un axe de graphique. Ce code C# montre l'opération :
+Aspose.Slides pour .NET vous permet de définir l'angle de rotation du titre d'un axe de graphique. Ce code C# montre l'opération :
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -144,7 +162,7 @@ using (Presentation pres = new Presentation())
 
 
 ## **Définir la position de l'axe dans un axe de catégorie ou de valeur**
-Aspose.Slides for .NET vous permet de définir la position de l'axe dans un axe de catégorie ou de valeur. Ce code C# montre comment effectuer la tâche :
+Aspose.Slides pour .NET vous permet de définir la position de l'axe dans un axe de catégorie ou de valeur. Ce code C# montre comment réaliser la tâche :
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -156,8 +174,8 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Activer l'étiquette d'unité d'affichage sur l'axe des valeurs du graphique**
-Aspose.Slides for .NET vous permet de configurer un graphique afin d'afficher une étiquette d'unité sur son axe des valeurs. Ce code C# montre l'opération :
+## **Activer l'étiquette d'unité d'affichage sur l'axe de valeur du graphique**
+Aspose.Slides pour .NET vous permet de configurer un graphique pour afficher une étiquette d'unité sur son axe de valeur. Ce code C# montre l'opération :
 ```c#
 using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
 {
@@ -170,10 +188,10 @@ using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
 
 ## **FAQ**
 
-**Comment définir la valeur à laquelle un axe croise l'autre (croisement des axes) ?**
+**Comment définir la valeur à laquelle un axe croise l'autre (croisement d'axes) ?**
 
-Les axes offrent un [paramètre de croisement](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/): vous pouvez choisir de croiser à zéro, au maximum de la catégorie/valeur, ou à une valeur numérique précise. Cela est utile pour déplacer l'axe X vers le haut ou le bas ou pour mettre en évidence une ligne de base.
+Les axes offrent un [paramètre de croisement](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) : vous pouvez choisir de croiser à zéro, au maximum de la catégorie/valeur, ou à une valeur numérique précise. Cela est utile pour déplacer l'axe X vers le haut ou le bas ou pour mettre en évidence une ligne de base.
 
 **Comment positionner les étiquettes de graduation par rapport à l'axe (à côté, à l'extérieur, à l'intérieur) ?**
 
-Définissez la [position de l'étiquette](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majortickmark/) sur «cross», «outside» ou «inside». Cela influe sur la lisibilité et aide à économiser de l'espace, notamment sur les petits graphiques.
+Définissez la [position de l'étiquette](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majortickmark/) sur « cross », « outside » ou « inside ». Cela affecte la lisibilité et aide à économiser de l'espace, surtout sur les petits graphiques.

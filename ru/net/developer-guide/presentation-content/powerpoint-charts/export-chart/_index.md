@@ -1,22 +1,24 @@
 ---
-title: Экспорт диаграммы
+title: Экспорт диаграмм презентаций в .NET
+linktitle: Экспорт диаграммы
 type: docs
 weight: 90
 url: /ru/net/export-chart/
 keywords:
 - диаграмма
-- изображение диаграммы
+- диаграмма в изображение
+- диаграмма как изображение
 - извлечение изображения диаграммы
 - PowerPoint
 - презентация
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Получайте изображения диаграмм из презентаций PowerPoint на C# или .NET"
+- Aspose.Slides
+description: "Узнайте, как экспортировать диаграммы презентаций с помощью Aspose.Slides для .NET, поддерживая форматы PPT и PPTX, и упростить создание отчетов в любом рабочем процессе."
 ---
 
 ## **Получить изображение диаграммы**
-Aspose.Slides для .NET поддерживает извлечение изображения конкретной диаграммы. Ниже приведён пример.
+Aspose.Slides для .NET предоставляет возможность извлекать изображение конкретной диаграммы. Ниже приведён пример.  
 ```c#
 using (Presentation presentation = new Presentation("test.pptx"))
 {
@@ -35,13 +37,13 @@ using (Presentation presentation = new Presentation("test.pptx"))
 
 **Могу ли я экспортировать диаграмму как вектор (SVG), а не как растровое изображение?**
 
-Да. Диаграмма является фигурой, и её содержимое можно сохранить в SVG с помощью [метода сохранения shape-to-SVG](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/).
+Да. Диаграмма — это фигура, и её содержимое можно сохранить в SVG, используя метод [shape-to-SVG saving method](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/).
 
 **Как задать точный размер экспортируемой диаграммы в пикселях?**
 
-Используйте перегрузки методов рендеринга изображения, которые позволяют указать размер или масштаб — библиотека поддерживает рендеринг объектов с заданными размерами/масштабом.
+Используйте перегрузки рендеринга изображения, которые позволяют указать размер или масштаб — библиотека поддерживает рендеринг объектов с заданными размерами/масштабом.
 
-**Что делать, если шрифты в подписях и легенде выглядят неправильно после экспорта?**
+**Что делать, если шрифты в подписьях и легенде выглядят неправильно после экспорта?**
 
 [Загрузите необходимые шрифты](/slides/ru/net/custom-font/) через [FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/) чтобы рендеринг диаграммы сохранял метрики и внешний вид текста.
 
@@ -49,6 +51,6 @@ using (Presentation presentation = new Presentation("test.pptx"))
 
 Да. Рендерер Aspose.Slides следует форматированию презентации (темы, стили, заливки, эффекты), поэтому внешний вид диаграммы сохраняется.
 
-**Где можно найти доступные возможности рендеринга/экспорта сверх изображений диаграмм?**
+**Где можно найти доступные возможности рендеринга/экспорта помимо изображений диаграмм?**
 
-Смотрите раздел экспорта в [API](https://reference.aspose.com/slides/net/aspose.slides.export/)/[документации](/slides/ru/net/convert-powerpoint/) для целевых форматов вывода ([PDF](/slides/ru/net/convert-powerpoint-to-pdf/), [SVG](/slides/ru/net/render-a-slide-as-an-svg-image/), [XPS](/slides/ru/net/convert-powerpoint-to-xps/), [HTML](/slides/ru/net/convert-powerpoint-to-html/), и т.д.) и связанных параметров рендеринга.
+Смотрите раздел экспорта в [API](https://reference.aspose.com/slides/net/aspose.slides.export/)/[документации](/slides/ru/net/convert-powerpoint/) для целевых форматов вывода ([PDF](/slides/ru/net/convert-powerpoint-to-pdf/), [SVG](/slides/ru/net/render-a-slide-as-an-svg-image/), [XPS](/slides/ru/net/convert-powerpoint-to-xps/), [HTML](/slides/ru/net/convert-powerpoint-to-html/), и др.) и связанные параметры рендеринга.

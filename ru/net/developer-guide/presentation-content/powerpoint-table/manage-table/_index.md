@@ -1,26 +1,39 @@
 ---
-title: Управление таблицей
+title: Управление таблицами презентаций в .NET
+linktitle: Управление таблицей
 type: docs
 weight: 10
 url: /ru/net/manage-table/
-keywords: "Таблица, создание таблицы, доступ к таблице, соотношение сторон таблицы, презентация PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "Создание и управление таблицами в презентациях PowerPoint на C# или .NET"
+keywords:
+- добавить таблицу
+- создание таблицы
+- доступ к таблице
+- соотношение сторон
+- выравнивание текста
+- форматирование текста
+- стиль таблицы
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Создавайте и редактируйте таблицы в слайдах PowerPoint с помощью Aspose.Slides для .NET. Ознакомьтесь с простыми примерами кода C# для оптимизации работы с таблицами."
 ---
 
-Таблица в PowerPoint — эффективный способ отображения и представления информации. Информация в сетке ячеек (расположенных в строках и столбцах) проста и легко понимается.
+Таблица в PowerPoint — эффективный способ отображения и представления информации. Информация в сетке ячеек (расположенных в строках и столбцах) является простой и легко понятной.
 
-Aspose.Slides предоставляет класс [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) , интерфейс [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) , класс [Cell](https://reference.aspose.com/slides/net/aspose.slides/cell/) , интерфейс [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) и другие типы, позволяющие создавать, обновлять и управлять таблицами в различных презентациях. 
+Aspose.Slides предоставляет класс [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) , интерфейс [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) , класс [Cell](https://reference.aspose.com/slides/net/aspose.slides/cell/) , интерфейс [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) и другие типы, позволяющие создавать, обновлять и управлять таблицами во всех типах презентаций. 
 
 ## **Создание таблицы с нуля**
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
 2. Получите ссылку на слайд по его индексу. 
-3. Определите массив `columnWidth`.
-4. Определите массив `rowHeight`.
+3. Определите массив `columnWidth` .
+4. Определите массив `rowHeight` .
 5. Добавьте объект [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) на слайд с помощью метода [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) .
-6. Итерируйте каждый [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) для применения форматирования к верхней, нижней, правой и левой границам.
+6. Пройдитесь по каждому [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) , чтобы применить форматирование к верхней, нижней, правой и левой границам.
 7. Объедините первые две ячейки первой строки таблицы. 
-8. Получите доступ к [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) ячейки [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) . 
+8. Получите доступ к [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) ячейки [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) .
 9. Добавьте некоторый текст в [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) .
 10. Сохраните изменённую презентацию.
 
@@ -28,17 +41,17 @@ Aspose.Slides предоставляет класс [Table](https://reference.as
 // Создает экземпляр класса Presentation, представляющего файл PPTX
 Presentation pres = new Presentation();
 
-// Accesses the first slide
+// Получает первый слайд
 ISlide sld = pres.Slides[0];
 
-// Defines columns with widths and rows with heights
+// Определяет столбцы с шириной и строки с высотой
 double[] dblCols = { 50, 50, 50 };
 double[] dblRows = { 50, 30, 30, 30, 30 };
 
-// Adds a table shape to the slide
+// Добавляет форму таблицы на слайд
 ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
 
-// Sets the border format for each cell
+// Устанавливает формат границы для каждой ячейки
 for (int row = 0; row < tbl.Rows.Count; row++)
 {
 	for (int cell = 0; cell < tbl.Rows[row].Count; cell++)
@@ -63,7 +76,7 @@ for (int row = 0; row < tbl.Rows.Count; row++)
 // Объединяет ячейки 1 и 2 первой строки
 tbl.MergeCells(tbl.Rows[0][0], tbl.Rows[1][1], false);
 
-// Добавляет текст в объединенную ячейку
+// Добавляет текст в объединённую ячейку
 tbl.Rows[0][0].TextFrame.Text = "Merged Cells";
 
 // Сохраняет презентацию на диск
@@ -73,9 +86,9 @@ pres.Save("table.pptx", SaveFormat.Pptx);
 
 ## **Нумерация в стандартной таблице**
 
-В стандартной таблице нумерация ячеек проста и начинается с нуля. Первая ячейка в таблице имеет индекс 0,0 (столбец 0, строка 0). 
+В стандартной таблице нумерация ячеек проста и начинается с нуля. Первая ячейка таблицы имеет индекс 0,0 (столбец 0, строка 0). 
 
-Например, ячейки в таблице с 4 столбцами и 4 строками нумеруются следующим образом:
+Например, ячейки таблицы с 4 столбцами и 4 строками нумеруются следующим образом:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -88,11 +101,10 @@ pres.Save("table.pptx", SaveFormat.Pptx);
 // Создает экземпляр класса Presentation, представляющего файл PPTX
 using (Presentation pres = new Presentation())
 {
-
-    // Получает доступ к первому слайду
+    // Получает первый слайд
     ISlide sld = pres.Slides[0];
 
-    // Определяет столбцы с ширинами и строки с высотами
+    // Определяет столбцы с шириной и строки с высотой
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
@@ -133,24 +145,25 @@ using (Presentation pres = new Presentation())
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
 2. Получите ссылку на слайд, содержащий таблицу, по его индексу. 
 3. Создайте объект [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) и присвойте ему null.
-4. Итерируйте все объекты [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) до тех пор, пока не будет найдена таблица.
+4. Пройдитесь по всем объектам [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) , пока не найдёте таблицу.
 
-Если вы предполагаете, что слайд содержит единственную таблицу, вы можете просто проверить все содержащиеся в нём формы. Когда форма определяется как таблица, её можно привести к типу [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) . Но если слайд содержит несколько таблиц, лучше искать нужную таблицу по её [AlternativeText](https://reference.aspose.com/slides/net/aspose.slides/ishape/alternativetext/) .
-5. Используйте объект [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) для работы с таблицей. В примере ниже мы добавили новую строку в таблицу.
+   Если вы подозреваете, что обрабатываемый слайд содержит единственную таблицу, можно просто проверить все содержащиеся в нём фигуры. Когда фигура определяется как таблица, её можно привести к объекту [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) . Но если на слайде несколько таблиц, лучше искать нужную таблицу по её [AlternativeText](https://reference.aspose.com/slides/net/aspose.slides/ishape/alternativetext/) .
+
+5. Используйте объект [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) , чтобы работать с таблицей. В приведённом ниже примере мы добавили новую строку в таблицу.
 6. Сохраните изменённую презентацию.
 
 ```c#
-/* Создаёт экземпляр класса Presentation, представляющего файл PPTX */
+// Создаёт экземпляр класса Presentation, представляющего файл PPTX
 using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 {
 
-    // Получает доступ к первому слайду
+    // Получает первый слайд
     ISlide sld = pres.Slides[0];
 
     // Инициализирует null TableEx
     ITable tbl = null;
 
-    // Итерирует формы и устанавливает ссылку на найденную таблицу
+    // Проходит по фигурам и сохраняет ссылку на найденную таблицу
     foreach (IShape shp in sld.Shapes)
         if (shp is ITable)
             tbl = (ITable)shp;
@@ -164,6 +177,7 @@ using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 ```
 
 
+
 ## **Выравнивание текста в таблице**
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
@@ -171,7 +185,7 @@ using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 3. Добавьте объект [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) на слайд. 
 4. Получите объект [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) из таблицы. 
 5. Получите [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) из [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) .
-6. Выравнивайте текст по вертикали.
+6. Выравняйте текст по вертикали.
 7. Сохраните изменённую презентацию.
 
 ```c#
@@ -191,7 +205,7 @@ tbl[1, 0].TextFrame.Text = "10";
 tbl[2, 0].TextFrame.Text = "20";
 tbl[3, 0].TextFrame.Text = "30";
 
-// Получает доступ к текстовому фрейму
+// Получает текстовый фрейм
 ITextFrame txtFrame = tbl[0, 0].TextFrame;
 
 // Создает объект Paragraph для текстового фрейма
@@ -208,7 +222,7 @@ ICell cell = tbl[0, 0];
 cell.TextAnchorType = TextAnchorType.Center;
 cell.TextVerticalType = TextVerticalType.Vertical270;
 
-// Сохраняет презентацию на диск
+// Saves the presentation to disk
 presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 ```
 
@@ -219,7 +233,7 @@ presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 2. Получите ссылку на слайд по его индексу. 
 3. Получите объект [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) со слайда.
 4. Установите [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) для текста. 
-5. Задайте [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) и [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/) .
+5. Установите [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) и [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/) . 
 6. Установите [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/) .
 7. Сохраните изменённую презентацию. 
 
@@ -228,7 +242,7 @@ presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 Presentation presentation = new Presentation();
 ISlide slide = presentation.Slides[0];
 
-ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // Предположим, что первая форма на первом слайде является таблицей
+ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // Предположим, что первая фигура на первом слайде — таблица
 
 // Устанавливает высоту шрифта ячеек таблицы
 PortionFormat portionFormat = new PortionFormat();
@@ -253,12 +267,12 @@ presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ## **Получение свойств стиля таблицы**
 
-Aspose.Slides позволяет получить свойства стиля таблицы, чтобы использовать эти детали для другой таблицы или в другом месте. Этот код C# показывает, как получить свойства стиля из предустановленного стиля таблицы: 
+Aspose.Slides позволяет получать свойства стиля таблицы, чтобы использовать эти данные для другой таблицы или в другом месте. Этот код C# показывает, как получить свойства стиля из предустановленного стиля таблицы: 
 ```c#
 using (Presentation pres = new Presentation())
 {
     ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.StylePreset = TableStylePreset.DarkStyle1; // изменить тему предустановленного стиля по умолчанию
+    table.StylePreset = TableStylePreset.DarkStyle1; // изменить тему предустановленного стиля по умолчанию 
     pres.Save("table.pptx", SaveFormat.Pptx);
 }
 ```
@@ -266,7 +280,7 @@ using (Presentation pres = new Presentation())
 
 ## **Блокировка соотношения сторон таблицы**
 
-Соотношение сторон геометрической фигуры — это отношение её размеров в разных измерениях. Aspose.Slides предоставляет свойство `AspectRatioLocked`, позволяющее заблокировать настройку соотношения сторон для таблиц и других фигур. 
+Соотношение сторон геометрической фигуры — это отношение её размеров в разных измерениях. Aspose.Slides предоставил свойство `AspectRatioLocked`, позволяющее блокировать настройку соотношения сторон для таблиц и других фигур. 
 
 Этот код C# показывает, как заблокировать соотношение сторон для таблицы:
 ```c#
@@ -286,14 +300,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **FAQ**
 
-**Могу ли я включить направление чтения справа налево (RTL) для всей таблицы и текста в её ячейках?**
+**Можно ли включить направление чтения справа налево (RTL) для всей таблицы и текста в её ячейках?**
 
-Да. Таблица раскрывает свойство [RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/table/righttoleft/) , и у абзацев есть [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/righttoleft/) . Использование обоих обеспечивает правильный порядок RTL и рендеринг внутри ячеек.
+Да. Таблица имеет свойство [RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/table/righttoleft/) , а абзацы — [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/righttoleft/) . Использование обоих обеспечивает правильный порядок RTL и его рендеринг внутри ячеек.
 
-**Как предотвратить перемещение или изменение размеров таблицы пользователями в окончательном файле?**
+**Как можно предотвратить перемещение или изменение размеров таблицы в конечном файле?**
 
-Используйте [shape locks](/slides/ru/net/applying-protection-to-presentation/) для отключения перемещения, изменения размера, выбора и т.д. Эти блокировки применяются и к таблицам.
+Используйте [shape locks](/slides/ru/net/applying-protection-to-presentation/) , чтобы отключить перемещение, изменение размеров, выделение и т.д. Эти блокировки применимы и к таблицам.
 
-**Поддерживается ли вставка изображения в ячейку в качестве фонового?**
+**Поддерживается ли вставка изображения в ячейку в качестве фона?**
 
-Да. Вы можете задать [picture fill](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) для ячейки; изображение будет покрывать область ячейки в соответствии с выбранным режимом (растягивание или плитка).
+Да. Вы можете задать [picture fill](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) для ячейки; изображение будет покрывать область ячейки в соответствии с выбранным режимом (растягивание или замощение).

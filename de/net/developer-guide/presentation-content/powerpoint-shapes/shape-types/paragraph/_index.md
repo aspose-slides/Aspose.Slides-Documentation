@@ -1,19 +1,32 @@
 ---
-title: Absatz
+title: Absatzgrenzen aus Präsentationen in .NET ermitteln
+linktitle: Absatz
 type: docs
 weight: 60
 url: /de/net/paragraph/
-keywords: "Absatz, Portion, Absatzkoordinate, Portionskoordinate, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "Absatz und Portion in einer PowerPoint-Präsentation in C# oder .NET"
+keywords:
+- Absatzgrenzen
+- Textabschnittsgrenzen
+- Absatzkoordinate
+- Portionskoordinate
+- Absatzgröße
+- Textabschnittsgröße
+- Textfeld
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie in Aspose.Slides für .NET Absatz- und Textabschnittsgrenzen abrufen, um die Textpositionierung in PowerPoint‑Präsentationen zu optimieren."
 ---
 
-## **Paragraph‑ und Portionkoordinaten im TextFrame abrufen**
-Mit Aspose.Slides für .NET können Entwickler nun die rechteckigen Koordinaten eines Paragraphen innerhalb der Paragraphensammlung eines TextFrames abrufen. Außerdem können die Koordinaten einer Portion innerhalb der Portionensammlung eines Paragraphen ermittelt werden. In diesem Thema zeigen wir anhand eines Beispiels, wie man die rechteckigen Koordinaten eines Paragraphen zusammen mit der Position einer Portion innerhalb eines Paragraphen erhält.
+## **Koordinaten von Paragraph und Portion in TextFrame abrufen**
+Mit Aspose.Slides für .NET können Entwickler jetzt die rechteckigen Koordinaten für Paragraph innerhalb der Paragraphensammlung eines TextFrames erhalten. Es ermöglicht außerdem, die Koordinaten einer Portion innerhalb der Portionensammlung eines Paragraphen abzurufen. In diesem Thema zeigen wir anhand eines Beispiels, wie man die rechteckigen Koordinaten für Paragraph sowie die Position einer Portion innerhalb eines Paragraphen ermittelt.
 
 ## **Rechteckige Koordinaten eines Paragraphen abrufen**
-Die neue Methode **GetRect()** wurde hinzugefügt. Sie ermöglicht das Abrufen des Begrenzungsrechtecks eines Paragraphen.
+Die neue Methode **GetRect()** wurde hinzugefügt. Sie ermöglicht das Abrufen des Rechtecks, das die Grenzen des Paragraphen beschreibt.
 ```c#
-// Erstelle ein Presentation-Objekt, das eine Präsentationsdatei darstellt
+// Instanziieren Sie ein Presentation-Objekt, das eine Präsentationsdatei repräsentiert
 using (Presentation presentation = new Presentation("Shapes.pptx"))
 {
     IAutoShape shape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -23,11 +36,10 @@ using (Presentation presentation = new Presentation("Shapes.pptx"))
 ```
 
 
-## **Größe von Paragraph und Portion innerhalb des TextFrames einer Tabellenzelle abrufen**
+## **Größe von Paragraph und Portion innerhalb eines Tabellenzellen-TextFrames ermitteln**
+Um die Größe und die Koordinaten von [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion) bzw. [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph) in einem Tabellenzellen-TextFrame zu erhalten, können Sie die Methoden [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/methods/getrect) und [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/methods/getrect) verwenden.
 
-Um die Größe und die Koordinaten einer [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion) oder eines [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph) in einem TextFrame einer Tabellenzelle zu erhalten, können Sie die Methoden [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/methods/getrect) und [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/methods/getrect) verwenden.
-
-Dieser Beispielcode demonstriert die beschriebene Operation:
+Dieser Beispielcode demonstriert die beschriebene Vorgehensweise:
 ```csharp
 using (Presentation pres = new Presentation("source.pptx"))
 {
@@ -73,18 +85,18 @@ using (Presentation pres = new Presentation("source.pptx"))
 
 ## **FAQ**
 
-**In welchen Einheiten werden die Koordinaten für einen Paragraphen und Textportionen zurückgegeben?**
+**In welchen Einheiten werden die Koordinaten für einen Paragraph und Textportionen zurückgegeben?**
 
 In Punkten, wobei 1 Zoll = 72 Punkte entspricht. Dies gilt für alle Koordinaten und Abmessungen auf der Folie.
 
-**Beeinflusst Wortumbruch die Begrenzungen eines Paragraphen?**
+**Beeinflusst die Zeilenumbruchs‑Funktion die Grenzen eines Paragraphen?**
 
-Ja. Wenn das [wrapping](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/wraptext/) im [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) aktiviert ist, bricht der Text um, um die Breite des Bereichs zu füllen, wodurch sich die tatsächlichen Begrenzungen des Paragraphen ändern.
+Ja. Wenn [wrapping](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/wraptext/) im [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) aktiviert ist, wird der Text umbrochen, um die Breite des Bereichs zu füllen, wodurch sich die tatsächlichen Grenzen des Paragraphen ändern.
 
-**Können Paragraphkoordinaten zuverlässig in Pixel des exportierten Bildes umgerechnet werden?**
+**Lassen sich die Paragraph‑Koordinaten zuverlässig in Pixel im exportierten Bild umrechnen?**
 
-Ja. Punkte können mit folgender Formel in Pixel umgerechnet werden: pixel = punkt × (DPI / 72). Das Ergebnis hängt vom für die Darstellung/den Export gewählten DPI ab.
+Ja. Punkte können Sie mit folgender Formel in Pixel umrechnen: pixels = points × (DPI / 72). Das Ergebnis hängt vom für die Darstellung/den Export gewählten DPI ab.
 
-**Wie erhalte ich die „effektiven“ Absatzformatierungsparameter unter Berücksichtigung der Stilvererbung?**
+**Wie erhalte ich die „effektiven“ Paragraph‑Formatierungsparameter, die die Vererbung von Styles berücksichtigen?**
 
-Verwenden Sie die [effective paragraph formatting data structure](/slides/de/net/shape-effective-properties/); sie gibt die endgültigen konsolidierten Werte für Einzüge, Abstand, Umbruch, RTL und mehr zurück.
+Verwenden Sie die [effective paragraph formatting data structure](/slides/de/net/shape-effective-properties/); sie liefert die endgültigen konsolidierten Werte für Einzüge, Abstand, Zeilenumbruch, Rechts‑zu‑Links‑Richtung und weitere Einstellungen.

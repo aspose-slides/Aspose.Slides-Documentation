@@ -1,5 +1,5 @@
 ---
-title: 使用 C# 管理演示文稿背景
+title: 在 .NET 中管理演示文稿背景
 linktitle: 幻灯片背景
 type: docs
 weight: 20
@@ -8,7 +8,7 @@ keywords:
 - 演示文稿背景
 - 幻灯片背景
 - 纯色
-- 渐变颜色
+- 渐变色
 - 图像背景
 - 背景透明度
 - 背景属性
@@ -18,26 +18,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for .NET 在 PowerPoint 和 OpenDocument 文件中设置动态背景，并提供提升演示效果的代码技巧。"
+description: "学习如何使用 Aspose.Slides for .NET 在 PowerPoint 和 OpenDocument 文件中设置动态背景，并提供代码技巧提升您的演示效果。"
 ---
 
 ## **概述**
 
-纯色、渐变和图像是幻灯片背景的常用选择。您可以为**普通幻灯片**（单个幻灯片）或**母版幻灯片**（一次应用于多个幻灯片）设置背景。
+纯色、渐变和图像是常用的幻灯片背景。您可以为**普通幻灯片**（单个幻灯片）或**母版幻灯片**（一次应用于多个幻灯片）设置背景。
 
 ![PowerPoint 背景](powerpoint-background.png)
 
 ## **为普通幻灯片设置纯色背景**
 
-Aspose.Slides 允许您为演示文稿中的特定幻灯片设置纯色背景，即使该演示文稿使用了母版幻灯片。此更改仅适用于所选幻灯片。
+Aspose.Slides 允许您为演示文稿中的特定幻灯片设置纯色背景，即使该演示文稿使用了母版幻灯片。此更改仅适用于选定的幻灯片。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。
-2. 将幻灯片的 [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) 设置为 `OwnBackground`。
-3. 将幻灯片背景的 [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) 设置为 `Solid`。
-4. 在 [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) 上使用 [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) 属性来指定纯色背景颜色。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。  
+2. 将幻灯片的 [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) 设置为 `OwnBackground`。  
+3. 将幻灯片背景的 [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) 设置为 `Solid`。  
+4. 在 [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) 上使用 [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) 属性指定纯色背景颜色。  
 5. 保存修改后的演示文稿。
 
-下面的 C# 示例演示了如何将蓝色纯色设置为普通幻灯片的背景：
+下面的 C# 示例演示如何将蓝色纯色设置为普通幻灯片的背景：
 ```cs
 // 创建 Presentation 类的实例。
 using (Presentation presentation = new Presentation())
@@ -57,15 +57,15 @@ using (Presentation presentation = new Presentation())
 
 ## **为母版幻灯片设置纯色背景**
 
-Aspose.Slides 允许您为演示文稿的母版幻灯片设置纯色背景。母版幻灯片充当模板，控制所有幻灯片的格式，因此当您为母版幻灯片的背景选择纯色时，它会应用于每个幻灯片。
+Aspose.Slides 允许您为演示文稿的母版幻灯片设置纯色背景。母版幻灯片充当模板，控制所有幻灯片的格式，因此当为母版幻灯片的背景选择纯色时，它会应用于每一页幻灯片。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。
-2. 将母版幻灯片的 [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/)（通过 `masters`）设置为 `OwnBackground`。
-3. 将母版幻灯片背景的 [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) 设置为 `Solid`。
-4. 使用 [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) 指定纯色背景颜色。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。  
+2. 将母版幻灯片的 [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/)（通过 `masters`）设置为 `OwnBackground`。  
+3. 将母版幻灯片背景的 [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) 设置为 `Solid`。  
+4. 使用 [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) 指定纯色背景颜色。  
 5. 保存修改后的演示文稿。
 
-下面的 C# 示例演示了如何将森林绿设为母版幻灯片的纯色背景：
+下面的 C# 示例演示如何将森林绿设置为母版幻灯片的纯色背景：
 ```cs
 // 创建 Presentation 类的实例。
 using (Presentation presentation = new Presentation())
@@ -85,15 +85,15 @@ using (Presentation presentation = new Presentation())
 
 ## **为幻灯片设置渐变背景**
 
-渐变是一种通过颜色逐渐变化实现的图形效果。将其用作幻灯片背景时，能够让演示文稿看起来更具艺术感和专业感。Aspose.Slides 允许您为幻灯片设置渐变颜色作为背景。
+渐变是一种通过颜色逐渐变化实现的图形效果。将渐变用作幻灯片背景可以让演示文稿更具艺术感和专业感。Aspose.Slides 允许您为幻灯片设置渐变颜色背景。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。
-2. 将幻灯片的 [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) 设置为 `OwnBackground`。
-3. 将幻灯片背景的 [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) 设置为 `Gradient`。
-4. 在 [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) 上使用 [GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/gradientformat/) 属性配置所需的渐变设置。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。  
+2. 将幻灯片的 [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) 设置为 `OwnBackground`。  
+3. 将幻灯片背景的 [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) 设置为 `Gradient`。  
+4. 在 [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) 上使用 [GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/gradientformat/) 属性配置所需的渐变设置。  
 5. 保存修改后的演示文稿。
 
-下面的 C# 示例演示了如何将渐变颜色设置为幻灯片的背景：
+下面的 C# 示例演示如何将渐变颜色设置为幻灯片的背景：
 ```cs
 // 创建 Presentation 类的实例。
 using (Presentation presentation = new Presentation())
@@ -111,19 +111,19 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **将图像设为幻灯片背景**
+## **将图像设置为幻灯片背景**
 
 除了纯色和渐变填充，Aspose.Slides 还允许您使用图像作为幻灯片背景。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。
-2. 将幻灯片的 [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) 设置为 `OwnBackground`。
-3. 将幻灯片背景的 [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) 设置为 `Picture`。
-4. 加载要用作幻灯片背景的图像。
-5. 将图像添加到演示文稿的图像集合中。
-6. 在 [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) 上使用 [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/picturefillformat/) 属性将图像指定为背景。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。  
+2. 将幻灯片的 [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) 设置为 `OwnBackground`。  
+3. 将幻灯片背景的 [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) 设置为 `Picture`。  
+4. 加载要用作幻灯片背景的图像。  
+5. 将图像添加到演示文稿的图像集合中。  
+6. 在 [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) 上使用 [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/picturefillformat/) 属性将图像指定为背景。  
 7. 保存修改后的演示文稿。
 
-下面的 C# 示例演示了如何将图像设为幻灯片的背景：
+下面的 C# 示例演示如何将图像设置为幻灯片的背景：
 ```c#
 // 创建 Presentation 类的实例。
 using (Presentation presentation = new Presentation())
@@ -149,7 +149,7 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-下面的代码示例演示了如何将背景填充类型设置为平铺图片并修改平铺属性：
+下面的代码示例演示如何将背景填充类型设置为平铺图片并修改平铺属性：
 ```cs
 using (Presentation presentation = new Presentation())
 {
@@ -183,12 +183,10 @@ using (Presentation presentation = new Presentation())
 
 
 {{% alert color="primary" %}}
-
-了解更多：[**将图片平铺为纹理**](/slides/zh/net/shape-formatting/#tile-picture-as-texture)。
-
+阅读更多：[**将图片平铺为纹理**](/slides/zh/net/shape-formatting/#tile-picture-as-texture)。
 {{% /alert %}}
 
-### **更改背景图像透明度**
+### **更改背景图像的透明度**
 
 您可能希望调整幻灯片背景图像的透明度，以突出幻灯片内容。下面的 C# 代码展示了如何更改幻灯片背景图像的透明度：
 ```cs
@@ -226,14 +224,14 @@ Aspose.Slides 提供了 [IBackgroundEffectiveData](https://reference.aspose.com/
 
 使用 [BaseSlide](https://reference.aspose.com/slides/net/aspose.slides/baseslide/) 类的 `background` 属性，您可以获取幻灯片的有效背景。
 
-下面的 C# 示例演示了如何获取幻灯片的有效背景值：
+下面的 C# 示例演示如何获取幻灯片的有效背景值：
 ```cs
 // 创建 Presentation 类的实例。
 using (Presentation presentation = new Presentation("Sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];  
 
-    // 检索有效的背景，考虑母版、布局和主题。
+    // 检索有效背景，考虑母版、版式和主题。
     IBackgroundEffectiveData effBackground = slide.Background.GetEffective();
 
     if (effBackground.FillFormat.FillType == FillType.Solid)
@@ -246,10 +244,10 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 
 ## **常见问题**
 
-**我可以重置自定义背景并恢复主题/布局背景吗？**
+**我能重置自定义背景并恢复主题/版式背景吗？**
 
 可以。移除幻灯片的自定义填充后，背景将再次从相应的 [layout](/slides/zh/net/slide-layout/)/[master](/slides/zh/net/slide-master/) 幻灯片（即 [theme background](/slides/zh/net/presentation-theme/)）继承。
 
-**如果我之后更改演示文稿的主题，背景会怎样？**
+**如果后来更改演示文稿的主题，背景会怎样？**
 
 如果幻灯片拥有自己的填充，它将保持不变。如果背景是从 [layout](/slides/zh/net/slide-layout/)/[master](/slides/zh/net/slide-master/) 继承的，则会更新以匹配新的主题。

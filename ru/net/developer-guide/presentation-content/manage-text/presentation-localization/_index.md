@@ -1,21 +1,30 @@
 ---
-title: Локализация презентаций
+title: Автоматизация локализации презентаций в .NET
+linktitle: Локализация презентаций
 type: docs
 weight: 100
 url: /ru/net/presentation-localization/
-keywords: "Смена языка, Проверка орфографии, Проверка правописания, Орфографический проверщик, Презентация PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "Смена или проверка языка в презентации PowerPoint. Проверка орфографии текста на C# или .NET"
+keywords:
+- смена языка
+- проверка орфографии
+- идентификатор языка
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Автоматизируйте локализацию слайдов PowerPoint и OpenDocument в .NET с помощью Aspose.Slides, используя практические примеры кода C# и советы для более быстрой глобальной развертки."
 ---
 
-## **Изменение языка текста в презентации и форме**
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+## **Изменение языка для текста презентации и формы**
+- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
 - Получите ссылку на слайд, используя его индекс.
-- Добавьте AutoShape типа Rectangle на слайд.
-- Добавьте текст в TextFrame.
-- Установите Language Id для текста.
-- Сохраните презентацию в файл PPTX.
+- Добавьте AutoShape прямоугольного типа на слайд.
+- Добавьте некоторый текст в TextFrame.
+- Установите LanguageId для текста.
+- Сохраните презентацию в виде файла PPTX.
 
-Реализация указанных шагов продемонстрирована ниже в примере.
+Реализация вышеуказанных шагов показана ниже в примере.
 ```c#
 using (Presentation pres = new Presentation("test0.pptx"))
 {
@@ -30,14 +39,14 @@ using (Presentation pres = new Presentation("test0.pptx"))
 
 ## **FAQ**
 
-**Влияет ли Language ID на автоматический перевод текста?**
+**Вызывает ли LanguageId автоматический перевод текста?**
 
-Нет. [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) в Aspose.Slides хранит язык для проверки орфографии и грамматики, но не переводит и не изменяет содержимое текста. Это метаданные, которые PowerPoint понимает для проверки.
+Нет. [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) в Aspose.Slides хранит информацию о языке для проверки орфографии и грамматики, но не переводит и не изменяет содержимое текста. Это метаданные, которые PowerPoint понимает для проверки.
 
-**Влияет ли Language ID на переносы и разбиение строк при рендеринге?**
+**Влияет ли LanguageId на переносы и разбиение строк при рендеринге?**
 
-В Aspose.Slides [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) используется для проверки. Качество переносов и разбиения строк в основном зависит от наличия подходящих шрифтов и параметров разметки/разбиения строк для системы письма. Чтобы обеспечить правильный рендеринг, обеспечьте доступность необходимых шрифтов, настройте [font substitution rules](/slides/ru/net/font-substitution/), и/или [embed fonts](/slides/ru/net/embedded-font/) в презентацию.
+В Aspose.Slides [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) предназначен для проверки. Качество переносов и переносов строк в основном зависит от доступности [правильных шрифтов](/slides/ru/net/powerpoint-fonts/) и настроек разметки/переноса для системы написания. Чтобы обеспечить корректный рендеринг, сделайте требуемые шрифты доступными, настройте [правила подстановки шрифтов](/slides/ru/net/font-substitution/) и/или [встроите шрифты](/slides/ru/net/embedded-font/) в презентацию.
 
-**Можно ли задать разные языки в пределах одного абзаца?**
+**Можно ли задать разные языки в одном абзаце?**
 
-Да. [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) применяется на уровне части текста, поэтому в одном абзаце можно смешивать несколько языков с разными настройками проверки.
+Да. [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) применяется на уровне части текста, поэтому в одном абзаце можно смешивать несколько языков с различными настройками проверки.

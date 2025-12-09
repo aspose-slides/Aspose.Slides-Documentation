@@ -1,29 +1,46 @@
 ---
-title: Präsentationskommentare
+title: Verwalten von Präsentationskommentaren in .NET
+linktitle: Präsentationskommentare
 type: docs
 weight: 100
 url: /de/net/presentation-comments/
-keywords: "Kommentare, PowerPoint-Kommentare, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "Kommentare und Antworten in PowerPoint-Präsentationen in C# oder .NET hinzufügen"
+keywords:
+- Kommentar
+- moderner Kommentar
+- PowerPoint-Kommentare
+- Präsentationskommentare
+- Folienkommentare
+- Kommentar hinzufügen
+- Kommentar abrufen
+- Kommentar bearbeiten
+- Kommentarantwort
+- Kommentar entfernen
+- Kommentar löschen
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Verwalten Sie Präsentationskommentare mit Aspose.Slides für .NET: Kommentare in PowerPoint-Dateien schnell und einfach hinzufügen, lesen, bearbeiten und löschen."
 ---
 
-In PowerPoint erscheint ein Kommentar als Hinweis oder Anmerkung auf einer Folie. Wenn ein Kommentar angeklickt wird, werden dessen Inhalt oder Nachrichten angezeigt. 
+In PowerPoint erscheint ein Kommentar als Notiz oder Anmerkung auf einer Folie. Wenn ein Kommentar angeklickt wird, werden dessen Inhalte oder Nachrichten angezeigt. 
 
 ## **Warum Kommentare zu Präsentationen hinzufügen?**
 
-Sie möchten Kommentare möglicherweise verwenden, um Feedback zu geben oder mit Ihren Kolleginnen und Kollegen zu kommunizieren, wenn Sie Präsentationen überprüfen.
+Vielleicht möchten Sie Kommentare verwenden, um Feedback zu geben oder mit Ihren Kollegen zu kommunizieren, wenn Sie Präsentationen prüfen.
 
-Damit Sie Kommentare in PowerPoint‑Präsentationen verwenden können, stellt Aspose.Slides für .NET bereit
+Um die Verwendung von Kommentaren in PowerPoint‑Präsentationen zu ermöglichen, stellt Aspose.Slides für .NET bereit:
 
-* Die [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse, die die Sammlungen von Autoren enthält (aus der [CommentAuthorCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/properties/index) Eigenschaft). Die Autoren fügen Folien Kommentare hinzu. 
-* Die  [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) Schnittstelle, die die Sammlung von Kommentaren für einzelne Autoren enthält. 
-* Die  [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) Klasse, die Informationen zu Autoren und deren Kommentaren enthält: wer den Kommentar hinzugefügt hat, wann der Kommentar hinzugefügt wurde, die Position des Kommentars usw. 
-* Die [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) Klasse, die Informationen zu einzelnen Autoren enthält: den Namen des Autors, seine Initialen, mit dem Namen des Autors verbundene Kommentare usw. 
+* Die [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑Klasse, die die Sammlungen von Autoren (aus der [CommentAuthorCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/properties/index)-Eigenschaft) enthält. Die Autoren fügen Kommentare zu Folien hinzu. 
+* Das [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection)-Interface, das die Sammlung von Kommentaren für einzelne Autoren enthält. 
+* Die [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment)-Klasse, die Informationen zu Autoren und deren Kommentaren enthält: wer den Kommentar hinzugefügt hat, wann er hinzugefügt wurde, die Position des Kommentars usw. 
+* Die [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor)-Klasse, die Informationen zu einzelnen Autoren enthält: Name des Autors, seine Initialen, Kommentare, die dem Namen des Autors zugeordnet sind usw. 
 
-## **Folienkommentar hinzufügen**
-Dieser C#‑Code zeigt, wie Sie einem Folie in einer PowerPoint‑Präsentation einen Kommentar hinzufügen:
+## **Kommentar zur Folie hinzufügen**
+Dieser C#‑Code zeigt, wie Sie einen Kommentar zu einer Folie in einer PowerPoint‑Präsentation hinzufügen:
 ```c#
-// Instanziert die Presentation-Klasse
+// Instanziiert die Presentation-Klasse
 using (Presentation presentation = new Presentation())
 {
     // Fügt eine leere Folie hinzu
@@ -56,7 +73,7 @@ using (Presentation presentation = new Presentation())
 
     if (Comments.GetLength(0) > 0)
     {
-        // Wählt die Kommentarsammlung des Autors an Index 0 aus
+        // Wählt die Kommentar-Sammlung des Autors an Index 0 aus
         ICommentCollection commentCollection = Comments[0].Author.Comments;
         String Comment = commentCollection[0].Text;
     }
@@ -64,7 +81,7 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **Folienkommentare abrufen**
+## **Zugriff auf Folienkommentare**
 Dieser C#‑Code zeigt, wie Sie auf einen bestehenden Kommentar einer Folie in einer PowerPoint‑Präsentation zugreifen:
 ```c#
 // Instanziert die Presentation-Klasse
@@ -83,11 +100,10 @@ using (Presentation presentation = new Presentation("Comments1.pptx"))
 ```
 
 
-## **Kommentare beantworten**
+## **Antworten auf Kommentare**
+Ein übergeordneter Kommentar ist der ursprüngliche Kommentar an der Spitze einer Kommentar‑ oder Antworthierarchie. Mit der [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment)-Eigenschaft (aus dem [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment)-Interface) können Sie einen übergeordneten Kommentar festlegen oder abrufen. 
 
-Ein übergeordneter Kommentar ist der oberste bzw. ursprüngliche Kommentar in einer Hierarchie von Kommentaren oder Antworten. Mit der [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) Eigenschaft (aus der [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) Schnittstelle) können Sie einen übergeordneten Kommentar festlegen oder abrufen. 
-
-Dieser C#‑Code zeigt, wie Sie Kommentare hinzufügen und Antworten darauf erhalten:
+Dieser C#‑Code zeigt, wie Sie Kommentare hinzufügen und darauf Antworten erhalten:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -95,7 +111,7 @@ using (Presentation pres = new Presentation())
     ICommentAuthor author1 = pres.CommentAuthors.AddAuthor("Author_1", "A.A.");
     IComment comment1 = author1.Comments.AddComment("comment1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
 
-    // Fügt eine Antwort zu comment1 hinzu
+    // Fügt eine Antwort für comment1 hinzu
     ICommentAuthor author2 = pres.CommentAuthors.AddAuthor("Autror_2", "B.B.");
     IComment reply1 = author2.Comments.AddComment("reply 1 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply1.ParentComment = comment1;
@@ -104,7 +120,7 @@ using (Presentation pres = new Presentation())
     IComment reply2 = author2.Comments.AddComment("reply 2 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply2.ParentComment = comment1;
 
-    // Fügt eine Antwort zu einer bestehenden Antwort hinzu
+    // Fügt eine Antwort auf die bestehende Antwort hinzu
     IComment subReply = author1.Comments.AddComment("subreply 3 for reply 2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     subReply.ParentComment = reply2;
 
@@ -114,7 +130,7 @@ using (Presentation pres = new Presentation())
     IComment reply3 = author1.Comments.AddComment("reply 4 for comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply3.ParentComment = comment3;
 
-    // Zeigt die Kommentarhierarchie in der Konsole an
+    // Gibt die Kommentar-Hierarchie auf der Konsole aus
     ISlide slide = pres.Slides[0];
     var comments = slide.GetSlideComments(null);
     for (int i = 0; i < comments.Length; i++)
@@ -132,7 +148,7 @@ using (Presentation pres = new Presentation())
 
     pres.Save("parent_comment.pptx",SaveFormat.Pptx);
 
-    // Entfernt comment1 und alle darauf folgenden Antworten
+    // Entfernt comment1 und alle Antworten darauf
     comment1.Remove();
 
     pres.Save("remove_comment.pptx", SaveFormat.Pptx);
@@ -142,18 +158,18 @@ using (Presentation pres = new Presentation())
 
 {{% alert color="warning" title="Achtung" %}} 
 
-* Wenn die [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) Methode (aus der [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) Schnittstelle) verwendet wird, um einen Kommentar zu löschen, werden auch die Antworten auf den Kommentar gelöscht. 
-* Führt die [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) Einstellung zu einer zirkulären Referenz, wird eine [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) ausgelöst.
+* Wird die [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/methods/remove)-Methode (aus dem [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment)-Interface) verwendet, um einen Kommentar zu löschen, werden auch die Antworten auf diesen Kommentar gelöscht. 
+* Führt die Einstellung von [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) zu einer zirkulären Referenz, wird eine [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) ausgelöst.
 
 {{% /alert %}}
 
 ## **Modernen Kommentar hinzufügen**
 
-Im Jahr 2021 hat Microsoft *moderne Kommentare* in PowerPoint eingeführt. Die Funktion für moderne Kommentare verbessert die Zusammenarbeit in PowerPoint erheblich. Durch moderne Kommentare können PowerPoint‑Benutzer Kommentare lösen, Kommentare an Objekten und Texten verankern und viel einfacher interagieren als zuvor. 
+Im Jahr 2021 hat Microsoft *moderne Kommentare* in PowerPoint eingeführt. Die Funktion moderner Kommentare verbessert die Zusammenarbeit in PowerPoint erheblich. Durch moderne Kommentare können PowerPoint‑Benutzer Kommentare auflösen, Kommentare an Objekte und Texte verankern und viel einfacher interagieren als zuvor. 
 
-In [Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-11-release-notes/) haben wir die Unterstützung für moderne Kommentare implementiert, indem wir die [ModernComment](https://reference.aspose.com/slides/net/aspose.slides/moderncomment) Klasse hinzugefügt haben. Die Methoden [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) und [InsertModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) wurden der [CommentCollection](https://reference.aspose.com/slides/net/aspose.slides/commentcollection) Klasse hinzugefügt. 
+In [Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-11-release-notes/) haben wir die Unterstützung für moderne Kommentare implementiert, indem wir die [ModernComment](https://reference.aspose.com/slides/net/aspose.slides/moderncomment)-Klasse hinzugefügt haben. Die Methoden [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) und [InsertModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) wurden zur [CommentCollection](https://reference.aspose.com/slides/net/aspose.slides/commentcollection)-Klasse hinzugefügt. 
 
-Dieser C#‑Code zeigt, wie Sie einem Folie in einer PowerPoint‑Präsentation einen modernen Kommentar hinzufügen: 
+Dieser C#‑Code zeigt, wie Sie einen modernen Kommentar zu einer Folie in einer PowerPoint‑Präsentation hinzufügen: 
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -227,12 +243,12 @@ using (var presentation = new Presentation())
 
 **Unterstützt Aspose.Slides einen Status wie „gelöst“ für moderne Kommentare?**
 
-Ja. [Modern comments](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/) stellen eine [Status](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/status/) Eigenschaft bereit; Sie können den Zustand eines Kommentars lesen und setzen (z. B. ihn als gelöst markieren), und dieser Zustand wird in der Datei gespeichert und von PowerPoint erkannt.
+Ja. [Modern comments](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/) stellen eine [Status](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/status/)-Eigenschaft bereit; Sie können den [Status eines Kommentars](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/) auslesen und setzen (z. B. als gelöst markieren). Dieser Zustand wird in der Datei gespeichert und von PowerPoint erkannt.
 
-**Werden Thread‑Diskussionen (Antwortketten) unterstützt und gibt es eine Begrenzung für die Verschachtelung?**
+**Werden verschachtelte Diskussionen (Antwortketten) unterstützt, und gibt es ein Begrenzung der Verschachtelungstiefe?**
 
-Ja. Jeder Kommentar kann auf seinen [parent comment](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/) verweisen, wodurch beliebige Antwortketten ermöglicht werden. Die API definiert keine spezifische Begrenzung der Verschachtelungstiefe.
+Ja. Jeder Kommentar kann auf seinen [parent comment](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/) verweisen, wodurch beliebig tiefe Antwortketten möglich sind. Die API legt keine spezifische Begrenzung der Verschachtelungstiefe fest.
 
 **In welchem Koordinatensystem ist die Position eines Kommentarmarkers auf einer Folie definiert?**
 
-Die Position wird als Gleitkommapunkt im Koordinatensystem der Folie gespeichert. Damit können Sie den Kommentarmarker genau dort platzieren, wo Sie ihn benötigen.
+Die Position wird als Gleitkomma‑Punkt im Koordinatensystem der Folie gespeichert. Dadurch können Sie den Kommentarmarker exakt an der gewünschten Stelle platzieren.

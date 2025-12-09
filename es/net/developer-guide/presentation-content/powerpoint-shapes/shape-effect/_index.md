@@ -1,5 +1,5 @@
 ---
-title: Aplicar efectos de forma en PowerPoint usando C#
+title: Aplicar efectos de forma en presentaciones en .NET
 linktitle: Efecto de forma
 type: docs
 weight: 30
@@ -7,35 +7,33 @@ url: /es/net/shape-effect
 keywords:
 - efecto de forma
 - efecto de sombra
-- efecto de reflejo
+- efecto de reflexión
 - efecto de resplandor
 - efecto de bordes suaves
-- efecto de bisel
-- formato 3-D
-- rotación 3-D
+- formato de efecto
 - PowerPoint
 - presentación
-- C#
 - .NET
+- C#
 - Aspose.Slides
-description: "Mejore sus presentaciones de PowerPoint con impresionantes efectos de forma como sombras, reflejos y resplandores usando Aspose.Slides para .NET. Automatice las mejoras visuales con código fácil de usar y cree diapositivas de calidad profesional sin esfuerzo."
+description: "Transforma tus archivos PPT y PPTX con efectos de forma avanzados usando Aspose.Slides para .NET—crea diapositivas impactantes y profesionales en segundos."
 ---
 
-## **Visión general**
+## **Descripción general**
 
-Aunque los efectos en PowerPoint pueden usarse para que una forma destaque, difieren de los [rellenos](/slides/es/net/shape-formatting/#gradient-fill) o de los contornos. Con los efectos de PowerPoint, puedes crear reflejos convincentes en una forma, difundir el resplandor de una forma, etc.
+Aunque los efectos en PowerPoint pueden usarse para que una forma destaque, difieren de los [rellenos](/slides/es/net/shape-formatting/#gradient-fill) o contornos. Con los efectos de PowerPoint, puedes crear reflejos convincentes en una forma, difundir el resplandor de una forma, etc.
 
-<img src="shape-effect.png" alt="efecto-de-forma" style="zoom:50%;" />
+<img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 
 PowerPoint ofrece seis efectos que pueden aplicarse a las formas. Puedes aplicar uno o más efectos a una forma.
 
-Algunas combinaciones de efectos se ven mejor que otras. Por esta razón, PowerPoint tiene opciones bajo **Preset**. Las opciones Preset son esencialmente una combinación conocida de dos o más efectos que luce bien. De esta manera, al seleccionar un preset, no tendrás que perder tiempo probando o combinando diferentes efectos para encontrar una buena combinación.
+Algunas combinaciones de efectos se ven mejor que otras. Por esta razón, PowerPoint tiene opciones bajo **Preset**. Las opciones Preset son, esencialmente, una combinación conocida y de buen aspecto de dos o más efectos. De esta manera, al seleccionar un preset, no tendrás que perder tiempo probando o combinando diferentes efectos para encontrar una buena combinación.
 
-Aspose.Slides proporciona propiedades y métodos bajo la clase [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) que permiten aplicar los mismos efectos a las formas en presentaciones de PowerPoint.
+Aspose.Slides ofrece propiedades y métodos bajo la clase [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) que permiten aplicar los mismos efectos a las formas en presentaciones de PowerPoint.
 
 ## **Aplicar efecto de sombra**
 
-Para aplicar un efecto de sombra a una forma en Aspose.Slides para .NET, puedes ajustar fácilmente parámetros como color, radio de desenfoque y dirección. Esto le da a tus formas una apariencia más dinámica y profesional, añadiendo profundidad y enfoque. Con fragmentos de código simples, puedes aplicar estos efectos a múltiples formas, mejorando el atractivo visual general de tus presentaciones.
+Para aplicar un efecto de sombra a una forma en Aspose.Slides para .NET, puedes ajustar fácilmente parámetros como color, radio de desenfoque y dirección. Esto brinda a tus formas una apariencia más dinámica y profesional, añadiendo profundidad y enfoque. Al usar fragmentos de código simples, puedes aplicar estos efectos a múltiples formas, mejorando el atractivo visual general de tus presentaciones.
 
 Este código C# muestra cómo aplicar el [efecto de sombra externa](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) a un rectángulo:
 ```c#
@@ -55,11 +53,11 @@ presentation.Save("shadow_effect.pptx", SaveFormat.Pptx);
 
 ![Efecto de sombra](shadow_effect.png)
 
-## **Aplicar efecto de reflejo**
+## **Aplicar efecto de reflexión**
 
-Para aplicar un efecto de reflejo en Aspose.Slides para .NET, puedes añadir un reflejo similar a un espejo a las formas, ajustando parámetros como distancia, transparencia y tamaño. Este efecto realza la estética de tus presentaciones al dar a las formas un aspecto más pulido y sofisticado. Es fácil de implementar con código sencillo, permitiendo una aplicación rápida en varios elementos para un diseño coherente.
+Para aplicar un efecto de reflexión en Aspose.Slides para .NET, puedes añadir una reflexión similar a un espejo en las formas, ajustando parámetros como distancia, transparencia y tamaño. Este efecto mejora la estética de tus presentaciones al dar a las formas un aspecto más pulido y sofisticado. Es fácil de implementar con código simple, lo que permite una aplicación rápida en varios elementos para un diseño coherente.
 
-Este código C# muestra cómo aplicar el [efecto de reflejo](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) a una forma:
+Este código C# muestra cómo aplicar el [efecto de reflexión](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) a una forma:
 ```c#
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
@@ -76,11 +74,11 @@ presentation.Save("reflection_effect.pptx", SaveFormat.Pptx);
 ```
 
 
-![Efecto de reflejo](reflection_effect.png)
+![Efecto de reflexión](reflection_effect.png)
 
 ## **Aplicar efecto de resplandor**
 
-Para aplicar un efecto de resplandor a una forma en Aspose.Slides para .NET, puedes añadir un aura suave y luminosa alrededor de las formas, ajustando propiedades como color y tamaño. Este efecto ayuda a que las formas sobresalgan y añade un elemento visual atractivo a tu presentación. Es fácil de implementar con un código mínimo, mejorando el aspecto general de tus diapositivas.
+Para aplicar un efecto de resplandor a una forma en Aspose.Slides para .NET, puedes añadir una aura suave y luminosa alrededor de las formas, ajustando propiedades como color y tamaño. Este efecto ayuda a que las formas destaquen y añade un elemento visual atractivo y llamativo a tu presentación. Es fácil de implementar con código mínimo, mejorando el aspecto general de tus diapositivas.
 
 Este código C# muestra cómo aplicar el [efecto de resplandor](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) a una forma:
 ```c#
@@ -101,7 +99,7 @@ presentation.Save("glow_effect.pptx", SaveFormat.Pptx);
 
 ## **Aplicar efecto de bordes suaves**
 
-Para aplicar un efecto de bordes suaves en Aspose.Slides para .NET, puedes crear una transición suave y difuminada alrededor de los bordes de una forma. Este efecto añade una apariencia más sutil y refinada, perfecta para diseños que necesitan un aspecto delicado y más suave. Puedes ajustar fácilmente parámetros como el radio para lograr el efecto deseado en varias formas de tu presentación.
+Para aplicar un efecto de bordes suaves en Aspose.Slides para .NET, puedes crear una transición lisa y difuminada alrededor de los bordes de una forma. Este efecto agrega un aspecto más sutil y refinado, perfecto para diseños que necesitan una apariencia delicada y más suave. Puedes ajustar fácilmente parámetros como el radio para lograr el efecto deseado en diversas formas de tu presentación.
 
 Este código C# muestra cómo aplicar los [bordes suaves](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) a una forma:
 ```c#
@@ -123,11 +121,11 @@ presentation.Save("soft_edges_effect.pptx", SaveFormat.Pptx);
 
 **¿Puedo aplicar varios efectos a la misma forma?**
 
-Sí, puedes combinar diferentes efectos, como sombra, reflejo y resplandor, en una sola forma para crear una apariencia más dinámica.
+Sí, puedes combinar diferentes efectos, como sombra, reflexión y resplandor, en una sola forma para crear una apariencia más dinámica.
 
-**¿A qué tipos de formas puedo aplicar efectos?**
+**¿A qué formas puedo aplicar efectos?**
 
-Puedes aplicar efectos a varias formas, incluidas formas automáticas, gráficos, tablas, imágenes, objetos SmartArt, objetos OLE y más.
+Puedes aplicar efectos a diversas formas, incluidas autoshapes, gráficos, tablas, imágenes, objetos SmartArt, objetos OLE y más.
 
 **¿Puedo aplicar efectos a formas agrupadas?**
 

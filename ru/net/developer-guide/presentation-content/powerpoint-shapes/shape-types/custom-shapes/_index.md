@@ -1,132 +1,138 @@
 ---
-title: Пользовательская фигура
+title: Настройка фигур презентаций в .NET
+linktitle: Пользовательская фигура
 type: docs
 weight: 20
 url: /ru/net/custom-shape/
 keywords:
-- фигура
 - пользовательская фигура
+- добавить фигуру
 - создать фигуру
-- геометрия
+- изменить фигуру
 - геометрия фигуры
 - геометрический путь
 - точки пути
 - точки редактирования
+- добавить точку
+- удалить точку
+- операция редактирования
+- скруглённый угол
 - PowerPoint
 - презентация
+- .NET
 - C#
-- Aspose.Slides for .NET
-description: "Добавить пользовательскую фигуру в презентацию PowerPoint в .NET"
+- Aspose.Slides
+description: "Создавайте и настраивайте фигуры в презентациях PowerPoint с помощью Aspose.Slides для .NET: геометрические пути, скруглённые углы, составные фигуры."
 ---
 
-## **Изменение фигуры с помощью точек редактирования**
+## **Изменить форму с помощью точек редактирования**
 
-Рассмотрим квадрат. В PowerPoint с помощью **точек редактирования** вы можете  
+Рассмотрим квадрат. В PowerPoint, используя **точки редактирования**, вы можете
 
-* перемещать угол квадрата вовнутрь или наружу  
-* задавать кривизну угла или точки  
-* добавлять новые точки к квадрату  
-* манипулировать точками квадрата и т.д.  
+* переместить угол квадрата внутрь или наружу
+* указать кривизну для угла или точки
+* добавить новые точки к квадрату
+* манипулировать точками на квадрате и т.д. 
 
-По сути, описанные действия можно выполнять с любой фигурой. С помощью точек редактирования вы можете изменять форму или создавать новую форму из существующей.
+По сути, вы можете выполнять описанные действия с любой фигурой. С помощью точек редактирования вы можете изменять форму или создавать новую форму из существующей.
 
 ## **Советы по редактированию фигур**
 
 ![overview_image](custom_shape_0.png)
 
-Прежде чем начать редактировать фигуры PowerPoint через точки редактирования, обратите внимание на следующее:
+Прежде чем начать редактировать фигуры PowerPoint с помощью точек редактирования, вам может быть полезно учесть следующие моменты о фигурах:
 
-* Фигура (или её путь) может быть замкнутой или открытой.  
-* Все фигуры состоят как минимум из 2‑х якорных точек, соединённых линиями.  
-* Линия может быть прямой или кривой. Тип линии определяется якорными точками.  
-* Якорные точки бывают угловыми, прямыми или сглаженными:  
-  * Угловая точка – точка, где две прямые линии соединяются под углом.  
-  * Сглаженная точка – точка, где два рычага находятся на одной прямой, а сегменты линии соединяются плавным изгибом. При этом все рычаги находятся на одинаковом расстоянии от якорной точки.  
-  * Прямая точка – точка, где два рычага находятся на одной прямой, а сегменты линии соединяются плавным изгибом, но рычаги могут находиться на разном расстоянии от якорной точки.  
-* Перемещая или редактируя якорные точки (что меняет угол линий), вы меняете внешний вид фигуры.
+* Фигура (или её контур) может быть закрытой или открытой.
+* Все фигуры состоят минимум из 2 якорных точек, соединённых линиями.
+* Линия может быть прямой или изогнутой. Якорные точки определяют характер линии. 
+* Якорные точки бывают угловыми, прямыми или плавными:
+  * Угловая точка — это точка, где два прямых отрезка соединяются под углом. 
+  * Плавная точка — это точка, где два рычага находятся на одной прямой и сегменты линии соединяются в плавную кривую. В этом случае все рычаги находятся на одинаковом расстоянии от якорной точки. 
+  * Прямая точка — это точка, где два рычага находятся на одной прямой и сегменты этой линии соединяются в плавную кривую. В этом случае рычаги не обязаны находиться на одинаковом расстоянии от якорной точки. 
+* Перемещая или редактируя якорные точки (что изменяет угол линий), вы можете изменить внешний вид фигуры. 
 
-Для редактирования фигур PowerPoint через точки редактирования **Aspose.Slides** предоставляет класс [**GeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) и интерфейс [**IGeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath).
+Для редактирования фигур PowerPoint с помощью точек редактирования **Aspose.Slides** предоставляет класс [**GeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) и интерфейс [**IGeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath).
 
-* Экземпляр [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) представляет геометрический путь объекта [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape).  
-* Чтобы получить `GeometryPath` из экземпляра `IGeometryShape`, используйте метод [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/getgeometrypaths).  
-* Чтобы задать `GeometryPath` для фигуры, используйте методы: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypath) для *сплошных фигур* и [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypaths) для *композитных фигур*.  
-* Для добавления сегментов используйте методы интерфейса [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath).  
-* С помощью свойств [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/stroke) и [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/fillmode) можно задавать внешний вид геометрического пути.  
-* Свойство [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/pathdata) позволяет получить геометрический путь `GeometryShape` в виде массива сегментов пути.  
-* Для доступа к дополнительным параметрам настройки геометрии фигуры можно преобразовать [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) в [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0).  
-* Используйте методы [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/geometrypathtographicspath) и [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/graphicspathtogeometrypath) (из класса [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil)) для преобразования [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) в [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) и обратно.
+* Экземпляр [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) представляет геометрический контур объекта [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape).
+* Чтобы получить `GeometryPath` из экземпляра `IGeometryShape`, вы можете использовать метод [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/getgeometrypaths).
+* Чтобы установить `GeometryPath` для фигуры, вы можете использовать следующие методы: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypath) для *сплошных фигур* и [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypaths) для *композитных фигур*.
+* Для добавления сегментов вы можете использовать методы из [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath).
+* Используя свойства [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/stroke) и [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/fillmode), вы можете задать внешний вид геометрического контура.
+* С помощью свойства [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/pathdata) можно получить геометрический контур `GeometryShape` в виде массива сегментов контура.
+* Чтобы получить дополнительные параметры настройки геометрии фигур, вы можете преобразовать [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) в [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0)
+* Используйте методы [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/geometrypathtographicspath) и [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/graphicspathtogeometrypath) (из класса [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil)) для преобразования [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) в [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) и обратно. 
 
 ## **Простые операции редактирования**
 
-Этот код C# показывает, как  
+Этот код C# показывает, как
 
-**Добавить линию** в конец пути  
+**Добавить линию** в конец контура
 ``` csharp
 void LineTo(PointF point);
 void LineTo(float x, float y);
 ```
-  
-**Добавить линию** в указанную позицию пути:  
+
+**Добавить линию** в указанную позицию контура:
 ``` csharp    
 void LineTo(PointF point, uint index);
 void LineTo(float x, float y, uint index);
 ```
-  
-**Добавить кубическую кривую Безье** в конец пути:  
+
+**Добавить кубическую кривую Безье** в конец контура:
 ``` csharp
 void CubicBezierTo(PointF point1, PointF point2, PointF point3);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
 ```
-  
-**Добавить кубическую кривую Безье** в указанную позицию пути:  
+
+**Добавить кубическую кривую Безье** в указанную позицию контура:
 ``` csharp
 void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint index);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint index);
 ```
-  
-**Добавить квадратичную кривую Безье** в конец пути:  
+
+**Добавить квадратичную кривую Безье** в конец контура:
 ``` csharp
 void QuadraticBezierTo(PointF point1, PointF point2);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2);
 ```
-  
-**Добавить квадратичную кривую Безье** в указанную позицию пути:  
+
+**Добавить квадратичную кривую Безье** в указанную позицию контура:
 ``` csharp
 void QuadraticBezierTo(PointF point1, PointF point2, uint index);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint index);
 ```
-  
-**Добавить заданную дугу** к пути:  
+
+**Добавить заданную дугу** к контуру:
 ``` csharp
 void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
 ```
-  
-**Замкнуть текущую фигуру** пути:  
+
+**Замкнуть текущую фигуру** контура:
 ``` csharp
 void CloseFigure();
 ```
-  
-**Задать позицию следующей точки**:  
+
+**Установить позицию для следующей точки**:
 ``` csharp
 void MoveTo(PointF point);
 void MoveTo(float x, float y);
 ```
-  
-**Удалить сегмент пути** по заданному индексу:  
+
+**Удалить сегмент контура** по заданному индексу:
 ``` csharp
 void RemoveAt(int index);
 ```
 
 
-## **Добавление пользовательских точек в фигуру**
+## **Добавить пользовательские точки к фигуре**
 
-1. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) и задайте тип [ShapeType.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/shapetype).  
-2. Получите экземпляр класса [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) из фигуры.  
-3. Добавьте новую точку между двумя верхними точками пути.  
-4. Добавьте новую точку между двумя нижними точками пути.  
-5. Примените путь к фигуре.
+1. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) и задайте тип [ShapeType.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/shapetype).
+2. Получите экземпляр класса [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) из фигуры.
+3. Добавьте новую точку между двумя верхними точками контура.
+4. Добавьте новую точку между двумя нижними точками контура.
+5. Примените контур к фигуре.
 
-Этот код C# показывает, как добавить пользовательские точки в фигуру:  
+Этот код C# показывает, как добавить пользовательские точки к фигуре:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -142,14 +148,14 @@ using (Presentation pres = new Presentation())
 
 ![example1_image](custom_shape_1.png)
 
-## **Удаление точек из фигуры**
+##  **Удалить точки из фигуры**
 
-1. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) и задайте тип [ShapeType.Heart](https://reference.aspose.com/slides/net/aspose.slides/shapetype).  
-2. Получите экземпляр класса [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) из фигуры.  
-3. Удалите сегмент пути.  
-4. Примените путь к фигуре.
+1. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) и задайте тип [ShapeType.Heart](https://reference.aspose.com/slides/net/aspose.slides/shapetype).
+2. Получите экземпляр класса [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) из фигуры.
+3. Удалите сегмент контура.
+4. Примените контур к фигуре.
 
-Этот код C# показывает, как удалить точки из фигуры:  
+Этот код C# показывает, как удалить точки из фигуры:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -161,18 +167,17 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-
 ![example2_image](custom_shape_2.png)
 
-## **Создание пользовательской фигуры**
+##  **Создать пользовательскую фигуру**
 
-1. Вычислите точки фигуры.  
-2. Создайте экземпляр класса [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath).  
-3. Заполните путь точками.  
-4. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape).  
-5. Примените путь к фигуре.
+1. Вычислите точки для фигуры.
+2. Создайте экземпляр класса [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath).
+3. Заполните контур точками.
+4. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape).
+5. Примените контур к фигуре.
 
-Этот код C# показывает, как создать пользовательскую фигуру:  
+Этот код C# показывает, как создать пользовательскую фигуру:
 ``` csharp
 List<PointF> points = new List<PointF>();
 
@@ -210,17 +215,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-
 ![example3_image](custom_shape_3.png)
 
-## **Создание составной пользовательской фигуры**
+## **Создать составную пользовательскую фигуру**
 
-1. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape).  
-2. Создайте первый экземпляр класса [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath).  
-3. Создайте второй экземпляр класса [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath).  
-4. Примените пути к фигуре.
+1. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape).
+2. Создайте первый экземпляр класса [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath).
+3. Создайте второй экземпляр класса [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath).
+4. Примените контуры к фигуре.
 
-Этот код C# показывает, как создать составную пользовательскую фигуру:  
+Этот код C# показывает, как создать составную пользовательскую фигуру:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -244,12 +248,11 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-
 ![example4_image](custom_shape_4.png)
 
-## **Создание пользовательской фигуры с округлыми углами**
+## **Создать пользовательскую фигуру со скруглёнными углами**
 
-Этот код C# показывает, как создать пользовательскую фигуру с округлыми (внутренними) углами:  
+Этот код C# показывает, как создать пользовательскую фигуру со скруглёнными углами (внутрь);
 ```c#
 var shapeX = 20f;
 var shapeY = 20f;
@@ -293,9 +296,9 @@ using (var presentation = new Presentation())
 ```
 
 
-## **Определение, замкнута ли геометрия фигуры**
+## **Узнать, закрыта ли геометрия фигуры**
 
-Замкнутая фигура — это такая, у которой все стороны соединены, образуя единую границу без разрывов. Такая фигура может быть простой геометрической формой или сложным пользовательским контуром. Ниже пример кода, проверяющего, является ли геометрия фигуры замкнутой:  
+Закрытая фигура определяется как фигура, у которой все стороны соединены, образуя единую границу без разрывов. Такая фигура может быть простой геометрической формой или сложным пользовательским контуром. Приведённый пример кода показывает, как проверить, закрыта ли геометрия фигуры:
 ```cs
 bool IsGeometryClosed(IGeometryShape geometryShape)
 {
@@ -319,14 +322,14 @@ bool IsGeometryClosed(IGeometryShape geometryShape)
 ```
 
 
-## **Преобразование GeometryPath в GraphicsPath (System.Drawing.Drawing2D)**
+## **Преобразовать GeometryPath в GraphicsPath (System.Drawing.Drawing2D)** 
 
-1. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape).  
-2. Создайте экземпляр класса [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) из пространства имён [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0).  
-3. Преобразуйте экземпляр [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) в экземпляр [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) с помощью [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil).  
-4. Примените пути к фигуре.
+1. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape).
+2. Создайте экземпляр класса [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) из пространства имён [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0).
+3. Преобразуйте экземпляр [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) в экземпляр [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) с помощью [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil).
+4. Примените контуры к фигуре.
 
-Этот код C# — реализация указанных шагов, демонстрирующая процесс конвертации **GeometryPath** в **GraphicsPath**:  
+Этот код C# — реализация указанных выше шагов — демонстрирует процесс преобразования **GeometryPath** в **GraphicsPath**:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -346,16 +349,18 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-
 ![example5_image](custom_shape_5.png)
 
 ## **FAQ**
 
-**Что произойдёт с заливкой и контуром после замены геометрии?**  
-Стиль остаётся привязанным к фигуре; меняется только контур. Заливка и контур автоматически применяются к новой геометрии.
+**Что произойдёт с заливкой и контурами после замены геометрии?**
 
-**Как правильно повернуть пользовательскую фигуру вместе с её геометрией?**  
-Используйте свойство [rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) фигуры; геометрия вращается вместе с фигурой, потому что привязана к её системе координат.
+Стиль остаётся привязанным к фигуре; меняется только контур. Заливка и контуры автоматически применяются к новой геометрии.
 
-**Можно ли преобразовать пользовательскую фигуру в изображение, чтобы «зафиксировать» результат?**  
-Да. Экспортируйте нужный [slide](/slides/ru/net/convert-powerpoint-to-png/) или саму [shape](/slides/ru/net/create-shape-thumbnails/) в растровый формат; это упрощает дальнейшую работу с тяжёлыми геометриями.
+**Как правильно повернуть пользовательскую фигуру вместе с её геометрией?**
+
+Используйте свойство [rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) фигуры; геометрия вращается вместе с фигурой, так как привязана к её собственной системе координат.
+
+**Могу ли я преобразовать пользовательскую фигуру в изображение, чтобы “зафиксировать” результат?**
+
+Да. Экспортируйте нужную область [слайда](/slides/ru/net/convert-powerpoint-to-png/) или саму [фигуру](/slides/ru/net/create-shape-thumbnails/) в растровый формат; это упрощает последующую работу с тяжёлыми геометриями.

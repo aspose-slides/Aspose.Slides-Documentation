@@ -1,27 +1,40 @@
 ---
-title: إدارة العلامات والبيانات المخصصة
+title: إدارة العلامات والبيانات المخصصة في العروض التقديمية في .NET
+linktitle: العلامات والبيانات المخصصة
 type: docs
 weight: 300
-url: /ar/net/managing-tags-and-custom-data
-keywords: "علامات, بيانات مخصصة, قيمة للعلامات, إضافة علامات, عرض تقديمي PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "إضافة علامات وبيانات مخصصة إلى عروض PowerPoint التقديمية باستخدام C# أو .NET"
+url: /ar/net/managing-tags-and-custom-data/
+keywords:
+- خصائص المستند
+- علامة
+- بيانات مخصصة
+- إضافة علامة
+- قيم أزواج
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "تعلم كيفية إضافة وقراءة وتحديث وإزالة العلامات والبيانات المخصصة في Aspose.Slides لـ .NET، مع أمثلة لعروض PowerPoint وعروض OpenDocument."
 ---
 
 ## **تخزين البيانات في ملفات العرض**
 
-يتم تخزين ملفات PPTX—العناصر ذات الامتداد .pptx—في تنسيق PresentationML، وهو جزء من مواصفة Office Open XML. يحدد تنسيق Office Open XML هيكل البيانات الموجودة في العروض التقديمية. 
+ملفات PPTX—العناصر ذات الامتداد .pptx—محفوظة بتنسيق PresentationML، وهو جزء من مواصفة Office Open XML. يحدد تنسيق Office Open XML بنية البيانات الموجودة في العروض التقديمية. 
 
-مع اعتبار *الشريحة* أحد عناصر العروض التقديمية، يحتوي *جزء الشريحة* على محتوى شريحة واحدة. يسمح لجزء الشريحة أن يكون له علاقات صريحة مع العديد من الأجزاء—مثل العلامات المعرفة من قبل المستخدم—التي تعرفها ISO/IEC 29500. 
+مع اعتبار *الشريحة* كأحد العناصر في العروض، يحتوي *جزء الشريحة* على محتوى شريحة واحدة. يُسمح لجزء الشريحة بأن يكون له علاقات صريحة مع العديد من الأجزاء—مثل العلامات المعرفة من قبل المستخدم—المحددة في ISO/IEC 29500. 
 
-يمكن أن توجد بيانات مخصصة (محددة لعروض تقديمية) أو للمستخدم كعلامات ([ITagCollection](https://reference.aspose.com/slides/net/aspose.slides/itagcollection)) وCustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/net/aspose.slides/icustomxmlpartcollection)). 
+يمكن أن توجد بيانات مخصصة (محددة لعرض تقديمي) أو مستخدم كعلامات ([ITagCollection](https://reference.aspose.com/slides/net/aspose.slides/itagcollection)) وCustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/net/aspose.slides/icustomxmlpartcollection)). 
 
 {{% alert color="primary" %}} 
-العلامات هي أساسًا قيم زوجية من السلسلة والمفتاح. 
+
+العلامات هي في الأساس قيم أزواج المفتاح‑السلسلة. 
+
 {{% /alert %}} 
 
 ## **الحصول على قيم العلامات**
 
-في الشرائح، تتطابق العلامة مع الخاصية IDocumentProperties.Keywords. يوضح لك هذا المثال البرمجي كيفية الحصول على قيمة علامة باستخدام Aspose.Slides for .NET ل[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation):
+في الشرائح، تتطابق العلامة مع الخاصية IDocumentProperties.Keywords. يوضح هذا المثال البرمجي كيفية الحصول على قيمة العلامة باستخدام Aspose.Slides for .NET لـ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation):
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -32,14 +45,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **إضافة علامات إلى العروض التقديمية**
 
-تتيح لك Aspose.Slides إضافة العلامات إلى العروض التقديمية. عادةً ما تتكون العلامة من عنصرين: 
+يسمح Aspose.Slides لك بإضافة علامات إلى العروض التقديمية. تتكون العلامة عادةً من عنصرين: 
 
 - اسم الخاصية المخصصة - `MyTag` 
 - قيمة الخاصية المخصصة - `My Tag Value`
 
-إذا كنت بحاجة إلى تصنيف بعض العروض التقديمية بناءً على قاعدة أو خاصية محددة، فقد تستفيد من إضافة العلامات إلى تلك العروض. على سبيل المثال، إذا أردت تصنيف أو جمع كل العروض التقديمية من دول أمريكا الشمالية معًا، يمكنك إنشاء علامة أمريكا الشمالية ثم تعيين الدول ذات الصلة (الولايات المتحدة، المكسيك، وكندا) كقيم. 
+إذا كنت بحاجة إلى تصنيف بعض العروض بناءً على قاعدة أو خاصية معينة، فقد تستفيد من إضافة علامات إلى تلك العروض. على سبيل المثال، إذا أردت تصنيف أو تجميع جميع العروض من الدول الأمريكية الشمالية معًا، يمكنك إنشاء علامة "North American" ثم تعيين الدول ذات الصلة (الولايات المتحدة، المكسيك، وكندا) كقيم. 
 
-يوضح لك هذا المثال البرمجي كيفية إضافة علامة إلى [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) باستخدام Aspose.Slides for .NET:
+يوضح هذا المثال البرمجي كيفية إضافة علامة إلى [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) باستخدام Aspose.Slides for .NET:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -49,7 +62,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-يمكن أيضًا تعيين العلامات لـ[Slide](https://reference.aspose.com/slides/net/aspose.slides/slide):
+يمكن أيضًا ضبط العلامات لـ [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide):
 ```csharp
 using(Presentation pres = new Presentation())
 {
@@ -59,7 +72,7 @@ using(Presentation pres = new Presentation())
 ```
 
 
-أو لأي [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape):
+أو لأي [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape) فردي:
 ```csharp
 using(Presentation pres = new Presentation())
 {
@@ -71,16 +84,16 @@ using(Presentation pres = new Presentation())
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
 **هل يمكنني إزالة جميع العلامات من عرض تقديمي أو شريحة أو شكل في عملية واحدة؟**
 
-نعم. تدعم [tag collection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/) عملية [clear](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/clear/) التي تحذف جميع أزواج المفتاح‑القيمة مرة واحدة.
+نعم. يدعم [tag collection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/) عملية [clear](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/clear/) التي تحذف جميع أزواج المفتاح‑القيمة مرة واحدة.
 
-**كيف يمكنني حذف علامة واحدة باسمها دون التجول عبر المجموعة بأكملها؟**
+**كيف أحذف علامة واحدة باسمها دون iterating عبر المجموعة بأكملها؟**
 
 استخدم عملية [Remove(name)](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/remove/) على [TagCollection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/) لحذف العلامة بمفتاحها.
 
-**كيف يمكنني استرداد القائمة الكاملة لأسماء العلامات للتحليل أو الفلترة؟**
+**كيف يمكنني استرجاع القائمة الكاملة لأسماء العلامات للتحليل أو التصفية؟**
 
-استخدم [GetNamesOfTags](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/getnamesoftags/) على [tag collection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/); تُعيد مصفوفة بجميع أسماء العلامات.
+استخدم [GetNamesOfTags](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/getnamesoftags/) على [tag collection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/)؛ يعيد مصفوفة بجميع أسماء العلامات.

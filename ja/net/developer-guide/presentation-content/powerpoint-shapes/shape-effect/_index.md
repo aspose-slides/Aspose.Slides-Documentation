@@ -1,43 +1,41 @@
 ---
-title: C# を使用して PowerPoint でシェイプ効果を適用する
-linktitle: シェイプ効果
+title: ".NET でプレゼンテーションに形状エフェクトを適用する"
+linktitle: "形状エフェクト"
 type: docs
 weight: 30
 url: /ja/net/shape-effect
 keywords:
-- 形状効果
-- 影効果
-- 反射効果
-- 光彩効果
-- ソフト エッジ効果
-- ベベル効果
-- 3D フォーマット
-- 3D 回転
-- PowerPoint
-- プレゼンテーション
-- C#
-- .NET
-- Aspose.Slides
-description: ".NET 用 Aspose.Slides を使用して、影や反射、光彩などの魅力的なシェイプ効果で PowerPoint プレゼンテーションを強化します。使いやすいコードで視覚的な強化を自動化し、手間なくプロ品質のスライドを作成できます。"
+- "形状エフェクト"
+- "影エフェクト"
+- "反射エフェクト"
+- "発光エフェクト"
+- "ソフトエッジエフェクト"
+- "エフェクト形式"
+- "PowerPoint"
+- "プレゼンテーション"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides for .NET を使用して高度な形状エフェクトで PPT および PPTX ファイルを変換し、数秒でインパクトのあるプロフェッショナルなスライドを作成します。"
 ---
 
 ## **概要**
 
-PowerPoint のエフェクトは図形を目立たせるために使用できますが、[fills](/slides/ja/net/shape-formatting/#gradient-fill) やアウトラインとは異なります。PowerPoint のエフェクトを使用すると、図形にリアルな反射を作成したり、図形の輝きを広げたりすることができます。
+PowerPoint のエフェクトは図形を目立たせるために使用できますが、[塗りつぶし](/slides/ja/net/shape-formatting/#gradient-fill)や輪郭とは異なります。PowerPoint のエフェクトを使用すると、図形にリアルな反射を作成したり、図形の発光を広げたりできます。
 
-<img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
+<img src="shape-effect.png" alt="形状エフェクト" style="zoom:50%;" />
 
-PowerPoint には図形に適用できる 6 つのエフェクトがあります。1 つまたは複数のエフェクトを図形に適用できます。
+PowerPoint は図形に適用できる 6 つのエフェクトを提供します。1 つまたは複数のエフェクトを図形に適用できます。
 
-エフェクトの組み合わせの中には、他より見栄えが良いものがあります。そのため、PowerPoint には **Preset** のオプションがあります。Preset オプションは、実質的に 2 つ以上のエフェクトの見栄えの良い組み合わせをあらかじめ定義したものです。これにより、プリセットを選択するだけで、さまざまなエフェクトを試したり組み合わせて好みの組み合わせを見つける手間が省けます。
+エフェクトの組み合わせには、より見栄えが良いものとそうでないものがあります。そのため、PowerPoint には **Preset** のオプションがあります。Preset オプションは基本的に 2 つ以上のエフェクトの見栄えの良い既知の組み合わせです。これにより、プリセットを選択するだけで、さまざまなエフェクトをテストしたり組み合わせたりして最適な組み合わせを見つける時間を無駄にしなくて済みます。
 
-Aspose.Slides は [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) クラスにプロパティとメソッドを提供しており、PowerPoint プレゼンテーション内の図形に同じエフェクトを適用できます。
+Aspose.Slides は、PowerPoint プレゼンテーションの図形に同じエフェクトを適用できるように、[EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) クラスのプロパティとメソッドを提供します。
 
-## **影エフェクトの適用**
+## **影効果の適用**
 
-Aspose.Slides for .NET で図形に影エフェクトを適用するには、色、ぼかし半径、方向などのパラメータを簡単に調整できます。これにより、図形がよりダイナミックでプロフェッショナルに見え、奥行きと焦点が加わります。シンプルなコードスニペットを使用すれば、複数の図形にこのエフェクトを適用でき、プレゼンテーション全体のビジュアル魅力が向上します。
+Aspose.Slides for .NET で図形に影効果を適用するには、色、ぼかし半径、方向などのパラメータを簡単に調整できます。これにより、図形がより動的でプロフェッショナルに見え、奥行きと焦点が加わります。シンプルなコードスニペットを使用すれば、複数の図形にこれらの効果を適用でき、プレゼンテーション全体の視覚的魅力を高めることができます。
 
-この C# コードは、矩形に [outer shadow effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) を適用する方法を示しています。
+この C# コードは、矩形に [外側の影効果](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) を適用する方法を示しています。
 ```c#
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
@@ -53,13 +51,13 @@ presentation.Save("shadow_effect.pptx", SaveFormat.Pptx);
 ```
 
 
-![影エフェクト](shadow_effect.png)
+![影効果](shadow_effect.png)
 
-## **反射エフェクトの適用**
+## **反射効果の適用**
 
-Aspose.Slides for .NET で反射エフェクトを適用するには、図形に鏡面のような反射を追加し、距離、透明度、サイズなどのパラメータを調整できます。このエフェクトは、図形に洗練された外観を与えることでプレゼンテーションの美しさを高めます。シンプルなコードで簡単に実装でき、複数の要素に素早く適用できるため、デザインの一貫性が保たれます。
+Aspose.Slides for .NET で反射効果を適用するには、図形に鏡面のような反射を追加し、距離、透明度、サイズなどのパラメータを調整できます。この効果は、図形をより洗練された外観にし、プレゼンテーションの美観を向上させます。シンプルなコードで簡単に実装でき、複数の要素に素早く適用して一貫したデザインが実現できます。
 
-この C# コードは、図形に [reflection effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) を適用する方法を示しています。
+この C# コードは、図形に [反射効果](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) を適用する方法を示しています。
 ```c#
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
@@ -76,13 +74,13 @@ presentation.Save("reflection_effect.pptx", SaveFormat.Pptx);
 ```
 
 
-![反射エフェクト](reflection_effect.png)
+![反射効果](reflection_effect.png)
 
-## **Glow エフェクトの適用**
+## **発光効果の適用**
 
-Aspose.Slides for .NET で図形に Glow エフェクトを適用するには、図形の周囲に柔らかく光るオーラを追加し、色やサイズなどのプロパティを調整します。このエフェクトは図形を目立たせ、プレゼンテーションに魅力的で目を引くビジュアル要素を加えます。最小限のコードで簡単に実装でき、スライド全体の見栄えが向上します。
+Aspose.Slides for .NET で図形に発光効果を適用するには、柔らかく光るオーラを図形の周囲に追加し、色やサイズなどのプロパティを調整できます。この効果は図形を際立たせ、プレゼンテーションに魅力的で目を引くビジュアル要素を加えます。最小限のコードで簡単に実装でき、スライド全体の外観を向上させます。
 
-この C# コードは、図形に [glow effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) を適用する方法を示しています。
+この C# コードは、図形に [発光効果](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) を適用する方法を示しています。
 ```c#
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
@@ -97,13 +95,13 @@ presentation.Save("glow_effect.pptx", SaveFormat.Pptx);
 ```
 
 
-![Glow エフェクト](glow_effect.png)
+![発光効果](glow_effect.png)
 
-## **ソフトエッジエフェクトの適用**
+## **ソフトエッジ効果の適用**
 
-Aspose.Slides for .NET でソフトエッジエフェクトを適用すると、図形のエッジ周辺に滑らかでぼかされたトランジションを作成できます。このエフェクトは、より控えめで洗練された外観を加え、穏やかで柔らかな見た目が必要なデザインに最適です。半径などのパラメータを簡単に調整して、プレゼンテーション内のさまざまな図形に希望の効果を実現できます。
+Aspose.Slides for .NET でソフトエッジ効果を適用するには、図形のエッジ周辺に滑らかでぼやけたトランジションを作成できます。この効果は、より控えめで洗練された外観を追加し、柔らかく穏やかな見た目が必要なデザインに最適です。半径などのパラメータを簡単に調整して、プレゼンテーション内のさまざまな図形に目的の効果を実現できます。
 
-この C#コードは、図形に [soft edges](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) を適用する方法を示しています。
+この C# コードは、図形に [ソフトエッジ](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) を適用する方法を示しています。
 ```c#
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
@@ -117,18 +115,18 @@ presentation.Save("soft_edges_effect.pptx", SaveFormat.Pptx);
 ```
 
 
-![ソフトエッジエフェクト](soft_edges_effect.png)
+![ソフトエッジ効果](soft_edges_effect.png)
 
 ## **よくある質問**
 
 **同じ図形に複数のエフェクトを適用できますか？**
 
-はい、影、反射、Glow などの異なるエフェクトを単一の図形に組み合わせて、よりダイナミックな外観にすることができます。
+はい、影、反射、発光などの異なるエフェクトを単一の図形に組み合わせて、より動的な外観を作り出すことができます。
 
 **どのような図形にエフェクトを適用できますか？**
 
-自動図形、グラフ、表、画像、SmartArt オブジェクト、OLE オブジェクトなど、さまざまな図形にエフェクトを適用できます。
+オートシェイプ、チャート、テーブル、画像、SmartArt オブジェクト、OLE オブジェクトなど、さまざまな図形にエフェクトを適用できます。
 
 **グループ化された図形にエフェクトを適用できますか？**
 
-はい、グループ化された図形にもエフェクトを適用できます。エフェクトはグループ全体に適用されます。
+はい、グループ化された図形にエフェクトを適用できます。エフェクトはグループ全体に適用されます。

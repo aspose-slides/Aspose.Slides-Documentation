@@ -1,90 +1,107 @@
 ---
-title: "Линия"
+title: Добавить линейные фигуры в презентации в .NET
+linktitle: Линия
 type: docs
 weight: 50
 url: /ru/net/Line/
-keywords: "Линия, фигура PowerPoint, презентация PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "Добавить линию в презентацию PowerPoint на C# или .NET"
+keywords:
+- линия
+- создать линию
+- добавить линию
+- простая линия
+- настроить линию
+- кастомизировать линию
+- штриховой стиль
+- стрелка
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Узнайте, как управлять форматированием линий в презентациях PowerPoint с помощью Aspose.Slides для .NET. Откройте свойства, методы и примеры."
 ---
 
-Aspose.Slides for .NET поддерживает добавление разных видов фигур на слайды. В этой теме мы начнём работу с фигурами, добавляя линии на слайды. С помощью Aspose.Slides for .NET разработчики могут не только создавать простые линии, но и рисовать на слайдах некоторые сложные линии.
-
+Aspose.Slides for .NET поддерживает добавление различных типов фигур на слайды. В этой теме мы начнём работу с фигурами, добавляя линии на слайды. С помощью Aspose.Slides for .NET разработчики могут не только создавать простые линии, но и рисовать на слайдах некоторые декоративные линии.
 ## **Создать простую линию**
-Чтобы добавить простую линию на выбранный слайд презентации, выполните следующие шаги:
+Для добавления простой линии на выбранный слайд презентации выполните следующие шаги:
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-- Получите ссылку на слайд, используя его индекс.
+- Создайте экземпляр [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
+- Получите ссылку на слайд, используя его Index.
 - Добавьте AutoShape типа Line, используя метод [AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/methods/addautoshape/index), предоставляемый объектом Shapes.
 - Запишите изменённую презентацию в файл PPTX.
 
 В приведённом ниже примере мы добавили линию на первый слайд презентации.
 ```c#
-// Создайте экземпляр класса PresentationEx, представляющий файл PPTX
-using (Presentation pres = new Presentation())
-{
-    // Получить первый слайд
-    ISlide sld = pres.Slides[0];
-
-    // Добавить автофигуру типа line
-    sld.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
-
-    //Записать PPTX на диск
-    pres.Save("LineShape1_out.pptx", SaveFormat.Pptx);
-}
+ // Создать экземпляр класса PresentationEx, представляющего файл PPTX
+ using (Presentation pres = new Presentation())
+ {
+     // Получить первый слайд
+     ISlide sld = pres.Slides[0];
+ 
+     // Добавить автофигуру типа линия
+     sld.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
+ 
+     //Записать PPTX на диск
+     pres.Save("LineShape1_out.pptx", SaveFormat.Pptx);
+ }
 ```
 
 
-## **Создать линию со стрелкой**
-Aspose.Slides for .NET также позволяет разработчикам настраивать некоторые свойства линии, чтобы она выглядела более привлекательно. Попробуем настроить несколько свойств линии, чтобы она выглядела как стрелка. Выполните следующие шаги:
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)class[](http://www.aspose.com/api/net/slides/aspose.slides/)[](http://www.aspose.com/api/net/slides/aspose.slides/).
-- Получите ссылку на слайд, используя его индекс.
+## **Создать линию‑стрелку**
+Aspose.Slides for .NET также позволяет разработчикам настраивать некоторые свойства линии, чтобы сделать её более привлекательной. Попробуем настроить несколько свойств линии, чтобы она выглядела как стрелка. Выполните следующие шаги:
+
+- Создайте экземпляр [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class[](http://www.aspose.com/api/net/slides/aspose.slides/)[](http://www.aspose.com/api/net/slides/aspose.slides/).
+- Получите ссылку на слайд, используя его Index.
 - Добавьте AutoShape типа Line, используя метод AddAutoShape, предоставляемый объектом Shapes.
-- Установите стиль линии (Line Style) в один из стилей, предлагаемых Aspose.Slides for .NET.
-- Установите ширину (Width) линии.
+- Установите Line Style в один из стилей, предлагаемых Aspose.Slides for .NET.
+- Установите Width линии.
 - Установите [Dash Style](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle) линии в один из стилей, предлагаемых Aspose.Slides for .NET.
-- Установите [Arrow Head Style](https://reference.aspose.com/slides/net/aspose.slides/linearrowheadstyle) и длину (Length) начальной точки линии.
-- Установите Arrow Head Style и длину (Length) конечной точки линии.
+- Установите [Arrow Head Style](https://reference.aspose.com/slides/net/aspose.slides/linearrowheadstyle) и Length начальной точки линии.
+- Установите Arrow Head Style и Length конечной точки линии.
 - Запишите изменённую презентацию в файл PPTX.
 ```c#
-// Создайте экземпляр класса PresentationEx, представляющий файл PPTX
-using (Presentation pres = new Presentation())
-{
+ // Создать экземпляр класса PresentationEx, представляющего файл PPTX
+ using (Presentation pres = new Presentation())
+ {
 
-    // Получить первый слайд
-    ISlide sld = pres.Slides[0];
+     // Получить первый слайд
+     ISlide sld = pres.Slides[0];
 
-    // Добавить автофигуру типа line
-    IAutoShape shp = sld.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
+     // Добавить автофигуру типа линия
+     IAutoShape shp = sld.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
-    // Применить некоторое форматирование к линии
-    shp.LineFormat.Style = LineStyle.ThickBetweenThin;
-    shp.LineFormat.Width = 10;
+     // Применить некоторую форматировку к линии
+     shp.LineFormat.Style = LineStyle.ThickBetweenThin;
+     shp.LineFormat.Width = 10;
 
-Нет. Обычная линия (это [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) типа [Line](https://reference.aspose.com/slides/net/aspose.slides/shapetype/)) автоматически не становится соединителем. Чтобы она «прилипала» к фигурам, используйте специальный тип [Connector](https://reference.aspose.com/slides/net/aspose.slides/connector/) и [соответствующие API](/slides/ru/net/connector/) для соединений.
+     shp.LineFormat.DashStyle = LineDashStyle.DashDot;
 
-**Что делать, если свойства линии наследуются из темы и трудно определить окончательные значения?**
+     shp.LineFormat.BeginArrowheadLength = LineArrowheadLength.Short;
+     shp.LineFormat.BeginArrowheadStyle = LineArrowheadStyle.Oval;
 
-[Читайте эффективные свойства](/slides/ru/net/shape-effective-properties/) через классы [ILineFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilinefillformateffectivedata/) — они уже учитывают наследование и стили темы.
+     shp.LineFormat.EndArrowheadLength = LineArrowheadLength.Long;
+     shp.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 
-**Могу ли я заблокировать линию от изменения (перемещения, изменения размера)?**
+     shp.LineFormat.FillFormat.FillType = FillType.Solid;
+     shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Maroon;
 
-    //Записать PPTX на диск
-    pres.Save("LineShape2_out.pptx", SaveFormat.Pptx);
-}
+     //Записать PPTX на диск
+     pres.Save("LineShape2_out.pptx", SaveFormat.Pptx);
+ }
 ```
 
 
 ## **FAQ**
 
-**Can I convert a regular line into a connector so it "snaps" to shapes?**
+**Можно ли преобразовать обычную линию в соединитель, чтобы она «привязывалась» к фигурам?**
 
-Нет. Обычная линия (это [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) типа [Line](https://reference.aspose.com/slides/net/aspose.slides/shapetype/)) автоматически не превращается в соединитель. Чтобы она «прилипала» к фигурам, используйте специальный тип [Connector](https://reference.aspose.com/slides/net/aspose.slides/connector/) и [соответствующие API](/slides/ru/net/connector/) для соединений.
+Нет. Обычная линия (это [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) типа [Line](https://reference.aspose.com/slides/net/aspose.slides/shapetype/)) автоматически не превращается в соединитель. Чтобы она привязывалась к фигурам, используйте специальный тип [Connector](https://reference.aspose.com/slides/net/aspose.slides/connector/) и [соответствующие API](/slides/ru/net/connector/) для соединений.
 
-**What should I do if a line’s properties are inherited from the theme and it’s hard to determine the final values?**
+**Что делать, если свойства линии наследуются из темы и трудно определить окончательные значения?**
 
-[Прочитайте вычисленные свойства](/slides/ru/net/shape-effective-properties/) через интерфейсы [ILineFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/) и [ILineFillFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilinefillformateffectivedata/) — они уже учитывают наследование и стили темы.
+[Читать эффективные свойства](/slides/ru/net/shape-effective-properties/) через интерфейсы [ILineFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ilinefillformateffectivedata/) — они уже учитывают наследование и стили темы.
 
-**Can I lock a line against editing (moving, resizing)?**
+**Можно ли заблокировать линию от редактирования (перемещения, изменения размеров)?**
 
-Да. Фигуры предоставляют [объекты блокировки](https://reference.aspose.com/slides/net/aspose.slides/autoshape/autoshapelock/), которые позволяют вам [запретить операции редактирования](/slides/ru/net/applying-protection-to-presentation/).
+Да. Фигуры предоставляют [lock objects](https://reference.aspose.com/slides/net/aspose.slides/autoshape/autoshapelock/), которые позволяют [запретить операции редактирования](/slides/ru/net/applying-protection-to-presentation/).

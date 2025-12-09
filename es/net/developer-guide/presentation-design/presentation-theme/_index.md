@@ -1,21 +1,39 @@
 ---
-title: Tema de presentación
+title: Administrar temas de presentación en .NET
+linktitle: Tema de presentación
 type: docs
 weight: 10
 url: /es/net/presentation-theme/
-keywords: "Tema, tema de PowerPoint, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
-description: "Tema de presentación de PowerPoint en C# o .NET"
+keywords:
+- Tema de PowerPoint
+- Tema de presentación
+- Tema de diapositiva
+- Establecer tema
+- Cambiar tema
+- Administrar tema
+- Color del tema
+- Paleta adicional
+- Fuente del tema
+- Estilo del tema
+- Efecto del tema
+- PowerPoint
+- OpenDocument
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Domine los temas de presentación en Aspose.Slides para .NET para crear, personalizar y convertir archivos PowerPoint con una marca coherente."
 ---
 
 Un tema de presentación define las propiedades de los elementos de diseño. Cuando seleccionas un tema de presentación, esencialmente estás eligiendo un conjunto específico de elementos visuales y sus propiedades.
 
 En PowerPoint, un tema incluye colores, [fuentes](/slides/es/net/powerpoint-fonts/), [estilos de fondo](/slides/es/net/presentation-background/), y efectos.
 
-![componentes del tema](theme-constituents.png)
+![theme-constituents](theme-constituents.png)
 
 ## **Cambiar color del tema**
 
-Un tema de PowerPoint utiliza un conjunto específico de colores para diferentes elementos en una diapositiva. Si no te gustan los colores, los cambias aplicando nuevos colores al tema. Para permitirte seleccionar un nuevo color de tema, Aspose.Slides proporciona valores en la enumeración [SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/schemecolor/).
+Un tema de PowerPoint usa un conjunto específico de colores para diferentes elementos en una diapositiva. Si no te gustan los colores, los cambias aplicando nuevos colores al tema. Para permitirte seleccionar un nuevo color de tema, Aspose.Slides proporciona valores bajo la enumeración [SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/schemecolor/).
 
 Este código C# muestra cómo cambiar el color de acento para un tema:
 ```c#
@@ -51,18 +69,19 @@ pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
 ```
 
 
-El nuevo color se aplica automáticamente a ambos elementos.
+El nuevo color se aplica automáticamente en ambos elementos.
 
-### **Establecer color del tema desde la paleta adicional**
+### **Establecer color del tema desde paleta adicional**
 
-Cuando aplicas transformaciones de luminancia al color principal del tema (1), se forman colores de la paleta adicional (2). Entonces puedes establecer y obtener esos colores del tema.
+Cuando aplicas transformaciones de luminancia al color principal del tema(1), se forman colores de la paleta adicional(2). Luego puedes establecer y obtener esos colores del tema.
 
-![colores de la paleta adicional](additional-palette-colors.png)
+![additional-palette-colors](additional-palette-colors.png)
 
 **1** - Colores principales del tema
 
 **2** - Colores de la paleta adicional.
 
+Este código C# demuestra una operación donde los colores de la paleta adicional se obtienen del color principal del tema y luego se usan en formas:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -74,7 +93,7 @@ using (Presentation presentation = new Presentation())
     shape1.FillFormat.FillType = FillType.Solid;
     shape1.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
 
-    // Acento 4, 80% más claro
+    // Acento 4, más claro 80%
     IShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
 
     shape2.FillFormat.FillType = FillType.Solid;
@@ -82,7 +101,7 @@ using (Presentation presentation = new Presentation())
     shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.2f);
     shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.8f);
 
-    // Acento 4, 60% más claro
+    // Acento 4, más claro 60%
     IShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
 
     shape3.FillFormat.FillType = FillType.Solid;
@@ -90,7 +109,7 @@ using (Presentation presentation = new Presentation())
     shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.4f);
     shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.6f);
 
-    // Acento 4, 40% más claro
+    // Acento 4, más claro 40%
     IShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
 
     shape4.FillFormat.FillType = FillType.Solid;
@@ -98,14 +117,14 @@ using (Presentation presentation = new Presentation())
     shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.6f);
     shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.4f);
 
-    // Acento 4, 25% más oscuro
+    // Acento 4, más oscuro 25%
     IShape shape5 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
 
     shape5.FillFormat.FillType = FillType.Solid;
     shape5.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
     shape5.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.75f);
 
-    // Acento 4, 50% más oscuro
+    // Acento 4, más oscuro 50%
     IShape shape6 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
 
     shape6.FillFormat.FillType = FillType.Solid;
@@ -121,10 +140,10 @@ using (Presentation presentation = new Presentation())
 
 Para permitirte seleccionar fuentes para temas y otros propósitos, Aspose.Slides usa estos identificadores especiales (similares a los usados en PowerPoint):
 
-* **+mn-lt** - Fuente del cuerpo Latin (Fuente Latin Menor)
-* **+mj-lt** - Fuente de encabezado Latin (Fuente Latin Mayor)
-* **+mn-ea** - Fuente del cuerpo East Asian (Fuente East Asian Menor)
-* **+mj-ea** - Fuente del cuerpo East Asian (Fuente East Asian Menor)
+* **+mn-lt** - Fuente del cuerpo Latin (Fuente Latin menor)
+* **+mj-lt** - Fuente del encabezado Latin (Fuente Latin mayor)
+* **+mn-ea** - Fuente del cuerpo East Asian (Fuente East Asian menor)
+* **+mj-ea** - Fuente del cuerpo East Asian (Fuente East Asian menor)
 
 Este código C# muestra cómo asignar la fuente Latin a un elemento del tema:
 ```c#
@@ -150,13 +169,13 @@ pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 
 La fuente en todos los cuadros de texto se actualizará.
 
-{{% alert color="primary" title="TIP" %}} 
-Quizás quieras ver [fuentes de PowerPoint](/slides/es/net/powerpoint-fonts/).
+{{% alert color="primary" title="CONSEJO" %}} 
+Puede que quieras ver [fuentes de PowerPoint](/slides/es/net/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **Cambiar estilo de fondo del tema**
 
-Por defecto, la aplicación PowerPoint ofrece 12 fondos predefinidos, pero solo 3 de esos 12 fondos se guardan en una presentación típica. 
+Por defecto, la aplicación PowerPoint proporciona 12 fondos predefinidos pero solo 3 de esos 12 fondos se guardan en una presentación típica.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
@@ -176,6 +195,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 Usando la propiedad [BackgroundFillStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) de la clase [FormatScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/), puedes agregar o acceder al estilo de fondo en un tema de PowerPoint. 
 {{% /alert %}}
 
+Este código C# muestra cómo establecer el fondo para una presentación:
 ```c#
 pres.Masters[0].Background.StyleIndex = 2;
 ```
@@ -183,18 +203,19 @@ pres.Masters[0].Background.StyleIndex = 2;
 
 **Guía de índices**: 0 se usa para sin relleno. El índice comienza en 1.
 
-{{% alert color="primary" title="TIP" %}} 
-Quizás quieras ver [Fondo de PowerPoint](/slides/es/net/presentation-background/).
+{{% alert color="primary" title="CONSEJO" %}} 
+Puede que quieras ver [Fondo de PowerPoint](/slides/es/net/presentation-background/).
 {{% /alert %}}
 
 ## **Cambiar efecto del tema**
 
-Un tema de PowerPoint normalmente contiene 3 valores para cada matriz de estilo. Estas matrices se combinan en estos 3 efectos: sutil, moderado e intenso. Por ejemplo, este es el resultado cuando los efectos se aplican a una forma específica:
+Un tema de PowerPoint normalmente contiene 3 valores para cada matriz de estilo. esas matrices se combinan en estos 3 efectos: sutil, moderado e intenso. Por ejemplo, este es el resultado cuando los efectos se aplican a una forma específica:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
 Usando 3 propiedades ([FillStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/linestyles), [EffectStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/effectstyles)) de la clase [FormatScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme) puedes cambiar los elementos en un tema (incluso de forma más flexible que las opciones en PowerPoint).
 
+Este código C# muestra cómo cambiar un efecto del tema alterando partes de los elementos:
 ```c#
 using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 {
@@ -211,20 +232,20 @@ using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 ```
 
 
-Los cambios resultantes en color de relleno, tipo de relleno, efecto de sombra, etc.:
+Los cambios resultantes en el color de relleno, tipo de relleno, efecto de sombra, etc:
 
 ![todo:image_alt_text](presentation-design_11.png)
 
 ## **Preguntas frecuentes**
 
-**¿Puedo aplicar un tema a una sola diapositiva sin cambiar el maestro?**
+**¿Puedo aplicar un tema a una sola diapositiva sin cambiar la maestra?**
 
 Sí. Aspose.Slides admite sobrescrituras de tema a nivel de diapositiva, por lo que puedes aplicar un tema local solo a esa diapositiva mientras mantienes intacto el tema maestro (a través del [SlideThemeManager](https://reference.aspose.com/slides/net/aspose.slides.theme/slidethememanager/)).
 
-**¿Cuál es la manera más segura de trasladar un tema de una presentación a otra?**
+**¿Cuál es la forma más segura de transferir un tema de una presentación a otra?**
 
-[Clonar diapositivas](/slides/es/net/clone-slides/) junto con su maestro en la presentación de destino. Esto conserva el maestro original, los diseños y el tema asociado, de modo que la apariencia permanezca coherente.
+[Clonar diapositivas](/slides/es/net/clone-slides/) junto con su maestra en la presentación de destino. Esto preserva la maestra original, los diseños y el tema asociado, de modo que la apariencia permanece consistente.
 
-**¿Cómo puedo ver los valores "efectivos" después de toda la herencia y sobrescrituras?**
+**¿Cómo puedo ver los valores "efectivos" después de toda la herencia y sobrescritura?**
 
-Utiliza las ["vistas efectivas"](/slides/es/net/shape-effective-properties/) de la API para tema/color/fuente/efecto. Estas devuelven las propiedades resueltas y finales después de aplicar el maestro más cualquier sobrescritura local.
+Utiliza las "vistas efectivas" de la API [/slides/net/shape-effective-properties/] para tema/color/fuente/efecto. Estas devuelven las propiedades resueltas y finales después de aplicar la maestra más cualquier sobrescritura local.

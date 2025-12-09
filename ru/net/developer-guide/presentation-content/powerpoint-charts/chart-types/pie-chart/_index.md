@@ -1,20 +1,33 @@
 ---
-title: Круговая диаграмма
+title: Настройка круговых диаграмм в презентациях на .NET
+linktitle: Круговая диаграмма
 type: docs
 url: /ru/net/pie-chart/
-keywords: "Круговая диаграмма, параметры построения, цвета секторов, презентация PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "Параметры построения круговой диаграммы и цвета секторов в презентации PowerPoint на C# или .NET"
+keywords:
+- круговая диаграмма
+- управление диаграммой
+- настройка диаграммы
+- параметры диаграммы
+- настройки диаграммы
+- параметры построения
+- цвет секторов
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Узнайте, как создавать и настраивать круговые диаграммы в .NET с помощью Aspose.Slides, экспортировать их в PowerPoint и усиливать рассказ о данных за считанные секунды."
 ---
 
-## **Вторичные параметры построения для диаграмм Pie of Pie и Bar of Pie**
-Aspose.Slides for .NET теперь поддерживает вторичные параметры построения для диаграмм Pie of Pie и Bar of Pie. В этом разделе мы посмотрим на пример, как указать эти параметры с помощью Aspose.Slides. Чтобы задать свойства, выполните следующие шаги:
+## **Параметры вторичного графика для диаграмм «Круг в круге» и «Полоска в круге»**
+Aspose.Slides для .NET теперь поддерживает параметры вторичного графика для диаграмм «Круг в круге» или «Полоска в круге». В этой статье мы рассмотрим пример, показывающий, как задать эти параметры с помощью Aspose.Slides. Чтобы задать свойства, выполните следующие шаги:
 
 1. Создайте объект класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 1. Добавьте диаграмму на слайд.
-1. Укажите вторичные параметры построения диаграммы.
-1. Сохраните презентацию на диск.
+1. Укажите параметры вторичного графика диаграммы.
+1. Запишите презентацию на диск.
 
-В примере ниже мы задали различные свойства диаграммы Pie of Pie.
+В приведённом ниже примере мы задали различные свойства диаграммы «Круг в круге».
 ```c#
 // Создайте экземпляр класса Presentation
 Presentation presentation = new Presentation();
@@ -28,7 +41,7 @@ chart.ChartData.Series[0].ParentSeriesGroup.SecondPieSize = 149;
 chart.ChartData.Series[0].ParentSeriesGroup.PieSplitBy = Aspose.Slides.Charts.PieSplitType.ByPercentage;
 chart.ChartData.Series[0].ParentSeriesGroup.PieSplitPosition = 53;
 
-// Сохраните презентацию на диск
+// Запишите презентацию на диск
 presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
 ```
 
@@ -36,26 +49,26 @@ presentation.Save("SecondPlotOptionsforCharts_out.pptx", SaveFormat.Pptx);
 
 
 
-## **Установка автоматических цветов секторов круговой диаграммы**
-Aspose.Slides for .NET предоставляет простой API для установки автоматических цветов секторов круговой диаграммы. Пример кода применяет указанные выше свойства.
+## **Установите автоматические цвета секторов круговой диаграммы**
+Aspose.Slides для .NET предоставляет простой API для задания автоматических цветов секторов круговой диаграммы. Пример кода применяет указанные выше настройки.
 
 1. Создайте экземпляр класса Presentation.
 1. Получите первый слайд.
 1. Добавьте диаграмму с данными по умолчанию.
-1. Установите заголовок диаграммы.
-1. Установите для первой серии отображение значений.
-1. Установите индекс листа данных диаграммы.
+1. Задайте заголовок диаграммы.
+1. Установите у первой серии отображение значений.
+1. Задайте индекс листа данных диаграммы.
 1. Получите лист данных диаграммы.
-1. Удалите автоматически сгенерированные серии и категории.
+1. Удалите серии и категории, созданные по умолчанию.
 1. Добавьте новые категории.
 1. Добавьте новую серию.
 
-Сохраните изменённую презентацию в файл PPTX.
+Запишите изменённую презентацию в файл PPTX.
 ```c#
-// Создайте экземпляр класса Presentation, представляющего файл PPTX
+// Создайте экземпляр класса Presentation, который представляет файл PPTX
 using (Presentation presentation = new Presentation())
 {
-	// Создайте экземпляр класса Presentation, представляющего файл PPTX
+	// Создайте экземпляр класса Presentation, который представляет файл PPTX
 	Presentation presentation = new Presentation();
 
 	// Получите первый слайд
@@ -91,7 +104,7 @@ using (Presentation presentation = new Presentation())
 	// Добавление новой серии
 	IChartSeries series = chart.ChartData.Series.Add(fact.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-	// Теперь заполняем данные серии
+	// Заполнение данных серии
 	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
 	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
 	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
@@ -104,10 +117,10 @@ using (Presentation presentation = new Presentation())
 
 ## **FAQ**
 
-**Поддерживаются ли варианты 'Pie of Pie' и 'Bar of Pie'?**
+**Поддерживаются варианты «Круг в круге» и «Полоска в круге»?**
 
-Да, библиотека [поддерживает](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) вторичное построение для круговых диаграмм, включая типы 'Pie of Pie' и 'Bar of Pie'.
+Да, библиотека [поддерживает](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) вторичный график для круговых диаграмм, включая типы «Круг в круге» и «Полоска в круге».
 
-**Могу ли я экспортировать только диаграмму как изображение (например, PNG)?**
+**Можно ли экспортировать только диаграмму как изображение (например, PNG)?**
 
-Да, вы можете [экспортировать саму диаграмму как изображение](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (например, PNG) без всей презентации.
+Да, вы можете [экспортировать диаграмму как изображение](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) (например, PNG) без полной презентации.

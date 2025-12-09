@@ -15,6 +15,10 @@ keywords:
 - スライドを PNG に変換
 - PPT を PNG に変換
 - PPTX を PNG に変換
+- PPT を PNG として保存
+- PPTX を PNG として保存
+- PPT を PNG にエクスポート
+- PPTX を PNG にエクスポート
 - .NET
 - C#
 - Aspose.Slides
@@ -23,7 +27,7 @@ description: "Aspose.Slides for .NET を使用して、PowerPoint プレゼン�
 
 ## **概要**
 
-この記事では、C# を使用して PowerPoint プレゼンテーションを PNG 形式に変換する方法を説明します。以下のトピックを取り上げます。
+この記事では、C# を使用して PowerPoint プレゼンテーションを PNG 形式に変換する方法を説明します。以下のトピックをカバーしています。
 
 - [C# で PowerPoint を PNG に変換](#convert-powerpoint-to-png)
 - [C# で PPT を PNG に変換](#convert-powerpoint-to-png)
@@ -31,33 +35,33 @@ description: "Aspose.Slides for .NET を使用して、PowerPoint プレゼン�
 - [C# で ODP を PNG に変換](#convert-powerpoint-to-png)
 - [C# で PowerPoint スライドを画像に変換](#convert-powerpoint-to-png)
 
-## **C# PowerPoint を PNG に変換**
+## **C# PowerPoint から PNG へ**
 
-PowerPoint を PNG に変換する C# のサンプルコードについては、以下のセクション、つまり [Convert PowerPoint to PNG](#convert-powerpoint-to-png) を参照してください。コードは PPT、PPTX、ODP などのさまざまな形式を Presentation オブジェクトで読み込み、スライドのサムネイルを PNG 形式で保存できます。JPG、BMP、TIFF、SVG など、同様の PowerPoint から画像への変換については、以下の記事で説明しています。
+C# のサンプルコードで PowerPoint を PNG に変換する方法については、以下のセクション [Convert PowerPoint to PNG](#convert-powerpoint-to-png) を参照してください。コードは PPT、PPTX、ODP などのさまざまな形式を Presentation オブジェクトに読み込み、スライドのサムネイルを PNG 形式で保存します。他の画像形式（JPG、BMP、TIFF、SVG）への変換は次の記事で説明しています。
 
-- [C# PowerPoint を JPG に変換](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
-- [C# PowerPoint を BMP に変換](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
-- [C# PowerPoint を TIFF に変換](https://docs.aspose.com/slides/net/convert-powerpoint-to-tiff/)
-- [C# PowerPoint を SVG に変換](https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/)
+- [C# PowerPoint to JPG](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
+- [C# PowerPoint to BMP](https://docs.aspose.com/slides/net/convert-powerpoint-to-jpg/)
+- [C# PowerPoint to TIFF](https://docs.aspose.com/slides/net/convert-powerpoint-to-tiff/)
+- [C# PowerPoint to SVG](https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/)
 
-## **PowerPoint を PNG に変換する概要**
+## **PowerPoint から PNG への変換について**
 
-PNG (Portable Network Graphics) 形式は JPEG (Joint Photographic Experts Group) ほど一般的ではありませんが、依然として非常に人気があります。
+PNG（Portable Network Graphics）形式は JPEG（Joint Photographic Experts Group）ほど一般的ではありませんが、依然として広く使用されています。
 
-**使用例:** 複雑な画像でサイズが問題とならない場合、PNG は JPEG よりも優れた画像形式です。
+**使用例:** 複雑な画像でサイズが問題とならない場合、PNG は JPEG よりも適した画像形式です。
 
-{{% alert title="Tip" color="primary" %}}無料の Aspose **PowerPoint to PNG コンバータ** を確認したいかもしれません: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) および [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png)。これらはこのページで説明したプロセスの実際の実装です。{{% /alert %}}
+{{% alert title="Tip" color="primary" %}}Aspose の無料 **PowerPoint to PNG コンバータ** もぜひお試しください: [PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) と [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png)。これらは本ページで説明したプロセスの実装例です。{{% /alert %}}
 
 ## **PowerPoint を PNG に変換**
 
-以下の手順に従ってください：
+以下の手順を実行します。
 
 1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-2. [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) インターフェイスの下にある [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) コレクションからスライドオブジェクトを取得します。
+2. [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) インターフェイスの [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) コレクションからスライドオブジェクトを取得します。
 3. 各スライドのサムネイルを取得するために [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) メソッドを使用します。
 4. スライドのサムネイルを PNG 形式で保存するために [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/save/methods/5) メソッドを使用します。
 
-この C# コードは PowerPoint プレゼンテーションを PNG に変換する方法を示しています。Presentation オブジェクトは PPT、PPTX、ODP などを読み込むことができ、プレゼンテーション内の各スライドは PNG 形式または他の画像形式に変換されます。
+この C# コードは、PowerPoint プレゼンテーションを PNG に変換する方法を示しています。Presentation オブジェクトは PPT、PPTX、ODP などを読み込み、プレゼンテーション内の各スライドを PNG 形式または他の画像形式に変換します。
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -76,9 +80,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **カスタム寸法で PowerPoint を PNG に変換**
 
-特定のスケールで PNG ファイルを取得したい場合は、結果のサムネイルの寸法を決定する `desiredX` と `desiredY` の値を設定できます。
+特定のスケールに合わせた PNG ファイルが必要な場合は、`desiredX` と `desiredY` の値を設定して、生成されるサムネイルの寸法を指定できます。
 
-この C# のコードは上述の操作を示しています：
+この C# コードは上記の操作を実演しています:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -99,9 +103,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **カスタムサイズで PowerPoint を PNG に変換**
 
-特定のサイズで PNG ファイルを取得したい場合は、`imageSize` 用に希望する `width` と `height` の引数を渡すことができます。
+特定のサイズの PNG ファイルが必要な場合は、`imageSize` に対して希望の `width` と `height` を指定できます。
 
-このコードは、画像のサイズを指定しながら PowerPoint を PNG に変換する方法を示しています：
+このコードは、画像サイズを指定して PowerPoint を PNG に変換する方法を示しています:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -119,13 +123,16 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-## **よくある質問**
+## **FAQ**
 
-**スライド全体ではなく、特定のシェイプ（例: チャートや画像）だけをエクスポートするにはどうすればよいですか？**  
+**スライド全体ではなく、特定のシェイプ（例: グラフや画像）だけをエクスポートするにはどうすればよいですか？**
+
 Aspose.Slides は [個々のシェイプのサムネイル生成](/slides/ja/net/create-shape-thumbnails/) をサポートしており、シェイプを PNG 画像としてレンダリングできます。
 
-**サーバー上での並列変換はサポートされていますか？**  
-はい、ただしスレッド間で単一のプレゼンテーション インスタンスを [共有しない](/slides/ja/net/multithreading/) でください。スレッドまたはプロセスごとに別々のインスタンスを使用します。
+**サーバー上で並列変換はサポートされていますか？**
 
-**PNG にエクスポートする際の体験版の制限は何ですか？**  
+はい、ただしスレッド間で単一の Presentation インスタンスを共有しないでください。スレッドまたはプロセスごとに別々のインスタンスを使用します。
+
+**PNG へのエクスポート時の評価版（トライアル）制限は何ですか？**
+
 評価モードでは出力画像に透かしが追加され、ライセンスが適用されるまで [その他の制限](/slides/ja/net/licensing/) が適用されます。

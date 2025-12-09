@@ -1,21 +1,33 @@
 ---
-title: Fallback-Schriftarten-Sammlung erstellen
+title: Fallback‑Schriftartsammlungen in .NET konfigurieren
+linktitle: Fallback‑Schriftartsammlung
 type: docs
 weight: 20
 url: /de/net/create-fallback-fonts-collection/
-keywords: "Fallback-Schriftarten-Sammlung, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Fallback-Schriftarten-Sammlung in PowerPoint in C# oder .NET"
+keywords:
+- Fallback‑Schriftart
+- Fallback‑Regel
+- Schriftartsammlung
+- Schriftart konfigurieren
+- Schriftart einrichten
+- PowerPoint
+- OpenDocument
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Richten Sie eine Fallback‑Schriftartsammlung in Aspose.Slides für .NET ein, um Text in PowerPoint‑ und OpenDocument‑Präsentationen konsistent und klar zu halten."
 ---
 
-## **Fallback-Regeln anwenden**
+## **Fallback‑Regeln anwenden**
 
-Instanzen der Klasse [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule) können in [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) organisiert werden, die das [IFontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontfallbackrulescollection) Interface implementiert. Es ist möglich, Regeln zur Sammlung hinzuzufügen oder zu entfernen.
+Instanzen der Klasse [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule) können in einer [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) organisiert werden, die das Interface [IFontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontfallbackrulescollection) implementiert. Es ist möglich, Regeln zur Sammlung hinzuzufügen oder zu entfernen.
 
-Dann kann diese Sammlung der Eigenschaft [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) der Klasse [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager) zugewiesen werden. FontsManager steuert die Schriften in der gesamten Präsentation. Erfahren Sie mehr [Über FontsManager und FontsLoader](/slides/de/net/about-fontsmanager-and-fontsloader/).
+Anschließend kann diese Sammlung der Eigenschaft [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) der Klasse [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager) zugewiesen werden. FontsManager steuert die Schriftarten in der gesamten Präsentation. Weiterlesen [Über FontsManager und FontsLoader](/slides/de/net/about-fontsmanager-and-fontsloader/).
 
-Jede [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) hat eine [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/fontsmanager)‑Eigenschaft mit ihrer eigenen Instanz der FontsManager‑Klasse.
+Jede [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) hat eine [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/fontsmanager)-Eigenschaft mit einer eigenen Instanz der Klasse FontsManager.
 
-Hier ein Beispiel, wie man eine Sammlung von Fallback‑Schrift‑Regeln erstellt und sie dem FontsManager einer bestimmten Präsentation zuweist:  
+Hier ist ein Beispiel, wie man eine Sammlung von Fallback‑Schriftarten‑Regeln erstellt und sie dem FontsManager einer bestimmten Präsentation zuweist:  
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -29,10 +41,10 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-Nachdem der FontsManager mit einer Fallback‑Schrift‑Sammlung initialisiert wurde, werden die Fallback‑Schriften während der Render­ung der Präsentation angewendet.
+Nachdem FontsManager mit der Fallback‑Schriftarten‑Sammlung initialisiert wurde, werden die Fallback‑Schriftarten beim Rendern der Präsentation angewendet.
 
 {{% alert color="primary" %}} 
-Erfahren Sie mehr, wie man [Präsentation mit Fallback‑Schrift rendern](/slides/de/net/render-presentation-with-fallback-font/) verwendet.
+Weiterlesen, wie man eine Präsentation mit Fallback‑Schriftart rendert: [Präsentation mit Fallback‑Schriftart rendern](/slides/de/net/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **FAQ**
@@ -41,14 +53,14 @@ Erfahren Sie mehr, wie man [Präsentation mit Fallback‑Schrift rendern](/slide
 
 Nein. Fallback‑Regeln sind Laufzeit‑Render‑Einstellungen; sie werden nicht in die PPTX serialisiert und erscheinen nicht in der PowerPoint‑Benutzeroberfläche.
 
-**Wird Fallback auf Text in SmartArt, WordArt, Diagrammen und Tabellen angewendet?**
+**Wendet sich das Fallback auf Text in SmartArt, WordArt, Diagrammen und Tabellen an?**
 
 Ja. Der gleiche Glyph‑Substitutions‑Mechanismus wird für jeglichen Text in diesen Objekten verwendet.
 
-**Stellt Aspose irgendwelche Schriften mit der Bibliothek bereit?**
+**Stellt Aspose irgendwelche Schriftarten mit der Bibliothek bereit?**
 
-Nein. Sie fügen Schriften eigenständig hinzu und verwenden sie auf eigene Verantwortung.
+Nein. Sie fügen Schriftarten selbst hinzu und verwenden sie auf eigene Verantwortung.
 
-**Können Ersatz/ Substitution für fehlende Schriften und Fallback für fehlende Glyphen zusammen verwendet werden?**
+**Können Ersetzung/Substitution fehlender Schriftarten und Fallback für fehlende Glyphen gemeinsam verwendet werden?**
 
-Ja. Sie sind unabhängige Phasen derselben Schrift‑Auflösungs‑Pipeline: zuerst löst die Engine die Verfügbarkeit von Schriften ([replacement](/slides/de/net/font-replacement/)/[substitution](/slides/de/net/font-substitution/)), dann füllt Fallback fehlende Glyphen in verfügbaren Schriften.
+Ja. Sie sind unabhängige Schritte derselben Schriftart‑Auflösungs‑Pipeline: zuerst löst die Engine die Verfügbarkeit von Schriftarten ([replacement](/slides/de/net/font-replacement/)/[substitution](/slides/de/net/font-substitution/)) auf, dann füllt das Fallback Lücken für fehlende Glyphen in vorhandenen Schriftarten.

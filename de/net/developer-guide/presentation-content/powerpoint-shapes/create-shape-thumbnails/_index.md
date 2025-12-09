@@ -1,37 +1,40 @@
 ---
-title: Form-Miniaturbilder erstellen
+title: Miniaturansichten von Präsentationsformen in .NET erstellen
+linktitle: Form-Miniaturansichten
 type: docs
 weight: 70
 url: /de/net/create-shape-thumbnails/
 keywords:
-- Form-Miniaturbild
+- Form-Miniaturansicht
 - Formbild
+- Form rendern
+- Form-Rendering
 - PowerPoint
 - Präsentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides für .NET
-description: "Extrahieren Sie Form-Miniaturbilder aus PowerPoint-Präsentationen in C# oder .NET"
+- Aspose.Slides
+description: "Erzeugen Sie hochqualitative Form‑Miniaturansichten aus PowerPoint‑Folien mit Aspose.Slides für .NET – erstellen und exportieren Sie Präsentations‑Miniaturansichten ganz einfach."
 ---
 
-Aspose.Slides für .NET wird verwendet, um Präsentationsdateien zu erstellen, bei denen jede Seite eine Folie ist. Diese Folien können angezeigt werden, indem die Präsentationsdateien mit Microsoft PowerPoint geöffnet werden. Manchmal müssen Entwickler jedoch die Bilder der Formen separat in einem Bildbetrachter ansehen. In solchen Fällen hilft Aspose.Slides für .NET Ihnen, Miniaturbilder der Folienformen zu erzeugen. Wie Sie diese Funktion nutzen, wird in diesem Artikel beschrieben.
+Aspose.Slides für .NET wird verwendet, um Präsentationsdateien zu erstellen, bei denen jede Seite eine Folie ist. Diese Folien können angezeigt werden, indem die Präsentationsdateien mit Microsoft PowerPoint geöffnet werden. Manchmal müssen Entwickler jedoch die Bilder der Formen separat in einem Bildbetrachter anzeigen. In solchen Fällen hilft Aspose.Slides für .NET beim Erzeugen von Miniaturbildern der Folienformen. Wie diese Funktion verwendet wird, wird in diesem Artikel beschrieben.
 
-Dieser Artikel erklärt, wie Miniaturbilder von Folien auf verschiedene Arten erzeugt werden:
+Dieser Artikel erklärt, wie man Folien‑Miniaturbilder auf verschiedene Arten erzeugt:
 
-- Erzeugen eines Shape‑Miniaturbilds innerhalb einer Folie.  
-- Erzeugen eines Shape‑Miniaturbilds für eine Folienform mit benutzerdefinierten Abmessungen.  
-- Erzeugen eines Shape‑Miniaturbilds im Begrenzungsrahmen des Aussehens einer Form.  
-- Erzeugen eines Miniaturbilds eines SmartArt‑Kindknotens.
+- Erzeugen einer Form‑Miniaturansicht innerhalb einer Folie.
+- Erzeugen einer Form‑Miniaturansicht für eine Folienform mit benutzerdefinierten Abmessungen.
+- Erzeugen einer Form‑Miniaturansicht innerhalb der Grenzen des Erscheinungsbilds einer Form.
+- Erzeugen einer Miniaturansicht eines SmartArt‑Kindknotens.
 
-## **Shape‑Miniaturbild aus Folie generieren**
-Um ein Shape‑Miniaturbild aus einer beliebigen Folie mit Aspose.Slides für .NET zu erzeugen:
+## **Form‑Miniaturansicht aus Folie erzeugen**
+Um mit Aspose.Slides für .NET aus einer beliebigen Folie eine Form‑Miniaturansicht zu erzeugen:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.  
-1. Rufen Sie die Referenz einer beliebigen Folie über deren ID oder Index ab.  
-1. Holen Sie das Shape‑Miniaturbild der referenzierten Folie in der Standardskala.  
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Rufen Sie die Referenz einer beliebigen Folie anhand ihrer ID oder ihres Index ab.
+1. Holen Sie das Form‑Miniaturbild der referenzierten Folie mit Standardmaßstab.
 1. Speichern Sie das Miniaturbild in einem gewünschten Bildformat.
 
-Das untenstehende Beispiel erzeugt ein Shape‑Miniaturbild.  
+Das folgende Beispiel erzeugt eine Form‑Miniaturansicht.
 ```c#
 using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 {
@@ -44,15 +47,15 @@ using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 ```
 
 
-## **Benutzerdefiniertes Skalierungsfaktor‑Miniaturbild generieren**
-Um das Shape‑Miniaturbild einer beliebigen Folienform mit Aspose.Slides für .NET zu erzeugen:
+## **Miniaturansicht mit benutzerdefiniertem Skalierungsfaktor erzeugen**
+Um die Form‑Miniaturansicht einer beliebigen Folienform mit Aspose.Slides für .NET zu erzeugen:
 
-1. Erstellen Sie eine Instanz der `Presentation`-Klasse.  
-1. Rufen Sie die Referenz einer beliebigen Folie über deren ID oder Index ab.  
-1. Holen Sie das Miniaturbild der referenzierten Folie mit Formbegrenzungen.  
+1. Erstellen Sie eine Instanz der Klasse `Presentation`.
+1. Rufen Sie die Referenz einer beliebigen Folie anhand ihrer ID oder ihres Index ab.
+1. Holen Sie das Miniaturbild der referenzierten Folie mit Formgrenzen.
 1. Speichern Sie das Miniaturbild in einem gewünschten Bildformat.
 
-Das untenstehende Beispiel erzeugt ein Miniaturbild mit benutzerdefiniertem Skalierungsfaktor.  
+Das folgende Beispiel erzeugt ein Miniaturbild mit einem benutzerdefinierten Skalierungsfaktor.
 ```c#
 ShapeThumbnailBounds bounds = ShapeThumbnailBounds.Shape;
 float scale = 1; // Skalierung entlang der X- und Y-Achsen.
@@ -68,15 +71,15 @@ using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 ```
 
 
-## **Miniaturbild des Erscheinungsbildes einer Form im Begrenzungsrahmen erstellen**
-Diese Methode zum Erstellen von Miniaturbildern von Formen ermöglicht es Entwicklern, ein Miniaturbild im Begrenzungsrahmen des Erscheinungsbildes der Form zu erzeugen. Sie berücksichtigt alle Formeffekte. Das erzeugte Shape‑Miniaturbild ist durch die Folienbegrenzungen eingeschränkt. Um ein Miniaturbild einer beliebigen Folienform im Begrenzungsrahmen ihres Erscheinungsbildes zu erzeugen, verwenden Sie den folgenden Beispielcode:
+## **Miniaturansicht des Erscheinungsbilds einer Form in Grenzen erstellen**
+Diese Methode zum Erstellen von Miniaturansichten von Formen ermöglicht es Entwicklern, eine Miniaturansicht innerhalb der Grenzen des Erscheinungsbilds einer Form zu erzeugen. Sie berücksichtigt alle Formeffekte. Die erzeugte Form‑Miniaturansicht ist durch die Foliengrenzen eingeschränkt. Um eine Miniaturansicht einer beliebigen Folienform innerhalb ihrer Darstellung zu erzeugen, verwenden Sie den folgenden Beispielcode:
 
-1. Erstellen Sie eine Instanz der `Presentation`-Klasse.  
-1. Rufen Sie die Referenz einer beliebigen Folie über deren ID oder Index ab.  
-1. Holen Sie das Miniaturbild der referenzierten Folie mit Formbegrenzungen als Erscheinungsbild.  
+1. Erstellen Sie eine Instanz der Klasse `Presentation`.
+1. Rufen Sie die Referenz einer beliebigen Folie anhand ihrer ID oder ihres Index ab.
+1. Holen Sie das Miniaturbild der referenzierten Folie mit Formgrenzen als Erscheinungsbild.
 1. Speichern Sie das Miniaturbild in einem gewünschten Bildformat.
 
-Das untenstehende Beispiel erstellt ein Miniaturbild mit benutzerdefiniertem Skalierungsfaktor.  
+Das folgende Beispiel erstellt ein Miniaturbild mit einem benutzerdefinierten Skalierungsfaktor.
 ```c#
 ShapeThumbnailBounds bounds = ShapeThumbnailBounds.Appearance;
 float scale = 1; // Skalierung entlang der X- und Y-Achsen.
@@ -94,22 +97,22 @@ using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 
 ## **FAQ**
 
-**Welche Bildformate können beim Speichern von Shape‑Thumbnails verwendet werden?**
+**Welche Bildformate können beim Speichern von Form‑Miniaturansichten verwendet werden?**
 
-[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/net/aspose.slides/imageformat/), und andere. Shapes können auch als Vektor‑SVG [exportiert werden]((https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/)), indem der Inhalt der Form als SVG gespeichert wird.
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/net/aspose.slides/imageformat/), und andere. Formen können auch als Vektor‑SVG [exportiert werden](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/), indem der Inhalt der Form als SVG gespeichert wird.
 
-**Was ist der Unterschied zwischen Shape‑ und Appearance‑Begrenzungen beim Rendern eines Thumbnails?**
+**Was ist der Unterschied zwischen Shape‑ und Appearance‑Grenzen beim Rendern einer Miniaturansicht?**
 
 `Shape` verwendet die Geometrie der Form; `Appearance` berücksichtigt [visuelle Effekte](/slides/de/net/shape-effect/) (Schatten, Leuchten usw.).
 
-**Was passiert, wenn eine Form als verborgen markiert ist? Wird sie trotzdem als Thumbnail gerendert?**
+**Was passiert, wenn eine Form als verborgen markiert ist? Wird sie dennoch als Miniaturansicht gerendert?**
 
-Eine verborgene Form bleibt Teil des Modells und kann gerendert werden; das Verborgense‑Flag beeinflusst die Anzeige in der Diashow, verhindert jedoch nicht das Erzeugen des Bildes der Form.
+Eine verborgene Form bleibt Teil des Modells und kann gerendert werden; das Verborgenen‑Flag beeinflusst die Anzeige der Präsentation, verhindert jedoch nicht die Erstellung des Bildes der Form.
 
 **Werden Gruppenformen, Diagramme, SmartArt und andere komplexe Objekte unterstützt?**
 
-Ja. Jedes Objekt, das als [Shape](/slides/de/net/shape/) dargestellt wird (einschließlich [GroupShape](/slides/de/net/groupshape/), [Chart](/slides/de/net/charts/chart/), und [SmartArt](/slides/de/net/smartart/smartart/)), kann als Thumbnail oder als SVG gespeichert werden.
+Ja. Jedes Objekt, das als [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape/) dargestellt wird (einschließlich [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/), und [SmartArt](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/)), kann als Miniaturansicht oder als SVG gespeichert werden.
 
-**Wirken sich systeminstallierte Schriftarten auf die Qualität von Thumbnails für Textformen aus?**
+**Beeinflussen systemweit installierte Schriften die Qualität von Miniaturansichten für Textformen?**
 
-Ja. Sie sollten die erforderlichen Schriftarten [bereitstellen](/slides/de/net/custom-font/) (oder [Schriftart‑Substitutionen konfigurieren](/slides/de/net/font-substitution/)), um unerwünschte Fallbacks und Textumfluss zu vermeiden.
+Ja. Sie sollten die erforderlichen Schriften [bereitstellen](/slides/de/net/custom-font/) (oder [Schriftart‑Ersatz konfigurieren](/slides/de/net/font-substitution/)), um unerwünschte Fallbacks und Textumlauf zu vermeiden.

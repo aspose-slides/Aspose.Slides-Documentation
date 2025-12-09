@@ -1,21 +1,35 @@
 ---
-title: シェイプの実効プロパティ
+title: .NET のプレゼンテーションからシェイプの有効プロパティを取得
+linktitle: 有効プロパティ
 type: docs
 weight: 50
 url: /ja/net/shape-effective-properties/
-keywords: "シェイプ プロパティ, カメラ プロパティ, ライトリグ, ベベル シェイプ, テキスト フレーム, テキスト スタイル, フォント 高さ 値, テーブル 用 塗りつぶし 書式, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
-description: "PowerPoint プレゼンテーションで C# または .NET を使用してシェイプの実効プロパティを取得する"
+keywords:
+- シェイプ プロパティ
+- カメラ プロパティ
+- ライト リグ
+- ベベル シェイプ
+- テキスト フレーム
+- テキスト スタイル
+- フォント 高さ
+- 塗りつぶし 形式
+- PowerPoint
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET が正確な PowerPoint のレンダリングのためにシェイプの有効プロパティを計算および適用する方法を紹介します。"
 ---
 
-このトピックでは、**effective** と **local** プロパティについて説明します。これらのレベルで値を直接設定した場合
+このトピックでは、**effective** プロパティと **local** プロパティについて説明します。これらのレベルで値を直接設定した場合
 
-1. 部分のスライド上の部分プロパティで。
-1. レイアウトまたはマスタースライド上のプロトタイプ形状テキストスタイルで（部分のテキストフレーム形状にある場合）。
-1. プレゼンテーションのグローバルテキスト設定で。
+1. 部分のスライド上の portion プロパティで。
+1. レイアウトまたはマスタースライド上のプロトタイプシェイプ テキストスタイルで (portion のテキストフレーム シェイプにそれがある場合)。
+1. プレゼンテーション全体のテキスト設定で。
 
-これらの値は **local** 値と呼ばれます。任意のレベルで **local** 値は定義されても、されなくてもかまいません。しかし、最終的にアプリケーションが部分の表示を決定する必要がある時には **effective** 値が使用されます。**getEffective()** メソッドをローカルフォーマットから呼び出すことで、effective 値を取得できます。
+これらの値は **local** 値と呼ばれます。どのレベルでも **local** 値は定義されてもよく、省略されても構いません。しかし最終的にアプリケーションが部分の表示方法を知る必要があるときには **effective** 値が使用されます。**effective** 値は、ローカル フォーマットから **getEffective()** メソッドを呼び出すことで取得できます。
 
-以下の例は effective 値の取得方法を示しています。
+以下の例は **effective** 値の取得方法を示しています。
 ```c#
 using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
@@ -30,10 +44,12 @@ using (Presentation pres = new Presentation("Presentation1.pptx"))
 ```
 
 
-## **カメラの Effective プロパティの取得**
-Aspose.Slides for .NET は、開発者がカメラの effective プロパティを取得できるようにします。この目的のために、Aspose.Slides に **CameraEffectiveData** クラスが追加されました。CameraEffectiveData クラスは、effective カメラプロパティを含む不変オブジェクトを表します。**CameraEffectiveData** クラスのインスタンスは、ThreeDFormat クラスの effective 値のペアである **ThreeDFormatEffectiveData** クラスの一部として使用されます。
 
-以下のコードサンプルは、カメラの effective プロパティを取得する方法を示しています。
+
+## **Get Effective Properties of Camera**
+Aspose.Slides for .NET では、開発者はカメラの **effective** プロパティを取得できます。そのために **CameraEffectiveData** クラスが Aspose.Slides に追加されました。CameraEffectiveData クラスは、効果的なカメラ プロパティを保持する変更不可能なオブジェクトを表します。**CameraEffectiveData** のインスタンスは、ThreeDFormat クラスの **effective** 値ペアである **ThreeDFormatEffectiveData** クラスの一部として使用されます。
+
+以下のコードサンプルは、カメラの **effective** プロパティを取得する方法を示しています。
 ```c#
 using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
@@ -47,10 +63,11 @@ using (Presentation pres = new Presentation("Presentation1.pptx"))
 ```
 
 
-## **ライトリグの Effective プロパティの取得**
-Aspose.Slides for .NET は、開発者が Light Rig の effective プロパティを取得できるようにします。この目的のために、Aspose.Slides に **LightRigEffectiveData** クラスが追加されました。LightRigEffectiveData クラスは、effective ライトリグプロパティを含む不変オブジェクトを表します。**LightRigEffectiveData** クラスのインスタンスは、ThreeDFormat クラスの effective 値のペアである **ThreeDFormatEffectiveData** クラスの一部として使用されます。
 
-以下のコードサンプルは、Light Rig の effective プロパティを取得する方法を示しています。
+## **Get Effective Properties of Light Rig**
+Aspose.Slides for .NET では、開発者は Light Rig の **effective** プロパティを取得できます。そのために **LightRigEffectiveData** クラスが Aspose.Slides に追加されました。LightRigEffectiveData クラスは、効果的なライトリグ プロパティを保持する変更不可能なオブジェクトを表します。**LightRigEffectiveData** のインスタンスは、ThreeDFormat クラスの **effective** 値ペアである **ThreeDFormatEffectiveData** クラスの一部として使用されます。
+
+以下のコードサンプルは、Light Rig の **effective** プロパティを取得する方法を示しています。
 ```c#
 using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
@@ -63,10 +80,11 @@ using (Presentation pres = new Presentation("Presentation1.pptx"))
 ```
 
 
-## **ベベル形状の Effective プロパティの取得**
-Aspose.Slides for .NET は、開発者がベベル形状の effective プロパティを取得できるようにします。この目的のために、Aspose.Slides に **ShapeBevelEffectiveData** クラスが追加されました。ShapeBevelEffectiveData クラスは、effective な形状の面リリーフプロパティを含む不変オブジェクトを表します。**ShapeBevelEffectiveData** クラスのインスタンスは、ThreeDFormat クラスの effective 値のペアである **ThreeDFormatEffectiveData** クラスの一部として使用されます。
 
-以下のコードサンプルは、ベベル形状の effective プロパティを取得する方法を示しています。
+## **Get Effective Properties of Bevel Shape**
+Aspose.Slides for .NET では、開発者はベベル シェイプの **effective** プロパティを取得できます。そのために **ShapeBevelEffectiveData** クラスが Aspose.Slides に追加されました。ShapeBevelEffectiveData クラスは、効果的なシェイプの表面リリーフ プロパティを保持する変更不可能なオブジェクトを表します。**ShapeBevelEffectiveData** のインスタンスは、ThreeDFormat クラスの **effective** 値ペアである **ThreeDFormatEffectiveData** クラスの一部として使用されます。
+
+以下のコードサンプルは、ベベル シェイプの **effective** プロパティを取得する方法を示しています。
 ```c#
 using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
@@ -80,10 +98,12 @@ using (Presentation pres = new Presentation("Presentation1.pptx"))
 ```
 
 
-## **テキストフレームの Effective プロパティの取得**
-Aspose.Slides for .NET を使用すると、テキストフレームの effective プロパティを取得できます。この目的のために、Aspose.Slides に **TextFrameFormatEffectiveData** クラスが追加され、effective テキストフレーム書式プロパティを含みます。
 
-以下のコードサンプルは、テキストフレームの effective 書式プロパティを取得する方法を示しています。
+
+## **Get Effective Properties of Text Frame**
+Aspose.Slides for .NET を使用すると、テキスト フレームの **effective** プロパティを取得できます。そのために **TextFrameFormatEffectiveData** クラスが Aspose.Slides に追加され、効果的なテキスト フレームの書式設定プロパティを保持します。
+
+以下のコードサンプルは、テキスト フレームの書式設定 **effective** プロパティを取得する方法を示しています。
 ```c#
 using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
@@ -105,10 +125,12 @@ using (Presentation pres = new Presentation("Presentation1.pptx"))
 ```
 
 
-## **テキストスタイルの Effective プロパティの取得**
-Aspose.Slides for .NET を使用すると、テキストスタイルの effective プロパティを取得できます。この目的のために、Aspose.Slides に **TextStyleEffectiveData** クラスが追加され、effective テキストスタイルプロパティを含みます。
 
-以下のコードサンプルは、テキストスタイルの effective プロパティを取得する方法を示しています。
+
+## **Get Effective Properties of Text Style**
+Aspose.Slides for .NET を使用すると、テキスト スタイルの **effective** プロパティを取得できます。そのために **TextStyleEffectiveData** クラスが Aspose.Slides に追加され、効果的なテキスト スタイル プロパティを保持します。
+
+以下のコードサンプルは、テキスト スタイルの **effective** プロパティを取得する方法を示しています。
 ```c#
 using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
@@ -130,8 +152,9 @@ using (Presentation pres = new Presentation("Presentation1.pptx"))
 ```
 
 
-## **フォント高さの Effective 値の取得**
-Aspose.Slides for .NET を使用すると、フォント高さの effective プロパティを取得できます。以下のコードは、プレゼンテーションのさまざまな構造レベルでローカルのフォント高さを設定した後に、部分の effective フォント高さの値が変化する様子を示しています。
+
+## **Get Effective Font Height Value**
+Aspose.Slides for .NET を使用すると、フォントの高さの **effective** プロパティを取得できます。以下のコードは、プレゼンテーション構造の異なるレベルでローカル フォント高さを設定した後に、部分の **effective** フォント高さがどのように変化するかを示しています。
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -178,10 +201,11 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **テーブルの Fill Format の Effective プロパティの取得**
-Aspose.Slides for .NET を使用すると、テーブルのさまざまな論理パーツの effective 塗りつぶし書式を取得できます。この目的のために、Aspose.Slides に **IFillFormatEffectiveData** インターフェイスが追加され、effective 塗りつぶし書式プロパティを含みます。セルの書式設定は常に行の書式設定よりも優先度が高く、行は列よりも優先度が高く、列はテーブル全体よりも優先度が高いことに注意してください。
 
-したがって最終的に、テーブルの描画には常に **CellFormatEffectiveData** プロパティが使用されます。以下のコードサンプルは、テーブルのさまざまな論理パーツの effective 塗りつぶし書式を取得する方法を示しています。
+## **Get Effective Fill Format for Table**
+Aspose.Slides for .NET では、テーブルのさまざまな論理部位に対する **effective** 塗りつぶし書式を取得できます。そのために **IFillFormatEffectiveData** インターフェイスが Aspose.Slides に追加され、効果的な塗りつぶし書式プロパティを保持します。セルの書式設定は常に行の書式設定より優先され、行は列の書式設定より、列はテーブル全体の書式設定より優先されます。
+
+したがって最終的には **CellFormatEffectiveData** のプロパティがテーブル描画に使用されます。以下のコードサンプルは、テーブルのさまざまな論理部位に対する **effective** 塗りつぶし書式を取得する方法を示しています。
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -199,25 +223,32 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-## **よくある質問**
+## **FAQ**
 
-**「スナップショット」か「ライブオブジェクト」かをどのように判別し、いつ effective プロパティを再取得すべきですか？**  
-EffectiveData オブジェクトは、呼び出し時点で計算された値の不変のスナップショットです。形状のローカルまたは継承設定を変更した場合、再度 EffectiveData を取得して更新された値を取得してください。
+**How can I tell that I got a "snapshot" rather than a "live object," and when should I read effective properties again?**
 
-**レイアウト／マスタースライドを変更すると、既に取得した effective プロパティに影響しますか？**  
-はい、ただし再取得した後にのみ影響します。既に取得した EffectiveData オブジェクトは自動で更新されません。レイアウトやマスターを変更した後、再度取得してください。
+EffectiveData オブジェクトは、呼び出し時点で計算された値の不変スナップショットです。シェイプのローカルまたは継承された設定を変更した場合は、再度 EffectiveData を取得して更新された値を取得してください。
 
-**EffectiveData を通じて値を変更できますか？**  
-いいえ。EffectiveData は読み取り専用です。ローカルの書式オブジェクト（shape、text、3D など）を変更し、必要に応じて再度 effective 値を取得してください。
+**Does changing the layout/master slide affect effective properties that have already been retrieved?**
 
-**形状レベル、レイアウト／マスター、グローバル設定のいずれにもプロパティが設定されていない場合はどうなりますか？**  
-effective 値はデフォルトメカニズム（PowerPoint / Aspose.Slides の既定値）により決定されます。その決定された値が EffectiveData のスナップショットに含まれます。
+はい、ただし再取得した後にのみ反映されます。既に取得した EffectiveData オブジェクトは自動的に更新されません。レイアウトやマスターを変更したら、再度取得してください。
 
-**effective フォント値から、どのレベルがサイズやフォント名を提供したか判別できますか？**  
-直接的には判別できません。EffectiveData は最終的な値を返すだけです。元の設定箇所を特定するには、portion、paragraph、text frame のローカル値や、レイアウト／マスター／プレゼンテーションのテキストスタイルを確認し、最初に明示的に定義された場所を探す必要があります。
+**Can I modify values through EffectiveData?**
 
-**EffectiveData の値がローカルの値と同一に見えるのはなぜですか？**  
-ローカル値が最終的な値となったためです（上位レベルからの継承が不要）。このような場合、effective 値はローカル値と同じになります。
+できません。EffectiveData は読み取り専用です。ローカルの書式オブジェクト (shape/text/3D など) を変更し、必要に応じて再度 EffectiveData を取得して結果を確認してください。
 
-**effective プロパティを使用すべきタイミングと、ローカルプロパティだけで作業すべきタイミングは？**  
-すべての継承が適用された「実際に表示される」結果が必要な場合は EffectiveData を使用します（例：色、インデント、サイズの揃え等）。特定のレベルで書式を変更したい場合はローカルプロパティを変更し、必要に応じて EffectiveData を再取得して結果を確認してください。
+**What happens if a property is not set at the shape level, nor in the layout/master, nor in global settings?**
+
+そのプロパティの **effective** 値は、PowerPoint/Aspose.Slides のデフォルト設定に基づいて決定されます。決定されたデフォルト値が EffectiveData のスナップショットに含まれます。
+
+**From an effective font value, can I tell which level provided the size or typeface?**
+
+直接は分かりません。EffectiveData は最終的な値だけを返します。元の設定レベルを知りたい場合は、portion/paragraph/text frame のローカル値や、レイアウト/マスター/プレゼンテーションのテキスト スタイルを確認し、最初に明示的に定義された場所を特定してください。
+
+**Why do EffectiveData values sometimes look identical to the local ones?**
+
+ローカル値が最終的な値となり、上位レベルからの継承が必要なかった場合です。そのようなケースでは **effective** 値はローカル値と同一になります。
+
+**When should I use effective properties, and when should I work only with local ones?**
+
+すべての継承が適用された「実際に描画される」結果が必要なときは EffectiveData を使用します (例: 色、インデント、サイズの整合性確認)。特定のレベルで書式を変更したいときはローカル プロパティを操作し、必要に応じて EffectiveData を再取得して結果を検証してください。

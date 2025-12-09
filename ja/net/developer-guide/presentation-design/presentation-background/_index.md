@@ -1,12 +1,12 @@
 ---
-title: C# でプレゼンテーションの背景を管理する
-linktitle: スライドの背景
+title: .NET でプレゼンテーションの背景を管理する
+linktitle: スライド背景
 type: docs
 weight: 20
 url: /ja/net/presentation-background/
 keywords:
-- プレゼンテーション背景
-- スライド背景
+- プレゼンテーションの背景
+- スライドの背景
 - 単色
 - グラデーションカラー
 - 画像背景
@@ -18,26 +18,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して、PowerPoint および OpenDocument ファイルに動的な背景を設定する方法を学び、プレゼンテーションを強化するコードヒントをご紹介します。"
+description: "Aspose.Slides for .NET を使用して PowerPoint および OpenDocument ファイルに動的な背景を設定する方法を学び、プレゼンテーションを強化するコードのヒントをご紹介します。"
 ---
 
 ## **概要**
 
-単色、グラデーション、画像はスライドの背景として一般的に使用されます。**通常のスライド**（単一のスライド）または**マスタースライド**（複数のスライドに同時に適用）に背景を設定できます。
+単色、グラデーション、画像はスライドの背景として一般的に使用されます。**通常のスライド**（単一スライド）または**マスタースライド**（複数のスライドに同時に適用）に背景を設定できます。
 
 ![PowerPoint 背景](powerpoint-background.png)
 
-## **通常スライドの単色背景の設定**
+## **通常のスライドに単色背景を設定する**
 
-Aspose.Slides を使用すると、プレゼンテーション内の特定のスライドの背景として単色を設定できます—プレゼンテーションがマスタースライドを使用していても。この変更は選択したスライドのみに適用されます。
+Aspose.Slides を使用すると、プレゼンテーションがマスタースライドを使用している場合でも、特定のスライドの背景を単色に設定できます。変更は選択したスライドのみに適用されます。
 
 1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. スライドの [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) を `OwnBackground` に設定します。
-3. スライドの背景の [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) を `Solid` に設定します。
-4. [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) の [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) プロパティを使用して、単色の背景色を指定します。
+3. スライド背景の [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) を `Solid` に設定します。
+4. [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) の [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) プロパティを使用して単色の背景色を指定します。
 5. 変更されたプレゼンテーションを保存します。
 
-以下の C# サンプルは、通常スライドの背景に青色の単色を設定する方法を示します。
+以下の C# サンプルは、通常のスライドの背景を青い単色に設定する方法を示しています。
 ```cs
 // Presentation クラスのインスタンスを作成します。
 using (Presentation presentation = new Presentation())
@@ -55,17 +55,17 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **マスタースライドの単色背景の設定**
+## **マスタースライドに単色背景を設定する**
 
-Aspose.Slides を使用すると、プレゼンテーションのマスタースライドの背景として単色を設定できます。マスタースライドはすべてのスライドの書式設定を制御するテンプレートとして機能するため、マスタースライドの背景に単色を選択すると、すべてのスライドに適用されます。
+Aspose.Slides を使用すると、プレゼンテーションのマスタースライドの背景を単色に設定できます。マスタースライドはすべてのスライドの書式設定を制御するテンプレートとして機能するため、マスタースライドの背景に単色を選択すると、すべてのスライドに適用されます。
 
 1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. マスタースライドの [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/)（`masters` 経由）を `OwnBackground` に設定します。
-3. マスタースライドの背景の [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) を `Solid` に設定します。
-4. [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) を使用して、単色の背景色を指定します。
+2. マスタースライド（`masters` を介して）の [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) を `OwnBackground` に設定します。
+3. マスタースライドの背景 [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) を `Solid` に設定します。
+4. [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) を使用して単色の背景色を指定します。
 5. 変更されたプレゼンテーションを保存します。
 
-以下の C# サンプルは、マスタースライドの背景に森林緑（forest green）を単色で設定する方法を示します。
+以下の C# サンプルは、マスタースライドの背景をフォレストグリーンの単色に設定する方法を示しています。
 ```cs
 // Presentation クラスのインスタンスを作成します。
 using (Presentation presentation = new Presentation())
@@ -83,17 +83,17 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **スライドのグラデーション背景の設定**
+## **スライドにグラデーション背景を設定する**
 
-グラデーションは、色が徐々に変化することで作成されるグラフィック効果です。スライドの背景として使用すると、プレゼンテーションがより芸術的でプロフェッショナルに見えます。Aspose.Slides を使用すると、スライドの背景としてグラデーションカラーを設定できます。
+グラデーションは色の徐々の変化によって作られる視覚効果です。スライドの背景として使用すると、プレゼンテーションがより芸術的かつプロフェッショナルに見えます。Aspose.Slides を使用すると、スライドの背景をグラデーションカラーに設定できます。
 
 1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. スライドの [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) を `OwnBackground` に設定します。
-3. スライドの背景の [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) を `Gradient` に設定します。
-4. [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) の [GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/gradientformat/) プロパティを使用して、希望のグラデーション設定を構成します。
+3. スライド背景の [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) を `Gradient` に設定します。
+4. [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) の [GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/gradientformat/) プロパティを使用して希望のグラデーション設定を構成します。
 5. 変更されたプレゼンテーションを保存します。
 
-以下の C# サンプルは、スライドの背景にグラデーションカラーを設定する方法を示します。
+以下の C# サンプルは、スライドの背景をグラデーションカラーに設定する方法を示しています。
 ```cs
 // Presentation クラスのインスタンスを作成します。
 using (Presentation presentation = new Presentation())
@@ -111,19 +111,19 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **スライドの背景に画像を設定する**
+## **スライド背景に画像を設定する**
 
-単色やグラデーションだけでなく、Aspose.Slides では画像をスライドの背景として使用できます。
+単色やグラデーションに加えて、Aspose.Slides では画像をスライド背景として使用できます。
 
 1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. スライドの [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) を `OwnBackground` に設定します。
-3. スライドの背景の [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) を `Picture` に設定します。
-4. スライドの背景として使用する画像をロードします。
+3. スライド背景の [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) を `Picture` に設定します。
+4. 背景として使用したい画像を読み込みます。
 5. 画像をプレゼンテーションの画像コレクションに追加します。
-6. [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) の [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/picturefillformat/) プロパティを使用して、画像を背景として割り当てます。
+6. [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) の [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/picturefillformat/) プロパティを使用して画像を背景として割り当てます。
 7. 変更されたプレゼンテーションを保存します。
 
-以下の C# サンプルは、スライドの背景に画像を設定する方法を示します。
+以下の C# サンプルは、スライドの背景に画像を設定する方法を示しています。
 ```c#
  // Presentation クラスのインスタンスを作成します。
  using (Presentation presentation = new Presentation())
@@ -135,7 +135,7 @@ using (Presentation presentation = new Presentation())
      slide.Background.FillFormat.FillType = FillType.Picture;
      slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
 
-     // 画像をロードします。
+     // 画像を読み込みます。
      IImage image = Images.FromFile("Tulips.jpg");
      // 画像をプレゼンテーションの画像コレクションに追加します。
      IPPImage ppImage = presentation.Images.AddImage(image);
@@ -149,7 +149,7 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-以下のコードサンプルは、背景の塗りつぶしタイプをタイル状画像に設定し、タイルプロパティを変更する方法を示します。
+以下のコードサンプルは、背景の塗りつぶしタイプをタイル状の画像に設定し、タイルプロパティを変更する方法を示しています。
 ```cs
 using (Presentation presentation = new Presentation())
 {
@@ -168,7 +168,7 @@ using (Presentation presentation = new Presentation())
     IPictureFillFormat backPictureFillFormat = background.FillFormat.PictureFillFormat;
     backPictureFillFormat.Picture.Image = ppImage;
 
-    // ピクチャー塗りつぶしモードをタイルに設定し、タイルのプロパティを調整します。
+    // ピクチャーフィルモードをタイルに設定し、タイルのプロパティを調整します。
     backPictureFillFormat.PictureFillMode = PictureFillMode.Tile;
     backPictureFillFormat.TileOffsetX = 15f;
     backPictureFillFormat.TileOffsetY = 15f;
@@ -183,16 +183,16 @@ using (Presentation presentation = new Presentation())
 
 
 {{% alert color="primary" %}}
-Read more: [**テクスチャとしてタイル画像**](/slides/ja/net/shape-formatting/#tile-picture-as-texture).
+詳細はこちら: [**テクスチャとしてタイル画像**](/slides/ja/net/shape-formatting/#tile-picture-as-texture)。
 {{% /alert %}}
 
-### **背景画像の透過性の変更**
+### **スライド背景画像の透明度を変更する**
 
-スライドの背景画像の透過性を調整して、スライドのコンテンツを際立たせたい場合があります。以下の C# コードは、スライド背景画像の透過性を変更する方法を示します。
+スライドの背景画像の透明度を調整して、スライドの内容を際立たせたい場合があります。以下の C# コードは、スライド背景画像の透明度を変更する方法を示しています。
 ```cs
 var transparencyValue = 30; // 例として。
 
-// 画像変換操作のコレクションを取得します。
+// Get the collection of picture transform operations.
 var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
 
 // Find an existing fixed-percentage transparency effect.
@@ -218,13 +218,13 @@ else
 ```
 
 
-## **スライドの背景値の取得**
+## **スライド背景の値を取得する**
 
-Aspose.Slides は、スライドの有効な背景値を取得するための [IBackgroundEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/) インターフェイスを提供します。このインターフェイスは有効な [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/fillformat/) と [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/effectformat/) を公開します。
+Aspose.Slides は、スライドの有効な背景値を取得するための [IBackgroundEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/) インターフェイスを提供します。このインターフェイスは、有効な [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/fillformat/) と [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/effectformat/) を公開します。
 
-[BaseSlide](https://reference.aspose.com/slides/net/aspose.slides/baseslide/) クラスの `background` プロパティを使用して、スライドの有効な背景を取得できます。
+[BaseSlide](https://reference.aspose.com/slides/net/aspose.slides/baseslide/) クラスの `background` プロパティを使用すると、スライドの有効な背景を取得できます。
 
-以下の C# サンプルは、スライドの有効な背景値を取得する方法を示します。
+以下の C# サンプルは、スライドの有効な背景値を取得する方法を示しています。
 ```cs
 // Presentation クラスのインスタンスを作成します。
 using (Presentation presentation = new Presentation("Sample.pptx"))
@@ -244,10 +244,10 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 
 ## **よくある質問**
 
-**カスタム背景をリセットしてテーマ/レイアウトの背景を復元できますか？**
+**カスタム背景をリセットしてテーマ/レイアウトの背景に戻すことはできますか？**
 
-はい。スライドのカスタム塗りつぶしを削除すると、背景は対応する [レイアウト](/slides/ja/net/slide-layout/)/[マスター](/slides/ja/net/slide-master/) スライド（すなわち [テーマ背景](/slides/ja/net/presentation-theme/)）から再び継承されます。
+はい。スライドのカスタム塗りつぶしを削除すると、背景は対応する [レイアウト](/slides/ja/net/slide-layout/)/[マスター](/slides/ja/net/slide-master/) スライド（つまり [テーマ背景](/slides/ja/net/presentation-theme/)）から再度継承されます。
 
 **後でプレゼンテーションのテーマを変更した場合、背景はどうなりますか？**
 
-スライドが独自の塗りつぶしを持っている場合、背景は変更されません。背景が [レイアウト](/slides/ja/net/slide-layout/)/[マスター](/slides/ja/net/slide-master/) から継承されている場合は、[新しいテーマ](/slides/ja/net/presentation-theme/) に合わせて更新されます。
+スライドが独自の塗りつぶしを持っている場合、その背景は変更されません。背景が [レイアウト](/slides/ja/net/slide-layout/)/[マスター](/slides/ja/net/slide-master/) から継承されている場合、新しいテーマに合わせて更新されます。

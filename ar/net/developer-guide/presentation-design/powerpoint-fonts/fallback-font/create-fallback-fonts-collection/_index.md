@@ -1,21 +1,33 @@
 ---
-title: "إنشاء مجموعة خطوط بديلة"
+title: تكوين مجموعات خطوط الرجوع في .NET
+linktitle: مجموعة خطوط الرجوع
 type: docs
 weight: 20
 url: /ar/net/create-fallback-fonts-collection/
-keywords: "مجموعة خطوط بديلة، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
-description: "مجموعة خطوط بديلة في PowerPoint باستخدام C# أو .NET"
+keywords:
+- خط رجوع
+- قاعدة رجوع
+- مجموعة خطوط
+- تكوين الخط
+- إعداد الخط
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "إعداد مجموعة خطوط الرجوع في Aspose.Slides لـ .NET للحفاظ على تناسق النص ووضوحه في عروض PowerPoint و OpenDocument."
 ---
 
-## **تطبيق قواعد البديل**
+## **تطبيق قواعد الرجوع**
 
-يمكن تنظيم كائنات فئة [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule) في [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) التي تنفذ واجهة [IFontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontfallbackrulescollection). يمكن إضافة القواعد أو إزالتها من المجموعة.
+يمكن تنظيم كائنات [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule) في [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) التي تنفِّذ واجهة [IFontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontfallbackrulescollection). يمكن إضافة القواعد أو إزالتها من المجموعة.
 
-بعد ذلك يمكن تعيين هذه المجموعة إلى الخاصية [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) في فئة [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager). يتحكم FontsManager في الخطوط عبر العرض التقديمي. اقرأ المزيد حول [About FontsManager and FontsLoader](/slides/ar/net/about-fontsmanager-and-fontsloader/).
+بعد ذلك يمكن تعيين هذه المجموعة إلى خاصية [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) في فئة [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager). يتحكم FontsManager في الخطوط عبر العرض التقديمي. اقرأ المزيد [حول FontsManager و FontsLoader](/slides/ar/net/about-fontsmanager-and-fontsloader/).
 
-يحتوي كل [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) على خاصية [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/fontsmanager) مع نسخة خاصة من فئة FontsManager.
+لكل [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) خاصية [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/fontsmanager) تحتوي على نسخة خاصة من فئة FontsManager.
 
-فيما يلي مثال لإنشاء مجموعة قواعد الخطوط الاحتياطية وتعيينها إلى FontsManager في عرض تقديمي معين:  
+فيما يلي مثال على كيفية إنشاء مجموعة قواعد الخطوط الاحتياطية وتعيينها في FontsManager لعرض تقديمي معين:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -29,26 +41,26 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-بعد تهيئة FontsManager بمجموعة الخطوط الاحتياطية، تُطبق الخطوط الاحتياطية أثناء عرض تقديم العرض التقديمي.
+بعد تهيئة FontsManager بمجموعة الخطوط الاحتياطية، يتم تطبيق الخطوط الاحتياطية أثناء عرض الشرائح.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد حول كيفية [Render Presentation with Fallback Font](/slides/ar/net/render-presentation-with-fallback-font/).
+اقرأ المزيد حول كيفية [عرض تقديمي مع خط احتياطي](/slides/ar/net/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **الأسئلة الشائعة**
 
-**هل سيتم تضمين قواعد الاحتياطي الخاصة بي في ملف PPTX وستظهر في PowerPoint بعد الحفظ؟**
+**هل سيتم تضمين قواعد الرجوع الخاصة بي في ملف PPTX وستظهر في PowerPoint بعد الحفظ؟**
 
-لا. قواعد الاحتياطي هي إعدادات عرض وقت التشغيل؛ لا تُسجل في ملف PPTX ولن تظهر في واجهة PowerPoint.
+لا. قواعد الرجوع هي إعدادات عرض وقت التشغيل؛ لا يتم تسلسلها إلى PPTX ولن تظهر في واجهة PowerPoint.
 
-**هل ينطبق الاحتياطي على النص داخل SmartArt و WordArt والرسوم البيانية والجداول؟**
+**هل ينطبق الرجوع على النص داخل SmartArt و WordArt والرسوم البيانية والجداول؟**
 
-نعم. يتم استخدام نفس آلية استبدال الحروف لأي نص في هذه الكائنات.
+نعم. يتم استعمال نفس آلية استبدال الرموز لأي نص في هذه الكائنات.
 
-**هل تقوم Aspose بتوزيع أي خطوط مع المكتبة؟**
+**هل توزع Aspose أي خطوط مع المكتبة؟**
 
-لا. تقوم بإضافة واستخدام الخطوط من جانبك وتتحمل المسؤولية.
+لا. تقوم بإضافة واستخدام الخطوط بنفسك وتتحمل مسؤوليتها.
 
-**هل يمكن استخدام استبدال/استبدال الخطوط المفقودة والبديل للرموز المفقودة معًا؟**
+**هل يمكن استخدام الاستبدال/البديل للخطوط المفقودة والرجوع للرموز المفقودة معًا؟**
 
-نعم. هما مرحلتان مستقلتان في نفس خط أنابيب حل الخطوط: أولاً تقوم المحرك بحل توفر الخط (الاستبدال/الاستبدال)، ثم يملأ الاحتياطي الفجوات للرموز المفقودة في الخطوط المتاحة.
+نعم. هما مرحلتان مستقلتان في نفس خط أنابيب حل الخطوط: أولًا يقوم المحرك بحل توفر الخطوط ([replacement](/slides/ar/net/font-replacement/)/[substitution](/slides/ar/net/font-substitution/))، ثم يُملأ الرجوع الفجوات للرموز المفقودة في الخطوط المتاحة.

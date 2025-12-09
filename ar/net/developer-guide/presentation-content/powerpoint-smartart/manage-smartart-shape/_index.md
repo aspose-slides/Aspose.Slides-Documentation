@@ -1,50 +1,65 @@
 ---
-title: إدارة شكل SmartArt
+title: إدارة رسومات SmartArt في العروض التقديمية في .NET
+linktitle: رسومات SmartArt
 type: docs
 weight: 20
 url: /ar/net/manage-smartart-shape/
-keywords: "شكل SmartArt, نمط شكل SmartArt, نمط لون شكل SmartArt, عرض تقديمي PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "إدارة SmartArt في عروض PowerPoint التقديمية باستخدام C# أو .NET"
+keywords:
+- كائن SmartArt
+- رسم SmartArt
+- نمط SmartArt
+- لون SmartArt
+- إنشاء SmartArt
+- إضافة SmartArt
+- تحرير SmartArt
+- تغيير SmartArt
+- الوصول إلى SmartArt
+- نوع تخطيط SmartArt
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "أتمتة إنشاء وتحرير وتنسيق رسومات PowerPoint SmartArt في .NET باستخدام Aspose.Slides، مع أمثلة شفرة مختصرة وإرشادات تركّز على الأداء."
 ---
 
 ## **إنشاء شكل SmartArt**
-Aspose.Slides for .NET الآن يتيح إضافة أشكال SmartArt مخصصة في الشرائح من الصفر. Aspose.Slides for .NET قد وفر أبسط واجهة برمجة تطبيقات لإنشاء أشكال SmartArt بأبسط طريقة. لإنشاء شكل SmartArt في شريحة، يرجى اتباع الخطوات التالية:
+Aspose.Slides for .NET الآن يتيح إضافة أشكال SmartArt مخصصة في الشرائح من الصفر. Aspose.Slides for .NET قد قدمت أبسط API لإنشاء أشكال SmartArt بطريقة سهلة. لإنشاء شكل SmartArt في شريحة، يرجى اتباع الخطوات أدناه:
 
-- إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-- الحصول على مرجع الشريحة باستخدام الـ Index الخاص بها.
-- إضافة شكل SmartArt عن طريق ضبط LayoutType الخاص به.
-- كتابة العرض التقديمي المعدل كملف PPTX.
+- إنشاء كائن من فئة [العرض التقديمي](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+- الحصول على مرجع الشريحة باستخدام فهرسها.
+- إضافة شكل SmartArt عن طريق تحديد LayoutType له.
+- كتابة العرض المعدل كملف PPTX.
 ```c#
-// إنشاء العرض التقديمي
+    // إنشاء كائن العرض التقديمي
 using (Presentation pres = new Presentation())
 {
-
     // الوصول إلى شريحة العرض التقديمي
     ISlide slide = pres.Slides[0];
-
-    // إضافة شكل Smart Art
+    // إضافة شكل SmartArt
     ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.BasicBlockList);
-
     // حفظ العرض التقديمي
     pres.Save("SimpleSmartArt_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
 
+
+
 ## **الوصول إلى شكل SmartArt في الشريحة**
-سيتم استخدام الشيفرة التالية للوصول إلى أشكال SmartArt المضافة في شريحة العرض التقديمي. في مثال الشيفرة سنقوم بالتنقل عبر كل شكل داخل الشريحة والتحقق مما إذا كان شكل SmartArt. إذا كان الشكل من نوع SmartArt فسنقوم بتحويله إلى مثيل SmartArt.
+سيتم استخدام الشيفرة التالية للوصول إلى أشكال SmartArt المضافة في شريحة العرض. في الشيفرة النموذجية سنستعرض كل شكل داخل الشريحة ونتحقق إذا كان شكل SmartArt. إذا كان الشكل من نوع SmartArt فسنقوم بتحويله إلى كائن SmartArt.
 ```c#
-// تحميل العرض التقديمي المطلوب
+ // Load the desired the presentation
 using (Presentation pres = new Presentation("AccessSmartArtShape.pptx"))
 {
 
-    // التنقل عبر كل شكل داخل الشريحة الأولى
+    // Traverse through every shape inside first slide
     foreach (IShape shape in pres.Slides[0].Shapes)
     {
-        // التحقق مما إذا كان الشكل من نوع SmartArt
+        // Check if shape is of SmartArt type
         if (shape is ISmartArt)
         {
-            // تحويل الشكل إلى SmartArtEx
+            // Typecast shape to SmartArtEx
             ISmartArt smart = (ISmartArt)shape;
             System.Console.WriteLine("Shape Name:" + smart.Name);
 
@@ -54,14 +69,16 @@ using (Presentation pres = new Presentation("AccessSmartArtShape.pptx"))
 ```
 
 
-## **الوصول إلى شكل SmartArt مع نوع Layout معين**
-ستساعد الشيفرة النموذجية التالية في الوصول إلى شكل SmartArt بنوع LayoutType معين. يرجى ملاحظة أنه لا يمكنك تغيير LayoutType الخاص بـ SmartArt لأنه للقراءة فقط ويتم تعيينه فقط عند إضافة شكل SmartArt.
 
-- إنشاء مثيل من الفئة `Presentation` وتحميل العرض التقديمي مع شكل SmartArt.
-- الحصول على مرجع الشريحة الأولى باستخدام الـ Index الخاص بها.
-- التنقل عبر كل شكل داخل الشريحة الأولى.
-- التحقق مما إذا كان الشكل من نوع SmartArt وتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
-- فحص شكل SmartArt بنوع LayoutType معين وتنفيذ ما يلزم بعد ذلك.
+
+## **الوصول إلى شكل SmartArt بنوع تخطيط معين**
+ستساعد الشيفرة النموذجية التالية في الوصول إلى شكل SmartArt بنوع LayoutType معين. يرجى ملاحظة أنه لا يمكن تغيير LayoutType الخاص بـ SmartArt لأنه للقراءة فقط ويُحدد فقط عند إضافة شكل SmartArt.
+
+- إنشاء كائن من فئة `Presentation` وتحميل العرض الذي يحتوي على شكل SmartArt.
+- الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
+- استعراض كل شكل داخل الشريحة الأولى.
+- التحقق إذا كان الشكل من نوع SmartArt وتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
+- التحقق من شكل SmartArt بنوع LayoutType معين وإجراء ما يلزم بعد ذلك.
 ```c#
 using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 {
@@ -85,16 +102,18 @@ using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 ```
 
 
+
+
 ## **تغيير نمط شكل SmartArt**
 ستساعد الشيفرة النموذجية التالية في الوصول إلى شكل SmartArt بنوع LayoutType معين.
 
-- إنشاء مثيل من الفئة `Presentation` وتحميل العرض التقديمي مع شكل SmartArt.
-- الحصول على مرجع الشريحة الأولى باستخدام الـ Index الخاص بها.
-- التنقل عبر كل شكل داخل الشريحة الأولى.
-- التحقق مما إذا كان الشكل من نوع SmartArt وتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
+- إنشاء كائن من فئة `Presentation` وتحميل العرض الذي يحتوي على شكل SmartArt.
+- الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
+- استعراض كل شكل داخل الشريحة الأولى.
+- التحقق إذا كان الشكل من نوع SmartArt وتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
 - العثور على شكل SmartArt بنمط معين.
 - تعيين النمط الجديد لشكل SmartArt.
-- حفظ العرض التقديمي.
+- حفظ العرض.
 ```c#
 using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 {
@@ -122,16 +141,18 @@ using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 ```
 
 
-## **تغيير نمط لون شكل SmartArt**
-في هذا المثال، سنتعلم كيفية تغيير نمط اللون لأي شكل SmartArt. في الشيفرة النموذجية التالية سنصل إلى شكل SmartArt بنمط لون معين وسنغير نمطه.
 
-- إنشاء مثيل من الفئة `Presentation` وتحميل العرض التقديمي مع شكل SmartArt.
-- الحصول على مرجع الشريحة الأولى باستخدام الـ Index الخاص بها.
-- التنقل عبر كل شكل داخل الشريحة الأولى.
-- التحقق مما إذا كان الشكل من نوع SmartArt وتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
+
+## **تغيير نمط لون شكل SmartArt**
+في هذا المثال، سنتعلم كيفية تغيير نمط اللون لأي شكل SmartArt. في الشيفرة النموذجية التالية سنصل إلى شكل SmartArt بنمط لون معين ونغيّر نمطه.
+
+- إنشاء كائن من فئة `Presentation` وتحميل العرض الذي يحتوي على شكل SmartArt.
+- الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
+- استعراض كل شكل داخل الشريحة الأولى.
+- التحقق إذا كان الشكل من نوع SmartArt وتحويل الشكل المحدد إلى SmartArt إذا كان SmartArt.
 - العثور على شكل SmartArt بنمط لون معين.
 - تعيين نمط اللون الجديد لشكل SmartArt.
-- حفظ العرض التقديمي.
+- حفظ العرض.
 ```c#
 using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 {
@@ -159,24 +180,24 @@ using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 ```
 
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
 **هل يمكنني تحريك SmartArt ككائن واحد؟**
 
-نعم. SmartArt هو شكل، لذا يمكنك تطبيق [الرسوم المتحركة القياسية](/slides/ar/net/powerpoint-animation/) عبر واجهة برمجة تطبيقات الرسوم المتحركة (الدخول، الخروج، التشديد، مسارات الحركة) كما هو الحال مع الأشكال الأخرى.
+نعم. SmartArt هو شكل، لذا يمكنك تطبيق [الرسوم المتحركة القياسية](/slides/ar/net/powerpoint-animation/) عبر API الرسوم المتحركة (دخول، خروج، تأكيد، مسارات الحركة) تمامًا كما هو الحال مع الأشكال الأخرى.
 
-**كيف يمكنني العثور على SmartArt محدد في شريحة إذا لم أعرف الـ ID الداخلي الخاص به؟**
+**كيف يمكنني العثور على SmartArt معين في شريحة إذا لم أعرف معرفه الداخلي؟**
 
-قم بتعيين واستخدام النص البديل (AltText) وابحث عن الشكل باستخدام تلك القيمة — هذا هو الطريقة الموصى بها لتحديد موقع الشكل المستهدف.
+قم بتعيين واستخدام النص البديل (AltText) وابحث عن الشكل باستخدام تلك القيمة—هذه طريقة موصى بها لتحديد الشكل المستهدف.
 
 **هل يمكنني تجميع SmartArt مع أشكال أخرى؟**
 
 نعم. يمكنك تجميع SmartArt مع أشكال أخرى (صور، جداول، إلخ) ثم [التعامل مع المجموعة](/slides/ar/net/group/).
 
-**كيف أحصل على صورة لـ SmartArt محدد (مثلاً للمعاينة أو التقرير)؟**
+**كيف أحصل على صورة لSmartArt معين (مثلاً للمعاينة أو التقرير)؟**
 
-صدّر صورة مصغرة/صورة للشكل؛ يمكن للمكتبة [تصيير الأشكال الفردية](/slides/ar/net/create-shape-thumbnails/) إلى ملفات نقطية (PNG/JPG/TIFF).
+صدّر صورة مصغرة/صورة للشكل؛ المكتبة يمكنها [إنتاج صور للأشكال الفردية](/slides/ar/net/create-shape-thumbnails/) إلى ملفات نقطية (PNG/JPG/TIFF).
 
-**هل سيتم الحفاظ على مظهر SmartArt عند تحويل كامل العرض التقديمي إلى PDF؟**
+**هل سيُحافظ على مظهر SmartArt عند تحويل العرض بالكامل إلى PDF؟**
 
-نعم. محرك التصيير يهدف إلى دقة عالية لتصدير [PDF](/slides/ar/net/convert-powerpoint-to-pdf/)، مع مجموعة من خيارات الجودة والتوافق.
+نعم. محرك التصيير يستهدف دقة عالية لتصدير [PDF](/slides/ar/net/convert-powerpoint-to-pdf/)، مع مجموعة من خيارات الجودة والتوافق.

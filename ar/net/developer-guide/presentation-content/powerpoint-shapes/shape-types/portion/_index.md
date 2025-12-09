@@ -1,14 +1,24 @@
 ---
-title: "الجزء"
+title: إدارة أجزاء النص في العروض التقديمية في .NET
+linktitle: جزء النص
 type: docs
 weight: 70
 url: /ar/net/portion/
-keywords: "الجزء, شكل PowerPoint, عرض PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "الحصول على الجزء في عرض PowerPoint باستخدام C# أو .NET"
+keywords:
+- جزء النص
+- جزء من النص
+- إحداثيات النص
+- موضع النص
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "تعلم كيفية إدارة أجزاء النص في عروض PowerPoint باستخدام Aspose.Slides لـ .NET، مما يعزز الأداء والتخصيص."
 ---
 
-## **الحصول على إحداثيات الجزء**
-**GetCoordinates()** تم إضافة طريقة إلى IPortion وفئة Portion والتي تسمح باسترداد إحداثيات بداية الجزء:
+## **الحصول على إحداثيات الموضع للجزء**
+**GetCoordinates()** تم إضافة طريقة إلى IPortion و Portion class والتي تسمح باسترجاع إحداثيات بداية الجزء:
 ```c#
 using (Presentation presentation = new Presentation("Shapes.pptx"))
 {
@@ -27,20 +37,20 @@ using (Presentation presentation = new Presentation("Shapes.pptx"))
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل يمكنني تطبيق ارتباط تشعبي على جزء فقط من النص داخل فقرة واحدة؟**
+**هل يمكنني تطبيق رابط تشعبي على جزء فقط من النص داخل فقرة واحدة؟**
 
-نعم، يمكنك [تعيين ارتباط تشعبي](/slides/ar/net/manage-hyperlinks/) إلى جزء منفرد؛ سيصبح هذا المقطع قابلًا للنقر فقط، وليس الفقرة بأكملها.
+نعم، يمكنك [تعيين ارتباط تشعبي](/slides/ar/net/manage-hyperlinks/) إلى جزء فردي؛ سيصبح هذا الجزء فقط قابلاً للنقر، وليس الفقرة بأكملها.
 
-**كيف يعمل وراثة الأنماط: ما الذي يتجاوزه Portion، وما الذي يُستمد من Paragraph/TextFrame؟**
+**كيف يعمل وراثة النمط: ما الذي يتجاوزه Portion، وما الذي يُؤخذ من Paragraph/TextFrame؟**
 
-خصائص مستوى Portion لها أعلى أولوية. إذا لم يتم تعيين خاصية على [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/)، فإن المحرك يأخذها من [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph/); إذا لم تُعين هناك أيضًا، فإنها تُستمد من [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) أو نمط [theme](https://reference.aspose.com/slides/net/aspose.slides.theme/theme/).
+الخصائص على مستوى الجزء لها أعلى أولوية. إذا لم يتم تعيين خاصية على [الجزء](https://reference.aspose.com/slides/net/aspose.slides/portion/)، فإن المحرك يأخذها من [الفقرة](https://reference.aspose.com/slides/net/aspose.slides/paragraph/); إذا لم تُعيّن هناك أيضًا، من [إطار النص](https://reference.aspose.com/slides/net/aspose.slides/textframe/) أو نمط [السمة](https://reference.aspose.com/slides/net/aspose.slides.theme/theme/).
 
-**ماذا يحدث إذا كان الخط المحدد لـ Portion غير موجود على الجهاز/الخادم المستهدف؟**
+**ماذا يحدث إذا كان الخط المحدد للجزء غير موجود على الجهاز/الخادم المستهدف؟**
 
-[قواعد استبدال الخطوط](/slides/ar/net/font-selection-sequence/) تنطبق. قد يتغير تدفق النص: المقاييس، والتهجئة، والعرض قد يتغير، وهذا مهم للتموضع الدقيق.
+[قواعد استبدال الخط](/slides/ar/net/font-selection-sequence/) تُطبق. قد يتدفق النص مجدداً: قد تتغير المقاييس والواصلة والعرض، وهو ما يهم لتحديد المواقع بدقة.
 
-**هل يمكنني تعيين شفافية تعبئة نصية أو تدرج خاص بـ Portion مستقل عن بقية الفقرة؟**
+**هل يمكنني ضبط شفافية تعبئة نص خاصة بالجزء أو تدرج لوني مستقل عن بقية الفقرة؟**
 
-نعم، لون النص، التعبئة، والشفافية على مستوى [Portion](https://reference.aspose.com/slides/net/aspose.slides/portion/) يمكن أن تختلف عن المقاطع المجاورة.
+نعم، يمكن أن يختلف لون النص والتعبئة والشفافية على مستوى [الجزء](https://reference.aspose.com/slides/net/aspose.slides/portion/) عن القطع المجاورة.

@@ -1,12 +1,24 @@
 ---
-title: Diagrammdatenbeschriftung
+title: Diagrammbeschriftungen in Präsentationen in .NET verwalten
+linktitle: Datenbeschriftung
 type: docs
 url: /de/net/chart-data-label/
-keywords: "Diagrammdatenbeschriftung,Beschriftungsabstand, C#, Csharp, Aspose.Slides for .NET"
-description: "PowerPoint-Diagrammdatenbeschriftung und Abstand in C# oder .NET festlegen"
+keywords:
+- Diagramm
+- Datenbeschriftung
+- Datenpräzision
+- Prozent
+- Beschriftungsabstand
+- Beschriftungsposition
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Diagrammbeschriftungen in PowerPoint-Präsentationen mit Aspose.Slides für .NET hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
 ---
 
-Datenbeschriftungen in einem Diagramm zeigen Details zu den Diagrammdatenreihen oder einzelnen Datenpunkten. Sie ermöglichen es den Lesern, Datenreihen schnell zu identifizieren, und sie machen Diagramme auch leichter verständlich.
+Datenbeschriftungen in einem Diagramm zeigen Details zur Datenreihe oder zu einzelnen Datenpunkten. Sie ermöglichen es dem Leser, Datenreihen schnell zu identifizieren, und machen Diagramme leichter verständlich.
 
 ## **Genauigkeit der Daten in Diagrammbeschriftungen festlegen**
 
@@ -23,9 +35,8 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Prozentsatz als Beschriftungen anzeigen**
-
-Aspose.Slides for .NET ermöglicht das Festlegen von Prozentwerten als Beschriftungen in angezeigten Diagrammen. Dieser C#‑Code demonstriert die Vorgehensweise:
+## **Prozentwerte als Beschriftungen anzeigen**
+Aspose.Slides for .NET ermöglicht das Setzen von Prozentbeschriftungen in angezeigten Diagrammen. Dieser C#‑Code demonstriert die Vorgehensweise:
 ```c#
 // Erstellt eine Instanz der Presentation-Klasse
 Presentation presentation = new Presentation();
@@ -77,14 +88,14 @@ presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Prozentzeichen bei Diagrammbeschriftungen festlegen**
 
+## **Prozentzeichen bei Diagrammbeschriftungen setzen**
 Dieser C#‑Code zeigt, wie Sie das Prozentzeichen für eine Diagrammbeschriftung festlegen:
 ```c#
 // Erstellt eine Instanz der Presentation-Klasse
 Presentation presentation = new Presentation();
 
-// Holt die Referenz einer Folie über ihren Index
+// Holt eine Referenz auf die Folie über ihren Index
 ISlide slide = presentation.Slides[0];
 
 // Erstellt das PercentsStackedColumn-Diagramm auf einer Folie
@@ -97,7 +108,7 @@ chart.Axes.VerticalAxis.NumberFormat = "0.00%";
 chart.ChartData.Series.Clear();
 int defaultWorksheetIndex = 0;
 
-// Holt das Arbeitsblatt für die Diagrammdaten
+// Holt das Diagrammdaten-Arbeitsblatt
 IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
 // Fügt neue Serie hinzu
@@ -111,7 +122,7 @@ series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetInde
 series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-// Setzt die Eigenschaften von LabelFormat
+// Setzt die Eigenschaften des LabelFormats
 series.Labels.DefaultDataLabelFormat.ShowValue = true;
 series.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
 series.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
@@ -142,14 +153,13 @@ presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Beschriftungsabstand von der Achse festlegen**
-
-Dieser C#‑Code zeigt, wie Sie den Beschriftungsabstand von einer Kategorienachse festlegen, wenn Sie ein Diagramm aus Achsen erstellen:
+## **Abstand der Beschriftung von der Achse festlegen**
+Dieser C#‑Code zeigt, wie Sie den Beschriftungsabstand von einer Kategorienachse festlegen, wenn Sie ein Diagramm aus Achsen plotten:
 ```c#
 // Erstellt eine Instanz der Presentation-Klasse
 Presentation presentation = new Presentation();
 
-// Holt die Referenz einer Folie
+// Holt eine Referenz auf die Folie
 ISlide sld = presentation.Slides[0];
 
 // Erstellt ein Diagramm auf der Folie
@@ -165,9 +175,9 @@ presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 
 ## **Beschriftungsposition anpassen**
 
-Wenn Sie ein Diagramm erstellen, das keine Achse verwendet, wie ein Kreisdiagramm, können die Datenbeschriftungen des Diagramms zu nahe am Rand liegen. In einem solchen Fall müssen Sie die Position der Datenbeschriftung anpassen, damit die Führungslinien deutlich angezeigt werden.
+Wenn Sie ein Diagramm erstellen, das keine Achsen verwendet, z. B. ein Kreisdiagramm, können die Datenbeschriftungen zu nahe am Rand liegen. In diesem Fall müssen Sie die Position der Beschriftung anpassen, damit die Hilfslinien deutlich dargestellt werden.
 
-Dieser C#‑Code zeigt, wie Sie die Beschriftungsposition in einem Kreisdiagramm anpassen: 
+Dieser C#‑Code zeigt, wie Sie die Beschriftungsposition in einem Kreisdiagramm anpassen:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -190,9 +200,9 @@ using (Presentation pres = new Presentation())
 
 ## **FAQ**
 
-**Wie kann ich verhindern, dass Datenbeschriftungen in dichten Diagrammen überlappen?**
+**Wie kann ich verhindern, dass sich Datenbeschriftungen bei dichten Diagrammen überlappen?**
 
-Kombinieren Sie automatische Beschriftungsplatzierung, Führungslinien und reduzierte Schriftgröße; bei Bedarf können Sie einige Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für extreme/Schlüsselpunkte anzeigen.
+Kombinieren Sie automatische Beschriftungsplatzierung, Hilfslinien und reduzierte Schriftgröße; bei Bedarf können Sie einige Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für extreme bzw. Schlüssel­punkte anzeigen.
 
 **Wie kann ich Beschriftungen nur für Null‑, Negative‑ oder Leere‑Werte deaktivieren?**
 
@@ -200,4 +210,4 @@ Filtern Sie Datenpunkte, bevor Sie Beschriftungen aktivieren, und schalten Sie d
 
 **Wie kann ich einen konsistenten Beschriftungsstil beim Exportieren in PDF/Bilder sicherstellen?**
 
-Legen Sie Schriftarten (Familie, Größe) explizit fest und prüfen Sie, dass die Schriftart auf der Renderseite verfügbar ist, um ein Zurückgreifen zu vermeiden.
+Setzen Sie Schriftart, Schriftfamilie und Schriftgröße explizit und prüfen Sie, dass die Schriftart auf der Renderseite verfügbar ist, um ein Zurückgreifen auf Ersatzschriften zu vermeiden.

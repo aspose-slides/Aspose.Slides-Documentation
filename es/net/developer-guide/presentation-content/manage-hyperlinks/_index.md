@@ -1,30 +1,47 @@
 ---
-title: Administrar hipervínculos
+title: Administrar hipervínculos en presentaciones .NET
+linktitle: Administrar hipervínculo
 type: docs
 weight: 20
 url: /es/net/manage-hyperlinks/
-keywords: "Agregar hipervínculo, Presentación de PowerPoint, Hipervínculo de PowerPoint, hipervínculo de texto, hipervínculo de diapositiva, hipervínculo de forma, hipervínculo de imagen, hipervínculo de video, .NET, C#, Csharp"
-description: "Agregar un hipervínculo a una presentación de PowerPoint en C# o .NET"
+keywords:
+- agregar URL
+- agregar hipervínculo
+- crear hipervínculo
+- formatear hipervínculo
+- eliminar hipervínculo
+- actualizar hipervínculo
+- hipervínculo de texto
+- hipervínculo de diapositiva
+- hipervínculo de forma
+- hipervínculo de imagen
+- hipervínculo de video
+- hipervínculo mutable
+- PowerPoint
+- OpenDocument
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Administre fácilmente los hipervínculos en presentaciones PowerPoint y OpenDocument con Aspose.Slides para .NET—mejore la interactividad y el flujo de trabajo en minutos."
 ---
 
-Un hipervínculo es una referencia a un objeto, datos o a un lugar en algo. Estos son hipervínculos comunes en presentaciones de PowerPoint:
+Un hipervínculo es una referencia a un objeto, datos o un lugar en algo. Estos son hipervínculos comunes en presentaciones de PowerPoint:
 
 * Enlaces a sitios web dentro de textos, formas o medios
 * Enlaces a diapositivas
 
-Aspose.Slides para .NET le permite realizar muchas tareas relacionadas con hipervínculos en presentaciones. 
+Aspose.Slides for .NET le permite realizar muchas tareas relacionadas con hipervínculos en presentaciones. 
 
 {{% alert color="primary" %}} 
-
-Puede que desee probar Aspose simple, [editor en línea gratuito de PowerPoint.](https://products.aspose.app/slides/editor)
-
+Puede que desee probar Aspose simple, [editor de PowerPoint en línea gratuito.](https://products.aspose.app/slides/editor)
 {{% /alert %}} 
 
 ## **Agregar hipervínculos URL**
 
 ### **Agregar hipervínculos URL a textos**
 
-Este código C# le muestra cómo agregar un hipervínculo a un sitio web en un texto:
+Este código C# muestra cómo agregar un hipervínculo a un sitio web en un texto:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -41,7 +58,7 @@ using (Presentation presentation = new Presentation())
 
 ### **Agregar hipervínculos URL a formas o marcos**
 
-Este código de ejemplo en C# le muestra cómo agregar un hipervínculo a un sitio web en una forma:
+Este código de ejemplo en C# muestra cómo agregar un hipervínculo a un sitio web en una forma:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -57,15 +74,15 @@ using (Presentation pres = new Presentation())
 
 ### **Agregar hipervínculos URL a medios**
 
-Aspose.Slides le permite agregar hipervínculos a imágenes, audio y archivos de video. 
+Aspose.Slides permite agregar hipervínculos a imágenes, archivos de audio y video.
 
-Este código de ejemplo le muestra cómo agregar un hipervínculo a una **imagen**:
+Este código de ejemplo muestra cómo agregar un hipervínculo a una **imagen**:
 ```c#
 using (Presentation pres = new Presentation())
 {
     // Agrega imagen a la presentación
     IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    // Crea un marco de imagen en la diapositiva 1 basado en la imagen agregada previamente
+    // Crea un marco de imagen en la diapositiva 1 basado en la imagen añadida previamente
     IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
 
     pictureFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
@@ -76,7 +93,7 @@ using (Presentation pres = new Presentation())
 ```
 
 
- Este código de ejemplo le muestra cómo agregar un hipervínculo a un **archivo de audio**:
+Este código de ejemplo muestra cómo agregar un hipervínculo a un **archivo de audio**:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -91,7 +108,7 @@ using (Presentation pres = new Presentation())
 ```
 
 
- Este código de ejemplo le muestra cómo agregar un hipervínculo a un **video**:
+Este código de ejemplo muestra cómo agregar un hipervínculo a un **video**:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -107,17 +124,14 @@ using (Presentation pres = new Presentation())
 
 
 {{%  alert  title="Tip"  color="primary"  %}} 
-
 Puede que desee ver *[Administrar OLE](https://docs.aspose.com/slides/net/manage-ole/)*.
-
 {{% /alert %}}
-
 
 ## **Usar hipervínculos para crear tabla de contenido**
 
-Dado que los hipervínculos le permiten agregar referencias a objetos o lugares, puede utilizarlos para crear una tabla de contenido. 
+Dado que los hipervínculos le permiten agregar referencias a objetos o lugares, puede usarlos para crear una tabla de contenido. 
 
-Este código de ejemplo le muestra cómo crear una tabla de contenido con hipervínculos:
+Este código de ejemplo muestra cómo crear una tabla de contenido con hipervínculos:
 ```c#
 using (var presentation = new Presentation())
 {
@@ -150,7 +164,7 @@ using (var presentation = new Presentation())
 
 ### **Color**
 
-Con la propiedad [ColorSource](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/colorsource) en la interfaz [IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink), puede establecer el color para los hipervínculos y también obtener la información del color de los hipervínculos. La característica se introdujo por primera vez en PowerPoint 2019, por lo que los cambios relacionados con la propiedad no se aplican a versiones anteriores de PowerPoint.
+Con la propiedad [ColorSource](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/colorsource) en la interfaz [IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink), puede establecer el color de los hipervínculos y también obtener la información de color de los hipervínculos. La característica se introdujo por primera vez en PowerPoint 2019, por lo que los cambios relacionados con la propiedad no se aplican a versiones anteriores de PowerPoint.
 
 Este código de ejemplo demuestra una operación donde se agregaron hipervínculos con diferentes colores a la misma diapositiva:
 ```c#
@@ -179,7 +193,7 @@ Aspose.Slides proporciona estas propiedades para permitirle enfatizar un hiperv�
 
 #### **Agregar sonido al hipervínculo**
 
-Este código C# le muestra cómo establecer el hipervínculo que reproduce un sonido y detenerlo con otro hipervínculo:
+Este código C# muestra cómo configurar el hipervínculo que reproduce un sonido y detenerlo con otro hipervínculo:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -192,7 +206,7 @@ using (Presentation pres = new Presentation())
 	IShape firstShape = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
 	firstShape.HyperlinkClick = Hyperlink.NextSlide;
 
-	// Verifica el hipervínculo para "Sin sonido"
+	// Comprueba el hipervínculo para "Sin sonido"
 	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
 	{
 		// Establece el hipervínculo que reproduce sonido
@@ -206,7 +220,7 @@ using (Presentation pres = new Presentation())
 	IShape secondShape = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
 	secondShape.HyperlinkClick = Hyperlink.NoAction;
 
-	// Establece la bandera "Detener sonido anterior" del hipervínculo
+	// Establece la bandera del hipervínculo "Detener sonido anterior"
 	secondShape.HyperlinkClick.StopSoundOnClick = true;
 
 	pres.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
@@ -216,7 +230,7 @@ using (Presentation pres = new Presentation())
 
 #### **Extraer sonido del hipervínculo**
 
-Este código C# le muestra cómo extraer el sonido usado en un hipervínculo:
+Este código C# muestra cómo extraer el sonido usado en un hipervínculo:
 ```c#
 using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 {
@@ -227,7 +241,7 @@ using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 
 	if (link.Sound != null)
 	{
-		// Extrae el sonido del hipervínculo en un arreglo de bytes
+		// Extrae el sonido del hipervínculo en un array de bytes
 		byte[] audioData = link.Sound.BinaryData;
 	}
 }
@@ -238,7 +252,7 @@ using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 
 ### **Eliminar hipervínculos de textos**
 
-Este código C# le muestra cómo eliminar el hipervínculo de un texto en una diapositiva de presentación:
+Este código C# muestra cómo eliminar el hipervínculo de un texto en una diapositiva de presentación:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -265,7 +279,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **Eliminar hipervínculos de formas o marcos**
 
-Este código C# le muestra cómo eliminar el hipervínculo de una forma en una diapositiva de presentación: 
+Este código C# muestra cómo eliminar el hipervínculo de una forma en una diapositiva de presentación: 
 ``` csharp
 using (Presentation pres = new Presentation("demo.pptx")) 
 { 
@@ -288,7 +302,7 @@ La clase [Hyperlink](https://reference.aspose.com/slides/net/aspose.slides/hyper
 - [IHyperlink.History](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/history)
 - [IHyperlink.HighlightClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/highlightclick)
 
-El fragmento de código muestra cómo agregar un hipervínculo a una diapositiva y editar su información sobre herramienta posteriormente:
+El fragmento de código muestra cómo agregar un hipervínculo a una diapositiva y editar su información sobre herramientas (tooltip) posteriormente:
 ```c#
 using (Presentation presentation = new Presentation())
 {   
@@ -309,13 +323,13 @@ using (Presentation presentation = new Presentation())
 
 ## **Propiedades compatibles en IHyperlinkQueries**
 
-Puede acceder a IHyperlinkQueries desde una presentación, diapositiva o texto para el cual está definido el hipervínculo. 
+Puede acceder a IHyperlinkQueries desde una presentación, diapositiva o texto para el cual se define el hipervínculo. 
 
 - [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/properties/hyperlinkqueries)
 - [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
 - [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/itextframe/properties/hyperlinkqueries)
 
-La clase IHyperlinkQueries admite estos métodos y propiedades: 
+La clase IHyperlinkQueries soporta estos métodos y propiedades: 
 
 - [IHyperlinkQueries.GetHyperlinkClicks();](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkclicks)
 - [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkmouseovers)
@@ -330,8 +344,8 @@ Las secciones en PowerPoint son agrupaciones de diapositivas; la navegación té
 
 **¿Puedo adjuntar un hipervínculo a los elementos de la diapositiva maestra para que funcione en todas las diapositivas?**
 
-Sí. Los elementos de la diapositiva maestra y de diseño admiten hipervínculos. Dichos enlaces aparecen en las diapositivas hijas y son clicables durante la presentación.
+Sí. Los elementos de la diapositiva maestra y de diseño admiten hipervínculos. dichos enlaces aparecen en las diapositivas hijas y son clicables durante la presentación.
 
 **¿Se conservarán los hipervínculos al exportar a PDF, HTML, imágenes o video?**
 
-En [PDF](/slides/es/net/convert-powerpoint-to-pdf/) y [HTML](/slides/es/net/convert-powerpoint-to-html/), sí—los enlaces generalmente se conservan. Al exportar a [imágenes](/slides/es/net/convert-powerpoint-to-png/) y [video](/slides/es/net/convert-powerpoint-to-video/), la capacidad de hacer clic no se mantendrá debido a la naturaleza de esos formatos (fotogramas rasterizados/video no admiten hipervínculos).
+En [PDF](/slides/es/net/convert-powerpoint-to-pdf/) y [HTML](/slides/es/net/convert-powerpoint-to-html/), sí—los enlaces generalmente se conservan. Al exportar a [images](/slides/es/net/convert-powerpoint-to-png/) y [video](/slides/es/net/convert-powerpoint-to-video/), la capacidad de hacer clic no se mantendrá debido a la naturaleza de esos formatos (los fotogramas rasterizados/video no admiten hipervínculos).

@@ -1,22 +1,34 @@
 ---
-title: Diagramm-Plot-Bereich
+title: Diagramm‑Plot‑Bereiche in Präsentationen in .NET anpassen
+linktitle: Plot‑Bereich
 type: docs
 url: /de/net/chart-plot-area/
-keywords: "Diagramm-Plot-Bereich PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "Breite und Höhe des Diagramm-Plot-Bereichs ermitteln. Layout-Modus festlegen. PowerPoint-Präsentation in C# oder .NET"
+keywords:
+- Diagramm
+- Plot‑Bereich
+- Plot‑Bereich Breite
+- Plot‑Bereich Höhe
+- Plot‑Bereich Größe
+- Layoutmodus
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Entdecken Sie, wie Sie Plotbereiche von Diagrammen in PowerPoint‑Präsentationen mit Aspose.Slides für .NET anpassen. Verbessern Sie Ihre Folienvisualisierung mühelos."
 ---
 
-## **Breite und Höhe des Diagramm-Plot-Bereichs ermitteln**
-Aspose.Slides für .NET bietet eine einfache API für .
+## **Breite und Höhe des Diagramm‑Plot‑Bereichs abrufen**
+Aspose.Slides für .NET stellt eine einfache API zur Verfügung für .  
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-2. Greifen Sie auf die erste Folie zu.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu.
-4. Rufen Sie die Methode IChart.ValidateChartLayout() auf, um die tatsächlichen Werte zu erhalten.
-5. Ermittelt die tatsächliche X-Position (links) des Diagrammelements relativ zur linken oberen Ecke des Diagramms.
-6. Ermittelt das tatsächliche obere Ende des Diagrammelements relativ zur linken oberen Ecke des Diagramms.
-7. Ermittelt die tatsächliche Breite des Diagrammelements.
-8. Ermittelt die tatsächliche Höhe des Diagrammelements.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑Klasse.  
+1. Greifen Sie auf die erste Folie zu.  
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu.  
+1. Rufen Sie die Methode IChart.ValidateChartLayout() auf, bevor Sie die tatsächlichen Werte erhalten.  
+1. Ermittelt die tatsächliche X‑Position (links) des Diagrammelements relativ zur linken oberen Ecke des Diagramms.  
+1. Ermittelt die tatsächliche Y‑Position (oben) des Diagrammelements relativ zur linken oberen Ecke des Diagramms.  
+1. Ermittelt die tatsächliche Breite des Diagrammelements.  
+1. Ermittelt die tatsächliche Höhe des Diagrammelements.  
 ```c#
 using (Presentation pres = new Presentation("test.Pptx"))
 {
@@ -36,14 +48,13 @@ using (Presentation pres = new Presentation("test.Pptx"))
 
 
 
+## **Layout‑Modus des Diagramm‑Plot‑Bereichs festlegen**
+Aspose.Slides für .NET bietet eine einfache API zum Festlegen des Layout‑Modus des Diagramm‑Plot‑Bereichs. Die Eigenschaft **LayoutTargetType** wurde zu den Klassen **ChartPlotArea** und **IChartPlotArea** hinzugefügt. Wenn das Layout des Plot‑Bereichs manuell definiert wird, gibt diese Eigenschaft an, ob der Plot‑Bereich nach seinem Inneren (ohne Achsen und Achsenbeschriftungen) oder nach seinem Äußeren (einschließlich Achsen und Achsenbeschriftungen) ausgerichtet werden soll. Es gibt zwei mögliche Werte, die im **LayoutTargetType**‑Enum definiert sind.
 
-## **Layout-Modus des Diagramm-Plot-Bereichs festlegen**
-Aspose.Slides für .NET bietet eine einfache API zum Festlegen des Layout-Modus des Diagramm-Plot-Bereichs. Die Eigenschaft **LayoutTargetType** wurde zu den Klassen **ChartPlotArea** und **IChartPlotArea** hinzugefügt. Wenn das Layout des Plot-Bereichs manuell definiert wird, gibt diese Eigenschaft an, ob der Plot-Bereich nach seinem Inneren (ohne Achsen und Achsenbeschriftungen) oder nach außen (mit Achsen und Achsenbeschriftungen) positioniert werden soll. Es gibt zwei mögliche Werte, die im Enum **LayoutTargetType** definiert sind.
+- **LayoutTargetType.Inner** – gibt an, dass die Größe des Plot‑Bereichs die Größe des Plot‑Bereichs bestimmt, ohne die Tick‑Marks und Achsenbeschriftungen.  
+- **LayoutTargetType.Outer** – gibt an, dass die Größe des Plot‑Bereichs die Größe des Plot‑Bereichs, die Tick‑Marks und die Achsenbeschriftungen bestimmt.  
 
-- **LayoutTargetType.Inner** – gibt an, dass die Größe des Plot-Bereichs die Größe des Plot-Bereichs bestimmt, ohne die Tick-Markierungen und Achsenbeschriftungen.
-- **LayoutTargetType.Outer** – gibt an, dass die Größe des Plot-Bereichs die Größe des Plot-Bereichs, die Tick-Markierungen und die Achsenbeschriftungen bestimmt.
-
-Beispielcode ist unten angegeben.
+Beispielcode ist unten angegeben.  
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -64,16 +75,16 @@ using (Presentation presentation = new Presentation())
 
 **In welchen Einheiten werden ActualX, ActualY, ActualWidth und ActualHeight zurückgegeben?**
 
-In Punkten; 1 Zoll = 72 Punkte. Das sind die Koordinateneinheiten von Aspose.Slides.
+In Punkten; 1 Zoll = 72 Punkte. Dies sind Koordinateneinheiten von Aspose.Slides.
 
-**Wie unterscheidet sich der Plot-Bereich vom Diagrammbereich in Bezug auf den Inhalt?**
+**Wie unterscheidet sich der Plot‑Bereich vom Diagrammbereich in Bezug auf den Inhalt?**
 
-Der Plot-Bereich ist der Datenzeichnungsbereich (Serien, Gitternetzlinien, Trendlinien usw.); der Diagrammbereich umfasst die umliegenden Elemente (Titel, Legende usw.). In 3D-Diagrammen enthält der Plot-Bereich außerdem die Wände/Boden und die Achsen.
+Der Plot‑Bereich ist der Datenzeichnungsbereich (Serien, Gitternetzlinien, Trendlinien usw.); der Diagrammbereich umfasst die umgebenden Elemente (Titel, Legende usw.). In 3D‑Diagrammen schließt der Plot‑Bereich außerdem die Wände/Boden und die Achsen ein.
 
-**Wie werden die X-, Y-, Breiten- und Höhenwerte des Plot-Bereichs interpretiert, wenn das Layout manuell erfolgt?**
+**Wie werden die X‑, Y‑, Breiten‑ und Höhenwerte des Plot‑Bereichs interpretiert, wenn das Layout manuell ist?**
 
 Sie sind Bruchteile (0–1) der Gesamtabmessungen des Diagramms; in diesem Modus ist die automatische Positionierung deaktiviert und die von Ihnen festgelegten Bruchteile werden verwendet.
 
-**Warum hat sich die Position des Plot-Bereichs nach dem Hinzufügen/Bewegen der Legende geändert?**
+**Warum änderte sich die Position des Plot‑Bereichs nach dem Hinzufügen/Bewegen der Legende?**
 
-Die Legende befindet sich im Diagrammbereich außerhalb des Plot-Bereichs, beeinflusst jedoch das Layout und den verfügbaren Raum, so dass sich der Plot-Bereich verschieben kann, wenn die automatische Positionierung aktiv ist. (Dies ist das Standardverhalten von PowerPoint-Diagrammen.)
+Die Legende befindet sich im Diagrammbereich außerhalb des Plot‑Bereichs, beeinflusst jedoch das Layout und den verfügbaren Platz, sodass der Plot‑Bereich verschoben werden kann, wenn die automatische Positionierung aktiv ist. (Dies ist das Standardverhalten von PowerPoint‑Diagrammen.)

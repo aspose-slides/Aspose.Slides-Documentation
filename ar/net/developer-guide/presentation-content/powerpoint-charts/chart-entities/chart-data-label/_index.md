@@ -1,16 +1,27 @@
 ---
-title: تسمية بيانات المخطط
+title: إدارة تسميات بيانات المخطط في العروض التقديمية في .NET
+linktitle: تسمية البيانات
 type: docs
 url: /ar/net/chart-data-label/
-keywords: "تسمية بيانات المخطط, مسافة التسمية, C#, Csharp, Aspose.Slides for .NET"
-description: "تعيين تسمية بيانات مخطط PowerPoint والمسافة في C# أو .NET"
+keywords:
+- مخطط
+- تسمية بيانات
+- دقة البيانات
+- نسبة مئوية
+- مسافة التسمية
+- موقع التسمية
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides for .NET للحصول على شرائح أكثر جاذبية."
 ---
 
-تُظهر تسميات البيانات في المخطط تفاصيل حول سلسلة بيانات المخطط أو نقاط البيانات الفردية. فهي تسمح للقراء بتحديد سلاسل البيانات بسرعة كما تجعل المخططات أسهل في الفهم.
+تظهر تسميات البيانات على المخطط تفاصيل حول سلسلة بيانات المخطط أو نقاط البيانات الفردية. إنها تتيح للقراء التعرف سريعًا على سلاسل البيانات وتساعد أيضًا في جعل المخططات أسهل للفهم.
 
-## **تعيين دقة البيانات في تسميات بيانات المخطط**
+## **تحديد دقة البيانات في تسميات بيانات المخطط**
 
-يظهر هذا الكود C# كيفية تعيين دقة البيانات في تسمية بيانات المخطط:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -25,9 +36,9 @@ using (Presentation pres = new Presentation())
 
 ## **عرض النسبة المئوية كتسميات**
 
-تتيح لك Aspose.Slides for .NET تعيين تسميات النسبة المئوية على المخططات المعروضة. يوضح هذا الكود C# العملية:
+تسمح لك Aspose.Slides for .NET بتعيين تسميات النسبة المئوية على المخططات المعروضة. يوضح هذا الكود C# العملية:
 ```c#
-// إنشاء كائن من فئة Presentation
+// ينشئ كائنًا من فئة Presentation
 Presentation presentation = new Presentation();
 
 ISlide slide = presentation.Slides[0];
@@ -72,26 +83,25 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
     }
 }
 
-// حفظ العرض التقديمي الذي يحتوي على المخطط
+// يحفظ العرض التقديمي الذي يحتوي على المخطط
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
 
+## **تعيين علامة النسبة المئوية مع تسميات بيانات المخطط**
 
-## **تعيين علامة النسبة المئوية في تسميات بيانات المخطط**
-
-يظهر هذا الكود C# كيفية تعيين علامة النسبة المئوية لتسمية بيانات المخطط:
+يظهر لك هذا الكود C# كيفية تعيين علامة النسبة المئوية لتسمية بيانات المخطط:
 ```c#
-// ينشئ كائنًا من فئة Presentation
+// ينشئ نسخة من فئة Presentation
 Presentation presentation = new Presentation();
 
-// يحصل على مرجع الشريحة عبر فهرسها
+// يحصل على مرجع الشريحة عبر الفهرس الخاص بها
 ISlide slide = presentation.Slides[0];
 
 // ينشئ مخطط PercentsStackedColumn على شريحة
 IChart chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
-// يضبط الخاصية NumberFormatLinkedToSource إلى false
+// يضبط خاصية NumberFormatLinkedToSource إلى false
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.NumberFormat = "0.00%";
 
@@ -108,7 +118,7 @@ series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetInde
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 1, 0.80));
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 1, 0.65));
 
-// يضبط لون التعبئة للسلسلة
+// يضبط لون تعبئة السلسلة
 series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Red;
 
@@ -138,14 +148,14 @@ series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
 series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
 series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
 
-// يحفظ العرض التقديمي إلى القرص
+// يكتب العرض التقديمي إلى القرص
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **تعيين مسافة التسمية من المحور**
+## **تحديد مسافة التسمية من المحور**
 
-يظهر هذا الكود C# كيفية تعيين مسافة التسمية من محور الفئات عندما تكون تتعامل مع مخطط مرسم من المحاور:
+يظهر لك هذا الكود C# كيفية تعيين مسافة التسمية من محور الفئة عندما تتعامل مع مخطط مرسوم من المحاور:
 ```c#
 // ينشئ كائنًا من فئة Presentation
 Presentation presentation = new Presentation();
@@ -164,11 +174,11 @@ presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **ضبط موضع التسمية**
+## **ضبط موقع التسمية**
 
-عند إنشاء مخطط لا يعتمد على أي محور مثل مخطط الفطيرة، قد تكون تسميات البيانات قريبة جدًا من حافته. في هذه الحالة، عليك ضبط موضع تسمية البيانات بحيث تظهر خطوط الربط بوضوح.
+عند إنشاء مخطط لا يعتمد على أي محور مثل مخطط الفطيرة، قد تكون تسميات البيانات للمخطط قريبة جدًا من حدّه. في مثل هذه الحالة، يجب ضبط موقع تسمية البيانات بحيث يتم عرض خطوط التوجيه بوضوح.
 
-يظهر هذا الكود C# كيفية ضبط موضع التسمية في مخطط الفطيرة:
+يظهر لك هذا الكود C# كيفية ضبط موقع التسمية في مخطط الفطيرة: 
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -187,18 +197,18 @@ using (Presentation pres = new Presentation())
 ```
 
 
-![مخطط دائري مع تسمية مضبوطة](pie-chart-adjusted-label.png)
+![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
 **كيف يمكنني منع تداخل تسميات البيانات في المخططات الكثيفة؟**
 
-استخدام وضعية وضع التسميات التلقائي، خطوط الربط، وتقليل حجم الخط؛ إذا لزم الأمر، إخفاء بعض الحقول (مثل الفئة) أو إظهار التسميات فقط للنقاط المتطرفة/المفتاحية.
+اجمع بين وضع التسمية التلقائي، وخطوط التوجيه، وصغر حجم الخط؛ وإذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو اعرض التسميات فقط للنقاط المتطرفة/الرئيسية.
 
-**كيف يمكنني إلغاء تفعيل التسميات للقيم الصفرية أو السلبية أو الفارغة فقط؟**
+**كيف يمكنني تعطيل التسميات فقط للقيم الصفرية أو السلبية أو الفارغة؟**
 
-تصفية نقاط البيانات قبل تمكين التسميات وإيقاف العرض للقيم التي تساوي 0 أو القيم السلبية أو القيم المفقودة وفق قاعدة محددة.
+قم بفلترة نقاط البيانات قبل تمكين التسميات وأوقف العرض للقيم 0 أو القيم السلبية أو القيم المفقودة وفقًا لقاعدة محددة.
 
-**كيف يمكنني ضمان نمط تسمية متسق عند التصدير إلى PDF/صور؟**
+**كيف يمكنني ضمان نمط تسميات متسق عند التصدير إلى PDF/صور؟**
 
-تعيين الخطوط صراحةً (العائلة، الحجم) والتأكد من توفر الخط على جانب العرض لتجنب fallback.
+حدد الخطوط صراحة (العائلة، الحجم) وتأكد من توافر الخط على جانب العرض لتجنب fallback.

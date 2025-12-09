@@ -1,29 +1,37 @@
 ---
-title: 管理 SmartArt 形状节点
+title: 在 .NET 中管理演示文稿中的 SmartArt 形状节点
+linktitle: SmartArt 形状节点
 type: docs
 weight: 30
 url: /zh/net/manage-smartart-shape-node/
 keywords:
-- SmartArt
 - SmartArt 节点
-- SmartArt 子节点
+- 子节点
+- 添加节点
+- 节点位置
+- 访问节点
+- 删除节点
+- 自定义位置
+- 助理节点
+- 填充格式
+- 渲染节点
 - PowerPoint
 - 演示文稿
+- .NET
 - C#
-- C#
-- Aspose.Slides for .NET
-description: "在 C# 或 .NET 中管理 PowerPoint 演示文稿中的 SmartArt 节点和子节点"
+- Aspose.Slides
+description: "使用 Aspose.Slides for .NET 管理 PPT 和 PPTX 中的 SmartArt 形状节点。获取清晰的代码示例和技巧，以简化您的演示文稿。"
 ---
 
 ## **添加 SmartArt 节点**
-Aspose.Slides for .NET 提供了最简洁的 API，以最容易的方式管理 SmartArt 形状。以下示例代码演示了如何在 SmartArt 形状中添加节点和子节点。
+Aspose.Slides for .NET 提供了最简便的 API 来管理 SmartArt 形状。以下示例代码将帮助在 SmartArt 形状中添加节点和子节点。
 
-- 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例并加载包含 SmartArt 形状的演示文稿。
-- 使用索引获取第一张幻灯片的引用。
-- 遍历第一张幻灯片中的所有形状。
-- 检查形状是否为 SmartArt 类型，并在是 SmartArt 时将选定的形状强制转换为 SmartArt。
-- 在 SmartArt 形状的 NodeCollection 中添加新节点并在 TextFrame 中设置文本。
-- 现在，在新添加的 SmartArt 节点中添加子节点并在 TextFrame 中设置文本。
+- 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例并加载包含 SmartArt 形状的演示文稿。
+- 通过索引获取第一张幻灯片的引用。
+- 遍历第一张幻灯片中的每个形状。
+- 检查形状是否为 SmartArt 类型，如果是，则将选定的形状强制转换为 SmartArt。
+- 在 SmartArt 形状的 NodeCollection 中添加新节点，并在 TextFrame 中设置文本。
+- 随后，在新添加的 SmartArt 节点中添加子节点，并在 TextFrame 中设置文本。
 - 保存演示文稿。
 ```c#
 // 加载所需的演示文稿
@@ -63,19 +71,19 @@ pres.Save("AddSmartArtNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 
 ## **在特定位置添加 SmartArt 节点**
-以下示例代码演示了如何在特定位置向 SmartArt 形状的相应节点添加子节点。
+以下示例代码说明如何在特定位置向 SmartArt 形状的相应节点添加子节点。
 
 - 创建 `Presentation` 类的实例。
-- 使用索引获取第一张幻灯片的引用。
-- 在访问的幻灯片中添加一个 StackedList 类型的 SmartArt 形状。
-- 访问添加的 SmartArt 形状中的第一个节点。
-- 在位置 2 处为选定的节点添加子节点并设置其文本。
+- 通过索引获取第一张幻灯片的引用。
+- 在访问的幻灯片中添加 StackedList 类型的 SmartArt 形状。
+- 访问已添加的 SmartArt 形状中的第一个节点。
+- 随后，在选定节点的第 2 位置添加子节点并设置其文本。
 - 保存演示文稿。
 ```c#
 // 创建演示文稿实例
 Presentation pres = new Presentation();
 
-// 访问演示文稿幻灯片
+// 访问演示文稿的幻灯片
 ISlide slide = pres.Slides[0];
 
 // 添加 Smart Art IShape
@@ -97,21 +105,15 @@ pres.Save("AddSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.
 
 
 
-
 ## **访问 SmartArt 节点**
-以下示例代码帮助访问 SmartArt 形状中的节点。请注意，SmartArt 的 LayoutType 为只读，且仅在添加 SmartArt 形状时设置，无法更改。
+以下示例代码将帮助访问 SmartArt 形状中的节点。请注意，SmartArt 的 LayoutType 为只读，且只能在添加 SmartArt 形状时设置，无法更改。
 
 - 创建 `Presentation` 类的实例并加载包含 SmartArt 形状的演示文稿。
-
-- 使用索引获取第一张幻灯片的引用。
-
-- 遍历第一张幻灯片中的所有形状。
-
-- 检查形状是否为 SmartArt 类型，并在是 SmartArt 时将选定的形状强制转换为 SmartArt。
-
+- 通过索引获取第一张幻灯片的引用。
+- 遍历第一张幻灯片中的每个形状。
+- 检查形状是否为 SmartArt 类型，如果是，则将选定的形状强制转换为 SmartArt。
 - 遍历 SmartArt 形状中的所有节点。
-
-- 访问并显示信息，如 SmartArt 节点的位置、层级和文本。
+- 访问并显示信息，例如 SmartArt 节点的位置、层级和文本。
 ```c#
   // 加载所需的演示文稿
    Presentation pres = new Presentation("AccessSmartArt.pptx");
@@ -141,19 +143,18 @@ pres.Save("AddSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.
 ```
 
 
-  
 
 
 ## **访问 SmartArt 子节点**
-以下示例代码帮助访问 SmartArt 形状中相应节点的子节点。
+以下示例代码将帮助访问 SmartArt 形状中各节点的子节点。
 
 - 创建 PresentationEx 类的实例并加载包含 SmartArt 形状的演示文稿。
-- 使用索引获取第一张幻灯片的引用。
-- 遍历第一张幻灯片中的所有形状。
-- 检查形状是否为 SmartArt 类型，并在是 SmartArt 时将选定的形状强制转换为 SmartArtEx。
+- 通过索引获取第一张幻灯片的引用。
+- 遍历第一张幻灯片中的每个形状。
+- 检查形状是否为 SmartArt 类型，如果是，则将选定的形状强制转换为 SmartArtEx。
 - 遍历 SmartArt 形状中的所有节点。
-- 对于每个选定的 SmartArt 节点，遍历该节点内部的所有子节点。
-- 访问并显示信息，如子节点的位置、层级和文本。
+- 对于每个选定的 SmartArt 形状节点，遍历该节点内的所有子节点。
+- 访问并显示子节点的位置、层级和文本等信息。
 ```c#
 // 加载所需的演示文稿
 Presentation pres = new Presentation("AccessChildNodes.pptx");
@@ -194,15 +195,15 @@ foreach (IShape shape in pres.Slides[0].Shapes)
 
 
 ## **在特定位置访问 SmartArt 子节点**
-本示例演示如何在特定位置访问 SmartArt 形状中相应节点的子节点。
+以下示例将演示如何在特定位置访问 SmartArt 形状中各节点的子节点。
 
 - 创建 `Presentation` 类的实例。
-- 使用索引获取第一张幻灯片的引用。
-- 添加一个 StackedList 类型的 SmartArt 形状。
-- 访问添加的 SmartArt 形状。
-- 访问该 SmartArt 形状中索引为 0 的节点。
-- 现在，使用 GetNodeByPosition() 方法在该节点的第 1 位置访问子节点。
-- 访问并显示信息，如子节点的位置、层级和文本。
+- 通过索引获取第一张幻灯片的引用。
+- 添加 StackedList 类型的 SmartArt 形状。
+- 访问已添加的 SmartArt 形状。
+- 获取访问的 SmartArt 形状中索引为 0 的节点。
+- 随后，使用 GetNodeByPosition() 方法访问该 SmartArt 节点中位置为 1 的子节点。
+- 访问并显示子节点的位置、层级和文本等信息。
 ```c#
  // 实例化演示文稿
  Presentation pres = new Presentation();
@@ -213,10 +214,10 @@ foreach (IShape shape in pres.Slides[0].Shapes)
  // 在第一张幻灯片中添加 SmartArt 形状
  ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
 
- // 访问索引 0 处的 SmartArt  节点
+ // 访问索引 0 处的 SmartArt 节点
  ISmartArtNode node = smart.AllNodes[0];
 
- // 在父节点中访问位置 1 的子节点
+ // 在父节点中访问位置为 1 的子节点
  int position = 1;
  SmartArtNode chNode = (SmartArtNode)node.ChildNodes[position]; 
 
@@ -228,14 +229,14 @@ foreach (IShape shape in pres.Slides[0].Shapes)
 
 
 
-## **移除 SmartArt 节点**
-本示例演示如何移除 SmartArt 形状中的节点。
+## **删除 SmartArt 节点**
+以下示例将演示如何删除 SmartArt 形状中的节点。
 
 - 创建 `Presentation` 类的实例并加载包含 SmartArt 形状的演示文稿。
-- 使用索引获取第一张幻灯片的引用。
-- 遍历第一张幻灯片中的所有形状。
-- 检查形状是否为 SmartArt 类型，并在是 SmartArt 时将选定的形状强制转换为 SmartArt。
-- 检查 SmartArt 是否拥有大于 0 的节点。
+- 通过索引获取第一张幻灯片的引用。
+- 遍历第一张幻灯片中的每个形状。
+- 检查形状是否为 SmartArt 类型，如果是，则将选定的形状强制转换为 SmartArt。
+- 检查 SmartArt 是否拥有超过 0 个节点。
 - 选择要删除的 SmartArt 节点。
 - 现在，使用 RemoveNode() 方法删除选定的节点并保存演示文稿。
 ```c#
@@ -258,7 +259,7 @@ using (Presentation pres = new Presentation("RemoveNode.pptx"))
                 // 访问索引 0 处的 SmartArt 节点
                 ISmartArtNode node = smart.AllNodes[0];
 
-                // 删除所选节点
+                // 删除选定的节点
                 smart.AllNodes.RemoveNode(node);
 
             }
@@ -273,22 +274,22 @@ using (Presentation pres = new Presentation("RemoveNode.pptx"))
 
 
 
-## **在特定位置移除 SmartArt 节点**
-本示例演示如何在特定位置移除 SmartArt 形状中的节点。
+## **在特定位置删除 SmartArt 节点**
+以下示例将演示如何在特定位置删除 SmartArt 形状中的节点。
 
 - 创建 `Presentation` 类的实例并加载包含 SmartArt 形状的演示文稿。
-- 使用索引获取第一张幻灯片的引用。
-- 遍历第一张幻灯片中的所有形状。
-- 检查形状是否为 SmartArt 类型，并在是 SmartArt 时将选定的形状强制转换为 SmartArt。
+- 通过索引获取第一张幻灯片的引用。
+- 遍历第一张幻灯片中的每个形状。
+- 检查形状是否为 SmartArt 类型，如果是，则将选定的形状强制转换为 SmartArt。
 - 选择索引为 0 的 SmartArt 形状节点。
-- 现在，检查选定的 SmartArt 节点是否拥有超过 2 个子节点。
-- 使用 RemoveNodeByPosition() 方法删除位置 1 的节点。
+- 检查所选 SmartArt 节点是否拥有超过 2 个子节点。
+- 随后，使用 RemoveNodeByPosition() 方法删除位置为 1 的节点。
 - 保存演示文稿。
 ```c#
 // 加载所需的演示文稿             
 Presentation pres = new Presentation("RemoveNodeSpecificPosition.pptx");
 
-// Traverse through every shape inside first slide
+// 遍历第一张幻灯片中的每个形状
 foreach (IShape shape in pres.Slides[0].Shapes)
 {
     // 检查形状是否为 SmartArt 类型
@@ -320,7 +321,7 @@ pres.Save("RemoveSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveForm
 
 
 ## **为 SmartArt 子节点设置自定义位置**
-现在 Aspose.Slides for .NET 支持设置 SmartArtShape 的 X 和 Y 属性。下面的代码片段展示了如何设置自定义的 SmartArtShape 位置、大小和旋转，请注意，添加新节点会重新计算所有节点的位置和大小。
+现在 Aspose.Slides for .NET 支持设置 SmartArtShape 的 X 和 Y 属性。下面的代码片段展示了如何自定义 SmartArtShape 的位置、大小和旋转，请注意，添加新节点会导致所有节点的位置和大小重新计算。
 ```c#
 // 加载所需的演示文稿
 Presentation pres = new Presentation("AccessChildNodes.pptx");
@@ -328,7 +329,7 @@ Presentation pres = new Presentation("AccessChildNodes.pptx");
 {
 	ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(20, 20, 600, 500, SmartArtLayoutType.OrganizationChart);
 
-	// 移动 SmartArt 形状到新位置
+	// 将 SmartArt 形状移动到新位置
 	ISmartArtNode node = smart.AllNodes[1];
 	ISmartArtShape shape = node.Shapes[1];
 	shape.X += (shape.Width * 2);
@@ -357,12 +358,12 @@ Presentation pres = new Presentation("AccessChildNodes.pptx");
 
 
 ## **检查助理节点**
-以下示例代码将演示如何识别 SmartArt 节点集合中的助理节点并对其进行更改。
+以下示例代码说明如何在 SmartArt 节点集合中识别助理节点并对其进行更改。
 
 - 创建 PresentationEx 类的实例并加载包含 SmartArt 形状的演示文稿。
-- 使用索引获取第二张幻灯片的引用。
-- 遍历第一张幻灯片中的所有形状。
-- 检查形状是否为 SmartArt 类型，并在是 SmartArt 时将选定的形状强制转换为 SmartArtEx。
+- 通过索引获取第二张幻灯片的引用。
+- 遍历第一张幻灯片中的每个形状。
+- 检查形状是否为 SmartArt 类型，如果是，则将选定的形状强制转换为 SmartArtEx。
 - 遍历 SmartArt 形状中的所有节点并检查它们是否为助理节点。
 - 将助理节点的状态更改为普通节点。
 - 保存演示文稿。
@@ -401,7 +402,7 @@ using (Presentation pres = new Presentation("AssistantNode.pptx"))
 
 
 ## **设置节点的填充格式**
-Aspose.Slides for .NET 允许添加自定义 SmartArt 形状并设置其填充格式。本文介绍如何创建和访问 SmartArt 形状以及使用 Aspose.Slides for .NET 设置其填充格式。
+Aspose.Slides for .NET 可以添加自定义 SmartArt 形状并设置其填充格式。本文档阐述了如何创建和访问 SmartArt 形状以及使用 Aspose.Slides for .NET 设置其填充格式的步骤。
 
 请按以下步骤操作：
 
@@ -440,12 +441,12 @@ using (Presentation presentation = new Presentation())
 开发者可以按照以下步骤生成 SmartArt 子节点的缩略图：
 
 1. 实例化表示 PPTX 文件的 `Presentation` 类。
-1. 添加 SmartArt。
-1. 使用索引获取节点的引用。
-1. 获取缩略图图像。
-1. 将缩略图图像保存为任意所需的图像格式。
+2. 添加 SmartArt。
+3. 通过索引获取节点的引用
+4. 获取缩略图。
+5. 将缩略图以任意所需的图像格式保存。
 
-下面的示例演示了生成 SmartArt 子节点缩略图的过程
+下面的示例生成 SmartArt 子节点的缩略图
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -462,20 +463,20 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **常见问题**
+## **FAQ**
 
 **是否支持 SmartArt 动画？**
 
-是的。SmartArt 被视为普通形状，您可以[应用标准动画](/slides/zh/net/shape-animation/)(进入、退出、强调、运动路径)并调整时间。必要时也可以为 SmartArt 节点内的形状设置动画。
+是的。SmartArt 被视为普通形状，因此您可以[应用标准动画](/slides/zh/net/shape-animation/)（进入、退出、强调、运动路径）并调整时间。如果需要，还可以对 SmartArt 节点内的形状进行动画设置。
 
-**如果不知道内部 ID，如何可靠定位幻灯片上的特定 SmartArt？**
+**如果未知内部 ID，如何可靠地定位幻灯片上的特定 SmartArt？**
 
-通过[替代文本](https://reference.aspose.com/slides/net/aspose.slides/shape/alternativetext/)进行标记并搜索。为 SmartArt 设置唯一的 AltText，即可在代码中无需依赖内部标识符进行定位。
+通过[alternative text](https://reference.aspose.com/slides/net/aspose.slides/shape/alternativetext/)进行分配并搜索。为 SmartArt 设置唯一的 AltText，可在程序中无需依赖内部标识符即可找到它。
 
-**将演示文稿转换为 PDF 时，SmartArt 的外观会被保留吗？**
+**将演示文稿转换为 PDF 时，SmartArt 的外观是否会保留？**
 
-会的。Aspose.Slides 在[PDF 导出](/slides/zh/net/convert-powerpoint-to-pdf/)过程中以高视觉保真度渲染 SmartArt，保持布局、颜色和效果。
+是的。Aspose.Slides 在[PDF 导出](/slides/zh/net/convert-powerpoint-to-pdf/)期间以高视觉保真度渲染 SmartArt，保留布局、颜色和效果。
 
-**我能提取整个 SmartArt 的图像用于预览或报告吗？**
+**我能提取整个 SmartArt 的图像吗（用于预览或报告）？**
 
-可以。您可以将 SmartArt 形状渲染为[光栅格式](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/)或[SVG](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/)以获得可缩放的矢量输出，适用于缩略图、报告或网页使用。
+是的。您可以将 SmartArt 形状渲染为[raster formats](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/)或[SVG](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/)，以获得可缩放的矢量输出，适用于缩略图、报告或网页使用。

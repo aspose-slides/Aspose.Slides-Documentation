@@ -1,35 +1,46 @@
 ---
-title: Platzhalter verwalten
+title: Verwalten von Präsentationsplatzhaltern in .NET
+linktitle: Platzhalter verwalten
 type: docs
 weight: 10
 url: /de/net/manage-placeholder/
-keywords: "Platzhalter, Platzhaltertext, Eingabeaufforderungstext, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Platzhaltertext und Eingabeaufforderungstext in PowerPoint-Präsentationen in C# oder .NET ändern"
+keywords:
+- Platzhalter
+- Textplatzhalter
+- Bildplatzhalter
+- Diagrammplatzhalter
+- Hinweistext
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Verwalten Sie mühelos Platzhalter in Aspose.Slides für .NET: Text ersetzen, Hinweistexte anpassen und Bildtransparenz in PowerPoint und OpenDocument festlegen."
 ---
 
-## **Text im Platzhalter ändern**
-Mit [Aspose.Slides for .NET](/slides/de/net/) können Sie Platzhalter auf Folien in Präsentationen finden und ändern. Aspose.Slides ermöglicht es Ihnen, den Text in einem Platzhalter zu ändern.
+## **Text in Platzhalter ändern**
+Mit [Aspose.Slides für .NET](/slides/de/net/) können Sie Platzhalter in Folien von Präsentationen finden und ändern. Aspose.Slides ermöglicht es, den Text in einem Platzhalter zu ändern.
 
-**Voraussetzung**: Sie benötigen eine Präsentation, die einen Platzhalter enthält. Sie können eine solche Präsentation in der standardmäßigen Microsoft PowerPoint‑Anwendung erstellen.
+**Voraussetzung**: Sie benötigen eine Präsentation, die einen Platzhalter enthält. Eine solche Präsentation können Sie in der Standard‑Microsoft‑PowerPoint‑App erstellen.
 
 So verwenden Sie Aspose.Slides, um den Text im Platzhalter dieser Präsentation zu ersetzen:
 
 1. Instanziieren Sie die [`Presentation`](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse und übergeben Sie die Präsentation als Argument.
-2. Holen Sie eine Folienreferenz über ihren Index.
-3. Iterieren Sie über die Formen, um den Platzhalter zu finden.
-4. Typcasten Sie die Platzhalterform zu einer [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) und ändern Sie den Text mithilfe des [`TextFrame`](https://reference.aspose.com/slides/net/aspose.slides/textframe/), das mit der [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) verknüpft ist.
+2. Holen Sie sich eine Folienreferenz über deren Index.
+3. Durchlaufen Sie die Shapes, um den Platzhalter zu finden.
+4. Casten Sie das Platzhalter‑Shape zu einem [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) und ändern Sie den Text über das [`TextFrame`](https://reference.aspose.com/slides/net/aspose.slides/textframe/), das dem [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) zugeordnet ist. 
 5. Speichern Sie die geänderte Präsentation.
 
-Dieser C#‑Code zeigt, wie man den Text in einem Platzhalter ändert:
+Dieser C#‑Code zeigt, wie Sie den Text in einem Platzhalter ändern:
 ```c#
-// Instanziiert eine Presentation-Klasse
+// Instanziert eine Presentation-Klasse
 using (Presentation pres = new Presentation("ReplacingText.pptx"))
 {
 
     // Greift auf die erste Folie zu
     ISlide sld = pres.Slides[0];
 
-    // Durchläuft die Formen, um den Platzhalter zu finden
+    // Durchläuft Shapes, um den Platzhalter zu finden
     foreach (IShape shp in sld.Shapes)
         if (shp.Placeholder != null)
         {
@@ -43,8 +54,9 @@ using (Presentation pres = new Presentation("ReplacingText.pptx"))
 ```
 
 
-## **Prompt‑Text im Platzhalter festlegen**
-Standard‑ und vorgefertigte Layouts enthalten Platzhalter‑Prompt‑Texte wie ***Klicken Sie, um einen Titel hinzuzufügen*** oder ***Klicken Sie, um einen Untertitel hinzuzufügen***. Mit Aspose.Slides können Sie Ihre bevorzugten Prompt‑Texte in Platzhalter‑Layouts einfügen.
+
+## **Platzhalter‑Prompt‑Text festlegen**
+Standard‑ und vordefinierte Layouts enthalten Platzhalter‑Prompt‑Texte wie ***Klicken Sie, um einen Titel hinzuzufügen*** oder ***Klicken Sie, um einen Untertitel hinzuzufügen***. Mit Aspose.Slides können Sie Ihre bevorzugten Prompt‑Texte in Platzhalter‑Layouts einfügen.
 
 Dieser C#‑Code zeigt, wie Sie den Prompt‑Text in einem Platzhalter festlegen:
 ```c#
@@ -77,7 +89,8 @@ using (Presentation pres = new Presentation("Presentation2.pptx"))
 
 
 ## **Transparenz des Platzhalter‑Bildes festlegen**
-Aspose.Slides ermöglicht es Ihnen, die Transparenz des Hintergrundbildes in einem Text‑Platzhalter festzulegen. Durch Anpassen der Transparenz des Bildes in einem solchen Rahmen können Sie den Text oder das Bild hervorheben (abhängig von den Farben von Text und Bild).
+
+Aspose.Slides ermöglicht es, die Transparenz des Hintergrundbildes in einem Text‑Platzhalter zu setzen. Durch Anpassen der Transparenz des Bildes in einem solchen Rahmen können Sie den Text oder das Bild hervorheben (abhängig von den Farben von Text und Bild).
 
 Dieser C#‑Code zeigt, wie Sie die Transparenz für einen Bild‑Hintergrund (innerhalb einer Form) festlegen:
 ```c#
@@ -95,14 +108,14 @@ using (var presentation = new Presentation())
 
 ## **FAQ**
 
-**Was ist ein Basis‑Platzhalter und wie unterscheidet er sich von einer lokalen Form auf einer Folie?**
+**Was ist ein Basis‑Platzhalter und wie unterscheidet er sich von einem lokalen Shape auf einer Folie?**
 
-Ein Basis‑Platzhalter ist die ursprüngliche Form in einem Layout oder einer Master‑Folienvorlage, von der die Form der Folie erbt – Typ, Position und einige Formatierungen stammen daraus. Eine lokale Form ist unabhängig; existiert kein Basis‑Platzhalter, findet keine Vererbung statt.
+Ein Basis‑Platzhalter ist das ursprüngliche Shape in einem Layout oder Master, von dem das Folien‑Shape erbt – Typ, Position und einige Formatierungen stammen daraus. Ein lokales Shape ist unabhängig; gibt es keinen Basis‑Platzhalter, gilt die Vererbung nicht.
 
-**Wie kann ich alle Titel oder Beschriftungen in einer Präsentation aktualisieren, ohne über jede Folie zu iterieren?**
+**Wie kann ich alle Titel oder Bildunterschriften einer Präsentation aktualisieren, ohne jede Folie einzeln zu durchlaufen?**
 
-Bearbeiten Sie den entsprechenden Platzhalter im Layout oder im Master. Folien, die auf diesen Layouts/ diesem Master basieren, übernehmen die Änderung automatisch.
+Bearbeiten Sie den entsprechenden Platzhalter im Layout oder im Master. Folien, die auf diesen Layouts/diesem Master basieren, übernehmen die Änderung automatisch.
 
-**Wie steuere ich die Standard‑Kopf‑/Fußzeilen‑Platzhalter — Datum & Uhrzeit, Foliennummer und Fußzeilentext?**
+**Wie steuere ich die Standard‑Kopf‑/Fußzeilen‑Platzhalter – Datum & Uhrzeit, Foliennummer und Fußzeilentext?**
 
-Verwenden Sie die HeaderFooter‑Manager im jeweiligen Geltungsbereich (normale Folien, Layouts, Master, Notizen/Handzettel), um diese Platzhalter ein- oder auszuschalten und ihren Inhalt festzulegen.
+Verwenden Sie die HeaderFooter‑Manager im jeweiligen Geltungsbereich (normale Folien, Layouts, Master, Notizen/Handouts), um diese Platzhalter ein- oder auszuschalten und ihren Inhalt festzulegen.

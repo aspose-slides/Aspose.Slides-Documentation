@@ -1,28 +1,43 @@
 ---
-title: アニメーション化されたチャート
+title: ".NETでPowerPointチャートをアニメーション化"
+linktitle: "アニメーション化されたチャート"
 type: docs
 weight: 80
 url: /ja/net/animated-charts/
-keywords: "チャート, チャートシリーズ, アニメーション PowerPoint プレゼンテーション, PPTX, PPT, C#, Csharp, Aspose.Slides for .NET"
-description: "C# または .NET での PowerPoint チャートシリーズとアニメーション"
+keywords:
+- "チャート"
+- "アニメーション化されたチャート"
+- "チャートアニメーション"
+- "チャートシリーズ"
+- "チャートカテゴリ"
+- "シリーズ要素"
+- "カテゴリ要素"
+- "エフェクトの追加"
+- "エフェクトの種類"
+- "PowerPoint"
+- "プレゼンテーション"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides を使用して .NET で驚くべきアニメーションチャートを作成しましょう。PPT および PPTX ファイルで動的なビジュアルを取り入れ、プレゼンテーションを強化します—今すぐ始めましょう。"
 ---
 
-Aspose.Slides for .NET はチャート要素のアニメーションをサポートしています。**Series**、**Categories**、**Series Elements**、**Categories Elements** は [**ISequence**.**AddEffect**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence/methods/addeffect) メソッドと 2 つの列挙型 **EffectChartMajorGroupingType** と **EffectChartMinorGroupingType** を使用してアニメーション化できます。
+Aspose.Slides for .NET はチャート要素のアニメーションをサポートしています。 **Series**、**Categories**、**Series Elements**、**Categories Elements** は [**ISequence**.**AddEffect**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence/methods/addeffect) メソッドと、2 つの列挙体 [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/net/aspose.slides.animation/effectchartmajorgroupingtype) と [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/net/aspose.slides.animation/effectchartminorgroupingtype) を使用してアニメーション化できます。
 
-## **Chart Series Animation**
-チャートのシリーズをアニメーション化したい場合は、以下の手順に従ってコードを記述します。
+## **チャートシリーズのアニメーション**
+チャートシリーズをアニメーション化したい場合は、以下の手順に従ってコードを書いてください。
 
-1. プレゼンテーションを読み込みます。  
-1. チャート オブジェクトへの参照を取得します。  
-1. シリーズをアニメーション化します。  
-1. プレゼンテーション ファイルをディスクに書き出します。
+1. プレゼンテーションを読み込む。  
+1. チャートオブジェクトの参照を取得する。  
+1. シリーズをアニメーション化する。  
+1. プレゼンテーションファイルをディスクに書き込む。
 
 以下の例では、チャートシリーズをアニメーション化しています。  
 ```c#
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンス化 
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // チャート オブジェクトへの参照を取得
+    // チャート オブジェクトの参照を取得
     var slide = presentation.Slides[0] as Slide;
     var shapes = slide.Shapes as ShapeCollection;
     var chart = shapes[0] as IChart;
@@ -47,30 +62,30 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
     EffectChartMajorGroupingType.BySeries, 3,
     EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // 変更されたプレゼンテーションをディスクに保存
+    // 修正したプレゼンテーションをディスクに保存 
     presentation.Save("AnimatingSeries_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-## **Chart Category Animation**
-チャートのカテゴリをアニメーション化したい場合は、以下の手順に従ってコードを記述します。
+## **チャートカテゴリのアニメーション**
+チャートカテゴリをアニメーション化したい場合は、以下の手順に従ってコードを書いてください。
 
-1. プレゼンテーションを読み込みます。  
-1. チャート オブジェクトへの参照を取得します。  
-1. カテゴリをアニメーション化します。  
-1. プレゼンテーション ファイルをディスクに書き出します。
+1. プレゼンテーションを読み込む。  
+1. チャートオブジェクトの参照を取得する。  
+1. カテゴリをアニメーション化する。  
+1. プレゼンテーションファイルをディスクに書き込む。
 
 以下の例では、チャートカテゴリをアニメーション化しています。  
 ```c#
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // チャートオブジェクトへの参照を取得
+    // チャートオブジェクトの参照を取得
     var slide = presentation.Slides[0] as Slide;
     var shapes = slide.Shapes as ShapeCollection;
     var chart = shapes[0] as IChart;
 
-    // カテゴリ要素をアニメーション化
+    // カテゴリの要素をアニメーション化
     slide.Timeline.MainSequence.AddEffect(chart, EffectType.Fade, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 0, 0, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 0, 1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
@@ -93,20 +108,20 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 ```
 
 
-## **Animation in Series Element**
-シリーズ要素をアニメーション化したい場合は、以下の手順に従ってコードを記述します。
+## **シリーズ要素のアニメーション**
+シリーズ要素をアニメーション化したい場合は、以下の手順に従ってコードを書いてください。
 
-1. プレゼンテーションを読み込みます。  
-1. チャート オブジェクトへの参照を取得します。  
-1. シリーズ要素をアニメーション化します。  
-1. プレゼンテーション ファイルをディスクに書き出します。
+1. プレゼンテーションを読み込む。  
+1. チャートオブジェクトの参照を取得する。  
+1. シリーズ要素をアニメーション化する。  
+1. プレゼンテーションファイルをディスクに書き込む。
 
-以下の例では、シリーズの要素をアニメーション化しました。  
+以下の例では、シリーズの要素をアニメーション化しています。  
 ```c#
  // プレゼンテーションを読み込む
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // チャートオブジェクトへの参照を取得
+    // チャートオブジェクトの参照を取得
     var slide = presentation.Slides[0] as Slide;
     var shapes = slide.Shapes as ShapeCollection;
     var chart = shapes[0] as IChart;
@@ -129,25 +144,25 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 2, 2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // プレゼンテーションファイルをディスクに保存
+    // プレゼンテーションファイルをディスクに保存 
     presentation.Save("AnimatingSeriesElements_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-## **Animation in Category Element**
-カテゴリ要素をアニメーション化したい場合は、以下の手順に従ってコードを記述します。
+## **カテゴリ要素のアニメーション**
+カテゴリ要素をアニメーション化したい場合は、以下の手順に従ってコードを書いてください。
 
-1. プレゼンテーションを読み込みます。  
-1. チャート オブジェクトへの参照を取得します。  
-1. カテゴリ要素をアニメーション化します。  
-1. プレゼンテーション ファイルをディスクに書き出します。
+1. プレゼンテーションを読み込む。  
+1. チャートオブジェクトの参照を取得する。  
+1. カテゴリ要素をアニメーション化する。  
+1. プレゼンテーションファイルをディスクに書き込む。
 
-以下の例では、カテゴリ要素をアニメーション化しました。  
+以下の例では、カテゴリ要素をアニメーション化しています。  
 ```c#
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // チャートオブジェクトへの参照を取得
+    // チャートオブジェクトの参照を取得
     var slide = presentation.Slides[0] as Slide;
     var shapes = slide.Shapes as ShapeCollection;
     var chart = shapes[0] as IChart;
@@ -177,22 +192,22 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 ## **FAQ**
 
-**Are different effect types (e.g., entrance, emphasis, exit) supported for charts like for regular shapes?**
+**異なる効果タイプ（例：開始、強調、終了）は、通常の図形と同様にチャートでもサポートされていますか？**
 
-はい。チャートはシェイプとして扱われるため、エントランス、エンファシス、エグジットなどの標準的なアニメーション効果タイプがすべてサポートされ、スライドのタイムラインとアニメーション シーケンスでフルコントロールできます。
+はい。チャートは図形として扱われるため、開始、強調、終了などの標準的なアニメーション効果タイプをすべてサポートし、スライドのタイムラインとアニメーションシーケンスで完全に制御できます。
 
-**Can I combine chart animation with slide transitions?**
+**チャートのアニメーションとスライドのトランジションを組み合わせることはできますか？**
 
-はい。[Transitions](/slides/ja/net/slide-transition/) はスライド全体に適用され、アニメーション効果はスライド上のオブジェクトに適用されます。両方を同じプレゼンテーションで組み合わせて使用でき、それぞれを個別に制御できます。
+はい。[トランジション](/slides/ja/net/slide-transition/)はスライド全体に適用され、アニメーション効果はスライド上のオブジェクトに適用されます。両方を同じプレゼンテーションで併用し、個別に制御できます。
 
-**Are chart animations preserved when saving to PPTX?**
+**PPTX に保存したときにチャートのアニメーションは保持されますか？**
 
-はい。プレゼンテーションを[save to PPTX](/slides/ja/net/save-presentation/) すると、すべてのアニメーション効果とその順序がプレゼンテーションのネイティブ アニメーション モデルの一部として保持されます。
+はい。[PPTX に保存](/slides/ja/net/save-presentation/)すると、すべてのアニメーション効果とその順序が保持されます。これはプレゼンテーションのネイティブなアニメーションモデルの一部だからです。
 
-**Can I read existing chart animations from a presentation and modify them?**
+**既存のチャートアニメーションを読み取って変更することはできますか？**
 
-はい。[API](https://reference.aspose.com/slides/net/aspose.slides.animation/) はスライドのタイムライン、シーケンス、エフェクトへのアクセスを提供し、既存のチャート アニメーションを検査し、最初から作り直すことなく変更できます。
+はい。[API](https://reference.aspose.com/slides/net/aspose.slides.animation/) はスライドのタイムライン、シーケンス、エフェクトへのアクセスを提供するため、既存のチャートアニメーションを検査し、再作成せずに調整できます。
 
-**Can I produce a video that includes chart animations using Aspose.Slides?**
+**Aspose.Slides を使ってチャートアニメーションを含むビデオを作成できますか？**
 
-はい。プレゼンテーションを[export a presentation to video](/slides/ja/net/convert-powerpoint-to-video/) すると、アニメーションを保持したままビデオにエクスポートでき、タイミングやその他のエクスポート設定を構成して、アニメーション再生を反映したクリップを作成できます。
+はい。[プレゼンテーションをビデオにエクスポート](/slides/ja/net/convert-powerpoint-to-video/)すれば、アニメーションを保持したままビデオを作成でき、タイミングやその他のエクスポート設定を構成して、アニメーション再生を正しく反映したクリップを生成できます。

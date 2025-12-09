@@ -1,13 +1,23 @@
 ---
-title: ملاحظة توضيحية
+title: إدارة الملاحظات التوضيحية في مخططات العرض التقديمي في .NET
+linktitle: ملاحظة توضيحية
 type: docs
 url: /ar/net/callout/
-keywords: "ملاحظة توضيحية للمخطط, تسمية بيانات المخطط, C#, Csharp, Aspose.Slides for .NET"
-description: "ملاحظات توضيحية للمخططات وتسمية البيانات في PowerPoint باستخدام C# أو .NET"
+keywords:
+- ملاحظة توضيحية للمخطط
+- استخدام الملاحظة التوضيحية
+- تسمية البيانات
+- تنسيق التسمية
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "إنشاء وتنسيق الملاحظات التوضيحية في Aspose.Slides لـ .NET باستخدام أمثلة شفرة C# مختصرة، متوافقة مع PPT و PPTX لأتمتة سير عمل العروض التقديمية."
 ---
 
 ## **استخدام الملاحظات التوضيحية**
-تمت إضافة الخاصية الجديدة **ShowLabelAsDataCallout** إلى الفئة **DataLabelFormat** والواجهة **IDataLabelFormat**، والتي تحدد ما إذا كان سيتم عرض تسمية البيانات للمخطط المحدد كملاحظة توضيحية أو كتسمية بيانات. في المثال المذكور أدناه، قمنا بتعيين الملاحظات التوضيحية.
+تم إضافة الخاصية الجديدة **ShowLabelAsDataCallout** إلى الفئة **DataLabelFormat** والواجهة **IDataLabelFormat**، والتي تحدد ما إذا كان تسمية البيانات في المخطط المحدد ستُعرض كملاحظة توضيحية للبيانات أو كتسمية بيانات. في المثال أدناه، قمنا بتعيين الملاحظات التوضيحية.
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -21,7 +31,7 @@ using (Presentation presentation = new Presentation())
 
 
 ## **تعيين ملاحظة توضيحية لمخطط الدونات**
-توفر Aspose.Slides for .NET دعمًا لتعيين شكل ملاحظة توضيحية لتسمية بيانات السلسلة لمخطط الدونات. يُعطى المثال التالي.
+يُقدّم Aspose.Slides لـ .NET دعمًا لتعيين شكل ملاحظة توضيحية لتسمية بيانات السلسلة في مخطط الدونات. المثال التالي موضح أدناه.
 ```c#
 Presentation pres = new Presentation("testc.pptx");
 ISlide slide = pres.Slides[0];
@@ -82,12 +92,12 @@ pres.Save("chart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يتم الحفاظ على الملاحظات التوضيحية عند تحويل العرض التقديمي إلى PDF أو HTML5 أو SVG أو صور؟**
+**هل يتم الاحتفاظ بالملاحظات التوضيحية عند تحويل العرض التقديمي إلى PDF أو HTML5 أو SVG أو صور؟**
 
-نعم. الملاحظات التوضيحية هي جزء من عرض المخطط، لذلك عند تصدير إلى [PDF](/slides/ar/net/convert-powerpoint-to-pdf/)، [HTML5](/slides/ar/net/export-to-html5/)، [SVG](/slides/ar/net/render-a-slide-as-an-svg-image/)، أو [raster images](/slides/ar/net/convert-powerpoint-to-png/)، يتم الحفاظ عليها مع تنسيق الشريحة.
+نعم. الملاحظات التوضيحية هي جزء من عملية تصيير المخطط، لذا عند تصدير إلى [PDF](/slides/ar/net/convert-powerpoint-to-pdf/),[HTML5](/slides/ar/net/export-to-html5/),[SVG](/slides/ar/net/render-a-slide-as-an-svg-image/), أو [raster images](/slides/ar/net/convert-powerpoint-to-png/)، يتم الاحتفاظ بها مع تنسيق الشريحة.
 
 **هل تعمل الخطوط المخصصة في الملاحظات التوضيحية، وهل يمكن الحفاظ على مظهرها عند التصدير؟**
 
-نعم. تدعم Aspose.Slides [embedding fonts](/slides/ar/net/embedded-font/) في العرض وتتحكم في تضمين الخطوط أثناء التصدير مثل [PDF](/slides/ar/net/convert-powerpoint-to-pdf/)، مما يضمن أن تبدو الملاحظات التوضيحية نفسها عبر الأنظمة المختلفة.
+نعم. يدعم Aspose.Slides [embedding fonts](/slides/ar/net/embedded-font/) في العرض التقديمي ويتحكم في تضمين الخطوط أثناء عمليات التصدير مثل [PDF](/slides/ar/net/convert-powerpoint-to-pdf/)، مما يضمن أن الملاحظات التوضيحية تبدو متطابقة عبر الأنظمة المختلفة.

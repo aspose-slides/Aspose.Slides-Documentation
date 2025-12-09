@@ -1,22 +1,24 @@
 ---
-title: チャートのエクスポート
+title: プレゼンテーションのチャートを.NETでエクスポート
+linktitle: チャートのエクスポート
 type: docs
 weight: 90
 url: /ja/net/export-chart/
 keywords:
 - チャート
-- チャート画像
+- チャートから画像へ
+- 画像としてのチャート
 - チャート画像の抽出
 - PowerPoint
 - プレゼンテーション
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "C#または.NETでPowerPointプレゼンテーションからチャート画像を取得する"
+- Aspose.Slides
+description: "Aspose.Slides for .NET を使用してプレゼンテーションのチャートをエクスポートする方法を学び、PPT および PPTX 形式に対応し、任意のワークフローへのレポート作成を効率化します。"
 ---
 
-## **チャート画像を取得**
-Aspose.Slides for .NET は特定のチャートの画像取得をサポートしています。以下にサンプル例を示します。  
+## **チャート画像の取得**
+Aspose.Slides for .NET は、特定のチャートの画像抽出をサポートしています。以下にサンプル例が示されています。
 ```c#
 using (Presentation presentation = new Presentation("test.pptx"))
 {
@@ -33,22 +35,22 @@ using (Presentation presentation = new Presentation("test.pptx"))
 
 ## **FAQ**
 
-**チャートをラスタ画像ではなくベクトル（SVG）としてエクスポートできますか？**
+**チャートをラスタ画像ではなくベクタ（SVG）としてエクスポートできますか？**
 
-はい。チャートはシェイプであり、その内容は[shape-to-SVG saving method](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/)を使用してSVGとして保存できます。
+はい。チャートはシェイプであり、その内容は[shape-to-SVG 保存メソッド](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/)を使用して SVG に保存できます。
 
-**エクスポートしたチャートのサイズをピクセル単位で正確に設定するにはどうすればよいですか？**
+**エクスポートされたチャートの正確なサイズ（ピクセル単位）を設定するにはどうすればよいですか？**
 
-サイズまたはスケールを指定できる画像レンダリングのオーバーロードを使用してください。ライブラリは指定された寸法/スケールでオブジェクトのレンダリングをサポートします。
+サイズまたはスケールを指定できる image‑rendering のオーバーロードを使用します。ライブラリは指定された寸法/スケールでオブジェクトのレンダリングをサポートしています。
 
 **エクスポート後にラベルや凡例のフォントが正しく表示されない場合はどうすればよいですか？**
 
-必要なフォントは[Load the required fonts](/slides/ja/net/custom-font/)でロードし、[FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/)を使用してください。これにより、チャートのレンダリングがメトリックとテキストの外観を保持します。
+必要なフォントは[必要なフォントをロード](/slides/ja/net/custom-font/) でロードし、[FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/) を介して読み込むことで、チャートのレンダリングがメトリクスとテキストの外観を保持します。
 
-**エクスポートはPowerPointのテーマ、スタイル、エフェクトを尊重しますか？**
+**エクスポートは PowerPoint のテーマ、スタイル、エフェクトを尊重しますか？**
 
-はい。Aspose.Slides のレンダラはプレゼンテーションの書式設定（テーマ、スタイル、塗り、エフェクト）に従うため、チャートの外観が保持されます。
+はい。Aspose.Slides のレンダラはプレゼンテーションの書式設定（テーマ、スタイル、塗りつぶし、エフェクト）に従うため、チャートの外観が維持されます。
 
 **チャート画像以外の利用可能なレンダリング/エクスポート機能はどこで確認できますか？**
 
-出力対象（[PDF](/slides/ja/net/convert-powerpoint-to-pdf/)、[SVG](/slides/ja/net/render-a-slide-as-an-svg-image/)、[XPS](/slides/ja/net/convert-powerpoint-to-xps/)、[HTML](/slides/ja/net/convert-powerpoint-to-html/) など）および関連するレンダリングオプションについては、[API](https://reference.aspose.com/slides/net/aspose.slides.export/)/[documentation](/slides/ja/net/convert-powerpoint/) のエクスポートセクションをご覧ください。
+出力対象（[PDF](/slides/ja/net/convert-powerpoint-to-pdf/)、[SVG](/slides/ja/net/render-a-slide-as-an-svg-image/)、[XPS](/slides/ja/net/convert-powerpoint-to-xps/)、[HTML](/slides/ja/net/convert-powerpoint-to-html/) など）や関連するレンダリングオプションについては、[API](https://reference.aspose.com/slides/net/aspose.slides.export/)/[documentation](/slides/ja/net/convert-powerpoint/) のエクスポートセクションをご覧ください。

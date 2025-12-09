@@ -1,5 +1,5 @@
 ---
-title: Crear y aplicar efectos de WordArt en C#
+title: Crear y aplicar efectos WordArt en .NET
 linktitle: WordArt
 type: docs
 weight: 110
@@ -9,29 +9,28 @@ keywords:
 - crear WordArt
 - plantilla WordArt
 - efecto WordArt
-- efecto de sombra
+- efecto sombra
 - efecto de visualización
-- efecto de brillo
+- efecto brillo
 - transformación WordArt
 - efecto 3D
-- efecto de sombra externa
-- efecto de sombra interna
-- C#
-- Csharp
+- efecto sombra externa
+- efecto sombra interna
 - .NET
+- C#
 - Aspose.Slides
-description: "Aprenda cómo crear y personalizar efectos de WordArt en Aspose.Slides para .NET. Esta guía paso a paso ayuda a los desarrolladores a mejorar presentaciones con texto elegante y profesional en C#."
+description: "Crear y personalizar efectos WordArt en Aspose.Slides para .NET. Esta guía paso a paso ayuda a los desarrolladores a mejorar presentaciones con texto profesional en C#."
 ---
 
 ## **Visión general**
 
-Los efectos de WordArt le permiten añadir texto visualmente atractivo y estilizado a sus presentaciones de PowerPoint. Con Aspose.Slides para .NET, los desarrolladores pueden crear, personalizar y gestionar WordArt de forma programática, tal como en Microsoft PowerPoint, sin necesidad de tener Office instalado. Este artículo ofrece una visión general de cómo trabajar con WordArt en .NET, incluyendo cómo aplicar transformaciones de texto, estilos de relleno, contornos, sombras y otras opciones de formato para que el contenido de su presentación sea más expresivo y atractivo. WordArt le permite tratar el texto como un objeto gráfico. Consiste en efectos o modificaciones especiales aplicadas al texto para hacerlo más atractivo o llamativo.
+Los efectos de WordArt le permiten añadir texto visualmente atractivo y estilizado a sus presentaciones de PowerPoint. Con Aspose.Slides para .NET, los desarrolladores pueden crear, personalizar y gestionar WordArt de forma programática como en Microsoft PowerPoint, sin necesidad de que Office esté instalado. Este artículo ofrece una visión general de cómo trabajar con WordArt en .NET, incluyendo cómo aplicar transformaciones de texto, estilos de relleno, contornos, sombras y otras opciones de formato para que el contenido de su presentación sea más expresivo y atractivo. WordArt le permite tratar el texto como un objeto gráfico. Consiste en efectos o modificaciones especiales aplicadas al texto para hacerlo más atractivo o llamativo.
 
-## **Crear una plantilla simple de WordArt y aplicarla al texto**
+## **Crear una plantilla WordArt simple y aplicarla al texto**
 
-En esta sección, exploraremos cómo crear una plantilla simple de WordArt y aplicarla al texto usando Aspose.Slides para .NET. WordArt ofrece una forma sencilla de mejorar la apariencia del texto con efectos y estilos visuales impactantes. Al aprender los pasos básicos para crear y usar WordArt, podrá adaptar fácilmente estas técnicas a cualquier proyecto, haciendo sus presentaciones más vibrantes y memorables.
+En esta sección, exploraremos cómo crear una plantilla WordArt simple y aplicarla al texto usando Aspose.Slides para .NET. WordArt ofrece una manera fácil de mejorar la apariencia del texto con efectos visuales llamativos y estilos. Al aprender los pasos básicos para crear y usar WordArt, podrá adaptar fácilmente estas técnicas a cualquier proyecto, haciendo sus presentaciones más vibrantes y memorables.
 
-Primero, creamos un texto simple utilizando el siguiente código C#:
+Primero, creamos texto simple usando el siguiente código C#:
 ```cs
 using (Presentation presentation = new Presentation())
 {
@@ -46,14 +45,14 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-Ahora, establecemos la altura de fuente del texto a un valor mayor para que el efecto sea más visible mediante el siguiente código:
+Ahora, establecemos la altura de fuente del texto a un valor mayor para que el efecto sea más visible usando el siguiente código:
 ```cs
     portion.PortionFormat.LatinFont = new FontData("Arial Black");
     portion.PortionFormat.FontHeight = 36;
 ```
 
 
-Aquí, aplicamos el relleno de patrón SmallGrid al texto y añadimos un contorno negro de grosor 1 mediante el siguiente código:
+Aquí, aplicamos el relleno de patrón SmallGrid al texto y añadimos un contorno negro de ancho 1 usando el siguiente código:
 ```cs
     portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
     portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
@@ -67,17 +66,17 @@ Aquí, aplicamos el relleno de patrón SmallGrid al texto y añadimos un contorn
 
 El texto resultante:
 
-![La plantilla simple de WordArt](WordArt_template.png)
+![La plantilla WordArt simple](WordArt_template.png)
 
-## **Aplicar otros efectos de WordArt**
+## **Aplicar otros efectos WordArt**
 
-Además de las transformaciones básicas, Aspose.Slides para .NET le permite aplicar una variedad de efectos avanzados de WordArt para mejorar la apariencia de su texto. Estos incluyen contornos, rellenos, sombras, reflejos y efectos de brillo. Al combinar estas características, puede crear estilos de texto llamativos que destaquen en sus presentaciones. Esta sección muestra cómo aplicar estos efectos de forma programática usando ejemplos de código simples y claros.
+Además de las transformaciones básicas, Aspose.Slides para .NET le permite aplicar una variedad de efectos WordArt avanzados para mejorar la apariencia de su texto. Estos incluyen contornos, rellenos, sombras, reflejos y efectos de brillo. Al combinar estas características, puede crear estilos de texto llamativos que destaquen en sus presentaciones. Esta sección muestra cómo aplicar estos efectos programáticamente mediante ejemplos de código simples y claros.
 
 ### **Aplicar efectos de sombra externa**
 
-Los efectos de sombra externa hacen que el texto destaque al añadir una sombra detrás de su contorno, creando una sensación de profundidad y separación del fondo. Aspose.Slides para .NET le permite aplicar y personalizar fácilmente sombras externas en el texto de WordArt. En esta sección, aprenderá a configurar el color de la sombra, la dirección, la distancia, el radio de difuminado y más para lograr el impacto visual deseado.
+Los efectos de sombra externa ayudan al texto a sobresalir añadiendo una sombra detrás de su contorno, creando una sensación de profundidad y separación del fondo. Aspose.Slides para .NET permite aplicar y personalizar fácilmente sombras externas en texto WordArt. En esta sección, aprenderá a establecer el color, la dirección, la distancia, el radio de desenfoque y más para lograr el impacto visual deseado.
 
-El siguiente fragmento de código C# aplica un efecto de sombra al texto creado anteriormente.
+El fragmento de código C# siguiente aplica un efecto de sombra al texto creado anteriormente.
 ```cs
     portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
     portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
@@ -97,15 +96,15 @@ El texto resultante:
 ![El efecto de sombra externa](outer_shadow_effect.png)
 
 {{% alert color="primary" %}} 
-- Cuando OuterShadow y PresetShadow se usan juntos, solo se aplica el efecto OuterShadow.
+- Cuando se usan OuterShadow y PresetShadow juntos, solo se aplica el efecto OuterShadow.
 - Si OuterShadow e InnerShadow se usan simultáneamente, el efecto resultante depende de la versión de PowerPoint. Por ejemplo, en PowerPoint 2013 el efecto se duplica, mientras que en PowerPoint 2007 solo se aplica el efecto OuterShadow.
 {{% /alert %}}
 
-### **Aplicar efectos de reflejo**
+### **Aplicar efectos de reflexión**
 
-En esta sección, exploraremos cómo aplicar efectos de reflejo en sus diapositivas usando Aspose.Slides para .NET. Los efectos de reflejo pueden ser una forma eficaz de dar a su texto o formas un aspecto elegante y moderno, ayudando a que los elementos clave destaquen y añadiendo profundidad a su presentación. Al comprender el proceso de aplicación y personalización de estos efectos, podrá adaptarlos fácilmente a sus necesidades de diseño y requisitos de marca.
+En esta sección, exploraremos cómo aplicar efectos de reflexión en sus diapositivas usando Aspose.Slides para .NET. Los efectos de reflexión pueden ser una forma eficaz de dar a su texto o formas un aspecto elegante y moderno, ayudando a que los elementos clave destaquen y añadiendo profundidad a su presentación. Al comprender el proceso de aplicación y personalización de estos efectos, podrá adaptarlos fácilmente a sus necesidades de diseño y a los requisitos de su marca.
 
-Añada un efecto de reflejo al texto usando este ejemplo de código C#:
+Añada un efecto de reflexión al texto usando este ejemplo de código C#:
 ```cs
     portion.PortionFormat.EffectFormat.EnableReflectionEffect();
     portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5; 
@@ -123,13 +122,13 @@ Añada un efecto de reflejo al texto usando este ejemplo de código C#:
 
 El texto resultante:
 
-![El efecto de reflejo](reflection_effect.png)
+![El efecto de reflexión](reflection_effect.png)
 
 ### **Aplicar efectos de brillo**
 
-En esta sección, exploraremos cómo aplicar un efecto de brillo al texto usando Aspose.Slides para .NET. El efecto de brillo puede hacer que su texto destaque con un contorno luminoso, mejorando el atractivo visual de sus diapositivas. Al ajustar configuraciones como el color y la intensidad, podrá adaptar fácilmente el brillo a sus necesidades de diseño y marca, asegurando que los puntos clave de su presentación capturen la atención de la audiencia.
+En esta sección, exploraremos cómo aplicar un efecto de brillo al texto usando Aspose.Slides para .NET. El efecto de brillo puede hacer que su texto sobresalga con un contorno luminoso, mejorando el atractivo visual de sus diapositivas. Ajustando configuraciones como el color y la intensidad, podrá adaptar fácilmente el brillo a su diseño y a las necesidades de su marca, asegurando que los puntos clave de su presentación capturen la atención de la audiencia.
 
-Aplique un efecto de brillo al texto para que brille o destaque mediante el siguiente código:
+Aplique un efecto de brillo al texto para que reluzca o destaque usando el siguiente código:
 ```cs
     portion.PortionFormat.EffectFormat.EnableGlowEffect();
     portion.PortionFormat.EffectFormat.GlowEffect.Color.R = 255;
@@ -142,9 +141,9 @@ El texto resultante:
 
 ![El efecto de brillo](glow_effect.png)
 
-### **Aplicar transformaciones de WordArt**
+### **Aplicar transformaciones WordArt**
 
-En esta sección, exploraremos cómo usar transformaciones en WordArt con Aspose.Slides para .NET. Las transformaciones le permiten doblar, estirar o deformar el texto, creando efectos únicos y visualmente impactantes. Al dominar estas técnicas, podrá adaptar fácilmente las formas y estilos del texto a su marca o visión creativa, garantizando una presentación atractiva y pulida.
+En esta sección, exploraremos cómo usar transformaciones en WordArt con Aspose.Slides para .NET. Las transformaciones le permiten doblar, estirar o deformar el texto, creando efectos únicos y visualmente impactantes. Al dominar estas técnicas, podrá adaptar fácilmente formas y estilos de texto a su marca o visión creativa, garantizando una presentación convincente y pulida.
 
 Utilice la propiedad `Transform` (que se aplica a todo el bloque de texto) con el siguiente código:
 ```cs
@@ -154,15 +153,15 @@ Utilice la propiedad `Transform` (que se aplica a todo el bloque de texto) con e
 
 El texto resultante:
 
-![La transformación de WordArt](transform_effect.png)
+![La transformación WordArt](transform_effect.png)
 
 {{% alert color="primary" %}} 
-Aspose.Slides para .NET proporciona un conjunto de [tipos de transformación](https://reference.aspose.com/slides/net/aspose.slides/textshapetype/) predefinidos.
+Aspose.Slides para .NET ofrece un conjunto de [tipos de transformación](https://reference.aspose.com/slides/net/aspose.slides/textshapetype/) predefinidos.
 {{% /alert %}} 
 
 ### **Aplicar efectos 3D a formas y texto**
 
-Crear visuales realistas y llamativos puede mejorar significativamente el impacto de sus presentaciones. En esta sección, exploraremos cómo aplicar efectos tridimensionales (3D) a las formas usando Aspose.Slides para .NET. Al manipular parámetros como profundidad, ángulo e iluminación, podrá generar impresionantes transformaciones 3D que captarán de inmediato la atención de su audiencia. Ya sea que busque resaltados sutiles o ilusiones dramáticas, estas funciones ofrecen formas flexibles de elevar su diseño y transmitir ideas de manera más cautivadora.
+Crear visuales realistas y llamativos puede mejorar significativamente el impacto de sus presentaciones. En esta sección, exploraremos cómo aplicar efectos tridimensionales (3D) a formas usando Aspose.Slides para .NET. Al manipular parámetros como profundidad, ángulo e iluminación, podrá producir transformaciones 3D impresionantes que capten inmediatamente la atención de su audiencia. Ya sea que busque resaltados sutiles o ilusiones dramáticas, estas funciones ofrecen formas flexibles de elevar su diseño y transmitir ideas de manera más cautivadora.
 
 Utilice el siguiente código de ejemplo para aplicar un efecto 3D a la forma:
 ```cs
@@ -229,29 +228,29 @@ El texto resultante:
 ![El efecto 3D del texto](text_3D_effect.png)
 
 {{% alert color="primary" %}} 
-La aplicación de efectos 3D al texto o a sus formas —y la interacción entre estos efectos— está regida por reglas específicas. Considere una escena que involucre tanto un texto como la forma que contiene ese texto. Un efecto 3D incluye la representación 3D del objeto y la escena en la que se coloca.
+La aplicación de efectos 3D al texto o a sus formas—y la interacción entre estos efectos—está regida por reglas específicas. Considere una escena que involucre tanto un texto como la forma que contiene ese texto. Un efecto 3D incluye la representación 3D del objeto y la escena en la que se coloca.
 
-- Si se establece una escena tanto para la forma como para el texto, la escena de la forma tiene prioridad y la escena del texto se ignora.
-- Si la forma no tiene su propia escena pero posee una representación 3D, se utiliza la escena del texto.
-- Si la forma no tiene ningún efecto 3D, se trata como plana, y el efecto 3D se aplica solo al texto.
+- Si se define una escena tanto para la forma como para el texto, la escena de la forma tiene prioridad y la escena del texto se ignora.
+- Si la forma no tiene su propia escena pero sí una representación 3D, se usa la escena del texto.
+- Si la forma no tiene ningún efecto 3D, se trata como plana y el efecto 3D se aplica solo al texto.
 
 Estos comportamientos están relacionados con las propiedades [ThreeDFormat.LightRig](https://reference.aspose.com/slides/net/aspose.slides/threedformat/lightrig/) y [ThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/threedformat/camera/).
 {{% /alert %}} 
 
 ## **Preguntas frecuentes**
 
-**¿Puedo usar efectos de WordArt con diferentes fuentes o escrituras (p. ej., árabe, chino)?**
+**¿Puedo usar efectos WordArt con diferentes fuentes o escrituras (p. ej., árabe, chino)?**
 
-Sí, Aspose.Slides para .NET admite Unicode y funciona con todas las fuentes y escrituras principales. Los efectos de WordArt como sombra, relleno y contorno pueden aplicarse independientemente del idioma, aunque la disponibilidad de fuentes y la representación pueden depender de las fuentes del sistema.
+Sí, Aspose.Slides para .NET admite Unicode y funciona con todas las fuentes y escrituras principales. Los efectos WordArt, como sombra, relleno y contorno, pueden aplicarse independientemente del idioma, aunque la disponibilidad de fuentes y el renderizado pueden depender de las fuentes del sistema.
 
-**¿Puedo aplicar efectos de WordArt a elementos de la diapositiva maestra?**
+**¿Puedo aplicar efectos WordArt a los elementos del patrón de diapositivas?**
 
-Sí, puede aplicar efectos de WordArt a las formas en las diapositivas maestras, incluidos los marcadores de posición de título, pies de página o texto de fondo. Los cambios realizados en el diseño maestro se reflejarán en todas las diapositivas asociadas.
+Sí, puede aplicar efectos WordArt a las formas en las diapositivas maestras, incluidos los marcadores de posición de título, pies de página o texto de fondo. Los cambios realizados en el diseño maestro se reflejarán en todas las diapositivas asociadas.
 
-**¿Los efectos de WordArt afectan el tamaño del archivo de la presentación?**
+**¿Los efectos WordArt afectan al tamaño del archivo de la presentación?**
 
-Ligeramente. Los efectos de WordArt como sombras, brillos y rellenos degradados pueden aumentar ligeramente el tamaño del archivo debido a los metadatos de formato añadidos, pero la diferencia suele ser insignificante.
+Levemente. Los efectos WordArt como sombras, brillos y rellenos degradados pueden aumentar ligeramente el tamaño del archivo debido a los metadatos de formato adicionales, pero la diferencia suele ser insignificante.
 
-**¿Puedo previsualizar el resultado de los efectos de WordArt sin guardar la presentación?**
+**¿Puedo previsualizar el resultado de los efectos WordArt sin guardar la presentación?**
 
-Sí, puede renderizar diapositivas que contienen WordArt a imágenes (p. ej., PNG, JPEG) utilizando el método `GetImage` de las interfaces [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) o [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/). Esto le permite previsualizar el resultado en memoria o en pantalla antes de guardar o exportar la presentación completa.
+Sí, puede renderizar diapositivas que contengan WordArt a imágenes (p. ej., PNG, JPEG) utilizando el método `GetImage` de las interfaces [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) o [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/). Esto le permite previsualizar el resultado en memoria o en pantalla antes de guardar o exportar la presentación completa.

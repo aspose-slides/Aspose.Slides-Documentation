@@ -1,9 +1,17 @@
 ---
-title: Barre d'erreur
+title: Personnaliser les barres d'erreur dans les graphiques de présentation en .NET
+linktitle: Barre d'erreur
 type: docs
 url: /fr/net/error-bar/
-keywords: "Barre d'erreur, valeurs de barre d'erreur présentation PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "Ajouter une barre d'erreur aux présentations PowerPoint en C# ou .NET"
+keywords:
+- barre d'erreur
+- valeur personnalisée
+- PowerPoint
+- présentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Apprenez à ajouter et personnaliser les barres d'erreur dans les graphiques avec Aspose.Slides pour .NET — optimisez la visualisation des données dans les présentations PowerPoint."
 ---
 
 ## **Ajouter une barre d'erreur**
@@ -11,9 +19,9 @@ Aspose.Slides for .NET fournit une API simple pour gérer les valeurs des barres
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 1. Ajoutez un graphique à bulles sur la diapositive souhaitée.
-1. Accédez à la première série de graphique et définissez le format de la barre d'erreur X.
-1. Accédez à la première série de graphique et définissez le format de la barre d'erreur Y.
-1. Définissez les valeurs et le format des barres.
+1. Accédez à la première série du graphique et définissez le format de la barre d'erreur X.
+1. Accédez à la première série du graphique et définissez le format de la barre d'erreur Y.
+1. Définition des valeurs et du format des barres.
 1. Enregistrez la présentation modifiée dans un fichier PPTX.
 ```c#
 // Création d'une présentation vide
@@ -46,10 +54,10 @@ Aspose.Slides for .NET fournit une API simple pour gérer les valeurs personnali
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
 1. Ajoutez un graphique à bulles sur la diapositive souhaitée.
-1. Accédez à la première série de graphique et définissez le format de la barre d'erreur X.
-1. Accédez à la première série de graphique et définissez le format de la barre d'erreur Y.
+1. Accédez à la première série du graphique et définissez le format de la barre d'erreur X.
+1. Accédez à la première série du graphique et définissez le format de la barre d'erreur Y.
 1. Accédez aux points de données individuels de la série du graphique et définissez les valeurs de la barre d'erreur pour chaque point de données de la série.
-1. Définissez les valeurs et le format des barres.
+1. Définition des valeurs et du format des barres.
 1. Enregistrez la présentation modifiée dans un fichier PPTX.
 ```c#
 // Création d'une présentation vide
@@ -67,14 +75,14 @@ using (Presentation presentation = new Presentation())
     errBarX.ValueType = ErrorBarValueType.Custom;
     errBarY.ValueType = ErrorBarValueType.Custom;
 
-    // Accès au point de données de la série du graphique et définition des valeurs des barres d'erreur pour chaque point
+    // Accès au point de données de la série de graphique et définition des valeurs des barres d'erreur pour le point individuel
     IChartDataPointCollection points = series.DataPoints;
     points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForXPlusValues = DataSourceType.DoubleLiterals;
     points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForXMinusValues = DataSourceType.DoubleLiterals;
     points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForYPlusValues = DataSourceType.DoubleLiterals;
     points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForYMinusValues = DataSourceType.DoubleLiterals;
 
-    // Définition des barres d'erreur pour les points de la série du graphique
+    // Définition des barres d'erreur pour les points de la série de graphique
     for (int i = 0; i < points.Count; i++)
     {
         points[i].ErrorBarsCustomValues.XMinus.AsLiteralDouble = i + 1;
@@ -91,13 +99,13 @@ using (Presentation presentation = new Presentation())
 
 ## **FAQ**
 
-**Que se passe-t-il avec les barres d'erreur lors de l'exportation d'une présentation vers PDF ou des images ?**
+**Que se passe-t-il avec les barres d'erreur lors de l'exportation d'une présentation au format PDF ou images ?**
 
-Elles sont rendues comme faisant partie du graphique et conservées lors de la conversion avec le reste du formatage du graphique, à condition d'utiliser une version ou un moteur compatible.
+Elles sont rendues comme partie intégrante du graphique et conservées lors de la conversion avec le reste du formatage du graphique, à condition d'utiliser une version ou un moteur compatible.
 
-**Les barres d'erreur peuvent-elles être combinées avec des marqueurs et des étiquettes de données ?**
+**Les barres d'erreur peuvent-elles être combinées avec des repères et des libellés de données ?**
 
-Oui. Les barres d'erreur sont un élément distinct et sont compatibles avec les marqueurs et les étiquettes de données ; si les éléments se chevauchent, il peut être nécessaire d'ajuster le formatage.
+Oui. Les barres d'erreur sont un élément distinct et sont compatibles avec les repères et les libellés de données ; si les éléments se chevauchent, vous devrez peut-être ajuster le formatage.
 
 **Où puis-je trouver la liste des propriétés et des énumérations pour travailler avec les barres d'erreur dans l'API ?**
 

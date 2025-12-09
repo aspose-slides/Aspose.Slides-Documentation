@@ -1,25 +1,34 @@
 ---
-title: تصدير معادلات الرياضيات
+title: تصدير المعادلات الرياضية من العروض التقديمية في .NET
+linktitle: تصدير المعادلات
 type: docs
 weight: 30
 url: /ar/net/exporting-math-equations/
-keywords: "تصدير معادلات الرياضيات, عرض PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "تصدير معادلات الرياضيات في PowerPoint باستخدام C# أو .NET"
+keywords:
+- تصدير المعادلات الرياضية
+- MathML
+- LaTeX
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "تمكين تصدير سلس للمعادلات الرياضية من PowerPoint إلى MathML باستخدام Aspose.Slides لـ .NET — الحفاظ على التنسيق وتعزيز التوافق."
 ---
 
 ## **المقدمة**
 
-Aspose.Slides for .NET يتيح لك تصدير معادلات الرياضيات من العروض التقديمية. على سبيل المثال، قد تحتاج إلى استخراج المعادلات الرياضية على الشرائح (من عرض تقديمي محدد) واستخدامها في برنامج أو منصة أخرى.
+تسمح لك Aspose.Slides for .NET بتصدير المعادلات الرياضية من العروض التقديمية. على سبيل المثال، قد تحتاج إلى استخراج المعادلات الرياضية الموجودة على الشرائح (من عرض تقديمي محدد) واستخدامها في برنامج أو منصة أخرى. 
 
 {{% alert color="primary" %}} 
-يمكنك تصدير المعادلات إلى MathML، وهو تنسيق أو معيار شائع للمعادلات الرياضية والمحتوى المشابه الموجود على الويب وفي العديد من التطبيقات. 
+يمكنك تصدير المعادلات إلى MathML، وهو تنسيق شائع أو معيار للمعادلات الرياضية والمحتوى المشابه الموجود على الويب وفي الكثير من التطبيقات. 
 {{% /alert %}}
 
-## **حفظ معادلات الرياضيات كـ MathML**
+## **حفظ المعادلات الرياضية كـ MathML**
 
-بينما يكتب البشر بسهولة شفرة بعض صيغ المعادلات مثل LaTeX، يواجهون صعوبة في كتابة شفرة MathML لأن الأخيرة يُقصد بها أن تُولد تلقائيًا بواسطة التطبيقات. البرامج تقرأ وت解析 MathML بسهولة لأن شفرتها مبنية على XML، لذا يُستخدم MathML عادةً كتنسيق إخراج وطباعة في كثير من المجالات.
+في حين أن البشر يكتبون الكود بسهولة لبعض صيغ المعادلات مثل LaTeX، إلا أنهم يواجهون صعوبة في كتابة الكود لـ MathML لأن الأخيرة تُنشأ تلقائيًا بواسطة التطبيقات. تقرأ البرامج وتفسر MathML بسهولة لأن كودها مكتوب بـ XML، لذا يُستخدم MathML عادةً كصيغة إخراج وطباعة في العديد من المجالات. 
 
-هذا المثال يوضح لك كيفية تصدير معادلة رياضية من عرض تقديمي إلى MathML:
+يوضح لك هذا المثال البرمجي كيفية تصدير معادلة رياضية من عرض تقديمي إلى MathML:
 ```c#
 using (Presentation pres = new Presentation())
         {
@@ -36,22 +45,22 @@ using (Presentation pres = new Presentation())
 
 ## **الأسئلة المتكررة**
 
-**ما الذي يتم تصديره بالضبط إلى MathML—فقرة أم كتلة معادلة منفردة؟**
+**ما الذي يتم تصديره إلى MathML بالضبط—فقرة أم كتلة صيغة فردية؟**
 
-يمكنك تصدير إما فقرة رياضية كاملة ([MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/)) أو كتلة منفردة ([MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock/)) إلى MathML. كلا النوعين يوفر طريقة للكتابة إلى MathML.
+يمكنك تصدير إما فقرة رياضية كاملة ([MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/)) أو كتلة فردية ([MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock/)) إلى MathML. كلا النوعين يقدمان طريقة للكتابة إلى MathML.
 
-**كيف يمكنني معرفة أن كائنًا ما على الشريحة هو صيغة رياضية وليس نصًا عاديًا أو صورة؟**
+**كيف يمكنني معرفة أن كائنًا على الشريحة هو صيغة رياضية وليس نصًا عاديًا أو صورة؟**
 
-الصيغة موجودة في [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) وتحتوي على [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/). الصور والنصوص العادية التي لا تحتوي على [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) غير قابلة للتصدير كصيغة.
+توجد الصيغة داخل [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) وتملك [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/). الصور وأقسام النص العادية التي لا تحتوي على [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) ليست صيغًا قابلة للتصدير.
 
-**من أين يأتي MathML في العرض التقديمي—هل هو خاص بـ PowerPoint أم معيار؟**
+**من أين يأتي MathML في العرض التقديمي—هل هو خاص بـ PowerPoint أم معيار عام؟**
 
-التصدير يستهدف MathML القياسي (XML). Aspose يستخدم Presentation MathML—الجزء الفرعي من المعيار المتعلق بالعرض—وهو مستخدم على نطاق واسع عبر التطبيقات والويب.
+يستهدف التصدير MathML القياسي (XML). تستخدم Aspose Presentation MathML—الجزء الفرعي التقديمي من المعيار—والذي يُستخدم على نطاق واسع عبر التطبيقات والويب.
 
-**هل يتم دعم تصدير الصيغ داخل الجداول أو SmartArt أو المجموعات وغيرها؟**
+**هل يتم دعم تصدير الصيغ داخل الجداول، SmartArt، المجموعات، إلخ؟**
 
-نعم، إذا كانت تلك الكائنات تحتوي على أجزاء نصية مع [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) (أي صيغ PowerPoint حقيقية)، فإنها تُصدر. إذا كانت الصيغة مضمّنة كصورة، فلن يتم تصديرها.
+نعم، إذا كان تلك الكائنات تحتوي على أجزاء نصية مع [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) (أي صيغ PowerPoint حقيقية)، فسيتم تصديرها. إذا كانت الصيغة مدمجة كصورة، فلن تُصدر.
 
-**هل يقوم التصدير إلى MathML بتعديل العرض التقديمي الأصلي؟**
+**هل يؤدي تصدير إلى MathML إلى تعديل العرض التقديمي الأصلي؟**
 
-لا. كتابة MathML هي عملية تسلسل لمحتوى الصيغة؛ لا تُغيّر ملف العرض التقديمي.
+لا. كتابة MathML هي عملية تسلسل لمحتوى الصيغة؛ ولا تُعدِّل ملف العرض التقديمي.

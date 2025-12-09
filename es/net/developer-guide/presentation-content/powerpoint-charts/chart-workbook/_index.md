@@ -1,16 +1,30 @@
 ---
-title: Libro de trabajo del gráfico
+title: Administrar libros de gráficos en presentaciones en .NET
+linktitle: Libro de gráfico
 type: docs
 weight: 70
 url: /es/net/chart-workbook/
-keywords: "Libro de trabajo del gráfico, datos del gráfico, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
-description: "Libro de trabajo del gráfico en una presentación de PowerPoint en C# o .NET"
+keywords:
+- libro de gráfico
+- datos del gráfico
+- celda del libro
+- etiqueta de datos
+- hoja de cálculo
+- origen de datos
+- libro externo
+- datos externos
+- PowerPoint
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Descubra Aspose.Slides para .NET: gestione sin esfuerzo los libros de gráficos en formatos PowerPoint y OpenDocument para optimizar los datos de su presentación."
 ---
 
 ## **Establecer datos del gráfico desde el libro de trabajo**
-Aspose.Slides proporciona los métodos [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) y [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) que permiten leer y escribir libros de trabajo de datos de gráficos (que contienen datos de gráficos editados con Aspose.Cells). **Note** que los datos del gráfico deben organizarse de la misma manera o deben tener una estructura similar a la fuente.
+Aspose.Slides proporciona los métodos [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) y [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) que le permiten leer y escribir libros de datos de gráficos (que contienen datos de gráficos editados con Aspose.Cells). **Nota** que los datos del gráfico deben estar organizados de la misma manera o deben tener una estructura similar a la fuente.
 
-This C# code demonstrates a sample operation:
+Este código C# muestra una operación de ejemplo:
 ```c#
 using (Presentation pres = new Presentation("chart.pptx"))
 {
@@ -28,15 +42,15 @@ using (Presentation pres = new Presentation("chart.pptx"))
 ```
 
 
-## **Establecer celda del libro de trabajo como etiqueta de datos del gráfico**
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
-1. Obtener la referencia de una diapositiva mediante su índice.
-1. Añadir un gráfico de burbujas con algunos datos.
-1. Acceder a la serie del gráfico.
-1. Establecer la celda del libro de trabajo como una etiqueta de datos.
-1. Guardar la presentación.
+## **Establecer celda de libro de trabajo como etiqueta de datos del gráfico**
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+1. Obtenga la referencia a una diapositiva mediante su índice.
+1. Agregue un gráfico de burbujas con algunos datos.
+1. Acceda a la serie del gráfico.
+1. Establezca la celda del libro de trabajo como una etiqueta de datos.
+1. Guarde la presentación.
 
-This C# code shows you to set a workbook cell as a chart data label:
+Este código C# muestra cómo establecer una celda del libro de trabajo como etiqueta de datos del gráfico:
 ```c#
 string lbl0 = "Label 0 cell value";
 string lbl1 = "Label 1 cell value";
@@ -67,7 +81,8 @@ using (Presentation pres = new Presentation("chart2.pptx"))
 
 
 ## **Administrar hojas de cálculo**
-This C# code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) property is used to access a worksheet collection:
+
+Este código C# muestra una operación donde se utiliza la propiedad [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) para acceder a una colección de hojas de cálculo:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -80,7 +95,8 @@ using (Presentation pres = new Presentation())
 
 
 ## **Especificar tipo de origen de datos**
-This C# code shows you how to specify a type for a data source:
+
+Este código C# le muestra cómo especificar un tipo para un origen de datos:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -99,14 +115,15 @@ using (Presentation pres = new Presentation())
 
 
 ## **Libro de trabajo externo**
+
 {{% alert color="primary" %}} 
-En [Aspose.Slides 19.4](https://docs.aspose.com/slides/net/aspose-slides-for-net-19-4-release-notes/), implementamos soporte para libros de trabajo externos como origen de datos para gráficos.
+En [Aspose.Slides 19.4](https://docs.aspose.com/slides/net/aspose-slides-for-net-19-4-release-notes/) implementamos soporte para libros de trabajo externos como origen de datos para los gráficos.
 {{% /alert %}} 
 
 ### **Crear libro de trabajo externo**
-Usando los métodos **`ReadWorkbookStream`** y **`SetExternalWorkbook`**, puedes crear un libro de trabajo externo desde cero o convertir un libro de trabajo interno en externo.
+Usando los métodos **`ReadWorkbookStream`** y **`SetExternalWorkbook`**, puede crear un libro de trabajo externo desde cero o convertir un libro de trabajo interno en externo.
 
-This C# code demonstrates the external workbook creation process:
+Este código C# demuestra el proceso de creación del libro de trabajo externo:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -127,20 +144,20 @@ using (Presentation pres = new Presentation())
 
 
 ### **Establecer libro de trabajo externo**
-Usando el método **`SetExternalWorkbook`**, puedes asignar un libro de trabajo externo a un gráfico como su origen de datos. Este método también puede usarse para actualizar la ruta al libro de trabajo externo (si este último ha sido movido).
+Con el método **`SetExternalWorkbook`**, puede asignar un libro de trabajo externo a un gráfico como su origen de datos. Este método también puede usarse para actualizar la ruta al libro de trabajo externo (si este último ha sido movido).
 
-Aunque no puedes editar los datos en libros de trabajo almacenados en ubicaciones remotas o recursos, aún puedes usar dichos libros como origen de datos externo. Si se proporciona una ruta relativa para un libro de trabajo externo, se convierte automáticamente en una ruta completa.
+Aunque no puede editar los datos en libros de trabajo almacenados en ubicaciones o recursos remotos, aún puede usar dichos libros de trabajo como una fuente de datos externa. Si se proporciona una ruta relativa para un libro de trabajo externo, se convierte automáticamente en una ruta completa.
 
-This C# code shows you how to set an external workbook:
+Este código C# muestra cómo establecer un libro de trabajo externo:
 ```c#
- // La ruta al directorio de documentos.
+// La ruta al directorio de documentos.
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, false);
     IChartData chartData = chart.ChartData;
                     
     chartData.SetExternalWorkbook(Path.GetFullPath("externalWorkbook.xlsx"));
-                  
+              
 
     chartData.Series.Add(chartData.ChartDataWorkbook.GetCell(0, "B1"), ChartType.Pie);
     chartData.Series[0].DataPoints.AddDataPointForPieSeries(chartData.ChartDataWorkbook.GetCell(0, "B2"));
@@ -155,32 +172,32 @@ using (Presentation pres = new Presentation())
 ```
 
 
-El parámetro `ChartData` (bajo el método `SetExternalWorkbook`) se usa para especificar si se cargará o no un libro de trabajo Excel.
+El parámetro `ChartData` (del método `SetExternalWorkbook`) se usa para especificar si se cargará o no un libro de Excel.
 
-* Cuando el valor de `ChartData` se establece en `false`, solo se actualiza la ruta del libro de trabajo; los datos del gráfico no se cargarán ni actualizarán desde el libro de trabajo de destino. Puedes utilizar esta configuración cuando el libro de trabajo de destino no exista o no esté disponible. 
+* Cuando el valor de `ChartData` se establece en `false`, solo se actualiza la ruta del libro de trabajo — los datos del gráfico no se cargarán ni actualizarán desde el libro de trabajo de destino. Puede usar esta configuración cuando el libro de trabajo de destino no exista o no esté disponible. 
 * Cuando el valor de `ChartData` se establece en `true`, los datos del gráfico se actualizan desde el libro de trabajo de destino.
 ```c#
 using (Presentation pres = new Presentation())
 {
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, true);
-	IChartData chartData = chart.ChartData;
+    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, true);
+    IChartData chartData = chart.ChartData;
 
-	(chartData as ChartData).SetExternalWorkbook("http://path/doesnt/exists", false);
+    (chartData as ChartData).SetExternalWorkbook("http://path/doesnt/exists", false);
 
-	pres.Save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
+    pres.Save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
 }
 ```
 
 
 ### **Obtener ruta del libro de trabajo fuente de datos externo del gráfico**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
-1. Obtener la referencia de una diapositiva mediante su índice.
-1. Crear un objeto para la forma del gráfico.
-1. Crear un objeto para el tipo de origen (`ChartDataSourceType`) que representa el origen de datos del gráfico.
-1. Especificar la condición relevante en función de que el tipo de origen sea el mismo que el tipo de origen de datos del libro de trabajo externo.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+1. Obtenga la referencia a una diapositiva mediante su índice.
+1. Cree un objeto para la forma del gráfico.
+1. Cree un objeto para el tipo de origen (`ChartDataSourceType`) que representa el origen de datos del gráfico.
+1. Especifique la condición correspondiente basándose en que el tipo de origen sea el mismo que el tipo de origen de datos del libro de trabajo externo.
 
-This C# code demonstrates the operation:
+Este código C# muestra la operación:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -200,9 +217,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **Editar datos del gráfico**
 
-Puedes editar los datos en libros de trabajo externos de la misma manera que modificas el contenido de los libros internos. Cuando no se puede cargar un libro de trabajo externo, se lanza una excepción.
+Puede editar los datos en libros de trabajo externos de la misma manera que realiza cambios en el contenido de libros de trabajo internos. Cuando no se puede cargar un libro de trabajo externo, se lanza una excepción.
 
-This C# code is an implementation of the described process:
+Este código C# es una implementación del proceso descrito:
 ```c#
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
@@ -220,24 +237,24 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 
 **¿Puedo determinar si un gráfico específico está vinculado a un libro de trabajo externo o incrustado?**
 
-Sí. Un gráfico tiene un [tipo de origen de datos](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) y una [ruta a un libro de trabajo externo](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/); si el origen es un libro externo, puedes leer la ruta completa para asegurarte de que se está utilizando un archivo externo.
+Sí. Un gráfico tiene un [tipo de origen de datos](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) y una [ruta a un libro de trabajo externo](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/); si el origen es un libro de trabajo externo, puede leer la ruta completa para asegurarse de que se está utilizando un archivo externo.
 
 **¿Se admiten rutas relativas a libros de trabajo externos y cómo se almacenan?**
 
-Sí. Si especificas una ruta relativa, se convierte automáticamente en una ruta absoluta. Esto es útil para la portabilidad del proyecto; sin embargo, ten en cuenta que la presentación almacenará la ruta absoluta en el archivo PPTX.
+Sí. Si especifica una ruta relativa, se convierte automáticamente en una ruta absoluta. Esto es conveniente para la portabilidad del proyecto; sin embargo, tenga en cuenta que la presentación almacenará la ruta absoluta en el archivo PPTX.
 
-**¿Puedo usar libros de trabajo ubicados en recursos o comparticiones de red?**
+**¿Puedo usar libros de trabajo ubicados en recursos/comparticiones de red?**
 
-Sí, dichos libros pueden usarse como origen de datos externo. No obstante, la edición directa de libros remotos desde Aspose.Slides no está soportada; solo pueden usarse como fuente.
+Sí, dichos libros de trabajo pueden usarse como una fuente de datos externa. Sin embargo, la edición de libros de trabajo remotos directamente desde Aspose.Slides no está soportada; solo pueden usarse como una fuente.
 
 **¿Aspose.Slides sobrescribe el XLSX externo al guardar la presentación?**
 
-No. La presentación almacena un [enlace al archivo externo](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) y lo usa para leer los datos. El archivo externo no se modifica al guardar la presentación.
+No. La presentación almacena un [enlace al archivo externo](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) y lo usa para leer los datos. El archivo externo en sí no se modifica al guardar la presentación.
 
 **¿Qué debo hacer si el archivo externo está protegido con contraseña?**
 
-Aspose.Slides no acepta una contraseña al vincular. Un enfoque común es eliminar la protección con anticipación o preparar una copia desencriptada (por ejemplo, usando [Aspose.Cells](/cells/net/)) y enlazar a esa copia.
+Aspose.Slides no acepta una contraseña al vincular. Un enfoque común es quitar la protección con antelación o preparar una copia descifrada (por ejemplo, usando [Aspose.Cells](/cells/net/)) y vincular a esa copia.
 
 **¿Pueden varios gráficos referenciar el mismo libro de trabajo externo?**
 
-Sí. Cada gráfico almacena su propio enlace. Si todos apuntan al mismo archivo, la actualización de ese archivo se reflejará en cada gráfico la próxima vez que se carguen los datos.
+Sí. Cada gráfico almacena su propio enlace. Si todos apuntan al mismo archivo, actualizar ese archivo se reflejará en cada gráfico la próxima vez que se carguen los datos.

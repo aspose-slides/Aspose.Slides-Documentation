@@ -1,20 +1,28 @@
 ---
-title: شريط الخطأ
+title: تخصيص أشرطة الخطأ في مخططات العروض التقديمية في .NET
+linktitle: شريط الخطأ
 type: docs
 url: /ar/net/error-bar/
-keywords: "شريط الخطأ، قيم شريط الخطأ عرض تقديمي PowerPoint، C#، Csharp، Aspose.Slides for .NET"
-description: "إضافة شريط خطأ إلى عروض PowerPoint التقديمية في C# أو .NET"
+keywords:
+- شريط الخطأ
+- قيمة مخصصة
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "تعرف على كيفية إضافة وتخصيص أشرطة الخطأ في المخططات باستخدام Aspose.Slides for .NET - تحسين تصور البيانات في عروض PowerPoint التقديمية."
 ---
 
 ## **إضافة شريط الخطأ**
-Aspose.Slides for .NET يوفر واجهة برمجة تطبيقات بسيطة لإدارة قيم أشرطة الخطأ. يُطبق الكود النموذجي عند استخدام نوع قيمة مخصص. لتحديد قيمة، استخدم الخاصية **ErrorBarCustomValues** لنقطة بيانات محددة في مجموعة **DataPoints** الخاصة بالسلسلة:
+توفر Aspose.Slides for .NET واجهة برمجة تطبيقات بسيطة لإدارة قيم أشرطة الخطأ. يطبق كود العينة عند استخدام نوع قيمة مخصص. لتحديد قيمة، استخدم خاصية **ErrorBarCustomValues** لنقطة بيانات معينة في مجموعة **DataPoints** الخاصة بالسلسلة:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-2. إضافة مخطط فقاعة إلى الشريحة المطلوبة.
-3. الوصول إلى السلسلة الأولى للمخطط وتعيين تنسيق شريط الخطأ X.
-4. الوصول إلى السلسلة الأولى للمخطط وتعيين تنسيق شريط الخطأ Y.
-5. تعيين قيم الأشرطة والتنسيق.
-6. كتابة العرض التقديمي المعدل إلى ملف PPTX .
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. إضافة مخطط فقاعة إلى الشريحة المطلوبة.
+1. الوصول إلى السلسلة الأولى للمخطط وتعيين تنسيق شريط الخطأ X.
+1. الوصول إلى السلسلة الأولى للمخطط وتعيين تنسيق شريط الخطأ Y.
+1. تعيين قيم الأشرطة وتنسيقها.
+1. كتابة العرض التقديمي المعدل إلى ملف PPTX.
 ```c#
 // إنشاء عرض تقديمي فارغ
 using (Presentation presentation = new Presentation())
@@ -42,15 +50,15 @@ using (Presentation presentation = new Presentation())
 
 
 ## **إضافة قيمة مخصصة لشريط الخطأ**
-Aspose.Slides for .NET يوفر واجهة برمجة تطبيقات بسيطة لإدارة قيم أشرطة الخطأ المخصصة. يُطبق الكود النموذجي عندما تكون الخاصية **IErrorBarsFormat.ValueType** مساوية لـ **Custom**. لتحديد قيمة، استخدم الخاصية **ErrorBarCustomValues** لنقطة بيانات محددة في مجموعة **DataPoints** الخاصة بالسلسلة:
+توفر Aspose.Slides for .NET واجهة برمجة تطبيقات بسيطة لإدارة قيم أشرطة الخطأ المخصصة. يطبق كود العينة عندما تكون خاصية **IErrorBarsFormat.ValueType** مساوية لـ **Custom**. لتحديد قيمة، استخدم خاصية **ErrorBarCustomValues** لنقطة بيانات معينة في مجموعة **DataPoints** الخاصة بالسلسلة:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-2. إضافة مخطط فقاعة إلى الشريحة المطلوبة.
-3. الوصول إلى السلسلة الأولى للمخطط وتعيين تنسيق شريط الخطأ X.
-4. الوصول إلى السلسلة الأولى للمخطط وتعيين تنسيق شريط الخطأ Y.
-5. الوصول إلى نقاط البيانات الفردية لسلسلة المخططات وتعيين قيم شريط الخطأ لنقطة البيانات الفردية في السلسلة.
-6. تعيين قيم الأشرطة والتنسيق.
-7. كتابة العرض التقديمي المعدل إلى ملف PPTX .
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. إضافة مخطط فقاعة إلى الشريحة المطلوبة.
+1. الوصول إلى السلسلة الأولى للمخطط وتعيين تنسيق شريط الخطأ X.
+1. الوصول إلى السلسلة الأولى للمخطط وتعيين تنسيق شريط الخطأ Y.
+1. الوصول إلى نقاط البيانات الفردية لسلسلة المخطط وتعيين قيم شريط الخطأ لنقطة البيانات الفردية في السلسلة.
+1. تعيين قيم الأشرطة وتنسيقها.
+1. كتابة العرض التقديمي المعدل إلى ملف PPTX.
 ```c#
 // إنشاء عرض تقديمي فارغ
 using (Presentation presentation = new Presentation())
@@ -67,7 +75,7 @@ using (Presentation presentation = new Presentation())
     errBarX.ValueType = ErrorBarValueType.Custom;
     errBarY.ValueType = ErrorBarValueType.Custom;
 
-    // الوصول إلى نقطة بيانات سلسلة المخطط وتعيين قيم أشرطة الخطأ للنقطة الفردية
+    // الوصول إلى نقطة بيانات سلسلة المخطط وتعيين قيم أشرطة الخطأ لنقطة مفردة
     IChartDataPointCollection points = series.DataPoints;
     points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForXPlusValues = DataSourceType.DoubleLiterals;
     points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForXMinusValues = DataSourceType.DoubleLiterals;
@@ -89,13 +97,13 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**ماذا يحدث لأشرطة الخطأ عند تصدير عرض تقديمي إلى PDF أو صور؟**  
-يتم عرضها كجزء من المخطط ويتم الحفاظ عليها أثناء التحويل مع باقي تنسيق المخطط، بافتراض وجود نسخة أو مُعالج متوافق.
+**ماذا يحدث لأشرطة الخطأ عند تصدير عرض تقديمي إلى PDF أو صور؟**
+يتم رسمها كجزء من المخطط وتُحافظ عليها أثناء التحويل مع باقي تنسيق المخطط، بشرط وجود نسخة أو محرك عرض متوافق.
 
-**هل يمكن دمج أشرطة الخطأ مع العلامات وملصقات البيانات؟**  
-نعم. أشرطة الخطأ عنصر منفصل ومتوافق مع العلامات وملصقات البيانات؛ إذا تداخلت العناصر، قد تحتاج إلى تعديل التنسيق.
+**هل يمكن دمج أشرطة الخطأ مع العلامات ووسوم البيانات؟**
+نعم. أشرطة الخطأ عنصر منفصل ومتوافق مع العلامات ووسوم البيانات؛ إذا تداخلت العناصر قد تحتاج إلى تعديل التنسيق.
 
-**أين يمكنني العثور على قائمة الخصائص والـ enums للعمل مع أشرطة الخطأ في الـ API؟**  
-في مرجع الـ API: الفئة [ErrorBarsFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbarsformat/) والـ enums ذات الصلة [ErrorBarType](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbartype/) و [ErrorBarValueType](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbarvaluetype/).
+**أين يمكنني العثور على قائمة الخصائص والعدادات (enums) للعمل مع أشرطة الخطأ في الواجهة البرمجية؟**
+في مرجع الواجهة البرمجية: الفئة [ErrorBarsFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbarsformat/) والعدادات المرتبطة [ErrorBarType](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbartype/) و[ErrorBarValueType](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbarvaluetype/).

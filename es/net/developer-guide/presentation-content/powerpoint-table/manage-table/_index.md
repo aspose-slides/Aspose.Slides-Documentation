@@ -1,30 +1,42 @@
 ---
-title: Administrar tabla
+title: Administrar tablas de presentación en .NET
+linktitle: Administrar tabla
 type: docs
 weight: 10
 url: /es/net/manage-table/
-keywords: "Tabla, crear tabla, acceder a tabla, relación de aspecto de tabla, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
-description: "Crear y administrar tablas en presentaciones de PowerPoint en C# o .NET"
+keywords:
+- añadir tabla
+- crear tabla
+- acceder a tabla
+- relación de aspecto
+- alinear texto
+- formato de texto
+- estilo de tabla
+- PowerPoint
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Crear y editar tablas en diapositivas de PowerPoint con Aspose.Slides para .NET. Descubra ejemplos de código C# simples para optimizar sus flujos de trabajo con tablas."
 ---
 
-Una tabla en PowerPoint es una forma eficiente de mostrar y presentar información. La información en una cuadrícula de celdas (dispuestas en filas y columnas) es directa y fácil de entender.
+Una tabla en PowerPoint es una forma eficiente de presentar y describir información. La información en una cuadrícula de celdas (dispuestas en filas y columnas) es directa y fácil de entender.
 
-Aspose.Slides proporciona la clase [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) , la interfaz [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) , la clase [Cell](https://reference.aspose.com/slides/net/aspose.slides/cell/) , la interfaz [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) y otros tipos que le permiten crear, actualizar y administrar tablas en todo tipo de presentaciones. 
+Aspose.Slides proporciona la clase [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) , la interfaz [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) , la clase [Cell](https://reference.aspose.com/slides/net/aspose.slides/cell/) , la interfaz [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) y otros tipos para permitirle crear, actualizar y gestionar tablas en todo tipo de presentaciones. 
 
 ## **Crear tabla desde cero**
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
 2. Obtenga la referencia a una diapositiva mediante su índice. 
-3. Defina una matriz de `columnWidth` .
-4. Defina una matriz de `rowHeight` .
+3. Defina una matriz de `columnWidth`.
+4. Defina una matriz de `rowHeight`.
 5. Añada un objeto [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) a la diapositiva mediante el método [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) .
-6. Itere a través de cada [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) para aplicar formato a los bordes superior, inferior, derecho e izquierdo.
+6. Recorra cada [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) para aplicar formato a los bordes superior, inferior, derecho e izquierdo.
 7. Combine las dos primeras celdas de la primera fila de la tabla. 
-8. Acceda al [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) de un [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) . 
+8. Acceda al [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) de un [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) .
 9. Agregue texto al [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/) .
 10. Guarde la presentación modificada.
 
-Este código C# le muestra cómo crear una tabla en una presentación:
 ```c#
 // Instancia una clase Presentation que representa un archivo PPTX
 Presentation pres = new Presentation();
@@ -36,7 +48,7 @@ ISlide sld = pres.Slides[0];
 double[] dblCols = { 50, 50, 50 };
 double[] dblRows = { 50, 30, 30, 30, 30 };
 
-// Agrega una forma de tabla a la diapositiva
+// Añade una forma de tabla a la diapositiva
 ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
 
 // Establece el formato de borde para cada celda
@@ -64,7 +76,7 @@ for (int row = 0; row < tbl.Rows.Count; row++)
 // Fusiona las celdas 1 y 2 de la fila 1
 tbl.MergeCells(tbl.Rows[0][0], tbl.Rows[1][1], false);
 
-// Agrega texto a la celda fusionada
+// Añade texto a la celda fusionada
 tbl.Rows[0][0].TextFrame.Text = "Merged Cells";
 
 // Guarda la presentación en disco
@@ -74,7 +86,7 @@ pres.Save("table.pptx", SaveFormat.Pptx);
 
 ## **Numeración en tabla estándar**
 
-En una tabla estándar, la numeración de las celdas es sencilla y comienza en cero. La primera celda de una tabla tiene el índice 0,0 (columna 0, fila 0). 
+En una tabla estándar, la numeración de las celdas es directa y comienza en cero. La primera celda de una tabla tiene el índice 0,0 (columna 0, fila 0). 
 
 Por ejemplo, las celdas de una tabla con 4 columnas y 4 filas se numeran de la siguiente manera:
 
@@ -84,7 +96,6 @@ Por ejemplo, las celdas de una tabla con 4 columnas y 4 filas se numeran de la s
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Este código C# le muestra cómo especificar la numeración de las celdas en una tabla:
 ```c#
 // Instancia una clase Presentation que representa un archivo PPTX
 using (Presentation pres = new Presentation())
@@ -129,19 +140,16 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Acceder a tabla existente**
+## **Acceder a una tabla existente**
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
 2. Obtenga una referencia a la diapositiva que contiene la tabla mediante su índice. 
-3. Cree un objeto [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) y establézcalo en null.
-4. Itere a través de todos los objetos [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) hasta encontrar la tabla.
-
-   Si sospecha que la diapositiva con la que está trabajando contiene una sola tabla, puede simplemente comprobar todas las formas que contiene. Cuando una forma se identifica como tabla, puede convertirla a un objeto [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) . Pero si la diapositiva contiene varias tablas, es mejor buscar la tabla que necesita a través de su [AlternativeText](https://reference.aspose.com/slides/net/aspose.slides/ishape/alternativetext/) .
-
-5. Utilice el objeto [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) para trabajar con la tabla. En el ejemplo a continuación, agregamos una nueva fila a la tabla.
+3. Cree un objeto [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) y establézcalo a null.
+4. Recorra todos los objetos [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) hasta que se encuentre la tabla.  
+   Si sospecha que la diapositiva con la que está trabajando contiene una única tabla, puede simplemente comprobar todas las formas que contiene. Cuando una forma se identifica como tabla, puede convertirla a un objeto [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) . Pero si la diapositiva contiene varias tablas, es mejor buscar la tabla que necesita mediante su [AlternativeText](https://reference.aspose.com/slides/net/aspose.slides/ishape/alternativetext/) .
+5. Utilice el objeto [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) para trabajar con la tabla. En el ejemplo siguiente, añadimos una nueva fila a la tabla.
 6. Guarde la presentación modificada.
 
-Este código C# le muestra cómo acceder y trabajar con una tabla existente:
 ```c#
 // Instancia una clase Presentation que representa un archivo PPTX
 using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
@@ -150,10 +158,10 @@ using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
     // Accede a la primera diapositiva
     ISlide sld = pres.Slides[0];
 
-    // Inicializa la tabla como null
+    // Inicializa TableEx nulo
     ITable tbl = null;
 
-    // Recorre las formas y asigna una referencia a la tabla encontrada
+    // Itera a través de las formas y establece una referencia a la tabla encontrada
     foreach (IShape shp in sld.Shapes)
         if (shp is ITable)
             tbl = (ITable)shp;
@@ -167,7 +175,7 @@ using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 ```
 
 
-## **Alinear texto en tabla**
+## **Alinear texto en la tabla**
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
 2. Obtenga la referencia a una diapositiva mediante su índice. 
@@ -177,42 +185,41 @@ using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 6. Alinee el texto verticalmente.
 7. Guarde la presentación modificada.
 
-Este código C# le muestra cómo alinear el texto en una tabla:
 ```c#
-// Creates an instance of the Presentation class
+// Crea una instancia de la clase Presentation
 Presentation presentation = new Presentation();
 
-// Gets the first slide 
+// Obtiene la primera diapositiva
 ISlide slide = presentation.Slides[0];
 
-// Defines columns with widths and rows with heights
+// Define columnas con anchos y filas con alturas
 double[] dblCols = { 120, 120, 120, 120 };
 double[] dblRows = { 100, 100, 100, 100 };
 
-// Adds the table shape to the slide
+// Añade la forma de tabla a la diapositiva
 ITable tbl = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
 tbl[1, 0].TextFrame.Text = "10";
 tbl[2, 0].TextFrame.Text = "20";
 tbl[3, 0].TextFrame.Text = "30";
 
-// Accesses the text frame
+// Accede al marco de texto
 ITextFrame txtFrame = tbl[0, 0].TextFrame;
 
-// Creates the Paragraph object for the text frame
+// Crea el objeto Paragraph para el marco de texto
 IParagraph paragraph = txtFrame.Paragraphs[0];
 
-// Creates the Portion object for paragraph
+// Crea el objeto Portion para el párrafo
 IPortion portion = paragraph.Portions[0];
 portion.Text = "Text here";
 portion.PortionFormat.FillFormat.FillType = FillType.Solid;
 portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
-// Aligns the text vertically
+// Alinea el texto verticalmente
 ICell cell = tbl[0, 0];
 cell.TextAnchorType = TextAnchorType.Center;
 cell.TextVerticalType = TextVerticalType.Vertical270;
 
-// Saves the presentation to disk
+// Guarda la presentación en disco
 presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 ```
 
@@ -227,7 +234,6 @@ presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 6. Establezca el [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/) .
 7. Guarde la presentación modificada. 
 
-Este código C# le muestra cómo aplicar sus opciones de formato preferidas al texto en una tabla:
 ```c#
 // Crea una instancia de la clase Presentation
 Presentation presentation = new Presentation();
@@ -263,17 +269,16 @@ Aspose.Slides le permite recuperar las propiedades de estilo de una tabla para q
 using (Presentation pres = new Presentation())
 {
     ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.StylePreset = TableStylePreset.DarkStyle1; // cambia el tema de estilo predeterminado
+    table.StylePreset = TableStylePreset.DarkStyle1; // cambiar el tema predeterminado del preset de estilo
     pres.Save("table.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-## **Bloquear relación de aspecto de la tabla**
+## **Bloquear proporción de aspecto de la tabla**
 
-La relación de aspecto de una forma geométrica es la proporción de sus tamaños en diferentes dimensiones. Aspose.Slides proporciona la propiedad `AspectRatioLocked` para permitirle bloquear la configuración de relación de aspecto para tablas y otras formas. 
+La proporción de aspecto de una forma geométrica es la relación entre sus tamaños en diferentes dimensiones. Aspose.Slides proporcionó la propiedad `AspectRatioLocked` para permitirle bloquear la configuración de proporción de aspecto de tablas y otras formas. 
 
-Este código C# le muestra cómo bloquear la relación de aspecto de una tabla:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -289,16 +294,16 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-## **Preguntas frecuentes**
+## **FAQ**
 
 **¿Puedo habilitar la dirección de lectura de derecha a izquierda (RTL) para una tabla completa y el texto en sus celdas?**
 
-Sí. La tabla expone una propiedad [RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/table/righttoleft/) , y los párrafos tienen [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/righttoleft/) . Usar ambos garantiza el orden RTL correcto y la renderización dentro de las celdas.
+Sí. La tabla expone la propiedad [RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/table/righttoleft/) , y los párrafos tienen [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/righttoleft/) . Usar ambas garantiza el orden RTL correcto y la representación adecuada dentro de las celdas.
 
-**¿Cómo puedo evitar que los usuarios muevan o redimensionen una tabla en el archivo final?**
+**¿Cómo puedo impedir que los usuarios muevan o redimensionen una tabla en el archivo final?**
 
-Utilice [shape locks](/slides/es/net/applying-protection-to-presentation/) para deshabilitar mover, redimensionar, seleccionar, etc. Estos bloqueos se aplican también a las tablas.
+Utilice [bloqueos de forma](/slides/es/net/applying-protection-to-presentation/) para desactivar el movimiento, el redimensionamiento, la selección, etc. Estos bloqueos también se aplican a las tablas.
 
 **¿Se admite insertar una imagen dentro de una celda como fondo?**
 
-Sí. Puede establecer un [picture fill](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) para una celda; la imagen cubrirá el área de la celda según el modo elegido (estirar o mosaico).
+Sí. Puede establecer un [relleno de imagen](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) para una celda; la imagen cubrirá el área de la celda según el modo elegido (estirado o mosaico).

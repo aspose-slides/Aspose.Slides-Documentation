@@ -1,15 +1,21 @@
 ---
-title: 图表数据标记
+title: 在 .NET 中管理演示文稿的图表数据标记
+linktitle: 数据标记
 type: docs
 url: /zh/net/chart-data-marker/
 keywords:
-- 图表标记选项
+- 图表
+- 数据点
+- 标记
+- 标记选项
+- 标记大小
+- 填充类型
 - PowerPoint
 - 演示文稿
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "在 PowerPoint 演示文稿中使用 C# 或 .NET 设置图表标记选项"
+- Aspose.Slides
+description: "了解如何在 Aspose.Slides for .NET 中自定义图表数据标记，通过清晰的 C# 代码示例提升 PPT 和 PPTX 格式演示文稿的效果。"
 ---
 
 ## **设置图表标记选项**
@@ -28,6 +34,9 @@ description: "在 PowerPoint 演示文稿中使用 C# 或 .NET 设置图表标�
 using Presentation presentation = new Presentation();
 
 ISlide slide = presentation.Slides[0];
+
+// 创建默认图表
+IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 0, 0, 400, 400);
 
 // 获取默认图表数据工作表索引
 int defaultWorksheetIndex = 0;
@@ -52,7 +61,7 @@ IPPImage imgx2 = presentation.Images.AddImage(image2);
 // 获取第一个图表系列
 IChartSeries series = chart.ChartData.Series[0];
 
-// 在此处添加新点 (1:3)。
+// 在此添加新点 (1:3)。
 IChartDataPoint point = series.DataPoints.AddDataPointForLineSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, (double)4.5));
 point.Marker.Format.Fill.FillType = FillType.Picture;
 point.Marker.Format.Fill.PictureFillFormat.Picture.Image = imgx1;
@@ -72,17 +81,17 @@ point.Marker.Format.Fill.PictureFillFormat.Picture.Image = imgx2;
 // 更改图表系列标记
 series.Marker.Size = 15;
 
-// 将演示文稿保存到磁盘
+// 将演示文稿写入磁盘
 presentation.Save("MarkOptions_out.pptx", SaveFormat.Pptx);
 ```
 
 
 ## **FAQ**
 
-**默认提供哪些标记形状？**
+**哪些标记形状是开箱即用的？**
 
-提供标准形状（圆形、方形、菱形、三角形等）；这些形状由 [MarkerStyleType](https://reference.aspose.com/slides/net/aspose.slides.charts/markerstyletype/) 枚举定义。如果需要非标准形状，可使用带图片填充的标记来模拟自定义视觉效果。
+提供标准形状（圆形、方形、菱形、三角形等）；列表由 [MarkerStyleType](https://reference.aspose.com/slides/net/aspose.slides.charts/markerstyletype/) 枚举定义。如果需要非标准形状，请使用带图片填充的标记来模拟自定义视觉效果。
 
-**导出图表为图像或 SVG 时标记会被保留吗？**
+**将图表导出为图像或 SVG 时，标记会被保留吗？**
 
-会的。在将图表渲染为 [raster formats](/slides/zh/net/convert-powerpoint-to-png/) 或保存为 [shapes as SVG](/slides/zh/net/render-a-slide-as-an-svg-image/) 时，标记会保留其外观和设置，包括大小、填充和轮廓。
+会的。在将图表渲染为 [raster formats](/slides/zh/net/convert-powerpoint-to-png/) 或将 [shapes as SVG](/slides/zh/net/render-a-slide-as-an-svg-image/) 保存时，标记会保留其外观和设置，包括大小、填充和轮廓。

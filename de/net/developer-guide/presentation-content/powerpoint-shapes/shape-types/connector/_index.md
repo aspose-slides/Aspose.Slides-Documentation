@@ -1,25 +1,37 @@
 ---
-title: Verbinder
+title: "Verwalten von Verbindern in Präsentationen in .NET"
+linktitle: "Verbinder"
 type: docs
 weight: 10
 url: /de/net/connector/
-keywords: "Formen verbinden, Verbinder, PowerPoint-Formen, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "PowerPoint-Formen in C# oder .NET verbinden"
+keywords:
+- "Verbinder"
+- "Verbinder-Typ"
+- "Verbinderpunkt"
+- "Verbinderlinie"
+- "Verbinderwinkel"
+- "Formen verbinden"
+- "PowerPoint"
+- "Präsentation"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Ermöglichen Sie .NET‑Apps, Linien in PowerPoint‑Folien zu zeichnen, zu verbinden und automatisch zu routen — erhalten Sie die vollständige Kontrolle über gerade, Ellenbogen‑ und gebogene Verbinder."
 ---
 
-Ein PowerPoint‑Verbinder ist eine spezielle Linie, die zwei Formen miteinander verbindet oder verknüpft und an den Formen haften bleibt, selbst wenn sie auf einer Folie verschoben oder neu positioniert werden.  
+Ein PowerPoint‑Verbinder ist eine spezielle Linie, die zwei Formen miteinander verbindet oder verknüpft und an den Formen befestigt bleibt, selbst wenn sie auf einer Folie verschoben oder neu positioniert werden. 
 
-Verbinder sind typischerweise mit *Verbindungspunkten* (grüne Punkte) verbunden, die standardmäßig auf allen Formen vorhanden sind. Verbindungspunkte erscheinen, wenn ein Zeiger in ihre Nähe kommt.  
+Verbinder werden typischerweise an *Verbindungspunkten* (grüne Punkte) angeschlossen, die standardmäßig auf allen Formen vorhanden sind. Verbindungspunkte erscheinen, wenn der Cursor ihnen nahe kommt.
 
-*Anpassungspunkte* (orange Punkte), die nur bei bestimmten Verbindern existieren, werden verwendet, um Position und Form von Verbindern zu ändern.  
+*Anpassungspunkte* (orange Punkte), die nur bei bestimmten Verbindern existieren, werden verwendet, um Positionen und Formen von Verbindern zu ändern.
 
-## **Arten von Verbindern**
+## **Typen von Verbindern**
 
-In PowerPoint können Sie gerade, Ellenbogen‑ (gekrümmte) und gekrümmte Verbinder verwenden.  
+In PowerPoint können Sie gerade, Ellenbogen‑ (gekrümmte) und gebogene Verbinder verwenden. 
 
-Aspose.Slides stellt diese Verbinder bereit:
+Aspose.Slides provides these connectors:
 
-| Verbinder                      | Bild                                                        | Anzahl der Anpassungspunkte |
+| Verbinder | Bild | Anzahl der Anpassungspunkte |
 | ------------------------------ | ------------------------------------------------------------ | --------------------------- |
 | `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
 | `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
@@ -34,36 +46,35 @@ Aspose.Slides stellt diese Verbinder bereit:
 
 ## **Formen mit Verbindern verbinden**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)-Klasse.  
-1. Holen Sie sich einen Folien‑Referenz über deren Index.  
-1. Fügen Sie der Folie zwei [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/)-Objekte über die vom `Shapes`‑Objekt bereitgestellte `AddAutoShape`‑Methode hinzu.  
-1. Fügen Sie einen Verbinder über die vom `Shapes`‑Objekt bereitgestellte `AddConnector`‑Methode hinzu, indem Sie den Verbinder­typ definieren.  
-1. Verbinden Sie die Formen über den Verbinder.  
-1. Rufen Sie die `Reroute`‑Methode auf, um den kürzesten Verbindungsweg anzuwenden.  
-1. Speichern Sie die Präsentation.  
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Rufen Sie die Referenz einer Folie über ihren Index ab.
+1. Fügen Sie der Folie zwei [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) mit der vom `Shapes`‑Objekt bereitgestellten Methode `AddAutoShape` hinzu.
+1. Fügen Sie einen Verbinder mit der vom `Shapes`‑Objekt bereitgestellten Methode `AddConnector` hinzu, indem Sie den Verbinder‑Typ festlegen.
+1. Verbinden Sie die Formen mit dem Verbinder.
+1. Rufen Sie die Methode `Reroute` auf, um den kürzesten Verbindungsweg anzuwenden.
+1. Speichern Sie die Präsentation. 
 
-Dieser C#‑Code zeigt, wie Sie einen Verbinder (einen gebogenen Verbinder) zwischen zwei Formen (einem Ellipse und einem Rechteck) hinzufügen:
 ```c#
-// Instanziiert eine Presentation‑Klasse, die eine PPTX‑Datei darstellt
+// Instanziert eine Präsentationsklasse, die eine PPTX-Datei darstellt
 using (Presentation input = new Presentation())
 {                
-    // Greift auf die Shapes‑Sammlung einer bestimmten Folie zu
+    // Greift auf die Shapes-Sammlung einer bestimmten Folie zu
     IShapeCollection shapes = input.Slides[0].Shapes;
 
-    // Fügt eine Ellipse‑Autoform hinzu
+    // Fügt eine Ellipse-AutoShape hinzu
     IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
 
-    // Fügt eine Rechteck‑Autoform hinzu
+    // Fügt eine Rechteck-AutoShape hinzu
     IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
 
-    // Fügt ein Connector‑Shape zur Formsammlung der Folie hinzu
+    // Fügt ein Connector-Shape zur Shape-Sammlung der Folie hinzu
     IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // Verbindet die Formen mithilfe des Connectors
+    // Verbindet die Shapes mit dem Connector
     connector.StartShapeConnectedTo = ellipse;
     connector.EndShapeConnectedTo = rectangle;
 
-    // Ruft Reroute auf, das den automatischen kürzesten Pfad zwischen den Formen setzt
+    // Ruft Reroute auf, das den automatischen kürzesten Pfad zwischen den Shapes festlegt
     connector.Reroute();
 
     // Speichert die Präsentation
@@ -74,50 +85,48 @@ using (Presentation input = new Presentation())
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-Die Methode `Connector.Reroute` leitet einen Verbinder neu und zwingt ihn, den kürzesten möglichen Pfad zwischen Formen zu nehmen. Um dieses Ziel zu erreichen, kann die Methode die Punkte `StartShapeConnectionSiteIndex` und `EndShapeConnectionSiteIndex` ändern. 
+Die Methode `Connector.Reroute` leitet einen Verbinder neu und zwingt ihn, den kürzest möglichen Pfad zwischen Formen zu nehmen. Um dies zu erreichen, kann die Methode die Punkte `StartShapeConnectionSiteIndex` und `EndShapeConnectionSiteIndex` ändern. 
 
 {{% /alert %}} 
 
-## **Verbindungspunkt angeben**
+## **Verbindungspunkt festlegen**
+Wenn Sie möchten, dass ein Verbinder zwei Formen über bestimmte Punkte auf den Formen verbindet, müssen Sie Ihre bevorzugten Verbindungspunkte folgendermaßen festlegen:
 
-Wenn Sie einen Verbinder dazu bringen wollen, zwei Formen über bestimmte Punkte auf den Formen zu verknüpfen, müssen Sie die gewünschten Verbindungspunkte wie folgt angeben:
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Rufen Sie die Referenz einer Folie über ihren Index ab.
+1. Fügen Sie der Folie zwei [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) mit der vom `Shapes`‑Objekt bereitgestellten Methode `AddAutoShape` hinzu.
+1. Fügen Sie einen Verbinder mit der vom `Shapes`‑Objekt bereitgestellten Methode `AddConnector` hinzu, indem Sie den Verbinder‑Typ festlegen.
+1. Verbinden Sie die Formen mit dem Verbinder.
+1. Legen Sie Ihre bevorzugten Verbindungspunkte auf den Formen fest.
+1. Speichern Sie die Präsentation.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)-Klasse.  
-1. Holen Sie sich einen Folien‑Referenz über deren Index.  
-1. Fügen Sie der Folie zwei [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/)-Objekte über die vom `Shapes`‑Objekt bereitgestellte `AddAutoShape`‑Methode hinzu.  
-1. Fügen Sie einen Verbinder über die vom `Shapes`‑Objekt bereitgestellte `AddConnector`‑Methode hinzu, indem Sie den Verbinder­typ definieren.  
-1. Verbinden Sie die Formen über den Verbinder.  
-1. Setzen Sie Ihre bevorzugten Verbindungspunkte auf den Formen.  
-1. Speichern Sie die Präsentation.  
-
-Dieser C#‑Code demonstriert einen Vorgang, bei dem ein bevorzugter Verbindungspunkt angegeben wird:
 ```c#
 // Instanziert eine Präsentationsklasse, die eine PPTX-Datei darstellt
 using (Presentation presentation = new Presentation())
 {
-    // Greift auf die Shapes‑Sammlung einer bestimmten Folie zu
+    // Greift auf die Shapes-Sammlung einer bestimmten Folie zu
     IShapeCollection shapes = presentation.Slides[0].Shapes;
 
-    // Fügt ein Connector‑Shape zur Shape‑Sammlung der Folie hinzu
+    // Fügt ein Connector-Shape zur Shape-Sammlung der Folie hinzu
     IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
 
-    // Fügt eine Ellipse‑Autoform hinzu
+    // Fügt eine Ellipse-AutoShape hinzu
     IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
 
-    // Fügt eine Rechteck‑Autoform hinzu
+    // Fügt eine Rechteck-AutoShape hinzu
     IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
 
-    // Verbindet die Formen mithilfe des Connectors
+    // Verbindet die Shapes mit dem Connector
     connector.StartShapeConnectedTo = ellipse;
     connector.EndShapeConnectedTo = rectangle;
 
-    // Setzt den gewünschten Verbindungspunkt‑Index auf der Ellipse‑Form
+    // Legt den gewünschten Verbindungs-Punkt-Index für die Ellipse-Shape fest
     uint wantedIndex = 6;
 
-    // Überprüft, ob der gewünschte Index kleiner ist als die maximale Site‑Index‑Anzahl
+    // Prüft, ob der gewünschte Index kleiner ist als die maximale Anzahl von Verbindungsstellen
     if (ellipse.ConnectionSiteCount > wantedIndex)
     {
-        // Setzt den gewünschten Verbindungspunkt auf der Ellipse‑Autoform
+        // Legt den gewünschten Verbindungs-Punkt für die Ellipse-AutoShape fest
         connector.StartShapeConnectionSiteIndex = wantedIndex;
     }
 
@@ -128,12 +137,11 @@ using (Presentation presentation = new Presentation())
 
 
 ## **Verbinderpunkt anpassen**
-
-Sie können einen existierenden Verbinder über seine Anpassungspunkte anpassen. Nur Verbinder mit Anpassungspunkten können auf diese Weise verändert werden. Siehe die Tabelle unter **[Arten von Verbindern](/slides/de/net/connector/#types-of-connectors)**.  
+Sie können einen bestehenden Verbinder über seine Anpassungspunkte anpassen. Nur Verbinder mit Anpassungspunkten können auf diese Weise geändert werden. Siehe die Tabelle unter **[Typen von Verbindern.](/slides/de/net/connector/#types-of-connectors)** 
 
 #### **Einfacher Fall**
 
-Betrachten Sie den Fall, dass ein Verbinder zwischen zwei Formen (A und B) durch eine dritte Form (C) führt:
+Betrachten Sie einen Fall, in dem ein Verbinder zwischen zwei Formen (A und B) durch eine dritte Form (C) führt:
 
 ![connector-obstruction](connector-obstruction.png)
 
@@ -157,7 +165,7 @@ connector.StartShapeConnectionSiteIndex = 2;
 ```
 
 
-Um die dritte Form zu umgehen, können wir den Verbinder anpassen, indem wir seine senkrechte Linie nach links verschieben:
+Um die dritte Form zu vermeiden oder zu umgehen, können wir den Verbinder anpassen, indem wir seine vertikale Linie nach links verschieben:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 ```c#
@@ -168,18 +176,18 @@ adj2.RawValue += 10000;
 
 ### **Komplexe Fälle** 
 
-Für aufwendigere Anpassungen müssen Sie folgende Punkte berücksichtigen:
+Um komplexere Anpassungen vorzunehmen, müssen Sie die folgenden Punkte berücksichtigen:
 
-* Der anpassbare Punkt eines Verbinders ist stark an eine Formel gebunden, die seine Position berechnet. Änderungen der Punktposition können daher die Form des Verbinders verändern.  
-* Die Anpassungspunkte eines Verbinders sind in einer festen Reihenfolge in einem Array definiert. Sie werden vom Start‑ zum Endpunkt des Verbinders nummeriert.  
-* Die Werte der Anpassungspunkte geben den Prozentsatz der Breite/Höhe der Verbinderform an.  
-  * Die Form ist durch die mit 1000 multiplizierten Start‑ und Endpunkte des Verbinders begrenzt.  
-  * Erster, zweiter und dritter Punkt stehen jeweils für den Prozentsatz der Breite, den Prozentsatz der Höhe und erneut den Prozentsatz der Breite.  
-* Für Berechnungen, die die Koordinaten der Anpassungspunkte eines Verbinders bestimmen, müssen Sie die Drehung des Verbinders und seine Spiegelung berücksichtigen. **Hinweis:** Der Drehwinkel für alle im Abschnitt **[Arten von Verbindern](/slides/de/net/connector/#types-of-connectors)** gezeigten Verbinder beträgt 0.  
+* Der anpassbare Punkt eines Verbinders ist stark mit einer Formel verknüpft, die seine Position berechnet und bestimmt. Änderungen der Punktposition können daher die Form des Verbinders verändern.
+* Die Anpassungspunkte eines Verbinders werden in einem Array in einer festen Reihenfolge definiert. Die Punkte sind vom Start‑ bis zum Endpunkt des Verbinders nummeriert.
+* Die Werte der Anpassungspunkte geben den Prozentsatz der Breite/Höhe der Verbinder‑Form an.
+  * Die Form wird durch die Start‑ und Endpunkte des Verbinders multipliziert mit 1000 begrenzt.
+  * Der erste, zweite und dritte Punkt definieren jeweils den Prozentsatz der Breite, den Prozentsatz der Höhe und erneut den Prozentsatz der Breite.
+* Für Berechnungen, die die Koordinaten der Anpassungspunkte eines Verbinders bestimmen, müssen Sie die Drehung und Spiegelung des Verbinders berücksichtigen. **Hinweis:** Der Drehwinkel für alle unter **[Typen von Verbindern](/slides/de/net/connector/#types-of-connectors)** gezeigten Verbinder beträgt 0.
 
 #### **Fall 1**
 
-Betrachten Sie den Fall, dass zwei Textfeld‑Objekte über einen Verbinder verbunden sind:
+Betrachten Sie einen Fall, in dem zwei Textfeld‑Objekte über einen Verbinder miteinander verbunden sind:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
@@ -187,7 +195,7 @@ Code:
 ```c#
 // Instanziert eine Präsentationsklasse, die eine PPTX-Datei darstellt
 Presentation pres = new Presentation();
-// Holt die erste Folie der Präsentation
+// Ruft die erste Folie in der Präsentation ab
 ISlide sld = pres.Slides[0];
 // Fügt Formen hinzu, die über einen Verbinder verbunden werden
 IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
@@ -201,7 +209,7 @@ connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 // Legt die Farbe des Verbinders fest
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
-// Legt die Linienstärke des Verbinders fest
+// Legt die Dicke der Verbinderlinie fest
 connector.LineFormat.Width = 3;
 
 // Verknüpft die Formen mit dem Verbinder
@@ -210,7 +218,7 @@ connector.StartShapeConnectionSiteIndex = 3;
 connector.EndShapeConnectedTo = shapeTo;
 connector.EndShapeConnectionSiteIndex = 2;
 
-// Erhält die Anpassungspunkte für den Verbinder
+// Holt die Anpassungspunkte des Verbinders
 IAdjustValue adjValue_0 = connector.Adjustments[0];
 IAdjustValue adjValue_1 = connector.Adjustments[1];
 ```
@@ -218,7 +226,7 @@ IAdjustValue adjValue_1 = connector.Adjustments[1];
 
 **Anpassung**
 
-Wir können die Werte der Anpassungspunkte des Verbinders ändern, indem wir den entsprechenden Breiten‑ und Höhen‑Prozentsatz um 20 % bzw. 200 % erhöhen:
+Wir können die Werte der Anpassungspunkte des Verbinders ändern, indem wir die entsprechenden Breiten‑ und Höhen‑Prozentsätze um jeweils 20 % bzw. 200 % erhöhen:
 ```c#
 // Ändert die Werte der Anpassungspunkte
 adjValue_0.RawValue += 20000;
@@ -230,7 +238,7 @@ Das Ergebnis:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Um ein Modell zu definieren, das uns die Koordinaten und die Form einzelner Teile des Verbinders ermöglicht, erstellen wir eine Form, die dem horizontalen Bestandteil des Verbinders am Punkt `connector.Adjustments[0]` entspricht:
+Um ein Modell zu definieren, das uns die Koordinaten und die Form einzelner Teile des Verbinders ermöglicht, erstellen wir eine Form, die der horizontalen Komponente des Verbinders am Punkt connector.Adjustments[0] entspricht:
 ```c#
 // Zeichnet die vertikale Komponente des Verbinders
 
@@ -247,9 +255,9 @@ Das Ergebnis:
 
 #### **Fall 2**
 
-In **Fall 1** haben wir einen einfachen Verbinder‑Anpassungsvorgang anhand grundlegender Prinzipien demonstriert. In normalen Situationen müssen Sie die Drehung des Verbinders sowie seine Anzeige (gesetzt über `connector.Rotation`, `connector.Frame.FlipH` und `connector.Frame.FlipV`) berücksichtigen. Wir zeigen nun den Vorgang.
+In **Fall 1** haben wir eine einfache Verbinder‑Anpassungs‑Operation mittels Grundprinzipien demonstriert. In normalen Situationen müssen Sie die Drehung des Verbinders und seine Anzeige (die durch connector.Rotation, connector.Frame.FlipH und connector.Frame.FlipV festgelegt werden) berücksichtigen. Wir werden nun den Vorgang demonstrieren.
 
-Zuerst fügen wir der Folie ein neues Textfeld‑Objekt (**To 1**) zum Zweck der Verbindung hinzu und erstellen einen neuen (grünen) Verbinder, der es mit den bereits vorhandenen Objekten verbindet.
+Zuerst fügen wir der Folie ein neues Textfeld‑Objekt (**To 1**) (zum Verbinden) hinzu und erstellen einen neuen (grünen) Verbinder, der es mit den bereits erstellten Objekten verbindet.
 ```c#
 // Erstellt ein neues Bindungsobjekt
 IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
@@ -265,7 +273,7 @@ connector.StartShapeConnectedTo = shapeFrom;
 connector.StartShapeConnectionSiteIndex = 2;
 connector.EndShapeConnectedTo = shapeTo_1;
 connector.EndShapeConnectionSiteIndex = 3;
-// Ruft die Anpassungspunkte des Verbinders ab
+// Holt die Anpassungspunkte des Verbinders
 adjValue_0 = connector.Adjustments[0];
 adjValue_1 = connector.Adjustments[1];
 // Ändert die Werte der Anpassungspunkte 
@@ -278,17 +286,17 @@ Das Ergebnis:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Als Nächstes erstellen wir eine Form, die dem horizontalen Bestandteil des Verbinders entspricht, der durch den neuen Anpassungspunkt `connector.Adjustments[0]` verläuft. Wir verwenden die Werte aus den Verbinder‑Daten für `connector.Rotation`, `connector.Frame.FlipH` und `connector.Frame.FlipV` und wenden die gängige Koordinaten‑Umrechnungsformel für Drehungen um einen Punkt x₀ an:
+Zweitens erstellen wir eine Form, die der horizontalen Komponente des Verbinders entspricht, die durch den Anpassungspunkt connector.Adjustments[0] des neuen Verbinders verläuft. Wir verwenden die Werte aus den Verbinder‑Daten für connector.Rotation, connector.Frame.FlipH und connector.Frame.FlipV und wenden die gängige Koordinaten‑Umrechnungsformel für die Drehung um einen gegebenen Punkt x0 an:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;  
+X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
 Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
 
-In unserem Fall beträgt der Rotationswinkel des Objekts 90 Grad und der Verbinder wird vertikal angezeigt, sodass der zugehörige Code lautet:
+In unserem Fall beträgt der Rotationswinkel des Objekts 90 Grad und der Verbinder wird vertikal angezeigt, daher lautet der entsprechende Code:
 ```c#
 // Speichert die Koordinaten des Verbinders
 x = connector.X;
 y = connector.Y;
-// Korrigiert die Koordinaten des Verbinders, falls sie auftreten
+// Korrigiert die Koordinaten des Verbinders, falls es vorkommt
 if (connector.Frame.FlipH == NullableBool.True)
 {
     x += connector.Width;
@@ -307,7 +315,6 @@ float width = connector.Height * adjValue_1.RawValue / 100000;
 IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
 shape.LineFormat.FillFormat.FillType = FillType.Solid;
 shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
-
 ```
 
 
@@ -315,16 +322,14 @@ Das Ergebnis:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Wir haben Berechnungen zu einfachen Anpassungen und zu komplexen Anpassungspunkten (mit Drehwinkeln) demonstriert. Mit dem erworbenen Wissen können Sie Ihr eigenes Modell entwickeln (oder Code schreiben), um ein `GraphicsPath`‑Objekt zu erhalten oder die Werte von Verbinder‑Anpassungspunkten basierend auf konkreten Folienkoordinaten zu setzen.  
+Wir haben Berechnungen mit einfachen Anpassungen und komplexen Anpassungspunkten (Anpassungspunkte mit Drehwinkeln) demonstriert. Mit dem erworbenen Wissen können Sie Ihr eigenes Modell entwickeln (oder Code schreiben), um ein `GraphicsPath`‑Objekt zu erhalten oder sogar die Werte der Anpassungspunkte eines Verbinders basierend auf bestimmten Folien‑Koordinaten festzulegen.
 
-## **Winkel von Verbinder‑Linien ermitteln**
+## **Winkel von Verbinderlinien ermitteln**
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+1. Rufen Sie die Referenz einer Folie über ihren Index ab.
+1. Greifen Sie auf die Form der Verbinderlinie zu.
+1. Verwenden Sie die Linienbreite, Höhe, die Rahmenhöhe und -breite der Form, um den Winkel zu berechnen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)-Klasse.  
-1. Holen Sie sich einen Folien‑Referenz über deren Index.  
-1. Greifen Sie auf die Verbinder‑Linien‑Form zu.  
-1. Verwenden Sie die Linien‑Breite, -Höhe, die Höhe des Form‑Frames und die Breite des Form‑Frames, um den Winkel zu berechnen.  
-
-Dieser C#‑Code demonstriert einen Vorgang, bei dem wir den Winkel einer Verbinder‑Linien‑Form berechnet haben:
 ```c#
 public static void Run()
 {
@@ -368,14 +373,14 @@ public static double getDirection(float w, float h, bool flipH, bool flipV)
 
 ## **FAQ**
 
-**Wie kann ich feststellen, ob ein Verbinder an einer bestimmten Form „geklebt“ werden kann?**  
+**Wie kann ich feststellen, ob ein Verbinder an einer bestimmten Form „geklebt“ werden kann?**
 
-Prüfen Sie, ob die Form [connection sites](https://reference.aspose.com/slides/net/aspose.slides/shape/connectionsitecount/) bereitstellt. Wenn keine vorhanden sind oder die Anzahl 0 beträgt, ist das Kleben nicht möglich; verwenden Sie in diesem Fall freie Endpunkte und positionieren Sie diese manuell. Es ist sinnvoll, die Site‑Anzahl vor dem Anhängen zu prüfen.  
+Prüfen Sie, ob die Form [Verbindungspunkte](https://reference.aspose.com/slides/net/aspose.slides/shape/connectionsitecount/) bereitstellt. Gibt es keine oder ist die Anzahl null, ist das Kleben nicht möglich; in diesem Fall verwenden Sie freie Endpunkte und positionieren sie manuell. Es ist sinnvoll, die Anzahl der Punkte vor dem Anfügen zu prüfen.
 
-**Was passiert mit einem Verbinder, wenn ich eine der verbundenen Formen lösche?**  
+**Was passiert mit einem Verbinder, wenn ich eine der verbundenen Formen lösche?**
 
-Seine Enden werden getrennt; der Verbinder bleibt als gewöhnliche Linie mit freien Start‑/Endpunkten auf der Folie. Sie können ihn entweder löschen oder die Verbindungen neu zuweisen und bei Bedarf [reroute](https://reference.aspose.com/slides/net/aspose.slides/connector/reroute/) ausführen.  
+Seine Enden werden getrennt; der Verbinder bleibt auf der Folie als gewöhnliche Linie mit freien Start‑/Endpunkten bestehen. Sie können ihn entweder löschen oder die Verbindungen neu zuweisen und bei Bedarf [neu routen](https://reference.aspose.com/slides/net/aspose.slides/connector/reroute/).
 
-**Werden Verbinder‑Bindungen erhalten, wenn ich eine Folie in eine andere Präsentation kopiere?**  
+**Werden Verbinder‑Zuordnungen beim Kopieren einer Folie in eine andere Präsentation beibehalten?**
 
-In der Regel ja, vorausgesetzt, die Ziel‑Formen werden ebenfalls kopiert. Wird die Folie in eine andere Datei eingefügt, ohne die verbundenen Formen, werden die Enden frei und Sie müssen sie erneut verbinden.  
+Im Allgemeinen ja, sofern die Ziel‑Formen ebenfalls kopiert werden. Wird die Folie in eine andere Datei eingefügt, ohne dass die verbundenen Formen mitkopiert werden, werden die Enden frei und Sie müssen sie erneut anfügen.

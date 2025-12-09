@@ -1,27 +1,44 @@
 ---
-title: 演示文稿批注
+title: 在 .NET 中管理演示文稿批注
+linktitle: 演示文稿批注
 type: docs
 weight: 100
 url: /zh/net/presentation-comments/
-keywords: "批注, PowerPoint 批注, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
-description: "在 PowerPoint 演示文稿中使用 C# 或 .NET 添加批注和回复"
+keywords:
+- 批注
+- 现代批注
+- PowerPoint 批注
+- 演示文稿批注
+- 幻灯片批注
+- 添加批注
+- 访问批注
+- 编辑批注
+- 回复批注
+- 删除批注
+- 删除批注
+- PowerPoint
+- 演示文稿
+- .NET
+- C#
+- Aspose.Slides
+description: "使用 Aspose.Slides for .NET 完全掌握演示文稿批注：在 PowerPoint 文件中快速轻松地添加、读取、编辑和删除批注。"
 ---
 
-在 PowerPoint 中，批注显示为幻灯片上的备注或注释。单击批注后，其内容或信息会显示。 
+在 PowerPoint 中，批注显示为幻灯片上的备注或注释。单击批注后，其内容或信息会显示出来。 
 
-## **为什么要在演示文稿中添加批注？**
+## **为什么要向演示文稿添加批注？**
 
-在审阅演示文稿时，您可能希望使用批注提供反馈或与同事进行交流。
+在审阅演示文稿时，您可能希望使用批注来提供反馈或与同事沟通。
 
-为了让您在 PowerPoint 演示文稿中使用批注，Aspose.Slides for .NET 提供
+为使您能够在 PowerPoint 演示文稿中使用批注，Aspose.Slides for .NET 提供
 
-* [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类，其中包含作者集合（来自 [CommentAuthorCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/properties/index) 属性）。作者向幻灯片添加批注。 
-* [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) 接口，包含单个作者的批注集合。 
-* [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) 类，包含作者及其批注的信息：谁添加了批注、批注添加的时间、批注的位置等。 
-* [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) 类，包含单个作者的信息：作者姓名、缩写、与该作者关联的批注等。 
+* The [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类，包含作者集合（来自 [CommentAuthorCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentauthorcollection/properties/index) 属性）。作者向幻灯片添加批注。 
+* The  [ICommentCollection](https://reference.aspose.com/slides/net/aspose.slides/icommentcollection) 接口，包含各作者的批注集合。 
+* The  [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) 类，包含作者及其批注的信息：谁添加了批注、批注添加的时间、批注的位置等。 
+* The [CommentAuthor](https://reference.aspose.com/slides/net/aspose.slides/commentauthor) 类，包含单个作者的信息：作者姓名、缩写、与该作者姓名关联的批注等。 
 
 ## **添加幻灯片批注**
-以下 C# 代码演示了如何在 PowerPoint 演示文稿的幻灯片中添加批注：
+以下 C# 代码演示如何向 PowerPoint 演示文稿的幻灯片添加批注：
 ```c#
 // 实例化 Presentation 类
 using (Presentation presentation = new Presentation())
@@ -46,17 +63,17 @@ using (Presentation presentation = new Presentation())
     // 访问 ISlide 1
     ISlide slide = presentation.Slides[0];
 
-    // 当参数为 null 时，将所有作者的批注带到选定的幻灯片
+    // 当参数为 null 时，来自所有作者的批注会被带到所选幻灯片
     IComment[] Comments = slide.GetSlideComments(author);
 
-    // 访问幻灯片 1 上索引为 0 的批注
+    // 访问幻灯片 1 上索引 0 处的批注
     String str = Comments[0].Text;
 
     presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 
     if (Comments.GetLength(0) > 0)
     {
-        // 选择索引为 0 的作者批注集合
+        // 选择索引 0 处的作者批注集合
         ICommentCollection commentCollection = Comments[0].Author.Comments;
         String Comment = commentCollection[0].Text;
     }
@@ -65,7 +82,7 @@ using (Presentation presentation = new Presentation())
 
 
 ## **访问幻灯片批注**
-以下 C# 代码演示了如何访问 PowerPoint 演示文稿中幻灯片的现有批注：
+以下 C# 代码演示如何访问 PowerPoint 演示文稿中幻灯片的现有批注：
 ```c#
 // 实例化 Presentation 类
 using (Presentation presentation = new Presentation("Comments1.pptx"))
@@ -84,9 +101,9 @@ using (Presentation presentation = new Presentation("Comments1.pptx"))
 
 
 ## **回复批注**
-父批注是层级结构中顶层或原始批注。使用来自 [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) 接口的 [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) 属性，您可以设置或获取父批注。
+父批注是批注或回复层级中的顶层或原始批注。使用 [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) 属性（来自 [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) 接口），您可以设置或获取父批注。 
 
-以下 C# 代码演示了如何添加批注并获取其回复：
+以下 C# 代码演示如何添加批注并获取其回复：
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -113,7 +130,7 @@ using (Presentation pres = new Presentation())
     IComment reply3 = author1.Comments.AddComment("reply 4 for comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
     reply3.ParentComment = comment3;
 
-    // 在控制台显示批注层次结构
+    // 在控制台显示批注层级结构
     ISlide slide = pres.Slides[0];
     var comments = slide.GetSlideComments(null);
     for (int i = 0; i < comments.Length; i++)
@@ -141,18 +158,18 @@ using (Presentation pres = new Presentation())
 
 {{% alert color="warning" title="Attention" %}} 
 
-* 当使用来自 [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) 接口的 [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) 方法删除批注时，批注的所有回复也会被删除。 
+* 当使用来自 [IComment](https://reference.aspose.com/slides/net/aspose.slides/icomment) 接口的 [Remove](https://reference.aspose.com/slides/net/aspose.slides/icomment/methods/remove) 方法删除批注时，批注的回复也会被删除。 
 * 如果 [ParentComment](https://reference.aspose.com/slides/net/aspose.slides/icomment/properties/parentcomment) 设置导致循环引用，将抛出 [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception)。 
 
 {{% /alert %}}
 
 ## **添加现代批注**
 
-2021 年，Microsoft 在 PowerPoint 中引入了 *现代批注*。现代批注功能显著提升了 PowerPoint 的协作体验。通过现代批注，用户可以解决批注、将批注锚定到对象和文本，并且能够更轻松地进行交互。
+2021 年，Microsoft 在 PowerPoint 中引入了*现代批注*。现代批注功能显著提升了 PowerPoint 的协作能力。通过现代批注，PowerPoint 用户可以解决批注、将批注锚定到对象和文本，并且比以前更轻松地进行交互。 
 
-在 [Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-11-release-notes/) 中，我们通过添加 [ModernComment](https://reference.aspose.com/slides/net/aspose.slides/moderncomment) 类实现了对现代批注的支持。向 [CommentCollection](https://reference.aspose.com/slides/net/aspose.slides/commentcollection) 类添加了 [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) 和 [InsertModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) 方法。
+在 [Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-11-release-notes/) 中，我们通过添加 [ModernComment](https://reference.aspose.com/slides/net/aspose.slides/moderncomment) 类实现了对现代批注的支持。向 [CommentCollection](https://reference.aspose.com/slides/net/aspose.slides/commentcollection) 类添加了 [AddModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/addmoderncomment) 和 [InsertModernComment](https://reference.aspose.com/slides/net/aspose.slides/commentcollection/methods/insertmoderncomment) 方法。 
 
-以下 C# 代码演示了如何在 PowerPoint 演示文稿的幻灯片中添加现代批注：
+以下 C# 代码演示如何向 PowerPoint 演示文稿的幻灯片添加现代批注： 
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -168,7 +185,7 @@ using (Presentation pres = new Presentation())
 
 ### **删除所有批注和作者**
 
-以下 C# 代码演示了如何删除演示文稿中的所有批注和作者：
+以下 C# 代码演示如何在演示文稿中删除所有批注和作者：
 ```c#
 using (var presentation = new Presentation("example.pptx"))
 {
@@ -188,7 +205,7 @@ using (var presentation = new Presentation("example.pptx"))
 
 ### **删除特定批注**
 
-以下 C# 代码演示了如何删除幻灯片上的特定批注：
+以下 C# 代码演示如何删除幻灯片上的特定批注：
 ```c#
 using (var presentation = new Presentation())
 {
@@ -226,12 +243,12 @@ using (var presentation = new Presentation())
 
 **Aspose.Slides 是否支持现代批注的“已解决”状态？**
 
-是的。 [Modern comments](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/) 暴露了 [Status](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/status/) 属性；您可以读取和设置批注的状态（例如标记为已解决），该状态会保存在文件中并被 PowerPoint 识别。
+是的。[Modern comments](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/) 提供了一个 [Status](https://reference.aspose.com/slides/net/aspose.slides/moderncomment/status/) 属性；您可以读取和设置 [批注的状态](https://reference.aspose.com/slides/net/aspose.slides/moderncommentstatus/)（例如将其标记为已解决），该状态会保存在文件中并被 PowerPoint 识别。
 
-**是否支持线程化讨论（回复链），以及是否有嵌套层级限制？**
+**是否支持线程式讨论（回复链），并且是否有限制嵌套深度？**
 
-是的。每个批注都可以引用其 [parent comment](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/)，从而实现任意深度的回复链。API 并未声明具体的嵌套深度限制。
+是的。每个批注都可以引用其 [parent comment](https://reference.aspose.com/slides/net/aspose.slides/comment/parentcomment/)，从而实现任意长度的回复链。API 并未声明具体的嵌套深度限制。
 
-**批注标记在幻灯片上的位置使用哪种坐标系定义？**
+**批注标记在幻灯片上的位置采用何种坐标系定义？**
 
-位置以浮点坐标点存储在幻灯片的坐标系中。这使您能够精确地将批注标记放置在所需位置。
+该位置以浮点坐标点存储在幻灯片的坐标系中，使您能够将批注标记精确放置在所需位置。

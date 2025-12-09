@@ -1,6 +1,6 @@
 ---
-title: Diagramme in PowerPoint-Präsentationen erstellen oder aktualisieren in C#
-linktitle: Diagramm erstellen oder aktualisieren
+title: Diagramme in PowerPoint-Präsentationen in .NET erstellen oder aktualisieren
+linktitle: Diagramme erstellen oder aktualisieren
 type: docs
 weight: 10
 url: /de/net/create-chart/
@@ -13,135 +13,139 @@ keywords:
 - Streudiagramm
 - Kreisdiagramm
 - Liniendiagramm
-- Baumkarte-Diagramm
+- Baumkarten-Diagramm
 - Börsendiagramm
-- Box-und-Whisker-Diagramm
+- Box‑Und‑Whisker‑Diagramm
 - Trichterdiagramm
-- Sunburst-Diagramm
-- Histogramm
-- Radar-Diagramm
-- Mehrkategorie-Diagramm
-- PowerPoint-Präsentation
+- Sunburst‑Diagramm
+- Histogramm‑Diagramm
+- Radar‑Diagramm
+- Mehrkategorien‑Diagramm
+- PowerPoint
+- Präsentation
+- .NET
 - C#
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagramme in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für .NET erstellen und anpassen. Der Artikel behandelt das Hinzufügen, Formatieren und Bearbeiten von Diagrammen in Präsentationen und enthält praktische Code-Beispiele in C#."
+description: "Diagramme in PowerPoint-Präsentationen mit Aspose.Slides für .NET erstellen und anpassen. Diagramme hinzufügen, formatieren und bearbeiten mit praktischen Codebeispielen in C#."
 ---
 
 ## **Übersicht**
 
-Dieser Artikel bietet eine umfassende Anleitung, wie man Diagramme mit Aspose.Slides für .NET erstellt und anpasst. Sie lernen, wie man programmgesteuert ein Diagramm zu einer Folie hinzufügt, es mit Daten füllt und verschiedene Formatierungsoptionen anwendet, um Ihren spezifischen Designanforderungen zu entsprechen. Im gesamten Artikel veranschaulichen detaillierte Codebeispiele jeden Schritt, vom Initialisieren der Präsentation und des Diagrammobjekts bis zur Konfiguration von Serien, Achsen und Legenden. Wenn Sie dieser Anleitung folgen, erhalten Sie ein fundiertes Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre .NET-Anwendungen integrieren und den Prozess der Erstellung datenbasierter Präsentationen optimieren.
+Dieser Artikel bietet eine umfassende Anleitung zum Erstellen und Anpassen von Diagrammen mit Aspose.Slides für .NET. Sie lernen, wie Sie programmgesteuert ein Diagramm zu einer Folie hinzufügen, es mit Daten füllen und verschiedene Formatierungsoptionen anwenden, um Ihren spezifischen Designanforderungen zu entsprechen. Im gesamten Artikel veranschaulichen detaillierte Codebeispiele jeden Schritt, von der Initialisierung der Präsentation und des Diagrammobjekts bis hin zur Konfiguration von Serien, Achsen und Legenden. Durch Befolgen dieser Anleitung erhalten Sie ein solides Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre .NET‑Anwendungen integrieren und damit den Prozess der Erstellung datengetriebener Präsentationen optimieren.
 
 ## **Diagramm erstellen**
 
-Diagramme helfen Menschen, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder einem Tabellenkalkulationsblatt nicht sofort ersichtlich sind.
+Diagramme helfen Menschen, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder einem Spreadsheet nicht sofort ersichtlich sind.
 
 **Warum Diagramme erstellen?**
 
-* große Datenmengen auf einer einzigen Folie in einer Präsentation aggregieren, komprimieren oder zusammenfassen;
-* Muster und Trends in Daten aufzeigen;
-* die Richtung und den Schwung von Daten über die Zeit oder in Bezug auf eine spezifische Maßeinheit ableiten;
-* Ausreißer, Fehlentwicklungen, Abweichungen, Fehler und unsinnige Daten erkennen;
+Mit Diagrammen können Sie:
+
+* große Datenmengen auf einer einzigen Folie einer Präsentation zusammenfassen, komprimieren oder zusammenfassen;
+* Muster und Trends in den Daten aufzeigen;
+* die Richtung und das Momentum der Daten über die Zeit oder in Bezug auf eine bestimmte Maßeinheit ableiten;
+* Ausreißer, Abweichungen, Fehler und unsinnige Daten erkennen;
 * komplexe Daten kommunizieren oder präsentieren.
 
-In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für die Gestaltung vieler Diagrammtypen bereitstellt. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erstellen.
+In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für die Gestaltung vieler Diagrammtypen bietet. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erstellen.
 
 {{% alert color="primary" %}} 
-Verwenden Sie die [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) Aufzählung im [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) Namensraum. Die Werte in dieser Aufzählung entsprechen verschiedenen Diagrammtypen.
-{{% /alert %}}
+Verwenden Sie die Enumeration [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) im Namensraum [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Die Werte dieser Enumeration entsprechen verschiedenen Diagrammtypen.
+{{% /alert %}} 
 
 ### **Gruppierte Säulendiagramme erstellen**
 
-Dieser Abschnitt erklärt, wie Sie gruppierte Säulendiagramme mit Aspose.Slides für .NET erstellen. Sie lernen, wie Sie eine Präsentation initialisieren, ein Diagramm hinzufügen und dessen Elemente wie Titel, Daten, Serien, Kategorien und Stil anpassen. Folgen Sie den Schritten unten, um zu sehen, wie ein Standard‑Gruppiertes‑Säulendiagramm erzeugt wird:
+In diesem Abschnitt wird erklärt, wie Sie gruppierte Säulendiagramme mit Aspose.Slides für .NET erstellen. Sie lernen, eine Präsentation zu initialisieren, ein Diagramm hinzuzufügen und Elemente wie Titel, Daten, Serien, Kategorien und Styling anzupassen. Folgen Sie den untenstehenden Schritten, um zu sehen, wie ein Standard‑Gruppiertes‑Säulendiagramm erzeugt wird:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.  
-2. Rufen Sie anhand des Index eine Referenz auf eine Folie ab.  
-3. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie den Typ `ChartType.ClusteredColumn` an.  
-4. Fügen Sie dem Diagramm einen Titel hinzu.  
-5. Greifen Sie auf das Daten‑Arbeitsblatt des Diagramms zu.  
-6. Entfernen Sie alle Standard‑Serien und -Kategorien.  
-7. Fügen Sie neue Serien und Kategorien hinzu.  
-8. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.  
-9. Wenden Sie eine Füllfarbe auf die Diagrammserien an.  
-10. Fügen Sie Beschriftungen zu den Diagrammserien hinzu.  
-11. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+1. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie den Typ `ChartType.ClusteredColumn` an.
+1. Fügen Sie dem Diagramm einen Titel hinzu.
+1. Greifen Sie auf das Daten‑Arbeitsblatt des Diagramms zu.
+1. Löschen Sie alle Standard‑Serien und -Kategorien.
+1. Fügen Sie neue Serien und Kategorien hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
+1. Wenden Sie eine Füllfarbe auf die Diagrammserien an.
+1. Fügen Sie Beschriftungen zu den Diagrammserien hinzu.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
 Dieser C#‑Code demonstriert, wie ein gruppiertes Säulendiagramm erstellt wird:
 ```c#
-// Instanziieren Sie die Presentation-Klasse.
+// Instanziiere die Presentation‑Klasse.
 using (Presentation presentation = new Presentation())
 {
-    // Greifen Sie auf die erste Folie zu.
+    // Greife auf die erste Folie zu.
     ISlide slide = presentation.Slides[0];
 
-    // Fügen Sie ein gruppiertes Säulendiagramm mit den Standarddaten hinzu.
+    // Füge ein gruppiertes Säulendiagramm mit den Standarddaten hinzu.
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-    // Setzen Sie den Diagrammtitel.
+    // Setze den Diagrammtitel.
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // Setzen Sie die erste Serie so, dass Werte angezeigt werden.
+    // Setze die erste Serie, um Werte anzuzeigen.
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-    // Legen Sie den Index des Diagrammdatenblatts fest.
+    // Setze den Index des Diagrammdatensheets.
     int worksheetIndex = 0;
 
-    // Holen Sie das Diagrammdaten-Workbook.
+    // Hole das Diagramm‑Daten‑Workbook.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Löschen Sie die standardmäßig generierten Serien und Kategorien.
+    // Lösche die standardmäßig erzeugten Serien und Kategorien.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    // Neue Serien hinzufügen.
+    // Füge neue Serien hinzu.
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), chart.Type);
 
-    // Neue Kategorien hinzufügen.
+    // Füge neue Kategorien hinzu.
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
 
-    // Die erste Diagrammserie holen.
+    // Hole die erste Diagrammserie.
     IChartSeries series = chart.ChartData.Series[0];
 
-    // Serien-Daten befüllen.
+    // Befülle die Seriendaten.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // Setzen Sie die Füllfarbe für die Serie.
+    // Setze die Füllfarbe für die Serie.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-    // Die zweite Diagrammserie holen.
+    // Hole die zweite Diagrammserie.
     series = chart.ChartData.Series[1];
 
-    // Serien-Daten befüllen.
+    // Befülle die Seriendaten.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
 
-    // Setzen Sie die Füllfarbe für die Serie.
+    // Setze die Füllfarbe für die Serie.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-    // Setzen Sie das erste Beschriftungselement, um den Kategorienamen anzuzeigen.
+    // Setze das erste Etikett, um den Kategorienamen anzuzeigen.
     IDataLabel label = series.DataPoints[0].Label;
     label.DataLabelFormat.ShowCategoryName = true;
 
     label = series.DataPoints[1].Label;
     label.DataLabelFormat.ShowSeriesName = true;
 
-    // Setzen Sie die Serie, damit der Wert für die dritte Beschriftung angezeigt wird.
+    // Setze die Serie, um den Wert für das dritte Etikett anzuzeigen.
     label = series.DataPoints[2].Label;
     label.DataLabelFormat.ShowValue = true;
     label.DataLabelFormat.ShowSeriesName = true;
     label.DataLabelFormat.Separator = "/";
 
-    // Speichern Sie die Präsentation als PPTX-Datei auf dem Datenträger.
+    // Speichere die Präsentation auf die Festplatte als PPTX‑Datei.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -149,79 +153,79 @@ using (Presentation presentation = new Presentation())
 
 Das Ergebnis:
 
-![Das gruppierte Säulendiagramm](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **Streudiagramme erstellen**
+### **Scatter‑Diagramme erstellen**
 
-Streudiagramme (auch als Scatter‑Plots oder X‑Y‑Diagramme bezeichnet) werden häufig verwendet, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen zu zeigen.
+Scatter‑Diagramme (auch Streudiagramme oder X‑Y‑Diagramme genannt) werden häufig verwendet, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen darzustellen.
 
-Verwenden Sie ein Streudiagramm, wenn:
+Verwenden Sie ein Scatter‑Diagramm, wenn:
 
-* Sie gepaarte numerische Daten haben.  
-* Sie zwei Variablen haben, die gut zusammenpassen.  
-* Sie feststellen möchten, ob die beiden Variablen miteinander verbunden sind.  
-* Sie eine unabhängige Variable mit mehreren Werten für eine abhängige Variable haben.
+* Sie gepaarte numerische Daten haben.
+* Sie zwei Variablen besitzen, die gut zusammenpassen.
+* Sie feststellen möchten, ob die beiden Variablen miteinander in Beziehung stehen.
+* Sie eine unabhängige Variable haben, die für eine abhängige Variable mehrere Werte aufweist.
 
-Dieser C#‑Code zeigt, wie Sie ein Streudiagramm mit einer anderen Marker‑Serie erstellen:
+Dieser C#‑Code zeigt, wie Sie ein Scatter‑Diagramm mit unterschiedlichen Markerserien erstellen:
 ```c#
-// Instanziieren Sie die Presentation-Klasse.
+// Instanziiere die Presentation-Klasse.
 using (Presentation presentation = new Presentation())
 {
-    // Greifen Sie auf die erste Folie zu.
+    // Greife auf die erste Folie zu.
     ISlide slide = presentation.Slides[0];
 
-    // Erstellen Sie das Standard-Streudiagramm.
+    // Erstelle das Standard-Streudiagramm.
     IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-    // Legen Sie den Index des Diagrammdatenblatts fest.
+    // Setze den Index des Diagrammdatensheets.
     int worksheetIndex = 0;
 
-    // Holen Sie das Diagrammdaten-Workbook.
+    // Hole das Diagramm-Daten-Workbook.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Löschen Sie die standardmäßige Serie.
+    // Lösche die Standard-Serien.
     chart.ChartData.Series.Clear();
 
-    // Neue Serien hinzufügen.
+    // Füge neue Serien hinzu.
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 3, "Series 2"), chart.Type);
 
-    // Die erste Diagrammserie holen.
+    // Hole die erste Diagrammserie.
     IChartSeries series = chart.ChartData.Series[0];
 
-    // Fügen Sie der Serie einen neuen Punkt (1:3) hinzu.
+    // Füge einen neuen Punkt (1:3) zur Serie hinzu.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 1, 1), workbook.GetCell(worksheetIndex, 2, 2, 3));
 
-    // Fügen Sie einen neuen Punkt (2:10) hinzu.
+    // Füge einen neuen Punkt (2:10) hinzu.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
 
-    // Ändern Sie den Serientyp.
+    // Ändere den Serientyp.
     series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
-    // Ändern Sie den Diagrammserien-Marker.
+    // Ändere den Diagrammserien-Marker.
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Star;
 
-    // Die zweite Diagrammserie holen.
+    // Hole die zweite Diagrammserie.
     series = chart.ChartData.Series[1];
 
-    // Fügen Sie der Diagrammserie einen neuen Punkt (5:2) hinzu.
+    // Füge einen neuen Punkt (5:2) zur Diagrammserie hinzu.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 3, 5), workbook.GetCell(worksheetIndex, 2, 4, 2));
 
-    // Fügen Sie einen neuen Punkt (3:1) hinzu.
+    // Füge einen neuen Punkt (3:1) hinzu.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 3, 3), workbook.GetCell(worksheetIndex, 3, 4, 1));
 
-    // Fügen Sie einen neuen Punkt (2:2) hinzu.
+    // Füge einen neuen Punkt (2:2) hinzu.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 4, 3, 2), workbook.GetCell(worksheetIndex, 4, 4, 2));
 
-    // Fügen Sie einen neuen Punkt (5:1) hinzu.
+    // Füge einen neuen Punkt (5:1) hinzu.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 5, 3, 5), workbook.GetCell(worksheetIndex, 5, 4, 1));
 
-    // Ändern Sie den Diagrammserien-Marker.
+    // Ändere den Diagrammserien-Marker.
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Circle;
 
-    // Speichern Sie die Präsentation als PPTX-Datei.
+    // Speichere die Präsentation auf die Festplatte als PPTX-Datei.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -229,76 +233,76 @@ using (Presentation presentation = new Presentation())
 
 Das Ergebnis:
 
-![Das Streudiagramm](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
 ### **Kreisdiagramme erstellen**
 
-Kreisdiagramme eignen sich am besten, um das Verhältnis von Teil zu Ganzem darzustellen, insbesondere wenn die Daten kategoriale Beschriftungen mit numerischen Werten enthalten. Enthält Ihre Daten jedoch viele Teile oder Beschriftungen, sollten Sie stattdessen ein Balkendiagramm in Betracht ziehen.
+Kreisdiagramme eignen sich am besten, um das Teil‑zu‑Ganz‑Verhältnis in Daten zu zeigen, insbesondere wenn die Daten kategoriale Beschriftungen mit numerischen Werten enthalten. Enthält Ihre Daten jedoch viele Teile oder Beschriftungen, sollten Sie stattdessen ein Balkendiagramm in Betracht ziehen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.  
-2. Rufen Sie anhand des Index eine Referenz auf eine Folie ab.  
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.Pie` an.  
-4. Greifen Sie auf das Daten‑Arbeitsbuch des Diagramms ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) zu.  
-5. Entfernen Sie die Standard‑Serien und -Kategorien.  
-6. Fügen Sie neue Serien und Kategorien hinzu.  
-7. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.  
-8. Fügen Sie neue Punkte für das Diagramm hinzu und wenden Sie benutzerdefinierte Farben auf die Segmente des Kreisdiagramms an.  
-9. Setzen Sie Beschriftungen für die Serien.  
-10. Aktivieren Sie Führungs‑Linien für die Serienbeschriftungen.  
-11. Legen Sie den Rotationswinkel für das Kreisdiagramm fest.  
-12. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.Pie` an.
+1. Greifen Sie auf das Daten‑Workbook des Diagramms ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) zu.
+1. Löschen Sie die Standard‑Serien und -Kategorien.
+1. Fügen Sie neue Serien und Kategorien hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
+1. Fügen Sie neue Punkte für das Diagramm hinzu und wenden Sie benutzerdefinierte Farben auf die Sektoren des Kreisdiagramms an.
+1. Setzen Sie Beschriftungen für die Serien.
+1. Aktivieren Sie Führungslinien für die Serienbeschriftungen.
+1. Legen Sie den Rotationswinkel für das Kreisdiagramm fest.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
 Dieser C#‑Code zeigt, wie ein Kreisdiagramm erstellt wird:
 ```c#
-// Instanziieren Sie die Presentation-Klasse.
+// Instanziiere die Presentation-Klasse.
 using (Presentation presentation = new Presentation())
 {
-    // Greifen Sie auf die erste Folie zu.
+    // Greife auf die erste Folie zu.
     ISlide slide = presentation.Slides[0];
 
-    // Fügen Sie ein Diagramm mit den Standarddaten hinzu.
+    // Füge ein Diagramm mit den Standarddaten hinzu.
     IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
 
-    // Setzen Sie den Diagrammtitel.
+    // Setze den Diagrammtitel.
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // Setzen Sie die erste Serie so, dass Werte angezeigt werden.
+    // Setze die erste Serie, um Werte anzuzeigen.
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-    // Legen Sie den Index des Diagrammdatenblatts fest.
+    // Setze den Index des Diagrammdatensheets.
     int worksheetIndex = 0;
 
-    // Holen Sie das Diagrammdaten-Workbook.
+    // Hole das Diagramm‑Daten‑Workbook.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Löschen Sie die standardmäßig generierten Serien und Kategorien.
+    // Lösche die standardmäßig erzeugten Serien und Kategorien.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    // Neue Kategorien hinzufügen.
+    // Füge neue Kategorien hinzu.
     chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "1st Qtr"));
     chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
     chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
 
-    // Neue Serien hinzufügen.
+    // Füge neue Serien hinzu.
     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-    // Serien-Daten befüllen.
+    // Befülle die Seriendaten.
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // Setzen Sie die Sektorfarbe.
+    // Setze die Sektorfarbe.
     chart.ChartData.SeriesGroups[0].IsColorVaried = true;
 
     IChartDataPoint point = series.DataPoints[0];
     point.Format.Fill.FillType = FillType.Solid;
     point.Format.Fill.SolidFillColor.Color = Color.Cyan;
 
-    // Setzen Sie den Sektorrand.
+    // Setze die Sektorkante.
     point.Format.Line.FillFormat.FillType = FillType.Solid;
     point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
     point.Format.Line.Width = 3.0;
@@ -309,7 +313,7 @@ using (Presentation presentation = new Presentation())
     point1.Format.Fill.FillType = FillType.Solid;
     point1.Format.Fill.SolidFillColor.Color = Color.Brown;
 
-    // Setzen Sie den Sektorrand.
+    // Setze die Sektorkante.
     point1.Format.Line.FillFormat.FillType = FillType.Solid;
     point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
     point1.Format.Line.Width = 3.0;
@@ -320,14 +324,14 @@ using (Presentation presentation = new Presentation())
     point2.Format.Fill.FillType = FillType.Solid;
     point2.Format.Fill.SolidFillColor.Color = Color.Coral;
 
-    // Setzen Sie den Sektorrand.
+    // Setze die Sektorkante.
     point2.Format.Line.FillFormat.FillType = FillType.Solid;
     point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
     point2.Format.Line.Width = 2.0;
     point2.Format.Line.Style = LineStyle.ThinThin;
     point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
 
-    // Erstellen Sie benutzerdefinierte Beschriftungen für jede Kategorie in der neuen Serie.
+    // Erstelle benutzerdefinierte Beschriftungen für jede Kategorie in der neuen Serie.
     IDataLabel label1 = series.DataPoints[0].Label;
 
     label1.DataLabelFormat.ShowValue = true;
@@ -341,35 +345,34 @@ using (Presentation presentation = new Presentation())
     label3.DataLabelFormat.ShowSeriesName = true;
     label3.DataLabelFormat.ShowPercentage = true;
 
-    // Setzen Sie die Serie, damit Führungsleitungen für das Diagramm angezeigt werden.
+    // Setze die Serie, um Führungslinien für das Diagramm anzuzeigen.
     series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
 
-    // Setzen Sie den Rotationswinkel für die Kreisdiagramm‑Sektoren.
+    // Setze den Rotationswinkel für die Kreisdiagramm‑Sektoren.
     chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
 
-    // Speichern Sie die Präsentation als PPTX-Datei auf dem Datenträger.
+    // Speichere die Präsentation auf die Festplatte als PPTX‑Datei.
     presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-
 Das Ergebnis:
 
-![Das Kreisdiagramm](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
 ### **Liniendiagramme erstellen**
 
-Liniendiagramme (auch als Liniengraphen bezeichnet) eignen sich am besten, wenn Sie Änderungen von Werten über die Zeit demonstrieren möchten. Mit einem Liniendiagramm können Sie große Datenmengen gleichzeitig vergleichen, Änderungen und Trends über die Zeit verfolgen, Anomalien in Datenreihen hervorheben und mehr.
+Liniendiagramme (auch Liniendiagramme genannt) eignen sich am besten, wenn Sie Veränderungen eines Wertes über die Zeit hinweg darstellen wollen. Mit einem Liniendiagramm können Sie große Datenmengen gleichzeitig vergleichen, Änderungen und Trends über die Zeit nachverfolgen, Anomalien in Datenreihen hervorheben und mehr.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.  
-2. Rufen Sie anhand des Index eine Referenz auf eine Folie ab.  
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.Line` an.  
-4. Greifen Sie auf das Daten‑Arbeitsbuch des Diagramms ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) zu.  
-5. Entfernen Sie die Standard‑Serien und -Kategorien.  
-6. Fügen Sie neue Serien und Kategorien hinzu.  
-7. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.  
-8. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.Line` an.
+1. Greifen Sie auf das Daten‑Workbook des Diagramms ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) zu.
+1. Löschen Sie die Standard‑Serien und -Kategorien.
+1. Fügen Sie neue Serien und Kategorien hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
 Dieser C#‑Code zeigt, wie ein Liniendiagramm erstellt wird:
 ```c#
@@ -382,7 +385,7 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-Standardmäßig werden Punkte in einem Liniendiagramm durch gerade, durchgehende Linien verbunden. Wenn Sie die Punkte stattdessen durch Striche verbinden möchten, können Sie den gewünschten Strichtyp wie folgt angeben:
+Standardmäßig werden Punkte in einem Liniendiagramm durch gerade kontinuierliche Linien verbunden. Wenn Sie stattdessen gestrichelte Linien wünschen, können Sie den gewünschten Strichtyp wie folgt angeben:
 ```c#
 foreach (IChartSeries series in lineChart.ChartData.Series)
 {
@@ -393,20 +396,20 @@ foreach (IChartSeries series in lineChart.ChartData.Series)
 
 Das Ergebnis:
 
-![Das Liniendiagramm](line_chart.png)
+![The Line chart](line_chart.png)
 
 ### **Tree‑Map‑Diagramme erstellen**
 
-Tree‑Map‑Diagramme eignen sich am besten für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen und schnell die großen Beitragszahler innerhalb jeder Kategorie hervorheben möchten.
+Tree‑Map‑Diagramme eignen sich am besten für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien anzeigen und schnell die großen Beitragszahler innerhalb jeder Kategorie hervorheben möchten.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.  
-2. Rufen Sie anhand des Index eine Referenz auf eine Folie ab.  
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.Treemap` an.  
-4. Greifen Sie auf das Daten‑Arbeitsbuch des Diagramms ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) zu.  
-5. Entfernen Sie die Standard‑Serien und -Kategorien.  
-6. Fügen Sie neue Serien und Kategorien hinzu.  
-7. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.  
-8. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.Treemap` an.
+1. Greifen Sie auf das Daten‑Workbook des Diagramms ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) zu.
+1. Löschen Sie die Standard‑Serien und -Kategorien.
+1. Fügen Sie neue Serien und Kategorien hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
 Dieser C#‑Code zeigt, wie ein Tree‑Map‑Diagramm erstellt wird:
 ```c#
@@ -449,10 +452,10 @@ using (Presentation presentation = new Presentation())
     series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D2", 5));
     series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D3", 3));
     series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D4", 6));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.getCell(0, "D5", 9));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.getCell(0, "D6", 9));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.getCell(0, "D7", 4));
-    series.DataPoints.AddDataPointForTreemapSeries(workbook.getCell(0, "D8", 3));
+    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D5", 9));
+    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D6", 9));
+    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D7", 4));
+    series.DataPoints.AddDataPointForTreemapSeries(workbook.GetCell(0, "D8", 3));
 
     series.ParentLabelLayout = ParentLabelLayoutType.Overlapping;
 
@@ -463,23 +466,23 @@ using (Presentation presentation = new Presentation())
 
 Das Ergebnis:
 
-![Das Tree‑Map‑Diagramm](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **Börsendiagramme erstellen**
+### **Börsen‑Diagramme erstellen**
 
-Börsendiagramme werden verwendet, um Finanzdaten wie Eröffnungs‑, Höchst‑, Tiefst‑ und Schlusskurse darzustellen und helfen, Markttrends sowie Volatilität zu analysieren. Sie bieten wesentliche Einblicke in die Kursentwicklung und unterstützen Investoren und Analysten bei fundierten Entscheidungen.
+Börsen‑Diagramme werden verwendet, um Finanzdaten wie Eröffnungs-, Hoch-, Tief‑ und Schlusskurse anzuzeigen und damit Markttrends sowie Volatilität zu analysieren. Sie liefern wesentliche Einblicke in die Kursentwicklung und unterstützen Investoren und Analysten bei fundierten Entscheidungen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.  
-2. Rufen Sie anhand des Index eine Referenz auf eine Folie ab.  
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.OpenHighLowClose` an.  
-4. Greifen Sie auf das Daten‑Arbeitsbuch des Diagramms ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) zu.  
-5. Entfernen Sie die Standard‑Serien und -Kategorien.  
-6. Fügen Sie neue Serien und Kategorien hinzu.  
-7. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.  
-8. Legen Sie das Format der HiLowLines fest.  
-9. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.OpenHighLowClose` an.
+1. Greifen Sie auf das Daten‑Workbook des Diagramms ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) zu.
+1. Löschen Sie die Standard‑Serien und -Kategorien.
+1. Fügen Sie neue Serien und Kategorien hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
+1. Geben Sie das Format der HiLowLines an.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser C#‑Code zeigt, wie ein Börsendiagramm erstellt wird:
+Dieser C#‑Code zeigt, wie ein Börsen‑Diagramm erstellt wird:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -533,22 +536,22 @@ using (Presentation presentation = new Presentation())
 
 Das Ergebnis:
 
-![Das Börsendiagramm](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **Box‑und‑Whisker‑Diagramme erstellen**
+### **Box‑Und‑Whisker‑Diagramme erstellen**
 
-Box‑und‑Whisker‑Diagramme werden verwendet, um die Verteilung von Daten darzustellen, indem zentrale statistische Maße wie Median, Quartile und mögliche Ausreißer zusammengefasst werden. Sie sind besonders nützlich in explorativen Datenanalysen und statistischen Studien, um schnell die Variabilität von Daten zu verstehen und Anomalien zu identifizieren.
+Box‑Und‑Whisker‑Diagramme werden verwendet, um die Verteilung von Daten darzustellen, indem sie zentrale statistische Kennzahlen wie Median, Quartile und mögliche Ausreißer zusammenfassen. Sie sind besonders nützlich in der explorativen Datenanalyse und in statistischen Studien, um schnell die Datenvariabilität zu verstehen und Anomalien zu erkennen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.  
-2. Rufen Sie anhand des Index eine Referenz auf eine Folie ab.  
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.BoxAndWhisker` an.  
-4. Greifen Sie auf das Daten‑Arbeitsbuch des Diagramms ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) zu.  
-5. Entfernen Sie die Standard‑Serien und -Kategorien.  
-6. Fügen Sie neue Serien und Kategorien hinzu.  
-7. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.  
-8. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.BoxAndWhisker` an.
+1. Greifen Sie auf das Daten‑Workbook des Diagramms ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) zu.
+1. Löschen Sie die Standard‑Serien und -Kategorien.
+1. Fügen Sie neue Serien und Kategorien hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser C#‑Code zeigt, wie ein Box‑und‑Whisker‑Diagramm erstellt wird:
+Dieser C#‑Code zeigt, wie ein Box‑Und‑Whisker‑Diagramm erstellt wird:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -586,16 +589,16 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-### **Trichterdiagramme erstellen**
+### **Trichter‑Diagramme erstellen**
 
-Trichterdiagramme werden verwendet, um Prozesse zu visualisieren, die sequenzielle Stufen umfassen, bei denen das Datenvolumen von einem Schritt zum nächsten abnimmt. Sie sind besonders hilfreich, um Konversionsraten zu analysieren, Engpässe zu identifizieren und die Effizienz von Verkaufs‑ oder Marketingprozessen zu verfolgen.
+Trichter‑Diagramme visualisieren Prozesse mit sequenziellen Stufen, bei denen das Datenvolumen von einer Stufe zur nächsten abnimmt. Sie sind besonders hilfreich zur Analyse von Konversionsraten, zur Identifizierung von Engpässen und zur Verfolgung der Effizienz von Vertriebs‑ oder Marketingprozessen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.  
-2. Rufen Sie anhand des Index eine Referenz auf eine Folie ab.  
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.Funnel` an.  
-4. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.Funnel` an.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser C#‑Code zeigt, wie ein Trichterdiagramm erstellt wird:
+Dieser C#‑Code zeigt, wie ein Trichter‑Diagramm erstellt wird:
 ```c#
 using (Presentation presentation = new Presentation("test.pptx"))
 {
@@ -629,16 +632,16 @@ using (Presentation presentation = new Presentation("test.pptx"))
 
 Das Ergebnis:
 
-![Das Trichterdiagramm](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
 ### **Sunburst‑Diagramme erstellen**
 
-Sunburst‑Diagramme werden verwendet, um hierarchische Daten zu visualisieren, wobei Ebenen als konzentrische Ringe dargestellt werden. Sie veranschaulichen Teil‑zu‑Ganz‑Beziehungen und eignen sich ideal, um verschachtelte Kategorien und Unterkategorien kompakt darzustellen.
+Sunburst‑Diagramme visualisieren hierarchische Daten, wobei Ebenen als konzentrische Ringe dargestellt werden. Sie veranschaulichen Teil‑zu‑Ganz‑Beziehungen und eignen sich ideal zur Darstellung verschachtelter Kategorien und Unterkategorien in einem kompakten Format.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.  
-2. Rufen Sie anhand des Index eine Referenz auf eine Folie ab.  
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.Sunburst` an.  
-4. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.Sunburst` an.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
 Dieser C#‑Code zeigt, wie ein Sunburst‑Diagramm erstellt wird:
 ```c#
@@ -693,19 +696,19 @@ using (Presentation presentation = new Presentation())
 
 Das Ergebnis:
 
-![Das Sunburst‑Diagramm](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
 ### **Histogramm‑Diagramme erstellen**
 
-Histogramm‑Diagramme werden verwendet, um die Verteilung numerischer Daten darzustellen, indem Werte in Bereiche (Bins) gruppiert werden. Sie sind besonders nützlich, um Datenmuster wie Häufigkeit, Schiefe und Streuung zu erkennen sowie Ausreißer zu identifizieren.
+Histogramm‑Diagramme stellen die Verteilung numerischer Daten dar, indem Werte in Bereiche bzw. Klassen gruppiert werden. Sie sind besonders nützlich, um Datenmuster wie Häufigkeit, Schiefe und Streuung zu erkennen und Ausreißer in einem Datensatz zu identifizieren.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.  
-2. Rufen Sie anhand des Index eine Referenz auf eine Folie ab.  
-3. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie den Typ `ChartType.Histogram` an.  
-4. Greifen Sie auf das Daten‑Arbeitsbuch des Diagramms ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) zu.  
-5. Entfernen Sie die Standard‑Serien und -Kategorien.  
-6. Fügen Sie neue Serien und Kategorien hinzu.  
-7. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+1. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie den Typ `ChartType.Histogram` an.
+1. Greifen Sie auf das Daten‑Workbook des Diagramms ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) zu.
+1. Löschen Sie die Standard‑Serien und -Kategorien.
+1. Fügen Sie neue Serien und Kategorien hinzu.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
 Dieser C#‑Code zeigt, wie ein Histogramm‑Diagramm erstellt wird:
 ```c#
@@ -735,16 +738,16 @@ using (Presentation presentation = new Presentation())
 
 Das Ergebnis:
 
-![Das Histogramm‑Diagramm](histogram_chart.png)
+![The Histogram chart](histogram_chart.png)
 
 ### **Radar‑Diagramme erstellen**
 
-Radar‑Diagramme werden verwendet, um multivariate Daten in einem zweidimensionalen Format darzustellen, wodurch ein einfacher Vergleich mehrerer Variablen gleichzeitig ermöglicht wird. Sie sind besonders nützlich, um Muster, Stärken und Schwächen über mehrere Leistungskennzahlen oder Attribute hinweg zu identifizieren.
+Radar‑Diagramme zeigen multivariate Daten in einem zweidimensionalen Format, sodass mehrere Variablen gleichzeitig verglichen werden können. Sie sind besonders nützlich, um Muster, Stärken und Schwächen über mehrere Leistungskennzahlen oder Attribute hinweg zu identifizieren.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.  
-2. Rufen Sie anhand des Index eine Referenz auf eine Folie ab.  
-3. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie den Typ `ChartType.Radar` an.  
-4. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+1. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie den Typ `ChartType.Radar` an.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
 Dieser C#‑Code zeigt, wie ein Radar‑Diagramm erstellt wird:
 ```c#
@@ -758,22 +761,22 @@ using (Presentation presentation = new Presentation())
 
 Das Ergebnis:
 
-![Das Radar‑Diagramm](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **Mehrkategorie‑Diagramme erstellen**
+### **Mehrkategorien‑Diagramme erstellen**
 
-Mehrkategorie‑Diagramme werden verwendet, um Daten darzustellen, die mehr als eine kategoriale Gruppierung umfassen, sodass Sie Werte über mehrere Dimensionen hinweg gleichzeitig vergleichen können. Sie sind besonders hilfreich, wenn Sie Trends und Zusammenhänge in komplexen, mehrschichtigen Datensätzen analysieren müssen.
+Mehrkategorien‑Diagramme werden verwendet, um Daten darzustellen, die mehr als eine kategoriale Gruppierung enthalten, sodass Sie Werte über mehrere Dimensionen hinweg gleichzeitig vergleichen können. Sie sind besonders hilfreich, wenn Sie Trends und Beziehungen in komplexen, mehrschichtigen Datensätzen analysieren müssen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.  
-2. Rufen Sie anhand des Index eine Referenz auf eine Folie ab.  
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.ClusteredColumn` an.  
-4. Greifen Sie auf das Daten‑Arbeitsbuch des Diagramms ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) zu.  
-5. Entfernen Sie die Standard‑Serien und -Kategorien.  
-6. Fügen Sie neue Serien und Kategorien hinzu.  
-7. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.  
-8. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.ClusteredColumn` an.
+1. Greifen Sie auf das Daten‑Workbook des Diagramms ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) zu.
+1. Löschen Sie die Standard‑Serien und -Kategorien.
+1. Fügen Sie neue Serien und Kategorien hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser C#‑Code zeigt, wie ein Mehrkategorie‑Diagramm erstellt wird:
+Dieser C#‑Code zeigt, wie ein Mehrkategorien‑Diagramm erstellt wird:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -816,7 +819,7 @@ using (Presentation presentation = new Presentation())
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D8", 70));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D9", 80));
 
-    // Die Präsentation mit dem Diagramm speichern.
+    // Speichere die Präsentation mit dem Diagramm.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -824,11 +827,11 @@ using (Presentation presentation = new Presentation())
 
 Das Ergebnis:
 
-![Das Mehrkategorie‑Diagramm](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
 ### **Karten‑Diagramme erstellen**
 
-Karten‑Diagramme werden verwendet, um geografische Daten zu visualisieren, indem Informationen bestimmten Orten wie Ländern, Bundesländern oder Städten zugeordnet werden. Sie sind besonders nützlich, um regionale Trends, demografische Daten und räumliche Verteilungen klar und ansprechend darzustellen.
+Karten‑Diagramme visualisieren geografische Daten, indem Informationen bestimmten Standorten wie Ländern, Bundesländern oder Städten zugeordnet werden. Sie sind besonders nützlich, um regionale Trends, demografische Daten und räumliche Verteilungen klar und ansprechend darzustellen.
 
 Dieser C#‑Code zeigt, wie ein Karten‑Diagramm erstellt wird:
 ```c#
@@ -842,13 +845,13 @@ using (Presentation presentation = new Presentation())
 
 Das Ergebnis:
 
-![Das Karten‑Diagramm](map_chart.png)
+![The Map chart](map_chart.png)
 
 ### **Kombinations‑Diagramme erstellen**
 
-Ein Kombinations‑Diagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einem einzigen Diagramm. Dieses Diagramm ermöglicht es Ihnen, Unterschiede zwischen zwei oder mehreren Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen und so Beziehungen zwischen ihnen zu identifizieren.
+Ein Kombinations‑Diagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einem einzigen Diagramm. Dieses Diagramm ermöglicht es, Unterschiede zwischen mehreren Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen und so Beziehungen zwischen ihnen zu erkennen.
 
-![Das Kombinations‑Diagramm](combination_chart.png)
+![The combination chart](combination_chart.png)
 
 Der folgende C#‑Code zeigt, wie das oben gezeigte Kombinations‑Diagramm in einer PowerPoint‑Präsentation erstellt wird:
 ```c#
@@ -898,7 +901,7 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // Fügt die erste Serie hinzu
+    // Füge die erste Serie hinzu
     IChartSeries series = chart.ChartData.Series.Add(
         workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
 
@@ -962,7 +965,7 @@ private static void SetPrimaryAxesFormat(IChart chart)
 
     SetAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Setzt die Farbe der vertikalen Hauptgitterlinien
+    // Setzt die Farbe der vertikalen Hauptgitternetzlinien
     ILineFillFormat majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
     majorGridLinesFormat.FillType = FillType.Solid;
     majorGridLinesFormat.SolidFillColor.Color = Color.FromArgb(217, 217, 217);
@@ -1003,21 +1006,21 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **Diagramme aktualisieren**
 
-Aspose.Slides für .NET ermöglicht es Ihnen, PowerPoint‑Diagramme zu aktualisieren, indem Sie Diagrammdaten, Formatierung und Stil ändern. Diese Funktion vereinfacht das Aktualisieren von Präsentationen mit dynamischem Inhalt und stellt sicher, dass Diagramme aktuelle Daten und visuelle Standards genau wiedergeben.
+Aspose.Slides für .NET ermöglicht das Aktualisieren von PowerPoint‑Diagrammen durch Ändern von Diagrammdaten, Formatierung und Stil. Diese Funktion vereinfacht das Aktualisieren von Präsentationen mit dynamischen Inhalten und sorgt dafür, dass Diagramme aktuelle Daten und visuelle Standards korrekt wiedergeben.
 
-1. Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse, die die Präsentation mit dem Diagramm repräsentiert.  
-2. Rufen Sie anhand des Index eine Referenz auf eine Folie ab.  
-3. Durchsuchen Sie alle Formen, um das Diagramm zu finden.  
-4. Greifen Sie auf das Daten‑Arbeitsblatt des Diagramms zu.  
-5. Ändern Sie die Diagrammdatenreihe, indem Sie die Serienwerte anpassen.  
-6. Fügen Sie eine neue Serie hinzu und befüllen Sie deren Daten.  
-7. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+1. Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), die die Präsentation mit dem Diagramm repräsentiert.
+1. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+1. Durchlaufen Sie alle Shapes, um das Diagramm zu finden.
+1. Greifen Sie auf das Daten‑Arbeitsblatt des Diagramms zu.
+1. Ändern Sie die Diagramm‑Datenserie, indem Sie die Serienwerte anpassen.
+1. Fügen Sie eine neue Serie hinzu und füllen Sie deren Daten.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
 Dieser C#‑Code zeigt, wie ein Diagramm aktualisiert wird:
 ```c#
 const string chartName = "My chart";
 
-// Instanziieren Sie die Presentation-Klasse, die eine PPTX-Datei darstellt.
+// Instanziieren Sie die Presentation-Klasse, die eine PPTX-Datei repräsentiert.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // Greifen Sie auf die erste Folie zu.
@@ -1027,10 +1030,10 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
     {
         if (shape is IChart chart && chart.Name == chartName)
         {
-            // Legen Sie den Index des Diagrammdatenblatts fest.
+            // Setzen Sie den Index des Diagrammdatensheets.
             int worksheetIndex = 0;
 
-            // Holen Sie das Diagrammdaten-Workbook.
+            // Holen Sie das Diagramm-Daten-Workbook.
             IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
             // Ändern Sie die Diagrammkategorienamen.
@@ -1041,7 +1044,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
             IChartSeries series = chart.ChartData.Series[0];
 
             // Aktualisieren Sie die Seriendaten.
-            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Modifiziert den Seriennamen.
+            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Seriennamen ändern.
             series.DataPoints[0].Value.Data = 90;
             series.DataPoints[1].Value.Data = 123;
             series.DataPoints[2].Value.Data = 44;
@@ -1050,7 +1053,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
             series = chart.ChartData.Series[1];
 
             // Aktualisieren Sie die Seriendaten.
-            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Modifiziert den Seriennamen.
+            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Seriennamen ändern.
             series.DataPoints[0].Value.Data = 23;
             series.DataPoints[1].Value.Data = 67;
             series.DataPoints[2].Value.Data = 99;
@@ -1073,19 +1076,17 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 ```
 
 
-
-
 ## **Datenbereich für Diagramme festlegen**
 
-Aspose.Slides für .NET bietet die Flexibilität, einen bestimmten Datenbereich aus einem Arbeitsblatt als Quelle für die Diagrammdaten festzulegen. Das bedeutet, dass Sie einen Teil Ihres Arbeitsblatts direkt dem Diagramm zuordnen können, sodass Sie kontrollieren, welche Zellen zu den Serien und Kategorien des Diagramms beitragen. Dadurch können Sie Ihre Diagramme leicht aktualisieren und mit den neuesten Änderungen im Arbeitsblatt synchronisieren, sodass Ihre PowerPoint‑Präsentationen aktuelle und genaue Informationen widerspiegeln.
+Aspose.Slides für .NET bietet die Flexibilität, einen bestimmten Datenbereich aus einem Arbeitsblatt als Quelle für die Diagrammdaten zu definieren. Das bedeutet, dass Sie einen Teil Ihres Arbeitsblatts direkt dem Diagramm zuordnen können, wodurch Sie bestimmen, welche Zellen zu den Serien und Kategorien des Diagramms beitragen. Dadurch lassen sich Diagramme einfach aktualisieren und mit den neuesten Datenänderungen im Arbeitsblatt synchronisieren, sodass Ihre PowerPoint‑Präsentationen aktuelle und genaue Informationen widerspiegeln.
 
-1. Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse, die die Präsentation mit dem Diagramm repräsentiert.  
-2. Rufen Sie anhand des Index eine Referenz auf eine Folie ab.  
-3. Durchsuchen Sie alle Formen, um das Diagramm zu finden.  
-4. Greifen Sie auf die Diagrammdaten zu und setzen Sie den Bereich.  
-5. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+1. Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), die die Präsentation mit dem Diagramm repräsentiert.
+1. Holen Sie sich einen Verweis auf eine Folie über deren Index.
+1. Durchlaufen Sie alle Shapes, um das Diagramm zu finden.
+1. Greifen Sie auf die Diagrammdaten zu und setzen Sie den Bereich.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser C#‑Code zeigt, wie der Datenbereich für ein Diagramm festgelegt wird:
+Dieser C#‑Code zeigt, wie Sie den Datenbereich für ein Diagramm festlegen:
 ```c#
 const string chartName = "My chart";
 
@@ -1108,11 +1109,11 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 ```
 
 
-## **Standard‑Markierungen in Diagrammen verwenden**
+## **Standard‑Marker in Diagrammen verwenden**
 
-Wenn Sie Standard‑Markierungen in Diagrammen verwenden, erhält jede Diagrammserie automatisch ein unterschiedliches Standard‑Markierungssymbol.
+Wenn Sie Standard‑Marker in Diagrammen verwenden, erhält jede Diagrammserie automatisch ein unterschiedliches Standard‑Markersymbol.
 
-Dieser C#‑Code zeigt, wie Sie eine Diagrammserie‑Markierung automatisch festlegen:
+Dieser C#‑Code zeigt, wie Sie einen Diagramm‑Series‑Marker automatisch festlegen:
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -1140,7 +1141,7 @@ using (Presentation presentation = new Presentation())
 
     IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "Series 2"), chart.Type);
 
-    // Seriendaten befüllen.
+    // Daten für die Serie befüllen.
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 2, 30));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 2, 10));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 2, 60));
@@ -1158,16 +1159,16 @@ using (Presentation presentation = new Presentation())
 
 **Welche Diagrammtypen werden von Aspose.Slides für .NET unterstützt?**
 
-Aspose.Slides für .NET unterstützt eine breite Palette von Diagrammtypen, darunter Balken, Linien, Kreis, Flächen, Streu, Histogramm, Radar und viele mehr. Diese Flexibilität ermöglicht es Ihnen, den am besten geeigneten Diagrammtyp für Ihre Datenvisualisierungsanforderungen zu wählen.
+Aspose.Slides für .NET unterstützt eine große Bandbreite an Diagrammtypen, darunter Balken, Linien, Kreis, Flächen, Scatter, Histogramm, Radar und viele mehr. Diese Flexibilität ermöglicht die Auswahl des am besten geeigneten Diagrammtyps für Ihre Datenvisualisierung.
 
-**Wie füge ich ein neues Diagramm zu einer Folie hinzu?**
+**Wie füge ich einer Folie ein neues Diagramm hinzu?**
 
-Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse, holen sich die gewünschte Folie über deren Index und rufen dann die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
+Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), holen Sie die gewünschte Folie über deren Index und rufen dann die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
 
 **Wie kann ich die in einem Diagramm angezeigten Daten aktualisieren?**
 
-Sie können die Daten eines Diagramms aktualisieren, indem Sie auf das Daten‑Arbeitsbuch des Diagramms ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) zugreifen, die Standard‑Serien und -Kategorien entfernen und dann Ihre eigenen Daten hinzufügen. So können Sie das Diagramm programmgesteuert aktualisieren, damit es die neuesten Daten widerspiegelt.
+Sie können die Daten eines Diagramms aktualisieren, indem Sie auf das Daten‑Workbook des Diagramms ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) zugreifen, die Standard‑Serien und -Kategorien löschen und anschließend Ihre eigenen Daten hinzufügen. Dadurch können Sie das Diagramm programmgesteuert mit den neuesten Daten aktualisieren.
 
-**Ist es möglich, das Erscheinungsbild des Diagramms anzupassen?**
+**Ist es möglich, das Aussehen des Diagramms anzupassen?**
 
 Ja, Aspose.Slides für .NET bietet umfangreiche Anpassungsoptionen. Sie können Farben, Schriftarten, Beschriftungen, Legenden und andere Formatierungselemente ändern, um das Erscheinungsbild des Diagramms an Ihre spezifischen Designanforderungen anzupassen.

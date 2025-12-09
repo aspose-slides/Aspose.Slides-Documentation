@@ -1,28 +1,36 @@
 ---
-title: Fehlerbalken
+title: Fehlerbalken in Präsentationsdiagrammen in .NET anpassen
+linktitle: Fehlerbalken
 type: docs
 url: /de/net/error-bar/
-keywords: "Fehlerbalken, Fehlerbalkenwerte PowerPoint-Präsentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Fehlerbalken zu PowerPoint-Präsentationen in C# oder .NET hinzufügen"
+keywords:
+- Fehlerbalken
+- benutzerdefinierter Wert
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Fehlerbalken in Diagrammen mit Aspose.Slides für .NET hinzufügen und anpassen — optimieren Sie Datenvisualisierungen in PowerPoint-Präsentationen."
 ---
 
 ## **Fehlerbalken hinzufügen**
-Aspose.Slides for .NET bietet eine einfache API zur Verwaltung von Fehlerbalkenwerten. Der Beispielcode gilt, wenn ein benutzerdefinierter Werttyp verwendet wird. Um einen Wert anzugeben, verwenden Sie die **ErrorBarCustomValues**-Eigenschaft eines bestimmten Datenpunkts in der **DataPoints**-Sammlung der Serie:
+Aspose.Slides für .NET bietet eine einfache API zur Verwaltung von Fehlerbalkenwerten. Der Beispielcode gilt, wenn ein benutzerdefinierter Werttyp verwendet wird. Um einen Wert anzugeben, verwenden Sie die **ErrorBarCustomValues**‑Eigenschaft eines bestimmten Datenpunkts in der **DataPoints**‑Sammlung der Serie:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.  
-1. Fügen Sie ein Blasendiagramm auf der gewünschten Folie hinzu.  
-1. Greifen Sie auf die erste Diagrammreihe zu und setzen Sie das X-Fehlerbalken-Format.  
-1. Greifen Sie auf die erste Diagrammreihe zu und setzen Sie das Y-Fehlerbalken-Format.  
-1. Festlegen von Balkenwerten und -format.  
-1. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
+1. Fügen Sie ein Blasendiagramm auf der gewünschten Folie hinzu.
+1. Greifen Sie auf die erste Diagrammserie zu und setzen Sie das X‑Format des Fehlerbalkens.
+1. Greifen Sie auf die erste Diagrammserie zu und setzen Sie das Y‑Format des Fehlerbalkens.
+1. Festlegen von Balkenwerten und -format.
+1. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.
 ```c#
- // Leere Präsentation erstellen
+// Leere Präsentation erstellen
 using (Presentation presentation = new Presentation())
 {
     // Ein Blasendiagramm erstellen
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Bubble, 50, 50, 400, 300, true);
 
-    // Fehlerbalken hinzufügen und das Format festlegen
+    // Fehlerbalken hinzufügen und deren Format festlegen
     IErrorBarsFormat errBarX = chart.ChartData.Series[0].ErrorBarsXFormat;
     IErrorBarsFormat errBarY = chart.ChartData.Series[0].ErrorBarsYFormat;
     errBarX.IsVisible = true;
@@ -41,21 +49,23 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-## **Benutzerdefinierten Fehlerbalkenwert hinzufügen**
-Aspose.Slides for .NET bietet eine einfache API zur Verwaltung benutzerdefinierter Fehlerbalkenwerte. Der Beispielcode gilt, wenn die **IErrorBarsFormat.ValueType**-Eigenschaft den Wert **Custom** hat. Um einen Wert anzugeben, verwenden Sie die **ErrorBarCustomValues**-Eigenschaft eines bestimmten Datenpunkts in der **DataPoints**-Sammlung der Serie:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.  
-1. Fügen Sie ein Blasendiagramm auf der gewünschten Folie hinzu.  
-1. Greifen Sie auf die erste Diagrammreihe zu und setzen Sie das X-Fehlerbalken-Format.  
-1. Greifen Sie auf die erste Diagrammreihe zu und setzen Sie das Y-Fehlerbalken-Format.  
-1. Greifen Sie auf die einzelnen Datenpunkte der Diagrammreihe zu und setzen Sie die Fehlerbalkenwerte für den jeweiligen Datenpunkt der Reihe.  
-1. Festlegen von Balkenwerten und -format.  
-1. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei.  
+
+## **Benutzerdefinierten Fehlerbalkenwert hinzufügen**
+Aspose.Slides für .NET bietet eine einfache API zur Verwaltung benutzerdefinierter Fehlerbalkenwerte. Der Beispielcode gilt, wenn die **IErrorBarsFormat.ValueType**‑Eigenschaft den Wert **Custom** hat. Um einen Wert anzugeben, verwenden Sie die **ErrorBarCustomValues**‑Eigenschaft eines bestimmten Datenpunkts in der **DataPoints**‑Sammlung der Serie:
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
+1. Fügen Sie ein Blasendiagramm auf der gewünschten Folie hinzu.
+1. Greifen Sie auf die erste Diagrammserie zu und setzen Sie das X‑Format des Fehlerbalkens.
+1. Greifen Sie auf die erste Diagrammserie zu und setzen Sie das Y‑Format des Fehlerbalkens.
+1. Greifen Sie auf die einzelnen Datenpunkte der Diagrammserie zu und setzen Sie die Fehlerbalkenwerte für den jeweiligen Datenpunkt der Serie.
+1. Festlegen von Balkenwerten und -format.
+1. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.
 ```c#
 // Leere Präsentation erstellen
 using (Presentation presentation = new Presentation())
 {
-    // Blasendiagramm erstellen
+    // Ein Blasendiagramm erstellen
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Bubble, 50, 50, 400, 300, true);
 
     // Benutzerdefinierte Fehlerbalken hinzufügen und ihr Format festlegen
@@ -67,14 +77,14 @@ using (Presentation presentation = new Presentation())
     errBarX.ValueType = ErrorBarValueType.Custom;
     errBarY.ValueType = ErrorBarValueType.Custom;
 
-    // Zugriff auf Datenpunkt der Diagrammreihe und Festlegen der Fehlerbalkenwerte für einzelnen Punkt
+    // Zugriff auf Datenpunkt der Diagrammserie und Festlegen der Fehlerbalkenwerte für einzelnen Punkt
     IChartDataPointCollection points = series.DataPoints;
     points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForXPlusValues = DataSourceType.DoubleLiterals;
     points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForXMinusValues = DataSourceType.DoubleLiterals;
     points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForYPlusValues = DataSourceType.DoubleLiterals;
     points.DataSourceTypeForErrorBarsCustomValues.DataSourceTypeForYMinusValues = DataSourceType.DoubleLiterals;
 
-    // Fehlerbalken für Punkte der Diagrammreihe festlegen
+    // Fehlerbalken für Punkte der Diagrammserie festlegen
     for (int i = 0; i < points.Count; i++)
     {
         points[i].ErrorBarsCustomValues.XMinus.AsLiteralDouble = i + 1;
@@ -91,11 +101,14 @@ using (Presentation presentation = new Presentation())
 
 ## **FAQ**
 
-**Was passiert mit Fehlerbalken beim Exportieren einer Präsentation zu PDF oder Bildern?**  
-Sie werden als Teil des Diagramms gerendert und bei der Konvertierung zusammen mit der übrigen Diagrammformatierung beibehalten, vorausgesetzt, es wird eine kompatible Version oder ein kompatibler Renderer verwendet.
+**Was passiert mit Fehlerbalken, wenn eine Präsentation in PDF oder Bilder exportiert wird?**
 
-**Können Fehlerbalken mit Markern und Datenbeschriftungen kombiniert werden?**  
-Ja. Fehlerbalken sind ein separates Element und sind mit Markern und Datenbeschriftungen kompatibel; überschneiden sich die Elemente, muss ggf. die Formatierung angepasst werden.
+Sie werden als Teil des Diagramms gerendert und bei der Konvertierung zusammen mit der übrigen Diagrammformatierung erhalten, vorausgesetzt, es wird eine kompatible Version oder ein kompatibler Renderer verwendet.
 
-**Wo finde ich die Liste der Eigenschaften und Aufzählungen für die Arbeit mit Fehlerbalken in der API?**  
-In der API‑Referenz: die [ErrorBarsFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbarsformat/)-Klasse und die zugehörigen Aufzählungen [ErrorBarType](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbartype/) und [ErrorBarValueType](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbarvaluetype/).
+**Können Fehlerbalken mit Markierungen und Datenbeschriftungen kombiniert werden?**
+
+Ja. Fehlerbalken sind ein separates Element und mit Markierungen und Datenbeschriftungen kompatibel; überschneiden sich die Elemente, müssen Sie möglicherweise die Formatierung anpassen.
+
+**Wo finde ich die Liste der Eigenschaften und Aufzählungen für die Arbeit mit Fehlerbalken in der API?**
+
+In der API‑Referenz: die Klasse [ErrorBarsFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbarsformat/) und die zugehörigen Aufzählungen [ErrorBarType](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbartype/) und [ErrorBarValueType](https://reference.aspose.com/slides/net/aspose.slides.charts/errorbarvaluetype/).

@@ -1,34 +1,40 @@
 ---
-title: شكل مخصص
+title: تخصيص أشكال العروض التقديمية في .NET
+linktitle: شكل مخصص
 type: docs
 weight: 20
 url: /ar/net/custom-shape/
 keywords:
-- شكل
 - شكل مخصص
+- إضافة شكل
 - إنشاء شكل
-- هندسة
+- تغيير شكل
 - هندسة الشكل
 - مسار الهندسة
 - نقاط المسار
 - نقاط التحرير
+- إضافة نقطة
+- إزالة نقطة
+- عملية تحرير
+- زاوية منحنية
 - PowerPoint
 - عرض تقديمي
+- .NET
 - C#
-- Aspose.Slides for .NET
-description: "إضافة شكل مخصص إلى عرض تقديمي PowerPoint في .NET"
+- Aspose.Slides
+description: "إنشاء وتخصيص الأشكال في عروض PowerPoint التقديمية باستخدام Aspose.Slides لـ .NET: مسارات الهندسة، زوايا منحنية، أشكال مركبة."
 ---
 
 ## **تغيير شكل باستخدام نقاط التحرير**
 
-اعتبر مربعًا. في PowerPoint، باستخدام **نقاط التحرير**، يمكنك
+تخيل مربعًا. في PowerPoint، باستخدام **نقاط التحرير**، يمكنك
 
 * تحريك زاوية المربع إلى الداخل أو الخارج
-* تحديد الانحناء للزاوية أو النقطة
+* تحديد الانحناء لزاوية أو نقطة
 * إضافة نقاط جديدة إلى المربع
-* تعديل النقاط على المربع، إلخ. 
+* التعامل مع النقاط على المربع، إلخ.
 
-بشكل أساسي، يمكنك تنفيذ المهام الموصوفة على أي شكل. باستخدام نقاط التحرير، يمكنك تغيير شكل أو إنشاء شكل جديد من شكل موجود. 
+بشكل أساسي، يمكنك تنفيذ المهام الموصوفة على أي شكل. باستخدام نقاط التحرير، يمكنك تعديل شكل أو إنشاء شكل جديد من شكل موجود.
 
 ## **نصائح تحرير الشكل**
 
@@ -36,97 +42,97 @@ description: "إضافة شكل مخصص إلى عرض تقديمي PowerPoint �
 
 قبل أن تبدأ في تحرير أشكال PowerPoint عبر نقاط التحرير، قد ترغب في مراعاة هذه النقاط حول الأشكال:
 
-* يمكن أن يكون الشكل (أو مساره) مغلقًا أو مفتوحًا.  
-* جميع الأشكال تتكون من نقطتين ارتكاز على الأقل مرتبطتين ببعضهما بواسطة خطوط  
-* يمكن أن يكون الخط مستقيمًا أو منحنيًا. تحدد نقاط الارتكاز طبيعة الخط.  
-* نقاط الارتكاز توجد كنقاط زاوية أو نقاط مستقيمة أو نقاط ناعمة:
-  * نقطة الزاوية هي النقطة التي يلتقي فيها خطان مستقيران بزاوية.  
-  * نقطة ناعمة هي النقطة التي يوجد فيها مقبضان على خط مستقيم وتلتقي مقاطع الخط في منحنى ناعم. في هذه الحالة، يتم فصل جميع المقابض عن نقطة الارتكاز بمسافة متساوية.  
-  * نقطة مستقيمة هي النقطة التي يوجد فيها مقبضان على خط مستقيم وتلتقي مقاطع الخط في منحنى ناعم. في هذه الحالة، لا يلزم أن تكون المقابض منفصلة عن نقطة الارتكاز بمسافة متساوية.  
-* عن طريق تحريك أو تحرير نقاط الارتكاز (التي تغير زاوية الخطوط)، يمكنك تغيير مظهر الشكل.  
+* يمكن أن يكون الشكل (أو مساره) مغلقًا أو مفتوحًا.
+* جميع الأشكال تتكون من نقطتي تثبيت على الأقل مرتبطتين ببعضهما عبر خطوط.
+* الخط إما مستقيم أو منحني. تحدد نقاط التثبيت طبيعة الخط.
+* نقاط التثبيت توجد كزوايا، أو نقاط مستقيمة، أو نقاط ناعمة:
+  * نقطة الزاوية هي النقطة التي يلتقي فيها خطان مستقيران بزاوية.
+  * النقطة الناعمة هي النقطة التي يوجد فيها مقبضان على خط مستقيم وتلتقي قطاعات الخط بانحناء ناعم. في هذه الحالة، تكون المسافة بين المقابض ونقطة التثبيت متساوية.
+  * النقطة المستقيمة هي النقطة التي يوجد فيها مقبضان على خط مستقيم وتلتقي قطاعات الخط بانحناء ناعم. في هذه الحالة، لا يجب أن تكون المسافة بين المقابض ونقطة التثبيت متساوية.
+* من خلال تحريك أو تحرير نقاط التثبيت (التي تغير زاوية الخطوط)، يمكنك تغيير مظهر الشكل.
 
-لتحرير أشكال PowerPoint عبر نقاط التحرير، **Aspose.Slides** توفر الفئة [**GeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) والواجهة [**IGeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath).  
+لتحرير أشكال PowerPoint عبر نقاط التحرير، توفر **Aspose.Slides** الفئة [**GeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) والواجهة [**IGeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath).
 
-* تمثّل مثال **[GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath)** مسارًا هندسيًا لكائن [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape).  
-* لاسترجاع `GeometryPath` من مثال `IGeometryShape`، يمكنك استخدام طريقة [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/getgeometrypaths).  
-* لتعيين `GeometryPath` لشكل، يمكنك استخدام هذه الطرق: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypath) للأشكال الصلبة و[IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypaths) للأشكال المركبة.  
-* لإضافة مقاطع، يمكنك استخدام الطرق تحت [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath).  
-* باستخدام خاصيتي [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/stroke) و[IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/fillmode)، يمكنك تعيين مظهر المسار الهندسي.  
-* باستخدام خاصية [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/pathdata)، يمكنك استرجاع مسار الهندسة لكائن `GeometryShape` كمصفوفة من مقاطع المسار.  
-* للوصول إلى خيارات تخصيص إضافية لهندسة الشكل، يمكنك تحويل **[GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath)** إلى **[GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0)**.  
-* استخدم طرق **GeometryPathToGraphicsPath** و**GraphicsPathToGeometryPath** (من فئة **[ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil)**) لتحويل **[GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath)** إلى **[GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0)** والعكس.  
+* تمثل نسخة [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) مسار الهندسة لكائن [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape).
+* لاسترجاع `GeometryPath` من نسخة `IGeometryShape`، يمكنك استخدام الطريقة [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/getgeometrypaths).
+* لتعيين `GeometryPath` لشكل، يمكنك استخدام هذه الطرق: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypath) للأشكال الصلبة و[IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypaths) للأشكال المركبة.
+* لإضافة مقاطع، يمكنك استخدام الطرق الموجودة تحت [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath).
+* باستخدام الخاصيتين [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/stroke) و[IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/fillmode)، يمكنك ضبط مظهر مسار الهندسة.
+* باستخدام الخاصية [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/pathdata)، يمكنك استرجاع مسار الهندسة لـ `GeometryShape` كمصفوفة من مقاطع المسار.
+* للوصول إلى خيارات تخصيص إضافية لهندسة الشكل، يمكنك تحويل [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) إلى [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0).
+* استخدم طريقتي [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/geometrypathtographicspath) و[GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/graphicspathtogeometrypath) (من الفئة [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil)) لتحويل [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) إلى [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) والعكس.
 
 ## **عمليات تحرير بسيطة**
 
 هذا الكود C# يوضح لك كيفية
 
-**إضافة خط** إلى نهاية مسار  
+**إضافة خط** إلى نهاية مسار
 ``` csharp
 void LineTo(PointF point);
 void LineTo(float x, float y);
 ```
-  
-**إضافة خط** إلى موضع محدد على المسار:  
+
+**إضافة خط** إلى موضع محدد على مسار:
 ``` csharp    
 void LineTo(PointF point, uint index);
 void LineTo(float x, float y, uint index);
 ```
-  
-**إضافة منحنى بيزيه مكعب** إلى نهاية مسار:  
+
+**إضافة منحنى بيزيه مكعب** في نهاية مسار:
 ``` csharp
 void CubicBezierTo(PointF point1, PointF point2, PointF point3);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
 ```
-  
-**إضافة منحنى بيزيه مكعب** إلى موضع محدد على المسار:  
+
+**إضافة منحنى بيزيه مكعب** إلى موضع محدد على مسار:
 ``` csharp
 void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint index);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint index);
 ```
-  
-**إضافة منحنى بيزيه رباعي** إلى نهاية مسار:  
+
+**إضافة منحنى بيزيه رباعي** في نهاية مسار:
 ``` csharp
 void QuadraticBezierTo(PointF point1, PointF point2);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2);
 ```
-  
-**إضافة منحنى بيزيه رباعي** إلى موضع محدد على المسار:  
+
+**إضافة منحنى بيزيه رباعي** إلى موضع محدد على مسار:
 ``` csharp
 void QuadraticBezierTo(PointF point1, PointF point2, uint index);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint index);
 ```
-  
-**إلحاق قوس معين** إلى مسار:  
+
+**إلحاق قوس محدد** إلى مسار:
 ``` csharp
 void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
 ```
-  
-**إغلاق الشكل الحالي** للمسار:  
+
+**إغلاق الشكل الحالي** للمسار:
 ``` csharp
 void CloseFigure();
 ```
-  
-**تعيين الموضع للنقطة التالية**:  
+
+**تعيين الموضع للنقطة التالية**:
 ``` csharp
 void MoveTo(PointF point);
 void MoveTo(float x, float y);
 ```
-  
-**إزالة مقطع المسار** عند فهرس معين:  
+
+**إزالة مقطع المسار** عند فهرس معين:
 ``` csharp
 void RemoveAt(int index);
 ```
-  
+
 
 ## **إضافة نقاط مخصصة إلى الشكل**
 
-1. أنشئ مثالًا من فئة [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) وحدد النوع [ShapeType.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/shapetype).  
-2. احصل على مثال من فئة [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) من الشكل.  
-3. أضف نقطة جديدة بين النقطتين العلويتين على المسار.  
-4. أضف نقطة جديدة بين النقطتين السفليتين على المسار.  
-5. طبّق المسار على الشكل.  
+1. أنشئ نسخة من الفئة [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) واضبط النوع إلى [ShapeType.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/shapetype).
+2. احصل على نسخة من الفئة [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) من الشكل.
+3. أضف نقطة جديدة بين النقطتين العلويتين على المسار.
+4. أضف نقطة جديدة بين النقطتين السفلية على المسار.
+5. طبّق المسار على الشكل.
 
-هذا الكود C# يوضح لك كيفية إضافة نقاط مخصصة إلى شكل:  
+هذا الكود C# يوضح لك كيفية إضافة نقاط مخصصة إلى شكل:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -138,18 +144,18 @@ using (Presentation pres = new Presentation())
     shape.SetGeometryPath(geometryPath);
 }
 ```
-  
 
-![example1_image](custom_shape_1.png)  
+
+![example1_image](custom_shape_1.png)
 
 ## **إزالة نقاط من الشكل**
 
-1. أنشئ مثالًا من فئة [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) وحدد النوع [ShapeType.Heart](https://reference.aspose.com/slides/net/aspose.slides/shapetype).  
-2. احصل على مثال من فئة [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) من الشكل.  
-3. أزل المقطع للمسار.  
-4. طبّق المسار على الشكل.  
+1. أنشئ نسخة من الفئة [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) واضبط النوع إلى [ShapeType.Heart](https://reference.aspose.com/slides/net/aspose.slides/shapetype).
+2. احصل على نسخة من الفئة [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) من الشكل.
+3. أزل المقطع للمسار.
+4. طبّق المسار على الشكل.
 
-هذا الكود C# يوضح لك كيفية إزالة نقاط من شكل:  
+هذا الكود C# يوضح لك كيفية إزالة نقاط من شكل:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -160,19 +166,18 @@ using (Presentation pres = new Presentation())
 	shape.SetGeometryPath(path);
 }
 ```
-  
 
-![example2_image](custom_shape_2.png)  
+![example2_image](custom_shape_2.png)
 
 ## **إنشاء شكل مخصص**
 
-1. احسب النقاط اللازمة للشكل.  
-2. أنشئ مثالًا من فئة [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath).  
-3. عبّئ المسار بالنقاط.  
-4. أنشئ مثالًا من فئة [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape).  
-5. طبّق المسار على الشكل.  
+1. احسب النقاط للشكل.
+2. أنشئ نسخة من الفئة [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath).
+3. عبّئ المسار بالنقاط.
+4. أنشئ نسخة من الفئة [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape).
+5. طبّق المسار على الشكل.
 
-هذا الكود C# يوضح لك كيفية إنشاء شكل مخصص:  
+هذا الكود C# يوضح لك كيفية إنشاء شكل مخصص:
 ``` csharp
 List<PointF> points = new List<PointF>();
 
@@ -209,18 +214,17 @@ using (Presentation pres = new Presentation())
     shape.SetGeometryPath(starPath);
 }
 ```
-  
 
-![example3_image](custom_shape_3.png)  
+![example3_image](custom_shape_3.png)
 
 ## **إنشاء شكل مخصص مركب**
 
-1. أنشئ مثالًا من فئة [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape).  
-2. أنشئ المثال الأول من فئة [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath).  
-3. أنشئ المثال الثاني من فئة [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath).  
-4. طبّق المسارات على الشكل.  
+1. أنشئ نسخة من الفئة [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape).
+2. أنشئ النسخة الأولى من الفئة [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath).
+3. أنشئ النسخة الثانية من الفئة [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath).
+4. طبّق المسارات على الشكل.
 
-هذا الكود C# يوضح لك كيفية إنشاء شكل مخصص مركب:  
+هذا الكود C# يوضح لك كيفية إنشاء شكل مخصص مركب:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -243,13 +247,12 @@ using (Presentation pres = new Presentation())
     shape.SetGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
 }
 ```
-  
 
-![example4_image](custom_shape_4.png)  
+![example4_image](custom_shape_4.png)
 
-## **إنشاء شكل مخصص بزوايا منحنية**
+## **إنشاء شكل مخصص بزوايا منحنى**
 
-هذا الكود C# يوضح لك كيفية إنشاء شكل مخصص بزوايا منحنية (متجهة إلى الداخل);  
+هذا الكود C# يوضح لك كيفية إنشاء شكل مخصص بزوايا منحنى (متجهة إلى الداخل);
 ```c#
 var shapeX = 20f;
 var shapeY = 20f;
@@ -291,11 +294,11 @@ using (var presentation = new Presentation())
     presentation.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
-  
+
 
 ## **معرفة ما إذا كانت هندسة الشكل مغلقة**
 
-يُعرّف الشكل المغلق بأنه الشكل الذي تتصل جميع جوانبه، مكونًا حدًا واحدًا دون فجوات. يمكن أن يكون هذا الشكل شكلًا هندسيًا بسيطًا أو مخططًا مخصصًا معقدًا. يوضح المثال البرمجي التالي كيفية فحص ما إذا كانت هندسة الشكل مغلقة:  
+يُعرّف الشكل المغلق بأنه الشكل الذي تتصل جميع جوانبه، مكوّناً حدًا واحدًا دون فجوات. يمكن أن يكون هذا الشكل شكلًا هندسيًا بسيطًا أو مخططًا مخصصًا معقدًا. يُظهر المثال التالي كيفية التحقق مما إذا كانت هندسة الشكل مغلقة:
 ```cs
 bool IsGeometryClosed(IGeometryShape geometryShape)
 {
@@ -317,16 +320,16 @@ bool IsGeometryClosed(IGeometryShape geometryShape)
     return isClosed == true;
 }
 ```
-  
+
 
 ## **تحويل GeometryPath إلى GraphicsPath (System.Drawing.Drawing2D)**
 
-1. أنشئ مثالًا من فئة [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape).  
-2. أنشئ مثالًا من فئة [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) من مساحة الأسم [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0).  
-3. حوّل مثال **GraphicsPath** إلى مثال **GeometryPath** باستخدام **ShapeUtil**.  
-4. طبّق المسارات على الشكل.  
+1. أنشئ نسخة من الفئة [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape).
+2. أنشئ نسخة من الفئة [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) ضمن مساحة الاسم [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0).
+3. حوّل نسخة [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) إلى نسخة [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) باستخدام [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil).
+4. طبّق المسارات على الشكل.
 
-هذا الكود C#—تنفيذ للخطوات أعلاه—يظهر عملية تحويل **GeometryPath** إلى **GraphicsPath**:  
+هذا الكود C#—تنفيذ للخطوات أعلاه—يوضح عملية تحويل **GeometryPath** إلى **GraphicsPath**:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -345,20 +348,19 @@ using (Presentation pres = new Presentation())
     shape.SetGeometryPaths(new[] {originalPath, textPath}) ;
 }
 ```
-  
 
-![example5_image](custom_shape_5.png)  
+![example5_image](custom_shape_5.png)
 
-## **الأسئلة المتداولة**
+## **الأسئلة الشائعة**
 
-**ماذا سيحدث للملء والمحيط بعد استبدال الهندسة؟**  
+**ماذا سيحدث للملء والحدود بعد استبدال الهندسة؟**
 
-يظل النمط مرتبطًا بالشكل؛ فقط الحدود تتغير. يتم تطبيق الملء والمحيط تلقائيًا على الهندسة الجديدة.  
+يبقى النمط مع الشكل؛ تتغير فقط القاعدة. يتم تطبيق الملء والحدود تلقائيًا على الهندسة الجديدة.
 
-**كيف يمكنني تدوير شكل مخصص مع هندسته بشكل صحيح؟**  
+**كيف أقوم بتدوير الشكل المخصص مع هندسته بشكل صحيح؟**
 
-استخدم خاصية [rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) للشكل؛ تدور الهندسة مع الشكل لأنها مرتبطة بنظام إحداثيات الشكل نفسه.  
+استخدم خاصية [rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) الخاصة بالشكل؛ تدور الهندسة مع الشكل لأنها مرتبطة بنظام إحداثيات الشكل نفسه.
 
-**هل يمكنني تحويل الشكل المخصص إلى صورة “لإغلاق” النتيجة؟**  
+**هل يمكنني تحويل الشكل المخصص إلى صورة لتثبيت النتيجة؟**
 
-نعم. صدّر المنطقة المطلوبة من [الشريحة](/slides/ar/net/convert-powerpoint-to-png/) أو الشكل نفسه [من الشريحة](/slides/ar/net/create-shape-thumbnails/) إلى تنسيق نقطي؛ هذا يبسط العمل اللاحق مع الهندسات الثقيلة.
+نعم. صدّر المنطقة المطلوبة من [slide](/slides/ar/net/convert-powerpoint-to-png/) أو الشكل نفسه [shape](/slides/ar/net/create-shape-thumbnails/) إلى صيغة نقطية؛ هذا يبسط العمل اللاحق مع الهندسات المعقدة.

@@ -1,16 +1,28 @@
 ---
-title: Подпись данных диаграммы
+title: Управление подписями данных диаграмм в презентациях на .NET
+linktitle: Подпись данных
 type: docs
 url: /ru/net/chart-data-label/
-keywords: "Подпись данных диаграммы,расстояние подписи, C#, Csharp, Aspose.Slides for .NET"
-description: "Установить подпись данных диаграммы PowerPoint и расстояние в C# или .NET"
+keywords:
+- диаграмма
+- подпись данных
+- точность данных
+- процент
+- расстояние подписи
+- расположение подписи
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Узнайте, как добавлять и форматировать подписи данных диаграмм в презентациях PowerPoint с помощью Aspose.Slides for .NET для более увлекательных слайдов."
 ---
 
-Подписи данных на диаграмме показывают детали о серии данных диаграммы или отдельных точках данных. Они позволяют читателям быстро идентифицировать серии данных и делают диаграммы легче для восприятия.
+Подписи данных на диаграмме отображают сведения о рядах данных диаграммы или отдельных точках данных. Они позволяют читателям быстро идентифицировать ряды данных и делают диаграммы более понятными.
 
-## **Установка точности данных в подписях диаграммы**
+## **Установка точности данных в подписи диаграммы**
 
-Этот C# код показывает, как задать точность данных в подписи диаграммы:
+Этот код C# показывает, как задать точность данных в подписи диаграммы:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -23,8 +35,8 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Отображение процента в виде подписей**
-Aspose.Slides for .NET позволяет устанавливать процентные подписи на отображаемых диаграммах. Этот C# код демонстрирует операцию:
+## **Отображение процентов в виде подписи**
+Aspose.Slides for .NET позволяет устанавливать процентные подписи на отображаемых диаграммах. Этот код C# демонстрирует операцию:
 ```c#
 // Создает экземпляр класса Presentation
 Presentation presentation = new Presentation();
@@ -77,7 +89,7 @@ presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 
 
 ## **Установка знака процента в подписях диаграммы**
-Этот C# код показывает, как установить знак процента для подписи диаграммы:
+Этот код C# показывает, как установить знак процента для подписи диаграммы:
 ```c#
 // Создает экземпляр класса Presentation
 Presentation presentation = new Presentation();
@@ -105,11 +117,11 @@ series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetInde
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 1, 0.80));
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 1, 0.65));
 
-// Устанавливает цвет заливки серии
+// Устанавливает цвет заполнения серии
 series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-// Задает свойства LabelFormat
+// Устанавливает свойства LabelFormat
 series.Labels.DefaultDataLabelFormat.ShowValue = true;
 series.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
 series.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
@@ -125,7 +137,7 @@ series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetInd
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 2, 0.20));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 2, 0.35));
 
-// Устанавливает тип заливки и цвет
+// Устанавливает тип заполнения и цвет
 series2.Format.Fill.FillType = FillType.Solid;
 series2.Format.Fill.SolidFillColor.Color = Color.Blue;
 series2.Labels.DefaultDataLabelFormat.ShowValue = true;
@@ -135,13 +147,13 @@ series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
 series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
 series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
 
-// Сохраняет презентацию на диск
+// Записывает презентацию на диск
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
 
 ## **Установка расстояния подписи от оси**
-Этот C# код показывает, как задать расстояние подписи от оси категории, когда вы работаете с диаграммой, построенной по осям:
+Этот код C# показывает, как задать расстояние подписи от категориальной оси при работе с диаграммой, построенной по осям:
 ```c#
 // Создает экземпляр класса Presentation
 Presentation presentation = new Presentation();
@@ -155,16 +167,16 @@ IChart ch = sld.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 // Устанавливает расстояние подписи от оси
 ch.Axes.HorizontalAxis.LabelOffset = 500;
 
-// Сохраняет презентацию на диск
+// Записывает презентацию на диск
 presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
 
 ## **Регулировка положения подписи**
 
-Когда вы создаёте диаграмму, не зависящую от осей, например круговую диаграмму, подписи данных могут оказаться слишком близко к её краю. В таком случае необходимо скорректировать положение подписи, чтобы линии‑выноски отображались чётко.
+Когда вы создаёте диаграмму, не зависящую от осей, например круговую диаграмму, подписи данных могут оказаться слишком близко к её краю. В таком случае необходимо скорректировать положение подписи, чтобы линии‑подвязки отображались чётко.
 
-Этот C# код показывает, как скорректировать положение подписи на круговой диаграмме:
+Этот код C# показывает, как отрегулировать положение подписи на круговой диаграмме:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -189,12 +201,12 @@ using (Presentation pres = new Presentation())
 
 **Как предотвратить перекрытие подписей данных на плотных диаграммах?**
 
-Сочетайте автоматическое размещение подписей, линии‑выноски и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или показывайте подписи только для экстремальных/ключевых точек.
+Сочетайте автоматическое размещение подписей, линии‑подвязки и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или отображайте подписи только для крайних/ключевых точек.
 
 **Как отключить подписи только для нулевых, отрицательных или пустых значений?**
 
-Фильтруйте точки данных перед включением подписей и отключайте отображение для значений 0, отрицательных значений или отсутствующих значений согласно заданному правилу.
+Отфильтруйте точки данных перед включением подписей и отключите отображение для значений 0, отрицательных значений или отсутствующих значений согласно заданному правилу.
 
-**Как обеспечить единый стиль подписи при экспорте в PDF/изображения?**
+**Как обеспечить единообразный стиль подписи при экспорте в PDF/изображения?**
 
-Явно задавайте шрифты (семейство, размер) и проверяйте, что шрифт доступен на стороне рендеринга, чтобы избежать подстановки.
+Явно задавайте шрифты (семейство, размер) и проверяйте, что шрифт доступен на стороне рендеринга, чтобы избежать его подстановки.

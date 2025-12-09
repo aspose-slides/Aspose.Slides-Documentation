@@ -1,21 +1,35 @@
 ---
-title: Propiedades efectivas de la forma
+title: Obtener propiedades efectivas de la forma desde presentaciones en .NET
+linktitle: Propiedades efectivas
 type: docs
 weight: 50
 url: /es/net/shape-effective-properties/
-keywords: "Propiedades de forma, Propiedades de cámara, conjunto de luces, forma bisel, marco de texto, estilo de texto, valor de altura de fuente, formato de relleno para tabla, presentación PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "Obtener propiedades efectivas de la forma en presentaciones PowerPoint en C# o .NET"
+keywords:
+- propiedades de forma
+- propiedades de cámara
+- conjunto de luces
+- forma biselada
+- marco de texto
+- estilo de texto
+- altura de fuente
+- formato de relleno
+- PowerPoint
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Descubra cómo Aspose.Slides para .NET calcula y aplica propiedades efectivas de forma para una renderización precisa de PowerPoint."
 ---
 
 En este tema, discutiremos las propiedades **efectivas** y **locales**. Cuando establecemos valores directamente en estos niveles
 
-1. En las propiedades de la porción en la diapositiva de la porción.  
-1. En el estilo de texto de la forma prototipo en la diapositiva de diseño o maestra (si la forma del marco de texto de la porción tiene uno).  
-1. En la configuración de texto global de la presentación.
+1. En las propiedades de porción en la diapositiva de la porción.  
+1. En el estilo de texto de forma de prototipo en la diapositiva de diseño o maestra (si la forma del marco de texto de la porción tiene una).  
+1. En la configuración global de texto de la presentación.
 
-entonces esos valores se denominan valores **locales**. En cualquier nivel, los valores **locales** pueden estar definidos u omitidos. Pero, al final, cuando llega el momento en que la aplicación necesita saber cómo debe verse la porción, utiliza los valores **efectivos**. Puedes obtener los valores efectivos usando el método **getEffective()** del formato local.
+entonces esos valores se denominan valores **locales**. En cualquier nivel, los valores **locales** pueden definirse o omitirse. Pero finalmente, cuando llega el momento en que la aplicación necesita saber cómo debe verse la porción, utiliza los valores **efectivos**. Puedes obtener los valores efectivos usando el método **getEffective()** del formato local.
 
-El siguiente ejemplo muestra cómo obtener valores efectivos.  
+El siguiente ejemplo muestra cómo obtener valores efectivos.
 ```c#
 using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
@@ -30,10 +44,12 @@ using (Presentation pres = new Presentation("Presentation1.pptx"))
 ```
 
 
-## **Obtener propiedades efectivas de la cámara**
-Aspose.Slides for .NET permite a los desarrolladores obtener propiedades efectivas de la cámara. Para este propósito, se ha añadido la clase **CameraEffectiveData** en Aspose.Slides. La clase CameraEffectiveData representa un objeto inmutable que contiene propiedades efectivas de la cámara. Una instancia de la clase **CameraEffectiveData** se usa como parte de la clase **ThreeDFormatEffectiveData**, que es un par de valores efectivos para la clase ThreeDFormat.
 
-El siguiente fragmento de código muestra cómo obtener propiedades efectivas de la cámara.  
+
+## **Obtener propiedades efectivas de la cámara**
+Aspose.Slides para .NET permite a los desarrolladores obtener las propiedades efectivas de la cámara. Para ello, se ha añadido la clase **CameraEffectiveData** en Aspose.Slides. La clase CameraEffectiveData representa un objeto inmutable que contiene propiedades de cámara efectivas. Una instancia de la clase **CameraEffectiveData** se usa como parte de la clase **ThreeDFormatEffectiveData**, que es un par de valores efectivos para la clase ThreeDFormat.
+
+El siguiente fragmento de código muestra cómo obtener las propiedades efectivas de la cámara.
 ```c#
 using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
@@ -47,10 +63,11 @@ using (Presentation pres = new Presentation("Presentation1.pptx"))
 ```
 
 
-## **Obtener propiedades efectivas del conjunto de luces**
-Aspose.Slides for .NET permite a los desarrolladores obtener propiedades efectivas del Light Rig. Para este propósito, se ha añadido la clase **LightRigEffectiveData** en Aspose.Slides. La clase LightRigEffectiveData representa un objeto inmutable que contiene propiedades efectivas del conjunto de luces. Una instancia de la clase **LightRigEffectiveData** se usa como parte de la clase **ThreeDFormatEffectiveData**, que es un par de valores efectivos para la clase ThreeDFormat.
 
-El siguiente fragmento de código muestra cómo obtener propiedades efectivas del Light Rig.  
+## **Obtener propiedades efectivas del conjunto de luces**
+Aspose.Slides para .NET permite a los desarrolladores obtener las propiedades efectivas del conjunto de luces. Para ello, se ha añadido la clase **LightRigEffectiveData** en Aspose.Slides. La clase LightRigEffectiveData representa un objeto inmutable que contiene propiedades efectivas del conjunto de luces. Una instancia de la clase **LightRigEffectiveData** se usa como parte de la clase **ThreeDFormatEffectiveData**, que es un par de valores efectivos para la clase ThreeDFormat.
+
+El siguiente fragmento de código muestra cómo obtener las propiedades efectivas del conjunto de luces.
 ```c#
 using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
@@ -63,10 +80,11 @@ using (Presentation pres = new Presentation("Presentation1.pptx"))
 ```
 
 
-## **Obtener propiedades efectivas del bisel de la forma**
-Aspose.Slides for .NET permite a los desarrolladores obtener propiedades efectivas del Shape Bevel. Para este propósito, se ha añadido la clase **ShapeBevelEffectiveData** en Aspose.Slides. La clase ShapeBevelEffectiveData representa un objeto inmutable que contiene propiedades efectivas del relieve de la cara de la forma. Una instancia de la clase **ShapeBevelEffectiveData** se usa como parte de la clase **ThreeDFormatEffectiveData**, que es un par de valores efectivos para la clase ThreeDFormat.
 
-El siguiente fragmento de código muestra cómo obtener propiedades efectivas del Shape Bevel.  
+## **Obtener propiedades efectivas de la forma biselada**
+Aspose.Slides para .NET permite a los desarrolladores obtener las propiedades efectivas de la forma biselada. Para ello, se ha añadido la clase **ShapeBevelEffectiveData** en Aspose.Slides. La clase ShapeBevelEffectiveData representa un objeto inmutable que contiene propiedades efectivas del relieve de la cara de la forma. Una instancia de la clase **ShapeBevelEffectiveData** se usa como parte de la clase **ThreeDFormatEffectiveData**, que es un par de valores efectivos para la clase ThreeDFormat.
+
+El siguiente fragmento de código muestra cómo obtener las propiedades efectivas de la forma biselada.
 ```c#
 using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
@@ -80,10 +98,12 @@ using (Presentation pres = new Presentation("Presentation1.pptx"))
 ```
 
 
-## **Obtener propiedades efectivas del marco de texto**
-Con Aspose.Slides for .NET, puedes obtener propiedades efectivas del Text Frame. Para este propósito, se ha añadido la clase **TextFrameFormatEffectiveData** en Aspose.Slides, que contiene propiedades efectivas de formato del marco de texto.
 
-El siguiente fragmento de código muestra cómo obtener propiedades de formato efectivas del marco de texto.  
+
+## **Obtener propiedades efectivas del marco de texto**
+Con Aspose.Slides para .NET, puedes obtener las propiedades efectivas del marco de texto. Para ello, se ha añadido la clase **TextFrameFormatEffectiveData** en Aspose.Slides, que contiene propiedades efectivas de formato del marco de texto.
+
+El siguiente fragmento de código muestra cómo obtener las propiedades efectivas de formato del marco de texto.
 ```c#
 using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
@@ -105,10 +125,12 @@ using (Presentation pres = new Presentation("Presentation1.pptx"))
 ```
 
 
-## **Obtener propiedades efectivas del estilo de texto**
-Con Aspose.Slides for .NET, puedes obtener propiedades efectivas del Text Style. Para este propósito, se ha añadido la clase **TextStyleEffectiveData** en Aspose.Slides, que contiene propiedades efectivas del estilo de texto.
 
-El siguiente fragmento de código muestra cómo obtener propiedades efectivas del estilo de texto.  
+
+## **Obtener propiedades efectivas del estilo de texto**
+Con Aspose.Slides para .NET, puedes obtener las propiedades efectivas del estilo de texto. Para ello, se ha añadido la clase **TextStyleEffectiveData** en Aspose.Slides, que contiene propiedades efectivas del estilo de texto.
+
+El siguiente fragmento de código muestra cómo obtener las propiedades efectivas del estilo de texto.
 ```c#
 using (Presentation pres = new Presentation("Presentation1.pptx"))
 {
@@ -130,8 +152,9 @@ using (Presentation pres = new Presentation("Presentation1.pptx"))
 ```
 
 
+
 ## **Obtener valor efectivo de la altura de fuente**
-Con Aspose.Slides for .NET, puedes obtener propiedades efectivas de la altura de fuente. Aquí se muestra el código que demuestra cómo cambia el valor efectivo de la altura de fuente de la porción después de establecer valores locales de altura de fuente en diferentes niveles de la estructura de la presentación.  
+Con Aspose.Slides para .NET, puedes obtener las propiedades efectivas de la altura de fuente. Aquí tienes el código que demuestra cómo cambia el valor efectivo de la altura de fuente de la porción después de establecer valores locales de altura de fuente en diferentes niveles de la estructura de la presentación.
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -178,10 +201,11 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Obtener formato de relleno efectivo para tabla**
-Con Aspose.Slides for .NET, puedes obtener el formato de relleno efectivo para distintas partes lógicas de una tabla. Para este propósito, se ha añadido la interfaz **IFillFormatEffectiveData** en Aspose.Slides, que contiene propiedades efectivas de formato de relleno. Ten en cuenta que el formato de celda siempre tiene mayor prioridad que el formato de fila, una fila tiene mayor prioridad que la columna y la columna mayor que toda la tabla.
 
-Por lo tanto, al final siempre se utilizan las propiedades **CellFormatEffectiveData** para dibujar la tabla. El siguiente fragmento de código muestra cómo obtener el formato de relleno efectivo para distintas partes lógicas de la tabla.  
+## **Obtener formato de relleno efectivo para tabla**
+Con Aspose.Slides para .NET, puedes obtener el formato de relleno efectivo para diferentes partes lógicas de una tabla. Para ello, se ha añadido la interfaz **IFillFormatEffectiveData** en Aspose.Slides, que contiene propiedades efectivas de formato de relleno. Ten en cuenta que el formato de celda siempre tiene mayor prioridad que el formato de fila, una fila tiene mayor prioridad que la columna y la columna supera a toda la tabla.
+
+Así, finalmente siempre se usan las propiedades **CellFormatEffectiveData** para dibujar la tabla. El siguiente fragmento de código muestra cómo obtener el formato de relleno efectivo para diferentes partes lógicas de la tabla.
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -201,23 +225,30 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **FAQ**
 
-**¿Cómo puedo saber si obtuve una "instantánea" en lugar de un "objeto en vivo", y cuándo debo volver a leer las propiedades efectivas?**  
-Los objetos EffectiveData son instantáneas inmutables de los valores calculados en el momento de la llamada. Si cambias la configuración local o heredada de la forma, vuelve a obtener los datos efectivos para obtener los valores actualizados.
+**¿Cómo puedo saber si obtuve una "instantánea" en lugar de un "objeto en vivo", y cuándo debería volver a leer las propiedades efectivas?**
 
-**¿Cambiar la diapositiva de diseño/maestra afecta a las propiedades efectivas que ya se habían obtenido?**  
-Sí, pero solo después de volver a leerlas. Un objeto EffectiveData ya obtenido no se actualiza automáticamente; solicítalo de nuevo después de cambiar el diseño o la maestra.
+Los objetos EffectiveData son instantáneas inmutables de los valores calculados en el momento de la llamada. Si cambias la configuración local o heredada de la forma, recupera los datos efectivos nuevamente para obtener los valores actualizados.
 
-**¿Puedo modificar valores a través de EffectiveData?**  
+**¿Cambiar la diapositiva de diseño/maestra afecta a las propiedades efectivas que ya se habían recuperado?**
+
+Sí, pero solo después de leerlas de nuevo. Un objeto EffectiveData ya obtenido no se actualiza por sí mismo; solicítalo nuevamente después de cambiar el diseño o la maestra.
+
+**¿Puedo modificar valores a través de EffectiveData?**
+
 No. EffectiveData es de solo lectura. Realiza los cambios en los objetos de formato local (forma/texto/3D, etc.) y luego vuelve a obtener los valores efectivos.
 
-**¿Qué ocurre si una propiedad no está establecida a nivel de forma, ni en el diseño/maestra, ni en la configuración global?**  
+**¿Qué ocurre si una propiedad no está definida a nivel de forma, ni en el diseño/maestra, ni en la configuración global?**
+
 El valor efectivo se determina mediante el mecanismo predeterminado (valores por defecto de PowerPoint/Aspose.Slides). Ese valor resuelto pasa a formar parte de la instantánea EffectiveData.
 
-**Desde un valor de fuente efectivo, ¿puedo saber qué nivel proporcionó el tamaño o la tipografía?**  
-No directamente. EffectiveData devuelve el valor final. Para encontrar la fuente, verifica los valores locales en la porción/párrafo/marco de texto y los estilos de texto en el diseño/maestra/presentación para ver dónde aparece la primera definición explícita.
+**A partir de un valor efectivo de fuente, ¿puedo saber qué nivel proporcionó el tamaño o la tipografía?**
 
-**¿Por qué los valores EffectiveData a veces son idénticos a los locales?**  
-Porque el valor local resultó ser el final (no se necesitó herencia de un nivel superior). En esos casos, el valor efectivo coincide con el local.
+No directamente. EffectiveData devuelve el valor final. Para encontrar la fuente, revisa los valores locales en la porción/párrafo/marco de texto y los estilos de texto en el diseño/maestra/presentación para ver dónde aparece la primera definición explícita.
 
-**¿Cuándo debo usar propiedades efectivas y cuándo trabajar solo con las locales?**  
-Utiliza EffectiveData cuando necesites el resultado "tal como se renderiza" después de aplicar toda la herencia (por ejemplo, para alinear colores, sangrías o tamaños). Si necesitas cambiar el formato en un nivel específico, modifica las propiedades locales y, si es necesario, vuelve a leer EffectiveData para verificar el resultado.
+**¿Por qué los valores EffectiveData a veces se ven idénticos a los locales?**
+
+Porque el valor local terminó siendo el final (no se necesitó herencia de un nivel superior). En esos casos, el valor efectivo coincide con el local.
+
+**¿Cuándo debo usar propiedades efectivas y cuándo trabajar solo con las locales?**
+
+Usa EffectiveData cuando necesites el resultado "tal como se renderiza" después de aplicar toda la herencia (por ejemplo, para alinear colores, sangrías o tamaños). Si necesitas cambiar el formato en un nivel específico, modifica las propiedades locales y, si es necesario, vuelve a leer EffectiveData para verificar el resultado.
