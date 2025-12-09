@@ -1,12 +1,12 @@
 ---
-title: Управление элементами ActiveX в презентациях в .NET
+title: Управление ActiveX‑элементами в презентациях в .NET
 linktitle: ActiveX
 type: docs
 weight: 80
 url: /ru/net/activex/
 keywords:
 - ActiveX
-- Элемент ActiveX
+- ActiveX‑элемент
 - управление ActiveX
 - добавление ActiveX
 - изменение ActiveX
@@ -16,26 +16,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Узнайте, как Aspose.Slides for .NET использует ActiveX для автоматизации и улучшения презентаций PowerPoint, предоставляя разработчикам мощный контроль над слайдами."
+description: "Узнайте, как Aspose.Slides для .NET использует ActiveX для автоматизации и улучшения презентаций PowerPoint, предоставляя разработчикам мощный контроль над слайдами."
 ---
 
-ActiveX элементы управления используются в презентациях. Aspose.Slides for .NET позволяет управлять ActiveX элементами, но работа с ними несколько сложнее и отличается от обычных фигур презентации. Начиная с версии Aspose.Slides for .NET 6.9.0 компонент поддерживает управление ActiveX элементами. В данный момент вы можете получить доступ к уже добавленному ActiveX элементу в презентации и изменить или удалить его, используя различные свойства. Помните, что ActiveX элементы не являются фигурами и не являются частью IShapeCollection презентации, а находятся в отдельном IControlCollection. В этой статье показано, как работать с ними.
-## **Изменение ActiveX элементов управления**
-Чтобы управлять простым ActiveX элементом, таким как текстовое поле и простая кнопка‑команда на слайде:
+ActiveX-элементы используются в презентациях. Aspose.Slides для .NET позволяет управлять ActiveX-элементами, но их управление несколько сложнее и отличается от обычных фигур презентации. Начиная с Aspose.Slides для .NET 6.9.0, компонент поддерживает управление ActiveX-элементами. В настоящее время вы можете получить доступ к уже добавленному ActiveX-элементу в презентации и изменить или удалить его, используя различные свойства. Помните, что ActiveX-элементы не являются фигурами и не входят в IShapeCollection презентации, а находятся в отдельной IControlCollection. В этой статье показано, как с ними работать.
 
-1. Создайте экземпляр класса Presentation и загрузите презентацию с ActiveX элементами.
-1. Получите ссылку на слайд по его индексу.
-1. Доступ к ActiveX элементам на слайде получайте через IControlCollection.
-1. Получите ActiveX элемент TextBox1 с помощью объекта ControlEx.
-1. Измените различные свойства ActiveX элемента TextBox1, включая текст, шрифт, высоту шрифта и позицию рамки.
-1. Получите второй элемент управления под названием CommandButton1.
-1. Измените подпись кнопки, шрифт и позицию.
-1. Сдвиньте позицию рамок ActiveX элементов.
-1. Запишите изменённую презентацию в файл PPTX.
+## **Изменить ActiveX-элементы**
 
-Ниже приведён фрагмент кода, который обновляет ActiveX элементы на слайдах презентации, как показано ниже.
+1. Создайте экземпляр класса Presentation и загрузите презентацию, содержащую ActiveX-элементы.  
+1. Получите ссылку на слайд по его индексу.  
+1. Получите доступ к ActiveX-элементам на слайде, обратившись к IControlCollection.  
+1. Получите доступ к ActiveX-элементу TextBox1, используя объект ControlEx.  
+1. Измените различные свойства ActiveX-элемента TextBox1, включая текст, шрифт, высоту шрифта и положение кадра.  
+1. Получите доступ ко второму элементу управления под названием CommandButton1.  
+1. Измените подпись кнопки, шрифт и положение.  
+1. Смещайте положение кадров ActiveX-элементов.  
+1. Запишите изменённую презентацию в файл PPTX.  
+
+Приведённый ниже фрагмент кода обновляет ActiveX-элементы на слайдах презентации, как показано ниже.
 ```c#
-// Доступ к презентации с элементами ActiveX
+// Доступ к презентации с  ActiveX‑элементами
 Presentation presentation = new Presentation("ActiveX.pptm");
 
 // Доступ к первому слайду в презентации
@@ -49,7 +49,7 @@ if (control.Name == "TextBox1" && control.Properties != null)
     string newText = "Changed text";
     control.Properties["Value"] = newText;
 
-    // замена заменяющего изображения. PowerPoint заменит это изображение во время активации ActiveX, поэтому иногда можно оставить изображение без изменений.
+    // изменение заменяющего изображения. PowerPoint заменит это изображение при активации ActiveX, поэтому иногда можно оставить изображение без изменений.
 
     Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
     Graphics graphics = Graphics.FromImage(image);
@@ -90,7 +90,7 @@ if (control.Name == "CommandButton1" && control.Properties != null)
     String newCaption = "MessageBox";
     control.Properties["Caption"] = newCaption;
 
-    // замена заменяющего изображения
+    // изменение заменяющего изображения
     Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
     Graphics graphics = Graphics.FromImage(image);
     Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Control));
@@ -122,7 +122,7 @@ if (control.Name == "CommandButton1" && control.Properties != null)
     control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
 }
 
-// перемещение фреймов ActiveX на 100 пунктов вниз
+// Перемещение кадров ActiveX вниз на 100 пунктов
 foreach (Control ctl in slide.Controls)
 {
     IShapeFrame frame = control.Frame;
@@ -130,28 +130,27 @@ foreach (Control ctl in slide.Controls)
         frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
 }
 
-// Сохранить презентацию с отредактированными элементами ActiveX
+// Сохранить презентацию с отредактированными ActiveX‑элементами
 presentation.Save("withActiveX-edited_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
 
 
 // Теперь удаляем элементы управления
 slide.Controls.Clear();
 
-// Сохранение презентации с очищенными элементами ActiveX
+// Сохранение презентации с очищенными ActiveX‑элементами
 presentation.Save("withActiveX.cleared_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
 ```
 
 
-## **Добавление ActiveX Media Player элемента управления**
-Чтобы добавить ActiveX Media Player элемент управления, выполните следующие шаги:
+## **Добавить элемент управления ActiveX Media Player**
 
-1. Создайте экземпляр класса Presentation и загрузите образец презентации с ActiveX Media Player элементами.
-1. Создайте экземпляр целевого класса Presentation и создайте пустой экземпляр презентации.
-1. Клонируйте слайд с ActiveX Media Player элементом из шаблонной презентации в целевую Presentation.
-1. Получите клонированный слайд в целевой Presentation.
-1. Доступ к ActiveX элементам на слайде получайте через IControlCollection.
-1. Получите ActiveX Media Player элемент и задайте путь к видео, используя его свойства.
-1. Сохраните презентацию в файл PPTX.
+1. Создайте экземпляр класса Presentation и загрузите образец презентации с ActiveX-элементами Media Player.  
+1. Создайте экземпляр целевого класса Presentation и создайте пустую презентацию.  
+1. Клонируйте слайд с ActiveX-элементом Media Player из шаблонной презентации в целевую презентацию.  
+1. Получите доступ к клонированному слайду в целевой презентации.  
+1. Получите доступ к ActiveX-элементам на слайде, обратившись к IControlCollection.  
+1. Получите доступ к ActiveX-элементу Media Player и установите путь к видео, используя его свойства.  
+1. Сохраните презентацию в файл PPTX.  
 ```c#
 // Создать экземпляр класса Presentation, представляющего файл PPTX
 Presentation presentation = new Presentation("template.pptx");
@@ -162,10 +161,10 @@ Presentation newPresentation = new Presentation();
 // Удалить слайд по умолчанию
 newPresentation.Slides.RemoveAt(0);
 
-// Клонировать слайд с ActiveX элементом Media Player
+// Клонировать слайд с элементом управления Media Player ActiveX
 newPresentation.Slides.InsertClone(0, presentation.Slides[0]);
 
-// Получить доступ к ActiveX элементу Media Player и задать путь к видео
+// Получить доступ к элементу управления Media Player ActiveX и задать путь к видео
 newPresentation.Slides[0].Controls[0].Properties["URL"] = "Wildlife.mp4";
 
 // Сохранить презентацию
@@ -173,16 +172,13 @@ newPresentation.Save("LinkingVideoActiveXControl_out.pptx", Aspose.Slides.Export
 ```
 
 
-## **Вопросы и ответы**
+## **FAQ**
 
-**Сохраняет ли Aspose.Slides ActiveX элементы при чтении и повторном сохранении, если они не могут быть выполнены в среде Python?**
+**Сохраняет ли Aspose.Slides ActiveX-элементы при чтении и повторном сохранении, если они не могут быть выполнены в среде .NET runtime?**  
+Да. Aspose.Slides рассматривает их как часть презентации и может читать/изменять их свойства и рамки; выполнение самих элементов управления не требуется для их сохранения.
 
-Да. Aspose.Slides рассматривает их как часть презентации и может читать/изменять их свойства и рамки; выполнение самих элементов не требуется для их сохранения.
+**Чем отличаются ActiveX-элементы от OLE‑объектов в презентации?**  
+ActiveX-элементы — это интерактивные управляемые элементы (кнопки, текстовые поля, медиаплеер), тогда как [OLE](/slides/ru/net/manage-ole/) относится к встроенным объектам приложений (например, листу Excel). Они хранятся и обрабатываются по‑разному и имеют разные модели свойств.
 
-**Чем ActiveX элементы отличаются от OLE объектов в презентации?**
-
-ActiveX элементы — это интерактивные управляемые элементы (кнопки, текстовые поля, медиаплеер), тогда как [OLE](/slides/ru/net/manage-ole/) относится к внедрённым объектам приложений (например, листу Excel). Они хранятся и обрабатываются иначе и имеют различную модель свойств.
-
-**Работают ли события ActiveX и VBA макросы, если файл был изменён Aspose.Slides?**
-
-Aspose.Slides сохраняет существующую разметку и метаданные; однако события и макросы выполняются только в PowerPoint на Windows при разрешённой безопасности. Библиотека не исполняет VBA.
+**Работают ли события ActiveX и макросы VBA, если файл был изменён Aspose.Slides?**  
+Aspose.Slides сохраняет существующую разметку и метаданные; однако события и макросы запускаются только внутри PowerPoint на Windows, если позволяет безопасность. Библиотека не выполняет VBA.

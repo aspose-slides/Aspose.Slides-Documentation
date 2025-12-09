@@ -1,65 +1,64 @@
 ---
-title: منع تعديلات العرض التقديمي باستخدام أقفال الأشكال
-linktitle: منع تعديلات العرض التقديمي
+title: منع تعديل العروض باستخدام أقفال الشكل في .NET
+linktitle: منع تعديل العرض
 type: docs
 weight: 70
 url: /ar/net/applying-protection-to-presentation/
 keywords:
 - منع التعديلات
-- حماية من التحرير
+- حماية من التعديل
 - قفل الشكل
-- قفل الموقع
-- قفل التحديد
+- قفل الموضع
+- قفل الاختيار
 - قفل الحجم
 - قفل التجميع
 - PowerPoint
 - OpenDocument
-- العرض التقديمي
+- العرض
 - .NET
 - C#
 - Aspose.Slides
-description: "اكتشف كيف تقوم Aspose.Slides for .NET بقفل أو فك قفل الأشكال في ملفات PPT و PPTX و ODP، مما يؤمن العروض التقديمية مع السماح بالتعديلات المتحكم فيها وتسليم أسرع."
+description: "اكتشف كيف تقوم Aspose.Slides for .NET بقفل أو إلغاء قفل الأشكال في ملفات PPT و PPTX و ODP، مما يؤمن العروض مع السماح بتعديلات مُتحكم فيها."
 ---
 
 ## **الخلفية**
 
-استخدام شائع لـ Aspose.Slides هو إنشاء وتحديث وحفظ عروض Microsoft PowerPoint (PPTX) كجزء من سير عمل تلقائي. يحصل مستخدمو التطبيقات التي تستخدم Aspose.Slides بهذه الطريقة على العروض المولدة، لذا فإن حمايتها من التحرير هو قلق شائع. من المهم أن تحتفظ العروض التي تم إنشاؤها تلقائيًا بالتنسيق والمحتوى الأصليين.
+استخدام شائع لـ Aspose.Slides هو إنشاء وتحديث وحفظ عروض Microsoft PowerPoint (PPTX) كجزء من سير عمل آلي. يحصل مستخدمو التطبيقات التي تستخدم Aspose.Slides بهذه الطريقة على الوصول إلى العروض المولدة، لذا فإن حماية هذه العروض من التعديل تُعدّ مصدر قلق شائع. من المهم أن تحتفظ العروض التي تُنشأ تلقائيًا بالتنسيق والمحتوى الأصليين.
 
-تشرح هذه المقالة كيف تُبنى العروض والشرائح وكيف يمكن لـ Aspose.Slides for .NET تطبيق الحماية على عرض تقديمي وإزالتها لاحقًا. وهي توفر للمطورين وسيلة للتحكم في كيفية استخدام العروض التي تُنشئها تطبيقاتهم.
+تشرح هذه المقالة كيفية هيكلة العروض والشرائح وكيف يمكن لـ Aspose.Slides for .NET تطبيق الحماية على عرض ثم إزالتها لاحقًا. إنها توفر للمطورين وسيلة للتحكم في كيفية استخدام العروض التي تولدها تطبيقاتهم.
 
-## **تركيب الشريحة**
+## **تكوين الشريحة**
 
-تتكون شريحة العرض من مكوّنات مثل الأشكال التلقائية، الجداول، كائنات OLE، الأشكال المجمعة، إطارات الصور، إطارات الفيديو، الموصلات، وعناصر أخرى تُستخدم لبناء العرض. في Aspose.Slides for .NET، يُمثَّل كل عنصر في الشريحة ككائن يطبق واجهة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) أو يرث من فئة تقوم بذلك.
+تتكون شريحة العرض من مكوّنات مثل الأشكال التلقائية، الجداول، كائنات OLE، الأشكال المجمعة، إطارات الصور، إطارات الفيديو، الموصلات، وعناصر أخرى تُستخدم لبناء العرض. في Aspose.Slides for .NET، يُمثَّل كل عنصر على الشريحة بواسطة كائن يُطبق واجهة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) أو يرث من فئة تقوم بذلك.
 
-بنية PPTX معقدة، لذا على عكس PPT حيث يمكن استخدام قفل عام لجميع أنواع الأشكال، تتطلب أنواع الأشكال المختلفة أقفالًا مختلفة. واجهة [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) هي الفئة العامة للقفل في PPTX. الأنواع التالية من الأقفال مدعومة في Aspose.Slides for .NET لـ PPTX:
+بنية PPTX معقدة، لذا على عكس PPT حيث يمكن استخدام قفل عام لجميع أنواع الأشكال، تتطلب أنواع الأشكال المختلفة أقفالًا مختلفة. تُعد واجهة [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) الفئة العامة للقفل في PPTX. الأنواع التالية من الأقفال مدعومة في Aspose.Slides for .NET لـ PPTX:
+- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) أقفال الأشكال التلقائية.
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) أقفال أشكال الموصل.
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) أقفال الكائنات الرسومية.
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) أقفال الأشكال المجمعة.
+- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) أقفال إطارات الصورة.
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) يقفل الأشكال التلقائية.  
-- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) يقفل أشكال الموصل.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) يقفل الكائنات الرسومية.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) يقفل أشكال المجموعات.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) يقفل إطارات الصورة.  
-
-أي إجراء يُجرى على جميع كائنات الأشكال في كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) يُطبق على العرض بالكامل.
+أي عمل يُجرى على جميع كائنات الشكل في كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) يُطبق على العرض بأكمله.
 
 ## **تطبيق وإزالة الحماية**
 
-تطبيق الحماية يضمن عدم إمكانية تحرير العرض. إنها تقنية مفيدة لحماية محتوى العرض.
+يضمن تطبيق الحماية عدم إمكانية تحرير العرض. إنها تقنية مفيدة لحماية محتوى العرض.
 
 ### **تطبيق الحماية على أشكال PPTX**
 
-توفر Aspose.Slides for .NET واجهة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) للعمل مع الأشكال في الشريحة.
+توفر Aspose.Slides for .NET واجهة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) للعمل مع الأشكال على الشريحة.
 
-كما ذكرنا سابقًا، كل فئة شكل لها فئة قفل شكل مرتبطة للحماية. تركز هذه المقالة على أقفال NoSelect و NoMove و NoResize. تضمن هذه الأقفال عدم إمكانية اختيار الأشكال (عن طريق النقرات أو طرق اختيار أخرى) وعدم إمكانية تحريكها أو تغيير حجمها.
+كما ذكرنا سابقًا، كل فئة شكل لها فئة قفل شكل مرتبطة لها للحماية. تركّز هذه المقالة على أقفال NoSelect و NoMove و NoResize. تضمن هذه الأقفال عدم إمكانية اختيار الأشكال (من خلال نقرات الفأرة أو طرق اختيار أخرى) وعدم إمكانية تحريكها أو تغيير حجمها.
 
-العينة البرمجية التالية تطبق الحماية على جميع أنواع الأشكال في عرض تقديمي.
+عينة الشيفرة التالية تُطبق الحماية على جميع أنواع الأشكال في عرض.
 ```cs
 // إنشاء كائن Presentation الذي يمثل ملف PPTX.
 using Presentation presentation = new Presentation("Sample.pptx");
 
-// استعراض جميع الشرائح في العرض.
+// التنقل عبر جميع الشرائح في العرض.
 foreach (ISlide slide in presentation.Slides)
 {
-    // استعراض جميع الأشكال في الشريحة.
+    // التنقل عبر جميع الأشكال في الشريحة.
     foreach (IShape shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
@@ -97,15 +96,15 @@ presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 
 ### **إزالة الحماية**
 
-لفك قفل شكل، اضبط قيمة القفل المطبق على `false`. تُظهر العينة البرمجية التالية كيفية فك أقفال الأشكال في عرض مؤمّن.
+لفك قفل شكل، اضبط قيمة القفل المطبق إلى `false`. تُظهر عينة الشيفرة التالية كيفية فك قفل الأشكال في عرض مقفل.
 ```cs
 // إنشاء كائن Presentation الذي يمثل ملف PPTX.
 using Presentation presentation = new Presentation("ProtectedSample.pptx");
 
-// استعراض جميع الشرائح في العرض.
+// التنقل عبر جميع الشرائح في العرض.
 foreach (ISlide slide in presentation.Slides)
 {
-    // استعراض جميع الأشكال في الشريحة.
+    // التنقل عبر جميع الأشكال في الشريحة.
     foreach (IShape shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
@@ -143,18 +142,18 @@ presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 
 ### **الخلاصة**
 
-يقدّم Aspose.Slides عدة خيارات لحماية الأشكال في العرض. يمكنك قفل شكل فردي أو التجول عبر جميع الأشكال في عرض وتطبيق القفل على كل واحدة لتأمين الملف بالكامل بفعالية. يمكنك إزالة الحماية بضبط قيمة القفل إلى `false`.
+توفر Aspose.Slides عدة خيارات لحماية الأشكال في عرض. يمكنك قفل شكل فردي أو تكرار جميع الأشكال في العرض وقفل كلٍ منها لتأمين الملف بالكامل بفعالية. يمكنك إزالة الحماية بضبط قيمة القفل إلى `false`.
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل يمكنني دمج أقفال الأشكال وحماية كلمة المرور في نفس العرض التقديمي؟**
+**هل يمكنني دمج أقفال الشكل وحماية كلمة المرور في نفس العرض؟**
 
-نعم. الأقفال تقيد تحرير الكائنات داخل الملف، بينما [password protection](/slides/ar/net/password-protected-presentation/) تتحكم في الوصول إلى فتح الملف و/أو حفظ التغييرات. هذان الآليتان تكملان بعضهما وتعملان معًا.
+نعم. تُقيد الأقفال تحرير الكائنات داخل الملف، بينما [حماية كلمة المرور](/slides/ar/net/password-protected-presentation/) يتحكم في الوصول إلى فتح العرض و/أو حفظ التغييرات. تكمل هذه الآليات بعضها البعض وتعمل معًا.
 
-**هل يمكنني تقييد التحرير على شرائح محددة دون التأثير على الأخرى؟**
+**هل يمكنني تقييد التحرير على شرائح محددة دون التأثير على غيرها؟**
 
-نعم. طبق الأقفال على الأشكال في الشرائح المحددة؛ ستبقى الشرائح المتبقية قابلة للتحرير.
+نعم. يُطبق الأقفال على الأشكال في الشرائح المحددة؛ الشرائح المتبقية ستظل قابلة للتحرير.
 
 **هل تنطبق أقفال الأشكال على الكائنات المجمعة والموصلات؟**
 
-نعم. هناك أنواع أقفال مخصصة للمجموعات، الموصلات، الكائنات الرسومية، وأنواع الأشكال الأخرى.
+نعم. تُدعم أنواع أقفال مخصصة للمجموعات والموصلات والكائنات الرسومية وأنواع الأشكال الأخرى.

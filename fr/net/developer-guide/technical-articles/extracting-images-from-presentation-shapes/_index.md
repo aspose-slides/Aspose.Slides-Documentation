@@ -1,23 +1,34 @@
 ---
-title: Extraction d'images à partir des formes de présentation
+title: Extraire des images des formes de présentation en .NET
+linktitle: Image à partir de la forme
 type: docs
 weight: 90
 url: /fr/net/extracting-images-from-presentation-shapes/
-keywords: "Extraire image, PowerPoint, PPT, PPTX, présentation PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "Extraire des images d'une présentation PowerPoint en C# ou .NET"
+keywords:
+- extraction d'image
+- récupération d'image
+- arrière-plan de diapositive
+- arrière-plan de forme
+- PowerPoint
+- OpenDocument
+- présentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Extraire des images des formes dans les présentations PowerPoint et OpenDocument avec Aspose.Slides pour .NET - solution rapide et adaptée au code."
 ---
 
-## **Extraire des images à partir des formes**
+## **Extraire les images des formes**
 
 {{% alert color="primary" %}} 
 
-Les images sont souvent ajoutées aux formes et sont également fréquemment utilisées comme arrière-plans des diapositives. Les objets image sont ajoutés via [IImageCollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/), qui est une collection d'objets [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/). 
+Les images sont souvent ajoutées aux formes et sont également fréquemment utilisées comme arrière‑plans des diapositives. Les objets image sont ajoutés via [IImageCollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/), qui est une collection d'objets [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/). 
 
 Cet article explique comment extraire les images ajoutées aux présentations. 
 
 {{% /alert %}} 
 
-Pour extraire une image d'une présentation, vous devez d'abord localiser l'image en parcourant chaque diapositive puis chaque forme. Une fois l'image trouvée ou identifiée, vous pouvez l'extraire et l'enregistrer comme un nouveau fichier. XXX 
+Pour extraire une image d’une présentation, vous devez d’abord localiser l’image en parcourant chaque diapositive, puis chaque forme. Une fois l’image trouvée ou identifiée, vous pouvez l’extraire et l’enregistrer comme un nouveau fichier. XXX 
 ```c#
 public static void Run() {
 
@@ -152,18 +163,18 @@ public static System.Drawing.Imaging.ImageFormat GetImageFormat(String ImageType
 
 ## **FAQ**
 
-**Puis-je extraire l'image originale sans aucun recadrage, effet ou transformation de forme ?**
+**Puis-je extraire l’image originale sans aucun recadrage, effet ou transformation de forme ?**
 
-Oui. Lorsque vous accédez à l'image d'une forme, vous obtenez l'objet image de la présentation’s [image collection](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/), ce qui signifie les pixels originaux sans recadrage ni effets de style. Le flux de travail parcourt la collection d'images de la présentation et les objets [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/), qui stockent les données brutes.
+Oui. Lorsque vous accédez à l’image d’une forme, vous obtenez l’objet image de la [collection d'images](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/) de la présentation, ce qui signifie les pixels originaux sans recadrage ni effets de style. Le flux de travail parcourt la collection d'images de la présentation et les objets [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/), qui stockent les données brutes.
 
-**Existe-t-il un risque de duplication de fichiers identiques lors de l'enregistrement de nombreuses images en même temps ?**
+**Existe-t-il un risque de dupliquer des fichiers identiques lors de l’enregistrement de plusieurs images simultanément ?**
 
-Oui, si vous enregistrez tout sans discernement. La présentation’s [image collection](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/) peut contenir des données binaires identiques référencées par différentes formes ou diapositives. Pour éviter les doublons, comparez les hachages, les tailles ou le contenu des données extraites avant l'écriture.
+Oui, si vous enregistrez tout sans discernement. La [collection d'images](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/) d’une présentation peut contenir des données binaires identiques référencées par différentes formes ou diapositives. Pour éviter les doublons, comparez les hachages, les tailles ou le contenu des données extraites avant l’écriture.
 
 **Comment déterminer quelles formes sont liées à une image spécifique de la collection de la présentation ?**
 
-Aspose.Slides ne stocke pas de liens inversés de [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/) vers les formes. Construisez une correspondance manuellement pendant le parcours : chaque fois que vous trouvez une référence à un [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/), notez quelles formes l'utilisent.
+Aspose.Slides ne stocke pas les liens inverses de [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/) vers les formes. Créez une correspondance manuellement pendant le parcours : chaque fois que vous trouvez une référence à un [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/), enregistrez quelles formes l’utilisent.
 
-**Puis-je extraire les images intégrées dans des objets OLE, comme des documents joints ?**
+**Puis-je extraire les images intégrées dans des objets OLE, tels que des documents joints ?**
 
-Pas directement, car un objet OLE est un conteneur. Vous devez extraire le paquet OLE lui‑même, puis analyser son contenu à l'aide d'outils séparés. Les formes d'image de la présentation fonctionnent via [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/); l'OLE étant un type d'objet différent.
+Pas directement, car un objet OLE est un conteneur. Vous devez extraire le package OLE lui‑même, puis analyser son contenu avec des outils séparés. Les formes image des présentations fonctionnent via [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/), OLE étant un type d’objet différent.

@@ -1,12 +1,12 @@
 ---
-title: Prevenir Ediciones de Presentación con Bloqueos de Forma
+title: Prevenir Ediciones de Presentaciones con Bloqueos de Forma en .NET
 linktitle: Prevenir Ediciones de Presentación
 type: docs
 weight: 70
 url: /es/net/applying-protection-to-presentation/
 keywords:
 - prevenir ediciones
-- proteger contra edición
+- proteger de la edición
 - bloquear forma
 - bloquear posición
 - bloquear selección
@@ -18,48 +18,48 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Descubra cómo Aspose.Slides para .NET bloquea o desbloquea formas en archivos PPT, PPTX y ODP, asegurando presentaciones mientras permite ediciones controladas y una entrega más rápida."
+description: "Descubra cómo Aspose.Slides para .NET bloquea o desbloquea formas en archivos PPT, PPTX y ODP, asegurando presentaciones mientras permite ediciones controladas."
 ---
 
 ## **Antecedentes**
 
-Un uso frecuente de Aspose.Slides es crear, actualizar y guardar presentaciones de Microsoft PowerPoint (PPTX) como parte de un flujo de trabajo automatizado. Los usuarios de aplicaciones que emplean Aspose.Slides de esta manera tienen acceso a las presentaciones generadas, por lo que protegerlas contra la edición es una preocupación común. Es importante que las presentaciones generadas automáticamente mantengan su formato y contenido original.
+Un uso común de Aspose.Slides es crear, actualizar y guardar presentaciones de Microsoft PowerPoint (PPTX) como parte de un flujo de trabajo automatizado. Los usuarios de aplicaciones que emplean Aspose.Slides de esta manera tienen acceso a las presentaciones generadas, por lo que protegerlas contra la edición es una preocupación frecuente. Es importante que las presentaciones generadas automáticamente mantengan su formato y contenido original.
 
-Este artículo explica cómo están estructuradas las presentaciones y diapositivas y cómo Aspose.Slides para .NET puede aplicar protección a una presentación y luego eliminarla. Proporciona a los desarrolladores una forma de controlar el uso de las presentaciones que sus aplicaciones generan.
+Este artículo explica cómo se estructuran las presentaciones y diapositivas y cómo Aspose.Slides para .NET puede aplicar protección a una presentación y eliminarla posteriormente. Proporciona a los desarrolladores una forma de controlar cómo se utilizan las presentaciones que sus aplicaciones generan.
 
 ## **Composición de una diapositiva**
 
-Una diapositiva de presentación se compone de componentes como autoshapes, tablas, objetos OLE, formas agrupadas, marcos de imagen, marcos de video, conectores y otros elementos utilizados para crear una presentación. En Aspose.Slides para .NET, cada elemento en una diapositiva está representado por un objeto que implementa la interfaz [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) o hereda de una clase que lo hace.
+Una diapositiva de presentación está compuesta por componentes como autoshapes, tablas, objetos OLE, shapes agrupados, marcos de imágenes, marcos de video, conectores y otros elementos utilizados para construir una presentación. En Aspose.Slides para .NET, cada elemento en una diapositiva está representado por un objeto que implementa la interfaz [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) o hereda de una clase que lo hace.
 
-La estructura de PPTX es compleja, por lo que, a diferencia de PPT, donde se puede usar un bloqueo genérico para todos los tipos de formas, diferentes tipos de forma requieren bloqueos diferentes. La interfaz [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) es la clase de bloqueo genérica para PPTX. Los siguientes tipos de bloqueos son compatibles en Aspose.Slides para .NET para PPTX:
+La estructura de PPTX es compleja, por lo que a diferencia de PPT, donde se puede usar un bloqueo genérico para todos los tipos de shapes, diferentes tipos de shapes requieren bloqueos distintos. La interfaz [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) es la clase de bloqueo genérica para PPTX. Los siguientes tipos de bloqueos son compatibles en Aspose.Slides para .NET para PPTX:
 
 - [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) bloquea autoshapes.  
-- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) bloquea formas de conector.  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) bloquea shapes de conectores.  
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) bloquea objetos gráficos.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) bloquea formas agrupadas.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) bloquea marcos de imagen.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) bloquea shapes agrupados.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) bloquea marcos de imágenes.  
 
-Cualquier acción realizada sobre todos los objetos de forma en un objeto [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) se aplica a toda la presentación.
+Cualquier acción realizada sobre todos los objetos shape en un objeto [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) se aplica a toda la presentación.
 
 ## **Aplicar y eliminar protección**
 
 Aplicar protección garantiza que una presentación no pueda ser editada. Es una técnica útil para proteger el contenido de la presentación.
 
-### **Aplicar protección a formas PPTX**
+### **Aplicar protección a shapes PPTX**
 
-Aspose.Slides para .NET proporciona la interfaz [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) para trabajar con formas en una diapositiva.
+Aspose.Slides para .NET proporciona la interfaz [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) para trabajar con shapes en una diapositiva.
 
-Como se mencionó anteriormente, cada clase de forma tiene una clase de bloqueo asociada para la protección. Este artículo se centra en los bloqueos NoSelect, NoMove y NoResize. Estos bloqueos aseguran que las formas no puedan ser seleccionadas (mediante clics del ratón u otros métodos de selección) y que no puedan moverse ni redimensionarse.
+Como se mencionó antes, cada clase shape tiene una clase shape‑lock asociada para la protección. Este artículo se centra en los bloqueos NoSelect, NoMove y NoResize. Estos bloqueos aseguran que los shapes no puedan ser seleccionados (mediante clics del ratón u otros métodos de selección) y que no puedan ser movidos o redimensionados.
 
-El ejemplo de código que sigue aplica protección a todos los tipos de forma en una presentación.
+El siguiente ejemplo de código aplica protección a todos los tipos de shape en una presentación.
 ```cs
 // Instanciar la clase Presentation que representa un archivo PPTX.
 using Presentation presentation = new Presentation("Sample.pptx");
 
-// Recorriendo todas las diapositivas de la presentación.
+// Recorrer todas las diapositivas de la presentación.
 foreach (ISlide slide in presentation.Slides)
 {
-    // Recorriendo todas las formas de la diapositiva.
+    // Recorrer todas las formas en la diapositiva.
     foreach (IShape shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
@@ -90,22 +90,22 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Guardando el archivo de la presentación.
+// Guardar el archivo de la presentación.
 presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 ```
 
 
 ### **Eliminar protección**
 
-Para desbloquear una forma, establezca el valor del bloqueo aplicado en `false`. El siguiente ejemplo de código muestra cómo desbloquear formas en una presentación bloqueada.
+Para desbloquear un shape, establezca el valor del bloqueo aplicado a `false`. El siguiente ejemplo de código muestra cómo desbloquear shapes en una presentación bloqueada.
 ```cs
 // Instanciar la clase Presentation que representa un archivo PPTX.
 using Presentation presentation = new Presentation("ProtectedSample.pptx");
 
-// Recorriendo todas las diapositivas de la presentación.
+// Recorrer todas las diapositivas de la presentación.
 foreach (ISlide slide in presentation.Slides)
 {
-    // Recorriendo todas las formas de la diapositiva.
+    // Recorrer todas las formas en la diapositiva.
     foreach (IShape shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
@@ -143,18 +143,18 @@ presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 
 ### **Conclusión**
 
-Aspose.Slides ofrece varias opciones para proteger formas en una presentación. Puede bloquear una forma individual o iterar a través de todas las formas en una presentación y bloquear cada una para asegurar efectivamente todo el archivo. Puede eliminar la protección estableciendo el valor del bloqueo en `false`.
+Aspose.Slides ofrece varias opciones para proteger shapes en una presentación. Puede bloquear un shape individual o iterar sobre todos los shapes de una presentación y bloquear cada uno para asegurar eficazmente todo el archivo. Puede eliminar la protección estableciendo el valor del bloqueo a `false`.
 
 ## **Preguntas frecuentes**
 
-**¿Puedo combinar bloqueos de forma y protección con contraseña en la misma presentación?**
+**¿Puedo combinar bloqueos de shapes y protección con contraseña en la misma presentación?**
 
-Sí. Los bloqueos limitan la edición de objetos dentro del archivo, mientras que [password protection](/slides/es/net/password-protected-presentation/) controla el acceso a la apertura y/o el guardado de cambios. Estos mecanismos se complementan y funcionan juntos.
+Sí. Los bloqueos limitan la edición de objetos dentro del archivo, mientras que la [protección con contraseña](/slides/es/net/password-protected-presentation/) controla el acceso para abrir y/o guardar cambios. Estos mecanismos se complementan y funcionan juntos.
 
 **¿Puedo restringir la edición en diapositivas específicas sin afectar a otras?**
 
-Sí. Aplique bloqueos a las formas de las diapositivas seleccionadas; las diapositivas restantes permanecerán editables.
+Sí. Aplique bloqueos a los shapes de las diapositivas seleccionadas; las diapositivas restantes permanecerán editables.
 
-**¿Los bloqueos de forma se aplican a objetos agrupados y conectores?**
+**¿Los bloqueos de shapes se aplican a objetos agrupados y conectores?**
 
-Sí. Se admiten tipos de bloqueo dedicados para grupos, conectores, objetos gráficos y otros tipos de forma.
+Sí. Se admiten tipos de bloqueo dedicados para grupos, conectores, objetos gráficos y otros tipos de shapes.

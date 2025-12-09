@@ -1,31 +1,35 @@
 ---
-title: البرمجة المتعددة الخيوط في Aspose.Slides
+title: "العمل المتعدد الخيوط في Aspose.Slides للـ .NET"
+linktitle: "العمل المتعدد الخيوط"
 type: docs
 weight: 310
 url: /ar/net/multithreading/
 keywords:
-- PowerPoint
-- عرض تقديمي
-- البرمجة المتعددة الخيوط
-- عمل متوازي
-- تحويل الشرائح
-- شرائح إلى صور
-- C#
-- .NET
-- Aspose.Slides لـ .NET
+- "العمل المتعدد الخيوط"
+- "عدة خيوط"
+- "عمل متوازي"
+- "تحويل الشرائح"
+- "شرائح إلى صور"
+- "PowerPoint"
+- "OpenDocument"
+- "عرض تقديمي"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "يدعم العمل المتعدد الخيوط في Aspose.Slides للـ .NET معالجة PowerPoint و OpenDocument بشكل أسرع. اكتشف أفضل الممارسات لإنشاء تدفقات عمل فعّالة للعرض التقديمي."
 ---
 
-## **Introduction**
+## **المقدمة**
 
-في حين أن العمل المتوازي مع العروض التقديمية ممكن (بخلاف التحليل/التحميل/الاستنساخ) وعادةً ما يسير كل شيء على ما يرام (في معظم الأوقات)، إلا أن هناك احتمالًا صغيرًا للحصول على نتائج غير صحيحة عند استخدام المكتبة في عدة خيوط.
+في حين أن العمل المتوازي مع العروض التقديمية ممكن (إلى جانب التحليل/التحميل/الاستنساخ) وتعمل الأمور بشكل جيد في معظم الأحيان، هناك احتمال صغير قد تحصل فيه على نتائج غير صحيحة عند استخدام المكتبة في عدة خيوط.
 
-نوصي بشدة بعدم استخدام نسخة واحدة من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) في بيئة متعددة الخيوط لأنه قد يؤدي إلى أخطاء أو فشل غير متوقع يصعب اكتشافه.
+نوصي بشدة بعدم استخدام كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) واحد في بيئة متعددة الخيوط لأنه قد ينتج عنه أخطاء أو فشل غير متوقع يصعب اكتشافه.
 
-ليس من الآمن تحميل أو حفظ أو/أو استنساخ نسخة من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) في عدة خيوط. هذه العمليات غير مدعومة. إذا كنت بحاجة إلى تنفيذ مثل هذه المهام، عليك تنفيذها بالتوازي باستخدام عدة عمليات أحادية الخيط—ويجب على كل عملية أن تستخدم نسخة عرض تقديمي خاصة بها.
+ليس من الآمن تحميل أو حفظ أو/أو استنساخ كائن من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) في عدة خيوط. هذه العمليات غير مدعومة. إذا كنت بحاجة إلى أداء هذه المهام، عليك تنفيذها بشكل متوازي باستخدام عدة عمليات أحادية الخيط—ويجب على كل عملية منها أن تستخدم نسخة العرض التقديمي الخاصة بها.
 
-## **Convert Presentation Slides to Images in Parallel**
+## **تحويل شرائح العرض التقديمي إلى صور بشكل متوازي**
 
-لنفترض أننا نريد تحويل جميع الشرائح من عرض PowerPoint إلى صور PNG بالتوازي. بما أنه غير آمن استخدام نسخة واحدة من `Presentation` في عدة خيوط، نقسم شرائح العرض إلى عروض تقديمية منفصلة ونحول الشرائح إلى صور بالتوازي، باستخدام كل عرض تقديمي في خيط منفصل. يظهر مثال الكود التالي كيفية القيام بذلك.
+لنفترض أننا نريد تحويل جميع الشرائح من عرض PowerPoint إلى صور PNG بشكل متوازي. لأن استخدام كائن `Presentation` واحد في عدة خيوط غير آمن، نقسم شرائح العرض إلى عروض تقديمية منفصلة ونحوِّل الشرائح إلى صور في متوازٍ، باستخدام كل عرض في خيط منفصل. مثال الشيفرة التالي يوضح كيفية القيام بذلك.
 ```cs
 var inputFilePath = "sample.pptx";
 var outputFilePathTemplate = "slide_{0}.png";
@@ -40,7 +44,7 @@ var conversionTasks = new List<Task>(slideCount);
 
 for (var slideIndex = 0; slideIndex < slideCount; slideIndex++)
 {
-    // استخراج الشريحة i في عرض تقديمي منفصل.
+    // استخراج الشريحة i إلى عرض تقديمي منفصل.
     var slidePresentation = new Presentation();
     slidePresentation.SlideSize.SetSize(slideSize.Width, slideSize.Height, SlideSizeScaleType.DoNotScale);
     slidePresentation.Slides.RemoveAt(0);
@@ -69,20 +73,20 @@ await Task.WhenAll(conversionTasks);
 ```
 
 
-## **FAQ**
+## **الأسئلة الشائعة**
 
-**Do I need to call license setup in every thread?**
+**هل أحتاج إلى استدعاء إعداد الترخيص في كل خيط؟**
 
-No. It’s enough to do it once per process/app domain before threads start. If [إعداد الترخيص](/slides/ar/net/licensing/) might be invoked concurrently (for example, during lazy initialization), synchronize that call because the license setup method itself is not thread‑safe.
+لا. يكفي القيام بذلك مرة واحدة لكل عملية/نطاق تطبيق قبل بدء الخيوط. إذا كان قد يتم استدعاء [إعداد الترخيص](/slides/ar/net/licensing/) بصورة متزامنة (على سبيل المثال، أثناء التهيئة المتأخرة)، قم بمزامنة هذا الاستدعاء لأن طريقة إعداد الترخيص نفسها غير آمنة للخيوط.
 
-**Can I pass `Presentation` or `Slide` objects between threads?**
+**هل يمكنني تمرير كائنات `Presentation` أو `Slide` بين الخيوط؟**
 
-Passing "live" presentation objects between threads is not recommended: use independent instances per thread or precreate separate presentations/slide containers for each thread. This approach follows the general recommendation not to share a single presentation instance across threads.
+تمرير كائنات العرض "الحية" بين الخيوط غير مفضَّل: استخدم نسخ مستقلة لكل خيط أو أنشئ مسبقًا عروض تقديمية/حاويات شرائح منفصلة لكل خيط. يتبع هذا النهج التوصية العامة بعدم مشاركة نسخة عرض تقديمي واحدة عبر الخيوط.
 
-**Is it safe to parallelize export to different formats (PDF, HTML, images) provided each thread has its own `Presentation` instance?**
+**هل من الآمن تنفيذ تصدير متوازي إلى صيغ مختلفة (PDF, HTML, images) بشرط أن يكون لكل خيط نسخة `Presentation` خاصة به؟**
 
-Yes. With independent instances and separate output paths, such tasks typically parallelize correctly; avoid any shared presentation objects and shared I/O streams.
+نعم. مع نسخ مستقلة ومسارات إخراج منفصلة، عادةً ما تتم هذه المهام بشكل متوازي الصحيح؛ تجنَّب أي مشاركة لكائنات العرض أو تدفقات الإدخال/الإخراج المشتركة.
 
-**What should I do with global font settings (folders, substitutions) in multithreading?**
+**ماذا أفعل بإعدادات الخطوط العامة (المجلدات، البدائل) في بيئة متعددة الخيوط؟**
 
-Initialize all global font settings before starting the threads and do not change them during parallel work. This eliminates races when accessing shared font resources.
+قم بتهيئة جميع إعدادات الخطوط العامة قبل بدء الخيوط ولا تقم بتغييرها أثناء العمل المتوازي. هذا يُزيل حالات التنافس عند الوصول إلى موارد الخطوط المشتركة.

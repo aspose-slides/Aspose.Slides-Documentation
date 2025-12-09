@@ -1,22 +1,31 @@
 ---
-title: Licence à consommation
+title: Licence à comptage
 type: docs
 weight: 90
 url: /fr/net/metered-licensing/
 keywords:
 - licence
-- licence à consommation
+- licence à comptage
+- clés de licence
+- clé publique
+- clé privée
+- quantité de consommation
+- PowerPoint
+- OpenDocument
+- présentation
+- .NET
 - C#
-- Aspose.Slides pour .NET
+- Aspose.Slides
+description: "Découvrez comment la licence à comptage d’Aspose.Slides pour .NET vous permet de traiter les fichiers PowerPoint et OpenDocument de manière flexible, en ne payant que ce que vous utilisez."
 ---
 
-## **Appliquer les clés mesurées**
+## **Appliquer des clés mesurées**
 
 {{% alert color="primary" %}} 
 
-La licence à consommation est un nouveau mécanisme de licence qui peut être utilisé en parallèle avec les méthodes de licence existantes. Si vous souhaitez être facturé en fonction de votre utilisation des fonctionnalités de l’API Aspose.Slides, choisissez la licence à consommation.
+La licence à comptage est un nouveau mécanisme de licence qui peut être utilisé en parallèle avec les méthodes de licence existantes. Si vous souhaitez être facturé en fonction de votre utilisation des fonctionnalités de l’API Aspose.Slides, vous choisissez la licence à comptage.
 
-Lorsque vous achetez une licence à consommation, vous recevez des clés (et non un fichier de licence). Cette clé à consommation peut être appliquée à l’aide de la classe [Metered](https://reference.aspose.com/slides/net/aspose.slides/metered/) fournie par Aspose pour les opérations de comptage. Pour plus de détails, consultez la [FAQ sur la licence à consommation](https://purchase.aspose.com/faqs/licensing/metered).
+Lorsque vous achetez une licence à comptage, vous recevez des clés (et non un fichier de licence). Cette clé à comptage peut être appliquée à l’aide de la classe [Metered](https://reference.aspose.com/slides/net/aspose.slides/metered/) fournie par Aspose pour les opérations de comptage. Pour plus de détails, consultez la [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered).
 
 {{% /alert %}} 
 
@@ -25,9 +34,9 @@ Lorsque vous achetez une licence à consommation, vous recevez des clés (et non
 1. Effectuez un traitement (exécutez des tâches).
 1. Appelez la méthode [GetConsumptionQuantity](https://reference.aspose.com/slides/net/aspose.slides/metered/getconsumptionquantity/) de la classe `Metered`.
 
-Vous devriez voir le montant/quantité de requêtes API que vous avez consommées jusqu’à présent.
+Vous devriez voir la quantité de requêtes API que vous avez consommées jusqu’à présent.
 
-Ce code d’exemple montre comment utiliser la licence à consommation :
+Ce code d’exemple montre comment utiliser la licence à comptage :
 
 ```cs
 // Creates an instance of the Metered class
@@ -50,32 +59,32 @@ Console.WriteLine("Amount consumed after: " + amountAfter.ToString());
 
 {{% alert color="warning" title="NOTE"  %}} 
 
-Pour utiliser la licence à consommation, vous avez besoin d’une connexion Internet stable car le mécanisme de licence utilise Internet pour interagir en permanence avec nos services et effectuer les calculs.
+Pour utiliser la licence à comptage, vous avez besoin d’une connexion Internet stable, car le mécanisme de licence utilise Internet pour interagir constamment avec nos services et réaliser les calculs.
 
 {{% /alert %}} 
 
 ## **FAQ**
 
-**Puis-je utiliser une licence à consommation conjointement avec une licence ordinaire (perpétuelle ou temporaire) dans la même application ?**
+**Puis‑je utiliser une licence à comptage en même temps qu’une licence ordinaire (perpétuelle ou temporaire) dans la même application ?**
 
-Oui. La licence à consommation est un mécanisme supplémentaire qui peut être utilisé en parallèle avec les [méthodes de licence](/slides/fr/net/licensing/). Vous choisissez le mécanisme à appliquer au démarrage de l’application.
+Oui. La licence à comptage est un mécanisme supplémentaire qui peut être utilisé en parallèle avec les [méthodes de licence](/slides/fr/net/licensing/). Vous choisissez le mécanisme à appliquer au démarrage de l’application.
 
-**Qu’est‑ce qui est exactement comptabilisé comme consommation avec une licence à consommation : les opérations ou les fichiers ?**
+**Qu’est‑ce qui est compté exactement sous une licence à comptage : les opérations ou les fichiers ?**
 
-L’utilisation de l’API est comptabilisée, c’est‑à‑dire le nombre de requêtes ou d’opérations. Vous pouvez obtenir la consommation actuelle via les [méthodes de suivi de la consommation](https://reference.aspose.com/slides/net/aspose.slides/metered/).
+C’est l’utilisation de l’API qui est comptée, c’est‑à‑dire le nombre de requêtes ou d’opérations. Vous pouvez obtenir la consommation actuelle via les [méthodes de suivi de consommation](https://reference.aspose.com/slides/net/aspose.slides/metered/).
 
-**La licence à consommation convient‑elle aux micro‑services et aux environnements serverless où les instances redémarrent fréquemment ?**
+**La licence à comptage convient‑elle aux micro‑services et aux environnements serverless où les instances redémarrent fréquemment ?**
 
-Oui. Comme la facturation se fait au niveau des appels d’API, les scénarios avec des démarrages à froid fréquents sont compatibles, à condition qu’un accès réseau stable soit disponible pour les calculs de consommation.
+Oui. Étant donné que la facturation se fait au niveau des appels API, les scénarios avec de fréquents démarrages à froid sont compatibles, à condition qu’un accès réseau stable soit disponible pour les calculs à comptage.
 
-**Les fonctionnalités de la bibliothèque diffèrent‑elles lorsqu’on utilise une licence à consommation par rapport à une licence perpétuelle ?**
+**Les fonctionnalités de la bibliothèque diffèrent‑elles quand on utilise une licence à comptage par rapport à une licence perpétuelle ?**
 
-Non. Il s’agit uniquement du mécanisme de licence et de facturation ; les capacités du produit restent les mêmes.
+Non. Cela ne concerne que le mécanisme de licence et de facturation ; les capacités du produit restent les mêmes.
 
-**Comment la licence à consommation se compare‑t‑elle à la version d’évaluation et à la licence temporaire ?**
+**Comment la licence à comptage se compare‑t‑elle à la version d’essai et à la licence temporaire ?**
 
-La version d’évaluation comporte des limitations et des filigranes, la [licence temporaire](https://purchase.aspose.com/temporary-license/) supprime les limitations pendant 30 jours, et la licence à consommation supprime les limitations tout en facturant en fonction de l’utilisation réelle.
+La version d’essai possède des limites et des filigranes, la [licence temporaire](https://purchase.aspose.com/temporary-license/) supprime les limites pendant 30 jours, et la licence à comptage supprime les limites tout en facturant en fonction de l’utilisation réelle.
 
 **Puis‑je contrôler le budget en réagissant automatiquement lorsqu’un seuil de consommation est dépassé ?**
 
-Oui. Une pratique courante consiste à lire périodiquement la consommation actuelle via les [méthodes de suivi](https://reference.aspose.com/slides/net/aspose.slides/metered/) et à mettre en œuvre vos propres limites ou alertes au niveau de l’application ou de la surveillance.
+Oui. Une pratique courante consiste à lire périodiquement la consommation actuelle via les [méthodes de suivi](https://reference.aspose.com/slides/net/aspose.slides/metered/) et à implémenter vos propres limites ou alertes au niveau de l’application ou de la surveillance.

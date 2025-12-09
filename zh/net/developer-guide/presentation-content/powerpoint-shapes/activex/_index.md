@@ -1,5 +1,5 @@
 ---
-title: 在 .NET 中管理演示文稿中的 ActiveX 控件
+title: 在 .NET 中管理演示文稿的 ActiveX 控件
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -16,32 +16,33 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "了解 Aspose.Slides for .NET 如何利用 ActiveX 自动化并增强 PowerPoint 演示文稿，为开发者提供对幻灯片的强大控制。"
+description: "了解 Aspose.Slides for .NET 如何利用 ActiveX 自动化并增强 PowerPoint 演示文稿，为开发者提供强大的幻灯片控制功能。"
 ---
 
-ActiveX 控件在演示文稿中使用。Aspose.Slides for .NET 让您管理 ActiveX 控件，但其管理方式比普通演示文稿形状更为复杂且不同。从 Aspose.Slides for .NET 6.9.0 开始，组件支持管理 ActiveX 控件。目前，您可以访问演示文稿中已添加的 ActiveX 控件，并通过其各种属性对其进行修改或删除。请记住，ActiveX 控件不是形状，也不是演示文稿的 IShapeCollection 的一部分，而是独立的 IControlCollection。本篇文章展示了如何使用它们。
+ActiveX 控件在演示文稿中使用。Aspose.Slides for .NET 允许您管理 ActiveX 控件，但管理它们比普通演示形状要更复杂并且不同。自 Aspose.Slides for .NET 6.9.0 起，该组件支持管理 ActiveX 控件。目前，您可以访问演示文稿中已添加的 ActiveX 控件，并通过其各种属性对其进行修改或删除。请记住，ActiveX 控件不是形状，也不是演示文稿的 IShapeCollection 的一部分，而是独立的 IControlCollection。本文章展示了如何使用它们。
+
 ## **修改 ActiveX 控件**
-要在幻灯片上管理诸如文本框和简单命令按钮等简单 ActiveX 控件：
+要在幻灯片上管理诸如文本框和简单命令按钮等简单的 ActiveX 控件，请执行以下操作：
 
-1. 创建 Presentation 类的实例并加载包含 ActiveX 控件的演示文稿。
-1. 通过索引获取幻灯片引用。
-1. 通过访问 IControlCollection 来获取幻灯片中的 ActiveX 控件。
-1. 使用 ControlEx 对象访问 TextBox1 ActiveX 控件。
-1. 更改 TextBox1 ActiveX 控件的文本、字体、字体高度和框架位置等属性。
-1. 访问第二个名为 CommandButton1 的访问控件。
-1. 更改按钮的标题、字体和位置。
-1. 移动 ActiveX 控件框架的位置。
-1. 将修改后的演示文稿写入 PPTX 文件。
+1. 创建 Presentation 类的实例并加载其中包含 ActiveX 控件的演示文稿。  
+2. 通过索引获取幻灯片引用。  
+3. 通过访问 IControlCollection 来获取幻灯片中的 ActiveX 控件。  
+4. 使用 ControlEx 对象访问 TextBox1 ActiveX 控件。  
+5. 修改 TextBox1 ActiveX 控件的各种属性，包括文本、字体、字体高度和框架位置。  
+6. 访问名为 CommandButton1 的第二个控件。  
+7. 更改按钮的标题、字体和位置。  
+8. 移动 ActiveX 控件框架的位置。  
+9. 将修改后的演示文稿写入 PPTX 文件。
 
-下面的代码片段将演示文稿幻灯片上的 ActiveX 控件更新为如图所示的效果。
+下面的代码片段会更新演示文稿幻灯片上的 ActiveX 控件，如下所示。
 ```c#
-// 访问包含  ActiveX 控件的演示文稿
+// 访问包含 ActiveX 控件的演示文稿
 Presentation presentation = new Presentation("ActiveX.pptm");
 
 // 访问演示文稿中的第一张幻灯片
 ISlide slide = presentation.Slides[0];
 
-// changing TextBox text
+// 更改 TextBox 文本
 IControl control = slide.Controls[0];
 
 if (control.Name == "TextBox1" && control.Properties != null)
@@ -49,7 +50,7 @@ if (control.Name == "TextBox1" && control.Properties != null)
     string newText = "Changed text";
     control.Properties["Value"] = newText;
 
-    // 更改替代图片。PowerPoint 在 ActiveX 激活期间会替换此图像，因此有时可以保持图像不变。
+    // 更改替代图像。PowerPoint 会在 ActiveX 激活期间替换此图像，因此有时可以保持图像不变。
 
     Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
     Graphics graphics = Graphics.FromImage(image);
@@ -90,7 +91,7 @@ if (control.Name == "CommandButton1" && control.Properties != null)
     String newCaption = "MessageBox";
     control.Properties["Caption"] = newCaption;
 
-    // 更改替代
+    // 更改替代图像
     Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
     Graphics graphics = Graphics.FromImage(image);
     Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Control));
@@ -122,7 +123,7 @@ if (control.Name == "CommandButton1" && control.Properties != null)
     control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
 }
 
-// 将 ActiveX 框向下移动 100 点
+// 将 ActiveX 框架下移 100 点
 foreach (Control ctl in slide.Controls)
 {
     IShapeFrame frame = control.Frame;
@@ -130,7 +131,7 @@ foreach (Control ctl in slide.Controls)
         frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
 }
 
-// 保存包含已编辑 ActiveX 控件的演示文稿
+// 保存已编辑 ActiveX 控件的演示文稿
 presentation.Save("withActiveX-edited_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
 
 
@@ -142,17 +143,16 @@ presentation.Save("withActiveX.cleared_out.pptm", Aspose.Slides.Export.SaveForma
 ```
 
 
-
 ## **添加 ActiveX 媒体播放器控件**
 要添加 ActiveX 媒体播放器控件，请执行以下步骤：
 
-1. 创建 Presentation 类的实例并加载包含 Media Player ActiveX 控件的示例演示文稿。
-1. 创建目标 Presentation 类的实例并生成空白演示文稿实例。
-1. 将模板演示文稿中包含 Media Player ActiveX 控件的幻灯片克隆到目标 Presentation。
-1. 在目标 Presentation 中访问克隆的幻灯片。
-1. 通过访问 IControlCollection 来获取幻灯片中的 ActiveX 控件。
-1. 访问 Media Player ActiveX 控件并使用其属性设置视频路径。
-1. 将演示文稿保存为 PPTX 文件。
+1. 创建 Presentation 类的实例并加载其中包含媒体播放器 ActiveX 控件的示例演示文稿。  
+2. 创建目标 Presentation 类的实例并生成空白演示文稿实例。  
+3. 将模板演示文稿中包含媒体播放器 ActiveX 控件的幻灯片克隆到目标 Presentation 中。  
+4. 访问目标演示文稿中的克隆幻灯片。  
+5. 通过访问 IControlCollection 来获取幻灯片中的 ActiveX 控件。  
+6. 访问媒体播放器 ActiveX 控件，并使用其属性设置视频路径。  
+7. 将演示文稿保存为 PPTX 文件。  
 ```c#
 // 实例化表示 PPTX 文件的 Presentation 类
 Presentation presentation = new Presentation("template.pptx");
@@ -176,14 +176,14 @@ newPresentation.Save("LinkingVideoActiveXControl_out.pptx", Aspose.Slides.Export
 
 ## **常见问题**
 
-**Aspose.Slides 在读取并重新保存时是否会保留无法在 Python 运行时执行的 ActiveX 控件？**
+**Aspose.Slides 在读取后重新保存时会保留无法在 .NET 运行时执行的 ActiveX 控件吗？**
 
-是的。Aspose.Slides 将它们视为演示文稿的一部分，并且可以读取/修改其属性和框架；不需要执行控件本身即可保留它们。
+是的。Aspose.Slides 将它们视为演示文稿的一部分，可以读取/修改它们的属性和框架；不需要执行控件本身即可保留它们。
 
-**ActiveX 控件与演示文稿中的 OLE 对象有何不同？**
+**ActiveX 控件与演示文稿中的 OLE 对象有何区别？**
 
-ActiveX 控件是交互式受管理的控件（按钮、文本框、媒体播放器），而[OLE](/slides/zh/net/manage-ole/) 指的是嵌入的应用程序对象（例如 Excel 工作表）。它们的存储和处理方式不同，属性模型也不同。
+ActiveX 控件是交互式受管理的控件（按钮、文本框、媒体播放器），而 [OLE](/slides/zh/net/manage-ole/) 指的是嵌入的应用程序对象（例如 Excel 工作表）。它们的存储和处理方式不同，属性模型也不同。
 
-**如果文件已被 Aspose.Slides 修改，ActiveX 事件和 VBA 宏是否仍然有效？**
+**如果文件已被 Aspose.Slides 修改，ActiveX 事件和 VBA 宏是否仍能工作？**
 
-Aspose.Slides 会保留现有的标记和元数据；然而，事件和宏仅在 Windows 上的 PowerPoint 中且安全设置允许时才会运行。该库本身不执行 VBA。
+Aspose.Slides 保留现有的标记和元数据；但事件和宏只能在 Windows 上的 PowerPoint 中并在安全允许的情况下运行。该库不会执行 VBA。

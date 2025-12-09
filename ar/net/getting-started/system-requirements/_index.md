@@ -8,48 +8,50 @@ keywords:
 - نظام التشغيل
 - التثبيت
 - التبعيات
-- Windows
-- Linux
+- ويندوز
+- لينكس
 - macOS
-- PowerPoint
+- باوربوينت
 - OpenDocument
-- العرض
+- العرض التقديمي
+- .NET
+- C#
 - Aspose.Slides
-description: "اكتشف متطلبات نظام Aspose.Slides لـ .NET. تأكد من دعم سلس لPowerPoint وOpenDocument على Windows وLinux وmacOS."
+description: "اكتشف متطلبات نظام Aspose.Slides for .NET. تأكد من دعم سلس لـ PowerPoint و OpenDocument على ويندوز، لينكس، وماكOS."
 ---
 
 ## **نظرة عامة**
-لا يتطلب Aspose.Slides for .NET تثبيت Microsoft PowerPoint لأن Aspose.Slides هو محرك مستقل لإنشاء مستندات Microsoft PowerPoint والتحويل وتخطيط الصفحات وعرضها.
+لا يتطلب Aspose.Slides for .NET تثبيت Microsoft PowerPoint لأن Aspose.Slides هو محرك مستقل لإنشاء مستندات Microsoft PowerPoint، والتحويل، وتنسيق الصفحات، وعرضها.
 
 ## **أنظمة التشغيل المدعومة**
-يدعم Aspose.Slides for .NET أي نظام تشغيل 32‑bit أو 64‑bit حيث يتم تثبيت إطار عمل .NET أو Mono بما في ذلك (ولكن ليس حصراً):
+يدعم Aspose.Slides for .NET أي نظام تشغيل 32‑بت أو 64‑بت حيث تم تثبيت إطار .NET أو Mono بما في ذلك (ولكن ليس على حصر):
 
-### **ويندوز**
-- Microsoft Windows 2000 Server (x64, x86)
-- Microsoft Windows 2003 Server (x64, x86)
+### **Windows**
+- Microsoft Windows 2000 Server ( x64, x86)
+- Microsoft Windows 2003 Server ( x64, x86)
 - Microsoft Windows 2022 Server
-- Microsoft Windows Vista (x64, x86)
-- Microsoft Windows XP (x64, x86)
-- Microsoft Windows 7 (x64, x86)
-- Microsoft Windows 8, 8.1 (x64, x86)
-- Microsoft Windows 10 (x64, x86)
-- Microsoft Windows 11 (x64, x86)
+- Microsoft Windows Vista ( x64, x86)
+- Microsoft Windows XP ( x64, x86)
+- Microsoft Windows 7 ( x64, x86)
+- Microsoft Windows 8, 8.1 ( x64, x86)
+- Microsoft Windows 10 ( x64, x86)
+- Microsoft Windows 11 ( x64, x86)
 - Microsoft Azure
 
-### **لينكس**
-- Linux (Ubuntu, OpenSUSE, CentOS, Alpine, and others)
+### **Linux**
+- لينكس (Ubuntu، OpenSUSE، CentOS، Alpine، وغيرها)
 
 {{%  alert  title="Notes"  color="primary"  %}} 
-نظرًا لأن CentOS 7 يأتي مع GLIBC 2.14 بينما تتطلب Aspose.Slides for .NET 6 و .NET 7 (بما في ذلك بنية المنصة المتقاطعة) Linux x86_64 مع GLIBC 2.23 أو أحدث، يمكنك استخدام Aspose.Slides for .NET Standard على مثل هذا النظام. 
+لأن CentOS 7 يأتي مع GLIBC 2.14 بينما يتطلب Aspose.Slides for .NET 6 و .NET 7 (بما في ذلك نسخة المنصات المتعددة) نظام Linux x86_64 مع GLIBC 2.23 أو أحدث، يمكنك استخدام Aspose.Slides for .NET Standard على هذا النظام.
 {{% /alert %}} 
 
 ### **ماك**
 - Mac OS X
 
-## **الإطارات المدعومة**
-Aspose.Slides for .NET يدعم إطارات .NET و Mono:
+## **الأطر المدعومة**
+يدعم Aspose.Slides for .NET أطر .NET و Mono:
 
-### **إطارات .NET**
+### **أطر .NET**
 - .NET Framework 2.0
 - .NET Framework 3.5
 - .NET Framework 4.0
@@ -78,6 +80,7 @@ Aspose.Slides for .NET يدعم إطارات .NET و Mono:
 
 ## **بيئات التطوير**
 يمكن استخدام Aspose.Slides for .NET لتطوير التطبيقات في أي بيئة تطوير تستهدف منصة .NET، ولكن هذه البيئات مدعومة صراحةً:
+
 - Microsoft Visual Studio 2005
 - Microsoft Visual Studio 2008
 - Microsoft Visual Studio 2010
@@ -88,15 +91,15 @@ Aspose.Slides for .NET يدعم إطارات .NET و Mono:
 - Microsoft Visual Studio 2019
 - Microsoft Visual Studio 2022
 
-## **بنيات Aspose.Slides الرئيسية**
-حاليًا، هناك بنيتان رئيسيتان لـ Aspose.Slides — Aspose.Slides.NET و Aspose.Slides.NET6.CrossPlatform.
+## **البناءات الرئيسية لـ Aspose.Slides**
+حاليًا، هناك بناؤان رئيسيان لـ Aspose.Slides — Aspose.Slides.NET و Aspose.Slides.NET6.CrossPlatform.
 
 ### **[Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET)**
-هذا هو الإصدار الرئيسي للمنتج. يستخدم محرك الرسومات القياسي لـ .NET.
-- على المنصات غير الويندوز، قد تحتاج إلى تثبيت مكتبة `libgdiplus` واعتمادياتها.
-- قبل الإصدار Aspose.Slides 25.3، بالنسبة للمنصات غير الويندوز، كان من الضروري استخدام ملف DLL .NET Standard 2.0 من حزمة Aspose.Slides ZIP.
-- بدءًا من الإصدار Aspose.Slides 25.3، يمكن استخدام حزمة NuGet مباشرةً حتى على الأنظمة غير الويندوز.
-- عند التشغيل على أنظمة غير الويندوز، يجب أن يتضمن تطبيقك السطر التالي عند بدء التشغيل:
+هذه هي النسخة الرئيسية للمنتج. يستخدم محرك الرسومات القياسي لـ .NET.
+- على المنصات غير Windows قد تحتاج إلى تثبيت مكتبة `libgdiplus` وتبعياتها.
+- قبل الإصدار Aspose.Slides 25.3، للمنصات غير Windows كان من الضروري استخدام ملف DLL .NET Standard 2.0 من حزمة Aspose.Slides ZIP.
+- بدءًا من الإصدار Aspose.Slides 25.3، يمكن استخدام حزمة NuGet مباشرة حتى على الأنظمة غير Windows.
+- عند التشغيل على أنظمة غير Windows، يجب على تطبيقك تضمين السطر التالي عند بدء التشغيل:
 ```cs
 AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
 ```
@@ -104,26 +107,26 @@ AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
 - **بدءًا من الإصدار 25.3، يمكنك استخدام هذه الحزمة على المنصات التي تدعم .NET، مثل Linux aarch64 (ARM64).**
 
 ### **[Aspose.Slides for .NET 6 CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform)**
-هذا هو إصدار Aspose.Slides الذي يستخدم محرك رسومات مخصص متعدد المنصات تم تطويره بواسطة فريق Aspose.Slides.  
-على المنصات غير الويندوز، قد تكون مكتبة `fontconfig` مطلوبة.
+هذه هي نسخة Aspose.Slides التي تستخدم محرك رسومات مخصص متعدد المنصات تم تطويره بواسطة فريق Aspose.Slides.  
+على المنصات غير Windows قد تكون مكتبة `fontconfig` مطلوبة.
 
 **المنصات المدعومة**
-- *Windows*: x86, x86_64  
+- *Windows*: x86، x86_64  
 - *Linux*: x86_64  
-- *macOS*: x86_64, ARM64
+- *macOS*: x86_64، ARM64
 
 **مخطط للدعم المستقبلي**  
-- *Linux*: aarch64 (ARM64) — *ETA: end of 2025*  
+- *Linux*: aarch64 (ARM64) — *متوقع الإنتهاء: نهاية 2025*  
 
-**غير مخطط**
-- *Windows 11 ARM* (ARM64) — *Not currently under consideration*
+**غير مخطط له**
+- *Windows 11 ARM* (ARM64) — *ليس قيد النظر حاليًا*
 
 ## **الأسئلة الشائعة**
 
 **هل أحتاج إلى تثبيت Microsoft PowerPoint للتحويلات والعرض؟**
 
-لا، لا يتطلب PowerPoint؛ Aspose.Slides هو محرك مستقل لـ [إنشاء](/slides/ar/net/create-presentation/) وتعديل و[تحويل](/slides/ar/net/convert-presentation/) و[عرض](/slides/ar/net/convert-powerpoint-to-png/) العروض التقديمية.
+لا، لا يلزم PowerPoint؛ Aspose.Slides هو محرك مستقل لـ [إنشاء](/slides/ar/net/create-presentation/)، وتعديل، و[تحويل](/slides/ar/net/convert-presentation/)، و[عرض](/slides/ar/net/convert-powerpoint-to-png/) العروض التقديمية.
 
-**ما الخطوط اللازمة للعرض الصحيح؟**
+**ما الخطوط المطلوبة للعرض الصحيح؟**
 
-عمليًا، يجب أن تكون الخطوط المستخدمة في العرض أو [البدائل المناسبة](/slides/ar/net/font-substitution/) متوفرة. لضمان عرض متسق على Linux/macOS، يُنصح بتثبيت حزم الخطوط الشائعة.
+عمليًا، يجب أن تكون الخطوط المستخدمة في العرض أو [البدائل](/slides/ar/net/font-substitution/) المناسبة متاحة. لضمان عرض متسق على Linux/macOS، يُنصح بتثبيت حزم الخطوط الشائعة.

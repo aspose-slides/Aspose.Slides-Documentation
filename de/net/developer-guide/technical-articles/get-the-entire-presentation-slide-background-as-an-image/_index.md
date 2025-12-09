@@ -1,27 +1,32 @@
 ---
-title: Den gesamten Folienhintergrund einer Präsentation als Bild extrahieren
+title: Den gesamten Folienhintergrund aus einer Präsentation als Bild extrahieren
+linktitle: Gesamter Folienhintergrund
 type: docs
 weight: 95
 url: /de/net/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
-- Folie
-- Hintergrund
 - Folienhintergrund
-- Hintergrund als Bild
+- Endhintergrund
+- Hintergrund extrahieren
+- vollständiger Hintergrund
+- Hintergrund zu Bild
+- PPT-Hintergrund
+- PPTX-Hintergrund
+- ODP-Hintergrund
 - PowerPoint
-- PPT
-- PPTX
-- PowerPoint-Präsentation
+- OpenDocument
+- Präsentation
+- .NET
 - C#
-- VB.NET
-- Aspose.Slides für .NET
+- Aspose.Slides
+description: "Vollständige Folienhintergründe als Bilder aus PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für .NET extrahieren und so visuelle Arbeitsabläufe optimieren."
 ---
 
 ## **Gesamten Folienhintergrund abrufen**
 
-In PowerPoint‑Präsentationen kann der Folienhintergrund aus vielen Elementen bestehen. Neben dem als [Folienhintergrund](/slides/de/net/presentation-background/) festgelegten Bild kann der endgültige Hintergrund durch das Präsentationsthema, das Farbschema und die auf der Master‑Folie bzw. Layout‑Folie platzierten Formen beeinflusst werden.
+In PowerPoint-Präsentationen kann der Folienhintergrund aus vielen Elementen bestehen. Zusätzlich zum als [Folienhintergrund](/slides/de/net/presentation-background/) festgelegten Bild kann der endgültige Hintergrund vom Präsentationsthema, Farbschema und den Formen, die auf der Masterfolie und der Layoutfolie platziert wurden, beeinflusst werden.
 
-Aspose.Slides für .NET bietet keine einfache Methode, um den gesamten Folienhintergrund einer Präsentation als Bild zu extrahieren, aber Sie können die folgenden Schritte ausführen:
+Aspose.Slides für .NET bietet keine einfache Methode zum Extrahieren des gesamten Folienhintergrunds einer Präsentation als Bild, aber Sie können die folgenden Schritte ausführen:
 1. Laden Sie die Präsentation mit der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)-Klasse.
 1. Ermitteln Sie die Foliengröße aus der Präsentation.
 1. Wählen Sie eine Folie aus.
@@ -56,11 +61,11 @@ background.Save("output.png", ImageFormat.Png);
 
 **Werden komplexe Verläufe, Texturen oder Bildfüllungen einer Masterfolie im resultierenden Hintergrundbild erhalten?**
 
-Ja. Aspose.Slides rendert Gradient-, Bild- und Texturfüllungen, die auf der Folie, dem Layout oder dem Master definiert sind. Wenn Sie das Aussehen von geerbten Mastern isolieren müssen, [setzen Sie einen eigenen Hintergrund](/slides/de/net/presentation-background/) auf der aktuellen Folie, bevor Sie exportieren.
+Ja. Aspose.Slides rendert Gradienten-, Bild- und Texturfüllungen, die auf der Folie, dem Layout oder dem Master definiert sind. Wenn Sie das Aussehen von geerbten Mastern isolieren müssen, [setzen Sie einen eigenen Hintergrund](/slides/de/net/presentation-background/) auf der aktuellen Folie, bevor Sie exportieren.
 
-**Kann ich dem resultierenden Hintergrundbild vor dem Speichern ein Wasserzeichen hinzufügen?**
+**Kann ich vor dem Speichern ein Wasserzeichen zum resultierenden Hintergrundbild hinzufügen?**
 
-Ja. Sie können ein [Wasserzeichen](/slides/de/net/watermark/) Form oder Bild auf einer Arbeits-[Kopie der Folie](/slides/de/net/clone-slides/) (hinter anderem Inhalt platziert) hinzufügen und dann exportieren. So können Sie ein Hintergrundbild erzeugen, in das das Wasserzeichen bereits eingebettet ist.
+Ja. Sie können ein [Wasserzeichen hinzufügen](/slides/de/net/watermark/) Form oder Bild auf einer Arbeits-[Kopie der Folie](/slides/de/net/clone-slides/) (hinter anderem Inhalt platziert) hinzufügen und dann exportieren. So erhalten Sie ein Hintergrundbild, in das das Wasserzeichen eingebettet ist.
 
 **Kann ich den Hintergrund für ein bestimmtes Layout oder einen Master erhalten, ohne ihn an eine vorhandene Folie zu binden?**
 
@@ -68,4 +73,4 @@ Ja. Greifen Sie auf den gewünschten Master oder das Layout zu, wenden Sie ihn a
 
 **Gibt es Lizenzbeschränkungen, die den Bildexport beeinflussen?**
 
-Rendering‑Funktionen sind mit einer [gültigen Lizenz](/slides/de/net/licensing/) vollständig verfügbar. Im Evaluationsmodus kann die Ausgabe Beschränkungen wie ein Wasserzeichen enthalten. Aktivieren Sie die Lizenz einmal pro Prozess, bevor Sie Batch‑Exports ausführen.
+Renderfunktionen sind mit einer [gültigen Lizenz](/slides/de/net/licensing/) vollständig verfügbar. Im Evaluierungsmodus kann die Ausgabe Einschränkungen wie ein Wasserzeichen enthalten. Aktivieren Sie die Lizenz einmal pro Prozess, bevor Sie Batch-Exporte ausführen.

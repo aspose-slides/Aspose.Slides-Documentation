@@ -1,29 +1,29 @@
 ---
-title: إعادة تحجيم الأشكال على شرائح العرض
+title: تغيير حجم الأشكال في شرائح العرض التقديمي في .NET
 type: docs
 weight: 130
 url: /ar/net/re-sizing-shapes-on-slide/
 keywords:
-- إعادة تحجيم الشكل
 - تغيير حجم الشكل
+- تعديل حجم الشكل
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "قم بإعادة تحجيم الأشكال بسهولة على شرائح PowerPoint و OpenDocument باستخدام Aspose.Slides for .NET — أتمتة تعديل تخطيط الشرائح وزيادة الإنتاجية."
+description: "قم بتغيير حجم الأشكال بسهولة في شرائح PowerPoint و OpenDocument باستخدام Aspose.Slides for .NET — أتمتة تعديل تخطيط الشرائح وزيادة الإنتاجية."
 ---
 
 ## **نظرة عامة**
 
-إحدى الأسئلة الشائعة من عملاء Aspose.Slides for .NET هي كيفية تغيير حجم الأشكال بحيث لا يتم قطع البيانات عندما يتغير حجم الشريحة. يوضح هذا المقال التقني القصير كيفية القيام بذلك.
+أحد أكثر الأسئلة شيوعًا من عملاء Aspose.Slides for .NET هو كيفية تغيير حجم الأشكال بحيث لا يتم قطع البيانات عند تغيير حجم الشريحة. توضح هذه المقالة التقنية القصيرة كيفية القيام بذلك.
 
 ## **تغيير حجم الأشكال**
 
-لمنع تحرك الأشكال عن مواضعها عندما يتغير حجم الشريحة، قم بتحديث موقع كل شكل وأبعاده لتتوافق مع تخطيط الشريحة الجديد.
+لمنع حدوث اختلال في مواضع الأشكال عندما يتغير حجم الشريحة، يجب تحديث موضع وأبعاد كل شكل لتتوافق مع تخطيط الشريحة الجديد.
 ```c#
-// تحميل ملف العرض.
+// تحميل ملف العرض التقديمي.
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     // الحصول على حجم الشريحة الأصلي.
@@ -40,7 +40,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     float heightRatio = newHeight / currentHeight;
     float widthRatio = newWidth / currentWidth;
 
-    // تحجيم وإعادة وضع الأشكال في كل شريحة.
+    // إعادة تحجيم وإعادة وضع الأشكال في كل شريحة.
     foreach (ISlide slide in presentation.Slides)
     {
         foreach (IShape shape in slide.Shapes)
@@ -49,7 +49,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
             shape.Height *= heightRatio;
             shape.Width *= widthRatio;
 
-            // تحجيم موقع الشكل.
+            // تحجيم موضع الشكل.
             shape.Y *= heightRatio;
             shape.X *= widthRatio;
         }
@@ -61,10 +61,10 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 
 {{% alert color="primary" %}}
-إذا كانت الشريحة تحتوي على جدول، فإن الشفرة أعلاه لن تعمل بشكل صحيح. في هذه الحالة، يجب تغيير حجم كل خلية في الجدول.
+إذا احتوت الشريحة على جدول، فلن يعمل الكود أعلاه بشكل صحيح. في هذه الحالة، يجب تغيير حجم كل خلية في الجدول.
 {{% /alert %}}
 
-استخدم الشفرة التالية على جانبك لتغيير حجم الشرائح التي تحتوي على جداول. بالنسبة للجداول، فإن تعيين العرض أو الارتفاع حالة خاصة: يجب تعديل ارتفاعات الصفوف الفردية وعروض الأعمدة لتغيير الحجم الكلي للجدول.
+استخدم الشيفرة التالية في تطبيقك لتغيير حجم الشرائح التي تحتوي على جداول. بالنسبة للجداول، فإن ضبط العرض أو الارتفاع هو حالة خاصة: يجب تعديل ارتفاعات الصفوف وأعرض الأعمدة الفردية لتغيير الحجم الكلي للجدول.
 ```c#
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
@@ -91,7 +91,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
             shape.Height *= heightRatio;
             shape.Width *= widthRatio;
 
-            // تحجيم موقع الشكل.
+            // تحجيم موضع الشكل.
             shape.Y *= heightRatio;
             shape.X *= widthRatio;
         }
@@ -104,7 +104,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
                 shape.Height *= heightRatio;
                 shape.Width *= widthRatio;
 
-                // تحجيم موقع الشكل.
+                // تحجيم موضع الشكل.
                 shape.Y *= heightRatio;
                 shape.X *= widthRatio;
             }
@@ -119,7 +119,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
             shape.Height *= heightRatio;
             shape.Width *= widthRatio;
 
-            // تحجيم موقع الشكل.
+            // تحجيم موضع الشكل.
             shape.Y *= heightRatio;
             shape.X *= widthRatio;
 
@@ -143,32 +143,32 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 ```
 
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**لماذا تتشوه الأشكال أو تُقطَع بعد تغيير حجم الشريحة؟**
+**لماذا تتشوه الأشكال أو تُقتطع بعد تغيير حجم الشريحة؟**
 
-عند تغيير حجم الشريحة، تحتفظ الأشكال بموقعها وحجمها الأصلي ما لم يتم تعديل المقياس صراحة. يمكن أن يؤدي ذلك إلى قص المحتوى أو تشويه الأشكال.
+عند تغيير حجم الشريحة، تحتفظ الأشكال بموقعها وحجمها الأصلي ما لم يتم تعديل المقياس صراحةً. هذا قد يؤدي إلى قص المحتوى أو اختلال مواضع الأشكال.
 
-**هل تعمل الشفرة المقدمة مع جميع أنواع الأشكال؟**
+**هل يعمل الكود المقدم مع جميع أنواع الأشكال؟**
 
 المثال الأساسي يعمل مع معظم أنواع الأشكال (صناديق النص، الصور، المخططات، إلخ). ومع ذلك، بالنسبة للجداول، تحتاج إلى معالجة الصفوف والأعمدة بشكل منفصل، لأن ارتفاع وعرض الجدول يحددهما أبعاد الخلايا الفردية.
 
-**كيف يمكنني تغيير حجم الجداول عند تغيير حجم الشريحة؟**
+**كيف يمكنني تغيير حجم الجداول عند تعديل حجم الشريحة؟**
 
-عليك المرور على جميع صفوف وأعمدة الجدول وتغيير ارتفاعها وعرضها بنسبة متناسبة، كما هو موضح في مثال الشفرة الثاني.
+يجب عليك المرور على جميع صفوف وأعمدة الجدول وتغيير ارتفاعها وعرضها بشكل نسبي، كما هو موضح في مثال الشيفرة الثاني.
 
-**هل سيعمل هذا التغيير على الشرائح الرئيسية و LayoutSlides؟**
+**هل سيعمل هذا التغيير في الحجم مع الشرائح الرئيسية وشرائح التخطيط؟**
 
-نعم، ولكن يجب أيضًا المرور عبر [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) و [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) وتطبيق نفس منطق القياس على الأشكال الخاصة بهم لضمان الاتساق عبر العرض التقديمي.
+نعم، ولكن عليك أيضًا المرور على [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) و[LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) وتطبيق نفس منطق التدرج على أشكالها لضمان الاتساق عبر العرض التقديمي.
 
-**هل يمكنني تغيير اتجاه الشريحة (عمودي/أفقي) مع تغيير الحجم؟**
+**هل يمكنني تغيير اتجاه الشريحة (عمودي/أفقي) مع تعديل الحجم؟**
 
-نعم. يمكنك ضبط [presentation.SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/islidesize/orientation/) لتغيير الاتجاه. تأكد من ضبط منطق القياس وفقًا لذلك للحفاظ على التخطيط.
+نعم. يمكنك ضبط [presentation.SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/islidesize/orientation/) لتغيير الاتجاه. تأكد من ضبط منطق التدرج وفقًا لذلك للحفاظ على التخطيط.
 
 **هل هناك حد لحجم الشريحة الذي يمكنني تحديده؟**
 
-يدعم Aspose.Slides الأحجام المخصصة، ولكن الأحجام الكبيرة جدًا قد تؤثر على الأداء أو التوافق مع بعض إصدارات PowerPoint.
+يدعم Aspose.Slides أحجامًا مخصصة، ولكن الأحجام الكبيرة جدًا قد تؤثر على الأداء أو التوافق مع بعض إصدارات PowerPoint.
 
 **كيف يمكنني منع تشوه الأشكال ذات نسبة العرض إلى الارتفاع الثابتة؟**
 
-يمكنك التحقق من الخاصية `AspectRatioLocked` للشكل قبل القياس. إذا كانت مقفولة، قم بضبط العرض أو الارتفاع بنسبة متناسبة بدلاً من قياسهما بشكل فردي.
+يمكنك فحص الخاصية `AspectRatioLocked` للشكل قبل التدرج. إذا كانت مقفلة، اضبط العرض أو الارتفاع بشكل نسبي بدلاً من تعديل كل منهما على حدة.

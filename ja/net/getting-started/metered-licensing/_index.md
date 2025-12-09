@@ -1,33 +1,42 @@
 ---
-title: 従量課金ライセンス
+title: メータード ライセンス
 type: docs
 weight: 90
 url: /ja/net/metered-licensing/
 keywords:
 - ライセンス
-- 従量課金ライセンス
+- メータード ライセンス
+- ライセンスキー
+- 公開キー
+- プライベートキー
+- 消費量
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
 - C#
-- Aspose.Slides for .NET
+- Aspose.Slides
+description: "Aspose.Slides for .NET のメータード ライセンスを使用すると、PowerPoint および OpenDocument ファイルを柔軟に処理でき、使用した分だけ支払うことができます。"
 ---
 
-## **メーターキーの適用**
+## **メータードキーの適用**
 
 {{% alert color="primary" %}} 
 
-メーターライセンスは、既存のライセンス方式と併用できる新しいライセンス機構です。Aspose.Slides API の機能使用量に応じて課金されることを希望する場合は、メーターライセンスを選択します。
+メータードライセンスは、既存のライセンス方式と併用できる新しいライセンス機構です。Aspose.Slides API の機能使用量に基づいて課金したい場合は、メータードライセンスを選択します。
 
-メーターライセンスを購入すると、キー（ライセンスファイルではありません）が提供されます。このメーターキーは、Aspose が提供するメーター処理用の [Metered](https://reference.aspose.com/slides/net/aspose.slides/metered/) クラスを使用して適用できます。詳細は [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered) を参照してください。
+メータードライセンスを購入すると、キー（ライセンス ファイルではなく）を取得します。このメータードキーは、Aspose が提供するメータリング操作用の [Metered](https://reference.aspose.com/slides/net/aspose.slides/metered/) クラスを使用して適用できます。詳細については、[Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered) を参照してください。
 
 {{% /alert %}} 
 
-1. [Metered](https://reference.aspose.com/slides/net/aspose.slides/metered/) クラスのインスタンスを作成します。  
-2. 公開キーと非公開キーを [SetMeteredKey](https://reference.aspose.com/slides/net/aspose.slides/metered/setmeteredkey/) メソッドに渡します。  
-3. 処理（タスクの実行）を行います。  
-4. `Metered` クラスの [GetConsumptionQuantity](https://reference.aspose.com/slides/net/aspose.slides/metered/getconsumptionquantity/) メソッドを呼び出します。
+1. [Metered](https://reference.aspose.com/slides/net/aspose.slides/metered/) クラスのインスタンスを作成します。
+1. 公開キーと非公開キーを [SetMeteredKey](https://reference.aspose.com/slides/net/aspose.slides/metered/setmeteredkey/) メソッドに渡します。
+1. 何らかの処理（タスクの実行）を行います。
+1. `Metered` クラスの [GetConsumptionQuantity](https://reference.aspose.com/slides/net/aspose.slides/metered/getconsumptionquantity/) メソッドを呼び出します。
 
-これまでに消費した API リクエストの量（件数）が表示されます。
+これまでに消費した API リクエストの数／量が表示されます。
 
-以下のサンプルコードは、メーターライセンスの使用方法を示しています。
+以下のサンプルコードは、メータードライセンスの使用方法を示しています。
 
 ```cs
 // Creates an instance of the Metered class
@@ -50,32 +59,32 @@ Console.WriteLine("Amount consumed after: " + amountAfter.ToString());
 
 {{% alert color="warning" title="NOTE"  %}} 
 
-メーターライセンスを使用するには、ライセンス機構がインターネット経由で当社サービスと継続的にやり取りし計算を行うため、安定したインターネット接続が必要です。
+メータードライセンスを使用するには、インターネット接続が安定している必要があります。ライセンス機構はインターネットを介して当社のサービスと常時通信し、計算を行うためです。
 
 {{% /alert %}} 
 
 ## **FAQ**
 
-**同じアプリケーションで、通常の（永続または一時）ライセンスとメーターライセンスを併用できますか？**
+**メータードライセンスを通常のライセンス（永続または一時）と同じアプリケーションで併用できますか？**
 
-はい。メーターは既存の [ライセンス方法](/slides/ja/net/licensing/) と併用できる追加のライセンス機構です。アプリケーション起動時にどの機構を適用するか選択します。
+はい。メータードは既存の [licensing methods](/slides/ja/net/licensing/) と併用できる追加のライセンス機構です。アプリケーション起動時にどの機構を使用するか選択します。
 
-**メーターライセンスで消費とみなされるのは、操作ですかファイルですか？**
+**メータードライセンスで消費とみなされるのは操作ですか、ファイルですか？**
 
-API の使用量がカウントされます。つまりリクエストまたは操作の回数です。現在の消費量は [消費追跡メソッド](https://reference.aspose.com/slides/net/aspose.slides/metered/) で取得できます。
+API の使用量がカウントされます。つまりリクエスト数または操作数です。現在の消費量は [consumption‑tracking methods](https://reference.aspose.com/slides/net/aspose.slides/metered/) で取得できます。
 
-**インスタンスが頻繁に再起動するマイクロサービスやサーバーレス環境でメーターは適していますか？**
+**メータードはインスタンスが頻繁に再起動するマイクロサービスやサーバーレス環境に適していますか？**
 
-はい。請求は API 呼び出し単位で行われるため、コールドスタートが頻繁に発生するシナリオでも、メーター計算のための安定したネットワーク接続が確保できれば問題ありません。
+はい。課金は API 呼び出し単位で行われるため、コールドスタートが頻繁に発生するシナリオでも、メータード計算用に安定したネットワーク接続さえ確保できれば問題ありません。
 
-**メーターライセンスを使用した場合、永続ライセンスと比べてライブラリの機能に違いはありますか？**
+**メータードライセンスを使用した場合、永続ライセンスと比べてライブラリの機能に違いがありますか？**
 
-いいえ。ライセンスおよび課金機構だけが異なり、製品機能は同一です。
+いいえ。機能面での違いはなく、ライセンスと課金の仕組みだけが異なります。
 
-**メーターは評価版や一時ライセンスとどのように関係しますか？**
+**メータードは体験版や一時ライセンスとどのように関係しますか？**
 
-評価版は機能制限と透かしがあり、[一時ライセンス](https://purchase.aspose.com/temporary-license/) は 30 日間制限を解除します。メーターは制限を解除し、実際の使用量に基づいて課金します。
+体験版は機能制限とウォーターマークがあり、[temporary license](https://purchase.aspose.com/temporary-license/) は 30 日間制限を解除します。メータードは制限を解除し、実際の使用量に基づいて課金します。
 
-**消費閾値を超えたときに自動で予算を制御できますか？**
+**消費閾値を超えたときに自動的に予算を制御できますか？**
 
-はい。一般的な手法として、[追跡メソッド](https://reference.aspose.com/slides/net/aspose.slides/metered/) で現在の消費量を定期的に取得し、アプリケーションまたは監視レベルで独自の上限やアラートを実装します。
+はい。一般的な方法は、[tracking methods](https://reference.aspose.com/slides/net/aspose.slides/metered/) で現在の消費量を定期的に取得し、アプリケーションや監視レベルで独自の上限やアラートを実装することです。

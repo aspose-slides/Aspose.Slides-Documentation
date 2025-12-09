@@ -14,26 +14,28 @@ keywords:
 - PowerPoint
 - OpenDocument
 - Präsentation
+- .NET
+- C#
 - Aspose.Slides
-description: "Entdecken Sie die Systemanforderungen von Aspose.Slides für .NET. Stellen Sie nahtlose Unterstützung für PowerPoint und OpenDocument unter Windows, Linux und macOS sicher."
+description: "Entdecken Sie die Systemanforderungen von Aspose.Slides für .NET. Stellen Sie nahtlose PowerPoint- und OpenDocument-Unterstützung auf Windows, Linux und macOS sicher."
 ---
 
 ## **Übersicht**
-Aspose.Slides für .NET erfordert nicht, dass Microsoft PowerPoint installiert ist, da Aspose.Slides eine eigenständige Microsoft PowerPoint‑Dokumenterstellungs‑, Konversions‑, Layout‑ und Rendering‑Engine ist.
+Aspose.Slides für .NET erfordert nicht, dass Microsoft PowerPoint installiert ist, weil Aspose.Slides eine eigenständige Engine zur Erstellung, Konvertierung, Seitenlayout und Darstellung von Microsoft PowerPoint‑Dokumenten ist.
 
 ## **Unterstützte Betriebssysteme**
 Aspose.Slides für .NET unterstützt jedes 32‑Bit‑ oder 64‑Bit‑Betriebssystem, auf dem das .NET‑ oder Mono‑Framework installiert ist, einschließlich (aber nicht beschränkt auf):
 
 ### **Windows**
-- Microsoft Windows 2000 Server ( x64, x86)
-- Microsoft Windows 2003 Server ( x64, x86)
+- Microsoft Windows 2000 Server (x64, x86)
+- Microsoft Windows 2003 Server (x64, x86)
 - Microsoft Windows 2022 Server
-- Microsoft Windows Vista ( x64, x86)
-- Microsoft Windows XP ( x64, x86)
-- Microsoft Windows 7 ( x64, x86)
-- Microsoft Windows 8, 8.1 ( x64, x86)
-- Microsoft Windows 10 ( x64, x86)
-- Microsoft Windows 11 ( x64, x86)
+- Microsoft Windows Vista (x64, x86)
+- Microsoft Windows XP (x64, x86)
+- Microsoft Windows 7 (x64, x86)
+- Microsoft Windows 8, 8.1 (x64, x86)
+- Microsoft Windows 10 (x64, x86)
+- Microsoft Windows 11 (x64, x86)
 - Microsoft Azure
 
 ### **Linux**
@@ -51,7 +53,7 @@ Da CentOS 7 mit GLIBC 2.14 ausgeliefert wird, während Aspose.Slides für .NET 6
 ## **Unterstützte Frameworks**
 Aspose.Slides für .NET unterstützt .NET‑ und Mono‑Frameworks:
 
-### **.NET Frameworks**
+### **.NET‑Frameworks**
 - .NET Framework 2.0
 - .NET Framework 3.5
 - .NET Framework 4.0
@@ -75,8 +77,8 @@ Aspose.Slides für .NET unterstützt .NET‑ und Mono‑Frameworks:
 - .NET Core
 - COM‑Interop‑Unterstützung (COM, C++, VBScript)
 
-### **Mono Framework**
-- MONO‑Unterstützung auf MAC‑ und Linux‑Plattformen
+### **Mono‑Framework**
+- MONO‑Unterstützung unter MAC‑ und Linux‑Plattformen
 
 ## **Entwicklungsumgebungen**
 Aspose.Slides für .NET kann in jeder Entwicklungsumgebung verwendet werden, die die .NET‑Plattform anvisiert, jedoch werden die folgenden Umgebungen explizit unterstützt:
@@ -91,23 +93,23 @@ Aspose.Slides für .NET kann in jeder Entwicklungsumgebung verwendet werden, die
 - Microsoft Visual Studio 2019
 - Microsoft Visual Studio 2022
 
-## **Aspose.Slides Haupt-Builds**
-Derzeit gibt es zwei Haupt‑Builds von Aspose.Slides — Aspose.Slides.NET und Aspose.Slides.NET6.CrossPlatform.
+## **Haupt‑Builds von Aspose.Slides**
+Derzeit gibt es zwei Haupt‑Builds von Aspose.Slides – Aspose.Slides.NET und Aspose.Slides.NET6.CrossPlatform.
 
 ### **[Aspose.Slides für .NET](https://www.nuget.org/packages/Aspose.Slides.NET)**
-Dies ist die Hauptversion des Produkts. Sie verwendet die Standard‑.NET‑Grafikengine.
+Dies ist die Hauptversion des Produkts. Sie verwendet die standardmäßige .NET‑Grafik‑Engine.
 - Auf Nicht‑Windows‑Plattformen müssen Sie möglicherweise die Bibliothek `libgdiplus` und deren Abhängigkeiten installieren.
-- Vor Version Aspose.Slides 25.3 war es für Nicht‑Windows‑Plattformen notwendig, die .NET Standard 2.0‑DLL aus dem Aspose.Slides‑ZIP‑Paket zu verwenden.
-- Ab Version Aspose.Slides 25.3 kann das NuGet‑Paket direkt, sogar auf Nicht‑Windows‑Systemen, verwendet werden.
+- Vor Version Aspose.Slides 25.3 war es für Nicht‑Windows‑Plattformen erforderlich, die .NET Standard 2.0‑DLL aus dem Aspose.Slides‑ZIP‑Paket zu verwenden.
+- Ab Version Aspose.Slides 25.3 kann das NuGet‑Paket direkt auch auf Nicht‑Windows‑Systemen verwendet werden.
 - Beim Ausführen auf Nicht‑Windows‑Systemen muss Ihre Anwendung die folgende Zeile beim Start einbinden:
 ```cs
 AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
 ```
 
-- **Ab Version 25.3 können Sie dieses Paket auf Plattformen nutzen, die .NET unterstützen, z. B. Linux aarch64 (ARM64).**
+- **Ab Version 25.3 können Sie dieses Paket auf Plattformen verwenden, die .NET unterstützen, z. B. Linux aarch64 (ARM64).**
 
 ### **[Aspose.Slides für .NET 6 CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform)**
-Dies ist die Version von Aspose.Slides, die eine vom Aspose.Slides‑Team entwickelte benutzerdefinierte plattformübergreifende Grafikengine verwendet.  
+Dies ist die Version von Aspose.Slides, die eine von dem Aspose.Slides‑Team entwickelte benutzerdefinierte plattformübergreifende Grafik‑Engine verwendet.  
 Auf Nicht‑Windows‑Plattformen kann die Bibliothek `fontconfig` erforderlich sein.
 
 **Unterstützte Plattformen**
@@ -127,6 +129,6 @@ Auf Nicht‑Windows‑Plattformen kann die Bibliothek `fontconfig` erforderlich 
 
 Nein, PowerPoint wird nicht benötigt; Aspose.Slides ist eine eigenständige Engine zum [Erstellen](/slides/de/net/create-presentation/), Ändern, [Konvertieren](/slides/de/net/convert-presentation/) und [Rendern](/slides/de/net/convert-powerpoint-to-png/) von Präsentationen.
 
-**Welche Schriften werden für korrektes Rendering benötigt?**
+**Welche Schriftarten werden für ein korrektes Rendering benötigt?**
 
-In der Praxis müssen die in der Präsentation verwendeten Schriften oder geeignete [Ersatzschriften](/slides/de/net/font-substitution/) verfügbar sein. Um ein konsistentes Rendering unter Linux/macOS sicherzustellen, empfiehlt sich die Installation gängiger Schriftpakete.
+In der Praxis müssen die in der Präsentation verwendeten Schriftarten oder geeignete [Ersatzschriftarten](/slides/de/net/font-substitution/) verfügbar sein. Um ein konsistentes Rendering unter Linux/macOS sicherzustellen, empfiehlt es sich, gängige Schriftpakete zu installieren.

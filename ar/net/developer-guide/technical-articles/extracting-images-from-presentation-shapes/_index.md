@@ -1,21 +1,34 @@
 ---
-title: استخراج الصور من أشكال العرض التقديمي
+title: استخراج الصور من أشكال العرض التقديمي في .NET
+linktitle: صورة من شكل
 type: docs
 weight: 90
 url: /ar/net/extracting-images-from-presentation-shapes/
-keywords: "استخراج الصورة, PowerPoint, PPT, PPTX, عرض PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "استخراج الصور من عرض PowerPoint في C# أو .NET"
+keywords:
+- استخراج صورة
+- استرجاع صورة
+- خلفية الشريحة
+- خلفية الشكل
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "استخراج الصور من الأشكال في عروض PowerPoint و OpenDocument باستخدام Aspose.Slides لـ .NET — حل سريع وصديق للمبرمجين."
 ---
 
 ## **استخراج الصور من الأشكال**
 
 {{% alert color="primary" %}} 
-غالبًا ما يتم إضافة الصور إلى الأشكال وتُستخدم أيضًا كخلفيات للشرائح. يتم إضافة كائنات الصور عبر [IImageCollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/)، وهي مجموعة من كائنات [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/). 
+
+غالبًا ما تُضاف الصور إلى الأشكال وتُستخدم أيضًا بشكل متكرر كخلفيات للشرائح. يتم إضافة كائنات الصورة من خلال [IImageCollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/)، التي هي مجموعة من كائنات [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) . 
 
 تشرح هذه المقالة كيفية استخراج الصور المضافة إلى العروض التقديمية. 
+
 {{% /alert %}} 
 
-لاستخراج صورة من عرض تقديمي، يجب عليك أولاً تحديد موقع الصورة بالمرور عبر كل شريحة ثم عبر كل شكل. بمجرد العثور على الصورة أو تحديدها، يمكنك استخراجها وحفظها كملف جديد. XXX 
+لاستخراج صورة من عرض تقديمي، يجب أولاً تحديد موقع الصورة بالمرور عبر كل شريحة ثم المرور عبر كل شكل. بمجرد العثور على الصورة أو تحديدها، يمكنك استخراجها وحفظها كملف جديد. XXX 
 ```c#
 public static void Run() {
 
@@ -39,10 +52,10 @@ public static void Run() {
         // الوصول إلى الشريحة الأولى Slide sl = pres.getSlideByPosition(i);
         if (sl.Background.FillFormat.FillType == FillType.Picture)
         {
-            // الحصول على صورة الخلفية  
+            // يحصل على صورة الخلفية  
             Backimg = sl.Background.FillFormat.PictureFillFormat.Picture.Image;
 
-            // تعيين تنسيق الصورة المفضل 
+            // يضبط تنسيق الصورة المفضل 
 
             ImageType = Backimg.ContentType;
             ImageType = ImageType.Remove(0, ImageType.IndexOf("/") + 1);
@@ -56,10 +69,10 @@ public static void Run() {
         {
             if (sl.LayoutSlide.Background.FillFormat.FillType == FillType.Picture)
             {
-                // الحصول على صورة الخلفية  
+                // يحصل على صورة الخلفية  
                 Backimg = sl.LayoutSlide.Background.FillFormat.PictureFillFormat.Picture.Image;
 
-                // تعيين تنسيق الصورة المفضل 
+                // يضبط تنسيق الصورة المفضل 
 
                 ImageType = Backimg.ContentType;
                 ImageType = ImageType.Remove(0, ImageType.IndexOf("/") + 1);
@@ -101,7 +114,7 @@ public static void Run() {
                 }
             }
 
-            // تعيين تنسيق مفضل للصورة المستخرجة
+            // يضبط التنسيق المفضل للصورة المستخرجة
             if (ifImageFound)
             {
                 Format = GetImageFormat(ImageType);
@@ -150,18 +163,18 @@ public static System.Drawing.Imaging.ImageFormat GetImageFormat(String ImageType
 
 ## **الأسئلة الشائعة**
 
-**هل يمكنني استخراج الصورة الأصلية دون أي قص، أو تأثيرات، أو تحولات الشكل؟**
+**هل يمكنني استخراج الصورة الأصلية دون أي تقليم أو تأثيرات أو تحويلات الشكل؟**
 
-نعم. عند الوصول إلى صورة الشكل، تحصل على كائن الصورة من [مجموعة الصور](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/) للعرض التقديمي، مما يعني الحصول على البكسلات الأصلية دون قص أو تأثيرات تنسيق. تمر العملية عبر مجموعة الصور في العرض التقديمي وكائنات [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/) التي تخزن البيانات الخام.
+نعم. عندما تصل إلى صورة الشكل، ستحصل على كائن الصورة من مجموعة صور العرض التقديمي، مما يعني البكسلات الأصلية دون تقليم أو تأثيرات تنسيق. يمر سير العمل عبر مجموعة صور العرض التقديمي وكائنات [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/) ، التي تخزن البيانات الخام.
 
-**هل هناك خطر من تكرار ملفات متماثلة عند حفظ عدد كبير من الصور مرة واحدة؟**
+**هل هناك خطر من تكرار الملفات المتطابقة عند حفظ العديد من الصور مرة واحدة؟**
 
-نعم، إذا قمت بحفظ كل شيء دون تمييز. يمكن أن تحتوي [مجموعة الصور](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/) للعرض التقديمي على بيانات ثنائية متماثلة تُشار إليها من قبل أشكال أو شرائح مختلفة. لتجنب التكرار، قارن التجزئات أو الأحجام أو محتويات البيانات المستخرجة قبل الكتابة.
+نعم، إذا قمت بحفظ كل شيء دون تمييز. يمكن أن تحتوي مجموعة صور العرض التقديمي على بيانات ثنائية متطابقة يتم الإشارة إليها بواسطة أشكال أو شرائح مختلفة. لتجنب التكرارات، قارن التجزئات أو الأحجام أو محتويات البيانات المستخرجة قبل الكتابة.
 
-**كيف يمكنني تحديد الأشكال المرتبطة بصورة محددة من مجموعة الصور في العرض التقديمي؟**
+**كيف يمكنني تحديد الأشكال المرتبطة بصورة محددة من مجموعة صور العرض التقديمي؟**
 
-Aspose.Slides لا يخزن روابط عكسية من [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/) إلى الأشكال. قم بإنشاء خريطة يدوياً أثناء التجوال: كلما وجدت إشارة إلى [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/)، سجّل الأشكال التي تستخدمها.
+Aspose.Slides لا يخزن الروابط العكسية من [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/) إلى الأشكال. قم بإنشاء خريطة يدوية أثناء التجوال: كلما وجدت إشارة إلى [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/)، سجّل الأشكال التي تستخدمها.
 
-**هل يمكن استخراج الصور المضمنة داخل كائنات OLE، مثل المستندات المرفقة؟**
+**هل يمكنني استخراج الصور المضمنة داخل كائنات OLE، مثل المستندات المرفقة؟**
 
-ليس مباشرة، لأن كائن OLE هو حاوية. تحتاج إلى استخراج حزمة OLE نفسها ثم تحليل محتوياتها باستخدام أدوات منفصلة. تعمل أشكال الصور في العروض التقديمية عبر [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/)؛ OLE هو نوع كائن مختلف.
+ليس مباشرة، لأن كائن OLE هو حاوية. تحتاج إلى استخراج حزمة OLE نفسها ثم تحليل محتوياتها باستخدام أدوات منفصلة. تعمل أشكال الصور في العرض التقديمي عبر [PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/)؛ OLE هو نوع كائن مختلف.
