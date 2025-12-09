@@ -1,38 +1,65 @@
 ---
-title: PowerPointをJPGに変換
+title: Java で PPT と PPTX を JPG に変換
+linktitle: PowerPoint を JPG に変換
 type: docs
 weight: 60
 url: /ja/java/convert-powerpoint-to-jpg/
-keywords: "PowerPointをJPGに変換, PPTXをJPEGに, PPTをJPEGに"
-description: "PowerPointをJPGに変換: PPTをJPGに, PPTXをJPGにJavaで"
+keywords:
+- PowerPoint を変換
+- プレゼンテーションを変換
+- スライドを変換
+- PPT を変換
+- PPTX を変換
+- PowerPoint を JPG に変換
+- プレゼンテーションを JPG に変換
+- スライドを JPG に変換
+- PPT を JPG に変換
+- PPTX を JPG に変換
+- PowerPoint を JPG として保存
+- プレゼンテーションを JPG として保存
+- スライドを JPG として保存
+- PPT を JPG として保存
+- PPTX を JPG として保存
+- PPT を JPG にエクスポート
+- PPTX を JPG にエクスポート
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java を使用し、速く信頼性の高いコード例で、Java で PowerPoint (PPT、PPTX) スライドを高品質な JPG 画像に変換します。"
 ---
 
+## オンライン PPT から JPG への変換ツールをお探しですか？
 
-## **PowerPointからJPGへの変換について**
-[**Aspose.Slides API**](https://products.aspose.com/slides/java/)を使用すると、PowerPoint PPTまたはPPTXプレゼンテーションをJPG画像に変換できます。また、PPT/PPTXをJPEG、PNG、またはSVGに変換することも可能です。この機能を使用すると、自分自身のプレゼンテーションビューアを実装したり、各スライドのサムネイルを作成したりするのが簡単になります。この機能は、プレゼンテーションスライドを著作権から保護したり、プレゼンテーションを読み取り専用モードで表示したりする場合に役立ちます。Aspose.Slidesは、全体のプレゼンテーションまたは特定のスライドを画像フォーマットに変換できます。
+Java コードに入る前に、**コード不要**で PowerPoint (PPT, PPTX) を JPG に変換できる **手軽なオンラインツール**が必要な場合は、以下のオンラインコンバータをご覧ください：  
+[Aspose PPT to JPG Converter](https://products.aspose.app/slides/conversion/ppt-to-jpg)
+
+**プログラム的な解決策を探している開発者**であれば、引き続き読んで **Aspose.Slides for Java** を使用して PowerPoint のスライドを JPG に変換する方法を学んでください。
+
+## **PowerPoint から JPG の変換について**
+
+[**Aspose.Slides API**](https://products.aspose.com/slides/java/) を使用すると、PowerPoint の PPT または PPTX プレゼンテーションを JPG 画像に変換できます。また、PPT/PPTX を JPEG、PNG、SVG に変換することも可能です。この機能により、独自のプレゼンテーションビューアを実装したり、各スライドのサムネイルを作成したりするのが容易になります。プレゼンテーションスライドをコピー防止したり、読み取り専用モードでデモンストレーションしたりしたい場合に便利です。Aspose.Slides は、プレゼンテーション全体または特定のスライドを画像形式に変換できます。  
 
 {{% alert color="primary" %}} 
 
-Aspose.SlidesがPowerPointをJPG画像に変換する方法を確認するには、これらの無料オンラインコンバータを試してみてください: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) と [PPT to JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg)。 
+Aspose.Slides が PowerPoint を JPG 画像に変換する様子を確認したい場合は、以下の無料オンラインコンバータをお試しください: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) および [PPT to JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg)。  
 
 {{% /alert %}} 
 
 [![todo:image_alt_text](ppt-to-jpg.png)
 
-## **PowerPoint PPT/PPTXをJPGに変換**
-PPT/PPTXをJPGに変換する手順は以下の通りです:
+## **PowerPoint PPT/PPTX を JPG に変換する**
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)タイプのインスタンスを作成します。
-2. [Presentation.getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--)コレクションから[ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide)タイプのスライドオブジェクトを取得します。
-3. 各スライドのサムネイルを作成し、それをJPGに変換します。[**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-float-float-)メソッドを使用してスライドのサムネイルを取得し、結果として[Images](https://reference.aspose.com/slides/java/com.aspose.slides/Images)オブジェクトを返します。[getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-com.aspose.slides.IRenderingOptions-float-float-)メソッドは、必要な[ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide)タイプのスライドから呼び出し、結果のサムネイルのスケールをメソッドに渡します。
-4. スライドのサムネイルを取得した後、サムネイルオブジェクトから[**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/java/com.aspose.slides/IImage#save(String formatName, int imageFormat))メソッドを呼び出します。結果のファイル名と画像フォーマットを渡します。 
+PPT/PPTX を JPG に変換する手順は以下の通りです：
+
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 型のインスタンスを作成します。  
+2. [Presentation.getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) コレクションから、[ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) 型のスライドオブジェクトを取得します。  
+3. 各スライドのサムネイルを作成し、JPG に変換します。スライドのサムネイル取得には [**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-float-float-) メソッドを使用し、結果として [Images](https://reference.aspose.com/slides/java/com.aspose.slides/Images) オブジェクトが返されます。必要なスライドの [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) 型から [getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-com.aspose.slides.IRenderingOptions-float-float-) メソッドを呼び出し、生成されるサムネイルのスケールをメソッドに渡します。  
+4. スライドのサムネイルを取得したら、サムネイルオブジェクトから [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) メソッドを呼び出します。結果のファイル名と画像フォーマットを渡してください。  
 
 {{% alert color="primary" %}}
 
-**注意**: PPT/PPTXからJPGへの変換は、Aspose.Slides APIでの他のタイプへの変換とは異なります。他のタイプの場合、通常は[**IPresentation.Save(String fname, int format, ISaveOptions options)**](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-)メソッドを使用しますが、ここでは[**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/java/com.aspose.slides/IImage#save(String formatName, int imageFormat))メソッドを使用する必要があります。
+**注意**: PPT/PPTX から JPG への変換は、Aspose.Slides API の他の形式への変換とは異なります。 他の形式の場合、通常は [**IPresentation.Save(String fname, int format, ISaveOptions options)**](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) メソッドを使用しますが、ここでは [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) メソッドが必要です。  
 
 {{% /alert %}} 
-
 ```java
 Presentation pres = new Presentation("PowerPoint-Presentation.pptx");
 try {
@@ -40,7 +67,7 @@ try {
         // フルスケールの画像を作成
         IImage slideImage = sld.getImage(1f, 1f);
 
-        // JPEG形式でディスクに画像を保存
+        // 画像を JPEG 形式でディスクに保存
         try {
               slideImage.save(String.format("Slide_%d.jpg", sld.getSlideNumber()), ImageFormat.Jpeg);
         } finally {
@@ -52,16 +79,17 @@ try {
 }
 ```
 
-## **カスタマイズされた寸法でPowerPoint PPT/PPTXをJPGに変換**
-結果のサムネイルやJPG画像の寸法を変更するには、[**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-float-float-)メソッドに*ScaleX*と*ScaleY*の値を渡して設定できます:
 
+## **カスタマイズされたサイズで PowerPoint PPT/PPTX を JPG に変換する**
+
+生成されるサムネイルおよび JPG 画像のサイズを変更するには、[**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-float-float-) メソッドに *ScaleX* と *ScaleY* の値を渡すことで設定できます：  
 ```java
 Presentation pres = new Presentation("PowerPoint-Presentation.pptx");
 try {
-    // 寸法を定義
+    // 次元を定義
     int desiredX = 1200;
     int desiredY = 800;
-    // XとYのスケール値を取得
+    // X と Y のスケールされた値を取得
     float ScaleX = (float) (1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
     float ScaleY = (float) (1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
 
@@ -70,7 +98,7 @@ try {
         // フルスケールの画像を作成
         IImage slideImage = sld.getImage(ScaleX, ScaleY);
 
-        // JPEG形式でディスクに画像を保存
+        // 画像を JPEG 形式でディスクに保存
         try {
               slideImage.save(String.format("Slide_%d.jpg", sld.getSlideNumber()), ImageFormat.Jpeg);
         } finally {
@@ -82,9 +110,10 @@ try {
 }
 ```
 
-## **画像への変換時にコメントをレンダリング**
-Aspose.Slides for Javaは、プレゼンテーションのスライドを画像に変換する際にそのスライド内のコメントをレンダリングする機能を提供します。このJavaコードはその操作を示しています:
 
+## **画像としてプレゼンテーションを保存するときにコメントをレンダリングする**
+
+Aspose.Slides for Java は、スライドを画像に変換する際にプレゼンテーション内のコメントをレンダリングできる機能を提供しています。以下の Java コードでその操作を示します：  
 ```java
 Presentation pres = new Presentation("presentation.pptx");
 try {
@@ -107,16 +136,21 @@ try {
 }
 ```
 
-{{% alert title="ヒント" color="primary" %}}
 
-Asposeは[無料のコラージュWebアプリ](https://products.aspose.app/slides/collage)を提供しています。このオンラインサービスを使用すると、[JPGからJPG](https://products.aspose.app/slides/collage/jpg)またはPNGからPNG画像をマージし、[フォトグリッド](https://products.aspose.app/slides/collage/photo-grid)を作成することができます。 
+{{% alert title="Tip" color="primary" %}}
 
-この記事で説明されているのと同様の原則を使用して、画像を1つのフォーマットから別のフォーマットに変換できます。詳細については、これらのページをご覧ください: 画像を[JPGに変換](https://products.aspose.com/slides/java/conversion/image-to-jpg/); JPGを[画像に変換](https://products.aspose.com/slides/java/conversion/jpg-to-image/); JPGを[PNGに変換](https://products.aspose.com/slides/java/conversion/jpg-to-png/)、PNGを[JPGに変換](https://products.aspose.com/slides/java/conversion/png-to-jpg/); PNGを[SVGに変換](https://products.aspose.com/slides/java/conversion/png-to-svg/)、SVGを[PNGに変換](https://products.aspose.com/slides/java/conversion/svg-to-png/)。
+Aspose は、[無料の Collage Web アプリ](https://products.aspose.app/slides/collage) を提供しています。このオンラインサービスを使って、[JPG から JPG](https://products.aspose.app/slides/collage/jpg) や PNG から PNG への画像結合、[フォトグリッド](https://products.aspose.app/slides/collage/photo-grid) の作成などが可能です。  
+
+この記事で説明した同じ原理を使って、画像を別の形式に変換できます。詳しくは以下のページをご参照ください: [image to JPG に変換](https://products.aspose.com/slides/java/conversion/image-to-jpg/)；[JPG から image に変換](https://products.aspose.com/slides/java/conversion/jpg-to-image/)；[JPG から PNG に変換](https://products.aspose.com/slides/java/conversion/jpg-to-png/) 、[PNG から JPG に変換](https://products.aspose.com/slides/java/conversion/png-to-jpg/)；[PNG から SVG に変換](https://products.aspose.com/slides/java/conversion/png-to-svg/) 、[SVG から PNG に変換](https://products.aspose.com/slides/java/conversion/svg-to-png/)。  
 
 {{% /alert %}}
 
-## **関連項目**
+## よくある質問 (FAQ)
 
-PPT/PPTXを画像に変換する他のオプションを参照してください:
+### PowerPoint (PPT, PPTX) を JPG に変換するには？
 
-- [PPT/PPTXをSVGに変換](/slides/ja/java/render-a-slide-as-an-svg-image/)。
+Aspose.Slides for Java を使用して PowerPoint スライドを JPG に変換できます。これにより、出力設定を完全に制御しながら高品質な画像変換が実現します。
+
+### この方法でバッチ変換はサポートされていますか？
+
+はい、Aspose.Slides は

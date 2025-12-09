@@ -1,42 +1,79 @@
 ---
-title: Конвертация PowerPoint в TIFF с заметками
+title: Преобразование презентаций PowerPoint в TIFF с примечаниями на Java
+linktitle: PowerPoint в TIFF с примечаниями
 type: docs
 weight: 100
 url: /ru/java/convert-powerpoint-to-tiff-with-notes/
-keywords: "Конвертация PowerPoint в TIFF с заметками"
-description: "Конвертируйте PowerPoint в TIFF с заметками в Aspose.Slides."
+keywords:
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPT
+- конвертировать PPTX
+- PowerPoint в TIFF
+- презентация в TIFF
+- слайд в TIFF
+- PPT в TIFF
+- PPTX в TIFF
+- сохранить PPT как TIFF
+- сохранить PPTX как TIFF
+- экспортировать PPT в TIFF
+- экспортировать PPTX в TIFF
+- PowerPoint с примечаниями
+- презентация с примечаниями
+- слайд с примечаниями
+- PPT с примечаниями
+- PPTX с примечаниями
+- TIFF с примечаниями
+- Java
+- Aspose.Slides
+description: "Преобразуйте презентации PowerPoint в TIFF с примечаниями с помощью Aspose.Slides для Java. Узнайте, как эффективно экспортировать слайды с нотами докладчика."
 ---
 
-## **Конвертация PPT(X) в представлении заметок слайдов в TIFF**
-Метод [Save](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) можно использовать для конвертации всей презентации в представлении заметок слайдов в TIFF. Приведенные ниже фрагменты кода обновляют образец презентации до TIFF изображений в представлении заметок слайдов, как показано ниже:
+## **Обзор**
 
+Aspose.Slides for Java предоставляет простое решение для преобразования презентаций PowerPoint и OpenDocument (PPT, PPTX и ODP) с примечаниями в формат TIFF. Этот формат широко используется для хранения изображений высокого качества, печати и архивирования документов. С помощью Aspose.Slides вы можете не только экспортировать целые презентации с нотами докладчика, но и создавать миниатюры слайдов в представлении Notes Slide. Процесс конвертации прост и эффективен, используя метод `save` класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) для преобразования всей презентации в набор TIFF‑изображений с сохранением примечаний и макета.
+
+## **Преобразовать презентацию в TIFF с примечаниями**
+
+Сохранение презентации PowerPoint или OpenDocument в TIFF с примечаниями с использованием Aspose.Slides for Java включает следующие шаги:
+
+1. Создать экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/): загрузить файл PowerPoint или OpenDocument.  
+1. Настроить параметры вывода макета: использовать класс [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/notescommentslayoutingoptions/) для указания того, как должны отображаться примечания и комментарии.  
+1. Сохранить презентацию в TIFF: передать настроенные параметры методу [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-).
+
+Предположим, у нас есть файл «speaker_notes.pptx» со следующим слайдом:
+
+![Слайд презентации с примечаниями к выступлению](slide_with_notes.png)
+
+Ниже приведён фрагмент кода, демонстрирующий, как преобразовать презентацию в изображение TIFF в представлении Notes Slide с использованием метода [setSlidesLayoutOptions](https://reference.aspose.com/slides/java/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-).
 ```java
-//Создание объекта Presentation, который представляет файл презентации
-Presentation pres = new Presentation("demo.pptx");
+// Создайте экземпляр класса Presentation, представляющего файл презентации.
+Presentation presentation = new Presentation("speaker_notes.pptx");
 try {
-    TiffOptions opts = new TiffOptions();
-    opts.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
-    
-    //Сохранение презентации в TIFF с заметками
-    pres.save("Tiff-Notes.tiff", SaveFormat.Tiff,opts);
+    NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
+    notesOptions.setNotesPosition(NotesPositions.BottomFull); // Отобразить примечания под слайдом.
+
+    // Настройте параметры TIFF с разметкой примечаний.
+    TiffOptions tiffOptions = new TiffOptions();
+    tiffOptions.setDpiX(300);
+    tiffOptions.setDpiY(300);
+    tiffOptions.setSlidesLayoutOptions(notesOptions);
+
+    // Сохраните презентацию в TIFF с примечаниями докладчика.
+    presentation.save("TIFF_with_notes.tiff", SaveFormat.Tiff, tiffOptions);
 } finally {
-    если (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Приведенные выше фрагменты кода обновляют образец презентации до TIFF изображений в представлении заметок слайдов, как показано ниже:
 
-|**Представление исходной презентации с заметками слайда**|** |
-| :- | :- |
-|![todo:image_alt_text](http://i.imgur.com/6HdY6IV.png)| |
+Результат:
 
-
-|**Сгенерированное TIFF изображение в представлении заметок слайда**|** |
-| :- | :- |
-|![todo:image_alt_text](http://i.imgur.com/A3ttT2y.png)| |
+![Изображение TIFF с примечаниями к выступлению](TIFF_with_notes.png)
 
 {{% alert title="Совет" color="primary" %}}
 
-Вам может быть интересно ознакомиться с [БЕСПЛАТНЫМ конвертером PowerPoint в плакат](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online).
+Ознакомьтесь с бесплатным конвертером PowerPoint в постер от Aspose [Free PowerPoint to Poster Converter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online).
 
 {{% /alert %}}

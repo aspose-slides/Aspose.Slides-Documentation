@@ -1,15 +1,38 @@
 ---
-title: PowerPoint in SWF Flash konvertieren
+title: PowerPoint-Präsentationen in SWF-Flash in Java konvertieren
+linktitle: PowerPoint zu SWF
 type: docs
 weight: 80
 url: /de/java/convert-powerpoint-to-swf-flash/
-keywords: "PPT, PPTX in SWF"
-description: "Konvertieren von PowerPoint PPT, PPTX in SWF in Java"
+keywords:
+- PowerPoint konvertieren
+- Präsentation konvertieren
+- Folie konvertieren
+- PPT konvertieren
+- PPTX konvertieren
+- PowerPoint zu SWF
+- Präsentation zu SWF
+- Folie zu SWF
+- PPT zu SWF
+- PPTX zu SWF
+- PowerPoint zu Flash
+- Präsentation zu Flash
+- Folie zu Flash
+- PPT zu Flash
+- PPTX zu Flash
+- PPT als SWF speichern
+- PPTX als SWF speichern
+- PPT nach SWF exportieren
+- PPTX nach SWF exportieren
+- PowerPoint
+- Präsentation
+- Java
+- Aspose.Slides
+description: "PowerPoint (PPT/PPTX) in SWF-Flash in Java mit Aspose.Slides konvertieren. Schritt-für-Schritt-Codebeispiele, schnelle hochwertige Ausgabe, keine PowerPoint-Automatisierung."
 ---
 
-## **PPT(X) in SWF konvertieren**
-Die [Save](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) Methode der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) Klasse kann verwendet werden, um die gesamte Präsentation in ein **SWF** Dokument zu konvertieren. Das folgende Beispiel zeigt, wie man eine Präsentation in ein **SWF** Dokument umwandelt, indem man die von der [**SWFOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/SwfOptions) Klasse bereitgestellten Optionen verwendet. Sie können auch Kommentare im generierten SWF unter Verwendung der [**ISWFOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/ISwfOptions) Klasse und dem [**INotesCommentsLayoutingOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/INotesCommentsLayoutingOptions) Interface einfügen.
-
+## **PPT(X) nach SWF konvertieren**
+Die [Speichern](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) Methode, die von der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) Klasse bereitgestellt wird, kann verwendet werden, um die gesamte Präsentation in ein **SWF**-Dokument zu konvertieren. Das folgende Beispiel zeigt, wie man eine Präsentation mithilfe der von der [**SWFOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/SwfOptions) Klasse bereitgestellten Optionen in ein **SWF**-Dokument konvertiert. Sie können außerdem Kommentare im generierten **SWF** mithilfe der [**ISWFOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/ISwfOptions) Klasse und der [**INotesCommentsLayoutingOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/INotesCommentsLayoutingOptions) Schnittstelle einfügen.
 ```java
 Presentation pres = new Presentation("Sample.pptx");
 try {
