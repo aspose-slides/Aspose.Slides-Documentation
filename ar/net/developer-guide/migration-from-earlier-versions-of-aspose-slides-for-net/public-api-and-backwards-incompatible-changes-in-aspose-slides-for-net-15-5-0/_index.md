@@ -1,27 +1,41 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع النسخ السابقة في Aspose.Slides لـ .NET 15.5.0
+title: الواجهة العامة لبرمجة التطبيقات والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides for .NET 15.5.0
+linktitle: Aspose.Slides for .NET 15.5.0
 type: docs
 weight: 160
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/
+keywords:
+- ترحيل
+- كود قديم
+- كود حديث
+- نهج قديم
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "مراجعة تحديثات واجهة برمجة التطبيقات العامة والتغييرات المتعارضة في Aspose.Slides for .NET لضمان ترحيل سلس لحلول العروض التقديمية PowerPoint (PPT، PPTX) و ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-تسرد هذه الصفحة جميع [المضاف](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) أو [المزال](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) الفئات، والطرق، والخصائص وما إلى ذلك، والتغييرات الأخرى التي تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لـ .NET 15.5.0.
+تُظهر هذه الصفحة جميع الفئات، الأساليب، الخصائص وما إلى ذلك التي تم [إضافتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) أو [إزالتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/)، وغيرها من التغييرات التي تم تقديمها مع Aspose.Slides for .NET 15.5.0 API.
 
 {{% /alert %}} 
-## **تغييرات واجهة برمجة التطبيقات العامة**
-#### **تم إضافة فئة CommonSlideViewProperties وواجهة ICommonSlideViewProperties**
-تمثل فئة Aspose.Slides.CommonSlideViewProperties وواجهة Aspose.Slides.ICommonSlideViewProperties خصائص عرض الشريحة المشتركة (خيارات مقياس العرض الحالية).
+## **التغييرات في واجهة برمجة التطبيقات العامة**
+#### **تم إضافة فئة CommonSlideViewProperties والواجهة ICommonSlideViewProperties**
+تمثل فئة Aspose.Slides.CommonSlideViewProperties والواجهة Aspose.Slides.ICommonSlideViewProperties خصائص عرض الشريحة المشتركة (حاليًا خيارات مقياس العرض).
 #### **تم إضافة خاصية IAxis.LabelOffset**
 تحدد خاصية IAxis.LabelOffset المسافة بين التسميات والمحور. تُطبق على محور الفئة أو التاريخ.
 #### **تم إضافة خاصية IChartTextBlockFormat.AutofitType**
-يمكن أن produces تغيير هذه الخاصية تأثيرًا معينًا فقط على هذه الأجزاء من الرسم البياني: DataLabel و DataLabelFormat (دعم كامل في PowerPoint 2013؛ لا يوجد تأثير للرسم في PowerPoint 2007).
+تغيير هذه الخاصية يمكن أن يؤثر فقط على أجزاء المخطط التالية: DataLabel و DataLabelFormat (دعم كامل في PowerPoint 2013؛ في PowerPoint 2007 لا يوجد تأثير على العرض).
 #### **تم إضافة خاصية IChartTextBlockFormat.WrapText**
-يمكن أن produces تغيير هذه الخاصية تأثيرًا معينًا فقط على هذه الأجزاء من الرسم البياني: DataLabel و DataLabelFormat (دعم كامل في PowerPoint 2007/2013).
-#### **تمت إضافة خصائص الهامش إلى IChartTextBlockFormat**
-يمكن أن produces تغيير هذه الخصائص تأثيرًا معينًا فقط على هذه الأجزاء من الرسم البياني: DataLabel و DataLabelFormat (دعم كامل في PowerPoint 2013؛ لا يوجد تأثير للرسم في PowerPoint 2007).
+تغيير هذه الخاصية يمكن أن يؤثر فقط على أجزاء المخطط التالية: DataLabel و DataLabelFormat (دعم كامل في PowerPoint 2007/2013).
+#### **تم إضافة خصائص الهوامش إلى IChartTextBlockFormat**
+تغيير هذه الخصائص يمكن أن يؤثر فقط على أجزاء المخطط التالية: DataLabel و DataLabelFormat (دعم كامل في PowerPoint 2013؛ في PowerPoint 2007 لا يوجد تأثير على العرض).
 #### **تم إضافة خاصية ViewProperties.NotesViewProperties**
-تمت إضافة خاصية Aspose.Slides.ViewProperties.NotesViewProperties. تحدد هذه الخصائص العامة المتعلقة بوضع عرض الملاحظات.
+تمت إضافة خاصية Aspose.Slides.ViewProperties.NotesViewProperties. تحدد الخصائص العامة للعرض المرتبطة بوضع عرض الملاحظات.
 #### **تم إضافة خاصية ViewProperties.SlideViewProperties**
-تمت إضافة خاصية Aspose.Slides.ViewProperties.SlideViewProperties. تحدد هذه الخصائص العامة المتعلقة بوضع عرض الشريحة.
+تمت إضافة خاصية Aspose.Slides.ViewProperties.SlideViewProperties. تحدد الخصائص العامة للعرض المرتبطة بوضع عرض الشريحة.

@@ -1,79 +1,85 @@
 ---
-title: Erstellen einer neuen Präsentation
+title: Neue Präsentationen mit VSTO und Aspose.Slides für .NET erstellen
+linktitle: Neue Präsentation erstellen
 type: docs
 weight: 10
 url: /de/net/create-a-new-presentation/
+keywords:
+- Präsentation erstellen
+- neue Präsentation
+- Migration
+- VSTO
+- Office-Automatisierung
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Von Microsoft Office-Automatisierung zu Aspose.Slides für .NET migrieren und neue PowerPoint (PPT, PPTX)-Präsentationen in C# mit sauberem, zuverlässigem Code erstellen."
 ---
 
 {{% alert color="primary" %}} 
 
-VSTO wurde entwickelt, damit Entwickler Anwendungen erstellen können, die innerhalb von Microsoft Office ausgeführt werden können. VSTO basiert auf COM, ist jedoch in ein .NET-Objekt gekapselt, sodass es in .NET-Anwendungen verwendet werden kann. VSTO benötigt Unterstützung des .NET Frameworks sowie eine CLR-basierte Laufzeit von Microsoft Office. Obwohl es zur Erstellung von Microsoft Office-Add-Ins verwendet werden kann, ist es nahezu unmöglich, es als serverseitige Komponente zu verwenden. Es hat auch ernsthafte Bereitstellungsprobleme.
+VSTO wurde entwickelt, um Entwicklern das Erstellen von Anwendungen zu ermöglichen, die innerhalb von Microsoft Office ausgeführt werden können. VSTO ist COM-basiert, wird jedoch in ein .NET-Objekt eingebettet, sodass es in .NET-Anwendungen verwendet werden kann. VSTO benötigt Unterstützung des .NET-Frameworks sowie die CLR-basierte Laufzeit von Microsoft Office. Obwohl es zum Erstellen von Microsoft Office-Add-Ins verwendet werden kann, ist es nahezu unmöglich, es als serverseitige Komponente zu nutzen. Außerdem hat es erhebliche Bereitstellungsprobleme.
 
-Aspose.Slides für .NET ist eine Komponente, die verwendet werden kann, um Microsoft PowerPoint-Präsentationen zu manipulieren, ähnlich wie VSTO, aber es hat mehrere Vorteile:
-
-- Aspose.Slides enthält nur verwalteten Code und erfordert keine Installation der Microsoft Office-Laufzeit.
+- Aspose.Slides enthält ausschließlich verwalteten Code und erfordert nicht, dass die Microsoft Office-Laufzeit installiert ist.
 - Es kann als clientseitige Komponente oder als serverseitige Komponente verwendet werden.
-- Die Bereitstellung ist einfach, da sich Aspose.Slides in einer einzigen DLL befindet.
+- Die Bereitstellung ist einfach, da Aspose.Slides in einer einzigen DLL enthalten ist.
 
 {{% /alert %}} 
-## **Erstellen einer Präsentation**
-Im Folgenden finden Sie zwei Codebeispiele, die veranschaulichen, wie VSTO und Aspose.Slides für .NET verwendet werden können, um dasselbe Ziel zu erreichen. Das erste Beispiel ist [VSTO](/slides/de/net/create-a-new-presentation/); [das zweite Beispiel](/slides/de/net/create-a-new-presentation/) verwendet Aspose.Slides.
+## **Erstellung einer Präsentation**
+Below are two code examples that illustrate how VSTO and Aspose.Slides for .NET can be used to achieve the same goal. The first example is [VSTO](/slides/de/net/create-a-new-presentation/);[das zweite Beispiel](/slides/de/net/create-a-new-presentation/) uses Aspose.Slides.
 ### **VSTO-Beispiel**
 **Die VSTO-Ausgabe** 
 
 ![todo:image_alt_text](create-a-new-presentation_1.png)
-
-
-
 ```c#
-//Hinweis: PowerPoint ist ein Namespace, der oben definiert wurde
+//Hinweis: PowerPoint ist ein Namespace, der oben wie folgt definiert wurde
 //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
-//Eine Präsentation erstellen
+//Erstelle eine Präsentation
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 	.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//Das Layout der Titelfolie abrufen
+//Get the title slide layout
 PowerPoint.CustomLayout layout = pres.SlideMaster.
 	CustomLayouts[PowerPoint.PpSlideLayout.ppLayoutTitle];
 
-//Eine Titelfolie hinzufügen.
+//Add a title slide.
 PowerPoint.Slide slide = pres.Slides.AddSlide(1, layout);
 
-//Den Titeltext festlegen
-slide.Shapes.Title.TextFrame.TextRange.Text = "Titel der Folie";
+//Set the title text
+slide.Shapes.Title.TextFrame.TextRange.Text = "Slide Title Heading";
 
-//Den Untertiteltext festlegen
-slide.Shapes[2].TextFrame.TextRange.Text = "Untertitel der Folie";
+//Set the sub title text
+slide.Shapes[2].TextFrame.TextRange.Text = "Slide Title Sub-Heading";
 
-//Die Ausgabe auf die Festplatte schreiben
+//Write the output to disk
 pres.SaveAs("c:\\outVSTO.ppt",
 	PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
 	Microsoft.Office.Core.MsoTriState.msoFalse);
 ```
 
 
-### **Aspose.Slides für .NET Beispiel**
+
+### **Aspose.Slides für .NET-Beispiel**
 **Die Ausgabe von Aspose.Slides** 
 
 ![todo:image_alt_text](create-a-new-presentation_2.png)
-
-
-
 ```c#
-//Eine Präsentation erstellen
+//Erstelle eine Präsentation
 Presentation pres = new Presentation();
 
-//Die Titelfolie hinzufügen
+//Füge die Titelfolie hinzu
 ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
 
 
-//Den Titeltext festlegen
-((IAutoShape)slide.Shapes[0]).TextFrame.Text = "Titel der Folie";
+//Setze den Titeltext
+((IAutoShape)slide.Shapes[0]).TextFrame.Text = "Slide Title Heading";
 
-//Den Untertiteltext festlegen
-((IAutoShape)slide.Shapes[1]).TextFrame.Text = "Untertitel der Folie";
+//Setze den Untertiteltext
+((IAutoShape)slide.Shapes[1]).TextFrame.Text = "Slide Title Sub-Heading";
 
-//Die Ausgabe auf die Festplatte schreiben
+//Schreibe die Ausgabe auf die Festplatte
 pres.Save("c:\\data\\outAsposeSlides.pptx", SaveFormat.Ppt);
 ```

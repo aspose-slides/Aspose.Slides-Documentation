@@ -1,24 +1,38 @@
 ---
-title: Aspose.Slides for .NET 15.4.0 中的公共 API 和不向后兼容的更改
+title: Aspose.Slides for .NET 15.4.0 的公共 API 与不向后兼容的更改
+linktitle: Aspose.Slides for .NET 15.4.0
 type: docs
 weight: 150
 url: /zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
+keywords:
+- 迁移
+- 旧代码
+- 现代代码
+- 传统方法
+- 现代方法
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- .NET
+- C#
+- Aspose.Slides
+description: "回顾 Aspose.Slides for .NET 的公共 API 更新和破坏性更改，帮助您平稳迁移 PowerPoint PPT、PPTX 和 ODP 演示解决方案。"
 ---
 
 {{% alert color="primary" %}} 
 
-此页面列出了所有在 Aspose.Slides for .NET 15.4.0 API 中[添加的](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/)或[移除的](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/)类、方法、属性等，以及其他更改。
+此页面列出所有 [已添加](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) 或 [已移除](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) 类、方法、属性等，以及在 Aspose.Slides for .NET 15.4.0 API 中引入的其他更改。
 
 {{% /alert %}} 
 ## **公共 API 更改**
-#### **添加了枚举 OrganizationChartLayoutType**
-Aspose.Slides.SmartArt.OrganizationChartLayoutType枚举表示在组织图中子节点的格式类型。
-#### **添加了方法 IBulletFormat.ApplyDefaultParagraphIndentsShifts**
-方法Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts在启用项目符号时设置有效段落缩进和左边距的默认非零偏移（类似于 PowerPoint 在启用段落项目符号/编号时的行为）。如果禁用项目符号，则仅重置段落缩进和左边距（类似于 PowerPoint 在禁用段落项目符号/编号时的行为）。
+#### **已添加枚举 OrganizationChartLayoutType**
+Aspose.Slides.SmartArt.OrganizationChartLayoutType 枚举表示组织结构图中子节点的格式类型。
+#### **已添加方法 IBulletFormat.ApplyDefaultParagraphIndentsShifts**
+Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts 方法在启用项目符号时（类似 PowerPoint 在启用段落项目符号/编号时的行为），为有效的段落缩进和左边距设置默认的非零偏移。若项目符号被禁用，则仅重置段落缩进和左边距（类似 PowerPoint 在禁用段落项目符号/编号时的行为）。
 
-示例见[这里](/slides/zh/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
-#### **添加了方法 IConnector.Reroute**
-方法Aspose.Slides.IConnector.Reroute重新路由连接器，以使其采取连接形状之间的最短路径。为此，Reroute()方法可能会更改StartShapeConnectionSiteIndex和EndShapeConnectionSiteIndex。
+查看示例 [此处](/slides/zh/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx)：
+#### **已添加方法 IConnector.Reroute**
+Aspose.Slides.IConnector.Reroute 方法重新路由连接器，使其在所连接的形状之间采取最短路径。为此，Reroute() 方法可能会更改 StartShapeConnectionSiteIndex 和 EndShapeConnectionSiteIndex。
 
 ``` csharp
 
@@ -45,8 +59,8 @@ Aspose.Slides.SmartArt.OrganizationChartLayoutType枚举表示在组织图中子
 }
 
 ``` 
-#### **添加了方法 IPresentation.GetSlideById**
-方法Aspose.Slides.IPresentation.GetSlideById(System.UInt32)根据幻灯片 ID 返回幻灯片、母版幻灯片或布局幻灯片。
+#### **已添加方法 IPresentation.GetSlideById**
+Aspose.Slides.IPresentation.GetSlideById(System.UInt32) 方法根据幻灯片 ID 返回 Slide、MasterSlide 或 LayoutSlide。
 
 ``` csharp
 
@@ -63,8 +77,8 @@ Aspose.Slides.SmartArt.OrganizationChartLayoutType枚举表示在组织图中子
 }
 
 ``` 
-#### **添加了属性 IShape.ConnectionSiteCount**
-属性Aspose.Slides.IShape.ConnectionSiteCount返回形状上的连接点数量。
+#### **已添加属性 IShape.ConnectionSiteCount**
+Aspose.Slides.IShape.ConnectionSiteCount 属性返回形状上的连接点数量。
 
 ``` csharp
 
@@ -99,8 +113,8 @@ Aspose.Slides.SmartArt.OrganizationChartLayoutType枚举表示在组织图中子
 }
 
 ``` 
-#### **添加了属性 ISmartArt.IsReversed**
-属性Aspose.Slides.SmartArt.ISmartArt.IsReversed允许获取或设置有关SmartArt图表的状态（左到右 LTR 或右到左 RTL），如果图表支持反转。
+#### **已添加属性 ISmartArt.IsReversed**
+Aspose.Slides.SmartArt.ISmartArt.IsReversed 属性允许获取或设置 SmartArt 图表相对于从左到右 (LTR) 或从右到左 (RTL) 的状态（前提是该图表支持翻转）。
 
 ``` csharp
 
@@ -117,8 +131,8 @@ Aspose.Slides.SmartArt.OrganizationChartLayoutType枚举表示在组织图中子
 }
 
 ``` 
-#### **添加了属性 ISmartArt.Nodes**
-属性Aspose.Slides.SmartArt.ISmartArt.Nodes返回SmartArt对象中的根节点集合。
+#### **已添加属性 ISmartArt.Nodes**
+Aspose.Slides.SmartArt.ISmartArt.Nodes 属性返回 SmartArt 对象中根节点的集合。
 
 ``` csharp
 
@@ -128,17 +142,17 @@ Aspose.Slides.SmartArt.OrganizationChartLayoutType枚举表示在组织图中子
 
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.VerticalBulletList);
 
-  ISmartArtNode node = smart.Nodes[1]; // 选择第二个根节点
+  ISmartArtNode node = smart.Nodes[1]; // select second root node
 
-  node.TextFrame.Text = "第二个根节点";
+  node.TextFrame.Text = "Second root node";
 
   pres.Save("out.pptx", Export.SaveFormat.Pptx);
 
 }
 
 ``` 
-#### **添加了属性 ISmartArtNode.IsHidden**
-属性Aspose.Slides.SmartArt.ISmartArtNode.IsHidden返回true，如果该节点是数据模型中的隐藏节点。
+#### **已添加属性 ISmartArtNode.IsHidden**
+Aspose.Slides.SmartArt.ISmartArtNode.IsHidden 属性如果该节点在数据模型中是隐藏节点，则返回 true。
 
 ``` csharp
 
@@ -150,13 +164,13 @@ Aspose.Slides.SmartArt.OrganizationChartLayoutType枚举表示在组织图中子
 
   ISmartArtNode node = smart.AllNodes.AddNode();
 
-  bool hidden = node.IsHidden; // 返回true
+  bool hidden = node.IsHidden; //returns true
 
   if(hidden)
 
   {
 
-    // 执行一些操作或通知
+    //do some actions or notifications
 
   }
 
@@ -165,8 +179,8 @@ Aspose.Slides.SmartArt.OrganizationChartLayoutType枚举表示在组织图中子
 }
 
 ``` 
-#### **添加了属性 ISmartArtNode.OrganizationChartLayout**
-属性Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout允许获取或设置与当前节点关联的组织图类型。
+#### **已添加属性 ISmartArtNode.OrganizationChartLayout**
+Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout 属性允许获取或设置与当前节点关联的组织结构图类型。
 
 ``` csharp
 
@@ -183,8 +197,8 @@ Aspose.Slides.SmartArt.OrganizationChartLayoutType枚举表示在组织图中子
 }
 
 ``` 
-#### **添加了属性 ISmartArt.Layout 的 set 方法**
-添加了属性Aspose.Slides.SmartArt.ISmartArt.Layout的 set 方法。它允许更改现有图表的布局类型。
+#### **已添加属性 ISmartArt.Layout 的 set 方法**
+已添加 Aspose.Slides.SmartArt.ISmartArt.Layout 属性的 set 方法。它允许更改现有图表的布局类型。
 
 ``` csharp
 
@@ -201,12 +215,11 @@ Aspose.Slides.SmartArt.OrganizationChartLayoutType枚举表示在组织图中子
 }
 
 ``` 
-#### **小型 API 更改**
-**以下是小型 API 更改的列表:**
+#### **次要 API 更改**
+**以下是次要 API 更改列表：**
 
-|枚举 Aspose.Slides.BevelColorMode |已删除，未使用的枚举 |
-| :- | :- |
-|属性 ThreeDFormatEffectiveData.BevelColorMode |已删除，未使用的属性 |
-|属性 Aspose.Slides.Charts.ChartSeriesGroup.Chart <br>属性 Aspose.Slides.Charts.IChartSeriesGroup.AsIChartComponent |已添加 |
-|属性 Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>IParagraphFormatEffectiveData 继承自 ISlideComponent <br>属性 Aspose.Slides.IThreeDFormat.AsISlideComponent <br>IThreeDFormat 继承自 ISlideComponent |已删除 |
-|属性 Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>属性 Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>属性 Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>属性 Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>属性 Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>属性 Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |已删除，因已过时 |
+| Enum Aspose.Slides.BevelColorMode | 已删除，未使用的枚举 |
+| Property ThreeDFormatEffectiveData.BevelColorMode | 已删除，未使用的属性 |
+| Property Aspose.Slides.Charts.ChartSeriesGroup.Chart <br>Property Aspose.Slides.Charts.IChartSeriesGroup.AsIChartComponent | 已添加 |
+| Property Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Property Aspose.Slides.IThreeDFormat.AsISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent | 已删除 |
+| Property Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle | 已删除，已过时 |

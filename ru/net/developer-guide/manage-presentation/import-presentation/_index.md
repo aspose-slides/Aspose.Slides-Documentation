@@ -1,27 +1,43 @@
 ---
-title: Импорт PowerPoint из PDF или HTML
+title: Импорт презентаций из PDF или HTML в .NET
 linktitle: Импорт презентации
 type: docs
 weight: 60
 url: /ru/net/import-presentation/
-keywords: "Импорт PowerPoint, PDF в PowerPoint, HTML в PowerPoint, PDF в PPT, HTML в PPT, C#, Csharp, Aspose.Slides для .NET"
-description: "Импорт PowerPoint из PDF или HTML. Конвертировать PDF в PowerPoint. Конвертировать HTML в PowerPoint"
+keywords:
+- импорт презентации
+- импорт слайда
+- импорт PDF
+- импорт HTML
+- PDF в презентацию
+- PDF в PPT
+- PDF в PPTX
+- PDF в ODP
+- HTML в презентацию
+- HTML в PPT
+- HTML в PPTX
+- HTML в ODP
+- PowerPoint
+- OpenDocument
+- .NET
+- C#
+- Aspose.Slides
+description: "Без усилий импортируйте документы PDF и HTML в презентации PowerPoint и OpenDocument в .NET с помощью Aspose.Slides для бесшовной и высокопроизводительной обработки слайдов."
 ---
 
-Используя [**Aspose.Slides для .NET**](https://products.aspose.com/slides/net/), вы можете импортировать презентации из файлов в других форматах. Aspose.Slides предоставляет класс [SlideCollection](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/) для того, чтобы вы могли импортировать презентации из PDF-документов.
+Using [**Aspose.Slides for .NET**](https://products.aspose.com/slides/net/), you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/) class to allow you to import presentations from PDF documents.
 
 ## **Импорт PowerPoint из PDF**
 
-В этом случае вы можете конвертировать PDF в презентацию PowerPoint.
+In this case, you get to convert a PDF to a PowerPoint presentation.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom: 50%;" />
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). 
-2. Вызовите метод [AddFromPdf](https://reference.aspose.com/slides/net/aspose.slides.slidecollection/addfrompdf/methods/1) и передайте PDF-файл. 
-3. Используйте метод [Save](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/5), чтобы сохранить файл в формате PowerPoint.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class. 
+2. Call the [AddFromPdf](https://reference.aspose.com/slides/net/aspose.slides.slidecollection/addfrompdf/methods/1) method and pass the PDF file. 
+3. Use the [Save](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/5) method to save the file in the PowerPoint format.
 
-Этот код на C# демонстрирует операцию PDF в PowerPoint:
-
+This C# code demonstrates the PDF to PowerPoint operation:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -30,22 +46,22 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-{{% alert  title="СОВЕТ" color="primary" %}} 
 
-Вам может быть интересно посмотреть на **бесплатное приложение Aspose** [PDF в PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint), так как это живая реализация процесса, описанного здесь. 
+{{% alert  title="TIP" color="primary" %}} 
+
+You may want to check out **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) web app because it is a live implementation of the process described here. 
 
 {{% /alert %}} 
 
 ## **Импорт PowerPoint из HTML**
 
-В этом случае вы можете конвертировать HTML-документ в презентацию PowerPoint.
+In this case, you get to convert a HTML document to a PowerPoint presentation.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). 
-2. Вызовите метод [AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addfromhtml/#addfromhtml) и передайте HTML-файл. 
-3. Используйте метод [Save](https://apireference.aspose.com/slides/net/aspose.slides.presentation/save/methods/5), чтобы сохранить файл как документ PowerPoint.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class. 
+2. Call the [AddFromHtml](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/addfromhtml/#addfromhtml) method and pass the HTML file. 
+3. Use the [Save](https://apireference.aspose.com/slides/net/aspose.slides.presentation/save/methods/5) method to save the file as a PowerPoint document.
 
-Этот код на C# демонстрирует операцию HTML в PowerPoint: 
-
+This C# code demonstrates the HTML to PowerPoint operation: 
 ```c#
 using (var presentation = new Presentation())
 {
@@ -58,13 +74,20 @@ using (var presentation = new Presentation())
 }
 ```
 
-{{% alert title="Замечание" color="warning" %}} 
 
-Вы также можете использовать Aspose.Slides для конвертации HTML в другие популярные форматы файлов: 
+## **FAQ**
 
-* [HTML в изображение](https://products.aspose.com/slides/net/conversion/html-to-image/)
-* [HTML в JPG](https://products.aspose.com/slides/net/conversion/html-to-jpg/)
-* [HTML в XML](https://products.aspose.com/slides/net/conversion/html-to-xml/)
-* [HTML в TIFF](https://products.aspose.com/slides/net/conversion/html-to-tiff/)
+**Are tables preserved when importing a PDF, and can their detection be improved?**
+
+Tables can be detected during import; [PdfImportOptions](https://reference.aspose.com/slides/net/aspose.slides.import/pdfimportoptions/) includes a [DetectTables](https://reference.aspose.com/slides/net/aspose.slides.import/pdfimportoptions/detecttables/) parameter that enables table recognition. The effectiveness depends on the PDF’s structure.
+
+{{% alert title="Note" color="warning" %}} 
+
+You may also use Aspose.Slides to convert HTML to other popular file formats: 
+
+* [HTML to image](https://products.aspose.com/slides/net/conversion/html-to-image/)
+* [HTML to JPG](https://products.aspose.com/slides/net/conversion/html-to-jpg/)
+* [HTML to XML](https://products.aspose.com/slides/net/conversion/html-to-xml/)
+* [HTML to TIFF](https://products.aspose.com/slides/net/conversion/html-to-tiff/)
 
 {{% /alert %}}

@@ -1,24 +1,38 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة في Aspose.Slides لـ .NET 15.10.0
+title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة للخلف في Aspose.Slides for .NET 15.10.0
+linktitle: Aspose.Slides for .NET 15.10.0
 type: docs
 weight: 200
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/
+keywords:
+- الترحيل
+- كود قديم
+- كود حديث
+- نهج قديم
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "استعرض تحديثات واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة في Aspose.Slides for .NET لتسهيل ترحيل حلول عروض PowerPoint PPT و PPTX و ODP بسلاسة."
 ---
 
 {{% alert color="primary" %}} 
 
-تسرد هذه الصفحة جميع [المضاف](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) أو [المحذوف](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) الفئات، والطرق، والخصائص وما إلى ذلك، والتغييرات الأخرى التي تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لـ .NET 15.10.0.
+هذه الصفحة تُدرج جميع الفئات، الأساليب، الخصائص وما إلى ذلك التي تم [المضافة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) أو [المزالة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) معها، بالإضافة إلى التغييرات الأخرى التي تم تقديمها مع Aspose.Slides for .NET 15.10.0 API.
 
 {{% /alert %}} 
-## **تغييرات واجهة برمجة التطبيقات العامة**
-#### **تمت إضافة فئة VideoPlayerHtmlController جديدة لدعم تصدير ملفات الوسائط إلى HTML**
-تمت إضافة الفئة العامة الجديدة VideoPlayerHtmlController إلى مساحة أسماء Aspose.Slides.Export. باستخدام مثيل هذه الفئة، يمكن للمستخدم تصدير ملفات الفيديو والصوت إلى HTML.
-تقبل منشئات VideoPlayerHtmlController المعلمات التالية:
+## **تغييرات API العامة**
+#### **تم إضافة VideoPlayerHtmlController جديد لدعم تصدير ملفات الوسائط إلى HTML**
+تمت إضافة الفئة العامة الجديدة VideoPlayerHtmlController إلى مساحة الأسماء Aspose.Slides.Export. باستخدام مثيل هذه الفئة يمكن للمستخدم تصدير ملفات الفيديو والصوت إلى HTML.
+مت constructors الخاص بـ VideoPlayerHtmlController يقبل المعلمات التالية:
 
-path: المسار الذي سيتم فيه إنشاء ملفات الفيديو والصوت  
+path: المسار الذي سيتم إنشاء ملفات الفيديو والصوت فيه  
 fileName: اسم ملف HTML  
 
-baseUri: URI الأساسي الذي سيتم استخدامه لإنشاء الروابط  
+baseUri: عنوان URI الأساسي الذي سيُستخدم لتوليد الروابط  
 مثال على الاستخدام:
 
 ``` csharp
@@ -48,7 +62,7 @@ baseUri: URI الأساسي الذي سيتم استخدامه لإنشاء ال
 }
 
 ``` 
-#### **تمت إضافة واجهة برمجة التطبيقات لتحريك سلاسل المخطط**
+#### **تمت إضافة واجهة برمجة تطبيقات تحريك سلاسل المخططات**
 تمت إضافة طريقتين جديدتين إلى واجهة Aspose.Slides.Animation.ISequence.
 
 ``` csharp
@@ -59,15 +73,15 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-تم تصميم هذه الطرق لدعم تحريك عناصر المخطط:
-حسب السلاسل  
+تهدف هذه الطرق إلى دعم تحريك عناصر المخطط:
+حسب السلسلة  
 حسب الفئات  
 حسب عناصر السلسلة  
-حسب عناصر الفئة  
+حسب عناصر الفئات  
 
-تم تقديم القائمتين الجديدتين EffectChartMajorGroupingType و EffectChartMinorGroupingType المتعلقتين بتحريك عناصر المخطط.
+تم تقديم تعدادين جديدين هما EffectChartMajorGroupingType و EffectChartMinorGroupingType المتعلقين بتحريك عناصر المخطط.
 
-لإضافة تحريك سلسلة إلى المخطط، يمكن استخدام الكود التالي:
+لإضافة تحريك سلسلة إلى المخطط يمكن استخدام الشيفرة التالية:
 
 ``` csharp
 
@@ -259,7 +273,7 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-تحريك عناصر الفئة:
+تحريك عناصر الفئات:
 
 ``` csharp
 
@@ -353,4 +367,4 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 }
 
-``` 
+```

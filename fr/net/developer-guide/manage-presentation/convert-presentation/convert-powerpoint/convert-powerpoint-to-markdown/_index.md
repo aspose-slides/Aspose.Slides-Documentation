@@ -1,30 +1,52 @@
 ---
-title: Convertir PowerPoint en Markdown en C#
+title: Convertir les présentations PowerPoint en Markdown sous .NET
+linktitle: PowerPoint en Markdown
 type: docs
 weight: 140
 url: /fr/net/convert-powerpoint-to-markdown/
-keywords: "Convertir PowerPoint en Markdown, Convertir ppt en md, PowerPoint, PPT, PPTX, Présentation, Markdown, C#, Csharp, .NET, Aspose.Slides"
-description: "Convertir PowerPoint en Markdown en C#"
+keywords:
+- convertir PowerPoint
+- convertir présentation
+- convertir diapositive
+- convertir PPT
+- convertir PPTX
+- PowerPoint vers MD
+- présentation vers MD
+- diapositive vers MD
+- PPT vers MD
+- PPTX vers MD
+- enregistrer PowerPoint en Markdown
+- enregistrer présentation en Markdown
+- enregistrer diapositive en Markdown
+- enregistrer PPT en MD
+- enregistrer PPTX en MD
+- exporter PPT en MD
+- exporter PPTX en MD
+- PowerPoint
+- présentation
+- Markdown
+- .NET
+- C#
+- Aspose.Slides
+description: "Convertir les diapositives PowerPoint—PPT, PPTX—en Markdown propre avec Aspose.Slides pour .NET, automatiser la documentation et conserver le formatage."
 ---
 
 {{% alert color="info" %}} 
 
-Le support de la conversion de PowerPoint en markdown a été implémenté dans [Aspose.Slides 23.7](https://docs.aspose.com/slides/net/aspose-slides-for-net-23-7-release-notes/).
+La prise en charge de la conversion PowerPoint vers markdown a été implémentée dans [Aspose.Slides 23.7](https://docs.aspose.com/slides/net/aspose-slides-for-net-23-7-release-notes/).
 
 {{% /alert %}} 
 
 {{% alert color="warning" %}} 
 
-L'exportation de PowerPoint en markdown est **sans images** par défaut. Si vous souhaitez exporter un document PowerPoint contenant des images, vous devez définir `ExportType = MarkdownExportType.Visual` et définir le BasePath où les images référencées dans le document markdown seront enregistrées.
+L'exportation PowerPoint vers markdown se fait **sans images** par défaut. Si vous souhaitez exporter un document PowerPoint contenant des images, vous devez définir `ExportType = MarkdownExportType.Visual` et définir le BasePath où les images référencées dans le document markdown seront enregistrées.
 
 {{% /alert %}} 
 
 ## **Convertir PowerPoint en Markdown**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) pour représenter un objet de présentation.
-2. Utilisez la méthode [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save) pour enregistrer l'objet en tant que fichier markdown.
-
-Ce code C# vous montre comment convertir PowerPoint en markdown :
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) pour représenter un objet présentation.
+2. Utilisez la méthode [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save) pour enregistrer l'objet sous forme de fichier markdown.
 
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -33,12 +55,12 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## Convertir PowerPoint en Markdown Flavor
 
-Aspose.Slides vous permet de convertir PowerPoint en markdown (contenant une syntaxe de base), CommonMark, markdown version GitHub, Trello, XWiki, GitLab, et 17 autres versions de markdown.
+## **Convertir PowerPoint en variante Markdown**
 
-Ce code C# vous montre comment convertir PowerPoint en CommonMark :
+Aspose.Slides vous permet de convertir PowerPoint en markdown (avec une syntaxe de base), CommonMark, markdown à la façon de GitHub, Trello, XWiki, GitLab et 17 autres variantes markdown.
 
+Ce code C# montre comment convertir PowerPoint en CommonMark:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -49,16 +71,16 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-Les 23 versions de markdown prises en charge sont [listées sous l'énumération Flavor](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/flavor/) de la classe [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/).
 
-## **Convertir une Présentation contenant des Images en Markdown**
+Les 23 variantes markdown prises en charge sont [listées sous l'énumération Flavor](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/flavor/) de la classe [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/).
 
-La classe [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) fournit des propriétés et des énumérations qui vous permettent d'utiliser certaines options ou paramètres pour le fichier markdown résultant. L'énumération [MarkdownExportType](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) peut par exemple être définie sur des valeurs qui déterminent comment les images sont rendues ou gérées : `Sequential`, `TextOnly`, `Visual`.
+## **Convertir une présentation contenant des images en Markdown**
 
-### **Convertir des Images Séquentiellement**
+La classe [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) fournit des propriétés et des énumérations qui vous permettent d'utiliser certaines options ou paramètres pour le fichier markdown résultant. L'énumération [MarkdownExportType](https://reference.aspose.com/slides/net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) peut, par exemple, être définie sur des valeurs qui déterminent comment les images sont rendues ou gérées : `Sequential`, `TextOnly`, `Visual`.
 
-Si vous souhaitez que les images apparaissent individuellement les unes après les autres dans le markdown résultant, vous devez choisir l'option séquentielle. Ce code C# vous montre comment convertir une présentation contenant des images en markdown :
+### **Convertir les images séquentiellement**
 
+Si vous souhaitez que les images apparaissent individuellement les unes après les autres dans le markdown résultant, vous devez choisir l'option séquentielle. Ce code C# montre comment convertir une présentation contenant des images en markdown:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -75,11 +97,10 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-### **Convertir des Images Visuellement**
 
-Si vous souhaitez que les images apparaissent ensemble dans le markdown résultant, vous devez choisir l'option visuelle. Dans ce cas, les images seront enregistrées dans le répertoire actuel de l'application (et un chemin relatif sera construit pour elles dans le document markdown), ou vous pouvez spécifier votre chemin et nom de dossier préférés.
+### **Convertir les images visuellement**
 
-Ce code C# illustre l'opération :
+Si vous souhaitez que les images apparaissent ensemble dans le markdown résultant, vous devez choisir l'option visuelle. Dans ce cas, les images seront enregistrées dans le répertoire courant de l'application (et un chemin relatif sera généré pour elles dans le document markdown), ou vous pouvez spécifier le chemin et le nom de dossier de votre choix.
 
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -93,3 +114,18 @@ using (Presentation pres = new Presentation("pres.pptx"))
     });
 }
 ```
+
+
+## **FAQ**
+
+**Les hyperliens survivent-ils à l'exportation vers Markdown ?**
+
+Oui. Les [hyperliens](/slides/fr/net/manage-hyperlinks/) du texte sont conservés sous forme de liens Markdown standard. Les [transitions](/slides/fr/net/slide-transition/) et les [animations](/slides/fr/net/powerpoint-animation/) des diapositives ne sont pas converties.
+
+**Puis-je accélérer la conversion en l'exécutant sur plusieurs threads ?**
+
+Vous pouvez paralléliser par fichier, mais [ne partagez pas](/slides/fr/net/multithreading/) la même instance de [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) entre plusieurs threads. Utilisez des instances/processus séparés par fichier pour éviter les conflits.
+
+**Que se passe-t-il avec les images — où sont‑elles enregistrées et les chemins sont‑ils relatifs ?**
+
+Les [images](/slides/fr/net/image/) sont exportées vers un dossier dédié, et le fichier Markdown les référence par des chemins relatifs par défaut. Vous pouvez configurer le chemin de sortie de base et le nom du dossier d'actifs pour conserver une structure de référentiel prévisible.

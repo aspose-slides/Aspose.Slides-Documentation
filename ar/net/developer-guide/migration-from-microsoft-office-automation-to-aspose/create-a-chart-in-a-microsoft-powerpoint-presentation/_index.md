@@ -1,123 +1,122 @@
 ---
-title: إنشاء رسم بياني في عرض Microsoft PowerPoint
+title: إنشاء مخططات باستخدام VSTO و Aspose.Slides لـ .NET
+linktitle: إنشاء مخطط
 type: docs
 weight: 80
 url: /ar/net/create-a-chart-in-a-microsoft-powerpoint-presentation/
+keywords:
+- إنشاء مخطط
+- ترحيل
+- VSTO
+- أتمتة Office
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "تعلم كيفية أتمتة إنشاء مخططات PowerPoint في C#. يوضح هذا الدليل خطوة بخطوة لماذا Aspose.Slides لـ .NET هو بديل أسرع وأكثر قوة مقارنة بـ Microsoft.Office.Interop."
 ---
 
-{{% alert color="primary" %}} 
+## **نظرة عامة**
 
- الرسوم البيانية هي تمثيلات بصرية للبيانات تستخدم على نطاق واسع في العروض التقديمية. توضح هذه المقالة الشيفرة الخاصة بإنشاء رسم بياني في Microsoft PowerPoint برمجيًا باستخدام [VSTO](/slides/ar/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) و[Aspose.Slides for .NET](/slides/ar/net/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+هذا المقال يوضح كيفية إنشاء وتخصيص المخططات في عروض Microsoft PowerPoint بشكل برمجي باستخدام C#. مع Aspose.Slides for .NET، يمكنك أتمتة إنشاء مخططات مهنية مبنية على البيانات دون الاعتماد على Microsoft Office أو مكتبات Interop. توفر الواجهة البرمجية مجموعة غنية من الميزات لإنشاء مخططات عمودية، مخططات دائرية، مخططات خطية، والمزيد — مع تحكم كامل في الشكل والبيانات والتنسيق. سواءً كنت تنشئ تقارير، لوحات معلومات، أو عروض عمل، يساعدك Aspose.Slides على تقديم تصورات عالية الجودة مباشرةً من تطبيقات .NET الخاصة بك.
 
-{{% /alert %}} 
-## **إنشاء رسم بياني**
-تصف أمثلة الشيفرة أدناه عملية إضافة رسم بياني عمودي مجمع ثلاثي الأبعاد باستخدام VSTO. تقوم بإنشاء حالة عرض، وإضافة رسم بياني افتراضي إليها. ثم تستخدم مصنف Microsoft Excel للوصول إلى بيانات الرسم البياني وتعديلها بالإضافة إلى ضبط خصائص الرسم البياني. وأخيرًا، يتم حفظ العرض.
 ## **مثال VSTO**
-باستخدام VSTO، يتم تنفيذ الخطوات التالية:
 
-1. قم بإنشاء حالة من عرض Microsoft PowerPoint.
-1. أضف شريحة فارغة إلى العرض.
-1. أضف رسمًا بيانيًا **عموديًا مجمعًا ثلاثي الأبعاد** والوصول إليه.
-1. أنشئ حالة جديدة من مصنف Microsoft Excel وقم بتحميل بيانات الرسم البياني.
-1. الوصول إلى ورقة بيانات الرسم البياني باستخدام حالة مصنف Microsoft Excel من المصنف.
-1. ضبط نطاق الرسم البياني في ورقة العمل وإزالة السلسلتين 2 و3 من الرسم البياني.
-1. تعديل فئة بيانات الرسم البياني في ورقة بيانات الرسم البياني.
-1. تعديل بيانات السلسلة 1 في ورقة بيانات الرسم البياني.
-1. الآن، الوصول إلى عنوان الرسم البياني وضبط خصائص الخط المتعلقة به.
-1. الوصول إلى محور قيمة الرسم البياني وضبط الوحدة الرئيسية والوحدات الثانوية والقيمة القصوى والقيم الدنيا.
-1. الوصول إلى محور العمق أو محور السلاسل وإزالته حيث في هذا المثال، تستخدم سلسلة واحدة فقط.
-1. الآن، اضبط زوايا دوران الرسم البياني في اتجاهي X وY.
-1. احفظ العرض.
-1. أغلق حالات Microsoft Excel وPowerPoint.
+هذا القسم يوضح كيفية إنشاء مخطط في عرض PowerPoint باستخدام **VSTO (Visual Studio Tools for Office)**. باستخدام VSTO، يمكنك توليد وتخصيص المخططات برمجياً من خلال دمج أتمتة PowerPoint وExcel. يوضح المثال كيفية إضافة **مخطط عمودي 3D مجمع**، ملئه ببيانات من ورقة عمل Excel، تعديل التنسيق والتخطيط، وحفظ العرض النهائي — كل ذلك من داخل تطبيق .NET.
 
-**العرض الناتج، الذي تم إنشاؤه باستخدام VSTO** 
-
-![todo:image_alt_text](create-a-chart-in-a-microsoft-powerpoint-presentation_1.png)
-
-
-
+1. إنشاء كائن عرض تقديمي في Microsoft PowerPoint.  
+2. إضافة شريحة فارغة إلى العرض التقديمي.  
+3. إضافة مخطط عمودي 3D مجمع والوصول إليه.  
+4. إنشاء مثيل جديد لدفتر عمل Microsoft Excel وتحميل بيانات المخطط.  
+5. الوصول إلى ورقة بيانات المخطط باستخدام مثيل دفتر عمل Excel.  
+6. تحديد نطاق المخطط في ورقة العمل وإزالة السلسلة 2 والسلسلة 3 من المخطط.  
+7. تعديل بيانات فئات المخطط في ورقة بيانات المخطط.  
+8. تعديل بيانات السلسلة 1 في ورقة بيانات المخطط.  
+9. الوصول إلى عنوان المخطط وتعيين خصائص الخط الخاصة به.  
+10. الوصول إلى محور القيم في المخطط وتعيين الوحدة الرئيسية، الوحدة الفرعية، القيمة العظمى، والقيمة الصغرى.  
+11. الوصول إلى محور العمق (السلسلة) للمخطط وإزالته — يتم استخدام سلسلة واحدة فقط في هذا المثال.  
+12. ضبط زوايا دوران المخطط في اتجاهي X و Y.  
+13. حفظ العرض التقديمي.  
+14. إغلاق مثيلات Microsoft Excel وPowerPoint.  
 ```c#
 EnsurePowerPointIsRunning(true, true);
 
-//Instantiate slide object
+// Instantiate a slide object.
 Microsoft.Office.Interop.PowerPoint.Slide objSlide = null;
 
-//Access the first slide of presentation
+// Access the first presentation slide.
 objSlide = objPres.Slides[1];
 
-//Select firs slide and set its layout
+// Select the first slide and set its layout.
 objSlide.Select();
 objSlide.Layout = Microsoft.Office.Interop.PowerPoint.PpSlideLayout.ppLayoutBlank;
 
-//Add a default chart in slide
-objSlide.Shapes.AddChart(Microsoft.Office.Core.XlChartType.xl3DColumn, 20F, 30F, 400F, 300F);
+// Add a default chart to the slide.
+objSlide.Shapes.AddChart(Microsoft.Office.Core.XlChartType.xl3DColumn, 20, 30, 400, 300);
 
-//Access the added chart
+// Access the added chart.
 Microsoft.Office.Interop.PowerPoint.Chart ppChart = objSlide.Shapes[1].Chart;
 
-//Access the chart data
+// Access the chart data.
 Microsoft.Office.Interop.PowerPoint.ChartData chartData = ppChart.ChartData;
 
-//Create instance to Excel workbook to work with chart data
+// Create an instance of the Excel workbook to work with the chart data.
 Microsoft.Office.Interop.Excel.Workbook dataWorkbook = (Microsoft.Office.Interop.Excel.Workbook)chartData.Workbook;
 
-//Accessing the data worksheet for chart
+// Access the data worksheet for the chart.
 Microsoft.Office.Interop.Excel.Worksheet dataSheet = dataWorkbook.Worksheets[1];
 
-//Setting the range of chart
+// Set the data range for the chart.
 Microsoft.Office.Interop.Excel.Range tRange = dataSheet.Cells.get_Range("A1", "B5");
 
-//Applying the set range on chart data table
+// Apply the specified range to the chart data table.
 Microsoft.Office.Interop.Excel.ListObject tbl1 = dataSheet.ListObjects["Table1"];
 tbl1.Resize(tRange);
 
-//Setting values for categories and respective series data
-
-((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A2"))).FormulaR1C1 = "دراجات";
-((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A3"))).FormulaR1C1 = "إكسسوارات";
-((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A4"))).FormulaR1C1 = "إصلاحات";
-((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A5"))).FormulaR1C1 = "ملابس";
+// Set values for categories and respective series data.
+((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A2"))).FormulaR1C1 = "Bikes";
+((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A3"))).FormulaR1C1 = "Accessories";
+((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A4"))).FormulaR1C1 = "Repairs";
+((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A5"))).FormulaR1C1 = "Clothing";
 ((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B2"))).FormulaR1C1 = "1000";
 ((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B3"))).FormulaR1C1 = "2500";
 ((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B4"))).FormulaR1C1 = "4000";
 ((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B5"))).FormulaR1C1 = "3000";
 
-//Setting chart title
+// Set the chart title.
 ppChart.ChartTitle.Font.Italic = true;
-ppChart.ChartTitle.Text = "مبيعات 2007";
+ppChart.ChartTitle.Text = "2007 Sales";
 ppChart.ChartTitle.Font.Size = 18;
 ppChart.ChartTitle.Font.Color = Color.Black.ToArgb();
 ppChart.ChartTitle.Format.Line.Visible = Microsoft.Office.Core.MsoTriState.msoTrue;
 ppChart.ChartTitle.Format.Line.ForeColor.RGB = Color.Black.ToArgb();
 
-//Accessing Chart value axis
+// Access the chart value axis.
 Microsoft.Office.Interop.PowerPoint.Axis valaxis = ppChart.Axes(Microsoft.Office.Interop.PowerPoint.XlAxisType.xlValue, Microsoft.Office.Interop.PowerPoint.XlAxisGroup.xlPrimary);
 
-//Setting values axis units
+// Set the values for the axis units.
 valaxis.MajorUnit = 2000.0F;
 valaxis.MinorUnit = 1000.0F;
 valaxis.MinimumScale = 0.0F;
 valaxis.MaximumScale = 4000.0F;
 
-//Accessing Chart Depth axis
+// Access the chart depth axis.
 Microsoft.Office.Interop.PowerPoint.Axis Depthaxis = ppChart.Axes(Microsoft.Office.Interop.PowerPoint.XlAxisType.xlSeriesAxis, Microsoft.Office.Interop.PowerPoint.XlAxisGroup.xlPrimary);
 Depthaxis.Delete();
 
-//Setting chart rotation
-ppChart.Rotation = 20; //Y-Value
-ppChart.Elevation = 15; //X-Value
+// Set the chart rotation.
+ppChart.Rotation = 20;   // قيمة Y
+ppChart.Elevation = 15;  // قيمة X
 ppChart.RightAngleAxes = false;
 
-// Save the presentation as a PPTX
-objPres.SaveAs("C:\\VSTOSampleChart", Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, MsoTriState.msoTrue);
-//objPres.SaveAs(@"..\..\..\VSTOSampleChart", Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, MsoTriState.msoTrue);
+// Save the presentation as a PPTX file.
+objPres.SaveAs("VSTO_Sample_Chart.pptx", Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, MsoTriState.msoTrue);
 
-//Close Workbook and presentation
+// Close the workbook and presentation.
 dataWorkbook.Application.Quit();
 objPres.Application.Quit();
 ```
-
-
 
 ```c#
 public static void EnsurePowerPointIsRunning(bool blnAddPresentation)
@@ -133,9 +132,8 @@ public static void EnsurePowerPointIsRunning()
 public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAddSlide)
 {
     string strName = null;
-    //
-    //Try accessing the name property. If it causes an exception then
-    //start a new instance of PowerPoint
+
+    // حاول الوصول إلى الخاصية Name. إذا تم إلقاء استثناء، ابدأ نسخة جديدة من PowerPoint.
     try
     {
         strName = objPPT.Name;
@@ -144,8 +142,8 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
     {
         StartPowerPoint();
     }
-    //
-    //blnAddPresentation is used to ensure there is a presentation loaded
+
+    // يتم استخدام blnAddPresentation لضمان تحميل عرض تقديمي.
     if (blnAddPresentation == true)
     {
         try
@@ -157,9 +155,8 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
             objPres = objPPT.Presentations.Add(MsoTriState.msoTrue);
         }
     }
-    //
-    //BlnAddSlide is used to ensure there is at least one slide in the
-    //presentation
+
+    // يتم استخدام blnAddSlide لضمان وجود شريحة واحدة على الأقل في العرض التقديمي.
     if (blnAddSlide)
     {
         try
@@ -181,103 +178,105 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 ```
 
 
+النتيجة:
 
+![المخطط الذي تم إنشاؤه باستخدام VSTO](chart-created-using-VSTO.png)
 
 ## **مثال Aspose.Slides for .NET**
-باستخدام Aspose.Slides for .NET، يتم تنفيذ الخطوات التالية:
 
-1. قم بإنشاء حالة من عرض Microsoft PowerPoint.
-1. أضف شريحة فارغة إلى العرض.
-1. أضف رسمًا بيانيًا **عموديًا مجمعًا ثلاثي الأبعاد** والوصول إليه.
-1. الوصول إلى ورقة بيانات الرسم البياني باستخدام حالة مصنف Microsoft Excel من المصنف.
-1. إزالة السلسلتين 2 و3 غير المستخدمتين.
-1. الوصول إلى فئات الرسم البياني وتعديل الملصقات.
-1. الوصول إلى السلسلة 1 وتعديل قيم السلسلة.
-1. الآن، الوصول إلى عنوان الرسم البياني وضبط خصائص الخط.
-1. الوصول إلى محور قيمة الرسم البياني وضبط الوحدة الرئيسية والوحدات الثانوية والقيمة القصوى والقيم الدنيا.
-1. الآن، اضبط زوايا دوران الرسم البياني في اتجاهي X وY.
-1. حفظ العرض في تنسيق PPTX.
+يوضح المثال التالي كيفية إنشاء مخطط بسيط في عرض PowerPoint باستخدام Aspose.Slides for .NET. ي demonstrates how to add a **مخطط عمودي 3D مجمع**، ملئه ببيانات تجريبية، وتخصيص مظهره. مع بضع أسطر من الشفرة، يمكنك توليد مخططات ديناميكيًا ودمجها في عروضك دون الحاجة إلى Microsoft Office.
 
-**العرض الناتج، الذي تم إنشاؤه باستخدام Aspose.Slides**
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).  
+2. الحصول على مرجع إلى الشريحة الأولى.  
+3. إضافة مخطط عمودي 3D مجمع والوصول إليه.  
+4. الوصول إلى بيانات المخطط.  
+5. إزالة السلاسل غير المستخدمة السلسلة 2 والسلسلة 3.  
+6. تعديل فئات المخطط عن طريق تحديث التسميات.  
+7. تحديث قيم السلسلة 1.  
+8. الوصول إلى عنوان المخطط وتعيين خصائص الخط الخاصة به.  
+9. تكوين محور قيم المخطط، بما في ذلك الوحدة الرئيسية، الوحدة الفرعية، القيم العظمى والقيم الصغرى.  
+10. ضبط زوايا دوران المخطط على محوري X و Y.  
+11. حفظ العرض التقديمي بتنسيق PPTX.  
+```cs
+    // إنشاء عرض تقديمي فارغ.
+    using (Presentation presentation = new Presentation())
+    {
+        // الوصول إلى الشريحة الأولى.
+        ISlide slide = presentation.Slides[0];
 
-![todo:image_alt_text](create-a-chart-in-a-microsoft-powerpoint-presentation_2.png)
+        // إضافة مخطط افتراضي.
+        IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn3D, 20, 30, 400, 300);
 
-```csharp
-//Create empty presentation
-using (Presentation pres = new Presentation())
-{
+        // الحصول على بيانات المخطط.
+        IChartData chartData = chart.ChartData;
 
-    //Accessing first slide
-    ISlide slide = pres.Slides[0];
+        // إزالة السلسلة الافتراضية الإضافية.
+        chartData.Series.RemoveAt(1);
+        chartData.Series.RemoveAt(1);
 
-    //Addding default chart
-    IChart ppChart = slide.Shapes.AddChart(ChartType.ClusteredColumn3D, 20F, 30F, 400F, 300F);
+        // تعديل أسماء فئات المخطط.
+        chartData.Categories[0].AsCell.Value = "Bikes";
+        chartData.Categories[1].AsCell.Value = "Accessories";
+        chartData.Categories[2].AsCell.Value = "Repairs";
+        chartData.Categories[3].AsCell.Value = "Clothing";
 
-    //Getting Chart data
-    IChartData chartData = ppChart.ChartData;
+        // تعيين فهرس ورقة عمل بيانات المخطط.
+        int worksheetIndex = 0;
 
-    //Removing Extra default series
-    chartData.Series.RemoveAt(1);
-    chartData.Series.RemoveAt(1);
+        // الحصول على دفتر عمل بيانات المخطط.
+        IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    //Modifying chart categories names
-    chartData.Categories[0].AsCell.Value = "دراجات";
-    chartData.Categories[1].AsCell.Value = "إكسسوارات";
-    chartData.Categories[2].AsCell.Value = "إصلاحات";
-    chartData.Categories[3].AsCell.Value = "ملابس";
+        // تعديل قيم سلاسل المخطط.
+        chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 1000));
+        chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 2500));
+        chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 4000));
+        chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 4, 1, 3000));
 
-    //Setting the index of chart data sheet
-    int defaultWorksheetIndex = 0;
+        // تعيين عنوان المخطط.
+        chart.HasTitle = true;
+        chart.ChartTitle.AddTextFrameForOverriding("2007 Sales");
+        IPortionFormat format = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0].PortionFormat;
+        format.FontItalic = NullableBool.True;
+        format.FontHeight = 18;
+        format.FillFormat.FillType = FillType.Solid;
+        format.FillFormat.SolidFillColor.Color = Color.Black;
 
+        // تعيين خيارات المحور.
+        chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+        chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
+        chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
+        chart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
 
-    //Getting the chart data worksheet
-    IChartDataWorkbook fact = ppChart.ChartData.ChartDataWorkbook;
+        chart.Axes.VerticalAxis.MaxValue = 4000.0F;
+        chart.Axes.VerticalAxis.MinValue = 0.0F;
+        chart.Axes.VerticalAxis.MajorUnit = 2000.0F;
+        chart.Axes.VerticalAxis.MinorUnit = 1000.0F;
+        chart.Axes.VerticalAxis.TickLabelPosition = TickLabelPositionType.NextTo;
 
-    //Modifying chart series values for first category
-    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 1000));
-    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 2500));
-    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 4000));
-    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 4, 1, 3000));
+        // تعيين دوران المخطط.
+        chart.Rotation3D.RotationX = 15;
+        chart.Rotation3D.RotationY = 20;
 
-    //Setting Chart title
-    ppChart.HasTitle = true;
-    ppChart.ChartTitle.AddTextFrameForOverriding("مبيعات 2007");
-    IPortionFormat format = ppChart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0].PortionFormat;
-    format.FontItalic = NullableBool.True;
-    format.FontHeight = 18;
-    format.FillFormat.FillType = FillType.Solid;
-    format.FillFormat.SolidFillColor.Color = Color.Black;
-
-
-    ////Setting Axis values
-    ppChart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
-    ppChart.Axes.VerticalAxis.IsAutomaticMinValue = false;
-    ppChart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
-    ppChart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
-
-    ppChart.Axes.VerticalAxis.MaxValue = 4000.0F;
-    ppChart.Axes.VerticalAxis.MinValue = 0.0F;
-    ppChart.Axes.VerticalAxis.MajorUnit = 2000.0F;
-    ppChart.Axes.VerticalAxis.MinorUnit = 1000.0F;
-    ppChart.Axes.VerticalAxis.TickLabelPosition = TickLabelPositionType.NextTo;
-
-    //Setting Chart rotation
-    ppChart.Rotation3D.RotationX = 15;
-    ppChart.Rotation3D.RotationY = 20;
-
-    //Saving Presentation
-    pres.Save("AsposeSampleChart.pptx", SaveFormat.Pptx);
-}
+        // حفظ العرض التقديمي كملف PPTX.
+        presentation.Save("Aspose_Sample_Chart.pptx", SaveFormat.Pptx);
+    }
 ```
 
 
+النتيجة:
 
-{{% alert color="primary" %}} 
+![المخطط الذي تم إنشاؤه باستخدام Aspose.Slides for .NET](chart-created-using-aspose-slides.png)
 
-## **الموارد**
-يمكن تنزيل المشاريع والملفات المستخدمة في هذه المقالة من موقعنا الإلكتروني:
+## **الأسئلة الشائعة**
 
-- [تحميل العرض الذي تم إنشاؤه بواسطة VSTO](http://docs.aspose.com:8082/docs/download/attachments/87523560/VSTOSampleChart.pptx).
-- [تحميل الرسم البياني النموذجي الذي تم إنشاؤه بواسطة Aspose.Slides](http://docs.aspose.com:8082/docs/download/attachments/87523560/AsposeSampleChart.pptx).
+**هل يمكنني إنشاء أنواع أخرى من المخططات مثل المخططات الدائرية أو الخطية أو الشريطية باستخدام Aspose.Slides؟**
 
-{{% /alert %}}
+نعم. يدعم Aspose.Slides for .NET مجموعة واسعة من [أنواع المخططات](https://docs.aspose.com/slides/net/create-chart/)، بما في ذلك المخططات الدائرية، المخططات الخطية، المخططات الشريطية، المخططات النقطية، مخططات الفقاعات، وأكثر. يمكنك تحديد نوع المخطط المطلوب باستخدام تعداد [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) عند إضافة المخطط.
+
+**هل يمكنني تطبيق أنماط أو سمات مخصصة على المخطط؟**
+
+نعم. يمكنك تخصيص مظهر المخطط بالكامل، بما في ذلك الألوان، الخطوط، التعبئة، الحدود، خطوط الشبكة، والتخطيط. ومع ذلك، تطبيق سمات Office بدقة كما تظهر في PowerPoint يتطلب ضبط الأنماط الفردية يدويًا.
+
+**هل يمكنني تصدير المخطط كصورة منفصلة عن الشريحة؟**
+
+نعم، يتيح لك Aspose.Slides تصدير أي شكل — بما في ذلك المخططات — كصورة منفصلة (مثل PNG أو JPEG) باستخدام طريقة `GetImage` على شكل المخطط [shape](https://reference.aspose.com/slides/net/aspose.slides/ishape/).

@@ -1,25 +1,39 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 14.8.0
+title: "التغييرات غير المتوافقة للخلف وواجهة برمجة التطبيقات العامة في Aspose.Slides لـ .NET 14.8.0"
+linktitle: "Aspose.Slides لـ .NET 14.8.0"
 type: docs
 weight: 100
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/
+keywords:
+- ترحيل
+- كود قديم
+- كود حديث
+- نهج قديم
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "استعرض تحديثات واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة في Aspose.Slides لـ .NET لتحديث حلول عروض PowerPoint PPT و PPTX و ODP بسلاسة."
 ---
 
 {{% alert color="primary" %}} 
 
-تدرج هذه الصفحة جميع [الإضافات](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/) أو [الإزالة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/) لفئات وأساليب وخصائص وما إلى ذلك، وأي تغييرات أخرى تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لـ .NET 14.8.0.
+هذه الصفحة تسرد جميع الفئات، والطرق، والخصائص وما إلى ذلك التي تم *إضافتها*([added](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/)) أو *إزالتها*([removed](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/))، بالإضافة إلى التغييرات الأخرى التي تم تقديمها مع Aspose.Slides for .NET 14.8.0 API.
 
 {{% /alert %}} 
-## **تغييرات واجهة برمجة التطبيقات العامة**
-### **الخصائص المتغيرة**
-#### **إضافة واجهة IVbaProject، تغيير خاصية Presentation.VbaProject**
-تم استبدال خاصية VbaProject في فئة Presentation. بدلاً من التمثيل الثنائي الخام لمشروع VBA، تمت إضافة تنفيذ واجهة IVbaProject الجديدة.
+## **تغييرات API العامة**
+### **الخصائص التي تم تغييرها**
+#### **إضافة الواجهة IVbaProject، وتغيير خاصية Presentation.VbaProject**
+تم استبدال خاصية VbaProject في فئة Presentation. بدلاً من تمثيل البايتات الخام لمشروع VBA، تمت إضافة تنفيذ للواجهة الجديدة IVbaProject.
 
-استخدم خاصية IVbaProject لإدارة مشاريع VBA المدمجة في العرض التقديمي. يمكنك إضافة مراجع مشاريع جديدة، تحرير الوحدات الموجودة، وإنشاء وحدات جديدة.
+استخدم خاصية IVbaProject لإدارة مشاريع VBA المضمّنة في العرض التقديمي. يمكنك إضافة مراجع مشروع جديدة، تعديل الوحدات الموجودة وإنشاء وحدات جديدة.
 
-أيضًا، يمكنك إنشاء مشروع VBA جديد باستخدام فئة VbaProject التي تنفذ واجهة IVbaProject.
+كما يمكنك إنشاء مشروع VBA جديد باستخدام فئة VbaProject التي تنفّذ الواجهة IVbaProject.
 
-يوضح المثال التالي كيفية إنشاء مشروع VBA بسيط يحتوي على وحدة واحدة وإضافة مرجعين مطلوبين إلى المكتبات.
+يعرض المثال التالي إنشاء مشروع VBA بسيط يحتوي على وحدة واحدة وإضافة مرجعين مطلوبين إلى المكتبات.
 
 ``` csharp
 
@@ -27,15 +41,15 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 
 {
 
-    // إنشاء مشروع VBA جديد
+    // Create new VBA Project
 
     pres.VbaProject = new VbaProject();
 
-    // إضافة وحدة فارغة إلى مشروع VBA
+    // Add empty module to the VBA project
 
     IVbaModule module = pres.VbaProject.Modules.AddEmptyModule("Module");
 
-    // تعيين كود مصدر الوحدة
+    // Set module source code
 
     module.SourceCode =
 
@@ -45,19 +59,19 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 
         End Sub";
 
-    // إنشاء مرجع إلى <stdole>
+    // Create reference to <stdole>
 
     VbaReferenceOleTypeLib stdoleReference =
 
         new VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
 
-    // إنشاء مرجع إلى Office
+    // Create reference to Office
 
     VbaReferenceOleTypeLib officeReference =
 
         new VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
 
-    // إضافة المراجع إلى مشروع VBA
+    // Add references to the VBA project
 
     pres.VbaProject.References.Add(stdoleReference);
 
@@ -69,7 +83,7 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 
 ``` 
 
-يوضح هذا المثال كيفية نسخ مشروع VBA من عرض تقديمي موجود إلى عرض تقديمي جديد.
+يعرض المثال التالي كيفية نسخ مشروع VBA من عرض تقديمي موجود إلى عرض تقديمي جديد.
 
 ``` csharp
 
@@ -82,14 +96,14 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 }
 
 ``` 
-### **إضافة واجهات وخصائص وخيارات تعداد**
-#### **إضافة خاصية Aspose.Slides.Charts.IChartSeries.Overlap**
-تحدد خاصية Aspose.Slides.Charts.IChartSeries.Overlap كمية التداخل بين الأشرطة والأعمدة على الرسوم البيانية 2D (من -100 إلى 100).
+### **إضافة واجهات، خصائص وخيارات تعداد**
+#### **إضافة الخاصية Aspose.Slides.Charts.IChartSeries.Overlap**
+تحدد الخاصية Aspose.Slides.Charts.IChartSeries.Overlap مقدار تداخل الأعمدة والشريطين في المخططات الثنائية الأبعاد (من -100 إلى 100).
 
-هذه الخاصية ليست فقط لهذه السلسلة ولكن لجميع السلاسل في مجموعة السلاسل الرئيسية - هذه هي إسقاط الخاصية المناسبة للمجموعة. وبالتالي، فإن هذه الخاصية للقراءة فقط.
+هذه الخاصية لا تخص هذه السلسلة فقط بل جميع السلاسل في مجموعة السلاسل الأصلية – هي إسقاط لخاصية المجموعة المناسبة. وبالتالي هذه الخاصية للقراءة فقط.
 
-- استخدم خاصية ParentSeriesGroup للوصول إلى مجموعة السلاسل الرئيسية.
-- استخدم خاصية ParentSeriesGroup.Overlap للقراءة/الكتابة لتغيير القيمة.
+- استخدم الخاصية ParentSeriesGroup للوصول إلى مجموعة السلاسل الأصلية.
+- استخدم الخاصية ParentSeriesGroup.Overlap للقراءة/الكتابة لتغيير القيمة.
 
 ``` csharp
 
@@ -112,8 +126,8 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 }
 
 ``` 
-#### **إضافة خاصية Aspose.Slides.Charts.IChartSeriesGroup.Overlap**
-تحدد خاصية Aspose.Slides.Charts.IChartSeriesGroup.Overlap كمية التداخل بين الأشرطة والأعمدة على الرسوم البيانية 2D (من -100 إلى 100).
+#### **إضافة الخاصية Aspose.Slides.Charts.IChartSeriesGroup.Overlap**
+تحدد الخاصية Aspose.Slides.Charts.IChartSeriesGroup.Overlap مقدار تداخل الأعمدة والشريطين في المخططات الثنائية الأبعاد (من -100 إلى 100).
 
 ``` csharp
 
@@ -132,8 +146,8 @@ using (Presentation pres = new Presentation())
 }
 
 ``` 
-#### **إضافة قيمة Enum لخاصية ShapeThumbnailBounds.Appearance**
-تسمح لك هذه الطريقة من إنشاء مصغرات الشكل بتوليد مصغرة شكل ضمن حدود مظهرها. تأخذ في الاعتبار جميع تأثيرات الشكل. تكون المصغرة الناتجة مقيدة بحدود الشريحة.
+#### **إضافة القيمة ShapeThumbnailBounds.Appearance في التعداد**
+تتيح طريقة إنشاء صورة مصغرة للشكل هذه توليد مصغّر للشكل ضمن حدود مظهره. تأخذ جميع تأثيرات الشكل في الاعتبار. يتم تقييد الصورة المصغرة المولدة بحدود الشريحة.
 
 ``` csharp
 
@@ -149,4 +163,4 @@ using (Presentation p = new Presentation("Presentation.pptx"))
 
 }
 
-``` 
+```

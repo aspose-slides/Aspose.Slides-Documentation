@@ -1,60 +1,91 @@
 ---
-title: PowerPointをビデオに変換
+title: PowerPoint プレゼンテーションを .NET で動画に変換する
+linktitle: PowerPoint を動画に変換
 type: docs
 weight: 130
 url: /ja/net/convert-powerpoint-to-video/
-keywords: "PowerPointを変換, PPT, PPTX, プレゼンテーション, ビデオ, MP4, PPTをビデオに, PPTをMP4に, C#, Csharp, .NET, Aspose.Slides"
-description: "C#または.NETでPowerPointをビデオに変換"
+keywords:
+- PowerPoint を変換
+- プレゼンテーションを変換
+- PPT を変換
+- PPTX を変換
+- PowerPoint を動画に変換
+- プレゼンテーションを動画に変換
+- PPT を動画に変換
+- PPTX を動画に変換
+- PowerPoint を MP4 に変換
+- プレゼンテーションを MP4 に変換
+- PPT を MP4 に変換
+- PPTX を MP4 に変換
+- PPT を MP4 として保存
+- PPTX を MP4 として保存
+- PPT を MP4 にエクスポート
+- PPTX を MP4 にエクスポート
+- 動画変換
+- PowerPoint
+- .NET
+- C#
+- Aspose.Slides
+description: ".NET で PowerPoint プレゼンテーションを動画に変換する方法を学びます。ワークフローを効率化するサンプル C# コードと自動化テクニックをご紹介します。"
 ---
 
-PowerPointプレゼンテーションをビデオに変換することで、次の利点があります。
+## **概要**
 
-* **アクセシビリティの向上:** プレゼンテーションを開くアプリケーションと比較すると、すべてのデバイス（プラットフォームに関係なく）はデフォルトでビデオプレーヤーを備えているため、ユーザーはビデオを開くまたは再生するのが簡単です。
-* **到達範囲の拡大:** ビデオを通じて、広範なオーディエンスにリーチし、プレゼンテーションでは退屈に思えるかもしれない情報をターゲットにすることができます。ほとんどの調査や統計によると、人々は他の形態のコンテンツよりもビデオを視聴し、消費することが多く、一般的にそのようなコンテンツを好みます。
+PowerPoint または OpenDocument プレゼンテーションを動画に変換することで、次のメリットが得られます：
+
+**アクセシビリティの向上:** すべてのデバイスはデフォルトで動画プレーヤーを備えているため、従来のプレゼンテーションアプリケーションよりも動画の再生や開封が容易です。
+
+**リーチの拡大:** 動画はより大きな視聴者にリーチでき、情報をより魅力的な形で提示できます。調査や統計によると、人々は他の形態よりも動画コンテンツの視聴・消費を好むため、メッセージのインパクトが高まります。
 
 {{% alert color="primary" %}} 
-
-こちらの[**PowerPointをビデオに変換するオンラインコンバーター**](https://products.aspose.app/slides/conversion/ppt-to-word)を確認することをお勧めします。これは、ここで説明されたプロセスのライブで効果的な実装です。
-
+以下の[**PowerPoint を動画に変換するオンラインコンバータ**](https://products.aspose.app/slides/video)をご確認ください。こちらは本記事で説明したプロセスをライブかつ効果的に実装しています。
 {{% /alert %}} 
 
-## **Aspose.SlidesにおけるPowerPointからビデオへの変換**
+Aspose.Slides for .NET では、プレゼンテーションを動画に変換する機能を実装しました。
 
-[Aspose.Slides 22.11](https://docs.aspose.com/slides/net/aspose-slides-for-net-22-11-release-notes/)で、プレゼンテーションからビデオへの変換をサポートしました。
+* Aspose.Slides for .NET を使用して、プレゼンテーションのスライドから指定したフレームレート（FPS）でフレームを生成します。
+* その後、ffmpeg などのサードパーティユーティリティを使用して、これらのフレームを動画に結合します。
 
-* Aspose.Slidesを使用して、特定のFPS（フレーム毎秒）に対応する一連のフレーム（プレゼンテーションスライドから）を生成します。
-* FFMpegCore（ffmpeg）などのサードパーティユーティリティを使用して、フレームに基づいてビデオを作成します。 
+## **PowerPoint プレゼンテーションを動画に変換する**
 
-### **PowerPointをビデオに変換**
+1. `dotnet add package` コマンドで Aspose.Slides と FFMpegCore ライブラリをプロジェクトに追加します：
+   * `dotnet add package Aspose.Slides.NET --version 22.11.0` を実行
+   * `dotnet add package FFMpegCore --version 4.8.0` を実行
+2. ffmpeg を[here](https://ffmpeg.org/download.html)からダウンロードします。
+3. FFMpegCore では、ダウンロードした ffmpeg のパス（例: "C:\tools\ffmpeg" に展開）を指定する必要があります：  
+```cs
+    GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
+```
 
-1. dotnet add packageコマンドを使用して、Aspose.SlidesおよびFFMpegCoreライブラリをプロジェクトに追加します：
-   * `dotnet add package Aspose.Slides.NET --version 22.11.0`を実行します。
-   * `dotnet add package FFMpegCore --version 4.8.0`を実行します。
-2. ここからffmpegをダウンロードします。[ここ](https://ffmpeg.org/download.html)。
-3. FFMpegCoreは、ダウンロードしたffmpegへのパスを指定する必要があります（例: "C:\tools\ffmpeg"に解凍した場合）： `GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin",} );`
-4. PowerPointをビデオに変換するコードを実行します。
+4. PowerPoint から動画への変換コードを実行します。
 
-このC#コードは、プレゼンテーション（図と2つのアニメーション効果を含む）をビデオに変換する方法を示しています：
-
+この C# コードは、シェイプと 2 つのアニメーション効果を含むプレゼンテーションを動画に変換する方法を示しています：
 ```c#
 using System.Collections.Generic;
 using Aspose.Slides;
-using FFMpegCore; // "c:\tools\ffmpeg"に解凍したFFmpegバイナリを使用します
+using FFMpegCore; // 以前抽出した C:\tools\ffmpeg の FFmpeg バイナリを使用します。
 using Aspose.Slides.Animation;
-using (Presentation presentation = new Presentation())
 
+using (Presentation presentation = new Presentation())
 {
-    // 笑顔の形を追加し、アニメーションを加えます
-    IAutoShape smile = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
-    IEffect effectIn = presentation.Slides[0].Timeline.MainSequence.AddEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
-    IEffect effectOut = presentation.Slides[0].Timeline.MainSequence.AddEffect(smile, EffectType.Fly, EffectSubtype.BottomRight, EffectTriggerType.AfterPrevious);
+    ISlide slide = presentation.Slides[0];
+
+    // スマイル形状を追加し、アニメーションを付けます。
+    IAutoShape smile = slide.Shapes.AddAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
+
+    IEffect effectIn = slide.Timeline.MainSequence.AddEffect(
+        smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
+
+    IEffect effectOut = slide.Timeline.MainSequence.AddEffect(
+        smile, EffectType.Fly, EffectSubtype.BottomRight, EffectTriggerType.AfterPrevious);
+
     effectIn.Timing.Duration = 2f;
     effectOut.PresetClassType = EffectPresetClassType.Exit;
 
-   const int Fps = 33;
-   List<string> frames = new List<string>();
+    const int Fps = 33;
+    List<string> frames = new List<string>();
 
-   using (var animationsGenerator = new PresentationAnimationsGenerator(presentation))
+    using (var animationsGenerator = new PresentationAnimationsGenerator(presentation))
     using (var player = new PresentationPlayer(animationsGenerator, Fps))
     {
         player.FrameTick += (sender, args) =>
@@ -66,46 +97,40 @@ using (Presentation presentation = new Presentation())
         animationsGenerator.Run(presentation.Slides);
     }
 
-    // ffmpegバイナリフォルダーを設定します。このページを参照してください: https://github.com/rosenbjerg/FFMpegCore#installation
-    GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin", });
-    // フレームをwebmビデオに変換します
-    FFMpeg.JoinImageSequence("smile.webm", Fps, frames.Select(frame => ImageInfo.FromPath(frame)).ToArray());
+    // ffmpeg バイナリ フォルダーを設定します。こちらのページをご参照ください: https://github.com/rosenbjerg/FFMpegCore#installation
+    GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 
+    // フレームを WebM ビデオに変換します。
+    FFMpeg.JoinImageSequence("smile.webm", Fps, frames.Select(frame => ImageInfo.FromPath(frame)).ToArray());
 }
 ```
 
-## **ビデオ効果**
 
-スライド上のオブジェクトにアニメーションを適用し、スライド間の遷移を使用できます。
+## **動画エフェクト**
+
+Aspose.Slides for .NET を使用して PowerPoint プレゼンテーションを動画に変換する際、出力の視覚品質を向上させるさまざまな動画エフェクトを適用できます。これらのエフェクトにより、スムーズなトランジションやアニメーション、その他の視覚要素を動画に追加して、スライドの外観を制御できます。このセクションでは利用可能な動画エフェクトオプションを説明し、適用方法を示します。
 
 {{% alert color="primary" %}} 
-
-これらの文書をご覧になることをお勧めします: [PowerPointアニメーション](https://docs.aspose.com/slides/net/powerpoint-animation/)、[図形のアニメーション](https://docs.aspose.com/slides/net/shape-animation/)、および[図形効果](https://docs.aspose.com/slides/net/shape-effect/)。
-
+参照:
+- [C# でアニメーションを使用した PowerPoint プレゼンテーションの強化](https://docs.aspose.com/slides/net/powerpoint-animation/)
+- [シェイプ アニメーション](https://docs.aspose.com/slides/net/shape-animation/)
+- [C# で PowerPoint のシェイプ エフェクトを適用する](https://docs.aspose.com/slides/net/shape-effect/)
 {{% /alert %}} 
 
-アニメーションと遷移はスライドショーをより魅力的で面白くし、ビデオに対しても同じことを行います。前のプレゼンテーションのコードに別のスライドと遷移を追加しましょう：
-
+アニメーションとトランジションはスライドショーをより魅力的にし、動画でも同様の効果を発揮します。前のプレゼンテーションのコードに別のスライドとトランジションを追加してみましょう：
 ```c#
-// 笑顔の形を追加し、アニメーションを加えます
-
-// ...
-
-// 新しいスライドとアニメーション遷移を追加します
-
-ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
-
-newSlide.Background.Type = BackgroundType.OwnBackground;
-
-newSlide.Background.FillFormat.FillType = FillType.Solid;
-
-newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
-
-newSlide.SlideShowTransition.Type = TransitionType.Push;
+ // 笑顔のシェイプを追加し、アニメーションを付けます。
+ // ...
+ // 新しいスライドとアニメーション付きトランジションを追加します。
+ ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
+ newSlide.Background.Type = BackgroundType.OwnBackground;
+ newSlide.Background.FillFormat.FillType = FillType.Solid;
+ newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
+ newSlide.SlideShowTransition.Type = TransitionType.Push;
 ```
 
-Aspose.Slidesでは、テキストのアニメーションもサポートされています。したがって、オブジェクト上の段落にアニメーションを適用し、1秒の遅延で順に表示されるようにします：
 
+Aspose.Slides はテキストアニメーションもサポートしています。この例では、オブジェクト上の段落を順番に表示させ、各段落の間に 1 秒の遅延を設定します：
 ```c#
 using System.Collections.Generic;
 using Aspose.Slides.Export;
@@ -115,41 +140,44 @@ using Aspose.Slides.Animation;
 
 using (Presentation presentation = new Presentation())
 {
-    // テキストとアニメーションを追加します
-    IAutoShape autoShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 210, 120, 300, 300);
+    ISlide slide = presentation.Slides[0];
+
+    // テキストとアニメーションを追加します。
+    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 120, 300, 300);
     Paragraph para1 = new Paragraph();
     para1.Portions.Add(new Portion("Aspose Slides for .NET"));
     Paragraph para2 = new Paragraph();
-    para2.Portions.Add(new Portion("テキストを含むPowerPointプレゼンテーションをビデオに変換"));
+    para2.Portions.Add(new Portion("Convert a PowerPoint presentation with text to video"));
 
     Paragraph para3 = new Paragraph();
-    para3.Portions.Add(new Portion("段落ごとに"));
+    para3.Portions.Add(new Portion("paragraph by paragraph"));
     autoShape.TextFrame.Paragraphs.Add(para1);
     autoShape.TextFrame.Paragraphs.Add(para2);
     autoShape.TextFrame.Paragraphs.Add(para3);
     autoShape.TextFrame.Paragraphs.Add(new Paragraph());
 
-    IEffect effect = presentation.Slides[0].Timeline.MainSequence.AddEffect(para1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
+    IEffect effect1 = slide.Timeline.MainSequence.AddEffect(
+        para1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    IEffect effect2 = presentation.Slides[0].Timeline.MainSequence.AddEffect(para2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
+    IEffect effect2 = slide.Timeline.MainSequence.AddEffect(
+        para2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    IEffect effect3 = presentation.Slides[0].Timeline.MainSequence.AddEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
+    IEffect effect3 = slide.Timeline.MainSequence.AddEffect(
+        para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    IEffect effect4 = presentation.Slides[0].Timeline.MainSequence.AddEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
+    IEffect effect4 = slide.Timeline.MainSequence.AddEffect(
+        para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    effect.Timing.TriggerDelayTime = 1f;
+    effect1.Timing.TriggerDelayTime = 1f;
     effect2.Timing.TriggerDelayTime = 1f;
     effect3.Timing.TriggerDelayTime = 1f;
     effect4.Timing.TriggerDelayTime = 1f;
 
-    // フレームをビデオに変換します
     const int Fps = 33;
     List<string> frames = new List<string>();
-    
+
     using (var animationsGenerator = new PresentationAnimationsGenerator(presentation))
-
     using (var player = new PresentationPlayer(animationsGenerator, Fps))
-
     {
         player.FrameTick += (sender, args) =>
         {
@@ -157,34 +185,42 @@ using (Presentation presentation = new Presentation())
             args.GetFrame().Save(frame);
             frames.Add(frame);
         };
+
         animationsGenerator.Run(presentation.Slides);
     }
-    // ffmpegバイナリフォルダーを設定します。このページを参照してください: https://github.com/rosenbjerg/FFMpegCore#installation
 
-    GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin", });
-    // フレームをwebmビデオに変換します
+    // ffmpeg バイナリ フォルダーを設定します。こちらのページをご参照ください: https://github.com/rosenbjerg/FFMpegCore#installation
+    GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
+
+    // フレームを WebM ビデオに変換します。
     FFMpeg.JoinImageSequence("text_animation.webm", Fps, frames.Select(frame => ImageInfo.FromPath(frame)).ToArray());
-
 }
 ```
 
-## **ビデオ変換クラス**
 
-PowerPointからビデオへの変換タスクを実行できるように、Aspose.Slidesは[PresentationAnimationsGenerator](https://reference.aspose.com/slides/net/aspose.slides.export/presentationanimationsgenerator/)および[PresentationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/presentationplayer/)クラスを提供します。
+## **動画変換クラス**
 
-PresentationAnimationsGeneratorを使用すると、後で作成されるビデオのフレームサイズをコンストラクタを通じて設定できます。プレゼンテーションのインスタンスを渡すと、`Presentation.SlideSize`が使用され、[PresentationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/presentationplayer/)が使用するアニメーションを生成します。 
+PowerPoint から動画への変換タスクを実行できるよう、Aspose.Slides for .NET は [PresentationAnimationsGenerator](https://reference.aspose.com/slides/net/aspose.slides.export/presentationanimationsgenerator/) と [PresentationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/presentationplayer/) クラスを提供します。
 
-アニメーションが生成されると、各後続アニメーションについて`NewAnimation`イベントが生成され、[IPresentationAnimationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/)パラメータがあります。後者は、個別のアニメーション用のプレーヤーを表すクラスです。
+`PresentationAnimationsGenerator` はコンストラクタで動画のフレームサイズ（後で作成される）と FPS（フレーム/秒）値を設定できます。プレゼンテーションのインスタンスを渡すと、その `Presentation.SlideSize` が使用され、[PresentationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/presentationplayer/) が使用するアニメーションを生成します。
 
-[IPresentationAnimationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/)と連携するために、[Duration](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/duration/)（アニメーションの総持続時間）プロパティと[SetTimePosition](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/settimeposition/)メソッドが使用されます。各アニメーション位置は*0からduration*の範囲内で設定され、次に`GetFrame`メソッドは、その時点でのアニメーション状態に対応するBitmapを返します。
+アニメーションが生成されると、各連続アニメーションごとに `NewAnimation` イベントが発生し、[IPresentationAnimationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/) パラメータが含まれます。このクラスは個々のアニメーションのプレーヤーを表します。
 
+[IPresentationAnimationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/) を使用するには、全体のアニメーション時間を示す `Duration` プロパティと、位置を設定する `SetTimePosition` メソッドを利用します。各アニメーション位置は *0 から duration* の範囲で設定され、`GetFrame` メソッドはその時点のアニメーション状態を表す Bitmap を返します。
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // 笑顔の形を追加し、アニメーションを加えます
-    IAutoShape smile = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
-    IEffect effectIn = presentation.Slides[0].Timeline.MainSequence.AddEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
-    IEffect effectOut = presentation.Slides[0].Timeline.MainSequence.AddEffect(smile, EffectType.Fly, EffectSubtype.BottomRight, EffectTriggerType.AfterPrevious);
+    ISlide slide = presentation.Slides[0];
+
+    // 笑顔シェイプを追加してアニメーションさせます。
+    IAutoShape smile = slide.Shapes.AddAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
+
+    IEffect effectIn = slide.Timeline.MainSequence.AddEffect(
+        smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
+
+    IEffect effectOut = slide.Timeline.MainSequence.AddEffect(
+        smile, EffectType.Fly, EffectSubtype.BottomRight, EffectTriggerType.AfterPrevious);
+
     effectIn.Timing.Duration = 2f;
     effectOut.PresetClassType = EffectPresetClassType.Exit;
 
@@ -192,21 +228,21 @@ using (Presentation presentation = new Presentation())
     {
         animationsGenerator.NewAnimation += animationPlayer =>
         {
-            Console.WriteLine($"アニメーションの総持続時間: {animationPlayer.Duration}");
-            
-            animationPlayer.SetTimePosition(0); // 初期アニメーション状態
-            Bitmap bitmap = animationPlayer.GetFrame(); // 初期アニメーション状態のビットマップ
+            Console.WriteLine($"Total animation duration: {animationPlayer.Duration}");
 
-            animationPlayer.SetTimePosition(animationPlayer.Duration); // アニメーションの最終状態
-            Bitmap lastBitmap = animationPlayer.GetFrame(); // アニメーションの最終フレーム
+            animationPlayer.SetTimePosition(0);          // 初期アニメーション状態。
+            Bitmap bitmap = animationPlayer.GetFrame();  // 初期アニメーション状態のビットマップ。
+
+            animationPlayer.SetTimePosition(animationPlayer.Duration);  // 最終アニメーション状態。
+            Bitmap lastBitmap = animationPlayer.GetFrame();             // アニメーションの最終フレーム。
             lastBitmap.Save("last.png");
         };
     }
 }
 ```
 
-プレゼンテーション内のすべてのアニメーションを一度に再生する場合は、[PresentationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/presentationplayer/)クラスを使用します。このクラスは、[PresentationAnimationsGenerator](https://reference.aspose.com/slides/net/aspose.slides.export/presentationanimationsgenerator/)インスタンスと、効果のFPSをコンストラクタに取り込み、すべてのアニメーションを再生するために`FrameTick`イベントを呼び出します：
 
+すべてのアニメーションを同時に再生するには、[PresentationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/presentationplayer/) クラスを使用します。このクラスはコンストラクタで [PresentationAnimationsGenerator](https://reference.aspose.com/slides/net/aspose.slides.export/presentationanimationsgenerator/) インスタンスと FPS 値を受け取り、すべてのアニメーションに対して `FrameTick` イベントを呼び出して再生します：
 ```c#
 using (Presentation presentation = new Presentation("animated.pptx"))
 {
@@ -222,137 +258,154 @@ using (Presentation presentation = new Presentation("animated.pptx"))
 }
 ```
 
-生成されたフレームは、ビデオを作成するためにコンパイルできます。[PowerPointをビデオに変換](https://docs.aspose.com/slides/net/convert-powerpoint-to-video/#convert-powerpoint-to-video)セクションを参照してください。
 
-## **サポートされているアニメーションと効果**
+生成されたフレームは動画にコンパイルできます。[PowerPoint プレゼンテーションを動画に変換する](/slides/ja/net/convert-powerpoint-to-video/#convert-a-powerpoint-presentation-to-video) セクションをご参照ください。
 
+## **サポートされているアニメーションとエフェクト**
 
-**入口**:
+PowerPoint プレゼンテーションを Aspose.Slides for .NET で動画に変換する際、出力でサポートされているアニメーションとエフェクトを理解することが重要です。Aspose.Slides はフェード、フライイン、ズーム、スピンなどの一般的な入退場および強調エフェクトを広くサポートしています。ただし、一部の高度なカスタムアニメーションは完全に保持されない場合や、最終動画で異なる表示になることがあります。このセクションではサポート対象のアニメーションとエフェクトを概観します。
 
-| アニメーションの種類 | Aspose.Slides | PowerPoint |
+**入場**:
+
+| アニメーションタイプ | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **出現** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **フェード** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **フライイン** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **フロートイン** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **スプリット** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **ワイプ** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **シェイプ** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **ホイール** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **ランダムバー** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **グロウ＆ターン** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **ズーム** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **スイベル** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **バウンス** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-
+| **Appear** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Fade** | ![サポート](v.png) | ![サポート](v.png) |
+| **Fly In** | ![サポート](v.png) | ![サポート](v.png) |
+| **Float In** | ![サポート](v.png) | ![サポート](v.png) |
+| **Split** | ![サポート](v.png) | ![サポート](v.png) |
+| **Wipe** | ![サポート](v.png) | ![サポート](v.png) |
+| **Shape** | ![サポート](v.png) | ![サポート](v.png) |
+| **Wheel** | ![サポート](v.png) | ![サポート](v.png) |
+| **Random Bars** | ![サポート](v.png) | ![サポート](v.png) |
+| **Grow & Turn** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Zoom** | ![サポート](v.png) | ![サポート](v.png) |
+| **Swivel** | ![サポート](v.png) | ![サポート](v.png) |
+| **Bounce** | ![サポート](v.png) | ![サポート](v.png) |
 
 **強調**:
 
-| アニメーションの種類 | Aspose.Slides | PowerPoint |
+| アニメーションタイプ | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **パルス** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **カラー パルス** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **ティーター** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **スピン** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **成長/縮小** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **デサチュレート** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **暗くする** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **明るくする** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **透明度** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **オブジェクトカラー** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **補色** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **ラインカラー** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **塗りつぶしカラー** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
+| **Pulse** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Color Pulse** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Teeter** | ![サポート](v.png) | ![サポート](v.png) |
+| **Spin** | ![サポート](v.png) | ![サポート](v.png) |
+| **Grow/Shrink** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Desaturate** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Darken** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Lighten** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Transparency** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Object Color** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Complementary Color** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Line Color** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Fill Color** | ![未サポート](x.png) | ![サポート](v.png) |
 
 **退出**:
 
-| アニメーションの種類 | Aspose.Slides | PowerPoint |
+| アニメーションタイプ | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **消失** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **フェード** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **フライアウト** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **フロートアウト** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **スプリット** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **ワイプ** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **シェイプ** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **ランダムバー** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **縮小＆ターン** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **ズーム** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **スイベル** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **バウンス** | ![サポートされています](v.png) | ![サポートされています](v.png) |
+| **Disappear** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Fade** | ![サポート](v.png) | ![サポート](v.png) |
+| **Fly Out** | ![サポート](v.png) | ![サポート](v.png) |
+| **Float Out** | ![サポート](v.png) | ![サポート](v.png) |
+| **Split** | ![サポート](v.png) | ![サポート](v.png) |
+| **Wipe** | ![サポート](v.png) | ![サポート](v.png) |
+| **Shape** | ![サポート](v.png) | ![サポート](v.png) |
+| **Random Bars** | ![サポート](v.png) | ![サポート](v.png) |
+| **Shrink & Turn** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Zoom** | ![サポート](v.png) | ![サポート](v.png) |
+| **Swivel** | ![サポート](v.png) | ![サポート](v.png) |
+| **Bounce** | ![サポート](v.png) | ![サポート](v.png) |
 
-**モーションパス**:
+**モーション パス**:
 
-| アニメーションの種類 | Aspose.Slides | PowerPoint |
+| アニメーションタイプ | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **ライン** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **アーク** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **ターン** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **形状** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **ループ** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **カスタムパス** | ![サポートされています](v.png) | ![サポートされています](v.png) |
+| **Lines** | ![サポート](v.png) | ![サポート](v.png) |
+| **Arcs** | ![サポート](v.png) | ![サポート](v.png) |
+| **Turns** | ![サポート](v.png) | ![サポート](v.png) |
+| **Shapes** | ![サポート](v.png) | ![サポート](v.png) |
+| **Loops** | ![サポート](v.png) | ![サポート](v.png) |
+| **Custom Path** | ![サポート](v.png) | ![サポート](v.png) |
 
-## **サポートされているスライド遷移効果**
+## **サポートされているスライド トランジション エフェクト**
+
+スライド トランジション エフェクトは、動画内でスライド間のスムーズで視覚的に魅力的な切り替えを実現する重要な要素です。Aspose.Slides for .NET は、元のプレゼンテーションの流れとスタイルを保持するために、一般的に使用されるさまざまなトランジション エフェクトをサポートしています。このセクションでは、変換プロセス中にサポートされているトランジション エフェクトをまとめています。
 
 **微妙**:
 
-| アニメーションの種類 | Aspose.Slides | PowerPoint |
+| アニメーションタイプ | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **モーフ** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **フェード** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **プッシュ** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **プル** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **ワイプ** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **スプリット** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **リビール** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **ランダムバー** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **シェイプ** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **アンカバー** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **カバー** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **フラッシュ** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **ストリップ** | ![サポートされています](v.png) | ![サポートされています](v.png) |
+| **Morph** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Fade** | ![サポート](v.png) | ![サポート](v.png) |
+| **Push** | ![サポート](v.png) | ![サポート](v.png) |
+| **Pull** | ![サポート](v.png) | ![サポート](v.png) |
+| **Wipe** | ![サポート](v.png) | ![サポート](v.png) |
+| **Split** | ![サポート](v.png) | ![サポート](v.png) |
+| **Reveal** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Random Bars** | ![サポート](v.png) | ![サポート](v.png) |
+| **Shape** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Uncover** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Cover** | ![サポート](v.png) | ![サポート](v.png) |
+| **Flash** | ![サポート](v.png) | ![サポート](v.png) |
+| **Strips** | ![サポート](v.png) | ![サポート](v.png) |
 
 **エキサイティング**:
 
-| アニメーションの種類 | Aspose.Slides | PowerPoint |
+| アニメーションタイプ | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **フォールオーバー** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **ドレープ** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **カーテン** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **風** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **プレステージ** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **フラクチャー** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **クラッシュ** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **剥がす** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **ページカール** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **飛行機** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **折り紙** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **溶解** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **チェッカーボード** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **ブラインド** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **時計** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **波紋** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **ハニカム** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **グリッター** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **渦** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **シュレッド** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **スイッチ** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **フリップ** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **ギャラリー** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **キューブ** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **ドア** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **ボックス** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **コーム** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **ズーム** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **ランダム** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
+| **Fall Over** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Drape** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Curtains** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Wind** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Prestige** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Fracture** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Crush** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Peel Off** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Page Curl** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Airplane** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Origami** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Dissolve** | ![サポート](v.png) | ![サポート](v.png) |
+| **Checkerboard** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Blinds** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Clock** | ![サポート](v.png) | ![サポート](v.png) |
+| **Ripple** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Honeycomb** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Glitter** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Vortex** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Shred** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Switch** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Flip** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Gallery** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Cube** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Doors** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Box** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Comb** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Zoom** | ![サポート](v.png) | ![サポート](v.png) |
+| **Random** | ![未サポート](x.png) | ![サポート](v.png) |
 
-**動的コンテンツ**:
+**ダイナミック コンテンツ**:
 
-| アニメーションの種類 | Aspose.Slides | PowerPoint |
+| アニメーションタイプ | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **パン** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **観覧車** | ![サポートされています](v.png) | ![サポートされています](v.png) |
-| **コンベヤ** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **回転** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **軌道** | ![サポートされていません](x.png) | ![サポートされています](v.png) |
-| **飛行を通過する** | ![サポートされています](v.png) | ![サポートされています](v.png) |
+| **Pan** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Ferris Wheel** | ![サポート](v.png) | ![サポート](v.png) |
+| **Conveyor** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Rotate** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Orbit** | ![未サポート](x.png) | ![サポート](v.png) |
+| **Fly Through** | ![サポート](v.png) | ![サポート](v.png) |
+
+## **FAQ**
+
+**パスワード保護されたプレゼンテーションを変換できますか？**
+
+はい、Aspose.Slides for .NET はパスワードで保護されたプレゼンテーションの操作をサポートしています。これらのファイルを処理する際は、正しいパスワードを提供してライブラリがプレゼンテーションのコンテンツにアクセスできるようにする必要があります。
+
+**Aspose.Slides for .NET はクラウド ソリューションでの使用をサポートしていますか？**
+
+はい、Aspose.Slides for .NET はクラウド アプリケーションやサービスに統合可能です。サーバー環境での高性能・スケーラビリティを考慮して設計されており、ファイルのバッチ処理に最適です。
+
+**変換時にプレゼンテーションのサイズ制限はありますか？**
+
+Aspose.Slides for .NET は実質的に任意のサイズのプレゼンテーションを扱うことができます。ただし、非常に大きなファイルを処理する場合は追加のシステムリソースが必要になることがあり、パフォーマンス向上のためにプレゼンテーションを最適化することが推奨されることがあります。

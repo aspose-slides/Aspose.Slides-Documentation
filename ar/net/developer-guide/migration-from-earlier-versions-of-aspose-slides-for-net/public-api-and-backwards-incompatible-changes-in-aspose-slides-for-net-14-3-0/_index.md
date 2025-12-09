@@ -1,17 +1,33 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 14.3.0
+title: "واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 14.3.0"
+linktitle: "Aspose.Slides لـ .NET 14.3.0"
 type: docs
 weight: 50
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-3-0/
+keywords:
+- الترحيل
+- كود قديم
+- كود حديث
+- نهج قديم
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "استعراض تحديثات واجهة برمجة التطبيقات العامة والتغييرات المكسرة في Aspose.Slides لـ .NET للقيام بترحيل سلس لحلول عروض PowerPoint PPT و PPTX و ODP."
 ---
 
-## **واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة**
-### **تمت إضافة تعداد Aspose.Slides.ShapeThumbnailBounds وطرق Aspose.Slides.IShape.GetThumbnail()**
-تستخدم طرق GetThumbnail() وGetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY) لإنشاء صورة مصغرة منفصلة للشكل. يحدد تعداد ShapeThumbnailBounds أنواع حدود الصورة المصغرة الممكنة.
-### **تمت إضافة خاصية UniqueId إلى Aspose.Slides.IShape**
-تحصل خاصية Aspose.Slides.IShape.UniqueId على معرّف فريد للشكل في نطاق العرض التقديمي. يتم تخزين هذه المعرفات الفريدة في علامات الشكل المخصصة.
-### **تغيرت توقيع طريقة SetGroupingItem في IChartCategoryLevelsManager**
-توقيع طريقة IChartCategoryLevelsManager
+## **‏واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة**
+### **تم إضافة تعداد Aspose.Slides.ShapeThumbnailBounds وطرق Aspose.Slides.IShape.GetThumbnail()**
+تُستخدم الطُرُق GetThumbnail() و GetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY) لإنشاء صورة مصغَّرة للشكل منفصلة. يُعرّف تعداد ShapeThumbnailBounds الأنواع الممكنة لحدود الصورة المصغرة للشكل.
+
+### **تم إضافة الخاصية UniqueId إلى Aspose.Slides.IShape**
+تُعيد الخاصية Aspose.Slides.IShape.UniqueId معرفًا فريدًا للشكل داخل نطاق العرض التقديمي. تُخزن هذه المعرفات الفريدة في وسوم مخصصة للشكل.
+
+### **تم تغيير توقيع طريقة SetGroupingItem في IChartCategoryLevelsManager**
+كان توقيع طريقة IChartCategoryLevelsManager
 
 ``` csharp
 
@@ -19,7 +35,7 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 
 ``` 
 
-أصبح غير متاح الآن وتم استبداله بالتوقيع
+قديمًا الآن وتم استبداله بالتوقيع
 
 ``` csharp
 
@@ -27,7 +43,7 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 
 ``` 
 
-يجب الآن تغيير الاستدعاءات مثل
+لذلك يجب تغيير الاستدعاءات مثل
 
 ``` csharp
 
@@ -43,16 +59,20 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 
 ``` 
 
-تمرير قيمة مثل "Group 1" إلى SetGroupingItem ولكن ليس قيمة من نوع IChartDataCell. يجب أن يتوافق بناء IChartDataCell مع ورقة عمل محددة، صف وعمود لمستويات الفئة مع بعض المتطلبات وقد تم encapsulated في الطريقة SetGroupingItem(int, object).
-### **تمت إضافة خاصية SlideId إلى واجهة Aspose.Slides.IBaseSlide**
-تحصل خاصية SlideId على معرّف شريحة فريد.
-### **تمت إضافة خاصية SoundName إلى ISlideShowTransition**
-نص قابل للقراءة والكتابة. يحدد اسمًا قابلًا للقراءة البشرية لصوت الانتقال. يجب تعيين خاصية Sound للحصول على أو تعيين اسم الصوت. يظهر هذا الاسم في واجهة مستخدم PowerPoint عند تكوين صوت الانتقال يدويًا. قد يؤدي إلى إثارة PptxException عندما لا يتم تعيين خاصية Sound.
-### **تغير نوع خاصية ChartSeriesGroup.Type**
-تم تغيير خاصية ChartSeriesGroup.Type من تعداد ChartType إلى تعداد CombinableSeriesTypesGroup الجديد. يمثل تعداد CombinableSeriesTypesGroup مجموعات من أنواع السلاسل القابلة للجمع.
-### **إضافة دعم لإنشاء صور مصغرة منفصلة للشكل**
+مرّر قيمة مثل "Group 1" إلى SetGroupingItem بدلاً من قيمة من نوع IChartDataCell. إن بناء IChartDataCell باستخدام ورقة عمل محددة، صف وعمود لمستويات الفئة يتطلب بعض المتطلبات وقد تم تغليفه داخل طريقة SetGroupingItem(int, object).
+
+### **تم إضافة الخاصية SlideId إلى واجهة Aspose.Slides.IBaseSlide**
+تُعيد الخاصية SlideId معرفًا فريدًا للشفرة.
+
+### **تم إضافة الخاصية SoundName إلى ISlideShowTransition**
+سلسلة قابلة للقراءة والكتابة. تُحدد اسمًا مقروءًا للبشر لصوت الانتقال. يجب تعيين الخاصية Sound لتحديد أو الحصول على اسم الصوت. يظهر هذا الاسم في واجهة PowerPoint عند تكوين صوت الانتقال يدويًا. قد تُطلق استثناء PptxException إذا لم يتم تعيين الخاصية Sound.
+
+### **تم تغيير نوع الخاصية ChartSeriesGroup.Type**
+تم تغيير الخاصية ChartSeriesGroup.Type من تعداد ChartType إلى تعداد CombinableSeriesTypesGroup الجديد. يُمثِّل تعداد CombinableSeriesTypesGroup مجموعات الأنواع القابلة للجمع لسلاسل البيانات.
+
+### **تم إضافة دعم إنشاء صور مصغرة فردية للأشكال**
 Aspose.Slides.ShapeThumbnailBounds
 
-أعضاء جدد في Aspose.Slides.IShape، Aspose.Slides.Shape:
+الأعضاء الجدد في Aspose.Slides.IShape و Aspose.Slides.Shape:
 public Bitmap GetThumbnail()
 public Bitmap GetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY)

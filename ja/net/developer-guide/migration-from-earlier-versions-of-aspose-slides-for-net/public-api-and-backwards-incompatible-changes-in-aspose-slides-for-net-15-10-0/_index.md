@@ -1,24 +1,36 @@
 ---
-title: Aspose.Slides for .NET 15.10.0 における公開 API と後方互換性のない変更
+title: Aspose.Slides for .NET 15.10.0 のパブリック API と後方互換性のない変更
+linktitle: Aspose.Slides for .NET 15.10.0
 type: docs
 weight: 200
 url: /ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/
+keywords:
+- 移行
+- レガシーコード
+- 最新コード
+- レガシーアプローチ
+- 最新アプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET のパブリック API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
 ---
 
 {{% alert color="primary" %}} 
-
-このページでは、Aspose.Slides for .NET 15.10.0 API で追加または削除されたすべての [added](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) または [removed](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) クラス、メソッド、プロパティ、その他の変更をリストしています。
-
+このページでは、Aspose.Slides for .NET 15.10.0 APIで導入された、[追加](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/)または[削除](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/)されたクラス、メソッド、プロパティなど、その他の変更をすべて一覧表示します。 
 {{% /alert %}} 
-## **公開 API の変更**
-#### **メディアファイルを HTML にエクスポートするサポートのために新しい VideoPlayerHtmlController が追加されました**
-新しい公開クラス VideoPlayerHtmlController が Aspose.Slides.Export 名前空間に追加されました。このクラスのインスタンスを使用すると、ユーザーは動画と音声ファイルを HTML にエクスポートできます。
-VideoPlayerHtmlController コンストラクタは、次のパラメータを受け入れます:
+## **パブリック API の変更**
+#### **メディア ファイルを HTML にエクスポートするために追加された新しい VideoPlayerHtmlController**
+新しいパブリック クラス VideoPlayerHtmlController が Aspose.Slides.Export 名前空間に追加されました。このクラスのインスタンスを使用すると、ユーザーはビデオおよびオーディオ ファイルを HTML にエクスポートできます。  
+VideoPlayerHtmlController のコンストラクターは以下のパラメーターを受け取ります：  
 
-path: 動画と音声ファイルが生成されるパス
-fileName: HTML ファイルの名前
+path: ビデオおよびオーディオ ファイルが生成されるパス  
+fileName: HTML ファイルの名前  
+baseUri: リンク生成に使用されるベース URI  
 
-baseUri: リンクを生成するために使用される基本 URI
 使用例：
 
 ``` csharp
@@ -48,8 +60,8 @@ baseUri: リンクを生成するために使用される基本 URI
 }
 
 ``` 
-#### **チャート シリーズ アニメーション API が追加されました**
-新しい 2 つのメソッドが Aspose.Slides.Animation.ISequence インターフェースに追加されました。
+#### **チャート系列アニメーション API が追加されました**
+Aspose.Slides.Animation.ISequence インターフェイスに新しい 2 つのメソッドが追加されました。
 
 ``` csharp
 
@@ -59,15 +71,15 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-これらのメソッドは、チャートの要素アニメーションをサポートすることを目的としています:
-シリーズごと
-カテゴリごと
-シリーズ要素ごと
-カテゴリ要素ごと
+これらのメソッドはチャート要素のアニメーションをサポートすることを目的としています：  
+by series → 系列ごと  
+by categories → カテゴリごと  
+by series elements → 系列要素ごと  
+by categories elements → カテゴリ要素ごと  
 
-チャートの要素アニメーションに関連する新しい enum EffectChartMajorGroupingType と EffectChartMinorGroupingType が導入されました。
+チャート要素のアニメーションに関連する新しい列挙型 EffectChartMajorGroupingType と EffectChartMinorGroupingType が導入されました。
 
-チャートにシリーズアニメーションを追加するには、次のコードを使用できます：
+チャートに系列アニメーションを追加するには、以下のコードを使用できます：
 
 ``` csharp
 
@@ -115,7 +127,7 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-カテゴリアニメーション：
+カテゴリ アニメーション：
 
 ``` csharp
 
@@ -163,7 +175,7 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-シリーズ要素アニメーション：
+系列要素 アニメーション：
 
 ``` csharp
 
@@ -259,7 +271,7 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-カテゴリ要素アニメーション：
+カテゴリ要素 アニメーション：
 
 ``` csharp
 
@@ -353,4 +365,4 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 }
 
-``` 
+```

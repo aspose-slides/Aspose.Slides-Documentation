@@ -1,16 +1,36 @@
 ---
-title: تحويل PowerPoint إلى GIF متحرك
+title: تحويل عروض باوربوينت إلى صور GIF متحركة في .NET
+linktitle: باوربوينت إلى GIF
 type: docs
 weight: 65
 url: /ar/net/convert-powerpoint-to-animated-gif/
-keywords: "تحويل PowerPoint، PPT، PPTX، GIF متحرك، PPT إلى GIF متحرك، PPTX إلى GIF متحرك C#، Csharp، .NET، إعدادات افتراضية، إعدادات مخصصة"
-description: "تحويل عرض PowerPoint إلى GIF متحرك: PPT إلى GIF، PPTX إلى GIF في C# أو .NET"
+keywords:
+- GIF متحرك
+- تحويل باوربوينت
+- تحويل عرض تقديمي
+- تحويل شريحة
+- تحويل PPT
+- تحويل PPTX
+- باوربوينت إلى GIF
+- عرض تقديمي إلى GIF
+- شريحة إلى GIF
+- PPT إلى GIF
+- PPTX إلى GIF
+- حفظ PPT كـ GIF
+- حفظ PPTX كـ GIF
+- تصدير PPT كـ GIF
+- تصدير PPTX كـ GIF
+- الإعدادات الافتراضية
+- الإعدادات المخصصة
+- .NET
+- C#
+- Aspose.Slides
+description: "تحويل عروض باوربوينت (PPT، PPTX) إلى صور GIF متحركة بسهولة باستخدام Aspose.Slides لـ .NET. نتائج سريعة وعالية الجودة."
 ---
 
-## تحويل العروض التقديمية إلى GIF متحرك باستخدام الإعدادات الافتراضية ##
+## **تحويل العروض التقديمية إلى صورة GIF متحركة باستخدام الإعدادات الافتراضية**
 
-هذا الكود المثال في C# يوضح لك كيفية تحويل عرض تقديمي إلى GIF متحرك باستخدام الإعدادات القياسية:
-
+يعرض لك هذا المثال البرمجي بلغة C# كيفية تحويل عرض تقديمي إلى صورة GIF متحركة باستخدام الإعدادات القياسية:
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -18,31 +38,37 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-سيتم إنشاء GIF المتحرك باستخدام المعايير الافتراضية.
 
-{{% alert title="نصيحة" color="primary" %}}
+سيتم إنشاء صورة GIF المتحركة باستخدام المعلمات الافتراضية.
 
-إذا كنت تفضل تخصيص المعلمات لـ GIF، يمكنك استخدام فئة [GifOptions](https://reference.aspose.com/slides/net/aspose.slides.export/gifoptions). انظر الكود المثال أدناه.
+{{%  alert  title="TIP"  color="primary"  %}} 
+إذا كنت تفضل تخصيص معلمات GIF، يمكنك استخدام الفئة [GifOptions](https://reference.aspose.com/slides/net/aspose.slides.export/gifoptions). راجع المثال البرمجي أدناه. 
+{{% /alert %}} 
 
-{{% /alert %}}
+## **تحويل العروض التقديمية إلى صورة GIF متحركة باستخدام الإعدادات المخصصة**
 
-## تحويل العروض التقديمية إلى GIF متحرك باستخدام إعدادات مخصصة ##
-هذا الكود المثال يوضح لك كيفية تحويل عرض تقديمي إلى GIF متحرك باستخدام إعدادات مخصصة في C#:
-
+يعرض لك هذا المثال البرمجي كيفية تحويل عرض تقديمي إلى صورة GIF متحركة باستخدام الإعدادات المخصصة في C#:
 ``` csharp
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Save("pres.gif", SaveFormat.Gif, new GifOptions
     {
-        FrameSize = new Size(960, 720), // حجم GIF الناتج  
-        DefaultDelay = 2000, // المدة التي سيتم عرض كل شريحة قبل الانتقال إلى الشريحة التالية
-        TransitionFps = 35 // زيادة FPS لتحسين جودة انتقال الرسوم المتحركة
+        FrameSize = new Size(960, 720), // حجم GIF الناتج
+        DefaultDelay = 2000, // مدة عرض كل شريحة قبل الانتقال إلى التالية
+        TransitionFps = 35 // زيادة عدد الإطارات في الثانية لتحسين جودة حركة الانتقال
     });
 }
 ```
 
-{{% alert title="معلومات" color="info" %}}
 
-قد ترغب في الاطلاع على محول [Text to GIF](https://products.aspose.app/slides/text-to-gif) مجاني طورته Aspose.
-
+{{% alert title="Info" color="info" %}}
+قد ترغب في تجربة محول مجاني من النص إلى GIF [Text to GIF](https://products.aspose.app/slides/text-to-gif) تم تطويره بواسطة Aspose. 
 {{% /alert %}}
+
+## **الأسئلة الشائعة**
+
+**ماذا لو لم يتم تثبيت الخطوط المستخدمة في العرض التقديمي على النظام؟**
+قم بتثبيت الخطوط المفقودة أو [configure fallback fonts](/slides/ar/net/powerpoint-fonts/). سيقوم Aspose.Slides بالاستبدال، لكن قد يختلف المظهر. لضمان العلامة التجارية، تأكد دائمًا من توفر الخطوط المطلوبة صراحة.
+
+**هل يمكنني إضافة علامة مائية فوق إطارات GIF؟**
+نعم. [Add a semi-transparent object/logo](/slides/ar/net/watermark/) إلى الشريحة الرئيسية أو إلى الشرائح الفردية قبل التصدير — ستظهر العلامة المائية على كل إطار.

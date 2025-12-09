@@ -1,137 +1,123 @@
 ---
-title: Aspose.Slides for .NET 16.2.0 的公共 API 和向后不兼容的更改
+title: 公共 API 和向后不兼容的更改（Aspose.Slides for .NET 16.2.0）
+linktitle: Aspose.Slides for .NET 16.2.0
 type: docs
 weight: 230
 url: /zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-2-0/
+keywords:
+- 迁移
+- 老代码
+- 现代代码
+- 老式方法
+- 现代方法
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- .NET
+- C#
+- Aspose.Slides
+description: "审查 Aspose.Slides for .NET 中的公共 API 更新和破坏性更改，以顺利迁移您的 PowerPoint PPT、PPTX 和 ODP 演示文稿解决方案。"
 ---
 
 {{% alert color="primary" %}} 
-
-此页面列出了所有在 Aspose.Slides for .NET 16.2.0 API 中[添加](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-2-0/)或[移除](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-2-0/)的类、方法、属性等，以及其他更改。
-
+此页面列出所有 [已添加](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-2-0/) 或 [已删除](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-2-0/) 的类、方法、属性等，以及 Aspose.Slides for .NET 16.2.0 API 引入的其他更改。
 {{% /alert %}} 
-## **公共 API 更改**
-#### **属性 UpdateDateTimeFields 和 UpdateSlideNumberFields 已被移除**
-属性 UpdateDateTimeFields 和 UpdateSlideNumberFields 已从 Aspose.Slides.Presentation 类和 Aspose.Slides.IPresentation 接口中移除。
-Aspose.Slides.TextFrame、Paragraph、Portion 类以及 Aspose.Slides.ITextFrame、IParagraph、IPortion 接口的 Text 属性返回带有更新的 "datetime" 字段的文本。
-此外，属性 Presentation.DocumentProperties.CreatedTime、LastSavedTime 和 LastPrinted 变为只读。
-#### **枚举 Slides.Charts.CategoryAxisType 已切换为公共**
-用于 IAxis.CategoryAxisType 和 Axis.CategoryAxisType 属性以确定类别轴类型。
-CategoryAxisType.Auto - 类别轴类型将在序列化过程中自动确定（该行为目前尚未实现）
-CategoryAxisType.Text - 类别轴类型为文本
-CategoryAxisType.Date - 类别轴类型为日期时间
-#### **快速文本提取**
-已在 Presentation 类中添加新的静态方法 GetPresentationText。该方法有两个重载：
+## **Public API Changes**
+#### **Properties UpdateDateTimeFields and UpdateSlideNumberFields have been removed**
+已从 Aspose.Slides.Presentation 类和 Aspose.Slides.IPresentation 接口中移除属性 UpdateDateTimeFields 和 UpdateSlideNumberFields。  
+Aspose.Slides.TextFrame、Paragraph、Portion 类以及 Aspose.Slides.ITextFrame、IParagraph、IPortion 接口的 Text 属性现在返回已更新“datetime”字段的文本。  
+此外，Presentation.DocumentProperties.CreatedTime、LastSavedTime 和 LastPrinted 属性已变为只读。
 
-``` csharp
+#### **Enum Slides.Charts.CategoryAxisType has been switched to public**
+在 IAxis.CategoryAxisType 和 Axis.CategoryAxisType 属性中使用，以确定类目轴类型。  
+- CategoryAxisType.Auto – 在序列化期间自动确定类目轴类型（此行为目前未实现）  
+- CategoryAxisType.Text – 类目轴类型为 Text  
+- CategoryAxisType.Date – 类目轴类型为 DateTime  
 
- PresentationText GetPresentationText(Stream stream)
+#### **Fast text extraction**
+已在 Presentation 类中添加静态方法 GetPresentationText。此方法有两个重载：
+
+```csharp
+PresentationText GetPresentationText(Stream stream)
 
 PresentationText GetPresentationText(Stream stream, ExtractionMode mode)
+```
 
-``` 
+ExtractionMode 枚举参数指示文本结果的组织方式，可设为以下值：  
+- Unarranged – 原始文本，不考虑幻灯片上的位置  
+- Arranged – 文本按幻灯片上的顺序排列  
 
-ExtractionMode 枚举参数指示输出文本结果的组织模式，可以设置为以下值：
-Unarranged - 原始文本不考虑在幻灯片上的位置
-Arranged - 文本以与幻灯片相同的顺序定位
+当速度至关重要时，可使用 Unarranged 模式，它比 Arranged 模式更快。
 
-当速度至关重要时，可以使用 Unarranged 模式，它比 Arranged 模式更快。
+PresentationText 表示从演示文稿中提取的原始文本。它包含来自 Aspose.Slides.Util 命名空间的 SlidesText 属性，返回 ISlideText 对象数组。每个对象表示对应幻灯片上的文本。ISlideText 对象具有以下属性：
 
-PresentationText 表示从演示文稿中提取的原始文本。它包含来自 Aspose.Slides.Util 命名空间的 SlidesText 属性，返回 ISlideText 对象的数组。每个对象代表相应幻灯片上的文本。ISlideText 对象具有以下属性：
+- ISlideText.Text – 幻灯片形状上的文本  
+- ISlideText.MasterText – 该幻灯片所在母版页形状上的文本  
+- ISlideText.LayoutText – 该幻灯片所在版式页形状上的文本  
+- ISlideText.NotesText – 该幻灯片笔记页形状上的文本  
 
-ISlideText.Text - 幻灯片形状上的文本
-ISlideText.MasterText - 此幻灯片的母版页面形状上的文本
-ISlideText.LayoutText - 此幻灯片的布局页面形状上的文本
-ISlideText.NotesText - 此幻灯片的备注页面形状上的文本
+另外还有实现 ISlideText 接口的 SlideText 类。
 
-还有一个 SlideText 类实现了 ISlideText 接口。
+新的 API 使用示例：
 
-新的 API 可以像这样使用：
-
-``` csharp
-
- PresentationText text1 = Presentation.GetPresentationText("presentation.ppt");
-
+```csharp
+PresentationText text1 = Presentation.GetPresentationText("presentation.ppt");
 Console.WriteLine(text1.SlidesText[0].Text);
-
 Console.WriteLine(text1.SlidesText[0].LayoutText);
-
 Console.WriteLine(text1.SlidesText[0].MasterText);
-
 Console.WriteLine(text1.SlidesText[0].NotesText);
 
-PresentationText text2 = Presentation.GetPresentationText("presentation.pptx", ExtractionMode.Unarranged)
+PresentationText text2 = Presentation.GetPresentationText("presentation.pptx", ExtractionMode.Unarranged);
+```
 
-``` 
-#### **已添加 ILegacyDiagram 接口和 LegacyDiagram 类**
-接口 Aspose.Slides.ILegacyDiagram 和类 Aspose.Slides.LegacyDiagram 已添加以表示旧版图表对象。旧版图表对象是 PowerPoint 97-2003 的旧格式图表。
-新类提供了将旧版图表转换为现代可编辑 SmartArt 对象或可编辑 GroupShape 的方法。
-#### **新增 Aspose.Slides.TextAlignment 枚举成员 (JustifyLow)**
-添加了 TextAlignment 枚举的新成员：
-JustifyLow - Kashida 低对齐。
-#### **为 Aspose.Slides.IOleObjectFrame 和 OleObjectFrame 添加新属性**
-为实现该接口的 IOleObjectFrame 接口和 OleObjectFrame 类添加了新属性。这些属性用于提供关于嵌入演示文稿中的对象的信息：
-EmbeddedFileExtension - 返回当前嵌入对象的文件扩展名，或如果对象不是链接则返回空字符串
-EmbeddedFileLabel - 返回嵌入 OLE 对象的文件名
-EmbeddedFileName - 返回嵌入 OLE 对象的路径
-#### **为 IAxis 和 Axis 类添加了新属性 CategoryAxisType**
-属性 CategoryAxisType 指定类别轴的类型。
+#### **ILegacyDiagram interface and LegacyDiagram class have been added**
+已添加接口 Aspose.Slides.ILegacyDiagram 和类 Aspose.Slides.LegacyDiagram，用于表示旧版图表对象。Legacy diagram 对象是 PowerPoint 97‑2003 中的旧格式图表。新类提供将旧版图表转换为可编辑的 SmartArt 对象或可编辑的 GroupShape 的方法。
 
-``` csharp
+#### **New Aspose.Slides.TextAlignment enum membed added (JustifyLow)**
+TextAlignment 枚举新增成员：  
+- JustifyLow – Kashida 低对齐。
 
- using (Presentation pres = new Presentation(sourcePptxFileName))
+#### **New properties for Aspose.Slides.IOleObjectFrame and OleObjectFrame**
+在 IOleObjectFrame 接口及其实现类 OleObjectFrame 中新增以下属性，用于提供嵌入对象的信息：  
+- EmbeddedFileExtension – 返回当前嵌入对象的文件扩展名；若对象不是链接则返回空字符串  
+- EmbeddedFileLabel – 返回嵌入 OLE 对象的文件名  
+- EmbeddedFileName – 返回嵌入 OLE 对象的路径  
 
+#### **New property CategoryAxisType has been added to IAxis and Axis classes**
+在 IAxis 和 Axis 类中添加了 CategoryAxisType 属性，用于指定类目轴类型。
+
+```csharp
+using (Presentation pres = new Presentation(sourcePptxFileName))
 {
-
-   IChart chart = pres.Slides[0].Shapes[0] as IChart;
-
-   chart.Axes.HorizontalAxis.CategoryAxisType = CategoryAxisType.Date;
-
-   chart.Axes.HorizontalAxis.IsAutomaticMajorUnit = false;
-
-   chart.Axes.HorizontalAxis.MajorUnit = 1;
-
-   chart.Axes.HorizontalAxis.MajorUnitScale = TimeUnitType.Months;
-
-   pres.Save(pptxOutPath, SaveFormat.Pptx);
-
+    IChart chart = pres.Slides[0].Shapes[0] as IChart;
+    chart.Axes.HorizontalAxis.CategoryAxisType = CategoryAxisType.Date;
+    chart.Axes.HorizontalAxis.IsAutomaticMajorUnit = false;
+    chart.Axes.HorizontalAxis.MajorUnit = 1;
+    chart.Axes.HorizontalAxis.MajorUnitScale = TimeUnitType.Months;
+    pres.Save(pptxOutPath, SaveFormat.Pptx);
 }
+```
 
-``` 
-#### **为 DataLabelFormat 类和 IDataLabelFormat 接口添加了新属性 ShowLabelAsDataCallout**
-属性 ShowLabelAsDataCallout 确定指定的图表数据标签将作为数据调用显示还是作为数据标签显示。
+#### **New property ShowLabelAsDataCallout has been added to DataLabelFormat class and IDataLabelFormat interface**
+ShowLabelAsDataCallout 属性决定指定图表的数据标签是显示为数据标注还是数据标签。
 
-``` csharp
-
- using (Presentation pres = new Presentation())
-
+```csharp
+using (Presentation pres = new Presentation())
 {
-
-   IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 500, 400);
-
-   chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-   chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowLabelAsDataCallout = true;
-
-   chart.ChartData.Series[0].Labels[2].DataLabelFormat.ShowLabelAsDataCallout = false;
-
-   pres.Save(pptxFileName, SaveFormat.Pptx);
-
+    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 500, 400);
+    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowLabelAsDataCallout = true;
+    chart.ChartData.Series[0].Labels[2].DataLabelFormat.ShowLabelAsDataCallout = false;
+    pres.Save(pptxFileName, SaveFormat.Pptx);
 }
+```
 
-``` 
-#### **为 PdfOptions 和 XpsOptions 添加了 DrawSlidesFrame 属性**
-布尔属性 DrawSlidesFrame 已添加到接口 Aspose.Slides.Export.IPdfOptions、Aspose.Slides.Export.IXpsOptions 以及相关类 Aspose.Slides.Export.PdfOptions、Aspose.Slides.Export.XpsOptions。
-如果将此属性设置为 'true'，则会绘制每个幻灯片周围的黑色框。
+#### **Property DrawSlidesFrame has been added to PdfOptions and XpsOptions**
+在 Aspose.Slides.Export.IPdfOptions、Aspose.Slides.Export.IXpsOptions 接口以及对应的 PdfOptions、XpsOptions 类中新增布尔属性 DrawSlidesFrame。若将该属性设为 true，则将在每张幻灯片周围绘制黑色框。
 
-``` csharp
-
- using (Presentation pres = new Presentation("input.pptx"))
-
+```csharp
+using (Presentation pres = new Presentation("input.pptx"))
 {
-
     pres.Save("output.pdf", SaveFormat.Pdf, new PdfOptions() { DrawSlidesFrame = true });
-
 }
-
-``` 
+```

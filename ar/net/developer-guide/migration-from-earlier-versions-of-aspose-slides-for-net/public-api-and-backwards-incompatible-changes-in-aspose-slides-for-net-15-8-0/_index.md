@@ -1,18 +1,32 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 15.8.0
+title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة للعودة في Aspose.Slides for .NET 15.8.0
+linktitle: Aspose.Slides for .NET 15.8.0
 type: docs
 weight: 190
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/
+keywords:
+- ترحيل
+- شفرة قديمة
+- شفرة حديثة
+- نهج قديم
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "مراجعة تحديثات واجهة برمجة التطبيقات العامة والتغييرات المكسرة في Aspose.Slides for .NET للترحيل السلس لحلول عروض PowerPoint PPT و PPTX و ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-تقوم هذه الصفحة بسرد جميع [المضاف](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) أو [المزال](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) من الفئات، والأساليب، والخصائص، وما إلى ذلك، والتغييرات الأخرى التي تم إدخالها مع واجهة برمجة التطبيقات Aspose.Slides لـ .NET 15.8.0.
+تُظهر هذه الصفحة جميع الفئات، الطرق، الخصائص وما إلى ذلك التي تم إضافتها أو إزالتها، وغيرها من التغييرات التي تم تقديمها مع واجهة برمجة تطبيقات Aspose.Slides for .NET 15.8.0.
 
 {{% /alert %}} 
-## **تغييرات واجهة برمجة التطبيقات العامة**
-#### **تم إضافة خاصية DoughnutHoleSize إلى IChartSeries و ChartSeries**
-تحدد حجم الثقب في مخطط الدونات.
+## **تغييرات API العامة**
+#### **تمت إضافة الخاصية DoughnutHoleSize إلى IChartSeries و ChartSeries**
+تحدد حجم الفتحة في مخطط الدونات.
 
 ``` csharp
 
@@ -28,4 +42,4 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 
 }
 
-``` 
+```

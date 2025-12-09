@@ -1,97 +1,110 @@
 ---
-title: プレゼンテーションにヘッダーとフッターを追加する方法
+title: ".NET でプレゼンテーションにヘッダーとフッターを追加する方法"
+linktitle: "ヘッダーとフッターの追加"
 type: docs
 weight: 20
 url: /ja/net/how-to-add-header-footer-in-a-presentation/
+keywords:
+- 移行
+- ヘッダーの追加
+- フッターの追加
+- レガシーコード
+- モダンコード
+- レガシーアプローチ
+- モダンアプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: ".NET で PowerPoint PPT、PPTX、ODP プレゼンテーションにヘッダーとフッターを追加する方法を、レガシーおよびモダンな Aspose.Slides API を使用して学びます。"
 ---
 
 {{% alert color="primary" %}} 
-
-新しい[Aspose.Slides for .NET API](/slides/ja/net/)がリリースされ、これ一つの製品でゼロからPowerPointドキュメントを生成し、既存のものを編集する機能をサポートしています。
-
+新しい [Aspose.Slides for .NET API](/slides/ja/net/) がリリースされ、この単一製品で、PowerPoint ドキュメントをゼロから生成したり、既存のドキュメントを編集したりする機能がサポートされています。
 {{% /alert %}} 
 ## **レガシーコードのサポート**
-Aspose.Slides for .NETの13.x以前のバージョンで開発されたレガシーコードを使用するには、いくつかの小さな変更を加える必要があります。そうすれば、従来通りに動作します。古いAspose.Slides for .NETでAspose.SlideおよびAspose.Slides.Pptx名前空間に存在したすべてのクラスは、現在単一のAspose.Slides名前空間に統合されました。以下の簡単なコードスニペットをご覧いただき、レガシーAspose.Slides APIでプレゼンテーションにヘッダーとフッターを追加する方法を確認し、新しい統合APIへの移行手順に従ってください。
-## **レガシーAspose.Slides for .NETアプローチ**
+13.x より前の Aspose.Slides for .NET バージョンで開発されたレガシーコードを使用するには、コードにいくつかの小さな変更を加える必要がありますが、変更後も従来通りに動作します。旧 Aspose.Slides for .NET の Aspose.Slide および Aspose.Slides.Pptx 名前空間に存在していたすべてのクラスは、現在単一の Aspose.Slides 名前空間に統合されています。以下のシンプルなコードスニペット（レガシー Aspose.Slides API でプレゼンテーションにヘッダーとフッターを追加する例）をご覧いただき、新しい統合 API への移行手順をご確認ください。
+## **レガシー Aspose.Slides for .NET アプローチ**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
 
-//ヘッダー・フッターの可視性プロパティを設定
+//Setting Header Footer visibility properties
 sourcePres.UpdateSlideNumberFields = true;
 
-//日付時刻フィールドを更新
+//Update the Date Time Fields
 sourcePres.UpdateDateTimeFields = true;
 
-//日付時刻のプレースホルダーを表示
+//Show date time placeholder
 sourcePres.HeaderFooterManager.IsDateTimeVisible = true;
 
-//フッターのプレースホルダーを表示
+//Show the footer place holder
 sourcePres.HeaderFooterManager.IsFooterVisible = true;
 
-//スライド番号を表示
+//Show Slide Number
 sourcePres.HeaderFooterManager.IsSlideNumberVisible = true;
 
-//タイトルスライドでのヘッダー・フッターの可視性を設定
+//Set the  header footer visibility on Title Slide
 sourcePres.HeaderFooterManager.SetVisibilityOnTitleSlide(true);
 
-//プレゼンテーションをディスクに書き込む
+//Write the presentation to the disk
 sourcePres.Write("NewSource.pptx");
 ```
 
 ```c#
-//プレゼンテーションを作成
+//プレゼンテーションを作成する
 Presentation pres = new Presentation();
 
-//最初のスライドを取得
+//最初のスライドを取得する
 Slide sld = pres.GetSlideByPosition(1);
 
-//スライドのヘッダー / フッターにアクセス
+//スライドのヘッダー/フッターにアクセスする
 HeaderFooter hf = sld.HeaderFooter;
 
-//ページ番号の可視性を設定
+//ページ番号の表示を設定する
 hf.PageNumberVisible = true;
 
-//フッターの可視性を設定
+//フッターの表示を設定する
 hf.FooterVisible = true;
 
-//ヘッダーの可視性を設定
+//ヘッダーの表示を設定する
 hf.HeaderVisible = true;
 
-//日付時刻の可視性を設定
+//日時の表示を設定する
 hf.DateTimeVisible = true;
 
-//日付時刻のフォーマットを設定
+//日時の形式を設定する
 hf.DateTimeFormat = DateTimeFormat.DateTime_dMMMMyyyy;
 
-//ヘッダーテキストを設定
-hf.HeaderText = "ヘッダーテキスト";
+//ヘッダーテキストを設定する
+hf.HeaderText = "Header Text";
 
-//フッターテキストを設定
-hf.FooterText = "フッターテキスト";
+//フッターテキストを設定する
+hf.FooterText = "Footer Text";
 
-//プレゼンテーションをディスクに書き込む
+//プレゼンテーションを書き込む
 pres.Write("HeadFoot.ppt");
 ```
 
 
-
-## **新しいAspose.Slides for .NET 13.xアプローチ**
+## **新しい Aspose.Slides for .NET 13.x アプローチ**
 ``` csharp
 using (Presentation sourcePres = new Presentation())
 {
-    //ヘッダー・フッターの可視性プロパティを設定
+    //ヘッダー/フッターの表示プロパティを設定する
     sourcePres.HeaderFooterManager.SetAllSlideNumbersVisibility(true);
 
-    //日付時刻フィールドを更新
+    //日付時刻フィールドを更新する
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //日付時刻のプレースホルダーを表示
+    //日付時刻プレースホルダーを表示する
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //フッターのプレースホルダーを表示
+    //フッタープレースホルダーを表示する
     sourcePres.HeaderFooterManager.SetAllFootersVisibility(true);
     
-    //タイトルスライドでのヘッダー・フッターの可視性を設定
+    //タイトルスライドでヘッダーとフッターの表示を設定する
     sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
     //プレゼンテーションをディスクに書き込む

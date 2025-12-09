@@ -1,56 +1,43 @@
 ---
-title: 3D-Präsentation
+title: Erstellen von 3D-Präsentationen in .NET
+linktitle: 3D-Präsentation
 type: docs
 weight: 232
 url: /de/net/3d-presentation/
 keywords:
-- 3D
 - 3D PowerPoint
 - 3D-Präsentation
-- 3D-Rotation
+- 3D-Drehung
 - 3D-Tiefe
 - 3D-Extrusion
-- 3D-Gradient
+- 3D-Verlauf
 - 3D-Text
-- PowerPoint-Präsentation
+- PowerPoint
+- OpenDocument
+- Präsentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides für .NET
-description: "3D PowerPoint-Präsentation in C# oder .NET"
+- Aspose.Slides
+description: "Erstellen Sie mühelos interaktive 3D-Präsentationen in .NET mit Aspose.Slides. Exportieren Sie schnell in PowerPoint- und OpenDocument-Formate für vielseitige Verwendung."
 ---
 
+## **Übersicht**
+Wie erstellen Sie normalerweise eine 3D PowerPoint‑Präsentation?
+Microsoft PowerPoint ermöglicht das Erstellen von 3D‑Präsentationen, bei denen wir 3D‑Modelle hinzufügen, 3D‑Effekte auf Formen anwenden, 3D‑Text erstellen, 3D‑Grafiken in die Präsentation hochladen und PowerPoint‑3D‑Animationen erzeugen. 
 
-## Übersicht
-Wie erstellen Sie normalerweise eine 3D PowerPoint-Präsentation?
-Microsoft PowerPoint ermöglicht es, 3D-Präsentationen zu erstellen, indem wir dort 3D-Modelle hinzufügen, 3D-Effekte auf Formen anwenden, 
-3D-Text erstellen, 3D-Grafiken in die Präsentation hochladen und PowerPoint 3D-Animationen erstellen. 
+Das Erstellen von 3D‑Effekten hat einen großen Einfluss darauf, Ihre Präsentation zu einer 3D‑Präsentation zu verbessern, und kann die einfachste Umsetzung einer 3D‑Präsentation sein. 
+Seit der Version 20.9 von Aspose.Slides wurde eine neue **plattformübergreifende 3D‑Engine** hinzugefügt. Die neue 3D‑Engine ermöglicht das Exportieren und Rasterisieren von Formen und Text mit 3D‑Effekten. In früheren Versionen wurden Slides‑Formen mit angewendeten 3D‑Effekten flach gerendert. Jetzt ist es jedoch möglich, Formen mit einem **vollwertigen 3D** zu rendern. 
+Zudem ist es jetzt möglich, Formen mit 3D‑Effekten über die öffentliche Slides‑API zu erstellen.
 
-Die Erstellung von 3D-Effekten hat einen großen Einfluss auf die Verbesserung Ihrer Präsentation zu einer 3D-Präsentation und kann die einfachste Umsetzung einer 3D-Präsentation sein. 
-Seit der Version 20.9 von Aspose.Slides wurde ein neuer **plattformerweiterter 3D-Engine** hinzugefügt. Der neue 3D-Engine ermöglicht es, 
-Formen und Text mit 3D-Effekten zu exportieren und zu rasterisieren. In früheren Versionen 
-wurden Formen mit 3D-Effekten flach dargestellt. Aber jetzt ist es möglich, 
-Formen mit einer **vollwertigen 3D** darzustellen.
-Darüber hinaus ist es jetzt möglich, Formen mit 3D-Effekten über die öffentliche API von Slides zu erstellen.
+In der Aspose.Slides‑API verwenden Sie, um eine Form zu einer PowerPoint‑3D‑Form zu machen, die Eigenschaft [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/threedformat) , die die Funktionen des Interfaces [IThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat) erbt:
+- [BevelBottom] und [BevelTop]: Legen Sie eine Schräge für die Form fest, definieren Sie den Schrägtyp (z. B. Angle, Circle, SoftRound) sowie Höhe und Breite der Schräge.
+- [Camera]: Wird verwendet, um Kamerabewegungen um das Objekt zu imitieren. Mit anderen Worten: Durch Einstellen von Drehung, Zoom und anderen Eigenschaften der Kamera können Sie Ihre Formen wie ein 3D‑Modell in PowerPoint manipulieren.
+- [ContourColor] und [ContourWidth]: Setzen Sie Kontur‑Eigenschaften, um die Form wie eine 3D‑PowerPoint‑Form aussehen zu lassen.
+- [Depth], [ExtrusionColor] und [ExtrusionHeight]: Werden verwendet, um die Form dreidimensional zu machen, d. h. eine 2D‑Form in eine 3D‑Form zu konvertieren, indem Sie die Tiefe festlegen oder extrudieren.
+- [LightRig]: Kann einen Lichteffekt auf einer 3D‑Form erzeugen. Die Logik dieser Eigenschaft ähnelt der Kamera; Sie können die Drehung des Lichts in Relation zur 3D‑Form einstellen und den Lichttyp wählen.
+- [Material]: Durch Festlegen des Typs des 3D‑Formmaterials können Sie einen realistischeren Effekt erzielen. Die Eigenschaft bietet eine Reihe vordefinierter Materialien, wie z. B. Metal, Plastic, Powder, Matte usw.  
 
-Im Aspose.Slides API, um 
-eine Form zu einer PowerPoint 3D-Form zu machen, verwenden Sie die [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/threedformat) Eigenschaft, 
-die die Eigenschaften des [IThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat) Interfaces erbt:
-- [BevelBottom](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/bevelbottom) 
-und [BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/beveltop): Bevel für die Form einstellen, Bevel-Typ definieren (z.B. Winkel, Kreis, weich rund), Höhe und Breite des Bevels definieren.
-- [Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera): wird verwendet, um Kamerabewegungen um das Objekt zu imitieren. Mit anderen Worten, durch die Einstellung der Kamerarotation, Zoom und anderen Eigenschaften - können Sie mit Ihren 
-Formen wie mit dem 3D-Modell in PowerPoint interagieren.
-- [ContourColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourcolor) 
-und [ContourWidth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourwidth): Kontureigenschaften festlegen, um die Form wie eine 3D-PowerPoint-Form aussehen zu lassen.
-- [Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/depth), 
-[ExtrusionColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) 
-und [ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight): werden verwendet, um die Form dreidimensional zu machen, was bedeutet, eine 2D-Form in eine 3D-Form zu konvertieren, 
-indem man ihre Tiefe einstellt oder sie extrudiert.
-- [LightRig](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/lightrig): kann einen Lichteffekt auf einer 3D-Form erzeugen. Die Logik dieser Eigenschaft ist ähnlich wie bei der Kamera, Sie können die Rotation des Lichts 
-im Verhältnis zur 3D-Form einstellen und den Lichttyp wählen.
-- [Material](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/material): Durch das Festlegen des Typs des 3D-Formmaterials kann ein lebendigerer Effekt erzielt werden. Die Eigenschaft bietet eine Reihe vordefinierter Materialien, wie: 
-Metall, Kunststoff, Pulver, Matt, usw.
-
-Alle 3D-Funktionen können sowohl auf Formen als auch auf Text angewendet werden. Lassen Sie uns sehen, wie man auf die oben genannten Eigenschaften zugreift und sie dann Schritt für Schritt im Detail betrachtet:
+Alle 3D‑Funktionen können sowohl auf Formen als auch auf Text angewendet werden. Lassen Sie uns sehen, wie Sie auf die oben genannten Eigenschaften zugreifen und sie Schritt für Schritt im Detail betrachten:
 ``` csharp 
 const float imageScale = 2;
 
@@ -79,21 +66,21 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Das gerenderte Thumbnail sieht so aus:
+
+Das gerenderte Miniaturbild sieht so aus:
 
 ![todo:image_alt_text](img_01_01.png)
 
-## 3D-Rotation
-Es ist möglich, PowerPoint 3D-Formen im 3D-Raum zu drehen, was mehr Interaktivität bringt. Um eine 3D-Form in PowerPoint zu drehen, verwenden Sie normalerweise das folgende Menü:
+## **3D‑Drehung**
+Es ist möglich, PowerPoint‑3D‑Formen im 3D‑Raum zu drehen, was mehr Interaktivität bietet. Um eine 3D‑Form in PowerPoint zu drehen, verwenden Sie normalerweise das folgende Menü:
 
 ![todo:image_alt_text](img_02_01.png)
 
-In der Aspose.Slides API kann die 3D-Formrotation über die [IThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera) Eigenschaft verwaltet werden:
-
+In der Aspose.Slides‑API kann die 3D‑Formrotation über die Eigenschaft [IThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera) verwaltet werden:
 ``` csharp
 IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
-// ... andere 3D-Szenenparameter festlegen
+// ... weitere 3D-Szenenparameter festlegen
 
 using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
 {
@@ -101,16 +88,15 @@ using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
 }
 ```
 
-## 3D-Tiefe und Extrusion
-Um der Form die dritte Dimension zu verleihen und sie zu einer 3D-Form zu machen, verwenden Sie die [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) 
-und [IThreeDFormat.ExtrusionColor.Color](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) Eigenschaften:
 
+## **3D‑Tiefe und Extrusion**
+Um Ihrer Form die dritte Dimension zu verleihen und sie zu einer 3D‑Form zu machen, verwenden Sie die Eigenschaften [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) und [IThreeDFormat.ExtrusionColor.Color](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor):
 ``` csharp
 IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
 shape.ThreeDFormat.ExtrusionHeight = 100;
 shape.ThreeDFormat.ExtrusionColor.Color = Color.Purple;
-// ... andere 3D-Szenenparameter festlegen
+// ... weitere 3D Szenenparameter festlegen
 
 using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
 {
@@ -118,14 +104,14 @@ using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
 }
 ```
 
-In der Regel verwenden Sie das Tiefenmenü in PowerPoint, um die Tiefe für die PowerPoint 3D-Form festzulegen:
+
+Normalerweise verwenden Sie das Menü Tiefe in PowerPoint, um die Tiefe für eine PowerPoint‑3D‑Form festzulegen:
 
 ![todo:image_alt_text](img_02_02.png)
 
 
-## 3D-Gradient
-Ein Gradient kann verwendet werden, um die Farbe der PowerPoint 3D-Form zu füllen. Lassen Sie uns eine Form mit Farbverlauf und 3D-Effekt erstellen:
-
+## **3D‑Verlauf**
+Ein Verlauf kann verwendet werden, um die Farbe einer PowerPoint‑3D‑Form zu füllen. Lassen Sie uns eine Form mit Verlauf‑Füllfarbe erstellen und einen 3D‑Effekt darauf anwenden:
 ``` csharp
 const float imageScale = 2;
 
@@ -155,11 +141,12 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+
 Und hier ist das Ergebnis:
 
 ![todo:image_alt_text](img_02_03.png)
 
-Neben einer Farbverlauffüllfarbe ist es auch möglich, Formen mit einem Bild zu füllen:
+Neben einer Verlauf‑Füllfarbe ist es möglich, Formen mit einem Bild zu füllen:
 ``` csharp
 byte[] imageData = File.ReadAllBytes("image.jpg");
 IPPImage image = presentation.Images.AddImage(imageData);
@@ -175,13 +162,13 @@ using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
 }
 ```
 
+
 So sieht es aus:
 
 ![todo:image_alt_text](img_02_04.png)
 
-## 3D-Text (WordArt)
-Aspose.Slides ermöglicht es auch, 3D auf Text anzuwenden. Um einen 3D-Text zu erstellen, können Sie den WordArt-Transformeffekt verwenden:
-
+## **3D‑Text (WordArt)**
+Aspose.Slides ermöglicht ebenfalls das Anwenden von 3D auf Text. Für die Erstellung von 3D‑Text kann der WordArt‑Transformations‑Effekt verwendet werden:
 ``` csharp
 const float imageScale = 2;
 
@@ -203,7 +190,7 @@ using (Presentation presentation = new Presentation())
     shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 128;
 
     ITextFrameFormat textFrameFormat = shape.TextFrame.TextFrameFormat;
-    // Setzen Sie den WordArt-Transformeffekt "Bogen nach oben"
+    // setze den "Arch Up" WordArt-Transformationseffekt
     textFrameFormat.Transform = TextShapeType.ArchUp;
 
     textFrameFormat.ThreeDFormat.ExtrusionHeight = 3.5f;
@@ -224,16 +211,21 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+
 Hier ist das Ergebnis:
 
 ![todo:image_alt_text](img_02_05.png)
 
+## **FAQ**
 
-## Nicht Unterstützt - Kommt Bald
-Die folgenden PowerPoint 3D-Funktionen werden noch nicht unterstützt: 
-- Bevel
-- Material
-- Kontur
-- Beleuchtung
+**Werden 3D‑Effekte beim Export einer Präsentation in Bilder/PDF/HTML erhalten?**
 
-Wir setzen die Verbesserung unserer 3D-Engine fort, und diese Funktionen sind Gegenstand weiterer Implementierungen.
+Ja. Die Slides‑3D‑Engine rendert 3D‑Effekte beim Export in unterstützte Formate ([images](/slides/de/net/convert-powerpoint-to-png/), [PDF](/slides/de/net/convert-powerpoint-to-pdf/), [HTML](/slides/de/net/convert-powerpoint-to-html/), etc.).
+
+**Kann ich die „effektiven“ (finalen) 3D‑Parameterwerte abrufen, die Themen, Vererbung usw. berücksichtigen?**
+
+Ja. Slides bietet APIs zum [effektive Werte lesen](/slides/de/net/shape-effective-properties/) (einschließlich für 3D – Beleuchtung, Abschrägungen usw.), sodass Sie die endgültigen angewendeten Einstellungen sehen können.
+
+**Funktionieren 3D‑Effekte beim Konvertieren einer Präsentation in ein Video?**
+
+Ja. Beim [Erzeugen von Frames für das Video](/slides/de/net/convert-powerpoint-to-video/) werden 3D‑Effekte genauso gerendert wie bei [exportierten Bildern](/slides/de/net/convert-powerpoint-to-png/).

@@ -1,71 +1,87 @@
 ---
-title: こんにちは世界プレゼンテーション文書の作成方法
+title: .NET で Hello World プレゼンテーションを作成する方法
+linktitle: Hello World プレゼンテーション
 type: docs
 weight: 10
 url: /ja/net/how-to-create-hello-world-presentation-document/
+keywords:
+- 移行
+- Hello World
+- レガシーコード
+- モダンコード
+- レガシーアプローチ
+- モダンアプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: ".NET で Aspose.Slides を使用し、レガシーとモダンの両方の API を使ったシンプルなガイドで、Hello World の PowerPoint PPT、PPTX、ODP プレゼンテーションを作成します。"
 ---
 
 {{% alert color="primary" %}} 
-
-新しい[Aspose.Slides for .NET API](/slides/ja/net/)がリリースされ、これによりこの単一の製品がゼロからPowerPoint文書を生成し、既存の文書を編集する機能をサポートするようになりました。
-
+新しい[Aspose.Slides for .NET API](/slides/ja/net/)がリリースされ、現在この単一製品は、最初からPowerPointドキュメントを生成し、既存のドキュメントを編集する機能をサポートしています。
 {{% /alert %}} 
 ## **レガシーコードのサポート**
-Aspose.Slides for .NETの13.x以前に開発されたレガシーコードを使用するには、コードにいくつかの軽微な変更を加える必要があり、コードは以前と同様に動作します。古いAspose.Slides for .NETにあったAspose.SlideおよびAspose.Slides.Pptx名前空間のすべてのクラスは、単一のAspose.Slides名前空間に統合されました。レガシーAspose.Slides APIでHello Worldプレゼンテーション文書を作成するための以下の簡単なコードスニペットを参照し、新しい統合APIへの移行方法について説明する手順に従ってください。
-## **レガシーAspose.Slides for .NETアプローチ**
+13.x以前の Aspose.Slides for .NET バージョンで開発されたレガシーコードを使用するには、コードにいくつかの小さな変更を加える必要があり、変更後は以前と同様に動作します。旧 Aspose.Slides for .NET の Aspose.Slide および Aspose.Slides.Pptx 名前空間に存在したすべてのクラスは、現在単一の Aspose.Slides 名前空間に統合されています。以下のシンプルなコードスニペットを参照し、レガシー Aspose.Slides API で Hello World プレゼンテーション ドキュメントを作成する方法と、新しい統合 API への移行手順をご確認ください。
+## **レガシー Aspose.Slides for .NET アプローチ**
 ```c#
-// PPTファイルを表すプレゼンテーションオブジェクトをインスタンス化
+//PPT ファイルを表す Presentation オブジェクトをインスタンス化します
 Presentation pres = new Presentation();
 
-// ライセンスオブジェクトを作成
+//License オブジェクトを作成します
 License license = new License();
 
-// 評価制限を避けるためにAspose.Slides for .NETのライセンスを設定
+//Aspose.Slides for .NET のライセンスを設定し、評価制限を回避します
 license.SetLicense("Aspose.Slides.lic");
 
-// プレゼンテーションに空のスライドを追加し、その空のスライドの参照を取得
+//プレゼンテーションに空のスライドを追加し、その参照を取得します
+//その空のスライド
 Slide slide = pres.AddEmptySlide();
 
-// スライドに長方形（X=2400, Y=1800, 幅=1000 & 高さ=500）を追加
+//スライドに矩形 (X=2400, Y=1800, 幅=1000, 高さ=500) を追加します
 Aspose.Slides.Rectangle rect = slide.Shapes.AddRectangle(2400, 1800, 1000, 500);
 
-// 長方形の線を非表示に
+//矩形の線を非表示にします
 rect.LineFormat.ShowLines = false;
 
-// "Hello World"をデフォルトテキストとして長方形にテキストフレームを追加
+//矩形にテキストフレームを追加し、デフォルトテキストとして "Hello World" を設定します
 rect.AddTextFrame("Hello World");
 
-// プレゼンテーション作成時にAspose.Slides for .NETによって常に追加される最初のスライドを削除
+//プレゼンテーションの最初のスライドを削除します。このスライドは
+//プレゼンテーション作成時に Aspose.Slides for .NET がデフォルトで常に追加するものです
 pres.Slides.RemoveAt(0);
 
-// プレゼンテーションをPPTファイルとして書き込む
+//プレゼンテーションを書き出して PPT ファイルとして保存します
 pres.Write("C:\\hello.ppt");
 ```
 
 
 
-## **新しいAspose.Slides for .NET 13.xアプローチ**
+
+## **新しい Aspose.Slides for .NET 13.x アプローチ**
 ```c#
-// プレゼンテーションをインスタンス化
+// Presentation をインスタンス化
 Presentation pres = new Presentation();
 
 // 最初のスライドを取得
 ISlide sld = (ISlide)pres.Slides[0];
 
-// 長方形型のAutoShapeを追加
+// 矩形タイプの AutoShape を追加
 IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-// 長方形にITextFrameを追加
+// 矩形に ITextFrame を追加
 ashp.AddTextFrame("Hello World");
 
 // テキストの色を黒に変更（デフォルトは白）
 ashp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.FillType = FillType.Solid;
 ashp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
-// 長方形の線の色を白に変更
+// 矩形の線の色を白に変更
 ashp.ShapeStyle.LineColor.Color = Color.White;
 
-// 形状の塗りつぶし形式を削除
+// シェイプの塗りつぶし設定をすべて削除
 ashp.FillFormat.FillType = FillType.NoFill;
 
 // プレゼンテーションをディスクに保存

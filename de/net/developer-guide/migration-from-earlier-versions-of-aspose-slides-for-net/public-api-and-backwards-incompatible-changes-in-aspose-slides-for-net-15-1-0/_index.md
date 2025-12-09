@@ -1,34 +1,46 @@
 ---
-title: Öffentliche API und rückwärts inkompatible Änderungen in Aspose.Slides für .NET 15.1.0
+title: Öffentliche API und rückwärtsinkompatible Änderungen in Aspose.Slides für .NET 15.1.0
+linktitle: Aspose.Slides für .NET 15.1.0
 type: docs
 weight: 130
 url: /de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/
+keywords:
+- Migration
+- Legacy-Code
+- Moderner Code
+- Legacy-Ansatz
+- Moderner Ansatz
+- PowerPoint
+- OpenDocument
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Überprüfen Sie die öffentlichen API-Updates und Breaking Changes in Aspose.Slides für .NET, um Ihre PowerPoint PPT, PPTX und ODP Präsentationslösungen reibungslos zu migrieren."
 ---
 
 {{% alert color="primary" %}} 
-
-Diese Seite listet alle [hinzugefügten](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) oder [entfernten](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) Klassen, Methoden, Eigenschaften usw. auf und andere Änderungen, die mit der Aspose.Slides für .NET 15.1.0 API eingeführt wurden.
-
+Diese Seite listet alle [added](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) oder [removed](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) Klassen, Methoden, Eigenschaften usw. sowie weitere Änderungen, die mit der Aspose.Slides for .NET 15.1.0 API eingeführt wurden.
 {{% /alert %}} 
-## **Öffentliche API Änderungen**
-#### **Funktionalität für Schriftartsubstitution wurde hinzugefügt**
-Die Möglichkeit, die Schriftart global in der Präsentation und temporär für die Darstellung zu ersetzen, wurde hinzugefügt.
+## **Public API Änderungen**
+#### **Funktionalität zum Ersetzen von Schriften wurde hinzugefügt**
+Die Möglichkeit, Schriftarten global in der gesamten Präsentation und temporär für das Rendering zu ersetzen, wurde hinzugefügt.
 
-Die neue Eigenschaft "FontsManager" der Präsentationsklasse wurde eingeführt. Die FontsManager-Klasse hat folgende Mitglieder:
+Eine neue Eigenschaft „FontsManager“ der Klasse Presentation wurde eingeführt. Die Klasse FontsManager verfügt über folgende Mitglieder:
 
-**IFontSubstRuleCollection FontSubstRuleList** Eigenschaft
+**IFontSubstRuleCollection FontSubstRuleList** Property
 
-Diese Sammlung von IFontSubstRule-Instanzen wird verwendet, um Schriftarten während der Darstellung zu substituieren. IFontSubstRule hat die Eigenschaften SourceFont und DestFont, die das IFontData-Interface implementieren, sowie die ReplaceFontCondition-Eigenschaft, die es ermöglicht, die Bedingung für den Ersatz auszuwählen ("WhenInaccessible" oder "Always").
+Diese Sammlung von IFontSubstRule‑Instanzen wird zum Ersetzen von Schriften während des Renderns verwendet. IFontSubstRule besitzt die Eigenschaften SourceFont und DestFont, die das IFontData‑Interface implementieren, sowie die Eigenschaft ReplaceFontCondition, mit der die Ersetzungsbedingung („WhenInaccessible“ oder „Always“) festgelegt werden kann.
 
-**IFontData[] GetFonts()** Methode
+**IFontData[] GetFonts()** Method
 
-Wird verwendet, um alle in der aktuellen Präsentation verwendeten Schriftarten abzurufen.
+Wird verwendet, um alle in der aktuellen Präsentation verwendeten Schriften abzurufen.
 
-**ReplaceFont** Methoden
+**ReplaceFont** Methods
 
-Wird verwendet, um die Schriftart dauerhaft in der Präsentation zu ersetzen.
+Wird verwendet, um Schriften dauerhaft in der Präsentation zu ersetzen.
 
-Das folgende Beispiel zeigt, wie man die Schriftart in der Präsentation ersetzt:
+Das folgende Beispiel zeigt, wie eine Schrift in der Präsentation ersetzt wird:
 
 ``` csharp
 
@@ -42,9 +54,10 @@ Das folgende Beispiel zeigt, wie man die Schriftart in der Präsentation ersetzt
 
             pres.Save("PresContainsTimesNoewRomanFont.pptx", SaveFormat.Pptx);
 
+
 ``` 
 
-Ein weiteres Beispiel zeigt die Schriftartsubstitution für die Darstellung, wenn sie nicht verfügbar ist:
+Ein weiteres Beispiel demonstriert die Schriftartsubstitution beim Rendering, wenn die Schrift nicht verfügbar ist:
 
 ``` csharp
 
@@ -64,7 +77,7 @@ Ein weiteres Beispiel zeigt die Schriftartsubstitution für die Darstellung, wen
 
             pres.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
 
-            // Arial wird anstelle von SomeRareFont verwendet, wenn sie nicht verfügbar ist
+            // Arial font will be used instead of SomeRareFont when inaccessible
 
             pres.Slides[0].GetThumbnail();
 

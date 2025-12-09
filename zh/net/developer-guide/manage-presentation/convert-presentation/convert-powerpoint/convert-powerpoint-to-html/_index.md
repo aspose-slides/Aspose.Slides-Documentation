@@ -1,190 +1,206 @@
 ---
-title: 在 C# .NET 中将 PowerPoint 转换为 HTML
-linktitle: 将 PowerPoint 转换为 HTML
+title: .NET 中将 PowerPoint 演示文稿转换为 HTML
+linktitle: PowerPoint 转 HTML
 type: docs
 weight: 30
 url: /zh/net/convert-powerpoint-to-html/
-keywords: "C# PowerPoint 转 HTML, C# PPT 转 HTML, C# ODP 转 HTML, C# 幻灯片 转 HTML, 转换 PowerPoint 演示文稿, PPTX, PPT, PPT 转 HTML, PPTX 转 HTML, PowerPoint 转 HTML, 将 PowerPoint 保存为 HTML, 将 PPT 保存为 HTML, 将 PPTX 保存为 HTML, C#, Csharp, .NET, Aspose.Slides, HTML 导出"
-description: "转换 PowerPoint HTML：将 PPTX 或 PPT 保存为 HTML。将幻灯片保存为 HTML"
+keywords:
+- 转换 PowerPoint
+- 转换 演示文稿
+- 转换 幻灯片
+- 转换 PPT
+- 转换 PPTX
+- PowerPoint 转 HTML
+- 演示文稿 转 HTML
+- 幻灯片 转 HTML
+- PPT 转 HTML
+- PPTX 转 HTML
+- 将 PowerPoint 保存为 HTML
+- 将 演示文稿 保存为 HTML
+- 将 幻灯片 保存为 HTML
+- 将 PPT 保存为 HTML
+- 将 PPTX 保存为 HTML
+- 导出 PPT 为 HTML
+- 导出 PPTX 为 HTML
+- .NET
+- C#
+- Aspose.Slides
+description: ".NET 中将 PowerPoint 演示文稿转换为响应式 HTML。使用 Aspose.Slides 转换指南，保持布局、链接和图像，实现快速且完美的结果。"
 ---
 
 ## **概述**
 
-本文解释了如何使用 C# 将 PowerPoint 演示文稿转换为 HTML 格式。它涵盖了以下主题。
+通过使用 Aspose.Slides for .NET 将 PowerPoint 和 OpenDocument 演示文稿转换为 HTML，提升您的工作流程。本指南提供详细的说明、完善的代码示例和经过测试的方法，确保可靠高效的转换过程，并针对网页浏览进行优化。
 
-- [在 C# 中将 PowerPoint 转换为 HTML](#convert-powerpoint-to-html)
-- [在 C# 中将 PPT 转换为 HTML](#convert-powerpoint-to-html)
-- [在 C# 中将 PPTX 转换为 HTML](#convert-powerpoint-to-html)
-- [在 C# 中将 ODP 转换为 HTML](#convert-powerpoint-to-html)
-- [在 C# 中将 PowerPoint 幻灯片转换为 HTML](#convert-slide-to-html)
-
-## **C# PowerPoint 转 HTML**
-
-有关将 PowerPoint 转换为 HTML 的 C# 示例代码，请参见下面的部分，即 [在 C# 中将 PowerPoint 转换为 HTML](#convert-powerpoint-to-html)。该代码可以在 Presentation 对象中加载多种格式，如 PPT、PPTX 和 ODP，并将其保存为 HTML 格式。
-
-## **关于 PowerPoint 到 HTML 转换**
-使用 [**Aspose.Slides for .NET**](https://products.aspose.com/slides/net/)，应用程序和开发人员可以将 PowerPoint 演示文稿转换为 HTML：**PPTX 转 HTML** 或 **PPT 转 HTML**。 
-
-**Aspose.Slides** 提供了多种选项（主要来自 [**HtmlOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions) 类），定义了 PowerPoint 到 HTML 的转换过程：
+Aspose.Slides 提供了许多选项——主要来自 [**HtmlOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions) 类——用于定义从 PowerPoint（或 OpenDocument）格式到 HTML 的转换过程：
 
 * 将整个 PowerPoint 演示文稿转换为 HTML。
 * 将 PowerPoint 演示文稿中的特定幻灯片转换为 HTML。
 * 将演示文稿媒体（图像、视频等）转换为 HTML。
-* 将 PowerPoint 演示文稿转换为响应式 HTML。 
-* 将 PowerPoint 演示文稿转换为包含或不包含演讲者注释的 HTML。 
-* 将 PowerPoint 演示文稿转换为包含或不包含评论的 HTML。 
-* 将 PowerPoint 演示文稿转换为包含原始或嵌入字体的 HTML。 
-* 将 PowerPoint 演示文稿转换为使用新 CSS 样式的 HTML。 
+* 将 PowerPoint 演示文稿转换为响应式 HTML。
+* 将 PowerPoint 演示文稿转换为包含或不包含演讲者备注的 HTML。
+* 将 PowerPoint 演示文稿转换为包含或不包含批注的 HTML。
+* 将 PowerPoint 演示文稿转换为使用原始或嵌入式字体的 HTML。
+* 使用新 CSS 样式将 PowerPoint 演示文稿转换为 HTML。
 
-{{% alert color="primary" %}} 
+## **将演示文稿转换为 HTML**
 
-使用其自己的 API，Aspose 开发了免费的 [演示文稿到 HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html) 转换器：[PPT 到 HTML](https://products.aspose.app/slides/conversion/ppt-to-html)、[PPTX 到 HTML](https://products.aspose.app/slides/conversion/pptx-to-html)、[ODP 到 HTML](https://products.aspose.app/slides/conversion/odp-to-html) 等。 
+使用 Aspose.Slides，您可以按如下方式将整个 PowerPoint 或 OpenDocument 演示文稿转换为 HTML：
 
-[![todo:image_alt_text](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+2. 使用 [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save) 方法将对象保存为 HTML 文件。
 
-您可能希望查看其他 [Aspose 的免费转换器](https://products.aspose.app/slides/conversion)。
-
-{{% /alert %}} 
-
-{{% alert title="注意" color="warning" %}} 
-
-除了这里描述的转换过程，Aspose.Slides 还支持涉及 HTML 格式的这些转换操作： 
-
-* [HTML 到图像](https://products.aspose.com/slides/net/conversion/html-to-image/)
-* [HTML 到 JPG](https://products.aspose.com/slides/net/conversion/html-to-jpg/)
-* [HTML 到 XML](https://products.aspose.com/slides/net/conversion/html-to-xml/)
-* [HTML 到 TIFF](https://products.aspose.com/slides/net/conversion/html-to-tiff/)
-
-{{% /alert %}}
-
-
-## **将 PowerPoint 转换为 HTML**
-使用 Aspose.Slides，您可以通过以下方式将整个 PowerPoint 演示文稿转换为 HTML：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-1. 使用 [Save ](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save) 方法将对象保存为 HTML 文件。
-
-以下代码向您展示了如何在 C# 中将 PowerPoint 转换为 HTML：
-
+以下代码演示如何在 C# 中将 PowerPoint 演示文稿转换为 HTML：
 ```c#
-// 实例化表示演示文稿文件的演示对象，例如 PPT、PPTX、ODP 等。
-using (Presentation presentation = new Presentation("Convert_HTML.pptx"))
+// 实例化表示演示文稿文件的 Presentation 类（例如 PPT、PPTX、ODP 等）。
+using (Presentation presentation = new Presentation("presentation.pptx"))
 {
-    HtmlOptions htmlOpt = new HtmlOptions();
-    
-    INotesCommentsLayoutingOptions options = htmlOpt.NotesCommentsLayouting;
-    options.NotesPosition = NotesPositions.BottomFull;
-    
-    htmlOpt.HtmlFormatter = HtmlFormatter.CreateDocumentFormatter("", false);
-
-    // 将演示文稿保存为 HTML
-    presentation.Save("ConvertWholePresentationToHTML_out.html", SaveFormat.Html, htmlOpt);
+    // 将演示文稿保存为 HTML。
+    presentation.Save("output.html", SaveFormat.Html);
 }
 ```
 
 
-## **将 PowerPoint 转换为响应式 HTML**
-Aspose.Slides 提供了 [ResponsiveHtmlController ](https://reference.aspose.com/slides/net/aspose.slides.export/responsivehtmlcontroller) 类，允许您生成响应式 HTML 文件。以下代码向您展示了如何在 C# 中将 PowerPoint 演示文稿转换为响应式 HTML：
+## **将演示文稿转换为响应式 HTML**
 
+Aspose.Slides 提供了 [ResponsiveHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/responsivehtmlcontroller) 类，可生成响应式 HTML 文件。以下代码演示如何在 C# 中将 PowerPoint 演示文稿转换为响应式 HTML：
 ```c#
-// 实例化表示演示文稿文件的 Presentation 对象
-using (Presentation presentation = new Presentation("Convert_HTML.pptx"))
+// 实例化表示演示文稿文件的 Presentation 类。
+using (Presentation presentation = new Presentation("presentation.pptx"))
 {
     ResponsiveHtmlController controller = new ResponsiveHtmlController();
-    HtmlOptions htmlOptions = new HtmlOptions { HtmlFormatter = HtmlFormatter.CreateCustomFormatter(controller) };
 
-    // 将演示文稿保存为 HTML
-    presentation.Save("ConvertPresentationToResponsiveHTML_out.html", SaveFormat.Html, htmlOptions);
-}
-```
-
-## **将 PowerPoint 转换为带备注的 HTML**
-以下代码向您展示了如何在 C# 中将 PowerPoint 转换为带备注的 HTML：
-
-```c#
-using (Presentation pres = new Presentation("Presentation.pptx"))
-{
-    HtmlOptions opt = new HtmlOptions();
-
-    INotesCommentsLayoutingOptions options = opt.NotesCommentsLayouting;
-    options.NotesPosition = NotesPositions.BottomFull;
-
-    // 保存备注页
-    pres.Save("Output.html", SaveFormat.Html, opt);
-}
-```
-
-## **将 PowerPoint 转换为带原始字体的 HTML**
-
-Aspose.Slides 提供了 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) 类，允许您在将演示文稿转换为 HTML 时嵌入所有字体。
-
-为了防止某些字体被嵌入，您可以将一个字体名称数组传递给 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) 类的参数化构造函数。流行字体，例如 Calibri 或 Arial，在演示文稿中使用时不必嵌入，因为大多数系统已经包含这些字体。当这些字体被嵌入时，生成的 HTML 文档会变得不必要的大。
-
-[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) 类支持继承，并提供 [WriteFont](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller/methods/writefont) 方法，旨在被重写。 
-
-```c#
-using (Presentation pres = new Presentation("input.pptx"))
-{
-    // 排除默认演示文稿字体
-    string[] fontNameExcludeList = { "Calibri", "Arial" };
-
-    EmbedAllFontsHtmlController embedFontsController = new EmbedAllFontsHtmlController(fontNameExcludeList);
-
-    HtmlOptions htmlOptionsEmbed = new HtmlOptions
-    {
-        HtmlFormatter = HtmlFormatter.CreateCustomFormatter(embedFontsController)
+    HtmlOptions htmlOptions = new HtmlOptions 
+    { 
+        HtmlFormatter = HtmlFormatter.CreateCustomFormatter(controller) 
     };
 
-    pres.Save("input-PFDinDisplayPro-Regular-installed.html", SaveFormat.Html, htmlOptionsEmbed);
+    // 将演示文稿保存为 HTML。
+    presentation.Save("responsive.html", SaveFormat.Html, htmlOptions);
 }
 ```
 
-## **将 PowerPoint 转换为带高质量图像的 HTML**
 
-默认情况下，当您将 PowerPoint 转换为 HTML 时，Aspose.Slides 输出 72 DPI 和删除裁剪区域的小 HTML 图像。为了获得更高质量图像的 HTML 文件，您必须将 `PicturesCompression` 属性（来自 `HtmlOptions` 类）设置为 96（即 `PicturesCompression.Dpi96`）或更高 [值](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression)。
+## **将演示文稿转换为包含演讲者备注的 HTML**
 
-以下 C# 代码向您展示了如何在获得 150 DPI（即 `PicturesCompression.Dpi150`）的高质量图像时将 PowerPoint 演示文稿转换为 HTML：
+在将 PowerPoint 或 OpenDocument 演示文稿转换为包含演讲者备注的 HTML 时，必须完整捕获原始文档的精髓。此过程确保幻灯片的视觉元素得到准确呈现，同时保留随附的演讲者备注，为内容增添额外的上下文和见解。
 
+假设我们有一个包含以下幻灯片的 PowerPoint 演示文稿：
+
+![带有演讲者备注的演示幻灯片](slide_with_notes.png)
+
+以下代码演示如何在 C# 中将 PowerPoint 演示文稿转换为包含演讲者备注的 HTML：
 ```c#
-Presentation pres = new Presentation("InputDoc.pptx");
-HtmlOptions htmlOpts = new HtmlOptions
+using (Presentation presentation = new Presentation("presentation.pptx"))
 {
-    PicturesCompression = PicturesCompression.Dpi150
-};
-pres.Save("OutputDoc-dpi150.html", Aspose.Slides.Export.SaveFormat.Html, htmlOpts); 
+    // 设置演讲者备注的选项。
+    NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions
+    {
+        NotesPosition = NotesPositions.BottomFull
+    };
+
+    // 设置输出 HTML 文档的选项。
+    HtmlOptions htmlOptions = new HtmlOptions
+    {
+        SlidesLayoutOptions = notesOptions
+    };
+
+    // 将演示文稿保存为带有演讲者备注的 HTML。
+    presentation.Save("slide_with_notes.html", SaveFormat.Html, htmlOptions);
+}
 ```
 
-以下 C# 代码向您展示了如何输出带有高质量图像的 HTML：
 
+结果：
+
+![包含幻灯片和演讲者备注的 HTML 文档](HTML_with_notes.png)
+
+## **将演示文稿转换为使用原始字体的 HTML**
+
+Aspose.Slides 提供了 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) 类，可在将演示文稿转换为 HTML 时嵌入所有字体。
+
+若要防止某些字体被嵌入，您可以向 [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) 类的带参数构造函数传递字体名称数组。常用字体如 Calibri 或 Arial 不需要嵌入，因为大多数系统已预装这些字体。嵌入它们会不必要地增加生成的 HTML 文档大小。
+
+[EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller) 类支持继承，并提供 [WriteFont](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller/methods/writefont) 方法，供子类重写。
 ```c#
-Presentation pres = new Presentation("InputDoc.pptx");
-HtmlOptions htmlOpts = new HtmlOptions
+using (Presentation presentation = new Presentation("input.pptx"))
 {
-    DeletePicturesCroppedAreas = false
-};
-pres.Save("Outputdoc-noCrop.html", Aspose.Slides.Export.SaveFormat.Html, htmlOpts);
+    // 排除默认演示文稿字体。
+    string[] excludeFonts = { "Calibri", "Arial" };
+
+    EmbedAllFontsHtmlController fontController = new EmbedAllFontsHtmlController(excludeFonts);
+
+    HtmlOptions htmlOptions = new HtmlOptions
+    {
+        HtmlFormatter = HtmlFormatter.CreateCustomFormatter(fontController)
+    };
+
+    presentation.Save("embedded_fonts.html", SaveFormat.Html, htmlOptions);
+}
 ```
 
-## **将幻灯片转换为 HTML**
-要将 PowerPoint 中的特定幻灯片转换为 HTML，您必须实例化同一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类（用于将整个演示文稿转换为 HTML），然后使用 [Save ](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save) 方法将文件保存为 HTML。[HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions**) 类可用于指定其他转换选项：
 
-以下 C# 代码向您展示了如何将 PowerPoint 演示文稿中的一张幻灯片转换为 HTML：
+## **将演示文稿转换为高质量图像的 HTML**
 
+默认情况下，将 PowerPoint 演示文稿转换为 HTML 时，Aspose.Slides 会生成包含 72 DPI 图像且去除裁剪区域的小型 HTML 文件。要获取更高质量图像的 HTML 文件，必须将 `PicturesCompression` 属性（来自 `HtmlOptions` 类）设置为 96（即 `PicturesCompression.Dpi96`）或更高值，详细信息请参阅 [此引用](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression)。
+
+以下 C# 代码演示如何在将 PowerPoint 演示文稿转换为 HTML 时获取 150 DPI（即 `PicturesCompression.Dpi150`）的高质量图像：
+```c#
+using (Presentation presentation = new Presentation("input.pptx"))
+{
+    HtmlOptions htmlOptions = new HtmlOptions
+    {
+        PicturesCompression = PicturesCompression.Dpi150
+    };
+
+    presentation.Save("output_dpi_150.html", SaveFormat.Html, htmlOptions);
+}
+```
+
+
+以下 C# 代码演示如何在转换为 HTML 时保留裁剪区域：
+```c#
+using (Presentation presentation = new Presentation("input.pptx"))
+{
+    HtmlOptions htmlOptions = new HtmlOptions
+    {
+        DeletePicturesCroppedAreas = false
+    };
+
+    presentation.Save("output_no_crop.html", SaveFormat.Html, htmlOptions);
+}
+```
+
+
+## **将演示文稿幻灯片转换为 HTML**
+
+要将 PowerPoint 演示文稿中的特定幻灯片转换为 HTML，需要实例化与转换整个演示文稿为 HTML 相同的 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类，然后使用 [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save) 方法将文件保存为 HTML。可以使用 [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions) 类来指定其他转换选项。
+
+以下 C# 代码演示如何将 PowerPoint 演示文稿中带有演讲者备注的幻灯片转换为 HTML：
 ```c#
 public static void Run()
 {
-    using (Presentation presentation = new Presentation("Individual-Slide.pptx"))
+    using (Presentation presentation = new Presentation("sample.pptx"))
     {
-        HtmlOptions htmlOptions = new HtmlOptions();
+        NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions
+        {
+            NotesPosition = NotesPositions.BottomFull
+        };
 
-        INotesCommentsLayoutingOptions options = htmlOptions.NotesCommentsLayouting;
-        options.NotesPosition = NotesPositions.BottomFull;
+        HtmlOptions htmlOptions = new HtmlOptions
+        {
+            SlidesLayoutOptions = notesOptions,
+            HtmlFormatter = HtmlFormatter.CreateCustomFormatter(new CustomFormattingController())
+        };
 
-        htmlOptions.HtmlFormatter = HtmlFormatter.CreateCustomFormatter(new CustomFormattingController());
-
-        // 保存文件              
         for (int i = 0; i < presentation.Slides.Count; i++)
-            presentation.Save("Individual Slide" + (i + 1) + "_out.html", new[] { i + 1 }, SaveFormat.Html, htmlOptions);
+        {
+            int slideIndex = i + 1;
+
+            // 将幻灯片保存为 HTML 文件。
+            string fileName = $"output_slide_{slideIndex}.html";
+            presentation.Save(fileName, new[] { slideIndex }, SaveFormat.Html, htmlOptions);
+        }
     }
 }
 
@@ -218,27 +234,28 @@ public class CustomFormattingController : IHtmlFormattingController
 ```
 
 
-## **导出到 HTML 时保存 CSS 和图像**
-使用新的 CSS 样式文件，您可以轻松更改从 PowerPoint 到 HTML 转换过程中生成的 HTML 文件的样式。 
+## **导出为 HTML 时保存 CSS 和图像**
 
-以下 C# 代码示例向您展示了如何使用可重写的方法创建一个自定义 HTML 文档并链接到 CSS 文件：
+使用新的 CSS 样式文件，您可以轻松更改 PowerPoint 转 HTML 转换生成的 HTML 文件的外观。
 
+此示例中的 C# 代码演示如何使用可覆盖的方法创建包含 CSS 文件链接的自定义 HTML 文档：
 ```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using (Presentation presentation = new Presentation("pres.pptx"))
 {
 	CustomHeaderAndFontsController htmlController = new CustomHeaderAndFontsController("styles.css");
+
 	HtmlOptions options = new HtmlOptions
 	{
 		HtmlFormatter = HtmlFormatter.CreateCustomFormatter(htmlController),
 	};
-	pres.Save("pres.html", SaveFormat.Html, options);
+	presentation.Save("pres.html", SaveFormat.Html, options);
 }
 ```
 
 ```c#
 public class CustomHeaderAndFontsController : EmbedAllFontsHtmlController
 {
-    // 自定义头部模板
+    // 自定义页眉模板。
     const string Header = "<!DOCTYPE html>\n" +
                             "<html>\n" +
                             "<head>\n" +
@@ -246,7 +263,6 @@ public class CustomHeaderAndFontsController : EmbedAllFontsHtmlController
                             "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" +
                             "<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}\">\n" +
                             "</head>";
-
 
     private readonly string m_cssFileName;
 
@@ -263,26 +279,23 @@ public class CustomHeaderAndFontsController : EmbedAllFontsHtmlController
 
     public override void WriteAllFonts(IHtmlGenerator generator, IPresentation presentation)
     {
-        generator.AddHtml("<!-- 嵌入字体 -->");
+        generator.AddHtml("<!-- Embedded fonts -->");
         base.WriteAllFonts(generator, presentation);
     }
 }
 ```
 
-## **将所有字体链接到转换后的 HTML 演示文稿**
 
-如果您不想嵌入字体（以避免增加生成 HTML 的大小），可以通过实现自己的 `LinkAllFontsHtmlController` 版本来链接所有字体。 
+## **在将演示文稿转换为 HTML 时链接所有字体**
 
-以下 C# 代码向您展示了如何在转换 PowerPoint 为 HTML 时链接所有字体，并排除 "Calibri" 和 "Arial"（因为它们已经存在于系统中）： 
+如果您不想嵌入字体（以避免增加生成的 HTML 大小），可以通过实现自定义的 `LinkAllFontsHtmlController` 来链接所有字体。
 
+以下 C# 代码演示如何在将 PowerPoint 演示文稿转换为 HTML 时链接所有字体，并排除 "Calibri" 和 "Arial"（因为它们已安装在系统中）：
 ```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using (Presentation presentation = new Presentation("pres.pptx"))
 {
-    // 排除默认演示文稿字体
+    // 排除默认演示文稿字体。
     string[] fontNameExcludeList = { "Calibri", "Arial" };
-
-    Paragraph para = new Paragraph();
-    ITextFrame txt;
 
     LinkAllFontsHtmlController linkcont = new LinkAllFontsHtmlController(fontNameExcludeList, @"C:\Windows\Fonts\");;
 
@@ -291,12 +304,12 @@ using (Presentation pres = new Presentation("pres.pptx"))
         HtmlFormatter = HtmlFormatter.CreateCustomFormatter(linkcont)
     };
 
-    pres.Save("pres.html", SaveFormat.Html, htmlOptionsEmbed);
+    presentation.Save("pres.html", SaveFormat.Html, htmlOptionsEmbed);
 }
 ```
 
-以下 C# 代码展示了 `LinkAllFontsHtmlController` 的实现：
 
+以下 C# 代码展示了 `LinkAllFontsHtmlController` 的实现方式：
 ```c#
 public class LinkAllFontsHtmlController : EmbedAllFontsHtmlController
 {
@@ -319,7 +332,7 @@ public class LinkAllFontsHtmlController : EmbedAllFontsHtmlController
         try
         {
             string fontName = substitutedFont == null ? originalFont.FontName : substitutedFont.FontName;
-            string path = fontName + ".woff"; // 可能需要进行路径清理
+            string path = fontName + ".woff"; // 可能需要对路径进行清理。
 
             File.WriteAllBytes(Path.Combine(m_basePath, path), fontData);
             
@@ -339,30 +352,36 @@ public class LinkAllFontsHtmlController : EmbedAllFontsHtmlController
 }
 ```
 
-## **将 PowerPoint 转换为响应式 HTML**
-以下 C# 代码向您展示了如何将 PowerPoint 演示文稿转换为响应式 HTML：
 
+## **将包含 SVG 图像的演示文稿转换为响应式 HTML**
+
+以下 C# 代码演示如何将 PowerPoint 演示文稿转换为响应式 HTML：
 ```c#
-Presentation presentation = new Presentation("SomePresentation.pptx");
-HtmlOptions saveOptions = new HtmlOptions();
-saveOptions.SvgResponsiveLayout = true;
-presentation.Save("SomePresentation-out.html", SaveFormat.Html, saveOptions);
+using (Presentation presentation = new Presentation("Presentation.pptx"))
+{
+    HtmlOptions saveOptions = new HtmlOptions
+    {
+        SvgResponsiveLayout = true
+    };
+
+    presentation.Save("SvgResponsiveLayout-out.html", SaveFormat.Html, saveOptions);
+}
 ```
 
 
-## **导出媒体文件到 HTML**
-使用 Aspose.Slides for .NET，您可以这样导出媒体文件：
+## **将媒体文件导出为 HTML**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的一个实例。
-1. 获取幻灯片的引用。
-1. 在幻灯片中添加视频。
-1. 将演示文稿写入 HTML 文件。
+使用 Aspose.Slides for .NET，您可以按以下步骤导出媒体文件：
 
-以下 C# 代码向您展示了如何在演示文稿中添加视频并将其保存为 HTML： 
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 获取对幻灯片的引用。
+1. 向幻灯片添加视频。
+1. 将演示文稿写入为 HTML 文件。
 
+以下 C# 代码演示如何向演示文稿添加视频，然后将其保存为 HTML：
 ```c#
-// 加载演示文稿
-using (Presentation pres = new Presentation())
+// 创建一个新演示文稿。
+using (Presentation presentation = new Presentation())
 {
     string path = "C:/out/";
     const string fileName = "ExportMediaFiles_out.html";
@@ -370,22 +389,56 @@ using (Presentation pres = new Presentation())
 
     using (FileStream fileStream = new FileStream("my_video.avi", FileMode.Open, FileAccess.Read))
     {
-        IVideo video = pres.Videos.AddVideo(fileStream, LoadingStreamBehavior.ReadStreamAndRelease);
+        IVideo video = presentation.Videos.AddVideo(fileStream, LoadingStreamBehavior.ReadStreamAndRelease);
         
-        ISlide slide = pres.Slides[0];
+        ISlide slide = presentation.Slides[0];
         slide.Shapes.AddVideoFrame(10, 10, 100, 100, video);
     }
         
     VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path, fileName, baseUri);
 
-    // 设置 HTML 选项
+    // 设置 HTML 选项。
     HtmlOptions htmlOptions = new HtmlOptions(controller);
     SVGOptions svgOptions = new SVGOptions(controller);
 
     htmlOptions.HtmlFormatter = HtmlFormatter.CreateCustomFormatter(controller);
     htmlOptions.SlideImageFormat = SlideImageFormat.Svg(svgOptions);
 
-    // 保存文件
-    pres.Save(Path.Combine(path, fileName), SaveFormat.Html, htmlOptions);
+    // 将演示文稿保存为 HTML 文件。
+    presentation.Save(Path.Combine(path, fileName), SaveFormat.Html, htmlOptions);
 }
 ```
+
+
+{{% alert color="primary" %}} 
+
+Aspose 开发了免费的 [演示文稿转 HTML](https://products.aspose.app/slides/conversion/powerpoint-to-html) 转换器： [PPT to HTML](https://products.aspose.app/slides/conversion/ppt-to-html)、[PPTX to HTML](https://products.aspose.app/slides/conversion/pptx-to-html)、[ODP to HTML](https://products.aspose.app/slides/conversion/odp-to-html) 等。
+
+[![ppt-to-html 截图](ppt-to-html.png)](https://products.aspose.app/slides/conversion/ppt-to-html)
+
+查看 Aspose 的其他 [免费转换器](https://products.aspose.app/slides/conversion)。
+{{% /alert %}}
+
+{{% alert title="Note" color="warning" %}} 
+
+除了这里描述的转换过程，Aspose.Slides 还支持以下涉及 HTML 格式的转换操作：
+
+* [HTML 转图像](https://products.aspose.com/slides/net/conversion/html-to-image/)
+* [HTML 转 JPG](https://products.aspose.com/slides/net/conversion/html-to-jpg/)
+* [HTML 转 XML](https://products.aspose.com/slides/net/conversion/html-to-xml/)
+* [HTML 转 TIFF](https://products.aspose.com/slides/net/conversion/html-to-tiff/)
+{{% /alert %}}
+
+## **常见问题**
+
+**将多个演示文稿转换为 HTML 时，Aspose.Slides 的性能如何？**
+
+性能取决于演示文稿的大小和复杂度。Aspose.Slides 对批量操作具有高效且可扩展的性能。为获得最佳转换性能，建议在可能的情况下使用多线程或并行处理。
+
+**Aspose.Slides 是否支持将超链接导出为 HTML？**
+
+是的，Aspose.Slides 完全支持将嵌入的超链接导出为 HTML。转换为 HTML 格式时，超链接会自动保留并保持可点击。
+
+**将演示文稿转换为 HTML 时，幻灯片数量是否有限制？**
+
+使用 Aspose.Slides 时对幻灯片数量没有限制，可转换任意规模的演示文稿。但对于包含大量幻灯片的演示文稿，性能可能取决于服务器或系统可用的资源。

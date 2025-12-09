@@ -1,34 +1,46 @@
 ---
-title: إنشاء وإدراج مخطط Excel ككائن OLE في شريحة Microsoft PowerPoint
+title: إنشاء وتضمين مخططات Excel ككائنات OLE باستخدام VSTO و Aspose.Slides لـ .NET
+linktitle: إنشاء وتضمين مخططات Excel ككائنات OLE
 type: docs
 weight: 70
 url: /ar/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+keywords:
+- إنشاء مخطط
+- تضمين مخطط Excel
+- كائن OLE
+- ترحيل
+- VSTO
+- أتمتة Office
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "قم بالترحيل من أتمتة Microsoft Office إلى Aspose.Slides لـ .NET وتضمين مخططات Excel ككائنات OLE في شرائح PowerPoint (PPT, PPTX) باستخدام C#."
 ---
 
 {{% alert color="primary" %}} 
-
-المخططات هي تمثيلات بصرية لبياناتك وتستخدم على نطاق واسع في شرائح العروض التقديمية. ستوضح لك هذه المقالة الكود لإنشاء وإدراج مخطط Excel ككائن OLE في شريحة PowerPoint برمجيًا باستخدام [VSTO](/slides/ar/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) و [Aspose.Slides for .NET](/slides/ar/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
-
+الرسوم البيانية هي تمثيلات مرئية لبياناتك وتُستخدم على نطاق واسع في شرائح العروض التقديمية. سيوضح لك هذا المقال الشيفرة لإنشاء وتضمين رسم بياني من Excel ككائن OLE في شريحة PowerPoint برمجيًا باستخدام [VSTO](/slides/ar/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) و[Aspose.Slides for .NET](/slides/ar/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 {{% /alert %}} 
-## **إنشاء وإدراج مخطط Excel**
-أمثلة الكود أدناه طويلة ومفصلة لأن المهمة التي تصفها معقدة. ستقوم بإنشاء مصنف Microsoft Excel، إنشاء مخطط ثم إنشاء عرض تقديمي Microsoft PowerPoint الذي ستدرج فيه المخطط. تحتوي كائنات OLE على روابط للمستند الأصلي بحيث يمكن للمستخدم الذي ينقر مرتين على الملف المدسوس فتح الملف وتطبيقه.
-## **مثال VSTO**
-باستخدام VSTO، يتم تنفيذ الخطوات التالية:
+## **إنشاء وتضمين رسم بياني من Excel**
+المثالان البرمجيان أدناه طويلان ومفصلان لأن المهمة التي يصفانها معقدة. تقوم بإنشاء مصنف Microsoft Excel، وإنشاء رسم بياني، ثم إنشاء عرض تقديمي Microsoft PowerPoint ستُضمّن فيه الرسم البياني. تحتوي كائنات OLE على روابط إلى المستند الأصلي بحيث أن المستخدم الذي ينقر مزدوجًا على الملف المضمّن سيُطلق الملف وتطبيقه.
 
-1. إنشاء مثيل لكائن Microsoft Excel ApplicationClass.
+## **مثال VSTO**
+استخدام VSTO، يتم تنفيذ الخطوات التالية:
+
+1. إنشاء نسخة من كائن Microsoft Excel ApplicationClass.
 1. إنشاء مصنف جديد يحتوي على ورقة واحدة.
-1. إضافة مخطط إلى الورقة.
+1. إضافة رسم بياني إلى الورقة.
 1. حفظ المصنف.
-1. فتح مصنف Excel الذي يحتوي على الورقة مع بيانات المخطط.
+1. فتح مصنف Excel الذي يحتوي على ورقة العمل ذات بيانات الرسم البياني.
 1. الحصول على مجموعة ChartObjects للورقة.
-1. الحصول على المخطط للنسخ.
+1. الحصول على الرسم البياني المراد نسخه.
 1. إنشاء عرض تقديمي Microsoft PowerPoint.
 1. إضافة شريحة فارغة إلى العرض التقديمي.
-1. نسخ المخطط من ورقة Excel إلى الحافظة.
-1. لصق المخطط في عرض PowerPoint.
-1. موضع المخطط على الشريحة.
+1. نسخ الرسم البياني من ورقة Excel إلى الحافظة.
+1. لصق الرسم البياني في عرض PowerPoint.
+1. تحديد موضع الرسم البياني على الشريحة.
 1. حفظ العرض التقديمي.
-
 ```c#
 CreateNewChartInExcel();
 UseCopyPaste();
@@ -44,25 +56,25 @@ static void SetCellValue(xlNS.Worksheet targetSheet, string Cell, object Value)
 ```c#
 static void CreateNewChartInExcel()
 {
-    // إعلان متغير لمثيل Excel ApplicationClass.
+    // إعلان متغيّر لنسخة كائن Excel ApplicationClass.
     Microsoft.Office.Interop.Excel.ApplicationClass excelApplication = null;
 
-    // إعلان المتغيرات لبارامترات Workbooks.Open.
+    // إعلان المتغيّرات لوسائط طريقة Workbooks.Open.
     string paramWorkbookPath = Application.StartupPath + @"\ChartData.xlsx";
     object paramMissing = Type.Missing;
 
-    // إعلان المتغيرات لطريقة Chart.ChartWizard.
+    // إعلان المتغيّرات لطريقة Chart.ChartWizard.
     object paramChartFormat = 1;
     object paramCategoryLabels = 0;
     object paramSeriesLabels = 0;
     bool paramHasLegend = true;
-    object paramTitle = "المبيعات حسب الربع";
-    object paramCategoryTitle = "الربع المالي";
-    object paramValueTitle = "المليارات";
+    object paramTitle = "Sales by Quarter";
+    object paramCategoryTitle = "Fiscal Quarter";
+    object paramValueTitle = "Billions";
 
     try
     {
-        // إنشاء مثيل لكائن Excel ApplicationClass.
+        // إنشاء نسخة من كائن Excel ApplicationClass.
         excelApplication = new Microsoft.Office.Interop.Excel.ApplicationClass();
 
         // إنشاء مصنف جديد يحتوي على ورقة واحدة.
@@ -70,9 +82,9 @@ static void CreateNewChartInExcel()
 
         // تغيير اسم الورقة.
         xlNS.Worksheet targetSheet = (xlNS.Worksheet)(newWorkbook.Worksheets[1]);
-        targetSheet.Name = "مبيعات ربع سنوية";
+        targetSheet.Name = "Quarterly Sales";
 
-        // إدراج بعض البيانات للمخطط في الورقة.
+        // إدخال بعض البيانات للرسم البياني في الورقة.
         //              A       B       C       D       E
         //     1                Q1      Q2      Q3      Q4
         //     2    أمريكا الشمالية  1.5     2       1.5     2.5
@@ -80,10 +92,10 @@ static void CreateNewChartInExcel()
         //     4    أوروبا      2.25    2       2.5     2
         //     5    آسيا        2.5     2.5     2       2.75
 
-        SetCellValue(targetSheet, "A2", "أمريكا الشمالية");
-        SetCellValue(targetSheet, "A3", "أمريكا الجنوبية");
-        SetCellValue(targetSheet, "A4", "أوروبا");
-        SetCellValue(targetSheet, "A5", "آسيا");
+        SetCellValue(targetSheet, "A2", "N. America");
+        SetCellValue(targetSheet, "A3", "S. America");
+        SetCellValue(targetSheet, "A4", "Europe");
+        SetCellValue(targetSheet, "A5", "Asia");
 
         SetCellValue(targetSheet, "B1", "Q1");
         SetCellValue(targetSheet, "B2", 1.5);
@@ -109,17 +121,17 @@ static void CreateNewChartInExcel()
         SetCellValue(targetSheet, "E4", 2);
         SetCellValue(targetSheet, "E5", 2.75);
 
-        // الحصول على المدى الذي يحتوي على بيانات المخطط.
+        // الحصول على النطاق الذي يحتوي على بيانات الرسم البياني.
         xlNS.Range dataRange = targetSheet.get_Range("A1", "E5");
 
         // الحصول على مجموعة ChartObjects للورقة.
         xlNS.ChartObjects chartObjects = (xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));
 
-        // إضافة مخطط إلى المجموعة.
+        // إضافة رسم بياني إلى المجموعة.
         xlNS.ChartObject newChartObject = chartObjects.Add(0, 100, 600, 300);
-        newChartObject.Name = "مخطط المبيعات";
+        newChartObject.Name = "Sales Chart";
 
-        // إنشاء مخطط جديد من البيانات.
+        // إنشاء رسم بياني جديد للبيانات.
         newChartObject.Chart.ChartWizard(dataRange, xlNS.XlChartType.xl3DColumn, paramChartFormat, xlNS.XlRowCol.xlRows,
             paramCategoryLabels, paramSeriesLabels, paramHasLegend, paramTitle, paramCategoryTitle, paramValueTitle, paramMissing);
 
@@ -145,13 +157,13 @@ static void CreateNewChartInExcel()
 ```c#
 static void UseCopyPaste()
 {
-    // إعلان المتغيرات للاحتفاظ بالإشارات إلى كائنات PowerPoint.
+    // إعلان المتغيّرات للاحتفاظ بمراجع كائنات PowerPoint.
     pptNS.ApplicationClass powerpointApplication = null;
     pptNS.Presentation pptPresentation = null;
     pptNS.Slide pptSlide = null;
     pptNS.ShapeRange shapeRange = null;
 
-    // إعلان المتغيرات للاحتفاظ بالإشارات إلى كائنات Excel.
+    // إعلان المتغيّرات للاحتفاظ بمراجع كائنات Excel.
     xlNS.ApplicationClass excelApplication = null;
     xlNS.Workbook excelWorkBook = null;
     xlNS.Worksheet targetSheet = null;
@@ -164,29 +176,29 @@ static void UseCopyPaste()
 
     try
     {
-        // إنشاء مثيل لبرنامج PowerPoint.
+        // إنشاء نسخة من PowerPoint.
         powerpointApplication = new pptNS.ApplicationClass();
 
-        // إنشاء مثيل لـ Excel.
+        // إنشاء نسخة من Excel.
         excelApplication = new xlNS.ApplicationClass();
 
-        // فتح مصنف Excel الذي يحتوي على الورقة مع بيانات المخطط.
+        // فتح مصنف Excel الذي يحتوي على ورقة العمل التي بها بيانات الرسم البياني.
         excelWorkBook = excelApplication.Workbooks.Open(paramWorkbookPath,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, paramMissing, paramMissing, paramMissing);
 
-        // الحصول على الورقة التي تحتوي على المخطط.
+        // الحصول على ورقة العمل التي تحتوي على الرسم البياني.
         targetSheet =
-            (xlNS.Worksheet)(excelWorkBook.Worksheets["مبيعات ربع سنوية"]);
+            (xlNS.Worksheet)(excelWorkBook.Worksheets["Quarterly Sales"]);
 
         // الحصول على مجموعة ChartObjects للورقة.
         chartObjects =
             (xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));
 
-        // الحصول على المخطط للنسخ.
+        // الحصول على الرسم البياني للنسخ.
         existingChartObject =
-            (xlNS.ChartObject)(chartObjects.Item("مخطط المبيعات"));
+            (xlNS.ChartObject)(chartObjects.Item("Sales Chart"));
 
         // إنشاء عرض تقديمي PowerPoint.
         pptPresentation =
@@ -197,13 +209,13 @@ static void UseCopyPaste()
         pptSlide =
             pptPresentation.Slides.Add(1, pptNS.PpSlideLayout.ppLayoutBlank);
 
-        // نسخ المخطط من ورقة Excel إلى الحافظة.
+        // نسخ الرسم البياني من ورقة Excel إلى الحافظة.
         existingChartObject.Copy();
 
-        // لصق المخطط في عرض PowerPoint.
+        // لصق الرسم البياني في عرض PowerPoint.
         shapeRange = pptSlide.Shapes.Paste();
 
-        // موضع المخطط على الشريحة.
+        // تحديد موضع الرسم البياني على الشريحة.
         shapeRange.Left = 60;
         shapeRange.Top = 100;
 
@@ -227,7 +239,7 @@ static void UseCopyPaste()
             pptPresentation = null;
         }
 
-        // إنهاء PowerPoint وتحرير كائن ApplicationClass.
+        // إغلاق PowerPoint وتحرير كائن ApplicationClass.
         if (powerpointApplication != null)
         {
             powerpointApplication.Quit();
@@ -246,7 +258,7 @@ static void UseCopyPaste()
             excelWorkBook = null;
         }
 
-        // إنهاء Excel وتحرير كائن ApplicationClass.
+        // إغلاق Excel وتحرير كائن ApplicationClass.
         if (excelApplication != null)
         {
             excelApplication.Quit();
@@ -262,50 +274,45 @@ static void UseCopyPaste()
 ```
 
 
-
-
 ## **مثال Aspose.Slides for .NET**
-باستخدام Aspose.Slides for .NET، يتم تنفيذ الخطوات التالية:
+استخدام Aspose.Slides for .NET، يتم تنفيذ الخطوات التالية:
 
 1. إنشاء مصنف باستخدام Aspose.Cells for .NET.
-1. إنشاء مخطط Excel.
-1. تعيين حجم OLE لمخطط Excel.
-1. الحصول على صورة للمخطط.
-1. إدراج مخطط Excel ككائن OLE داخل عرض PPTX باستخدام Aspose.Slides for .NET.
-1. استبدال صورة الكائن المتغير بالصورة التي تم الحصول عليها في الخطوة 3 للتعامل مع مشكلة تغيير الكائن.
+1. إنشاء رسم بياني Microsoft Excel.
+1. تعيين حجم OLE للرسم البياني Excel.
+1. الحصول على صورة للرسم البياني.
+1. تضمين الرسم البياني Excel ككائن OLE داخل عرض PPTX باستخدام Aspose.Slides for .NET.
+1. استبدال صورة الكائن المتغيّر بالصورة التي تم الحصول عليها في الخطوة 3 للتعامل مع مشكلة تغيّر الكائن.
 1. كتابة العرض الناتج إلى القرص بتنسيق PPTX.
-
-
-
 ```c#
-//الخطوة - 1: إنشاء مخطط Excel باستخدام Aspose.Cells
+//الخطوة - 1: إنشاء مخطط إكسل باستخدام Aspose.Cells
 //--------------------------------------------------
 //إنشاء مصنف
 Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
-//إضافة مخطط Excel
+//إضافة مخطط إكسل
 int chartRows = 55;
 int chartCols = 25;
 int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
-//الخطوة - 2: تعيين حجم OLE للمخطط. باستخدام Aspose.Cells
+//الخطوة - 2: ضبط حجم OLE للمخطط باستخدام Aspose.Cells
 //-----------------------------------------------------------
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
 //الخطوة - 3: الحصول على صورة المخطط باستخدام Aspose.Cells
 //-----------------------------------------------------------
 Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
-//حفظ المصنف إلى التدفق
+//حفظ المصنف إلى تيار
 MemoryStream wbStream = wb.SaveToStream();
-//الخطوة - 4  وَ 5
+//الخطوة - 4  و 5
 //-----------------------------------------------------------
-//الخطوة - 4: إدراج المخطط ككائن OLE داخل عرض .ppt باستخدام Aspose.Slides
+//الخطوة - 4: تضمين المخطط ككائن OLE داخل عرض .ppt باستخدام Aspose.Slides
 //-----------------------------------------------------------
-//الخطوة - 5: استبدال صورة الكائن المتغير بالصورة التي تم الحصول عليها في الخطوة 3 للتعامل مع مشكلة تغيير الكائن
+//الخطوة - 5: استبدال صورة الكائن المتغيّر بالصورة التي تم الحصول عليها في الخطوة 3 لمعالجة مشكلة تغيير الكائن
 //-----------------------------------------------------------
 //إنشاء عرض تقديمي
 Presentation pres = new Presentation();
 ISlide sld = pres.Slides[0];
-//إضافة المصنف على الشريحة
+//إضافة المصنف إلى الشريحة
 AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
-//الخطوة - 6: كتابة العرض الناتج على القرص
+//الخطوة - 6: كتابة العرض الناتج إلى القرص
 //-----------------------------------------------------------
 pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
@@ -327,7 +334,7 @@ static void AddExcelChartInPresentation(Presentation presentation, ISlide slide,
     {
         chartImage.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
 
-	imageStream.Position = 0;
+    imageStream.Position = 0;
         IPPImage image = presentation.Images.AddImage(imageStream);
 
         oleFrame.SubstitutePictureFormat.Picture.Image = image;
@@ -338,7 +345,7 @@ static void AddExcelChartInPresentation(Presentation presentation, ISlide slide,
 ```c#
 static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int chartCols)
 {
-    //مصفوفة أسماء الخلايا
+    //مجموعة أسماء الخلايا
     string[] cellsName = new string[]
       {
   "A1", "A2", "A3", "A4",
@@ -348,21 +355,21 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
   "E1", "E2", "E3", "E4"
       };
 
-    //مصفوفة بيانات الخلايا
+    //مجموعة قيم الخلايا
     int[] cellsValue = new int[]
       {
- 67,86,68,91,
- 44,64,89,48,
- 46,97,78,60,
- 43,29,69,26,
- 24,40,38,25
+  67,86,68,91,
+  44,64,89,48,
+  46,97,78,60,
+  43,29,69,26,
+  24,40,38,25
       };
-    //إضافة ورقة عمل جديدة لتعبئة الخلايا بالبيانات
+    //إضافة ورقة عمل جديدة لملء الخلايا بالبيانات
     int dataSheetIdx = wb.Worksheets.Add();
     Aspose.Cells.Worksheet dataSheet = wb.Worksheets[dataSheetIdx];
-    string sheetName = "ورقة البيانات";
+    string sheetName = "DataSheet";
     dataSheet.Name = sheetName;
-    //تعبئة ورقة البيانات بالبيانات
+    //ملء ورقة البيانات (DataSheet) بالبيانات
     for (int i = 0; i < cellsName.Length; i++)
     {
         string cellName = cellsName[i];
@@ -372,15 +379,15 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
     //إضافة ورقة مخطط
     int chartSheetIdx = wb.Worksheets.Add(Aspose.Cells.SheetType.Chart);
     Aspose.Cells.Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
-    chartSheet.Name = "ورقة المخطط";
-    //إضافة مخطط في ورقة المخطط مع سلسلة البيانات من ورقة البيانات
+    chartSheet.Name = "ChartSheet";
+    //إضافة مخطط في ورقة المخطط (ChartSheet) باستخدام سلسلة البيانات من ورقة البيانات (DataSheet)
     int chartIdx = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
     Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIdx];
     chart.NSeries.Add(sheetName + "!A1:E1", false);
     chart.NSeries.Add(sheetName + "!A2:E2", false);
     chart.NSeries.Add(sheetName + "!A3:E3", false);
     chart.NSeries.Add(sheetName + "!A4:E4", false);
-    //تعيين ورقة المخطط كعامل نشط
+    //تعيين ورقة المخطط (ChartSheet) كورقة نشطة
     wb.Worksheets.ActiveSheetIndex = chartSheetIdx;
     return chartSheetIdx;
 }

@@ -1,75 +1,87 @@
 ---
-title: So erstellen Sie ein Hello World Präsentationsdokument
+title: Wie man Hello World Präsentationen in .NET erstellt
+linktitle: Hello World Präsentation
 type: docs
 weight: 10
 url: /de/net/how-to-create-hello-world-presentation-document/
+keywords:
+- Migration
+- Hallo Welt
+- Legacy-Code
+- Moderner Code
+- Legacy-Ansatz
+- Moderner Ansatz
+- PowerPoint
+- OpenDocument
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Erstellen Sie eine Hello World PowerPoint PPT, PPTX und ODP Präsentation in .NET mit Aspose.Slides unter Verwendung sowohl der Legacy- als auch der modernen APIs in einem einfachen Leitfaden."
 ---
 
 {{% alert color="primary" %}} 
 
-Eine neue [Aspose.Slides für .NET API](/slides/de/net/) wurde veröffentlicht und jetzt unterstützt dieses Einzelprodukt die Möglichkeit, PowerPoint-Dokumente von Grund auf zu erstellen und bestehende zu bearbeiten.
+Eine neue [Aspose.Slides for .NET API](/slides/de/net/) wurde veröffentlicht und jetzt unterstützt dieses einzelne Produkt die Möglichkeit, PowerPoint-Dokumente von Grund auf zu erstellen und bestehende zu bearbeiten.
 
 {{% /alert %}} 
 ## **Unterstützung für Legacy-Code**
-Um den Legacy-Code zu verwenden, der mit früheren Versionen von Aspose.Slides für .NET vor 13.x entwickelt wurde, müssen Sie einige kleinere Änderungen in Ihrem Code vornehmen, und der Code wird wie zuvor funktionieren. Alle Klassen, die im alten Aspose.Slides für .NET unter den Namespaces Aspose.Slide und Aspose.Slides.Pptx vorhanden waren, sind nun im einzelnen Namespace Aspose.Slides zusammengeführt. Bitte schauen Sie sich das folgende einfache Code-Snippet zum Erstellen eines Hello World Präsentationsdokuments in der alten Aspose.Slides API an und befolgen Sie die Schritte, die beschreiben, wie Sie zur neuen zusammengeführten API migrieren können.
-## **Legacy Aspose.Slides für .NET Ansatz**
+Um den mit Aspose.Slides für .NET entwickelten Legacy-Code aus Versionen vor 13.x zu verwenden, müssen Sie einige kleine Änderungen an Ihrem Code vornehmen, und der Code funktioniert dann wie zuvor. Alle Klassen, die in der alten Aspose.Slides für .NET unter den Namespaces Aspose.Slide und Aspose.Slides.Pptx vorhanden waren, sind jetzt in einem einzigen Aspose.Slides-Namespace zusammengeführt. Bitte sehen Sie sich das folgende einfache Code-Snippet zur Erstellung eines Hello-World-Präsentationsdokuments in der Legacy-Aspose.Slides-API an und folgen Sie den Schritten, die beschreiben, wie Sie zur neuen zusammengeführten API migrieren.
+## **Legacy Aspose.Slides for .NET approach**
 ```c#
-//Instanziieren Sie ein Präsentationsobjekt, das eine PPT-Datei darstellt
-Presentation pres = new Presentation();
-
-//Erstellen Sie ein Lizenzobjekt
-License license = new License();
-
-//Setzen Sie die Lizenz von Aspose.Slides für .NET, um die Evalationsbeschränkungen zu vermeiden
-license.SetLicense("Aspose.Slides.lic");
-
-//Hinzufügen einer leeren Folie zur Präsentation und Abrufen des Verweises auf
-//diese leere Folie
-Slide slide = pres.AddEmptySlide();
-
-//Hinzugefügt ein Rechteck (X=2400, Y=1800, Breite=1000 & Höhe=500) zur Folie
-Aspose.Slides.Rectangle rect = slide.Shapes.AddRectangle(2400, 1800, 1000, 500);
-
-//Die Linien des Rechtecks ausblenden
-rect.LineFormat.ShowLines = false;
-
-//Hinzufügen eines Textfeldes zum Rechteck mit "Hello World" als Standardtext
-rect.AddTextFrame("Hello World");
-
-//Entfernen der ersten Folie der Präsentation, die immer von
+//Instanziiert ein Presentation-Objekt, das eine PPT-Datei darstellt
+//Erstellt ein License-Objekt
+//Setzt die Lizenz von Aspose.Slides für .NET, um die Evaluationsbeschränkungen zu vermeiden
+//Fügt der Präsentation eine leere Folie hinzu und holt die Referenz der
+//leeren Folie
+//Fügt der Folie ein Rechteck (X=2400, Y=1800, Breite=1000 & Höhe=500) hinzu
+//Versteckt die Linien des Rechtecks
+//Fügt dem Rechteck einen Textrahmen mit "Hello World" als Standardtext hinzu
+//Entfernt die erste Folie der Präsentation, die immer von
 //Aspose.Slides für .NET standardmäßig beim Erstellen der Präsentation hinzugefügt wird
+//Schreibt die Präsentation als PPT-Datei
+Presentation pres = new Presentation();
+License license = new License();
+license.SetLicense("Aspose.Slides.lic");
+Slide slide = pres.AddEmptySlide();
+Aspose.Slides.Rectangle rect = slide.Shapes.AddRectangle(2400, 1800, 1000, 500);
+rect.LineFormat.ShowLines = false;
+rect.AddTextFrame("Hello World");
 pres.Slides.RemoveAt(0);
-
-//Schreiben der Präsentation als PPT-Datei
 pres.Write("C:\\hello.ppt");
 ```
 
 
 
-## **Neuer Aspose.Slides für .NET 13.x Ansatz**
+
+## **New Aspose.Slides for .NET 13.x approach**
 ```c#
-// Präsentation instanziieren
+// Instanziere eine Presentation
+// Hole die erste Folie
+// Füge eine AutoShape vom Typ Rechteck hinzu
+// Füge ITextFrame zum Rechteck hinzu
+// Ändere die Textfarbe zu Schwarz (standardmäßig ist sie Weiß)
 Presentation pres = new Presentation();
 
-// Erste Folie abrufen
+// Get the first slide
 ISlide sld = (ISlide)pres.Slides[0];
 
-// Hinzufügen einer AutoShape vom Typ Rechteck
+// Add an AutoShape of Rectangle type
 IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-// Fügen Sie ein ITextFrame zum Rechteck hinzu
+// Add ITextFrame to the Rectangle
 ashp.AddTextFrame("Hello World");
 
-//Ändern der Schriftfarbe auf Schwarz (was standardmäßig Weiß ist)
+// Change the text color to Black (which is White by default)
 ashp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.FillType = FillType.Solid;
 ashp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
-//Ändern der Linienfarbe des Rechtecks auf Weiß
+// Change the line color of the rectangle to White
 ashp.ShapeStyle.LineColor.Color = Color.White;
 
-//Entfernen Sie alle Füllformatierungen im Shape
+// Remove any fill formatting in the shape
 ashp.FillFormat.FillType = FillType.NoFill;
 
-//Speichern Sie die Präsentation auf der Platte
+// Save the presentation to disk
 pres.Save("D:\\data\\HelloWorld.pptx", SaveFormat.Pptx);
 ```

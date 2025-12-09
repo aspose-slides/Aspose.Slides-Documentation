@@ -1,58 +1,69 @@
 ---
-title: Создание таблицы на слайде PowerPoint
+title: Создание таблиц с использованием VSTO и Aspose.Slides для .NET
+linktitle: Создание таблиц
 type: docs
 weight: 50
 url: /ru/net/creating-a-table-on-powerpoint-slide/
+keywords:
+- создать таблицу
+- миграция
+- VSTO
+- автоматизация Office
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Перейдите от автоматизации Microsoft Office к Aspose.Slides для .NET и создавайте таблицы в слайдах PowerPoint (PPT, PPTX) с помощью C# с гибким форматированием."
 ---
 
 {{% alert color="primary" %}} 
 
-Таблицы широко используются для отображения данных на слайдах презентаций. В этой статье показано, как программно создать таблицу 15 x 15 с размером шрифта 10, используя сначала [VSTO 2008](/slides/ru/net/creating-a-table-on-powerpoint-slide/), а затем [Aspose.Slides для .NET](/slides/ru/net/creating-a-table-on-powerpoint-slide/).
+Таблицы широко используются для отображения данных на слайдах презентаций. В этой статье показано, как программно создать таблицу 15 x 15 с размером шрифта 10, используя сначала [VSTO 2008](/slides/ru/net/creating-a-table-on-powerpoint-slide/) и затем [Aspose.Slides for .NET](/slides/ru/net/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Создание таблиц**
 #### **Пример VSTO 2008**
-Следующие шаги добавляют таблицу на слайд Microsoft PowerPoint с использованием VSTO:
+Следующие шаги добавляют таблицу в слайд Microsoft PowerPoint с использованием VSTO:
 
-1. Создайте презентацию.
-1. Добавьте пустой слайд в презентацию.
-1. Добавьте таблицу 15 x 15 на слайд.
-1. Добавьте текст в каждую ячейку таблицы с размером шрифта 10.
-1. Сохраните презентацию на диск.
-
+1. Создать презентацию.
+1. Добавить пустой слайд в презентацию.
+1. Добавить таблицу 15 x 15 на слайд.
+1. Добавить текст в каждую ячейку таблицы с размером шрифта 10.
+1. Сохранить презентацию на диск.
 ```c#
-//Создание презентации
+//Создать презентацию
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
               .Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
-//Добавление пустого слайда
+//Добавить пустой слайд
 PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);
 
-//Добавление таблицы 15 x 15
+//Добавить таблицу 15 x 15
 PowerPoint.Shape shp = sld.Shapes.AddTable(15, 15, 10, 10, pres.PageSetup.SlideWidth - 20, 300);
 PowerPoint.Table tbl = shp.Table;
 int i = -1;
 int j = -1;
 
-//Цикл по всем строкам
+//Пройти по всем строкам
 foreach (PowerPoint.Row row in tbl.Rows)
 {
     i = i + 1;
     j = -1;
 
-    //Цикл по всем ячейкам в строке
+    //Пройти по всем ячейкам в строке
     foreach (PowerPoint.Cell cell in row.Cells)
     {
         j = j + 1;
-        //Получение текстового фрейма каждой ячейки
+        //Получить текстовый фрейм каждой ячейки
         PowerPoint.TextFrame tf = cell.Shape.TextFrame;
-        //Добавление текста
+        //Добавить некоторый текст
         tf.TextRange.Text = "T" + i.ToString() + j.ToString();
-        //Установка размера шрифта текста на 10
+        //Установить размер шрифта текста равным 10
         tf.TextRange.Paragraphs(0, tf.TextRange.Text.Length).Font.Size = 10;
     }
 }
 
-//Сохранение презентации на диск
+//Сохранить презентацию на диск
 pres.SaveAs("d:\\tblVSTO.ppt",
       PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
       Microsoft.Office.Core.MsoTriState.msoFalse);
@@ -60,43 +71,43 @@ pres.SaveAs("d:\\tblVSTO.ppt",
 
 
 
-### **Пример Aspose.Slides для .NET**
-Следующие шаги добавляют таблицу на слайд Microsoft PowerPoint с использованием Aspose.Slides:
 
-1. Создайте презентацию.
-1. Добавьте таблицу 15 x 15 на первый слайд.
-1. Добавьте текст в каждую ячейку таблицы с размером шрифта 10.
-1. Запишите презентацию на диск.
+### **Пример Aspose.Slides for .NET**
+Следующие шаги добавляют таблицу в слайд Microsoft PowerPoint с использованием Aspose.Slides:
 
+1. Создать презентацию.
+1. Добавить таблицу 15 x 15 на первый слайд.
+1. Добавить текст в каждую ячейку таблицы с размером шрифта 10.
+1. Записать презентацию на диск.
 ```c#
 Presentation pres = new Presentation();
 
-//Получение первого слайда
+//Получить первый слайд
 ISlide sld = pres.Slides[0];
 
-//Определение столбцов с ширинами и строк с высотами
+//Определить столбцы с шириной и строки с высотой
 double[] dblCols = { 50, 50, 50 };
 double[] dblRows = { 50, 30, 30, 30, 30 };
 
-//Добавление таблицы
+//Добавить таблицу
 Aspose.Slides.ITable tbl = sld.Shapes.AddTable(50, 50, dblCols, dblRows);
 
-//Установка формата границы для каждой ячейки
+//Установить формат границы для каждой ячейки
 foreach (IRow row in tbl.Rows)
 {
 	foreach (ICell cell in row)
 	{
 
-		//Получение текстового фрейма каждой ячейки
+		//Получить текстовый фрейм каждой ячейки
 		ITextFrame tf = cell.TextFrame;
-		//Добавление текста
+		//Добавить некоторый текст
 		tf.Text = "T" + cell.FirstRowIndex.ToString() + cell.FirstColumnIndex.ToString();
-		//Установка размера шрифта на 10
+		//Установить размер шрифта 10
 		tf.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 10;
 		tf.Paragraphs[0].ParagraphFormat.Bullet.Type = BulletType.None;
 	}
 }
 
-//Запись презентации на диск
+//Записать презентацию на диск
 pres.Save("C:\\data\\tblSLD.ppt", SaveFormat.Ppt);
 ```

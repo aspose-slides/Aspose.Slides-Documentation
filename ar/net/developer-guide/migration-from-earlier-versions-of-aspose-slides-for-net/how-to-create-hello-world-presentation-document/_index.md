@@ -1,75 +1,86 @@
 ---
-title: كيفية إنشاء وثيقة عرض "Hello World"
+title: كيف تنشئ عروض تقديمية Hello World في .NET
+linktitle: عرض تقديمي Hello World
 type: docs
 weight: 10
 url: /ar/net/how-to-create-hello-world-presentation-document/
+keywords:
+- الترحيل
+- مرحبا بالعالم
+- الكود القديم
+- الكود الحديث
+- النهج القديم
+- النهج الحديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+- description: "إنشاء عرض تقديمي Hello World PowerPoint بصيغ PPT و PPTX و ODP في .NET باستخدام Aspose.Slides عبر كل من الواجهات القديمة والحديثة في دليل بسيط واحد."
 ---
 
 {{% alert color="primary" %}} 
-
-تم إصدار [Aspose.Slides for .NET API](/slides/ar/net/) جديدة والآن يدعم هذا المنتج المفرد القدرة على إنشاء مستندات PowerPoint من الصفر وتحرير المستندات الموجودة.
-
+تم إصدار واجهة برمجة تطبيقات [Aspose.Slides for .NET API](/slides/ar/net/) جديدة الآن وتدعم الآن هذا المنتج الواحد القدرة على إنشاء مستندات PowerPoint من الصفر وتعديل المستندات الموجودة.
 {{% /alert %}} 
-## **دعم الشيفرة القديمة**
-لاستخدام الشيفرة القديمة التي تم تطويرها باستخدام إصدارات Aspose.Slides for .NET السابقة لـ 13.x، تحتاج إلى إجراء بعض التغييرات الطفيفة في الشيفرة الخاصة بك وستعمل الشيفرة كما كانت سابقًا. جميع الفئات التي كانت موجودة في Aspose.Slides for .NET القديمة تحت أسماء مساحات Aspose.Slide و Aspose.Slides.Pptx قد تم دمجها الآن في مساحة أسماء Aspose.Slides واحدة. يرجى النظر إلى مقتطف الشيفرة البسيط التالي لإنشاء وثيقة عرض "Hello World" باستخدام واجهة برمجة التطبيقات القديمة لـ Aspose.Slides واتباع الخطوات التي تشرح كيفية الترحيل إلى واجهة برمجة التطبيقات المدمجة الجديدة.
-## **نهج Aspose.Slides for .NET القديم**
+## **دعم الكود القديم**
+للاستخدام الكود القديم الذي تم تطويره باستخدام Aspose.Slides for .NET الإصدارات السابقة لـ 13.x، تحتاج إلى إجراء بعض التغييرات الصغيرة في كودك وسيتعمل الكود كما كان سابقًا. جميع الفئات التي كانت موجودة في Aspose.Slides for .NET القديم تحت مساحات الأسماء Aspose.Slide و Aspose.Slides.Pptx تم دمجها الآن في مساحة اسم واحدة Aspose.Slides. يرجى إلقاء نظرة على المقتطف البرمجي البسيط التالي لإنشاء مستند عرض تقديمي Hello World باستخدام API القديم لـ Aspose.Slides واتبع الخطوات التي تصف كيفية الانتقال إلى API المدمج الجديد.
+## **المنهج القديم لـ Aspose.Slides for .NET**
 ```c#
-//Instantiate a Presentation object that represents a PPT file
+//إنشاء كائن Presentation يمثل ملف PPT
 Presentation pres = new Presentation();
 
-//Create a License object
+//إنشاء كائن License
 License license = new License();
 
-//Set the license of Aspose.Slides for .NET to avoid the evaluation limitations
+//ضبط رخصة Aspose.Slides for .NET لتجنب قيود التقييم
 license.SetLicense("Aspose.Slides.lic");
 
-//Adding an empty slide to the presentation and getting the reference of
-//that empty slide
+//إضافة شريحة فارغة إلى العرض والحصول على مرجع
+//تلك الشريحة الفارغة
 Slide slide = pres.AddEmptySlide();
 
-//Adding a rectangle (X=2400, Y=1800, Width=1000 & Height=500) to the slide
+//إضافة مستطيل (X=2400, Y=1800, العرض=1000 والارتفاع=500) إلى الشريحة
 Aspose.Slides.Rectangle rect = slide.Shapes.AddRectangle(2400, 1800, 1000, 500);
 
-//Hiding the lines of rectangle
+//إخفاء خطوط المستطيل
 rect.LineFormat.ShowLines = false;
 
-//Adding a text frame to the rectangle with "Hello World" as a default text
+//إضافة إطار نص إلى المستطيل بنص "Hello World" كالنص الافتراضي
 rect.AddTextFrame("Hello World");
 
-//Removing the first slide of the presentation which is always added by
-//Aspose.Slides for .NET by default while creating the presentation
+//إزالة الشريحة الأولى من العرض التي يتم إضافتها دائمًا بواسطة
+//Aspose.Slides for .NET بشكل افتراضي أثناء إنشاء العرض
 pres.Slides.RemoveAt(0);
 
-//Writing the presentation as a PPT file
+//كتابة العرض كملف PPT
 pres.Write("C:\\hello.ppt");
 ```
 
-
-
-## **نهج Aspose.Slides for .NET 13.x الجديد**
+## **المنهج الجديد لـ Aspose.Slides for .NET 13.x**
 ```c#
-// Instantiate Presentation
+// إنشاء كائن Presentation
 Presentation pres = new Presentation();
 
-// Get the first slide
+// الحصول على الشريحة الأولى
 ISlide sld = (ISlide)pres.Slides[0];
 
-// Add an AutoShape of Rectangle type
+// إضافة AutoShape من نوع Rectangle
 IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-// Add ITextFrame to the Rectangle
+// إضافة ITextFrame إلى المستطيل
 ashp.AddTextFrame("Hello World");
 
-// Change the text color to Black (which is White by default)
+// تغيير لون النص إلى الأسود (الذي يكون أبيض بشكل افتراضي)
 ashp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.FillType = FillType.Solid;
 ashp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
-// Change the line color of the rectangle to White
+// تغيير لون حد المستطيل إلى الأبيض
 ashp.ShapeStyle.LineColor.Color = Color.White;
 
-// Remove any fill formatting in the shape
+// إزالة أي تنسيق تعبئة في الشكل
 ashp.FillFormat.FillType = FillType.NoFill;
 
-// Save the presentation to disk
+// حفظ العرض التقديمي على القرص
 pres.Save("D:\\data\\HelloWorld.pptx", SaveFormat.Pptx);
 ```

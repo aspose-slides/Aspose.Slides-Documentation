@@ -1,27 +1,44 @@
 ---
-title: Aspose.Slides for .NET 16.2.0における公開APIおよび後方互換性のない変更
+title: Aspose.Slides for .NET 16.2.0のパブリック API と後方互換性のない変更
+linktitle: Aspose.Slides for .NET 16.2.0
 type: docs
 weight: 230
 url: /ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-2-0/
+keywords:
+- 移行
+- レガシーコード
+- モダンコード
+- レガシーアプローチ
+- モダンアプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET のパブリック API の更新と破壊的変更を確認し、PowerPoint PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
 ---
 
 {{% alert color="primary" %}} 
 
-このページでは、Aspose.Slides for .NET 16.2.0 APIで追加されたまたは削除されたすべての[追加された](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-2-0/)または[削除された](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-2-0/)クラス、メソッド、プロパティなど、およびその他の変更をリストしています。
+このページでは、Aspose.Slides for .NET 16.2.0 APIで導入された、[added](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-2-0/)または[removed](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-2-0/)されたクラス、メソッド、プロパティなど、その他の変更をすべて一覧表示します。
 
 {{% /alert %}} 
-## **公開APIの変更**
-#### **プロパティUpdateDateTimeFieldsおよびUpdateSlideNumberFieldsが削除されました**
-プロパティUpdateDateTimeFieldsおよびUpdateSlideNumberFieldsは、Aspose.Slides.PresentationクラスおよびAspose.Slides.IPresentationインターフェースから削除されました。
-Aspose.Slides.TextFrame、Paragraph、PortionクラスおよびAspose.Slides.ITextFrame、IParagraph、IPortionインターフェースのTextプロパティは、更新された「datetime」フィールドを持つテキストを返します。
-また、プロパティPresentation.DocumentProperties.CreatedTime、LastSavedTimeおよびLastPrintedは読み取り専用になりました。
-#### **Enum Slides.Charts.CategoryAxisTypeが公開に切り替えられました**
-IAxis.CategoryAxisTypeおよびAxis.CategoryAxisTypeプロパティで使用され、カテゴリー軸のタイプを決定します。
-CategoryAxisType.Auto - カテゴリー軸タイプはシリアル化中に自動的に決定されます（この動作は今は実装されていません）
-CategoryAxisType.Text - カテゴリー軸タイプはテキストです
-CategoryAxisType.Date - カテゴリー軸タイプはDateTimeです
+## **Public API の変更**
+#### **Properties UpdateDateTimeFields と UpdateSlideNumberFields が削除されました**
+Properties UpdateDateTimeFields と UpdateSlideNumberFields は Aspose.Slides.Presentation クラスおよび Aspose.Slides.IPresentation インターフェイスから削除されました。  
+Aspose.Slides.TextFrame、Paragraph、Portion クラスおよび Aspose.Slides.ITextFrame、IParagraph、IPortion インターフェイスの Text プロパティは、更新された「datetime」フィールドを含むテキストを返します。  
+また、プロパティ Presentation.DocumentProperties.CreatedTime、LastSavedTime、および LastPrinted は読み取り専用になりました。  
+
+#### **Enum Slides.Charts.CategoryAxisType が public に変更されました**
+IAxis.CategoryAxisType および Axis.CategoryAxisType プロパティで、カテゴリ軸のタイプを決定するために使用されます。  
+
+CategoryAxisType.Auto - カテゴリ軸タイプはシリアライズ時に自動的に決定されます（この動作は現在実装されていません）  
+CategoryAxisType.Text - カテゴリ軸タイプは Text です  
+CategoryAxisType.Date - カテゴリ軸タイプは DateTime です  
+
 #### **高速テキスト抽出**
-新しい静的メソッドGetPresentationTextがPresentationクラスに追加されました。このメソッドには2つのオーバーロードがあります：
+Presentation クラスに新しい static メソッド GetPresentationText が追加されました。このメソッドには 2 つのオーバーロードがあります。
 
 ``` csharp
 
@@ -31,22 +48,21 @@ PresentationText GetPresentationText(Stream stream, ExtractionMode mode)
 
 ``` 
 
-ExtractionMode enum引数は、テキスト結果の出力を整理するモードを示し、次の値に設定できます：
-Unarranged - スライド上の位置に関係なく生のテキスト
-Arranged - テキストはスライド上の順序と同じ順序で配置されます
+ExtractionMode 列挙体の引数は、テキスト結果の出力方式を示し、次の値に設定できます。  
+Unarranged - スライド上の位置を考慮せずに生のテキストが出力されます  
+Arranged - テキストはスライド上の順序と同じ順序で配置されます  
 
-Unarrangedモードは、速度が重要な場合に使用されます。これはArrangedモードよりも速いです。
+速度が重要な場合は Unarranged モードを使用できます。Arranged モードよりも高速です。  
 
-PresentationTextはプレゼンテーションから抽出された生のテキストを表します。これはAspose.Slides.Util名前空間のSlidesTextプロパティを含み、ISlideTextオブジェクトの配列を返します。各オブジェクトは対応するスライド上のテキストを表します。ISlideTextオブジェクトには次のプロパティがあります：
+PresentationText はプレゼンテーションから抽出された生テキストを表します。Aspose.Slides.Util 名前空間の SlidesText プロパティを含み、ISlideText オブジェクトの配列を返します。各オブジェクトは対応するスライドのテキストを表します。ISlideText オブジェクトは以下のプロパティを持ちます。  
+ISlideText.Text - スライドのシェイプ上のテキスト  
+ISlideText.MasterText - このスライドのマスターページのシェイプ上のテキスト  
+ISlideText.LayoutText - このスライドのレイアウトページのシェイプ上のテキスト  
+ISlideText.NotesText - このスライドのノートページのシェイプ上のテキスト  
 
-ISlideText.Text - スライドのシェイプ上のテキスト
-ISlideText.MasterText - このスライドのマスターページのシェイプ上のテキスト
-ISlideText.LayoutText - このスライドのレイアウトページのシェイプ上のテキスト
-ISlideText.NotesText - このスライドのノートページのシェイプ上のテキスト
+また、ISlideText インターフェイスを実装する SlideText クラスもあります。  
 
-ISlideTextインターフェースを実装するSlideTextクラスもあります。
-
-新しいAPIは次のように使用できます：
+新しい API は以下のように使用できます。
 
 ``` csharp
 
@@ -63,19 +79,22 @@ Console.WriteLine(text1.SlidesText[0].NotesText);
 PresentationText text2 = Presentation.GetPresentationText("presentation.pptx", ExtractionMode.Unarranged)
 
 ``` 
-#### **ILegacyDiagramインターフェースおよびLegacyDiagramクラスが追加されました**
-インターフェースAspose.Slides.ILegacyDiagramおよびクラスAspose.Slides.LegacyDiagramは、レガシーダイアグラムオブジェクトを表すために追加されました。レガシーダイアグラムオブジェクトは、PowerPoint 97-2003の古いダイアグラムフォーマットです。
-新しいクラスは、レガシーダイアグラムを現代の編集可能なSmartArtオブジェクトまたは編集可能なGroupShapeに変換するためのメソッドを提供します。
-#### **新しいAspose.Slides.TextAlignment enumメンバーが追加されました (JustifyLow)**
-TextAlignment enumの新しいメンバーが追加されました：
-JustifyLow - カシダの低い整列。
-#### **Aspose.Slides.IOleObjectFrameおよびOleObjectFrameの新しいプロパティ**
-IOleObjectFrameインターフェースおよびこのインターフェースを実装するOleObjectFrameクラスに新しいプロパティが追加されました。これらのプロパティは、プレゼンテーションに埋め込まれたオブジェクトに関する情報を提供するために使用されます：
-EmbeddedFileExtension - 現在の埋め込まれたオブジェクトのファイル拡張子を返すか、オブジェクトがリンクでない場合は空の文字列を返します
-EmbeddedFileLabel - 埋め込まれたOLEオブジェクトのファイル名を返します
-EmbeddedFileName - 埋め込まれたOLEオブジェクトのパスを返します
-#### **IAxisおよびAxisクラスに新しいプロパティCategoryAxisTypeが追加されました**
-プロパティCategoryAxisTypeは、カテゴリー軸のタイプを指定します。
+#### **ILegacyDiagram インターフェイスと LegacyDiagram クラスが追加されました**
+Aspose.Slides.ILegacyDiagram インターフェイスと Aspose.Slides.LegacyDiagram クラスが、レガシーダイアグラムオブジェクトを表すために追加されました。レガシーダイアグラムオブジェクトは、PowerPoint 97-2003 の古い形式のダイアグラムです。  
+新しいクラスは、レガシーダイアグラムを最新の編集可能な SmartArt オブジェクトまたは編集可能な GroupShape に変換するメソッドを提供します。  
+
+#### **新しい Aspose.Slides.TextAlignment 列挙体メンバーが追加されました (JustifyLow)**
+TextAlignment 列挙体に新しいメンバーが追加されました。  
+JustifyLow - カシダ（Kashida）による低い揃え。  
+
+#### **Aspose.Slides.IOleObjectFrame と OleObjectFrame の新しいプロパティ**
+IOleObjectFrame インターフェイスと、これを実装する OleObjectFrame クラスに新しいプロパティが追加されました。これらのプロパティは、プレゼンテーションに埋め込まれたオブジェクトに関する情報を提供します。  
+EmbeddedFileExtension - 現在の埋め込みオブジェクトのファイル拡張子を返します。オブジェクトがリンクでない場合は空文字列を返します  
+EmbeddedFileLabel - 埋め込み OLE オブジェクトのファイル名を返します  
+EmbeddedFileName - 埋め込み OLE オブジェクトのパスを返します  
+
+#### **CategoryAxisType プロパティが IAxis と Axis クラスに追加されました**
+CategoryAxisType プロパティは、カテゴリ軸のタイプを指定します。
 
 ``` csharp
 
@@ -98,8 +117,8 @@ EmbeddedFileName - 埋め込まれたOLEオブジェクトのパスを返しま�
 }
 
 ``` 
-#### **DataLabelFormatクラスおよびIDataLabelFormatインターフェースに新しいプロパティShowLabelAsDataCalloutが追加されました**
-プロパティShowLabelAsDataCalloutは、指定されたチャートのデータラベルがデータコールアウトとして表示されるか、データラベルとして表示されるかを決定します。
+#### **ShowLabelAsDataCallout プロパティが DataLabelFormat クラスと IDataLabelFormat インターフェイスに追加されました**
+ShowLabelAsDataCallout プロパティは、指定したチャートのデータラベルをデータコールアウトとして表示するか、データラベルとして表示するかを決定します。
 
 ``` csharp
 
@@ -120,9 +139,8 @@ EmbeddedFileName - 埋め込まれたOLEオブジェクトのパスを返しま�
 }
 
 ``` 
-#### **PdfOptionsおよびXpsOptionsにDrawSlidesFrameプロパティが追加されました**
-BooleanプロパティDrawSlidesFrameがインターフェースAspose.Slides.Export.IPdfOptions、Aspose.Slides.Export.IXpsOptionsおよび関連クラスAspose.Slides.Export.PdfOptions、Aspose.Slides.Export.XpsOptionsに追加されました。
-このプロパティが'true'に設定されている場合、各スライドの周りに黒いフレームが描画されます。
+#### **DrawSlidesFrame プロパティが PdfOptions と XpsOptions に追加されました**
+ブール型プロパティ DrawSlidesFrame がインターフェイス Aspose.Slides.Export.IPdfOptions、Aspose.Slides.Export.IXpsOptions および関連クラス Aspose.Slides.Export.PdfOptions、Aspose.Slides.Export.XpsOptions に追加されました。このプロパティを true に設定すると、各スライドの周囲に黒いフレームが描画されます。
 
 ``` csharp
 
@@ -134,4 +152,4 @@ BooleanプロパティDrawSlidesFrameがインターフェースAspose.Slides.Ex
 
 }
 
-``` 
+```

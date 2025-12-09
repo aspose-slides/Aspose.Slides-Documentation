@@ -1,26 +1,40 @@
 ---
-title: Öffentliches API und nicht rückwärtskompatible Änderungen in Aspose.Slides für .NET 14.9.0
+title: Öffentliche API und rückwärts inkompatible Änderungen in Aspose.Slides für .NET 14.9.0
+linktitle: Aspose.Slides für .NET 14.9.0
 type: docs
 weight: 110
 url: /de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/
+keywords:
+- Migration
+- Legacy-Code
+- Moderner Code
+- Legacy-Ansatz
+- Moderner Ansatz
+- PowerPoint
+- OpenDocument
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Überblick über Aktualisierungen der öffentlichen API und Breaking Changes in Aspose.Slides für .NET, um Ihre PowerPoint-PPT, PPTX- und ODP-Präsentationslösungen reibungslos zu migrieren."
 ---
 
 {{% alert color="primary" %}} 
 
-Diese Seite listet alle [hinzugefügten](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/) oder [entfernten](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/) Klassen, Methoden, Eigenschaften und so weiter auf und andere Änderungen, die mit der Aspose.Slides für .NET 14.9.0 API eingeführt wurden.
+Diese Seite listet alle [added](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/) oder [removed](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/) Klassen, Methoden, Eigenschaften usw. sowie weitere Änderungen, die mit der Aspose.Slides for .NET 14.9.0 API eingeführt wurden.
 
 {{% /alert %}} 
-## **Änderungen der öffentlichen API**
-#### **Vererbung von ICollection und generischen IEnumerable-Schnittstellen zu ISmartArtNodeCollection hinzugefügt**
-Die Klasse Aspose.Slides.SmartArt.SmartArtNodeCollection (und die zugehörige Schnittstelle Aspose.Slides.SmartArt.ISmartArtNodeCollection) erbt die generische Schnittstelle IEnumerable<ISmartArtNode> und die Schnittstelle ICollection.
-#### **Enum-Wert SmartArtLayoutType.Custom hinzugefügt**
-Der benutzerdefinierte SmartArt-Layouttyp stellt ein Diagramm mit einer benutzerdefinierten Vorlage dar. Benutzerdefinierte Diagramme können nur aus einer Präsentationsdatei geladen werden und können nicht über die Methode ShapeCollection.AddSmartArt(x, y, width, height, SmartArtLayoutType.Custom) erstellt werden.
+## **Öffentliche API-Änderungen**
+#### **Vererbung von ICollection- und generischen IEnumerable-Schnittstellen zu ISmartArtNodeCollection hinzugefügt**
+Die Klasse Aspose.Slides.SmartArt.SmartArtNodeCollection (und die zugehörige Schnittstelle Aspose.Slides.SmartArt.ISmartArtNodeCollection) erben die generische Schnittstelle IEnumerable<ISmartArtNode> und die Schnittstelle ICollection.
+#### **SmartArtLayoutType.Custom-Enum-Wert hinzugefügt**
+Der benutzerdefinierte SmartArt‑Layout‑Typ stellt ein Diagramm mit einer benutzerdefinierten Vorlage dar. Benutzerdefinierte Diagramme können nur aus einer Präsentationsdatei geladen und nicht über die Methode ShapeCollection.AddSmartArt(x, y, width, height, SmartArtLayoutType.Custom) erstellt werden.
 #### **SmartArtShape-Klasse und ISmartArtShape-Schnittstelle hinzugefügt**
-Die Aspose.Slides.SmartArt.SmartArtShape-Klasse (und ihre Schnittstelle Aspose.Slides.SmartArt.ISmartArtShape) geben Zugriff auf einzelne Formen in einem SmartArt-Diagramm. SmartArtShape kann verwendet werden, um FillFormat, LineFormat zu ändern, Hyperlinks hinzuzufügen und andere Aufgaben auszuführen.
+Die Aspose.Slides.SmartArt.SmartArtShape‑Klasse (und ihre Schnittstelle Aspose.Slides.SmartArt.ISmartArtShape) ermöglicht den Zugriff auf einzelne Formen in einem SmartArt‑Diagramm. SmartArtShape kann verwendet werden, um FillFormat, LineFormat, Hyperlinks und weitere Aufgaben zu ändern.
 
 {{% alert color="primary" %}} 
 
-**Hinweis**: SmartArtShape unterstützt die IShape-Eigenschaften RawFrame, Frame, Rotation, X, Y, Width, Height nicht und löst eine System.NotSupportedException aus, wenn versucht wird, auf sie zuzugreifen.
+**Hinweis**: SmartArtShape unterstützt die IShape‑Eigenschaften RawFrame, Frame, Rotation, X, Y, Width, Height nicht und wirft eine System.NotSupportedException, wenn versucht wird, auf sie zuzugreifen.
 
 Beispiel für die Verwendung:
 
@@ -51,12 +65,12 @@ Beispiel für die Verwendung:
 ``` 
 
 {{% /alert %}} 
-#### **SmartArtShapeCollection-Klasse, ISmartArtShapeCollection-Schnittstelle und ISmartArtNode.Shapes-Eigenschaft hinzugefügt**
-Die Aspose.Slides.SmartArt.SmartArtShapeCollection-Klasse (und ihre Schnittstelle Aspose.Slides.SmartArt.ISmartArtShapeCollection) ermöglichen den Zugriff auf einzelne Formen in einem SmartArt-Diagramm. Die Sammlung enthält Formen, die mit SmartArtNode assoziiert sind. Die SmartArtNode.Shapes-Eigenschaft gibt Sammlungen aller Formen zurück, die mit dem Knoten verknüpft sind.
+#### **SmartArtShapeCollection-Klasse, ISmartArtShapeCollection-Schnittstelle und ISmartArtNode.Shapes‑Eigenschaft hinzugefügt**
+Die Aspose.Slides.SmartArt.SmartArtShapeCollection‑Klasse (und ihre Schnittstelle Aspose.Slides.SmartArt.ISmartArtShapeCollection) ermöglicht den Zugriff auf einzelne Formen in einem SmartArt‑Diagramm. Die Sammlung enthält Formen, die einem SmartArtNode zugeordnet sind. Die Eigenschaft SmartArtNode.Shapes gibt Sammlungen aller mit dem Knoten verbundenen Formen zurück.
 
 {{% alert color="primary" %}} 
 
-**Hinweis**: Je nach SmartArtLayoutType kann eine SmartArtShape zwischen mehreren Knoten geteilt werden.
+**Hinweis**: abhängig vom SmartArtLayoutType kann ein SmartArtShape zwischen mehreren Knoten geteilt werden.
 
 ``` csharp
 
@@ -93,20 +107,20 @@ Die folgenden Methoden wurden hinzugefügt:
 - void IPresentation.Save(Stream stream, int[] slides, SaveFormat format);
 - void IPresentation.Save(Stream stream, int[] slides, SaveFormat format, ISaveOption options);
 
-Diese Methoden ermöglichen es Entwicklern, angegebene Präsentationsfolien in PDF-, XPS-, TIFF- und HTML-Formate zu speichern. Das 'slides'-Array wird verwendet, um die Seitennummern anzugeben, beginnend mit 1.
+Diese Methoden ermöglichen Entwicklern, ausgewählte Präsentationsfolien in PDF-, XPS-, TIFF‑ und HTML‑Formaten zu speichern. Das Array „slides“ wird verwendet, um Seitennummern anzugeben, beginnend bei 1.
 Save(string fname, int[] slides, SaveFormat format);
 
 ``` csharp
 
  Presentation presentation = new Presentation(presentationFileName);
 
-int[] slides = new int[] { 2, 3, 5 }; //Array der Folienpositionen
+int[] slides = new int[] { 2, 3, 5 }; //Array of slides positions
 
 presentation.Save(outFileName, slides, SaveFormat.Pdf);
 
 ``` 
 #### **Methoden zum Ersetzen von Bildern zu PPImage, IPPImage hinzugefügt**
-Neue Methoden wurden hinzugefügt:
+Neue Methoden hinzugefügt:
 
 - IPPImage.ReplaceImage(byte[] newImageData)
 - IPPImage.ReplaceImage(Image newImage)
@@ -116,7 +130,7 @@ Neue Methoden wurden hinzugefügt:
 
  Presentation presentation = new Presentation(presentation.pptx);
 
-//Erste Methode
+//First method
 
 byte[] data = File.ReadAllBytes(image0.jpeg);
 
@@ -124,7 +138,7 @@ IPPImage oldImage = presentation.Images[0];
 
 oldImage.ReplaceImage(data);
 
-//Zweite Methode
+//Second method
 
 Image newImage = Image.FromFile(image1.png);
 
@@ -132,7 +146,7 @@ oldImage = presentation.Images[1];
 
 oldImage.ReplaceImage(newImage);
 
-//Dritte Methode
+//Third method
 
 oldImage = presentation.Images[2];
 
@@ -140,4 +154,4 @@ oldImage.ReplaceImage(presentation.Images[3]);
 
 presentation.Save(presentation_out.pptx, SaveFormat.Pptx);
 
-``` 
+```

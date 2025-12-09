@@ -1,124 +1,160 @@
 ---
-title: Конвертация PowerPoint в JPG на C#
-linktitle: Конвертация PowerPoint PPT в JPG
+title: Конвертировать PPT и PPTX в JPG в .NET
+linktitle: PowerPoint в JPG
 type: docs
 weight: 60
 url: /ru/net/convert-powerpoint-to-jpg/
-keywords: "Конвертация презентации PowerPoint, JPG, JPEG, PowerPoint в JPG, PowerPoint в JPEG, PPT в JPG, PPTX в JPG, PPT в JPEG, PPTX в JPEG, C#, Csharp, .NET, Aspose.Slides"
-description: "Конвертация PowerPoint в JPG на C# или .NET. Сохранение слайда как изображения JPG"
+keywords:
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPT
+- конвертировать PPTX
+- PowerPoint в JPG
+- презентация в JPG
+- слайд в JPG
+- PPT в JPG
+- PPTX в JPG
+- сохранить PowerPoint как JPG
+- сохранить презентацию как JPG
+- сохранить слайд как JPG
+- сохранить PPT как JPG
+- сохранить PPTX как JPG
+- экспортировать PPT в JPG
+- экспортировать PPTX в JPG
+- .NET
+- C#
+- Aspose.Slides
+description: "Конвертировать слайды PowerPoint (PPT, PPTX) в высококачественные JPG‑изображения на C# с Aspose.Slides для .NET, используя быстрые и надёжные примеры кода."
 ---
 
 ## **Обзор**
 
-В этой статье объясняется, как конвертировать презентацию PowerPoint в формат JPG с использованием C#. Рассматриваются следующие темы:
+Конвертация презентаций PowerPoint и OpenDocument в изображения JPG упрощает обмен слайдами, оптимизирует производительность и встраивание контента в веб‑сайты или приложения. Aspose.Slides for .NET позволяет преобразовывать файлы PPTX, PPT и ODP в изображения JPEG высокого качества. В этом руководстве объясняются различные методы конвертации.
 
-- [C# Конвертация PowerPoint в JPG](#convert-powerpoint-pptpptx-to-jpg)
-- [C# Конвертация PPT в JPG](#convert-powerpoint-pptpptx-to-jpg)
-- [C# Конвертация PPTX в JPG](#convert-powerpoint-pptpptx-to-jpg)
-- [C# Конвертация ODP в JPG](#convert-powerpoint-pptpptx-to-jpg)
-- [C# Конвертация слайда PowerPoint в изображение](#convert-powerpoint-pptpptx-to-jpg)
+С помощью этих функций легко реализовать собственный просмотрщик презентаций и создать миниатюру для каждого слайда. Это может быть полезно, если вы хотите защитить слайды презентации от копирования или продемонстрировать презентацию в режиме только для чтения. Aspose.Slides позволяет конвертировать всю презентацию или отдельный слайд в форматы изображений.
 
-## **C# PowerPoint в JPG**
-
-Для получения примера кода на C# для конвертации PowerPoint в JPG, пожалуйста, ознакомьтесь с разделом ниже т.е. [Конвертация PowerPoint в JPG](#convert-powerpoint-pptpptx-to-jpg). Код может загружать несколько форматов, таких как PPT, PPTX и ODP в объект Presentation, а затем сохранять его миниатюру слайда в формате JPG. Другие конверсии PowerPoint в изображения, подобные PNG, BMP, TIFF и SVG, обсуждаются в этих статьях.
-
-- [C# PowerPoint в PNG](https://docs.aspose.com/slides/net/convert-powerpoint-to-png/)
-- [C# PowerPoint в BMP](#convert-powerpoint-pptpptx-to-jpg)
-- [C# PowerPoint в TIFF](https://docs.aspose.com/slides/net/convert-powerpoint-to-tiff/)
-- [C# PowerPoint в SVG](https://docs.aspose.com/slides/net/render-a-slide-as-an-svg-image/)
-
-## **О конвертации PowerPoint в JPG**
-С помощью [**Aspose.Slides .NET API**](https://products.aspose.com/slides/net/) вы можете конвертировать презентацию PowerPoint PPT или PPTX в изображение JPG. Также возможно конвертировать PPT/PPTX в BMP, PNG или SVG. С этими функциями легко реализовать свой собственный просмотрщик презентаций, создать миниатюру для каждого слайда. Это может быть полезно, если вы хотите защитить слайды презентации от копирования, демонстрировать презентацию в режиме только для чтения. Aspose.Slides позволяет конвертировать всю презентацию или определенный слайд в форматы изображений. 
-
-{{% alert color="primary" %}} 
-
-Чтобы увидеть, как Aspose.Slides конвертирует PowerPoint в изображения JPG, вы можете попробовать эти бесплатные онлайн-конвертеры: PowerPoint [PPTX в JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) и [PPT в JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg). 
-
-{{% /alert %}} 
-
-![todo:image_alt_text](ppt-to-jpg.png)
-
-## **Конвертация PowerPoint PPT/PPTX в JPG**
-Вот шаги для конвертации PPT/PPTX в JPG:
+## **Конвертировать слайды презентации в изображения JPG**
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Получите объект слайда типа [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) из коллекции [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides).
-3. Создайте миниатюру каждого слайда, а затем конвертируйте его в JPG. Метод [**ISlide.GetThumbnail(float scaleX, float scaleY)**](https://reference.aspose.com/slides/net/aspose.slides.islide/getthumbnail/methods/6) используется для получения миниатюры слайда, он возвращает объект [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=netframework-4.8) в качестве результата. Метод [GetThumbnail](https://reference.aspose.com/slides/net/aspose.slides.islide/getthumbnail/methods/6) должен быть вызван для нужного слайда типа [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide), значения масштабов полученной миниатюры передаются в метод.
-4. После получения миниатюры слайда вызовите метод [**Image.Save(string filename, ImageFormat format)**](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.image.save?view=netframework-4.8) из объекта миниатюры. Передайте в него имя результирующего файла и формат изображения. 
+1. Получите объект слайда типа [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) из коллекции [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides).
+1. Создайте изображение слайда, используя метод [ISlide.GetImage(float, float)](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/#getimage_5).
+1. Вызовите метод [IImage.Save(string, ImageFormat)](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/#save_3) у объекта изображения. Передайте имя выходного файла и формат изображения в качестве аргументов.
 
 {{% alert color="primary" %}} 
-**Примечание**: Конвертация PPT/PPTX в JPG отличается от конвертации в другие типы в Aspose.Slides .NET API. Для других типов вы обычно используете метод [**IPresentation.SaveMethod(String, SaveFormat, ISaveOptions)** ](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/save/methods/5), но здесь вам нужен метод [**Image.Save(string filename, ImageFormat format)**](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.image.save?view=netframework-4.8).
+**Примечание:** Преобразование PPT, PPTX или ODP в JPG отличается от преобразования в другие форматы в API Aspose.Slides .NET. Для других форматов обычно используется метод [IPresentation.Save(String, SaveFormat, ISaveOptions)](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/save/#save_5). Однако для конвертации в JPG необходимо использовать метод [IImage.Save(string, ImageFormat)](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/#save_3).
 {{% /alert %}} 
-
 ```c#
-using (Presentation pres = new Presentation("PowerPoint-Presentation.ppt"))
-{
-	foreach (ISlide sld in pres.Slides)
-	{
-		// Создает изображение полного масштаба
-		Bitmap bmp = sld.GetThumbnail(1f, 1f);
+int scaleX = 1;
+int scaleY = scaleX;
 
-		// Сохраняет изображение на диск в формате JPEG
-		bmp.Save(string.Format("Slide_{0}.jpg", sld.SlideNumber), System.Drawing.Imaging.ImageFormat.Jpeg);
-	}
+using (Presentation presentation = new Presentation("PowerPoint_Presentation.ppt"))
+{
+    foreach (ISlide slide in presentation.Slides)
+    {
+        // Создать изображение слайда указанного масштаба.
+        using (IImage thumbnail = slide.GetImage(scaleX, scaleY))
+        {
+            // Сохранить изображение на диск в формате JPEG.
+            string imageFileName = $"Slide_{slide.SlideNumber}.jpg";
+            thumbnail.Save(imageFileName, ImageFormat.Jpeg);
+        }
+    }
 }
 ```
 
-## **Конвертация PowerPoint PPT/PPTX в JPG с настроенными размерами**
-Чтобы изменить размеры полученной миниатюры и изображения JPG, вы можете установить значения *ScaleX* и *ScaleY*, передав их в метод [**ISlide.GetThumbnail(float scaleX, float scaleY)**](https://reference.aspose.com/slides/net/aspose.slides.islide/getthumbnail/methods/6):
 
+## **Конвертировать слайды в JPG с пользовательскими размерами**
+
+Чтобы изменить размеры получаемых изображений JPG, вы можете задать размер изображения, передав его в метод [ISlide.GetImage(Size)](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/#getimage_6). Это позволяет создавать изображения с конкретными значениями ширины и высоты, обеспечивая соответствие вывода вашим требованиям к разрешению и соотношению сторон. Такая гибкость особенно полезна при создании изображений для веб‑приложений, отчетов или документации, где требуются точные размеры изображения.
 ```c#
-using (Presentation pres = new Presentation("PowerPoint-Presentation.pptx"))
+Size imageSize = new Size(1200, 800);
+
+using (Presentation presentation = new Presentation("PowerPoint_Presentation.pptx"))
 {
-	// Определяет размеры
-	int желаемыйX = 1200;
-	int желаемыйY = 800;
-	// Получает масштабированные значения X и Y
-	float ScaleX = (float)(1.0 / pres.SlideSize.Size.Width) * желаемыйX;
-	float ScaleY = (float)(1.0 / pres.SlideSize.Size.Height) * желаемыйY;
-
-	foreach (ISlide sld in pres.Slides)
-	{
-		// Создает изображение полного масштаба
-		Bitmap bmp = sld.GetThumbnail(ScaleX, ScaleY);
-
-		// Сохраняет изображение на диск в формате JPEG
-		bmp.Save(string.Format("Slide_{0}.jpg", sld.SlideNumber), System.Drawing.Imaging.ImageFormat.Jpeg);
-	}
+    foreach (ISlide slide in presentation.Slides)
+    {
+        // Создать изображение слайда указанного размера.
+        using (IImage thumbnail = slide.GetImage(imageSize))
+        {
+            // Сохранить изображение на диск в формате JPEG.
+            string imageFileName = $"Slide_{slide.SlideNumber}.jpg";
+            thumbnail.Save(imageFileName, ImageFormat.Jpeg);
+        }
+    }
 }
 ```
 
-## **Отображение комментариев при сохранении презентации в изображение**
-Aspose.Slides для .NET предоставляет возможность отображать комментарии в слайдах презентации при конвертации этих слайдов в изображения. Этот код на C# демонстрирует операцию:
 
+## **Рендеринг комментариев при сохранении слайдов в виде изображений**
+
+Aspose.Slides for .NET предоставляет возможность отображать комментарии на слайдах презентации при их конвертации в изображения JPG. Эта функция особенно полезна для сохранения аннотаций, отзывов или обсуждений, добавленных сотрудниками в презентациях PowerPoint. Включив эту опцию, вы гарантируете, что комментарии будут видны на сгенерированных изображениях, что упрощает их просмотр и обмен отзывами без необходимости открывать исходный файл презентации.
+
+Предположим, у нас есть файл презентации "sample.pptx" со слайдом, содержащим комментарии:
+
+![Слайд с комментариями](slide_with_comments.png)
+
+Следующий код C# конвертирует слайд в изображение JPG, сохраняя комментарии:
 ```c#
-Presentation pres = new Presentation("test.pptx");
-Bitmap bmp = new Bitmap(740, 960);
+int scaleX = 2;
+int scaleY = scaleX;
 
-IRenderingOptions opts = new RenderingOptions();
-opts.NotesCommentsLayouting.NotesPosition = NotesPositions.BottomTruncated;
-opts.NotesCommentsLayouting.CommentsAreaColor = Color.Red;
-opts.NotesCommentsLayouting.CommentsAreaWidth = 200;
-opts.NotesCommentsLayouting.CommentsPosition = CommentsPositions.Right;
-
-using (Graphics graphics = Graphics.FromImage(bmp))
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
-	pres.Slides[0].RenderToGraphics(opts, graphics);
+    IRenderingOptions options = new RenderingOptions
+    {
+        // Установить параметры для комментариев слайда.
+        SlidesLayoutOptions = new NotesCommentsLayoutingOptions
+        {
+            CommentsPosition = CommentsPositions.Right,
+            CommentsAreaWidth = 200,
+            CommentsAreaColor = Color.DarkOrange                  
+        }
+    };
+
+    // Преобразовать первый слайд в изображение.
+    using (IImage image = presentation.Slides[0].GetImage(options, scaleX, scaleY))
+    {
+        image.Save("Slide_1.jpg", ImageFormat.Jpeg);
+    }
 }
-bmp.Save("OutPresBitmap.png", ImageFormat.Png);
-System.Diagnostics.Process.Start("OutPresBitmap.png");
 ```
 
-{{% alert title="Совет" color="primary" %}}
 
-Aspose предоставляет [БЕСПЛАТНОЕ веб-приложение Collage](https://products.aspose.app/slides/collage). С помощью этого онлайн-сервиса вы можете объединять [JPG в JPG](https://products.aspose.app/slides/collage/jpg) или изображения PNG в PNG, создавать [фото сетки](https://products.aspose.app/slides/collage/photo-grid) и так далее. 
+Результат:
 
-Используя те же принципы, описанные в этой статье, вы можете конвертировать изображения из одного формата в другой. Для получения дополнительной информации смотрите эти страницы: конвертировать [изображение в JPG](https://products.aspose.com/slides/net/conversion/image-to-jpg/); конвертировать [JPG в изображение](https://products.aspose.com/slides/net/conversion/jpg-to-image/); конвертировать [JPG в PNG](https://products.aspose.com/slides/net/conversion/jpg-to-png/), конвертировать [PNG в JPG](https://products.aspose.com/slides/net/conversion/png-to-jpg/); конвертировать [PNG в SVG](https://products.aspose.com/slides/net/conversion/png-to-svg/), конвертировать [SVG в PNG](https://products.aspose.com/slides/net/conversion/svg-to-png/).
-
-{{% /alert %}}
+![Изображение JPG с комментариями](image_with_comments.png)
 
 ## **Смотрите также**
 
-Смотрите другие варианты конвертации PPT/PPTX в изображения, такие как:
+- [Конвертировать PowerPoint в GIF](/slides/ru/net/convert-powerpoint-to-animated-gif/)
+- [Конвертировать PowerPoint в PNG](/slides/ru/net/convert-powerpoint-to-png/)
+- [Конвертировать PowerPoint в TIFF](/slides/ru/net/convert-powerpoint-to-tiff/)
+- [Конвертировать PowerPoint в SVG](/slides/ru/net/render-a-slide-as-an-svg-image/)
 
-- [Конвертация PPT/PPTX в SVG](/slides/ru/net/render-a-slide-as-an-svg-image/).
+{{% alert color="primary" %}} 
+Чтобы увидеть, как Aspose.Slides конвертирует PowerPoint в изображения JPG, попробуйте эти бесплатные онлайн‑конвертеры: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) и [PPT to JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg). 
+{{% /alert %}} 
+
+![Бесплатный онлайн‑конвертер PPTX в JPG](ppt-to-jpg.png)
+
+{{% alert title="Tip" color="primary" %}}
+
+Aspose предоставляет [БЕСПЛАТНОЕ веб‑приложение Collage](https://products.aspose.app/slides/collage). С помощью этого онлайн‑сервиса вы можете объединять [JPG в JPG](https://products.aspose.app/slides/collage/jpg) или PNG в PNG изображения, создавать [фото‑решётки](https://products.aspose.app/slides/collage/photo-grid) и т.д.
+
+Используя те же принципы, описанные в этой статье, вы можете конвертировать изображения из одного формата в другой. Для получения дополнительной информации см. эти страницы: конвертировать [изображение в JPG](https://products.aspose.com/slides/net/conversion/image-to-jpg/); конвертировать [JPG в изображение](https://products.aspose.com/slides/net/conversion/jpg-to-image/); конвертировать [JPG в PNG](https://products.aspose.com/slides/net/conversion/jpg-to-png/), конвертировать [PNG в JPG](https://products.aspose.com/slides/net/conversion/png-to-jpg/); конвертировать [PNG в SVG](https://products.aspose.com/slides/net/conversion/png-to-svg/), конвертировать [SVG в PNG](https://products.aspose.com/slides/net/conversion/svg-to-png/).
+{{% /alert %}}
+
+## **FAQ**
+
+**Поддерживает ли этот метод пакетную конвертацию?**
+
+Да, Aspose.Slides позволяет выполнять пакетную конвертацию нескольких слайдов в JPG за одну операцию.
+
+**Поддерживает ли конвертация SmartArt, диаграммы и другие сложные объекты?**
+
+Да, Aspose.Slides отображает всё содержимое, включая SmartArt, диаграммы, таблицы, фигуры и др. Однако точность отображения может немного отличаться от PowerPoint, особенно при использовании пользовательских или отсутствующих шрифтов.
+
+**Есть ли ограничения на количество слайдов, которые можно обработать?**
+
+Сам Aspose.Slides не накладывает строгих ограничений на количество обрабатываемых слайдов. Однако при работе с большими презентациями или изображениями высокого разрешения вы можете столкнуться с ошибкой нехватки памяти.
