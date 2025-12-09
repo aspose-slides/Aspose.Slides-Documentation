@@ -1,44 +1,60 @@
 ---
-title: Blobを管理する
+title: JavaでプレゼンテーションのBLOBを管理して効率的なメモリ使用を実現
+linktitle: BLOBの管理
 type: docs
 weight: 10
 url: /ja/java/manage-blob/
-description: Javaを使用してPowerPointプレゼンテーションでBlobを管理します。Javaを使用してPowerPointプレゼンテーションのメモリ消費を削減するためにBlobを使用します。Javaを使用してPowerPointプレゼンテーションにBlobを通じて大きなファイルを追加します。Javaを使用してPowerPointプレゼンテーションからBlobを通じて大きなファイルをエクスポートします。Javaを使用してBlobとして大きなPowerPointプレゼンテーションを読み込みます。
+keywords:
+- 大きなオブジェクト
+- 大きなアイテム
+- 大きなファイル
+- BLOBの追加
+- BLOBのエクスポート
+- 画像をBLOBとして追加
+- メモリ削減
+- メモリ使用量
+- 大規模プレゼンテーション
+- 一時ファイル
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for JavaでBLOBデータを管理し、PowerPoint および OpenDocument ファイル操作を効率化して、プレゼンテーションの取り扱いを最適化します。"
 ---
 
-## **BLOBについて**
+## **BLOB について**
 
-**BLOB**（**Binary Large Object**）は通常、バイナリ形式で保存された大きなアイテム（写真、プレゼンテーション、ドキュメント、メディア）です。
+**BLOB** (**Binary Large Object**) は、通常、バイナリ形式で保存される大きな項目（写真、プレゼンテーション、ドキュメント、またはメディア）です。  
 
-Aspose.Slides for Javaは、大きなファイルを扱う際にメモリ消費を削減する方法でBLOBをオブジェクトに使用することを可能にします。
+Aspose.Slides for Java は、大きなファイルが関わる場合にメモリ消費を抑える形でオブジェクトに BLOB を使用できるようにします。  
 
-{{% alert title="情報" color="info" %}}
-
-ストリームと対話する際の特定の制限を回避するために、Aspose.Slidesはストリームの内容をコピーする場合があります。ストリームを通じて大きなプレゼンテーションを読み込むと、プレゼンテーションの内容がコピーされ、読み込みが遅くなる原因となります。したがって、大きなプレゼンテーションを読み込む場合は、ストリームではなくプレゼンテーションファイルのパスを使用することを強くお勧めします。
-
+{{% alert title="Info" color="info" %}}
+ストリームとやり取りする際の特定の制限を回避するために、Aspose.Slides はストリームの内容をコピーすることがあります。ストリームを介して大きなプレゼンテーションを読み込むと、プレゼンテーションの内容がコピーされ、読み込みが遅くなります。そのため、大きなプレゼンテーションを読み込む場合は、ストリームではなくプレゼンテーションのファイルパスを使用することを強く推奨します。  
 {{% /alert %}}
 
-## **メモリ消費を削減するためにBLOBを使用する**
+## **BLOB を使用してメモリ消費を削減する**
 
-### **BLOBを通じてプレゼンテーションに大きなファイルを追加する**
+### **BLOB を使用してプレゼンテーションに大きなファイルを追加する**
 
-[Aspose.Slides](/slides/ja/java/) for Javaは、メモリ消費を削減するためにBLOBを利用して大きなファイル（この場合は大きな動画ファイル）を追加することを可能にします。
+[Aspose.Slides](/slides/ja/java/) for Java は、BLOB を使用したプロセスで大きなファイル（この例では大きなビデオファイル）を追加し、メモリ消費を削減できるようにします。  
 
-以下のJavaコードは、BLOBプロセスを通じてプレゼンテーションに大きな動画ファイルを追加する方法を示します：
-
+この Java のサンプルは、BLOB プロセスを使用して大きなビデオファイルをプレゼンテーションに追加する方法を示しています。  
 ```java
 String pathToVeryLargeVideo = "veryLargeVideo.avi";
 
-// 動画が追加される新しいプレゼンテーションを作成
+// 新しいプレゼンテーションを作成し、ビデオを追加します
 Presentation pres = new Presentation();
 try {
     FileInputStream fileStream = new FileInputStream(pathToVeryLargeVideo);
     try {
-        // プレゼンテーションに動画を追加します - "veryLargeVideo.avi"ファイルにアクセスするつもりはないため、KeepLocked動作を選択します。
+        // プレゼンテーションにビデオを追加します - KeepLocked 動作を選択したのは、
+        // "veryLargeVideo.avi" ファイルにアクセスするつもりがないためです。
         IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
         pres.getSlides().get_Item(0).getShapes().addVideoFrame(0, 0, 480, 270, video);
 
-        // プレゼンテーションを保存します。大きなプレゼンテーションが出力されている間、presオブジェクトのライフサイクルを通じてメモリ消費は低く保たれます 
+        // プレゼンテーションを保存します。大きなプレゼンテーションが出力される間、
+        // pres オブジェクトのライフサイクルを通じてメモリ使用量は低く保たれます。
         pres.save("presentationWithLargeVideo.pptx", SaveFormat.Pptx);
     } finally {
         if (fileStream != null) fileStream.close();
@@ -50,29 +66,33 @@ try {
 ```
 
 
-### **プレゼンテーションからBLOBを通じて大きなファイルをエクスポートする**
-Aspose.Slides for Javaは、BLOBを通じてプレゼンテーションから大きなファイル（この場合は音声または動画ファイル）をエクスポートすることを可能にします。たとえば、プレゼンテーションから大きなメディアファイルを抽出する必要があるが、そのファイルがコンピュータのメモリに読み込まれないようにしたい場合、BLOBプロセスを通じてファイルをエクスポートすることでメモリ消費を低く保つことができます。 
+### **BLOB を使用してプレゼンテーションから大きなファイルをエクスポートする**
 
-以下のJavaコードは、説明した操作を示しています：
+Aspose.Slides for Java は、BLOB を使用したプロセスでプレゼンテーションから大きなファイル（この例ではオーディオまたはビデオファイル）をエクスポートできるようにします。たとえば、プレゼンテーションから大きなメディアファイルを抽出したいが、コンピューターのメモリにロードしたくない場合があります。BLOB プロセスを介してファイルをエクスポートすることで、メモリ消費を低く抑えることができます。  
 
+この Java のコードは、上記の操作を示しています。  
 ```java
 String hugePresentationWithAudiosAndVideosFile = "LargeVideoFileTest.pptx";
 
 LoadOptions loadOptions = new LoadOptions();
-// ソースファイルをロックし、メモリに読み込まない
+// ソースファイルをロックし、メモリに読み込まないようにします
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
 
-// プレゼンテーションのインスタンスを作成し、"hugePresentationWithAudiosAndVideos.pptx"ファイルをロックします。
+// Presentation のインスタンスを作成し、"hugePresentationWithAudiosAndVideos.pptx" ファイルをロックします。
 Presentation pres = new Presentation(hugePresentationWithAudiosAndVideosFile, loadOptions);
 try {
-    // 各動画をファイルに保存します。高いメモリ使用を防ぐために、プレゼンテーションの動画ストリームから新しく作成された動画ファイルのストリームにデータを転送するために使用されるバッファが必要です。
+    // 各ビデオをファイルに保存しましょう。メモリ使用量が高くなるのを防ぐために、バッファが必要です
+    // プレゼンテーションのビデオストリームから新しく作成したビデオファイル用のストリームへデータを転送するために使用されます。
     byte[] buffer = new byte[8 * 1024];
 
-    // 動画を反復処理します
+    // ビデオを反復処理します
     for (int index = 0; index < pres.getVideos().size(); index++) {
         IVideo video = pres.getVideos().get_Item(index);
 
-        // プレゼンテーションの動画ストリームを開きます。ビデオのBinaryDataなどのプロパティにアクセスすることを避けていることに注意してください - このプロパティは、完全な動画を含むバイト配列を返すため、その結果、バイトがメモリに読み込まれることになります。video.GetStreamを使用して、ストリームを返すため、動画全体をメモリに読み込む必要はありません。
+        // プレゼンテーションのビデオストリームを開きます。意図的にプロパティへのアクセスを避けていることに注意してください
+        // video.BinaryData のようなプロパティは、フルビデオを含むバイト配列を返すため、
+        // メモリにバイトがロードされます。そこで video.GetStream を使用します。このメソッドはストリームを返し、メモリに全体をロードしません。
+        //  require us to load the whole video into the memory.
         InputStream presVideoStream = video.getStream();
         try {
             OutputStream outputFileStream = new FileOutputStream("video" + index + ".avi");
@@ -87,34 +107,36 @@ try {
         } finally {
             presVideoStream.close();
         }
-        // 動画やプレゼンテーションのサイズに関係なく、メモリ消費は低く保たれます。
+        // ビデオやプレゼンテーションのサイズに関係なく、メモリ消費は低く保たれます。
     }
-    // 必要に応じて、音声ファイルについても同様の手順を適用できます。 
+    // 必要に応じて、同じ手順をオーディオファイルにも適用できます。 
 } catch (IOException e) {
 } finally {
     pres.dispose();
 }
-
 ```
 
-### **プレゼンテーションにBLOBとして画像を追加する**
-[**IImageCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection)インターフェースと[**ImageCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/ImageCollection)クラスのメソッドを使用することで、大きな画像をストリームとして追加し、BLOBとして扱うことができます。 
 
-以下のJavaコードは、BLOBプロセスを通じて大きな画像を追加する方法を示します：
+### **プレゼンテーションに画像を BLOB として追加する**
 
+[IImageCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) インターフェイスと [ImageCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ImageCollection) クラスのメソッドを使用すると、大きな画像をストリームとして追加し、BLOB として扱うことができます。  
+
+この Java のコードは、BLOB プロセスを使用して大きな画像を追加する方法を示しています。  
 ```java
 String pathToLargeImage = "large_image.jpg";
 
-// 画像が追加される新しいプレゼンテーションを作成
+// 新しいプレゼンテーションを作成し、画像を追加します。
 Presentation pres = new Presentation();
 try {
 	FileInputStream fileStream = new FileInputStream(pathToLargeImage);
 	try {
-		// プレゼンテーションに画像を追加します - "largeImage.png"ファイルにアクセスするつもりはないため、KeepLocked動作を選択します。
+		// プレゼンテーションに画像を追加しましょう - KeepLocked 動作を選択したのは、
+		// 「largeImage.png」ファイルにアクセスするつもりがないためです。
 		IPPImage img = pres.getImages().addImage(fileStream, LoadingStreamBehavior.KeepLocked);
 		pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 300, 200, img);
 
-		// プレゼンテーションを保存します。大きなプレゼンテーションが出力されている間、presオブジェクトのライフサイクルを通じてメモリ消費は低く保たれます
+		// プレゼンテーションを保存します。大きなプレゼンテーションが出力される間、
+		// pres オブジェクトのライフサイクルを通じてメモリ使用量は低く保たれます。
 		pres.save("presentationWithLargeImage.pptx", SaveFormat.Pptx);
 	} finally {
 		if (fileStream != null) fileStream.close();
@@ -125,12 +147,12 @@ try {
 }
 ```
 
+
 ## **メモリと大きなプレゼンテーション**
 
-通常、大きなプレゼンテーションを読み込むためには、コンピュータは多くの一時メモリを必要とします。プレゼンテーションのすべての内容がメモリに読み込まれ、プレゼンテーションが読み込まれたファイルの使用が停止します。 
+通常、大きなプレゼンテーションを読み込むには、コンピューターは大量の一時メモリを必要とします。プレゼンテーションのすべてのコンテンツがメモリに読み込まれ、プレゼンテーションが読み込まれた元のファイルは使用されなくなります。  
 
-1.5 GBの動画ファイルを含む大きなPowerPointプレゼンテーション（large.pptx）を考慮してください。プレゼンテーションを読み込むための標準的な方法は、以下のJavaコードに示されています：
-
+たとえば、1.5 GB のビデオファイルを含む大きな PowerPoint プレゼンテーション（large.pptx）を考えてみてください。プレゼンテーションを読み込む標準的な方法は、次の Java コードで示されています。  
 ```java
 Presentation pres = new Presentation("large.pptx");
 try {
@@ -140,12 +162,13 @@ try {
 }
 ```
 
-しかし、この方法は約1.6 GBの一時メモリを消費します。 
 
-### **BLOBとして大きなプレゼンテーションを読み込む**
+しかし、この方法では約 1.6 GB の一時メモリが消費されます。  
 
-BLOBを利用するプロセスにより、非常に少ないメモリを使用して大きなプレゼンテーションを読み込むことができます。このJavaコードは、BLOBプロセスを使用して大きなプレゼンテーションファイル（large.pptx）を読み込む実装を示しています：
+### **BLOB として大きなプレゼンテーションを読み込む**
 
+BLOB を使用したプロセスにより、少ないメモリで大きなプレゼンテーションを読み込むことができます。  
+以下の Java コードは、BLOB プロセスを使用して大きなプレゼンテーション ファイル（large.pptx）を読み込む実装例です。  
 ```java
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
@@ -159,10 +182,10 @@ try {
 }
 ```
 
+
 ### **一時ファイルのフォルダーを変更する**
 
-BLOBプロセスを使用すると、コンピュータは一時ファイルを一時ファイルのデフォルトフォルダーに作成します。一時ファイルを別のフォルダーに保持したい場合は、`TempFilesRootPath`を使用してストレージの設定を変更できます：
-
+BLOB プロセスを使用すると、コンピューターは既定の一時フォルダーに一時ファイルを作成します。別のフォルダーに一時ファイルを保存したい場合は、`TempFilesRootPath` を使用してストレージ設定を変更できます。  
 ```java
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
@@ -170,8 +193,24 @@ loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
 loadOptions.getBlobManagementOptions().setTempFilesRootPath("temp");
 ```
 
-{{% alert title="情報" color="info" %}}
 
-`TempFilesRootPath`を使用すると、Aspose.Slidesは一時ファイルを保存するフォルダーを自動的には作成しません。フォルダーを手動で作成する必要があります。 
-
+{{% alert title="Info" color="info" %}}
+`TempFilesRootPath` を使用すると、Aspose.Slides は一時ファイルを保存するフォルダーを自動的に作成しません。フォルダーは手動で作成する必要があります。  
 {{% /alert %}}
+
+## **FAQ**
+
+**Aspose.Slides プレゼンテーションのどのデータが BLOB として扱われ、BLOB オプションで制御されますか？**  
+画像、オーディオ、ビデオなどの大きなバイナリオブジェクトは BLOB として扱われます。プレゼンテーション全体のファイルも、読み込みや保存時に BLOB の処理が行われます。これらのオブジェクトは BLOB ポリシーによって管理され、メモリ使用量を制御したり、必要に応じて一時ファイルにスピル（退避）させることができます。  
+
+**プレゼンテーションの読み込み時に BLOB 処理ルールをどこで設定しますか？**  
+[LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/) と [BlobManagementOptions](https://reference.aspose.com/slides/java/com.aspose.slides/blobmanagementoptions/) を使用します。ここで BLOB のメモリ内上限の設定、一時ファイルの許可または禁止、テンポラリファイルのルートパスの選択、ソースロックの動作を設定できます。  
+
+**BLOB 設定はパフォーマンスに影響しますか？また、速度とメモリのバランスはどう取りますか？**  
+はい。BLOB をメモリに保持すると速度が最大化しますが、RAM 消費が増加します。メモリ上限を下げると、より多くの処理が一時ファイルに委譲され、RAM は削減されますが I/O が増えます。ワークロードや環境に合わせて適切なバランスを取るには、[setMaxBlobsBytesInMemory](https://reference.aspose.com/slides/java/com.aspose.slides/blobmanagementoptions/#setMaxBlobsBytesInMemory-long-) メソッドを使用してください。  
+
+**極めて大きなプレゼンテーション（例：数ギガバイト）を開く際に BLOB オプションは役立ちますか？**  
+はい。[BlobManagementOptions](https://reference.aspose.com/slides/java/com.aspose.slides/blobmanagementoptions/) はこのようなシナリオ向けに設計されています。一時ファイルを有効にし、ソースロックを使用することで、ピーク時の RAM 使用量を大幅に削減し、非常に大きなデッキの処理を安定させることができます。  
+
+**ディスクファイルではなくストリームからロードする場合でも BLOB ポリシーは使用できますか？**  
+はい。同じルールがストリームにも適用されます。プレゼンテーション インスタンスは入力ストリームを所有しロックすることができ（選択したロックモードに依存）、許可されていれば一時ファイルが使用され、処理中のメモリ使用量を予測可能に保ちます。

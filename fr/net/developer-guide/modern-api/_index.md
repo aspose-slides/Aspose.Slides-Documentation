@@ -1,5 +1,5 @@
 ---
-title: Améliorer le traitement des images avec l'API Moderne
+title: Améliorer le traitement d'images avec l'API Moderne
 linktitle: API Moderne
 type: docs
 weight: 237
@@ -8,12 +8,12 @@ keywords:
 - System.Drawing
 - API moderne
 - dessin
-- vignette de diapositive
-- diapositive vers image
-- vignette de forme
-- forme vers image
-- vignette de présentation
-- présentation vers images
+- miniature de diapositive
+- diapositive en image
+- miniature de forme
+- forme en image
+- miniature de présentation
+- présentation en images
 - ajouter image
 - ajouter illustration
 - .NET
@@ -24,7 +24,7 @@ description: "Modernisez le traitement d'images de diapositives en remplaçant l
 
 ## **Introduction**
 
-Historiquement, Aspose Slides dépend de System.Drawing et expose dans son API publique les classes suivantes :
+Historiquement, Aspose Slides a une dépendance à System.Drawing et expose dans son API publique les classes suivantes provenant de cet espace de noms :
 - [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics)
 - [Image](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.image)
 - [Bitmap](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.bitmap)
@@ -32,16 +32,16 @@ Historiquement, Aspose Slides dépend de System.Drawing et expose dans son API p
 
 Depuis la version 24.4, cette API publique est déclarée obsolète.
 
-Comme le support de System.Drawing est supprimé dans les versions .NET 6 et supérieures pour les plateformes non Windows ([breaking change](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)), Slides a adopté une approche à deux bibliothèques :
-- [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET) – prise en charge de .NET 6+ pour Windows, .NETStandard pour Windows/Linux/macOS, .NETFramework 2+ (Windows).  
+Comme le support de System.Drawing dans les versions .NET 6 et supérieures est supprimé pour les plateformes non Windows ([modification breaking](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)), Slides a mis en place une approche à deux bibliothèques :
+- [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET) – support pour .NET 6+ sous Windows, .NETStandard pour Windows/Linux/macOS, .NETFramework 2+ (Windows).  
   - dépend de [System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/).
 - [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) – version Windows/Linux/macOS sans dépendances.
 
-L’inconvénient de [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) est qu’il implémente sa propre version de System.Drawing dans le même espace de noms (pour conserver la compatibilité ascendante avec l’API publique). Ainsi, lorsqu’Aspose.Slides.NET6.CrossPlatform et System.Drawing provenant de .NETFramework ou du package System.Drawing.Common sont utilisés simultanément, un conflit de noms survient à moins d’utiliser un alias.
+L’inconvénient de [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) est qu’il implémente sa propre version de System.Drawing dans le même espace de noms (pour garantir la compatibilité rétroactive avec l’API publique). Ainsi, lorsqu’Aspose.Slides.NET6.CrossPlatform et System.Drawing provenant de .NETFramework ou du package System.Drawing.Common sont utilisés simultanément, un conflit de noms apparaît à moins d’utiliser un alias.
 
-Afin d’éliminer les dépendances à System.Drawing dans le package principal Aspose.Slides.NET, nous avons ajouté la dite « Modern API » – c’est‑à‑dire l’API qui doit être utilisée à la place de celle obsolète, dont les signatures contiennent des dépendances aux types System.Drawing : Image et Bitmap. PrinterSettings et Graphics sont déclarés obsolètes et leur support est retiré de l’API publique de Slides.
+Afin d’éliminer les dépendances à System.Drawing dans le paquet principal Aspose.Slides.NET, nous avons ajouté la dite « Modern API » — c’est‑à‑dire l’API qui doit être utilisée à la place de l’ancienne, dont les signatures ne contiennent plus de dépendances aux types System.Drawing : Image et Bitmap. PrinterSettings et Graphics sont déclarés obsolètes et leur support est retiré de l’API publique Slides.
 
-La suppression de l’API publique obsolète dépendante de System.Drawing sera effectuée dans la version 24.8.
+La suppression de l’API publique obsolète dépendante de System.Drawing sera réalisée dans la version 24.8.
 
 ## **Modern API**
 
@@ -49,19 +49,19 @@ Ajout des classes et énumérations suivantes à l’API publique :
 
 - Aspose.Slides.IImage – représente l’image raster ou vectorielle.  
 - Aspose.Slides.ImageFormat – représente le format de fichier de l’image.  
-- Aspose.Slides.Images – méthodes pour instancier et manipuler l’interface IImage.
+- Aspose.Slides.Images – méthodes pour instancier et travailler avec l’interface IImage.
 
-Veuillez noter que IImage est jetable (elle implémente l’interface IDisposable et son utilisation doit être enveloppée dans un `using` ou être libérée d’une autre manière appropriée).
+Veuillez noter que IImage est jetable (il implémente l’interface IDisposable et son utilisation doit être encadrée par un `using` ou être libérée d’une autre manière appropriée).
 
-Un scénario typique d’utilisation de la nouvelle API peut ressembler à ce qui suit :
+Un scénario typique d’utilisation de la nouvelle API peut ressembler à ceci :
 ``` csharp
 using (Presentation pres = new Presentation())
 {
     IPPImage ppImage;
-    // instancier une instance jetable d'IImage depuis le fichier sur le disque.
+    // instancier une instance jetable de IImage à partir du fichier sur le disque.
     using (IImage image = Images.FromFile("image.png"))
     {
-        // créer une image PowerPoint en ajoutant une instance d'IImage aux images de la présentation.
+        // créer une image PowerPoint en ajoutant une instance de IImage aux images de la présentation.
         ppImage = pres.Images.AddImage(image);
     }
 
@@ -80,9 +80,9 @@ using (Presentation pres = new Presentation())
 
 ## **Remplacement du code ancien par la Modern API**
 
-Pour faciliter la transition, l’interface du nouveau IImage reproduit les signatures distinctes des classes Image et Bitmap. En pratique, vous n’aurez qu’à remplacer l’appel à l’ancienne méthode utilisant System.Drawing par la nouvelle.
+Pour faciliter la transition, l’interface du nouveau IImage reproduit les signatures distinctes des classes Image et Bitmap. En pratique, il vous suffit de remplacer l’appel à l’ancienne méthode utilisant System.Drawing par la nouvelle.
 
-### **Obtention d’une vignette de diapositive**
+### **Obtention d’une miniature de diapositive**
 
 Code utilisant une API obsolète :
 ``` csharp
@@ -102,7 +102,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-### **Obtention d’une vignette de forme**
+### **Obtention d’une miniature de forme**
 
 Code utilisant une API obsolète :
 ``` csharp
@@ -122,7 +122,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 
-### **Obtention d’une vignette de présentation**
+### **Obtention d’une miniature de présentation**
 
 Code utilisant une API obsolète :
 ``` csharp
@@ -204,33 +204,33 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Méthodes/propriétés à supprimer et leur remplacement dans la Modern API**
+## **Méthodes/Propriétés à supprimer et leurs remplacements dans la Modern API**
 
 ### **Presentation**
-| Signature de la méthode | Signature de la méthode de remplacement |
-|--------------------------|------------------------------------------|
+| Signature de méthode | Signature de méthode de remplacement |
+|----------------------|--------------------------------------|
 | public Bitmap[] GetThumbnails(IRenderingOptions options) | [GetImages(IRenderingOptions options)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages) |
 | public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides) | [GetImages(IRenderingOptions options, int[] slides)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages_1) |
 | public Bitmap[] GetThumbnails(IRenderingOptions options, float scaleX, float scaleY) | [GetImages(IRenderingOptions options, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages_4) |
 | public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | [GetImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages_2) |
 | public Bitmap[] GetThumbnails(IRenderingOptions options, Size imageSize) | [GetImages(IRenderingOptions options, Size imageSize)]() |
 | public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides, Size imageSize) | [GetImages(IRenderingOptions options, int[] slides, Size imageSize)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages_3) |
-| public void Save(string fname, SaveFormat format, HttpResponse response, bool showInline) | Will be deleted completely |
-| public void Save(string fname, SaveFormat format, ISaveOptions options, HttpResponse response, bool showInline) | Will be deleted completely |
-| public void Print() | Will be deleted completely |
-| public void Print(PrinterSettings printerSettings) | Will be deleted completely |
-| public void Print(string printerName) | Will be deleted completely |
-| public void Print(PrinterSettings printerSettings, string presName) | Will be deleted completely |
+| public void Save(string fname, SaveFormat format, HttpResponse response, bool showInline) | Sera complètement supprimé |
+| public void Save(string fname, SaveFormat format, ISaveOptions options, HttpResponse response, bool showInline) | Sera complètement supprimé |
+| public void Print() | Sera complètement supprimé |
+| public void Print(PrinterSettings printerSettings) | Sera complètement supprimé |
+| public void Print(string printerName) | Sera complètement supprimé |
+| public void Print(PrinterSettings printerSettings, string presName) | Sera complètement supprimé |
 
 ### **Shape**
-| Signature de la méthode | Signature de la méthode de remplacement |
-|--------------------------|------------------------------------------|
+| Signature de méthode | Signature de méthode de remplacement |
+|----------------------|--------------------------------------|
 | public Bitmap GetThumbnail() | [GetImage](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage#getimage) |
 | public Bitmap GetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY) | [GetImage(ShapeThumbnailBounds bounds, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage#getimage_1) |
 
 ### **Slide**
-| Signature de la méthode | Signature de la méthode de remplacement |
-|--------------------------|------------------------------------------|
+| Signature de méthode | Signature de méthode de remplacement |
+|----------------------|--------------------------------------|
 | public Bitmap GetThumbnail(float scaleX, float scaleY) | [GetImage(float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_5) |
 | public Bitmap GetThumbnail() | [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage) |
 | public Bitmap GetThumbnail(IRenderingOptions options) | [GetImage(IRenderingOptions options)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_1) |
@@ -238,68 +238,68 @@ using (Presentation pres = new Presentation())
 | public Bitmap GetThumbnail(ITiffOptions options) | [GetImage(ITiffOptions options)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_4) |
 | public Bitmap GetThumbnail(IRenderingOptions options, float scaleX, float scaleY) | [GetImage(IRenderingOptions options, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_2) |
 | public Bitmap GetThumbnail(IRenderingOptions options, Size imageSize) | [GetImage(IRenderingOptions options, Size imageSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_3) |
-| public void RenderToGraphics(IRenderingOptions options, Graphics graphics) | Will be deleted completely |
-| public void RenderToGraphics(IRenderingOptions options, Graphics graphics, float scaleX, float scaleY) | Will be deleted completely |
-| public void RenderToGraphics(IRenderingOptions options, Graphics graphics, Size renderingSize) | Will be deleted completely |
+| public void RenderToGraphics(IRenderingOptions options, Graphics graphics) | Sera complètement supprimé |
+| public void RenderToGraphics(IRenderingOptions options, Graphics graphics, float scaleX, float scaleY) | Sera complètement supprimé |
+| public void RenderToGraphics(IRenderingOptions options, Graphics graphics, Size renderingSize) | Sera complètement supprimé |
 
 ### **Output**
-| Signature de la méthode | Signature de la méthode de remplacement |
-|--------------------------|------------------------------------------|
+| Signature de méthode | Signature de méthode de remplacement |
+|----------------------|--------------------------------------|
 | public IOutputFile Add(string path, Image image) | [Add(string path, IImage image)](https://reference.aspose.com/slides/net/aspose.slides.export.web/output/add#add_1) |
 
 ### **ImageCollection**
-| Signature de la méthode | Signature de la méthode de remplacement |
-|--------------------------|------------------------------------------|
+| Signature de méthode | Signature de méthode de remplacement |
+|----------------------|--------------------------------------|
 | IPPImage AddImage(Image image) | [AddImage(IImage image)](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/addimage#addimage) |
 
 ### **ImageWrapperFactory**
-| Signature de la méthode | Signature de la méthode de remplacement |
-|--------------------------|------------------------------------------|
+| Signature de méthode | Signature de méthode de remplacement |
+|----------------------|--------------------------------------|
 | IImageWrapper CreateImageWrapper(Image image) | [CreateImageWrapper(IImage image)](https://reference.aspose.com/slides/net/aspose.slides/imagewrapperfactory/createimagewrapper#createimagewrapper) |
 
 ### **PPImage**
-| Signature de la méthode/propriété | Signature de la méthode de remplacement |
-|------------------------------------|------------------------------------------|
+| Signature de méthode/propriété | Signature de méthode de remplacement |
+|--------------------------------|--------------------------------------|
 | void ReplaceImage(Image newImage) | [ReplaceImage(IImage newImage)](https://reference.aspose.com/slides/net/aspose.slides/ppimage/replaceimage#replaceimage) |
 | Image SystemImage { get; } | [IImage Image { get; }](https://reference.aspose.com/slides/net/aspose.slides/ppimage/image) |
 
 ### **PatternFormat**
-| Signature de la méthode | Signature de la méthode de remplacement |
-|--------------------------|------------------------------------------|
+| Signature de méthode | Signature de méthode de remplacement |
+|----------------------|--------------------------------------|
 | Bitmap GetTileImage(Color background, Color foreground) | [GetTile(Color background, Color foreground)](https://reference.aspose.com/slides/net/aspose.slides/patternformat/gettile#gettile_1) |
 | Bitmap GetTileImage(Color styleColor) | [GetTile(Color styleColor)](https://reference.aspose.com/slides/net/aspose.slides/patternformat/gettile#gettile) |
 
 ### **IPatternFormatEffectiveData**
-| Signature de la méthode | Signature de la méthode de remplacement |
-|--------------------------|------------------------------------------|
+| Signature de méthode | Signature de méthode de remplacement |
+|----------------------|--------------------------------------|
 | Bitmap GetTileImage(Color background, Color foreground) | [GetTileIImage(SlidesImage image)](https://reference.aspose.com/slides/net/aspose.slides/ipatternformateffectivedata/gettileiimage) |
 
 ## **Le support de Graphics et PrinterSettings sera interrompu**
 
 La classe [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) n’est pas prise en charge pour les versions multiplateformes de .NET 6 et supérieures. Dans Aspose Slides, la partie de l’API qui l’utilise sera supprimée :
-[Slide](https://reference.aspose.com/slides/net/aspose.slides/slide/)
-- [public void RenderToGraphics(IRenderingOptions options, Graphics graphics)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_3)
-- [public void RenderToGraphics(IRenderingOptions options, Graphics graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_3)
+[Slide](https://reference.aspose.com/slides/net/aspose.slides/slide/)  
+- [public void RenderToGraphics(IRenderingOptions options, Graphics graphics)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_3)  
+- [public void RenderToGraphics(IRenderingOptions options, Graphics graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_3)  
 - [public void RenderToGraphics(IRenderingOptions options, Graphics graphics, Size renderingSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_5)
 
-De même, la partie de l’API liée à l’impression sera supprimée :
+De même, la partie de l’API liée à l’impression sera retirée :
 
-[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/):
-- [public void Presentation.Print](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print)
-- [public void Print(PrinterSettings printerSettings)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_1)
-- [public void Print(string printerName)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_3)
+[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) :  
+- [public void Presentation.Print](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print)  
+- [public void Print(PrinterSettings printerSettings)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_1)  
+- [public void Print(string printerName)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_3)  
 - [public void Print(PrinterSettings printerSettings, string presName)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_2)
 
-# **FAQ**
+## **FAQ**
 
-**Pourquoi System.Drawing.Graphics a‑t‑il été supprimé ?**
+**Pourquoi System.Drawing.Graphics a‑t‑il été abandonné ?**
 
-Le support de `Graphics` est retiré de l’API publique afin d’unifier le rendu et la gestion des images, d’éliminer les dépendances spécifiques à la plateforme et de passer à une approche multiplateforme avec [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/). Toutes les méthodes de rendu vers `Graphics` seront supprimées.
+Le support de `Graphics` est retiré de l’API publique afin d’unifier le travail de rendu et d’images, d’éliminer les dépendances spécifiques à la plateforme et de passer à une approche multiplateforme avec [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/). Toutes les méthodes de rendu vers `Graphics` seront supprimées.
 
-**Quel avantage pratique IImage offre‑t‑il par rapport à Image/Bitmap ?**
+**Quel est l’avantage pratique d’IImage par rapport à Image/Bitmap ?**
 
-[IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) unifie la manipulation des images raster et vectorielles, simplifie l’enregistrement dans divers formats via [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/), réduit la dépendance à `System.Drawing` et rend le code plus portable entre les environnements.
+[IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) unifie le traitement des images raster et vectorielles, simplifie l’enregistrement dans divers formats via [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/), réduit la dépendance à `System.Drawing` et rend le code plus portable entre les environnements.
 
-**La Modern API affectera‑t‑elle les performances de génération des vignettes ?**
+**La Modern API affectera‑t‑elle les performances de génération de miniatures ?**
 
-Le passage de `GetThumbnail` à `GetImage` ne dégrade pas les scénarios : les nouvelles méthodes offrent les mêmes capacités de production d’images avec options et tailles, tout en conservant le support des options de rendu. Le gain ou la perte spécifique dépend du scénario, mais fonctionnellement les remplacements sont équivalents.
+Passer de `GetThumbnail` à `GetImage` n’altère pas les scénarios : les nouvelles méthodes offrent les mêmes capacités pour produire des images avec options et tailles, tout en conservant le support des options de rendu. Le gain ou la perte spécifiques dépendent du scénario, mais fonctionnellement les remplacements sont équivalents.

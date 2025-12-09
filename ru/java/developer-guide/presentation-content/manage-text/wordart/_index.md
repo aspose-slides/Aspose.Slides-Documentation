@@ -1,35 +1,45 @@
 ---
-title: WordArt
+title: Создание и применение эффектов WordArt в Java
+linktitle: WordArt
 type: docs
 weight: 110
 url: /ru/java/wordart/
+keywords:
+- WordArt
+- создание WordArt
+- шаблон WordArt
+- эффект WordArt
+- эффект тени
+- эффект отображения
+- эффект свечения
+- трансформация WordArt
+- 3D‑эффект
+- эффект внешней тени
+- эффект внутренней тени
+- PowerPoint
+- презентация
+- Java
+- Aspose.Slides
+description: "Создайте и настройте эффекты WordArt в Aspose.Slides для Java. Это пошаговое руководство помогает разработчикам улучшать презентации профессиональным текстом в Java."
 ---
 
-## **Что такое WordArt?**
-WordArt или Word Art — это функция, которая позволяет применять эффекты к текстам, чтобы сделать их более заметными. С помощью WordArt, например, вы можете обвести текст или заполнить его цветом (или градиентом), добавить к нему 3D-эффекты и так далее. Вы также можете наклонять, изгибать и растягивать форму текста.
+## **О WordArt?**
+WordArt или Word Art — это функция, позволяющая применять эффекты к тексту, чтобы он выделялся. С помощью WordArt, например, можно обвести текст контуром или заполнить его цветом (или градиентом), добавить 3D‑эффекты и т.д. Также можно наклонять, изгибать и растягивать форму текста. 
 
 {{% alert color="primary" %}} 
-
-WordArt позволяет вам рассматривать текст так же, как графический объект. В общем, WordArt состоит из эффектов или специальных модификаций, примененных к текстам, чтобы сделать их более привлекательными или заметными.
-
+WordArt позволяет обращаться с текстом так же, как с графическим объектом. Как правило, WordArt состоит из эффектов или специальных модификаций текста, делающих его более привлекательным или заметным. 
 {{% /alert %}} 
 
 **WordArt в Microsoft PowerPoint**
-
-Чтобы использовать WordArt в Microsoft PowerPoint, вам нужно выбрать один из предопределенных шаблонов WordArt. Шаблон WordArt – это набор эффектов, который применяется к тексту или его форме.
+Чтобы использовать WordArt в Microsoft PowerPoint, необходимо выбрать один из предопределённых шаблонов WordArt. Шаблон WordArt — это набор эффектов, применяемых к тексту или его форме. 
 
 **WordArt в Aspose.Slides**
+В Aspose.Slides для Java 20.10 мы внедрили поддержку WordArt и улучшили эту функцию в последующих версиях Aspose.Slides для Java. 
+С помощью Aspose.Slides для Java вы можете легко создавать собственные шаблоны WordArt (один эффект или комбинацию эффектов) на Java и применять их к текстам. 
 
-В Aspose.Slides для Java 20.10 мы реализовали поддержку WordArt и сделали улучшения функции в последующих выпусках Aspose.Slides для Java.
-
-С Aspose.Slides для Java вы можете легко создать свой собственный шаблон WordArt (один эффект или комбинация эффектов) на Java и применить его к текстам.
-
-## Создание простого шаблона WordArt и его применение к тексту
-
-**Используя Aspose.Slides**
-
-Сначала создадим простой текст с помощью этого кода на Java:
-
+## **Создание простого шаблона WordArt и применение его к тексту**
+**Использование Aspose.Slides** 
+Сначала мы создаём простой текст с помощью следующего Java‑кода: 
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -43,30 +53,28 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
-Теперь мы устанавливаем высоту шрифта текста на большее значение, чтобы эффект был более заметным с помощью следующего кода:
 
+Теперь мы задаём высоту шрифта текста большим значением, чтобы эффект был более заметным, используя следующий код:
 ``` java 
 FontData fontData = new FontData("Arial Black");
 portion.getPortionFormat().setLatinFont(fontData);
 portion.getPortionFormat().setFontHeight(36);
 ```
 
-**Используя Microsoft PowerPoint**
 
-Перейдите в меню эффектов WordArt в Microsoft PowerPoint:
+**Использование Microsoft PowerPoint**
+Откройте меню эффектов WordArt в Microsoft PowerPoint:
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
-Из меню справа вы можете выбрать предопределённый эффект WordArt. В меню слева вы можете задать настройки для нового WordArt.
+В меню справа можно выбрать предопределённый эффект WordArt. В меню слева можно задать параметры нового WordArt. 
 
-Вот некоторые из доступных параметров или опций:
+Ниже представлены некоторые доступные параметры или опции:
 
 ![todo:image_alt_text](image-20200930114015-3.png)
 
-**Используя Aspose.Slides**
-
-Здесь мы применяем цвет шаблона [SmallGrid](https://reference.aspose.com/slides/java/com.aspose.slides/PatternStyle#SmallGrid) к тексту и добавляем черную рамку шириной 1 с помощью этого кода:
-
+**Использование Aspose.Slides**
+Здесь мы применяем цвет шаблона [SmallGrid](https://reference.aspose.com/slides/java/com.aspose.slides/PatternStyle#SmallGrid) к тексту и добавляем чёрную рамку шириной 1 пиксель с помощью следующего кода:
 ``` java 
 portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
 portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(Color.ORANGE);
@@ -77,24 +85,21 @@ portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(FillType.
 portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 ```
 
+
 Получившийся текст:
 
 ![todo:image_alt_text](image-20200930114108-4.png)
 
-## Применение других эффектов WordArt
-
-**Используя Microsoft PowerPoint**
-
-Из интерфейса программы вы можете применять эти эффекты к тексту, текстовому блоку, форме или аналогичному элементу:
+## **Применение других эффектов WordArt**
+**Использование Microsoft PowerPoint**
+Через интерфейс программы можно применять эти эффекты к тексту, текстовому блоку, фигуре или аналогичному элементу:
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-Например, эффекты Тени, Отражения и Сияния могут быть применены к тексту; эффекты 3D Формата и 3D Вращения могут быть применены к текстовому блоку; свойство Мягкие края может быть применено к объекту Форма (оно все равно имеет эффект, даже если свойство 3D Формата не задано).
+Например, к тексту можно применить эффекты Тень, Отражение и Свечение; к текстовому блоку — эффекты 3D‑формат и 3D‑поворот; к объекту Shape — свойство Мягкие края (оно работает и без свойства 3D‑формат). 
 
-### Применение эффектов тени
-
-Здесь мы намерены установить свойства, относящиеся только к тексту. Мы применяем эффект тени к тексту с помощью этого кода на Java:
-
+### **Применение эффектов тени**
+Здесь мы планируем задать свойства, относящиеся только к тексту. Применяем эффект тени к тексту с помощью следующего кода на Java:
 ``` java
 portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
 portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
@@ -108,29 +113,23 @@ portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVerti
 portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.32f);
 ```
 
-API Aspose.Slides поддерживает три типа теней: Внешняя тень, Внутренняя тень и Предустановленная тень.
 
-С помощью Предустановленной тени вы можете применить тень к тексту (используя предустановленные значения).
+API Aspose.Slides поддерживает три типа теней: OuterShadow, InnerShadow и PresetShadow. 
+С помощью PresetShadow можно применить тень к тексту (используя предустановленные значения). 
 
-**Используя Microsoft PowerPoint**
-
-В PowerPoint вы можете использовать один тип тени. Вот пример:
-
+**Использование Microsoft PowerPoint**
+В PowerPoint можно использовать один тип тени. Пример:
 ![todo:image_alt_text](image-20200930114225-6.png)
 
-**Используя Aspose.Slides**
+**Использование Aspose.Slides**
+Aspose.Slides действительно позволяет одновременно применять два типа теней: InnerShadow и PresetShadow. 
 
-Aspose.Slides на самом деле позволяет вам применять два типа теней одновременно: Внутренняя тень и Предустановленная тень.
+**Notes:**
+- Если одновременно использовать OuterShadow и PresetShadow, применяется только эффект OuterShadow. 
+- Если одновременно использовать OuterShadow и InnerShadow, результирующий эффект зависит от версии PowerPoint. Например, в PowerPoint 2013 эффект удваивается, а в PowerPoint 2007 применяется эффект OuterShadow. 
 
-**Заметки:**
-
-- Когда Внешняя тень и Предустановленная тень используются вместе, применяется только эффект Внешней тени.
-- Если Внешняя тень и Внутренняя тень используются одновременно, результативный или примененный эффект зависит от версии PowerPoint. Например, в PowerPoint 2013 эффект удваивается. Но в PowerPoint 2007 применяется эффект Внешней тени.
-
-### Применение отображения к текстам
-
-Мы добавляем отображение к тексту с помощью этого примера кода на Java:
-
+### **Применение отображения к текстам**
+Мы добавляем отображение к тексту с помощью следующего примера кода на Java:
 ``` java
 portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
 portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
@@ -142,13 +141,12 @@ portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHoriz
 portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
 portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60f);
 portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9f);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);
+portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(RectangleAlignment.BottomLeft);   
 ```
 
-### Применение эффекта сияния к текстам
 
-Мы применяем эффект сияния к тексту, чтобы он сиял или выделялся, с помощью этого кода:
-
+### **Применение эффекта свечения к текстам**
+Мы применяем эффект свечения к тексту, чтобы он блестел или выделялся, с помощью следующего кода:
 ``` java
 portion.getPortionFormat().getEffectFormat().enableGlowEffect();
 portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR((byte)255);
@@ -156,45 +154,38 @@ portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColor
 portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
 ```
 
-Результат операции:
+
+Результат выполнения:
 
 ![todo:image_alt_text](image-20200930114621-7.png)
 
 {{% alert color="primary" %}} 
-
-Вы можете изменить параметры для тени, отображения и сияния. Свойства эффектов устанавливаются для каждого отдельного сегмента текста.
-
+Можно изменять параметры тени, отображения и свечения. Свойства эффектов задаются отдельно для каждой части текста. 
 {{% /alert %}} 
 
-### Использование преобразований в WordArt
-
-Мы используем свойство Transform (свойственное всему блоку текста) с помощью этого кода:
+### **Использование трансформаций в WordArt**
+Мы используем свойство Transform (присущее всему блоку текста) с помощью следующего кода:
 ``` java 
 textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
 ```
+
 
 Результат:
 
 ![todo:image_alt_text](image-20200930114712-8.png)
 
 {{% alert color="primary" %}} 
-
-Как Microsoft PowerPoint, так и Aspose.Slides для Java предоставляют определенное количество предопределённых типов преобразований.
-
+Как Microsoft PowerPoint, так и Aspose.Slides для Java предоставляют определённое количество предопределённых типов трансформаций. 
 {{% /alert %}} 
 
-**Используя PowerPoint**
+**Использование PowerPoint**
+Чтобы перейти к предопределённым типам трансформаций, откройте: **Format** -> **TextEffect** -> **Transform**
 
-Чтобы получить доступ к предопределённым типам преобразований, пройдите через: **Формат** -> **Текстовый эффект** -> **Преобразовать**
+**Использование Aspose.Slides**
+Для выбора типа трансформации используйте перечисление TextShapeType. 
 
-**Используя Aspose.Slides**
-
-Чтобы выбрать тип преобразования, используйте перечисление TextShapeType.
-
-### Применение 3D-эффектов к текстам и формам
-
-Мы устанавливаем 3D-эффект для текстовой формы с помощью этого примера кода:
-
+### **Применение 3D‑эффектов к текстам и фигурам**
+Мы задаём 3D‑эффект для текстовой фигуры с помощью следующего примера кода:
 ``` java
 autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
 autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
@@ -221,12 +212,12 @@ autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
 autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
 ```
 
+
 Получившийся текст и его форма:
 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
-Мы применяем 3D-эффект к тексту с помощью этого кода на Java:
-
+Мы применяем 3D‑эффект к тексту с помощью следующего кода на Java:
 ``` java
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
@@ -253,58 +244,51 @@ textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0,
 textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
 ```
 
-Результат операции:
+
+Результат выполнения:
 
 ![todo:image_alt_text](image-20200930114905-10.png)
 
 {{% alert color="primary" %}} 
-
-Применение 3D-эффектов к текстам или их формам и взаимодействие между эффектами основаны на определенных правилах.
-
-Рассмотрите сцену для текста и фигуры, содержащей этот текст. 3D-эффект включает представление 3D-объекта и сцену, на которой объект был помещён.
-
-- Когда сцена задана для фигуры и текста, сцена фигуры имеет более высокий приоритет — сцена текста игнорируется.
-- Когда у фигуры нет своей сцены, но есть 3D-представление, используется сцена текста.
-- В противном случае, когда у формы изначально нет 3D-эффекта, форма плоская, и 3D-эффект применяется только к тексту.
-
-Эти описания связаны с методами ThreeDFormat.getLightRig() и ThreeDFormat.getCamera().
-
+Применение 3D‑эффектов к текстам или их фигурам и взаимодействие между эффектами основаны на определённых правилах. 
+Рассмотрим сцену для текста и фигуры, содержащей этот текст. 3D‑эффект включает представление 3D‑объекта и сцену, на которой объект размещён. 
+- Если сцена задаётся как для фигуры, так и для текста, приоритет имеет сцена фигуры — сцена текста игнорируется. 
+- Если у фигуры нет собственной сцены, но есть 3D‑представление, используется сцена текста. 
+- В остальных случаях, когда у фигуры изначально нет 3D‑эффекта, фигура остаётся плоской, а 3D‑эффект применяется только к тексту. 
+Эти описания связаны с методами ThreeDFormat.getLightRig() и ThreeDFormat.getCamera(). 
 {{% /alert %}} 
 
-## **Применение внешних теневых эффектов к текстам**
-Aspose.Slides для Java предоставляет классы [**IOuterShadow**](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IOuterShadow) и [**IInnerShadow**](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IInnerShadow), которые позволяют применять эффекты теней к тексту, содержащемуся в [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame). Следуйте этим шагам:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
+## **Применение внешних теней к текстам**
+Aspose.Slides для Java предоставляет классы [**IOuterShadow**](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IOuterShadow) и [**IInnerShadow**](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IInnerShadow), позволяющие применять теневые эффекты к тексту, находящемуся в [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/classes/TextFrame). Выполните следующие шаги:
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
 2. Получите ссылку на слайд, используя его индекс.
-3. Добавьте AutoShape типа Прямоугольник на слайд.
+3. Добавьте к слайду AutoShape типа Rectangle.
 4. Получите доступ к TextFrame, связанному с AutoShape.
-5. Установите FillType для AutoShape в NoFill.
+5. Установите свойство FillType AutoShape в значение NoFill.
 6. Создайте экземпляр класса OuterShadow.
-7. Установите BlurRadius для тени.
-8. Установите Direction для тени.
-9. Установите Distance для тени.
-10. Установите RectangleAlign в TopLeft.
-11. Установите PresetColor для тени в Черный.
-12. Запишите презентацию в файл [PPTX](https://docs.fileformat.com/presentation/pptx/).
-
-Этот пример кода на Java — реализация вышеуказанных шагов — показывает, как применить внешний теневой эффект к тексту:
-
+7. Задайте BlurRadius тени.
+8. Установите Direction тени.
+9. Задайте Distance тени.
+10. Установите RectanglelAlign в TopLeft.
+11. Задайте PresetColor тени в Black.
+12. Сохраните презентацию в файл [PPTX](https://docs.fileformat.com/presentation/pptx/) .
+Этот пример кода на Java — реализация перечисленных шагов — показывает, как применить внешний теневой эффект к тексту:
 ```java
 Presentation pres = new Presentation();
 try {
-    // Получите ссылку на слайд
+    // Получить ссылку на слайд
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Добавьте AutoShape типа Прямоугольник
+    // Добавить AutoShape типа Rectangle
     IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-    // Добавьте TextFrame к Прямоугольнику
+    // Добавить TextFrame к Rectangle
     ashp.addTextFrame("Aspose TextBox");
 
-    // Отключите заполнение фигуры, если мы хотим получить тень текста
+    // Отключить заливку фигуры, если нужно получить тень текста
     ashp.getFillFormat().setFillType(FillType.NoFill);
 
-    // Добавьте внешнюю тень и установите все необходимые параметры
+    // Добавить внешнюю тень и задать все необходимые параметры
     ashp.getEffectFormat().enableOuterShadowEffect();
     IOuterShadow shadow = ashp.getEffectFormat().getOuterShadowEffect();
     shadow.setBlurRadius(4.0);
@@ -313,62 +297,74 @@ try {
     shadow.setRectangleAlign(RectangleAlignment.TopLeft);
     shadow.getShadowColor().setPresetColor(PresetColor.Black);
 
-    //Запишите презентацию на диск
+    // Сохранить презентацию на диск
     pres.save("pres_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Применение внутреннего теневого эффекта к формам**
-Следуйте этим шагам:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
+## **Применение внутренней тени к фигурам**
+Выполните следующие шаги:
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
 2. Получите ссылку на слайд.
-3. Добавьте AutoShape типа Прямоугольник.
+3. Добавьте AutoShape типа Rectangle.
 4. Включите InnerShadowEffect.
-5. Установите все необходимые параметры.
-6. Установите ColorType как Scheme.
-7. Установите цвет схемы.
-8. Запишите презентацию в файл [PPTX](https://docs.fileformat.com/presentation/pptx/) .
-
-Этот пример кода (основанный на вышеуказанных шагах) показывает, как добавить соединитель между двумя формами на Java:
-
+5. Задайте все необходимые параметры.
+6. Установите ColorType в значение Scheme.
+7. Задайте Scheme Color.
+8. Сохраните презентацию в файл [PPTX](https://docs.fileformat.com/presentation/pptx/) .
+Этот пример кода (основанный на вышеуказанных шагах) показывает, как добавить соединитель между двумя фигурами на Java:
 ```java
 Presentation pres = new Presentation();
 try {
-    // Получите ссылку на слайд
+    // Получить ссылку на слайд
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Добавьте AutoShape типа Прямоугольник
+    // Добавить AutoShape типа Rectangle
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 400, 300);
     ashp.getFillFormat().setFillType(FillType.NoFill);
 
-    // Добавьте TextFrame к Прямоугольнику
+    // Добавить TextFrame к прямоугольнику
     ashp.addTextFrame("Aspose TextBox");
     IPortion port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     IPortionFormat pf = port.getPortionFormat();
     pf.setFontHeight(50);
 
-    // Включите InnerShadowEffect
+    // Включить InnerShadowEffect
     IEffectFormat ef = pf.getEffectFormat();
     ef.enableInnerShadowEffect();
 
-    // Установите все необходимые параметры
+    // Задать все необходимые параметры
     ef.getInnerShadowEffect().setBlurRadius(8.0);
     ef.getInnerShadowEffect().setDirection(90.0F);
     ef.getInnerShadowEffect().setDistance(6.0);
     ef.getInnerShadowEffect().getShadowColor().setB((byte)189);
 
-    // Установите ColorType как Scheme
+    // Установить ColorType как Scheme
     ef.getInnerShadowEffect().getShadowColor().setColorType(ColorType.Scheme);
 
-    // Установите цвет схемы
+    // Установить цвет схемы
     ef.getInnerShadowEffect().getShadowColor().setSchemeColor(SchemeColor.Accent1);
 
-    // Сохраните презентацию
+    // Сохранить презентацию
     pres.save("WordArt_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+**Можно ли использовать эффекты WordArt с разными шрифтами или системами письменности (например, арабским, китайским)?**
+Да, Aspose.Slides поддерживает Unicode и работает со всеми основными шрифтами и системами письменности. Эффекты WordArt, такие как тень, заливка и контур, могут применяться независимо от языка, хотя доступность шрифтов и их отображение могут зависеть от системных шрифтов.
+
+**Можно ли применять эффекты WordArt к элементам шаблона слайдов?**
+Да, вы можете применять эффекты WordArt к фигурам на мастер‑слайдах, включая заполнители заголовков, нижние колонтитулы или фоновый текст. Изменения в макете мастера отразятся на всех связанных слайдах.
+
+**Влияют ли эффекты WordArt на размер файла презентации?**
+Незначительно. Эффекты WordArt, такие как тени, свечения и градиентные заливки, могут немного увеличить размер файла из‑за добавления метаданных форматирования, но разница обычно несущественная.
+
+**Можно ли просмотреть результат эффектов WordArt без сохранения презентации?**
+Да, вы можете отрисовать слайды с WordArt в изображения (например, PNG, JPEG) с помощью метода `getImage` из интерфейсов [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) или [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/). Это позволяет просмотреть результат в памяти или на экране до сохранения или экспорта полной презентации.

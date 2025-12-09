@@ -1,32 +1,46 @@
 ---
-title: الرسوم البيانية المتحركة
+title: تحريك مخططات PowerPoint في جافا
+linktitle: المخططات المتحركة
 type: docs
 weight: 80
 url: /ar/java/animated-charts/
+keywords:
+- مخطط
+- مخطط متحرك
+- تحريك المخطط
+- سلسلة المخطط
+- فئة المخطط
+- عنصر السلسلة
+- عنصر الفئة
+- إضافة تأثير
+- نوع التأثير
+- PowerPoint
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "إنشاء مخططات متحركة مذهلة في جافا باستخدام Aspose.Slides. عزز العروض التقديمية بصور ديناميكية في ملفات PPT و PPTX — ابدأ الآن."
 ---
-
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides لـ Java يدعم تحريك عناصر الرسم البياني. **السلاسل**، **الفئات**، **عناصر السلسلة**، **عناصر الفئات** يمكن تحريكها باستخدام [**ISequence**.**addEffect**](https://reference.aspose.com/slides/java/com.aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-) وطريقتين من الأنواع [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectChartMajorGroupingType) و [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectChartMinorGroupingType).
+يدعم Aspose.Slides for Java تحريك عناصر المخطط. يمكن تحريك **Series**، **Categories**، **Series Elements**، **Categories Elements** باستخدام طريقة [**ISequence**.**addEffect**](https://reference.aspose.com/slides/java/com.aspose.slides/ISequence#addEffect-com.aspose.slides.IChart-int-int-int-int-int-) واثنين من القيم الثابتة [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectChartMajorGroupingType) و[**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectChartMinorGroupingType).
 
 {{% /alert %}} 
 
-## **تحريك سلسلة الرسم البياني**
-إذا كنت تريد تحريك سلسلة الرسم البياني، اكتب الكود وفقًا للخطوات المذكورة أدناه:
+## **تحريك سلسلة المخطط**
+إذا كنت ترغب في تحريك سلسلة مخطط، اكتب الكود وفقًا للخطوات المذكورة أدناه:
 
 1. تحميل عرض تقديمي.
-1. الحصول على مرجع كائن الرسم البياني.
-1. تحريك السلسلة.
-1. كتابة ملف العرض التقديمي إلى القرص.
+2. الحصول على مرجع كائن المخطط.
+3. تحريك السلسلة.
+4. كتابة ملف العرض التقديمي إلى القرص.
 
-في المثال المذكور أدناه، قمنا بتحريك سلسلة الرسم البياني.
-
+في المثال المعطى أدناه، قمنا بتحريك سلسلة المخطط.
 ```java
-// استحضار فئة العرض التقديمي التي تمثل ملف عرض تقديمي
+// إنشاء كائن من فئة Presentation الذي يمثل ملف عرض تقديمي
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // الحصول على مرجع كائن الرسم البياني
+    // الحصول على مرجع كائن المخطط
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
     IChart chart = (IChart) shapes.get_Item(0);
@@ -51,30 +65,30 @@ try {
             EffectChartMajorGroupingType.BySeries, 3,
             EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // كتابة العرض التقديمي المعدل إلى القرص
+    // حفظ العرض التقديمي المعدل إلى القرص
     pres.save("AnimatingSeries_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **تحريك فئة الرسم البياني**
-إذا كنت تريد تحريك سلسلة الرسم البياني، اكتب الكود وفقًا للخطوات المذكورة أدناه:
+
+## **تحريك فئة المخطط**
+إذا كنت ترغب في تحريك فئة مخطط، اكتب الكود وفقًا للخطوات المذكورة أدناه:
 
 1. تحميل عرض تقديمي.
-1. الحصول على مرجع كائن الرسم البياني.
-1. تحريك الفئة.
-1. كتابة ملف العرض التقديمي إلى القرص.
+2. الحصول على مرجع كائن المخطط.
+3. تحريك الفئة.
+4. كتابة ملف العرض التقديمي إلى القرص.
 
-في المثال المذكور أدناه، قمنا بتحريك فئة الرسم البياني.
-
+في المثال المعطى أدناه، قمنا بتحريك فئة المخطط.
 ```java
-// استحضار فئة العرض التقديمي التي تمثل ملف عرض تقديمي
+// إنشاء كائن من فئة Presentation الذي يمثل ملف عرض تقديمي
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
-    IChart chart = (IChart) shapes.get_Item(0);
+    IChart chart = (IChart) shapes.get_Item(0");
 
     slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None,
             EffectTriggerType.AfterPrevious);
@@ -101,21 +115,21 @@ try {
 }
 ```
 
-## **التحريك في عناصر السلسلة**
-إذا كنت تريد تحريك عناصر السلسلة، اكتب الكود وفقًا للخطوات المذكورة أدناه:
+
+## **تحريك عنصر السلسلة**
+إذا كنت ترغب في تحريك عناصر السلسلة، اكتب الكود وفقًا للخطوات المذكورة أدناه:
 
 1. تحميل عرض تقديمي.
-1. الحصول على مرجع كائن الرسم البياني.
-1. تحريك عناصر السلسلة.
-1. كتابة ملف العرض التقديمي إلى القرص.
+2. الحصول على مرجع كائن المخطط.
+3. تحريك عناصر السلسلة.
+4. كتابة ملف العرض التقديمي إلى القرص.
 
-في المثال المذكور أدناه، قمنا بتحريك عناصر السلسلة.
-
+في المثال المعطى أدناه، قمنا بتحريك عناصر السلسلة.
 ```java
-// استحضار فئة العرض التقديمي التي تمثل ملف عرض تقديمي
+// إنشاء كائن من فئة Presentation يمثل ملف عرض تقديمي
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // الحصول على مرجع كائن الرسم البياني
+    // الحصول على مرجع كائن المخطط
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
     IChart chart = (IChart) shapes.get_Item(0);
@@ -150,28 +164,28 @@ try {
     ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 
             2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // كتابة ملف العرض التقديمي إلى القرص 
+    // حفظ ملف العرض التقديمي إلى القرص 
     pres.save("AnimatingSeriesElements_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **التحريك في عناصر الفئة**
-إذا كنت تريد تحريك عناصر الفئة، اكتب الكود وفقًا للخطوات المذكورة أدناه:
+
+## **تحريك عنصر الفئة**
+إذا كنت ترغب في تحريك عناصر الفئات، اكتب الكود وفقًا للخطوات المذكورة أدناه:
 
 1. تحميل عرض تقديمي.
-1. الحصول على مرجع كائن الرسم البياني.
-1. تحريك عناصر الفئات.
-1. كتابة ملف العرض التقديمي إلى القرص.
+2. الحصول على مرجع كائن المخطط.
+3. تحريك عناصر الفئات.
+4. كتابة ملف العرض التقديمي إلى القرص.
 
-في المثال المذكور أدناه، قمنا بتحريك عناصر الفئات.
-
+في المثال المعطى أدناه، قمنا بتحريك عناصر الفئات.
 ```java
-// استحضار فئة العرض التقديمي التي تمثل ملف عرض تقديمي
+// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // الحصول على مرجع كائن الرسم البياني
+    // الحصول على مرجع كائن المخطط
     ISlide slide = pres.getSlides().get_Item(0);
     IShapeCollection shapes = slide.getShapes();
     IChart chart = (IChart) shapes.get_Item(0);
@@ -205,9 +219,27 @@ try {
     ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 
             2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // كتابة ملف العرض التقديمي إلى القرص
+    // حفظ ملف العرض التقديمي إلى القرص
     pres.save("AnimatingCategoriesElements_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يتم دعم أنواع التأثيرات المختلفة (مثل الدخول، التأكيد، الخروج) للمخططات كما في الأشكال العادية؟**
+نعم. يُعامل المخطط ككائن شكل، لذا يدعم أنواع تأثيرات الرسوم المتحركة القياسية، بما في ذلك الدخول، والتأكيد، والخروج، مع تحكم كامل عبر خط زمني الشريحة وتسلسلات الرسوم المتحركة.
+
+**هل يمكن دمج تحريك المخطط مع انتقالات الشرائح؟**
+نعم. [Transitions](/slides/ar/java/slide-transition/) تُطبق على الشريحة، بينما تُطبق تأثيرات التحريك على الكائنات داخل الشريحة. يمكنك استخدام كلاهما معًا في نفس العرض التقديمي والتحكم فيهما بشكل مستقل.
+
+**هل يتم حفظ تحريكات المخطط عند حفظ الملف إلى PPTX؟**
+نعم. عندما تقوم بـ[save to PPTX](/slides/ar/java/save-presentation/)، يتم حفظ جميع تأثيرات الرسوم المتحركة وترتيبها لأنّها جزء من نموذج الرسوم المتحركة الأصلي للعرض التقديمي.
+
+**هل يمكنني قراءة تحريكات المخطط الموجودة في عرض تقديمي وتعديلها؟**
+نعم. توفر API إمكانية الوصول إلى خط زمني الشريحة، والتسلسلات، والتأثيرات، مما يتيح لك فحص تحريكات المخطط الموجودة وتعديلها دون الحاجة إلى إعادة إنشاء كل شيء من الصفر.
+
+**هل يمكنني إنشاء فيديو يتضمن تحريكات المخطط باستخدام Aspose.Slides؟**
+نعم. يمكنك [export a presentation to video](/slides/ar/java/convert-powerpoint-to-video/) مع الحفاظ على التحريكات، وضبط التوقيتات وإعدادات التصدير الأخرى بحيث يعكس المقطع الناتج تشغيل التحريكات.

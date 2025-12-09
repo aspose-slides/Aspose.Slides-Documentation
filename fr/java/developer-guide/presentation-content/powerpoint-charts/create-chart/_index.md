@@ -1,98 +1,118 @@
 ---
-title: Créer ou mettre à jour des graphiques de présentation PowerPoint en Java
-linktitle: Créer un graphique
+title: Créer ou Mettre à jour des graphiques de présentation PowerPoint en Java
+linktitle: Créer ou Mettre à jour des graphiques
 type: docs
 weight: 10
 url: /fr/java/create-chart/
-keywords: "Créer un graphique, graphique dispersé, graphique circulaire, graphique en carte d'arbre, graphique boursier, graphique boîte à moustaches, graphique histogramme, graphique en entonnoir, graphique Sunburst, graphique multi-catégorie, présentation PowerPoint, Java, Aspose.Slides pour Java"
-description: "Créer un graphique dans une présentation PowerPoint en Java"
+keywords:
+- ajouter un graphique
+- créer un graphique
+- modifier un graphique
+- changer un graphique
+- mettre à jour un graphique
+- graphique de dispersion
+- graphique circulaire
+- graphique en ligne
+- graphique en carte arborescente
+- graphique boursier
+- graphique boîte à moustaches
+- graphique en entonnoir
+- graphique en rayons
+- histogramme
+- graphique radar
+- graphique multicatégorie
+- PowerPoint
+- présentation
+- Java
+- Aspose.Slides
+description: "Créer et personnaliser des graphiques dans les présentations PowerPoint en utilisant Aspose.Slides pour Java. Ajouter, formater et modifier des graphiques avec des exemples de code pratiques en Java."
 ---
 
 ## Aperçu
 
-Cet article décrit comment **créer des graphiques PowerPoint dans Java**. Vous pouvez également **mettre à jour les graphiques dans Java**. Il couvre les sujets suivants.
+Cet article décrit comment **créer des graphiques de présentation PowerPoint en Java**. Vous pouvez également **mettre à jour les graphiques en Java**. Il couvre les sujets suivants.
 
-_Graphique_: **Normal**
-- [Java Create PowerPoint Chart](#java-create-powerpoint-chart)
-- [Java Create Presentation Chart](#java-create-presentation-chart)
-- [Java Create PowerPoint Presentation Chart](#java-create-powerpoint-presentation-chart)
+_Chart_: **Normal**
+- [Java Créer un graphique PowerPoint](#java-create-powerpoint-chart)
+- [Java Créer un graphique de présentation](#java-create-presentation-chart)
+- [Java Créer un graphique de présentation PowerPoint](#java-create-powerpoint-presentation-chart)
 
-_Graphique_: **Scattered**
-- [Java Create Scattered Chart](#java-create-scattered-chart)
-- [Java Create PowerPoint Scattered Chart](#java-create-powerpoint-scattered-chart)
-- [Java Create PowerPoint Presentation Scattered Chart](#java-create-powerpoint-presentation-scattered-chart)
+_Chart_: **Scattered**
+- [Java Créer un graphique dispersé](#java-create-scattered-chart)
+- [Java Créer un graphique PowerPoint dispersé](#java-create-powerpoint-scattered-chart)
+- [Java Créer un graphique de présentation PowerPoint dispersé](#java-create-powerpoint-presentation-scattered-chart)
 
-_Graphique_: **Pie**
-- [Java Create Pie Chart](#java-create-pie-chart)
-- [Java Create PowerPoint Pie Chart](#java-create-powerpoint-pie-chart)
-- [Java Create PowerPoint Presentation Pie Chart](#java-create-powerpoint-presentation-pie-chart)
+_Chart_: **Pie**
+- [Java Créer un graphique circulaire](#java-create-pie-chart)
+- [Java Créer un graphique PowerPoint circulaire](#java-create-powerpoint-pie-chart)
+- [Java Créer un graphique de présentation PowerPoint circulaire](#java-create-powerpoint-presentation-pie-chart)
 
-_Graphique_: **Tree Map**
-- [Java Create Tree Map Chart](#java-create-tree-map-chart)
-- [Java Create PowerPoint Tree Map Chart](#java-create-powerpoint-tree-map-chart)
-- [Java Create PowerPoint Presentation Tree Map Chart](#java-create-powerpoint-presentation-tree-map-chart)
+_Chart_: **Tree Map**
+- [Java Créer un graphique en carte arborescente](#java-create-tree-map-chart)
+- [Java Créer un graphique PowerPoint en carte arborescente](#java-create-powerpoint-tree-map-chart)
+- [Java Créer un graphique de présentation PowerPoint en carte arborescente](#java-create-powerpoint-presentation-tree-map-chart)
 
-_Graphique_: **Stock**
-- [Java Create Stock Chart](#java-create-stock-chart)
-- [Java Create PowerPoint Stock Chart](#java-create-powerpoint-stock-chart)
-- [Java Create PowerPoint Presentation Stock Chart](#java-create-powerpoint-presentation-stock-chart)
+_Chart_: **Stock**
+- [Java Créer un graphique boursier](#java-create-stock-chart)
+- [Java Créer un graphique PowerPoint boursier](#java-create-powerpoint-stock-chart)
+- [Java Créer un graphique de présentation PowerPoint boursier](#java-create-powerpoint-presentation-stock-chart)
 
-_Graphique_: **Box and Whisker**
-- [Java Create Box and Whisker Chart](#java-create-box-and-whisker-chart)
-- [Java Create PowerPoint Box and Whisker Chart](#java-create-powerpoint-box-and-whisker-chart)
-- [Java Create PowerPoint Presentation Box and Whisker Chart](#java-create-powerpoint-presentation-box-and-whisker-chart)
+_Chart_: **Box and Whisker**
+- [Java Créer un graphique boîte à moustaches](#java-create-box-and-whisker-chart)
+- [Java Créer un graphique PowerPoint boîte à moustaches](#java-create-powerpoint-box-and-whisker-chart)
+- [Java Créer un graphique de présentation PowerPoint boîte à moustaches](#java-create-powerpoint-presentation-box-and-whisker-chart)
 
-_Graphique_: **Funnel**
-- [Java Create Funnel Chart](#java-create-funnel-chart)
-- [Java Create PowerPoint Funnel Chart](#java-create-powerpoint-funnel-chart)
-- [Java Create PowerPoint Presentation Funnel Chart](#java-create-powerpoint-presentation-funnel-chart)
+_Chart_: **Funnel**
+- [Java Créer un graphique en entonnoir](#java-create-funnel-chart)
+- [Java Créer un graphique PowerPoint en entonnoir](#java-create-powerpoint-funnel-chart)
+- [Java Créer un graphique de présentation PowerPoint en entonnoir](#java-create-powerpoint-presentation-funnel-chart)
 
-_Graphique_: **Sunburst**
-- [Java Create Sunburst Chart](#java-create-sunburst-chart)
-- [Java Create PowerPoint Sunburst Chart](#java-create-powerpoint-sunburst-chart)
-- [Java Create PowerPoint Presentation Sunburst Chart](#java-create-powerpoint-presentation-sunburst-chart)
+_Chart_: **Sunburst**
+- [Java Créer un graphique rayonnant](#java-create-sunburst-chart)
+- [Java Créer un graphique PowerPoint rayonnant](#java-create-powerpoint-sunburst-chart)
+- [Java Créer un graphique de présentation PowerPoint rayonnant](#java-create-powerpoint-presentation-sunburst-chart)
 
-_Graphique_: **Histogram**
-- [Java Create Histogram Chart](#java-create-histogram-chart)
-- [Java Create PowerPoint Histogram Chart](#java-create-powerpoint-histogram-chart)
-- [Java Create PowerPoint Presentation Histogram Chart](#java-create-powerpoint-presentation-histogram-chart)
+_Chart_: **Histogram**
+- [Java Créer un histogramme](#java-create-histogram-chart)
+- [Java Créer un histogramme PowerPoint](#java-create-powerpoint-histogram-chart)
+- [Java Créer un histogramme de présentation PowerPoint](#java-create-powerpoint-presentation-histogram-chart)
 
-_Graphique_: **Radar**
-- [Java Create Radar Chart](#java-create-radar-chart)
-- [Java Create PowerPoint Radar Chart](#java-create-powerpoint-radar-chart)
-- [Java Create PowerPoint Presentation Radar Chart](#java-create-powerpoint-presentation-radar-chart)
+_Chart_: **Radar**
+- [Java Créer un graphique radar](#java-create-radar-chart)
+- [Java Créer un graphique PowerPoint radar](#java-create-powerpoint-radar-chart)
+- [Java Créer un graphique de présentation PowerPoint radar](#java-create-powerpoint-presentation-radar-chart)
 
-_Graphique_: **Multi Category**
-- [Java Create Multi Category Chart](#java-create-multi-category-chart)
-- [Java Create PowerPoint Multi Category Chart](#java-create-powerpoint-multi-category-chart)
-- [Java Create PowerPoint Presentation Multi Category Chart](#java-create-powerpoint-presentation-multi-category-chart)
+_Chart_: **Multi Category**
+- [Java Créer un graphique multi‑catégorie](#java-create-multi-category-chart)
+- [Java Créer un graphique PowerPoint multi‑catégorie](#java-create-powerpoint-multi-category-chart)
+- [Java Créer un graphique de présentation PowerPoint multi‑catégorie](#java-create-powerpoint-presentation-multi-category-chart)
 
-_Graphique_: **Map**
-- [Java Create Map Chart](#java-create-map-chart)
-- [Java Create PowerPoint Map Chart](#java-create-powerpoint-map-chart)
-- [Java Create PowerPoint Presentation Map Chart](#java-create-powerpoint-presentation-map-chart)
+_Chart_: **Map**
+- [Java Créer un graphique cartographique](#java-create-map-chart)
+- [Java Créer un graphique PowerPoint cartographique](#java-create-powerpoint-map-chart)
+- [Java Créer un graphique de présentation PowerPoint cartographique](#java-create-powerpoint-presentation-map-chart)
 
 _Action_: **Update Chart**
-- [Java Update PowerPoint Chart](#java-update-powerpoint-chart)
-- [Java Update Presentation Chart](#java-update-presentation-chart)
-- [Java Update PowerPoint Presentation Chart](#java-update-powerpoint-presentation-chart)
+- [Java Mettre à jour le graphique PowerPoint](#java-update-powerpoint-chart)
+- [Java Mettre à jour le graphique de présentation](#java-update-presentation-chart)
+- [Java Mettre à jour le graphique de présentation PowerPoint](#java-update-powerpoint-presentation-chart)
 
 
 ## **Créer un graphique**
-Les graphiques aident les utilisateurs à visualiser rapidement les données et à en tirer des enseignements, ce qui n’est pas toujours évident à partir d’un tableau ou d’une feuille de calcul. 
+Les graphiques aident les gens à visualiser rapidement les données et à en tirer des informations, ce qui n’est pas toujours évident à partir d’un tableau ou d’une feuille de calcul. 
 
 
 **Pourquoi créer des graphiques ?**
 
-En utilisant des graphiques, vous pouvez
+Avec les graphiques, vous pouvez :
 
 * agréger, condenser ou résumer de grandes quantités de données sur une seule diapositive d’une présentation
 * mettre en évidence des motifs et des tendances dans les données
 * déduire la direction et l’élan des données au fil du temps ou par rapport à une unité de mesure spécifique 
-* repérer les valeurs aberrantes, les écarts, les erreurs, les données incohérentes, etc. 
+* repérer des valeurs aberrantes, des anomalies, des écarts, des erreurs, des données incohérentes, etc. 
 * communiquer ou présenter des données complexes
 
-Dans PowerPoint, vous pouvez créer des graphiques via la fonction d’insertion, qui fournit des modèles permettant de concevoir de nombreux types de graphiques. Avec Aspose.Slides, vous pouvez créer des graphiques classiques (basés sur les types de graphiques les plus courants) et des graphiques personnalisés. 
+Dans PowerPoint, vous pouvez créer des graphiques via la fonction d’insertion, qui fournit des modèles permettant de concevoir de nombreux types de graphiques. Avec Aspose.Slides, vous pouvez créer des graphiques standards (basés sur les types de graphiques courants) et des graphiques personnalisés. 
 
 {{% alert color="primary" %}} 
 
@@ -102,28 +122,28 @@ Pour vous permettre de créer des graphiques, Aspose.Slides fournit la classe [C
 
 ### **Création de graphiques normaux**
 
-_Étapes : Créer un graphique_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint en Java</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Étapes :</em> Créer un graphique de présentation en Java</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint de présentation en Java</strong></a>
+_Steps: Create Chart_ → _Étapes : Créer un graphique_
+- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Steps:</em> Create PowerPoint Chart in Java</strong></a>
+- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Steps:</em> Create Presentation Chart in Java</strong></a>
+- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Chart in Java</strong></a>
 
 _Code Steps:_
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Obtenez la référence d’une diapositive via son index.
-3. Ajoutez un graphique avec certaines données et spécifiez le type de graphique souhaité. 
+2. Obtenez la référence d’une diapositive via son indice.
+3. Ajoutez un graphique avec des données et spécifiez le type de graphique souhaité. 
 4. Ajoutez un titre au graphique. 
 5. Accédez à la feuille de données du graphique. 
 6. Supprimez toutes les séries et catégories par défaut. 
 7. Ajoutez de nouvelles séries et catégories. 
-8. Ajoutez de nouvelles données de graphique pour les séries. 
-9. Ajoutez une couleur de remplissage pour les séries. 
-10. Ajoutez des libellés pour les séries. 
+8. Ajoutez de nouvelles données au graphique. 
+9. Ajoutez une couleur de remplissage aux séries. 
+10. Ajoutez des étiquettes aux séries. 
 11. Enregistrez la présentation modifiée au format PPTX. 
 
 Ce code Java montre comment créer un graphique normal :
 ```java
-// Instancie une classe de présentation qui représente un fichier PPTX
+// Crée une instance d'une classe de présentation représentant un fichier PPTX
 Presentation pres = new Presentation();
 try {
     // Accède à la première diapositive
@@ -186,7 +206,7 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    //Create des libellés personnalisés pour chaque catégorie de la nouvelle série
+    // Crée des libellés personnalisés pour chaque catégorie pour la nouvelle série
     // Définit le premier libellé pour afficher le nom de la catégorie
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
@@ -209,113 +229,113 @@ try {
 
 
 ### **Création de graphiques dispersés**
-Les graphiques dispersés (aussi appelés nuages de points ou graphiques x‑y) sont souvent utilisés pour vérifier des motifs ou démontrer des corrélations entre deux variables. 
+Les graphiques dispersés (également appelés nuages de points ou graphiques x‑y) sont souvent utilisés pour vérifier des motifs ou démontrer des corrélations entre deux variables. 
 
-Vous pouvez utiliser un graphique dispersé lorsque 
+Vous pouvez recourir à un graphique dispersé lorsque :
 
-* vous avez des données numériques appariées
-* vous avez deux variables qui se combinent bien
+* vous disposez de données numériques appariées
+* vous avez deux variables qui s’accordent bien ensemble
 * vous souhaitez déterminer si deux variables sont liées
-* vous avez une variable indépendante possédant plusieurs valeurs pour une variable dépendante
+* vous avez une variable indépendante comportant plusieurs valeurs pour une variable dépendante
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Étapes :</em> Créer un graphique dispersé en Java</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint dispersé en Java</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint de présentation dispersé en Java</strong></a>
+<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Steps:</em> Create Scattered Chart in Java</strong></a> |
+<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Scattered Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Scattered Chart in Java</strong></a>
 
-1. Veuillez suivre les étapes décrites ci‑dessus dans [Création de graphiques normaux](#creating-normal-charts)  
-2. Pour la troisième étape, ajoutez un graphique avec des données et choisissez l’un des types suivants :  
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Représente un graphique dispersé avec marqueurs._  
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Représente un graphique dispersé relié par des courbes, avec des marqueurs de données._  
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Représente un graphique dispersé relié par des courbes, sans marqueurs._  
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Représente un graphique dispersé relié par des lignes droites, avec des marqueurs._  
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Représente un graphique dispersé relié par des lignes droites, sans marqueurs._  
+1. Veuillez suivre les étapes décrites dans [Creating Normal Charts](#creating-normal-charts)
+2. Pour la troisième étape, ajoutez un graphique avec des données et choisissez votre type parmi :
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithMarkers) – _Représente un graphique de dispersion avec marqueurs._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) – _Représente un graphique de dispersion lissé avec marqueurs._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) – _Représente un graphique de dispersion lissé sans marqueurs._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) – _Représente un graphique de dispersion avec lignes droites et marqueurs._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLines) – _Représente un graphique de dispersion avec lignes droites sans marqueurs._
 
-Ce code Java montre comment créer des graphiques dispersés avec différentes séries de marqueurs : 
+Ce code Java montre comment créer des graphiques dispersés avec différentes séries de marqueurs :
 ```java
-    // Instancie une classe de présentation qui représente un fichier PPTX
-    Presentation pres = new Presentation();
-    try {
-        // Accède à la première diapositive
-        ISlide slide = pres.getSlides().get_Item(0);
+// Instancie une classe de présentation qui représente un fichier PPTX
+Presentation pres = new Presentation();
+try {
+    // Accède à la première diapositive
+    ISlide slide = pres.getSlides().get_Item(0);
 
-        // Crée le graphique par défaut
-        IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
-        
-        // Récupère l'index de la feuille de données du graphique par défaut
-        int defaultWorksheetIndex = 0;
-        
-        // Récupère la feuille de données du graphique
-        IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-        
-        // Supprime les séries de démonstration
-        chart.getChartData().getSeries().clear();
-        
-        // Ajoute de nouvelles séries
-        chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
-        chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
-        
-        // Récupère la première série du graphique
-        IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-        
-        // Ajoute un nouveau point (1:3) à la série
-        series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
-        
-        // Ajoute un nouveau point (2:10)
-        series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
-        
-        // Change le type de la série
-        series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
-        
-        // Change le marqueur de la série du graphique
-        series.getMarker().setSize(10);
-        series.getMarker().setSymbol(MarkerStyleType.Star);
-        
-        // Récupère la deuxième série du graphique
-        series = chart.getChartData().getSeries().get_Item(1);
-        
-        // Ajoute un nouveau point (5:2) là
-        series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
-        
-        // Ajoute un nouveau point (3:1)
-        series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
-        
-        // Ajoute un nouveau point (2:2)
-        series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
-        
-        // Ajoute un nouveau point (5:1)
-        series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
-        
-        // Change le marqueur de la série du graphique
-        series.getMarker().setSize(10);
-        series.getMarker().setSymbol(MarkerStyleType.Circle);
-        
-        pres.save("AsposeChart_out.pptx", SaveFormat.Pptx);
-    } finally {
-        if (pres != null) pres.dispose();
-    }
+    // Crée le graphique par défaut
+    IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
+    
+    // Obtient l'index de la feuille de données du graphique par défaut
+    int defaultWorksheetIndex = 0;
+    
+    // Obtient la feuille de calcul des données du graphique
+    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
+    
+    // Supprime les séries de démonstration
+    chart.getChartData().getSeries().clear();
+    
+    // Ajoute de nouvelles séries
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
+    
+    // Récupère la première série du graphique
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    
+    // Ajoute un nouveau point (1:3) à la série
+    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
+    
+    // Ajoute un nouveau point (2:10)
+    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
+    
+    // Modifie le type de la série
+    series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
+    
+    // Modifie le marqueur de la série du graphique
+    series.getMarker().setSize(10);
+    series.getMarker().setSymbol(MarkerStyleType.Star);
+    
+    // Récupère la deuxième série du graphique
+    series = chart.getChartData().getSeries().get_Item(1);
+    
+    // Ajoute un nouveau point (5:2) là
+    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
+    
+    // Ajoute un nouveau point (3:1)
+    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
+    
+    // Ajoute un nouveau point (2:2)
+    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
+    
+    // Ajoute un nouveau point (5:1)
+    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
+    
+    // Modifie le marqueur de la série du graphique
+    series.getMarker().setSize(10);
+    series.getMarker().setSymbol(MarkerStyleType.Circle);
+    
+    pres.save("AsposeChart_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 
 ### **Création de graphiques circulaires**
 
-Les graphiques circulaires sont idéaux pour illustrer la relation partie‑pour‑tout, notamment lorsque les données contiennent des libellés catégoriels associés à des valeurs numériques. Cependant, si vos données comportent de nombreuses parties ou libellés, il peut être préférable d’utiliser un graphique en barres. 
+Les graphiques circulaires sont idéaux pour illustrer la proportion d’une partie par rapport au tout, surtout lorsque les données contiennent des libellés catégoriels avec des valeurs numériques. Toutefois, si vos données comportent de nombreuses parties ou libellés, il vaut mieux envisager un graphique à barres. 
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Étapes :</em> Créer un graphique circulaire en Java</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint circulaire en Java</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint de présentation circulaire en Java</strong></a>
+<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Steps:</em> Create Pie Chart in Java</strong></a> |
+<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Steps:</em> Create PowerPoint Pie Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Pie Chart in Java</strong></a>
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
-2. Obtenez la référence d’une diapositive via son index.  
-3. Ajoutez un graphique avec les données par défaut et le type souhaité (dans ce cas, [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Pie).  
-4. Accédez aux données du graphique via [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).  
-5. Supprimez les séries et catégories par défaut.  
-6. Ajoutez de nouvelles séries et catégories.  
-7. Ajoutez de nouvelles données de graphique pour les séries.  
-8. Ajoutez de nouveaux points et appliquez des couleurs personnalisées aux secteurs du graphique circulaire.  
-9. Définissez les libellés des séries.  
-10. Définissez les traits de leader pour les libellés des séries.  
-11. Définissez l’angle de rotation pour les diapositives du graphique circulaire.  
-12. Enregistrez la présentation modifiée au format PPTX.  
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Obtenez la référence d’une diapositive via son indice.
+3. Ajoutez un graphique avec les données par défaut et le type souhaité ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Pie).
+4. Accédez aux données du graphique via [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+5. Supprimez les séries et catégories par défaut.
+6. Ajoutez de nouvelles séries et catégories.
+7. Ajoutez de nouvelles données au graphique.
+8. Ajoutez de nouveaux points et définissez des couleurs personnalisées pour les secteurs du graphique circulaire.
+9. Définissez des étiquettes pour les séries.
+10. Ajoutez des lignes de guidage pour les étiquettes de séries.
+11. Définissez l’angle de rotation du graphique circulaire.
+12. Enregistrez la présentation modifiée au format PPTX.
 
 Ce code Java montre comment créer un graphique circulaire :
 ```java
@@ -325,7 +345,7 @@ try {
     // Accède à la première diapositive
     ISlide slides = pres.getSlides().get_Item(0);
     
-    // Ajoute un graphique avec des données par défaut
+    // Ajoute un graphique avec les données par défaut
     IChart chart = slides.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
     
     // Définit le titre du graphique
@@ -352,16 +372,16 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
     
-    // Ajoute une nouvelle série
+    // Ajoute de nouvelles séries
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
-    // Remplit les données de la série
+    //Popule les données de la série
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
     // Ne fonctionne pas dans la nouvelle version
-    // Ajout de nouveaux points et définition de la couleur des secteurs
+    // Adding new points and setting sector color
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     
@@ -427,20 +447,20 @@ try {
 ```
 
 
-### **Création de graphiques en courbes**
+### **Création de graphiques linéaires**
 
-Les graphiques en courbes (ou graphiques linéaires) sont idéaux lorsqu’il s’agit de démontrer l’évolution d’une valeur dans le temps. Avec un graphique en courbes, vous pouvez comparer de nombreuses données simultanément, suivre les évolutions et les tendances, mettre en évidence des anomalies dans les séries, etc. 
+Les graphiques linéaires (ou graphiques en ligne) sont idéaux lorsqu’il s’agit de montrer l’évolution d’une valeur dans le temps. Avec un graphique linéaire, vous pouvez comparer de nombreux jeux de données, suivre les évolutions et tendances, mettre en évidence des anomalies, etc.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
-1. Obtenez la référence d’une diapositive via son index.  
-1. Ajoutez un graphique avec les données par défaut et le type souhaité (dans ce cas, `ChartType.Line`).  
-1. Accédez aux données du graphique via IChartDataWorkbook.  
-1. Supprimez les séries et catégories par défaut.  
-1. Ajoutez de nouvelles séries et catégories.  
-1. Ajoutez de nouvelles données de graphique pour les séries.  
-1. Enregistrez la présentation modifiée au format PPTX.  
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+1. Obtenez la référence d’une diapositive via son indice.
+1. Ajoutez un graphique avec les données par défaut et le type souhaité (`ChartType.Line`).
+1. Accédez aux données du graphique via IChartDataWorkbook.
+1. Supprimez les séries et catégories par défaut.
+1. Ajoutez de nouvelles séries et catégories.
+1. Ajoutez de nouvelles données au graphique.
+1. Enregistrez la présentation modifiée au format PPTX.
 
-Ce code Java montre comment créer un graphique en courbes :
+Ce code Java montre comment créer un graphique linéaire :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -453,7 +473,7 @@ try {
 ```
 
 
-Par défaut, les points d’un graphique en courbes sont reliés par des lignes droites continues. Si vous souhaitez que les points soient reliés par des tirets, vous pouvez spécifier le type de tiret souhaité ainsi :
+Par défaut, les points d’un graphique linéaire sont reliés par des lignes droites continues. Si vous souhaitez les relier par des tirets, spécifiez le type de tiret souhaité ainsi :
 ```java
 IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
 
@@ -464,24 +484,24 @@ for (IChartSeries series : lineChart.getChartData().getSeries())
 ```
 
 
-### **Création de graphiques en carte d’arbre**
+### **Création de graphiques en carte arborescente**
 
-Les graphiques en carte d’arbre sont idéaux pour les données de vente lorsque vous souhaitez afficher la taille relative des catégories et, simultanément, attirer rapidement l’attention sur les éléments qui contribuent le plus à chaque catégorie. 
+Les graphiques en carte arborescente sont idéaux pour les données de ventes lorsque vous voulez afficher la taille relative des catégories tout en attirant rapidement l’attention sur les éléments qui contribuent le plus à chaque catégorie. 
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Étapes :</em> Créer un graphique en carte d’arbre en Java</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint en carte d’arbre en Java</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint de présentation en carte d’arbre en Java</strong></a>
+<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Steps:</em> Create Tree Map Chart in Java</strong></a> |
+<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Tree Map Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Tree Map Chart in Java</strong></a>
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
-2. Obtenez la référence d’une diapositive via son index.  
-3. Ajoutez un graphique avec les données par défaut et le type souhaité (dans ce cas, [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).TreeMap).  
-4. Accédez aux données du graphique via [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).  
-5. Supprimez les séries et catégories par défaut.  
-6. Ajoutez de nouvelles séries et catégories.  
-7. Ajoutez de nouvelles données de graphique pour les séries.  
-8. Enregistrez la présentation modifiée au format PPTX.  
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Obtenez la référence d’une diapositive via son indice.
+3. Ajoutez un graphique avec les données par défaut et le type souhaité ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).TreeMap).
+4. Accédez aux données du graphique via [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+5. Supprimez les séries et catégories par défaut.
+6. Ajoutez de nouvelles séries et catégories.
+7. Ajoutez de nouvelles données au graphique.
+8. Enregistrez la présentation modifiée au format PPTX.
 
-Ce code Java montre comment créer un graphique en carte d’arbre :
+Ce code Java montre comment créer un graphique en carte arborescente :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -492,7 +512,7 @@ try {
     IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
     wb.clear(0);
 
-    // branche 1
+    //branche 1
     IChartCategory leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
@@ -504,7 +524,7 @@ try {
 
     chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
 
-    // branche 2
+    //branche 2
     leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
@@ -536,23 +556,23 @@ try {
 ```
 
 
-### **Création de graphiques de type Stock**
+### **Création de graphiques boursiers**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Étapes :</em> Créer un graphique Stock en Java</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint Stock en Java</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint de présentation Stock en Java</strong></a>
+<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Steps:</em> Create Stock Chart in Java</strong></a> |
+<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Steps:</em> Create PowerPoint Stock Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Stock Chart in Java</strong></a>
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
-2. Obtenez la référence d’une diapositive via son index.  
-3. Ajoutez un graphique avec les données par défaut et le type souhaité ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).OpenHighLowClose).  
-4. Accédez aux données du graphique via [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).  
-5. Supprimez les séries et catégories par défaut.  
-6. Ajoutez de nouvelles séries et catégories.  
-7. Ajoutez de nouvelles données de graphique pour les séries.  
-8. Spécifiez le format HiLowLines.  
-9. Enregistrez la présentation modifiée au format PPTX.  
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Obtenez la référence d’une diapositive via son indice.
+3. Ajoutez un graphique avec les données par défaut et le type souhaité ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).OpenHighLowClose).
+4. Accédez aux données du graphique via [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+5. Supprimez les séries et catégories par défaut.
+6. Ajoutez de nouvelles séries et catégories.
+7. Ajoutez de nouvelles données au graphique.
+8. Définissez le format des HiLowLines.
+9. Enregistrez la présentation modifiée au format PPTX.
 
-Exemple de code Java utilisé pour créer un graphique Stock :
+Exemple de code Java pour créer un graphique boursier :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -608,22 +628,22 @@ try {
 ```
 
 
-### **Création de graphiques Box and Whisker**
+### **Création de graphiques boîte à moustaches**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Étapes :</em> Créer un graphique Box and Whisker en Java</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint Box and Whisker en Java</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint de présentation Box and Whisker en Java</strong></a>
+<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Steps:</em> Create Box and Whisker Chart in Java</strong></a> |
+<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Box and Whisker Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Box and Whisker Chart in Java</strong></a>
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
-2. Obtenez la référence d’une diapositive via son index.  
-3. Ajoutez un graphique avec les données par défaut et le type souhaité ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).BoxAndWhisker).  
-4. Accédez aux données du graphique via [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).  
-5. Supprimez les séries et catégories par défaut.  
-6. Ajoutez de nouvelles séries et catégories.  
-7. Ajoutez de nouvelles données de graphique pour les séries.  
-8. Enregistrez la présentation modifiée au format PPTX.  
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Obtenez la référence d’une diapositive via son indice.
+3. Ajoutez un graphique avec les données par défaut et le type souhaité ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).BoxAndWhisker).
+4. Accédez aux données du graphique via [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+5. Supprimez les séries et catégories par défaut.
+6. Ajoutez de nouvelles séries et catégories.
+7. Ajoutez de nouvelles données au graphique.
+8. Enregistrez la présentation modifiée au format PPTX.
 
-Ce code Java montre comment créer un graphique Box and Whisker :
+Ce code Java montre comment créer un graphique boîte à moustaches :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -663,18 +683,19 @@ try {
 ```
 
 
-### **Création de graphiques Funnel**
+### **Création de graphiques en entonnoir**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Étapes :</em> Créer un graphique Funnel en Java</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint Funnel en Java</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint de présentation Funnel en Java</strong></a>
+<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Steps:</em> Create Funnel Chart in Java</strong></a> |
+<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Funnel Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Funnel Chart in Java</strong></a>
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
-2. Obtenez la référence d’une diapositive via son index.  
-3. Ajoutez un graphique avec les données par défaut et le type souhaité ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Funnel).  
-4. Enregistrez la présentation modifiée au format PPTX.  
 
-Le code Java montre comment créer un graphique Funnel :
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Obtenez la référence d’une diapositive via son indice.
+3. Ajoutez un graphique avec les données par défaut et le type souhaité ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Funnel).
+4. Enregistrez la présentation modifiée au format PPTX.
+
+Le code Java montre comment créer un graphique en entonnoir :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -709,18 +730,18 @@ try {
 ```
 
 
-### **Création de graphiques Sunburst**
+### **Création de graphiques rayonnants**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Étapes :</em> Créer un graphique Sunburst en Java</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint Sunburst en Java</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint de présentation Sunburst en Java</strong></a>
+<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Steps:</em> Create Sunburst Chart in Java</strong></a> |
+<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Sunburst Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Sunburst Chart in Java</strong></a>
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
-2. Obtenez la référence d’une diapositive via son index.  
-3. Ajoutez un graphique avec les données par défaut et le type souhaité (dans ce cas, [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).sunburst).  
-4. Enregistrez la présentation modifiée au format PPTX.  
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Obtenez la référence d’une diapositive via son indice.
+3. Ajoutez un graphique avec les données par défaut et le type souhaité ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).sunburst).
+4. Enregistrez la présentation modifiée au format PPTX.
 
-Ce code Java montre comment créer un graphique Sunburst :
+Ce code Java montre comment créer un graphique rayonnant :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -773,21 +794,21 @@ try {
 ```
 
 
-### **Création de graphiques Histogramme**
+### **Création d’histogrammes**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Étapes :</em> Créer un graphique Histogramme en Java</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint Histogramme en Java</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint de présentation Histogramme en Java</strong></a>
+<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Steps:</em> Create Histogram Chart in Java</strong></a> |
+<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Histogram Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Histogram Chart in Java</strong></a>
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
-2. Obtenez la référence d’une diapositive via son index.  
-3. Ajoutez un graphique avec les données par défaut et le type souhaité ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Histogram).  
-4. Accédez aux données du graphique via [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).  
-5. Supprimez les séries et catégories par défaut.  
-6. Ajoutez de nouvelles séries et catégories.  
-7. Enregistrez la présentation modifiée au format PPTX.  
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Obtenez la référence d’une diapositive via son indice.
+3. Ajoutez un graphique avec les données par défaut et le type souhaité ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Histogram).
+4. Accédez aux données du graphique via [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+5. Supprimez les séries et catégories par défaut.
+6. Ajoutez de nouvelles séries et catégories.
+7. Enregistrez la présentation modifiée au format PPTX.
 
-Ce code Java montre comment créer un graphique histogramme :
+Ce code Java montre comment créer un histogramme :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -815,18 +836,18 @@ try {
 ```
 
 
-### **Création de graphiques Radar**
+### **Création de graphiques radar**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Étapes :</em> Créer un graphique Radar en Java</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint Radar en Java</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint de présentation Radar en Java</strong></a>
+<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Steps:</em> Create Radar Chart in Java</strong></a> |
+<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Steps:</em> Create PowerPoint Radar Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Radar Chart in Java</strong></a>
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
-2. Obtenez la référence d’une diapositive via son index.  
-3. Ajoutez un graphique avec certaines données et spécifiez le type souhaité (`ChartType.Radar`).  
-4. Enregistrez la présentation modifiée au format PPTX.  
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Obtenez la référence d’une diapositive via son indice. 
+3. Ajoutez un graphique avec des données et spécifiez le type souhaité (`ChartType.Radar` dans ce cas).
+4. Enregistrez la présentation modifiée au format PPTX.
 
-Ce code Java montre comment créer un graphique Radar :
+Ce code Java montre comment créer un graphique radar :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -838,20 +859,20 @@ try {
 ```
 
 
-### **Création de graphiques Multi‑Catégorie**
+### **Création de graphiques multi‑catégorie**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Étapes :</em> Créer un graphique Multi‑Catégorie en Java</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint Multi‑Catégorie en Java</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint de présentation Multi‑Catégorie en Java</strong></a>
+<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Steps:</em> Create Multi Category Chart in Java</strong></a> |
+<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Multi Category Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Multi Category Chart in Java</strong></a>
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).  
-2. Obtenez la référence d’une diapositive via son index.  
-3. Ajoutez un graphique avec les données par défaut et le type souhaité ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).ClusteredColumn).  
-4. Accédez aux données du graphique via [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).  
-5. Supprimez les séries et catégories par défaut.  
-6. Ajoutez de nouvelles séries et catégories.  
-7. Ajoutez de nouvelles données de graphique pour les séries.  
-8. Enregistrez la présentation modifiée au format PPTX.  
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+2. Obtenez la référence d’une diapositive via son indice. 
+3. Ajoutez un graphique avec les données par défaut et le type souhaité ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).ClusteredColumn).
+4. Accédez aux données du graphique via [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+5. Supprimez les séries et catégories par défaut.
+6. Ajoutez de nouvelles séries et catégories.
+7. Ajoutez de nouvelles données au graphique.
+8. Enregistrez la présentation modifiée au format PPTX.
 
 Ce code Java montre comment créer un graphique multi‑catégorie :
 ```java
@@ -894,7 +915,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
     
-    // Enregistrer la présentation avec le graphique
+    // Enregistre la présentation avec le graphique
     pres.save("AsposeChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -902,15 +923,15 @@ try {
 ```
 
 
-### **Création de graphiques Map**
+### **Création de graphiques cartographiques**
 
-Un graphique Map est une visualisation d’une zone contenant des données. Les graphiques Map sont idéaux pour comparer des données ou des valeurs à travers des régions géographiques.
+Un graphique cartographique visualise une zone contenant des données. Les graphiques cartographiques sont idéaux pour comparer des valeurs entre différentes régions géographiques.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Étapes :</em> Créer un graphique Map en Java</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint Map en Java</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Étapes :</em> Créer un graphique PowerPoint de présentation Map en Java</strong></a>
+<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Steps:</em> Create Map Chart in Java</strong></a> |
+<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Steps:</em> Create PowerPoint Map Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Map Chart in Java</strong></a>
 
-Ce code Java montre comment créer un graphique Map :
+Ce code Java montre comment créer un graphique cartographique :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -924,7 +945,7 @@ try {
 
 ### **Création de graphiques combinés**
 
-Un graphique combiné (ou graphique combo) combine deux types de graphiques ou plus dans un même diagramme. Ce graphique vous permet de mettre en évidence, comparer ou examiner les différences entre plusieurs ensembles de données, aidant ainsi à identifier les relations entre eux.
+Un graphique combiné (ou graphique combo) regroupe deux types ou plus de graphiques dans un même diagramme. Ce graphique vous permet de mettre en évidence, comparer ou examiner les différences entre deux ensembles de données ou plus, facilitant l’identification des relations entre eux.
 
 ![The combination chart](combination_chart.png)
 
@@ -1077,23 +1098,23 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 
 ## **Mise à jour des graphiques**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Étapes :</em> Mettre à jour un graphique PowerPoint en Java</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Étapes :</em> Mettre à jour un graphique de présentation en Java</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Étapes :</em> Mettre à jour un graphique PowerPoint de présentation en Java</strong></a>
+<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Steps:</em> Update PowerPoint Chart in Java</strong></a> |
+<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Steps:</em> Update Presentation Chart in Java</strong></a> |
+<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Steps:</em> Update PowerPoint Presentation Chart in Java</strong></a>
 
-1. Instanciez une classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) qui représente la présentation contenant le graphique à mettre à jour.  
-2. Obtenez la référence d’une diapositive en utilisant son index.  
-3. Parcourez toutes les formes pour trouver le graphique souhaité.  
-4. Accédez à la feuille de données du graphique.  
-5. Modifiez les données de la série du graphique en changeant les valeurs de la série.  
-6. Ajoutez une nouvelle série et remplissez‑la avec des données.  
-7. Enregistrez la présentation modifiée au format PPTX.  
+1. Instanciez une classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) qui représente la présentation contenant le graphique à mettre à jour. 
+2. Obtenez la référence d’une diapositive en utilisant son index.
+3. Parcourez toutes les formes pour trouver le graphique souhaité.
+4. Accédez à la feuille de données du graphique.
+5. Modifiez les données des séries du graphique en changeant les valeurs des séries.
+6. Ajoutez une nouvelle série et remplissez‑la de données.
+7. Enregistrez la présentation modifiée au format PPTX.
 
 Ce code Java montre comment mettre à jour un graphique :
 ```java
 Presentation pres = new Presentation();
 try {
-    // Accéder au premier slideMarker
+    // Accéder à la première diapositive
     ISlide sld = pres.getSlides().get_Item(0);
 
     // Obtenir le graphique avec les données par défaut
@@ -1113,7 +1134,7 @@ try {
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
     // Mise à jour des données de la série
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Modifier le nom de la série
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Modification du nom de la série
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
@@ -1122,7 +1143,7 @@ try {
     series = chart.getChartData().getSeries().get_Item(1);
 
     // Mise à jour des données de la série
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Modifier le nom de la série
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Modification du nom de la série
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
@@ -1133,7 +1154,7 @@ try {
     // Prendre la troisième série du graphique
     series = chart.getChartData().getSeries().get_Item(2);
 
-    // Remplissage des données de la série
+    // Population des données de la série
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
@@ -1152,11 +1173,11 @@ try {
 
 Pour définir la plage de données d’un graphique, procédez comme suit :
 
-1. Instanciez une classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) qui représente la présentation contenant le graphique.  
-2. Obtenez la référence d’une diapositive via son index.  
-3. Parcourez toutes les formes pour trouver le graphique souhaité.  
-4. Accédez aux données du graphique et définissez la plage.  
-5. Enregistrez la présentation modifiée au format PPTX.  
+1. Instanciez une classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) qui représente la présentation contenant le graphique.
+2. Obtenez la référence d’une diapositive via son indice.
+3. Parcourez toutes les formes pour trouver le graphique souhaité.
+4. Accédez aux données du graphique et définissez la plage.
+5. Enregistrez la présentation modifiée au format PPTX.
 
 Ce code Java montre comment définir la plage de données d’un graphique :
 ```java
@@ -1174,7 +1195,7 @@ try {
 ```
 
 
-## **Utilisation de marqueurs par défaut dans les graphiques**
+## **Utiliser des marqueurs par défaut dans les graphiques**
 Lorsque vous utilisez un marqueur par défaut dans les graphiques, chaque série de graphique reçoit automatiquement un symbole de marqueur différent.
 
 Ce code Java montre comment définir automatiquement un marqueur de série de graphique :
@@ -1201,10 +1222,10 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // Prendre la deuxième série du graphique
+    // Récupérer la deuxième série du graphique
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    // Remplissage des données de la série
+    // Maintenant remplissage des données de la série
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1218,3 +1239,22 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**Quels types de graphiques sont pris en charge par Aspose.Slides ?**
+
+Aspose.Slides prend en charge un large éventail de [types de graphiques](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/), notamment les graphiques à barres, en lignes, circulaires, en aires, en dispersion, histogrammes, radars et bien d’autres. Cette flexibilité vous permet de choisir le type de graphique le plus adapté à vos besoins de visualisation.
+
+**Comment ajouter un nouveau graphique à une diapositive ?**
+
+Pour ajouter un graphique, créez d’abord une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) , récupérez la diapositive souhaitée à l’aide de son indice, puis appelez la méthode d’ajout de graphique en spécifiant le type de graphique et les données initiales. Cette procédure intègre le graphique directement dans votre présentation.
+
+**Comment mettre à jour les données affichées dans un graphique ?**
+
+Vous pouvez mettre à jour les données d’un graphique en accédant à son classeur de données ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)), en supprimant les séries et catégories par défaut, puis en ajoutant vos propres données. Cela vous permet d’actualiser le graphique avec les dernières informations.
+
+**Est‑il possible de personnaliser l’apparence du graphique ?**
+
+Oui, Aspose.Slides offre de nombreuses options de personnalisation. Vous pouvez modifier les couleurs, les polices, les étiquettes, les légendes et d’autres [éléments de mise en forme](/slides/fr/java/chart-entities/) pour adapter l’apparence du graphique à vos exigences de conception.

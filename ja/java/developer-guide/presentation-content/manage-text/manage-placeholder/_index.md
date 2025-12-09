@@ -1,75 +1,88 @@
 ---
-title: プレースホルダーの管理
+title: Javaでプレゼンテーションのプレースホルダーを管理する
+linktitle: プレースホルダーを管理する
 type: docs
 weight: 10
 url: /ja/java/manage-placeholder/
-description: Javaを使用してPowerPointスライドのプレースホルダー内のテキストを変更します。Javaを使用してPowerPointスライドのプレースホルダー内にプロンプトテキストを設定します。
+keywords:
+- プレースホルダー
+- テキストプレースホルダー
+- 画像プレースホルダー
+- チャートプレースホルダー
+- プロンプトテキスト
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Javaでプレースホルダーを手軽に管理：テキストを置換し、プロンプトをカスタマイズし、PowerPointおよびOpenDocumentで画像の透過性を設定"
 ---
 
-## **プレースホルダーのテキストを変更する**
-[Aspose.Slides for Java](/slides/ja/java/)を使用すると、プレゼンテーション内のスライドでプレースホルダーを見つけて修正できます。Aspose.Slidesを使用すると、プレースホルダー内のテキストを変更することができます。
+## **プレースホルダーのテキストを変更**
 
-**前提条件**: プレースホルダーを含むプレゼンテーションが必要です。このようなプレゼンテーションは標準のMicrosoft PowerPointアプリで作成できます。
+[Aspose.Slides for Java](/slides/ja/java/) を使用すると、プレゼンテーションのスライド上のプレースホルダーを検索して変更できます。Aspose.Slides を使ってプレースホルダー内のテキストを変更できます。
 
-これがそのプレゼンテーション内のプレースホルダーのテキストを置き換えるためにAspose.Slidesを使用する方法です：
+**Prerequisite**: プレースホルダーを含むプレゼンテーションが必要です。そのようなプレゼンテーションは標準の Microsoft PowerPoint アプリで作成できます。
 
-1. [`Presentation`](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスをインスタンス化し、プレゼンテーションを引数として渡します。
-2. インデックスを通じてスライドリファレンスを取得します。
-3. プレースホルダーを見つけるためにシェイプを反復処理します。
-4. プレースホルダーシェイプを[`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape)に型キャストし、[`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape)に関連付けられた[`TextFrame`](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame)を使用してテキストを変更します。
-5. 修正されたプレゼンテーションを保存します。
+以下は、Aspose.Slides を使用してそのプレゼンテーションのプレースホルダーのテキストを置き換える方法です：
 
-以下はプレースホルダー内のテキストを変更する方法を示すJavaコードです：
+1. [`Presentation`](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成し、プレゼンテーションを引数として渡します。
+2. インデックスを使用してスライド参照を取得します。
+3. シェイプを反復処理してプレースホルダーを見つけます。
+4. プレースホルダーシェイプを [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) に型キャストし、[`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) に関連付けられた [`TextFrame`](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) を使用してテキストを変更します。
+5. 変更されたプレゼンテーションを保存します。
 
+この Java コードは、プレースホルダーのテキストを変更する方法を示しています：
 ```java
-// Presentationクラスをインスタンス化
+// Presentation クラスのインスタンスを作成します
 Presentation pres = new Presentation("ReplacingText.pptx");
 try {
 
-    // 最初のスライドにアクセス
+    // 最初のスライドにアクセスします
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // プレースホルダーを見つけるためにシェイプを反復処理
+    // プレースホルダーを見つけるためにシェイプを反復処理します
     for (IShape shp : sld.getShapes()) 
     {
         if (shp.getPlaceholder() != null) {
-            // 各プレースホルダーのテキストを変更
-            ((IAutoShape) shp).getTextFrame().setText("これはプレースホルダーです");
+            // 各プレースホルダーのテキストを変更します
+            ((IAutoShape) shp).getTextFrame().setText("This is Placeholder");
         }
     }
 
-    // プレゼンテーションをディスクに保存
-    pres.save("output_out.pptx", SaveFormat.Pptx);
+    // プレゼンテーションをディスクに保存します
+    pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **プレースホルダーにプロンプトテキストを設定する**
-標準および事前構築されたレイアウトには ***タイトルを追加するにはクリックしてください*** や ***サブタイトルを追加するにはクリックしてください*** といったプレースホルダープロンプトテキストが含まれています。Aspose.Slidesを使用すると、お好みのプロンプトテキストをプレースホルダーレイアウトに挿入できます。
 
-以下はプレースホルダーにプロンプトテキストを設定する方法を示すJavaコードです：
+## **プレースホルダーのプロンプトテキストを設定**
 
+標準および事前に用意されたレイアウトには、***Click to add a title*** や ***Click to add a subtitle*** といったプレースホルダーのプロンプトテキストが含まれています。Aspose.Slides を使用すると、好みのプロンプトテキストをプレースホルダーレイアウトに挿入できます。
+
+この Java コードは、プレースホルダーにプロンプトテキストを設定する方法を示しています：
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
-    for (IShape shape : slide.getSlide().getShapes()) // スライドを反復処理
+    for (IShape shape : slide.getSlide().getShapes()) // スライドを反復処理します
     {
         if (shape.getPlaceholder() != null && shape instanceof AutoShape)
         {
             String text = "";
-            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPointは「タイトルを追加するにはクリックしてください」と表示
+            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPoint は「クリックしてタイトルを追加」 と表示します 
             {
-                text = "タイトルを追加";
+                text = "Add Title";
             }
-            else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) // サブタイトルを追加
+            else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) // サブタイトルを追加します
             {
-                text = "サブタイトルを追加";
+                text = "Add Subtitle";
             }
 
             ((IAutoShape)shape).getTextFrame().setText(text);
-            System.out.println("テキスト付きプレースホルダー: " + text);
+            System.out.println("Placeholder with text: " + text);
         }
     }
 
@@ -79,12 +92,12 @@ try {
 }
 ```
 
-## **プレースホルダー画像の透明度を設定する**
 
-Aspose.Slidesを使用すると、テキストプレースホルダー内の背景画像の透明度を設定できます。このようなフレーム内の画像の透明度を調整することで、テキストまたは画像を際立たせることができます（テキストと画像の色によって異なります）。
+## **プレースホルダー画像の透過性を設定**
 
-以下はシェイプ内の画像背景の透明度を設定する方法を示すJavaコードです：
+Aspose.Slides を使用すると、テキストプレースホルダーの背景画像の透過性を設定できます。そのフレーム内の画像の透過性を調整することで、テキストまたは画像を際立たせることができます（テキストと画像の色に応じて）。
 
+この Java コードは、シェイプ内の画像背景の透過性を設定する方法を示しています：
 ```java
 Presentation presentation = new Presentation("example.pptx");
 
@@ -97,7 +110,7 @@ for (int i = 0; i < operationCollection.size(); i++)
     {
         AlphaModulateFixed alphaModulate = (AlphaModulateFixed)operationCollection.get_Item(i);
         float currentValue = 100 - alphaModulate.getAmount();
-        System.out.println("現在の透明度の値: " + currentValue);
+        System.out.println("Current transparency value: " + currentValue);
 
         int alphaValue = 40;
         alphaModulate.setAmount(100 - alphaValue);
@@ -106,3 +119,18 @@ for (int i = 0; i < operationCollection.size(); i++)
 
 presentation.save("example_out.pptx", SaveFormat.Pptx);
 ```
+
+
+## **FAQ**
+
+**ベースプレースホルダーとは何か、スライド上のローカルシェイプとはどのように異なるか？**
+
+ベースプレースホルダーは、レイアウトまたはマスター上の元になるシェイプで、スライドのシェイプはそれを継承します—タイプ、位置、および一部の書式設定がそこから引き継がれます。ローカルシェイプは独立しており、ベースプレースホルダーが存在しない場合は継承は適用されません。
+
+**プレゼンテーション全体のすべてのタイトルまたはキャプションを、各スライドを反復せずに更新するにはどうすればよいですか？**
+
+レイアウトまたはマスター上の該当するプレースホルダーを編集します。そのレイアウト/マスターに基づくスライドは、変更を自動的に継承します。
+
+**標準のヘッダー/フッタープレースホルダー（日付と時刻、スライド番号、フッターテキスト）をどのように制御できますか？**
+
+適切なスコープ（通常のスライド、レイアウト、マスター、ノート/配布資料）で HeaderFooter マネージャーを使用し、これらのプレースホルダーのオン/オフを切り替え、内容を設定します。

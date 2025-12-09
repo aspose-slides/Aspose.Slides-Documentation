@@ -1,24 +1,32 @@
 ---
-title: 误差线
+title: 使用 Java 在演示文稿图表中自定义误差线
+linktitle: 误差线
 type: docs
 url: /zh/java/error-bar/
+keywords:
+- 误差线
+- 自定义值
+- PowerPoint
+- 演示文稿
+- Java
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for Java 在图表中添加和自定义误差线——优化 PowerPoint 演示文稿中的数据可视化。"
 ---
 
 ## **添加误差线**
-Aspose.Slides for Java 提供了一个简单的 API 来管理误差线值。示例代码适用于使用自定义值类型的情况。要指定一个值，请使用 [**DataPoints**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartSeriesCollection) 系列中特定数据点的 **ErrorBarCustomValues** 属性：
+Aspose.Slides for Java 提供了一个简洁的 API 用于管理误差线值。示例代码适用于使用自定义值类型的情况。要指定值，请使用特定数据点在系列的 [**DataPoints**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartSeriesCollection) 集合中的 **ErrorBarCustomValues** 属性：
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-1. 在所需幻灯片上添加气泡图。
-1. 访问第一个图表系列并设置误差线 X 格式。
-1. 访问第一个图表系列并设置误差线 Y 格式。
-1. 设置误差线值和格式。
-1. 将修改后的演示保存为 PPTX 文件。
-
+1. 在所需的幻灯片上添加气泡图表。
+1. 访问第一个图表系列并设置误差线 X 方向的格式。
+1. 访问第一个图表系列并设置误差线 Y 方向的格式。
+1. 设置误差线的数值和格式。
+1. 将修改后的演示文稿写入 PPTX 文件。
 ```java
 // 创建 Presentation 类的实例
 Presentation pres = new Presentation();
 try {
-    // 创建气泡图
+    // 创建气泡图表
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 400, 300, true);
 
     // 添加误差线并设置其格式
@@ -42,22 +50,22 @@ try {
 }
 ```
 
+
 ## **添加自定义误差线值**
-Aspose.Slides for Java 提供了一个简单的 API 来管理自定义误差线值。示例代码适用于 [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/java/com.aspose.slides/IErrorBarsFormat#getValue--) 属性等于 **Custom** 的情况。要指定一个值，请使用 [**DataPoints**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartSeriesCollection) 系列中特定数据点的 **ErrorBarCustomValues** 属性：
+Aspose.Slides for Java 提供了一个简洁的 API 用于管理自定义误差线值。当 [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/java/com.aspose.slides/IErrorBarsFormat#getValue--) 属性等于 **Custom** 时，示例代码适用。要指定值，请使用特定数据点在系列的 [**DataPoints**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartSeriesCollection) 集合中的 **ErrorBarCustomValues** 属性：
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-1. 在所需幻灯片上添加气泡图。
-1. 访问第一个图表系列并设置误差线 X 格式。
-1. 访问第一个图表系列并设置误差线 Y 格式。
-1. 访问图表系列的单个数据点并为单个系列数据点设置误差线值。
-1. 设置误差线值和格式。
-1. 将修改后的演示保存为 PPTX 文件。
-
+1. 在所需的幻灯片上添加气泡图表。
+1. 访问第一个图表系列并设置误差线 X 方向的格式。
+1. 访问第一个图表系列并设置误差线 Y 方向的格式。
+1. 访问图表系列的各个数据点，为单独的数据点设置误差线值。
+1. 设置误差线的数值和格式。
+1. 将修改后的演示文稿写入 PPTX 文件。
 ```java
 // 创建 Presentation 类的实例
 Presentation pres = new Presentation();
 try {
-    // 创建气泡图
+    // 创建气泡图表
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 400, 300, true);
 
     // 添加自定义误差线并设置其格式
@@ -69,7 +77,8 @@ try {
     errBarX.setValueType((byte) ErrorBarValueType.Custom);
     errBarY.setValueType((byte) ErrorBarValueType.Custom);
 
-    // 访问图表系列数据点并为单个点设置误差线值
+    // 访问图表系列数据点并设置误差线数值用于
+    // 单个点
     IChartDataPointCollection points = series.getDataPoints();
     points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXPlusValues((byte) DataSourceType.DoubleLiterals);
     points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXMinusValues((byte) DataSourceType.DoubleLiterals);
@@ -90,3 +99,18 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**将演示文稿导出为 PDF 或图像时，误差线会怎样？**
+
+误差线会作为图表的一部分进行渲染，并在转换过程中与其他图表格式一起保留，前提是使用兼容的版本或渲染器。
+
+**误差线可以与标记和数据标签共同使用吗？**
+
+可以。误差线是独立的元素，能够与标记和数据标签共存；如果元素重叠，可能需要调整格式。
+
+**在哪里可以找到 API 中用于处理误差线的属性和类的列表？**
+
+在 API 参考中：[ErrorBarsFormat](https://reference.aspose.com/slides/java/com.aspose.slides/errorbarsformat/) 类以及相关的 [ErrorBarType](https://reference.aspose.com/slides/java/com.aspose.slides/errorbartype/) 和 [ErrorBarValueType](https://reference.aspose.com/slides/java/com.aspose.slides/errorbarvaluetype/) 类。

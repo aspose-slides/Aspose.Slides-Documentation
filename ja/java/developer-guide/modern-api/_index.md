@@ -1,41 +1,53 @@
 ---
-title: モダン API
+title: モダン API を使用した画像処理の強化
+linktitle: モダン API
 type: docs
 weight: 237
 url: /ja/java/modern-api/
-keywords: "クロスプラットフォーム モダン API"
-description: "モダン API"
+keywords:
+- モダン API
+- 描画
+- スライドサムネイル
+- スライドから画像へ
+- シェイプサムネイル
+- シェイプから画像へ
+- プレゼンテーションサムネイル
+- プレゼンテーションから画像へ
+- 画像の追加
+- 画像の挿入
+- Java
+- Aspose.Slides
+description: "スライド画像処理を近代化し、廃止されたイメージング API を Java のモダン API に置き換えて、PowerPoint と OpenDocument のシームレスな自動化を実現します。"
 ---
 
-## はじめに
+## **はじめに**
 
-履歴的に、Aspose Slides は java.awt に依存しており、パブリック API にはそこから次のクラスが含まれています：
+Historically, Aspose Slides has a dependency on java.awt and has in the public API the following classes from there:
 - [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)
 - [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)
 
-バージョン 24.4 以降、このパブリック API は非推奨として宣言されています。
+As of version 24.4, this public API is declared deprecated.
 
-これらのクラスへの依存を排除するために、いわゆる「モダン API」を追加しました。つまり、非推奨の API の代わりに使用すべき API で、BufferedImage に依存するシグネチャを含んでいます。Graphics2D は非推奨として宣言され、そのサポートはパブリック Slides API から削除されました。
+In order to get rid of dependencies on these classes, we added the so-called "Modern API" - i.e. the API that should be used instead of the deprecated one, whose signatures contain dependencies on BufferedImage. Graphics2D is declared deprecated and its support is removed from the public Slides API.
 
-System.Drawing に依存する非推奨のパブリック API の削除は、リリース 24.8 で行われる予定です。
+Removal of the deprecated public API with dependencies on System.Drawing will be in release 24.8.
 
-## モダン API
+## **モダン API**
 
-次のクラスと列挙体がパブリック API に追加されました：
+Added the following classes and enums to the public API:
 
-- IImage - ラスターまたはベクター画像を表します。
-- ImageFormat - 画像のファイル形式を表します。
-- Images - IImage インターフェースをインスタンス化し、作業するためのメソッド。
+- IImage - represents the raster or vector image.
+- ImageFormat - represents the file format of the image.
+- Images - methods to instantiate and work with the IImage interface.
 
-IImage は disposable であることに注意してください（IDisposable インターフェースを実装しており、その使用は using でラップするか、他の便利な方法で dispose すべきです）。
+Please note that IImage is disposable (it implements the IDisposable interface and its use should be wrapped in using or dispose-it in another convenient way).
 
-新しい API を使用する典型的なシナリオは次のようになります：
-
+A typical scenario of using the new API may look as follows:
 ``` java
 Presentation pres = new Presentation();
 try {
     IPPImage ppImage;
-    // ディスク上のファイルから IImage の disposable インスタンスをインスタンス化します。
+    // ディスク上のファイルから IImage の破棄可能インスタンスを生成します。
     IImage image = Images.fromFile("image.png");
     try {
         // IImage のインスタンスをプレゼンテーションの画像に追加して PowerPoint 画像を作成します。
@@ -44,13 +56,13 @@ try {
         if (image != null) image.dispose();
     }
 
-    // スライド #1 にピクチャー形状を追加します。
+    // スライド #1 に画像シェイプを追加します
     pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 
     // スライド #1 を表す IImage のインスタンスを取得します。
     IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(1920, 1080));
     try {
-        // ディスクに画像を保存します。
+        // 画像をディスクに保存します。
         slideImage.save("slide1.jpeg", ImageFormat.Jpeg);
     } finally {
         if (slideImage != null) slideImage.dispose();
@@ -60,11 +72,12 @@ try {
 }
 ```
 
-## 古いコードをモダン API で置き換える
 
-一般的に、ImageIO を使用する古いメソッドの呼び出しを新しいものに置き換える必要があります。
+## **古いコードを Modern API に置き換える**
 
-古い：
+In general, you will need to replace the call to the old method using ImageIO with the new one.
+
+旧:
 ``` java
 BufferedImage slideImage = pres.getSlides().get_Item(0).getThumbnail(new Dimension(1920, 1080));
 try {
@@ -73,7 +86,8 @@ try {
     e.printStackTrace();
 }
 ```
-新しい：
+
+新:
 ``` java
 IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(1920, 1080));
 try {
@@ -83,10 +97,10 @@ try {
 }
 ```
 
-### スライドのサムネイルを取得する
 
-非推奨 API を使用したコード：
+### **スライド サムネイルの取得**
 
+Code using a deprecated API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -101,8 +115,8 @@ try {
 }
 ```
 
-モダン API：
 
+Modern API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -117,10 +131,10 @@ try {
 }
 ```
 
-### 形状のサムネイルを取得する
 
-非推奨 API を使用したコード：
+### **シェイプ サムネイルの取得**
 
+Code using a deprecated API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -135,8 +149,8 @@ try {
 }
 ```
 
-モダン API：
 
+Modern API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -151,10 +165,10 @@ try {
 }
 ```
 
-### プレゼンテーションのサムネイルを取得する
 
-非推奨 API を使用したコード：
+### **プレゼンテーション サムネイルの取得**
 
+Code using a deprecated API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -176,8 +190,8 @@ try {
 }
 ```
 
-モダン API：
 
+Modern API:
 ``` java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -202,10 +216,10 @@ try {
 }
 ```
 
-### プレゼンテーションに画像を追加する
 
-非推奨 API を使用したコード：
+### **プレゼンテーションへの画像追加**
 
+Code using a deprecated API:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -223,8 +237,8 @@ try {
 }
 ```
 
-モダン API：
 
+Modern API:
 ``` java
 Presentation pres = new Presentation();
 try {
@@ -242,10 +256,11 @@ try {
 }
 ```
 
-## 削除されるメソッドとモダン API における置き換え
 
-### プレゼンテーション
-| メソッドシグネチャ                               | 置き換えメソッドシグネチャ                             |
+## **削除されるメソッドと Modern API における置換**
+
+### **プレゼンテーション**
+| メソッド シグネチャ | 置換 メソッド シグネチャ |
 |-----------------------------------------------|---------------------------------------------------------|
 | public final BufferedImage[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options)                   |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY)   |
@@ -254,14 +269,14 @@ try {
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, int[] slides, Dimension imageSize) |
 | public final BufferedImage[] getThumbnails(IRenderingOptions options, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, Dimension imageSize) |
 
-### 形状
-| メソッドシグネチャ                                                      | 置き換えメソッドシグネチャ                                       |
+### **シェイプ**
+| メソッド シグネチャ | 置換 メソッド シグネチャ |
 |----------------------------------------------------------------------|-------------------------------------------------------------------|
-| public final BufferedImage getThumbnail()                                        | public final IImage getImage()                                                           |
+| public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
 
-### スライド
-| メソッドシグネチャ                                                      | 置き換えメソッドシグネチャ                                           |
+### **スライド**
+| メソッド シグネチャ | 置換 メソッド シグネチャ |
 |----------------------------------------------------------------------|-----------------------------------------------------------------------|
 | public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
@@ -270,45 +285,58 @@ try {
 | public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
 | public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
 | public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | 完全に削除されます  |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | 完全に削除されます  |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | 完全に削除されます  |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | Will be deleted completely |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | Will be deleted completely |
+| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | Will be deleted completely |
 
-### 出力
-| メソッドシグネチャ                                                | 置き換えメソッドシグネチャ                                |
+### **出力**
+| メソッド シグネチャ | 置換 メソッド シグネチャ |
 |-----------------------------------------------------------------|-------------------------------------------------------------|
 | public final IOutputFile add(String path, BufferedImage image) | public final IOutputFile add(String path, IImage image) |
 
-### ImageCollection
-| メソッドシグネチャ                          | 置き換えメソッドシグネチャ               |
+### **ImageCollection**
+| メソッド シグネチャ | 置換 メソッド シグネチャ |
 |-------------------------------------------|--------------------------------------------|
 | public final IPPImage addImage(BufferedImage image) | public final IPPImage addImage(IImage image) |
 
-### PPImage
-| メソッドシグネチャ                     | 置き換えメソッドシグネチャ   |
+### **PPImage**
+| メソッド シグネチャ | 置換 メソッド シグネチャ |
 |--------------------------------------|-----------------------------------------|
 | public final BufferedImage getSystemImage() | public final IImage getImage() |
 
-### PatternFormat
-| メソッドシグネチャ                                          | 置き換えメソッドシグネチャ                        |
-|-----------------------------------------------------------|-----------------------------------------------------|
-| public final BufferedImage getTileImage(Color styleColor)   | public final IImage getTile(Color styleColor) |
-| public final BufferedImage getTileImage(Color background, Color foreground) |public final IImage getTile(Color background, Color foreground) |
+### **PatternFormat**
+| メソッド シグネチャ | 置換 メソッド シグネチャ |
+|-----------------------------------------------------------|----------------------------------------------------------|
+| public final BufferedImage getTileImage(Color styleColor) | public final IImage getTile(Color styleColor) |
+| public final BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTile(Color background, Color foreground) |
 
-### PatternFormatEffectiveData
-| メソッドシグネチャ                                          | 置き換えメソッドシグネチャ                        |
-|-----------------------------------------------------------|-----------------------------------------------------|
+### **PatternFormatEffectiveData**
+| メソッド シグネチャ | 置換 メソッド シグネチャ |
+|-----------------------------------------------------------|----------------------------------------------------------|
 | public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
 
+## **Graphics2D の API サポートは終了します**
 
-## API の Graphics2D サポートは終了します
+Methods with [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) are declared deprecated and their support will be removed from the public API.
 
-[Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) に関連するメソッドは非推奨として宣言され、そのサポートはパブリック API から削除されます。
-
-それを使用する API の部分は削除されます：
+The part of the API that uses it will be removed:
 
 [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/slide/)
 
 - [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
 - [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
 - [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
+
+## **FAQ**
+
+**なぜ java.awt.Graphics2D が廃止されたのですか？**
+
+Support for `Graphics2D` is being removed from the public API to unify work with rendering and images, eliminate ties to platform-specific dependencies, and switch to a cross-platform approach with [IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/). All rendering methods to `Graphics2D` will be removed.
+
+**BufferedImage と比べた IImage の実用的な利点は何ですか？**
+
+[IImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimage/) はラスタ画像とベクタ画像の両方を統一的に扱い、[ImageFormat](https://reference.aspose.com/slides/java/com.aspose.slides/imageformat/) を通じてさまざまな形式への保存を簡素化します。
+
+**Modern API はサムネイル生成のパフォーマンスに影響しますか？**
+
+`getThumbnail` から `getImage` への切り替えはシナリオを悪化させません。新しいメソッドはオプションやサイズを指定した画像生成機能を同等に提供し、レンダリングオプションのサポートも保持します。具体的な性能向上または低下はシナリオ次第ですが、機能的には置換は等価です。

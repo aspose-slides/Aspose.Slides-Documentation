@@ -1,55 +1,64 @@
 ---
-title: أسطورة الرسم البياني
+title: تخصيص وسيلة إيضاح المخطط في العروض التقديمية باستخدام Java
+linktitle: وسيلة إيضاح المخطط
 type: docs
 url: /ar/java/chart-legend/
+keywords:
+- وسيلة إيضاح المخطط
+- موضع الوسيلة
+- حجم الخط
+- PowerPoint
+- العرض التقديمي
+- Java
+- Aspose.Slides
+description: "قم بتخصيص وسائط مخططات الرسم البياني باستخدام Aspose.Slides for Java لتحسين العروض التقديمية في PowerPoint من خلال تنسيق وسيلة إيضاح مخصص."
 ---
 
-## **تحديد موضع الأسطورة**
-لتعيين خصائص الأسطورة. يرجى اتباع الخطوات أدناه:
+## **موضع وسيلة الإيضاح**
+لتعيين خصائص وسيلة الإيضاح، يرجى اتباع الخطوات أدناه:
 
-- إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
+- إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
 - الحصول على مرجع الشريحة.
-- إضافة رسم بياني على الشريحة.
-- تعيين خصائص الأسطورة.
+- إضافة مخطط إلى الشريحة.
+- تعيين خصائص وسيلة الإيضاح.
 - كتابة العرض التقديمي كملف PPTX.
 
-في المثال المقدم أدناه، قمنا بتحديد الموضع والحجم لأسطورة الرسم البياني.
-
+في المثال الموضح أدناه، قمنا بتعيين الموضع والحجم لوسيلة إيضاح المخطط.
 ```java
-// Create an instance of Presentation class
+// إنشاء مثيل من فئة Presentation
 Presentation pres = new Presentation();
 try {
-    // Get reference of the slide
+    // الحصول على مرجع الشريحة
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Add a clustered column chart on the slide
+    // إضافة مخطط عمود مجمع إلى الشريحة
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
     
-    // Set Legend Properties
+    // تعيين خصائص وسيلة الإيضاح
     chart.getLegend().setX(50 / chart.getWidth());
     chart.getLegend().setY(50 / chart.getHeight());
     chart.getLegend().setWidth(100 / chart.getWidth());
     chart.getLegend().setHeight(100 / chart.getHeight());
     
-    // Write presentation to disk
+    // كتابة العرض التقديمي إلى القرص
     pres.save("Legend_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **تعيين حجم خط الأسطورة**
-تتيح Aspose.Slides لجافا للمطورين إمكانية تعيين حجم خط الأسطورة. يرجى اتباع الخطوات أدناه:
 
-- إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-- إنشاء الرسم البياني الافتراضي.
+## **تحديد حجم خط وسيلة الإيضاح**
+تتيح Aspose.Slides for Java للمطورين تعيين حجم خط وسيلة الإيضاح. يرجى اتباع الخطوات أدناه:
+
+- إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
+- إنشاء المخطط الافتراضي.
 - تعيين حجم الخط.
 - تعيين القيمة الدنيا للمحور.
 - تعيين القيمة القصوى للمحور.
 - كتابة العرض التقديمي إلى القرص.
-
 ```java
-// Create an instance of Presentation class
+// إنشاء مثيل من فئة Presentation
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
@@ -67,19 +76,19 @@ try {
 }
 ```
 
-## **تعيين حجم خط الأسطورة الفردية**
-تتيح Aspose.Slides لجافا للمطورين إمكانية تعيين حجم خط إدخالات الأسطورة الفردية. يرجى اتباع الخطوات أدناه:
 
-- إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-- إنشاء الرسم البياني الافتراضي.
-- الوصول إلى إدخال الأسطورة.
+## **تحديد حجم خط وسيلة الإيضاح الفردية**
+تتيح Aspose.Slides for Java للمطورين تعيين حجم الخط لمدخلات وسيلة الإيضاح الفردية. يرجى اتباع الخطوات أدناه:
+
+- إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
+- إنشاء المخطط الافتراضي.
+- الوصول إلى مدخل وسيلة الإيضاح.
 - تعيين حجم الخط.
 - تعيين القيمة الدنيا للمحور.
 - تعيين القيمة القصوى للمحور.
 - كتابة العرض التقديمي إلى القرص.
-
 ```java
-// Create an instance of Presentation class
+// إنشاء مثيل من فئة Presentation
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
@@ -97,3 +106,15 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني تمكين وسيلة الإيضاح بحيث يخصص المخطط مساحة لها تلقائيًا بدلاً من تغطيتها؟**
+نعم. استخدم وضع عدم التغطية ([setOverlay(false)](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setOverlay-boolean-)); في هذه الحالة، سيتقلص منطقة الرسم لتتناسب مع وسيلة الإيضاح.
+
+**هل يمكنني إنشاء تسميات وسيلة إيضاح متعددة الأسطر؟**
+نعم. تُلف التسميات الطويلة تلقائيًا عندما لا تكون المساحة كافية؛ وتدعم فواصل السطر القسرية عبر أحرف السطر الجديد في اسم السلسلة.
+
+**كيف أجعل وسيلة الإيضاح تتبع نظام ألوان سمة العرض التقديمي؟**
+لا تقم بتعيين ألوان/ملء/خطوط صريحة لوسيلة الإيضاح أو نصها. سيتوارثون ذلك من السمة وسيتم تحديثهم بشكل صحيح عند تغيير التصميم.
