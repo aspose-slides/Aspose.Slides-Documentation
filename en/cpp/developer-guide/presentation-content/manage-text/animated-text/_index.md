@@ -18,7 +18,7 @@ keywords:
 description: "Create dynamic animated text in PowerPoint and OpenDocument presentations using Aspose.Slides for C++, with easy-to-follow, optimized C++ code examples."
 ---
 
-## Adding Animation Effects to Paragraphs
+## **Add Animation Effects to Paragraphs**
 
 We added the [**AddEffect()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.sequence#a255eb5aaf90861b01980047bc06ead4f) method to the [**Sequence**](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.sequence) and [**ISequence**](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.i_sequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
 
@@ -38,7 +38,7 @@ presentation->Save(dataDir + u"AnimationEffectinParagraph.pptx", SaveFormat::Ppt
 ```
 
 
-## Getting the Animation Effects in Paragraphs
+## **Get Animation Effects for Paragraphs**
 
 You may decide to find out the animation effects added to a paragraph for example, in one scenario, you want to get the animation effects in a paragraph because you plan to apply those effects to another paragraph or shape.
 
@@ -61,3 +61,17 @@ for (auto paragraph : autoShape->get_TextFrame()->get_Paragraphs())
 	}
 }
 ```
+
+## **FAQ**
+
+**How do text animations differ from slide transitions, and can they be combined?**
+
+Text animations control object behavior over time on a slide, while [transitions](/slides/cpp/slide-transition/) control how slides change. They’re independent and can be used together; playback order is governed by the animation timeline and the transition settings.
+
+**Are text animations preserved when exporting to PDF or images?**
+
+No. PDF and raster images are static, so you’ll see a single state of the slide without motion. To keep movement, use [video](/slides/cpp/convert-powerpoint-to-video/) or [HTML](/slides/cpp/export-to-html5/) export.
+
+**Do text animations work in layouts and the slide master?**
+
+Effects applied to layout/master objects are inherited by slides, but their timing and interaction with slide-level animations depend on the final sequence on the slide.

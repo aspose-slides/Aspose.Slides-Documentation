@@ -43,7 +43,7 @@ Aspose provides a simple, [free online PowerPoint editing service](https://produ
 
 {{% /alert %}} 
 
-## **Highlight Text using Regular Expression**
+## **Highlight Text Using Regular Expressions**
 New HighlightRegex method has been added to ITextFrame and TextFrame classes. It allows to highlight text part with background color using regex, similar to Text Highlight Color tool in PowerPoint 2019.
 
 The code snippet below shows how to use this feature:
@@ -139,10 +139,10 @@ This C++ code shows you how to set the background color for only a portion of a 
 }
 ```
 
-## **Align Text Paragraph**
+## **Align Text Paragraphs**
 Text formatting is one of the key elements while creating any kind of documents or presentations. We know that Aspose.Slides for C++ supports adding text to slides but in this topic, we will see that how can we control the alignment of the text paragraphs in a slide. Please follow the steps below to align text paragraphs using Aspose.Slides for C++ :
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
 2. Obtain the reference of a slide by using its Index.
 3. Access the Placeholder shapes present in the slide and typecast them as an AutoShape.
 4. Get the Paragraph (that needs to be aligned) from the TextFrame exposed by AutoShape.
@@ -184,7 +184,7 @@ textBox2->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultP
 presentation->Save(u"out.pptx", SaveFormat::Pptx);
 ```
 
-## **Manage Paragraph's Font Properties**
+## **Manage Text Font Properties**
 
 Presentations usually contain both text and images. The text can be formatted in a various way, either to highlight specific sections and words, or to conform with corporate styles. Text formatting helps users vary the look and feel of the presentation content. This article shows how to use Aspose.Slides for C++ to configure the font properties of paragraphs of text on slides. To manage the font properties of a paragraph using Aspose.Slides for C++ :
 
@@ -223,7 +223,7 @@ The implementation of the above steps is given below.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SetTextFontProperties-SetTextFontProperties.cpp" >}}
 
-## **Set Font Size for Text**
+## **Set the Font Size for Text**
 
 Aspose.Slides allows you to choose your preferred font size for existing text in a paragraph and other texts that may be added to the paragraph later.
 
@@ -266,7 +266,7 @@ Aspose.Slides for C++ allows developers to rotate the text. Text could be set to
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RotatingText-RotatingText.cpp" >}}
 
 
-## **Tabs and EffectiveTabs in Presentation**
+## **Tabs and Effective Tabs in a Presentation**
 - EffectiveTabs.ExplicitTabCount (2 in our case) property is equal to Tabs.Count.
 - EffectiveTabs collection includes all tabs (from Tabs collection and default tabs)
 - EffectiveTabs.ExplicitTabCount (2 in our case) property is equal to Tabs.Count.
@@ -274,7 +274,7 @@ Aspose.Slides for C++ allows developers to rotate the text. Text could be set to
 - EffectiveTabs.GetTabByIndex(index) with index = 0 will return first explicit tab (Position = 731), index = 1 - second tab (Position = 1241). If you try to get next tab with index = 2 it will return first default tab (Position = 1470) and etc.
 - EffectiveTabs.GetTabAfterPosition(pos) used for getting next tabulation after some text. For example you have text: "Helloworld!". To render such text you should know where to start draw "world!". At first, you should calculate length of "Hello" in pixels and call GetTabAfterPosition with this value. You will get next tab position to draw "world!".
 
-## **Line Spacing of Paragraph**
+## **Line Spacing of a Paragraph**
 
 Aspose.Slides provides properties under `ParagraphFormat`—`SpaceAfter`, `SpaceBefore` and `SpaceWithin`—that allow you to manage the line spacing for a paragraph. The three properties are used this way:
 
@@ -320,7 +320,7 @@ presentation->Save(dataDir + u"LineSpacing_out.pptx", SaveFormat::Pptx);
 ```
 
 
-## **Set AutofitType Property of Text Frame**
+## **Set the AutofitType Property of a Text Frame**
 In this topic, we will explore the different formatting properties of text frame. This article covers how to Set the AutofitType property of text frame, anchor of text and rotating the text in presentation. Aspose.Slides for C++ allows developers to set AutofitType property of any text frame. AutofitType could be set to Normal or Shape. If set to Normal then shape will remain the same whereas the text will be adjusted without causing the shape to change itself whereas If AutofitType is set to shape, then shape will be modified such that only required text is contained in it. To set the AutofitType property of a text frame, please follow the steps below:
 
 1. Create an instance of Presentation class.
@@ -333,7 +333,7 @@ In this topic, we will explore the different formatting properties of text frame
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetAutofitOftextframe-SetAutofitOftextframe.cpp" >}}
 
 
-## **Set Anchor of TextFrame**
+## **Set the Anchor of a TextFrame**
 Aspose.Slides for C++ allows developers to Anchor of any TextFrame. TextAnchorType specifies that where is that text placed in the shape. TextAnchorType could be set to Top, Center, Bottom, Justified or Distributed. To set Anchor of any TextFrame, please follow the steps below:
 
 1. Create an instance of `Presentation` class.
@@ -346,7 +346,7 @@ Aspose.Slides for C++ allows developers to Anchor of any TextFrame. TextAnchorTy
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetAnchorOfTextFrame-SetAnchorOfTextFrame.cpp" >}}
 
 
-## **Set Custom Rotation Angle for TextFrame**
+## **Set the Custom Rotation Angle for a TextFrame**
 Aspose.Slides for C++ now supports, Setting custom rotation angle for textframe. In this topic, we will see with example how to set the RotationAngle property in Aspose.Slides. The new property RotationAngle has been added to IChartTextBlockFormat and ITextFrameFormat interfaces, allows to set the custom rotation angle for textframe. In order to set the RotationAngle property, Please follow the steps below:
 
 1. Create an instance of Presentation class.
@@ -458,3 +458,13 @@ Output:
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
+
+## **FAQ**
+
+**How to modify text in a table on a slide?**
+
+To modify text in a table on a slide, you need to use the [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) object. You can iterate through all the cells in the table and change the text in each cell by accessing its text frame and paragraph format properties within each cell.
+
+**How to apply gradient color to text in a PowerPoint slide?**
+
+To apply gradient color to text, use the `get_FillFormat` method in [PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/). Set the fill format to `Gradient`, where you can define the gradient's start and end colors, along with other properties such as direction and transparency to create the gradient effect on the text.
