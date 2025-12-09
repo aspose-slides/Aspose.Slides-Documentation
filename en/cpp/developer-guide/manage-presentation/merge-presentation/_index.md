@@ -93,7 +93,7 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Merge Presentations with Slide Master**
+## **Merge Presentations with a Slide Master**
 
 Aspose.Slides provides the [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation. 
 
@@ -118,7 +118,7 @@ The slide layout for the slide master is determined automatically. When an appro
 
 If you want the slides in the output presentation to have a different slide layout, use the [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) method instead when merging. 
 
-## **Merge Specific Slides From Presentations**
+## **Merge Specific Slides from Presentations**
 
 Merging specific slides from multiple presentations is useful for creating custom slide decks. Aspose.Slides C++ allows you to select and import only the slides you need. The API preserves formatting, layout, and design of the original slides.
 
@@ -161,7 +161,7 @@ presentation1->Dispose();
 presentation->Dispose();
 ```
 
-## **Merge Presentations With Slide Layout**
+## **Merge Presentations with a Slide Layout**
 
 This C++ code shows you how to combine slides from presentations while applying your preferred slide layout to them to get one output presentation:
 
@@ -176,7 +176,7 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Merge Presentations With Different Slide Sizes**
+## **Merge Presentations with Different Slide Sizes**
 
 {{% alert title="Note" color="warning" %}} 
 
@@ -203,7 +203,7 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Merge Slides to Presentation Section**
+## **Merge Slides to a Presentation Section**
 
 This C++ code shows you how to merge a specific slide to a section in a presentation:
 
@@ -226,3 +226,21 @@ The slide is added at the end of the section.
 Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and so on. 
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Are speaker notes preserved during merge?**
+
+Yes. When cloning slides, Aspose.Slides carries over all slide elements, including notes, formatting, and animations.
+
+**Are comments and their authors transferred?**
+
+Comments, as part of slide content, are copied with the slide. Comment author labels are preserved as comment objects in the resulting presentation.
+
+**What if the source presentation is password-protected?**
+
+It must be [opened with the password](/slides/cpp/password-protected-presentation/) via [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/); after loading, those slides can be safely cloned into an unprotected target file (or a protected one as well).
+
+**How thread-safe is the merge operation?**
+
+Do not use the same [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) instance from [multiple threads](/slides/cpp/multithreading/). The recommended rule is "one document — one thread"; different files can be processed in parallel in separate threads.

@@ -3,39 +3,48 @@ title: Aspose.Slides for Xamarin
 type: docs
 weight: 150
 url: /ja/net/aspose-slides-for-xamarin/
+keywords:
+- Xamarin
+- モバイル開発
+- Android
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "C# で Xamarin モバイルアプリを構築し、Aspose.Slides を使用して Android 上で PPT、PPTX、ODP のプレゼンテーションを表示、編集、変換する豊富な機能をサポートします。"
 ---
 
 ## **概要**
-Xamarinは、.NET C#でのモバイル開発に使用されるフレームワークです。Xamarinには、.NETプラットフォームの機能を拡張するツールやライブラリがあります。これにより、開発者は**Android**オペレーティングシステム向けにアプリケーションを構築できます。
+Xamarin は .NET C# でのモバイル開発に使用されるフレームワークです。Xamarin には .NET プラットフォームの機能を拡張するツールとライブラリがあります。開発者は **Android** オペレーティングシステム向けのアプリケーションを構築できます。
 
 {{% alert color="primary" %}} 
-
-Xamarinでの開発において、プログラマーは通常の開発環境（C#、Visual Studio、およびサードパーティのライブラリ）を使用できます。
-
+Xamarin の開発では、プログラマーは通常の開発環境（C#、Visual Studio、サードパーティ ライブラリ）を使用できます。
 {{% /alert %}}
 
-Aspose.Slides APIはXamarinプラットフォーム上で動作します。これを実現するために、Aspose.Slides .NETパッケージはXamarin用の別個のDLLを追加します。Aspose.Slides for Xamarinは、.NETバージョンで利用可能なほとんどの機能をサポートしています。
+Aspose.Slides API は Xamarin プラットフォーム上で動作します。これを実現するために、Aspose.Slides .NET パッケージは Xamarin 用の別個の DLL を追加します。Aspose.Slides for Xamarin は .NET バージョンで利用可能な機能のほとんどをサポートします。
 
 - プレゼンテーションの変換と表示。
-- プレゼンテーション内のコンテンツの編集：テキスト、形状、チャート、SmartArt、音声/動画、フォントなど。
-- アニメーション、2D効果、WordArtなどの扱い。
-- メタデータや文書プロパティの扱い。
-- 印刷、クローン、マージ、比較、分割など。
+- プレゼンテーション内のコンテンツ編集：テキスト、図形、チャート、SmartArt、音声/ビデオ、フォントなど。
+- アニメーション、2D エフェクト、WordArt などの処理。
+- メタデータおよびドキュメント プロパティの処理。
+- 印刷、クローン作成、マージ、比較、分割など。
 
-当社は、このページの下部に近い別のセクションで完全な機能の比較を提供しています。
+ページ下部にある別セクションで、すべての機能の比較を提供しています。
 
-Aspose.Slides for Xamarin APIでは、クラス、名前空間、ロジック、動作が.NETバージョンとできるだけ類似しています。最小限のコストでAspose.Slides .NETアプリケーションをXamarinに移行できます。
+Aspose.Slides for Xamarin API では、クラス、名前空間、ロジック、動作は .NET バージョンとできるだけ同様になるように設計されています。最小限のコストで Aspose.Slides .NET アプリケーションを Xamarin に移行できます。
 
 ## **クイック例**
-Aspose.Slides for Xamarinを使用して、Slides for Androidを通じてC#アプリケーションを構築および利用できます。
+Aspose.Slides for Xamarin を使用して、Slides for Android 経由で C# アプリケーションを構築および活用できます。
 
-Aspose.Slidesを使用してプレゼンテーションスライドを表示し、タッチ時にスライドに新しい形状を追加するXamarinアプリケーションのAndroidの例を提供します。例の完全なソースは[GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin)で見つけることができます。
+Xamarin アプリケーションで Android を使用し、Aspose.Slides を利用してプレゼンテーション スライドを表示し、タッチ時にスライドに新しい図形を追加する例を提供しています。サンプルの完全なソースは [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin) で確認できます。
 
-Xamarin Androidアプリを作成することから始めましょう：
+Xamarin Android アプリの作成から始めましょう。
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-まず、画像ビュー、Prev、およびNextボタンを含むコンテンツレイアウトを作成します：
+まず、画像ビュー、Prev、Next ボタンを含むコンテンツ レイアウトを作成します。
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
@@ -83,10 +92,10 @@ Xamarin Androidアプリを作成することから始めましょう：
 </LinearLayout>
 ```
 
-ここで、サンプルプレゼンテーション（"HelloWorld.pptx"）をXamarinアプリケーションのAssetsに含む"Aspose.Slides.Droid.dll"ライブラリを参照し、MainActivityにその初期化を追加します：
+
+ここでは、サンプル プレゼンテーション（"HelloWorld.pptx"）を含む "Aspose.Slides.Droid.dll" ライブラリを Xamarin アプリケーションの Assets に参照し、MainActivity に初期化コードを追加します。
 
 **C# - MainActivity.cs - 初期化**
-
 ``` csharp
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
@@ -121,10 +130,10 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-ボタンをタップすることでPrevとNextスライドを表示する機能を追加しましょう：
 
-**C# - MainActivity.cs - PrevとNextボタンのクリックでスライドを表示**
+Prev と Next ボタンのクリックでスライドを表示する関数を追加しましょう。
 
+**C# - MainActivity.cs - Prev と Next ボタンのクリックでスライドを表示**
 ``` csharp
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
@@ -255,10 +264,10 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-最後に、スライドをタッチしたときに楕円形を追加する機能を実装しましょう：
 
-**C# - MainActivity.cs - スライドのクリックで楕円を追加**
+最後に、スライドをタップしたときに楕円形を追加する関数を実装します。
 
+**C# - MainActivity.cs - スライドクリックで楕円形を追加**
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
@@ -288,88 +297,89 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-プレゼンテーションスライド上の各クリックでランダムな色の楕円が追加されます：
+
+プレゼンテーション スライドをクリックするたびに、ランダムな色の楕円形が追加されます。
 
 ![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
 ## **サポートされている機能**
 
-|**機能** |**Aspose.Slides for .NET**  |**Aspose.Slides for Xamarin**|
+|**機能**|**Aspose.Slides for .NET**|**Aspose.Slides for Xamarin**|
 | :- | :- | :- |
-|**プレゼンテーション機能**: | | |
-|新しいプレゼンテーションの作成 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 97 - 2003フォーマットのオープン/保存 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2007フォーマットのオープン/保存 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2010拡張機能のサポート |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2013拡張機能のサポート |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2016機能のサポート |制限あり|制限あり|
-|PowerPoint 2019機能のサポート |制限あり |制限あり|
-|PPT 2 PPTX変換 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX 2 PPT変換 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTXをPPTに |制限あり|制限あり|
-|テーマ処理 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|マクロ処理 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|文書プロパティの処理 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|パスワード保護 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|高速テキスト抽出 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|フォントの埋め込み |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|コメントのレンダリング |{{< emoticons/tick >}} |{{< emoticons/tick >}}|
-|長時間実行タスクの中断 |{{< emoticons/tick >}}|{{< emoticons/tick >}} |
-|**エクスポートフォーマット:** | | |
-|PDF |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|XPS |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|HTML |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|TIFF |{{< emoticons/tick >}}|{{< emoticons/cross >}}|
-|ODP |制限あり |制限あり |
-|SWF |制限あり|制限あり|
-|SVG |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**インポートフォーマット:** | | |
-|HTML |制限あり|制限あり|
-|ODP |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|THMX |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**マスタースライド機能:** | | |
-|すべての既存のマスタースライドへのアクセス |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|マスタースライドの作成/削除 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|マスタースライドのクローン作成 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**レイアウトスライド機能:** | | |
-|すべての既存のレイアウトスライドへのアクセス |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|レイアウトスライドの作成/削除 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|レイアウトスライドのクローン作成 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**スライド機能:** | | |
-|すべての既存のスライドへのアクセス |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|スライドの作成/削除 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|スライドのクローン作成 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|画像へのスライドのエクスポート |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|スライドセクションの作成/編集/削除 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**ノートスライド機能:** | | |
-|すべての既存のノートスライドへのアクセス |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**形状機能:** | | |
-|すべてのスライド形状へのアクセス |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|新しい形状の追加 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|形状のクローン作成 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|別々の形状を画像にエクスポート |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**サポートされている形状タイプ:** | | |
-|すべての定義済み形状タイプ |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|画像フレーム |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|表 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|チャート |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|SmartArt |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|レガシーダイアグラム |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|WordArt |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|OLE、ActiveXオブジェクト |制限あり|制限あり|
-|ビデオフレーム |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|オーディオフレーム |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|コネクタ |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**グループ形状機能:** | | |
-|グループ形状へのアクセス |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|グループ形状の作成 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|既存のグループ形状のグループ解除 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**形状効果機能:** | | |
-|2D効果 |制限あり|制限あり|
-|3D効果 |{{< emoticons/cross >}}|{{< emoticons/cross >}}|
-|**テキスト機能:** | | |
-|段落のフォーマット |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|ポーションのフォーマット |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**アニメーション機能:** | | |
-|SWFへのアニメーションのエクスポート |{{< emoticons/cross >}}|{{< emoticons/cross >}}|
-|HTMLへのアニメーションのエクスポート |{{< emoticons/cross >}}|{{< emoticons/cross >}}|
+|**プレゼンテーション機能:**| | |
+|新しいプレゼンテーションの作成|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 97‑2003 形式の開閉|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2007 形式の開閉|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2010 拡張機能のサポート|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2013 拡張機能のサポート|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2016 機能のサポート|restricted|restricted|
+|PowerPoint 2019 機能のサポート|restricted |restricted|
+|PPT から PPTX への変換|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PPTX から PPT への変換|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PPT 内の PPTX|restricted|restricted|
+|テーマの処理|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|マクロの処理|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|ドキュメント プロパティの処理|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|パスワード保護|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|高速テキスト抽出|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|フォントの埋め込み|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|コメントのレンダリング|{{< emoticons/tick >}} |{{< emoticons/tick >}}|
+|長時間タスクの中断|{{< emoticons/tick >}}|{{< emoticons/tick >}} |
+|**エクスポート形式:**| | |
+|PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|HTML|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|TIFF|{{< emoticons/tick >}}|{{< emoticons/cross >}}|
+|ODP|restricted |restricted|
+|SWF|restricted|restricted|
+|SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**インポート形式:**| | |
+|HTML|restricted|restricted|
+|ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**マスタースライド機能:**| | |
+|既存のすべてのマスタースライドへのアクセス|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|マスタースライドの作成/削除|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|マスタースライドのクローン作成|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**レイアウトスライド機能:**| | |
+|既存のすべてのレイアウトスライドへのアクセス|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|レイアウトスライドの作成/削除|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|レイアウトスライドのクローン作成|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**スライド機能:**| | |
+|既存のすべてのスライドへのアクセス|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|スライドの作成/削除|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|スライドのクローン作成|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|スライドを画像へエクスポート|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|スライド セクションの作成/編集/削除|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**ノートスライド機能**| | |
+|既存のすべてのノートスライドへのアクセス|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**図形機能:**| | |
+|スライド上のすべての図形へのアクセス|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|新しい図形の追加|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|図形のクローン作成|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|個別の図形を画像へエクスポート|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**サポートされている図形タイプ:**| | |
+|すべての事前定義された図形タイプ|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|画像フレーム|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|テーブル|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|チャート|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|レガシーダイアグラム|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|OLE、ActiveX オブジェクト|restricted|restricted|
+|ビデオフレーム|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|オーディオフレーム|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|コネクタ|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**グループ図形機能:**| | |
+|グループ図形へのアクセス|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|グループ図形の作成|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|既存のグループ図形の解除|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**図形エフェクト機能:**| | |
+|2D エフェクト|restricted|restricted|
+|3D エフェクト|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
+|**テキスト機能:**| | |
+|段落書式設定|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|文字列書式設定|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**アニメーション機能:**| | |
+|アニメーションを SWF にエクスポート|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
+|アニメーションを HTML にエクスポート|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

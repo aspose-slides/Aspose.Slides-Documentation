@@ -28,7 +28,7 @@ description: "Manage table rows and columns in PowerPoint with Aspose.Slides for
 
 To allow you to manage a table's rows and columns in a PowerPoint presentation, Aspose.Slides provides the [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) class, [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) interface, and many other types. 
 
-## **Set First Row as Header**
+## **Set the First Row as a Header**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation. 
 2. Get a slide's reference through its index. 
@@ -65,7 +65,7 @@ pres.Save("First_row_header.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Clone Table's Row or Column**
+## **Clone a Table Row or Column**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation, 
 2. Get a slide's reference through its index. 
@@ -121,7 +121,7 @@ using (Presentation presentation = new Presentation("Test.pptx"))
 }
 ```
 
-## **Remove Row or Column from Table**
+## **Remove a Row or Column from a Table**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation, 
 2. Get a slide's reference through its index. 
@@ -147,7 +147,7 @@ table.Columns.RemoveAt(1, false);
 pres.Save("TestTable_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-## **Set Text Formatting on Table Row Level**
+## **Set Text Formatting on the Table Row Level**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation, 
 2. Get a slide's reference through its index. 
@@ -187,7 +187,7 @@ someTable.Rows[1].SetTextFormat(textFrameFormat);
 presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-## **Set Text Formatting on Table Column Level**
+## **Set Text Formatting on the Table Column Level**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation, 
 2. Get a slide's reference through its index. 

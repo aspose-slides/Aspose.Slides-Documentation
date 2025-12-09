@@ -1,18 +1,37 @@
 ---
-title: Конвертировать OpenOffice ODP
+title: Конвертировать презентации OpenDocument в Java
+linktitle: Конвертировать OpenDocument
 type: docs
 weight: 10
 url: /ru/java/convert-openoffice-odp/
-keywords: "Конвертировать ODP в PDF, ODP в HTML, ODP в TIFF на Java"
-description: "Конвертировать ODP в PDF, ODP в PPT, ODP в PPTX, ODP в HTML на Java"
+keywords:
+- преобразовать ODP
+- ODP в изображение
+- ODP в GIF
+- ODP в HTML
+- ODP в JPG
+- ODP в MD
+- ODP в PDF
+- ODP в PNG
+- ODP в PPT
+- ODP в PPTX
+- ODP в TIFF
+- ODP в видео
+- ODP в Word
+- ODP в XPS
+- OpenDocument
+- презентация
+- Java
+- Aspose.Slides
+description: "Aspose.Slides для Java позволяет легко конвертировать ODP в PDF, HTML и форматы изображений. Ускорьте свои Java‑приложения с помощью быстрой и точной конвертации презентаций."
 ---
 
-[**Aspose.Slides API**](https://products.aspose.com/slides/java/) позволяет конвертировать презентацию OpenOffice ODP в различные типы. API для конвертации ODP в другие типы такой же, как для типов PowerPoint. Вы можете использовать следующие примеры для конвертации ODP, просто изменив исходный файл на файл презентации ODP:
+[**Aspose.Slides API**](https://products.aspose.com/slides/java/) позволяет конвертировать презентацию OpenOffice ODP в множество форматов. API для конвертации ODP в другие форматы такой же, как и для типов PowerPoint. Вы можете использовать следующие примеры для конвертации ODP, просто заменив исходный файл на файл презентации ODP:
 
-- [Конвертировать ODP в HTML](/slides/ru/java/convert-powerpoint-ppt-and-pptx-to-html/)
-- [Конвертировать ODP в PDF](/slides/ru/java/convert-powerpoint-ppt-and-pptx-to-pdf/)
-- [Конвертировать ODP в TIFF](/slides/ru/java/convert-powerpoint-ppt-and-pptx-to-tiff/)
-- [Конвертировать ODP в SWF Flash](/slides/ru/java/convert-powerpoint-ppt-and-pptx-to-swf-flash/)
-- [Конвертировать ODP в XPS](/slides/ru/java/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
-- [Конвертировать ODP в PDF с примечаниями](/slides/ru/java/convert-powerpoint-ppt-and-pptx-to-pdf-notes/)
-- [Конвертировать ODP в TIFF с примечаниями](/slides/ru/java/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)
+- [Преобразовать ODP в HTML](/slides/ru/java/convert-powerpoint-ppt-and-pptx-to-html/)
+- [Преобразовать ODP в PDF](/slides/ru/java/convert-powerpoint-ppt-and-pptx-to-pdf/)
+- [Преобразовать ODP в TIFF](/slides/ru/java/convert-powerpoint-ppt-and-pptx-to-tiff/)
+- [Преобразовать ODP в SWF Flash](/slides/ru/java/convert-powerpoint-ppt-and-pptx-to-swf-flash/)
+- [Преобразовать ODP в XPS](/slides/ru/java/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
+- [Преобразовать ODP в PDF с примечаниями](/slides/ru/java/convert-powerpoint-ppt-and-pptx-to-pdf-notes/)
+- [Преобразовать ODP в TIFF с примечаниями](/slides/ru/java/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)

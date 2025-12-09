@@ -65,10 +65,10 @@ using (Presentation pres = new Presentation())
         ppImage = pres.Images.AddImage(image);
     }
 
-    // 在幻灯片 #1 上添加图片形状
+    // 在第 1 张幻灯片上添加图片形状
     pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 
-    // 获取表示幻灯片 #1 的 IImage 实例。
+    // 获取代表第 1 张幻灯片的 IImage 实例。
     using (var slideImage = pres.Slides[0].GetImage(new Size(1920, 1080)))
     {
         // 将图像保存到磁盘。

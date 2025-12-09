@@ -26,7 +26,7 @@ This article explains how to convert PowerPoint Presentation in PPT format into 
 
 - [Convert PPT to PPTX in C#](#convert-ppt-to-pptx)
 
-## **C# Convert PPT to PPTX**
+## **Convert PPT to PPTX in .NET**
 
 For C# sample code to convert PPT to PPTX, please see the section below i.e. [Convert PPT to PPTX](#convert-ppt-to-pptx). It just loads the PPT file and saves in PPTX format. By specifiying different save formats, you can also save PPT file into many other formats like PDF, XPS, ODP, HTML etc. as disscussed in these articles. 
 

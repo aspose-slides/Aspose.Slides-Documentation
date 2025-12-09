@@ -5,7 +5,7 @@ weight: 30
 url: /net/aspose-slides-for-openxml/
 ---
 
-## **What is OpenXML?**
+## **What Is OpenXML?**
 OpenXML SDK is a .NET SDK from Microsoft in order to process Microsoft Office 2007 and above file formats. These file formats are basically zipped packages and the Open XML SDK for Office simplifies the task of manipulating Open XML packages and the underlying Open XML schema elements within a package. The classes in the Open XML SDK encapsulate many common tasks that developers perform on Open XML packages, so that you can perform complex operations with lines of code.
 
 Once you have installed the Open XML SDK 2.5, open your existing project or application in Visual Studio, or create a new project or application. Then, in your project or application, add references to the following components:
@@ -37,7 +37,7 @@ One or more of the following editions of Visual Studio Tools for Office:
 - 2007 Microsoft Office system
 ### **Supported Operating Systems**
 - Windows 2000; Windows Server 2003; Windows Vista; Windows XP
-### **.NET Framework versions supported**
+### **.NET Framework Versions Supported**
 - only .NET framework 2.0 or greater.
 ## **Downloading**
 You can download the latest code at:
@@ -67,7 +67,7 @@ You can get the latest source code from one of the following locations.
 - [Github](https://goo.gl/gN0nf2)
 - [Sourceforge](https://goo.gl/noku6v)
 - [Bitbucket](https://goo.gl/T83r2D)
-### **How to configure the source code**
+### **How to Configure the Source Code**
 Please follow these simple steps to get started
 
 - Download/Clone the source code.

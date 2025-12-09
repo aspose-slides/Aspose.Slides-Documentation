@@ -77,7 +77,7 @@ try {
 }
 ```
 
-## **Merge Presentations with Slide Master**
+## **Merge Presentations with a Slide Master**
 
 Aspose.Slides provides the [AddClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) method, which allows you to combine slides while applying a slide master from a presentation template. This way, if needed, you can change the style of the slides in the output presentation.
 
@@ -145,7 +145,7 @@ static ISlide getTitleSlide(IPresentation presentation) {
 }
 ```
 
-## **Merge Presentations with Slide Layout**
+## **Merge Presentations with a Slide Layout**
 
 To apply a different slide layout to the output slides during merging, use the [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) method instead.
 
@@ -194,7 +194,7 @@ try {
 }
 ```
 
-## **Merge Slides into a Presentation Section**
+## **Merge Slides to a Presentation Section**
 
 Merging slides into a specific presentation section helps organize content and improve slide navigation. Aspose.Slides allows you to merge slides to existing sections. This ensures a clear structure while preserving the original formatting of each slide.
 

@@ -97,6 +97,8 @@ _Acción_: **Actualizar gráfico**
 - [Java Actualizar gráfico de presentación](#java-update-presentation-chart)
 - [Java Actualizar gráfico de presentación PowerPoint](#java-update-powerpoint-presentation-chart)
 
+## **Crear gráfico**
+Los gráficos ayudan a las personas a visualizar datos rápidamente y obtener información, lo que puede no ser evidente de inmediato a partir de una tabla o hoja de cálculo. 
 
 ## **Crear gráfico**
 Los gráficos ayudan a las personas a visualizar datos rápidamente y obtener ideas, algo que no siempre es evidente en una tabla o hoja de cálculo. 
@@ -261,7 +263,7 @@ try {
     // Crea el gráfico predeterminado
     IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
     
-    // Obtiene el índice de la hoja de datos del gráfico predeterminado
+    // Obtiene el índice de la hoja de datos del gráfico predeterminada
     int defaultWorksheetIndex = 0;
     
     // Obtiene la hoja de datos del gráfico

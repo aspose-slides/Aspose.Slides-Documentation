@@ -1,18 +1,30 @@
 ---
-title: فقرة
+title: الحصول على حدود الفقرة من العروض التقديمية في .NET
+linktitle: فقرة
 type: docs
 weight: 60
 url: /ar/net/paragraph/
-keywords: "فقرة, جزء, إحداثيات فقرة, إحداثيات جزء, عرض PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "فقرة وجزء في عرض PowerPoint في C# أو .NET"
+keywords:
+- حدود الفقرة
+- حدود جزء النص
+- إحداثيات الفقرة
+- إحداثيات الجزء
+- حجم الفقرة
+- حجم جزء النص
+- إطار النص
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "تعلم كيفية استرجاع حدود الفقرة وجزء النص في Aspose.Slides for .NET لتحسين موضع النص في عروض PowerPoint التقديمية."
 ---
 
 ## **الحصول على إحداثيات الفقرة والجزء في TextFrame**
-باستخدام Aspose.Slides for .NET، يمكن للمطورين الآن الحصول على الإحداثيات المستطيلة للفقرة داخل مجموعة الفقرات في TextFrame. كما أنه يسمح لك بالحصول على إحداثيات الجزء داخل مجموعة الأجزاء من فقرة. في هذا الموضوع، سنقوم بتوضيح ذلك بمساعدة مثال يوضح كيفية الحصول على الإحداثيات المستطيلة للفقرة جنبًا إلى جنب مع موقع الجزء داخل فقرة.
+باستخدام Aspose.Slides for .NET، يمكن للمطورين الآن الحصول على الإحداثيات المستطيلة للفقرة داخل مجموعة الفقرات في TextFrame. كما يسمح بالحصول على إحداثيات الجزء داخل مجموعة الأجزاء للفقرة. في هذا الموضوع، سنوضح بمساعدة مثال كيفية الحصول على إحداثيات مستطيلة للفقرة مع موقع الجزء داخل الفقرة.
 
 ## **الحصول على الإحداثيات المستطيلة للفقرة**
-تم إضافة الطريقة الجديدة **GetRect()**. وهي تسمح بالحصول على مستطيل حدود الفقرة.
-
+تم إضافة الطريقة الجديدة **GetRect()**. تسمح بالحصول على مستطيل حدود الفقرة.
 ```c#
 // إنشاء كائن Presentation يمثل ملف عرض تقديمي
 using (Presentation presentation = new Presentation("Shapes.pptx"))
@@ -23,12 +35,11 @@ using (Presentation presentation = new Presentation("Shapes.pptx"))
 }
 ```
 
-## **الحصول على حجم الفقرة والجزء داخل إطار نص خلية الجدول** ##
 
-للحصول على [جزء](https://reference.aspose.com/slides/net/aspose.slides/portion) أو [فقرة](https://reference.aspose.com/slides/net/aspose.slides/paragraph) الحجم والإحداثيات في إطار نص خلية الجدول، يمكنك استخدام طرق [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/methods/getrect) و [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/methods/getrect).
+## **الحصول على حجم الفقرة والجزء داخل إطار نص خلية الجدول**
+للحصول على حجم وإحداثيات [الجزء](https://reference.aspose.com/slides/net/aspose.slides/portion) أو [الفقرة](https://reference.aspose.com/slides/net/aspose.slides/paragraph) داخل إطار نص خلية جدول، يمكنك استخدام طريقتي [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/methods/getrect) و[IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/methods/getrect).
 
-هذا الكود النموذجي يوضح العملية الموصوفة:
-
+يعرض هذا الكود العيني العملية الموصوفة:
 ```csharp
 using (Presentation pres = new Presentation("source.pptx"))
 {
@@ -70,3 +81,17 @@ using (Presentation pres = new Presentation("source.pptx"))
     }
 }
 ```
+
+
+## **الأسئلة المتكررة**
+**بأي وحدة تُقاس الإحداثيات التي تُرجَع للفقرة وأجزاء النص؟**
+بالنقاط، حيث إن 1 بوصة = 72 نقطة. ينطبق ذلك على جميع الإحداثيات والأبعاد على الشريحة.
+
+**هل يؤثر التفاف الكلمات على حدود الفقرة؟**
+نعم. إذا تم تمكين [اللف](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/wraptext/) في الـ[TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe/)، يتم كسر النص ليتناسب مع عرض المنطقة، مما يُغيّر الحدود الفعلية للفقرة.
+
+**هل يمكن ربط إحداثيات الفقرة ببكسلات الصورة المصدرة بموثوقية؟**
+نعم. يمكن تحويل النقاط إلى بكسلات باستخدام: pixels = points × (DPI / 72). النتيجة تعتمد على DPI المختار للتصيير/التصدير.
+
+**كيف أحصل على معلمات تنسيق الفقرة "الفعّالة" مع مراعاة وراثة النمط؟**
+استخدم [هيكل بيانات تنسيق الفقرة الفعّالة](/slides/ar/net/shape-effective-properties/); يُعيد القيم النهائية المجمّعة للمسافات البادئة، والمسافات، واللف، واتجاه النص من اليمين إلى اليسار، وغير ذلك.

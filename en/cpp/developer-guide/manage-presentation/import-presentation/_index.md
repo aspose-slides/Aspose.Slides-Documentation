@@ -82,3 +82,9 @@ You may also use Aspose.Slides to convert HTML to other popular file formats:
 * [HTML to TIFF](https://products.aspose.com/slides/cpp/conversion/html-to-tiff/)
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Are tables preserved when importing a PDF, and can their detection be improved?**
+
+Tables can be detected during import; [PdfImportOptions](https://reference.aspose.com/slides/cpp/aspose.slides.import/pdfimportoptions/) includes a [set_DetectTables](https://reference.aspose.com/slides/cpp/aspose.slides.import/pdfimportoptions/set_detecttables/) method that enables table recognition. The effectiveness depends on the PDF’s structure.

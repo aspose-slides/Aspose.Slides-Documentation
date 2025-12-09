@@ -1,58 +1,68 @@
 ---
-title: .NET向けAspose.Slidesの公開APIと後方互換性のない変更点 14.3.0
+title: Aspose.Slides for .NET 14.3.0 のパブリック API と下位互換性のない変更
+linktitle: Aspose.Slides for .NET 14.3.0
 type: docs
 weight: 50
 url: /ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-3-0/
+keywords:
+- 移行
+- レガシーコード
+- モダンコード
+- 従来のアプローチ
+- モダンアプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET のパブリック API 更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
 ---
 
-## **公開APIと後方互換性のない変更点**
-### **Aspose.Slides.ShapeThumbnailBounds列挙型とAspose.Slides.IShape.GetThumbnail()メソッドの追加**
-GetThumbnail()およびGetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY)メソッドは、別々の形状サムネイルを作成するために使用されます。ShapeThumbnailBounds列挙型は、可能な形状サムネイル境界タイプを定義します。
-### **Aspose.Slides.IShapeにUniqueIdプロパティが追加されました**
-Aspose.Slides.IShape.UniqueIdプロパティは、プレゼンテーションスコープ内の形状識別子を取得します。これらの一意の識別子は、形状のカスタムタグに保存されます。
-### **IChartCategoryLevelsManagerのSetGroupingItemメソッドのシグネチャが変更されました**
-IChartCategoryLevelsManagerメソッドのシグネチャ
+## **パブリック API と下位互換性のない変更**
+### **Aspose.Slides.ShapeThumbnailBounds 列挙体 と Aspose.Slides.IShape.GetThumbnail() メソッドが追加**
+GetThumbnail() メソッドおよび GetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY) メソッドは、個別のシェイプサムネイルを作成するために使用されます。ShapeThumbnailBounds 列挙体は、可能なシェイプサムネイルの境界タイプを定義します。
+### **Aspose.Slides.IShape に UniqueId プロパティが追加**
+Aspose.Slides.IShape.UniqueId プロパティは、プレゼンテーション スコープ内で一意のシェイプ識別子を取得します。これらの一意の識別子はシェイプのカスタムタグに保存されます。
+### **IChartCategoryLevelsManager の SetGroupingItem メソッドのシグネチャが変更**
+IChartCategoryLevelsManager の SetGroupingItem メソッドのシグネチャが変更されました
 
 ``` csharp
-
  void SetGroupingItem(int level, IChartDataCell value);
-
 ``` 
 
-は廃止され、次のシグネチャに置き換えられました。
+は現在廃止され、次のシグネチャに置き換えられました
 
 ``` csharp
-
  void SetGroupingItem(int level, object value);
-
 ``` 
 
-これにより、次のような呼び出しは
+今後は次のように呼び出す必要があります
 
 ``` csharp
-
  .SetGroupingItem(1, workbook.GetCell(0, "A2", "Group 1"));
-
 ``` 
 
-次のような呼び出しに変更する必要があります。
+次のように変更してください
 
 ``` csharp
-
  .SetGroupingItem(1, "Group 1");
-
 ``` 
 
-IChartDataCell型の値ではなく、"Group 1"のような値をSetGroupingItemに渡します。定義されたワークシート、行、および列でIChartDataCellを構築することは、いくつかの要件を満たす必要があり、SetGroupingItem(int, object)メソッドにカプセル化されています。
-### **Aspose.Slides.IBaseSlideインターフェイスにSlideIdプロパティが追加されました**
-SlideIdプロパティは、一意のスライド識別子を取得します。
-### **ISlideShowTransitionにSoundNameプロパティが追加されました**
-読み書き可能な文字列。遷移の音のための人間が読める名前を指定します。Soundプロパティに割り当てる必要があり、音の名前を取得または設定します。この名前は、遷移音を手動で設定するときにPowerPointユーザーインターフェイスに表示されます。Soundプロパティが割り当てられていない場合、PptxExceptionをスローする可能性があります。
-### **ChartSeriesGroup.Typeプロパティの型が変更されました**
-ChartSeriesGroup.Typeプロパティは、ChartType列挙型から新しいCombinableSeriesTypesGroup列挙型に変更されました。CombinableSeriesTypesGroup列挙型は、組み合わせ可能な系列タイプのグループを表します。
-### **個々の形状サムネイル生成のサポートが追加されました**
+"Group 1" のような文字列を SetGroupingItem に渡し、IChartDataCell 型の値は渡さないでください。カテゴリーレベル用に定義されたワークシート、行、列で IChartDataCell を構成する必要がある要件があり、これらは SetGroupingItem(int, object) メソッドにカプセル化されました。
+### **Aspose.Slides.IBaseSlide インターフェイスに SlideId プロパティが追加**
+SlideId プロパティは、一意のスライド識別子を取得します。
+### **ISlideShowTransition に SoundName プロパティが追加**
+読み書き可能な文字列です。トランジションのサウンドの人間が読める名前を指定します。Sound プロパティに割り当てることでサウンド名の取得または設定が可能です。この名前は、トランジションサウンドを手動で設定する際に PowerPoint のユーザーインターフェイスに表示されます。Sound プロパティが割り当てられていない場合、PptxException がスローされる可能性があります。
+### **ChartSeriesGroup.Type プロパティの型が変更**
+ChartSeriesGroup.Type プロパティは、ChartType 列挙体から新しい CombinableSeriesTypesGroup 列挙体に変更されました。CombinableSeriesTypesGroup 列挙体は、組み合わせ可能な系列タイプのグループを表します。
+### **個別シェイプサムネイル生成のサポートが追加**
 Aspose.Slides.ShapeThumbnailBounds
 
-Aspose.Slides.IShape、Aspose.Slides.Shapeの新しいメンバー:
-public Bitmap GetThumbnail()
-public Bitmap GetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY)
+Aspose.Slides.IShape、Aspose.Slides.Shape の新しいメンバー:
+``` csharp
+ public Bitmap GetThumbnail()
+```
+``` csharp
+ public Bitmap GetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY)
+```

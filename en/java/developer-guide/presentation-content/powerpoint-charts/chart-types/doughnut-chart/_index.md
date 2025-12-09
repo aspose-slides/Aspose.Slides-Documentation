@@ -15,7 +15,7 @@ keywords:
 description: "Discover how to create and customize doughnut charts in Aspose.Slides for Java, supporting PowerPoint formats for dynamic presentations."
 ---
 
-## **Change Center Gap in Doughnut Chart**
+## **Specify the Center Gap in a Doughnut Chart**
 {{% alert color="primary" %}} 
 
 Aspose.Slides for Java now supports specifying the size of the hole in a doughnut chart. In this topic, we will see with example how to specify the size of the hole in a doughnut chart.

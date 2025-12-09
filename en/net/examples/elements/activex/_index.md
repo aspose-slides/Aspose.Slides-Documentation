@@ -20,7 +20,7 @@ description: "Learn how to find, edit, and remove ActiveX controls in C# with As
 
 Demonstrates how to add, access, remove, and configure ActiveX controls in a presentation using **Aspose.Slides for .NET**.
 
-## Add an ActiveX Control
+## **Add an ActiveX Control**
 
 Insert a new ActiveX control and optionally set its properties.
 
@@ -40,7 +40,7 @@ static void Add_ActiveX()
 }
 ```
 
-## Access an ActiveX Control
+## **Access an ActiveX Control**
 
 Read information from the first ActiveX control on the slide.
 
@@ -60,7 +60,7 @@ static void Access_ActiveX()
 }
 ```
 
-## Remove an ActiveX Control
+## **Remove an ActiveX Control**
 
 Delete an existing ActiveX control from the slide.
 
@@ -80,7 +80,7 @@ static void Remove_ActiveX()
 }
 ```
 
-## Set ActiveX Properties
+## **Set ActiveX Properties**
 
 Add a control and configure several ActiveX properties.
 

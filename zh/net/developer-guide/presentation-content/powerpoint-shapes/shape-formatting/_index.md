@@ -1,5 +1,6 @@
 ---
-title: 形状格式化
+title: 在 .NET 中格式化 PowerPoint 形状
+linktitle: 形状格式化
 type: docs
 weight: 20
 url: /zh/net/shape-formatting/
@@ -10,439 +11,551 @@ keywords:
 - 渐变填充
 - 图案填充
 - 图片填充
-- 实心颜色填充
+- 纹理填充
+- 纯色填充
+- 形状透明度
 - 旋转形状
-- 3D 斜角效果
+- 3D 倾斜效果
 - 3D 旋转效果
-- PowerPoint演示文稿
+- 重置格式
+- PowerPoint
+- 演示文稿
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "在 C# 或 .NET 中格式化 PowerPoint 演示文稿中的形状"
+- Aspose.Slides
+description: "了解如何在 C# 中使用 Aspose.Slides 对 PowerPoint 形状进行格式化——精确且完全控制地为 PPT 和 PPTX 文件设置填充、线条和效果样式。"
 ---
 
-在 PowerPoint 中，您可以向幻灯片添加形状。由于形状是由线条构成的，因此您可以通过修改或应用某些效果来格式化形状。此外，您还可以通过指定设置来格式化形状，确定它们的填充方式（即其中的区域如何填充）。
+## **概述**
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+在 PowerPoint 中，您可以向幻灯片添加形状。由于形状由线条组成，您可以通过修改或应用效果来格式化其轮廓。此外，您还可以通过指定控制内部填充方式的设置来格式化形状。
 
-**Aspose.Slides for .NET** 提供接口和属性，允许您根据 PowerPoint 中已知的选项格式化形状。
+![格式化形状-PowerPoint](format-shape-powerpoint.png)
+
+Aspose.Slides for .NET 提供接口和属性，允许您使用 PowerPoint 中相同的选项格式化形状。
 
 ## **格式化线条**
 
-使用 Aspose.Slides，您可以为形状指定首选的线条样式。以下是该过程的概述：
+使用 Aspose.Slides，您可以为形状指定自定义线条样式。以下步骤概述了操作过程：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。
 2. 通过索引获取幻灯片的引用。
-3. 向幻灯片添加 [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape)。
-4. 为形状线条设置颜色。
-5. 为形状线条设置宽度。
-6. 为形状线条设置 [线条样式](https://reference.aspose.com/slides/net/aspose.slides/linestyle)。
-7. 为形状线条设置 [线段样式](http://aspose.com/api/net/slides/aspose.slides/linedashstyle)。
-8. 将修改后的演示文稿写入 PPTX 文件。
-
-以下 C# 代码演示了格式化矩形 `AutoShape` 的操作：
+3. 向幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+4. 设置形状的 [line style](https://reference.aspose.com/slides/net/aspose.slides/linestyle/)。
+5. 设置线宽。
+6. 设置线条的 [dash style](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/)。
+7. 为形状设置线条颜色。
+8. 将修改后的演示文稿保存为 PPTX 文件。
 
 ```c#
-// 实例化表示演示文稿文件的 Presentation 类
-using (Presentation pres = new Presentation())
+// 实例化表示演示文稿文件的 Presentation 类。
+using (Presentation presentation = new Presentation())
 {
-    // 获取第一张幻灯片
-    ISlide sld = pres.Slides[0];
+    // 获取第一张幻灯片。
+    ISlide slide = presentation.Slides[0];
 
-    // 添加矩形类型的自动形状
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
+    // 添加一个矩形类型的自动形状。
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // 为矩形形状设置填充颜色
-    shp.FillFormat.FillType = FillType.Solid;
-    shp.FillFormat.SolidFillColor.Color = Color.White;
+    // 设置矩形形状的填充颜色。
+    shape.FillFormat.FillType = FillType.NoFill;
 
-    // 对矩形的线条应用一些格式
-    shp.LineFormat.Style = LineStyle.ThickThin;
-    shp.LineFormat.Width = 7;
-    shp.LineFormat.DashStyle = LineDashStyle.Dash;
+    // 对矩形的线条应用格式化。
+    shape.LineFormat.Style = LineStyle.ThickThin;
+    shape.LineFormat.Width = 7;
+    shape.LineFormat.DashStyle = LineDashStyle.Dash;
 
-    // 设置矩形线条的颜色
-    shp.LineFormat.FillFormat.FillType = FillType.Solid;
-    shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    // 设置矩形线条的颜色。
+    shape.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
-    // 将 PPTX 文件保存到磁盘
-    pres.Save("RectShpLn_out.pptx", SaveFormat.Pptx);
+    // 将 PPTX 文件保存到磁盘。
+    presentation.Save("formatted_lines.pptx", SaveFormat.Pptx);
 }
 ```
 
+
+结果：
+
+![演示文稿中格式化的线条](formatted-lines.png)
+
 ## **格式化连接样式**
-以下是 3 种连接类型选项：
+
+以下是三种连接类型选项：
 
 * 圆形
 * 斜接
-* 斜角
+* 缓角
 
-默认情况下，当 PowerPoint 在角度处连接两条线（或形状的角）时，它使用 **圆形** 设置。然而，如果您希望绘制具有非常锐利角度的形状，您可能想选择 **斜接**。
+默认情况下，当 PowerPoint 在角度处（例如形状的拐角）连接两条线时，会使用 **Round** 设置。然而，如果绘制的是尖角形状，您可能更倾向于使用 **Miter** 选项。
 
-![join-style-powerpoint](join-style-powerpoint.png)
-
-以下 C# 代码演示了创建具有斜接、斜角和圆形连接类型设置的 3 个矩形（如上图）：
+![演示文稿中的连接样式](join-style-powerpoint.png)
 
 ```c#
-// 实例化表示演示文稿文件的 Presentation 类
-using (Presentation pres = new Presentation())
+// 实例化表示演示文稿文件的 Presentation 类。
+using (Presentation presentation = new Presentation())
 {
+    // 获取第一张幻灯片。
+    ISlide slide = presentation.Slides[0];
 
-	// 获取第一张幻灯片
-	ISlide sld = pres.Slides[0];
+    // 添加三个矩形类型的自动形状。
+    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
+    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
+    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-	// 添加 3 个矩形自动形状
-	IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 100, 150, 75);
-	IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 100, 150, 75);
-	IShape shp3 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 250, 150, 75);
+    // 为每个矩形形状设置填充颜色。
+    shape1.FillFormat.FillType = FillType.Solid;
+    shape1.FillFormat.SolidFillColor.Color = Color.Black;
+    shape2.FillFormat.FillType = FillType.Solid;
+    shape2.FillFormat.SolidFillColor.Color = Color.Black;
+    shape3.FillFormat.FillType = FillType.Solid;
+    shape3.FillFormat.SolidFillColor.Color = Color.Black;
 
-	// 为矩形形状设置填充颜色
-	shp1.FillFormat.FillType = FillType.Solid;
-	shp1.FillFormat.SolidFillColor.Color = Color.Black;
-	shp2.FillFormat.FillType = FillType.Solid;
-	shp2.FillFormat.SolidFillColor.Color = Color.Black;
-	shp3.FillFormat.FillType = FillType.Solid;
-	shp3.FillFormat.SolidFillColor.Color = Color.Black;
+    // 设置线条宽度。
+    shape1.LineFormat.Width = 15;
+    shape2.LineFormat.Width = 15;
+    shape3.LineFormat.Width = 15;
 
-	// 设置线条的宽度
-	shp1.LineFormat.Width = 15;
-	shp2.LineFormat.Width = 15;
-	shp3.LineFormat.Width = 15;
+    // 为每个矩形的线条设置颜色。
+    shape1.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    shape2.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape2.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    shape3.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape3.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
-	// 设置矩形线条的颜色
-	shp1.LineFormat.FillFormat.FillType = FillType.Solid;
-	shp1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-	shp2.LineFormat.FillFormat.FillType = FillType.Solid;
-	shp2.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-	shp3.LineFormat.FillFormat.FillType = FillType.Solid;
-	shp3.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    // 设置连接样式。
+    shape1.LineFormat.JoinStyle = LineJoinStyle.Miter;
+    shape2.LineFormat.JoinStyle = LineJoinStyle.Bevel;
+    shape3.LineFormat.JoinStyle = LineJoinStyle.Round;
 
-	// 设置连接样式
-	shp1.LineFormat.JoinStyle = LineJoinStyle.Miter;
-	shp2.LineFormat.JoinStyle = LineJoinStyle.Bevel;
-	shp3.LineFormat.JoinStyle = LineJoinStyle.Round;
+    // 为每个矩形添加文本。
+    shape1.TextFrame.Text = "Miter Join Style";
+    shape2.TextFrame.Text = "Bevel Join Style";
+    shape3.TextFrame.Text = "Round Join Style";
 
-	// 为每个矩形添加文本
-	((IAutoShape)shp1).TextFrame.Text = "斜接连接样式";
-	((IAutoShape)shp2).TextFrame.Text = "斜角连接样式";
-	((IAutoShape)shp3).TextFrame.Text = "圆形连接样式";
-
-	// 将 PPTX 文件保存到磁盘
-	pres.Save("RectShpLnJoin_out.pptx", SaveFormat.Pptx);
+    // 将 PPTX 文件保存到磁盘。
+    presentation.Save("join_styles.pptx", SaveFormat.Pptx);
 }
 ```
+
 
 ## **渐变填充**
-在 PowerPoint 中，渐变填充是一种格式化选项，允许您对形状应用连续的颜色混合。例如，您可以应用两种或更多颜色的设置，其中一种颜色逐渐消失并变为另一种颜色。
 
-以下是使用 Aspose.Slides 对形状应用渐变填充的方法：
+在 PowerPoint 中，Gradient Fill（渐变填充）是一种格式化选项，允许您对形状应用连续的颜色渐变。例如，您可以以一种颜色逐渐淡入另一种颜色的方式应用两种或多种颜色。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+以下是在 Aspose.Slides 中对形状应用渐变填充的方法：
+
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。
 2. 通过索引获取幻灯片的引用。
-3. 向幻灯片添加 [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape)。
-4. 将形状的 [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) 设置为 `Gradient`。
-5. 使用与 `GradientFormat` 类关联的 `GradientStops` 集合所公开的 `Add` 方法添加您选择的 2 种颜色及其定义位置。
-6. 将修改后的演示文稿写入 PPTX 文件。
-
-以下 C# 代码演示了在椭圆上使用渐变填充效果的操作：
+3. 向幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+4. 将形状的 [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) 设置为 `Gradient`。
+5. 使用 [IGradientFormat](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/) 接口公开的渐变停止集合的 `Add` 方法，添加您首选的两种颜色及其定义的位置。
+6. 将修改后的演示文稿保存为 PPTX 文件。
 
 ```c#
-// 实例化表示演示文稿文件的 Presentation 类
-using (Presentation pres = new Presentation())
+// 实例化表示演示文稿文件的 Presentation 类。
+using (Presentation presentation = new Presentation())
 {
-    // 获取第一张幻灯片
-    ISlide sld = pres.Slides[0];
+    // 获取第一张幻灯片。
+    ISlide slide = presentation.Slides[0];
 
-    // 添加椭圆自动形状
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 150, 75, 150);
+    // 添加一个椭圆类型的自动形状。
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // 对椭圆应用渐变格式
-    shp.FillFormat.FillType = FillType.Gradient;
-    shp.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
+    // 对椭圆应用渐变格式。
+    shape.FillFormat.FillType = FillType.Gradient;
+    shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
 
-    // 设置渐变的方向
-    shp.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
+    // 设置渐变的方向。
+    shape.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
 
-    // 添加 2 个渐变停止点
-    shp.FillFormat.GradientFormat.GradientStops.Add((float)1.0, PresetColor.Purple);
-    shp.FillFormat.GradientFormat.GradientStops.Add((float)0, PresetColor.Red);
+    // 添加两个渐变停止点。
+    shape.FillFormat.GradientFormat.GradientStops.Add(1.0f, PresetColor.Purple);
+    shape.FillFormat.GradientFormat.GradientStops.Add(0.0f, PresetColor.Red);
 
-    // 将 PPTX 文件保存到磁盘
-    pres.Save("EllipseShpGrad_out.pptx", SaveFormat.Pptx);
+    // 将 PPTX 文件保存到磁盘。
+    presentation.Save("gradient_fill.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+结果：
+
+![带有渐变填充的椭圆](gradient-fill.png)
 
 ## **图案填充**
-在 PowerPoint 中，图案填充是一种格式化选项，允许您对形状应用由点、条纹、交叉阴影或方格组成的两种颜色的设计。此外，您可以选择图案的前景和背景的首选颜色。
 
-Aspose.Slides 提供了超过 45 种预定义样式，可用于格式化形状并丰富演示文稿。即使在您选择了预定义图案后，您仍然可以指定图案应包含的颜色。
+在 PowerPoint 中，Pattern Fill（图案填充）是一种格式化选项，允许您对形状应用两色设计——例如点、条纹、交叉线或格子。您可以为图案的前景色和背景色选择自定义颜色。
 
-以下是使用 Aspose.Slides 对形状应用图案填充的方法：
+Aspose.Slides 提供超过 45 种预定义的图案样式，您可以将其应用于形状，以增强演示文稿的视觉效果。即使选择了预定义图案，仍然可以指定其使用的确切颜色。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+以下是在 Aspose.Slides 中对形状应用图案填充的方法：
+
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。
 2. 通过索引获取幻灯片的引用。
-3. 向幻灯片添加 [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape)。
-4. 将形状的 [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) 设置为 `Pattern`。
-5. 为形状设置首选的图案样式。
-6. 为 [PatternFormat](http://www.aspose.com/api/net/slides/aspose.slides/patternformat) 设置 [背景颜色](http://www.aspose.com/api/net/slides/aspose.slides/patternformat/properties/backcolor)。
-7. 为 [PatternFormat](http://www.aspose.com/api/net/slides/aspose.slides/patternformat) 设置 [前景颜色](http://www.aspose.com/api/net/slides/aspose.slides/patternformat/properties/forecolor)。
-8. 将修改后的演示文稿写入 PPTX 文件。
-
-以下 C# 代码演示了在矩形上使用图案填充进行美化的操作：
+3. 向幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+4. 将形状的 [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) 设置为 `Pattern`。
+5. 从预定义选项中选择一种图案样式。
+6. 设置图案的 [Background Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/)。
+7. 设置图案的 [Foreground Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/)。
+8. 将修改后的演示文稿保存为 PPTX 文件。
 
 ```c#
-// 实例化表示演示文稿文件的 Presentation 类
-using (Presentation pres = new Presentation())
+// 实例化表示演示文稿文件的 Presentation 类。
+using (Presentation presentation = new Presentation())
 {
+    // 获取第一张幻灯片。
+    ISlide slide = presentation.Slides[0];
 
-    // 获取第一张幻灯片
-    ISlide sld = pres.Slides[0];
+    // 添加一个矩形类型的自动形状。
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // 添加矩形自动形状
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // 将填充类型设置为图案。
+    shape.FillFormat.FillType = FillType.Pattern;
 
-    // 将填充类型设置为图案
-    shp.FillFormat.FillType = FillType.Pattern;
+    // 设置图案样式。
+    shape.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
 
-    // 设置图案样式
-    shp.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
+    // 设置图案的背景色和前景色。
+    shape.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
+    shape.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
 
-    // 设置图案的背景和前景颜色
-    shp.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
-    shp.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
-
-    // 将 PPTX 文件保存到磁盘
-    pres.Save("RectShpPatt_out.pptx", SaveFormat.Pptx);
+    // 将 PPTX 文件保存到磁盘。
+    presentation.Save("pattern_fill.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+结果：
+
+![带有图案填充的矩形](pattern-fill.png)
 
 ## **图片填充**
-在 PowerPoint 中，图片填充是一种格式化选项，允许您在形状内部放置一张图片。实质上，您可以使用图片作为形状的背景。
 
-以下是使用 Aspose.Slides 用图片填充形状的方法：
+在 PowerPoint 中，Picture Fill（图片填充）是一种格式化选项，允许您在形状内部插入图像——相当于将图像用作形状的背景。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。
+以下是使用 Aspose.Slides 对形状应用图片填充的方法：
+
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。
 2. 通过索引获取幻灯片的引用。
-3. 向幻灯片添加 [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape)。
-4. 将形状的 [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) 设置为 `Picture`。
-5. 将图片填充模式设置为 Tile。
-6. 使用将用于填充形状的图像创建 `IPPImage` 对象。
-7. 将 `Picture.Image` 属性设置为最近创建的 `IPPImage`。
-8. 将修改后的演示文稿写入 PPTX 文件。
+3. 向幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+4. 将形状的 [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) 设置为 `Picture`。
+5. 将图片填充模式设置为 `Tile`（或其他首选模式）。
+6. 使用所需的图像创建一个 [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) 对象。
+7. 将此图像分配给形状的 `PictureFillFormat` 的 `Picture.Image` 属性。
+8. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下 C# 代码演示了如何用图片填充形状：
+![莲花图片](lotus.png)
 
 ```c#
-// 实例化表示演示文稿文件的 Presentation 类
+// 实例化表示演示文稿文件的 Presentation 类。
 using (Presentation presentation = new Presentation())
 {
-    // 获取第一张幻灯片
+    // 获取第一张幻灯片。
     ISlide slide = presentation.Slides[0];
 
-    // 添加矩形自动形状
-    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // 添加一个矩形类型的自动形状。
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
 
-    // 将填充类型设置为图片
+    // 将填充类型设置为图片。
     shape.FillFormat.FillType = FillType.Picture;
 
-    // 设置图片填充模式
+    // 设置图片填充模式。
     shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
 
-    // 加载图像并将其添加到演示文稿资源中
-    IImage image = Images.FromFile("Tulips.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
+    // 加载图像并将其添加到演示文稿资源。
+    IImage image = Images.FromFile("lotus.png");
+    IPPImage presentationImage = presentation.Images.AddImage(image);
     image.Dispose();
 
-    // 设置图片
-    shape.FillFormat.PictureFillFormat.Picture.Image = ppImage;
+    // 设置图片。
+    shape.FillFormat.PictureFillFormat.Picture.Image = presentationImage;
 
-    // 将 PPTX 文件保存到磁盘
-    presentation.Save("RectShpPic_out.pptx", SaveFormat.Pptx);
+    // 将 PPTX 文件保存到磁盘。
+    presentation.Save("picture_fill.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **实心颜色填充**
-在 PowerPoint 中，实心颜色填充是一种格式化选项，允许您用单一颜色填充形状。所选择的颜色通常是纯色。该颜色应用于形状背景，无需任何特殊效果或修改。
 
-以下是使用 Aspose.Slides 对形状应用实心颜色填充的方法：
+结果：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 向幻灯片添加 [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape)。
-4. 将形状的 [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) 设置为 `Solid`。
-5. 为形状设置您选择的颜色。
-6. 将修改后的演示文稿写入 PPTX 文件。
+![带有图片填充的形状](picture-fill.png)
 
-以下 C# 代码演示了如何将实心颜色填充应用于 PowerPoint 中的一个框：
+### **将图片平铺为纹理**
+
+- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/)：设置图片填充模式——`Tile` 或 `Stretch`。
+- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/)：指定形状内部瓦片的对齐方式。
+- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/)：控制瓦片是否水平、垂直或同时翻转。
+- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/)：设置瓦片相对于形状原点的水平偏移（单位为点）。
+- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/)：设置瓦片相对于形状原点的垂直偏移（单位为点）。
+- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/)：定义瓦片的水平缩放比例（百分比）。
+- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/)：定义瓦片的垂直缩放比例（百分比）。
 
 ```c#
-// 实例化表示演示文稿文件的 Presentation 类
+// 实例化表示演示文稿文件的 Presentation 类。
 using (Presentation presentation = new Presentation())
 {
+    // 获取第一张幻灯片。
+    ISlide firstSlide = presentation.Slides[0];
 
-// 获取第一张幻灯片
-    ISlide slide = presentation.Slides[0];
+    // 添加一个矩形自动形状。
+    IAutoShape shape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-// 添加矩形自动形状
-    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // 将形状的填充类型设置为图片。
+    shape.FillFormat.FillType = FillType.Picture;
 
-// 将填充类型设置为实心
-    shape.FillFormat.FillType = FillType.Solid;
+    // 加载图像并将其添加到演示文稿资源。
+    IPPImage presentationImage;
+    using (IImage sourceImage = Images.FromFile("lotus.png"))
+        presentationImage = presentation.Images.AddImage(sourceImage);
 
-// 设置矩形的颜色
-    shape.FillFormat.SolidFillColor.Color = Color.Yellow;
+    // 将图像分配给形状。
+    IPictureFillFormat pictureFillFormat = shape.FillFormat.PictureFillFormat;
+    pictureFillFormat.Picture.Image = presentationImage;
 
-// 将 PPTX 文件保存到磁盘
-    presentation.Save("RectShpSolid_out.pptx", SaveFormat.Pptx);
+    // 配置图片填充模式及平铺属性。
+    pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
+    pictureFillFormat.TileOffsetX = -32;
+    pictureFillFormat.TileOffsetY = -32;
+    pictureFillFormat.TileScaleX = 50;
+    pictureFillFormat.TileScaleY = 50;
+    pictureFillFormat.TileAlignment = RectangleAlignment.BottomRight;
+    pictureFillFormat.TileFlip = TileFlip.FlipBoth;
+
+    // 将 PPTX 文件保存到磁盘。
+    presentation.Save("tile.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+结果：
+
+![瓦片选项](tile-options.png)
+
+## **纯色填充**
+
+在 PowerPoint 中，Solid Color Fill（纯色填充）是一种格式化选项，可使用单一均匀的颜色填充形状。此纯背景颜色不含渐变、纹理或图案。
+
+要使用 Aspose.Slides 对形状应用纯色填充，请执行以下步骤：
+
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。
+2. 通过索引获取幻灯片的引用。
+3. 向幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+4. 将形状的 [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) 设置为 `Solid`。
+5. 将您首选的填充颜色分配给形状。
+6. 将修改后的演示文稿保存为 PPTX 文件。
+
+```c#
+// 实例化表示演示文稿文件的 Presentation 类。
+using (Presentation presentation = new Presentation())
+{
+    // 获取第一张幻灯片。
+    ISlide slide = presentation.Slides[0];
+
+    // 添加一个矩形类型的自动形状。
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+
+    // 将填充类型设置为纯色。
+    shape.FillFormat.FillType = FillType.Solid;
+
+    // 设置填充颜色。
+    shape.FillFormat.SolidFillColor.Color = Color.Yellow;
+
+    // 将 PPTX 文件保存到磁盘。
+    presentation.Save("solid_color_fill.pptx", SaveFormat.Pptx);
+}
+```
+
+
+结果：
+
+![带有纯色填充的形状](solid-color-fill.png)
 
 ## **设置透明度**
 
-在 PowerPoint 中，当您用实心颜色、渐变、图片或纹理填充形状时，您可以指定透明度级别，从而确定填充的透明度。例如，如果您设置较低的透明度级别，则后面的幻灯片对象或背景（形状）将显示出来。
+在 PowerPoint 中，当您对形状应用纯色、渐变、图片或纹理填充时，还可以设置透明度级别，以控制填充的不透明度。更高的透明度值会使形状更透明，从而部分显示背景或底层对象。
 
-Aspose.Slides 允许您以以下方式为形状设置透明度级别：
+Aspose.Slides 通过调整用于填充的颜色的 alpha 值来设置透明度。以下是操作方法：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。
 2. 通过索引获取幻灯片的引用。
-3. 向幻灯片添加 [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape)。
-4. 使用 `Color.FromArgb` 并设置 alpha 分量。
-5. 将对象保存为 PowerPoint 文件。
-
-以下 C# 代码演示了此过程：
+3. 向幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+4. 将形状的 [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) 设置为 `Solid`。
+5. 使用 `Color.FromArgb(alpha, baseColor)` 定义具有透明度的颜色（`alpha` 分量控制透明度）。
+6. 保存演示文稿。
 
 ```c#
-// 实例化表示演示文稿文件的 Presentation 类
+const int alpha = 128;
+
+// 实例化表示演示文稿文件的 Presentation 类。
+using (Presentation presentation = new Presentation())
+{
+    // 获取第一张幻灯片。
+    ISlide slide = presentation.Slides[0];
+
+    // 添加一个实心矩形自动形状。
+    IAutoShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+
+    // 在实心形状上添加一个透明矩形自动形状。
+    IAutoShape transparentShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
+    transparentShape.FillFormat.FillType = FillType.Solid;
+    transparentShape.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Yellow);
+
+    // 将 PPTX 文件保存到磁盘。
+    presentation.Save("shape_transparency.pptx", SaveFormat.Pptx);
+}
+```
+
+
+结果：
+
+![透明形状](shape-transparency.png)
+
+## **旋转形状**
+
+Aspose.Slides 允许您在 PowerPoint 演示文稿中旋转形状。这在定位具备特定对齐或设计需求的视觉元素时非常有用。
+
+要在幻灯片上旋转形状，请执行以下步骤：
+
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。
+2. 通过索引获取幻灯片的引用。
+3. 向幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+4. 将形状的 `Rotation` 属性设置为所需角度。
+5. 保存演示文稿。
+
+```c#
+// 实例化表示演示文稿文件的 Presentation 类。
+using (Presentation presentation = new Presentation())
+{
+    // 获取第一张幻灯片。
+    ISlide slide = presentation.Slides[0];
+
+    // 添加一个矩形类型的自动形状。
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+
+    // 将形状旋转 5 度。
+    shape.Rotation = 5;
+
+    // 将 PPTX 文件保存到磁盘。
+    presentation.Save("shape_rotation.pptx", SaveFormat.Pptx);
+}
+```
+
+
+结果：
+
+![形状旋转](shape-rotation.png)
+
+## **添加 3D 倾斜效果**
+
+Aspose.Slides 允许您通过配置其 [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) 属性为形状添加 3D 倾斜效果。
+
+要为形状添加 3D 倾斜效果，请执行以下步骤：
+
+1. 实例化 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类。
+2. 通过索引获取幻灯片的引用。
+3. 向幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+4. 配置形状的 [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) 以定义倾斜设置。
+5. 保存演示文稿。
+
+```c#
+ // 创建 Presentation 类的实例。
+ using (Presentation presentation = new Presentation())
+ {
+     ISlide slide = presentation.Slides[0];
+
+     // 向幻灯片添加形状。
+     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
+     shape.FillFormat.FillType = FillType.Solid;
+     shape.FillFormat.SolidFillColor.Color = Color.Green;
+     shape.LineFormat.FillFormat.FillType = FillType.Solid;
+     shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Orange;
+     shape.LineFormat.Width = 2.0;
+
+     // 设置形状的 ThreeDFormat 属性。
+     shape.ThreeDFormat.Depth = 4;
+     shape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+     shape.ThreeDFormat.BevelTop.Height = 6;
+     shape.ThreeDFormat.BevelTop.Width = 6;
+     shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
+     shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
+     shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+
+     // 将演示文稿保存为 PPTX 文件。
+     presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
+ }
+```
+
+
+结果：
+
+![3D 倾斜效果](3D-bevel-effect.png)
+
+## **添加 3D 旋转效果**
+
+Aspose.Slides 通过配置其 [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) 属性允许您为形状添加 3D 旋转效果。
+
+要对形状应用 3D 旋转：
+
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。
+2. 通过索引获取幻灯片的引用。
+3. 向幻灯片添加一个 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+4. 设置形状的 [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) 和 [LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/) 以定义 3D 旋转。
+5. 保存演示文稿。
+
+```c#
+// 实例化表示演示文稿文件的 Presentation 类。
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
-    
-    // 添加一个实心形状
-    IShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 75, 175, 75, 150);
 
-    // 在实心形状上方添加一个透明形状
-    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
-    shape.FillFormat.FillType = FillType.Solid;
-    shape.FillFormat.SolidFillColor.Color = Color.FromArgb(128, 204, 102, 0);
-    
-    // 将 PPTX 文件保存到磁盘
-    presentation.Save("ShapeTransparentOverSolid_out.pptx", SaveFormat.Pptx);
-}
-```
+    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+    autoShape.TextFrame.Text = "Hello, Aspose!";
 
-## **旋转形状**
-Aspose.Slides 允许您按以下方式旋转添加到幻灯片的形状：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 向幻灯片添加 [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape)。
-4. 按需要的度数旋转形状。
-5. 将修改后的演示文稿写入 PPTX 文件。
-
-以下 C# 代码演示了如何将形状旋转 90 度：
-
-```c#
-// 实例化表示演示文稿文件的 Presentation 类
-using (Presentation pres = new Presentation())
-{
-    // 获取第一张幻灯片
-    ISlide sld = pres.Slides[0];
-
-    // 添加矩形自动形状
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
-
-    // 将形状旋转 90 度
-    shp.Rotation = 90;
-
-    // 将 PPTX 文件保存到磁盘
-    pres.Save("RectShpRot_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **添加 3D 斜角效果**
-Aspose.Slides 允许您通过以下方式修改形状的 [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ThreeDFormat) 属性来添加 3D 斜角效果：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 向幻灯片添加 [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape)。
-3. 为形状的 [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ThreeDFormat) 属性设置首选参数。
-4. 将演示文稿写入磁盘。
-
-以下 C# 代码演示了如何为形状添加 3D 斜角效果：
-
-```c#
-// 创建 Presentation 类的实例
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    
-    // 向幻灯片添加一个形状
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 30, 30, 100, 100);
-    shape.FillFormat.FillType = FillType.Solid;
-    shape.FillFormat.SolidFillColor.Color = Color.Green;
-    ILineFillFormat format = shape.LineFormat.FillFormat;
-    format.FillType = FillType.Solid;
-    format.SolidFillColor.Color = Color.Orange;
-    shape.LineFormat.Width = 2.0;
-    
-    // 设置形状的 ThreeDFormat 属性
-    shape.ThreeDFormat.Depth = 4;
-    shape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-    shape.ThreeDFormat.BevelTop.Height = 6;
-    shape.ThreeDFormat.BevelTop.Width = 6;
-    shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
-    shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
-    shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    
-    // 将演示文稿保存为 PPTX 文件
-    pres.Save("Bavel_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **添加 3D 旋转效果**
-Aspose.Slides 允许您通过修改其 [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ThreeDFormat) 属性将 3D 旋转效果应用于形状：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 向幻灯片添加 [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape)。
-3. 为 [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/properties/cameratype) 和 [LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/properties/lighttype) 指定您的首选图形。
-4. 将演示文稿写入磁盘。
-
-以下 C# 代码演示了如何将 3D 旋转效果应用于形状：
-
-```c#
-// 创建 Presentation 类的实例
-using (Presentation pres = new Presentation())
-{
-    IShape autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 200, 200);
-    
     autoShape.ThreeDFormat.Depth = 6;
     autoShape.ThreeDFormat.Camera.SetRotation(40, 35, 20);
     autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
     autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    
-    autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Line, 30, 300, 200, 200);
-    autoShape.ThreeDFormat.Depth = 6;
-    autoShape.ThreeDFormat.Camera.SetRotation(0, 35, 20);
-    autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
-    autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    
-    // 将演示文稿保存为 PPTX 文件
-    pres.Save("Rotation_out.pptx", SaveFormat.Pptx);
+
+    // 将演示文稿保存为 PPTX 文件。
+    presentation.Save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+结果：
+
+![3D 旋转效果](3D-rotation-effect.png)
 
 ## **重置格式**
 
-以下 C# 代码演示了如何重置幻灯片中的格式，并将每个在 [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) 上有占位符的形状的位置、大小和格式恢复到其默认值：
+以下 C# 代码演示如何重置幻灯片的格式，并将 [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) 上所有占位符形状的位置、大小和格式恢复为默认设置：
 
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    foreach (ISlide slide in pres.Slides)
+    foreach (ISlide slide in presentation.Slides)
     {
-        // 将幻灯片上的每个具有占位符的形状恢复
+        // 重置幻灯片上具有布局占位符的每个形状。
         slide.Reset();
     }
+
+    presentation.Save("reset_formatting.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **常见问题**
+
+**形状格式化会影响最终的演示文稿文件大小吗？**
+
+影响很小。嵌入的图像和媒体占据了大部分文件空间，而形状参数如颜色、效果和渐变仅作为元数据存储，几乎不增加额外大小。
+
+**如何检测幻灯片上具有相同格式的形状以便对它们进行分组？**
+
+比较每个形状的关键格式属性——填充、线条和效果设置。如果所有对应值匹配，则视为相同样式，并在逻辑上对这些形状进行分组，这有助于后续的样式管理。
+
+**我能将一组自定义形状样式保存到单独的文件，以便在其他演示文稿中重复使用吗？**
+
+可以。将带有所需样式的示例形状存储在模板幻灯片或 .POTX 模板文件中。创建新演示文稿时，打开该模板，克隆所需的已样式化形状，并在需要的地方重新应用其格式。

@@ -1,52 +1,95 @@
 ---
-title: استبدال الخط
+title: تهيئة استبدال الخطوط في العروض التقديمية باستخدام بايثون
+linktitle: استبدال الخطوط
 type: docs
 weight: 70
 url: /ar/python-net/font-substitution/
-keywords: "خط, استبدال الخط, عرض تقديمي PowerPoint, بايثون, Aspose.Slides لبايثون عبر .NET"
-description: "استبدال الخط في PowerPoint باستخدام بايثون"
+keywords:
+- خط
+- خط بديل
+- استبدال الخط
+- استبدال الخط
+- استبدال الخط
+- قاعدة الاستبدال
+- قاعدة الاستبدال
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "تمكين استبدال الخط المثالي في Aspose.Slides للبايثون عبر .NET عند تحويل عروض PowerPoint و OpenDocument إلى صيغ ملفات أخرى."
 ---
 
-تتيح لك Aspose.Slides ضبط قواعد للخطوط تحدد ما يجب القيام به في ظروف معينة (على سبيل المثال، عندما لا يمكن الوصول إلى خط ما) بهذه الطريقة:
+## **تحديد قواعد الاستبدال**
 
-1. تحميل العرض التقديمي المعني.
+تسمح لك Aspose.Slides بتعيين قواعد للخطوط تحدد ما يجب القيام به في ظروف معينة (على سبيل المثال عندما لا يمكن الوصول إلى خط) بهذه الطريقة:
+
+1. تحميل العرض التقديمي المناسب.
 2. تحميل الخط الذي سيتم استبداله.
 3. تحميل الخط الجديد.
 4. إضافة قاعدة للاستبدال.
-5. إضافة القاعدة إلى مجموعة قواعد استبدال الخطوط في العرض التقديمي.
-6. توليد صورة الشريحة لملاحظة التأثير.
+5. إضافة القاعدة إلى مجموعة قواعد استبدال خطوط العرض التقديمي.
+6. إنشاء صورة للشريحة لملاحظة التأثير.
 
-هذا الشيفرة البرمجية في بايثون توضح عملية استبدال الخط:
-
+هذا الكود Python يوضح عملية استبدال الخط:
 ```python
 import aspose.slides as slides
 
-# Loads a presentation
+# تحميل عرض تقديمي
 with slides.Presentation(path + "Fonts.pptx") as presentation:
-    # Loads the source font that will be replaced
+    # تحميل الخط الأصلي الذي سيتم استبداله
     sourceFont = slides.FontData("SomeRareFont")
 
-    # Load the new font
+    # تحميل الخط الجديد
     destFont = slides.FontData("Arial")
 
-    # Adds a font rule for font replacement
+    # إضافة قاعدة خط لاستبدال الخط
     fontSubstRule = slides.FontSubstRule(sourceFont, destFont, slides.FontSubstCondition.WHEN_INACCESSIBLE)
 
-    # Adds the rule to font substitute rules collection
+    # إضافة القاعدة إلى مجموعة قواعد استبدال الخطوط
     fontSubstRuleCollection = slides.FontSubstRuleCollection()
     fontSubstRuleCollection.add(fontSubstRule)
 
-    # Adds the font rule collection to rule list
+    # إضافة مجموعة قواعد الخط إلى قائمة القواعد
     presentation.fonts_manager.font_subst_rule_list = fontSubstRuleCollection
 
-    #Arial font will be used in place of SomeRareFont when the latter is inaccessible
+    #Arial سيُستخدم بدلاً من SomeRareFont عندما يكون الأخير غير قابل للوصول
     with presentation.slides[0].get_image(1, 1) as bmp:
-        # Saves the image to disk in the JPEG format
+        # حفظ الصورة إلى القرص بصيغة JPEG
         bmp.save("Thumbnail_out.jpg", slides.ImageFormat.JPEG)
 ```
 
-{{%  alert title="ملاحظة"  color="warning"   %}} 
 
-قد ترغب في مشاهدة [**استبدال الخط**](/slides/ar/python-net/font-replacement/). 
-
+{{%  alert title="NOTE"  color="warning"   %}} 
+قد ترغب في الاطلاع على [**استبدال الخط**](/slides/ar/python-net/font-replacement/). 
 {{% /alert %}}
+
+## **الأسئلة المتكررة**
+
+**ما الفرق بين استبدال الخط واستبدال الخطوط؟**
+
+[استبدال](/slides/ar/python-net/font-replacement/) هو تجاوز قسري لخط بآخر عبر العرض التقديمي بأكمله. الاستبدال هو قاعدة تُفعَّل تحت شرط معين، مثل عدم توفر الخط الأصلي، ثم يُستخدم خط بديل محدد.
+
+**متى تُطبَّق قواعد الاستبدال بالضبط؟**
+
+تشارك القواعد في تسلسل [اختيار الخط](/slides/ar/python-net/font-selection-sequence/) القياسي الذي يُقَيم أثناء التحميل، والعرض، والتحويل؛ إذا كان الخط المختار غير متوفر، يتم تطبيق الاستبدال أو الاستبدال بالخطوط.
+
+**ما السلوك الافتراضي إذا لم يتم تكوين استبدال أو استبدال خطوط وكان الخط مفقودًا على النظام؟**
+
+سيحاول المكتبة اختيار أقرب خط نظام متاح، مشابهًا للسلوك الذي تتبعه PowerPoint.
+
+**هل يمكنني إرفاق خطوط خارجية مخصصة في وقت التشغيل لتجنب الاستبدال؟**
+
+نعم. يمكنك [إضافة خطوط خارجية](/slides/ar/python-net/custom-font/) في وقت التشغيل بحيث تأخذ المكتبة هذه الخطوط في الاعتبار للاختيار والعرض، بما في ذلك التحويلات اللاحقة.
+
+**هل توزع Aspose أي خطوط مع المكتبة؟**
+
+لا. لا توزع Aspose خطوطًا مدفوعة أو مجانية؛ أنت تضيف وتستخدم الخطوط وفقًا لتقديرك ومسؤوليتك.
+
+**هل هناك اختلافات في سلوك الاستبدال على Windows وLinux وmacOS؟**
+
+نعم. يبدأ اكتشاف الخطوط من دلائل الخطوط الخاصة بنظام التشغيل. مجموعة الخطوط المتاحة افتراضيًا ومسارات البحث تختلف بين الأنظمة، مما يؤثر على التوفر وحاجة الاستبدال.
+
+**كيف يجب أن أُعد البيئة لتقليل الاستبدال غير المتوقع أثناء التحويلات الجماعية؟**
+
+قُم بمزامنة مجموعة الخطوط عبر الأجهزة أو الحاويات، [أضف الخطوط الخارجية](/slides/ar/python-net/custom-font/) المطلوبة للمستندات الناتجة، و[ادمج الخطوط](/slides/ar/python-net/embedded-font/) في العروض التقديمية عندما يمكن ذلك حتى تكون الخطوط المختارة متاحة أثناء العرض.

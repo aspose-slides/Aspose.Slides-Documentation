@@ -181,3 +181,21 @@ presentation->Dispose();
 Aspose has developed a [free PowerPoint Splitter app](https://products.aspose.app/slides/splitter) using its own API. The app lets you split a presentation into multiple files by saving selected slides as new PPTX or PPT files.
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Is "fast save" (incremental save) supported so only changes are written?**
+
+No. Saving creates the full target file each time; incremental "fast save" isn’t supported.
+
+**Is it thread-safe to save the same Presentation instance from multiple threads?**
+
+No. A [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) instance [isn’t thread-safe](/slides/cpp/multithreading/); save it from a single thread.
+
+**What happens to hyperlinks and externally linked files when saving?**
+
+[Hyperlinks](/slides/cpp/manage-hyperlinks/) are preserved. External linked files (e.g., videos via relative paths) aren’t copied automatically—ensure the referenced paths remain accessible.
+
+**Can I set/save document metadata (Author, Title, Company, Date)?**
+
+Yes. Standard [document properties](/slides/cpp/presentation-properties/) are supported and will be written to the file on save.

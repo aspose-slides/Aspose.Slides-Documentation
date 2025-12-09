@@ -1,116 +1,119 @@
 ---
-title: Создать график в презентации Microsoft PowerPoint
+title: Создание диаграмм с помощью VSTO и Aspose.Slides для .NET
+linktitle: Создать диаграмму
 type: docs
 weight: 80
 url: /ru/net/create-a-chart-in-a-microsoft-powerpoint-presentation/
+keywords:
+- создать диаграмму
+- миграция
+- VSTO
+- автоматизация Office
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Узнайте, как автоматизировать создание диаграмм PowerPoint на C#. Это пошаговое руководство показывает, почему Aspose.Slides for .NET является более быстрым и мощным альтернативой Microsoft.Office.Interop."
 ---
 
-{{% alert color="primary" %}} 
+## **Обзор**
 
- Графики — это визуальные представления данных, которые широко используются в презентациях. В этой статье представлен код для создания графика в Microsoft PowerPoint программным образом, используя [VSTO](/slides/ru/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) и [Aspose.Slides для .NET](/slides/ru/net/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+В этой статье показано, как программно создавать и настраивать диаграммы в презентациях Microsoft PowerPoint с помощью C#. С библиотекой Aspose.Slides для .NET вы можете автоматизировать генерацию профессиональных диаграмм, основанных на данных, без необходимости использовать Microsoft Office или библиотеки Interop. API предоставляет богатый набор возможностей для построения столбчатых, круговых, линейных диаграмм и других типов — с полным контролем над внешним видом, данными и макетом. Независимо от того, создаёте ли вы отчёты, информационные панели или деловые презентации, Aspose.Slides поможет вам получать высококачественные визуализации напрямую из ваших .NET‑приложений.
 
-{{% /alert %}} 
-## **Создание графика**
-Примеры кода ниже описывают процесс добавления простого 3D кластерного столбикового графика с использованием VSTO. Вы создаете экземпляр презентации, добавляете к ней график по умолчанию. Затем используйте рабочую книгу Microsoft Excel для доступа к данным графика и их изменения, а также для настройки свойств графика. В конце сохраните презентацию.
 ## **Пример VSTO**
-С использованием VSTO выполняются следующие шаги:
 
-1. Создайте экземпляр презентации Microsoft PowerPoint.
-1. Добавьте пустой слайд в презентацию.
-1. Добавьте **3D кластерный столбиковый** график и получите к нему доступ.
-1. Создайте новый экземпляр рабочей книги Microsoft Excel и загрузите данные графика.
-1. Получите доступ к рабочему листу данных графика, используя экземпляр рабочей книги Microsoft Excel из рабочей книги.
-1. Установите диапазон графика на рабочем листе и удалите ряд 2 и 3 из графика.
-1. Измените данные категорий графика на рабочем листе данных графика.
-1. Измените данные ряда 1 графика на рабочем листе данных графика.
-1. Теперь получите доступ к заголовку графика и установите связанные с ним свойства шрифта.
-1. Получите доступ к оси значений графика и установите основные единицы, второстепенные единицы, максимальное значение и минимальные значения.
-1. Получите доступ к глубине графика или оси ряда и удалите её, так как в этом примере используется только один ряд.
-1. Теперь установите углы вращения графика в направлениях X и Y.
-1. Сохраните презентацию.
-1. Закройте экземпляры Microsoft Excel и PowerPoint.
+В этом разделе показано, как создать диаграмму в презентации Microsoft PowerPoint с помощью **VSTO (Visual Studio Tools for Office)**. С помощью VSTO можно программно генерировать и настраивать диаграммы, комбинируя автоматизацию PowerPoint и Excel. Пример демонстрирует добавление **3D сгруппированной столбчатой диаграммы**, заполнение её данными из листа Excel, настройку форматирования и макета, а также сохранение готовой презентации — всё из .NET‑приложения.
 
-**Выходная презентация, созданная с помощью VSTO** 
-
-![todo:image_alt_text](create-a-chart-in-a-microsoft-powerpoint-presentation_1.png)
-
+1. Создать экземпляр презентации Microsoft PowerPoint.  
+2. Добавить пустой слайд в презентацию.  
+3. Добавить 3D сгруппированную столбчатую диаграмму и получить к ней доступ.  
+4. Создать новый экземпляр рабочей книги Microsoft Excel и загрузить данные для диаграммы.  
+5. Получить доступ к листу данных диаграммы, используя экземпляр рабочей книги Excel.  
+6. Установить диапазон диаграммы на листе и удалить серии 2 и 3 из диаграммы.  
+7. Изменить данные категорий диаграммы на листе данных.  
+8. Изменить данные серии 1 на листе данных диаграммы.  
+9. Получить доступ к заголовку диаграммы и задать свойства шрифта.  
+10. Получить доступ к оси значений диаграммы и задать основной шаг, младший шаг, максимальное и минимальное значения.  
+11. Получить доступ к оси глубины (серий) диаграммы и удалить её — в примере используется только одна серия.  
+12. Задать углы вращения диаграммы по осям X и Y.  
+13. Сохранить презентацию.  
+14. Закрыть экземпляры Microsoft Excel и PowerPoint.  
 ```c#
 EnsurePowerPointIsRunning(true, true);
 
-//Создание объекта слайда
+// Создать объект слайда.
 Microsoft.Office.Interop.PowerPoint.Slide objSlide = null;
 
-//Получение доступа к первому слайду презентации
+// Получить первый слайд презентации.
 objSlide = objPres.Slides[1];
 
-//Выбор первого слайда и установка его макета
+// Выбрать первый слайд и установить его макет.
 objSlide.Select();
 objSlide.Layout = Microsoft.Office.Interop.PowerPoint.PpSlideLayout.ppLayoutBlank;
 
-//Добавление графика по умолчанию на слайд
-objSlide.Shapes.AddChart(Microsoft.Office.Core.XlChartType.xl3DColumn, 20F, 30F, 400F, 300F);
+// Добавить диаграмму по умолчанию на слайд.
+objSlide.Shapes.AddChart(Microsoft.Office.Core.XlChartType.xl3DColumn, 20, 30, 400, 300);
 
-//Получение доступа к добавленному графику
+// Получить добавленную диаграмму.
 Microsoft.Office.Interop.PowerPoint.Chart ppChart = objSlide.Shapes[1].Chart;
 
-//Получение доступа к данным графика
+// Получить данные диаграммы.
 Microsoft.Office.Interop.PowerPoint.ChartData chartData = ppChart.ChartData;
 
-//Создание экземпляра рабочей книги Excel для работы с данными графика
+// Создать экземпляр рабочей книги Excel для работы с данными диаграммы.
 Microsoft.Office.Interop.Excel.Workbook dataWorkbook = (Microsoft.Office.Interop.Excel.Workbook)chartData.Workbook;
 
-//Получение доступа к рабочему листу данных графика
+// Получить лист данных для диаграммы.
 Microsoft.Office.Interop.Excel.Worksheet dataSheet = dataWorkbook.Worksheets[1];
 
-//Установка диапазона графика
+// Установить диапазон данных для диаграммы.
 Microsoft.Office.Interop.Excel.Range tRange = dataSheet.Cells.get_Range("A1", "B5");
 
-//Применение установленного диапазона к таблице данных графика
+// Применить указанный диапазон к таблице данных диаграммы.
 Microsoft.Office.Interop.Excel.ListObject tbl1 = dataSheet.ListObjects["Table1"];
 tbl1.Resize(tRange);
 
-//Установка значений для категорий и соответствующих данных ряда
-
-((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A2"))).FormulaR1C1 = "Велосипеды";
-((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A3"))).FormulaR1C1 = "Аксессуары";
-((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A4"))).FormulaR1C1 = "Ремонт";
-((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A5"))).FormulaR1C1 = "Одежда";
+// Установить значения для категорий и соответствующих данных серий.
+((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A2"))).FormulaR1C1 = "Bikes";
+((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A3"))).FormulaR1C1 = "Accessories";
+((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A4"))).FormulaR1C1 = "Repairs";
+((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A5"))).FormulaR1C1 = "Clothing";
 ((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B2"))).FormulaR1C1 = "1000";
 ((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B3"))).FormulaR1C1 = "2500";
 ((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B4"))).FormulaR1C1 = "4000";
 ((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B5"))).FormulaR1C1 = "3000";
 
-//Установка заголовка графика
+// Установить заголовок диаграммы.
 ppChart.ChartTitle.Font.Italic = true;
-ppChart.ChartTitle.Text = "Продажи 2007 года";
+ppChart.ChartTitle.Text = "2007 Sales";
 ppChart.ChartTitle.Font.Size = 18;
 ppChart.ChartTitle.Font.Color = Color.Black.ToArgb();
 ppChart.ChartTitle.Format.Line.Visible = Microsoft.Office.Core.MsoTriState.msoTrue;
 ppChart.ChartTitle.Format.Line.ForeColor.RGB = Color.Black.ToArgb();
 
-//Получение доступа к оси значений графика
+// Получить ось значений диаграммы.
 Microsoft.Office.Interop.PowerPoint.Axis valaxis = ppChart.Axes(Microsoft.Office.Interop.PowerPoint.XlAxisType.xlValue, Microsoft.Office.Interop.PowerPoint.XlAxisGroup.xlPrimary);
 
-//Установка единиц значений оси
+// Установить значения единиц оси.
 valaxis.MajorUnit = 2000.0F;
 valaxis.MinorUnit = 1000.0F;
 valaxis.MinimumScale = 0.0F;
 valaxis.MaximumScale = 4000.0F;
 
-//Получение доступа к оси глубины графика
+// Получить ось глубины диаграммы.
 Microsoft.Office.Interop.PowerPoint.Axis Depthaxis = ppChart.Axes(Microsoft.Office.Interop.PowerPoint.XlAxisType.xlSeriesAxis, Microsoft.Office.Interop.PowerPoint.XlAxisGroup.xlPrimary);
 Depthaxis.Delete();
 
-//Установка вращения графика
-ppChart.Rotation = 20; //Y-Значение
-ppChart.Elevation = 15; //X-Значение
+// Установить вращение диаграммы.
+ppChart.Rotation = 20;   // Значение Y
+ppChart.Elevation = 15;  // Значение X
 ppChart.RightAngleAxes = false;
 
-// Сохранение презентации как PPTX
-objPres.SaveAs("C:\\VSTOSampleChart", Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, MsoTriState.msoTrue);
-//objPres.SaveAs(@"..\..\..\VSTOSampleChart", Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, MsoTriState.msoTrue);
+// Сохранить презентацию в формате PPTX.
+objPres.SaveAs("VSTO_Sample_Chart.pptx", Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, MsoTriState.msoTrue);
 
-//Закрытие Рабочей книги и презентации
+// Закрыть рабочую книгу и презентацию.
 dataWorkbook.Application.Quit();
 objPres.Application.Quit();
 ```
@@ -129,9 +132,8 @@ public static void EnsurePowerPointIsRunning()
 public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAddSlide)
 {
     string strName = null;
-    //
-    //Попробуйте получить доступ к свойству имени. Если это вызывает исключение, то
-    //запустите новый экземпляр PowerPoint
+
+    // Попробовать получить свойство Name. Если возникает исключение, запустить новый экземпляр PowerPoint.
     try
     {
         strName = objPPT.Name;
@@ -140,8 +142,8 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
     {
         StartPowerPoint();
     }
-    //
-    //blnAddPresentation используется для обеспечения загрузки презентации
+
+    // blnAddPresentation используется, чтобы убедиться, что презентация загружена.
     if (blnAddPresentation == true)
     {
         try
@@ -153,9 +155,8 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
             objPres = objPPT.Presentations.Add(MsoTriState.msoTrue);
         }
     }
-    //
-    //BlnAddSlide используется для обеспечения наличия хотя бы одного слайда в
-    //презентации
+
+    // blnAddSlide используется, чтобы убедиться, что в презентации есть хотя бы один слайд.
     if (blnAddSlide)
     {
         try
@@ -176,97 +177,106 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 }
 ```
 
-## **Пример Aspose.Slides для .NET**
-С использованием Aspose.Slides для .NET выполняются следующие шаги:
 
-1. Создайте экземпляр презентации Microsoft PowerPoint.
-1. Добавьте пустой слайд в презентацию.
-1. Добавьте **3D кластерный столбиковый** график и получите к нему доступ.
-1. Получите доступ к рабочему листу данных графика, используя экземпляр рабочей книги Microsoft Excel из рабочей книги.
-1. Удалите неиспользуемые ряды 2 и 3.
-1. Получите доступ к категориям графика и измените метки.
-1. Получите доступ к ряду 1 и измените значения ряда.
-1. Теперь получите доступ к заголовку графика и установите свойства шрифта.
-1. Получите доступ к оси значений графика и установите основные единицы, второстепенные единицы, максимальное значение и минимальные значения.
-1. Теперь установите углы вращения графика в направлениях X и Y.
-1. Сохраните презентацию в формате PPTX.
+Результат:
 
-**Выходная презентация, созданная с помощью Aspose.Slides**
+![Диаграмма, созданная с помощью VSTO](chart-created-using-VSTO.png)
 
-![todo:image_alt_text](create-a-chart-in-a-microsoft-powerpoint-presentation_2.png)
+## **Пример Aspose.Slides for .NET**
 
-```csharp
-//Создание пустой презентации
-using (Presentation pres = new Presentation())
+Следующий пример показывает, как создать простую диаграмму в презентации PowerPoint с помощью Aspose.Slides for .NET. Код демонстрирует добавление **3D сгруппированной столбчатой диаграммы**, заполнение её образцовыми данными и настройку внешнего вида. Всего несколькими строками кода вы можете динамически генерировать диаграммы и интегрировать их в презентации без использования Microsoft Office.
+
+1. Создать экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).  
+2. Получить ссылку на первый слайд.  
+3. Добавить 3D сгруппированную столбчатую диаграмму и получить к ней доступ.  
+4. Получить доступ к данным диаграммы.  
+5. Удалить неиспользуемые Series 2 и Series 3.  
+6. Изменить категории диаграммы, обновив подписи.  
+7. Обновить значения Series 1.  
+8. Получить доступ к заголовку диаграммы и задать свойства шрифта.  
+9. Настроить ось значений диаграммы: основной шаг, младший шаг, максимальное и минимальное значения.  
+10. Задать углы вращения диаграммы по осям X и Y.  
+11. Сохранить презентацию в формате PPTX.  
+```cs
+// Создать пустую презентацию.
+using (Presentation presentation = new Presentation())
 {
+    // Доступ к первому слайду.
+    ISlide slide = presentation.Slides[0];
 
-    //Получение доступа к первому слайду
-    ISlide slide = pres.Slides[0];
+    // Добавить диаграмму по умолчанию.
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn3D, 20, 30, 400, 300);
 
-    //Добавление графика по умолчанию
-    IChart ppChart = slide.Shapes.AddChart(ChartType.ClusteredColumn3D, 20F, 30F, 400F, 300F);
+    // Получить данные диаграммы.
+    IChartData chartData = chart.ChartData;
 
-    //Получение данных графика
-    IChartData chartData = ppChart.ChartData;
-
-    //Удаление лишних графиков по умолчанию
+    // Удалить лишние стандартные серии.
     chartData.Series.RemoveAt(1);
     chartData.Series.RemoveAt(1);
 
-    //Изменение названий категорий графика
-    chartData.Categories[0].AsCell.Value = "Велосипеды";
-    chartData.Categories[1].AsCell.Value = "Аксессуары";
-    chartData.Categories[2].AsCell.Value = "Ремонт";
-    chartData.Categories[3].AsCell.Value = "Одежда";
+    // Изменить названия категорий диаграммы.
+    chartData.Categories[0].AsCell.Value = "Bikes";
+    chartData.Categories[1].AsCell.Value = "Accessories";
+    chartData.Categories[2].AsCell.Value = "Repairs";
+    chartData.Categories[3].AsCell.Value = "Clothing";
 
-    //Установка индекса листа данных графика
-    int defaultWorksheetIndex = 0;
+    // Установить индекс листа данных диаграммы.
+    int worksheetIndex = 0;
 
-    //Получение рабочего листа данных графика
-    IChartDataWorkbook fact = ppChart.ChartData.ChartDataWorkbook;
+    // Получить книгу данных диаграммы.
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    //Изменение значений ряда графика для первой категории
-    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 1000));
-    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 2500));
-    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 4000));
-    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 4, 1, 3000));
+    // Изменить значения рядов диаграммы.
+    chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 1000));
+    chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 2500));
+    chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 4000));
+    chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 4, 1, 3000));
 
-    //Установка заголовка графика
-    ppChart.HasTitle = true;
-    ppChart.ChartTitle.AddTextFrameForOverriding("Продажи 2007 года");
-    IPortionFormat format = ppChart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0].PortionFormat;
+    // Установить заголовок диаграммы.
+    chart.HasTitle = true;
+    chart.ChartTitle.AddTextFrameForOverriding("2007 Sales");
+    IPortionFormat format = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0].PortionFormat;
     format.FontItalic = NullableBool.True;
     format.FontHeight = 18;
     format.FillFormat.FillType = FillType.Solid;
     format.FillFormat.SolidFillColor.Color = Color.Black;
 
-    ////Установка значений осей
-    ppChart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
-    ppChart.Axes.VerticalAxis.IsAutomaticMinValue = false;
-    ppChart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
-    ppChart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
+    // Установить параметры осей.
+    chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+    chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
+    chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
+    chart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
 
-    ppChart.Axes.VerticalAxis.MaxValue = 4000.0F;
-    ppChart.Axes.VerticalAxis.MinValue = 0.0F;
-    ppChart.Axes.VerticalAxis.MajorUnit = 2000.0F;
-    ppChart.Axes.VerticalAxis.MinorUnit = 1000.0F;
-    ppChart.Axes.VerticalAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+    chart.Axes.VerticalAxis.MaxValue = 4000.0F;
+    chart.Axes.VerticalAxis.MinValue = 0.0F;
+    chart.Axes.VerticalAxis.MajorUnit = 2000.0F;
+    chart.Axes.VerticalAxis.MinorUnit = 1000.0F;
+    chart.Axes.VerticalAxis.TickLabelPosition = TickLabelPositionType.NextTo;
 
-    //Установка вращения графика
-    ppChart.Rotation3D.RotationX = 15;
-    ppChart.Rotation3D.RotationY = 20;
+    // Установить вращение диаграммы.
+    chart.Rotation3D.RotationX = 15;
+    chart.Rotation3D.RotationY = 20;
 
-    //Сохранение презентации
-    pres.Save("AsposeSampleChart.pptx", SaveFormat.Pptx);
+    // Сохранить презентацию в файл PPTX.
+    presentation.Save("Aspose_Sample_Chart.pptx", SaveFormat.Pptx);
 }
 ```
 
-{{% alert color="primary" %}} 
 
-## **Ресурсы**
-Проекты и файлы, используемые в этой статье, можно скачать с нашего сайта:
+Результат:
 
-- [Скачать сгенерированную презентацию VSTO](http://docs.aspose.com:8082/docs/download/attachments/87523560/VSTOSampleChart.pptx).
-- [Скачать пример графика, сгенерированного Aspose.Slides](http://docs.aspose.com:8082/docs/download/attachments/87523560/AsposeSampleChart.pptx).
+![Диаграмма, созданная с помощью Aspose.Slides for .NET](chart-created-using-aspose-slides.png)
 
-{{% /alert %}}
+## **Часто задаваемые вопросы**
+
+**Могу ли я создавать другие типы диаграмм, такие как круговые, линейные или столбчатые, с помощью Aspose.Slides?**
+
+Да. Aspose.Slides for .NET поддерживает широкий спектр [типы диаграмм](https://docs.aspose.com/slides/net/create-chart/), включая круговые, линейные, столбчатые, точечные, пузырьковые диаграммы и другие. При добавлении диаграммы вы можете указать нужный тип с помощью перечисления [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/).
+
+**Могу ли я применять пользовательские стили или темы к диаграмме?**
+
+Да. Вы можете полностью настраивать внешний вид диаграммы, включая цвета, шрифты, заливки, контуры, линии сетки и макет. Однако точное применение тем Office, как в PowerPoint, требует ручной настройки отдельных стилей.
+
+**Можно ли экспортировать диаграмму как отдельное изображение, не привязанное к слайду?**
+
+Да, Aspose.Slides позволяет экспортировать любую форму — в том числе диаграммы — в отдельное изображение (например, PNG, JPEG) с помощью метода `GetImage` у [shape](https://reference.aspose.com/slides/net/aspose.slides/ishape/).

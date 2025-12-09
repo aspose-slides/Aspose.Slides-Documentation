@@ -1,209 +1,201 @@
 ---
-title: Administrar Nodo de Forma SmartArt
+title: Administrar nodos de forma SmartArt en presentaciones en .NET
+linktitle: Nodo de forma SmartArt
 type: docs
 weight: 30
 url: /es/net/manage-smartart-shape-node/
 keywords:
-- SmartArt
 - nodo SmartArt
-- nodo hijo SmartArt
+- nodo hijo
+- agregar nodo
+- posición del nodo
+- acceder al nodo
+- eliminar nodo
+- posición personalizada
+- nodo asistente
+- formato de relleno
+- renderizar nodo
 - PowerPoint
 - presentación
+- .NET
 - C#
-- Csharp
-- Aspose.Slides para .NET
-description: "Administra nodos SmartArt y nodos hijos en presentaciones de PowerPoint en C# o .NET"
+- Aspose.Slides
+description: "Administre los nodos de forma SmartArt en PPT y PPTX con Aspose.Slides para .NET. Obtenga ejemplos de código claros y consejos para optimizar sus presentaciones."
 ---
 
+## **Agregar nodo SmartArt**
+Aspose.Slides for .NET ha proporcionado la API más simple para administrar las formas SmartArt de la manera más fácil. El siguiente fragmento de código muestra cómo agregar un nodo y un nodo hijo dentro de una forma SmartArt.
 
-## **Agregar Nodo SmartArt**
-Aspose.Slides para .NET ha proporcionado la API más simple para gestionar las formas SmartArt de la manera más fácil. El siguiente código de ejemplo ayudará a agregar un nodo y un nodo hijo dentro de la forma SmartArt.
-
-- Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) y carga la presentación con la forma SmartArt.
-- Obtén la referencia de la primera diapositiva usando su índice.
-- Recorre cada forma dentro de la primera diapositiva.
-- Verifica si la forma es del tipo SmartArt y convierte la forma seleccionada a SmartArt si es SmartArt.
-- Agrega un nuevo Nodo en la colección de nodos de la forma SmartArt y establece el texto en el TextFrame.
-- Ahora, agrega un Nodo Hijo en el Nodo SmartArt recién agregado y establece el texto en el TextFrame.
-- Guarda la presentación.
-
+- Cree una instancia de la clase [Presentación](https://reference.aspose.com/slides/net/aspose.slides/presentation) y cargue la presentación con la forma SmartArt.
+- Obtenga la referencia de la primera diapositiva usando su índice.
+- Recorra cada forma dentro de la primera diapositiva.
+- Verifique si la forma es de tipo SmartArt y convierta la forma seleccionada a SmartArt si lo es.
+- Agregue un nuevo nodo en la colección NodeCollection de la forma SmartArt y establezca el texto en TextFrame.
+- Ahora, agregue un nodo hijo al nodo SmartArt recién añadido y establezca el texto en TextFrame.
+- Guarde la presentación.
 ```c#
 // Cargar la presentación deseada
 Presentation pres = new Presentation("AddNodes.pptx");
 
-// Recorre cada forma dentro de la primera diapositiva
+// Recorrer cada forma dentro de la primera diapositiva
 foreach (IShape shape in pres.Slides[0].Shapes)
 {
 
-    // Verifica si la forma es del tipo SmartArt
+    // Verificar si la forma es de tipo SmartArt
     if (shape is Aspose.Slides.SmartArt.SmartArt)
     {
 
-        // Convierte la forma a SmartArt
+        // Convertir la forma a SmartArt
         Aspose.Slides.SmartArt.SmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
 
-        // Agregando un nuevo Nodo SmartArt
+        // Añadir un nuevo nodo SmartArt
         Aspose.Slides.SmartArt.SmartArtNode TemNode = (Aspose.Slides.SmartArt.SmartArtNode)smart.AllNodes.AddNode();
 
-        // Agregando texto
-        TemNode.TextFrame.Text = "Prueba";
+        // Añadir texto
+        TemNode.TextFrame.Text = "Test";
 
-        // Agregando un nuevo nodo hijo en el nodo padre. Se añadirá al final de la colección
+        // Añadir un nuevo nodo hijo en el nodo padre. Se añadirá al final de la colección
         Aspose.Slides.SmartArt.SmartArtNode newNode = (Aspose.Slides.SmartArt.SmartArtNode)TemNode.ChildNodes.AddNode();
 
-        // Agregando texto
-        newNode.TextFrame.Text = "Nuevo Nodo Agregado";
+        // Añadir texto
+        newNode.TextFrame.Text = "New Node Added";
 
     }
 }
 
-// Guardando la presentación
+// Guardar la presentación
 pres.Save("AddSmartArtNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 
+## **Agregar nodo SmartArt en posición específica**
+En el siguiente fragmento de código explicamos cómo agregar los nodos hijo pertenecientes a los nodos correspondientes de la forma SmartArt en una posición concreta.
 
-## **Agregar Nodo SmartArt en una Posición Específica**
-En el siguiente código de ejemplo hemos explicado cómo agregar los nodos hijos pertenecientes a los nodos respectivos de la forma SmartArt en una posición particular.
-
-- Crea una instancia de la clase `Presentation`.
-- Obtén la referencia de la primera diapositiva usando su índice.
-- Agrega una forma SmartArt de tipo StackedList en la diapositiva accedida.
-- Accede al primer nodo en la forma SmartArt agregada.
-- Ahora, agrega el Nodo Hijo para el Nodo seleccionado en la posición 2 y establece su texto.
-- Guarda la presentación.
-
+- Cree una instancia de la clase `Presentation`.
+- Obtenga la referencia de la primera diapositiva usando su índice.
+- Agregue una forma SmartArt de tipo StackedList en la diapositiva accedida.
+- Acceda al primer nodo en la forma SmartArt añadida.
+- Ahora, agregue el nodo hijo para el nodo seleccionado en la posición 2 y establezca su texto.
+- Guarde la presentación.
 ```c#
 // Creando una instancia de presentación
 Presentation pres = new Presentation();
 
-// Accediendo a la diapositiva de la presentación
+// Acceder a la diapositiva de la presentación
 ISlide slide = pres.Slides[0];
 
-// Agregando forma SmartArt IShape
+// Añadir IShape de SmartArt
 ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
 
 // Accediendo al nodo SmartArt en el índice 0
 ISmartArtNode node = smart.AllNodes[0];
 
-// Agregando nuevo nodo hijo en la posición 2 en el nodo padre
+// Añadiendo nuevo nodo hijo en la posición 2 del nodo padre
 SmartArtNode chNode = (SmartArtNode)((SmartArtNodeCollection)node.ChildNodes).AddNodeByPosition(2);
 
-// Agregar texto
-chNode.TextFrame.Text = "Texto de Ejemplo Agregado";
+// Añadir texto
+chNode.TextFrame.Text = "Sample Text Added";
 
-// Guardar presentación
+// Guardar la presentación
 pres.Save("AddSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 
+## **Acceder a un nodo SmartArt**
+El siguiente fragmento de código ayuda a acceder a los nodos dentro de una forma SmartArt. Tenga en cuenta que no puede cambiar el LayoutType del SmartArt porque es de solo lectura y se establece únicamente cuando se agrega la forma SmartArt.
+
+- Cree una instancia de la clase `Presentation` y cargue la presentación con la forma SmartArt.
+- Obtenga la referencia de la primera diapositiva usando su índice.
+- Recorra cada forma dentro de la primera diapositiva.
+- Verifique si la forma es de tipo SmartArt y convierta la forma seleccionada a SmartArt si lo es.
+- Recorra todos los nodos dentro de la forma SmartArt.
+- Acceda y muestre información como la posición del nodo SmartArt, el nivel y el texto.
+  ```c#
+  // Cargar la presentación deseada
+   Presentation pres = new Presentation("AccessSmartArt.pptx");
+  
+  // Recorrer cada forma dentro de la primera diapositiva
+  foreach (IShape shape in pres.Slides[0].Shapes)
+  {
+      // Verificar si la forma es de tipo SmartArt
+      if (shape is Aspose.Slides.SmartArt.SmartArt)
+      {
+  
+          // Convertir la forma a SmartArt
+          Aspose.Slides.SmartArt.SmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
+  
+          // Recorrer todos los nodos dentro de SmartArt
+          for (int i = 0; i < smart.AllNodes.Count; i++)
+          {
+              // Accediendo al nodo SmartArt en el índice i
+              Aspose.Slides.SmartArt.SmartArtNode node = (Aspose.Slides.SmartArt.SmartArtNode)smart.AllNodes[i];
+  
+              // Imprimiendo los parámetros del nodo SmartArt
+              string outString = string.Format("i = {0}, Text = {1},  Level = {2}, Position = {3}", i, node.TextFrame.Text, node.Level, node.Position);
+              Console.WriteLine(outString);
+          }
+      }
+  }
+  ```
 
 
-## **Acceder al Nodo SmartArt**
-El siguiente código de ejemplo ayudará a acceder a los nodos dentro de la forma SmartArt. Ten en cuenta que no puedes cambiar el LayoutType del SmartArt ya que es de solo lectura y se establece solo cuando se agrega la forma SmartArt.
+## **Acceder a un nodo hijo SmartArt**
+El siguiente fragmento de código ayuda a acceder a los nodos hijo pertenecientes a los nodos correspondientes de la forma SmartArt.
 
-- Crea una instancia de la clase `Presentation` y carga la presentación con la forma SmartArt.
-
-- Obtén la referencia de la primera diapositiva usando su índice.
-
-- Recorre cada forma dentro de la primera diapositiva.
-
-- Verifica si la forma es del tipo SmartArt y convierte la forma seleccionada a SmartArt si es SmartArt.
-
-- Recorre todos los Nodos dentro de la forma SmartArt.
-
-- Accede y muestra información como la posición del Nodo SmartArt, nivel y Texto.
-
+- Cree una instancia de la clase PresentationEx y cargue la presentación con la forma SmartArt.
+- Obtenga la referencia de la primera diapositiva usando su índice.
+- Recorra cada forma dentro de la primera diapositiva.
+- Verifique si la forma es de tipo SmartArt y convierta la forma seleccionada a SmartArtEx si lo es.
+- Recorra todos los nodos dentro de la forma SmartArt.
+- Para cada nodo SmartArt seleccionado, recorra todos los nodos hijo dentro del nodo concreto.
+- Acceda y muestre información como la posición del nodo hijo, el nivel y el texto.
 ```c#
-// Cargar la presentación deseada
-Presentation pres = new Presentation("AccessSmartArt.pptx");
-  
-// Recorre cada forma dentro de la primera diapositiva
-foreach (IShape shape in pres.Slides[0].Shapes)
-{
-    // Verifica si la forma es del tipo SmartArt
-    if (shape is Aspose.Slides.SmartArt.SmartArt)
-    {
-  
-        // Convierte la forma a SmartArt
-        Aspose.Slides.SmartArt.SmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
-  
-        // Recorre todos los nodos dentro de SmartArt
-        for (int i = 0; i < smart.AllNodes.Count; i++)
-        {
-            // Accediendo al nodo SmartArt en el índice i
-            Aspose.Slides.SmartArt.SmartArtNode node = (Aspose.Slides.SmartArt.SmartArtNode)smart.AllNodes[i];
-  
-            // Imprimiendo los parámetros del nodo SmartArt
-            string outString = string.Format("i = {0}, Texto = {1},  Nivel = {2}, Posición = {3}", i, node.TextFrame.Text, node.Level, node.Position);
-            Console.WriteLine(outString);
-        }
-    }
-}
+ // Cargar la presentación deseada
+ Presentation pres = new Presentation("AccessChildNodes.pptx");
+ 
+ // Recorrer cada forma dentro de la primera diapositiva
+ foreach (IShape shape in pres.Slides[0].Shapes)
+ {
+ 
+     // Verificar si la forma es de tipo SmartArt
+     if (shape is Aspose.Slides.SmartArt.SmartArt)
+     {
+ 
+         // Convertir la forma a SmartArt
+         Aspose.Slides.SmartArt.SmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
+ 
+         // Recorrer todos los nodos dentro de SmartArt
+         for (int i = 0; i < smart.AllNodes.Count; i++)
+         {
+             // Accediendo al nodo SmartArt en el índice i
+             Aspose.Slides.SmartArt.SmartArtNode node0 = (Aspose.Slides.SmartArt.SmartArtNode)smart.AllNodes[i];
+ 
+             // Recorriendo los nodos hijo en el nodo SmartArt en el índice i
+             for (int j = 0; j < node0.ChildNodes.Count; j++)
+             {
+                 // Accediendo al nodo hijo en el nodo SmartArt
+                 Aspose.Slides.SmartArt.SmartArtNode node = (Aspose.Slides.SmartArt.SmartArtNode)node0.ChildNodes[j];
+ 
+                 // Imprimiendo los parámetros del nodo hijo SmartArt
+                 string outString = string.Format("j = {0}, Text = {1},  Level = {2}, Position = {3}", j, node.TextFrame.Text, node.Level, node.Position);
+                 Console.WriteLine(outString);
+             }
+         }
+     }
+ }
 ```
 
 
+## **Acceder a un nodo hijo SmartArt en posición específica**
+En este ejemplo, aprenderemos a acceder a los nodos hijo en una posición concreta pertenecientes a los nodos correspondientes de la forma SmartArt.
 
-## **Acceder al Nodo Hijo SmartArt**
-El siguiente código de ejemplo ayudará a acceder a los nodos hijos pertenecientes a los nodos respectivos de la forma SmartArt.
-
-- Crea una instancia de la clase PresentationEx y carga la presentación con la forma SmartArt.
-- Obtén la referencia de la primera diapositiva usando su índice.
-- Recorre cada forma dentro de la primera diapositiva.
-- Verifica si la forma es del tipo SmartArt y convierte la forma seleccionada a SmartArtEx si es SmartArt.
-- Recorre todos los Nodos dentro de la forma SmartArt.
-- Para cada Nodo SmartArt seleccionado, recorre todos los Nodos Hijos dentro de un nodo particular.
-- Accede y muestra información como la posición del Nodo Hijo, nivel y Texto.
-
-```c#
-// Cargar la presentación deseada
-Presentation pres = new Presentation("AccessChildNodes.pptx");
-
-// Recorre cada forma dentro de la primera diapositiva
-foreach (IShape shape in pres.Slides[0].Shapes)
-{
-
-    // Verifica si la forma es del tipo SmartArt
-    if (shape is Aspose.Slides.SmartArt.SmartArt)
-    {
-
-        // Convierte la forma a SmartArt
-        Aspose.Slides.SmartArt.SmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
-
-        // Recorre todos los nodos dentro de SmartArt
-        for (int i = 0; i < smart.AllNodes.Count; i++)
-        {
-            // Accediendo al nodo SmartArt en el índice i
-            Aspose.Slides.SmartArt.SmartArtNode node0 = (Aspose.Slides.SmartArt.SmartArtNode)smart.AllNodes[i];
-
-            // Recorriendo los nodos hijos en el nodo SmartArt en el índice i
-            for (int j = 0; j < node0.ChildNodes.Count; j++)
-            {
-                // Accediendo al nodo hijo en el nodo SmartArt
-                Aspose.Slides.SmartArt.SmartArtNode node = (Aspose.Slides.SmartArt.SmartArtNode)node0.ChildNodes[j];
-
-                // Imprimiendo los parámetros del nodo hijo SmartArt
-                string outString = string.Format("j = {0}, Texto = {1},  Nivel = {2}, Posición = {3}", j, node.TextFrame.Text, node.Level, node.Position);
-                Console.WriteLine(outString);
-            }
-        }
-    }
-}
-```
-
-
-
-## **Acceder al Nodo Hijo SmartArt en una Posición Específica**
-En este ejemplo, aprenderemos a acceder a los nodos hijos en una posición particular pertenecientes a los nodos respectivos de la forma SmartArt.
-
-- Crea una instancia de la clase `Presentation`.
-- Obtén la referencia de la primera diapositiva usando su índice.
-- Agrega una forma SmartArt de tipo StackedList.
-- Accede a la forma SmartArt agregada.
-- Accede al nodo en el índice 0 para la forma SmartArt accedida.
-- Ahora, accede al Nodo Hijo en la posición 1 para el nodo SmartArt accedido usando el método GetNodeByPosition().
-- Accede y muestra información como la posición del Nodo Hijo, nivel y Texto.
-
+- Cree una instancia de la clase `Presentation`.
+- Obtenga la referencia de la primera diapositiva usando su índice.
+- Agregue una forma SmartArt de tipo StackedList.
+- Acceda a la forma SmartArt añadida.
+- Acceda al nodo en el índice 0 de la forma SmartArt accedida.
+- Ahora, acceda al nodo hijo en la posición 1 del nodo SmartArt accedido usando el método GetNodeByPosition().
+- Acceda y muestre información como la posición del nodo hijo, el nivel y el texto.
 ```c#
 // Instanciar la presentación
 Presentation pres = new Presentation();
@@ -211,47 +203,46 @@ Presentation pres = new Presentation();
 // Accediendo a la primera diapositiva
 ISlide slide = pres.Slides[0];
 
-// Agregando la forma SmartArt en la primera diapositiva
+// Añadiendo la forma SmartArt en la primera diapositiva
 ISmartArt smart = slide.Shapes.AddSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
 
 // Accediendo al nodo SmartArt en el índice 0
 ISmartArtNode node = smart.AllNodes[0];
 
-// Accediendo al nodo hijo en la posición 1 en el nodo padre
+// Accediendo al nodo hijo en la posición 1 del nodo padre
 int position = 1;
 SmartArtNode chNode = (SmartArtNode)node.ChildNodes[position]; 
 
 // Imprimiendo los parámetros del nodo hijo SmartArt
-string outString = string.Format("j = {0}, Texto = {1},  Nivel = {2}, Posición = {3}", position, chNode.TextFrame.Text, chNode.Level, chNode.Position);
+string outString = string.Format("j = {0}, Text = {1},  Level = {2}, Position = {3}", position, chNode.TextFrame.Text, chNode.Level, chNode.Position);
 Console.WriteLine(outString);
 ```
 
 
+## **Eliminar nodo SmartArt**
+En este ejemplo, aprenderemos a eliminar los nodos dentro de una forma SmartArt.
 
-## **Eliminar Nodo SmartArt**
-En este ejemplo, aprenderemos a eliminar los nodos dentro de la forma SmartArt.
-
-- Crea una instancia de la clase `Presentation` y carga la presentación con la forma SmartArt.
-- Obtén la referencia de la primera diapositiva usando su índice.
-- Recorre cada forma dentro de la primera diapositiva.
-- Verifica si la forma es del tipo SmartArt y convierte la forma seleccionada a SmartArt si es SmartArt.
-- Verifica si el SmartArt tiene más de 0 nodos.
-- Selecciona el nodo SmartArt que se eliminará.
-- Ahora, elimina el nodo seleccionado usando el método RemoveNode(). Guarda la presentación.
-
+- Cree una instancia de la clase `Presentation` y cargue la presentación con la forma SmartArt.
+- Obtenga la referencia de la primera diapositiva usando su índice.
+- Recorra cada forma dentro de la primera diapositiva.
+- Verifique si la forma es de tipo SmartArt y convierta la forma seleccionada a SmartArt si lo es.
+- Verifique si el SmartArt tiene más de 0 nodos.
+- Seleccione el nodo SmartArt que se eliminará.
+- Ahora, elimine el nodo seleccionado usando el método RemoveNode().
+- Guarde la presentación.
 ```c#
 // Cargar la presentación deseada
 using (Presentation pres = new Presentation("RemoveNode.pptx"))
 {
 
-    // Recorre cada forma dentro de la primera diapositiva
+    // Recorrer cada forma dentro de la primera diapositiva
     foreach (IShape shape in pres.Slides[0].Shapes)
     {
 
-        // Verifica si la forma es del tipo SmartArt
+        // Verificar si la forma es de tipo SmartArt
         if (shape is ISmartArt)
         {
-            // Convierte la forma a SmartArtEx
+            // Convertir la forma a SmartArtEx
             ISmartArt smart = (ISmartArt)shape;
 
             if (smart.AllNodes.Count > 0)
@@ -266,36 +257,34 @@ using (Presentation pres = new Presentation("RemoveNode.pptx"))
         }
     }
 
-    // Guardar presentación
+    // Guardar la presentación
     pres.Save("RemoveSmartArtNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
 
+## **Eliminar nodo SmartArt en posición específica**
+En este ejemplo, aprenderemos a eliminar los nodos dentro de una forma SmartArt en una posición concreta.
 
-## **Eliminar Nodo SmartArt en una Posición Específica**
-En este ejemplo, aprenderemos a eliminar los nodos dentro de la forma SmartArt en una posición particular.
-
-- Crea una instancia de la clase `Presentation` y carga la presentación con la forma SmartArt.
-- Obtén la referencia de la primera diapositiva usando su índice.
-- Recorre cada forma dentro de la primera diapositiva.
-- Verifica si la forma es del tipo SmartArt y convierte la forma seleccionada a SmartArt si es SmartArt.
-- Selecciona el nodo de la forma SmartArt en el índice 0.
-- Ahora, verifica si el nodo SmartArt seleccionado tiene más de 2 nodos hijos.
-- Ahora, elimina el nodo en la Posición 1 usando el método RemoveNodeByPosition().
-- Guarda la presentación.
-
+- Cree una instancia de la clase `Presentation` y cargue la presentación con la forma SmartArt.
+- Obtenga la referencia de la primera diapositiva usando su índice.
+- Recorra cada forma dentro de la primera diapositiva.
+- Verifique si la forma es de tipo SmartArt y convierta la forma seleccionada a SmartArt si lo es.
+- Seleccione el nodo de la forma SmartArt en el índice 0.
+- Ahora, verifique si el nodo SmartArt seleccionado tiene más de 2 nodos hijo.
+- Ahora, elimine el nodo en la posición 1 usando el método RemoveNodeByPosition().
+- Guarde la presentación.
 ```c#
 // Cargar la presentación deseada             
 Presentation pres = new Presentation("RemoveNodeSpecificPosition.pptx");
 
-// Recorre cada forma dentro de la primera diapositiva
+// Recorrer cada forma dentro de la primera diapositiva
 foreach (IShape shape in pres.Slides[0].Shapes)
 {
-    // Verifica si la forma es del tipo SmartArt
+    // Verificar si la forma es de tipo SmartArt
     if (shape is Aspose.Slides.SmartArt.SmartArt)
     {
-        // Convierte la forma a SmartArt
+        // Convertir la forma a SmartArt
         Aspose.Slides.SmartArt.SmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
 
         if (smart.AllNodes.Count > 0)
@@ -313,15 +302,13 @@ foreach (IShape shape in pres.Slides[0].Shapes)
     }
 }
 
-// Guardar presentación
+// Guardar la presentación
 pres.Save("RemoveSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 
-
-## **Establecer Posición Personalizada para el Nodo Hijo en SmartArt**
-Ahora Aspose.Slides para .NET tiene soporte para establecer las propiedades X e Y de SmartArtShape. El fragmento de código a continuación muestra cómo establecer la posición, tamaño y rotación personalizada de SmartArtShape. Ten en cuenta que agregar nuevos nodos provoca un recalculo de las posiciones y tamaños de todos los nodos.
-
+## **Establecer posición personalizada para el nodo hijo en SmartArt**
+Ahora Aspose.Slides for .NET admite la configuración de las propiedades X y Y de SmartArtShape. El fragmento de código a continuación muestra cómo establecer posición, tamaño y rotación personalizados de SmartArtShape; tenga en cuenta que agregar nuevos nodos causa un recálculo de las posiciones y tamaños de todos los nodos.
 ```c#
 // Cargar la presentación deseada
 Presentation pres = new Presentation("AccessChildNodes.pptx");
@@ -335,7 +322,7 @@ Presentation pres = new Presentation("AccessChildNodes.pptx");
 	shape.X += (shape.Width * 2);
 	shape.Y -= (shape.Height / 2);
 
-	// Cambiar las anchuras de la forma SmartArt
+	// Cambiar los anchos de la forma SmartArt
 	node = smart.AllNodes[2];
 	shape = node.Shapes[1];
 	shape.Width += (shape.Width / 2);
@@ -355,74 +342,70 @@ Presentation pres = new Presentation("AccessChildNodes.pptx");
 ```
 
 
+## **Comprobar nodo asistente**
+En el siguiente fragmento de código investigaremos cómo identificar nodos Asistente en la colección de nodos SmartArt y modificarlos.
 
-## **Verificar Nodo Asistente**
-En el siguiente código de ejemplo investigaremos cómo identificar Nodos Asistentes en la colección de nodos SmartArt y cambiarlos.
-
-- Crea una instancia de la clase PresentationEx y carga la presentación con la forma SmartArt.
-- Obtén la referencia de la segunda diapositiva usando su índice.
-- Recorre cada forma dentro de la primera diapositiva.
-- Verifica si la forma es del tipo SmartArt y convierte la forma seleccionada a SmartArtEx si es SmartArt.
-- Recorre todos los nodos dentro de la forma SmartArt y verifica si son Nodos Asistentes.
-- Cambia el estado del Nodo Asistente a nodo normal.
-- Guarda la presentación.
-
+- Cree una instancia de la clase PresentationEx y cargue la presentación con la forma SmartArt.
+- Obtenga la referencia de la segunda diapositiva usando su índice.
+- Recorra cada forma dentro de la primera diapositiva.
+- Verifique si la forma es de tipo SmartArt y convierta la forma seleccionada a SmartArtEx si lo es.
+- Recorra todos los nodos dentro de la forma SmartArt y compruebe si son nodos Asistente.
+- Cambie el estado del nodo Asistente a nodo normal.
+- Guarde la presentación.
 ```c#
-// Creando una instancia de presentación
+// Crear una instancia de presentación
 using (Presentation pres = new Presentation("AssistantNode.pptx"))
 {
-    // Recorre cada forma dentro de la primera diapositiva
+    // Recorrer cada forma dentro de la primera diapositiva
     foreach (IShape shape in pres.Slides[0].Shapes)
     {
-        // Verifica si la forma es del tipo SmartArt
+        // Verificar si la forma es de tipo SmartArt
         if (shape is Aspose.Slides.SmartArt.ISmartArt)
         {
-            // Convierte la forma a SmartArtEx
+            // Convertir la forma a SmartArtEx
             Aspose.Slides.SmartArt.ISmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
-            // Recorriendo todos los nodos de la forma SmartArt
+            // Recorrer todos los nodos de la forma SmartArt
 
             foreach (Aspose.Slides.SmartArt.ISmartArtNode node in smart.AllNodes)
             {
                 String tc = node.TextFrame.Text;
-                // Verifica si el nodo es un nodo asistente
+                // Verificar si el nodo es un nodo Asistente
                 if (node.IsAssistant)
                 {
-                    // Estableciendo el nodo asistente en falso y convirtiéndolo en un nodo normal
+                    // Establecer el nodo Asistente a false y convertirlo en nodo normal
                     node.IsAssistant = false;
                 }
             }
         }
     }
-    // Guardar presentación
+    // Guardar la presentación
     pres.Save("ChangeAssitantNode_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
 
+## **Establecer formato de relleno del nodo**
+Aspose.Slides for .NET permite agregar formas SmartArt personalizadas y establecer sus formatos de relleno. Este artículo explica cómo crear y acceder a formas SmartArt y establecer su formato de relleno usando Aspose.Slides for .NET.
 
-## **Establecer el Formato de Relleno del Nodo**
-Aspose.Slides para .NET permite agregar formas SmartArt personalizadas y establecer sus formatos de relleno. Este artículo explica cómo crear y acceder a formas SmartArt y establecer su formato de relleno usando Aspose.Slides para .NET.
+Por favor, siga los pasos a continuación:
 
-Sigue los siguientes pasos:
-
-- Crea una instancia de la clase `Presentation`.
-- Obtén la referencia de una diapositiva utilizando su índice.
-- Agrega una forma SmartArt estableciendo su LayoutType.
-- Establece el FillFormat para los nodos de la forma SmartArt.
-- Escribe la presentación modificada como un archivo PPTX.
-
+- Cree una instancia de la clase `Presentation`.
+- Obtenga la referencia de una diapositiva usando su índice.
+- Agregue una forma SmartArt estableciendo su LayoutType.
+- Establezca el FillFormat para los nodos de la forma SmartArt.
+- Guarde la presentación modificada como un archivo PPTX.
 ```c#
 using (Presentation presentation = new Presentation())
 {
     // Accediendo a la diapositiva
     ISlide slide = presentation.Slides[0];
 
-    // Agregando forma SmartArt y nodos
+    // Añadiendo forma SmartArt y nodos
     var chevron = slide.Shapes.AddSmartArt(10, 10, 800, 60, SmartArtLayoutType.ClosedChevronProcess);
     var node = chevron.AllNodes.AddNode();
-    node.TextFrame.Text = "Algún texto";
+    node.TextFrame.Text = "Some text";
 
-    // Estableciendo el color de relleno del nodo
+    // Estableciendo color de relleno del nodo
     foreach (var item in node.Shapes)
     {
         item.FillFormat.FillType = FillType.Solid;
@@ -435,18 +418,16 @@ using (Presentation presentation = new Presentation())
 ```
 
 
+## **Generar miniatura del nodo hijo SmartArt**
+Los desarrolladores pueden generar una miniatura del nodo hijo de un SmartArt siguiendo los pasos a continuación:
 
-## **Generar Miniatura del Nodo Hijo SmartArt**
-Los desarrolladores pueden generar una miniatura del nodo hijo de un SmartArt siguiendo los siguientes pasos:
+1. Instancie la clase `Presentation` que representa el archivo PPTX.
+2. Agregue SmartArt.
+3. Obtenga la referencia de un nodo usando su índice.
+4. Obtenga la imagen en miniatura.
+5. Guarde la imagen en miniatura en el formato de imagen deseado.
 
-1. Instanciar la clase `Presentation` que representa el archivo PPTX.
-1. Agregar SmartArt.
-1. Obtener la referencia de un nodo usando su índice.
-1. Obtener la imagen de la miniatura.
-1. Guardar la imagen de la miniatura en cualquier formato de imagen deseado.
-
-El ejemplo a continuación genera una miniatura del nodo hijo SmartArt.
-
+El ejemplo a continuación genera una miniatura del nodo hijo de SmartArt.
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -461,3 +442,22 @@ using (Presentation presentation = new Presentation())
     }
 }
 ```
+
+
+## **FAQ**
+
+**¿Se admite la animación de SmartArt?**
+
+Sí. SmartArt se trata como una forma normal, por lo que puede [aplicar animaciones estándar](/slides/es/net/shape-animation/) (entrada, salida, énfasis, rutas de movimiento) y ajustar la sincronización. También puede animar formas dentro de los nodos SmartArt cuando sea necesario.
+
+**¿Cómo puedo localizar de forma fiable un SmartArt específico en una diapositiva si su ID interno es desconocido?**
+
+Asigne y busque mediante [texto alternativo](https://reference.aspose.com/slides/net/aspose.slides/shape/alternativetext/). Establecer un AltText distintivo en el SmartArt le permite encontrarlo programáticamente sin depender de identificadores internos.
+
+**¿Se preservará la apariencia del SmartArt al convertir la presentación a PDF?**
+
+Sí. Aspose.Slides renderiza SmartArt con alta fidelidad visual durante la [exportación a PDF](/slides/es/net/convert-powerpoint-to-pdf/), conservando el diseño, los colores y los efectos.
+
+**¿Puedo extraer una imagen de todo el SmartArt (para vistas previas o informes)?**
+
+Sí. Puede renderizar una forma SmartArt a [formatos raster]https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/ o a [SVG](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/) para obtener una salida vectorial escalable, lo que la hace adecuada para miniaturas, informes o uso web.

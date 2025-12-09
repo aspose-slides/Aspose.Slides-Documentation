@@ -1,123 +1,123 @@
 ---
-title: Crear un gráfico en una presentación de Microsoft PowerPoint
+title: Crear gráficos usando VSTO y Aspose.Slides para .NET
+linktitle: Crear gráfico
 type: docs
 weight: 80
 url: /es/net/create-a-chart-in-a-microsoft-powerpoint-presentation/
+keywords:
+- crear gráfico
+- migración
+- VSTO
+- automatización de Office
+- PowerPoint
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Aprenda cómo automatizar la creación de gráficos de PowerPoint en C#. Esta guía paso a paso muestra por qué Aspose.Slides para .NET es una alternativa más rápida y potente a Microsoft.Office.Interop."
 ---
 
-{{% alert color="primary" %}} 
+## **Descripción general**
 
- Los gráficos son representaciones visuales de datos que se utilizan ampliamente en presentaciones. Este artículo muestra el código para crear un gráfico en Microsoft PowerPoint programáticamente utilizando [VSTO](/slides/es/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) y [Aspose.Slides para .NET](/slides/es/net/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+Este artículo muestra cómo crear y personalizar gráficos en presentaciones de Microsoft PowerPoint de forma programática usando C#. Con Aspose.Slides para .NET, puedes automatizar la generación de gráficos profesionales y basados en datos sin depender de Microsoft Office o bibliotecas Interop. La API ofrece un conjunto amplio de funciones para crear gráficos de columnas, de pastel, de líneas y más, con control total sobre la apariencia, los datos y el diseño. Ya sea que estés generando informes, paneles de control o presentaciones empresariales, Aspose.Slides te ayuda a ofrecer visualizaciones de alta calidad directamente desde tus aplicaciones .NET.
 
-{{% /alert %}} 
-## **Creando un gráfico**
-Los ejemplos de código a continuación describen el proceso de agregar un gráfico de columnas agrupadas 3D simple utilizando VSTO. Creas una instancia de presentación, le agregas un gráfico predeterminado. Luego, usas un libro de trabajo de Microsoft Excel para acceder y modificar los datos del gráfico junto con establecer las propiedades del gráfico. Por último, guarda la presentación.
-## **Ejemplo de VSTO**
-Usando VSTO, se realizan los siguientes pasos:
+## **Ejemplo VSTO**
 
-1. Crea una instancia de una presentación de Microsoft PowerPoint.
-1. Agrega una diapositiva en blanco a la presentación.
-1. Agrega un gráfico de **columnas agrupadas 3D** y accede a él.
-1. Crea una nueva instancia de un libro de trabajo de Microsoft Excel y carga los datos del gráfico.
-1. Accede a la hoja de datos del gráfico utilizando la instancia del libro de trabajo de Microsoft Excel.
-1. Establece el rango del gráfico en la hoja de trabajo y elimina las series 2 y 3 del gráfico.
-1. Modifica los datos de categoría del gráfico en la hoja de datos del gráfico.
-1. Modifica los datos de la serie 1 en la hoja de datos del gráfico.
-1. Ahora, accede al título del gráfico y establece las propiedades relacionadas con la fuente.
-1. Accede al eje de valores del gráfico y establece la unidad mayor, las unidades menores, el valor máximo y los valores mínimos.
-1. Accede al eje de profundidad o de series del gráfico y elimina eso, ya que en este ejemplo solo se usa una serie.
-1. Ahora, establece los ángulos de rotación del gráfico en dirección X e Y.
-1. Guarda la presentación.
-1. Cierra las instancias de Microsoft Excel y PowerPoint.
+Esta sección muestra cómo crear un gráfico en una presentación de Microsoft PowerPoint usando **VSTO (Visual Studio Tools for Office)**. Con VSTO, puedes generar y personalizar gráficos de forma programática combinando la automatización de PowerPoint y Excel. El ejemplo proporcionado muestra cómo agregar un **gráfico de columnas agrupadas 3D**, rellenarlo con datos de una hoja de cálculo de Excel, ajustar el formato y el diseño, y guardar la presentación final, todo desde una aplicación .NET.
 
-**La presentación de salida, creada con VSTO** 
-
-![todo:image_alt_text](create-a-chart-in-a-microsoft-powerpoint-presentation_1.png)
-
-
+1. Crear una instancia de una presentación de Microsoft PowerPoint.  
+2. Agregar una diapositiva en blanco a la presentación.  
+3. Agregar un gráfico de columnas agrupadas 3D y acceder a él.  
+4. Crear una nueva instancia de un libro de trabajo de Microsoft Excel y cargar los datos del gráfico.  
+5. Acceder a la hoja de datos del gráfico usando la instancia del libro de trabajo de Excel.  
+6. Establecer el rango del gráfico en la hoja y eliminar las series 2 y 3 del gráfico.  
+7. Modificar los datos de categorías del gráfico en la hoja de datos del gráfico.  
+8. Modificar los datos de la serie 1 en la hoja de datos del gráfico.  
+9. Acceder al título del gráfico y establecer sus propiedades de fuente.  
+10. Acceder al eje de valores del gráfico y establecer la unidad mayor, unidad menor, valor máximo y valor mínimo.  
+11. Acceder al eje de profundidad (series) del gráfico y eliminarlo; solo se usa una serie en este ejemplo.  
+12. Establecer los ángulos de rotación del gráfico en las direcciones X y Y.  
+13. Guardar la presentación.  
+14. Cerrar las instancias de Microsoft Excel y PowerPoint.  
 
 ```c#
 EnsurePowerPointIsRunning(true, true);
 
-//Instantiate slide object
+// Instanciar un objeto de diapositiva.
 Microsoft.Office.Interop.PowerPoint.Slide objSlide = null;
 
-//Access the first slide of presentation
+// Acceder a la primera diapositiva de la presentación.
 objSlide = objPres.Slides[1];
 
-//Select firs slide and set its layout
+// Seleccionar la primera diapositiva y establecer su diseño.
 objSlide.Select();
 objSlide.Layout = Microsoft.Office.Interop.PowerPoint.PpSlideLayout.ppLayoutBlank;
 
-//Add a default chart in slide
-objSlide.Shapes.AddChart(Microsoft.Office.Core.XlChartType.xl3DColumn, 20F, 30F, 400F, 300F);
+// Agregar un gráfico predeterminado a la diapositiva.
+objSlide.Shapes.AddChart(Microsoft.Office.Core.XlChartType.xl3DColumn, 20, 30, 400, 300);
 
-//Access the added chart
+// Acceder al gráfico agregado.
 Microsoft.Office.Interop.PowerPoint.Chart ppChart = objSlide.Shapes[1].Chart;
 
-//Access the chart data
+// Acceder a los datos del gráfico.
 Microsoft.Office.Interop.PowerPoint.ChartData chartData = ppChart.ChartData;
 
-//Create instance to Excel workbook to work with chart data
+// Crear una instancia del libro de trabajo de Excel para trabajar con los datos del gráfico.
 Microsoft.Office.Interop.Excel.Workbook dataWorkbook = (Microsoft.Office.Interop.Excel.Workbook)chartData.Workbook;
 
-//Accessing the data worksheet for chart
+// Acceder a la hoja de datos del gráfico.
 Microsoft.Office.Interop.Excel.Worksheet dataSheet = dataWorkbook.Worksheets[1];
 
-//Setting the range of chart
+// Establecer el rango de datos para el gráfico.
 Microsoft.Office.Interop.Excel.Range tRange = dataSheet.Cells.get_Range("A1", "B5");
 
-//Applying the set range on chart data table
+// Aplicar el rango especificado a la tabla de datos del gráfico.
 Microsoft.Office.Interop.Excel.ListObject tbl1 = dataSheet.ListObjects["Table1"];
 tbl1.Resize(tRange);
 
-//Setting values for categories and respective series data
-
-((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A2"))).FormulaR1C1 = "Bicicletas";
-((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A3"))).FormulaR1C1 = "Accesorios";
-((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A4"))).FormulaR1C1 = "Reparaciones";
-((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A5"))).FormulaR1C1 = "Ropa";
+// Establecer valores para las categorías y los datos de series correspondientes.
+((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A2"))).FormulaR1C1 = "Bikes";
+((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A3"))).FormulaR1C1 = "Accessories";
+((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A4"))).FormulaR1C1 = "Repairs";
+((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A5"))).FormulaR1C1 = "Clothing";
 ((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B2"))).FormulaR1C1 = "1000";
 ((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B3"))).FormulaR1C1 = "2500";
 ((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B4"))).FormulaR1C1 = "4000";
 ((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B5"))).FormulaR1C1 = "3000";
 
-//Setting chart title
+// Establecer el título del gráfico.
 ppChart.ChartTitle.Font.Italic = true;
-ppChart.ChartTitle.Text = "Ventas 2007";
+ppChart.ChartTitle.Text = "2007 Sales";
 ppChart.ChartTitle.Font.Size = 18;
 ppChart.ChartTitle.Font.Color = Color.Black.ToArgb();
 ppChart.ChartTitle.Format.Line.Visible = Microsoft.Office.Core.MsoTriState.msoTrue;
 ppChart.ChartTitle.Format.Line.ForeColor.RGB = Color.Black.ToArgb();
 
-//Accessing Chart value axis
+// Acceder al eje de valores del gráfico.
 Microsoft.Office.Interop.PowerPoint.Axis valaxis = ppChart.Axes(Microsoft.Office.Interop.PowerPoint.XlAxisType.xlValue, Microsoft.Office.Interop.PowerPoint.XlAxisGroup.xlPrimary);
 
-//Setting values axis units
+// Establecer los valores para las unidades del eje.
 valaxis.MajorUnit = 2000.0F;
 valaxis.MinorUnit = 1000.0F;
 valaxis.MinimumScale = 0.0F;
 valaxis.MaximumScale = 4000.0F;
 
-//Accessing Chart Depth axis
+// Acceder al eje de profundidad del gráfico.
 Microsoft.Office.Interop.PowerPoint.Axis Depthaxis = ppChart.Axes(Microsoft.Office.Interop.PowerPoint.XlAxisType.xlSeriesAxis, Microsoft.Office.Interop.PowerPoint.XlAxisGroup.xlPrimary);
 Depthaxis.Delete();
 
-//Setting chart rotation
-ppChart.Rotation = 20; //Y-Value
-ppChart.Elevation = 15; //X-Value
+// Establecer la rotación del gráfico.
+ppChart.Rotation = 20;   // Valor Y
+ppChart.Elevation = 15;  // Valor X
 ppChart.RightAngleAxes = false;
 
-// Save the presentation as a PPTX
-objPres.SaveAs("C:\\VSTOSampleChart", Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, MsoTriState.msoTrue);
-//objPres.SaveAs(@"..\..\..\VSTOSampleChart", Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, MsoTriState.msoTrue);
+// Guardar la presentación como archivo PPTX.
+objPres.SaveAs("VSTO_Sample_Chart.pptx", Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, MsoTriState.msoTrue);
 
-//Close Workbook and presentation
+// Cerrar el libro de trabajo y la presentación.
 dataWorkbook.Application.Quit();
 objPres.Application.Quit();
 ```
-
-
 
 ```c#
 public static void EnsurePowerPointIsRunning(bool blnAddPresentation)
@@ -133,9 +133,8 @@ public static void EnsurePowerPointIsRunning()
 public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAddSlide)
 {
     string strName = null;
-    //
-    //Try accessing the name property. If it causes an exception then
-    //start a new instance of PowerPoint
+
+    // Intente acceder a la propiedad Name. Si lanza una excepción, inicie una nueva instancia de PowerPoint.
     try
     {
         strName = objPPT.Name;
@@ -144,8 +143,8 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
     {
         StartPowerPoint();
     }
-    //
-    //blnAddPresentation is used to ensure there is a presentation loaded
+
+    // blnAddPresentation se usa para asegurar que se cargue una presentación.
     if (blnAddPresentation == true)
     {
         try
@@ -157,9 +156,8 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
             objPres = objPPT.Presentations.Add(MsoTriState.msoTrue);
         }
     }
-    //
-    //BlnAddSlide is used to ensure there is at least one slide in the
-    //presentation
+
+    // blnAddSlide se usa para asegurar que haya al menos una diapositiva en la presentación.
     if (blnAddSlide)
     {
         try
@@ -181,103 +179,106 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 ```
 
 
+El resultado:
 
+![El gráfico creado usando VSTO](chart-created-using-VSTO.png)
 
-## **Ejemplo de Aspose.Slides para .NET**
-Utilizando Aspose.Slides para .NET, se realizan los siguientes pasos:
+## **Ejemplo Aspose.Slides para .NET**
 
-1. Crea una instancia de una presentación de Microsoft PowerPoint.
-1. Agrega una diapositiva en blanco a la presentación.
-1. Agrega un gráfico de **columnas agrupadas 3D** y accede a él.
-1. Accede a la hoja de datos del gráfico utilizando una instancia de un libro de trabajo de Microsoft Excel.
-1. Elimina las series 2 y 3 no utilizadas.
-1. Accede a las categorías del gráfico y modifica las etiquetas.
-1. Accede a la serie 1 y modifica los valores de la serie.
-1. Ahora, accede al título del gráfico y establece las propiedades de la fuente.
-1. Accede al eje de valores del gráfico y establece la unidad mayor, las unidades menores, el valor máximo y los valores mínimos.
-1. Ahora, establece los ángulos de rotación del gráfico en dirección X e Y.
-1. Guarda la presentación en formato PPTX.
+El siguiente ejemplo muestra cómo crear un gráfico sencillo en una presentación de PowerPoint usando Aspose.Slides para .NET. Este código demuestra cómo agregar un **gráfico de columnas agrupadas 3D**, rellenarlo con datos de ejemplo y personalizar su apariencia. Con solo unas pocas líneas de código, puedes generar gráficos dinámicamente e integrarlos en tus presentaciones sin usar Microsoft Office.
 
-**La presentación de salida, creada con Aspose.Slides**
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).  
+2. Obtener una referencia a la primera diapositiva.  
+3. Agregar un gráfico de columnas agrupadas 3D y acceder a él.  
+4. Acceder a los datos del gráfico.  
+5. Eliminar las series no usadas 2 y 3.  
+6. Modificar las categorías del gráfico actualizando las etiquetas.  
+7. Actualizar los valores de la serie 1.  
+8. Acceder al título del gráfico y establecer sus propiedades de fuente.  
+9. Configurar el eje de valores del gráfico, incluyendo la unidad mayor, unidad menor, valores máximo y mínimo.  
+10. Establecer los ángulos de rotación del gráfico en los ejes X e Y.  
+11. Guardar la presentación en formato PPTX.  
 
-![todo:image_alt_text](create-a-chart-in-a-microsoft-powerpoint-presentation_2.png)
-
-```csharp
-//Create empty presentation
-using (Presentation pres = new Presentation())
+```cs
+// Crear una presentación vacía.
+using (Presentation presentation = new Presentation())
 {
+    // Acceder a la primera diapositiva.
+    ISlide slide = presentation.Slides[0];
 
-    //Accessing first slide
-    ISlide slide = pres.Slides[0];
+    // Agregar un gráfico predeterminado.
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn3D, 20, 30, 400, 300);
 
-    //Addding default chart
-    IChart ppChart = slide.Shapes.AddChart(ChartType.ClusteredColumn3D, 20F, 30F, 400F, 300F);
+    // Obtener los datos del gráfico.
+    IChartData chartData = chart.ChartData;
 
-    //Getting Chart data
-    IChartData chartData = ppChart.ChartData;
-
-    //Removing Extra default series
+    // Eliminar las series predeterminadas extra.
     chartData.Series.RemoveAt(1);
     chartData.Series.RemoveAt(1);
 
-    //Modifying chart categories names
-    chartData.Categories[0].AsCell.Value = "Bicicletas";
-    chartData.Categories[1].AsCell.Value = "Accesorios";
-    chartData.Categories[2].AsCell.Value = "Reparaciones";
-    chartData.Categories[3].AsCell.Value = "Ropa";
+    // Modificar los nombres de las categorías del gráfico.
+    chartData.Categories[0].AsCell.Value = "Bikes";
+    chartData.Categories[1].AsCell.Value = "Accessories";
+    chartData.Categories[2].AsCell.Value = "Repairs";
+    chartData.Categories[3].AsCell.Value = "Clothing";
 
-    //Setting the index of chart data sheet
-    int defaultWorksheetIndex = 0;
+    // Establecer el índice de la hoja de datos del gráfico.
+    int worksheetIndex = 0;
 
+    // Obtener el libro de datos del gráfico.
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    //Getting the chart data worksheet
-    IChartDataWorkbook fact = ppChart.ChartData.ChartDataWorkbook;
+    // Modificar los valores de las series del gráfico.
+    chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 1000));
+    chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 2500));
+    chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 4000));
+    chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 4, 1, 3000));
 
-    //Modifying chart series values for first category
-    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 1000));
-    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 2500));
-    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 4000));
-    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 4, 1, 3000));
-
-    //Setting Chart title
-    ppChart.HasTitle = true;
-    ppChart.ChartTitle.AddTextFrameForOverriding("Ventas 2007");
-    IPortionFormat format = ppChart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0].PortionFormat;
+    // Establecer el título del gráfico.
+    chart.HasTitle = true;
+    chart.ChartTitle.AddTextFrameForOverriding("2007 Sales");
+    IPortionFormat format = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0].PortionFormat;
     format.FontItalic = NullableBool.True;
     format.FontHeight = 18;
     format.FillFormat.FillType = FillType.Solid;
     format.FillFormat.SolidFillColor.Color = Color.Black;
 
+    // Establecer las opciones del eje.
+    chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+    chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
+    chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
+    chart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
 
-    ////Setting Axis values
-    ppChart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
-    ppChart.Axes.VerticalAxis.IsAutomaticMinValue = false;
-    ppChart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
-    ppChart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
+    chart.Axes.VerticalAxis.MaxValue = 4000.0F;
+    chart.Axes.VerticalAxis.MinValue = 0.0F;
+    chart.Axes.VerticalAxis.MajorUnit = 2000.0F;
+    chart.Axes.VerticalAxis.MinorUnit = 1000.0F;
+    chart.Axes.VerticalAxis.TickLabelPosition = TickLabelPositionType.NextTo;
 
-    ppChart.Axes.VerticalAxis.MaxValue = 4000.0F;
-    ppChart.Axes.VerticalAxis.MinValue = 0.0F;
-    ppChart.Axes.VerticalAxis.MajorUnit = 2000.0F;
-    ppChart.Axes.VerticalAxis.MinorUnit = 1000.0F;
-    ppChart.Axes.VerticalAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+    // Establecer la rotación del gráfico.
+    chart.Rotation3D.RotationX = 15;
+    chart.Rotation3D.RotationY = 20;
 
-    //Setting Chart rotation
-    ppChart.Rotation3D.RotationX = 15;
-    ppChart.Rotation3D.RotationY = 20;
-
-    //Saving Presentation
-    pres.Save("AsposeSampleChart.pptx", SaveFormat.Pptx);
+    // Guardar la presentación como archivo PPTX.
+    presentation.Save("Aspose_Sample_Chart.pptx", SaveFormat.Pptx);
 }
 ```
 
 
+El resultado:
 
-{{% alert color="primary" %}} 
+![El gráfico creado usando Aspose.Slides para .NET](chart-created-using-aspose-slides.png)
 
-## **Recursos**
-Los proyectos y archivos utilizados en este artículo se pueden descargar desde nuestro sitio web:
+## **Preguntas frecuentes**
 
-- [Descargar la presentación generada por VSTO](http://docs.aspose.com:8082/docs/download/attachments/87523560/VSTOSampleChart.pptx).
-- [Descargar el gráfico de muestra generado por Aspose.Slides](http://docs.aspose.com:8082/docs/download/attachments/87523560/AsposeSampleChart.pptx).
+**¿Puedo crear otros tipos de gráficos como de pastel, línea o barras con Aspose.Slides?**
 
-{{% /alert %}}
+Sí. Aspose.Slides para .NET admite una amplia gama de [tipos de gráficos](https://docs.aspose.com/slides/net/create-chart/), incluidos gráficos de pastel, de línea, de barras, diagramas de dispersión, gráficos de burbujas y más. Puedes especificar el tipo de gráfico deseado usando la enumeración [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) al agregar un gráfico.
+
+**¿Puedo aplicar estilos o temas personalizados al gráfico?**
+
+Sí. Puedes personalizar completamente la apariencia del gráfico, incluidos colores, fuentes, rellenos, contornos, líneas de cuadrícula y diseño. Sin embargo, aplicar temas de Office exactamente como se ven en PowerPoint requiere establecer manualmente los estilos individuales.
+
+**¿Puedo exportar el gráfico como una imagen por separado de la diapositiva?**
+
+Sí, Aspose.Slides te permite exportar cualquier forma —incluidos los gráficos— como una imagen separada (p. ej., PNG, JPEG) usando el método `GetImage` en el [shape](https://reference.aspose.com/slides/net/aspose.slides/ishape/).

@@ -33,9 +33,9 @@ description: "Diagramme in PowerPoint‑Präsentationen mit Aspose.Slides für J
 Dieser Artikel beschreibt, wie man **PowerPoint-Präsentationsdiagramme in Java** erstellt. Sie können die Diagramme in Java auch **aktualisieren**. Er behandelt folgende Themen.
 
 _Diagramm_: **Normal**
-- [Java PowerPoint-Diagramm erstellen](#java-create-powerpoint-chart)
-- [Java Präsentationsdiagramm erstellen](#java-create-presentation-chart)
-- [Java PowerPoint-Präsentationsdiagramm erstellen](#java-create-powerpoint-presentation-chart)
+- [Java PowerPoint‑Diagramm erstellen](#java-create-powerpoint-chart)
+- [Java Präsentations‑Diagramm erstellen](#java-create-presentation-chart)
+- [Java PowerPoint‑Präsentations‑Diagramm erstellen](#java-create-powerpoint-presentation-chart)
 
 _Diagramm_: **Gepunktet**
 - [Java Gepunktetes Diagramm erstellen](#java-create-scattered-chart)
@@ -43,14 +43,14 @@ _Diagramm_: **Gepunktet**
 - [Java PowerPoint-Präsentations-Gepunktetes Diagramm erstellen](#java-create-powerpoint-presentation-scattered-chart)
 
 _Diagramm_: **Kreis**
-- [Java Kreisdiagramm erstellen](#java-create-pie-chart)
-- [Java PowerPoint-Kreisdiagramm erstellen](#java-create-powerpoint-pie-chart)
-- [Java PowerPoint-Präsentations-Kreisdiagramm erstellen](#java-create-powerpoint-presentation-pie-chart)
+- [Java Kreis‑Diagramm erstellen](#java-create-pie-chart)
+- [Java PowerPoint‑Kreis‑Diagramm erstellen](#java-create-powerpoint-pie-chart)
+- [Java PowerPoint‑Präsentations‑Kreis‑Diagramm erstellen](#java-create-powerpoint-presentation-pie-chart)
 
-_Diagramm_: **Baumkarte**
-- [Java Baumkarten-Diagramm erstellen](#java-create-tree-map-chart)
-- [Java PowerPoint-Baumkarten-Diagramm erstellen](#java-create-powerpoint-tree-map-chart)
-- [Java PowerPoint-Präsentations-Baumkarten-Diagramm erstellen](#java-create-powerpoint-presentation-tree-map-chart)
+_Diagramm_: **Tree Map**
+- [Java Tree‑Map‑Diagramm erstellen](#java-create-tree-map-chart)
+- [Java PowerPoint‑Tree‑Map‑Diagramm erstellen](#java-create-powerpoint-tree-map-chart)
+- [Java PowerPoint‑Präsentations‑Tree‑Map‑Diagramm erstellen](#java-create-powerpoint-presentation-tree-map-chart)
 
 _Diagramm_: **Aktie**
 - [Java Aktiendiagramm erstellen](#java-create-stock-chart)

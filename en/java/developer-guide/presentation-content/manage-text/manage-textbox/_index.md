@@ -35,7 +35,7 @@ Therefore, when dealing with a shape to which you want to add text, you may want
 
 {{% /alert %}}
 
-## **Create Text Box on Slide**
+## **Create a Text Box on a Slide**
 
 To create a textbox on a slide, go through these steps:
 
@@ -79,7 +79,7 @@ try {
 }
 ```
 
-## **Check for Text Box Shape**
+## **Check for a Text Box Shape**
 
 Aspose.Slides provides the [isTextBox](https://reference.aspose.com/slides/java/com.aspose.slides/autoshape/#isTextBox--) method from the [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) interface, allowing you to examine shapes and identify text boxes.
 
@@ -128,7 +128,7 @@ shape4.getTextFrame().setText("");
 // shape4.isTextBox() returns false
 ```
 
-## **Add Column In Text Box**
+## **Add Columns to a Text Box**
 
 Aspose.Slides provides the [ColumnCount](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) and [ColumnSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) properties (from the [ITextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat) interface and [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns. 
 
@@ -166,7 +166,7 @@ try {
 ```
 
 
-## **Add Column In Text Frame**
+## **Add Columns to a Text Frame**
 Aspose.Slides for Java provides the [ColumnCount](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) property (from the [ITextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat) interface) that allows you to add columns in text frames. Through this property, you can specify your preferred number of columns in a text frame. 
 
 This Java code shows you how to add a column inside a text frame:
@@ -258,7 +258,7 @@ try {
 }
 ```
 
-## **Add Text Box with Hyperlink** 
+## **Add a Text Box with a Hyperlink** 
 
 You can insert a link inside a text box. When the text box is clicked, users are directed to open the link. 
 

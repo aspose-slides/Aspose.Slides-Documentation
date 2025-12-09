@@ -28,7 +28,7 @@ keywords:
 description: "Créer et personnaliser des graphiques dans les présentations PowerPoint en utilisant Aspose.Slides pour Java. Ajouter, formater et modifier des graphiques avec des exemples de code pratiques en Java."
 ---
 
-## Vue d'ensemble
+## Aperçu
 
 Cet article décrit comment **créer des graphiques de présentation PowerPoint en Java**. Vous pouvez également **mettre à jour les graphiques en Java**. Il couvre les sujets suivants.
 
@@ -161,7 +161,7 @@ try {
     // Définit la première série pour afficher les valeurs
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
     
-    // Définit l'index pour la feuille de données du graphique
+    // Définit l'index de la feuille de données du graphique
     int defaultWorksheetIndex = 0;
     
     // Obtient la feuille de calcul des données du graphique

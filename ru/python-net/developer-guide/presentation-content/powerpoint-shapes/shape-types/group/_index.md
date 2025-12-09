@@ -1,5 +1,5 @@
 ---
-title: Групповые фигуры презентаций с помощью Python
+title: Группировка фигур презентации с Python
 linktitle: Группа фигур
 type: docs
 weight: 40
@@ -13,16 +13,16 @@ keywords:
 - презентация
 - Python
 - Aspose.Slides
-description: "Узнайте, как группировать и разгруппировать фигуры в PowerPoint и наборах OpenDocument с помощью Aspose.Slides для Python - быстрый пошаговый руководствo с бесплатным кодом."
+description: "Узнайте, как группировать и разгруппировать фигуры в PowerPoint и пакетах OpenDocument с помощью Aspose.Slides для Python — быстрый пошаговый руководствo с бесплатным кодом."
 ---
 
 ## **Обзор**
 
-Группировка фигур позволяет рассматривать несколько графических объектов как единое целое, чтобы перемещать, изменять размер, форматировать и преобразовывать их вместе. С Aspose.Slides for Python вы можете создать [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), добавить и расположить дочерние фигуры внутри нее и сохранить результат в формате PPTX. В этой статье показано, как добавить групповую фигуру на слайд и как получить доступ к метаданным доступности, таким как Alt Text, из фигур внутри группы, обеспечивая более чистую структуру и более богатые, поддерживаемые презентации.
+Группировка фигур позволяет рассматривать несколько графических объектов как единое целое, чтобы перемещать, изменять размер, форматировать и трансформировать их совместно. С Aspose.Slides для Python вы можете создать [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), добавить и расположить дочерние фигуры внутри него и сохранить результат в PPTX. В этой статье показано, как добавить групповую фигуру на слайд и как получить доступ к метаданным доступности, таким как Alt Text, из фигур внутри группы, обеспечивая более чистую структуру и более богатые, более поддерживаемые презентации.
 
 ## **Добавление групповых фигур**
 
-Aspose.Slides поддерживает работу с групповыми фигурами на слайде. Эта возможность позволяет создавать более насыщенные презентации, рассматривая несколько фигур как один объект. Вы можете добавлять новые групповые фигуры, получать доступ к существующим, заполнять их дочерними фигурами и читать или изменять любые их свойства. Чтобы добавить групповую фигуру на слайд:
+Aspose.Slides поддерживает работу с групповыми фигурами на слайде. Эта возможность позволяет создавать более богатые презентации, рассматривая несколько фигур как один объект. Вы можете добавлять новые групповые фигуры, получать доступ к существующим, заполнять их дочерними фигурами и читать или изменять любые их свойства. Чтобы добавить групповую фигуру на слайд:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
 2. Получите ссылку на слайд по индексу.
@@ -42,7 +42,7 @@ with slides.Presentation() as presentation:
     # Добавить групповую фигуру на слайд.
     group_shape = slide.shapes.add_group_shape()
 
-    # Добавить фигуры внутрь групповой фигуры.
+    # Добавить фигуры внутри групповой фигуры.
     group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 100, 100, 100)
     group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 100, 100)
     group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 300, 100, 100)
@@ -57,13 +57,13 @@ with slides.Presentation() as presentation:
 
 В этом разделе объясняется, как прочитать Alt Text фигур, содержащихся в групповой фигуре на слайде, используя Aspose.Slides. Чтобы получить доступ к Alt Text фигур:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) для представления файла PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) , представляющего файл PPTX.
 2. Получите ссылку на слайд по его индексу.
 3. Получите доступ к коллекции фигур слайда.
 4. Получите доступ к [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/).
 5. Считайте свойство Alt Text.
 
-Пример ниже извлекает Alt Text фигур, содержащихся в групповых фигурах.
+Пример ниже получает Alt Text фигур, содержащихся в групповых фигурах.
 ```py
 import aspose.slides as slides
 
@@ -85,12 +85,12 @@ with slides.Presentation("group_shape.pptx") as presentation:
 
 **Поддерживается ли вложенная группировка (группа внутри группы)?**
 
-Да. У [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) есть свойство [parent_group](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/parent_group/), которое напрямую указывает поддержку иерархии (группа может быть дочерней по отношению к другой группе).
+Да. У [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) есть свойство [parent_group](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/parent_group/), которое напрямую указывает на поддержку иерархии (группа может быть дочерней для другой группы).
 
-**Как контролировать Z‑порядок группы относительно других объектов на слайде?**
+**Как управлять порядком z-слоя группы относительно других объектов на слайде?**
 
-Используйте свойство [z_order_position](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/z_order_position/) группы [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), чтобы просмотреть или изменить её позицию в стеке отображения.
+Используйте свойство [z_order_position](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/z_order_position/) группы [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), чтобы просмотреть её положение в стеке отображения.
 
 **Могу ли я запретить перемещение/редактирование/разгруппировку?**
 
-Да. Раздел блокировки группы доступен через [group_shape_lock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/group_shape_lock/), что позволяет ограничить операции над объектом.
+Да. Раздел блокировки группы доступен через [group_shape_lock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/group_shape_lock/), что позволяет ограничивать операции над объектом.

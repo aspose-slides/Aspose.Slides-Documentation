@@ -19,7 +19,7 @@ keywords:
 description: "Learn to build and edit PowerPoint SmartArt with Aspose.Slides for .NET using clear C# code samples that speed up slide design and automation."
 ---
 
-## **Get Text from SmartArt**
+## **Get Text from a SmartArt Object**
 Now TextFrame property has been added to ISmartArtShape interface and SmartArtShape class respectively. This property allows you to get all text from SmartArt if it has not only nodes text. The following sample code will help you to get text from SmartArt node.
 
 ```c#
@@ -42,7 +42,7 @@ using (Presentation pres = new Presentation("Presentation.pptx"))
 
 
 
-## **Change Layout Type of SmartArt**
+## **Change the Layout Type of a SmartArt Object**
 In order to change the layout type of SmartArt. Please follow the steps below:
 
 - Create an instance of `Presentation` class.
@@ -68,7 +68,7 @@ using (Presentation presentation = new Presentation())
 
 
 
-## **Check Hidden Property of SmartArt**
+## **Check the Hidden Property of a SmartArt Object**
 Please note Method com.aspose.slides.ISmartArtNode.isHidden() returns true if this node is a hidden node in the data model. In order to check the hidden property of any node of SmartArt. Please follow the steps below:
 
 - Create an instance of `Presentation` class.
@@ -102,7 +102,7 @@ using (Presentation presentation = new Presentation())
 
 
 
-## **Get or Set Organization Chart Type**
+## **Get or Set the Organization Chart Type**
 Methods com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) allow get or sets organization chart type associated with current node. In order to get or set organization chart type. Please follow the steps below:
 
 - Create an instance of `Presentation` class.
@@ -128,7 +128,7 @@ using (Presentation presentation = new Presentation())
 
 
 
-## **Create Picture Organization Chart**
+## **Create a Picture Organization Chart**
 Aspose.Slides for .NET provides a simple API for creating and PictureOrganization charts in an easy way. To create a chart on a slide:
 
 1. Create an instance of the `Presentation` class.

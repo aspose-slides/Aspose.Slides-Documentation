@@ -40,7 +40,7 @@ In PowerPoint, these are the four important parameters or options that control t
 
 Aspose.Slides for .NET provides similar options—properties under the [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) class—that allow you to control the autofit behavior for textboxes in presentations.
 
-## **Resize Shape to Fit Text**
+## **Resize a Shape to Fit Text**
 
 If you want the text in a box to always fit into that box after changes are made to the text, you have to use the **Resize shape to fit text** option. To specify this setting, set the `AutofitType` property from the [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) class to `Shape`.
 

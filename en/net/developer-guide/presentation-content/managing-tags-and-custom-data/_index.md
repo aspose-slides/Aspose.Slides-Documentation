@@ -32,7 +32,7 @@ Tags are essentially string-key pair values.
 
 {{% /alert %}} 
 
-## **Getting the Values for Tags**
+## **Get Values of Tags**
 
 In slides, a tag corresponds to the IDocumentProperties.Keywords property. This sample code shows you how to get a tag’s value with Aspose.Slides for .NET for [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation):
 
@@ -43,7 +43,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## **Adding Tags to Presentations**
+## **Add Tags to Presentations**
 
 Aspose.Slides allows you to add tags to presentations. A tag typically consists of two items: 
 

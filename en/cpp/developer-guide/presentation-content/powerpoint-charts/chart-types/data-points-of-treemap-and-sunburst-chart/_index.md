@@ -53,7 +53,7 @@ the properties added specific for data points. 
 two methods: [**get_Format()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level#a00caa6a048ad98a66ab56a5ddb196697) and 
 [**get_Label()** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level#a5ab377b372199eb561792e9ba18acf25)which 
 provide access to corresponding settings.
-## **Show Data Point Value**
+## **Show a Data Point Value**
 Show value of "Leaf 4" data point:
 
 
@@ -64,7 +64,7 @@ dataPoints->idx_get(3)->get_DataPointLevels()->idx_get(0)->get_Label()->get_Data
 ```
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
-## **Set Data Point Label and Color**
+## **Set a Data Point Label and Color**
 Set "Branch 1" data label to show series name ("Series1") instead of category name. Then set text color to yellow:
 
 
@@ -79,7 +79,7 @@ branch1Label->get_DataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_
 ```
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
-## **Set Data Point Branch Color**
+## **Set the Data Point Branch Color**
 
 Change color of "Stem 4" branch:
 
@@ -97,5 +97,20 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
 
+## **FAQ**
 
+**Can I change the order (sorting) of segments in Sunburst/Treemap?**
 
+No. PowerPoint sorts segments automatically (typically by descending values, clockwise). Aspose.Slides mirrors this behavior: you can’t change the order directly; you achieve it by preprocessing the data.
+
+**How does the presentation theme affect the colors of segments and labels?**
+
+Chart colors inherit the presentation’s [theme/palette](/slides/cpp/presentation-theme/) unless you explicitly set fills/fonts. For consistent results, lock in solid fills and text formatting at the required levels.
+
+**Will export to PDF/PNG preserve custom branch colors and label settings?**
+
+Yes. When exporting the presentation, chart settings (fills, labels) are preserved in the output formats because Aspose.Slides renders with the chart’s formatting applied.
+
+**Can I compute the actual coordinates of a label/element for custom overlay placement on top of the chart?**
+
+Yes. After the chart layout is validated, actual X and actual Y are available for elements (for example, a [DataLabel](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datalabel/)), which helps with precise positioning of overlays.

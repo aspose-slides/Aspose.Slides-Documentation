@@ -1,24 +1,38 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 15.4.0
+title: "واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة في Aspose.Slides لـ .NET 15.4.0"
+linktitle: "Aspose.Slides لـ .NET 15.4.0"
 type: docs
 weight: 150
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
+keywords:
+- ترحيل
+- كود قديم
+- كود حديث
+- نهج قديم
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "استعراض تحديثات واجهة برمجة التطبيقات العامة والتغييرات المكسرة في Aspose.Slides لـ .NET لضمان ترحيل سلس لحلول عروض PowerPoint (PPT، PPTX) و ODP الخاصة بك."
 ---
 
 {{% alert color="primary" %}} 
 
-تسرد هذه الصفحة جميع الفئات والطرق والخصائص [المضافة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) أو [المزالة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) وما إلى ذلك، والتغييرات الأخرى التي تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لـ .NET 15.4.0.
+هذه الصفحة تسرد جميع الفئات، الأساليب، الخصائص وما إلى ذلك التي تم [مضافة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) أو [مزالة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) وكذلك التغييرات الأخرى التي تم تقديمها مع Aspose.Slides for .NET 15.4.0 API.
 
 {{% /alert %}} 
-## **تغييرات واجهة برمجة التطبيقات العامة**
-#### **تمت إضافة تعداد OrganizationChartLayoutType**
-يمثل تعداد Aspose.Slides.SmartArt.OrganizationChartLayoutType نوع التنسيق لعقد الأطفال في مخطط تنظيمي.
-#### **تمت إضافة طريقة IBulletFormat.ApplyDefaultParagraphIndentsShifts**
-تقوم طريقة Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts بتعيين انزلاقات افتراضية غير صفرية لـ effective paragraph Indent و MarginLeft عند تمكين النقاط (كما يفعل PowerPoint إذا تم تمكين نقاط/ترقيم الفقرات فيه). إذا تم تعطيل النقاط، فإنه يقوم ببساطة بإعادة تعيين الفقرات Indent و MarginLeft (كما يفعل PowerPoint إذا تم تعطيل نقاط/ترقيم الفقرات فيه).
+## **التغييرات العامة في API**
+#### **تم إضافة Enum OrganizationChartLayoutType**
+يمثل تعداد Aspose.Slides.SmartArt.OrganizationChartLayoutType نوع تنسيق العقد الفرعية في مخطط التنظيم.
+#### **تم إضافة طريقة IBulletFormat.ApplyDefaultParagraphIndentsShifts**
+طريقة Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts تعيين إزاحات غير صفرية افتراضية لتنسيق الفقرات للـ Indent و MarginLeft عندما تكون العلامات النقطية مفعلة (كما يفعل PowerPoint عند تمكين العلامات النقطية/الترقيم). إذا كانت العلامات النقطية معطلة فإنها تعيد ضبط Indent و MarginLeft (كما يفعل PowerPoint عند تعطيل العلامات النقطية/الترقيم).
 
 انظر الأمثلة [هنا](/slides/ar/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
-#### **تمت إضافة طريقة IConnector.Reroute**
-تقوم طريقة Aspose.Slides.IConnector.Reroute بإعادة توجيه الموصل بحيث يأخذ أقصر مسار ممكن بين الأشكال التي يتصل بها. للقيام بذلك، قد تقوم طريقة Reroute() بتغيير StartShapeConnectionSiteIndex و EndShapeConnectionSiteIndex.
+#### **تم إضافة طريقة IConnector.Reroute**
+طريقة Aspose.Slides.IConnector.Reroute تعيد توجيه الموصل بحيث يأخذ أقصر مسار ممكن بين الأشكال المتصلة. للقيام بذلك قد تقوم طريقة Reroute() بتغيير خاصيتي StartShapeConnectionSiteIndex و EndShapeConnectionSiteIndex.
 
 ``` csharp
 
@@ -45,8 +59,8 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 }
 
 ``` 
-#### **تمت إضافة طريقة IPresentation.GetSlideById**
-تقوم طريقة Aspose.Slides.IPresentation.GetSlideById(System.UInt32) بإرجاع شريحة أو MasterSlide أو LayoutSlide بواسطة Id الشريحة.
+#### **تم إضافة طريقة IPresentation.GetSlideById**
+طريقة Aspose.Slides.IPresentation.GetSlideById(System.UInt32) تُرجع شريحة Slide أو MasterSlide أو LayoutSlide بحسب معرف الشريحة.
 
 ``` csharp
 
@@ -63,8 +77,8 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 }
 
 ``` 
-#### **تمت إضافة خاصية IShape.ConnectionSiteCount**
-تقوم خاصية Aspose.Slides.IShape.ConnectionSiteCount بإرجاع عدد مواقع الاتصال على الشكل.
+#### **تم إضافة خاصية IShape.ConnectionSiteCount**
+خاصية Aspose.Slides.IShape.ConnectionSiteCount تُرجع عدد نقاط الاتصال على الشكل.
 
 ``` csharp
 
@@ -99,8 +113,8 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 }
 
 ``` 
-#### **تمت إضافة خاصية ISmartArt.IsReversed**
-تسمح خاصية Aspose.Slides.SmartArt.ISmartArt.IsReversed بالحصول على أو تعيين حالة رسم SmartArt فيما يتعلق بـ (من اليسار إلى اليمين) LTR أو (من اليمين إلى اليسار) RTL، إذا كان الرسم يدعم العكس.
+#### **تم إضافة خاصية ISmartArt.IsReversed**
+خاصية Aspose.Slides.SmartArt.ISmartArt.IsReversed تسمح بالحصول على أو ضبط حالة مخطط SmartArt بالنسبة للاتجاه من اليسار إلى اليمين (LTR) أو من اليمين إلى اليسار (RTL) إذا كان المخطط يدعم العكس.
 
 ``` csharp
 
@@ -117,8 +131,8 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 }
 
 ``` 
-#### **تمت إضافة خاصية ISmartArt.Nodes**
-تقوم خاصية Aspose.Slides.SmartArt.ISmartArt.Nodes بإرجاع مجموعة من العقد الجذرية في كائن SmartArt.
+#### **تم إضافة خاصية ISmartArt.Nodes**
+خاصية Aspose.Slides.SmartArt.ISmartArt.Nodes تُرجع مجموعة العقد الجذرية في كائن SmartArt.
 
 ``` csharp
 
@@ -130,15 +144,15 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 
   ISmartArtNode node = smart.Nodes[1]; // اختيار العقدة الجذرية الثانية
 
-  node.TextFrame.Text = "العقدة الجذرية الثانية";
+  node.TextFrame.Text = "Second root node";
 
   pres.Save("out.pptx", Export.SaveFormat.Pptx);
 
 }
 
 ``` 
-#### **تمت إضافة خاصية ISmartArtNode.IsHidden**
-تقوم خاصية Aspose.Slides.SmartArt.ISmartArtNode.IsHidden بإرجاع true إذا كانت هذه العقدة عقدة مخفية في نموذج البيانات.
+#### **تم إضافة خاصية ISmartArtNode.IsHidden**
+خاصية Aspose.Slides.SmartArt.ISmartArtNode.IsHidden تُرجع true إذا كانت هذه العقدة مخفية في نموذج البيانات.
 
 ``` csharp
 
@@ -150,13 +164,13 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 
   ISmartArtNode node = smart.AllNodes.AddNode();
 
-  bool hidden = node.IsHidden; //يرجع true
+  bool hidden = node.IsHidden; //returns true
 
   if(hidden)
 
   {
 
-    //قم ببعض الإجراءات أو الإشعارات
+    //do some actions or notifications
 
   }
 
@@ -165,8 +179,8 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 }
 
 ``` 
-#### **تمت إضافة خاصية ISmartArtNode.OrganizationChartLayout**
-تسمح خاصية Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout بالحصول على أو تعيين نوع المخطط التنظيمي المرتبط بالعقدة الحالية.
+#### **تم إضافة خاصية ISmartArtNode.OrganizationChartLayout**
+خاصية Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout تسمح بالحصول على أو ضبط نوع مخطط التنظيم المرتبط بالعقدة الحالية.
 
 ``` csharp
 
@@ -183,8 +197,8 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 }
 
 ``` 
-#### **تمت إضافة طريقة set لخاصية ISmartArt.Layout**
-تمت إضافة طريقة set لخاصية Aspose.Slides.SmartArt.ISmartArt.Layout. يسمح بتغيير نوع التخطيط لرسم موجود.
+#### **تم إضافة طريقة تعيين للخاصية ISmartArt.Layout**
+تم إضافة طريقة تعيين للخاصية Aspose.Slides.SmartArt.ISmartArt.Layout. تسمح بتغيير نوع تخطيط المخطط الحالي.
 
 ``` csharp
 
@@ -201,13 +215,12 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 }
 
 ``` 
-#### **تغييرات طفيفة في واجهة برمجة التطبيقات**
-**هذه هي قائمة التغييرات الطفيفة في واجهة برمجة التطبيقات:**
+#### **تغييرات طفيفة في API**
+**هذه هي قائمة التغييرات الطفيفة في API:**
 
-|التعداد Aspose.Slides.BevelColorMode |محذوف، تعداد غير مستخدم |
-| :- | :- |
-|خاصية ThreeDFormatEffectiveData.BevelColorMode |محذوف، خاصية غير مستخدمة |
-|خاصية Aspose.Slides.Charts.ChartSeriesGroup.Chart <br>خاصية Aspose.Slides.Charts.IChartSeriesGroup.AsIChartComponent |مضافة |
-|خاصية Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>وراثة IParagraphFormatEffectiveData من ISlideComponent <br>خاصية Aspose.Slides.IThreeDFormat.AsISlideComponent <br>وراثة IThreeDFormat من ISlideComponent |محذوف |
-|خاصية Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>خاصية Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>خاصية Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>خاصية Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>خاصية Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>خاصية Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |محذوفة كمتهور |
-
+|Enum Aspose.Slides.BevelColorMode|محذوف، تعداد غير مستخدم|
+|:-|:-|
+|Property ThreeDFormatEffectiveData.BevelColorMode|محذوف، خاصية غير مستخدمة|
+|Property Aspose.Slides.Charts.ChartSeriesGroup.Chart <br>Property Aspose.Slides.Charts.IChartSeriesGroup.AsIChartComponent|مضافة|
+|Property Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Property Aspose.Slides.IThreeDFormat.AsISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent|محذوفة|
+|Property Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle|محذوفة باعتبارها قديمة|

@@ -5,7 +5,7 @@ weight: 30
 url: /net/apply-a-theme-to-a-presentation/
 ---
 
-## **OpenXML Presentation:**
+## **OpenXML Presentation**
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";

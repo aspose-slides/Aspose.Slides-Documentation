@@ -148,7 +148,7 @@ try {
     // 访问第一张幻灯片
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // 添加一个带有默认数据的图表
+    // 添加默认数据的图表
     IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
     
     // 设置图表标题
@@ -166,7 +166,7 @@ try {
     // 获取图表数据工作表
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // 删除默认生成的系列和类别
+    // 删除默认生成的系列和分类
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     int s = chart.getChartData().getSeries().size();
@@ -344,7 +344,7 @@ try {
     // 访问第一张幻灯片
     ISlide slides = pres.getSlides().get_Item(0);
     
-    // 添加一个带有默认数据的图表
+    // 添加带默认数据的图表
     IChart chart = slides.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
     
     // 设置图表标题
@@ -362,7 +362,7 @@ try {
     // 获取图表数据工作表
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // 删除默认生成的系列和类别
+    // 删除默认生成的系列和分类
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     
@@ -407,7 +407,7 @@ try {
     point1.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot);
     
     IChartDataPoint point2 = series.getDataPoints().get_Item(2);
-    point2.getFormat().getFill().setFillType(FillType.Solid);
+    point2.getFormat().setFillType(FillType.Solid);
     point2.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW);
     
     // 设置扇区边框
@@ -1169,7 +1169,7 @@ try {
 
 ## **设置图表的数据范围**
 
-要为图表设置数据范围，请执行以下操作：
+## **设置图表的数据范围**
 
 1. 实例化表示包含图表的演示文稿的 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类。
 2. 通过索引获取幻灯片的引用。

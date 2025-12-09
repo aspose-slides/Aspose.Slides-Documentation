@@ -1,285 +1,259 @@
 ---
-title: Рабочее решение для изменения размера листов
+title: Рабочее решение для изменения размера листа
 type: docs
 weight: 40
 url: /ru/net/working-solution-for-worksheet-resizing/
+keywords:
+- OLE
+- изображение предпросмотра
+- изменение размера изображения
+- Excel
+- рабочий лист
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Исправьте изменение размера OLE листа Excel в презентациях: два способа поддерживать согласованность рамок объектов — масштабировать рамку или лист — в форматах PPT и PPTX."
 ---
 
 {{% alert color="primary" %}} 
 
-Было замечено, что листы Excel, встроенные как OLE в презентацию PowerPoint с помощью компонентов Aspose, изменяются до неопределенной шкалы после первого активации. Это поведение создает значительную визуальную разницу в презентации между состояниями до и после активации диаграммы. Мы подробно исследовали эту проблему и нашли решение, которое описано в данной статье. 
+Было обнаружено, что листы Excel, встроенные как OLE‑объекты в презентацию PowerPoint через компоненты Aspose, после первого активации изменяются до неопределённого масштаба. Это приводит к заметной визуальной разнице в презентации между состоянием OLE‑объекта до и после активации. Мы подробно исследовали эту проблему и предоставили решение, которое описано в этой статье.
 
 {{% /alert %}} 
-## **Предыстория**
-В статье [Добавление OLE рамок]() мы объяснили, как добавить OLE рамку в презентацию PowerPoint с использованием Aspose.Slides для .NET. Чтобы учесть [проблему с изменением объекта](/slides/ru/net/object-changed-issue-when-adding-oleobjectframe/), мы присвоили изображение листа выбранной области OLE объектной рамке диаграммы. В выходной презентации, когда мы дважды щелкаем OLE объектную рамку, показывающую изображение листа, активируется диаграмма Excel. Конечные пользователи могут внести любые желаемые изменения в фактическую книгу Excel, а затем вернуться к соответствующему слайду, щелкнув за пределами активной книги Excel. Размер OLE объектной рамки изменится, когда пользователь вернется к слайду. Коэффициент изменения размера будет различным для различных размеров OLE объектной рамки и встроенной книги Excel. 
+
+## **Общее описание**
+
+В статье [Управление OLE](/slides/ru/net/manage-ole/) мы объяснили, как добавить OLE‑кадр в презентацию PowerPoint с помощью Aspose.Slides for .NET. Чтобы решить проблему [предпросмотра объекта](/slides/ru/net/object-preview-issue-when-adding-oleobjectframe/), мы назначили изображение выбранной области листа OLE‑объекта. В результирующей презентации, когда вы двойным щелчком открываете OLE‑кадр с изображением листа, активируется книга Excel. Пользователи могут вносить любые изменения в реальную книгу Excel, а затем возвращаться к слайду, щёлкнув за пределами активированной книги. Размер OLE‑кадра изменится при возврате к слайду. Коэффициент изменения размера будет зависеть от размеров OLE‑кадра и встроенной книги Excel. 
+
 ## **Причина изменения размера**
-Поскольку книга Excel имеет собственный размер окна, она пытается сохранить свой исходный размер при первой активации. С другой стороны, OLE объектная рамка будет иметь свой собственный размер. Согласно данным Microsoft, при активации книги Excel, Excel и PowerPoint согласовывают размер и гарантируют, что он имеет правильные пропорции в рамках операции встраивания. В зависимости от различий между размером окна Excel и размером / положением OLE объектной рамки происходит изменение размера. 
+
+Поскольку у книги Excel собственный размер окна, при первой активации она пытается сохранить исходный размер. С другой стороны, OLE‑кадр имеет свой размер. По данным Microsoft, при активации книги Excel Excel и PowerPoint согласовывают размер, чтобы сохранить правильные пропорции в процессе встраивания. Изменение размера происходит из‑за различий между размером окна Excel и размером и позицией OLE‑кадра. 
+
 ## **Рабочее решение**
-Существует два возможных решения, чтобы избежать эффекта изменения размера.
 
-- Изменить размер OLE рамки в PPT так, чтобы он соответствовал размеру в терминах высоты/ширины необходимого количества строк/столбцов в OLE рамке.
-- Сохранить постоянный размер OLE рамки и изменить размер участвующих строк/столбцов, чтобы они вписывались в выбранный размер OLE рамки.
-## **Изменение размера OLE рамки в соответствии с размерами выбранных строк/столбцов листа**
-В этом подходе мы научимся устанавливать размер OLE рамки встроенной книги Excel, эквивалентный суммарному размеру количества участвующих строк и столбцов на листе Excel. 
-## **Пример**
-Предположим, мы определили шаблонную excel таблицу и хотим добавить ее в презентацию как OLE рамку. В этом случае размер OLE объектной рамки будет вычислен в первую очередь на основе суммарной высоты строк и ширины столбцов участвующих строк и столбцов книги. Затем мы установим размер OLE рамки на это вычисленное значение. Чтобы избежать красного сообщения **Встроенный объект** для OLE рамки в PowerPoint, мы также получим изображение желаемых частей строк и столбцов в книге и установим его в качестве изображения OLE рамки. 
+Существует два возможных подхода, позволяющих избежать эффекта изменения размера.
 
-```csharp
-WorkbookDesigner workbookDesigner = new WorkbookDesigner();
-workbookDesigner.Workbook = new Workbook("AsposeTest.xls");
+- Масштабировать размер OLE‑кадра в презентации PowerPoint так, чтобы он соответствовал высоте и ширине требуемого количества строк и столбцов в OLE‑кадре.
+- Сохранить постоянный размер OLE‑кадра и масштабировать размеры участвующих строк и столбцов, чтобы они поместились в выбранный размер OLE‑кадра.
 
-Presentation presentation = new Presentation("AsposeTest.ppt");
+### **Масштабировать размер OLE‑кадра**
 
-Slide slide = (Slide)presentation.Slides[0];
+В этом подходе мы узнаем, как задать размер OLE‑кадра встроенной книги Excel, соответствующий совокупному размеру участвующих строк и столбцов листа Excel.
 
-AddOleFrame(slide, 0, 15, 0, 3, 0, 300, 1100, 0, 0, presentation, workbookDesigner, true, 0, 0);
+Предположим, у нас есть шаблон листа Excel, который нужно добавить в презентацию как OLE‑кадр. В этом случае размер OLE‑кадра сначала рассчитывается на основе совокупных высот строк и ширин столбцов участвующих в книге. Затем мы задаём размер OLE‑кадра этим вычисленным значением. Чтобы избавиться от красного сообщения «EMBEDDED OLE OBJECT» для OLE‑кадра в PowerPoint, мы также захватим изображение нужных частей строк и столбцов в книге и установим его как изображение OLE‑кадра.
+```cs
+int startRow = 0, rowCount = 10;
+int startColumn = 0, columnCount = 13;
+int worksheetIndex = 0;
 
-String fileName = "AsposeTest_Ole.ppt";
-presentation.Save(fileName, Aspose.Slides.Export.SaveFormat.Ppt);
+int imageResolution = 96;
+
+using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
+var worksheet = workbook.Worksheets[worksheetIndex];
+
+// Set the displayed size when the workbook file is used as an OLE object in PowerPoint.
+var lastRow = startRow + rowCount - 1;
+var lastColumn = startColumn + columnCount - 1;
+workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
+
+var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
+var imageStream = CreateOleImage(cellRange, imageResolution);
+
+// Get the width and height of the OLE image in points.
+using var image = Image.FromStream(imageStream);
+var imageWidth = image.Width * 72 / imageResolution;
+var imageHeight = image.Height * 72 / imageResolution;
+
+// We need to use the modified workbook.
+using var oleStream = new MemoryStream();
+workbook.Save(oleStream, Aspose.Cells.SaveFormat.Xlsx);
+
+using var presentation = new Presentation();
+var slide = presentation.Slides.First();
+
+// Add the OLE image to the presentation resources.
+imageStream.Seek(0, SeekOrigin.Begin);
+var oleImage = presentation.Images.AddImage(imageStream);
+
+// Create the OLE object frame.
+var dataInfo = new OleEmbeddedDataInfo(oleStream.ToArray(), "xlsx");
+var oleFrame = slide.Shapes.AddOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
+oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
+oleFrame.IsObjectIcon = false;
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-```csharp
-private static Size SetOleAccordingToSelectedRowsCloumns(Workbook workbook, Int32 startRow, Int32 endRow, Int32 startCol, Int32 endCol, Int32 dataSheetIdx)
+```cs
+static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 {
-    Worksheet work = workbook.Worksheets[dataSheetIdx];
+    var pageSetup = cellRange.Worksheet.PageSetup;
+    pageSetup.PrintArea = cellRange.Address;
+    pageSetup.LeftMargin = 0;
+    pageSetup.RightMargin = 0;
+    pageSetup.TopMargin = 0;
+    pageSetup.BottomMargin = 0;
+    pageSetup.ClearHeaderFooter();
 
-    double actualHeight = 0, actualWidth = 0;
-
-    for (int i = startRow; i <= endRow; i++)
-        actualHeight += work.Cells.GetRowHeightInch(i);
-
-    for (int i = startCol; i <= endCol; i++)
-        actualWidth += work.Cells.GetColumnWidthInch(i);
-    //Установка новой высоты строк и ширины столбцов
-
-    return new Size((int)(Math.Round(actualWidth, 2) * 576), (int)(Math.Round(actualHeight, 2) * 576));
-}
-```
-```csharp
-private static void AddOleFrame(Slide slide, Int32 startRow, Int32 endRow, Int32 startCol, Int32 endCol,
-    Int32 dataSheetIdx, Int32 x, Int32 y, Double OleWidth, Double OleHeight,
-    Presentation presentation, WorkbookDesigner workbookDesigner,
-    Boolean onePagePerSheet, Int32 outputWidth, Int32 outputHeight)
-{
-    String tempFileName = Path.GetTempFileName();
-    if (startRow == 0)
+    var imageOptions = new Aspose.Cells.Rendering.ImageOrPrintOptions
     {
-        startRow++;
-        endRow++;
-    }
+        ImageType = Aspose.Cells.Drawing.ImageType.Png,
+        VerticalResolution = imageResolution,
+        HorizontalResolution = imageResolution,
+        OnePagePerSheet = true,
+        OnlyArea = true
+    };
 
-    //Установка активного индекса листа книги
-    workbookDesigner.Workbook.Worksheets.ActiveSheetIndex = dataSheetIdx;
+    var sheetRender = new Aspose.Cells.Rendering.SheetRender(cellRange.Worksheet, imageOptions);
+    var imageStream = new MemoryStream();
 
-    //Получение книги и выбранного листа  
-    Workbook workbook = workbookDesigner.Workbook;
-    Worksheet work = workbook.Worksheets[dataSheetIdx];
+    sheetRender.ToImage(0, imageStream);
+    imageStream.Seek(0, SeekOrigin.Begin);
 
-    //Установка размера OLE в соответствии с выбранными строками и столбцами
-    Size SlideOleSize = SetOleAccordingToSelectedRowsCloumns(workbook, startRow, endRow, startCol, endCol, dataSheetIdx);
-    OleWidth = SlideOleSize.Width;
-    OleHeight = SlideOleSize.Height;
-
-    //Установка размера OLE в книге
-    workbook.Worksheets.SetOleSize(startRow, endRow, startCol, endCol);
-
-    workbook.Worksheets[0].IsGridlinesVisible = false;
-
-    //Установка параметров изображения для получения изображения листа
-    ImageOrPrintOptions imageOrPrintOptions = new ImageOrPrintOptions();
-    imageOrPrintOptions.ImageFormat = System.Drawing.Imaging.ImageFormat.Bmp;
-    imageOrPrintOptions.OnePagePerSheet = onePagePerSheet;
-
-    SheetRender render = new SheetRender(workbookDesigner.Workbook.Worksheets[dataSheetIdx], imageOrPrintOptions);
-    String ext = ".bmp";
-    render.ToImage(0, tempFileName + ext);
-    Image image = ScaleImage(Image.FromFile(tempFileName + ext), outputWidth, outputHeight);
-    String newTempFileName = tempFileName.Replace(".tmp", ".tmp1") + ext;
-    image.Save(newTempFileName, System.Drawing.Imaging.ImageFormat.Bmp);
-
-    //Добавление изображения в коллекцию изображений слайда
-    var ppImage = presentation.Images.AddImage(File.ReadAllBytes(newTempFileName));
-
-    //Сохранение книги в поток и копирование в массив байтов
-    Stream mstream = workbook.SaveToStream();
-    byte[] chartOleData = new byte[mstream.Length];
-    mstream.Position = 0;
-    mstream.Read(chartOleData, 0, chartOleData.Length);
-
-    //Добавление OLE объектной рамки
-    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(chartOleData, "xls");
-    IOleObjectFrame oleObjectFrame = slide.Shapes.AddOleObjectFrame(x, y, Convert.ToInt32(OleWidth),
-        Convert.ToInt32(OleHeight), dataInfo);
-
-    //Установка имени изображения OLE рамки и альтернативного текстового свойства    
-    oleObjectFrame.SubstitutePictureFormat.Picture.Image = ppImage;
-    oleObjectFrame.AlternativeText = "image" + ppImage;
+    return imageStream;
 }
 ```
 
-```csharp
-private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeight)
-{
-    if (outputWidth == 0 && outputHeight == 0)
-    {
-        outputWidth = image.Width;
-        outputHeight = image.Height;
-    }
-    Bitmap outputImage = new Bitmap(outputWidth, outputHeight, image.PixelFormat);
-    outputImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
-    Graphics graphics = Graphics.FromImage(outputImage);
-    graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-    System.Drawing.Rectangle srcDestRect = new System.Drawing.Rectangle(0, 0, outputWidth, outputHeight);
-    graphics.DrawImage(image, srcDestRect, srcDestRect, GraphicsUnit.Pixel);
-    graphics.Dispose();
 
-    return outputImage;
+### **Масштабировать размер диапазона ячеек**
+
+В этом подходе мы научимся масштабировать высоты участвующих строк и ширину участвующих столбцов так, чтобы они соответствовали пользовательскому размеру OLE‑кадра.
+
+Предположим, у нас есть шаблон листа Excel, который нужно добавить в презентацию как OLE‑кадр. В этом случае мы задаём размер OLE‑кадра и масштабируем размеры строк и столбцов, участвующих в области OLE‑кадра. Затем сохраняем книгу в поток, чтобы применить изменения, и конвертируем её в массив байтов для добавления в OLE‑кадр. Чтобы избавиться от красного сообщения «EMBEDDED OLE OBJECT» для OLE‑кадра в PowerPoint, мы также захватим изображение нужных частей строк и столбцов в книге и установим его как изображение OLE‑кадра.
+```cs
+int startRow = 0, rowCount = 10;
+int startColumn = 0, columnCount = 13;
+int worksheetIndex = 0;
+
+int imageResolution = 96;
+float frameWidth = 400, frameHeight = 100;
+
+using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
+var worksheet = workbook.Worksheets[worksheetIndex];
+
+// Установите отображаемый размер, когда файл рабочей книги используется как OLE-объект в PowerPoint.
+var lastRow = startRow + rowCount - 1;
+var lastColumn = startColumn + columnCount - 1;
+workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
+
+// Масштабировать диапазон ячеек, чтобы он соответствовал размеру кадра.
+var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
+ScaleCellRange(cellRange, frameWidth, frameHeight);
+
+var imageStream = CreateOleImage(cellRange, imageResolution);
+
+// Нам нужно использовать изменённую рабочую книгу.
+using var oleStream = new MemoryStream();
+workbook.Save(oleStream, Aspose.Cells.SaveFormat.Xlsx);
+
+using var presentation = new Presentation();
+var slide = presentation.Slides.First();
+
+// Добавьте OLE-изображение в ресурсы презентации.
+var oleImage = presentation.Images.AddImage(imageStream);
+
+// Create the OLE object frame.
+var dataInfo = new OleEmbeddedDataInfo(oleStream.ToArray(), "xlsx");
+var oleFrame = slide.Shapes.AddOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
+oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
+oleFrame.IsObjectIcon = false;
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
+```
+
+```cs
+/// <param name="width">Ожидаемая ширина диапазона ячеек в пунктах.</param>
+/// <param name="height">Ожидаемая высота диапазона ячеек в пунктах.</param>
+static void ScaleCellRange(Aspose.Cells.Range cellRange, float width, float height)
+{
+    var rangeWidth = cellRange.Width;
+    var rangeHeight = cellRange.Height;
+
+    for (int i = 0; i < cellRange.ColumnCount; i++)
+    {
+        var columnIndex = cellRange.FirstColumn + i;
+        var columnWidth = cellRange.Worksheet.Cells.GetColumnWidth(columnIndex, false, Aspose.Cells.CellsUnitType.Point);
+
+        var newColumnWidth = columnWidth * width / rangeWidth;
+        var widthInInches = newColumnWidth / 72;
+        cellRange.Worksheet.Cells.SetColumnWidthInch(columnIndex, widthInInches);
+    }
+
+    for (int i = 0; i < cellRange.RowCount; i++)
+    {
+        var rowIndex = cellRange.FirstRow + i;
+        var rowHeight = cellRange.Worksheet.Cells.GetRowHeight(rowIndex, false, Aspose.Cells.CellsUnitType.Point);
+
+        var newRowHeight = rowHeight * height / rangeHeight;
+        var heightInInches = newRowHeight / 72;
+        cellRange.Worksheet.Cells.SetRowHeightInch(rowIndex, heightInInches);
+    }
 }
 ```
 
-## **Изменение высоты строк и ширины столбцов листа в соответствии с размером OLE рамки**
-В этом подходе мы научимся изменять высоты участвующих строк и ширину участвующего столбца в соответствии с заданным размером OLE рамки.
-## **Пример**
-Предположим, мы определили шаблонную excel таблицу и хотим добавить ее в презентацию как OLE рамку. В этом случае мы установим размер OLE рамки и изменим размеры строк и столбцов, участвующих в области OLE рамки. Затем мы сохраним книгу в потоке, чтобы сохранить изменения и преобразовать ее в массив байтов для добавления в OLE рамку. Чтобы избежать красного сообщения **Встроенный объект** для OLE рамки в PowerPoint, мы также получим изображение желаемых частей строк и столбцов в книге и установим его в качестве изображения OLE рамки. 
-
-```csharp
-WorkbookDesigner workbookDesigner = new WorkbookDesigner();
-workbookDesigner.Workbook = new Workbook("AsposeTest.xls");
-
-Presentation presentation = new Presentation("AsposeTest.ppt");
-
-Slide slide = (Slide)presentation.Slides[0];
-
-AddOleFrame(slide, 0, 15, 0, 3, 0, 300, 1100, 0, 0, presentation, workbookDesigner, true, 0, 0);
-
-String fileName = "AsposeTest_Ole.ppt";
-presentation.Save(fileName, Aspose.Slides.Export.SaveFormat.Ppt);
-```
-
-```csharp
-private static void SetOleAccordingToCustomHeighWidth(Workbook workbook, Int32 startRow,
-    Int32 endRow, Int32 startCol, Int32 endCol, double slideWidth, double slideHeight, Int32 dataSheetIdx)
+```cs
+static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 {
-    Worksheet work = workbook.Worksheets[dataSheetIdx];
+    var pageSetup = cellRange.Worksheet.PageSetup;
+    pageSetup.PrintArea = cellRange.Address;
+    pageSetup.LeftMargin = 0;
+    pageSetup.RightMargin = 0;
+    pageSetup.TopMargin = 0;
+    pageSetup.BottomMargin = 0;
+    pageSetup.ClearHeaderFooter();
 
-    double actualHeight = 0, actualWidth = 0;
-
-    double newHeight = slideHeight;
-    double newWidth = slideWidth;
-    double tem = 0;
-    double newTem = 0;
-
-    for (int i = startRow; i <= endRow; i++)
-        actualHeight += work.Cells.GetRowHeightInch(i);
-
-    for (int i = startCol; i <= endCol; i++)
-        actualWidth += work.Cells.GetColumnWidthInch(i);
-    ///Установка новой высоты строк и ширины столбцов
-
-    for (int i = startRow; i <= endRow; i++)
+    var imageOptions = new Aspose.Cells.Rendering.ImageOrPrintOptions
     {
-        tem = work.Cells.GetRowHeightInch(i);
-        newTem = (tem / actualHeight) * newHeight;
-        work.Cells.SetRowHeightInch(i, newTem);
-    }
+        ImageType = Aspose.Cells.Drawing.ImageType.Png,
+        VerticalResolution = imageResolution,
+        HorizontalResolution = imageResolution,
+        OnePagePerSheet = true,
+        OnlyArea = true
+    };
 
-    for (int i = startCol; i <= endCol; i++)
-    {
-        tem = work.Cells.GetColumnWidthInch(i);
-        newTem = (tem / actualWidth) * newWidth;
-        work.Cells.SetColumnWidthInch(i, newTem);
+    var sheetRender = new Aspose.Cells.Rendering.SheetRender(cellRange.Worksheet, imageOptions);
+    var imageStream = new MemoryStream();
 
-    }
-}
+    sheetRender.ToImage(0, imageStream);
+    imageStream.Seek(0, SeekOrigin.Begin);
 
-```
-
-```csharp
-private static void AddOleFrame(Slide slide, Int32 startRow, Int32 endRow, Int32 startCol, Int32 endCol,
-    Int32 dataSheetIdx, Int32 x, Int32 y, Double OleWidth, Double OleHeight,
-    Presentation presentation, WorkbookDesigner workbookDesigner,
-    Boolean onePagePerSheet, Int32 outputWidth, Int32 outputHeight)
-{
-    String tempFileName = Path.GetTempFileName();
-    if (startRow == 0)
-    {
-        startRow++;
-        endRow++;
-    }
-
-    //Установка активного индекса листа книги
-    workbookDesigner.Workbook.Worksheets.ActiveSheetIndex = dataSheetIdx;
-
-    //Получение книги и выбранного листа  
-    Workbook workbook = workbookDesigner.Workbook;
-    Worksheet work = workbook.Worksheets[dataSheetIdx];
-
-    //Установка размера OLE в соответствии с выбранными строками и столбцами
-    Size SlideOleSize = SetOleAccordingToSelectedRowsCloumns(workbook, startRow, endRow, startCol, endCol, dataSheetIdx);
-    OleWidth = SlideOleSize.Width;
-    OleHeight = SlideOleSize.Height;
-
-    //Установка размера OLE в книге
-    workbook.Worksheets.SetOleSize(startRow, endRow, startCol, endCol);
-
-    workbook.Worksheets[0].IsGridlinesVisible = false;
-
-    //Установка параметров изображения для получения изображения листа
-    ImageOrPrintOptions imageOrPrintOptions = new ImageOrPrintOptions();
-    imageOrPrintOptions.ImageFormat = System.Drawing.Imaging.ImageFormat.Bmp;
-    imageOrPrintOptions.OnePagePerSheet = onePagePerSheet;
-
-    SheetRender render = new SheetRender(workbookDesigner.Workbook.Worksheets[dataSheetIdx], imageOrPrintOptions);
-    String ext = ".bmp";
-    render.ToImage(0, tempFileName + ext);
-    Image image = ScaleImage(Image.FromFile(tempFileName + ext), outputWidth, outputHeight);
-    String newTempFileName = tempFileName.Replace(".tmp", ".tmp1") + ext;
-    image.Save(newTempFileName, System.Drawing.Imaging.ImageFormat.Bmp);
-
-    //Добавление изображения в коллекцию изображений слайда
-    var ppImage = presentation.Images.AddImage(File.ReadAllBytes(newTempFileName));
-
-    //Сохранение книги в поток и копирование в массив байтов
-    Stream mstream = workbook.SaveToStream();
-    byte[] chartOleData = new byte[mstream.Length];
-    mstream.Position = 0;
-    mstream.Read(chartOleData, 0, chartOleData.Length);
-
-    //Добавление OLE объектной рамки
-    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(chartOleData, "xls");
-    IOleObjectFrame oleObjectFrame = slide.Shapes.AddOleObjectFrame(x, y, Convert.ToInt32(OleWidth),
-        Convert.ToInt32(OleHeight), dataInfo);
-
-    //Установка имени изображения OLE рамки и альтернативного текстового свойства    
-    oleObjectFrame.SubstitutePictureFormat.Picture.Image = ppImage;
-    oleObjectFrame.AlternativeText = "image" + ppImage;
+    return imageStream;
 }
 ```
 
-```csharp
-private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeight)
-{
-    if (outputWidth == 0 && outputHeight == 0)
-    {
-        outputWidth = image.Width;
-        outputHeight = image.Height;
-    }
-    Bitmap outputImage = new Bitmap(outputWidth, outputHeight, image.PixelFormat);
-    outputImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
-    Graphics graphics = Graphics.FromImage(outputImage);
-    graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-    System.Drawing.Rectangle srcDestRect = new System.Drawing.Rectangle(0, 0, outputWidth, outputHeight);
-    graphics.DrawImage(image, srcDestRect, srcDestRect, GraphicsUnit.Pixel);
-    graphics.Dispose();
-
-    return outputImage;
-}
-```
 
 ## **Заключение**
 
-{{% alert color="primary" %}} Существуют два подхода для исправления проблемы изменения размера листа. Выбор подходящего подхода зависит от требований и конкретного случая. Оба подхода работают одинаково, независимо от того, создается ли презентация из шаблона или с нуля. Кроме того, в решении нет ограничений по размеру OLE объектной рамки. {{% /alert %}} 
-## **Связанные разделы**
-[Создание и встраивание диаграммы Excel как объекта OLE в презентацию](/slides/ru/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+{{% alert color="primary" %}}
 
-[Автоматическое обновление OLE объектов](/slides/ru/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+Существует два подхода к исправлению проблемы изменения размера листа. Выбор подходящего зависит от конкретных требований и сценария использования. Оба подхода работают одинаково, независимо от того, создаются презентации из шаблона или с нуля. Кроме того, в этом решении нет ограничений по размеру OLE‑кадра.
+
+{{% /alert %}}
+
+## FAQ
+
+**В: Почему встроенный лист Excel меняет размер при первом активации в PowerPoint?**  
+Это происходит потому, что Excel пытается сохранить исходный размер окна при активации, тогда как OLE‑кадр в PowerPoint имеет свои собственные размеры. PowerPoint и Excel согласовывают размер, чтобы сохранить соотношение сторон, что может вызвать изменение масштаба.
+
+**В: Можно ли полностью предотвратить эту проблему изменения размера?**  
+Да. Масштабируя OLE‑кадр под размер диапазона ячеек Excel или масштабируя диапазон ячеек под желаемый размер OLE‑кадра, можно избежать нежелательного изменения масштаба.
+
+**В: Какой метод масштабирования использовать: масштабирование OLE‑кадра или диапазона ячеек?**  
+Выбирайте **масштабирование OLE‑кадра**, если хотите сохранить исходные размеры строк и столбцов Excel. Выбирайте **масштабирование диапазона ячеек**, если нужен фиксированный размер OLE‑кадра в презентации.
+
+**В: Работают ли эти решения, если моя презентация основана на шаблоне?**  
+Да. Оба решения работают как для презентаций, созданных из шаблонов, так и для созданных с нуля.
+
+**В: Есть ли ограничение по размеру OLE‑кадра при использовании этих методов?**  
+Нет. Вы можете задать любой размер OLE‑объекта, если правильно установить масштаб.
+
+**В: Как избавиться от текста‑заполнителя «EMBEDDED OLE OBJECT» в PowerPoint?**  
+Да. Сделав снимок целевого диапазона ячеек Excel и установив его в качестве изображения‑заполнителя OLE‑кадра, можно заменить стандартный заполнитель на собственное изображение.
+
+## **См. также**
+
+[Создание диаграммы Excel и встраивание её в презентацию как OLE‑объект](/slides/ru/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+
+[Автоматическое обновление OLE‑объектов с помощью надстройки MS PowerPoint](/slides/ru/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

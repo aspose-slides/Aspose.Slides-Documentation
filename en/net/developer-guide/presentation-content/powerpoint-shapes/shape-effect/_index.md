@@ -31,7 +31,7 @@ Some combinations of effects look better than others. For this reason, PowerPoin
 
 Aspose.Slides provides properties and methods under the [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) class that allow you to apply the same effects to shapes in PowerPoint presentations.
 
-## **Apply Shadow Effect**
+## **Apply a Shadow Effect**
 
 To apply a shadow effect to a shape in Aspose.Slides for .NET, you can easily adjust parameters like color, blur radius, and direction. This gives your shapes a more dynamic and professional appearance, adding depth and focus. By using simple code snippets, you can apply these effects across multiple shapes, enhancing the overall visual appeal of your presentations.
 
@@ -53,7 +53,7 @@ presentation.Save("shadow_effect.pptx", SaveFormat.Pptx);
 
 ![Shadow effect](shadow_effect.png)
 
-## **Apply Reflection Effect**
+## **Apply a Reflection Effect**
 
 To apply a reflection effect in Aspose.Slides for .NET, you can add a mirror-like reflection to shapes, adjusting parameters such as distance, transparency, and size. This effect enhances the aesthetic of your presentations by giving shapes a more polished and sophisticated look. It’s easy to implement with simple code, enabling quick application across multiple elements for a consistent design.
 
@@ -76,7 +76,7 @@ presentation.Save("reflection_effect.pptx", SaveFormat.Pptx);
 
 ![Reflection effect](reflection_effect.png)
 
-## **Apply Glow Effect**
+## **Apply a Glow Effect**
 
 To apply a glow effect to a shape in Aspose.Slides for .NET, you can add a soft, luminous aura around shapes, adjusting properties like color and size. This effect helps make shapes stand out and adds an attractive, eye-catching visual element to your presentation. It's easy to implement with minimal code, enhancing the overall look of your slides.
 
@@ -97,7 +97,7 @@ presentation.Save("glow_effect.pptx", SaveFormat.Pptx);
 
 ![Glow effect](glow_effect.png)
 
-## **Apply Soft Edges Effect**
+## **Apply a Soft Edges Effect**
 
 To apply a soft edges effect in Aspose.Slides for .NET, you can create a smooth, blurred transition around the edges of a shape. This effect adds a more subtle and refined look, perfect for designs that need a gentle, softer appearance. You can easily adjust parameters like radius to achieve the desired effect across various shapes in your presentation.
 

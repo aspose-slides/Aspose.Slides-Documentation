@@ -38,7 +38,7 @@ In PowerPoint, these are the 4 important parameters or options that control the 
 
 Aspose.Slides for C++ provides similar options—some methods under the [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format) class—that allow you to control the autofit behavior for textboxes in presentations. 
 
-## **Resize Shape to Fit Text**
+## **Resize a Shape to Fit Text**
 
 If you want the text in a box to always fit into that box after changes are made to the text, you have to use the **Resize shape to fix text** option. To specify this setting, set the [AutofitType](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format#acc706fb4d991d137831a6d50eea05e73) property (from the [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame_format) class) to `Shape`.
 
@@ -156,7 +156,16 @@ If you set the `WrapText` property to `False` for a shape, when the text inside 
 
 {{% /alert %}}
 
+## **FAQ**
 
+**Do the text frame’s internal margins affect AutoFit?**
 
+Yes. Padding (internal margins) reduces the usable area for text, so AutoFit will kick in earlier—shrinking the font or resizing the shape sooner. Check and adjust margins before tuning AutoFit.
 
+**How does AutoFit interact with manual and soft line breaks?**
 
+Forced breaks remain in place, and AutoFit adapts font size and spacing around them. Removing unnecessary breaks often reduces how aggressively AutoFit needs to shrink the text.
+
+**Does changing the theme font or triggering font substitution affect AutoFit results?**
+
+Yes. Substituting to a font with different glyph metrics changes text width/height, which can alter final font size and line wrapping. After any font change or substitution, re-check the slides.

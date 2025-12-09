@@ -94,7 +94,7 @@ To create animated charts, you should use the same classes as for the shapes. Ho
 Read more [**About Animated Charts**](/slides/net/animated-charts/).
 {{% /alert %}}
 
-## **Animated text**
+## **Animated Text**
 
 Except animated text, it is also possible to apply animation to a paragraph.
 

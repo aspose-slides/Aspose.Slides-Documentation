@@ -111,7 +111,7 @@ try {
 }
 ```
 
-## **Render Comments when saving Presentation into Image**
+## **Render Comments When Saving Slides as Images**
 
 Aspose.Slides for Java provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This Java code demonstrates the operation:
 
@@ -159,7 +159,7 @@ Yes, Aspose.Slides renders all content, including SmartArt, charts, tables, shap
 
 Aspose.Slides itself does not impose any strict limits on the number of slides you can process. However, you may encounter out-of-memory error when working with large presentations or high-resolution images.
 
-## **See also**
+## **See Also**
 
 See other options to convert PPT/PPTX into image like:
 

@@ -30,7 +30,7 @@ Historiquement, Aspose Slides a une dépendance à System.Drawing et expose dans
 - [Bitmap](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.bitmap)
 - [PrinterSettings](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.printing.printersettings)
 
-À partir de la version 24.4, cette API publique est déclarée obsolète.
+Depuis la version 24.4, cette API publique est déclarée obsolète.
 
 Comme le support de System.Drawing dans les versions .NET 6 et supérieures est supprimé pour les plateformes non Windows ([modification breaking](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)), Slides a mis en place une approche à deux bibliothèques :
 - [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET) – support pour .NET 6+ sous Windows, .NETStandard pour Windows/Linux/macOS, .NETFramework 2+ (Windows).  

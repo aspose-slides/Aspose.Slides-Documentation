@@ -34,7 +34,7 @@ Therefore, when dealing with a shape to which you want to add text, you may want
 
 {{% /alert %}}
 
-## **Create Text Box on Slide**
+## **Create a Text Box on a Slide**
 
 To create a textbox on a slide, go through these steps:
 
@@ -75,7 +75,7 @@ portion->set_Text(u"Aspose TextBox");
 pres->Save(u"TextBox_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Check for Text Box Shape**
+## **Check for a Text Box Shape**
 
 Aspose.Slides provides the [get_IsTextBox](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_istextbox/) method from the [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) interface, allowing you to examine shapes and identify text boxes.
 
@@ -127,7 +127,7 @@ shape4->get_TextFrame()->set_Text(u"");
 // shape4->get_IsTextBox() returns false
 ```
 
-## **Add Column In Text Box**
+## **Add Columns to a Text Box**
 
 Aspose.Slides provides the [set_ColumnCount](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) and [set_ColumnSpacing](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5254ce6acdc2cd90f4db1c861a94716a) methods (from the [ITextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format) interface and [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns. 
 
@@ -161,7 +161,7 @@ presentation->Save(u"ColumnCount.pptx", SaveFormat::Pptx);
 ```
 
 
-## **Add Column In Text Frame**
+## **Add Columns to a Text Frame**
 Aspose.Slides for C++ provides the [set_ColumnCount](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) method (from the [ITextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format) interface) that allows you to add columns in text frames. Through this method, you can specify your preferred number of columns in a text frame. 
 
 This C++ code shows you how to add a column inside a text frame:
@@ -242,7 +242,7 @@ for (const auto& slide : pres->get_Slides())
 pres->Save(u"text-changed.pptx", SaveFormat::Pptx);
 ```
 
-## **Add Text Box with Hyperlink** 
+## **Add a Text Box with a Hyperlink** 
 
 You can insert a link inside a text box. When the text box is clicked, users are directed to open the link. 
 
@@ -286,3 +286,13 @@ linkManager->SetExternalHyperlinkClick(u"http://www.aspose.com");
 // Saves the PPTX Presentation
 presentation->Save(u"hLinkPPTX_out.pptx", SaveFormat::Pptx);
 ```
+
+## **FAQ**
+
+**What’s the difference between a text box and a text placeholder when working with master slides?**
+
+A [placeholder](/slides/cpp/manage-placeholder/) inherits style/position from the [master](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/) and can be overridden on [layouts](https://reference.aspose.com/slides/cpp/aspose.slides/layoutslide/), whereas a regular text box is an independent object on a specific slide and doesn’t change when you switch layouts.
+
+**How can I perform a bulk text replacement across the presentation without touching text inside charts, tables, and SmartArt?**
+
+Limit your iteration to auto-shapes that have text frames and exclude embedded objects ([charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/cpp/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartart/)) by traversing their collections separately or skipping those object types.

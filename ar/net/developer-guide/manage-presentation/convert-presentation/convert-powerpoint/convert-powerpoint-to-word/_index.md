@@ -1,85 +1,117 @@
 ---
-title: تحويل PowerPoint إلى Word
+title: تحويل عروض PowerPoint إلى مستندات Word في .NET
+linktitle: PowerPoint إلى Word
 type: docs
 weight: 110
 url: /ar/net/convert-powerpoint-to-word/
 keywords:
 - تحويل PowerPoint
-- PPT
-- PPTX
-- عرض تقديمي
-- Word
-- DOCX
-- DOC
+- تحويل العرض التقديمي
+- تحويل الشريحة
+- تحويل PPT
+- تحويل PPTX
+- PowerPoint إلى Word
+- العرض التقديمي إلى Word
+- الشريحة إلى Word
+- PPT إلى Word
+- PPTX إلى Word
+- PowerPoint إلى DOCX
+- العرض التقديمي إلى DOCX
+- الشريحة إلى DOCX
+- PPT إلى DOCX
 - PPTX إلى DOCX
+- PowerPoint إلى DOC
+- العرض التقديمي إلى DOC
+- الشريحة إلى DOC
 - PPT إلى DOC
 - PPTX إلى DOC
-- PPT إلى DOCX
-- C#
-- Csharp
+- حفظ PPT كـ DOCX
+- حفظ PPTX كـ DOCX
+- تصدير PPT إلى DOCX
+- تصدير PPTX إلى DOCX
 - .NET
+- C#
 - Aspose.Slides
-description: "تحويل عرض PowerPoint إلى Word باستخدام C# أو .NET"
+description: "قم بتحويل شرائح PowerPoint بصيغ PPT و PPTX إلى مستندات Word قابلة للتحرير في C# باستخدام Aspose.Slides for .NET مع الحفاظ على التخطيط الدقيق والصور والتنسيق."
 ---
 
-إذا كنت تخطط لاستخدام محتوى نصي أو معلومات من عرض تقديمي (PPT أو PPTX) بطرق جديدة، فقد تستفيد من تحويل العرض التقديمي إلى Word (DOC أو DOCX).
+## **نظرة عامة**
 
-* عند مقارنته ببرنامج Microsoft PowerPoint، فإن تطبيق Microsoft Word مجهز بشكل أفضل بالأدوات أو الوظائف الخاصة بالمحتوى.
-* إلى جانب وظائف التحرير في Word، قد تستفيد أيضًا من ميزات تحسين التعاون والطباعة والمشاركة.
+توفر هذه المقالة حلاً للمطورين حول تحويل عروض PowerPoint وOpenDocument إلى مستندات Word باستخدام Aspose.Slides for .NET وAspose.Words for .NET. يوضح الدليل خطوة بخطوة كل مرحلة من مراحل عملية التحويل.
 
-{{% alert color="primary" %}} 
+## **تحويل عرض تقديمي إلى مستند Word**
 
-قد ترغب في تجربة [**محول العرض التقديمي إلى Word عبر الإنترنت**](https://products.aspose.app/slides/conversion/ppt-to-word) لترى ما يمكنك كسبه من العمل مع المحتوى النصي من الشرائح.
+اتبع التعليمات أدناه لتحويل عرض PowerPoint أو OpenDocument إلى مستند Word:
 
-{{% /alert %}} 
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) وتحميل ملف عرض تقديمي.
+2. إنشاء كائنات الفئات [Document](https://reference.aspose.com/words/net/aspose.words/document/) و[DocumentBuilder](https://reference.aspose.com/words/net/aspose.words/documentbuilder/) لتوليد مستند Word.
+3. تعيين حجم الصفحة لمستند Word ليتطابق مع حجم العرض باستخدام الخاصية [DocumentBuilder.PageSetup](https://reference.aspose.com/words/net/aspose.words/documentbuilder/pagesetup/).
+4. تعيين الهوامش في مستند Word باستخدام الخاصية [DocumentBuilder.PageSetup](https://reference.aspose.com/words/net/aspose.words/documentbuilder/pagesetup/).
+5. التنقل عبر جميع شرائح العرض باستخدام الخاصية [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/).
+   - إنشاء صورة للشريحة باستخدام طريقة `GetImage` من الواجهة [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/) وحفظها إلى تدفق الذاكرة.
+   - إضافة صورة الشريحة إلى مستند Word باستخدام طريقة `InsertImage` من الفئة [DocumentBuilder](https://reference.aspose.com/words/net/aspose.words/documentbuilder/).
+6. حفظ مستند Word إلى ملف.
 
-### **Aspose.Slides و Aspose.Words**
+لنفترض أن لدينا عرضًا تقديميًا باسم "sample.pptx" يبدو هكذا:
 
-لتحويل ملف PowerPoint (PPTX أو PPT) إلى Word (DOCX أو DOCX)، تحتاج إلى كل من [Aspose.Slides لـ .NET](https://products.aspose.com/slides/net/) و [Aspose.Words لـ .NET](https://products.aspose.com/words/net/).
+![عرض PowerPoint](PowerPoint.png)
 
-كمكتبة API مستقلة، توفر [Aspose.Slides](https://products.aspose.app/slides) لـ .NET وظائف تتيح لك استخراج النصوص من العروض التقديمية.
-
-[Aspose.Words](https://docs.aspose.com/words/net/) هو API متقدم لمعالجة المستندات يسمح للتطبيقات بإنشاء وتعديل وتحويل وتجسيد و طباعة الملفات، وأداء مهام أخرى مع المستندات بدون استخدام Microsoft Word.
-
-## **تحويل PowerPoint إلى Word**
-
-1. أضف هذه المساحات الاسمية إلى ملف program.cs الخاص بك:
-
-```c#
-using Aspose.Slides;
-using Aspose.Words;
-using System.IO;
-```
-
-2. استخدم هذه الشيفرة البرمجية لتحويل PowerPoint إلى Word:
-
-```c#
+المثال التالي بلغة C# يوضح كيفية تحويل عرض PowerPoint إلى مستند Word:
+```cs
+// تحميل ملف عرض تقديمي.
 using var presentation = new Presentation("sample.pptx");
 
-var doc = new Document();
-var builder = new DocumentBuilder(doc);
+// إنشاء كائنات Document و DocumentBuilder.
+var document = new Document();
+var builder = new DocumentBuilder(document);
 
+// تعيين حجم الصفحة في مستند Word.
+var slideSize = presentation.SlideSize.Size;
+builder.PageSetup.PageWidth = slideSize.Width;
+builder.PageSetup.PageHeight = slideSize.Height;
+
+// تعيين الهوامش في مستند Word.
+builder.PageSetup.LeftMargin = 0;
+builder.PageSetup.RightMargin = 0;
+builder.PageSetup.TopMargin = 0;
+builder.PageSetup.BottomMargin = 0;
+
+const float scaleX = 2, scaleY = 2;
+
+// Go through all the presentation slides.
 foreach (var slide in presentation.Slides)
 {
-    // يولد صورة الشريحة ويحفظها في دفق الذاكرة
-    using var image = slide.GetImage(1, 1);
+    // إنشاء صورة للشريحة وحفظها إلى تدفق الذاكرة.
+    using var image = slide.GetImage(scaleX, scaleY);
     using var imageStream = new MemoryStream();
     image.Save(imageStream, ImageFormat.Png);
 
+    // إضافة صورة الشريحة إلى مستند Word.
     imageStream.Seek(0, SeekOrigin.Begin);
-    builder.InsertImage(imageStream.ToArray());
-
-    // يدرج نصوص الشريحة
-    foreach (var shape in slide.Shapes)
-    {
-        if (shape is AutoShape autoShape)
-        {
-            builder.Writeln(autoShape.TextFrame.Text);
-        }
-    }
+    builder.InsertImage(imageStream.ToArray(), builder.PageSetup.PageWidth, builder.PageSetup.PageHeight);
 
     builder.InsertBreak(BreakType.PageBreak);
 }
 
-doc.Save("output.docx");
+// حفظ مستند Word إلى ملف.
+document.Save("output.docx");
 ```
+
+
+النتيجة:
+
+![مستند Word](Word.png)
+
+{{% alert color="primary" %}} 
+جرّب أداة [**Online PPT to Word Converter**](https://products.aspose.app/slides/conversion/ppt-to-word) لمعرفة ما يمكنك الاستفادة منه من تحويل عروض PowerPoint وOpenDocument إلى مستندات Word. 
+{{% /alert %}}
+
+## **الأسئلة المتكررة**
+
+**ما المكوّنات التي يجب تثبيتها لتحويل عروض PowerPoint وOpenDocument إلى مستندات Word؟**
+
+كل ما عليك هو إضافة حزم NuGet الخاصة بـ [Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET) و[Aspose.Words for .NET](https://www.nuget.org/packages/Aspose.Words/) إلى مشروع C# الخاص بك. تعمل المكتبتان كواجهات برمجة تطبيقات مستقلة، ولا يوجد أي متطلب لتثبيت Microsoft Office.
+
+**هل يتم دعم جميع صيغ عروض PowerPoint وOpenDocument؟**
+
+يقدم Aspose.Slides for .NET [دعمًا لجميع صيغ العروض](/slides/ar/net/supported-file-formats/)، بما في ذلك PPT وPPTX وODP وغيرها من أنواع الملفات الشائعة. يضمن لك ذلك إمكانية العمل مع العروض التي تم إنشاؤها بإصدارات مختلفة من Microsoft PowerPoint.

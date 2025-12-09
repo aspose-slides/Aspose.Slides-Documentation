@@ -1,42 +1,56 @@
 ---
-title: 管理自动适应设置
+title: 使用 .NET 中的 AutoFit 增强您的演示文稿
+linktitle: AutoFit 设置
 type: docs
 weight: 30
 url: /zh/net/manage-autofit-settings/
-keywords: "文本框, 自动适应, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
-description: "在 C# 或 .NET 中设置 PowerPoint 中文本框的自动适应设置"
+keywords:
+- 文本框
+- 自动适应
+- 不自动适应
+- 适合文本
+- 缩小文本
+- 换行文本
+- 调整形状大小
+- PowerPoint
+- 演示文稿
+- C#
+- .NET
+- Aspose.Slides
+description: "了解如何在 Aspose.Slides for .NET 中管理 AutoFit 设置，以优化 PowerPoint 和 OpenDocument 演示文稿中的文本显示并提升内容可读性。"
 ---
 
-默认情况下，当你添加一个文本框时，Microsoft PowerPoint 使用 **调整形状以适应文本** 设置——它会自动调整文本框大小以确保文本始终适合其中。
+## **概述**
 
-![textbox-in-powerpoint](textbox-in-powerpoint.png)
+默认情况下，当您添加文本框时，Microsoft PowerPoint 使用 **Resize shape to fit text** 设置——它会自动调整文本框的大小，以确保文本始终能够适应其中。
 
-* 当文本框中的文本变得更长或更大时，PowerPoint 会自动增大文本框——增加其高度——以便容纳更多文本。
-* 当文本框中的文本变得更短或更小，PowerPoint 会自动缩小文本框——减少其高度——以清除多余的空间。
+![PowerPoint 中的文本框](textbox-in-powerpoint.png)
 
-在 PowerPoint 中，有以下 4 个重要参数或选项控制文本框的自动适应行为：
+* 当文本框中的文本变长或变大时，PowerPoint 会自动放大文本框——增加其高度——以容纳更多文本。
+* 当文本框中的文本变短或变小，PowerPoint 会自动缩小文本框——减少其高度——以清除多余空间。
 
-* **不自动适应**
-* **溢出时缩小文本**
-* **调整形状以适应文本**
-* **在形状中换行文本。**
+在 PowerPoint 中，有四个重要的参数或选项用于控制文本框的自动适应行为：
 
-![autofit-options-powerpoint](autofit-options-powerpoint.png)
+* **Do not Autofit**
+* **Shrink text on overflow**
+* **Resize shape to fit text**
+* **Wrap text in shape**
 
-Aspose.Slides for .NET 提供类似的选项——一些属性在 [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) 类下——允许你控制演示文稿中文本框的自动适应行为。
+![PowerPoint 中的自动适应选项](autofit-options-powerpoint.png)
 
-## **调整形状以适应文本**
+Aspose.Slides for .NET 提供了类似的选项——位于 [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) 类下的属性——可以让您控制演示文稿中文本框的自动适应行为。
 
-如果你希望文本框中的文本在更改后始终适合该框，你必须使用 **调整形状以适应文本** 选项。要指定此设置，将 [AutofitType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/autofittype) 属性（来自 [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) 类）设置为 `Shape`。
+## **Resize Shape to Fit Text**
 
-![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
+如果您希望文本在修改后始终适应所在的框，需要使用 **Resize shape to fit text** 选项。要指定此设置，请将 [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) 类的 `AutofitType` 属性设为 `Shape`。
 
-以下 C# 代码展示了如何在 PowerPoint 演示文稿中指定文本必须始终适合其框：
+![Resize shape to fit text](alwaysfit-setting-powerpoint.png)
 
+以下 C# 代码示例展示了如何在 PowerPoint 演示文稿中指定文本必须始终适应其框：
 ```c#
- using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
     Portion portion = new Portion("lorem ipsum...");
@@ -47,24 +61,24 @@ Aspose.Slides for .NET 提供类似的选项——一些属性在 [TextFrameForm
     ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
     textFrameFormat.AutofitType = TextAutofitType.Shape;
 
-    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+    presentation.Save("output_presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
-如果文本变得更长或更大，文本框将自动调整大小（高度增加），以确保所有文本适合其中。如果文本变得更短，则会发生相反的情况。
 
-## **不自动适应**
+如果文本变长或变大，文本框会自动调整大小（增加高度），以确保所有文本都能容纳进去。若文本变短，则相反。
 
-如果你希望文本框或图形在文本内容变化时保持其尺寸，你必须使用 **不自动适应** 选项。要指定此设置，将 [AutofitType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/autofittype) 属性 （来自 [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) 类）设置为 `None`。
+## **Do Not Autofit**
 
-![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
+如果您希望文本框或形状在文本内容变化时保持其尺寸不变，需要使用 **Do not Autofit** 选项。要指定此设置，请将 [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) 类的 `AutofitType` 属性设为 `None`。
 
-以下 C# 代码展示了如何在 PowerPoint 演示文稿中指定文本框始终保持其尺寸：
+!["Do not Autofit" setting in PowerPoint](donotautofit-setting-powerpoint.png)
 
+以下 C# 代码示例展示了如何在 PowerPoint 演示文稿中指定文本框必须始终保持其尺寸：
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
     Portion portion = new Portion("lorem ipsum...");
@@ -75,24 +89,24 @@ using (Presentation pres = new Presentation())
     ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
     textFrameFormat.AutofitType = TextAutofitType.None;
 
-    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+    presentation.Save("output_presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
-当文本变得过长以适应其框时，它将溢出。
 
-## **溢出时缩小文本**
+当文本过长而超出其框时，会溢出显示。
 
-如果文本对其框来说过长，使用 **溢出时缩小文本** 选项，你可以指定文本的大小和间距必须减少，以便适合其框。要指定此设置，将 [AutofitType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/autofittype) 属性 （来自 [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) 类）设置为 `Normal`。
+## **Shrink Text on Overflow**
 
-![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
+如果文本过长而超出其框，可以通过 **Shrink text on overflow** 选项指定将文本的大小和间距缩小以适应框内。要指定此设置，请将 [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) 类的 `AutofitType` 属性设为 `Normal`。
 
-以下 C# 代码展示了如何在 PowerPoint 演示文稿中指定文本在溢出时必须缩小：
+!["Shrink text on overflow" setting in PowerPoint](shrinktextonoverflow-setting-powerpoint.png)
 
+以下 C# 代码示例展示了如何在 PowerPoint 演示文稿中指定文本在溢出时进行缩小：
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
     Portion portion = new Portion("lorem ipsum...");
@@ -103,26 +117,26 @@ using (Presentation pres = new Presentation())
     ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
     textFrameFormat.AutofitType = TextAutofitType.Normal;
 
-    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+    presentation.Save("output_presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
-{{% alert title="信息" color="info" %}}
 
-当使用 **溢出时缩小文本** 选项时，该设置仅在文本变得过长时应用。
+{{% alert title="Info" color="info" %}}
+
+使用 **Shrink text on overflow** 选项时，仅在文本超出其框时才会应用该设置。
 
 {{% /alert %}}
 
-## **换行文本**
+## **Wrap Text**
 
-如果你希望文本框中的文本在超出形状边界（仅宽度）时发生换行，则必须使用 **在形状中换行文本** 参数。要指定此设置，你需要将 [WrapText](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/wraptext) 属性（来自 [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) 类）设置为 `true`。
+如果您希望当文本超出形状边界（仅宽度）时在形状内部换行，需要使用 **Wrap text in shape** 参数。要指定此设置，请将 [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) 类的 `WrapText` 属性设为 `NullableBool.True`。
 
-以下 C# 代码展示了如何在 PowerPoint 演示文稿中使用换行文本设置：
-
+以下 C# 代码示例展示了如何在 PowerPoint 演示文稿中使用换行设置：
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
     Portion portion = new Portion("lorem ipsum...");
@@ -133,12 +147,27 @@ using (Presentation pres = new Presentation())
     ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
     textFrameFormat.WrapText = NullableBool.True;
 
-    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+    presentation.Save("output_presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
-{{% alert title="注意" color="warning" %}} 
 
-如果你将 `WrapText` 属性设置为 `False`，当形状内部的文本变得比形状的宽度更长时，文本将沿着一条单行延伸到形状的边界之外。
+{{% alert title="Note" color="warning" %}} 
+
+如果将形状的 `WrapText` 属性设置为 `NullableBool.False`，当形状内部的文本长度超过形状宽度时，文本会在单行上延伸超出形状边界。
 
 {{% /alert %}}
+
+## **FAQ**
+
+**文本框的内部边距会影响 AutoFit 吗？**
+
+会。内部边距（Padding）会减小可用的文本区域，因此 AutoFit 会更早触发——更快地缩小字体或调整形状大小。请在调节 AutoFit 之前检查并调整边距。
+
+**AutoFit 与手动换行和软换行如何交互？**
+
+强制换行会保留原位，AutoFit 会在其周围调整字体大小和间距。删除不必要的换行通常可以降低 AutoFit 的收缩力度。
+
+**更改主题字体或触发字体替换会影响 AutoFit 结果吗？**
+
+会。替换为字形度量不同的字体会改变文本的宽高，从而影响最终的字体大小和换行方式。任何字体更改或替换后，请重新检查幻灯片。

@@ -17,7 +17,7 @@ keywords:
 description: "Learn how to export presentation charts with Aspose.Slides for .NET, supporting PPT and PPTX formats, and streamline reporting into any workflow."
 ---
 
-## **Get Chart Image**
+## **Get a Chart Image**
 Aspose.Slides for .NET provides support for extracting image of specific chart. Below sample example is given. 
 
 ```c#

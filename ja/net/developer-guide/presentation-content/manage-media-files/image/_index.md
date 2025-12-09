@@ -1,40 +1,52 @@
 ---
-title: 画像
+title: .NET のプレゼンテーションにおける画像管理の最適化
+linktitle: 画像の管理
 type: docs
 weight: 10
 url: /ja/net/image/
-keywords: "画像を追加, ピクチャを追加, PowerPoint プレゼンテーション, EMF, SVG, C#, Csharp, Aspose.Slides for .NET"
-description: "C# または .NET で PowerPoint スライドまたはプレゼンテーションに画像を追加"
+keywords:
+- 画像を追加
+- ビットマップを追加
+- 画像を置換
+- 画像を置換
+- Web から
+- 背景
+- PNG を追加
+- JPG を追加
+- SVG を追加
+- EMF を追加
+- WMF を追加
+- TIFF を追加
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET を使用して、PowerPoint と OpenDocument の画像管理を効率化し、パフォーマンスを最適化し、ワークフローを自動化します。"
 ---
 
 ## **プレゼンテーションのスライド内の画像**
 
-画像はプレゼンテーションをより魅力的で興味深いものにします。Microsoft PowerPoint では、ファイル、インターネット、またはその他の場所からスライドに画像を挿入できます。同様に、Aspose.Slidesを使用すると、さまざまな手順を通じてプレゼンテーションのスライドに画像を追加できます。
+画像はプレゼンテーションをより魅力的で興味深いものにします。Microsoft PowerPoint では、ファイル、インターネット、またはその他の場所から画像をスライドに挿入できます。同様に、Aspose.Slides を使用すると、さまざまな手順でプレゼンテーションのスライドに画像を追加できます。
 
-{{% alert title="ヒント" color="primary" %}} 
-
-Asposeは、[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt)および[PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)などの無料コンバーターを提供しており、これにより人々は画像から迅速にプレゼンテーションを作成できます。 
-
+{{% alert  title="Tip" color="primary" %}} 
+Aspose は、画像から迅速にプレゼンテーションを作成できる無料コンバータ—[JPEG から PowerPoint へ](https://products.aspose.app/slides/import/jpg-to-ppt) と [PNG から PowerPoint へ](https://products.aspose.app/slides/import/png-to-ppt)—を提供しています。 
 {{% /alert %}} 
 
-{{% alert title="情報" color="info" %}}
-
-フレームオブジェクトとして画像を追加したい場合（特にサイズを変更したり、効果を追加したりするために標準の書式設定オプションを使用する予定がある場合）は、[画像フレーム](https://docs.aspose.com/slides/net/picture-frame/)を参照してください。
-
+{{% alert title="Info" color="info" %}}
+画像をフレームオブジェクトとして追加したい場合—特にサイズ変更や効果の追加など標準の書式設定オプションを使用する予定がある場合—[Picture Frame](https://docs.aspose.com/slides/net/picture-frame/) を参照してください。 
 {{% /alert %}} 
 
-{{% alert title="注意" color="warning" %}}
-
-画像と PowerPoint プレゼンテーションに関連する入出力操作を操作して、画像を1つの形式から別の形式に変換できます。これらのページを参照してください: [画像をJPGに変換](https://products.aspose.com/slides/net/conversion/image-to-jpg/); [JPGを画像に変換](https://products.aspose.com/slides/net/conversion/jpg-to-image/); [JPGをPNGに変換](https://products.aspose.com/slides/net/conversion/jpg-to-png/); [PNGをJPGに変換](https://products.aspose.com/slides/net/conversion/png-to-jpg/); [PNGをSVGに変換](https://products.aspose.com/slides/net/conversion/png-to-svg/); [SVGをPNGに変換](https://products.aspose.com/slides/net/conversion/svg-to-png/)。
-
+{{% alert title="Note" color="warning" %}}
+画像と PowerPoint プレゼンテーションの入出力操作を操作して、画像をある形式から別の形式に変換できます。次のページをご参照ください: 変換 [image to JPG](https://products.aspose.com/slides/net/conversion/image-to-jpg/); 変換 [JPG to image](https://products.aspose.com/slides/net/conversion/jpg-to-image/); 変換 [JPG to PNG](https://products.aspose.com/slides/net/conversion/jpg-to-png/)、変換 [PNG to JPG](https://products.aspose.com/slides/net/conversion/png-to-jpg/); 変換 [PNG to SVG](https://products.aspose.com/slides/net/conversion/png-to-svg/)、変換 [SVG to PNG](https://products.aspose.com/slides/net/conversion/svg-to-png/)。 
 {{% /alert %}}
 
-Aspose.Slidesは、JPEG、PNG、BMP、GIFなどのこれらの一般的なフォーマットでの画像操作をサポートしています。
+Aspose.Slides は、JPEG、PNG、BMP、GIF などの一般的な形式の画像操作をサポートしています。 
 
 ## **ローカルに保存された画像をスライドに追加**
 
-コンピューター上の1つまたは複数の画像をプレゼンテーションのスライドに追加できます。このC#のサンプルコードは、スライドに画像を追加する方法を示しています。
-
+コンピューター上の画像を 1 つまたは複数、プレゼンテーションのスライドに追加できます。以下の C# サンプルコードは、画像をスライドに追加する方法を示しています。  
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -46,12 +58,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **ウェブからスライドに画像を追加**
 
-スライドに追加したい画像がコンピューターで利用できない場合、ウェブから直接画像を追加できます。
+## **ウェブから画像をスライドに追加**
 
-このサンプルコードでは、C#のスライドにウェブから画像を追加する方法を示しています。
+スライドに追加したい画像がコンピューターにない場合、ウェブから直接画像を追加できます。  
 
+以下のサンプルコードは、ウェブから画像を取得して C# でスライドに追加する方法を示しています。  
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -70,12 +82,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **スライドマスターに画像を追加**
 
-スライドマスターは、すべてのスライドに関する情報（テーマ、レイアウトなど）を格納し制御するトップスライドです。したがって、スライドマスターに画像を追加すると、その画像はそのスライドマスターの下にあるすべてのスライドに表示されます。
+## **スライドマスタに画像を追加**
 
-このC#のサンプルコードは、スライドマスターに画像を追加する方法を示しています。
+スライドマスタは、下位のすべてのスライドに関する情報（テーマ、レイアウトなど）を保持・制御する上位スライドです。そのため、スライドマスタに画像を追加すると、その画像はマスタ配下のすべてのスライドに表示されます。  
 
+以下の C# サンプルコードは、スライドマスタに画像を追加する方法を示しています：  
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -89,96 +101,99 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+
 ## **スライドの背景として画像を追加**
 
-特定のスライドまたは複数のスライドの背景として画像を使用することを決定する場合があります。その場合は、* [スライドの背景として画像を設定する](https://docs.aspose.com/slides/net/presentation-background/#setting-images-as-background-for-slides)*を参照してください。
+特定のスライドまたは複数のスライドの背景として画像を使用することができます。その場合は、*[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/net/presentation-background/#setting-images-as-background-for-slides)* を参照してください。  
 
-## **プレゼンテーションにSVGを追加**
-[ImageShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection)インターフェースに属する[AddPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/methods/addpictureframe)メソッドを使用して、プレゼンテーションに任意の画像を追加または挿入できます。
+## **プレゼンテーションへの SVG 追加**
 
-SVG画像に基づいて画像オブジェクトを作成するには、次の手順を実行します。
+[IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) インターフェイスに属する [AddPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/methods/addpictureframe) メソッドを使用して、任意の画像をプレゼンテーションに追加または挿入できます。  
 
-1. SvgImageオブジェクトを作成してImageShapeCollectionに挿入します
-2. ISvgImageからPPImageオブジェクトを作成します
-3. IPPImageインターフェースを使用してPictureFrameオブジェクトを作成します
+SVG 画像に基づく画像オブジェクトを作成するには、次の手順で行えます。  
 
-このサンプルコードは、上記の手順を実装してプレゼンテーションにSVG画像を追加する方法を示しています。
+1. SvgImage オブジェクトを作成し、ImageShapeCollection に挿入する  
+2. ISvgImage から PPImage オブジェクトを作成する  
+3. IPPImage インターフェイスを使用して PictureFrame オブジェクトを作成する  
 
+以下のサンプルコードは、上記手順を実装して SVG 画像をプレゼンテーションに追加する方法を示しています：  
 ```csharp
-// ドキュメントディレクトリへのパス
+// ドキュメント ディレクトリへのパス
 string dataDir = @"D:\Documents\";
 
-// ソースSVGファイル名
+// ソース SVG ファイル名
 string svgFileName = dataDir + "sample.svg";
 
-// 出力プレゼンテーションファイル名
+// 出力プレゼンテーション ファイル名
 string outPptxPath = dataDir + "presentation.pptx";
 
 // 新しいプレゼンテーションを作成
 using (var p = new Presentation())
 {
-    // SVGファイルの内容を読み取る
+    // SVG ファイルの内容を読み取る
     string svgContent = File.ReadAllText(svgFileName);
 
-    // SvgImageオブジェクトを作成
+    // SvgImage オブジェクトを作成
     ISvgImage svgImage = new SvgImage(svgContent);
 
-    // PPImageオブジェクトを作成
+    // PPImage オブジェクトを作成
     IPPImage ppImage = p.Images.AddImage(svgImage);
 
-    // 新しいPictureFrameを作成
+    // 新しい PictureFrame を作成
     p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 200, 100, ppImage.Width, ppImage.Height, ppImage);
 
-    // PPTX形式でプレゼンテーションを保存
+    // PPTX 形式でプレゼンテーションを保存
     p.Save(outPptxPath, SaveFormat.Pptx);
 }
 ```
 
-## **SVGをシェイプのセットに変換**
-Aspose.SlidesのSVGからシェイプのセットへの変換は、SVG画像を操作するために使用されるPowerPointの機能に似ています：
 
-![PowerPointポップアップメニュー](img_01_01.png)
+## **SVG をシェイプの集合に変換**
 
-この機能は、最初の引数として[ISvgImage](https://reference.aspose.com/slides/net/aspose.slides/isvgimage)オブジェクトを受け取る[IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection)インターフェースの[AddGroupShape](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/addgroupshape/methods/1)メソッドのオーバーロードの1つによって提供されます。
+Aspose.Slides の SVG をシェイプの集合に変換する機能は、SVG 画像を扱うための PowerPoint の機能と同様です。  
 
-このサンプルコードは、SVGファイルをシェイプのセットに変換するために説明されたメソッドを使用する方法を示しています。
+![PowerPoint Popup Menu](img_01_01.png)
 
-```csharp
-// ドキュメントディレクトリへのパス
+この機能は、[IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) インターフェイスの [AddGroupShape](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/addgroupshape/methods/1) メソッドのオーバーロードの 1 つで提供され、最初の引数として [ISvgImage](https://reference.aspose.com/slides/net/aspose.slides/isvgimage) オブジェクトを受け取ります。  
+
+以下のサンプルコードは、前述のメソッドを使用して SVG ファイルをシェイプの集合に変換する方法を示しています：  
+``` csharp 
+// ドキュメント ディレクトリへのパス
 string dataDir = @"D:\Documents\";
 
-// ソースSVGファイル名
+// ソース SVG ファイル名
 string svgFileName = dataDir + "sample.svg";
 
-// 出力プレゼンテーションファイル名
+// 出力プレゼンテーション ファイル名
 string outPptxPath = dataDir + "presentation.pptx";
 
 // 新しいプレゼンテーションを作成
 using (IPresentation presentation = new Presentation())
 {
-    // SVGファイルの内容を読み取る
+    // SVG ファイルの内容を読み取る
     string svgContent = File.ReadAllText(svgFileName);
 
-    // SvgImageオブジェクトを作成
+    // SvgImage オブジェクトを作成
     ISvgImage svgImage = new SvgImage(svgContent);
 
     // スライドサイズを取得
     SizeF slideSize = presentation.SlideSize.Size;
 
-    // SVG画像をスライドサイズにスケーリングしてシェイプのグループに変換
+    // SVG 画像をスライドサイズに合わせてグループ形状に変換
     presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
 
-    // PPTX形式でプレゼンテーションを保存
+    // PPTX 形式でプレゼンテーションを保存
     presentation.Save(outPptxPath, SaveFormat.Pptx);
 }
 ```
 
-## **スライドにEMFとして画像を追加**
-Aspose.Slides for .NETを使用すると、ExcelシートからEMF画像を生成し、Aspose.Cellsを使用してスライドにEMFとして画像を追加できます。
 
-このサンプルコードは、上記のタスクを実行する方法を示しています。
+## **スライドに EMF 画像として追加**
 
-```csharp
+Aspose.Slides for .NET を使用すると、Excel シートから EMF 画像を生成し、Aspose.Cells と組み合わせてスライドに EMF 画像として追加できます。  
+
+以下のサンプルコードは、上記のタスクを実行する方法を示しています：  
+``` csharp 
 using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
 {
     Worksheet sheet = book.Worksheets[0];
@@ -187,7 +202,7 @@ using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
     options.VerticalResolution = 200;
     options.ImageFormat = System.Drawing.Imaging.ImageFormat.Emf;
 
-    // ワークブックをストリームに保存
+    //ワークブックをストリームに保存
     SheetRender sr = new SheetRender(sheet, options);
     using (Presentation pres = new Presentation())
     {
@@ -210,8 +225,57 @@ using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
 }
 ```
 
-{{% alert title="情報" color="info" %}}
 
-Asposeの無料[テキストをGIFに変換](https://products.aspose.app/slides/text-to-gif)コンバーターを使用すると、テキストを簡単にアニメーション化したり、テキストからGIFを作成したりできます。
+## **画像コレクション内の画像を置き換える**
 
+Aspose.Slides を使用すると、プレゼンテーションの画像コレクションに保存されている画像（スライドのシェイプで使用されているものを含む）を置き換えることができます。このセクションでは、コレクション内の画像を更新するいくつかのアプローチを示します。API は、生のバイト データ、[IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) インスタンス、またはコレクション内に既に存在する別の画像を使用して画像を置き換えるシンプルなメソッドを提供します。  
+
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスを使用して、画像を含むプレゼンテーション ファイルをロードします。  
+2. ファイルから新しい画像を読み込み、バイト配列に格納します。  
+3. バイト配列を使用して対象画像を新しい画像に置き換えます。  
+4. 2 番目のアプローチでは、画像を [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) オブジェクトにロードし、そのオブジェクトで対象画像を置き換えます。  
+5. 3 番目のアプローチでは、プレゼンテーションの画像コレクションに既に存在する画像で対象画像を置き換えます。  
+6. 変更後のプレゼンテーションを PPTX ファイルとして保存します。  
+```cs
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+using Presentation presentation = new Presentation("sample.pptx");
+
+// 最初の方法。
+byte[] imageData = File.ReadAllBytes("image0.jpeg");
+IPPImage oldImage = presentation.Images[0];
+oldImage.ReplaceImage(imageData);
+
+// 2 番目の方法。
+using IImage newImage = Images.FromFile("image1.png");
+oldImage = presentation.Images[1];
+oldImage.ReplaceImage(newImage);
+
+// 3 番目の方法。
+oldImage = presentation.Images[2];
+oldImage.ReplaceImage(presentation.Images[3]);
+
+// プレゼンテーションをファイルに保存します。
+presentation.Save("output.pptx", SaveFormat.Pptx);
+```
+
+
+{{% alert title="Info" color="info" %}}
+Aspose の無料 [Text to GIF](https://products.aspose.app/slides/text-to-gif) コンバータを使用すると、テキストを簡単にアニメーション化したり、テキストから GIF を作成したりできます。 
 {{% /alert %}}
+
+## **FAQ**
+
+**挿入後も元の画像解像度は維持されますか？**  
+はい。元のピクセルは保持されますが、最終的な表示はスライド上で [picture](/slides/ja/net/picture-frame/) がどのようにスケーリングされるかや、保存時に適用される圧縮に依存します。  
+
+**多数のスライドで同じロゴを一括置換する最適な方法は何ですか？**  
+ロゴをマスタースライドまたはレイアウトに配置し、プレゼンテーションの画像コレクションで置き換えます。これにより、そのリソースを使用しているすべての要素に変更が反映されます。  
+
+**挿入した SVG を編集可能なシェイプに変換できますか？**  
+はい。SVG をシェイプのグループに変換でき、その後、個々のパーツは標準のシェイプ プロパティで編集可能になります。  
+
+**複数のスライドの背景として画像を一括設定するにはどうすればよいですか？**  
+マスタースライドまたは該当レイアウトで画像を[背景として割り当て](/slides/ja/net/presentation-background/)すると、そのマスタ/レイアウトを使用しているすべてのスライドが背景を継承します。  
+
+**多数の画像によりプレゼンテーションのサイズが膨らむのを防ぐにはどうすればよいですか？**  
+画像の重複を避けて単一の画像リソースを再利用し、適切な解像度を選択し、保存時に圧縮を適用し、必要に応じてマスターに繰り返し使用するグラフィックを配置してください。

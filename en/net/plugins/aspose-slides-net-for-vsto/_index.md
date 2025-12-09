@@ -5,7 +5,7 @@ weight: 20
 url: /net/aspose-slides-net-for-vsto/
 ---
 
-## **What is VSTO?**
+## **What Is VSTO?**
 VSTO, or Visual Studio Tools for Office, or Microsoft Visual Studio Tools is part of Microsoft's Visual Studio .NET tools suite and supports the Microsoft .NET Framework. It is used by developers to write code connecting Microsoft Office Word, Excel and Outlook applications. Developers using VSTO can employ C# or Visual Basic languages. It is an alternative to Visual Basic for Applications, or VBA.
 ## **Aspose.Slides for .NET**
 Aspose.Slides for .NET is a unique PowerPoint® management component that enables .NET applications to read, write and manipulate PowerPoint documents without using Microsoft PowerPoint.
@@ -32,7 +32,7 @@ One or more of the following editions of Visual Studio Tools for Office:
 - 2007 Microsoft Office system
 ### **Supported Operating Systems**
 Windows 2000; Windows Server 2003; Windows Vista; Windows XP
-### **.NET Framework versions supported**
+### **.NET Framework Versions Supported**
 only .NET framework 2.0 or greater.
 ## **Downloading**
 You can download the latest code at:
@@ -62,7 +62,7 @@ You can get the latest source code from one of the following locations.
 - [Github](https://goo.gl/JA8x5M)
 - [Sourceforge](https://goo.gl/XbE5rO)
 - [Bitbucket](https://goo.gl/XBqAzx)
-### **How to configure the source code**
+### **How to Configure the Source Code**
 Please follow these simple steps to get started
 
 - Download/Clone the source code.

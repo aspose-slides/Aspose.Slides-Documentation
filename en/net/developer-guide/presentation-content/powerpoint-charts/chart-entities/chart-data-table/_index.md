@@ -15,7 +15,7 @@ keywords:
 description: "Customize chart data tables in .NET for PPT and PPTX with Aspose.Slides to boost efficiency and appeal in presentations."
 ---
 
-## **Set Font Properties for Chart Data Table**
+## **Set Font Properties for a Chart Data Table**
 Aspose.Slides for .NET provides support for changing color of categories in a series color. 
 
 1. Instantiate [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class object.

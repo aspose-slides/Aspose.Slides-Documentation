@@ -120,7 +120,7 @@ private static void addVideoFromYouTube(Presentation pres, String videoID)
 }
 ```
 
-## **Extract Video From Slides**
+## **Extract Video from Slides**
 
 Besides adding videos to slides, Aspose.Slides allows you to extract videos embedded in presentations.
 

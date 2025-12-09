@@ -1,156 +1,154 @@
 ---
-title: خصائص العرض
+title: إدارة خصائص العروض التقديمية باستخدام بايثون
+linktitle: خصائص العرض التقديمي
 type: docs
 weight: 70
 url: /ar/python-net/presentation-properties/
-keywords: "خصائص PowerPoint، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
-description: "خصائص عرض PowerPoint في بايثون"
+keywords:
+- خصائص PowerPoint
+- خصائص العرض التقديمي
+- خصائص المستند
+- خصائص مضمنة
+- خصائص مخصصة
+- خصائص متقدمة
+- إدارة الخصائص
+- تعديل الخصائص
+- بيانات تعريف المستند
+- تحرير بيانات التعريف
+- لغة التدقيق
+- اللغة الافتراضية
+- PowerPoint
+- OpenDocument
+- العرض التقديمي
+- Python
+- Aspose.Slides
+description: "تحكم في خصائص العروض التقديمية في Aspose.Slides للبايثون عبر .NET وسهّل البحث والعلامة التجارية وسير العمل في ملفات PowerPoint الخاصة بك."
 ---
 
+## **حول خصائص العرض التقديمي**
 
-## **مثال مباشر**
-حاول [**البيانات التعريفية لـ Aspose.Slides**](https://products.aspose.app/slides/metadata) استخدام التطبيق عبر الإنترنت لرؤية كيفية العمل مع خصائص المستندات عبر واجهة برمجة تطبيقات Aspose.Slides:
-
-[](https://products.aspose.app/slides/metadata)
-
-[![todo:image_alt_text](slides-metadata.png)](https://products.aspose.app/slides/metadata)
-
-
-## **حول خصائص العرض**
-كما وصفنا سابقًا، يدعم Aspose.Slides لبايثون عبر .NET نوعين من خصائص المستندات، وهما **المضمنة** و**المخصصة**. لذا، يمكن للمطورين الوصول إلى كلا النوعين من الخصائص باستخدام Aspose.Slides لبايثون عبر واجهة برمجة التطبيقات من .NET. يوفر Aspose.Slides لبايثون عبر .NET فئة [IDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/idocumentproperties/) التي تمثل خصائص المستندات المرتبطة بملف العرض من خلال خاصية [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/). يمكن للمطورين استخدام خاصية [IDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/idocumentproperties/) المعروضة بواسطة كائن **Presentation** للوصول إلى خصائص مستندات ملفات العرض كما هو موضح أدناه:
-
-
+كما وصفنا سابقًا أن Aspose.Slides for Python عبر .NET يدعم نوعين من خصائص المستند، وهما الخصائص **المضمنة** و **المخصصة**. وبالتالي يمكن للمطورين الوصول إلى كلا النوعين من الخصائص باستخدام واجهة برمجة تطبيقات Aspose.Slides for Python عبر .NET. توفر Aspose.Slides for Python عبر .NET فئة [IDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/idocumentproperties/) التي تمثل خصائص المستند المرتبطة بملف عرض تقديمي من خلال الخاصية [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) . يمكن للمطورين استخدام الخاصية [IDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/idocumentproperties/) التي ي exposeها كائن **Presentation** للوصول إلى خصائص المستند لملفات العرض التقديمي كما هو موضح أدناه:
 
 {{% alert color="primary" %}} 
-
-يرجى ملاحظة أنه لا يمكنك تعيين قيم ضد حقول **Application** و**Producer**، لأن Aspose Ltd. وAspose.Slides لبايثون عبر .NET x.x.x ستظهر ضد هذه الحقول.
-
+يرجى ملاحظة أنه لا يمكنك تعيين قيم لحقول **Application** و **Producer**، لأن Aspose Ltd. و Aspose.Slides for Python عبر .NET x.x.x ستُعرض في هذه الحقول.
 {{% /alert %}} 
 
+## **إدارة خصائص العرض التقديمي**
 
-## **إدارة خصائص العرض**
-تقدم Microsoft PowerPoint ميزة إضافة بعض الخصائص إلى ملفات العرض. تسمح هذه الخصائص المفيدة بتخزين بعض المعلومات المفيدة جنبًا إلى جنب مع المستندات (ملفات العرض). هناك نوعان من خصائص المستندات على النحو التالي:
+يوفر Microsoft PowerPoint ميزة لإضافة بعض الخصائص إلى ملفات العرض التقديمي. تسمح هذه الخصائص بتخزين معلومات مفيدة جنبًا إلى جنب مع المستندات (ملفات العرض التقديمي). هناك نوعان من خصائص المستند كما يلي
 
-- خصائص محددة من النظام (مضمنة)
-- خصائص محددة من المستخدم (مخصصة)
+- خصائص معرفة بالنظام (المضمنة)
+- خصائص معرفة من قبل المستخدم (المخصصة)
 
-تحتوي الخصائص **المضمنة** على معلومات عامة حول المستند مثل عنوان المستند، اسم المؤلف، إحصائيات المستند، وما إلى ذلك. الخصائص **المخصصة** هي تلك التي تم تحديدها من قبل المستخدمين كـ **اسم/قيمة**، حيث يتم تحديد كل من الاسم والقيمة بواسطة المستخدم. باستخدام Aspose.Slides لبايثون عبر .NET، يمكن للمطورين الوصول إلى القيم الخاصة بالخصائص المضمنة وكذلك الخصائص المخصصة وتعديلها. تسمح Microsoft PowerPoint 2007 بإدارة خصائص المستندات لملفات العرض. كل ما عليك فعله هو النقر على أيقونة المكتب ومن ثم اختيار **إعداد | خصائص | خصائص متقدمة** من قائمة Microsoft PowerPoint 2007. بعد اختيارك لعنصر قائمة **خصائص متقدمة**، ستظهر نافذة حوار تسمح لك بإدارة خصائص المستندات لملف PowerPoint. في **نافذة خصائص**، يمكنك أن ترى أن هناك العديد من صفحات التبويب مثل **عام، ملخص، إحصائيات، محتويات ومخصص**. تسمح جميع هذه الصفحات بتكوين أنواع مختلفة من المعلومات المتعلقة بملفات PowerPoint. يتم استخدام علامة **مخصص** لإدارة الخصائص المخصصة لملفات PowerPoint.
+تحتوي الخصائص **المضمنة** على معلومات عامة عن المستند مثل عنوان المستند، اسم المؤلف، إحصائيات المستند وما إلى ذلك. الخصائص **المخصصة** هي تلك التي يحددها المستخدمون كأزواج **اسم/قيمة**، حيث يتم تعريف كل من الاسم والقيمة من قبل المستخدم. باستخدام Aspose.Slides for Python عبر .NET، يمكن للمطورين الوصول إلى قيم الخصائص المضمنة وتعديلها وكذلك الخصائص المخصصة. يتيح Microsoft PowerPoint 2007 إدارة خصائص المستند لملفات العرض التقديمي. كل ما عليك فعله هو النقر على أيقونة Office ثم اختيار **Prepare | Properties | Advanced Properties** في Microsoft PowerPoint 2007. بعد اختيار عنصر القائمة **Advanced Properties**، سيظهر حوار يسمح لك بإدارة خصائص المستند لملف PowerPoint. في **حوار الخصائص**، يمكنك رؤية العديد من الصفحات مثل **General, Summary, Statistics, Contents and Custom**. تسمح جميع هذه الصفحات بتكوين أنواع مختلفة من المعلومات المتعلقة بملفات PowerPoint. يتم استخدام علامة تبويب **Custom** لإدارة الخصائص المخصصة لملفات PowerPoint.
+
 ## **الوصول إلى الخصائص المضمنة**
-تشمل هذه الخصائص كما تعرضها كائن **IDocumentProperties**: **Creator(المؤلف)**، **الوصف**، **الكلمات المفتاحية**، **تم الإنشاء** (تاريخ الإنشاء)، **تم التعديل** (تاريخ التعديل)، **تم الطباعة** (تاريخ آخر طباعة)، **آخر تعديل بواسطة**، **الكلمات المفتاحية**، **SharedDoc** (هل تم مشاركتها بين منتجين مختلفين؟)، **PresentationFormat**، **الموضوع** و**العنوان**
+تتضمن هذه الخصائص التي ي exposeها كائن **IDocumentProperties** ما يلي: **Creator(Author)**، **Description**، **Keywords**، **Created** (تاريخ الإنشاء)، **Modified** (تاريخ التعديل)، **Printed** (تاريخ الطباعة الأخيرة)، **LastModifiedBy**، **Keywords**، **SharedDoc** (هل تم مشاركته بين منتجين مختلفين؟)، **PresentationFormat**، **Subject** و **Title**
 ```py
 import aspose.slides as slides
 
-# إنشاء مثيل لفئة العرض (Presentation) التي تمثل العرض
+# إنشاء كائن من الفئة Presentation التي تمثل العرض التقديمي
 with slides.Presentation(path + "AccessBuiltin Properties.pptx") as pres:
-    # إنشاء مرجع للكائن المرتبط بالعرض 
+    # إنشاء مرجع إلى الكائن المرتبط بالعرض التقديمي
     documentProperties = pres.document_properties
 
     # عرض الخصائص المضمنة
-    print("الفئة : " + documentProperties.category)
-    print("الحالة الحالية : " + documentProperties.content_status)
-    print("تاريخ الإنشاء : " + str(documentProperties.created_time))
-    print("المؤلف : " + documentProperties.author)
-    print("الوصف : " + documentProperties.comments)
-    print("الكلمات المفتاحية : " + documentProperties.keywords)
-    print("آخر تعديل بواسطة : " + documentProperties.last_saved_by)
-    print("المشرف : " + documentProperties.manager)
-    print("تاريخ التعديل : " + str(documentProperties.last_saved_time))
-    print("تنسيق العرض : " + documentProperties.presentation_format)
-    print("تاريخ آخر طباعة : " + str(documentProperties.last_printed))
-    print("هل تم المشاركة بين المنتجين : " + str(documentProperties.shared_doc))
-    print("الموضوع : " + documentProperties.subject)
-    print("العنوان : " + documentProperties.title)
+    print("category : " + documentProperties.category)
+    print("Current Status : " + documentProperties.content_status)
+    print("Creation Date : " + str(documentProperties.created_time))
+    print("Author : " + documentProperties.author)
+    print("Description : " + documentProperties.comments)
+    print("KeyWords : " + documentProperties.keywords)
+    print("Last Modified By : " + documentProperties.last_saved_by)
+    print("Supervisor : " + documentProperties.manager)
+    print("Modified Date : " + str(documentProperties.last_saved_time))
+    print("Presentation Format : " + documentProperties.presentation_format)
+    print("Last Print Date : " + str(documentProperties.last_printed))
+    print("Is Shared between producers : " + str(documentProperties.shared_doc))
+    print("Subject : " + documentProperties.subject)
+    print("Title : " + documentProperties.title)
 ```
-## **تعديل الخصائص المضمنة**
-تعديل الخصائص المضمنة لملفات العرض سهل مثل الوصول إليها. يمكنك ببساطة تعيين قيمة نصية لأي خاصية مرغوبة وسيتم تعديل قيمة الخاصية. في المثال المقدم أدناه، أوضحنا كيف يمكننا تعديل خصائص الوثيقة المضمنة لملف العرض.
 
+
+## **تعديل الخصائص المضمنة**
+
+تعديل الخصائص المضمنة لملفات العرض التقديمي سهل بنفس قدر سهولة الوصول إليها. يمكنك ببساطة تعيين قيمة نصية لأي خاصية ترغب فيها ستتم تعديل قيمة الخاصية. في المثال الموضح أدناه، قد أبرزنا كيفية تعديل خصائص المستند المضمنة لملف العرض التقديمي.
 ```py
 import aspose.slides as slides
 
-# إنشاء مثيل لفئة العرض التي تمثل العرض
+# إنشاء كائن من الفئة Presentation التي تمثل العرض التقديمي
 with slides.Presentation(path + "ModifyBuiltinProperties.pptx") as presentation:
-    # إنشاء مرجع للكائن المرتبط بالعروض 
+    # إنشاء مرجع إلى الكائن المرتبط بالعرض التقديمي
     documentProperties = presentation.document_properties
 
     # تعيين الخصائص المضمنة
-    documentProperties.author = "Aspose.Slides لـ .NET"
-    documentProperties.title = "تعديل خصائص العرض"
-    documentProperties.subject = "موضوع Aspose"
-    documentProperties.comments = "وصف Aspose"
-    documentProperties.manager = "مدير Aspose"
+    documentProperties.author = "Aspose.Slides for .NET"
+    documentProperties.title = "Modifying Presentation Properties"
+    documentProperties.subject = "Aspose Subject"
+    documentProperties.comments = "Aspose Description"
+    documentProperties.manager = "Aspose Manager"
 
-    # حفظ العرض في ملف
+    # حفظ العرض التقديمي إلى ملف
     presentation.save("DocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **إضافة خصائص عرض مخصصة**
-يسمح Aspose.Slides لبايثون عبر .NET أيضًا للمطورين بإضافة القيم المخصصة لخصائص مستند العرض. المثال أدناه يوضح كيفية تعيين الخصائص المخصصة لعروض تقديمية.
 
+## **إضافة خصائص عرض تقديمي مخصصة**
+
+تتيح Aspose.Slides for Python عبر .NET أيضًا للمطورين إضافة القيم المخصصة لخصائص مستند العرض التقديمي. يتم إعطاء مثال أدناه يوضح كيفية تعيين الخصائص المخصصة لعرض تقديمي.
 ```py
 import aspose.slides as slides
 
-# إنشاء مثيل لفئة العرض
+# إنشاء كائن من الفئة Presentation
 with slides.Presentation() as presentation:
     # الحصول على خصائص المستند
     documentProperties = presentation.document_properties
 
-    # إضافة الخصائص المخصصة
-    documentProperties.set_custom_property_value("خصية مخصصة جديدة", 12)
-    documentProperties.set_custom_property_value("اسمي", "مدثر")
-    documentProperties.set_custom_property_value("مخصص", 124)
+    # إضافة خصائص مخصصة
+    documentProperties.set_custom_property_value("New Custom", 12)
+    documentProperties.set_custom_property_value("My Nam", "Mudassir")
+    documentProperties.set_custom_property_value("Custom", 124)
 
-    # الحصول على اسم الخاصية عند فهرس معين
+    # الحصول على اسم الخاصية عند الفهرس المحدد
     getPropertyName = documentProperties.get_custom_property_name(2)
 
     # إزالة الخاصية المحددة
     documentProperties.remove_custom_property(getPropertyName)
 
-    # حفظ العرض
+    # حفظ العرض التقديمي
     presentation.save("CustomDocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **الوصول إلى وتعديل الخصائص المخصصة**
-يسمح Aspose.Slides لبايثون عبر .NET أيضًا للمطورين بالوصول إلى قيم الخصائص المخصصة. المثال أدناه يوضح كيفية الوصول إلى جميع هذه الخصائص المخصصة وتعديلها لعروض تقديمية.
 
+## **الوصول إلى وتعديل الخصائص المخصصة**
+
+تتيح Aspose.Slides for Python عبر .NET أيضًا للمطورين الوصول إلى قيم الخصائص المخصصة. يتم إعطاء مثال أدناه يوضح كيفية الوصول إلى جميع هذه الخصائص المخصصة وتعديلها لعرض تقديمي.
 ```py
 import aspose.slides as slides
 
-# إنشاء مثيل لفئة العرض التي تمثل PPTX
+# إنشاء كائن من الفئة Presentation التي تمثل ملف PPTX
 with slides.Presentation(path + "AccessModifyingProperties.pptx") as presentation:
-    # إنشاء مرجع لكائن document_properties المرتبط بالعرض
+    # إنشاء مرجع إلى كائن document_properties المرتبط بالعرض التقديمي
     documentProperties = presentation.document_properties
 
-    # الوصول إلى وتعديل الخصائص المخصصة
+    # الوصول إلى الخصائص المخصصة وتعديلها
     for i in range(documentProperties.count_of_custom_properties):
         # عرض أسماء وقيم الخصائص المخصصة
-        print("اسم الخاصية المخصصة : " + documentProperties.get_custom_property_name(i))
-        print("قيمة الخاصية المخصصة : " + documentProperties.get_custom_property_value[documentProperties.get_custom_property_name(i)])
+        print("Custom Property Name : " + documentProperties.get_custom_property_name(i))
+        print("Custom Property Value : " + documentProperties.get_custom_property_value[documentProperties.get_custom_property_name(i)])
 
         # تعديل قيم الخصائص المخصصة
-        documentProperties.set_custom_property_value(documentProperties.get_custom_property_name(i), "قيمة جديدة " + str(i + 1))
-    # حفظ العرض في ملف
+        documentProperties.set_custom_property_value(documentProperties.get_custom_property_name(i), "New Value " + str(i + 1))
+    # حفظ العرض التقديمي إلى ملف
     presentation.save("CustomDemoModified_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تحقق مما إذا كان العرض قد تم تعديله أو إنشاؤه**
-يوفر Aspose.Slides لبايثون عبر .NET وسيلة للتحقق مما إذا كان العرض قد تم تعديله أو إنشاؤه. المثال أدناه يوضح كيفية التحقق مما إذا كان العرض قد تم إنشاؤه أو تعديله.
-
-```py
-import aspose.slides as slides
-
-info =slides.PresentationFactory.instance.get_presentation_info(path + "AccessModifyingProperties.pptx")
-props = info.read_document_properties()
-
-print(props.name_of_application)
-print(props.app_version)
-```
 
 ## **تعيين لغة التدقيق**
 
-يوفر Aspose.Slides خاصية `Language_Id` (المعروضة بواسطة فئة [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/)) للسماح لك بتعيين لغة التدقيق لوثيقة PowerPoint. لغة التدقيق هي اللغة التي يتم فحص الإملاء والنحو بها في PowerPoint.
+توفر Aspose.Slides الخاصية `Language_Id` (المعروضة عبر الفئة [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/)) لتسمح لك بتعيين لغة التدقيق لوثيقة PowerPoint. لغة التدقيق هي اللغة التي يتم فيها فحص الإملاء والقواعد في PowerPoint.
 
-هذا الكود بايثون يوضح لك كيفية تعيين لغة التدقيق لعرض PowerPoint:
-
+يعرض لك هذا الكود Python كيفية تعيين لغة التدقيق لملف PowerPoint:
 ```python
 import aspose.slides as slides
 
@@ -173,10 +171,10 @@ with slides.Presentation(path + "SetProofingLanguage.pptx") as pres:
     paragraph.portions.add(new_portion)
 ```
 
+
 ## **تعيين اللغة الافتراضية**
 
-هذا الكود بايثون يوضح لك كيفية تعيين اللغة الافتراضية لعرض PowerPoint بالكامل:
-
+يعرض لك هذا الكود Python كيفية تعيين اللغة الافتراضية لعرض تقديمي كامل في PowerPoint:
 ```python
 import aspose.slides as slides
 
@@ -186,7 +184,28 @@ load_options.default_text_language = "en_US"
 with slides.Presentation(load_options) as pres:
     shp = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 150)
     text_frame = shp.text_frame
-    text_frame.text = "نص جديد"
+    text_frame.text = "New Text"
 
     print(text_frame.paragraphs[0].portions[0].portion_format.language_id)
 ```
+
+
+## **مثال مباشر**
+
+جرّب تطبيق الويب [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) للرؤية كيفية التعامل مع خصائص المستند عبر Aspose.Slides API:
+
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+
+## **FAQ**
+
+**كيف يمكنني إزالة خاصية مضمنة من عرض تقديمي؟**
+
+الخصائص المضمنة هي جزء لا يتجزأ من العرض التقديمي ولا يمكن إزالتها بالكامل. ومع ذلك، يمكنك إما تغيير قيمها أو تعيينها كقيمة فارغة إذا سمحت الخاصية بذلك.
+
+**ماذا يحدث إذا أضفت خاصية مخصصة موجودة بالفعل؟**
+
+إذا أضفت خاصية مخصصة موجودة بالفعل، سيتم استبدال قيمتها الحالية بالقيمة الجديدة. لا تحتاج إلى إزالة أو فحص الخاصية مسبقًا، حيث يقوم Aspose.Slides بتحديث قيمة الخاصية تلقائيًا.
+
+**هل يمكنني الوصول إلى خصائص العرض التقديمي دون تحميل العرض بالكامل؟**
+
+نعم، يمكنك الوصول إلى خصائص العرض التقديمي دون تحميل العرض بالكامل باستخدام طريقة [get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) من الفئة [PresentationFactory](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/). ثم استخدم طريقة [read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) المقدمة من الفئة [PresentationInfo](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/) لقراءة الخصائص بكفاءة، مما يوفر الذاكرة ويحسن الأداء.

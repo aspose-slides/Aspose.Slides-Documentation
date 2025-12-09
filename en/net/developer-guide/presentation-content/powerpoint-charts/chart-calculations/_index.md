@@ -60,7 +60,7 @@ using (Presentation pres = new Presentation())
 
 
 
-## **Hide Information from Chart**
+## **Hide Chart Elements**
 This topic helps you to understand how to hide information from chart. Using Aspose.Slides for .NET you can hide **Title, Vertical Axis, Horizontal Axis** and **Grid Lines** from chart. Below code example shows how to use these properties.
 
 ```c#

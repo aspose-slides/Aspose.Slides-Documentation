@@ -1,21 +1,34 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 16.1.0
+title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة للوراء في Aspose.Slides لـ .NET 16.1.0
+linktitle: Aspose.Slides لـ .NET 16.1.0
 type: docs
 weight: 220
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/
+keywords:
+- ترحيل
+- شفرة قديمة
+- شفرة حديثة
+- نهج قديم
+- نهج حديث
+- PowerPoint
+- مستند مفتوح
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "راجع تحديثات واجهة برمجة التطبيقات العامة والتغييرات المتقطعة في Aspose.Slides لـ .NET لتتمكن من ترحيل حلول عروض PowerPoint PPT و PPTX و ODP بسلاسة."
 ---
 
 {{% alert color="primary" %}} 
 
-هذه الصفحة تسرد جميع [الإضافات](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) أو [الإزالات](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) من الفئات والطرق والخصائص وما إلى ذلك، والتغييرات الأخرى التي تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لـ .NET 16.1.0.
+تُظهر هذه الصفحة جميع الفئات [added](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) أو [removed](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) المُضافة أو المُزالة، والطرق، والخصائص وما إلى ذلك، وغيرها من التغييرات التي تم تقديمها مع واجهة برمجة تطبيقات Aspose.Slides لـ .NET 16.1.0.
 
 {{% /alert %}} 
 ## **تغييرات واجهة برمجة التطبيقات العامة**
 
 
-#### **تمت إضافة خاصية RotationAngle إلى واجهات IChartTextBlockFormat وITextFrameFormat**
-تمت إضافة خاصية RotationAngle إلى واجهات Aspose.Slides.Charts.IChartTextBlockFormat وAspose.Slides.ITextFrameFormat.
-تحدد الدوران المخصص الذي يتم تطبيقه على النص داخل الصندوق المحيط.
+#### **تمت إضافة الخاصية RotationAngle إلى واجهتي IChartTextBlockFormat و ITextFrameFormat**
+تمت إضافة الخاصية RotationAngle إلى الواجهات Aspose.Slides.Charts.IChartTextBlockFormat و Aspose.Slides.ITextFrameFormat. تحدد هذه الخاصية الدوران المخصص الذي يتم تطبيقه على النص داخل الصندوق المحدد.
 
 ``` csharp
 
@@ -33,7 +46,7 @@ series.Labels.DefaultDataLabelFormat.TextFormat.TextBlockFormat.RotationAngle = 
 
 chart.HasTitle = true;
 
-chart.ChartTitle.AddTextFrameForOverriding("عنوان مخصص").TextFrameFormat.RotationAngle = -30;
+chart.ChartTitle.AddTextFrameForOverriding("Custom title").TextFrameFormat.RotationAngle = -30;
 
 pres.Save("out.pptx", SaveFormat.Pptx);
 
@@ -41,4 +54,4 @@ pres.Save("out.pptx", SaveFormat.Pptx);
 
 
 ``` 
-#### **تم نقل OdpException من Aspose.Slides.Odp إلى مساحة أسماء Aspose.Slides**
+#### **تم نقل OdpException من Aspose.Slides.Odp إلى مساحة الاسم Aspose.Slides**

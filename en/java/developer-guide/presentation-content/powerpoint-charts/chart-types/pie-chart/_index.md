@@ -18,7 +18,7 @@ keywords:
 description: "Learn how to create and customize pie charts in Java with Aspose.Slides, exportable to PowerPoint, boosting your data storytelling in seconds."
 ---
 
-## **Second Plot Options for Pie of Pie and Bar of Pie Chart**
+## **Second Plot Options for Pie of Pie and Bar of Pie Charts**
 Aspose.Slides for Java now supports second plot options for Pie of Pie or Bar of Pie chart. In this topic, we will show you how to specify those options using Aspose.Slides. To specify the properties, do this:
 
 1. Instantiate [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class object.

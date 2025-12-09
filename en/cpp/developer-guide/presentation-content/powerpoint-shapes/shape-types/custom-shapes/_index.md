@@ -24,7 +24,7 @@ keywords:
 description: "Create and customize shapes in PowerPoint presentations with Aspose.Slides for C++: geometry paths, curved corners, composite shapes."
 ---
 
-# Change a Shape Using Edit Points
+## **Change a Shape Using Edit Points**
 Consider a square. In PowerPoint, using **edit points**, you can 
 
 * move the square's corner in or out
@@ -122,7 +122,7 @@ void MoveTo(float x, float y);
 ``` cpp
 void RemoveAt(int32_t index);
 ```
-## **Add Custom Points to Shape**
+## **Add Custom Points to a Shape**
 1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) class and set the [ShapeType.Rectangle](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5) type.
 2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) class from the shape.
 3. Add a new point between the two top points on the path.
@@ -146,7 +146,7 @@ shape->SetGeometryPath(geometryPath);
 
 ![example1_image](custom_shape_1.png)
 
-##  Remove Points From Shape
+## **Remove Points from a Shape**
 
 1. Create an instance of [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) class and set the [ShapeType.Heart](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5) type. 
 2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) class from the shape.
@@ -167,7 +167,7 @@ shape->SetGeometryPath(path);
 ```
 ![example2_image](custom_shape_2.png)
 
-##  **Create Custom Shape**
+##  **Create a Custom Shape**
 
 1. Calculate the points for the shape.
 2. Create an instance of the [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) class. 
@@ -216,7 +216,7 @@ shape->SetGeometryPath(starPath);
 ![example3_image](custom_shape_3.png)
 
 
-## **Create Composite Custom Shape**
+## **Create a Composite Custom Shape**
 
   1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) class.
   2. Create a first instance of the [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) class.
@@ -249,7 +249,7 @@ shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ geometryPa
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Create Custom Shape With Curved Corners**
+## **Create a Custom Shape with Curved Corners**
 
 This C++ code shows you how to create a custom shape with curved corners (inwards);
 
@@ -346,3 +346,17 @@ textPath->set_FillMode(PathFillModeType::Normal);
 shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ originalPath, textPath }));
 ```
 ![example5_image](custom_shape_5.png)
+
+## **FAQ**
+
+**What will happen to the fill and outline after replacing the geometry?**
+
+The style remains with the shape; only the contour changes. The fill and outline are automatically applied to the new geometry.
+
+**How do I correctly rotate a custom shape along with its geometry?**
+
+Use the shape’s [rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) property; the geometry rotates with the shape because it’s bound to the shape’s own coordinate system.
+
+**Can I convert a custom shape to an image to "lock in" the result?**
+
+Yes. Export the required [slide](/slides/cpp/convert-powerpoint-to-png/) area or the [shape](/slides/cpp/create-shape-thumbnails/) itself to a raster format; this simplifies further work with heavy geometries.

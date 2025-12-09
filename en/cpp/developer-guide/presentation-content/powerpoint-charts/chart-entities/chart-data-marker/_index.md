@@ -17,7 +17,7 @@ keywords:
 description: "Learn how to customize chart data markers in Aspose.Slides for С++, boosting presentation impact across PPT and PPTX formats with clear С++ code examples."
 ---
 
-## **Set Chart Marker**
+## **Set Chart Markers**
 Aspose.Slides for C++ provides a simple API to set the chart series marker automatically. In the following feature, every chart series will get different default marker symbol automatically.
 
 Below code example shows how to set the chart series marker automatically.
@@ -28,7 +28,7 @@ Below code example shows how to set the chart series marker automatically.
 ## **Set Chart Marker Options**
 The markers can be set on chart data points inside a particular series. In order to set chart marker options. Please follow the steps below:
 
-- Instantiate [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
+- Instantiate [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
 - Creating the default chart.
 - Set the picture.
 - Take the first chart series.
@@ -40,7 +40,7 @@ In the example given below, we have set the chart marker options on data points 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetMarkerOptions-SetMarkerOptions.cpp" >}}
 
 
-## **Set Chart Marker on Series Data Point Level**
+## **Set Chart Markers on the Series Data Point Level**
 Now, the markers can be set on chart data points inside a particular series. In order to set chart marker options. Please follow the steps below:
 
 - Instantiate Presentation class.
@@ -114,7 +114,17 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 pres->Dispose();
 ```
 
-## **Apply Color to Data Points**
+## **Apply a Color to Data Points**
 You can apply color to data points in the chart using Aspose.Slides for C++. [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_levels_manager) and **[IChartDataPointLevel](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_point_level)** classes have been added to get access to properties of data point levels. This article demonstrates how you can access and apply color to data points in a chart.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-AddColorToDataPoints-AddColorToDataPoints.cpp" >}}
+
+## **FAQ**
+
+**Which marker shapes are available out of the box?**
+
+Standard shapes are available (circle, square, diamond, triangle, etc.); the list is defined by the [MarkerStyleType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/markerstyletype/) enumeration. If you need a non-standard shape, use a marker with a picture fill to emulate custom visuals.
+
+**Are markers preserved when exporting a chart to an image or SVG?**
+
+Yes. When rendering charts to [raster formats](/slides/cpp/convert-powerpoint-to-png/) or saving [shapes as SVG](/slides/cpp/render-a-slide-as-an-svg-image/), markers retain their appearance and settings, including size, fill, and outline.

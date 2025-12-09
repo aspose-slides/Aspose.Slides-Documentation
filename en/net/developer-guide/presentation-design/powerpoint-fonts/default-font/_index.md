@@ -21,7 +21,7 @@ keywords:
 description: "Set default fonts in Aspose.Slides for .NET to ensure proper PowerPoint (PPT, PPTX) and OpenDocument (ODP) conversion to PDF, XPS and images."
 ---
 
-## **Using Default Fonts for Rendering Presentation**
+## **Use Default Fonts for Rendering a Presentation**
 Aspose.Slides lets you set the default font for rendering the presentation to PDF, XPS or thumbnails. This article shows how to define DefaultRegular
 Font and DefaultAsian Font for use as default fonts. Please follow the steps below to loading fonts from external directories by using Aspose.Slides for .NET API:
 

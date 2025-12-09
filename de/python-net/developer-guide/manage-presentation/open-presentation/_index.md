@@ -1,5 +1,5 @@
 ---
-title: Präsentation in Python öffnen
+title: Präsentationen in Python öffnen
 linktitle: Präsentationen öffnen
 type: docs
 weight: 20
@@ -17,25 +17,25 @@ keywords:
 - geschützte Präsentation
 - große Präsentation
 - externe Ressource
-- Binärobjekt
+- binäres Objekt
 - Python
 - Aspose.Slides
-description: "Öffnen Sie PowerPoint (.pptx, .ppt) und OpenDocument (.odp) Präsentationen mühelos mit Aspose.Slides für Python über .NET—schnell, zuverlässig, vollumfänglich."
+description: "Öffnen Sie PowerPoint (.pptx, .ppt) und OpenDocument (.odp) Präsentationen mühelos mit Aspose.Slides für Python über .NET—schnell, zuverlässig, voll funktionsfähig."
 ---
 
 ## **Übersicht**
 
-Neben dem Erstellen von PowerPoint‑Präsentationen von Grund auf ermöglicht Aspose.Slides auch das Öffnen vorhandener Präsentationen. Nach dem Laden einer Präsentation können Sie Informationen darüber abrufen, Folieninhalte bearbeiten, neue Folien hinzufügen, vorhandene entfernen und vieles mehr.
+Neben dem Erstellen von PowerPoint‑Präsentationen von Grund auf ermöglicht Aspose.Slides auch das Öffnen vorhandener Präsentationen. Nach dem Laden einer Präsentation können Sie Informationen darüber abrufen, Folieninhalt bearbeiten, neue Folien hinzufügen, vorhandene entfernen und vieles mehr.
 
 ## **Präsentationen öffnen**
 
-Um eine vorhandene Präsentation zu öffnen, instanziieren Sie die [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse und übergeben den Dateipfad an ihren Konstruktor.
+Um eine vorhandene Präsentation zu öffnen, instanziieren Sie die [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse und übergeben dem Konstruktor den Dateipfad.
 
-Das folgende Python‑Beispiel zeigt, wie man eine Präsentation öffnet und die Folienzahl ermittelt:
+Das folgende Python‑Beispiel zeigt, wie Sie eine Präsentation öffnen und die Folienanzahl ermitteln:
 ```python
 import aspose.slides as slides
 
-# Instanziieren Sie die Presentation-Klasse und übergeben Sie einen Dateipfad an ihren Konstruktor.
+# Instanziieren Sie die Presentation‑Klasse und übergeben Sie einen Dateipfad an deren Konstruktor.
 with slides.Presentation("sample.pptx") as presentation:
     # Geben Sie die Gesamtzahl der Folien in der Präsentation aus.
     print(presentation.slides.length)
@@ -44,7 +44,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **Passwortgeschützte Präsentationen öffnen**
 
-Wenn Sie eine passwortgeschützte Präsentation öffnen müssen, übergeben Sie das Passwort über die [password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/) Eigenschaft der [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) Klasse, um sie zu entschlüsseln und zu laden. Der folgende Python‑Code demonstriert diese Vorgehensweise:
+Wenn Sie eine passwortgeschützte Präsentation öffnen müssen, übergeben Sie das Passwort über die [password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/)‑Eigenschaft der [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/)‑Klasse, um sie zu entschlüsseln und zu laden. Der folgende Python‑Code demonstriert diesen Vorgang:
 ```python
 import aspose.slides as slides
 
@@ -58,9 +58,9 @@ with slides.Presentation("sample.pptx", load_options) as presentation:
 
 ## **Große Präsentationen öffnen**
 
-Aspose.Slides stellt Optionen bereit – insbesondere die [blob_management_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/blob_management_options/) Eigenschaft in der [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) Klasse –, um das Laden großer Präsentationen zu unterstützen.
+Aspose.Slides bietet Optionen – insbesondere die [blob_management_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/blob_management_options/)‑Eigenschaft in der [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/)‑Klasse – um das Laden großer Präsentationen zu unterstützen.
 
-Dieser Python‑Code demonstriert das Laden einer großen Präsentation (z.B. 2 GB):
+Dieser Python‑Code demonstriert das Laden einer großen Präsentation (z. B. 2 GB):
 ```python
 import aspose.slides as slides
 import os
@@ -68,38 +68,38 @@ import os
 file_path = "LargePresentation.pptx"
 
 load_options = slides.LoadOptions()
-# Wählen Sie das KeepLocked-Verhalten — die Präsentationsdatei bleibt für die gesamte Lebensdauer von 
-# der Presentation-Instanz gesperrt, muss jedoch nicht in den Speicher geladen oder in eine temporäre Datei kopiert werden.
+# Choose the KeepLocked behavior—the presentation file will remain locked for the lifetime of 
+# the Presentation instance, but it does not need to be loaded into memory or copied to a temporary file.
 load_options.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
 load_options.blob_management_options.is_temporary_files_allowed = True
 load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024  # 10 MB
 
 with slides.Presentation(file_path, load_options) as presentation:
-    # Die große Präsentation wurde geladen und kann verwendet werden, während der Speicherverbrauch gering bleibt.
+    # The large presentation has been loaded and can be used, while memory consumption remains low.
 
-    # Änderungen an der Präsentation vornehmen.
+    # Make changes to the presentation.
     presentation.slides[0].name = "Large presentation"
 
-    # Die Präsentation in eine andere Datei speichern. Der Speicherverbrauch bleibt während dieses Vorgangs gering.
+    # Save the presentation to another file. Memory consumption remains low during this operation.
     presentation.save("LargePresentation-copy.pptx", slides.export.SaveFormat.PPTX)
 
-    # Nicht tun! Eine I/O-Ausnahme wird ausgelöst, weil die Datei gesperrt ist, bis das Präsentationsobjekt freigegeben wird.
+    # Don't do this! An I/O exception will be thrown because the file is locked until the presentation object is disposed.
     os.remove(file_path)
 
-# Es ist hier in Ordnung. Die Quelldatei ist nicht mehr durch das Präsentationsobjekt gesperrt.
+# It is OK to do it here. The source file is no longer locked by the presentation object.
 os.remove(file_path)
 ```
 
 
 {{% alert color="info" title="Info" %}}
-Um bestimmte Einschränkungen beim Arbeiten mit Streams zu umgehen, kann Aspose.Slides den Inhalt eines Streams kopieren. Das Laden einer großen Präsentation aus einem Stream führt dazu, dass die Präsentation kopiert wird und das Laden verlangsamen kann. Daher empfehlen wir dringend, beim Laden einer großen Präsentation den Dateipfad der Präsentation statt eines Streams zu verwenden.
+Um bestimmte Einschränkungen beim Arbeiten mit Streams zu umgehen, kann Aspose.Slides den Inhalt eines Streams kopieren. Das Laden einer großen Präsentation aus einem Stream führt dazu, dass die Präsentation kopiert wird und das Laden verlangsamen kann. Daher empfehlen wir, beim Laden großer Präsentationen nach Möglichkeit den Dateipfad anstelle eines Streams zu verwenden.
 
-Wenn Sie eine Präsentation erstellen, die große Objekte (Video, Audio, hochauflösende Bilder usw.) enthält, können Sie [BLOB management](/slides/de/python-net/manage-blob/) verwenden, um den Speicherverbrauch zu reduzieren.
+Wenn Sie eine Präsentation erstellen, die große Objekte (Video, Audio, hochauflösende Bilder usw.) enthält, können Sie das [BLOB management](/slides/de/python-net/manage-blob/) nutzen, um den Speicherverbrauch zu reduzieren.
 {{%/alert %}}
 
 ## **Externe Ressourcen steuern**
 
-Aspose.Slides stellt das [IResourceLoadingCallback](https://reference.aspose.com/slides/python-net/aspose.slides/iresourceloadingcallback/) Interface bereit, mit dem Sie externe Ressourcen verwalten können. Der folgende Python‑Code zeigt, wie das `IResourceLoadingCallback` Interface verwendet wird:
+Aspose.Slides stellt das [IResourceLoadingCallback](https://reference.aspose.com/slides/python-net/aspose.slides/iresourceloadingcallback/)‑Interface bereit, mit dem Sie externe Ressourcen verwalten können. Der folgende Python‑Code zeigt, wie das `IResourceLoadingCallback`‑Interface verwendet wird:
 ```python
 # [TODO[not_supported_yet]: Python-Implementierung von .NET-Schnittstellen]
 ```
@@ -107,15 +107,15 @@ Aspose.Slides stellt das [IResourceLoadingCallback](https://reference.aspose.com
 
 ## **Präsentationen ohne eingebettete Binärobjekte laden**
 
-Eine PowerPoint‑Präsentation kann die folgenden Arten von eingebetteten Binärobjekten enthalten:
+Eine PowerPoint‑Präsentation kann die folgenden Arten eingebetteter Binärobjekte enthalten:
 
 - VBA‑Projekt (zugänglich über [Presentation.vba_project](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/vba_project/));
-- OLE‑Objekt eingebettete Daten (zugänglich über [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/));
+- OLE‑Objekt‑eingebettete Daten (zugänglich über [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/));
 - ActiveX‑Steuerungs‑Binärdaten (zugänglich über [Control.active_x_control_binary](https://reference.aspose.com/slides/python-net/aspose.slides/control/active_x_control_binary/)).
 
-Mit der [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) Eigenschaft können Sie eine Präsentation ohne eingebettete Binärobjekte laden.
+Mit der [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/)‑Eigenschaft können Sie eine Präsentation ohne jegliche eingebettete Binärobjekte laden.
 
-Diese Eigenschaft ist nützlich, um potenziell schädlichen Binärinhalt zu entfernen. Der folgende Python‑Code demonstriert, wie man eine Präsentation ohne eingebettete Binärinhalte lädt:
+Diese Eigenschaft ist nützlich, um potenziell schädliche Binärinhalte zu entfernen. Der folgende Python‑Code demonstriert, wie Sie eine Präsentation ohne eingebettete Binärinhalte laden:
 ```py
 import aspose.slides as slides
 
@@ -131,12 +131,12 @@ with slides.Presentation("malware.ppt", load_options) as presentation:
 
 **Wie erkenne ich, dass eine Datei beschädigt ist und nicht geöffnet werden kann?**
 
-Beim Laden erhalten Sie eine Parsing‑/Formatvalidierungs‑Ausnahme. Solche Fehler erwähnen häufig eine ungültige ZIP‑Struktur oder beschädigte PowerPoint‑Datensätze.
+Beim Laden erhalten Sie eine Parsing‑/Format‑Validierungs‑Ausnahme. Solche Fehler weisen häufig auf eine ungültige ZIP‑Struktur oder beschädigte PowerPoint‑Records hin.
 
 **Was passiert, wenn beim Öffnen erforderliche Schriftarten fehlen?**
 
-Die Datei wird geöffnet, aber später beim [rendering/export](/slides/de/python-net/convert-presentation/) können Schriftarten ersetzt werden. [Configure font substitutions](/slides/de/python-net/font-substitution/) oder [add the required fonts](/slides/de/python-net/custom-font/) in die Laufzeitumgebung einbinden.
+Die Datei wird geöffnet, jedoch kann beim späteren [rendering/export](/slides/de/python-net/convert-presentation/) ein Ersatz der Schriftarten erfolgen. Konfigurieren Sie [Schriftart‑Ersetzungen](/slides/de/python-net/font-substitution/) oder fügen Sie die erforderlichen Schriftarten [der Laufzeitumgebung](/slides/de/python-net/custom-font/) hinzu.
 
-**Was passiert mit eingebetteten Medien (Video/Audio) beim Öffnen?**
+**Wie werden eingebettete Medien (Video/Audio) beim Öffnen behandelt?**
 
-Sie stehen als Präsentations‑Ressourcen zur Verfügung. Wenn Medien über externe Pfade referenziert werden, stellen Sie sicher, dass diese Pfade in Ihrer Umgebung zugänglich sind; andernfalls kann das [rendering/export](/slides/de/python-net/convert-presentation/) die Medien weglassen.
+Sie stehen als Präsentations‑Ressourcen zur Verfügung. Wenn Medien über externe Pfade referenziert werden, stellen Sie sicher, dass diese Pfade in Ihrer Umgebung erreichbar sind; andernfalls kann beim [rendering/export](/slides/de/python-net/convert-presentation/) das Medium weggelassen werden.

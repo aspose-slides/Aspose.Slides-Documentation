@@ -1,35 +1,49 @@
 ---
-title: الرسوم البيانية المتحركة
+title: تحريك مخططات PowerPoint في Python
+linktitle: مخططات متحركة
 type: docs
 weight: 80
 url: /ar/python-net/animated-charts/
-keywords: "الرسوم البيانية، سلسلة الرسوم البيانية، الرسوم المتحركة، عرض PowerPoint، PPTX، PPT، بايثون، Aspose.Slides لبايثون عبر .NET"
-description: "سلاسل الرسوم البيانية والرسوم المتحركة في PowerPoint باستخدام بايثون"
+keywords:
+- مخطط
+- مخطط متحرك
+- تحريك المخطط
+- سلسلة المخطط
+- فئة المخطط
+- عنصر السلسلة
+- عنصر الفئة
+- إضافة تأثير
+- نوع التأثير
+- PowerPoint
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "أنشئ مخططات متحركة مذهلة في Python باستخدام Aspose.Slides. عزز العروض التقديمية بمرئيات ديناميكية في ملفات PPT و PPTX و ODP — ابدأ الآن."
 ---
 
-يدعم Aspose.Slides لبايثون عبر .NET تحريك عناصر الرسم البياني. **السلاسل**، **الفئات**، **عناصر السلسلة**، **عناصر الفئات** يمكن أن يتم تحريكها باستخدام [**ISequence**.**AddEffect**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/isequence/) وطريقتين enum [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effectchartmajorgroupingtype/) و [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effectchartminorgroupingtype/).
-## **تحريك سلسلة الرسوم البيانية**
-إذا كنت ترغب في تحريك سلسلة من الرسوم البيانية، اكتب الكود وفقًا للخطوات المدرجة أدناه:
+يدعم Aspose.Slides for Python عبر .NET تحريك عناصر المخطط. يمكن تحريك **Series** و**Categories** و**Series Elements** و**Categories Elements** باستخدام طريقة [**ISequence**.**AddEffect**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/isequence/) واثنين من التعدادات [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effectchartmajorgroupingtype/) و[**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effectchartminorgroupingtype/).
 
-1. قم بتحميل العرض التقديمي.
-1. احصل على مرجع لعنصر الرسم البياني.
-1. قم بتحريك السلسلة.
-1. اكتب ملف العرض التقديمي إلى القرص.
+## **تحريك سلسلة المخطط**
+إذا كنت ترغب في تحريك سلسلة مخطط، اكتب الشيفرة وفقًا للخطوات المذكورة أدناه:
 
-في المثال المعطى أدناه، قمنا بتحريك سلسلة الرسوم البيانية.
+1. تحميل عرض تقديمي.
+1. الحصول على مرجع كائن المخطط.
+1. تحريك السلسلة.
+1. حفظ ملف العرض التقديمي إلى القرص.
 
+في المثال أدناه، قمنا بتحريك سلسلة المخطط.
 ```py
 import aspose.slides.animation as anim;
 import aspose.slides as slides
 
-# إنشاء فئة العرض التقديمي والتي تمثل ملف العرض التقديمي 
+# إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي 
 with slides.Presentation(path + "ExistingChart.pptx") as presentation:
-    # احصل على مرجع لعنصر الرسم البياني
+    # الحصول على مرجع كائن المخطط
     slide = presentation.slides[0]
     shapes = slide.shapes
     chart = shapes[0]
 
-    # قم بتحريك السلسلة
+    # تحريك السلسلة
     slide.timeline.main_sequence.add_effect(chart, 
         anim.EffectType.FADE, 
         anim.EffectSubtype.NONE, 
@@ -59,32 +73,31 @@ with slides.Presentation(path + "ExistingChart.pptx") as presentation:
         anim.EffectSubtype.NONE, 
         anim.EffectTriggerType.AFTER_PREVIOUS)
 
-    # اكتب العرض التقديمي المعدّل إلى القرص 
+    # كتابة العرض التقديمي المعدل إلى القرص 
     presentation.save("AnimatingSeries_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **تحريك فئة الرسم البياني**
-إذا كنت ترغب في تحريك سلسلة الرسوم البيانية، اكتب الكود وفقًا للخطوات المدرجة أدناه:
+## **تحريك فئة المخطط**
+إذا كنت ترغب في تحريك فئة مخطط، اكتب الشيفرة وفقًا للخطوات المذكورة أدناه:
 
-1. قم بتحميل العرض التقديمي.
-1. احصل على مرجع لعنصر الرسم البياني.
-1. قم بتحريك الفئة.
-1. اكتب ملف العرض التقديمي إلى القرص.
+1. تحميل عرض تقديمي.
+1. الحصول على مرجع كائن المخطط.
+1. تحريك الفئة.
+1. حفظ ملف العرض التقديمي إلى القرص.
 
-في المثال المعطى أدناه، قمنا بتحريك فئة الرسم البياني.
-
+في المثال أدناه، قمنا بتحريك فئة المخطط.
 ```py
 import aspose.slides.animation as anim;
 import aspose.slides as slides
 
 with slides.Presentation(path + "ExistingChart.pptx") as presentation:
-    # احصل على مرجع لعنصر الرسم البياني
+    # الحصول على مرجع كائن المخطط
     slide = presentation.slides[0]
     shapes = slide.shapes
     chart = shapes[0]
 
-    # قم بتحريك عناصر الفئات
+    # تحريك عناصر الفئات
     slide.timeline.main_sequence.add_effect(chart, anim.EffectType.FADE, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 0, 0, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 0, 1, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
@@ -101,33 +114,32 @@ with slides.Presentation(path + "ExistingChart.pptx") as presentation:
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 2, 2, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 2, 3, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
 
-    # اكتب ملف العرض التقديمي إلى القرص
+    # كتابة ملف العرض التقديمي إلى القرص
     presentation.save("AnimatingCategoriesElements_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **التحريك في عنصر السلسلة**
-إذا كنت ترغب في تحريك عناصر السلسلة، اكتب الكود وفقًا للخطوات المدرجة أدناه:
+## **تحريك عنصر السلسلة**
+إذا كنت ترغب في تحريك عناصر السلسلة، اكتب الشيفرة وفقًا للخطوات المذكورة أدناه:
 
-1. قم بتحميل العرض التقديمي.
-1. احصل على مرجع لعنصر الرسم البياني.
-1. قم بتحريك عناصر السلسلة.
-1. اكتب ملف العرض التقديمي إلى القرص.
+1. تحميل عرض تقديمي.
+1. الحصول على مرجع كائن المخطط.
+1. تحريك عناصر السلسلة.
+1. حفظ ملف العرض التقديمي إلى القرص.
 
-في المثال المعطى أدناه، لقد قمنا بتحريك عناصر السلسلة.
-
+في المثال أدناه، قمنا بتحريك عناصر السلسلة.
 ```py
 import aspose.slides.animation as anim;
 import aspose.slides as slides
 
-# قم بتحميل عرض تقديمي
+# تحميل عرض تقديمي
 with slides.Presentation(path + "ExistingChart.pptx") as presentation:
-    # احصل على مرجع لعنصر الرسم البياني
+    # الحصول على مرجع كائن المخطط
     slide = presentation.slides[0]
     shapes = slide.shapes
     chart = shapes[0]
 
-    # قم بتحريك عناصر السلسلة
+    # تحريك عناصر السلسلة
     slide.timeline.main_sequence.add_effect(chart, anim.EffectType.FADE, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
 
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_SERIES, 0, 0, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
@@ -145,32 +157,31 @@ with slides.Presentation(path + "ExistingChart.pptx") as presentation:
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_SERIES, 2, 2, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_SERIES, 2, 3, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
 
-    # اكتب ملف العرض التقديمي إلى القرص 
+    # كتابة ملف العرض التقديمي إلى القرص
     presentation.save("AnimatingSeriesElements_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
-## **التحريك في عنصر الفئة**
-إذا كنت ترغب في تحريك عناصر الفئات، اكتب الكود وفقًا للخطوات المدرجة أدناه:
+## **تحريك عنصر الفئة**
+إذا كنت ترغب في تحريك عناصر الفئات، اكتب الشيفرة وفقًا للخطوات المذكورة أدناه:
 
-1. قم بتحميل العرض التقديمي.
-1. احصل على مرجع لعنصر الرسم البياني.
-1. قم بتحريك عناصر الفئات.
-1. اكتب ملف العرض التقديمي إلى القرص.
+1. تحميل عرض تقديمي.
+1. الحصول على مرجع كائن المخطط.
+1. تحريك عناصر الفئات.
+1. حفظ ملف العرض التقديمي إلى القرص.
 
-في المثال المعطى أدناه، لقد قمنا بتحريك عناصر الفئات.
-
+في المثال أدناه، قمنا بتحريك عناصر الفئات.
 ```py
 import aspose.slides.animation as anim;
 import aspose.slides as slides
 
 with slides.Presentation(path + "ExistingChart.pptx") as presentation:
-    # احصل على مرجع لعنصر الرسم البياني
+    # الحصول على مرجع كائن المخطط
     slide = presentation.slides[0]
     shapes = slide.shapes
     chart = shapes[0]
 
-    # قم بتحريك عناصر الفئات
+    # تحريك عناصر الفئات
     slide.timeline.main_sequence.add_effect(chart, anim.EffectType.FADE, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 0, 0, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 0, 1, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
@@ -187,6 +198,24 @@ with slides.Presentation(path + "ExistingChart.pptx") as presentation:
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 2, 2, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
     slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 2, 3, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
 
-    # اكتب ملف العرض التقديمي إلى القرص
+    # كتابة ملف العرض التقديمي إلى القرص
     presentation.save("AnimatingCategoriesElements_out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يتم دعم أنواع التأثيرات المختلفة (مثل الدخول، التأكيد، الخروج) للمخططات كما هو الحال مع الأشكال العادية؟**
+نعم. يُعامل المخطط ككائن شكل، لذا يدعم أنواع التأثيرات القياسية للتحريك، بما في ذلك الدخول، التأكيد، والخروج، مع تحكم كامل عبر جدول زمني للشريحة وتسلسلات التحريك.
+
+**هل يمكنني الجمع بين تحريك المخطط وانتقالات الشرائح؟**
+نعم. [Transitions](/slides/ar/python-net/slide-transition/) تُطبق على الشريحة، بينما تُطبق تأثيرات التحريك على الكائنات داخل الشريحة. يمكنك استخدامهما معًا في نفس العرض التقديمي والتحكم فيهما بشكل مستقل.
+
+**هل يتم الحفاظ على تحريكات المخطط عند حفظه كملف PPTX؟**
+نعم. عند [save to PPTX](/slides/ar/python-net/save-presentation/)، يتم الحفاظ على جميع تأثيرات التحريك وترتيبها لأنّها جزء من نموذج التحريك الأصلي للعرض التقديمي.
+
+**هل يمكنني قراءة تحريكات المخطط الموجودة في عرض تقديمي وتعديلها؟**
+نعم. توفر الـ [API](https://reference.aspose.com/slides/python-net/aspose.slides.animation/) إمكانية الوصول إلى جدول زمني للشريحة، والتسلسلات، والتأثيرات، مما يسمح لك بفحص تحريكات المخطط الحالية وتعديلها دون الحاجة إلى إنشاء كل شيء من البداية.
+
+**هل يمكنني إنتاج فيديو يتضمن تحريكات المخطط باستخدام Aspose.Slides for Python عبر .NET؟**
+نعم. يمكنك [export a presentation to video](/slides/ar/python-net/convert-powerpoint-to-video/) مع الحفاظ على التحريكات، وضبط التوقيتات وغيرها من إعدادات التصدير بحيث يعكس المقطع الناتج تشغيل التحريك.

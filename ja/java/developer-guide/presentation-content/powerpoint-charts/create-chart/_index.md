@@ -47,10 +47,10 @@ _チャート_: **円グラフ**
 - [JavaでPowerPoint円グラフを作成](#java-create-powerpoint-pie-chart)
 - [JavaでPowerPointプレゼンテーション円グラフを作成](#java-create-powerpoint-presentation-pie-chart)
 
-_チャート_: **ツリーマップ**
-- [Javaでツリーマップチャートを作成](#java-create-tree-map-chart)
-- [JavaでPowerPointツリーマップチャートを作成](#java-create-powerpoint-tree-map-chart)
-- [JavaでPowerPointプレゼンテーションツリーマップチャートを作成](#java-create-powerpoint-presentation-tree-map-chart)
+_Chart_: **ツリーマップ**
+- [Java でツリーマップ チャートを作成](#java-create-tree-map-chart)
+- [Java で PowerPoint ツリーマップ チャートを作成](#java-create-powerpoint-tree-map-chart)
+- [Java で PowerPoint プレゼンテーション ツリーマップ チャートを作成](#java-create-powerpoint-presentation-tree-map-chart)
 
 _チャート_: **株価**
 - [Javaで株価チャートを作成](#java-create-stock-chart)
@@ -67,35 +67,35 @@ _チャート_: **ファンネル**
 - [JavaでPowerPointファンネルチャートを作成](#java-create-powerpoint-funnel-chart)
 - [JavaでPowerPointプレゼンテーションファンネルチャートを作成](#java-create-powerpoint-presentation-funnel-chart)
 
-_チャート_: **サンバースト**
-- [Javaでサンバーストチャートを作成](#java-create-sunburst-chart)
-- [JavaでPowerPointサンバーストチャートを作成](#java-create-powerpoint-sunburst-chart)
-- [JavaでPowerPointプレゼンテーションサンバーストチャートを作成](#java-create-powerpoint-presentation-sunburst-chart)
+_Chart_: **サンバースト**
+- [Java でサンバーストチャートを作成](#java-create-sunburst-chart)
+- [Java で PowerPoint サンバーストチャートを作成](#java-create-powerpoint-sunburst-chart)
+- [Java で PowerPoint プレゼンテーションサンバーストチャートを作成](#java-create-powerpoint-presentation-sunburst-chart)
 
 _チャート_: **ヒストグラム**
 - [Javaでヒストグラムチャートを作成](#java-create-histogram-chart)
 - [JavaでPowerPointヒストグラムチャートを作成](#java-create-powerpoint-histogram-chart)
 - [JavaでPowerPointプレゼンテーションヒストグラムチャートを作成](#java-create-powerpoint-presentation-histogram-chart)
 
-_チャート_: **レーダー**
-- [Javaでレーダーチャートを作成](#java-create-radar-chart)
-- [JavaでPowerPointレーダーチャートを作成](#java-create-powerpoint-radar-chart)
-- [JavaでPowerPointプレゼンテーションレーダーチャートを作成](#java-create-powerpoint-presentation-radar-chart)
+_Chart_: **レーダー**
+- [Java でレーダーチャートを作成](#java-create-radar-chart)
+- [Java で PowerPoint レーダーチャートを作成](#java-create-powerpoint-radar-chart)
+- [Java で PowerPoint プレゼンテーションレーダーチャートを作成](#java-create-powerpoint-presentation-radar-chart)
 
 _チャート_: **マルチカテゴリ**
 - [Javaでマルチカテゴリチャートを作成](#java-create-multi-category-chart)
 - [JavaでPowerPointマルチカテゴリチャートを作成](#java-create-powerpoint-multi-category-chart)
 - [JavaでPowerPointプレゼンテーションマルチカテゴリチャートを作成](#java-create-powerpoint-presentation-multi-category-chart)
 
-_チャート_: **マップ**
-- [Javaでマップチャートを作成](#java-create-map-chart)
-- [JavaでPowerPointマップチャートを作成](#java-create-powerpoint-map-chart)
-- [JavaでPowerPointプレゼンテーションマップチャートを作成](#java-create-powerpoint-presentation-map-chart)
+_Chart_: **マップ**
+- [Java でマップチャートを作成](#java-create-map-chart)
+- [Java で PowerPoint マップチャートを作成](#java-create-powerpoint-map-chart)
+- [Java で PowerPoint プレゼンテーションマップチャートを作成](#java-create-powerpoint-presentation-map-chart)
 
-_アクション_: **チャートの更新**
-- [JavaでPowerPointチャートを更新](#java-update-powerpoint-chart)
-- [Javaでプレゼンテーションチャートを更新](#java-update-presentation-chart)
-- [JavaでPowerPointプレゼンテーションチャートを更新](#java-update-powerpoint-presentation-chart)
+_Action_: **チャートの更新**
+- [Java で PowerPoint チャートを更新](#java-update-powerpoint-chart)
+- [Java でプレゼンテーション チャートを更新](#java-update-presentation-chart)
+- [Java で PowerPoint プレゼンテーション チャートを更新](#java-update-powerpoint-presentation-chart)
 
 
 ## **チャートの作成**
@@ -1114,13 +1114,13 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 ```java
 Presentation pres = new Presentation();
 try {
-    // 最初のスライドにアクセス
+    // 最初のスライドマーカーにアクセスする
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // デフォルトデータのチャートを取得
+    // デフォルトデータでチャートを取得する
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
-    // チャートデータシートのインデックスを設定
+    // チャートデータシートのインデックスを設定する
     int defaultWorksheetIndex = 0;
 
     // チャートデータのワークシートを取得
@@ -1130,7 +1130,7 @@ try {
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
-    // 最初のチャート系列を取得
+    // 最初のチャート系列を取得する
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
     // 系列データを更新中
@@ -1139,7 +1139,7 @@ try {
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // 2番目のチャート系列を取得
+    // 2番目のチャート系列を取得する
     series = chart.getChartData().getSeries().get_Item(1);
 
     // 系列データを更新中
@@ -1151,7 +1151,7 @@ try {
     // 新しい系列を追加中
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
-    // 3番目のチャート系列を取得
+    // 3番目のチャート系列を取得する
     series = chart.getChartData().getSeries().get_Item(2);
 
     // 系列データを入力中

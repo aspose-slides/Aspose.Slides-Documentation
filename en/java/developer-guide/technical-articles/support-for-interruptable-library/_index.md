@@ -52,27 +52,27 @@ tokenSource.interrupt(); // stop the conversion
 
 ## **FAQ**
 
-**Q: What is the purpose of the Aspose.Slides interrupt library?**
+**What is the purpose of the Aspose.Slides interrupt library?**
 
 It provides a mechanism to interrupt long-running operations—such as loading, saving, or rendering presentations—before they complete. This is useful when processing time must be limited or the task is no longer needed.
 
-**Q: What is the difference between [InterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontoken/) and [InterruptionTokenSource](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/)?**
+**What is the difference between [InterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontoken/) and [InterruptionTokenSource](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/)?**
 
 - `InterruptionToken` is passed to the Aspose.Slides API and checked during long-running operations.
 - `InterruptionTokenSource` is used in your code to create tokens and trigger interruptions by calling `Interrupt()`.
 
-**Q: What tasks can be interrupted?**
+**What tasks can be interrupted?**
 
 Any Aspose.Slides task that accepts an [InterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontoken/)—such as loading a presentation with `Presentation(path, loadOptions)` or saving with `Presentation.save(...)`—can be interrupted.
 
-**Q: Does interruption happen immediately?**
+**Does interruption happen immediately?**
 
 No. Interruption is cooperative: the operation periodically checks the token and stops as soon as it detects that [Interrupt()](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) has been called.
 
-**Q: What happens if I call [Interrupt()](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) after a task has already completed?**
+**What happens if I call [Interrupt()](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) after a task has already completed?**
 
 Nothing—the call has no effect if the corresponding task has already completed.
 
-**Q: Can I reuse the same [InterruptionTokenSource](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/) for multiple tasks?**
+**Can I reuse the same [InterruptionTokenSource](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/) for multiple tasks?**
 
 Yes—but after you call [Interrupt()](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) on that source, all tasks using its tokens will be interrupted. Use separate token sources to manage tasks independently.

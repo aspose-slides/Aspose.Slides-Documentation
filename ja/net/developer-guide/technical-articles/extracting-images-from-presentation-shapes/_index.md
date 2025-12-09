@@ -1,27 +1,37 @@
 ---
-title: プレゼンテーションシェイプから画像を抽出する
+title: .NET でプレゼンテーション シェイプから画像を抽出する
+linktitle: シェイプからの画像
 type: docs
 weight: 90
 url: /ja/net/extracting-images-from-presentation-shapes/
-keywords: "画像を抽出, PowerPoint, PPT, PPTX, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
-description: "C#または.NETでPowerPointプレゼンテーションから画像を抽出する"
+keywords:
+- 画像抽出
+- 画像取得
+- スライドの背景
+- シェイプの背景
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "PowerPoint および OpenDocument プレゼンテーションのシェイプから画像を抽出します（Aspose.Slides for .NET 使用）— 迅速でコードフレンドリーなソリューション。"
 ---
 
+## **シェイプから画像を抽出する**
+
 {{% alert color="primary" %}} 
+画像はシェイプに追加されることが多く、スライドの背景としても頻繁に使用されます。画像オブジェクトは[IImageCollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/)を通じて追加され、これは[IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/)オブジェクトのコレクションです。 
 
-画像はしばしばシェイプに追加され、スライドの背景としても頻繁に使用されます。画像オブジェクトは[IImageCollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/)を介して追加されます。これは[IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/)オブジェクトのコレクションです。 
-
-この記事では、プレゼンテーションに追加された画像をどのように抽出するかを説明します。 
-
+本記事では、プレゼンテーションに追加された画像を抽出する方法を説明します。 
 {{% /alert %}} 
 
-プレゼンテーションから画像を抽出するには、まず各スライドを確認し、その後各シェイプを確認して画像を特定する必要があります。画像が見つかったり識別されたりしたら、それを抽出して新しいファイルとして保存できます。XXX 
-
+プレゼンテーションから画像を抽出するには、まずすべてのスライドを巡回し、次に各シェイプを巡回して画像を特定する必要があります。画像が見つかったら、抽出して新しいファイルとして保存できます。 XXX 
 ```c#
 public static void Run() {
 
-    String path = @"D:\Aspose Data\"; 
-    // プレゼンテーションにアクセス
+    String path = @"D:\Aspose Data\";
+    // プレゼンテーションにアクセスします
     Presentation pres = new Presentation(path + "ExtractImages.pptx");
     Aspose.Slides.IPPImage img = null;
     Aspose.Slides.IPPImage Backimg = null;
@@ -33,17 +43,17 @@ public static void Run() {
     {
 
         slideIndex++;
-        // 最初のスライドにアクセス
+        // 最初のスライドにアクセスします
         ISlide sl = pres.Slides[i];
         System.Drawing.Imaging.ImageFormat Format = System.Drawing.Imaging.ImageFormat.Jpeg;
 
-        // 最初のスライドにアクセス Slide sl = pres.getSlideByPosition(i);
+        // 最初のスライドにアクセスします Slide sl = pres.getSlideByPosition(i);
         if (sl.Background.FillFormat.FillType == FillType.Picture)
         {
-            // 背景画像を取得
+            // 背景画像を取得します  
             Backimg = sl.Background.FillFormat.PictureFillFormat.Picture.Image;
 
-            // 希望する画像形式を設定 
+            // 好みの画像フォーマットを設定します 
 
             ImageType = Backimg.ContentType;
             ImageType = ImageType.Remove(0, ImageType.IndexOf("/") + 1);
@@ -57,10 +67,10 @@ public static void Run() {
         {
             if (sl.LayoutSlide.Background.FillFormat.FillType == FillType.Picture)
             {
-                // 背景画像を取得  
+                // 背景画像を取得します  
                 Backimg = sl.LayoutSlide.Background.FillFormat.PictureFillFormat.Picture.Image;
 
-                // 希望する画像形式を設定 
+                // 好みの画像フォーマットを設定します 
 
                 ImageType = Backimg.ContentType;
                 ImageType = ImageType.Remove(0, ImageType.IndexOf("/") + 1);
@@ -74,7 +84,7 @@ public static void Run() {
 
         for (int j = 0; j < sl.Shapes.Count; j++)
         {
-            // 画像を含むシェイプにアクセス
+            // 画像を含むシェイプにアクセスします
             IShape sh = sl.Shapes[j];
 
             if (sh is AutoShape)
@@ -102,7 +112,7 @@ public static void Run() {
                 }
             }
 
-            // 抽出された画像の希望形式を設定
+            // 抽出した画像の好みのフォーマットを設定します
             if (ifImageFound)
             {
                 Format = GetImageFormat(ImageType);
@@ -147,3 +157,22 @@ public static System.Drawing.Imaging.ImageFormat GetImageFormat(String ImageType
     return Format;
 }
 ```
+
+
+## **FAQ**
+
+**元の画像を切り取りやエフェクト、シェイプ変換なしで抽出できますか？**
+
+はい。シェイプの画像にアクセスすると、プレゼンテーションの[image collection](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/)から画像オブジェクトが取得されます。これは、切り取りやスタイル効果を加えていない元のピクセルを意味します。ワークフローはプレゼンテーションの画像コレクションと[PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/)オブジェクトを通過し、これらは生データを保持しています。 
+
+**多数の画像を一度に保存する際に、同一ファイルが重複して保存されるリスクはありますか？**
+
+はい、無差別に保存するとリスクがあります。プレゼンテーションの[image collection](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/)には、異なるシェイプやスライドから参照されている同一のバイナリデータが含まれている場合があります。重複を防ぐには、書き込む前に抽出したデータのハッシュ、サイズ、または内容を比較してください。 
+
+**プレゼンテーションのコレクション内の特定の画像にリンクされているシェイプをどのように特定できますか？**
+
+Aspose.Slides は[PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/)からシェイプへの逆リンクを保持していません。走査中に手動でマッピングを作成します。[PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/)への参照を見つけたら、その画像を使用しているシェイプを記録してください。 
+
+**添付文書などのOLEオブジェクトに埋め込まれた画像を抽出できますか？**
+
+直接はできません。OLEオブジェクトはコンテナであるためです。まずOLEパッケージ自体を抽出し、別のツールでその内容を解析する必要があります。プレゼンテーションの画像シェイプは[PPImage](https://reference.aspose.com/slides/net/aspose.slides/ppimage/)を通じて動作しますが、OLEは別のオブジェクトタイプです。

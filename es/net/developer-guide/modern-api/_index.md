@@ -65,7 +65,7 @@ using (Presentation pres = new Presentation())
         ppImage = pres.Images.AddImage(image);
     }
 
-    // añadir una forma de imagen en la diapositiva #1
+    // agregar una forma de imagen en la diapositiva #1
     pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 
     // obtener una instancia de IImage que representa la diapositiva #1.

@@ -1,15 +1,28 @@
 ---
-title: حسابات المخططات
+title: تحسين حسابات المخطط للعرض التقديمي باستخدام Python
+linktitle: حسابات المخطط
 type: docs
 weight: 50
 url: /ar/python-net/chart-calculations/
-keywords: "حسابات المخططات، عناصر المخطط، موضع العنصر، قيم المخطط بايثون، Aspose.Slides لـ بايثون عبر .NET"
-description: "حسابات وقيم المخطط في PowerPoint باستخدام بايثون"
+keywords:
+- حسابات المخطط
+- عناصر المخطط
+- موضع العنصر
+- الموضع الفعلي
+- العنصر الفرعي
+- العنصر الأصلي
+- قيم المخطط
+- القيمة الفعلية
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "فهم حسابات المخطط، تحديثات البيانات، والتحكم في الدقة في Aspose.Slides للغة Python عبر .NET لملفات PPT و PPTX و ODP، مع أمثلة شيفرة عملية."
 ---
 
-## **احسب القيم الفعلية لعناصر المخطط**
-توفر Aspose.Slides لـ بايثون عبر .NET واجهة برمجة تطبيقات بسيطة للحصول على هذه الخصائص. سيساعدك هذا على حساب القيم الفعلية لعناصر المخطط. تشمل القيم الفعلية موضع العناصر التي تنفذ واجهة IActualLayout (IActualLayout.ActualX، IActualLayout.ActualY، IActualLayout.ActualWidth، IActualLayout.ActualHeight) والقيم الفعلية للمحاور (IAxis.ActualMaxValue، IAxis.ActualMinValue، IAxis.ActualMajorUnit، IAxis.ActualMinorUnit، IAxis.ActualMajorUnitScale، IAxis.ActualMinorUnitScale).
-
+## **حساب القيم الفعلية لعناصر المخطط**
+Aspose.Slides for Python عبر .NET توفر واجهة برمجة تطبيقات بسيطة للحصول على هذه الخصائص. سيساعدك ذلك في حساب القيم الفعلية لعناصر المخطط. تشمل القيم الفعلية موضع العناصر التي تنفذ واجهة IActualLayout (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight) والقيم الفعلية للمحاور (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale).
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -25,10 +38,8 @@ with slides.Presentation("pres.pptx") as pres:
 ```
 
 
-
-## **احسب الموضع الفعلي لعناصر المخطط الأب**
-توفر Aspose.Slides لـ بايثون عبر .NET واجهة برمجة تطبيقات بسيطة للحصول على هذه الخصائص. توفر خصائص IActualLayout معلومات حول الموضع الفعلي لعنصر المخطط الأب. من الضروري استدعاء طريقة IChart.ValidateChartLayout() مسبقًا لتعبئة الخصائص بالقيم الفعلية.
-
+## **حساب الموضع الفعلي لعناصر المخطط الأصلية**
+Aspose.Slides for Python عبر .NET توفر واجهة برمجة تطبيقات بسيطة للحصول على هذه الخصائص. توفر خصائص IActualLayout معلومات حول الموضع الفعلي للعنصر الأصل للمخطط. من الضروري استدعاء الطريقة IChart.ValidateChartLayout() مسبقًا لملء الخصائص بالقيم الفعلية.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -44,10 +55,8 @@ with slides.Presentation("pres.pptx") as pres:
 ```
 
 
-
-## **اخفِ المعلومات من المخطط**
-تساعدك هذه الفقرة على فهم كيفية اخفاء المعلومات من المخطط. باستخدام Aspose.Slides لـ بايثون عبر .NET يمكنك اخفاء **العنوان، المحور العمودي، المحور الأفقي** و **خطوط الشبكة** من المخطط. يوضح مثال الكود أدناه كيفية استخدام هذه الخصائص.
-
+## **إخفاء المعلومات من المخطط**
+هذا الموضوع يساعدك على فهم كيفية إخفاء المعلومات من المخطط. باستخدام Aspose.Slides for Python عبر .NET يمكنك إخفاء **العنوان، المحور الرأسي، المحور الأفقي** و **خطوط الشبكة** من المخطط. يوضح مثال الشيفرة أدناه كيفية استخدام هذه الخصائص.
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -56,19 +65,19 @@ with slides.Presentation() as pres:
     slide = pres.slides[0]
     chart = slide.shapes.add_chart(charts.ChartType.LINE_WITH_MARKERS, 140, 118, 320, 370)
 
-    # اخفاء عنوان المخطط
+    # إخفاء عنوان المخطط
     chart.has_title = False
 
-    # اخفاء قيم المحور
+    # إخفاء محور القيم
     chart.axes.vertical_axis.is_visible = False
 
-    # رؤية المحور الفئوي
+    # إظهار محور الفئات
     chart.axes.horizontal_axis.is_visible = False
 
-    # اخفاء الجدول التفسيري
+    # إخفاء مفتاح الرسم
     chart.has_legend = False
 
-    # اخفاء خطوط الشبكة الرئيسية
+    # إخفاء خطوط الشبكة الرئيسية
     chart.axes.horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
     #for i in range(len(chart.chart_data.series)):
@@ -81,10 +90,25 @@ with slides.Presentation() as pres:
     series.labels.default_data_label_format.position = charts.LegendDataLabelPosition.TOP
     series.marker.size = 15
 
-    # ضبط لون خط السلسلة
+    # تعيين لون خط السلسلة
     series.format.line.fill_format.fill_type = slides.FillType.SOLID
     series.format.line.fill_format.solid_fill_color.color = draw.Color.purple
     series.format.line.dash_style = slides.LineDashStyle.SOLID
 
     pres.save("HideInformationFromChart.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل تعمل دفاتر العمل الخارجية لبرنامج Excel كمصدر للبيانات، وكيف يؤثر ذلك على إعادة الحساب؟**
+
+نعم. يمكن للمخطط الإشارة إلى دفتر عمل خارجي: عند الاتصال أو تحديث المصدر الخارجي، تُؤخذ الصيغ والقيم من ذلك الدفتر، ويعكس المخطط التحديثات أثناء عمليات الفتح/التحرير. تتيح لك الواجهة البرمجية [تحديد دفتر العمل الخارجي](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) والمسار وإدارة البيانات المرتبطة.
+
+**هل يمكنني حساب وعرض خطوط الاتجاه دون تنفيذ الانحدار بنفسي؟**
+
+نعم. [خطوط الاتجاه](/slides/ar/python-net/trend-line/) (خطية، أسية، وغيرها) يتم إضافتها وتحديثها بواسطة Aspose.Slides؛ تُعاد حساب معلماتها من بيانات السلسلة تلقائيًا، لذا لا تحتاج إلى تنفيذ حساباتك الخاصة.
+
+**إذا كان العرض التقديمي يحتوي على مخططات متعددة مع روابط خارجية، هل يمكنني التحكم في دفتر العمل الذي يستخدمه كل مخطط للقيم المحسوبة؟**
+
+نعم. يمكن لكل مخطط الإشارة إلى [دفتر عمل خارجي](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/)، أو يمكنك إنشاء/استبدال دفتر عمل خارجي لكل مخطط بشكل مستقل عن الآخرين.

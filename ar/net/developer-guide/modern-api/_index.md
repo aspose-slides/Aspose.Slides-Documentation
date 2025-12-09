@@ -65,7 +65,7 @@ using (Presentation pres = new Presentation())
         ppImage = pres.Images.AddImage(image);
     }
 
-    // إضافة شكل صورة على الشريحة #1
+    // إضافة شكل صورة إلى الشريحة #1
     pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 
     // الحصول على نسخة من IImage تمثل الشريحة #1.

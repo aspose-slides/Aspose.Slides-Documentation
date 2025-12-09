@@ -1,17 +1,28 @@
 ---
-title: Diagrammdatenbeschriftung
+title: Diagrammbeschriftungen in Präsentationen in .NET verwalten
+linktitle: Datenbeschriftung
 type: docs
 url: /de/net/chart-data-label/
-keywords: "Diagrammdatenbeschriftung,Beschriftungsabstand,C#,Csharp,Aspose.Slides für .NET"
-description: "Diagrammdatenbeschriftung und Abstand in C# oder .NET festlegen"
+keywords:
+- Diagramm
+- Datenbeschriftung
+- Datenpräzision
+- Prozent
+- Beschriftungsabstand
+- Beschriftungsposition
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Diagrammbeschriftungen in PowerPoint-Präsentationen mit Aspose.Slides für .NET hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
 ---
 
-Datenbeschriftungen in einem Diagramm zeigen Details zu den Datensätzen oder einzelnen Datenpunkten des Diagramms an. Sie ermöglichen es den Lesern, Datensätze schnell zu identifizieren, und machen Diagramme auch leichter verständlich.
+Datenbeschriftungen in einem Diagramm zeigen Details zur Datenreihe oder zu einzelnen Datenpunkten. Sie ermöglichen es dem Leser, Datenreihen schnell zu identifizieren, und machen Diagramme leichter verständlich.
 
-## **Präzision der Daten in Diagrammdatenbeschriftungen festlegen**
+## **Genauigkeit der Daten in Diagrammbeschriftungen festlegen**
 
-Dieser C#-Code zeigt Ihnen, wie Sie die Datenpräzision in einer Diagrammdatenbeschriftung festlegen:
-
+Dieser C#‑Code zeigt, wie Sie die Datenpräzision in einer Diagrammbeschriftung festlegen:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -23,11 +34,11 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Prozentualer Anteil als Beschriftungen anzeigen**
-Aspose.Slides für .NET ermöglicht es Ihnen, Prozentwerte als Beschriftungen in angezeigten Diagrammen festzulegen. Dieser C#-Code demonstriert den Vorgang:
 
+## **Prozentwerte als Beschriftungen anzeigen**
+Aspose.Slides for .NET ermöglicht das Setzen von Prozentbeschriftungen in angezeigten Diagrammen. Dieser C#‑Code demonstriert die Vorgehensweise:
 ```c#
-// Erstellt eine Instanz der Präsentationsklasse
+// Erstellt eine Instanz der Presentation-Klasse
 Presentation presentation = new Presentation();
 
 ISlide slide = presentation.Slides[0];
@@ -76,17 +87,18 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Prozentzeichen mit Diagrammdatenbeschriftungen festlegen**
-Dieser C#-Code zeigt Ihnen, wie Sie das Prozentzeichen für eine Diagrammdatenbeschriftung festlegen:
 
+
+## **Prozentzeichen bei Diagrammbeschriftungen setzen**
+Dieser C#‑Code zeigt, wie Sie das Prozentzeichen für eine Diagrammbeschriftung festlegen:
 ```c#
-// Erstellt eine Instanz der Präsentationsklasse
+// Erstellt eine Instanz der Presentation-Klasse
 Presentation presentation = new Presentation();
 
-// Holt sich eine Referenz auf eine Folie über ihren Index
+// Holt eine Referenz auf die Folie über ihren Index
 ISlide slide = presentation.Slides[0];
 
-// Erstellt das Diagramm Prozentstapeltes Säulendiagramm auf einer Folie
+// Erstellt das PercentsStackedColumn-Diagramm auf einer Folie
 IChart chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
 // Setzt NumberFormatLinkedToSource auf false
@@ -96,10 +108,10 @@ chart.Axes.VerticalAxis.NumberFormat = "0.00%";
 chart.ChartData.Series.Clear();
 int defaultWorksheetIndex = 0;
 
-// Holt sich das Diagrammdatenarbeitsblatt
+// Holt das Diagrammdaten-Arbeitsblatt
 IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-// Fügt neue Serien hinzu
+// Fügt neue Serie hinzu
 IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.Type);
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 1, 0.30));
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 1, 0.50));
@@ -110,7 +122,7 @@ series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetInde
 series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-// Setzt die LabelFormat-Eigenschaften
+// Setzt die Eigenschaften des LabelFormats
 series.Labels.DefaultDataLabelFormat.ShowValue = true;
 series.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
 series.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
@@ -119,14 +131,14 @@ series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillTyp
 series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
 series.Labels.DefaultDataLabelFormat.ShowValue = true;
 
-// Fügt neue Serien hinzu
+// Fügt neue Serie hinzu
 IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.Type);
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 2, 0.70));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 2, 0.50));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 2, 0.20));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 2, 0.35));
 
-// Setzt Fülltyp und Farbe
+// Setzt den Fülltyp und die Farbe
 series2.Format.Fill.FillType = FillType.Solid;
 series2.Format.Fill.SolidFillColor.Color = Color.Blue;
 series2.Labels.DefaultDataLabelFormat.ShowValue = true;
@@ -140,32 +152,32 @@ series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidF
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Labelabstand von der Achse festlegen**
-Dieser C#-Code zeigt Ihnen, wie Sie den Labelabstand von einer Kategoriensachse festlegen, wenn Sie mit einem Diagramm arbeiten, das von Achsen gezeichnet wird:
 
+## **Abstand der Beschriftung von der Achse festlegen**
+Dieser C#‑Code zeigt, wie Sie den Beschriftungsabstand von einer Kategorienachse festlegen, wenn Sie ein Diagramm aus Achsen plotten:
 ```c#
-// Erstellt eine Instanz der Präsentationsklasse
+// Erstellt eine Instanz der Presentation-Klasse
 Presentation presentation = new Presentation();
 
-// Holt sich eine Referenz auf eine Folie
+// Holt eine Referenz auf die Folie
 ISlide sld = presentation.Slides[0];
 
 // Erstellt ein Diagramm auf der Folie
 IChart ch = sld.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-// Setzt den Labelabstand von einer Achse
+// Setzt den Beschriftungsabstand von einer Achse
 ch.Axes.HorizontalAxis.LabelOffset = 500;
 
 // Schreibt die Präsentation auf die Festplatte
 presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Labelposition anpassen**
 
-Wenn Sie ein Diagramm erstellen, das nicht von irgendeiner Achse abhängt, wie z. B. ein Tortendiagramm, können die Datenbeschriftungen des Diagramms zu nah am Rand liegen. In einem solchen Fall müssen Sie die Position der Datenbeschriftung anpassen, damit die Verbindungslinien deutlich angezeigt werden.
+## **Beschriftungsposition anpassen**
 
-Dieser C#-Code zeigt Ihnen, wie Sie die Labelposition in einem Tortendiagramm anpassen:
+Wenn Sie ein Diagramm erstellen, das keine Achsen verwendet, z. B. ein Kreisdiagramm, können die Datenbeschriftungen zu nahe am Rand liegen. In diesem Fall müssen Sie die Position der Beschriftung anpassen, damit die Hilfslinien deutlich dargestellt werden.
 
+Dieser C#‑Code zeigt, wie Sie die Beschriftungsposition in einem Kreisdiagramm anpassen:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -183,4 +195,19 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-![tortendiagramm-angepasste-beschriftung](pie-chart-adjusted-label.png)
+
+![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **FAQ**
+
+**Wie kann ich verhindern, dass sich Datenbeschriftungen bei dichten Diagrammen überlappen?**
+
+Kombinieren Sie automatische Beschriftungsplatzierung, Hilfslinien und reduzierte Schriftgröße; bei Bedarf können Sie einige Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für extreme bzw. Schlüssel­punkte anzeigen.
+
+**Wie kann ich Beschriftungen nur für Null‑, Negative‑ oder Leere‑Werte deaktivieren?**
+
+Filtern Sie Datenpunkte, bevor Sie Beschriftungen aktivieren, und schalten Sie die Anzeige für Werte von 0, negative Werte oder fehlende Werte gemäß einer definierten Regel aus.
+
+**Wie kann ich einen konsistenten Beschriftungsstil beim Exportieren in PDF/Bilder sicherstellen?**
+
+Setzen Sie Schriftart, Schriftfamilie und Schriftgröße explizit und prüfen Sie, dass die Schriftart auf der Renderseite verfügbar ist, um ein Zurückgreifen auf Ersatzschriften zu vermeiden.

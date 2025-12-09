@@ -116,7 +116,7 @@ _Действие_: **Update Chart**
 
 {{% alert color="primary" %}} 
 
-Чтобы позволить вам создавать диаграммы, Aspose.Slides предоставляет класс [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType). Поля этого класса соответствуют различным типам диаграмм. 
+Чтобы вы могли создавать диаграммы, Aspose.Slides предоставляет класс [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType). Поля этого класса соответствуют различным типам диаграмм. 
 
 {{% /alert %}} 
 
@@ -185,7 +185,7 @@ try {
     // Берет первую серию диаграммы
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // Теперь заполняет данные серии
+    // Заполняет данные серии
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));

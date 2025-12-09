@@ -3,84 +3,95 @@ title: インストール
 type: docs
 weight: 70
 url: /ja/net/installation/
-keywords: "Aspose.Slidesのダウンロード, Aspose.Slidesのインストール, Aspose.Slidesのインストール, Windows, macOS, .NET"
-description: "WindowsまたはmacOSにAspose.Slides for .NETをインストールする"
+keywords:
+- Aspose.Slides のインストール
+- Aspose.Slides のダウンロード
+- Aspose.Slides の使用
+- Aspose.Slides のインストール
+- Windows
+- Linux
+- macOS
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET をすばやくインストールする方法を学びます。ステップバイステップのガイド、システム要件、コードサンプルを提供し、今日から PowerPoint プレゼンテーションの操作を開始できます！"
 ---
 
 ## **Windows**
-NuGetは、PCにASP.NET用のAspose APIをダウンロードしてインストールする最も簡単な方法を提供します。
+NuGet は、PC 上で .NET 用 Aspose API をダウンロードおよびインストールする最も簡単な方法を提供します。
 
-### **方法 1: NuGetパッケージマネージャーからAspose.Slidesをインストールまたは更新する**
+### **方法 1: NuGet パッケージ マネージャーから Aspose.Slides をインストールまたは更新**
+1. Microsoft Visual Studio を開きます。  
+2. 簡単なコンソール アプリを作成するか、既存のプロジェクトを開きます。  
+3. **Tools** > **NuGet package manager** を選択します。  
+4. **Browse** の下で、テキスト フィールドに *Aspose Slides* を検索します。  
+{{% image img="installation_1.png" alt="Aspose.Slides Installation from NuGet Package Manager - 1" %}}
+5. **Aspose.Slides.NET** をクリックし、次に **Install** をクリックします。  
+   * すでにインストール済みで Aspose.Slides を更新したい場合は、代わりに **Update** をクリックします。  
 
-1. Microsoft Visual Studioを開きます。
-2. シンプルなコンソールアプリを作成するか、既存のプロジェクトを開きます。
-3. **ツール** > **NuGetパッケージマネージャー**に進みます。
-4. **ブラウズ**の下で、テキストフィールドに*Aspose Slides*を検索します。
-{{% image img="installation_1.png" alt="Aspose.SlidesのNuGetパッケージマネージャーからのインストール - 1" %}}
-5. **Aspose.Slides.NET**をクリックし、その後**インストール**をクリックします。
-   * 既にAspose.Slidesをインストールしている場合は、**更新**をクリックします。
+選択した API がダウンロードされ、プロジェクトに参照として追加されます。
 
-選択したAPIがダウンロードされ、プロジェクトに参照されます。
-
-### **方法 2: パッケージマネージャーコンソールを介してAspose.Slidesをインストールまたは更新する**
-
-これは、パッケージマネージャーコンソールを介して[Aspose.Slides API](https://www.nuget.org/packages/Aspose.Slides.NET/)を参照する方法です：
-
-1. Microsoft Visual Studioを開きます。
-2. シンプルなコンソールアプリを作成するか、既存のプロジェクトを開きます。
-3. **ツール** > **ライブラリパッケージマネージャー** > **パッケージマネージャーコンソール**に進みます。
+### **方法 2: パッケージ マネージャー コンソールから Aspose.Slides をインストールまたは更新**
+パッケージ マネージャー コンソールを使用して [Aspose.Slides API](https://www.nuget.org/packages/Aspose.Slides.NET/) を参照する方法は次のとおりです。
+1. Microsoft Visual Studio を開きます。  
+2. 簡単なコンソール アプリを作成するか、既存のプロジェクトを開きます。  
+3. **Tools** > **Library Package Manager** > **Package Manager Console** を選択します。  
 ![todo:image_alt_text](installation_2.png)
-4. このコマンドを実行します： `Install-Package Aspose.Slides.NET`
+4. 次のコマンドを実行します: `Install-Package Aspose.Slides.NET`  
 ![todo:image_alt_text](installation_3.png)
-最新の完全リリースがアプリケーションにインストールされます。
+最新のフル リリースがアプリケーションにインストールされます。  
 
-* 代わりに、コマンドに`-prerelease`のサフィックスを追加して、最新のリリース（ホットフィックスを含む）もインストールされるように指定できます。
+* あるいは、コマンドに `-prerelease` サフィックスを付加して、最新リリース（ホットフィックスを含む）もインストールするよう指定できます。  
 
- **Aspose.Slides.NETのインストール中**のヒントがウィンドウの下部に表示されます。
+**Installing Aspose.Slides.NET** のヒントがウィンドウ下部付近に表示されます。  
 ![todo:image_alt_text](installation_4.png)
 
-ダウンロードが完了すると、一部の確認メッセージが表示されます。
+ダウンロードが完了すると、いくつかの確認メッセージが表示されます。
 
-[Aspose EULA](https://about.aspose.com/legal/eula)に慣れていない場合は、URLに参照されたライセンスを読むことをお勧めします。
+もし [Aspose EULA](https://about.aspose.com/legal/eula) に慣れていない場合は、URL に記載されたライセンスを読むことをお勧めします。  
 ![todo:image_alt_text](installation_5.png)
 
-アプリケーションでは、Aspose.Slidesが正常に追加および参照されたことが表示されるはずです。
+アプリケーション内で、Aspose.Slides が正常に追加され参照されていることが確認できます。  
 ![todo:image_alt_text](installation_6.png)
 
-パッケージマネージャーコンソールで、`Update-Package Aspose.Slides.NET`コマンドを実行してAspose.Slidesパッケージの更新を確認できます。更新（見つかった場合）は自動的にインストールされます。最新のリリースを更新するために`-prerelease`サフィックスを使用することもできます。
-#### **共有サーバー環境での実行時の考慮事項**
-Aspose .NETコンポーネントはすべて**フル信頼**権限セットで実行することを強くお勧めします。なぜなら、Asposeコンポーネントが時々、仮想ディレクトリ以外の場所にあるレジストリ設定やファイルにアクセスする必要があるからです。たとえば、Asposeコンポーネントがフォントを読み取る必要がある場合です。
+Package Manager Console では、`Update-Package Aspose.Slides.NET` コマンドを実行して Aspose.Slides パッケージの更新を確認できます。更新が見つかった場合は自動的にインストールされます。また、`-prerelease` サフィックスを使用して最新リリースを更新することもできます。  
 
-さらに、Aspose.NETコンポーネントは、コア.NETシステムクラスに基づいており、その中のいくつかのクラスは特定のケースでの操作にフル信頼権限を必要とします。
+#### **共有サーバー環境で実行する際の考慮事項**
+Aspose の .NET コンポーネントは、レジストリ設定や仮想ディレクトリ以外の場所にあるファイル（たとえばフォントの読み取り）が必要になることがあるため、**Full Trust** 権限セットで実行することを強く推奨します。  
 
-異なる会社の複数のアプリケーションをホストするインターネットサービスプロバイダーは、主にミディアムトラストセキュリティレベルを強制します。.NET 2.0の場合、このようなセキュリティレベルはAspose.Slidesの操作に影響を与える制約を引き起こす可能性があります：
+さらに、Aspose.NET コンポーネントはコア .NET システム クラスに基づいており、場合によってはそれらのクラスでも操作に Full Trust 権限が必要です。  
 
-- **RegistryPermission**は利用できません。これは、ドキュメントをレンダリングする際にインストールされたフォントを列挙するために必要なレジストリにアクセスできないことを意味します。
-- **FileIOPermission**が制限されています。これは、アプリケーションの仮想ディレクトリ階層内のファイルにのみアクセスできることを意味します。これにより、エクスポート操作中にフォントが読み取れない可能性もあります。
+複数の企業のアプリケーションをホストするインターネットサービスプロバイダーは、ほとんどの場合 Medium Trust セキュリティ レベルを適用します。.NET 2.0 の場合、このセキュリティ レベルは Aspose.Slides の動作に影響を与える制約を招くことがあります：
+- **RegistryPermission** が使用できません。これにより、ドキュメントのレンダリング時にインストールされたフォントを列挙するために必要なレジストリへのアクセスができなくなります。  
+- **FileIOPermission** が制限されています。これにより、アプリケーションの仮想ディレクトリ階層内のファイルのみアクセス可能になります。エクスポート操作時にフォントが読み取れない可能性があります。  
 
-上記の理由から、Aspose.Slidesを**フル信頼**の権限で実行することを強くお勧めします。**ミディアムトラスト**を使用すると、一部のライブラリ機能（例えばレンダリング）が特定のタスクを実行する際に機能しない場合があります。
+以上の理由から、Aspose.Slides は **Full Trust** 権限で実行することを強く推奨します。**Medium trust** を使用すると、一部のライブラリ機能（たとえばレンダリング）が特定のタスク実行時に動作しないなどの不整合が発生する可能性があります。  
 
 ## **macOS**
-
-NuGetは、macにAspose.Slides for .NETをダウンロードしてインストールする最も簡単な方法を提供します。
+NuGet は、macOS 上で .NET 用 Aspose.Slides をダウンロードおよびインストールする最も簡単な方法を提供します。
 
 **前提条件のインストール**
+`System.Drawing` 名前空間は macOS では動作が異なるため、mono-libgdiplus をインストールする必要があります。
 
-`System.Drawing`名前空間はmacOSで異なる動作をするため、mono-libgdiplusをインストールする必要があります。
+> .NET 5 以前のバージョンでは、[System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/) NuGet パッケージは Windows、Linux、macOS で動作します。ただし、プラットフォーム間でいくつかの違いがあります。Linux と macOS では、GDI+ の機能は [libgdiplus](https://www.mono-project.com/docs/gui/libgdiplus/) ライブラリで実装されています。このライブラリは多くの Linux ディストリビューションではデフォルトでインストールされておらず、Windows や macOS の GDI+ のすべての機能をサポートしていません。また、libgdiplus がまったく利用できないプラットフォームもあります。Linux と macOS で System.Drawing.Common パッケージの型を使用するには、libgdiplus を別途インストールする必要があります。詳細は、[Install .NET on Linux](https://docs.microsoft.com/en-us/dotnet/core/install/linux) または [Install .NET on macOS](https://docs.microsoft.com/en-us/dotnet/core/install/macos#libgdiplus) を参照してください。
 
-> .NET 5以前のバージョンでは、[System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/) NuGetパッケージはWindows、Linux、macOSで動作します。ただし、プラットフォームによる違いがあります。LinuxおよびmacOSでは、GDI+機能は[libgdiplus)](https://www.mono-project.com/docs/gui/libgdiplus/)ライブラリによって実装されています。このライブラリは、ほとんどのLinuxディストリビューションにデフォルトでインストールされておらず、WindowsおよびmacOSのGDI+のすべての機能をサポートしているわけではありません。libgdiplusがまったく利用できないプラットフォームもあります。LinuxおよびmacOSでSystem.Drawing.Commonパッケージの型を使用するには、libgdiplusを別途インストールする必要があります。詳細については、[Linuxに.NETをインストール](https://docs.microsoft.com/en-us/dotnet/core/install/linux)または[macOSに.NETをインストール](https://docs.microsoft.com/en-us/dotnet/core/install/macos#libgdiplus)を参照してください。
+mac に mono-libgdiplus を個別にインストールするには、.NET ドキュメントの [this article](https://docs.microsoft.com/en-us/dotnet/core/install/macos#libgdiplus) を参照してください。
 
-macでmono-libgdiplusを個別にインストールするには、.NETドキュメントの[この記事](https://docs.microsoft.com/en-us/dotnet/core/install/macos#libgdiplus)を参照してください。
+### **Aspose.Slides のインストール**
+1. Visual Studio を開きます。  
+2. 簡単なコンソール アプリを作成するか、既存のプロジェクトを開きます。  
+3. **Project** > **Manage NuGet Packages...** を選択します。  
+![path-to-nuget-macos](path-to-nuget-macos.png)
+4. テキスト フィールドに *Aspose.Slides* と入力します。  
+5. **Aspose.Slides for .NET** をクリックし、次に **Add Package** をクリックします。  
+6. 簡単なコード スニペットを追加します。  
+   * コードは [this page](/slides/ja/net/create-presentation/) からコピーできます。  
+7. アプリを実行します。  
+8. プロジェクトの *folder/bin/Debug/presentation_file_name* を開きます。  
 
-### **Aspose.Slidesのインストール**
-
-1. Visual Studioを開きます。
-2. シンプルなコンソールアプリを作成するか、既存のプロジェクトを開きます。
-3. **プロジェクト** > **NuGetパッケージの管理...**に進みます。
-   ![path-to-nuget-macos](path-to-nuget-macos.png)
-4. テキストフィールドに*Aspose.Slides*と入力します。
-5. **Aspose.Slides for .NET**をクリックし、その後**パッケージを追加**をクリックします。
-6. シンプルなコードスニペットを追加します。
-   * [このページ](/slides/ja/net/create-presentation/)のコードをコピーできます。
-7. アプリを実行します。
-8. プロジェクトの*folder/bin/Debug/presentation_file_name*を開きます。
+## **FAQ**
+**無料版やトライアルの制限はありますか？**
+はい、デフォルトでは Aspose.Slides は評価モードで実行され、透かしが表示され、他の制限がある場合があります。制限を解除するには、有効な [license](/slides/ja/net/licensing/) を適用する必要があります。

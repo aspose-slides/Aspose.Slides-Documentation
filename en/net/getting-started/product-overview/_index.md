@@ -60,7 +60,7 @@ Aspose.Slides for .NET features can be divided into these groups:
 - Exporting presentation to SWF
 - Exporting presentation to PDF Note / Tiff Notes
 - Exporting presentation to HTML
-### **Slides Features**
+### **Slide Features**
 - Creating new slides from scratch and adding them to presentations.
 - Accessing any slide through its position in a presentation.
 - Copying or cloning slides to the same or another presentation.

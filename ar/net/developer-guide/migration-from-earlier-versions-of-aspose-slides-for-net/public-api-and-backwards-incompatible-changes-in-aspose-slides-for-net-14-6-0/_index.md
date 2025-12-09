@@ -1,21 +1,35 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 14.6.0
+title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة في Aspose.Slides لـ .NET 14.6.0
+linktitle: Aspose.Slides لـ .NET 14.6.0
 type: docs
 weight: 80
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/
+keywords:
+- الهجرة
+- شفرة قديمة
+- شفرة حديثة
+- نهج قديم
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "مراجعة تحديثات واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة في Aspose.Slides لـ .NET لتسهيل ترحيل حلول عروض PowerPoint بصيغ PPT و PPTX و ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-تحتوي هذه الصفحة على جميع [الإضافات](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) من الفصول والأساليب والخصائص وما إلى ذلك، وأي [قيود](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) جديدة وتغييرات أخرى [مقدمة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) مع واجهة برمجة التطبيقات Aspose.Slides لـ .NET 14.6.0.
+هذه الصفحة تسرد جميع [المضافة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) الفئات، الأساليب، الخصائص وما إلى ذلك، وأي [قيود](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) جديدة و[تغييرات](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) أخرى تم تقديمها مع Aspose.Slides for .NET 14.6.0 API.
 
 {{% /alert %}} 
-## **تغييرات واجهة برمجة التطبيقات العامة**
-### **واجهات وأساليب وخصائص مضافة**
-#### **تمت إضافة واجهة Aspose.Slides.Charts.IErrorBarsFormat**
-تمثل هذه واجهات الخطأ لسلاسل الرسوم البيانية.
+## **تغييرات API العامة**
+### **الواجهات والأساليب والخصائص المضافة**
+#### **إضافة واجهة Aspose.Slides.Charts.IErrorBarsFormat**
+هذه تمثل أشرطة الخطأ لسلسلة المخطط.
 
-في حالة نوع القيمة المخصصة، لتحديد قيمة، استخدم خاصية ErrorBarCustomValues لنقطة البيانات المحددة في مجموعة DataPoints للسلسلة.
+في حالة نوع القيمة المخصص، لتحديد قيمة استخدم خاصية ErrorBarCustomValues للنقطة البيانية المحددة في مجموعة DataPoints للسلسلة.
 
 ``` csharp
 
@@ -52,8 +66,8 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 }
 
 ``` 
-#### **تمت إضافة واجهة Aspose.Slides.Charts.IErrorBarsCustomValues**
-عندما تكون خاصية IErrorBarsFormat.ValueType مساوية لـ Custom، لتحديد قيمة، استخدم خاصية ErrorBarCustomValues لنقطة البيانات المحددة في مجموعة DataPoints.
+#### **إضافة واجهة Aspose.Slides.Charts.IErrorBarsCustomValues**
+عندما تكون خاصية IErrorBarsFormat.ValueType مساوية لـ Custom، لتحديد قيمة استخدم خاصية ErrorBarCustomValues للنقطة البيانية المحددة في مجموعة DataPoints.
 
 ``` csharp
 
@@ -106,8 +120,8 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 }
 
 ``` 
-#### **تمت إضافة واجهة Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
-تحدد أنواع القيم في قائمة الخصائص ChartDataPoint.ErrorBarsCustomValues.
+#### **إضافة واجهة Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
+تحدد أنواع القيم في قائمة خصائص ChartDataPoint.ErrorBarsCustomValues.
 
 ``` csharp
 
@@ -160,8 +174,8 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 }
 
 ``` 
-#### **تمت إضافة أساليب Aspose.Slides.IShapeCollection.AddClone(...)، و.InsertClone(...)**
-تعمل الأساليب التالية على إضافة/إدراج نسخة من شكل محدد في المجموعة.
+#### **إضافة الأساليب Aspose.Slides.IShapeCollection.AddClone(...)، و .InsertClone(...)**
+الطرق التالية تقوم بإضافة/إدراج نسخة من الشكل المحدد إلى المجموعة.
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape, float x, float y)
@@ -199,8 +213,8 @@ url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 }
 
 ``` 
-#### **تمت إضافة enum ViewType، واجهة IViewProperties، فئة ViewProperties وخصائص IPresentation.ViewProperties**
-تسمح خاصية IPresentation.ViewProperty للمطورين بتغيير نوع عرض العرض وظهور الملاحظات عند فتح العرض في PowerPoint.
+#### **إضافة تعداد ViewType، وواجهة IViewProperties، وفئة ViewProperties وخصائص IPresentation.ViewProperties**
+تسمح خاصية IPresentation.ViewProperty للمطورين بتغيير نوع عرض العرض وإمكانية رؤية الملاحظات عندما يتم فتح العرض التقديمي في PowerPoint.
 
 ``` csharp
 

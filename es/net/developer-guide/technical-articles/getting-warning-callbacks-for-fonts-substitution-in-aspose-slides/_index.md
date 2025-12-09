@@ -1,46 +1,101 @@
 ---
-title: Obtener llamadas de advertencia para la sustitución de fuentes en Aspose.Slides
+title: Obtener devoluciones de llamada de advertencia para sustitución de fuentes en .NET
 type: docs
 weight: 120
 url: /es/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+keywords:
+- devolución de llamada de advertencia
+- sustitución de fuentes
+- proceso de renderizado
+- PowerPoint
+- OpenDocument
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Aprenda a obtener devoluciones de llamada de advertencia por sustitución de fuentes en Aspose.Slides para .NET y mostrar presentaciones de PowerPoint y OpenDocument con precisión."
 ---
 
-{{% alert color="primary" %}} 
+## **Descripción general**
 
-Aspose.Slides para .NET permite obtener llamadas de advertencia para la sustitución de fuentes en caso de que la fuente utilizada no esté disponible en la máquina durante el proceso de renderizado. Las llamadas de advertencia son útiles para depurar los problemas de fuentes faltantes o inaccesibles durante el proceso de renderizado.
+Aspose.Slides for .NET le permite recibir devoluciones de llamada de advertencia por sustitución de fuentes cuando una fuente requerida no está disponible en la máquina durante la renderización. Estas devoluciones de llamada ayudan a diagnosticar problemas con fuentes faltantes o inaccesibles.
 
-{{% /alert %}} 
-## **Obtener llamadas de advertencia para la sustitución de fuentes**
-Aspose.Slides para .NET proporciona métodos API simples para obtener las llamadas de advertencia durante el proceso de renderizado. Todo lo que necesita hacer es seguir los pasos a continuación para configurar las llamadas de advertencia en su lado.:
+## **Habilitar devoluciones de llamada de advertencia**
 
-1. Cree una clase de Callback personalizada para recibir las llamadas.
-1. Establezca las llamadas de advertencia utilizando la clase LoadOptions.
-1. Cargue el archivo de presentación que está utilizando una fuente para el texto que no está disponible en su máquina de destino.
-1. Genere la miniatura de la diapositiva para ver el efecto.
+Aspose.Slides for .NET proporciona API sencillas para recibir devoluciones de llamada de advertencia al renderizar diapositivas de presentación. Siga estos pasos para configurar las devoluciones de llamada de advertencia:
 
+1. Cree una clase de devolución de llamada personalizada que implemente la interfaz [IWarningCallback](https://reference.aspose.com/slides/net/aspose.slides.warnings/iwarningcallback/) para manejar advertencias.
+1. Establezca la devolución de llamada de advertencia usando clases de opciones como [RenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/renderingoptions/), [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions/) y otras.
+1. Cargue una presentación que utilice una fuente no disponible en la máquina de destino.
+1. Genere una miniatura de diapositiva o exporte la presentación para observar el efecto.
+
+**Clase de devolución de llamada de advertencia personalizada:**
 ```c#
-//Configuración de llamadas de advertencia
-LoadOptions lo = new LoadOptions();
-lo.WarningCallback = new HandleFontsWarnings();
-
-//Instanciar la presentación
-Presentation presentation = new Presentation("1.ppt", lo);
-
-//Generando miniatura de diapositiva
-foreach (ISlide slide in presentation.Slides)
-{
-    IImage image = slide.GetImage();
-}
-```
-
-```c#
-class HandleFontsWarnings : IWarningCallback
+class FontWarningHandler : IWarningCallback
 {
     public ReturnAction Warning(IWarningInfo warning)
     {
-        Console.WriteLine(warning.WarningType); // 1 - WarningType.DataLoss
-        Console.WriteLine(warning.Description); // "La fuente será sustituida de X a Y"
+        if (warning.WarningType == WarningType.DataLoss)
+        {
+            Console.WriteLine(warning.Description);
+        }
+
         return ReturnAction.Continue;
     }
 }
+
+// Ejemplo de salida:
+//
+// La fuente será sustituida de XYZ a {Calibri,Cambria Math,MS Gothic,Gulim,Arial Unicode,SimSun,Segoe UI Symbol}}
+```
+
+
+**Generar una miniatura de diapositiva:**
+```c#
+// Configurar una devolución de llamada de advertencia para manejar advertencias relacionadas con fuentes durante la renderización de diapositivas.
+var options = new RenderingOptions();
+options.WarningCallback = new FontWarningHandler();
+
+// Cargar la presentación desde la ruta de archivo especificada.
+using var presentation = new Presentation("sample.pptx");
+
+// Generar una imagen miniatura para cada diapositiva en la presentación.
+foreach (var slide in presentation.Slides)
+{
+    // Obtener la imagen miniatura de la diapositiva utilizando las opciones de renderizado especificadas.
+    using var image = slide.GetImage(options);
+    // ...
+}
+```
+
+
+**Exportar a formato PDF:**
+```c#
+// Configurar una devolución de llamada de advertencia para manejar advertencias relacionadas con fuentes durante la exportación a PDF.
+var options = new PdfOptions();
+options.WarningCallback = new FontWarningHandler();
+
+// Cargar la presentación desde la ruta de archivo especificada.
+using var presentation = new Presentation("sample.pptx");
+
+// Exportar la presentación como PDF.
+using var stream = new MemoryStream();
+presentation.Save(stream, SaveFormat.Pdf, options);
+// ...
+```
+
+
+**Exportar a formato HTML:**
+```c#
+// Configurar una devolución de llamada de advertencia para manejar advertencias relacionadas con fuentes durante la exportación a HTML.
+var options = new HtmlOptions();
+options.WarningCallback = new FontWarningHandler();
+
+// Cargar la presentación desde la ruta de archivo especificada.
+using var presentation = new Presentation("sample.pptx");
+
+// Exportar la presentación en formato HTML.
+using var stream = new MemoryStream();
+presentation.Save(stream, SaveFormat.Html, options);
+// ...
 ```
