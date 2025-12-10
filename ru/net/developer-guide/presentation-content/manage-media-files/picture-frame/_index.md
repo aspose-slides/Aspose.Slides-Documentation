@@ -1,104 +1,123 @@
 ---
-title: Рамка для изображения
+title: Управление рамками изображений в презентациях на .NET
+linktitle: Рамка изображения
 type: docs
 weight: 10
 url: /ru/net/picture-frame/
-keywords: "Добавить рамку для изображения, создать рамку для изображения, добавить изображение, создать изображение, извлечь изображение, свойство StretchOff, форматирование рамки для изображения, свойства рамки для изображения, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
-description: "Добавить рамку для изображения в презентацию PowerPoint на C# или .NET"
+keywords:
+- рамка изображения
+- добавить рамку изображения
+- создать рамку изображения
+- добавить изображение
+- создать изображение
+- извлечь изображение
+- растровое изображение
+- векторное изображение
+- обрезать изображение
+- обрезанная область
+- свойство StretchOff
+- форматирование рамки изображения
+- свойства рамки изображения
+- относительный масштаб
+- эффект изображения
+- соотношение сторон
+- прозрачность изображения
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: Добавьте рамки изображений в презентации PowerPoint и OpenDocument с помощью Aspose.Slides для .NET. Оптимизируйте ваш рабочий процесс и улучшите дизайн слайдов.
 ---
 
-Рамка для изображения — это фигура, которая содержит изображение, она как картина в рамке.
+Рамка изображения — это форма, содержащая изображение; она похожа на картину в рамке.  
 
-Вы можете добавить изображение на слайд через рамку для изображения. Таким образом, вы можете отформатировать изображение, отформатировав рамку для изображения.
+Вы можете добавить изображение на слайд через рамку изображения. Таким образом, вы форматируете изображение, форматируя рамку изображения.  
 
-{{% alert title="Совет" color="primary" %}}
+{{% alert title="Tip" color="primary" %}}  
+Aspose предоставляет бесплатные конвертеры — [JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) и [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt) — которые позволяют быстро создавать презентации из изображений.  
+{{% /alert %}}  
 
-Aspose предоставляет бесплатные конвертеры — [JPEG в PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) и [PNG в PowerPoint](https://products.aspose.app/slides/import/png-to-ppt), которые позволяют людям быстро создавать презентации из изображений.
+## **Создать рамку изображения**
 
-{{% /alert %}}
+1. Создать экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
+2. Получить ссылку на слайд по его индексу.  
+3. Создать объект [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage), добавив изображение в коллекцию [IImagescollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection), связанную с объектом презентации, которое будет использовано для заполнения формы.  
+4. Указать ширину и высоту изображения.  
+5. Создать [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe) на основе ширины и высоты изображения через метод `AddPictureFrame`, предоставляемый объектом формы, связанным с указанным слайдом.  
+6. Добавить рамку изображения (содержащую картинку) на слайд.  
+7. Сохранить изменённую презентацию в файл PPTX.  
 
-## **Создание рамки для изображения**
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Получите ссылку на слайд по индексу.
-3. Создайте объект [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage), добавив изображение в [IImagescollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection), связанную с объектом презентации, который будет использован для заливки фигуры.
-4. Укажите ширину и высоту изображения.
-5. Создайте [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe) на основе ширины и высоты изображения через метод `AddPictureFrame`, предоставленный объектом фигуры, связанным с указным слайдом.
-6. Добавьте рамку для изображения (содержит картинку) на слайд.
-7. Запишите измененную презентацию в файл PPTX.
-
-Этот код на C# показывает, как создать рамку для изображения:
-
+Этот C#‑код показывает, как создать рамку изображения:  
 ```c#
 // Создает экземпляр класса Presentation, представляющего файл PPTX
 using (Presentation pres = new Presentation())
 {
-
     // Получает первый слайд
-    ISlide sld = pres.Slides[0];
+    ISlide slide = pres.Slides[0];
 
-    // Создает экземпляр класса ImageEx
-    System.Drawing.Image img = (System.Drawing.Image)new Bitmap("aspose-logo.jpg");
-    IPPImage imgx = pres.Images.AddImage(img);
+    // Загружает изображение и добавляет его в коллекцию изображений презентации
+    IImage image = Images.FromFile("aspose-logo.jpg");
+    IPPImage ppImage = pres.Images.AddImage(image);
+    image.Dispose();
 
-    // Добавляет рамку для изображения с эквивалентной высотой и шириной изображения
-    IPictureFrame pf = sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
+    // Добавляет рамку изображения с той же высотой и шириной
+    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
-    // Применяет некоторое форматирование к PictureFrameEx
-    pf.LineFormat.FillFormat.FillType = FillType.Solid;
-    pf.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pf.LineFormat.Width = 20;
-    pf.Rotation = 45;
+    // Применяет некоторую форматировку к рамке изображения
+    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
+    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    pictureFrame.LineFormat.Width = 20;
+    pictureFrame.Rotation = 45;
 
-    // Записывает PPTX файл на диск
+    // Сохраняет презентацию в файл PPTX
     pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
 }
 ```
+  
 
-{{% alert color="warning" %}}
+{{% alert color="warning" %}}  
+Рамки изображения позволяют быстро создавать слайды презентаций на основе изображений. При сочетании рамки изображения с параметрами сохранения Aspose.Slides вы можете управлять операциями ввода/вывода для конвертации изображений из одного формата в другой. Смотрите также страницы: конвертировать [image to JPG](https://products.aspose.com/slides/net/conversion/image-to-jpg/); конвертировать [JPG to image](https://products.aspose.com/slides/net/conversion/jpg-to-image/); конвертировать [JPG to PNG](https://products.aspose.com/slides/net/conversion/jpg-to-png/), конвертировать [PNG to JPG](https://products.aspose.com/slides/net/conversion/png-to-jpg/); конвертировать [PNG to SVG](https://products.aspose.com/slides/net/conversion/png-to-svg/), конвертировать [SVG to PNG](https://products.aspose.com/slides/net/conversion/svg-to-png/).  
+{{% /alert %}}  
 
-Рамки для изображений позволяют быстро создавать слайды презентаций на основе изображений. Когда вы комбинируете рамку для изображения с параметрами сохранения Aspose.Slides, вы можете манипулировать вводом/выводом, чтобы преобразовывать изображения из одного формата в другой. Вы можете ознакомиться с этими страницами: конвертировать [изображение в JPG](https://products.aspose.com/slides/net/conversion/image-to-jpg/); конвертировать [JPG в изображение](https://products.aspose.com/slides/net/conversion/jpg-to-image/); конвертировать [JPG в PNG](https://products.aspose.com/slides/net/conversion/jpg-to-png/), конвертировать [PNG в JPG](https://products.aspose.com/slides/net/conversion/png-to-jpg/); конвертировать [PNG в SVG](https://products.aspose.com/slides/net/conversion/png-to-svg/), конвертировать [SVG в PNG](https://products.aspose.com/slides/net/conversion/svg-to-png/).
+## **Создать рамку изображения с относительным масштабом**
 
-{{% /alert %}}
+Изменяя относительное масштабирование изображения, можно создать более сложную рамку изображения.  
 
-## **Создание рамки для изображения с относительным масштабом**
+1. Создать экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
+2. Получить ссылку на слайд по его индексу.  
+3. Добавить изображение в коллекцию изображений презентации.  
+4. Создать объект [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage), добавив изображение в коллекцию [IImagescollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection), связанную с объектом презентации, которое будет использовано для заполнения формы.  
+5. Указать относительную ширину и высоту изображения в рамке изображения.  
+6. Сохранить изменённую презентацию в файл PPTX.  
 
-Изменив относительное масштабирование изображения, вы можете создать более сложную рамку для изображения.
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Получите ссылку на слайд по индексу.
-3. Добавьте изображение в коллекцию изображений презентации.
-4. Создайте объект [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage), добавив изображение в [IImagescollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection), связанную с объектом презентации, который будет использован для заливки фигуры.
-5. Укажите относительную ширину и высоту изображения в рамке для изображения.
-6. Запишите измененную презентацию в файл PPTX.
-
-Этот код на C# показывает, как создать рамку для изображения с относительным масштабом:
-
+Этот C#‑код показывает, как создать рамку изображения с относительным масштабом:  
 ```c#
 // Создает экземпляр класса Presentation, представляющего файл PPTX
 using (Presentation presentation = new Presentation())
 {
+    // Загружает изображение и добавляет его в коллекцию изображений презентации
+    IImage image = Images.FromFile("aspose-logo.jpg");
+    IPPImage ppImage = presentation.Images.AddImage(image);
+    image.Dispose();
 
-    // Загружает изображение, которое будет добавлено в коллекцию изображений презентации
-    Image img = new Bitmap("aspose-logo.jpg");
-    IPPImage image = presentation.Images.AddImage(img);
+    // Добавляет рамку изображения на слайд
+    IPictureFrame pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
 
-    // Добавляет рамку для изображения на слайд
-    IPictureFrame pf = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
-
-    // Устанавливает относительное значение ширины и высоты
-    pf.RelativeScaleHeight = 0.8f;
-    pf.RelativeScaleWidth = 1.35f;
+    // Устанавливает относительный масштаб ширины и высоты
+    pictureFrame.RelativeScaleHeight = 0.8f;
+    pictureFrame.RelativeScaleWidth = 1.35f;
 
     // Сохраняет презентацию
     presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
 }
 ```
+  
 
-## **Извлечение изображения из рамки для изображения**
+## **Извлечь растровые изображения из рамок изображений**
 
-Вы можете извлекать изображения из объектов [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe) и сохранять их в форматах PNG, JPG и других. Пример кода ниже демонстрирует, как извлечь изображение из документа "sample.pptx" и сохранить его в формате PNG.
-
+Вы можете извлекать растровые изображения из объектов [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe) и сохранять их в формате PNG, JPG и других. Пример кода ниже демонстрирует, как извлечь изображение из документа «sample.pptx» и сохранить его в формате PNG.  
 ```c#
 using (var presentation = new Presentation("sample.pptx"))
 {
@@ -112,13 +131,35 @@ using (var presentation = new Presentation("sample.pptx"))
     }
 }
 ```
+  
 
-## **Получение прозрачности изображения**
+## **Извлечь SVG‑изображения из рамок изображений**
 
-Aspose.Slides позволяет вам получить прозрачность изображения. Этот код на C# демонстрирует эту операцию:
+Когда презентация содержит SVG‑графику, размещённую внутри фигур [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/), Aspose.Slides for .NET позволяет получить оригинальные векторные изображения с полной точностью. Проходя по коллекции фигур слайда, можно определить каждый [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/), проверить, содержит ли связанный [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) SVG‑контент, и затем сохранить это изображение на диск или в поток в его родном SVG‑формате.  
 
+Следующий пример кода демонстрирует, как извлечь SVG‑изображение из рамки изображения:  
+```cs
+using var presentation = new Presentation("sample.pptx");
+
+var slide = presentation.Slides[0];
+var shape = slide.Shapes[0];
+
+if (shape is IPictureFrame pictureFrame)
+{
+    var svgImage = pictureFrame.PictureFormat.Picture.Image.SvgImage;
+    if (svgImage != null)
+    {
+        File.WriteAllText("output.svg", svgImage.SvgContent);
+    }
+}
+```
+  
+
+## **Получить прозрачность изображения**
+
+Aspose.Slides позволяет получить эффект прозрачности, применённый к изображению. Этот C#‑код демонстрирует операцию:  
 ```c#
-using (var presentation = new Presentation(folderPath + "Test.pptx"))
+using (var presentation = new Presentation("Test.pptx"))
 {
     var pictureFrame = (IPictureFrame)presentation.Slides[0].Shapes[0];
     var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
@@ -127,68 +168,70 @@ using (var presentation = new Presentation(folderPath + "Test.pptx"))
         if (effect is IAlphaModulateFixed alphaModulateFixed)
         {
             var transparencyValue = 100 - alphaModulateFixed.Amount;
-            Console.WriteLine("Прозрачность изображения: " + transparencyValue);
+            Console.WriteLine("Picture transparency: " + transparencyValue);
         }
     }
 }
 ```
+  
 
-## **Форматирование рамки для изображения**
+{{% alert color="primary" %}}  
+Все эффекты, применяемые к изображениям, можно найти в [Aspose.Slides.Effects](https://reference.aspose.com/slides/net/aspose.slides.effects/).  
+{{% /alert %}}  
 
-Aspose.Slides предоставляет множество параметров форматирования, которые можно применять к рамке для изображения. Используя эти параметры, вы можете изменить рамку для изображения так, чтобы она соответствовала определенным требованиям.
+## **Форматирование рамки изображения**
 
-1. Создайте экземпляр класса [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/).
-2. Получите ссылку на слайд по индексу.
-3. Создайте объект [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage), добавив изображение в [IImagescollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection), связанную с объектом презентации, который будет использован для заливки фигуры.
-4. Укажите ширину и высоту изображения.
-5. Создайте `PictureFrame` на основе ширины и высоты изображения через метод [AddPictureFrame](http://www.aspose.com/api/net/slides/aspose.slides/ishapecollection/methods/addpictureframe), предоставленный объектом [IShapes](http://www.aspose.com/api/net/slides/aspose.slides/ishapecollection), связанным с указным слайдом.
-6. Добавьте рамку для изображения (содержит картинку) на слайд.
-7. Установите цвет линии рамки для изображения.
-8. Установите ширину линии рамки для изображения.
-9. Поверните рамку для изображения, задав ей положительное или отрицательное значение.
-   * Положительное значение поворачивает изображение по часовой стрелке.
-   * Отрицательное значение поворачивает изображение против часовой стрелки.
-10. Добавьте рамку для изображения (содержит картинку) на слайд.
-11. Запишите измененную презентацию в файл PPTX.
+Aspose.Slides предоставляет множество параметров форматирования, которые можно применить к рамке изображения. С их помощью можно изменить рамку изображения так, чтобы она соответствовала конкретным требованиям.  
 
-Этот код на C# демонстрирует процесс форматирования рамки для изображения:
+1. Создать экземпляр класса [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) .  
+2. Получить ссылку на слайд по его индексу.  
+3. Создать объект [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage), добавив изображение в коллекцию [IImagescollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection), связанную с объектом презентации, которое будет использовано для заполнения формы.  
+4. Указать ширину и высоту изображения.  
+5. Создать `PictureFrame` на основе ширины и высоты изображения через метод [AddPictureFrame](http://www.aspose.com/api/net/slides/aspose.slides/ishapecollection/methods/addpictureframe), предоставляемый объектом [IShapes](http://www.aspose.com/api/net/slides/aspose.slides/ishapecollection), связанным с указанным слайдом.  
+6. Добавить рамку изображения (содержащую картинку) на слайд.  
+7. Задать цвет линии рамки изображения.  
+8. Задать ширину линии рамки изображения.  
+9. Повернуть рамку изображения, указав положительное или отрицательное значение.  
+   * Положительное значение вращает изображение по часовой стрелке.  
+   * Отрицательное значение вращает изображение против часовой стрелки.  
+10. Добавить рамку изображения (содержащую картинку) на слайд.  
+11. Сохранить изменённую презентацию в файл PPTX.  
 
+Этот C#‑код демонстрирует процесс форматирования рамки изображения:  
 ```c#
 // Создает экземпляр класса Presentation, представляющего файл PPTX
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-
     // Получает первый слайд
-    ISlide sld = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
 
-    // Создает экземпляр класса ImageEx
-    System.Drawing.Image img = (System.Drawing.Image)new Bitmap("aspose-logo.jpg");
-    IPPImage imgx = pres.Images.AddImage(img);
+    // Загружает изображение и добавляет его в коллекцию изображений презентации
+    IImage image = Images.FromFile("aspose-logo.jpg");
+    IPPImage ppImage = presentation.Images.AddImage(image);
+    image.Dispose();
 
-    // Добавляет рамку для изображения с эквивалентной высотой и шириной изображения
-    IPictureFrame pf = sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
+    // Добавляет рамку изображения с высотой и шириной, соответствующей изображению
+    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
-    // Применяет некоторое форматирование к PictureFrameEx
-    pf.LineFormat.FillFormat.FillType = FillType.Solid;
-    pf.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pf.LineFormat.Width = 20;
-    pf.Rotation = 45;
+    // Применяет некоторую форматировку к рамке изображения
+    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
+    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    pictureFrame.LineFormat.Width = 20;
+    pictureFrame.Rotation = 45;
 
-    // Записывает PPTX файл на диск
-    pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
+    // Сохраняет презентацию в файл PPTX
+    presentation.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
 }
 ```
+  
 
-{{% alert color="primary" %}}
-
-Aspose недавно разработал [бесплатный Конструктор Коллажей](https://products.aspose.app/slides/collage). Если вам когда-либо нужно будет [объединить изображения JPG/JPEG](https://products.aspose.app/slides/collage/jpg) или PNG, [создать сетки из фотографий](https://products.aspose.app/slides/collage/photo-grid), вы можете использовать этот сервис.
-
-{{% /alert %}}
+{{% alert color="primary" %}}  
+Aspose недавно разработал [бесплатный Collage Maker](https://products.aspose.app/slides/collage). Если вам нужно [объединить JPG/JPEG](https://products.aspose.app/slides/collage/jpg) или PNG‑изображения, [создать сетку из фотографий](https://products.aspose.app/slides/collage/photo-grid), можете воспользоваться этим сервисом.  
+{{% /alert %}}  
 
 ## **Добавить изображение как ссылку**
 
-Чтобы избежать больших размеров презентации, вы можете добавить изображения (или видео) через ссылки вместо встраивания файлов непосредственно в презентации. Этот код на C# показывает, как добавить изображение и видео в заполнитель:
-
+Чтобы избежать большого размера презентации, вы можете добавлять изображения (или видео) через ссылки вместо встраивания файлов напрямую в презентацию. Этот C#‑код показывает, как добавить изображение и видео в заполнитель:  
 ```c#
 using (var presentation = new Presentation("input.pptx"))
 {
@@ -238,18 +281,20 @@ using (var presentation = new Presentation("input.pptx"))
     presentation.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
+  
 
-## **Обрезка изображения**
+## **Обрезать изображения**
 
-Этот код на C# показывает, как обрезать существующее изображение на слайде:
-
+Этот C#‑код показывает, как обрезать существующее изображение на слайде:  
 ```c#
 using (Presentation presentation = new Presentation())
 {
     // Создает новый объект изображения
-    IPPImage newImage = presentation.Images.AddImage(Image.FromFile(imagePath));
+    IImage image = Images.FromFile(imagePath);
+    IPPImage newImage = presentation.Images.AddImage(image);
+    image.Dispose();
 
-    // Добавляет рамку для изображения на слайд
+    // Добавляет PictureFrame на слайд
     IPictureFrame picFrame = presentation.Slides[0].Shapes.AddPictureFrame(
         ShapeType.Rectangle, 100, 100, 420, 250, newImage);
 
@@ -263,13 +308,13 @@ using (Presentation presentation = new Presentation())
     presentation.Save("PictureFrameCrop.pptx", SaveFormat.Pptx);
 }
 ```
+  
 
-## Удалить обрезанные области изображения
+## **Удалить обрезанные области рамки изображения**
 
-Если вы хотите удалить обрезанные области изображения, содержащегося в рамке, вы можете использовать метод [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/). Этот метод возвращает обрезанное изображение или исходное изображение, если обрезка не необходима.
+Если нужно удалить обрезанные области изображения, находящегося в рамке, можно использовать метод [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/). Метод возвращает обрезанное изображение или исходное, если обрезка не требуется.  
 
-Этот код на C# демонстрирует операцию:
-
+Этот C#‑код демонстрирует операцию:  
 ```c#
 using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
 {
@@ -278,35 +323,88 @@ using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
     // Получает PictureFrame с первого слайда
     IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
 
-    // Удаляет обрезанные области изображения рамки и возвращает обрезанное изображение
+    // Удаляет обрезанные области изображения PictureFrame и возвращает обрезанное изображение
     IPPImage croppedImage = picFrame.PictureFormat.DeletePictureCroppedAreas();
 
     // Сохраняет результат
     presentation.Save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
 }
 ```
+  
 
-{{% alert title="ПРИМЕЧАНИЕ" color="warning" %}}
+{{% alert title="NOTE" color="warning" %}}  
 
-Метод [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) добавляет обрезанное изображение в коллекцию изображений презентации. Если изображение используется только в обработанной [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/), эта настройка может уменьшить размер презентации. В противном случае количество изображений в результирующей презентации увеличится.
+Метод [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) добавляет обрезанное изображение в коллекцию изображений презентации. Если изображение используется только в обработанном [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/), такая настройка может уменьшить размер презентации. В противном случае количество изображений в получившейся презентации увеличится.  
 
-Этот метод преобразует метафайлы WMF/EMF в растровое изображение PNG в процессе обрезки.
+Метод преобразует WMF/EMF‑метафайлы в растровое PNG‑изображение в процессе обрезки.  
+{{% /alert %}}  
 
-{{% /alert %}}
+## **Сжать изображения**
 
-## **Закрепить соотношение сторон**
+Вы можете сжать изображение в презентации, используя метод [`IPictureFillFormat.CompressImage`](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/compressimage/).  
+Метод уменьшает размер изображения, учитывая размер формы и указанное разрешение, с возможностью удаления обрезанных областей.  
 
-Если вы хотите, чтобы фигура, содержащая изображение, сохраняла свое соотношение сторон даже после изменения размеров изображения, вы можете использовать свойство [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/aspectratiolocked/) для установки параметра *Закрепить соотношение сторон*.
+Он регулирует размер и разрешение картинки аналогично функции PowerPoint **Picture Format → Compress Pictures → Resolution**.  
 
-Этот код на C# показывает, как зафиксировать соотношение сторон фигуры:
+Ниже приведены примеры C#‑кода, показывающие, как сжать изображение в презентации, задав целевое разрешение и, при желании, удалив обрезанные области:  
+```csharp
+using (Presentation presentation = new Presentation("demo.pptx"))
+{
+    ISlide slide = presentation.Slides[0];
 
+    // Получить PictureFrame со слайда
+    IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
+
+    // Сжать изображение с целевым разрешением 150 DPI (веб-разрешение) и удалить обрезанные области
+    bool result = picFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+
+    // Проверить результат сжатия
+    if (result)
+    {
+        Console.WriteLine("Image successfully compressed.");
+    }
+    else
+    {
+        Console.WriteLine("Image compression failed or no changes were necessary.");
+    }
+}
+```
+  
+
+Или с указанием пользовательского DPI напрямую:  
+```csharp
+using (Presentation presentation = new Presentation("demo.pptx"))
+{
+    ISlide slide = presentation.Slides[0];
+
+    IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
+
+    // Сжать изображение до 150 DPI (веб разрешение), удаляя обрезанные области
+    bool result = picFrame.PictureFormat.CompressImage(true, 150f);
+}
+```
+  
+
+{{% alert title="NOTE" color="warning" %}}  
+
+Метод преобразует изображение к более низкому разрешению в зависимости от размера формы и указанного DPI. Обрезанные области также могут быть удалены для оптимизации размера файла.  
+Если изображение — метафайл (WMF/EMF) или SVG, сжатие не применяется. При этом качество JPEG сохраняется или слегка снижается в зависимости от разрешения, аналогично обработке в PowerPoint.  
+{{% /alert %}}  
+
+## **Блокировать соотношение сторон**
+
+Если необходимо, чтобы форма, содержащая изображение, сохраняла своё соотношение сторон после изменения размеров изображения, можно воспользоваться свойством [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/aspectratiolocked/) для установки параметра *Lock Aspect Ratio*.  
+
+Этот C#‑код показывает, как заблокировать соотношение сторон формы:  
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ILayoutSlide layout = pres.LayoutSlides.GetByType(SlideLayoutType.Custom);
     ISlide emptySlide = pres.Slides.AddEmptySlide(layout);
-    using Image image = Image.FromFile(Path.Combine("image.png"));
+
+    IImage image = Images.FromFile("image.png");
     IPPImage presImage = pres.Images.AddImage(image);
+    image.Dispose();
 
     IPictureFrame pictureFrame = emptySlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, presImage.Width, presImage.Height, presImage);
 
@@ -314,49 +412,65 @@ using (Presentation pres = new Presentation("pres.pptx"))
     pictureFrame.PictureFrameLock.AspectRatioLocked = true;
 }
 ```
+  
 
-{{% alert title="ПРИМЕЧАНИЕ" color="warning" %}}
+{{% alert title="NOTE" color="warning" %}}  
 
-Этот параметр *Закрепить соотношение сторон* сохраняет только соотношение сторон фигуры, а не изображения, которое она содержит.
+Параметр *Lock Aspect Ratio* сохраняет только соотношение сторон формы, но не самого изображения, которое она содержит.  
+{{% /alert %}}  
 
-{{% /alert %}}
+## **Использовать свойства StretchOffset**
 
-## **Используйте свойство StretchOff**
+Используя свойства [StretchOffsetLeft](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetright) и [StretchOffsetBottom](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) интерфейса [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat) и класса [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat) можно задать прямоугольник заполнения.  
 
-Используя свойства [StretchOffsetLeft](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetright) и [StretchOffsetBottom](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) интерфейса [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat) и класса [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat), вы можете задать заполнение прямоугольника.
+При указании растягивания изображения исходный прямоугольник масштабируется так, чтобы вместиться в заданный прямоугольник заполнения. Каждая сторона прямоугольника заполнения определяется процентным смещением от соответствующей стороны ограничивающего бокса формы. Положительный процент задаёт отступ, отрицательный — выступ.  
 
-Когда для изображения установлено масштабирование, исходный прямоугольник масштабируется, чтобы соответствовать указанному прямоугольнику заполнения. Каждый край прямоугольника заполнения определяется процентным смещением от соответствующего края ограничивающей рамки фигуры. Положительный процент указывает на внутреннее смещение, а отрицательный процент — на внешнее смещение.
+1. Создать экземпляр класса [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) .  
+2. Получить ссылку на слайд по его индексу.  
+3. Добавить прямоугольник `AutoShape`.  
+4. Создать изображение.  
+5. Задать тип заполнения формы.  
+6. Задать режим заполнения формы картинкой.  
+7. Добавить изображение для заполнения формы.  
+8. Указать смещения изображения от соответствующей стороны ограничивающего бокса формы.  
+9. Сохранить изменённую презентацию в файл PPTX.  
 
-1. Создайте экземпляр класса [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/).
-2. Получите ссылку на слайд по индексу.
-3. Добавьте прямоугольник `AutoShape`.
-4. Создайте изображение.
-5. Установите тип заливки фигуры.
-6. Установите режим заливки изображения фигуры.
-7. Добавьте установленное изображение для заполнения фигуры.
-8. Укажите смещения изображения от соответствующего края ограничивающей рамки фигуры.
-9. Запишите измененную презентацию в файл PPTX.
-
-Этот код на C# демонстрирует процесс, в котором используется свойство StretchOff:
-
+Этот C#‑код демонстрирует процесс, в котором используется свойство StretchOffset:  
 ```c#
 using (Presentation pres = new Presentation())
 {
-    IPPImage ppImage;
-    using (Image bitmap = new Bitmap("image.png"))
-    {
-        ppImage = pres.Images.AddImage(bitmap);
-    }
+    IImage image = Images.FromFile("image.png");
+    IPPImage ppImage = pres.Images.AddImage(image);
+    image.Dispose();
 
     IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 400, ppImage);
-    
-    // Устанавливает изображение, растянутое с каждой стороны в теле фигуры
+
+    // Устанавливает растягивание изображения со всех сторон в теле формы
     pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
     pictureFrame.PictureFormat.StretchOffsetLeft = 24;
     pictureFrame.PictureFormat.StretchOffsetRight = 24;
     pictureFrame.PictureFormat.StretchOffsetTop = 24;
     pictureFrame.PictureFormat.StretchOffsetBottom = 24;
-    
+
     pres.Save("imageStretch.pptx", SaveFormat.Pptx);
 }
 ```
+  
+
+## **FAQ**
+
+**Как узнать, какие форматы изображений поддерживаются для PictureFrame?**  
+
+Aspose.Slides поддерживает как растровые изображения (PNG, JPEG, BMP, GIF и т.д.), так и векторные (например, SVG) через объект изображения, присваиваемый [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/). Список поддерживаемых форматов в целом совпадает с возможностями движка конвертации слайдов и изображений.  
+
+**Как добавление десятков больших изображений влияет на размер и производительность PPTX?**  
+
+Встраивание больших изображений увеличивает размер файла и потребление памяти; ссылки на изображения позволяют снизить размер презентации, но требуют постоянного доступа к внешним файлам. Aspose.Slides предоставляет возможность добавлять изображения по ссылке для уменьшения размера файла.  
+
+**Как заблокировать объект изображения от случайного перемещения/изменения размеров?**  
+
+Используйте [shape locks](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/pictureframelock/) для [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/) (например, отключите перемещение или изменение размеров). Механизм блокировки описан в статье о защите фигур [/slides/net/applying-protection-to-presentation/] и поддерживается различными типами фигур, включая [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/).  
+
+**Сохраняется ли векторная точность SVG при экспорте презентации в PDF/изображения?**  
+
+Aspose.Slides позволяет извлечь SVG из [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/) как оригинальный вектор. При [экспорте в PDF](/slides/ru/net/convert-powerpoint-to-pdf/) или [растровые форматы](/slides/ru/net/convert-powerpoint-to-png/) результат может быть растровым в зависимости от настроек экспорта; факт хранения оригинального SVG как вектора подтверждается поведением извлечения.  

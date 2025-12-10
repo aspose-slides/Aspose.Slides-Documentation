@@ -1,88 +1,100 @@
 ---
-title: Trendlinie
+title: Trendlinien zu Präsentationsdiagrammen in .NET hinzufügen
+linktitle: Trendlinie
 type: docs
 url: /de/net/trend-line/
-keywords: "Trendlinie, benutzerdefinierte Linie PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "Trendlinie und benutzerdefinierte Linie in PowerPoint-Präsentationen in C# oder .NET hinzufügen"
+keywords:
+- Diagramm
+- Trendlinie
+- exponentielle Trendlinie
+- lineare Trendlinie
+- logarithmische Trendlinie
+- Gleitende Durchschnittstrendlinie
+- polynomiale Trendlinie
+- Potenztrendlinie
+- benutzerdefinierte Trendlinie
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Fügen Sie schnell Trendlinien zu PowerPoint-Diagrammen mit Aspose.Slides für .NET hinzu und passen Sie sie an – ein praktischer Leitfaden, um Ihr Publikum zu begeistern."
 ---
 
 ## **Trendlinie hinzufügen**
-Aspose.Slides für .NET bietet eine einfache API zur Verwaltung verschiedener Diagramm-Trendlinien:
+Aspose.Slides für .NET stellt eine einfache API zur Verwaltung verschiedener Diagramm‑Trendlinien bereit:
 
-1. Erstellen Sie eine Instanz der [Präsentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-1. Erhalten Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie ein Diagramm mit Standarddaten sowie einen beliebigen gewünschten Typ hinzu (dieses Beispiel verwendet ChartType.ClusteredColumn).
-1. Hinzufügen der exponentiellen Trendlinie für Diagrammreihe 1.
-1. Hinzufügen der linearen Trendlinie für Diagrammreihe 1.
-1. Hinzufügen der logarithmischen Trendlinie für Diagrammreihe 2.
-1. Hinzufügen der gleitenden Durchschnittstrendlinie für Diagrammreihe 2.
-1. Hinzufügen der polynomialen Trendlinie für Diagrammreihe 3.
-1. Hinzufügen der Potenztrendlinie für Diagrammreihe 3.
-1. Schreiben Sie die bearbeitete Präsentation in eine PPTX-Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
+2. Erhalten Sie eine Referenz auf eine Folie über ihren Index.
+3. Fügen Sie ein Diagramm mit Standarddaten sowie einem gewünschten Typ hinzu (in diesem Beispiel wird ChartType.ClusteredColumn verwendet).
+4. Hinzufügen einer exponentiellen Trendlinie für Diagrammserie 1.
+5. Hinzufügen einer linearen Trendlinie für Diagrammserie 1.
+6. Hinzufügen einer logarithmischen Trendlinie für Diagrammserie 2.
+7. Hinzufügen einer gleitenden Mittelwert‑Trendlinie für Diagrammserie 2.
+8. Hinzufügen einer polynomialen Trendlinie für Diagrammserie 3.
+9. Hinzufügen einer Potenz‑Trendlinie für Diagrammserie 3.
+10. Schreiben Sie die modifizierte Präsentation in eine PPTX‑Datei.
 
 Der folgende Code wird verwendet, um ein Diagramm mit Trendlinien zu erstellen.
-
 ```c#
-// Erstellen einer leeren Präsentation
-Präsentation pres = new Präsentation();
+// Leere Präsentation erstellen
+Presentation pres = new Presentation();
 
 // Erstellen eines gruppierten Säulendiagramms
 IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
 
-// Hinzufügen der exponentiellen Trendlinie für Diagrammreihe 1
+// Hinzufügen einer exponentiellen Trendlinie für Diagrammserie 1
 ITrendline tredLinep = chart.ChartData.Series[0].TrendLines.Add(TrendlineType.Exponential);
 tredLinep.DisplayEquation = false;
 tredLinep.DisplayRSquaredValue = false;
 
-// Hinzufügen der linearen Trendlinie für Diagrammreihe 1
+// Hinzufügen einer linearen Trendlinie für Diagrammserie 1
 ITrendline tredLineLin = chart.ChartData.Series[0].TrendLines.Add(TrendlineType.Linear);
 tredLineLin.TrendlineType = TrendlineType.Linear;
 tredLineLin.Format.Line.FillFormat.FillType = FillType.Solid;
 tredLineLin.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
 
 
-// Hinzufügen der logarithmischen Trendlinie für Diagrammreihe 2
+// Hinzufügen einer logarithmischen Trendlinie für Diagrammserie 2
 ITrendline tredLineLog = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.Logarithmic);
 tredLineLog.TrendlineType = TrendlineType.Logarithmic;
-tredLineLog.AddTextFrameForOverriding("Neue logarithmische Trendlinie");
+tredLineLog.AddTextFrameForOverriding("New log trend line");
 
-// Hinzufügen der gleitenden Durchschnittstrendlinie für Diagrammreihe 2
+// Hinzufügen einer gleitenden Mittelwert-Trendlinie für Diagrammserie 2
 ITrendline tredLineMovAvg = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.MovingAverage);
 tredLineMovAvg.TrendlineType = TrendlineType.MovingAverage;
 tredLineMovAvg.Period = 3;
-tredLineMovAvg.TrendlineName = "Neuer Trendlinienname";
+tredLineMovAvg.TrendlineName = "New TrendLine Name";
 
-// Hinzufügen der polynomialen Trendlinie für Diagrammreihe 3
+// Hinzufügen einer polynomialen Trendlinie für Diagrammserie 3
 ITrendline tredLinePol = chart.ChartData.Series[2].TrendLines.Add(TrendlineType.Polynomial);
 tredLinePol.TrendlineType = TrendlineType.Polynomial;
 tredLinePol.Forward = 1;
 tredLinePol.Order = 3;
 
-// Hinzufügen der Potenztrendlinie für Diagrammreihe 3
+// Hinzufügen einer Potenz-Trendlinie für Diagrammserie 3
 ITrendline tredLinePower = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.Power);
 tredLinePower.TrendlineType = TrendlineType.Power;
 tredLinePower.Backward = 1;
 
-// Speichern der Präsentation
+// Präsentation speichern
 pres.Save("ChartTrendLines_out.pptx", SaveFormat.Pptx);
 ```
 
 
-
 ## **Benutzerdefinierte Linie hinzufügen**
-Aspose.Slides für .NET bietet eine einfache API zum Hinzufügen benutzerdefinierter Linien in einem Diagramm. Um eine einfache Gerade zu einer ausgewählten Folie der Präsentation hinzuzufügen, befolgen Sie bitte die folgenden Schritte:
+Aspose.Slides für .NET bietet eine einfache API zum Hinzufügen benutzerdefinierter Linien in einem Diagramm. Um eine einfache gerade Linie zu einer ausgewählten Folie der Präsentation hinzuzufügen, befolgen Sie bitte die folgenden Schritte:
 
-- Erstellen Sie eine Instanz der Präsentationsklasse
-- Erhalten Sie die Referenz einer Folie, indem Sie ihren Index verwenden
-- Erstellen Sie ein neues Diagramm mit der AddChart-Methode des Shapes-Objekts
-- Fügen Sie eine AutoShape vom Typ Linie mithilfe der AddAutoShape-Methode des Shapes-Objekts hinzu
-- Setzen Sie die Farbe der Linienstreifen.
-- Schreiben Sie die bearbeitete Präsentation als PPTX-Datei
+- Erstellen Sie eine Instanz der Presentation‑Klasse
+- Erhalten Sie die Referenz einer Folie über ihren Index
+- Erstellen Sie ein neues Diagramm mit der AddChart‑Methode, die vom Shapes‑Objekt bereitgestellt wird
+- Fügen Sie mit der AddAutoShape‑Methode, die vom Shapes‑Objekt bereitgestellt wird, eine AutoShape vom Typ Linie hinzu
+- Legen Sie die Farbe der Formlinien fest.
+- Schreiben Sie die modifizierte Präsentation als PPTX‑Datei
 
 Der folgende Code wird verwendet, um ein Diagramm mit benutzerdefinierten Linien zu erstellen.
-
 ```c#
-using (Präsentation pres = new Präsentation())
+using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
     IAutoShape shape = chart.UserShapes.Shapes.AddAutoShape(ShapeType.Line, 0, chart.Height / 2, chart.Width, 0);
@@ -91,3 +103,14 @@ using (Präsentation pres = new Präsentation())
     pres.Save("AddCustomLines.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**Was bedeuten ‘forward’ und ‘backward’ bei einer Trendlinie?**
+
+Sie geben die Länge der Trendlinie an, die nach vorne bzw. nach hinten projiziert wird: Für Streudiagramme (XY) in Achsen­einheiten; für Nicht‑Streudiagramme in der Anzahl der Kategorien. Es sind nur nicht‑negative Werte zulässig.
+
+**Wird die Trendlinie beim Export der Präsentation nach PDF oder SVG bzw. beim Rendern einer Folie zu einem Bild erhalten bleiben?**
+
+Ja. Aspose.Slides konvertiert Präsentationen zu [PDF](/slides/de/net/convert-powerpoint-to-pdf/)/[SVG](/slides/de/net/render-a-slide-as-an-svg-image/) und rendert Diagramme zu Bildern; Trendlinien werden als Teil des Diagramms bei diesen Vorgängen beibehalten. Außerdem steht eine Methode zum [Exportieren eines Bildes des Diagramms](/slides/de/net/create-shape-thumbnails/) zur Verfügung.

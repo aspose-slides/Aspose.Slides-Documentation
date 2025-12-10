@@ -1,30 +1,40 @@
 ---
-title: Gestion des étiquettes et des données personnalisées
+title: Gérer les balises et les données personnalisées dans les présentations en .NET
+linktitle: Balises et données personnalisées
 type: docs
 weight: 300
-url: /fr/net/managing-tags-and-custom-data
-keywords: "Étiquettes, Données personnalisées, Valeur des étiquettes, Ajouter des étiquettes, Présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
-description: "Ajouter des étiquettes et des données personnalisées aux présentations PowerPoint en C# ou .NET"
+url: /fr/net/managing-tags-and-custom-data/
+keywords:
+- propriétés du document
+- balise
+- données personnalisées
+- ajouter une balise
+- paires de valeurs
+- PowerPoint
+- présentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Apprenez à ajouter, lire, mettre à jour et supprimer des balises et des données personnalisées dans Aspose.Slides pour .NET, avec des exemples pour les présentations PowerPoint et OpenDocument."
 ---
 
-## Stockage des données dans les fichiers de présentation
+## **Stockage des données dans les fichiers de présentation**
 
-Les fichiers PPTX—éléments avec l'extension .pptx—sont stockés au format PresentationML, qui fait partie de la spécification Office Open XML. Le format Office Open XML définit la structure des données contenues dans les présentations.
+Les fichiers PPTX — éléments avec l’extension .pptx — sont stockés au format PresentationML, qui fait partie de la spécification Office Open XML. Le format Office Open XML définit la structure des données contenues dans les présentations. 
 
-Avec une *diapositive* étant l'un des éléments dans les présentations, une *partie de diapositive* contient le contenu d'une seule diapositive. Une partie de diapositive peut avoir des relations explicites avec de nombreuses parties—telles que les Étiquettes définies par l'utilisateur—définies par l'ISO/IEC 29500.
+Comme une *diapositive* est l’un des éléments des présentations, une *partie de diapositive* contient le contenu d’une seule diapositive. Une partie de diapositive peut avoir des relations explicites avec de nombreuses parties — telles que les balises définies par l’utilisateur — définies par ISO/IEC 29500. 
 
-Les données personnalisées (spécifiques à une présentation) ou à l'utilisateur peuvent exister sous forme d'étiquettes ([ITagCollection](https://reference.aspose.com/slides/net/aspose.slides/itagcollection)) et de CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/net/aspose.slides/icustomxmlpartcollection)).
+Les données personnalisées (spécifiques à une présentation) ou les utilisateurs peuvent exister sous forme de balises ([ITagCollection](https://reference.aspose.com/slides/net/aspose.slides/itagcollection)) et de CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/net/aspose.slides/icustomxmlpartcollection)). 
 
-{{% alert color="primary" %}}
+{{% alert color="primary" %}} 
 
-Les étiquettes sont essentiellement des valeurs de paire clé-string.
+Les balises sont essentiellement des paires clé‑valeur de type chaîne. 
 
-{{% /alert %}}
+{{% /alert %}} 
 
-## Obtenir les valeurs des étiquettes
+## **Obtenir les valeurs des balises**
 
-Dans les diapositives, une étiquette correspond à la propriété IDocumentProperties.Keywords. Ce code d'exemple vous montre comment obtenir la valeur d'une étiquette avec Aspose.Slides pour .NET pour [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation):
-
+Dans les diapositives, une balise correspond à la propriété IDocumentProperties.Keywords. Ce code d’exemple montre comment obtenir la valeur d’une balise avec Aspose.Slides for .NET pour [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) :
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -32,17 +42,17 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## Ajouter des étiquettes aux présentations
 
-Aspose.Slides vous permet d'ajouter des étiquettes aux présentations. Une étiquette se compose généralement de deux éléments : 
+## **Ajouter des balises aux présentations**
 
-- le nom d'une propriété personnalisée - `MyTag`
-- la valeur de la propriété personnalisée - `My Tag Value`
+Aspose.Slides vous permet d’ajouter des balises aux présentations. Une balise se compose généralement de deux éléments : 
 
-Si vous avez besoin de classer certaines présentations en fonction d'une règle ou d'une propriété spécifique, vous pourriez bénéficier de l'ajout d'étiquettes à ces présentations. Par exemple, si vous souhaitez classer ou regrouper toutes les présentations des pays nord-américains, vous pouvez créer une étiquette nord-américaine et ensuite attribuer les pays concernés (les États-Unis, le Mexique et le Canada) comme valeurs.
+- le nom d’une propriété personnalisée – `MyTag` 
+- la valeur de la propriété personnalisée – `My Tag Value`
 
-Ce code d'exemple vous montre comment ajouter une étiquette à une [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) à l'aide d'Aspose.Slides pour .NET :
+Si vous devez classer certaines présentations selon une règle ou une propriété spécifique, vous pouvez bénéficier de l’ajout de balises à ces présentations. Par exemple, si vous voulez regrouper toutes les présentations provenant des pays nord‑américains, vous pouvez créer une balise « North American » puis affecter les pays concernés (États‑Unis, Mexique et Canada) comme valeurs. 
 
+Ce code d’exemple montre comment ajouter une balise à une [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) à l’aide d’Aspose.Slides for .NET :
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -51,8 +61,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-Les étiquettes peuvent également être définies pour une [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide) :
 
+Les balises peuvent également être définies pour [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide) :
 ```csharp
 using(Presentation pres = new Presentation())
 {
@@ -61,14 +71,29 @@ using(Presentation pres = new Presentation())
 }
 ```
 
-Ou pour toute forme individuelle [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape) :
 
+Ou pour n’importe quel [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape) individuel :
 ```csharp
 using(Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 50);
-    shape.TextFrame.Text = "Mon texte";
+    shape.TextFrame.Text = "My text";
     shape.CustomData.Tags["tag"] = "value";
 }
 ```
+
+
+## **FAQ**
+
+**Puis‑je supprimer toutes les balises d’une présentation, d’une diapositive ou d’une forme en une seule opération ?**
+
+Oui. La [tag collection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/) prend en charge une opération [clear](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/clear/) qui supprime toutes les paires clé‑valeur d’un seul coup.
+
+**Comment supprimer une seule balise par son nom sans parcourir toute la collection ?**
+
+Utilisez l’opération [Remove(name)](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/remove/) sur [TagCollection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/) pour supprimer la balise par sa clé.
+
+**Comment récupérer la liste complète des noms de balises pour l’analyse ou le filtrage ?**
+
+Utilisez [GetNamesOfTags](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/getnamesoftags/) sur la [tag collection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/) ; elle renvoie un tableau contenant tous les noms de balises.

@@ -1,288 +1,254 @@
 ---
-title: ワークシートサイズ変更のための作業ソリューション
+title: ワークシートリサイズの実装ソリューション
 type: docs
 weight: 40
 url: /ja/net/working-solution-for-worksheet-resizing/
+keywords:
+- OLE
+- プレビュー画像
+- 画像リサイズ
+- Excel
+- ワークシート
+- PowerPoint
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "プレゼンテーションでの Excel ワークシート OLE リサイズを修正します: オブジェクトフレームを一貫させるための2つの方法—フレームをスケールするかシートをスケールするか—PPT および PPTX 形式で対応。"
 ---
 
-{{% alert color="primary" %}}
-
-ExcelワークシートがAsposeコンポーネントを介してPowerPointプレゼンテーションにOLEとして埋め込まれると、最初のアクティベーション後に特定のスケールにサイズが変更されることが観察されました。この動作は、プレゼンテーションの事前および事後のチャートアクティベーション状態の間にかなりの視覚的違いを生み出します。この問題について詳しく調査し、本記事で取り上げた解決策を見つけました。
-
+{{% alert color="primary" %}} 
+Excel ワークシートが Aspose コンポーネントを介して PowerPoint プレゼンテーションに OLE オブジェクトとして埋め込まれると、最初のアクティベーション後に未定義のスケールにリサイズされることが確認されています。この動作により、OLE オブジェクトのアクティベーション前後でプレゼンテーションに目立つ視覚的差異が生じます。本記事ではこの問題を詳細に調査し、解決策を提供しています。
 {{% /alert %}} 
+
 ## **背景**
-[OLEフレームの追加に関する記事]()では、Aspose.Slides for .NETを使用してPowerPointプレゼンテーションにOLEフレームを追加する方法を説明しました。[オブジェクト変更の問題](/slides/ja/net/object-changed-issue-when-adding-oleobjectframe/)に対処するため、選択した領域のワークシート画像をチャートOLEオブジェクトフレームに割り当てました。出力プレゼンテーションでは、ワークシート画像を表示するOLEオブジェクトフレームをダブルクリックすると、Excelチャートがアクティブになります。エンドユーザーは、実際のExcelワークブックに任意の変更を加え、その後、アクティブ化されたExcelワークブックの外をクリックすることで関連スライドに戻ることができます。ユーザーがスライドに戻ると、OLEオブジェクトフレームのサイズが変更されます。OLEオブジェクトフレームと埋め込まれたExcelワークブックの異なるサイズに対して、リサイズ係数は異なります。
+
+記事 [Manage OLE](/slides/ja/net/manage-ole/) では、Aspose.Slides for .NET を使用して PowerPoint プレゼンテーションに OLE フレームを追加する方法を説明しました。[object preview issue](/slides/ja/net/object-preview-issue-when-adding-oleobjectframe/) に対処するため、選択したワークシート領域の画像を OLE オブジェクトフレームに割り当てました。出力されたプレゼンテーションで、ワークシート画像を表示する OLE オブジェクトフレームをダブルクリックすると、Excel ブックがアクティブになります。エンドユーザーは実際の Excel ブックに任意の変更を加え、アクティブ化された Excel ブックの外側をクリックしてスライドに戻ることができます。ユーザーがスライドに戻ると OLE オブジェクトフレームのサイズが変わります。リサイズ率は OLE オブジェクトフレームと埋め込まれた Excel ブックのサイズに応じて変わります。
+
 ## **リサイズの原因**
-Excelワークブックには独自のウィンドウサイズがあるため、最初のアクティベーション時に元のサイズを保持しようとします。一方、OLEオブジェクトフレームには独自のサイズが存在します。マイクロソフトによると、Excelワークブックのアクティベーション時に、ExcelとPowerPointはサイズを交渉し、埋め込み操作の一部として正しい比率に確保します。ExcelウィンドウのサイズとOLEオブジェクトフレームのサイズ/位置の違いに基づいて、リサイズが行われます。
-## **作業ソリューション**
-リサイズ効果を回避するための2つの可能な解決策があります。
 
-- OLEフレームのサイズをPPTでスケーリングし、OLEフレーム内の所望の行数/列数の高さ/幅に合わせる
-- OLEフレームのサイズを一定に保ち、参加する行/列のサイズをスケールして選択したOLEフレームサイズにフィットさせる
-## **OLEフレームサイズをワークシートの選択行/列サイズにスケールする**
-このアプローチでは、埋め込まれたExcelワークブックのOLEフレームサイズをExcelワークシートの参加行数および列数の累積サイズに相当するものとして設定する方法を学びます。
-## **例**
-テンプレートのExcelシートを定義し、それをOLEフレームとしてプレゼンテーションに追加することを希望するとします。このシナリオでは、OLEオブジェクトフレームのサイズは、参加するワークブックの行の累積行高と列の幅に基づいて最初に計算されます。その後、OLEフレームのサイズをその計算された値に設定します。PowerPointのOLEフレームに対して赤い**埋め込みオブジェクト**メッセージを回避するために、ワークブック内の行と列の所望の部分の画像を取得し、それをOLEフレーム画像として設定します。
+Excel ブックは独自のウィンドウサイズを持っているため、最初のアクティベーション時に元のサイズを保持しようとします。一方、OLE オブジェクトフレームは独自のサイズを持ちます。Microsoft によれば、Excel ブックがアクティブになると、Excel と PowerPoint がサイズを協議し、埋め込みプロセスの一部として正しい比率を保つようにします。リサイズは Excel ウィンドウサイズと OLE オブジェクトフレームのサイズおよび位置の差に基づいて発生します。
 
-```csharp
-WorkbookDesigner workbookDesigner = new WorkbookDesigner();
-workbookDesigner.Workbook = new Workbook("AsposeTest.xls");
+## **実装ソリューション**
 
-Presentation presentation = new Presentation("AsposeTest.ppt");
+リサイズ効果を回避するための解決策は2つあります。
 
-Slide slide = (Slide)presentation.Slides[0];
+- PowerPoint プレゼンテーション内の OLE フレームサイズを、OLE フレーム内で対象とする行数と列数の高さと幅に合わせてスケールする。
+- OLE フレームサイズを固定し、対象となる行と列のサイズをスケールして選択した OLE フレームサイズに収める。
 
-AddOleFrame(slide, 0, 15, 0, 3, 0, 300, 1100, 0, 0, presentation, workbookDesigner, true, 0, 0);
+### **OLE フレームサイズのスケーリング**
 
-String fileName = "AsposeTest_Ole.ppt";
-presentation.Save(fileName, Aspose.Slides.Export.SaveFormat.Ppt);
+このアプローチでは、埋め込まれた Excel ワークシートの参加行と列の合計サイズに合わせて OLE フレームサイズを設定する方法を学びます。
+
+テンプレートの Excel シートがあり、それを OLE フレームとしてプレゼンテーションに追加したいとします。このシナリオでは、OLE オブジェクトフレームのサイズは、ワークブック内の参加行の高さと列の幅の合計に基づいて最初に計算されます。その後、計算された値で OLE フレームのサイズを設定します。PowerPoint の OLE フレームに表示される赤い「EMBEDDED OLE OBJECT」メッセージを回避するため、ワークブック内の対象となる行と列の画像を取得し、OLE フレームのプレースホルダー画像として設定します。
+```cs
+int startRow = 0, rowCount = 10;
+int startColumn = 0, columnCount = 13;
+int worksheetIndex = 0;
+
+int imageResolution = 96;
+
+using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
+var worksheet = workbook.Worksheets[worksheetIndex];
+
+// Set the displayed size when the workbook file is used as an OLE object in PowerPoint.
+var lastRow = startRow + rowCount - 1;
+var lastColumn = startColumn + columnCount - 1;
+workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
+
+var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
+var imageStream = CreateOleImage(cellRange, imageResolution);
+
+// Get the width and height of the OLE image in points.
+using var image = Image.FromStream(imageStream);
+var imageWidth = image.Width * 72 / imageResolution;
+var imageHeight = image.Height * 72 / imageResolution;
+
+// We need to use the modified workbook.
+using var oleStream = new MemoryStream();
+workbook.Save(oleStream, Aspose.Cells.SaveFormat.Xlsx);
+
+using var presentation = new Presentation();
+var slide = presentation.Slides.First();
+
+// Add the OLE image to the presentation resources.
+imageStream.Seek(0, SeekOrigin.Begin);
+var oleImage = presentation.Images.AddImage(imageStream);
+
+// Create the OLE object frame.
+var dataInfo = new OleEmbeddedDataInfo(oleStream.ToArray(), "xlsx");
+var oleFrame = slide.Shapes.AddOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
+oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
+oleFrame.IsObjectIcon = false;
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-```csharp
-private static Size SetOleAccordingToSelectedRowsCloumns(Workbook workbook, Int32 startRow, Int32 endRow, Int32 startCol,Int32 endCol, Int32 dataSheetIdx)
+```cs
+static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 {
-    Worksheet work = workbook.Worksheets[dataSheetIdx];
+    var pageSetup = cellRange.Worksheet.PageSetup;
+    pageSetup.PrintArea = cellRange.Address;
+    pageSetup.LeftMargin = 0;
+    pageSetup.RightMargin = 0;
+    pageSetup.TopMargin = 0;
+    pageSetup.BottomMargin = 0;
+    pageSetup.ClearHeaderFooter();
 
-    double actualHeight = 0, actualWidth = 0;
-
-    for (int i = startRow; i <= endRow; i++)
-        actualHeight += work.Cells.GetRowHeightInch(i);
-
-    for (int i = startCol; i <= endCol; i++)
-        actualWidth += work.Cells.GetColumnWidthInch(i);
-    //新しい行と列の高さを設定
-
-    return new Size((int)(Math.Round(actualWidth, 2) * 576), (int)(Math.Round(actualHeight, 2) * 576));
-}
-```
-```csharp
-private static void AddOleFrame(Slide slide, Int32 startRow, Int32 endRow, Int32 startCol, Int32 endCol,
-    Int32 dataSheetIdx, Int32 x, Int32 y, Double OleWidth, Double OleHeight,
-    Presentation presentation, WorkbookDesigner workbookDesigner,
-    Boolean onePagePerSheet, Int32 outputWidth, Int32 outputHeight)
-{
-    String tempFileName = Path.GetTempFileName();
-    if (startRow == 0)
+    var imageOptions = new Aspose.Cells.Rendering.ImageOrPrintOptions
     {
-        startRow++;
-        endRow++;
-    }
+        ImageType = Aspose.Cells.Drawing.ImageType.Png,
+        VerticalResolution = imageResolution,
+        HorizontalResolution = imageResolution,
+        OnePagePerSheet = true,
+        OnlyArea = true
+    };
 
-    //ワークブックのアクティブシートインデックスを設定
-    workbookDesigner.Workbook.Worksheets.ActiveSheetIndex = dataSheetIdx;
+    var sheetRender = new Aspose.Cells.Rendering.SheetRender(cellRange.Worksheet, imageOptions);
+    var imageStream = new MemoryStream();
 
-    //ワークブックと選択したワークシートを取得  
-    Workbook workbook = workbookDesigner.Workbook;
-    Worksheet work = workbook.Worksheets[dataSheetIdx];
+    sheetRender.ToImage(0, imageStream);
+    imageStream.Seek(0, SeekOrigin.Begin);
 
-    //選択した行と列に応じてOLEサイズを設定
-    Size SlideOleSize = SetOleAccordingToSelectedRowsCloumns(workbook, startRow, endRow, startCol, endCol, dataSheetIdx);
-    OleWidth = SlideOleSize.Width;
-    OleHeight = SlideOleSize.Height;
-
-    //ワークブックのOLEサイズを設定
-    workbook.Worksheets.SetOleSize(startRow, endRow, startCol, endCol);
-
-    workbook.Worksheets[0].IsGridlinesVisible = false;
-
-    //ワークシート画像を取得するための画像オプションを設定
-    ImageOrPrintOptions imageOrPrintOptions = new ImageOrPrintOptions();
-    imageOrPrintOptions.ImageFormat = System.Drawing.Imaging.ImageFormat.Bmp;
-    imageOrPrintOptions.OnePagePerSheet = onePagePerSheet;
-
-    SheetRender render = new SheetRender(workbookDesigner.Workbook.Worksheets[dataSheetIdx], imageOrPrintOptions);
-    String ext = ".bmp";
-    render.ToImage(0, tempFileName + ext);
-    Image image = ScaleImage(Image.FromFile(tempFileName + ext), outputWidth, outputHeight);
-    String newTempFileName = tempFileName.Replace(".tmp", ".tmp1") + ext;
-    image.Save(newTempFileName, System.Drawing.Imaging.ImageFormat.Bmp);
-
-    //スライドの画像コレクションに画像を追加
-    var ppImage = presentation.Images.AddImage(File.ReadAllBytes(newTempFileName));
-
-    //ワークブックをストリームに保存し、バイト配列にコピー
-    Stream mstream = workbook.SaveToStream();
-    byte[] chartOleData = new byte[mstream.Length];
-    mstream.Position = 0;
-    mstream.Read(chartOleData, 0, chartOleData.Length);
-
-    //OLEオブジェクトフレームを追加
-    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(chartOleData, "xls");
-    IOleObjectFrame oleObjectFrame = slide.Shapes.AddOleObjectFrame(x, y, Convert.ToInt32(OleWidth),
-        Convert.ToInt32(OleHeight), dataInfo);
-
-    //OLEフレームの代替テキストプロパティを設定    
-    oleObjectFrame.SubstitutePictureFormat.Picture.Image = ppImage;
-    oleObjectFrame.AlternativeText = "image" + ppImage;
-}
-```
-
-```csharp
-private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeight)
-{
-    if (outputWidth == 0 && outputHeight == 0)
-    {
-        outputWidth = image.Width;
-        outputHeight = image.Height;
-    }
-    Bitmap outputImage = new Bitmap(outputWidth, outputHeight, image.PixelFormat);
-    outputImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
-    Graphics graphics = Graphics.FromImage(outputImage);
-    graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-    System.Drawing.Rectangle srcDestRect = new System.Drawing.Rectangle(0, 0, outputWidth, outputHeight);
-    graphics.DrawImage(image, srcDestRect, srcDestRect, GraphicsUnit.Pixel);
-    graphics.Dispose();
-
-    return outputImage;
+    return imageStream;
 }
 ```
 
 
-## **OLEフレームサイズに応じてワークシートの行の高さと列の幅をスケールする**
-このアプローチでは、カスタム設定されたOLEフレームサイズに従って参加行の高さと参加列の幅をスケールする方法を学びます。
-## **例**
-テンプレートのExcelシートを定義し、それをOLEフレームとしてプレゼンテーションに追加することを希望するとします。このシナリオでは、OLEフレームのサイズを設定し、OLEフレームエリアに参加する行および列のサイズをスケールします。その後、変更を保存するためにワークブックをストリームに保存し、それをOLEフレームに追加するためのバイト配列に変換します。PowerPointのOLEフレームに対して赤い**埋め込みオブジェクト**メッセージを回避するために、ワークブック内の行と列の所望の部分の画像を取得し、それをOLEフレーム画像として設定します。
+### **セル範囲サイズのスケーリング**
 
-```csharp
-WorkbookDesigner workbookDesigner = new WorkbookDesigner();
-workbookDesigner.Workbook = new Workbook("AsposeTest.xls");
+このアプローチでは、カスタム OLE フレームサイズに合わせて、対象となる行の高さと列の幅をスケールする方法を学びます。
 
-Presentation presentation = new Presentation("AsposeTest.ppt");
+テンプレートの Excel シートがあり、それを OLE フレームとしてプレゼンテーションに追加したいとします。このシナリオでは、OLE フレームのサイズを設定し、OLE フレーム領域に含まれる行と列のサイズをスケールします。その後、変更を適用するためにワークブックをストリームに保存し、OLE フレームに追加するためにバイト配列に変換します。PowerPoint の OLE フレームに表示される赤い「EMBEDDED OLE OBJECT」メッセージを回避するため、ワークブック内の対象となる行と列の画像を取得し、OLE フレームのプレースホルダー画像として設定します。
+```cs
+int startRow = 0, rowCount = 10;
+int startColumn = 0, columnCount = 13;
+int worksheetIndex = 0;
 
-Slide slide = (Slide)presentation.Slides[0];
+int imageResolution = 96;
+float frameWidth = 400, frameHeight = 100;
 
-AddOleFrame(slide, 0, 15, 0, 3, 0, 300, 1100, 0, 0, presentation, workbookDesigner, true, 0, 0);
+using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
+var worksheet = workbook.Worksheets[worksheetIndex];
 
-String fileName = "AsposeTest_Ole.ppt";
-presentation.Save(fileName, Aspose.Slides.Export.SaveFormat.Ppt);
+// PowerPoint でブックファイルを OLE オブジェクトとして使用する際の表示サイズを設定します。
+var lastRow = startRow + rowCount - 1;
+var lastColumn = startColumn + columnCount - 1;
+workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
+
+// フレームサイズに合わせてセル範囲のスケーリングを行います。
+var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
+ScaleCellRange(cellRange, frameWidth, frameHeight);
+
+var imageStream = CreateOleImage(cellRange, imageResolution);
+
+// 変更されたブックを使用する必要があります。
+using var oleStream = new MemoryStream();
+workbook.Save(oleStream, Aspose.Cells.SaveFormat.Xlsx);
+
+using var presentation = new Presentation();
+var slide = presentation.Slides.First();
+
+// OLE 画像をプレゼンテーションのリソースに追加します。
+var oleImage = presentation.Images.AddImage(imageStream);
+
+// OLE オブジェクトフレームを作成します。
+var dataInfo = new OleEmbeddedDataInfo(oleStream.ToArray(), "xlsx");
+var oleFrame = slide.Shapes.AddOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
+oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
+oleFrame.IsObjectIcon = false;
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-```csharp
-private static void SetOleAccordingToCustomHeighWidth(Workbook workbook, Int32 startRow,
-    Int32 endRow, Int32 startCol, Int32 endCol, double slideWidth, double slideHeight, Int32 dataSheetIdx)
+```cs
+/// <param name="width">セル範囲の期待幅（ポイント単位）。</param>
+/// <param name="height">セル範囲の期待高さ（ポイント単位）。</param>
+static void ScaleCellRange(Aspose.Cells.Range cellRange, float width, float height)
 {
-    Worksheet work = workbook.Worksheets[dataSheetIdx];
+    var rangeWidth = cellRange.Width;
+    var rangeHeight = cellRange.Height;
 
-    double actualHeight = 0, actualWidth = 0;
-
-    double newHeight = slideHeight;
-    double newWidth = slideWidth;
-    double tem = 0;
-    double newTem = 0;
-
-    for (int i = startRow; i <= endRow; i++)
-        actualHeight += work.Cells.GetRowHeightInch(i);
-
-    for (int i = startCol; i <= endCol; i++)
-        actualWidth += work.Cells.GetColumnWidthInch(i);
-    ///新しい行と列の高さを設定
-
-    for (int i = startRow; i <= endRow; i++)
+    for (int i = 0; i < cellRange.ColumnCount; i++)
     {
-        tem = work.Cells.GetRowHeightInch(i);
-        newTem = (tem / actualHeight) * newHeight;
-        work.Cells.SetRowHeightInch(i, newTem);
+        var columnIndex = cellRange.FirstColumn + i;
+        var columnWidth = cellRange.Worksheet.Cells.GetColumnWidth(columnIndex, false, Aspose.Cells.CellsUnitType.Point);
+
+        var newColumnWidth = columnWidth * width / rangeWidth;
+        var widthInInches = newColumnWidth / 72;
+        cellRange.Worksheet.Cells.SetColumnWidthInch(columnIndex, widthInInches);
     }
 
-    for (int i = startCol; i <= endCol; i++)
+    for (int i = 0; i < cellRange.RowCount; i++)
     {
-        tem = work.Cells.GetColumnWidthInch(i);
-        newTem = (tem / actualWidth) * newWidth;
-        work.Cells.SetColumnWidthInch(i, newTem);
+        var rowIndex = cellRange.FirstRow + i;
+        var rowHeight = cellRange.Worksheet.Cells.GetRowHeight(rowIndex, false, Aspose.Cells.CellsUnitType.Point);
 
+        var newRowHeight = rowHeight * height / rangeHeight;
+        var heightInInches = newRowHeight / 72;
+        cellRange.Worksheet.Cells.SetRowHeightInch(rowIndex, heightInInches);
     }
-}
-
-```
-
-```csharp
-private static void AddOleFrame(Slide slide, Int32 startRow, Int32 endRow, Int32 startCol, Int32 endCol,
-    Int32 dataSheetIdx, Int32 x, Int32 y, Double OleWidth, Double OleHeight,
-    Presentation presentation, WorkbookDesigner workbookDesigner,
-    Boolean onePagePerSheet, Int32 outputWidth, Int32 outputHeight)
-{
-    String tempFileName = Path.GetTempFileName();
-    if (startRow == 0)
-    {
-        startRow++;
-        endRow++;
-    }
-
-    //ワークブックのアクティブシートインデックスを設定
-    workbookDesigner.Workbook.Worksheets.ActiveSheetIndex = dataSheetIdx;
-
-    //ワークブックと選択したワークシートを取得  
-    Workbook workbook = workbookDesigner.Workbook;
-    Worksheet work = workbook.Worksheets[dataSheetIdx];
-
-    //選択した行と列に応じてOLEサイズを設定
-    Size SlideOleSize = SetOleAccordingToSelectedRowsCloumns(workbook, startRow, endRow, startCol, endCol, dataSheetIdx);
-    OleWidth = SlideOleSize.Width;
-    OleHeight = SlideOleSize.Height;
-
-    //ワークブックのOLEサイズを設定
-    workbook.Worksheets.SetOleSize(startRow, endRow, startCol, endCol);
-
-    workbook.Worksheets[0].IsGridlinesVisible = false;
-
-    //ワークシート画像を取得するための画像オプションを設定
-    ImageOrPrintOptions imageOrPrintOptions = new ImageOrPrintOptions();
-    imageOrPrintOptions.ImageFormat = System.Drawing.Imaging.ImageFormat.Bmp;
-    imageOrPrintOptions.OnePagePerSheet = onePagePerSheet;
-
-    SheetRender render = new SheetRender(workbookDesigner.Workbook.Worksheets[dataSheetIdx], imageOrPrintOptions);
-    String ext = ".bmp";
-    render.ToImage(0, tempFileName + ext);
-    Image image = ScaleImage(Image.FromFile(tempFileName + ext), outputWidth, outputHeight);
-    String newTempFileName = tempFileName.Replace(".tmp", ".tmp1") + ext;
-    image.Save(newTempFileName, System.Drawing.Imaging.ImageFormat.Bmp);
-
-    //スライドの画像コレクションに画像を追加
-    var ppImage = presentation.Images.AddImage(File.ReadAllBytes(newTempFileName));
-
-    //ワークブックをストリームに保存し、バイト配列にコピー
-    Stream mstream = workbook.SaveToStream();
-    byte[] chartOleData = new byte[mstream.Length];
-    mstream.Position = 0;
-    mstream.Read(chartOleData, 0, chartOleData.Length);
-
-    //OLEオブジェクトフレームを追加
-    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(chartOleData, "xls");
-    IOleObjectFrame oleObjectFrame = slide.Shapes.AddOleObjectFrame(x, y, Convert.ToInt32(OleWidth),
-        Convert.ToInt32(OleHeight), dataInfo);
-
-    //OLEフレームの代替テキストプロパティを設定    
-    oleObjectFrame.SubstitutePictureFormat.Picture.Image = ppImage;
-    oleObjectFrame.AlternativeText = "image" + ppImage;
 }
 ```
 
-```csharp
-private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeight)
+```cs
+static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 {
-    if (outputWidth == 0 && outputHeight == 0)
-    {
-        outputWidth = image.Width;
-        outputHeight = image.Height;
-    }
-    Bitmap outputImage = new Bitmap(outputWidth, outputHeight, image.PixelFormat);
-    outputImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
-    Graphics graphics = Graphics.FromImage(outputImage);
-    graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-    System.Drawing.Rectangle srcDestRect = new System.Drawing.Rectangle(0, 0, outputWidth, outputHeight);
-    graphics.DrawImage(image, srcDestRect, srcDestRect, GraphicsUnit.Pixel);
-    graphics.Dispose();
+    var pageSetup = cellRange.Worksheet.PageSetup;
+    pageSetup.PrintArea = cellRange.Address;
+    pageSetup.LeftMargin = 0;
+    pageSetup.RightMargin = 0;
+    pageSetup.TopMargin = 0;
+    pageSetup.BottomMargin = 0;
+    pageSetup.ClearHeaderFooter();
 
-    return outputImage;
+    var imageOptions = new Aspose.Cells.Rendering.ImageOrPrintOptions
+    {
+        ImageType = Aspose.Cells.Drawing.ImageType.Png,
+        VerticalResolution = imageResolution,
+        HorizontalResolution = imageResolution,
+        OnePagePerSheet = true,
+        OnlyArea = true
+    };
+
+    var sheetRender = new Aspose.Cells.Rendering.SheetRender(cellRange.Worksheet, imageOptions);
+    var imageStream = new MemoryStream();
+
+    sheetRender.ToImage(0, imageStream);
+    imageStream.Seek(0, SeekOrigin.Begin);
+
+    return imageStream;
 }
 ```
 
 
 ## **結論**
+{{% alert color="primary" %}}
+ワークシートのリサイズ問題を解決するには2つのアプローチがあります。適切なアプローチの選択は、具体的な要件と使用ケースに依存します。テンプレートから作成したプレゼンテーションでも、ゼロから作成したプレゼンテーションでも、両方のアプローチは同様に機能します。さらに、本ソリューションでは OLE オブジェクトフレームのサイズに制限はありません。
+{{% /alert %}}
 
+## **FAQ**
 
-{{% alert color="primary" %}}  ワークシートのリサイズ問題を修正するための2つのアプローチがあります。適切なアプローチの選択は、要件とユースケースに依存します。テンプレートから作成されたプレゼンテーションでも、最初から作成されたプレゼンテーションでも、両方のアプローチは同じように機能します。また、解決策においてOLEオブジェクトフレームのサイズに制限はありません。 {{% /alert %}} 
-## **関連セクション**
-[ExcelチャートをOLEオブジェクトとしてプレゼンテーションに作成および埋め込む](/slides/ja/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+**PowerPoint で埋め込まれた Excel ワークシートが最初にアクティブ化されたときにサイズが変わるのはなぜですか？**  
+Excel がアクティブ化時に元のウィンドウサイズを維持しようとし、PowerPoint の OLE オブジェクトフレームは独自の寸法を持つためです。PowerPoint と Excel がサイズを協議してアスペクト比を保つことで、リサイズが発生します。
 
-[OLEオブジェクトを自動的に更新する](/slides/ja/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+**このリサイズ問題を完全に防ぐことは可能ですか？**  
+はい。OLE フレームを Excel のセル範囲サイズに合わせてスケールするか、セル範囲を目的の OLE フレームサイズに合わせてスケールすることで、不要なリサイズを防止できます。
+
+**どちらのスケーリング手法を使用すべきですか、OLE フレームのスケーリングですかセル範囲のスケーリングですか？**  
+元の Excel の行と列のサイズを維持したい場合は **OLE フレームのスケーリング** を選択してください。プレゼンテーションで OLE フレームを固定サイズにしたい場合は **セル範囲のスケーリング** を選択してください。
+
+**プレゼンテーションがテンプレートベースの場合でも、これらのソリューションは機能しますか？**  
+はい。テンプレートから作成したプレゼンテーションでも、ゼロから作成したプレゼンテーションでも、両方のソリューションは機能します。
+
+**これらの方法を使用する場合、OLE フレームのサイズに制限がありますか？**  
+いいえ。適切にスケールを設定すれば、OLE オブジェクトフレームは任意のサイズにできます。
+
+**PowerPoint の「EMBEDDED OLE OBJECT」プレースホルダーテキストを回避する方法はありますか？**  
+はい。対象の Excel セル範囲のスナップショットを取得し、それを OLE フレームのプレースホルダー画像として設定することで、デフォルトのプレースホルダーの代わりにカスタムプレビュー画像を表示できます。
+
+## **関連記事**
+
+[Excel グラフを作成し、OLE オブジェクトとしてプレゼンテーションに埋め込む](/slides/ja/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+
+[MS PowerPoint アドインを使用して OLE オブジェクトを自動更新する](/slides/ja/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

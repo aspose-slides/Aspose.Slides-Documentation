@@ -1,17 +1,31 @@
 ---
-title: 如何在演示文稿中添加页眉和页脚
+title: .NET 中向演示文稿添加页眉和页脚的方法
+linktitle: 添加页眉和页脚
 type: docs
 weight: 20
 url: /zh/net/how-to-add-header-footer-in-a-presentation/
+keywords:
+- 迁移
+- 添加页眉
+- 添加页脚
+- 旧版代码
+- 现代代码
+- 旧版方法
+- 现代方法
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- .NET
+- C#
+- Aspose.Slides
+description: "了解如何在 .NET 中使用旧版和新版 Aspose.Slides API 为 PowerPoint PPT、PPTX 和 ODP 演示文稿添加页眉和页脚。"
 ---
 
 {{% alert color="primary" %}} 
-
-一个新的 [Aspose.Slides for .NET API](/slides/zh/net/) 已经发布，现在这个单一产品支持从头生成 PowerPoint 文档和编辑现有文档的功能。
-
+全新发布的 [Aspose.Slides for .NET API](/slides/zh/net/)，现在此单一产品支持从头生成 PowerPoint 文档以及编辑现有文档的功能。
 {{% /alert %}} 
-## **对旧代码的支持**
-为了使用使用 Aspose.Slides for .NET 13.x 之前版本开发的旧代码，您需要对代码进行一些小的更改，代码将如之前一样工作。以前在 Aspose.Slide 和 Aspose.Slides.Pptx 命名空间下的所有类现在已合并到单个 Aspose.Slides 命名空间中。请查看以下简单代码片段，以了解如何在旧版 Aspose.Slides API 中添加演示文稿的页眉和页脚，并按照描述如何迁移到新的合并 API 的步骤进行操作。
+## **对旧版代码的支持**
+为了使用在 13.x 之前的 Aspose.Slides for .NET 版本中开发的旧版代码，您需要对代码进行少量更改，代码即可像以前一样工作。旧版 Aspose.Slides for .NET 中位于 Aspose.Slide 和 Aspose.Slides.Pptx 命名空间的所有类现已合并到单一的 Aspose.Slides 命名空间。请查看下面的简单代码片段，了解如何在旧版 Aspose.Slides API 中为演示文稿添加页眉页脚，并按照步骤将其迁移到新的合并 API。
 ## **旧版 Aspose.Slides for .NET 方法**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
@@ -64,15 +78,14 @@ hf.DateTimeVisible = true;
 hf.DateTimeFormat = DateTimeFormat.DateTime_dMMMMyyyy;
 
 //设置页眉文本
-hf.HeaderText = "页眉文本";
+hf.HeaderText = "Header Text";
 
 //设置页脚文本
-hf.FooterText = "页脚文本";
+hf.FooterText = "Footer Text";
 
 //将演示文稿写入磁盘
 pres.Write("HeadFoot.ppt");
 ```
-
 
 
 ## **新版 Aspose.Slides for .NET 13.x 方法**
@@ -91,7 +104,7 @@ using (Presentation sourcePres = new Presentation())
     //显示页脚占位符
     sourcePres.HeaderFooterManager.SetAllFootersVisibility(true);
     
-    //在所有标题幻灯片上设置页眉页脚可见性
+    //设置标题幻灯片上的页眉页脚可见性
     sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
     //将演示文稿写入磁盘

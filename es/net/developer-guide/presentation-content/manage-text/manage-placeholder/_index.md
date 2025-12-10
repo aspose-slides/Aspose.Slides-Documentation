@@ -1,27 +1,37 @@
 ---
-title: Administrar Placeholder
+title: Gestionar marcadores de presentación en .NET
+linktitle: Gestionar marcadores de posición
 type: docs
 weight: 10
 url: /es/net/manage-placeholder/
-keywords: "Placeholder, Texto del placeholder, Texto de aviso, Presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
-description: "Cambiar el texto del placeholder y el texto de aviso en presentaciones de PowerPoint en C# o .NET"
+keywords:
+- marcador de posición
+- marcador de posición de texto
+- marcador de posición de imagen
+- marcador de posición de gráfico
+- texto de sugerencia
+- PowerPoint
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Gestione sin esfuerzo los marcadores de posición en Aspose.Slides para .NET: reemplace texto, personalice sugerencias y establezca la transparencia de imágenes en PowerPoint y OpenDocument."
 ---
 
-## **Cambiar Texto en Placeholder**
-Usando [Aspose.Slides para .NET](/slides/es/net/), puedes encontrar y modificar placeholders en las diapositivas de presentaciones. Aspose.Slides te permite realizar cambios en el texto de un placeholder.
+## **Cambiar texto en un marcador de posición**
+Usando [Aspose.Slides for .NET](/slides/es/net/), puedes encontrar y modificar marcadores de posición en diapositivas de presentaciones. Aspose.Slides permite realizar cambios en el texto de un marcador de posición.
 
-**Prerequisito**: Necesitas una presentación que contenga un placeholder. Puedes crear una presentación así en la aplicación estándar de Microsoft PowerPoint.
+**Requisito previo**: Necesitas una presentación que contenga un marcador de posición. Puedes crear dicha presentación en la aplicación estándar Microsoft PowerPoint.
 
-Así es como usas Aspose.Slides para reemplazar el texto en el placeholder en esa presentación:
+Así es como utilizas Aspose.Slides para reemplazar el texto en el marcador de posición de esa presentación:
 
-1. Instancia la clase [`Presentation`](https://reference.aspose.com/slides/net/aspose.slides/presentation) y pasa la presentación como argumento.
-2. Obtén una referencia a la diapositiva a través de su índice.
-3. Itera a través de las formas para encontrar el placeholder.
-4. Convierte el shape del placeholder a un [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) y cambia el texto usando el [`TextFrame`](https://reference.aspose.com/slides/net/aspose.slides/textframe/) asociado con el [`AutoShape`](https://reference.aspose.com/slides/net/aspose.slides/autoshape/). 
+1. Instancia la clase `Presentation` y pasa la presentación como argumento.
+2. Obtén una referencia a la diapositiva mediante su índice.
+3. Itera a través de las formas para encontrar el marcador de posición.
+4. Convierte el tipo de la forma del marcador de posición a `AutoShape` y cambia el texto usando el `TextFrame` asociado al `AutoShape`.
 5. Guarda la presentación modificada.
 
-Este código en C# muestra cómo cambiar el texto en un placeholder:
-
+Este código C# muestra cómo cambiar el texto en un marcador de posición:
 ```c#
 // Instancia una clase Presentation
 using (Presentation pres = new Presentation("ReplacingText.pptx"))
@@ -30,12 +40,12 @@ using (Presentation pres = new Presentation("ReplacingText.pptx"))
     // Accede a la primera diapositiva
     ISlide sld = pres.Slides[0];
 
-    // Itera a través de las formas para encontrar el placeholder
+    // Itera a través de las formas para encontrar el marcador de posición
     foreach (IShape shp in sld.Shapes)
         if (shp.Placeholder != null)
         {
-            // Cambia el texto en cada placeholder
-            ((IAutoShape)shp).TextFrame.Text = "Este es un Placeholder";
+            // Cambia el texto en cada marcador de posición
+            ((IAutoShape)shp).TextFrame.Text = "This is a Placeholder";
         }
 
     // Guarda la presentación en disco
@@ -44,11 +54,10 @@ using (Presentation pres = new Presentation("ReplacingText.pptx"))
 ```
 
 
-## **Establecer Texto de Aviso en Placeholder**
-Las disposiciones estándar y predefinidas contienen textos de aviso de placeholder como ***Haz clic para agregar un título*** o ***Haz clic para agregar un subtítulo***. Usando Aspose.Slides, puedes insertar tus textos de aviso preferidos en disposiciones de placeholder.
+## **Establecer texto de sugerencia en un marcador de posición**
+Los diseños estándar y preconstruidos contienen textos de sugerencia de marcador de posición como ***Haga clic para agregar un título*** o ***Haga clic para agregar un subtítulo***. Usando Aspose.Slides, puedes insertar tus textos de sugerencia preferidos en los diseños de marcadores de posición.
 
-Este código en C# te muestra cómo establecer el texto de aviso en un placeholder:
-
+Este código C# te muestra cómo establecer el texto de sugerencia en un marcador de posición:
 ```c#
 using (Presentation pres = new Presentation("Presentation2.pptx"))
 {
@@ -58,18 +67,18 @@ using (Presentation pres = new Presentation("Presentation2.pptx"))
         if (shape.Placeholder != null && shape is AutoShape)
         {
             string text = "";
-            if (shape.Placeholder.Type == PlaceholderType.CenteredTitle) // PowerPoint muestra "Haz clic para agregar título"
+            if (shape.Placeholder.Type == PlaceholderType.CenteredTitle) // PowerPoint muestra "Haga clic para agregar un título"
             {
-                text = "Agregar Título";
+                text = "Add Title";
             }
             else if (shape.Placeholder.Type == PlaceholderType.Subtitle) // Agrega subtítulo
             {
-                text = "Agregar Subtítulo";
+                text = "Add Subtitle";
             }
 
             ((IAutoShape)shape).TextFrame.Text = text;
 
-            Console.WriteLine($"Placeholder con texto: {text}");
+            Console.WriteLine($"Placeholder with text: {text}");
         }
     }
 
@@ -77,12 +86,12 @@ using (Presentation pres = new Presentation("Presentation2.pptx"))
 }
 ```
 
-## **Establecer Transparencia de Imagen de Placeholder**
 
-Aspose.Slides te permite establecer la transparencia de la imagen de fondo en un placeholder de texto. Al ajustar la transparencia de la imagen en dicho marco, puedes hacer que el texto o la imagen resalten (dependiendo de los colores del texto y de la imagen).
+## **Establecer transparencia de imagen en marcador de posición**
 
-Este código en C# te muestra cómo establecer la transparencia para un fondo de imagen (dentro de una forma):
+Aspose.Slides permite establecer la transparencia de la imagen de fondo en un marcador de posición de texto. Al ajustar la transparencia de la imagen en dicho marco, puedes hacer que el texto o la imagen resalten (dependiendo de los colores del texto y la imagen).
 
+Este código C# muestra cómo establecer la transparencia para una imagen de fondo (dentro de una forma):
 ```c#
 using (var presentation = new Presentation())
 {
@@ -94,3 +103,18 @@ using (var presentation = new Presentation())
     autoShape.FillFormat.PictureFillFormat.Picture.ImageTransform.AddAlphaModulateFixedEffect(75);
 }
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Qué es un marcador de posición base y en qué se diferencia de una forma local en una diapositiva?**
+
+Un marcador de posición base es la forma original en un diseño o patrón del que hereda la forma de la diapositiva—tipo, posición y parte del formato provienen de él. Una forma local es independiente; si no hay un marcador de posición base, la herencia no se aplica.
+
+**¿Cómo puedo actualizar todos los títulos o subtítulos en una presentación sin iterar por cada diapositiva?**
+
+Edita el marcador de posición correspondiente en el diseño o en el patrón. Las diapositivas basadas en esos diseños/patrón heredarán automáticamente el cambio.
+
+**¿Cómo controlo los marcadores de posición estándar de encabezado/pie de página —fecha y hora, número de diapositiva y texto del pie?**
+
+Utiliza los administradores HeaderFooter en el ámbito correspondiente (diapositivas normales, diseños, patrón, notas/hojas de mano) para activar o desactivar esos marcadores de posición y establecer su contenido.

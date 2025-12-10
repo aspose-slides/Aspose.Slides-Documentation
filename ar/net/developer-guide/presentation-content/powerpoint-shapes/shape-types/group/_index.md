@@ -1,25 +1,34 @@
 ---
-title: مجموعة
+title: مجموعات أشكال العروض التقديمية في .NET
+linktitle: مجموعة الأشكال
 type: docs
 weight: 40
 url: /ar/net/group/
-keywords: "شكل مجموعة، شكل PowerPoint، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
-description: "إضافة شكل مجموعة إلى عرض PowerPoint في C# أو .NET"
+keywords:
+- شكل مجموعة
+- مجموعة أشكال
+- إضافة مجموعة
+- نص بديل
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "تعلم كيفية تجميع وفك تجميع الأشكال في عروض PowerPoint باستخدام Aspose.Slides for .NET—دليل سريع خطوة بخطوة مع كود C# مجاني."
 ---
 
-## **إضافة شكل مجموعة**
-يدعم Aspose.Slides العمل مع أشكال المجموعة على الشرائح. تساعد هذه الميزة المطورين على دعم عروض تقديمية أكثر ثراءً. يدعم Aspose.Slides لـ .NET إضافة أو الوصول إلى أشكال المجموعة. من الممكن إضافة أشكال إلى شكل مجموعة مضاف لملئه أو الوصول إلى أي خاصية من شكل المجموعة. لإضافة شكل مجموعة إلى شريحة باستخدام Aspose.Slides لـ .NET:
+## **Add a Group Shape**
+تدعم Aspose.Slides العمل مع مجموعات الأشكال على الشرائح. تساعد هذه الميزة المطورين على إنشاء عروض تقديمية أغنى. تدعم Aspose.Slides for .NET إضافة أو الوصول إلى مجموعات الأشكال. يمكن إضافة أشكال إلى مجموعة الأشكال المضافة لملئها أو للوصول إلى أي خاصية من خصائص مجموعة الأشكال. لإضافة مجموعة أشكال إلى شريحة باستخدام Aspose.Slides for .NET:
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. الحصول على مرجع شريحة باستخدام مؤشرها.
-1. إضافة شكل مجموعة إلى الشريحة.
-1. إضافة الأشكال إلى شكل المجموعة المضاف.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها
+1. إضافة مجموعة أشكال إلى الشريحة.
+1. إضافة الأشكال إلى مجموعة الأشكال المضافة.
 1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-يضيف المثال أدناه شكل مجموعة إلى شريحة.
-
+المثال التالي يضيف مجموعة أشكال إلى شريحة.
 ```c#
-// إنشاء مثيل لفئة Presentation 
+// إنشاء كائن من فئة Presentation 
 using (Presentation pres = new Presentation())
 {
     // الحصول على الشريحة الأولى 
@@ -28,16 +37,16 @@ using (Presentation pres = new Presentation())
     // الوصول إلى مجموعة الأشكال في الشرائح 
     IShapeCollection slideShapes = sld.Shapes;
 
-    // إضافة شكل مجموعة إلى الشريحة 
+    // إضافة مجموعة أشكال إلى الشريحة 
     IGroupShape groupShape = slideShapes.AddGroupShape();
 
-    // إضافة أشكال داخل شكل المجموعة المضاف 
+    // إضافة أشكال داخل مجموعة الأشكال المضافة 
     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 100, 100, 100);
     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 100, 100);
     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 300, 100, 100);
     groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 300, 100, 100);
 
-    // إضافة إطار شكل المجموعة 
+    // إضافة إطار مجموعة الأشكال 
     groupShape.Frame = new ShapeFrame(100, 300, 500, 40, NullableBool.False, NullableBool.False, 0);
 
     // كتابة ملف PPTX إلى القرص 
@@ -46,20 +55,18 @@ using (Presentation pres = new Presentation())
 ```
 
 
+## **Access the AltText Property**
+يُظهر هذا الموضوع خطوات بسيطة، مدعومة بأمثلة شفرة، لإضافة مجموعة أشكال والوصول إلى خاصية AltText لمجموعات الأشكال على الشرائح. للوصول إلى AltText لمجموعة أشكال في شريحة باستخدام Aspose.Slides for .NET:
 
-## **الوصول إلى خاصية AltText**
-تظهر هذه الموضوع خطوات بسيطة، مع أمثلة للشفرة، لإضافة شكل مجموعة والوصول إلى خاصية AltText لأشكال المجموعة على الشرائح. للوصول إلى AltText لشكل مجموعة في شريحة باستخدام Aspose.Slides لـ .NET:
-
-1. إنشاء فئة `Presentation` التي تمثل ملف PPTX.
-1. الحصول على مرجع شريحة باستخدام مؤشرها.
+1. إنشاء مثيل من الفئة `Presentation` التي تمثل ملف PPTX.
+1. الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها.
 1. الوصول إلى مجموعة الأشكال في الشرائح.
-1. الوصول إلى شكل المجموعة.
+1. الوصول إلى مجموعة الأشكال.
 1. الوصول إلى خاصية AltText.
 
-يصل المثال أدناه إلى النص البديل لشكل المجموعة.
-
+المثال التالي يصل إلى النص البديل لمجموعة الأشكال.
 ```c#
-// إنشاء فئة Presentation التي تمثل ملف PPTX
+// إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
 Presentation pres = new Presentation("AltText.pptx");
 
 // الحصول على الشريحة الأولى
@@ -72,7 +79,7 @@ for (int i = 0; i < sld.Shapes.Count; i++)
 
     if (shape is GroupShape)
     {
-        // الوصول إلى شكل المجموعة.
+        // الوصول إلى مجموعة الأشكال.
         IGroupShape grphShape = (IGroupShape)shape;
         for (int j = 0; j < grphShape.Shapes.Count; j++)
         {
@@ -83,3 +90,15 @@ for (int i = 0; i < sld.Shapes.Count; i++)
     }
 }
 ```
+
+
+## **FAQ**
+
+**Is nested grouping (a group inside a group) supported?**  
+نعم. يحتوي [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/) على خاصية [ParentGroup](https://reference.aspose.com/slides/net/aspose.slides/shape/parentgroup/) ، التي تشير مباشرةً إلى دعم الهرمية (يمكن أن تكون مجموعة فرعية لمجموعة أخرى).
+
+**How do I control the group’s z-order relative to other objects on the slide?**  
+استخدم خاصية [ZOrderPosition](https://reference.aspose.com/slides/net/aspose.slides/shape/zorderposition/) الخاصة بـ [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/) لتفقد موقعها في مكدس العرض.
+
+**Can I prevent moving/editing/ungrouping?**  
+نعم. يتم كشف قسم القفل للمجموعة عبر [GroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/groupshape/groupshapelock/)، مما يتيح لك تقييد العمليات على الكائن.

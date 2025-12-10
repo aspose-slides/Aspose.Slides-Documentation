@@ -1,24 +1,37 @@
 ---
-title: Публичный API и несовместимые изменения в Aspose.Slides для .NET 15.4.0
+title: Публичный API и обратно несовместимые изменения в Aspose.Slides для .NET 15.4.0
+linktitle: Aspose.Slides для .NET 15.4.0
 type: docs
 weight: 150
 url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
+keywords:
+- миграция
+- унаследованный код
+- современный код
+- традиционный подход
+- современный подход
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Обзор обновлений публичного API и несовместимых изменений в Aspose.Slides для .NET, чтобы плавно мигрировать ваши решения для презентаций PowerPoint PPT, PPTX и ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Эта страница lists все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) или [удаленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) классы, методы, свойства и так далее, а также другие изменения, введенные в API Aspose.Slides для .NET 15.4.0.
+Эта страница перечисляет все [добавлено](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) или [удалено](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) классы, методы, свойства и т.д., а также другие изменения, введённые в API Aspose.Slides для .NET 15.4.0.
 
 {{% /alert %}} 
 ## **Изменения публичного API**
-#### **Добавлен Enum OrganizationChartLayoutType**
-Enum Aspose.Slides.SmartArt.OrganizationChartLayoutType представляет тип форматирования дочерних узлов в организационной диаграмме.
-#### **Добавлен метод IBulletFormat.ApplyDefaultParagraphIndentsShifts**
-Метод Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts устанавливает значения по умолчанию для эффективного отступа абзаца и MarginLeft, когда включены маркеры (как это делает PowerPoint, если включены маркеры/нумерация абзаца). Если маркеры отключены, просто сбросить отступ абзаца и MarginLeft (как это делает PowerPoint, если отключены маркеры/нумерация абзаца).
-
+#### **Enum OrganizationChartLayoutType был добавлен**
+Перечисление Aspose.Slides.SmartArt.OrganizationChartLayoutType представляет тип форматирования дочерних узлов в организационной диаграмме.
+#### **Method IBulletFormat.ApplyDefaultParagraphIndentsShifts был добавлен**
+Метод Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts устанавливает значения по умолчанию ненулевых сдвигов для эффективных отступов абзаца (Indent) и левого поля (MarginLeft), когда маркеры включены (как PowerPoint делает при включении маркеров/нумерации абзацев). Если маркеры отключены, то просто сбрасывает отступ абзаца и левое поле (как PowerPoint делает при отключении маркеров/нумерации).
 Смотрите примеры [здесь](/slides/ru/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
-#### **Добавлен метод IConnector.Reroute**
-Метод Aspose.Slides.IConnector.Reroute перенаправляет соединитель, чтобы он принимал кратчайший возможный путь между фигурами, которые он соединяет. Для этого метод Reroute() может изменить StartShapeConnectionSiteIndex и EndShapeConnectionSiteIndex.
+#### **Method IConnector.Reroute был добавлен**
+Метод Aspose.Slides.IConnector.Reroute перенаправляет соединитель так, чтобы он занял самый короткий возможный путь между соединяемыми фигурами. При этом метод Reroute() может изменить свойства StartShapeConnectionSiteIndex и EndShapeConnectionSiteIndex.
 
 ``` csharp
 
@@ -45,8 +58,8 @@ Enum Aspose.Slides.SmartArt.OrganizationChartLayoutType представляет
 }
 
 ``` 
-#### **Добавлен метод IPresentation.GetSlideById**
-Метод Aspose.Slides.IPresentation.GetSlideById(System.UInt32) возвращает слайд, MasterSlide или LayoutSlide по идентификатору слайда.
+#### **Method IPresentation.GetSlideById был добавлен**
+Метод Aspose.Slides.IPresentation.GetSlideById(System.UInt32) возвращает объект Slide, MasterSlide или LayoutSlide по идентификатору слайда.
 
 ``` csharp
 
@@ -63,8 +76,8 @@ Enum Aspose.Slides.SmartArt.OrganizationChartLayoutType представляет
 }
 
 ``` 
-#### **Добавлено свойство IShape.ConnectionSiteCount**
-Свойство Aspose.Slides.IShape.ConnectionSiteCount возвращает количество точек соединения на фигуре.
+#### **Property IShape.ConnectionSiteCount была добавлена**
+Свойство Aspose.Slides.IShape.ConnectionSiteCount возвращает количество точек подключения на фигуре.
 
 ``` csharp
 
@@ -99,8 +112,8 @@ Enum Aspose.Slides.SmartArt.OrganizationChartLayoutType представляет
 }
 
 ``` 
-#### **Добавлено свойство ISmartArt.IsReversed**
-Свойство Aspose.Slides.SmartArt.ISmartArt.IsReversed позволяет получать или устанавливать состояние диаграммы SmartArt в отношении (слева направо) LTR или (справа налево) RTL, если диаграмма поддерживает реверс.
+#### **Property ISmartArt.IsReversed была добавлена**
+Свойство Aspose.Slides.SmartArt.ISmartArt.IsReversed позволяет получить или задать состояние диаграммы SmartArt относительно (слева направо) LTR или (справа налево) RTL, если диаграмма поддерживает обратную ориентацию.
 
 ``` csharp
 
@@ -117,7 +130,7 @@ Enum Aspose.Slides.SmartArt.OrganizationChartLayoutType представляет
 }
 
 ``` 
-#### **Добавлено свойство ISmartArt.Nodes**
+#### **Property ISmartArt.Nodes была добавлена**
 Свойство Aspose.Slides.SmartArt.ISmartArt.Nodes возвращает коллекцию корневых узлов в объекте SmartArt.
 
 ``` csharp
@@ -128,17 +141,17 @@ Enum Aspose.Slides.SmartArt.OrganizationChartLayoutType представляет
 
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.VerticalBulletList);
 
-  ISmartArtNode node = smart.Nodes[1]; // выбрать второй корневой узел
+  ISmartArtNode node = smart.Nodes[1]; // select second root node
 
-  node.TextFrame.Text = "Второй корневой узел";
+  node.TextFrame.Text = "Second root node";
 
   pres.Save("out.pptx", Export.SaveFormat.Pptx);
 
 }
 
 ``` 
-#### **Добавлено свойство ISmartArtNode.IsHidden**
-Свойство Aspose.Slides.SmartArt.ISmartArtNode.IsHidden возвращает true, если этот узел является скрытым в модели данных.
+#### **Property ISmartArtNode.IsHidden была добавлена**
+Свойство Aspose.Slides.SmartArt.ISmartArtNode.IsHidden возвращает true, если данный узел скрыт в модели данных.
 
 ``` csharp
 
@@ -150,13 +163,13 @@ Enum Aspose.Slides.SmartArt.OrganizationChartLayoutType представляет
 
   ISmartArtNode node = smart.AllNodes.AddNode();
 
-  bool hidden = node.IsHidden; //возвращает true
+  bool hidden = node.IsHidden; //returns true
 
   if(hidden)
 
   {
 
-    //выполнить некоторые действия или уведомления
+    //do some actions or notifications
 
   }
 
@@ -165,8 +178,8 @@ Enum Aspose.Slides.SmartArt.OrganizationChartLayoutType представляет
 }
 
 ``` 
-#### **Добавлено свойство ISmartArtNode.OrganizationChartLayout**
-Свойство Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout позволяет получать или устанавливать тип организационной диаграммы, связанный с текущим узлом.
+#### **Property ISmartArtNode.OrganizationChartLayout была добавлена**
+Свойство Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout позволяет получить или задать тип организационной диаграммы, связанный с текущим узлом.
 
 ``` csharp
 
@@ -183,8 +196,8 @@ Enum Aspose.Slides.SmartArt.OrganizationChartLayoutType представляет
 }
 
 ``` 
-#### **Добавлен метод set для свойства ISmartArt.Layout**
-Метод set для свойства Aspose.Slides.SmartArt.ISmartArt.Layout был добавлен. Он позволяет изменять тип макета существующей диаграммы.
+#### **Set Method for Property ISmartArt.Layout был добавлен**
+Метод‑сеттер свойства Aspose.Slides.SmartArt.ISmartArt.Layout был добавлен. Он позволяет изменить тип макета существующей диаграммы.
 
 ``` csharp
 
@@ -201,12 +214,12 @@ Enum Aspose.Slides.SmartArt.OrganizationChartLayoutType представляет
 }
 
 ``` 
-#### **Незначительные изменения API**
+#### **Minor API Changes**
 **Это список незначительных изменений API:**
 
-|Enum Aspose.Slides.BevelColorMode |удален, неиспользуемый enum |
+|Enum Aspose.Slides.BevelColorMode |удалён, неиспользуемый enum |
 | :- | :- |
-|Свойство ThreeDFormatEffectiveData.BevelColorMode |удалено, неиспользуемое свойство |
-|Свойство Aspose.Slides.Charts.ChartSeriesGroup.Chart <br>Свойство Aspose.Slides.Charts.IChartSeriesGroup.AsIChartComponent |добавлено |
-|Свойство Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>Наследование IParagraphFormatEffectiveData от ISlideComponent <br>Свойство Aspose.Slides.IThreeDFormat.AsISlideComponent <br>Наследование IThreeDFormat от ISlideComponent |удалено |
-|Свойство Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>Свойство Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>Свойство Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>Свойство Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>Свойство Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>Свойство Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |удалены как устаревшие |
+|Property ThreeDFormatEffectiveData.BevelColorMode |удалено, неиспользуемое свойство |
+|Property Aspose.Slides.Charts.ChartSeriesGroup.Chart <br>Property Aspose.Slides.Charts.IChartSeriesGroup.AsIChartComponent |добавлено |
+|Property Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Property Aspose.Slides.IThreeDFormat.AsISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent |удалено |
+|Property Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |удалено как устаревшее |

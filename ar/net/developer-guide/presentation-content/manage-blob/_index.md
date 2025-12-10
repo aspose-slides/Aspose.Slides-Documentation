@@ -1,26 +1,42 @@
 ---
-title: إدارة البلوبيات
+title: إدارة كائنات BLOB للعرض التقديمي في .NET لاستخدام فعال للذاكرة
+linktitle: إدارة BLOB
 type: docs
 weight: 10
 url: /ar/net/manage-blob/
-keywords: "إضافة بلوبي، تصدير بلوبي، إضافة صورة كبلوبي، عرض تقديمي لبرنامج PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
-description: "إضافة بلوبي إلى عرض PowerPoint التقديمي في C# أو .NET. تصدير بلوبي. إضافة صورة كبلوبي"
+keywords:
+- كائن كبير
+- عنصر كبير
+- ملف كبير
+- إضافة BLOB
+- تصدير BLOB
+- إضافة صورة كـ BLOB
+- تقليل الذاكرة
+- استهلاك الذاكرة
+- عرض تقديمي كبير
+- ملف مؤقت
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "إدارة بيانات BLOB في Aspose.Slides لـ .NET لتبسيط عمليات ملفات PowerPoint و OpenDocument لتحقيق معالجة فعالة للعرض التقديمي."
 ---
 
 ## **حول BLOB**
 
-**BLOB** (**كائن ثنائي كبير**) هو عادة عنصر كبير (صورة، عرض تقديمي، مستند، أو وسائط) محفوظ بصيغ ثنائية.
+**BLOB** (**Binary Large Object**) هو عادةً عنصر كبير (صورة، عرض تقديمي، مستند أو وسائط) يُحفظ بصيغ ثنائية.
 
-يتيح لك Aspose.Slides لـ .NET استخدام الـ BLOBs للأشياء بطريقة تقلل من استهلاك الذاكرة عند التعامل مع ملفات كبيرة.
+يسمح Aspose.Slides for .NET باستخدام BLOBs للكائنات بطريقة تُقلل من استهلاك الذاكرة عند التعامل مع ملفات كبيرة.
 
 ## **استخدام BLOB لتقليل استهلاك الذاكرة**
 
-### **إضافة ملف كبير من خلال BLOB إلى عرض تقديمي**
+### **إضافة ملف كبير عبر BLOB إلى عرض تقديمي**
 
-يتيح لك [Aspose.Slides](/slides/ar/net/) لـ .NET إضافة ملفات كبيرة (في هذه الحالة، ملف فيديو كبير) من خلال عملية تتضمن BLOBs لتقليل استهلاك الذاكرة.
+[Aspose.Slides](/slides/ar/net/) for .NET يتيح لك إضافة ملفات كبيرة (في هذه الحالة، ملف فيديو كبير) عبر عملية تشمل BLOBs لتقليل استهلاك الذاكرة.
 
-يوضح هذا الكود C# كيفية إضافة ملف فيديو كبير من خلال عملية BLOB إلى عرض تقديمي:
-
+هذا المثال في C# يوضح كيفية إضافة ملف فيديو كبير عبر عملية BLOB إلى عرض تقديمي:
 ```c#
 const string pathToVeryLargeVideo = "veryLargeVideo.avi";
 
@@ -29,51 +45,50 @@ using (Presentation pres = new Presentation())
 {
     using (FileStream fileStream = new FileStream(pathToVeryLargeVideo, FileMode.Open))
     {
-        // لنضيف الفيديو إلى العرض - اخترنا سلوك KeepLocked لأننا لا 
-        // نعتزم الوصول إلى ملف "veryLargeVideo.avi".
+        // لنضيف الفيديو إلى العرض التقديمي - اخترنا سلوك KeepLocked لأننا
+        // لا نعتزم الوصول إلى ملف "veryLargeVideo.avi".
         IVideo video = pres.Videos.AddVideo(fileStream, LoadingStreamBehavior.KeepLocked);
         pres.Slides[0].Shapes.AddVideoFrame(0, 0, 480, 270, video);
 
-        // يحفظ العرض التقديمي. بينما يتم إخراج عرض تقديمي كبير، يظل استهلاك الذاكرة
-        // منخفضاً طوال دورة حياة كائن pres 
+        // يحفظ العرض التقديمي. أثناء إخراج عرض تقديمي كبير،
+        // يبقى منخفضًا طوال دورة حياة كائن pres 
         pres.Save("presentationWithLargeVideo.pptx", SaveFormat.Pptx);
     }
 }
 ```
 
 
-### **تصدير ملف كبير من خلال BLOB من عرض تقديمي**
-يتيح لك Aspose.Slides لـ .NET تصدير ملفات كبيرة (في هذه الحالة، ملف صوت أو فيديو) من خلال عملية تتضمن BLOBs من العروض التقديمية. على سبيل المثال، قد تحتاج إلى استخراج ملف وسائط كبير من عرض تقديمي لكن لا تريد تحميل الملف في ذاكرة الكمبيوتر. من خلال تصدير الملف عبر عملية BLOB، يمكنك الحفاظ على استهلاك الذاكرة منخفضًا.
+### **تصدير ملف كبير عبر BLOB من العرض التقديمي**
+Aspose.Slides for .NET يتيح لك تصدير ملفات كبيرة (مثل ملف صوت أو فيديو) عبر عملية تشمل BLOBs من العروض التقديمية. على سبيل المثال، قد تحتاج إلى استخراج ملف وسائط كبير من عرض تقديمي ولكن لا ترغب في تحميل الملف إلى ذاكرة جهازك. من خلال تصدير الملف عبر عملية BLOB، يمكنك الحفاظ على انخفاض استهلاك الذاكرة.
 
-يوضح هذا الكود C# العملية الموصوفة:
-
+هذا الكود في C# يوضح العملية المذكورة:
 ```c#
 const string hugePresentationWithAudiosAndVideosFile = @"Large  Video File Test1.pptx";
 
 LoadOptions loadOptions = new LoadOptions
 {
 	BlobManagementOptions = {
-		// يقفل الملف المصدر ولا يحمل في الذاكرة
+		// قفل ملف المصدر ولا يتم تحميله إلى الذاكرة
 		PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
 	}
-};
+}
 
-// ينشئ مثيل للعرض المدرج، يقفل ملف "hugePresentationWithAudiosAndVideos.pptx".
+// ينشئ كائن Presentation ويقفل ملف "hugePresentationWithAudiosAndVideos.pptx".
 using (Presentation pres = new Presentation(hugePresentationWithAudiosAndVideosFile, loadOptions))
 {
-	// دعونا نحفظ كل فيديو في ملف. لمنع استهلاك الذاكرة العالية، نحتاج إلى مخزن سيتم استخدامه
-	// لنقل البيانات من دفق فيديو العرض إلى دفق لملف فيديو جديد تم إنشاؤه.
+	// لنحفظ كل فيديو إلى ملف. لمنع استهلاك عالي للذاكرة، نحتاج إلى مخزن مؤقت سيُستخدم
+	// لنقل البيانات من تدفق فيديو العرض إلى تدفق لملف فيديو تم إنشاؤه حديثًا.
 	byte[] buffer = new byte[8 * 1024];
 
-	// يتكرر عبر الفيديوهات
+	// Iterates through the videos
 	for (var index = 0; index < pres.Videos.Count; index++)
 	{
 		IVideo video = pres.Videos[index];
 
-		// يفتح دفق فيديو العرض. يرجى ملاحظة أننا تجنبنا عمدًا الوصول إلى الخصائص
-		// مثل video.BinaryData - لأن هذه الخاصية تعيد مصفوفة بايت تحتوي على فيديو كامل، مما يتسبب بعد ذلك
-		// في تحميل البايتات في الذاكرة. نحن نستخدم video.GetStream، التي ستعيد Stream - ولا تتطلب منا
-		// تحميل الفيديو بالكامل في الذاكرة.
+		// يفتح تدفق فيديو العرض. يرجى ملاحظة أننا تجنبنا عمداً الوصول إلى الخصائص
+		// مثل video.BinaryData - لأن هذه الخاصية تُعيد مصفوفة بايت تحتوي على الفيديو بالكامل، مما
+		// يتسبب في تحميل البايتات إلى الذاكرة. نستخدم video.GetStream الذي سيعيد Stream - ولا
+		//  يتطلب منا تحميل الفيديو بالكامل إلى الذاكرة.
 		using (Stream presVideoStream = video.GetStream())
 		{
 			using (FileStream outputFileStream = File.OpenWrite($"video{index}.avi"))
@@ -86,44 +101,44 @@ using (Presentation pres = new Presentation(hugePresentationWithAudiosAndVideosF
 			}
 		}
 
-		// سيظل استهلاك الذاكرة منخفضاً بغض النظر عن حجم الفيديو أو العرض،
+		// ستظل استهلاك الذاكرة منخفضًا بغض النظر عن حجم الفيديو أو العرض التقديمي،
 	}
 
-	// إذا لزم الأمر، يمكنك تطبيق نفس الخطوات لملفات الصوت.
+	// إذا لزم الأمر، يمكنك تطبيق الخطوات نفسها على ملفات الصوت. 
 }
 ```
 
-### **إضافة صورة كـ BLOB في العرض التقديمي**
-مع الطرق من واجهة [**IImageCollection**](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection) و [**ImageCollection**](https://reference.aspose.com/slides/net/aspose.slides/imagecollection)، يمكنك إضافة صورة كبيرة كتيار ليتم التعامل معها كـ BLOB.
 
-يوضح هذا الكود C# كيفية إضافة صورة كبيرة عبر عملية BLOB:
+### **إضافة صورة كـ BLOB إلى عرض تقديمي**
+باستخدام طرق الواجهة [**IImageCollection**](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection) والصف [**ImageCollection**](https://reference.aspose.com/slides/net/aspose.slides/imagecollection)، يمكنك إضافة صورة كبيرة كتيار لتُعامل كـ BLOB.
 
+هذا الكود في C# يوضح كيفية إضافة صورة كبيرة عبر عملية BLOB:
 ```c#
 string pathToLargeImage = "large_image.jpg";
 
-// ينشئ عرض تقديمي جديد سيتم إضافة الصورة إليه.
+// ينشئ عرض تقديمي جديد ستتم إضافة الصورة إليه.
 using (Presentation pres = new Presentation())
 {
 	using (FileStream fileStream = new FileStream(pathToLargeImage, FileMode.Open))
 	{
-		// لنضيف الصورة إلى العرض - اخترنا سلوك KeepLocked لأننا لا
-		// نعتزم الوصول إلى ملف "largeImage.png".
+		// لنضيف الصورة إلى العرض التقديمي - اخترنا سلوك KeepLocked لأننا
+		// لا نعتزم الوصول إلى ملف "largeImage.png".
 		IPPImage img = pres.Images.AddImage(fileStream, LoadingStreamBehavior.KeepLocked);
 		pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, 300, 200, img);
 
-		// يحفظ العرض التقديمي. بينما يتم إخراج عرض تقديمي كبير، يظل استهلاك الذاكرة 
-		// منخفضًا طوال دورة حياة كائن pres
+		// يحفظ العرض التقديمي. أثناء إخراج عرض تقديمي كبير، استهلاك الذاكرة 
+		// يبقى منخفضًا طوال دورة حياة كائن pres
 		pres.Save("presentationWithLargeImage.pptx", SaveFormat.Pptx);
 	}
 }
 ```
 
+
 ## **الذاكرة والعروض التقديمية الكبيرة**
 
-عادةً، لتحميل عرض تقديمي كبير، تتطلب أجهزة الكمبيوتر ذاكرة مؤقتة كبيرة. يتم تحميل محتوى العرض بأكمله في الذاكرة ويتوقف استخدام الملف (الذي تم تحميل العرض منه).
+عادةً، لتحميل عرض تقديمي كبير، تحتاج الأجهزة إلى كمية كبيرة من الذاكرة المؤقتة. يتم تحميل كل محتوى العرض في الذاكرة ويتوقف استخدام الملف الأصلي الذي تم تحميل العرض منه.
 
-افترض عرض تقديمي كبير لبرنامج PowerPoint (large.pptx) يحتوي على ملف فيديو بحجم 1.5 جيجابايت. الطريقة القياسية لتحميل العرض الواردة في هذا الكود C#:
-
+خذ في الاعتبار عرض PowerPoint كبير (large.pptx) يحتوي على ملف فيديو بحجم 1.5 GB. الطريقة التقليدية لتحميل العرض موضحة في هذا الكود C#:
 ```c#
 using (Presentation pres = new Presentation("large.pptx"))
 {
@@ -131,12 +146,12 @@ using (Presentation pres = new Presentation("large.pptx"))
 }
 ```
 
-لكن هذه الطريقة تستهلك حوالي 1.6 جيجابايت من الذاكرة المؤقتة.
+
+لكن هذه الطريقة تستهلك حوالي 1.6 GB من الذاكرة المؤقتة.
 
 ### **تحميل عرض تقديمي كبير كـ BLOB**
 
-من خلال العملية التي تتضمن BLOB، يمكنك تحميل عرض تقديمي كبير مع استخدام ذاكرة قليلة. يصف هذا الكود C# تنفيذ العملية التي يتم من خلالها استخدام عملية BLOB لتحميل ملف عرض تقديمي كبير (large.pptx):
-
+من خلال عملية تشمل BLOB، يمكنك تحميل عرض تقديمي كبير مع استهلاك قليل للذاكرة. يصف هذا الكود C# تنفيذ العملية حيث يُستخدم BLOB لتحميل ملف عرض تقديمي كبير (large.pptx):
 ```c#
 LoadOptions loadOptions = new LoadOptions
 {
@@ -153,10 +168,10 @@ using (Presentation pres = new Presentation("large.pptx", loadOptions))
 }
 ```
 
-### **تغيير المجلد للملفات المؤقتة**
 
-عند استخدام عملية BLOB، يقوم جهاز الكمبيوتر الخاص بك بإنشاء ملفات مؤقتة في المجلد الافتراضي للملفات المؤقتة. إذا كنت ترغب في الاحتفاظ بالملفات المؤقتة في مجلد مختلف، يمكنك تغيير الإعدادات للتخزين باستخدام `TempFilesRootPath`:
+### **تغيير مجلد الملفات المؤقتة**
 
+عند استخدام عملية BLOB، ينشئ جهازك ملفات مؤقتة في المجلد الافتراضي للملفات المؤقتة. إذا رغبت في حفظ الملفات المؤقتة في مجلد مختلف، يمكنك تغيير إعدادات التخزين باستخدام `TempFilesRootPath`:
 ```c#
 LoadOptions loadOptions = new LoadOptions
 {
@@ -169,8 +184,29 @@ LoadOptions loadOptions = new LoadOptions
 };
 ```
 
-{{% alert title="معلومات" color="info" %}}
 
-عند استخدام `TempFilesRootPath`، لا يقوم Aspose.Slides بإنشاء مجلد تلقائيًا لتخزين الملفات المؤقتة. عليك إنشاء المجلد يدويًا.
-
+{{% alert title="Info" color="info" %}}
+عند استخدام `TempFilesRootPath`، لا يقوم Aspose.Slides بإنشاء مجلد تلقائيًا لتخزين الملفات المؤقتة. يجب عليك إنشاء المجلد يدويًا.
 {{% /alert %}}
+
+## **التعليمات المتكررة**
+
+**ما البيانات في عرض Aspose.Slides التي تُعامل كـ BLOB وتُتحكم فيها خيارات BLOB؟**
+
+الكائنات الثنائية الكبيرة مثل الصور، الصوت، والفيديو تُعامل كـ BLOB. كذلك، ملف العرض الكامل يتضمن معالجة BLOB عند تحميله أو حفظه. تُحكم هذه الكائنات بسياسات BLOB التي تسمح لك بإدارة استهلاك الذاكرة وتحويل البيانات إلى ملفات مؤقتة حسب الحاجة.
+
+**أين يمكنني تكوين قواعد معالجة BLOB أثناء تحميل العرض التقديمي؟**
+
+استخدم [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) مع [BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/blobmanagementoptions/). هناك يمكنك تحديد الحد الأقصى للذاكرة للـ BLOB، السماح بالملفات المؤقتة أو عدمها، اختيار مسار المجلد الجذر للملفات المؤقتة، وتحديد سلوك قفل المصدر.
+
+**هل تؤثر إعدادات BLOB على الأداء، وكيف يمكن موازنة السرعة مقابل الذاكرة؟**
+
+نعم. إبقاء BLOB في الذاكرة يزيد من السرعة لكنه يرفع استهلاك RAM؛ تقليل الحد المسموح للذاكرة يوجه المزيد من العمل إلى الملفات المؤقتة، ما يقلل RAM لكنه يزيد من عمليات الإدخال/الإخراج. اضبط عتبة [MaxBlobsBytesInMemory](https://reference.aspose.com/slides/net/aspose.slides/blobmanagementoptions/maxblobsbytesinmemory/) لتحقيق التوازن المناسب لحِمل عملك وبيئتك.
+
+**هل تساعد خيارات BLOB عند فتح عروض تقديمية هائلة الحجم (مثلاً بالغيغابايت)؟**
+
+نعم. تم تصميم [BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/blobmanagementoptions/) لهذه السيناريوهات: تمكين الملفات المؤقتة واستخدام قفل المصدر يمكن أن يقلل بشكل كبير من ذروة استهلاك RAM ويُثبِّت عملية المعالجة للعروض الكبيرة جدًا.
+
+**هل يمكنني استخدام سياسات BLOB عند التحميل من التيارات بدلاً من ملفات القرص؟**
+
+نعم. تنطبق القواعد نفسها على التيارات: يمكن للعرض أن يمتلك القفل ويقفل تدفق الإدخال (حسب وضع القفل المختار)، وتُستخدم الملفات المؤقتة عندما يُسمح بها، ما يحافظ على استهلاك ذاكرة متوقع أثناء المعالجة.

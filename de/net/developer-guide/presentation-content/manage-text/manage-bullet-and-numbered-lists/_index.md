@@ -1,59 +1,75 @@
 ---
-title: Aufzählungs- und Nummerierungslisten verwalten
+title: Verwalten von Aufzählungs- und Nummerierungslisten in Präsentationen mit .NET
+linktitle: Listen verwalten
 type: docs
 weight: 70
 url: /de/net/manage-bullet-and-numbered-lists
-keywords: "Aufzählungen, Aufzählungslisten, Nummern, Nummerierte Listen, Bildaufzählungen, mehrstufige Aufzählungen, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "Erstellen Sie Aufzählungs- und nummerierte Listen in PowerPoint-Präsentationen in C# oder .NET"
+keywords:
+- Aufzählungszeichen
+- Aufzählungsliste
+- Nummerierte Liste
+- Symbol‑Aufzählungszeichen
+- Bild‑Aufzählungszeichen
+- Benutzerdefiniertes Aufzählungszeichen
+- Mehrstufige Liste
+- Aufzählungszeichen erstellen
+- Aufzählungszeichen hinzufügen
+- Liste hinzufügen
+- PowerPoint
+- OpenDocument
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Aufzählungs‑ und Nummerierungslisten in PowerPoint‑ und OpenDocument‑Präsentationen mit Aspose.Slides für .NET verwalten. Schritt‑für‑Schritt‑Anleitung."
 ---
 
-In **Microsoft PowerPoint** können Sie Aufzählungs- und nummerierte Listen auf die gleiche Weise erstellen, wie Sie es in Word und anderen Texteditoren tun. **Aspose.Slides für .NET** ermöglicht es Ihnen auch, Aufzählungen und Nummern in Folien Ihrer Präsentationen zu verwenden.
+In **Microsoft PowerPoint** können Sie Aufzählungs‑ und Nummerierungslisten auf die gleiche Weise erstellen wie in Word und anderen Texteditoren. **Aspose.Slides for .NET** ermöglicht es Ihnen ebenfalls, Aufzählungszeichen und Nummern in Folien Ihrer Präsentationen zu verwenden. 
 
-### Warum Aufzählungslisten verwenden?
+## **Warum Aufzählungslisten verwenden?**
 
-Aufzählungslisten helfen Ihnen, Informationen schnell und effizient zu organisieren und zu präsentieren.
+Aufzählungslisten helfen Ihnen, Informationen schnell und effizient zu organisieren und zu präsentieren. 
 
-**Beispiel für eine Aufzählungsliste**
+**Beispiel für Aufzählungslisten**
 
-In den meisten Fällen erfüllt eine Aufzählungsliste diese drei Hauptfunktionen:
+In den meisten Fällen erfüllt eine Aufzählungsliste drei Hauptfunktionen:
 
-- lenkt die Aufmerksamkeit Ihrer Leser oder Zuschauer auf wichtige Informationen
-- ermöglicht es Ihren Lesern oder Zuschauern, leicht nach Schlüsselstellen zu scannen
-- kommuniziert und übermittelt wichtige Details effizient.
+- lenkt die Aufmerksamkeit Ihrer Leser oder Betrachter auf wichtige Informationen
+- ermöglicht es Ihren Lesern oder Betrachtern, Schlüsselpunkte leicht zu überfliegen
+- kommuniziert und liefert wichtige Details effizient.
 
-### Warum nummerierte Listen verwenden?
+## **Warum nummerierte Listen verwenden?**
 
-Nummerierte Listen helfen ebenfalls bei der Organisation und Präsentation von Informationen. Idealerweise sollten Sie Nummern (anstelle von Aufzählungen) verwenden, wenn die Reihenfolge der Einträge (zum Beispiel *Schritt 1, Schritt 2*, usw.) wichtig ist oder wenn ein Eintrag referenziert werden muss (zum Beispiel *siehe Schritt 3*).
+Nummerierte Listen helfen ebenfalls beim Organisieren und Präsentieren von Informationen. Idealerweise sollten Sie Zahlen (statt Aufzählungszeichen) verwenden, wenn die Reihenfolge der Einträge (z. B. *Schritt 1, Schritt 2* usw.) wichtig ist oder wenn ein Eintrag referenziert werden muss (z. B. *siehe Schritt 3*).
 
-**Beispiel für eine nummerierte Liste**
+**Beispiel für nummerierte Listen**
 
-Dies ist eine Zusammenfassung der Schritte (Schritt 1 bis Schritt 15) im Verfahren **Erstellung von Aufzählungen** unten:
+Dies ist eine Zusammenfassung der Schritte (Schritt 1 bis Schritt 15) im nachstehenden **Creating Bullets**‑Verfahren:
 
 1. Erstellen Sie eine Instanz der Präsentationsklasse.
 2. Führen Sie mehrere Aufgaben aus (Schritt 3 bis Schritt 14).
-3. Speichern Sie die Präsentation.
+3. Speichern Sie die Präsentation. 
 
-## Erstellung von Aufzählungen
+## **Aufzählungen erstellen**
 
-Um eine Aufzählungsliste zu erstellen, befolgen Sie diese Schritte:
+Um eine Aufzählungsliste zu erstellen, folgen Sie diesen Schritten:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-2. Greifen Sie auf die Folie (in die Sie eine Aufzählungsliste einfügen möchten) in der Folienkollektion über das [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/methods/index) Objekt zu.
-3. Fügen Sie in der ausgewählten Folie eine [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape) hinzu.
-4. Greifen Sie auf den [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) der hinzugefügten Form zu.
-5. Entfernen Sie den Standardabsatz im [TextFrame]().
-6. Erstellen Sie die erste Absatzinstanz mit der [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph) Klasse.
-8. Setzen Sie den Aufzählungstyp auf Symbol und dann das Aufzählungszeichen.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑Klasse.
+2. Greifen Sie über das [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/methods/index)‑Objekt auf die Folie (in der Sie eine Aufzählungsliste hinzufügen möchten) in der Folien‑Sammlung zu.
+3. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape) in der ausgewählten Folie hinzu.
+4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) der hinzugefügten Form zu.
+5. Entfernen Sie den Standard‑Absatz im [TextFrame]().
+6. Erstellen Sie die erste Absatz‑Instanz mithilfe der [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph)‑Klasse.
+8. Setzen Sie den Aufzählungstyp auf Symbol und anschließend das Aufzählungszeichen.
 9. Setzen Sie den Absatztext.
-10. Setzen Sie den Absatz-Indent, um die Aufzählung zu setzen.
-11. Setzen Sie die Farbe der Aufzählung.
-12. Setzen Sie die Höhe der Aufzählung.
-13. Fügen Sie den erstellten Absatz in die [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) Absatzkollektion ein.
-14. Fügen Sie den zweiten Absatz hinzu und wiederholen Sie die Schritte 7-12.
+10. Setzen Sie den Absatz‑Einzug, um die Aufzählung zu setzen.
+11. Legen Sie die Farbe der Aufzählung fest.
+12. Legen Sie die Höhe der Aufzählung fest.
+13. Fügen Sie den erstellten Absatz in die Absatz‑Sammlung des [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) ein.
+14. Fügen Sie den zweiten Absatz hinzu und wiederholen Sie die Schritte 7‑12.
 15. Speichern Sie die Präsentation.
 
-Dieser Beispielcode in C#—eine Implementierung der obigen Schritte—zeigt Ihnen, wie Sie eine Aufzählungsliste in einer Folie erstellen:
-
+Dieser Beispielcode in C# – eine Implementierung der obigen Schritte – zeigt, wie Sie eine Aufzählungsliste in einer Folie erstellen:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -69,48 +85,48 @@ using (Presentation pres = new Presentation())
     paragraph.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True;
     paragraph.ParagraphFormat.Bullet.Color.Color = Color.Red;
     paragraph.ParagraphFormat.Bullet.Height = 100;
-    paragraph.Text = "Mein Text";
+    paragraph.Text = "My text";
 
     textFrame.Paragraphs.Add(paragraph);
     
     // ...
-    
+
     pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
 
-## Erstellung von Bildaufzählungen
 
-Aspose.Slides für .NET ermöglicht es Ihnen, die Aufzählungen in Aufzählungslisten zu ändern. Sie können die Aufzählungen durch benutzerdefinierte Symbole oder Bilder ersetzen. Wenn Sie einer Liste visuelles Interesse verleihen oder noch mehr Aufmerksamkeit auf Einträge einer Liste lenken möchten, können Sie Ihr eigenes Bild als Aufzählung verwenden.
+## **Bildaufzählungen erstellen**
+
+Aspose.Slides for .NET ermöglicht es Ihnen, die Aufzählungszeichen in Aufzählungslisten zu ändern. Sie können die Aufzählungszeichen durch benutzerdefinierte Symbole oder Bilder ersetzen. Wenn Sie einer Liste visuelles Interesse verleihen oder die Aufmerksamkeit noch stärker auf Listeneinträge lenken möchten, können Sie Ihr eigenes Bild als Aufzählungszeichen verwenden. 
 
  {{% alert color="primary" %}} 
 
-Idealerweise, wenn Sie beabsichtigen, das reguläre Aufzählungssymbol durch ein Bild zu ersetzen, sollten Sie ein einfaches Grafikbild mit transparentem Hintergrund auswählen. Solche Bilder funktionieren am besten als benutzerdefinierte Aufzählungssymbole.
+Idealerweise, wenn Sie das reguläre Aufzählungszeichen durch ein Bild ersetzen möchten, sollten Sie ein einfaches Grafikbild mit transparentem Hintergrund auswählen. Solche Bilder eignen sich am besten als benutzerdefinierte Aufzählungszeichen.
 
-In jedem Fall wird das Bild, das Sie wählen, auf eine sehr kleine Größe reduziert, daher empfehlen wir dringend, ein Bild auszuwählen, das in einer Liste gut aussieht (als Ersatz für das Aufzählungssymbol).
+Auf jeden Fall wird das von Ihnen gewählte Bild auf eine sehr kleine Größe verkleinert, daher empfehlen wir dringend, ein Bild auszuwählen, das (als Ersatz für das Aufzählungszeichen) in einer Liste gut aussieht. 
 
 {{% /alert %}} 
 
-Um eine Bildaufzählung zu erstellen, folgen Sie diesen Schritten:
+Um ein Bildaufzählungszeichen zu erstellen, gehen Sie wie folgt vor:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-2. Greifen Sie auf die gewünschte Folie in der Folienkollektion über das [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/methods/index) Objekt zu.
-3. Fügen Sie in der ausgewählten Folie eine [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape) hinzu.
-4. Greifen Sie auf den [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) der hinzugefügten Form zu.
-5. Entfernen Sie den Standardabsatz im [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe).
-6. Erstellen Sie die erste Absatzinstanz mit der [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph) Klasse.
-7. Laden Sie das Bild von der Festplatte und fügen Sie es zu [Presentation.Images](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/images) hinzu und verwenden Sie dann die [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) Instanz, die von der [AddImage](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/methods/addimage/index) Methode zurückgegeben wurde.
-8. Setzen Sie den Aufzählungstyp auf Bild und dann das Bild.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
+2. Greifen Sie über das [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/methods/index)‑Objekt auf die gewünschte Folie in der Folien‑Sammlung zu.
+3. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape) in der ausgewählten Folie hinzu.
+4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) der hinzugefügten Form zu.
+5. Entfernen Sie den Standard‑Absatz im [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe).
+6. Erstellen Sie die erste Absatz‑Instanz mit der [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph)-Klasse.
+7. Laden Sie ein Bild von der Festplatte und fügen Sie es zu [Presentation.Images](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/images) hinzu und verwenden Sie anschließend die [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage)‑Instanz, die von der [AddImage](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/methods/addimage/index)‑Methode zurückgegeben wurde.
+8. Setzen Sie den Aufzählungstyp auf Bild und anschließend das Bild.
 9. Setzen Sie den Absatztext.
-10. Setzen Sie den Absatz-Indent, um die Aufzählung zu setzen.
-11. Setzen Sie die Farbe der Aufzählung.
-12. Setzen Sie die Höhe der Aufzählungen.
-13. Fügen Sie den erstellten Absatz in die [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) Absatzkollektion ein.
-14. Fügen Sie den zweiten Absatz hinzu und wiederholen Sie die Schritte 7-13.
+10. Setzen Sie den Absatz‑Einzug, um das Aufzählungszeichen zu setzen.
+11. Legen Sie die Farbe des Aufzählungszeichens fest.
+12. Legen Sie die Höhe der Aufzählungszeichen fest.
+13. Fügen Sie den erstellten Absatz in die Absatz‑Sammlung des [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) ein.
+14. Fügen Sie den zweiten Absatz hinzu und wiederholen Sie die Schritte 7‑13.
 15. Speichern Sie die Präsentation.
 
-Dieser C#-Code zeigt Ihnen, wie Sie eine Bildaufzählung in einer Folie erstellen:
-
+Dieser C#‑Code zeigt, wie Sie ein Bildaufzählungszeichen in einer Folie erstellen:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -126,34 +142,34 @@ using (Presentation pres = new Presentation())
     paragraph.ParagraphFormat.Bullet.Picture.Image = image;
     paragraph.ParagraphFormat.Indent = 15;
     paragraph.ParagraphFormat.Bullet.Height = 100;
-    paragraph.Text = "Mein Text";
+    paragraph.Text = "My text";
 
     textFrame.Paragraphs.Add(paragraph);
     
     // ...
-    
+
     pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
 
-## Erstellung von mehrstufigen Aufzählungen
 
-Um eine Aufzählungsliste zu erstellen, die Elemente auf unterschiedlichen Ebenen enthält—zusätzliche Listen unter der Hauptaufzählungsliste—gehen Sie wie folgt vor:
+## **Mehrstufige Aufzählungen erstellen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-2. Greifen Sie auf die gewünschte Folie in der Folienkollektion über das [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/methods/index) Objekt zu.
-3. Fügen Sie in der ausgewählten Folie eine [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape) hinzu.
-4. Greifen Sie auf den [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) der hinzugefügten Form zu.
-5. Entfernen Sie den Standardabsatz im [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe).
-6. Erstellen Sie die erste Absatzinstanz mit der [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph) Klasse und mit der Tiefe auf 0 gesetzt.
-7. Erstellen Sie die zweite Absatzinstanz mit der Paragraph-Klasse und der Tiefe auf 1 gesetzt.
-8. Erstellen Sie die dritte Absatzinstanz mit der Paragraph-Klasse und der Tiefe auf 2 gesetzt.
-9. Erstellen Sie die vierte Absatzinstanz mit der Paragraph-Klasse und der Tiefe auf 3 gesetzt.
-10. Fügen Sie die erstellten Absätze in die [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) Absatzkollektion ein.
+Um eine Aufzählungsliste zu erstellen, die Elemente auf verschiedenen Ebenen enthält – zusätzliche Listen unter der Haupt‑Aufzählungsliste – gehen Sie wie folgt vor:
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
+2. Greifen Sie über das [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/methods/index)‑Objekt auf die gewünschte Folie in der Folien‑Sammlung zu.
+3. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape) in der ausgewählten Folie hinzu.
+4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) der hinzugefügten Form zu.
+5. Entfernen Sie den Standard‑Absatz im [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe).
+6. Erstellen Sie die erste Absatz‑Instanz mit der [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/paragraph)-Klasse und setzen Sie die Tiefe auf 0.
+7. Erstellen Sie die zweite Absatz‑Instanz mit der Paragraph‑Klasse und setzen Sie die Tiefe auf 1.
+8. Erstellen Sie die dritte Absatz‑Instanz mit der Paragraph‑Klasse und setzen Sie die Tiefe auf 2.
+9. Erstellen Sie die vierte Absatz‑Instanz mit der Paragraph‑Klasse und setzen Sie die Tiefe auf 3.
+10. Fügen Sie die erstellten Absätze in die Absatz‑Sammlung des [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/textframe) ein.
 11. Speichern Sie die Präsentation.
 
-Dieser Code, der eine Implementierung der obigen Schritte ist, zeigt Ihnen, wie Sie eine mehrstufige Aufzählungsliste in C# erstellen:
-
+Dieser Code, der eine Implementierung der obigen Schritte darstellt, zeigt, wie Sie in C# eine mehrstufige Aufzählungsliste erstellen:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -164,32 +180,32 @@ using (Presentation pres = new Presentation())
     
     Paragraph paragraph = new Paragraph();
     paragraph.ParagraphFormat.Depth = 0;
-    paragraph.Text = "Mein Text Tiefe 0";
+    paragraph.Text = "My text Depth 0";
     textFrame.Paragraphs.Add(paragraph);
     
     Paragraph paragraph2 = new Paragraph();
     paragraph2.ParagraphFormat.Depth = 0;
-    paragraph2.Text = "Mein Text Tiefe 1";
+    paragraph2.Text = "My text Depth 1";
     textFrame.Paragraphs.Add(paragraph2);
     
     Paragraph paragraph3 = new Paragraph();
     paragraph3.ParagraphFormat.Depth = 2;
-    paragraph3.Text = "Mein Text Tiefe 2";
+    paragraph3.Text = "My text Depth 2";
     textFrame.Paragraphs.Add(paragraph3);
     
     Paragraph paragraph4 = new Paragraph();
     paragraph4.ParagraphFormat.Depth = 3;
-    paragraph4.Text = "Mein Text Tiefe 3";
+    paragraph4.Text = "My text Depth 3";
     textFrame.Paragraphs.Add(paragraph4);
     
     pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
 
-## Erstellung von Nummern
 
-Dieser C#-Code zeigt Ihnen, wie Sie eine nummerierte Liste in einer Folie erstellen:
+## **Nummern erstellen**
 
+Dieser C#‑Code zeigt, wie Sie in einer Folie eine nummerierte Liste erstellen:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -200,16 +216,31 @@ using (Presentation pres = new Presentation())
     
     Paragraph paragraph = new Paragraph();
     paragraph.ParagraphFormat.Bullet.Type = BulletType.Numbered;
-    paragraph.Text = "Mein Text 1";
+    paragraph.Text = "My text 1";
     textFrame.Paragraphs.Add(paragraph);
     
     Paragraph paragraph2 = new Paragraph();
     paragraph2.ParagraphFormat.Bullet.Type = BulletType.Numbered;
-    paragraph2.Text = "Mein Text 2";
+    paragraph2.Text = "My text 2";
     textFrame.Paragraphs.Add(paragraph2);
     
     // ...
-    
+
     pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**Können mit Aspose.Slides erstellte Aufzählungs‑ und nummerierte Listen in andere Formate wie PDF oder Bilder exportiert werden?**
+
+Ja, Aspose.Slides bewahrt die Formatierung und Struktur von Aufzählungs‑ und nummerierten Listen vollständig, wenn Präsentationen in Formate wie PDF, Bilder und andere exportiert werden, und sorgt so für konsistente Ergebnisse.
+
+**Ist es möglich, Aufzählungs‑ oder nummerierte Listen aus bestehenden Präsentationen zu importieren?**
+
+Ja, Aspose.Slides ermöglicht das Importieren und Bearbeiten von Aufzählungs‑ oder nummerierten Listen aus bestehenden Präsentationen, wobei deren ursprüngliche Formatierung und Erscheinungsbild erhalten bleiben.
+
+**Unterstützt Aspose.Slides Aufzählungs‑ und nummerierte Listen in Präsentationen, die in mehreren Sprachen erstellt wurden?**
+
+Ja, Aspose.Slides unterstützt mehrsprachige Präsentationen vollständig und ermöglicht das Erstellen von Aufzählungs‑ und nummerierten Listen in jeder Sprache, einschließlich der Verwendung von Sonder‑ oder nicht‑lateinischen Zeichen.

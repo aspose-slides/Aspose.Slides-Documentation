@@ -1,31 +1,45 @@
 ---
-title: ترويسة وتذييل العرض التقديمي
+title: إدارة رؤوس وتذييلات العروض التقديمية في .NET
+linktitle: الرأس والتذييل
 type: docs
 weight: 140
 url: /ar/net/presentation-header-and-footer/
-keywords: "ترويسة, تذييل, تعيين ترويسة, تعيين تذييل, تعيين ترويسة وتذييل, عرض بوربوينت, C#, Csharp, Aspose.Slides for .NET"
-description: "ترويسة وتذييل عرض بوربوينت بلغة C# أو .NET"
+keywords:
+- رأس
+- نص الرأس
+- تذييل
+- نص التذييل
+- تعيين الرأس
+- تعيين التذييل
+- نشرة
+- ملاحظات
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "استخدم Aspose.Slides for .NET لإضافة وتخصيص رؤوس وتذييلات في عروض PowerPoint و OpenDocument للحصول على مظهر احترافي."
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/ar/net/) يوفر دعمًا للعمل مع نصوص ترويسة وتذييل الشرائح التي يتم الاحتفاظ بها فعليًا على مستوى شريحة الماستر.
+[Aspose.Slides](/slides/ar/net/) يوفر دعماً للعمل مع نص رؤوس وتذييلات الشرائح التي تُحافظ عليها فعليًا على مستوى ماستر الشريحة.
 
 {{% /alert %}} 
 
-[Aspose.Slides for .NET](/slides/ar/net/) يوفر ميزة إدارة ترويسات وتذييلات داخل شرائح العرض التقديمي. هذه تُدار في الواقع على مستوى ماستر العرض التقديمي.
-## **إدارة نصوص الترويسة والتذييل**
-يمكن تحديث ملاحظات شريحة معينة كما هو موضح في المثال أدناه:
-
+[Aspose.Slides for .NET](/slides/ar/net/) يوفر الميزة لإدارة رؤوس وتذييلات الشرائح داخل العروض التقديمية. يتم إدارة هذه فعليًا على مستوى ماستر العرض التقديمي.
+## **إدارة نص الرأس والتذييل**
+يمكن تحديث ملاحظات بعض الشرائح المحددة كما هو موضح في المثال أدناه:
 ```c#
 // تحميل العرض التقديمي
 Presentation pres = new Presentation("headerTest.pptx");
 
 // تعيين التذييل
-pres.HeaderFooterManager.SetAllFootersText("نص التذييل الخاص بي");
+pres.HeaderFooterManager.SetAllFootersText("My Footer text");
 pres.HeaderFooterManager.SetAllFootersVisibility(true);
 
-// الوصول إلى تحديث الترويسة
+// الوصول وتحديث الرأس
 IMasterNotesSlide masterNotesSlide = pres.MasterNotesSlideManager.MasterNotesSlide;
 if (null != masterNotesSlide)
 {
@@ -36,10 +50,8 @@ if (null != masterNotesSlide)
 pres.Save("HeaderFooterJava.pptx", SaveFormat.Pptx);
 ```
 
-
-
 ```c#
-// طريقة لتعيين نص الترويسة/التذييل
+// طريقة لتعيين نص الرأس/التذييل
 public static void UpdateHeaderFooterText(IBaseSlide master)
 {
     foreach (IShape shape in master.Shapes)
@@ -48,7 +60,7 @@ public static void UpdateHeaderFooterText(IBaseSlide master)
         {
             if (shape.Placeholder.Type == PlaceholderType.Header)
             {
-                ((IAutoShape)shape).TextFrame.Text = "مرحبًا بك في الترويسة الجديدة";
+                ((IAutoShape)shape).TextFrame.Text = "HI there new header";
             }
         }
     }
@@ -58,63 +70,82 @@ public static void UpdateHeaderFooterText(IBaseSlide master)
 
 
 
-## **إدارة الترويسة والتذييل في شرائح الملاحظات والنسخ**
-يدعم Aspose.Slides for .NET الترويسة والتذييل في شرائح النسخ والملاحظات. يرجى اتباع الخطوات أدناه:
 
-- تحميل [العرض التقديمي](https://reference.aspose.com/slides/net/aspose.slides/presentation) الذي يحتوي على فيديو.
-- تغيير إعدادات الترويسة والتذييل لماستر الملاحظات وجميع شرائح الملاحظات.
-- جعل شريحة الملاحظات الرئيسية وجميع عناصر التذييل المرئية.
-- جعل شريحة الملاحظات الرئيسية وجميع عناصر تاريخ ووقت المرئية.
-- تغيير إعدادات الترويسة والتذييل لشريحة الملاحظات الأولى فقط.
-- جعل عنصر ترويسة شريحة الملاحظات مرئيًا.
-- تعيين نص لعنصر ترويسة شريحة الملاحظات.
-- تعيين نص لعنصر تاريخ ووقت شريحة الملاحظات.
-- كتابة ملف العرض التقديمي المعدل.
+## **إدارة رؤوس وتذييلات الشرائح المرفقة وملاحظات الشرائح**
+يدعم Aspose.Slides for .NET الرؤوس والتذييلات في شرائح المرفقات والملاحظات. يرجى اتباع الخطوات أدناه:
 
-تم تقديم مقتطف الشيفرة في المثال أدناه.
+- قم بتحميل [العرض التقديمي](https://reference.aspose.com/slides/net/aspose.slides/presentation) المتضمن فيديو.
+- غيّر إعدادات الرأس والتذييل لماستر الملاحظات وجميع شرائح الملاحظات.
+- اجعل شريحة الملاحظات الرئيسية وجميع عناصر النائب للتذييل الفرعية مرئية.
+- اجعل شريحة الملاحظات الرئيسية وجميع عناصر النائب للتاريخ والوقت الفرعية مرئية.
+- غيّر إعدادات الرأس والتذييل للشرائح الملاحظة الأولى فقط.
+- اجعل عنصر النائب للرأس في شريحة الملاحظات مرئيًا.
+- عيّن النص لعنصر النائب للرأس في شريحة الملاحظات.
+- عيّن النص لعنصر النائب للتاريخ والوقت في شريحة الملاحظات.
+- احفظ ملف العرض التقديمي المعدل.
 
+الكود المضمن مقدم في المثال أدناه.
 ```c#
 using (Presentation presentation = new Presentation("presentation.pptx"))
 {
-	// تغيير إعدادات الترويسة والتذييل لماستر الملاحظات وجميع شرائح الملاحظات
+	// تغيير إعدادات الرأس والتذييل لماستر الملاحظات وجميع شرائح الملاحظات
 	IMasterNotesSlide masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
 	if (masterNotesSlide != null)
 	{
 		IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.HeaderFooterManager;
 
-		headerFooterManager.SetHeaderAndChildHeadersVisibility(true); // جعل شريحة الملاحظات الرئيسية وجميع عناصر التذييل المرئية
-		headerFooterManager.SetFooterAndChildFootersVisibility(true); // جعل شريحة الملاحظات الرئيسية وجميع عناصر الترويسة المرئية
-		headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // جعل شريحة الملاحظات الرئيسية وجميع عناصر رقم الشريحة المرئية
-		headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // جعل شريحة الملاحظات الرئيسية وجميع عناصر التاريخ والوقت المرئية
+		headerFooterManager.SetHeaderAndChildHeadersVisibility(true); // جعل شريحة الملاحظات الرئيسية وجميع عناصر النائب للتذييل الفرعية مرئية
+		headerFooterManager.SetFooterAndChildFootersVisibility(true); // جعل شريحة الملاحظات الرئيسية وجميع عناصر النائب للرأس الفرعية مرئية
+		headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // جعل شريحة الملاحظات الرئيسية وجميع عناصر النائب لأرقام الشرائح الفرعية مرئية
+		headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // جعل شريحة الملاحظات الرئيسية وجميع عناصر النائب للتاريخ والوقت الفرعية مرئية
 
-		headerFooterManager.SetHeaderAndChildHeadersText("نص الترويسة"); // تعيين نص لشريحة الملاحظات الرئيسية وجميع عناصر الترويسة
-		headerFooterManager.SetFooterAndChildFootersText("نص التذييل"); // تعيين نص لشريحة الملاحظات الرئيسية وجميع عناصر التذييل
-		headerFooterManager.SetDateTimeAndChildDateTimesText("نص التاريخ والوقت"); // تعيين نص لشريحة الملاحظات الرئيسية وجميع عناصر التاريخ والوقت
+		headerFooterManager.SetHeaderAndChildHeadersText("Header text"); // تعيين النص إلى شريحة الملاحظات الرئيسية وجميع عناصر النائب للرأس الفرعية
+		headerFooterManager.SetFooterAndChildFootersText("Footer text"); // تعيين النص إلى شريحة الملاحظات الرئيسية وجميع عناصر النائب للتذييل الفرعية
+		headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text"); // تعيين النص إلى شريحة الملاحظات الرئيسية وجميع عناصر النائب للتاريخ والوقت الفرعية
 	}
 
-	// تغيير إعدادات الترويسة والتذييل لشريحة الملاحظات الأولى فقط
+	// تغيير إعدادات الرأس والتذييل لشريحة الملاحظات الأولى فقط
 	INotesSlide notesSlide = presentation.Slides[0].NotesSlideManager.NotesSlide;
 	if (notesSlide != null)
 	{
 		INotesSlideHeaderFooterManager headerFooterManager = notesSlide.HeaderFooterManager;
 		if (!headerFooterManager.IsHeaderVisible)
-			headerFooterManager.SetHeaderVisibility(true); // جعل عنصر ترويسة شريحة هذه الملاحظات مرئيًا
+			headerFooterManager.SetHeaderVisibility(true); // جعل عنصر النائب للرأس في هذه شريحة الملاحظات مرئيًا
 
 		if (!headerFooterManager.IsFooterVisible)
-			headerFooterManager.SetFooterVisibility(true); // جعل عنصر تذييل شريحة هذه الملاحظات مرئيًا
+			headerFooterManager.SetFooterVisibility(true); // جعل عنصر النائب للتذييل في هذه شريحة الملاحظات مرئيًا
 
 		if (!headerFooterManager.IsSlideNumberVisible)
-			headerFooterManager.SetSlideNumberVisibility(true); // جعل عنصر رقم شريحة هذه الملاحظات مرئيًا
+			headerFooterManager.SetSlideNumberVisibility(true); // جعل عنصر النائب لأرقام الشريحة في هذه شريحة الملاحظات مرئيًا
 
 		if (!headerFooterManager.IsDateTimeVisible)
-			headerFooterManager.SetDateTimeVisibility(true); // جعل عنصر تاريخ ووقت شريحة هذه الملاحظات مرئيًا
+			headerFooterManager.SetDateTimeVisibility(true); // جعل عنصر النائب للتاريخ والوقت في هذه شريحة الملاحظات مرئيًا
 
-		headerFooterManager.SetHeaderText("نص الترويسة الجديدة"); // تعيين نص لعنصر ترويسة شريحة الملاحظات
-		headerFooterManager.SetFooterText("نص التذييل الجديد"); // تعيين نص لعنصر تذييل شريحة الملاحظات
-		headerFooterManager.SetDateTimeText("نص التاريخ والوقت الجديد"); // تعيين نص لعنصر تاريخ ووقت شريحة الملاحظات
+		headerFooterManager.SetHeaderText("New header text"); // تعيين النص إلى عنصر النائب للرأس في شريحة الملاحظات
+		headerFooterManager.SetFooterText("New footer text"); // تعيين النص إلى عنصر النائب للتذييل في شريحة الملاحظات
+		headerFooterManager.SetDateTimeText("New date and time text"); // تعيين النص إلى عنصر النائب للتاريخ والوقت في شريحة الملاحظات
 	}
 	presentation.Save("testresult.pptx",SaveFormat.Pptx);
 }
 		
  }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني إضافة "رأس" إلى الشرائح العادية؟**
+
+في PowerPoint، "الرأس" موجود فقط للملاحظات والمواد المطبوعة؛ في الشرائح العادية، العناصر المدعومة هي التذييل، التاريخ/الوقت، ورقم الشريحة. في Aspose.Slides يتطابق هذا مع نفس القيود: الرأس فقط للملاحظات/الملف المرفق، وعلى الشرائح — التذييل/التاريخ والوقت/رقم الشريحة.
+
+**ماذا لو لم يحتوي التخطيط على منطقة تذييل—هل يمكنني "تشغيل" رؤيتها؟**
+
+نعم. تحقق من الرؤية عبر مدير الرأس/التذييل ومكّنه إذا لزم الأمر. تم تصميم مؤشرات وطرق API هذه للحالات التي يكون فيها العنصر النائب مفقودًا أو مخفيًا.
+
+**كيف أجعل رقم الشريحة يبدأ من قيمة غير 1؟**
+
+قم بتعيين [رقم الشريحة الأولى](https://reference.aspose.com/slides/net/aspose.slides/presentation/firstslidenumber/) للعرض التقديمي؛ بعد ذلك يتم إعادة حساب جميع الأرقام. على سبيل المثال، يمكنك البدء من 0 أو 10، وإخفاء الرقم على شريحة العنوان.
+
+**ماذا يحدث للرؤوس/التذييلات عند التصدير إلى PDF/صور/HTML؟**
+
+يتم عرضها كعناصر نصية عادية في العرض التقديمي. أي إذا كانت العناصر مرئية على صفحات الشرائح/الملاحظات، فستظهر أيضًا في صيغة المخرجات جنبًا إلى جنب مع باقي المحتوى.

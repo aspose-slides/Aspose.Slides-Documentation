@@ -1,286 +1,255 @@
 ---
-title: Solución Funcional para el Redimensionamiento de Hojas de Cálculo
+title: Solución funcional para el redimensionamiento de hojas de cálculo
 type: docs
 weight: 40
 url: /es/net/working-solution-for-worksheet-resizing/
+keywords:
+- OLE
+- imagen de vista previa
+- redimensionamiento de imagen
+- Excel
+- hoja de cálculo
+- PowerPoint
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Corrija el redimensionamiento OLE de hojas de cálculo de Excel en presentaciones: dos maneras de mantener los marcos de objetos consistentes—escalando el marco o la hoja—en los formatos PPT y PPTX."
 ---
 
 {{% alert color="primary" %}} 
-
-Se ha observado que las Hojas de Cálculo de Excel incrustadas como OLE en una Presentación de PowerPoint a través de componentes de Aspose se redimensionan a una escala no identificada después de la primera activación. Este comportamiento crea una diferencia visual considerable en la presentación entre los estados previos y posteriores a la activación del gráfico. Hemos investigado este problema en detalle y encontrado la solución a este problema que se ha cubierto en este artículo.
-
+Se ha observado que las hojas de cálculo de Excel incrustadas como objetos OLE en una presentación de PowerPoint mediante los componentes de Aspose se redimensionan a una escala no identificada después de la primera activación. Este comportamiento genera una diferencia visual notable en la presentación entre los estados antes y después de la activación del objeto OLE. Hemos investigado este problema en detalle y ofrecemos una solución, que se trata en este artículo.
 {{% /alert %}} 
+
 ## **Antecedentes**
-En [el artículo de Añadir Marco Ole](), hemos explicado cómo añadir un Marco Ole en la presentación de una Presentación de PowerPoint utilizando Aspose.Slides para .NET. Para acomodar el [problema de objeto modificado](/slides/es/net/object-changed-issue-when-adding-oleobjectframe/), asignamos la imagen de la hoja de cálculo del área seleccionada al Marco de OLE Object del Gráfico. En la presentación de salida, cuando hacemos doble clic en el Marco de OLE Object que muestra la Imagen de la hoja de cálculo, se activa el Gráfico de Excel. Los usuarios finales pueden realizar cualquier cambio deseado en el Libro de Trabajo de Excel real y luego regresar a la Diapositiva correspondiente haciendo clic fuera del Libro de Trabajo de Excel activado. El tamaño del Marco de OLE Object cambiará cuando el usuario regrese a la diapositiva. El factor de redimensionamiento será diferente para los diferentes tamaños del Marco de OLE Object y del Libro de Trabajo de Excel incrustado. 
-## **Causa del Redimensionamiento**
-Dado que el Libro de Trabajo de Excel tiene su propio tamaño de ventana, intenta mantener su tamaño original en la primera activación. Por otro lado, el Marco de OLE Object tendrá su propio tamaño. Según Microsoft, al activar el Libro de Trabajo de Excel, Excel y PowerPoint negocian el tamaño y aseguran que esté en las proporciones correctas como parte de la operación de incrustación. Basado en las diferencias en el tamaño de las Ventanas de Excel y el tamaño / posición del Marco de OLE Object, ocurre el redimensionamiento. 
-## **Solución Funcional**
+
+En el artículo [Gestionar OLE](/slides/es/net/manage-ole/), explicamos cómo agregar un marco OLE a una presentación de PowerPoint usando Aspose.Slides para .NET. Para abordar el [problema de vista previa del objeto](/slides/es/net/object-preview-issue-when-adding-oleobjectframe/), asignamos una imagen del área seleccionada de la hoja de cálculo al marco del objeto OLE. En la presentación resultante, cuando haces doble clic en el marco del objeto OLE que muestra la imagen de la hoja, el libro de Excel se activa. Los usuarios finales pueden realizar cualquier cambio deseado en el libro de Excel real y luego volver a la diapositiva haciendo clic fuera del libro de Excel activado. El tamaño del marco del objeto OLE cambiará cuando el usuario regrese a la diapositiva. El factor de redimensionamiento variará según el tamaño del marco del objeto OLE y del libro de Excel incrustado.
+
+## **Causa del redimensionamiento**
+
+Dado que el libro de Excel tiene su propio tamaño de ventana, intenta conservar su tamaño original al activarse por primera vez. Por otro lado, el marco del objeto OLE tiene su propio tamaño. Según Microsoft, cuando se activa el libro de Excel, Excel y PowerPoint negocian el tamaño para garantizar que se mantengan las proporciones correctas como parte del proceso de incrustación. El redimensionamiento ocurre en función de las diferencias entre el tamaño de la ventana de Excel y el tamaño y posición del marco del objeto OLE.
+
+## **Solución funcional**
+
 Existen dos posibles soluciones para evitar el efecto de redimensionamiento.
 
-- Escalar el tamaño del marco Ole en PPT para que coincida con el tamaño en términos de altura/ancho del número deseado de filas/columnas en el Marco Ole
-- Manteniendo el tamaño del marco Ole constante y escalando el tamaño de las filas/columnas participantes para que se ajusten al tamaño del marco Ole seleccionado
-## **Escalar el tamaño del marco Ole al tamaño de filas/columnas seleccionadas de la Hoja de Cálculo**
-En este enfoque, aprenderemos cómo establecer el tamaño del marco Ole del Libro de Trabajo de Excel incrustado equivalente al tamaño acumulativo del número de filas y columnas participantes en la Hoja de Cálculo de Excel. 
-## **Ejemplo**
-Supongamos que hemos definido una hoja de Excel plantilla y deseamos agregarla a la presentación como marco Ole. En este escenario, el tamaño del Marco de OLE Object se calculará primero basado en la altura acumulativa de las filas y el ancho de las columnas de las filas y columnas del libro de trabajo que participan respectivamente. Luego estableceremos el tamaño del marco Ole a ese valor calculado. Para evitar el mensaje rojo de **Objeto Incrustado** para el marco Ole en PowerPoint, también obtendremos la imagen de las porciones deseadas de filas y columnas en el Libro de Trabajo y estableceremos eso como la imagen del marco Ole. 
+- Escalar el tamaño del marco OLE en la presentación de PowerPoint para que coincida con la altura y anchura del número deseado de filas y columnas en el marco OLE.  
+- Mantener el tamaño del marco OLE constante y escalar el tamaño de las filas y columnas participantes para que encajen dentro del tamaño seleccionado del marco OLE.
 
-```csharp
-WorkbookDesigner workbookDesigner = new WorkbookDesigner();
-workbookDesigner.Workbook = new Workbook("AsposeTest.xls");
+### **Escalar el tamaño del marco OLE**
 
-Presentation presentation = new Presentation("AsposeTest.ppt");
+En este enfoque, aprenderemos cómo establecer el tamaño del marco OLE del libro de Excel incrustado para que coincida con el tamaño acumulado de las filas y columnas participantes en la hoja de cálculo de Excel.
 
-Slide slide = (Slide)presentation.Slides[0];
+Supongamos que tenemos una hoja de Excel plantilla y queremos agregarla a una presentación como un marco OLE. En este escenario, el tamaño del marco del objeto OLE se calculará primero en función de la altura acumulada de las filas y el ancho acumulado de las columnas de las filas y columnas participantes en el libro. Luego, estableceremos el tamaño del marco OLE a este valor calculado. Para evitar el mensaje rojo "EMBEDDED OLE OBJECT" del marco OLE en PowerPoint, también capturaremos una imagen de las porciones deseadas de las filas y columnas en el libro y la estableceremos como imagen del marco OLE.
+```cs
+int startRow = 0, rowCount = 10;
+int startColumn = 0, columnCount = 13;
+int worksheetIndex = 0;
 
-AddOleFrame(slide, 0, 15, 0, 3, 0, 300, 1100, 0, 0, presentation, workbookDesigner, true, 0, 0);
+int imageResolution = 96;
 
-String fileName = "AsposeTest_Ole.ppt";
-presentation.Save(fileName, Aspose.Slides.Export.SaveFormat.Ppt);
+using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
+var worksheet = workbook.Worksheets[worksheetIndex];
+
+// Establecer el tamaño mostrado cuando el archivo del libro se usa como objeto OLE en PowerPoint.
+var lastRow = startRow + rowCount - 1;
+var lastColumn = startColumn + columnCount - 1;
+workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
+
+var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
+var imageStream = CreateOleImage(cellRange, imageResolution);
+
+// Obtener el ancho y la altura de la imagen OLE en puntos.
+using var image = Image.FromStream(imageStream);
+var imageWidth = image.Width * 72 / imageResolution;
+var imageHeight = image.Height * 72 / imageResolution;
+
+// Necesitamos usar el libro modificado.
+using var oleStream = new MemoryStream();
+workbook.Save(oleStream, Aspose.Cells.SaveFormat.Xlsx);
+
+using var presentation = new Presentation();
+var slide = presentation.Slides.First();
+
+// Añadir la imagen OLE a los recursos de la presentación.
+imageStream.Seek(0, SeekOrigin.Begin);
+var oleImage = presentation.Images.AddImage(imageStream);
+
+// Crear el marco del objeto OLE.
+var dataInfo = new OleEmbeddedDataInfo(oleStream.ToArray(), "xlsx");
+var oleFrame = slide.Shapes.AddOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
+oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
+oleFrame.IsObjectIcon = false;
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-```csharp
-private static Size SetOleAccordingToSelectedRowsCloumns(Workbook workbook, Int32 startRow, Int32 endRow, Int32 startCol,Int32 endCol, Int32 dataSheetIdx)
+```cs
+static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 {
-    Worksheet work = workbook.Worksheets[dataSheetIdx];
+    var pageSetup = cellRange.Worksheet.PageSetup;
+    pageSetup.PrintArea = cellRange.Address;
+    pageSetup.LeftMargin = 0;
+    pageSetup.RightMargin = 0;
+    pageSetup.TopMargin = 0;
+    pageSetup.BottomMargin = 0;
+    pageSetup.ClearHeaderFooter();
 
-    double actualHeight = 0, actualWidth = 0;
-
-    for (int i = startRow; i <= endRow; i++)
-        actualHeight += work.Cells.GetRowHeightInch(i);
-
-    for (int i = startCol; i <= endCol; i++)
-        actualWidth += work.Cells.GetColumnWidthInch(i);
-    //Estableciendo nueva altura y ancho de fila
-
-    return new Size((int)(Math.Round(actualWidth, 2) * 576), (int)(Math.Round(actualHeight, 2) * 576));
-}
-```
-```csharp
-private static void AddOleFrame(Slide slide, Int32 startRow, Int32 endRow, Int32 startCol, Int32 endCol,
-    Int32 dataSheetIdx, Int32 x, Int32 y, Double OleWidth, Double OleHeight,
-    Presentation presentation, WorkbookDesigner workbookDesigner,
-    Boolean onePagePerSheet, Int32 outputWidth, Int32 outputHeight)
-{
-    String tempFileName = Path.GetTempFileName();
-    if (startRow == 0)
+    var imageOptions = new Aspose.Cells.Rendering.ImageOrPrintOptions
     {
-        startRow++;
-        endRow++;
-    }
+        ImageType = Aspose.Cells.Drawing.ImageType.Png,
+        VerticalResolution = imageResolution,
+        HorizontalResolution = imageResolution,
+        OnePagePerSheet = true,
+        OnlyArea = true
+    };
 
-    //Estableciendo el índice de la hoja activa del libro de trabajo
-    workbookDesigner.Workbook.Worksheets.ActiveSheetIndex = dataSheetIdx;
+    var sheetRender = new Aspose.Cells.Rendering.SheetRender(cellRange.Worksheet, imageOptions);
+    var imageStream = new MemoryStream();
 
-    //Obteniendo el Libro de Trabajo y la hoja de cálculo seleccionada  
-    Workbook workbook = workbookDesigner.Workbook;
-    Worksheet work = workbook.Worksheets[dataSheetIdx];
+    sheetRender.ToImage(0, imageStream);
+    imageStream.Seek(0, SeekOrigin.Begin);
 
-    //Estableciendo tamaño Ole de acuerdo a las filas y columnas seleccionadas
-    Size SlideOleSize = SetOleAccordingToSelectedRowsCloumns(workbook, startRow, endRow, startCol, endCol, dataSheetIdx);
-    OleWidth = SlideOleSize.Width;
-    OleHeight = SlideOleSize.Height;
-
-    //Establecer tamaño Ole en el Libro de Trabajo
-    workbook.Worksheets.SetOleSize(startRow, endRow, startCol, endCol);
-
-    workbook.Worksheets[0].IsGridlinesVisible = false;
-
-    //Estableciendo opciones de imagen para tomar la imagen de la hoja de cálculo
-    ImageOrPrintOptions imageOrPrintOptions = new ImageOrPrintOptions();
-    imageOrPrintOptions.ImageFormat = System.Drawing.Imaging.ImageFormat.Bmp;
-    imageOrPrintOptions.OnePagePerSheet = onePagePerSheet;
-
-    SheetRender render = new SheetRender(workbookDesigner.Workbook.Worksheets[dataSheetIdx], imageOrPrintOptions);
-    String ext = ".bmp";
-    render.ToImage(0, tempFileName + ext);
-    Image image = ScaleImage(Image.FromFile(tempFileName + ext), outputWidth, outputHeight);
-    String newTempFileName = tempFileName.Replace(".tmp", ".tmp1") + ext;
-    image.Save(newTempFileName, System.Drawing.Imaging.ImageFormat.Bmp);
-
-    //Agregando imagen a la colección de imágenes de la diapositiva
-    var ppImage = presentation.Images.AddImage(File.ReadAllBytes(newTempFileName));
-
-    //Guardando el libro de trabajo en un stream y copiando en un array de bytes
-    Stream mstream = workbook.SaveToStream();
-    byte[] chartOleData = new byte[mstream.Length];
-    mstream.Position = 0;
-    mstream.Read(chartOleData, 0, chartOleData.Length);
-
-    //Agregando Marco de Objeto Ole
-    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(chartOleData, "xls");
-    IOleObjectFrame oleObjectFrame = slide.Shapes.AddOleObjectFrame(x, y, Convert.ToInt32(OleWidth),
-        Convert.ToInt32(OleHeight), dataInfo);
-
-    //Estableciendo el nombre de la imagen y la propiedad de Texto Alternativo del marco ole    
-    oleObjectFrame.SubstitutePictureFormat.Picture.Image = ppImage;
-    oleObjectFrame.AlternativeText = "image" + ppImage;
+    return imageStream;
 }
 ```
 
-```csharp
-private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeight)
-{
-    if (outputWidth == 0 && outputHeight == 0)
-    {
-        outputWidth = image.Width;
-        outputHeight = image.Height;
-    }
-    Bitmap outputImage = new Bitmap(outputWidth, outputHeight, image.PixelFormat);
-    outputImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
-    Graphics graphics = Graphics.FromImage(outputImage);
-    graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-    System.Drawing.Rectangle srcDestRect = new System.Drawing.Rectangle(0, 0, outputWidth, outputHeight);
-    graphics.DrawImage(image, srcDestRect, srcDestRect, GraphicsUnit.Pixel);
-    graphics.Dispose();
 
-    return outputImage;
+### **Escalar el tamaño del rango de celdas**
+
+En este enfoque, aprenderemos cómo escalar las alturas de las filas participantes y el ancho de las columnas participantes para que coincidan con un tamaño de marco OLE personalizado.
+
+Supongamos que tenemos una hoja de Excel plantilla y queremos agregarla a una presentación como un marco OLE. En este escenario, estableceremos el tamaño del marco OLE y escalaremos el tamaño de las filas y columnas que participan en el área del marco OLE. Luego guardaremos el libro en un stream para aplicar los cambios y lo convertiremos a una matriz de bytes para añadirlo al marco OLE. Para evitar el mensaje rojo "EMBEDDED OLE OBJECT" del marco OLE en PowerPoint, también capturaremos una imagen de las porciones deseadas de las filas y columnas en el libro y la estableceremos como imagen del marco OLE.
+```cs
+int startRow = 0, rowCount = 10;
+int startColumn = 0, columnCount = 13;
+int worksheetIndex = 0;
+
+int imageResolution = 96;
+float frameWidth = 400, frameHeight = 100;
+
+using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
+var worksheet = workbook.Worksheets[worksheetIndex];
+
+// Establecer el tamaño mostrado cuando el archivo del libro se usa como objeto OLE en PowerPoint.
+var lastRow = startRow + rowCount - 1;
+var lastColumn = startColumn + columnCount - 1;
+workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
+
+// Escalar el rango de celdas para que se ajuste al tamaño del marco.
+var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
+ScaleCellRange(cellRange, frameWidth, frameHeight);
+
+var imageStream = CreateOleImage(cellRange, imageResolution);
+
+// Necesitamos usar el libro modificado.
+using var oleStream = new MemoryStream();
+workbook.Save(oleStream, Aspose.Cells.SaveFormat.Xlsx);
+
+using var presentation = new Presentation();
+var slide = presentation.Slides.First();
+
+// Agregar la imagen OLE a los recursos de la presentación.
+var oleImage = presentation.Images.AddImage(imageStream);
+
+// Crear el marco del objeto OLE.
+var dataInfo = new OleEmbeddedDataInfo(oleStream.ToArray(), "xlsx");
+var oleFrame = slide.Shapes.AddOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
+oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
+oleFrame.IsObjectIcon = false;
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
+```
+
+```cs
+/// <param name="width">El ancho esperado del rango de celdas en puntos.</param>
+/// <param name="height">La altura esperada del rango de celdas en puntos.</param>
+static void ScaleCellRange(Aspose.Cells.Range cellRange, float width, float height)
+{
+    var rangeWidth = cellRange.Width;
+    var rangeHeight = cellRange.Height;
+
+    for (int i = 0; i < cellRange.ColumnCount; i++)
+    {
+        var columnIndex = cellRange.FirstColumn + i;
+        var columnWidth = cellRange.Worksheet.Cells.GetColumnWidth(columnIndex, false, Aspose.Cells.CellsUnitType.Point);
+
+        var newColumnWidth = columnWidth * width / rangeWidth;
+        var widthInInches = newColumnWidth / 72;
+        cellRange.Worksheet.Cells.SetColumnWidthInch(columnIndex, widthInInches);
+    }
+
+    for (int i = 0; i < cellRange.RowCount; i++)
+    {
+        var rowIndex = cellRange.FirstRow + i;
+        var rowHeight = cellRange.Worksheet.Cells.GetRowHeight(rowIndex, false, Aspose.Cells.CellsUnitType.Point);
+
+        var newRowHeight = rowHeight * height / rangeHeight;
+        var heightInInches = newRowHeight / 72;
+        cellRange.Worksheet.Cells.SetRowHeightInch(rowIndex, heightInInches);
+    }
 }
 ```
 
-## **Escalar la altura de filas y el ancho de columnas de la hoja de cálculo de acuerdo al tamaño del marco Ole**
-En este enfoque, aprenderemos cómo escalar las alturas de las filas participantes y el ancho de las columnas participantes de acuerdo con el tamaño del marco ole establecido por el usuario.
-## **Ejemplo**
-Supongamos que hemos definido una hoja de Excel plantilla y deseamos agregarla a la presentación como marco Ole. En este escenario, estableceremos el tamaño del marco Ole y escalaremos el tamaño de las filas y columnas que participan en el área del marco Ole. Luego guardaremos el libro de trabajo en un stream para guardar los cambios y convertir eso en un array de bytes para agregarlo en el marco Ole. Para evitar el mensaje rojo de **Objeto Incrustado** para el marco Ole en PowerPoint, también obtendremos la imagen de las porciones deseadas de filas y columnas en el Libro de Trabajo y estableceremos eso como la imagen del marco Ole. 
-
-```csharp
-WorkbookDesigner workbookDesigner = new WorkbookDesigner();
-workbookDesigner.Workbook = new Workbook("AsposeTest.xls");
-
-Presentation presentation = new Presentation("AsposeTest.ppt");
-
-Slide slide = (Slide)presentation.Slides[0];
-
-AddOleFrame(slide, 0, 15, 0, 3, 0, 300, 1100, 0, 0, presentation, workbookDesigner, true, 0, 0);
-
-String fileName = "AsposeTest_Ole.ppt";
-presentation.Save(fileName, Aspose.Slides.Export.SaveFormat.Ppt);
-```
-
-```csharp
-private static void SetOleAccordingToCustomHeighWidth(Workbook workbook, Int32 startRow,
-    Int32 endRow, Int32 startCol, Int32 endCol, double slideWidth, double slideHeight, Int32 dataSheetIdx)
+```cs
+static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 {
-    Worksheet work = workbook.Worksheets[dataSheetIdx];
+    var pageSetup = cellRange.Worksheet.PageSetup;
+    pageSetup.PrintArea = cellRange.Address;
+    pageSetup.LeftMargin = 0;
+    pageSetup.RightMargin = 0;
+    pageSetup.TopMargin = 0;
+    pageSetup.BottomMargin = 0;
+    pageSetup.ClearHeaderFooter();
 
-    double actualHeight = 0, actualWidth = 0;
-
-    double newHeight = slideHeight;
-    double newWidth = slideWidth;
-    double tem = 0;
-    double newTem = 0;
-
-    for (int i = startRow; i <= endRow; i++)
-        actualHeight += work.Cells.GetRowHeightInch(i);
-
-    for (int i = startCol; i <= endCol; i++)
-        actualWidth += work.Cells.GetColumnWidthInch(i);
-    ///Estableciendo nueva altura y ancho de fila
-
-    for (int i = startRow; i <= endRow; i++)
+    var imageOptions = new Aspose.Cells.Rendering.ImageOrPrintOptions
     {
-        tem = work.Cells.GetRowHeightInch(i);
-        newTem = (tem / actualHeight) * newHeight;
-        work.Cells.SetRowHeightInch(i, newTem);
-    }
+        ImageType = Aspose.Cells.Drawing.ImageType.Png,
+        VerticalResolution = imageResolution,
+        HorizontalResolution = imageResolution,
+        OnePagePerSheet = true,
+        OnlyArea = true
+    };
 
-    for (int i = startCol; i <= endCol; i++)
-    {
-        tem = work.Cells.GetColumnWidthInch(i);
-        newTem = (tem / actualWidth) * newWidth;
-        work.Cells.SetColumnWidthInch(i, newTem);
+    var sheetRender = new Aspose.Cells.Rendering.SheetRender(cellRange.Worksheet, imageOptions);
+    var imageStream = new MemoryStream();
 
-    }
-}
+    sheetRender.ToImage(0, imageStream);
+    imageStream.Seek(0, SeekOrigin.Begin);
 
-```
-
-```csharp
-private static void AddOleFrame(Slide slide, Int32 startRow, Int32 endRow, Int32 startCol, Int32 endCol,
-    Int32 dataSheetIdx, Int32 x, Int32 y, Double OleWidth, Double OleHeight,
-    Presentation presentation, WorkbookDesigner workbookDesigner,
-    Boolean onePagePerSheet, Int32 outputWidth, Int32 outputHeight)
-{
-    String tempFileName = Path.GetTempFileName();
-    if (startRow == 0)
-    {
-        startRow++;
-        endRow++;
-    }
-
-    //Estableciendo el índice de la hoja activa del libro de trabajo
-    workbookDesigner.Workbook.Worksheets.ActiveSheetIndex = dataSheetIdx;
-
-    //Obteniendo el Libro de Trabajo y la hoja de cálculo seleccionada  
-    Workbook workbook = workbookDesigner.Workbook;
-    Worksheet work = workbook.Worksheets[dataSheetIdx];
-
-    //Estableciendo tamaño Ole de acuerdo a las filas y columnas seleccionadas
-    Size SlideOleSize = SetOleAccordingToSelectedRowsCloumns(workbook, startRow, endRow, startCol, endCol, dataSheetIdx);
-    OleWidth = SlideOleSize.Width;
-    OleHeight = SlideOleSize.Height;
-
-    //Establecer tamaño Ole en el Libro de Trabajo
-    workbook.Worksheets.SetOleSize(startRow, endRow, startCol, endCol);
-
-    workbook.Worksheets[0].IsGridlinesVisible = false;
-
-    //Estableciendo opciones de imagen para tomar la imagen de la hoja de cálculo
-    ImageOrPrintOptions imageOrPrintOptions = new ImageOrPrintOptions();
-    imageOrPrintOptions.ImageFormat = System.Drawing.Imaging.ImageFormat.Bmp;
-    imageOrPrintOptions.OnePagePerSheet = onePagePerSheet;
-
-    SheetRender render = new SheetRender(workbookDesigner.Workbook.Worksheets[dataSheetIdx], imageOrPrintOptions);
-    String ext = ".bmp";
-    render.ToImage(0, tempFileName + ext);
-    Image image = ScaleImage(Image.FromFile(tempFileName + ext), outputWidth, outputHeight);
-    String newTempFileName = tempFileName.Replace(".tmp", ".tmp1") + ext;
-    image.Save(newTempFileName, System.Drawing.Imaging.ImageFormat.Bmp);
-
-    //Agregando imagen a la colección de imágenes de la diapositiva
-    var ppImage = presentation.Images.AddImage(File.ReadAllBytes(newTempFileName));
-
-    //Guardando el libro de trabajo en un stream y copiando en un array de bytes
-    Stream mstream = workbook.SaveToStream();
-    byte[] chartOleData = new byte[mstream.Length];
-    mstream.Position = 0;
-    mstream.Read(chartOleData, 0, chartOleData.Length);
-
-    //Agregando Marco de Objeto Ole
-    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(chartOleData, "xls");
-    IOleObjectFrame oleObjectFrame = slide.Shapes.AddOleObjectFrame(x, y, Convert.ToInt32(OleWidth),
-        Convert.ToInt32(OleHeight), dataInfo);
-
-    //Estableciendo el nombre de la imagen y la propiedad de Texto Alternativo del marco ole    
-    oleObjectFrame.SubstitutePictureFormat.Picture.Image = ppImage;
-    oleObjectFrame.AlternativeText = "image" + ppImage;
+    return imageStream;
 }
 ```
 
-```csharp
-private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeight)
-{
-    if (outputWidth == 0 && outputHeight == 0)
-    {
-        outputWidth = image.Width;
-        outputHeight = image.Height;
-    }
-    Bitmap outputImage = new Bitmap(outputWidth, outputHeight, image.PixelFormat);
-    outputImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
-    Graphics graphics = Graphics.FromImage(outputImage);
-    graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-    System.Drawing.Rectangle srcDestRect = new System.Drawing.Rectangle(0, 0, outputWidth, outputHeight);
-    graphics.DrawImage(image, srcDestRect, srcDestRect, GraphicsUnit.Pixel);
-    graphics.Dispose();
-
-    return outputImage;
-}
-```
 
 ## **Conclusión**
 
+{{% alert color="primary" %}}
+Existen dos enfoques para solucionar el problema de redimensionamiento de la hoja de cálculo. La selección del enfoque adecuado depende de los requisitos específicos y del caso de uso. Ambos enfoques funcionan de la misma manera, ya sea que las presentaciones se creen a partir de una plantilla o desde cero. Además, no hay límite en el tamaño del marco del objeto OLE en esta solución.
+{{% /alert %}}
 
-{{% alert color="primary" %}}  Hay dos enfoques para solucionar el problema de redimensionamiento de la hoja de cálculo. La selección del enfoque apropiado depende de los requisitos y del caso de uso. Ambos enfoques funcionan de la misma manera, ya sean las presentaciones creadas a partir de una plantilla o creadas desde cero. Además, no hay un límite en el tamaño del Marco de OLE Object en la solución. {{% /alert %}} 
-## **Secciones Relacionadas**
-[Creando e Incrustando un Gráfico de Excel como Objeto OLE en una Presentación](/slides/es/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+## **Preguntas frecuentes**
 
-[Actualizando Objetos OLE automáticamente](/slides/es/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+**¿Por qué una hoja de cálculo de Excel incrustada cambia de tamaño al activarse por primera vez en PowerPoint?**
+Esto ocurre porque Excel intenta mantener el tamaño original de la ventana al activarse, mientras que el marco del objeto OLE en PowerPoint tiene sus propias dimensiones. PowerPoint y Excel negocian el tamaño para mantener la relación de aspecto, lo que puede provocar el redimensionamiento.
+
+**¿Es posible evitar por completo este problema de redimensionamiento?**
+Sí. Escalando el marco OLE para que se ajuste al tamaño del rango de celdas de Excel o escalando el rango de celdas para que se ajuste al tamaño deseado del marco OLE, se puede evitar el redimensionamiento no deseado.
+
+**¿Qué método de escalado debo usar, OLE frame scaling o cell range scaling?**
+Seleccione **OLE frame scaling** si desea mantener los tamaños originales de filas y columnas de Excel. Seleccione **cell range scaling** si desea un tamaño fijo para el marco OLE en su presentación.
+
+**¿Funcionarán estas soluciones si mi presentación se basa en una plantilla?**
+Sí. Ambas soluciones funcionan tanto para presentaciones creadas a partir de plantillas como desde cero.
+
+**¿Existe un límite al tamaño del marco OLE al usar estos métodos?**
+No. Puede hacer el marco del objeto OLE de cualquier tamaño siempre que establezca la escala adecuadamente.
+
+**¿Hay alguna forma de evitar el texto de marcador de posición "EMBEDDED OLE OBJECT" en PowerPoint?**
+Sí. Capturando una instantánea del rango de celdas de Excel objetivo y configurándola como la imagen de marcador de posición del marco OLE, puede mostrar una imagen de vista previa personalizada en lugar del marcador de posición predeterminado.
+
+## **Artículos relacionados**
+
+[Crear un gráfico de Excel e incrustarlo en una presentación como objeto OLE](/slides/es/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+
+[Actualizar objetos OLE automáticamente usando un complemento de MS PowerPoint](/slides/es/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

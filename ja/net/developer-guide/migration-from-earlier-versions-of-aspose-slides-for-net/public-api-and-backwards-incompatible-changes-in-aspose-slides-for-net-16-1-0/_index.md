@@ -1,21 +1,34 @@
 ---
-title: Aspose.Slides for .NET 16.1.0におけるパブリックAPIと後方互換性のない変更
+title: Aspose.Slides for .NET 16.1.0 の公開 API と後方互換性のない変更
+linktitle: Aspose.Slides for .NET 16.1.0
 type: docs
 weight: 220
 url: /ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/
+keywords:
+- 移行
+- レガシーコード
+- モダンコード
+- レガシーアプローチ
+- モダンアプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET の公開 API 更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
 ---
 
 {{% alert color="primary" %}} 
 
-このページでは、Aspose.Slides for .NET 16.1.0 APIで追加されたすべての[class](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/)または[removed](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/)クラス、メソッド、プロパティなど、およびその他の変更を示します。
+このページでは、Aspose.Slides for .NET 16.1.0 API に導入された、追加された[added](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/)または削除された[removed](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/)クラス、メソッド、プロパティ等と、その他の変更を一覧します。
 
 {{% /alert %}} 
-## **パブリックAPIの変更**
+## **パブリック API の変更**
 
-
-#### **IChartTextBlockFormatおよびITextFrameFormatインターフェイスにRotationAngleプロパティが追加されました**
-RotationAngleプロパティがAspose.Slides.Charts.IChartTextBlockFormatおよびAspose.Slides.ITextFrameFormatインターフェイスに追加されました。
-これは、バウンディングボックス内のテキストに適用されるカスタム回転を指定します。
+#### **IChartTextBlockFormat と ITextFrameFormat インターフェイスに Property RotationAngle が追加されました**
+Property RotationAngle が Aspose.Slides.Charts.IChartTextBlockFormat と Aspose.Slides.ITextFrameFormat インターフェイスに追加されました。  
+このプロパティは、バウンディング ボックス内のテキストに適用されるカスタム回転角度を指定します。
 
 ``` csharp
 
@@ -33,7 +46,7 @@ series.Labels.DefaultDataLabelFormat.TextFormat.TextBlockFormat.RotationAngle = 
 
 chart.HasTitle = true;
 
-chart.ChartTitle.AddTextFrameForOverriding("カスタムタイトル").TextFrameFormat.RotationAngle = -30;
+chart.ChartTitle.AddTextFrameForOverriding("Custom title").TextFrameFormat.RotationAngle = -30;
 
 pres.Save("out.pptx", SaveFormat.Pptx);
 
@@ -41,4 +54,4 @@ pres.Save("out.pptx", SaveFormat.Pptx);
 
 
 ``` 
-#### **OdpExceptionがAspose.Slides.OdpからAspose.Slides名前空間に移動されました**
+#### **OdpException が Aspose.Slides.Odp から Aspose.Slides 名前空間へ移動しました**

@@ -1,78 +1,86 @@
 ---
-title: Формулы рабочей таблицы диаграммы
+title: Применение формул листов диаграмм в презентациях на .NET
+linktitle: Формулы листа
 type: docs
 weight: 70
 url: /ru/net/chart-worksheet-formulas/
-keywords: "Диаграммная таблица, формула диаграммы, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
-description: "Диаграммная таблица и формула в презентации PowerPoint на C# или .NET"
+keywords:
+- таблица диаграммы
+- лист диаграммы
+- формула диаграммы
+- формула листа
+- формула электронной таблицы
+- источник данных
+- логическая константа
+- числовая константа
+- строковая константа
+- константа ошибки
+- арифметическая константа
+- оператор сравнения
+- стиль A1
+- стиль R1C1
+- предопределённая функция
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Применяйте формулы в стиле Excel в Aspose.Slides для .NET листов диаграмм и автоматизируйте отчёты в файлах PPT и PPTX."
 ---
 
-
-## **О формуле диаграммной таблицы в презентации**
-**Диаграммная таблица** (или рабочая таблица диаграммы) в презентации является источником данных для диаграммы. Диаграммная таблица содержит данные, которые представлены на диаграмме в графическом виде. Когда вы создаете диаграмму в PowerPoint, рабочая таблица, связанная с этой диаграммой, также создается автоматически. Рабочая таблица диаграммы создается для всех типов диаграмм: линейная диаграмма, столбчатая диаграмма, диаграмма с солнечным всплеском, круговая диаграмма и т. д. Чтобы увидеть диаграммную таблицу в PowerPoint, вы должны дважды щелкнуть на диаграмме:
+## **О формулах листа диаграммы в презентациях**
+**Chart spreadsheet** (or chart worksheet) in presentation is the data source of the chart. Chart spreadsheet contains data, which are represented on the chart in a graphic way. When you create a chart in PowerPoint, the worksheet associated with this chart is automatically created too. Chart worksheet is created for all types of charts: line chart, bar chart, sunburst chart, pie chart, etc. To see chart spreadsheet in PowerPoint you should double-click on the chart:
 
 ![todo:image_alt_text](chart-worksheet-formulas_1.png)
 
 
 
-Диаграммная таблица содержит названия элементов диаграммы (Название категории: *Категория1*, Название серии) и таблицу с числовыми данными, соответствующими этим категориям и сериям. По умолчанию, когда вы создаете новую диаграмму, данные диаграммной таблицы устанавливаются с использованием стандартных данных. Затем вы можете изменить данные в рабочей таблице вручную.
+Chart spreadsheet contains the names of chart elements (Category Name: *Category1*, Serie Name) and a table with numeric data appropriate to these categories and series. By default, when you create a new chart - the chart spreadsheet data are set with the default data. Then you may change spreadsheet data in the worksheet manually.
 
-Обычно диаграмма представляет собой сложные данные (например, финансовая аналитика, научная аналитика), имея ячейки, которые рассчитываются на основе значений в других ячейках или из других динамических данных. Ручной расчет значения ячейки и жесткое кодирование его в ячейку затрудняет его изменение в дальнейшем. Если вы измените значение определенной ячейки, все ячейки, зависимые от нее, также потребуют обновления. Более того, таблица данных может зависеть от данных из других таблиц, создавая сложную схему презентационных данных с необходимостью обновлять ее легким и гибким образом.
+Usually, the chart represents complicated data (e.g. financial analysts, scientific analysts), having cells that are calculated from the values in other cells or from other dynamic data. Calculating cell’s value manually and hard-coding it into the cell, makes it difficult to change it in the future. If you will change the value of a certain cell, all the cells dependent on it will require to be updated too. Moreover, table data may depend on the data from other tables, creating a complex presentation data scheme with a need to be updated in an easy and flexible way.
 
-**Формула диаграммной таблицы** в презентации – это выражение для автоматического расчета и обновления данных диаграммной таблицы. Формула таблицы определяет логику расчета данных для определенной ячейки или набора ячеек. Формула таблицы – это математическая формула или логическая формула, которая использует: ссылки на ячейки, математические функции, логические операторы, арифметические операторы, функции преобразования, строковые константы и т. д. Определение формулы записывается в ячейку, и эта ячейка не содержит простого значения. Формула таблицы рассчитывает значение и возвращает его обратно, затем это значение присваивается ячейке. Формулы диаграммных таблиц в презентациях на самом деле такие же, как формулы Excel, и поддерживаются те же стандартные функции, операторы и константы для их реализации.
+**Chart spreadsheet formula** in presentation is an expression to automatically calculate and update chart spreadsheet data. Spreadsheet formula defines the data calculation logic for a certain cell or a set of cells. Spreadsheet formula is a math formula or a logical formula, which is using: cell references, math functions, logical operators, arithmetic operators, conversion functions, string constants, etc. The definition of the formula is written into a cell, and this cell does not contain a simple value. Spreadsheet formula calculates the value and returns it back, then this value is assigned to the cell. Chart spreadsheet formulas in presentations are actually the same as excel formulas, and there are supported the same default functions, operators and constants for their implementation.
 
-В [**Aspose.Slides**](https://products.aspose.com/slides/net/) диаграммная таблица представлена с помощью 
-[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) свойства типа 
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook). 
-Формула таблицы может быть назначена и изменена с помощью 
-[**IChartDataCell.Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) свойства. 
-Следующий функционал поддерживается для формул в Aspose.Slides:
+In [**Aspose.Slides**](https://products.aspose.com/slides/net/)chart spreadsheet is represented with 
+[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) property of the
+[**IChartDataWorkbook**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook) type. 
+Spreadsheet formula can be assigned and changed with 
+[**IChartDataCell.Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) property. 
+The following functionality is supported for formulas in Aspose.Slides:
 
-- Логические константы
-- Числовые константы
-- Строковые константы
-- Константы ошибок
-- Арифметические операторы
-- Операторы сравнения
-- Ссылки на ячейки в стиле A1
-- Ссылки на ячейки в стиле R1C1
-- Предопределенные функции
+- Logical constants
+- Numerical constants
+- String constants
+- Error constants
+- Arithmetic operators
+- Comparison operators
+- A1-style cell references
+- R1C1-style cell references
+- Predefined functions
 
 
 
-Обычно таблицы хранят последние рассчитанные значения формул. Если после загрузки презентации данные диаграммы не изменились - свойство **IChartDataCell.Value** возвращает эти значения при чтении. Но если данные таблицы были изменены, при чтении свойства **ChartDataCell.Value** выбрасывается **CellUnsupportedDataException** для неподдерживаемых формул. Это происходит потому, что когда формулы успешно парсятся, определяются зависимости ячеек и устанавливается корректность последних значений. Но если формулу невозможно разобрать, нельзя гарантировать корректность значения ячейки.
-## **Добавление формулы диаграммной таблицы в презентацию**
-Сначала добавьте диаграмму с некоторыми образцовыми данными на первый слайд новой презентации с помощью 
+Typically, spreadsheets store the last calculated formula values. If after presentation loading, the chart data were not changed - **IChartDataCell.Value** property it returns those values while reading. But, if spreadsheet data had been changed, while reading **ChartDataCell.Value** property it throws the **CellUnsupportedDataException** for the unsupported formulas. This is because when formulas are successfully parsed, the cell dependencies are determined and the correctness of the last values is determined. But, if the formula can not be parsed, the correctness of cell value cannot be guaranteed.
+## **Add a Chart Spreadsheet Formula to a Presentation**
+First, add a chart with some sample data to the first slide of a new presentation with 
 [IShapeCollection.Shapes.AddChart](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/addchart/methods/1). 
-Рабочая таблица диаграммы создается автоматически и может быть доступна с помощью 
-[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) свойства:
-
-
-
+The worksheet of the chart is automatically created and can be accessed with 
+[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) property:
 ``` csharp
-
 using (var presentation = new Presentation())
-
 {
-
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
-
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-
     // ...
-
 }
-
 ```
 
 
 
-Давайте запишем некоторые значения в ячейки с помощью 
-[**IChartDataCell.Value**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/value) свойства 
-типа **Object**, что означает, что вы можете присвоить любое значение этому свойству:
 
-
-
+Let's write some values in cells with 
+[**IChartDataCell.Value**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/value) property 
+of the **Object** type, which means you can set any value to the property:
 ``` csharp
 
 workbook.GetCell(0, "F2").Value = -2.5;
@@ -85,27 +93,25 @@ workbook.GetCell(0, "H4").Value = 3;
 
 
 
-Теперь, чтобы записать формулу в ячейку, вы можете использовать 
-[**IChartDataCell.Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) свойство:
 
+Now to write formula to the cell, you can use the 
+[**IChartDataCell.Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) property:
 ``` csharp
 workbook.GetCell(0, "B2").Formula = "F2+G3+H4+1";
 ```
 
-*Примечание*: [**IChartDataCell.Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) свойство используется для установки ссылок на ячейки в стиле A1. 
+
+*Note*: [**IChartDataCell.Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) property is used to set A1-style cell references. 
 
 
 
-Чтобы установить ссылку на ячейку [R1C1Formula](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula), вы можете использовать [**IChartDataCell.R1C1Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula) свойство:
-
+To set the [R1C1Formula](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula) cell reference, you can use the [**IChartDataCell.R1C1Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula) property:
 ``` csharp
 workbook.GetCell(0, "C2").R1C1Formula = "R[1]C[4]/R[2]C[5]";
 ```
 
-Затем используйте [**IChartDataWorkbook.CalculateFormulas**](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdataworkbook/methods/calculateformulas) метод для расчета всех формул внутри рабочей книги и обновления соответствующих значений ячеек:
 
-
-
+Then use the [**IChartDataWorkbook.CalculateFormulas**](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdataworkbook/methods/calculateformulas) method to calculate all formulas within the workbook and update corresponding cells values:
 ``` csharp
 workbook.CalculateFormulas();
 
@@ -116,111 +122,112 @@ object value2 = workbook.GetCell(0, "C2"); // 2.1
 ```
 
 
-## **Логические Константы**
-Вы можете использовать логические константы такие как *FALSE* и *TRUE* в формулах ячеек:
+
+## **Logical Constants**
+You can use logical constants such as *FALSE* and *TRUE* in cell formulas:
 
 
 
 
-## **Числовые Константы**
-Числа могут быть использованы в обыкновенной или научной нотации для создания формулы диаграммной таблицы:
+## **Numerical Constants**
+Numbers can be used in common or scientific notations to create chart spreadsheet formula:
 
 
 
 
-## **Строковые Константы**
-Строковая (или буквенная) константа - это конкретное значение, которое используется как есть и не изменяется. Строковые константы могут быть: даты, тексты, числа и т. д.:
+## **String Constants**
+String (or literal) constant is a specific value that is used as it is and does not change. String constants may be: dates, texts, numbers, etc.:
 
 
 
 
-## **Константы Ошибок**
-Иногда невозможно вычислить результат с помощью формулы. В этом случае в ячейке отображается код ошибки вместо ее значения. Каждый тип ошибки имеет конкретный код:
+## **Error Constants**
+Sometimes its not possible to calculate the result by the formula. In that case, the error code is shown in the cell instead of its value. Each type of error has a specific code:
 
-- #DIV/0! - формула пытается делить на ноль.
-- #GETTING_DATA - может отображаться в ячейке, пока ее значение все еще вычисляется.
-- #N/A - информация отсутствует или недоступна. Некоторые причины могут быть: ячейки, используемые в формуле, пусты, лишний пробел, опечатка и т. д.
-- #NAME? - определенная ячейка или другие объект формулы не могут быть найдены по своему имени. 
-- #NULL! - может появляться, когда в формуле есть ошибка, например:  (,) или пробел вместо двоеточия (:).
-- #NUM! - числовое значение в формуле может быть недействительным, слишком длинным или слишком маленьким и т. д.
-- #REF! - недопустимая ссылка на ячейку.
-- #VALUE! - неожидаемый тип значения. Например, строковое значение, установленное для числовой ячейки.
-
-
-
-
-## **Арифметические Операторы**
-Вы можете использовать все арифметические операторы в формулах рабочей таблицы диаграммы:
+- #DIV/0! - formula tries to divide by zero.
+- #GETTING_DATA - may be shown on a cell, while its value is still calculating.
+- #N/A - information is missing or not available. Some reasons can be: the cells used in the formula is empty, an extra space character, misspelling, etc.
+- #NAME? - a certain cell or other formula objects can not be found by its name. 
+- #NULL! - may appear when there is a mistake in the formula, like:  (,) or a space character used instead of a colon (:).
+- #NUM! - the numeric in the formula may be invalid, too long or too small, etc.
+- #REF! - invalid cell reference.
+- #VALUE! - unexpected value type. For example, string value set to numeric cell.
 
 
 
-|**Оператор** |**Значение** |**Пример**|
+
+## **Arithmetic Operators**
+You can use all the arithmetic operators in chart worksheet formulas:
+
+
+
+|**Operator** |**Meaning** |**Example**|
 | :- | :- | :- |
-|+ (плюс) |Сложение или унарный плюс|2 + 3|
-|- (минус) |Вычитание или отрицание |2 - 3<br>-3|
-|* (звездочка)|Умножение |2 * 3|
-|/ (косая черта)|Деление |2 / 3|
-|% (процент)|Процент |30%|
-|^ (крышка)|Возведение в степень |2 ^ 3|
+|+ (plus sign) |Addition or unary plus|2 + 3|
+|- (minus sign) |Subtraction or negation |2 - 3<br>-3|
+|* (asterisk)|Multiplication |2 * 3|
+|/ (forward slash)|Division |2 / 3|
+|% (percent sign) |Percent |30%|
+|^ (caret) |Exponentiation |2 ^ 3|
 
 
-*Примечание*: Чтобы изменить порядок вычислений, заключите в скобки часть формулы, которую нужно вычислить первой.
+*Note*: To change the order of evaluation, enclose in parentheses the part of the formula to be calculated first.
 
 
-## **Операторы Сравнения**
-Вы можете сравнивать значения ячеек с помощью операторов сравнения. Когда два значения сравниваются с использованием этих операторов, результатом будет логическое значение, либо *TRUE*, либо FALSE:
+## **Comparison Operators**
+You can compare the values of cells with the comparison operators. When two values are compared by using these operators, the result is a logical value either *TRUE* or FALSE:
 
 
 
-|**Оператор** |**Значение** |**Значение** |
+|**Operator** |**Meaning** |**Meaning** |
 | :- | :- | :- |
-|= (знак равенства) |Равно |A2 = 3|
-|<> (знак неравенства)|Не равно|A2 <> 3|
-|> (знак больше)|Больше|A2 > 3|
-|>= (знак больше или равен)|Больше или равно|A2 >= 3|
-|< (знак меньше)|Меньше|A2 < 3|
-|<= (знак меньше или равен)|Меньше или равно|A2 <= 3|
+|= (equal sign) |Equal to |A2 = 3|
+|<> (not equal sign) |Not equal to|A2 <> 3|
+|> (greater than sign) |Greater than|A2 > 3|
+|>= (greater than or equal to sign)|Greater than or equal to|A2 >= 3|
+|< (less than sign)|Less than|A2 < 3|
+|<= (less than or equal to sign)|Less than or equal to|A2 <= 3|
 
-## **Ссылки на Ячейки в Стиле A1**
-**Ссылки на ячейки в стиле A1** используются для рабочих таблиц, где колонка имеет буквенный идентификатор (например, "*A*"), а строка имеет числовой идентификатор (например, "*1*"). Ссылки на ячейки в стиле A1 могут использоваться следующим образом:
+## **A1-style Cell References**
+**A1-style cell references** are used for the worksheets, where the column has a letter identifier (e.g. "*A*") and the row has a numeric identifier (e.g. "*1*"). A1-style cell references can be used in the following way:
 
 
 
-|**Ссылка на ячейку**|**Пример**|||
+|**Cell reference**|**Example**|||
 | :- | :- | :- | :- |
-||Абсолютная |Относительная |Смешанная|
-|Ячейка |$A$2 |A2|<p>A$2</p><p>$A2</p>|
-|Строка |$2:$2 |2:2 |-|
-|Колонка |$A:$A |A:A |-|
-|Диапазон |$A$2:$C$4 |A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+||Absolute |Relative |Mixed|
+|Cell |$A$2 |A2|<p>A$2</p><p>$A2</p>|
+|Row |$2:$2 |2:2 |-|
+|Column |$A:$A |A:A |-|
+|Range |$A$2:$C$4 |A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
 
 
-Вот пример, как использовать ссылку на ячейку в стиле A1 в формуле:
-
-
-
-
-## **Ссылки на Ячейки в Стиле R1C1**
-**Ссылки на ячейки в стиле R1C1** используются для рабочих таблиц, где как строка, так и колонка имеют числовой идентификатор. Ссылки на ячейки в стиле R1C1 могут использоваться следующим образом:
+Here is an example how to use A1-style cell reference in formula:
 
 
 
-|**Ссылка на ячейку**|**Пример**|||
+
+## **R1C1-style Cell References**
+**R1C1-style cell references** are used for the worksheets, where both a row and a column has the numeric identifier. R1C1-style cell references can be used in the following way:
+
+
+
+|**Cell reference**|**Example**|||
 | :- | :- | :- | :- |
-||Абсолютная |Относительная |Смешанная|
-|Ячейка |R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Строка |R2|R[2]|-|
-|Колонка |C3|C[3]|-|
-|Диапазон |R2C3:R5C7|R[2]C[3]:R[5]C[7] |R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+||Absolute |Relative |Mixed|
+|Cell |R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
+|Row |R2|R[2]|-|
+|Column |C3|C[3]|-|
+|Range |R2C3:R5C7|R[2]C[3]:R[5]C[7] |R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
 
 
-Вот пример, как использовать ссылку на ячейку в стиле A1 в формуле:
+Here is an example how to use A1-style cell reference in formula:
 
 
 
 
-## **Предопределенные Функции**
-Существуют предопределенные функции, которые могут использоваться в формулах для упрощения их реализации. Эти функции инкапсулируют самые часто используемые операции, такие как: 
+## **Predefined Functions**
+There are predefined functions, that can be used in the formulas to simplify their implementation. These functions encapsulate the most commonly used operations, like: 
 
 - ABS
 - AVERAGE
@@ -228,14 +235,24 @@ object value2 = workbook.GetCell(0, "C2"); // 2.1
 - CHOOSE
 - CONCAT
 - CONCATENATE
-- DATE (система дат 1900 года)
+- DATE (1900 date system)
 - DAYS
 - FIND
 - FINDB
 - IF
-- INDEX (ссылка)
-- LOOKUP (векторная форма)
-- MATCH (векторная форма)
+- INDEX (reference form)
+- LOOKUP (vector form)
+- MATCH (vector form)
 - MAX
 - SUM
 - VLOOKUP
+
+## **FAQ**
+
+**Are external Excel files supported as a data source for a chart with formulas?**
+
+Yes. Aspose.Slides supports external workbooks as a [chart's data source](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatasourcetype/), which lets you use formulas from an XLSX outside the presentation.
+
+**Can chart formulas reference sheets within the same workbook by sheet name?**
+
+Yes. Formulas follow the standard Excel reference model, so you can reference other sheets within the same workbook or an external workbook. For external references, include the path and workbook name using Excel syntax.

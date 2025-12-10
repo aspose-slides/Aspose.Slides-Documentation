@@ -1,5 +1,5 @@
 ---
-title: Отображение форм на слайде как изображений
+title: Отображение фигур на слайде в виде изображений
 type: docs
 weight: 120
 url: /ru/net/rendering-shapes-on-slide-as-images/
@@ -7,16 +7,15 @@ url: /ru/net/rendering-shapes-on-slide-as-images/
 
 Это охватывает две основные функции:
 
-- Извлечение изображения из формы в файл.
-- Извлечение форм как файла изображения.
-## **Извлечение изображения из формы в файл**
-Изображения добавляются на фон слайда и формы. Иногда необходимо извлечь изображения, добавленные в формы презентации.
+- Извлечение изображения из фигуры в файл.
+- Извлечение фигур в виде файла изображения.
+## **Извлечь изображение из фигуры в файл**
+Изображения добавляются в фон слайда и в фигуры. Иногда необходимо извлечь изображения, добавленные в фигуры презентации.
 
-В **Aspose.Slides для .NET** изображения могут быть добавлены в форму слайда и фон слайда. Изображения добавляются в **ImageCollectionEx** презентации. В этом примере мы пройдемся по каждой форме внутри каждого слайда презентации и посмотрим, есть ли какое-либо изображение, добавленное в форму слайда. Если для какой-либо формы будет найдено изображение, мы извлечем его и сохраним в файл. Следующий фрагмент кода служит этой цели.
-
+В **Aspose.Slides for .NET** изображения могут быть добавлены в фигуру слайда и в фон слайда. Изображения находятся в **ImageCollectionEx** презентации. В этом примере мы будем проходить по каждой фигуре на каждом слайде презентации и проверять, есть ли изображение, добавленное в фигуру слайда. Если изображение найдено для какой-либо фигуры, мы извлечем его и сохраним в файл. Следующий фрагмент кода выполнит эту задачу.
 ``` csharp
 
- //Доступ к презентации
+ //Получение презентации
 
 PresentationEx pres = new PresentationEx("RenderImageFromShape.pptx");
 
@@ -34,7 +33,7 @@ for (int i = 0; i < pres.Slides.Count; i++)
 
 	slideIndex++;
 
-	//Доступ к первому слайду
+	//Получение первого слайда
 
 	SlideEx sl = pres.Slides[i];
 
@@ -44,7 +43,7 @@ for (int i = 0; i < pres.Slides.Count; i++)
 
 	{
 
-		// Доступ к форме с изображением
+		// Получение фигуры с изображением
 
 		ShapeEx sh = sl.Shapes[j];
 
@@ -95,7 +94,7 @@ for (int i = 0; i < pres.Slides.Count; i++)
 
 		//
 
-		//Устанавливаем желаемый формат изображения
+		//Установка желаемого формата изображения
 
 		if (ifImageFound)
 
@@ -152,44 +151,32 @@ for (int i = 0; i < pres.Slides.Count; i++)
 		ifImageFound = false;
 
 ``` 
-## **Скачать образец кода**
+## **Download Sample Code**
 - [Codeplex](http://goo.gl/G3JI6p)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Shapes%20and%20Slide%20to%20Images%20%28Aspose.Slides%29.zip)
-## **Извлечение форм как файла изображения**
-``` csharp
-
- //Создание объекта Presentation, который представляет файл PPT
-
+## **Extract Shapes as Image Files**
+```cs
+//Создание объекта Presentation, представляющего файл PPT
 Presentation pres = new Presentation("RenderShapeAsImage.ppt");
 
-//Доступ к слайду с использованием его позиции слайда
+//Получение слайда по его позиции
+ISlide slide = pres.Slides[2];
 
-Slide slide = pres.GetSlideByPosition(2);
-
-
-//Итерация по всем формам на слайде и создание миниатюр
-
-ShapeCollection shapes = slide.Shapes;
-
-for (int i = 0; i < shapes.Count; i++)
-
+for (int i = 0; i < slide.Shapes.Count; i++)
 {
+    IShape shape = slide.Shapes[i];
 
-	Shape shape = shapes[i];
-
-	//Получение миниатюрного изображения формы
-
-	Image img = slide.GetThumbnail(new object[] { shape }, 1.0, 1.0, shape.ShapeRectangle);
-
-	//Сохранение миниатюрного изображения в формате gif
-
-	img.Save(i + ".gif", ImageFormat.Gif);
-
+    //Получение миниатюрного изображения фигуры
+    using (IImage image = shape.GetImage(ShapeThumbnailBounds.Shape, 1.0f, 1.0f))
+    {
+        //Сохранение миниатюрного изображения в формате gif
+        image.Save(i + ".gif", ImageFormat.Gif);
+    }
 }
+```
 
-``` 
 
-*Примечание:* Извлечение формы в настоящее время поддерживается в файле .ppt.
-## **Скачать образец кода**
+*Примечание:*Извлечение фигур в настоящее время поддерживается только в файлах .ppt.
+## **Скачать пример кода**
 - [Codeplex](https://asposevsto.codeplex.com/downloads/get/812536)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Individual%20Shapes%20as%20Images%20%28Aspose.Slides%29.zip)

@@ -1,107 +1,127 @@
 ---
-title: Открыть презентацию в C#
+title: Открытие презентаций в .NET
 linktitle: Открыть презентацию
 type: docs
 weight: 20
 url: /ru/net/open-presentation/
-keywords: "Открыть PowerPoint, PPTX, PPT, Открыть презентацию, Загрузить презентацию, C#, Csharp, .NET"
-description: "Открыть или загрузить презентацию PPT, PPTX, ODP на C# или .NET"
+keywords:
+- открыть PowerPoint
+- открыть презентацию
+- открыть PPTX
+- открыть PPT
+- открыть ODP
+- загрузить презентацию
+- загрузить PPTX
+- загрузить PPT
+- загрузить ODP
+- защищённая презентация
+- большая презентация
+- внешний ресурс
+- бинарный объект
+- .NET
+- C#
+- Aspose.Slides
+description: "Открывайте презентации PowerPoint (.pptx, .ppt) и OpenDocument (.odp) легко с помощью Aspose.Slides для .NET — быстро, надёжно, с полным набором функций."
 ---
 
-Кроме создания презентаций PowerPoint с нуля, Aspose.Slides позволяет вам открывать существующие презентации. После загрузки презентации вы можете получить информацию о ней, редактировать ее (содержимое на слайдах), добавлять новые слайды или удалять существующие и т.д.
+## **Обзор**
 
-## Открыть презентацию
+Помимо создания презентаций PowerPoint с нуля, Aspose.Slides также позволяет открывать существующие презентации. После загрузки презентации вы можете получать информацию о ней, редактировать содержимое слайдов, добавлять новые слайды, удалять существующие и многое другое.
 
-Чтобы открыть существующую презентацию, вам просто нужно создать экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) и передать путь к файлу (к презентации, которую вы хотите открыть) в его конструктор.
+## **Открытие презентаций**
 
-Этот код на C# показывает, как открыть презентацию и узнать, сколько слайдов она содержит:
+Чтобы открыть существующую презентацию, создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) и передайте путь к файлу в его конструктор.
 
-```c#
-// Создание экземпляра класса Presentation и передача пути к файлу в его конструктор
-Presentation pres = new Presentation("OpenPresentation.pptx");
-
-// Выводит общее количество слайдов в презентации
-System.Console.WriteLine(pres.Slides.Count.ToString());
+Ниже приведён пример на C#, показывающий, как открыть презентацию и получить количество её слайдов:
+```cs
+// Создайте экземпляр класса Presentation и передайте путь к файлу в его конструктор.
+using (Presentation presentation = new Presentation("Sample.pptx"))
+{
+    // Выведите общее количество слайдов в презентации.
+    System.Console.WriteLine(presentation.Slides.Count);
+}
 ```
 
-## **Открыть защищенную паролем презентацию**
 
-Когда вам нужно открыть презентацию с защитой паролем, вы можете передать пароль через свойство [Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) (из класса [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/)), чтобы расшифровать и загрузить презентацию. Этот код на C# демонстрирует операцию:
+## **Открытие презентаций, защищённых паролем**
 
-```c#
-	LoadOptions loadOptions = new LoadOptions {Password = "ВАШ_ПАРОЛЬ"};
-	using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-	{
-	  // Выполните некоторые действия с расшифрованной презентацией
-	}
+Когда необходимо открыть презентацию, защищённую паролем, укажите пароль через свойство [Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) класса [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) для расшифровки и загрузки. Ниже показан соответствующий код на C#:
+```cs
+LoadOptions loadOptions = new LoadOptions {Password = "YOUR_PASSWORD"};
+using (Presentation presentation = new Presentation("Sample.pptx", loadOptions))
+{
+    // Выполните операции над расшифрованной презентацией.
+}
 ```
 
-## Открыть большую презентацию
 
-Aspose.Slides предоставляет параметры (в частности, свойство [BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/blobmanagementoptions/) в классе [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/)), позволяющие загружать большие презентации.
+## **Открытие больших презентаций**
 
-Этот код на C# демонстрирует операцию, в которой загружается большая презентация (например, размером 2 ГБ):
+Aspose.Slides предоставляет параметры — в частности свойство [BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/blobmanagementoptions/) класса [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) — для загрузки больших презентаций.
 
-```c#
-const string pathToVeryLargePresentationFile = "veryLargePresentation.pptx";
+Ниже пример кода на C#, демонстрирующий загрузку большой презентации (например, 2 ГБ):
+```cs
+const string filePath = "LargePresentation.pptx";
 
 LoadOptions loadOptions = new LoadOptions
 {
-    BlobManagementOptions = {
-        // Давайте выберем поведение KeepLocked - "veryLargePresentation.pptx" будет заблокирован на
-        // время существования экземпляра Presentation, но нам не нужно загружать его в память или копировать в
-        // временный файл
+    BlobManagementOptions = 
+    {
+        // Выберите поведение KeepLocked — файл презентации будет оставаться заблокированным в течение срока действия 
+        // экземпляра Presentation, но его не требуется загружать в память или копировать во временный файл.
         PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
+        IsTemporaryFilesAllowed = true,
+        MaxBlobsBytesInMemory = 10 * 1024 * 1024 // 10 MB
     }
 };
 
-using (Presentation pres = new Presentation(pathToVeryLargePresentationFile, loadOptions))
+using (Presentation presentation = new Presentation(filePath, loadOptions))
 {
-    // Большая презентация загружена и может быть использована, но потребление памяти все еще низкое.
+    // Большая презентация была загружена и может использоваться, при этом потребление памяти остается низким.
 
-    // Внесение изменений в презентацию.
-    pres.Slides[0].Name = "Очень большая презентация";
+    // Внесите изменения в презентацию.
+    presentation.Slides[0].Name = "Large presentation";
 
-    // Презентация будет сохранена в другой файл. Потребление памяти остается низким во время операции
-    pres.Save("veryLargePresentation-copy.pptx", SaveFormat.Pptx);
+    // Сохраните презентацию в другой файл. Потребление памяти остаётся низким во время этой операции.
+    presentation.Save("LargePresentation-copy.pptx", SaveFormat.Pptx);
 
-    // Нельзя это сделать! Будет выброшено исключение IO, так как файл заблокирован, пока объекты pres не будут
-    // освобождены
-    File.Delete(pathToVeryLargePresentationFile);
+    // Не делайте этого! Будет выброшено исключение ввода-вывода, потому что файл заблокирован до тех пор, пока объект презентации не будет освобождён.
+    File.Delete(filePath);
 }
 
-// Здесь можно сделать это, исходный файл не заблокирован объектом pres
-File.Delete(pathToVeryLargePresentationFile);
+// Это можно сделать здесь. Исходный файл больше не заблокирован объектом презентации.
+File.Delete(filePath);
 ```
 
-{{% alert color="info" title="Информация" %}}
 
-Чтобы обойти определенные ограничения при взаимодействии с потоками, Aspose.Slides может копировать содержимое потока. Загрузка большой презентации через ее поток приведет к копированию содержимого презентации и замедлит загрузку. Поэтому, когда вы собираетесь загрузить большую презентацию, мы настоятельно рекомендуем использовать путь к файлу презентации, а не её поток.
+{{% alert color="info" title="Info" %}}
+Для обхода некоторых ограничений при работе с потоками Aspose.Slides может копировать содержимое потока. Загрузка большой презентации из потока приводит к копированию презентации и может замедлить процесс загрузки. Поэтому, когда необходимо загрузить большую презентацию, настоятельно рекомендуется использовать путь к файлу презентации, а не поток.
 
-Когда вы хотите создать презентацию, содержащую большие объекты (видео, аудио, большие изображения и т.д.), вы можете использовать [Blob-объекты](https://docs.aspose.com/slides/net/manage-blob/), чтобы уменьшить потребление памяти.
-
+При создании презентации, содержащей большие объекты (видео, аудио, изображения высокого разрешения и т.д.), вы можете воспользоваться [BLOB management](/slides/ru/net/manage-blob/), чтобы снизить потребление памяти.
 {{%/alert %}}
 
-## Загрузить презентацию
-Aspose.Slides предоставляет [IResourceLoadingCallback](https://reference.aspose.com/slides/net/aspose.slides/iresourceloadingcallback/) с единственным методом, позволяющим управлять внешними ресурсами. Этот код на C# показывает, как использовать интерфейс `IResourceLoadingCallback`:
+## **Управление внешними ресурсами**
 
-```c#
-LoadOptions opts = new LoadOptions();
-opts.ResourceLoadingCallback = new ImageLoadingHandler();
-Presentation presentation = new Presentation("presentation.pptx", opts);
+Aspose.Slides предоставляет интерфейс [IResourceLoadingCallback](https://reference.aspose.com/slides/net/aspose.slides/iresourceloadingcallback/), позволяющий контролировать внешние ресурсы. Ниже пример кода на C#, показывающий, как использовать интерфейс `IResourceLoadingCallback`:
+```cs
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.ResourceLoadingCallback = new ImageLoadingHandler();
+
+Presentation presentation = new Presentation("Sample.pptx", loadOptions);
 ```
 
-```c#
+```cs
 public class ImageLoadingHandler : IResourceLoadingCallback
 {
     public ResourceLoadingAction ResourceLoading(IResourceLoadingArgs args)
     {
         if (args.OriginalUri.EndsWith(".jpg"))
         {
-            try // Загружает заменяющее изображение
+            try
             {
-                byte[] imageBytes = File.ReadAllBytes("c:\\aspose-logo.jpg");
-                args.SetData(imageBytes);
+                // Загрузить заменяющее изображение.
+                byte[] imageData = File.ReadAllBytes("aspose-logo.jpg");
+                args.SetData(imageData);
                 return ResourceLoadingAction.UserProvided;
             }
             catch (Exception)
@@ -111,53 +131,52 @@ public class ImageLoadingHandler : IResourceLoadingCallback
         }
         else if (args.OriginalUri.EndsWith(".png"))
         {
-            // Устанавливает заменяющий URL
+            // Установить заменяющий URL.
             args.Uri = "http://www.google.com/images/logos/ps_logo2.png";
             return ResourceLoadingAction.Default;
         }
 
-        // Пропускает все остальные изображения
+        // Пропустить все остальные изображения.
         return ResourceLoadingAction.Skip;
     }
 }
 ```
 
-## Загрузить презентацию без встроенных двоичных объектов
 
-Презентация PowerPoint может содержать следующие виды встроенных двоичных объектов:
+## **Загрузка презентаций без встроенных бинарных объектов**
 
-- VBA проект ([IPresentation.VbaProject](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/vbaproject/));
-- Встроенные данные OLE объектов ([IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/));
-- Двоичные данные ActiveX управления ([IControl.ActiveXControlBinary](https://reference.aspose.com/slides/net/aspose.slides/icontrol/activexcontrolbinary/));
+Презентация PowerPoint может содержать следующие типы встроенных бинарных объектов:
 
-Используя свойство [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/net/aspose.slides/iloadoptions/deleteembeddedbinaryobjects/), вы можете загрузить презентацию без каких-либо встроенных двоичных объектов.
+- Проект VBA (доступно через [IPresentation.VbaProject](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/vbaproject/));
+- Встроенные данные OLE‑объекта (доступно через [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/));
+- Бинарные данные управления ActiveX (доступно через [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/net/aspose.slides/icontrol/activexcontrolbinary/)).
 
-Это свойство может быть полезно для удаления потенциально вредоносного двоичного содержимого.
+Используя свойство [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/net/aspose.slides/iloadoptions/deleteembeddedbinaryobjects/), можно загрузить презентацию без каких‑либо встроенных бинарных объектов.
 
-Код на C# демонстрирует, как загрузить и сохранить презентацию без вредоносного содержимого:
-
-```c#
+Это свойство полезно для удаления потенциально вредоносного бинарного контента. Ниже пример кода на C#, демонстрирующий загрузку презентации без встроенного бинарного контента:
+```cs
 LoadOptions loadOptions = new LoadOptions()
 {
 	DeleteEmbeddedBinaryObjects = true
 }
 
-using (var pres = new Presentation("malware.ppt", loadOptions))
+using (Presentation presentation = new Presentation("malware.ppt", loadOptions))
 {
-    pres.Save("clean.ppt", SaveFormat.Ppt);
+    // Выполните операции над презентацией.
 }
 ```
 
-<h2>Открыть и сохранить презентацию</h2>
 
-<a name="csharp-open-save-presentation"><strong>Этапы: Открыть и сохранить презентацию в C#</strong></a>
+## **FAQ**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) и передайте файл, который вы хотите открыть.
-2. Сохраните презентацию.
+**Как определить, что файл повреждён и его нельзя открыть?**
 
-```c#
-// Загружает любую поддерживаемую презентацию, например ppt, pptx, odp
-Presentation presentation = new Presentation("Sample.odp");
+При загрузке будет выброшено исключение парсинга/валидации формата. Такие ошибки часто указывают на неверную структуру ZIP‑архива или повреждённые записи PowerPoint.
 
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
-```
+**Что происходит, если при открытии отсутствуют требуемые шрифты?**
+
+Файл откроется, но последующее [рендеринг/экспорт](/slides/ru/net/convert-presentation/) может заменить шрифты. Используйте [настройку замен шрифтов](/slides/ru/net/font-substitution/) или [добавьте необходимые шрифты](/slides/ru/net/custom-font/) в среду выполнения.
+
+**Что происходит с встроенными медиа (видео/аудио) при открытии?**
+
+Они становятся доступными как ресурсы презентации. Если медиа‑файлы ссылаются на внешние пути, убедитесь, что эти пути доступны в вашей среде; в противном случае [рендеринг/экспорт](/slides/ru/net/convert-presentation/) может их опустить.

@@ -1,139 +1,141 @@
 ---
-title: ズームの管理
+title: .NET でプレゼンテーションズームを管理
+linktitle: ズームの管理
 type: docs
 weight: 60
 url: /ja/net/manage-zoom/
-keywords: 
+keywords:
 - ズーム
 - ズームフレーム
+- スライドズーム
+- セクションズーム
+- サマリズーム
 - ズームの追加
-- ズームフレームのフォーマット
-- サマリーズーム
-- PowerPointプレゼンテーション
+- PowerPoint
+- プレゼンテーション
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "C#または.NETでPowerPointプレゼンテーションにズームまたはズームフレームを追加する"
+- Aspose.Slides
+description: "Aspose.Slides for .NET を使用してズームを作成およびカスタマイズします — セクション間をジャンプし、サムネイルやトランジションを PPT、PPTX、ODP プレゼンテーション全体に追加します。"
 ---
 
 ## **概要**
-PowerPointのズーム機能を使用すると、特定のスライド、セクション、およびプレゼンテーションの一部にジャンプすることができます。プレゼンテーションを行う際に、この内容間を迅速にナビゲートする機能は非常に便利です。
+PowerPoint のズーム機能を使用すると、プレゼンテーション内の特定のスライド、セクション、領域へ、またそこからジャンプできます。プレゼンテーション中に、コンテンツを素早くナビゲートできるこの機能は非常に便利です。
 
 ![overview_image](overview.png)
 
-* プレゼンテーション全体を1枚のスライドに要約するには、[サマリーズーム](#Summary-Zoom)を使用します。
-* 選択したスライドのみを表示するには、[スライズーム](#Slide-Zoom)を使用します。
-* 単一のセクションのみを表示するには、[セクションズーム](#Section-Zoom)を使用します。
+* プレゼンテーション全体を 1 枚のスライドにまとめるには、[サマリーズーム](#Summary-Zoom) を使用します。
+* 選択したスライドだけを表示するには、[スライドズーム](#Slide-Zoom) を使用します。
+* 単一のセクションだけを表示するには、[セクションズーム](#Section-Zoom) を使用します。
 
-## **スライズーム**
-スライズームを使用すると、プレゼンテーションをよりダイナミックにし、プレゼンテーションの流れを中断することなく、選択した順序でスライド間を自由にナビゲートできます。スライズームは、多くのセクションがない短いプレゼンテーションに最適ですが、さまざまなプレゼンテーションシナリオでも使用できます。
+## **スライドズーム**
+スライドズームを使用すると、プレゼンテーションがよりダイナミックになり、任意の順序でスライド間を自由に移動でき、プレゼンテーションの流れを中断することなく進められます。スライドズームは、セクションが少ない短いプレゼンテーションに最適ですが、さまざまなシナリオでも活用できます。
 
-スライズームを使用すると、1つのキャンバス上にいるように感じながら、複数の情報に深く掘り下げることができます。
+スライドズームは、単一のキャンバス上にいるかのように、複数の情報を掘り下げて表示できます。
 
 ![overview_image](slidezoomsel.png)
 
-スライズームオブジェクトについて、Aspose.Slidesは[ZoomImageType](https://reference.aspose.com/slides/net/aspose.slides/zoomimagetype)列挙型、[IZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/izoomframe)インターフェイス、および[IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection)インターフェイスのいくつかのメソッドを提供しています。
+スライドズームオブジェクトについては、Aspose.Slides が [ZoomImageType](https://reference.aspose.com/slides/net/aspose.slides/zoomimagetype) 列挙体、[IZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/izoomframe) インターフェイス、および [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) インターフェイス下のいくつかのメソッドを提供します。
 
 ### **ズームフレームの作成**
 
-次の手順でスライドにズームフレームを追加できます。
+スライドにズームフレームを追加する手順は次のとおりです。
 
-1.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
-2.	ズームフレームをリンクするスライドを新しく作成します。
-3.	作成したスライドに識別テキストと背景を追加します。
-4.	最初のスライドにズームフレーム（作成したスライドへの参照を含む）を追加します。
-5.	修正したプレゼンテーションをPPTXファイルとして保存します。
+1.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
+2.	ズームフレームをリンクさせる新しいスライドを作成します。 
+3.	作成したスライドに識別用テキストと背景を追加します。
+4.	作成したスライドへの参照を含むズームフレームを最初のスライドに追加します。
+5.	変更したプレゼンテーションを PPTX ファイルとして書き出します。
 
-このC#コードは、スライド上にズームフレームを作成する方法を示しています：
-
-``` csharp 
+この C# コードは、スライドにズームフレームを作成する方法を示しています:
+``` csharp
 using (Presentation pres = new Presentation())
 {
     //プレゼンテーションに新しいスライドを追加
     ISlide slide2 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     ISlide slide3 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
 
-    // 2番目のスライドの背景を作成
+    //2枚目のスライドの背景を作成
     slide2.Background.Type = BackgroundType.OwnBackground;
     slide2.Background.FillFormat.FillType = FillType.Solid;
     slide2.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
 
-    // 2番目のスライド用のテキストボックスを作成
+    //2枚目のスライド用のテキストボックスを作成
     IAutoShape autoshape = slide2.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "2番目のスライド";
+    autoshape.TextFrame.Text = "Second Slide";
 
-    // 3番目のスライドの背景を作成
+    //3枚目のスライドの背景を作成
     slide3.Background.Type = BackgroundType.OwnBackground;
     slide3.Background.FillFormat.FillType = FillType.Solid;
     slide3.Background.FillFormat.SolidFillColor.Color = Color.DarkKhaki;
 
-    // 3番目のスライド用のテキストボックスを作成
+    //3枚目のスライド用のテキストボックスを作成
     autoshape = slide3.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "第3のスライド";
+    autoshape.TextFrame.Text = "Trird Slide";
 
-    //ズームフレームオブジェクトを追加
+    //ZoomFrameオブジェクトを追加
     pres.Slides[0].Shapes.AddZoomFrame(20, 20, 250, 200, slide2);
     pres.Slides[0].Shapes.AddZoomFrame(200, 250, 250, 200, slide3);
 
-    // プレゼンテーションを保存
+    //プレゼンテーションを保存
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
-### **カスタム画像を使用したズームフレームの作成**
-Aspose.Slides for .NETを使用して、異なるスライドプレビュー画像を持つズームフレームを次のように作成できます：
-1.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
-2.	ズームフレームをリンクする新しいスライドを作成します。
-3.	スライドに識別テキストと背景を追加します。
-4.	[IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage)オブジェクトを作成し、[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)オブジェクトに関連付けられたImagesコレクションに画像を追加します。これがフレームを埋めるために使用されます。
-5.	最初のスライドにズームフレーム（作成したスライドへの参照を含む）を追加します。
-6.	修正したプレゼンテーションをPPTXファイルとして保存します。
 
-このC#コードは、異なる画像を持つズームフレームを作成する方法を示しています：
+### **カスタム画像付きズームフレームの作成**
+Aspose.Slides for .NET を使用すると、別のスライドプレビュー画像を持つズームフレームを次の手順で作成できます。
+1.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
+2.	ズームフレームをリンクさせる新しいスライドを作成します。 
+3.	スライドに識別用テキストと背景を追加します。
+4.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームの塗りつぶしに使用する [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) オブジェクトを作成します。
+5.	作成したスライドへの参照を含むズームフレームを最初のスライドに追加します。
+6.	変更したプレゼンテーションを PPTX ファイルとして書き出します。
 
-``` csharp 
+この C# コードは、別の画像を使用したズームフレームの作成方法を示しています:
+``` csharp
 using (Presentation pres = new Presentation())
 {
     //プレゼンテーションに新しいスライドを追加
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
 
-    // 2番目のスライドの背景を作成
+    //2番目のスライドの背景を作成
     slide.Background.Type = BackgroundType.OwnBackground;
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
 
-    // 3番目のスライド用のテキストボックスを作成
+    //3番目のスライド用のテキストボックスを作成
     IAutoShape autoshape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "2番目のスライド";
+    autoshape.TextFrame.Text = "Second Slide";
 
-    // ズームオブジェクト用の新しい画像を作成
+    //ズームオブジェクト用の新しい画像を作成
     IImage image = Images.FromFile("image.png");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
 
-    // ズームフレームオブジェクトを追加
+    //ZoomFrameオブジェクトを追加
     pres.Slides[0].Shapes.AddZoomFrame(20, 20, 300, 200, slide, ppImage);
 
-    // プレゼンテーションを保存
+    //プレゼンテーションを保存
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
-### **ズームフレームのフォーマット**
-前のセクションでは、シンプルなズームフレームを作成する方法を示しました。より複雑なズームフレームを作成するには、シンプルなフレームのフォーマットを変更する必要があります。ズームフレームに適用できるフォーマットオプションはいくつかあります。
 
-スライド上のズームフレームのフォーマットを次のように制御できます：
+### **ズームフレームの書式設定**
+前のセクションでは、シンプルなズームフレームの作成方法を示しました。より複雑なズームフレームを作成するには、シンプルなフレームの書式設定を変更する必要があります。ズームフレームには適用できる書式設定オプションがいくつかあります。
 
-1.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
-2.	ズームフレームをリンクしたい新しいスライドを作成します。
-3.	作成したスライドに識別テキストと背景をいくつか追加します。
-4.	最初のスライドにズームフレーム（作成したスライドへの参照を含む）を追加します。
-5.	[IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage)オブジェクトを作成し、[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)オブジェクトに関連付けられたImagesコレクションに画像を追加します。これがフレームを埋めるために使用されます。
+スライド上でズームフレームの書式設定を制御する手順は次のとおりです。
+
+1.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
+2.	ズームフレームをリンクさせる新しいスライドを作成します。 
+3.	作成したスライドに識別用テキストと背景を追加します。
+4.	作成したスライドへの参照を含むズームフレームを最初のスライドに追加します。
+5.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームの塗りつぶしに使用する [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) オブジェクトを作成します。
 6.	最初のズームフレームオブジェクトにカスタム画像を設定します。
-7.	2番目のズームフレームオブジェクトのラインフォーマットを変更します。
-8.	2番目のズームフレームオブジェクトの画像から背景を削除します。
-5.	修正したプレゼンテーションをPPTXファイルとして保存します。
+7.	2 番目のズームフレームオブジェクトの線の書式を変更します。
+8.	2 番目のズームフレームオブジェクトの画像から背景を削除します。
+5.	変更したプレゼンテーションを PPTX ファイルとして書き出します。
 
-このC#コードは、スライド上のズームフレームのフォーマットを変更する方法を示しています：
-
+この C# コードは、スライド上でズームフレームの書式設定を変更する方法を示しています:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
@@ -141,25 +143,25 @@ using (Presentation pres = new Presentation())
     ISlide slide2 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     ISlide slide3 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
 
-    // 2番目のスライドの背景を作成
+    // 2枚目のスライドの背景を作成
     slide2.Background.Type = BackgroundType.OwnBackground;
     slide2.Background.FillFormat.FillType = FillType.Solid;
     slide2.Background.FillFormat.SolidFillColor.Color = Color.Cyan;
 
-    // 2番目のスライド用のテキストボックスを作成
+    // 2枚目のスライド用のテキストボックスを作成
     IAutoShape autoshape = slide2.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "2番目のスライド";
+    autoshape.TextFrame.Text = "Second Slide";
 
-    // 3番目のスライドの背景を作成
+    // 3枚目のスライドの背景を作成
     slide3.Background.Type = BackgroundType.OwnBackground;
     slide3.Background.FillFormat.FillType = FillType.Solid;
     slide3.Background.FillFormat.SolidFillColor.Color = Color.DarkKhaki;
 
-    // 3番目のスライド用のテキストボックスを作成
+    // 3枚目のスライド用のテキストボックスを作成
     autoshape = slide3.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.TextFrame.Text = "第3のスライド";
+    autoshape.TextFrame.Text = "Trird Slide";
 
-    //ズームフレームオブジェクトを追加
+    //Adds ZoomFrame objects
     IZoomFrame zoomFrame1 = pres.Slides[0].Shapes.AddZoomFrame(20, 20, 250, 200, slide2);
     IZoomFrame zoomFrame2 = pres.Slides[0].Shapes.AddZoomFrame(200, 250, 250, 200, slide3);
 
@@ -168,10 +170,10 @@ using (Presentation pres = new Presentation())
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
 
-    // zoomFrame1オブジェクトのカスタム画像を設定
+    // zoomFrame1オブジェクトにカスタム画像を設定
     zoomFrame1.ZoomImage = ppImage;
 
-    // zoomFrame2オブジェクトのフォーマットを設定
+    // zoomFrame2オブジェクトのズームフレーム書式を設定
     zoomFrame2.LineFormat.Width = 5;
     zoomFrame2.LineFormat.FillFormat.FillType = FillType.Solid;
     zoomFrame2.LineFormat.FillFormat.SolidFillColor.Color = Color.HotPink;
@@ -185,27 +187,27 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+
 ## **セクションズーム**
 
-セクションズームは、プレゼンテーション内のセクションへのリンクです。セクションズームを使用すると、本当に強調したいセクションに戻ることができます。また、プレゼンテーションの特定の部分がどのように関連しているかを強調表示するために使用することもできます。
+セクションズームは、プレゼンテーション内のセクションへのリンクです。強調したいセクションへ戻るためにセクションズームを使用したり、プレゼンテーションの特定のパーツがどのように結びつくかをハイライトしたりできます。
 
 ![overview_image](seczoomsel.png)
 
-セクションズームオブジェクトについて、Aspose.Slidesは[ISectionZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isectionzoomframe)インターフェイスと[IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection)インターフェイスのいくつかのメソッドを提供しています。
+セクションズームオブジェクトについては、Aspose.Slides が [ISectionZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isectionzoomframe) インターフェイスと、[IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) インターフェイス下のいくつかのメソッドを提供します。
 
 ### **セクションズームフレームの作成**
 
-次の手順でスライドにセクションズームフレームを追加できます：
+スライドにセクションズームフレームを追加する手順は次のとおりです。
 
-1.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
-2.	新しいスライドを作成します。
-3.	作成したスライドに識別背景を追加します。
-4.	ズームフレームをリンクする新しいセクションを作成します。
-5.	最初のスライドにセクションズームフレーム（作成したセクションへの参照を含む）を追加します。
-6.	修正したプレゼンテーションをPPTXファイルとして保存します。
+1.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
+2.	新しいスライドを作成します。 
+3.	作成したスライドに識別用背景を追加します。
+4.	ズームフレームをリンクさせる新しいセクションを作成します。 
+5.	作成したセクションへの参照を含むセクションズームフレームを最初のスライドに追加します。
+6.	変更したプレゼンテーションを PPTX ファイルとして書き出します。
 
-このC#コードは、スライドにズームフレームを作成する方法を示しています：
-
+この C# コードは、スライドにズームフレームを作成する方法を示しています:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
@@ -216,29 +218,29 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // プレゼンテーションに新しいセクションを追加
-    pres.Sections.AddSection("セクション 1", slide);
+    pres.Sections.AddSection("Section 1", slide);
 
-    // セクションズームフレームオブジェクトを追加
+    // SectionZoomFrameオブジェクトを追加
     ISectionZoomFrame sectionZoomFrame = pres.Slides[0].Shapes.AddSectionZoomFrame(20, 20, 300, 200, pres.Sections[1]);
 
     // プレゼンテーションを保存
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
-### **カスタム画像を使用したセクションズームフレームの作成**
 
-Aspose.Slides for .NETを使用すると、異なるスライドプレビュー画像を持つセクションズームフレームを次のように作成できます：
+### **カスタム画像付きセクションズームフレームの作成**
 
-1.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
+Aspose.Slides for .NET を使用すると、別のスライドプレビュー画像を持つセクションズームフレームを次の手順で作成できます。
+
+1.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
 2.	新しいスライドを作成します。
-3.	作成したスライドに識別背景を追加します。
-4.	ズームフレームをリンクする新しいセクションを作成します。
-5.	[IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage)オブジェクトを作成し、[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)オブジェクトに関連付けられたImagesコレクションに画像を追加します。これがフレームを埋めるために使用されます。
-6.	最初のスライドにセクションズームフレーム（作成したセクションへの参照を含む）を追加します。
-7.	修正したプレゼンテーションをPPTXファイルとして保存します。
+3.	作成したスライドに識別用背景を追加します。
+4.	ズームフレームをリンクさせる新しいセクションを作成します。 
+5.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームの塗りつぶしに使用する [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) オブジェクトを作成します。
+5.	作成したセクションへの参照を含むセクションズームフレームを最初のスライドに追加します。
+6.	変更したプレゼンテーションを PPTX ファイルとして書き出します。
 
-このC#コードは、異なる画像を持つズームフレームを作成する方法を示しています：
-
+この C# コードは、別の画像を使用したズームフレームの作成方法を示しています:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
@@ -248,43 +250,43 @@ using (Presentation pres = new Presentation())
     slide.Background.FillFormat.SolidFillColor.Color = Color.YellowGreen;
     slide.Background.Type = BackgroundType.OwnBackground;
 
-    // プレゼンテーションに新しいセクションを追加
-    pres.Sections.AddSection("セクション 1", slide);
+    //プレゼンテーションに新しいセクションを追加
+    pres.Sections.AddSection("Section 1", slide);
 
-    // ズームオブジェクト用の新しい画像を作成
+    //ズームオブジェクト用の新しい画像を作成
     IImage image = Images.FromFile("image.png");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
 
-    // セクションズームフレームオブジェクトを追加
+    //SectionZoomFrameオブジェクトを追加
     ISectionZoomFrame sectionZoomFrame = pres.Slides[0].Shapes.AddSectionZoomFrame(20, 20, 300, 200, pres.Sections[1], ppImage);
 
-    // プレゼンテーションを保存
+    //プレゼンテーションを保存
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
-### **セクションズームフレームのフォーマット**
 
-より複雑なセクションズームフレームを作成するには、シンプルなフレームのフォーマットを変更する必要があります。セクションズームフレームに適用できるフォーマットオプションはいくつかあります。
+### **セクションズームフレームの書式設定**
 
-スライド上のセクションズームフレームのフォーマットを次のように制御できます：
+より複雑なセクションズームフレームを作成するには、シンプルなフレームの書式設定を変更する必要があります。セクションズームフレームに適用できる書式設定オプションはいくつかあります。
 
-1.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
+スライド上でセクションズームフレームの書式設定を制御する手順は次のとおりです。
+
+1.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
 2.	新しいスライドを作成します。
-3.	作成したスライドに識別背景を追加します。
-4.	ズームフレームにリンクする新しいセクションを作成します。
-5.	最初のスライドにセクションズームフレーム（作成したセクションへの参照を含む）を追加します。
+3.	作成したスライドに識別用背景を追加します。
+4.	ズームフレームをリンクさせる新しいセクションを作成します。 
+5.	作成したセクションへの参照を含むセクションズームフレームを最初のスライドに追加します。
 6.	作成したセクションズームオブジェクトのサイズと位置を変更します。
-7.	[IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage)オブジェクトを作成し、[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)オブジェクトに関連付けられたImagesコレクションに画像を追加します。これがフレームを埋めるために使用されます。
+7.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) オブジェクトに関連付けられた Images コレクションに画像を追加して、フレームの塗りつぶしに使用する [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) オブジェクトを作成します。
 8.	作成したセクションズームフレームオブジェクトにカスタム画像を設定します。
-9.	*リンクされたセクションから元のスライドに戻る*機能を設定します。
+9.	*リンクされたセクションから元のスライドに戻る* 機能を設定します。 
 10.	セクションズームフレームオブジェクトの画像から背景を削除します。
-11.	2番目のズームフレームオブジェクトのラインフォーマットを変更します。
-12.	トランジションの持続時間を変更します。
-13.	修正したプレゼンテーションをPPTXファイルとして保存します。
+11.	2 番目のズームフレームオブジェクトの線の書式を変更します。
+12.	トランジションの継続時間を変更します。
+13.	変更したプレゼンテーションを PPTX ファイルとして書き出します。
 
-このC#コードは、セクションズームフレームのフォーマットを変更する方法を示しています：
-
+この C# コードは、セクションズームフレームの書式設定を変更する方法を示しています:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
@@ -294,13 +296,13 @@ using (Presentation pres = new Presentation())
     slide.Background.FillFormat.SolidFillColor.Color = Color.YellowGreen;
     slide.Background.Type = BackgroundType.OwnBackground;
 
-    // プレゼンテーションに新しいセクションを追加
-    pres.Sections.AddSection("セクション 1", slide);
+    //プレゼンテーションに新しいセクションを追加
+    pres.Sections.AddSection("Section 1", slide);
 
-    // セクションズームフレームオブジェクトを追加
+    //SectionZoomFrameオブジェクトを追加
     ISectionZoomFrame sectionZoomFrame = pres.Slides[0].Shapes.AddSectionZoomFrame(20, 20, 300, 200, pres.Sections[1]);
 
-    // セクションズームフレームのフォーマット
+    //SectionZoomFrameの書式設定
     sectionZoomFrame.X = 100;
     sectionZoomFrame.Y = 300;
     sectionZoomFrame.Width = 100;
@@ -322,30 +324,30 @@ using (Presentation pres = new Presentation())
 
     sectionZoomFrame.TransitionDuration = 1.5f;
 
-    // プレゼンテーションを保存
+    //プレゼンテーションを保存
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
+
 ## **サマリーズーム**
 
-サマリーズームは、プレゼンテーションのすべての要素が一度に表示されるランディングページのようなものです。プレゼンテーションを行っているときに、ズームを使用してプレゼンテーション内の任意の場所に好きな順番で移動することができます。創造的になることができ、前に進んだり、スライドショーの部分を訪れたりして、プレゼンテーションの流れを中断することなく行えます。
+サマリーズームは、プレゼンテーションのすべてのパーツを一度に表示するランディングページのようなものです。プレゼンテーション中に、ズームを使って任意の順序でスライド間を移動でき、クリエイティブにスキップしたり、スライドショーの一部を再訪したりできます。
 
 ![overview_image](sumzoomsel.png)
 
-サマリーズームオブジェクトについて、Aspose.Slidesは[ISummaryZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomframe)、[ISummaryZoomFrameSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection)、および[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection)インターフェイスと[IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection)インターフェイスのいくつかのメソッドを提供しています。
+サマリーズームオブジェクトについては、Aspose.Slides が [ISummaryZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomframe)、[ISummaryZoomFrameSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection)、[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection) インターフェイスと、[IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection) インターフェイス下のいくつかのメソッドを提供します。
 
 ### **サマリーズームの作成**
 
-次の手順でスライドにサマリーズームフレームを追加できます：
+スライドにサマリーズームフレームを追加する手順は次のとおりです。
 
-1.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
-2.	識別背景を持つ新しいスライドを作成し、作成したスライド用に新しいセクションを作成します。
-3.	最初のスライドにサマリーズームフレームを追加します。
-4.	修正したプレゼンテーションをPPTXファイルとして保存します。
+1.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
+2.	識別用背景と新しいセクションを持つ新しいスライドを作成します。
+3.	サマリーズームフレームを最初のスライドに追加します。
+4.	変更したプレゼンテーションを PPTX ファイルとして書き出します。
 
-このC#コードは、スライドにサマリーズームフレームを作成する方法を示しています：
-
+この C# コードは、スライドにサマリーズームフレームを作成する方法を示しています:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
@@ -356,7 +358,7 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // プレゼンテーションに新しいセクションを追加
-    pres.Sections.AddSection("セクション 1", slide);
+    pres.Sections.AddSection("Section 1", slide);
 
     //プレゼンテーションに新しいスライドを追加
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
@@ -365,7 +367,7 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // プレゼンテーションに新しいセクションを追加
-    pres.Sections.AddSection("セクション 2", slide);
+    pres.Sections.AddSection("Section 2", slide);
 
     //プレゼンテーションに新しいスライドを追加
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
@@ -374,7 +376,7 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // プレゼンテーションに新しいセクションを追加
-    pres.Sections.AddSection("セクション 3", slide);
+    pres.Sections.AddSection("Section 3", slide);
 
     //プレゼンテーションに新しいスライドを追加
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
@@ -383,9 +385,9 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // プレゼンテーションに新しいセクションを追加
-    pres.Sections.AddSection("セクション 4", slide);
+    pres.Sections.AddSection("Section 4", slide);
 
-    // サマリーズームフレームオブジェクトを追加
+    // SummaryZoomFrameオブジェクトを追加
     ISummaryZoomFrame summaryZoomFrame = pres.Slides[0].Shapes.AddSummaryZoomFrame(150, 50, 300, 200);
 
     // プレゼンテーションを保存
@@ -393,20 +395,20 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+
 ### **サマリーズームセクションの追加と削除**
 
-サマリーズームフレーム内のすべてのセクションは[ISummaryZoomFrameSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection)オブジェクトとして表されており、これらは[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection)オブジェクトに保存されています。サマリーズームセクションオブジェクトを[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection)インターフェイスを介してこのようにして追加または削除できます：
+サマリーズームフレーム内のすべてのセクションは、[ISummaryZoomFrameSection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsection) オブジェクトとして表され、[ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection) オブジェクトに格納されます。次の手順で [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomsectioncollection) インターフェイスを介してサマリーズームセクションオブジェクトを追加または削除できます。
 
-1.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
-2.	識別背景を持つ新しいスライドを作成し、作成したスライド用に新しいセクションを作成します。
+1.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
+2.	識別用背景と新しいセクションを持つ新しいスライドを作成します。
 3.	最初のスライドにサマリーズームフレームを追加します。
-4.	新しいスライドとセクションをプレゼンテーションに追加します。
+4.	プレゼンテーションに新しいスライドとセクションを追加します。
 5.	作成したセクションをサマリーズームフレームに追加します。
 6.	サマリーズームフレームから最初のセクションを削除します。
-7.	修正したプレゼンテーションをPPTXファイルとして保存します。
+7.	変更したプレゼンテーションを PPTX ファイルとして書き出します。
 
-このC#コードは、サマリーズームフレーム内でセクションを追加および削除する方法を示しています：
-
+この C# コードは、サマリーズームフレーム内のセクションの追加と削除方法を示しています:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
@@ -417,7 +419,7 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // プレゼンテーションに新しいセクションを追加
-    pres.Sections.AddSection("セクション 1", slide);
+    pres.Sections.AddSection("Section 1", slide);
 
     //プレゼンテーションに新しいスライドを追加
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
@@ -426,9 +428,9 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // プレゼンテーションに新しいセクションを追加
-    pres.Sections.AddSection("セクション 2", slide);
+    pres.Sections.AddSection("Section 2", slide);
 
-    // サマリーズームフレームオブジェクトを追加
+    // SummaryZoomFrameオブジェクトを追加
     ISummaryZoomFrame summaryZoomFrame = pres.Slides[0].Shapes.AddSummaryZoomFrame(150, 50, 300, 200);
 
     //プレゼンテーションに新しいスライドを追加
@@ -438,12 +440,12 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // プレゼンテーションに新しいセクションを追加
-    ISection section3 = pres.Sections.AddSection("セクション 3", slide);
+    ISection section3 = pres.Sections.AddSection("Section 3", slide);
 
-    // サマリーズームにセクションを追加
+    // Summary Zoomにセクションを追加
     summaryZoomFrame.SummaryZoomCollection.AddSummaryZoomSection(section3);
 
-    // サマリーズームからセクションを削除
+    // Summary Zoomからセクションを削除
     summaryZoomFrame.SummaryZoomCollection.RemoveSummaryZoomSection(pres.Sections[1]);
 
     // プレゼンテーションを保存
@@ -451,25 +453,25 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **サマリーズームセクションのフォーマット**
 
-より複雑なサマリーズームセクションオブジェクトを作成するには、シンプルなフレームのフォーマットを変更する必要があります。サマリーズームセクションオブジェクトに適用できるフォーマットオプションはいくつかあります。
+### **サマリーズームセクションの書式設定**
 
-サマリーズームフレーム内のサマリーズームセクションオブジェクトのフォーマットを次のように制御できます：
+より複雑なサマリーズームセクションオブジェクトを作成するには、シンプルなフレームの書式設定を変更する必要があります。サマリーズームセクションオブジェクトに適用できる書式設定オプションはいくつかあります。
 
-1.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
-2.	識別背景を持つ新しいスライドを作成し、作成したスライド用に新しいセクションを作成します。
+サマリーズームフレーム内のサマリーズームセクションオブジェクトの書式設定を制御する手順は次のとおりです。
+
+1.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
+2.	識別用背景と新しいセクションを持つ新しいスライドを作成します。
 3.	最初のスライドにサマリーズームフレームを追加します。
-4.	`ISummaryZoomSectionCollection`から最初のオブジェクトのサマリーズームセクションオブジェクトを取得します。
-5.	[IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage)オブジェクトを作成し、[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)オブジェクトに関連付けられた画像コレクションに画像を追加します。これがフレームを埋めるために使用されます。
-6.	作成したセクションズームフレームオブジェクトにカスタム画像を設定します。
-7.	*リンクされたセクションから元のスライドに戻る*機能を設定します。
-8.	2番目のズームフレームオブジェクトのラインフォーマットを変更します。
-9.	トランジションの持続時間を変更します。
-10.	修正したプレゼンテーションをPPTXファイルとして保存します。
+4.	`ISummaryZoomSectionCollection` から最初のオブジェクトのサマリーズームセクションオブジェクトを取得します。
+7.	[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) オブジェクトに関連付けられた images コレクションに画像を追加して、フレームの塗りつぶしに使用する [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) オブジェクトを作成します。
+8.	作成したセクションズームフレームオブジェクトにカスタム画像を設定します。
+9.	*リンクされたセクションから元のスライドに戻る* 機能を設定します。 
+11.	2 番目のズームフレームオブジェクトの線の書式を変更します。
+12.	トランジションの継続時間を変更します。
+13.	変更したプレゼンテーションを PPTX ファイルとして書き出ます。
 
-このC#コードは、サマリーズームセクションオブジェクトのフォーマットを変更する方法を示しています：
-
+この C# コードは、サマリーズームセクションオブジェクトの書式設定を変更する方法を示しています:
 ``` csharp 
 using (Presentation pres = new Presentation())
 {
@@ -480,7 +482,7 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // プレゼンテーションに新しいセクションを追加
-    pres.Sections.AddSection("セクション 1", slide);
+    pres.Sections.AddSection("Section 1", slide);
 
     //プレゼンテーションに新しいスライドを追加
     slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
@@ -489,19 +491,19 @@ using (Presentation pres = new Presentation())
     slide.Background.Type = BackgroundType.OwnBackground;
 
     // プレゼンテーションに新しいセクションを追加
-    pres.Sections.AddSection("セクション 2", slide);
+    pres.Sections.AddSection("Section 2", slide);
 
-    // サマリーズームフレームオブジェクトを追加
+    // SummaryZoomFrameオブジェクトを追加
     ISummaryZoomFrame summaryZoomFrame = pres.Slides[0].Shapes.AddSummaryZoomFrame(150, 50, 300, 200);
 
-    // 最初のサマリーズームセクションオブジェクトを取得
+    // 最初のSummaryZoomSectionオブジェクトを取得
     ISummaryZoomSection summarySection = summaryZoomFrame.SummaryZoomCollection[0];
 
     IImage image = Images.FromFile("image.png");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
 
-    // サマリーズームセクションオブジェクトのフォーマットを設定
+    // SummaryZoomSectionオブジェクトの書式設定
     summarySection.ZoomImage = ppImage;
     summarySection.ReturnToParent = false;
 
@@ -516,3 +518,18 @@ using (Presentation pres = new Presentation())
     pres.Save("presentation.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**対象を表示した後、親スライドに戻ることはできますか？**
+
+はい。[Zoom frame](https://reference.aspose.com/slides/net/aspose.slides/zoomframe/) または [section](https://reference.aspose.com/slides/net/aspose.slides/sectionzoomframe/) には `ReturnToParent` 動作があり、オンにすると対象コンテンツを訪問した後、元のスライドに戻ります。
+
+**Zoom の速度やトランジションの継続時間を調整できますか？**
+
+はい。Zoom は `TransitionDuration` を設定でき、ジャンプ アニメーションの長さを制御できます。
+
+**プレゼンテーションに含まれる Zoom オブジェクトの数に制限はありますか？**
+
+明確に文書化されたハードな API 制限はありません。実際の制限はプレゼンテーション全体の複雑さやビューアのパフォーマンスに依存します。多数の Zoom フレームを追加できますが、ファイルサイズや描画時間を考慮してください。

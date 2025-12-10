@@ -5,7 +5,7 @@ weight: 30
 url: /ja/net/apply-a-theme-to-a-presentation/
 ---
 
-## **OpenXML プレゼンテーション:**
+## **OpenXML プレゼンテーション**
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
@@ -16,7 +16,7 @@ string ThemeFileName = FilePath + "Theme.pptx";
 
 ApplyThemeToPresentation(FileName, ThemeFileName);
 
-// プレゼンテーションに新しいテーマを適用します。
+// Apply a new theme to the presentation. 
 
 public static void ApplyThemeToPresentation(string presentationFile, string themePresentation)
 
@@ -34,7 +34,7 @@ public static void ApplyThemeToPresentation(string presentationFile, string them
 
 }
 
-// プレゼンテーションに新しいテーマを適用します。
+// Apply a new theme to the presentation. 
 
 public static void ApplyThemeToPresentation(PresentationDocument presentationDocument, PresentationDocument themeDocument)
 
@@ -56,33 +56,33 @@ public static void ApplyThemeToPresentation(PresentationDocument presentationDoc
 
     }
 
-    // プレゼンテーション ドキュメントのプレゼンテーション パートを取得します。
+    // Get the presentation part of the presentation document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // 既存のスライドマスターパートを取得します。
+    // Get the existing slide master part.
 
     SlideMasterPart slideMasterPart = presentationPart.SlideMasterParts.ElementAt(0);
 
     string relationshipId = presentationPart.GetIdOfPart(slideMasterPart);
 
-    // 新しいスライドマスターパートを取得します。
+    // Get the new slide master part.
 
     SlideMasterPart newSlideMasterPart = themeDocument.PresentationPart.SlideMasterParts.ElementAt(0);
 
-    // 既存のテーマパートを削除します。
+    // Remove the existing theme part.
 
     presentationPart.DeletePart(presentationPart.ThemePart);
 
-    // 古いスライドマスターパートを削除します。
+    // Remove the old slide master part.
 
     presentationPart.DeletePart(slideMasterPart);
 
-    // 新しいスライドマスターパートをインポートし、古いリレーションシップ ID を再利用します。
+    // Import the new slide master part, and reuse the old relationship ID.
 
     newSlideMasterPart = presentationPart.AddPart(newSlideMasterPart, relationshipId);
 
-    // 新しいテーマパートに変更します。
+    // Change to the new theme part.
 
     presentationPart.AddPart(newSlideMasterPart.ThemePart);
 
@@ -100,11 +100,11 @@ public static void ApplyThemeToPresentation(PresentationDocument presentationDoc
 
     SlideLayoutPart newLayoutPart = null;
 
-    // この例のレイアウト用のコードを挿入します。
+    // Insert the code for the layout for this example.
 
-    string defaultLayoutType = "タイトルとコンテンツ";
+    string defaultLayoutType = "Title and Content";
 
-    // すべてのスライドのスライドレイアウトリレーションシップを削除します。
+    // Remove the slide layout relationship on all slides. 
 
     foreach (var slidePart in presentationPart.SlideParts)
 
@@ -116,11 +116,11 @@ public static void ApplyThemeToPresentation(PresentationDocument presentationDoc
 
         {
 
-            // 各スライドのスライドレイアウトタイプを決定します。
+            // Determine the slide layout type for each slide.
 
             layoutType = GetSlideLayoutType(slidePart.SlideLayoutPart);
 
-            // 古いレイアウトパートを削除します。
+            // Delete the old layout part.
 
             slidePart.DeletePart(slidePart.SlideLayoutPart);
 
@@ -130,7 +130,7 @@ public static void ApplyThemeToPresentation(PresentationDocument presentationDoc
 
         {
 
-            // 新しいレイアウトパートを適用します。
+            // Apply the new layout part.
 
             slidePart.AddPart(newLayoutPart);
 
@@ -142,7 +142,7 @@ public static void ApplyThemeToPresentation(PresentationDocument presentationDoc
 
             newLayoutPart = newSlideLayouts[defaultLayoutType];
 
-            // 新しいデフォルトレイアウトパートを適用します。
+            // Apply the new default layout part.
 
             slidePart.AddPart(newLayoutPart);
 
@@ -152,7 +152,7 @@ public static void ApplyThemeToPresentation(PresentationDocument presentationDoc
 
 }
 
-// スライドレイアウトタイプを取得します。
+// Get the slide layout type.
 
 public static string GetSlideLayoutType(SlideLayoutPart slideLayoutPart)
 
@@ -160,7 +160,7 @@ public static string GetSlideLayoutType(SlideLayoutPart slideLayoutPart)
 
     CommonSlideData slideData = slideLayoutPart.SlideLayout.CommonSlideData;
 
-    // 備考: これが製品コードで使用される場合、null参照を確認してください。
+    // Remarks: If this is used in production code, check for a null reference.
 
     return slideData.Name;
 
@@ -168,16 +168,16 @@ public static string GetSlideLayoutType(SlideLayoutPart slideLayoutPart)
 
 ``` 
 ## **Aspose.Slides**
-テーマを適用するには、マスタースライドとともにスライドをクローンする必要があります。以下の手順に従ってください。
+テーマを適用するには、マスターとともにスライドをクローンする必要があります。以下の手順に従ってください。
 
-- スライドをクローンする元のプレゼンテーションを含むプレゼンテーションクラスのインスタンスを作成します。
-- スライドがクローンされる先のプレゼンテーションを含むプレゼンテーションクラスのインスタンスを作成します。
-- クローンするスライドとマスタースライドにアクセスします。
-- 目的のプレゼンテーションオブジェクトが公開するMastersコレクションを参照してIMasterSlideCollectionクラスをインスタンス化します。
-- IMasterSlideCollectionオブジェクトで公開されているAddCloneメソッドを呼び出し、ソースPPTXからクローンされるマスタースライドをAddCloneメソッドのパラメーターとして渡します。
-- 目的のプレゼンテーションオブジェクトが公開するSlidesコレクションへの参照を設定してISlideCollectionクラスをインスタンス化します。
-- ISlideCollectionオブジェクトで公開されているAddCloneメソッドを呼び出し、クローンする元のプレゼンテーションのスライドとマスタースライドをAddCloneメソッドのパラメーターとして渡します。
-- 修正された宛先プレゼンテーションファイルを書き込みます。
+- ソースプレゼンテーション（スライドをクローンする元）を含む Presentation クラスのインスタンスを作成します。
+- 目的のプレゼンテーション（スライドをクローンする先）を含む Presentation クラスのインスタンスを作成します。
+- クローン対象のスライドとマスタースライドにアクセスします。
+- 目的のプレゼンテーションの Presentation オブジェクトが公開する Masters コレクションを参照して、IMasterSlideCollection クラスのインスタンスを取得します。
+- IMasterSlideCollection オブジェクトが提供する AddClone メソッドを呼び出し、クローン元 PPTX のマスターをパラメータとして渡します。
+- 目的のプレゼンテーションの Presentation オブジェクトが公開する Slides コレクションを参照して、ISlideCollection クラスのインスタンスを設定します。
+- ISlideCollection オブジェクトが提供する AddClone メソッドを呼び出し、クローン元プレゼンテーションのスライドとマスタースライドをパラメータとして渡します。
+- 変更された目的のプレゼンテーションファイルを書き込みます。
 
 ``` csharp
 
@@ -193,46 +193,52 @@ public static void ApplyThemeToPresentation(string presentationFile, string outp
 
 {
 
-    //ソース プレゼンテーションファイルを読み込むためにプレゼンテーションクラスをインスタンス化します
+    //Instantiate Presentation class to load the source presentation file
 
     Presentation srcPres = new Presentation(presentationFile);
 
-    //スライドがクローンされる宛先プレゼンテーション用のプレゼンテーションクラスをインスタンス化します
+    //Instantiate Presentation class for destination presentation (where slide is to be cloned)
 
     Presentation destPres = new Presentation(outputFile);
 
-    //ソース プレゼンテーションのスライドのコレクションからISlideをインスタンス化し、
+    //Instantiate ISlide from the collection of slides in source presentation along with
 
-    //マスタースライドとともに
+    //master slide
 
     ISlide SourceSlide = srcPres.Slides[0];
 
-    //宛先プレゼンテーションのマスターコレクションに、ソースプレゼンテーションから目的のマスタースライドをクローンします
+    //Clone the desired master slide from the source presentation to the collection of masters in the
+
+    //destination presentation
 
     IMasterSlideCollection masters = destPres.Masters;
 
     IMasterSlide SourceMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-    //宛先プレゼンテーションのマスターコレクションに、ソースプレゼンテーションから目的のマスタースライドをクローンします
+    //Clone the desired master slide from the source presentation to the collection of masters in the
+
+    //destination presentation
 
     IMasterSlide iSlide = masters.AddClone(SourceMaster);
 
-    //宛先プレゼンテーションのスライドコレクションの最後に、目的のマスタースライドでソースプレゼンテーションから目的のスライドをクローンします
+    //Clone the desired slide from the source presentation with the desired master to the end of the
+
+    //collection of slides in the destination presentation
 
     ISlideCollection slds = destPres.Slides;
 
     slds.AddClone(SourceSlide, iSlide, true);
 
-    //宛先プレゼンテーションのマスターコレクションに、ソースプレゼンテーションから目的のマスタースライドをクローンします
+    //Clone the desired master slide from the source presentation to the collection of masters in the//destination presentation
 
-    //宛先プレゼンテーションをディスクに保存します
+    //Save the destination presentation to disk
 
     destPres.Save(outputFile, SaveFormat.Pptx);
 
 }
 
 ``` 
-## **コードサンプルのダウンロード**
+## **実行コード例のダウンロード**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
 ## **サンプルコード**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Apply%20Theme%20to%20Presentation)

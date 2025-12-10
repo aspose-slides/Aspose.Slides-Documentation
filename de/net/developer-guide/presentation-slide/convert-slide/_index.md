@@ -1,195 +1,192 @@
 ---
-title: Folie konvertieren
+title: Präsentationsfolien in .NET in Bilder konvertieren
+linktitle: Folie zu Bild
 type: docs
 weight: 41
 url: /de/net/convert-slide/
-keywords: 
-- folie in bild konvertieren
-- folie als bild exportieren
-- folie als bild speichern
-- folie zu bild
-- folie zu PNG
-- folie zu JPEG
-- folie zu bitmap
-- C#
-- Csharp
+keywords:
+- Folie konvertieren
+- Folie exportieren
+- Folie zu Bild
+- Folie als Bild speichern
+- Folie zu PNG
+- Folie zu JPEG
+- Folie zu Bitmap
+- Folie zu TIFF
+- PowerPoint
+- OpenDocument
+- Präsentation
 - .NET
-- Aspose.Slides für .NET
-description: "Konvertieren Sie PowerPoint-Folien in Bilder (Bitmap, PNG oder JPG) in C# oder .NET"
+- C#
+- Aspose.Slides
+description: "Konvertieren Sie Folien von PPT, PPTX und ODP zu Bildern in C# mit Aspose.Slides für .NET—schnelle, hochwertige Darstellung mit klaren Codebeispielen."
 ---
 
-Aspose.Slides für .NET ermöglicht es Ihnen, Folien (in Präsentationen) in Bilder zu konvertieren. Dies sind die unterstützten Bildformate: BMP, PNG, JPG (JPEG), GIF und andere.
+## **Übersicht**
 
-Um eine Folie in ein Bild zu konvertieren, tun Sie Folgendes:
+Aspose.Slides für .NET ermöglicht es Ihnen, PowerPoint- und OpenDocument-Präsentationsfolien einfach in verschiedene Bildformate zu konvertieren, darunter BMP, PNG, JPG (JPEG), GIF und weitere.
 
-1. Zuerst legen Sie die Konvertierungsparameter und die Folienobjekte fest, die konvertiert werden sollen, mit:
-   * der [ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions) Schnittstelle oder
-   * der [IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions) Schnittstelle.
+Um eine Folie in ein Bild zu konvertieren, führen Sie die folgenden Schritte aus:
 
-2. Zweitens konvertieren Sie die Folie in ein Bild, indem Sie die [GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) Methode verwenden.
+1. Definieren Sie die gewünschten Konvertierungseinstellungen und wählen Sie die Folien aus, die Sie exportieren möchten, indem Sie verwenden:
+    - Die [ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/) Schnittstelle, oder
+    - Die [IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions/) Schnittstelle.
+2. Erzeugen Sie das Folienbild, indem Sie die [GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) Methode aufrufen.
 
-## **Über Bitmap und andere Bildformate**
+In .NET ist ein [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) ein Objekt, das Ihnen die Arbeit mit Bildern ermöglicht, die durch Pixeldaten definiert sind. Sie können eine Instanz dieser Klasse verwenden, um Bilder in einer Vielzahl von Formaten zu speichern (BMP, JPG, PNG usw.).
 
-In .NET ist ein [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) ein Objekt, das es Ihnen ermöglicht, mit Bildern zu arbeiten, die durch Pixeldaten definiert sind. Sie können eine Instanz dieser Klasse verwenden, um Bilder in einer Vielzahl von Formaten (BMP, JPG, PNG usw.) zu speichern.
+## **Folien in Bitmaps konvertieren und die Bilder im PNG-Format speichern**
 
-{{% alert title="Info" color="info" %}}
+Sie können eine Folie in ein Bitmap‑Objekt konvertieren und dieses direkt in Ihrer Anwendung verwenden. Alternativ können Sie eine Folie in ein Bitmap konvertieren und das Bild dann im JPEG‑Format oder einem anderen gewünschten Format speichern.
 
-Aspose hat kürzlich einen Online-[Text to GIF](https://products.aspose.app/slides/text-to-gif) Konverter entwickelt.
-
-{{% /alert %}}
-
-## **Konvertieren von Folien in Bitmap und Speichern der Bilder im PNG-Format**
-
-Dieser C#-Code zeigt Ihnen, wie Sie die erste Folie einer Präsentation in ein Bitmap-Objekt konvertieren und dann das Bild im PNG-Format speichern:
-
-``` csharp 
-using (Presentation pres = new Presentation("Presentation.pptx"))
+Dieser C#‑Code zeigt, wie Sie die erste Folie einer Präsentation in ein Bitmap‑Objekt konvertieren und das Bild anschließend im PNG‑Format speichern:
+```cs
+using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-    // Konvertiert die erste Folie in der Präsentation in ein Bitmap-Objekt
-    using (IImage image = pres.Slides[0].GetImage())
+    // Konvertiert die erste Folie der Präsentation in ein Bitmap.
+    using (IImage image = presentation.Slides[0].GetImage())
     {
-        // Speichert das Bild im PNG-Format
+        // Speichert das Bild im PNG-Format.
         image.Save("Slide_0.png", ImageFormat.Png);
     }
 }
 ```
 
-{{% alert title="Tipp" color="primary" %}}
 
-Sie können eine Folie in ein Bitmap-Objekt konvertieren und dann das Objekt direkt irgendwo verwenden. Oder Sie können eine Folie in ein Bitmap konvertieren und dann das Bild im JPEG- oder in einem anderen beliebigen Format speichern.
+## **Folien in Bilder mit benutzerdefinierten Größen konvertieren**
 
-{{% /alert %}}
+Möglicherweise benötigen Sie ein Bild in einer bestimmten Größe. Mit einer Überladung der [GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/)‑Methode können Sie eine Folie in ein Bild mit speziellen Abmessungen (Breite und Höhe) konvertieren. 
 
-## **Konvertieren von Folien in Bilder mit benutzerdefinierten Größen**
+Dieser Beispielcode demonstriert, wie das geht:
+```cs
+Size imageSize = new Size(1820, 1040);
 
-Möglicherweise müssen Sie ein Bild einer bestimmten Größe erhalten. Mit einer Überladung von [GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) können Sie eine Folie in ein Bild mit spezifischen Abmessungen (Länge und Breite) konvertieren.
-
-Dieser Beispielcode demonstriert die vorgeschlagene Konvertierung mit der [GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) Methode in C#:
-
-``` csharp 
-using (Presentation pres = new Presentation("Presentation.pptx"))
+using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-    // Konvertiert die erste Folie in der Präsentation in ein Bitmap mit der angegebenen Größe
-    using (IImage image = pres.Slides[0].GetImage(new Size(1820, 1040)))
+    // Konvertiert die erste Folie der Präsentation in ein Bitmap mit der angegebenen Größe.
+    using (IImage image = presentation.Slides[0].GetImage(imageSize))
     {
-        // Speichert das Bild im JPEG-Format
+        // Speichert das Bild im JPEG-Format.
         image.Save("Slide_0.jpg", ImageFormat.Jpeg);
     }
 }
 ```
 
-## **Konvertieren von Folien mit Notizen und Kommentaren in Bilder**
 
-Einige Folien enthalten Notizen und Kommentare.
+## **Folien mit Notizen und Kommentaren in Bilder konvertieren**
 
-Aspose.Slides bietet zwei Schnittstellen—[ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions) und [IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions)—die es Ihnen ermöglichen, das Rendern von Präsentationsfolien in Bilder zu steuern. Beide Schnittstellen enthalten die [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions) Schnittstelle, die es Ihnen erlaubt, Notizen und Kommentare auf einer Folie hinzuzufügen, wenn Sie diese Folie in ein Bild konvertieren.
+Einige Folien können Notizen und Kommentare enthalten.
 
-{{% alert title="Info" color="info" %}}
+Aspose.Slides bietet zwei Schnittstellen – [ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/) und [IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions/) –, mit denen Sie das Rendern von Präsentationsfolien zu Bildern steuern können. Beide Schnittstellen enthalten die Eigenschaft `SlidesLayoutOptions`, mit der Sie das Rendern von Notizen und Kommentaren auf einer Folie beim Konvertieren in ein Bild konfigurieren können.
 
-Mit der [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions) Schnittstelle können Sie Ihre bevorzugte Position für Notizen und Kommentare im resultierenden Bild festlegen.
+Mit der Klasse [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/) können Sie die gewünschte Position für Notizen und Kommentare im resultierenden Bild festlegen.
 
-{{% /alert %}}
+Dieser C#‑Code zeigt, wie Sie eine Folie mit Notizen und Kommentaren konvertieren:
+```cs
+float scaleX = 2;
+float scaleY = scaleX;
 
-Dieser C#-Code demonstriert den Konvertierungsprozess für eine Folie mit Notizen und Kommentaren:
-
-``` csharp 
-using (Presentation pres = new Presentation("PresentationNotesComments.pptx"))
+// Lade eine Präsentationsdatei.
+using (Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx"))
 {
-    // Erstellt die Rendering-Optionen
-    IRenderingOptions options = new RenderingOptions();
-
-    // Legt die Position der Notizen auf der Seite fest
-    options.NotesCommentsLayouting.NotesPosition = NotesPositions.BottomTruncated;
-
-    // Legt die Position der Kommentare auf der Seite fest
-    options.NotesCommentsLayouting.CommentsPosition = CommentsPositions.Right;
-
-    // Legt die Breite des Kommentarausgabebereichs fest
-    options.NotesCommentsLayouting.CommentsAreaWidth = 500;
-
-    // Legt die Farbe für den Kommentarausgabebereich fest
-    options.NotesCommentsLayouting.CommentsAreaColor = Color.AntiqueWhite;
-
-    // Konvertiert die erste Folie der Präsentation in ein Bitmap-Objekt
-    using (IImage image = pres.Slides[0].GetImage(options, 2f, 2f))
+    // Erstelle die Rendering-Optionen.
+    RenderingOptions options = new RenderingOptions
     {
-        // Speichert das Bild im GIF-Format
-        image.Save("Slide_Notes_Comments_0.gif", ImageFormat.Gif);
+        SlidesLayoutOptions = new NotesCommentsLayoutingOptions
+        {
+            NotesPosition = NotesPositions.BottomTruncated,  // Setze die Position der Notizen.
+            CommentsPosition = CommentsPositions.Right,      // Setze die Position der Kommentare.
+            CommentsAreaWidth = 500,                         // Setze die Breite des Kommentarbereichs.
+            CommentsAreaColor = Color.AntiqueWhite           // Setze die Farbe des Kommentarbereichs.
+        }
+    };
+
+    // Konvertiere die erste Folie der Präsentation in ein Bild.
+    using (IImage image = presentation.Slides[0].GetImage(options, scaleX, scaleY))
+    {
+        // Speichere das Bild im GIF-Format.
+        image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
     }
 }
 ```
 
-{{% alert title="Hinweis" color="warning" %}}
 
-In jedem Prozess, in dem Folien in Bilder konvertiert werden, kann die [NotesPositions](https://reference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions/properties/notesposition) Eigenschaft nicht auf BottomFull gesetzt werden (um die Position für Notizen festzulegen), da der Text einer Notiz groß sein kann, was bedeutet, dass er möglicherweise nicht in die angegebene Bildgröße passt.
+{{% alert title="Note" color="warning" %}} 
 
-{{% /alert %}}
+In jedem Folie‑zu‑Bild‑Konvertierungsprozess kann die [NotesPosition](https://reference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/)‑Eigenschaft nicht auf `BottomFull` gesetzt werden (um die Position für Notizen festzulegen), da der Text einer Notiz zu groß sein kann, um in die angegebene Bildgröße zu passen.
 
-## **Konvertieren von Folien in Bilder unter Verwendung von ITiffOptions**
+{{% /alert %}} 
 
-Die [ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions) Schnittstelle gibt Ihnen mehr Kontrolle (in Bezug auf Parameter) über das resultierende Bild. Mit dieser Schnittstelle können Sie die Größe, Auflösung, Farbpalette und andere Parameter für das resultierende Bild festlegen.
+## **Folien in Bilder mit TIFF-Optionen konvertieren**
 
-Dieser C#-Code demonstriert einen Konvertierungsprozess, bei dem ITiffOptions verwendet wird, um ein schwarz-weiß Bild mit einer Auflösung von 300dpi und einer Größe von 2160 × 2800 zu erzeugen:
+Die [ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/) Schnittstelle bietet eine größere Kontrolle über das resultierende TIFF‑Bild, indem Sie Parameter wie Größe, Auflösung, Farbpallet und weitere festlegen können.
 
-``` csharp 
-using (Presentation pres = new Presentation("PresentationNotesComments.pptx"))
+Dieser C#‑Code demonstriert einen Konvertierungsprozess, bei dem TIFF‑Optionen verwendet werden, um ein Schwarz‑weiß‑Bild mit einer Auflösung von 300 DPI und einer Größe von 2160 × 2800 auszugeben:
+```cs
+// Lade eine Präsentationsdatei.
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    // Holt eine Folie nach ihrem Index
-    ISlide slide = pres.Slides[0];
+    // Hole die erste Folie aus der Präsentation.
+    ISlide slide = presentation.Slides[0];
 
-    // Erstellt ein TiffOptions-Objekt
-    TiffOptions options = new TiffOptions() { ImageSize = new Size(2160, 2880) };
-
-    // Legt die Schriftart fest, die verwendet wird, falls die Quellschriftart nicht gefunden wird
-    options.DefaultRegularFont = "Arial Black";
-
-    // Legt die Position der Notizen auf der Seite fest
-    options.NotesCommentsLayouting.NotesPosition = NotesPositions.BottomTruncated;
-
-    // Legt das Pixel-Format (schwarz-weiß) fest
-    options.PixelFormat = ImagePixelFormat.Format1bppIndexed;
-
-    // Legt die Auflösung fest
-    options.DpiX = 300;
-    options.DpiY = 300;
-
-    // Konvertiert die Folie in ein Bitmap-Objekt
-    using (IImage image = slide.GetImage(options))
+    // Konfiguriere die Einstellungen des Ausgabe-TIFF-Bildes.
+    TiffOptions tiffOptions = new TiffOptions
     {
-        // Speichert das Bild im BMP-Format
-        image.Save("PresentationNotesComments.tiff", ImageFormat.Tiff);
+        ImageSize = new Size(2160, 2880),                  // Bildgröße festlegen.
+        PixelFormat = ImagePixelFormat.Format1bppIndexed,  // Pixelformat festlegen (schwarz-weiß).
+        DpiX = 300,                                        // Horizontale Auflösung festlegen.
+        DpiY = 300                                         // Vertikale Auflösung festlegen.
+    };
+
+    // Konvertiere die Folie in ein Bild mit den angegebenen Optionen.
+    using (IImage image = slide.GetImage(tiffOptions))
+    {
+        // Bild im TIFF-Format speichern.
+        image.Save("output.tiff", ImageFormat.Tiff);
     }
-}  
+}
 ```
 
-## **Konvertieren aller Folien in Bilder**
 
-Aspose.Slides ermöglicht es Ihnen, alle Folien in einer einzigen Präsentation in Bilder zu konvertieren. Im Wesentlichen können Sie die gesamte Präsentation in Bilder konvertieren.
+## **Alle Folien in Bilder konvertieren**
 
-Dieser Beispielcode zeigt Ihnen, wie Sie alle Folien in einer Präsentation in Bilder in C# konvertieren:
+Aspose.Slides ermöglicht es Ihnen, alle Folien einer Präsentation in Bilder zu konvertieren, wodurch die gesamte Präsentation effektiv in eine Reihe von Bildern umgewandelt wird.
 
-```csharp
-// Gibt den Pfad zum Ausgabeverzeichnis an
-string outputDir = @"D:\PresentationImages";
+Dieser Beispielcode zeigt, wie Sie alle Folien einer Präsentation in C# in Bilder konvertieren:
+```cs
+float scaleX = 2;
+float scaleY = scaleX;
 
-using (Presentation pres = new Presentation("Presentation.pptx"))
+using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-    // Rendert die Präsentation Folie für Folie in Array von Bildern
-    for (int i = 0; i < pres.Slides.Count; i++)
+    // Rendere die Präsentation zu Bildern Folie für Folie.
+    for (int i = 0; i < presentation.Slides.Count; i++)
     {
-        // Gibt die Einstellung für versteckte Folien an (versteckte Folien nicht rendern)
-        if (pres.Slides[i].Hidden)
+        // Versteckte Folien steuern (versteckte Folien nicht rendern).
+        if (presentation.Slides[i].Hidden)
             continue;
 
-        // Konvertiert die Folie in ein Bitmap-Objekt
-        using (IImage image = pres.Slides[i].GetImage(2f, 2f))
+        // Konvertiere die Folie in ein Bild.
+        using (IImage image = presentation.Slides[i].GetImage(scaleX, scaleY))
         {
-            // Erstellt einen Dateinamen für ein Bild
-            string outputFilePath = Path.Combine(outputDir, "Slide_" + i + ".jpg");
-
-            // Speichert das Bild im JPEG-Format
-            image.Save(outputFilePath, ImageFormat.Jpeg);
+            // Speichere das Bild im JPEG-Format.
+            image.Save($"Slide_{i}.jpg", ImageFormat.Jpeg);
         }
     }
 }
 ```
+
+
+## **FAQ**
+
+**1. Unterstützt Aspose.Slides das Rendern von Folien mit Animationen?**
+
+Nein, die `GetImage`‑Methode speichert nur ein statisches Bild der Folie, ohne Animationen.
+
+**2. Können ausgeblendete Folien als Bilder exportiert werden?**
+
+Ja, ausgeblendete Folien können genauso wie reguläre verarbeitet werden. Stellen Sie lediglich sicher, dass sie in die Verarbeitungsschleife einbezogen werden.
+
+**3. Können Bilder mit Schatten und Effekten gespeichert werden?**
+
+Ja, Aspose.Slides unterstützt das Rendern von Schatten, Transparenz und anderen Grafikeffekten beim Speichern von Folien als Bilder.

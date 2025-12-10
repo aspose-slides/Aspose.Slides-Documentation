@@ -1,30 +1,51 @@
 ---
-title: XAMLへのエクスポート
+title: .NET でプレゼンテーションを XAML にエクスポート
+linktitle: プレゼンテーションから XAML へ
 type: docs
 weight: 30
 url: /ja/net/export-to-xaml/
-keywords: "PowerPointプレゼンテーションをエクスポート, PowerPointを変換, XAML, PowerPointからXAML, PPTからXAML, PPTXからXAML, C#, Csharp, .NET"
-description: "PowerPointプレゼンテーションをXAMLにエクスポートまたは変換"
+keywords:
+- PowerPoint のエクスポート
+- OpenDocument のエクスポート
+- プレゼンテーションのエクスポート
+- PowerPoint の変換
+- OpenDocument の変換
+- プレゼンテーションの変換
+- PowerPoint から XAML へ
+- OpenDocument から XAML へ
+- プレゼンテーションから XAML へ
+- PPT から XAML へ
+- PPTX から XAML へ
+- ODP から XAML へ
+- PPT を XAML として保存
+- PPTX を XAML として保存
+- ODP を XAML として保存
+- PPT を XAML にエクスポート
+- PPTX を XAML にエクスポート
+- ODP を XAML にエクスポート
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides を使用して .NET で PowerPoint および OpenDocument のスライドを XAML に変換します——レイアウトをそのまま保つ、迅速で Office 不要のソリューションです。"
 ---
 
-# プレゼンテーションをXAMLにエクスポートする
+## **プレゼンテーションを XAML にエクスポート**
 
-{{% alert title="情報" color="info" %}} 
+{{% alert title="Info" color="info" %}} 
 
-[Aspose.Slides 21.6](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-6-release-notes/)で、XAMLエクスポートのサポートを実装しました。これで、プレゼンテーションをXAMLにエクスポートできるようになりました。 
+[Aspose.Slides 21.6](https://docs.aspose.com/slides/net/aspose-slides-for-net-21-6-release-notes/) で XAML エクスポートのサポートを実装しました。これでプレゼンテーションを XAML にエクスポートできるようになりました。 
 
 {{% /alert %}} 
 
-# XAMLについて
+## **XAML について**
 
-XAMLは、アプリケーションのユーザーインターフェースを構築または記述するための記述型プログラミング言語であり、特にWPF（Windows Presentation Foundation）、UWP（Universal Windows Platform）、およびXamarinフォームを使用するアプリに関連しています。  
+XAML は、特に WPF（Windows Presentation Foundation）、UWP（Universal Windows Platform）、Xamarin Forms を使用するアプリのユーザーインターフェイスを構築または記述できる記述的プログラミング言語です。  
 
-XAMLはXMLベースの言語で、MicrosoftのGUIを記述するためのバリアントです。通常、デザイナーを使用してXAMLファイルで作業することが多いですが、GUIを書くことや編集することもできます。 
+XML ベースの言語である XAML は、Microsoft が提供する GUI 記述用のバリアントです。ほとんどの場合、デザイナーを使用して XAML ファイルを操作することになるでしょうが、GUI を手動で記述・編集することも可能です。 
 
-## デフォルトオプションでのプレゼンテーションをXAMLにエクスポートする
+## **デフォルトオプションでプレゼンテーションを XAML にエクスポート**
 
-このC#コードは、デフォルト設定でプレゼンテーションをXAMLにエクスポートする方法を示しています：
-
+この C# コードは、デフォルト設定でプレゼンテーションを XAML にエクスポートする方法を示しています。  
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -32,15 +53,27 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## カスタムオプションでのプレゼンテーションをXAMLにエクスポートする
 
-[IXamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions)インターフェースからオプションを選択でき、エクスポートプロセスを制御し、Aspose.SlidesがプレゼンテーションをXAMLにエクスポートする方法を決定します。 
+## **カスタムオプションでプレゼンテーションを XAML にエクスポート**
 
-たとえば、Aspose.Slidesにプレゼンテーションから隠れたスライドをXAMLにエクスポートする際に追加させたい場合、[ExportHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions/properties/exporthiddenslides)プロパティをtrueに設定できます。このサンプルC#コードを参照してください： 
+[IXamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions) インターフェイスからオプションを選択して、エクスポートプロセスを制御し、Aspose.Slides がプレゼンテーションを XAML にエクスポートする方法を決定できます。  
 
+たとえば、XAML にエクスポートする際に Aspose.Slides にプレゼンテーションの非表示スライドを追加させたい場合は、[ExportHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/ixamloptions/properties/exporthiddenslides) プロパティを true に設定できます。このサンプル C# コードをご覧ください：  
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Save(new XamlOptions { ExportHiddenSlides = true });
 }
 ```
+
+
+## **FAQ**
+
+**元のフォントがマシンに存在しない場合、フォントを予測可能にするにはどうすればよいですか？**  
+[XamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/xamloptions/) の [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/defaultregularfont/) を設定します。これにより、元のフォントが見つからない場合のフォールバックフォントとして使用され、予期しない置き換えを防止できます。  
+
+**エクスポートされた XAML は WPF のみを対象としていますか、それとも他の XAML スタックでも使用できますか？**  
+XAML は WPF、UWP、Xamarin.Forms で使用される汎用 UI マークアップ言語です。エクスポートは Microsoft の XAML スタックとの互換性を対象としていますが、具体的な動作や特定の構文のサポートは対象プラットフォームに依存します。ご使用の環境でマークアップをテストしてください。  
+
+**非表示スライドはサポートされていますか？デフォルトでエクスポートされないようにするにはどうすればよいですか？**  
+デフォルトでは非表示スライドは含まれません。[XamlOptions](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/xamloptions/) の [ExportHiddenSlides](https://reference.aspose.com/slides/net/aspose.slides.export.xaml/xamloptions/exporthiddenslides/) でこの動作を制御できます。エクスポートが不要な場合は無効のままにしてください。

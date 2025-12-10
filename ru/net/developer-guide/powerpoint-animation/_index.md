@@ -1,67 +1,117 @@
 ---
-title: Анимация PowerPoint
+title: Улучшение презентаций PowerPoint с анимациями в .NET
+linktitle: Анимация PowerPoint
 type: docs
 weight: 150
 url: /ru/net/powerpoint-animation/
-keywords: "Анимация, анимационные эффекты, анимация PowerPoint, временная шкала анимации, интерактивная анимация, анимация форм, анимированные графики, анимированный текст, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
-description: "Анимация и эффекты презентации PowerPoint на C# или .NET"
+keywords:
+- добавить анимацию
+- обновить анимацию
+- изменить анимацию
+- удалить анимацию
+- управлять анимацией
+- контролировать анимацию
+- эффект анимации
+- анимация PowerPoint
+- временная шкала анимации
+- интерактивная анимация
+- пользовательская анимация
+- анимация фигур
+- анимированная диаграмма
+- анимированный текст
+- анимированная фигура
+- анимированный объект OLE
+- анимированное изображение
+- анимированная таблица
+- презентация PowerPoint
+- .NET
+- C#
+- Aspose.Slides
+description: "Изучите возможности Aspose.Slides для .NET по работе с анимациями PowerPoint. Этот общий обзор подчеркивает ключевые функции и предлагает идеи для улучшения ваших презентаций."
 ---
 
-Так как презентации предназначены для демонстрации чего-либо, их визуальное оформление и интерактивное поведение всегда учитываются при создании.
+## **Обзор**
 
-**Анимация PowerPoint** играет важную роль в том, чтобы сделать презентацию привлекательной и запоминающейся для зрителей. Aspose.Slides для .NET предлагает широкий выбор возможностей для добавления анимации в презентацию PowerPoint:
+Поскольку презентации созданы для демонстрации чего‑либо, их визуальный вид и интерактивное поведение всегда учитываются при создании.
 
-- применение различных типов анимационных эффектов PowerPoint к формам, графикам, таблицам, OLE-объектам и другим элементам презентации.
-- использование нескольких анимационных эффектов PowerPoint на одной форме.
-- использование временной шкалы анимации для управления анимационными эффектами.
-- создание пользовательской анимации.
+**Анимация PowerPoint** играет важную роль в том, чтобы презентация привлекала внимание и удерживала интерес зрителей. Aspose.Slides for .NET предоставляет широкий набор возможностей для добавления анимаций в презентации PowerPoint:
 
-В Aspose.Slides для .NET различные анимационные эффекты могут применяться к формам. Так как каждый элемент на слайде, включая текст, изображения, OLE-объекты, таблицы и т.д. считается формой, это означает, что мы можем применять анимационные эффекты к каждому элементу слайда.
+- Применять различные типы анимационных эффектов PowerPoint к фигурам, диаграммам, таблицам, объектам OLE и другим элементам презентации.  
+- Использовать несколько анимационных эффектов PowerPoint на одной фигуре.  
+- Управлять анимационными эффектами с помощью временной шкалы анимации.  
+- Создавать пользовательские анимации.
 
-[**Aspose.Slides.Animation**](https://reference.aspose.com/slides/net/aspose.slides.animation/) **пространство имен** предоставляет классы для работы с анимациями PowerPoint.
-## **Анимационные эффекты**
-Aspose.Slides поддерживает **150+ анимационных эффектов**, включая основные анимационные эффекты, такие как Bounce, PathFootball, Zoom effect и специфические анимационные эффекты, такие как OLEObjectShow, OLEObjectOpen. Полный список анимационных эффектов можно найти в [**EffectType**](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttype) перечислении.
+В Aspose.Slides for .NET к фигурам можно применять различные анимационные эффекты. Поскольку каждый элемент на слайде, включая текст, изображения, объекты OLE и таблицы, считается фигурой, анимационные эффекты могут быть применены к любому элементу слайда.
 
-Кроме того, эти анимационные эффекты можно использовать в комбинации с ними:
+[Aspose.Slides.Animation](https://reference.aspose.com/slides/net/aspose.slides.animation/) namespace предоставляет классы для работы с анимациями PowerPoint.
 
-- [ColorEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/coloreffect)
-- [CommandEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/commandeffect)
-- [FilterEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/filtereffect)
-- [MotionEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/motioneffect)
-- [PropertyEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/propertyeffect)
-- [RotationEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/rotationeffect)
-- [ScaleEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/scaleeffect)
+## **Эффекты анимации**
+
+Aspose.Slides поддерживает **более 150 анимационных эффектов**, включая базовые эффекты, такие как Bounce, PathFootball и Zoom, а также специфические эффекты, такие как OLEObjectShow и OLEObjectOpen. Полный список анимационных эффектов можно найти в перечислении [EffectType](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttype).
+
+Кроме того, эти анимационные эффекты могут комбинироваться со следующими:
+
+- [ColorEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/coloreffect)  
+- [CommandEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/commandeffect)  
+- [FilterEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/filtereffect)  
+- [MotionEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/motioneffect)  
+- [PropertyEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/propertyeffect)  
+- [RotationEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/rotationeffect)  
+- [ScaleEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/scaleeffect)  
 - [SetEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/seteffect)
+
 ## **Пользовательская анимация**
-В Aspose.Slides возможно создать свою собственную **пользовательскую анимацию**. 
-Это можно достичь, если вы объедините несколько поведений в одну новую пользовательскую анимацию.
 
-[**Поведение**](https://reference.aspose.com/slides/net/aspose.slides.animation/behavior) является строительным элементом любого анимационного эффекта PowerPoint. Все анимационные эффекты фактически представляют собой набор поведений, объединенных в одну стратегию. Вы можете объединять поведения в пользовательскую анимацию один раз и повторно использовать ее в других презентациях. Если вы добавите новое поведение к стандартному анимационному эффекту PowerPoint, это будет другая пользовательская анимация. Например, вы можете добавить поведение повтора к анимации, чтобы она повторялась несколько раз.
+В Aspose.Slides можно создавать **пользовательские анимации**. Это достигается объединением нескольких поведения в новую пользовательскую анимацию.
 
-[**Точка анимации**](https://reference.aspose.com/slides/net/aspose.slides.animation/point) - это точка, в которой должно быть применено поведение.
+[Behaviour](https://reference.aspose.com/slides/net/aspose.slides.animation/behavior) — строительный блок любого анимационного эффекта PowerPoint. Все анимационные эффекты по сути представляют собой набор поведения, собранного в одну стратегию. Вы можете объединить поведения в пользовательскую анимацию один раз и повторно использовать её в других презентациях. Если добавить новое поведение к стандартному анимационному эффекту PowerPoint, оно станет ещё одной пользовательской анимацией. Например, можно добавить повторяющееся поведение к анимации, чтобы она выполнялась несколько раз.
+
+[Animation Point](https://reference.aspose.com/slides/net/aspose.slides.animation/point) — точка, в которой должно применяться поведение.
+
 ## **Временная шкала анимации**
-[**Последовательность**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence) является коллекцией анимационных эффектов, применяемых к конкретной форме.
 
-[**Временная шкала**](https://reference.aspose.com/slides/net/aspose.slides.animation/animationtimeline) - это набор последовательностей, используемых в конкретном слайде. Это анимационный движок, представленный с PowerPoint 2002. В предыдущих версиях PowerPoint было сложно добавлять анимационные эффекты в презентацию, что можно было достичь только различными обходными путями. Временная шкала приходит на замену старому классу AnimationSettings и предоставляет более четкую объектную модель для анимации PowerPoint. Один слайд может иметь только одну временную шкалу анимации.
+[Sequence](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence) — коллекция анимационных эффектов, применяемых к конкретной фигуре.
+
+[Timeline](https://reference.aspose.com/slides/net/aspose.slides.animation/animationtimeline) — набор последовательностей, используемых на конкретном слайде. Это анимационный движок, введённый в PowerPoint 2002. В более ранних версиях PowerPoint добавление анимационных эффектов в презентацию было сложным и требовало различных обходных решений. Временная шкала заменяет старый класс AnimationSettings и предоставляет более понятную объектную модель для анимаций PowerPoint. На слайде может быть только одна временная шкала анимации.
+
 ## **Интерактивная анимация**
-[**Триггер**](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttriggertype) позволяет определить действия пользователя (например, нажатие кнопки), которые запустят определенную анимацию. Триггеры были добавлены только в последней версии PowerPoint.
-## **Анимация форм**
-Aspose.Slides позволяет применять анимацию к формам, которые могут быть текстом, прямоугольником, линией, рамкой, OLE-объектом и т.д.
+
+[Trigger](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttriggertype) позволяет определить действия пользователя (например, щелчок кнопки), которые запустят определённую анимацию. Триггеры были введены в последней версии PowerPoint.
+
+## **Анимация фигур**
+
+Aspose.Slides позволяет применять анимацию к фигуркам, которые могут включать текст, прямоугольники, линии, рамки, объекты OLE и многое другое.
 
 {{% alert color="primary" %}} 
-Читать далее [**Об анимации форм**](/slides/ru/net/shape-animation/).
+Read more [**About Shape Animation**](/slides/ru/net/shape-animation/).
 {{% /alert %}}
 
-## **Анимированные графики**
-Для создания анимированных графиков вы должны использовать те же классы, что и для форм. Однако возможно использовать анимацию PowerPoint только на категориях графиков или сериях графиков. Вы также можете применять анимационный эффект к элементу категории или элементу серии.
+## **Анимированные диаграммы**
+
+Для создания анимированных диаграмм следует использовать те же классы, что и для фигур. Однако анимацию PowerPoint можно применять только к категориям диаграммы или к её сериям. Вы также можете применять анимационные эффекты к элементу категории или к элементу серии.
 
 {{% alert color="primary" %}} 
-Читать далее [**Об анимированных графиках**](/slides/ru/net/animated-charts/).
+Read more [**About Animated Charts**](/slides/ru/net/animated-charts/).
 {{% /alert %}}
 
 ## **Анимированный текст**
-Кроме анимированного текста, также возможно применить анимацию к абзацу.
+
+Помимо анимированного текста, можно также применять анимацию к абзацу.
 
 {{% alert color="primary" %}} 
-Читать далее [**Об анимированном тексте**](/slides/ru/net/animated-text/).
+Read more [**About Animated Text**](/slides/ru/net/animated-text/).
 {{% /alert %}}
+
+## **FAQ**
+
+**Будут ли анимации сохранены при экспорте в PDF?**
+
+Нет. PDF — статический формат, поэтому анимации и [переходы слайдов](/slides/ru/net/slide-transition/) не воспроизводятся. Если нужен эффект движения, экспортируйте в [HTML5](/slides/ru/net/export-to-html5/), [анимированный GIF](/slides/ru/net/convert-powerpoint-to-animated-gif/) или [видео](/slides/ru/net/convert-powerpoint-to-video/).
+
+**Можно ли превратить анимированную презентацию в видео и управлять частотой кадров и их размером?**
+
+Да. Вы можете [рендерить презентацию в кадры](/slides/ru/net/convert-powerpoint-to-video/) и кодировать их в видео (например, с помощью ffmpeg), выбирая FPS и разрешение. Анимации и переходы слайдов воспроизводятся во время рендеринга.
+
+**Сохранятся ли анимации при работе с ODP (не только PPTX)?**
+
+PPT, PPTX и ODP поддерживаются для [чтения](/slides/ru/net/open-presentation/) и [записи](/slides/ru/net/save-presentation/), но различия форматов могут привести к небольшим визуальным или функциональным отклонениям эффектов. Проверяйте критические случаи на реальных образцах.

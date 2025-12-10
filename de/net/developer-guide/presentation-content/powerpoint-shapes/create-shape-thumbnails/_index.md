@@ -1,37 +1,41 @@
 ---
-title: Erstellen von Formminiaturen
+title: Erstellen von Miniaturansichten von Präsentationsformen in .NET
+linktitle: Form-Miniaturbilder
 type: docs
 weight: 70
 url: /de/net/create-shape-thumbnails/
-keywords: 
-- Formminiatur
-- Bild der Form
+keywords:
+- Form-Miniaturansicht
+- Form-Bild
+- Form rendern
+- Form-Rendering
 - PowerPoint
 - Präsentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides für .NET
-description: "Extrahieren von Formminiaturen aus PowerPoint-Präsentationen in C# oder .NET"
+- Aspose.Slides
+description: "Erstellen Sie hochwertige Miniaturansichten von Formen aus PowerPoint-Folien mit Aspose.Slides für .NET – einfach Präsentations-Miniaturansichten erzeugen und exportieren."
 ---
 
-Aspose.Slides für .NET wird verwendet, um Präsentationsdateien zu erstellen, bei denen jede Seite ein Folienblatt ist. Diese Folien können durch Öffnen der Präsentationsdateien mit Microsoft PowerPoint angezeigt werden. Manchmal müssen Entwickler jedoch die Bilder der Formen separat in einem Bildbetrachter ansehen. In solchen Fällen hilft Aspose.Slides für .NET, Miniaturbilder der Folienformen zu generieren. Wie man diese Funktion nutzt, wird in diesem Artikel beschrieben. Dieser Artikel erklärt, wie man Folienminiaturen auf verschiedene Weise generiert:
+Aspose.Slides for .NET wird verwendet, um Präsentationsdateien zu erstellen, bei denen jede Seite eine Folie ist. Diese Folien können durch Öffnen der Präsentationsdateien mit Microsoft PowerPoint angezeigt werden. Manchmal müssen Entwickler jedoch die Bilder der Formen separat in einem Bildbetrachter ansehen. In solchen Fällen hilft Aspose.Slides for .NET, Miniaturbilder der Folienformen zu erzeugen. Wie Sie diese Funktion nutzen, wird in diesem Artikel beschrieben.
 
-- Generierung einer Formminiatur innerhalb einer Folie.
-- Generierung einer Formminiatur für eine Folienform mit benutzerdefinierten Abmessungen.
-- Generierung einer Formminiatur im Rahmen des Erscheinungsbilds einer Form.
-- Generierung einer Miniaturansicht eines SmartArt-Kindknotens.
+Dieser Artikel erklärt, wie Sie Folienminiaturbilder auf verschiedene Weise erzeugen können:
+
+- Miniaturbild einer Form innerhalb einer Folie erzeugen.
+- Miniaturbild einer Form für eine Folie mit benutzerdefinierten Abmessungen erzeugen.
+- Miniaturbild einer Form in den Begrenzungen des Formauftritts erzeugen.
+- Miniaturbild eines SmartArt‑Kindknotens erzeugen.
 
 
-## **Generieren Sie eine Formminiatur aus einer Folie**
-Um eine Formminiatur aus einer beliebigen Folie mithilfe von Aspose.Slides für .NET zu generieren:
+## **Miniaturbild einer Form aus einer Folie erzeugen**
+Um ein Miniaturbild einer Form aus einer beliebigen Folie mit Aspose.Slides for .NET zu erzeugen:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-1. Erhalten Sie die Referenz einer beliebigen Folie anhand ihrer ID oder ihres Index.
-1. Holen Sie sich das Bild der Formminiatur der referenzierten Folie im Standardmaßstab.
-1. Speichern Sie das Miniaturbild in einem gewünschten Bildformat.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klasse.
+2. Holen Sie sich die Referenz einer beliebigen Folie über deren ID oder Index.
+3. Rufen Sie das Miniaturbild der Form der referenzierten Folie in der Standardgröße ab.
+4. Speichern Sie das Miniaturbild in einem gewünschten Bildformat.
 
-Das folgende Beispiel generiert eine Formminiatur.
-
+Das untenstehende Beispiel erzeugt ein Miniaturbild einer Form.
 ```c#
 using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 {
@@ -44,19 +48,19 @@ using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 ```
 
 
-## **Generieren Sie eine Miniatur mit benutzerdefiniertem Skalierungsfaktor**
-Um die Formminiatur einer beliebigen Folienform mithilfe von Aspose.Slides für .NET zu generieren:
 
-1. Erstellen Sie eine Instanz der `Presentation` Klasse.
-1. Erhalten Sie die Referenz einer beliebigen Folie anhand ihrer ID oder ihres Index.
-1. Holen Sie sich das Miniaturbild der referenzierten Folie mit Formgrenzen.
-1. Speichern Sie das Miniaturbild in einem gewünschten Bildformat.
+## **Miniaturbild mit benutzerdefiniertem Skalierungsfaktor erzeugen**
+Um das Miniaturbild einer beliebigen Folienform mit Aspose.Slides for .NET zu erzeugen:
 
-Das folgende Beispiel generiert eine Miniatur mit einem benutzerdefinierten Skalierungsfaktor.
+1. Erstellen Sie eine Instanz der `Presentation`-Klasse.
+2. Holen Sie sich die Referenz einer beliebigen Folie über deren ID oder Index.
+3. Rufen Sie das Miniaturbild der referenzierten Folie mit Formbegrenzungen ab.
+4. Speichern Sie das Miniaturbild in einem gewünschten Bildformat.
 
+Das untenstehende Beispiel erzeugt ein Miniaturbild mit benutzerdefiniertem Skalierungsfaktor.
 ```c#
 ShapeThumbnailBounds bounds = ShapeThumbnailBounds.Shape;
-float scale = 1; // Skalierung entlang der X- und Y-Achsen.
+float scale = 1; // Skalierung entlang X- und Y-Achsen.
 
 using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 {
@@ -69,19 +73,19 @@ using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 ```
 
 
-## **Erstellen Sie eine Miniatur des Erscheinungsbilds der Form**
-Diese Methode zur Erstellung von Miniaturen von Formen ermöglicht es Entwicklern, eine Miniatur im Rahmen des Erscheinungsbilds der Form zu erzeugen. Sie berücksichtigt alle Formeffekte. Die erzeugte Formminiatur wird durch die Foliengrenzen eingeschränkt. Um eine Miniaturansicht einer beliebigen Folienform im Rahmen ihres Erscheinungsbilds zu generieren, verwenden Sie den folgenden Beispielcode:
 
-1. Erstellen Sie eine Instanz der `Presentation` Klasse.
-1. Erhalten Sie die Referenz einer beliebigen Folie anhand ihrer ID oder ihres Index.
-1. Holen Sie sich das Miniaturbild der referenzierten Folie mit Formgrenzen als Erscheinungsbild.
-1. Speichern Sie das Miniaturbild in einem gewünschten Bildformat.
+## **Miniaturbild basierend auf den Begrenzungen des Formauftritts erzeugen**
+Diese Methode zum Erstellen von Miniaturbildern von Formen ermöglicht Entwicklern, ein Miniaturbild innerhalb der Begrenzungen des Formauftritts zu erzeugen. Dabei werden alle Formeffekte berücksichtigt. Das erzeugte Miniaturbild einer Form ist durch die Folienbegrenzungen eingeschränkt. Um ein Miniaturbild einer beliebigen Folienform innerhalb ihrer Auftrittsbegrenzungen zu erzeugen, verwenden Sie den folgenden Beispielcode:
 
-Das folgende Beispiel erstellt eine Miniatur mit einer Miniaturansicht mit benutzerdefiniertem Skalierungsfaktor.
+1. Erstellen Sie eine Instanz der `Presentation`-Klasse.
+2. Holen Sie sich die Referenz einer beliebigen Folie über deren ID oder Index.
+3. Rufen Sie das Miniaturbild der referenzierten Folie mit Formbegrenzungen als Auftritt ab.
+4. Speichern Sie das Miniaturbild in einem gewünschten Bildformat.
 
+Das untenstehende Beispiel erstellt ein Miniaturbild mit benutzerdefiniertem Skalierungsfaktor.
 ```c#
 ShapeThumbnailBounds bounds = ShapeThumbnailBounds.Appearance;
-float scale = 1; // Skalierung entlang der X- und Y-Achsen.
+float scale = 1; // Skalierung entlang X- und Y-Achsen.
 
 using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 {
@@ -92,3 +96,26 @@ using (Presentation presentation = new Presentation("HelloWorld.pptx"))
     }
 }
 ```
+
+
+## **FAQ**
+
+**Welche Bildformate können beim Speichern von Formminiaturbildern verwendet werden?**
+
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/net/aspose.slides/imageformat/), und weitere. Formen können zudem als Vektor‑SVG [exportiert werden](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/), indem der Forminhalt als SVG gespeichert wird.
+
+**Was ist der Unterschied zwischen Shape‑ und Appearance‑Bounds beim Rendern eines Miniaturbilds?**
+
+`Shape` verwendet die Geometrie der Form; `Appearance` berücksichtigt [visuelle Effekte](/slides/de/net/shape-effect/) (Schatten, Leuchten usw.).
+
+**Was passiert, wenn eine Form als verborgen markiert ist? Wird sie trotzdem als Miniaturbild gerendert?**
+
+Eine verborgene Form bleibt Teil des Modells und kann gerendert werden; das Verborgen‑Flag beeinflusst die Anzeige in der Diashow, verhindert jedoch nicht die Erzeugung des Bildes der Form.
+
+**Werden Gruppierungsformen, Diagramme, SmartArt und andere komplexe Objekte unterstützt?**
+
+Ja. Jedes Objekt, das als [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape/) repräsentiert wird (einschließlich [GroupShape](https://reference.aspose.com/slides/net/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/), und [SmartArt](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/)), kann als Miniaturbild oder als SVG gespeichert werden.
+
+**Beeinflussen systeminstallierte Schriftarten die Qualität von Miniaturbildern für Textformen?**
+
+Ja. Sie sollten die erforderlichen Schriftarten [bereitstellen](/slides/de/net/custom-font/) (oder [Schriftart‑Substitutionen konfigurieren](/slides/de/net/font-substitution/)), um unerwünschte Rückfälle und Textumflüsse zu vermeiden.

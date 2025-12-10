@@ -1,85 +1,106 @@
 ---
-title: Tamaño de Diapositiva
+title: Cambiar el tamaño de la diapositiva de la presentación en .NET
+linktitle: Tamaño de diapositiva
 type: docs
 weight: 70
 url: /es/net/slide-size/
-keywords: "Establecer diapositiva, editar tamaño de diapositiva, Presentación de PowerPoint, tamaño de diapositiva personalizado, resolver problemas de diapositivas, C#, Csharp, .NET, Aspose.Slides"
-descriptions: "Establecer y editar el tamaño de diapositiva o la relación de aspecto en PowerPoint en C# o .NET"
+keywords:
+- tamaño de diapositiva
+- relación de aspecto
+- estándar
+- pantalla ancha
+- 4:3
+- 16:9
+- establecer tamaño de diapositiva
+- cambiar tamaño de diapositiva
+- tamaño de diapositiva personalizado
+- tamaño de diapositiva especial
+- tamaño de diapositiva único
+- diapositiva de tamaño completo
+- tipo de pantalla
+- no escalar
+- asegurar ajuste
+- maximizar
+- PowerPoint
+- OpenDocument
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+descriptions: "Aprenda cómo redimensionar rápidamente diapositivas en archivos PPT, PPTX y ODP con .NET y Aspose.Slides, optimice presentaciones para cualquier pantalla sin perder calidad."
 ---
 
-## Tamaños de Diapositivas en Presentaciones de PowerPoint
+## **Personalizar tamaños de diapositivas y relaciones de aspecto en una presentación**
 
-Aspose.Slides para .NET te permite cambiar el tamaño de la diapositiva o la relación de aspecto en las presentaciones de PowerPoint. Si planeas imprimir tu presentación o mostrar sus diapositivas en una pantalla, debes prestar atención a su tamaño de diapositiva o relación de aspecto.
+Aspose.Slides for .NET proporciona herramientas completas para ajustar el tamaño de la diapositiva y la relación de aspecto en presentaciones de PowerPoint, lo cual es fundamental tanto para la impresión como para la visualización en pantalla. 
 
-Estos son los tamaños de diapositiva y relaciones de aspecto más comunes:
+### **Tamaños de diapositiva y relaciones populares**
 
-- **Estándar (relación de aspecto 4:3)**
+- **Estándar (relación de aspecto 4:3)**: Ideal para pantallas y dispositivos más antiguos.
+  
+- **Pantalla ancha (relación de aspecto 16:9)**: Recomendado para proyectores y pantallas modernos.
 
-  Si tu presentación se va a mostrar o ver en dispositivos o pantallas relativamente más antiguos, puede que desees utilizar esta configuración.
-
-- **Pantalla Ancha (relación de aspecto 16:9)** 
-
-  Si tu presentación va a ser vista en proyectores o pantallas modernas, puede que desees utilizar esta configuración.
-
-No puedes usar múltiples configuraciones de tamaño de diapositiva en una sola presentación. Cuando seleccionas un tamaño de diapositiva para una presentación, esa configuración de tamaño de diapositiva se aplica a todas las diapositivas en la presentación.
-
-Si prefieres usar un tamaño de diapositiva especial para tus presentaciones, te recomendamos encarecidamente que lo hagas temprano. Idealmente, deberías especificar tu tamaño de diapositiva preferido al principio, es decir, cuando solo estás configurando la presentación—antes de agregar cualquier contenido a la presentación. De esta manera, evitas complicaciones derivadas de cambios (futuros) realizados en el tamaño de las diapositivas.
+Asegúrese de mantener la consistencia en toda su presentación, ya que un único tamaño de diapositiva y una sola relación de aspecto se aplican a todas las diapositivas. Para obtener resultados óptimos, establezca las dimensiones de sus diapositivas al comienzo del proceso de creación de la presentación para evitar complicaciones.
 
 {{% alert color="primary" %}} 
+Por defecto, las presentaciones creadas con Aspose.Slides utilizan la relación de aspecto estándar 4:3.
+{{% /alert %}}
 
- Cuando utilizas Aspose.Slides para crear una presentación, todas las diapositivas en la presentación automáticamente obtienen el tamaño estándar o relación de aspecto 4:3.
+## **Cómo cambiar el tamaño de la diapositiva en una presentación**
 
-{{% /alert %}} 
-
-## Cambiando el Tamaño de Diapositivas en Presentaciones
-
- Este código de ejemplo te muestra cómo cambiar el tamaño de la diapositiva en una presentación en C# utilizando Aspose.Slides:
-
-```c#
-using (Presentation pres = new Presentation("pres-4x3-aspect-ratio.pptx"))
+Este ejemplo muestra cómo cambiar el tamaño de la diapositiva de una presentación con Aspose.Slides en C#:
+```csharp
+using (Presentation pres = new Presentation("presentation-4x3.pptx"))
 {
     pres.SlideSize.SetSize(SlideSizeType.OnScreen16x9, SlideSizeScaleType.DoNotScale);
-    pres.Save("pres-4x3-aspect-ratio.pptx", SaveFormat.Pptx);
+    pres.Save("presentation-16x9.pptx", SaveFormat.Pptx);
 }
 ```
 
-## Especificando Tamaños de Diapositivas Personalizadas en Presentaciones
 
-Si encuentras que los tamaños de diapositiva comunes (4:3 y 16:9) no son adecuados para tu trabajo, puedes decidir usar un tamaño de diapositiva específico o único. Por ejemplo, si planeas imprimir diapositivas de tamaño completo desde tu presentación en un diseño de página personalizado o si tienes la intención de mostrar tu presentación en ciertos tipos de pantalla, es probable que te beneficie utilizar una configuración de tamaño personalizado para tu presentación.
+## **Especificar tamaños de diapositiva personalizados**
 
-Este código de ejemplo te muestra cómo usar Aspose.Slides para .NET para especificar un tamaño de diapositiva personalizado para una presentación en C#:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+Adaptar el tamaño de la diapositiva a sus necesidades específicas, como diseños de papel únicos o especificaciones de pantalla, puede ser beneficioso. A continuación se muestra cómo establecer un tamaño de diapositiva personalizado con Aspose.Slides para .NET:
+```csharp
+using (Presentation pres = new Presentation("presentation.pptx"))
 {
-    pres.SlideSize.SetSize(780, 540, SlideSizeScaleType.DoNotScale); // Tamaño de papel A4
-    pres.Save("pres-a4-slide-size.pptx", SaveFormat.Pptx);
+    pres.SlideSize.SetSize(780, 540, SlideSizeScaleType.DoNotScale); // tamaño de papel A4
+    pres.Save("presentation-a4.pptx", SaveFormat.Pptx);
 }
 ```
 
-## Tratando Con Problemas Al Cambiar el Tamaño de las Diapositivas en Presentaciones
 
-Después de cambiar el tamaño de la diapositiva para una presentación, el contenido de las diapositivas (imágenes u objetos, por ejemplo) puede volverse distorsionado. Por defecto, los objetos se redimensionan automáticamente para ajustarse al nuevo tamaño de diapositiva. Sin embargo, al cambiar el tamaño de la diapositiva de una presentación, puedes especificar una configuración que determina cómo Aspose.Slides maneja el contenido en las diapositivas.
+## **Gestionar el contenido de la diapositiva después de redimensionar**
 
-Dependiendo de lo que pretendas hacer o lograr, puedes usar cualquiera de estas configuraciones:
+Después de redimensionar, el contenido de la diapositiva puede distorsionarse. Puede controlar cómo Aspose.Slides gestiona este cambio de tamaño:
 
-- `DoNotScale`
+- **`DoNotScale`**: Mantener los objetos en sus tamaños originales para evitar el escalado.
+- **`EnsureFit`**: Escalar los objetos para que encajen en diapositivas más pequeñas, evitando la pérdida de contenido.
+- **`Maximize`**: Ampliar los objetos para que se adapten a diapositivas más grandes, manteniendo la consistencia estética.
 
-  Si NO deseas que los objetos en las diapositivas se redimensionen, usa esta configuración.
-
-- `EnsureFit`
-
-  Si deseas escalar a un tamaño de diapositiva más pequeño y necesitas que Aspose.Slides reduzca los objetos de las diapositivas para asegurarte de que todos quepan en las diapositivas (de esta forma, evitas perder contenido), usa esta configuración.
-
-- `Maximize`
-
-  Si deseas escalar a un tamaño de diapositiva más grande y necesitas que Aspose.Slides agrande los objetos de las diapositivas para que sean proporcionales al nuevo tamaño de diapositiva, usa esta configuración.
-
-Este código de ejemplo te muestra cómo usar la configuración `Maximize` al cambiar el tamaño de la diapositiva de una presentación:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+Ejemplo de uso de la configuración `Maximize` para ajustar el tamaño de la diapositiva:
+```csharp
+using (Presentation pres = new Presentation("presentation.pptx"))
 {
    pres.SlideSize.SetSize(SlideSizeType.Ledger, SlideSizeScaleType.Maximize);
 }
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Puedo establecer un tamaño de diapositiva personalizado usando unidades distintas a pulgadas (por ejemplo, puntos o milímetros)?**
+
+Sí. Aspose.Slides utiliza puntos internamente, donde 1 punto equivale a 1/72 de pulgada. Puede convertir cualquier unidad (como milímetros o centímetros) a puntos y usar los valores convertidos para definir el ancho y la altura de la diapositiva.
+
+**¿Afectará un tamaño de diapositiva personalizado muy grande al rendimiento y al uso de memoria durante la renderización?**
+
+Sí. Dimensiones de diapositiva mayores (en puntos) combinadas con una escala de renderizado más alta provocan un mayor consumo de memoria y tiempos de procesamiento más largos. Apunte a un tamaño de diapositiva práctico y ajuste la escala de renderizado solo cuando sea necesario para lograr la calidad de salida deseada.
+
+**¿Puedo definir un tamaño de diapositiva no estándar y luego combinar diapositivas de presentaciones que tengan tamaños diferentes?**
+
+No puede [combinar presentaciones](/slides/es/net/merge-presentation/) mientras tengan diferentes tamaños de diapositiva; primero, redimensione una presentación para que coincida con la otra. Al cambiar el tamaño de la diapositiva, puede elegir cómo se maneja el contenido existente mediante la opción [SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/). Después de alinear los tamaños, puede combinar diapositivas conservando el formato.
+
+**¿Puedo generar miniaturas para formas individuales o regiones específicas de una diapositiva, y respetarán el nuevo tamaño de diapositiva?**
+
+Sí. Aspose.Slides puede generar miniaturas para [diapositivas completas](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) así como para [formas seleccionadas](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/). Las imágenes resultantes reflejan el tamaño y la relación de aspecto actuales de la diapositiva, garantizando un encuadre y una geometría consistentes.

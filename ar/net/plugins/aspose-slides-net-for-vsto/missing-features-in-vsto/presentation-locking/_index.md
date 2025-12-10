@@ -6,50 +6,50 @@ url: /ar/net/presentation-locking/
 ---
 
 ## **قفل العروض التقديمية**
-استخدام شائع لـ **Aspose.Slides** هو إنشاء وتحديث وحفظ عروض Microsoft PowerPoint 2007 (PPTX) كجزء من سير عمل مؤتمت. يحصل مستخدمو التطبيق الذي يستخدم Aspose.Slides بهذه الطريقة على الوصول إلى العروض التقديمية الناتجة. حماية هذه العروض من التحرير هي قضية شائعة. من المهم أن تحافظ العروض التقديمية المولدة تلقائيًا على التنسيق والمحتوى الأصليين.
+استخدام شائع لـ **Aspose.Slides** هو إنشاء وتحديث وحفظ عروض Microsoft PowerPoint 2007 (PPTX) كجزء من سير عمل تلقائي. يحصل مستخدمو التطبيق الذي يستخدم Aspose.Slides بهذه الطريقة على إمكانية الوصول إلى العروض الناتجة. حماية هذه العروض من التعديل هي مصدر قلق شائع. من المهم أن تحتفظ العروض المنشأة تلقائيًا بالتنسيق والمحتوى الأصليين.
 
-هذا يشرح كيفية بناء العروض التقديمية والشرائح وكيف يمكن لـ Aspose.Slides لـ .NET تطبيق الحماية على عرض تقديمي، ثم إزالتها. هذه الميزة فريدة من نوعها لـ Aspose.Slides، وفي وقت كتابة هذا المقال، غير متاحة في Microsoft PowerPoint. إنها تعطي المطورين وسيلة للتحكم في كيفية استخدام العروض التقديمية التي تنشئها تطبيقاتهم.
+تشرح هذه المقالة كيف يتم بناء العروض والشرائح وكيف يمكن لـ Aspose.Slides for .NET تطبيق الحماية عليها، ثم إزالتها من العرض. هذه الميزة فريدة لـ Aspose.Slides وفي وقت كتابة هذه المقالة غير متاحة في Microsoft PowerPoint. إنها توفر للمطورين وسيلة للتحكم في كيفية استخدام العروض التي تنشئها تطبيقاتهم.
 ## **تركيب الشريحة**
-تتكون شريحة PPTX من عدد من المكونات مثل الأشكال التلقائية، الجداول، كائنات OLE، الأشكال المجمعة، إطارات الصور، إطارات الفيديو، الموصلات والعناصر المختلفة الأخرى المتاحة لبناء عرض تقديمي.
+تتكون شريحة PPTX من عدد من المكونات مثل الأشكال التلقائية، الجداول، كائنات OLE، الأشكال المجمعة، إطارات الصور، إطارات الفيديو، الموصلات والعناصر الأخرى المتاحة لبناء عرض تقديمي.
 
-في Aspose.Slides لـ .NET، يتم تحويل كل عنصر على الشريحة إلى كائن Shape. بعبارة أخرى، كل عنصر على الشريحة هو إما كائن Shape أو كائن مشتق من كائن Shape.
+في Aspose.Slides for .NET، يتم تحويل كل عنصر في الشريحة إلى كائن Shape. بمعنى آخر، كل عنصر في الشريحة إما كائن Shape أو كائن مشتق من Shape.
 
-هيكل PPTX معقد، لذا على عكس PPT، حيث يمكن استخدام قفل عام لجميع أنواع الأشكال، هناك أنواع مختلفة من الأقفال لأنواع الأشكال المختلفة. فئة BaseShapeLock هي الفئة العامة لقفل PPTX. الأنواع التالية من الأقفال مدعومة في Aspose.Slides لـ .NET لـ PPTX.
+هيكل PPTX معقد، لذا على عكس PPT حيث يمكن استخدام قفل عام لجميع أنواع الأشكال، توجد أنواع مختلفة من الأقفال لأنواع الأشكال المختلفة. فئة BaseShapeLock هي الفئة العامة لقفل PPTX. الأنواع التالية من الأقفال مدعومة في Aspose.Slides for .NET لـ PPTX.
 
 - AutoShapeLock يقفل الأشكال التلقائية.
-- ConnectorLock يقفل الأشكال الموصلين.
+- ConnectorLock يقفل أشكال الموصل.
 - GraphicalObjectLock يقفل الكائنات الرسومية.
 - GroupshapeLock يقفل الأشكال المجمعة.
 - PictureFrameLock يقفل إطارات الصور.
 
-أي إجراء يتم تنفيذه على جميع كائنات Shape في كائن Presentation يتم تطبيقه على العرض التقديمي بالكامل.
+أي إجراء يُجرى على جميع كائنات Shape في كائن Presentation يُطبق على العرض بالكامل.
 ## **تطبيق وإزالة الحماية**
-تطبيق الحماية يضمن عدم إمكانية تحرير العرض التقديمي. إنها تقنية مفيدة لحماية محتوى العرض التقديمي.
+تطبيق الحماية يضمن عدم إمكانية تعديل العرض. إنها تقنية مفيدة لحماية محتوى العرض.
 
 **تطبيق الحماية على أشكال PPTX**
 
-تقدم Aspose.Slides لـ .NET فئة Shape للتعامل مع شكل على الشريحة.
+توفر Aspose.Slides for .NET الفئة Shape لمعالجة شكل في الشريحة.
 
-كما ذكر سابقًا، تحتوي كل فئة شكل على فئة قفل شكل مرتبطة بها للحماية. يركز هذا المقال على الأقفال NoSelect وNoMove وNoResize. تضمن هذه الأقفال أن الأشكال لا يمكن تحديدها (من خلال نقرات الماوس أو طرق التحديد الأخرى)، ولا يمكن نقلها أو تغيير حجمها.
+كما ذكرنا سابقًا، كل فئة شكل لها فئة قفل شكل مرتبطة للحماية. تركز هذه المقالة على أقفال NoSelect و NoMove و NoResize. تضمن هذه الأقفال عدم إمكانية اختيار الأشكال (من خلال النقر بالفأرة أو طرق اختيار أخرى)، ولا إمكانية تحريكها أو تغيير حجمها.
 
-عينة الكود التي تتبع تطبق الحماية على جميع أنواع الأشكال في عرض تقديمي.
+القطع البرمجية التالية تطبق الحماية على جميع أنواع الأشكال في عرض تقديمي.
 
 ``` csharp
 
- //إنشاء كائن Presentation يمثل ملف PPTX
+ //Instatiate Presentation class that represents a PPTX file
 
-PresentationEx pTemplate = new PresentationEx("Applying Protection.pptx"); //إنشاء كائن Presentation يمثل ملف PPTX
+PresentationEx pTemplate = new PresentationEx("Applying Protection.pptx");//Instatiate Presentation class that represents a PPTX file
 
 
-//كائن ISlide للوصول إلى الشرائح في العرض التقديمي
+//ISlide object for accessing the slides in the presentation
 
 SlideEx slide = pTemplate.Slides[0];
 
-//كائن IShape للاحتفاظ بالأشكال المؤقتة
+//IShape object for holding temporary shapes
 
 ShapeEx shape;
 
-//التنقل عبر جميع الشرائح في العرض التقديمي
+//Traversing through all the slides in the presentation
 
 for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
@@ -57,7 +57,7 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 	slide = pTemplate.Slides[slideCount];
 
-	//التنقل عبر جميع الأشكال في الشرائح
+	//Travesing through all the shapes in the slides
 
 	for (int count = 0; count < slide.Shapes.Count; count++)
 
@@ -65,19 +65,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		shape = slide.Shapes[count];
 
-		//إذا كان الشكل هو شكل تلقائي
+		//if shape is autoshape
 
 		if (shape is AutoShapeEx)
 
 		{
 
-			//تحويل إلى شكل تلقائي والحصول على قفل الشكل التلقائي
+			//Type casting to Auto shape and  getting auto shape lock
 
 			AutoShapeEx Ashp = shape as AutoShapeEx;
 
 			AutoShapeLockEx AutoShapeLock = Ashp.ShapeLock;
 
-			//تطبيق أقفال الأشكال
+			//Applying shapes locks
 
 			AutoShapeLock.PositionLocked = true;
 
@@ -87,19 +87,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//إذا كان الشكل هو شكل مجموعة
+		//if shape is group shape
 
 		else if (shape is GroupShapeEx)
 
 		{
 
-			//تحويل إلى شكل مجموعة والحصول على قفل شكل المجموعة
+			//Type casting to group shape and  getting group shape lock
 
 			GroupShapeEx Group = shape as GroupShapeEx;
 
 			GroupShapeLockEx groupShapeLock = Group.ShapeLock;
 
-			//تطبيق أقفال الأشكال
+			//Applying shapes locks
 
 			groupShapeLock.GroupingLocked = true;
 
@@ -111,19 +111,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//إذا كان الشكل موصلًا
+		//if shape is a connector
 
 		else if (shape is ConnectorEx)
 
 		{
 
-			//تحويل إلى شكل موصل والحصول على قفل شكل الموصل
+			//Type casting to connector shape and  getting connector shape lock
 
 			ConnectorEx Conn = shape as ConnectorEx;
 
 			ConnectorLockEx ConnLock = Conn.ShapeLock;
 
-			//تطبيق أقفال الأشكال
+			//Applying shapes locks
 
 			ConnLock.PositionMove = true;
 
@@ -133,19 +133,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//إذا كان الشكل هو إطار صورة
+		//if shape is picture frame
 
 		else if (shape is PictureFrameEx)
 
 		{
 
-			//تحويل إلى شكل إطار صورة والحصول على قفل شكل إطار الصورة
+			//Type casting to picture frame shape and  getting picture frame shape lock
 
 			PictureFrameEx Pic = shape as PictureFrameEx;
 
 			PictureFrameLockEx PicLock = Pic.ShapeLock;
 
-			//تطبيق أقفال الأشكال
+			//Applying shapes locks
 
 			PicLock.PositionLocked = true;
 
@@ -159,7 +159,7 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 }
 
-//حفظ ملف العرض التقديمي
+//Saving the presentation file
 
 pTemplate.Save("ProtectedSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
@@ -167,23 +167,23 @@ pTemplate.Save("ProtectedSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 **إزالة الحماية**
 
-يمكن إزالة الحماية التي تم تطبيقها باستخدام Aspose.Slides لـ .NET فقط باستخدام Aspose.Slides لـ .NET. لفتح شكل، قم بتعيين قيمة القفل المطبق على false. عينة الكود التي تتبع توضح كيفية فتح الأشكال في عرض تقديمي مقفل.
+يمكن إزالة الحماية التي تم تطبيقها باستخدام Aspose.Slides for .NET فقط باستخدام Aspose.Slides for .NET. لإلغاء قفل شكل، اضبط قيمة القفل المطبق إلى false. يظهر المقتطع البرمجي التالي كيفية إلغاء قفل الأشكال في عرض مقفل.
 
 ``` csharp
 
- //فتح العرض التقديمي المطلوب
+ //Open the desired presentation
 
 PresentationEx pTemplate = new PresentationEx("ProtectedSample.pptx");
 
-//كائن ISlide للوصول إلى الشرائح في العرض التقديمي
+//ISlide object for accessing the slides in the presentation
 
 SlideEx slide = pTemplate.Slides[0];
 
-//كائن IShape للاحتفاظ بالأشكال المؤقتة
+//IShape object for holding temporary shapes
 
 ShapeEx shape;
 
-//التنقل عبر جميع الشرائح في العرض التقديمي
+//Traversing through all the slides in presentation
 
 for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
@@ -191,7 +191,7 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 	slide = pTemplate.Slides[slideCount];
 
-	//التنقل عبر جميع الأشكال في الشرائح
+	//Travesing through all the shapes in the slides
 
 	for (int count = 0; count < slide.Shapes.Count; count++)
 
@@ -199,19 +199,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		shape = slide.Shapes[count];
 
-		//إذا كان الشكل هو شكل تلقائي
+		//if shape is autoshape
 
 		if (shape is AutoShapeEx)
 
 		{
 
-			//تحويل إلى شكل تلقائي والحصول على قفل شكل تلقائي
+			//Type casting to Auto shape and  getting auto shape lock
 
 			AutoShapeEx Ashp = shape as AutoShapeEx;
 
 			AutoShapeLockEx AutoShapeLock = Ashp.ShapeLock;
 
-			//تطبيق أقفال الأشكال
+			//Applying shapes locks
 
 			AutoShapeLock.PositionLocked = false;
 
@@ -221,19 +221,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//إذا كان الشكل هو شكل مجموعة
+		//if shape is group shape
 
 		else if (shape is GroupShapeEx)
 
 		{
 
-			//تحويل إلى شكل مجموعة والحصول على قفل شكل المجموعة
+			//Type casting to group shape and  getting group shape lock
 
 			GroupShapeEx Group = shape as GroupShapeEx;
 
 			GroupShapeLockEx groupShapeLock = Group.ShapeLock;
 
-			//تطبيق أقفال الأشكال
+			//Applying shapes locks
 
 			groupShapeLock.GroupingLocked = false;
 
@@ -245,19 +245,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//إذا كان الشكل هو شكل موصل
+		//if shape is Connector shape
 
 		else if (shape is ConnectorEx)
 
 		{
 
-			//تحويل إلى شكل موصل والحصول على قفل شكل الموصل
+			//Type casting to connector shape and  getting connector shape lock
 
 			ConnectorEx Conn = shape as ConnectorEx;
 
 			ConnectorLockEx ConnLock = Conn.ShapeLock;
 
-			//تطبيق أقفال الأشكال
+			//Applying shapes locks
 
 			ConnLock.PositionMove = false;
 
@@ -267,19 +267,19 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 		}
 
-		//إذا كان الشكل هو إطار صورة
+		//if shape is picture frame
 
 		else if (shape is PictureFrameEx)
 
 		{
 
-			//تحويل إلى شكل إطار صورة والحصول على قفل شكل إطار الصورة
+			//Type casting to pitcture frame shape and  getting picture frame shape lock
 
 			PictureFrameEx Pic = shape as PictureFrameEx;
 
 			PictureFrameLockEx PicLock = Pic.ShapeLock;
 
-			//تطبيق أقفال الأشكال
+			//Applying shapes locks
 
 			PicLock.PositionLocked = false;
 
@@ -293,11 +293,11 @@ for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
 
 }
 
-//حفظ ملف العرض التقديمي
+//Saving the presentation file
 
 pTemplate.Save("RemoveProtectionSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ``` 
-## **تنزيل عينة الكود**
+## **تحميل عينة الكود**
 - [Codeplex](https://asposevsto.codeplex.com/downloads/get/812535)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Presentation%20Locking%20%28Aspose.Slides%29.zip)

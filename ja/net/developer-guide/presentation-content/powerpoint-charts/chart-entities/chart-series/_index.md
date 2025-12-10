@@ -1,311 +1,309 @@
 ---
-title: チャート系列
+title: .NET のプレゼンテーションでチャート データ シリーズを管理する
+linktitle: データシリーズ
 type: docs
 url: /ja/net/chart-series/
-keywords: "チャート系列, 系列の色, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
-description: "C# または .NET における PowerPoint プレゼンテーションのチャート系列"
+keywords:
+- チャートシリーズ
+- シリーズ オーバーラップ
+- シリーズ 色
+- カテゴリ 色
+- シリーズ 名
+- データポイント
+- シリーズ ギャップ
+- PowerPoint
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "実用的なコード例とベストプラクティスを用いて、PowerPoint（PPT/PPTX）用の C# でチャートシリーズを管理し、データ プレゼンテーションを強化する方法を学びます。"
 ---
 
-系列はチャートにプロットされた数字の行または列です。
+## **概要**
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+本記事では、Aspose.Slides for .NET における [ChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/) の役割について、プレゼンテーション内でデータがどのように構造化され、視覚化されるかに焦点を当てて説明します。これらのオブジェクトは、チャート内のデータポイント、カテゴリ、および外観パラメータを個別に定義する基礎要素を提供します。[ChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/) を使用することで、開発者は基礎データソースをシームレスに統合し、情報の表示方法を完全にコントロールでき、洞察と分析を明確に伝える動的なデータ駆動型プレゼンテーションを実現できます。
 
-## **チャート系列のオーバーラップを設定**
+シリーズは、チャートにプロットされる行または列の数値です。
 
-[IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) プロパティを使用すると、2D チャート上で棒グラフや列がどれだけオーバーラップするかを指定できます (範囲: -100 から 100)。このプロパティは親系列グループのすべての系列に適用されます。これは適切なグループプロパティの投影です。したがって、このプロパティは読み取り専用です。
+![チャートシリーズ PowerPoint](chart-series-powerpoint.png)
 
-`ParentSeriesGroup.Overlap` の読み書き可能なプロパティを使用して、`Overlap` の希望の値を設定します。
+## **チャートシリーズのオーバーラップの設定**
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-1. スライドにクラスター化された列チャートを追加します。
-1. 最初のチャート系列にアクセスします。
-1. チャート系列の `ParentSeriesGroup` にアクセスし、系列の希望のオーバーラップ値を設定します。
-1. 修正されたプレゼンテーションを PPTX ファイルに保存します。
+[IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) プロパティは、-100 から 100 の範囲を指定することで 2D チャートにおける棒と列のオーバーラップ方法を制御します。このプロパティは個々のチャートシリーズではなくシリーズ グループに関連付けられているため、シリーズ レベルでは読み取り専用です。オーバーラップ値を設定するには、`ParentSeriesGroup.Overlap` の読み書き可能プロパティを使用し、指定したオーバーラップをそのグループ内のすべてのシリーズに適用します。
 
-この C# コードは、チャート系列のオーバーラップを設定する方法を示しています：
+以下は、プレゼンテーションを作成し、クラスター化された列チャートを追加し、最初のチャートシリーズにアクセスしてオーバーラップ設定を構成し、結果を PPTX ファイルとして保存する方法を示す C# の例です。
+```cs
+sbyte overlap = 30;
 
-```c#
 using (Presentation presentation = new Presentation())
 {
-    // チャートを追加
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.ChartData.Series;
-    if (series[0].Overlap == 0)
+    ISlide slide = presentation.Slides[0];
+
+    // デフォルト データでクラスター化列チャートを追加します。
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.ChartData.Series[0];
+    if (series.Overlap == 0)
     {
-        // 系列のオーバーラップを設定
-        series[0].ParentSeriesGroup.Overlap = -30;
+        // シリーズのオーバーラップを設定します。
+        series.ParentSeriesGroup.Overlap = overlap;
     }
 
-    // プレゼンテーションファイルをディスクに書き込みます
-    presentation.Save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
+    // プレゼンテーション ファイルをディスクに保存します。
+    presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **系列の色を変更**
-Aspose.Slides for .NET を使用すると、系列の色を次のように変更できます。
 
-1. `Presentation` クラスのインスタンスを作成します。
-1. スライドにチャートを追加します。
-1. 色を変更したい系列にアクセスします。
-1. 希望の塗りつぶしタイプと塗りつぶし色を設定します。
-1. 修正されたプレゼンテーションを保存します。
+結果:
+![シリーズのオーバーラップ](series_overlap.png)
 
-この C# コードは、系列の色を変更する方法を示しています：
+## **シリーズの塗りつぶし色の変更**
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 600, 400);
-	IChartDataPoint point = chart.ChartData.Series[0].DataPoints[1];
-	
-	point.Explosion = 30;
-	point.Format.Fill.FillType = FillType.Solid;
-	point.Format.Fill.SolidFillColor.Color = Color.Blue;
+Aspose.Slides を使用すると、チャートシリーズの塗りつぶし色を簡単にカスタマイズでき、特定のデータポイントを強調表示し、視覚的に魅力的なチャートを作成できます。これは、さまざまな塗りつぶしタイプ、カラー設定、その他の高度なスタイリングオプションをサポートする [IFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformat/) オブジェクトを使用して実現します。スライドにチャートを追加し、目的のシリーズにアクセスしたら、シリーズを取得して適切な塗りつぶし色を適用するだけです。単色塗りつぶしだけでなく、グラデーションやパターン塗りつぶしも利用でき、デザインの柔軟性が向上します。要件に合わせて色を設定したら、プレゼンテーションを保存して更新された外観を確定します。
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
-```
+以下の C# コード例は、最初のシリーズの色を変更する方法を示しています。
+```cs
+Color seriesColor = Color.Blue;
 
-## **系列カテゴリの色を変更**
-Aspose.Slides for .NET を使用すると、系列カテゴリの色を次のように変更できます。
-
-1. `Presentation` クラスのインスタンスを作成します。
-1. スライドにチャートを追加します。
-1. 色を変更したい系列カテゴリにアクセスします。
-1. 希望の塗りつぶしタイプと塗りつぶし色を設定します。
-1. 修正されたプレゼンテーションを保存します。
-
-この C# コードは、系列カテゴリの色を変更する方法を示しています：
-
-```c#
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-	IChartDataPoint point = chart.ChartData.Series[0].DataPoints[0];
-	
-	point.Format.Fill.FillType = FillType.Solid;
-	point.Format.Fill.SolidFillColor.Color = Color.Blue;
-
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
-```
-
-## **系列名を変更**
-
-デフォルトでは、チャートの凡例名は、各列またはデータ行の上のセルの内容です。
-
-私たちの例（サンプル画像）では、
-
-* 列は *系列 1、系列 2、系列 3* です；
-* 行は *カテゴリ 1、カテゴリ 2、カテゴリ 3、カテゴリ 4* です。
-
-Aspose.Slides for .NET を使用すると、シリーズ名をチャートデータと凡例で更新または変更できます。
-
-この C# コードは、チャートデータ `ChartDataWorkbook` の中で系列名を変更する方法を示しています：
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    
-    IChartDataCell seriesCell = chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1);
-    seriesCell.Value = "新しい名前";
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-この C# コードは、`Series` を通じて系列名を凡例で変更する方法を示しています：
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IChartSeries series = chart.ChartData.Series[0];
-    
-    IStringChartValue name = series.Name;
-    name.AsCells[0].Value = "新しい名前";   
-}
-```
-
-## **チャート系列の塗りつぶし色を設定**
-
-Aspose.Slides for .NET を使用すると、プロットエリア内のチャート系列の自動塗りつぶし色を次のように設定できます。
-
-1. `Presentation` クラスのインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. 希望のタイプに基づいてデフォルトデータを持つチャートを追加します（以下の例では、`ChartType.ClusteredColumn` を使用）。
-1. チャート系列にアクセスし、塗りつぶし色を自動に設定します。
-1. プレゼンテーションを PPTX ファイルに保存します。
-
-この C# コードは、チャート系列の自動塗りつぶし色を設定する方法を示しています：
-
-```c#
 using (Presentation presentation = new Presentation())
 {
-    // クラスター化された列チャートを作成
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
+    ISlide slide = presentation.Slides[0];
 
-    // 系列の塗りつぶし形式を自動に設定
+    // デフォルト データでクラスター化列チャートを追加します。
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    // 最初のシリーズの色を設定します。
+    IChartSeries series = chart.ChartData.Series[0];
+    series.Format.Fill.FillType = FillType.Solid;
+    series.Format.Fill.SolidFillColor.Color = seriesColor;
+
+    // プレゼンテーション ファイルをディスクに保存します。
+    presentation.Save("series_color.pptx", SaveFormat.Pptx);
+}
+```
+
+
+結果:
+![シリーズの色](series_color.png)
+
+## **シリーズ名の変更**
+
+Aspose.Slides は、チャートシリーズの名前を簡単に変更できる機能を提供し、データを分かりやすく意味のある形でラベル付けできるようにします。チャートデータ内の該当するワークシートセルにアクセスすることで、データの表示方法をカスタマイズできます。この変更は、シリーズ名をデータのコンテキストに合わせて更新または明確化する必要がある場合に特に有用です。シリーズの名前を変更した後、プレゼンテーションを保存して変更を永続化できます。
+
+以下の C# コードスニペットは、このプロセスを実際に示しています。
+```cs
+string seriesName = "New name";
+
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
+
+    // デフォルト データでクラスター化列チャートを追加します。
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    // 最初のシリーズの名前を設定します。
+    IChartDataCell seriesCell = chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1);
+    seriesCell.Value = seriesName;
+
+    // プレゼンテーション ファイルをディスクに保存します。
+    presentation.Save("series_name.pptx", SaveFormat.Pptx);
+}
+```
+
+
+以下の C# コードは、シリーズ名を変更する別の方法を示しています。
+```cs
+string seriesName = "New name";
+
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
+
+    // デフォルト データでクラスター化列チャートを追加します。
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    // 最初のシリーズの名前を設定します。
+    IChartSeries series = chart.ChartData.Series[0];
+    series.Name.AsCells[0].Value = seriesName;
+
+    // プレゼンテーション ファイルをディスクに保存します。
+    presentation.Save("series_name.pptx", SaveFormat.Pptx);
+}
+```
+
+
+結果:
+![シリーズ名](series_name.png)
+
+## **シリーズの自動塗りつぶし色の取得**
+
+Aspose.Slides for .NET は、プロット領域内のチャートシリーズに対して自動塗りつぶし色を取得できる機能を提供します。[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成した後、インデックスで目的のスライドへの参照を取得し、好みのタイプ（例: `ChartType.ClusteredColumn`）でチャートを追加します。チャート内のシリーズにアクセスすることで、自動塗りつぶし色を取得できます。
+
+以下の C# コードは、このプロセスを詳細に示しています。
+```cs
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
+
+    // デフォルト データでクラスター化列チャートを追加します。
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
     for (int i = 0; i < chart.ChartData.Series.Count; i++)
     {
-        chart.ChartData.Series[i].GetAutomaticSeriesColor();
+        // シリーズの塗りつぶし色を取得します。
+        Color color = chart.ChartData.Series[i].GetAutomaticSeriesColor();
+        Console.WriteLine($"Series {i} color: {color.Name}");
     }
-
-    // プレゼンテーションファイルをディスクに書き込みます
-    presentation.Save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **チャート系列の塗りつぶし色を反転させる**
-Aspose.Slides を使用すると、プロットエリア内のチャート系列の塗りつぶし色を反転させることができます。
 
-1. `Presentation` クラスのインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. 希望のタイプに基づいてデフォルトデータを持つチャートを追加します（以下の例では、`ChartType.ClusteredColumn` を使用）。
-1. チャート系列にアクセスし、塗りつぶし色を反転させます。
-1. プレゼンテーションを PPTX ファイルに保存します。
+出力:
+```text
+Series 0 color: ff4f81bd
+Series 1 color: ffc0504d
+Series 2 color: ff9bbb59
+```
 
-この C# コードは、操作を示しています：
 
-```c#
+## **チャートシリーズの反転塗りつぶし色の設定**
+
+データシリーズに正と負の値が混在している場合、すべての列や棒を同じ色で塗るとチャートが読みにくくなります。Aspose.Slides for .NET は、負の値に自動的に適用される別の塗りつぶし（反転塗りつぶし色）を割り当てることで、負の値を一目で目立たせることができます。このセクションでは、そのオプションを有効にし、適切な色を選択し、更新されたプレゼンテーションを保存する方法を学びます。
+
+以下のコード例は、この操作を示しています。
+```cs
 Color inverColor = Color.Red;
-using (Presentation pres = new Presentation())
+
+using (Presentation presentation = new Presentation())
 {
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+    ISlide slide = presentation.Slides[0];
+
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
     IChartDataWorkbook workBook = chart.ChartData.ChartDataWorkbook;
 
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    // 新しい系列とカテゴリを追加
-    chart.ChartData.Series.Add(workBook.GetCell(0, 0, 1, "系列 1"), chart.Type);
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 1, 0, "カテゴリ 1"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 2, 0, "カテゴリ 2"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 3, 0, "カテゴリ 3"));
+    // 新しいカテゴリを追加します。
+    chart.ChartData.Categories.Add(workBook.GetCell(0, 1, 0, "Category 1"));
+    chart.ChartData.Categories.Add(workBook.GetCell(0, 2, 0, "Category 2"));
+    chart.ChartData.Categories.Add(workBook.GetCell(0, 3, 0, "Category 3"));
 
-    // 最初のチャート系列を取得し、系列データを設定
-    IChartSeries series = chart.ChartData.Series[0];
+    // 新しいシリーズを追加します。
+    IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, 1, "Series 1"), chart.Type);
+
+    // シリーズのデータを入力します。
     series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 1, 1, -20));
     series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 2, 1, 50));
     series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 3, 1, -30));
+
+    // シリーズの色設定を行います。
     var seriesColor = series.GetAutomaticSeriesColor();
     series.InvertIfNegative = true;
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = seriesColor;
     series.InvertedSolidFillColor.Color = inverColor;
-    pres.Save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);               
+
+    presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **値が負のときに系列を反転させる**
-Aspose.Slides を使用すると、`IChartDataPoint.InvertIfNegative` および `ChartDataPoint.InvertIfNegative` プロパティを使用して反転を設定できます。プロパティを使用して反転を設定すると、データポイントは負の値になったときにその色を反転させます。
 
-この C# コードは、操作を示しています：
+結果:
+![反転した単色塗りつぶしカラー](inverted_solid_fill_color.png)
 
-```c#
-using (Presentation pres = new Presentation())
+単一のデータポイントに対してだけ塗りつぶし色を反転させることもできます。目的の `IChartDataPoint` にアクセスし、その `InvertIfNegative` プロパティを true に設定してください。
+
+以下のコード例は、その方法を示しています。
+```cs
+using (Presentation presentation = new Presentation())
 {
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-	IChartSeriesCollection series = chart.ChartData.Series;
-	chart.ChartData.Series.Clear();
+    ISlide slide = presentation.Slides[0];
 
-	series.Add(chart.ChartData.ChartDataWorkbook.GetCell(0, "B1"), chart.Type);
-	series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B2", -5));
-	series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B3", 3));
-	series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B4", -2));
-	series[0].DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B5", 1));
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200, true);
 
-	series[0].InvertIfNegative = false;
+    chart.ChartData.Series.Clear();
+    IChartSeries series = chart.ChartData.Series.Add(chart.ChartData.ChartDataWorkbook.GetCell(0, "B1"), chart.Type);
 
-	series[0].DataPoints[2].InvertIfNegative = true;
+    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B2", -5));
+    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B3", 3));
+    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B4", -3));
+    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B5", 1));
 
-	pres.Save("out.pptx", SaveFormat.Pptx);
+    // インデックス2のデータポイントが負の場合に色を反転します。
+    series.InvertIfNegative = false;
+    series.DataPoints[2].InvertIfNegative = true;
+                
+    presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **特定のデータポイントのデータをクリア**
-Aspose.Slides for .NET を使用すると、特定のチャート系列の `DataPoints` データを次のようにクリアできます。
 
-1. `Presentation` クラスのインスタンスを作成します。
-2. インデックスを使用してスライドの参照を取得します。
-3. インデックスを使用してチャートの参照を取得します。
-4. すべてのチャート `DataPoints` を反復処理し、`XValue` と `YValue` を null に設定します。
-5. 特定のチャート系列のすべての `DataPoints` をクリアします。
-6. 修正されたプレゼンテーションを PPTX ファイルに書き込みます。
+## **特定のデータポイントの値のクリア**
 
-この C# コードは、操作を示しています：
+チャートにテスト用の値や外れ値、古いエントリが含まれていることがありますが、シリーズ全体を再構築せずにそれらを削除したい場合があります。Aspose.Slides for .NET は、インデックスで任意のデータポイントを対象にし、その内容をクリアし、プロットを即座に更新して残りのポイントがシフトし、軸が自動的に再スケーリングされるようにできます。
 
-```c#
-using (Presentation pres = new Presentation("TestChart.pptx"))
+以下のコード例は、この操作を示しています。
+```cs
+using (Presentation presentation = new Presentation("test_chart.pptx"))
 {
-	ISlide sl = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
+    IChart chart = (IChart)slide.Shapes[0];
+    IChartSeries series = chart.ChartData.Series[0];
 
-	IChart chart = (IChart)sl.Shapes[0];
+    foreach (IChartDataPoint dataPoint in series.DataPoints)
+    {
+        dataPoint.XValue.AsCell.Value = null;
+        dataPoint.YValue.AsCell.Value = null;
+    }
 
-	foreach (IChartDataPoint dataPoint in chart.ChartData.Series[0].DataPoints)
-	{
-		dataPoint.XValue.AsCell.Value = null;
-		dataPoint.YValue.AsCell.Value = null;
-	}
+    series.DataPoints.Clear();
 
-	chart.ChartData.Series[0].DataPoints.Clear();
-
-	pres.Save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+    presentation.Save("clear_data_points.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **系列のギャップ幅を設定**
-Aspose.Slides for .NET を使用すると、**`GapWidth`** プロパティを通じて系列のギャップ幅を設定できます。
 
-1. `Presentation` クラスのインスタンスを作成します。
-2. 最初のスライドにアクセスします。
-3. デフォルトデータを持つチャートを追加します。
-4. 任意のチャート系列にアクセスします。
-5. `GapWidth` プロパティを設定します。
-6. 修正されたプレゼンテーションを PPTX ファイルに保存します。
+## **シリーズのギャップ幅の設定**
 
-この C# コードは、系列のギャップ幅を設定する方法を示しています：
+ギャップ幅は隣接する列や棒の間の空白量を制御します。ギャップが広いと各カテゴリが強調され、狭いとより密集したコンパクトな外観になります。Aspose.Slides for .NET を使用すれば、シリーズ全体のこのパラメータを微調整でき、基になるデータを変更せずにプレゼンテーションに必要な視覚的バランスを正確に実現できます。
 
-```c#
-// 空のプレゼンテーションを作成 
-Presentation presentation = new Presentation();
+以下のコード例は、シリーズのギャップ幅を設定する方法を示しています。
+```cs
+ushort gapWidth = 30;
 
-// プレゼンテーションの最初のスライドにアクセス
-ISlide slide = presentation.Slides[0];
+// 空のプレゼンテーションを作成します。
+using (Presentation presentation = new Presentation())
+{
+    // 最初のスライドにアクセスします。
+    ISlide slide = presentation.Slides[0];
 
-// デフォルトデータを持つチャートを追加
-IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 0, 0, 500, 500);
+    // デフォルトデータでチャートを追加します。
+    IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
 
-// チャートデータシートのインデックスを設定
-int defaultWorksheetIndex = 0;
+    // プレゼンテーションをディスクに保存します。
+    presentation.Save("default_gap_width.pptx", SaveFormat.Pptx);
 
-// チャートデータワークシートを取得
-IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
+    // GapWidth の値を設定します。
+    IChartSeries series = chart.ChartData.Series[0];
+    series.ParentSeriesGroup.GapWidth = gapWidth;
 
-// 系列を追加
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "系列 1"), chart.Type);
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "系列 2"), chart.Type);
-
-// カテゴリを追加
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "カテゴリ 1"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "カテゴリ 2"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "カテゴリ 3"));
-
-// 2 番目のチャート系列を取得
-IChartSeries series = chart.ChartData.Series[1];
-
-// 系列データを設定
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
-
-// ギャップ幅の値を設定
-series.ParentSeriesGroup.GapWidth = 50;
-
-// プレゼンテーションをディスクに保存
-presentation.Save("GapWidth_out.pptx", SaveFormat.Pptx);
+    // プレゼンテーションをディスクに保存します。
+    presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
+}
 ```
+
+
+結果:
+![ギャップ幅](gap_width.png)
+
+## **FAQ**
+
+**単一のチャートが保持できるシリーズの数に上限はありますか？**
+
+Aspose.Slides には、追加できるシリーズ数に固定された上限はありません。実際の上限は、チャートの可読性およびアプリケーションで利用可能なメモリによって決まります。
+
+**クラスター内の列が互いに近すぎる、または離れすぎる場合はどうすればよいですか？**
+
+そのシリーズ（または親シリーズグループ）の `GapWidth` 設定を調整します。値を大きくすると列間のスペースが広がり、値を小さくすると列が近づきます。

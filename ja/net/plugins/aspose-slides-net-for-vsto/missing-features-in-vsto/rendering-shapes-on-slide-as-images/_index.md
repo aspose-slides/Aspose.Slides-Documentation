@@ -1,22 +1,21 @@
 ---
-title: スライド上の図形を画像としてレンダリング
+title: スライド上のシェイプを画像としてレンダリング
 type: docs
 weight: 120
 url: /ja/net/rendering-shapes-on-slide-as-images/
 ---
 
-これには主に二つの機能が含まれています：
+これでは2つの主な機能をカバーします：
 
-- 画像を図形からファイルに抽出すること。
-- 図形を画像ファイルとして抽出すること。
-## **図形から画像をファイルに抽出すること**
-画像はスライドの背景や図形に追加されます。時には、プレゼンテーションの図形に追加された画像を抽出する必要があります。
+- シェイプから画像をファイルに抽出する。
+- シェイプを画像ファイルとして抽出する。
+## **シェイプから画像をファイルに抽出する**
+画像はスライドの背景やシェイプに追加されます。プレゼンテーションのシェイプに追加された画像を抽出する必要がある場合があります。
 
-**Aspose.Slides for .NET** では、画像をスライドの図形やスライドの背景に追加できます。画像はプレゼンテーションの **ImageCollectionEx** に追加されます。この例では、プレゼンテーションの各スライド内の各図形を走査し、スライドの図形に追加されている画像があるかどうかを確認します。どの図形に対しても画像が見つかれば、それを抽出してファイルに保存します。以下のコードスニペットがその目的に役立ちます。
-
+**Aspose.Slides for .NET** では、画像をスライドのシェイプやスライドの背景に追加できます。画像はプレゼンテーションの **ImageCollectionEx** に追加されます。この例では、プレゼンテーションの各スライド内のすべてのシェイプを走査し、シェイプに画像が追加されているかどうかを確認します。シェイプで画像が見つかった場合、その画像を抽出してファイルに保存します。以下のコードスニペットがその目的を果たします。
 ``` csharp
 
- //プレゼンテーションにアクセスする
+ //プレゼンテーションにアクセス
 
 PresentationEx pres = new PresentationEx("RenderImageFromShape.pptx");
 
@@ -34,7 +33,7 @@ for (int i = 0; i < pres.Slides.Count; i++)
 
 	slideIndex++;
 
-	//最初のスライドにアクセスする
+	//最初のスライドにアクセス
 
 	SlideEx sl = pres.Slides[i];
 
@@ -44,7 +43,7 @@ for (int i = 0; i < pres.Slides.Count; i++)
 
 	{
 
-		// 画像を持つ図形にアクセスする
+		// 画像が含まれるシェイプにアクセス
 
 		ShapeEx sh = sl.Shapes[j];
 
@@ -95,7 +94,7 @@ for (int i = 0; i < pres.Slides.Count; i++)
 
 		//
 
-		//希望する画像形式を設定する
+		//目的の画像形式を設定
 
 		if (ifImageFound)
 
@@ -152,31 +151,32 @@ for (int i = 0; i < pres.Slides.Count; i++)
 		ifImageFound = false;
 
 ``` 
-## **サンプルコードのダウンロード**
+## **Download Sample Code**
 - [Codeplex](http://goo.gl/G3JI6p)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Shapes%20and%20Slide%20to%20Images%20%28Aspose.Slides%29.zip)
-## **図形を画像ファイルとして抽出すること**
+## **Extract Shapes as Image Files**
 ```cs
-//PPTファイルを表すPresentationオブジェクトをインスタンス化する
+//PPT ファイルを表す Presentation オブジェクトをインスタンス化
 Presentation pres = new Presentation("RenderShapeAsImage.ppt");
 
-//スライドの位置を使ってスライドにアクセスする
+//Accessing a slide using its slide position
 ISlide slide = pres.Slides[2];
 
 for (int i = 0; i < slide.Shapes.Count; i++)
 {
     IShape shape = slide.Shapes[i];
 
-    //図形のサムネイル画像を取得する
+    //シェイプのサムネイル画像を取得
     using (IImage image = shape.GetImage(ShapeThumbnailBounds.Shape, 1.0f, 1.0f))
     {
-        //gif形式でサムネイル画像を保存する
+        //サムネイル画像を GIF 形式で保存
         image.Save(i + ".gif", ImageFormat.Gif);
     }
 }
 ```
 
-*注:*図形の抽出は現在 .ppt ファイルでサポートされています。
+
+*注:* シェイプの抽出は現在.pptファイルでサポートされています。
 ## **サンプルコードのダウンロード**
 - [Codeplex](https://asposevsto.codeplex.com/downloads/get/812536)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Individual%20Shapes%20as%20Images%20%28Aspose.Slides%29.zip)

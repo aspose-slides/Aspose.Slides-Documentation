@@ -1,24 +1,38 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة في Aspose.Slides لـ .NET 15.10.0
+title: واجهة برمجة تطبيقات عامة وتغييرات غير متوافقة للوراء في Aspose.Slides لـ .NET 15.10.0
+linktitle: Aspose.Slides لـ .NET 15.10.0
 type: docs
 weight: 200
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/
+keywords:
+- ترحيل
+- كود قديم
+- كود حديث
+- نهج قديم
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "راجع تحديثات واجهة برمجة التطبيقات العامة والتغييرات المكسّرة في Aspose.Slides لـ .NET لتتمكن من ترحيل حلول عروض PowerPoint (PPT, PPTX) و ODP بسلاسة."
 ---
 
 {{% alert color="primary" %}} 
 
-تسرد هذه الصفحة جميع [المضاف](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) أو [المحذوف](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) الفئات، والطرق، والخصائص وما إلى ذلك، والتغييرات الأخرى التي تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لـ .NET 15.10.0.
+تقوم هذه الصفحة بسرد جميع الفئات، والطرق، والخصائص وما إلى ذلك التي تم [added](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) أو [removed](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) والبدالات الأخرى التي تم تقديمها مع Aspose.Slides for .NET 15.10.0 API.
 
 {{% /alert %}} 
-## **تغييرات واجهة برمجة التطبيقات العامة**
-#### **تمت إضافة فئة VideoPlayerHtmlController جديدة لدعم تصدير ملفات الوسائط إلى HTML**
-تمت إضافة الفئة العامة الجديدة VideoPlayerHtmlController إلى مساحة أسماء Aspose.Slides.Export. باستخدام مثيل هذه الفئة، يمكن للمستخدم تصدير ملفات الفيديو والصوت إلى HTML.
-تقبل منشئات VideoPlayerHtmlController المعلمات التالية:
+## **تغييرات API العامة**
+#### **إضافة VideoPlayerHtmlController جديد لدعم تصدير ملفات الوسائط إلى HTML**
+تمت إضافة الفئة العامة الجديدة VideoPlayerHtmlController إلى مساحة الأسماء Aspose.Slides.Export. باستخدام مثيل هذه الفئة يمكن للمستخدم تصدير ملفات الفيديو والصوت إلى HTML.
+تقبل مُنشئات VideoPlayerHtmlController المعلمات التالية:
 
-path: المسار الذي سيتم فيه إنشاء ملفات الفيديو والصوت  
-fileName: اسم ملف HTML  
+- path: المسار الذي سيتم فيه إنشاء ملفات الفيديو والصوت
+- fileName: اسم ملف HTML
+- baseUri: عنوان URI الأساسي الذي سيُستخدم لإنشاء الروابط
 
-baseUri: URI الأساسي الذي سيتم استخدامه لإنشاء الروابط  
 مثال على الاستخدام:
 
 ``` csharp
@@ -48,7 +62,7 @@ baseUri: URI الأساسي الذي سيتم استخدامه لإنشاء ال
 }
 
 ``` 
-#### **تمت إضافة واجهة برمجة التطبيقات لتحريك سلاسل المخطط**
+#### **تم إضافة واجهة برمجة تطبيقات رسوم متحركة لسلسلة المخطط**
 تمت إضافة طريقتين جديدتين إلى واجهة Aspose.Slides.Animation.ISequence.
 
 ``` csharp
@@ -59,15 +73,15 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-تم تصميم هذه الطرق لدعم تحريك عناصر المخطط:
-حسب السلاسل  
-حسب الفئات  
-حسب عناصر السلسلة  
-حسب عناصر الفئة  
+تهدف هذه الطرق إلى دعم رسومات المتحركة لعناصر المخطط:
+- حسب السلسلة
+- حسب الفئات
+- حسب عناصر السلسلة
+- حسب عناصر الفئات
 
-تم تقديم القائمتين الجديدتين EffectChartMajorGroupingType و EffectChartMinorGroupingType المتعلقتين بتحريك عناصر المخطط.
+تم تقديم عددين جديدين من القيم (enums) EffectChartMajorGroupingType و EffectChartMinorGroupingType المتعلقين برسوم المتحركة لعناصر المخطط.
 
-لإضافة تحريك سلسلة إلى المخطط، يمكن استخدام الكود التالي:
+لإضافة رسم متحرك لسلسلة إلى المخطط يمكن استخدام الشيفرة التالية:
 
 ``` csharp
 
@@ -115,7 +129,7 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-تحريك الفئات:
+رسوم متحركة للفئات:
 
 ``` csharp
 
@@ -163,7 +177,7 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-تحريك عناصر السلسلة:
+رسوم متحركة لعناصر السلسلة:
 
 ``` csharp
 
@@ -259,7 +273,7 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-تحريك عناصر الفئة:
+رسوم متحركة لعناصر الفئات:
 
 ``` csharp
 
@@ -353,4 +367,4 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 }
 
-``` 
+```

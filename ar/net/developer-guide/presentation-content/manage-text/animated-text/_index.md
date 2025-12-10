@@ -1,24 +1,34 @@
 ---
-title: نص متحرك
+title: تحريك نص PowerPoint في .NET
+linktitle: نص متحرك
 type: docs
 weight: 60
 url: /ar/net/animated-text/
-keywords: "نص متحرك، تأثيرات الرسوم المتحركة، عرض باوربوينت، C#، Csharp، Aspose.Slides لـ .NET"
-description: "أضف نصوصًا متحركة وتأثيرات لعرض باوربوينت باستخدام C# أو .NET"
+keywords:
+- نص متحرك
+- تحريك النص
+- فقرة متحركة
+- تحريك الفقرة
+- تأثير الحركة
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "إنشاء نص متحرك ديناميكي في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for .NET، مع أمثلة كود C# سهلة المتابعة ومُحسّنة."
 ---
 
-## إضافة تأثيرات الرسوم المتحركة إلى الفقرات
+## **إضافة تأثيرات الحركة إلى الفقرات**
 
-أضفنا طريقة [**AddEffect()**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence/methods/addeffect/index) إلى فئتي [**Sequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence) و [**ISequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence). تتيح لك هذه الطريقة إضافة تأثيرات الرسوم المتحركة إلى فقرة واحدة. يشير هذا الكود المثال إلى كيفية إضافة تأثير رسوم متحركة إلى فقرة واحدة:
-
+أضفنا الطريقة [**AddEffect()**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence/methods/addeffect/index) إلى الفئتين [**Sequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence) و[**ISequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence). تتيح لك هذه الطريقة إضافة تأثيرات الحركة إلى فقرة واحدة. يوضح لك هذا المثال البرمجي كيفية إضافة تأثير حركة إلى فقرة واحدة:
 ```c#
 using (Presentation presentation = new Presentation(dataDir + "Presentation1.pptx"))
 {
-    // اختر الفقرة لإضافة التأثير
+    // تحديد الفقرة لإضافة تأثير
     IAutoShape autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     IParagraph paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // أضف تأثير الرسوم المتحركة "Fly" إلى الفقرة المحددة
+    // إضافة تأثير الطيران للفقرة المحددة
     IEffect effect = presentation.Slides[0].Timeline.MainSequence.AddEffect(paragraph, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
 
@@ -27,13 +37,11 @@ using (Presentation presentation = new Presentation(dataDir + "Presentation1.ppt
 ```
 
 
+## **الحصول على تأثيرات الحركة للفقرات**
 
-## الحصول على تأثيرات الرسوم المتحركة في الفقرات
+قد ترغب في معرفة تأثيرات الحركة المضافة إلى فقرة—على سبيل المثال، في أحد السيناريوهات، تريد الحصول على تأثيرات الحركة في فقرة لأنك تخطط لتطبيق هذه التأثيرات على فقرة أو شكل آخر.
 
-قد تقرر معرفة تأثيرات الرسوم المتحركة المضافة إلى فقرة—على سبيل المثال، في سيناريو واحد، تريد الحصول على تأثيرات الرسوم المتحركة في فقرة لأنك تخطط لتطبيق تلك التأثيرات على فقرة أو شكل آخر.
-
-تتيح لك Aspose.Slides لـ .NET الحصول على جميع تأثيرات الرسوم المتحركة المطبقة على الفقرات الموجودة في إطار نص (شكل). يشير هذا الكود المثال إلى كيفية الحصول على تأثيرات الرسوم المتحركة في فقرة:
-
+يسمح لك Aspose.Slides for .NET بالحصول على جميع تأثيرات الحركة المطبقة على الفقرات الموجودة داخل إطار نص (شكل). يوضح لك هذا المثال البرمجي كيفية الحصول على تأثيرات الحركة في فقرة:
 ```c#
 using (Presentation pres = new Presentation("Test.pptx"))
 {
@@ -45,7 +53,22 @@ using (Presentation pres = new Presentation("Test.pptx"))
 		IEffect[] effects = sequence.GetEffectsByParagraph(paragraph);
 
 		if (effects.Length > 0)
-			Console.WriteLine("الفقرة \"" + paragraph.Text + "\" تحتوي على تأثير " + effects[0].Type + ".");
+			Console.WriteLine("Paragraph \"" + paragraph.Text + "\" has " + effects[0].Type + " effect.");
 	}
 }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**كيف تختلف تحريك النص عن انتقالات الشريحة، وهل يمكن دمجهما؟**
+
+تحكم تحريكات النص سلوك الكائن بمرور الوقت على الشريحة، بينما تتحكم [transitions](/slides/ar/net/slide-transition/) في كيفية تغير الشرائح. هما مستقلان ويمكن استخدامهما معًا؛ يتم تحديد ترتيب التشغيل بواسطة جدول زمني للتحريك وإعدادات الانتقال.
+
+**هل يتم الحفاظ على تحريكات النص عند التصدير إلى PDF أو الصور؟**
+
+لا. ملفات PDF والصور النقطية ثابتة، لذلك ستظهر حالة واحدة من الشريحة بدون حركة. للحفاظ على الحركة، استخدم تصدير [video](/slides/ar/net/convert-powerpoint-to-video/) أو [HTML](/slides/ar/net/export-to-html5/).
+
+**هل تعمل تحريكات النص في التخطيطات ورئيس الشريحة؟**
+
+التأثيرات المطبقة على كائنات التخطيط/الرئيس تُورّث إلى الشرائح، ولكن توقيتها وتفاعلها مع تحريكات مستوى الشريحة يعتمد على التسلسل النهائي في الشريحة.

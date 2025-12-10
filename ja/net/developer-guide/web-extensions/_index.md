@@ -1,37 +1,54 @@
 ---
-title: 新しいHTMLエクスポートシステム - Aspose.Slides.WebExtensions
+title: 新しい HTML エクスポート システム - Aspose.Slides.WebExtensions
 type: docs
 weight: 240
 url: /ja/net/web-extensions/
-keywords: "PowerPointをHTMLにエクスポート, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
-description: "C#または.NETでのPowerPoint HTMLエクスポート"
+keywords:
+- Web 拡張機能
+- テンプレート エンジン
+- PowerPoint のエクスポート
+- OpenDocument のエクスポート
+- プレゼンテーションのエクスポート
+- スライドのエクスポート
+- PPT のエクスポート
+- PPTX のエクスポート
+- ODP のエクスポート
+- PowerPoint から HTML への変換
+- OpenDocument から HTML への変換
+- プレゼンテーションを HTML に変換
+- スライドを HTML に変換
+- PPT を HTML に変換
+- PPTX を HTML に変換
+- ODP を HTML に変換
+- .NET
+- C#
+- Aspose.Slides
+description: "テンプレート、CSS、JS を使用してプレゼンテーションを HTML にエクスポート（SVG なし）。シングルページまたはマルチページ出力、リソース管理、PPT、PPTX、ODP のカスタマイズ方法を学びましょう。"
 ---
 
+## **はじめに**
 
-## はじめに
+* 旧バージョンの Aspose.Slides API では、PowerPoint を HTML にエクスポートすると、生成された HTML は SVG マークアップと HTML が組み合わされた形で表現されました。各スライドは SVG コンテナとしてエクスポートされました。  
+* 新しい Aspose.Slides バージョンでは、PowerPoint プレゼンテーションを HTML にエクスポートするために WebExtensions システムを使用すると、HTML エクスポート設定をカスタマイズして最適な結果を得ることができます。  
 
-* 古いAspose.Slides APIビルドでは、PowerPointをHTMLにエクスポートすると、結果として得られたHTMLはHTMLと組み合わされたSVGマークアップとして表現されました。各スライドはSVGコンテナとしてエクスポートされました。
-* 新しいAspose.Slidesバージョンでは、WebExtensionsシステムを使用してPowerPointプレゼンテーションをHTMLにエクスポートすると、最適な結果を提供するためにHTMLエクスポート設定をカスタマイズできます。
+新しい WebExtensions システムを使用すると、SVG なしで CSS クラスと JavaScript アニメーションのセットを用いてプレゼンテーション全体を HTML にエクスポートできます。新しいエクスポートシステムは、エクスポートプロセスを定義する無制限のオプションとメソッドも提供します。  
 
-新しいWebExtensionsシステムを使用すると、CSSクラスとJavaScriptアニメーションのセットを用いて、プレゼンテーション全体をHTMLにエクスポートできます（SVGなし）。新しいエクスポートシステムは、エクスポートプロセスを定義する無限のオプションとメソッドを提供します。
+WebExtensions システムは、以下のケースやイベントでプレゼンテーションから HTML を生成するために使用されます。
 
-新しいWebExtensionsシステムは、次のケースやイベントでプレゼンテーションからHTMLを生成するために使用されます：
+* カスタム CSS スタイルやアニメーションを使用する場合、特定の形状タイプのマークアップを上書きする場合。  
+* ドキュメント構造を上書きする場合（例: ページ間のカスタムナビゲーションを使用）。  
+* .html、.css、.js ファイルをカスタマイズされた階層でフォルダーに保存する場合。例として、セクション名に基づいてスライドをフォルダーにエクスポートします。  
+* デフォルトで CSS と JS を別々のフォルダーに保存し、HTML ファイルに追加する場合。画像や埋め込みフォントも別ファイルとして保存されますが、HTML に埋め込む（base64 形式）ことも可能です。リソースの一部をファイルに保存し、残りを base64 で HTML に埋め込むことができます。  
 
-* カスタムCSSスタイルやアニメーションを使用する際；特定のタイプの図形のマークアップを上書きする。
-* 文書の構造を上書きする際、例えば、ページ間のカスタムナビゲーションを使用する。
-* .html、.css、.jsファイルをカスタマイズされた階層でフォルダーに保存する際、異なるフォルダーに特定のファイルタイプを含む。例えば、セクション名に基づいてスライドをフォルダーにエクスポートする。
-* デフォルトでCSSとJSファイルを別々のフォルダーに保存し、その後HTMLファイルに追加する際。画像や埋め込まれたフォントも別々のファイルに保存されます。ただし、これらはHTMLファイルに埋め込むこともできます（base64形式）。リソースの一部をファイルに保存し、他のリソースをHTMLにbase64形式で埋め込むことができます。
-
-PowerPointからHTMLへの例は、[Aspose.Slides.WebExtensionsプロジェクト](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/)のGitHubで確認できます。このプロジェクトは、**Examples\SinglePageApp**と**Examples\MultiPageApp**の2つの部分で構成されています。この記事で使用される他の例もGitHubリポで見つけることができます。
+PowerPoint から HTML への例は GitHub の [Aspose.Slides.WebExtensions プロジェクト](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/)で確認できます。このプロジェクトは **Examples\SinglePageApp** と **Examples\MultiPageApp** の 2 部構成です。この記事で使用した他の例も GitHub リポジトリで見つけられます。  
 
 ### **テンプレート**
 
-HTMLエクスポートの機能をさらに拡張するために、ASP.NET Razorテンプレートシステムの使用をお勧めします。[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスは、一連のテンプレートとともに使用して、エクスポート結果としてHTML文書を取得できます。
+HTML エクスポート機能をさらに拡張するには、ASP.NET Razor テンプレートシステムの使用を推奨します。 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスは、テンプレートのセットと組み合わせて HTML ドキュメントをエクスポート結果として取得できます。
 
 **デモンストレーション**
 
-この例では、プレゼンテーションからHTMLにテキストをエクスポートします。まず、テンプレートを作成しましょう：
-
+この例では、プレゼンテーションからテキストを HTML にエクスポートします。まずテンプレートを作成しましょう。
 ``` html
 <!DOCTYPE html>
 <body>
@@ -49,10 +66,10 @@ HTMLエクスポートの機能をさらに拡張するために、ASP.NET Razor
 </body>
 </html>
 ```
-このテンプレートは「shape-template-hello-world.html」としてディスクに保存され、次のステップで使用されます。
 
-このテンプレートでは、プレゼンテーションの図形内のテキストフレームを繰り返してテキストを表示しています。WebDocumentを使用してHTMLファイルを生成し、その後プレゼンテーションをファイルにエクスポートしましょう：
+このテンプレートはディスク上に **shape-template-hello-world.html** という名前で保存され、次のステップで使用されます。
 
+このテンプレートでは、プレゼンテーションのシェイプ内のテキストフレームを列挙してテキストを表示します。`WebDocument` を使用して HTML ファイルを生成し、`Presentation` をそのファイルにエクスポートします。  
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -61,37 +78,37 @@ using (Presentation pres = new Presentation())
                 
     WebDocumentOptions options = new WebDocumentOptions
     {
-        TemplateEngine = new RazorTemplateEngine(), // Razorテンプレートエンジンを使用する意図があります。他のテンプレートエンジンはITemplateEngineを実装することで使用できます  
-        OutputSaver = new FileOutputSaver() // 他の結果セーバーはIOutputSaverインターフェースを実装することで使用できます
+        TemplateEngine = new RazorTemplateEngine(), // Razor テンプレートエンジンを使用する予定です。ITemplateEngine を実装することで他のテンプレートエンジンも使用できます  
+        OutputSaver = new FileOutputSaver() // IOutputSaver インターフェイスを実装することで他の結果保存機能も使用できます
     };
     WebDocument document = new WebDocument(options);
 
-    // ドキュメント「入力」を追加します - HTMLドキュメントを生成するために使用されるソース
+    // ドキュメント "input" を追加 - HTML ドキュメント生成に使用するソースは何か
     document.Input
-        .AddTemplate<Presentation>( // テンプレートはPresentationを「モデル」オブジェクト（Model.Object）として持ちます 
-        "index", // テンプレートキー - テンプレートエンジンがオブジェクト（Presentation）をディスクから読み込んだテンプレートにマッチさせるために必要  
-        @"custom-templates\shape-template-hello-world.html"); // 以前に作成したテンプレート
+        .AddTemplate<Presentation>( // テンプレートは Presentation を "model" オブジェクト (Model.Object) として持ちます 
+        "index", // テンプレートキー - テンプレートエンジンがオブジェクト (Presentation) とディスクから読み込んだテンプレート ("shape-template-hello-world.html") を一致させるために必要です  
+        @"custom-templates\shape-template-hello-world.html"); // 以前作成したテンプレート
                 
-    // 出力を追加します - 結果のHTMLドキュメントがディスクにエクスポートされるときの見た目
+    // 出力を追加 - エクスポート時に生成される HTML ドキュメントの形
     document.Output.Add(
         "hello-world.html", // 出力ファイルパス
         "index", // このファイルに使用されるテンプレートキー（前のステートメントで設定しました）  
-        pres); // 実際のModel.Objectインスタンス 
+        pres); // 実際の Model.Object インスタンス 
                 
     document.Save();
 }
 ```
 
-例えば、エクスポート結果にCSSスタイルを追加してテキストの色を赤に変更したいとします。CSSテンプレートを追加しましょう：
 
+例えば、エクスポート結果のテキスト色を赤に変更する CSS スタイルを追加したい場合、CSS テンプレートを追加します。  
 ``` css
 .text {
     color: red;
 }
 ```
 
-次に、これを入力と出力に追加します：
 
+次に、入力と出力にそれを組み込みます。  
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -110,7 +127,8 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-スタイルへの参照をテンプレートとクラス「text」に追加しましょう：
+
+テンプレートとクラス **text** にスタイル参照を追加します。  
 ``` html
 <!DOCTYPE html>
 <head>
@@ -120,14 +138,15 @@ using (Presentation pres = new Presentation())
 </html>
 ```
 
+
 ### **デフォルトテンプレート**
 
-WebExtensionsは、プレゼンテーションをHTMLにエクスポートするための基本テンプレートを2セット提供します：
-* シングルページ：すべてのプレゼンテーションコンテンツが1つのHTMLファイルにエクスポートされます。すべての他のリソース（画像、フォント、スタイルなど）は別々のファイルにエクスポートされます。
-* マルチページ：各プレゼンテーションスライドが個別のHTMLファイルにエクスポートされます。リソースをエクスポートするためのデフォルトのロジックは、シングルページと同じです。 
+WebExtensions はプレゼンテーションを HTML にエクスポートするための基本テンプレートを 2 套提供します。
 
-`PresentationExtensions`クラスは、テンプレートを使用してプレゼンテーションエクスポートプロセスを簡素化するために使用できます。`PresentationExtensions`クラスは、Presentationクラスの拡張メソッドのセットを含みます。プレゼンテーションをシングルページにエクスポートするには、Aspose.Slides.WebExtensions名前空間を含め、2つのメソッドを呼び出すだけです。最初のメソッド、`ToSinglePageWebDocument`は、`WebDocument`インスタンスを作成します。2番目のメソッドはHTMLドキュメントを保存します： 
+* **シングルページ**: すべてのプレゼンテーションコンテンツが 1 つの HTML ファイルにエクスポートされ、画像・フォント・スタイルなどのリソースは別ファイルとして出力されます。  
+* **マルチページ**: 各スライドが個別の HTML ファイルにエクスポートされます。リソースのエクスポートロジックはシングルページと同様です。  
 
+`PresentationExtensions` クラスはテンプレートを使用したプレゼンテーションのエクスポートプロセスを簡素化します。`PresentationExtensions` クラスは `Presentation` クラス向けの拡張メソッドを多数提供しています。シングルページにエクスポートするには、`Aspose.Slides.WebExtensions` 名前空間をインクルードし、2 つのメソッドを呼び出すだけです。最初のメソッド `ToSinglePageWebDocument` が `WebDocument` インスタンスを作成し、2 番目のメソッドが HTML ドキュメントを保存します。  
 ``` csharp
 using (Presentation pres = new Presentation("demo.pptx"))
 {
@@ -136,10 +155,10 @@ using (Presentation pres = new Presentation("demo.pptx"))
 }
 ```
 
-ToSinglePageWebDocumentメソッドは、テンプレートフォルダーとエクスポートフォルダーの2つのパラメータを取ることができます。
 
-プレゼンテーションをマルチページにエクスポートするには、同じパラメータでToMultiPageWebDocumentメソッドを使用します：
+`ToSinglePageWebDocument` メソッドは「テンプレート フォルダー」と「エクスポート フォルダー」の 2 つのパラメーターを受け取れます。  
 
+マルチページにエクスポートするには、同じパラメーターで `ToMultiPageWebDocument` メソッドを使用します。  
 ``` csharp
 using (Presentation pres = new Presentation("demo.pptx"))
 {
@@ -148,10 +167,10 @@ using (Presentation pres = new Presentation("demo.pptx"))
 }
 ```
 
-WebExtensionsでは、マークアップ生成に使用される各テンプレートはキーにバインドされています。そのキーはテンプレート内で使用できます。例えば、@Includeディレクティブで、特定のテンプレートを別のテンプレートにキーで挿入できます。
 
-テキスト部分テンプレートを段落テンプレート内で使用する手順を、例を通じて示すことができます。使用例はAspose.Slides.WebExtensionsプロジェクトで見つけることができます：[Templates\common\paragraph.html](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/Templates/common/paragraph.html)。段落内の部分を描画するために、Razorエンジンの@foreachディレクティブを使用してそれらを繰り返します：
+WebExtensions では、マークアップ生成に使用される各テンプレートがキーにバインドされます。そのキーはテンプレート内で使用できます。例えば `@Include` ディレクティブでは、キーで指定したテンプレートを別のテンプレートに挿入できます。  
 
+テキストのポーションテンプレート使用例は、Aspose.Slides.WebExtensions プロジェクトの [Templates\common\paragraph.html](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/Templates/common/paragraph.html) にあります。段落内のポーションを描画するために、Razor Engine の `@foreach` ディレクティブで列挙します。  
 ``` html
 @foreach (Portion portion in contextObject.Portions) 
 { 
@@ -162,27 +181,29 @@ WebExtensionsでは、マークアップ生成に使用される各テンプレ�
 }
 ```
 
-Portionには独自のテンプレート[portion.html](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/Templates/common/portion.html)があり、そのためのモデルが生成されます。そのモデルは出力段落.htmlテンプレートに追加されます：
+
+ポーションは独自のテンプレート [portion.html](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/Templates/common/portion.html) を持ち、モデルが生成されます。そのモデルは出力の `paragraph.html` テンプレートに追加されます。  
 ``` html
 @Raw(Include("portion", subModel).ToString().Replace(Environment.NewLine, ""));
 ```
 
-各図形タイプにはカスタムテンプレートを使用し、それをAspose.Slides.WebExtensionsプロジェクトの一般的なセットに追加します。テンプレートはToSinglePageWebDocumentおよびToMultiPageWebDocumentメソッド内で結合され、最終結果を提供します。これらはシングルページとマルチページの両方で使用される一般的なテンプレートです：
 
--templates
-+-common
-  ¦ +-scripts: スライド遷移アニメーションのためのJavaScriptスクリプトなど。
-  ¦ +-styles: 共通のCSSスタイル。
-  +-multi-page: マルチページ出力用のインデックス、メニュー、スライドテンプレート。
-  +-single-page: シングルページ出力用のインデックス、スライドテンプレート。
+シェイプタイプごとにカスタムテンプレートを使用し、Aspose.Slides.WebExtensions プロジェクトの一般テンプレートセットに追加します。`ToSinglePageWebDocument` と `ToMultiPageWebDocument` メソッドでこれらのテンプレートが結合され、最終結果が生成されます。以下はシングルページとマルチページの両方で使用される共通テンプレートです。
 
-`PresentationExtensions.AddCommonInputOutput`メソッド[こちら](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/PresentationExtensions.cs)で、すべてのテンプレートに共通の部分がどのようにバインドされているかを確認できます。
+-templates  
++-common  
+  ¦ +-scripts: スライド遷移アニメーション用 JavaScript スクリプト  
+  ¦ +-styles: 共通 CSS スタイル  
+  +-multi-page: マルチページ出力用の index、menu、slide テンプレート  
+  +-single-page: シングルページ出力用の index、slide テンプレート  
+
+`PresentationExtensions.AddCommonInputOutput` メソッドで共通部分がすべてのテンプレートにバインドされている様子は [こちら](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/PresentationExtensions.cs) を参照してください。  
 
 ### **デフォルトテンプレートのカスタマイズ**
 
-共通モデルのテンプレート内の任意の要素を変更することができます。例えば、表の書式スタイルを変更することを決定したが、シングルページの他のすべてのスタイルを変更しないようにすることができます。
+共通モデルのテンプレート内の任意の要素を修正できます。例えば、テーブルの書式スタイルは変更したいが、シングルページの他のスタイルはそのままにしたい場合などです。  
 
-デフォルトでは、Templates\common\table.htmlが使用され、表はPowerPointの表と同じ外観を持ちます。カスタムCSSスタイルを使用して表の書式を変更しましょう：
+既定では `Templates\common\table.html` が使用され、テーブルは PowerPoint の外観と同じになります。カスタム CSS スタイルでテーブルの書式を変更してみましょう。  
 ``` css
 .custom-table {
     border: 1px solid black;
@@ -191,8 +212,8 @@ Portionには独自のテンプレート[portion.html](https://github.com/aspose
 .custom-table tr:nth-child(odd) {background: #ffb380}
 ```
 
-`PresentationExtensions.ToSinglePageWebDocument`メソッドを呼び出す際に、同一の入力テンプレートと出力ファイルの構造を作成することができます。そのために、`ExportCustomTableStyles_AddCommonStructure`メソッドを追加しましょう。このメソッドと`ToSinglePageWebDocument`メソッドの違いは、標準の表およびメインインデックスページのテンプレートを追加する必要がないことです（カスタム表スタイルへの参照を含むように置き換えられます）：
 
+`PresentationExtensions.ToSinglePageWebDocument` を呼び出しながら、入力テンプレートと出力ファイルの同一構造を作成できます。そのために `ExportCustomTableStyles_AddCommonStructure` メソッドを追加します。このメソッドは標準のテーブルテンプレートとメイン index ページを追加しません（カスタムテーブルスタイルへの参照を含めるように置き換えられます）。  
 ``` csharp
 private static void ExportCustomTableStyles_AddCommonStructure(
     Presentation pres, 
@@ -221,9 +242,9 @@ private static void ExportCustomTableStyles_AddCommonStructure(
 }
 ```
 
-代わりにカスタムテンプレートを追加しましょう：
 
-``` csharp
+代わりにカスタムテンプレートを追加します。  
+```csharp
 using (Presentation pres = new Presentation("table.pptx"))
 {
     const string templatesPath = "templates\\single-page";
@@ -236,21 +257,21 @@ using (Presentation pres = new Presentation("table.pptx"))
         EmbedImages = false
     };
 
-    // グローバルドキュメント値を設定します
+    // グローバルドキュメントの値を設定
     WebDocument document = new WebDocument(options);
     SetupGlobals(document, options, outputPath);
 
-    // 共通構造を追加します（表テンプレートを除く）
+    // 共通構造を追加（テーブルテンプレートを除く）
     ExportCustomTableStyles_AddCommonStructure(pres, document, templatesPath, outputPath, options.EmbedImages);
                 
-    // カスタム表テンプレートを追加します
+    // カスタムテーブルテンプレートを追加
     document.Input.AddTemplate<Table>("table", @"custom-templates\table-custom-style.html");
                 
-    // カスタム表スタイルを追加します
+    // カスタムテーブルスタイルを追加
     document.Input.AddTemplate<Presentation>("table-custom-style", @"custom-templates\styles\table-custom-style.css");
     document.Output.Add(Path.Combine(outputPath, "table-custom-style.css"), "table-custom-style", pres);
                 
-    // カスタムインデックスを追加します - それは単に標準の「index.html」のコピーですが、「table-custom-style.css」の参照を含みます
+    // カスタムインデックスを追加 - 標準の "index.html" のコピーで、"table-custom-style.css" への参照が含まれています
     document.Input.AddTemplate<Presentation>("index", @"custom-templates\index-table-custom-style.html");
                 
     document.Save();
@@ -304,11 +325,11 @@ using (Presentation pres = new Presentation("table.pptx"))
 		</tr>
 	}
 </table>
-``` 
+```
 
-**注意**：カスタム表テンプレートは、標準の表と同じ「table」キーで追加されました。したがって、特定のデフォルトテンプレートを再作成せずに置き換えることができます。デフォルトの構造から同じキーを持つテンプレートを使用することもできます。例えば、表テンプレート内で標準の段落テンプレートを使用することができます。また、キーで置き換えることもできます。
-index.htmlを使用してカスタムテーブルCSSスタイルへの参照を含めることもできます： 
 
+**注意** カスタムテーブルテンプレートは標準テーブルと同じ “table” キーで追加されました。そのため、既定テンプレートを上書きして再記述せずに置き換えることができます。同じキーを持つデフォルト構造のテンプレートも利用可能です。例えば、テーブルテンプレート内で標準の段落テンプレートを使用したり、キーで置き換えたりできます。  
+`index.html` にカスタムテーブル CSS スタイルへの参照を組み込むことも可能です。  
 ``` html
 <!DOCTYPE html>    
     
@@ -327,25 +348,25 @@ index.htmlを使用してカスタムテーブルCSSスタイルへの参照を�
 </html>
 ```
 
-## **プロジェクトをゼロから作成する：アニメーションスライド遷移**
 
-WebExtensionsを使用すると、アニメーションスライド遷移を持つプレゼンテーションをエクスポートできます。`WebDocumentOptions`の`AnimateTransitions`プロパティを`true`に設定するだけです：
+## **スクラッチからプロジェクトを作成: アニメーションスライド遷移**
 
+WebExtensions を使用すれば、スライド遷移にアニメーションを付与したプレゼンテーションをエクスポートできます。`WebDocumentOptions` の `AnimateTransitions` プロパティを `true` に設定するだけです。  
 ``` csharp
 WebDocumentOptions options = new WebDocumentOptions
 {
-    // ... 他のオプション
+    // ... その他のオプション
     AnimateTransitions = true
 };
 ```
 
-アニメーション付きページ遷移のHTMLビューワーを作成するために、Aspose.SlidesとAspose.Slides.WebExtensionsを使用する新しいプロジェクトを作成しましょう。ここでは、Aspose.SlidesのPDFインポート機能を使用する必要があります。
 
-PdfToPresentationToHtmlプロジェクトを作成し、Aspose.Slides.WebExtensions NuGetパッケージを追加します（Aspose.Slidesパッケージも依存関係として追加されます）：
-![NuGetパッケージ](screen.png)
+Aspose.Slides と Aspose.Slides.WebExtensions を利用し、PDF 用の HTML ビューアを滑らかなアニメーションページ遷移付きで作成する新規プロジェクトを作成しましょう。ここでは Aspose.Slides の PDF インポート機能を使用します。  
 
-PDF文書をインポートし、それをアニメーションさせてHTMLプレゼンテーションにエクスポートすることから始めます：
+PdfToPresentationToHtml プロジェクトを作成し、Aspose.Slides.WebExtensions NuGet パッケージを追加します（Aspose.Slides パッケージも依存関係として自動で追加されます）。  
+![NuGet Package](screen.png)
 
+まず PDF ドキュメントをインポートします。この PDF はアニメーション化され、HTML プレゼンテーションとしてエクスポートされます。  
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -354,8 +375,8 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-次に、アニメーションスライド遷移を設定できます（各スライドはインポートされたPDFページです）。サンプルPDFドキュメントでは9つのスライドを使用しました。各スライドに遷移を追加します（HTMLを表示している間のデモ）：
 
+次に、アニメーションスライド遷移を設定します（各スライドはインポートした PDF ページに対応）。サンプル PDF では 9 枚のスライドが使用されています。各スライドに遷移効果を追加してみましょう（HTML を表示しながらのデモ）。  
 ``` csharp
 pres.Slides[0].SlideShowTransition.Type = TransitionType.Fade;
 pres.Slides[1].SlideShowTransition.Type = TransitionType.RandomBar;
@@ -368,8 +389,8 @@ pres.Slides[7].SlideShowTransition.Type = TransitionType.Pull;
 pres.Slides[8].SlideShowTransition.Type = TransitionType.Plus;
 ```
 
-最後に、`WebDocument`を使用してHTMLにエクスポートし、`AnimateTransitions`プロパティを`true`に設定します：
 
+最後に、`AnimateTransitions` プロパティを `true` に設定した `WebDocument` を使って HTML にエクスポートします。  
 ``` csharp
 WebDocumentOptions options = new WebDocumentOptions
 {
@@ -382,7 +403,8 @@ WebDocument document = pres.ToSinglePageWebDocument(options, "templates\\single-
 document.Save();
 ```
 
-完全なソースコード例：
+
+完全なソースコード例:  
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -411,7 +433,8 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-これで、PDFドキュメントから生成されたアニメーションページ遷移付きのHTMLを作成するために必要なすべての手順が完了しました。
 
-* [サンプルHTMLファイルをダウンロード](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples)。
-* [サンプルプロジェクトをダウンロード](/slides/ja/net/web-extensions/sample.zip)。
+以上で、PDF ドキュメントから生成されたアニメーションページ遷移付き HTML を作成する手順は完了です。  
+
+* [サンプル HTML ファイルをダウンロード](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples)  
+* [サンプルプロジェクトをダウンロード](/slides/ja/net/web-extensions/sample.zip)

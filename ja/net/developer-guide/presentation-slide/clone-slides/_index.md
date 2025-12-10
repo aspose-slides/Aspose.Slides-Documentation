@@ -1,190 +1,217 @@
 ---
-title: スライドの複製
+title: .NET でプレゼンテーションスライドをクローンする
+linktitle: スライドをクローン
 type: docs
 weight: 40
 url: /ja/net/clone-slides/
-keywords: "スライドの複製, スライドのコピー, スライドコピーの保存, PowerPoint, プレゼンテーション, C#, Csharp, .NET, Aspose.Slides"
-description: "C# または .NET で PowerPoint スライドを複製する"
+keywords:
+- スライドのクローン
+- スライドのコピー
+- スライドの保存
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET を使用して PowerPoint スライドを迅速に複製します。明確なコード例に従って、数秒で PPT の作成を自動化し、手作業をなくしましょう。"
 ---
 
-## **プレゼンテーションにおけるスライドの複製**
-複製とは、何かの正確なコピーまたはレプリカを作成するプロセスです。Aspose.Slides for .NET では、任意のスライドのコピーまたは複製を作成し、それを現在または他の開いているプレゼンテーションに挿入することが可能です。スライドの複製プロセスにより、元のスライドを変更することなく、開発者が修正できる新しいスライドが作成されます。スライドを複製するためのいくつかの方法があります：
+## **プレゼンテーション内のスライドをクローンする**
+クローンとは、何かを正確にコピーまたは複製するプロセスです。Aspose.Slides for .NET を使用すると、任意のスライドのコピーまたはクローンを作成し、そのクローンしたスライドを現在のプレゼンテーションまたは他の開いているプレゼンテーションに挿入することが可能です。スライドのクローン作成プロセスにより、新しいスライドが生成され、開発者は元のスライドを変更せずにこのスライドを修正できます。スライドをクローンする方法はいくつかあります。
 
-- プレゼンテーションの末尾に複製する。
-- プレゼンテーション内の別の位置に複製する。
-- 別のプレゼンテーションの末尾に複製する。
-- 別のプレゼンテーションの別の位置に複製する。
-- 別のプレゼンテーションの特定の位置に複製する。
+- プレゼンテーション内の末尾にクローンする。
+- プレゼンテーション内の別の位置にクローンする。
+- 別のプレゼンテーションの末尾にクローンする。
+- 別のプレゼンテーションの別の位置にクローンする。
+- 別のプレゼンテーションの特定の位置にクローンする。
 
-Aspose.Slides for .NET では、[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) オブジェクトによって公開される [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) オブジェクトのコレクションが [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) および [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) メソッドを提供し、上記のスライド複製のタイプを実行します。
+Aspose.Slides for .NET では、[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) オブジェクトが公開する[ISlide]オブジェクトのコレクションを使用して、上記のスライドクローン作成タイプを実行するための[AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)と[InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1)メソッドが提供されます。
 
-## **プレゼンテーション内の末尾に複製する**
-スライドを複製し、既存のスライドの末尾で同じプレゼンテーションファイル内で使用する場合は、以下のステップに従って [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) メソッドを使用します：
+## **プレゼンテーションの末尾にスライドをクローンする**
+同じプレゼンテーションファイル内で既存のスライドの末尾にスライドをクローンして使用したい場合は、以下の手順に従って[AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)メソッドを使用してください。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) オブジェクトが公開するスライドコレクションを参照して [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) クラスをインスタンス化します。
-1. 複製するスライドをパラメーターとして [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) メソッドに渡し、[ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) オブジェクトによって公開される [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) メソッドを呼び出します。
-1. 修正したプレゼンテーションファイルを書き込みます。
+1. [Presentation]クラスのインスタンスを作成します。
+1. [Presentation]オブジェクトが公開するSlidesコレクションを参照して[ISlideCollection]クラスのインスタンスを作成します。
+1. [ISlideCollection]オブジェクトが提供する[AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)メソッドを呼び出し、クローンするスライドをパラメーターとして渡します。
+1. 変更されたプレゼンテーションファイルを書き出します。
 
-以下の例では、プレゼンテーションの最初の位置 (ゼロインデックス) にあるスライドをプレゼンテーションの末尾に複製しました。
-
+下の例では、プレゼンテーションの先頭位置（インデックス0）にあるスライドをプレゼンテーションの末尾にクローンしています。
 ```c#
-// プレゼンテーションファイルを表す Presentation クラスをインスタンス化
-using (Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pptx"))
-{
-    // 同じプレゼンテーションのスライドコレクションの末尾に目的のスライドを複製
-    ISlideCollection slds = pres.Slides;
-
-    slds.AddClone(pres.Slides[0]);
-
-    // 修正されたプレゼンテーションをディスクに書き込む
-    pres.Save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat.Pptx);
-}
+ // プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します
+ using (Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pptx"))
+ {
+ 
+     // 同じプレゼンテーション内のスライド コレクションの末尾に目的のスライドをクローンします
+     ISlideCollection slds = pres.Slides;
+ 
+     slds.AddClone(pres.Slides[0]);
+ 
+     // 変更されたプレゼンテーションをディスクに保存します
+     pres.Save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat.Pptx);
+ 
+ }
 ```
 
-## **プレゼンテーション内の別の位置に複製する**
-スライドを複製し、同じプレゼンテーションファイル内で異なる位置に使用する場合は、[InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) メソッドを使用します：
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) オブジェクトが公開する **Slides** コレクションを参照してクラスをインスタンス化します。
-1. 複製するスライドと新しい位置のインデックスをパラメーターとして [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) メソッドに渡し、[ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) オブジェクトによって公開される [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) メソッドを呼び出します。
-1. 修正されたプレゼンテーションを PPTX ファイルとして書き込みます。
+## **プレゼンテーション内の別の位置にスライドをクローンする**
+同じプレゼンテーションファイル内で別の位置にスライドをクローンして使用したい場合は、[InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1)メソッドを使用します。
 
-以下の例では、プレゼンテーションのゼロインデックス (位置 1) にあるスライドをインデックス 1 (位置 2) に複製しました。
+1. [Presentation]クラスのインスタンスを作成します。
+1. [Presentation]オブジェクトが公開する**Slides**コレクションを参照してクラスのインスタンスを作成します。
+1. [ISlideCollection]オブジェクトが提供する[InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1)メソッドを呼び出し、クローンするスライドと新しい位置のインデックスをパラメーターとして渡します。
+1. 変更されたプレゼンテーションをPPTXファイルとして書き出します。
 
+下の例では、プレゼンテーションのインデックス0（位置1）にあるスライドをインデックス1（位置2）にクローンしています。
 ```c#
-// プレゼンテーションファイルを表す Presentation クラスをインスタンス化
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します
 using (Presentation pres = new Presentation("CloneWithInSamePresentation.pptx"))
 {
-    // 同じプレゼンテーションのスライドコレクションの末尾に目的のスライドを複製
+
+    // 同じプレゼンテーション内のスライド コレクションの末尾に目的のスライドをクローンします
     ISlideCollection slds = pres.Slides;
 
-    // 同じプレゼンテーションの指定したインデックスに目的のスライドを複製
+    // 同じプレゼンテーション内の指定インデックスに目的のスライドをクローンします
     slds.InsertClone(2, pres.Slides[1]);
 
-    // 修正されたプレゼンテーションをディスクに書き込む
+    // 変更されたプレゼンテーションをディスクに保存します
     pres.Save("Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat.Pptx);
+
 }
 ```
 
-## **別のプレゼンテーションの末尾に複製する**
-別のプレゼンテーションからスライドを複製し、別のプレゼンテーションファイルで既存のスライドの末尾で使用する必要がある場合：
 
-1. 複製元のプレゼンテーションを含む [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-1. スライドを追加するための宛先プレゼンテーションを含む [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-1. 宛先プレゼンテーションの [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) オブジェクトが公開する **Slides** コレクションを参照して [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) クラスをインスタンス化します。
-1. 複製元プレゼンテーションのスライドを [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) メソッドにパラメーターとして渡します。
-1. 修正した宛先プレゼンテーションファイルを書き込みます。
+## **別のプレゼンテーションの末尾にスライドをクローンする**
+あるプレゼンテーションからスライドをクローンし、別のプレゼンテーションファイルの既存スライドの末尾に使用する必要がある場合は、以下の手順に従います。
 
-以下の例では、ソースプレゼンテーションの最初のインデックスからスライドを宛先プレゼンテーションの末尾に複製しました。
+1. スライドのクローン元となるプレゼンテーションを含む[Presentation]クラスのインスタンスを作成します。
+2. スライドを追加する対象のプレゼンテーションを含む[Presentation]クラスのインスタンスを作成します。
+3. 対象プレゼンテーションのPresentationオブジェクトが公開する**Slides**コレクションを参照して[ISlideCollection]クラスのインスタンスを作成します。
+4. [ISlideCollection]オブジェクトが提供する[AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)メソッドを呼び出し、ソースプレゼンテーションからのスライドをパラメーターとして渡します。
+5. 変更された対象プレゼンテーションファイルを書き出します。
 
+下の例では、ソースプレゼンテーションの先頭インデックスにあるスライドを対象プレゼンテーションの末尾にクローンしています。
 ```c#
-// ソースプレゼンテーションファイルを読み込むために Presentation クラスをインスタンス化
+ // ソースのプレゼンテーションファイルを読み込むための Presentation クラスをインスタンス化します
 using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 {
-    // 複製先の PPTX (スライドが複製される場所) のために Presentation クラスをインスタンス化
+    // スライドをクローンする先の PPTX 用に Presentation クラスをインスタンス化します
     using (Presentation destPres = new Presentation())
     {
-        // 複製するためにソースプレゼンテーションから目的のスライドを宛先プレゼンテーションのスライドコレクションの末尾に複製
+        // ソースプレゼンテーションから目的のスライドを取得し、先方プレゼンテーションのスライド コレクションの末尾にクローンします
         ISlideCollection slds = destPres.Slides;
 
         slds.AddClone(srcPres.Slides[0]);
 
-        // 宛先プレゼンテーションをディスクに書き込む
+        // 先方プレゼンテーションをディスクに保存します
         destPres.Save("Aspose2_out.pptx", SaveFormat.Pptx);
     }
 }
 ```
 
-## **別のプレゼンテーションの別の位置に複製する**
-一つのプレゼンテーションからスライドを複製し、別のプレゼンテーションファイルの特定の位置で使用する必要がある場合：
 
-1. スライドを複製元とするソースプレゼンテーションを含む [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-1. スライドを追加するためのプレゼンテーションを含む [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-1. 宛先プレゼンテーションの [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) オブジェクトが公開する Slides コレクションを参照して [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) クラスをインスタンス化します。
-1. 複製元プレゼンテーションからスライドと希望する位置を取得し、[InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) メソッドを呼び出します。
-1. 修正した宛先プレゼンテーションファイルを書き込みます。
+## **別のプレゼンテーションの別の位置にスライドをクローンする**
+あるプレゼンテーションからスライドをクローンし、別のプレゼンテーションファイルの別の位置に使用する必要がある場合は、以下の手順に従います。
 
-以下の例では、ソースプレゼンテーションのゼロインデックスからスライドを宛先プレゼンテーションのインデックス 1 (位置 2) に複製しました。
+1. スライドのクローン元となるプレゼンテーションを含む[Presentation]クラスのインスタンスを作成します。
+2. スライドを追加する対象のプレゼンテーションを含む[Presentation]クラスのインスタンスを作成します。
+3. 対象プレゼンテーションのPresentationオブジェクトが公開するSlidesコレクションを参照して[ISlideCollection]クラスのインスタンスを作成します。
+4. [ISlideCollection]オブジェクトが提供する[InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1)メソッドを呼び出し、ソースプレゼンテーションからのスライドと目的の位置インデックスをパラメーターとして渡します。
+5. 変更された対象プレゼンテーションファイルを書き出します。
 
+下の例では、ソースプレゼンテーションのインデックス0にあるスライドを対象プレゼンテーションのインデックス1（位置2）にクローンしています。
 ```c#
-// ソースプレゼンテーションファイルを読み込むために Presentation クラスをインスタンス化
+ // ソースプレゼンテーションファイルを読み込むために Presentation クラスをインスタンス化します
 using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 {
-    // 複製先の PPTX (スライドが複製される場所) のために Presentation クラスをインスタンス化
+    // スライドをクローンする先の PPTX 用に Presentation クラスをインスタンス化します
     using (Presentation destPres = new Presentation())
     {
         ISlideCollection slds = destPres.Slides;
 
         slds.InsertClone(2, srcPres.Slides[0]);
 
-        // 宛先プレゼンテーションをディスクに書き込む
+        // 宛先プレゼンテーションをディスクに保存します
         destPres.Save("Aspose2_out.pptx", SaveFormat.Pptx);
     }
 }
 ```
 
-## **別のプレゼンテーションの特定の位置に複製する**
-マスタースライドを持つスライドを一つのプレゼンテーションから複製し、別のプレゼンテーションで使用する必要がある場合、まず、ソースプレゼンテーションから目的のマスタースライドを宛先プレゼンテーションに複製する必要があります。その後、そのマスタースライドを使用してマスタースライドを持つスライドを複製する必要があります。 **AddClone(ISlide, IMasterSlide)** は、ソースプレゼンテーションではなく宛先プレゼンテーションからのマスタースライドを期待します。マスターを持つスライドを複製するには、以下のステップに従ってください：
 
-1. スライドを複製元とするソースプレゼンテーションを含む [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-1. スライドを複製先とする宛先プレゼンテーションを含む [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。
-1. 複製するスライドとマスタースライドにアクセスします。
-1. 宛先プレゼンテーションの [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) オブジェクトが公開するマスターコレクションを参照して [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) クラスをインスタンス化します。
-1. [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) メソッドを呼び出し、ソース PPTX から複製するマスターをパラメーターに渡します。
-1. 宛先プレゼンテーションの [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) オブジェクトが公開するスライドコレクションを参照して [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) クラスをインスタンス化します。
-1. [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) オブジェクトによって公開される [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) メソッドを呼び出し、複製するソースプレゼンテーションのスライドとマスタースライドをパラメーターとして渡します。
-1. 修正した宛先プレゼンテーションファイルを書き込みます。
+## **別のプレゼンテーションの特定の位置にスライドをクローンする**
+あるプレゼンテーションからマスタースライドを含むスライドをクローンし、別のプレゼンテーションで使用する必要がある場合は、まずソースプレゼンテーションから目的のマスタースライドを対象プレゼンテーションにクローンする必要があります。その後、そのマスタースライドを使用してマスタースライド付きのスライドをクローンします。**AddClone(ISlide, IMasterSlide)** はソースプレゼンテーションではなく、対象プレゼンテーションのマスタースライドを期待します。マスタースライド付きのスライドをクローンするには、以下の手順に従ってください。
 
-以下の例では、ソースプレゼンテーションのゼロインデックスにあるマスターを持つスライドを宛先プレゼンテーションの末尾に複製しました。
+1. スライドのクローン元となるソースプレゼンテーションを含む[Presentation]クラスのインスタンスを作成します。
+2. スライドを追加する対象プレゼンテーションを含む[Presentation]クラスのインスタンスを作成します。
+3. クローン対象のスライドとそのマスタースライドにアクセスします。
+4. 対象プレゼンテーションのPresentationオブジェクトが公開するMastersコレクションを参照して[IMasterSlideCollection]クラスのインスタンスを作成します。
+5. [IMasterSlideCollection]オブジェクトが提供する[AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)メソッドを呼び出し、ソースPPTXからクローンするマスターをパラメーターとして渡します。
+6. 対象プレゼンテーションのPresentationオブジェクトが公開するSlidesコレクションを参照して[ISlideCollection]クラスのインスタンスを作成します。
+7. [ISlideCollection]オブジェクトが提供する[AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)メソッドを呼び出し、ソースプレゼンテーションからのスライドとマスタースライドをパラメーターとして渡します。
+8. 変更された対象プレゼンテーションファイルを書き出します。
 
+下の例では、ソースプレゼンテーションのインデックス0にあるマスタースライド付きのスライドを、ソーススライドのマスターを使用して対象プレゼンテーションの末尾にクローンしています。
 ```c#
-// ソースプレゼンテーションファイルを読み込むために Presentation クラスをインスタンス化
+// ソース プレゼンテーションファイルを読み込むために Presentation クラスをインスタンス化します
+
 using (Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx"))
 {
-    // 複製先のプレゼンテーション (スライドが複製される場所) のために Presentation クラスをインスタンス化
+    // スライドをクローンする宛先プレゼンテーション用に Presentation クラスをインスタンス化します（スライドがクローンされる場所）
     using (Presentation destPres = new Presentation())
     {
-        // ソースプレゼンテーションのスライドのコレクションから
-        // マスタースライドと共に ISlide をインスタンス化
+
+        // ソースプレゼンテーションのスライド コレクションから ISlide を取得し、
+        // マスタースライドも取得
         ISlide SourceSlide = srcPres.Slides[0];
         IMasterSlide SourceMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-        // 所望のマスタースライドをソースプレゼンテーションから宛先プレゼンテーションのマスターコレクションに複製
+        // ソースプレゼンテーションから目的のマスタースライドをマスター コレクションへコピーします（
+        // 宛先プレゼンテーション）
         IMasterSlideCollection masters = destPres.Masters;
         IMasterSlide DestMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-        // 所望のマスタースライドをソースプレゼンテーションから宛先プレゼンテーションのマスターコレクションに複製
+        // ソースプレゼンテーションから目的のマスタースライドをマスター コレクションへコピーします（
+        // 宛先プレゼンテーション）
         IMasterSlide iSlide = masters.AddClone(SourceMaster);
 
-        // 所望のマスタースライドを持つソースプレゼンテーションから
-        // 宛先プレゼンテーションのスライドコレクションの末尾に目的のスライドを複製
+        // ソースプレゼンテーションの目的スライドと対象マスターを使用して、末尾にクローンします（
+        // 宛先プレゼンテーションのスライド コレクション）
         ISlideCollection slds = destPres.Slides;
         slds.AddClone(SourceSlide, iSlide, true);
       
-        // 宛先プレゼンテーションをディスクに保存
+        // ソースプレゼンテーションから目的のマスタースライドをマスター コレクションへコピーします // 宛先プレゼンテーション
+        // 宛先プレゼンテーションをディスクに保存します
         destPres.Save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat.Pptx);
+
     }
 }
 ```
 
-## 指定されたセクションの末尾に複製する
 
-Aspose.Slides for .NET を使用すると、プレゼンテーションの一つのセクションからスライドを複製し、そのスライドを同じプレゼンテーション内の別のセクションに挿入できます。この場合、[ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) インターフェースからの [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) メソッドを使用する必要があります。
+## **指定したセクションの末尾にスライドをクローンする**
+Aspose.Slides for .NET を使用すると、プレゼンテーションのあるセクションからスライドをクローンし、同じプレゼンテーション内の別のセクションに挿入できます。この場合、[ISlideCollection]インターフェイスの[AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index)メソッドを使用する必要があります。
 
-以下の C# コードは、スライドを複製し、複製されたスライドを指定されたセクションに挿入する方法を示しています：
-
+このC#コードは、スライドをクローンして指定したセクションに挿入する方法を示しています。
 ```c#
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    slide.Shapes.AddAutoShape(ShapeType.Ellipse, 150, 150, 100, 100); // 複製するため
-    
+    slide.Shapes.AddAutoShape(ShapeType.Ellipse, 150, 150, 100, 100); // クローンするため
     ISlide slide2 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     ISection section = pres.Sections.AddSection("Section2", slide2);
-
     pres.Slides.AddClone(slide, section);
-    
     pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**スピーカーノートとレビュアーコメントはクローンされますか？**
+はい。ノートページとレビュコメントはクローンに含まれます。不要な場合は、挿入後に[remove them](/slides/ja/net/presentation-notes/)してください。
+
+**チャートとそのデータソースはどのように扱われますか？**
+チャートオブジェクト、書式設定、埋め込みデータはコピーされます。チャートが外部ソース（たとえばOLE埋め込みのワークブック）にリンクされている場合、そのリンクは[OLE object](/slides/ja/net/manage-ole/)として保持されます。ファイル間で移動した後は、データの可用性と更新動作を確認してください。
+
+**クローンの挿入位置やセクションを制御できますか？**
+はい。クローンを特定のスライドインデックスに挿入し、選択した[section](/slides/ja/net/slide-section/)に配置できます。対象のセクションが存在しない場合は、まずセクションを作成し、その後スライドを移動してください。

@@ -1,151 +1,156 @@
 ---
-title: Cloner des Diapositives
+title: Cloner les diapositives de présentation en .NET
+linktitle: Cloner des diapositives
 type: docs
 weight: 40
 url: /fr/net/clone-slides/
-keywords: "Cloner une diapositive, Copier une diapositive, Sauvegarder une copie de diapositive, PowerPoint, Présentation, C#, Csharp, .NET, Aspose.Slides"
-description: "Cloner une diapositive PowerPoint en C# ou .NET"
+keywords:
+- cloner diapositive
+- copier diapositive
+- enregistrer diapositive
+- PowerPoint
+- OpenDocument
+- présentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Duplication rapide des diapositives PowerPoint avec Aspose.Slides pour .NET. Suivez nos exemples de code clairs pour automatiser la création de PPT en quelques secondes et éliminer le travail manuel."
 ---
 
-## **Cloner des Diapositives dans une Présentation**
-Le clonage est le processus de création d'une copie ou d'une réplique exacte de quelque chose. Aspose.Slides pour .NET permet également de faire une copie ou un clone de n'importe quelle diapositive et ensuite d'insérer cette diapositive clonée dans la présentation actuelle ou dans toute autre présentation ouverte. Le processus de clonage de diapositive crée une nouvelle diapositive qui peut être modifiée par les développeurs sans changer la diapositive originale. Il existe plusieurs façons possibles de cloner une diapositive :
+## **Cloner les diapositives dans une présentation**
+Le clonage est le processus de création d’une copie exacte ou d’un replica d’un élément. Aspose.Slides for .NET permet également de créer une copie ou un clone de n’importe quelle diapositive, puis d’insérer cette diapositive clonée dans la présentation actuelle ou dans toute autre présentation ouverte. Le processus de clonage de diapositives crée une nouvelle diapositive qui peut être modifiée par les développeurs sans modifier la diapositive originale. Il existe plusieurs manières de cloner une diapositive :
 
-- Cloner à la fin d'une Présentation.
-- Cloner à un Autre Emplacement dans la Présentation.
-- Cloner à la fin d'une autre Présentation.
-- Cloner à un Autre Emplacement dans une autre Présentation.
-- Cloner à un emplacement spécifique dans une autre Présentation.
+- Cloner à la fin d’une présentation.
+- Cloner à une autre position dans la même présentation.
+- Cloner à la fin d’une autre présentation.
+- Cloner à une autre position dans une autre présentation.
+- Cloner à une position spécifique dans une autre présentation.
 
-Dans Aspose.Slides pour .NET, (une collection d'objets [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide)) exposée par l'objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) fournit les méthodes [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) et [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) pour effectuer les types de clonage de diapositives ci-dessus.
+Dans Aspose.Slides for .NET, (une collection d’objets [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide)) exposée par l’objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) fournit les méthodes [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) et [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) pour effectuer les types de clonage de diapositives mentionnés ci‑dessus.
 
-## **Cloner à la Fin d'une Présentation**
-Si vous souhaitez cloner une diapositive et ensuite l'utiliser dans le même fichier de présentation à la fin des diapositives existantes, utilisez la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) selon les étapes énumérées ci-dessous :
+## **Cloner une diapositive à la fin d’une présentation**
+Si vous souhaitez cloner une diapositive puis l’utiliser dans le même fichier de présentation à la fin des diapositives existantes, utilisez la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) selon les étapes ci‑dessous :
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Instanciez la classe [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) en référencant la collection de Diapositives exposée par l'objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Appelez la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) exposée par l'objet [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) et passez la diapositive à cloner en tant que paramètre de la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
-1. Écrivez le fichier de présentation modifié.
+2. Instanciez la classe [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) en faisant référence à la collection Slides exposée par l’objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+3. Appelez la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) exposée par l’objet [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) et transmettez la diapositive à cloner en paramètre de la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
+4. Enregistrez le fichier de présentation modifié.
 
-Dans l'exemple ci-dessous, nous avons cloné une diapositive (située à la première position – index zéro – de la présentation) à la fin de la présentation.
-
+Dans l’exemple ci‑dessous, nous avons cloné une diapositive (située à la première position – indice zéro – de la présentation) à la fin de la présentation.
 ```c#
 // Instancier la classe Presentation qui représente un fichier de présentation
 using (Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pptx"))
 {
 
-    // Cloner la diapositive désirée à la fin de la collection de diapositives dans la même présentation
+    // Cloner la diapositive souhaitée à la fin de la collection de diapositives dans la même présentation
     ISlideCollection slds = pres.Slides;
 
     slds.AddClone(pres.Slides[0]);
 
-    // Écrire la présentation modifiée sur le disque
+    // Enregistrer la présentation modifiée sur le disque
     pres.Save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat.Pptx);
 
 }
 ```
 
 
-## **Cloner à un Autre Emplacement dans la Présentation**
-Si vous souhaitez cloner une diapositive et ensuite l'utiliser dans le même fichier de présentation mais à un autre emplacement, utilisez la méthode [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) :
+## **Cloner une diapositive à une autre position dans une présentation**
+Si vous souhaitez cloner une diapositive puis l’utiliser dans le même fichier de présentation mais à une position différente, utilisez la méthode [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) :
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Instanciez la classe en référencant la collection **Slides** exposée par l'objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Appelez la méthode [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) exposée par l'objet [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) et passez la diapositive à cloner ainsi que l'index pour le nouvel emplacement en tant que paramètre de la méthode [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1).
-1. Écrivez la présentation modifiée en tant que fichier PPTX.
+2. Instanciez la classe en faisant référence à la collection **Slides** exposée par l’objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+3. Appelez la méthode [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) exposée par l’objet [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) et transmettez la diapositive à cloner ainsi que l’indice de la nouvelle position en paramètre de la méthode [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1).
+4. Enregistrez la présentation modifiée au format PPTX.
 
-Dans l'exemple ci-dessous, nous avons cloné une diapositive (située à l'index zéro – position 1 – de la présentation) à l'index 1 – Position 2 – de la présentation.
-
+Dans l’exemple ci‑dessous, nous avons cloné une diapositive (située à l’indice zéro – position 1 – de la présentation) à l’indice 1 – position 2 – de la présentation.
 ```c#
 // Instancier la classe Presentation qui représente un fichier de présentation
 using (Presentation pres = new Presentation("CloneWithInSamePresentation.pptx"))
 {
 
-    // Cloner la diapositive désirée à la fin de la collection de diapositives dans la même présentation
+    // Cloner la diapositive souhaitée à la fin de la collection de diapositives dans la même présentation
     ISlideCollection slds = pres.Slides;
 
-    // Cloner la diapositive désirée à l'index spécifié dans la même présentation
+    // Cloner la diapositive souhaitée à l'index spécifié dans la même présentation
     slds.InsertClone(2, pres.Slides[1]);
 
-    // Écrire la présentation modifiée sur le disque
+    // Enregistrer la présentation modifiée sur le disque
     pres.Save("Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat.Pptx);
 
 }
 ```
 
 
-## **Cloner à la Fin dans une Autre Présentation**
-Si vous devez cloner une diapositive d'une présentation et l'utiliser dans un autre fichier de présentation, à la fin des diapositives existantes :
+## **Cloner une diapositive à la fin d’une autre présentation**
+Si vous devez cloner une diapositive d’une présentation et l’utiliser dans un autre fichier de présentation, à la fin des diapositives existantes :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant la présentation dont la diapositive sera clonée.
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant la présentation de destination à laquelle la diapositive sera ajoutée.
-1. Instanciez la classe [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) en référencant la collection **Slides** exposée par l'objet Presentation de la présentation de destination.
-1. Appelez la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) exposée par l'objet [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) et passez la diapositive de la présentation source en tant que paramètre de la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
-1. Écrivez le fichier de présentation de destination modifié.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant la présentation depuis laquelle la diapositive sera clonée.
+2. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant la présentation de destination à laquelle la diapositive sera ajoutée.
+3. Instanciez la classe [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) en faisant référence à la collection **Slides** exposée par l’objet Presentation de la présentation de destination.
+4. Appelez la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) exposée par l’objet [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) et transmettez la diapositive de la présentation source en paramètre de la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
+5. Enregistrez le fichier de présentation de destination modifié.
 
-Dans l'exemple ci-dessous, nous avons cloné une diapositive (de l'index premier de la présentation source) à la fin de la présentation de destination.
-
+Dans l’exemple ci‑dessus, nous avons cloné une diapositive (à partir du premier indice de la présentation source) à la fin de la présentation de destination.
 ```c#
-// Instancier la classe Presentation pour charger le fichier de présentation source
+ // Instancier la classe Presentation pour charger le fichier de présentation source
 using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 {
-    // Instancier la classe Presentation pour la destination PPTX (où la diapositive doit être clonée)
+    // Instancier la classe Presentation pour le PPTX de destination (où la diapositive doit être clonée)
     using (Presentation destPres = new Presentation())
     {
-        // Cloner la diapositive désirée de la présentation source à la fin de la collection de diapositives dans la présentation de destination
+        // Cloner la diapositive souhaitée de la présentation source à la fin de la collection de diapositives de la présentation de destination
         ISlideCollection slds = destPres.Slides;
 
         slds.AddClone(srcPres.Slides[0]);
 
-        // Écrire la présentation de destination sur le disque
+        // Enregistrer la présentation de destination sur le disque
         destPres.Save("Aspose2_out.pptx", SaveFormat.Pptx);
     }
 }
 ```
 
 
-## **Cloner à un Autre Emplacement dans une Autre Présentation**
-Si vous devez cloner une diapositive d'une présentation et l'utiliser dans un autre fichier de présentation, à une position spécifique :
+## **Cloner une diapositive à une autre position dans une autre présentation**
+Si vous devez cloner une diapositive d’une présentation et l’utiliser dans un autre fichier de présentation, à une position spécifique :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant la présentation source dont la diapositive sera clonée.
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant la présentation dans laquelle la diapositive sera ajoutée.
-1. Instanciez la classe [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) en référencant la collection de Diapositives exposée par l'objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) de la présentation de destination.
-1. Appelez la méthode [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) exposée par l'objet [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) et passez la diapositive de la présentation source ainsi que la position souhaitée en tant que paramètre à la méthode [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1).
-1. Écrivez le fichier de présentation de destination modifié.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant la présentation source depuis laquelle la diapositive sera clonée.
+2. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant la présentation à laquelle la diapositive sera ajoutée.
+3. Instanciez la classe [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) en faisant référence à la collection Slides exposée par l’objet Presentation de la présentation de destination.
+4. Appelez la méthode [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) exposée par l’objet [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) et transmettez la diapositive de la présentation source ainsi que la position souhaitée en paramètre de la méthode [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1).
+5. Enregistrez le fichier de présentation de destination modifié.
 
-Dans l'exemple ci-dessous, nous avons cloné une diapositive (de l'index zéro de la présentation source) à l'index 1 (position 2) de la présentation de destination.
-
+Dans l’exemple ci‑dessus, nous avons cloné une diapositive (à partir de l’indice zéro de la présentation source) à l’indice 1 (position 2) de la présentation de destination.
 ```c#
 // Instancier la classe Presentation pour charger le fichier de présentation source
 using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 {
-    // Instancier la classe Presentation pour la destination PPTX (où la diapositive doit être clonée)
+    // Instancier la classe Presentation pour le PPTX de destination (où la diapositive doit être clonée)
     using (Presentation destPres = new Presentation())
     {
         ISlideCollection slds = destPres.Slides;
 
         slds.InsertClone(2, srcPres.Slides[0]);
 
-        // Écrire la présentation de destination sur le disque
+        // Enregistrer la présentation de destination sur le disque
         destPres.Save("Aspose2_out.pptx", SaveFormat.Pptx);
     }
 }
 ```
 
 
-## **Cloner à un Emplacement Spécifique dans une Autre Présentation**
-Si vous devez cloner une diapositive avec une diapositive maître d'une présentation et l'utiliser dans une autre présentation, vous devez d'abord cloner la diapositive maître désirée de la présentation source à la présentation de destination. Ensuite, vous devez utiliser cette diapositive maître pour cloner la diapositive avec la diapositive maître. Le **AddClone(ISlide, IMasterSlide)** attend une diapositive maître de la présentation de destination plutôt que de la présentation source. Pour cloner la diapositive avec un maître, veuillez suivre les étapes ci-dessous :
+## **Cloner une diapositive à une position spécifique dans une autre présentation**
+Si vous devez cloner une diapositive avec une diapositive maître d’une présentation et l’utiliser dans une autre présentation, vous devez d’abord cloner la diapositive maître souhaitée de la présentation source vers la présentation de destination. Ensuite, utilisez cette diapositive maître pour cloner la diapositive avec maître. La méthode **AddClone(ISlide, IMasterSlide)** attend une diapositive maître provenant de la présentation de destination et non de la source. Pour cloner la diapositive avec maître, veuillez suivre les étapes ci‑dessous :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant la présentation source dont la diapositive sera clonée.
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant la présentation de destination à laquelle la diapositive sera clonée.
-1. Accédez à la diapositive à cloner ainsi qu'à la diapositive maître.
-1. Instanciez la classe [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) en référencant la collection de Maîtres exposée par l'objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) de la présentation de destination.
-1. Appelez la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) exposée par l'objet [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) et passez la diapositive maître du PPTX source à cloner en tant que paramètre de la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
-1. Instanciez la classe [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) en réglant la référence à la collection de Diapositives exposée par l'objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) de la présentation de destination.
-1. Appelez la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) exposée par l'objet [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) et passez la diapositive de la présentation source à cloner et la diapositive maître en tant que paramètre de la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
-1. Écrivez le fichier de présentation de destination modifié.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant la présentation source depuis laquelle la diapositive sera clonée.
+2. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant la présentation de destination vers laquelle la diapositive sera clonée.
+3. Accédez à la diapositive à cloner ainsi qu’à sa diapositive maître.
+4. Instanciez la classe [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) en faisant référence à la collection Masters exposée par l’objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) de la présentation de destination.
+5. Appelez la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) exposée par l’objet [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) et transmettez le maître du PPTX source à cloner en paramètre de la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
+6. Instanciez la classe [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) en définissant la référence à la collection Slides exposée par l’objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) de la présentation de destination.
+7. Appelez la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) exposée par l’objet [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) et transmettez la diapositive de la présentation source à cloner ainsi que la diapositive maître en paramètre de la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
+8. Enregistrez le fichier de présentation de destination modifié.
 
-Dans l'exemple ci-dessous, nous avons cloné une diapositive avec un maître (située à l'index zéro de la présentation source) à la fin de la présentation de destination en utilisant un maître de la diapositive source.
-
+Dans l’exemple ci‑dessus, nous avons cloné une diapositive avec maître (située à l’indice zéro de la présentation source) à la fin de la présentation de destination en utilisant le maître de la diapositive source.
 ```c#
 // Instancier la classe Presentation pour charger le fichier de présentation source
 
@@ -155,27 +160,27 @@ using (Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMa
     using (Presentation destPres = new Presentation())
     {
 
-        // Instancier ISlide à partir de la collection de diapositives dans la présentation source avec
-        // Diapositive maître
+        // Instancier ISlide à partir de la collection de diapositives de la présentation source ainsi que
+        // la diapositive maître
         ISlide SourceSlide = srcPres.Slides[0];
         IMasterSlide SourceMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-        // Cloner la diapositive maître désirée de la présentation source à la collection de maîtres dans la
-        // Présentation de destination
+        // Cloner la diapositive maître souhaitée de la présentation source vers la collection de maîtres de la
+        // présentation de destination
         IMasterSlideCollection masters = destPres.Masters;
         IMasterSlide DestMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-        // Cloner la diapositive maître désirée de la présentation source à la collection de maîtres dans la
-        // Présentation de destination
+        // Cloner la diapositive maître souhaitée de la présentation source vers la collection de maîtres de la
+        // présentation de destination
         IMasterSlide iSlide = masters.AddClone(SourceMaster);
 
-        // Cloner la diapositive désirée de la présentation source avec le maître désiré à la fin de la
-        // Collection de diapositives dans la présentation de destination
+        // Cloner la diapositive souhaitée de la présentation source avec le maître désiré à la fin de la
+        // collection de diapositives de la présentation de destination
         ISlideCollection slds = destPres.Slides;
         slds.AddClone(SourceSlide, iSlide, true);
       
-        // Cloner la diapositive maître désirée de la présentation source à la collection de maîtres dans la // Présentation de destination
-        // Sauvegarder la présentation de destination sur disque
+        // Cloner la diapositive maître souhaitée de la présentation source vers la collection de maîtres de la // présentation de destination
+        // Enregistrer la présentation de destination sur le disque
         destPres.Save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat.Pptx);
 
     }
@@ -183,13 +188,10 @@ using (Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMa
 ```
 
 
+## **Cloner une diapositive à la fin d’une section spécifiée**
+Avec Aspose.Slides for .NET, vous pouvez cloner une diapositive d’une section d’une présentation et insérer cette diapositive dans une autre section de la même présentation. Dans ce cas, vous devez utiliser la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) de l’interface [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection).
 
-## Cloner à la Fin dans une Section Spécifiée
-
-Avec Aspose.Slides pour .NET, vous pouvez cloner une diapositive d'une section d'une présentation et insérer cette diapositive dans une autre section de la même présentation. Dans ce cas, vous devez utiliser la méthode [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) de l'interface [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection).
-
-Ce code C# vous montre comment cloner une diapositive et insérer la diapositive clonée dans une section spécifiée :
-
+Ce code C# montre comment cloner une diapositive et insérer la diapositive clonée dans une section spécifiée :
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -204,3 +206,18 @@ using (Presentation pres = new Presentation())
     pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**Les notes du présentateur et les commentaires des réviseurs sont-ils clonés ?**
+
+Oui. La page de notes et les commentaires de révision sont inclus dans le clone. Si vous ne les voulez pas, [supprimez‑les](/slides/fr/net/presentation-notes/) après l’insertion.
+
+**Comment les graphiques et leurs sources de données sont‑ils gérés ?**
+
+L’objet du graphique, son formatage et les données intégrées sont copiés. Si le graphique était lié à une source externe (par ex., un classeur OLE intégré), ce lien est conservé sous forme d’[objet OLE](/slides/fr/net/manage-ole/). Après le déplacement entre fichiers, vérifiez la disponibilité des données et le comportement de rafraîchissement.
+
+**Puis‑je contrôler la position d’insertion et les sections du clone ?**
+
+Oui. Vous pouvez insérer le clone à un indice de diapositive spécifique et le placer dans une [section](/slides/fr/net/slide-section/) choisie. Si la section cible n’existe pas, créez‑la d’abord puis déplacez la diapositive dedans.

@@ -1,21 +1,33 @@
 ---
-title: Öffentliches API und Rückwärtskompatible Änderungen in Aspose.Slides für .NET 14.6.0
+title: Öffentliche API und rückwärtsinkompatible Änderungen in Aspose.Slides für .NET 14.6.0
+linktitle: Aspose.Slides für .NET 14.6.0
 type: docs
 weight: 80
 url: /de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/
+keywords:
+- Migration
+- Legacy-Code
+- Moderner Code
+- Legacy-Ansatz
+- Moderner Ansatz
+- PowerPoint
+- OpenDocument
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Überprüfen Sie die öffentlichen API-Updates und Breaking Changes in Aspose.Slides für .NET, um Ihre PowerPoint‑PPT, PPTX‑ und ODP‑Präsentationslösungen reibungslos zu migrieren."
 ---
 
 {{% alert color="primary" %}} 
-
-Diese Seite listet alle [hinzugefügten](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) Klassen, Methoden, Eigenschaften und so weiter, alle neuen [Einschränkungen](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) und andere [Änderungen](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) auf, die mit der Aspose.Slides für .NET 14.6.0 API eingeführt wurden.
-
+Diese Seite listet alle hinzugefügten Klassen, Methoden, Eigenschaften usw. sowie neue Einschränkungen und weitere Änderungen, die mit der Aspose.Slides für .NET 14.6.0 API eingeführt wurden.
 {{% /alert %}} 
-## **Öffentliche API-Änderungen**
+## **Änderungen der öffentlichen API**
 ### **Hinzugefügte Schnittstellen, Methoden und Eigenschaften**
-#### **Aspose.Slides.Charts.IErrorBarsFormat Schnittstelle hinzugefügt**
-Diese repräsentiert Fehlerbalken von Diagrammserien.
+#### **Hinzugefügte Schnittstelle Aspose.Slides.Charts.IErrorBarsFormat**
+Dies stellt Fehlerbalken von Diagrammreihen dar.
 
-Im Falle eines benutzerdefinierten Wertetyps verwenden Sie die ErrorBarCustomValues-Eigenschaft des spezifischen Datenpunkts in der DataPoints-Sammlung der Serie, um einen Wert anzugeben.
+Im Falle eines benutzerdefinierten Wertetyps geben Sie einen Wert über die Eigenschaft ErrorBarCustomValues des jeweiligen Datenpunkts in der DataPoints‑Sammlung der Reihe an.
 
 ``` csharp
 
@@ -52,8 +64,8 @@ Im Falle eines benutzerdefinierten Wertetyps verwenden Sie die ErrorBarCustomVal
 }
 
 ``` 
-#### **Aspose.Slides.Charts.IErrorBarsCustomValues Schnittstelle hinzugefügt**
-Wenn die IErrorBarsFormat.ValueType-Eigenschaft gleich Custom ist, verwenden Sie die ErrorBarCustomValues-Eigenschaft des spezifischen Datenpunkts in der DataPoints-Sammlung, um einen Wert anzugeben.
+#### **Hinzugefügte Schnittstelle Aspose.Slides.Charts.IErrorBarsCustomValues**
+Wenn die Eigenschaft IErrorBarsFormat.ValueType den Wert Custom hat, geben Sie einen Wert über die Eigenschaft ErrorBarCustomValues des jeweiligen Datenpunkts in der DataPoints‑Sammlung an.
 
 ``` csharp
 
@@ -106,8 +118,8 @@ Wenn die IErrorBarsFormat.ValueType-Eigenschaft gleich Custom ist, verwenden Sie
 }
 
 ``` 
-#### **Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues Schnittstelle hinzugefügt**
-Spezifiziert Typen von Werten in der ChartDataPoint.ErrorBarsCustomValues Eigenschaftenliste.
+#### **Hinzugefügte Schnittstelle Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
+Gibt die Typen der Werte in der Eigenschaftsliste ChartDataPoint.ErrorBarsCustomValues an.
 
 ``` csharp
 
@@ -160,8 +172,8 @@ Spezifiziert Typen von Werten in der ChartDataPoint.ErrorBarsCustomValues Eigens
 }
 
 ``` 
-#### **Aspose.Slides.IShapeCollection.AddClone(...), und .InsertClone(...) Methoden hinzugefügt**
-Die folgenden Methoden fügen eine Kopie einer angegebenen Form in die Sammlung ein.
+#### **Hinzugefügte Methoden Aspose.Slides.IShapeCollection.AddClone(...), und .InsertClone(...)**
+Die folgenden Methoden fügen einer Sammlung eine Kopie einer angegebenen Form hinzu/fügen sie ein. 
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape, float x, float y)
@@ -199,8 +211,8 @@ Die folgenden Methoden fügen eine Kopie einer angegebenen Form in die Sammlung 
 }
 
 ``` 
-#### **ViewType enum, IViewProperties-Schnittstelle, ViewProperties-Klasse und IPresentation.ViewProperties Eigenschaften hinzugefügt**
-Die IPresentation.ViewProperty ermöglicht Entwicklern, den Präsentationsansichtstyp und die Sichtbarkeit der Notizen zu ändern, wenn eine Präsentation in PowerPoint geöffnet wird.
+#### **Hinzugefügte Aufzählung ViewType, Schnittstelle IViewProperties, Klasse ViewProperties und Eigenschaften IPresentation.ViewProperties**
+Die IPresentation.ViewProperty ermöglicht Entwicklern, den Ansichtsmodus der Präsentation und die Sichtbarkeit von Notizen zu ändern, wenn eine Präsentation in PowerPoint geöffnet wird.
 
 ``` csharp
 

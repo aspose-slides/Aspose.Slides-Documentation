@@ -1,181 +1,185 @@
 ---
-title: Клонирование слайдов
+title: Клонирование слайдов презентации в .NET
+linktitle: Клонировать слайды
 type: docs
 weight: 40
 url: /ru/net/clone-slides/
-keywords: "Клонировать слайд, Копировать слайд, Сохранить копию слайда, PowerPoint, Презентация, C#, Csharp, .NET, Aspose.Slides"
-description: "Клонирование слайдов PowerPoint на C# или .NET"
+keywords:
+- клонировать слайд
+- копировать слайд
+- сохранить слайд
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Быстро дублируйте слайды PowerPoint с помощью Aspose.Slides для .NET. Следуйте нашим понятным примерам кода, чтобы автоматизировать создание PPT за секунды и избавиться от ручной работы."
 ---
 
 ## **Клонирование слайдов в презентации**
-Клонирование — это процесс создания точной копии или реплики чего-либо. Aspose.Slides для .NET также позволяет создавать копию или клонировать любой слайд и затем вставлять этот клонированный слайд в текущую или любую другую открытую презентацию. Процесс клонирования слайдов создает новый слайд, который может быть изменен разработчиками без изменения оригинального слайда. Существует несколько возможных способов клонирования слайда:
+Клонирование — это процесс создания точной копии или реплики чего‑либо. Aspose.Slides for .NET также позволяет создать копию или клон любого слайда и затем вставить этот клон в текущую или любую другую открытую презентацию. Процесс клонирования слайда создаёт новый слайд, который разработчики могут изменять, не меняя исходный слайд. Существует несколько способов клонировать слайд:
 
-- Клонировать в конец в рамках презентации.
-- Клонировать в другое положение в рамках презентации.
+- Клонировать в конец в пределах текущей презентации.
+- Клонировать в другое положение в пределах презентации.
 - Клонировать в конец в другой презентации.
 - Клонировать в другое положение в другой презентации.
-- Клонировать в определенное положение в другой презентации.
+- Клонировать в указанное положение в другой презентации.
 
-В Aspose.Slides для .NET (коллекция объектов [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide)), предоставляемая объектом [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), содержит методы [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) и [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) для выполнения вышеуказанных типов клонирования слайдов.
-## **Клонировать в конец в рамках презентации**
-Если вы хотите клонировать слайд и затем использовать его в том же файле презентации в конце существующих слайдов, используйте метод [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) согласно приведенным ниже шагам:
+В Aspose.Slides for .NET (коллекция объектов [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide)), доступная через объект [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), предоставляет методы [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) и [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) для выполнения указанных типов клонирования слайдов
+## **Клонирование слайда в конец презентации**
+Если вы хотите клонировать слайд и затем использовать его в том же файле презентации в конце существующих слайдов, используйте метод [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) согласно перечисленным ниже шагам:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Создайте экземпляр класса [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection), ссылаясь на коллекцию слайдов, предоставляемую объектом [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Вызовите метод [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index), предоставляемый объектом [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection), и передайте слайд, который необходимо клонировать, в качестве параметра метода [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
-1. Сохраните измененный файл презентации.
+1. Создайте объект [ISlideCollection], ссылаясь на коллекцию Slides, доступную через объект [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Вызовите метод [AddClone], доступный у объекта [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection), и передайте слайд, который нужно клонировать, в качестве параметра методу [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
+1. Сохраните изменённый файл презентации.
 
-В приведенном ниже примере мы клонировали слайд (стоящий на первом месте — нулевой индекс — презентации) в конец презентации.
-
+В приведённом ниже примере мы клонировали слайд (находящийся на первой позиции — индекс 0 — презентации) в конец презентации.
 ```c#
-// Создание экземпляра класса Presentation, который представляет файл презентации
+// Создать экземпляр класса Presentation, представляющего файл презентации
 using (Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pptx"))
 {
 
-    // Клонирование нужного слайда в конец коллекции слайдов в той же презентации
+    // Клонировать нужный слайд в конец коллекции слайдов в той же презентации
     ISlideCollection slds = pres.Slides;
 
     slds.AddClone(pres.Slides[0]);
 
-    // Запись измененной презентации на диск
+    // Сохранить изменённую презентацию на диск
     pres.Save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat.Pptx);
 
 }
 ```
 
 
-## **Клонировать в другое положение в рамках презентации**
+## **Клонирование слайда в другое положение в пределах презентации**
 Если вы хотите клонировать слайд и затем использовать его в том же файле презентации, но в другом положении, используйте метод [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1):
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Создайте экземпляр класса, ссылающегося на коллекцию **Slides**, предоставляемую объектом [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Вызовите метод [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1), предоставляемый объектом [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection), и передайте слайд, который необходимо клонировать, вместе с индексом для нового положения в качестве параметра метода [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1).
-1. Сохраните измененную презентацию в файле PPTX.
+1. Создайте объект, ссылаясь на коллекцию **Slides**, доступную через объект [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Вызовите метод [InsertClone], доступный у объекта [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection), и передайте слайд, который нужно клонировать, вместе с индексом новой позиции в качестве параметра методу [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1).
+1. Сохраните изменённую презентацию в формате PPTX.
 
-В приведенном ниже примере мы клонировали слайд (стоящий на нулевом индексе — позиция 1 — презентации) в индекс 1 — позиция 2 — презентации.
-
+В приведённом ниже примере мы клонировали слайд (находящийся на индексе 0 — позиция 1 — презентации) в индекс 1 — позиция 2 — презентации.
 ```c#
-// Создание экземпляра класса Presentation, который представляет файл презентации
+// Создать экземпляр класса Presentation, представляющего файл презентации
 using (Presentation pres = new Presentation("CloneWithInSamePresentation.pptx"))
 {
 
-    // Клонирование нужного слайда в конец коллекции слайдов в той же презентации
+    // Клонировать нужный слайд в конец коллекции слайдов в той же презентации
     ISlideCollection slds = pres.Slides;
 
-    // Клонирование нужного слайда на указанном индексе в той же презентации
+    // Клонировать нужный слайд в указанный индекс в той же презентации
     slds.InsertClone(2, pres.Slides[1]);
 
-    // Запись измененной презентации на диск
+    // Сохранить изменённую презентацию на диск
     pres.Save("Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat.Pptx);
 
 }
 ```
 
 
-## **Клонировать в конец в другой презентации**
+## **Клонирование слайда в конец другой презентации**
 Если вам нужно клонировать слайд из одной презентации и использовать его в другой презентации, в конце существующих слайдов:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), содержащего презентацию, из которой будет клонироваться слайд.
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), содержащего целевую презентацию, в которую будет добавлен слайд.
-1. Создайте экземпляр класса [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection), ссылаясь на коллекцию **Slides**, предоставляемую объектом Presentation целевой презентации.
-1. Вызовите метод [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index), предоставляемый объектом [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection), и передайте слайд из исходной презентации в качестве параметра метода [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
-1. Сохраните измененный файл целевой презентации.
+1. Создайте объект [ISlideCollection], ссылаясь на коллекцию **Slides**, доступную через объект Presentation целевой презентации.
+1. Вызовите метод [AddClone], доступный у объекта [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection), и передайте слайд из исходной презентации в качестве параметра методу [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
+1. Сохраните изменённый файл целевой презентации.
 
-В приведенном ниже примере мы клонировали слайд (с первого индекса исходной презентации) в конец целевой презентации.
-
+В приведённом ниже примере мы клонировали слайд (из первого индекса исходной презентации) в конец целевой презентации.
 ```c#
-// Создание экземпляра класса Presentation для загрузки исходного файла презентации
+// Создать экземпляр класса Presentation для загрузки исходного файла презентации
 using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 {
-    // Создание экземпляра класса Presentation для целевой PPTX (куда слайд будет клонирован)
+    // Создать экземпляр класса Presentation для целевого PPTX (куда будет клонирован слайд)
     using (Presentation destPres = new Presentation())
     {
-        // Клонирование нужного слайда из исходной презентации в конец коллекции слайдов в целевой презентации
+        // Клонировать нужный слайд из исходной презентации в конец коллекции слайдов целевой презентации
         ISlideCollection slds = destPres.Slides;
 
         slds.AddClone(srcPres.Slides[0]);
 
-        // Запись целевой презентации на диск
+        // Сохранить целевую презентацию на диск
         destPres.Save("Aspose2_out.pptx", SaveFormat.Pptx);
     }
 }
 ```
 
 
-## **Клонировать в другое положение в другой презентации**
-Если вам нужно клонировать слайд из одной презентации и использовать его в другой презентации, в определенное положение:
+## **Клонирование слайда в другое положение в другой презентации**
+Если вам нужно клонировать слайд из одной презентации и использовать его в другой презентации, в указанном положении:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), содержащего исходную презентацию, из которой будет клонирован слайд.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), содержащего исходную презентацию, из которой будет клонироваться слайд.
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), содержащего презентацию, в которую будет добавлен слайд.
-1. Создайте экземпляр класса [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection), ссылаясь на коллекцию Slides, предоставляемую объектом Presentation целевой презентации.
-1. Вызовите метод [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1), предоставляемый объектом [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection), и передайте слайд из исходной презентации вместе с желаемой позицией в качестве параметра метода [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1).
-1. Сохраните измененный файл целевой презентации.
+1. Создайте объект [ISlideCollection], ссылаясь на коллекцию Slides, доступную через объект Presentation целевой презентации.
+1. Вызовите метод [InsertClone], доступный у объекта [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection), и передайте слайд из исходной презентации вместе с желаемой позицией в качестве параметра методу [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1).
+1. Сохраните изменённый файл целевой презентации.
 
-В приведенном ниже примере мы клонировали слайд (с нулевого индекса исходной презентации) в индекс 1 (позиция 2) целевой презентации.
-
+В приведённом ниже примере мы клонировали слайд (из нулевого индекса исходной презентации) в индекс 1 (позиция 2) целевой презентации.
 ```c#
-// Создание экземпляра класса Presentation для загрузки исходного файла презентации
+// Создать экземпляр класса Presentation для загрузки исходного файла презентации
 using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 {
-    // Создание экземпляра класса Presentation для целевой PPTX (куда слайд будет клонирован)
+    // Создать экземпляр класса Presentation для целевого PPTX (куда будет клонирован слайд)
     using (Presentation destPres = new Presentation())
     {
         ISlideCollection slds = destPres.Slides;
 
         slds.InsertClone(2, srcPres.Slides[0]);
 
-        // Запись целевой презентации на диск
+        // Сохранить целевую презентацию на диск
         destPres.Save("Aspose2_out.pptx", SaveFormat.Pptx);
     }
 }
 ```
 
 
-## **Клонировать в определенное положение в другой презентации**
-Если вам нужно клонировать слайд с мастер-слайдом из одной презентации и использовать его в другой презентации, вам нужно сначала клонировать нужный мастер-слайд из исходной презентации в целевую презентацию. Затем вам необходимо использовать этот мастер-слайд для клонирования слайда с мастер-слайдом. Метод **AddClone(ISlide, IMasterSlide)** ожидает мастер-слайд из целевой презентации, а не из исходной. Чтобы клонировать слайд с мастер-слайдом, следуйте приведенным ниже шагам:
+## **Клонирование слайда в указанное положение в другой презентации**
+Если вам необходимо клонировать слайд с мастер‑слайдом из одной презентации и использовать его в другой презентации, сначала нужно клонировать нужный мастер‑слайд из исходной презентации в целевую. Затем используйте этот мастер‑слайд для клонирования слайда с мастер‑слайдом. Метод **AddClone(ISlide, IMasterSlide)** ожидает мастер‑слайд из целевой презентации, а не из исходной. Чтобы клонировать слайд с мастер‑слайдом, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), содержащего исходную презентацию, из которой будет клонирован слайд.
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), содержащего целевую презентацию, в которую будет клонирован слайд.
-1. Получите слайд, который необходимо клонировать вместе с мастер-слайдом.
-1. Создайте экземпляр класса [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection), ссылку на коллекцию мастеров, предоставляемую объектом [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) целевой презентации.
-1. Вызовите метод [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index), предоставляемый объектом [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection), и передайте мастер из исходного PPTX, который нужно клонировать, в качестве параметра метода [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
-1. Создайте экземпляр класса [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection), установив ссылку на коллекцию слайдов, предоставляемую объектом [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) целевой презентации.
-1. Вызовите метод [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index), предоставляемый объектом [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection), и передайте слайд из исходной презентации, который необходимо клонировать, и мастер-слайд в качестве параметра для метода [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
-1. Сохраните измененный файл целевой презентации.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), содержащего исходную презентацию, из которой будет клонироваться слайд.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), содержащего целевую презентацию, в которую будет клонироваться слайд.
+1. Доступ к слайду, который будет клонироваться, вместе с мастер‑слайдом.
+1. Создайте объект [IMasterSlideCollection], ссылаясь на коллекцию Masters, доступную через объект [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) целевой презентации.
+1. Вызовите метод [AddClone], доступный у объекта [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection), и передайте мастер‑слайд из исходного PPTX в качестве параметра методу [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
+1. Создайте объект [ISlideCollection], ссылаясь на коллекцию Slides, доступную через объект [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) целевой презентации.
+1. Вызовите метод [AddClone], доступный у объекта [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection), и передайте слайд из исходной презентации вместе с мастер‑слайдом в качестве параметра методу [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
+1. Сохраните изменённый файл целевой презентации.
 
-В приведенном ниже примере мы клонировали слайд с мастер-слайдом (стоящий на нулевом индексе исходной презентации) в конец целевой презентации, используя мастер из исходного слайда.
-
+В приведённом ниже примере мы клонировали слайд с мастер‑слайдом (находящийся на нулевом индексе исходной презентации) в конец целевой презентации, используя мастер‑слайд из исходного слайда.
 ```c#
-// Создание экземпляра класса Presentation для загрузки исходного файла презентации
+// Создать экземпляр класса Presentation для загрузки исходного файла презентации
 
 using (Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx"))
 {
-    // Создание экземпляра класса Presentation для целевой презентации (куда слайд будет клонирован)
+    // Создать экземпляр класса Presentation для целевой презентации (куда будет клонирован слайд)
     using (Presentation destPres = new Presentation())
     {
 
-        // Создание экземпляра ISlide из коллекции слайдов в исходной презентации вместе с
-        // Мастер-слайдом
+        // Создать объект ISlide из коллекции слайдов исходной презентации вместе с
+        // Мастер‑слайдом
         ISlide SourceSlide = srcPres.Slides[0];
         IMasterSlide SourceMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-        // Клонирование нужного мастер-слайда из исходной презентации в коллекцию мастеров в
+        // Клонировать нужный мастер‑слайд из исходной презентации в коллекцию мастер‑слайдов в
         // Целевой презентации
         IMasterSlideCollection masters = destPres.Masters;
         IMasterSlide DestMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-        // Клонирование нужного мастер-слайда из исходной презентации в коллекцию мастеров в
+        // Клонировать нужный мастер‑слайд из исходной презентации в коллекцию мастер‑слайдов в
         // Целевой презентации
         IMasterSlide iSlide = masters.AddClone(SourceMaster);
 
-        // Клонирование нужного слайда из исходной презентации с нужным мастером в конец
-        // Коллекции слайдов в целевой презентации
+        // Клонировать нужный слайд из исходной презентации с нужным мастер‑слайдом в конец
+        // Коллекции слайдов целевой презентации
         ISlideCollection slds = destPres.Slides;
         slds.AddClone(SourceSlide, iSlide, true);
       
-        // Клонирование нужного мастер-слайда из исходной презентации в коллекцию мастеров в
-        // Целевой презентации
-        // Сохранение целевой презентации на диск
+        // Клонировать нужный мастер‑слайд из исходной презентации в коллекцию мастер‑слайдов в // Целевой презентации
+        // Сохранить целевую презентацию на диск
         destPres.Save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat.Pptx);
 
     }
@@ -183,13 +187,10 @@ using (Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMa
 ```
 
 
+## **Клонирование слайда в конец указанного раздела**
+С помощью Aspose.Slides for .NET можно клонировать слайд из одного раздела презентации и вставить его в другой раздел той же презентации. В этом случае необходимо использовать метод [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) из интерфейса [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection).
 
-## Клонировать в конец в указанном разделе
-
-С помощью Aspose.Slides для .NET вы можете клонировать слайд из одного раздела презентации и вставить этот слайд в другой раздел в той же презентации. В этом случае вам нужно использовать метод [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) из интерфейса [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection).
-
-Эта C# программа показывает, как клонировать слайд и вставить клонированный слайд в указанный раздел:
-
+Этот код C# демонстрирует, как клонировать слайд и вставить клонированный слайд в указанный раздел:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -204,3 +205,18 @@ using (Presentation pres = new Presentation())
     pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**Клонируются ли заметки выступающего и комментарии рецензента?**
+
+Да. Страницы заметок и комментарии включаются в клон. Если они не нужны, [удалить их](/slides/ru/net/presentation-notes/) после вставки.
+
+**Как обрабатываются диаграммы и их источники данных?**
+
+Объект диаграммы, его форматирование и встроенные данные копируются. Если диаграмма была связана с внешним источником (например, OLE‑встроенной книгой), эта связь сохраняется как [OLE‑объект](/slides/ru/net/manage-ole/). После перемещения между файлами проверьте доступность данных и поведение обновления.
+
+**Могу ли я управлять позицией вставки и разделами для клона?**
+
+Да. Вы можете вставить клон в конкретный индекс слайда и разместить его в выбранном [разделе](/slides/ru/net/slide-section/). Если целевой раздел не существует, создайте его сначала и затем переместите слайд в него.

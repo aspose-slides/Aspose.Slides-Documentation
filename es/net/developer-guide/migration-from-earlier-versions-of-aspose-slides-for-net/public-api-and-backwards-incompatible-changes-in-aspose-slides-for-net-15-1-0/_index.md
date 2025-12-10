@@ -1,32 +1,46 @@
 ---
-title: API Público y Cambios Incompatibles con Versiones Anteriores en Aspose.Slides para .NET 15.1.0
+title: Cambios en la API pública y incompatibilidades retroactivas en Aspose.Slides para .NET 15.1.0
+linktitle: Aspose.Slides para .NET 15.1.0
 type: docs
 weight: 130
 url: /es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/
+keywords:
+- migración
+- código heredado
+- código moderno
+- enfoque heredado
+- enfoque moderno
+- PowerPoint
+- OpenDocument
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Revise las actualizaciones de la API pública y los cambios incompatibles en Aspose.Slides para .NET para migrar sin problemas sus soluciones de presentaciones PowerPoint PPT, PPTX y ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Esta página lista todas las clases, métodos, propiedades, etc., que se [agregaron](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) o [eliminaron](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/), y otros cambios introducidos con la API de Aspose.Slides para .NET 15.1.0.
+Esta página enumera todos los [added](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) o [removed](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) clases, métodos, propiedades y demás, y otros cambios introducidos con la API de Aspose.Slides for .NET 15.1.0 API.
 
 {{% /alert %}} 
-## **Cambios en la API Pública**
+## **Cambios de la API Pública**
 #### **Se ha añadido la funcionalidad de sustitución de fuentes**
-Se ha añadido la posibilidad de reemplazar una fuente de manera global en la presentación y temporalmente para la renderización.
+Se ha añadido la posibilidad de reemplazar fuentes de forma global en toda la presentación y de forma temporal para la renderización.
 
 Se ha introducido la nueva propiedad "FontsManager" de la clase Presentation. La clase FontsManager tiene los siguientes miembros:
 
-**IFontSubstRuleCollection FontSubstRuleList** Propiedad
+Propiedad **IFontSubstRuleCollection FontSubstRuleList**
 
-Esta colección de instancias de IFontSubstRule se utiliza para sustituir fuentes durante la renderización. IFontSubstRule tiene propiedades SourceFont y DestFont que implementan la interfaz IFontData, y la propiedad ReplaceFontCondition que permite elegir la condición de reemplazo ("WhenInaccessible" o "Always").
+Esta colección de instancias IFontSubstRule se utiliza para sustituir fuentes durante la renderización. IFontSubstRule tiene las propiedades SourceFont y DestFont que implementan la interfaz IFontData y la propiedad ReplaceFontCondition que permite elegir la condición de sustitución ("WhenInaccessible" o "Always").
 
-**IFontData[] GetFonts()** Método
+Método **IFontData[] GetFonts()**
 
-Utilizado para recuperar todas las fuentes utilizadas en la presentación actual.
+Se utiliza para obtener todas las fuentes usadas en la presentación actual.
 
-**ReplaceFont** Métodos
+Métodos **ReplaceFont**
 
-Utilizados para reemplazar de manera persistente la fuente en la presentación.
+Se utilizan para reemplazar permanentemente una fuente en la presentación. 
 
 El siguiente ejemplo muestra cómo reemplazar una fuente en la presentación:
 
@@ -42,9 +56,10 @@ El siguiente ejemplo muestra cómo reemplazar una fuente en la presentación:
 
             pres.Save("PresContainsTimesNoewRomanFont.pptx", SaveFormat.Pptx);
 
+
 ``` 
 
-Otro ejemplo, demuestra la sustitución de fuente para la renderización cuando es inaccesible:
+Otro ejemplo muestra la sustitución de fuentes para la renderización cuando no están accesibles:
 
 ``` csharp
 
@@ -64,8 +79,8 @@ Otro ejemplo, demuestra la sustitución de fuente para la renderización cuando 
 
             pres.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
 
-            // Se utilizará la fuente Arial en lugar de SomeRareFont cuando no esté disponible
+            // Arial font will be used instead of SomeRareFont when inaccessible
 
             pres.Slides[0].GetThumbnail();
 
-``` 
+```

@@ -1,22 +1,36 @@
 ---
-title: API public et changements incompatibles en arrière dans Aspose.Slides pour .NET 14.10.0
+title: API publique et changements incompatibles rétroactifs dans Aspose.Slides pour .NET 14.10.0
+linktitle: Aspose.Slides pour .NET 14.10.0
 type: docs
 weight: 120
 url: /fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/
+keywords:
+- migration
+- code hérité
+- code moderne
+- approche héritée
+- approche moderne
+- PowerPoint
+- OpenDocument
+- présentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Examinez les mises à jour de l'API publique et les changements incompatibles dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentation PowerPoint PPT, PPTX et ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Cette page répertorie toutes les classes, méthodes, propriétés, etc. [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) ou [supprimées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/), et d'autres changements introduits avec l'API Aspose.Slides pour .NET 14.10.0.
+Cette page répertorie toutes les classes, méthodes, propriétés, etc. [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) ou [supprimées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) ainsi que les autres changements introduits avec l'API Aspose.Slides for .NET 14.10.0.
 
 {{% /alert %}} 
-## **Changements de l'API publique**
+## **Modifications de l'API publique**
 #### **Le type de champ Aspose.Slides.FieldType.Footer a été ajouté**
 Le type de champ Footer a été ajouté pour permettre la création de champs de ce type et pour une sérialisation valide des présentations.
-#### **L'élément Enum ShapeElementFillSource.Own a été supprimé**
-L'élément Enum ShapeElementFillSource.Own a été supprimé car il était dupliqué. Utilisez ShapeElementFillSource.Shape à la place de ShapeElementFillSource.Own.
-#### **Des méthodes pour la suppression de points de données de graphique et de catégories ont été ajoutées**
-Les méthodes suivantes, qui permettent de supprimer un point de données de graphique d'une collection de points de données de graphique, ont été ajoutées :
+#### **L'élément d'énumération ShapeElementFillSource.Own a été supprimé**
+L'élément d'énumération ShapeElementFillSource.Own a été supprimé comme dupliqué. Utilisez ShapeElementFillSource.Shape à la place de ShapeElementFillSource.Own.
+#### **Des méthodes de suppression de points de données et de catégories de graphique ont été ajoutées**
+Les méthodes suivantes, qui permettent de supprimer un point de données de graphique d'une collection de points de données, ont été ajoutées :
 
 IChartDataPointCollection.Remove(IChartDataPoint)
 IChartDataPoint.Report()
@@ -33,15 +47,15 @@ IChartCategory.Remove()
 
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 400, true);
 
-    chart.ChartData.Categories[0].Remove(); //supprimer avec ChartCategory.Remove()
+    chart.ChartData.Categories[0].Remove(); //remove with ChartCategory.Remove()
 
-    chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //supprimer avec ChartCategoryCollection.Remove()
+    chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //remove with ChartCategoryCollection.Remove()
 
     foreach (var ser in chart.ChartData.Series)
 
     {
 
-        ser.DataPoints[0].Remove();//supprimer avec ChartDataPoint.Remove()
+        ser.DataPoints[0].Remove();//remove with ChartDataPoint.Remove()
 
         ser.DataPoints.Remove(ser.DataPoints[0]);//ChartDataPointCollection.Remove()
 

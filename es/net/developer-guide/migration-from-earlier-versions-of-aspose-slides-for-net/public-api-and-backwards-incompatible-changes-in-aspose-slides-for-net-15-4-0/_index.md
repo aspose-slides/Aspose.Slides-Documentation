@@ -1,24 +1,38 @@
 ---
-title: API Pública y Cambios Incompatibles con Versiones Anteriores en Aspose.Slides para .NET 15.4.0
+title: Cambios en la API pública y incompatibilidades hacia atrás en Aspose.Slides para .NET 15.4.0
+linktitle: Aspose.Slides para .NET 15.4.0
 type: docs
 weight: 150
 url: /es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
+keywords:
+- migración
+- código heredado
+- código moderno
+- enfoque heredado
+- enfoque moderno
+- PowerPoint
+- OpenDocument
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Revisa las actualizaciones de la API pública y los cambios incompatibles en Aspose.Slides para .NET para migrar sin problemas tus soluciones de presentación PowerPoint PPT, PPTX y ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Esta página lista todas las clases, métodos, propiedades, etc., [agregados](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) o [eliminados](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/), y otros cambios introducidos con la API de Aspose.Slides para .NET 15.4.0.
+Esta página enumera todas las clases, métodos, propiedades y demás que han sido [añadidas](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) o [eliminadas](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/), y otros cambios introducidos con la API de Aspose.Slides for .NET 15.4.0 API.
 
 {{% /alert %}} 
-## **Cambios en la API Pública**
-#### **Se ha agregado el Enum OrganizationChartLayoutType**
-El enum Aspose.Slides.SmartArt.OrganizationChartLayoutType representa el tipo de formato de los nodos secundarios en un organigrama.
-#### **Se ha agregado el método IBulletFormat.ApplyDefaultParagraphIndentsShifts**
-El método Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts establece desplazamientos predeterminados no nulos para el sangrado y el margen izquierdo efectivos cuando se habilitan viñetas (como lo hace PowerPoint si se habilitan las viñetas/numeración de párrafos en él). Si las viñetas están desactivadas, entonces simplemente restablece el sangrado y el margen izquierdo del párrafo (como lo hace PowerPoint si deshabilita las viñetas/numeración de párrafos en él).
+## **Cambios de API Pública**
+#### **Se ha añadido el Enum OrganizationChartLayoutType**
+El enum Aspose.Slides.SmartArt.OrganizationChartLayoutType representa el tipo de formato de los nodos hijos en un organigrama.
+#### **Se ha añadido el método IBulletFormat.ApplyDefaultParagraphIndentsShifts**
+El método Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts establece desplazamientos predeterminados diferentes de cero para la sangría de párrafo y el margen izquierdo cuando los viñetas están habilitados (como PowerPoint hace al habilitar los viñetas/numeración de párrafo). Si los viñetas están deshabilitados, simplemente restablece la sangría de párrafo y el margen izquierdo (como PowerPoint hace al deshabilitar los viñetas/numeración de párrafo).
 
-Ver ejemplos [aquí](/slides/es/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
-#### **Se ha agregado el método IConnector.Reroute**
-El método Aspose.Slides.IConnector.Reroute redirige el conector de modo que tome el camino más corto posible entre las formas que conecta. Para hacer esto, el método Reroute() puede cambiar el StartShapeConnectionSiteIndex y EndShapeConnectionSiteIndex.
+Vea ejemplos [aquí](/slides/es/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
+#### **Se ha añadido el método IConnector.Reroute**
+El método Aspose.Slides.IConnector.Reroute redirige el conector para que tome la ruta más corta posible entre las formas que conecta. Para ello, el método Reroute() puede cambiar los índices StartShapeConnectionSiteIndex y EndShapeConnectionSiteIndex.
 
 ``` csharp
 
@@ -45,8 +59,8 @@ El método Aspose.Slides.IConnector.Reroute redirige el conector de modo que tom
 }
 
 ``` 
-#### **Se ha agregado el método IPresentation.GetSlideById**
-El método Aspose.Slides.IPresentation.GetSlideById(System.UInt32) devuelve una diapositiva, MasterSlide o LayoutSlide por ID de diapositiva.
+#### **Se ha añadido el método IPresentation.GetSlideById**
+El método Aspose.Slides.IPresentation.GetSlideById(System.UInt32) devuelve una Slide, MasterSlide o LayoutSlide según el ID de la diapositiva.
 
 ``` csharp
 
@@ -63,8 +77,8 @@ El método Aspose.Slides.IPresentation.GetSlideById(System.UInt32) devuelve una 
 }
 
 ``` 
-#### **Se ha agregado la propiedad IShape.ConnectionSiteCount**
-La propiedad Aspose.Slides.IShape.ConnectionSiteCount devuelve el número de sitios de conexión en la forma.
+#### **Se ha añadido la propiedad IShape.ConnectionSiteCount**
+La propiedad Aspose.Slides.IShape.ConnectionSiteCount devuelve el número de puntos de conexión en la forma.
 
 ``` csharp
 
@@ -99,8 +113,8 @@ La propiedad Aspose.Slides.IShape.ConnectionSiteCount devuelve el número de sit
 }
 
 ``` 
-#### **Se ha agregado la propiedad ISmartArt.IsReversed**
-La propiedad Aspose.Slides.SmartArt.ISmartArt.IsReversed permite obtener o establecer el estado del diagrama SmartArt con respecto a (de izquierda a derecha) LTR o (de derecha a izquierda) RTL, si el diagrama admite reversión.
+#### **Se ha añadido la propiedad ISmartArt.IsReversed**
+La propiedad Aspose.Slides.SmartArt.ISmartArt.IsReversed permite obtener o establecer el estado del diagrama SmartArt respecto a (izquierda a derecha) LTR o (derecha a izquierda) RTL, si el diagrama admite la inversión.
 
 ``` csharp
 
@@ -117,7 +131,7 @@ La propiedad Aspose.Slides.SmartArt.ISmartArt.IsReversed permite obtener o estab
 }
 
 ``` 
-#### **Se ha agregado la propiedad ISmartArt.Nodes**
+#### **Se ha añadido la propiedad ISmartArt.Nodes**
 La propiedad Aspose.Slides.SmartArt.ISmartArt.Nodes devuelve la colección de nodos raíz en el objeto SmartArt.
 
 ``` csharp
@@ -128,17 +142,17 @@ La propiedad Aspose.Slides.SmartArt.ISmartArt.Nodes devuelve la colección de no
 
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.VerticalBulletList);
 
-  ISmartArtNode node = smart.Nodes[1]; // seleccionar el segundo nodo raíz
+  ISmartArtNode node = smart.Nodes[1]; // select second root node
 
-  node.TextFrame.Text = "Segundo nodo raíz";
+  node.TextFrame.Text = "Second root node";
 
   pres.Save("out.pptx", Export.SaveFormat.Pptx);
 
 }
 
 ``` 
-#### **Se ha agregado la propiedad ISmartArtNode.IsHidden**
-La propiedad Aspose.Slides.SmartArt.ISmartArtNode.IsHidden devuelve verdadero si este nodo es un nodo oculto en el modelo de datos.
+#### **Se ha añadido la propiedad ISmartArtNode.IsHidden**
+La propiedad Aspose.Slides.SmartArt.ISmartArtNode.IsHidden devuelve true si este nodo es un nodo oculto en el modelo de datos.
 
 ``` csharp
 
@@ -150,13 +164,13 @@ La propiedad Aspose.Slides.SmartArt.ISmartArtNode.IsHidden devuelve verdadero si
 
   ISmartArtNode node = smart.AllNodes.AddNode();
 
-  bool hidden = node.IsHidden; //devuelve verdadero
+  bool hidden = node.IsHidden; //returns true
 
   if(hidden)
 
   {
 
-    //realizar algunas acciones o notificaciones
+    //do some actions or notifications
 
   }
 
@@ -165,8 +179,8 @@ La propiedad Aspose.Slides.SmartArt.ISmartArtNode.IsHidden devuelve verdadero si
 }
 
 ``` 
-#### **Se ha agregado la propiedad ISmartArtNode.OrganizationChartLayout**
-La propiedad Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout permite obtener o establecer el tipo de organigrama asociado con el nodo actual.
+#### **Se ha añadido la propiedad ISmartArtNode.OrganizationChartLayout**
+La propiedad Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout permite obtener o establecer el tipo de organigrama asociado al nodo actual.
 
 ``` csharp
 
@@ -183,8 +197,8 @@ La propiedad Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout permit
 }
 
 ``` 
-#### **Se ha agregado el método set para la propiedad ISmartArt.Layout**
-Se ha agregado el método set para la propiedad Aspose.Slides.SmartArt.ISmartArt.Layout. Permite cambiar el tipo de diseño de un diagrama existente.
+#### **Se ha añadido el método set para la propiedad ISmartArt.Layout**
+Se ha añadido el método set para la propiedad Aspose.Slides.SmartArt.ISmartArt.Layout. Permite cambiar el tipo de diseño de un diagrama existente.
 
 ``` csharp
 
@@ -201,12 +215,13 @@ Se ha agregado el método set para la propiedad Aspose.Slides.SmartArt.ISmartArt
 }
 
 ``` 
-#### **Cambios menores en la API**
-**Esta es la lista de cambios menores en la API:**
+#### **Cambios menores de API**
+**Esta es la lista de cambios menores de API:**
 
-|Enum Aspose.Slides.BevelColorMode |eliminado, enum no utilizado |
+
+|Enum Aspose.Slides.BevelColorMode |eliminado, enum no usado |
 | :- | :- |
-|Propiedad ThreeDFormatEffectiveData.BevelColorMode |eliminada, propiedad no utilizada |
-|Propiedad Aspose.Slides.Charts.ChartSeriesGroup.Chart <br>Propiedad Aspose.Slides.Charts.IChartSeriesGroup.AsIChartComponent |agregada |
-|Propiedad Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>Herencia de IParagraphFormatEffectiveData de ISlideComponent <br>Propiedad Aspose.Slides.IThreeDFormat.AsISlideComponent <br>Herencia de IThreeDFormat de ISlideComponent |eliminada |
-|Propiedad Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>Propiedad Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>Propiedad Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>Propiedad Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>Propiedad Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>Propiedad Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |eliminadas como obsoletas |
+|Property ThreeDFormatEffectiveData.BevelColorMode |eliminado, propiedad no usada |
+|Property Aspose.Slides.Charts.ChartSeriesGroup.Chart <br>Property Aspose.Slides.Charts.IChartSeriesGroup.AsIChartComponent |añadido |
+|Property Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Property Aspose.Slides.IThreeDFormat.AsISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent |eliminado |
+|Property Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |eliminado como obsoleto |

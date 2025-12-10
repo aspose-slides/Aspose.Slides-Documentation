@@ -1,37 +1,54 @@
 ---
-title: نظام تصدير HTML جديد - Aspose.Slides.WebExtensions
+title: نظام تصدير HTML الجديد - Aspose.Slides.WebExtensions
 type: docs
 weight: 240
 url: /ar/net/web-extensions/
-keywords: "تصدير PowerPoint HTML، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
-description: "تصدير PowerPoint HTML في C# أو .NET"
+keywords:
+- ملحق ويب
+- محرك القوالب
+- تصدير PowerPoint
+- تصدير OpenDocument
+- تصدير عرض تقديمي
+- تصدير شريحة
+- تصدير PPT
+- تصدير PPTX
+- تصدير ODP
+- PowerPoint إلى HTML
+- OpenDocument إلى HTML
+- عرض تقديمي إلى HTML
+- شريحة إلى HTML
+- PPT إلى HTML
+- PPTX إلى HTML
+- ODP إلى HTML
+- .NET
+- C#
+- Aspose.Slides
+description: "تصدير العروض التقديمية إلى HTML باستخدام القوالب وCSS وJS — دون SVG. تعلم مخرجات صفحة واحدة أو متعددة الصفحات، التحكم في الموارد، وتخصيص PPT وPPTX وODP."
 ---
 
+## **المقدمة**
 
-## مقدمة
+* في إصدارات Aspose.Slides API القديمة، عندما تقوم بتصدير PowerPoint إلى HTML، كان HTML الناتج يُمثَّل كعلامة SVG مدمجة مع HTML. كل شريحة كانت تُصدَّر كحاوية SVG.  
+* في إصدارات Aspose.Slides الحديثة، عندما تستخدم نظام WebExtensions لتصدير عروض PowerPoint إلى HTML، يمكنك تخصيص إعدادات تصدير HTML للحصول على أفضل النتائج.  
 
-* في الإصدارات القديمة من واجهة برمجة تطبيقات Aspose.Slides، عند تصدير PowerPoint إلى HTML، تم تمثيل HTML الناتج كعلامة SVG ممزوجة بـ HTML. تم تصدير كل شريحة كوعاء SVG.
-* في الإصدارات الجديدة من Aspose.Slides، عند استخدام نظام WebExtensions لتصدير عروض PowerPoint إلى HTML، يمكنك تخصيص إعدادات تصدير HTML لتحقيق أفضل النتائج.
+باستخدام نظام WebExtensions الجديد، يمكنك تصدير عرض كامل إلى HTML مع مجموعة من فئات CSS ورسوم JavaScript (بدون SVG). يوفر نظام التصدير الجديد عددًا غير محدود من الخيارات والطرق التي تحدد عملية التصدير.  
 
-باستخدام نظام WebExtensions الجديد، يمكنك تصدير عرض كامل إلى HTML مع مجموعة من فئات CSS وتحريكات JavaScript (دون SVG). يوفر نظام التصدير الجديد أيضًا عددًا غير محدود من الخيارات والأساليب التي تحدد عملية التصدير.
+يُستخدم نظام WebExtensions لتوليد HTML من العروض في الحالات والأحداث التالية:
 
-يتم استخدام نظام WebExtensions الجديد لتوليد HTML من العروض في هذه الحالات والأحداث:
+* عند استخدام أنماط CSS أو رسوم متحركة مخصصة؛ تعديل العلامة لأشكال معينة.  
+* عند تعديل بنية المستند، مثل استخدام تنقل مخصص بين الصفحات.  
+* عند حفظ ملفات .html و .css و .js في مجلدات ذات هيكلية مخصصة، مع تضمين أنواع ملفات معينة في مجلدات مختلفة. على سبيل المثال، تصدير الشرائح إلى مجلد بناءً على اسم القسم.  
+* عند حفظ ملفات CSS و JS في مجلدات منفصلة افتراضيًا ثم إضافتها إلى ملف HTML. تُحفظ الصور والخطوط المضمَّنة أيضًا في ملفات منفصلة. ومع ذلك، يمكن تضمينها في ملف HTML (بتنسيق base64). يمكنك حفظ بعض أجزاء الموارد في الملفات وتضمين موارد أخرى في HTML كـ base64.  
 
-* عند استخدام أنماط CSS أو تحريكات مخصصة؛ تجاوز العلامة لأنواع معينة من الأشكال.
-* عند تجاوز هيكل الوثيقة، على سبيل المثال، باستخدام تنقل مخصص بين الصفحات.
-* عند حفظ ملفات .html و .css و .js في مجلدات مع هيكل هرمي مخصص، بما في ذلك أنواع ملفات محددة في مجلدات مختلفة. على سبيل المثال، تصدير الشرائح إلى مجلد يعتمد على اسم القسم.
-* عند حفظ ملفات CSS و JS في مجلدات منفصلة بشكل افتراضي ثم إضافتها إلى ملف HTML. يتم أيضًا حفظ الصور والخطوط المضمّنة في ملفات منفصلة. ومع ذلك، يمكن تضمينها في ملف HTML (بتنسيق base64). يمكنك حفظ بعض أجزاء الموارد في الملفات وتضمين موارد أخرى في HTML كـ base64.
-
-يمكنك تمامًا الاطلاع على أمثلة PowerPoint إلى HTML في مشروع [Aspose.Slides.WebExtensions](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/) على GitHub. يحتوي هذا المشروع على جزئين: **Examples\SinglePageApp** و **Examples\MultiPageApp**. يمكن العثور على الأمثلة الأخرى المستخدمة في هذه المقالة أيضًا في مستودع GitHub.
+يمكنك الاطلاع على أمثلة PowerPoint إلى HTML في [مشروع Aspose.Slides.WebExtensions](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/) على GitHub. يحتوي هذا المشروع على جزأين: **Examples\SinglePageApp** و **Examples\MultiPageApp**. يمكن العثور على الأمثلة الأخرى المستخدمة في هذه المقالة أيضًا في مستودع GitHub.
 
 ### **القوالب**
 
-لتمديد قدرات تصدير HTML بشكل أكبر، نوصي باستخدام نظام قوالب ASP.NET Razor. يمكن استخدام مثيل فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) جنبًا إلى جنب مع مجموعة من القوالب للحصول على مستند HTML كنتيجة للتصدير.
+لتوسيع قدرات تصدير HTML بشكل أكبر، نُوصي باستخدام نظام القوالب ASP.NET Razor. يمكن استخدام مثيل الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) جنبًا إلى جنب مع مجموعة من القوالب للحصول على مستند HTML كنتيجة للتصدير.
 
-**عرض توضيحي**
+**العرض**
 
-في هذا المثال، سنقوم بتصدير النص من عرض إلى HTML. أولًا، دعونا ننشئ القالب:
-
+في هذا المثال، سنصدر النص من عرض إلى HTML. أولاً، لننشئ القالب:
 ``` html
 <!DOCTYPE html>
 <body>
@@ -49,11 +66,11 @@ description: "تصدير PowerPoint HTML في C# أو .NET"
 </body>
 </html>
 ```
-تم حفظ هذا القالب على القرص كـ "shape-template-hello-world.html"، والذي سيتم استخدامه في الخطوة التالية.
 
-في هذا القالب، نقوم بالتكرار على إطارات النص في أشكال العرض لعرض النص. دعونا نولد ملف HTML باستخدام WebDocument ثم نصدر العرض إلى الملف:
+يُحفظ هذا القالب على القرص باسم "shape-template-hello-world.html"، وسيُستخدم في الخطوة التالية.
 
-``` csharp
+في هذا القالب، نحن نستعرض إطارات النص في أشكال العرض لعرض النص. دعنا نولد ملف HTML باستخدام WebDocument ثم نصدر الـ Presentation إلى الملف:
+```csharp
 using (Presentation pres = new Presentation())
 {
     IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 150);
@@ -61,37 +78,37 @@ using (Presentation pres = new Presentation())
                 
     WebDocumentOptions options = new WebDocumentOptions
     {
-        TemplateEngine = new RazorTemplateEngine(), // نحن نعتزم استخدام محرك قوالب Razor. يمكن استخدام محركات قوالب أخرى عن طريق تنفيذ ITemplateEngine  
-        OutputSaver = new FileOutputSaver() // يمكن استخدام حفظ نتائج آخر عبر تنفيذ واجهة IOutputSaver
+        TemplateEngine = new RazorTemplateEngine(), // نحن نعتزم استخدام محرك القوالب Razor. يمكن استخدام محركات قوالب أخرى عن طريق تنفيذ ITemplateEngine  
+        OutputSaver = new FileOutputSaver() // يمكن استخدام موفري النتائج الآخرين عن طريق تنفيذ واجهة IOutputSaver
     };
     WebDocument document = new WebDocument(options);
 
-    // إضافة "الإدخال" للوثيقة - ما المصدر الذي سيستخدم لتوليد مستند HTML
+    // إضافة وثيقة "input" - ما المصدر الذي سيُستخدم لتوليد مستند HTML
     document.Input
-        .AddTemplate<Presentation>( // القالب سيكون لديه Presentation ككائن "نموذج" (Model.Object) 
-        "index", // مفتاح القالب - مطلوب من قبل محرك القالب لمطابقة الكائن (Presentation) مع القالب المحمل من القرص ("shape-template-hello-world.html")  
-        @"custom-templates\shape-template-hello-world.html"); // القالب الذي أنشأناه سابقًا
+        .AddTemplate<Presentation>( // القالب سيحمل Presentation ككائن "model" (Model.Object) 
+        "index", // مفتاح القالب - مطلوب من محرك القالب لمطابقة كائن (Presentation) مع القالب المحمل من القرص ("shape-template-hello-world.html")  
+        @"custom-templates\shape-template-hello-world.html"); // القالب الذي أنشأناه مسبقًا
                 
-    // إضافة الإخراج - كيف سيبدو مستند HTML الناتج عند تصديره إلى القرص
+    // إضافة إخراج - كيف سيظهر مستند HTML الناتج عندما يُصدَّر إلى القرص
     document.Output.Add(
         "hello-world.html", // مسار ملف الإخراج
-        "index", // مفتاح القالب الذي سيتم استخدامه لهذا الملف (قمنا بتعيينه في عبارة سابقة)  
-        pres); // مثيل Model.Object الفعلي 
+        "index", // مفتاح القالب الذي سيُستخدم لهذا الملف (حددناه في العبارة السابقة)  
+        pres); // كائن Model.Object فعلي 
                 
     document.Save();
 }
 ```
 
-على سبيل المثال، نريد إضافة أنماط CSS إلى نتيجة التصدير لتغيير لون النص إلى الأحمر. دعونا نضيف قالب CSS:
 
+على سبيل المثال، نريد إضافة أنماط CSS إلى نتيجة التصدير لتغيير لون النص إلى الأحمر. لنضيف قالب CSS:
 ``` css
 .text {
     color: red;
 }
 ```
 
-الآن، نضيفه إلى الإدخال والإخراج:
 
+الآن، نضيفه إلى المدخلات والمخرجات:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -110,7 +127,8 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-دعونا نضيف الإشارة إلى الأنماط داخل القالب وفئة "text":
+
+لنضيف الإشارة إلى الأنماط في القالب وعلى الفئة "text":
 ``` html
 <!DOCTYPE html>
 <head>
@@ -120,14 +138,14 @@ using (Presentation pres = new Presentation())
 </html>
 ```
 
-### **قوالب افتراضية**
+
+### **القوالب الافتراضية**
 
 يوفر WebExtensions مجموعتين من القوالب الأساسية لتصدير العروض إلى HTML:
-* صفحة واحدة: يتم تصدير كل محتوى العرض إلى ملف HTML واحد. يتم تصدير جميع الموارد الأخرى (الصور، الخطوط، الأنماط، إلخ) إلى ملفات منفصلة.
-* صفحات متعددة: يتم تصدير كل شريحة عرض إلى ملف HTML فردي. المنطق الافتراضي لتصدير الموارد هو نفسه كما في الصفحة الواحدة.
+* صفحة واحدة: يتم تصدير كل محتوى العرض إلى ملف HTML واحد. تُصدَّر جميع الموارد الأخرى (صور، خطوط، أنماط، إلخ) إلى ملفات منفصلة.  
+* متعددة الصفحات: يتم تصدير كل شريحة من العرض إلى ملف HTML منفصل. منطق تصدير الموارد الافتراضي هو نفسه كما في صفحة واحدة.  
 
-يمكن استخدام فصل `PresentationExtensions` لتبسيط عملية تصدير العرض باستخدام القوالب. يحتوي فصل `PresentationExtensions` على مجموعة من طرق التمديد لفصل Presentation. لتصدير عرض إلى صفحة واحدة، ما عليك سوى تضمين مساحة أسماء Aspose.Slides.WebExtensions واستدعاء طريقتين. الطريقة الأولى، `ToSinglePageWebDocument`، تنشئ مثيل `WebDocument`. الطريقة الثانية تحفظ مستند HTML:
-
+يمكن استخدام الفئة `PresentationExtensions` لتبسيط عملية تصدير العرض باستخدام القوالب. تحتوي فئة `PresentationExtensions` على مجموعة من طرق الامتداد لفئة Presentation. لتصدير عرض إلى صفحة واحدة، يكفي استيراد مساحة الاسم Aspose.Slides.WebExtensions واستدعاء طريقتين. الطريقة الأولى، `ToSinglePageWebDocument`، تنشئ مثيلًا من `WebDocument`. الطريقة الثانية تحفظ مستند HTML:
 ``` csharp
 using (Presentation pres = new Presentation("demo.pptx"))
 {
@@ -136,10 +154,10 @@ using (Presentation pres = new Presentation("demo.pptx"))
 }
 ```
 
-يمكن أن تأخذ طريقة ToSinglePageWebDocument معلمتين: مجلد القوالب ومجلد التصدير.
 
-لتصدير العرض إلى صفحة متعددة، استخدم طريقة ToMultiPageWebDocument مع نفس المعلمات:
+يمكن أن تستقبل طريقة `ToSinglePageWebDocument` معاملين: مجلد القوالب ومجلد التصدير.  
 
+لتصدير العرض إلى عدة صفحات، استخدم طريقة `ToMultiPageWebDocument` مع نفس المعاملين:
 ``` csharp
 using (Presentation pres = new Presentation("demo.pptx"))
 {
@@ -148,10 +166,10 @@ using (Presentation pres = new Presentation("demo.pptx"))
 }
 ```
 
-في WebExtensions، يتم ربط كل قالب مستخدم لتوليد العلامات بمفتاح. يمكن استخدام المفتاح في القوالب. على سبيل المثال، في توجيه @Include، يمكنك إدراج قالب معين إلى آخر عن طريق المفتاح.
 
-يمكننا توضيح الإجراء في مثال استخدام قالب جزء النص داخل قالب الفقرة. يمكنك العثور على المثال في مشروع Aspose.Slides.WebExtensions: [Templates\common\paragraph.html](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/Templates/common/paragraph.html). لرسم الأجزاء في فقرة، نقوم بالتكرار عليها باستخدام توجيه @foreach لمحرك Razor:
+في WebExtensions، كل قالب يُستخدم لتوليد العلامة مرتبط بمفتاح. يمكن استخدام المفتاح داخل القوالب. على سبيل المثال، في توجيه @Include، يمكنك إدراج قالب معين إلى آخر باستخدام المفتاح.
 
+يمكننا توضيح الإجراء في مثال استخدام قالب جزء النص داخل قالب الفقرة. يمكنك العثور على المثال في مشروع Aspose.Slides.WebExtensions: [Templates\common\paragraph.html](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/Templates/common/paragraph.html). لرسم الأجزاء داخل الفقرة، نستعرضها باستخدام توجيه @foreach لمحرك Razor:
 ``` html
 @foreach (Portion portion in contextObject.Portions) 
 { 
@@ -162,27 +180,29 @@ using (Presentation pres = new Presentation("demo.pptx"))
 }
 ```
 
-يمتلك الجزء قالباً خاص به [portion.html](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/Templates/common/portion.html) ويتم توليد نموذج له. سيتم إضافة ذلك النموذج إلى القالب الناتج paragraph.html:
+
+الجزء له قالبه الخاص [portion.html](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/Templates/common/portion.html) ويتم توليد نموذج له. يضاف هذا النموذج إلى قالب output paragraph.html:
 ``` html
 @Raw(Include("portion", subModel).ToString().Replace(Environment.NewLine, ""));
 ```
 
-لكل نوع شكل، نستخدم قالبًا مخصصًا، يتم إضافته إلى مجموعة القوالب العامة من مشروع Aspose.Slides.WebExtensions. يتم دمج القوالب في طرق ToSinglePageWebDocument و ToMultiPageWebDocument لتقديم النتيجة النهائية. هذه هي القوالب الشائعة المستخدمة في كل من الصفحات المفردة والمتعددة:
 
--templates
-+-common
-  ¦ +-scripts: نصوص JavaScript لتحريك انتقالات الشريحة، على سبيل المثال.
-  ¦ +-styles: أنماط CSS الشائعة.
-  +-multi-page: قوالب الفهرس، والقائمة، والشرائح للإخراج متعدد الصفحات.
-  +-single-page: قوالب الفهرس، والشرائح للإخراج صفحة واحدة.
+لكل نوع شكل، نستخدم قالبًا مخصصًا يُضاف إلى مجموعة القوالب العامة من مشروع Aspose.Slides.WebExtensions. تُدمج القوالب في طريقتي `ToSinglePageWebDocument` و `ToMultiPageWebDocument` لتوفير النتيجة النهائية. هذه قوالب مشتركة تُستخدم في كل من الصفحة الواحدة والمتعددة:
 
-يمكنك معرفة كيفية ربط الجزء الشائع لجميع القوالب في طريقة `PresentationExtensions.AddCommonInputOutput` [هنا](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/PresentationExtensions.cs).
+-templates  
++-common  
+  ¦ +-scripts: سكريبتات JavaScript لتأثيرات انتقال الشرائح، كأمثلة.  
+  ¦ +-styles: أنماط CSS المشتركة.  
+  +-multi-page: فهارس، قوائم، قوالب الشرائح للإخراج متعدد الصفحات.  
+  +-single-page: فهارس، قوالب الشرائح للإخراج صفحة واحدة.  
+
+يمكنك معرفة كيفية ربط الجزء المشترك لجميع القوالب في طريقة `PresentationExtensions.AddCommonInputOutput` [هنا](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/blob/main/Aspose.Slides.WebExtensions/PresentationExtensions.cs).
 
 ### **تخصيص القالب الافتراضي**
 
-يمكنك تعديل أي عنصر في قالب النموذج الشائع. على سبيل المثال، قد تقرر تغيير أنماط تنسيق الجدول ولكن ترغب في أن تظل جميع الأنماط الأخرى في الصفحة المفردة بدون تغيير.
+يمكنك تعديل أي عنصر في قالب النموذج المشترك. على سبيل المثال، قد ترغب في تغيير أنماط تنسيق الجدول لكن تريد أن تبقى جميع الأنماط الأخرى للصفحة الواحدة دون تغيير.
 
-بشكل افتراضي، يتم استخدام Templates\common\table.html، ويشبه الجدول مظهر الجدول في PowerPoint. دعونا نغير تنسيق الجدول باستخدام أنماط CSS مخصصة:
+افتراضيًا، يُستخدم Templates\common\table.html، ويظهر الجدول بنفس مظهره في PowerPoint. لنغير تنسيق الجدول باستخدام أنماط CSS مخصصة:
 ``` css
 .custom-table {
     border: 1px solid black;
@@ -191,8 +211,8 @@ using (Presentation pres = new Presentation("demo.pptx"))
 .custom-table tr:nth-child(odd) {background: #ffb380}
 ```
 
-يمكننا إنشاء نفس هيكل القوالب المدخلة وملفات الإخراج (كما يتم إنشاؤه) أثناء استدعاء طريقة `PresentationExtensions.ToSinglePageWebDocument`. دعونا نضيف طريقة `ExportCustomTableStyles_AddCommonStructure` لتحقيق ذلك. الفرق بين هذه الطريقة وطريقة `ToSinglePageWebDocument`—لا نحتاج إلى إضافة القالب القياسي للجدول والصفحة الفهرسية الرئيسية (سيتم استبداله لتضمين الإشارة إلى أنماط الجدول المخصصة):
 
+يمكننا إنشاء نفس بنية القوالب المدخلة والملفات الناتجة (كما تُولد) عند استدعاء طريقة `PresentationExtensions.ToSinglePageWebDocument`. لنضيف طريقة `ExportCustomTableStyles_AddCommonStructure` لذلك. الفرق بين هذه الطريقة وطريقة `ToSinglePageWebDocument`—لا نحتاج إلى إضافة القالب القياسي للجدول والصفحة الرئيسية (سيتم استبداله لتضمين الإشارة إلى أنماط الجدول المخصصة):
 ``` csharp
 private static void ExportCustomTableStyles_AddCommonStructure(
     Presentation pres, 
@@ -221,9 +241,9 @@ private static void ExportCustomTableStyles_AddCommonStructure(
 }
 ```
 
-دعونا نضيف قالبًا مخصصًا بدلاً من ذلك:
 
-``` csharp
+لنضيف قالبًا مخصصًا بدلاً من ذلك:
+```csharp
 using (Presentation pres = new Presentation("table.pptx"))
 {
     const string templatesPath = "templates\\single-page";
@@ -236,21 +256,21 @@ using (Presentation pres = new Presentation("table.pptx"))
         EmbedImages = false
     };
 
-    // إعداد القيم العالمية للمستند
+    // إعداد قيم المستند العامة
     WebDocument document = new WebDocument(options);
     SetupGlobals(document, options, outputPath);
 
-    // إضافة الهيكل الشائع (باستثناء قالب الجدول)
+    // إضافة الهيكل المشترك (باستثناء قالب الجدول)
     ExportCustomTableStyles_AddCommonStructure(pres, document, templatesPath, outputPath, options.EmbedImages);
                 
-    // إضافة قالب الجدول المخصص
+    // إضافة قالب جدول مخصص
     document.Input.AddTemplate<Table>("table", @"custom-templates\table-custom-style.html");
                 
-    // إضافة أنماط الجدول المخصصة
+    // إضافة أنماط جدول مخصصة
     document.Input.AddTemplate<Presentation>("table-custom-style", @"custom-templates\styles\table-custom-style.css");
     document.Output.Add(Path.Combine(outputPath, "table-custom-style.css"), "table-custom-style", pres);
                 
-    // إضافة فهرس مخصص - إنه مجرد نسخة من "index.html" القياسي، لكنه يتضمن إشارة إلى "table-custom-style.css"
+    // إضافة فهرس مخصص - هو مجرد نسخة من "index.html" القياسي، لكنه يتضمن إشارة إلى "table-custom-style.css"
     document.Input.AddTemplate<Presentation>("index", @"custom-templates\index-table-custom-style.html");
                 
     document.Save();
@@ -306,9 +326,8 @@ using (Presentation pres = new Presentation("table.pptx"))
 </table>
 ```
 
-**ملاحظة** أن قالب الجدول المخصص قد أضيف بنفس المفتاح "table" مثل الجدول القياسي. وبالتالي، يمكنك استبدال قالب افتراضي معين دون إعادة كتابته. يمكنك أيضًا استخدام القوالب من الهيكل الافتراضي بنفس المفاتيح. على سبيل المثال، يمكنك استخدام قالب الفقرة القياسي في قالب الجدول؛ يمكنك أيضًا استبداله بنفس المفتاح.
-يمكنك أيضًا استخدام index.html لتضمين الإشارة على أنماط CSS الجدول المخصصة فيه: 
 
+**ملاحظة**: تم إضافة قالب الجدول المخصص بنفس المفتاح “table” كالقالب القياسي. وبالتالي، يمكنك استبدال قالب افتراضي معين دون الحاجة إلى إعادة كتابته. يمكنك أيضًا استخدام القوالب من البنية الافتراضية بنفس المفاتيح. على سبيل المثال، قد تستخدم قالب الفقرة القياسي داخل قالب الجدول؛ ويمكنك أيضًا استبداله بالمفتاح. يمكنك أيضًا استخدام index.html لتضمين الإشارة إلى أنماط CSS الخاصة بالجدول داخلها:
 ``` html
 <!DOCTYPE html>    
     
@@ -327,10 +346,10 @@ using (Presentation pres = new Presentation("table.pptx"))
 </html>
 ```
 
-## **إنشاء مشروع من الصفر: انتقالات الشرائح المتحركة**
 
-يتيح لك WebExtensions تصدير العروض مع انتقالات شرائح متحركة—ما عليك إلا تعيين خاصية `AnimateTransitions` في `WebDocumentOptions` إلى `true`:
+## **إنشاء مشروع من الصفر: انتقالات شرائح مُتحركة**
 
+يسمح WebExtensions بتصدير العروض مع انتقالات شرائح مُتحركة—كل ما عليك هو ضبط خاصية `AnimateTransitions` في `WebDocumentOptions` إلى `true`:
 ``` csharp
 WebDocumentOptions options = new WebDocumentOptions
 {
@@ -339,13 +358,13 @@ WebDocumentOptions options = new WebDocumentOptions
 };
 ```
 
-دعونا ننشئ مشروعًا جديدًا يستخدم Aspose.Slides و Aspose.Slides.WebExtensions لإنشاء عارض HTML لملف PDF مع انتقالات صفحات سلسة متحركة. هنا، نحتاج إلى استخدام ميزة استيراد PDF من Aspose.Slides.
 
-دعونا ننشئ مشروع PdfToPresentationToHtml ونضيف حزمة Aspose.Slides.WebExtensions من NuGet (ستتم إضافة حزمة Aspose.Slides أيضًا كاعتماد):
-![حزمة NuGet](screen.png)
+لِننشئ مشروعًا جديدًا يستخدم Aspose.Slides و Aspose.Slides.WebExtensions لإنشاء عارض HTML لملف PDF مع انتقالات صفحات مُتحركة سلسة. هنا، نحتاج إلى استخدام ميزة استيراد PDF في Aspose.Slides.
 
-نبدأ باستيراد مستند PDF، والذي سيتم تحريكه وتصديره إلى عرض HTML:
+لِننشئ مشروع PdfToPresentationToHtml ونضيف حزمة NuGet Aspose.Slides.WebExtensions (وسيتم إضافة حزمة Aspose.Slides كاعتماد أيضًا):
+![NuGet Package](screen.png)
 
+نبدأ باستيراد مستند PDF، الذي سيتم تحريكه وتصديره إلى عرض HTML:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -354,8 +373,8 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-الآن، يمكننا إعداد انتقالات شرائح متحركة (كل شريحة هي صفحة PDF المستوردة). استخدمنا 9 شرائح في مستند PDF النموذجي. دعونا نضيف انتقالات شريحة إلى كل منها (عرض توضيحي أثناء عرض HTML):
 
+الآن، يمكننا إعداد انتقالات الشرائح المتحركة (كل شريحة هي صفحة PDF مستوردة). استخدمنا 9 شرائح في مستند PDF النموذجي. لنضيف انتقالات الشريحة إلى كل منها (عرض توضيحي أثناء مشاهدة HTML):
 ``` csharp
 pres.Slides[0].SlideShowTransition.Type = TransitionType.Fade;
 pres.Slides[1].SlideShowTransition.Type = TransitionType.RandomBar;
@@ -368,8 +387,8 @@ pres.Slides[7].SlideShowTransition.Type = TransitionType.Pull;
 pres.Slides[8].SlideShowTransition.Type = TransitionType.Plus;
 ```
 
-وأخيرًا، دعونا نصدره إلى HTML باستخدام `WebDocument` مع تعيين خاصية `AnimateTransitions` إلى `true`:
 
+أخيرًا، لنصدره إلى HTML باستخدام `WebDocument` مع ضبط خاصية `AnimateTransitions` على `true`:
 ``` csharp
 WebDocumentOptions options = new WebDocumentOptions
 {
@@ -382,7 +401,8 @@ WebDocument document = pres.ToSinglePageWebDocument(options, "templates\\single-
 document.Save();
 ```
 
-مثال كامل على الشيفرة المصدرية:
+
+مثال كامل لشفرة المصدر:
 ``` csharp
 using (Presentation pres = new Presentation())
 {
@@ -411,7 +431,8 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-هذا كل ما تحتاجه لإنشاء HTML مع انتقالات صفحات متحركة تم إنشاؤها من مستند PDF. 
 
-* [تحميل ملف HTML النموذجي](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples).
-* [تحميل المشروع النموذجي](/slides/ar/net/web-extensions/sample.zip).
+هذا كل ما تحتاجه لإنشاء HTML مع انتقالات صفحات متحركة مُنشأة من مستند PDF.
+
+* [تحميل ملف HTML تجريبي](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples).  
+* [تحميل المشروع التجريبي](/slides/ar/net/web-extensions/sample.zip).

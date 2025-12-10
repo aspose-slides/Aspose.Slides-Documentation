@@ -1,14 +1,23 @@
 ---
-title: ملاحظة
+title: إدارة التوضيحات في مخططات العرض التقديمي في .NET
+linktitle: توضيح
 type: docs
 url: /ar/net/callout/
-keywords: "ملاحظة الرسم البياني، تسمية بيانات الرسم البياني، C#، Csharp، Aspose.Slides لـ .NET"
-description: "ملاحظات الرسم البياني في PowerPoint وعلامات البيانات بـ C# أو .NET"
+keywords:
+- توضيح المخطط
+- استخدام التوضيح
+- تسمية البيانات
+- تنسيق التسمية
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "إنشاء وتنسيق التوضيحات في Aspose.Slides for .NET باستخدام أمثلة شفرة C# مختصرة، متوافقة مع PPT و PPTX لأتمتة عمليات تدفق عمل العرض التقديمي."
 ---
 
-## **استخدام الملاحظات**
-تمت إضافة خاصية **ShowLabelAsDataCallout** إلى فئة **DataLabelFormat** وواجهة **IDataLabelFormat**، التي تحدد ما إذا كانت تسمية بيانات الرسم البياني المحدد ستظهر كملاحظة بيانات أو كتسمية بيانات. في المثال المذكور أدناه، قمنا بتعيين الملاحظات.
-
+## **استخدام التعليقات التوضيحية**
+تمت إضافة الخاصية الجديدة **ShowLabelAsDataCallout** إلى فئة **DataLabelFormat** وواجهة **IDataLabelFormat**، والتي تحدد ما إذا كان سيتم عرض تسمية البيانات للمخطط المحدد كتوضيح بيانات أو كتسمية بيانات. في المثال أدناه، قمنا بتعيين التعليقات التوضيحية.
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -22,9 +31,9 @@ using (Presentation presentation = new Presentation())
 
 
 
-## **تعيين ملاحظة لرسم بياني دائري**
-يوفر Aspose.Slides لـ .NET دعمًا لتعيين شكل ملاحظة تسمية بيانات السلسلة لرسم بياني دائري. المثال التالي هو مثال توضيحي. 
 
+## **تعيين توضيح لمخطط الدونات**
+توفر Aspose.Slides for .NET دعمًا لتعيين شكل توضيح تسمية بيانات السلسلة لمخطط الدونات. فيما يلي مثال على ذلك.
 ```c#
 Presentation pres = new Presentation("testc.pptx");
 ISlide slide = pres.Slides[0];
@@ -83,3 +92,14 @@ while (categoryIndex < 15)
 }
 pres.Save("chart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
+
+
+## **FAQ**
+
+**هل يتم الحفاظ على التعليقات التوضيحية عند تحويل العرض التقديمي إلى PDF أو HTML5 أو SVG أو صور؟**
+
+نعم. التعليقات التوضيحية هي جزء من رسم المخطط، لذا عند التصدير إلى [PDF](/slides/ar/net/convert-powerpoint-to-pdf/), [HTML5](/slides/ar/net/export-to-html5/), [SVG](/slides/ar/net/render-a-slide-as-an-svg-image/), أو [الصور النقطية](/slides/ar/net/convert-powerpoint-to-png/)، يتم الحفاظ عليها مع تنسيق الشريحة.
+
+**هل تعمل الخطوط المخصصة في التعليقات التوضيحية، وهل يمكن الحفاظ على مظهرها عند التصدير؟**
+
+نعم. تدعم Aspose.Slides [تضمين الخطوط](/slides/ar/net/embedded-font/) في العرض التقديمي وتتحكم في تضمين الخطوط أثناء عمليات التصدير مثل [PDF](/slides/ar/net/convert-powerpoint-to-pdf/)، مما يضمن أن تبدو التعليقات التوضيحية نفسها عبر الأنظمة المختلفة.

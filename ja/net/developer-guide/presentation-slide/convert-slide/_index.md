@@ -1,195 +1,191 @@
 ---
-title: スライドの変換
+title: .NET でプレゼンテーションスライドを画像に変換
+linktitle: スライドを画像に変換
 type: docs
 weight: 41
 url: /ja/net/convert-slide/
-keywords: 
+keywords:
+- スライドを変換
+- スライドをエクスポート
 - スライドを画像に変換
-- スライドを画像としてエクスポート
 - スライドを画像として保存
-- スライドから画像へ
-- スライドをPNGへ
-- スライドをJPEGへ
-- スライドをビットマップへ
-- C#
-- Csharp
+- スライドを PNG に変換
+- スライドを JPEG に変換
+- スライドをビットマップに変換
+- スライドを TIFF に変換
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
 - .NET
-- Aspose.Slides for .NET
-description: "C#または.NETを使ってPowerPointスライドを画像（ビットマップ、PNG、またはJPG）に変換します"
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET を使用して C# で PPT、PPTX、ODP のスライドを画像に変換します—高速で高品質なレンダリングと分かりやすいコード例を提供。"
 ---
 
-Aspose.Slides for .NETを使用すると、スライド（プレゼンテーション内の）を画像に変換できます。サポートされている画像形式は次のとおりです: BMP、PNG、JPG（JPEG）、GIF、およびその他。
+## **概要**
 
-スライドを画像に変換するには、次のようにします：
+Aspose.Slides for .NET を使用すると、PowerPoint および OpenDocument のプレゼンテーション スライドを BMP、PNG、JPG（JPEG）、GIF などのさまざまな画像形式に簡単に変換できます。
 
-1. まず、変換パラメータと変換するスライドオブジェクトを設定します:
-   * [ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions)インターフェースを使用するか、
-   * [IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions)インターフェースを使用します。
+スライドを画像に変換する手順は以下のとおりです。
 
-2. 次に、[GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/)メソッドを使用してスライドを画像に変換します。
+1. 変換設定を定義し、エクスポートするスライドを選択します。使用できるインターフェイスは次のとおりです。
+    - [ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/) インターフェイス、または
+    - [IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions/) インターフェイス。
+2. [GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) メソッドを呼び出してスライド画像を生成します。
 
-## **ビットマップおよびその他の画像形式について**
+.NET では、[Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) はピクセル データで定義された画像を扱えるオブジェクトです。このクラスのインスタンスを使って、BMP、JPG、PNG などの多数の形式で画像を保存できます。
 
-.NETにおける[Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0)は、ピクセルデータによって定義された画像を操作するオブジェクトです。このクラスのインスタンスを使用して、幅広い形式（BMP、JPG、PNGなど）で画像を保存できます。
+## **スライドをビットマップに変換し、PNG で画像を保存**
 
-{{% alert title="情報" color="info" %}}
+スライドをビットマップ オブジェクトに変換してそのままアプリケーションで使用できます。または、スライドをビットマップに変換した後、JPEG など任意の形式で画像を保存することも可能です。
 
-Asposeは最近、オンラインの[Text to GIF](https://products.aspose.app/slides/text-to-gif)変換ツールを開発しました。
-
-{{% /alert %}}
-
-## **スライドをビットマップに変換し、PNG形式で画像を保存する**
-
-このC#コードは、プレゼンテーションの最初のスライドをビットマップオブジェクトに変換し、次に画像をPNG形式で保存する方法を示しています。
-
-``` csharp 
-using (Presentation pres = new Presentation("Presentation.pptx"))
+次の C# コードは、プレゼンテーションの最初のスライドをビットマップ オブジェクトに変換し、PNG 形式で保存する方法を示しています。
+```cs
+using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-    // プレゼンテーションの最初のスライドをビットマップオブジェクトに変換
-    using (IImage image = pres.Slides[0].GetImage())
+    // プレゼンテーションの最初のスライドをビットマップに変換します。
+    using (IImage image = presentation.Slides[0].GetImage())
     {
-        // PNG形式で画像を保存
+        // 画像を PNG 形式で保存します。
         image.Save("Slide_0.png", ImageFormat.Png);
     }
 }
 ```
 
-{{% alert title="ヒント" color="primary" %}} 
 
-スライドをビットマップオブジェクトに変換し、そのオブジェクトをどこかで直接使用することができます。また、スライドをビットマップに変換し、JPEGまたはその他の好みの形式で画像を保存することもできます。
+## **カスタムサイズでスライドを画像に変換**
 
-{{% /alert %}}  
+特定のサイズの画像が必要な場合があります。[GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) のオーバーロードを使用すると、幅と高さを指定してスライドを画像に変換できます。
 
-## **カスタムサイズの画像にスライドを変換する**
+このサンプルコードはその手順を示しています。
+```cs
+Size imageSize = new Size(1820, 1040);
 
-特定のサイズの画像が必要な場合があります。[GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/)のオーバーロードを使用すると、特定の寸法（長さと幅）を持つ画像にスライドを変換できます。
-
-このサンプルコードは、C#での[GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/)メソッドを使用した提案された変換を示しています：
-
-``` csharp 
-using (Presentation pres = new Presentation("Presentation.pptx"))
+using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-    // プレゼンテーションの最初のスライドを指定サイズのビットマップに変換
-    using (IImage image = pres.Slides[0].GetImage(new Size(1820, 1040)))
+    // 指定されたサイズでプレゼンテーションの最初のスライドをビットマップに変換します。
+    using (IImage image = presentation.Slides[0].GetImage(imageSize))
     {
-        // JPEG形式で画像を保存
+        // 画像を JPEG 形式で保存します。
         image.Save("Slide_0.jpg", ImageFormat.Jpeg);
     }
 }
 ```
 
-## **ノートとコメントを含むスライドを画像に変換する**
 
-一部のスライドにはノートとコメントが含まれています。
+## **ノートとコメント付きスライドを画像に変換**
 
-Aspose.Slidesは、プレゼンテーションスライドを画像にレンダリングするための制御を可能にする[ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions)と[IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions)の2つのインターフェースを提供します。両インターフェースには、スライドを画像に変換するときにノートとコメントを追加するための[INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions)インターフェースが含まれています。
+スライドにノートやコメントが含まれていることがあります。
 
-{{% alert title="情報" color="info" %}} 
+Aspose.Slides は、[ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/) と [IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions/) の 2 つのインターフェイスを提供し、プレゼンテーション スライドを画像にレンダリングする際の設定を制御できます。両インターフェイスには `SlidesLayoutOptions` プロパティがあり、画像変換時にノートやコメントのレンダリング方法を構成できます。
 
-[INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions)インターフェースを使用すると、結果として得られる画像内のノートとコメントの好ましい位置を指定できます。
+[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/) クラスを使用すると、生成される画像内でノートとコメントの位置を好きな場所に設定できます。
 
-{{% /alert %}} 
+次の C# コードは、ノートとコメント付きスライドを画像に変換する例です。
+```cs
+float scaleX = 2;
+float scaleY = scaleX;
 
-このC#コードは、ノートとコメントを持つスライドの変換プロセスを示しています：
-
-``` csharp 
-using (Presentation pres = new Presentation("PresentationNotesComments.pptx"))
+// プレゼンテーションファイルを読み込む。
+using (Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx"))
 {
-    // レンダリングオプションを作成
-    IRenderingOptions options = new RenderingOptions();
-
-    // ページ内のノートの位置を設定
-    options.NotesCommentsLayouting.NotesPosition = NotesPositions.BottomTruncated;
-
-    // ページ内のコメントの位置を設定 
-    options.NotesCommentsLayouting.CommentsPosition = CommentsPositions.Right;
-
-    // コメント出力エリアの幅を設定
-    options.NotesCommentsLayouting.CommentsAreaWidth = 500;
-
-    // コメントエリアの色を設定
-    options.NotesCommentsLayouting.CommentsAreaColor = Color.AntiqueWhite;
-
-    // プレゼンテーションの最初のスライドをビットマップオブジェクトに変換
-    using (IImage image = pres.Slides[0].GetImage(options, 2f, 2f))
+    // レンダリングオプションを作成する。
+    RenderingOptions options = new RenderingOptions
     {
-        // GIF形式で画像を保存
-        image.Save("Slide_Notes_Comments_0.gif", ImageFormat.Gif);
+        SlidesLayoutOptions = new NotesCommentsLayoutingOptions
+        {
+            NotesPosition = NotesPositions.BottomTruncated,  // ノートの位置を設定する。
+            CommentsPosition = CommentsPositions.Right,      // コメントの位置を設定する。
+            CommentsAreaWidth = 500,                         // コメント領域の幅を設定する。
+            CommentsAreaColor = Color.AntiqueWhite           // コメント領域の色を設定する。
+        }
+    };
+
+    // プレゼンテーションの最初のスライドを画像に変換する。
+    using (IImage image = presentation.Slides[0].GetImage(options, scaleX, scaleY))
+    {
+        // 画像を GIF 形式で保存する。
+        image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
     }
 }
 ```
 
-{{% alert title="注意" color="warning" %}} 
 
-スライドから画像への変換プロセスでは、[NotesPositions](https://reference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions/properties/notesposition)プロパティをBottomFullに設定することはできません（ノートの位置を指定するため）。なぜなら、ノートのテキストが大きい場合、指定された画像サイズに収まらない可能性があるからです。
+{{% alert title="Note" color="warning" %}} 
 
+スライドから画像への変換処理では、[NotesPosition](https://reference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) プロパティを `BottomFull` に設定できません（ノートのテキストが大きすぎて、指定した画像サイズに収まらなくなる可能性があるため）。 
 {{% /alert %}} 
 
-## **ITiffOptionsを使用してスライドを画像に変換する**
+## **TIFF オプションを使用してスライドを画像に変換**
 
-[ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions)インターフェースを使用すると、結果として得られる画像に対して（パラメータの観点から）より多くの制御が可能になります。このインターフェースを使用すると、結果として得られる画像のサイズ、解像度、カラーパレット、および他のパラメータを指定できます。
+[ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/) インターフェイスを使用すると、サイズ、解像度、カラーパレットなどのパラメータを指定して、生成される TIFF 画像を細かく制御できます。
 
-このC#コードは、ITiffOptionsを使用して300dpiの解像度と2160 × 2800のサイズで白黒画像を出力する変換プロセスを示しています：
-
-``` csharp 
-using (Presentation pres = new Presentation("PresentationNotesComments.pptx"))
+この C# コードは、TIFF オプションを利用して 300 DPI の解像度、サイズ 2160 × 2800 の白黒画像を出力する変換プロセスを示しています。
+```cs
+// プレゼンテーションファイルを読み込む。
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    // インデックスを使ってスライドを取得
-    ISlide slide = pres.Slides[0];
+    // プレゼンテーションから最初のスライドを取得する。
+    ISlide slide = presentation.Slides[0];
 
-    // TiffOptionsオブジェクトを作成
-    TiffOptions options = new TiffOptions() { ImageSize = new Size(2160, 2880) };
-
-    // ソースフォントが見つからない場合に使用するフォントを設定
-    options.DefaultRegularFont = "Arial Black";
-
-    // ページ内のノートの位置を設定 
-    options.NotesCommentsLayouting.NotesPosition = NotesPositions.BottomTruncated;
-
-    // ピクセル形式を設定（白黒）
-    options.PixelFormat = ImagePixelFormat.Format1bppIndexed;
-
-    // 解像度を設定
-    options.DpiX = 300;
-    options.DpiY = 300;
-
-    // スライドをビットマップオブジェクトに変換
-    using (IImage image = slide.GetImage(options))
+    // 出力 TIFF 画像の設定を構成する。
+    TiffOptions tiffOptions = new TiffOptions
     {
-        // BMP形式で画像を保存
-        image.Save("PresentationNotesComments.tiff", ImageFormat.Tiff);
+        ImageSize = new Size(2160, 2880),                  // 画像サイズを設定する。
+        PixelFormat = ImagePixelFormat.Format1bppIndexed,  // ピクセル形式を設定する（黒と白）。
+        DpiX = 300,                                        // 水平解像度を設定する。
+        DpiY = 300                                         // 垂直解像度を設定する。
+    };
+
+    // 指定したオプションでスライドを画像に変換する。
+    using (IImage image = slide.GetImage(tiffOptions))
+    {
+        // 画像を TIFF 形式で保存する。
+        image.Save("output.tiff", ImageFormat.Tiff);
     }
-}  
+}
 ```
 
-## **すべてのスライドを画像に変換する**
 
-Aspose.Slidesを使用すると、単一のプレゼンテーション内のすべてのスライドを画像に変換できます。基本的に、プレゼンテーション全体を画像に変換することができます。
+## **すべてのスライドを画像に変換**
 
-このサンプルコードは、C#でプレゼンテーション内のすべてのスライドを画像に変換する方法を示しています：
+Aspose.Slides を使えば、プレゼンテーション内のすべてのスライドを画像に変換でき、プレゼンテーション全体を画像の連続として出力できます。
 
-```csharp
-// 出力ディレクトリのパスを指定
-string outputDir = @"D:\PresentationImages";
+次のサンプルコードは、C# でプレゼンテーションのすべてのスライドを画像に変換する方法を示しています。
+```cs
+float scaleX = 2;
+float scaleY = scaleX;
 
-using (Presentation pres = new Presentation("Presentation.pptx"))
+using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-    // プレゼンテーションをスライドごとに画像にレンダリング
-    for (int i = 0; i < pres.Slides.Count; i++)
+    // プレゼンテーションをスライド単位で画像にレンダリングします。
+    for (int i = 0; i < presentation.Slides.Count; i++)
     {
-        // 非表示スライドの設定を指定（非表示スライドはレンダリングしない）
-        if (pres.Slides[i].Hidden)
+        // 非表示スライドを制御します（非表示スライドはレンダリングしません）。
+        if (presentation.Slides[i].Hidden)
             continue;
 
-        // スライドをビットマップオブジェクトに変換
-        using (IImage image = pres.Slides[i].GetImage(2f, 2f))
+        // スライドを画像に変換します。
+        using (IImage image = presentation.Slides[i].GetImage(scaleX, scaleY))
         {
-            // 画像のファイル名を作成
-            string outputFilePath = Path.Combine(outputDir, "Slide_" + i + ".jpg");
-
-            // JPEG形式で画像を保存
-            image.Save(outputFilePath, ImageFormat.Jpeg);
+            // 画像を JPEG 形式で保存します。
+            image.Save($"Slide_{i}.jpg", ImageFormat.Jpeg);
         }
     }
 }
 ```
+
+
+## **FAQ**
+
+**1. Aspose.Slides はアニメーション付きスライドのレンダリングをサポートしていますか？**
+
+いいえ、`GetImage` メソッドはスライドの静止画像のみを保存し、アニメーションは含まれません。
+
+**2. 非表示スライドを画像としてエクスポートできますか？**
+
+はい、非表示スライドも通常のスライドと同様に処理できます。処理ループに含めることを忘れないでください。
+
+**3. 画像を影やエフェクト付きで保存できますか？**
+
+はい、Aspose.Slides はスライドを画像として保存する際に、影、透明度、その他のグラフィック効果のレンダリングをサポートしています。

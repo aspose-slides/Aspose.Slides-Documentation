@@ -1,24 +1,37 @@
 ---
-title: Публичный API и изменения, несовместимые с предыдущими версиями в Aspose.Slides для .NET 15.10.0
+title: Публичный API и несовместимые изменения в Aspose.Slides для .NET 15.10.0
+linktitle: Aspose.Slides для .NET 15.10.0
 type: docs
 weight: 200
 url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/
+keywords:
+- миграция
+- старый код
+- современный код
+- старый подход
+- современный подход
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Обзор обновлений публичного API и несовместимых изменений в Aspose.Slides для .NET, позволяющий плавно мигрировать ваши решения по работе с презентациями PowerPoint PPT, PPTX и ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-На этой странице приведен список всех [добавленных](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) и [удаленных](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) классов, методов, свойств и других изменений, введенных в API Aspose.Slides для .NET 15.10.0.
+Эта страница перечисляет все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) или [удалённые](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) классы, методы, свойства и т.п., а также другие изменения, введённые в API Aspose.Slides для .NET 15.10.0.
 
 {{% /alert %}} 
-## **Изменения в публичном API**
+## **Изменения публичного API**
 #### **Добавлен новый VideoPlayerHtmlController для поддержки экспорта медиафайлов в HTML**
-В пространство имен Aspose.Slides.Export добавлен новый публичный класс VideoPlayerHtmlController. С помощью экземпляра этого класса пользователь может экспортировать видео и аудиофайлы в HTML.
+Новый публичный класс VideoPlayerHtmlController был добавлен в пространство имён Aspose.Slides.Export. С помощью экземпляра этого класса пользователь может экспортировать видео‑ и аудиофайлы в HTML.
 Конструкторы VideoPlayerHtmlController принимают следующие параметры:
 
-путь: Путь, по которому будут созданы видео и аудиофайлы
-имяФайла: Имя HTML файла
-
-базовыйUri: Базовый URI, который будет использоваться для генерации ссылок
+path: Путь, где будут создаваться видео‑ и аудиофайлы  
+fileName: Имя HTML‑файла  
+baseUri: Базовый URI, который будет использоваться для создания ссылок  
 Пример использования:
 
 ``` csharp
@@ -48,8 +61,8 @@ url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-
 }
 
 ``` 
-#### **Добавлен API анимации серий графиков**
-В интерфейс Aspose.Slides.Animation.ISequence добавлены новые 2 метода.
+#### **Добавлен API анимации серий диаграмм**
+В интерфейс Aspose.Slides.Animation.ISequence были добавлены два новых метода.
 
 ``` csharp
 
@@ -59,15 +72,15 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-Эти методы предназначены для поддержки анимации элементов графиков:
+Эти методы предназначены для поддержки анимации элементов диаграммы:
 по сериям
 по категориям
 по элементам серий
 по элементам категорий
 
-Введены два новых перечислимых типа EffectChartMajorGroupingType и EffectChartMinorGroupingType, связанных с анимацией элементов графиков.
+Были введены два новых перечисления EffectChartMajorGroupingType и EffectChartMinorGroupingType, связанные с анимацией элементов диаграммы.
 
-Для добавления анимации серии к графику может быть использован следующий код:
+Для добавления анимации серии к диаграмме можно использовать следующий код:
 
 ``` csharp
 
@@ -353,4 +366,4 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 }
 
-``` 
+```

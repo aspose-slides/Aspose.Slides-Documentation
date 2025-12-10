@@ -1,276 +1,346 @@
 ---
-title: رسوم متحركة للشكل
+title: تطبيق الرسوم المتحركة للأشكال في العروض التقديمية في .NET
+linktitle: تحريك الشكل
 type: docs
 weight: 60
 url: /ar/net/shape-animation/
-keywords: 
-- رسوم متحركة في باوربوينت
-- تأثير الرسوم المتحركة
-- تطبيق الرسوم المتحركة
-- عرض باوربوينت
+keywords:
+- شكل
+- حركة
+- تأثير
+- شكل متحرك
+- نص متحرك
+- إضافة حركة
+- الحصول على حركة
+- استخراج حركة
+- إضافة تأثير
+- الحصول على تأثير
+- استخراج تأثير
+- صوت التأثير
+- تطبيق حركة
+- PowerPoint
+- عرض تقديمي
+- .NET
 - C#
-- Csharp
-- Aspose.Slides لـ .NET
-description: "تطبيق الرسوم المتحركة في باوربوينت باستخدام C# أو .NET"
+- Aspose.Slides
+description: "اكتشف كيفية إنشاء وتخصيص الرسوم المتحركة للأشكال في عروض PowerPoint التقديمية باستخدام Aspose.Slides لـ .NET. تميز!"
 ---
 
-الرسوم المتحركة هي تأثيرات بصرية يمكن تطبيقها على النصوص أو الصور أو الأشكال أو [المخططات](/slides/ar/net/animated-charts/). إنها تضفي الحياة على العروض التقديمية أو مكوناتها.
+الرسوم المتحركة هي تأثيرات بصرية يمكن تطبيقها على النصوص والصور والأشكال أو [المخططات](/slides/ar/net/animated-charts/). إنها تضيف الحيوية إلى العروض التقديمية أو مكوناتها. 
 
-### **لماذا استخدام الرسوم المتحركة في العروض التقديمية؟**
+## **لماذا نستخدم الرسوم المتحركة في العروض التقديمية؟**
 
-من خلال استخدام الرسوم المتحركة، يمكنك 
-
+باستخدام الرسوم المتحركة، يمكنك 
 * التحكم في تدفق المعلومات
-* التأكيد على النقاط المهمة
+* التأكيد على النقاط الهامة
 * زيادة الاهتمام أو المشاركة بين جمهورك
 * جعل المحتوى أسهل للقراءة أو الاستيعاب أو المعالجة
-* جذب انتباه القراء أو المشاهدين إلى الأجزاء المهمة في العرض
+* جذب انتباه القراء أو المشاهدين إلى الأجزاء المهمة في العرض التقديمي
 
-يوفر باوربوينت العديد من الخيارات والأدوات للرسوم المتحركة وتأثيرات الرسوم المتحركة عبر فئات **الدخول** و**الخروج** و**التأكيد** و**مسارات الحركة**.
+توفر PowerPoint العديد من الخيارات والأدوات للرسوم المتحركة وتأثيراتها عبر فئات **الدخول**، **الخروج**، **التأكيد**، و**مسارات الحركة**. 
 
-### **الرسوم المتحركة في Aspose.Slides**
+## **الرسوم المتحركة في Aspose.Slides**
 
-* يوفر Aspose.Slides الفئات والأنواع التي تحتاجها للعمل مع الرسوم المتحركة تحت مساحة اسم [Aspose.Slides.Animation](https://reference.aspose.com/slides/net/aspose.slides.animation/).
-* يوفر Aspose.Slides أكثر من **150 تأثير رسوم متحركة** تحت التعداد [EffectType](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttype). هذه التأثيرات هي في الأساس نفس (أو مكافئ) التأثيرات المستخدمة في باوربوينت.
+* Aspose.Slides توفر الفئات والأنواع التي تحتاجها للعمل مع الرسوم المتحركة ضمن مساحة الأسماء [Aspose.Slides.Animation](https://reference.aspose.com/slides/net/aspose.slides.animation/).
+* Aspose.Slides توفر أكثر من **150 تأثير رسوم متحركة** ضمن تعداد [EffectType](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttype). هذه التأثيرات هي في الأساس نفس التأثيرات (أو ما يعادلها) المستخدمة في PowerPoint.
 
-## **تطبيق الرسوم المتحركة على مربع النص**
+## **تطبيق الرسوم المتحركة على مربع نص**
 
-يسمح Aspose.Slides لـ .NET بتطبيق الرسوم المتحركة على النص في شكل. 
+تتيح Aspose.Slides لـ .NET إمكانية تطبيق الرسوم المتحركة على النص داخل الشكل. 
 
-1. أنشئ مثيلًا من فئة [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/).
-2. احصل على مرجع الشريحة من خلال فهرسها.
-3. أضف `مستطيل` [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape). 
-4. أضف النص إلى [IAutoShape.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/properties/textframe).
-5. احصل على تسلسل التأثيرات الرئيسي.
-6. أضف تأثير الرسوم المتحركة إلى [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape).
-7. قم بتعيين خاصية [TextAnimation.BuildType](https://reference.aspose.com/slides/net/aspose.slides.animation/textanimation/properties/buildtype) إلى القيمة من [BuildType Enumeration](https://reference.aspose.com/slides/net/aspose.slides.animation/buildtype).
-8. سجل العرض التقديمي على القرص كملف PPTX.
+1. إنشاء مثيل من الفئة [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/).
+2. الحصول على مرجع الشريحة من خلال فهرستها.
+3. إضافة `مستطيل` من النوع [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape). 
+4. إضافة نص إلى [IAutoShape.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/properties/textframe).
+5. الحصول على تسلسل رئيسي من التأثيرات.
+6. إضافة تأثير رسوم متحركة إلى [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape).
+7. ضبط خاصية [TextAnimation.BuildType](https://reference.aspose.com/slides/net/aspose.slides.animation/textanimation/properties/buildtype) إلى القيمة من تعداد [BuildType Enumeration](https://reference.aspose.com/slides/net/aspose.slides.animation/buildtype).
+8. كتابة العرض التقديمي إلى القرص كملف PPTX.
 
-يوضح هذا الكود C# كيفية تطبيق تأثير `تلاشي` على AutoShape وتعيين رسوم متحركة النص إلى القيمة *بـ 1st Level Paragraphs*:
-
+هذا الكود C# يوضح كيفية تطبيق تأثير `Fade` على AutoShape وضبط الرسوم المتحركة للنص إلى القيمة *By 1st Level Paragraphs*:
 ```c#
-// يقوم بإنشاء مثيل لفئة العرض التقديمي التي تمثل ملف عرض تقديمي.
+// ينشئ كائن عرض تقديمي يمثل ملف عرض تقديمي.
 using (Presentation pres = new Presentation())
 {
     ISlide sld = pres.Slides[0];
     
-    // يضيف AutoShape جديدة مع نص
+    // يضيف AutoShape جديد مع نص
     IAutoShape autoShape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
 
     ITextFrame textFrame = autoShape.TextFrame;
-    textFrame.Text = "الفقرة الأولى \nالفقرة الثانية \nالفقرة الثالثة";
+    textFrame.Text = "First paragraph \nSecond paragraph \n Third paragraph";
 
-    // يحصل على التسلسل الرئيسي للشريحة.
+    // يحصل على التسلسل الرئيسي للشرائح.
     ISequence sequence = sld.Timeline.MainSequence;
 
-    // يضيف تأثير الرسوم المتحركة Fade للشكل
+    // يضيف تأثير Fade للرسوم المتحركة إلى الشكل
     IEffect effect = sequence.AddEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // يقوم بتحريك نص الشكل وفقًا للفقرتين من المستوى الأول
+    // يحرك نص الشكل باستخدام فقرات المستوى الأول
     effect.TextAnimation.BuildType = BuildType.ByLevelParagraphs1;
 
-    // احفظ ملف PPTX على القرص
+    // حفظ ملف PPTX إلى القرص
     pres.Save(path + "AnimTextBox_out.pptx", SaveFormat.Pptx);
 }
 ```
 
+
 {{%  alert color="primary"  %}} 
 
-بالإضافة إلى تطبيق الرسوم المتحركة على النص، يمكنك أيضًا تطبيق الرسوم المتحركة على فقرة واحدة [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph). انظر [**النص المتحرك**](/slides/ar/net/animated-text/).
+بالإضافة إلى تطبيق الرسوم المتحركة على النص، يمكنك أيضًا تطبيق الرسوم المتحركة على [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph) مفرد. راجع [**النص المتحرك**](/slides/ar/net/animated-text/).
 
 {{% /alert %}} 
 
-## **تطبيق الرسوم المتحركة على صورة**
+## **تطبيق الرسوم المتحركة على إطار صورة**
 
-1. أنشئ مثيلًا من فئة [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/).
-2. احصل على مرجع الشريحة من خلال فهرسها.
-3. أضف أو احصل على [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe) في الشريحة. 
-5. احصل على التسلسل الرئيسي للتأثيرات.
-6. أضف تأثير الرسوم المتحركة إلى [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe).
-8. سجل العرض التقديمي على القرص كملف PPTX.
+1. إنشاء مثيل من الفئة [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/).
+2. الحصول على مرجع الشريحة من خلال فهرستها.
+3. إضافة أو الحصول على [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe) على الشريحة. 
+5. الحصول على التسلسل الرئيسي للتأثيرات.
+6. إضافة تأثير رسوم متحركة إلى [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe).
+8. كتابة العرض التقديمي إلى القرص كملف PPTX.
 
-يوضح هذا الكود C# كيفية تطبيق تأثير `Fly` على إطار الصورة:
-
+هذا الكود C# يوضح كيفية تطبيق تأثير `Fly` على إطار صورة:
 ```c#
-// يقوم بإنشاء مثيل لفئة العرض التقديمي التي تمثل ملف عرض تقديمي.
+// إنشاء كائن عرض تقديمي يمثل ملف عرض تقديمي.
 using (Presentation pres = new Presentation())
 {
-    // تحميل الصورة التي سيتم إضافتها إلى مجموعة صور العرض التقديمي
+    // تحميل صورة لإضافتها إلى مجموعة صور العرض التقديمي
     IImage image = Images.FromFile("aspose-logo.jpg");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
 
-    // يضيف إطار الصورة إلى الشريحة
+    // إضافة إطار صورة إلى الشريحة
     IPictureFrame picFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
 
-    // يحصل على التسلسل الرئيسي للشريحة.
+    // الحصول على التسلسل الرئيسي للشريحة.
     ISequence sequence = pres.Slides[0].Timeline.MainSequence;
 
-    // يضيف تأثير الرسوم المتحركة Fly من اليسار إلى إطار الصورة
+    // إضافة تأثير التحليق من اليسار إلى إطار الصورة
     IEffect effect = sequence.AddEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
-    // احفظ ملف PPTX على القرص
+    // حفظ ملف PPTX إلى القرص
     pres.Save("AnimImage_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **تطبيق الرسوم المتحركة على الشكل**
 
-1. أنشئ مثيلًا من فئة [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/).
-2. احصل على مرجع الشريحة من خلال فهرسها.
-3. أضف `مستطيل` [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape). 
-4. أضف [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape) (عندما يتم النقر على هذا العنصر، يتم تشغيل الرسوم المتحركة).
-5. أنشئ تسلسلًا من التأثيرات على الشكل ذو التأثير السطحي.
-6. أنشئ `UserPath` مخصص.
-7. أضف أوامر للتحرك إلى `UserPath`.
-8. سجل العرض التقديمي على القرص كملف PPTX.
+## **تطبيق الرسوم المتحركة على شكل**
 
-يوضح هذا الكود C# كيفية تطبيق تأثير `PathFootball` (مسار كرة القدم) على شكل:
+1. إنشاء مثيل من الفئة [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/).
+2. الحصول على مرجع الشريحة من خلال فهرستها.
+3. إضافة `مستطيل` من النوع [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape). 
+4. إضافة `Bevel` [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape) (عند النقر على هذا الكائن يتم تشغيل الرسوم المتحركة).
+5. إنشاء تسلسل من التأثيرات على الشكل Bevel.
+6. إنشاء `UserPath` مخصص.
+7. إضافة أوامر للتحرك إلى `UserPath`.
+8. كتابة العرض التقديمي إلى القرص كملف PPTX.
 
+هذا الكود C# يوضح كيفية تطبيق تأثير `PathFootball` (مسار كرة القدم) على شكل:
 ```c#
-// يقوم بإنشاء مثيل لفئة العرض التقديمي التي تمثل ملف عرض تقديمي.
+// ينشئ كائن Presentation يمثل ملف عرض تقديمي.
 using (Presentation pres = new Presentation())
 {
     ISlide sld = pres.Slides[0];
 
-    // يُنشئ تأثير PathFootball لشكل موجود من الصفر.
+    // ينشئ تأثير PathFootball للشكل الحالي من البداية.
     IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
 
-    ashp.AddTextFrame("مربع نص متحرك");
+    ashp.AddTextFrame("Animated TextBox");
 
-    // يضيف تأثير الرسوم المتحركة PathFootBall.
+    // يضيف تأثير التحريك PathFootBall.
     pres.Slides[0].Timeline.MainSequence.AddEffect(ashp, EffectType.PathFootball,
                            EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // يُنشئ نوعًا من "الزر".
+    // ينشئ نوعًا ما من "زر".
     IShape shapeTrigger = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
 
-    // يُنشئ تسلسلًا من التأثيرات للزر.
+    // ينشئ تسلسلًا من التأثيرات للزر.
     ISequence seqInter = pres.Slides[0].Timeline.InteractiveSequences.Add(shapeTrigger);
 
-    // يُنشئ مسار مستخدم مخصص. سيتم تحريك كائننا فقط بعد النقر على الزر.
+    // ينشئ مسارًا مخصصًا للمستخدم. سيتحرك كائننا فقط بعد النقر على الزر.
     IEffect fxUserPath = seqInter.AddEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // يضيف أوامر للتحرك نظرًا لأن المسار الذي تم إنشاؤه فارغ.
-    IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.Behaviors[0]);
+    // يضيف أوامر الحركة لأن المسار المخلق فارغ.
+    IMotionEffect motionBvh = ((IMotionEffect)fxUserPath.Behaviors[0]);
 
     PointF[] pts = new PointF[1];
     pts[0] = new PointF(0.076f, 0.59f);
-    motionBhv.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
+    motionBvh.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
     pts[0] = new PointF(-0.076f, -0.59f);
-    motionBhv.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
-    motionBhv.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
+    motionBvh.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
+    motionBvh.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
 
-    // يكتب ملف PPTX على القرص
+    // يكتب ملف PPTX إلى القرص
     pres.Save("AnimExample_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **الحصول على تأثيرات الرسوم المتحركة المطبقة على الشكل**
 
-يمكنك أن تقرر أن تعرف جميع تأثيرات الرسوم المتحركة المطبقة على شكل واحد. 
+## **الحصول على تأثيرات الرسوم المتحركة المطبقة على شكل**
 
-يوضح هذا الكود C# كيفية الحصول على جميع التأثيرات المطبقة على شكل معين:
+توضح الأمثلة التالية كيفية استخدام طريقة `GetEffectsByShape` من واجهة [ISequence](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence/) للحصول على جميع تأثيرات الرسوم المتحركة المطبقة على شكل.
 
+**مثال 1: الحصول على تأثيرات الرسوم المتحركة المطبقة على شكل في شريحة عادية**
+
+في السابق، تعلمت كيفية إضافة تأثيرات الرسوم المتحركة إلى الأشكال في عروض PowerPoint. يوضح الكود العيني التالي كيفية الحصول على التأثيرات المطبقة على الشكل الأول في الشريحة العادية الأولى في العرض التقديمي `AnimExample_out.pptx`.
 ```c#
-// يقوم بإنشاء مثيل لفئة العرض التقديمي التي تمثل ملف عرض تقديمي.
-using (Presentation pres = new Presentation("AnimExample_out.pptx"))
+using (Presentation presentation = new Presentation("AnimExample_out.pptx"))
 {
-    ISlide firstSlide = pres.Slides[0];
+    ISlide firstSlide = presentation.Slides[0];
 
-    // يحصل على التسلسل الرئيسي للشريحة.
+    // يحصل على تسلسل الرسوم المتحركة الرئيسي للشريحة.
     ISequence sequence = firstSlide.Timeline.MainSequence;
 
-    // يحصل على أول شكل في الشريحة.
+    // يحصل على الشكل الأول في الشريحة الأولى.
     IShape shape = firstSlide.Shapes[0];
 
-    // يحصل على جميع تأثيرات الرسوم المتحركة المطبقة على الشكل.
+    // يحصل على تأثيرات الرسوم المتحركة المطبقة على الشكل.
     IEffect[] shapeEffects = sequence.GetEffectsByShape(shape);
 
     if (shapeEffects.Length > 0)
-        Console.WriteLine("الشكل " + shape.Name + " لديه " + shapeEffects.Length + " تأثيرات رسوم متحركة.");
+        Console.WriteLine($"The shape {shape.Name} has {shapeEffects.Length} animation effects.");
 }
 ```
 
+
+**مثال 2: الحصول على جميع تأثيرات الرسوم المتحركة، بما في ذلك تلك الموروثة من العناصر النائبة**
+
+إذا كان هناك شكل في شريحة عادية يحتوي على عناصر نائبة موجودة في شريحة التخطيط و/أو الشريحة الرئيسة، وتم إضافة تأثيرات رسوم متحركة إلى هذه العناصر النائبة، فسيتم تشغيل جميع تأثيرات الشكل أثناء عرض الشرائح، بما في ذلك تلك الموروثة من العناصر النائبة.
+
+لنفترض أن لدينا ملف عرض PowerPoint `sample.pptx` يحتوي على شريحة واحدة تضم فقط شكل تذييل بالنص "Made with Aspose.Slides" وتم تطبيق تأثير **Random Bars** على الشكل.
+
+![تأثير حركة شكل الشريحة](slide-shape-animation.png)
+
+لنفترض أيضًا أن تأثير **Split** تم تطبيقه على عنصر نائب التذييل في شريحة **التخطيط**.
+
+![تأثير حركة شكل التخطيط](layout-shape-animation.png)
+
+وأخيرًا، أن تأثير **Fly In** تم تطبيقه على عنصر نائب التذييل في شريحة **الرئيس**.
+
+![تأثير حركة شكل الرئيس](master-shape-animation.png)
+
+يظهر الكود العيني التالي كيفية استخدام طريقة `GetBasePlaceholder` من واجهة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) للوصول إلى العناصر النائبة للأشكال والحصول على تأثيرات الرسوم المتحركة المطبقة على شكل التذييل، بما في ذلك تلك الموروثة من العناصر النائبة الموجودة في شرائح التخطيط والرئيس.
+```cs
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ISlide slide = presentation.Slides[0];
+
+    // الحصول على تأثيرات الرسوم المتحركة للشكل على الشريحة العادية.
+    IShape shape = slide.Shapes[0];
+    IEffect[] shapeEffects = slide.Timeline.MainSequence.GetEffectsByShape(shape);
+
+    // الحصول على تأثيرات الرسوم المتحركة للعنصر النائب على شريحة التخطيط.
+    IShape layoutShape = shape.GetBasePlaceholder();
+    IEffect[] layoutShapeEffects = slide.LayoutSlide.Timeline.MainSequence.GetEffectsByShape(layoutShape);
+
+    // الحصول على تأثيرات الرسوم المتحركة للعنصر النائب على شريحة الرئيس.
+    IShape masterShape = layoutShape.GetBasePlaceholder();
+    IEffect[] masterShapeEffects = slide.LayoutSlide.MasterSlide.Timeline.MainSequence.GetEffectsByShape(masterShape);
+
+    Console.WriteLine("Main sequence of shape effects:");
+    PrintEffects(masterShapeEffects);
+    PrintEffects(layoutShapeEffects);
+    PrintEffects(shapeEffects);
+}
+```
+
+```cs
+static void PrintEffects(IEnumerable<IEffect> effects)
+{
+    foreach (IEffect effect in effects)
+    {
+        Console.WriteLine($"{effect.Type} {effect.Subtype}");
+    }
+}
+```
+
+
+Output:
+```text
+التسلسل الرئيسي لتأثيرات الشكل:
+تحليق أسفل
+تقسيم عمودي داخل
+أشرطة عشوائية أفقية
+```
+
+
 ## **تغيير خصائص توقيت تأثير الرسوم المتحركة**
 
-يسمح Aspose.Slides لـ .NET بتغيير خصائص توقيت تأثير الرسوم المتحركة.
+تتيح Aspose.Slides لـ .NET إمكانية تغيير خصائص التوقيت لتأثير الرسوم المتحركة.
 
-هذا هو لوحة توقيت الرسوم المتحركة والقائمة الموسعة في Microsoft PowerPoint:
+هذه هي لوحة توقيت الرسوم المتحركة والقائمة الموسعة في Microsoft PowerPoint:
 
 ![example1_image](shape-animation.png)
 
-هذه هي المطابقات بين توقيت باوربوينت وخصائص [Effect.Timing](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/properties/timing):
-- قائمة السحب **Start** في توقيت باوربوينت تتطابق مع خاصية [Effect.Timing.TriggerType](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/properties/triggertype). 
-- **Duration** في توقيت باوربوينت تتطابق مع خاصية [Effect.Timing.Duration](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/properties/duration). مدة الرسوم المتحركة (بالثواني) هي الوقت الإجمالي المستغرق لإكمال الدورة الكاملة للرسوم المتحركة.
-- **Delay** في توقيت باوربوينت تتطابق مع خاصية [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/properties/triggerdelaytime). 
-- قائمة السحب **Repeat** في توقيت باوربوينت تتطابق مع هذه الخصائص: 
+- قائمة **Start** المنسدلة في توقيت PowerPoint تتطابق مع خاصية [Effect.Timing.TriggerType](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/properties/triggertype). 
+- توقيت PowerPoint **Duration** يتطابق مع خاصية [Effect.Timing.Duration](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/properties/duration). مدة الرسوم المتحركة (بالثواني) هي الوقت الإجمالي الذي تستغرقه لإكمال دورة واحدة. 
+- توقيت PowerPoint **Delay** يتطابق مع خاصية [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/properties/triggerdelaytime). 
+- قائمة **Repeat** المنسدلة في توقيت PowerPoint تتطابق مع هذه الخصائص: 
   * خاصية [Effect.Timing.RepeatCount](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/repeatcount) التي تصف *عدد* مرات تكرار التأثير؛
-  * العلامة [Effect.Timing.RepeatUntilEndSlide](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/repeatuntilendslide) التي تحدد ما إذا كان سيتم تكرار التأثير حتى نهاية الشريحة؛
-  * العلامة [Effect.Timing.RepeatUntilNextClick](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/repeatuntilnextclick) التي تحدد ما إذا كان سيتم تكرار التأثير حتى النقرة التالية.
-- مربع الاختيار **Rewind when done playing** في توقيت باوربوينت تتطابق مع خاصية [Effect.Timing.Rewind](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/rewind/) . 
+  * علم [Effect.Timing.RepeatUntilEndSlide](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/repeatuntilendslide) الذي يحدد ما إذا كان التأثير يتكرر حتى نهاية الشريحة؛
+  * علم [Effect.Timing.RepeatUntilNextClick](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/repeatuntilnextclick) الذي يحدد ما إذا كان التأثير يتكرر حتى النقر التالي.
+- مربع الاختيار **Rewind when done playing** في توقيت PowerPoint يتطابق مع خاصية [Effect.Timing.Rewind](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/rewind/). 
 
-هذا هو كيفية تغيير خصائص توقيت التأثير:
-
-1. [تطبيق](#apply-animation-to-shape) أو الحصول على تأثير الرسوم المتحركة.
+هذه هي الطريقة لتغيير خصائص توقيت التأثير:
+1. [Apply](#apply-animation-to-shape) أو الحصول على تأثير الرسوم المتحركة.
 2. تعيين قيم جديدة لخصائص [Effect.Timing](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/properties/timing) التي تحتاجها. 
-3. احفظ ملف PPTX المعدل.
+3. حفظ ملف PPTX المعدل.
 
-يوضح هذا الكود C# العملية:
-
+هذا الكود C# يوضح العملية:
 ```c#
-// يقوم بإنشاء مثيل لفئة العرض التقديمي التي تمثل ملف عرض تقديمي.
+// إنشاء كائن من فئة Presentation يمثل ملف عرض تقديمي.
 using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 {
     // يحصل على التسلسل الرئيسي للشريحة.
     ISequence sequence = pres.Slides[0].Timeline.MainSequence;
 
-    // يحصل على أول تأثير للتسلسل الرئيسي.
+    // يحصل على التأثير الأول في التسلسل الرئيسي.
     IEffect effect = sequence[0];
 
-    // يغير نوع التأثير TriggerType ليبدأ عند النقر
+    // يغيّر TriggerType الخاص بالتأثير لتبدأ عند النقر
     effect.Timing.TriggerType = EffectTriggerType.OnClick;
 
-    // يغير مدة التأثير
+    // يغيّر Duration الخاص بالتأثير
     effect.Timing.Duration = 3f;
 
-    // يغير TriggerDelayTime للتأثير
+    // يغيّر TriggerDelayTime الخاص بالتأثير
     effect.Timing.TriggerDelayTime = 0.5f;
 
-    // إذا كانت قيمة تكرار التأثير هي "none"
+    // إذا كانت قيمة Repeat للتأثير هي "none"
     if (effect.Timing.RepeatCount == 1f)
     {
-        // يغير تكرار التأثير إلى "حتى النقرة التالية"
+        // يغيّر Repeat الخاص بالتأثير إلى "Until Next Click"
         effect.Timing.RepeatUntilNextClick = true;
     }
     else
     {
-        // يغير تكرار التأثير إلى "حتى نهاية الشريحة"
+        // يغيّر Repeat الخاص بالتأثير إلى "Until End of Slide"
         effect.Timing.RepeatUntilEndSlide = true;
     }
 
-    // يقوم بتفعيل إعادة التشغيل للتأثير
-    effect.Timing.Rewind = true;
+    // يفعل Rewind الخاص بالتأثير
+        effect.Timing.Rewind = true;
     
-    // يحفظ ملف PPTX على القرص
+    // يحفظ ملف PPTX إلى القرص
     pres.Save("AnimExample_changed.pptx", SaveFormat.Pptx);
 }
 ```
 
+
 ## **صوت تأثير الرسوم المتحركة**
 
-يوفر Aspose.Slides هذه الخصائص للسماح لك بالعمل مع الأصوات في تأثيرات الرسوم المتحركة: 
-- [IEffect.Sound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/sound/) 
-- [IEffect.StopPreviousSound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/stopprevioussound/) 
+توفر Aspose.Slides هذه الخصائص لتسمح لك بالعمل مع الأصوات في تأثيرات الرسوم المتحركة:
+- خاصية [IEffect.Sound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/sound/) 
+- خاصية [IEffect.StopPreviousSound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/stopprevioussound/) 
 
-### **إضافة صوت تأثير الرسوم المتحركة**
+### **إضافة صوت لتأثير الرسوم المتحركة**
 
-يوضح هذا الكود C# كيفية إضافة صوت تأثير الرسوم المتحركة وإيقافه عندما يبدأ التأثير التالي:
-
+هذا الكود C# يوضح كيفية إضافة صوت لتأثير الرسوم المتحركة وإيقافه عندما يبدأ التأثير التالي:
 ```c#
 using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 {
-	// يضيف الصوت إلى مجموعة الأصوات في العرض التقديمي
+	// يضيف صوتًا إلى مجموعة أصوات العرض التقديمي
 	IAudio effectSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
 
 	ISlide firstSlide = pres.Slides[0];
@@ -278,38 +348,38 @@ using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 	// يحصل على التسلسل الرئيسي للشريحة.
 	ISequence sequence = firstSlide.Timeline.MainSequence;
 
-	// يحصل على أول تأثير للتسلسل الرئيسي
+	// يحصل على التأثير الأول في التسلسل الرئيسي
 	IEffect firstEffect = sequence[0];
 
-	// يتحقق من التأثير لـ "بدون صوت"
+	// يتحقق من التأثير لعدم وجود صوت
 	if (!firstEffect.StopPreviousSound && firstEffect.Sound == null)
 	{
 		// يضيف صوتًا للتأثير الأول
 		firstEffect.Sound = effectSound;
 	}
 
-	// يحصل على أول تسلسل تفاعلي للشريحة.
+	// يحصل على التسلسل التفاعلي الأول للشريحة.
 	ISequence interactiveSequence = firstSlide.Timeline.InteractiveSequences[0];
 
-	// يحدد علم "إيقاف الصوت السابق"
+	// يضبط علامة "إيقاف الصوت السابق" للتأثير
 	interactiveSequence[0].StopPreviousSound = true;
 
-	// يكتب ملف PPTX على القرص
+	// يكتب ملف PPTX إلى القرص
 	pres.Save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-### **استخراج صوت تأثير الرسوم المتحركة**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
-2. احصل على مرجع الشريحة من خلال فهرسها. 
-3. احصل على التسلسل الرئيسي للتأثيرات. 
-4. استخراج [الصوت](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/sound/) المضمن في كل تأثير رسوم متحركة. 
+### **استخراج صوت لتأثير الرسوم المتحركة**
 
-يوضح هذا الكود C# كيفية استخراج الصوت المضمن في تأثير رسوم متحركة:
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. الحصول على مرجع الشريحة من خلال فهرستها. 
+3. الحصول على التسلسل الرئيس للتأثيرات. 
+4. استخراج [Sound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/sound/) المضمن لكل تأثير رسوم متحركة. 
 
+هذا الكود C# يوضح كيفية استخراج الصوت المضمن في تأثير الرسوم المتحركة:
 ```c#
-// يقوم بإنشاء مثيل لفئة العرض التقديمي التي تمثل ملف عرض تقديمي.
+// ينشئ كائن عرض تقديمي يمثل ملف عرض تقديمي.
 using (Presentation presentation = new Presentation("EffectSound.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -328,83 +398,95 @@ using (Presentation presentation = new Presentation("EffectSound.pptx"))
 }
 ```
 
+
 ## **بعد الرسوم المتحركة**
 
-يسمح Aspose.Slides لـ .NET بتغيير خاصية بعد الرسوم المتحركة لتأثير الرسوم المتحركة.
+تتيح Aspose.Slides لـ .NET إمكانية تغيير خاصية After animation لتأثير الرسوم المتحركة.
 
 هذه هي لوحة تأثير الرسوم المتحركة والقائمة الموسعة في Microsoft PowerPoint:
 
 ![example1_image](shape-after-animation.png)
 
-تتطابق قائمة السحب **بعد الرسوم المتحركة** في باوربوينت مع هذه الخصائص: 
+قائمة **After animation** المنسدلة في PowerPoint تتطابق مع هذه الخصائص:
+- خاصية [IEffect.AfterAnimationType](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/afteranimationtype/) التي تصف نوع After animation :
+  * PowerPoint **More Colors** يتطابق مع النوع [AfterAnimationType.Color](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) .
+  * PowerPoint **Don't Dim** يتطابق مع النوع [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) (نوع After animation الافتراضي) ;
+  * PowerPoint **Hide After Animation** يتطابق مع النوع [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) ;
+  * PowerPoint **Hide on Next Mouse Click** يتطابق مع النوع [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) ;
+- خاصية [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/afteranimationcolor/) التي تحدد تنسيق لون After animation. تعمل هذه الخاصية بالتنسيق مع النوع [AfterAnimationType.Color](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/). إذا قمت بتغيير النوع إلى آخر، سيتم مسح لون After animation.
 
-- خاصية [IEffect.AfterAnimationType](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/afteranimationtype/) التي تصف نوع الرسوم المتحركة بعد التأثير :
-  * تتطابق **ألوان أكثر** في باوربوينت مع النوع [AfterAnimationType.Color](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) ;
-  * تتطابق قائمة **لا تظلم** مع النوع [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) (نوع الرسوم المتحركة الافتراضي بعد التأثير) ;
-  * تتطابق قائمة **إخفاء بعد الرسوم المتحركة** مع النوع [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) ;
-  * تتطابق قائمة **الإخفاء عند النقر بالماوس التالي** مع النوع [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) ;
-- خاصية [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/afteranimationcolor/) التي تحدد تنسيق لون ما بعد الرسوم المتحركة. تعمل هذه الخاصية مع نوع [AfterAnimationType.Color](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) . إذا قمت بتغيير النوع إلى آخر، فسيتم مسح لون الرسوم المتحركة بعد التأثير.
-
-يوضح هذا الكود C# كيفية تغيير تأثير الرسوم المتحركة بعد:
-
+هذا الكود C# يوضح كيفية تغيير تأثير After animation:
 ```c#
-// يقوم بإنشاء مثيل لفئة العرض التقديمي التي تمثل ملف عرض تقديمي
+// ينشئ كائن فئة Presentation يمثل ملف عرض تقديمي
 using (Presentation pres = new Presentation("AnimImage_out.pptx"))
 {
     ISlide firstSlide = pres.Slides[0];
 
-    // يحصل على أول تأثير للتسلسل الرئيسي
+    // يحصل على التأثير الأول في التسلسل الرئيسي
     IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
 
-    // يغير نوع الرسوم المتحركة بعد التأثير إلى لون
+    // يغيّر نوع الحركة اللاحقة إلى Color
     firstEffect.AfterAnimationType = AfterAnimationType.Color;
 
-    // يقوم بتعيين لون التعتيم بعد الرسوم المتحركة
+    // يعيّن لون إضاءة الحركة اللاحقة
     firstEffect.AfterAnimationColor.Color = Color.AliceBlue;
 
-    // يكتب ملف PPTX على القرص
+    // يحفظ ملف PPTX إلى القرص
     pres.Save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
 }
 ```
 
+
 ## **تحريك النص**
 
-يوفر Aspose.Slides هذه الخصائص للسماح لك بالعمل مع كتلة *تحريك النص* لتأثير الرسوم المتحركة:
-
-- [IEffect.AnimateTextType](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/animatetexttype/) التي تصف نوع تحريك النص للتأثير. يمكن تحريك نص الشكل:
-  - دفعة واحدة ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/net/aspose.slides.animation/animatetexttype/) النوع)
+توفر Aspose.Slides هذه الخصائص لتسمح لك بالعمل مع كتلة *Animate text* في تأثير الرسوم المتحركة:
+- خاصية [IEffect.AnimateTextType](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/animatetexttype/) التي تصف نوع تحريك النص في التأثير. يمكن تحريك نص الشكل:
+  - الكل مرة واحدة ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/net/aspose.slides.animation/animatetexttype/) النوع)
   - كلمة بكلمة ([AnimateTextType.ByWord](https://reference.aspose.com/slides/net/aspose.slides.animation/animatetexttype/) النوع)
   - حرف بحرف ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/net/aspose.slides.animation/animatetexttype/) النوع)
-- [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/delaybetweentextparts/) تحدد تأخيرًا بين أجزاء النص المتحركة (كلمات أو حروف). تحدد القيمة الإيجابية النسبة المئوية لمدة التأثير. تحدد القيمة السلبية التأخير بالثواني.
+- خاصية [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/delaybetweentextparts/) تحدد تأخيرًا بين أجزاء النص المتحركة (كلمات أو أحرف). القيمة الموجبة تحدد نسبة مدة التأثير. القيمة السالبة تحدد التأخير بالثواني.
 
-هذه هي كيفية تغيير خصائص تأثير تحريك النص:
+هذه هي الطريقة لتغيير خصائص Effect Animate text:
+1. [Apply](#apply-animation-to-shape) أو الحصول على تأثير الرسوم المتحركة.
+2. تعيين خاصية [IEffect.TextAnimation.BuildType](https://reference.aspose.com/slides/net/aspose.slides.animation/itextanimation/buildtype/) إلى القيمة [BuildType.AsOneObject](https://reference.aspose.com/slides/net/aspose.slides.animation/buildtype/) لإلغاء وضعية التحريك *By Paragraphs*.
+3. تعيين قيم جديدة لخصائص [IEffect.AnimateTextType](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/animatetexttype/) و[IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/delaybetweentextparts/).
+4. حفظ ملف PPTX المعدل.
 
-1. [تطبيق](#apply-animation-to-shape) أو الحصول على تأثير الرسوم المتحركة.
-2. تعيين خاصية [IEffect.TextAnimation.BuildType](https://reference.aspose.com/slides/net/aspose.slides.animation/itextanimation/buildtype/) إلى القيمة [BuildType.AsOneObject](https://reference.aspose.com/slides/net/aspose.slides.animation/buildtype/) لإيقاف وضع الرسوم المتحركة *حسب الفقرات*.
-3. تعيين قيم جديدة لخصائص [IEffect.AnimateTextType](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/animatetexttype/) و[IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/delaybetweentextparts/) .
-4. احفظ ملف PPTX المعدل.
-
-يوضح هذا الكود C# العملية:
-
+هذا الكود C# يوضح العملية:
 ```c#
-// يقوم بإنشاء مثيل لفئة العرض التقديمي التي تمثل ملف عرض تقديمي.
+// ينشئ كائن عرض تقديمي يمثل ملف عرض تقديمي.
 using (Presentation pres = new Presentation("AnimTextBox_out.pptx"))
 {
     ISlide firstSlide = pres.Slides[0];
 
-    // يحصل على أول تأثير للتسلسل الرئيسي
+    // يحصل على التأثير الأول في التسلسل الرئيسي
     IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
 
-    // يغير نوع الرسوم المتحركة للنص التأثير إلى "ككل جسم"
+    // يغيّر نوع تحريك النص في التأثير إلى "كائن واحد"
     firstEffect.TextAnimation.BuildType = BuildType.AsOneObject;
 
-    // يغير نوع تحريك النص التأثير إلى "كلمة بكلمة"
+    // يغيّر نوع تحريك النص في التأثير إلى "كلمة بكلمة"
     firstEffect.AnimateTextType = AnimateTextType.ByWord;
 
-    // يعين التأخير بين الكلمات إلى 20% من مدة التأثير
+    // يحدد التأخير بين الكلمات إلى 20٪ من مدة التأثير
     firstEffect.DelayBetweenTextParts = 20f;
 
-    // يكتب ملف PPTX على القرص
+    // يحفظ ملف PPTX إلى القرص
     pres.Save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**كيف يمكنني التأكد من حفظ الرسوم المتحركة عند نشر العرض التقديمي على الويب؟**
+
+[Export to HTML5](/slides/ar/net/export-to-html5/) وتفعيل الـ [options](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/) المسؤولة عن رسوم المتحركة للـ [shape](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animateshapes/) و[transition](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animatetransitions/). HTML العادي لا يشغل رسوم المتحركة للشرائح، بينما HTML5 يفعل ذلك.
+
+**كيف يؤثر تغيير ترتيب z-order (ترتيب الطبقة) للأشكال على الرسوم المتحركة؟**
+
+الرسوم المتحركة وترتيب الرسم مستقلان: يتحكم التأثير في توقيت ونوع الظهور/الاختفاء، بينما يحدد [z-order](https://reference.aspose.com/slides/net/aspose.slides/shape/zorderposition/) ما يغطي ما. النتيجة المرئية تُحدد بتكوينهما معًا. (هذا هو سلوك PowerPoint العام؛ نموذج Aspose.Slides للتأثيرات والأشكال يتبع نفس المنطق.)
+
+**هل هناك قيود عند تحويل الرسوم المتحركة إلى فيديو لبعض التأثيرات؟**
+
+عمومًا، [الدعم للرسوم المتحركة](/slides/ar/net/convert-powerpoint-to-video/) موجود، لكن قد تُعرض بعض الحالات النادرة أو التأثيرات المحددة بشكل مختلف. يُنصح باختبار التأثيرات التي تستخدمها ومع نسخة المكتبة.

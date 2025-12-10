@@ -1,331 +1,344 @@
 ---
-title: OLE verwalten
+title: Verwalten von OLE-Objekten in Präsentationen in .NET
+linktitle: OLE verwalten
 type: docs
 weight: 40
 url: /de/net/manage-ole/
 keywords:
+- OLE-Objekt
+- Objektverknüpfung & Einbettung
 - OLE hinzufügen
 - OLE einbetten
-- ein Objekt hinzufügen
-- ein Objekt einbetten
-- eine Datei einbetten
+- Objekt hinzufügen
+- Objekt einbetten
+- Datei hinzufügen
+- Datei einbetten
 - verknüpftes Objekt
-- Objektverknüpfung und Einbettung
-- OLE-Objekt
-- PowerPoint 
+- verknüpfte Datei
+- OLE ändern
+- OLE-Symbol
+- OLE-Titel
+- OLE extrahieren
+- Objekt extrahieren
+- Datei extrahieren
+- PowerPoint
 - Präsentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides für .NET
-description: Fügen Sie OLE-Objekte in PowerPoint-Präsentationen mit C# oder .NET hinzu
+- Aspose.Slides
+description: "Optimieren Sie die Verwaltung von OLE-Objekten in PowerPoint- und OpenDocument-Dateien mit Aspose.Slides für .NET. Betten Sie OLE-Inhalte nahtlos ein, aktualisieren Sie sie und exportieren Sie sie."
 ---
 
 {{% alert title="Info" color="info" %}}
 
-OLE (Object Linking & Embedding) ist eine Microsoft-Technologie, die es ermöglicht, in einer Anwendung erstellte Daten und Objekte in einer anderen Anwendung durch Verknüpfung oder Einbettung zu platzieren.
+OLE (Object Linking & Embedding) ist eine Microsoft‑Technologie, die es ermöglicht, Daten und Objekte, die in einer Anwendung erstellt wurden, über Verknüpfung oder Einbettung in einer anderen Anwendung zu platzieren. 
 
 {{% /alert %}} 
 
-Betrachten Sie ein Diagramm, das in MS Excel erstellt wurde. Das Diagramm wird dann in einer PowerPoint-Folie platziert. Dieses Excel-Diagramm wird als OLE-Objekt betrachtet.
+Betrachten Sie ein Diagramm, das in MS Excel erstellt wurde. Das Diagramm wird anschließend in eine PowerPoint‑Folie eingefügt. Dieses Excel‑Diagramm gilt als OLE‑Objekt. 
 
-- Ein OLE-Objekt kann als Symbol erscheinen. In diesem Fall wird das Diagramm geöffnet, wenn Sie auf das Symbol doppelklicken, in der zugehörigen Anwendung (Excel), oder Sie werden aufgefordert, eine Anwendung zum Öffnen oder Bearbeiten des Objekts auszuwählen.
-- Ein OLE-Objekt kann tatsächlich Inhalte anzeigen – zum Beispiel die Inhalte eines Diagramms. In diesem Fall wird das Diagramm in PowerPoint aktiviert, die Diagrammoberfläche wird geladen, und Sie können die Daten des Diagramms innerhalb der PowerPoint-App ändern.
+- Ein OLE‑Objekt kann als Symbol angezeigt werden. In diesem Fall wird das Diagramm beim Doppelklick auf das Symbol in der zugehörigen Anwendung (Excel) geöffnet, oder Sie werden aufgefordert, eine Anwendung zum Öffnen bzw. Bearbeiten des Objekts auszuwählen. 
+- Ein OLE‑Objekt kann seinen tatsächlichen Inhalt anzeigen, z. B. den Inhalt eines Diagramms. In diesem Fall wird das Diagramm in PowerPoint aktiviert, die Diagrammschnittstelle geladen und Sie können die Diagrammdaten direkt in PowerPoint ändern.
 
-[Aspose.Slides für .NET](https://products.aspose.com/slides/net/) ermöglicht es Ihnen, OLE-Objekte als OLE-Objektrahmen in Folien einzufügen ([OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)).
+[Aspose.Slides for .NET](https://products.aspose.com/slides/net/) ermöglicht das Einfügen von OLE‑Objekten in Folien als OLE‑Objekt‑Frames ([OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)).
 
-## **Hinzufügen von OLE-Objektrahmen zu Folien**
-Angenommen, Sie haben bereits ein Diagramm in Microsoft Excel erstellt und möchten dieses Diagramm als OLE-Objektrahmen in eine Folie einbetten, indem Sie Aspose.Slides für .NET verwenden, dann können Sie es folgendermaßen tun:
+## **OLE‑Objekt‑Frames zu Folien hinzufügen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-2. Erhalten Sie einen Verweis auf die Folie über ihren Index.
-3. Öffnen Sie die Excel-Datei, die das Excel-Diagrammobjekt enthält, und speichern Sie sie in `MemoryStream`.
-4. Fügen Sie den [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) zur Folie hinzu, indem Sie das Byte-Array und andere Informationen über das OLE-Objekt übergeben.
-5. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+Angenommen, Sie haben bereits ein Diagramm in Microsoft Excel erstellt und möchten es als OLE‑Objekt‑Frame in einer Folie mit Aspose.Slides for .NET einbetten, so gehen Sie vor:
 
-Im folgenden Beispiel haben wir ein Diagramm aus einer Excel-Datei als [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) in eine Folie eingefügt, indem wir Aspose.Slides für .NET verwendet haben.  
-**Hinweis:** Der [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo) Konstruktor benötigt als zweiten Parameter eine einbettbare Objekterweiterung. Diese Erweiterung ermöglicht es PowerPoint, den Datei- oder Objekttyp korrekt zu interpretieren und die richtige Anwendung zum Öffnen dieses OLE-Objekts auszuwählen.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.  
+2. Holen Sie sich über den Index einen Referenz auf die Folie.  
+3. Lesen Sie die Excel‑Datei als Byte‑Array.  
+4. Fügen Sie das [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) zur Folie hinzu und übergeben Sie das Byte‑Array sowie weitere Informationen zum OLE‑Objekt.  
+5. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-``` csharp 
-// Instanziiert die Presentation-Klasse, die die PPTX-Datei darstellt
-using (Presentation pres = new Presentation())
+Im folgenden Beispiel haben wir ein Diagramm aus einer Excel‑Datei als [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) zu einer Folie hinzugefügt – mithilfe von Aspose.Slides for .NET.  
+**Hinweis**: Der Konstruktor von [OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/) nimmt als zweiten Parameter eine Dateierweiterung des einbettbaren Objekts entgegen. Diese Erweiterung ermöglicht PowerPoint, den Dateityp korrekt zu interpretieren und die passende Anwendung zum Öffnen dieses OLE‑Objekts auszuwählen.  
+```csharp 
+using (Presentation presentation = new Presentation())
 {
-    // Greift auf die erste Folie zu
-    ISlide sld = pres.Slides[0];
+    SizeF slideSize = presentation.SlideSize.Size;
+    ISlide slide = presentation.Slides[0];
 
-    // Lädt eine Excel-Datei in den Stream
-    MemoryStream mstream = new MemoryStream();
-    using (FileStream fs = new FileStream("book1.xlsx", FileMode.Open, FileAccess.Read))
-    {
-        byte[] buf = new byte[4096];
+    // Daten für das OLE-Objekt vorbereiten.
+    byte[] fileData = File.ReadAllBytes("book.xlsx");
+    IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileData, "xlsx");
 
-        while (true)
-        {
-            int bytesRead = fs.Read(buf, 0, buf.Length);
-            if (bytesRead <= 0)
-                break;
-            mstream.Write(buf, 0, bytesRead);
-        }
-    }
+    // OLE-Objekt-Frame zur Folie hinzufügen.
+    slide.Shapes.AddOleObjectFrame(0, 0, slideSize.Width, slideSize.Height, dataInfo);
 
-    // Erstellt ein Datenobjekt für die Einbettung
-    IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(mstream.ToArray(), "xlsx");
-
-    // Fügt eine Ole Object Frame-Form hinzu
-    IOleObjectFrame oleObjectFrame = sld.Shapes.AddOleObjectFrame(0, 0, pres.SlideSize.Size.Width,
-        pres.SlideSize.Size.Height, dataInfo);
-
-    //Speichert die PPTX-Datei auf der Festplatte
-    pres.Save("OleEmbed_out.pptx", SaveFormat.Pptx);
-}
-```
-### Hinzufügen von verknüpften OLE-Objektrahmen
-
-Aspose.Slides für .NET ermöglicht es Ihnen, einen [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) hinzuzufügen, ohne Daten einzubetten, sondern nur mit einem Link zur Datei.
-
-Dieser C#-Code zeigt Ihnen, wie Sie einen [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) mit einer verknüpften Excel-Datei zu einer Folie hinzufügen:
-
-``` csharp 
-using (Presentation pres = new Presentation())
-{
-	// Greift auf die erste Folie zu
-	ISlide slide = pres.Slides[0];
-
-	// Fügt einen Ole Object Frame mit einer verknüpften Excel-Datei hinzu
-    IOleObjectFrame oleObjectFrame = slide.Shapes.AddOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book1.xlsx");
-
-	// Speichert die PPTX-Datei auf der Festplatte
-	pres.Save("OleLinked_out.pptx", SaveFormat.Pptx);
+    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Zugriff auf OLE-Objektrahmen**
-Wenn ein OLE-Objekt bereits in einer Folie eingebettet ist, können Sie dieses Objekt einfach folgendermaßen finden oder darauf zugreifen:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-2. Erhalten Sie den Verweis auf die Folie, indem Sie ihren Index verwenden.
-3. Greifen Sie auf die [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) Form zu.
-   In unserem Beispiel verwendeten wir die zuvor erstellte PPTX, die nur eine Form auf der ersten Folie hat. Wir haben dann dieses Objekt als [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) *cast*. Dies war der gewünschte OLE-Objektrahmen, auf den zugegriffen werden sollte.
-4. Sobald der OLE-Objektrahmen zugänglich ist, können Sie jede Operation an ihm durchführen.
-Im folgenden Beispiel wird ein OLE-Objektrahmen (ein in eine Folie eingebettetes Excel-Diagrammobjekt) zugegriffen, und die Dateidaten werden in eine Excel-Datei geschrieben:
-``` csharp 
-// Lädt die PPTX in ein Präsentationsobjekt
-using (Presentation pres = new Presentation("AccessingOLEObjectFrame.pptx"))
+### **Verknüpfte OLE‑Objekt‑Frames hinzufügen**
+
+Aspose.Slides for .NET ermöglicht das Hinzufügen eines [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) ohne Einbetten von Daten, sondern nur mit einem Link zur Datei.
+
+Der nachstehende C#‑Code zeigt, wie Sie einem [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) mit einer verknüpften Excel‑Datei zu einer Folie hinzufügen:
+```csharp 
+using (Presentation presentation = new Presentation())
 {
-    // Greift auf die erste Folie zu
-    ISlide sld = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
 
-    // Castet die Form zu OleObjectFrame
-    OleObjectFrame oleObjectFrame = sld.Shapes[0] as OleObjectFrame;
+    // OLE-Objekt-Frame mit verknüpfter Excel-Datei hinzufügen.
+    slide.Shapes.AddOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
-    // Liest das OLE-Objekt und schreibt es auf die Festplatte
-    if (oleObjectFrame != null)
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
+```
+
+
+## **Zugriff auf OLE‑Objekt‑Frames**
+
+Ist ein OLE‑Objekt bereits in einer Folie eingebettet, können Sie es wie folgt finden oder darauf zugreifen:
+
+1. Laden Sie eine Präsentation mit dem eingebetteten OLE‑Objekt, indem Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse erstellen.  
+2. Holen Sie sich die Referenz der Folie über deren Index.  
+3. Greifen Sie auf die [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)‑Form zu.  
+   In unserem Beispiel haben wir die zuvor erstellte PPTX verwendet, die nur eine Form auf der ersten Folie enthält. Wir haben dieses Objekt anschließend als [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe) gecastet. Dies war das gewünschte OLE‑Objekt‑Frame.  
+4. Sobald das OLE‑Objekt‑Frame zugänglich ist, können Sie beliebige Operationen darauf ausführen.
+
+Im nachstehenden Beispiel wird ein OLE‑Objekt‑Frame (ein in einer Folie eingebettetes Excel‑Diagramm) und dessen Dateidaten abgerufen.  
+```csharp 
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ISlide slide = presentation.Slides[0];
+
+    // Erste Form als OLE-Objekt-Frame abrufen.
+    IOleObjectFrame oleFrame = slide.Shapes[0] as IOleObjectFrame;
+
+    if (oleFrame != null)
     {
-        // Erhält die eingebetteten Dateidaten
-        byte[] data = oleObjectFrame.EmbeddedData.EmbeddedFileData;
+        // Eingebettete Dateidaten abrufen.
+        byte[] fileData = oleFrame.EmbeddedData.EmbeddedFileData;
 
-        // Erhält die eingebettete Dateierweiterung
-        string fileExtension = oleObjectFrame.EmbeddedData.EmbeddedFileExtension;
+        // Erweiterung der eingebetteten Datei abrufen.
+        string fileExtension = oleFrame.EmbeddedData.EmbeddedFileExtension;
 
-        // Erstellt einen Pfad zum Speichern der extrahierten Datei
-        string extractedPath = "excelFromOLE_out" + fileExtension;
-
-        // Speichert die extrahierten Daten
-        using (FileStream fstr = new FileStream(extractedPath, FileMode.Create, FileAccess.Write))
-        {
-            fstr.Write(data, 0, data.Length);
-        }
+        // ...
     }
 }
 ```
 
-### Zugriff auf die Eigenschaften von verknüpften OLE-Objektrahmen
 
-Aspose.Slides ermöglicht Ihnen den Zugriff auf die Eigenschaften von verbundenen OLE-Objektrahmen.
+### **Eigenschaften von verknüpften OLE‑Objekt‑Frames abrufen**
 
-Dieser C#-Code zeigt Ihnen, wie Sie überprüfen können, ob ein OLE-Objekt verknüpft ist, und dann den Pfad zur verknüpften Datei abrufen:
+Aspose.Slides ermöglicht das Abrufen von Eigenschaften verknüpfter OLE‑Objekt‑Frames.
+
+Der folgende C#‑Code zeigt, wie Sie prüfen, ob ein OLE‑Objekt verknüpft ist, und anschließend den Pfad zur verknüpften Datei ermitteln:
 ```csharp
-using (Presentation pres = new Presentation("OleLinked.ppt"))
+using (Presentation presentation = new Presentation("sample.ppt"))
 {
-	// Greift auf die erste Folie zu
-	ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
 
-	// Erhält die erste Form als Ole Object Frame
-	OleObjectFrame oleObjectFrame = slide.Shapes[0] as OleObjectFrame;
+    // Erste Form als OLE-Objekt-Frame abrufen.
+    IOleObjectFrame oleFrame = slide.Shapes[0] as IOleObjectFrame;
 
-	// Überprüft, ob das Ole-Objekt verknüpft ist.
-	if (oleObjectFrame != null && oleObjectFrame.IsObjectLink)
-	{
-		// Gibt den vollständigen Pfad zu einer verlinkten Datei aus
-		Console.WriteLine("Ole Object Frame ist verknüpft mit: " + oleObjectFrame.LinkPathLong);
-
-		// Gibt den relativen Pfad zu einer verlinkten Datei aus, falls vorhanden.
-		// Nur die PPT-Präsentationen können den relativen Pfad enthalten.
-		string relativePath = oleObjectFrame.LinkPathRelative;
-		if (!string.IsNullOrEmpty(relativePath))
-		{
-			Console.WriteLine("Ole Object Frame relativer Pfad: " + oleObjectFrame.LinkPathRelative);
-		}
-	}
-}
-```
-## **Ändern von OLE-Objektdaten**
-
-Wenn ein OLE-Objekt bereits in einer Folie eingebettet ist, können Sie dieses Objekt einfach aufrufen und seine Daten folgendermaßen ändern:
-
-1. Öffnen Sie die gewünschte Präsentation mit dem eingebetteten OLE-Objekt, indem Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse erstellen.
-2. Erhalten Sie den Verweis auf die Folie über ihren Index. 
-3. Greifen Sie auf die [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) Form zu.
-   In unserem Beispiel verwendeten wir die zuvor erstellte PPTX, die eine Form auf der ersten Folie hat. Wir haben dann dieses Objekt als [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) *cast*. Dies war der gewünschte OLE-Objektrahmen, auf den zugegriffen werden sollte.
-4. Sobald der OLE-Objektrahmen zugänglich ist, können Sie jede Operation an ihm durchführen.
-5. Erstellen Sie das Workbook-Objekt und greifen Sie auf die OLE-Daten zu.
-6. Greifen Sie auf das gewünschte Arbeitsblatt zu und ändern Sie die Daten.
-7. Speichern Sie das aktualisierte Workbook in Streams.
-8. Ändern Sie die OLE-Objektdaten aus den Stream-Daten.
-Im folgenden Beispiel wird ein OLE-Objektrahmen (ein in eine Folie eingebettetes Excel-Diagrammobjekt) zugegriffen und dann werden seine Dateidaten geändert, um die Diagrammdaten zu ändern:
-``` csharp 
-using (Presentation pres = new Presentation("ChangeOLEObjectData.pptx"))
-{
-    ISlide slide = pres.Slides[0];
-
-    OleObjectFrame ole = null;
-
-    // Durchläuft alle Formen für Ole-Rahmen
-    foreach (IShape shape in slide.Shapes)
+    // Prüfen, ob das OLE-Objekt verknüpft ist.
+    if (oleFrame != null && oleFrame.IsObjectLink)
     {
-        if (shape is OleObjectFrame)
+        // Vollständigen Pfad zur verknüpften Datei ausgeben.
+        Console.WriteLine("OLE object frame is linked to: " + oleFrame.LinkPathLong);
+
+        // Relativen Pfad zur verknüpften Datei ausgeben, falls vorhanden.
+        // Nur PPT-Präsentationen können den relativen Pfad enthalten.
+        if (!string.IsNullOrEmpty(oleFrame.LinkPathRelative))
         {
-            ole = (OleObjectFrame)shape;
+            Console.WriteLine("OLE object frame relative path: " + oleFrame.LinkPathRelative);
         }
     }
+}
+```
 
-    if (ole != null)
+
+## **OLE‑Objektdaten ändern**
+
+{{% alert color="primary" %}} 
+
+In diesem Abschnitt verwendet das Code‑Beispiel [Aspose.Cells for .NET](/cells/net/). 
+
+{{% /alert %}}
+
+Ist ein OLE‑Objekt bereits in einer Folie eingebettet, können Sie das Objekt auf folgende Weise leicht zugreifen und dessen Daten ändern:
+
+1. Laden Sie eine Präsentation mit dem eingebetteten OLE‑Objekt, indem Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse erstellen.  
+2. Holen Sie sich die Referenz der Folie über deren Index.  
+3. Greifen Sie auf die [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)‑Form zu.  
+   In unserem Beispiel haben wir die zuvor erstellte PPTX verwendet, die eine Form auf der ersten Folie enthält. Wir haben dieses Objekt anschließend als [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe) gecastet. Dies war das gewünschte OLE‑Objekt‑Frame.  
+4. Sobald das OLE‑Objekt‑Frame zugänglich ist, können Sie beliebige Operationen darauf ausführen.  
+5. Erzeugen Sie ein `Workbook`‑Objekt und greifen Sie auf die OLE‑Daten zu.  
+6. Greifen Sie auf das gewünschte `Worksheet` zu und ändern Sie die Daten.  
+7. Speichern Sie das aktualisierte `Workbook` in einem Stream.  
+8. Ändern Sie die OLE‑Objektdaten aus dem Stream.
+
+Im nachstehenden Beispiel wird ein OLE‑Objekt‑Frame (ein in einer Folie eingebettetes Excel‑Diagramm) abgerufen und dessen Dateidaten geändert, um die Diagrammdaten zu aktualisieren.  
+```csharp 
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ISlide slide = presentation.Slides[0];
+
+    // Erhalte die erste Form als OLE-Objekt-Frame.
+    IOleObjectFrame oleFrame = slide.Shapes[0] as IOleObjectFrame;
+
+    if (oleFrame != null)
     {
-        using (MemoryStream msln = new MemoryStream(ole.EmbeddedData.EmbeddedFileData))
+        using (MemoryStream oleStream = new MemoryStream(oleFrame.EmbeddedData.EmbeddedFileData))
         {
-            // Liest Objekt Daten im Workbook
-            Workbook Wb = new Workbook(msln);
+            // Lese die OLE-Objektdaten als Workbook-Objekt.
+            Workbook workbook = new Workbook(oleStream);
 
-            using (MemoryStream msout = new MemoryStream())
+            using (MemoryStream newOleStream = new MemoryStream())
             {
-                // Modifiziert die Workbook-Daten
-                Wb.Worksheets[0].Cells[0, 4].PutValue("E");
-                Wb.Worksheets[0].Cells[1, 4].PutValue(12);
-                Wb.Worksheets[0].Cells[2, 4].PutValue(14);
-                Wb.Worksheets[0].Cells[3, 4].PutValue(15);
+                // Ändere die Arbeitsblattdaten.
+                workbook.Worksheets[0].Cells[0, 4].PutValue("E");
+                workbook.Worksheets[0].Cells[1, 4].PutValue(12);
+                workbook.Worksheets[0].Cells[2, 4].PutValue(14);
+                workbook.Worksheets[0].Cells[3, 4].PutValue(15);
 
-                OoxmlSaveOptions so1 = new OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
-                Wb.Save(msout, so1);
+                OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
+                workbook.Save(newOleStream, fileOptions);
 
-                // Ändert die Ole-Rahmenobjektdaten
-                IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(msout.ToArray(), ole.EmbeddedData.EmbeddedFileExtension);
-                ole.SetEmbeddedData(newData);
+                // Ändere die OLE-Frame-Objektdaten.
+                IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(newOleStream.ToArray(), oleFrame.EmbeddedData.EmbeddedFileExtension);
+                oleFrame.SetEmbeddedData(newData);
             }
         }
     }
 
-    pres.Save("OleEdit_out.pptx", SaveFormat.Pptx);
+    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
-## **Einbetten anderer Dateitypen in Folien**
 
-Neben Excel-Diagrammen ermöglicht Aspose.Slides für .NET das Einbetten anderer Dateitypen in Folien. Zum Beispiel können Sie HTML-, PDF- und ZIP-Dateien als Objekte in eine Folie einfügen. Wenn ein Benutzer auf das eingefügte Objekt doppelklickt, wird das Objekt automatisch im relevanten Programm gestartet oder der Benutzer wird aufgefordert, ein entsprechendes Programm zum Öffnen des Objekts auszuwählen.
 
-Dieser C#-Code zeigt Ihnen, wie Sie HTML und ZIP in eine Folie einbetten:
+## **Andere Dateitypen in Folien einbetten**
 
+Neben Excel‑Diagrammen ermöglicht Aspose.Slides for .NET das Einbetten anderer Dateitypen in Folien. Sie können beispielsweise HTML‑, PDF‑ und ZIP‑Dateien als Objekte einfügen. Wenn ein Benutzer das eingefügte Objekt doppelklickt, wird es automatisch im jeweiligen Programm geöffnet, oder der Benutzer wird aufgefordert, ein geeignetes Programm zum Öffnen auszuwählen.
+
+Der folgende C#‑Code zeigt, wie Sie HTML und ZIP in eine Folie einbetten:
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-  ISlide slide = pres.Slides[0];
-  
-  byte[] htmlBytes = File.ReadAllBytes("embedOle.html");
-  IOleEmbeddedDataInfo dataInfoHtml = new OleEmbeddedDataInfo(htmlBytes, "html");
-  IOleObjectFrame oleFrameHtml = slide.Shapes.AddOleObjectFrame(150, 120, 50, 50, dataInfoHtml);
-  oleFrameHtml.IsObjectIcon = true;
+    ISlide slide = presentation.Slides[0];
 
-  byte[] zipBytes = File.ReadAllBytes("embedOle.zip");
-  IOleEmbeddedDataInfo dataInfoZip = new OleEmbeddedDataInfo(zipBytes, "zip");
-  IOleObjectFrame oleFrameZip = slide.Shapes.AddOleObjectFrame(150, 220, 50, 50, dataInfoZip);
-  oleFrameZip.IsObjectIcon = true;
+    byte[] htmlData = File.ReadAllBytes("sample.html");
+    IOleEmbeddedDataInfo htmlDataInfo = new OleEmbeddedDataInfo(htmlData, "html");
+    IOleObjectFrame htmlOleFrame = slide.Shapes.AddOleObjectFrame(150, 120, 50, 50, htmlDataInfo);
+    htmlOleFrame.IsObjectIcon = true;
 
-  pres.Save("embeddedOle.pptx", SaveFormat.Pptx);
+    byte[] zipData = File.ReadAllBytes("sample.zip");
+    IOleEmbeddedDataInfo zipDataInfo = new OleEmbeddedDataInfo(zipData, "zip");
+    IOleObjectFrame zipOleFrame = slide.Shapes.AddOleObjectFrame(150, 220, 50, 50, zipDataInfo);
+    zipOleFrame.IsObjectIcon = true;
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
-## **Festlegen von Dateitypen für eingebettete Objekte**
 
-Bei der Arbeit an Präsentationen müssen Sie möglicherweise alte OLE-Objekte durch neue ersetzen. Oder Sie müssen ein nicht unterstütztes OLE-Objekt durch ein unterstütztes ersetzen.
 
-Aspose.Slides für .NET ermöglicht es Ihnen, den Dateityp für ein eingebettetes Objekt festzulegen. Auf diese Weise können Sie die OLE-Rahmendaten oder ihre Erweiterung ändern.
+## **Dateityp für eingebettete Objekte festlegen**
 
-Dieser C#-Code zeigt Ihnen, wie Sie den Dateityp für ein eingebettetes OLE-Objekt festlegen:
+Bei der Arbeit mit Präsentationen kann es erforderlich sein, alte OLE‑Objekte durch neue zu ersetzen oder ein nicht unterstütztes OLE‑Objekt durch ein unterstütztes zu ersetzen. Aspose.Slides for .NET erlaubt das Festlegen des Dateityps für ein eingebettetes Objekt, sodass Sie die OLE‑Frame‑Daten oder deren Erweiterung aktualisieren können.
 
+Der folgende C#‑Code zeigt, wie Sie den Dateityp für ein eingebettetes OLE‑Objekt auf `zip` setzen:
 ```c#
-using (Presentation pres = new Presentation("embeddedOle.pptx"))
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    ISlide slide = pres.Slides[0];
-    IOleObjectFrame oleObjectFrame = (IOleObjectFrame)slide.Shapes[0];
-    Console.WriteLine($"Aktuelle eingebettete Daten Erweiterung ist: {oleObjectFrame.EmbeddedData.EmbeddedFileExtension}");
-   
-    oleObjectFrame.SetEmbeddedData(new OleEmbeddedDataInfo(File.ReadAllBytes("embedOle.zip"), "zip"));
-   
-    pres.Save("embeddedChanged.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.Slides[0];
+    IOleObjectFrame oleFrame = (IOleObjectFrame)slide.Shapes[0];
+
+    string fileExtension = oleFrame.EmbeddedData.EmbeddedFileExtension;
+    byte[] fileData = oleFrame.EmbeddedData.EmbeddedFileData;
+
+    Console.WriteLine($"Current embedded file extension is: {fileExtension}");
+
+    // Dateityp zu ZIP ändern.
+    oleFrame.SetEmbeddedData(new OleEmbeddedDataInfo(fileData, "zip"));
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
-## **Festlegen von Symbolbildern und Titeln für eingebettete Objekte**
 
-Nachdem Sie ein OLE-Objekt eingebettet haben, wird automatisch eine Vorschau mit einem Symbolbild und einem Titel hinzugefügt. Die Vorschau ist das, was Benutzer sehen, bevor sie auf das OLE-Objekt zugreifen oder es öffnen.
 
-Wenn Sie ein bestimmtes Bild und einen bestimmten Text als Elemente in der Vorschau verwenden möchten, können Sie das Symbolbild und den Titel mit Aspose.Slides für .NET festlegen.
+## **Symbolbilder und Titel für eingebettete Objekte festlegen**
 
-Dieser C#-Code zeigt Ihnen, wie Sie das Symbolbild und den Titel für ein eingebettetes Objekt festlegen: 
+Nach dem Einbetten eines OLE‑Objekts wird automatisch eine Vorschau mit einem Symbolbild erstellt. Diese Vorschau ist das, was Benutzer sehen, bevor sie das OLE‑Objekt öffnen. Wenn Sie ein bestimmtes Bild und einen Text als Elemente der Vorschau verwenden möchten, können Sie das Symbolbild und den Titel mit Aspose.Slides for .NET festlegen.
 
+Der folgende C#‑Code zeigt, wie Sie das Symbolbild und den Titel für ein eingebettetes Objekt festlegen: 
 ```c#
-using (Presentation pres = new Presentation("embeddedOle.pptx"))
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    ISlide slide = pres.Slides[0];
-    IOleObjectFrame oleObjectFrame = (IOleObjectFrame)slide.Shapes[0];
+    ISlide slide = presentation.Slides[0];
+    IOleObjectFrame oleFrame = (IOleObjectFrame)slide.Shapes[0];
 
-    IPPImage oleImage = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    oleObjectFrame.SubstitutePictureTitle = "Mein Titel";
-    oleObjectFrame.SubstitutePictureFormat.Picture.Image = oleImage;
-    oleObjectFrame.IsObjectIcon = false;
+    // Füge ein Bild zu den Präsentationsressourcen hinzu.
+    byte[] imageData = File.ReadAllBytes("image.png");
+    IPPImage oleImage = presentation.Images.AddImage(imageData);
 
-    pres.Save("embeddedOle-newImage.pptx", SaveFormat.Pptx);
+    // Setze einen Titel und das Bild für die OLE-Vorschau.
+    oleFrame.SubstitutePictureTitle = "My title";
+    oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
+    oleFrame.IsObjectIcon = true;
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Verhindern, dass ein OLE-Objektrahmen geändert oder repositioniert wird**
 
-Nachdem Sie ein verknüpftes OLE-Objekt zu einer Präsentationsfolie hinzugefügt haben, sehen Sie möglicherweise eine Nachricht, die Sie auffordert, die Links zu aktualisieren, wenn Sie die Präsentation in PowerPoint öffnen. Ein Klick auf die Schaltfläche "Links aktualisieren" kann die Größe und Position des OLE-Objektrahmens ändern, da PowerPoint die Daten aus dem verknüpften OLE-Objekt aktualisiert und die Objektvorschau auffrischt. Um zu verhindern, dass PowerPoint zur Aktualisierung der Objektdaten aufgefordert wird, setzen Sie die `UpdateAutomatic`-Eigenschaft des [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/) Interfaces auf `false`:
+## **Verhindern, dass ein OLE‑Objekt‑Frame skaliert und neu positioniert wird**
 
+Nachdem Sie ein verknüpftes OLE‑Objekt zu einer Präsentationsfolie hinzugefügt haben, kann beim Öffnen der Präsentation in PowerPoint eine Meldung erscheinen, die Sie auffordert, die Verknüpfungen zu aktualisieren. Das Klicken auf „Links aktualisieren“ kann die Größe und Position des OLE‑Objekt‑Frames ändern, weil PowerPoint die Daten des verknüpften OLE‑Objekts aktualisiert und die Vorschau neu rendert. Um zu verhindern, dass PowerPoint zur Aktualisierung der Objektdaten auffordert, setzen Sie die Eigenschaft `UpdateAutomatic` des [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/)‑Interfaces auf `false`:
 ```cs
-oleObjectFrame.UpdateAutomatic = false;
+oleFrame.UpdateAutomatic = false;
 ```
 
-## **Extrahieren von eingebetteten Dateien**
 
-Aspose.Slides für .NET erlaubt es Ihnen, die in Folien als OLE-Objekte eingebetteten Dateien folgendermaßen zu extrahieren:
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse, die das OLE-Objekt enthält, das Sie extrahieren möchten.
-2. Durchlaufen Sie alle Formen in der Präsentation und greifen Sie auf die [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) Form zu.
-3. Greifen Sie auf die Daten der eingebetteten Datei aus dem OLE-Objektrahmen zu und schreiben Sie sie auf die Festplatte. 
-Dieser C#-Code zeigt Ihnen, wie Sie eine in einer Folie als OLE-Objekt eingebettete Datei extrahieren:
+## **Eingebettete Dateien extrahieren**
+
+Aspose.Slides for .NET erlaubt das Extrahieren von in Folien als OLE‑Objekte eingebetteten Dateien wie folgt:
+1. Erzeugen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)‑Klasse, die die zu extrahierenden OLE‑Objekte enthält.  
+2. Durchlaufen Sie alle Formen in der Präsentation und greifen Sie auf die [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)‑Formen zu.  
+3. Greifen Sie auf die Daten eingebetteter Dateien aus den OLE‑ObjectFrames zu und schreiben Sie sie auf die Festplatte.
+
+Der folgende C#‑Code zeigt, wie Sie Dateien, die in einer Folie als OLE‑Objekte eingebettet sind, extrahieren:
 ```c#
-using (Presentation pres = new Presentation("embeddedOle.pptx"))
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
 
-    for (var index = 0; index < slide.Shapes.Count; index++)
+    for (int index = 0; index < slide.Shapes.Count; index++)
     {
         IShape shape = slide.Shapes[index];
-        
         IOleObjectFrame oleFrame = shape as IOleObjectFrame;
-        
+
         if (oleFrame != null)
         {
-            byte[] data = oleFrame.EmbeddedData.EmbeddedFileData;
-            string extension = oleFrame.EmbeddedData.EmbeddedFileExtension;
-            
-            File.WriteAllBytes($"oleFrame{index}{extension}", data);
+            byte[] fileData = oleFrame.EmbeddedData.EmbeddedFileData;
+            string fileExtension = oleFrame.EmbeddedData.EmbeddedFileExtension;
+
+            string filePath = $"OLE_object_{index}{fileExtension}";
+            File.WriteAllBytes(filePath, fileData);
         }
     }
 }
 ```
+
+
+## **FAQ**
+
+**Werden OLE‑Inhalte beim Export von Folien in PDF/Bilder gerendert?**
+
+Es wird das, was auf der Folie sichtbar ist, gerendert – das Symbol bzw. das Ersatzbild (Vorschau). Der „live“ OLE‑Inhalt wird beim Rendern nicht ausgeführt. Bei Bedarf können Sie ein eigenes Vorschau‑Bild festlegen, um das gewünschte Aussehen im exportierten PDF sicherzustellen.
+
+**Wie kann ich ein OLE‑Objekt auf einer Folie sperren, sodass Benutzer es in PowerPoint nicht verschieben/bearbeiten können?**
+
+Sperren Sie die Form: Aspose.Slides bietet [Form‑Ebene‑Sperren](/slides/de/net/applying-protection-to-presentation/). Das ist keine Verschlüsselung, verhindert aber effektiv versehentliche Änderungen und Verschiebungen.
+
+**Warum springt ein verknüpftes Excel‑Objekt oder ändert seine Größe, wenn ich die Präsentation öffne?**
+
+PowerPoint kann die Vorschau des verknüpften OLE‑Objekts aktualisieren. Für ein stabiles Erscheinungsbild folgen Sie den bewährten Methoden der [Working Solution for Worksheet Resizing](/slides/de/net/working-solution-for-worksheet-resizing/) – entweder den Frame an den Bereich anpassen oder den Bereich auf einen festen Frame skalieren und ein geeignetes Ersatzbild setzen.
+
+**Werden relative Pfade für verknüpfte OLE‑Objekte im PPTX‑Format beibehalten?**
+
+Im PPTX‑Format gibt es keine Informationen zu „relativen Pfaden“ – nur den absoluten Pfad. Relative Pfade existieren im älteren PPT‑Format. Für Portabilität sollten Sie zuverlässige absolute Pfade/zugängliche URIs oder das Einbetten bevorzugen.

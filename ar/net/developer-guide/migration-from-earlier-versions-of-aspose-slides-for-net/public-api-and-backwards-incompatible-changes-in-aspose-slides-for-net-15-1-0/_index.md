@@ -1,72 +1,68 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة في Aspose.Slides لـ .NET 15.1.0
+title: "واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة في Aspose.Slides for .NET 15.1.0"
+linktitle: "Aspose.Slides لـ .NET 15.1.0"
 type: docs
 weight: 130
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/
+keywords:
+- "الهجرة"
+- "كود قديم"
+- "كود حديث"
+- "نهج قديم"
+- "نهج حديث"
+- PowerPoint
+- OpenDocument
+- "عرض تقديمي"
+- .NET
+- C#
+- Aspose.Slides
+description: "مراجعة تحديثات واجهة برمجة التطبيقات العامة والتغييرات المكسرة في Aspose.Slides for .NET لتسهيل ترحيل حلول عروض PowerPoint PPT، PPTX و ODP الخاصة بك."
 ---
 
 {{% alert color="primary" %}} 
 
-توضح هذه الصفحة جميع [المضاف](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) أو [المremoved](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) الفئات، والأساليب، والخصائص، وما إلى ذلك، وأي تغييرات أخرى تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لـ .NET 15.1.0.
+تُدرج هذه الصفحة جميع الفئات، الأساليب، الخصائص وما إلى ذلك التي تم [مضاف](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) أو [مُزال](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) بها، بالإضافة إلى التغييرات الأخرى التي تم إدخالها مع Aspose.Slides for .NET 15.1.0 API.
 
 {{% /alert %}} 
-## **تغييرات واجهة برمجة التطبيقات العامة**
-#### **تمت إضافة وظيفة استبدال الخطوط**
-تمت إضافة إمكانية استبدال الخطوط على مستوى العرض التقديمي بشكل عالمي ومؤقت للتقديم.
+## **التغييرات العامة لواجهة برمجة التطبيقات**
+#### **تم إضافة وظيفة استبدال الخطوط**
+تمت إضافة إمكانية استبدال الخط بشكل عالمي عبر العرض التقديمي ومؤقتًا لأغراض التصيير.
 
-تم تقديم خاصية جديدة "FontsManager" في فئة Presentation. تحتوي فئة FontsManager على الأعضاء التالية:
+تم تقديم الخاصية الجديدة "FontsManager" في فئة Presentation. تحتوي فئة FontsManager على الأعضاء التالية:
 
 **IFontSubstRuleCollection FontSubstRuleList** خاصية
 
-تحتوي هذه المجموعة من مثيلات IFontSubstRule على استخدام لاستبدال الخطوط أثناء التقديم. تحتوي IFontSubstRule على خاصيتي SourceFont و DestFont التي تنفذ واجهة IFontData، و خاصية ReplaceFontCondition التي تسمح باختيار شرط الاستبدال ("WhenInaccessible" أو "Always").
+تستخدم هذه المجموعة من كائنات IFontSubstRule لاستبدال الخطوط أثناء التصيير. يحتوي IFontSubstRule على خاصيتي SourceFont و DestFont اللتين تنفذان واجهة IFontData، وكذلك خاصية ReplaceFontCondition التي تتيح اختيار شرط الاستبدال ("WhenInaccessible" أو "Always").
 
-**IFontData[] GetFonts()** أسلوب
+**IFontData[] GetFonts()** طريقة
 
-يستخدم لاسترداد جميع الخطوط المستخدمة في العرض التقديمي الحالي.
+تُستخدم لاسترجاع جميع الخطوط المستخدمة في العرض التقديمي الحالي.
 
-**ReplaceFont** أساليب
+**ReplaceFont** طرق
 
-تستخدم لاستبدال الخط بشكل دائم في العرض التقديمي.
+تُستخدم لاستبدال الخط في العرض التقديمي بشكل دائم.
 
-يوضح المثال التالي كيفية استبدال الخط في العرض التقديمي:
+المثال التالي يوضح كيفية استبدال الخط في العرض التقديمي:
 
-``` csharp
-
-             Presentation pres = new Presentation("PresContainsArialFont.pptx");
-
-            IFontData sourceFont = new FontData("Arial");
-
-            IFontData destFont = new FontData("Times New Roman");
-
-            pres.FontsManager.ReplaceFont(sourceFont, destFont);
-
-            pres.Save("PresContainsTimesNoewRomanFont.pptx", SaveFormat.Pptx);
-
-
+```csharp
+Presentation pres = new Presentation("PresContainsArialFont.pptx");
+IFontData sourceFont = new FontData("Arial");
+IFontData destFont = new FontData("Times New Roman");
+pres.FontsManager.ReplaceFont(sourceFont, destFont);
+pres.Save("PresContainsTimesNoewRomanFont.pptx", SaveFormat.Pptx);
 ``` 
 
-مثال آخر، يوضح استبدال الخطوط للتقديم عند عدم الوصول إليها:
+مثال آخر يوضح استبدال الخط لأغراض التصيير عندما يكون غير متاح:
 
-``` csharp
-
-             Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
-
-            IFontData sourceFont = new FontData("SomeRareFont");
-
-            IFontData destFont = new FontData("Arial");
-
-            IFontSubstRule fontSubstRule = new FontSubstRule(
-
-                sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-
-            IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-
-            fontSubstRuleCollection.Add(fontSubstRule);
-
-            pres.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
-
-            // سيتم استخدام خط Arial بدلاً من SomeRareFont عند عدم الوصول إليه
-
-            pres.Slides[0].GetThumbnail();
-
+```csharp
+Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
+IFontData sourceFont = new FontData("SomeRareFont");
+IFontData destFont = new FontData("Arial");
+IFontSubstRule fontSubstRule = new FontSubstRule(
+    sourceFont, destFont, FontSubstCondition.WhenInaccessible);
+IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
+fontSubstRuleCollection.Add(fontSubstRule);
+pres.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
+// سيتم استخدام خط Arial بدلاً من SomeRareFont عندما يكون غير متاح
+pres.Slides[0].GetThumbnail();
 ```

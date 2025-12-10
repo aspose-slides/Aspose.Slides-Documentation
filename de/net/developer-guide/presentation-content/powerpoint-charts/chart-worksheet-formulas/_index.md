@@ -1,111 +1,100 @@
 ---
-title: Diagramm Arbeitsblatt Formeln
+title: Anwenden von Diagramm-Arbeitsblatt-Formeln in Präsentationen in .NET
+linktitle: Arbeitsblatt-Formeln
 type: docs
 weight: 70
 url: /de/net/chart-worksheet-formulas/
-keywords: "Diagramm Tabellenkalkulation, Diagramm Formel, PowerPoint Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "Diagramm Tabellenkalkulation und Formel in PowerPoint Präsentation in C# oder .NET"
+keywords:
+- diagramm-tabellenkalkulation
+- diagramm-arbeitsblatt
+- diagramm-formel
+- arbeitsblatt-formel
+- tabellenkalkulations-formel
+- datenquelle
+- logische konstante
+- numerische konstante
+- zeichenketten-konstante
+- fehlerkonstante
+- arithmetische konstante
+- vergleichsoperator
+- A1-Stil
+- R1C1-Stil
+- vordefinierte funktion
+- PowerPoint
+- präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Verwenden Sie Excel-ähnliche Formeln in Aspose.Slides für .NET-Diagramm-Arbeitsblätter und automatisieren Sie Berichte für PPT- und PPTX-Dateien."
 ---
 
-
-## **Über die Diagramm Tabellenkalkulation Formel in Präsentationen**
-**Diagramm Tabellenkalkulation** (oder Diagramm Arbeitsblatt) in Präsentationen ist die Datenquelle des Diagramms. Diagramm Tabellenkalkulation enthält Daten, die grafisch im Diagramm dargestellt werden. Wenn Sie ein Diagramm in PowerPoint erstellen, wird auch das Arbeitsblatt, das mit diesem Diagramm verbunden ist, automatisch erstellt. Das Diagramm Arbeitsblatt wird für alle Arten von Diagrammen erstellt: Liniendiagramm, Säulendiagramm, Sonnenblumen-Diagramm, Kreisdiagramm usw. Um die Diagramm Tabellenkalkulation in PowerPoint zu sehen, sollten Sie doppelt auf das Diagramm klicken:
+## **Über Diagramm‑Tabellenkalkulationen in Präsentationen**
+**Diagramm‑Tabellenkalkulation** (oder Diagramm‑Arbeitsblatt) in einer Präsentation ist die Datenquelle des Diagramms. Die Diagramm‑Tabellenkalkulation enthält Daten, die im Diagramm grafisch dargestellt werden. Wenn Sie ein Diagramm in PowerPoint erstellen, wird das zugehörige Arbeitsblatt automatisch erstellt. Das Diagramm‑Arbeitsblatt wird für alle Diagrammtypen erstellt: Liniendiagramm, Balkendiagramm, Sunburst‑Diagramm, Kreisdiagramm usw. Um die Diagramm‑Tabellenkalkulation in PowerPoint zu sehen, doppelklicken Sie auf das Diagramm:
 
 ![todo:image_alt_text](chart-worksheet-formulas_1.png)
 
+Die Diagramm‑Tabellenkalkulation enthält die Namen von Diagrammelementen (Kategoriename: *Category1*, Serienname) und eine Tabelle mit numerischen Daten, die zu diesen Kategorien und Serien passen. Standardmäßig werden beim Erstellen eines neuen Diagramms die Diagramm‑Tabellenkalkulationsdaten mit den Standarddaten befüllt. Anschließend können Sie die Tabellendaten im Arbeitsblatt manuell ändern.
 
+Üblicherweise stellt das Diagramm komplexe Daten dar (z. B. Finanz‑ oder Wissenschaftsanalyse), bei denen Zellen aus den Werten anderer Zellen oder aus dynamischen Daten berechnet werden. Die manuelle Berechnung des Zellenwertes und das Hard‑Coden in die Zelle erschwert zukünftige Änderungen. Wenn Sie den Wert einer bestimmten Zelle ändern, müssen alle davon abhängigen Zellen ebenfalls aktualisiert werden. Darüber hinaus können Tabellendaten von Daten anderer Tabellen abhängen, wodurch ein komplexes Präsentationsdatenschema entsteht, das flexibel und einfach zu aktualisieren sein muss.
 
-Die Diagramm Tabellenkalkulation enthält die Namen der Diagrammelemente (Kategoriename: *Kategorie1*, Serienname) und eine Tabelle mit numerischen Daten, die zu diesen Kategorien und Serien passen. Standardmäßig, wenn Sie ein neues Diagramm erstellen - werden die Daten der Diagramm Tabellenkalkulation mit den Standarddaten gesetzt. Dann können Sie die Tabellenkalkulationsdaten im Arbeitsblatt manuell ändern.
+**Diagramm‑Tabellenkalkulationsformel** in einer Präsentation ist ein Ausdruck, der Diagramm‑Tabellenkalkulationsdaten automatisch berechnet und aktualisiert. Die Tabellenkalkulationsformel definiert die Datenberechnungslogik für eine bestimmte Zelle oder einen Zellenbereich. Eine Tabellenkalkulationsformel ist eine mathematische oder logische Formel, die verwendet: Zellbezüge, Mathe‑Funktionen, logische Operatoren, arithmetische Operatoren, Umwandlungsfunktionen, Zeichenketten‑Konstanten usw. Die Definition der Formel wird in eine Zelle geschrieben, und diese Zelle enthält keinen einfachen Wert. Die Formel berechnet den Wert, gibt ihn zurück und dieser Wert wird der Zelle zugewiesen. Diagramm‑Tabellenkalkulationsformeln in Präsentationen sind im Grunde dieselben wie Excel‑Formeln, und dieselben Standard‑Funktionen, Operatoren und Konstanten werden unterstützt.
 
-In der Regel stellt das Diagramm komplizierte Daten dar (z.B. Finanzanalysen, wissenschaftliche Analysen), mit Zellen, die aus den Werten in anderen Zellen oder aus anderen dynamischen Daten berechnet werden. Den Wert einer Zelle manuell zu berechnen und ihn fest in die Zelle einzutragen, macht es schwierig, ihn in Zukunft zu ändern. Wenn Sie den Wert einer bestimmten Zelle ändern, müssen auch alle Zellen, die davon abhängen, aktualisiert werden. Darüber hinaus können tabellarische Daten von den Daten anderer Tabellen abhängig sein, was ein komplexes Schema von Präsentationsdaten schafft, das auf eine einfache und flexible Weise aktualisiert werden muss.
-
-**Die Diagramm Tabellenkalkulation Formel** in Präsentationen ist ein Ausdruck, um automatisch die Daten der Diagramm Tabellenkalkulation zu berechnen und zu aktualisieren. Die Tabellenkalkulationsformel definiert die Logik zur Berechnung der Daten für eine bestimmte Zelle oder eine Gruppe von Zellen. Eine Tabellenkalkulationsformel ist eine mathematische oder logische Formel, die verwendet: Zellreferenzen, mathematische Funktionen, logische Operatoren, arithmetische Operatoren, Umrechnungsfunktionen, Stringkonstanten usw. Die Definition der Formel wird in eine Zelle geschrieben, und diese Zelle enthält keinen einfachen Wert. Die Tabellenkalkulationsformel berechnet den Wert und gibt ihn zurück, dann wird dieser Wert der Zelle zugewiesen. Diagramm Tabellenkalkulationsformeln in Präsentationen sind tatsächlich die gleichen wie Excel-Formeln, und es werden die gleichen Standardfunktionen, Operatoren und Konstanten für ihre Implementierung unterstützt.
-
-In [**Aspose.Slides**](https://products.aspose.com/slides/net/) wird die Diagramm Tabellenkalkulation mit der 
-[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) Eigenschaft des 
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook) Typs dargestellt. 
-Die Tabellenkalkulationsformel kann mit der 
-[**IChartDataCell.Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) Eigenschaft zugewiesen und geändert werden. 
-Die folgende Funktionalität wird für Formeln in Aspose.Slides unterstützt:
+In [**Aspose.Slides**](https://products.aspose.com/slides/net/) wird die Diagramm‑Tabellenkalkulation mit der Eigenschaft 
+[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) des Typs 
+[**IChartDataWorkbook**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook) dargestellt. 
+Tabellenkalkulationsformeln können mit der Eigenschaft 
+[**IChartDataCell.Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) zugewiesen und geändert werden. 
+Folgende Funktionalität wird für Formeln in Aspose.Slides unterstützt:
 
 - Logische Konstanten
 - Numerische Konstanten
-- Stringkonstanten
-- Fehlerkonstanten
+- Zeichenketten‑Konstanten
+- Fehler‑Konstanten
 - Arithmetische Operatoren
 - Vergleichsoperatoren
-- A1-style Zellreferenzen
-- R1C1-style Zellreferenzen
-- Vorab definierte Funktionen
+- A1‑Style Zellbezüge
+- R1C1‑Style Zellbezüge
+- Vorgegebene Funktionen
 
+Typischerweise speichern Tabellenkalkulationen die zuletzt berechneten Formelergebnisse. Wenn nach dem Laden der Präsentation die Diagrammdaten nicht geändert wurden, gibt die Eigenschaft **IChartDataCell.Value** diese Werte beim Lesen zurück. Ändern sich jedoch die Tabellendaten, wirft das Lesen der Eigenschaft **ChartDataCell.Value** die **CellUnsupportedDataException** wegen nicht unterstützter Formeln. Das liegt daran, dass bei erfolgreichem Parsen der Formeln die Zellabhängigkeiten ermittelt und die Korrektheit der letzten Werte bestimmt werden. Kann eine Formel nicht geparst werden, lässt sich die Korrektheit des Zellenwertes nicht garantieren.
 
-
-In der Regel speichern Tabellenkalkulationen die zuletzt berechneten Formelwerte. Wenn nach dem Laden der Präsentation die Diagrammdaten nicht geändert wurden - gibt die **IChartDataCell.Value** Eigenschaft diese Werte beim Lesen zurück. Wenn jedoch die Daten der Tabellenkalkulation geändert wurden, wird beim Lesen der **ChartDataCell.Value** Eigenschaft die **CellUnsupportedDataException** für die nicht unterstützten Formeln ausgelöst. Dies liegt daran, dass, wenn die Formeln erfolgreich geparst werden, die Zellabhängigkeiten bestimmt und die Richtigkeit der letzten Werte festgestellt wird. Kann die Formel jedoch nicht geparst werden, kann die Richtigkeit des Zellwerts nicht garantiert werden.
-## **Diagramm Tabellenkalkulation Formel zur Präsentation hinzufügen**
-Zuerst fügen Sie ein Diagramm mit einigen Beispieldaten zur ersten Folie einer neuen Präsentation mit 
-[IShapeCollection.Shapes.AddChart](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/addchart/methods/1) hinzu. 
-Das Arbeitsblatt des Diagramms wird automatisch erstellt und kann mit der 
-[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) Eigenschaft zugegriffen werden:
-
-
-
+## **Eine Diagramm‑Tabellenkalkulationsformel zu einer Präsentation hinzufügen**
+Fügen Sie zuerst einem neuen Präsentationsdokument ein Diagramm mit Beispielwerten zur ersten Folie hinzu, indem Sie 
+[IShapeCollection.Shapes.AddChart](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/addchart/methods/1) verwenden. 
+Das Arbeitsblatt des Diagramms wird automatisch erstellt und kann über die Eigenschaft 
+[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) abgerufen werden:
 ``` csharp
-
 using (var presentation = new Presentation())
-
 {
-
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
-
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-
     // ...
-
 }
-
 ```
 
 
+Schreiben Sie einige Werte in Zellen mit der Eigenschaft 
+[**IChartDataCell.Value**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/value) des Typs **Object**, was bedeutet, dass Sie beliebige Werte zuweisen können:
+{{eb03​9d3a-6f97-41ee-b052-644c95a8a37d}}
 
-Lassen Sie uns einige Werte in Zellen mit der 
-[**IChartDataCell.Value**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/value) Eigenschaft 
-des **Object** Typs schreiben, was bedeutet, dass Sie jeden Wert der Eigenschaft zuweisen können:
-
-
-
-``` csharp
-
-workbook.GetCell(0, "F2").Value = -2.5;
-
-workbook.GetCell(0, "G3").Value = 6.3;
-
-workbook.GetCell(0, "H4").Value = 3;
-
-```
-
-
-
-Jetzt, um die Formel in die Zelle zu schreiben, können Sie die 
-[**IChartDataCell.Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) Eigenschaft verwenden:
-
+Um eine Formel in die Zelle zu schreiben, verwenden Sie die 
+[**IChartDataCell.Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula)‑Eigenschaft:
 ``` csharp
 workbook.GetCell(0, "B2").Formula = "F2+G3+H4+1";
 ```
 
-*Hinweis*: Die [**IChartDataCell.Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) Eigenschaft wird verwendet, um A1-style Zellreferenzen festzulegen. 
 
+*Hinweis*: Die Eigenschaft [**IChartDataCell.Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) wird verwendet, um A1‑Style Zellbezüge zu setzen. 
 
-
-Um die [R1C1Formula](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula) Zellreferenz festzulegen, können Sie die [**IChartDataCell.R1C1Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula) Eigenschaft verwenden:
-
+Um den **R1C1Formula**‑Zellbezug zu setzen, können Sie die Eigenschaft 
+[**IChartDataCell.R1C1Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula) verwenden:
 ``` csharp
 workbook.GetCell(0, "C2").R1C1Formula = "R[1]C[4]/R[2]C[5]";
 ```
 
-Verwenden Sie dann die [**IChartDataWorkbook.CalculateFormulas**](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdataworkbook/methods/calculateformulas) Methode, um alle Formeln innerhalb der Arbeitsmappe zu berechnen und die entsprechenden Zellwerte zu aktualisieren:
 
-
-
+Anschließend verwenden Sie die Methode 
+[**IChartDataWorkbook.CalculateFormulas**](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdataworkbook/methods/calculateformulas), um alle Formeln im Arbeitsbuch zu berechnen und die entsprechenden Zellenwerte zu aktualisieren:
 ``` csharp
 workbook.CalculateFormulas();
 
@@ -119,108 +108,78 @@ object value2 = workbook.GetCell(0, "C2"); // 2.1
 ## **Logische Konstanten**
 Sie können logische Konstanten wie *FALSE* und *TRUE* in Zellformeln verwenden:
 
-
-
-
 ## **Numerische Konstanten**
-Zahlen können in gängigen oder wissenschaftlichen Notationen verwendet werden, um Diagramm Tabellenkalkulationsformeln zu erstellen:
+Zahlen können in dezimaler oder wissenschaftlicher Notation verwendet werden, um Diagramm‑Tabellenkalkulationsformeln zu erstellen:
 
+## **Zeichenketten‑Konstanten**
+Eine Zeichenketten‑ (oder Literal‑)Konstante ist ein fester Wert, der unverändert verwendet wird. Zeichenketten‑Konstanten können sein: Datumsangaben, Texte, Zahlen usw.:
 
+## **Fehler‑Konstanten**
+Manchmal ist es nicht möglich, das Ergebnis einer Formel zu berechnen. In diesem Fall wird im Feld ein Fehlercode anstelle des Wertes angezeigt. Jeder Fehlertyp hat einen spezifischen Code:
 
-
-## **Stringkonstanten**
-String (oder Literal) Konstanten sind spezifische Werte, die so verwendet werden, wie sie sind, und sich nicht ändern. Stringkonstanten können sein: Daten, Texte, Zahlen usw.:
-
-
-
-
-## **Fehlerkonstanten**
-Manchmal ist es nicht möglich, das Ergebnis durch die Formel zu berechnen. In diesem Fall wird der Fehlercode in der Zelle anstelle seines Wertes angezeigt. Jeder Fehler hat einen spezifischen Code:
-
-- #DIV/0! - die Formel versucht, durch Null zu teilen.
-- #GETTING_DATA - kann in einer Zelle angezeigt werden, während sein Wert noch berechnet wird.
-- #N/A - Informationen fehlen oder sind nicht verfügbar. Einige Gründe können sein: die Zellen, die in der Formel verwendet werden, sind leer, ein zusätzlicher Leerzeichen-Zeichencode, Schreibfehler usw.
-- #NAME? - eine bestimmte Zelle oder andere Formelelemente können nicht durch ihren Namen gefunden werden. 
-- #NULL! - kann auftreten, wenn ein Fehler in der Formel vorliegt, wie z.B.: (,) oder ein Leerzeichenzeichen, das anstelle eines Doppelpunktes (:) verwendet wird.
-- #NUM! - die Zahl in der Formel kann ungültig, zu lang oder zu klein sein usw.
-- #REF! - ungültige Zellreferenz.
-- #VALUE! - unerwarteter Wertetyp. Zum Beispiel, ein Stringwert, der in eine numerische Zelle eingegeben wird.
-
-
-
+- #DIV/0! – Formel versucht, durch Null zu teilen.  
+- #GETTING_DATA – kann in einer Zelle erscheinen, während ihr Wert noch berechnet wird.  
+- #N/A – Information fehlt oder ist nicht verfügbar. Gründe können sein: die in der Formel verwendeten Zellen sind leer, ein zusätzliches Leerzeichen, Tippfehler usw.  
+- #NAME? – eine bestimmte Zelle oder ein anderes Formelelement kann nicht über seinen Namen gefunden werden.  
+- #NULL! – tritt auf, wenn ein Fehler in der Formel vorliegt, z. B. (,) oder ein Leerzeichen anstelle eines Doppelpunkts (:).  
+- #NUM! – die in der Formel angegebene Zahl ist ungültig, zu lang oder zu kurz usw.  
+- #REF! – ungültiger Zellbezug.  
+- #VALUE! – unerwarteter Werttyp, z. B. Zeichenkette in einer numerischen Zelle.
 
 ## **Arithmetische Operatoren**
-Sie können alle arithmetischen Operatoren in Diagramm Arbeitsblattformeln verwenden:
+Sie können alle arithmetischen Operatoren in Diagramm‑Arbeitsblatt‑Formeln verwenden:
 
-
-
-|**Operator** |**Bedeutung** |**Beispiel**|
+|**Operator**|**Bedeutung**|**Beispiel**|
 | :- | :- | :- |
-|+ (Pluszeichen) |Addition oder unärer Plus|2 + 3|
-|- (Minuszeichen) |Subtraktion oder Negation |2 - 3<br>-3|
-|* (Stern)|Multiplikation |2 * 3|
-|/ (Schrägstrich)|Division |2 / 3|
-|% (Prozentzeichen) |Prozent |30%|
-|^ (Zirkumflex) |Exponentialfunktion |2 ^ 3|
+|+ (Pluszeichen)|Addition oder unäres Plus|2 + 3|
+|- (Minuszeichen)|Subtraktion oder Negation|2 - 3<br>-3|
+|* (Sternchen)|Multiplikation|2 * 3|
+|/ (Schrägstrich)|Division|2 / 3|
+|% (Prozentzeichen)|Prozent|30%|
+|^ (Caret)|Exponentiation|2 ^ 3|
 
-
-*Hinweis*: Um die Reihenfolge der Auswertung zu ändern, setzen Sie den Teil der Formel, der zuerst berechnet werden soll, in Klammern.
-
+*Hinweis*: Um die Auswertungsreihenfolge zu ändern, setzen Sie den zu berechnenden Teil in Klammern.
 
 ## **Vergleichsoperatoren**
-Sie können die Werte der Zellen mit den Vergleichsoperatoren vergleichen. Wenn zwei Werte mit diesen Operatoren verglichen werden, ist das Ergebnis entweder ein logischer Wert *TRUE* oder FALSE:
+Sie können Zellwerte mit Vergleichsoperatoren vergleichen. Das Ergebnis ist ein logischer Wert, entweder *TRUE* oder *FALSE*:
 
-
-
-|**Operator** |**Bedeutung** |**Bedeutung** |
+|**Operator**|**Bedeutung**|**Beispiel**|
 | :- | :- | :- |
-|= (Gleichheitszeichen) |Gleich wie |A2 = 3|
-|<> (ungleichheitszeichen) |Ungleich|A2 <> 3|
-|> (größer als Zeichen) |Größer als|A2 > 3|
-|>= (größer oder gleich Zeichen)|Größer oder gleich|A2 >= 3|
-|< (kleiner als Zeichen)|Kleiner als|A2 < 3|
-|<= (kleiner oder gleich Zeichen)|Kleiner oder gleich|A2 <= 3|
+|= (Gleichheitszeichen)|Gleich|A2 = 3|
+|<> (Ungleichheitszeichen)|Ungleich|A2 <> 3|
+|> (Größer‑als‑Zeichen)|Größer als|A2 > 3|
+|>= (Größer‑oder‑gleich‑Zeichen)|Größer oder gleich|A2 >= 3|
+|< (Kleiner‑als‑Zeichen)|Kleiner als|A2 < 3|
+|<= (Kleiner‑oder‑gleich‑Zeichen)|Kleiner oder gleich|A2 <= 3|
 
-## **A1-style Zellreferenzen**
-**A1-style Zellreferenzen** werden für die Arbeitsblätter verwendet, wo die Spalte einen Buchstabenbezeichner hat (z.B. "*A*") und die Zeile eine numerische Bezeichnung hat (z.B. "*1*"). A1-style Zellreferenzen können auf folgende Weise verwendet werden:
+## **A1‑Style Zellbezüge**
+**A1‑Style Zellbezüge** werden für Arbeitsblätter verwendet, bei denen die Spalte einen Buchstaben‑Identifier (z. B. *A*) und die Zeile einen numerischen Identifier (z. B. *1*) hat. A1‑Style Zellbezüge können wie folgt verwendet werden:
 
-
-
-|**Zellreferenz**|**Beispiel**|||
+|**Zellbezug**|**Beispiel**|||
 | :- | :- | :- | :- |
-||Absolut |Relativ |Gemischt|
-|Zelle |$A$2 |A2|<p>A$2</p><p>$A2</p>|
-|Zeile |$2:$2 |2:2 |-|
-|Spalte |$A:$A |A:A |-|
-|Bereich |$A$2:$C$4 |A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+||Absolut|Relativ|Gemischt|
+|Zelle|$A$2|A2|<p>A$2</p><p>$A2</p>|
+|Zeile|$2:$2|2:2|-|
+|Spalte|$A:$A|A:A|-|
+|Bereich|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
 
+Hier ein Beispiel, wie ein A1‑Style Zellbezug in einer Formel verwendet wird:
 
-Hier ist ein Beispiel, wie man A1-style Zellreferenzen in Formeln verwenden kann:
+## **R1C1‑Style Zellbezüge**
+**R1C1‑Style Zellbezüge** werden für Arbeitsblätter verwendet, bei denen sowohl Zeile als auch Spalte numerische Identifier besitzen. R1C1‑Style Zellbezüge können wie folgt verwendet werden:
 
-
-
-
-## **R1C1-style Zellreferenzen**
-**R1C1-style Zellreferenzen** werden für die Arbeitsblätter verwendet, in denen sowohl eine Zeile als auch eine Spalte einen numerischen Bezeichner haben. R1C1-style Zellreferenzen können auf folgende Weise verwendet werden:
-
-
-
-|**Zellreferenz**|**Beispiel**|||
+|**Zellbezug**|**Beispiel**|||
 | :- | :- | :- | :- |
-||Absolut |Relativ |Gemischt|
-|Zelle |R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Zeile |R2|R[2]|-|
-|Spalte |C3|C[3]|-|
-|Bereich |R2C3:R5C7|R[2]C[3]:R[5]C[7] |R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+||Absolut|Relativ|Gemischt|
+|Zelle|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
+|Zeile|R2|R[2]|-|
+|Spalte|C3|C[3]|-|
+|Bereich|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
 
+Hier ein Beispiel, wie ein A1‑Style Zellbezug in einer Formel verwendet wird:
 
-Hier ist ein Beispiel, wie man A1-style Zellreferenzen in Formeln verwenden kann:
-
-
-
-
-## **Vorab definierte Funktionen**
-Es gibt vordefinierte Funktionen, die zur Vereinfachung der Implementierung in den Formeln verwendet werden können. Diese Funktionen kapseln die am häufigsten verwendeten Operationen ein, wie: 
+## **Vordefinierte Funktionen**
+Es gibt vordefinierte Funktionen, die in Formeln verwendet werden können, um deren Implementierung zu vereinfachen. Diese Funktionen bündeln die am häufigsten genutzten Operationen, wie:
 
 - ABS
 - AVERAGE
@@ -228,14 +187,24 @@ Es gibt vordefinierte Funktionen, die zur Vereinfachung der Implementierung in d
 - CHOOSE
 - CONCAT
 - CONCATENATE
-- DATE (1900 Datensystem)
+- DATE (1900‑Datumsystem)
 - DAYS
 - FIND
 - FINDB
 - IF
-- INDEX (Referenzform)
-- LOOKUP (Vektorform)
-- MATCH (Vektorform)
+- INDEX (Referenz‑Form)
+- LOOKUP (Vektor‑Form)
+- MATCH (Vektor‑Form)
 - MAX
 - SUM
 - VLOOKUP
+
+## **FAQ**
+
+**Werden externe Excel‑Dateien als Datenquelle für ein Diagramm mit Formeln unterstützt?**
+
+Ja. Aspose.Slides unterstützt externe Arbeitsmappen als [Diagramm‑Datenquelle](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatasourcetype/), sodass Sie Formeln aus einer XLSX‑Datei außerhalb der Präsentation verwenden können.
+
+**Können Diagramm‑Formeln Tabellenblätter innerhalb derselben Arbeitsmappe über den Blattnamen referenzieren?**
+
+Ja. Formeln folgen dem Standard‑Excel‑Referenzmodell, sodass Sie andere Blätter derselben Arbeitsmappe oder einer externen Arbeitsmappe referenzieren können. Für externe Referenzen geben Sie Pfad und Arbeitsmappennamen nach Excel‑Syntax an.

@@ -1,41 +1,60 @@
 ---
-title: عمليات تغيير الشكل
+title: إدارة أشكال العروض التقديمية في .NET
+linktitle: معالجة الأشكال
 type: docs
 weight: 40
 url: /ar/net/shape-manipulations/
-keywords: "شكل PowerPoint، شكل على الشريحة، العثور على شكل، استنساخ شكل، إزالة شكل، إخفاء شكل، تغيير ترتيب الشكل، الحصول على معرف شكل Interlop، نص بديل للشكل، تنسيقات تخطيط الشكل، شكل كـ SVG، محاذاة الشكل، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
-description: "تلاعب بأشكال PowerPoint في C# أو .NET"
+keywords:
+- شكل PowerPoint
+- شكل العرض
+- شكل على الشريحة
+- العثور على الشكل
+- استنساخ الشكل
+- إزالة الشكل
+- إخفاء الشكل
+- تغيير ترتيب الشكل
+- الحصول على معرف الشكل Interop
+- نص بديل للشكل
+- تنسيقات تخطيط الشكل
+- شكل كـ SVG
+- تحويل الشكل إلى SVG
+- محاذاة الشكل
+- PowerPoint
+- العرض
+- .NET
+- C#
+- Aspose.Slides
+description: "تعلم إنشاء وتحرير وتحسين الأشكال في Aspose.Slides لـ .NET وتقديم عروض PowerPoint ذات أداء عالي."
 ---
 
-## **البحث عن شكل في الشريحة**
-سيصف هذا الموضوع تقنية بسيطة لتسهيل على المطورين العثور على شكل معين على شريحة دون استخدام معرفه الداخلي. من المهم معرفة أن ملفات عرض PowerPoint لا تحتوي على أي وسيلة لتحديد الأشكال على الشريحة باستثناء معرف فريد داخلي. يبدو أن من الصعب على المطورين العثور على شكل باستخدام معرفه الفريد الداخلي. جميع الأشكال المضافة إلى الشرائح لها نص بديل. نحن نقترح على المطورين استخدام النص البديل للعثور على شكل معين. يمكنك استخدام MS PowerPoint لتحديد النص البديل للأشياء التي تخطط لتغييرها في المستقبل.
+## **العثور على شكل في شريحة**
+سيتناول هذا الموضوع تقنية بسيطة لتسهيل عملية إيجاد شكل معين في شريحة للمطورين دون الحاجة إلى استخدام المعرّف الداخلي له. من المهم معرفة أن ملفات عرض PowerPoint لا توفر أي طريقة لتحديد الأشكال في الشريحة إلا باستخدام معرّف فريد داخلي. يبدو أن العثور على شكل باستخدام المعرّف الفريد الداخلي صعب على المطورين. جميع الأشكال المضافة إلى الشرائح تحتوي على نص بديل (Alt Text). نوصي المطورين باستخدام النص البديل للعثور على شكل معين. يمكنك استخدام MS PowerPoint لتحديد النص البديل للكائنات التي تخطط لتغييرها في المستقبل.
 
-بعد تعيين النص البديل لأي شكل مرغوب فيه، يمكنك فتح ذلك العرض باستخدام Aspose.Slides لـ .NET والتكرار عبر جميع الأشكال المضافة إلى الشريحة. خلال كل تكرار، يمكنك التحقق من النص البديل للشكل والشكل الذي يتطابق مع النص البديل سيكون الشكل المطلوب منك. لإظهار هذه التقنية بشكل أفضل، قمنا بإنشاء طريقة، [FindShape](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/findshape/#findshape_1) التي تقوم بالحيلة للعثور على شكل معين في الشريحة ثم تعيد ببساطة ذلك الشكل.
-
+بعد تعيين النص البديل لأي شكل مطلوب، يمكنك فتح ذلك العرض باستخدام Aspose.Slides for .NET والمرور عبر جميع الأشكال المضافة إلى الشريحة. خلال كل تكرار، يمكنك فحص النص البديل للشكل، وسيكون الشكل الذي يمتلك النص البديل المطابق هو الشكل الذي تحتاجه. لتوضيح هذه التقنية بشكل أفضل، أنشأنا طريقة [FindShape](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/findshape/#findshape_1) التي تقوم بالعثور على شكل معين في شريحة وتعيده ببساطة.
 ```c#
 public static void Run()
 {
-    // إنشاء كائن من فئة Presentation التي تمثل ملف العرض التقديمي
+    // إنشاء كائن من فئة Presentation يمثل ملف العرض
     using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
     {
 
         ISlide slide = p.Slides[0];
-        // النص البديل للشكل الذي سيتم العثور عليه
+        // النص البديل للشكل المراد العثور عليه
         IShape shape = FindShape(slide, "Shape1");
         if (shape != null)
         {
-            Console.WriteLine("اسم الشكل: " + shape.Name);
+            Console.WriteLine("Shape Name: " + shape.Name);
         }
     }
 }
         
-// تنفيذ الطريقة للعثور على شكل في الشريحة باستخدام نصه البديل
+// تنفيذ الطريقة للعثور على شكل في شريحة باستخدام النص البديل الخاص به
 public static IShape FindShape(ISlide slide, string alttext)
 {
     // التكرار عبر جميع الأشكال داخل الشريحة
     for (int i = 0; i < slide.Shapes.Count; i++)
     {
-        // إذا كان النص البديل للشريحة يتطابق مع النص المطلوب
+        // إذا كان النص البديل للشريحة يطابق المطلوب ثم
         // إرجاع الشكل
         if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
             return slide.Shapes[i];
@@ -46,18 +65,18 @@ public static IShape FindShape(ISlide slide, string alttext)
 
 
 
-## **استنساخ الشكل**
-لاستنساخ شكل إلى الشريحة باستخدام Aspose.Slides لـ .NET:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. الحصول على مرجع لشريحة باستخدام فهرسها.
-1. الوصول إلى مجموعة أشكال الشريحة المصدر.
-1. إضافة شريحة جديدة إلى العرض التقديمي.
-1. استنساخ الأشكال من مجموعة أشكال الشريحة المصدر إلى الشريحة الجديدة.
-1. حفظ العرض التقديمي المعدل كملف PPTX.
+## **استنساخ شكل**
+To clone a shape to a slide using Aspose.Slides for .NET:
 
-المثال أدناه يضيف شكل مجموعة إلى الشريحة.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. الحصول على مرجع شريحة باستخدام فهرسها.
+1. الوصول إلى مجموعة الأشكال في الشريحة الأصلية.
+1. إضافة شريحة جديدة إلى العرض.
+1. استنساخ الأشكال من مجموعة الأشكال في الشريحة الأصلية إلى الشريحة الجديدة.
+1. حفظ العرض المعدل كملف PPTX.
 
+المثال أدناه يضيف شكل مجموعة إلى شريحة.
 ```c#
 // إنشاء كائن من فئة Presentation
 using (Presentation srcPres = new Presentation("Source Frame.pptx"))
@@ -77,62 +96,62 @@ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 
 
 
-## **إزالة الشكل**
-يسمح Aspose.Slides لـ .NET للمطورين بإزالة أي شكل. لإزالة الشكل من أي شريحة، يرجى اتباع الخطوات أدناه:
 
-1. إنشاء كائن من فئة `Presentation`.
+## **إزالة شكل**
+تمكن Aspose.Slides for .NET المطورين من إزالة أي شكل. لإزالة الشكل من أي شريحة، يرجى اتباع الخطوات أدناه:
+
+1. إنشاء كائن من الفئة `Presentation`.
 1. الوصول إلى الشريحة الأولى.
-1. العثور على الشكل بنص بديل معين.
+1. العثور على الشكل الذي لديه نص بديل محدد.
 1. إزالة الشكل.
 1. حفظ الملف على القرص.
-
 ```c#
-// إنشاء كائن Presentation
-Presentation pres = new Presentation();
+ // إنشاء كائن عرض تقديمي
+ Presentation pres = new Presentation();
 
-// الحصول على الشريحة الأولى
-ISlide sld = pres.Slides[0];
+ // الحصول على الشريحة الأولى
+ ISlide sld = pres.Slides[0];
 
-// إضافة شكل تلقائي من نوع المستطيل
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "مستخدم محدد";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
-{
-    AutoShape ashp = (AutoShape)sld.Shapes[0];
-    if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-    {
-        sld.Shapes.Remove(ashp);
-    }
-}
+ // إضافة شكل أوتوماتيكي من نوع مستطيل
+ IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
+ IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
+ String alttext = "User Defined";
+ int iCount = sld.Shapes.Count;
+ for (int i = 0; i < iCount; i++)
+ {
+	AutoShape ashp = (AutoShape)sld.Shapes[0];
+	if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
+	{
+		sld.Shapes.Remove(ashp);
+	}
+ }
 
-// حفظ العرض التقديمي على القرص
-pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
+ // حفظ العرض التقديمي إلى القرص
+ pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
 ```
 
 
 
-## **إخفاء الشكل**
-يسمح Aspose.Slides لـ .NET للمطورين بإخفاء أي شكل. لإخفاء الشكل من أي شريحة، يرجى اتباع الخطوات أدناه:
 
-1. إنشاء كائن من فئة `Presentation`.
+## **إخفاء شكل**
+تمكن Aspose.Slides for .NET المطورين من إخفاء أي شكل. لإخفاء الشكل من أي شريحة، يرجى اتباع الخطوات أدناه:
+
+1. إنشاء كائن من الفئة `Presentation`.
 1. الوصول إلى الشريحة الأولى.
-1. العثور على الشكل بنص بديل معين.
+1. العثور على الشكل الذي لديه نص بديل محدد.
 1. إخفاء الشكل.
 1. حفظ الملف على القرص.
-
 ```c#
-// إنشاء كائن Presentation يمثل PPTX
+// إنشاء كائن من فئة Presentation تمثل ملف PPTX
 Presentation pres = new Presentation();
 
 // الحصول على الشريحة الأولى
 ISlide sld = pres.Slides[0];
 
-// إضافة شكل تلقائي من نوع المستطيل
+// إضافة شكل أوتوماتيكي من نوع مستطيل
 IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
 IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "مستخدم محدد";
+String alttext = "User Defined";
 int iCount = sld.Shapes.Count;
 for (int i = 0; i < iCount; i++)
 {
@@ -143,23 +162,23 @@ for (int i = 0; i < iCount; i++)
 	}
 }
 
-// حفظ العرض التقديمي على القرص
+// حفظ العرض التقديمي إلى القرص
 pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
 ```
 
 
 
-## **تغيير ترتيب الأشكال**
-يسمح Aspose.Slides لـ .NET للمطورين بإعادة ترتيب الأشكال. إعادة ترتيب الشكل تحدد أي شكل في المقدمة أو أي شكل في الخلف. لإعادة ترتيب الشكل من أي شريحة، يرجى اتباع الخطوات أدناه:
 
-1. إنشاء كائن من فئة `Presentation`.
+## **تغيير ترتيب الشكل**
+تمكن Aspose.Slides for .NET المطورين من إعادة ترتيب الأشكال. يحدد إعادة ترتيب الشكل أي شكل يكون في المقدمة أو في الخلف. لإعادة ترتيب الشكل من أي شريحة، يرجى اتباع الخطوات أدناه:
+
+1. إنشاء كائن من الفئة `Presentation`.
 1. الوصول إلى الشريحة الأولى.
 1. إضافة شكل.
-1. إضافة بعض النص في إطار نص الشكل.
+1. إضافة بعض النص داخل إطار النص الخاص بالشكل.
 1. إضافة شكل آخر بنفس الإحداثيات.
 1. إعادة ترتيب الأشكال.
 1. حفظ الملف على القرص.
-
 ```c#
 Presentation presentation1 = new Presentation("HelloWorld.pptx");
 ISlide slide = presentation1.Slides[0];
@@ -170,22 +189,22 @@ shp3.AddTextFrame(" ");
 ITextFrame txtFrame = shp3.TextFrame;
 IParagraph para = txtFrame.Paragraphs[0];
 IPortion portion = para.Portions[0];
-portion.Text="نص العلامة المائية نص العلامة المائية نص العلامة المائية";
+portion.Text="Watermark Text Watermark Text Watermark Text";
 shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
 slide.Shapes.Reorder(2, shp3);
 presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **الحصول على معرف الشكل Interop**
-يسمح Aspose.Slides لـ .NET للمطورين بالحصول على معرف فريد للشكل في إطار الشريحة، على عكس خاصية UniqueId، التي تسمح بالحصول على معرف فريد في نطاق العرض التقديمي. تمت إضافة خاصية OfficeInteropShapeId إلى واجهات IShape وفئة Shape على التوالي. القيمة التي ترجعها خاصية OfficeInteropShapeId تتوافق مع قيمة المعرف لكائن Microsoft.Office.Interop.PowerPoint.Shape. أدناه هو مثال للشفرة المعطاة.
 
+## **الحصول على معرف الشكل Interop**
+تمكن Aspose.Slides for .NET المطورين من الحصول على معرف فريد للشكل ضمن نطاق الشريحة بالمقارنة مع الخاصية UniqueId التي تسمح بالحصول على معرف فريد ضمن نطاق العرض. تمت إضافة الخاصية OfficeInteropShapeId إلى واجهات IShape وفئة Shape على التوالي. القيمة التي تُرجعها الخاصية OfficeInteropShapeId تتطابق مع قيمة المعرف Id لكائن Microsoft.Office.Interop.PowerPoint.Shape. فيما يلي مثال على الشفرة.
 ```c#
 public static void Run()
 {
 	using (Presentation presentation = new Presentation("Presentation.pptx"))
 	{
-		// الحصول على معرف شكل فريد في إطار الشريحة
+		// الحصول على معرّف الشكل الفريد في نطاق الشريحة
 		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
 	}
 }
@@ -193,30 +212,30 @@ public static void Run()
 
 
 
-## **تعيين نص بديل للشكل**
-يسمح Aspose.Slides لـ .NET للمطورين بتعيين AlternateText لأي شكل. 
-يمكن تمييز الأشكال في عرض تقديمي من خلال خاصية النص البديل أو اسم الشكل. 
-يمكن قراءة أو تعيين خاصية النص البديل باستخدام Aspose.Slides وكذلك Microsoft PowerPoint. 
-باستخدام هذه الخاصية، يمكنك وضع علامة على شكل ويمكنك تنفيذ عمليات مختلفة مثل إزالة شكل، 
-إخفاء شكل أو إعادة ترتيب الأشكال على شريحة.
-لتعيين النص البديل لشكل، يرجى اتباع الخطوات أدناه:
 
-1. إنشاء كائن من فئة `Presentation`.
+## **تعيين نص بديل لشكل**
+تمكن Aspose.Slides for .NET المطورين من تعيين AlternateText لأي شكل.
+يمكن تمييز الأشكال في العرض باستخدام الخاصية AlternativeText أو خاصية اسم الشكل (Shape Name).
+يمكن قراءة أو تعيين الخاصية AlternativeText باستخدام Aspose.Slides وكذلك Microsoft PowerPoint.
+باستخدام هذه الخاصية، يمكنك وضع علامة على شكل وإجراء عمليات مختلفة مثل إزالة الشكل،
+إخفاء الشكل أو إعادة ترتيب الأشكال في شريحة.
+لتعيين AlternateText لشكل، يرجى اتباع الخطوات أدناه:
+
+1. إنشاء كائن من الفئة `Presentation`.
 1. الوصول إلى الشريحة الأولى.
 1. إضافة أي شكل إلى الشريحة.
-1. القيام ببعض العمل مع الشكل الذي تم إضافته حديثًا.
-1. التكرار عبر الأشكال للعثور على شكل.
-1. تعيين النص البديل.
+1. إجراء بعض العمليات على الشكل المضاف حديثًا.
+1. المرور عبر الأشكال للعثور على شكل معين.
+1. تعيين AlternativeText.
 1. حفظ الملف على القرص.
-
 ```c#
-// إنشاء كائن Presentation يمثل PPTX
+// إنشاء كائن من فئة Presentation يمثل ملف PPTX
 Presentation pres = new Presentation();
 
-// الحصول على الشريحة الأولى
+// الحصول على أول شريحة
 ISlide sld = pres.Slides[0];
 
-// إضافة شكل تلقائي من نوع المستطيل
+// إضافة شكل أوتوماتيكي من نوع مستطيل
 IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
 IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
 shp2.FillFormat.FillType = FillType.Solid;
@@ -228,22 +247,22 @@ for (int i = 0; i < sld.Shapes.Count; i++)
     if (shape != null)
     {
         AutoShape ashp = shape;
-        ashp.AlternativeText = "مستخدم محدد";
+        ashp.AlternativeText = "User Defined";
     }
 }
 
-// حفظ العرض التقديمي على القرص
+// حفظ العرض التقديمي إلى القرص
 pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
 ```
 
 
 
 
-## **الوصول إلى تنسيقات التخطيط للشكل**
- يوفر Aspose.Slides لـ .NET واجهة برمجة تطبيقات بسيطة للوصول إلى تنسيقات التخطيط لشكل. يوضح هذا المقال كيف يمكنك الوصول إلى تنسيقات التخطيط.
 
-أدناه هو كود المثال المعطى.
+## **الوصول إلى تنسيقات التخطيط لشكل**
+توفر Aspose.Slides for .NET واجهة برمجة تطبيقات بسيطة للوصول إلى تنسيقات التخطيط لشكل. توضح هذه المقالة كيفية الوصول إلى تنسيقات التخطيط.
 
+فيما يلي مثال على الشفرة.
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -255,37 +274,37 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## **عرض شكل كـ SVG**
-الآن يدعم Aspose.Slides لـ .NET عرض شكل كـ SVG. تمت إضافة طريقة WriteAsSvg (والتحميلات الخاصة بها) إلى فئة Shape وواجهة IShape. هذه الطريقة تسمح بحفظ محتوى الشكل كملف SVG. يظهر مقتطف الكود أدناه كيفية تصدير شكل الشريحة إلى ملف SVG.
 
+## **عرض شكل كـ SVG**
+الآن تدعم Aspose.Slides for .NET تصيير شكل كملف SVG. تمت إضافة طريقة WriteAsSvg (وتحميلاتها) إلى فئة Shape وواجهة IShape. تسمح هذه الطريقة بحفظ محتوى الشكل كملف SVG. يظهر المقتطف البرمجي أدناه كيفية تصدير شكل الشريحة إلى ملف SVG.
 ```c#
 public static void Run()
 {
-	string outSvgFileName = "SingleShape.svg";
-	using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
-	{
-		using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
-		{
-			pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-		}
-	}
+    string outSvgFileName = "SingleShape.svg";
+    using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
+    {
+        using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
+        {
+            pres.Slides[0].Shapes[0].WriteAsSvg(stream);
+        }
+    }
 }
 ```
 
-## محاذاة الشكل
 
-من خلال طريقة [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes/index) المحملة، يمكنك 
+## **محاذاة شكل**
 
-* محاذاة الأشكال بالنسبة لهامش الشريحة. انظر المثال 1. 
-* محاذاة الأشكال بالنسبة لبعضها البعض. انظر المثال 2. 
+من خلال الطريقة المحملة [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes/index)، يمكنك
 
-تُعرف التعداد ShapesAlignmentType خيارات المحاذاة المتاحة.
+* محاذاة الأشكال بالنسبة لهوامش الشريحة. انظر المثال 1.
+* محاذاة الأشكال بالنسبة لبعضها البعض. انظر المثال 2.
 
-### المثال 1
+تحدد تعداد [ShapesAlignmentType](https://reference.aspose.com/slides/net/aspose.slides/shapesalignmenttype) خيارات المحاذاة المتاحة.
 
-يعرض هذا الكود C# كيفية محاذاة الأشكال ذات الفهارس 1 و2 و4 على طول الحدود العلوية لشريحة:
-الكود المصدر أدناه يقوم بمحاذاة الأشكال ذات الفهارس 1 و2 و4 على طول الحدود العلوية للشريحة. 
+**المثال 1**
 
+يظهر هذا الكود C# كيفية محاذاة الأشكال ذات الفهارس 1 و2 و4 على الحدود العليا للشريحة:
+الكود المصدر أدناه يقوم بمحاذاة الأشكال ذات الفهارس 1 و2 و4 على الحد العلوي للشريحة.
 ``` csharp
 using (Presentation pres = new Presentation("example.pptx"))
 {
@@ -302,13 +321,71 @@ using (Presentation pres = new Presentation("example.pptx"))
 }
 ```
 
-### المثال 2
 
-يعرض هذا الكود C# كيفية محاذاة مجموعة كاملة من الأشكال بالنسبة إلى الشكل السفلي في المجموعة:
+**المثال 2**
 
+يوضح هذا الكود C# كيفية محاذاة مجموعة كاملة من الأشكال بالنسبة إلى الشكل السفلي في المجموعة:
 ``` csharp
 using (Presentation pres = new Presentation("example.pptx"))
 {
     SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
 }
 ```
+
+
+## **خصائص الانعكاس**
+
+في Aspose.Slides، توفر فئة [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) التحكم في انعكاس الأشكال أفقياً وعمودياً عبر خصائص `FlipH` و`FlipV`. كلا الخصائص من نوع [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/)، وتسمح بالقيم `True` للإشارة إلى انعكاس، `False` لعدم وجود انعكاس، أو `NotDefined` لاستخدام السلوك الافتراضي. هذه القيم يمكن الوصول إليها من خلال [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/) الخاص بالشكل.
+
+لتعديل إعدادات الانعكاس، يتم إنشاء كائن جديد من فئة [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) باستخدام الموقع والحجم الحاليين للشكل، والقيم المطلوبة لـ`FlipH` و`FlipV`، وزاوية الدوران. يُعيّن هذا الكائن إلى [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/) الخاص بالشكل، وحفظ العرض يطبق التحولات العكسية ويثبتها في ملف الإخراج.
+
+لنفترض أن لدينا ملف sample.pptx يحتوي على شريحة أولى بها شكل واحد بإعدادات انعكاس افتراضية، كما هو موضح أدناه.
+
+![The shape to be flipped](shape_to_be_flipped.png)
+
+يعرض مثال الشيفرة التالي الخصائص الحالية للانعكاس للشكل ويقوم بعكسه أفقياً وعامودياً.
+```cs
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    IShape shape = presentation.Slides[0].Shapes[0];
+
+    // استرجاع خاصية الانعكاس الأفقي للشكل.
+    NullableBool horizontalFlip = shape.Frame.FlipH;
+    Console.WriteLine($"Horizontal flip: {horizontalFlip}");
+
+    // استرجاع خاصية الانعكاس العمودي للشكل.
+    NullableBool verticalFlip = shape.Frame.FlipV;
+    Console.WriteLine($"Vertical flip: {verticalFlip}");
+
+    float x = shape.Frame.X;
+    float y = shape.Frame.Y;
+    float width = shape.Frame.Width;
+    float height = shape.Frame.Height;
+    NullableBool flipH = NullableBool.True; // انعكاس أفقي.
+    NullableBool flipV = NullableBool.True; // انعكاس عمودي.
+    float rotation = shape.Frame.Rotation;
+
+    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
+```
+
+
+النتيجة:
+
+![The flipped shape](flipped_shape.png)
+
+## **FAQ**
+
+**هل يمكنني دمج الأشكال (union/intersect/subtract) في شريحة كما في محرر سطح المكتب؟**
+
+لا توجد واجهة برمجة تطبيقات مدمجة للعمليات البوليانية. يمكنك تقريب ذلك بإنشاء المخطط المطلوب بنفسك—مثلاً حساب الهندسة الناتجة (باستخدام [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/)) وإنشاء شكل جديد بهذا المخطط، مع إمكانية إزالة الأصليين.
+
+**كيف يمكنني التحكم في ترتيب التراص (z-order) بحيث يبقى الشكل دائمًا "في الأعلى"?**
+
+غيّر ترتيب الإدراج/النقل داخل مجموعة [shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) الخاصة بالشريحة. للحصول على نتائج متوقعة، أكمل ترتيب z بعد جميع التعديلات الأخرى على الشريحة.
+
+**هل يمكنني "قفل" شكل لمنع المستخدمين من تعديلها في PowerPoint؟**
+
+نعم. قم بتعيين [shape-level protection flags](/slides/ar/net/applying-protection-to-presentation/) (مثل قفل الاختيار، الحركة، تغيير الحجم، تحرير النص). إذا لزم الأمر، انقل القيود إلى القالب الرئيس أو التخطيط. لاحظ أن هذا الحماية على مستوى واجهة المستخدم، وليست ميزة أمان؛ للحصول على حماية أقوى، اجمعها مع قيود على مستوى الملف مثل [توصيات القراءة فقط أو كلمات المرور](/slides/ar/net/password-protected-presentation/).

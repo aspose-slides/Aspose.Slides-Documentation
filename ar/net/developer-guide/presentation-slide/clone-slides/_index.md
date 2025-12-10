@@ -1,180 +1,185 @@
 ---
-title: نسخ الشرائح
+title: استنساخ شرائح العرض التقديمي في .NET
+linktitle: استنساخ الشرائح
 type: docs
 weight: 40
 url: /ar/net/clone-slides/
-keywords: "نسخ شريحة, نسخ شريحة, حفظ نسخة الشريحة, PowerPoint, تقديم, C#, Csharp, .NET, Aspose.Slides"
-description: "نسخ شريحة PowerPoint في C# أو .NET"
+keywords:
+- استنساخ شريحة
+- نسخ شريحة
+- حفظ شريحة
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "قم بتكرار شرائح PowerPoint بسرعة باستخدام Aspose.Slides لـ .NET. اتبع أمثلتنا الواضحة في الشيفرة لأتمتة إنشاء ملفات PPT في ثوانٍ وإزالة العمل اليدوي."
 ---
 
-## **نسخ الشرائح في التقديم**
-النسخ هو عملية إنشاء نسخة مطابقة تمامًا أو تكرار لشيء ما. تتيح Aspose.Slides لـ .NET أيضًا إمكانية عمل نسخة أو تكرار لأي شريحة ثم إدراج تلك الشريحة المكررة في التقديم الحالي أو أي تقديم آخر مفتوح. عملية نسخ الشريحة تنشئ شريحة جديدة يمكن تعديلها بواسطة المطورين دون تغيير الشريحة الأصلية. هناك عدة طرق ممكنة لنسخ شريحة:
+## **استنساخ الشرائح في عرض تقديمي**
+الاستنساخ هو عملية إنشاء نسخة دقيقة أو مكرر لشيء ما. Aspose.Slides for .NET تجعل من الممكن أيضًا إنشاء نسخة أو استنساخ لأي شريحة ثم إدراج تلك الشريحة المستنسخة إلى العرض الحالي أو أي عرض آخر مفتوح. عملية استنساخ الشرائح تنشئ شريحة جديدة يمكن للمطورين تعديلها دون تغيير الشريحة الأصلية. هناك عدة طرق ممكنة لاستنساخ الشريحة:
 
-- نسخ في النهاية داخل التقديم.
-- نسخ في موضع آخر داخل التقديم.
-- نسخ في النهاية في تقديم آخر.
-- نسخ في موضع آخر في تقديم آخر.
-- نسخ في موضع محدد في تقديم آخر.
+- استنساخ في النهاية داخل عرض تقديمي.
+- استنساخ في موضع آخر داخل العرض.
+- استنساخ في النهاية في عرض تقديمي آخر.
+- استنساخ في موضع آخر في عرض تقديمي آخر.
+- استنساخ في موضع محدد في عرض تقديمي آخر.
 
-في Aspose.Slides لـ .NET، (مجموعة من [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) كائنات) التي يكشف عنها كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) تقدم طرق [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) و [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) لتنفيذ أنواع النسخ المذكورة أعلاه
-## **نسخ في النهاية داخل التقديم**
-إذا كنت تريد نسخ شريحة ثم استخدامها داخل نفس ملف التقديم في نهاية الشرائح الموجودة، استخدم طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) وفقًا للخطوات المذكورة أدناه:
+في Aspose.Slides for .NET، (مجموعة من كائنات [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide)) التي يعرّفها كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) توفر طرق [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) و[InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) لتنفيذ أنواع استنساخ الشرائح المذكورة أعلاه
+## **استنساخ شريحة في نهاية عرض تقديمي**
+إذا كنت تريد استنساخ شريحة ثم استخدامها داخل نفس ملف العرض في نهاية الشرائح الموجودة، استخدم طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) وفقًا للخطوات المذكورة أدناه:
 
-1. إنشاء مثيل لفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. إنشاء مثيل لفئة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) عن طريق الإشارة إلى مجموعة الشرائح التي يكشف عنها كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. استدعاء طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) التي يكشف عنها كائن [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) وتمرير الشريحة المراد نسخها كمعلمة إلى طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
-1. كتابة ملف التقديم المعدل.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. إنشاء كائن من فئة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) بالإشارة إلى مجموعة Slides التي يعرّفها كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. استدعاء طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) التي يعرّفها كائن [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) وتمرير الشريحة المراد استنساخها كمعامل إلى طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
+1. حفظ ملف العرض المعدَّل.
 
-في المثال المعطى أدناه، قمنا بنسخ شريحة (تقع في الموضع الأول - فهرس صفر - من التقديم) إلى نهاية التقديم.
-
+في المثال المعطى أدناه، قمنا باستنساخ شريحة (تقع في الموضع الأول – الفهرس صفر – من العرض) إلى نهاية العرض.
 ```c#
-// إنشاء مثيل لفئة Presentation التي تمثل ملف تقديم
+// إنشاء كائن من الفئة Presentation التي تمثل ملف عرض تقديمي
 using (Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pptx"))
 {
 
-    // نسخ الشريحة المرغوبة إلى نهاية مجموعة الشرائح في نفس التقديم
+    // استنساخ الشريحة المطلوبة إلى نهاية مجموعة الشرائح في نفس العرض التقديمي
     ISlideCollection slds = pres.Slides;
 
     slds.AddClone(pres.Slides[0]);
 
-    // كتابة التقديم المعدل على القرص
+    // كتابة العرض التقديمي المعدل إلى القرص
     pres.Save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat.Pptx);
 
 }
 ```
 
 
-## **نسخ في موضع آخر داخل التقديم**
-إذا كنت تريد نسخ شريحة ثم استخدامها داخل نفس ملف التقديم ولكن في موضع مختلف، استخدم طريقة [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1):
+## **استنساخ شريحة إلى موضع آخر داخل عرض تقديمي**
+إذا كنت تريد استنساخ شريحة ثم استخدامها داخل نفس ملف العرض ولكن في موضع مختلف، استخدم طريقة [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1):
 
-1. إنشاء مثيل لفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. إنشاء مثيل للفئة عن طريق الإشارة إلى مجموعة **Slides** التي يكشف عنها كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. استدعاء طريقة [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) التي يكشف عنها كائن [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) وتمرير الشريحة المراد نسخها مع الفهرس للموقع الجديد كمعلمة لطريقة [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1).
-1. كتابة التقديم المعدل كملف PPTX.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. إنشاء كائن بالإشارة إلى مجموعة **Slides** التي يعرّفها كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. استدعاء طريقة [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) التي يعرّفها كائن [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) وتمرير الشريحة المراد استنساخها مع الفهرس للموضع الجديد كمعامل إلى طريقة [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1).
+1. حفظ العرض المعدَّل كملف PPTX.
 
-في المثال المعطى أدناه، قمنا بنسخ شريحة (تقع في فهرس صفر - الموضع 1 - من التقديم) إلى الفهرس 1 - الموضع 2 - من التقديم.
-
+في المثال المعطى أدناه، قمنا باستنساخ شريحة (تقع في الفهرس صفر – الموضع 1 – من العرض) إلى الفهرس 1 – الموضع 2 – من العرض.
 ```c#
-// إنشاء مثيل لفئة Presentation التي تمثل ملف تقديم
+// إنشاء كائن من الفئة Presentation التي تمثل ملف عرض تقديمي
 using (Presentation pres = new Presentation("CloneWithInSamePresentation.pptx"))
 {
 
-    // نسخ الشريحة المرغوبة إلى نهاية مجموعة الشرائح في نفس التقديم
+    // استنساخ الشريحة المطلوبة إلى نهاية مجموعة الشرائح في نفس العرض التقديمي
     ISlideCollection slds = pres.Slides;
 
-    // نسخ الشريحة المرغوبة إلى الفهرس المحدد في نفس التقديم
+    // استنساخ الشريحة المطلوبة إلى الفهرس المحدد في نفس العرض التقديمي
     slds.InsertClone(2, pres.Slides[1]);
 
-    // كتابة التقديم المعدل على القرص
+    // كتابة العرض التقديمي المعدل إلى القرص
     pres.Save("Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat.Pptx);
 
 }
 ```
 
 
-## **نسخ في النهاية في تقديم آخر**
-إذا كنت بحاجة إلى نسخ شريحة من تقديم واحد واستخدامها في ملف تقديم آخر، في نهاية الشرائح الموجودة:
+## **استنساخ شريحة في نهاية عرض تقديمي آخر**
+إذا كنت بحاجة إلى استنساخ شريحة من عرض تقديمي واستخدامها في ملف عرض تقديمي آخر، في نهاية الشرائح الموجودة:
 
-1. إنشاء مثيل لفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على التقديم الذي ستنسخ منه الشريحة.
-1. إنشاء مثيل لفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على التقديم الوجهة التي ستضاف إليها الشريحة.
-1. إنشاء مثيل لفئة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) عن طريق الإشارة إلى مجموعة **Slides** التي يكشف عنها كائن Presentation الخاص بالتقديم الوجهة.
-1. استدعاء طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) التي يكشف عنها كائن [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) وتمرير الشريحة من التقديم المصدر كمعلمة لطريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
-1. كتابة ملف التقديم المعدل الوجهة.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على العرض الذي ستُستنسَخ منه الشريحة.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على العرض الوجهة الذي ستُضاف إليه الشريحة.
+1. إنشاء كائن من فئة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) بالإشارة إلى مجموعة **Slides** التي يعرّفها كائن Presentation للعرض الوجهة.
+1. استدعاء طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) التي يعرّفها كائن [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) وتمرير الشريحة من العرض المصدر كمعامل إلى طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
+1. حفظ ملف العرض الوجهة المعدَّل.
 
-في المثال المعطى أدناه، قمنا بنسخ شريحة (من الفهرس الأول من التقديم المصدر) إلى نهاية التقديم الوجهة.
-
+في المثال المعطى أدناه، قمنا باستنساخ شريحة (من الفهرس الأول للعرض المصدر) إلى نهاية العرض الوجهة.
 ```c#
-// إنشاء مثيل لفئة Presentation لتحميل ملف التقديم المصدر
+// إنشاء كائن من فئة Presentation لتحميل ملف العرض التقديمي المصدر
 using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 {
-    // إنشاء مثيل لفئة Presentation لملف PPTX الوجهة (حيث سيتم نسخ الشريحة)
+    // إنشاء كائن من فئة Presentation للملف PPTX الوجهة (حيث ستُستنسخ الشريحة)
     using (Presentation destPres = new Presentation())
     {
-        // نسخ الشريحة المرغوبة من التقديم المصدر إلى نهاية مجموعة الشرائح في التقديم الوجهة
+        // استنساخ الشريحة المطلوبة من العرض التقديمي المصدر إلى نهاية مجموعة الشرائح في العرض التقديمي الوجهة
         ISlideCollection slds = destPres.Slides;
 
         slds.AddClone(srcPres.Slides[0]);
 
-        // كتابة التقديم الوجهة على القرص
+        // حفظ العرض التقديمي الوجهة إلى القرص
         destPres.Save("Aspose2_out.pptx", SaveFormat.Pptx);
     }
 }
 ```
 
 
-## **نسخ في موضع آخر في تقديم آخر**
-إذا كنت بحاجة إلى نسخ شريحة من تقديم واحد واستخدامها في ملف تقديم آخر، في موضع محدد:
+## **استنساخ شريحة إلى موضع آخر في عرض تقديمي آخر**
+إذا كنت بحاجة إلى استنساخ شريحة من عرض تقديمي واستخدامها في ملف عرض تقديمي آخر، في موضع محدد:
 
-1. إنشاء مثيل لفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على التقديم المصدر الذي ستنسخ منه الشريحة.
-1. إنشاء مثيل لفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على التقديم الذي ستضاف إليه الشريحة.
-1. إنشاء مثيل لفئة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) عن طريق الإشارة إلى مجموعة الشرائح التي يكشف عنها كائن Presentation الخاص بالتقديم الوجهة.
-1. استدعاء طريقة [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) التي يكشف عنها كائن [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) وتمرير الشريحة من التقديم المصدر مع الموقع المطلوب كمعلمة لطريقة [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1).
-1. كتابة ملف التقديم المعدل الوجهة.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على العرض المصدر الذي ستُستنسَخ منه الشريحة.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي سيُضاف إليها الشريحة.
+1. إنشاء كائن من فئة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) بالإشارة إلى مجموعة Slides التي يعرّفها كائن Presentation للعرض الوجهة.
+1. استدعاء طريقة [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1) التي يعرّفها كائن [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) وتمرير الشريحة من العرض المصدر مع الموضع المرغوب كمعامل إلى طريقة [InsertClone](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/insertclone/methods/1).
+1. حفظ ملف العرض الوجهة المعدَّل.
 
-في المثال المعطى أدناه، قمنا بنسخ شريحة (من الفهرس صفر من التقديم المصدر) إلى الفهرس 1 (الموضع 2) من التقديم الوجهة.
-
+في المثال المعطى أدناه، قمنا باستنساخ شريحة (من الفهرس صفر للعرض المصدر) إلى الفهرس 1 (الموضع 2) للعرض الوجهة.
 ```c#
-// إنشاء مثيل لفئة Presentation لتحميل ملف التقديم المصدر
+// إنشاء كائن من فئة Presentation لتحميل ملف العرض التقديمي المصدر
 using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 {
-    // إنشاء مثيل لفئة Presentation لملف PPTX الوجهة (حيث سيتم نسخ الشريحة)
+    // إنشاء كائن من فئة Presentation لملف PPTX الوجهة (حيث سيتم استنساخ الشريحة)
     using (Presentation destPres = new Presentation())
     {
         ISlideCollection slds = destPres.Slides;
 
         slds.InsertClone(2, srcPres.Slides[0]);
 
-        // كتابة التقديم الوجهة على القرص
+        // حفظ العرض التقديمي الوجهة إلى القرص
         destPres.Save("Aspose2_out.pptx", SaveFormat.Pptx);
     }
 }
 ```
 
 
-## **نسخ في موضع محدد في تقديم آخر**
-إذا كنت بحاجة إلى نسخ شريحة مع شريحة رئيسية من تقديم واحد واستخدامها في تقديم آخر، تحتاج إلى نسخ الشريحة الرئيسية المطلوبة من التقديم المصدر إلى التقديم الوجهة أولاً. ثم تحتاج إلى استخدام هذه الشريحة الرئيسية لنسخ الشريحة مع الشريحة الرئيسية. تتوقع طريقة **AddClone(ISlide, IMasterSlide)** شريحة رئيسية من التقديم الوجهة بدلاً من التقديم المصدر. من أجل نسخ الشريحة مع الرئيسية، يرجى اتباع الخطوات أدناه:
+## **استنساخ شريحة في موضع محدد في عرض تقديمي آخر**
+إذا كنت بحاجة إلى استنساخ شريحة مع شريحة رئيسية من عرض تقديمي واستخدامها في عرض تقديمي آخر، يجب أولاً استنساخ الشريحة الرئيسية المطلوبة من العرض المصدر إلى العرض الوجهة. ثم تحتاج إلى استخدام تلك الشريحة الرئيسية لاستنساخ الشريحة ذات الشريحة الرئيسية. طريقة **AddClone(ISlide, IMasterSlide)** تتوقع شريحة رئيسية من العرض الوجهة وليس من المصدر. لاستنساخ الشريحة مع رئيس، يرجى اتباع الخطوات التالية:
 
-1. إنشاء مثيل لفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على التقديم المصدر الذي ستنسخ منه الشريحة.
-1. إنشاء مثيل لفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على التقديم الوجهة التي ستنسخ إليها.
-1. الوصول إلى الشريحة المراد نسخها مع الشريحة الرئيسية.
-1. إنشاء مثيل لفئة [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) عن طريق الإشارة إلى مجموعة الماستر التي تكشف عنها كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) الخاص بالتقديم الوجهة.
-1. استدعاء طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) التي يكشف عنها كائن [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) وتمرير الماستر من ملف التقديم المصدر الذي سيتم نسخه كمعلمة لطريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
-1. إنشاء مثيل لفئة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) عن طريق تعيين الإشارة إلى مجموعة الشرائح التي يكشف عنها كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) الخاص بالتقديم الوجهة.
-1. استدعاء طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) التي يكشف عنها كائن [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) وتمرير الشريحة من التقديم المصدر التي سيتم نسخها وماستر الشريحة كمعلمة لطريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
-1. كتابة ملف التقديم المعدل الوجهة.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على العرض المصدر الذي ستُستنسَخ منه الشريحة.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على العرض الوجهة الذي ستُستنسَخ إليه الشريحة.
+1. الوصول إلى الشريحة المراد استنساخها مع الشريحة الرئيسية.
+1. إنشاء كائن من فئة [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) بالإشارة إلى مجموعة Masters التي يعرّفها كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) للعرض الوجهة.
+1. استدعاء طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) التي يعرّفها كائن [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection) وتمرير الشريحة الرئيسية من ملف PPTX المصدر ليتم استنساخها كمعامل إلى طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
+1. إنشاء كائن من فئة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) عبر تعيين الإشارة إلى مجموعة Slides التي يعرّفها كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) للعرض الوجهة.
+1. استدعاء طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) التي يعرّفها كائن [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) وتمرير الشريحة من العرض المصدر ليتم استنساخها مع الشريحة الرئيسية كمعامل إلى طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index).
+1. حفظ ملف العرض الوجهة المعدَّل.
 
-في المثال المعطى أدناه، قمنا بنسخ شريحة مع شريحة رئيسية (تقع في الفهرس صفر من التقديم المصدر) إلى نهاية التقديم الوجهة باستخدام شريحة رئيسية من الشريحة المصدر.
-
+في المثال المعطى أدناه، قمنا باستنساخ شريحة مع رئيس (تقع في الفهرس صفر للعرض المصدر) إلى نهاية العرض الوجهة باستخدام رئيس من الشريحة المصدر.
 ```c#
-// إنشاء مثيل لفئة Presentation لتحميل ملف التقديم المصدر
+// إنشاء كائن من فئة Presentation لتحميل ملف العرض التقديمي المصدر
 
 using (Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx"))
 {
-    // إنشاء مثيل لفئة Presentation للتقديم الوجهة (حيث سيتم نسخ الشريحة)
+    // إنشاء كائن من فئة Presentation للعرض التقديمي الوجهة (حيث سيتم استنساخ الشريحة)
     using (Presentation destPres = new Presentation())
     {
 
-        // إنشاء ISlide من مجموعة الشرائح في التقديم المصدر مع
+        // إنشاء ISlide من مجموعة الشرائح في العرض التقديمي المصدر مع
         // الشريحة الرئيسية
         ISlide SourceSlide = srcPres.Slides[0];
         IMasterSlide SourceMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-        // نسخ الشريحة الرئيسية المطلوبة من التقديم المصدر إلى مجموعة الماستر في
-        // التقديم الوجهة
+        // استنساخ الشريحة الرئيسية المطلوبة من العرض التقديمي المصدر إلى مجموعة الشرائح الرئيسية في الـ
+        // العرض التقديمي الوجهة
         IMasterSlideCollection masters = destPres.Masters;
         IMasterSlide DestMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-        // نسخ الشريحة الرئيسية المطلوبة من التقديم المصدر إلى مجموعة الماستر في
-        // التقديم الوجهة
+        // استنساخ الشريحة الرئيسية المطلوبة من العرض التقديمي المصدر إلى مجموعة الشرائح الرئيسية في الـ
+        // العرض التقديمي الوجهة
         IMasterSlide iSlide = masters.AddClone(SourceMaster);
 
-        // نسخ الشريحة المطلوبة من التقديم المصدر مع الشريحة الرئيسية المطلوبة إلى نهاية
-        // مجموعة الشرائح في التقديم الوجهة
+        // استنساخ الشريحة المطلوبة من العرض التقديمي المصدر مع الشريحة الرئيسية المطلوبة إلى نهاية الـ
+        // مجموعة الشرائح في العرض التقديمي الوجهة
         ISlideCollection slds = destPres.Slides;
         slds.AddClone(SourceSlide, iSlide, true);
       
-        // نسخ الشريحة الرئيسية المطلوبة من التقديم المصدر إلى مجموعة الماستر في التقديم الوجهة
-        // حفظ التقديم الوجهة على القرص
+        // استنساخ الشريحة الرئيسية المطلوبة من العرض التقديمي المصدر إلى مجموعة الشرائح الرئيسية في الـ // العرض التقديمي الوجهة
+        // حفظ العرض التقديمي الوجهة إلى القرص
         destPres.Save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat.Pptx);
 
     }
@@ -182,24 +187,30 @@ using (Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMa
 ```
 
 
+## **استنساخ شريحة في نهاية قسم محدد**
+مع Aspose.Slides for .NET، يمكنك استنساخ شريحة من قسم في عرض تقديمي وإدراجها في قسم آخر داخل نفس العرض. في هذه الحالة، يجب عليك استخدام طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) من واجهة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection).
 
-## نسخ في النهاية في قسم محدد
-
-مع Aspose.Slides لـ .NET، يمكنك نسخ شريحة من قسم واحد من التقديم وإدراج تلك الشريحة في قسم آخر في نفس التقديم. في هذه الحالة، يجب عليك استخدام طريقة [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone/index) من واجهة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection). 
-
-يوضح لك هذا الكود C# كيفية نسخ شريحة وإدراج الشريحة المنسوخة في قسم محدد:
-
+هذا الكود C# يوضح لك كيفية استنساخ شريحة وإدراج الشريحة المستنسخة في قسم محدد:
 ```c#
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
-    slide.Shapes.AddAutoShape(ShapeType.Ellipse, 150, 150, 100, 100); // للنسخ
-    
+    slide.Shapes.AddAutoShape(ShapeType.Ellipse, 150, 150, 100, 100); // لاستنساخ
     ISlide slide2 = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
     ISection section = pres.Sections.AddSection("Section2", slide2);
-
     pres.Slides.AddClone(slide, section);
-    
     pres.Save("pres.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**هل يتم استنساخ ملاحظات المتحدث وتعليقات المراجعين؟**  
+نعم. يتم تضمين صفحة الملاحظات وتعليقات المراجعة في الاستنساخ. إذا لم ترغب فيها، [قم بإزالتها](/slides/ar/net/presentation-notes/) بعد الإدراج.
+
+**كيف يتم التعامل مع المخططات ومصادر بياناتها؟**  
+يتم نسخ كائن المخطط وتنسيقه والبيانات المدمجة. إذا كان المخطط مرتبطًا بمصدر خارجي (مثل دفتر عمل مضمن OLE)، يتم الحفاظ على ذلك الارتباط كـ [كائن OLE](/slides/ar/net/manage-ole/). بعد النقل بين الملفات، تحقق من توفر البيانات وسلوك التحديث.
+
+**هل يمكنني التحكم في موضع الإدراج والأقسام للاستنساخ؟**  
+نعم. يمكنك إدراج الاستنساخ عند فهرس شريحة محدد ووضعه في [قسم](/slides/ar/net/slide-section/) مختار. إذا لم يكن القسم المستهدف موجودًا، أنشئه أولاً ثم انقل الشريحة إليه.

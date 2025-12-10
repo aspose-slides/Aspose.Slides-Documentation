@@ -1,30 +1,38 @@
 ---
-title: إدارة العلامات والبيانات المخصصة
+title: إدارة الوسوم والبيانات المخصصة في العروض التقديمية في .NET
+linktitle: الوسوم والبيانات المخصصة
 type: docs
 weight: 300
-url: /ar/net/managing-tags-and-custom-data
-keywords: "العلامات، البيانات المخصصة، القيمة للعلامات، إضافة العلامات، عرض باوربوينت، C#، Csharp، Aspose.Slides for .NET"
-description: "إضافة العلامات والبيانات المخصصة إلى عروض باوربوينت باستخدام C# أو .NET"
+url: /ar/net/managing-tags-and-custom-data/
+keywords:
+- خصائص الوثيقة
+- وسم
+- بيانات مخصصة
+- إضافة وسم
+- قيم أزواج
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "تعلم كيفية إضافة وقراءة وتحديث وإزالة الوسوم والبيانات المخصصة في Aspose.Slides لـ .NET، مع أمثلة لعروض PowerPoint وعروض OpenDocument."
 ---
 
-## تخزين البيانات في ملفات العروض
+## **تخزين البيانات في ملفات العرض**
 
-تُخزَّن ملفات PPTX، وهي العناصر ذات الامتداد .pptx، في تنسيق PresentationML، وهو جزء من مواصفة Office Open XML. يحدد تنسيق Office Open XML الهيكلية للبيانات الموجودة في العروض. 
+تُخزن ملفات PPTX—العناصر ذات الامتداد .pptx—بتنسيق PresentationML، وهو جزء من مواصفة Office Open XML. يحدد تنسيق Office Open XML البنية للبيانات الموجودة في العروض التقديمية. 
 
-مع كون *الشريحة* واحدة من العناصر في العروض، تحتوي *جزء الشريحة* على محتوى شريحة واحدة. يُسمح لجزء الشريحة بوجود علاقات صريحة مع العديد من الأجزاء – مثل العلامات المعرفة من قِبل المستخدم – المحددة بموجب ISO/IEC 29500. 
+مع اعتبار *slide* أحد عناصر العروض التقديمية، يحتوي *slide part* على محتوى شريحة واحدة. يُسمح لـ slide part بوجود علاقات صريحة مع العديد من الأجزاء—مثل User Defined Tags—المحددة حسب ISO/IEC 29500. 
 
-يمكن أن توجد البيانات المخصصة (الخاصة بعرض تقديمي) أو المستخدم كعلامات ([ITagCollection](https://reference.aspose.com/slides/net/aspose.slides/itagcollection)) وأجزاء CustomXml ([ICustomXmlPartCollection](https://reference.aspose.com/slides/net/aspose.slides/icustomxmlpartcollection)). 
+يمكن أن توجد البيانات المخصصة (المحددة لعرض تقديمي) أو المستخدم كوسوم ([ITagCollection](https://reference.aspose.com/slides/net/aspose.slides/itagcollection)) وCustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/net/aspose.slides/icustomxmlpartcollection)). 
 
 {{% alert color="primary" %}} 
-
-العلامات هي في الأساس قيم تتكون من أزواج مفاتيح وسلاسل. 
-
+الوسوم هي أساسًا قيم أزواج مفتاح-سلسلة. 
 {{% /alert %}} 
 
-## الحصول على القيم للعلامات
+## **الحصول على قيم الوسوم**
 
-في الشرائح، تتوافق علامة مع خاصية IDocumentProperties.Keywords. يعرض هذا الكود النموذجي كيفية الحصول على قيمة علامة باستخدام Aspose.Slides for .NET لـ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation):
-
+في الشرائح، يتطابق الوسم مع الخاصية IDocumentProperties.Keywords. يوضح هذا المثال البرمجي كيفية الحصول على قيمة وسم باستخدام Aspose.Slides for .NET لـ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation):
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -32,17 +40,17 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## إضافة علامات إلى العروض
 
-تسمح Aspose.Slides لك بإضافة علامات إلى العروض. تتكون العلامة عادةً من عنصرين: 
+## **إضافة وسوم إلى العروض التقديمية**
 
-- اسم الميزة المخصصة - `MyTag` 
-- قيمة الميزة المخصصة - `My Tag Value`
+يسمح Aspose.Slides لك بإضافة وسوم إلى العروض التقديمية. يتكون الوسم عادةً من عنصرين: 
 
-إذا كنت بحاجة إلى تصنيف بعض العروض بناءً على قاعدة أو خاصية معينة، فيمكنك الاستفادة من إضافة علامات إلى تلك العروض. على سبيل المثال، إذا كنت تريد تصنيف أو تجميع جميع العروض من دول أمريكا الشمالية معًا، يمكنك إنشاء علامة أمريكية شمالية ثم تعيين الدول المعنية (الولايات المتحدة، المكسيك، وكندا) كقيم. 
+- اسم خاصية مخصصة - `MyTag` 
+- قيمة الخاصية المخصصة - `My Tag Value`
 
-يعرض هذا الكود النموذجي كيفية إضافة علامة إلى [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) باستخدام Aspose.Slides for .NET:
+إذا كنت بحاجة إلى تصنيف بعض العروض بناءً على قاعدة أو خاصية محددة، فستستفيد من إضافة وسوم إلى تلك العروض. على سبيل المثال، إذا أردت تصنيف أو تجميع جميع العروض من دول أمريكا الشمالية معًا، يمكنك إنشاء وسم أمريكا الشمالية ثم تعيين الدول ذات الصلة (الولايات المتحدة، المكسيك، وكندا) كقيم. 
 
+يظهر هذا المثال البرمجي كيفية إضافة وسم إلى [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) باستخدام Aspose.Slides for .NET:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -51,8 +59,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-يمكن أيضًا تعيين العلامات لــ [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide):
 
+يمكن أيضًا تعيين الوسوم لـ [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide):
 ```csharp
 using(Presentation pres = new Presentation())
 {
@@ -61,8 +69,8 @@ using(Presentation pres = new Presentation())
 }
 ```
 
-أو لأي [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape) فردي:
 
+أو لأي [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape) فردي:
 ```csharp
 using(Presentation pres = new Presentation())
 {
@@ -72,3 +80,18 @@ using(Presentation pres = new Presentation())
     shape.CustomData.Tags["tag"] = "value";
 }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني إزالة جميع الوسوم من عرض تقديمي أو شريحة أو شكل في عملية واحدة؟**
+
+نعم. يدعم [tag collection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/) عملية [clear](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/clear/) التي تحذف جميع أزواج المفتاح–القيمة مرة واحدة.
+
+**كيف أحذف وسمًا واحدًا باسمه دون التجول عبر مجموعة الوسوم بالكامل؟**
+
+استخدم عملية [Remove(name)](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/remove/) على [TagCollection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/) لحذف الوسم بمفتاحه.
+
+**كيف يمكنني استرجاع القائمة الكاملة لأسماء الوسوم للتحليل أو التصفية؟**
+
+استخدم [GetNamesOfTags](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/getnamesoftags/) على [tag collection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/); تُرجع مصفوفة تحتوي على جميع أسماء الوسوم.

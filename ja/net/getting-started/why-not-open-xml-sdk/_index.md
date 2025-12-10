@@ -1,65 +1,70 @@
 ---
-title: Open XML SDKを選ばない理由
+title: Open XML SDK を使用しない理由
 type: docs
 weight: 50
 url: /ja/net/why-not-open-xml-sdk/
+keywords:
+- Open XML SDK
+- 比較
+- プレゼンテーションオブジェクトモデル
+- 高品質変換
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides が無料の Open XML SDK より優れた選択肢である理由を確認してください: 機能比較、変換の自動化不要、PPT、PPTX、ODP の幅広いサポート。"
 ---
 
-## **Open XML SDKとは何ですか？**
-時々、私たちはこの質問を受けます: *なぜ無料のOpen XML SDKではなく、Aspose製品を使用するべきなのでしょうか？*
+## **Open XML SDK とは何ですか？**
+時々、次のような質問を受けます: *なぜ無料の Open XML SDK ではなく Aspose 製品を使用すべきなのでしょうか？*  
 
-私たちは、この質問に対する答えを機能や特徴の観点から見つけるのが簡単です。
+この質問には機能や特長の観点から簡単に答えることができます。  
 
-[MSDNライブラリ](https://docs.microsoft.com/en-us/office/open-xml/open-xml-sdk)によれば、Open XML SDKは次のように定義されています:
+[MSDN Library](https://docs.microsoft.com/en-us/office/open-xml/open-xml-sdk)によると、Open XML SDK は次のように定義されています:  
 
-> "Open XML SDK 2.0は、Open XMLパッケージおよびそのパッケージ内の基礎となるOpen XMLスキーマ要素を操作するタスクを簡素化します。Open XML SDK 2.0は、開発者がOpen XMLパッケージで実行する多くの一般的なタスクをカプセル化しているため、わずか数行のコードで複雑な操作を実行できます。OOXMLドキュメントは本質的に圧縮されたXMLファイルであり、Open XML SDKは、OOXMLドキュメントの内容を強く型付けされた方法で操作するためのクラスのコレクションです。つまり、XMLを抽出するためにファイルを解凍し、そのXMLをDOMツリーに読み込み、XML要素や属性を直接操作する代わりに、Open XML SDKはそれを実行するためのクラスを提供します。"
+> "Open XML SDK 2.0 は、Open XML パッケージとパッケージ内の基礎となる Open XML スキーマ要素を操作する作業を簡素化します。Open XML SDK 2.0 は、開発者が Open XML パッケージで実行する一般的なタスクを多くカプセル化しているため、数行のコードで複雑な操作を実行できます。OOXML ドキュメントは実質的に ZIP 圧縮された XML ファイルであり、Open XML SDK は OOXML ドキュメントの内容を強く型付けされた方法で操作できるクラスのコレクションです。つまり、ファイルを解凍して XML を抽出し、その XML を DOM ツリーにロードして XML 要素や属性を直接操作する代わりに、Open XML SDK はそれを行うクラスを提供します。"
 
-## **Aspose.Slidesとは何ですか？**
-Aspose.Slidesは、アプリケーションが次のプレゼンテーション処理タスクを実行できるようにするクラスライブラリです:
+## **Aspose.Slides とは何ですか？**
+Aspose.Slides は、アプリケーションが次のプレゼンテーション処理タスクを実行できるようにするクラス ライブラリです:  
 
-- プレゼンテーションオブジェクトモデルを用いたプログラミング。
+- プレゼンテーション オブジェクト モデルでのプログラミング。  
+- PDF、XPS、TIFF への変換や印刷を含む、すべての一般的な PowerPoint プレゼンテーション形式への高品質変換。  
+- PNG、JPEG、BMP などの一般的な形式でのスライド サムネイル生成と、SVG へのスライド エクスポート。  
+- 0 からプレゼンテーションを作成するか、1 つまたは複数のドキュメントから要素を組み合わせて作成。  
+- アニメーション、OLE フレーム、テーブルの追加、チャートの作成と管理。  
+- TextFrames、Paragraphs、Portions レベルでのテキスト書式設定を（広範に）制御および管理。  
 
-- PDF、XPS、TIFFなどへの変換を含む、すべての人気のあるPowerPointプレゼンテーションフォーマットへの高品質な変換。
+利用可能な機能の詳細については、[Aspose.Slides Features](/slides/ja/net/product-overview/) ページをご覧ください。
 
-- PNG、JPEG、BMPなどのよく知られたフォーマットでのスライドサムネイルの生成と、SVGへのスライドエクスポート。
-
-- ゼロからプレゼンテーションを構築するか、1つまたは複数のドキュメントから要素を統合する。
-
-- アニメーション、OLEフレーム、表の追加、チャートの作成と管理。
-
-- TextFrames、Paragraphs、Portionsレベルでのテキストフォーマットの制御（広範な制御）および管理。
-
-  利用可能な機能の詳細については、[Aspose.Slidesの機能](/slides/ja/net/product-overview/)ページをご覧ください。
-
-## **Open XML SDKとAspose.Slidesの比較**
-この表は、Open XML SDKの機能と特徴をAspose.Slidesと比較しています。
+## **Open XML SDK と Aspose.Slides の比較**
+この表は Open XML SDK の機能と特長を Aspose.Slides と比較したものです。
 
 |**機能または機能カテゴリ**|**Open XML SDK**|**Aspose.Slides**|
 | :- | :- | :- |
-|サポートされているプレゼンテーションフォーマット|PPTX|PPT, POT, PPS, PPTX, POTX, PPSX, ODP|
-|PPTからPPTXへの変換|いいえ|はい|
-|<p>プレゼンテーションドキュメントオブジェクトモデル（DOM）による高レベルプログラミング:</p><p>- テキストの検索と置換。</p><p>- プレゼンテーション内のスライドを組み立てる。</p>|いいえ|はい|
-|ドキュメントオブジェクトモデルによる詳細なプログラミング; TextHolders、TextFrames、Paragraphs、Portionsなどの個々の要素およびフォーマットへのアクセス。|はい|はい|
-|基礎となるXML要素や属性（関係識別子、OOXMLドキュメントのリスト識別子など）への低レベルの直接完全アクセス。|はい|いいえ|
-|<p>レンダリングと印刷:</p><p>- プレゼンテーションをPDF、PDFノート、XPS、TIFF画像にレンダリング。</p><p>- スライドサムネイルをPNG、JPEG、BMP、SVG、TIFFにレンダリング。</p><p>- 画像解像度、品質、圧縮その他のオプションを指定。</p><p>- .NET印刷インフラストラクチャを使用してプレゼンテーションを印刷。コンポーネントには、MS PowerPointの印刷プレビューに示されているプレゼンテーションを印刷するための組み込み印刷メソッドがあります。</p>|いいえ|はい|
+|サポートされているプレゼンテーション形式|PPTX|PPT, POT, PPS, PPTX, POTX, PPSX, ODP|
+|PPT から PPTX への変換|No|Yes|
+|<p>プレゼンテーション Document Object Model (DOM) を使用した高レベル プログラミング:</p><p>- テキストの検索と置換。</p><p>- プレゼンテーション内のスライドを組み立てる。</p>|No|Yes|
+|ドキュメント オブジェクト モデルを使用した詳細なプログラミング; TextHolders、TextFrames、Paragraphs、Portions などの個々の要素と書式設定へのアクセス。|Yes|Yes|
+|OOXML ドキュメントの関係識別子やリスト識別子など、基礎となる XML 要素と属性への低レベルかつ完全な直接アクセス。|Yes|No|
+|<p>レンダリングと印刷:</p><p>- プレゼンテーションを PDF、PDF Notes、XPS、TIFF 画像にレンダリング。</p><p>- スライド サムネイルを PNG、JPEG、BMP、SVG、TIFF にレンダリング。</p><p>- 画像の解像度、品質、圧縮などのオプションを指定。</p><p>- .NET 印刷インフラストラクチャを使用してプレゼンテーションを印刷。コンポーネントには、MS PowerPoint の印刷プレビューに表示される通りにプレゼンテーションを印刷する組み込みの印刷メソッドがある。</p>|No|Yes|
 |サポートされているプラットフォーム|Windows, .NET|Windows, Linux, Java, .NET, Mono|
 
 ## **結論**
-Open XML SDKとAspose.Slidesは、かなり異なるニーズに対処し、異なるオーディエンスを対象としているため、直接競合することはありません。
+Open XML SDK と Aspose.Slides は直接競合するものではなく、対象とするニーズや利用者層が大きく異なります。  
 
-{{% alert color="primary" %}}
+{{% alert color="primary" %}}  
+Open XML SDK は OOXML ドキュメントを強く型付けされた方法で操作できるクラス ライブラリであり、Aspose.Slides はほぼすべての Microsoft PowerPoint ファイル形式を強力にサポートする非常に有用なプレゼンテーション処理ライブラリです。  
+{{% /alert %}}  
 
-Open XML SDKは、OOXMLドキュメントを操作するための強く型付けされた方法を提供するクラスライブラリであり、Aspose.SlidesはほぼすべてのMicrosoft PowerPointファイルフォーマットに対して優れたサポートを提供する非常に便利なプレゼンテーション処理ライブラリです。
+ワークフローが PPTX ドキュメントに対する基本的なプログラミング操作である場合、Open XML SDK が適した選択肢となるでしょう。Open XML SDK を使用すれば、シンプルな PPTX ドキュメントの生成やコメント・ヘッダー/フッターの削除、画像の抽出などの単純なタスクを快適に実行できます。OOXML ドキュメントの XML 要素や属性に直接アクセスする必要がある場合など、Open XML SDK でしか実行できないタスクもあります。  
 
-{{% /alert %}}
+ドキュメントに対して複雑なタスク（以下のリストにあるようなタスク）を実行する必要がある場合は、Aspose.Slides が最適な選択肢です。  
 
-基本的なプログラミング操作がPPTXドキュメントに対する作業であるならば、Open XML SDKは良い選択かもしれません。Open XML SDKを使用すれば、シンプルなPPTXドキュメントの生成やコメント、ヘッダー/フッターの削除、画像の抽出などの簡単なタスクを快適に実行できるはずです。特定のタスクはOpen XML SDKで実行できますが、Aspose.Slidesでは実行できないものもあります。例えば、OOXMLドキュメントのXML要素や属性に直接アクセスする必要がある場合は、Open XML SDKを使用するべきです。
-
-文書に対して複雑な作業—以下のリストにある作業のような—を実行する必要があるならば、Aspose.Slidesがあなたにとって最良の選択肢です。
-
-- 古いPowerPointフォーマットを含む操作（PPTXも含む）。
-- スライド内のシェイプを、オブジェクト、スタイル、その他のフォーマット要素を適切に組み合わせる方法でコピーまたはクローンする。
-- フォーマットされたテキストまたはフォーマットされていないテキストの置換。
-- アニメーションの適用やシェイプとのコネクタの使用。
-- ドキュメントをPDF、TIFF、XPSに変換して、Microsoft PowerPointが変換を行ったように見えるようにする。
-- デスクトップおよびウェブベースの環境で.NETまたはJavaアプリケーションを開発する。
+- 古い PowerPoint 形式（PPT など）や PPTX も含む変換操作。  
+- スライド内のシェイプをコピーまたはクローンし、オブジェクト、スタイル、その他の書式設定要素を適切に組み合わせる方法。  
+- 書式付きまたは書式なしテキストの置換。  
+- アニメーションの適用やシェイプ間のコネクタ使用。  
+- ドキュメントを PDF、TIFF、XPS に変換し、Microsoft PowerPoint が変換したかのような外観にする。  
+- デスクトップおよび Web ベースの環境の両方で .NET または Java アプリケーションを開発する。

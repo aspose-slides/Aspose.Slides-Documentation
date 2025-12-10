@@ -1,37 +1,54 @@
 ---
-title: Встраиваемые шрифты - PowerPoint C# API
-linktitle: Встраиваемый шрифт
+title: Встраивание шрифтов в презентации в .NET
+linktitle: Встраивание шрифта
 type: docs
 weight: 40
 url: /ru/net/embedded-font/
-keywords: "Шрифты, встроенные шрифты, добавление шрифтов, PowerPoint презентация C#, Csharp, Aspose.Slides для .NET"
-description: "Используйте встроенные шрифты в PowerPoint-презентации на C# или .NET"
+keywords:
+- добавить шрифт
+- встроить шрифт
+- встраивание шрифтов
+- получить встроенный шрифт
+- добавить встроенный шрифт
+- удалить встроенный шрифт
+- сжать встроенный шрифт
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Встраивание шрифтов TrueType в презентации PowerPoint и OpenDocument с помощью Aspose.Slides для .NET, обеспечивая точный рендеринг на всех платформах."
 ---
 
-**Встроенные шрифты в PowerPoint** полезны, когда вы хотите, чтобы ваша презентация отображалась корректно на любой системе или устройстве. Если вы использовали сторонний или нестандартный шрифт, потому что проявили креативность в своей работе, у вас есть еще больше причин для встраивания шрифта. В противном случае (без встроенных шрифтов) текст или числа на ваших слайдах, компоновка, стилизация и т. д. могут измениться или превратиться в запутанные прямоугольники.
+**Встраивание шрифтов в PowerPoint** гарантирует, что ваша презентация сохраняет задуманное внешнее оформление на разных системах. Будь то уникальные шрифты для креатива или стандартные, встраивание шрифтов предотвращает искажение текста и макета.
 
-Класс [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/), класс [FontData](https://reference.aspose.com/slides/net/aspose.slides/fontdata/) и класс [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) и их интерфейсы содержат большинство свойств и методов, необходимых для работы с встроенными шрифтами в PowerPoint-презентациях.
+Если вы использовали сторонний или нестандартный шрифт, потому что проявляли креативность в работе, у вас есть ещё больше причин встраивать шрифт. В противном случае (без встроенных шрифтов) текст или цифры на слайдах, макет, стили и т.д. могут измениться или превратиться в непонятные прямоугольники.
 
-## **Получение или удаление встроенных шрифтов из презентации**
+Используйте классы [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/), [FontData](https://reference.aspose.com/slides/net/aspose.slides/fontdata/) и [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) для управления встроенными шрифтами.
 
-Aspose.Slides предоставляет метод [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts) (предоставляемый классом [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/)), который позволяет получить (или узнать) шрифты, встроенные в презентацию. Для удаления шрифтов используется метод [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont) (предоставляемый тем же классом).
+## **Получить и удалить встроенные шрифты**
 
-Этот код C# демонстрирует, как получить и удалить встроенные шрифты из презентации:
+Легко получайте или удаляйте встроенные шрифты из презентации с помощью методов [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts) и [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont).
 
+Этот код C# показывает, как получить и удалить встроенные шрифты из презентации:
 ```c#
-// Создает объект Presentation, представляющий файл презентации
 using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
 {
-    // Отображает слайд, содержащий текстовый блок, использующий встроенный шрифт "FunSized"
-    presentation.Slides[0].GetThumbnail(new Size(960, 720)).Save("picture1_out.png", ImageFormat.Png);
+    ISlide slide = presentation.Slides[0];
+
+    // Отрисовывает слайд, содержащий текстовый кадр, использующий встраиваемый "FunSized"
+    using (IImage image = slide.GetImage(new Size(960, 720)))
+    {
+        image.Save("picture1_out.png", ImageFormat.Png);
+    }
 
     IFontsManager fontsManager = presentation.FontsManager;
 
-    // Получает все встроенные шрифты
     IFontData[] embeddedFonts = fontsManager.GetEmbeddedFonts();
 
     // Находит шрифт "Calibri"
-    IFontData funSizedEmbeddedFont = Array.Find(embeddedFonts, delegate(IFontData data)
+    IFontData funSizedEmbeddedFont = Array.Find(embeddedFonts, delegate (IFontData data)
     {
         return data.FontName == "Calibri";
     });
@@ -39,23 +56,24 @@ using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
     // Удаляет шрифт "Calibri"
     fontsManager.RemoveEmbeddedFont(funSizedEmbeddedFont);
 
-    // Отображает презентацию; шрифт "Calibri" заменяется существующим
-    presentation.Slides[0].GetThumbnail(new Size(960, 720)).Save("picture2_out.png", ImageFormat.Png);
+    // Отрисовывает презентацию; шрифт "Calibri" заменяется существующим
+    using (IImage image = slide.GetImage(new Size(960, 720)))
+    {
+        image.Save("picture2_out.png", ImageFormat.Png);
+    }
 
-    // Сохраняет презентацию без встроенного шрифта "Calibri" на диск
+    // Сохраняет презентацию без встраиваемого шрифта "Calibri" на диск
     presentation.Save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
 }
 ```
 
-## **Добавление встроенных шрифтов в презентацию**
-Используя перечисление [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) и два перегруженных метода [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/), вы можете выбрать предпочитаемое правило (встраивания) для встраивания шрифтов в презентацию. Этот код C# демонстрирует, как встроить и добавить шрифты в презентацию:
 
+## **Добавить встроенные шрифты**
+
+С помощью перечисления [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) и двух перегрузок метода [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/) вы можете выбрать предпочтительное (встраиваемое) правило для включения шрифтов в презентацию. Этот код C# показывает, как встраивать и добавлять шрифты в презентацию:
 ```c#
 // Загружает презентацию
 Presentation presentation = new Presentation("Fonts.pptx");
-
-// Загружает исходный шрифт для замены
-IFontData sourceFont = new FontData("Arial");
 
 IFontData[] allFonts = presentation.FontsManager.GetFonts();
 IFontData[] embeddedFonts = presentation.FontsManager.GetEmbeddedFonts();
@@ -71,12 +89,12 @@ foreach (IFontData font in allFonts)
 presentation.Save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Сжатие встроенных шрифтов**
 
-Чтобы сжать встроенные шрифты в презентации и уменьшить ее размер, Aspose.Slides предоставляет метод [CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) (предоставляемый классом [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/)).
+## **Сжать встроенные шрифты**
 
-Этот код C# показывает, как сжать встроенные шрифты PowerPoint:
+Оптимизируйте размер файла, сжимая встроенные шрифты с помощью [CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/).
 
+Пример кода для сжатия:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -84,3 +102,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
     pres.Save("pres-out.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **FAQ**
+
+**Как понять, что конкретный шрифт в презентации всё равно будет заменён при рендеринге, несмотря на встраивание?**
+
+Проверьте [информацию о замене](/slides/ru/net/font-substitution/) в менеджере шрифтов и [правила замены/резервных шрифтов](/slides/ru/net/fallback-font/): если шрифт недоступен или ограничен, будет использован резервный.
+
+**Стоит ли встраивать «системные» шрифты, такие как Arial/Calibri?**
+
+Обычно нет — они почти всегда доступны. Но для полной переносимости в «тонких» средах (Docker, Linux‑сервер без предустановленных шрифтов) встраивание системных шрифтов может устранить риск неожиданной замены.

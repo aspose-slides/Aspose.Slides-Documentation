@@ -1,42 +1,56 @@
 ---
-title: .NET 14.7.0 における Aspose.Slides の公開 API および後方互換性のない変更
+title: "Aspose.Slides for .NET 14.7.0 のパブリック API と後方互換性がない変更"
+linktitle: "Aspose.Slides for .NET 14.7.0"
 type: docs
 weight: 90
 url: /ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/
+keywords:
+- "移行"
+- "レガシーコード"
+- "モダンコード"
+- "レガシーアプローチ"
+- "モダンアプローチ"
+- "PowerPoint"
+- "OpenDocument"
+- "プレゼンテーション"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides for .NET のパブリック API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、および ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
 ---
 
 {{% alert color="primary" %}} 
 
-このページでは、Aspose.Slides for .NET 14.7.0 API に導入されたすべての [追加された](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) または [削除された](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) クラス、メソッド、プロパティなど、およびその他の変更を一覧表示します。
+このページでは、Aspose.Slides for .NET 14.7.0 API で導入された、追加または削除されたクラス、メソッド、プロパティなどを一覧表示し、その他の変更点を示します。
 
 {{% /alert %}} 
-## **公開 API 変更**
-### **削除されたコンストラクターと要素**
-#### **いくつかの TransitionValueBase サブタイプのコンストラクターと TransitionValueFactory の削除**
-いくつかの TransitionValueBase サブタイプ（具体的には CornerDirectionTransition、EightDirectionTransition、EmptyTransition、InOutTransition、OptionalBlackTransition、OrientationTransition、SideDirectionTransition、SplitTransition、WheelTransition）のコンストラクターは公開 API では無用であるため削除されました。
+## **パブリック API の変更**
+### **削除されたコンストラクタと要素**
+#### **一部の TransitionValueBase サブタイプのコンストラクタと TransitionValueFactory の削除**
+一部の TransitionValueBase サブタイプ（具体的には CornerDirectionTransition、EightDirectionTransition、EmptyTransition、InOutTransition、OptionalBlackTransition、OrientationTransition、SideDirectionTransition、SplitTransition、WheelTransition）のコンストラクタはパブリック API では使用できず、削除されました。
 
-関連するクラス TransitionValueFactory とそのインターフェース ITransitionValueFactory も同様の理由で削除されました。
-#### **Aspose.Slides.SlideShow.TransitionType 列挙体から SoundAction 要素の削除**
-SoundAction 要素は不正確であり使用されていませんでした。音の設定は SlideShowTransition.SoundMode、.Sound、.SoundLoop、.SoundIsBuiltIn、.SoundName プロパティによって定義されています。
-### **追加されたクラスとインターフェース**
-#### **FlyThroughTransition クラスと IFlyThroughTransition インターフェースの追加**
-Aspose.Slides.SlideShow.FlyThroughTransition クラス（およびそのインターフェース Aspose.Slides.SlideShow.IFlyThroughTransition）は、このリリースからサポートされる Flythrough トランジションタイプに関連しています。
-#### **GlitterTransition クラス、IGlitterTransition インターフェース、および TransitionPattern 列挙体の追加**
-Aspose.Slides.SlideShow.GlitterTransition クラス（およびそのインターフェース Aspose.Slides.SlideShow.IGlitterTransition）は、このリリースからサポートされる Glitter トランジションタイプに関連しています。
+同様の理由で、関連クラス TransitionValueFactory とそのインターフェイス ITransitionValueFactory も削除されました。
+#### **Aspose.Slides.SlideShow.TransitionType 列挙体から SoundAction 要素を削除**
+SoundAction 要素は誤っており使用されていませんでした。サウンド設定は SlideShowTransition.SoundMode、.Sound、.SoundLoop、.SoundIsBuiltIn、.SoundName プロパティで定義されます。
+### **追加されたクラスとインターフェイス**
+#### **FlyThroughTransition クラスと IFlyThroughTransition インターフェイスの追加**
+Aspose.Slides.SlideShow.FlyThroughTransition クラス（およびそのインターフェイス Aspose.Slides.SlideShow.IFlyThroughTransition）は、本リリースでサポートされる Flythrough トランジション タイプに対応します。
+#### **GlitterTransition クラス、IGlitterTransition インターフェイス、および TransitionPattern 列挙体の追加**
+Aspose.Slides.SlideShow.GlitterTransition クラス（およびそのインターフェイス Aspose.Slides.SlideShow.IGlitterTransition）は、本リリースでサポートされる Glitter トランジション タイプに対応します。
 
-Aspose.Slides.SlideShow.TransitionPattern 列挙体はこのクラスで使用され、より大きな面積を埋めるためにタイル状に一緒に並べられる幾何学的パターンを指定します。
-#### **LeftRightDirectionTransition クラス、ILeftRightDirectionTransition インターフェース、および TransitionLeftRightDirectionType 列挙体の追加**
-Aspose.Slides.SlideShow.LeftRightDirectionTransition クラス（およびそのインターフェース Aspose.Slides.SlideShow.ILeftRightDirectionTransition）は、Conveyor、Ferris、Flip、Gallery、Switch のトランジションタイプに関連しています。すべて、このリリースからサポートされています。
+Aspose.Slides.SlideShow.TransitionPattern 列挙体はこのクラスで使用され、複数の図形をタイル状に配置して広い領域を埋める幾何学的パターンを指定します。
+#### **LeftRightDirectionTransition クラス、ILeftRightDirectionTransition インターフェイス、および TransitionLeftRightDirectionType 列挙体の追加**
+Aspose.Slides.SlideShow.LeftRightDirectionTransition クラス（およびそのインターフェイス Aspose.Slides.SlideShow.ILeftRightDirectionTransition）は、Conveyor、Ferris、Flip、Gallery、Switch のトランジション タイプに対応します。すべて本リリースでサポートされます。
 
-Aspose.Slides.SlideShow.TransitionLeftRightDirectionType 列挙体はこのクラスで使用され、左と右の値に限定された方向を指定します。
-#### **Aspose.Slides.SlideShow.TransitionType 列挙体への新しい要素の追加**
-Aspose.Slides.SlideShow.TransitionType 列挙体は新しい要素で拡張されました。
+Aspose.Slides.SlideShow.TransitionLeftRightDirectionType 列挙体はこのクラスで使用され、left と right の値に限定された方向を指定します。
+#### **Aspose.Slides.SlideShow.TransitionType 列挙体への新要素の追加**
+Aspose.Slides.SlideShow.TransitionType 列挙体に新しい要素が追加されました。
 
-- PowerPoint 2010 のトランジションに関連する新しい要素: Box、Conveyor、Cube、Doors、Ferris、Flash、Flip、Flythrough、Gallery、Glitter、Honeycomb、Orbit、Pan、Reveal、Ripple、Rotate、Shred、Switch、Vortex、Warp、WheelReverse、Window。
-- 新しい PowerPoint 2013 トランジションに関連する新しい要素: Airplane、Crush、Curtains、Drape、FallOver、Fracture、Origami、PageCurlDouble、PageCurlSingle、PeelOff、Prestige、Wind。
-#### **RevealTransition クラスと IRevealTransition インターフェースの追加**
-Aspose.Slides.SlideShow.RevealTransition クラス（およびそのインターフェース Aspose.Slides.SlideShow.IRevealTransition）は、このリリースからサポートされる Reveal トランジションタイプに関連しています。
-#### **RippleTransition クラス、IRippleTransition インターフェース、および TransitionCornerAndCenterDirectionType 列挙体の追加**
-Aspose.Slides.SlideShow.RippleTransition クラス（およびそのインターフェース Aspose.Slides.SlideShow.IRippleTransition）は、このリリースからサポートされる Ripple トランジションタイプに関連しています。
+- PowerPoint 2010 のトランジションに関連する新要素: Box、Conveyor、Cube、Doors、Ferris、Flash、Flip、Flythrough、Gallery、Glitter、Honeycomb、Orbit、Pan、Reveal、Ripple、Rotate、Shred、Switch、Vortex、Warp、WheelReverse、Window。
+- PowerPoint 2013 の新トランジションに関連する新要素: Airplane、Crush、Curtains、Drape、FallOver、Fracture、Origami、PageCurlDouble、PageCurlSingle、PeelOff、Prestige、Wind。
+#### **RevealTransition クラスと IRevealTransition インターフェイスの追加**
+Aspose.Slides.SlideShow.RevealTransition クラス（およびそのインターフェイス Aspose.Slides.SlideShow.IRevealTransition）は、本リリースでサポートされる Reveal トランジション タイプに対応します。
+#### **RippleTransition クラス、IRippleTransition インターフェイス、および TransitionCornerAndCenterDirectionType 列挙体の追加**
+Aspose.Slides.SlideShow.RippleTransition クラス（およびそのインターフェイス Aspose.Slides.SlideShow.IRippleTransition）は、本リリースでサポートされる Ripple トランジション タイプに対応します。
 
-Aspose.Slides.SlideShow.TransitionCornerAndCenterDirectionType 列挙体はこのクラスで使用され、角と中心に制限された方向を指定します。
+Aspose.Slides.SlideShow.TransitionCornerAndCenterDirectionType 列挙体はこのクラスで使用され、コーナーとセンターに限定された方向を指定します。

@@ -1,56 +1,62 @@
 ---
-title: .NET6 支持
+title: .NET 6 支持
 type: docs
 weight: 235
 url: /zh/net/net6/
-keywords: 
-- .NET 6
-- 云
-- AWS
-- Azure
-description: ".NET6 支持"
+keywords:
+- .NET 6 支持
+- 云解决方案
+- AWS Lambda
+- Azure Functions
+- System.Drawing.Common
+- GDI
+- libgdiplus
+- CS0433
+- .NET
+- C#
+- Aspose.Slides
+description: "在现代跨平台 C# 应用程序中，配置 Aspose.Slides for .NET 6 以创建、编辑和转换 PowerPoint PPT、PPTX 和 ODP 演示文稿。"
 ---
 
-## 介绍
+## **介绍**
 
-从 [Aspose.Slides 23.2](https://www.nuget.org/packages/Aspose.Slides.NET/23.2.0) 开始，实现了对.NET6的支持。这项支持的特点在于 .NET6 不再支持 Linux 的 System.Drawing.Common ([重大更改](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only))，而 Slides 则将该图形子系统作为 C++ 组件自行实现。
+Starting in [Aspose.Slides 23.2](https://www.nuget.org/packages/Aspose.Slides.NET/23.2.0)，实现了对.NET6的支持。此支持的特殊之处在于 .NET6 不再支持 Linux 上的 System.Drawing.Common（[重大更改](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)），Slides 将此图形子系统自行实现为 C++ 组件。
 
-Aspose.Slides for .NET 现在在以下平台上无需依赖 GDI/libgdiplus：
+Aspose.Slides for .NET 现在可以在以下平台上无需依赖 GDI/libgdiplus 工作：
 * Windows
 * Linux
 
 _MacOS_ 支持正在进行中。
 
-## 在 AWS 和 Azure 上使用 .NET6 的 Slides
+## **在 AWS 和 Azure 上使用 .NET 6 的 Slides**
 
-.NET6 是在云中（AWS、Azure 或其他云解决方案）使用 Aspose.Slides 的首选版本。
+.NET6 是在云端（AWS、Azure 或其他云解决方案）使用 Aspose.Slides 的首选版本。
 
-之前，当在 Linux 主机上使用 Aspose.Slides 时，必须安装额外的依赖项（libgdiplus），这往往不方便或不切实际（例如，在使用 [AWS Lambda](https://aws.amazon.com/lambda) 时）。使用 .NET6 的 Slides 时，不再需要这些依赖项，因此部署变得更加容易。
+以前，在 Linux 主机上使用 Aspose.Slides 时，需要安装额外的依赖 (libgdiplus)，这通常不方便或不切实际（例如，使用 [AWS Lambda](https://aws.amazon.com/lambda) 时）。使用 .NET6 版 Slides 后，不再需要这些依赖，部署因此更加简便。
 
-另一个需要考虑的问题是，当在 Windows 主机的云解决方案中使用 Aspose.Slides 时出现的问题。例如， [Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview) 对进程存在限制，这在 PDF 导出操作中会导致问题（请参见 [此处](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#unsupported-frameworks)）。使用 Aspose.Slides for .NET6 可以解决这个问题。
+另一个需要考虑的问题是，在使用 Windows 主机的云解决方案时，Aspose.Slides 会出现问题。例如，[Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview) 对进程有限制，导致 PDF 导出操作时出现问题（参见[此处](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#unsupported-frameworks)）。使用 .NET6 版 Aspose.Slides 可以解决此问题。
 
-## 使用 System.Drawing.Common 包和 .NET6 的 Slides 类 (CS0433: 类型在 Slides 和 System.Drawing.Common 中都存在的错误)
+## **使用 System.Drawing.Common 包和 .NET 6 的 Slides 类 (CS0433: 类型在 Slides 和 System.Drawing.Common 中均存在错误)**
 
-有时，项目中必须使用 System.Drawing 和 .NET6 的 Slides 两个依赖项（例如，当 .NET6 项目依赖于其他包，而这些包又依赖于 System.Drawing）。这可能会导致像这样的复杂错误：
+有时，项目中必须同时使用 System.Drawing 和 .NET6 版 Slides 的依赖（例如，.NET6 项目依赖其他包，而这些包又依赖 System.Drawing）。这可能导致如下冲突错误：
 
-* CS0433: 类型 'Image' 同时存在于 'Aspose.Slides, Version=23.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56' 和 'System.Drawing.Common, Version=6.0.0.0'
-* CS0433: 类型 'Graphics' 同时存在于 'Aspose.Slides, Version=23.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56' 和 'System.Drawing.Common, Version=6.0.0.0'
+* CS0433: The type 'Image' exists in both 'Aspose.Slides, Version=23.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56' and 'System.Drawing.Common, Version=6.0.0.0
+* CS0433: The type 'Graphics' exists in both 'Aspose.Slides, Version=23.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56' and 'System.Drawing.Common, Version=6.0.0.0
 
-在这种情况下，您可以为 Aspose.Slides（版本小于 24.8）使用 [extern alias](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extern-alias)：
-1) 从项目的依赖项中选择 Aspose.Slides 程序集，然后点击 **属性**。
+In this case, you can use [extern alias](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extern-alias) for Aspose.Slides (version less than 24.8):
+1) 从项目的依赖项中选择 Aspose.Slides 程序集，然后单击 **Properties**。
   ![Aspose Slides package properties](package_properties.png)
-2) 设置一个别名（例如，"Slides"）。
+2) 设置别名（例如，“Slides”）。
   ![Aspose Slides alias](set_alias.png)
 
-现在，System.Drawing.Common 的类型将被默认使用。当需要使用 Aspose.Slides 的类型时，应指定外部程序集别名。
-
+此时，默认使用 System.Drawing.Common 中的类型。需要使用 Aspose.Slides 类型的地方应指定外部程序集别名。
 ```c#
 extern alias Slides;
 using Slides::Aspose.Slides;
 ```
 
-完整示例：
 
+完整示例：
 ```c#
 extern alias Slides;
 using Slides::Aspose.Slides;
@@ -61,12 +67,13 @@ static Slides::System.Drawing.Image GetThumbnail(Presentation pres)
 }
 ```
 
-从 24.8 版本开始，已移除对 System.Drawing 的过时公共 API。关于上面的代码示例，您可以如下获取幻灯片图像。
 
+Starting with version 24.8, the deprecated public API with dependencies on System.Drawing has been removed. Regarding the code example above, you can get the slide image as below.
 ```cs
 static Aspose.Slides.IImage GetThumbnail(Presentation presentation)
 {
     return presentation.Slides[0].GetImage();
 }
 ```
-新 API 的详细描述可见 [现代 API](/net/modern-api/)。
+
+The new API is described in more detail in [现代 API](/net/modern-api/).

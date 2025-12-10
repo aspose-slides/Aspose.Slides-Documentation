@@ -1,14 +1,23 @@
 ---
-title: Llamadas
+title: Administrar llamadas en gráficos de presentación en .NET
+linktitle: Llamada
 type: docs
 url: /es/net/callout/
-keywords: "Llamada de gráfico, etiqueta de datos de gráfico, C#, Csharp, Aspose.Slides para .NET"
-description: "Llamadas y etiquetas de datos de gráficos de PowerPoint en C# o .NET"
+keywords:
+- llamada de gráfico
+- uso de llamada
+- etiqueta de datos
+- formato de etiqueta
+- PowerPoint
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Cree y diseñe llamadas en Aspose.Slides para .NET con ejemplos de código C# concisos, compatibles con PPT y PPTX para automatizar flujos de trabajo de presentaciones."
 ---
 
-## **Uso de Llamadas**
-Se ha agregado la nueva propiedad **ShowLabelAsDataCallout** a la clase **DataLabelFormat** y a la interfaz **IDataLabelFormat**, que determina si la etiqueta de datos del gráfico especificado se mostrará como llamada de datos o como etiqueta de datos. En el ejemplo dado a continuación, hemos configurado las Llamadas.
-
+## **Uso de llamadas**
+Nueva propiedad **ShowLabelAsDataCallout** se ha añadido a la clase **DataLabelFormat** y a la interfaz **IDataLabelFormat**, lo que determina si la etiqueta de datos del gráfico especificado se mostrará como llamada de datos o como etiqueta de datos. En el ejemplo que se muestra a continuación, hemos configurado las llamadas.
 ```c#
 using (Presentation presentation = new Presentation())
 {
@@ -21,10 +30,8 @@ using (Presentation presentation = new Presentation())
 ```
 
 
-
-## **Establecer Llamadas para Gráfico de Dona**
-Aspose.Slides para .NET proporciona soporte para establecer la forma de llamada de etiqueta de datos de la serie para un gráfico de Dona. A continuación se presenta un ejemplo de muestra.
-
+## **Establecer una llamada para un gráfico de dona**
+Aspose.Slides for .NET brinda soporte para establecer la forma de llamada de etiqueta de datos de la serie en un gráfico de dona. A continuación se muestra un ejemplo.
 ```c#
 Presentation pres = new Presentation("testc.pptx");
 ISlide slide = pres.Slides[0];
@@ -36,7 +43,7 @@ chart.HasLegend = false;
 int seriesIndex = 0;
 while (seriesIndex < 15)
 {
-	IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, seriesIndex + 1, "SERIE " + seriesIndex), chart.Type);
+	IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, seriesIndex + 1, "SERIES " + seriesIndex), chart.Type);
 	series.Explosion = 0;
 	series.ParentSeriesGroup.DoughnutHoleSize = (byte)20;
 	series.ParentSeriesGroup.FirstSliceAngle = 351;
@@ -45,7 +52,7 @@ while (seriesIndex < 15)
 int categoryIndex = 0;
 while (categoryIndex < 15)
 {
-	chart.ChartData.Categories.Add(workBook.GetCell(0, categoryIndex + 1, 0, "CATEGORÍA " + categoryIndex));
+	chart.ChartData.Categories.Add(workBook.GetCell(0, categoryIndex + 1, 0, "CATEGORY " + categoryIndex));
 	int i = 0;
 	while (i < chart.ChartData.Series.Count)
 	{
@@ -83,3 +90,14 @@ while (categoryIndex < 15)
 }
 pres.Save("chart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
+
+
+## **Preguntas frecuentes**
+
+**¿Se conservan las llamadas al convertir una presentación a PDF, HTML5, SVG o imágenes?**
+
+Sí. Las llamadas forman parte del renderizado del gráfico, por lo que cuando exportas a [PDF](/slides/es/net/convert-powerpoint-to-pdf/), [HTML5](/slides/es/net/export-to-html5/), [SVG](/slides/es/net/render-a-slide-as-an-svg-image/) o [imágenes raster](/slides/es/net/convert-powerpoint-to-png/), se conservan junto con el formato de la diapositiva.
+
+**¿Funcionan las fuentes personalizadas en las llamadas y se puede preservar su apariencia al exportar?**
+
+Sí. Aspose.Slides admite [incrustar fuentes](/slides/es/net/embedded-font/) en la presentación y controla la incrustación de fuentes durante exportaciones como [PDF](/slides/es/net/convert-powerpoint-to-pdf/), garantizando que las llamadas tengan el mismo aspecto en diferentes sistemas.

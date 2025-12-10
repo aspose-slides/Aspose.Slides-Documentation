@@ -5,23 +5,22 @@ weight: 10
 url: /ar/net/assemble-slides/
 ---
 
-تغطي الميزات التالية:
-## **إضافة شريحة إلى العرض التقديمي**
-قبل التحدث عن إضافة الشرائح إلى ملفات العرض التقديمي، دعونا نناقش بعض الحقائق حول الشرائح. يحتوي كل ملف عرض تقديمي من PowerPoint على شريحة رئيسية / تخطيط بالإضافة إلى شرائح عادية أخرى. وهذا يعني أن ملف العرض التقديمي يحتوي على شريحة واحدة على الأقل أو أكثر. من المهم أن نعرف أن ملفات العرض التقديمي بدون شرائح غير مدعومة من قبل Aspose.Slides لـ .NET. تحتوي كل شريحة على معرف فريد وجميع الشرائح العادية مرتبة وفقًا لترتيب محدد بواسطة فهرس يبدأ من الصفر.
+## **إضافة شريحة إلى عرض تقديمي**
+قبل الحديث عن إضافة الشرائح إلى ملفات العروض التقديمية، دعونا نناقش بعض الحقائق حول الشرائح. كل ملف عرض تقديمي PowerPoint يحتوي على شريحة رئيسية/تصميمية وشُرائح عادية أخرى. هذا يعني أن ملف العرض يحتوي على شريحة واحدة على الأقل أو أكثر. من المهم معرفة أن ملفات العرض التي لا تحتوي على شرائح غير مدعومة من قبل Aspose.Slides for .NET. كل شريحة لها معرف فريد وجميع الشرائح العادية مرتبة حسب ترتيب يُحدد بواسطة الفهرس الصفري.
 
-يتيح Aspose.Slides لـ .NET للمطورين إضافة شرائح فارغة إلى العرض التقديمي الخاص بهم. لإضافة شريحة فارغة إلى العرض التقديمي، يرجى اتباع الخطوات التالية:
+يسمح Aspose.Slides for .NET للمطورين بإضافة شرائح فارغة إلى عرضهم التقديمي. لإضافة شريحة فارغة في العرض، يرجى اتباع الخطوات أدناه:
 
-- إنشاء مثيل من فئة **Presentation**
-- إنشاء مثيل من فئة **SlideCollection** عن طريق تعيين مرجع إلى خاصية Slides (مجموعة من كائنات شريحة المحتوى) المعروضة بواسطة كائن Presentation.
-- إضافة شريحة فارغة إلى العرض التقديمي في نهاية مجموعة الشرائح المحتوية عن طريق استدعاء طرق **AddEmptySlide** المعروضة بواسطة كائن **SlideCollection**
-- القيام ببعض الأعمال مع الشريحة الفارغة المضافة حديثًا
-- أخيرًا، كتابة ملف العرض التقديمي باستخدام كائن **Presentation**
+- إنشاء مثال من فئة **Presentation**
+- إنشاء فئة **SlideCollection** عن طريق تعيين إشارة إلى الخاصية Slides (مجموعة من كائنات Slide المحتوى) التي تكشف عنها كائن Presentation
+- إضافة شريحة فارغة إلى العرض في نهاية مجموعة شرائح المحتوى عن طريق استدعاء طريقة **AddEmptySlide** المكشوفة بواسطة كائن **SlideCollection**
+- قم ببعض الأعمال مع الشريحة الفارغة التي تم إضافتها حديثاً
+- أخيراً، احفظ ملف العرض باستخدام كائن **Presentation**
 
 ``` csharp
 
  PresentationEx pres = new PresentationEx();
 
-//إنشاء مثيل لفئة SlideCollection
+//Instantiate SlideCollection class
 
 SlideExCollection slds = pres.Slides;
 
@@ -29,78 +28,78 @@ for (int i = 0; i < pres.LayoutSlides.Count; i++)
 
 {
 
-	//إضافة شريحة فارغة إلى مجموعة الشرائح
+	//Add an empty slide to the Slides collection
 
 	slds.AddEmptySlide(pres.LayoutSlides[i]);
 
 }
 
-//حفظ ملف PPTX على القرص
+//Save the PPTX file to the Disk
 
 pres.Write("EmptySlide.pptx");
 
 ``` 
-## **الوصول إلى شرائح العرض التقديمي**
-يوفر Aspose.Slides لـ .NET فئة Presentation التي يمكن استخدامها للعثور على أي شريحة مرغوبة والوصول إليها الموجودة في العرض التقديمي.
+## **الوصول إلى شرائح العرض**
+يوفر Aspose.Slides for .NET فئة Presentation التي يمكن استخدامها للبحث والوصول إلى أي شريحة مرغوبة موجودة في العرض.
 
 **استخدام مجموعة الشرائح**
 
-تمثل فئة **Presentation** ملف عرض تقديمي وتعرض جميع الشرائح التي تحتويها كـ **SlideCollection** (وهي مجموعة من كائنات **Slide**). يمكن الوصول إلى جميع هذه الشرائح من هذه المجموعة **Slides** باستخدام فهرس شريحة.
+فئة **Presentation** تمثل ملف عرض وتكشف عن جميع الشرائح فيه كـ مجموعة **SlideCollection** (وهي مجموعة من كائنات **Slide**). يمكن الوصول إلى جميع هذه الشرائح من مجموعة **Slides** باستخدام فهرس الشريحة.
 
 ``` csharp
 
- //إنشاء كائن Presentation يمثل ملف عرض تقديمي
+ //Instantiate a Presentation object that represents a presentation file
 
 PresentationEx pres = new PresentationEx("Slides Test Presentation.pptx");
 
-//الوصول إلى شريحة باستخدام فهرس الشريحة
+//Accessing a slide using its slide index
 
 SlideEx slide = pres.Slides[0];
 
 ``` 
 ## **إزالة الشرائح**
-نعلم أن فئة Presentation في **Aspose.Slides لـ .NET** تمثل ملف عرض تقديمي. تقوم فئة Presentation بتغليف **SlideCollection** التي تعمل كمستودع لجميع الشرائح التي هي جزء من العرض التقديمي. يمكن للمطورين إزالة شريحة من مجموعة الشرائح هذه بعدة طرق:
+نعلم أن فئة Presentation في **Aspose.Slides for .NET** تمثل ملف عرض تقديمي. فئة Presentation تضم **SlideCollection** التي تعمل كمستودع لجميع الشرائح التي هي جزء من العرض. يمكن للمطورين إزالة شريحة من مجموعة الشرائح هذه بطريقتين:
 
-- باستخدام مرجع الشريحة
+- باستخدام إشارة الشريحة
 - باستخدام فهرس الشريحة
 
-**استخدام مرجع الشريحة**
+**باستخدام إشارة الشريحة**
 
-لإزالة شريحة باستخدام مرجعها، يرجى اتباع الخطوات التالية:
+لإزالة شريحة باستخدام إشارة لها، يرجى اتباع الخطوات أدناه:
 
-- إنشاء مثيل من فئة Presentation
-- الحصول على مرجع لشريحة باستخدام معرفها أو فهرسها
-- إزالة الشريحة المرجعية من العرض التقديمي
-- كتابة ملف العرض التقديمي المعدل
+- إنشاء مثال من فئة Presentation
+- الحصول على إشارة شريحة باستخدام معرفها أو فهرسها
+- إزالة الشريحة المشار إليها من العرض
+- حفظ ملف العرض المعدل
 
 ``` csharp
 
- //إنشاء كائن Presentation يمثل ملف عرض تقديمي
+ //Instantiate a Presentation object that represents a presentation file
 
 PresentationEx pres = new PresentationEx("Slides Test Presentation.pptx");
 
-//الوصول إلى شريحة باستخدام فهرسها في مجموعة الشرائح
+//Accessing a slide using its index in the slides collection
 
 SlideEx slide = pres.Slides[0];
 
-//إزالة شريحة باستخدام مرجعها
+//Removing a slide using its reference
 
 pres.Slides.Remove(slide);
 
-//كتابة ملف العرض التقديمي
+//Writing the presentation file
 
 pres.Write("modified.pptx");
 
 ``` 
-## **تغيير موضع الشريحة:**
-من السهل جدًا تغيير موضع شريحة في العرض التقديمي. فقط اتبع الخطوات التالية:
+## **تغيير موضع الشريحة**
+من السهل جداً تغيير موضع شريحة في العرض. فقط اتبع الخطوات أدناه:
 
-- إنشاء مثيل من فئة Presentation
-- الحصول على مرجع لشريحة باستخدام فهرسها
-- تغيير SlideNumber للشريحة المرجعية
-- كتابة ملف العرض التقديمي المعدل
+- إنشاء مثال من فئة Presentation
+- الحصول على إشارة شريحة باستخدام فهرستها
+- تغيير قيمة SlideNumber للشريحة المشار إليها
+- حفظ ملف العرض المعدل
 
-في المثال الموضح أدناه، قمنا بتغيير موضع شريحة (توجد في فهرس صفر الموضع 1) من العرض التقديمي إلى فهرس 1 (الموضع 2).
+في المثال أدناه، قمنا بتغيير موضع شريحة (الموجودة في الفهرس الصفري الموضع 1) من العرض إلى الفهرس 1 (الموضع 2).
 
 ``` csharp
 
@@ -126,7 +125,7 @@ public static void AddingSlidetoPresentation()
 
 Presentation pres = new Presentation();
 
-//إنشاء مثيل لفئة SlideCollection
+//Instantiate SlideCollection class
 
 ISlideCollection slds = pres.Slides;
 
@@ -134,13 +133,13 @@ for (int i = 0; i < pres.LayoutSlides.Count; i++)
 
 {
 
-    //إضافة شريحة فارغة إلى مجموعة الشرائح
+    //Add an empty slide to the Slides collection
 
     slds.AddEmptySlide(pres.LayoutSlides[i]);
 
 }
 
-//حفظ ملف PPTX على القرص
+//Save the PPTX file to the Disk
 
 pres.Save(MyDir + "Assemble Slides.pptx", SaveFormat.Pptx);
 
@@ -150,11 +149,11 @@ public static void AccessingSlidesOfPresentation()
 
 {
 
-//إنشاء كائن Presentation يمثل ملف عرض تقديمي
+//Instantiate a Presentation object that represents a presentation file
 
 Presentation pres = new Presentation(MyDir + "Assemble Slides.pptx");
 
-//الوصول إلى شريحة باستخدام فهرس شريحة
+//Accessing a slide using its slide index
 
 ISlide slide = pres.Slides[0];
 
@@ -164,19 +163,19 @@ public static void RemovingSlides()
 
 {
 
-//إنشاء كائن Presentation يمثل ملف عرض تقديمي
+//Instantiate a Presentation object that represents a presentation file
 
 Presentation pres = new Presentation(MyDir + "Assemble Slides.pptx");
 
-//الوصول إلى شريحة باستخدام فهرسها في مجموعة الشرائح
+//Accessing a slide using its index in the slides collection
 
 ISlide slide = pres.Slides[0];
 
-//إزالة شريحة باستخدام مرجعها
+//Removing a slide using its reference
 
 pres.Slides.Remove(slide);
 
-//كتابة ملف العرض التقديمي
+//Writing the presentation file
 
 pres.Save(MyDir + "Assemble Slides.pptx", SaveFormat.Pptx);
 
@@ -186,21 +185,21 @@ public static void ChangingPositionOfSlide()
 
 {
 
-//إنشاء فئة Presentation لتحميل ملف العرض التقديمي المصدر
+//Instantiate Presentation class to load the source presentation file
 
 Presentation pres = new Presentation(MyDir + "Assemble Slides.pptx");
 
 {
 
-    //الحصول على الشريحة التي يجب تغيير موضعها
+    //Get the slide whose position is to be changed
 
     ISlide sld = pres.Slides[0];
 
-    //تعيين الموقف الجديد للشريحة
+    //Set the new position for the slide
 
     sld.SlideNumber = 2;
 
-    //كتابة العرض التقديمي على القرص
+    //Write the presentation to disk
 
     pres.Save(MyDir + "Assemble Slides.pptx", SaveFormat.Pptx);
 
@@ -209,7 +208,7 @@ Presentation pres = new Presentation(MyDir + "Assemble Slides.pptx");
 }
 
 ``` 
-## **تحميل كود العينة**
+## **تنزيل الكود النموذجي**
 - [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
 - [Code.MSDN](https://code.msdn.microsoft.com/AsposeSlides-Features-9866600c)

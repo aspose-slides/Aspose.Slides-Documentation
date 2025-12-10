@@ -1,34 +1,45 @@
 ---
-title: Aspose.Slides for .NET 15.1.0における公共APIと後方互換性のない変更
+title: Aspose.Slides for .NET 15.1.0 のパブリック API と下位互換性のない変更
+linktitle: Aspose.Slides for .NET 15.1.0
 type: docs
 weight: 130
 url: /ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/
+keywords:
+- マイグレーション
+- レガシーコード
+- モダンコード
+- レガシーアプローチ
+- モダンアプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET のパブリック API 更新と破壊的変更を確認し、PowerPoint PPT、PPTX、ODP のプレゼンテーション ソリューションをスムーズに移行できます。"
 ---
 
 {{% alert color="primary" %}} 
 
-このページでは、Aspose.Slides for .NET 15.1.0 APIで追加された、または削除されたすべての[追加された](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/)または[削除された](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/)クラス、メソッド、プロパティなど、その他の変更を一覧表示しています。
+このページでは、Aspose.Slides for .NET 15.1.0 APIで導入された、追加または削除されたクラス、メソッド、プロパティ等とその他の変更を一覧表示します。
 
 {{% /alert %}} 
-## **公共APIの変更**
+## **パブリック API の変更**
 #### **フォント置換機能が追加されました**
-プレゼンテーション全体で、または一時的にレンダリングのためにフォントを置換する可能性が追加されました。
+プレゼンテーション全体でフォントを置換したり、レンダリング時に一時的に置換したりする機能が追加されました。
 
-Presentationクラスの新しいプロパティ「FontsManager」が導入されました。FontsManagerクラスは次のメンバーを持っています：
+Presentation クラスの新しいプロパティ「FontsManager」が導入されました。FontsManager クラスには以下のメンバーがあります。
 
-**IFontSubstRuleCollection FontSubstRuleList** プロパティ
+**IFontSubstRuleCollection FontSubstRuleList** Property  
+このコレクションは IFontSubstRule のインスタンスを保持し、レンダリング時にフォントを置換するために使用されます。IFontSubstRule は SourceFont と DestFont プロパティ（IFontData インターフェイスを実装）と ReplaceFontCondition プロパティ（置換条件「WhenInaccessible」または「Always」）を持ちます。
 
-レンダリング中にフォントを置換するために使用されるIFontSubstRuleインスタンスのコレクションです。IFontSubstRuleは、IFontDataインターフェイスを実装するSourceFontとDestFontプロパティ、および置換条件（「WhenInaccessible」または「Always」）を選択できるReplaceFontConditionプロパティを持っています。
+**IFontData[] GetFonts()** Method  
+現在のプレゼンテーションで使用されているすべてのフォントを取得するために使用されます。
 
-**IFontData[] GetFonts()** メソッド
-
-現在のプレゼンテーションで使用されるすべてのフォントを取得するために使用されます。
-
-**ReplaceFont** メソッド
-
+**ReplaceFont** Methods  
 プレゼンテーション内のフォントを永続的に置換するために使用されます。
 
-次の例は、プレゼンテーション内のフォントを置換する方法を示しています：
+以下の例は、プレゼンテーションでフォントを置換する方法を示しています：
 
 ``` csharp
 
@@ -42,9 +53,10 @@ Presentationクラスの新しいプロパティ「FontsManager」が導入さ�
 
             pres.Save("PresContainsTimesNoewRomanFont.pptx", SaveFormat.Pptx);
 
+
 ``` 
 
-別の例では、アクセスできない場合のレンダリングのためのフォント置換を示しています：
+別の例は、アクセスできない場合にレンダリング時のフォント置換を示しています：
 
 ``` csharp
 
@@ -64,8 +76,8 @@ Presentationクラスの新しいプロパティ「FontsManager」が導入さ�
 
             pres.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
 
-            // 一時的にアクセスできない場合、ArialフォントがSomeRareFontの代わりに使用されます
+            // Arial font will be used instead of SomeRareFont when inaccessible
 
             pres.Slides[0].GetThumbnail();
 
-``` 
+```

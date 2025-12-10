@@ -6,111 +6,122 @@ url: /ru/net/aspose-slides-for-openxml/
 ---
 
 ## **Что такое OpenXML?**
-OpenXML SDK – это .NET SDK от Microsoft, предназначенный для обработки файловых форматов Microsoft Office 2007 и более поздних версий. Эти файловые форматы в основном являются упакованными пакетами, и Open XML SDK для Office упрощает задачу манипулирования пакетами Open XML и элементами основной схемы Open XML внутри пакета. Классы в Open XML SDK инкапсулируют многие распространенные задачи, которые разработчики выполняют с пакетами Open XML, позволяя вам выполнять сложные операции всего лишь с несколькими строками кода.
+OpenXML SDK — это .NET SDK от Microsoft для обработки форматов файлов Microsoft Office 2007 и более новых. Эти форматы файлов по сути являются zip‑пакетами, а Open XML SDK для Office упрощает задачу работы с пакетами Open XML и элементами схемы Open XML внутри пакета. Классы в Open XML SDK инкапсулируют многие распространённые задачи, которые разработчики выполняют с пакетами Open XML, позволяя выполнять сложные операции несколькими строками кода.
 
-После установки Open XML SDK 2.5 откройте ваш существующий проект или приложение в Visual Studio или создайте новый проект или приложение. Затем в вашем проекте или приложении добавьте ссылки на следующие компоненты:
+После установки Open XML SDK 2.5 откройте ваш существующий проект или приложение в Visual Studio, либо создайте новый проект или приложение. Затем в вашем проекте или приложении добавьте ссылки на следующие компоненты:
 
 - DocumentFormat.OpenXml
 - WindowsBase
-## **Aspose.Slides для .NET**
-Aspose.Slides для .NET – это уникальный компонент управления PowerPoint®, который позволяет приложениям .NET читать, записывать и манипулировать документами PowerPoint без использования Microsoft PowerPoint.
 
-Aspose.Slides для .NET – это первый и единственный компонент .NET, который предоставляет функциональность для управления документами PowerPoint в ваших собственных приложениях. Как и все компоненты Aspose .NET, Aspose.Slides написан на управляемом C#, имеет невероятно доступную цену и работает с молниеносной скоростью.
-## **Aspose.Slides для OpenXML**
-## **Введение**
-Разработчики, ищущие библиотеки для работы с файловыми форматами, могут изучить возможности, предлагаемые библиотеками на рынке. При выборе варианта учитываются два основных фактора:
+## **Aspose.Slides for .NET**
+Aspose.Slides for .NET — это уникальный компонент управления PowerPoint®, позволяющий .NET‑приложениям читать, записывать и изменять документы PowerPoint без использования Microsoft PowerPoint.
 
-- Функции
-- Усилия, необходимые для использования библиотеки
+Aspose.Slides for .NET — первый и единственный .NET‑компонент, предоставляющий функциональность управления документами PowerPoint в ваших собственных приложениях. Как и все компоненты Aspose .NET, Aspose.Slides написан на управляемом C#, имеет доступную цену и молниеносную скорость.
 
-Если вы разработчик .NET, ищущий более быструю, простую и легковесную библиотеку для работы с файлами, вам может потребоваться сравнить VSTO (инструмент Visual Studio для Office) с Aspose. В этом случае этот проект поможет вам сравнить функции и код в обеих библиотеках.
-## **Системные требования и поддерживаемые платформы**
-### **Системные требования**
-Одна или несколько из следующих редакций инструментов Visual Studio для Office:
+## **Aspose.Slides for OpenXML**
+## **Introduction**
+Разработчики, ищущие библиотеки форматов файлов, могут изучить возможности, предоставляемые библиотеками, доступными на рынке. При выборе варианта обычно учитываются два faktora:
 
-- Microsoft Visual Studio 2005 Tools для Microsoft Office System
-- Microsoft Visual Studio 2005 Tools для системы Microsoft Office 2007
+- Функциональность
+- Затраты усилий на использование библиотеки
+
+Если вы .NET‑разработчик, ищущий быструю, простую и лёгкую библиотеку форматов файлов для обработки файлов, вам может потребоваться сравнить VSTO (Visual Studio Tools for Office) с Aspose. В этом случае данный проект поможет сравнить функции и код в обеих библиотеках.
+
+## **System Requirements and Supported Platforms**
+### **System Requirements**
+Одна или несколько из следующих редакций Visual Studio Tools for Office:
+
+- Microsoft Visual Studio 2005 Tools for the Microsoft Office System
+- Microsoft Visual Studio 2005 Tools for the 2007 Microsoft Office System
 - Visual Studio 2008 Professional Edition
 - Visual Studio 2008 Team Suite Edition
 - Одна версия Microsoft Office:
-- Microsoft Office Professional 2003 SP1
-- Система Microsoft Office 2007
-### **Поддерживаемые операционные системы**
+  - Microsoft Office Professional 2003 SP1
+  - Microsoft Office 2007
+
+### **Supported Operating Systems**
 - Windows 2000; Windows Server 2003; Windows Vista; Windows XP
-### **Поддерживаемые версии .NET Framework**
+
+### **.NET Framework Versions Supported**
 - только .NET Framework 2.0 или выше.
-## **Скачивание**
-Вы можете скачать последний код по следующим ссылкам:
+
+## **Downloading**
+Вы можете скачать последнюю версию кода по адресам:
 
 - [Codeplex](http://goo.gl/x6gdD4)
 - [Github](http://goo.gl/sZsbbu)
 - [Sourceforge](http://goo.gl/AWc3J3)
 - [Bitbucket](http://goo.gl/8B9p3b)
-## **Установка**
-Чтобы открыть проект, вам нужно скачать и установить последнюю версию Aspose.Slides для .NET [здесь](http://www.aspose.com/.net/powerpoint-component.aspx) и включить ее в проект.
-## **Поддержка, расширение и вклад**
-### **Поддержка**
-Мы предлагаем бесплатную поддержку. Каждый, кто использует наш продукт, будь то купленный или оценочный вариант, заслуживает нашего полного внимания и уважения.
 
-Вы можете сообщить о любых проблемах или предложениях, связанных с Aspose .NET для OpenXML, используя любую из следующих платформ:
+## **Installing**
+Чтобы открыть проект, скачайте и установите последнюю версию Aspose.Slides for .NET по ссылке [здесь](http://www.aspose.com/.net/powerpoint-component.aspx) и включите её в проект.
+
+## **Support, Extend and Contribute**
+### **Support**
+Мы предоставляем бесплатную поддержку. Любой, кто использует наш продукт, независимо от того, купил он его или использует оценочную версию, заслуживает нашего полного внимания и уважения.
+
+Вы можете разместить любые проблемы или предложения, связанные с Aspose .NET for OpenXML, на любой из следующих площадок:
 
 - [Codeplex](http://goo.gl/LD4ZPz)
 - [Github](http://goo.gl/UHkCJe)
 - [Sourceforge](http://goo.gl/f8zdLU)
 - [Bitbucket](http://goo.gl/1Eo1DQ)
-### **Расширение и вклад**
-Код сравнения для Aspose.Slides для .NET и исходный код OpenXML доступен на основных сайтах общественного программирования, перечисленных ниже. Разработчики поощряются к скачиванию исходного кода для миграции с OpenXML на Aspose.Slides в соответствии с их требованиями.
-### **Исходный код**
-Вы можете получить последний исходный код из одного из следующих источников.
+
+### **Extend and Contribute**
+Код сравнения Aspose.Slides for .NET и исходного кода OpenXML доступен на основных сайтах совместного программирования, перечисленных ниже. Разработчикам рекомендуется загрузить исходный код для перехода от OpenXML к Aspose.Slides в соответствии с их требованиями.
+
+### **Source Code**
+Последний исходный код можно получить по следующим ссылкам:
 
 - [Codeplex](https://goo.gl/SB7Hjv)
 - [Github](https://goo.gl/gN0nf2)
 - [Sourceforge](https://goo.gl/noku6v)
 - [Bitbucket](https://goo.gl/T83r2D)
-### **Как настроить исходный код**
-Пожалуйста, следуйте этим простым шагам, чтобы начать
 
-- Скачайте/клоните исходный код.
+### **How to Configure the Source Code**
+Выполните простые шаги, чтобы начать работу:
+
+- Скачайте/клонируйте исходный код.
 - Откройте Visual Studio 2010 и выберите Файл > Открыть проект.
-- Перейдите к последнему скачанному исходному коду и откройте файл .sln.
-## **Примеры кода**
-Этот раздел включает следующие темы
+- Перейдите к только что скачанному коду и откройте файл *.sln*.
+
+## **Sample Code Examples**
+В этом разделе представлены следующие темы
 
 - [Сравнение кода для общих функций с OpenXML](/slides/ru/net/code-comparison-for-common-features-with-openxml/)
   - [Добавить комментарий к слайду](/slides/ru/net/add-a-comment-to-a-slide/)
   - [Добавление слайда в презентацию](/slides/ru/net/adding-slide-to-presentation/)
   - [Применить тему к презентации](/slides/ru/net/apply-a-theme-to-a-presentation/)
   - [Изменить цвет заливки фигуры в презентации](/slides/ru/net/change-the-fill-color-of-a-shape-in-a-presentation/)
-  - [Посчитать количество слайдов](/slides/ru/net/count-the-number-of-slides/)
+  - [Подсчитать количество слайдов](/slides/ru/net/count-the-number-of-slides/)
   - [Создать документ презентации](/slides/ru/net/create-a-presentation-document/)
-  - [Удалить все комментарии от автора](/slides/ru/net/delete-all-the-comments-by-an-author/)
+  - [Удалить все комментарии определённого автора](/slides/ru/net/delete-all-the-comments-by-an-author/)
   - [Удалить слайд](/slides/ru/net/delete-a-slide/)
   - [Получить все внешние гиперссылки в презентации](/slides/ru/net/get-all-the-external-hyperlinks-in-a-presentation/)
   - [Получить весь текст на всех слайдах](/slides/ru/net/get-all-the-text-in-all-the-slides/)
   - [Получить весь текст на слайде](/slides/ru/net/get-all-the-text-in-a-slide/)
-  - [Получить названия всех слайдов](/slides/ru/net/get-the-titles-of-all-the-slides/)
+  - [Получить заголовки всех слайдов](/slides/ru/net/get-the-titles-of-all-the-slides/)
   - [Переместить абзац из одной презентации в другую](/slides/ru/net/move-a-paragraph-from-one-presentation-to-another/)
-  - [Переместить слайд на новую позицию](/slides/ru/net/move-a-slide-to-a-new-position/)
-- [Недостающие функции в OpenXML](/slides/ru/net/missing-features-in-openxml/)
-  - [Доступ к OpenDocument Presentation](/slides/ru/net/access-opendocument-presentation/)
+  - [Переместить слайд в новую позицию](/slides/ru/net/move-a-slide-to-a-new-position/)
+- [Отсутствующие функции в OpenXML](/slides/ru/net/missing-features-in-openxml/)
+  - [Доступ к презентациям OpenDocument](/slides/ru/net/access-opendocument-presentation/)
   - [Добавить макетные слайды в презентацию](/slides/ru/net/add-layout-slides-to-presentation/)
   - [Конвертация из PPT в разные форматы](/slides/ru/net/conversion-from-ppt-to-different-formats/)
-    - [Конвертация из PPT в формат PPTX в Aspose.Slides](/slides/ru/net/conversion-from-ppt-to-pptx-format-in-aspose-slides/)
+    - [Конвертация из PPT в PPTX в Aspose.Slides](/slides/ru/net/conversion-from-ppt-to-pptx-format-in-aspose-slides/)
     - [Конвертация в HTML](/slides/ru/net/conversion-to/)
     - [Конвертация в PDF](/slides/ru/net/conversion-to-pdf/)
     - [Конвертация в XPS](/slides/ru/net/conversion-to-xps/)
-  - [Экспорт медиафайлов в HTML файл](/slides/ru/net/export-media-files-to-file/)
-  - [Получить формат файла презентации](/slides/ru/net/get-the-file-format-of-presentation/)
-  - [Высокоуровневое программирование с моделью объекта документа презентации](/slides/ru/net/high-level-programming-with-presentation-document-object-model/)
-    - [Собрать слайды](/slides/ru/net/assemble-slides/)
+  - [Экспорт медиа‑файлов в HTML](/slides/ru/net/export-media-files-to-file/)
+  - [Определить формат файла презентации](/slides/ru/net/get-the-file-format-of-presentation/)
+  - [Высокоуровневое программирование с объектной моделью документа презентации](/slides/ru/net/high-level-programming-with-presentation-document-object-model/)
+    - [Сборка слайдов](/slides/ru/net/assemble-slides/)
     - [Поиск и замена в презентации](/slides/ru/net/find-and-replace-in-presentation/)
-  - [Отрисовка и печать презентации](/slides/ru/net/rendering-and-printing-of-presentation/)
-    - [Конвертация в Tiff с заметками](/slides/ru/net/conversion-to-tiff-with-notes/)
-    - [Печать презентации](/slides/ru/net/print-presentation/)
-    - [Отрисованный в формате Tiff](/slides/ru/net/rendered-as-tiff/)
-    - [Отрисованный в формате Tiff с пользовательским размером](/slides/ru/net/rendered-as-tiff-by-user-defined-dimension/)
-    - [Отрисовать слайд как изображение SVG](/slides/ru/net/render-slide-as-svg-image/)
-    - [Отрисовать слайд как миниатюру в JPEG](/slides/ru/net/render-slide-as-thumbnail-to-jpeg/)
-    - [Отрисовать слайд как миниатюру в JPEG с пользовательскими значениями](/slides/ru/net/render-slide-as-thumbnail-to-jpeg-by-user-defined-values/)
+  - [Рендеринг и печать презентации](/slides/ru/net/rendering-and-printing-of-presentation/)
+    - [Конвертация в Tiff с примечаниями](/slides/ru/net/conversion-to-tiff-with-notes/)
+    - [Рендеринг как Tiff](/slides/ru/net/rendered-as-tiff/)
+    - [Рендеринг как Tiff с пользовательскими размерами](/slides/ru/net/rendered-as-tiff-by-user-defined-dimension/)
+    - [Рендеринг слайда как SVG‑изображения](/slides/ru/net/render-slide-as-svg-image/)
+    - [Рендеринг слайда как миниатюры в JPEG](/slides/ru/net/render-slide-as-thumbnail-to-jpeg/)
+    - [Рендеринг слайда как миниатюры в JPEG с пользовательскими параметрами](/slides/ru/net/render-slide-as-thumbnail-to-jpeg-by-user-defined-values/)
   - [Переходы слайдов](/slides/ru/net/slide-transitions/)
   - [Работа с размером и макетом презентации](/slides/ru/net/working-with-size-and-layout-of-presentation/)

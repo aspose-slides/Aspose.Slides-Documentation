@@ -5,20 +5,20 @@ weight: 30
 url: /fr/net/apply-a-theme-to-a-presentation/
 ---
 
-## **OpenXML Présentation:**
+## **OpenXML Présentation**
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Appliquer Thème à la Présentation.pptx";
+string FileName = FilePath + "Apply Theme to Presentation.pptx";
 
-string ThemeFileName = FilePath + "Thème.pptx";
+string ThemeFileName = FilePath + "Theme.pptx";
 
-AppliquerThèmeÀLaPrésentation(FileName, ThemeFileName);
+ApplyThemeToPresentation(FileName, ThemeFileName);
 
-// Appliquer un nouveau thème à la présentation. 
+// Apply a new theme to the presentation. 
 
-public static void AppliquerThèmeÀLaPrésentation(string presentationFile, string themePresentation)
+public static void ApplyThemeToPresentation(string presentationFile, string themePresentation)
 
 {
 
@@ -28,15 +28,15 @@ public static void AppliquerThèmeÀLaPrésentation(string presentationFile, str
 
     {
 
-        AppliquerThèmeÀLaPrésentation(presentationDocument, themeDocument);
+        ApplyThemeToPresentation(presentationDocument, themeDocument);
 
     }
 
 }
 
-// Appliquer un nouveau thème à la présentation. 
+// Apply a new theme to the presentation. 
 
-public static void AppliquerThèmeÀLaPrésentation(PresentationDocument presentationDocument, PresentationDocument themeDocument)
+public static void ApplyThemeToPresentation(PresentationDocument presentationDocument, PresentationDocument themeDocument)
 
 {
 
@@ -56,33 +56,33 @@ public static void AppliquerThèmeÀLaPrésentation(PresentationDocument present
 
     }
 
-    // Obtenir la partie de présentation du document de présentation.
+    // Get the presentation part of the presentation document.
 
     PresentationPart presentationPart = presentationDocument.PresentationPart;
 
-    // Obtenir la partie du maître de diapositive existante.
+    // Get the existing slide master part.
 
     SlideMasterPart slideMasterPart = presentationPart.SlideMasterParts.ElementAt(0);
 
     string relationshipId = presentationPart.GetIdOfPart(slideMasterPart);
 
-    // Obtenir la nouvelle partie du maître de diapositive.
+    // Get the new slide master part.
 
     SlideMasterPart newSlideMasterPart = themeDocument.PresentationPart.SlideMasterParts.ElementAt(0);
 
-    // Supprimer la partie du thème existante.
+    // Remove the existing theme part.
 
     presentationPart.DeletePart(presentationPart.ThemePart);
 
-    // Supprimer l'ancienne partie du maître de diapositive.
+    // Remove the old slide master part.
 
     presentationPart.DeletePart(slideMasterPart);
 
-    // Importer la nouvelle partie du maître de diapositive et réutiliser l'ancien ID de relation.
+    // Import the new slide master part, and reuse the old relationship ID.
 
     newSlideMasterPart = presentationPart.AddPart(newSlideMasterPart, relationshipId);
 
-    // Changer pour la nouvelle partie du thème.
+    // Change to the new theme part.
 
     presentationPart.AddPart(newSlideMasterPart.ThemePart);
 
@@ -100,11 +100,11 @@ public static void AppliquerThèmeÀLaPrésentation(PresentationDocument present
 
     SlideLayoutPart newLayoutPart = null;
 
-    // Insérer le code pour le layout de cet exemple.
+    // Insert the code for the layout for this example.
 
-    string defaultLayoutType = "Titre et Contenu";
+    string defaultLayoutType = "Title and Content";
 
-    // Supprimer la relation de mise en page sur toutes les diapositives. 
+    // Remove the slide layout relationship on all slides. 
 
     foreach (var slidePart in presentationPart.SlideParts)
 
@@ -116,11 +116,11 @@ public static void AppliquerThèmeÀLaPrésentation(PresentationDocument present
 
         {
 
-            // Déterminer le type de mise en page de diapositive pour chaque diapositive.
+            // Determine the slide layout type for each slide.
 
             layoutType = GetSlideLayoutType(slidePart.SlideLayoutPart);
 
-            // Supprimer l'ancienne partie de mise en page.
+            // Delete the old layout part.
 
             slidePart.DeletePart(slidePart.SlideLayoutPart);
 
@@ -130,7 +130,7 @@ public static void AppliquerThèmeÀLaPrésentation(PresentationDocument present
 
         {
 
-            // Appliquer la nouvelle partie de mise en page.
+            // Apply the new layout part.
 
             slidePart.AddPart(newLayoutPart);
 
@@ -142,7 +142,7 @@ public static void AppliquerThèmeÀLaPrésentation(PresentationDocument present
 
             newLayoutPart = newSlideLayouts[defaultLayoutType];
 
-            // Appliquer la nouvelle partie de mise en page par défaut.
+            // Apply the new default layout part.
 
             slidePart.AddPart(newLayoutPart);
 
@@ -152,7 +152,7 @@ public static void AppliquerThèmeÀLaPrésentation(PresentationDocument present
 
 }
 
-// Obtenir le type de mise en page de la diapositive.
+// Get the slide layout type.
 
 public static string GetSlideLayoutType(SlideLayoutPart slideLayoutPart)
 
@@ -160,7 +160,7 @@ public static string GetSlideLayoutType(SlideLayoutPart slideLayoutPart)
 
     CommonSlideData slideData = slideLayoutPart.SlideLayout.CommonSlideData;
 
-    // Remarques : Si cela est utilisé dans le code de production, vérifiez pour une référence nulle.
+    // Remarks: If this is used in production code, check for a null reference.
 
     return slideData.Name;
 
@@ -168,70 +168,70 @@ public static string GetSlideLayoutType(SlideLayoutPart slideLayoutPart)
 
 ``` 
 ## **Aspose.Slides**
-Pour appliquer un thème, nous devons cloner la diapositive avec le maître, veuillez suivre les étapes ci-dessous :
+Pour appliquer un thème, nous devons cloner la diapositive avec le maître ; veuillez suivre les étapes ci-dessous :
 
-- Créer une instance de la classe Presentation contenant la présentation source à partir de laquelle la diapositive sera clonée.
-- Créer une instance de la classe Presentation contenant la présentation de destination vers laquelle la diapositive sera clonée.
-- Accéder à la diapositive à cloner ainsi qu'à la diapositive maître.
-- Instancier la classe IMasterSlideCollection en faisant référence à la collection Masters exposée par l'objet Presentation de la présentation de destination.
-- Appeler la méthode AddClone exposée par l'objet IMasterSlideCollection et passer le maître de la source PPTX à cloner comme paramètre à la méthode AddClone.
-- Instancier la classe ISlideCollection en définissant la référence à la collection Slides exposée par l'objet Presentation de la présentation de destination.
-- Appeler la méthode AddClone exposée par l'objet ISlideCollection et passer la diapositive de la présentation source à cloner et la diapositive maître comme paramètres à la méthode AddClone.
-- Écrire le fichier de présentation de destination modifié.
+- Créez une instance de la classe Presentation contenant la présentation source à partir de laquelle la diapositive sera clonée.
+- Créez une instance de la classe Presentation contenant la présentation de destination vers laquelle la diapositive sera clonée.
+- Accédez à la diapositive à cloner ainsi qu'à la diapositive maître.
+- Instanciez la classe IMasterSlideCollection en référencant la collection Masters exposée par l'objet Presentation de la présentation de destination.
+- Appelez la méthode AddClone exposée par l'objet IMasterSlideCollection et transmettez le maître du PPTX source à cloner comme paramètre de la méthode AddClone.
+- Instanciez la classe ISlideCollection en définissant la référence à la collection Slides exposée par l'objet Presentation de la présentation de destination.
+- Appelez la méthode AddClone exposée par l'objet ISlideCollection et transmettez la diapositive de la présentation source à cloner ainsi que la diapositive maître comme paramètres de la méthode AddClone.
+- Enregistrez le fichier de présentation de destination modifié.
 
 ``` csharp
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Appliquer Thème à la Présentation.pptx";
+string FileName = FilePath + "Apply Theme to Presentation.pptx";
 
-string ThemeFileName = FilePath + "Thème.pptx";
+string ThemeFileName = FilePath + "Theme.pptx";
 
-AppliquerThèmeÀLaPrésentation(ThemeFileName, FileName);
+ApplyThemeToPresentation(ThemeFileName, FileName);
 
-public static void AppliquerThèmeÀLaPrésentation(string presentationFile, string outputFile)
+public static void ApplyThemeToPresentation(string presentationFile, string outputFile)
 
 {
 
-    //Instancier la classe Presentation pour charger le fichier de présentation source
+    //Instantiate Presentation class to load the source presentation file
 
     Presentation srcPres = new Presentation(presentationFile);
 
-    //Instancier la classe Presentation pour la présentation de destination (où la diapositive doit être clonée)
+    //Instantiate Presentation class for destination presentation (where slide is to be cloned)
 
     Presentation destPres = new Presentation(outputFile);
 
-    //Instancier ISlide à partir de la collection de diapositives dans la présentation source ainsi que
+    //Instantiate ISlide from the collection of slides in source presentation along with
 
-    //la diapositive maître
+    //master slide
 
     ISlide SourceSlide = srcPres.Slides[0];
 
-    //Cloner la diapositive maître souhaitée de la présentation source à la collection de maîtres dans la
+    //Clone the desired master slide from the source presentation to the collection of masters in the
 
-    //présentation de destination
+    //destination presentation
 
     IMasterSlideCollection masters = destPres.Masters;
 
     IMasterSlide SourceMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-    //Cloner la diapositive maître souhaitée de la présentation source à la collection de maîtres dans la
+    //Clone the desired master slide from the source presentation to the collection of masters in the
 
-    //présentation de destination
+    //destination presentation
 
     IMasterSlide iSlide = masters.AddClone(SourceMaster);
 
-    //Cloner la diapositive souhaitée de la présentation source avec le maître souhaité à la fin de la
+    //Clone the desired slide from the source presentation with the desired master to the end of the
 
-    //collection de diapositives dans la présentation de destination
+    //collection of slides in the destination presentation
 
     ISlideCollection slds = destPres.Slides;
 
     slds.AddClone(SourceSlide, iSlide, true);
 
-    //Cloner la diapositive maître souhaitée de la présentation source à la collection de maîtres dans la //présentation de destination
+    //Clone the desired master slide from the source presentation to the collection of masters in the//destination presentation
 
-    //Sauvegarder la présentation de destination sur disque
+    //Save the destination presentation to disk
 
     destPres.Save(outputFile, SaveFormat.Pptx);
 
@@ -240,5 +240,5 @@ public static void AppliquerThèmeÀLaPrésentation(string presentationFile, str
 ``` 
 ## **Télécharger l'exemple de code en cours d'exécution**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)
-## **Code d'exemple**
+## **Exemple de code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Common%20Features/Apply%20Theme%20to%20Presentation)

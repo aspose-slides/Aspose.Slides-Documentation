@@ -1,42 +1,56 @@
 ---
-title: إدارة إعدادات التعديل التلقائي
+title: تحسين عروضك التقديمية باستخدام AutoFit في .NET
+linktitle: إعدادات Autofit
 type: docs
 weight: 30
 url: /ar/net/manage-autofit-settings/
-keywords: "مربع النص، تعديل تلقائي، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
-description: "تعيين إعدادات التعديل التلقائي لمربع النص في PowerPoint باستخدام C# أو .NET"
+keywords:
+- مربع نص
+- الملاءمة التلقائية
+- عدم الملاءمة التلقائية
+- ملاءمة النص
+- تصغير النص
+- لف النص
+- تغيير حجم الشكل
+- PowerPoint
+- عرض تقديمي
+- C#
+- .NET
+- Aspose.Slides
+description: "تعرّف على كيفية إدارة إعدادات AutoFit في Aspose.Slides لـ .NET لتحسين عرض النص في عروض PowerPoint وOpenDocument وتحسين قابلية قراءة المحتوى."
 ---
 
-بشكل افتراضي، عند إضافة مربع نص، يستخدم Microsoft PowerPoint إعداد **تغيير حجم الشكل ليتناسب مع النص** لمربع النص—إذ يقوم بتغيير حجم مربع النص تلقائيًا لضمان تناسق النص داخله.
+## **نظرة عامة**
 
-![textbox-in-powerpoint](textbox-in-powerpoint.png)
+بشكل افتراضي، عند إضافة مربع نص، يستخدم Microsoft PowerPoint إعداد **تغيير حجم الشكل ليتناسب مع النص** للمربع النصي—فهو يغير حجم المربع تلقائيًا لضمان احتواء النص بداخله دائمًا.
 
-* عندما يصبح النص في مربع النص أطول أو أكبر، يقوم PowerPoint بتكبير مربع النص تلقائيًا—يزيد من ارتفاعه—ليتمكن من استيعاب المزيد من النص.
-* عندما يصبح النص في مربع النص أقصر أو أصغر، يقوم PowerPoint بتقليل مربع النص تلقائيًا—يقلل من ارتفاعه—لإزالة المساحة الزائدة.
+![مربع نص في PowerPoint](textbox-in-powerpoint.png)
 
-في PowerPoint، هذه هي 4 معلمات أو خيارات مهمة تتحكم في سلوك التعديل التلقائي لمربع النص:
+* عندما يصبح النص في المربع النصي أطول أو أكبر، يقوم PowerPoint تلقائيًا بتكبير المربع—بزيادة ارتفاعه—للسماح بوجود نص أكثر.
+* عندما يصبح النص في المربع النصي أقصر أو أصغر، يقوم PowerPoint تلقائيًا بتقليل المربع—بخفض ارتفاعه—لإزالة المساحة الزائدة.
 
-* **لا تعدل تلقائيًا**
-* **تصغير النص عند التدفق الزائد**
+في PowerPoint، هناك أربع معلمات أو خيارات مهمة تتحكم في سلوك الملاءمة التلقائية لمربع النص:
+
+* **عدم الملاءمة التلقائية**
+* **تصغير النص عند الفائض**
 * **تغيير حجم الشكل ليتناسب مع النص**
-* **لف النص في الشكل.**
+* **لف النص داخل الشكل**
 
-![autofit-options-powerpoint](autofit-options-powerpoint.png)
+![خيارات الملاءمة التلقائية في PowerPoint](autofit-options-powerpoint.png)
 
-توفر Aspose.Slides لـ .NET خيارات مماثلة—بعض الخصائص تحت فئة [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat)—التي تسمح لك بالتحكم في سلوك التعديل التلقائي لمربعات النص في العروض التقديمية.
+توفر Aspose.Slides for .NET خيارات مماثلة—خصائص ضمن فئة [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat)—تتيح لك التحكم في سلوك الملاءمة التلقائية لمربعات النص في العروض التقديمية.
 
 ## **تغيير حجم الشكل ليتناسب مع النص**
 
-إذا كنت ترغب في أن يتناسب النص في مربع مع ذلك المربع بعد إجراء تغييرات على النص، يجب عليك استخدام خيار **تغيير حجم الشكل ليتناسب مع النص**. لتحديد هذا الإعداد، قم بتعيين خاصية [AutofitType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/autofittype) (من فئة [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat)) إلى `Shape`.
+إذا كنت تريد أن يتناسب النص داخل الصندوق دائمًا مع الصندوق بعد أي تعديل للنص، عليك استخدام خيار **تغيير حجم الشكل ليتناسب مع النص**. لتحديد هذا الإعداد، اضبط خاصية `AutofitType` من فئة [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) إلى `Shape`.
 
-![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
+![تغيير حجم الشكل ليتناسب مع النص](alwaysfit-setting-powerpoint.png)
 
-هذا الكود C# يظهر لك كيفية تحديد أن النص يجب أن يتناسب دائمًا مع مربع النص في عرض PowerPoint:
-
+هذا الكود C# يوضح كيفية تحديد أن النص يجب أن يتناسب دائمًا مع الصندوق في عرض PowerPoint:
 ```c#
- using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
     Portion portion = new Portion("lorem ipsum...");
@@ -47,24 +61,24 @@ description: "تعيين إعدادات التعديل التلقائي لمرب
     ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
     textFrameFormat.AutofitType = TextAutofitType.Shape;
 
-    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+    presentation.Save("output_presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
-إذا أصبح النص أطول أو أكبر، سيتم تغيير حجم مربع النص تلقائيًا (زيادة في الارتفاع) لضمان تناسق جميع النصوص بداخله. إذا أصبح النص أقصر، يحدث العكس.
 
-## **لا تعدل تلقائيًا**
+إذا أصبح النص أطول أو أكبر، سيُعاد تحجيم مربع النص تلقائيًا (زيادة الارتفاع) لضمان احتواء جميع النص. إذا أصبح النص أقصر، يحدث العكس.
 
-إذا كنت ترغب في أن يحتفظ مربع النص أو الشكل بأبعاده بغض النظر عن التغييرات التي تطرأ على النص المحتوى، يجب عليك استخدام خيار **لا تعدل تلقائيًا**. لتحديد هذا الإعداد، قم بتعيين خاصية [AutofitType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/autofittype) (من فئة [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat)) إلى `None`.
+## **عدم الملاءمة التلقائية**
 
-![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
+إذا كنت تريد أن يحتفظ مربع النص أو الشكل بأبعاده بغض النظر عن التغييرات التي تطرأ على النص الموجود فيه، عليك استخدام خيار **عدم الملاءمة التلقائية**. لتحديد هذا الإعداد، اضبط خاصية `AutofitType` من فئة [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) إلى `None`.
 
-هذا الكود C# يظهر لك كيفية تحديد أن مربع النص يجب أن يحتفظ دائمًا بأبعاده في عرض PowerPoint:
+!["Do not Autofit" setting in PowerPoint](donotautofit-setting-powerpoint.png)
 
+هذا الكود C# يوضح كيفية تحديد أن مربع النص يجب أن يحتفظ بأبعاده دائمًا في عرض PowerPoint:
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
     Portion portion = new Portion("lorem ipsum...");
@@ -75,24 +89,24 @@ using (Presentation pres = new Presentation())
     ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
     textFrameFormat.AutofitType = TextAutofitType.None;
 
-    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+    presentation.Save("output_presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
-عندما يصبح النص طويلًا جدًا مقارنة بمربعه، فإنه يتجاوز الحدود.
 
-## **تصغير النص عند التدفق الزائد**
+عندما يصبح النص أطول من الصندوق، يفيض خارج الصندوق.
 
-إذا أصبح النص طويلًا جدًا بالنسبة لمربعه، من خلال خيار **تصغير النص عند التدفق الزائد**، يمكنك تحديد أن حجم النص ومسافاته يجب تقليلها ليتناسب مع مربعه. لتحديد هذا الإعداد، قم بتعيين خاصية [AutofitType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/autofittype) (من فئة [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat)) إلى `Normal`.
+## **تصغير النص عند الفائض**
 
-![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
+إذا أصبح النص أطول من الصندوق، يمكنك عبر خيار **تصغير النص عند الفائض** تحديد أن حجم النص والمسافات يجب أن تقل لتتناسب مع الصندوق. لتحديد هذا الإعداد، اضبط خاصية `AutofitType` من فئة [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) إلى `Normal`.
 
-هذا الكود C# يظهر لك كيفية تحديد أن النص يجب أن يتم تصغيره عند التدفق الزائد في عرض PowerPoint:
+!["Shrink text on overflow" setting in PowerPoint](shrinktextonoverflow-setting-powerpoint.png)
 
+هذا الكود C# يوضح كيفية تحديد أن النص يجب أن يُصغر عند الفائض في عرض PowerPoint:
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
     Portion portion = new Portion("lorem ipsum...");
@@ -103,26 +117,24 @@ using (Presentation pres = new Presentation())
     ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
     textFrameFormat.AutofitType = TextAutofitType.Normal;
 
-    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+    presentation.Save("output_presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
-{{% alert title="معلومات" color="info" %}}
 
-عند استخدام خيار **تصغير النص عند التدفق الزائد**، يتم تطبيق الإعداد فقط عندما يصبح النص طويلًا جدًا لمربعه. 
-
+{{% alert title="Info" color="info" %}}
+عند استخدام خيار **تصغير النص عند الفائض**، يُطبق الإعداد فقط عندما يصبح النص أطول من الصندوق.
 {{% /alert %}}
 
 ## **لف النص**
 
-إذا كنت ترغب في لف النص داخل شكل عندما يتجاوز النص حدود الشكل (العرض فقط)، يجب عليك استخدام خيار **لف النص في الشكل**. لتحديد هذا الإعداد، يجب عليك تعيين خاصية [WrapText](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/wraptext) (من فئة [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat)) إلى `true`.
+إذا كنت تريد أن يُلف النص داخل الشكل عندما يتجاوز النص حد الشكل (العرض فقط)، عليك استخدام معلمة **لف النص داخل الشكل**. لتحديد هذا الإعداد، اضبط خاصية `WrapText` من فئة [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) إلى `NullableBool.True`.
 
-هذا الكود C# يظهر لك كيفية استخدام إعداد لف النص في عرض PowerPoint:
-
+هذا الكود C# يوضح كيفية استخدام إعداد لف النص في عرض PowerPoint:
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    ISlide slide = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
 
     Portion portion = new Portion("lorem ipsum...");
@@ -133,12 +145,25 @@ using (Presentation pres = new Presentation())
     ITextFrameFormat textFrameFormat = autoShape.TextFrame.TextFrameFormat;
     textFrameFormat.WrapText = NullableBool.True;
 
-    pres.Save("Output-presentation.pptx", SaveFormat.Pptx);
+    presentation.Save("output_presentation.pptx", SaveFormat.Pptx);
 }
 ```
 
-{{% alert title="ملاحظة" color="warning" %}} 
 
-إذا قمت بتعيين خاصية `WrapText` إلى `False` لشكل، عندما يصبح النص داخل الشكل أطول من عرض الشكل، يتجاوز النص حدود الشكل على طول سطر واحد. 
-
+{{% alert title="Note" color="warning" %}} 
+إذا ضبطت خاصية `WrapText` إلى `NullableBool.False` لشكل ما، عندما يصبح النص داخل الشكل أطول من عرض الشكل، يمتد النص خارج حدود الشكل سطرًا واحدًا.
 {{% /alert %}}
+
+## **الأسئلة المتكررة**
+
+**هل تؤثر الهوامش الداخلية لإطار النص على الملاءمة التلقائية؟**
+
+نعم. الهوامش الداخلية (Padding) تقلل المساحة المتاحة للنص، لذا ستبدأ الملاءمة التلقائية في العمل مبكرًا—إما بتقليل حجم الخط أو بتغيير حجم الشكل. تحقق من الهوامش واضبطها قبل تعديل الملاءمة التلقائية.
+
+**كيف تتفاعل الملاءمة التلقائية مع الفواصل اليدوية والناعمة؟**
+
+تبقى الفواصل القسرية في موضعها، وتتكيف الملاءمة التلقائية مع حجم الخط والمسافات حولها. إزالة الفواصل غير الضرورية غالبًا ما يقلل من شدة تصغير النص عبر الملاءمة التلقائية.
+
+**هل يؤثر تغيير خط السمة أو استبدال الخط على نتائج الملاءمة التلقائية؟**
+
+نعم. استبدال الخط بخط لديه قياسات مختلفة يغير عرض/ارتفاع النص، مما قد يغير حجم الخط النهائي ولف الأسطر. بعد أي تغيير أو استبدال للخط، أعد فحص الشرائح.

@@ -1,53 +1,63 @@
 ---
-title: إطار الصوت - إدراج واستخراج الصوت في PowerPoint باستخدام C#
+title: إدارة إطارات الصوت في العروض التقديمية في .NET
 linktitle: إطار الصوت
 type: docs
 weight: 10
 url: /ar/net/audio-frame/
-keywords: "صورة مصغرة للصوت، إضافة صوت، إطار الصوت، خصائص الصوت، استخراج الصوت، C#، Csharp، Aspose.Slides لـ .NET"
-description: "إضافة الصوت إلى عرض PowerPoint في C# أو .NET"
+keywords:
+- صوت
+- إطار صوت
+- صورة مصغرة
+- إضافة صوت
+- خصائص الصوت
+- خيارات الصوت
+- استخراج الصوت
+- .NET
+- C#
+- Aspose.Slides
+description: "إنشاء والتحكم في إطارات الصوت في Aspose.Slides for .NET—أمثلة C# لتضمين، قص، تشغيل متكرر، وتكوين التشغيل عبر عروض PPT و PPTX و ODP."
 ---
 
-## **إنشاء إطار الصوت**
-تسمح Aspose.Slides لـ .NET بإضافة ملفات الصوت إلى الشرائح. يتم تضمين ملفات الصوت في الشرائح كإطارات صوتية.
+## **إنشاء إطارات الصوت**
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. احصل على مرجع الشريحة من خلال فهرسها.
-3. قم بتحميل تدفق ملف الصوت الذي تريد تضمينه في الشريحة.
-4. أضف إطار الصوت المضمن (الذي يحتوي على ملف الصوت) إلى الشريحة.
-5. اضبط [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/audioplaymodepreset) و`Volume` المعرضين بواسطة كائن [IAudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe).
-6. احفظ العرض التقديمي المعدل.
+Aspose.Slides for .NET يسمح لك بإضافة ملفات صوتية إلى الشرائح. تُضمن ملفات الصوت في الشرائح كإطارات صوتية. 
 
-يوضح كود C# كيف يمكنك إضافة إطار صوت مضمن إلى الشريحة:
+1. إنشاء كائن من الفئة [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. الحصول على مرجع الشريحة عبر فهرسها.
+3. تحميل تدفق ملف الصوت الذي تريد تضمينه في الشريحة.
+4. إضافة إطار الصوت المضمن (الذي يحتوي على ملف الصوت) إلى الشريحة.
+5. تعيين [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/audioplaymodepreset) و `Volume` المعروضة بواسطة كائن [IAudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe).
+6. حفظ العرض التقديمي المعدل.
 
+هذا الكود بلغة C# يوضح كيفية إضافة إطار صوت مضمن إلى شريحة:
 ```c#
-// يهيئ فئة presentation التي تمثل ملف عرض تقديمي
-using (Presentation pres = new Presentation())
-{
-    // يحصل على الشريحة الأولى
-    ISlide sld = pres.Slides[0];
-    
-    // يحمل ملف الصوت wav إلى التدفق
-    FileStream fstr = new FileStream("sampleaudio.wav", FileMode.Open, FileAccess.Read);
+ // إنشاء كائن من فئة العرض التي تمثل ملف عرض تقديمي
+ using (Presentation pres = new Presentation())
+ {
+     // الحصول على الشريحة الأولى
+     ISlide sld = pres.Slides[0];
+     
+     // تحميل ملف صوت wav إلى دفق
+     FileStream fstr = new FileStream("sampleaudio.wav", FileMode.Open, FileAccess.Read);
 
-    // يضيف إطار الصوت
-    IAudioFrame audioFrame = sld.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, fstr);
+     // إضافة إطار الصوت
+     IAudioFrame audioFrame = sld.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, fstr);
 
-    // يحدد وضع التشغيل وحجم الصوت
-    audioFrame.PlayMode = AudioPlayModePreset.Auto;
-    audioFrame.Volume = AudioVolumeMode.Loud;
+     // تعيين وضع التشغيل ومستوى الصوت للإطار
+     audioFrame.PlayMode = AudioPlayModePreset.Auto;
+     audioFrame.Volume = AudioVolumeMode.Loud;
 
-    // يكتب ملف PowerPoint إلى القرص
-    pres.Save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
-}
+     // حفظ ملف PowerPoint إلى القرص
+     pres.Save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
+ }
 ```
 
-## **تغيير صورة إطار الصوت**
 
-عند إضافة ملف صوتي إلى عرض تقديمي، يظهر الصوت كإطار بصور افتراضية قياسية (انظر الصورة في القسم أدناه). يمكنك تغيير صورة إطار الصوت (تعيين الصورة المفضلة لديك).
+## **تغيير صورة مصغرة لإطار الصوت**
 
-يوضح كود C# كيف يمكنك تغيير صورة إطار الصوت أو صورة المعاينة:
+عند إضافة ملف صوت إلى عرض تقديمي، يظهر الصوت كإطار مع صورة افتراضية قياسية (انظر الصورة في القسم أدناه). يمكنك تغيير صورة الإطار المصغرة (ضبط الصورة المفضلة لديك).
 
+هذا الكود بلغة C# يوضح كيفية تغيير صورة مصغرة أو صورة معاينة لإطار الصوت:
 ```c#
 using (var presentation = new Presentation())
 {
@@ -63,61 +73,70 @@ using (var presentation = new Presentation())
     var audioImage = presentation.Images.AddImage(imageStream);
     imageStream.Dispose();
 
-    // يحدد الصورة لإطار الصوت.
+    // يضبط الصورة لإطار الصوت.
     audioFrame.PictureFormat.Picture.Image = audioImage; // <-----
     
-	//يحفظ العرض التقديمي المعدل على القرص
+	//يحفظ العرض التقديمي المعدل إلى القرص
     presentation.Save("example_out.pptx", SaveFormat.Pptx);
 }
 ```
 
+
 ## **تغيير خيارات تشغيل الصوت**
 
-تسمح Aspose.Slides لـ .NET بتغيير الخيارات التي تتحكم في تشغيل الصوت أو خصائصه. على سبيل المثال، يمكنك ضبط حجم الصوت، أو تعيين الصوت للتشغيل بشكل متكرر، أو حتى إخفاء أيقونة الصوت.
+Aspose.Slides for .NET يتيح لك تعديل الخيارات التي تتحكم في تشغيل الصوت أو خصائصه. على سبيل المثال، يمكنك تعديل مستوى الصوت، ضبط تشغيل الصوت بشكل متكرر، أو حتى إخفاء أيقونة الصوت.
 
-لوحة **خيارات الصوت** في Microsoft PowerPoint:
+لوحة **Audio Options** في Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-خيارات الصوت في PowerPoint التي تتوافق مع خصائص Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe):
+خيارات الصوت في PowerPoint التي تتطابق مع خصائص Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe) :
 
-- قائمة خيارات الصوت **البداية** تطابق خاصية [AudioFrame.PlayMode](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playmode) 
-- خيارات الصوت **الحجم** تطابق خاصية [AudioFrame.Volume](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/volume) 
-- خيارات الصوت **التشغيل عبر الشرائح** تطابق خاصية [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playacrossslides) 
-- خيارات الصوت **التكرار حتى التوقف** تطابق خاصية [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playloopmode) 
-- خيارات الصوت **الإخفاء أثناء العرض** تطابق خاصية [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/hideatshowing) 
-- خيارات الصوت **إعادة التشغيل بعد التشغيل** تطابق خاصية [AudioFrame.RewindAudio](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/rewindaudio) 
+- **Start** قائمة منسدلة تتطابق مع خاصية [AudioFrame.PlayMode](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playmode) 
+- **Volume** تتطابق مع خاصية [AudioFrame.Volume](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/volume) 
+- **Play Across Slides** يتطابق مع خاصية [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playacrossslides) 
+- **Loop until Stopped** يتطابق مع خاصية [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playloopmode) 
+- **Hide During Show** يتطابق مع خاصية [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/hideatshowing) 
+- **Rewind after Playing** يتطابق مع خاصية [AudioFrame.RewindAudio ](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/rewindaudio) 
 
-إليك كيفية تغيير خيارات تشغيل الصوت:
+خيارات التحرير في PowerPoint التي تتطابق مع خصائص Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe) :
 
-1. [إنشاء](#create-audio-frame) أو الحصول على إطار الصوت.
-2. تعيين قيم جديدة لخصائص إطار الصوت التي تريد تعديلها.
+- **Fade In** يتطابق مع خاصية [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/net/aspose.slides/audioframe/fadeinduration/) 
+- **Fade Out** يتطابق مع خاصية [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/net/aspose.slides/audioframe/fadeoutduration/) 
+- **Trim Audio Start Time** يتطابق مع خاصية [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/audioframe/trimfromstart/) 
+- **Trim Audio End Time** القيمة تساوي مدة الصوت مطروحاً منها قيمة خاصية [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/audioframe/trimfromend/) 
+
+شريط التحكم في مستوى الصوت في PowerPoint **Volume controll** يتوافق مع خاصية [AudioFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/audioframe/volumevalue/) . يتيح لك تعديل مستوى الصوت كنسبة مئوية.
+
+هذه هي طريقة تغيير خيارات تشغيل الصوت:
+
+1. [إنشاء أو الحصول على إطار الصوت](#create-audio-frame).
+2. ضبط القيم الجديدة لخصائص إطار الصوت التي ترغب في تعديلها.
 3. حفظ ملف PowerPoint المعدل.
 
-يوضح كود C# عملية يتم فيها ضبط خيارات الصوت:
-
+هذا الكود بلغة C# يوضح عملية تعديل خيارات الصوت:
 ``` csharp 
 using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
 {
     // يحصل على شكل AudioFrame
     AudioFrame audioFrame = (AudioFrame)pres.Slides[0].Shapes[0];
 
-    // يحدد وضع التشغيل للتشغيل عند النقر
+    // يضبط وضع التشغيل لتشغيله عند النقر
     audioFrame.PlayMode = AudioPlayModePreset.OnClick;
 
-    // يحدد حجم الصوت على منخفض
+    // يضبط مستوى الصوت إلى منخفض
     audioFrame.Volume = AudioVolumeMode.Low;
 
-    // يحدد الصوت للتشغيل عبر الشرائح
+    // يضبط تشغيل الصوت عبر الشرائح
     audioFrame.PlayAcrossSlides = true;
 
-    // يعطل التكرار للصوت
+    // يعطل تكرار الصوت
     audioFrame.PlayLoopMode = false;
 
     // يخفي AudioFrame أثناء عرض الشرائح
     audioFrame.HideAtShowing = true;
 
-    // يعيد تشغيل الصوت إلى البداية بعد التشغيل
+    // يُعيد الصوت إلى البداية بعد التشغيل
     audioFrame.RewindAudio = true;
 
     // يحفظ ملف PowerPoint إلى القرص
@@ -125,30 +144,85 @@ using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
 }
 ```
 
+
+هذا المثال بلغة C# يوضح كيفية إضافة إطار صوت جديد مع صوت مدمج، قصه، وتحديد فترات التلاشي:
+```c#
+using (Presentation pres = new Presentation())
+{
+    ISlide slide = pres.Slides[0];
+
+    byte[] audioData = File.ReadAllBytes("sampleaudio.mp3");
+    IAudio audio = pres.Audios.AddAudio(audioData);
+    IAudioFrame audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+
+    // يضبط إزاحة بدء القص إلى 1.5 ثانية
+    audioFrame.TrimFromStart = 1500f;
+    // يضبط إزاحة نهاية القص إلى 2 ثانية
+    audioFrame.TrimFromEnd = 2000f;
+
+    // يضبط مدة التلاشي عند البدء إلى 200 مللي ثانية
+    audioFrame.FadeInDuration = 200f;
+    // يضبط مدة التلاشي عند الانتهاء إلى 500 مللي ثانية
+    audioFrame.FadeOutDuration = 500f;
+
+    pres.Save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
+العينة التالية للشفرة توضح كيفية استخراج إطار صوت مدمج وتعيين مستوى الصوت إلى 85%:
+```c#
+using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
+{
+    // يحصل على شكل إطار صوتي
+    IAudioFrame audioFrame = (IAudioFrame)pres.Slides[0].Shapes[0];
+
+    // يضبط مستوى صوت الإطار إلى 85%
+    audioFrame.VolumeValue = 85f;
+    
+    pres.Save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
+}
+```
+
+
 ## **استخراج الصوت**
-تسمح Aspose.Slides لـ .NET باستخراج الصوت المستخدم في انتقالات عرض الشرائح. على سبيل المثال، يمكنك استخراج الصوت المستخدم في شريحة معينة.
+Aspose.Slides for .NET يتيح لك استخراج الصوت المستخدم في انتقالات عرض الشرائح. على سبيل المثال، يمكنك استخراج الصوت المستخدم في شريحة معينة.
 
-1. أنشئ مثيلًا من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) وقم بتحميل العرض التقديمي الذي يحتوي على الصوت.
-2. احصل على مرجع الشريحة ذات الصلة من خلال فهرسها.
-3. الوصول إلى انتقالات عرض الشرائح للشريحة.
-4. استخراج الصوت في بيانات بايت.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) وتحميل العرض التقديمي الذي يحتوي على الصوت.
+2. الحصول على مرجع الشريحة ذات الصلة عبر فهرسها.
+3. الوصول إلى انتقالات عرض الشرائح لتلك الشريحة.
+4. استخراج الصوت على شكل بيانات بايت.
 
-يوضح كود C# كيف يمكنك استخراج الصوت المستخدم في شريحة:
-
+هذا الكود بلغة C# يوضح كيفية استخراج الصوت المستخدم في شريحة:
 ```c#
 string presName = "AudioSlide.pptx";
 
-// يهيئ فئة Presentation التي تمثل ملف عرض تقديمي
+// ينشئ كائن من فئة Presentation التي تمثل ملف عرض تقديمي
 Presentation pres = new Presentation(presName);
 
-// يصل إلى الشريحة
+// الوصول إلى الشريحة
 ISlide slide = pres.Slides[0];
 
 // يحصل على تأثيرات انتقال عرض الشرائح للشريحة
 ISlideShowTransition transition = slide.SlideShowTransition;
 
-// يستخرج الصوت في مصفوفة بايت
+// استخراج الصوت كمصفوفة بايت
 byte[] audio = transition.Sound.BinaryData;
 
 System.Console.WriteLine("Length: " + audio.Length);
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني إعادة استخدام نفس ملف الصوت عبر عدة شرائح دون زيادة حجم الملف؟**
+
+نعم. أضف الصوت مرة واحدة إلى مجموعة الصوت المشتركة في العرض التقديمي ثم أنشئ إطارات صوت إضافية تشير إلى ذلك الأصل. هذا يمنع تكرار بيانات الوسائط ويحافظ على حجم العرض تحت السيطرة.
+
+**هل يمكنني استبدال الصوت في إطار صوت موجود دون إعادة إنشاء الشكل؟**
+
+نعم. بالنسبة للصوت المرتبط، حدّث مسار الرابط [link path](https://reference.aspose.com/slides/net/aspose.slides/audioframe/linkpathlong/) ليشير إلى الملف الجديد. بالنسبة للصوت المدمج، استبدل كائن [embedded audio](https://reference.aspose.com/slides/net/aspose.slides/audioframe/embeddedaudio/) بآخر من مجموعة الصوت في العرض التقديمي. يبقى تنسيق الإطار ومعظم إعدادات التشغيل كما هو.
+
+**هل يؤدي القص إلى تغيير بيانات الصوت الأساسية المخزنة في العرض التقديمي؟**
+
+لا. يقتصر القص على تعديل حدود التشغيل فقط. تظل بايتات الصوت الأصلية دون تغيير ويمكن الوصول إليها عبر الصوت المدمج أو مجموعة الصوت في العرض التقديمي.

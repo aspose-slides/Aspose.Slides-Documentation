@@ -1,27 +1,40 @@
 ---
-title: واجهة البرمجة العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 14.10.0
+title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 14.10.0
+linktitle: Aspose.Slides لـ .NET 14.10.0
 type: docs
 weight: 120
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/
+keywords:
+- ترحيل
+- كود قديم
+- كود حديث
+- نهج قديم
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "استعراض التحديثات العامة لواجهة برمجة التطبيقات والتغييرات المتعارضة في Aspose.Slides لـ .NET لتسهيل ترحيل حلول العروض التقديمية PowerPoint PPT و PPTX و ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-هذه الصفحة تسرد جميع [المضاف](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) أو [المزال](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) الفئات، الطرق، الخصائص وما إلى ذلك، والتغييرات الأخرى التي تم إدخالها مع واجهة برمجة التطبيقات Aspose.Slides لـ .NET 14.10.0.
+هذه الصفحة تُدرج جميع الفئات، الأساليب، الخصائص وما إلى ذلك التي تم [تمت الإضافة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) أو [تمت الإزالة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) لها، وغيرها من التغييرات التي تم تقديمها مع Aspose.Slides for .NET 14.10.0 API.
 
 {{% /alert %}} 
-## **تغييرات واجهة البرمجة العامة**
-#### **تم إضافة نوع حقل Aspose.Slides.FieldType.Footer**
-تم إضافة نوع حقل Footer لتنفيذ إمكانية إنشاء حقول من هذا النوع ولتسلسل العروض المعتمدة بشكل صحيح.
-#### **تم حذف عنصر enum ShapeElementFillSource.Own**
-تم حذف عنصر enum ShapeElementFillSource.Own باعتباره مكرراً. استخدم ShapeElementFillSource.Shape بدلاً من ShapeElementFillSource.Own.
-#### **تم إضافة طرق لإزالة نقاط بيانات الرسم البياني والفئات**
-تمت إضافة الطرق التالية، التي تسمح بإزالة نقطة بيانات الرسم البياني من مجموعة نقاط بيانات الرسم البياني:
+## **تغييرات واجهة برمجة التطبيقات العامة**
+#### **تمت إضافة نوع الحقل Aspose.Slides.FieldType.Footer**
+#### **تم حذف عنصر التعداد ShapeElementFillSource.Own**
+تم حذف عنصر التعداد ShapeElementFillSource.Own لأنه مكرر. استخدم ShapeElementFillSource.Shape بدلاً من ShapeElementFillSource.Own.
+#### **تمت إضافة طرق لإزالة نقاط بيانات المخطط والفئات**
+الطرق التالية، التي تسمح بإزالة نقطة بيانات المخطط من مجموعة نقاط البيانات، قد تم إضافتها:
 
-IChartDataPointCollection.Remove(IChartDataPoint)
+IChartDataPointCollection.Remove(IChartDataPoint)  
 IChartDataPoint.Report()
 
-تمت إضافة الطريقة التالية، التي تسمح بإزالة فئة الرسم البياني من المجموعة المحتوية:
+الطريقة التالية، التي تسمح بإزالة فئة مخطط من المجموعة المحتوية، قد تم إضافتها:
 
 IChartCategory.Remove()
 
@@ -33,15 +46,15 @@ IChartCategory.Remove()
 
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 400, true);
 
-    chart.ChartData.Categories[0].Remove(); //إزالة باستخدام ChartCategory.Remove()
+    chart.ChartData.Categories[0].Remove(); //remove with ChartCategory.Remove()
 
-    chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //إزالة باستخدام ChartCategoryCollection.Remove()
+    chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //remove with ChartCategoryCollection.Remove()
 
     foreach (var ser in chart.ChartData.Series)
 
     {
 
-        ser.DataPoints[0].Remove();//إزالة باستخدام ChartDataPoint.Remove()
+        ser.DataPoints[0].Remove();//remove with ChartDataPoint.Remove()
 
         ser.DataPoints.Remove(ser.DataPoints[0]);//ChartDataPointCollection.Remove()
 
@@ -52,10 +65,10 @@ IChartCategory.Remove()
 }
 
 ``` 
-#### **تمت إزالة خصائص Aspose.Slides.ParagraphFormat المهملة**
-تمت إزالة الخصائص BulletChar، BulletColor، BulletColorFormat، BulletFont، BulletHeight، BulletType، IsBulletHardColor، IsBulletHardFont، NumberedBulletStartWith، NumberedBulletStyle. لقد تم وضع علامة عليها كمتهملة منذ فترة طويلة.
-#### **تمت إزالة المنشئات غير المفيدة والمهملة**
-تمت إزالة المنشئات التالية:
+#### **تم حذف خصائص Aspose.Slides.ParagraphFormat القديمة**
+تم حذف الخصائص BulletChar و BulletColor و BulletColorFormat و BulletFont و BulletHeight و BulletType و IsBulletHardColor و IsBulletHardFont و NumberedBulletStartWith و NumberedBulletStyle. كانت مُعلَّمة كعَتيقة منذ زمن طويل.
+#### **تم حذف البناة غير المفيدة والقديمة**
+المنشئات التالية تم حذفها:
 
 - Aspose.Slides.Effects.AlphaBiLevel(System.Single)
 - Aspose.Slides.Effects.AlphaModulateFixed(System.Single)

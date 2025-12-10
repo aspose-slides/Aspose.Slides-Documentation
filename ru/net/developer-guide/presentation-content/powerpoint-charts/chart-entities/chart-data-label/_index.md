@@ -1,33 +1,42 @@
 ---
-title: Метки данных диаграммы
+title: Управление подписями данных диаграмм в презентациях на .NET
+linktitle: Подпись данных
 type: docs
 url: /ru/net/chart-data-label/
-keywords: "Метка данных диаграммы, расстояние между метками, C#, Csharp, Aspose.Slides для .NET"
-description: "Установка меток данных диаграммы PowerPoint и расстояния в C# или .NET"
+keywords:
+- диаграмма
+- подпись данных
+- точность данных
+- процент
+- расстояние подписи
+- расположение подписи
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Узнайте, как добавлять и форматировать подписи данных диаграмм в презентациях PowerPoint с помощью Aspose.Slides для .NET для более увлекательных слайдов."
 ---
 
-Меток данных на диаграмме показывают детали о серии данных диаграммы или отдельных точках данных. Они позволяют читателям быстро идентифицировать серии данных и делают диаграммы легче для понимания.
+Подписи данных на диаграмме показывают детали о серии данных диаграммы или отдельных точках данных. Они позволяют читателям быстро идентифицировать серии данных и делают диаграммы более понятными.
 
-## **Установить точность данных в метках данных диаграммы**
-
-Этот код C# показывает, как установить точность данных в метке данных диаграммы:
-
+## **Установить точность данных в подписи диаграммы**
 ```c#
 using (Presentation pres = new Presentation())
 {
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 50, 50, 450, 300);
-    chart.HasDataTable = true;
-    chart.ChartData.Series[0].NumberFormatOfValues = "#,##0.00";
+	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 50, 50, 450, 300);
+	chart.HasDataTable = true;
+	chart.ChartData.Series[0].NumberFormatOfValues = "#,##0.00";
 
-    pres.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
+	pres.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Отображение процентов в качестве меток**
-Aspose.Slides для .NET позволяет устанавливать метки процентов на отображаемых диаграммах. Этот код C# демонстрирует операцию:
 
+## **Отображать проценты в виде подписей**
+Aspose.Slides for .NET позволяет задавать процентные подписи на отображаемых диаграммах. Этот C# код демонстрирует операцию:
 ```c#
-// Создание экземпляра класса Presentation
+// Создаёт экземпляр класса Presentation
 Presentation presentation = new Presentation();
 
 ISlide slide = presentation.Slides[0];
@@ -72,45 +81,45 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
     }
 }
 
-// Сохранение презентации, содержащей диаграмму
+// Сохраняет презентацию, содержащую диаграмму
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Установить знак процента для меток данных диаграммы**
-Этот код C# показывает, как установить знак процента для метки данных диаграммы:
 
+## **Установить знак процента в подписи диаграммы**
+Этот C# код показывает, как задать знак процента для подписи данных диаграммы:
 ```c#
-// Создание экземпляра класса Presentation
+// Создаёт экземпляр класса Presentation
 Presentation presentation = new Presentation();
 
-// Получение ссылки на слайд по его индексу
+// Получает ссылку на слайд по его индексу
 ISlide slide = presentation.Slides[0];
 
-// Создание диаграммы PercentsStackedColumn на слайде
+// Создаёт диаграмму PercentsStackedColumn на слайде
 IChart chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
-// Установка NumberFormatLinkedToSource в false
+// Устанавливает NumberFormatLinkedToSource в false
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.NumberFormat = "0.00%";
 
 chart.ChartData.Series.Clear();
 int defaultWorksheetIndex = 0;
 
-// Получение рабочей таблицы данных диаграммы
+// Получает рабочий лист данных диаграммы
 IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-// Добавление новых серий
+// Добавляет новую серию
 IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.Type);
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 1, 0.30));
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 1, 0.50));
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 1, 0.80));
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 1, 0.65));
 
-// Установка цвета заливки серии
+// Устанавливает цвет заливки серии
 series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-// Установка свойств LabelFormat
+// Устанавливает свойства LabelFormat
 series.Labels.DefaultDataLabelFormat.ShowValue = true;
 series.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
 series.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
@@ -119,14 +128,14 @@ series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillTyp
 series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
 series.Labels.DefaultDataLabelFormat.ShowValue = true;
 
-// Добавление новой серии
+// Добавляет новую серию
 IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.Type);
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 2, 0.70));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 2, 0.50));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 2, 0.20));
 series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 2, 0.35));
 
-// Установка типа заливки и цвета
+// Устанавливает тип заливки и цвет
 series2.Format.Fill.FillType = FillType.Solid;
 series2.Format.Fill.SolidFillColor.Color = Color.Blue;
 series2.Labels.DefaultDataLabelFormat.ShowValue = true;
@@ -136,36 +145,36 @@ series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
 series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
 series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
 
-// Запись презентации на диск
+// Записывает презентацию на диск
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Установить расстояние метки от оси**
-Этот код C# показывает, как установить расстояние метки от оси категории, когда вы работаете с диаграммой, построенной по осям:
 
+## **Установить расстояние подписи от оси**
+Этот C# код показывает, как задать расстояние подписи от оси категорий, когда вы работаете с диаграммой, построенной по осям:
 ```c#
-// Создание экземпляра класса Presentation
+ // Creates an instance of the Presentation class
 Presentation presentation = new Presentation();
 
-// Получение ссылки на слайд
+// Gets a slide's reference
 ISlide sld = presentation.Slides[0];
 
-// Создание диаграммы на слайде
+// Creates a chart on the slide
 IChart ch = sld.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-// Установка расстояния метки от оси
+// Sets the label distance from an axis
 ch.Axes.HorizontalAxis.LabelOffset = 500;
 
-// Запись презентации на диск
+// Writes the presentation to disk
 presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Регулировка расположения меток**
 
-Когда вы создаете диаграмму, которая не зависит от каких-либо осей, например круговую диаграмму, метки данных диаграммы могут оказаться слишком близко к краю. В таком случае вам нужно отрегулировать расположение метки данных, чтобы линии соединения отображались четко.
+## **Настроить расположение подписи**
 
-Этот код C# показывает, как отрегулировать расположение метки на круговой диаграмме: 
+Когда вы создаёте диаграмму, не зависящую от осей, например круговую диаграмму, подписи данных могут оказаться слишком близко к её краю. В таком случае необходимо скорректировать расположение подписи, чтобы линии‑выноски отображались чётко.
 
+Этот C# код показывает, как настроить расположение подписи на круговой диаграмме:
 ```c#
 using (Presentation pres = new Presentation())
 {
@@ -183,4 +192,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-![круговая-диаграмма-с-регулированной-меткой](pie-chart-adjusted-label.png)
+
+![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **FAQ**
+
+**Как предотвратить наложение подписей данных на плотных диаграммах?**  
+Комбинировать автоматическое размещение подписей, линии‑выноски и уменьшенный размер шрифта; при необходимости скрывать некоторые поля (например, категорию) или показывать подписи только для экстремальных/ключевых точек.
+
+**Как отключить подписи только для нулевых, отрицательных или пустых значений?**  
+Отфильтровать точки данных перед включением подписей и отключить отображение для значений 0, отрицательных значений или отсутствующих значений согласно заданному правилу.
+
+**Как обеспечить единый стиль подписи при экспорте в PDF/изображения?**  
+Явно задавать шрифты (семейство, размер) и проверять их наличие на стороне рендеринга, чтобы избежать подстановки резервных шрифтов.

@@ -1,14 +1,28 @@
 ---
 title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 14.4.0
+linktitle: Aspose.Slides لـ .NET 14.4.0
 type: docs
 weight: 60
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-4-0/
+keywords:
+- الترحيل
+- كود قديم
+- كود حديث
+- نهج قديم
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "استعراض تحديثات واجهة برمجة التطبيقات العامة والتغييرات الجذرية في Aspose.Slides لـ .NET لتحديث حلول عروض PowerPoint (PPT, PPTX) و ODP بسلاسة."
 ---
 
 ## **واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة**
-### **تمت إضافة الواجهات والفصول والطرق والخصائص**
+### **الواجهات والفئات والطرق والخصائص المضافة**
 #### **تمت إضافة خاصية Aspose.Slides.ILayoutSlide.HasDependingSlides**
-تعود خاصية Aspose.Slides.ILayoutSlide.HasDependingSlides بقيمة true إذا كان هناك على الأقل شريحة واحدة تعتمد على شريحة التخطيط هذه. على سبيل المثال:
+تُعيد خاصية Aspose.Slides.ILayoutSlide.HasDependingSlides القيمة true إذا كان هناك شريحة واحدة على الأقل تعتمد على هذه الشريحة التخطيطية. على سبيل المثال:
 
 ``` csharp
 
@@ -20,7 +34,7 @@ if (!layout.HasDependingSlides)
 
 ``` 
 #### **طريقة Aspose.Slides.ILayoutSlide.Remove()**
-تسمح لك طريقة Aspose.Slides.ILayoutSlide.Remove() بإزالة تخطيط من عرض تقديمي بأقل قدر من التعليمات البرمجية. على سبيل المثال:
+تسمح طريقة Aspose.Slides.ILayoutSlide.Remove() بإزالة تخطيط من عرض تقديمي بأقل كمية من الشيفرة. على سبيل المثال:
 
 ``` csharp
 
@@ -32,7 +46,7 @@ if (!layout.HasDependingSlides)
 
 ``` 
 #### **طريقة Aspose.Slides.ILayoutSlideCollection.Remove(ILayoutSlide)**
-تسمح لك طريقة Aspose.Slides.ILayoutSlideCollection.Remove(ILayoutSlide) بإزالة تخطيط من المجموعة. أمثلة التعليمات البرمجية:
+تسمح طريقة Aspose.Slides.ILayoutSlideCollection.Remove(ILayoutSlide) بإزالة تخطيط من المجموعة. أمثلة على الشيفرة:
 
 ``` csharp
 
@@ -44,7 +58,7 @@ if (!layout.HasDependingSlides)
 
 ``` 
 
-أو
+or
 
 ``` csharp
 
@@ -58,7 +72,7 @@ if (!layout.HasDependingSlides)
 
 ``` 
 #### **Aspose.Slides.ILayoutSlideCollection.RemoveUnused()**
-تسمح لك طريقة Aspose.Slides.ILayoutSlideCollection.RemoveUnused() بإزالة شرائح التخطيط غير المستخدمة (شرائح التخطيط التي تكون HasDependingSlides لها false). أمثلة التعليمات البرمجية:
+تسمح طريقة Aspose.Slides.ILayoutSlideCollection.RemoveUnused() بإزالة شرائح التخطيط غير المستخدمة (شرائح التخطيط التي تكون خاصية HasDependingSlides فيها false). أمثلة على الشيفرة:
 
 ``` csharp
 
@@ -66,7 +80,7 @@ if (!layout.HasDependingSlides)
 
 ``` 
 
-أو
+or
 
 ``` csharp
 
@@ -76,7 +90,7 @@ masterSlide.LayoutSlides.RemoveUnused();
 
 ``` 
 #### **خاصية Aspose.Slides.IMasterSlide.HasDependingSlides**
-تعود خاصية Aspose.Slides.IMasterSlide.HasDependingSlides بقيمة true إذا كان هناك على الأقل شريحة واحدة تعتمد على شريحة الماستر هذه. على سبيل المثال:
+تُعيد خاصية Aspose.Slides.IMasterSlide.HasDependingSlides القيمة true إذا كان هناك شريحة واحدة على الأقل تعتمد على هذه الشريحة الرئيسية. على سبيل المثال:
 
 ``` csharp
 
@@ -88,7 +102,7 @@ if (!masterSlide.HasDependingSlides)
 
 ``` 
 #### **طريقة Aspose.Slides.ISlide.Remove()**
-تسمح لك طريقة Aspose.Slides.ISlide.Remove() بإزالة شريحة من عرض تقديمي بأقل قدر من التعليمات البرمجية. على سبيل المثال:
+تسمح طريقة Aspose.Slides.ISlide.Remove() بإزالة شريحة من عرض تقديمي بأقل كمية من الشيفرة. على سبيل المثال:
 
 ``` csharp
 
@@ -97,12 +111,12 @@ if (!masterSlide.HasDependingSlides)
 slide.Remove();
 
 ``` 
-#### **Aspose.Slides.SmartArt.ISmartArtNode.BulletFillFormat**
-تعود خاصية Aspose.Slides.SmartArt.ISmartArtNode.BulletFillFormat بـ IFillFormat لرمز SmartArt إذا كان التخطيط يوفر رموز. يمكن استخدامها لتعيين صورة الرمز.
+#### **خاصية Aspose.Slides.SmartArt.ISmartArtNode.BulletFillFormat**
+تُعيد خاصية Aspose.Slides.SmartArt.ISmartArtNode.BulletFillFormat كائن IFillFormat لنقطة SmartArt إذا كان التخطيط يوفر نقاطًا. يمكن استخدامها لتعيين صورة النقطة.
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-SmartArts-BulletFillFormat-BulletFillFormat.cs" >}}
 #### **خاصية Aspose.Slides.SmartArt.ISmartArtNode.Level**
-تعود خاصية Aspose.Slides.SmartArt.ISmartArtNode.Level بالمستوى المتداخل لعقد SmartArt.
+تُعيد خاصية Aspose.Slides.SmartArt.ISmartArtNode.Level المستوى المتداخل لعقد SmartArt.
 
 ``` csharp
 
@@ -110,11 +124,11 @@ slide.Remove();
 
 if(node.Level == 1)
 
-    node.TextFrame.Text = "المستوى الأول";
+    node.TextFrame.Text = "First level";
 
 ``` 
 #### **خاصية Aspose.Slides.SmartArt.ISmartArtNode.Position**
-تعود خاصية Aspose.Slides.SmartArt.ISmartArtNode.Position بموقع عقدة ما بين أشقائها.
+تُعيد خاصية Aspose.Slides.SmartArt.ISmartArtNode.Position موضع العقدة بين عقدها الشقيقة.
 
 ``` csharp
 
@@ -126,7 +140,7 @@ if (node.ChildNodes.Count > 3)
 
 ``` 
 #### **تمت إضافة طريقة Aspose.Slides.SmartArt.ISmartArtNode.Remove()**
-تسمح لك طريقة Aspose.Slides.SmartArt.ISmartArtNode.Remove() بإزالة عقدة من رسم تخطيطي.
+تسمح طريقة Aspose.Slides.SmartArt.ISmartArtNode.Remove() بإزالة عقدة من مخطط.
 
 ``` csharp
 
@@ -135,28 +149,24 @@ if (node.ChildNodes.Count > 3)
 node.Remove();
 
 ``` 
-#### **واجهة IGlobalLayoutSlideCollection وفصل GlobalLayoutSlideCollection**
-تمت إضافة واجهة IGlobalLayoutSlideCollection وفصل GlobalLayoutSlideCollection إلى مساحة أسماء Aspose.Slides.
-
-إن فصل GlobalLayoutSlideCollection ينفذ واجهة IGlobalLayoutSlideCollection.
-
-تمثل واجهة IGlobalLayoutSlideCollection مجموعة من جميع شرائح التخطيط في عرض تقديمي. خاصية IPresentation.LayoutSlides من نوع IGlobalLayoutSlideCollection. تمتد IGlobalLayoutSlideCollection واجهة ILayoutSlideCollection بطرق لإضافة ونسخ شرائح التخطيط في سياق توحيد المجموعات الفردية لشرائح تخطيطات الماستر:
-
-- ILayoutSlide AddClone(ILayoutSlide sourceLayout); – يمكن استخدامها لإضافة نسخة من شريحة تخطيط محددة إلى العرض التقديمي. تحتفظ هذه الطريقة بتنسيق المصدر (عند نسخ تخطيط بين عروض تقديمية مختلفة، يمكن نسخ الماستر الخاص بالتخطيط أيضًا. يتم استخدام السجل الداخلي لتعقب الماسترات المنسوخة تلقائيًا لمنع إنشاء نسخ متعددة من نفس شريحة الماستر.)
-- ILayoutSlide AddClone(ILayoutSlide sourceLayout, IMasterSlide destMaster); – تستخدم لإضافة نسخة من شريحة تخطيط محددة إلى عرض تقديمي. سيكون التخطيط الجديد مرتبطًا بالماستر المحدد في العرض التقديمي الوجهة. هذه الخيار مشابه لنسخ أو لصق مع خيار **استخدام تنسيق الوجهة** في Microsoft PowerPoint.
-- ILayoutSlide Add(IMasterSlide master, SlideLayoutType layoutType, string layoutName); – تستخدم لإضافة شريحة تخطيط جديدة إلى عرض تقديمي. أنواع التخطيط المدعومة: العنوان، العنوان فقط، فارغ، عنوان وكائن، نص عمودي، عنوان ونص عمودي، جسمان، عنوان القسم، نصان وجسمان، كائن عنوان وتسمية، صورة وتسمية، مخصص. يمكن توليد اسم التخطيط تلقائيًا. تحتوي شريحة التخطيط من النوع SlideLayoutType.Custom على خانات فارغة ولا أشكال. النسخة المماثلة لهذه الطريقة هي IMasterLayoutSlideCollection.Add(SlideLayoutType, string) التي يمكن الوصول إليها من خاصية IMasterSlide.LayoutSlides.
-#### **واجهة IMasterLayoutSlideCollection وفصل MasterLayoutSlideCollection**
-تمت إضافة واجهة IMasterLayoutSlideCollection وفصل MasterLayoutSlideCollection إلى مساحة أسماء Aspose.Slides. إن فصل MasterLayoutSlideCollection ينفذ واجهة IMasterLayoutSlideCollection.
-
-تمثل واجهة IMasterLayoutSlideCollection مجموعات من جميع شرائح التخطيط لشريحة الماستر المحددة. إنها تمتد واجهة ILayoutSlideCollection بطرق لإضافة، إدراج، إزالة أو نسخ شرائح التخطيط في سياق المجموعات الفردية لشرائح تخطيط الماستر:
+#### **واجهة IGlobalLayoutSlideCollection وفئة GlobalLayoutSlideCollection**
+تمت إضافة واجهة IGlobalLayoutSlideCollection وفئة GlobalLayoutSlideCollection إلى مساحة الاسم Aspose.Slides.
+تقوم فئة GlobalLayoutSlideCollection بتنفيذ واجهة IGlobalLayoutSlideCollection.
+تمثل واجهة IGlobalLayoutSlideCollection مجموعة جميع شرائح التخطيط في عرض تقديمي. خاصية IPresentation.LayoutSlides من نوع IGlobalLayoutSlideCollection. تقوم IGlobalLayoutSlideCollection بتمديد واجهة ILayoutSlideCollection بإضافة طرق لإضافة وتكرار شرائح التخطيط في سياق دمج المجموعات الفردية لشرائح تخطيط الماستر:
+- ILayoutSlide AddClone(ILayoutSlide sourceLayout); – يمكن استخدامها لإضافة نسخة من شريحة تخطيط محددة إلى العرض التقديمي. تُحافظ هذه الطريقة على تنسيق المصدر (عند تكرار تخطيط بين عروض تقديمية مختلفة، يمكن أيضًا تكرار ماستر التخطيط. يُستخدم السجل الداخلي لتتبع الماسترات المكررة تلقائيًا لمنع إنشاء نسخ متعددة من نفس شريحة الماستر.)
+- ILayoutSlide AddClone(ILayoutSlide sourceLayout, IMasterSlide destMaster); – تُستخدم لإضافة نسخة من شريحة تخطيط محددة إلى عرض تقديمي. سيتربط التخطيط الجديد بالماستر المحدد في العرض الهدف. هذا الخيار مشابه للنسخ أو اللصق مع خيار **Use Destination Theme** في Microsoft PowerPoint.
+- ILayoutSlide Add(IMasterSlide master, SlideLayoutType layoutType, string layoutName); – تُستخدم لإضافة شريحة تخطيط جديدة إلى عرض تقديمي. الأنواع المدعومة للتخطيط: Title, TitleOnly, Blank, TitleAndObject, VerticalText, VerticalTitleAndText, TwoObjects, SectionHeader, TwoTextAndTwoObjects, TitleObjectAndCaption, PictureAndCaption, Custom. يمكن إنشاء اسم التخطيط تلقائيًا. التخطيط المضاف من النوع SlideLayoutType.Custom لا يحتوي على أي نائبات ولا أشكال. نظير هذه الطريقة هو الطريقة IMasterLayoutSlideCollection.Add(SlideLayoutType, string) التي تُستدعى عبر خاصية IMasterSlide.LayoutSlides.
+#### **الواجهة IMasterLayoutSlideCollection والفئة MasterLayoutSlideCollection**
+تمت إضافة الواجهة IMasterLayoutSlideCollection والفئة MasterLayoutSlideCollection إلى مساحة الاسم Aspose.Slides. تقوم فئة MasterLayoutSlideCollection بتنفيذ واجهة IMasterLayoutSlideCollection.
+تمثل الواجهة IMasterLayoutSlideCollection مجموعة جميع شرائح التخطيط لشريحة ماستر محددة. إنها تمد واجهة ILayoutSlideCollection بطرق لإضافة، إدراج، إزالة أو تكرار شرائح التخطيط في سياق المجموعات الفردية لشرائح تخطيط الماستر:
 
 ``` csharp
 
- // توقيع الطريقة:
+ // Method signature:
 
 ILayoutSlide AddClone(ILayoutSlide sourceLayout);
 
-// مثال التعليمات البرمجية الذي يربط نسخة من sourceLayout بـ destMasterSlide:
+// Code example that attaches copy of the sourceLayout to the destMasterSlide:
 
 IMasterSlide destMasterSlide = ...;
 
@@ -164,41 +174,40 @@ destMasterSlide.LayoutSlides.AddClone(sourceLayout);
 
 ``` 
 
-يمكن استخدام الطريقة لإضافة نسخة من شريحة تخطيط محددة إلى نهاية المجموعة. سيكون التخطيط الجديد مرتبطًا بشريحة الماستر الأم لمجموعة شرائح التخطيط هذه. لذا، هذه مماثلة للنسخ أو اللصق مع خيار **استخدام تنسيق الوجهة** في PowerPoint. النسخة المماثلة لهذه الطريقة هي IGlobalLayoutSlideCollection.AddClone(ILayoutSlide, IMasterSlide) التي يمكن الوصول إليها من خاصية IPresentation.LayoutSlides.
-
-- ILayoutSlide InsertClone(int index, ILayoutSlide sourceLayout); – تستخدم لإدخال نسخة من شريحة تخطيط محددة إلى موضع محدد من المجموعة. سيكون التخطيط الجديد مرتبطًا بشريحة الماستر الأم لمجموعة شرائح التخطيط هذه. لذا، هذه مماثلة للنسخ واللصق مع خيار **استخدام تنسيق الوجهة** في PowerPoint.
+يمكن استخدام الطريقة لإضافة نسخة من شريحة تخطيط محددة إلى نهاية المجموعة. سيتربط التخطيط الجديد بشريحة الماستر الأصلية لهذا التجميع. هذا مشابه للنسخ أو اللصق مع خيار **Use Destination Theme** في PowerPoint. نظير هذه الطريقة هو الطريقة IGlobalLayoutSlideCollection.AddClone(ILayoutSlide, IMasterSlide) التي تُستدعى عبر خاصية IPresentation.LayoutSlides.
+- ILayoutSlide InsertClone(int index, ILayoutSlide sourceLayout); – تُستخدم لإدراج نسخة من شريحة تخطيط محددة في موضع محدد داخل المجموعة. سيتربط التخطيط الجديد بشريحة الماستر الأصلية لهذا التجميع. هذا مشابه للنسخ واللصق مع خيار **Use Destination Theme** في PowerPoint.
 - ILayoutSlide Add(SlideLayoutType layoutType, string layoutName);
-- ILayoutSlide Insert(int index, SlideLayoutType layoutType, string layoutName); – تستخدم لإضافة أو إدراج شريحة تخطيط جديدة. أنواع التخطيط المدعومة: العنوان، العنوان فقط، فارغ، عنوان وكائن، نص عمودي، عنوان ونص عمودي، جسمان، عنوان القسم، نصان وجسمان، كائن عنوان وتسمية، صورة وتسمية، مخصص. يمكن توليد اسم التخطيط تلقائيًا. تحتوي شريحة التخطيط من النوع SlideLayoutType.Custom على خانات فارغة ولا أشكال. النسخة المماثلة لهذه الطريقة هي IGlobalLayoutSlideCollection.Add(IMasterSlide, SlideLayoutType, string) التي يمكن الوصول إليها من خاصية IPresentation.LayoutSlides.
-- void RemoveAt(int index); – تستخدم لإزالة التخطيط عند الفهرس المحدد من المجموعة.
-- void Reorder(int index, ILayoutSlide layoutSlide); – تستخدم لتحريك شريحة التخطيط من المجموعة إلى الموضع المحدد.
-### **تمت تغيير الطرق والخصائص**
-#### **توقيع طريقة Aspose.Slides.ISlideCollection.AddClone(ISlide, IMasterSlide)**
-توقيع طريقة ISlideCollection:
+- ILayoutSlide Insert(int index, SlideLayoutType layoutType, string layoutName); – تُستخدم لإضافة أو إدراج شريحة تخطيط جديدة. الأنواع المدعومة هي: Title, TitleOnly, Blank, TitleAndObject, VerticalText, VerticalTitleAndText, TwoObjects, SectionHeader, TwoTextAndTwoObjects, TitleObjectAndCaption, PictureAndCaption, Custom. يمكن إنشاء اسم التخطيط تلقائيًا. التخطيط المadded من النوع SlideLayoutType.Custom لا يحتوي على نائبة ولا أشكال. نظير هذه الطريقة هو الطريقة IGlobalLayoutSlideCollection.Add(IMasterSlide, SlideLayoutType, string) التي تُستدعى عبر خاصية IPresentation.LayoutSlides.
+- void RemoveAt(int index); – تُستخدم لإزالة التخطيط عند الفهرس المحدد في المجموعة.
+- void Reorder(int index, ILayoutSlide layoutSlide); – تُستخدم لنقل شريحة التخطيط داخل المجموعة إلى الموضع المحدد.
+### **الطرق والخصائص التي تم تغييرها**
+#### **Signature of the Aspose.Slides.ISlideCollection.AddClone(ISlide, IMasterSlide) Method**
+The signature of the ISlideCollection method:
 ISlide AddClone(ISlide sourceSlide, IMasterSlide destMaster);
 
-أصبحت غير صالحة الآن وتم استبدالها بالتوقيع
+is obsolete now and is replaced with signature
 
 ISlide AddClone(ISlide sourceSlide, IMasterSlide destMaster, bool allowCloneMissingLayout)
 
-يحدد معلمة allowCloneMissingLayout ما يجب القيام به إذا لم يكن هناك تخطيط مناسب في destMaster للشريحة الجديدة (المنسوخة). التخطيط المناسب هو التخطيط بنفس النوع أو الاسم كالتخطيط الخاص بشريحة المصدر. إذا لم يكن هناك تخطيط مناسب في الماستر المحدد، فسيتم نسخ تخطيط شريحة المصدر (إذا كانت allowCloneMissingLayout تساوي true) أو سيتم رمي PptxEditException (إذا كانت allowCloneMissingLayout تساوي false).
+The allowCloneMissingLayout parameter specifies what to do if there is no appropriate layout in the destMaster for the new (cloned) slide. The appropriate layout is the layout with the same type or name as the layout of the source slide. If there is no appropriate layout in the specified master then the layout of the source slide will be cloned (if allowCloneMissingLayout is true) or a PptxEditException will be thrown (if allowCloneMissingLayout is false).
 
-استدعاء الطريقة غير الصالحة مثل
+Call of the obsolete method like
 
 AddClone(sourceSlide, destMaster);
 
-يفترض أن allowCloneMissingLayout تساوي false (أي سيتم رمي PptxEditException إذا لم يكن هناك تخطيط مناسب). يبدو الاستدعاء المماثل من الناحية الوظيفية الذي يستخدم التوقيع الجديد كالتالي:
+assumes allowCloneMissingLayout is equal to false (that is, PptxEditException will be thrown if there is no appropriate layout). Functionally identical call that uses new signature looks like this:
 AddClone(sourceSlide, destMaster, false);
 
-إذا كنت تريد أن يتم نسخ التخطيطات المفقودة تلقائيًا بدلاً من رمي PptxEditException، فإنقل معلمة allowCloneMissingLayout كـ true.
+If you want missing layouts to be automatically cloned instead PptxEditException throwing then pass the allowCloneMissingLayout parameter as true.
 
-ينطبق الشيء نفسه على طريقة ISlideCollection:
+The same refers to the ISlideCollection method:
 
 ISlide InsertClone(int index, ISlide sourceSlide, IMasterSlide destMaster);
 
-أيضًا أصبحت غير صالحة الآن وتم استبدالها بالتوقيع
+is also obsolete now and is replaced with signature
 
 ISlide InsertClone(int index, ISlide sourceSlide, IMasterSlide destMaster, bool allowCloneMissingLayout);
-#### **نوع خاصية Aspose.Slides.IMasterSlide.LayoutSlides**
-تغير نوع خاصية Aspose.Slides.IMasterSlide.LayoutSlides من ILayoutSlideCollection إلى واجهة IMasterLayoutSlideCollection الجديدة. واجهة IMasterLayoutSlideCollection هي فرع من ILayoutSlideCollection لذلك لا يحتاج الرمز الموجود إلى أي تعديلات.
-#### **تغير نوع خاصية Aspose.Slides.IPresentation.LayoutSlides**
-تغير نوع خاصية Aspose.Slides.IPresentation.LayoutSlides من ILayoutSlideCollection إلى واجهة IGlobalLayoutSlideCollection الجديدة. واجهة IGlobalLayoutSlideCollection هي فرع من ILayoutSlideCollection لذلك لا يحتاج الرمز الموجود إلى أي تعديلات.
+#### **Type of the Aspose.Slides.IMasterSlide.LayoutSlides Property**
+The type of the Aspose.Slides.IMasterSlide.LayoutSlides property has been changed from ILayoutSlideCollection to the new IMasterLayoutSlideCollection interface. The IMasterLayoutSlideCollection interface is a descendant of the ILayoutSlideCollection so existing code needs no adaptations.
+#### **Type of the Aspose.Slides.IPresentation.LayoutSlides Property Has Been Changed**
+The type of the Aspose.Slides.IPresentation.LayoutSlides property has been changed from ILayoutSlideCollection to the new IGlobalLayoutSlideCollection interface. The IGlobalLayoutSlideCollection interface is a descendant of the ILayoutSlideCollection so existing code needs no adaptations.

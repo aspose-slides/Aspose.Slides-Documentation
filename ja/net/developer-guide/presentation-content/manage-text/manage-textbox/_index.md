@@ -1,126 +1,169 @@
 ---
-title: テキストボックスの管理
+title: .NET でプレゼンテーションのテキストボックスを管理する
+linktitle: テキストボックスの管理
 type: docs
 weight: 20
 url: /ja/net/manage-textbox/
-keywords: "Textbox, テキストフレーム, テキストボックスの追加, ハイパーリンク付きテキストボックス, C#, Csharp, Aspose.Slides for .NET"
-description: "C#または.NETでPowerPointプレゼンテーションにテキストボックスまたはテキストフレームを追加します"
+keywords:
+- テキストボックス
+- テキストフレーム
+- テキストの追加
+- テキストの更新
+- テキストボックスの作成
+- テキストボックスの確認
+- テキスト列の追加
+- ハイパーリンクの追加
+- PowerPoint
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET を使用すれば、PowerPoint および OpenDocument ファイル内のテキストボックスを簡単に作成、編集、クローンでき、プレゼンテーションの自動化を強化します。"
 ---
 
-スライド上のテキストは通常、テキストボックスまたは図形として存在します。したがって、スライドにテキストを追加するには、まずテキストボックスを追加し、その後テキストボックス内にテキストを入れる必要があります。
+スライド上のテキストは通常、テキストボックスまたはシェイプに存在します。そのため、スライドにテキストを追加するには、まずテキストボックスを追加し、そのテキストボックスの中にテキストを入力する必要があります。
 
-テキストを保持できる図形を追加できるようにするために、Aspose.Slides for .NETは[IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape)インターフェースを提供しています。
+テキストを保持できるシェイプを追加できるように、Aspose.Slides for .NET は [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape) インターフェイスを提供します。
 
-{{% alert title="注意" color="warning" %}}
+{{% alert title="注" color="warning" %}} 
 
-Aspose.Slidesはまた、スライドに図形を追加できるようにするために[IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape)インターフェースも提供しています。ただし、`IShape`インターフェースを通じて追加されたすべての図形がテキストを保持できるわけではありません。[IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape)インターフェースを通じて追加された図形には、通常テキストが含まれています。
+Aspose.Slides はさらに [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) インターフェイスを提供しており、スライドにシェイプを追加できます。ただし、`IShape` インターフェイスを介して追加されたすべてのシェイプがテキストを保持できるわけではありません。[IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape) インターフェイスを介して追加されたシェイプは通常、テキストを含みます。
 
-したがって、テキストを追加したい既存の図形を扱う際には、それが`IAutoShape`インターフェースを介してキャストされたことを確認する必要があります。それによってのみ、`IAutoShape`のプロパティである[TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/properties/textframe)を操作することができます。このページの[テキストの更新](https://docs.aspose.com/slides/net/manage-textbox/#update-text)セクションを参照してください。
+したがって、テキストを追加したい既存のシェイプを扱う場合は、そのシェイプが `IAutoShape` インターフェイスにキャストされていることを確認した方がよいでしょう。初めて `IAutoShape` の下にあるプロパティである [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/properties/textframe) を操作できるようになります。このページの [Update Text](https://docs.aspose.com/slides/net/manage-textbox/#update-text) セクションをご参照ください。
 
 {{% /alert %}}
 
 ## **スライドにテキストボックスを作成する**
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
-2. インデックスを使用して最初のスライドの参照を取得します。
-3. 指定された位置に`ShapeType`を`Rectangle`として設定した[IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape)オブジェクトを追加し、新しく追加された`IAutoShape`オブジェクトの参照を取得します。
-4. テキストを含む`TextFrame`プロパティを`IAutoShape`オブジェクトに追加します。以下の例では、次のテキストを追加しました：*Aspose TextBox*
-5. 最後に、`Presentation`オブジェクトを介してPPTXファイルを書き込みます。
+1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+2. インデックスを使用して最初のスライドの参照を取得します。  
+3. スライド上の指定位置に `Rectangle` に設定された [ShapeType](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/properties/shapetype) を持つ [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape) オブジェクトを追加し、新しく追加された `IAutoShape` オブジェクトの参照を取得します。  
+4. テキストを含む `TextFrame` プロパティを `IAutoShape` オブジェクトに追加します。以下の例では、*Aspose TextBox* というテキストを追加しました。  
+5. 最後に、`Presentation` オブジェクトを使用して PPTX ファイルを書き込みます。  
 
-上記のステップを実装したこのC#コードは、スライドにテキストを追加する方法を示しています：
-
+以下の C# コードは、上記の手順を実装したもので、スライドにテキストを追加する方法を示しています。
 ```c#
-// PresentationExをインスタンス化
+// PresentationEx をインスタンス化します
 using (Presentation pres = new Presentation())
 {
-    // プレゼンテーションの最初のスライドを取得
+
+    // プレゼンテーションの最初のスライドを取得します
     ISlide sld = pres.Slides[0];
 
-    // 自動図形を追加し、タイプをRectangleに設定
+    // タイプを Rectangle に設定した AutoShape を追加します
     IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-    // 矩形にTextFrameを追加
+    // Rectangle に TextFrame を追加します
     ashp.AddTextFrame(" ");
 
-    // テキストフレームにアクセス
+    // テキストフレームにアクセスします
     ITextFrame txtFrame = ashp.TextFrame;
 
-    // テキストフレームのための段落オブジェクトを作成
+    // テキストフレーム用の Paragraph オブジェクトを作成します
     IParagraph para = txtFrame.Paragraphs[0];
 
-    // 段落のためのポーションオブジェクトを作成
+    // Paragraph 用の Portion オブジェクトを作成します
     IPortion portion = para.Portions[0];
 
-    // テキストを設定
+    // テキストを設定します
     portion.Text = "Aspose TextBox";
 
-    // プレゼンテーションをディスクに保存
+    // プレゼンテーションをディスクに保存します
     pres.Save("TextBox_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
-## **テキストボックス図形を確認する**
 
-Aspose.Slidesは、テキストボックスを見分けるために[IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/)プロパティ（[AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/)クラスから）を提供しています。
+## **テキストボックス シェイプかどうかを確認する**
 
-![テキストボックスと図形](istextbox.png)
+Aspose.Slides は、[IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) インターフェイスの [IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) プロパティを提供しており、シェイプを調べてテキストボックスかどうかを判別できます。
 
-このC#コードは、図形がテキストボックスとして作成されたかどうかを確認する方法を示しています：
+![Text box and shape](istextbox.png)
 
+以下の C# コードは、シェイプがテキストボックスとして作成されたかどうかを確認する方法を示しています。  
 ```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    Aspose.Slides.LowCode.ForEach.Shape(pres, (shape, slide, index) =>
+    Aspose.Slides.LowCode.ForEach.Shape(presentation, (shape, slide, index) =>
     {
-        if (shape is AutoShape autoShape)
+        if (shape is IAutoShape autoShape)
         {
-            Console.WriteLine(autoShape.IsTextBox ? "図形はテキストボックスです" : "図形はテキストボックスではありません");
+            Console.WriteLine(autoShape.IsTextBox ? "shape is a text box" : "shape is not a text box");
         }
     });
 }
 ```
 
+
+`AddAutoShape` メソッドを使用して [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/) インターフェイスから単にオートシェイプを追加した場合、オートシェイプの `IsTextBox` プロパティは `false` を返します。ただし、`AddTextFrame` メソッドまたは `Text` プロパティを使用してオートシェイプにテキストを追加すると、`IsTextBox` プロパティは `true` を返します。
+```cs
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
+
+    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+    // shape1.IsTextBox は false です
+    shape1.AddTextFrame("shape 1");
+    // shape1.IsTextBox は true です
+
+    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
+    // shape2.IsTextBox は false です
+    shape2.TextFrame.Text = "shape 2";
+    // shape2.IsTextBox は true です
+
+    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
+    // shape3.IsTextBox は false です
+    shape3.AddTextFrame("");
+    // shape3.IsTextBox は false です
+
+    IAutoShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
+    // shape4.IsTextBox は false です
+    shape4.TextFrame.Text = "";
+    // shape4.IsTextBox は false です
+}
+```
+
+
 ## **テキストボックスに列を追加する**
 
-Aspose.Slidesは、テキストボックスに列を追加できるようにするために、[ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount)および[ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/columnspacing)プロパティ（[ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat)インターフェースおよび[TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat)クラスから）を提供しています。テキストボックス内の列の数を指定し、列間のスペーシングをポイント単位で指定できます。
+Aspose.Slides は、[ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat) インターフェイスおよび [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) クラスの [ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount) と [ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/columnspacing) プロパティを提供しており、テキストボックスに列を追加できます。テキストボックス内の列数と、列間のポイント単位の間隔を指定できます。
 
-このC#コードは、説明した操作を示します：
-
+以下の C# コードは、上記の操作を示しています。  
 ```c#
 using (Presentation presentation = new Presentation())
 {
-	// プレゼンテーションの最初のスライドを取得
+	// プレゼンテーションの最初のスライドを取得します
 	ISlide slide = presentation.Slides[0];
 
-	// 自動図形を追加し、タイプをRectangleに設定
+	// タイプを Rectangle に設定した AutoShape を追加します
 	IAutoShape aShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
-	// 矩形にTextFrameを追加
-	aShape.AddTextFrame("これらのすべての列は単一のテキストコンテナ内に制限されています -- " +
-	"テキストを追加または削除すると、新しいテキストまたは残りのテキストが自動的に調整されて " +
-	"コンテナ内に流れるようになります。ただし、テキストが1つのコンテナから別のコンテナに流れることはありません -- " +
-	"PowerPointのテキストオプションは制限されています！");
+	// Rectangle に TextFrame を追加します
+	aShape.AddTextFrame("All these columns are limited to be within a single text container -- " +
+	"you can add or delete text and the new or remaining text automatically adjusts " +
+	"itself to flow within the container. You cannot have text flow from one container " +
+	"to other though -- we told you PowerPoint's column options for text are limited!");
 
-	// TextFrameのテキストフォーマットを取得
+	// TextFrame のテキスト形式を取得します
 	ITextFrameFormat format = aShape.TextFrame.TextFrameFormat;
 
-	// TextFrameの列数を指定
+	// TextFrame の列数を指定します
 	format.ColumnCount = 3;
 
-	// 列間のスペーシングを指定
+	// 列間の間隔を指定します
 	format.ColumnSpacing = 10;
 
-	// プレゼンテーションを保存
+	// プレゼンテーションを保存します
 	presentation.Save("ColumnCount.pptx", SaveFormat.Pptx);
 }
 ```
 
+
 ## **テキストフレームに列を追加する**
 
-Aspose.Slides for .NETは、テキストフレームに列を追加できるようにするために、[ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount)プロパティ（[ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat)インターフェースから）を提供しています。このプロパティを通じて、テキストフレーム内の列数を指定できます。
+Aspose.Slides for .NET は、[ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat) インターフェイスの [ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount) プロパティを提供しており、テキストフレーム内に列を追加できます。このプロパティを使用して、テキストフレーム内の希望する列数を指定できます。
 
-このC#コードは、テキストフレーム内に列を追加する方法を示しています：
-
+以下の C# コードは、テキストフレーム内に列を追加する方法を示しています。  
 ```c#
 string outPptxFileName = "ColumnsTest.pptx";
 using (Presentation pres = new Presentation())
@@ -129,10 +172,10 @@ using (Presentation pres = new Presentation())
     TextFrameFormat format = (TextFrameFormat)shape1.TextFrame.TextFrameFormat;
 
     format.ColumnCount = 2;
-    shape1.TextFrame.Text = "これらのすべての列は単一のテキストコンテナにとどまるよう強制されています -- " +
-                                "テキストを追加または削除しても、残ったテキストは自動的に調整され、 " +
-                                "コンテナ内にとどまるようになります。ただし、テキストが1つのコンテナから " +
-                                "他のコンテナにあふれることはありません -- PowerPointのテキストオプションは制限されています！";
+    shape1.TextFrame.Text = "All these columns are forced to stay within a single text container -- " +
+                                "you can add or delete text - and the new or remaining text automatically adjusts " +
+                                "itself to stay within the container. You cannot have text spill over from one container " +
+                                "to other, though -- because PowerPoint's column options for text are limited!";
     pres.Save(outPptxFileName, SaveFormat.Pptx);
 
     using (Presentation test = new Presentation(outPptxFileName))
@@ -162,12 +205,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+
 ## **テキストの更新**
 
-Aspose.Slidesは、テキストボックス内のテキストまたはプレゼンテーション内のすべてのテキストを変更または更新することを許可します。
+Aspose.Slides を使用すると、テキストボックス内のテキストやプレゼンテーション全体に含まれるテキストを変更または更新できます。
 
-このC#コードは、プレゼンテーション内のすべてのテキストが更新または変更される操作を示します：
-
+以下の C# コードは、プレゼンテーション内のすべてのテキストを更新（変更）する操作を示しています。  
 ```c#
 using(Presentation pres = new Presentation("text.pptx"))
 {
@@ -175,64 +218,75 @@ using(Presentation pres = new Presentation("text.pptx"))
    {
        foreach (IShape shape in slide.Shapes)
        {
-           if (shape is IAutoShape autoShape) // 形状がテキストフレーム（IAutoShape）をサポートしているか確認します
+           if (shape is IAutoShape autoShape) //形状がテキストフレーム（IAutoShape）をサポートしているか確認します。 
            {
-              foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) // テキストフレーム内の段落を繰り返します
+              foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) //テキストフレーム内の段落を反復処理します。 
                {
-                   foreach (IPortion portion in paragraph.Portions) // 各部分を段落内で繰り返します
+                   foreach (IPortion portion in paragraph.Portions) //段落内の各ポーションを反復処理します。 
                    {
-                       portion.Text = portion.Text.Replace("years", "months"); // テキストを変更します
-                       portion.PortionFormat.FontBold = NullableBool.True; // 書式を変更します
+                       portion.Text = portion.Text.Replace("years", "months"); //テキストを変更します。 
+                       portion.PortionFormat.FontBold = NullableBool.True; //書式設定を変更します。 
                    }
                }
            }
        }
    }
   
-   // 修正されたプレゼンテーションを保存します
+   //変更されたプレゼンテーションを保存します。 
    pres.Save("text-changed.pptx", SaveFormat.Pptx);
 }
 ```
 
+
 ## **ハイパーリンク付きテキストボックスの追加**
 
-テキストボックス内にリンクを挿入できます。テキストボックスがクリックされると、ユーザーはリンクを開くように指示されます。
+テキストボックス内にリンクを挿入できます。テキストボックスがクリックされると、ユーザーはリンク先を開きます。
 
-1. `Presentation`クラスのインスタンスを作成します。
-2. インデックスを使用して最初のスライドの参照を取得します。
-3. 指定された位置に`ShapeType`を`Rectangle`として設定した`AutoShape`オブジェクトを追加し、新しく追加されたAutoShapeオブジェクトの参照を取得します。
-4. デフォルトのテキストとして*Aspose TextBox*を含む`TextFrame`を`AutoShape`オブジェクトに追加します。
-5. `IHyperlinkManager`クラスをインスタンス化します。
-6. お好きな`TextFrame`の部分に関連付けられた[HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/shape/properties/hyperlinkclick)プロパティに`IHyperlinkManager`オブジェクトを設定します。
-7. 最後に、`Presentation`オブジェクトを介してPPTXファイルを書き込みます。
+1. `Presentation` クラスのインスタンスを作成します。  
+2. インデックスを使用して最初のスライドの参照を取得します。  
+3. スライド上の指定位置に `Rectangle` に設定された `ShapeType` を持つ `AutoShape` オブジェクトを追加し、新しく追加された AutoShape オブジェクトの参照を取得します。  
+4. デフォルトテキストとして *Aspose TextBox* を含む `TextFrame` を `AutoShape` オブジェクトに追加します。  
+5. `IHyperlinkManager` クラスのインスタンスを作成します。  
+6. 好みの `TextFrame` の一部に関連付けられた [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/shape/properties/hyperlinkclick) プロパティに `IHyperlinkManager` オブジェクトを割り当てます。  
+7. 最後に、`Presentation` オブジェクトを使用して PPTX ファイルを書き込みます。  
 
-上記のステップを実装したこのC#コードは、スライドにハイパーリンク付きテキストボックスを追加する方法を示しています：
-
+以下の C# コードは、上記の手順を実装したもので、ハイパーリンク付きテキストボックスをスライドに追加する方法を示しています。  
 ```c#
-// PPTXを表すPresentationクラスをインスタンス化
+// PPTX を表す Presentation クラスのインスタンスを作成します
 Presentation pptxPresentation = new Presentation();
 
-// プレゼンテーションの最初のスライドを取得
+// プレゼンテーションの最初のスライドを取得します
 ISlide slide = pptxPresentation.Slides[0];
 
-// 自動図形オブジェクトを追加し、タイプをRectangleに設定
+// タイプを Rectangle に設定した AutoShape オブジェクトを追加します
 IShape pptxShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
 
-// 形状をAutoShapeにキャスト
+// シェイプを AutoShape にキャストします
 IAutoShape pptxAutoShape = (IAutoShape)pptxShape;
 
-// AutoShapeに関連付けられたITextFrameプロパティにアクセス
+// AutoShape に関連付けられた ITextFrame プロパティにアクセスします
 pptxAutoShape.AddTextFrame("");
 
 ITextFrame ITextFrame = pptxAutoShape.TextFrame;
 
-// フレームにテキストを追加
+// フレームにテキストを追加します
 ITextFrame.Paragraphs[0].Portions[0].Text = "Aspose.Slides";
 
-// ポーションテキストにハイパーリンクを設定
+// ポーションテキストにハイパーリンクを設定します
 IHyperlinkManager HypMan = ITextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkManager;
 HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
 
-// PPTXプレゼンテーションを保存
+// PPTX プレゼンテーションを保存します
 pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
+
+
+## **FAQ**
+
+**マスタースライドでテキストボックスとテキスト プレースホルダーの違いは何ですか？**
+
+[プレースホルダー](/slides/ja/net/manage-placeholder/) は [マスター](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) からスタイルと位置を継承し、[レイアウト](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) で上書きできます。一方、通常のテキストボックスは特定のスライド上の独立したオブジェクトであり、レイアウトを切り替えても変わりません。
+
+**チャート、テーブル、SmartArt の内部テキストを除外して、プレゼンテーション全体でテキストを一括置換するにはどうすればよいですか？**
+
+テキストフレームを持つオートシェイプのみを対象にイテレーションし、埋め込みオブジェクト（[チャート](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/)、[テーブル](https://reference.aspose.com/slides/net/aspose.slides/table/)、[SmartArt](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/)）はそれぞれのコレクションを別途走査するか、対象オブジェクトタイプをスキップして除外してください。

@@ -1,18 +1,32 @@
 ---
-title: Публичный API и несовместимые изменения в Aspose.Slides для .NET 15.8.0
+title: Общедоступный API и обратные несовместимые изменения в Aspose.Slides для .NET 15.8.0
+linktitle: Aspose.Slides для .NET 15.8.0
 type: docs
 weight: 190
 url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/
+keywords:
+- миграция
+- устаревший код
+- современный код
+- устаревший подход
+- современный подход
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Обзор обновлений общедоступного API и разрывных изменений в Aspose.Slides для .NET, позволяющих плавно мигрировать ваши решения для презентаций PowerPoint PPT, PPTX и ODP."
 ---
 
 {{% alert color="primary" %}} 
 
-Эта страница содержит список всех [добавленных](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) или [удаленных](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) классов, методов, свойств и так далее, а также других изменений, внесенных в API Aspose.Slides для .NET 15.8.0.
+Эта страница перечисляет все [added](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) или [removed](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) классы, методы, свойства и т.п., а также другие изменения, введённые в API Aspose.Slides for .NET 15.8.0.
 
 {{% /alert %}} 
-## **Изменения в публичном API**
-#### **Свойство DoughnutHoleSize добавлено в IChartSeries и ChartSeries**
-Указывает размер отверстия в кольцевой диаграмме.
+## **Public API Changes**
+#### **Property DoughnutHoleSize Has Been Added to IChartSeries and ChartSeries**
+Задает размер отверстия в кольцевой диаграмме.
 
 ``` csharp
 

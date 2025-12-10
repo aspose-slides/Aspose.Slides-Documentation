@@ -1,74 +1,113 @@
 ---
-title: مستطيل
+title: إضافة مستطيلات إلى العروض التقديمية في .NET
+linktitle: مستطيل
 type: docs
 weight: 80
 url: /ar/net/rectangle/
-keywords: "إنشاء مستطيل، شكل PowerPoint، تقديم PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
-description: "إنشاء مستطيل في تقديم PowerPoint باستخدام C# أو .NET"
+keywords:
+- إضافة مستطيل
+- إنشاء مستطيل
+- شكل مستطيل
+- مستطيل بسيط
+- مستطيل منسق
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "عزّز عروض PowerPoint التقديمية الخاصة بك بإضافة مستطيلات باستخدام Aspose.Slides for .NET — صمم وعدّل الأشكال برمجيًا بسهولة."
 ---
 
-
 ## **إنشاء مستطيل بسيط**
-مثل المواضيع السابقة، هذه أيضًا تتعلق بإضافة شكل، وهذه المرة الشكل الذي سنتحدث عنه هو المستطيل. في هذا الموضوع، قمنا بشرح كيفية تمكين المطورين من إضافة مستطيلات بسيطة أو منسقة إلى شرائحهم باستخدام Aspose.Slides لـ .NET. لإضافة مستطيل بسيط إلى شريحة مختارة من العرض، يرجى اتباع الخطوات أدناه:
+مثل المواضيع السابقة، يتناول هذا أيضًا إضافة شكل وهذه المرة سنناقش المستطيل. في هذا الموضوع، وصفنا كيف يمكن للمطورين إضافة مستطيلات بسيطة أو مُنسَّقة إلى الشرائح باستخدام Aspose.Slides for .NET. لإضافة مستطيل بسيط إلى شريحة محددة من العرض التقديمي، يرجى اتباع الخطوات التالية:
 
-1. قم بإنشاء مثيل من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
-1. احصل على مرجع الشريحة باستخدام فهرسها.
-1. أضف IAutoShape من نوع المستطيل باستخدام طريقة AddAutoShape المكشوفة بواسطة كائن IShapes.
-1. اكتب العرض المعدل كملف PPTX.
+1. إنشاء كائن من فئة [العرض التقديمي](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. الحصول على مرجع الشريحة باستخدام فهرسها.
+3. إضافة IAutoShape من نوع Rectangle باستخدام طريقة AddAutoShape التي يوفرها كائن IShapes.
+4. كتابة العرض التقديمي المعدل كملف PPTX.
 
-في المثال المعطى أدناه، أضفنا مستطيلًا بسيطًا إلى الشريحة الأولى من العرض.
-
+في المثال أدناه، قمنا بإضافة مستطيل بسيط إلى الشريحة الأولى من العرض التقديمي.
 ```c#
-// Instantiate Prseetation class that represents the PPTX
+// إنشاء كائن من الفئة Presentation الذي يمثل ملف PPTX
 using (Presentation pres = new Presentation())
 {
 
-    // Get the first slide
+    // الحصول على الشريحة الأولى
     ISlide sld = pres.Slides[0];
 
-    // Add autoshape of rectangle type
+    // إضافة شكل تلقائي من نوع مستطيل
     sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 150, 50);
 
-    //Write the PPTX file to disk
+    //احفظ ملف PPTX إلى القرص
     pres.Save("RectShp1_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
-## **إنشاء مستطيل مزخرف**
-لإضافة مستطيل مزخرف إلى شريحة، يرجى اتباع الخطوات أدناه:
+## **إنشاء مستطيل مُنسَّق**
+لإضافة مستطيل مُنسَّق إلى شريحة، يرجى اتباع الخطوات التالية:
 
-1. قم بإنشاء مثيل من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
-1. احصل على مرجع الشريحة باستخدام فهرسها.
-1. أضف IAutoShape من نوع المستطيل باستخدام طريقة AddAutoShape المكشوفة بواسطة كائن IShapes.
-1. اضبط نوع التعبئة للمستطيل إلى صلب.
-1. اضبط لون المستطيل باستخدام خاصية SolidFillColor.Color كما هو مكشوف من كائن FillFormat المرتبط بكائن IShape.
-1. اضبط لون خطوط المستطيل.
-1. اضبط عرض خطوط المستطيل.
-1. اكتب العرض المعدل كملف PPTX.
-   تم تنفيذ الخطوات أعلاه في المثال المعطى أدناه.
-
+1. إنشاء كائن من فئة [العرض التقديمي](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+2. الحصول على مرجع الشريحة باستخدام فهرسها.
+3. إضافة IAutoShape من نوع Rectangle باستخدام طريقة AddAutoShape التي يوفرها كائن IShapes.
+4. ضبط نوع التعبئة للمستطيل إلى Solid.
+5. ضبط لون المستطيل باستخدام الخاصية SolidFillColor.Color التي يوفّرها كائن FillFormat المرتبط بكائن IShape.
+6. ضبط لون خطوط المستطيل.
+7. ضبط عرض خطوط المستطيل.
+8. كتابة العرض التقديمي المعدل كملف PPTX.
+   تم تنفيذ الخطوات السابقة في المثال أدناه.
 ```c#
-// Instantiate Prseetation class that represents the PPTX
-using (Presentation pres = new Presentation())
-{
-
-    // Get the first slide
-    ISlide sld = pres.Slides[0];
-
-    // Add autoshape of rectangle type
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 150, 50);
-
-    // Apply some formatting to rectangle shape
-    shp.FillFormat.FillType = FillType.Solid;
-    shp.FillFormat.SolidFillColor.Color = Color.Chocolate;
-
-    // Apply some formatting to the line of rectangle
-    shp.LineFormat.FillFormat.FillType = FillType.Solid;
-    shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    shp.LineFormat.Width = 5;
-
-    //Write the PPTX file to disk
-    pres.Save("RectShp2_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+ // إنشاء كائن من فئة Presentation الذي يمثل ملف PPTX
+ using (Presentation pres = new Presentation())
+ {
+ 
+     // الحصول على الشريحة الأولى
+     ISlide sld = pres.Slides[0];
+ 
+     // إضافة شكل تلقائي من نوع مستطيل
+     IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 150, 50);
+ 
+     // تطبيق بعض التنسيقات على شكل المستطيل
+     shp.FillFormat.FillType = FillType.Solid;
+     shp.FillFormat.SolidFillColor.Color = Color.Chocolate;
+ 
+     // تطبيق بعض التنسيقات على خط المستطيل
+     shp.LineFormat.FillFormat.FillType = FillType.Solid;
+     shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+     shp.LineFormat.Width = 5;
+ 
+     // حفظ ملف PPTX على القرص
+     pres.Save("RectShp2_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+ }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**كيف يمكنني إضافة مستطيل بزوايا مستديرة؟**
+
+استخدم نوع الشكل [shape type](https://reference.aspose.com/slides/net/aspose.slides/shapetype/) ذو الزوايا المستديرة واضبط نصف قطر الزاوية في خصائص الشكل؛ يمكن أيضًا تطبيق الاستدارة على كل زاوية عبر تعديل الهندسة.
+
+**كيف أملأ المستطيل بصورة (نقش)؟**
+
+اختر [fill type](https://reference.aspose.com/slides/net/aspose.slides/filltype/) الخاص بالصورة، حدد مصدر الصورة، واضبط أوضاع [التمدد/التكرار](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/).
+
+**هل يمكن للمستطيل أن يحتوي على ظل وتوهج؟**
+
+نعم. [الظل الخارجي/الداخلي، التوهج، وحواف ناعمة](/slides/ar/net/shape-effect/) متاحة مع معلمات قابلة للتعديل.
+
+**هل يمكن تحويل المستطيل إلى زر مع ارتباط تشعبي؟**
+
+نعم. [تعيين ارتباط تشعبي](/slides/ar/net/manage-hyperlinks/) للنقر على الشكل (للانتقال إلى شريحة، ملف، عنوان ويب، أو بريد إلكتروني).
+
+**كيف أحمي المستطيل من الحركة والتعديل؟**
+
+[استخدام قفل الشكل](/slides/ar/net/applying-protection-to-presentation/): يمكنك منع التحريك، إعادة الحجم، الاختيار، أو تحرير النص للحفاظ على التخطيط.
+
+**هل يمكنني تحويل المستطيل إلى صورة نقطية أو SVG؟**
+
+نعم. يمكنك [تصدير الشكل](http://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) إلى صورة بحجم/مقياس محدد أو [تصديره كـ SVG](https://reference.aspose.com/slides/net/aspose.slides/shape/writeassvg/) للاستخدام المتجهي.
+
+**كيف أحصل بسرعة على الخصائص الفعلية (الفعّالة) للمستطيل مع مراعاة السمة والوراثة؟**
+
+[استخدام الخصائص الفعّالة للشكل](/slides/ar/net/shape-effective-properties/): تُعيد الواجهة البرمجية القيم المحسوبة التي تأخذ في اعتبارها أنماط السمة، التخطيط، والإعدادات المحلية، مما يبسّط تحليل التنسيق.

@@ -1,35 +1,38 @@
 ---
-title: Fuente predeterminada - API de PowerPoint en C#
+title: Especificar fuentes predeterminadas de la presentación en .NET
 linktitle: Fuente predeterminada
 type: docs
 weight: 30
 url: /es/net/default-font/
-keywords: 
-- fuente
+keywords:
 - fuente predeterminada
-- renderizar presentación
+- fuente regular
+- fuente normal
+- fuente asiática
+- exportación PDF
+- exportación XPS
+- exportación de imágenes
 - PowerPoint
+- OpenDocument
 - presentación
+- .NET
 - C#
-- Csharp
-- Aspose.Slides para .NET
-description: La API de PowerPoint en C# te permite establecer la fuente predeterminada para renderizar presentaciones en PDF, XPS o miniaturas
+- Aspose.Slides
+description: "Establecer fuentes predeterminadas en Aspose.Slides para .NET para garantizar una conversión adecuada de PowerPoint (PPT, PPTX) y OpenDocument (ODP) a PDF, XPS e imágenes."
 ---
 
-## **Uso de fuentes predeterminadas para renderizar presentaciones**
-Aspose.Slides te permite establecer la fuente predeterminada para renderizar la presentación en PDF, XPS o miniaturas. Este artículo muestra cómo definir DefaultRegular
-Font y DefaultAsian Font para usarlas como fuentes predeterminadas. Por favor, sigue los pasos a continuación para cargar fuentes desde directorios externos utilizando la API de Aspose.Slides para .NET:
+## **Usar fuentes predeterminadas para renderizar una presentación**
+Aspose.Slides le permite establecer la fuente predeterminada para renderizar la presentación a PDF, XPS o miniaturas. Este artículo muestra cómo definir DefaultRegularFont y DefaultAsianFont para utilizarlos como fuentes predeterminadas. Siga los pasos a continuación para cargar fuentes desde directorios externos usando la API Aspose.Slides para .NET:
 
-1. Crea una instancia de LoadOptions.
-1. Establece DefaultRegularFont a la fuente deseada. En el siguiente ejemplo, he utilizado Wingdings.
-1. Establece DefaultAsianFont a la fuente deseada. He utilizado Wingdings en el siguiente ejemplo.
-1. Carga la presentación utilizando Presentation y estableciendo las opciones de carga.
-1. Ahora, genera la miniatura de la diapositiva, PDF y XPS para verificar los resultados.
+1. Crear una instancia de LoadOptions.
+2. Establecer DefaultRegularFont a la fuente deseada. En el siguiente ejemplo, he usado Wingdings.
+3. Establecer DefaultAsianFont a la fuente deseada. He usado Wingdings en el siguiente ejemplo.
+4. Cargar la presentación usando Presentation y configurando las opciones de carga.
+5. Ahora, generar la miniatura de la diapositiva, PDF y XPS para verificar los resultados.
 
 La implementación de lo anterior se muestra a continuación.
-
 ```c#
-// Usa las opciones de carga para especificar fuentes regulares y asiáticas predeterminadas
+// Use las opciones de carga para especificar fuentes regulares y asiáticas predeterminadas
 LoadOptions loadOptions = new LoadOptions(LoadFormat.Auto);
 loadOptions.DefaultRegularFont = "Wingdings";
 loadOptions.DefaultAsianFont = "Wingdings";
@@ -45,3 +48,26 @@ using (Presentation pptx = new Presentation("DefaultFonts.pptx", loadOptions))
     pptx.Save("DefaultFonts_out.xps", SaveFormat.Xps);
 }
 ```
+
+
+## **FAQ**
+
+**¿Qué afectan exactamente DefaultRegularFont y DefaultAsianFont - solo la exportación, o también las miniaturas, PDF, XPS, HTML y SVG?**
+
+Participan en la cadena de renderizado para todas las salidas compatibles. Esto incluye miniaturas de diapositivas, [PDF](/slides/es/net/convert-powerpoint-to-pdf/), [XPS](/slides/es/net/convert-powerpoint-to-xps/), [imágenes raster](/slides/es/net/convert-powerpoint-to-png/), [HTML](/slides/es/net/convert-powerpoint-to-html/), y [SVG](/slides/es/net/render-a-slide-as-an-svg-image/), porque Aspose.Slides usa la misma lógica de diseño y resolución de glifos en estos destinos.
+
+**¿Se aplican las fuentes predeterminadas al leer y guardar un PPTX sin realizar ningún renderizado?**
+
+No. Las fuentes predeterminadas son relevantes cuando el texto debe medirse y dibujarse. Un simple abrir-guardar de una presentación no cambia los bloques de fuente almacenados ni la estructura del archivo. Las fuentes predeterminadas entran en juego durante operaciones que renderizan o reflujo de texto.
+
+**Si añado mis propias carpetas de fuentes o suministro fuentes desde la memoria, ¿se considerarán al elegir fuentes predeterminadas?**
+
+Sí. [Fuentes personalizadas](/slides/es/net/custom-font/) amplían el catálogo de familias y glifos disponibles que el motor puede usar. Las fuentes predeterminadas y cualquier [regla de reserva](/slides/es/net/fallback-font/) se resolverán contra esas fuentes primero, proporcionando una cobertura más fiable en servidores y contenedores.
+
+**¿Afectarán las fuentes predeterminadas las métricas del texto (kerning, avances) y, por lo tanto, los saltos de línea y el ajuste?**
+
+Sí. Cambiar la fuente modifica las métricas de los glifos y puede alterar los saltos de línea, el ajuste y la paginación durante el renderizado. Para mantener la estabilidad del diseño, [incorpore las fuentes originales](/slides/es/net/embedded-font/) o seleccione familias predeterminadas y de reserva compatibles métricamente.
+
+**¿Tiene sentido establecer fuentes predeterminadas si todas las fuentes usadas en la presentación están incrustadas?**
+
+A menudo no es necesario, porque las [fuentes incrustadas](/slides/es/net/embedded-font/) ya garantizan una apariencia coherente. Las fuentes predeterminadas aún sirven como red de seguridad para caracteres no cubiertos por el subconjunto incrustado o cuando un archivo combina texto incrustado y no incrustado.

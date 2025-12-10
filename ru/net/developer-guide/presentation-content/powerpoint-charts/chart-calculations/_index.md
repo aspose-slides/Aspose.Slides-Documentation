@@ -1,15 +1,28 @@
 ---
-title: Расчеты графиков
+title: Оптимизация вычислений диаграмм для презентаций в .NET
+linktitle: Вычисления диаграмм
 type: docs
 weight: 50
 url: /ru/net/chart-calculations/
-keywords: "Расчеты графиков, элементы графика, позиция элемента, значения графиков C#, Csharp, Aspose.Slides для .NET"
-description: "Расчеты и значения графиков PowerPoint на C# или .NET"
+keywords:
+- вычисления диаграмм
+- элементы диаграммы
+- позиция элемента
+- фактическая позиция
+- дочерний элемент
+- родительский элемент
+- значения диаграммы
+- фактическое значение
+- PowerPoint
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Поймите вычисления диаграмм, обновление данных и контроль точности в Aspose.Slides for .NET для PPT и PPTX, с практическими примерами кода на C#."
 ---
 
-## **Вычислить фактические значения элементов графика**
-Aspose.Slides для .NET предоставляет простой API для получения этих свойств. Это поможет вам вычислить фактические значения элементов графика. Фактические значения включают позицию элементов, реализующих интерфейс IActualLayout (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight) и фактические значения осей (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale).
-
+## **Вычисление фактических значений элементов диаграммы**
+Aspose.Slides for .NET предоставляет простой API для получения этих свойств. Это поможет вам вычислить фактические значения элементов диаграммы. Фактические значения включают положение элементов, реализующих интерфейс IActualLayout (IActualLayout.ActualX, IActualLayout.ActualY, IActualLayout.ActualWidth, IActualLayout.ActualHeight), а также фактические значения осей (IAxis.ActualMaxValue, IAxis.ActualMinValue, IAxis.ActualMajorUnit, IAxis.ActualMinorUnit, IAxis.ActualMajorUnitScale, IAxis.ActualMinorUnitScale).
 ```c#
 using (Presentation pres = new Presentation("test.pptx"))
 {
@@ -27,9 +40,9 @@ using (Presentation pres = new Presentation("test.pptx"))
 
 
 
-## **Вычислить фактическую позицию родительских элементов графика**
-Aspose.Slides для .NET предоставляет простой API для получения этих свойств. Свойства IActualLayout предоставляют информацию о фактической позиции родительского элемента графика. Необходимо предварительно вызвать метод IChart.ValidateChartLayout(), чтобы заполнить свойства фактическими значениями.
 
+## **Вычисление фактической позиции родительских элементов диаграммы**
+Aspose.Slides for .NET предоставляет простой API для получения этих свойств. Свойства IActualLayout предоставляют информацию о фактической позиции родительского элемента диаграммы. Необходимо предварительно вызвать метод IChart.ValidateChartLayout(), чтобы заполнить свойства фактическими значениями.
 ```c#
 // Создание пустой презентации
 using (Presentation pres = new Presentation())
@@ -46,29 +59,29 @@ using (Presentation pres = new Presentation())
 
 
 
-## **Скрыть информацию из графика**
-Эта тема поможет вам понять, как скрыть информацию из графика. Используя Aspose.Slides для .NET, вы можете скрыть **Заголовок, Вертикальную Ось, Горизонтальную Ось** и **Сеточные Линии** из графика. Ниже приведен пример кода, который демонстрирует, как использовать эти свойства.
 
+## **Скрытие элементов диаграммы**
+Эта тема помогает понять, как скрыть информацию в диаграмме. С помощью Aspose.Slides for .NET вы можете скрыть **Заголовок, Вертикальную ось, Горизонтальную ось** и **Линии сетки** в диаграмме. Приведённый ниже пример кода показывает, как использовать эти свойства.
 ```c#
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];
     IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 140, 118, 320, 370);
 
-    //Скрыть заголовок графика
+    //Скрытие заголовка диаграммы
     chart.HasTitle = false;
 
-    ///Скрыть значения оси
+    ///Скрытие оси значений
     chart.Axes.VerticalAxis.IsVisible = false;
 
-    // Видимость оси категории
+    //Видимость оси категорий
     chart.Axes.HorizontalAxis.IsVisible = false;
 
-    //Скрыть легенду
+    //Скрытие легенды
     chart.HasLegend = false;
 
-    //Скрыть основные сеточные линии
-    chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
+    //Скрытие основных линий сетки
+    chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillFormat.FillType = FillType.NoFill;
 
     for (int i = 0; i < chart.ChartData.Series.Count; i++)
     {
@@ -82,7 +95,7 @@ using (Presentation pres = new Presentation())
     series.Labels.DefaultDataLabelFormat.Position = LegendDataLabelPosition.Top;
     series.Marker.Size = 15;
 
-    //Установить цвет линии серии
+    //Установка цвета линии серии
     series.Format.Line.FillFormat.FillType = FillType.Solid;
     series.Format.Line.FillFormat.SolidFillColor.Color = Color.Purple;
     series.Format.Line.DashStyle = LineDashStyle.Solid;
@@ -90,3 +103,18 @@ using (Presentation pres = new Presentation())
     pres.Save("HideInformationFromChart.pptx", SaveFormat.Pptx);
 }
 ```
+
+
+## **Часто задаваемые вопросы**
+
+**Работают ли внешние книги Excel в качестве источника данных и как это влияет на пересчёт?**
+
+Да. Диаграмма может ссылаться на внешнюю книгу: при подключении или обновлении внешнего источника формулы и значения берутся из этой книги, и диаграмма отражает изменения во время операций открытия/редактирования. API позволяет вам [указать путь к внешней книге](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/setexternalworkbook/) и управлять связанными данными.
+
+**Могу ли я вычислять и отображать линии тренда без самостоятельной реализации регрессии?**
+
+Да. [Линии тренда](/slides/ru/net/trend-line/) (линейные, экспоненциальные и другие) добавляются и обновляются Aspose.Slides; их параметры автоматически пересчитываются на основе данных серии, поэтому вам не нужно реализовывать собственные расчёты.
+
+**Если презентация содержит несколько диаграмм со внешними ссылками, могу ли я управлять тем, какую книгу каждый график использует для вычисленных значений?**
+
+Да. Каждая диаграмма может указывать на свою собственную [внешнюю книгу](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/setexternalworkbook/), либо вы можете создавать/заменять внешнюю книгу для каждой диаграммы независимо от остальных.

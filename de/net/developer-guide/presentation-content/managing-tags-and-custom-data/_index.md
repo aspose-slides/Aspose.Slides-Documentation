@@ -1,30 +1,38 @@
 ---
-title: Verwaltung von Tags und benutzerdefinierten Daten
+title: Verwalten von Tags und benutzerdefinierten Daten in Präsentationen in .NET
+linktitle: Tags und benutzerdefinierte Daten
 type: docs
 weight: 300
-url: /de/net/managing-tags-and-custom-data
-keywords: "Tags, Benutzerdefinierte Daten, Wert für Tags, Tags hinzufügen, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
-description: "Tags und benutzerdefinierte Daten zu PowerPoint-Präsentationen in C# oder .NET hinzufügen"
+url: /de/net/managing-tags-and-custom-data/
+keywords:
+- Dokumenteigenschaften
+- Tag
+- benutzerdefinierte Daten
+- Tag hinzufügen
+- Paarwerte
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Tags und benutzerdefinierte Daten in Aspose.Slides für .NET hinzufügen, lesen, aktualisieren und entfernen, mit Beispielen für PowerPoint- und OpenDocument-Präsentationen."
 ---
 
-## Datenspeicherung in Präsentationsdateien
+## **Speicherung von Daten in Präsentationsdateien**
 
-PPTX-Dateien – Elemente mit der .pptx-Erweiterung – werden im PresentationML-Format gespeichert, das Teil der Office Open XML-Spezifikation ist. Das Office Open XML-Format definiert die Struktur für Daten, die in Präsentationen enthalten sind. 
+PPTX‑Dateien – Elemente mit der Erweiterung .pptx – werden im PresentationML‑Format gespeichert, das Teil der Office‑Open‑XML‑Spezifikation ist. Das Office‑Open‑XML‑Format definiert die Struktur für in Präsentationen enthaltene Daten. 
 
-Mit einer *Folie*, die eines der Elemente in Präsentationen ist, enthält ein *Folienabschnitt* den Inhalt einer einzelnen Folie. Ein Folienabschnitt darf explizite Beziehungen zu vielen Teilen haben – wie z. B. benutzerdefinierte Tags – die durch ISO/IEC 29500 definiert sind. 
+Da eine *Folie* eines der Elemente in Präsentationen ist, enthält ein *Folien‑Teil* den Inhalt einer einzelnen Folie. Ein Folien‑Teil kann explizite Beziehungen zu vielen Teilen haben – wie z. B. benutzerdefinierten Tags – die nach ISO/IEC 29500 definiert sind. 
 
-Benutzerdefinierte Daten (spezifisch für eine Präsentation) oder Benutzer können als Tags ([ITagCollection](https://reference.aspose.com/slides/net/aspose.slides/itagcollection)) und CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/net/aspose.slides/icustomxmlpartcollection)) existieren. 
+Benutzerdefinierte Daten (spezifisch für eine Präsentation) können als Tags ([ITagCollection](https://reference.aspose.com/slides/net/aspose.slides/itagcollection)) und CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/net/aspose.slides/icustomxmlpartcollection)) vorliegen. 
 
 {{% alert color="primary" %}} 
-
-Tags sind im Wesentlichen Schlüssel-Wert-Paarwerte von Typ String. 
-
+Tags sind im Wesentlichen Schlüssel‑Wert‑Paare als Zeichenketten. 
 {{% /alert %}} 
 
-## Abrufen der Werte für Tags
+## **Werte von Tags abrufen**
 
-In Folien entspricht ein Tag der IDocumentProperties.Keywords-Eigenschaft. Dieser Beispielcode zeigt Ihnen, wie Sie den Wert eines Tags mit Aspose.Slides für .NET für [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) abrufen können:
-
+In Folien entspricht ein Tag der Eigenschaft IDocumentProperties.Keywords. Dieser Beispielcode zeigt, wie Sie den Wert eines Tags mit Aspose.Slides für .NET für [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) abrufen:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -32,17 +40,17 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## Hinzufügen von Tags zu Präsentationen
 
-Aspose.Slides ermöglicht es Ihnen, Tags zu Präsentationen hinzuzufügen. Ein Tag besteht typischerweise aus zwei Elementen: 
+## **Tags zu Präsentationen hinzufügen**
 
-- dem Namen eines benutzerdefinierten Attributs - `MyTag` 
-- dem Wert des benutzerdefinierten Attributs - `My Tag Value`
+Aspose.Slides ermöglicht das Hinzufügen von Tags zu Präsentationen. Ein Tag besteht typischerweise aus zwei Elementen: 
 
-Wenn Sie einige Präsentationen basierend auf einer bestimmten Regel oder Eigenschaft klassifizieren müssen, profitieren Sie möglicherweise davon, Tags zu diesen Präsentationen hinzuzufügen. Wenn Sie beispielsweise alle Präsentationen aus nordamerikanischen Ländern kategorisieren oder zusammenfassen möchten, können Sie ein nordamerikanisches Tag erstellen und die entsprechenden Länder (die USA, Mexiko und Kanada) als Werte zuweisen. 
+- der Name einer benutzerdefinierten Eigenschaft – `MyTag` 
+- der Wert der benutzerdefinierten Eigenschaft – `My Tag Value`
 
-Dieser Beispielcode zeigt Ihnen, wie Sie ein Tag zu einer [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) mit Aspose.Slides für .NET hinzufügen können:
+Wenn Sie einige Präsentationen anhand einer bestimmten Regel oder Eigenschaft klassifizieren müssen, können Sie davon profitieren, Tags zu diesen Präsentationen hinzuzufügen. Beispielsweise können Sie, wenn Sie alle Präsentationen aus nordamerikanischen Ländern zusammenfassen möchten, ein nordamerikanisches Tag erstellen und dann die entsprechenden Länder (USA, Mexiko und Kanada) als Werte zuweisen. 
 
+Dieser Beispielcode zeigt, wie Sie ein Tag zu einer [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) mit Aspose.Slides für .NET hinzufügen:
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -51,8 +59,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-Tags können auch für [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide) gesetzt werden:
 
+Tags können auch für [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide) gesetzt werden:
 ```csharp
 using(Presentation pres = new Presentation())
 {
@@ -61,14 +69,29 @@ using(Presentation pres = new Presentation())
 }
 ```
 
-Oder für jede einzelne [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape):
 
+Oder für jede einzelne [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape):
 ```csharp
 using(Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 50);
-    shape.TextFrame.Text = "Mein Text";
+    shape.TextFrame.Text = "My text";
     shape.CustomData.Tags["tag"] = "value";
 }
 ```
+
+
+## **FAQ**
+
+**Kann ich alle Tags aus einer Präsentation, Folie oder Form in einem Vorgang entfernen?**
+
+Ja. Die [tag collection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/) unterstützt die [clear](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/clear/)‑Operation, die alle Schlüssel‑Wert‑Paare auf einmal löscht.
+
+**Wie lösche ich ein einzelnes Tag anhand seines Namens, ohne die gesamte Sammlung zu iterieren?**
+
+Verwenden Sie die [Remove(name)](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/remove/)‑Operation auf [TagCollection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/), um das Tag anhand seines Schlüssels zu löschen.
+
+**Wie kann ich die vollständige Liste der Tag‑Namen für Analysen oder Filterung abrufen?**
+
+Verwenden Sie [GetNamesOfTags](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/getnamesoftags/) auf der [tag collection](https://reference.aspose.com/slides/net/aspose.slides/tagcollection/); sie gibt ein Array aller Tag‑Namen zurück.

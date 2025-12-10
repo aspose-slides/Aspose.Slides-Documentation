@@ -1,15 +1,26 @@
 ---
-title: إدارة الرسوم الذكية
+title: إدارة SmartArt في عروض PowerPoint التقديمية في .NET
+linktitle: إدارة SmartArt
 type: docs
 weight: 10
 url: /ar/net/manage-smartart/
-keywords: "الرسوم الذكية, نص من الرسوم الذكية, مخطط نوع المنظمة, مخطط تنظيم الصور, عرض PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "الرسوم الذكية ومخطط نوع المنظمة في عروض PowerPoint في C# أو .NET"
+keywords:
+- SmartArt
+- نص SmartArt
+- نوع التخطيط
+- خاصية الإخفاء
+- مخطط تنظيمي
+- مخطط تنظيم صورة
+- PowerPoint
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "تعلم كيفية إنشاء وتعديل SmartArt في PowerPoint باستخدام Aspose.Slides for .NET مع أمثلة شفرة C# واضحة تُسرّع تصميم الشرائح وأتمتتها."
 ---
 
-## **احصل على النص من الرسوم الذكية**
-الآن تم إضافة خاصية TextFrame إلى واجهة ISmartArtShape وطبقة SmartArtShape على التوالي. تسمح لك هذه الخاصية بالحصول على جميع النصوص من الرسوم الذكية إذا كانت تحتوي على نصوص من العقد فقط. سيساعدك كود المثال التالي على الحصول على النص من عقدة الرسوم الذكية.
-
+## **الحصول على النص من كائن SmartArt**
+تم الآن إضافة خاصية TextFrame إلى واجهة ISmartArtShape وفئة SmartArtShape على التوالي. تسمح لك هذه الخاصية بالحصول على كل النص من SmartArt إذا لم يقتصر فقط على نص العقد. سيساعدك كود العينة التالي في الحصول على النص من عقدة SmartArt.
 ```c#
 using (Presentation pres = new Presentation("Presentation.pptx"))
 {
@@ -29,103 +40,92 @@ using (Presentation pres = new Presentation("Presentation.pptx"))
 ```
 
 
+## **تغيير نوع التخطيط لكائن SmartArt**
+لتغيير نوع تخطيط SmartArt. يرجى اتباع الخطوات أدناه:
 
-## **تغيير نوع تخطيط الرسوم الذكية**
-لتغيير نوع تخطيط الرسوم الذكية. يرجى اتباع الخطوات أدناه:
-
-- إنشاء حالة من طبقة `Presentation`.
-- الحصول على مرجع لشريحة باستخدام الفهرس الخاص بها.
-- إضافة الرسوم الذكية BasicBlockList.
+- إنشاء مثيل من الفئة `Presentation`.
+- الحصول على مرجع شريحة باستخدام الفهرس الخاص بها.
+- إضافة SmartArt BasicBlockList.
 - تغيير LayoutType إلى BasicProcess.
-- كتابة العرض كملف PPTX.
-  في المثال التالي، قمنا بإضافة موصل بين شكلين.
-
+- حفظ العرض التقديمي كملف PPTX.
+في المثال الموضح أدناه، قمنا بإضافة موصل بين شكلين.
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // إضافة الرسوم الذكية BasicProcess 
+    // إضافة SmartArt BasicProcess 
     ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
 
     // تغيير LayoutType إلى BasicProcess
     smart.Layout = SmartArtLayoutType.BasicProcess;
 
-    // حفظ العرض
+    // حفظ العرض التقديمي
     presentation.Save("ChangeSmartArtLayout_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
+## **التحقق من خاصية الإخفاء لكائن SmartArt**
+يرجى ملاحظة أن الطريقة com.aspose.slides.ISmartArtNode.isHidden() تُعيد true إذا كانت هذه العقدة مخفية في نموذج البيانات. للتحقق من خاصية الإخفاء لأي عقدة في SmartArt. يرجى اتباع الخطوات أدناه:
 
-## **تحقق من خاصية مخفية في الرسوم الذكية**
-يرجى ملاحظة أن الطريقة com.aspose.slides.ISmartArtNode.isHidden() تُرجع true إذا كانت هذه العقدة هي عقدة مخفية في نموذج البيانات. للتحقق من الخاصية المخفية لأي عقدة في الرسوم الذكية. يرجى اتباع الخطوات أدناه:
-
-- إنشاء حالة من طبقة `Presentation`.
-- إضافة الرسوم الذكية RadialCycle.
-- إضافة عقدة في الرسوم الذكية.
+- إنشاء مثيل من الفئة `Presentation`.
+- إضافة SmartArt RadialCycle.
+- إضافة عقدة إلى SmartArt.
 - التحقق من خاصية isHidden.
-- كتابة العرض كملف PPTX.
-
-في المثال التالي، قمنا بإضافة موصل بين شكلين.
-
+- حفظ العرض التقديمي كملف PPTX.
+في المثال الموضح أدناه، قمنا بإضافة موصل بين شكلين.
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // إضافة الرسوم الذكية BasicProcess 
+    // إضافة SmartArt BasicProcess 
     ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
 
-    // إضافة عقدة في الرسوم الذكية 
+    // إضافة عقدة إلى SmartArt 
     ISmartArtNode node = smart.AllNodes.AddNode();
 
-    // تحقق من خاصية isHidden
-    bool hidden = node.IsHidden; // تُرجع true
+    // التحقق من خاصية isHidden
+    bool hidden = node.IsHidden; // يعيد true
 
     if (hidden)
     {
-        // تنفيذ بعض الإجراءات أو الإشعارات
+        // إجراء بعض الإجراءات أو الإشعارات
     }
-    // حفظ العرض
+    // حفظ العرض التقديمي
     presentation.Save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
+## **الحصول على أو تعيين نوع مخطط التنظيم**
+تسمح الطرق com.aspose.slides.ISmartArtNode.getOrganizationChartLayout() و setOrganizationChartLayout(int) بالحصول على أو تعيين نوع مخطط التنظيم المرتبط بالعقدة الحالية. للحصول على أو تعيين نوع مخطط التنظيم. يرجى اتباع الخطوات أدناه:
 
-## **احصل على أو اضبط نوع مخطط المنظمة**
-تسمح الطرق com.aspose.slides.ISmartArtNode.getOrganizationChartLayout()، setOrganizationChartLayout(int) بالحصول على نوع مخطط المنظمة أو تعيينه المرتبط بالعقدة الحالية. للحصول على أو ضبط نوع مخطط المنظمة. يرجى اتباع الخطوات أدناه:
-
-- إنشاء حالة من طبقة `Presentation`.
-- إضافة الرسوم الذكية على الشريحة.
-- الحصول على نوع مخطط المنظمة أو تعيينه.
-- كتابة العرض كملف PPTX.
-  في المثال التالي، قمنا بإضافة موصل بين شكلين.
-
+- إنشاء مثيل من الفئة `Presentation`.
+- إضافة SmartArt على الشريحة.
+- الحصول على أو تعيين نوع مخطط التنظيم.
+- حفظ العرض التقديمي كملف PPTX.
+في المثال الموضح أدناه، قمنا بإضافة موصل بين شكلين.
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // إضافة الرسوم الذكية BasicProcess 
+    // إضافة SmartArt BasicProcess 
     ISmartArt smart = presentation.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
 
-    // احصل على نوع مخطط المنظمة أو اضبطه 
+    // الحصول على أو تعيين نوع مخطط التنظيم 
     smart.Nodes[0].OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
 
-    // حفظ العرض
+    // حفظ العرض التقديمي
     presentation.Save("OrganizeChartLayoutType_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 
+## **إنشاء مخطط تنظيم بصورة**
+توفر Aspose.Slides for .NET واجهة برمجة تطبيقات بسيطة لإنشاء مخططات PictureOrganization بسهولة. لإنشاء مخطط على شريحة:
 
-
-## **إنشاء مخطط تنظيم الصور**
-تقدم Aspose.Slides for .NET واجهة برمجة تطبيقات بسيطة لإنشاء مخططات وتنظيم الصور بطريقة سهلة. لإنشاء مخطط على شريحة:
-
-1. إنشاء حالة من الطبقة `Presentation`.
-1. الحصول على مرجع شريحة بواسطة فهرسها.
-1. إضافة مخطط مع بيانات افتراضية مع النوع المطلوب (ChartType.PictureOrganizationChart).
-1. كتابة العرض المعدل إلى ملف PPTX.
-
-يستخدم الكود التالي لإنشاء مخطط.
-
+1. إنشاء مثيل من الفئة `Presentation`.
+2. الحصول على مرجع الشريحة بواسطة فهرستها.
+3. إضافة مخطط بالبيانات الافتراضية مع النوع المطلوب (ChartType.PictureOrganizationChart).
+4. حفظ العرض التقديمي المعدل إلى ملف PPTX.
+الكود التالي يُستخدم لإنشاء مخطط.
 ```c#
 public static void Run()
 {
@@ -136,3 +136,22 @@ public static void Run()
 	}			
 }
 ```
+
+
+## **الأسئلة المتكررة**
+
+**هل يدعم SmartArt عكس/انعكاس للغات من اليمين إلى اليسار؟**
+
+نعم. خاصية [IsReversed](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/isreversed/) تغيّر اتجاه المخطط (من اليسار إلى اليمين/من اليمين إلى اليسار) إذا كان نوع SmartArt المحدد يدعم العكس.
+
+**كيف يمكنني نسخ SmartArt إلى الشريحة نفسها أو إلى عرض تقديمي آخر مع الحفاظ على التنسيق؟**
+
+يمكنك [استنساخ شكل SmartArt](/slides/ar/net/shape-manipulations/) عبر مجموعة الأشكال ([ShapeCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addclone/)) أو [استنساخ الشريحة بالكامل](/slides/ar/net/clone-slides/) التي تحتوي على هذا الشكل. كلا النهجين يحافظان على الحجم والموضع والتنسيق.
+
+**كيف أقوم بتحويل SmartArt إلى صورة نقطية للمعاينة أو التصدير للويب؟**
+
+[قم بتحويل الشريحة](/slides/ar/net/convert-powerpoint-to-png/) (أو العرض التقديمي بالكامل) إلى PNG/JPEG عبر الواجهة التي تحول الشرائح/العروض إلى صور — سيُرسم SmartArt كجزء من الشريحة.
+
+**كيف يمكنني برمجيًا تحديد SmartArt معين على شريحة إذا كان هناك عدة عناصر؟**
+
+من الممارسات الشائعة استخدام [النص البديل](https://reference.aspose.com/slides/net/aspose.slides/shape/alternativetext/) (Alt Text) أو [الاسم](https://reference.aspose.com/slides/net/aspose.slides/shape/name/) والبحث عن الشكل عبر تلك السمة داخل [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/)، ثم التحقق من النوع للتأكد أنه [SmartArt](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/). توضح الوثائق تقنيات شائعة للعثور على الأشكال والعمل معها.
