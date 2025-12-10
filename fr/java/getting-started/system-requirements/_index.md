@@ -1,14 +1,30 @@
 ---
-title: Exigences Système
+title: Exigences du système
 type: docs
 weight: 80
 url: /fr/java/system-requirements/
+keywords:
+- exigences du système
+- système d'exploitation
+- installation
+- dépendances
+- Windows
+- Linux
+- macOS
+- PowerPoint
+- OpenDocument
+- présentation
+- Java
+- Aspose.Slides
+description: "Découvrez les exigences système d'Aspose.Slides pour Java. Assurez une prise en charge transparente de PowerPoint et OpenDocument sous Windows, Linux et macOS."
 ---
 
-## **Aperçu**
-Aspose.Slides pour Java n'a pas besoin de Microsoft PowerPoint installé, car Aspose.Slides lui-même est un moteur de création, de conversion, de mise en page et de rendu de documents Microsoft PowerPoint.
-## **Systèmes d'Exploitation Pris En Charge**
-Aspose.Slides pour Java prend en charge tout système d'exploitation 32 bits ou 64 bits qui exécute l'environnement d'exécution Java, y compris, mais sans s'y limiter :
+## **Vue d'ensemble**
+Aspose.Slides for Java n'a pas besoin de Microsoft PowerPoint installé, car Aspose.Slides lui‑même est un moteur de création, conversion, mise en page et rendu de documents Microsoft PowerPoint.
+
+## **Systèmes d'exploitation pris en charge**
+Aspose.Slides for Java prend en charge tout système d'exploitation 32 bits ou 64 bits exécutant le runtime Java, y compris, mais sans s'y limiter :
+
 ### **Windows**
 - Microsoft Windows 2003 Server ( x64, x86)
 - Microsoft Windows 2008 Server ( x64, x86)
@@ -22,11 +38,22 @@ Aspose.Slides pour Java prend en charge tout système d'exploitation 32 bits ou 
 - Microsoft Windows 8, 8.1 ( x64, x86)
 - Microsoft Windows 10 ( x64, x86)
 
+
 ### **Linux**
-- Linux (Ubuntu, OpenSUSE, CentOS et autres)
+- Linux (Ubuntu, OpenSUSE, CentOS et d'autres)
 
 ### **Mac**
 - Mac OS X
 
-## **Versions Java Pris En Charge**
-Aspose.Slides pour Java prend en charge J2SE 6.0 (Java 1.6) et supérieur.
+## **Versions Java prises en charge**
+Aspose.Slides for Java prend en charge J2SE 6.0 (Java 1.6) et supérieur.
+
+## **FAQ**
+
+**Dois-je installer Microsoft PowerPoint pour les conversions et le rendu ?**
+
+Non, PowerPoint n'est pas requis ; Aspose.Slides est un moteur autonome pour [créer](/slides/fr/java/create-presentation/), modifier, [convertir](/slides/fr/java/convert-presentation/), et [rendre](/slides/fr/java/convert-powerpoint-to-png/) les présentations.
+
+**Quelles polices sont nécessaires pour un rendu correct ?**
+
+En pratique, les polices utilisées dans la présentation ou les [substituts](/slides/fr/java/font-substitution/) appropriés doivent être disponibles. Pour garantir un rendu cohérent sous Linux/macOS, il est conseillé d'installer les paquets de polices courantes.

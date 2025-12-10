@@ -1,11 +1,46 @@
 ---
-title: Formatos de Archivo Soportados
+title: Formatos de archivo compatibles
 type: docs
 weight: 20
 url: /es/java/supported-file-formats/
+keywords:
+- formato de archivo
+- formato compatible
+- PPT
+- POT
+- PPS
+- PPTX
+- POTX
+- PPSX
+- PPTM
+- PPSM
+- POTM
+- ODP
+- FODP
+- OTP
+- TIFF
+- EMF
+- PDF
+- XPS
+- JPEG
+- PNG
+- GIF
+- BMP
+- SVG
+- SWF
+- HTML
+- XAML
+- MD
+- XML
+- PowerPoint
+- OpenDocument
+- presentación
+- Java
+- Aspose.Slides
+description: "Descubra todos los formatos de archivo que Aspose.Slides for Java puede abrir, guardar y convertir — incluidos PPT, PPTX y ODP — con notas claras de compatibilidad de importación/exportación."
 ---
 
-## **Versiones de Microsoft PowerPoint Soportadas**
+## **Versiones compatibles de Microsoft PowerPoint**
 - Microsoft PowerPoint 97
 - Microsoft PowerPoint 2000
 - Microsoft PowerPoint XP
@@ -15,36 +50,58 @@ url: /es/java/supported-file-formats/
 - Microsoft PowerPoint 2013
 - Microsoft PowerPoint 2016
 - Microsoft PowerPoint 2019
-- Microsoft PowerPoint para MAC
+- Microsoft PowerPoint para Mac
 - Office 365
 
-## **Formatos de Archivo Soportados**
-Esta tabla contiene los formatos de archivo que Aspose.Slides para Java puede cargar y guardar:
+## **Formatos de archivo compatibles**
+Esta tabla contiene los formatos de archivo que Aspose.Slides for Java puede cargar y guardar:
 
 |**Formato**|**Descripción**|**Cargar**|**Guardar**|**Observaciones**|
 | :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|Presentación de PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POT](https://docs.fileformat.com/presentation/pot/)|Plantilla de PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPS](https://docs.fileformat.com/presentation/pps/)|Presentación de PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Presentación de PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POTX](https://docs.fileformat.com/presentation/potx/)|Plantilla de PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|Presentación de PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTM](https://docs.fileformat.com/presentation/pptm/)|Presentación de PowerPoint habilitada para macros|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|Presentación de PowerPoint habilitada para macros|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POTM](https://docs.fileformat.com/presentation/potm/)|Plantilla de PowerPoint habilitada para macros|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[ODP/FODP](https://docs.fileformat.com/presentation/odp/)|Presentación de OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[OTP](https://docs.fileformat.com/presentation/otp/)|Plantilla de Presentación de OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[TIFF](https://docs.fileformat.com/image/tiff/)|Formato de Archivos de Imágenes de Etiquetas| |{{< emoticons/tick >}}| |
-|[EMF](https://docs.fileformat.com/image/emf/)|Formato de Metarchivo Mejorado| |{{< emoticons/tick >}}| |
-|[PDF](https://docs.fileformat.com/pdf/)|Formato de Documento Portátil|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[XPS](https://docs.fileformat.com/page-description-language/xps/)|Especificación de Papel XML| |{{< emoticons/tick >}}| |
-|[JPEG](https://docs.fileformat.com/image/jpeg/)|Grupo Conjunto de Expertos Fotográficos| |{{< emoticons/tick >}}| |
-|[PNG](https://docs.fileformat.com/image/png/)|Gráficos de Red Portátiles| |{{< emoticons/tick >}}| |
-|[GIF](https://docs.fileformat.com/image/gif/)|Formato de Intercambio de Gráficos| |{{< emoticons/tick >}}| |
-|[BMP](https://docs.fileformat.com/image/bmp/)|Mapa de Bits Independiente del Dispositivo| |{{< emoticons/tick >}}| |
-|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Gráficos Vectoriales Escalables| |{{< emoticons/tick >}}| |
-|[SWF](https://docs.fileformat.com/page-description-language/swf/)|Formato Web Pequeño| |{{< emoticons/tick >}}| |
-|[HTML](https://docs.fileformat.com/web/html/)|Lenguaje de Marcado de Hipertexto|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[XAML](https://docs.fileformat.com/web/xaml/)|Lenguaje de Marcado de Aplicaciones Extensible| |{{< emoticons/tick >}}| |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|Presentación de PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POT](https://docs.fileformat.com/presentation/pot/)|Plantilla de PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPS](https://docs.fileformat.com/presentation/pps/)|Presentación de PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Presentación de PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POTX](https://docs.fileformat.com/presentation/potx/)|Plantilla de PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|Presentación de PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPTM](https://docs.fileformat.com/presentation/pptm/)|Presentación de PowerPoint con macros habilitadas|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|Presentación de PowerPoint con macros habilitadas|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POTM](https://docs.fileformat.com/presentation/potm/)|Plantilla de PowerPoint con macros habilitadas|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[ODP/FODP](https://docs.fileformat.com/presentation/odp/)|Presentación OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[OTP](https://docs.fileformat.com/presentation/otp/)|Plantilla de presentación OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[TIFF](https://docs.fileformat.com/image/tiff/)|Formato de archivo de imagen etiquetado| |{{< emoticons/tick >}}| |
+|[EMF](https://docs.fileformat.com/image/emf/)|Formato Metarchivo mejorado| |{{< emoticons/tick >}}| |
+|[PDF](https://docs.fileformat.com/pdf/)|Formato de documento portátil|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[XPS](https://docs.fileformat.com/page-description-language/xps/)|Especificación de papel XML| |{{< emoticons/tick >}}| |
+|[JPEG](https://docs.fileformat.com/image/jpeg/)|Joint Photographic Experts Group| |{{< emoticons/tick >}}| |
+|[PNG](https://docs.fileformat.com/image/png/)|Gráficos de Red Portátiles| |{{< emoticons/tick >}}| |
+|[GIF](https://docs.fileformat.com/image/gif/)|Formato de Intercambio de Gráficos| |{{< emoticons/tick >}}| |
+|[BMP](https://docs.fileformat.com/image/bmp/)|Mapa de bits independiente del dispositivo| |{{< emoticons/tick >}}| |
+|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Gráficos Vectoriales Escalables| |{{< emoticons/tick >}}| |
+|[SWF](https://docs.fileformat.com/page-description-language/swf/)|Formato Web Pequeño| |{{< emoticons/tick >}}| |
+|[HTML](https://docs.fileformat.com/web/html/)|Lenguaje de Marcado de Hipertexto|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[XAML](https://docs.fileformat.com/web/xaml/)|Lenguaje de Marcado Extensible de Aplicaciones| |{{< emoticons/tick >}}| |
 |[MD](https://docs.fileformat.com/word-processing/md/)|Markdown| |{{< emoticons/tick >}}| |
 |[XML](https://docs.fileformat.com/web/xml/)|Presentación XML de PowerPoint| |{{< emoticons/tick >}}| |
+
+## **Preguntas frecuentes**
+
+**¿Puedo guardar presentaciones en PDF que cumplan con los estándares de archivo y accesibilidad (PDF/A y PDF/UA)?**
+
+Sí. Aspose.Slides admite la exportación a PDF con niveles de cumplimiento como PDF/A-2a, PDF/A-2b, PDF/A-2u, PDF/A-3a, PDF/A-3b, así como PDF/UA mediante la configuración [compliance](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setCompliance-int-) en [PDF export options](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/).
+
+**¿La biblioteca admite la incrustación de fuentes al exportar a PDF, con control granular sobre lo que se incrusta?**
+
+Sí. Puede controlar si las fuentes se incrustan completamente o de forma parcial (solo los glifos usados), especificar cómo se tratan las fuentes del sistema comunes y configurar el comportamiento del texto ASCII mediante [PDF export options](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/).
+
+**¿Puedo detectar si un archivo está protegido con contraseña antes de cargarlo realmente?**
+
+Sí. Usando la [factory-based inspection API](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/), puede consultar un archivo de presentación para determinar si está protegido con contraseña sin abrirlo completamente.
+
+**¿Existen mecanismos de respaldo de fuentes y soporte para fuentes personalizadas?**
+
+Sí. La biblioteca admite la [carga](/slides/es/java/custom-font/) y la [incrustación](/slides/es/java/embedded-font/) de fuentes personalizadas y proporciona [reglas de respaldo de fuentes](/slides/es/java/fallback-font/) para evitar glifos faltantes durante la renderización y conversión.
+
+**¿Puedo exportar diapositivas a XPS, y existen opciones para ajustar la salida XPS?**
+
+Sí. [Export to XPS](/slides/es/java/convert-powerpoint-to-xps/) es compatible, y puede ajustar las [opciones de guardado](https://reference.aspose.com/slides/java/com.aspose.slides/xpsoptions/) para controlar la calidad de salida y el contenido del documento XPS.

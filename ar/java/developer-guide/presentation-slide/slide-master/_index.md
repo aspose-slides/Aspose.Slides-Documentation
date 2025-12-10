@@ -1,132 +1,151 @@
 ---
-title: الشريحة الرئيسية
+title: إدارة نماذج الشرائح في العرض التقديمي باستخدام Java
+linktitle: نموذج الشريحة
 type: docs
 weight: 70
 url: /ar/java/slide-master/
-keywords: "إضافة شريحة رئيسية، شريحة ماستر PPT، الشريحة الرئيسية PowerPoint، صورة إلى الشريحة الرئيسية، عنصر نائب، عدة شرائح رئيسية، مقارنة الشرائح الرئيسية، Java، Aspose.Slides لـ Java"
-description: "إضافة أو تعديل شريحة رئيسية في عرض PowerPoint باستخدام Java"
+keywords:
+- نموذج الشريحة
+- الشريحة الرئيسية
+- شريحة رئيسية لـ PPT
+- شرائح رئيسية متعددة
+- مقارنة الشرائح الرئيسية
+- الخلفية
+- عنصر نائب
+- استنساخ الشريحة الرئيسية
+- نسخ الشريحة الرئيسية
+- تكرار الشريحة الرئيسية
+- شريحة رئيسية غير مستخدمة
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "إدارة نماذج الشرائح في Aspose.Slides لـ Java: إنشاء وتعديل وتطبيق التخطيطات والسمات وعناصر النائب على ملفات PPT و PPTX و ODP مع أمثلة Java مختصرة."
 ---
 
-## **ما هي الشريحة الرئيسية في PowerPoint**
+## **ما هو Slide Master في PowerPoint**
 
-الشريحة الرئيسية هي قالب شريحة يحدد التخطيط، الأنماط، السمة، الخطوط، الخلفية، وغيرها من الخصائص للشرائح في العرض. إذا كنت ترغب في إنشاء عرض (أو سلسلة من العروض) بنفس النمط والقالب لشركتك، يمكنك استخدام الشريحة الرئيسية.
+يُعد **Slide Master** قالبًا للشرائح يحدد التخطيط والأنماط والسمة والخطوط والخلفية وغيرها من الخصائص للشرائح في عرض تقديمي. إذا كنت ترغب في إنشاء عرض تقديمي (أو سلسلة عروض تقديمية) بنفس النمط والقالب لشركتك، يمكنك استخدام Slide Master. 
 
-الشريحة الرئيسية مفيدة لأنها تتيح لك تعيين وتغيير مظهر جميع شرائح العرض دفعة واحدة. تدعم Aspose.Slides آلية الشريحة الرئيسية من PowerPoint.
+Slide Master مفيد لأنه يتيح لك تحديد وتغيير مظهر جميع شرائح العرض التقديمي دفعة واحدة. تدعم Aspose.Slides آلية Slide Master من PowerPoint. 
 
-كما أن VBA يسمح لك بالتلاعب بالشريحة الرئيسية وتنفيذ نفس العمليات المدعومة في PowerPoint: تغيير الخلفيات، إضافة الأشكال، تخصيص التخطيط، إلخ. توفر Aspose.Slides آليات مرنة تسمح لك باستخدام الشرائح الرئيسية وأداء المهام الأساسية معها.
+كما تسمح VBA بالتعامل مع Slide Master وتنفيذ نفس العمليات المدعومة في PowerPoint: تغيير الخلفيات، إضافة الأشكال، تخصيص التخطيط، إلخ. توفر Aspose.Slides آليات مرنة لتمكينك من استخدام Slide Masters وأداء المهام الأساسية معها. 
 
-هذه هي العمليات الأساسية للشريحة الرئيسية:
+هذه هي عمليات Slide Master الأساسية:
 
-- إنشاء شريحة رئيسية.
-- تطبيق الشرائح الرئيسية على الشرائح في العرض.
-- تغيير خلفية الشريحة الرئيسية.
-- إضافة صورة، عنصر نائب، فن ذكي، إلخ. إلى الشريحة الرئيسية.
+- إنشاء Slide Master.  
+- تطبيق Slide Master على شرائح العرض التقديمي.  
+- تغيير خلفية Slide Master.  
+- إضافة صورة أو عنصر نائبي أو Smart Art، إلخ إلى Slide Master.  
 
-هذه هي العمليات الأكثر تقدماً المتعلقة بالشريحة الرئيسية:
+هذه عمليات أكثر تقدماً تتعلق بـ Slide Master: 
 
-- مقارنة الشرائح الرئيسية.
-- دمج الشرائح الرئيسية.
-- تطبيق عدة شرائح رئيسية.
-- نسخ الشريحة مع الشريحة الرئيسية إلى عرض آخر.
-- اكتشاف الشرائح الرئيسية المكررة في العروض.
-- تعيين الشريحة الرئيسية كعرض افتراضي للعرض.
+- مقارنة Slide Masters.  
+- دمج Slide Masters.  
+- تطبيق عدة Slide Masters.  
+- نسخ شريحة مع Slide Master إلى عرض تقديمي آخر.  
+- اكتشاف Slide Masters مكررة في العروض التقديمية.  
+- تعيين Slide Master كعرض افتراضي للعرض التقديمي.  
 
 {{% alert color="primary" %}} 
+قد ترغب في الاطلاع على Aspose [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) لأنّه تنفيذ مباشر لبعض العمليات الأساسية الموضحة هنا.
+{{% /alert %}} 
 
-قد ترغب في التحقق من Aspose [**عارض PowerPoint عبر الإنترنت**](https://products.aspose.app/slides/viewer) لأنه تنفيذ مباشر لبعض العمليات الأساسية الموضحة هنا.
 
-{{% /alert %}}
+## **كيف يتم تطبيق Slide Master**
 
-## **كيف يتم تطبيق الشريحة الرئيسية**
+قبل العمل مع Slide Master، قد تريد فهم كيفية استخدامها في العروض التقديمية وتطبيقها على الشرائح. 
 
-قبل أن تعمل مع الشريحة الرئيسية، قد ترغب في فهم كيف يتم استخدامها في العروض ويتم تطبيقها على الشرائح.
+* كل عرض تقديمي يحتوي على Slide Master واحد على الأقل بشكل افتراضي.  
+* يمكن للعرض التقديمي أن يحتوي على عدة Slide Masters. يمكنك إضافة عدة Slide Masters واستخدامها لتصميم أجزاء مختلفة من العرض بطرق مختلفة.  
 
-* كل عرض يحتوي على شريحة رئيسية واحدة على الأقل بشكل افتراضي.
-* يمكن أن يحتوي العرض على عدة شرائح رئيسية. يمكنك إضافة عدة شرائح رئيسية واستخدامها لتنسيق أجزاء مختلفة من العرض بطرق مختلفة.
+في **Aspose.Slides**، يُمثَّل Slide Master بنوع [**IMasterSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/).  
 
-في **Aspose.Slides**، يتم تمثيل الشريحة الرئيسية بواسطة [**IMasterSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/) نوع.
+كائن [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) في Aspose.Slides يحتوي على قائمة [**getMasters**](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) من النوع [**IMasterSlideCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/)، والتي تضم جميع الشرائح الرئيسية المُعرَّفة في العرض.  
 
-تحتوي كائنات [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) الخاصة بـ Aspose.Slides على [**getMasters**](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) قائمة تحتوي على [**IMasterSlideCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/) نوع، الذي يحتوي على قائمة لجميع الشرائح الرئيسية المحددة في العرض.
+بالإضافة إلى عمليات CRUD، يحتوي واجهة [IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/) على هذه الطرق المفيدة: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) و[**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-). هذه الطرق موروثة من وظيفة استنساخ الشرائح الأساسية، ولكن عند التعامل مع Slide Masters تسمح لك بتنفيذ إعدادات معقدة.  
 
-بالإضافة إلى عمليات CRUD، تحتوي واجهة [IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/) على هذه الطرق المفيدة: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) و [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-) طرق. يتم وراثة هذه الطرق من وظيفة النسخ الأساسية للشرائح. ولكن عند التعامل مع الشرائح الرئيسية، تتيح لك هذه الطرق تنفيذ إعدادات معقدة.
+عند إضافة شريحة جديدة إلى عرض تقديمي، يُطبق عليها Slide Master تلقائيًا. يُختار Slide Master الخاص بالشريحة السابقة بشكل افتراضي.  
 
-عندما تتم إضافة شريحة جديدة إلى عرض، يتم تطبيق الشريحة الرئيسية عليها تلقائياً. يتم اختيار الشريحة الرئيسية للشريحة السابقة بشكل افتراضي.
+**ملاحظة**: تُخزن شرائح العرض في قائمة [getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--)، وتُضاف كل شريحة جديدة إلى نهاية المجموعة بشكل افتراضي. إذا كان العرض يحتوي على Slide Master واحد فقط، يتم اختيار هذا الـ Slide Master لجميع الشرائح الجديدة. هذا هو السبب في عدم الحاجة لتحديد Slide Master لكل شريحة جديدة تُنشئها.  
 
-**ملاحظة**: يتم تخزين شرائح العرض في قائمة [getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--)، ويتم إضافة كل شريحة جديدة إلى نهاية المجموعة بشكل افتراضي. إذا كان العرض يحتوي على شريحة رئيسية واحدة، يتم اختيار تلك الشريحة الرئيسية لجميع الشرائح الجديدة. هذه هي السبب في أنك لا تحتاج إلى تحديد الشريحة الرئيسية لكل شريحة جديدة تنشئها.
-
-المبدأ هو نفسه بالنسبة لـ PowerPoint و Aspose.Slides. على سبيل المثال، في PowerPoint، عندما تضيف عرضاً جديداً، يمكنك فقط الضغط على السطر السفلي تحت الشريحة الأخيرة ثم سيتم إنشاء شريحة جديدة (مع الشريحة الرئيسية للعرض الأخير):
+المبدأ نفسه في PowerPoint وAspose.Slides. على سبيل المثال، في PowerPoint، عندما تضيف شريحة جديدة، يمكنك الضغط على الخط السفلي تحت آخر شريحة ثم تُنشأ شريحة جديدة (مع Slide Master للعرض الأخير):
 
 ![todo:image_alt_text](slide-master_1.jpg)
 
-في Aspose.Slides، يمكنك تنفيذ المهمة المعادلة باستخدام طريقة [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) تحت فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+في Aspose.Slides، يمكنك تنفيذ المهمة المكافئة باستخدام طريقة [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) ضمن فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).  
 
 
-## **الشريحة الرئيسية في تسلسل الشرائح**
+## **Slide Master في تسلسل الشرائح**
 
-يسمح استخدام تخطيطات الشرائح مع الشريحة الرئيسية بأقصى قدر من المرونة. تسمح تخطيط الشريحة لك بتعيين جميع الأنماط ذاتها مثل الشريحة الرئيسية (الخلفية، الخطوط، الأشكال، إلخ). ومع ذلك، عند دمج عدة تخطيطات شرائح على شريحة رئيسية، يتم إنشاء نمط جديد. عند تطبيق تخطيط شريحة على شريحة واحدة، يمكنك تغيير نمطها من النمط المطبق بواسطة الشريحة الرئيسية.
+يسمح استخدام Slide Layouts مع Slide Master بأقصى مرونة. يتيح Slide Layout لك تعيين جميع الأنماط نفسها مثل Slide Master (الخلفية، الخطوط، الأشكال، إلخ). ومع ذلك، عند دمج عدة Slide Layouts على Slide Master، يتم إنشاء نمط جديد. عندما تطبق Slide Layout على شريحة واحدة، يمكنك تغيير نمطها مقارنةً بالنمط المطبَّق من قبل Slide Master.  
 
-الشريحة الرئيسية تتفوق على جميع عناصر الإعداد: شريحة رئيسية -> تخطيط شريحة -> شريحة:
+Slide Master يتفوق على جميع عناصر الإعداد: Slide Master → Slide Layout → Slide:
 
 ![todo:image_alt_text](slide-master_2)
 
-كل كائن [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) لديه خاصية [**getLayoutSlides**](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getLayoutSlides--) مع قائمة تخطيطات الشرائح. تحتوي نوع [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide) على خاصية [**getLayoutSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getLayoutSlide--) مع رابط إلى تخطيط الشريحة المطبق على الشريحة. يحدث التفاعل بين الشريحة والشريحة الرئيسية من خلال تخطيط الشريحة.
+
+
+كل كائن [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) يحتوي على خاصية [**getLayoutSlides**](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getLayoutSlides--) التي تُعيد قائمة من Slide Layouts. نوع [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide) له خاصية [**getLayoutSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getLayoutSlide--) التي تُشير إلى Slide Layout المطبَّق على الشريحة. التفاعل بين الشريحة وSlide Master يحدث عبر Slide Layout.  
 
 {{% alert color="info" title="ملاحظة" %}}
 
-* في Aspose.Slides، جميع إعدادات الشرائح (الشريحة الرئيسية، تخطيط الشريحة، والشريحة نفسها) هي في الواقع كائنات شرائح تنفذ واجهة [**IBaseSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide).
-* لذلك، قد تنفذ الشريحة الرئيسية وتخطيط الشريحة نفس الخصائص وتحتاج إلى معرفة كيف سيتم تطبيق قيمها على كائن [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide). يتم تطبيق الشريحة الرئيسية أولاً على الشريحة ثم يتم تطبيق تخطيط الشريحة. على سبيل المثال، إذا كانت الشريحة الرئيسية وتخطيط الشريحة كليهما يحتويان على قيمة خلفية، ستنتهي الشريحة بخلفية تخطيط الشريحة.
+* في Aspose.Slides، جميع إعدادات الشريحة (Slide Master، Slide Layout، والشريحة نفسها) هي في الواقع كائنات شريحة تُطبق واجهة [**IBaseSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide).  
+* لذلك قد يطبق Slide Master وSlide Layout نفس الخصائص ويجب أن تعرف كيف سيتم تطبيق قيمهما على كائن [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide). يُطبق Slide Master أولاً على الشريحة ثم يُطبق Slide Layout. على سبيل المثال، إذا كان لكل من Slide Master وSlide Layout قيمة خلفية، ستنتهي الشريحة بخلفية Slide Layout.  
 
 {{% /alert %}}
 
 
-## **ماذا تحتوي عليه الشريحة الرئيسية**
+## **ما الذي يحتويه Slide Master**
 
-لفهم كيفية تغيير الشريحة الرئيسية، تحتاج إلى معرفة مكوناتها. هذه هي الخصائص الأساسية لـ [MasterSlide](https://reference.aspose.com/slides/java/aspose.slides/masterslide/).
+لفهم كيفية تعديل Slide Master، عليك معرفة مكوّناته. هذه هي الخصائص الأساسية لـ [MasterSlide](https://reference.aspose.com/slides/java/aspose.slides/masterslide/): 
 
-- [getBackground](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getBackground--) الحصول على/تعيين خلفية الشريحة.
-- [getBodyStyle](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getBodyStyle--) - الحصول على/تعيين أنماط النص لجسم الشريحة.
-- [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getShapes--) الحصول على/تعيين جميع الأشكال للشريحة الرئيسية (عناصر نائب، إطارات صور، إلخ).
-- [getControls](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getControls--) الحصول على/تعيين عناصر التحكم ActiveX.
-- [getThemeManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterThemeable#getThemeManager--) - الحصول على مدير السمة.
-- [getHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getHeaderFooterManager--) - الحصول على مدير الرأس والتذييل.
+- [getBackground](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getBackground--) احصل/عيّن خلفية الشريحة.  
+- [getBodyStyle](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getBodyStyle--) احصل/عيّن أنماط النص لجسم الشريحة.  
+- [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getShapes--) احصل/عيّن جميع الأشكال في Slide Master (العناصر النائبة، إطارات الصور، إلخ).  
+- [getControls](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getControls--) احصل/عيّن عناصر تحكم ActiveX.  
+- [getThemeManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterThemeable#getThemeManager--) احصل على مدير السمة.  
+- [getHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getHeaderFooterManager--) احصل على مدير الترويسات والتذييلات.  
 
-طرق الشريحة الرئيسية:
+طرق Slide Master:
 
-- [getDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getDependingSlides--) - الحصول على جميع الشرائح المعتمدة على الشريحة الرئيسية.
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) - يسمح لك بإنشاء شريحة رئيسية جديدة بناءً على الشريحة الرئيسية الحالية وسمة جديدة. سيتم تطبيق الشريحة الرئيسية الجديدة بعد ذلك على جميع الشرائح التابعة.
+- [getDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getDependingSlides--) احصل على جميع الشرائح التي تعتمد على Slide Master.  
+- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) يتيح لك إنشاء Slide Master جديد بناءً على الـ Slide Master الحالي وسمة جديدة. ثم يُطبق الـ Slide Master الجديد على جميع الشرائح التابعة.  
 
 
-## **احصل على الشريحة الرئيسية**
+## **الحصول على Slide Master**
 
-في PowerPoint، يمكن الوصول إلى الشريحة الرئيسية من قائمة العرض -> شريحة رئيسية:
+في PowerPoint، يمكن الوصول إلى Slide Master من قائمة View → Slide Master:
 
 ![todo:image_alt_text](slide-master_3.jpg)
 
-باستخدام Aspose.Slides، يمكنك الوصول إلى الشريحة الرئيسية بهذه الطريقة: 
 
+
+باستخدام Aspose.Slides، يمكنك الوصول إلى Slide Master بهذه الطريقة: 
 ```java
 Presentation pres = new Presentation();
 try {
-    // يعطي الوصول إلى الشريحة الرئيسية لعرض تقديمي
+    // يتيح الوصول إلى الشريحة الرئيسية للعرض التقديمي
     IMasterSlide masterSlide = pres.getMasters().get_Item(0);
 } finally {
     pres.dispose();
 }
 ```
 
-تشير واجهة [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) إلى الشريحة الرئيسية. تحتوي خاصية [Masters](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getMasters--) (المتعلقة بـ [IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlideCollection) نوع) على قائمة بجميع الشرائح الرئيسية المحددة في العرض. 
+
+واجهة [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) تمثل Slide Master. الخاصية [Masters](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getMasters--) (المتعلقة بنوع [IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlideCollection)) تحتوي على قائمة بجميع Slide Masters المعرَّفة في العرض.  
 
 
-## **إضافة صورة إلى الشريحة الرئيسية**
+## **إضافة صورة إلى Slide Master**
 
-عند إضافة صورة إلى الشريحة الرئيسية، ستظهر تلك الصورة على جميع الشرائح المعتمدة على تلك الشريحة الرئيسية.
+عند إضافة صورة إلى Slide Master، ستظهر تلك الصورة على جميع الشرائح التي تعتمد على ذلك الـ Slide Master.  
 
-على سبيل المثال، يمكنك وضع شعار شركتك وبعض الصور على الشريحة الرئيسية ثم العودة إلى وضع تحرير الشرائح. يجب أن تظهر الصورة على كل شريحة.
+على سبيل المثال، يمكنك وضع شعار شركتك وعدد قليل من الصور على Slide Master ثم العودة إلى وضع تحرير الشرائح. يجب أن ترى الصورة على كل شريحة.  
 
 ![todo:image_alt_text](slide-master_4.png)
 
-يمكنك إضافة صور إلى الشريحة الرئيسية باستخدام Aspose.Slides:
-
+يمكنك إضافة صور إلى Slide Master باستخدام Aspose.Slides:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -146,40 +165,36 @@ try {
 }
 ```
 
-{{% alert color="primary" title="انظر أيضًا" %}} 
 
-للحصول على مزيد من المعلومات حول إضافة الصور إلى الشريحة، راجع مقال [إطار الصورة](/slides/ar/java/picture-frame/#create-picture-frame).
+{{% alert color="primary" title="انظر أيضًا" %}} 
+لمزيد من المعلومات حول إضافة صور إلى شريحة، راجع مقالة [Picture Frame](/slides/ar/java/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 
-## **إضافة عنصر نائب إلى الشريحة الرئيسية**
+## **إضافة عنصر نائبي إلى Slide Master**
 
-تعتبر هذه الحقول النصية عناصر نائب قياسية على الشريحة الرئيسية:
+هذه الحقول النصية هي عناصر نائبة قياسية على Slide Master: 
 
-* انقر لتعديل أسلوب عنوان الشريحة الرئيسية
+* اضغط لتحرير نمط عنوان Master  
+* تحرير أنماط نص Master  
+* المستوى الثاني  
+* المستوى الثالث  
 
-* تعديل أنماط نص الشريحة الرئيسية
+تظهر أيضًا على الشرائح المستندة إلى Slide Master. يمكنك تحرير تلك العناصر النائبة على Slide Master وسيتم تطبيق التغييرات تلقائيًا على الشرائح.  
 
-* المستوى الثاني
-
-* المستوى الثالث 
-
-  كما تظهر أيضًا على الشرائح المستندة إلى الشريحة الرئيسية. يمكنك تحرير تلك العناصر النائبة على الشريحة الرئيسية وسيتم تطبيق التغييرات تلقائيًا على الشرائح.
-
-في PowerPoint، يمكنك إضافة عنصر نائب من خلال المسار الشريحة الرئيسية -> إدراج عنصر نائب:
+في PowerPoint، يمكنك إضافة عنصر نائبي عبر مسار Slide Master → Insert Placeholder:
 
 ![todo:image_alt_text](slide-master_5.png)
 
-دعنا نفحص مثالًا أكثر تعقيدًا لعناصر النائب باستخدام Aspose.Slides. اعتبر شريحة بها عناصر نائب منقولة من الشريحة الرئيسية:
+لنستعرض مثالًا أكثر تعقيدًا للعناصر النائبة باستخدام Aspose.Slides. اعتبر شريحة بها عناصر نائبة مُستخرجة من Slide Master:
 
 ![todo:image_alt_text](slide-master_6.png)
 
-نرغب في تغيير تنسيق العنوان والعنوان الفرعي على الشريحة الرئيسية بهذه الطريقة:
+نريد تغيير تنسيق العنوان والعنوان الفرعي على Slide Master بهذه الطريقة:
 
 ![todo:image_alt_text](slide-master_7.png)
 
-أولاً، نسترجع محتوى عنصر نائب العنوان من كائن الشريحة الرئيسية ثم نستخدم حقل `PlaceHolder.FillFormat`:
-
+أولاً، نسترجع محتوى عنصر النائبي للعنوان من كائن Slide Master ثم نستخدم الحقل `PlaceHolder.FillFormat`:
 ```java
 public static void main(String[] args) {
     Presentation pres = new Presentation();
@@ -215,22 +230,20 @@ static IAutoShape findPlaceholder(IMasterSlide master, int type)
 }
 ```
 
-سيتم تغيير أسلوب العنوان وتنسيقه لجميع الشرائح بناءً على الشريحة الرئيسية:
+
+سيتغير نمط العنوان والتنسيق لجميع الشرائح المستندة إلى Slide Master:
 
 ![todo:image_alt_text](slide-master_8.png)
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-
-* [تعيين نص المطالبات في عنصر نائب](https://docs.aspose.com/slides/java/manage-placeholder/)
-* [تنسيق النص](https://docs.aspose.com/slides/java/text-formatting/)
-
+* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/java/manage-placeholder/)  
+* [Text Formatting](https://docs.aspose.com/slides/java/text-formatting/)  
 {{% /alert %}}
 
 
-## **تغيير الخلفية في الشريحة الرئيسية**
+## **تغيير الخلفية على Slide Master**
 
-عند تغيير اللون الخلفي لشريحة رئيسية، ستحصل جميع الشرائح العادية في العرض على اللون الجديد. يوضح هذا الرمز البرمجي في Java هذه العملية:
-
+عند تغيير لون خلفية الشريحة الرئيسية، ستحصل جميع الشرائح العادية في العرض على اللون الجديد. يوضح هذا الكود Java العملية:
 ```java
 Presentation pres = new Presentation();
 try {
@@ -245,18 +258,15 @@ try {
 }
 ```
 
+
 {{% alert color="primary" title="انظر أيضًا" %}} 
+- [Presentation Background](https://docs.aspose.com/slides/java/presentation-background/)  
+- [Presentation Theme](https://docs.aspose.com/slides/java/presentation-theme/)  
+{{% /alert %}}
 
-- [خلفية العرض](https://docs.aspose.com/slides/java/presentation-background/)
+## **استنساخ Slide Master إلى عرض تقديمي آخر**
 
-- [سمة العرض](https://docs.aspose.com/slides/java/presentation-theme/)
-
-  {{% /alert %}}
-
-## **نسخ الشريحة الرئيسية إلى عرض آخر**
-
-لنسخ الشريحة الرئيسية إلى عرض آخر، اتصل بطريقة [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) من العرض الهدف مع بطاقة شريحة رئيسية تم تمريرها لها. يظهر هذا الرمز في Java كيفية نسخ الشريحة الرئيسية إلى عرض آخر:
-
+لاستنساخ Slide Master إلى عرض تقديمي آخر، استدعِ طريقة [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) من العرض الهدف مع تمرير Slide Master إليه. يُظهر هذا الكود Java كيفية استنساخ Slide Master إلى عرض تقديمي آخر:
 ```java
 Presentation presSource = new Presentation();
 Presentation presTarget = new Presentation();
@@ -268,51 +278,54 @@ try {
 ```
 
 
-## **إضافة عدة شرائح رئيسية إلى العرض**
 
-تسمح لك Aspose.Slides بإضافة عدة شرائح رئيسية وتخطيطات إلى أي عرض معين. يتيح لك ذلك إعداد الأنماط والتخطيطات وخيارات التنسيق للشرائح في عدة طرق.
+## **إضافة عدة Slide Masters إلى عرض تقديمي**
 
-في PowerPoint، يمكنك إضافة شرائح رئيسية جديدة وتخطيطات (من قائمة "الشريحة الرئيسية") بهذه الطريقة:
+تسمح Aspose.Slides لك بإضافة عدة Slide Masters وSlide Layouts إلى أي عرض تقديمي. يتيح لك ذلك ضبط الأنماط والتخطيطات وخيارات التنسيق للشرائح بطرق متعددة.  
+
+في PowerPoint، يمكنك إضافة Slide Masters وتخطيطات جديدة (من "قائمة Slide Master") بهذه الطريقة:
 
 ![todo:image_alt_text](slide-master_9.jpg)
 
-باستخدام Aspose.Slides، يمكنك إضافة شريحة رئيسية جديدة عن طريق استدعاء طريقة [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) :
-
+باستخدام Aspose.Slides، يمكنك إضافة Slide Master جديد عن طريق استدعاء طريقة [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-):
 ```java
 // يضيف شريحة رئيسية جديدة
 IMasterSlide secondMasterSlide = pres.getMasters().addClone(masterSlide);
 ```
 
 
-## **مقارنة الشرائح الرئيسية**
 
-تقوم الشريحة الرئيسية بتنفيذ واجهة [IBaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide) التي تحتوي على طريقة [**equals**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-) التي يمكن استخدامها بعد ذلك لمقارنة الشرائح. وتعيد `true` للشرائح الرئيسية المتطابقة في الهيكل والمحتوى الثابت.
+## **مقارنة Slide Masters**
 
-تكون شرحتان رئيسيتان متساويتين إذا كانت أشكالهما، وأنماطها، ونصوصها، والرسوم المتحركة وغيرها من الإعدادات، إلخ، متساوية. لا تأخذ المقارنة في الاعتبار قيم المعرف الفريد (مثل SlideId) والمحتوى الديناميكي (مثل قيمة التاريخ الحالية في عنصر نائب التاريخ).
+تُطبق Slide Master واجهة [IBaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide) التي تحتوي على طريقة [**equals**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-)، والتي يمكن استخدامها لمقارنة الشرائح. تُعيد `true` عندما تكون Slide Masters متماثلة في الهيكل والمحتوى الثابت.  
+
+تُعد Slide Masters متساوية إذا كانت أشكالها، أنماطها، نصوصها، الرسوم المتحركة وإعداداتها الأخرى متساوية. لا تأخذ المقارنة في الاعتبار قيم المعرف الفريدة (مثل SlideId) أو المحتوى الديناميكي (مثل قيمة التاريخ الحالية في عنصر النائبي Date).  
 
 
-## **تعيين الشريحة الرئيسية كعرض افتراضي للعرض**
+## **تعيين Slide Master كعرض افتراضي للعرض التقديمي**
 
-تسمح لك Aspose.Slides بتعيين شريحة رئيسية كعرض افتراضي للعرض. يوضح لك هذا الرمز كيفية تعيين شريحة رئيسية كعرض افتراضي للعرض في Java:
+تسمح Aspose.Slides لك بتعيين Slide Master كعرض افتراضي للعرض التقديمي. العرض الافتراضي هو ما تراه أولاً عند فتح العرض.  
 
+يُظهر هذا الكود كيفية تعيين Slide Master كعرض افتراضي للعرض في Java:
 ```java
-// يقوم بإنشاء كائن من فئة Presentation التي تمثل ملف العرض
+// ينشئ كائنًا من فئة Presentation يمثل ملف العرض التقديمي
 Presentation presentation = new Presentation();
 try {
-    // تعيين العرض الافتراضي كعرض الشريحة الرئيسية
+    // يحدد العرض الافتراضي كـ SlideMasterView
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
 
-    // حفظ العرض
+    // يحفظ العرض التقديمي
     presentation.save("PresView.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **إزالة شريحة رئيسية غير مستخدمة**
 
-توفر Aspose.Slides طريقة [removeUnusedMasterSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (من فئة [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)) للسماح لك بحذف الشرائح الرئيسية غير المرغوب فيها وغير المستخدمة. يوضح هذا الرمز بلغة Java كيفية إزالة شريحة رئيسية من عرض PowerPoint:
 
+## **إزالة Slide Masters غير المستخدمة**
+
+توفر Aspose.Slides طريقة [removeUnusedMasterSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (من الفئة [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)) لتمكينك من حذف Slide Masters غير المرغوب فيها وغير المستخدمة. يوضح هذا الكود Java كيفية إزالة Slide Master من عرض PowerPoint:
 ```java
 Presentation pres = new Presentation("pres.pptx");
  try {
@@ -323,3 +336,46 @@ Presentation pres = new Presentation("pres.pptx");
      if (pres != null) pres.dispose();
  }
 ```
+
+
+
+## **الأسئلة المتكررة**
+
+**ما هو Slide Master في PowerPoint؟**
+
+Slide Master هو قالب شرائح يحدد التخطيط والأنماط والسمات والخطوط والخلفية وغيرها من الخصائص للشرائح في عرض تقديمي. يتيح لك ضبط وتغيير مظهر جميع شرائح العرض دفعة واحدة.  
+
+**كيف يتم تطبيق Slide Master في العرض التقديمي؟**
+
+كل عرض تقديمي يحتوي على Slide Master واحد على الأقل بشكل افتراضي. عندما تُضاف شريحة جديدة، يُطبق عليها Slide Master تلقائيًا، عادةً ما يرث Slide Master من الشريحة السابقة. يمكن للعرض أن يحتوي على عدة Slide Masters لتصميم أجزاء مختلفة بطرق فريدة.  
+
+**ما العناصر التي يمكن تخصيصها في Slide Master؟**
+
+يتألف Slide Master من عدة خصائص أساسية يمكن تخصيصها:
+
+- **Background**: تعيين خلفية الشريحة.  
+- **BodyStyle**: تعريف أنماط النص لجسم الشريحة.  
+- **Shapes**: إدارة جميع الأشكال على Slide Master، بما في ذلك العناصر النائبة وإطارات الصور.  
+- **Controls**: التعامل مع عناصر تحكم ActiveX.  
+- **ThemeManager**: الوصول إلى مدير السمة.  
+- **HeaderFooterManager**: إدارة الترويسات والتذييلات.  
+
+**كيف يمكنني إضافة صورة إلى Slide Master؟**
+
+إضافة صورة إلى Slide Master تضمن ظهورها على جميع الشرائح التي تعتمد على ذلك الـ Slide Master. على سبيل المثال، وضع شعار الشركة على Slide Master سيظهر على كل شريحة في العرض.  
+
+**كيف يتفاعل Slide Masters مع Slide Layouts؟**
+
+تعمل Slide Layouts بالتكامل مع Slide Master لتوفير مرونة في تصميم الشرائح. بينما يحدد Slide Master الأنماط العامة والسمات، تتيح Slide Layouts تنوعًا في ترتيب المحتوى. التسلسل الهرمي كالتالي:
+
+- **Slide Master** → يحدد الأنماط العامة.  
+- **Slide Layout** → يوفر ترتيبات محتوى مختلفة.  
+- **Slide** → يرث التصميم من Slide Layout الخاص به.  
+
+**هل يمكن أن يكون لدي عدة Slide Masters في عرض واحد؟**
+
+نعم، يمكن للعرض أن يحتوي على عدة Slide Masters. يتيح لك ذلك تصميم أقسام مختلفة من العرض بطرق متعددة، مما يوفر مرونة في التصميم.  
+
+**كيف يمكنني الوصول إلى Slide Master وتعديله باستخدام Aspose.Slides؟**
+
+في Aspose.Slides، يُمثَّل Slide Master بواجهة [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/). يمكنك الوصول إلى Slide Master باستخدام طريقة [getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) لكائن [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).

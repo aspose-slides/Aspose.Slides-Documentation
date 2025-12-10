@@ -3,51 +3,60 @@ title: サンプルの実行方法
 type: docs
 weight: 140
 url: /ja/java/how-to-run-the-examples/
+keywords:
+- サンプル
+- ソフトウェア要件
+- GitHub
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java のサンプルを素早く実行するには、リポジトリをクローンし、パッケージを復元してから、PPT、PPTX、ODP の機能をビルドおよびテストします。"
 ---
 
-## **GitHubからのダウンロード**
-Aspose.Slides for Javaのすべてのサンプルは[Github](https://github.com/aspose-slides/Aspose.Slides-for-Java)にホストされています。お好みのGithubクライアントを使用してリポジトリをクローンするか、[こちら](https://codeload.github.com/aspose-slides/Aspose.Slides-for-Java/zip/master)からZIPファイルをダウンロードできます。
+## **GitHub から Aspose.Slides をダウンロード**
+すべての Aspose.Slides for Java のサンプルは [Github](https://github.com/aspose-slides/Aspose.Slides-for-Java) にホストされています。お気に入りの Github クライアントでリポジトリをクローンするか、[here](https://codeload.github.com/aspose-slides/Aspose.Slides-for-Java/zip/master) から ZIP ファイルをダウンロードできます。
 
-ZIPファイルの内容をコンピュータの任意のフォルダーに展開します。すべてのサンプルは**Examples**フォルダーにあります。
+ZIP ファイルの内容をコンピューター上の任意のフォルダーに展開します。すべてのサンプルは **Examples** フォルダーにあります。
 
 ![todo:image_alt_text](examples_directory.png)
 
-## **IDEへのサンプルのインポート**
-プロジェクトはMavenビルドシステムを使用しています。任意の最新のIDEはプロジェクトとその依存関係を簡単に開いたりインポートしたりできます。以下に、一般的なIDEを使用してサンプルをビルドして実行する方法を示します。
+## **IDE にサンプルをインポート**
+このプロジェクトは Maven ビルドシステムを使用しています。最新の IDE であればプロジェクトとその依存関係を簡単に開くかインポートできます。以下に、代表的な IDE を使用してサンプルをビルドおよび実行する方法を示します。
 
 ### **IntelliJ IDEA**
-**ファイル**メニューをクリックし、**開く**を選択します。プロジェクトフォルダーに移動し、**pom.xml**ファイルを選択します。
+**File** メニューをクリックし、**Open** を選択します。プロジェクト フォルダーに移動し、**pom.xml** ファイルを選択します。
 
 ![todo:image_alt_text](idea_select_file_or_directory_to_import.png)
 
-プロジェクトが開かれ、依存関係が自動的にダウンロードされます。プロジェクトタブから、**src/main/java**フォルダー内のサンプルを参照します。サンプルを実行するには、ファイルを右クリックし、「実行..」を選択します。サンプルが実行され、出力が内蔵のコンソール出力ウィンドウに表示されます。
+プロジェクトが開き、依存関係が自動的にダウンロードされます。**Project** タブで **src/main/java** フォルダー内のサンプルを参照できます。サンプルを実行するには、ファイルを右クリックして **Run ..** を選択します。サンプルが実行され、出力は組み込みのコンソールウィンドウに表示されます。
 
 ![todo:image_alt_text](idea_run_example.png)
 
 ### **Eclipse**
-**ファイル**メニューをクリックし、**インポート**を選択します。**Maven** - 既存のMavenプロジェクトを選択します。
+**File** メニューをクリックし、**Import** を選択します。**Maven** - **Existing Maven Projects** を選びます。
 
 ![todo:image_alt_text](eclipse_import.png)
 
-クローンまたはGitHubからダウンロードしたフォルダーに移動し、**pom.xml**ファイルを選択します。プロジェクトが開かれ、依存関係が自動的にダウンロードされます。パッケージエクスプローラタブから、**src/main/java**フォルダー内のサンプルを参照します。サンプルを実行するには、ファイルを右クリックし、**実行として** - **Javaアプリケーション**を選択します。サンプルが実行され、出力が内蔵のコンソール出力ウィンドウに表示されます。
+クローンまたはダウンロードしたフォルダーに移動し、**pom.xml** ファイルを選択します。プロジェクトが開き、依存関係が自動的にダウンロードされます。**Package Explorer** タブで **src/main/java** フォルダー内のサンプルを参照できます。サンプルを実行するには、ファイルを右クリックして **Run As** - **Java Application** を選択します。サンプルが実行され、出力は組み込みのコンソールウィンドウに表示されます。
 
 ![todo:image_alt_text](eclipse_run_example.png)
 
 ### **NetBeans**
-**ファイル**メニューをクリックし、**プロジェクトを開く**を選択します。クローンまたはGitHubからダウンロードしたフォルダーに移動します。**Examples**フォルダーのアイコンは、Mavenプロジェクトであることを示します。Examplesを選択し、開きます。
+**File** メニューをクリックし、**Open Project** を選択します。クローンまたはダウンロードしたフォルダーに移動します。**Examples** フォルダーのアイコンが Maven プロジェクトであることを示します。Examples を選択して開きます。
 
 ![todo:image_alt_text](netbeans_openproject.png)
 
-プロジェクトが開かれ、依存関係が自動的にダウンロードされます。プロジェクトタブから、**ソースパッケージ**内のサンプルを参照します。サンプルを実行するには、ファイルを右クリックし、**ファイルを実行**を選択します。サンプルが実行され、出力が内蔵のコンソール出力ウィンドウに表示されます。
+プロジェクトが開き、依存関係が自動的にダウンロードされます。**Projects** タブで **source packages** 内のサンプルを参照できます。サンプルを実行するには、ファイルを右クリックして **Run File** を選択します。サンプルが実行され、出力は組み込みのコンソールウィンドウに表示されます。
 
 ![todo:image_alt_text](netbeans_run_example.png)
 
-## **Aspose.SlidesライブラリをMavenローカルリポジトリに追加する**
-**Aspose.Slides Examples**プロジェクトをIDEにインポートすると、Mavenは自動的に[Aspose Maven Repository](https://releases.aspose.com/java/repo/com/aspose/)からaspose.slides JARファイルをダウンロードします。インターネットにアクセスできない場合は、手動でJARをローカルリポジトリに追加できます。
+## **Maven ローカルリポジトリに Aspose.Slides ライブラリを追加**
+IDE に **Aspose.Slides Examples** プロジェクトをインポートすると、Maven は自動的に [Aspose Maven Repository](https://releases.aspose.com/java/repo/com/aspose/) から aspose.slides JAR ファイルをダウンロードします。インターネットにアクセスできない場合は、JAR を手動でローカルリポジトリに追加できます。
 
 ### **mvn install**
-[aspose.slides](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)をダウンロードし、展開してaspose.slides-version.jarを他の場所、例えばCドライブにコピーします。次のコマンドを実行します：
-
+[aspose.slides](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) をダウンロードし、解凍して aspose.slides‑version.jar を任意の場所（例: C ドライブ）にコピーします。次のコマンドを実行してください:
 ```
 mvn install:install-file
     -Dfile=c:\aspose.slides-version.jar
@@ -57,11 +66,11 @@ mvn install:install-file
     -Dpackaging=jar
 ```
 
-これで、**aspose.slides** JARがMavenローカルリポジトリにコピーされました。
+
+これで **aspose.slides** JAR が Maven ローカルリポジトリにコピーされました。
 
 ### **pom.xml**
-インストール後、pom.xmlで**aspose.slides**の座標を宣言します。リポジトリタブに次のリポジトリを追加し、依存関係タブに依存関係を追加します。
-
+インストール後、pom.xml に **aspose.slides** の座標を宣言するだけです。repositories タブに以下のリポジトリを、dependencies タブに以下の依存関係を追加してください。
 ``` xml
 <repository>
     <id>aspose-maven-repository</id>
@@ -76,10 +85,11 @@ mvn install:install-file
 </dependency>
 ```
 
-### **完了**
-ビルドします。これで、**aspose.slides** JARがMavenローカルリポジトリから取得できるようになります。
 
-## **貢献**
-サンプルを追加したり改善したりしたい場合は、プロジェクトへの貢献をお勧めします。このリポジトリ内のすべてのサンプルとショーケースプロジェクトはオープンソースであり、自由に自分のアプリケーションで使用できます。
+### **Done**
+ビルドすれば、**aspose.slides** JAR を Maven ローカルリポジトリから取得できるようになります。
 
-貢献するには、リポジトリをフォークし、ソースコードを編集し、プルリクエストを送信できます。変更を確認し、有用であればリポジトリに含めます。
+## **Contribute**
+サンプルを追加または改良したい場合は、ぜひプロジェクトに貢献してください。このリポジトリ内のすべてのサンプルとショーケース プロジェクトはオープンソースで、独自のアプリケーションで自由に使用できます。
+
+貢献するには、リポジトリをフォークし、ソースコードを編集して Pull Request を送信してください。変更内容を確認し、役立つと判断した場合はリポジトリに取り込みます。

@@ -1,23 +1,47 @@
 ---
-title: Aktualisierung von OLE-Objekten automatisch mit dem MS PowerPoint Add-In
+title: OLE-Objekte automatisch aktualisieren mit einem PowerPoint-Add-In
 type: docs
 weight: 10
 url: /de/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
+keywords:
+- OLE
+- OLE-Objekt
+- OLE aktualisieren
+- automatisch
+- Add-In
+- PowerPoint
+- Präsentation
+- Java
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie OLE-Diagramme und -Objekte in PowerPoint mit einem Add-In und Aspose.Slides für Java automatisch aktualisieren, inklusive praktischer Code- und Optimierungstipps."
 ---
 
-## **Über die automatische Aktualisierung von OLE-Objekten**
-Eine der häufigsten Fragen, die von den Aspose.Slides-Kunden gestellt werden, ist, wie man bearbeitbare Diagramme oder andere OLE-Objekte erstellt oder ändert und sicherstellt, dass diese automatisch aktualisiert werden, wenn die Präsentation geöffnet wird. Leider unterstützt PowerPoint keine automatischen Makros, die in Excel und Word verfügbar sind. Die einzigen verfügbaren Makros sind die Auto_Open- und Auto_Close-Makros. Diese werden jedoch nur automatisch von einem Add-In ausgeführt. Dieser kurze technische Hinweis zeigt, wie man das erreicht.
+## **OLE-Objekte automatisch aktualisieren**
 
-Zunächst gibt es mehrere Freeware-Add-Ins, die die Auto_Open-Makrofunktion zu PowerPoint hinzufügen, zum Beispiel [AutoEvents Add-in](http://skp.mvps.org/autoevents.htm) und [Event Generator](https://www.officeoneonline.com/eventgen/eventgen.html).
+Eine der häufigsten Fragen von Aspose.Slides for Java‑Kunden lautet, wie man editierbare Diagramme (oder andere OLE‑Objekte) erstellt oder ändert, sodass sie beim Öffnen der Präsentation automatisch aktualisiert werden. Leider unterstützt PowerPoint automatische Makros nicht auf dieselbe Weise wie Excel und Word. Die einzigen verfügbaren Makros sind `Auto_Open` und `Auto_Close`, und diese werden nur automatisch aus einem Add‑In ausgeführt. Dieser kurze technische Hinweis zeigt, wie das erreicht werden kann.
 
-Nach der Installation eines solchen Add-Ins fügen Sie einfach das Auto_Open() Makro (OnPresentationOpen() im Fall von "Event Generator") zu Ihrer Vorlage-Präsentation hinzu, wie unten gezeigt:
+Zunächst stehen mehrere kostenlose Add‑Ins zur Verfügung, die die Auto_Open‑Makrofunktion zu PowerPoint hinzufügen, zum Beispiel [AutoEvents Add-in](http://skp.mvps.org/autoevents.htm) und [Event Generator](https://www.officeoneonline.com/eventgen/eventgen.html).
 
-{{< gist "mannanfazil" "c31114d3fe29596f0a53817b8f8705ac" "Examples-src-main-java-com-aspose-slides-examples-Slides-Shapes-UpdateOLEObject-UpdateOLEObject.java" >}}
+Nach der Installation eines dieser Add‑Ins fügen Sie einfach das Makro `Auto_Open()` (oder `OnPresentationOpen()`, wenn Sie Event Generator verwenden) zu Ihrer Vorlagenpräsentation hinzu, wie unten gezeigt:
+```java
+// Durchlaufen jeder Folie in der Präsentation.
+for (var oSlide : ActivePresentation.Slides) {
+    // Durchlaufen aller Formen auf der aktuellen Folie.
+    for (var oShape : oSlide.Shapes) {
+        // Prüfen, ob die Form ein OLE‑Objekt ist.
+        if ((oShape.Type == msoEmbeddedOLEObject)) {
+            // OLE‑Objekt gefunden. Objektverweis abrufen und dann aktualisieren.
+            oObject = oShape.OLEFormat.Object;
+            oObject.Application.Update();
+            // Jetzt das OLE‑Serverprogramm beenden.
+            // Dadurch wird Speicher freigegeben und Probleme vermieden.
+            // Außerdem oObject auf Nothing setzen, um das Objekt freizugeben.
+            oObject.Application.Quit();
+            oObject = null;
+        }
+    }
+}
+```
 
 
-
-{{% alert color="primary" %}} 
-
-Änderungen an OLE-Objekten mit Aspose.Slides werden automatisch aktualisiert, wenn PowerPoint die Präsentation öffnet. Wenn Sie viele OLE-Objekte in einer Präsentation haben und nicht alle aktualisieren möchten, fügen Sie einfach ein benutzerdefiniertes Tag zu den Formen hinzu, die Sie verarbeiten möchten, und überprüfen Sie es im Makro.
-
-{{% /alert %}}
+Alle Änderungen an OLE‑Objekten mit Aspose.Slides for Java werden automatisch aktualisiert, wenn PowerPoint die Präsentation öffnet. Wenn Sie viele OLE‑Objekte haben und nicht alle aktualisieren möchten, fügen Sie einfach ein benutzerdefiniertes Tag zu den Formen hinzu, die Sie verarbeiten möchten, und prüfen Sie dieses im Makro.

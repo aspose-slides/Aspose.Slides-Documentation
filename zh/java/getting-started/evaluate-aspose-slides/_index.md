@@ -3,16 +3,50 @@ title: 评估 Aspose.Slides
 type: docs
 weight: 130
 url: /zh/java/evaluate-aspose-slides/
+keywords:
+- 评估 Aspose.Slides
+- Aspose.Slides 评估
+- 评估版
+- 完整功能
+- 评估水印
+- 购买 Aspose.Slides
+- 限制
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Java
+- Aspose.Slides
+description: "评估适用于 Java 的 Aspose.Slides 并探索针对 PowerPoint (PPT, PPTX) 与 OpenDocument (ODP) 演示文稿的 API 功能——开始您的免费试用。"
 ---
 
-您可以轻松下载 Aspose.Slides 进行评估。评估下载与购买的下载相同。评估版本只需添加几行代码以应用许可证，即可变为许可证版本。
+## **Aspose.Slides 评估**
 
-Aspose.Slides 的评估版本（未指定许可证）提供完整的产品功能，但在打开和保存时会在文档顶部插入评估水印，并在从演示幻灯片中提取文本时限制为一张幻灯片。
+您可以轻松下载 Aspose.Slides 进行评估。评估版的下载与正式版下载相同。只需在代码中添加几行以应用许可证，评估版即可转为正式授权。
+
+Aspose.Slides 的评估版（未指定许可证）提供完整的产品功能，但在打开和保存文档时会在文档顶部插入评估水印，并且在从演示文稿提取文本时仅限于一张幻灯片。
 
 ![todo:image_alt_text](evaluate-aspose-slides_1.png)
 
 {{% alert color="primary" %}} 
 
-如果您想在没有评估版本限制的情况下测试 Aspose.Slides，您还可以申请 30 天的临时许可证。请参考 [如何获得临时许可证？](https://purchase.aspose.com/temporary-license)
+如果您想在没有评估版限制的情况下测试 Aspose.Slides，也可以请求 30 天的临时许可证。请参阅[如何获取临时许可证？](https://purchase.aspose.com/temporary-license)
 
 {{% /alert %}}
+
+## **FAQ**
+
+**我可以在评估模式下跨不同线程并行测试多个演示文稿吗？**
+
+是的。您可以并行处理不同的文档；不应在多个线程之间共享同一个 presentation 对象[跨线程](/slides/zh/java/multithreading/)。评估模式不影响此行为。
+
+**我需要在服务器或 CI 环境中安装 Microsoft PowerPoint 来评估该库吗？**
+
+不需要。Aspose.Slides 是独立的引擎，无论是评估还是生产环境都不需要安装 PowerPoint。
+
+**我可以在评估模式下完整测试 PPT/PPTX 转 PDF 和图像的转换吗？**
+
+可以。该[转换器](/slides/zh/java/convert-presentation/)可正常工作；输出中会包含水印。
+
+**我可以使用临时许可证进行负载测试而不出现水印吗？**
+
+可以。30 天的临时许可证会移除评估模式的限制，允许在没有水印的情况下进行测试。

@@ -1,25 +1,37 @@
 ---
-title: 幻灯片部分
+title: 使用 Java 管理演示文稿中的幻灯片章节
+linktitle: 幻灯片章节
 type: docs
 weight: 90
 url: /zh/java/slide-section/
+keywords:
+- 创建章节
+- 添加章节
+- 编辑章节
+- 更改章节
+- 章节名称
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Java
+- Aspose.Slides
+description: "使用 Aspose.Slides for Java 简化 PowerPoint 和 OpenDocument 中的幻灯片章节 — 分割、重命名和重新排序，以优化 PPTX 和 ODP 工作流。"
 ---
 
-使用 Aspose.Slides for Java，您可以将 PowerPoint 演示文稿组织为多个部分。您可以创建包含特定幻灯片的部分。
+使用 Aspose.Slides for Java，您可以将 PowerPoint 演示文稿组织为多个章节。您可以创建包含特定幻灯片的章节。
 
-在以下情况下，您可能希望创建部分并使用它们来组织或划分演示文稿中的幻灯片为逻辑部分：
+在以下情形下，您可能希望创建章节并用其来组织或划分演示文稿中的幻灯片：
 
-- 当您与其他人或团队共同处理大型演示文稿时——您需要将某些幻灯片分配给同事或一些团队成员。
-- 当您处理包含许多幻灯片的演示文稿时——您会发现一次管理或编辑其内容十分困难。
+- 当您与其他人或团队共同处理大型演示文稿时，并且需要将特定幻灯片分配给同事或团队成员。  
+- 当演示文稿包含大量幻灯片且您难以一次性管理或编辑其内容时。
 
-理想情况下，您应该创建一个包含相似幻灯片的部分——这些幻灯片有共同点，或者根据某个规则可以存在于一个组中——并给这个部分一个描述其中幻灯片的名称。
+理想情况下，您应该创建一个包含相似幻灯片的章节——这些幻灯片具有共同点或可以基于某规则归为一组——并为该章节赋予能够描述其内部幻灯片的名称。
 
-## 在演示文稿中创建部分
+## **在演示文稿中创建章节**
 
-要添加一个将包含幻灯片的部分，Aspose.Slides for Java 提供了 [addSection()](https://reference.aspose.com/slides/java/com.aspose.slides/ISectionCollection#addSection-java.lang.String-com.aspose.slides.ISlide-) 方法，它允许您指定要创建的部分的名称和该部分开始的幻灯片。
+要在演示文稿中添加用于容纳幻灯片的章节，Aspose.Slides for Java 提供了 [addSection()](https://reference.aspose.com/slides/java/com.aspose.slides/ISectionCollection#addSection-java.lang.String-com.aspose.slides.ISlide-) 方法，允许您指定要创建的章节名称以及章节开始的幻灯片。
 
-以下示例代码展示了如何在 Java 的演示文稿中创建一个部分：
-
+以下示例代码演示如何在 Java 中的演示文稿里创建章节：
 ```java
 Presentation pres = new Presentation();
 try {
@@ -29,8 +41,8 @@ try {
     ISlide newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
     ISlide newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
 
-    ISection section1 = pres.getSections().addSection("部分 1", newSlide1);
-    ISection section2 = pres.getSections().addSection("部分 2", newSlide3); // section1 会在 newSlide2 结束，section2 会在其后开始   
+    ISection section1 = pres.getSections().addSection("Section 1", newSlide1);
+    ISection section2 = pres.getSections().addSection("Section 2", newSlide3); // section1 将在 newSlide2 结束，随后 section2 将开始   
 
     pres.save("pres-sections.pptx", SaveFormat.Pptx);
 
@@ -39,7 +51,7 @@ try {
 
     pres.getSections().removeSectionWithSlides(section2);
 
-    pres.getSections().appendEmptySection("最后一个空部分");
+    pres.getSections().appendEmptySection("Last empty section");
 
     pres.save("pres-section-with-empty.pptx",SaveFormat.Pptx);
 } finally {
@@ -47,18 +59,33 @@ try {
 }
 ```
 
-## 更改部分名称
 
-在 PowerPoint 演示文稿中创建部分后，您可能决定更改其名称。
+## **更改章节名称**
 
-以下示例代码展示了如何在 Java 中使用 Aspose.Slides 更改演示文稿中部分的名称：
+在 PowerPoint 演示文稿中创建章节后，您可能会决定更改其名称。
 
+以下示例代码演示如何使用 Aspose.Slides 在 Java 中更改演示文稿中章节的名称：
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
     ISection section = pres.getSections().get_Item(0);
-    section.setName("我的部分");
+    section.setName("My section");
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **FAQ**
+
+**是否在保存为 PPT（PowerPoint 97–2003）格式时保留章节？**
+
+不保留。PPT 格式不支持章节元数据，保存为 .ppt 时章节分组会丢失。
+
+**是否可以将整个章节设为“隐藏”？**
+
+不能。只能隐藏单个幻灯片。章节本身没有“隐藏”状态。
+
+**能否通过幻灯片快速找到所属章节，反之亦然，找到章节的第一张幻灯片？**
+
+可以。章节由其起始幻灯片唯一确定；给定幻灯片即可判断其所属章节，给定章节亦可访问其第一张幻灯片。

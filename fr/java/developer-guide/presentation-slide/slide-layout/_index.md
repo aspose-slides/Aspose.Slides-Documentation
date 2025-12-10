@@ -1,245 +1,268 @@
 ---
-title: Mise en page des diapositives
+title: Appliquer ou modifier les mises en page des diapositives en Java
+linktitle: Mise en page des diapositives
 type: docs
 weight: 60
 url: /fr/java/slide-layout/
-keyword: "Définir la taille de la diapositive, définir les options de la diapositive, spécifier la taille de la diapositive, visibilité du pied de page, pied de page enfant, mise à l'échelle du contenu, taille de page, Java, Aspose.Slides"
-description: "Définir la taille et les options des diapositives PowerPoint en Java"
+keywords:
+- mise en page des diapositives
+- mise en page du contenu
+- espace réservé
+- conception de présentation
+- conception de diapositive
+- mise en page inutilisée
+- visibilité du pied de page
+- diapositive de titre
+- titre et contenu
+- en-tête de section
+- deux contenus
+- comparaison
+- titre seul
+- mise en page vierge
+- contenu avec légende
+- image avec légende
+- titre et texte vertical
+- titre vertical et texte
+- PowerPoint
+- OpenDocument
+- présentation
+- Java
+- Aspose.Slides
+description: "Gérez et personnalisez les mises en page des diapositives dans Aspose.Slides pour Java. Explorez les types de mise en page, le contrôle des espaces réservés et la visibilité du pied de page à l'aide d'exemples de code Java."
 ---
 
-Une mise en page de diapositive contient les zones de remplissage et les informations de formatage pour tout le contenu qui apparaît sur une diapositive. La mise en page détermine les zones de contenu disponibles et leur emplacement.
+## **Vue d’ensemble**
 
-Les mises en page des diapositives vous permettent de créer et de concevoir des présentations rapidement (qu'elles soient simples ou complexes). Voici quelques-unes des mises en page de diapositives les plus populaires utilisées dans les présentations PowerPoint :
+Un modèle de diapositive définit la disposition des zones réservées et le formatage du contenu d’une diapositive. Il contrôle quelles zones réservées sont disponibles et où elles apparaissent. Les modèles de diapositives vous aident à créer des présentations rapidement et de manière cohérente, que vous réalisiez quelque chose de simple ou de plus complexe. Parmi les modèles de diapositives les plus courants dans PowerPoint, on trouve :
 
-* **Mise en page de diapositive de titre**. Cette mise en page se compose de deux zones de texte. Une zone de remplissage est destinée au titre et l'autre est destinée au sous-titre.
-* **Mise en page de titre et contenu**. Cette mise en page contient une zone de remplissage relativement petite en haut pour le titre et une plus grande zone de remplissage pour le contenu principal (graphique, paragraphes, liste à puces, liste numérotée, images, etc).
-* **Mise en page vierge**. Cette mise en page ne contient pas de zones de remplissage, ce qui vous permet de créer des éléments à partir de zéro.
+**Modèle de diapositive Titre** – comprend deux zones réservées de texte : une pour le titre et une pour le sous‑titre.
 
-Étant donné qu'un modèle de diapositive est la diapositive hiérarchique supérieure qui stocke des informations sur les mises en page des diapositives, vous pouvez utiliser la diapositive principale pour accéder aux mises en page des diapositives et y apporter des modifications. Une diapositive de mise en page peut être accédée par type ou nom. De même, chaque diapositive a un identifiant unique, qui peut être utilisé pour y accéder.
+**Modèle Titre et Contenu** – possède une petite zone réservée de titre en haut et une plus grande en dessous pour le contenu principal (texte, puces, graphiques, images, etc.).
 
-Alternativement, vous pouvez apporter des modifications directement à une mise en page de diapositive spécifique dans une présentation.
+**Modèle Vide** – ne contient aucune zone réservée, vous donnant le plein contrôle pour concevoir la diapositive à partir de zéro.
 
-* Pour vous permettre de travailler avec des mises en page de diapositives (y compris celles des diapositives maîtresses), Aspose.Slides fournit des propriétés comme [getLayoutSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getLayoutSlides--) et [getMasters()](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) sous la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-* Pour effectuer des tâches connexes, Aspose.Slides fournit [MasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/baseslideheaderfootermanager/), et de nombreux autres types.
+Les modèles de diapositives font partie d’un masque de diapositive, qui est la diapositive de niveau supérieur définissant les styles de disposition pour la présentation. Vous pouvez accéder aux modèles et les modifier via le masque de diapositive—soit par type, nom ou ID unique. Vous pouvez également modifier directement un modèle de diapositive spécifique dans la présentation.
+
+Pour travailler avec les modèles de diapositives dans Aspose.Slides for Java, vous pouvez utiliser :
+
+- Des méthodes telles que [getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getLayoutSlides--) et [getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)
+- Des types comme [ILayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutplaceholdermanager/) et [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslideheaderfootermanager/)
 
 {{% alert title="Info" color="info" %}}
-
-Pour plus d'informations sur le travail avec les diapositives maîtresses en particulier, consultez l'article [Mise en page de diapositive](https://docs.aspose.com/slides/java/slide-master/).
-
+Pour en savoir plus sur la gestion des masques de diapositives, consultez l’article [Slide Master](/slides/fr/java/slide-master/).
 {{% /alert %}}
 
-## **Ajouter une mise en page de diapositive à la présentation**
+## **Ajouter des modèles de diapositives aux présentations**
+
+Pour personnaliser l’apparence et la structure de vos diapositives, il peut être nécessaire d’ajouter de nouveaux modèles de diapositives à une présentation. Aspose.Slides for Java vous permet de vérifier si un modèle spécifique existe déjà, d’en ajouter un nouveau si besoin, puis de l’utiliser pour insérer des diapositives basées sur ce modèle.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Accédez à la [collection MasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/).
-1. Parcourez les diapositives de mise en page existantes pour confirmer que la diapositive de mise en page requise existe déjà dans la collection des diapositives de mise en page. Sinon, ajoutez la diapositive de mise en page que vous souhaitez.
-1. Ajoutez une diapositive vide basée sur la nouvelle diapositive de mise en page.
+1. Accédez à la collection [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/).
+1. Vérifiez si le modèle de diapositive souhaité existe déjà dans la collection. S’il n’existe pas, ajoutez le modèle nécessaire.
+1. Ajoutez une diapositive vide basée sur le nouveau modèle.
 1. Enregistrez la présentation.
 
-Ce code Java vous montre comment ajouter une mise en page de diapositive à une présentation PowerPoint :
-
+Le code Java suivant montre comment ajouter un modèle de diapositive à une présentation PowerPoint :
 ```java
-// Instancie une classe Presentation qui représente le fichier de présentation
-Presentation pres = new Presentation("AccessSlides.pptx");
+// Instancier la classe Presentation qui représente un fichier PowerPoint.
+Presentation presentation = new Presentation("Sample.pptx");
 try {
-    // Parcourt les types de diapositives de mise en page
-    IMasterLayoutSlideCollection layoutSlides = pres.getMasters().get_Item(0).getLayoutSlides();
+    // Parcourir les types de diapositives de mise en page pour sélectionner une diapositive de mise en page.
+    IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
     ILayoutSlide layoutSlide = null;
-
     if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
         layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
     else
         layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
 
     if (layoutSlide == null) {
-        // La situation où une présentation ne contient pas certains types de mise en page.
-        // Le fichier de présentation ne contient que des types de mise en page vides et personnalisés.
-        // Mais les diapositives de mise en page avec des types personnalisés ont des noms de diapositive différents,
-        // comme "Titre", "Titre et contenu", etc. Et il est possible d'utiliser ces
-        // noms pour la sélection des diapositives de mise en page.
-        // Vous pouvez également utiliser un ensemble de types de formes de zone de texte. Par exemple,
-        // La diapositive de titre doit avoir uniquement le type de zone de texte Titre, etc.
+        // Situation où la présentation ne contient pas tous les types de mise en page.
+        // Le fichier de présentation ne contient que les types de mise en page Blank et Custom.
+        // Cependant, les diapositives de mise en page avec des types personnalisés peuvent avoir des noms reconnaissables,
+        // comme "Title", "Title and Content", etc., qui peuvent être utilisés pour sélectionner une diapositive de mise en page.
+        // Vous pouvez également vous baser sur un ensemble de types de formes réservées.
+        // Par exemple, une diapositive Titre ne doit contenir que le type de zone réservée Title, etc.
         for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName() == "Titre et objet") {
+            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
                 layoutSlide = titleAndObjectLayoutSlide;
                 break;
             }
         }
+
         if (layoutSlide == null) {
             for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName() == "Titre") {
+                if (titleLayoutSlide.getName().equals("Title")) {
                     layoutSlide = titleLayoutSlide;
                     break;
                 }
             }
+
             if (layoutSlide == null) {
                 layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
                 if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Titre et objet");
+                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
                 }
             }
         }
     }
 
-    // Ajoute une diapositive vide avec la diapositive de mise en page ajoutée
-    pres.getSlides().insertEmptySlide(0, layoutSlide);
+    // Ajouter une diapositive vide en utilisant la diapositive de mise en page ajoutée.
+    presentation.getSlides().insertEmptySlide(0, layoutSlide);
 
-    // Enregistre la présentation sur le disque
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Supprimer une diapositive de mise en page inutilisée**
-
-Aspose.Slides fournit la méthode [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) de la classe [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) pour vous permettre de supprimer des diapositives de mise en page non désirées et inutilisées. Ce code Java vous montre comment supprimer une diapositive de mise en page d'une présentation PowerPoint :
-
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    Compress.removeUnusedLayoutSlides(pres);
-
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Définir la taille et le type de la diapositive de mise en page**
-
-Pour vous permettre de définir la taille et le type d'une diapositive de mise en page spécifique, Aspose.Slides fournit les propriétés [getType()](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#getType--) et [getSize()](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#getSize--) (de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)). Ce Java montre l'opération :
-
-```java
-// Instancie un objet Presentation qui représente un fichier de présentation
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    Presentation auxPresentation = new Presentation();
-    try {
-        // Définit la taille de la diapositive pour la présentation générée à celle de la source
-        auxPresentation.getSlideSize().setSize(540, 720, SlideSizeScaleType.EnsureFit);
-        //getType());
-        auxPresentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize);
-        
-        // Clone la diapositive requise
-        auxPresentation.getSlides().addClone(presentation.getSlides().get_Item(0));
-        auxPresentation.getSlides().removeAt(0);
-        
-        // Enregistre la présentation sur le disque
-        auxPresentation.save("size.pptx", SaveFormat.Pptx);
-    } finally {
-        auxPresentation.dispose();
-    }
+    // Enregistrer la présentation sur le disque.
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Définir la visibilité du pied de page à l'intérieur de la diapositive**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Obtenez la référence d'une diapositive par son index.
-1. Définissez la zone de remplissage du pied de page de la diapositive sur visible.
-1. Définissez la zone de remplissage de la date-heure sur visible.
-1. Enregistrez la présentation.
+## **Supprimer les modèles de diapositives inutilisés**
 
-Ce code Java vous montre comment définir la visibilité d'un pied de page de diapositive (et effectuer des tâches associées) :
+Aspose.Slides propose la méthode [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) de la classe [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) pour supprimer les modèles de diapositives indésirables et non utilisés.
 
+Le code Java suivant montre comment supprimer un modèle de diapositive d’une présentation PowerPoint :
 ```java
-Presentation presentation = new Presentation("presentation.ppt");
+Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    IBaseSlideHeaderFooterManager headerFooterManager = presentation.getSlides().get_Item(0).getHeaderFooterManager();
-    if (!headerFooterManager.isFooterVisible()) // La méthode isFooterVisible est utilisée pour spécifier qu'une zone de remplissage du pied de page de diapositive est manquante
-    {
-        headerFooterManager.setFooterVisibility(true); // La méthode setFooterVisibility est utilisée pour définir une zone de remplissage du pied de page de diapositive sur visible
-    }
-    if (!headerFooterManager.isSlideNumberVisible()) // La méthode isSlideNumberVisible est utilisée pour spécifier qu'une zone de remplissage du numéro de page de diapositive est manquante
-    {
-        headerFooterManager.setSlideNumberVisibility(true); // La méthode setSlideNumberVisibility est utilisée pour définir une zone de remplissage du numéro de page de diapositive sur visible
-    }
-    if (!headerFooterManager.isDateTimeVisible()) // La méthode isDateTimeVisible est utilisée pour spécifier qu'une zone de remplissage de date-heure de diapositive est manquante
-    {
-        headerFooterManager.setDateTimeVisibility(true); // La méthode SetFooterVisibility est utilisée pour définir une zone de remplissage de date-heure de diapositive sur visible
-    }
-    headerFooterManager.setFooterText("Texte du pied de page"); // La méthode SetFooterText est utilisée pour définir un texte pour une zone de remplissage du pied de page de diapositive.
-    headerFooterManager.setDateTimeText("Texte de la date et de l'heure"); // La méthode SetDateTimeText est utilisée pour définir un texte pour une zone de remplissage de date-heure de diapositive.
+    Compress.removeUnusedLayoutSlides(presentation);
+
+    presentation.save("Output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Définir la visibilité du pied de page enfant à l'intérieur de la diapositive**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Obtenez une référence pour la diapositive maîtresse par son index.
-1. Définissez la diapositive maîtresse et toutes les zones de remplissage de pied de page enfant sur visible.
-1. Définissez un texte pour la diapositive maîtresse et toutes les zones de remplissage de pied de page enfant.
-1. Définissez un texte pour la diapositive maîtresse et toutes les zones de remplissage de date-heure enfant.
-1. Enregistrez la présentation.
+## **Ajouter des zones réservées aux modèles de diapositives**
 
-Ce code Java démontre l'opération :
+Aspose.Slides fournit la méthode [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) qui permet d’ajouter de nouvelles zones réservées à un modèle de diapositive.
 
+Ce gestionnaire propose des méthodes pour les types de zones réservées suivants :
+
+| Espace réservé PowerPoint            | Méthode de [ILayoutPlaceholderManager](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutplaceholdermanager/) |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| ![Content](content.png)              | addContentPlaceholder(float x, float y, float width, float height)                                        |
+| ![Content (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height)                               |
+| ![Text](text.png)                    | addTextPlaceholder(float x, float y, float width, float height)                                           |
+| ![Text (Vertical)](textV.png)        | addVerticalTextPlaceholder(float x, float y, float width, float height)                                  |
+| ![Picture](picture.png)              | addPicturePlaceholder(float x, float y, float width, float height)                                        |
+| ![Chart](chart.png)                  | addChartPlaceholder(float x, float y, float width, float height)                                          |
+| ![Table](table.png)                  | addTablePlaceholder(float x, float y, float width, float height)                                          |
+| ![SmartArt](smartart.png)            | addSmartArtPlaceholder(float x, float y, float width, float height)                                       |
+| ![Media](media.png)                  | addMediaPlaceholder(float x, float y, float width, float height)                                          |
+| ![Online Image](onlineimage.png)     | addOnlineImagePlaceholder(float x, float y, float width, float height)                                   |
+
+Le code Java suivant montre comment ajouter de nouvelles formes de zones réservées au modèle de diapositive Vide :
 ```java
-Presentation presentation = new Presentation("presentation.ppt");
-try {
-    IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-    headerFooterManager.setFooterAndChildFootersVisibility(true); // La méthode setFooterAndChildFootersVisibility est utilisée pour définir la diapositive maîtresse et toutes les zones de remplissage de pied de page enfant sur visible
-    headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // La méthode setSlideNumberAndChildSlideNumbersVisibility est utilisée pour définir la diapositive maîtresse et toutes les zones de remplissage de numéro de page enfant sur visible
-    headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // La méthode setDateTimeAndChildDateTimesVisibility est utilisée pour définir une diapositive maîtresse et toutes les zones de remplissage de date-heure enfant sur visible
-
-    headerFooterManager.setFooterAndChildFootersText("Texte du pied de page"); // La méthode setFooterAndChildFootersText est utilisée pour définir des textes pour la diapositive maîtresse et toutes les zones de remplissage de pied de page enfant
-    headerFooterManager.setDateTimeAndChildDateTimesText("Texte de la date et de l'heure"); // La méthode setDateTimeAndChildDateTimesText est utilisée pour définir un texte pour la diapositive maîtresse et toutes les zones de remplissage de date-heure enfant
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Définir la taille de la diapositive en fonction de la mise à l'échelle du contenu**
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) et chargez la présentation contenant la diapositive dont vous souhaitez définir la taille.
-1. Créez une autre instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) pour générer une nouvelle présentation.
-1. Obtenez la référence de la diapositive (de la première présentation) par son index.
-1. Définissez la zone de remplissage du pied de page de la diapositive sur visible.
-1. Définissez la zone de remplissage de la date-heure sur visible.
-1. Enregistrez la présentation.
-
-Ce code Java démontre l'opération :
-
-```java
-// Instancie un objet Presentation qui représente un fichier de présentation
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    // Définit la taille de la diapositive pour les présentations générées à celle de la source
-    presentation.getSlideSize().setSize(540, 720, SlideSizeScaleType.EnsureFit); // La méthode SetSize est utilisée pour définir la taille de la diapositive avec une mise à l'échelle du contenu pour assurer un ajustement
-    presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize); // La méthode SetSize est utilisée pour définir la taille de la diapositive avec la taille maximale du contenu
-
-    // Enregistre la présentation sur le disque
-    presentation.save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Définir la taille de la page lors de la génération de PDF**
-
-Certaines présentations (comme les affiches) sont souvent converties en documents PDF. Si vous souhaitez convertir votre PowerPoint en PDF pour accéder aux meilleures options d'impression et d'accessibilité, vous souhaitez définir vos diapositives à des tailles qui conviennent aux documents PDF (A4, par exemple).
-
-Aspose.Slides fournit la classe [SlideSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/) pour vous permettre de spécifier vos paramètres préférés pour les diapositives. Ce code Java vous montre comment utiliser la propriété [getType()](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#getType--) (de la classe `SlideSize`) pour définir une taille de papier spécifique pour les diapositives dans une présentation :
-
-```java
-// Instancie un objet Presentation qui représente un fichier de présentation 
 Presentation presentation = new Presentation();
 try {
-    // Définit la propriété SlideSize.Type  
-    presentation.getSlideSize().setSize(SlideSizeType.A4Paper,SlideSizeScaleType.EnsureFit);
-    
-    // Définit différentes propriétés pour les options PDF
-    PdfOptions opts = new  PdfOptions();
-    opts.setSufficientResolution(600);
-    
-    // Enregistre la présentation sur le disque
-    presentation.save("SetPDFPageSize_out.pdf", SaveFormat.Pdf, opts);
+    // Obtenir la diapositive de mise en page vierge.
+    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+
+    // Obtenir le gestionnaire de zones réservées de la diapositive de mise en page.
+    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+
+    // Ajouter différentes zones réservées à la diapositive de mise en page vierge.
+    placeholderManager.addContentPlaceholder(20, 20, 310, 270);
+    placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
+    placeholderManager.addChartPlaceholder(20, 310, 310, 180);
+    placeholderManager.addTablePlaceholder(350, 310, 350, 180);
+
+    // Ajouter une nouvelle diapositive avec la mise en page vierge.
+    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
+
+    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
+
+
+Résultat :
+
+![The placeholders on the layout slide](add_placeholders.png)
+
+## **Définir la visibilité du pied de page pour un modèle de diapositive**
+
+Dans les présentations PowerPoint, les éléments de pied de page tels que la date, le numéro de diapositive et le texte personnalisé peuvent être affichés ou masqués selon le modèle de diapositive. Aspose.Slides for Java vous permet de contrôler la visibilité de ces zones réservées de pied de page. Cela est utile lorsque vous souhaitez que certains modèles affichent les informations de pied de page tandis que d’autres restent épurés.
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Obtenez une référence au modèle de diapositive par son index.
+1. Définissez la zone réservée du pied de page de la diapositive comme visible.
+1. Définissez la zone réservée du numéro de diapositive comme visible.
+1. Définissez la zone réservée de la date‑heure comme visible.
+1. Enregistrez la présentation.
+
+Le code Java suivant montre comment définir la visibilité du pied de page d’une diapositive et réaliser les opérations associées :
+```java
+Presentation presentation = new Presentation("Presentation.ppt");
+try {
+    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+
+    if (!headerFooterManager.isFooterVisible()) {
+        headerFooterManager.setFooterVisibility(true);
+    }
+
+    if (!headerFooterManager.isSlideNumberVisible()) {
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    if (!headerFooterManager.isDateTimeVisible()) {
+        headerFooterManager.setDateTimeVisibility(true);
+    }
+
+    headerFooterManager.setFooterText("Footer text");
+    headerFooterManager.setDateTimeText("Date and time text");
+
+    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+} finally {
+    presentation.dispose();
+}
+```
+
+
+## **Définir la visibilité du pied de page enfant pour une diapositive**
+
+Dans les présentations PowerPoint, les éléments de pied de page tels que la date, le numéro de diapositive et le texte personnalisé peuvent être contrôlés au niveau du masque de diapositive afin d’assurer la cohérence sur tous les modèles de diapositives. Aspose.Slides for Java vous permet de définir la visibilité et le contenu de ces zones réservées de pied de page sur le masque et de propager ces paramètres à tous les modèles enfants. Cette approche garantit des informations de pied de page uniformes partout dans votre présentation.
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. Obtenez une référence au masque de diapositive par son index.
+1. Définissez les zones réservées du pied de page du masque et de tous les modèles enfants comme visibles.
+1. Définissez les zones réservées du numéro de diapositive du masque et de tous les modèles enfants comme visibles.
+1. Définissez les zones réservées de la date‑heure du masque et de tous les modèles enfants comme visibles.
+1. Enregistrez la présentation.
+
+Le code Java suivant illustre cette opération :
+```java
+Presentation presentation = new Presentation("Presentation.ppt");
+try {
+    IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
+
+    headerFooterManager.setFooterAndChildFootersVisibility(true);
+    headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager.setFooterAndChildFootersText("Footer text");
+    headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+
+    presentation.save("Output.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+
+## **FAQ**
+
+**Quelle est la différence entre un masque de diapositive et un modèle de diapositive ?**
+
+Un masque de diapositive définit le thème global et le formatage par défaut, tandis que les modèles de diapositives définissent des agencements spécifiques de zones réservées pour différents types de contenu.
+
+**Puis‑je copier un modèle de diapositive d’une présentation à une autre ?**
+
+Oui, vous pouvez cloner un modèle de diapositive depuis la collection de modèles d’une présentation, accessible via la méthode [getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getLayoutSlides--), puis l’insérer dans une autre présentation à l’aide de la méthode `addClone`.
+
+**Que se passe‑t‑il si je supprime un modèle de diapositive encore utilisé par une diapositive ?**
+
+Si vous tentez de supprimer un modèle de diapositive qui est toujours référencé par au moins une diapositive de la présentation, Aspose.Slides lèvera une [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/pptxeditexception/). Pour éviter cela, utilisez [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) qui supprime en toute sécurité uniquement les modèles de diapositives non utilisés.

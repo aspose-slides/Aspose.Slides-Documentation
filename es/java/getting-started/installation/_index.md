@@ -3,39 +3,52 @@ title: Instalación
 type: docs
 weight: 70
 url: /es/java/installation/
+keywords:
+- instalar Aspose.Slides
+- descargar Aspose.Slides
+- usar Aspose.Slides
+- Instalación de Aspose.Slides
+- Windows
+- Linux
+- macOS
+- PowerPoint
+- OpenDocument
+- presentación
+- Java
+- Aspose.Slides
+description: "Aprenda cómo instalar rápidamente Aspose.Slides para Java. Guía paso a paso, requisitos del sistema y ejemplos de código — ¡comience a trabajar con presentaciones de PowerPoint hoy!"
 ---
 
-{{% alert color="primary" %}} 
+## **Descripción general**
 
-Aspose.Slides para Java no requiere Microsoft PowerPoint. Genera los archivos de presentación necesarios programáticamente. Sin embargo, para ver una presentación generada, puede que tengas que utilizar un visor de PowerPoint o de presentaciones. 
+La guía de instalación explica cómo agregar Aspose.Slides for Java a su entorno de proyecto. Muestra cómo hacer referencia a la biblioteca desde Maven Central o descargar el paquete JAR sin conexión, y señala dónde encontrar los archivos de suma de verificación para que pueda verificar la integridad. Al final de la sección debería estar listo para incluir Aspose.Slides en su canal de compilación y ejecutar una presentación sencilla “Hello, World” para confirmar que todo está configurado correctamente.
 
-{{% /alert %}} 
+Aspose.Slides for Java no requiere Microsoft PowerPoint. Genera programáticamente los archivos de presentación necesarios. Sin embargo, para ver las presentaciones generadas, es posible que necesite Microsoft PowerPoint u otro visor de presentaciones.
 
-## **Instalación y Configuración de Java**
-Java es un lenguaje de programación popular que te permite ejecutar programas en muchas plataformas. 
+## **Instalar y configurar Java**
 
-Para obtener información sobre cómo instalar y configurar Java en cualquier sistema operativo, visita https://java.com/.
+Java es un lenguaje de programación popular que permite ejecutar programas en muchas plataformas. Para obtener información sobre la instalación y configuración de Java en cualquier sistema operativo, visite https://java.com/.
 
-## **Instalando Aspose.Slides para Java desde el Repositorio de Maven**
-Aspose aloja todas las APIs de Java en [repositorios de Maven](https://releases.aspose.com/java/repo/com/aspose/). Puedes usar la API [Aspose.Slides para Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) directamente en tus proyectos de Maven con configuraciones simples.
+## **Instalar Aspose.Slides for Java desde el repositorio Maven**
 
-1. **Especificar la Configuración del Repositorio de Maven**
+Aspose aloja todas sus API Java en sus [repositorios Maven](https://releases.aspose.com/java/repo/com/aspose/). Puede integrar la API [Aspose.Slides for Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) directamente en sus proyectos Maven con una configuración mínima.
 
-   Especifica la configuración/ubicación del Repositorio de Maven de Aspose en tu pom.xml de Maven de la siguiente manera:
+1. **Especificar la configuración del repositorio Maven**
 
+   Especifique la configuración/ubicación del repositorio Maven de Aspose en su pom.xml de esta manera:
 ``` xml
 <repositories>
     <repository>
         <id>AsposeJavaAPI</id>
-        <name>API de Aspose Java</name>
+        <name>Aspose Java API</name>
         <url>https://releases.aspose.com/java/repo/</url>
     </repository>
 </repositories>
 ```
-2. **Definir la Dependencia de la API Aspose.Slides para Java**
 
-   Define la dependencia de la API Aspose.Slides para Java en tu pom.xml de la siguiente manera:
+2. **Definir la dependencia de la API Aspose.Slides for Java**
 
+   Defina la dependencia de la API Aspose.Slides for Java en su pom.xml así:
 ``` xml
 <dependencies>
     <dependency>
@@ -53,4 +66,19 @@ Aspose aloja todas las APIs de Java en [repositorios de Maven](https://releases.
 </dependencies>
 ```
 
-La dependencia de Aspose.Slides para Java se definirá entonces en tu proyecto de Maven.
+
+La dependencia de Aspose.Slides for Java quedará entonces definida en su proyecto Maven.
+
+## **Preguntas frecuentes**
+
+**¿Cómo puedo verificar que Aspose.Slides está integrado correctamente?**
+
+Compile su proyecto, instancie una [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) en blanco y guárdela con un nuevo nombre. Si el archivo se crea sin lanzar excepciones, la biblioteca se ha integrado con éxito.
+
+**¿Cómo puedo limitar el consumo de memoria al procesar presentaciones grandes?**
+
+Aumente los límites de memoria de la JVM solo tanto como sea necesario y cierre cada instancia de [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) en un `finally` para liberar la caché rápidamente. Esto evita errores de falta de memoria y mantiene predecible el uso total de memoria durante operaciones por lotes.
+
+**¿Puedo excluir formatos de exportación no deseados para reducir el tamaño final del JAR?**
+
+Las versiones actuales de Aspose.Slides se distribuyen como una única biblioteca monolítica, por lo que no puede desactivar exportadores específicos como PDF o SVG en tiempo de compilación.

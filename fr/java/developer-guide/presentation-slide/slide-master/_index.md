@@ -1,132 +1,153 @@
 ---
-title: Maître de diapositive
+title: Gérer les masques de diapositive de présentation en Java
+linktitle: Masque de diapositive
 type: docs
 weight: 70
 url: /fr/java/slide-master/
-keywords: "Ajouter Maître de diapositive, diapositive maître PPT, maître de diapositive PowerPoint, image au maître de diapositive, espace réservé, plusieurs maîtres de diapositive, comparer les maîtres de diapositive, Java, Aspose.Slides pour Java"
-description: "Ajouter ou modifier le maître de diapositive dans une présentation PowerPoint en Java"
+keywords:
+- masque de diapositive
+- masque de diapositive
+- masque de diapositive PPT
+- plusieurs masques de diapositives
+- comparer les masques de diapositives
+- arrière-plan
+- espace réservé
+- cloner le masque de diapositive
+- copier le masque de diapositive
+- dupliquer le masque de diapositive
+- masque de diapositive inutilisé
+- PowerPoint
+- OpenDocument
+- présentation
+- Java
+- Aspose.Slides
+description: "Gérer les masques de diapositive dans Aspose.Slides pour Java : créer, modifier et appliquer des mises en page, des thèmes et des espaces réservés aux PPT, PPTX et ODP avec des exemples Java concis."
 ---
 
-## **Qu'est-ce qu'un Maître de Diapositive dans PowerPoint**
+## **Qu'est-ce qu'un Slide Master dans PowerPoint**
 
-Un **Maître de Diapositive** est un modèle de diapositive qui définit la disposition, les styles, le thème, les polices, l'arrière-plan et d'autres propriétés des diapositives dans une présentation. Si vous souhaitez créer une présentation (ou une série de présentations) avec le même style et modèle pour votre entreprise, vous pouvez utiliser un maître de diapositive.
+Un **Slide Master** est un modèle de diapositive qui définit la disposition, les styles, le thème, les polices, l'arrière-plan et d’autres propriétés des diapositives d’une présentation. Si vous souhaitez créer une présentation (ou une série de présentations) avec le même style et le même modèle pour votre entreprise, vous pouvez utiliser un Slide Master. 
 
-Un Maître de Diapositive est utile car il vous permet de définir et de modifier l'apparence de toutes les diapositives de la présentation d'un coup. Aspose.Slides prend en charge le mécanisme de Maître de Diapositive de PowerPoint.
+Un Slide Master est utile car il vous permet de définir et de modifier l’apparence de toutes les diapositives d’une présentation en une seule fois. Aspose.Slides prend en charge le mécanisme de Slide Master de PowerPoint. 
 
-VBA permet également de manipuler un Maître de Diapositive et d'exécuter les mêmes opérations prises en charge dans PowerPoint : changer les arrière-plans, ajouter des formes, personnaliser la mise en page, etc. Aspose.Slides fournit des mécanismes flexibles pour vous permettre d'utiliser des Maîtres de Diapositive et d'effectuer des tâches de base avec eux.
+VBA permet également de manipuler un Slide Master et d’exécuter les mêmes opérations prises en charge dans PowerPoint : changer les arrière-plans, ajouter des formes, personnaliser la disposition, etc. Aspose.Slides fournit des mécanismes flexibles pour vous permettre d’utiliser les Slide Masters et d’effectuer les tâches de base avec eux. 
 
-Voici les opérations de base sur le Maître de Diapositive :
+Voici les opérations de base du Slide Master :
 
-- Créer ou Slide Master.
-- Appliquer le Maître de Diapositive aux diapositives de présentation.
-- Changer l'arrière-plan du Maître de Diapositive.
-- Ajouter une image, un espace réservé, une œuvre intelligente, etc. au Maître de Diapositive.
+- Créer un Slide Master.
+- Appliquer le Slide Master aux diapositives de la présentation.
+- Modifier l’arrière-plan du Slide Master. 
+- Ajouter une image, un espace réservé, un SmartArt, etc. au Slide Master.
 
-Voici des opérations plus avancées impliquant le Maître de Diapositive :
+Voici des opérations plus avancées impliquant le Slide Master : 
 
-- Comparer les Maîtres de Diapositive.
-- Fusionner des Maîtres de Diapositive.
-- Appliquer plusieurs Maîtres de Diapositive.
-- Copier une diapositive avec le Maître de Diapositive vers une autre présentation.
-- Identifier les Maîtres de Diapositive en double dans les présentations.
-- Définir un Maître de Diapositive comme vue par défaut de la présentation.
+- Comparer des Slide Masters.
+- Fusionner des Slide Masters.
+- Appliquer plusieurs Slide Masters.
+- Copier une diapositive avec son Slide Master vers une autre présentation.
+- Trouver les Slide Masters en double dans les présentations.
+- Définir le Slide Master comme vue par défaut de la présentation.
 
 {{% alert color="primary" %}} 
 
-Vous voudrez peut-être consulter [**Visualiseur PowerPoint en ligne**](https://products.aspose.app/slides/viewer) d'Aspose car c'est une mise en œuvre en direct de certains des processus fondamentaux décrits ici.
+Vous voudrez peut-être consulter l'[**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) d’Aspose car il s’agit d’une implémentation en direct de certains des processus fondamentaux décrits ici.
 
 {{% /alert %}} 
 
-## **Comment le Maître de Diapositive est appliqué**
 
-Avant de travailler avec un maître de diapositive, vous pouvez vouloir comprendre comment ils sont utilisés dans les présentations et appliqués aux diapositives.
+## **Comment le Slide Master est‑il appliqué**
 
-* Chaque présentation a au moins un Maître de Diapositive par défaut.
-* Une présentation peut contenir plusieurs Maîtres de Diapositive. Vous pouvez ajouter plusieurs Maîtres de Diapositive et les utiliser pour styliser différentes parties d'une présentation de différentes manières.
+Avant de travailler avec un Slide Master, vous voudrez peut‑être comprendre comment ils sont utilisés dans les présentations et appliqués aux diapositives. 
 
-Dans **Aspose.Slides**, un Maître de Diapositive est représenté par le type [**IMasterSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/).
+* Chaque présentation possède au moins un Slide Master par défaut. 
+* Une présentation peut contenir plusieurs Slide Masters. Vous pouvez ajouter plusieurs Slide Masters et les utiliser pour mettre en forme différentes parties d’une présentation de manières différentes. 
 
-L'objet [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) d'Aspose.Slides contient la liste [**getMasters**](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) de type [**IMasterSlideCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/), qui contient une liste de toutes les diapositives maîtres définies dans une présentation.
+En **Aspose.Slides**, un Slide Master est représenté par le type [**IMasterSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/). 
 
-En plus des opérations CRUD, l'interface [IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/) contient ces méthodes utiles : [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) et [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-) . Ces méthodes sont héritées de la fonction de clonage de diapositive de base. Mais lorsqu'il s'agit de Maîtres de Diapositive, ces méthodes vous permettent de mettre en œuvre des configurations compliquées.
+L’objet [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) d’Aspose.Slides contient la liste [**getMasters**](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) de type [**IMasterSlideCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/), qui contient la liste de tous les masques de diapositives définis dans une présentation. 
 
-Lorsqu'une nouvelle diapositive est ajoutée à une présentation, un Maître de Diapositive lui est automatiquement appliqué. Le Maître de Diapositive de la diapositive précédente est sélectionné par défaut.
+En plus des opérations CRUD, l’interface [IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/) propose ces méthodes utiles : [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) et [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-) . Ces méthodes sont héritées de la fonction de clonage de diapositive de base. Mais lorsqu’il s’agit de Slide Masters, ces méthodes vous permettent de mettre en place des configurations compliquées. 
 
-**Remarque** : Les diapositives de présentation sont stockées dans la liste [getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) et chaque nouvelle diapositive est ajoutée à la fin de la collection par défaut. Si une présentation contient un seul Maître de Diapositive, ce maître de diapositive est sélectionné pour toutes les nouvelles diapositives. C'est la raison pour laquelle vous n'avez pas besoin de définir le Maître de Diapositive pour chaque nouvelle diapositive que vous créez.
+Lorsqu’une nouvelle diapositive est ajoutée à une présentation, un Slide Master lui est appliqué automatiquement. Le Slide Master de la diapositive précédente est sélectionné par défaut. 
 
-Le principe est le même pour PowerPoint et Aspose.Slides. Par exemple, dans PowerPoint, lorsque vous ajoutez une nouvelle présentation, vous pouvez simplement cliquer sur la ligne du bas sous la dernière diapositive et une nouvelle diapositive (avec le Maître de Diapositive de la dernière présentation) sera créée :
+**Note** : Les diapositives de la présentation sont stockées dans la liste [getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--), et chaque nouvelle diapositive est ajoutée à la fin de la collection par défaut. Si une présentation ne contient qu’un seul Slide Master, ce masque est sélectionné pour toutes les nouvelles diapositives. C’est la raison pour laquelle vous n’avez pas à définir le Slide Master pour chaque nouvelle diapositive que vous créez.
+
+Le principe est le même pour PowerPoint et Aspose.Slides. Par exemple, dans PowerPoint, lorsque vous ajoutez une nouvelle diapositive, il suffit de cliquer sur la ligne inférieure sous la dernière diapositive et une nouvelle diapositive (avec le Slide Master de la dernière présentation) sera créée :
 
 ![todo:image_alt_text](slide-master_1.jpg)
 
-Dans Aspose.Slides, vous pouvez effectuer la tâche équivalente avec la méthode [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+Dans Aspose.Slides, vous pouvez réaliser la même opération avec la méthode [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
 
 
-## **Maître de Diapositive dans la hiérarchie des diapositives**
+## **Slide Master dans la hiérarchie des diapositives**
 
-L'utilisation des mises en page de diapositive avec le Maître de Diapositive permet une flexibilité maximale. Une Mise en page de Diapositive vous permet de définir tous les mêmes styles que le Maître de Diapositive (arrière-plan, polices, formes, etc.). Cependant, lorsque plusieurs Mises en page de Diapositive sont combinées dans un Maître de Diapositive, un nouveau style est créé. Lorsque vous appliquez une Mise en page de Diapositive à une seule diapositive, vous pouvez modifier son style par rapport à celui appliqué par le Maître de Diapositive.
+L’utilisation des dispositions de diapositives avec le Slide Master offre une flexibilité maximale. Une disposition de diapositive vous permet de définir les mêmes styles que le Slide Master (arrière‑plan, polices, formes, etc.). Cependant, lorsque plusieurs dispositions de diapositives sont combinées sur un Slide Master, un nouveau style est créé. Lorsque vous appliquez une disposition de diapositive à une seule diapositive, vous pouvez modifier son style par rapport à celui appliqué par le Slide Master.
 
-Le Maître de Diapositive prévaut sur tous les éléments de configuration : Maître de Diapositive -> Mise en page de Diapositive -> Diapositive :
+Le Slide Master domine tous les éléments de configuration : Slide Master → Slide Layout → Slide :
 
 ![todo:image_alt_text](slide-master_2)
 
-Chaque [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) possède une propriété [**getLayoutSlides**](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getLayoutSlides--) avec une liste de Mises en page de Diapositive. Un type [Diapositive](https://reference.aspose.com/slides/java/com.aspose.slides/Slide) a une propriété [**getLayoutSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getLayoutSlide--) avec un lien vers une Mise en page de Diapositive appliquée à la diapositive. L'interaction entre une diapositive et le Maître de Diapositive se produit à travers une Mise en page de Diapositive.
 
-{{% alert color="info" title="Remarque" %}}
 
-* Dans Aspose.Slides, toutes les configurations de diapositive (Maître de Diapositive, Mise en page de Diapositive, et la diapositive elle-même) sont en réalité des objets de diapositive implémentant l'interface [**IBaseSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide).
-* Par conséquent, le Maître de Diapositive et la Mise en page de Diapositive peuvent implémenter les mêmes propriétés et vous devez savoir comment leurs valeurs seront appliquées à un objet [Diapositive](https://reference.aspose.com/slides/java/com.aspose.slides/Slide). Le Maître de Diapositive est appliqué en premier à une diapositive, puis la Mise en page de Diapositive est appliquée. Par exemple, si le Maître de Diapositive et la Mise en page de Diapositive ont tous deux une valeur d'arrière-plan, la Diapositive finira par avoir l'arrière-plan provenant de la Mise en page de Diapositive.
+Chaque objet [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) possède la propriété [**getLayoutSlides**](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getLayoutSlides--) qui renvoie une liste de dispositions de diapositives. Un type [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide) possède la propriété [**getLayoutSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getLayoutSlide--) qui pointe vers la disposition de diapositive appliquée à la diapositive. L’interaction entre une diapositive et le Slide Master se fait via une disposition de diapositive.
+
+{{% alert color="info" title="Note" %}}
+
+* Dans Aspose.Slides, toutes les configurations de diapositive (Slide Master, Slide Layout et la diapositive elle‑même) sont en fait des objets diapositive implémentant l’interface [**IBaseSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide).
+* Par conséquent, le Slide Master et le Slide Layout peuvent implémenter les mêmes propriétés et vous devez savoir comment leurs valeurs seront appliquées à un objet [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide). Le Slide Master est appliqué en premier à une diapositive, puis le Slide Layout est appliqué. Par exemple, si le Slide Master et le Slide Layout possèdent tous deux une valeur d’arrière‑plan, la diapositive affichera l’arrière‑plan provenant du Slide Layout.
 
 {{% /alert %}}
 
 
-## **Ce que comprend un Maître de Diapositive**
+## **Ce que contient un Slide Master**
 
-Pour comprendre comment un Maître de Diapositive peut être modifié, vous devez connaître ses composants. Voici les propriétés essentielles de [MasterSlide](https://reference.aspose.com/slides/java/aspose.slides/masterslide/).
+Pour comprendre comment un Slide Master peut être modifié, vous devez connaître ses constituants. Voici les propriétés principales du [MasterSlide](https://reference.aspose.com/slides/java/aspose.slides/masterslide/) :
 
-- [getBackground](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getBackground--) obtenir/définir l'arrière-plan de la diapositive.
-- [getBodyStyle](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getBodyStyle--) - obtenir/définir les styles de texte du corps de la diapositive.
-- [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getShapes--) obtenir/définir toutes les formes du Maître de Diapositive (espaces réservés, cadres d'image, etc.).
-- [getControls](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getControls--) obtenir/définir les contrôles ActiveX.
-- [getThemeManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterThemeable#getThemeManager--) - obtenir le gestionnaire de thème.
-- [getHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getHeaderFooterManager--) - obtenir le gestionnaire des en-têtes et pieds de page.
+- [getBackground](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getBackground--) obtenir/definir l’arrière‑plan de la diapositive.
+- [getBodyStyle](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getBodyStyle--) obtenir/definir les styles de texte du corps de la diapositive.
+- [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getShapes--) obtenir/definir toutes les formes du Slide Master (espaces réservés, cadres d’image, etc.).
+- [getControls](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getControls--) obtenir/definir les contrôles ActiveX.
+- [getThemeManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterThemeable#getThemeManager--) obtenir le gestionnaire de thème.
+- [getHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getHeaderFooterManager--) obtenir le gestionnaire d’en‑tête et de pied de page.
 
-Méthodes du Maître de Diapositive :
+Méthodes du Slide Master :
 
-- [getDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getDependingSlides--) - obtenir toutes les diapositives dépendant du Maître de Diapositive.
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) - vous permet de créer un nouveau Maître de Diapositive basé sur le Maître de Diapositive actuel et un nouveau thème. Le nouveau Maître de Diapositive sera ensuite appliqué à toutes les diapositives dépendantes.
+- [getDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getDependingSlides--) obtenir toutes les diapositives dépendantes du Slide Master.
+- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) : permet de créer un nouveau Slide Master basé sur le Slide Master actuel et un nouveau thème. Le nouveau Slide Master sera ensuite appliqué à toutes les diapositives dépendantes.
 
 
-## **Obtenir le Maître de Diapositive**
+## **Obtenir un Slide Master**
 
-Dans PowerPoint, le Maître de Diapositive peut être accédé depuis le menu Affichage -> Maître de Diapositive :
+Dans PowerPoint, le Slide Master est accessible via le menu Affichage → Masque des diapositives :
 
 ![todo:image_alt_text](slide-master_3.jpg)
 
-En utilisant Aspose.Slides, vous pouvez accéder à un Maître de Diapositive de cette manière : 
 
+
+Avec Aspose.Slides, vous pouvez accéder à un Slide Master de cette façon : 
 ```java
 Presentation pres = new Presentation();
 try {
-    // Donne accès au maître de diapositive de la présentation
+    // Donne accès au masque de diapositive de la présentation
     IMasterSlide masterSlide = pres.getMasters().get_Item(0);
 } finally {
     pres.dispose();
 }
 ```
 
-L'interface [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) représente un Maître de Diapositive. La propriété [Masters](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getMasters--) (relative à [IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlideCollection) ) contient une liste de tous les Maîtres de Diapositive définis dans la présentation.
+
+L’interface [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) représente un Slide Master. La propriété [Masters](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getMasters--) (relative au type [IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlideCollection)) contient la liste de tous les Slide Masters définis dans la présentation. 
 
 
-## **Ajouter une image au Maître de Diapositive**
+## **Ajouter une image à un Slide Master**
 
-Lorsque vous ajoutez une image à un Maître de Diapositive, cette image apparaîtra sur toutes les diapositives dépendantes de ce maître de diapositive.
+Lorsque vous ajoutez une image à un Slide Master, cette image apparaîtra sur toutes les diapositives dépendantes de ce master. 
 
-Par exemple, vous pouvez placer le logo de votre entreprise et quelques images sur le Maître de Diapositive, puis revenir au mode d'édition des diapositives. Vous devriez voir l'image sur chaque diapositive.
+Par exemple, vous pouvez placer le logo de votre société et quelques images sur le Slide Master, puis revenir en mode édition des diapositives. Vous devriez voir l’image sur chaque diapositive. 
 
 ![todo:image_alt_text](slide-master_4.png)
 
-Vous pouvez ajouter des images à un maître de diapositive avec Aspose.Slides :
-
+Vous pouvez ajouter des images à un Slide Master avec Aspose.Slides :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -146,40 +167,37 @@ try {
 }
 ```
 
-{{% alert color="primary" title="Voir aussi" %}} 
 
-Pour plus d'informations sur l'ajout d'images à une diapositive, consultez l'article [Image Frame](/slides/fr/java/picture-frame/#create-picture-frame).
+{{% alert color="primary" title="See also" %}} 
+
+Pour plus d’informations sur l’ajout d’images à une diapositive, consultez l’article [Picture Frame](/slides/fr/java/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 
-## **Ajouter un espace réservé au Maître de Diapositive**
+## **Ajouter un espace réservé à un Slide Master**
 
-Ces champs de texte sont des espaces réservés standard sur un Maître de Diapositive :
+Ces champs de texte sont des espaces réservés standard sur un Slide Master : 
 
-* Cliquez pour modifier le style de titre maître
+* Cliquez pour modifier le style du titre du Master
+* Modifier les styles de texte du Master
+* Niveau secondaire
+* Niveau tertiaire
 
-* Modifier les styles de texte maître
+Ils apparaissent également sur les diapositives basées sur le Slide Master. Vous pouvez modifier ces espaces réservés sur le Slide Master et les changements seront appliqués automatiquement aux diapositives. 
 
-* Deuxième niveau
-
-* Troisième niveau 
-
-  Ils apparaissent également sur les diapositives basées sur le Maître de Diapositive. Vous pouvez modifier ces espaces réservés sur un Maître de Diapositive et les changements seront appliqués automatiquement aux diapositives.
-
-Dans PowerPoint, vous pouvez ajouter un espace réservé via le chemin Maître de Diapositive -> Insérer un espace réservé :
+Dans PowerPoint, vous pouvez ajouter un espace réservé via le chemin Masque des diapositives → Insérer un espace réservé :
 
 ![todo:image_alt_text](slide-master_5.png)
 
-Examinons un exemple plus compliqué pour les espaces réservés avec Aspose.Slides. Considérons une diapositive avec des espaces réservés templates du Maître de Diapositive :
+Examinons un exemple plus compliqué d’espaces réservés avec Aspose.Slides. Considérez une diapositive avec des espaces réservés provenant du Slide Master :
 
 ![todo:image_alt_text](slide-master_6.png)
 
-Nous voulons changer le formatage du Titre et du Sous-titre sur le Maître de Diapositive de cette manière :
+Nous voulons modifier le format du titre et du sous‑titre sur le Slide Master ainsi :
 
 ![todo:image_alt_text](slide-master_7.png)
 
-Tout d'abord, nous récupérons le contenu de l'espace réservé de titre à partir de l'objet Maître de Diapositive, puis nous utilisons le champ `PlaceHolder.FillFormat` : 
-
+Tout d’abord, nous récupérons le contenu de l’espace réservé du titre depuis l’objet Slide Master puis nous utilisons le champ `PlaceHolder.FillFormat` : 
 ```java
 public static void main(String[] args) {
     Presentation pres = new Presentation();
@@ -215,22 +233,22 @@ static IAutoShape findPlaceholder(IMasterSlide master, int type)
 }
 ```
 
-Le style et le formatage du titre changeront pour toutes les diapositives basées sur le maître de diapositive :
+
+Le style et le format du titre seront modifiés pour toutes les diapositives basées sur le master :
 
 ![todo:image_alt_text](slide-master_8.png)
 
-{{% alert color="primary" title="Voir aussi" %}} 
+{{% alert color="primary" title="See also" %}} 
 
-* [Définir le texte d'invite dans l'espace réservé](https://docs.aspose.com/slides/java/manage-placeholder/)
-* [Formatage du texte](https://docs.aspose.com/slides/java/text-formatting/)
+* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/java/manage-placeholder/)
+* [Text Formatting](https://docs.aspose.com/slides/java/text-formatting/)
 
 {{% /alert %}}
 
 
-## **Changer l'arrière-plan sur le Maître de Diapositive**
+## **Modifier l’arrière‑plan d’un Slide Master**
 
-Lorsque vous changez la couleur d'arrière-plan d'un maître de diapositive, toutes les diapositives normales de la présentation recevront la nouvelle couleur. Ce code Java démontre l'opération :
-
+Lorsque vous modifiez la couleur d’arrière‑plan d’une diapositive maîtresse, toutes les diapositives normales de la présentation recevront la nouvelle couleur. Ce code Java montre l’opération :
 ```java
 Presentation pres = new Presentation();
 try {
@@ -245,21 +263,20 @@ try {
 }
 ```
 
-{{% alert color="primary" title="Voir aussi" %}} 
 
-- [Arrière-plan de présentation](https://docs.aspose.com/slides/java/presentation-background/)
+{{% alert color="primary" title="See also" %}} 
 
-- [Thème de présentation](https://docs.aspose.com/slides/java/presentation-theme/)
+- [Presentation Background](https://docs.aspose.com/slides/java/presentation-background/)
+- [Presentation Theme](https://docs.aspose.com/slides/java/presentation-theme/)
 
-  {{% /alert %}}
+{{% /alert %}}
 
-## **Cloner le Maître de Diapositive vers une autre présentation**
+## **Cloner un Slide Master vers une autre présentation**
 
-Pour cloner un Maître de Diapositive vers une autre présentation, appelez la méthode [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) de la présentation de destination en passant un Maître de Diapositive à celui-ci. Ce code Java vous montre comment cloner un Maître de Diapositive vers une autre présentation :
-
+Pour cloner un Slide Master vers une autre présentation, appelez la méthode [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) de la présentation destination en lui passant le Slide Master. Ce code Java montre comment cloner un Slide Master vers une autre présentation :
 ```java
 Presentation presSource = new Presentation();
-Presentation presTarget = new Presentation();
+Presentation persTarget = new Presentation();
 try {
     IMasterSlide master = presTarget.getMasters().addClone(presSource.getMasters().get_Item(0));
 } finally {
@@ -268,39 +285,40 @@ try {
 ```
 
 
-## **Ajouter Plusieurs Maîtres de Diapositive à la Présentation**
 
-Aspose.Slides vous permet d'ajouter plusieurs Maîtres de Diapositive et Mises en page à toute présentation donnée. Cela vous permet de configurer des styles, des mises en page et des options de formatage pour les diapositives de présentation de plusieurs manières.
+## **Ajouter plusieurs Slide Masters à une présentation**
 
-Dans PowerPoint, vous pouvez ajouter de nouveaux Maîtres de Diapositive et Mises en page (depuis le menu "Maître de Diapositive) de cette manière :
+Aspose.Slides vous permet d’ajouter plusieurs Slide Masters et dispositions de diapositives à n’importe quelle présentation. Cela vous permet de définir des styles, des dispositions et des options de formatage pour les diapositives de présentation de nombreuses manières. 
+
+Dans PowerPoint, vous pouvez ajouter de nouveaux Slide Masters et Layouts (à partir du menu « Slide Master ») ainsi :
 
 ![todo:image_alt_text](slide-master_9.jpg)
 
-En utilisant Aspose.Slides, vous pouvez ajouter un nouveau Maître de Diapositive en appelant la méthode [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) :
-
+Avec Aspose.Slides, vous pouvez ajouter un nouveau Slide Master en appelant la méthode [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) :
 ```java
-// Ajoute un nouveau maître de diapositive
+// Ajoute un nouveau masque de diapositive
 IMasterSlide secondMasterSlide = pres.getMasters().addClone(masterSlide);
 ```
 
 
-## **Comparer les Maîtres de Diapositive**
 
-Un Maître de Diapositive implémente l'interface [IBaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide) contenant la méthode [**equals**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-), qui peut alors être utilisée pour comparer les diapositives. Elle retourne `true` pour les Maîtres de Diapositive identiques dans leur structure et leur contenu statique.
+## **Comparer des Slide Masters**
 
-Deux Maîtres de Diapositive sont égaux si leurs formes, styles, textes, animations et autres paramètres, etc. sont égaux. La comparaison ne prend pas en compte les valeurs d'identifiant unique (par ex. SlideId) et le contenu dynamique (par ex. la valeur actuelle de date dans l'espace réservé de Date).
+Un Slide Master implémente l’interface [IBaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide) contenant la méthode [**equals**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-) qui peut être utilisée pour comparer des diapositives. Elle renvoie `true` pour les Slide Masters identiques en structure et en contenu statique. 
 
-## **Définir le Maître de Diapositive comme vue par défaut de la Présentation**
+Deux Slide Masters sont égaux si leurs formes, styles, textes, animations et autres paramètres sont égaux. La comparaison ne tient pas compte des valeurs d’identifiant uniques (par ex. SlideId) ni du contenu dynamique (par ex. valeur de date actuelle dans un espace réservé de date). 
 
-Aspose.Slides vous permet de définir un Maître de Diapositive comme vue par défaut pour une présentation. La vue par défaut est ce que vous voyez en premier lorsque vous ouvrez une présentation.
 
-Ce code vous montre comment définir un Maître de Diapositive comme vue par défaut d'une présentation en Java :
+## **Définir un Slide Master comme vue par défaut de la présentation**
 
+Aspose.Slides vous permet de définir un Slide Master comme vue par défaut d’une présentation. La vue par défaut est ce que vous voyez en premier quand vous ouvrez une présentation. 
+
+Ce code montre comment définir un Slide Master comme vue par défaut d’une présentation en Java :
 ```java
 // Instancie une classe Presentation qui représente le fichier de présentation
 Presentation presentation = new Presentation();
 try {
-    // Définit la vue par défaut comme SlideMasterView
+    // Définit la vue par défaut sur SlideMasterView
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
 
     // Enregistre la présentation
@@ -310,10 +328,11 @@ try {
 }
 ```
 
-## **Supprimer les Maîtres de Diapositive non utilisés**
 
-Aspose.Slides fournit la méthode [removeUnusedMasterSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (de la classe [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) ) pour vous permettre de supprimer des maîtres de diapositive non désirés et non utilisés. Ce code Java vous montre comment supprimer un maître de diapositive d'une présentation PowerPoint :
 
+## **Supprimer les Slide Masters inutilisés**
+
+Aspose.Slides fournit la méthode [removeUnusedMasterSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (de la classe [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)) pour vous permettre de supprimer les Slide Masters indésirables et inutilisés. Ce code Java montre comment supprimer un Slide Master d’une présentation PowerPoint :
 ```java
 Presentation pres = new Presentation("pres.pptx");
  try {
@@ -324,3 +343,45 @@ Presentation pres = new Presentation("pres.pptx");
      if (pres != null) pres.dispose();
  }
 ```
+
+
+## **FAQ**
+
+**Qu'est‑ce qu'un Slide Master dans PowerPoint ?**
+
+Un Slide Master est un modèle de diapositive qui définit la disposition, les styles, les thèmes, les polices, l’arrière‑plan et d’autres propriétés des diapositives d’une présentation. Il vous permet de définir et de modifier l’apparence de toutes les diapositives d’une présentation en une seule fois.  
+
+**Comment le Slide Master est‑il appliqué dans une présentation ?**
+
+Chaque présentation possède au moins un Slide Master par défaut. Lorsqu’une nouvelle diapositive est ajoutée, un Slide Master lui est appliqué automatiquement, héritant généralement du master de la diapositive précédente. Une présentation peut contenir plusieurs Slide Masters pour styliser différemment des parties distinctes.  
+
+**Quels éléments peuvent être personnalisés dans un Slide Master ?**
+
+Un Slide Master comprend plusieurs propriétés principales pouvant être personnalisées :
+
+- **Arrière‑plan** : définir l’arrière‑plan de la diapositive.
+- **BodyStyle** : définir les styles de texte du corps de la diapositive.
+- **Shapes** : gérer toutes les formes du Slide Master, y compris les espaces réservés et les cadres d’image.
+- **Controls** : gérer les contrôles ActiveX.
+- **ThemeManager** : accéder au gestionnaire de thème.
+- **HeaderFooterManager** : gérer les en‑têtes et pieds de page.  
+
+**Comment ajouter une image à un Slide Master ?**
+
+Ajouter une image à un Slide Master garantit qu’elle apparaît sur toutes les diapositives dépendantes de ce master. Par exemple, placer le logo de l’entreprise sur le Slide Master l’affichera sur chaque diapositive de la présentation.  
+
+**Comment les Slide Masters sont‑ils liés aux Slide Layouts ?**
+
+Les Slide Layouts fonctionnent en combinaison avec les Slide Masters pour offrir de la flexibilité dans la conception des diapositives. Tandis qu’un Slide Master définit les styles et thèmes globaux, les Slide Layouts permettent des variations dans l’agencement du contenu. La hiérarchie est la suivante :
+
+- **Slide Master** → définit les styles globaux.
+- **Slide Layout** → offre différents agencements de contenu.
+- **Slide** → hérite du design de son Slide Layout.
+
+**Puis‑je avoir plusieurs Slide Masters dans une même présentation ?**
+
+Oui, une présentation peut contenir plusieurs Slide Masters. Cela vous permet de styliser différentes sections d’une présentation de plusieurs façons, offrant ainsi une flexibilité de conception.  
+
+**Comment accéder et modifier un Slide Master avec Aspose.Slides ?**
+
+Dans Aspose.Slides, un Slide Master est représenté par l’interface [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/). Vous pouvez accéder à un Slide Master en utilisant la méthode [getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) de l’objet [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).

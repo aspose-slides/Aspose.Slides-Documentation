@@ -1,198 +1,179 @@
 ---
-title: عارض العروض التقديمية
+title: إنشاء عارض عروض تقديمية في Java
+linktitle: عارض العروض التقديمية
 type: docs
 weight: 50
 url: /ar/java/presentation-viewer/
-keywords: "عارض PPT PowerPoint"
-description: "عارض PPT PowerPoint في جافا"
+keywords:
+- عرض العرض التقديمي
+- عارض العروض التقديمية
+- إنشاء عارض عروض تقديمية
+- عرض PPT
+- عرض PPTX
+- عرض ODP
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "إنشاء عارض عروض تقديمية مخصص في Java باستخدام Aspose.Slides. عرض ملفات PowerPoint و OpenDocument بسهولة دون الحاجة إلى Microsoft PowerPoint."
 ---
 
-{{% alert color="primary" %}} 
+Aspose.Slides for Java تُستخدم لإنشاء ملفات العروض التقديمية التي تحتوي على شرائح. يمكن عرض هذه الشرائح بفتح العروض في Microsoft PowerPoint، على سبيل المثال. ومع ذلك، قد يحتاج المطورون أحيانًا إلى عرض الشرائح كصور في عارض الصور المفضل لديهم أو إنشاء عارض عروض تقديمية خاص بهم. في مثل هذه الحالات، تتيح لك Aspose.Slides تصدير شريحة فردية كصورة. يصف هذا المقال كيفية القيام بذلك.
 
-تستخدم Aspose.Slides لجافا لإنشاء ملفات العروض التقديمية، كاملة مع الشرائح. يمكن عرض هذه الشرائح من خلال فتح العروض التقديمية باستخدام Microsoft PowerPoint. ولكن أحيانًا، قد يحتاج المطورون أيضًا إلى عرض الشرائح كصور في عارض الصور المفضل لديهم أو إنشاء عارض عروض تقديمية خاص بهم. في هذه الحالات، تتيح لك Aspose.Slides لجافا تصدير شريحة فردية إلى صورة. تصف هذه المقالة كيفية القيام بذلك.
+## **إنشاء صورة SVG من شريحة**
 
-{{% /alert %}} 
+لإنشاء صورة SVG من شريحة عرض باستخدام Aspose.Slides، يرجى اتباع الخطوات أدناه:
 
-## **مثال حي**
-يمكنك تجربة [**عارض Aspose.Slides**](https://products.aspose.app/slides/viewer/) تطبيق مجاني لترى ما يمكنك تنفيذه باستخدام واجهة برمجة التطبيقات Aspose.Slides:
-
-[](https://products.aspose.app/slides/viewer/)
-
-[![todo:image_alt_text](slides-viewer.png)](https://products.aspose.app/slides/viewer/)
-
-## **إنشاء صورة SVG من الشريحة**
-لإنشاء صورة SVG من أي شريحة مرغوبة باستخدام Aspose.Slides لجافا، يرجى اتباع الخطوات أدناه:
-
-- أنشئ مثيلًا من [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- احصل على مرجع الشريحة المرغوبة باستخدام معرفها أو فهرسها.
-- احصل على صورة SVG في تدفق الذاكرة.
-- احفظ تدفق الذاكرة في ملف.
-
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. الحصول على مرجع الشريحة حسب الفهرس.
+1. فتح تدفق ملف.
+1. حفظ الشريحة كصورة SVG إلى تدفق الملف.
 ```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("CreateSlidesSVGImage.pptx");
-try {
-    // Access the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
 
-    // Create a memory stream object
-    FileOutputStream svgStream = new FileOutputStream("Aspose_out.svg");
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Generate SVG image of slide and save in memory stream
-    sld.writeAsSvg(svgStream);
+FileOutputStream svgStream = new FileOutputStream("output.svg");
+slide.writeAsSvg(svgStream);
+svgStream.close();
 
-    svgStream.close();
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
+presentation.dispose();
 ```
 
-## **إنشاء SVG مع معرفات أشكال مخصصة**
-يمكن استخدام Aspose.Slides لجافا لإنشاء [SVG](https://docs.fileformat.com/page-description-language/svg/) من الشريحة مع معرف الشكل المخصص. لذلك، استخدم خاصية ID من [ISvgShape](https://reference.aspose.com/slides/java/com.aspose.slides/ISvgShape)، والتي تمثل معرفًا مخصصًا للأشكال في SVG الناتج. يمكن استخدام CustomSvgShapeFormattingController لتعيين معرف الشكل.
 
+## **إنشاء SVG بمعرف شكل مخصص**
+
+يمكن استخدام Aspose.Slides لإنشاء [SVG](https://docs.fileformat.com/page-description-language/svg/) من شريحة بمعرف شكل مخصص. للقيام بذلك، استخدم طريقة `setId` من [ISvgShape](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshape/). يمكن استخدام `CustomSvgShapeFormattingController` لتعيين معرف الشكل.
 ```java
-Presentation pres = new Presentation("pptxFileName.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("Aspose_out.svg");
-    try {
-        SVGOptions svgOptions = new SVGOptions();
-        svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
+int slideIndex = 0;
 
-        pres.getSlides().get_Item(0).writeAsSvg(stream, svgOptions);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
+
+SVGOptions svgOptions = new SVGOptions();
+svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
+
+FileOutputStream svgStream = new FileOutputStream("output.svg");
+slide.writeAsSvg(svgStream, svgOptions);
+svgStream.close();
+
+presentation.dispose();
 ```
+
 ```java
-class CustomSvgShapeFormattingController implements ISvgShapeFormattingController
-{
+class CustomSvgShapeFormattingController implements ISvgShapeFormattingController {
     private int m_shapeIndex;
 
-    public CustomSvgShapeFormattingController()
-    {
+    public CustomSvgShapeFormattingController() {
         m_shapeIndex = 0;
     }
-    
-    public CustomSvgShapeFormattingController(int shapeStartIndex)
-    {
+
+    public CustomSvgShapeFormattingController(int shapeStartIndex) {
         m_shapeIndex = shapeStartIndex;
     }
 
-    public void formatShape(ISvgShape svgShape, IShape shape)
-    {
+    public void formatShape(ISvgShape svgShape, IShape shape) {
         svgShape.setId(String.format("shape-%d", m_shapeIndex++));
     }
 }
 ```
 
-## **إنشاء صورة مصغرة للشرائح**
-تساعدك Aspose.Slides لجافا في إنشاء صور مصغرة للشرائح. لإنشاء الصورة المصغرة لأي شريحة مرغوبة باستخدام Aspose.Slides لجافا:
 
-1. أنشئ مثيلًا من [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. احصل على مرجع لأي شريحة مرغوبة باستخدام معرفها أو فهرسها.
-1. احصل على الصورة المصغرة للشريحة المراجع على مقياس محدد.
-1. احفظ الصورة المصغرة بأي تنسيق صورة مرغوب.
+## **إنشاء صورة مصغرة للشريحة**
 
+تساعدك Aspose.Slides على إنشاء صور مصغرة للشرائح. لإنشاء صورة مصغرة لشريحة باستخدام Aspose.Slides، يرجى اتباع الخطوات أدناه:
+
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. الحصول على مرجع الشريحة حسب الفهرس.
+1. الحصول على الصورة المصغرة للشريحة المرجعية بمقاس مُحدد.
+1. حفظ الصورة المصغرة بأي تنسيق صورة مرغوب.
 ```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("ThumbnailFromSlide.pptx");
-try {
-    // Access the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
+float scaleX = 1;
+float scaleY = scaleX;
 
-    // Create a full scale image
-    IImage slideImage = sld.getImage(1f, 1f);
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Save the image to disk in JPEG format
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+IImage image = slide.getImage(scaleX, scaleY);
+image.save("output.jpg", ImageFormat.Jpeg);
+image.dispose();
+
+presentation.dispose();
 ```
 
-## **إنشاء صورة مصغرة بأبعاد محددة من قبل المستخدم**
 
-1. أنشئ مثيلًا من [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. احصل على مرجع لأي شريحة مرغوبة باستخدام معرفها أو فهرسها.
-1. احصل على الصورة المصغرة للشريحة المراجع على مقياس محدد.
-1. احفظ الصورة المصغرة بأي تنسيق صورة مرغوب.
+## **إنشاء صورة مصغرة للشريحة بأبعاد مُحددة من قبل المستخدم**
 
+لإنشاء صورة مصغرة للشريحة بأبعاد يحددها المستخدم، يرجى اتباع الخطوات أدناه:
+
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. الحصول على مرجع الشريحة حسب الفهرس.
+1. الحصول على الصورة المصغرة للشريحة المرجعية بالأبعاد المحددة.
+1. حفظ الصورة المصغرة بأي تنسيق صورة مرغوب.
 ```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-try {
-    // Access the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
+Dimension slideSize = new Dimension(1200, 800);
 
-    // User defined dimension
-    int desiredX = 1200;
-    int desiredY = 800;
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Getting scaled value of X and Y
-    float ScaleX = (float)(1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
-    
-    // Create a full scale image
-    IImage slideImage = sld.getImage(ScaleX, ScaleY);
+IImage image = slide.getImage(slideSize);
+image.save("output.jpg", ImageFormat.Jpeg);
+image.dispose();
 
-    // Save the image to disk in JPEG format
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+presentation.dispose();
 ```
 
-## **إنشاء صورة مصغرة من الشريحة في عرض الملاحظات**
-لإنشاء الصورة المصغرة لأي شريحة مرغوبة في عرض الملاحظات باستخدام Aspose.Slides لجافا:
 
-1. أنشئ مثيلًا من [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. احصل على مرجع لأي شريحة مرغوبة باستخدام معرفها أو فهرسها.
-1. احصل على الصورة المصغرة للشريحة المرجعية على مقياس محدد في عرض الملاحظات.
-1. احفظ الصورة المصغرة بأي تنسيق صورة مرغوب.
+## **إنشاء صورة مصغرة للشريحة مع ملاحظات المتحدث**
 
-تنتج الشيفرة أدناه صورة مصغرة للشرائح الأولى من عرض تقديمي في عرض الملاحظات.
+لإنشاء صورة مصغرة لشريحة مع ملاحظات المتحدث باستخدام Aspose.Slides، يرجى اتباع الخطوات أدناه:
 
+1. إنشاء مثال من فئة [RenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/renderingoptions/).
+1. استخدام طريقة `RenderingOptions.setSlidesLayoutOptions` لتحديد موضع ملاحظات المتحدث.
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+1. الحصول على مرجع الشريحة حسب الفهرس.
+1. الحصول على الصورة المصغرة للشريحة المرجعية باستخدام خيارات العرض.
+1. حفظ الصورة المصغرة بأي تنسيق صورة مرغوب.
 ```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-try {
-    // Access the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
 
-    // User defined dimension
-    int desiredX = 1200;
-    int desiredY = 800;
+NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();
+layoutingOptions.setNotesPosition(NotesPositions.BottomTruncated);
 
-    // Getting scaled value of X and Y
-    float ScaleX = (float)(1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
+RenderingOptions renderingOptions = new RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutingOptions);
 
-    RenderingOptions opts = new RenderingOptions();
-    opts.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomTruncated);
-    
-    // Create a full scale image
-    IImage slideImage = sld.getImage(opts, ScaleX, ScaleY);
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Save the image to disk in JPEG format
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+IImage image = slide.getImage(renderingOptions);
+image.save("output.png", ImageFormat.Png);
+image.dispose();
+
+presentation.dispose();
 ```
+
+
+## **مثال حي**
+
+يمكنك تجربة تطبيق [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) المجاني لمعرفة ما يمكنك تنفيذه باستخدام Aspose.Slides API:
+
+![Online PowerPoint Viewer](online-PowerPoint-viewer.png)
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني تضمين عارض عروض تقديمية في تطبيق ويب؟**
+
+نعم. يمكنك استخدام Aspose.Slides على الخادم لتوليد الشرائح كصور أو HTML وعرضها في المتصفح. يمكن تنفيذ ميزات التنقل والتكبير باستخدام JavaScript لتجربة تفاعلية.
+
+**ما هي أفضل طريقة لعرض الشرائح داخل عارض مخصص؟**
+
+النهج الموصى به هو توليد كل شريحة كصورة (مثل PNG أو SVG) أو تحويلها إلى HTML باستخدام Aspose.Slides، ثم عرض الناتج داخل صندوق صورة (للتطبيقات المكتبية) أو حاوية HTML (للويب).
+
+**كيف يمكنني التعامل مع عروض تقديمية كبيرة تحتوي على العديد من الشرائح؟**
+
+لعروض كبيرة، ضع في اعتبارك التحميل الكسول أو التوليد عند الطلب للشرائح. يعني هذا توليد محتوى الشريحة فقط عندما ينتقل المستخدم إليها، مما يقلل من استهلاك الذاكرة ووقت التحميل.

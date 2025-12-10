@@ -1,58 +1,72 @@
 ---
-title: VBAを使ったプレゼンテーション
+title: JavaでプレゼンテーションのVBAプロジェクトを管理
+linktitle: VBAによるプレゼンテーション
 type: docs
 weight: 250
 url: /ja/java/presentation-via-vba/
-keywords: "マクロ, マクロ, VBA, VBAマクロ, マクロ追加, マクロ削除, VBA追加, VBA削除, マクロを抽出, VBAを抽出, PowerPointマクロ, PowerPointプレゼンテーション, Java, Aspose.Slides for Java"
-description: "JavaでPowerPointプレゼンテーションにVBAマクロを追加、削除、抽出する"
+keywords:
+- マクロ
+- VBA
+- VBAマクロ
+- マクロの追加
+- マクロの削除
+- マクロの抽出
+- VBAの追加
+- VBAの削除
+- VBAの抽出
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java を使用して VBA 経由で PowerPoint および OpenDocument のプレゼンテーションを生成および操作し、ワークフローを効率化する方法をご紹介します。"
 ---
 
-{{% alert title="注意" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-マクロを含むプレゼンテーションを別のファイル形式（PDF、HTMLなど）に変換すると、Aspose.Slidesはすべてのマクロを無視します（結果として生成されるファイルにはマクロが含まれません）。
+プレゼンテーションにマクロが含まれている状態で別のファイル形式（PDF、HTML、等）に変換すると、Aspose.Slides はすべてのマクロを無視します（マクロは結果のファイルに引き継がれません）。
 
-プレゼンテーションにマクロを追加するか、マクロを含むプレゼンテーションを再保存すると、Aspose.Slidesは単にマクロのバイトを書き込むだけです。
+プレゼンテーションにマクロを追加するか、マクロを含むプレゼンテーションを再保存すると、Aspose.Slides は単にマクロのバイトを記録します。
 
-Aspose.Slides **は決して** プレゼンテーション内のマクロを実行しません。
+Aspose.Slides **決して** プレゼンテーション内のマクロを実行しません。
 
 {{% /alert %}}
 
-## **VBAマクロを追加する**
+## **VBA マクロの追加**
 
-Aspose.Slidesは、VBAプロジェクトを作成（およびプロジェクト参照を設定）し、既存のモジュールを編集するための[VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/vbaproject/)クラスを提供します。[IVbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/ivbaproject/)インターフェースを使用して、プレゼンテーションに埋め込まれたVBAを管理することができます。
+Aspose.Slides は [VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/vbaproject/) クラスを提供し、VBA プロジェクト（およびプロジェクト参照）の作成や既存モジュールの編集が可能です。プレゼンテーションに埋め込まれた VBA を管理するには [IVbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/ivbaproject/) インターフェイスを使用します。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation)クラスのインスタンスを作成します。
-1. [VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/vbaproject/#VbaProject--)コンストラクタを使用して新しいVBAプロジェクトを追加します。
-1. VbaProjectにモジュールを追加します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) クラスのインスタンスを作成します。
+1. [VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/vbaproject/#VbaProject--) コンストラクタを使用して新しい VBA プロジェクトを追加します。
+1. VbaProject にモジュールを追加します。
 1. モジュールのソースコードを設定します。
-1. <stdole>への参照を追加します。
-1. **Microsoft Office**への参照を追加します。
-1. 参照をVBAプロジェクトに関連付けます。
+1. <stdole> への参照を追加します。
+1. **Microsoft Office** への参照を追加します。
+1. 参照を VBA プロジェクトに関連付けます。
 1. プレゼンテーションを保存します。
 
-このJavaコードは、プレゼンテーションにゼロからVBAマクロを追加する方法を示しています：
-
+この Java コードは、プレゼンテーションに VBA マクロをゼロから追加する方法を示しています:
 ```java
-// プレゼンテーションクラスのインスタンスを作成
+// プレゼンテーション クラスのインスタンスを作成
 Presentation pres = new Presentation();
 try {
-    // 新しいVBAプロジェクトを作成
+    // 新しい VBA プロジェクトを作成
     pres.setVbaProject(new VbaProject());
     
-    // VBAプロジェクトに空のモジュールを追加
+    // VBA プロジェクトに空のモジュールを追加
     IVbaModule module = pres.getVbaProject().getModules().addEmptyModule("Module");
     
     // モジュールのソースコードを設定
     module.setSourceCode("Sub Test(oShape As Shape)MsgBox Test End Sub");
     
-    // <stdole>への参照を作成
+    // <stdole> への参照を作成
     VbaReferenceOleTypeLib stdoleReference = new VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
     
-    // Officeへの参照を作成
+    // Office への参照を作成
     VbaReferenceOleTypeLib officeReference = new VbaReferenceOleTypeLib("Office",
             "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
     
-    // VBAプロジェクトに参照を追加
+    // VBA プロジェクトに参照を追加
     pres.getVbaProject().getReferences().add(stdoleReference);
     pres.getVbaProject().getReferences().add(officeReference);
    
@@ -63,49 +77,49 @@ try {
 }
 ```
 
+
 {{% alert color="primary" %}} 
 
-**Aspose**の[マクロ除去ツール](https://products.aspose.app/slides/remove-macros)をチェックしてみると良いでしょう。これはPowerPoint、Excel、Word文書からマクロを削除するための無料ウェブアプリです。
+**Aspose** の無料 Web アプリである [Macro Remover](https://products.aspose.app/slides/remove-macros) を確認してみてください。このアプリは PowerPoint、Excel、Word ドキュメントからマクロを削除します。
 
 {{% /alert %}} 
 
-## **VBAマクロを削除する**
+## **VBA マクロの削除**
 
-[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation)クラスの[VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getVbaProject--)プロパティを使用して、VBAマクロを削除できます。
+[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) クラスの [VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getVbaProject--) プロパティを使用すると、VBA マクロを削除できます。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation)クラスのインスタンスを作成し、マクロを含むプレゼンテーションをロードします。
-1. マクロモジュールにアクセスし、それを削除します。
-1. 修正されたプレゼンテーションを保存します。
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) クラスのインスタンスを作成し、マクロを含むプレゼンテーションを読み込みます。
+1. マクロモジュールにアクセスし、削除します。
+1. 変更したプレゼンテーションを保存します。
 
-このJavaコードは、VBAマクロを削除する方法を示しています：
-
+この Java コードは、VBA マクロを削除する方法を示しています:
 ```java
-// マクロを含むプレゼンテーションをロード
+// マクロを含むプレゼンテーションをロードします
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    // Vbaモジュールにアクセスし、それを削除
+    // Vba モジュールにアクセスして削除します 
     pres.getVbaProject().getModules().remove(pres.getVbaProject().getModules().get_Item(0));
     
-    // プレゼンテーションを保存
+    // プレゼンテーションを保存します
     pres.save("test.pptm", SaveFormat.Pptm);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **VBAマクロを抽出する**
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation)クラスのインスタンスを作成し、マクロを含むプレゼンテーションをロードします。
-2. プレゼンテーションにVBAプロジェクトが含まれているか確認します。
-3. VBAプロジェクトに含まれるすべてのモジュールをループしてマクロを表示します。
+## **VBA マクロの抽出**
 
-このJavaコードは、マクロを含むプレゼンテーションからVBAマクロを抽出する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) クラスのインスタンスを作成し、マクロを含むプレゼンテーションを読み込みます。
+2. プレゼンテーションに VBA プロジェクトが含まれているか確認します。
+3. VBA プロジェクトに含まれるすべてのモジュールをループしてマクロを表示します。
 
+この Java コードは、マクロを含むプレゼンテーションから VBA マクロを抽出する方法を示しています:
 ```java
-// マクロを含むプレゼンテーションをロード
+// マクロを含むプレゼンテーションをロードします
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    if (pres.getVbaProject() != null) // プレゼンテーションにVBAプロジェクトが含まれているか確認
+    if (pres.getVbaProject() != null) // プレゼンテーションに VBA プロジェクトが含まれているか確認します
     {
         for (IVbaModule module : pres.getVbaProject().getModules())
         {
@@ -117,3 +131,40 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+
+
+## **VBA プロジェクトがパスワードで保護されているかの確認**
+
+[IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/java/com.aspose.slides/ivbaproject/#isPasswordProtected--) メソッドを使用すると、プロジェクトのプロパティがパスワードで保護されているかどうかを判断できます。
+
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成し、マクロを含むプレゼンテーションを読み込みます。
+2. プレゼンテーションに [VBA project](https://reference.aspose.com/slides/java/com.aspose.slides/vbaproject/) が含まれているか確認します。
+3. VBA プロジェクトがパスワードで保護されているかチェックし、プロパティを表示します。
+```java
+Presentation presentation = new Presentation("VBA.pptm");
+try {
+    if (presentation.getVbaProject() != null) { // プレゼンテーションに VBA プロジェクトが含まれているか確認します。
+        if (presentation.getVbaProject().isPasswordProtected()) {
+            System.out.printf("The VBA Project '%s' is protected by password to view project properties.", 
+                    presentation.getVbaProject().getName());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+
+## **FAQ**
+
+**プレゼンテーションを PPTX として保存した場合、マクロはどうなりますか？**
+
+マクロは削除されます。PPTX は VBA をサポートしていないためです。マクロを保持したい場合は PPTM、PPSM、または POTM を選択してください。
+
+**Aspose.Slides はプレゼンテーション内のマクロを実行して、たとえばデータを更新することができますか？**
+
+いいえ。ライブラリは VBA コードを決して実行しません。実行は PowerPoint 内で適切なセキュリティ設定がある場合にのみ可能です。
+
+**VBA コードにリンクされた ActiveX コントロールの操作はサポートされていますか？**
+
+はい、既存の [ActiveX controls](/slides/ja/java/activex/) にアクセスし、プロパティを変更したり削除したりできます。これはマクロが ActiveX と連携する場合に便利です。

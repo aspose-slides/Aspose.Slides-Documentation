@@ -1,38 +1,36 @@
 ---
-title: الاستثناءات والأخطاء الشائعة المتعلقة بالخطوط على لينوكس
+title: استثناءات وأخطاء شائعة تتعلق بالخطوط على لينكس
 type: docs
 weight: 200
 url: /ar/java/technical-articles/common-errors-involving-fonts
-keywords: "استثناء الخط، خطأ الخط، لينوكس، جافا، Aspose.Slides لـ جافا"
-description: "استثناءات وأخطاء الخطوط على لينوكس"
+keywords: "استثناء الخط، خطأ الخط، لينكس، جافا، Aspose.Slides for Java"
+description: "استثناءات الخطوط والأخطاء على لينكس"
 ---
 
-## **نص أو صور مفقودة (emf أو wmf) عند تنفيذ الكود على لينوكس**
+## **نص أو صور مفقودة (EMF أو WMF) عند تنفيذ الكود على لينكس**
 
-تحدث هذه المشكلة في الأنظمة التي تحتوي على قيود في هذه الحالات:
+تظهر هذه المشكلة في الأنظمة التي توجد فيها قيود في الحالات التالية:
 
-1. عندما لا توجد خطوط مثبتة أو عندما لا يمكن الوصول إلى مجلد الخطوط لعملية الجافا
+1. عندما لا تكون هناك خطوط مثبتة أو عندما لا يمكن الوصول إلى مجلد الخطوط لعملية جافا
 2. عندما لا يمكن الوصول إلى دليل TEMP.
 
-### الحل
+### **الحل**
 
-تحقق وتأكد من منح الوصول إلى دليل TEMP ومجلد الخطوط.
+تحقق وتأكد من أنه تم منح الوصول إلى دليل TEMP ومجلد الخطوط. 
 
 {{% alert color="warning" %}}
-
-في بعض الحالات، قد لا تتمكن من منح الوصول إلى المجلدات بسبب القيود المفروضة من البيئة أو سياسة الأمان. جرب هذه الحلول البديلة:
-
+في بعض الحالات، قد لا تتمكن من منح الوصول إلى المجلدات بسبب القيود التي يفرضها البيئة أو سياسات الأمان. جرّب هذه الحلول المؤقتة: 
 {{% /alert %}}
 
-**حل بديل**
+**الحل المؤقت**
 
 استخدم [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader) لتحميل الخطوط المطلوبة دون تثبيتها:
-
 ```
 FontsLoader.loadExternalFonts(pathToFontsFolders);
 ```
 
-إذا لم يكن من الممكن الوصول إلى دليل TEMP، استخدم هذا الكود لتحديد دليل آخر كـ TEMP لجافا:
+
+إذا لم يكن بالإمكان الوصول إلى دليل TEMP، استخدم هذا الكود لتحديد دليل آخر كدليل TEMP لجافا:
 ```
 String newTempFolder = "pathToTmpFolder";
 String oldValue = System.getProperty("java.io.tmpdir");
@@ -52,107 +50,104 @@ try {
 }
 ```
 
-## **استثناء: InvalidOperationException: لا يمكن العثور على أي خطوط مثبتة على النظام**
+
+## **الاستثناء: InvalidOperationException: لا يمكن العثور على أي خطوط مثبتة على النظام**
 
 يحدث هذا الاستثناء عندما
 
-1) لا يمكن لعملية الجافا الوصول إلى مجلد الخطوط
+1) لا يمكن لعملية جافا الوصول إلى مجلد الخطوط  
 2) لم يتم تثبيت أي خطوط.
 
-### الحل
+### **الحل**
 
-1. تحقق وتأكد من منح الوصول إلى مجلد الخطوط لعملية الجافا.
+1. تحقق وتأكد من أنه تم منح الوصول إلى مجلد الخطوط لعملية جافا.  
+2. ثبت بعض الخطوط أو استخدم [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader).  
+3. ثبت الخطوط.
 
-2. قم بتثبيت بعض الخطوط أو استخدم [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader).
-
-3. قم بتثبيت الخطوط.
-
-   * أوبونتو:
-
+   * Ubuntu: 
      ```
      sudo apt-get update
      sudo apt-get install -y fonts-dejavu-core
      fc-cache -fv
      ```
 
-   * سنتوس:
 
+   * CentOS: 
      ```
      sudo yum makecache
      sudo yum -y install dejavu-sans-fonts
      fc-cache -fv
      ```
 
-   * باستخدام [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader):
 
+   * باستخدام [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader): 
      ```
      FontsLoader.loadExternalFonts(pathToFontsFolders);
      ```
 
-## **استثناء: NoClassDefFoundError: لم يكن من الممكن تهيئة الفئة com.aspose.slides.internal.ey.this**
 
-يحدث هذا الاستثناء على نظام لينوكس يفتقر إلى fontconfig والخطوط.
+## **الاستثناء: NoClassDefFoundError: تعذر تهيئة الفئة com.aspose.slides.internal.ey.this**
 
-### الحل:
+يحدث هذا الاستثناء على نظام لينكس يفتقر إلى fontconfig والخطوط. 
 
-قم بتثبيت fontconfig:
+### **الحل**
 
-* أوبونتو:
+ثبت fontconfig:
 
+* Ubuntu:
   ```
   sudo apt-get update
   sudo apt-get -y install fontconfig
   ```
 
-* سنتوس:
 
+* CentOS:
   ```
   sudo yum makecache
   sudo yum -y install fontconfig
   ```
 
-بالإضافة إلى ذلك، فإن بعض إصدارات open-jdk (على سبيل المثال، **alpine JDK**) تتطلب أيضًا **تثبيت الخطوط**.
 
-* أوبونتو:
+بالإضافة إلى ذلك، بعض إصدارات open-jdk (على سبيل المثال، **alpine JDK**) تحتاج أيضًا إلى **خطوط مثبتة**.
 
+* Ubuntu:
   ```
   sudo apt-get install -y fonts-dejavu-core
   fc-cache -fv
   ```
 
-* سنتوس:
 
+* CentOS:
   ```
   sudo yum -y install dejavu-sans-fonts
   fc-cache -fv
   ```
 
-## **استثناء: UnsatisfiedLinkError: libfreetype.so.6: لا يمكن فتح ملف الكائن المشترك: لا يوجد مثل هذا الملف أو الدليل**
 
-يحدث هذا الاستثناء على نظام لينوكس يفتقر إلى مكتبة libfreetype.
+## **الاستثناء: UnsatisfiedLinkError: libfreetype.so.6: لا يمكن فتح ملف الكائن المشترك: لا وجود للملف أو الدليل**
 
-### الحل:
+يظهر هذا الاستثناء على نظام لينكس يفتقر إلى مكتبة libfreetype. 
 
-قم بتثبيت libfreetype وfontconfig:
+### **الحل**
 
-* أوبونتو:
+ثبت libfreetype و fontconfig:
 
+* Ubuntu: 
   ```
   sudo apt-get update
   sudo apt-get install libfreetype6
   sudo apt-get -y install fontconfig
   ```
 
-* سنتوس:
 
+* CentOS: 
   ```
   sudo yum makecache
   sudo yum install libfreetype6
   sudo yum -y install fontconfig
   ```
 
-{{% alert title="نصيحة" color="primary" %}} 
 
-لا تنسَ تثبيت الخطوط أو استخدام FontsLoader.
-
-{{% /alert %}}  
+{{% alert title="TIP" color="primary" %}} 
+لا تنس تثبيت الخطوط أو استخدام FontsLoader.
+{{% /alert %}}

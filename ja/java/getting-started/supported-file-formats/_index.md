@@ -3,9 +3,44 @@ title: サポートされているファイル形式
 type: docs
 weight: 20
 url: /ja/java/supported-file-formats/
+keywords:
+- ファイル形式
+- サポート形式
+- PPT
+- POT
+- PPS
+- PPTX
+- POTX
+- PPSX
+- PPTM
+- PPSM
+- POTM
+- ODP
+- FODP
+- OTP
+- TIFF
+- EMF
+- PDF
+- XPS
+- JPEG
+- PNG
+- GIF
+- BMP
+- SVG
+- SWF
+- HTML
+- XAML
+- MD
+- XML
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java が開くこと・保存すること・変換できるすべてのファイル形式を、PPT、PPTX、ODP を含めて、明確なインポート/エクスポートサポート情報とともにご確認ください。"
 ---
 
-## **サポートされているMicrosoft PowerPointバージョン**
+## **サポートされている Microsoft PowerPoint バージョン**
 - Microsoft PowerPoint 97
 - Microsoft PowerPoint 2000
 - Microsoft PowerPoint XP
@@ -15,36 +50,58 @@ url: /ja/java/supported-file-formats/
 - Microsoft PowerPoint 2013
 - Microsoft PowerPoint 2016
 - Microsoft PowerPoint 2019
-- Microsoft PowerPoint for MAC
+- Microsoft PowerPoint for Mac
 - Office 365
 
 ## **サポートされているファイル形式**
-このテーブルには、Aspose.Slides for Javaが読み込みおよび保存できるファイル形式が含まれています：
+この表は Aspose.Slides for Java が読み込みおよび保存できるファイル形式を示しています。
 
 |**形式**|**説明**|**読み込み**|**保存**|**備考**|
 | :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint 97-2003プレゼンテーション|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POT](https://docs.fileformat.com/presentation/pot/)|PowerPoint 97-2003テンプレート|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint 97-2003スライドショー|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPointプレゼンテーション|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POTX](https://docs.fileformat.com/presentation/potx/)|PowerPointテンプレート|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|PowerPointスライドショー|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPTM](https://docs.fileformat.com/presentation/pptm/)|PowerPointマクロ有効プレゼンテーション|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|PowerPointマクロ有効スライドショー|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[POTM](https://docs.fileformat.com/presentation/potm/)|PowerPointマクロ有効テンプレート|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[ODP/FODP](https://docs.fileformat.com/presentation/odp/)|OpenDocumentプレゼンテーション|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[OTP](https://docs.fileformat.com/presentation/otp/)|OpenDocumentプレゼンテーションテンプレート|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[TIFF](https://docs.fileformat.com/image/tiff/)|タグ付き画像ファイル形式| |{{< emoticons/tick >}}| |
-|[EMF](https://docs.fileformat.com/image/emf/)|拡張メタファイル形式| |{{< emoticons/tick >}}| |
-|[PDF](https://docs.fileformat.com/pdf/)|ポータブルドキュメント形式|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[XPS](https://docs.fileformat.com/page-description-language/xps/)|XMLペーパー仕様| |{{< emoticons/tick >}}| |
-|[JPEG](https://docs.fileformat.com/image/jpeg/)|ジョイントフォトグラフィックエキスパートグループ| |{{< emoticons/tick >}}| |
-|[PNG](https://docs.fileformat.com/image/png/)|ポータブルネットワークグラフィックス| |{{< emoticons/tick >}}| |
-|[GIF](https://docs.fileformat.com/image/gif/)|グラフィックスインターチェンジ形式| |{{< emoticons/tick >}}| |
-|[BMP](https://docs.fileformat.com/image/bmp/)|デバイス独立ビットマップ| |{{< emoticons/tick >}}| |
-|[SVG](https://docs.fileformat.com/page-description-language/svg/)|スケーラブルベクターグラフィックス| |{{< emoticons/tick >}}| |
-|[SWF](https://docs.fileformat.com/page-description-language/swf/)|スモールウェブ形式| |{{< emoticons/tick >}}| |
-|[HTML](https://docs.fileformat.com/web/html/)|ハイパーテキストマークアップ言語|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
-|[XAML](https://docs.fileformat.com/web/xaml/)|拡張アプリケーションマークアップ言語| |{{< emoticons/tick >}}| |
-|[MD](https://docs.fileformat.com/word-processing/md/)|Markdown| |{{< emoticons/tick >}}| |
-|[XML](https://docs.fileformat.com/web/xml/)|PowerPoint XMLプレゼンテーション| |{{< emoticons/tick >}}| |
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint 97-2003 プレゼンテーション|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
+|[POT](https://docs.fileformat.com/presentation/pot/)|PowerPoint 97-2003 テンプレート|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
+|[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint 97-2003 ショー|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint プレゼンテーション|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
+|[POTX](https://docs.fileformat.com/presentation/potx/)|PowerPoint テンプレート|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
+|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|PowerPoint ショー|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
+|[PPTM](https://docs.fileformat.com/presentation/pptm/)|PowerPoint マクロ対応プレゼンテーション|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
+|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|PowerPoint マクロ対応ショー|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
+|[POTM](https://docs.fileformat.com/presentation/potm/)|PowerPoint マクロ対応テンプレート|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
+|[ODP/FODP](https://docs.fileformat.com/presentation/odp/)|OpenDocument プレゼンテーション|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
+|[OTP](https://docs.fileformat.com/presentation/otp/)|OpenDocument プレゼンテーションテンプレート|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
+|[TIFF](https://docs.fileformat.com/image/tiff/)|タグ画像ファイル形式| |{{< emoticons/tick >}}||
+|[EMF](https://docs.fileformat.com/image/emf/)|拡張メタファイル形式| |{{< emoticons/tick >}}||
+|[PDF](https://docs.fileformat.com/pdf/)|ポータブルドキュメントフォーマット|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
+|[XPS](https://docs.fileformat.com/page-description-language/xps/)|XML ペーパー仕様| |{{< emoticons/tick >}}||
+|[JPEG](https://docs.fileformat.com/image/jpeg/)|Joint Photographic Experts Group| |{{< emoticons/tick >}}||
+|[PNG](https://docs.fileformat.com/image/png/)|ポータブルネットワークグラフィックス| |{{< emoticons/tick >}}||
+|[GIF](https://docs.fileformat.com/image/gif/)|Graphics Interchange Format| |{{< emoticons/tick >}}||
+|[BMP](https://docs.fileformat.com/image/bmp/)|デバイス独立ビットマップ| |{{< emoticons/tick >}}||
+|[SVG](https://docs.fileformat.com/page-description-language/svg/)|スケーラブルベクターグラフィックス| |{{< emoticons/tick >}}||
+|[SWF](https://docs.fileformat.com/page-description-language/swf/)|スモールウェブフォーマット| |{{< emoticons/tick >}}||
+|[HTML](https://docs.fileformat.com/web/html/)|ハイパーテキストマークアップ言語|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
+|[XAML](https://docs.fileformat.com/web/xaml/)|拡張可能アプリケーションマークアップ言語| |{{< emoticons/tick >}}||
+|[MD](https://docs.fileformat.com/word-processing/md/)|Markdown| |{{< emoticons/tick >}}||
+|[XML](https://docs.fileformat.com/web/xml/)|PowerPoint XML プレゼンテーション| |{{< emoticons/tick >}}||
+
+## **よくある質問**
+
+**アーカイブおよびアクセシビリティ基準 (PDF/A と PDF/UA) に準拠した PDF にプレゼンテーションを保存できますか？**
+
+はい。Aspose.Slides は PDF/A-2a、PDF/A-2b、PDF/A-2u、PDF/A-3a、PDF/A-3b、さらには PDF/UA などの準拠レベルでの PDF エクスポートを、[compliance](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setCompliance-int-) 設定を使用して、[PDF エクスポート オプション](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) でサポートします。
+
+**PDF にエクスポートする際にフォント埋め込みをサポートし、埋め込む内容を細かく制御できますか？**
+
+はい。フォントを完全に埋め込むかサブセット化するか（使用されたグリフのみ）、一般的なシステムフォントの扱いを指定し、ASCII テキストの動作を [PDF エクスポート オプション](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) で構成できます。
+
+**ファイルを実際に読み込む前に、パスワードで保護されているかどうかを検出できますか？**
+
+はい。[factory-based inspection API](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/) を使用して、プレゼンテーション ファイルがパスワードで保護されているかを完全に開かずに照会できます。
+
+**フォントのフォールバック機構やカスタムフォントのサポートはありますか？**
+
+はい。ライブラリはカスタムフォントの [loading](/slides/ja/java/custom-font/) と [embedding](/slides/ja/java/embedded-font/) をサポートし、レンダリングや変換時に欠損グリフを防ぐためのフォント [fallback rules](/slides/ja/java/fallback-font/) を提供します。
+
+**スライドを XPS にエクスポートできますか？また、XPS 出力を調整するオプションはありますか？**
+
+はい。[Export to XPS](/slides/ja/java/convert-powerpoint-to-xps/) がサポートされており、[save options](https://reference.aspose.com/slides/java/com.aspose.slides/xpsoptions/) で XPS ドキュメントの出力品質や内容を調整できます。

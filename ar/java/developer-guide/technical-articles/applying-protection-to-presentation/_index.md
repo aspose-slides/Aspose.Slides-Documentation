@@ -1,49 +1,177 @@
 ---
-title: تطبيق الحماية على العرض التقديمي
+title: منع تعديل العرض باستخدام أقفال الشكل
+linktitle: منع تعديل العرض
 type: docs
 weight: 60
 url: /ar/java/applying-protection-to-presentation/
+keywords:
+- منع التعديلات
+- حماية من التحرير
+- قفل الشكل
+- قفل الموضع
+- قفل الاختيار
+- قفل الحجم
+- قفل التجميع
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "اكتشف كيف تقوم Aspose.Slides for Java بقفل أو إلغاء قفل الأشكال في ملفات PPT و PPTX و ODP، مما يحمي العروض التقديمية مع إتاحة تحرير مضبوط وتسليم أسرع."
 ---
 
-{{% alert color="primary" %}} 
+## **الخلفية**
 
-استخدام شائع لـ Aspose.Slides هو إنشاء وتحديث وحفظ عروض Microsoft PowerPoint 2007 (PPTX) كجزء من سير عمل آلي. يحصل مستخدمو التطبيق الذي يستخدم Aspose.Slides بهذه الطريقة على الوصول إلى العروض الناتجة. حماية هذه العروض من التعديل هي مصدر قلق شائع. من المهم أن تحتفظ العروض التقديمية التي تم إنشاؤها تلقائيًا بتنسيقها ومحتواها الأصليين.
+استخدام شائع لـ Aspose.Slides هو إنشاء وتحديث وحفظ عروض Microsoft PowerPoint (PPTX) كجزء من سير عمل مؤتمت. يحصل مستخدمو التطبيقات التي تستخدم Aspose.Slides بهذه الطريقة على الوصول إلى العروض التي تم إنشاؤها، لذا فإن حماية هذه العروض من التحرير تشكل قلقًا شائعًا. من المهم أن تحتفظ العروض التي تم إنشاؤها تلقائيًا بالتنسيق والمحتوى الأصليين.
 
-توضح هذه المقالة كيفية [إنشاء العروض والشرائح](/slides/ar/java/applying-protection-to-presentation/) وكيف يمكن لـ Aspose.Slides لـ Java [تطبيق الحماية على](/slides/ar/java/applying-protection-to-presentation/) ثم [إزالتها من](/slides/ar/java/applying-protection-to-presentation/) عرض تقديمي. هذه الميزة فريدة من نوعها في Aspose.Slides، وفي وقت كتابة المقالة، ليست متاحة في Microsoft PowerPoint. إنها تعطي المطورين وسيلة للتحكم في كيفية استخدام العروض التي تخلقها تطبيقاتهم.
+توضح هذه المقالة كيفية هيكلة العروض والشرائح وكيف يمكن لـ Aspose.Slides for Java تطبيق الحماية على عرض ثم إزالتها لاحقًا. فهي توفر للمطورين وسيلة للتحكم في كيفية استخدام العروض التي تولدها تطبيقاتهم.
 
-{{% /alert %}} 
-## **تركيب الشريحة**
-تتكون شريحة PPTX من عدد من المكونات مثل الأشكال التلقائية، والجداول، وأشياء OLE، والأشكال المجمعة، وإطارات الصور، وإطارات الفيديو، والمواصلات، والعناصر الأخرى المتاحة لبناء عرض تقديمي. في Aspose.Slides لـ Java، يتم تحويل كل عنصر على الشريحة إلى كائن Shape. بمعنى آخر، كل عنصر على الشريحة هو إما كائن Shape أو كائن مشتق من كائن Shape. هيكل PPTX معقد، لذا على عكس PPT، حيث يمكن استخدام قفل عام لجميع أنواع الأشكال، هناك أنواع مختلفة من الأقفال لأنواع الأشكال المختلفة. فئة BaseShapeLock هي الفئة العامة لقفل PPTX. الأنواع التالية من الأقفال مدعومة في Aspose.Slides لـ Java لـ PPTX.
+## **تكوين الشريحة**
 
-- AutoShapeLock يقفل الأشكال التلقائية.
-- ConnectorLock يقفل الأشكال الموصلة.
-- GraphicalObjectLock يقفل الكائنات الرسومية.
-- GroupshapeLock يقفل الأشكال المجمعة.
-- PictureFrameLock يقفل إطارات الصور.
-  أي إجراء يتم تنفيذه على جميع كائنات Shape في كائن العرض التقديمي يتم تطبيقه على العرض التقديمي بالكامل.
+تتكون شريحة العرض من مكونات مثل الأشكال التلقائية، الجداول، كائنات OLE، الأشكال المجمعة، إطارات الصور، إطارات الفيديو، الموصلات، وعناصر أخرى تُستخدم لبناء عرض تقديمي. في Aspose.Slides for Java، يُمثَّل كل عنصر في الشريحة بكائن يُنفِّذ الواجهة [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) أو يرث من فئة تقوم بذلك.
+
+هيكل PPTX معقد، لذا على عكس PPT حيث يمكن استخدام قفل عام لجميع أنواع الأشكال، تتطلب أنواع الأشكال المختلفة أقفالًا مختلفة. الواجهة [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) هي الفئة العامة للقفل في PPTX. الأنواع التالية من الأقفال مدعومة في Aspose.Slides for Java لـ PPTX:
+
+- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) يقفل الأشكال التلقائية.  
+- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) يقفل أشكال الموصلات.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) يقفل الكائنات الرسومية.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) يقفل الأشكال المجمعة.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) يقفل إطارات الصور.  
+
+أي إجراء يُجرى على جميع كائنات الشكل في كائن [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) يُطبق على العرض بأكمله.
+
 ## **تطبيق وإزالة الحماية**
-تطبيق الحماية يضمن أنه لا يمكن تعديل العرض التقديمي. إنها تقنية مفيدة لحماية محتوى العرض التقديمي.
-## **تطبيق الحماية على أشكال PPTX**
-توفر Aspose.Slides لـ Java فئة Shape للتعامل مع شكل على الشريحة.
 
-كما ذكر سابقًا، تحتوي كل فئة شكل على فئة قفل شكل مرتبطة بها للحماية. تركز هذه المقالة على أقفال NoSelect و NoMove و NoResize. تضمن هذه الأقفال أن الأشكال لا يمكن تحديدها (من خلال نقرات الماوس أو طرق الاختيار الأخرى)، ولا يمكن نقلها أو تغيير حجمها.
+تطبيق الحماية يضمن عدم إمكانية تعديل العرض. وهي تقنية مفيدة لحماية محتوى العرض.
 
-عينات التعليمات البرمجية التي تلي تطبق الحماية على جميع أنواع الأشكال في العرض التقديمي.
+### **تطبيق الحماية على أشكال PPTX**
+
+توفر Aspose.Slides for Java الواجهة [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) للعمل مع الأشكال على الشريحة.
+
+كما ذُكر سابقًا، كل فئة شكل لها فئة قفل شكل مرتبطة للحماية. تركز هذه المقالة على أقفال NoSelect و NoMove و NoResize. هذه الأقفال تضمن عدم إمكانية اختيار الأشكال (من خلال نقرات الفأرة أو طرق اختيار أخرى) وعدم إمكانية نقلها أو تغيير حجمها.
+
+عينة الشيفرة التالية تطبق الحماية على جميع أنواع الأشكال في عرض تقديمي.
+```java
+// إنشاء كائن Presentation الذي يمثل ملف PPTX.
+Presentation presentation = new Presentation("Sample.pptx");
+
+// Traversing all the slides in the presentation.
+for (ISlide slide : presentation.getSlides()) {
+
+    // Traversing all the shapes in the slide.
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAutoShape) {
+            // تحويل النوع إلى autoshape والحصول على قفل الشكل.
+            IAutoShape autoShape = (IAutoShape) shape;
+            IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
+
+            autoShapeLock.setPositionLocked(true);
+            autoShapeLock.setSelectLocked(true);
+            autoShapeLock.setSizeLocked(true);
+        } else if (shape instanceof IGroupShape) {
+            // تحويل النوع إلى شكل مجموعة والحصول على قفل الشكل.
+            IGroupShape groupShape = (IGroupShape) shape;
+            IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
+
+            groupShapeLock.setGroupingLocked(true);
+            groupShapeLock.setPositionLocked(true);
+            groupShapeLock.setSelectLocked(true);
+            groupShapeLock.setSizeLocked(true);
+        } else if (shape instanceof IConnector) {
+            // تحويل النوع إلى شكل موصل والحصول على قفل الشكل.
+            IConnector connectorShape = (IConnector) shape;
+            IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
+
+            connectorShapeLock.setPositionMove(true);
+            connectorShapeLock.setSelectLocked(true);
+            connectorShapeLock.setSizeLocked(true);
+        } else if (shape instanceof IPictureFrame) {
+            // تحويل النوع إلى إطار صورة والحصول على قفل الشكل.
+            IPictureFrame pictureFrame = (IPictureFrame) shape;
+            IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
+
+            pictureFrameLock.setPositionLocked(true);
+            pictureFrameLock.setSelectLocked(true);
+            pictureFrameLock.setSizeLocked(true);
+        }
+    }
+}
+
+// حفظ ملف العرض.
+presentation.save("ProtectedSample.pptx", SaveFormat.Pptx);
+presentation.dispose();
+```
 
 
+### **إزالة الحماية**
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Saving-ApplyProtection-ApplyProtection.java" >}}
-## **إزالة الحماية**
-يمكن إزالة الحماية المطبقة باستخدام Aspose.Slides لـ .NET/Java فقط باستخدام Aspose.Slides لـ .NET/Java. لإلغاء قفل شكل، اضبط قيمة القفل المطبق على false. عينة التعليمات البرمجية التي تلي توضح كيفية إلغاء قفل الأشكال في عرض تقديمي مقفل.
+لإلغاء قفل شكل، عيّن قيمة القفل المطبّق إلى `false`. تُظهر عينة الشيفرة التالية كيفية إلغاء قفل الأشكال في عرض مؤمَّن.
+```java
+// إنشاء كائن Presentation الذي يمثل ملف PPTX.
+Presentation presentation = new Presentation("ProtectedSample.pptx");
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Saving-RemoveProtection-RemoveProtection.java" >}}
+// استعراض جميع الشرائح في العرض.
+for (ISlide slide : presentation.getSlides()) {
+
+    // استعراض جميع الأشكال في الشريحة.
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAutoShape) {
+            // تحويل النوع إلى autoshape والحصول على قفل الشكل.
+            IAutoShape autoShape = (IAutoShape) shape;
+            IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
+
+            autoShapeLock.setPositionLocked(false);
+            autoShapeLock.setSelectLocked(false);
+            autoShapeLock.setSizeLocked(false);
+        } else if (shape instanceof IGroupShape) {
+            // تحويل النوع إلى شكل مجموعة والحصول على قفل الشكل.
+            IGroupShape groupShape = (IGroupShape) shape;
+            IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
+
+            groupShapeLock.setGroupingLocked(false);
+            groupShapeLock.setPositionLocked(false);
+            groupShapeLock.setSelectLocked(false);
+            groupShapeLock.setSizeLocked(false);
+        } else if (shape instanceof IConnector) {
+            // تحويل النوع إلى شكل موصل والحصول على قفل الشكل.
+            IConnector connectorShape = (IConnector) shape;
+            IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
+
+            connectorShapeLock.setPositionMove(false);
+            connectorShapeLock.setSelectLocked(false);
+            connectorShapeLock.setSizeLocked(false);
+        } else if (shape instanceof IPictureFrame) {
+            // تحويل النوع إلى إطار صورة والحصول على قفل الشكل.
+            IPictureFrame pictureFrame = (IPictureFrame) shape;
+            IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
+
+            pictureFrameLock.setPositionLocked(false);
+            pictureFrameLock.setSelectLocked(false);
+            pictureFrameLock.setSizeLocked(false);
+        }
+    }
+}
+
+// حفظ ملف العرض.
+presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
+presentation.dispose();
+```
 
 
+## **الخلاصة**
 
+توفر Aspose.Slides عدة خيارات لحماية الأشكال في عرض تقديمي. يمكنك قفل شكل فردي أو المرور عبر جميع الأشكال في عرض وتطبيق القفل على كلٍ منها لتأمين الملف بالكامل بفعالية. يمكنك إزالة الحماية بتعيين قيمة القفل إلى `false`.
 
-## **الملخص**
-{{% alert color="primary" %}} 
+## **الأسئلة المتكررة**
 
-توفر Aspose.Slides عددًا من الخيارات لتطبيق الحماية على الأشكال في عرض تقديمي. من الممكن قفل شكل معين، أو التكرار عبر جميع الأشكال في عرض تقديمي وقفل جميعها لقفل العرض التقديمي بشكل فعال. يمكن فقط لـ Aspose.Slides لـ Java إزالة الحماية من عرض تقديمي تم حمايته سابقًا. أزل الحماية عن طريق ضبط قيمة القفل على false.
+**هل يمكنني دمج أقفال الأشكال وحماية كلمة المرور في نفس العرض؟**
 
-{{% /alert %}}
+نعم. تحدّ القفل من تحرير الكائنات داخل الملف، بينما [حماية كلمة المرور](/slides/ar/java/password-protected-presentation/) يتحكم في الوصول إلى فتح الملف و/أو حفظ التغييرات. تكمل هذه الآليات بعضها البعض وتعمل معاً.
+
+**هل يمكنني تقييد التحرير على شرائح محددة دون تأثير على غيرها؟**
+
+نعم. قم بتطبيق الأقفال على الأشكال في الشرائح المحددة؛ الشرائح المتبقية ستظل قابلة للتحرير.
+
+**هل تنطبق أقفال الأشكال على الكائنات المجمعة والموصلات؟**
+
+نعم. هناك أنواع أقفال مخصصة مدعومة للمجموعات، الموصلات، الكائنات الرسومية، وأنواع أخرى من الأشكال.

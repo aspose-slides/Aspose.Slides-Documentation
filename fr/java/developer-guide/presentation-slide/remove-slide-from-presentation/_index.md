@@ -1,32 +1,39 @@
 ---
-title: Supprimer une diapositive de la présentation
+title: Supprimer des diapositives des présentations Java
+linktitle: Supprimer diapositive
 type: docs
 weight: 30
 url: /fr/java/remove-slide-from-presentation/
-keywords: "Supprimer diapositive, Effacer diapositive, PowerPoint, Présentation, Java, Aspose.Slides"
-description: "Supprimer une diapositive de PowerPoint par référence ou par index en Java"
-
+keywords:
+- supprimer diapositive
+- effacer diapositive
+- supprimer diapositive inutilisée
+- PowerPoint
+- OpenDocument
+- présentation
+- Java
+- Aspose.Slides
+description: "Supprimez facilement les diapositives des présentations PowerPoint et OpenDocument avec Aspose.Slides pour Java. Obtenez des exemples de code clairs et améliorez votre flux de travail."
 ---
 
-Si une diapositive (ou son contenu) devient redondante, vous pouvez la supprimer. Aspose.Slides fournit la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) qui encapsule [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/), qui est un référentiel pour toutes les diapositives d'une présentation. En utilisant des pointeurs (référence ou index) pour un objet [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/), vous pouvez spécifier la diapositive que vous souhaitez supprimer.
+Si une diapositive (ou son contenu) devient redondante, vous pouvez la supprimer. Aspose.Slides fournit la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) qui encapsule [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/), qui est un référentiel de toutes les diapositives d’une présentation. En utilisant des pointeurs (référence ou indice) pour un objet [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) connu, vous pouvez spécifier la diapositive que vous souhaitez retirer. 
 
 ## **Supprimer une diapositive par référence**
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Obtenez une référence de la diapositive que vous souhaitez supprimer par son ID ou son index.
+1. Obtenez une référence de la diapositive que vous voulez supprimer via son ID ou son indice.
 1. Supprimez la diapositive référencée de la présentation.
-1. Enregistrez la présentation modifiée.
+1. Enregistrez la présentation modifiée. 
 
-Ce code Java vous montre comment supprimer une diapositive par sa référence :
-
+Ce code Java vous montre comment supprimer une diapositive via sa référence:
 ```java
-// Instancie un objet Presentation qui représente un fichier de présentation
+// Instanciez un objet Presentation qui représente un fichier de présentation
 Presentation pres = new Presentation("demo.pptx");
 try {
-    // Accède à une diapositive par son index dans la collection de diapositives
+    // Accède à une diapositive via son indice dans la collection de diapositives
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Supprime une diapositive par sa référence
+    // Supprime une diapositive via sa référence
     pres.getSlides().remove(slide);
     
     // Enregistre la présentation modifiée
@@ -36,19 +43,19 @@ try {
 }
 ```
 
-## **Supprimer une diapositive par index**
+
+## **Supprimer une diapositive par indice**
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Supprimez la diapositive de la présentation par sa position d'index.
-1. Enregistrez la présentation modifiée.
+1. Supprimez la diapositive de la présentation via sa position d’indice.
+1. Enregistrez la présentation modifiée. 
 
-Ce code Java vous montre comment supprimer une diapositive par son index :
-
+Ce code Java vous montre comment supprimer une diapositive via son indice:
 ```java
 // Instancie un objet Presentation qui représente un fichier de présentation
 Presentation pres = new Presentation("demo.pptx");
 try {
-    // Supprime une diapositive par son index
+    // Supprime une diapositive via son indice
     pres.getSlides().removeAt(0);
     
     // Enregistre la présentation modifiée
@@ -58,10 +65,10 @@ try {
 }
 ```
 
-## **Supprimer une diapositive de mise en page inutilisée**
 
-Aspose.Slides fournit la méthode [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) (de la classe [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)) pour vous permettre de supprimer des diapositives de mise en page non désirées et inutilisées. Ce code Java vous montre comment supprimer une diapositive de mise en page d'une présentation PowerPoint :
+## **Supprimer les diapositives de mise en page inutilisées**
 
+Aspose.Slides fournit la méthode [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) (de la classe [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)) qui vous permet de supprimer les mises en page indésirables et non utilisées. Ce code Java vous montre comment supprimer une diapositive de mise en page d’une présentation PowerPoint :
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -73,17 +80,35 @@ try {
 }
 ```
 
-## **Supprimer une diapositive maître inutilisée**
 
-Aspose.Slides fournit la méthode [removeUnusedMasterSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (de la classe [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)) pour vous permettre de supprimer des diapositives maîtres non désirées et inutilisées. Ce code Java vous montre comment supprimer une diapositive maître d'une présentation PowerPoint :
+## **Supprimer les diapositives maîtres inutilisées**
 
+Aspose.Slides fournit la méthode [removeUnusedMasterSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) (de la classe [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)) qui vous permet de supprimer les maîtres indésirables et non utilisés. Ce code Java vous montre comment supprimer une diapositive maître d’une présentation PowerPoint :
 ```java
 Presentation pres = new Presentation("pres.pptx");
-try {
-    Compress.removeUnusedMasterSlides(pres);
+ try {
+     Compress.removeUnusedMasterSlides(pres);
 
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+     pres.save("pres-out.pptx", SaveFormat.Pptx);
+ } finally {
+     if (pres != null) pres.dispose();
+ }
 ```
+
+
+## **FAQ**
+
+**Que se passe-t-il aux indices de diapositives après avoir supprimé une diapositive ?**  
+Après la suppression, la [collection](https://reference.aspose.com/slides/java/com.aspose.slides/slidecollection/) se réindexe : chaque diapositive suivante se décale d’une position vers la gauche, de sorte que les numéros d’indices précédents deviennent obsolètes. Si vous avez besoin d’une référence stable, utilisez l’ID persistant de chaque diapositive plutôt que son indice.
+
+**L’ID d’une diapositive est‑il différent de son indice, et change‑t‑il lorsque les diapositives voisines sont supprimées ?**  
+Oui. L’indice correspond à la position de la diapositive et changera lorsque des diapositives seront ajoutées ou supprimées. L’ID de la diapositive est un identifiant persistant et ne change pas lorsque d’autres diapositives sont supprimées.
+
+**Comment la suppression d’une diapositive affecte‑t‑elle les sections de diapositives ?**  
+Si la diapositive faisait partie d’une section, cette section contiendra simplement une diapositive de moins. La structure des sections reste intacte ; si une section devient vide, vous pouvez [supprimer ou réorganiser les sections](/slides/fr/java/slide-section/) si besoin.
+
+**Que se passe‑t‑il aux notes et aux commentaires attachés à une diapositive lorsqu’elle est supprimée ?**  
+[Notes](/slides/fr/java/presentation-notes/) et [commentaires](/slides/fr/java/presentation-comments/) sont liés à cette diapositive spécifique et sont supprimés avec elle. Le contenu des autres diapositives n’est pas affecté.
+
+**En quoi la suppression de diapositives diffère‑t‑elle du nettoyage des mises en page/maîtres inutilisés ?**  
+La suppression retire des diapositives normales spécifiques du jeu. Le nettoyage des mises en page/maîtres inutilisés supprime les diapositives de mise en page ou maîtres qui ne sont référencées par aucune diapositive, réduisant la taille du fichier sans modifier le contenu des diapositives restantes. Ces actions sont complémentaires : généralement on supprime d’abord, puis on nettoie.

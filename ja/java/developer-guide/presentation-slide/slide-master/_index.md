@@ -1,129 +1,140 @@
 ---
-title: スライドマスタ
+title: Java でプレゼンテーションのスライドマスターを管理する
+linktitle: スライドマスター
 type: docs
 weight: 70
 url: /ja/java/slide-master/
-keywords: "スライドマスタの追加, PPTマスタスライド, スライドマスタのPowerPoint, スライドマスタへの画像, プレースホルダ, 複数のスライドマスタ, スライドマスタの比較, Java, Aspose.Slides for Java"
-description: "JavaでPowerPointプレゼンテーションのスライドマスタを追加または編集する"
+keywords:
+- スライドマスター
+- マスタースライド
+- PPT マスタースライド
+- 複数のマスタースライド
+- マスタースライドの比較
+- 背景
+- プレースホルダー
+- マスタースライドのクローン
+- マスタースライドのコピー
+- マスタースライドの重複
+- 未使用のマスタースライド
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java のスライドマスターを管理: 簡潔な Java の例を使って、PPT、PPTX、ODP にレイアウト、テーマ、プレースホルダーを作成、編集、適用します。"
 ---
 
-## **PowerPointにおけるスライドマスタとは**
+## **PowerPoint のスライドマスターとは**
 
-**スライドマスタ**は、プレゼンテーション内のスライドのレイアウト、スタイル、テーマ、フォント、背景、その他のプロパティを定義するスライドテンプレートです。同じスタイルとテンプレートで会社向けにプレゼンテーション（または一連のプレゼンテーション）を作成したい場合、スライドマスタを使用できます。
+**Slide Master** は、プレゼンテーション内のスライドのレイアウト、スタイル、テーマ、フォント、背景、およびその他のプロパティを定義するスライドテンプレートです。会社で同じスタイルとテンプレートのプレゼンテーション（または一連のプレゼンテーション）を作成したい場合は、スライドマスターを使用できます。
 
-スライドマスタは、すべてのプレゼンテーションスライドの外観を一度に設定および変更できるため便利です。Aspose.Slidesは、PowerPointからのスライドマスタメカニズムをサポートしています。
+スライドマスターは、すべてのプレゼンテーションスライドの外観を一度に設定および変更できるため便利です。Aspose.Slides は PowerPoint のスライドマスター機構をサポートしています。
 
-VBAを使用すると、スライドマスタを操作し、背景を変更したり、図形を追加したり、レイアウトをカスタマイズしたりなど、PowerPointでサポートされている同じ操作を実行できます。Aspose.Slidesは、スライドマスタを使用し、それらを使用して基本的なタスクを実行するための柔軟なメカニズムを提供します。
+VBA でもスライドマスターを操作でき、PowerPoint でサポートされている同じ操作（背景の変更、図形の追加、レイアウトのカスタマイズなど）を実行できます。Aspose.Slides はスライドマスターを使用し、基本的なタスクを柔軟に実行できるメカニズムを提供します。
 
-これが基本的なスライドマスタ操作です：
+以下は基本的なスライドマスター操作です：
 
-- スライドマスタの作成またはスライドマスタ。
-- プレゼンテーションスライドへのスライドマスタの適用。
-- スライドマスタの背景の変更。
-- スライドマスタに画像、プレースホルダ、スマートアートなどを追加する。
+- スライドマスターの作成または取得。
+- プレゼンテーションスライドへのスライドマスターの適用。
+- スライドマスターの背景変更。
+- スライドマスターへの画像、プレースホルダー、Smart Art などの追加。
 
-これがスライドマスタに関するより高度な操作です：
+以下はスライドマスターに関する高度な操作です：
 
-- スライドマスタの比較。
-- スライドマスタのマージ。
-- 複数のスライドマスタの適用。
-- スライドマスタを持つスライドを別のプレゼンテーションにコピーする。
-- プレゼンテーション内の重複スライドマスタを特定する。
-- プレゼンテーションのデフォルトビューとしてスライドマスタを設定する。
+- スライドマスターの比較。
+- スライドマスターのマージ。
+- 複数のスライドマスターの適用。
+- スライドマスター付きスライドを別のプレゼンテーションにコピー。
+- プレゼンテーション内の重複スライドマスターの検出。
+- スライドマスターをプレゼンテーションのデフォルトビューとして設定。
 
 {{% alert color="primary" %}} 
-
-Asposeの[**オンラインPowerPointビューワー**](https://products.aspose.app/slides/viewer)をチェックすることをお勧めします。これは、ここで説明したいくつかのコアプロセスのライブ実装です。
-
+Aspose の [**Online PowerPoint Viewer**](https://products.aspose.app/slides/viewer) は、ここで説明したコアプロセスのライブ実装ですので、ぜひお試しください。
 {{% /alert %}} 
 
+## **スライドマスターの適用方法**
 
-## **スライドマスタの適用方法**
+スライドマスターを操作する前に、プレゼンテーションでの使用方法とスライドへの適用方法を理解しておくとよいでしょう。
 
-スライドマスタを操作する前に、それらがプレゼンテーションでどのように使用され、スライドに適用されるかを理解したい場合があります。
+* すべてのプレゼンテーションにはデフォルトで少なくとも 1 つのスライドマスターが存在します。  
+* プレゼンテーションには複数のスライドマスターを含めることができます。複数のスライドマスターを追加し、プレゼンテーションの異なる部分に異なるスタイルを適用できます。
 
-* プレゼンテーションには、デフォルトで少なくとも1つのスライドマスタがあります。
-* プレゼンテーションには複数のスライドマスタを含めることができます。複数のスライドマスタを追加し、異なる方法でプレゼンテーションの異なる部分をスタイル設定するために使用できます。
+**Aspose.Slides** では、スライドマスターは [**IMasterSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/) 型で表されます。
 
-**Aspose.Slides**では、スライドマスタは [**IMasterSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/) タイプで表されます。
+Aspose.Slides の [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) オブジェクトには、[**getMasters**](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) リストとして [**IMasterSlideCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/) 型が含まれ、プレゼンテーションで定義されたすべてのマスタースライドの一覧が取得できます。
 
-Aspose.Slidesの[プレゼンテーション ](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)オブジェクトには、[**getMasters** ](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--)メソッドがあり、[**IMasterSlideCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/) タイプのリストを返します。これには、プレゼンテーションで定義されているすべてのマスタースライドのリストが含まれています。
+CRUD 操作に加えて、[IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/) インターフェイスには次の便利なメソッドがあります： [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) と [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-)。これらは基本的なスライドクローン機能から継承されたものですが、スライドマスターを扱う際には複雑な設定を実装できます。
 
-CRUD操作に加えて、[IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/)インターフェースには、次のような便利なメソッドがあります: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) および[**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-) メソッド。これらのメソッドは、基本的なスライドクローン機能が継承されています。しかし、スライドマスタを扱うときは、これらのメソッドを使用して複雑な設定を実装できます。
+新しいスライドがプレゼンテーションに追加されると、スライドマスターが自動的に適用されます。デフォルトでは前のスライドのスライドマスターが選択されます。
 
-プレゼンテーションに新しいスライドが追加されると、自動的にスライドマスタが適用されます。デフォルトでは、前のスライドのスライドマスタが選択されます。
+**Note**: プレゼンテーションスライドは [getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) リストに格納され、新しいスライドはデフォルトでコレクションの末尾に追加されます。プレゼンテーションに単一のスライドマスターしかない場合、そのスライドマスターがすべての新規スライドに選択されます。これにより、各新規スライドごとにスライドマスターを個別に定義する必要がなくなります。
 
-**注**: プレゼンテーションスライドは[getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--)リストに保存され、新しいスライドはデフォルトでコレクションの最後に追加されます。プレゼンテーションに単一のスライドマスタが含まれている場合、そのスライドマスタはすべての新しいスライドに対して選択されます。これが、作成する新しいスライドに対してスライドマスタを定義する必要がない理由です。
-
-原則はPowerPointとAspose.Slidesで同じです。例えば、PowerPointでは、新しいプレゼンテーションを追加する際に、最後のスライドの下のボトムラインを単に押すことで、新しいスライド（最後のプレゼンテーションのスライドマスタ付き）が作成されます：
+PowerPoint と Aspose.Slides の原理は同じです。たとえば、PowerPoint では最後のスライドの下のラインをクリックすると、前のスライドのスライドマスターを継承した新しいスライドが作成されます：
 
 ![todo:image_alt_text](slide-master_1.jpg)
 
-Aspose.Slidesでは、[addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-)メソッドを使用して同等の作業を行うことができます。
+Aspose.Slides では、[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスの下の [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) メソッドで同等の操作が可能です。
 
-## **スライド階層におけるスライドマスタ**
+## **スライドマスターのスライド階層での位置付け**
 
-スライドマスタを使用したスライドレイアウトは、最大の柔軟性を可能にします。スライドレイアウトは、スライドマスタと同じスタイルをすべて設定できるようにします（背景、フォント、図形など）。ただし、複数のスライドレイアウトがスライドマスタに組み合わさると、新しいスタイルが作成されます。スライドレイアウトを単一のスライドに適用すると、スライドマスタによって適用されたスタイルから変更できるようになります。
+スライドレイアウトとスライドマスターを組み合わせることで、最大の柔軟性が得られます。スライドレイアウトはスライドマスターと同様のスタイル（背景、フォント、図形など）を設定できますが、複数のスライドレイアウトをスライドマスターに組み合わせると新しいスタイルが生成されます。スライドレイアウトを単一のスライドに適用すると、スライドマスターが適用したスタイルから変更できます。
 
-スライドマスタはすべてのセットアップ項目の優先度が高くなります: スライドマスタ -> スライドレイアウト -> スライド:
+スライドマスターはすべての設定項目の上位にあります： Slide Master → Slide Layout → Slide：
 
 ![todo:image_alt_text](slide-master_2)
 
-各[IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide)オブジェクトには、スライドレイアウトのリストが含まれる[**getLayoutSlides**](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getLayoutSlides--)プロパティがあります。[Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide)タイプには、スライドに適用されるスライドレイアウトへのリンクを持つ[**getLayoutSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getLayoutSlide--)プロパティがあります。スライドとスライドマスタの間の相互作用は、スライドレイアウトを通じて発生します。
+各 [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) オブジェクトは、スライドレイアウトの一覧を保持する [**getLayoutSlides**](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getLayoutSlides--) プロパティを持ちます。 [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide) 型には、スライドに適用されたスライドレイアウトへのリンクを保持する [**getLayoutSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getLayoutSlide--) プロパティがあります。スライドとスライドマスターとのやり取りはスライドレイアウトを介して行われます。
 
-{{% alert color="info" title="注" %}}
-
-* Aspose.Slidesでは、すべてのスライドのセットアップ（スライドマスタ、スライドレイアウト、スライドそのもの）は実際には[**IBaseSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide)インターフェースを実装するスライドオブジェクトです。
-* したがって、スライドマスタとスライドレイアウトは同じプロパティを実装することがあり、その値が[Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide)オブジェクトにどのように適用されるかを理解する必要があります。スライドマスタは最初にスライドに適用され、その後スライドレイアウトが適用されます。たとえば、スライドマスタとスライドレイアウトの両方に背景値がある場合、スライドはスライドレイアウトからの背景になります。
-
+{{% alert color="info" title="Note" %}}
+* Aspose.Slides では、すべてのスライド設定（スライドマスター、スライドレイアウト、スライド自体）は実際には [**IBaseSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide) インターフェイスを実装するスライドオブジェクトです。  
+* したがって、スライドマスターとスライドレイアウトは同じプロパティを実装する可能性があり、[Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide) オブジェクトにどのように適用されるかを理解する必要があります。スライドマスターが最初にスライドに適用され、次にスライドレイアウトが適用されます。たとえば、スライドマスターとスライドレイアウトの両方に背景が設定されている場合、最終的なスライドの背景はスライドレイアウトのものになります。
 {{% /alert %}}
 
-## **スライドマスタの構成要素**
+## **スライドマスターに含まれる要素**
 
-スライドマスタがどのように変更されるかを理解するためには、その構成要素を知る必要があります。これらは[MasterSlide](https://reference.aspose.com/slides/java/aspose.slides/masterslide/)のコアプロパティです。
+スライドマスターがどのように変更できるかを理解するには、その構成要素を把握する必要があります。以下は [MasterSlide](https://reference.aspose.com/slides/java/aspose.slides/masterslide/) のコアプロパティです。
 
-- [getBackground](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getBackground--) スライドの背景を取得/設定します。
-- [getBodyStyle](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getBodyStyle--) - スライドの本文のテキストスタイルを取得/設定します。
-- [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getShapes--) スライドマスタのすべての形状を取得/設定します（プレースホルダ、画像フレームなど）。
-- [getControls](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getControls--) ActiveXコントロールを取得/設定します。
-- [getThemeManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterThemeable#getThemeManager--) - テーママネージャを取得します。
-- [getHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getHeaderFooterManager--) - ヘッダーとフッターのマネージャを取得します。
+- [getBackground](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getBackground--) – スライド背景の取得/設定。  
+- [getBodyStyle](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getBodyStyle--) – スライド本文のテキストスタイルの取得/設定。  
+- [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getShapes--) – プレースホルダー、画像フレームなど、スライドマスター上のすべての図形の取得/設定。  
+- [getControls](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getControls--) – ActiveX コントロールの取得/設定。  
+- [getThemeManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterThemeable#getThemeManager--) – テーママネージャーの取得。  
+- [getHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getHeaderFooterManager--) – ヘッダーとフッターのマネージャーの取得。
 
-スライドマスタのメソッド：
+スライドマスターのメソッド：
 
-- [getDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getDependingSlides--) - スライドマスタに依存するすべてのスライドを取得します。
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) - 現在のスライドマスタと新しいテーマに基づいて新しいスライドマスタを作成できるようにします。新しいスライドマスタは、すべての依存スライドに適用されます。
+- [getDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getDependingSlides--) – スライドマスターに依存するすべてのスライドを取得。  
+- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) – 現在のスライドマスターと新しいテーマから新しいスライドマスターを作成し、依存スライドすべてに適用します。
 
-## **スライドマスタの取得**
+## **スライドマスターの取得方法**
 
-PowerPointでは、スライドマスタにアクセスするには、[表示] -> [スライドマスタ]メニューからアクセスします：
+PowerPoint では、[表示] → [スライドマスター] メニューからスライドマスターにアクセスできます：
 
 ![todo:image_alt_text](slide-master_3.jpg)
 
-Aspose.Slidesを使用すると、次のようにスライドマスタにアクセスできます： 
-
+Aspose.Slides では、次のようにスライドマスターにアクセスできます：  
 ```java
 Presentation pres = new Presentation();
 try {
-    // プレゼンテーションのマスタースライドにアクセスを提供
+    // Presentation のマスタースライドにアクセスできる
     IMasterSlide masterSlide = pres.getMasters().get_Item(0);
 } finally {
     pres.dispose();
 }
 ```
 
-[IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide)インターフェースはスライドマスタを表します。[Masters](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getMasters--)プロパティ（[IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlideCollection)タイプに関連）は、プレゼンテーションで定義されているすべてのスライドマスタのリストを含みます。
 
-## **スライドマスタに画像を追加**
+[IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) インターフェイスがスライドマスターを表します。[Masters](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getMasters--) プロパティ（[IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlideCollection) 型に関連）には、プレゼンテーションで定義されたすべてのスライドマスターの一覧が含まれます。
 
-スライドマスタに画像を追加すると、その画像はそのスライドマスタに依存するすべてのスライドに表示されます。
+## **スライドマスターに画像を追加する方法**
 
-たとえば、スライドマスタに会社のロゴといくつかの画像を配置し、その後スライド編集モードに戻ると、すべてのスライドに画像を見ることができるはずです。
+スライドマスターに画像を追加すると、その画像はマスターに依存するすべてのスライドに表示されます。
+
+たとえば、会社のロゴやいくつかの画像をスライドマスターに配置し、スライド編集モードに戻すと、すべてのスライドに画像が表示されます。
 
 ![todo:image_alt_text](slide-master_4.png)
 
-Aspose.Slidesを使用してスライドマスタに画像を追加できます：
-
+Aspose.Slides でスライドマスターに画像を追加するには次のようにします：  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -143,39 +154,35 @@ try {
 }
 ```
 
-{{% alert color="primary" title="関連情報" %}} 
 
-スライドに画像を追加する方法の詳細については、[画像フレーム](/slides/ja/java/picture-frame/#create-picture-frame)の記事を参照してください。
+{{% alert color="primary" title="See also" %}} 
+スライドに画像を追加する詳細は、[Picture Frame](/slides/ja/java/picture-frame/#create-picture-frame) 記事をご参照ください。
 {{% /alert %}}
 
-## **スライドマスタにプレースホルダを追加**
+## **スライドマスターにプレースホルダーを追加する方法**
 
-これらのテキストフィールドは、スライドマスタ上の標準的なプレースホルダです： 
+スライドマスター上の標準プレースホルダーは次のとおりです：
 
-* マスタタイトルスタイルを編集するためにクリック 
+* Master タイトルスタイルのクリックで編集
+* Master テキストスタイルの編集
+* 第 2 レベル
+* 第 3 レベル
 
-* マスタテキストスタイルの編集 
+これらはスライドマスターに基づくスライドにも表示されます。スライドマスター上でプレースホルダーを編集すると、変更が自動的にスライドに適用されます。
 
-* 第二レベル 
-
-* 第三レベル 
-
-  これらは、スライドマスタに基づくスライドにも表示されます。スライドマスタ上のこれらのプレースホルダを編集すると、変更が自動的にスライドに適用されます。
-
-PowerPointでは、スライドマスタ -> プレースホルダの挿入パスを通じてプレースホルダを追加できます：
+PowerPoint では、[スライドマスター] → [プレースホルダーの挿入] パスからプレースホルダーを追加できます：
 
 ![todo:image_alt_text](slide-master_5.png)
 
-Aspose.Slidesを使用したプレースホルダのより複雑な例を見てみましょう。スライドマスタからテンプレート化されたプレースホルダを持つスライドを考えてみてください：
+以下は Aspose.Slides を使用した、プレースホルダーのより複雑な例です。スライドマスターからテンプレート化されたプレースホルダーを持つスライドを考えてみます：
 
 ![todo:image_alt_text](slide-master_6.png)
 
-次のようにスライドマスタでタイトルとサブタイトルのフォーマットを変更したいと思います：
+次のようにスライドマスター上でタイトルとサブタイトルの書式設定を変更します：
 
 ![todo:image_alt_text](slide-master_7.png)
 
-最初に、スライドマスタオブジェクトからタイトルプレースホルダの内容を取得し、次に`PlaceHolder.FillFormat`フィールドを使用します： 
-
+まず、スライドマスターオブジェクトからタイトルプレースホルダーの内容を取得し、`PlaceHolder.FillFormat` フィールドを使用します：  
 ```java
 public static void main(String[] args) {
     Presentation pres = new Presentation();
@@ -211,21 +218,19 @@ static IAutoShape findPlaceholder(IMasterSlide master, int type)
 }
 ```
 
-スライドマスタに基づくすべてのスライドに対して、タイトルスタイルとフォーマットが変更されます：
+
+タイトルのスタイルと書式は、スライドマスターに基づくすべてのスライドで変更されます：
 
 ![todo:image_alt_text](slide-master_8.png)
 
-{{% alert color="primary" title="関連情報" %}} 
-
-* [プレースホルダにプロンプトテキストを設定](https://docs.aspose.com/slides/java/manage-placeholder/)
-* [テキストフォーマット](https://docs.aspose.com/slides/java/text-formatting/)
-
+{{% alert color="primary" title="See also" %}} 
+* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/java/manage-placeholder/)  
+* [Text Formatting](https://docs.aspose.com/slides/java/text-formatting/)
 {{% /alert %}}
 
-## **スライドマスタの背景を変更する**
+## **スライドマスターの背景を変更する方法**
 
-マスタースライドの背景色を変更すると、プレゼンテーション内のすべての通常スライドに新しい色が適用されます。このJavaコードはその操作を示しています：
-
+マスタースライドの背景色を変更すると、プレゼンテーション内のすべての通常スライドが新しい色になります。以下の Java コードが操作例です：  
 ```java
 Presentation pres = new Presentation();
 try {
@@ -240,18 +245,15 @@ try {
 }
 ```
 
-{{% alert color="primary" title="関連情報" %}} 
 
-- [プレゼンテーションの背景](https://docs.aspose.com/slides/java/presentation-background/)
+{{% alert color="primary" title="See also" %}} 
+- [Presentation Background](https://docs.aspose.com/slides/java/presentation-background/)  
+- [Presentation Theme](https://docs.aspose.com/slides/java/presentation-theme/)
+{{% /alert %}}
 
-- [プレゼンテーションのテーマ](https://docs.aspose.com/slides/java/presentation-theme/)
+## **スライドマスターを別のプレゼンテーションへクローンする方法**
 
-  {{% /alert %}}
-
-## **スライドマスタを別のプレゼンテーションにクローン**
-
-スライドマスタを別のプレゼンテーションにクローンするには、目的のプレゼンテーションから[**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-)メソッドを呼び出します。このJavaコードは、スライドマスタを別のプレゼンテーションにクローンする方法を示しています：
-
+別のプレゼンテーションへスライドマスターをクローンするには、宛先プレゼンテーションの [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) メソッドを呼び出し、対象のスライドマスターを引数として渡します。以下の Java コードがクローン手順を示しています：  
 ```java
 Presentation presSource = new Presentation();
 Presentation presTarget = new Presentation();
@@ -262,36 +264,38 @@ try {
 }
 ```
 
-## **プレゼンテーションに複数のスライドマスタを追加**
 
-Aspose.Slidesでは、任意のプレゼンテーションに複数のスライドマスタとスライドレイアウトを追加できます。これにより、プレゼンテーションスライドのスタイル、レイアウト、およびフォーマットオプションをさまざまな方法で設定できます。
+## **プレゼンテーションに複数のスライドマスターを追加する方法**
 
-PowerPointでは、新しいスライドマスタとレイアウトを（「スライドマスタメニュー」から）次のように追加できます：
+Aspose.Slides は、任意のプレゼンテーションに複数のスライドマスターとスライドレイアウトを追加できます。これにより、プレゼンテーションスライドのスタイル、レイアウト、書式設定オプションを多彩に構成できます。
+
+PowerPoint では、[スライドマスターメニュー]から新しいスライドマスターとレイアウトを次のように追加できます：
 
 ![todo:image_alt_text](slide-master_9.jpg)
 
-Aspose.Slidesを使用すると、[**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-)メソッドを呼び出して新しいスライドマスタを追加できます：
-
+Aspose.Slides では、[**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) メソッドを呼び出すことで新しいスライドマスターを追加できます：  
 ```java
-// 新しいマスタースライドを追加
+// 新しいマスタースライドを追加します
 IMasterSlide secondMasterSlide = pres.getMasters().addClone(masterSlide);
 ```
 
-## **スライドマスタの比較**
 
-マスタースライドは、スライドを比較するために使用できる[**equals**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-)メソッドを含む[IBaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide)インターフェースを実装しています。このメソッドは、構造と静的コンテンツが同一のマスタースライドに対して`true`を返します。
+## **スライドマスターの比較方法**
 
-2つのマスタースライドは、形状、スタイル、テキスト、アニメーション、その他の設定などが等しい場合に等しいと見なされます。比較には、ユニーク識別子値（例: SlideId）や動的コンテンツ（例: 日付プレースホルダ内の現在の日付の値）は考慮されません。
+マスタースライドは [IBaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide) インターフェイスを実装しており、[**equals**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-) メソッドでスライドを比較できます。構造と静的コンテンツが同一のマスタースライドは `true` を返します。
 
-## **スライドマスタをプレゼンテーションのデフォルトビューとして設定**
+2 つのマスタースライドは、図形、スタイル、テキスト、アニメーション、その他設定などがすべて同等であれば等価とみなされます。比較では一意識別子（例：SlideId）や動的コンテンツ（例：日付プレースホルダーの現在の日付値）は考慮されません。
 
-Aspose.Slidesでは、スライドマスタをプレゼンテーションのデフォルトビューとして設定できます。デフォルトビューは、プレゼンテーションを開いたときに最初に表示されるものです。このコードは、Javaでスライドマスタをプレゼンテーションのデフォルトビューとして設定する方法を示しています：
+## **スライドマスターをプレゼンテーションのデフォルトビューに設定する方法**
 
+Aspose.Slides では、スライドマスターをプレゼンテーションのデフォルトビューとして設定できます。デフォルトビューは、プレゼンテーションを開いたときに最初に表示されるビューです。
+
+以下のコードは、Java でスライドマスターをプレゼンテーションのデフォルトビューに設定する方法を示しています：  
 ```java
-// プレゼンテーションファイルを表すPresentationクラスをインスタンス化します
+// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します
 Presentation presentation = new Presentation();
 try {
-    // デフォルトビューをスライドマスタービューとして設定します
+    // デフォルトビューを SlideMasterView に設定します
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
 
     // プレゼンテーションを保存します
@@ -301,10 +305,10 @@ try {
 }
 ```
 
-## **未使用のマスタースライドを削除**
 
-Aspose.Slidesは、不要で未使用のマスタースライドを削除できる[removeUnusedMasterSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-)メソッド（[Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)クラスから）を提供します。このJavaコードは、PowerPointプレゼンテーションからマスタースライドを削除する方法を示しています：
+## **未使用のマスタースライドを削除する方法**
 
+Aspose.Slides は、[Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) クラスの [removeUnusedMasterSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) メソッドを提供し、不要で未使用のマスタースライドを削除できます。以下の Java コードは、PowerPoint プレゼンテーションからマスタースライドを削除する手順を示しています：  
 ```java
 Presentation pres = new Presentation("pres.pptx");
  try {
@@ -315,3 +319,45 @@ Presentation pres = new Presentation("pres.pptx");
      if (pres != null) pres.dispose();
  }
 ```
+
+
+## **FAQ**
+
+**PowerPoint のスライドマスターとは何ですか？**
+
+スライドマスターは、プレゼンテーション内のスライドのレイアウト、スタイル、テーマ、フォント、背景、その他のプロパティを定義するスライドテンプレートです。すべてのプレゼンテーションスライドの外観を一度に設定および変更できます。
+
+**プレゼンテーションでスライドマスターはどのように適用されますか？**
+
+すべてのプレゼンテーションにはデフォルトで少なくとも 1 つのスライドマスターがあります。新しいスライドが追加されると、スライドマスターが自動的に適用され、通常は前のスライドのマスターを継承します。プレゼンテーションは複数のスライドマスターを含めて、異なる部分を個別にスタイル設定できます。
+
+**スライドマスターでカスタマイズできる要素は何ですか？**
+
+スライドマスターは複数のコアプロパティで構成され、以下をカスタマイズできます：
+
+- **Background**：スライドの背景を設定。  
+- **BodyStyle**：スライド本文のテキストスタイルを定義。  
+- **Shapes**：プレースホルダーや画像フレームを含むすべての図形を管理。  
+- **Controls**：ActiveX コントロールを処理。  
+- **ThemeManager**：テーママネージャーにアクセス。  
+- **HeaderFooterManager**：ヘッダーとフッターを管理。
+
+**スライドマスターに画像を追加するには？**
+
+スライドマスターに画像を追加すると、その画像はそのマスターに依存するすべてのスライドに表示されます。たとえば、会社のロゴをスライドマスターに配置すると、プレゼンテーションのすべてのスライドにロゴが表示されます。
+
+**スライドマスターとスライドレイアウトの関係は？**
+
+スライドレイアウトはスライドマスターと連携してスライドデザインの柔軟性を提供します。スライドマスターが全体的なスタイルとテーマを定義し、スライドレイアウトはコンテンツ配置のバリエーションを可能にします。階層は次のとおりです：
+
+- **Slide Master** → グローバルスタイルを定義。  
+- **Slide Layout** → 異なるコンテンツ配置を提供。  
+- **Slide** → スライドレイアウトからデザインを継承。
+
+**1 つのプレゼンテーションに複数のスライドマスターを持てますか？**
+
+はい、プレゼンテーションに複数のスライドマスターを含めることができます。これにより、プレゼンテーションの異なるセクションをさまざまな方法でスタイル設定でき、デザインの柔軟性が向上します。
+
+**Aspose.Slides でスライドマスターにアクセスし、変更する方法は？**
+
+Aspose.Slides では、スライドマスターは [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/) インターフェイスで表されます。[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) オブジェクトの [getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) メソッドでスライドマスターにアクセスできます。
