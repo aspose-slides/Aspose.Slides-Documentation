@@ -1,40 +1,61 @@
 ---
-title: Exporter vers XAML
+title: Exporter des présentations vers XAML en C++
+linktitle: Présentation en XAML
 type: docs
 weight: 30
 url: /fr/cpp/export-to-xaml/
-
+keywords:
+- exporter PowerPoint
+- exporter OpenDocument
+- exporter présentation
+- convertir PowerPoint
+- convertir OpenDocument
+- convertir présentation
+- PowerPoint vers XAML
+- OpenDocument vers XAML
+- présentation vers XAML
+- PPT vers XAML
+- PPTX vers XAML
+- ODP vers XAML
+- enregistrer PPT en XAML
+- enregistrer PPTX en XAML
+- enregistrer ODP en XAML
+- exporter PPT en XAML
+- exporter PPTX en XAML
+- exporter ODP en XAML
+- C++
+- Aspose.Slides
+description: "Convertissez les diapositives PowerPoint et OpenDocument en XAML avec C++ en utilisant Aspose.Slides — une solution rapide, sans Office, qui conserve votre mise en page intacte."
 ---
 
-# Exportation de présentations vers XAML
+## **Exporter des présentations vers XAML**
 
 {{% alert color="primary" %}} 
 
-Dans [Aspose.Slides 21.6](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-21-6-release-notes/), nous avons implémenté le support pour l'exportation XAML. Vous pouvez maintenant exporter vos présentations vers XAML. 
+Dans [Aspose.Slides 21.6](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-21-6-release-notes/), nous avons implémenté la prise en charge de l'exportation XAML. Vous pouvez désormais exporter vos présentations vers XAML. 
 
 {{% /alert %}} 
 
-# À propos de XAML
+## **À propos de XAML**
 
-XAML est un langage de programmation descriptif qui vous permet de créer ou d'écrire des interfaces utilisateur pour des applications, en particulier celles qui utilisent WPF (Windows Presentation Foundation), UWP (Universal Windows Platform) et Xamarin forms.  
+XAML est un langage de programmation descriptif qui vous permet de créer ou d'écrire des interfaces utilisateur pour des applications, en particulier celles qui utilisent WPF (Windows Presentation Foundation), UWP (Universal Windows Platform) et Xamarin Forms.  
 
-XAML, qui est un langage basé sur XML, est la variante de Microsoft pour décrire une interface graphique. Vous utiliserez probablement un concepteur pour travailler sur des fichiers XAML la plupart du temps, mais vous pouvez toujours écrire et modifier votre interface graphique. 
+XAML, qui est un langage basé sur XML, est la variante de Microsoft pour décrire une interface graphique. Vous utiliserez probablement un concepteur pour travailler sur les fichiers XAML la plupart du temps, mais vous pouvez toujours écrire et modifier votre interface graphique. 
 
-## Exportation de présentations vers XAML avec les options par défaut
+## **Exporter des présentations vers XAML avec les options par défaut**
 
 Ce code C++ vous montre comment exporter une présentation vers XAML avec les paramètres par défaut :
-
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(System::MakeObject<XamlOptions>());
 ```
 
-## Exportation de présentations vers XAML avec des options personnalisées
 
-Vous pouvez sélectionner des options dans l'interface [IXamlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_options) qui contrôlent le processus d'exportation et déterminent comment Aspose.Slides exporte votre présentation vers XAML. 
+## **Exporter des présentations vers XAML avec des options personnalisées**
 
-Par exemple, si vous souhaitez qu'Aspose.Slides ajoute des diapositives cachées de votre présentation lors de l'exportation vers XAML, vous pouvez passer true au méthode [set_ExportHiddenSlides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_options#a94c59a06cc2163b17e6fa2fe817c0313). Voir cet exemple de code C++ : 
+Vous pouvez sélectionner des options dans l'interface [IXamlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_options) qui contrôle le processus d'exportation et détermine la façon dont Aspose.Slides exporte votre présentation vers XAML. 
 
+Par exemple, si vous souhaitez qu'Aspose.Slides ajoute les diapositives masquées de votre présentation lors de l'exportation vers XAML, vous pouvez passer true à la méthode [set_ExportHiddenSlides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_options#a94c59a06cc2163b17e6fa2fe817c0313). Voir cet exemple de code C++ :
 ``` cpp
 auto xamlOptions = System::MakeObject<XamlOptions>();
 xamlOptions->set_ExportHiddenSlides(true);
@@ -42,3 +63,18 @@ xamlOptions->set_ExportHiddenSlides(true);
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(xamlOptions);
 ```
+
+
+## **FAQ**
+
+**Comment garantir des polices prévisibles si la police originale n'est pas disponible sur la machine ?**
+
+Utilisez [set_DefaultRegularFont](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_defaultregularfont/) dans [XamlOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export.xaml/xamloptions/) — il est utilisé comme police de secours lorsque la police originale est manquante. Cela permet d'éviter les substitutions inattendues.
+
+**Le XAML exporté est-il destiné uniquement à WPF, ou peut-il être utilisé dans d'autres piles XAML également ?**
+
+XAML est un langage de balisage UI général utilisé dans WPF, UWP et Xamarin.Forms. L'exportation vise la compatibilité avec les piles XAML de Microsoft ; le comportement exact et la prise en charge des constructions spécifiques dépendent de la plateforme cible. Testez le balisage dans votre environnement.
+
+**Les diapositives masquées sont-elles prises en charge, et comment empêcher leur exportation par défaut ?**
+
+Par défaut, les diapositives masquées ne sont pas incluses. Vous pouvez contrôler ce comportement via [set_ExportHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export.xaml/xamloptions/set_exporthiddenslides/) dans [XamlOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export.xaml/xamloptions/) — laissez-le désactivé si vous n'avez pas besoin de les exporter.
